@@ -2,7 +2,7 @@
 lastChanged: "03.08.2018"
 ---
 
-# Willkommen beim ioBroker
+# Willkommen bei ioBroker
 
 ## Allgemeines
 
@@ -19,14 +19,15 @@ ioBroker.nodejs sollte auf jeder Hardware und Betriebssystem laufen, auf dem Nod
 
 Da ioBroker für jede Adapterinstanz einen neuen Node.js-Prozess startet, wird das zur Verfügung stehende RAM zum limitierenden Faktor. Der benötigte Footprint eines einzelnen Adapters liegt bei etwa 10-60MB.
 
-Ein x86 oder ARM basierendes System wie BananaPi oder Cubietruck mit einem Debian Linux als Betriebssystem wird empfohlen.
+Ein x86 oder ARM basierendes System wie ein aktueller Einplatinenrechner mit einem Debian Linux als Betriebssystem wird empfohlen.
+Eine Liste der getesteten Rechner befindet sich [hier] (LINK)
 
-Für einige Einplatinencomputer befindet sich im Downloadbereich ein Image mit Betriebssystem und einer vollständigen ioBroker Installation. Es müssen nur noch die gewünschten Instanzen erzeugt und konfiguriert werden.
+Für einige Einplatinencomputer befindet sich im Downloadbereich ein fertiges Image mit Betriebssystem und einer ioBroker Installation bei der die wichtigsten Adapter mit jeweils einer Instanz bereits installiert sind. Diese Instanzen müssen nur noch konfiguriert werden.
 
  
 ## Adapter
 
-Über sogenannte “Adapter” kommuniziert ioBroker mit den unterschiedlichsten Systemen aus den Bereichen Smarthome (z.B. mit HomeMatic, KNX, FS20 oder EnOcean) und Home Entertainment (z.B. Sonos, Dreambox, AV-Receiver und SmartTV verschiedener Hersteller). Ausserdem ist der Datenaustausch mit unterschiedlichsten Webservices (z.B. weatherunderground.com) und diverser Software wie z.B. MySQL oder Graphite möglich.
+Über sogenannte “Adapter” kommuniziert ioBroker mit den unterschiedlichsten Systemen aus den Bereichen Smarthome (z.B. mit HomeMatic, KNX, FS20 oder EnOcean) und Home Entertainment (z.B. Sonos, Dreambox, AV-Receiver und SmartTV verschiedener Hersteller). Außerdem ist der Datenaustausch mit unterschiedlichsten Webservices (z.B. weatherunderground.com) und diverser Software wie z.B. MySQL oder influx.DB möglich.
 
 Systeme, die bisher erfolgreich in ioBroker eingebunden wurden, werden hier vorgestellt.
 
