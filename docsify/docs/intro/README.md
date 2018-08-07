@@ -11,8 +11,7 @@ ioBroker ist eine Integrationsplattform für das Internet der Dinge und dient al
 ioBroker hat das Ziel, ein möglicher Ersatz für Software wie z.B. Open Hab oder The Thing System zu sein.
 Aus Fehlern gelernt
 
-Der Vorgänger von ioBroker, CCU.IO, war ein recht erfolgreiches Projekt in der deutschen Homematic-Community. CCU.IO hatte allerdings einige konzeptionelle Schwächen. ioBroker wurde daraufhin von Grund auf neu entwickelt und übernimmt dabei die erfolgreichen Konzepte von CCU.IO. Alle verfügbaren CCU.IO-Addons („yahui“, „DashUI“, „ScriptGUI“, …) und alle CCU.IO-Adapter können mit vertretbarem Aufwand auf ioBroker portiert werden.
-
+Der Vorgänger von ioBroker, CCU.IO, war ein recht erfolgreiches Projekt in der deutschen Homematic-Community. CCU.IO hatte allerdings einige konzeptionelle Schwächen. ioBroker wurde daraufhin von Grund auf neu entwickelt und übernimmt dabei die erfolgreichen Konzepte von CCU.IO. 
  
 ## Betriebssystem
 
