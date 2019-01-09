@@ -1,3 +1,4 @@
+![](media/homematic.png)
 HomeMatic RPC
 =============
 
@@ -21,10 +22,10 @@ Gefahrenmelder, Sicherheitssensoren und Produkte zur Wetterdatenmessung. Die
 Funkkommunikation vereinfacht dabei das Nachrüsten. In Neubauten können
 Drahtbus-Komponenten eingesetzt werden.
 
-Verwaltung und Steuerung von Homematic-Komponenten via ioBroker
+Verwaltung und Steuerung von Homematic-Komponenten mit ioBroker
 ---------------------------------------------------------------
 
-Um Homematic-Komponenten mit ioBroker optimal zu verwalten und zu steuern,
+Um Homematic-Komponenten mit ioBroker optimal zu verwalten und zu steuern
 werden zwei Adapter benötigt:
 
 1.  Homematic ReGaHss
@@ -33,7 +34,7 @@ Dieser Adapter stellt eine Verbindung zur Homematic Logikschicht „ReGaHSS“ h
 Er synchronisiert Klarnamen, Systemvariablen, Räume, Gewerke und Programme
 zwischen Homematic und ioBroker.
 
-1.  Homematic RPC
+2.  Homematic RPC
 
 Der **R**emote **P**rocedur **C**all, kurz RPC ist eine Technik zur Realisierung
 von Interprozesskommunikation. Dieser Adapter bietet die Anbindung an die
@@ -46,10 +47,8 @@ Adapter Homematic RPC
 ---------------------
 
 Dieser Adapter bietet die Anbindung an die Kommunikationsmodule einer
-Homematic-Zentrale CCU2 / CCU1. Es werden die Module rfd (funk), HMIP-rfd,
-hs485d (wired), CuxD (Zusatzsoftware zur Anbindung externer Komponenten wie
-EnOcean, FS20 usw.) und Homegear (CCU-Ersatz) unterstützt. Eine Instanz des
-Adapters ist für genau EINES dieser Module zuständig. Sollen mehrere Module
+Homematic-Zentrale (CCU/CCU2/CCU3 ...). Eine Instanz des
+Adapters ist für genau EIN Module (rfd, wired usw.) zuständig. Sollen mehrere Module
 parallel unterstützt werden, muss für jedes Modul eine eigene Instanz
 installiert werden.
 
@@ -115,7 +114,7 @@ Schließen“ der Neustart des Adapters zu veranlassen.
 
 Im Pulldown-Menü wird die IP des Hosts ausgewählt, auf dem der Adapter
 installiert ist. Die Auswahl von „0.0.0.0. auf alle IPs hören“ und „127.0.0.1“
-sind Spezialfällen vorbehalten.
+ist Spezialfällen vorbehalten.
 
 ### Adapter Port
 
@@ -177,12 +176,12 @@ Im Bereich Objekte werden in einer Baumstruktur alle von der CCU dem Adapter
 Welche Objekte und Werte angezeigt werden, ist von den Geräten (Funktion und
 Kanäle) und der Struktur innerhalb der CCU abhängig. Die Zentrale wird mit der
 ID BidCoS-RF gekennzeichnet (hierunter sind alle virtuellen Tasten aufgeführt),
-Geräte werden unter ihrer Seriennummer angelegt und Gruppen werden mit
+Geräte werden unter ihrer Seriennummer angelegt und Gruppen mit
 INT000000*x* bezeichnet.
 
 ### Kanal 0 (alle Geräte)
 
-Hier zusammengefasst, nachfolgend die wichtigsten Daten:
+Dieser Kanal wird für jedes Gerät angelegt und enthält Funktionsdaten, nachfolgend eine kurze Übersicht:
 
 | *Datenpunkt*                   | *Bedeutung*                                            |
 |--------------------------------|--------------------------------------------------------|
@@ -190,7 +189,7 @@ Hier zusammengefasst, nachfolgend die wichtigsten Daten:
 | Config (Pending/Pending Alarm) | Ausstehende Konfiguration                              |
 | Dutycycle / Dutycycle Alarm    | Sendezeit Homematic Geräte                             |
 | RSSI (Device/Peer)             | Funkstärke (Gerät \<-\> Zentrale)                      |
-| Low Bat/Low Bat Alarm          | niedriger Batterieladung (Bei IP-Geräten ggf. auch     |
+| Low Bat/Low Bat Alarm          | niedrige Batterieladung                                |
 | Sticky unreach / unreach alarm | Systemmeldung Kommunikationsfehler (Störung lag vor)   |
 | Unreach/unreach alarm          | Systemmeldung Kommunikationsfehler (aktueller Zustand) |
 
