@@ -21,6 +21,9 @@ Die Geräte beinhaltet Produkte zur Licht-, Rollladen- und Heizungssteuerung,
 Gefahrenmelder, Sicherheitssensoren und Produkte zur Wetterdatenmessung. Die
 Funkkommunikation vereinfacht dabei das Nachrüsten. In Neubauten können
 Drahtbus-Komponenten eingesetzt werden.
+Dieses Diagramm veranschaulicht den Aufbau und die Kommunikationsschnittstellen:
+![](media/Homematic_Aufbau.png)
+Quelle: http://www.wikimatic.de/wiki/Datei:Homematic_Aufbau.png
 
 Verwaltung und Steuerung von Homematic-Komponenten mit ioBroker
 ---------------------------------------------------------------
@@ -30,7 +33,7 @@ werden zwei Adapter benötigt:
 
 1.  Homematic ReGaHss
 
-Dieser Adapter stellt eine Verbindung zur Homematic Logikschicht „ReGaHSS“ her.
+Dieser Adapter stellt eine Verbindung zur Homematic Logikschicht „ReGaHSS“ (**Re**sidential **Ga**teway) her.
 Er synchronisiert Klarnamen, Systemvariablen, Räume, Gewerke und Programme
 zwischen Homematic und ioBroker.
 
