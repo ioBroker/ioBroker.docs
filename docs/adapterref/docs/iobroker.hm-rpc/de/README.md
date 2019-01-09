@@ -6,7 +6,7 @@ HomeMatic RPC
 |----------------|---------------------------------|
 | Entwickler     | bluefox, hobbyquaker            |
 | Kategorie      | ioT Systeme                     |
-| Keywords       | Homematic, CCU, CUxD, RPC. REGA |
+| Keywords       | Homematic, CCU, CUxD, RPC, REGA |
 | Abhängigkeiten |                                 |
 | Lizenz         | MIT                             |
 
