@@ -22,10 +22,6 @@ Gefahrenmelder, Sicherheitssensoren und Produkte zur Wetterdatenmessung. Die
 Funkkommunikation vereinfacht dabei das Nachrüsten. In Neubauten können
 Drahtbus-Komponenten eingesetzt werden.
 
-Dieses Diagramm veranschaulicht den Aufbau und die Kommunikationsschnittstellen:
-![](media/Homematic_Aufbau.png)
-Quelle: http://www.wikimatic.de/wiki/Datei:Homematic_Aufbau.png
-
 Verwaltung und Steuerung von Homematic-Komponenten mit ioBroker
 ---------------------------------------------------------------
 
@@ -46,6 +42,10 @@ Kommunikationsmodule einer Homematic-Zentrale (CCU/CCU2/CCU3 ...). Es werden die
 Module rfd (Funk), HMIP-rfd, hs485d (wired), CuxD (Zusatzsoftware zur Anbindung
 externer Komponenten wie EnOcean, FS20 usw.) und Homegear (CCU Ersatz)
 unterstützt.
+
+Dieses Diagramm veranschaulicht den Aufbau und die Kommunikationsschnittstellen:
+![](media/Homematic_Aufbau.png)
+Quelle: http://www.wikimatic.de/wiki/Datei:Homematic_Aufbau.png
 
 Adapter Homematic RPC
 ---------------------
