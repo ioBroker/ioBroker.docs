@@ -174,8 +174,9 @@ Im Bereich Objekte werden in einer Baumstruktur alle von der CCU dem Adapter
 übermittelten Werte und Informationen dargestellt.
 
 Welche Objekte und Werte angezeigt werden, ist von den Geräten (Funktion und
-Kanäle) und der Struktur innerhalb der CCU abhängig. Die Zentrale wird mit der
-ID BidCoS-RF gekennzeichnet (hierunter sind alle virtuellen Tasten aufgeführt),
+Kanäle) und der Struktur innerhalb der CCU abhängig. 
+
+Die Zentrale wird mit der ID BidCoS-RF gekennzeichnet (hierunter sind alle virtuellen Tasten aufgeführt),
 Geräte werden unter ihrer Seriennummer angelegt und Gruppen mit
 INT000000*x* bezeichnet.
 
