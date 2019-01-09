@@ -21,6 +21,7 @@ Die Geräte beinhaltet Produkte zur Licht-, Rollladen- und Heizungssteuerung,
 Gefahrenmelder, Sicherheitssensoren und Produkte zur Wetterdatenmessung. Die
 Funkkommunikation vereinfacht dabei das Nachrüsten. In Neubauten können
 Drahtbus-Komponenten eingesetzt werden.
+
 Dieses Diagramm veranschaulicht den Aufbau und die Kommunikationsschnittstellen:
 ![](media/Homematic_Aufbau.png)
 Quelle: http://www.wikimatic.de/wiki/Datei:Homematic_Aufbau.png
