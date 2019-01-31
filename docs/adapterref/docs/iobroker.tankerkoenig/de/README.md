@@ -29,7 +29,7 @@ Um den Datenverkehr effizient zu gestalten, verwendet der Adapter lediglich die
 Seite *prices.php* (gleichzeitiges Abfragen vieler Stationen); Umkreissuche und
 Einzelabfrage einer Tankstelle werden nicht zur Verfügung gestellt.
 
-Aktualisierung erfolgt standardäßig alle 5 Minuten; die Aktualisierung der Kraftstoffpreise auf dem Server des Anbieters erfolgt alle ca. alle 4 Minuten.
+Aktualisierung erfolgt standardäßig alle 5 Minuten; die Aktualisierung der Kraftstoffpreise auf dem Server des Anbieters erfolgt alle 4 Minuten.
 
 Voraussetzungen vor Installation
 --------------------------------
