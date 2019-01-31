@@ -57,7 +57,7 @@ Name vergeben werden.
 ### Werte nullen
 
 Durch Aktivierung dieser Option (Reset) wird verhindert, dass bei
-Verbindungsproblemen veraltete Werte Werte in den Datenpunkte verbleiben. Dieser
+Verbindungsproblemen veraltete Werte in den Datenpunkte verbleiben. Dieser
 Reset kann in den Adaptereinstellungen ausgeschaltet werden, um flüssigere
 History-Daten zu erhalten.
 
