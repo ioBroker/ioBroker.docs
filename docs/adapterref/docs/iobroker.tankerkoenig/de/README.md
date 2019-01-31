@@ -3,13 +3,13 @@
 Tankerkönig
 ===========
 
-| Stand der Doku | 17.01.2019                 |
+| Stand der Doku |31.01.2019                 |
 |----------------|----------------------------|
 | Entwickler     |Pix                            |
-| Kategorie      | Allgemein                           |
-| Keywords       | Benzin, Tankstellen, Preis |
+| Kategorie      |Allgemein                           |
+| Keywords       |Benzin, Tankstellen, Preis |
 | Abhängigkeiten |                            |
-| Lizenz         | MIT                        |
+| Lizenz         |MIT                        |
 
 Tankerkönig
 -----------
@@ -23,7 +23,7 @@ Adapter Tankerkönig
 
 Dieser Adapter liefert die Kraftstoffpreise für E5, E10 und Diesel; es können
 bis zu 10 Tankstellen eingegeben werden. Die jeweils günstigste Tankstelle für
-die drei Spritsorten wird ebenfalls in einem separaten Kanal gespeichert.
+die drei Kraftstoffsorten wird ebenfalls in einem separaten Kanal gespeichert.
 
 Um den Datenverkehr effizient zu gestalten, verwendet der Adapter lediglich die
 Seite *prices.php* (gleichzeitiges Abfragen vieler Stationen); Umkreissuche und
@@ -32,7 +32,7 @@ Einzelabfrage einer Tankstelle werden nicht zur Verfügung gestellt.
 Voraussetzungen vor Installation
 --------------------------------
 
-Gültiger API-Key; unter Angabe der E-Mailadresse kostenfrei
+Gültiger API-Key; unter Angabe einer E-Mailadresse kostenfrei
 [hier](https://creativecommons.tankerkoenig.de/) erhältlich.
 
 Konfiguration
@@ -40,7 +40,7 @@ Konfiguration
 
 ### API-Key
 
-Eingabe der 36stelligen Zeichenkette
+Eingabe der 36stelligen Zeichenkette (findet sich nach der Anmeldung in der Bestätigungsmail des Anbierters)
 
 ### Tankstellen
 
@@ -52,7 +52,7 @@ Name vergeben werden.
 #### Tankstellenfinder
 
 ![Tankstellenfinder](media/tankstellenfinder.png)<span>  
-*Anleitung unter Button "I" abrufbar*</span>
+*Anleitung unter Button "i" abrufbar*</span>
 
 ### Werte nullen
 
@@ -81,14 +81,14 @@ VIS).
 Jeder der zehn Kanäle enthält separat für jede Kraftstoffsorte folgende
 Datenpunkte:
 
--   3rd: Angabe Wert letzter Dezimalstelle (nur für Formatierung erforderlich)
+-   3rd: Angabe Wert letzter Dezimalstelle (nur für Formatierung von "Combined" erforderlich)
 
--   Combined: formatierter Preis (dritte Dezimalstelle als Hochzahl formatiert)
+-   combined: formatierter Preis (dritte Dezimalstelle als Hochzahl formatiert)
     oder ggf. Status der Tankstelle (closed/not found)
 
--   Feed: Preis mit drei Dezimalstellen
+-   feed: Preis mit drei Dezimalstellen
 
--   Short: Preis mit zwei Dezimalstellen (nicht gerundet)
+-   short: Preis mit zwei Dezimalstellen (nicht gerundet)
 
 -   name: Den vom User festgelegten Namen
 
