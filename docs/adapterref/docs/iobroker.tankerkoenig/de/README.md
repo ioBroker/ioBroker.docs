@@ -21,13 +21,15 @@ Tankerkönig stellt hierfür einen kostenfreien API zur Verfügung.
 Adapter Tankerkönig
 -------------------
 
-Dieser Adapter liefert die Kraftstoffpreise für E5, E10 und Diesel; es können
+Dieser Adapter liefert in Echtzeit die Kraftstoffpreise für E5, E10 und Diesel; es können
 bis zu 10 Tankstellen eingegeben werden. Die jeweils günstigste Tankstelle für
 die drei Kraftstoffsorten wird ebenfalls in einem separaten Kanal gespeichert.
 
 Um den Datenverkehr effizient zu gestalten, verwendet der Adapter lediglich die
 Seite *prices.php* (gleichzeitiges Abfragen vieler Stationen); Umkreissuche und
 Einzelabfrage einer Tankstelle werden nicht zur Verfügung gestellt.
+
+Aktualisierung erfolgt standardäßig alle 5 Minuten; die Aktualisierung der Kraftstoffpreise auf dem Server des Anbieters erfolgt alle ca. alle 4 Minuten.
 
 Voraussetzungen vor Installation
 --------------------------------
