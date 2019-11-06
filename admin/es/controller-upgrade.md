@@ -34,15 +34,15 @@ Si el comando de actualización muestra permisos / errores de permisos, corríja
 
 ## Windows
 
-Per aggiornare ioBroker su Windows, scaricare il programma di installazione appropriato con la versione js-controller desiderata dalla pagina di download https://www.iobroker.net/#de/download ed effettuare l'aggiornamento con esso. Con Windows Installer, i server o le installazioni precedentemente installati manualmente da altri sistemi operativi possono essere migrati su Windows e aggiornati.
+Para actualizar ioBroker en Windows, descargue el instalador apropiado con la versión deseada del controlador js desde la página de descarga https://www.iobroker.net/#de/download y realice la actualización con él. Con Windows Installer, los servidores instalados previamente manualmente o las instalaciones de otros sistemas operativos se pueden migrar a Windows y actualizar.
 
 ## Windows (instalado manualmente)
 
-Un'installazione manuale viene eseguita con diritti di amministratore. Avvia una finestra della riga di comando di cmd.exe come amministratore (fai clic con il pulsante destro del mouse su cmd.exe ed esegui come amministratore) ed esegui i seguenti comandi:
+Se realiza una instalación manual con derechos de administrador. Inicie una ventana de línea de comandos cmd.exe como administrador (haga clic con el botón derecho en cmd.exe y ejecútelo como administrador) y ejecute los siguientes comandos:
 
 * `cd C:\iobroker` (o donde se instaló ioBroker)
-* `iobroker stop` per interrompere il servizio ioBroker
-* `iobroker status` per verificare se ioBroker è terminato
+* `iobroker stop` para detener el servicio ioBroker
+* `iobroker status` para verificar si ioBroker ha finalizado
 * `iobroker update`
 * `iobroker upgrade self`
 * Inicie el servicio ioBroker o reinicie la computadora, luego ioBroker debería reiniciarse y puede estar seguro de que todos los procesos anteriores se completaron.
