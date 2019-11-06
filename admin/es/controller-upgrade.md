@@ -32,16 +32,17 @@ Ejecute los siguientes comandos en un shell SSH (consola):
 
 Si el comando de actualización muestra permisos / errores de permisos, corríjalos. A veces "sudo" no es suficiente y debe ejecutar la instalación como una raíz real (anteriormente simplemente `sudo su -`).
 
-## Windows (nuevo instalador de Windows)
+## Windows
 
-En este caso, descargue un instalador actualizado de la página de descarga y realice la actualización con él.
+Per aggiornare ioBroker su Windows, scaricare il programma di installazione appropriato con la versione js-controller desiderata dalla pagina di download https://www.iobroker.net/#de/download ed effettuare l'aggiornamento con esso. Con Windows Installer, i server o le installazioni precedentemente installati manualmente da altri sistemi operativi possono essere migrati su Windows e aggiornati.
 
 ## Windows (instalado manualmente)
-Una instalación manual generalmente se realiza con derechos de administrador
 
-Ejecute los siguientes comandos en un administrador SSH shell (consola):
+Un'installazione manuale viene eseguita con diritti di amministratore. Avvia una finestra della riga di comando di cmd.exe come amministratore (fai clic con il pulsante destro del mouse su cmd.exe ed esegui come amministratore) ed esegui i seguenti comandi:
+
 * `cd C:\iobroker` (o donde se instaló ioBroker)
-* ?? Detener el servicio ioBroker
+* `iobroker stop` per interrompere il servizio ioBroker
+* `iobroker status` per verificare se ioBroker è terminato
 * `iobroker update`
 * `iobroker upgrade self`
 * Inicie el servicio ioBroker o reinicie la computadora, luego ioBroker debería reiniciarse y puede estar seguro de que todos los procesos anteriores se completaron.
