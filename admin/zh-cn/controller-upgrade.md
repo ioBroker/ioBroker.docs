@@ -47,12 +47,14 @@
 * `iobroker upgrade self`
 * 启动ioBroker服务或重新启动计算机，然后ioBroker应该重新启动，并且您可以确保所有旧进程均已完成。
 
-## 紧急情况（手动重新安装）（如果更新后不知何故不起作用）
-请转到ioBroker目录并运行`npm install iobroker.js-controller`。可以使用`npm install iobroker.js-controller@x.y.z`安装特定版本（将x.y.z替换为所需版本）。
+## 紧急Linux / macOS / Windows（手动重新安装，如果更新后不起作用）
+在Windows上，请首先在ioBroker实例下的命令行中的“ ioBroker”下调用开始菜单。 然后将自动设置正确的目录。 在Linux或macOS上，请转到ioBroker目录。
 
-如果在执行过程中出现访问问题，则必须对命令进行一些更改：
-* 对于使用新的Linux安装程序创建的系统：`sudo -u iobroker -H npm install iobroker.js-controller`
-* 对于在Linux下手动安装的系统，请添加前缀sudo或以root身份运行。
-* 对于Windows系统，管理员外壳程序就足够了
+在此处运行`npm install iobroker.js-controller`。 可以使用npm install`iobroker.js-controller@x.y.z`安装特定版本（将x.y.z替换为所需版本）。
+
+如果在Linux上运行时访问权限存在问题，则必须对命令进行一些更改：
+
+*对于使用新的Linux安装程序创建的系统：`sudo -u iobroker -H npm install iobroker.js-controller`
+*对于在Linux下手动安装的系统，请添加前缀`sudo`或以root身份运行。
 
 仅在极少数情况下才需要这种方式，请事先咨询论坛！
