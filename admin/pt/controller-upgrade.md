@@ -1,4 +1,4 @@
-# js-controller upgrade instructions
+# Instruções de atualização do JS-Controller
 
 Devido aos diferentes hardwares e plataformas sob os quais o ioBroker é executado, o js-controller precisa ser atualizado manualmente. Mais detalhes podem ser encontrados na seção apropriada.
 
@@ -32,16 +32,17 @@ Por favor, execute os seguintes comandos em um shell SSH (console):
 
 Se o comando upgrade exibir erros de permissões, corrija-os. Às vezes "sudo" não é suficiente e você precisa executar a instalação como uma root real (simplesmente use `sudo su -`).
 
-## Windows (novo Windows Installer)
+## Windows
 
-Nesse caso, faça o download de um instalador atualizado na página de download e faça a atualização com ele.
+Para atualizar o ioBroker no Windows, faça o download do instalador apropriado com a versão js-controller desejada na página de download https://www.iobroker.net/#en/download e faça a atualização com ele. Com o Windows Installer, servidores ou instalações instalados manualmente de outros sistemas operacionais podem ser migrados para o Windows e atualizados.
 
 ## Windows (instalado manualmente)
-Uma instalação manual geralmente ocorre com direitos de administrador
 
-Por favor, execute os seguintes comandos em um shell SSH do administrador (console):
+Uma instalação manual é feita com direitos de administrador. Inicie uma janela da linha de comando do cmd.exe como administrador (clique com o botão direito do mouse em cmd.exe e execute como administrador) e execute os seguintes comandos:
+
 * `cd C:\iobroker` (ou onde o ioBroker foi instalado)
-* ?? Pare o serviço ioBroker
+* `iobroker stop` para interromper o serviço ioBroker
+* `iobroker status` para verificar se o ioBroker terminou
 * `iobroker update`
 * `iobroker upgrade self`
 * Inicie o serviço ioBroker ou reinicie o computador; o ioBroker deve reiniciar e você pode ter certeza de que todos os processos antigos foram concluídos.
