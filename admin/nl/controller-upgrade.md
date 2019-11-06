@@ -32,16 +32,17 @@ Voer de volgende opdrachten uit in een SSH-shell (console):
 
 Als de upgradeopdracht machtigingen / machtigingsfouten weergeeft, corrigeert u deze. Soms is "sudo" niet genoeg en moet je de installatie uitvoeren als een echte root (voorheen gewoon `sudo su -`).
 
-## Windows (nieuwe Windows Installer)
+## Windows
 
-Download in dit geval een bijgewerkt installatieprogramma van de downloadpagina en voer de update uit.
+Voor het updaten van ioBroker op Windows, downloadt u het juiste installatieprogramma met de gewenste js-controller-versie van de downloadpagina https://www.iobroker.net/#en/download en voert u de update uit. Met de Windows Installer kunnen eerder handmatig geïnstalleerde servers of installaties van andere besturingssystemen naar Windows worden gemigreerd en bijgewerkt.
 
 ## Windows (handmatig geïnstalleerd)
-Een handmatige installatie vindt meestal plaats met beheerdersrechten
 
-Voer de volgende opdrachten uit in een SSH-shell van een beheerder (console):
+Een handmatige installatie gebeurt met beheerdersrechten. Start een cmd.exe-opdrachtregelvenster als beheerder (klik met de rechtermuisknop op cmd.exe en voer het uit als beheerder) en voer de volgende opdrachten uit:
+
 * `cd C:\iobroker` (of waar ioBroker is geïnstalleerd)
-* ?? Stop de ioBroker-service
+* `iobroker stop` om de ioBroker-service te stoppen
+* `iobroker-status` om te controleren of ioBroker is afgelopen
 * `iobroker update`
 * `iobroker upgrade self`
 * Start de ioBroker-service of start de computer opnieuw op. Vervolgens moet ioBroker opnieuw opstarten en kunt u er zeker van zijn dat alle oude processen zijn voltooid.
