@@ -1,0 +1,138 @@
+* link de parceiro
+Sobre
+Sobre o ioBroker
+Adaptadores
+Todos
+Links de afiliados da Amazon
+Toda vez que você comprar algo através deste link, o ioBroker receberá uma pequena porcentagem do seu pedido. O preço para você será o mesmo!
+Autores:
+Automatize tudo
+Distintivos
+Blog
+Compre uma caneca
+Compre uma camiseta
+Compre na Amazon
+Compre o que você precisa na amazon
+Cancelar
+Não é possível se inscrever:
+Não é possível cancelar a inscrição:
+Changelog
+Clique para copiar %s
+Perto
+Cloud
+Recolher todos
+Suporte abrangente para casa inteligente
+Criado
+Encontro
+Descrição
+Detalhes
+Documentação
+Doe com o PayPal
+Doe com o botão PayPal
+Baixar
+Comunidade dinamicamente crescente.
+edição local
+Editar no github
+Email com instruções enviadas
+Expandir todos
+Explicação
+Filtro
+Fórum
+Github
+Ir para original
+Boa sorte
+Consegui!
+Ícone
+Imprimir
+Info
+Em formação
+Instalado
+Instala:
+Parece que você já está inscrito. Deseja cancelar a inscrição?
+Javascript é a linguagem mais popular
+Entrar
+Última alteração:
+Última edição
+Licença
+Luz, obturador, termostato, agenda, ...
+Linux
+Lista de adaptadores
+mantenedor
+Mais dispositivos
+A cada pedido, o ioBroker receberá 6,98 € como doação.
+Caneca com logotipo
+Novo no mês passado:
+Notícias, anúncios e ideias sobre o ioBroker
+Inscreva-se na Newsletter
+Nenhum resultado encontrado
+Repositório Aberto
+Sobre serviços e sistemas conectados %s!
+Para financiar el alojamiento, enlazamos las ofertas de productos de las tiendas asociadas a través de los llamados enlaces de afiliados. Estos están marcados con un asterisco '*'. Si un usuario compra un producto en una de las tiendas asociadas a través de un enlace de afiliado, recibimos una comisión de ventas del proveedor, por ejemplo, de Amazon, GearBest y otros. El precio no cambia para el usuario en ningún caso.
+PayPal - A maneira mais fácil e segura de pagar on-line!
+Plataforma
+Postagens
+Política de Privacidade
+Ler
+Corre em
+Screenshots
+Procurar...
+Envie-me um e-mail com instruções para cancelar a inscrição
+Suporte social
+Ordenar
+Estável:
+Se inscrever
+Subscrito!
+Ajude-nos e compre uma caneca com o logotipo ioBroker!
+Ajude-nos e compre uma camiseta com o logotipo ioBroker!
+Apoie-nos!
+Mudar para a vista de tabela
+Mudar para a vista da telha
+A cada pedido, o ioBroker receberá 8,07 € como doação.
+T-shirt com logótipo
+A capacidade de gerenciar seu sistema IoT como um projeto inteligente e robusto.
+A página que você está procurando pode ter sido removida, teve seu nome alterado ou está temporariamente indisponível.
+Temas
+Título
+Total:
+Esta página foi traduzida automaticamente de "%s". Ajude-nos a traduzir esta página para o inglês clicando em Editar abaixo.
+Tipo
+Gráficos exclusivos e interfaces bonitas para você.
+Cancelar subscrição?
+Use um dos melhores produtos de código aberto para gerenciar seu sistema de automação no local.
+Comercial
+versões
+Nós não vamos spam você. Nós prometemos!
+Por que esse link está aqui?
+Windows, Linux, OSX, Raspberry Pi, ARM ou PC
+Escrito com o Node.js
+Seu endereço de email
+autores
+chinês simplificado
+compactar
+Nós servimos cookies neste site para analisar o tráfego, lembrar de suas preferências e otimizar sua experiência.
+Copiado para a área de transferência
+copiar para área de transferência
+Inglês
+Junte-se agora à comunidade em rápido crescimento, faça perguntas e obtenha respostas!
+alemão
+obter nuvem
+instalar no linux
+vezes instalado %s
+Você só precisa das imagens se tiver problemas com os scripts de instalação.
+A instalação é tão fácil quanto escrever 1 ou 3 linhas.
+Instale o Node.js (não obrigatório se ainda estiver instalado):
+Instale o ioBroker:
+e-mail inválido
+Blog do ioBroker
+ioBroker na Imprensa
+O ioBroker é uma plataforma IoT (computação de neblina).
+palavras-chave
+materializar
+modo
+senha
+postado em %s
+readme
+russo
+comprar
+do utilizador
+versão

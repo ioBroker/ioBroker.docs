@@ -1,0 +1,138 @@
+* partnerlink
+Wat betreft
+Over ioBroker
+Adapters
+Allemaal
+Amazon Affiliate Links
+Telkens wanneer u iets via deze link koopt, ontvangt de ioBroker een klein percentage van uw bestelling. De prijs voor jou zal absoluut hetzelfde zijn!
+auteurs:
+Automatiseer alles
+badges
+blog
+Koop een mok
+Koop een t-shirt
+Koop bij Amazon
+Koop wat je nodig hebt bij Amazon
+Annuleer
+Kan niet inschrijven:
+Kan niet uitschrijven:
+changelog
+Klik hier om te kopiëren %s
+Dichtbij
+Cloud
+Alles inklappen
+Uitgebreide slimme thuisondersteuning
+gemaakt
+Datum
+Omschrijving
+Details
+Documentatie
+Doneer met PayPal
+Doneer met de PayPal-knop
+Download
+Dynamisch groeiende gemeenschap.
+lokale bewerking
+Bewerken op github
+E-mail met instructies verzonden
+Alles uitvouwen
+Uitleg
+Filter
+Forum
+Github
+Ga naar origineel
+Succes
+Begrepen!
+Icoon
+afdruk
+info
+Informatie
+geïnstalleerd
+installeert:
+Het lijkt erop dat je al bent ingeschreven. Wilt u zich afmelden?
+Javascript is de meest populaire taal
+Meld je nu aan
+Laatste wijziging:
+Laatste bewerking
+Licentie
+Licht, sluiter, thermostaat, schema, ...
+Linux
+Lijst met adapters
+Beheerder
+Meer apparaten
+Bij elke bestelling ontvangt de ioBroker 6,98 € als donatie.
+Mok met logo
+Nieuw in vorige maand:
+Nieuws, aankondigingen en ideeën over ioBroker
+Nieuwsbrief abonnement
+geen resultaten gevonden
+Open repository
+Over %s verbonden diensten en systemen!
+Per finanziare l'hosting, colleghiamo le offerte di prodotti dei negozi partner affiliati tramite i cosiddetti link affiliati. Questi sono contrassegnati da un asterisco "*". Se un utente acquista un prodotto in uno dei negozi partner attraverso tale link di affiliazione, riceviamo una commissione di vendita dal fornitore, ad esempio da Amazon, GearBest e altri. Il prezzo rimane comunque invariato per l'utente.
+PayPal - De veiligere, gemakkelijkere manier om online te betalen!
+Platform
+berichten
+Privacybeleid
+Lezen
+Draait op
+Screenshots
+Zoeken...
+Stuur me een e-mail met instructies om je uit te schrijven
+Sociale steun
+Soort
+Stal:
+Abonneren
+Geabonneerd!
+Steun ons en koop een mok met ioBroker-logo!
+Steun ons en koop een t-shirt met ioBroker-logo!
+Steun ons!
+Schakel over naar tabelweergave
+Schakel over naar tegelweergave
+Bij elke bestelling ontvangt de ioBroker 8,07 € als donatie.
+T-shirt met logo
+De mogelijkheid om uw IoT-systeem te beheren als een intelligent, robuust project.
+De pagina waarnaar u zoekt, is mogelijk verwijderd, de naam ervan is gewijzigd of is tijdelijk niet beschikbaar.
+Thema's
+Titel
+Totaal:
+Deze pagina is automatisch vertaald uit "%s". Help ons deze pagina in het Engels te vertalen door hieronder op Bewerken te klikken.
+Type
+Unieke grafische afbeeldingen en prachtige interfaces voor u.
+Afmelden?
+Gebruik een van de beste open source-producten om uw automatiseringssysteem on-premise te beheren.
+gebruikers
+versies
+We zullen u niet spammen. We beloven!
+Waarom deze link hier is?
+Windows, Linux, OSX, Raspberry Pi, ARM of pc
+Geschreven met Node.js
+Jouw e-mailadres
+auteurs
+versimpeld Chinees
+compact
+Wij serveren cookies op deze site om verkeer te analyseren, uw voorkeuren te onthouden en uw ervaring te optimaliseren.
+gekopieerd naar het klembord
+Kopieer naar klembord
+Engels
+Word nu lid van de snelgroeiende community, stel vragen en krijg antwoorden!
+Duitse
+krijg cloud
+installeren op linux
+geïnstalleerd %s keer
+U hebt de afbeeldingen alleen nodig als u problemen ondervindt met installatiescripts.
+De installatie is zo eenvoudig als het schrijven van 1 of 3 regels.
+Installeer Node.js (niet vereist als het al is geïnstalleerd):
+Installeer ioBroker:
+ongeldig e-mail
+ioBroker Blog
+ioBroker in The Press
+ioBroker is een IoT-platform (Fog computing).
+trefwoorden
+materialiseren
+mode
+wachtwoord
+gepost op %s
+Leesmij
+Russisch
+winkelen
+gebruiker
+versie

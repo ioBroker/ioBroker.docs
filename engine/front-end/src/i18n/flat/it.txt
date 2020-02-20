@@ -1,0 +1,138 @@
+* collegamento partner
+Di
+Informazioni su ioBroker
+Adattatori
+Tutti
+Link di affiliazione Amazon
+Ogni volta che acquisti qualcosa tramite questo link, ioBroker riceverà una piccola percentuale dal tuo ordine. Il prezzo per te sarà assoluto lo stesso!
+autori:
+Automatizza tutto
+badge
+blog
+Compra una tazza
+Compra una maglietta
+Acquista su Amazon
+Compra ciò che ti serve ad Amazon
+Annulla
+Impossibile iscriversi:
+Impossibile annullare l'iscrizione:
+changelog
+Clicca per copiare %s
+Vicino
+Cloud
+Comprimi tutto
+Supporto completo per casa intelligente
+Creato
+Data
+Descrizione
+Dettagli
+Documentazione
+Dona con PayPal
+Dona con il pulsante PayPal
+Scaricare
+Comunità in crescita dinamica.
+modifica locale
+Modifica su github
+Email con le istruzioni inviate
+Espandi tutto
+Spiegazione
+Filtro
+Forum
+Github
+Vai all'originale
+In bocca al lup
+Fatto!
+Icona
+Impronta
+Informazioni
+Informazione
+installato
+Installa:
+Sembra che tu sia ancora abbonato. Vuoi annullare l'iscrizione?
+Javascript è la lingua più popolare
+Iscriviti adesso
+Ultima modifica:
+Ultima modifica
+Licenza
+Luce, otturatore, termostato, programma, ...
+Linux
+Elenco di adattatori
+Manutentore
+Più dispositivi
+Con ogni ordine lo ioBroker riceverà 6,98 € in donazione.
+Tazza con logo
+Novità del mese scorso:
+Notizie, annunci e idee su ioBroker
+Newsletter iscriviti
+nessun risultato trovato
+Apri repository
+Nel corso dei servizi e sistemi connessi %s!
+A fim de financiar a hospedagem, nós linkamos ofertas de produtos de lojas afiliadas através dos chamados links afiliados. Estes estão marcados com um asterisco "*". Se um usuário comprar um produto em uma das lojas parceiras através de um link de afiliado, nós recebemos uma comissão de vendas do provedor, por exemplo, da Amazon, GearBest e outros. O preço permanece inalterado para o usuário em qualquer caso.
+PayPal: il modo più sicuro e semplice per pagare online!
+piattaforma
+Messaggi
+Politica sulla riservatezza
+Leggere
+Gira su
+Screenshots
+Ricerca...
+Inviami un'e-mail con le istruzioni per annullare l'iscrizione
+Supporto sociale
+Ordinare
+Stabile:
+Sottoscrivi
+Sottoscritto!
+Sostienici e acquista una tazza con il logo ioBroker!
+Sostienici e acquista una maglietta con il logo ioBroker!
+Supportaci!
+Passa alla visualizzazione tabella
+Passa alla visualizzazione tessera
+Con ogni ordine lo ioBroker riceverà 8,07 € in donazione.
+T-shirt con logo
+La capacità di gestire il tuo sistema IoT come un progetto intelligente e solido.
+La pagina che stai cercando potrebbe essere stata rimossa, il suo nome è cambiato o temporaneamente non disponibile.
+Temi
+Titolo
+Totale:
+Questa pagina è stata tradotta automaticamente da "%s". Aiutaci a tradurre questa pagina in inglese facendo clic su Modifica sotto.
+genere
+Grafica unica e bellissime interfacce per te.
+Annulla l'iscrizione?
+Utilizzare uno dei migliori prodotti open source per la gestione del sistema di automazione in loco.
+utenti
+versioni
+Non ti invieremo spam. Promettiamo!
+Perché questo link è qui?
+Windows, Linux, OSX, Raspberry Pi, ARM o PC
+Scritto con Node.js
+Il tuo indirizzo di posta elettronica
+autori
+cinese semplificato
+compatto
+Serviamo cookie su questo sito per analizzare il traffico, ricordare le tue preferenze e ottimizzare la tua esperienza.
+copiato negli appunti
+copia negli appunti
+Inglese
+Unisciti ora alla comunità in rapida crescita, fai domande e ottieni risposte!
+Tedesco
+ottenere cloud
+installare su linux
+%s installato volte
+Hai bisogno delle immagini solo se hai problemi con gli script di installazione.
+L'installazione è facile come scrivere 1 o 3 linee.
+Installa Node.js (non richiesto se è ancora installato):
+Installa ioBroker:
+e-mail non valido
+Blog di ioBroker
+ioBroker nella stampa
+ioBroker è una piattaforma IoT (Fog computing).
+parole chiave
+materializzarsi
+modalità
+parola d'ordine
+pubblicato su %s
+readme
+russo
+comprare
+utente
+versione

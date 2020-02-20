@@ -1,0 +1,138 @@
+* partner link
+About
+About ioBroker
+Adapters
+All
+Amazon Affiliate Links
+Every time you buy something via this link the ioBroker will get a small percent from your order. The price for you will be absolute the same!
+Authors:
+Automate everything
+Badges
+Blog
+Buy a mug
+Buy a t-shirt
+Buy at Amazon
+Buy what you need at amazon
+Cancel
+Cannot subscribe:
+Cannot unsubscribe:
+Changelog
+Click to copy %s
+Close
+Cloud
+Collapse all
+Comprehensive smart home support
+Created
+Date
+Description
+Details
+Documentation
+Donate with PayPal
+Donate with PayPal button
+Download
+Dynamically growing community.
+local edit
+Edit on github
+Email with instructions sent
+Expand all
+Explanation
+Filter
+Forum
+Github
+Go to original
+Good luck
+Got it!
+Icon
+Imprint
+Info
+Information
+Installed
+Installs:
+It seems like you are subscribed yet. Do you want unsubscribe?
+Javascript is most popular language
+Join now
+Last changed:
+Last edit
+License
+Light, shutter, thermostat, schedule, ...
+Linux
+List of adapters
+Maintainer
+More devices
+With every order the ioBroker will receive 6,98€ as donation.
+Mug with logo
+New in last month:
+News, announcements and ideas about ioBroker
+Newsletter subscribe
+No results found
+Open repository
+Over %s connected services and systems!
+In order to finance the hosting, we link product offers from affiliated partner shops via so-called affiliate links. These are marked with an asterisk '*'. If a user purchases a product in one of the partner shops via such an affiliate link, we receive a sales commission from the provider, e.g. from Amazon, GearBest and others. The price remains unchanged for the user in any case.
+PayPal - The safer, easier way to pay online!
+Platform
+Posts
+Privacy policy
+Read
+Runs on
+Screenshots
+Search...
+Send me an email with instructions to unsubscribe
+Social support
+Sort
+Stable:
+Subscribe
+Subscribed!
+Support us and buy a mug with ioBroker logo!
+Support us and buy a t-shirt with ioBroker logo!
+Support us!
+Switch to table view
+Switch to tile view
+With every order the ioBroker will receive 8,07€ as donation.
+T-shirt with logo
+The ability to manage your IoT system as one intelligent, robust project.
+The page you are looking for might have been removed, had its name changed or is temporarily unavailable.
+Themes
+Title
+Total:
+This page has been translated automatically from "%s". Help us translate this page into English by clicking on Edit below.
+Type
+Unique graphics and beautiful interfaces for you.
+Unsubscribe?
+Use one of the best open source products for managing your automation system on premise.
+Users
+Versions
+We will not spam you. Promise!
+Why this link is here?
+Windows, Linux, OSX, Raspberry Pi, ARM or PC
+Written with Node.js
+Your e-mail address
+Authors
+chinese (simplified)
+Compact
+We serve cookies on this site to analyse traffic, remember your preferences, and optimise your experience.
+copied to clipboard
+copy to clipboard
+english
+Join now the rapidly growing community, ask questions and get answers from professionals and gurus!
+german
+get cloud
+install on linux
+installed %s times
+You need the images only if you have problems with install scripts.
+The install is as easy as to write 1 or 3 lines.
+Install Node.js (not required if yet installed):
+Install ioBroker:
+invalid email
+ioBroker Blog
+ioBroker in The Press
+ioBroker is an IoT platform (Fog computing).
+Keywords
+Materialize
+Mode
+password
+posted on %s
+readme
+russian
+to Shop
+user
+Version

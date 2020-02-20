@@ -2,3 +2,14 @@
 /.idea
 /.vscode
 /node_modules
+/engine/node_modules
+/engine/front-end/public/de
+/engine/front-end/public/en
+/engine/front-end/public/ru
+/engine/front-end/public/adapters.json
+/engine/front-end/public/content.json
+/engine/package-lock.json
+/engine/front-end/public/blog.json
+/engine/google-keys.json
+/engine/front-end/public/zh-cn
+/engine/front-end/src/i18n/temp_words.js

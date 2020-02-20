@@ -1,0 +1,18 @@
+{
+  "secure": false,
+  "port": 5000,
+  "secret": "123",
+  "public": "front-end/build/",
+  "certs": {
+    "key": "",
+    "cert": "",
+    "chain": ""
+  },
+  "LANGUAGES": ["de", "en", "ru", "zh-cn"],
+  "sites": [
+    {
+      "route": "/docu/",
+      "path": "/opt/doc/front-end/docu/"
+    }
+  ]
+}
