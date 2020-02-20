@@ -74,6 +74,9 @@ BADGE-NPM: https://nodei.co/npm/iobroker.admin.png?downloads=true
 日志的字体显示为红色。
 
 ## Changelog
+### 4.0.4 (2020-02-19)
+* (Apollon77) Fix socket.io-client dependency
+
 ### 4.0.3 (2020-02-19)
 * (bluefox) Encrypted configuration was corrected.
 

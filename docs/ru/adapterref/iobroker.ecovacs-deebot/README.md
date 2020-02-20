@@ -2,138 +2,140 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecovacs-deebot/README.md
-title: Ecovacs Deebot адаптер для ioBroker
-hash: NpL58aNOi21reLcwXXu1HIRjHOIlqd2Ld3rxNiWRxv8=
+title: TR: Ecovacs Deebot adapter for ioBroker
+hash: Z+xKLBZqrnvMvRMq2jPs+med9etSpGKlbgoWZharfow=
 ---
-![логотип](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
+![TR: Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.ecovacs-deebot.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
-![Трэвис-CI](https://travis-ci.org/mrbungle64/ioBroker.ecovacs-deebot.svg?branch=master)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.ecovacs-deebot.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
+![TR: Travis-CI](https://travis-ci.org/mrbungle64/ioBroker.ecovacs-deebot.svg?branch=master)
 
-# Ecovacs Deebot адаптер для ioBroker
-Этот адаптер использует библиотеку [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js).
+TR: # Ecovacs Deebot adapter for ioBroker
+TR: This adapter uses the [TR: ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js) library.
 
-## Модели
-Пока только устройства, которые взаимодействуют с протоколом **XMPP** работают должным образом.
-Устройства, взаимодействующие с протоколом **MQTT** являются экспериментальными.
+TR: ## Models
+TR: So far, only devices that communicate with the **XMPP** protocol work properly.
+Devices that communicate with the **MQTT** protocol are experimental.
 
-Это можно проверить с помощью значения состояния `info.communicationProtocol` после успешного установления соединения (значения: `XMPP`, `MQTT`).
+TR: You can check this with the state value `info.communicationProtocol` after successful connection establishment (values: `XMPP`, `MQTT`).
 
-### Эти модели работают в полной мере
-* Deebot Slim 2
-* Deebot Ozmo 930
+TR: ### These models work to full extent
+TR: * Deebot Slim 2
+TR: * Deebot Ozmo 930
 
-### Эти модели работают практически в полной мере
-* Deebot 601
-* Deebot 710/711
-* Deebot 900/901
-* Deebot Ozmo 610
-* Deebot Ozmo 950
+TR: ### These models work to almost full extent
+TR: * Deebot 601
+TR: * Deebot 710/711
+TR: * Deebot 900/901
+TR: * Deebot Ozmo 610
+TR: * Deebot Ozmo 950
 
-### Эти модели должны работать (почти) в полной мере
-* Deebot N79T
-* Deebot 600/605
-* Deebot Ozmo 960 (не тестировался)
+TR: ### These models should work to (almost) full extent
+TR: * Deebot N79T
+TR: * Deebot 600/605
+TR: * Deebot Ozmo 960 (not tested)
 
-### Эти модели должны работать частично
-* Deebot Ozmo 900
+TR: ### These models should work partially
+TR: * Deebot Ozmo 900
 
-### Кнопки и управление
-| модель | базовый * | пауза | пятно | spotArea | customArea ** | край | playSound | уровень воды |
-|------------------- |-------- |------ |------ |--------- |-------------- |------ |---------- |----------- |
-| Deebot Slim 2 | х | н / д | х | н / д | н / д | х | н / д | н / д |
-| Deebot 600/601/605 | х | | х | н / д | н / д | х | | |
-| Deebot 710/711 | х | | | | | | | н / д |
-| Deebot 900/901 | х | х | н / д | | | н / д | | н / д |
-| Deebot Ozmo 610 | х | | х | н / д | н / д | х | | |
-| Deebot Ozmo 900 | | | н / д | | | н / д | | |
-| Deebot Ozmo 930 | х | х | н / д | х | х | н / д | х | х |
-| Deebot Ozmo 950 | х | х | н / д | х | х | н / д | х | х |
+TR: ### Buttons and control
+| TR: | model    | basic * | pause | spot | spotArea | customArea ** | edge | playSound | waterLevel |
+|------------ |-------- |------ |------ |--------- |-------------- |------ |---------- |----------- |
+| TR: | Slim 2      |   x     |  n/a  |   x   |   n/a    |     n/a       |   x   |    n/a    |    n/a     |
+| TR: | 600/601/605 |   x     |       |   x   |   n/a    |     n/a       |   x   |           |            |
+| TR: | 710/711     |   x     |       |   x   |   n/a    |     n/a       |   x   |     x     |    n/a     |
+| TR: | 900/901     |   x     |   x   |  n/a  |    x     |      x        |  n/a  |           |    n/a     |
+| TR: | Ozmo 610    |   x     |   x   |   x   |   n/a    |     n/a       |   x   |     X     |     x      |
+| TR: | Ozmo 900    |   x     |   x   |  n/a  |    x     |      x        |  n/a  |     x     |     x      |
+| TR: | Ozmo 930    |   x     |   x   |  n/a  |    x     |      x        |  n/a  |     x     |     x      |
+| TR: | Ozmo 950    |   x     |   x   |  n/a  |    x     |      x        |  n/a  |     x     |     x      |
 
-*) «основными» командами являются `clean` (`auto`), `charge`, `stop`. Они не перечислены отдельно здесь.
+TR: *) "basic" commands are `clean` (`auto`), `charge`, `stop`. They are not listed separately here.
 
-**) вкл. номер `cleanings`
+TR: **) incl. number of `cleanings`
 
-### Информация и статус
-| модель | батарея | шаргестатус | Cleanstatus | уровень воды | водный бокс | расходные материалы |
-|------------------- |-------- |------------- |------------ |----------- |--------  |------------ |
-| Deebot Slim 2 | х | х | х | н / д | н / д | х |
-| Deebot 600/601/605 | х | х | х | | | |
-| Deebot 710/711 | х | | | н / д | н / д | |
-| Deebot 900/901 | х | х | х | н / д | н / д | |
-| Deebot Ozmo 610 | | | | | | |
-| Deebot Ozmo 900 | | | | | | |
-| Deebot Ozmo 930 | х | х | х | х | х | х |
-| Deebot Ozmo 950 | х | | х | | | |
+TR: ### Info and status
+| TR: | model       | battery | chargestatus | cleanstatus | waterLevel | waterbox | consumables |
+|------------ |-------- |------------- |------------ |----------- |--------  |------------ |
+| TR: | Slim 2      |    x    |      x       |      x      |     n/a    |    n/a   |      x      |
+| TR: | 600/601/605 |    x    |      x       |      x      |            |          |             |
+| TR: | 710/711     |    x    |      x       |      x      |     n/a    |    n/a   |             |
+| TR: | 900/901     |    x    |      x       |      x      |     n/a    |    n/a   |             |
+| TR: | Ozmo 610    |    x    |      x       |      x      |      x     |          |      x      |
+| TR: | Ozmo 930    |    x    |      x       |      x      |      x     |     x    |      x      |
+| TR: | Ozmo 950    |    x    |              |      x      |            |          |             |
 
-## Контроль
-### Кнопки
-| имя | описание |
+TR: ## Control
+TR: ### Buttons
+| TR: | name | description |
 | --- | --- |
-| заряд | вернуться на зарядную станцию |
-| чистый | начать автоматическую очистку |
-| край | начать очистку кромок |
-| playSound | играть звук для поиска бота |
-| пятно | начать точечную уборку |
-| остановить | остановить процесс очистки |
-| пауза | приостановить процесс очистки |
-| spotArea `0`-`9` | до 9 кнопок для областей, определенных в приложении Ecovacs |
+| TR: | charge | return to charging station |
+| TR: | clean | start auto cleaning |
+| TR: | edge | start edge cleaning |
+| TR: | playSound | play a sound for locating the bot |
+| TR: | spot | start spot cleaning |
+| TR: | stop | stop the cleaning process |
+| TR: | pause | pause the cleaning process |
+| TR: | spotArea `0`-`9` | up to 9 buttons for the areas defined in the Ecovacs app |
 
-### Очистка зоны / зоны
-#### SpotArea
-* точечные области названы буквами в мобильном приложении
-    * в адаптере они сопоставлены с числом:
-        * `A` =` 0`
-        * `B` =` 1`
-        * и т.д.
-* `spotArea`: список номеров через запятую
-    * начиная с `0` (например,` 1,3` = области `B` и` D`) для очищаемых областей
-* количество кнопок (`spotArea_0-9`) можно настроить в конфигурации адаптера
+TR: ### Area/zone cleaning
+TR: #### SpotArea
+TR: * spot areas are named with letters in the mobile app
+TR:     * in the adapter they are mapped to a number:
+TR:         * `A` = `0`
+TR:         * `B` = `1`
+TR:         * etc.
+TR: * `spotArea`: comma-separated list of numbers
+TR:     * starting by `0` (e.g. `1,3` = areas `B` and `D`) for areas to be cleaned
+TR: * the number of buttons (`spotArea_0-9`) can be configured in the Adapter Configuration
 
-#### CustomArea
-* разделенный запятыми список ровно 4 значений позиции для `x1, y1, x2, y2` (например,` -3975,2280, -1930,4575`)
-    * позиция `0,0,0,0` представляется позицией зарядной станции
-    * значение «1000» кажется расстоянием около 1 метра
+TR: #### CustomArea
+TR: * comma-separated list of exactly 4 position values for `x1,y1,x2,y2` (e.g. `-3975,2280,-1930,4575`)
+TR:     * position `0,0,0,0` seems to be the position of the charging station
+TR:     * a value of `1000` seems to be the distance of approximately 1 meter
 
-#### Уровень воды
-* Контроль и отображение уровня воды («низкий», «средний», «высокий» и «максимальный»)
+TR: #### WaterLevel
+TR: * Control and display water level (`low`, `medium`, `high` and `max`)
 
-## Расходуемые
-| имя | описание |
+TR: ## Consumable
+| TR: | name | description |
 | --- | --- |
-| фильтр | Срок службы фильтра |
-| main_brush | Основной срок службы щетки |
-| side_brush | Срок службы боковой щетки |
+| TR: | filter | Filter lifespan |
+| TR: | main_brush | Main brush lifespan |
+| TR: | side_brush | Side brush lifespan |
 
-## Информация
-| имя | описание |
+TR: ## Info
+| TR: | name | description |
 | --- | --- |
-| батарея | батарея |
-| шаргестатус | состояние во время зарядки |
-| Cleanstatus | состояние во время уборки |
-| коммуникационный протокол | XMPP или MQTT |
-| DeviceClass | Класс устройства Deebot |
-| имя_устройства | Имя устройства, определенное в приложении Ecovacs |
-| deviceStatus | состояние устройства |
-| ошибка | Текущее сообщение об ошибке |
+| TR: | battery | battery |
+| TR: | chargestatus | status while charging |
+| TR: | cleanstatus | status while cleaning |
+| TR: | communicationProtocol | XMPP or MQTT |
+| TR: | deviceClass | Deebot device class |
+| TR: | deviceName | Name of the device defined in the Ecovacs app |
+| TR: | deviceStatus | status of the device |
+| TR: | error | Current error message |
 
-## Конфигурация адаптера
-| имя | описание |
+TR: ## Adapter configuration
+| TR: | name | description |
 | --- | --- |
-| Email | Адрес электронной почты, используемый для вашей учетной записи Ecovacs |
-| Пароль | Passsword используется для вашей учетной записи Ecovacs |
-| Код страны (континент) | Выбор предварительно определенных кодов стран (включая континент) |
-| Номер устройства | Выбор текущего экземпляра, если вы используете несколько устройств |
-| Количество спотовых площадок | Количество спортивных площадок, определенных в приложении Ecovacs (по умолчанию `0`) |
+| TR: | Email | Email address used for your Ecovacs account |
+| TR: | Password | Passsword used for your Ecovacs account |
+| TR: | Country code (continent) | Selection of pre-defined country codes (incl. continent) |
+| TR: | Device number | Selection for the current instance if you use multiple devices |
+| TR: | Number of spot areas | Number of sport areas defined in the Ecovacs app (default `0`) |
 
-## Спасибо и кредиты
-* @joostth ([sucks.js] (https://github.com/joostth/sucks.js))
-* @wpietri ([отстой] (https://github.com/wpietri/sucks))
-* @ bmartin5692 ([отстой] (https://github.com/bmartin5692/sucks), [bumber] (https://github.com/bmartin5692/bumper))
-* @Ligio ([ozmo] (https://github.com/Ligio/ozmo))
+TR: ## Thanks and credits
+TR: * @joostth ([sucks.js](https://github.com/joostth/sucks.js))
+TR: * @wpietri ([sucks](https://github.com/wpietri/sucks))
+TR: * @bmartin5692 ([sucks](https://github.com/bmartin5692/sucks), [bumber](https://github.com/bmartin5692/bumper))
+TR: * @Ligio ([ozmo](https://github.com/Ligio/ozmo))
 
 ## Changelog
+
+### 0.4.0
+   * Improved support for MQTT devices
 
 ### 0.3.10
    * (mrbungle64) Improved support for XML based MQTT devices
@@ -142,7 +144,7 @@ hash: NpL58aNOi21reLcwXXu1HIRjHOIlqd2Ld3rxNiWRxv8=
    * (mrbungle64) Improved support for XML based MQTT devices
 
 ### 0.3.8
-   * (boriswerner) Improved support for Ozmo 950 device
+   * (boriswerner) Improved support for Ozmo 950
    * (mrbungle64) Implemented waterbox info (XMPP based devices)
 
 ### 0.3.7

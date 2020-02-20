@@ -170,6 +170,9 @@ IP-адрес с которого доступен драйвер (поддер�
 ![ioBroker.admin - system settings](img/admin_SystemSettings.jpg)
 
 ## Changelog
+### 4.0.4 (2020-02-19)
+* (Apollon77) Fix socket.io-client dependency
+
 ### 4.0.3 (2020-02-19)
 * (bluefox) Encrypted configuration was corrected.
 

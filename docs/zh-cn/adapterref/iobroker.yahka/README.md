@@ -2,25 +2,159 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.yahka/README.md
-title: iobroker.yahka
-hash: dHZZLpKFEsSVVyW2ypXQybWO0izVAjfMZtmS9Qd6GNo=
+title: TR: iobroker.yahka
+hash: WQ/YjLhugOj3gHo0ZPfKVI0A3f1acCv5zoT5UHnmU4Y=
 ---
-![商标](../../../en/adapterref/iobroker.yahka/admin/yahka.png)
+![TR: Logo](../../../en/adapterref/iobroker.yahka/admin/yahka.png)
 
-![安装数量](http://iobroker.live/badges/yahka-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.yahka.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.yahka.svg)
-![测验](https://travis-ci.org/ioBroker/ioBroker.yahka.svg?branch=master)
+![TR: Number of Installations](http://iobroker.live/badges/yahka-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.yahka.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.yahka.svg)
+![TR: Tests](https://travis-ci.org/ioBroker/ioBroker.yahka.svg?branch=master)
 
-＃iobroker.yahka
-=================
+TR: # iobroker.yahka
+TR: ## Installation and Usage
+TR: For details on how to install and configure this adapter, please see the [TR: Wiki](https://github.com/jensweigele/ioBroker.yahka/wiki)
 
-***此适配器至少需要nodejs 6.x ***
+TR: ## Prerequisites
+TR: Before you can install the Adapter, you have to some packages (for Linux):
 
-##安装和使用
-有关如何安装和配置此适配器的详细信息，请参阅[维基](https://github.com/jensweigele/ioBroker.yahka/wiki)
+```sudo apt-get install libavahi-compat-libdnssd-dev```
+
+TR: ## Install the latest **Release**
+TR: Just hit the "+" button behind "Homekit yahka adapter" in the ioBroker Admin Panel on the "Adapter" page
+
+TR: ## Install the latest **Beta**
+TR: If you want to be on the edge and test the latest beta, you could install the adapter via a github url.<br> (Sometimes an additional upload [f.e. iobroker upload yahka] and adapter restart is needed) <br>
+
+TR: ## Troubleshooting
+TR: ### Not all new features are available:
+TR: If not all new feature are available after a yahka update, try a upload (f.e. iobrober yahka upload) and restart the adapter.
+
+TR: ### Missing Avahi daemon (linux)
+TR: If you are having the following error in the log:<br>
+
+```
+Error:	2016-07-26 18:57:17.989	error	at Error (native)
+Error:	2016-07-26 18:57:17.989	error	dns service error: unknown
+uncaught	2016-07-26 18:57:17.985	error	exception: dns service error: unknown
+```
+
+TR: You have to do some additional steps:
+
+TR: * install avahi daemon:
+
+```sudo apt-get install avahi-daemon -y```
+
+TR: * Edit avahi-daemon.conf
+
+```sudo nano avahi-daemon.conf ```<br>
+change the following variables:
+```host-name=\<put in your hostname\>
+domain-name=local
+use-ipv4=yes
+use-ipv6=yes
+enable-dbus=yes
+```
+
+TR: ### Missing pam-devel Package (linux)
+TR: If you are having the following error in the log:<br>
+
+```
+../authenticate_pam.cc:30:31: fatal error: security/pam_appl.h: Datei oder Verzeichnis nicht gefunden
+#include <security/pam_appl.h>
+```
+
+TR: You have to install the pam-devel package:
+
+TR: * install avahi daemon:
+
+```sudo apt-get install pam-devel -y```
+
+TR: ### Missing bonjour (windows)
+TR: - Download: ```https://www.samuelattard.com/files/bonjourcore2.msi```
+TR: - Execute: ```msiexec /i bonjourcore2.msi /qn```
+TR: - remove: ```del bonjourcore2.msi```
+TR: - Download: ```https://www.samuelattard.com/files/bonjoursdksetup.exe```
+TR: - Execute: ```bonjoursdksetup.exe /quiet```
+TR: - Remove: ```del bonjoursdksetup.exe```
+TR: - Set: ```set BONJOUR_SDK_HOME=C:\Program Files\Bonjour SDK```
+
+TR: And after that install yahka adapter.
+
+TR: ## Some words about HomeKit
+TR: The architecture of HomeKit is as follows:<br> There are **devices** as logical entities. Each device can have multiple **services** and each service has multiple **characteristics**.<br> At the end, a characteristic is an endpoint where values could be read from or write to.<br> Which characteristics a service could have, is defined by Apple/HomeKit and determined by the service type. The service types are also defined by Apple/HomeKit.
+
+TR: Example:<br> A Garage Door opener is a device which could have two services: <br>
+
+TR: 1. Garage Door Opener
+TR: 2. Light
+
+TR: The Garage Door Opener Service itself could have different characteristic like: CurrentDoorState, TargetDoorState and many more. <br> Also the Light Service could have different characteristics, like: On (and many others for chaning the light color etc.)
+
+TR: ## What Yahka does
+TR: With Yahka it is possible to map an ioBroker Datapoint to an HomeKit Characteristic. <br> Since sometimes mappings are necessary (e.g. the "State" values of a garage door is different between HomeKit and other systems), there is also the possibility to specify Functions to convert the values. This is described below.<br> To avoid too much administration work, all Devices you create in Yahka are behind a so called "Bridge". With this bridge, you only need to pair the Bridge with your iOS device to get access to all devices. Otherwise you would need to pair every Yahka device with Homekit.
+
+TR: ## Setup the Bridge and create devices and services
+TR: Each device which needs to be paired with Homekit needs a "username" which has the form of a mac-address. Yahka automatically generates a random username for each yahka instance. <br> **Important: if you change the username after pairing Yahka with HomeKit, you need to reconfigure all devices in iOS (room assignment, position etc.). Changing the username means to iOS, that it is a complety new device!**<br> Beside the username, you need to specify a PIN code which needs to be entered on the iOS device.
+This could all be specified by clicking on ":yahka.0" in the admin panel of Yahka. (Expand the Panel on the right side after clicking on the list entry). The name of the bridge could also be changed there.
+
+TR: After setting up the bridge, you could add the devices you like with the "Add Device" Button on the top.
+Once a device is added/selected, you could add services to this device.<br> It is necessary to specify a service name and a service type.<br> Depending on the service type, the list of available characteristic changes<br>
+
+TR: ## Setting up Characteristics
+TR: If you want to support a characteristic, you have to tick the "enabled" checkbox on the left side of the characteristic.
+For each characteristic you could specify the following properties:
+
+TR: - InOutFunction: you could specify a predefined function which is responsible for passing the values from HomeKit to ioBroker and vice versa
+TR: - InOutParameter: here you could specify parameters for the selected InOutFunction. The available/expected Parameters depends on the selected Function. A brief overview of the Functions and Parameters are stated below.
+TR: - ConversionFunction: additionally to the InOutFunction, you could also specify a function which converts a value coming from HomeKit to ioBroker (and vice versa)
+TR: - ConversionParameter: same as InOutParameter - the available/expected params depend on the selected function.
+
+TR: ## Overview of InOut-Functions
+| TR: |Function|Expected Parameter|Description|
+|---|---|---|
+
+TR: |const|Value|The const function always passes the value specified in "InOutParameter" to Conversion Function if HomeKit reads the value. If HomeKit wants to write the value, this action is denied
+
+| TR: |ioBroker.State|name of a ioBroker datapoint|With this function, the adapter uses the specified ioBroker datapoint for read and write operations. All operations are done immediatelly without buffering or filtering (values are passed to the specified Conversion functions)|
+| TR: |ioBroker.State.Defered|name of a ioBroker datapoint|With this function, the adapter uses the specified ioBroker datapoint for read and write operations. Write operations from HomeKit are directly passed to the conversion function. Changes from ioBroker are debounced for 150ms - which means that the value is only transmitted to HomeKit if no other change occured within 150ms.|
+| TR: |ioBroker.State.OnlyACK|name of a ioBroker datapoint|With this function, the adapter uses the specified ioBroker datapoint for read and write operations. Write operations from HomeKit are directly passed to the conversion function. Changes from ioBroker are only forwarded to HomeKit if the "Acknowledged"-Flag of the value is set. Otherwise, the last acknowledged value is getting transmitted to HomeKit|
+| TR: |ioBroker.homematic.<br>WindowCovering.TargetPosition|Id of the HomeMatic Level Datapoint <br> or <br> String-Array with the Id of the Level Datapoint and the Id of the Working Datapoint|This function is especially for controlling the HomeMatic Window Covering. This function defferes the transmission of values to HomeKit while the Window Covering is moving. This is necessary to avoid flickering of the window covering slider in iOS|
+
+TR: ## Overview of Conversion-Functions
+| TR: |Function|Expected Parameter|Description|
+|---|---|---|
+
+TR: |passthrough|\<none\>|The value from ioBroker is passed to HomeKit without conversion (and vice versa)
+
+| TR: |HomematicDirectionTo<br>HomekitPositionState|\<none\>|This function maps the direction enum of Homematic window covering to the PositionState enum of HomeKit (and back)|
+| TR: |HomematicControlModeTo<br>HomekitHeathingCoolingState|\<none\>|This function maps the ControlMode enum of Homematic to the HeathingCoolingState enum of HomeKit (and back) |
+| TR: |scaleInt<br>scaleFloat|```{ "homekit.min": <number>, "homekit.max": <number>, "iobroker.min": <number>, "iobroker.max": <number> }```|This function is similiar to "level255" but it's more generic. It transforms an ioBroker value with an range from "iobroker.min" (0 if omitted) to "iobroker.max" to a HomeKit value with a value range from "homekit.min" (0 if omitted) to "homekit.max" (and back).<br> **Example:** If the parameter field is: ```{ "homekit.max": 500, "iobroker.max": 250}``` <br> the value of ioBroker is in fact multiplied by 2 before sending it to HomeKit.<br>**The min-Parameters are only available in version 0.8.0 and higher**|
+| TR: |inverse|number|This function is used to "inverse" a value from ioBroker. The parameter specified the maximum of the value in ioBroker. The formula is: ```Parameter - value```<br>**Example:** If the parameter field is ```100```, the value 100 from ioBroker is send as 0 to HomeKit, the value 80 is send as 20 to HomeKit etc.|
+| TR: |hue|\<none\>|This function is specialized version of scaleInt with the parameters ```iobroker.max=65535``` and ```homekit.max=360```.|
+| TR: |hue|\<none\>|This function is specialized version of scaleInt with the parameters ```iobroker.max=65535``` and ```homekit.max=360```.|
+
+TR: ## Homematic Blind Actuator \ Window Covering
+TR: To integrate the Homematic Blind Actuators (like HM-LC-Bl1PBU-FM), the following settings are needed:
+
+TR: * Add a service to a device
+TR: * Set Service Name to some name and service type to "WindowCovering". Service subtype could be left blank
+TR: * Enable and fill in the following characteristics:
+
+| TR: |Characteristic Name|1: InOut Function <br> 2: Conversion Function|1: InOut Parameters <br> 2: Conversion Parameters|
+|---|---|---|
+| TR: |CurrentPosition| 1: ioBroker.State.OnlyACK<br>2: passthrough| 1: _\<path to homematic object\>_.1.LEVEL<br> 2: \<empty\>|
+| TR: |PositionState  | 1: ioBroker.State.OnlyACK<br>2: HomematicDirectionToHomekitPositionState| 1: _\<path to homematic object\>_.1.DIRECTION<br> 2: \<empty\>|
+| TR: |TargetPosition | 1: ioBroker.homematic.WindowCovering.TargetPosition<br>2: passthrough| 1: _\<path to homematic object\>_.1.LEVEL<br> 2: \<empty\>|
+
+TR: The value _\<path to homematic object\>_ needs to be replaced with the actual path to the device (e.g. hm-rpc.0.NEQ0012345)
+
+TR: For general Information about the Configuration Mask, see: TODO<br> For more information about the Configuration, the InOut Functions and Conversion Functions, see: [TR: Wiki](https://github.com/jensweigele/ioBroker.yahka/wiki/Configuration,-InOut-Functions-and-Conversion-Functions)
 
 ## Changelog
+### 0.10.0 (2020-02-19)
+  (apollon77) updated dependencies, nodejs 12 support<br>
 
 ### 0.10.0
   (jw) updated dependencies<br>
@@ -106,7 +240,7 @@ hash: dHZZLpKFEsSVVyW2ypXQybWO0izVAjfMZtmS9Qd6GNo=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2017 Jens Weigele (iobroker.yahka@gmail.com)
+Copyright (c) 2016-2020 Jens Weigele (iobroker.yahka@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

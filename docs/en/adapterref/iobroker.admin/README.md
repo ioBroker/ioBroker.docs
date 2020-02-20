@@ -76,6 +76,9 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
+### 4.0.4 (2020-02-19)
+* (Apollon77) Fix socket.io-client dependency
+
 ### 4.0.3 (2020-02-19)
 * (bluefox) Encrypted configuration was corrected.
 

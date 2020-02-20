@@ -2,148 +2,155 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-materialdesign/README.md
-title: ioBroker.vis-materialdesign
-hash: ea7b/0PF8QqOOuwVwD2nTN3JwOlrZndZALMWGiIYrU0=
+title: TR: ioBroker.vis-materialdesign
+hash: K/Zv3UH445ki1Ls5KiVqG1XubdFP7iJjMPcjJ6juOVE=
 ---
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/admin/vis-materialdesign.png)
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/admin/vis-materialdesign.png)
 
-![稳定版](http://iobroker.live/badges/vis-materialdesign.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.vis-materialdesign.svg)
-![安装数量](http://iobroker.live/badges/vis-materialdesign-installed.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.vis-materialdesign.svg)
-![依赖状态](https://img.shields.io/david/Scrounger/iobroker.vis-materialdesign.svg)
-![已知漏洞](https://snyk.io/test/github/Scrounger/ioBroker.vis-materialdesign/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.vis-materialdesign.png?downloads=true)
-![特拉维斯](http://img.shields.io/travis/Scrounger/ioBroker.vis-materialdesign/master.svg)
+![TR: stable version](http://iobroker.live/badges/vis-materialdesign.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.vis-materialdesign.svg)
+![TR: Number of Installations](http://iobroker.live/badges/vis-materialdesign-installed.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.vis-materialdesign.svg)
+![TR: Dependency Status](https://img.shields.io/david/Scrounger/iobroker.vis-materialdesign.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/Scrounger/ioBroker.vis-materialdesign/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.vis-materialdesign.png?downloads=true)
+![TR: Travis-CI](http://img.shields.io/travis/Scrounger/ioBroker.vis-materialdesign/master.svg)
 
-＃ioBroker.vis-materialdesign
-## IoBroker VIS的材料设计小部件
-[![贝宝]（https://www.paypalobjects.com/zh_CN/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VWAXSTS634G88&source=url)
+TR: # ioBroker.vis-materialdesign
+TR: ## Material Design Widgets for ioBroker VIS
+[![TR: paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VWAXSTS634G88&source=url)
 
-ioBroker物料设计小部件基于[Google的材料设计指南](https://material.io/design/)。适配器使用以下库：
+TR: ioBroker Material Design Widgets are based on [TR: Google's material design guidelines](https://material.io/design/). The adapter uses the following libraries:
 
-* [适用于Google的网络材料组件]（https://github.com/material-components/material-components-web）
-* [Vuetify]（https://github.com/vuetifyjs/vuetify）
-* [chartjs]（https://www.chartjs.org/）
-* [来自thomasloven的round-slider]（https://github.com/thomasloven/round-slider）
-* [材料设计图标]（https://materialdesignicons.com/）
+TR: * [Google material components for the web](https://github.com/material-components/material-components-web)
+TR: * [Vuetify](https://github.com/vuetifyjs/vuetify)
+TR: * [chartjs](https://www.chartjs.org/)
+TR: * [round-slider from thomasloven](https://github.com/thomasloven/round-slider)
+TR: * [Material Design Icons](https://materialdesignicons.com/)
 
-##在线示例项目
-由[iobroker.click](https://iobroker.click/index.html)提供，这要归功于bluefox和iobroker。
+TR: ## Online Example Project
+TR: provided by [TR: iobroker.click](https://iobroker.click/index.html), thanks to bluefox and iobroker.
 
-* <a href="https://iobroker.click/vis/index.html?Material%20Design%20Widgets" target="_blank">VIS运行时</a> （ <a href="http://iobroker.click:8082/vis/index.html?Material%20Design%20Widgets" target="_blank">alternativ</a> ）
-* <a href="https://iobroker.click/vis/edit.html?Material%20Design%20Widgets" target="_blank">VIS编辑器</a> （ <a href="http://iobroker.click:8082/vis/edit.html?Material%20Design%20Widgets" target="_blank">alternativ</a> ）
+TR: * <a href="https://iobroker.click/vis/index.html?Material%20Design%20Widgets" target="_blank">VIS Runtime</a> (<a href="http://iobroker.click:8082/vis/index.html?Material%20Design%20Widgets" target="_blank">alternativ</a>)
+TR: * <a href="https://iobroker.click/vis/edit.html?Material%20Design%20Widgets" target="_blank">VIS Editor</a> (<a href="http://iobroker.click:8082/vis/edit.html?Material%20Design%20Widgets" target="_blank">alternativ</a>)
 
-##有关小部件的问题和答案
-如果您对各个小部件有疑问，请首先查看各个小部件的主题
+TR: ## Questions and answers about the widgets
+TR: If you have questions about the individual widgets, then first look at the topics of the individual widgets
 
-* [德语线程]（https://forum.iobroker.net/search?term=Material%20Design%20Widgets%3A&in=titles&matchWords=all&by%5B%5D=Scrounger&categories%5B%5D=7&sortBy=topic.title&sortDirection=desc&showAs=话题）
+TR: * [German threads](https://forum.iobroker.net/search?term=Material%20Design%20Widgets%3A&in=titles&matchWords=all&by%5B%5D=Scrounger&categories%5B%5D=7&sortBy=topic.title&sortDirection=desc&showAs=topics)
 
-###支持的浏览器
-https://github.com/material-components/material-components-web/blob/master/docs/supported-browsers.md
+TR: ### Supported Browser
+TR: https://github.com/material-components/material-components-web/blob/master/docs/supported-browsers.md
 
-###支持的浏览器可在mobil设备上振动功能
-https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/vibrate
+TR: ### Supported Browser for vibrate on mobil devices function
+TR: https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 
-### IoBroker VIS应用程序
-目前无法正常运行，需要由应用程序标记，请参阅https://github.com/ioBroker/ioBroker.vis.cordova
+TR: ### ioBroker VIS App
+TR: not working at the moment, needs to be implemneted by app, see https://github.com/ioBroker/ioBroker.vis.cordova
 
-##材质设计图标和图像
-<table><thead><tr><th>屏幕截图</th><th>描述</th></tr></thead><tbody><tr><td rowspan=6><img src="doc/en/media/material-icons.png"></td><td>一些小部件支持<a href="https://materialdesignicons.com/" target="_blank">Material Design Icons</a>库。您可以从上方列表中弹出一个图标，或通过单击输入字段右侧的按钮来打开图像选择器。 <br><br> <b>图像颜色仅适用于材料设计图标，不适用于图像！</b> </td></tr></tbody></table>
+TR: ## Material Design Icons and Images
+TR: <table> <thead> <tr> <th>Screenshot</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td rowspan=6><img src="doc/en/media/material-icons.png"></td> <td>Some of the widgets support <a href="https://materialdesignicons.com/" target="_blank">Material Design Icons</a> library. You can pic up an icon from the list above or open the image picker by clicking the button on the right of the input field.<br><br><b>Image colors only applies to the material design icons, not to an image!</b></td> </tr> </tbody> </table>
 
-＃＃ 纽扣
-###按钮切换
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/buttons.gif)
+TR: ## Buttons
+TR: ### Button Toggle
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/buttons.gif)
 
-###图标按钮
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/icon-button.gif)
+TR: ### Icon Button
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/icon-button.gif)
 
-##卡
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/cards.png)
+TR: ## Card
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/cards.png)
 
-##清单
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/list.gif)
+TR: ## List
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/list.gif)
 
-##进展
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/progress.gif)
+TR: ## IconList
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/iconList.gif)
 
-##滑块
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/slider.gif)
+TR: Settings that are not listed in the table below are self-explanatory.
 
-下表中未列出的设置是不言自明的。
+TR: <table> <thead> <tr> <th>Screenshot</th> <th>Setting</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td rowspan=6><img src="doc/en/media/iconList_settings_common.png"></td> <td>input method for the list data</td> <td>The data for the IconList can be entered via the editor or a JSON string can be used</td> </tr> <tr> <td>JSON string</td> <td>JSON string can be entered directly in the editor or use binding. The JSON string must have the following format: <pre><code> [ { "text": "text1", "subText": "number", "image": "harddisk", "imageColor": "#ec0909", "imageActive": "folder", "imageActiveColor": "#5ad902", "buttonBackgroundColor": "", "buttonBackgroundActiveColor": "", "listType": "buttonState", "objectId": "0_userdata.0.iconList.buttonState.number", "buttonStateValue": "60", "buttonNavView": "", "buttonLink": "", "buttonToggleValueTrue": "", "buttonToggleValueFalse": "", "valueAppendix": "", "showValueLabel": "true", "statusBarColor": "green" }, { "text": "text0", "subText": "bool", "image": "home", "imageColor": "#44739e", "imageActive": "home", "imageActiveColor": "#44739e", "buttonBackgroundColor": "", "buttonBackgroundActiveColor": "#a0f628", "listType": "buttonToggle", "objectId": "0_userdata.0.iconList.buttonToggle.bool0", "buttonStateValue": "60", "buttonNavView": "", "buttonLink": "", "buttonToggleValueTrue": "", "buttonToggleValueFalse": "", "valueAppendix": "", "showValueLabel": "false", "statusBarColor": "" } ] </code></pre> Property <code>listType</code> can have the following values:<br> <code>text, buttonState, buttonToggle, buttonToggleValueTrue, buttonToggleValueFalse, buttonNav, buttonLink</code> </td> </tr> </tbody> </table>
 
-<table><thead><tr><th>屏幕截图</th><th>设置</th><th>描述</th></tr></thead><tbody><tr><td rowspan=6><img src="doc/en/media/slider.png"></td><td>初始化延迟</td><td>如果在加载运行时后滑块不可见或不可操作，则必须增加该值。输入以毫秒为单位。 <br>例如，增加250步，直到滑块起作用。 </td></tr></tbody></table>
+TR: ## Progress
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/progress.gif)
 
-##圆形滑块
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/round_slider.gif)
+TR: ## Slider
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/slider.gif)
 
-##复选框
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/checkbox.gif)
+TR: Settings that are not listed in the table below are self-explanatory.
 
-##开关
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/switch.gif)
+TR: <table> <thead> <tr> <th>Screenshot</th> <th>Setting</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td rowspan=6><img src="doc/en/media/slider.png"></td> <td>initDelay</td> <td>If the slider is not visible or operable after loading the runtime, then this value must be increased. Entry is made in milliseconds.<br>For example, increase by 250 steps until the slider works.</td> </tr> </tbody> </table>
 
-##输入
-###文字输入
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/input.gif)
+TR: ## Round Slider
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/round_slider.gif)
 
-＃＃＃ 选择
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/select.gif)
+TR: ## Checkbox
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/checkbox.gif)
 
-下表中未列出的设置是不言自明的。
+TR: ## Switch
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/switch.gif)
 
-<table><thead><tr><th>屏幕截图</th><th>设置</th><th>描述</th></tr></thead><tbody><tr><td rowspan=6><img src="doc/en/media/select_autocomplete_settings.png"></td><td>菜单数据的方法</td><td>有三种方法可以定义菜单数据。首先是通过编辑器定义它。其次是通过json字符串定义它。第三种方法是通过三个值，标签和图标列表来定义它</td></tr><tr><td>编辑器：菜单项计数</td><td>菜单数据的方法：通过编辑器<br>定义菜单项的数量。可以在菜单项[x]下定义各个菜单项</td></tr><tr><td> JSON字符串</td><td>菜单数据的方法：json字符串<br>在这里，您可以添加JSON字符串以定义菜单项，或使用绑定到包含JSON字符串的数据点。 <br><br> JSON字符串必须具有以下格式： <br><pre> <code> [ { &quot;text&quot;: &quot;text 0&quot;, &quot;subText&quot;: &quot;sub 0&quot;, &quot;value&quot;: &quot;val0&quot;, &quot;icon&quot;: &quot;account-cancel&quot; }, { &quot;text&quot;: &quot;text 1&quot;, &quot;subText&quot;: &quot;sub 1&quot;, &quot;value&quot;: &quot;val1&quot;, &quot;icon&quot;: &quot;/vis/icon/info.png&quot; }, { &quot;text&quot;: &quot;text 2&quot;, &quot;subText&quot;: &quot;sub 2&quot;, &quot;value&quot;: &quot;val2&quot;, &quot;icon&quot;: &quot;facebook-workplace&quot; } ]</code> </pre> </td></tr><tr><td>值表</td><td>菜单数据的方法：值列表<br>通过添加将设置到数据点的值来定义菜单条目的数量。条目必须以逗号分隔</td></tr><tr><td>值清单：标签</td><td>菜单数据的方法：值列表<br>定义值的相关标签。条目必须以逗号分隔</td></tr><tr><td>值清单：标签</td><td>菜单数据的方法：值列表<br>定义值的相关图标。条目必须以逗号分隔。您可以使用图像路径或“材料设计图标”名称</td></tr></tbody></table>
+TR: ## Input
+TR: ### Text input
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/input.gif)
 
-###自动完成
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/autocomplete.gif)
+TR: ### Select
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/select.gif)
 
-下表中未列出的设置是不言自明的。
+TR: Settings that are not listed in the table below are self-explanatory.
 
-<table><thead><tr><th>屏幕截图</th><th>设置</th><th>描述</th></tr></thead><tbody><tr><td rowspan=6><img src="doc/en/media/select_autocomplete_settings.png"></td><td>菜单数据的方法</td><td>有三种方法可以定义菜单数据。首先是通过编辑器定义它。其次是通过json字符串定义它。第三种方法是通过三个值，标签和图标列表来定义它</td></tr><tr><td>编辑器：菜单项计数</td><td>菜单数据的方法：通过编辑器<br>定义菜单项的数量。可以在菜单项[x]下定义各个菜单项</td></tr><tr><td> JSON字符串</td><td>菜单数据的方法：json字符串<br>在这里，您可以添加JSON字符串以定义菜单项，或使用绑定到包含JSON字符串的数据点。 <br><br> JSON字符串必须具有以下格式： <br><pre> <code> [ { &quot;text&quot;: &quot;text 0&quot;, &quot;subText&quot;: &quot;sub 0&quot;, &quot;value&quot;: &quot;val0&quot;, &quot;icon&quot;: &quot;account-cancel&quot; }, { &quot;text&quot;: &quot;text 1&quot;, &quot;subText&quot;: &quot;sub 1&quot;, &quot;value&quot;: &quot;val1&quot;, &quot;icon&quot;: &quot;/vis/icon/info.png&quot; }, { &quot;text&quot;: &quot;text 2&quot;, &quot;subText&quot;: &quot;sub 2&quot;, &quot;value&quot;: &quot;val2&quot;, &quot;icon&quot;: &quot;facebook-workplace&quot; } ]</code> </pre> </td></tr><tr><td>值表</td><td>菜单数据的方法：值列表<br>通过添加将设置到数据点的值来定义菜单条目的数量。条目必须以逗号分隔</td></tr><tr><td>值清单：标签</td><td>菜单数据的方法：值列表<br>定义值的相关标签。条目必须以逗号分隔</td></tr><tr><td>值清单：标签</td><td>菜单数据的方法：值列表<br>定义值的相关图标。条目必须以逗号分隔。您可以使用图像路径或“材料设计图标”名称</td></tr></tbody></table>
+TR: <table> <thead> <tr> <th>Screenshot</th> <th>Setting</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td rowspan=6><img src="doc/en/media/select_autocomplete_settings.png"></td> <td>method of data of menu</td> <td>There are three methods to define the data of the menu. First is to define it via editor. Second is to define it via a json string. Third method is to define it by three list for values, labels and icons</td> </tr> <tr> <td>Editor: count of menu items</td> <td>Method of data of menu: via editor<br>Define the number of menu entries. The the individual menu entries can be defined under menu item[x]</td> </tr> <tr> <td>JSON string</td> <td>Method of data of menu: json string<br>Here you can add a JSON string to define the menu entries or use bindings to a datapoint that contains a JSON string.<br><br>JSON string must have the following format:<br> <pre><code> [ { "text": "text 0", "subText": "sub 0", "value": "val0", "icon": "account-cancel" }, { "text": "text 1", "subText": "sub 1", "value": "val1", "icon": "/vis/icon/info.png" }, { "text": "text 2", "subText": "sub 2", "value": "val2", "icon": "facebook-workplace" } ] </code></pre> </td> </tr> <tr> <td>value list</td> <td>Method of data of menu: value list<br>Define the number of menu entries by adding values that will be set to the datapoint. Entries must be separeted by comma</td> </tr> <tr> <td>value list: labels</td> <td>Method of data of menu: value list<br>Define the related labels of the values. Entries must be separeted by comma</td> </tr> <tr> <td>value list: labels</td> <td>Method of data of menu: value list<br>Define the related icons of the values. Entries must be separeted by comma. You can use image path or Material Design Icons name</td> </tr> </tbody> </table>
 
-##带有导航抽屉的顶部应用栏
-带有导航抽屉的顶部应用栏可以与<a href="https://www.iobroker.net/#en/documentation/viz/basic.md">小部件8中</a>的<a href="https://www.iobroker.net/#en/documentation/viz/basic.md">视图</a>结合使用。
+TR: ### Autocomplete
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/autocomplete.gif)
 
-<b>看一看[Material Design Widgets示例项目](https://github.com/Scrounger/ioBroker.vis-materialdesign#online-example-project)</b>以了解它是如何工作的。
+TR: Settings that are not listed in the table below are self-explanatory.
 
-#####布局模式：
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/topappbar_modal.gif)
+TR: <table> <thead> <tr> <th>Screenshot</th> <th>Setting</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td rowspan=6><img src="doc/en/media/select_autocomplete_settings.png"></td> <td>method of data of menu</td> <td>There are three methods to define the data of the menu. First is to define it via editor. Second is to define it via a json string. Third method is to define it by three list for values, labels and icons</td> </tr> <tr> <td>Editor: count of menu items</td> <td>Method of data of menu: via editor<br>Define the number of menu entries. The the individual menu entries can be defined under menu item[x]</td> </tr> <tr> <td>JSON string</td> <td>Method of data of menu: json string<br>Here you can add a JSON string to define the menu entries or use bindings to a datapoint that contains a JSON string.<br><br>JSON string must have the following format:<br> <pre><code> [ { "text": "text 0", "subText": "sub 0", "value": "val0", "icon": "account-cancel" }, { "text": "text 1", "subText": "sub 1", "value": "val1", "icon": "/vis/icon/info.png" }, { "text": "text 2", "subText": "sub 2", "value": "val2", "icon": "facebook-workplace" } ] </code></pre> </td> </tr> <tr> <td>value list</td> <td>Method of data of menu: value list<br>Define the number of menu entries by adding values that will be set to the datapoint. Entries must be separeted by comma</td> </tr> <tr> <td>value list: labels</td> <td>Method of data of menu: value list<br>Define the related labels of the values. Entries must be separeted by comma</td> </tr> <tr> <td>value list: labels</td> <td>Method of data of menu: value list<br>Define the related icons of the values. Entries must be separeted by comma. You can use image path or Material Design Icons name</td> </tr> </tbody> </table>
 
-#####永久布局：
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/topappbar_permanent.gif)
+TR: ## Top App Bar with Navigation Drawer
+TR: Top App Bar with Navigation Drawer can be combined with the <a href="https://www.iobroker.net/#en/documentation/viz/basic.md">view in widget 8</a>.
 
-<table><thead><tr><th>屏幕截图</th><th>设置</th><th>描述</th></tr></thead><tbody><tr><td rowspan=3><img src="doc/en/media/topappbar_settings.png"></td><td>对象ID </td><td>必须从典型编号设置为数据点。例如<a href="https://www.iobroker.net/#en/documentation/viz/basic.md">，小部件8中</a>的<a href="https://www.iobroker.net/#en/documentation/viz/basic.md">视图</a>可以使用此数据点</td></tr><tr><td>显示导航项的索引</td><td>在项目标签之前显示导航索引。此数字可<a href="https://www.iobroker.net/#en/documentation/viz/basic.md">在小部件8的视图中</a>使用，以定义如果选择该项目应显示的视图</td></tr><tr><td>导航项目数</td><td>定义导航项的数量</td></tr></tbody></table>
+TR: <b>Take a look at the [TR: Material Design Widgets example project](https://github.com/Scrounger/ioBroker.vis-materialdesign#online-example-project)</b> to understand how it works.
 
-###子菜单
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/drawer_subMenu.png)
+TR: ##### Layout modal:
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/topappbar_modal.gif)
 
-下表中未列出的设置是不言自明的。
+TR: ##### Layout permanent:
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/topappbar_permanent.gif)
 
-<table><thead><tr><th>屏幕截图</th><th>设置</th><th>描述</th></tr></thead><tbody><tr><td rowspan=1><img src="doc/en/media/drawer_subMenu_views.png"></td><td>子菜单数[x] </td><td>定义导航项目是否具有子菜单和子菜单的计数。 </td></tr><tr><td rowspan=1><img src="doc/en/media/drawer_subMenu_labels.png"></td><td>标签[x] </td><td>要更改项目的文本，您必须将json对象放入带有查看字段索引的label字段中。 <br>例： <br>
+TR: <table> <thead> <tr> <th>Screenshot</th> <th>Setting</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td rowspan=3><img src="doc/en/media/topappbar_settings.png"></td> <td>Object ID</td> <td>must be set to a datapoint from typ number. For example this datapoint can be used by <a href="https://www.iobroker.net/#en/documentation/viz/basic.md">view in widget 8</a></td> </tr> <tr> <td>show index of navigation items</td> <td>shows the index of navigation before the item label. This number can be used in <a href="https://www.iobroker.net/#en/documentation/viz/basic.md">view in widget 8</a> to define the view that should be shown if the item is selected</td> </tr> <tr> <td>count of navigation items</td> <td>Define the count of the navigations items</td> </tr> </tbody> </table>
 
-`{"itemText": "Item with Subitems", "subItems": ["subItem1", "subItem2"]}`
+TR: ### Submenu
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/drawer_subMenu.png)
 
-结果：查看屏幕截图</td></tr><tr><td rowspan=1><img src="doc/en/media/drawer_subMenu_icons.png"></td><td>图标[x] </td><td>要更改项目的图标，您必须将json对象放入带有视图字段索引的icons字段中。 <br>例： <br>
+TR: Settings that are not listed in the table below are self-explanatory.
 
-`{"itemImage": "/icons-material-svg/hardware/ic_computer_48px.svg", "subItems": ["/vis/widgets/materialdesign/img/IoBroker_Logo.png", "/icons-material-svg/action/ic_android_48px.svg"]}`
+TR: <table> <thead> <tr> <th>Screenshot</th> <th>Setting</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td rowspan=1><img src="doc/en/media/drawer_subMenu_views.png"></td> <td>count of sub menus[x]</td> <td>Define if the navigation item has submenus and the count of submenus.</td> </tr> <tr> <td rowspan=1><img src="doc/en/media/drawer_subMenu_labels.png"></td> <td>label[x]</td> <td>To change the text of the items, you have to put a json object into the label field with the index of the view field.<br> Example:<br>
 
-结果：查看屏幕截图</ td> </ tr> </ tbody> </ table>
+TR: `{"itemText": "Item with Subitems", "subItems": ["subItem1", "subItem2"]}`
 
-##图表
-###线路历史记录图表：
->必需的适配器：[SQL]（https://github.com/ioBroker/ioBroker.sql），[历史记录]（https://github.com/ioBroker/ioBroker.history）或[InfluxDb](https://github.com/ioBroker/ioBroker.influxdb)！
+TR: Result: see screenshot</td> </tr> <tr> <td rowspan=1><img src="doc/en/media/drawer_subMenu_icons.png"></td> <td>icon[x]</td> <td>To change the icons of the items, you have to put a json object into the icons field with the index of the view field.<br> Example:<br>
 
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/line_history_chart.gif)
+TR: `{"itemImage": "/icons-material-svg/hardware/ic_computer_48px.svg", "subItems": ["/vis/widgets/materialdesign/img/IoBroker_Logo.png", "/icons-material-svg/action/ic_android_48px.svg"]}`
 
-下表中未列出的设置是不言自明的。
+TR: Result: see screenshot</td> </tr> </tbody> </table>
 
-<table><thead><tr><th>屏幕截图</th><th>设置</th><th>描述</th></tr></thead><tbody><tr><td rowspan=6><img src="doc/en/media/line_hostory_chart_general.png"></td><td>适配器实例</td><td> SQL或历史记录适配器的实例</td></tr><tr><td>聚合</td><td> <a href="https://www.iobroker.net/docu/index-195.htm?page_id=198&lang=en#Aggregation">链接</a> </td></tr><tr><td>最高要显示的数据点数</td><td>要显示的最大数据点数</td></tr><tr><td>数据点之间的时间间隔[s] </td><td>可选设置，将覆盖“计数”设置。 <br>各个数据点之间的距离，以秒为单位。 <br>例如，如果要每分钟显示一次数据点，则必须在此处输入60 </td></tr><tr><td>使用对象控制时间间隔</td><td>数据点的ID，以更改图表的时间间隔。数据点必须是字符串，并且可以包含<a href="https://github.com/Scrounger/ioBroker.vis-materialdesign/blob/235530e4e54346b5527333ca06ce596519954c67/widgets/materialdesign/js/materialdesign.chart.js#L802">链接的值</a> <br>例如，您可以在此处使用按钮在运行时更改图表的显示</td></tr><tr><td>用于更新的布尔对象</td><td>用于触发手动刷新图表的adatapoint的ID。 <br>例如，您可以在此处使用按钮在运行时刷新图表</td></tr><tr><td><img src="doc/en/media/line_hostory_chart_xAxis_layout.png"></td><td> x轴的时间格式</td><td>更改X轴的时间格式。必须为所有时间单位输入时间格式， <a href="https://github.com/Scrounger/ioBroker.vis-materialdesign/blob/c677220868961b3cf0b153fb8bf04e13b4475c09/widgets/materialdesign/js/materialdesign.chart.js#L805">允许使用以下时间单位。</a> <br>必须根据moment.js库输入批准的时间格式， <a href="https://momentjs.com/docs/#/displaying/">请参阅链接</a> </td></tr><tr><td><img src="doc/en/media/line_hostory_chart_tooltip_layout.png"></td><td>工具提示时间格式</td><td>更改工具提示的时间格式。必须为所有时间单位输入时间格式， <a href="https://github.com/Scrounger/ioBroker.vis-materialdesign/blob/c677220868961b3cf0b153fb8bf04e13b4475c09/widgets/materialdesign/js/materialdesign.chart.js#L805">允许使用以下时间单位。</a> <br>必须根据moment.js库输入批准的时间格式， <a href="https://momentjs.com/docs/#/displaying/">请参阅链接</a> </td></tr></tbody></table>
+TR: ## Charts
+TR: ### Line History Chart:
+TR: > Required Adapter: [TR: SQL](https://github.com/ioBroker/ioBroker.sql), [History](https://github.com/ioBroker/ioBroker.history) or [InfluxDb](https://github.com/ioBroker/ioBroker.influxdb)!
 
-##表
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/table.gif)
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/line_history_chart.gif)
 
-＃＃＃＃＃ 输入数据
-输入数据必须是对象的json数组，例如：
+TR: Settings that are not listed in the table below are self-explanatory.
+
+TR: <table> <thead> <tr> <th>Screenshot</th> <th>Setting</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td rowspan=6><img src="doc/en/media/line_hostory_chart_general.png"></td> <td>adapter instance</td> <td>Instance for the sql or history adapter</td> </tr> <tr> <td>aggregation</td> <td><a href="https://www.iobroker.net/docu/index-195.htm?page_id=198&lang=en#Aggregation">link</a></td> </tr> <tr> <td>max. number of data points to be displayed</td> <td>Number of maximum data points to display</td> </tr> <tr> <td>time interval between the data points in [s]</td> <td>Optional setting, overrides the 'count' setting.<br>Distance between the individual data points in seconds.<br>For example, if you want to display data points every minute, you have to enter 60 here</td> </tr> <tr> <td>controlling time interval using object</td> <td>Id of a datapoint to change the time interval of the chart. The data point must be a string and may contain <a href="https://github.com/Scrounger/ioBroker.vis-materialdesign/blob/235530e4e54346b5527333ca06ce596519954c67/widgets/materialdesign/js/materialdesign.chart.js#L802">the linked values</a><br>For example, you can use a button here to change the display of the chart during runtime</td> </tr> <tr> <td>boolean object for update</td> <td>Id of adatapoint to trigger a manual refresh of the chart.<br>For example, you can use a button here to refresh the chart during runtime</td> </tr> <tr> <td><img src="doc/en/media/line_hostory_chart_xAxis_layout.png"></td> <td>time formats of x-axis</td> <td>Change the time format of the X-axis. Time formats must be entered for all time units, <a href="https://github.com/Scrounger/ioBroker.vis-materialdesign/blob/c677220868961b3cf0b153fb8bf04e13b4475c09/widgets/materialdesign/js/materialdesign.chart.js#L805">the following time units are permitted.</a><br>Approved time formats must be entered according to the moment.js library, <a href="https://momentjs.com/docs/#/displaying/">see link</a></td> </tr> <tr> <td><img src="doc/en/media/line_hostory_chart_tooltip_layout.png"></td> <td>tooltip time formats</td> <td>Change the time format of the tooltip. Time formats must be entered for all time units, <a href="https://github.com/Scrounger/ioBroker.vis-materialdesign/blob/c677220868961b3cf0b153fb8bf04e13b4475c09/widgets/materialdesign/js/materialdesign.chart.js#L805">the following time units are permitted.</a><br>Approved time formats must be entered according to the moment.js library, <a href="https://momentjs.com/docs/#/displaying/">see link</a></td> </tr> </tbody> </table>
+
+TR: ## Table
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/table.gif)
+
+TR: ##### Input Data
+TR: Input data must be a json array of objects, example:
 
 ```
 [
@@ -185,62 +192,64 @@ https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/vibrate
 ]
 ```
 
-<table><thead><tr><th>屏幕截图</th><th>设置</th><th>描述</th></tr></thead><tbody><tr><td rowspan=2><img src="doc/en/media/table_general.png"></td><td>开关</td><td>带有输入数据的类型字符串的数据点，如上所示</td></tr><tr><td>数据作为JSON </td><td>可选，如果未设置oid数据点，则如上所述输入数据</td></tr><tr><td rowspan=4><img src="doc/en/media/table_column.png"></td><td> colType [x] </td><td>如果选择了图像，则对象属性必须具有图像的路径（ <a href="https://github.com/Scrounger/ioBroker.vis-materialdesign#input-data">请参见上文</a> ） </td></tr><tr><td>前缀[x] </td><td>可以使用对象属性，内部对象绑定（ <a href="https://github.com/Scrounger/ioBroker.vis-materialdesign#internal-object-binding">请参见下文</a> ）和html的前缀</td></tr><tr><td>后缀[x] </td><td>可以使用对象属性，内部对象绑定（ <a href="https://github.com/Scrounger/ioBroker.vis-materialdesign#internal-object-binding">见下文</a> ）和html的后缀</td></tr><tr><td>用于排序的对象名称[x] </td><td>在这里，您可以定义应用于排序的其他对象属性。 </td></tr></tbody></table>
+TR: <table> <thead> <tr> <th>Screenshot</th> <th>Setting</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td rowspan=2><img src="doc/en/media/table_general.png"></td> <td>switch</td> <td>Datapoint from type string with input data as shown above</td> </tr> <tr> <td>data as JSON</td> <td>Optional, input data as shown above if no oid datapoint is set</td> </tr> <tr> <td rowspan=4><img src="doc/en/media/table_column.png"></td> <td>colType[x]</td> <td>If image is selected, object property must have the path to the image (<a href="https://github.com/Scrounger/ioBroker.vis-materialdesign#input-data">see above</a>)</td> </tr> <tr> <td>prefix[x]</td> <td>Prefix for object property, internal object binding (<a href="https://github.com/Scrounger/ioBroker.vis-materialdesign#internal-object-binding">see below</a>) and html can be used</td> </tr> <tr> <td>suffix[x]</td> <td>Suffix for object property, internal object binding (<a href="https://github.com/Scrounger/ioBroker.vis-materialdesign#internal-object-binding">see below</a>) and html can be used</td> </tr> <tr> <td>object name for sorting[x]</td> <td>Here you can define an other object property that should be used for sorting.</td> </tr> </tbody> </table>
 
-#####内部对象绑定
-前缀和后缀支持表内部对象绑定->您可以使用来访问对象的其他属性
+TR: ##### internal object binding
+TR: prefix & suffix supports table internal object binding -> you can access other properties of object by using
 
 ```
 #[obj.'propertyName']
 ```
 
-示例请<a href="https://github.com/Scrounger/ioBroker.vis-materialdesign#input-data">参见上面</a> 。
+TR: Example see <a href="https://github.com/Scrounger/ioBroker.vis-materialdesign#input-data">see above</a>.
 
-可以找到工作部件示例
+TR: Working Widget Example can be found
 
-* [此处]（https://forum.iobroker.net/topic/26199/test-adapter-material-design-widgets-v0-1-x/113）
-* [ical Adapter]（https://forum.iobroker.net/topic/29658/material-design-widgets-table-widget/2）
+TR: * [here](https://forum.iobroker.net/topic/26199/test-adapter-material-design-widgets-v0-1-x/113)
+TR: * [ical Adapter](https://forum.iobroker.net/topic/29658/material-design-widgets-table-widget/2)
 
-##响应式布局
-有两个小部件-Masonry Views和Grid Views-可以使用它们创建一个响应式布局（台式机，平板电脑和移动设备的布局）。这两个小部件都集成了多个`view in widget`。
+TR: ## Responsive Layout
+TR: There are two widgets - Masonry Views and Grid Views - with which it is possible to create a repsonsive layout (a layout for desktop, tablet and mobile). Both Widgets has multiple `view in widget` integrated.
 
-###砌体景观
-Masonry Views集成了多个`view in widget`§，将根据小部件的宽度自动对其进行排序。使用此小部件，可以创建响应式布局（台式机，平板电脑和mobil的一种布局）。
-如果所包含的视图具有不同的高度，则砖石视图特别有用。
+TR: ### Masonry Views
+TR: Masonry Views has multiple `view in widget` integrated, that will be ordered automatically depending of the width of the widget. With this widget it is possible to create a responsive layout (one layout for desktop, tablet and mobil).
+Masonry views are especially useful if the views included have different heights.
 
-<b>看一看[Material Design Widgets示例项目](https://github.com/Scrounger/ioBroker.vis-materialdesign#online-example-project)</b>以了解它是如何工作的。
+TR: <b>Take a look at the [TR: Material Design Widgets example project](https://github.com/Scrounger/ioBroker.vis-materialdesign#online-example-project)</b> to understand how it works.
 
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/masnory.gif)
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/masnory.gif)
 
-<table><thead><tr><th>屏幕截图</th><th>设置</th><th>描述</th></tr></thead><tbody><tr><td rowspan=1><img src="doc/en/media/masonry_resolution_settings.png"></td><td colspan=2>根据窗口小部件的宽度，可以设置列数和视图之间的距离。可以独立设置纵向和横向格式的设置。要找出不同设备的分辨率宽度，请在通用设置下激活“分辨率助手”。 </td></tr><tr><td><img src="doc/en/media/masnory_settings_views.png"></td><td>视线宽度[x] </td><td>定义视图的宽度。允许的值为数字，px，％或calc。实施例： <code>100</code> ， <code>100px</code> ， <code>55%</code> <code>calc(60% - 12px)</code> </td></tr></tbody></table>
+TR: <table> <thead> <tr> <th>Screenshot</th> <th>Setting</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td rowspan=1><img src="doc/en/media/masonry_resolution_settings.png"></td> <td colspan=2>Depending on the width of the widget, the number of columns and the distance between the views can be set. The settings can be set independently for portrait and landscape format.
+To find out the width of the resolution for the different devices, activate the Resolution Assistant under the common settings.</td> </tr> <tr> <td><img src="doc/en/media/masnory_settings_views.png"></td> <td>width of view[x]</td> <td>Define the width of the view. Allowed values are number, px, % or calc. Examples: <code>100</code>, <code>100px</code>, <code>55%</code>, <code>calc(60% - 12px)</code></td> </tr> </tbody> </table>
 
-###网格视图
-网格视图具有多个`view in widget`集成，将根据小部件的宽度自动排序。使用此小部件，可以创建响应式布局（台式机，平板电脑和mobil的一种布局）。
-如果包含的视图具有相同的高度，则网格视图特别有用。
+TR: ### Grid Views
+TR: Grid Views has multiple `view in widget` integrated, that will be ordered automatically depending of the width of the widget. With this widget it is possible to create a responsive layout (one layout for desktop, tablet and mobil).
+Grid views are especially useful if the views included have the same heights.
 
-<b>网格视图小部件共有12列。如果要使视图的宽度为4列，则必须在相应的视图中将列跨度设置为4 [x]</b>
+TR: <b>The Grid View widget has 12 columns in total. If you want a view to have a width of 4 columns, you have to set column span to 4 in the corresponding view[x]</b>
 
-<b>看一看[Material Design Widgets示例项目](https://github.com/Scrounger/ioBroker.vis-materialdesign#online-example-project)</b>以了解它是如何工作的。
+TR: <b>Take a look at the [TR: Material Design Widgets example project](https://github.com/Scrounger/ioBroker.vis-materialdesign#online-example-project)</b> to understand how it works.
 
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/grid.gif)
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/grid.gif)
 
-<table><thead><tr><th>屏幕截图</th><th>设置</th><th>描述</th></tr></thead><tbody><tr><td rowspan=1><img src="doc/en/media/grid_settings_resolution.png"></td><td colspan=2>根据窗口小部件的宽度，可以从各个窗口小部件的宽度定义适用各个视图[x]的列跨度的规则以及视图之间的距离。可以独立设置纵向和横向格式的设置。要找出不同设备的分辨率宽度，请在通用设置下激活“分辨率助手”。 </td></tr><tr><td><img src="doc/en/media/grid_settings_view.png"></td><td colspan=2>根据当前的宽度分辨率规则定义视图的列范围。 <br>您还可以在此处指定是仅以高于或低于定义值的分辨率显示视图，还是通过对象ID使其可见。 </td></tr></tbody></table>
+TR: <table> <thead> <tr> <th>Screenshot</th> <th>Setting</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td rowspan=1><img src="doc/en/media/grid_settings_resolution.png"></td> <td colspan=2>Depending on the width of the widget, defined from which width of the widget the rules for column span of the individual views[x] can be applied and the distance between the views. The settings can be set independently for portrait and landscape format.
+To find out the width of the resolution for the different devices, activate the Resolution Assistant under the common settings.</td> </tr> <tr> <td><img src="doc/en/media/grid_settings_view.png"></td> <td colspan=2>Define the column span of the view depending of the current width resolution rule.<br>You can also specify here whether a view should only be displayed at a resolution higher or lower than a defined value or whether it should be visible via a object id.</td> </tr> </tbody> </table>
 
-##列视图-已弃用!!!
-列视图具有集成的多个`view in widget`§，将根据小部件的宽度自动对其进行排序。使用此小部件，可以创建响应式布局（台式机，平板电脑和移动电话的一种布局）
+TR: ## Column Views - decrepated !!!
+TR: Column Views has multiple `view in widget` integrated, that will be ordered automatically depending of the width of the widget. With this widget it is possible to cereate a responsive layout (one layout for desktop, tablet and mobil)
 
-<b>看一看[Material Design Widgets示例项目](https://github.com/Scrounger/ioBroker.vis-materialdesign#online-example-project)</b>以了解它是如何工作的。
+TR: <b>Take a look at the [TR: Material Design Widgets example project](https://github.com/Scrounger/ioBroker.vis-materialdesign#online-example-project)</b> to understand how it works.
 
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/column_views.gif)
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/column_views.gif)
 
-<table><thead><tr><th>屏幕截图</th><th>设置</th><th>描述</th></tr></thead><tbody><tr><td rowspan=2><img src="doc/en/media/column_views_common.png"></td><td>列数</td><td>定义列数</td></tr><tr><td>最小宽度</td><td>每列的最小宽度。例如使用移动设备分辨率的宽度</td></tr><tr><td rowspan=2><img src="doc/en/media/column_views_col_settings.png"></td><td>列[x]中的视图</td><td>定义应在此列中显示的视图。多个视图必须用&#39;|&#39;分隔</td></tr><tr><td>列[x]中的视图高度</td><td>在列中定义每个视图的高度。多个高度必须用&#39;|&#39;分隔</td></tr></tbody></table>
+TR: <table> <thead> <tr> <th>Screenshot</th> <th>Setting</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td rowspan=2><img src="doc/en/media/column_views_common.png"></td> <td>number of columns</td> <td>define number of columns</td> </tr> <tr> <td>minmal width</td> <td>minimal width of each column. For example use the width of the resolution of a mobil device</td> </tr> <tr> <td rowspan=2><img src="doc/en/media/column_views_col_settings.png"></td> <td>views in column[x]</td> <td>Define the views that should be shown in this column. Multiple views must be separated by '|'</td> </tr> <tr> <td>height of views in column[x]</td> <td>Define the height of each view in the column. Multiple heights must be separated by '|'</td> </tr> </tbody> </table>
 
-##警报
-可以使用Alerts小部件可以在VIS中显示消息，就像它与Pushover适配器一起使用一样，但是可以直接在VIS中显示。
+TR: ## Alerts
+TR: Alerts widget can be used e.g. to display messages in the VIS, like it works with the pushover adapter, but directly in the VIS.
 
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/alerts.gif)
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/alerts.gif)
 
-Alerts小部件需要一个JSON字符串作为对象，其结构必须如下：
+TR: The Alerts widget requires a JSON string as object, which must be structured as follows:
 
 ```
 [
@@ -269,12 +278,12 @@ Alerts小部件需要一个JSON字符串作为对象，其结构必须如下：
 ]
 ```
 
-<table><thead><tr><th>屏幕截图</th><th>设置</th><th>描述</th></tr></thead><tbody><tr><td rowspan=3><img src="doc/en/media/alerts_settings.png"></td><td>列数</td><td>定义列数</td></tr><tr><td>对象ID </td><td>对象必须是json字符串，其结构必须如上所述</td></tr><tr><td>最高快讯</td><td>应该显示的最大警报数。 </td></tr></tbody></table>
+TR: <table> <thead> <tr> <th>Screenshot</th> <th>Setting</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td rowspan=3><img src="doc/en/media/alerts_settings.png"></td> <td>number of columns</td> <td>define number of columns</td> </tr> <tr> <td>Object ID</td> <td>Object must be a json string, which must be structured as described above</td> </tr> <tr> <td>max. Alerts</td> <td>max number of Alerts that should be shown.</td> </tr> </tbody> </table>
 
-使用以下脚本，您可以将简单消息发送到警报小部件使用的数据点。
-该脚本必须放入全局脚本中。然后可以使用以下命令发送消息
+TR: With the following script you can send easy messages to datapoint that is used by the Alerts Widget.
+The script must put into global scripts. Then it is possible to send message with the following command
 
-`materialDesignWidgets.sendTo('datapoint_id', 'message', 'color');`
+TR: `materialDesignWidgets.sendTo('datapoint_id', 'message', 'color');`
 
 ```
 
@@ -310,10 +319,10 @@ materialDesignWidgets.sendTo = function (id, text, backgroundColor = '', borderC
 }
 ```
 
-##日历
-![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/calendar.gif)
+TR: ## Calendar
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/calendar.gif)
 
-Calendar窗口小部件需要一个JSON字符串作为对象，其结构必须如下：
+TR: The Calendar widget requires a JSON string as object, which must be structured as follows:
 
 ```
 [
@@ -334,13 +343,13 @@ Calendar窗口小部件需要一个JSON字符串作为对象，其结构必须�
 ]
 ```
 
-仅十六进制和rgba可用作颜色！
+TR: Only hex and rgba can be used as colors!
 
-下表中未列出的设置是不言自明的。
+TR: Settings that are not listed in the table below are self-explanatory.
 
-<table><thead><tr><th>屏幕截图</th><th>设置</th><th>描述</th></tr></thead><tbody><tr><td rowspan=2><img src="doc/en/media/calendar_layout.png"></td><td>要显示一周中的几天</td><td>指定要显示一周中的哪几天。要仅显示星期一至星期五，可以使用值<code>1, 2, 3, 4, 5</code> 。要显示从星期一开始的一周，可以使用值<code>1, 2, 3, 4, 5, 6, 0</code> 。 </td></tr><tr><td>对象ID </td><td>对象必须是json字符串，其结构必须如上所述</td></tr><tr><td rowspan=2><img src="doc/en/media/calendar_timeaxis.png"></td><td>开始时间</td><td>在周和日视图中应显示约会的小时数。 </td></tr><tr><td>结束时间</td><td>在德沃兴和塔格森希特（Tageansicht）的大屠杀纪念日</td></tr></tbody></table>
+TR: <table> <thead> <tr> <th>Screenshot</th> <th>Setting</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td rowspan=2><img src="doc/en/media/calendar_layout.png"></td> <td>days of the week to be shown</td> <td>Specifies which days of the week to display. To display Monday through Friday only, a value of <code>1, 2, 3, 4, 5</code> can be used. To display a week starting on Monday a value of <code>1, 2, 3, 4, 5, 6, 0</code> can be used.</td> </tr> <tr> <td>Object ID</td> <td>Object must be a json string, which must be structured as described above</td> </tr> <tr> <td rowspan=2><img src="doc/en/media/calendar_timeaxis.png"></td> <td>start hour</td> <td>The hour from which appointments should be displayed in the week and day view.</td> </tr> <tr> <td>end hour</td> <td>The hour until which appointments should be displayed in the week and day view</td> </tr> </tbody> </table>
 
-如果要将小部件与[医用适配器](https://github.com/iobroker-community-adapters/ioBroker.ical)一起使用，则可以使用以下脚本将ical对象转换为可与小部件一起使用。
+TR: If you want to use the widget with the [TR: ical adapter](https://github.com/iobroker-community-adapters/ioBroker.ical), you can use the following script to convert the ical object to work with the widget.
 
 ```
 // momentjs is required as dependecies in javascript adapter
