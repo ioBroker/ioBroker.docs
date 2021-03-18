@@ -1,5 +1,5 @@
 ---
-lastChanged: 2020.04.14
+lastChanged: 2021.03.18
 ---
 # Getting started to develop an Adapter for ioBroker
 
@@ -11,7 +11,7 @@ It focusses on a recommended way to Adapter devolopment:
 * create an empty Adapter
 * develop your Adapter
 * publish your Adapter
-* further information like debugging, usefull tools, ...
+* further recommendations and informations like debugging, usefull tools, ...
 
 ## Requirements
 
@@ -24,23 +24,24 @@ There are already a lot of guides therefor. Search the internet for
 * "hyper-v ubuntu" or
 * "virtual box ubuntu"
 
-Of course you can also use Windows or MacOS.
+Of course it is also possible to use Windows or MacOS.
 
 ## Setup development environment
 
-NPM, Node, VSCode
+NPM, Node, VSCode, dev-server
 
 ## Create an empty Adapter
 
 Adapter creator
 
-## Develop Adapter
+## Develop your Adapter
 
 Basic introduction
 
-## Publish Adapter
+## Publish your Adapter
 
 GIT, NPM, Adapter checker, Repo
 
-## Further information
+## Further recommendations
 
+Debug, Weblate, release-script, sentry

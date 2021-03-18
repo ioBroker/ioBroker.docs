@@ -22,7 +22,7 @@ Most used Adapters are:
 * [ioBroker.tr-064](https://github.com/iobroker-community-adapters/ioBroker.tr-064): Integrate AVM FritzBox into ioBroker
 * [ioBroker.alexa2](https://github.com/Apollon77/ioBroker.alexa2): Control Amazon Alexa/Echo devices
 
-Adapters can be developed and added to ioBroker by everyone.
+**Adapters can be developed and added to ioBroker by everyone.**
 
 ## Adapter development basics
 
