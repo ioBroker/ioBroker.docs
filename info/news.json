@@ -799,7 +799,7 @@
         "id": "radar2-forum",
         "class": "info",
         "fa-icon": "bolt",
-        "created": "2021-03-17T23:00:00.000Z",
+        "created": "2021-03-19T08:00:00.000Z",
         "conditions": {
             "radar2": "installed"
         }
