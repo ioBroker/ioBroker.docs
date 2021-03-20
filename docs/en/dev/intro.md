@@ -38,7 +38,7 @@ Also TypeScript can be used, which enhances JavaScript with functions like class
 
 [Schema](schema/schema.md) - Schema of ioBroker - Namespace, objects, states
 
-[Reference]() - Files, structures and informations about Adapter development
+[Reference](reference/reference.md) - Files, structures and informations about Adapter development
 
-[Tools]() - IDEs and other usefull utilities for Adapter development
+[Tools](tools/tools.md) - IDEs and other usefull utilities for Adapter development
 

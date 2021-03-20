@@ -16,7 +16,7 @@ By ID and namespace, a hierarchical tree is created. For deeper structure, there
 
 A valid [tree structure]() has a specific order of the objects.
 
-Functions like setObject, getObject, ... are provided to you by the [adapter module]().
+Functions like setObject, getObject, ... are provided to you by the [adapter module](../reference/adaptermodule.md).
 
 ## States ##
 States represent often changing data in your system, like f.e. 
