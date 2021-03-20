@@ -34,9 +34,9 @@ Also TypeScript can be used, which enhances JavaScript with functions like class
 
 ## Structure of documentation
 
-[Getting started]() - How to start developing an Adapter
+[Getting started](gettingstarted/gettingstarted.md) - How to start developing an Adapter
 
-[Schema]() - Schema of ioBroker - Namespace, objects, states
+[Schema](schema/schema.md) - Schema of ioBroker - Namespace, objects, states
 
 [Reference]() - Files, structures and informations about Adapter development
 
