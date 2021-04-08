@@ -803,5 +803,38 @@
         "conditions": {
             "radar2": "installed"
         }
+    },
+    {
+        "title": {
+            "en": "Backitup is integrated in the standard installation of iobroker",
+            "de": "Backitup wird in der Standard Installation von iobroker integriert",
+            "ru": "Резервное копирование интегрировано в стандартную установку iobroker",
+            "pt": "O backup está integrado na instalação padrão do iobroker",
+            "nl": "Backitup is geïntegreerd in de standaard installatie van iobroker",
+            "fr": "Backitup est intégré dans l'installation standard d'iobroker",
+            "it": "Backitup è integrato nell'installazione standard di iobroker",
+            "es": "Backitup está integrado en la instalación estándar de iobroker",
+            "pl": "Backitup jest zintegrowany ze standardową instalacją iobrokera",
+            "zh-cn": "Backitup已集成在iobroker的标准安装中"
+        },
+        "content": {
+            "en": "In order to have a secure system, backups are a very decisive factor in SmartHome systems. For this reason, Backitup is integrated in the standard installation of iobroker. We recommend everyone who is not currently using Backitup to install the adapter to back up their iobroker data.",
+            "de": "Um ein sicheres System zu haben, sind Backups ein ganz entscheidender Faktor in SmartHome-Systemen. Aus diesem Grund wird Backitup in der Standard-Installation von iobroker integriert. Wir empfehlen jedem, der aktuell Backitup noch nicht nutzt, sich den Adapter zur Sicherung seiner iobroker Daten zu installieren.",
+            "ru": "Для обеспечения безопасности системы резервное копирование является решающим фактором в системах SmartHome. По этой причине Backitup интегрирован в стандартную установку iobroker. Мы рекомендуем всем, кто в настоящее время не использует Backitup, установить адаптер для резервного копирования данных iobroker.",
+            "pt": "Para ter um sistema seguro, os backups são um fator muito decisivo nos sistemas SmartHome. Por este motivo, o Backitup está integrado na instalação padrão do iobroker. Recomendamos a todos que não estão usando o Backitup no momento, que instalem o adaptador para fazer backup dos dados do iobroker.",
+            "nl": "Om een veilig systeem te hebben, zijn back-ups een zeer doorslaggevende factor in SmartHome-systemen. Om deze reden is Backitup geïntegreerd in de standaard installatie van iobroker. We raden iedereen die momenteel geen Backitup gebruikt aan om de adapter te installeren om een back-up te maken van hun iobroker-gegevens.",
+            "fr": "Afin d'avoir un système sécurisé, les sauvegardes sont un facteur très décisif dans les systèmes SmartHome. Pour cette raison, Backitup est intégré dans l'installation standard d'iobroker. Nous recommandons à tous ceux qui n'utilisent pas actuellement Backitup d'installer l'adaptateur pour sauvegarder leurs données iobroker.",
+            "it": "Per avere un sistema sicuro, i backup sono un fattore molto decisivo nei sistemi SmartHome. Per questo motivo, Backitup è integrato nell'installazione standard di iobroker. Consigliamo a tutti coloro che attualmente non utilizzano Backitup di installare l'adattatore per eseguire il backup dei propri dati iobroker.",
+            "es": "Para tener un sistema seguro, las copias de seguridad son un factor muy decisivo en los sistemas SmartHome. Por esta razón, Backitup está integrado en la instalación estándar de iobroker. Recomendamos a todos los que no estén usando Backitup actualmente que instalen el adaptador para hacer una copia de seguridad de sus datos de iobroker.",
+            "pl": "Aby mieć bezpieczny system, kopie zapasowe są bardzo decydującym czynnikiem w systemach SmartHome. Z tego powodu Backitup jest zintegrowany ze standardową instalacją iobrokera. Zalecamy wszystkim, którzy obecnie nie używają programu Backitup, zainstalowanie adaptera w celu utworzenia kopii zapasowej danych iobroker.",
+            "zh-cn": "为了拥有安全的系统，备份是SmartHome系统中非常重要的因素。因此，Backitup已集成在iobroker的标准安装中。我们建议当前不使用Backitup的每个人都安装适配器以备份其iobroker数据。"
+        },
+        "id": "backitupAdapter",
+        "class": "info",
+        "fa-icon": "exclamation-circle",
+        "created": "2021-04-08T00:00:00.000Z",
+        "conditions": {
+            "backitup": "!installed"
+        }
     }
 ]
