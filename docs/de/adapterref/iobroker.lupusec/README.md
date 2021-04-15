@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lupusec/README.md
 title: ioBroker.lupusec
-hash: 6eC3phPn7QBqnpD1kNkMoEgysEnn6ByIWJjmi1B783U=
+hash: anR9zxamafrIIqE6Si3MJY0h+ENio71ITSX/n51kcak=
 ---
 ![Logo](../../../en/adapterref/iobroker.lupusec/admin/lupusec.png)
 
@@ -34,7 +34,7 @@ Am einfachsten ist es, den Adapter lupusec.iobroker über den Erkennungsadapter 
 Wählen Sie die IP-Adresse oder den Hostnamen aus dem Lupusec-Alarmsystem. Wählen Sie nach Möglichkeit https (empfohlen).
 Um nur den Status zu lesen, wählen Sie einen Benutzer ohne Schreibzugriff aus. Wenn Sie den Status ändern möchten (z. B. das Licht ein- / ausschalten oder den Alarm aktivieren / deaktivieren möchten), wählen Sie einen Benutzer mit Schreibzugriff aus.
 ![admin_main](../../../en/adapterref/iobroker.lupusec/docs/en/img/lupusec_admin.png) Wenn Sie Überwachungskameras an Ihr Lupusec-Alarmsystem angeschlossen haben, können Sie diese in ioBroker bereitstellen. Der Lupusec-Adapter findet alle Lupusec-Kameras selbst. Sie müssen eine Adresse (Ihre ioBroker IP-Adresse oder 0.0.0.0) und einen Port eingeben, um später eine Verbindung zu den Cams herstellen zu können.
-![admin_webcam](../../../en/adapterref/iobroker.lupusec/docs/en/img/lupusec_admin_webcam.png) Wenn Sie Ihren Nuki-Türöffner an Ihr Lupusec-Alarmsystem angeschlossen haben, können Sie ihn auch von ioBroker aus verwenden. Im Administratormenü der ioBroker-Instanz können Sie Ihren Lupusec-Türsensor eingeben, der an der Nuki-Tür angebracht ist. Wenn Sie jetzt die Tür öffnen, an der der Nuki montiert ist, haben Sie den zusätzlichen Status "Tür geöffnet" statt nur "entriegelt". Wenn Sie keinen Lupusec-Türsensor an der Nuki-Tür haben, werden nur die Zustände "gesperrt" oder "gesperrt" angezeigt.
+![admin_webcam](../../../en/adapterref/iobroker.lupusec/docs/en/img/lupusec_admin_webcam.png) Wenn Sie Ihren Nuki-Türöffner an Ihr Lupusec-Alarmsystem angeschlossen haben, können Sie ihn auch von ioBroker aus verwenden. Im Administratormenü der ioBroker-Instanz können Sie Ihren Lupusec-Türsensor eingeben, der an der Nuki-Tür angebracht ist. Wenn Sie jetzt die Tür öffnen, an der der Nuki montiert ist, haben Sie den zusätzlichen Status "Tür geöffnet" statt nur "entriegelt". Wenn Sie keinen Lupusec-Türsensor an der Nuki-Tür haben, sehen Sie nur die Zustände "gesperrt" oder "gesperrt".
 ![admin_nuki](../../../en/adapterref/iobroker.lupusec/docs/en/img/lupusec_admin_nuki.png)
 
 Standardmäßig werden alle Lupusec-Geräte auf der Registerkarte ioBroker-Objekt angezeigt.
@@ -59,6 +59,7 @@ Voll unterstützt und individuell angepasst sind folgende Geräte:
   - Sirene draußen (Typ 48)
   - Leistungsschalter (Typ 48)
   - Stromzähler (Typ 50)
+  - Universeller IR-Controller (Typ 52)
   - Raumsensor V1 (Typ 54)
   - LCD-Temperatursensor (Typ 54)
   - Minitemperatur (Typ 54)
@@ -98,6 +99,21 @@ Sie finden alle angeschlossenen Überwachungskameras unter "Webcams". Sie könne
 Sie finden Ihren Nuki-Türöffner unter "Geräten" wie den Lupusec-Geräten. Der Nuki bietet 2 Staaten. Der Status nuki_state zeigt Ihnen den tatsächlichen Status des Nuki-Türöffners an, wenn die Tür verriegelt oder entriegelt ist. Mit dem Status nuki_action können Sie Ihre Tür öffnen, verriegeln oder entriegeln.
 ![lupusec_obj_nuki](../../../en/adapterref/iobroker.lupusec/docs/en/img/lupusec_obj_nuki.png)
 
+### Lupusec SMS
+Wenn Sie den Lupusec XT1 +, XT2 + oder XT3 mit einer SMS-SIM-Karte verwenden, können Sie SMS mit folgenden Zuständen senden: ![lupusec_obj_sms](../../../en/adapterref/iobroker.lupusec/docs/en/img/lupusec_obj_sms.png)
+
+Alternativ können Sie SMS von Ihrem JavaScript mit folgendem Befehl senden:
+
+```
+sendTo('lupusec.0', 'sms', { number: '017247114711', text: 'Test message' });
+```
+
+Wenn Sie das SMS-Gateway verwenden, können Sie den folgenden Befehl in Ihrem Skript verwenden:
+
+```
+sendTo('lupusec.0', 'smsgw', { number: '017247114711', text: 'Test message' });
+```
+
 ## Fehlerbehebung
 Wenn Sie den Lupusec-Adapter starten und die Fehlermeldung erhalten, dass das Alarmsystem nicht erreichbar ist, versuchen Sie bitte, das System über ein Terminalfenster Ihres ioBroker-Systems zu pingen.
 
@@ -120,6 +136,21 @@ Folgende Dinge sind für die Zukunft geplant:
 * Schreiben einer Dokumentation für jeden Sensor / jedes Gerät
 
 ## Changelog
+
+### 1.3.3-beta-2 (17.02.2021)
+* (Stübi) Bugfixing
+* (Stübi) Send SMS with SMS gateway or SIM card
+
+### 1.3.2 (14.02.2021)
+* (Stübi) Send SMS if you are using a sim card
+
+### 1.3.1 (07.02.2021)
+* (Stübi) Add universal IR controller (type 52)
+
+### 1.3.0 (03.10.2020)
+* (Stübi) Reduce CPU Load
+* (Stübi) Add local link to alarm system
+* (Stübi) Bugfixing Issue #27 - bypass
 
 ### 1.2.9 (04.07.2020)
 * (Stübi) Bugfixing
@@ -238,7 +269,7 @@ Folgende Dinge sind für die Zukunft geplant:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2020 Thorsten Stueben <thorsten@stueben.de>
+Copyright (c) 2019-2021 Thorsten Stueben <thorsten@stueben.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

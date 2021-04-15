@@ -89,27 +89,23 @@ thanks to @sigi234
     ### __WORK IN PROGRESS__
 * 
 -->
-### 1.3.1 (2020-12-28)
-* added possibility to show value instead of the subtitle
-* fixed a bug with weired slider behaviour, dont know how
+
+### 1.6.0 (2021-04-01)
+* new Temperature widget with ONLY an icon from blue to red depending on temperature setting
+
+### 1.5.1 (2021-03-28)
+* replaced presence images with smaller ones
 
 
+### 1.5.0 (2021-03-26)
+* new widget Presence
 
-### 1.3.0 (2020-11-16)
-* released new version
+### 1.4.7 (2021-03-26)
+* removed unit test 
 
 
-### 1.2.1 (2020-11-16)
-* changed position of properties to be alomst same everywhere
-
-### 1.2.0 (2020-11-04)
-* added option to round every corner different/not 
-* added option to change color of border
-* added option for shadow and size of shadow
-
-### 1.1.1 (2020-10-18)
-* url wrong in package.json
-
+### 1.4.6 (2021-03-26)
+* removed lint 
 
 ## License
 MIT License

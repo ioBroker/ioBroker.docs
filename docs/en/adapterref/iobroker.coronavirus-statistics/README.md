@@ -6,12 +6,12 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.coronavirus-statistics.svg)](https://www.npmjs.com/package/iobroker.coronavirus-statistics)
 ![Number of Installations (latest)](http://iobroker.live/badges/coronavirus-statistics-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/coronavirus-statistics-stable.svg)
-[![Known Vulnerabilities](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.coronavirus-statistics/badge.svg)](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.coronavirus-statistics)
+[![Known Vulnerabilities](https://snyk.io/test/github/DrozmotiX/ioBroker.coronavirus-statistics/badge.svg)](https://snyk.io/test/github/DrozmotiX/ioBroker.coronavirus-statistics)
 
 [![NPM](https://nodei.co/npm/iobroker.coronavirus-statistics.png?downloads=true)](https://nodei.co/npm/ioBroker.coronavirus-statistics/)
 
-![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.coronavirus-statistics/workflows/Test%20and%20Release/badge.svg)
-[![Dependency Status](https://img.shields.io/david/iobroker-community-adapters/ioBroker.coronavirus-statistics.svg)](https://david-dm.org/iobroker-community-adapters/ioBroker.coronavirus-statistics)
+![Test and Release](https://github.com/c/ioBroker.coronavirus-statistics/workflows/Test%20and%20Release/badge.svg)
+[![Dependency Status](https://img.shields.io/david/DrozmotiX/ioBroker.coronavirus-statistics.svg)](https://david-dm.org/DrozmotiX/ioBroker.coronavirus-statistics)
 ## Coronavirus Live Statistics adapter for ioBroker
 
 Adapter to show Global Corona Virus information and current reports
@@ -94,6 +94,23 @@ As first value the name from the warning message must be taken from the log. The
 	### __WORK IN PROGRESS__
 	* (DutchmanNL) xxxx
 -->
+
+### 0.6.8 (2021-01-27)
+* (DutchmanNL) Bugfix : Gernmany vaccinaation data, source changed code updated
+* (DutchmanNL) Removed states (not available anymore by RKI)
+  * Impfungen pro 1.000 Einwohner
+  * Indikation nach Alter 
+  * Berufliche Indikation
+  * Medizinische Indikation
+  * Pflegeheim-bewohnerIn
+* (DutchmanNL) New states (provided by RKI)
+  * Differenz zum Vortag 
+  * Gesamtzahl bisher verabreichter Impfstoffdosen
+  * Gesamtzahl kumulatiev BioNTech
+  * Gesamtzahl kumulatiev Moderna
+  * Impf-quote
+  * Zweit Impfungen kumulativ
+  * Zweit Impfungen Differenz zum Vortag
 
 ### 0.6.7 (2021-01-04) Improve handling of vaccination data for germany
 * (DutchmanNL) Added Impfungen pro 1.000 Einwohner

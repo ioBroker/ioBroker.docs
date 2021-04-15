@@ -53,6 +53,23 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
 
+### 1.10.0 (2021-04-12)
+* (Apollon77) Implement TEMPERATURE_SENSOR_2_EXTERNAL_DELTA_CHANNEL, DOOR_LOCK_CHANNEL and ACCESS_AUTHORIZATION_CHANNEL
+
+### 1.9.0 (2021-02-16)
+* (Apollon77) Round temperature values to nearest 0.5 degrees
+* (Apollon77) Only send values to HMIP when changed (reduce traffic!)
+* (Apollon77) Add debouncing to setPointTemperature changes (means value is sent out when "stable" for 5s!) (reduce traffic!)
+* (Apollon77) Add throttling to other change requests (means other changes are blocked for 1s) (reduce traffic!)
+* (Apollon77) Implement ANALOG_ROOM_CONTROL_CHANNEL (Sentry IOBROKER-HMIP-1X)
+
+### 1.7.2 (2021-02-09)
+* (Apollon77) Try to detect websocket connection failures start over
+
+### 1.7.0 (2021-01-26)
+* (Apollon77) add Heating Absence Permanent state and functionality
+* (Apollon77) add support for MULTI_MODE_INPUT_BLIND_CHANNEL
+
 ### 1.6.2 (2021-01-21)
 * (Apollon77) Add check when HMIP domain could not be determined.
 

@@ -5,7 +5,7 @@
 [![NPM version](https://img.shields.io/npm/v/iobroker.alexa2.svg)](https://www.npmjs.com/package/iobroker.alexa2)
 [![Build Status](https://travis-ci.org/Apollon77/ioBroker.alexa2.svg?branch=master)](https://travis-ci.org/Apollon77/ioBroker.alexa2)
 [![Build status](https://ci.appveyor.com/api/projects/status/c92hrxu79mvs1qxo?svg=true)](https://ci.appveyor.com/project/Apollon77/iobroker-alexa)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/Apollon77/iobroker.alexa2/blob/master/LICENSE) [![Greenkeeper badge](https://badges.greenkeeper.io/Apollon77/ioBroker.alexa2.svg)](https://greenkeeper.io/)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/Apollon77/iobroker.alexa2/blob/master/LICENSE)
 
 **This adapter uses the service [Sentry.io](https://sentry.io) to automatically report exceptions and code errors and new device schemas to me as the developer.** More details see below!
 
@@ -86,6 +86,8 @@ Detailed information Speak and Announcement: Type in here what you want Alexa to
 Example: 10;Alexa is saying Alexa with 10% volume, while 100;Alexa is 100% volume.
 Normally you only can send 250 characters per speak command. By using the semicolon it is possible to write as much as you want, as long as you separate 250 characters with a semicolon.
 Alexa will then speak the text after each other with a small break. You also can use the volume together with more 255 blocks by writing #Volume;#Block1;#Block2, a.s.o A volume set here will be used over a defined speak-volume.
+
+Partially also sounds from https://developer.amazon.com/en-US/docs/alexa/custom-skills/ask-soundlibrary.html work. Specify in speak or ssml as `<audio src="soundbank://soundlibrary/animals/amzn_sfx_bear_groan_roar_01"/>`. Details and discussion please at https://forum.iobroker.net/topic/27509/ssml-audio
 
 ### alexa2.0.Echo-Devices.Serialnumber.Info.*
 Information about the Alexa device
@@ -287,6 +289,26 @@ When the adapter crashes or an other Code error happens, this error message that
 
 
 ## Changelog
+
+### 3.8.1 (2021-02-09)
+* (Apollon77) Initialize volume for all devices on start
+
+### 3.8.0 (2021-02-04)
+* (Apollon77) Add configuration option to not write history entries where no command text was recognized
+
+### 3.7.1 (2021-02-03)
+* (Apollon77) add some more detected text into summary and answerText states (textCommand commands should be in history back again)
+
+### 3.7.0 (2021-02-03)
+* (Apollon77) IMPORTANT: History entries are now requested via a different data source because Amazon seems to tun off the old option. History.status is for this no longer filled, but new states were added. Only voice commands are reported ( textCommand entries not longer)
+* (Apollon77) other optimizations in communications and prevent hammering amazon with requests in error cases
+
+### 3.6.1 (2021-02-02)
+* (fbeister) Add and adjust some known devices
+* (Apollon77) Optimize object deletion
+
+### 3.6.0 (2021-01-28)
+* (Apollon77) Update Routines API because of amazon changes
 
 ### 3.5.6 (2021-01-22)
 * (Apollon77) Catch error when deleting objects

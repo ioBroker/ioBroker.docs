@@ -132,6 +132,9 @@ Für eine optisch ansprechende Formatierung, empfehle ich folge CSS Definitionen
 ```
 
 ## Changelog
+### 2.0.2 (2021-03-19)
+(DutchmanNL) Now cron is initialized at adapter start
+
 ### 2.0.1 (2020-04-21)
 * (pix) NodeJS 10 or higher required
 
@@ -180,7 +183,7 @@ Für eine optisch ansprechende Formatierung, empfehle ich folge CSS Definitionen
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2020 pix
+Copyright (c) 2016-2021 pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

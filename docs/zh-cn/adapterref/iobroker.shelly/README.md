@@ -3,11 +3,11 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/README.md
 title: ioBroker.shelly
-hash: mfGvqbr1ILQHaKyiD3jrGqQ2180YJdt7BQ1ZhTmvopA=
+hash: aUx4LgA4Rh+9FvJOkaNIVlYNJve3nA6el/g/iebpyEw=
 ---
-![商标](../../../en/adapterref/iobroker.shelly/admin/shelly.png)
+![标识](../../../en/adapterref/iobroker.shelly/admin/shelly.png)
 
-![建立状态](https://travis-ci.org/schmupu/ioBroker.shelly.svg?branch=master)
+![建置状态](https://travis-ci.org/schmupu/ioBroker.shelly.svg?branch=master)
 ![AppVeyor构建状态](https://ci.appveyor.com/api/projects/status/github/schmupu/ioBroker.shelly?branch=master&svg=true)
 ![安装数量](http://iobroker.live/badges/shelly-stable.svg)
 ![NPM版本](http://img.shields.io/npm/v/iobroker.shelly.svg)
@@ -18,13 +18,15 @@ hash: mfGvqbr1ILQHaKyiD3jrGqQ2180YJdt7BQ1ZhTmvopA=
 需要node.js 8.0或更高版本以及Admin v3！
 
 适配器通过REST api和CoAP或MQTT协议与Shelly设备通信。
-默认为Shelly固件（无需刷新固件！）。您可以在这里找到有关该设备的更多详细信息：[雪莉](https://shelly.cloud/)
+默认情况下为Shelly固件（无需刷新固件！）。您可以在这里找到有关该设备的更多详细信息：[雪莉](https://shelly.cloud/)
 
 如果您使用CoAP协议，则带固件1.8.0或更高版本的Shelly设备仅适用于Shelly Adapter 4.0.0或更高版本。如果您使用固件低于1.8.0的设备（Shelly 4Pro除外），则必须使用Shelly Adapter 3.3.6或更低版本。在这种情况下，Shelly Adapter 4.0.0或更高版本将无法工作！
 
+请注意，高于1.9.4的新固件版本必须输入CoAP的CoIoT服务器。您必须输入ioBroker服务器的IP地址，然后输入Shelly设备上的端口5683。例如，ioBroker在IP地址192.168.1.2上运行。现在，您必须输入192.168.1.2:5683并激活CoIoT。
+
 **此适配器使用Sentry库自动向开发人员报告异常和代码错误。**更多详细信息，请参见下文！
 
-##安装
+＃＃ 安装
 您可以在此处找到详细的安装文档：[安装文件](./docs/EN/INSTALL.md)
 
 ##支持的设备
@@ -59,18 +61,40 @@ hash: mfGvqbr1ILQHaKyiD3jrGqQ2180YJdt7BQ1ZhTmvopA=
 | Shelly门窗传感器2（SHDW-2）|自v3.3.5起受支持|自v3.3.5起受支持|
 | Shelly Uni（SHUNI-1）|自v4.0.4起受支持|自v4.0.4起受支持|
 | Shelly 1L（SHSW-L）|自v4.0.5起受支持|自v4.0.5起受支持|
+| Shelly彩色灯泡（SHCB-1）|自v4.0.5起受支持|自v4.0.5起受支持|
+| Shelly Button（SHBTN-2）|自v4.0.5起受支持|自v4.0.5起受支持|
+| Shelly Motion（SHMOS-01）|自v4.0.6起受支持|自v4.0.6起受支持|
 
 ##什么是Sentry，什么报告给服务器？
 Sentry.io是开发人员从其应用程序中获得有关错误概述的一种方式。确切地说，这是在此适配器中实现的。
 
-当适配器崩溃或发生其他代码错误时，此错误消息（也出现在ioBroker日志中）将提交给我们在德国托管的Sentry服务器。当您允许ioBroker GmbH收集诊断数据时，还将包括您的安装ID（这是唯一ID，**没有**有关您的任何其他信息，电子邮件，姓名等）。这使Sentry可以对错误进行分组并显示有多少唯一用户受此错误影响。所有这些都帮助我提供了基本不会崩溃的无错误适配器。
+当适配器崩溃或发生其他代码错误时，此错误消息（也出现在ioBroker日志中）将提交给我们在德国托管的Sentry服务器。当您允许ioBroker GmbH收集诊断数据时，还将包括您的安装ID（这是唯一ID，**没有**有关您，电子邮件，姓名等的任何其他信息）。这使Sentry可以对错误进行分组，并显示有多少唯一用户受此错误影响。所有这些都帮助我提供了基本上不会崩溃的无错误适配器。
 
 ## Changelog
 
-### 4.0.5-beta (2020-11-27)
+
+### 4.0.7-beta-3 (2021-02-07)
+* (Stübi) - fixing the wrong identifier name from green to blue - Issue #334
+* (Stübi) - renamed Shelly Motion MQTT name 
+* (Stübi) - Because polling for battery devices is only permieted every 60 sec., the online state will not supported anymore. 
+* (Stübi) - Polling for all battery devices changed to 60 sec. This can not be changed to any other value, still if you a power supply.
+
+### 4.0.6 (2021-02-02)
+* (Stübi) - add min, max to state transiton for Shelly RGBW2 
+* (Stübi) - if a property in the returned json for a http request does not exist, it will not shown as an error anymore
+* (Stübi) - Bugfixing Shelly 1L
+* (klein0r) - Added shelly motion (SHMOS-01) 
+
+
+### 4.0.5 (2021-02-01)
 * (Matze2010) - Add Support for Shelly Uni (SHSW-L)
 * (Matze2010) - Shelly 2.5 Roller: Support for favorite positions 
 * (Stübi) - Bugfixing TypeError in Shelly Plug implementation (Issue #281)
+* (Stübi) - Support of Shelly Color Bulb (SHCB-1) - Issue #317
+* (Stübi) - Support of Shelly Button 1 (SHBTN-2) - Issue #316, #302, #303
+* (Stübi) - add state Total_Returned for Shelly EM3 - Issue #299
+* (Stübi) - add state transiton and fade_rate to Shelly Dimmer - Issue #260
+* (Stübi) - add state transiton for Shelly RGBW2 - Issue #289
 
 ### 4.0.4 (2020-11-15)
 * (Apollon77) update dependencies and shelly-iot lib

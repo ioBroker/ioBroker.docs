@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventorywo
-hash: tqeyHK4JyPV3bx0J33Gy6Qp962koZbw49WlY0Cc+PQc=
+hash: EsnAj/k5t+GnG0yC3lbNfeptFavgrkT07OATg57YxkI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -19,9 +19,9 @@ hash: tqeyHK4JyPV3bx0J33Gy6Qp962koZbw49WlY0Cc+PQc=
 ![НПМ](https://nodei.co/npm/iobroker.vis-inventwo.png?downloads=true)
 
 # IoBroker.vis-inventorywo
-## Schalter Widgets для адаптера ioBroker.vis
+## Виджеты Schalter для адаптера ioBroker.vis
 ###### .. ab v 2.0.0
-<table><tr><td><center><b>Универсальный</b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td><td><center> <b>Мульти</b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td><td><center> <b>Образ</b><br><img src="widgets/vis-inventwo/img/Image.png"></td><td><center> <b>Стол</b> <br><img src="widgets/vis-inventwo/img/Table.png"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>Список</b><br><img src="widgets/vis-inventwo/img/List.png"></td><td><center> <b>Шатер</b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td><td><center> <b>Переключатель</b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td><td><center> <b>Ползунок вертикальный</b> <br><img src="widgets/vis-inventwo/img/Slider2.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Слайдер горизонтальный</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td><td><center> <b>Colorslider горизонтальный</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td><td><center> <b>Colorslider горизонтальный</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td><td><center> <b>Переключить переключатель</b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td></tr></table>
+<table><tr><td><center><b>Универсальный</b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td><td><center> <b>Мульти</b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td><td><center> <b>Изображение</b><br><img src="widgets/vis-inventwo/img/Image.png"></td><td><center> <b>Таблица</b> <br><img src="widgets/vis-inventwo/img/Table.png"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>Список</b><br><img src="widgets/vis-inventwo/img/List.png"></td><td><center> <b>Шатер</b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td><td><center> <b>Переключатель</b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td><td><center> <b>Ползунок вертикальный</b> <br><img src="widgets/vis-inventwo/img/Slider2.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Ползунок горизонтальный</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td><td><center> <b>Colorslider горизонтальный</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td><td><center> <b>Colorslider горизонтальный</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td><td><center> <b>Переключить переключатель</b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td></tr></table>
 
 ###### .. v 1.3.8
 ![Beispiel](http://resources.inventwo.com/github/inventwo/Set.png)
@@ -38,9 +38,54 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 (Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker)
 
-[![Sdency] (http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GQPD3G25CKTEJ&source=url)
+[![Sdency] (http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
+
+## 2.9.1
+- Исправлена ошибка
+
+## 2.9.0
+- Мульти-виджет-статус отображается без изменений виджет-Тип nach Datenpunkten или Views prüfen
+- Optionen zum automatischen Schließen des Popups hinzugefügt
+- Исправление ошибок
+
+## 2.8.3
+- Исправлена ошибка
+
+## 2.8.2
+- Problem mit Colorslider behoben: Wert wird nicht in Datenpunkt gesetzt, wenn "Wert bei Freigabe aktualisieren" aktiviert ist ",
+
+## 2.8.1
+- Fehler behoben: Color Slider RGB актуально на Dp Änderung nicht (WICHTIG: Datenpunkte müssen neu ausgewählt werden!)
+
+## 2.8.0
+- Просмотр в PopUp Option для универсального и мульти-виджета hinzugefügt
+- Исправлена ошибка
+
+## 2.7.11
+- Исправлена ошибка
+
+## 2.7.10
+- Problem mit Bildern im Universal und Multi Widget behoben
+- Проблема с Bildwechesl im Universal и Multi Widget behoben
+
+## 2.7.9
+- Option für die Bildgröße für das Image-Widget hinzugefügt
+- Fehler von vorheriger Version behoben
+
+## 2.7.8
+- Проблема с Textausrichtung behoben
+- Problem mit Bildgröße im Image-Widget behoben
+
+## 2.7.7
+- Problem mit der Bildgröße behoben
+- Problem mit dem Farbregler behoben, dass der Wert beim loslassen nicht gespeichert wurde
+
+## 2.7.6
+- Проблема с Symbolfarbe für Navi-Widget behoben
+- Problem mit Hervorhebung auf Touch-Geräten behoben
+- Проблема с Radiobutton-Widget и Datentyp Zahlen behobenn
 
 ## 2.7.5
 - JSON Tabelle farbliche Schwellenwerte für Zahlen
@@ -72,7 +117,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 - JSON Tabelle Kopfzeile kann fixiert werden
 - JSON Tabelle Fehler beim sortieren behoben
 - JSON Tabelle konfigurierbare Dummyzeile wenn JSON leer ist
-- Fehler behoben
+- Фелер Бехобен
 
 ## 2.6.0
 - Универсальный и мульти-виджет Vergleichsoperatoren gleich, größer, kleiner und nicht hinzugefügt
@@ -156,7 +201,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 - Fehler im Multi Widget behoben: Bilder und Text wechseln nicht bei Typ Navigation
 
 ## 2.2.1
-- Fehler в JSON Tabelle behoben, wenn kein gültiges JSON-Objekt vorhanden ist
+- Фелер в JSON Tabelle behoben, wenn kein gültiges JSON-Objekt vorhanden ist
 - Fehler в Value-List behoben: Wert wird nicht aktualisiert
 
 ## 2.2.0
@@ -185,10 +230,10 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 - Исправлена проблема с числовыми значениями
 
 ### 1.3.7
-- Исправлена проблема с навигацией по тачскринам
+- Исправлена проблема с навигацией по тачскринам.
 
 ### 1.3.6
-- Добавлена опция установки состояния для навигации
+- Добавлена опция установки состояния для навигации.
 - Исправлена проблема с точками данных без конфигурации.
 
 ### 1.3.5
@@ -238,7 +283,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 - Изменены виджеты кнопок для использования шрифта и текста по умолчанию.
 
 ### 1.0.0
-- Фон виджета и прозрачность контента, переключатель можно изменить с логического на значение, значки изменены с белого на черный, добавлены бесшовные фоны
+- Фон виджета и непрозрачность содержимого, переключатель можно изменить с логического на значение, значки изменены с белого на черный, добавлены бесшовные фоны
 
 ### 0.1.2
 - Исправление ошибок

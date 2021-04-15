@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: tB2ZoSeU+uiU1nCXjDPAxzxsj46Lg9vwLIwzPOdlofg=
+hash: 8aotru73N3/+THRhHXAzo4uriEoughYC2hblYdLXlUY=
 ---
-![商标](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
+![标识](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
 ![安装数量](http://iobroker.live/badges/ebus-stable.svg)
 ![NPM版本](https://img.shields.io/npm/v/iobroker.ebus.svg)
@@ -22,18 +22,24 @@ hash: tB2ZoSeU+uiU1nCXjDPAxzxsj46Lg9vwLIwzPOdlofg=
 
 该适配器读取
 
--使用html从ebusd获取数据
+-使用html从ebusd提取数据
 
-在这种情况下，ebusd必须运行并且必须能够将数据发送到例如通过http：// IP：port / data（http://192.168.0.123:8889/data）的资源管理器。可以从https://github.com/john30/ebusd复制配置文件。解析所有包含数据，lastup和来自global部分的字段。目前，其他所有内容都将被忽略。
+在这种情况下，ebusd必须运行并且必须能够将数据发送到例如通过http：// IP：port / data（http://192.168.0.123:8889/data）的资源管理器。可以从https://github.com/john30/ebusd复制配置文件。解析所有包含数据，lastup和来自global部分的字段。此刻，所有其他人都将被忽略。
 
-可能会轮询未通过ebusd直接轮询的数据。命令“ read -f”用于强制通过ebus进行读取。
+有可能会轮询未通过ebusd直接轮询的数据。命令“ read -f”用于强制通过ebus进行读取。
 
-另一个功能是将任何命令发送到ebusd并接收答案，例如脚本。
+另一个功能是发送任何命令到ebusd并接收答案，例如脚本。
 
 当前支持的ebusd版本：3.3
 
 ＃＃ 已知的问题
 *如果发现错误或有新功能，请在[github]（https://github.com/rg-engineering/ioBroker.ebus/issues）上创建问题
+
+## 2.2.5（2021-03-21）
+*（René）依赖关系已更新
+
+## 2.2.4（2021-02-17）
+*（René）参见问题＃42：未捕获的ReferenceError：未在已解决的小部件中定义oView
 
 ## 2.2.3（2020-10-24）
 *（René）创建历史记录DP（如果不可用）
@@ -43,7 +49,7 @@ hash: tB2ZoSeU+uiU1nCXjDPAxzxsj46Lg9vwLIwzPOdlofg=
 *（René）更新依赖项
 
 ## 2.1.1（2020-06-27）
-*（René）问题＃26：错误修复：“找不到cmd”只是调试消息，而不是错误
+*（René）问题＃26：错误修复：“找不到cmd”仅是调试消息，而不是错误
 
 ## 2.1.0（2020-06-17）
 *（René）重构：使用了“异步/等待”
@@ -88,7 +94,7 @@ hash: tB2ZoSeU+uiU1nCXjDPAxzxsj46Lg9vwLIwzPOdlofg=
 *（René）通过TCP将日期写入ebusd
 
 ### 0.4.2
-*（René）管理员V3错误修复
+*（René）管理员V3的错误修复
 
 ### 0.4.1
 *（René）徽标已更改
@@ -116,7 +122,7 @@ hash: tB2ZoSeU+uiU1nCXjDPAxzxsj46Lg9vwLIwzPOdlofg=
 ## Changelog
 
 ## License
-Copyright (C) <2017 - 2020>  <info@rg-engineering.eu>
+Copyright (C) <2017 - 2021>  <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/README.md
 title: ioBroker.shelly
-hash: mfGvqbr1ILQHaKyiD3jrGqQ2180YJdt7BQ1ZhTmvopA=
+hash: aUx4LgA4Rh+9FvJOkaNIVlYNJve3nA6el/g/iebpyEw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.shelly/admin/shelly.png)
 
@@ -17,10 +17,12 @@ hash: mfGvqbr1ILQHaKyiD3jrGqQ2180YJdt7BQ1ZhTmvopA=
 # IoBroker.shelly
 Требуется node.js 8.0 или выше и Admin v3!
 
-Адаптер взаимодействует с устройствами Shelly с помощью REST api и протокола CoAP или MQTT.
-По умолчанию прошивка Shelly (прошивка прошивки не требуется!). Вы найдете более подробную информацию об устройстве здесь: [Шелли](https://shelly.cloud/)
+Адаптер взаимодействует с устройствами Shelly через REST api и протокол CoAP или MQTT.
+По умолчанию прошивка Shelly (прошивка прошивки не требуется!). Вы можете найти более подробную информацию об устройстве здесь: [Шелли](https://shelly.cloud/)
 
-Если вы используете протокол CoAP, устройства Shelly с прошивкой 1.8.0 или выше работают только с Shelly Adapter 4.0.0 или выше. Если вы используете устройства с прошивкой ниже 1.8.0, за исключением Shelly 4Pro, вам необходимо использовать Shelly Adapter 3.3.6 или ниже. Адаптер Shelly 4.0.0 и выше в этом случае работать не будет!
+Если вы используете протокол CoAP, устройства Shelly с прошивкой 1.8.0 или выше работают только с Shelly Adapter 4.0.0 или выше. Если вы используете устройства с прошивкой ниже 1.8.0, за исключением Shelly 4Pro, вам необходимо использовать Shelly Adapter 3.3.6 или ниже. Адаптер Shelly 4.0.0 или более поздней версии в этом случае работать не будет!
+
+Внимание, новые версии прошивки выше 1.9.4 вам необходимо ввести CoIoT-сервер для CoAP. Вам необходимо ввести IP-адрес вашего сервера ioBroker, а затем порт 5683 на вашем устройстве Shelly. Например, ioBroker работает с IP-адресом 192.168.1.2. Теперь вам нужно ввести 192.168.1.2:5683 и активировать CoIoT.
 
 ** Этот адаптер использует библиотеки Sentry, чтобы автоматически сообщать мне как разработчику об исключениях и ошибках кода. ** Подробнее см. Ниже!
 
@@ -59,18 +61,40 @@ hash: mfGvqbr1ILQHaKyiD3jrGqQ2180YJdt7BQ1ZhTmvopA=
 | Датчик двери / окна Shelly 2 (SHDW-2) | поддерживается с v3.3.5 | поддерживается с v3.3.5 |
 | Shelly Uni (SHUNI-1) | поддерживается с v4.0.4 | поддерживается с v4.0.4 |
 | Shelly 1L (SHSW-L) | поддерживается с v4.0.5 | поддерживается с v4.0.5 |
+| Цветная лампа Shelly (SHCB-1) | поддерживается с v4.0.5 | поддерживается с v4.0.5 |
+| Shelly Button (SHBTN-2) | поддерживается с v4.0.5 | поддерживается с v4.0.5 |
+| Shelly Motion (SHMOS-01) | поддерживается с v4.0.6 | поддерживается с v4.0.6 |
 
 ## Что такое Sentry и что передается на серверы?
 Sentry.io - это способ для разработчиков получить обзор ошибок в своих приложениях. Именно это и реализовано в этом адаптере.
 
-Когда адаптер выходит из строя или возникает другая ошибка кода, это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется на наш собственный сервер Sentry, расположенный в Германии. Когда вы разрешили ioBroker GmbH собирать диагностические данные, включается также ваш установочный идентификатор (это просто уникальный идентификатор **без** дополнительной информации о вас, электронной почты, имени и т. Д.). Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуты такой ошибкой. Все это помогает мне предоставлять безошибочные адаптеры, которые практически никогда не дают сбоев.
+Когда адаптер выходит из строя или возникает другая ошибка кода, это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется на наш собственный сервер Sentry, расположенный в Германии. Когда вы разрешили ioBroker GmbH собирать диагностические данные, включается также ваш установочный идентификатор (это просто уникальный идентификатор **без** дополнительной информации о вас, адрес электронной почты, имя и т. Д.). Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуты такой ошибкой. Все это помогает мне предоставлять безошибочные адаптеры, которые практически никогда не дают сбоев.
 
 ## Changelog
 
-### 4.0.5-beta (2020-11-27)
+
+### 4.0.7-beta-3 (2021-02-07)
+* (Stübi) - fixing the wrong identifier name from green to blue - Issue #334
+* (Stübi) - renamed Shelly Motion MQTT name 
+* (Stübi) - Because polling for battery devices is only permieted every 60 sec., the online state will not supported anymore. 
+* (Stübi) - Polling for all battery devices changed to 60 sec. This can not be changed to any other value, still if you a power supply.
+
+### 4.0.6 (2021-02-02)
+* (Stübi) - add min, max to state transiton for Shelly RGBW2 
+* (Stübi) - if a property in the returned json for a http request does not exist, it will not shown as an error anymore
+* (Stübi) - Bugfixing Shelly 1L
+* (klein0r) - Added shelly motion (SHMOS-01) 
+
+
+### 4.0.5 (2021-02-01)
 * (Matze2010) - Add Support for Shelly Uni (SHSW-L)
 * (Matze2010) - Shelly 2.5 Roller: Support for favorite positions 
 * (Stübi) - Bugfixing TypeError in Shelly Plug implementation (Issue #281)
+* (Stübi) - Support of Shelly Color Bulb (SHCB-1) - Issue #317
+* (Stübi) - Support of Shelly Button 1 (SHBTN-2) - Issue #316, #302, #303
+* (Stübi) - add state Total_Returned for Shelly EM3 - Issue #299
+* (Stübi) - add state transiton and fade_rate to Shelly Dimmer - Issue #260
+* (Stübi) - add state transiton for Shelly RGBW2 - Issue #289
 
 ### 4.0.4 (2020-11-15)
 * (Apollon77) update dependencies and shelly-iot lib

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.heos/README.md
 title: ioBroker.heos
-hash: DCjvEfljhMQR9HEQnV7G6zbATno+KP5R6w8X5bmIxLk=
+hash: xMScfDEp8hMGPeoSdX8S0DZ9fWX9k0DpFcVmOSakMnA=
 ---
 ![商标](../../../en/adapterref/iobroker.heos/admin/heos.png)
 
@@ -19,11 +19,19 @@ hash: DCjvEfljhMQR9HEQnV7G6zbATno+KP5R6w8X5bmIxLk=
 ## Heos ioBroker适配器
 该适配器可以从ioBroker控制HEOS
 
-##配置
-*“自动播放”：连接播放器或处于静音状态后自动播放音乐。可以在配置中全局配置。如果已全局启用它，则可以使用状态auto_play禁用一个特定播放器
-*“ ignore_broadcast_cmd”：如果播放器应该忽略对所有播放器的命令，则配置该播放器状态，例如播放器/ set_mute＆state = on或按播放按钮获取预设/播放列表
+＃＃ 配置
+* **自动播放**：连接播放器或处于静音状态后自动播放音乐。可以在配置中全局配置。如果全局启用了该功能，则可以针对状态为“ auto_play”的一个特定玩家禁用该功能。
+* **命令范围**：定义将“ scope / [cmd]”命令发送到哪个玩家。它可以发送给所有播放器，所有主要播放器或处于逗号分隔状态的所有PID：```heos.0.command_scope_pid```
+* **静音正则表达式**：
 
-##命令
+在配置中，您可以根据歌曲信息的正则表达式匹配，激活使播放器静音的功能。可以用来自动使广告静音。例如，对于Spotify，您可以使用以下正则表达式：```spotify:ad:|Advertisement```。
+
+* **ignore_broadcast_cmd** 如果播放器应忽略对所有播放器的命令，则配置此播放器状态，例如播放器/ set_mute＆state = on或按播放按钮以获取预设/播放列表
+
+＃＃ 寻找
+搜寻功能并非在所有来源上都适用。 Spotify和Amazon Music支持寻求。
+
+##命令状态
 HEOS CLI规范：http://rn.dmglobal.com/euheos/HEOS_CLI_ProtocolSpecification.pdf
 
 ### HEOS命令状态
@@ -31,6 +39,8 @@ HEOS CLI规范：http://rn.dmglobal.com/euheos/HEOS_CLI_ProtocolSpecification.pd
 *“系统/断开连接”：与HEOS断开连接
 *“系统/重新连接”：断开并连接
 *“ system / load_sources”：重新加载源
+*“系统/重新启动”：重新启动连接的播放器
+*“ system / reboot_all”：重新启动所有播放器
 *“ group / set_group？pid = <pid1>，<pid2>，...”：使用玩家ID列表设置组，例如“ group / set_group？pid = 12345678,12345679”。
 *“ group / set_group？pid = <pid1>”：删除现有的组，例如“组/ set_group？pid = 12345678”
 *“ group / ungroup_all”：删除所有组
@@ -40,8 +50,8 @@ HEOS CLI规范：http://rn.dmglobal.com/euheos/HEOS_CLI_ProtocolSpecification.pd
 *“ scope / [cmd]”：将命令scope_pids中的所有播放器，前导播放器或逗号分隔的播放器pid发送到已配置的作用域
 *“ ...”：尝试将所有其他命令发送到HEOS
 
-###玩家命令状态
-注意：如果多个命令与管道分开，则可以使用多个命令，例如set_volume＆level = 20 | play_preset＆preset = 1
+###播放器命令状态
+注意：如果多个命令与管道分开，则可能是多个命令，例如set_volume＆level = 20 | play_preset＆preset = 1
 
 *“ set_volume＆level = 0 | 1 | .. | 100”：设置播放器音量
 *“ set_play_state＆state =播放|暂停|停止”：设置播放器状态
@@ -55,181 +65,98 @@ HEOS CLI规范：http://rn.dmglobal.com/euheos/HEOS_CLI_ProtocolSpecification.pd
 *“ play_stream＆url = url_path”：播放URL流
 *“ add_to_queue＆sid = 1025＆aid = 4＆cid = [CID]”：播放器上带有[CID]的播放列表（帮助：1 –现在播放； 2 –接下来播放； 3 –添加到结尾； 4 –替换并播放）
 
-##使正则表达式静音
-在配置中，您可以根据歌曲信息的正则表达式匹配，激活使播放器静音的功能。可以用来自动静音广告。例如，对于Spotify，您可以使用以下正则表达式：```spotify:ad:|Advertisement```。
+##图像颜色提取
+使用版本1.7.6时，将提取歌曲封面的突出颜色并将其保存到三种新的播放器状态：
 
-##浏览源
-为了减少ioBroker中的状态量，只有播放列表和预设会自动存储在状态中。但是，首先必须单击播放列表或预设文件夹中的浏览按钮。您可以在“源”文件夹中找到并控制它们。如果要浏览来源的音乐，只需按浏览按钮。您将在sources.browse_result状态中找到浏览结果。还提供了一些命令，可以更深入地浏览或播放资源。只需将命令粘贴到全局HEOS命令字段中即可。如果这是一个浏览命令，您将在Browse_result状态下找到结果。在配置中，您可以找到一个选项来控制播放命令的范围。这样一来，您可以控制播放命令是发给所有玩家，所有领导者和非小组玩家还是在状态command_scope_pid中定义的玩家ID列表。
+* **current_image_color_palette** 节点活跃选择的突出颜色。
+* **current_image_color_background** 图像中人口最多的颜色。可用作VIS中播放器控件的背景色。
+* **current_image_color_foreground** 图像中人口第二多的颜色，并且与背景颜色具有良好的读取对比度。可用作VIS中播放器控件的文本颜色。
 
-对于VIS集成，您可以使用browser_result和以下脚本来生成html表（该表未集成在适配器中，因此您可以为其设置样式）。或者，您可以使用来自Uhula https://forum.iobroker.net/post/498779的脚本：
+##说
+支持[SayIt转接器](https://github.com/ioBroker/ioBroker.sayit)。
 
-```javascript
-on({id: 'heos.0.sources.browse_result', change: 'any'}, function (obj) {
-  let data = JSON.parse(obj.state.val);
-  let html = `<style>
-  .heos-browse {
-      background-color: #333333;
-      color: #eaeaea;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      overflow: auto;
-  }
-  .heos-browse table {
-      width: 100%;
-      border-collapse: collapse;
-  }
-  .heos-browse table,
-  .heos-browse th,
-  .heos-browse td {
-      border: 1px solid #929292;
-      border-width:1px 0;
-  }
-  .heos-browse th {
-      font-size: 2em;
-      border: 1px solid #c50000;
-      border-width: 0 0 1px 0;
-      text-align: center;
-  }
-  .heos-browse th {
-      padding: 15px;
-      height: 60px;
-  }
-  .heos-browse td {
-      padding: 5px;
-      height: 60px;
-  }
-  .heos-browse-btn {
-      color: #fff;
-      background-color: Transparent;
-      background-repeat:no-repeat;
-      border: none;
-      cursor:pointer;
-      overflow: hidden;
-      outline:none;
-      margin: 0 !important;
-      padding: 0 !important;
-      font-size: 30px !important;
-      line-height: 30px;
-      width: 60px;
-      height: 60px;
-  }
-  .heos-browse-btn-multi {
-      border-right: 1px solid #929292;
-  }
-  .heos-browse-row-media {
-      cursor: pointer;
-  }
-  .heos-browse-row-control {
-      color: #d60000;
-      cursor: pointer;
-  }
-  .heos-browse-image {
-      white-space: nowrap;
-      padding: 0 !important;
-      text-align: right;
-      font-size: 0;
-  }
-  .heos-browse-image img {
-      height: 60px;
-  }
-  .heos-browse-name {
-      width: 100%;
-      text-align: left;
-  }
-  .heos-browse-control {
-      padding: 0 !important;
-      margin: 0 !important;
-      white-space: nowrap;
-      font-size: 0;
-      text-align: right;
-  }
-  </style>`;
-  if(data){
-      html += "<div class=\"heos-browse\">"
-      html += "<table>"
-      html += "<tr><th>";
-      if(data.image_url.length){
-          html += "<img src=\"" + data.image_url + "\" height=\"30px\">";
-      }
-      html += "</th><th>" + (data.name == "sources" ? "Overview" : data.name) + "</th><th></th></tr>";
-      for (let i = 0; i < data.payload.length; i++) {
-          let payload = data.payload[i];
-          html += "<tr class=\"";
-          if(payload.type == "control"){
-            html += "heos-browse-row-control";
-          } else {
-              html += "heos-browse-row-media"
-          }
-          html += "\">";
-          html += "<td class=\"heos-browse-image\"";
-          if("browse" in payload.commands){
-              html += " onClick=\"servConn.setState('heos.0.command','" + payload.commands["browse"].replace(/'/g, "\\'") +"')\"";
-          } else if(Object.keys(payload.commands).length == 1){
-              html += " onClick=\"servConn.setState('heos.0.command','" + payload.commands[Object.keys(payload.commands)[0]].replace(/'/g, "\\'") +"')\"";
-          }
-          html += ">"
-          if(payload.image_url.length){
-            html += "<img src=\"" + payload.image_url + "\">";
-          }
-          html += "</td>";
-          html += "<td class=\"heos-browse-name\"";
-          if("browse" in payload.commands){
-              html += " onClick=\"servConn.setState('heos.0.command','" + payload.commands["browse"].replace(/'/g, "\\'") + "')\"";
-          } else if(Object.keys(payload.commands).length == 1){
-              html += " onClick=\"servConn.setState('heos.0.command','" + payload.commands[Object.keys(payload.commands)[0]].replace(/'/g, "\\'") +"')\"";
-          }
-          html += ">"
-          if(payload.type == "control"){
-            switch(payload.name){
-              case "load_next":
-                html += "Next page";
-                break;
-              case "load_prev":
-                html += "Previous page";
-                break;
-              case "play_all":
-                html += "Play all";
-                break;
-              case "back":
-                html += "Back";
-                break;
-              case "sources":
-                html += "Overview";
-                break;
-            }
-          } else {
-            html += payload.name;
-          }
-          html +="</td>";
-          html += "<td class=\"heos-browse-control\">";
-          for (let key in payload.commands) {
-            let command = payload.commands[key];
-            html += "<button class=\"heos-browse-btn"
-            if(Object.keys(payload.commands).length > 1){
-                html += " heos-browse-btn-multi"
-            }
-            html += "\" onClick=\"servConn.setState('heos.0.command','" + command.replace(/'/g, "\\'") +"')\">"
-            switch(key){
-                case "play":
-                html += "►";
-                break;
-                case "browse":
-                html += ">";
-                break;
-            }
-            html += "</button>";
-          }
-          html += "</td>";
-          html += "</tr>";
-      }
-      html += "</table></div>";
-  }
-  setState("0_userdata.0.heos.browse_result_html", html);
-});
-```
+![说](docs/media/sayit.png)![说配置](../../../en/adapterref/iobroker.heos/docs/media/sayit-config.png)
+
+##材质用户界面
+支持[材质UI适配器](https://github.com/ioBroker/ioBroker.material)。
+
+![材料](../../../en/adapterref/iobroker.heos/docs/media/material-ui.png)
+
+##预设和播放列表
+适配器不会自动请求当前的播放列表和预设。要更新/请求数据并创建播放状态，您必须首先浏览源：
+
+-预设/收藏夹：``heos.0.sources.1028.browse`''
+-播放列表：```heos.0.sources.1025.browse`''
+
+## VIS
+＃＃＃ 安装
+*创建以下字符串状态：
+    * 0_userdata.0.heos.queue_pid
+    * 0_userdata.0.heos.queue_html
+    * 0_userdata.0.heos.browse_result_html
+
+###播放器视图
+*打开文件：[player_view.json]（docs / vis / views / player_view.json）
+*将123456789替换为玩家pid
+*将视图导入VIS
+
+![播放器视图](../../../en/adapterref/iobroker.heos/docs/media/player-view.png)
+
+###预设
+*单击按钮``heos.0.sources.1028.browse`''以加载预设
+*打开文件：[presets_view.json]（docs / vis / views / presets_view.json）
+*将视图导入VIS
+
+![预设配置](docs/media/presets-config.png)![预设值](../../../en/adapterref/iobroker.heos/docs/media/presets.png)
+
+＃＃＃ 队列
+*队列小部件：[queue_player_widget.json]（docs / vis / views / queue_player_widget.json）
+*队列视图：[queue_view.json]（docs / vis / views / queue_view.json）
+*队列HTML生成脚本：[queue.js]（docs / vis / scripts / queue.js）
+
+![队列小部件](../../../en/adapterref/iobroker.heos/docs/media/queue-widget.png)
+
+###浏览源
+*浏览小工具：[browse_player_widget.json]（docs / vis / views / browse_player_widget.json）
+*浏览视图：[browse_view.json]（docs / vis / views / browse_view.json）
+*浏览HTML生成脚本：[browse.js]（docs / vis / scripts / browse.js）
+
+![浏览小部件](docs/media/browse-widget.png)![浏览资源](docs/media/browse-sources.png)![浏览tunein](../../../en/adapterref/iobroker.heos/docs/media/browse-tunein.png)
+
+或者，您可以使用Uhula中的脚本：https://forum.iobroker.net/post/498779
 
 ## Changelog
+
+### 1.7.8 (2021-02-25)
+* (withstu) add reboot
+
+### 1.7.7 (2021-02-25)
+* (withstu) add creation of missing version state
+
+### 1.7.6 (2021-02-24)
+* (withstu) add image color extraction
+
+### 1.7.5 (2021-02-12)
+* (withstu) add bit depth
+
+### 1.7.4 (2021-02-01)
+* (withstu) fix upnp init bug
+
+### 1.7.3 (2021-02-01)
+* (withstu) add upnp module and support bitrate, audio format and sample rate
+
+### 1.7.2 (2021-01-30)
+* (withstu) fix seek in groups
+
+### 1.7.1 (2021-01-30)
+* (withstu) add seek
+
+### 1.7.0 (2021-01-29)
+* (withstu) reboot not responding players
+* (withstu) delete old presets and playlists
+
+### 1.6.2 (2021-01-02)
+* (withstu) fix "user not logged in" handling
 
 ### 1.6.1 (2020-11-25)
 * (withstu) clear timeout and interval on unload; fix roles; remove sleep in tts module
@@ -310,7 +237,7 @@ on({id: 'heos.0.sources.browse_result', change: 'any'}, function (obj) {
 ## License
 MIT License
 
-Copyright (c) 2020 withstu <withstu@gmx.de>
+Copyright (c) 2021 withstu <withstu@gmx.de>
 
 derived from https://forum.iobroker.net/topic/10420/vorlage-denon-heos-script by Uwe Uhula
 TTS derived from https://github.com/ioBroker/ioBroker.sonos

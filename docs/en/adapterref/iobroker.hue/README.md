@@ -7,6 +7,14 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.hue.svg)](https://www.npmjs.com/package/iobroker.hue)
 [![NPM](https://nodei.co/npm/iobroker.hue.png?downloads=true)](https://nodei.co/npm/iobroker.hue/)
 
+**This adapter uses the service [Sentry.io](https://sentry.io) to automatically report exceptions and code errors and new device schemas to me as the developer.** More details see below!
+
+## What is Sentry.io and what is reported to the servers of that company?
+Sentry.io is a service for developers to get an overview about errors from their applications. Exactly this is implemented in this adapter.
+
+When the adapter crashes or another Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry.
+When you have allowed ioBroker GmbH to collect diagnostic data then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of these helps me to provide error free adapters that basically never crashs.
+
 ## English :gb:
 This adapter connects your Philips Hue Bridges with ioBroker to control Philips Hue LED bulbs, Friends of Hue LED lamps, stripes, plugs like from Osram, and other SmartLink capable devices (like LivingWhites and some LivingColors).
 
@@ -44,6 +52,31 @@ Bindet Philips Hue / LivingColors / LivingWhites Lampen ein.
 In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfiguriert werden. Um einen User zu aktivieren einmal auf create user drücken und dann innerhalb von 30 Sekunden den Button an der Hue bridge drücken. Dann wird automatisch der User übergeben. 
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
+### 3.5.5 (2021-04-07)
+* (foxriver76) fixed a bug where an error on user creation crashed the adapter instance
+
+### 3.5.4 (2021-03-25)
+* (foxriver76) fixing several edge case crashes
+
+### 3.5.2 (2021-02-24)
+* (foxriver76) fix crashes if wrong data type or invalid value passed for ct and hue, now logging an error
+* (foxriver76) fix crashes if rgb where outside allowed range or wrong type
+* (foxriver76) fix potential crashes on bridge discovery, due to unnecessary stringify/parse logic
+* (foxriver76) fix graphical issue with the label of bridge user when newly created, due to missing call of updateTextFields 
+
+### 3.5.1 (2021-02-20)
+* (foxriver76) avoid crash cases on invalid xy, setting state for non-existing device and on failing user creation
+
+### 3.5.0 (2021-02-18)
+* (foxriver76) use official js-controller regex for replacing forbidden chars (fixes #165)
+* (foxriver76) use release-script
+* (foxriver76) sentry added
+
 ### 3.4.0 (2021-01-20)
 * (foxriver76) we now restart the adapter automatically to add new devices if they have been added to bridge
 

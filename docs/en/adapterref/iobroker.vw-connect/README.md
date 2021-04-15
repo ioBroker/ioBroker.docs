@@ -112,6 +112,34 @@ Door and window states:
 
 ## Changelog
 
+### 0.0.33
+
+- add auto accept of new privacy consent
+  
+### 0.0.32
+
+- correct selection of last recent trips
+  
+### 0.0.32
+
+- correct selection of last recent trips
+  
+### 0.0.31
+
+- enable multiple selection of trip types
+  
+### 0.0.30
+
+- fix mutiple car problem, add VWv2 mode at the moment there is no different between VW and VWv2
+  
+### 0.0.29
+
+- fix skoda refreshToken, smaller improvements
+  
+### 0.0.26
+
+- bugfixes
+
 ### 0.0.25
 
 - add we charge 
@@ -156,39 +184,6 @@ Door and window states:
 
 - fix audi bug with multiple vehicles
 - hide status update error if feature is not available
-
-### 0.0.9
-
-- set default trip type to none
-
-### 0.0.7
-
-- add we connect go and remote standheizung and lock/unlock
-
-### 0.0.6
-
-- add audi
-
-### 0.0.5
-
-- add honk and flash, fix address format
-
-### 0.0.4
-
-- add Skoda support
-
-### 0.0.3
-
-- (ta2k) add more information
-- (ta2k) add remote controls
-
-### 0.0.2
-
-- (ta2k) add car status capturing
-
-### 0.0.1
-
-- (ta2k) initial release
 
 ## License
 

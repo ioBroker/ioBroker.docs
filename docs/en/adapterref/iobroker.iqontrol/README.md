@@ -50,11 +50,10 @@ Fast Web-App for Visualization.
 Runs in any Browser. 
 Easy to setup, allthough it's fully customizable and responsive.
 
-\
+> **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 ## Video-Tutorial (German Language):
 [![Demo-Video](img/play_demo.png "Open Tutorial on Youtube")](https://youtube.com/playlist?list=PL8epyNz8pGEv6-R8dnfXm-m5aBlZFKOBG)
-
-> **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 
 ## Add to Homescreen
@@ -258,7 +257,7 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 * See below for an example widget-website:
 
 <details>
-<summary>Show example widget-website to be displayed as widget with postMessage-communication:</summary>
+<summary>Show example widget-website to be displayed as widget with postMessage-communication: (<ins>klick to open</ins>)</summary>
 
 * You can use the following HTML code and copy it to the BACKGROUND_HTML-State of a widget (which then needs to be configured as "Constant") 
 * As an alternative you can upload this code as html-file into the /userwidgets subdirectory and reference it to BACKGROUND_URL-State (which then also needs to be configured as "Constant")
@@ -407,9 +406,9 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* The content will be displayed when chosing the widget as URL or BACKGROUND_URL or if you autocreate a widget
 	* 'widget-urlparameters'
 		* syntax: ``<meta name="widget-urlparameters" content="parameter/default value/description/type;parameter2/default value2/description2/type2"/>``
-		* The user will be asked for these parameter when chosing the widget as URL or BACKGROUND_URL or autocreates a widget
-		* ``type`` is optional and may be ``text`` (this is dafault), ``number``, ``checkbox``, ``color``, ``select``, ``multipleSelect`` or ``historyInstance``
-		    * If type is ``select`` or ``multipleSelect`` then you need to specify the possible options by adding ``/<selectOptions>``, where ``<selectOptions>`` is a string of the format ``<value1>,<caption1>/<value2>,<caption2>/...``
+		* The user will be asked for these parameters when chosing the widget as URL or BACKGROUND_URL or autocreates a widget
+		* ``type`` is optional and may be ``text`` (this is dafault), ``number``, ``checkbox``, ``color``, ``select``, ``multipleSelect``, ``combobox``, ``historyInstance``, ``datapoint`` or ``icon``
+		    * If type is ``select``, ``multipleSelect`` or ``combobox`` then you need to specify the possible options by adding ``/<selectOptions>``, where ``<selectOptions>`` is a string of the format ``<value1>,<caption1>/<value2>,<caption2>/...`` (combobox is a selectbox with the possibility to enter free text)
 		    * If type is ``number`` then can specify min, max and step-width by adding ``/<numberOptions>``, where ``<numberOptions>`` is a string of the format ``<min>,<max>,<step>``
 		* All these parameters will be given to the widget-website via an url-parameter-string (like ``widget.html?parameter=value&parameter2=value2``)
 		* You can use these settings inside your widget-website by requesting the url-parameters with a function like this:
@@ -421,13 +420,18 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 				return results === null ? null : decodeURIComponent(results[1].replace(/\+/g, ' '));
 			};
 			````
+		    * If you used type ``icon`` for your url-parameter then you will get either a path relative to the iqontrol-directory or an absolute path to an image. To create a valid link to your image you can use this code:
+			    ````javascript
+				var iconOn = getUrlParameter('iconOn') || './images/icons/switch_on.png';
+				if(iconOn.indexOf('http') != 0) iconOn = '/iqontrol/' + iconOn;
+				````
 
 	* 'widget-options'
 		* syntax: ``<meta name="widget-options" content="{'noZoomOnHover': 'true', 'hideDeviceName': 'true'}"/>``
 		* See the expandable section below for the possible options that can be configured by this meta-tag
 
 <details>
-<summary>Show possible options that can be configured by the meta-tag 'widget-options':</summary>
+<summary>Show possible options that can be configured by the meta-tag 'widget-options': (<ins>klick to open</ins>)</summary>
 
 * Icons:
 	* ``icon_on`` (Icon on):
@@ -435,50 +439,148 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* ``icon_off`` (Icon off):
 		* Default: ""
 * Device Specific Options:
-	* ``noVirtualState`` (Do not use a virtual datapoint for STATE (hide switch, if STATE is empty)):
+	* ``showState`` (Show State) - only valid for role Button and Program:
+		* Possible values: "true"|"false"
+		* Default: "false" 
+	* ``buttonCaption`` (Caption for button) - only valid for role Button:
+		* Default: "" 
+	* ``returnToOffSetValueAfter`` (Return to 'OFF_SET_VALUE' after [ms]) - only valid for role Button:
+		* Possible values: number from 10 to 60000
+		* Default: "" 
+	* ``alwaysSendTrue`` (Always send 'true' (do not toggle)) - only valid for role Scene:
+		* Possible values: "true"|"false"
+		* Default: "false" 
+	* ``closeDialogAfterExecution`` (Close dialog after execution) - only valid for role Button, Program and Scene:
+		* Possible values: "true"|"false"
+		* Default: "false" 
+	* ``invertCt`` (Invert CT (use Kelvin instead of Mired)) - only valid for role Light:
+		* Possible values: "true"|"false"
+		* Default: "false" 
+	* ``alternativeColorspace`` (Colorspace for ALTERNATIVE_COLORSPACE_VALUE") - only valid for role Light:
+		* Possible values: ""|"RGB"|"#RGB"|"RGBW"|"#RGBW"|"RGBWWCW"|"#RGBWWCW"|"RGBCWWW"|"#RGBCWWW"|"RGB_HUEONLY"|"#RGB_HUEONLY"|"HUE_MILIGHT"|"HHSSBB_TUYA"
+		* Default: "" 
+	* ``linkGlowActiveColorToHue`` (Use color of lamp as GLOW_ACTIVE_COLOR) - only valid for role Light:
+		* Possible values: "true"|"false"
+		* Default: "false" 
+	* ``controlModeDisabledValue`` (Value of CONTROL_MODE for 'disabled') - only valid for role Thermostat:
+		* Default: "" 
+	* ``stateClosedValue`` (Value of STATE for 'closed') - only valid for role Window:
+		* Default: "" 
+	* ``stateOpenedValue`` (Value of STATE for 'opened') - only valid for role Window:
+		* Default: "" 
+	* ``stateTiltedValue`` (Value of STATE for 'tilted') - only valid for role Window:
+		* Default: "" 
+	* ``invertActuatorLevel`` (Invert LEVEL (0 = open)) - only valid for role Blind:
+		* Possible values: "true"|"false"
+		* Default: "false" 
+	* ``directionOpeningValue`` (Value of DIRECTION for 'opening') - only valid for role Window:
+		* Default: "1" 
+	* ``directionOpeningValue`` (Value of DIRECTION for 'opening') - only valid for role Window:
+		* Default: "2" 
+	* ``directionUncertainValue`` (Value of DIRECTION for 'uncertain') - only valid for role Window:
+		* Default: "3" 
+	* ``favoritePositionCaption`` (Caption for FAVORITE_POSITION) - only valid for role Window:
+		* Default: "Favorite Position" 
+	* ``stopCaption`` (Caption for STOP) - only valid for role Window:
+		* Default: "Stop" 
+	* ``downCaption`` (Caption for DOWN) - only valid for role Window:
+		* Default: "Down" 
+	* ``controlModeDisarmedValue`` (Value of CONTROL_MODE for 'disarmed') - only valid for role Alarm:
+		* Default: "0" 
+	* ``coverImageReloadDelay`` (Delay reload of cover-image [ms]) - only valid for role Media:
+		* Possible values: number from 0 to 5000
+		* Default: "" 
+	* ``statePlayValue`` (Value of STATE for 'play') - only valid for role Media:
+		* Default: "play" 
+	* ``statePauseValue`` (Value of STATE for 'pause') - only valid for role Media:
+		* Default: "pause" 
+	* ``stateStopValue`` (Value of STATE for 'stop') - only valid for role Media:
+		* Default: "stop" 
+	* ``hidePlayOverlay`` (Hide play icon) - only valid for role Media:
+		* Possible values: "true"|"false"
+		* Default: "false" 
+	* ``hidePauseAndStopOverlay`` (Hide pause and stop icon) - only valid for role Media:
+		* Possible values: "true"|"false"
+		* Default: "false" 
+	* ``repeatOffValue`` (Value of REPEAT for 'off') - only valid for role Media:
+		* Default: "false" 
+	* ``repeatAllValue`` (Value of REPEAT for 'repeat all') - only valid for role Media:
+		* Default: "true" 
+	* ``repeatOneValue`` (Value of REPEAT for 'repeat one') - only valid for role Media:
+		* Default: "2" 
+	* ``remoteKeepSectionsOpen`` (Keep sections open) - only valid for role Media:
+		* Possible values: "true"|"false"
+		* Default: "false" 
+	* ``remoteSectionsStartOpened`` (Start with these sections initially opened) - only valid for role Media:
+		* Possible values: array with "REMOTE_PAD", "REMOTE_CONTROL", "REMOTE_ADDITIONAL_BUTTONS", "REMOTE_CHANNELS", "REMOTE_NUMBERS" and/or "REMOTE_COLORS"
+		* Default: "false" 
+	* ``remoteShowDirectionsInsidePad`` (Show Vol and Ch +/- inside Pad) - only valid for role Media:
+		* Possible values: "true"|"false"
+		* Default: "false" 
+	* ``remoteChannelsCaption`` (Caption for section 'Channels') - only valid for role Media:
+		* Default: "" 
+	* ``remoteAdditionalButtonsCaption`` (Caption for section 'Additional Buttons') - only valid for role Media:
+		* Default: "" 
+	* ``noVirtualState`` (Do not use a virtual datapoint for STATE (hide switch, if STATE is empty)) - only valid for role Widget:
 		* Possible values: "true"|"false"
 		* Default: "false" 
 * General:
 	* ``readonly`` (Readonly):
 		* Possible values: "true"|"false"
 		* Default: "false" 
-	* ``invertUnreach`` (Invert UNREACH (use connected instead of unreach)):
+	* ``renderLinkedViewInParentInstance`` (Open linked view in parent instance, if this view is used as a BACKGROUND_VIEW):
 		* Possible values: "true"|"false"
 		* Default: "false" 
-	* ``additionalControlsSectionType`` (Appereance of ADDITIONAL_CONTROLS):
-		* Possible values: "none"|"collapsible"|"collapsible open"
-		* Default: "collapsible"
-	* ``additionalControlsCaption`` (Caption for ADDITIONAL_CONTROLS):
-		* Default: "Additional Controls"
-	* ``additionalInfoSectionType`` (Appereance of ADDITIONAL_INFO):
-		* Possible values: "none"|"collapsible"|"collapsible open"
-		* Default: "collapsible"
-	* ``additionalInfoCaption`` (Caption for ADDITIONAL_INFO):
-		* Default: "Additional Infos"
-* BATTERY Empty Icon:
-	* ``batteryActiveCondition`` (Condition):
-		* Possible values: ""|"at"|"af"|"eqt"|"eqf"|"eq"|"ne"|"gt"|"ge"|"lt"|"le"
-		* Default: ""
-	* ``batteryActiveConditionValue`` (Condition value):
-		* Default: ""
+	* ``renderLinkedViewInParentInstanceClosesPanel`` (After opening linked view in parent instance, close panel (if it is dismissible)):
+		* Possible values: "true"|"false"
+		* Default: "false" 
 * Tile-Behaviour (general):
 	* ``clickOnIconOpensDialog`` (Click on icon opens dialog (instead of toggling)):
 		* Possible values: "true"|"false"
 		* Default: "false" 
+	* ``clickOnTileToggles`` (Click on tile toggles (instead of opening dialog))):
+		* Possible values: "true"|"false"
+		* Default: "false" 
+	* ``clickOnTileOpensDialog`` (Click on tile opens dialog):
+		* Possible values: "true"|"false"
+		* Default: "true" (for most devices)
 	* ``noZoomOnHover`` (Disable zoom-effect on hover):
 		* Possible values: "true"|"false"
-		* Default: "true"
+		* Default: "false" (for most devices)
+	* ``iconNoZoomOnHover`` (Disable zoom-effect on hover for icon):
+		* Possible values: "true"|"false"
+		* Default: "false"
 	* ``hideDeviceName`` (Hide device name):
 		* Possible values: "true"|"false"
 		* Default: "true"
+* Conditions for an Active Tile:
+	* ``tileActiveStateId`` (State ID (empty = STATE/LEVEL will be used)):
+		* Default: ""
+	* ``tileActiveCondition`` (Condition):
+		* Possible values: ""|"at"|"af"|"eqt"|"eqf"|"eq"|"ne"|"gt"|"ge"|"lt"|"le"
+		* Default: ""
+	* ``tileActiveConditionValue`` (Condition value):
+		* Default: ""
 * Tile-Behaviour if device is inactive:
 	* ``sizeInactive`` (Size of tile, if device is inactive):
 		* Possible values: ""|"narrowIfInactive shortIfInactive"|"narrowIfInactive"|"narrowIfInactive highIfInactive"|"narrowIfInactive xhighIfInactive"|"shortIfInactive"|"shortIfInactive wideIfInactive"|"shortIfInactive xwideIfInactive"|"wideIfInactive"|"xwideIfInactive"|"highIfInactive"|"xhighIfInactive"|"wideIfInactive highIfInactive"|"xwideIfInactive highIfInactive"|"wideIfInactive xhighIfInactive"|"xwideIfInactive xhighIfInactive"|"fullWidthIfInactive aspect-1-1IfInactive"|"fullWidthIfInactive aspect-4-3IfInactive"|"fullWidthIfInactive aspect-3-2IfInactive"|"fullWidthIfInactive aspect-16-9IfInactive"|"fullWidthIfInactive aspect-21-9IfInactive"|"fullWidthIfInactive fullHeightIfInactive"|"
 		* Default: "xwideIfInactive highIfInactive"
+	* ``stateHeightAdaptsContentInactive`` (Adapt height of STATE to its content (this overwrites the tile size, if needed), if the device is inactive):
+		* Possible values: "true"|"false"
+		* Default: "false"
+	* ``stateFillsDeviceInactive`` (Size of STATE fills the complete device (this may interfere with other content), if the device is inactive):
+		* Possible values: "true"|"false"
+		* Default: "false"
+	* ``stateBigFontInactive`` (Use big font for STATE, if the device is inactive):
+		* Possible values: "true"|"false"
+		* Default: "false"
 	* ``bigIconInactive`` (Show big icon, if device is inactive):
 		* Possible values: "true"|"false"
 		* Default: "false"
 	* ``iconNoPointerEventsInactive`` (Ignore mouse events for the icon, if device is inactive):
+		* Possible values: "true"|"false"
+		* Default: "false"
+	* ``transparentIfInactive`` (Make background transparent, if device is inactive):
 		* Possible values: "true"|"false"
 		* Default: "false"
 	* ``noOverlayInactive`` (Remove overlay of tile, if device is inactive):
@@ -490,19 +592,37 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* ``hideDeviceNameIfInactive`` (Hide device name, if the device is inactive):
 		* Possible values: "true"|"false"
 		* Default: "false"
+	* ``hideInfoAIfInactive`` (Hide INFO_A, if the device is inactive):
+		* Possible values: "true"|"false"
+		* Default: "false"
+	* ``hideInfoBIfInactive`` (Hide INFO_B, if the device is inactive):
+		* Possible values: "true"|"false"
+		* Default: "false"
 	* ``hideStateIfInactive`` (Hide state, if the device is inactive):
 		* Possible values: "true"|"false"
-		* Default: "true"	* ``
+		* Default: "false"
 	* ``hideDeviceIfInactive`` (Hide device, if it is inactive):
 		* Possible values: "true"|"false"
 		* Default: "false"	* ``
 * Tile-Behaviour if device is active:
 	* ``sizeActive`` (Size of tile, if device is active):
 		* Possible values: ""|"narrowIfActive shortIfActive"|"narrowIfActive"|"narrowIfActive highIfActive"|"narrowIfActive xhighIfActive"|"shortIfActive"|"shortIfActive wideIfActive"|"shortIfActive xwideIfActive"|"wideIfActive"|"xwideIfActive"|"highIfActive"|"xhighIfActive"|"wideIfActive highIfActive"|"xwideIfActive highIfActive"|"wideIfActive xhighIfActive"|"xwideIfActive xhighIfActive"|"fullWidthIfActive aspect-1-1IfActive"|"fullWidthIfActive aspect-4-3IfActive"|"fullWidthIfActive aspect-3-2IfActive"|"fullWidthIfActive aspect-16-9IfActive"|"fullWidthIfActive aspect-21-9IfActive"|"fullWidthIfActive fullHeightIfActive"|"
+	* ``stateHeightAdaptsContentActive`` (Adapt height of STATE to its content (this overwrites the tile size, if needed), if the device is inactive):
+		* Possible values: "true"|"false"
+		* Default: "false"
+	* ``stateFillsDeviceActive`` (Size of STATE fills the complete device (this may interfere with other content), if the device is inactive):
+		* Possible values: "true"|"false"
+		* Default: "false"
+	* ``stateBigFontActive`` (Use big font for STATE, if the device is active):
+		* Possible values: "true"|"false"
+		* Default: "false"
 	* ``bigIconActive`` (Show big icon, if device is active):
 		* Possible values: "true"|"false"
 		* Default: "false"
 	* ``iconNoPointerEventsActive`` (Ignore mouse events for the icon, if device is active):
+		* Possible values: "true"|"false"
+		* Default: "false"
+	* ``transparentIfActive`` (Make background transparent, if device is active):
 		* Possible values: "true"|"false"
 		* Default: "false"
 	* ``noOverlayActive`` (Remove overlay of tile, if device is active):
@@ -514,6 +634,12 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* ``hideDeviceNameIfActive`` (Hide device name, if the device is active):
 		* Possible values: "true"|"false"
 		* Default: "false"
+	* ``hideInfoAIfActive`` (Hide INFO_A, if the device is active):
+		* Possible values: "true"|"false"
+		* Default: "false"
+	* ``hideInfoBIfActive`` (Hide INFO_B, if the device is active):
+		* Possible values: "true"|"false"
+		* Default: "false"
 	* ``hideStateIfActive`` (Hide state, if the device is active):
 		* Possible values: "true"|"false"
 		* Default: "false"
@@ -523,10 +649,22 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 * Tile-Behaviour if device is enlarged:
 	* ``sizeEnlarged`` (Size of tile, if device is enlarged):
 		* Possible values: ""|"narrowIfEnlarged shortIfEnlarged"|"narrowIfEnlarged"|"narrowIfEnlarged highIfEnlarged"|"narrowIfEnlarged xhighIfEnlarged"|"shortIfEnlarged"|"shortIfEnlarged wideIfEnlarged"|"shortIfEnlarged xwideIfEnlarged"|"wideIfEnlarged"|"xwideIfEnlarged"|"highIfEnlarged"|"xhighIfEnlarged"|"wideIfEnlarged highIfEnlarged"|"xwideIfEnlarged highIfEnlarged"|"wideIfEnlarged xhighIfEnlarged"|"xwideIfEnlarged xhighIfEnlarged"|"fullWidthIfEnlarged aspect-1-1IfEnlarged"|"fullWidthIfEnlarged aspect-4-3IfEnlarged"|"fullWidthIfEnlarged aspect-3-2IfEnlarged"|"fullWidthIfEnlarged aspect-16-9IfEnlarged"|"fullWidthIfEnlarged aspect-21-9IfEnlarged"|"fullWidthIfEnlarged fullHeightIfEnlarged"|"
+	* ``stateHeightAdaptsContentEnlarged`` (Adapt height of STATE to its content (this overwrites the tile size, if needed), if the device is inactive):
+		* Possible values: "true"|"false"
+		* Default: "false"
+	* ``stateFillsDeviceInactiveEnlarged`` (Size of STATE fills the complete device (this may interfere with other content), if the device is inactive):
+		* Possible values: "true"|"false"
+		* Default: "false"
+	* ``stateBigFontEnlarged`` (Use big font for STATE, if the device is enlarged):
+		* Possible values: "true"|"false"
+		* Default: "false"
 	* ``bigIconEnlarged`` (Show big icon, if device is enlarged):
 		* Possible values: "true"|"false"
 		* Default: "true"
 	* ``iconNoPointerEventsEnlarged`` (Ignore mouse events for the icon, if device is enlarged):
+		* Possible values: "true"|"false"
+		* Default: "false"
+	* ``transparentIfEnlarged`` (Make background transparent, if device is enlarged):
 		* Possible values: "true"|"false"
 		* Default: "false"
 	* ``noOverlayEnlarged`` (Remove overlay of tile, if device is enlarged):
@@ -553,20 +691,18 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* ``hideDeviceNameIfEnlarged`` (Hide device name, if the device is enlarged):
 		* Possible values: "true"|"false"
 		* Default: "false"
+	* ``hideInfoAIfEnlarged`` (Hide INFO_A, if the device is enlarged):
+		* Possible values: "true"|"false"
+		* Default: "false"
+	* ``hideInfoBIfEnlarged`` (Hide INFO_B, if the device is enlarged):
+		* Possible values: "true"|"false"
+		* Default: "false"
 	* ``hideStateIfEnlarged`` (Hide state, if the device is enlarged):
 		* Possible values: "true"|"false"
 		* Default: "false"
 	* ``hideIconEnlarged`` (Hide icon, if device is enlarged):
 		* Possible values: "true"|"false"
 		* Default: "false"
-* Conditions for an Active Tile:
-	* ``tileActiveStateId`` (State ID (empty = STATE/LEVEL will be used)):
-		* Default: ""
-	* ``tileActiveCondition`` (Condition):
-		* Possible values: ""|"at"|"af"|"eqt"|"eqf"|"eq"|"ne"|"gt"|"ge"|"lt"|"le"
-		* Default: ""
-	* ``tileActiveConditionValue`` (Condition value):
-		* Default: ""
 * Timestamp:
 	* ``addTimestampToState`` (Add timestamp to state):
 		* Possible values: ""|"SA"|"ST"|"STA"|"SE"|"SEA"|"SE."|"SE.A"|"Se"|"SeA"|"STE"|"STEA"|"STE."|"STE.A"|"STe"|"STeA"|"T"|"TA"|"TE"|"TEA"|"TE."|"TE.A"|"Te"|"TeA"|"E"|"EA"|"E."|"E.A"|"e"|"eA"|"N"
@@ -574,6 +710,44 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* ``showTimestamp`` (Show Timestamp in dialog):
 		* Possible values: ""|"yes"|"no"|"always"|"never"
 		* Default: ""
+* BATTERY Empty Icon:
+	* ``batteryActiveCondition`` (Condition):
+		* Possible values: ""|"at"|"af"|"eqt"|"eqf"|"eq"|"ne"|"gt"|"ge"|"lt"|"le"
+		* Default: ""
+	* ``batteryActiveConditionValue`` (Condition value):
+		* Default: ""
+* UNREACH Icon:
+	* ``invertUnreach`` (Invert UNREACH (use connected instead of unreach)):
+		* Possible values: "true"|"false"
+		* Default: "false" 
+* ERROR Icon:
+	* ``invertError`` (Invert ERROR (use ok instead of error)):
+		* Possible values: "true"|"false"
+		* Default: "false" 
+* BACKGROUND_VIEW/URL/HTML:
+	* ``backgroundURLDynamicIframeZoom`` (Dynamic zoom for BACKGROUND_VIEW/URL/HTML (this is the zoom-level in % that would be needed, to let the content fit into a single 1x1 tile)):
+		* Possible values: number from 0.01 to 200
+		* Default: ""
+	* ``backgroundURLPadding`` (Apply padding to BACKGROUND_VIEW/URL/HTML):
+		* Possible values: number from 0 to 50 [pixel]
+		* Default: ""
+	* ``backgroundURLAllowPostMessage`` (Allow postMessage-Communication for BACKGROUND_VIEW/URL/HTML):
+		* Possible values: "true"|"false"
+		* Default: "false"
+	* ``backgroundURLNoPointerEvents`` (Direct mouse events to the tile instead to the content of BACKGROUND_VIEW/URL/HTML):
+		* Possible values: "true"|"false"
+		* Default: "false"
+	* ``overlayAboveBackgroundURL`` (Position Overlay above BACKGROUND_VIEW/URL/HTML):
+		* Possible values: "true"|"false"
+		* Default: "false"
+* BADGE:
+	* ``badgeWithoutUnit`` (Show badge value without unit):
+		* Possible values: "true"|"false"
+		* Default: "false" 
+* GLOW:
+	* ``invertGlowHide`` (Invert GLOW_HIDE):
+		* Possible values: "true"|"false"
+		* Default: "false" 
 * URL/HTML:
 	* ``popupWidth`` (Width [px] for URL/HTML-Box):
 		* Default: "" 
@@ -588,16 +762,25 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* ``popupAllowPostMessage`` (Allow postMessage-Communication for URL/HTML):
 		* Possible values: "true"|"false"
 		* Default: "false"
-	* ``backgroundURLAllowPostMessage`` (Allow postMessage-Communication for BACKGROUND_VIEW/URL/HTML):
-		* Possible values: "true"|"false"
-		* Default: "false"
-	* ``backgroundURLNoPointerEvents`` (Direct mouse events to the tile instead to the content of BACKGROUND_VIEW/URL/HTML):
-		* Possible values: "true"|"false"
-		* Default: "false"
+* ADDITIONAL_CONTROLS:
+	* ``additionalControlsSectionType`` (Appereance of ADDITIONAL_CONTROLS):
+		* Possible values: "none"|"collapsible"|"collapsible open"
+		* Default: "collapsible"
+	* ``additionalControlsCaption`` (Caption for ADDITIONAL_CONTROLS):
+		* Default: "Additional Controls"
+	* ``additionalControlsHeadingType`` (Appereance of ADDITIONAL_CONTROLS Headings):
+		* Possible values: "none"|"collapsible"|"collapsible open"
+		* Default: "collapsible"
+* ADDITIONAL_INFO:
+	* ``additionalInfoSectionType`` (Appereance of ADDITIONAL_INFO):
+		* Possible values: "none"|"collapsible"|"collapsible open"
+		* Default: "collapsible"
+	* ``additionalInfoCaption`` (Caption for ADDITIONAL_INFO):
+		* Default: "Additional Infos"
 </details>
 
 <details>
-<summary>Show example widget-website that creates a map with the above settings:</summary>
+<summary>Show example widget-website that creates a map with the above settings: (<ins>klick to open</ins>)</summary>
 
 * You can upload the following HTML code as html-file into the /userwidgets subdirectory and reference it to BACKGROUND_URL-State (which then needs to be configured as "Constant")
 * When adding the widget a description is displayed
@@ -687,7 +870,7 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 </details>
 
 <details>
-<summary>Show a more edvanced example:</summary>
+<summary>Show a more edvanced example: (<ins>klick to open</ins>)</summary>
 
 * You can upload the following HTML code as html-file into the /userwidgets subdirectory and reference it to BACKGROUND_URL-State (which then needs to be configured as "Constant")
 * When adding the widget a description is displayed
@@ -976,6 +1159,8 @@ However, not every type makes sense to every role. So the STATE of a switch for 
 
 #### Further general states:
 * **INFO_A** and **INFO_B**: *array* - an array of datapoints and icons, that will be cyclical displayed in the upper right side of the tile
+
+    ![INFO_A and INFO_B](img/info_a_info_b.png)
 * **ADDITIONAL_CONTROLS**: *array* - an array of datapoints, that define additional control elements that will be displayed inside info-dialog
 * **ADDITIONAL_INFO**: *array* - an array of datapoints, that will be displayed at the bottom of the info-dialog
 * **URL**: CONSTANT or DATAPOINT *string* - this url will be opened as iframe inside the dialog
@@ -989,7 +1174,18 @@ However, not every type makes sense to every role. So the STATE of a switch for 
     * Behaviour can be inverted in the 'General' section of options (use connected instead of unreach)
 * **ENLARGE_TILE**: *boolean* - when true, the tile will be set as enlarged. You can overwrite that by clicking the enlarge/reduce button. But everytime the state of ENLARGE_TILE changes, it will take over control of the tiles enlargement state again. If the role of ENLARGE_TILE is *button*, then every state change will toggle the enlargement state
 * **BADGE**: *number* or *string* - if a value other than zero/false is present, then a badge in the upper left corner is shown with this value
-    * **BADGE_COLOR*: *string* - any valid html-color-string (like 'green', '#00FF00', 'rgba(0,255,0,0.5)' and so on) that represents the color of the badge. If not present or invalid red with 50% transparency will be used.
+    * **BADGE_COLOR**: *string* - any valid html-color-string (like 'green', '#00FF00', 'rgba(0,255,0,0.5)' and so on) that represents the color of the badge. If not present or invalid red with 20% transparency will be used.
+
+    ![Badge](img/badge.png)
+* **OVERLAY_INACTIVE_COLOR** and **OVERLAY_ACTIVE_COLOR**: *string* - any valid html-color-string (like 'green', '#00FF00', 'rgba(0,255,0,0.5)' and so on) that represents the color of the overlay of the tile (depending on whether the tile is active of inactive). If no valid color-string is given, the standard-overlay-color (which can be configured in iQontrol-Options) is used. Keep in mind, that there is an option to define the transparency of the overlay in the iQontrol options, which will affect the appereance of the set overlay color.
+
+    ![Overlay Color](img/overlay_color.png)
+
+* **GLOW_INACTIVE_COLOR** and **GLOW_ACTIVE_COLOR**: *string* - any valid html-color-string (like 'green', '#00FF00', 'rgba(0,255,0,0.5)' and so on) that represents the color of a glow-effect around the tile (depending on whether the tile is active of inactive). If no valid color-string is given, the glow-effect is disabled.
+	* **GLOW_HIDE**: *boolean* - if true, the glow-effect is hidden (can be inverted in the 'General' section of options)	
+	* For Lights you can also use the option "Use color of lamp as GLOW_ACTIVE_COLOR" which can be found in the devicespecific options. 
+
+    ![Glow](img/glow.png)
 
 ### Link to other view:
 * Has no further states
@@ -1093,8 +1289,8 @@ In addition to normal thermostat you can define:
 ### <img src="img/icons/blind_middle.png" width="32"> Blind:
 * **LEVEL**: *number* - height of the blind in percentage
 * **DIRECTION**: *value-list* - can be Stop, Up and Down. The values that represent Stop, Up, Down and Unknown can be configured
-* **STOP**: *boolean* - is set to true, if the stop button is pressed
-* **UP** / **DOWN**: *boolean* - is set to true, if the up / down button is pressed (for devices, that use UP and DOWN datapoints instead of or in addition to LEVEL). Additional you can define a value via the **UP_SET_VALUE** / **DOWN_SET_VALUE** Datapoints. If defined, this value will be sent instead of true, when the Up / Down button is pressed
+* **STOP**: *boolean* - is set to true, if the stop button is pressed.  Additionaly you can define a value via the **STOP_SET_VALUE** Datapoint. If defined, this value will be sent instead of true, when the Stop button is pressed
+* **UP** / **DOWN**: *boolean* - is set to true, if the up / down button is pressed (for devices, that use UP and DOWN datapoints instead of or in addition to LEVEL). Additionaly you can define a value via the **UP_SET_VALUE** / **DOWN_SET_VALUE** Datapoints. If defined, this value will be sent instead of true, when the Up / Down button is pressed
 * **FAVORITE_POSITION**: *boolean* - can be used to recall a favorite position. If the Favourite button (button caption can be configured in the device settings) is pressed, true will be sent to this datapoint. Additional you can define a value via the **FAVORITE_POSITION_SET_VALUE** Datapoint. If defined, this value will be sent instead of true, when the favorite button is pressed 
 * **SLATS_LEVEL**: *number* - position of slats in percentage
 
@@ -1122,6 +1318,106 @@ In addition to normal thermostat you can define:
 * **CHARGING**: *boolean* - if true, a charging-icon is displayed
 * **POWER**: *number* - power-consumption that will be displayed in small in the upper right corner
 * **VOLTAGE**: *number* - voltage that will be displayed in small in the upper right corner
+
+### <img src="img/icons/time_alarmclock_on.png" width="32"> Date and Time:
+* **STATE**: *boolean* - if true the tile will be showed as active 
+* **SUBJECT**: *string* - to set a description
+* **RINGING**: *boolean* - if true an alarm-bell is shown
+	* Keep in mind: you can configure a quit and a snooze-button via ADDITIONAL_CONTROLS
+* **TIME**: *string* - String with date and or time or duration (you can specify the format in the device options) for first and second time
+	
+<details>
+<summary>Show possible time formats: (<ins>klick to open</ins>)</summary>
+
+In the device options, under the device-specific section, you can set the timeformat of your datapoint and how it is displayed. You can use the following tokens:
+
+|           |                                | Token              | Example                                                                      | Datapoint | Display                              | Picker                      |
+|----------:|-------------------------------:|--------------------|------------------------------------------------------------------------------|-----------|--------------------------------------|-----------------------------|
+| Timestamp | Unix s Timestamp               | X                  | 1410715640.579                                                               | X         | ---                                  | ---                         |
+|           | Unix ms Timestamp              | x                  | 1410715640579                                                                | X         | ---                                  | ---                         |
+| Date      | Day of Week                    | d                  | 0 1 ... 5 6                                                                  | X         | ---                                  | ---                         |
+|           |                                | dd                 | Su Mo ... Fr Sa                                                              | X         | X (translated)                       | ---                         |
+|           |                                | ddd                | Sun Mon ... Fri Sat                                                          | X         | X (translated)                       | ---                         |
+|           |                                | dddd               | Sunday Monday ... Friday Saturday                                            | X         | X (translated)                       | ---                         |
+|           |                                | do                 | 0th 1st ... 5th 6th                                                          | X         | ---                                  | ---                         |
+|           | Day of Month                   | D                  | 1 2 ... 30 31                                                                | X         | X                                    | X                           |
+|           |                                | DD                 | 01 02 ... 30 31                                                              | X         | X                                    | X                           |
+|           |                                | Do                 | 1st 2nd ... 30th 31st                                                        | X         | --- (converted to D)                 | --- (converted to D)        |
+|           | Month                          | M                  | 1 2 ... 11 12                                                                | X         | X                                    | X                           |
+|           |                                | MM                 | 01 02 ... 11 12                                                              | X         | X                                    | X                           |
+|           |                                | MMM                | Jan Feb ... Nov Dec                                                          | X         | X                                    | X                           |
+|           |                                | MMMM               | January February ... November December                                       | X         | X                                    | X                           |
+|           |                                | Mo                 | 1st 2nd ... 11th 12th                                                        | X         | --- (converted to M)                 | --- (converted to M)        |
+|           | Year                           | Y                  | 1970 1971 ... 9999 +10000 +10001                                             | X         | X                                    | X                           |
+|           |                                | YY                 | 70 71 ... 29 30                                                              | X         | X                                    | X                           |
+|           |                                | YYYY               | 1970 1971 ... 2029 2030                                                      | X         | X                                    | X                           |
+|           |                                | YYYYYY             | -001970 -001971 ... +001907 +001971                                          | X         | --- (converted to YYYY)              | --- (converted to YYYY)     |
+| Time      | AM/PM                          | A                  | AM PM                                                                        | X         | X                                    | X                           |
+|           |                                | a                  | am pm                                                                        | X         | X                                    | X                           |
+|           | Hour                           | H                  | 0 1 ... 22 23                                                                | X         | X                                    | X                           |
+|           |                                | HH                 | 00 01 ... 22 23                                                              | X         | X                                    | X                           |
+|           |                                | h                  | 1 2 ... 11 12                                                                | X         | X                                    | X                           |
+|           |                                | hh                 | 01 02 ... 11 12                                                              | X         | X                                    | X                           |
+|           |                                | k                  | 1 2 ... 23 24                                                                | X         | --- (converted to H)                 | --- (converted to H)        |
+|           |                                | kk                 | 01 02 ... 23 24                                                              | X         | --- (converted to HH)                | --- (converted to HH)       |
+|           | Minute                         | m                  | 0 1 ... 58 59                                                                | X         | X                                    | X                           |
+|           |                                | mm                 | 00 01 ... 58 59                                                              | X         | X                                    | X                           |
+|           | Second                         | s                  | 0 1 ... 58 59                                                                | X         | X                                    | X                           |
+|           |                                | ss                 | 00 01 ... 58 59                                                              | X         | X                                    | X                           |
+|           | Fractional Second              | S                  | 0 1 ... 8 9                                                                  | X         | ---                                  | ---                         |
+|           |                                | SS                 | 00 01 ... 98 99                                                              | X         | ---                                  | ---                         |
+|           |                                | SSS                | 000 001 ... 998 999                                                          | X         | ---                                  | ---                         |
+|           |                                | SSSS ... SSSSSSSSS | 000[0..] 001[0..] ... 998[0..] 999[0..]                                      | X         | ---                                  | ---                         |
+|           | Time Zone                      | z or zz            | EST CST ... MST PST                                                          | X         | ---                                  | ---                         |
+|           |                                | Z                  | -07:00 -06:00 ... +06:00 +07:00                                              | X         | ---                                  | ---                         |
+|           |                                | ZZ                 | -0700 -0600 ... +0600 +0700                                                  | X         | ---                                  | ---                         |
+| Periods   | Day of Year                    | DDD                | 1 2 ... 364 365                                                              | X         | ---                                  | ---                         |
+|           |                                | DDDD               | 001 002 ... 364 365                                                          | X         | ---                                  | ---                         |
+|           |                                | DDDo               | 1st 2nd ... 364th 365th                                                      | X         | ---                                  | ---                         |
+| Other     | Day of Week (Locale)           | e                  | 0 1 ... 5 6                                                                  | X         | ---                                  | ---                         |
+|           | Day of Week (ISO)              | E                  | 1 2 ... 6 7                                                                  | X         | ---                                  | ---                         |
+|           | Quarter                        | Q                  | 1 2 3 4                                                                      | X         | ---                                  | ---                         |
+|           |                                | Qo                 | 1st 2nd 3rd 4th                                                              | X         | ---                                  | ---                         |
+|           | Week of Year                   | w                  | 1 2 ... 52 53                                                                | X         | ---                                  | ---                         |
+|           |                                | wo                 | 1st 2nd ... 52nd 53rd                                                        | X         | ---                                  | ---                         |
+|           |                                | ww                 | 01 02 ... 52 53                                                              | X         | ---                                  | ---                         |
+|           | Week of Year (ISO)             | W                  | 1 2 ... 52 53                                                                | X         | ---                                  | ---                         |
+|           |                                | Wo                 | 1st 2nd ... 52nd 53rd                                                        | X         | ---                                  | ---                         |
+|           |                                | WW                 | 01 02 ... 52 53                                                              | X         | ---                                  | ---                         |
+|           | Era Year                       | y                  | 1 2 ... 2020 ...                                                             | X         | ---                                  | ---                         |
+|           |                                | yo                 | 1st 2nd … 2020th …                                                           | X         | ---                                  | ---                         |
+|           | Era                            | N, NN, NNN         | BC AD                                                                        | X         | ---                                  | ---                         |
+|           |                                | NNNN               | Before Christ, Anno Domini                                                   | X         | ---                                  | ---                         |
+|           |                                | NNNNN              | BC AD                                                                        | X         | ---                                  | ---                         |
+|           | Week Year                      | gg                 | 70 71 ... 29 30                                                              | X         | ---                                  | ---                         |
+|           |                                | gggg               | 1970 1971 ... 2029 2030                                                      | X         | ---                                  | ---                         |
+|           | Week Year (ISO)                | GG                 | 70 71 ... 29 30                                                              | X         | ---                                  | ---                         |
+|           |                                | GGGG               | 1970 1971 ... 2029 2030                                                      | X         | ---                                  | ---                         |
+| Periods   | Period                         | P                  | Marks a period and not a specific time. Can be one of the following formats: | X         | --- (converted to D [Day(s)], h:m:s) | --- (converted to D, h:m:s) |
+|           |                                |                    | milliseconds (e.g. 279344)                                                   |           |                                      |                             |
+|           |                                |                    | hours:minutes (e.g. 46:33)                                                   |           |                                      |                             |
+|           |                                |                    | hours:minutes:seconds (e.g. 46:33:44 or 28:33:44.5)                          |           |                                      |                             |
+|           |                                |                    | days hours:minutes.seconds (e.g. 1 22:33:44 or 1 22:33:44.5)                 |           |                                      |                             |
+|           |                                |                    | days.hours:minutes.seconds (e.g. 1.22:33:44 or 1.22:33:44.5)                 |           |                                      |                             |
+|           |                                |                    | ISO 8601 (e.g. P0Y0M1DT22H33M44S or P1DT22H33M44S)                           |           |                                      |                             |
+|           |                                | Py                 | Period of years                                                              | X         | ---                                  | ---                         |
+|           |                                | PM                 | Period of months                                                             | X         | ---                                  | ---                         |
+|           |                                | Pw                 | Period of weeks                                                              | X         | ---                                  | ---                         |
+|           |                                | Pd                 | Period of days                                                               | X         | ---                                  | ---                         |
+|           |                                | Ph                 | Period of hours                                                              | X         | ---                                  | ---                         |
+|           |                                | Pm                 | Period of minutes                                                            | X         | ---                                  | ---                         |
+|           |                                | Ps                 | Period of seconds                                                            | X         | ---                                  | ---                         |
+|           |                                | Pms                | Period of milliseconds                                                       | X         | ---                                  | ---                         |
+| Flags     | Set missing parts to beginning | tb                 | E.g. set date to 1970-01-01, if only a time is given                         | X         | ---                                  | ---                         |
+|           | Set missing parts to now       | tn                 | E.g. set date to now, if only a time is given                                | X         | ---                                  | ---                         |
+|           | Keep old missing parts         | to                 | E.g. leave date as before, if only a time is given                           | X         | ---                                  | ---                         |
+| Free text | Mark free text in brackets     | []                 | [this is an example, all tokens are ignored]                                 | X         | X                                    | ---                         |
+* If you use different configurations for datapoint-timeformat and display-timeformat, the following conversion-rules are used.
+* You can use the flags tb, tn and to inside the datapoint-timeformat to influence the behavior.
+
+    ![Glow](img/dateandtime_conversionrules.png)
+
+</details>
 
 ### <img src="img/icons/value_on.png" width="32"> Value:
 * **STATE**: *any* - any valid state to be displayed (have a look at general states-section)
@@ -1170,6 +1466,10 @@ In addition to normal thermostat you can define:
 This device has some special predefined size- and display-settings to show a website, that can be defined by **BACKGROUND_URL**, as a widget. With default options, a small enlarge-button will be shown on the upper right side.
 * **STATE**: *any* - SPECIAL: If empty, a virtual datapoint will be created, so you can click on the icon, to activate and therefore maximize the size of the widget
 
+### <img src="img/icons/info_bubble_off.png" width="32"> Info-Text:
+This device has some special predefined size- and display-settings to show a text over the full width of screen on a transparent background. With standard-settings the device is hidden, if the STATE is empty. The height of the device adapts to the size of the STATE.
+* **STATE**: *any* - tis text ist shown on screen.
+
 
 ****
 
@@ -1196,6 +1496,81 @@ This device has some special predefined size- and display-settings to show a web
 ****
     
 ## Changelog
+
+### 1.7.0 dev
+* (sbormann) Added combobox as possible option type.
+* (sbormann) Added Date and Time as new device for dates, times and periods (durations).
+* (sbormann) Enhanced blind to better show opening and closing, even if level is 0 or 100.
+* (sbormann) Added STOP_SET_VALUE for blinds.
+
+### 1.6.6 (2021-03-21)
+* (sbormann) Fix for double admin page.
+
+### 1.6.5 (2021-03-20)
+* (sbormann) If you change the device-specific option 'Return to OFF_SET_VALUE after [ms]' of buttons to 0, the button toggles now. 
+* (sbormann) Fixed noZoomOnHover for device icon on large screens. 
+* (sbormann) The options of the change device-options-function are now sorted alphabetically. 
+* (sbormann) Added option to configure appereance of VALVE_STATES for thermostats. 
+* (sbormann) Fixed recognition of blank icon for device-filling states and added padding, if badge is present. 
+* (sbormann) Added option to INFO_A/B to define the number of digits to be rounded to. 
+* (sbormann) Added option to customs-dialog to define the number of digits to be rounded to. 
+* (sbormann) Now also numerical values are treatet as strings, if common.role is string (before it was converted to level).
+* (sbormann) Now empty values on a value-list are not longer ignored.
+* (sbormann) Some fine adjustments to panel.
+* (sbormann) Updated type-detector.
+* (sbormann) Added edit button to views.
+* (sbormann) INFO_A/B will be hidden if value is empty.
+
+### 1.6.4 (2021-03-06)
+* (sbormann) Added select id dialog to change-device-states function.
+
+### 1.6.3 (2021-03-03)
+* (sbormann) Added match-list to change device-options-function.
+* (sbormann) Added change device-states-function to options.
+* (sbormann) Fixed comparing to 0 for tile active conditions.
+* (sbormann) Enhanced speed of admin ui.
+
+### 1.6.2 (2021-02-28)
+* (sbormann) Enhanced rendering of badge to avoid color flickering.
+* (sbormann) Added option clickOnIconToggles and clickOnIconOpensDialog to all devices. The logic is now: 
+    1. If clickOnIconToggles is true => toggle
+	2. else if clickOnIconOpensDialog is true => open dialog
+	3. else if linked view is given => open link to view
+	4. else do nothing
+* (sbormann) Fixed slider sometimes not working after swiping.
+* (sbormann) Prevent scrolling and flickering of background when dialog is opened.
+* (sbormann) Lights without hue but with active option linkGlowActiveColorToHue now glow in a slightly yellow.
+
+### 1.6.1 (2021-02-21)
+* (sbormann) Fixed sentry error in main.js.
+* (sbormann) Reworked shuffle-process.
+* (sbormann) Fixed can't scroll to bottom issue.
+* (sbormann) Added possibility to change many icons and options at once (under options, change device-options).
+
+### 1.6.0 (2021-02-19)
+* (sbormann) Changed standard badge-color to red, 20% transparency.
+* (sbormann) Added optional glow-effect for tiles.
+* (sbormann) Fixed edit-dialog of device not opening under some circumstances.
+* (sbormann) Added type icon and type datapoint to widget-url-parameters.
+* (sbormann) Added OVERLAY_INACTIVE_COLOR and OVERLAY_ACTIVE_COLOR.
+* (sbormann) Added option to show badge value without unit.
+* (sbormann) Badge has now a maximum-width and uses marquee-effect.
+* (sbormann) Added toggle by icon for garage door (after optional confirmation).
+* (sbormann) Fixed not to open Dialog if clickOnTileOpensDialog is set to false.
+* (sbormann) Added new device: Info-Text, which can be used to display plain Text on views, therefore some new options were created (stateHeightAdaptsContent, stateFillsDevice, stateBigFont).
+* (sbormann) Text on transparent tiles is now white (can be configured).
+* (sbormann) When converting to bool, "off" is interpreted as false now.
+* (sbormann) Added option to center device name and/or state.
+* (sbormann) Fixed option font-size for sub-header.
+* (sbormann) Moved option, to show toolbar in one single line, into the options-tab.
+* (sbormann) Added option, to invert Error Icon.
+* (sbormann) Rearranged device options for a better overview.
+* (sbormann) Added option noZoomOnHover for Icon (in device-options, section tile-behaviour (general) and, for all devices, in settings, section tile).
+* (sbormann) Added delay to visibility of badge to allow color-change happen before it appears.
+* (sbormann) Fixed min/max/step for number of url-parameters of widgets (which fixed range for FLOT-Chart).
+* (sbormann) Added PANEL_HIDE and the corresponding option Invert PANEL_HIDE to panel.
+* (sbormann) Added manifest.json.
+* (sbormann) Fixed saving values of color-picker.
 
 ### 1.5.7 (2021-01-24)
 * (sbormann) Fixed missing info.connection object.
@@ -1489,7 +1864,7 @@ This device has some special predefined size- and display-settings to show a web
 * (sbormann) Corrected a few translations.
 
 <details>
-<summary>Older Changelog:</summary>
+<summary>Older Changelog: (<ins>klick to open</ins>)</summary>
 
 ### 0.4.1 (2020-05-15)
 * (sbormann) Added icons for toplight and tilted to window and enhanced window to recognize tilted position.

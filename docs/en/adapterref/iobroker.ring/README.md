@@ -63,6 +63,30 @@ on({id: "ring.0.doorbell_4711.kind"/*Kind*/},  (obj) => {
 
 ## Changelog
 
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### __WORK IN PROGRESS__
+-->
+### 1.2.1 (2021-04-09)
+* (theimo1221) Bump version
+
+### 1.2.0 (2021-04-08)
+* (theimo1221) Add new device type spotlightw as doorbell
+* (theimo1221) Update dependencies (ringapi, node-schedule, etc.)
+
+### 1.1.6-3 (2021-03-29)
+* (theimo1221) Fix typo preventing Livestream recordings after motion detection
+* (theimo1221) Reduce Levels of Log Messages, to not spam iobroker Log
+
+
+
+### 1.1.6-2 (2021-03-29)
+* (theimo1221) Fixing some Issues while saving snapshots and place Snapshots within 'iobroker-data' Folder. 
+
+### 1.1.6-1 (2021-03-26)
+* (theimo1221) Support for Floodlight V2
+* (theimo1221) Control Floodlight by Switch
+
 ### 1.1.5 (04.11.2020)
 * (Stübi) Add floodlight
 

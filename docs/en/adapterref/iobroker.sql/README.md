@@ -5,7 +5,7 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.sql.svg)](https://www.npmjs.com/package/iobroker.sql)
 [![Tests](https://travis-ci.org/ioBroker/ioBroker.sql.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.sql)
 
-[![NPM](https://nodei.co/npm/iobroker.sql.png?downloads=true)](https://nodei.co/npm/iobroker.sql/) [![Greenkeeper badge](https://badges.greenkeeper.io/ioBroker/ioBroker.sql.svg)](https://greenkeeper.io/)
+[![NPM](https://nodei.co/npm/iobroker.sql.png?downloads=true)](https://nodei.co/npm/iobroker.sql/) 
 
 This adapter saves state history into SQL DB.
 
@@ -328,13 +328,13 @@ sendTo('sql.0', 'getCounter', {
     console.log(`In last 30 days the consumption was ${result.result} kWh`);    
 });
 ```
-If the counter will be replaced it will be calculated too.
+If the counter device will be replaced it will be calculated too.
 
 ## History Logging Management via Javascript
 The adapter supports enabling and disabling of history logging via JavaScript and also retrieving the list of enabled data points with their settings.
 
 ### enable
-The message requires to have the "id" of the data point. Additionally optional "options" to define the data point specific settings:
+The message requires to have the "id" of the data point. Additionally, optional "options" to define the data point specific settings:
 
 ```
 sendTo('sql.0', 'enableHistory', {
@@ -352,7 +352,7 @@ sendTo('sql.0', 'enableHistory', {
         console.log(result.error);
     }
     if (result.success) {
-        //successfull enabled
+        //successful enabled
     }
 });
 ```

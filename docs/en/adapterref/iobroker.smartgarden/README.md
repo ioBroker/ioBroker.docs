@@ -67,7 +67,7 @@ To get both things please go to
 	
 	---
 	
-	***And it's almost certain that you have an account.** Please use the
+	***And it's almost certain that you have an account.*** *Please use the
 	same account as for the GARDENA app in which your GARDENA devices are 
 	registered. Otherwise you will not 	get access to your devices.*
 	
@@ -105,10 +105,9 @@ at least one [GARDENA smart device](#supported-devices).
   * [Wishes for data points](#Wishes-for-data-points)
   * [Note](#note)
   * [Changelog](#changelog)
-     * [1.0.2](#102)
-     * [1.0.1](#101)
-     * [1.0.0](#100)
-     * [previous versions](#060)
+     * [1.0.4](#104)
+     * [1.0.3](#103)
+     * [previous versions](#102)
   * [Credits](#credits)
   * [License](#license)  
   
@@ -159,12 +158,12 @@ An description how to install from GitHub is available
       | Parameter | Description |
       | - | - |
       | Loglevel | Loglevel: 0 = no log, 1 = some logs, 2 = some more logs, 3 = all logs; default: 0|
-	  | monitoring Rate Limits | use monitoring for the rate limits of Gardena smart system API; switch on/off; default: off|	
-      | ping frequence | Frequence for sending Ping's to Gardena Webservice (in seconds); default: 150|
+	  | monitoring Rate Limits | use monitoring for the rate limits of Gardena smart system API; switch on/off; default: off; *(new in v1.0.2)*|	
+      | connection retry interval | interval for retry to connect to Gardena Webservice in case of an error (in seconds); default: 300, minimum: 60; *(new in v1.0.3)*|
+      | ping frequence | Frequence for sending Ping's to Gardena Webservice (in seconds); default: 150, minimum: 1, maximum: 300|
       | auth factor  | Factor for validity of authentication token; default: 1.001 |
       | Auth-URL| Authentication host URL; default: [https://api.authentication.husqvarnagroup.dev](https://api.authentication.husqvarnagroup.dev)|
       | Base-URL| Webservice Base-URL; default: [https://api.smart.gardena.dev](https://api.smart.gardena.dev)|
-      | TestVar | use test variable for debug; switch on/off; default: off|	 
    
   
 ## Getting support
@@ -208,11 +207,11 @@ GARDENA smart system API.
 The adapter creates its own data points for various features / options when 
 the feature is selected. These data points are not automatically deleted 
 when the feature is deselected. If you no longer need these data points, 
-they must be deleted by hand.  
+they can be deleted manually.  
 
 ### General things to know about data points
 
-The adapter doesn't change any values transmitted by the GARDENA smart API. 
+The adapter doesn't change any values transmitted by the GARDENA smart system API. 
 The only thing that is done (from version 1.0.0) is to check the type of *timestamps* 
 and *numbers*.
 
@@ -221,7 +220,13 @@ and *numbers*.
 | timestamps | all timestamps are given in UTC; if a received timestamp is not a valid timestamp, `01 Jan 1970 00:00:00Z` (Unix time zero) is used instead. So if you see this date/time please report. |
 | numbers | if a number is not a valid number, `-1` is used instead.  So if you see this number please report. |
 
+Requests to control a device will succeed as soon as the command was accepted by the smart Gateway. A successful 
+execution of the command on the device itself can be observed by a respective state change. 
+*Example:* sending a command to start the VALVE service of a smart Water Control will result in the `activity_value` 
+data point of the service to be changed after the device processed the command.
 
+**Note:** Requests to control a device cannot be sent while the smartgarden adapter is not connected to  
+GARDENA smart system API.
   
 ### For SERVICE_MOWER
 #### Controlling
@@ -570,7 +575,7 @@ change of `irrigationWhileMowing_mowerDefinition_i`.
 ### Basic behaviour -- WARNING
 
 This feature cannot prevent a valve from opening while the mower is 
-mowing. This can e.g. done manually through the GARDENA app or 
+mowing. E.g. this can be done manually through the GARDENA app or 
 automatically through a schedule.
 
 This function can only close the valve as quickly as possible in the 
@@ -598,6 +603,17 @@ GARDENA or Husqvarna.
 
 
 ## Changelog
+### 1.0.4
+* (jpgorganizer)
+  - necessary adjustments due to js-controller v3.2
+  - option `useTestVariable` in adapter/instance configuration removed
+
+### 1.0.3
+* (jpgorganizer)
+  - improved error handling
+  - new parameter `connection retry interval`
+  - axios vulnerability solved, using version `>=0.21.1`
+  
 ### 1.0.2
 * (jpgorganizer)
   - monitoring rate limits, see chapter [Rate Limits](#rate-limits) and discussion at 
@@ -724,12 +740,16 @@ GARDENA or Husqvarna.
 
 
 ## Credits
+Many thanks to GARDENA/Husqvarna for providing this 
+[public API](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/general) 
+and special thanks to your support team for providing very good and very fast support.
+
 smartgarden logo: http://www.freepik.com Designed by Freepik
 
 
 ## License
 
-Copyright (c) 2020 jpgorganizer, https://github.com/jpgorganizer 
+Copyright (c) 2020, 2021 jpgorganizer, https://github.com/jpgorganizer 
 
 smartgarden by jpgorganizer is licensed under a 
 Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License 
@@ -737,4 +757,4 @@ Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
 Based on a work at https://github.com/jpgorganizer/ioBroker.smartgarden. 
  
 
-<!--- SVN: $Rev: 2249 $ $Date: 2020-08-30 12:10:26 +0200 (So, 30 Aug 2020) $ --->
+<!--- SVN: $Rev: 2466 $ $Date: 2021-02-22 17:30:13 +0100 (Mo, 22 Feb 2021) $ --->

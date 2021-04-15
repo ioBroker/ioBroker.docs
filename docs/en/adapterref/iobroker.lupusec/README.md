@@ -55,6 +55,7 @@ Fully supported and individually adapted are following devices:
   - Siren outside (Type 48)
   - Power Switch Meter (Type 48)
   - Electric Meter (Type 50)
+  - Universal IR Controller (Type 52)
   - Room sensor V1 (Type 54)
   - LCD temperature sensor (Type 54)  
   - Mini temperature (Type 54)
@@ -97,6 +98,19 @@ You find all connected surveillance cams under 'webcams'. You can copy the link 
 You find your Nuki door opener under 'devices' like the Lupusec devices. The Nuki provides 2 states. The state nuki_state shows you the actuall state of the Nuki door opener like door is locked or unlocked. With the state nuki_action you can open, lock or unlock your door.  
 ![lupusec_obj_nuki](docs/en/img/lupusec_obj_nuki.png)
 
+### Lupusec SMS
+If you ar using the Lupusec XT1+, XT2+ or XT3 with an SMS sim card, you can send SMS with following states:
+![lupusec_obj_sms](docs/en/img/lupusec_obj_sms.png)
+
+Alternative you can send SMS from your JavaScript with following command:
+```
+sendTo('lupusec.0', 'sms', { number: '017247114711', text: 'Test message' });
+``` 
+
+if you are using the SMS gateway you can use following command in your script:
+```
+sendTo('lupusec.0', 'smsgw', { number: '017247114711', text: 'Test message' });
+``` 
 
 ## Troubleshooting
 If you start the Lupusec Adapter and you get the error that the alarm system is not reachable please try to ping the system from a terminal window of your ioBroker system. 
@@ -113,9 +127,23 @@ sudo chmod u+s `which ping`
 
 ## Changelog
 
+### 1.3.4 (01.03.2021)
+* (Stübi) Bugfixing
+
+### 1.3.3 (17.02.2021)
+* (Stübi) Bugfixing
+* (Stübi) Send SMS with SMS gateway or SIM card
+
+### 1.3.2 (14.02.2021)
+* (Stübi) Send SMS if you are using a sim card
+
+### 1.3.1 (07.02.2021)
+* (Stübi) Add universal IR controller (type 52)
+
 ### 1.3.0 (03.10.2020)
 * (Stübi) Reduce CPU Load
 * (Stübi) Add local link to alarm system
+* (Stübi) Bugfixing Issue #27 - bypass
 
 ### 1.2.9 (04.07.2020)
 * (Stübi) Bugfixing
@@ -239,7 +267,7 @@ Following things are planed in the future:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2020 Thorsten Stueben <thorsten@stueben.de>
+Copyright (c) 2019-2021 Thorsten Stueben <thorsten@stueben.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

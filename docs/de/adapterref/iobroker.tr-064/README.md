@@ -103,6 +103,33 @@ iobroker upload tr-064
 
 ## Changelog
 
+### __WORK IN PROGRESS__
+* (Apollon77) fix crash case (Sentry IOBROKER-TR-064-2M)
+
+### 4.2.11 (2021-03-12)
+* (Apollon77) fix id-reset detection for single calls
+
+### 4.2.10 (2021-03-11)
+* (Apollon77) better handle caller id resets by reboots/FW updates to also update list specific counter and log when this happened
+
+### 4.2.9 (2021-03-10)
+* (Apollon77) try to better handle calllist resets on FW updates
+* (Apollon77) Make sure jsonDeviceList do not get deleted on start
+* (Apollon77) Better handle not initialized calllist templates
+
+### 4.2.8 (2021-03-09)
+* (Apollon77) Optimize customized HTML templates if state is empty
+
+### 4.2.7 (2021-03-08)
+* (Apollon77) Allow customized HTML templates again
+
+### 4.2.6 (2021-02-18)
+* (Apollon77) Fix crash case (IOBROKER-TR-064-20)
+* (Apollon77) Get calllists working again
+
+### 4.2.4 (2021-02-02)
+* (Apollon77) Prevent crash case (Sentry IOBROKER-TR-064-1T)
+
 ### 4.2.3 (2021-01-16)
 * (Apollon77) Crash case prevented (Sentry IOBROKER-TR-064-1N)
 

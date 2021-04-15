@@ -16,6 +16,8 @@ By the default Shelly firmware (no flashing of firmware needed!). You will find 
 
 If you use the CoAP protocol Shelly devices with Firmware 1.8.0 or above works only with the Shelly Adapter 4.0.0 or above. If you use devices with Firmware below 1.8.0 except of the Shelly 4Pro you have have to use Shelly Adapter 3.3.6 or below. The Shelly Adapter 4.0.0 or above would not work in this case! 
 
+Attention, new firmware versions above 1.9.4 you have to enter a CoIoT server fot CoAP. You have to enter the IP address of your ioBroker server followed by the port 5683 on your Shelly device. For example, ioBroker runs on the IP address 192.168.1.2. Now you have to enter 192.168.1.2:5683 and activate CoIoT.
+
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to me as the developer.** More details see below!
 
 ## Installation
@@ -54,6 +56,11 @@ You find a detailed installation documentation here:
 |Shelly Door/Window Sensor 2 (SHDW-2)|supported since v3.3.5|supported since v3.3.5|
 |Shelly Uni (SHUNI-1)|supported since v4.0.4|supported since v4.0.4|
 |Shelly 1L (SHSW-L)|supported since v4.0.5|supported since v4.0.5|
+|Shelly Color Bulb (SHCB-1)|supported since v4.0.5|supported since v4.0.5|
+|Shelly Button (SHBTN-2)|supported since v4.0.5|supported since v4.0.5|
+|Shelly Motion (SHMOS-01)|supported since v4.0.6|supported since v4.0.6|
+
+
 
 ## What is Sentry and what is reported to the servers?
 Sentry.io is a way for developers to get an overview about errors from their applications. And exactly this is implemented in this adapter.
@@ -62,10 +69,33 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
-### 4.0.5-beta (2020-11-27)
+### 4.0.8-beta1 (2021-05-06)
+* (Stübi) - Online Status
+
+### 4.0.7 (2021-02-07)
+* (Stübi) - fixing the wrong identifier name from green to blue - Issue #334
+* (Stübi) - renamed Shelly Motion MQTT name 
+* (Stübi) - Because polling for battery devices is only permieted every 60 sec., the online state will not supported anymore. 
+* (Stübi) - Polling for all battery devices changed to 60 sec. This can not be changed to any other value, still if you a power supply.
+* (Stübi) - Add state for led light control for Shelly Plug S - Issue #344
+* (quedrum) - Shelly1 Garage with ADDon and reed switch - Issue #276
+
+### 4.0.6 (2021-02-02)
+* (Stübi) - add min, max to state transiton for Shelly RGBW2 
+* (Stübi) - if a property in the returned json for a http request does not exist, it will not shown as an error anymore
+* (Stübi) - Bugfixing Shelly 1L
+* (klein0r) - Added shelly motion (SHMOS-01) 
+
+
+### 4.0.5 (2021-02-01)
 * (Matze2010) - Add Support for Shelly Uni (SHSW-L)
 * (Matze2010) - Shelly 2.5 Roller: Support for favorite positions 
 * (Stübi) - Bugfixing TypeError in Shelly Plug implementation (Issue #281)
+* (Stübi) - Support of Shelly Color Bulb (SHCB-1) - Issue #317
+* (Stübi) - Support of Shelly Button 1 (SHBTN-2) - Issue #316, #302, #303
+* (Stübi) - add state Total_Returned for Shelly EM3 - Issue #299
+* (Stübi) - add state transiton and fade_rate to Shelly Dimmer - Issue #260
+* (Stübi) - add state transiton for Shelly RGBW2 - Issue #289
 
 ### 4.0.4 (2020-11-15)
 * (Apollon77) update dependencies and shelly-iot lib

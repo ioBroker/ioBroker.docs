@@ -1,6 +1,8 @@
 ![Logo](admin/doorio.png)
 # ioBroker.doorio
 
+![Number of Installations](http://iobroker.live/badges/doorio-installed.svg)
+![Number of Installations](http://iobroker.live/badges/doorio-stable.svg)
 [![Build Status](https://travis-ci.org/Bettman66/ioBroker.doorio.svg?branch=master)](https://travis-ci.org/Bettman66/ioBroker.doorio)
 [![NPM version](http://img.shields.io/npm/v/iobroker.doorio.svg)](https://www.npmjs.com/package/iobroker.doorio)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.doorio.svg)](https://www.npmjs.com/package/iobroker.doorio)
@@ -21,6 +23,9 @@ Ausgänge zu schalten. Für die Selbstgemachte Türsprechstelle, kann jede
 Hardware auf der sich Baresip installieren lässt genutzt werden.
 
 ## Changelog
+### 1.1.4
+* (bettman66) add dial button
+
 ### 1.1.3
 * (bettman66) add test ring buttons
 

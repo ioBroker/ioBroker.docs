@@ -135,6 +135,31 @@ Here, measured values, control and status data are listed; depending on the func
 ## FAQ
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
+__WORK IN PROGRESS__
+* (foxriver76) error handling improved when deleting obsolete devices/channels
+
+### 1.14.35 (2021-02-13)
+* (foxriver76) virtual devices now support ping, so use it, else it can be that instance won't register at CCU again (fixes #308)
+
+### 1.14.34 (2021-02-11)
+* (foxriver76) use async rpc calls for better error handling
+* (foxriver76) now log error events received by XML-RPC
+* (foxriver76) detect invalid params and log instead of crash
+
+### 1.14.33 (2021-01-30)
+* (foxriver76) fix problems with CuxD and HMIP (fixes #307)
+* (foxriver76) more palces where we now log message on real errors instead of error object
+
+### 1.14.32 (2021-01-29)
+* (foxriver76) revert received messages with invalid command
+* (foxriver76) log message on real errors instead of error object
+* (foxriver76) fix for crashes on decrypt
+
 ### 1.14.31 (2021-01-15)
 * (foxriver76) fixed default values of HMIP value list states
 

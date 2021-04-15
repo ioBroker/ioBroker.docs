@@ -21,6 +21,55 @@ Not all plant types are implemented.
 
 Currently only data can be read, writing parameters or changing parameters is not possible.
 
+----------------------------------------------------------------------------------------------------------------------
+
+# Adapter admin page
+
+## Main Settings
+
+### User and Password
+Please enter the name and password that you also use in the Shine app or in the web portal.
+
+### Login with shared key
+On the Growatt website under energy, plant management, operating tools you can send yourself a key by e-mail.
+
+### Read plant data
+This data record contains the stored master data
+
+### Read last history data
+Reads the last data record from the history of the data logger.
+This function supports minute intervals for the data logger.
+
+### Read status data
+These data are not available for all plants (not INV/MAX/TLX). This dataset contains live data.
+This function supports minute intervals for the data logger.
+
+### Read total data
+This data record contains aggregation data.
+
+### Read device data
+This data record contains some data from the device. Some data are also available in the other categories.
+
+### Read weather
+This data set contains the weather forecast.
+
+## Manage Objects
+Here you can define what should happen to each value (object) that is picked up by the inverter.
+There are a lot of values ​​that do not belong to your inverter. These can be removed here.
+Since there is no event with which the object list can be reloaded when saving. The update button must be used when save is pressed.
+
+### Normal
+The object remains, the value is updated.
+
+### Delete
+The object is deleted and the value loaded by the inverter is discarded.
+After the update, only the ID and the action are displayed because the object no longer exists. If you select normally, the object will be created again after saving.
+
+### No update
+The object remains, the values ​​from the inverter are discarded.
+
+----------------------------------------------------------------------------------------------------------------------
+
 # Speedup data interval
 
 ## You can set the logger interval from 5 minutes to 1 minute
@@ -48,6 +97,8 @@ ShineWiFi module.
 
 **There is no change to the charts on growatt side. There you can only see a change in the data from the datalogger.**
 
+----------------------------------------------------------------------------------------------------------------------
+
 # German - Speedup data interval
 
 ## Du kannst das Protokollierungsintervall von 5 Minuten auf 1 Minute einstellen
@@ -70,49 +121,27 @@ Auf System Restart gehen und Button herzhaft, aber vorsichtig Klicken.
 
 **Es gibt keine Änderung an den Diagrammen auf der Growatt-Seite, die bleiben bei 5min. Dort sehen Sie nur eine Änderung der Daten im Datenlogger.**
 
-
-# Adapter admin page
-
-### User and Password
-Please enter the name and password that you also use in the Shine app or in the web portal.
-
-### Login with shared key
-On the Growatt website under energy, plant management, operating tools you can send yourself a key by e-mail.
-
-### Read plant data
-This data record contains the stored master data
-
-### Read last history data
-Reads the last data record from the history of the data logger.
-This function supports minute intervals for the data logger.
-
-### Read status data
-These data are not available for all plants (not INV/MAX/TLX). This dataset contains live data.
-This function supports minute intervals for the data logger.
-
-### Read last data of chart
-**Deprecated: Will be removed soon**
-These data are only available for the plants without read status data (INV/MAX/TLX). The last valid data for the day is searched for.
-Minute intervals are not supported.
-
-### Read data of chart
-**Deprecated: Will be removed soon**
-These data are only available for the plants without read status data and requires read last data of chart (INV/MAX/TLX). The data is written and stored as a JSON string.
-Minute intervals are not supported.
-
-### Read total data
-This data record contains aggregation data.
-
-### Read device data
-This data record contains some data from the device. Some data are also available in the other categories.
-
-### Read weather
-This data set contains the weather forecast.
-
-
 -*-
 
 ## Changelog
+
+### 1.0.1 (05.03.2021)
+* (PLCHome) Duplicate keys are transmitted, I try to filter them out.
+
+### 1.0.0 (24.02.2021)
+* (PLCHome) Read me
+* (PLCHome) fix: Create a date from the time or calendar structure for last history data for all devices sometimes not working
+
+### 0.0.20 (09.02.2021)
+* (PLCHome) Create a date from the time or calendar structure for last history data for all devices
+
+### 0.0.19 (05.02.2021)
+* (PLCHome) The data from the chart is removed. These were only available in a 5-minute grid. The performance can now be queried via the history.
+* (PLCHome) Objects of unselected data areas are now deleted.
+* (PLCHome) You can choose objects to be ignored or deleted.
+* (PLCHome) A link to the Growatt page was added, so the adapter now also appears in the overview.
+* (PLCHome) Recently, Growatt has changed the spelling of values, which letters are uppercase and lowercase. For this reason, the objects are now handled internally Case Insensively. If a warning is written in the log after the update when starting, you have to delete one of the two objects. If a warning is written in the log after the update when starting, you have to delete one of the two objects. And then restart the adapter so that it definitely uses the remaining object to store the value.
+
 ### 0.0.18 (23.01.2021)
 * (PLCHome) wrong version info.
 

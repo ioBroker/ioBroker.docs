@@ -76,8 +76,28 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 
 ## Changelog
 
+### 4.0.10 (2021-02-18)
+* (Apollon77) Fix crash case (Sentry IOBROKER-CLOUD-X)
+
+### 4.0.9 (2021-02-01)
+* (bluefox) Support of lovelace via ioBroker.pro
+* (bluefox) Fixed error with the admin
+
+### 4.0.8 (2021-01-31)
+* (Apollon77) Prevent crash case (Sentry IOBROKER-CLOUD-S)
+* (bluefox) fix usage of credentials
+
+### 4.0.7 (2021-01-30)
+* (bluefox) Show the invalid authentication message
+
+### 4.0.4 (2021-01-26)
+* (bluefox) Stop all timers on the unloading
+
+### 4.0.3 (2021-01-26)
+* (bluefox) Added the ignoring of restart on disconnect by the redirection 
+
 ### 4.0.2 (2021-01-24)
-* (Apollon77) Make sure states  which were not set or expired do not crash when requested via services (Sentry IOBROKER-CLOUD-P)
+* (Apollon77) Make sure states which were not set or expired do not crash when requested via services (Sentry IOBROKER-CLOUD-P)
 
 ### 4.0.1 (2021-01-16)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-CLOUD-N)
@@ -267,7 +287,7 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2021 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

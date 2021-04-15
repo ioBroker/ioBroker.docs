@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: tqeyHK4JyPV3bx0J33Gy6Qp962koZbw49WlY0Cc+PQc=
+hash: EsnAj/k5t+GnG0yC3lbNfeptFavgrkT07OATg57YxkI=
 ---
-![商标](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
+![标识](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
 ![NPM版本](http://img.shields.io/npm/v/iobroker.vis-inventwo.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/vis-inventwo-stable.svg)
@@ -13,7 +13,7 @@ hash: tqeyHK4JyPV3bx0J33Gy6Qp962koZbw49WlY0Cc+PQc=
 ![安装数量（最新）](http://iobroker.live/badges/vis-inventwo-installed.svg)
 ![依赖状态](https://img.shields.io/david/inventwo/iobroker.vis-inventwo.svg)
 ![已知漏洞](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo/badge.svg)
-![建造状态](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)
+![建置状态](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)
 ![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![贝宝捐赠](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-green.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-inventwo.png?downloads=true)
@@ -21,12 +21,12 @@ hash: tqeyHK4JyPV3bx0J33Gy6Qp962koZbw49WlY0Cc+PQc=
 ＃ioBroker.vis-inventwo
 ## Schalter窗口小部件ioBroker.vis适配器
 ###### .. ab v 2.0.0
-<table><tr><td><center><b>普遍</b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td><td><center><b>多</b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td><td><center><b>图片</b><br><img src="widgets/vis-inventwo/img/Image.png"></td><td><center><b>表</b><br><img src="widgets/vis-inventwo/img/Table.png"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>清单</b><br><img src="widgets/vis-inventwo/img/List.png"></td><td><center><b>选框</b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td><td><center><b>单选按钮</b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td><td><center><b>垂直滑块</b><br><img src="widgets/vis-inventwo/img/Slider2.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>水平滑块</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td><td><center><b>彩色滑块水平</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td><td><center><b>彩色滑块水平</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td><td><center><b>拨动开关</b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td></tr></table>
+<table><tr><td><center><b>普遍的</b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td><td><center><b>多</b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td><td><center><b>图像</b><br><img src="widgets/vis-inventwo/img/Image.png"></td><td><center><b>桌子</b><br><img src="widgets/vis-inventwo/img/Table.png"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>列表</b><br><img src="widgets/vis-inventwo/img/List.png"></td><td><center><b>选框</b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td><td><center><b>单选按钮</b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td><td><center><b>垂直滑块</b><br><img src="widgets/vis-inventwo/img/Slider2.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>水平滑块</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td><td><center><b>彩色滑块水平</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td><td><center><b>彩色滑块水平</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td><td><center><b>拨动开关</b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td></tr></table>
 
 ###### .. v 1.3.8
 ![贝斯皮尔](http://resources.inventwo.com/github/inventwo/Set.png)
 
-米特·希尔夫（Mit Hilfe）Unserer Widgets。 Zur Zeit将在非适配器适配器中正常运行，并恢复图标。 Uhr und Wetter和Adaptern undMüssenggf。 zusätzlichinstalliert werden。
+米特·希尔夫（Mit Hilfe）Unserer Widgets。 Zur Zeit在适配器适配器中恢复正常运行，并恢复图标。 Uhr und Wetter和Adaptern undMüssenggf。 zusätzlichinstalliert werden。
 
 ![贝斯皮尔](http://resources.inventwo.com/github/inventwo/Preview.png)
 
@@ -34,13 +34,58 @@ hash: tqeyHK4JyPV3bx0J33Gy6Qp962koZbw49WlY0Cc+PQc=
 ---
 
 ##Unterstützung
-瀑布不夜城，阿尔弗雷德·尤德·斯彭德（Wer freuen unsüberjede Spende）。
+Falls Dir unsere Arbeitgefälltund Du unsunterstützenmöchtest，弗尔·弗里恩·乌斯·杰德·斯彭德。
 
 （使用Keiner Verbindung zum ioBroker的Dieser Linkführtzu unserem PayPal-Konto和Steht）
 
-[![Spende]（http://resources.inventwo.com/github/inventwo/spende.png）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GQPD3G25CKTEJ&source=url)
+[![Spende]（http://resources.inventwo.com/github/inventwo/spende.png）](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
+
+## 2.9.1
+-错误修正
+
+## 2.9.0
+-Multi-Widget-Statuskönnenunabhängigvom Widget-Typ nach Datenpunkten oder Viewsprüfen
+-Optionen zum automatischenSchließendes Popupshinzugefügt
+- Bug修复
+
+## 2.8.3
+-错误修正
+
+## 2.8.2
+-问题：Colorslider behoben：Wate wird nicht in Datenpunkt gesetzt，温州“ Wert bei Freigabe aktualisieren” aktiviert ist，
+
+## 2.8.1
+-Fehler behoben：彩色滑块RGB aktualisiert bei DpÄnderungnicht（WICHTIG：Datenpunktemüssenneuausgewähltwerden！）
+
+## 2.8.0
+-在通用选项和多小部件中查看弹出菜单选项
+-错误修正
+
+## 2.7.11
+-错误修正
+
+## 2.7.10
+-通用和多功能小工具behoben的问题
+-通用和多功能小工具的问题
+
+## 2.7.9
+-图像小部件hinzugefügt的选项
+-Fehler von vorheriger版本behoben
+
+## 2.7.8
+-问题麻省理工学院
+-图像和小部件behoben的问题
+
+## 2.7.7
+-Bildgrößebehoben问题
+-问题MIT DEM Farbregler Behoben，《戴斯·德·沃特》杂志beim loslassen nicht gespeichert wurde
+
+## 2.7.6
+-Navi-Widget behoben问题解答
+-问题与解决方案
+-问题麻痹单选按钮和小部件以及日期更新Zahlen behobenn
 
 ## 2.7.5
 -JSON Tabelle farbliche SchwellenwertefürZahlen
@@ -53,12 +98,12 @@ hash: tqeyHK4JyPV3bx0J33Gy6Qp962koZbw49WlY0Cc+PQc=
 -FehlendeÜbersetzungfürHover-Farbenhinzugefügt
 
 ## 2.7.3
--Fehler beim多州与州
+-费勒·贝姆（Fehler beim）
 -Schatten und Rand HoverfürButtonshinzugefügt
 
 ## 2.7.2
 -Fehler在Radiobutton mit Bildfarbe behoben中
--费勒·贝霍本（Fehler behoben）：多贝特尔·克利肯（北国）
+-费勒·贝霍本（Fehler behoben）：多贝特·克利根（Doppeltes klicken）北邦州立大学（Vermitldauer）
 -HovereffektfürButtons游戏
 -问题解答
 -滑块文本anhängenmöglich
@@ -71,8 +116,8 @@ hash: tqeyHK4JyPV3bx0J33Gy6Qp962koZbw49WlY0Cc+PQc=
 -JSON Tabelle Spaltenformat布尔值和数字
 -JSON Tabelle Kopfzeile kann fixiert werden
 -JSON Tabelle Fehler beim sortieren behoben
--JSON Tabelle konfigurierbare Dummyzeile wenn JSON学习者
--费勒·贝霍本
+-JSON Tabelle konfigurierbare Dummyzeile wenn JSON文件
+-费勒·贝霍本（Fehler behoben）
 
 ## 2.6.0
 -通用和多小部件Vergleichsoperatoren gleich，größer，kleiner und nichthinzugefügt
@@ -83,8 +128,8 @@ hash: tqeyHK4JyPV3bx0J33Gy6Qp962koZbw49WlY0Cc+PQc=
 
 。 JSON Tabelle anzeige von Millisekundenmöglich
 
--JSON Tabelle Platzhalter和我们分享
--每个Klick sortiert werden的JSON Tabelle Spaltenkönnen
+-JSON Tabelle Platzhalter，我们的Eistrag学习者
+-Klick sortiert werden的JSON Tabelle Spaltenkönnen
 
 ## 2.5.11
 -错误修正
@@ -93,7 +138,7 @@ hash: tqeyHK4JyPV3bx0J33Gy6Qp962koZbw49WlY0Cc+PQc=
 -错误修正
 
 ## 2.5.9
--Dur Prozess der Bildfarbfilterung wurdegeändert
+-世界文学奖
 -Die Bildfarbe kann jetzt ein Datenpunkt sein
 
 ## 2.5.8
@@ -139,7 +184,7 @@ hash: tqeyHK4JyPV3bx0J33Gy6Qp962koZbw49WlY0Cc+PQc=
 -Fehlerbehebung
 
 ## 2.3.2
--Fehler bei der der mit dem Widget'在部件中查看'behoben
+-Fehler bei der der mit dem小部件“在小部件中查看” behoben
 
 ## 2.3.1
 -JSON Tabelle behoben中的Fehler
@@ -157,10 +202,10 @@ hash: tqeyHK4JyPV3bx0J33Gy6Qp962koZbw49WlY0Cc+PQc=
 
 ## 2.2.1
 -JSON中的Fehler Tabelle behoben，wenn keingültigesJSON-Objekt vorhanden ist
--价值清单behoben中的费勒：Wert wird nicht aktualisiert
+-价值清单behoben中的Fehler：Wrt wird nicht aktualisiert
 
 ## 2.2.0
--编辑器中的Datenpunktwerte werden jetzt bei allen Widgets
+-Datenpunktwerte werden jetzt bei allen Widgets in Editor angezeigt
 -Neues小部件：Marquee（Laufschrift）
 -通用和多州Verweildauerhinzugefügt
 -列表小部件Abstand zwischen denEinträgenkann eingestell werden
@@ -174,8 +219,8 @@ hash: tqeyHK4JyPV3bx0J33Gy6Qp962koZbw49WlY0Cc+PQc=
 -Widget-Untertitel behoben
 
 ## 2.0.0
--开关，按钮，导航和背景小部件（显示小部件）-> dem通用小部件
--多功能小工具->通用小工具，日期从小到大，从小到大（War das hier auf mehrere Datenpunkte und Wertegeprüftwerden kann）
+-开关，按钮，导航和背景小部件（显示控件）-> dem通用小部件
+-多个小工具->通用小工具，日期从小到大，从小到大（War das hier auf mehrere Datenpunkte und Wertegeprüftwerden kann（Ähnlichder Signalbild Funktion）
 -图像小部件kann nun auf Datenpunktprüfen
 -单选按钮hinzugefügt
 -Wertelistehinzugefügt（Kann Liste aus einem Datenpunkt oder manuell eingetragenem Text erstellen）
@@ -188,8 +233,8 @@ hash: tqeyHK4JyPV3bx0J33Gy6Qp962koZbw49WlY0Cc+PQc=
 -解决了触摸屏上导航的问题
 
 ### 1.3.6
--添加了导航的设置状态选项
--解决了没有配置的数据点的问题
+-添加了用于导航的设置状态选项
+-修复了没有配置的数据点的问题
 
 ### 1.3.5
 -增加了表格的刷新率
@@ -225,7 +270,7 @@ hash: tqeyHK4JyPV3bx0J33Gy6Qp962koZbw49WlY0Cc+PQc=
 
 ### 1.2.0
 -添加了图像小部件
--添加了Slider以更改所有4个角的边界半径（如果此版本是您的更新，则需要单击vis-editor中的每个按钮以恢复默认角）
+-添加了Slider来更改所有4个角的边界半径（如果此版本是您的更新，则需要单击vis-editor中的每个按钮以恢复默认角）
 -添加了新图标
 
 ### 1.1.1

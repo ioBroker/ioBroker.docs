@@ -39,30 +39,54 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.9.3 (2021-04-10)
+* Restored the old behavior for devices that report their values via the root endpoint
+* Some minor config file changes
 
-### 1.8.8 (2021-01-24)
-* Fixed an issue where communication with sleeping secure nodes could get stuck
-* After changing a value, the verification of the new value happens with a larger delay to avoid capturing intermediate and outdated values
-* Several hundred device configuration files were added
+### 1.9.2 (2021-04-05)
+Upgraded to `zwave-js` version `7.1.0`. Notable changes include:
+* Added reporting of usage statistics. For details, refer to the `node-zwave-js` documentation.
+* Better support for 700-series Z-Wave sticks
+* Notification values are no longer auto-reset to idle after 5 minutes by default. This behavior can now be enabled per device if necessary.
+* Several stability improvements
 
-### 1.8.7 (2021-01-21)
-* The scene ID of `Scene Activation CC` now gets reset automatically
-* Fixed an error that could occur while configuring associations
-* Fixed two potential sources of crashes
-* The values of the root endpoint of some legacy devices are now correctly updated
-* Added support for `Aeotec aerQ ZWA009-A` US/Canada/Mexico version
-* Fixed invalid parameter options in many config files
+For a full list of changes, check out https://github.com/zwave-js/node-zwave-js/blob/master/CHANGELOG.md
 
-### 1.8.6 (2021-01-17)
-* Many, many changes... See https://github.com/zwave-js/node-zwave-js/blob/master/CHANGELOG.md#changelog for details
+### 1.9.0 (2021-03-16)
+* Upgraded to `zwave-js` version 7
+* Nodes with a completed interview are no longer queried for all their values when restarting. As a result the adapter is now ready much much faster after a restart, but you'll see many yellow values until the devices have sent updated data.
+* The device list in the configuration dialog now displays a better type for the devices, for example `Wall Controller` instead of `Routing Slave`
+* Network heal no longer times out early in large networks
+* Fixed a crash: `supportedCCs is not iterable`. If this happens to you, re-interview affected devices.
+* Relaxed the checks when a report gets mapped from the root endpoint to higher endpoints
+* Some encrypted messages that were previously dropped are now accepted
+* Prevent the interview of sleeping nodes to get stuck until a re-interview under certain circumstances
+* After a restart, sleeping nodes have their status correctly determined even if they weren't interviewed completely before
+* Notification variables are now auto-idled after 5 minutes as it was intended, not after 5 hours
+* The `deltaTime` and `previousValue` values for the Meter CC are now hidden
+* Fixed a crash that could happen after node inclusion
+* Tons of new and improved device configuration files
 
-### 1.8.5 (2021-01-06)
-* The interview is no longer aborted when a device does not respond to the Wakeup Capability query
-* Fixed a crash that could happen when compressing the value DB with an existing backup file
-* Added and updated several config files
+### 1.8.12 (2021-02-23)
+* Implemented `Scene Actuator Configuration CC` and `Scene Controller Configuration CC`
+* Fixed an issue where sleeping nodes could block the send queue when it is not yet known whether they support `Wake Up CC`
+* Fixed a crash that could happen while logging a message while the driver is not ready yet
+* Fixed a crash that could happen while trying to bootstrap a device that does not respond after inclusion
+* The state value in `Thermostat Fan Mode CC` is now readonly
+* Configuration parameters may now have a unit
+* Tons of new and improved device configuration files
+* Unsolicited reports are no longer incorrectly mapped to all endpoints
 
-### 1.8.4 (2021-01-03)
-* Logfiles are created again
+### 1.8.11 (2021-02-14)
+* Implemented `Thermostat Fan Mode CC` and `Thermostat Fan State CC`
+* Fixed several sources of crashes
+* Fixed incorrect detection of secure nodes
+* Certain `.hex` firmware files are now parsed correctly
+* Added support for `.bin` firmware files
+* Avoid an infinite interview loop when devices don't advertise the end of the parameter list correctly
+* Sleeping nodes are now immediately marked as ready when restarting from cache
+* Unsolicited reports are no longer mapped from the root endpoint to endpoint 1 if that endpoint does not support the CC
+* Tons of new and improved device configuration files
 
 ## License
 

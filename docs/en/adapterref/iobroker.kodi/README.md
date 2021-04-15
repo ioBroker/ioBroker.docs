@@ -4,8 +4,9 @@
 ![Number of Installations](http://iobroker.live/badges/kodi-stable.svg)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.kodi.svg)](https://www.npmjs.com/package/iobroker.kodi)
 ![Number of Installations](http://iobroker.live/badges/kodi-installed.svg)
-[![Tests](http://img.shields.io/travis/instalator/ioBroker.kodi/master.svg)](https://travis-ci.org/instalator/ioBroker.kodi)
+[![Tests](https://github.com/instalator/iobroker.kodi/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.kodi/actions/)
 
+[![Donate](https://img.shields.io/badge/Donate-YooMoney-green)](https://sobe.ru/na/instalator)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PFUALWTR2CTPY)
 
 [![NPM](https://nodei.co/npm/iobroker.kodi.png?downloads=true)](https://nodei.co/npm/iobroker.kodi/)
@@ -120,6 +121,16 @@ sendTo("kodi.0", {
  - Suspend - приостанавливает Kodi
 
 ## Changelog
+
+#### 2.0.7
+* (instalator) fixed error subscribeNotification Player.OnResume [issues 49](https://github.com/instalator/ioBroker.kodi/issues/49)
+* (instalator) added user ratings [issues 57](https://github.com/instalator/ioBroker.kodi/issues/57)
+* (instalator) fix error [issues 58](https://github.com/instalator/ioBroker.kodi/issues/58)
+* (instalator) fixed error widgets
+
+#### 2.0.5
+* (instalator) changed css classes
+* (instalator) fixed error
 
 #### 2.0.4
 * (instalator) fixed thumbnails widget

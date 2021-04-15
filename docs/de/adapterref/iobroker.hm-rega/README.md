@@ -145,6 +145,42 @@ Abschließend sind die in der CCU angelegten Variablen aufgelistet
 ### FAQ
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
+### 3.0.18 (2021-04-05)
+* (foxriver76) local link now respects port and protocol
+
+### 3.0.17 (2021-04-04)
+* (foxriver76) correctly identify incomplete requests
+
+### 3.0.16 (2021-01-31)
+* (foxriver76) fix issue with non-existing objects when using LAN-Gateways
+
+### 3.0.15 (2021-01-31)
+* (foxriver76) Ensure that objects are created if something (devices, variables, programs) created during runtime (fixes #124)
+
+### 3.0.14 (2021-01-30)
+* (foxriver76) fix pot. crash after reconnect because of existingStates array
+
+### 3.0.13 (2021-01-30)
+* (foxriver76) ensure to not set states of non-existing RPC objects due to differences in the APIs (fixes #123)
+
+### 3.0.12 (2021-01-29)
+* (foxriver76) we now handle some more edge case errors
+
+### 3.0.10 (2021-01-27)
+* (foxriver76) no build needed
+
+### 3.0.9 (2021-01-27)
+* (foxriver76) fix gh actions
+
+### 3.0.8 (2021-01-27)
+* (foxriver76) we now wait until objects are created before setting states (fixes #122)
+* (foxriver76) added release script
+
 ### 3.0.7 (2021-01-17)
 * (foxriver76) we notify the user about aborted connection by CCU during request
 

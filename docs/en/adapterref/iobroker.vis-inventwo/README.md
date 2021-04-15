@@ -10,7 +10,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)](https://ci.appveyor.com/project/inventwo/iobroker-vis-inventwo)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/inventwo/iobroker.vis-inventwo/LICENSE)
 
-[![Paypal Donation](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GQPD3G25CKTEJ&source=url)
+[![Paypal Donation](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-green.svg)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 [![NPM](https://nodei.co/npm/iobroker.vis-inventwo.png?downloads=true)](https://nodei.co/npm/iobroker.vis-inventwo/)
 
@@ -66,11 +66,57 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 (Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker)
 
-[![Spende](http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GQPD3G25CKTEJ&source=url)
+[![Spende](http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
 
 ## Changelog / Änderungsprotokoll
+
+## 2.9.1
+- Bugfix
+
+## 2.9.0
+- Multi-Widget-Status können unabhängig vom Widget-Typ nach Datenpunkten oder Views prüfen
+- Optionen zum automatischen Schließen des Popups hinzugefügt
+- Bugfixes
+
+## 2.8.3
+- Bugfix
+
+## 2.8.2
+- Problem mit Colorslider behoben: Wert wird nicht in Datenpunkt gesetzt, wenn "Wert bei Freigabe aktualisieren" aktiviert ist",
+
+## 2.8.1
+- Fehler behoben: Color Slider RGB aktualisiert bei Dp Änderung nicht (WICHTIG: Datenpunkte müssen neu ausgewählt werden!) 
+
+## 2.8.0
+- View in PopUp Option für Universal- und Multi-Widget hinzugefügt
+- Bugfix
+
+## 2.7.11
+- Bugfix
+
+## 2.7.10
+- Problem mit Bildern im Universal und Multi Widget behoben
+- Problem mit Bildwechesl im Universal und Multi Widget behoben
+
+## 2.7.9
+- Option für die Bildgröße für das Image-Widget hinzugefügt
+- Fehler von vorheriger Version behoben
+
+## 2.7.8
+- Problem mit Textausrichtung behoben
+- Problem mit Bildgröße im Image-Widget behoben
+
+## 2.7.7
+
+- Problem mit der Bildgröße behoben
+- Problem mit dem Farbregler behoben, dass der Wert beim loslassen nicht gespeichert wurde
+
+## 2.7.6
+- Problem mit Symbolfarbe für Navi-Widget behoben
+- Problem mit Hervorhebung auf Touch-Geräten behoben
+- Problem mit Radiobutton-Widget und Datentyp Zahlen behobenn
 
 ## 2.7.5
 - JSON Tabelle farbliche Schwellenwerte für Zahlen

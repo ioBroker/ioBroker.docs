@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.discovery/README.md
 title: ioBroker Discover Adapter
-hash: dtvHuKU+rdPUHU6HT/193yc5+i6OifknfuMqFHRb7Gg=
+hash: cSp632WFSVsYiDyNAPd4gSLbTsUOjf5nEERQyCe6Ngc=
 ---
 ![Logo](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
@@ -73,6 +73,7 @@ Gerade jetzt kann es über Ping UPnP (seriell geplant) erkennen.
 - myDlink
 - Mysensoren USB / Seriell (9600, 38400, 57600, 115200)
 - Nanoleaf Light Panels / Canvas
+- Net Tools
 - Nuki2
 - Nuss
 - Onkyo
@@ -102,12 +103,17 @@ Gerade jetzt kann es über Ping UPnP (seriell geplant) erkennen.
 ### Wird als zusätzliche Adapter angeboten
 - Wolke
 - Verlauf (wenn kein SQL oder InfluxDB gefunden wurde)
+- IoT
 - Flot (wird angeboten, wenn ein History-Adapter vorhanden ist)
 - JavaScript
 - Die Info
-- Handy, Mobiltelefon
 - Vis
 - Netz
+
+## Wenn der Adapter keine IPs finden kann ...
+Der Adapter pingt das Netzwerk der IP des aktuellen Hosts an (x.y.z.1..255). Zusätzlich werden UPnP und mDNS verwendet, um IPs zu erkennen.
+
+Wenn nicht alle IPs gefunden werden, überprüfen Sie bitte, ob der iobroker-Benutzer / bin / ping ausführen kann. Pot führen Sie `sudo setcap cap_net_raw+p /bin/ping` aus, um fehlende Funktionen / Berechtigungen hinzuzufügen.
 
 ## Machen
 - Artnet? (Blauer Fuchs)
@@ -133,6 +139,25 @@ Gerade jetzt kann es über Ping UPnP (seriell geplant) erkennen.
 ### __WORK IN PROGRESS__ ->
 
 ## Changelog
+
+### 2.6.1 (2021-02-28)
+* (JeyCee) added iot and net-tools
+* (Apollon77) Adjust and optimize UDP and UPnP discoveries
+* (Apollon77) Add option to specify the "own IP address" and netmask to also allow discovery for e.g. docker cases where an external network should be scanned
+* (Apollon77) Fix ping progress counter when scanning multiple ip ranges
+* (JeyCee) removed mobile
+* (Apollon77) fix sonos and synology
+* (JeyCee) UI adjustments
+* (Apollon77) Fix crash cases (Sentry IOBROKER-DISCOVERY-2Q)
+
+### 2.5.0 (2021-01-11)
+* (Zefau) Replace nuki2 with nuki-extended
+* (Zefau) Suggest jarvis for discovery as advice
+* (Apollon77) Add checks on broadlink2 discovery to prevent crash case (Sentry IOBROKER-DISCOVERY-2H)
+
+### 2.4.1 (2020-12-06)
+* (Apollon77) Fix potential crash case in lightify (Sentry IOBROKER-DISCOVERY-2D)
+* (Apollon77) Fix potential crash case (Sentry IOBROKER-DISCOVERY-2C)
 
 ### 2.4.0 (2020-11-29)
 * (withstu) add heos

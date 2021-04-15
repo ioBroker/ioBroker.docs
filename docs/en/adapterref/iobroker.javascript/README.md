@@ -635,12 +635,12 @@ Returns a javascript Date object for the specified pattern. For valid pattern va
 The returned Date object is calculated for the passed *date*. If no date is provided, the current day is used.
 
 ```js
-var sunriseEnd = getAstroDate("sunriseEnd");
+let sunriseEnd = getAstroDate("sunriseEnd");
 log("Sunrise ends today at " + sunriseEnd.toLocaleTimeString());
 
-var today = new Date();
-var tomorrow = today.setDate(today.getDate() + 1);
-var tomorrowNigh = getAstroDate("night", tomorrow);
+let today = new Date();
+let tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+let tomorrowNight = getAstroDate("night", tomorrow);
 ```
 
 ### isAstroDay
@@ -1582,29 +1582,28 @@ Scripts can be activated and deactivated by controlling of this state with ack=f
 
 ## Changelog
 
-### 4.10.13 (2021-01-24)
-* (Apollon77) Handle more cases with invalid script names/state-ids (Sentry IOBROKER-JAVASCRIPT-4B)
+### __WORK IN PROGRESS__
+* (Apollon77) Prevent crash case(Sentry IOBROKER-JAVASCRIPT-70)
 
-### 4.10.11 (2021-01-22)
-* (Apollon77) Optimize error handling in createState and file mirror again
+### 5.1.4 (2021-03-23)
+* (bluefox) fixed the error with the simulation
 
-### 4.10.10 (2021-01-22)
-* (Apollon77) Do not try to set a state value if object creation was not successful (Sentry IOBROKER-JAVASCRIPT-5G)
-* (Apollon77) Make sure no incorrect states are trying to be set (Sentry IOBROKER-JAVASCRIPT-5F, IOBROKER-JAVASCRIPT-5A)
+### 5.1.3 (2021-03-23)
+* (bluefox) fixed the error in the debugging
 
-### 4.10.9 (2021-01-13)
-* (Apollon77) Make sure to end all Timeouts
-* (Apollon77) Prevent crash case (Sentry IOBROKER-JAVASCRIPT-51)
+### 5.1.2 (2021-03-22)
+* (bluefox) Showed the runtime information for the rules
 
-### 4.10.8 (2020-12-07)
-* (paul53) Corrected `variables.isDayTime`
-* (AlCalzone) catch errors during virtual-tsc compile calls
-* (Apollon77) Prevent crash case (Sentry)
+### 5.1.1 (2021-03-21)
+* (bluefox) Implemented the debug of the instances from javascript adapter
+
+### 5.1.0 (2021-03-19)
+* (bluefox) Implemented the debug of scripts possibility
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020 bluefox <dogafox@gmail.com>,
+Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>,
 
 Copyright (c) 2014      hobbyquaker

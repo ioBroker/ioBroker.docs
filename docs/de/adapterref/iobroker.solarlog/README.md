@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solarlog/README.md
 title: ioBroker.solarlog
-hash: wBB1fOkh1pUD1WNC1D6srYRqE5LKuVIJq/zFYpGUT6k=
+hash: kKAdXDlNvQdAVqIsZmi5a6+6azXQzT1PO2eqnZNa3Qk=
 ---
 ![Logo](../../../en/adapterref/iobroker.solarlog/admin/solarlog.png)
 
@@ -11,22 +11,23 @@ hash: wBB1fOkh1pUD1WNC1D6srYRqE5LKuVIJq/zFYpGUT6k=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.solarlog.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.solarlog.svg)
 ![NPM](https://nodei.co/npm/iobroker.solarlog.png?downloads=true)
-![Greenkeeper-Abzeichen](https://badges.greenkeeper.io/iobroker-community-adapters/ioBroker.solarlog.svg)
 
 # IoBroker.solarlog
 Ein ioBroker-Adapter für Solarlog-Geräte
 
 ## Solarlog - Einstellungen
-Die offene JSON-Schnittstelle (offen Json-Schnittstelle) muss im Konfigurationsmenü des Solarlog aktiviert werden.
+Die offene JSON-Schnittstelle muss im Konfigurationsmenü des Solarlog aktiviert werden.
 
 ## Adapter - Einstellungen
 ### Grundeinstellungen
-Stellen Sie Solarlog - IP-Adresse (192.XXX.X.XXX), Port (optional) und Abfrageintervall (in Millisekunden, mindestens 10 Sekunden, empfohlenen 30 Sekunden oder mehr) ein.
+Stellen Sie Solarlog - IP-Adresse (192.XXX.X.XXX), Port (optional) und Abfrageintervall für Verbrauch / Produktion in Sekunden ein ('Live'-Daten, min 10s).
 
 Sicherheit: Sie können das Kennwort 'Benutzer' in Ihrem Solarlog und das Kontrollkästchen 'Benutzeranmeldung aktiviert' aktivieren und Ihr Kennwort in der Adapterkonfiguration hinzufügen oder Solarlog und Adapter ohne Benutzerkennwort ausführen. Wenn die Benutzeranmeldung aktiviert ist, wird empfohlen, den Adapter während der Verwendung der Solarlog-Benutzeroberfläche zu stoppen (andernfalls müssen Sie sich nach jeder Anforderung des Adapters erneut anmelden).
 
 ### Erweiterte Einstellungen
-Überprüfen Sie, ob alle Wechselrichter / Submeter / Geräte - Daten erfasst werden sollen.
+Überprüfen Sie, ob alle Wechselrichter / Submeter / Geräte / Smart Energy - Daten erfasst werden sollen.
+
+Stellen Sie das Abfrageintervall für Durchschnitts- und Summenwerte in Minuten (min. 5 Minuten) ein.
 
 Überprüfen Sie, ob historische Daten erfasst werden sollen, und legen Sie die Tageszeit fest, zu der die historischen Datenobjekte aktualisiert werden.
 
@@ -39,9 +40,21 @@ SolarLog 50: Es gibt keine offenen JSON-Interface @ SolarLog 50-Geräte. Bestimm
 
 ## Changelog
 
+### 2.1.0
+
+-   Cockpit-Data (consumption/production/battery/feed) added. Polling structure optimized for a faster polling of certain values ('live'-data).
+
+### 2.0.2
+
+-   smart energy 'switch group' data added.
+
+### 2.0.1
+
+-   bugfix (better timing to set inverter data).
+
 ### 2.0.0
 
--   Complete code redesign.
+-   Complete code redesign to reduce traffic between adapter and solarlog. NEW: System informations (info) and solarlogs setpoint-values for year, current and all month and current day (forecast).
 
 ### 1.3.0
 
@@ -175,7 +188,7 @@ Planned Objects:
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 forelleblau marceladam@gmx.ch
+Copyright (c) 2018-2021 forelleblau marceladam@gmx.ch
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

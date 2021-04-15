@@ -15,7 +15,7 @@
 
 Notfall-Informations- und Nachrichten-App
 
-<https://www.bbk.bund.de/DE/NINA/Warn-App_NINA.html>
+<https://www.bbk.bund.de/DE/NINA/Warn-App_NINA_node.html>
 
 <https://warnung.bund.de/>
 
@@ -23,9 +23,10 @@ Notfall-Informations- und Nachrichten-App
 
 Die AGS deines Landkreises oder kommasepariert mehrere AGS eingeben.
 
-Liste der AGS mit Strg+F suchen:
+AGS (Amtlicher Gemeindeschlüssel) ermitteln:
+Über diese Seite kannst du den AGS für die gesuchte Stadt / Gemeinde ermitteln:
 
-<https://warnung.bund.de/assets/json/suche_channel.json>
+<https://www.statistikportal.de/de/gemeindeverzeichnis>
 
 ### error Request error{"errno":"EPROTO","code":"EPROTO","syscall":"write"}
 
@@ -43,6 +44,14 @@ MinProtocol = TLSv1.2
 CipherString = DEFAULT@SECLEVEL=1
 
 ## Changelog
+
+### 0.0.24
+- fix js-controller warnings
+- minimized self expanding object tree
+- Accept long AGS Numbers
+- (thost96) fixed broken link in README
+- (thost96) added icon with transparent background for admin ui
+- (thost96) updated link on admin ui to the same as on this README as old link was broken
 
 ### 0.0.23
 

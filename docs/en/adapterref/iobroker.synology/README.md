@@ -3,10 +3,11 @@
 
 ![Number of Installations](http://iobroker.live/badges/synology-installed.svg) ![Number of Installations](http://iobroker.live/badges/synology-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.synology.svg)](https://www.npmjs.com/package/iobroker.synology)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.synology.svg)](https://www.npmjs.com/package/iobroker.synology)
-[![Tests](http://img.shields.io/travis/instalator/ioBroker.synology/master.svg)](https://travis-ci.org/instalator/ioBroker.synology)
+[![Tests](https://github.com/instalator/iobroker.synology/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.synology/actions/)
 
 [![NPM](https://nodei.co/npm/iobroker.synology.png?downloads=true)](https://nodei.co/npm/iobroker.synology/)
 
+[![Donate](https://img.shields.io/badge/Donate-YooMoney-green)](https://sobe.ru/na/instalator)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PFUALWTR2CTPY)
 
 ## Description
@@ -63,6 +64,15 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ```
 
 ## Changelog
+
+### 1.0.0
+* (instalator) changed name objects in hdd_info [issues 51](https://github.com/instalator/ioBroker.synology/issues/51)
+* (Apollon77) BREAKING CHANGE: Please set password new in admin!
+* (Apollon77) js-controller 3.0 is now needed minimum!
+* (Apollon77 store password now encrypted)
+
+### 0.1.20
+* (instalator) fixed error
 
 ### 0.1.18
 * (instalator) change link for album cover
@@ -150,7 +160,7 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2020 instalator <vvvalt@mail.ru>
+Copyright (c) 2021 instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -5,6 +5,8 @@
 
 [![NPM](https://nodei.co/npm/iobroker.meteoalarm.png?downloads=true)](https://nodei.co/npm/iobroker.meteoalarm.png?downloads=true/)
 
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 meteoalarm Adapter for ioBroker
 ------------------------------------------------------------------------------
 This adapter is pulling weather alarms from meteoalarm.eu, which includes wind, snow, rain, high and low temperature,etc. This information is available in local language and for detailed regions.
@@ -105,6 +107,12 @@ If you don't find your country, please create an issue on github, and I will be 
 
 
 ## Changelog
+## 1.1.4 (2021-04-05)
+* (jack-blackson) Handle ENOTFOUND error message, added Sentry
+## 1.1.3 (2021-03-29)
+* (jack-blackson) Error fixes adapter checker
+## 1.1.2 (2021-03-29)
+* (jack-blackson) Bugfix for not working data update, removed link autogeneration due to CORS errors
 ## 1.1.1 (2020-10-28)
 * (jack-blackson) Bugfix HTML Data
 ## 1.1.0 (2020-03-29)
@@ -155,7 +163,7 @@ Bell in icon designed by Freepik from www.flaticon.com
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2020 jack-blackson <blacksonj7@gmail.com>
+Copyright (c) 2019-2021 jack-blackson <blacksonj7@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

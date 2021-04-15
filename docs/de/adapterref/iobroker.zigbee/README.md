@@ -34,6 +34,19 @@ Zigbee-Geräte die nicht in der Liste aufgeführt sind, können zwar gepairt wer
 Es gibt noch ein [Freundschaftprojekt](https://github.com/koenkk/zigbee2mqtt) mit gleichen Funktionen und gleicher Technologie, welcher mit denselben Geräten über ein MQTT Protokoll kommuniziert. Wenn irgendwelche Verbesserungen oder neu unterstütze Geräte im Projekt Zigbee2MQTT eingefügt werden, können jene auch in dieses Projekt hinzugefügt werden. Solltet Ihr unterschiede merken, schreibt bitte ein Issue, wir kümmern uns darum
 
 ## Changelog
+* [Experimental support EZSP protocol for EFR32 chips](https://github.com/Koenkk/zigbee-herdsman/issues/319) (zigbee-herdsman)
+
+### 1.4.5 (2021-02-20)
+
+
+### 1.4.4 (2021-02-14)
+* (kirovilya) External converters https://www.zigbee2mqtt.io/information/configuration.html#external-converters-configuration
+* (asgothian) Enhancement ping process
+* (asgothian) Devive query state-button
+* (asgothian) State Cleanup button
+* (arteck) Setting to use exposes instead of internal device description
+
+
 ### 1.4.1 (2020-12)
 * (o0shojo0o) added a kelvin posibility into colortemp
 * (asgothian) Hue_calibration for exposed devices (Use requires PR on zigbee-herdsman-converters, PR is being worked on)

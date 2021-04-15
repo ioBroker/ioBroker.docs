@@ -4,8 +4,8 @@ jarvis - just another remarkable vis
 
 [![Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://paypal.me/chvoelkel)
 
-![Number of Installations](http://iobroker.live/badges/jarvis-installed.svg)
-![Stable Version](http://iobroker.live/badges/jarvis-stable.svg)
+![Number of Installations](https://iobroker.live/badges/jarvis-installed.svg)
+![Stable Version](https://iobroker.live/badges/jarvis-stable.svg)
 [![NPM Version](http://img.shields.io/npm/v/iobroker.jarvis.svg)](https://www.npmjs.com/package/iobroker.jarvis)
 [![Commits since last release](https://img.shields.io/github/commits-since/Zefau/ioBroker.jarvis/latest.svg)](https://github.com/Zefau/ioBroker.jarvis/releases/latest)
 [![Travis CI](https://travis-ci.com/Zefau/ioBroker.jarvis.svg?branch=master)](https://travis-ci.com/Zefau/ioBroker.jarvis)
@@ -63,6 +63,45 @@ You may find more videos on the [YouTube Channels](https://www.youtube.com/chann
 ## Changelog
 
 Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+
+### v2.2.0 - Sherlock Holmes (2021-02-24)
+
+#### :exclamation: BREAKING CHANGES
+- Remove all hard coded state keys from source code ([550](https://github.com/Zefau/ioBroker.jarvis/issues/550))
+
+#### :star2: newly added features
+- Shelly Importer ([622](https://github.com/Zefau/ioBroker.jarvis/issues/622))
+- Support of Yeelight devices in the importer ([593](https://github.com/Zefau/ioBroker.jarvis/issues/593))
+- Support of Lifx devices in the importer ([592](https://github.com/Zefau/ioBroker.jarvis/issues/592))
+- add additional device Types to ioBroker.hmip adapter import ([573](https://github.com/Zefau/ioBroker.jarvis/issues/573))
+- Support import of devices from ioBroker.deconz adapter ([565](https://github.com/Zefau/ioBroker.jarvis/issues/565))
+- Move icons to iconify ([563](https://github.com/Zefau/ioBroker.jarvis/issues/563))
+- Introduce new functions ([546](https://github.com/Zefau/ioBroker.jarvis/issues/546))
+- Improve general error page ([539](https://github.com/Zefau/ioBroker.jarvis/issues/539))
+- DeviceImporter: Automatically detect function based on name ([532](https://github.com/Zefau/ioBroker.jarvis/issues/532))
+- Support import of devices from ioBroker.unifi.0 ([483](https://github.com/Zefau/ioBroker.jarvis/issues/483))
+- Support import of devices from ioBroker.innogy-smarthome ([479](https://github.com/Zefau/ioBroker.jarvis/issues/479))
+- Option zur Sicherung der Jarvis Dateien ([478](https://github.com/Zefau/ioBroker.jarvis/issues/478))
+- Support import of devices from ioBroker.linkeddevices ([467](https://github.com/Zefau/ioBroker.jarvis/issues/467))
+- Support import of devices from ioBroker.ble ([465](https://github.com/Zefau/ioBroker.jarvis/issues/465))
+- Support import of devices from ioBroker.rpi2 ([463](https://github.com/Zefau/ioBroker.jarvis/issues/463))
+- Farbliche Sekundäre Datenpunkte ([456](https://github.com/Zefau/ioBroker.jarvis/issues/456))
+- Support import of devices from ioBroker.mqtt ([454](https://github.com/Zefau/ioBroker.jarvis/issues/454))
+- Support import of devices from ioBroker.mihome ([448](https://github.com/Zefau/ioBroker.jarvis/issues/448))
+- Formatieren von Werten via Formeln / Callback function ([416](https://github.com/Zefau/ioBroker.jarvis/issues/416))
+- Support import of more devices from ioBroker.hm-rpc ([414](https://github.com/Zefau/ioBroker.jarvis/issues/414))
+- Support import of devices from ioBroker.modbus adapter ([360](https://github.com/Zefau/ioBroker.jarvis/issues/360))
+- Support import wifilight.0 Objects ([325](https://github.com/Zefau/ioBroker.jarvis/issues/325))
+- add new module MediaControl ([173](https://github.com/Zefau/ioBroker.jarvis/issues/173))
+- add option to hide TopBar ([124](https://github.com/Zefau/ioBroker.jarvis/issues/124))
+- Notifications ([56](https://github.com/Zefau/ioBroker.jarvis/issues/56))
+
+#### :bug: fixed bugs
+- Remove all hard coded state keys from source code ([550](https://github.com/Zefau/ioBroker.jarvis/issues/550))
+
+#### core
+- Remove all hard coded state keys from source code ([550](https://github.com/Zefau/ioBroker.jarvis/issues/550))
 
 
 ### v2.1.0-rc.4 - Into the Wild (2021-01-01)

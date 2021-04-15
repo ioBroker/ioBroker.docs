@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.discovery/README.md
 title: ioBroker发现适配器
-hash: dtvHuKU+rdPUHU6HT/193yc5+i6OifknfuMqFHRb7Gg=
+hash: cSp632WFSVsYiDyNAPd4gSLbTsUOjf5nEERQyCe6Ngc=
 ---
-![商标](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
+![标识](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
 ![安装数量](http://iobroker.live/badges/discovery-stable.svg)
 ![NPM版本](http://img.shields.io/npm/v/iobroker.discovery.svg)
@@ -16,7 +16,7 @@ hash: dtvHuKU+rdPUHU6HT/193yc5+i6OifknfuMqFHRb7Gg=
 ＃ioBroker发现适配器
 **使用所有已知方法检测设备。**
 
-这是特殊的适配器，它尝试查找主机可以访问的所有可能的设备。
+这是特殊的适配器，试图查找主机可以访问的所有可能的设备。
 到目前为止，它可以通过ping，UPnP（串行计划）进行检测。
 
 **此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
@@ -60,12 +60,12 @@ hash: dtvHuKU+rdPUHU6HT/193yc5+i6OifknfuMqFHRb7Gg=
 -轻巧
 -Loxone
 -狼疮
--MAX！立方体
+- 最大限度！立方体
 -McLighting
 -MegaD
 -Miele
 -Miele云服务
--Mi Home智能家居
+-小米家居Smarthome
 -Mikrotik
 -MiLight桥（v6）
 -MPD
@@ -73,6 +73,7 @@ hash: dtvHuKU+rdPUHU6HT/193yc5+i6OifknfuMqFHRb7Gg=
 -myDlink
 -Mysensors USB /串行（9600、38400、57600、115200）
 -纳米叶灯板/帆布
+-网络工具
 -Nuki2
 -坚果
 -安桥
@@ -85,7 +86,7 @@ hash: dtvHuKU+rdPUHU6HT/193yc5+i6OifknfuMqFHRb7Gg=
 -Smappee
 -Solarlog
 -索南
--索诺斯
+-索诺斯（Sonos）
 -Stiebel-Eltron / Tecalor ISG（加号）
 -SQL（MySQL，MSSQL，PostgreSQL）
 -挤压盒
@@ -102,12 +103,17 @@ hash: dtvHuKU+rdPUHU6HT/193yc5+i6OifknfuMqFHRb7Gg=
 ###作为附加适配器提供
 - 云
 -历史记录（如果未找到SQL或InfluxDB）
+-物联网
 -flot（存在历史记录适配器时提供）
 -JavaScript
 -信息
--手机
 -可见
 -网页
+
+##如果适配器找不到IP ...
+适配器对当前主机的IP（x.y.z.1..255）的网络执行ping操作。另外，UPnP和mDNS用于检测IP。
+
+如果未找到所有IP，请检查iobroker用户是否可以执行/ bin / ping。罐执行`sudo setcap cap_net_raw+p /bin/ping`以添加缺少的功能/权限。
 
 ＃＃ 去做
 -artnet？ （蓝狐）
@@ -133,6 +139,25 @@ hash: dtvHuKU+rdPUHU6HT/193yc5+i6OifknfuMqFHRb7Gg=
 ### __正在进行的工程__->
 
 ## Changelog
+
+### 2.6.1 (2021-02-28)
+* (JeyCee) added iot and net-tools
+* (Apollon77) Adjust and optimize UDP and UPnP discoveries
+* (Apollon77) Add option to specify the "own IP address" and netmask to also allow discovery for e.g. docker cases where an external network should be scanned
+* (Apollon77) Fix ping progress counter when scanning multiple ip ranges
+* (JeyCee) removed mobile
+* (Apollon77) fix sonos and synology
+* (JeyCee) UI adjustments
+* (Apollon77) Fix crash cases (Sentry IOBROKER-DISCOVERY-2Q)
+
+### 2.5.0 (2021-01-11)
+* (Zefau) Replace nuki2 with nuki-extended
+* (Zefau) Suggest jarvis for discovery as advice
+* (Apollon77) Add checks on broadlink2 discovery to prevent crash case (Sentry IOBROKER-DISCOVERY-2H)
+
+### 2.4.1 (2020-12-06)
+* (Apollon77) Fix potential crash case in lightify (Sentry IOBROKER-DISCOVERY-2D)
+* (Apollon77) Fix potential crash case (Sentry IOBROKER-DISCOVERY-2C)
 
 ### 2.4.0 (2020-11-29)
 * (withstu) add heos

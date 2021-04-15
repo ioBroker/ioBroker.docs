@@ -25,6 +25,21 @@ It is not recommended to expose this adapter to the public internet.
 Some kind of WAF/proxy/entry Server should be put before ioBroker. (e.g. nginx is nice and easy to configure).
 
 ## Changelog
+
+### 1.0.3 (2021-03-10)
+* (Apollon77) Fix port checks
+
+### 1.0.2 (2021-03-09)
+* (Apollon77) optimize stop handling to really end the server
+
+### 1.0.1 (2021-03-07)
+* (Apollon77) prevent warnings with js-controller 3.2
+
+### 1.0.0 (2021-02-26)
+* (Apollon77) js-controller 2.0 is now needed at least
+* (allesgutewarweg) Add more JSON decoded states
+* (Apollon77) Update dependencies
+
 ### 0.3.2 (2018-03-07)
 * (Apollon77) Fix Authentication
 

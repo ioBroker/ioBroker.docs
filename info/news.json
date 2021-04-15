@@ -1,611 +1,6 @@
 [
     {
         "title": {
-            "en": "** ATTENTION ** defective versions of the Tankerkönig adapter cause massive problems on the server!",
-            "de": "** ACHTUNG ** Defekte Versionen des Tankerkönig-Adapters verursachen massive Probleme auf dem Server!",
-            "ru": "** ВНИМАНИЕ ** Дефектные версии адаптера Tankerkönig вызывают серьезные проблемы на сервере!",
-            "pt": "** ATENÇÃO ** versões defeituosas do adaptador Tankerkönig causam enormes problemas no servidor!",
-            "nl": "** LET OP ** Defecte versies van de Tankerkönig-adapter veroorzaken enorme problemen op de server!",
-            "fr": "** ATTENTION ** les versions défectueuses de l'adaptateur Tankerkönig causent de gros problèmes sur le serveur!",
-            "it": "** ATTENZIONE ** le versioni difettose dell'adattatore Tankerkönig causano enormi problemi sul server!",
-            "es": "** ATENCIÓN ** las versiones defectuosas del adaptador Tankerkönig causan problemas masivos en el servidor!",
-            "pl": "** UWAGA ** wadliwe wersje adaptera Tankerkönig powodują ogromne problemy na serwerze!",
-            "zh-cn": "**注意**Tankerkönig适配器的有缺陷版本会导致服务器出现大量问题！"
-        },
-        "content": {
-            "en": "We have been repeatedly reminded by the Tankerkönig-Team that users with one of the defective versions between 1.0.5 and 2.0.4, are blocking their servers.<br>Please install only versions before 1.0.5 or after 2.0.4.",
-            "de": "Wir wurden wiederholt vom Tankerkönig-Team daran erinnert, dass Benutzer mit einer der fehlerhaften Versionen zwischen 1.0.5 und 2.0.4 ihre Server blockieren.<br>Bitte installieren Sie nur Versionen vor 1.0.5 oder nach 2.0.4.",
-            "ru": "Команда Tankerkönig-Team неоднократно напоминала нам, что пользователи с одной из дефектных версий между 1.0.5 и 2.0.4 блокируют свои серверы. <br> Пожалуйста, устанавливайте только версии до 1.0.5 или после 2.0.4.",
-            "pt": "Temos sido repetidamente lembrados pelo Tankerkönig-Team que os usuários com uma das versões defeituosas entre 1.0.5 e 2.0.4, estão bloqueando seus servidores.<br>Por favor, instale apenas versões anteriores a 1.0.5 ou posteriores à 2.0.4.",
-            "nl": "We hebben het Tankerkönig-team herhaaldelijk herinnerd aan het feit dat gebruikers met een van de defecte versies tussen 1.0.5 en 2.0.4 hun servers blokkeren.<br>Installeer alstublieft alleen versies vóór 1.0.5 of na 2.0.4.",
-            "fr": "L'équipe Tankerkönig nous a rappelé à plusieurs reprises que les utilisateurs qui utilisent l'une des versions défectueuses entre 1.0.5 et 2.0.4 bloquent leurs serveurs.<br>Veuillez installer uniquement les versions antérieures à 1.0.5 ou ultérieure.",
-            "it": "Ci è stato ripetutamente ricordato dal Team Tankerkönig che gli utenti con una delle versioni difettose tra 1.0.5 e 2.0.4 stanno bloccando i loro server.<br>Si prega di installare solo versioni precedenti alla 1.0.5 o successive alla 2.0.4.",
-            "es": "El equipo de Tankerkönig nos ha recordado repetidamente que los usuarios con una de las versiones defectuosas entre 1.0.5 y 2.0.4 están bloqueando sus servidores.<br>Instale solo las versiones anteriores a 1.0.5 o posteriores a 2.0.4.",
-            "pl": "Zespół Tankerkönig wielokrotnie przypominał, że użytkownicy z jedną z wadliwych wersji między 1.0.5 a 2.0.4 blokują swoje serwery. <br> Zainstaluj tylko wersje przed 1.0.5 lub po 2.0.4.",
-            "zh-cn": "Tankerkönig-Team一再提醒我们，有一个1.0.5和2.0.4之间缺陷版本的用户正在阻止他们的服务器。<br>请仅安装1.0.5之前或2.0.4之后的版本。"
-        },
-        "id": "tanker",
-        "created": "2019-02-24T00:00:00.000Z",
-        "class": "danger",
-        "fa-icon": "bolt",
-        "conditions": {
-            "tankerkoenig": "smaller(2.0.5)"
-        }
-    },
-    {
-        "title": {
-            "en": "Broadlink not maintained anymore",
-            "de": "Broadlink wird nicht mehr gepflegt",
-            "ru": "Broadlink больше не поддерживается",
-            "pt": "O Broadlink não é mais mantido",
-            "nl": "Broadlink niet meer onderhouden",
-            "fr": "Broadlink n'est plus maintenu",
-            "it": "Broadlink non mantenuto più",
-            "es": "Broadlink no se mantiene más",
-            "pl": "Broadlink nie jest już obsługiwany",
-            "zh-cn": "Broadlink不再维护了"
-        },
-        "content": {
-            "en": "This project is no longer maintained for personal reasons. Please use the ioBroker.broadlink2 instead.",
-            "de": "Dieses Projekt wird aus persönlichen Gründen nicht mehr gepflegt. Bitte verwenden Sie stattdessen den ioBroker.broadlink2.",
-            "ru": "Этот проект больше не поддерживается по личным причинам. Пожалуйста, используйте вместо этого ioBroker.broadlink2.",
-            "pt": "Este projeto não é mais mantido por motivos pessoais. Por favor, use o ioBroker.broadlink2 em seu lugar.",
-            "nl": "Dit project wordt om persoonlijke redenen niet langer onderhouden. Gebruik in plaats daarvan de ioBroker.broadlink2.",
-            "fr": "Ce projet n'est plus maintenu pour des raisons personnelles. Veuillez utiliser le ioBroker.broadlink2 à la place.",
-            "it": "Questo progetto non è più mantenuto per ragioni personali. Utilizzare invece ioBroker.broadlink2.",
-            "es": "Este proyecto ya no se mantiene por razones personales. Por favor use el ioBroker.broadlink2 en su lugar.",
-            "pl": "Ten projekt nie jest już utrzymywany z powodów osobistych. Zamiast tego użyj pliku ioBroker.broadlink2.",
-            "zh-cn": "由于个人原因，该项目不再维护。请改用ioBroker.broadlink2。"
-        },
-        "id": "broadlink",
-        "created": "2019-03-13T00:00:00.000Z",
-        "conditions": {
-            "broadlink": "installed",
-            "broadlink2": "!installed"
-        }
-    },
-    {
-        "title": {
-            "en": "Adapter 'Radar' will not be further developed!",
-            "de": "Radar wird nicht weiterentwickelt!",
-            "ru": "Адаптер 'Radar' больше не будет развиваться!",
-            "pt": "O Adaptador 'Radar' não será mais desenvolvido!",
-            "nl": "Adapter 'Radar' wordt niet verder ontwikkeld!",
-            "fr": "L'adaptateur 'Radar' ne sera plus développé!",
-            "it": "L'adattatore 'Radar' non sarà ulteriormente sviluppato!",
-            "es": "¡El adaptador 'Radar' no se desarrollará más!",
-            "pl": "Adapter 'Radar' nie będzie dalej rozwijany!",
-            "zh-cn": "适配器'Radar'将不再进一步开发！"
-        },
-        "content": {
-            "en": "Due to the development of the ioBroker.radar2 adapter, the further development of the ioBroker.radar adapter has been discontinued. Please install the new adapter to get more features.",
-            "de": "Aufgrund der Entwicklung des ioBroker.radar2 Adapters, wurde die Weiterentwicklung des ioBroker.radar-Adapters eingestellt. Bitte installieren Sie den neuen Adapter um weitere Funktionen zu bekommen.",
-            "ru": "В связи с разработкой адаптера ioBroker.radar2 дальнейшая разработка адаптера ioBroker.radar была прекращена. Пожалуйста, установите новый адаптер, чтобы получить больше возможностей.",
-            "pt": "Devido ao desenvolvimento do adaptador ioBroker.radar2, o desenvolvimento adicional do adaptador ioBroker.radar foi descontinuado. Por favor, instale o novo adaptador para obter mais recursos.",
-            "nl": "Vanwege de ontwikkeling van de ioBroker.radar2-adapter is de verdere ontwikkeling van de ioBroker.radar-adapter stopgezet. Installeer de nieuwe adapter om meer functies te krijgen.",
-            "fr": "En raison du développement de l'adaptateur ioBroker.radar2, le développement de l'adaptateur ioBroker.radar a été arrêté. Veuillez installer le nouvel adaptateur pour obtenir plus de fonctionnalités.",
-            "it": "A causa dello sviluppo dell'adattatore ioBroker.radar2, l'ulteriore sviluppo dell'adattatore ioBroker.radar è stato interrotto. Si prega di installare il nuovo adattatore per ottenere più funzionalità.",
-            "es": "Debido al desarrollo del adaptador ioBroker.radar2, el desarrollo adicional del adaptador ioBroker.radar se ha interrumpido. Instale el nuevo adaptador para obtener más características.",
-            "pl": "Dzięki rozwojowi adaptera ioBroker.radar2, dalszy rozwój adaptera ioBroker.radar został przerwany. Zainstaluj nowy adapter, aby uzyskać więcej funkcji.",
-            "zh-cn": "由于ioBroker.radar2适配器的开发，ioBroker.radar适配器的进一步开发已经停止。 请安装新适配器以获得更多功能。"
-        },
-        "id": "radar",
-        "created": "2019-03-22T00:00:00.000Z",
-        "conditions": {
-            "radar": "installed",
-            "radar2": "!installed"
-        }
-    },
-    {
-        "title": {
-            "en": "Please update ioBroker.weatherunderground",
-            "de": "Bitte updaten Sie ioBroker.weatherunderground",
-            "ru": "Пожалуйста, обновление ioBroker.weatherunderground",
-            "pt": "Por favor, atualize ioBroker.weatherunderground",
-            "nl": "Update ioBroker.weatherunderground",
-            "fr": "Veuillez mettre à jour ioBroker.weatherunderground",
-            "it": "Si prega di aggiornare ioBroker.weatherunderground",
-            "es": "Por favor, actualice ioBroker.weatherunderground",
-            "pl": "Proszę aktualizacja ioBroker.weatherunderground",
-            "zh-cn": "请更新的ioBroker。weatherunderground"
-        },
-        "content": {
-            "en": "Due to changes to the API, versions below 3.0.0 no longer work. Please update your version of ioBroker.weatherunderground.",
-            "de": "Wegen Änderungen der API, funktionieren Versionen unter 3.0.0 nicht mehr. Bitte aktualisieren Sie Ihre Version von ioBroker.weatherunderground.",
-            "ru": "Из-за изменений в API, версий ниже 3.0.0 больше не работают. Пожалуйста, обновите вашу версию ioBroker.weatherunderground.",
-            "pt": "Devido a alterações para a API, versões abaixo 3.0.0 não funcionam mais. Por favor, atualize sua versão do ioBroker.weatherunderground.",
-            "nl": "Door veranderingen aan de API versies hieronder 3.0.0 niet meer werken. Update uw versie van ioBroker.weatherunderground.",
-            "fr": "En raison des changements de l'API, les versions ci-dessous 3.0.0 ne fonctionnent plus. Veuillez mettre à jour votre version de ioBroker.weatherunderground.",
-            "it": "A causa di modifiche alle API, versioni di seguito 3.0.0 non funzionano più. Si prega di aggiornare la tua versione di ioBroker.weatherunderground.",
-            "es": "Debido a cambios en el API, las versiones a continuación 3.0.0 ya no funcionan. Por favor, actualice su versión de ioBroker.weatherunderground.",
-            "pl": "Ze względu na zmiany w API w wersji poniżej 3.0.0 już nie pracują. Proszę zaktualizować swoją wersję ioBroker.weatherunderground.",
-            "zh-cn": "由于变化的API，下文版本为3.0.0不再工作。 请更新版本的的ioBroker。weatherunderground的。"
-        },
-        "id": "weatherundergroundAdapter",
-        "fa-icon": "sun-o",
-        "created": "2019-03-24T00:00:00.000Z",
-        "conditions": {
-            "weatherunderground": "smaller(3.0.0)"
-        }
-    },
-    {
-        "title": {
-            "en": "Node.JS versions smaller than 8 will be soon deprecated",
-            "de": "Node.JS-Versionen, die kleiner als 8 sind, werden bald nicht mehr unterstützt",
-            "ru": "Версии Node.JS, меньшие 8, скоро будут устаревшими",
-            "pt": "Versões do Node.JS menores que 8 serão descontinuadas em breve",
-            "nl": "Node.JS-versies kleiner dan 8 worden binnenkort verouderd",
-            "fr": "Les versions de Node.JS inférieures à 8 seront bientôt obsolètes",
-            "it": "Le versioni di Node.JS inferiori a 8 saranno presto deprecate",
-            "es": "Las versiones de Node.JS más pequeñas que 8 pronto serán desaprobadas",
-            "pl": "Wersje Node.JS mniejsze niż 8 zostaną wkrótce wycofane",
-            "zh-cn": "小于8的Node.JS版本将很快被弃用"
-        },
-        "content": {
-            "en": "With the upcoming version 2 of the JS-controller, the support of Node.JS versions smaller than 8.x.x will be discontinued. Please update your system to a higher version. We recommend the Node.JS version 10.x.x.",
-            "de": "Mit der kommenden Version 2 des JS-Controllers wird die Unterstützung von Node.JS-Versionen kleiner als 8.x.x eingestellt. Bitte aktualisieren Sie Ihr System auf eine höhere Version. Wir empfehlen die Node.JS-Version 10.x.x.",
-            "ru": "С выходом второй версии JS-контроллера поддержка версий Node.JS, меньших 8.x.x, будет прекращена. Пожалуйста, обновите вашу систему до более поздней версии. Мы рекомендуем Node.JS версии 10.x.x.",
-            "pt": "Com a próxima versão 2 do controlador JS, o suporte às versões do Node.JS menores que 8.x.x será descontinuado. Atualize seu sistema para uma versão superior. Recomendamos a versão 10.x.x do Node.JS.",
-            "nl": "Met de komende versie 2 van de JS-controller wordt de ondersteuning van Node.JS-versies kleiner dan 8.x.x stopgezet. Werk uw systeem bij naar een hogere versie. We raden de Node.JS-versie 10.x.x aan.",
-            "fr": "Avec la prochaine version 2 du contrôleur JS, le support des versions de Node.JS inférieures à 8.x.x sera supprimé. Veuillez mettre à jour votre système avec une version supérieure. Nous recommandons la version 10.x.x de Node.JS.",
-            "it": "Con la prossima versione 2 del controller JS, il supporto delle versioni Node.JS inferiori a 8.x.x verrà sospeso. Si prega di aggiornare il sistema a una versione successiva. Consigliamo Node.JS versione 10.x.x.",
-            "es": "Con la próxima versión 2 del controlador JS, se suspenderá el soporte de las versiones Node.JS más pequeñas que 8.x.x. Actualice su sistema a una versión superior. Recomendamos el Node.JS versión 10.x.x.",
-            "pl": "W nadchodzącej wersji 2 kontrolera JS obsługa Node.JS w wersji mniejszej niż 8.x.x zostanie przerwana. Zaktualizuj system do wyższej wersji. Zalecamy wersję 10.x.x. Node.JS",
-            "zh-cn": "随着即将发布的JS-controller版本2，将不再支持小于8.x.x的Node.JS版本。请更新您的系统到更高版本。我们建议使用Node.JS版本10.x.x。"
-        },
-        "id": "js-controller",
-        "node-version": "smaller(8.0.0)",
-        "class": "warning",
-        "fa-icon": "ban",
-        "created": "2019-11-14T00:00:00.000Z",
-        "conditions": {
-            "admin": "bigger(3.6.10)"
-        }
-    },
-    {
-        "title": {
-            "en": "JS-Controller 2.x is not compatible with the simple-api adapter smaller than 2.1.2",
-            "de": "JS-Controller 2.x ist nicht kompatibel mit dem simple-api-Adapter, der kleiner als 2.1.2 ist",
-            "ru": "JS-Controller 2.x несовместим с адаптером simple-api меньше 2.1.2",
-            "pt": "O JS-Controller 2.x não é compatível com o adaptador simple-api menor que 2.1.2",
-            "nl": "JS-Controller 2.x is niet compatibel met de simple-api-adapter kleiner dan 2.1.2",
-            "fr": "JS-Controller 2.x n'est pas compatible avec l'adaptateur simple-api inférieur à 2.1.2",
-            "it": "JS-Controller 2.x non è compatibile con l'adattatore simple-api più piccolo di 2.1.2.",
-            "es": "JS-Controller 2.x no es compatible con el adaptador simple-api más pequeño que 2.1.2",
-            "pl": "JS-Controller 2.x nie jest kompatybilny z adapterem simple-api mniejszym niż 2.1.2",
-            "zh-cn": "JS-Controller 2.x与小于2.1.2的simple-api适配器不兼容"
-        },
-        "content": {
-            "en": "The installed version of JS-Controller 2.x is not compatible with the simple-api adapter with a version prior to 2.1.2. Please update the adapter to avoid problems.",
-            "de": "Die installierte Version von JS-Controller 2.x ist nicht mit dem simple-api-Adapter mit einer Version vor 2.1.2 kompatibel. Bitte aktualisieren Sie den Adapter, um Probleme zu vermeiden.",
-            "ru": "Установленная версия JS-Controller 2.x несовместима с адаптером simple-api с версией, предшествующей 2.1.2. Пожалуйста, обновите адаптер, чтобы избежать проблем.",
-            "pt": "A versão instalada do JS-Controller 2.x não é compatível com o adaptador simple-api com uma versão anterior ao 2.1.2. Atualize o adaptador para evitar problemas.",
-            "nl": "De geïnstalleerde versie van JS-Controller 2.x is niet compatibel met de simple-api-adapter met een versie ouder dan 2.1.2. Werk de adapter bij om problemen te voorkomen.",
-            "fr": "La version installée de JS-Controller 2.x n'est pas compatible avec l'adaptateur simple-api avec une version antérieure à 2.1.2. Veuillez mettre à jour l'adaptateur pour éviter les problèmes.",
-            "it": "La versione installata di JS-Controller 2.x non è compatibile con l'adattatore simple-api con una versione precedente a 2.1.2. Si prega di aggiornare l'adattatore per evitare problemi.",
-            "es": "La versión instalada de JS-Controller 2.x no es compatible con el adaptador simple-api con una versión anterior a 2.1.2. Actualice el adaptador para evitar problemas.",
-            "pl": "Zainstalowana wersja JS-Controller 2.x nie jest kompatybilna z adapterem simple-api z wersją wcześniejszą niż 2.1.2. Zaktualizuj adapter, aby uniknąć problemów.",
-            "zh-cn": "JS-Controller 2.x的安装版本与2.1.2之前的版本的simple-api适配器不兼容。请更新适配器以避免出现问题。"
-        },
-        "id": "simple-api",
-        "class": "warning",
-        "fa-icon": "exclamation-triangle",
-        "created": "2019-11-14T00:00:00.000Z",
-        "conditions": {
-            "js-controller": "bigger(2.0.0)",
-            "simple-api": "smaller(2.1.2)"
-        }
-    },
-    {
-        "title": {
-            "en": "JS-Controller 2.x is not compatible with the email adapter smaller than 1.0.5",
-            "de": "JS-Controller 2.x ist nicht kompatibel mit dem email-Adapter, der kleiner als 1.0.5 ist",
-            "ru": "JS-Controller 2.x несовместим с адаптером email меньше 1.0.5",
-            "pt": "O JS-Controller 2.x não é compatível com o adaptador email menor que 1.0.5",
-            "nl": "JS-Controller 2.x is niet compatibel met de email-adapter kleiner dan 1.0.5",
-            "fr": "JS-Controller 2.x n'est pas compatible avec l'adaptateur email inférieur à 1.0.5",
-            "it": "JS-Controller 2.x non è compatibile con l'adattatore email più piccolo di 1.0.5.",
-            "es": "JS-Controller 2.x no es compatible con el adaptador email más pequeño que 1.0.5",
-            "pl": "JS-Controller 2.x nie jest kompatybilny z adapterem email mniejszym niż 1.0.5",
-            "zh-cn": "JS-Controller 2.x与小于1.0.5的email适配器不兼容"
-        },
-        "content": {
-            "en": "The installed version of JS-Controller 2.x is not compatible with the email adapter with a version prior to 1.0.5. Please update the adapter to avoid problems.",
-            "de": "Die installierte Version von JS-Controller 2.x ist nicht mit dem email-Adapter mit einer Version vor 1.0.5 kompatibel. Bitte aktualisieren Sie den Adapter, um Probleme zu vermeiden.",
-            "ru": "Установленная версия JS-Controller 2.x несовместима с адаптером email с версией, предшествующей 1.0.5. Пожалуйста, обновите адаптер, чтобы избежать проблем.",
-            "pt": "A versão instalada do JS-Controller 2.x não é compatível com o adaptador email com uma versão anterior ao 1.0.5. Atualize o adaptador para evitar problemas.",
-            "nl": "De geïnstalleerde versie van JS-Controller 2.x is niet compatibel met de email-adapter met een versie ouder dan 1.0.5. Werk de adapter bij om problemen te voorkomen.",
-            "fr": "La version installée de JS-Controller 2.x n'est pas compatible avec l'adaptateur email avec une version antérieure à 1.0.5. Veuillez mettre à jour l'adaptateur pour éviter les problèmes.",
-            "it": "La versione installata di JS-Controller 2.x non è compatibile con l'adattatore email con una versione precedente a 1.0.5. Si prega di aggiornare l'adattatore per evitare problemi.",
-            "es": "La versión instalada de JS-Controller 2.x no es compatible con el adaptador email con una versión anterior a 1.0.5. Actualice el adaptador para evitar problemas.",
-            "pl": "Zainstalowana wersja JS-Controller 2.x nie jest kompatybilna z adapterem email z wersją wcześniejszą niż 1.0.5. Zaktualizuj adapter, aby uniknąć problemów.",
-            "zh-cn": "JS-Controller 2.x的安装版本与1.0.5之前的版本的email适配器不兼容。请更新适配器以避免出现问题。"
-        },
-        "id": "email",
-        "class": "warning",
-        "fa-icon": "exclamation-triangle",
-        "created": "2019-11-14T00:00:00.000Z",
-        "conditions": {
-            "js-controller": "bigger(2.0.0)",
-            "email": "smaller(1.0.5)"
-        }
-    },
-    {
-        "title": {
-            "en": "JS-Controller 2.x is not compatible with the pushover adapter smaller than 1.1.1",
-            "de": "JS-Controller 2.x ist nicht kompatibel mit dem pushover-Adapter, der kleiner als 1.1.1 ist",
-            "ru": "JS-Controller 2.x несовместим с адаптером pushover меньше 1.1.1",
-            "pt": "O JS-Controller 2.x não é compatível com o adaptador pushover menor que 1.1.1",
-            "nl": "JS-Controller 2.x is niet compatibel met de pushover-adapter kleiner dan 1.1.1",
-            "fr": "JS-Controller 2.x n'est pas compatible avec l'adaptateur pushover inférieur à 1.1.1",
-            "it": "JS-Controller 2.x non è compatibile con l'adattatore pushover più piccolo di 1.1.1.",
-            "es": "JS-Controller 2.x no es compatible con el adaptador pushover más pequeño que 1.1.1",
-            "pl": "JS-Controller 2.x nie jest kompatybilny z adapterem pushover mniejszym niż 1.1.1",
-            "zh-cn": "JS-Controller 2.x与小于1.1.1的pushover适配器不兼容"
-        },
-        "content": {
-            "en": "The installed version of JS-Controller 2.x is not compatible with the pushover adapter with a version prior to 1.1.1. Please update the adapter to avoid problems.",
-            "de": "Die installierte Version von JS-Controller 2.x ist nicht mit dem pushover-Adapter mit einer Version vor 1.1.1 kompatibel. Bitte aktualisieren Sie den Adapter, um Probleme zu vermeiden.",
-            "ru": "Установленная версия JS-Controller 2.x несовместима с адаптером pushover с версией, предшествующей 1.1.1. Пожалуйста, обновите адаптер, чтобы избежать проблем.",
-            "pt": "A versão instalada do JS-Controller 2.x não é compatível com o adaptador pushover com uma versão anterior ao 1.1.1. Atualize o adaptador para evitar problemas.",
-            "nl": "De geïnstalleerde versie van JS-Controller 2.x is niet compatibel met de pushover-adapter met een versie ouder dan 1.1.1. Werk de adapter bij om problemen te voorkomen.",
-            "fr": "La version installée de JS-Controller 2.x n'est pas compatible avec l'adaptateur pushover avec une version antérieure à 1.1.1. Veuillez mettre à jour l'adaptateur pour éviter les problèmes.",
-            "it": "La versione installata di JS-Controller 2.x non è compatibile con l'adattatore pushover con una versione precedente a 1.1.1. Si prega di aggiornare l'adattatore per evitare problemi.",
-            "es": "La versión instalada de JS-Controller 2.x no es compatible con el adaptador pushover con una versión anterior a 1.1.1. Actualice el adaptador para evitar problemas.",
-            "pl": "Zainstalowana wersja JS-Controller 2.x nie jest kompatybilna z adapterem pushover z wersją wcześniejszą niż 1.1.1. Zaktualizuj adapter, aby uniknąć problemów.",
-            "zh-cn": "JS-Controller 2.x的安装版本与1.1.1之前的版本的pushover适配器不兼容。请更新适配器以避免出现问题。"
-        },
-        "id": "pushover",
-        "class": "warning",
-        "fa-icon": "exclamation-triangle",
-        "created": "2019-11-14T00:00:00.000Z",
-        "conditions": {
-            "js-controller": "bigger(2.0.0)",
-            "pushover": "smaller(1.1.1)"
-        }
-    },
-    {
-        "title": {
-            "en": "JS-Controller 2.x is not compatible with the hue adapter smaller than 1.2.4",
-            "de": "JS-Controller 2.x ist nicht kompatibel mit dem hue-Adapter, der kleiner als 1.2.4 ist",
-            "ru": "JS-Controller 2.x несовместим с адаптером hue меньше 1.2.4",
-            "pt": "O JS-Controller 2.x não é compatível com o adaptador hue menor que 1.2.4",
-            "nl": "JS-Controller 2.x is niet compatibel met de hue-adapter kleiner dan 1.2.4",
-            "fr": "JS-Controller 2.x n'est pas compatible avec l'adaptateur hue inférieur à 1.2.4",
-            "it": "JS-Controller 2.x non è compatibile con l'adattatore hue più piccolo di 1.2.4.",
-            "es": "JS-Controller 2.x no es compatible con el adaptador hue más pequeño que 1.2.4",
-            "pl": "JS-Controller 2.x nie jest kompatybilny z adapterem hue mniejszym niż 1.2.4",
-            "zh-cn": "JS-Controller 2.x与小于1.2.4的hue适配器不兼容"
-        },
-        "content": {
-            "en": "The installed version of JS-Controller 2.x is not compatible with the hue adapter with a version prior to 1.2.4. Please update the adapter to avoid problems.",
-            "de": "Die installierte Version von JS-Controller 2.x ist nicht mit dem hue-Adapter mit einer Version vor 1.2.4 kompatibel. Bitte aktualisieren Sie den Adapter, um Probleme zu vermeiden.",
-            "ru": "Установленная версия JS-Controller 2.x несовместима с адаптером hue с версией, предшествующей 1.2.4. Пожалуйста, обновите адаптер, чтобы избежать проблем.",
-            "pt": "A versão instalada do JS-Controller 2.x não é compatível com o adaptador hue com uma versão anterior ao 1.2.4. Atualize o adaptador para evitar problemas.",
-            "nl": "De geïnstalleerde versie van JS-Controller 2.x is niet compatibel met de hue-adapter met een versie ouder dan 1.2.4. Werk de adapter bij om problemen te voorkomen.",
-            "fr": "La version installée de JS-Controller 2.x n'est pas compatible avec l'adaptateur hue avec une version antérieure à 1.2.4. Veuillez mettre à jour l'adaptateur pour éviter les problèmes.",
-            "it": "La versione installata di JS-Controller 2.x non è compatibile con l'adattatore hue con una versione precedente a 1.2.4. Si prega di aggiornare l'adattatore per evitare problemi.",
-            "es": "La versión instalada de JS-Controller 2.x no es compatible con el adaptador hue con una versión anterior a 1.2.4. Actualice el adaptador para evitar problemas.",
-            "pl": "Zainstalowana wersja JS-Controller 2.x nie jest kompatybilna z adapterem hue z wersją wcześniejszą niż 1.2.4. Zaktualizuj adapter, aby uniknąć problemów.",
-            "zh-cn": "JS-Controller 2.x的安装版本与1.2.4之前的版本的hue适配器不兼容。请更新适配器以避免出现问题。"
-        },
-        "id": "hue",
-        "class": "warning",
-        "fa-icon": "exclamation-triangle",
-        "created": "2019-11-14T00:00:00.000Z",
-        "conditions": {
-            "js-controller": "bigger(2.0.0)",
-            "hue": "smaller(1.2.4)"
-        }
-    },
-    {
-        "title": {
-            "en": "JS-Controller 2.x is not compatible with the node-red adapter smaller than 1.10.1",
-            "de": "JS-Controller 2.x ist nicht kompatibel mit dem node-red-Adapter, der kleiner als 1.10.1 ist",
-            "ru": "JS-Controller 2.x несовместим с адаптером node-red меньше 1.10.1",
-            "pt": "O JS-Controller 2.x não é compatível com o adaptador node-red menor que 1.10.1",
-            "nl": "JS-Controller 2.x is niet compatibel met de node-red-adapter kleiner dan 1.10.1",
-            "fr": "JS-Controller 2.x n'est pas compatible avec l'adaptateur node-red inférieur à 1.10.1",
-            "it": "JS-Controller 2.x non è compatibile con l'adattatore node-red più piccolo di 1.10.1.",
-            "es": "JS-Controller 2.x no es compatible con el adaptador node-red más pequeño que 1.10.1",
-            "pl": "JS-Controller 2.x nie jest kompatybilny z adapterem node-red mniejszym niż 1.10.1",
-            "zh-cn": "JS-Controller 2.x与小于1.10.1的node-red适配器不兼容"
-        },
-        "content": {
-            "en": "The installed version of JS-Controller 2.x is not compatible with the node-red adapter with a version prior to 1.10.1. Please update the adapter to avoid problems.",
-            "de": "Die installierte Version von JS-Controller 2.x ist nicht mit dem node-red-Adapter mit einer Version vor 1.10.1 kompatibel. Bitte aktualisieren Sie den Adapter, um Probleme zu vermeiden.",
-            "ru": "Установленная версия JS-Controller 2.x несовместима с адаптером node-red с версией, предшествующей 1.10.1. Пожалуйста, обновите адаптер, чтобы избежать проблем.",
-            "pt": "A versão instalada do JS-Controller 2.x não é compatível com o adaptador node-red com uma versão anterior ao 1.10.1. Atualize o adaptador para evitar problemas.",
-            "nl": "De geïnstalleerde versie van JS-Controller 2.x is niet compatibel met de node-red-adapter met een versie ouder dan 1.10.1. Werk de adapter bij om problemen te voorkomen.",
-            "fr": "La version installée de JS-Controller 2.x n'est pas compatible avec l'adaptateur node-red avec une version antérieure à 1.10.1. Veuillez mettre à jour l'adaptateur pour éviter les problèmes.",
-            "it": "La versione installata di JS-Controller 2.x non è compatibile con l'adattatore node-red con una versione precedente a 1.10.1. Si prega di aggiornare l'adattatore per evitare problemi.",
-            "es": "La versión instalada de JS-Controller 2.x no es compatible con el adaptador node-red con una versión anterior a 1.10.1. Actualice el adaptador para evitar problemas.",
-            "pl": "Zainstalowana wersja JS-Controller 2.x nie jest kompatybilna z adapterem node-red z wersją wcześniejszą niż 1.10.1. Zaktualizuj adapter, aby uniknąć problemów.",
-            "zh-cn": "JS-Controller 2.x的安装版本与1.10.1之前的版本的node-red适配器不兼容。请更新适配器以避免出现问题。"
-        },
-        "id": "node-red",
-        "class": "warning",
-        "fa-icon": "exclamation-triangle",
-        "created": "2019-11-14T00:00:00.000Z",
-        "conditions": {
-            "js-controller": "bigger(2.0.0)",
-            "node-red": "smaller(1.10.1)"
-        }
-    },
-    {
-        "title": {
-            "en": "JS-Controller 2.x is not compatible with the vis adapter smaller than 1.2.2",
-            "de": "JS-Controller 2.x ist nicht kompatibel mit dem vis-Adapter, der kleiner als 1.2.2 ist",
-            "ru": "JS-Controller 2.x несовместим с адаптером vis меньше 1.2.2",
-            "pt": "O JS-Controller 2.x não é compatível com o adaptador vis menor que 1.2.2",
-            "nl": "JS-Controller 2.x is niet compatibel met de vis-adapter kleiner dan 1.2.2",
-            "fr": "JS-Controller 2.x n'est pas compatible avec l'adaptateur vis inférieur à 1.2.2",
-            "it": "JS-Controller 2.x non è compatibile con l'adattatore vis più piccolo di 1.2.2.",
-            "es": "JS-Controller 2.x no es compatible con el adaptador vis más pequeño que 1.2.2",
-            "pl": "JS-Controller 2.x nie jest kompatybilny z adapterem vis mniejszym niż 1.2.2",
-            "zh-cn": "JS-Controller 2.x与小于1.2.2的vis适配器不兼容"
-        },
-        "content": {
-            "en": "The installed version of JS-Controller 2.x is not compatible with the vis adapter with a version prior to 1.2.2. Please update the adapter to avoid problems.",
-            "de": "Die installierte Version von JS-Controller 2.x ist nicht mit dem vis-Adapter mit einer Version vor 1.2.2 kompatibel. Bitte aktualisieren Sie den Adapter, um Probleme zu vermeiden.",
-            "ru": "Установленная версия JS-Controller 2.x несовместима с адаптером vis с версией, предшествующей 1.2.2. Пожалуйста, обновите адаптер, чтобы избежать проблем.",
-            "pt": "A versão instalada do JS-Controller 2.x não é compatível com o adaptador vis com uma versão anterior ao 1.2.2. Atualize o adaptador para evitar problemas.",
-            "nl": "De geïnstalleerde versie van JS-Controller 2.x is niet compatibel met de vis-adapter met een versie ouder dan 1.2.2. Werk de adapter bij om problemen te voorkomen.",
-            "fr": "La version installée de JS-Controller 2.x n'est pas compatible avec l'adaptateur vis avec une version antérieure à 1.2.2. Veuillez mettre à jour l'adaptateur pour éviter les problèmes.",
-            "it": "La versione installata di JS-Controller 2.x non è compatibile con l'adattatore vis con una versione precedente a 1.2.2. Si prega di aggiornare l'adattatore per evitare problemi.",
-            "es": "La versión instalada de JS-Controller 2.x no es compatible con el adaptador vis con una versión anterior a 1.2.2. Actualice el adaptador para evitar problemas.",
-            "pl": "Zainstalowana wersja JS-Controller 2.x nie jest kompatybilna z adapterem vis z wersją wcześniejszą niż 1.2.2. Zaktualizuj adapter, aby uniknąć problemów.",
-            "zh-cn": "JS-Controller 2.x的安装版本与1.2.2之前的版本的vis适配器不兼容。请更新适配器以避免出现问题。"
-        },
-        "id": "vis",
-        "class": "warning",
-        "fa-icon": "exclamation-triangle",
-        "created": "2019-11-14T00:00:00.000Z",
-        "conditions": {
-            "js-controller": "bigger(2.0.0)",
-            "vis": "smaller(1.2.2)"
-        }
-    },
-    {
-        "title": {
-            "en": "JS-Controller 2.x is not compatible with the iqontrol adapter smaller than 0.2.12",
-            "de": "JS-Controller 2.x ist nicht kompatibel mit dem iqontrol-Adapter, der kleiner als 0.2.12 ist",
-            "ru": "JS-Controller 2.x несовместим с адаптером iqontrol меньше 0.2.12",
-            "pt": "O JS-Controller 2.x não é compatível com o adaptador iqontrol menor que 0.2.12",
-            "nl": "JS-Controller 2.x is niet compatibel met de iqontrol-adapter kleiner dan 0.2.12",
-            "fr": "JS-Controller 2.x n'est pas compatible avec l'adaptateur iqontrol inférieur à 0.2.12",
-            "it": "JS-Controller 2.x non è compatibile con l'adattatore iqontrol più piccolo di 0.2.12.",
-            "es": "JS-Controller 2.x no es compatible con el adaptador iqontrol más pequeño que 0.2.12",
-            "pl": "JS-Controller 2.x nie jest kompatybilny z adapterem iqontrol mniejszym niż 0.2.12",
-            "zh-cn": "JS-Controller 2.x与小于0.2.12的iqontrol适配器不兼容"
-        },
-        "content": {
-            "en": "The installed version of JS-Controller 2.x is not compatible with the iqontrol adapter with a version prior to 0.2.12. Please update the adapter to avoid problems.",
-            "de": "Die installierte Version von JS-Controller 2.x ist nicht mit dem iqontrol-Adapter mit einer Version vor 0.2.12 kompatibel. Bitte aktualisieren Sie den Adapter, um Probleme zu vermeiden.",
-            "ru": "Установленная версия JS-Controller 2.x несовместима с адаптером iqontrol с версией, предшествующей 0.2.12. Пожалуйста, обновите адаптер, чтобы избежать проблем.",
-            "pt": "A versão instalada do JS-Controller 2.x não é compatível com o adaptador iqontrol com uma versão anterior ao 0.2.12. Atualize o adaptador para evitar problemas.",
-            "nl": "De geïnstalleerde versie van JS-Controller 2.x is niet compatibel met de iqontrol-adapter met een versie ouder dan 0.2.12. Werk de adapter bij om problemen te voorkomen.",
-            "fr": "La version installée de JS-Controller 2.x n'est pas compatible avec l'adaptateur iqontrol avec une version antérieure à 0.2.12. Veuillez mettre à jour l'adaptateur pour éviter les problèmes.",
-            "it": "La versione installata di JS-Controller 2.x non è compatibile con l'adattatore iqontrol con una versione precedente a 0.2.12. Si prega di aggiornare l'adattatore per evitare problemi.",
-            "es": "La versión instalada de JS-Controller 2.x no es compatible con el adaptador iqontrol con una versión anterior a 0.2.12. Actualice el adaptador para evitar problemas.",
-            "pl": "Zainstalowana wersja JS-Controller 2.x nie jest kompatybilna z adapterem iqontrol z wersją wcześniejszą niż 0.2.12. Zaktualizuj adapter, aby uniknąć problemów.",
-            "zh-cn": "JS-Controller 2.x的安装版本与0.2.12之前的版本的iqontrol适配器不兼容。请更新适配器以避免出现问题。"
-        },
-        "id": "iqontrol",
-        "class": "warning",
-        "fa-icon": "exclamation-triangle",
-        "created": "2019-11-14T00:00:00.000Z",
-        "conditions": {
-            "js-controller": "bigger(2.0.0)",
-            "iqontrol": "smaller(0.2.12)"
-        }
-    },
-    {
-        "title": {
-            "en": "JS-Controller 2.x is not compatible with the socketio adapter smaller than 2.1.2",
-            "de": "JS-Controller 2.x ist nicht kompatibel mit dem socketio-Adapter, der kleiner als 2.1.2 ist",
-            "ru": "JS-Controller 2.x несовместим с адаптером socketio меньше 2.1.2",
-            "pt": "O JS-Controller 2.x não é compatível com o adaptador socketio menor que 2.1.2",
-            "nl": "JS-Controller 2.x is niet compatibel met de socketio-adapter kleiner dan 2.1.2",
-            "fr": "JS-Controller 2.x n'est pas compatible avec l'adaptateur socketio inférieur à 2.1.2",
-            "it": "JS-Controller 2.x non è compatibile con l'adattatore socketio più piccolo di 2.1.2.",
-            "es": "JS-Controller 2.x no es compatible con el adaptador socketio más pequeño que 2.1.2",
-            "pl": "JS-Controller 2.x nie jest kompatybilny z adapterem socketio mniejszym niż 2.1.2",
-            "zh-cn": "JS-Controller 2.x与小于2.1.2的socketio适配器不兼容"
-        },
-        "content": {
-            "en": "The installed version of JS-Controller 2.x is not compatible with the socketio adapter with a version prior to 2.1.2. Please update the adapter to avoid problems.",
-            "de": "Die installierte Version von JS-Controller 2.x ist nicht mit dem socketio-Adapter mit einer Version vor 2.1.2 kompatibel. Bitte aktualisieren Sie den Adapter, um Probleme zu vermeiden.",
-            "ru": "Установленная версия JS-Controller 2.x несовместима с адаптером socketio с версией, предшествующей 2.1.2. Пожалуйста, обновите адаптер, чтобы избежать проблем.",
-            "pt": "A versão instalada do JS-Controller 2.x não é compatível com o adaptador socketio com uma versão anterior ao 2.1.2. Atualize o adaptador para evitar problemas.",
-            "nl": "De geïnstalleerde versie van JS-Controller 2.x is niet compatibel met de socketio-adapter met een versie ouder dan 2.1.2. Werk de adapter bij om problemen te voorkomen.",
-            "fr": "La version installée de JS-Controller 2.x n'est pas compatible avec l'adaptateur socketio avec une version antérieure à 2.1.2. Veuillez mettre à jour l'adaptateur pour éviter les problèmes.",
-            "it": "La versione installata di JS-Controller 2.x non è compatibile con l'adattatore socketio con una versione precedente a 2.1.2. Si prega di aggiornare l'adattatore per evitare problemi.",
-            "es": "La versión instalada de JS-Controller 2.x no es compatible con el adaptador socketio con una versión anterior a 2.1.2. Actualice el adaptador para evitar problemas.",
-            "pl": "Zainstalowana wersja JS-Controller 2.x nie jest kompatybilna z adapterem socketio z wersją wcześniejszą niż 2.1.2. Zaktualizuj adapter, aby uniknąć problemów.",
-            "zh-cn": "JS-Controller 2.x的安装版本与2.1.2之前的版本的socketio适配器不兼容。请更新适配器以避免出现问题。"
-        },
-        "id": "socketio",
-        "class": "warning",
-        "fa-icon": "exclamation-triangle",
-        "created": "2019-11-14T00:00:00.000Z",
-        "conditions": {
-            "js-controller": "bigger(2.0.0)",
-            "socketio": "smaller(2.1.2)"
-        }
-    },
-    {
-        "title": {
-            "en": "JS-Controller 2.x is not compatible with the web adapter smaller than 2.4.9",
-            "de": "JS-Controller 2.x ist nicht kompatibel mit dem web-Adapter, der kleiner als 2.4.9 ist",
-            "ru": "JS-Controller 2.x несовместим с адаптером web меньше 2.4.9",
-            "pt": "O JS-Controller 2.x não é compatível com o adaptador web menor que 2.4.9",
-            "nl": "JS-Controller 2.x is niet compatibel met de web-adapter kleiner dan 2.4.9",
-            "fr": "JS-Controller 2.x n'est pas compatible avec l'adaptateur web inférieur à 2.4.9",
-            "it": "JS-Controller 2.x non è compatibile con l'adattatore web più piccolo di 2.4.9.",
-            "es": "JS-Controller 2.x no es compatible con el adaptador web más pequeño que 2.4.9",
-            "pl": "JS-Controller 2.x nie jest kompatybilny z adapterem web mniejszym niż 2.4.9",
-            "zh-cn": "JS-Controller 2.x与小于2.4.9的web适配器不兼容"
-        },
-        "content": {
-            "en": "The installed version of JS-Controller 2.x is not compatible with the web adapter with a version prior to 2.4.9. Please update the adapter to avoid problems.",
-            "de": "Die installierte Version von JS-Controller 2.x ist nicht mit dem web-Adapter mit einer Version vor 2.4.9 kompatibel. Bitte aktualisieren Sie den Adapter, um Probleme zu vermeiden.",
-            "ru": "Установленная версия JS-Controller 2.x несовместима с адаптером web с версией, предшествующей 2.4.9. Пожалуйста, обновите адаптер, чтобы избежать проблем.",
-            "pt": "A versão instalada do JS-Controller 2.x não é compatível com o adaptador web com uma versão anterior ao 2.4.9. Atualize o adaptador para evitar problemas.",
-            "nl": "De geïnstalleerde versie van JS-Controller 2.x is niet compatibel met de web-adapter met een versie ouder dan 2.4.9. Werk de adapter bij om problemen te voorkomen.",
-            "fr": "La version installée de JS-Controller 2.x n'est pas compatible avec l'adaptateur web avec une version antérieure à 2.4.9. Veuillez mettre à jour l'adaptateur pour éviter les problèmes.",
-            "it": "La versione installata di JS-Controller 2.x non è compatibile con l'adattatore web con una versione precedente a 2.4.9. Si prega di aggiornare l'adattatore per evitare problemi.",
-            "es": "La versión instalada de JS-Controller 2.x no es compatible con el adaptador web con una versión anterior a 2.4.9. Actualice el adaptador para evitar problemas.",
-            "pl": "Zainstalowana wersja JS-Controller 2.x nie jest kompatybilna z adapterem web z wersją wcześniejszą niż 2.4.9. Zaktualizuj adapter, aby uniknąć problemów.",
-            "zh-cn": "JS-Controller 2.x的安装版本与2.4.9之前的版本的web适配器不兼容。请更新适配器以避免出现问题。"
-        },
-        "id": "web",
-        "class": "warning",
-        "fa-icon": "exclamation-triangle",
-        "created": "2019-11-14T00:00:00.000Z",
-        "conditions": {
-            "js-controller": "bigger(2.0.0)",
-            "web": "smaller(2.4.9)"
-        }
-    },
-    {
-        "title": {
-            "en": "JS-Controller 2.x is not compatible with the vis-hqwidgets adapter smaller than 1.1.3",
-            "de": "JS-Controller 2.x ist nicht kompatibel mit dem vis-hqwidgets-Adapter, der kleiner als 1.1.3 ist",
-            "ru": "JS-Controller 2.x несовместим с адаптером vis-hqwidgets меньше 1.1.3",
-            "pt": "O JS-Controller 2.x não é compatível com o adaptador vis-hqwidgets menor que 1.1.3",
-            "nl": "JS-Controller 2.x is niet compatibel met de vis-hqwidgets-adapter kleiner dan 1.1.3",
-            "fr": "JS-Controller 2.x n'est pas compatible avec l'adaptateur vis-hqwidgets inférieur à 1.1.3",
-            "it": "JS-Controller 2.x non è compatibile con l'adattatore vis-hqwidgets più piccolo di 1.1.3.",
-            "es": "JS-Controller 2.x no es compatible con el adaptador vis-hqwidgets más pequeño que 1.1.3",
-            "pl": "JS-Controller 2.x nie jest kompatybilny z adapterem vis-hqwidgets mniejszym niż 1.1.3",
-            "zh-cn": "JS-Controller 2.x与小于1.1.3的vis-hqwidgets适配器不兼容"
-        },
-        "content": {
-            "en": "The installed version of JS-Controller 2.x is not compatible with the vis-hqwidgets adapter with a version prior to 1.1.3. Please update the adapter to avoid problems.",
-            "de": "Die installierte Version von JS-Controller 2.x ist nicht mit dem vis-hqwidgets-Adapter mit einer Version vor 1.1.3 kompatibel. Bitte aktualisieren Sie den Adapter, um Probleme zu vermeiden.",
-            "ru": "Установленная версия JS-Controller 2.x несовместима с адаптером vis-hqwidgets с версией, предшествующей 1.1.3. Пожалуйста, обновите адаптер, чтобы избежать проблем.",
-            "pt": "A versão instalada do JS-Controller 2.x não é compatível com o adaptador vis-hqwidgets com uma versão anterior ao 1.1.3. Atualize o adaptador para evitar problemas.",
-            "nl": "De geïnstalleerde versie van JS-Controller 2.x is niet compatibel met de vis-hqwidgets-adapter met een versie ouder dan 1.1.3. Werk de adapter bij om problemen te voorkomen.",
-            "fr": "La version installée de JS-Controller 2.x n'est pas compatible avec l'adaptateur vis-hqwidgets avec une version antérieure à 1.1.3. Veuillez mettre à jour l'adaptateur pour éviter les problèmes.",
-            "it": "La versione installata di JS-Controller 2.x non è compatibile con l'adattatore vis-hqwidgets con una versione precedente a 1.1.3. Si prega di aggiornare l'adattatore per evitare problemi.",
-            "es": "La versión instalada de JS-Controller 2.x no es compatible con el adaptador vis-hqwidgets con una versión anterior a 1.1.3. Actualice el adaptador para evitar problemas.",
-            "pl": "Zainstalowana wersja JS-Controller 2.x nie jest kompatybilna z adapterem vis-hqwidgets z wersją wcześniejszą niż 1.1.3. Zaktualizuj adapter, aby uniknąć problemów.",
-            "zh-cn": "JS-Controller 2.x的安装版本与1.1.3之前的版本的vis-hqwidgets适配器不兼容。请更新适配器以避免出现问题。"
-        },
-        "id": "vis-hqwidgets",
-        "class": "warning",
-        "fa-icon": "exclamation-triangle",
-        "created": "2019-11-14T00:00:00.000Z",
-        "conditions": {
-            "js-controller": "bigger(2.0.0)",
-            "vis-hqwidgets": "smaller(1.1.3)"
-        }
-    },
-    {
-        "title": {
-            "en": "JS-Controller 2.x is not compatible with the ble adapter smaller than 0.10.1",
-            "de": "JS-Controller 2.x ist nicht kompatibel mit dem ble-Adapter, der kleiner als 0.10.1 ist",
-            "ru": "JS-Controller 2.x несовместим с адаптером ble меньше 0.10.1",
-            "pt": "O JS-Controller 2.x não é compatível com o adaptador ble menor que 0.10.1",
-            "nl": "JS-Controller 2.x is niet compatibel met de ble-adapter kleiner dan 0.10.1",
-            "fr": "JS-Controller 2.x n'est pas compatible avec l'adaptateur ble inférieur à 0.10.1",
-            "it": "JS-Controller 2.x non è compatibile con l'adattatore ble più piccolo di 0.10.1.",
-            "es": "JS-Controller 2.x no es compatible con el adaptador ble más pequeño que 0.10.1",
-            "pl": "JS-Controller 2.x nie jest kompatybilny z adapterem ble mniejszym niż 0.10.1",
-            "zh-cn": "JS-Controller 2.x与小于0.10.1的ble适配器不兼容"
-        },
-        "content": {
-            "en": "The installed version of JS-Controller 2.x is not compatible with the ble adapter with a version prior to 0.10.1. Please update the adapter to avoid problems.",
-            "de": "Die installierte Version von JS-Controller 2.x ist nicht mit dem ble-Adapter mit einer Version vor 0.10.1 kompatibel. Bitte aktualisieren Sie den Adapter, um Probleme zu vermeiden.",
-            "ru": "Установленная версия JS-Controller 2.x несовместима с адаптером ble с версией, предшествующей 0.10.1. Пожалуйста, обновите адаптер, чтобы избежать проблем.",
-            "pt": "A versão instalada do JS-Controller 2.x não é compatível com o adaptador ble com uma versão anterior ao 0.10.1. Atualize o adaptador para evitar problemas.",
-            "nl": "De geïnstalleerde versie van JS-Controller 2.x is niet compatibel met de ble-adapter met een versie ouder dan 0.10.1. Werk de adapter bij om problemen te voorkomen.",
-            "fr": "La version installée de JS-Controller 2.x n'est pas compatible avec l'adaptateur ble avec une version antérieure à 0.10.1. Veuillez mettre à jour l'adaptateur pour éviter les problèmes.",
-            "it": "La versione installata di JS-Controller 2.x non è compatibile con l'adattatore ble con una versione precedente a 0.10.1. Si prega di aggiornare l'adattatore per evitare problemi.",
-            "es": "La versión instalada de JS-Controller 2.x no es compatible con el adaptador ble con una versión anterior a 0.10.1. Actualice el adaptador para evitar problemas.",
-            "pl": "Zainstalowana wersja JS-Controller 2.x nie jest kompatybilna z adapterem ble z wersją wcześniejszą niż 0.10.1. Zaktualizuj adapter, aby uniknąć problemów.",
-            "zh-cn": "JS-Controller 2.x的安装版本与0.10.1之前的版本的ble适配器不兼容。请更新适配器以避免出现问题。"
-        },
-        "id": "ble",
-        "class": "warning",
-        "fa-icon": "exclamation-triangle",
-        "created": "2019-11-14T00:00:00.000Z",
-        "conditions": {
-            "js-controller": "bigger(2.0.0)",
-            "ble": "smaller(0.10.1)"
-        }
-    },
-    {
-        "title": {
-            "en": "JS-Controller 2.x is not compatible with the broadlink2 adapter smaller than 2.0.2",
-            "de": "JS-Controller 2.x ist nicht kompatibel mit dem broadlink2-Adapter, der kleiner als 2.0.2 ist",
-            "ru": "JS-Controller 2.x несовместим с адаптером broadlink2 меньше 2.0.2",
-            "pt": "O JS-Controller 2.x não é compatível com o adaptador broadlink2 menor que 2.0.2",
-            "nl": "JS-Controller 2.x is niet compatibel met de broadlink2-adapter kleiner dan 2.0.2",
-            "fr": "JS-Controller 2.x n'est pas compatible avec l'adaptateur broadlink2 inférieur à 2.0.2",
-            "it": "JS-Controller 2.x non è compatibile con l'adattatore broadlink2 più piccolo di 2.0.2.",
-            "es": "JS-Controller 2.x no es compatible con el adaptador broadlink2 más pequeño que 2.0.2",
-            "pl": "JS-Controller 2.x nie jest kompatybilny z adapterem broadlink2 mniejszym niż 2.0.2",
-            "zh-cn": "JS-Controller 2.x与小于2.0.2的broadlink2适配器不兼容"
-        },
-        "content": {
-            "en": "The installed version of JS-Controller 2.x is not compatible with the broadlink2 adapter with a version prior to 2.0.2. Please update the adapter to avoid problems.",
-            "de": "Die installierte Version von JS-Controller 2.x ist nicht mit dem broadlink2-Adapter mit einer Version vor 2.0.2 kompatibel. Bitte aktualisieren Sie den Adapter, um Probleme zu vermeiden.",
-            "ru": "Установленная версия JS-Controller 2.x несовместима с адаптером broadlink2 с версией, предшествующей 2.0.2. Пожалуйста, обновите адаптер, чтобы избежать проблем.",
-            "pt": "A versão instalada do JS-Controller 2.x não é compatível com o adaptador broadlink2 com uma versão anterior ao 2.0.2. Atualize o adaptador para evitar problemas.",
-            "nl": "De geïnstalleerde versie van JS-Controller 2.x is niet compatibel met de broadlink2-adapter met een versie ouder dan 2.0.2. Werk de adapter bij om problemen te voorkomen.",
-            "fr": "La version installée de JS-Controller 2.x n'est pas compatible avec l'adaptateur broadlink2 avec une version antérieure à 2.0.2. Veuillez mettre à jour l'adaptateur pour éviter les problèmes.",
-            "it": "La versione installata di JS-Controller 2.x non è compatibile con l'adattatore broadlink2 con una versione precedente a 2.0.2. Si prega di aggiornare l'adattatore per evitare problemi.",
-            "es": "La versión instalada de JS-Controller 2.x no es compatible con el adaptador broadlink2 con una versión anterior a 2.0.2. Actualice el adaptador para evitar problemas.",
-            "pl": "Zainstalowana wersja JS-Controller 2.x nie jest kompatybilna z adapterem broadlink2 z wersją wcześniejszą niż 2.0.2. Zaktualizuj adapter, aby uniknąć problemów.",
-            "zh-cn": "JS-Controller 2.x的安装版本与2.0.2之前的版本的broadlink2适配器不兼容。请更新适配器以避免出现问题。"
-        },
-        "id": "broadlink2",
-        "class": "warning",
-        "fa-icon": "exclamation-triangle",
-        "created": "2019-11-15T00:00:00.000Z",
-        "conditions": {
-            "js-controller": "bigger(2.0.0)",
-            "broadlink2": "smaller(2.0.2)"
-        }
-    },
-    {
-        "title": {
-            "en": "JS-Controller 2.x is not compatible with the systeminfo adapter smaller than 0.3.1",
-            "de": "JS-Controller 2.x ist nicht kompatibel mit dem systeminfo-Adapter, der kleiner als 0.3.1 ist",
-            "ru": "JS-Controller 2.x несовместим с адаптером systeminfo меньше 0.3.1",
-            "pt": "O JS-Controller 2.x não é compatível com o adaptador systeminfo menor que 0.3.1",
-            "nl": "JS-Controller 2.x is niet compatibel met de systeminfo-adapter kleiner dan 0.3.1",
-            "fr": "JS-Controller 2.x n'est pas compatible avec l'adaptateur systeminfo inférieur à 0.3.1",
-            "it": "JS-Controller 2.x non è compatibile con l'adattatore systeminfo più piccolo di 0.3.1.",
-            "es": "JS-Controller 2.x no es compatible con el adaptador systeminfo más pequeño que 0.3.1",
-            "pl": "JS-Controller 2.x nie jest kompatybilny z adapterem systeminfo mniejszym niż 0.3.1",
-            "zh-cn": "JS-Controller 2.x与小于0.3.1的systeminfo适配器不兼容"
-        },
-        "content": {
-            "en": "The installed version of JS-Controller 2.x is not compatible with the systeminfo adapter with a version prior to 0.3.1. Please update the adapter to avoid problems.",
-            "de": "Die installierte Version von JS-Controller 2.x ist nicht mit dem systeminfo-Adapter mit einer Version vor 0.3.1 kompatibel. Bitte aktualisieren Sie den Adapter, um Probleme zu vermeiden.",
-            "ru": "Установленная версия JS-Controller 2.x несовместима с адаптером systeminfo с версией, предшествующей 0.3.1. Пожалуйста, обновите адаптер, чтобы избежать проблем.",
-            "pt": "A versão instalada do JS-Controller 2.x não é compatível com o adaptador systeminfo com uma versão anterior ao 0.3.1. Atualize o adaptador para evitar problemas.",
-            "nl": "De geïnstalleerde versie van JS-Controller 2.x is niet compatibel met de systeminfo-adapter met een versie ouder dan 0.3.1. Werk de adapter bij om problemen te voorkomen.",
-            "fr": "La version installée de JS-Controller 2.x n'est pas compatible avec l'adaptateur systeminfo avec une version antérieure à 0.3.1. Veuillez mettre à jour l'adaptateur pour éviter les problèmes.",
-            "it": "La versione installata di JS-Controller 2.x non è compatibile con l'adattatore systeminfo con una versione precedente a 0.3.1. Si prega di aggiornare l'adattatore per evitare problemi.",
-            "es": "La versión instalada de JS-Controller 2.x no es compatible con el adaptador systeminfo con una versión anterior a 0.3.1. Actualice el adaptador para evitar problemas.",
-            "pl": "Zainstalowana wersja JS-Controller 2.x nie jest kompatybilna z adapterem systeminfo z wersją wcześniejszą niż 0.3.1. Zaktualizuj adapter, aby uniknąć problemów.",
-            "zh-cn": "JS-Controller 2.x的安装版本与0.3.1之前的版本的systeminfo适配器不兼容。请更新适配器以避免出现问题。"
-        },
-        "id": "systeminfo",
-        "class": "warning",
-        "fa-icon": "exclamation-triangle",
-        "created": "2019-11-15T00:00:00.000Z",
-        "conditions": {
-            "js-controller": "bigger(2.0.0)",
-            "systeminfo": "smaller(0.3.1)"
-        }
-    },
-    {
-        "title": {
             "en": "BREAKING CHANGE: No support for iPad 1+2/Android<4.4 with updates for web, socketio and admin!",
             "de": "BREAKING CHANGE: Keine Unterstützung für iPad 1+2/Android<4.4 mit Updates für Web, Socketio und Admin!",
             "ru": "BREAKING CHANGE: нет поддержки iPad 1+2/Android<4.4 с обновлениями для Интернета, socketio и admin!",
@@ -1177,70 +572,269 @@
             "javascript": "smaller(4.6.0)"
         }
     },
-  {
-    "title": {
-      "en": "Attention! Breaking changes in material design widgets 0.4",
-      "de": "Beachtung! Breaking changes in Materialdesign-Widgets 0.4",
-      "ru": "Внимание! Критические изменения в виджетах материального дизайна 0.4",
-      "pt": "Atenção! Quebrando mudanças em widgets de design de material 0,4",
-      "nl": "Aandacht! Veranderingen in materiaalontwerpwidgets doorbreken 0.4",
-      "fr": "Attention! Changements de rupture dans les widgets de conception de matériaux 0.4",
-      "it": "Attenzione! Cambiamenti decisivi nei widget di material design 0.4",
-      "es": "¡Atención! Cambios importantes en los widgets de material design 0.4",
-      "pl": "Uwaga! Przełomowe zmiany w widgetach Material Design 0.4",
-      "zh-cn": "注意！材料设计小部件的重大更改0.4"
+    {
+        "title": {
+            "en": "Attention! Breaking changes in material design widgets 0.4",
+            "de": "Beachtung! Breaking changes in Materialdesign-Widgets 0.4",
+            "ru": "Внимание! Критические изменения в виджетах материального дизайна 0.4",
+            "pt": "Atenção! Quebrando mudanças em widgets de design de material 0,4",
+            "nl": "Aandacht! Veranderingen in materiaalontwerpwidgets doorbreken 0.4",
+            "fr": "Attention! Changements de rupture dans les widgets de conception de matériaux 0.4",
+            "it": "Attenzione! Cambiamenti decisivi nei widget di material design 0.4",
+            "es": "¡Atención! Cambios importantes en los widgets de material design 0.4",
+            "pl": "Uwaga! Przełomowe zmiany w widgetach Material Design 0.4",
+            "zh-cn": "注意！材料设计小部件的重大更改0.4"
+        },
+        "content": {
+            "en": "<li><ul>Line History Chart Widget: Breaking Changes !!! aggregate (display) method for every dataset configurable, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#line-history-chart'>see documentation for detailed infos!</a></ul><ul>TopAppBar Widget: Breaking Changes !!! Submenus must now be created using JSON string, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#since-version-040'>see documentation for detailed infos!</a></ul></li>",
+            "de": "<li><ul> Zeilenverlaufsdiagramm-Widget: Änderungen brechen !!! Aggregatmethode (Anzeige) für jeden konfigurierbaren Datensatz, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#line-history-chart'>detaillierte Informationen finden Sie in der Dokumentation!</a> </ul><ul> TopAppBar Widget: Änderungen brechen !!! Untermenüs müssen jetzt mit einer JSON-Zeichenfolge erstellt werden. Detaillierte Informationen finden <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#since-version-040'>Sie in der Dokumentation!</a> </ul></li>",
+            "ru": "<li><ul> Виджет графика истории линий: критические изменения !!! метод агрегирования (отображения) для каждого настраиваемого набора данных, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#line-history-chart'>подробную информацию см. в документации!</a> </ul><ul> Виджет TopAppBar: критические изменения !!! Подменю теперь необходимо создавать с использованием строки JSON, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#since-version-040'>подробную информацию см. В документации!</a> </ul></li>",
+            "pt": "<li><ul> Widget de gráfico de histórico de linha: Quebrando mudanças !!! método de agregação (exibição) para cada conjunto de dados configurável, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#line-history-chart'>consulte a documentação para informações detalhadas!</a> </ul><ul> Widget TopAppBar: Quebrando mudanças !!! Os submenus agora devem ser criados usando a string JSON, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#since-version-040'>consulte a documentação para informações detalhadas!</a> </ul></li>",
+            "nl": "<li><ul> Line History Chart Widget: veranderingen doorbreken !!! geaggregeerde (weergave) methode voor elke configureerbare dataset, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#line-history-chart'>zie documentatie voor gedetailleerde info!</a> </ul><ul> TopAppBar Widget: veranderingen doorbreken !!! Submenu's moeten nu worden gemaakt met behulp van een JSON-string, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#since-version-040'>zie documentatie voor gedetailleerde informatie!</a> </ul></li>",
+            "fr": "<li><ul> Widget de graphique d'historique de ligne: changements de rupture !!! méthode d'agrégation (affichage) pour chaque jeu de données configurable, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#line-history-chart'>voir la documentation pour des informations détaillées!</a> </ul><ul> Widget TopAppBar: changements de rupture !!! Les sous-menus doivent maintenant être créés en utilisant la chaîne JSON, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#since-version-040'>voir la documentation pour des informations détaillées!</a> </ul></li>",
+            "it": "<li><ul> Widget grafico cronologico delle linee: modifiche rivoluzionarie !!! metodo di aggregazione (visualizzazione) per ogni set di dati configurabile, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#line-history-chart'>vedere la documentazione per informazioni dettagliate!</a> </ul><ul> Widget di TopAppBar: modifiche rivoluzionarie !!! I sottomenu devono ora essere creati utilizzando la stringa JSON, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#since-version-040'>vedere la documentazione per informazioni dettagliate!</a> </ul></li>",
+            "es": "<li><ul> Widget de gráfico de historial de líneas: cambios importantes !!! Método agregado (visualización) para cada conjunto de datos configurable, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#line-history-chart'>consulte la documentación para obtener información detallada.</a> </ul><ul> Widget TopAppBar: ¡¡¡Cambios importantes !!! Los submenús ahora deben crearse utilizando una cadena JSON, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#since-version-040'>consulte la documentación para obtener información detallada.</a> </ul></li>",
+            "pl": "<li><ul> Widżet wykresu historii linii: Przełomowe zmiany !!! metoda agregacji (wyświetlania) dla każdego konfigurowalnego zestawu danych, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#line-history-chart'>szczegółowe informacje można znaleźć w dokumentacji!</a> </ul><ul> TopAppBar Widget: Przełomowe zmiany !!! Podmenu należy teraz tworzyć za pomocą łańcucha JSON, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#since-version-040'>szczegółowe informacje można znaleźć w dokumentacji!</a> </ul></li>",
+            "zh-cn": "<li><ul>折线图图表小部件：重大更改!!!每个可配置数据集的聚合（显示）方法， <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#line-history-chart'>请参阅文档以获取详细信息！</a> </ul><ul> TopAppBar小部件：重大更改!!!现在必须使用JSON字符串创建子菜单， <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#since-version-040'>有关详细信息</a> ， <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#since-version-040'>请参阅文档！</a> </ul></li>"
+        },
+        "id": "materialDesignWidget",
+        "created": "2020-09-25T00:00:00.000Z",
+        "class": "danger",
+        "fa-icon": "bolt",
+        "conditions": {
+            "vis-materialdesign": "smaller(0.4.0)"
+        }
     },
-    "content": {
-      "en": "<li><ul>Line History Chart Widget: Breaking Changes !!! aggregate (display) method for every dataset configurable, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#line-history-chart'>see documentation for detailed infos!</a></ul><ul>TopAppBar Widget: Breaking Changes !!! Submenus must now be created using JSON string, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#since-version-040'>see documentation for detailed infos!</a></ul></li>",
-      "de": "<li><ul> Zeilenverlaufsdiagramm-Widget: Änderungen brechen !!! Aggregatmethode (Anzeige) für jeden konfigurierbaren Datensatz, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#line-history-chart'>detaillierte Informationen finden Sie in der Dokumentation!</a> </ul><ul> TopAppBar Widget: Änderungen brechen !!! Untermenüs müssen jetzt mit einer JSON-Zeichenfolge erstellt werden. Detaillierte Informationen finden <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#since-version-040'>Sie in der Dokumentation!</a> </ul></li>",
-      "ru": "<li><ul> Виджет графика истории линий: критические изменения !!! метод агрегирования (отображения) для каждого настраиваемого набора данных, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#line-history-chart'>подробную информацию см. в документации!</a> </ul><ul> Виджет TopAppBar: критические изменения !!! Подменю теперь необходимо создавать с использованием строки JSON, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#since-version-040'>подробную информацию см. В документации!</a> </ul></li>",
-      "pt": "<li><ul> Widget de gráfico de histórico de linha: Quebrando mudanças !!! método de agregação (exibição) para cada conjunto de dados configurável, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#line-history-chart'>consulte a documentação para informações detalhadas!</a> </ul><ul> Widget TopAppBar: Quebrando mudanças !!! Os submenus agora devem ser criados usando a string JSON, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#since-version-040'>consulte a documentação para informações detalhadas!</a> </ul></li>",
-      "nl": "<li><ul> Line History Chart Widget: veranderingen doorbreken !!! geaggregeerde (weergave) methode voor elke configureerbare dataset, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#line-history-chart'>zie documentatie voor gedetailleerde info!</a> </ul><ul> TopAppBar Widget: veranderingen doorbreken !!! Submenu's moeten nu worden gemaakt met behulp van een JSON-string, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#since-version-040'>zie documentatie voor gedetailleerde informatie!</a> </ul></li>",
-      "fr": "<li><ul> Widget de graphique d'historique de ligne: changements de rupture !!! méthode d'agrégation (affichage) pour chaque jeu de données configurable, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#line-history-chart'>voir la documentation pour des informations détaillées!</a> </ul><ul> Widget TopAppBar: changements de rupture !!! Les sous-menus doivent maintenant être créés en utilisant la chaîne JSON, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#since-version-040'>voir la documentation pour des informations détaillées!</a> </ul></li>",
-      "it": "<li><ul> Widget grafico cronologico delle linee: modifiche rivoluzionarie !!! metodo di aggregazione (visualizzazione) per ogni set di dati configurabile, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#line-history-chart'>vedere la documentazione per informazioni dettagliate!</a> </ul><ul> Widget di TopAppBar: modifiche rivoluzionarie !!! I sottomenu devono ora essere creati utilizzando la stringa JSON, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#since-version-040'>vedere la documentazione per informazioni dettagliate!</a> </ul></li>",
-      "es": "<li><ul> Widget de gráfico de historial de líneas: cambios importantes !!! Método agregado (visualización) para cada conjunto de datos configurable, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#line-history-chart'>consulte la documentación para obtener información detallada.</a> </ul><ul> Widget TopAppBar: ¡¡¡Cambios importantes !!! Los submenús ahora deben crearse utilizando una cadena JSON, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#since-version-040'>consulte la documentación para obtener información detallada.</a> </ul></li>",
-      "pl": "<li><ul> Widżet wykresu historii linii: Przełomowe zmiany !!! metoda agregacji (wyświetlania) dla każdego konfigurowalnego zestawu danych, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#line-history-chart'>szczegółowe informacje można znaleźć w dokumentacji!</a> </ul><ul> TopAppBar Widget: Przełomowe zmiany !!! Podmenu należy teraz tworzyć za pomocą łańcucha JSON, <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#since-version-040'>szczegółowe informacje można znaleźć w dokumentacji!</a> </ul></li>",
-      "zh-cn": "<li><ul>折线图图表小部件：重大更改!!!每个可配置数据集的聚合（显示）方法， <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#line-history-chart'>请参阅文档以获取详细信息！</a> </ul><ul> TopAppBar小部件：重大更改!!!现在必须使用JSON字符串创建子菜单， <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#since-version-040'>有关详细信息</a> ， <a target='_blank' href='https://github.com/Scrounger/ioBroker.vis-materialdesign#since-version-040'>请参阅文档！</a> </ul></li>"
+    {
+        "title": {
+            "en": "Attention! Breaking changes in HeatingControl 2.0",
+            "de": "Beachtung! Brechende Änderungen in HeatingControl 2.0",
+            "ru": "Внимание! Критические изменения в HeatingControl 2.0",
+            "pt": "Atenção! Quebrando mudanças no HeatingControl 2.0",
+            "nl": "Aandacht! Belangrijke veranderingen in HeatingControl 2.0",
+            "fr": "Attention! Changements de rupture dans HeatingControl 2.0",
+            "it": "Attenzione! Cambiamenti decisivi in HeatingControl 2.0",
+            "es": "¡Atención! Cambios importantes en HeatingControl 2.0",
+            "pl": "Uwaga! Przełomowe zmiany w HeatingControl 2.0",
+            "zh-cn": "注意！加热控制2.0中的重大更改"
+        },
+        "content": {
+            "en": "Periods and Profiles count from 1 instead of 0. You must update visualisation and check profile paramteres. <a target='_blank' href='https://github.com/rg-engineering/ioBroker.heatingcontrol#200-2021-01-xx'>see release notes for detailed infos!</a>",
+            "de": "Perioden und Profile zählen von 1 statt 0. Sie müssen die Visualisierung aktualisieren und die Profilparameter überprüfen. <a target='_blank' href='https://github.com/rg-engineering/ioBroker.heatingcontrol#200-2021-01-xx'>Detaillierte Infos finden Sie in den Versionshinweisen!</a>",
+            "ru": "Периоды и профили отсчитываются от 1 вместо 0. Вы должны обновить визуализацию и проверить параметры профиля. <a target='_blank' href='https://github.com/rg-engineering/ioBroker.heatingcontrol#200-2021-01-xx'>см. примечания к выпуску для получения подробной информации!</a>",
+            "pt": "Períodos e perfis contam de 1 em vez de 0. Você deve atualizar a visualização e verificar os parâmetros de perfil. <a target='_blank' href='https://github.com/rg-engineering/ioBroker.heatingcontrol#200-2021-01-xx'>consulte as notas de lançamento para informações detalhadas!</a>",
+            "nl": "Perioden en profielen tellen vanaf 1 in plaats van 0. U moet de visualisatie bijwerken en profielparameters controleren. <a target='_blank' href='https://github.com/rg-engineering/ioBroker.heatingcontrol#200-2021-01-xx'>zie release-opmerkingen voor gedetailleerde informatie!</a>",
+            "fr": "Les périodes et les profils comptent de 1 au lieu de 0. Vous devez mettre à jour la visualisation et vérifier les paramètres de profil. <a target='_blank' href='https://github.com/rg-engineering/ioBroker.heatingcontrol#200-2021-01-xx'>voir les notes de version pour des informations détaillées!</a>",
+            "it": "I periodi e i profili contano da 1 invece di 0. È necessario aggiornare la visualizzazione e controllare i parametri del profilo. <a target='_blank' href='https://github.com/rg-engineering/ioBroker.heatingcontrol#200-2021-01-xx'>vedere le note di rilascio per informazioni dettagliate!</a>",
+            "es": "Los períodos y los perfiles cuentan desde 1 en lugar de 0. Debe actualizar la visualización y verificar los parámetros del perfil. <a target='_blank' href='https://github.com/rg-engineering/ioBroker.heatingcontrol#200-2021-01-xx'>Consulte las notas de la versión para obtener información detallada.</a>",
+            "pl": "Okresy i Profile liczą się od 1 zamiast 0. Musisz zaktualizować wizualizację i sprawdzić parametry profilu. <a target='_blank' href='https://github.com/rg-engineering/ioBroker.heatingcontrol#200-2021-01-xx'>szczegółowe informacje można znaleźć w uwagach do wydania!</a>",
+            "zh-cn": "期间和配置文件从1而不是0开始计数。您必须更新可视化并检查配置文件参数。 <a target='_blank' href='https://github.com/rg-engineering/ioBroker.heatingcontrol#200-2021-01-xx'>有关详细信息，请参见发行说明！</a>"
+        },
+        "id": "heatingcontrol",
+        "created": "2021-01-08T00:00:00.000Z",
+        "class": "danger",
+        "fa-icon": "bolt",
+        "conditions": {
+            "heatingcontrol": "smaller(2.0.0)"
+        }
     },
-    "id": "materialDesignWidget",
-    "created": "2020-09-25T00:00:00.000Z",
-    "class": "danger",
-    "fa-icon": "bolt",
-    "conditions": {
-      "vis-materialdesign": "smaller(0.4.0)"
+    {
+        "title": {
+            "en": "Attention: Alexa2 Adapter needs urgent update",
+            "de": "Achtung: Der Alexa2-Adapter muss dringend aktualisiert werden",
+            "ru": "Внимание: необходимо срочно обновить адаптер Alexa2",
+            "pt": "Atenção: Adaptador Alexa2 precisa de atualização urgente",
+            "nl": "Let op: Alexa2 Adapter heeft dringend update nodig",
+            "fr": "Attention: l'adaptateur Alexa2 nécessite une mise à jour urgente",
+            "it": "Attenzione: l'adattatore Alexa2 necessita di un aggiornamento urgente",
+            "es": "Atención: el adaptador Alexa2 necesita una actualización urgente",
+            "pl": "Uwaga: adapter Alexa2 wymaga pilnej aktualizacji",
+            "zh-cn": "注意：Alexa2适配器需要紧急更新"
+        },
+        "content": {
+            "en": "Becauase of several changes by Amazon the Routines and also History will not work any longer and there is also the risk to flood amazon servers with requests. Please update Alexa2 Adapter to at least 3.7.0 as soon as possible!",
+            "de": "Aufgrund mehrerer Änderungen durch Amazon funktionieren die Routinen und auch der Verlauf/History nicht mehr und es besteht auch das Risiko, Amazon-Server mit Anfragen zu überfluten. Bitte den Alexa2 Adapter so schnell wie möglich auf mindestens 3.7.0 aktualisieren!",
+            "ru": "Из-за нескольких изменений, внесенных Amazon, подпрограммы и история больше не будут работать, а также существует риск наводнения серверов Amazon запросами. Пожалуйста, обновите адаптер Alexa2 как минимум до версии 3.7.0 как можно скорее!",
+            "pt": "Por causa de várias mudanças pela Amazon as Rotinas e também o Histórico não funcionarão mais e também existe o risco de inundar os servidores da Amazon com solicitações. Atualize o adaptador Alexa2 para pelo menos 3.7.0 o mais rápido possível!",
+            "nl": "Door verschillende wijzigingen door Amazon zullen de Routines en ook de Geschiedenis niet langer werken en bestaat ook het risico dat Amazon-servers overspoeld worden met verzoeken. Update de Alexa2 Adapter zo snel mogelijk naar minimaal 3.7.0!",
+            "fr": "En raison de plusieurs changements par Amazon, les routines et l'historique ne fonctionneront plus et il y a aussi le risque d'inonder les serveurs Amazon de requêtes. Veuillez mettre à jour l'adaptateur Alexa2 au moins à 3.7.0 dès que possible!",
+            "it": "A causa di diversi cambiamenti da parte di Amazon, le routine e anche la cronologia non funzioneranno più e c'è anche il rischio di inondare i server di Amazon con richieste. Aggiorna Alexa2 Adapter almeno alla 3.7.0 il prima possibile!",
+            "es": "Debido a varios cambios realizados por Amazon, las rutinas y también el historial ya no funcionarán y también existe el riesgo de inundar los servidores de Amazon con solicitudes. ¡Actualice el Adaptador Alexa2 a al menos 3.7.0 lo antes posible!",
+            "pl": "Ze względu na kilka zmian wprowadzonych przez Amazon procedury, a także historia, nie będą już działać, a także istnieje ryzyko zalania serwerów amazon żądaniami. Zaktualizuj adapter Alexa2 do co najmniej 3.7.0 tak szybko, jak to możliwe!",
+            "zh-cn": "由于Amazon Routines和History的一些更改将不再起作用，并且存在将请求泛滥到Amazon服务器的风险。请尽快将Alexa2适配器更新到至少3.7.0！"
+        },
+        "id": "alexa2",
+        "created": "2021-01-03T22:00:00.000Z",
+        "class": "danger",
+        "fa-icon": "bolt",
+        "conditions": {
+            "alexa2": "smaller(3.7.0)"
+        }
+    },
+    {
+        "title": {
+            "en": "js-controller 3.2.16 is available",
+            "de": "js-controller 3.2.16 ist verfügbar",
+            "ru": "js-controller 3.2.16 доступен",
+            "pt": "js-controller 3.2.16 está disponível",
+            "nl": "js-controller 3.2.16 is beschikbaar",
+            "fr": "js-controller 3.2.16 est disponible",
+            "it": "js-controller 3.2.16 è disponibile",
+            "es": "js-controller 3.2.16 está disponible",
+            "pl": "js-controller 3.2.16 jest dostępny",
+            "zh-cn": "js-controller 3.2.16可用"
+        },
+        "content": {
+            "en": "After intensive testing the new js-controller 3.2.16 is available now in the stable repository. No issues are known at the moment. More information on the changes and instructions can be found in forum at https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable",
+            "de": "Nach intensiven Tests ist der neue js-controller 3.2.16 jetzt im stabilen Repository verfügbar. Derzeit sind keine Probleme bekannt. Weitere Informationen zu den Änderungen und Anweisungen finden Sie im Forum unter https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable",
+            "ru": "После интенсивного тестирования новый js-контроллер 3.2.16 теперь доступен в стабильном репозитории. На данный момент о проблемах не известно. Более подробную информацию об изменениях и инструкции можно найти на форуме по адресу https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable",
+            "pt": "Após testes intensivos, o novo js-controller 3.2.16 está disponível agora no repositório estável. Nenhum problema é conhecido no momento. Mais informações sobre as mudanças e instruções podem ser encontradas no fórum em https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable",
+            "nl": "Na intensief testen is de nieuwe js-controller 3.2.16 nu beschikbaar in de stabiele repository. Momenteel zijn er geen problemen bekend. Meer informatie over de wijzigingen en instructies is te vinden op het forum op https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable",
+            "fr": "Après des tests intensifs, le nouveau js-controller 3.2.16 est maintenant disponible dans le référentiel stable. Aucun problème n'est connu pour le moment. Plus d'informations sur les changements et les instructions peuvent être trouvées dans le forum à https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable",
+            "it": "Dopo test intensivi, il nuovo js-controller 3.2.16 è ora disponibile nel repository stabile. Al momento non sono noti problemi. Maggiori informazioni sulle modifiche e le istruzioni possono essere trovate nel forum su https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable",
+            "es": "Después de pruebas intensivas, el nuevo js-controller 3.2.16 ya está disponible en el repositorio estable. No se conocen problemas por el momento. Puede encontrar más información sobre los cambios y las instrucciones en el foro en https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable",
+            "pl": "Po intensywnych testach nowy js-controller 3.2.16 jest już dostępny w stabilnym repozytorium. W tej chwili nie są znane żadne problemy. Więcej informacji o zmianach i instrukcje można znaleźć na forum pod adresem https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable",
+            "zh-cn": "经过大量测试后，新的js-controller 3.2.16现在可以在稳定的存储库中使用。目前尚无问题。有关更改和说明的更多信息，请访问论坛，网址为https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable 。"
+        },
+        "id": "jscontroller3216infoall",
+        "created": "2021-02-18T21:45:00.000Z",
+        "class": "info",
+        "fa-icon": "exclamation-circle",
+        "conditions": {
+            "js-controller": "smaller(3.2.16)"
+        }
+    },
+    {
+        "title": {
+            "en": "Attention: MercedeMe Adapter needs urgent update",
+            "de": "Achtung: Der MercedeMe-Adapter muss dringend aktualisiert werden",
+            "ru": "Внимание: необходимо срочно обновить адаптер MercedeMe",
+            "pt": "Atenção: Adaptador MercedeMe precisa de atualização urgente",
+            "nl": "Let op: MercedeMe Adapter heeft dringend update nodig",
+            "fr": "Attention: l'adaptateur MercedeMe nécessite une mise à jour urgente",
+            "it": "Attenzione: l'adattatore MercedeMe necessita di un aggiornamento urgente",
+            "es": "Atención: el adaptador MercedeMe necesita una actualización urgente",
+            "pl": "Uwaga: adapter MercedeMe wymaga pilnej aktualizacji",
+            "zh-cn": "注意：MercedeMe适配器需要紧急更新"
+        },
+        "content": {
+                "en": "Because of a change in the mercedesMe protocol the adapter needs to be updated.",
+                "de": "Aufgrund einer Änderung des mercedesMe-Protokolls muss der Adapter aktualisiert werden.",
+                "ru": "Из-за изменения протокола mercedesMe адаптер необходимо обновить.",
+                "pt": "Devido a uma mudança no protocolo mercedesMe, o adaptador precisa ser atualizado.",
+                "nl": "Vanwege een wijziging in het mercedesMe-protocol moet de adapter worden bijgewerkt.",
+                "fr": "En raison d'un changement dans le protocole mercedesMe, l'adaptateur doit être mis à jour.",
+                "it": "A causa di una modifica nel protocollo mercedesMe, l'adattatore deve essere aggiornato.",
+                "es": "Debido a un cambio en el protocolo mercedesMe, el adaptador debe actualizarse.",
+                "pl": "Ze względu na zmianę protokołu mercedesMe adapter wymaga aktualizacji.",
+                "zh-cn": "由于mercedesMe协议的更改，因此需要更新适配器。"
+        },
+        "id": "mercedesme",
+        "created": "2021-02-17T22:00:00.000Z",
+        "class": "danger",
+        "fa-icon": "bolt",
+        "conditions": {
+            "mercedesme": "smaller(0.0.45)"
+        }
+    },
+    {
+        "title": {
+            "en": "The legacy Z-Wave adapter is deprecated",
+            "de": "Der originale Z-Wave-Adapter ist veraltet",
+            "ru": "Устаревший адаптер Z-Wave устарел",
+            "pt": "O adaptador Z-Wave legado está obsoleto",
+            "nl": "Legacy Z-Wave-adapter is verouderd",
+            "fr": "L'adaptateur Z-Wave hérité est obsolète",
+            "it": "L'adattatore Z-Wave legacy è obsoleto",
+            "es": "El adaptador heredado Z-Wave está en desuso",
+            "pl": "Starsza karta Z-Wave jest przestarzała",
+            "zh-cn": "旧版Z-Wave适配器已弃用"
+        },
+        "content": {
+            "en": "The legacy Z-Wave adapter (ioBroker.zwave) is deprecated. The main developer of OpenZWave has announced that he'll focus on other things from now on. As a result, OpenZWave and this adapter won't get any updates going forward.\n\nYou should use ioBroker.zwave2 instead.\n\nIf you are going to switch, be aware that the state IDs will change. It is recommended that you use the ioBroker alias function instead of the adapter's IDs in scripts and visualizations so you can change them all in one place instead of having to edit many things.",
+            "de": "Der originale Z-Wave-Adapter (ioBroker.zwave) ist veraltet. Der Hauptentwickler von OpenZWave hat angekündigt, dass er sich von nun an auf andere Dinge konzentrieren wird. Infolgedessen werden OpenZWave und dieser Adapter in Zukunft keine Updates erhalten.\n\nSie sollten stattdessen ioBroker.zwave2 verwenden.\n\nWenn Sie wechseln möchten, beachten Sie, dass sich die Status-IDs ändern. Es wird empfohlen, die ioBroker-Aliasfunktion anstelle die IDs der Adapter in Skripten und Visualisierungen zu verwenden, damit sie alle an einem Ort verändert werden können.",
+            "ru": "Устаревший адаптер Z-Wave (ioBroker.zwave) устарел. Главный разработчик OpenZWave объявил, что с этого момента он сосредоточится на других вещах. В результате OpenZWave и этот адаптер не получат никаких обновлений в будущем.\n\nВместо этого вам следует использовать ioBroker.zwave2.\n\nЕсли вы собираетесь переключиться, имейте в виду, что идентификаторы состояний изменятся. Рекомендуется использовать функцию псевдонима ioBroker вместо идентификаторов адаптера в сценариях и визуализациях, чтобы вы могли изменить их все в одном месте, вместо того, чтобы редактировать множество вещей.",
+            "pt": "O adaptador Z-Wave herdado (ioBroker.zwave) está obsoleto. O principal desenvolvedor do OpenZWave anunciou que se concentrará em outras coisas a partir de agora. Como resultado, o OpenZWave e este adaptador não receberão nenhuma atualização daqui para frente.\n\nVocê deve usar ioBroker.zwave2 em vez disso.\n\nSe você for trocar, esteja ciente de que os IDs de estado serão alterados. É recomendável usar a função de alias ioBroker em vez dos IDs do adaptador em scripts e visualizações, para que você possa alterá-los todos em um só lugar, em vez de ter que editar muitas coisas.",
+            "nl": "De oude Z-Wave-adapter (ioBroker.zwave) is verouderd. De hoofdontwikkelaar van OpenZWave heeft aangekondigd dat hij zich vanaf nu op andere dingen zal concentreren. Als gevolg hiervan krijgen OpenZWave en deze adapter in de toekomst geen updates.\n\nU moet in plaats daarvan ioBroker.zwave2 gebruiken.\n\nAls u gaat overschakelen, houd er dan rekening mee dat de status-ID's zullen veranderen. Het wordt aanbevolen dat u de ioBroker-aliasfunctie gebruikt in plaats van de adapter-ID's in scripts en visualisaties, zodat u ze allemaal op één plaats kunt wijzigen in plaats van veel dingen te moeten bewerken.",
+            "fr": "L'adaptateur Z-Wave hérité (ioBroker.zwave) est obsolète. Le développeur principal d'OpenZWave a annoncé qu'il se concentrerait désormais sur d'autres choses. En conséquence, OpenZWave et cet adaptateur ne recevront aucune mise à jour.\n\nVous devez utiliser ioBroker.zwave2 à la place.\n\nSi vous allez changer, sachez que les identifiants d'état changeront. Il est recommandé d'utiliser la fonction d'alias ioBroker au lieu des ID de l'adaptateur dans les scripts et les visualisations afin de pouvoir tous les modifier au même endroit au lieu d'avoir à modifier beaucoup de choses.",
+            "it": "L'adattatore Z-Wave legacy (ioBroker.zwave) è deprecato. Lo sviluppatore principale di OpenZWave ha annunciato che d'ora in poi si concentrerà su altre cose. Di conseguenza, OpenZWave e questo adattatore non riceveranno alcun aggiornamento in futuro.\n\nDovresti invece usare ioBroker.zwave2.\n\nSe hai intenzione di cambiare, tieni presente che gli ID di stato cambieranno. Si consiglia di utilizzare la funzione alias ioBroker invece degli ID dell'adattatore negli script e nelle visualizzazioni in modo da poterli modificare tutti in un unico posto invece di dover modificare molte cose.",
+            "es": "El adaptador Z-Wave heredado (ioBroker.zwave) está en desuso. El desarrollador principal de OpenZWave ha anunciado que se centrará en otras cosas a partir de ahora. Como resultado, OpenZWave y este adaptador no recibirán actualizaciones en el futuro.\n\nEn su lugar, debería utilizar ioBroker.zwave2.\n\nSi va a cambiar, tenga en cuenta que los ID de estado cambiarán. Se recomienda que utilice la función de alias de ioBroker en lugar de los ID del adaptador en los scripts y visualizaciones para que pueda cambiarlos todos en un solo lugar en lugar de tener que editar muchas cosas.",
+            "pl": "Starsza karta Z-Wave (ioBroker.zwave) jest przestarzała. Główny programista OpenZWave ogłosił, że od teraz skupi się na innych rzeczach. W rezultacie OpenZWave i ten adapter nie będą otrzymywać żadnych aktualizacji.\n\nZamiast tego powinieneś użyć ioBroker.zwave2.\n\nJeśli zamierzasz się przełączyć, pamiętaj, że identyfikatory stanów ulegną zmianie. Zaleca się używanie funkcji aliasu ioBroker zamiast identyfikatorów adaptera w skryptach i wizualizacjach, aby można było je wszystkie zmienić w jednym miejscu, zamiast edytować wiele rzeczy.",
+            "zh-cn": "不推荐使用旧版Z-Wave适配器（ioBroker.zwave）。 OpenZWave的主要开发人员宣布，从现在开始，他将专注于其他方面。结果，OpenZWave和此适配器将无法获得任何更新。\n\n您应该改用ioBroker.zwave2。\n\n如果要切换，请注意状态ID会更改。建议您在脚本和可视化文件中使用ioBroker别名功能代替适配器的ID，以便可以在一处更改它们，而不必进行许多编辑。"
+        },
+        "id": "zwave-deprecated",
+        "class": "info",
+        "fa-icon": "hourglass-end",
+        "created": "2021-03-12T01:00:00.000Z",
+        "conditions": {
+            "zwave": "installed",
+            "zwave2": "!installed"
+        }
+    },
+        {
+        "title": {
+                "en": "Please remove ioBroker Forum entry from radar2 monitoring configuration.",
+                "de": "Bitte entfernen Sie den Eintrag ioBroker-Forum aus der Radar2-Überwachungskonfiguration.",
+                "ru": "Удалите запись на форуме ioBroker из конфигурации мониторинга radar2.",
+                "pt": "Remova a entrada do fórum ioBroker da configuração de monitoramento do radar2.",
+                "nl": "Verwijder het ioBroker Forum-item uit de radar2-bewakingsconfiguratie.",
+                "fr": "Veuillez supprimer l'entrée du forum ioBroker de la configuration de surveillance radar2.",
+                "it": "Rimuovere la voce del forum ioBroker dalla configurazione del monitoraggio radar2.",
+                "es": "Elimine la entrada del Foro ioBroker de la configuración de monitoreo de radar2.",
+                "pl": "Usuń wpis na forum ioBroker z konfiguracji monitorowania radar2.",
+                "zh-cn": "请从radar2监视配置中删除ioBroker论坛条目。"
+        },
+        "content": {
+                "en": "The radar2 adapter contains a default entry that monitors the ioBroker Forum. Please remove this entry (called \"Forum\" and points to forum.iobroker.net) from your adapter configuration, because this generates a huge unneeded traffic on the forum.",
+                "de": "Der Radar2-Adapter enthält einen Standardeintrag, der das ioBroker-Forum überwacht. Bitte entfernen Sie diesen Eintrag (\"Forum\" genannt und verweist auf forum.iobroker.net) aus Ihrer Adapterkonfiguration, da dies einen großen, nicht benötigten Datenverkehr im Forum erzeugt.",
+                "ru": "Адаптер radar2 содержит запись по умолчанию, которая отслеживает форум ioBroker. Пожалуйста, удалите эту запись (которая называется «Форум» и указывает на forum.iobroker.net) из конфигурации вашего адаптера, потому что это создает огромный ненужный трафик на форуме.",
+                "pt": "O adaptador radar2 contém uma entrada padrão que monitora o fórum ioBroker. Remova esta entrada (chamada \"Fórum\" e aponta para forum.iobroker.net) da configuração do adaptador, porque isso gera um enorme tráfego desnecessário no fórum.",
+                "nl": "De radar2-adapter bevat een standaarditem dat het ioBroker-forum bewaakt. Verwijder dit item (genaamd \"Forum\" en verwijst naar forum.iobroker.net) uit uw adapterconfiguratie, omdat dit een enorm onnodig verkeer op het forum genereert.",
+                "fr": "L'adaptateur radar2 contient une entrée par défaut qui surveille le forum ioBroker. Veuillez supprimer cette entrée (appelée \"Forum\" et pointe vers forum.iobroker.net) de la configuration de votre adaptateur, car cela génère un énorme trafic inutile sur le forum.",
+                "it": "L'adattatore radar2 contiene una voce predefinita che controlla il forum ioBroker. Per favore rimuovi questa voce (chiamata \"Forum\" e punta a forum.iobroker.net) dalla configurazione dell'adattatore, perché questo genera un enorme traffico non necessario sul forum.",
+                "es": "El adaptador radar2 contiene una entrada predeterminada que supervisa el ioBroker Forum. Elimine esta entrada (llamada \"Foro\" y apunta a forum.iobroker.net) de la configuración de su adaptador, ya que esto genera un enorme tráfico innecesario en el foro.",
+                "pl": "Adapter radar2 zawiera domyślny wpis, który monitoruje forum ioBroker. Usuń ten wpis (zwany „Forum” i wskazuje na forum.iobroker.net) z konfiguracji twojego adaptera, ponieważ generuje to ogromny niepotrzebny ruch na forum.",
+                "zh-cn": "Radar2适配器包含一个监视ioBroker论坛的默认条目。请从您的适配器配置中删除此条目（称为“论坛”，并指向forum.iobroker.net），因为这会在论坛上产生大量不必要的流量。"
+        },
+        "id": "radar2-forum",
+        "class": "info",
+        "fa-icon": "bolt",
+        "created": "2021-03-19T08:00:00.000Z",
+        "conditions": {
+            "radar2": "installed"
+        }
+    },
+    {
+        "title": {
+            "en": "BackItUp Adapter is the recommended backup solution",
+            "de": "BackItUp Adapter ist die empfohlene Backup-Lösung",
+            "ru": "BackItUp Adapter - рекомендуемое решение для резервного копирования.",
+            "pt": "O Adaptador BackItUp é a solução de backup recomendada",
+            "nl": "BackItUp Adapter is de aanbevolen back-upoplossing",
+            "fr": "L'adaptateur BackItUp est la solution de sauvegarde recommandée",
+            "it": "BackItUp Adapter è la soluzione di backup consigliata",
+            "es": "BackItUp Adapter es la solución de respaldo recomendada",
+            "pl": "BackItUp Adapter jest zalecanym rozwiązaniem do tworzenia kopii zapasowych",
+            "zh-cn": "BackItUp Adapter是推荐的备份解决方案"
+        },
+        "content": {
+            "en": "Backups are a very decisive factor in SmartHome systems so that no settings or data are lost in the event of problems. We recommend everyone who is not currently using Backitup to install and set up the adapter to secure their iobroker data.",
+            "de": "Backups sind ein sehr entscheidender Faktor in SmartHome-Systemen, damit bei Problemen keine Einstellungen oder Daten verloren gehen. Wir empfehlen allen, die derzeit kein Backitup verwenden, den Adapter zu installieren und einzurichten, um ihre iobroker-Daten zu sichern.",
+            "ru": "Резервное копирование является очень решающим фактором в системах SmartHome, поэтому никакие настройки или данные не будут потеряны в случае возникновения проблем. Мы рекомендуем всем, кто в настоящее время не использует Backitup, установить и настроить адаптер для защиты своих данных iobroker.",
+            "pt": "Os backups são um fator muito decisivo em sistemas SmartHome para que nenhuma configuração ou dados sejam perdidos em caso de problemas. Recomendamos a todos que não estão usando o Backitup no momento, que instalem e configurem o adaptador para proteger seus dados iobroker.",
+            "nl": "Back-ups zijn een zeer doorslaggevende factor in SmartHome-systemen zodat bij problemen geen instellingen of gegevens verloren gaan. We raden iedereen die momenteel geen gebruik maakt van Backitup aan om de adapter te installeren en in te stellen om hun iobroker-gegevens te beveiligen.",
+            "fr": "Les sauvegardes sont un facteur très décisif dans les systèmes SmartHome afin qu'aucun paramètre ou donnée ne soit perdu en cas de problème. Nous recommandons à tous ceux qui n'utilisent pas actuellement Backitup d'installer et de configurer l'adaptateur pour sécuriser leurs données iobroker.",
+            "it": "I backup sono un fattore molto decisivo nei sistemi SmartHome in modo che nessuna impostazione o dato venga perso in caso di problemi. Consigliamo a tutti coloro che non stanno attualmente utilizzando Backitup di installare e configurare l'adattatore per proteggere i propri dati iobroker.",
+            "es": "Las copias de seguridad son un factor muy decisivo en los sistemas SmartHome para que no se pierdan configuraciones ni datos en caso de problemas. Recomendamos a todos los que no estén usando Backitup actualmente que instalen y configuren el adaptador para proteger sus datos de iobroker.",
+            "pl": "Kopie zapasowe są bardzo decydującym czynnikiem w systemach SmartHome, dzięki czemu żadne ustawienia ani dane nie zostaną utracone w przypadku problemów. Wszystkim, którzy obecnie nie używają programu Backitup, zalecamy zainstalowanie i skonfigurowanie adaptera w celu zabezpieczenia danych programu iobroker.",
+            "zh-cn": "备份是SmartHome系统中非常重要的因素，因此在出现问题时不会丢失任何设置或数据。我们建议所有当前不使用Backitup的人来安装和设置适配器以保护其iobroker数据。"
+        },
+        "id": "backitupAdapter",
+        "class": "info",
+        "fa-icon": "exclamation-circle",
+        "created": "2021-04-08T00:00:00.000Z",
+        "conditions": {
+            "backitup": "!installed"
+        }
     }
-  },
-  {
-    "title": {
-      "en": "Attention! Breaking changes in HeatingControl 2.0",
-      "de": "Beachtung! Brechende Änderungen in HeatingControl 2.0",
-      "ru": "Внимание! Критические изменения в HeatingControl 2.0",
-      "pt": "Atenção! Quebrando mudanças no HeatingControl 2.0",
-      "nl": "Aandacht! Belangrijke veranderingen in HeatingControl 2.0",
-      "fr": "Attention! Changements de rupture dans HeatingControl 2.0",
-      "it": "Attenzione! Cambiamenti decisivi in HeatingControl 2.0",
-      "es": "¡Atención! Cambios importantes en HeatingControl 2.0",
-      "pl": "Uwaga! Przełomowe zmiany w HeatingControl 2.0",
-      "zh-cn": "注意！加热控制2.0中的重大更改"
-    },
-    "content": {
-      "en": "Periods and Profiles count from 1 instead of 0. You must update visualisation and check profile paramteres. <a target='_blank' href='https://github.com/rg-engineering/ioBroker.heatingcontrol#200-2021-01-xx'>see release notes for detailed infos!</a>",
-      "de": "Perioden und Profile zählen von 1 statt 0. Sie müssen die Visualisierung aktualisieren und die Profilparameter überprüfen. <a target='_blank' href='https://github.com/rg-engineering/ioBroker.heatingcontrol#200-2021-01-xx'>Detaillierte Infos finden Sie in den Versionshinweisen!</a>",
-      "ru": "Периоды и профили отсчитываются от 1 вместо 0. Вы должны обновить визуализацию и проверить параметры профиля. <a target='_blank' href='https://github.com/rg-engineering/ioBroker.heatingcontrol#200-2021-01-xx'>см. примечания к выпуску для получения подробной информации!</a>",
-      "pt": "Períodos e perfis contam de 1 em vez de 0. Você deve atualizar a visualização e verificar os parâmetros de perfil. <a target='_blank' href='https://github.com/rg-engineering/ioBroker.heatingcontrol#200-2021-01-xx'>consulte as notas de lançamento para informações detalhadas!</a>",
-      "nl": "Perioden en profielen tellen vanaf 1 in plaats van 0. U moet de visualisatie bijwerken en profielparameters controleren. <a target='_blank' href='https://github.com/rg-engineering/ioBroker.heatingcontrol#200-2021-01-xx'>zie release-opmerkingen voor gedetailleerde informatie!</a>",
-      "fr": "Les périodes et les profils comptent de 1 au lieu de 0. Vous devez mettre à jour la visualisation et vérifier les paramètres de profil. <a target='_blank' href='https://github.com/rg-engineering/ioBroker.heatingcontrol#200-2021-01-xx'>voir les notes de version pour des informations détaillées!</a>",
-      "it": "I periodi e i profili contano da 1 invece di 0. È necessario aggiornare la visualizzazione e controllare i parametri del profilo. <a target='_blank' href='https://github.com/rg-engineering/ioBroker.heatingcontrol#200-2021-01-xx'>vedere le note di rilascio per informazioni dettagliate!</a>",
-      "es": "Los períodos y los perfiles cuentan desde 1 en lugar de 0. Debe actualizar la visualización y verificar los parámetros del perfil. <a target='_blank' href='https://github.com/rg-engineering/ioBroker.heatingcontrol#200-2021-01-xx'>Consulte las notas de la versión para obtener información detallada.</a>",
-      "pl": "Okresy i Profile liczą się od 1 zamiast 0. Musisz zaktualizować wizualizację i sprawdzić parametry profilu. <a target='_blank' href='https://github.com/rg-engineering/ioBroker.heatingcontrol#200-2021-01-xx'>szczegółowe informacje można znaleźć w uwagach do wydania!</a>",
-      "zh-cn": "期间和配置文件从1而不是0开始计数。您必须更新可视化并检查配置文件参数。 <a target='_blank' href='https://github.com/rg-engineering/ioBroker.heatingcontrol#200-2021-01-xx'>有关详细信息，请参见发行说明！</a>"
-    },
-    "id": "heatingcontrol",
-    "created": "2021-01-08T00:00:00.000Z",
-    "class": "danger",
-    "fa-icon": "bolt",
-    "conditions": {
-      "heatingcontrol": "smaller(2.0.0)"
-    }
-  }
 ]

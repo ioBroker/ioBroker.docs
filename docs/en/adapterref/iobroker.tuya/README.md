@@ -1,8 +1,6 @@
 ![Logo](admin/tuya.png)
 # ioBroker.tuya
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/Apollon77/ioBroker.tuya.svg)](https://greenkeeper.io/)
-
 ![Number of Installations](http://iobroker.live/badges/tuya-installed.svg) ![Number of Installations](http://iobroker.live/badges/tuya-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.tuya.svg)](https://www.npmjs.com/package/iobroker.tuya)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.tuya.svg)](https://www.npmjs.com/package/iobroker.tuya)
 
@@ -89,6 +87,31 @@ Please use GitHub issues for this.
 Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
+
+### 3.6.1 (2021-04-11)
+* (Apollon77) More schema information added
+
+### 3.6.0 (2021-04-02)
+* (Apollon77) Fix broken data updates because of tuyaapi change
+* (Apollon77) Optimize "json unvalid" cases by refreshing data manually differently 
+* (Apollon77) More schema information added
+
+### 3.5.9 (2021-03-28)
+* (Apollon77) More schema information added
+
+### 3.5.8 (2021-03-24)
+* (Apollon77) More schema information added
+
+### 3.5.7 (2021-03-18)
+* (Apollon77) Fix crash case (Sentry IOBROKER-TUYA-P9)
+* (Apollon77) More schema information added
+
+### 3.5.6 (2021-02-09)
+* (Apollon77) More schema information added
+
+### 3.5.4 (2021-01-30)
+* (Apollon77) Prevent crash cases (Sentry IOBROKER-TUYA-MG)
+* (Apollon77) More schema information added
 
 ### 3.5.3 (2021-01-13)
 * (Apollon77) More schema information added

@@ -16,13 +16,33 @@
 
 This adapter calculates the current altitude and azimuth of the sun based on the geoposition. Additionally compass direction and the movement (sunrise or sunset) of the sun is stored.
 It is using the geo-position defined in the configuration. Calculation interval can be defined in instance preferences.
-Solar-noon values for some days like today, tomorrow or beginn of spring/summer/autumn/winter are stored as well.
+Solar-noon values for some days like today, tomorrow or beginn of spring/summer/autumn/winter are stored as well.  
+
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.3.3 (2021-03-04)
+* (HGlab01) improve sentry handling
+* (HGlab01) verify config first
+
+### 0.3.2 (2021-02-17)
+* (HGlab01) add Sentry support
+
+### 0.3.1 (2021-02-15)
+* (HGlab01) add sunrise, sunset, dusk and dawn (#67)
+* (HGlab01) smaller improvments
+* (HGlab01) use iobroker-jsonexplorer for state-management
+
+### 0.2.7 (2021-02-11)
+* (HGlab01) Fix sun-movement bug (#61)
+* (HGlab01) Optimize keywords
+* (HGlab01) Bump node-schedule from 1.3.2 to 2.0.x
+
 ### 0.2.6 (2020-12-30)
 * (HGlab01) implement license check provided by app.fossa.com
 
@@ -47,9 +67,6 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
 
 ### 0.1.0 (2020-11-30)
 * (HGlab01) first beta release
-
-### 0.0.7-0 (2020-07-21)
-* (HGlab01) alpha version
 
 ## License
 MIT License

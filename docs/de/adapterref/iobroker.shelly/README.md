@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.shelly/README.md
 title: ioBroker.shelly
-hash: mfGvqbr1ILQHaKyiD3jrGqQ2180YJdt7BQ1ZhTmvopA=
+hash: aUx4LgA4Rh+9FvJOkaNIVlYNJve3nA6el/g/iebpyEw=
 ---
 ![Logo](../../../en/adapterref/iobroker.shelly/admin/shelly.png)
 
@@ -21,6 +21,8 @@ Der Adapter kommuniziert mit Shelly-Geräten über die REST-API und das CoAP- od
 Standardmäßig Shelly-Firmware (kein Flashen der Firmware erforderlich!). Weitere und detaillierte Informationen zum Gerät finden Sie hier: [Shelly](https://shelly.cloud/)
 
 Wenn Sie das CoAP-Protokoll verwenden, funktionieren Shelly-Geräte mit Firmware 1.8.0 oder höher nur mit dem Shelly-Adapter 4.0.0 oder höher. Wenn Sie Geräte mit Firmware unter 1.8.0 mit Ausnahme von Shelly 4Pro verwenden, müssen Sie Shelly Adapter 3.3.6 oder niedriger verwenden. Der Shelly Adapter 4.0.0 oder höher würde in diesem Fall nicht funktionieren!
+
+Achtung, bei neuen Firmware-Versionen über 1.9.4 müssen Sie einen CoIoT-Server für CoAP eingeben. Sie müssen die IP-Adresse Ihres ioBroker-Servers gefolgt vom Port 5683 auf Ihrem Shelly-Gerät eingeben. Beispielsweise wird ioBroker unter der IP-Adresse 192.168.1.2 ausgeführt. Jetzt müssen Sie 192.168.1.2:5683 eingeben und CoIoT aktivieren.
 
 ** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an mich als Entwickler zu melden. ** Weitere Details siehe unten!
 
@@ -59,6 +61,9 @@ Eine ausführliche Installationsdokumentation finden Sie hier: [Installationsdok
 | Shelly Tür- / Fenstersensor 2 (SHDW-2) | unterstützt seit v3.3.5 | unterstützt seit v3.3.5 |
 | Shelly Uni (SHUNI-1) | unterstützt seit v4.0.4 | unterstützt seit v4.0.4 |
 | Shelly 1L (SHSW-L) | unterstützt seit v4.0.5 | unterstützt seit v4.0.5 |
+| Shelly Color Bulb (SHCB-1) | unterstützt seit v4.0.5 | unterstützt seit v4.0.5 |
+| Shelly Button (SHBTN-2) | unterstützt seit v4.0.5 | unterstützt seit v4.0.5 |
+| Shelly Motion (SHMOS-01) | unterstützt seit v4.0.6 | unterstützt seit v4.0.6 |
 
 ## Was ist Sentry und was wird den Servern gemeldet?
 Mit Sentry.io erhalten Entwickler einen Überblick über Fehler in ihren Anwendungen. Und genau das ist in diesem Adapter implementiert.
@@ -67,10 +72,29 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 
 ## Changelog
 
-### 4.0.5-beta (2020-11-27)
+
+### 4.0.7-beta-3 (2021-02-07)
+* (Stübi) - fixing the wrong identifier name from green to blue - Issue #334
+* (Stübi) - renamed Shelly Motion MQTT name 
+* (Stübi) - Because polling for battery devices is only permieted every 60 sec., the online state will not supported anymore. 
+* (Stübi) - Polling for all battery devices changed to 60 sec. This can not be changed to any other value, still if you a power supply.
+
+### 4.0.6 (2021-02-02)
+* (Stübi) - add min, max to state transiton for Shelly RGBW2 
+* (Stübi) - if a property in the returned json for a http request does not exist, it will not shown as an error anymore
+* (Stübi) - Bugfixing Shelly 1L
+* (klein0r) - Added shelly motion (SHMOS-01) 
+
+
+### 4.0.5 (2021-02-01)
 * (Matze2010) - Add Support for Shelly Uni (SHSW-L)
 * (Matze2010) - Shelly 2.5 Roller: Support for favorite positions 
 * (Stübi) - Bugfixing TypeError in Shelly Plug implementation (Issue #281)
+* (Stübi) - Support of Shelly Color Bulb (SHCB-1) - Issue #317
+* (Stübi) - Support of Shelly Button 1 (SHBTN-2) - Issue #316, #302, #303
+* (Stübi) - add state Total_Returned for Shelly EM3 - Issue #299
+* (Stübi) - add state transiton and fade_rate to Shelly Dimmer - Issue #260
+* (Stübi) - add state transiton for Shelly RGBW2 - Issue #289
 
 ### 4.0.4 (2020-11-15)
 * (Apollon77) update dependencies and shelly-iot lib

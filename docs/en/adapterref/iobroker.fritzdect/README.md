@@ -44,7 +44,8 @@ The widget requires that also vis-metro and vis-jqui-mfd are installed
 
         The fritzbox allows only a limited number of logins in a timeframe. So very fast polling (update) attempts may lead to blocking of logins.
         There are no appropriate user rights set in the fritzbox.
-        There is a time elapsing in the fritzbox blocking the logins 
+        There is a time elapsing in the fritzbox blocking the logins.
+        A german doc is available here: [troubleshooting](./docs/de/troubleshooting.md)
 
  2. no login to the FritzBox, when using https
 
@@ -134,6 +135,10 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 |*tchange*|number|-|temp with next change in °C| |DECT3x0| | | | | |
 |*endperiod*|time|-|time when next change is active| |DECT3x0| | | | | |
 |supported_modes|number|-|supported colormodes| | | | |DECT500| | |
+|*fullcolorsupport*|boolean|-|fullcolorsupport| | | | |DECT500| | |
+|*mapped*|boolean|-|indication mapped| | | | |DECT500| | |
+|*unmapped_hue*|number|-|unmapped hue value| | | | |DECT500| | |
+|*unmapped_saturation*|number|-|unmapped saturation value| | | | |DECT500| | |
 |current_mode|number|-|actual colormode| | | | |DECT500| | |
 |level|number|x|level 0-255 | | | | |DECT500|Blinds| |
 |levelpercentage|number|x|level 0-100 % | | | | |DECT500|Blinds| |
@@ -145,7 +150,8 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 |**blindsclose**|boolean|x|target close| | | | | |Blinds| |
 |**blindsstop**|boolean|x|target stop| | | | | |Blinds| |
 |lastalertchgtimestamp|time|-|timestamp | | | | | |Blinds| |
-
+|*enpositionsset*|boolean|-|status configuration | | | | | |Blinds| |
+|*mode*|text|-|modus | | | | | |Blinds| |
 
 ### groups
 |Object|Value|settable|Description|
@@ -166,6 +172,7 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 * too many login attempts to FB are refused by providing '00000000' as response
 * Boost and WindowOpen can only be set for the next 24h. time=0 is cancelling the command
 * updates to the thermostat are within a 15min range, depending on the previous communication of thermostat with fritzbox the next cycle is sooner or later, but definitely not imediately after an ioBroker intervention
+* if a windowopenactiv is set on a thermostat, which is part of a group, then the whole group and its thermostats is set to windowopenactiv (function inside the FB)
 * only a few color temperatures are accepted (mapped already be the API to valid ones)
 * only the predefined colors are valid combinations (getcolordefaults)
 
@@ -176,10 +183,25 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 
 ## TODO:
 * map of data input from user to valid predefined colors (nearest match)
+* blind alert state -> decode bit array
 * improvement of thermostat mode to text representation (auto, off, boost, comfort, night), comfort and night are also auto mode, but preset to the parametrized value
-* refactor to the format of as of "create adapter"
 
 ## Changelog
+### 2.1.14
+* operationmode and hkrmode tracking also after commands
+* extended datapoints for blinds from Rollotron
+
+### 2.1.13
+* correction at group of switches (switchtype not recognized -> simpleonoff)
+* functionbitmask 32768 moved to role: switches
+
+### 2.1.12 (npm)
+* new values for DECT500
+* back to full unit testing
+
+### 2.1.11 (npm)
+* template for fritzfon
+
 ### 2.1.10
 * comfort/night is AUTO but reintroduced as operationmode
 

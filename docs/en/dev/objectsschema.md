@@ -523,7 +523,7 @@ id `system.adapter.<adapter.name>`
 * `common.config.width`       - default width for configuration dialog (deprecated - valid only for admin2)
 * `common.dataFolder`         - folder relative to iobroker-data where the adapter stores the data. This folder will be backed up and restored automatically. You can use variable '%INSTANCE%' in it.
 * `common.dataSource`         - How the data will be received from device:  `poll/push/assumption`. It is important together with `connectionType`.
-* `common.dependencies`       - Array like `[{"js-controller": ">=2.0.0"}]` that describes which ioBroker modules are required for this adapter. 
+* `common.dependencies`       - Array like `[{"js-controller": ">=2.0.0"}]` that describes which ioBroker modules are required for this adapter on the same host.
 * `common.docs`               - The structure like `{"en": "docs/en/README.md", "de": ["docs/de/README.md", "docs/de/README1.md"]}` that describes the documentation if not in README.md
 * `common.enabled`            - **mandatory** [true/false] value should be false so new instances are disabled by default
 * `common.engineTypes`        - deprecated. Use engine in package.json 
@@ -531,14 +531,15 @@ id `system.adapter.<adapter.name>`
 * `common.expert`             - show this object only in expert mode in admin
 * `common.extIcon`            - link to external icon for uninstalled adapters. Normally on github.
 * `common.getHistory`         - [true/false] if adapter supports getHistory message
+* `common.globalDependencies` - Array like `[{"admin": ">=2.0.0"}]` that describes which ioBroker modules are required for this adapter on one of the hosts.
 * `common.icon`               - name of the local icon (should be located in subdirectory "admin")
-* `common.installedVersion`   - **mandatory** installed version
+* `common.installedVersion`   - Do not use it, will be set internally only
 * `common.keywords`           - Similar to keywords in package.json, but can be defined in many languages. Just an array. 
 * `common.localLinks`         - link to the web service of this adapter. E.g to http://localhost:5984/_utils for futon from admin
 * `common.localLink`          - deprecated. Use `common.localLinks`.
-* `common.logLevel`           - debug, info, warn or error
+* `common.loglevel`           - debug, info, warn or error
 * `common.logTransporter`     - if this adapter receives logs from other hosts and adapters (e.g. to strore them somewhere)
-* `common.main`               - Start file of the adapter. Same as in package.json.
+* `common.main`               - **Deprecated** Use main in package.json.
 * `common.materializeTab`     - if adapter supports > admin3  for tab (materialize style)
 * `common.materialize`        - if adapter supports > admin3 (materialize style)
 * `common.messagebox`         - true if message box supported. If yes, the object system.adapter.&lt;adapter.name&gt&lt;adapter.instance&gt.messagebox will be created to send messges to adapter (used for email, pushover,...;
@@ -557,7 +558,7 @@ id `system.adapter.<adapter.name>`
 * `common.os`                 - string or array of supported operation systems, e.g ["linux", "darwin"]
 * `common.platform`           - **mandatory** possible values: Javascript/Node.js, more coming
 * `common.preserveSettings`   - string (or array) with names of attributes in common of instance, which will not be deleted. E.g. "history", so by setState('system.adapter.mqtt.0", {..}) the field common.history will not be deleted even if new object does not have this field. To delete the attribute it must be explicitly done with ```common:{history: null}```.
-* `common.readme`             - deprecated. Use `docs`.
+* `common.readme`             - URL of the ReadMe file
 * `common.restartAdapters`    - array with names of adapter that must be restarted after this adapter is installed, e.g. ["vis"]
 * `common.schedule`           - CRON schedule if adapter runs in mode `schedule`.
 * `common.serviceStates`      - [true/false or path] if adapter can deliver additional states. If yes, the path adapter/lib/states.js will be called and it give following parameters function (objects, states, instance, config, callback). The function must deliver the array of points with values like function (err, result) { result = [{id: 'id1', val: 1}, {id: 'id2', val: 2}]}

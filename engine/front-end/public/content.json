@@ -140,7 +140,7 @@
               "title": {
                 "en": "Working with images",
                 "de": "Arbeiten mit Images",
-                "ru": "Работа с изображениями",
+                "ru": "Работа с образами диска",
                 "zh-cn": "使用图像"
               },
               "content": "install/images.md"
@@ -548,21 +548,21 @@
           },
           "content": "config/cli.md"
         },
-        "multihost": {
+        "Multihost": {
           "title": {
-            "en": "multihost",
+            "en": "Multihost",
             "de": "Multihost",
-            "ru": "multihost",
+            "ru": "Мультихост",
             "zh-cn": "高级配置 - 多主机"
           },
           "content": "config/multihost.md"
         },
-        "Redis": {
+        "The Redis database for ioBroker": {
           "title": {
-            "en": "Redis",
-            "de": "Redis",
+            "en": "The Redis database for ioBroker",
+            "de": "Die Redis-Datenbank für IoBroker",
             "ru": "Redis",
-            "zh-cn": "Redis的"
+            "zh-cn": "ioBroker的Redis数据库"
           },
           "content": "config/redis.md"
         },

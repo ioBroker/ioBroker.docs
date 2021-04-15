@@ -70,6 +70,7 @@ Just now it can detect via ping, UPnP (serial planned).
 - myDlink
 - Mysensors USB/Serial (9600, 38400, 57600, 115200)
 - nanoleaf Light Panels / Canvas
+- Net Tools
 - Nuki2
 - Nut
 - Onkyo
@@ -98,13 +99,19 @@ Just now it can detect via ping, UPnP (serial planned).
 
 ### Offered as additional adapters
 - Cloud
-- History (if no SQL or InfluxDB found)
+- History (if no SQL or InfluxDB found) 
+- IoT
 - flot (offered when a History-Adapter is present)
 - JavaScript
 - Info
-- Mobile
 - Vis
 - Web
+
+## If the adapter can not find IPs ...
+The adapter pings the network of the IP of the current host (x.y.z.1..255). Additionally UPnP and mDNS is used to detect IPs. 
+
+If not all IPs are found then please check that the iobroker user can execute /bin/ping. Pot execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilities/permissions.
+
 
 ## Todo
 - artnet? (Bluefox)
@@ -130,6 +137,21 @@ Just now it can detect via ping, UPnP (serial planned).
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Fix crash case in mihome discovery (Sentry IOBROKER-DISCOVERY-30)
+* (Apollon77) Fix crash case in ping logic (Sentry IOBROKER-DISCOVERY-2Y)
+* (Apollon77) Fix crash case in hf-lpb100 logic (Sentry IOBROKER-DISCOVERY-34)
+
+### 2.6.1 (2021-02-28)
+* (JeyCee) added iot and net-tools
+* (Apollon77) Adjust and optimize UDP and UPnP discoveries
+* (Apollon77) Add option to specify the "own IP address" and netmask to also allow discovery for e.g. docker cases where an external network should be scanned
+* (Apollon77) Fix ping progress counter when scanning multiple ip ranges
+* (JeyCee) removed mobile
+* (Apollon77) fix sonos and synology
+* (JeyCee) UI adjustments
+* (Apollon77) Fix crash cases (Sentry IOBROKER-DISCOVERY-2Q)
 
 ### 2.5.0 (2021-01-11)
 * (Zefau) Replace nuki2 with nuki-extended

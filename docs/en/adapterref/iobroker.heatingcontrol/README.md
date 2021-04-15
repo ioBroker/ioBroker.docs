@@ -155,6 +155,13 @@ The standard behavior for override is, when you change temperature the override 
 and you change to 28°C after 15 minutes then 28°C is only used for the last 5 minutes. With that option you restart override whenever you change override temperature.
 In example above 28°C would then be used for 20 minutes which leads to 15 minutes 25°C and 20 minutes 28°C 
 
+## override mode
+There are two mode adjustable in admin for all rooms.
+* timer controlled
+this is the wellknown function, which uses a temperature and a duration. The given temperature is used for the duration and then temperature target will set back to value in auto mode
+* until next profile point
+this is a new function. Here we can use a temperature override until next profile point. The duration will be ignored but must be non-zero!
+
 
 ## Thermostat handles "window is open"
 Some thermostats can handle "window is open" by itself. In those cases a direct connection between window sensor and thermostat is configured and thermostat reduces
@@ -204,6 +211,35 @@ If thermostat use information from window sensor then "thermostat handles window
 When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry.  All of this helps me to provide error free adapters that basically never crashs.
 
 ## Changelog
+
+### 2.3.1 (2021-04-05)
+* (René) some optimisations for vis translation
+
+### 2.3.0 (2021-03-20)
+* (René) see issue #187: show remaining override timeConverter
+* (René) see issue #225: support different languages for vis
+* (René) see issue #223: new overide mode "until next profile point"
+* (René) bug fix to calculate average for temperatur offset
+
+### 2.2.0 (2021-02-15)
+* (René) see issue #146: different type of window sensor and also adjustable comparative value
+* (René) see issue #110: optionally every room can be set to "no heating" with separate datapoint
+* (René) see issue #185: maintenance function: Delete all unused datapoints (e.g. profiles) is implemented now for admin
+* (René) see issue #185: maintenance function: Delete all devices related to a room, when a room is deleted is implemented now for admin
+* (René) see issue #207: copy buttons for vis added
+* (René) see issue #219: bug fix: DecreaseValues and ProfilName are copied in CopyProfile now
+
+### 2.1.1 (2021-02-08)
+* (René) bug fix Temperatur Offset: invert sign of TemperatureOffset 
+
+### 2.1.0 (2021-01-31)
+* (René) see issue #198: add name to profile as a datapoint, used to be shown in visualisation
+* (René) see issue #194: limit and step width for increase / decrease values adjustable in admin 
+* (René) see issue #182: Temperatur Offset
+* (René) see issue #212: ActiveTimeSlot inkorrekt for vis
+
+### 2.0.4 (2021-01-28)
+* (René) bug fix for issue #213: Warnung "!!! Statechange not handled"
 
 ### 2.0.3 (2021-01-24)
 * (René) bug fix for issue #211: endless change of temperatures

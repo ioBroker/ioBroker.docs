@@ -48,6 +48,12 @@ sometimes npm intall must be called more then one time to successfully install a
 
 ## Changelog
 
+### 4.0.5 (2021-03-21)
+* (René) dependencies updated
+
+## 4.0.4 (2021-02-14)
+* (René) dependencies updated
+
 ## 4.0.3 (2021-01-15)
 * (René) bug fix based on CI tests
 

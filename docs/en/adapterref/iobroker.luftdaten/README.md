@@ -35,7 +35,7 @@ Wait some minutes until the cronjob collects the data for the first time.
 2. Click on the sensor and copy the ID (#XXXXX)
 3. Create a new instance of the adapter
 4. Choose "Remote" as type
-5. Fill the ID of the sensor in the second input
+5. Fill the ID of the sensor in the second input (without #)
 6. Choose a name and save the settings
 
 Wait some minutes until the cronjob collects the data for the first time.
@@ -48,8 +48,17 @@ Wait some minutes until the cronjob collects the data for the first time.
 - pix
 - GermanBluefox
 - Apollon77
+- dominik-lienemann
 
 ## Changelog
+
+### 1.0.3
+
+* (klein0r) Remove non-numeric characters from sensor id
+
+### 1.0.2
+
+* (klein0r) Fixed async object creation
 
 ### 1.0.1
 
@@ -137,7 +146,7 @@ Wait some minutes until the cronjob collects the data for the first time.
 
 The MIT License (MIT)
 
-Copyright (c) 2020 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2021 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
