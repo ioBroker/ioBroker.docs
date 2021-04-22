@@ -19,7 +19,7 @@ A valid [tree structure]() has a specific order of the objects.
 Functions like setObject, getObject, ... are provided to you by the [adapter module](../reference/adaptermodule.md).
 
 ## States ##
-States represent often changing data in your system, like f.e. 
+[States](objects_states.md) represent often changing data in your system, like f.e. 
 * if a lamp is on or off
 * if a motion detector detected some motion
 * the temperature of your living room
@@ -27,6 +27,8 @@ States represent often changing data in your system, like f.e.
 
 Contrary to objects states can be used to trigger actions and states can create history data. To work with states there are several functions in the adapter module like setState, getState and so on.
 
+A state has also a role (common.role) like value.temperature, sensor.rain, level.volume, ...
+
 For every state there also has to exist a corresponding object with `type=state`.
 
-See [states]() for more information.
+See [states](object_states.md) for more information.

@@ -22,7 +22,7 @@ Following attributes have to exist in every object:
 
 | **type**         | **Description** | **Documentation**
 | ---------------- |-----------------|-------------------
-| `state`          | parent should be of type channel, device, instance or host
+| `state`          | parent should be of type channel, device, instance or host | [Link](objects_states.md)
 | `channel`        | object to group one or more states. Parent should be device. | [Link](objects_channels.md)
 | `device`         | object to group one or more channels or state. Should have no parent except adapter instance namespace. | [Link](objects_devices.md)
 | `folder`         | a bunch of devices or may be other things
