@@ -872,16 +872,16 @@
     },
     {
         "title": {
-            "en": "Special procedure after update to versions as of 1.2.x",
-            "de": "Besondere Vorgehensweise nach Update auf Versionen ab 1.2.x",
-            "ru": "Особый порядок действий после обновления до версий 1.2.x",
-            "pt": "Procedimento especial após atualização para versões a partir de 1.2.x",
-            "nl": "Speciale procedure na update naar versies vanaf 1.2.x",
-            "fr": "Procédure spéciale après mise à jour vers les versions à partir de 1.2.x",
-            "it": "Procedura speciale dopo l'aggiornamento alle versioni a partire dalla 1.2.x",
-            "es": "Procedimiento especial después de la actualización a versiones a partir de 1.2.x",
-            "pl": "Specjalna procedura po aktualizacji do wersji od 1.2.x.",
-            "zh-cn": "从1.2.x版本开始更新后的特殊步骤"
+            "en": "WARNING: \"Device-Reminder\" update : Special procedure after update to versions as of 1.2.x",
+            "de": "WARNUNG: \"Device-Reminder\" -Update: Spezielles Vorgehen nach dem Update auf Versionen ab 1.2.x. nötig",
+            "ru": "ВНИМАНИЕ: Обновление \"Device-Reminder\": особая процедура после обновления до версий, начиная с 1.2.x",
+            "pt": "AVISO: Atualização \"Device-Reminder\": procedimento especial após a atualização para versões a partir de 1.2.x",
+            "nl": "WAARSCHUWING: \"Device-Reminder\" update: Speciale procedure na update naar versies vanaf 1.2.x",
+            "fr": "AVERTISSEMENT: mise à jour \"Device-Reminder\": procédure spéciale après mise à jour vers les versions à partir de 1.2.x",
+            "it": "ATTENZIONE: aggiornamento \"Device-Reminder\": procedura speciale dopo l'aggiornamento alle versioni a partire dalla 1.2.x",
+            "es": "ADVERTENCIA: Actualización \"Device-Reminder\": procedimiento especial después de la actualización a versiones a partir de 1.2.x",
+            "pl": "OSTRZEŻENIE: Aktualizacja „Przypomnienia o urządzeniu”: specjalna procedura po aktualizacji do wersji od 1.2.x.",
+            "zh-cn": "警告：“设备提醒”更新：更新到1.2.x以上的版本后的特殊步骤"
         },
         "content": {
             "en": "When updating to version 1.2.x it is mandatory to open the instance setting and click on \"Save and close\"! Everything else is in the popup in the device-reminder instance UI",
