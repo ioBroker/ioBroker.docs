@@ -123,6 +123,8 @@ getState method and stateChange event delivers an object with all attributes exc
 
 for `setState` method everything except `val` is optional, `from` is set automatically by the `setState` method. `ack` defaults to false, `ts` and `lc` are set as expected
 
+It is important to note that the value a state of type array, object or mixed must be serialized using `JSON.stringify()`.
+
 attributes for getState/stateChange/setState object:
 
 * `val`    - the actual value - can be any type that is JSON-"encodable"
@@ -202,7 +204,7 @@ The tree structure is assembled automatically by names. E.g. ```system.adapter.0
 
 attributes:
 
-* `common.type`   (optional - (default is mixed==any type) (possible values: number, string, boolean, array, object, mixed, file). As exception the objects with type `meta` could have `common.type=meta.user` or `meta.folder`
+* `common.type`   (optional - (default is mixed==any type) (possible values: number, string, boolean, array, object, mixed, file). As exception the objects with type `meta` could have `common.type=meta.user` or `meta.folder`. It is important to note that array, object and mixed must be serialized using `JSON.stringify()`.
 * `common.min`    (optional)
 * `common.max`    (optional)
 * `common.step`   (optional) - increase/decrease interval. E.g. 0.5 for thermostat
