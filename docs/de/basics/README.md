@@ -1,5 +1,5 @@
 ---
-Title: "ioBroker Grundlagen"
+title:       "ioBroker Grundlagen"
 lastChanged: "02.05.2021"
 ---
 
