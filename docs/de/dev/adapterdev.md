@@ -11,7 +11,7 @@ editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/dev/ada
    <br>Daher werden hier, neben den hier bisher vorhandenen Themen zur Adapter-Entwicklung, noch hilfreiche Links gelistet.
    <br><br>
    *Hilf mit bei ioBroker und erweitere die Artikel.*
-   *Bitte beachte dabei den [ioBroker Style Guide](#de/documentation/community/styleguidedoc.md),
+   *Bitte beachte dabei den [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md),
    damit die Änderungen einfacher übernommen werden können.*
 
 
