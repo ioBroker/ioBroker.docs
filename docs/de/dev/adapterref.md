@@ -2,10 +2,8 @@
 title: Adapterreferenz
 lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterref.md
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
-hash: SNzQ5LnJzi4kG9R/SMOCOROXMt3ghKCh+Z+M44ZfT50=
 ---
+
 # Adapterreferenz
 ## Datenstruktur - Objekte und Zustände
 Ein Adapter in ioBroker ist ein unabhängiger Prozess, der Objekte und Zustände in einem zentralen Datenspeicher liest und schreibt. Die Datenspeicherung kann als Datenbank (redis / couchDB) oder nur als Textdatei dargestellt werden, die Verbindungsmethode ist jedoch immer dieselbe - über die API. Das heißt, der Entwickler sollte sich nicht darum kümmern, um welche Datenbank es sich handelt und wie die Daten dort gespeichert und bereitgestellt werden.
@@ -13,7 +11,7 @@ Ein Adapter in ioBroker ist ein unabhängiger Prozess, der Objekte und Zustände
 Es gibt zwei Arten von Daten im Speicher:
 
 * Objekte
-* Zustände
+* Zustände (states)
 
 Objekte sind statische Beschreibungen einiger Datenpunkte. Zustände sind die dynamischen Werte von Datenpunkten. Normalerweise gibt es für jeden Zustand ein Objekt mit Beschreibung. (Aber nicht umgekehrt).
 
@@ -28,13 +26,13 @@ Objekte beschreiben zusätzlich:
 * Benutzer
 * Hierarchien von Zuständen (Kanäle und Geräte)
 
-Sie können die Objekte und die aktuellen Statuswerte im Admin-Adapter auf der Registerkarte "Objekte" untersuchen.
+Objekte und die aktuellen Statuswerte können im Admin-Adapter auf der Registerkarte "Objekte" untersucht werden.
 
-Der Name des Objekts besteht aus verschiedenen Teilen. Jeder Teil wird durch "." Geteilt. von einander. Es gibt Systemobjekte (Name beginnt mit _ oder "System") und Adapterobjekte (Name beginnt mit adapterName).
+Der Name des Objekts besteht aus verschiedenen Teilen. Jeder Teil wird durch "." von einander getrennt. Es gibt Systemobjekte (Name beginnt mit _ oder "system.") und Adapterobjekte (Name beginnt mit adapterName).
 
-Hinweis: Hier und her ist adapterName der Name des Adapters, den ein Entwickler erstellen möchte.
+?> Hinweis: Hier in der Beschreibung steht **adapterName** für den Namen des Adapters, den ein Entwickler erstellen möchte.
 
-Die Zustände können in Kanälen und die Kanäle in Geräten gruppiert werden. Hier ist ein Beispiel für homematische Gruppen und Kanäle:
+Zustände können in Kanälen und die Kanäle in Geräten gruppiert werden. Hier ist ein Beispiel für Homematic Gruppen und Kanäle:
 
 ```
 * hm-rpc.0.IEQ1234567 - device
@@ -48,13 +46,13 @@ Die Zustände können in Kanälen und die Kanäle in Geräten gruppiert werden. 
 
 Die Status-ID muss immer mit dem Kanalnamen und dem Kanalnamen mit dem Gerätenamen beginnen. Z.B. Im obigen Statusnamen hm-rpc.0.IEQ1234567.0.INFO ist der Teil hm-rpc.0.IEQ1234567.0 der Kanalname und hm-rpc.0.IEQ1234567 der Gerätename.
 
-Es wird verwendet, um die Koordination von Geräten, Kanälen und Zuständen in Hierarchien aufzubauen.
+Dies wird genutzt, um die Koordination von Geräten, Kanälen und Zuständen in Hierarchien aufzubauen.
 
 ?> Hinweis: Wenn der Adapter nicht so komplex ist, können die Geräte und sogar Kanäle weggelassen werden.
 
-** Adapter ** ist nur das Paket von Dateien und wird im Verzeichnis node_modules abgelegt. Für jeden Adapter finden Sie die Beschreibung dieses Adapters im Objekt "system.adapter.adapterName". Es sind nur die Felder "common" und "native" aus der Datei io-package.json. Dieser Eintrag wird automatisch erstellt, wenn iobroker adapterName installiert oder iobroker adapterName hinzufügt. Wenn der Adapter mit npm installiert wurde, wird iobroker.adapterName installiert. Bis zur Erstellung der ersten Instanz wird kein Eintrag erstellt. Aber es ist nicht so wichtig. Die für "Updates" erforderlichen Informationen werden direkt aus io-package.json gelesen. Eine vollständige Liste der allgemeinen Einstellungen für den Adapter finden Sie in [Hier](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#adapter).
+**Adapter** ist ein Paket von Dateien und wird im Verzeichnis node_modules abgelegt. Für jeden Adapter ist die Beschreibung dieses Adapters im Objekt "system.adapter.adapterName" zu finden. Dies sind nur die Felder "common" und "native" aus der Datei io-package.json. Dieser Eintrag wird automatisch erstellt, wenn `iobroker install adapterName`  oder `iobroker add adapterName` aufgerufen wird. Wenn der Adapter mit `npm install iobroker.adapterName` installiert wird, wird bis zur Erstellung der ersten Instanz kein Eintrag erstellt. Aber es ist nicht so wichtig. Die für "Updates" erforderlichen Informationen werden direkt aus io-package.json gelesen. Eine vollständige Liste der allgemeinen Einstellungen für den Adapter ist [hier](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/objectsschema.md) zu finden.
 
-** Instanz ** ist eine Instanz des Adapters. Je nach Adaptertyp kann mehr als eine Instanz erstellt werden. Bei einigen Adaptern kann jedoch nicht mehr als eine Instanz erstellt werden. Z.B. Im Falle von Vis oder Rikscha kann nur eine Instanz erstellt werden. Dieses Verhalten wird durch Flags in io-package.json gesteuert.
+**Instanz** ist eine Instanz des Adapters. Je nach Adaptertyp kann mehr als eine Instanz erstellt werden. Bei einigen Adaptern aber nur eine, wie z.B. Vis oder Rickshaw. Dieses Verhalten wird durch Flags in io-package.json gesteuert.
 
 Für jede Instanz befindet sich das Konfigurationsobjekt im Datenspeicher unter der ID "system.adapter.adapterName.X", wobei X die Adapterinstanznummer ist. Es enthält die Einstellungen für diese Instanz des Adapters. Normalerweise besteht es aus "allgemeinen" und "nativen" Einstellungen. Allgemeine Einstellungen sind:
 
@@ -62,11 +60,11 @@ Für jede Instanz befindet sich das Konfigurationsobjekt im Datenspeicher unter 
 * `host`: Hostname, auf dem diese Instanz ausgeführt werden muss;
 * `mode`: keine, daemon, abonnieren, planen, einmal;
 
-Beschreibung finden Sie [Hier](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#instance).
+Beschreibung finden Sie [Hier](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/objectsschema.md).
 
 `Native` Einstellungen bestehen aus spezifischen Konfigurationen für diesen Adapter, z. B.: IP-Adresse des Geräts, Geräteeinstellungen usw.
 
-?> Hinweis: Instanzen können auf verschiedenen Hosts (in Systemen mit mehreren Hosts) ausgeführt werden, und die Adapter können auf verschiedenen Hosts unterschiedliche Versionen haben.
+?> Hinweis: Instanzen können auf verschiedenen Hosts (Multi-Host) ausgeführt werden, weiterhin können die Adapter auf den verschiedenen Hosts unterschiedliche Versionen haben.
 
 Alle Objekt-IDs der Adapterinstanz beginnen mit adapterName.X, wobei X die Nummer der Adapterinstanz ist.
 
@@ -75,59 +73,60 @@ Objekte haben unterschiedliche Typen für unterschiedliche Zwecke.
 Für jeden Adapter (nicht die Instanz) werden automatisch die folgenden Objekte erstellt:
 
 * `system.adapter.adapterName`: Beschreibung des Adapters (wie Name, Versionsnummer, ...)
-* `adapterName`: Objekt, das aus HTML / JS / CSS-Dateien aus dem Verzeichnis" www "des Adapters besteht. Dieses Objekt wird nur erstellt, wenn das Verzeichnis "www" im Adapterpaket gefunden wird.
-* `adapterName.admin`: Objekt, das aus HTML / JS / CSS-Dateien aus dem Verzeichnis" admin "des Adapterpakets besteht.
+* `adapterName`: Objekt, das aus HTML/JS/CSS-Dateien des "www" Verzeichnisses des Adapters besteht. Dieses Objekt wird nur erstellt, wenn das Verzeichnis "www" im Adapterpaket gefunden wird.
+* `adapterName.admin`: Objekt, das aus HTML/JS/CSS-Dateien aus dem "admin" Verzeichnis des Adapterpakets besteht.
 
 Für jede Adapterinstanz 'X' werden automatisch die folgenden Objekte erstellt:
 
 * `system.adapter.adapterName.X`: Konfiguration der Adapterinstanz
 * `system.adapter.adapterName.X.alive`: Angabe, ob die Instanz aktiv ist (Nachrichten alle 30 Sekunden senden)
-* `system.adapter.adapterName.X.connected`: Angabe, ob die Instanz mit dem Datenspeicher verbunden ist, weil sie verbunden werden kann, aber aufgrund eines Deadlocks keine lebendigen Nachrichten senden kann.
-* `system.adapter.adapterName.X.memHeapTotal`: Speichernutzung
+* `system.adapter.adapterName.X.connected`: Angabe, ob die Instanz mit dem Datenspeicher verbunden ist. Sie kann verbunden sein, aber aufgrund eines Deadlocks keine alive  Nachricht senden kann.
+* `system.adapter.adapterName.X.memHeapTotal`: Speichernutzung Total
 * `system.adapter.adapterName.X.memHeapUsed`: Speichernutzung
 * `system.adapter.adapterName.X.memRss`: Speichernutzung
-* `system.adapter.adapterName.X.uptime`: Wie viele Sekunden Adapter läuft.
+* `system.adapter.adapterName.X.uptime`: Sekunden die der Adapter läuft.
 
-Erläuterungen zu den Speicherzuständen finden Sie in [Hier](http://stackoverflow.com/questions/12023359/what-do-the-return-values-of-node-js-process-memoryusage-stand-for).
+Erläuterungen zu den Speicherzuständen sind [hier](http://stackoverflow.com/questions/12023359/what-do-the-return-values-of-node-js-process-memoryusage-stand-for) zu finden.
 
-Wenn der Adapter den Modus 'keine' oder 'einmal' hat, werden keine lebendigen, verfügbaren ... Objekte erstellt.
-Verzeichnisstruktur des Adapters
+Wenn der Adapter den Modus 'none' oder 'once' hat, werden keine alive, uptime usw. Objekte erstellt.
+
+**Verzeichnisstruktur des Adapters**
 
 Das Adapterpaket muss einige obligatorische Verzeichnisse und Dateien enthalten:
 
-* `admin` (obligatorisches Verzeichnis)
-  * `index.html`
-  * `xxx.png` - optional, besser, wenn es den Namen` adapterName.png` hat (alle Bildformate werden unterstützt: jpeg, jpg, svg, bmp, ...)
-* `www` - (optionales Verzeichnis)
-* `lib` - (obligatorisches Verzeichnis wegen` utils.js`)
-  * `utils.js`
-* `package.json` - obligatorisch
-* `io-package.json` - obligatorisch
-* `main.js` - obligatorisch (kann` adapterName.js` sein)
+* `admin` (notwendiges Verzeichnis)
+* `index.html`
+* `xxx.png` - optional; besser: `adapterName.png` (alle Bildformate werden unterstützt: jpeg, jpg, svg, bmp, ...)
+* `www` - (notwendiges Verzeichnis)
+* `lib` - (notwendiges Verzeichnis wegen `utils.js`)
+* `utils.js`
+* `package.json` - notwendig
+* `io-package.json` - notwendig
+* `main.js` - notwendig (kann auch `adapterName.js` sein)
 
-Hinweis: lib / utils.js ist eine gemeinsame Datei für alle Adapter, mit der die Position des js-Controllers und der entsprechende Pfad zu iobroker.js-controller / lib / adapter.js ermittelt werden. Die meisten aktuellen utils.js können hier heruntergeladen werden. Ändern Sie diese Datei nicht.
+?> Hinweis: lib/utils.js ist eine gemeinsame Datei für alle Adapter, mit der die Position des js-Controllers und der entsprechende Pfad zu iobroker.js-controller/lib/adapter.js ermittelt werden. Die meisten aktuellen utils.js können hier heruntergeladen werden. Diese Datei nicht ändern!
 
 ## Dateinamen
-Der Adapter muss einer Namenskonvention entsprechen, um vom ioBroker-Controller akzeptiert und gestartet zu werden.
+Um vom ioBroker-Controller akzeptiert und gestartet werde zu können muss der Adapter einer Namenskonvention entsprechen.
 
-* Auf github (oder woanders) muss es den Namen *io **B** roker.adapterName* haben.
-* Wenn der Adapter auf npm verfügbar sein soll, muss er den Namen iobroker.adapterName haben, da npm doe snot Großbuchstaben in Paketnamen zulässt. Es kann in package.json definiert werden
-* Die GUI-HTML-Datei für die Konfiguration des Adapters muss den Namen admin / index.html haben. Es können mehr Dateien im Verzeichnis "admin" sein, aber index.html muss vorhanden sein.
+* Auf github (oder woanders) muss es den Namen `io**B**roker.adapterName` (Großes B) haben.
+* Wenn der Adapter auf npm verfügbar sein soll, muss er den Namen iobroker.adapterName haben, da npm keine Großbuchstaben in Paketnamen zulässt. Es kann in package.json definiert werden
+* Die GUI-HTML-Datei für die Konfiguration des Adapters muss den Namen admin/index.html haben. Es können mehr Dateien im Verzeichnis "admin" sein, aber index.html muss vorhanden sein.
 * Die Startdatei des Adapters muss den Namen main.js oder adapterName.js haben.
 * Der Name des Adapters muss eindeutig sein, in Kleinbuchstaben, ohne Sonderzeichen und ohne Leerzeichen. "-", "_" sind im Namen des Adapters zulässig.
 
 ## Struktur von io-package.json
-io-package.json wird von js-controller verwendet, um Informationen zum Adapter anzuzeigen und zu wissen, wie er behandelt wird. Eine vollständige Beschreibung aller Felder im gemeinsamen Teil finden Sie hier
+io-package.json wird vom js-controller verwendet, um Informationen zum Adapter anzuzeigen und zu wissen, wie er behandelt wird. Eine vollständige Beschreibung aller Felder im gemeinsamen Teil ist [hier]() zu finden.
 
 io-package.json wird von "admin" gelesen, um die Online-Version des Adapters herauszufinden.
 
-### Gemeinsame Felder
-Die wichtigsten gemeinsamen Felder sind:
+### common Felder
+Die wichtigsten common Felder sind:
 
-* `name`: obligatorisch. Name des Adapters ohne "ioBroker", wie "adapterName" und nicht "ioBroker.adapterName"
-* `version`: obligatorisch. Muss mit package.json identisch sein.
-* `title`: obligatorisch. Kurzname des Adapters, wie "Adaptername"
-* `desc`: obligatorisch. Beschreibung des Adapters. Es kann eine Zeichenfolge wie "Dieser Adapter macht dies und das" oder ein Objekt wie:
+* `name`: Notwendig. Name des Adapters ohne "ioBroker.", also "adapterName" und nicht "ioBroker.adapterName"
+* `version`: Notwendig. Muss mit package.json identisch sein.
+* `title`: Notwendig. Kurzname des Adapters, wie "Adaptername"
+* `desc`: Notwendig. Beschreibung des Adapters. Es kann eine Zeichenfolge wie "Dieser Adapter macht dies und das" oder ein Objekt wie:
 
 ```
 {
@@ -139,8 +138,8 @@ Die wichtigsten gemeinsamen Felder sind:
 
 Wenn für die aktuelle Sprache kein Eintrag vorhanden ist, wird die Beschreibung in Englisch angezeigt.
 
-* `Plattform`: obligatorisch. Eigentlich wird nur `Javascript / Node.js` unterstützt.
-* `mode`: obligatorisch. Der Modus, in dem der Adapter gestartet wird.
+* `Plattform`: Notwendig. Aktuell wird nur `Javascript/Node.js` unterstützt.
+* `mode`: Notwendig. Der Modus, in dem der Adapter gestartet wird.
 * `enabled`: optional. Bei true wird die Instanz nach dem Hinzufügen aktiviert.
 * `Lizenz`: Lizenzname unter dem der Adapter lizenziert ist;
 * `loglevel`: anfängliche Protokollstufe, die nach der Erstellung der Instanz festgelegt wird. Kann "Debug", "Info", "Warnung" oder "Fehler" sein
@@ -149,24 +148,24 @@ Wenn für die aktuelle Sprache kein Eintrag vorhanden ist, wird die Beschreibung
 * `extIcon`: Symbolpfad im Internet, um das Symbol für den Adapter anzuzeigen, wenn der Adapter noch nicht installiert ist.
 * `keywords`: Schlüsselwörter als Array, um die Suche im Admin-Adapter zu ermöglichen.
 * `localLink`: Link zu Adapter" www "-Dateien (oder Adapter-Server). "http://192.168.0.100"
-* `type`: Folgende Typen sind möglich:` Hardware, Social, Storage, Visual, API, Scripting, Wetter, andere, Verbindung`.
+* `type`: Folgende Typen sind möglich: `hardware, social, storage, visual, api, scripting, weather, other, connection`.
 * `messagebox`: optional. Muss auf true gesetzt werden, wenn der Adapter Systemmeldungen empfangen soll.
 
-Hinweis: localLink kann spezielle Schlüssel haben, die durch echte Werte ersetzt werden.
+?> Hinweis: localLink kann spezielle Schlüssel haben, die durch echte Werte ersetzt werden.
 
-* `% ip%`: wird durch die IP-Adresse ersetzt, die in der ersten "Web" -Instanz definiert wurde.
-* `% field%`, wobei field ein Attribut aus dem `nativen` Teil der Konfiguration der Adapterinstanz ist.
+* `%ip%`: wird durch die IP-Adresse ersetzt, die in der ersten "web" -Instanz definiert wurde.
+* `%field%`, wobei field ein Attribut aus dem `nativen` Teil der Konfiguration der Adapterinstanz ist.
 
-Z.B. `http://%ip%:%port%` werden als "http://192.168.0.1:8080" angezeigt, wobei "192.168.0.1" die IP-Adresse des "Web" -Adapters und 8080 der Wert von `system.adapter.adapterName.X => native.port` ist.
+Z.B. `http://%ip%:%port%` werden als "http://192.168.0.1:8080" angezeigt, wobei "192.168.0.1" die IP-Adresse des "web" -Adapters und 8080 der Wert von `system.adapter.adapterName.X => native.port` ist.
 
 ### Objektfelder
-Objekte - statische Objekte für alle Instanzen des Adapters (xxx.object) Durch die Installation des Adapters (nicht die Instanzerstellung) können einige vordefinierte Objekte (normalerweise, die etwas beschreiben) automatisch erstellt werden. Diese Objekte dürfen nicht von einer bestimmten Instanz abhängen und gelten für alle Instanzen dieses Adapters. Zum Beispiel hat der hm-rpc-Adapter die Strukturbeschreibung aller HomeMatic-Geräte.
+Objekte - statische Objekte für alle Instanzen des Adapters (xxx.object). Durch die Installation des Adapters (nicht die Instanzerstellung) können einige vordefinierte Objekte (normalerweise, die etwas beschreiben) automatisch erstellt werden. Diese Objekte dürfen nicht von einer bestimmten Instanz abhängen und gelten für alle Instanzen dieses Adapters. Zum Beispiel hat der hm-rpc-Adapter die Strukturbeschreibung aller HomeMatic-Geräte.
 
 Zusätzlich können die neuen Ansichten definiert werden. In SQL heißen sie "gespeicherte Prozedur" und in couchDB - Ansichten.
 
-Hinweis: Nicht mit `vis` Ansichten mischen.
+?> Hinweis: Nicht mit `vis` Ansichten mischen.
 
-Für Ansichtsdefinitionen wird die Javascript-Sprache verwendet. Hier ist das Beispiel:
+Für Ansichtsdefinitionen wird die Javascript-Sprache verwendet. Beispiel:
 
 ```
 {
@@ -186,7 +185,7 @@ Für Ansichtsdefinitionen wird die Javascript-Sprache verwendet. Hier ist das Be
 Hier sind zwei Ansichten für den hm-rpc-Adapter definiert: `listDevices` und `paramsetDescription`.
 Sie geben den Satz von nach Ansichtsbedingung gefilterten Objekten aus dem Datenspeicher zurück. Es kann effektiv (wenn CouchDB verwendet wird) die angegebene Liste von Objekten anfordern.
 
-So verwenden Sie die Ansicht:
+Beispiel:
 
 ```
 adapter.objects.getObjectView('hm-rpc', 'listDevices',
@@ -206,9 +205,9 @@ adapter.objects.getObjectView('hm-rpc', 'listDevices',
 );
 ```
 
-Die Verwendung von `startkey` und `endkey` finden Sie ebenfalls auf derselben Seite.
+Die Verwendung von `startkey` und `endkey` ist ebenfalls auf derselben Seite zu finden.
 
-Hinweis: Die Verwendung von Ansichten ist optional und erfordert vom Entwickler grundlegende Kenntnisse über CouchDB.
+?> Hinweis: Die Verwendung von Ansichten ist optional und erfordert vom Entwickler grundlegende Kenntnisse über CouchDB.
 
 ### Instanzobjektfelder
 Einige bestimmte Objekte oder Objekte mit Typzuständen können in `instanceObjects` von `io-package.json` definiert werden.
@@ -233,7 +232,7 @@ Zum Beispiel erstellt der Adapter `hm-rpc` für jede Instanz den Status `updated
 ```
 
 Es ist nicht erforderlich, den vollständigen Pfad des Objekts anzugeben, und dies ist nicht möglich, da die Adapterinstanz unbekannt ist.
-Sie können das spezielle Wort `%INSTANCE%` in `common.name` verwenden, um es im Namen des Objekts anzuzeigen. Zum Beispiel:
+Es kann das spezielle Wort `%INSTANCE%` in `common.name` verwendet werden, um es im Namen des Objekts anzuzeigen. Zum Beispiel:
 
 ```
 "name": "Some new devices added in hm-rpc.%INSTANCE%",
@@ -248,7 +247,7 @@ Wird erweitert auf
 durch Erstellung der ersten Instanz.
 
 ### Package.json
-package.json ist die Standardbeschreibungsdatei für das npm-Paket. Die vollständige Beschreibung finden Sie unter https://docs.npmjs.com/files/package.json.
+package.json ist die Standardbeschreibungsdatei für das npm-Paket. Die vollständige Beschreibung ist unter https://docs.npmjs.com/files/package.json zu finden.
 
 Kurzstruktur von `package.json`:
 
@@ -291,14 +290,14 @@ Kurzstruktur von `package.json`:
 !> Alle Felder sind Pflichtfelder. `devDependencies` sollten sich ebenfalls im Inneren befinden, um die Grunzaufgaben zu ermöglichen.
 
 ### Bereitstellen
-Es wird empfohlen, den Code auf Github zu haben. Nachdem der Code stabil ist und der Adapter installiert werden kann, können Sie den Adapter für andere Benutzer freigeben, indem Sie ihn auffordern, den Adapter wie folgt zu installieren:
+Es wird empfohlen, den Code auf Github zu haben. Nachdem der Code stabil ist und der Adapter installiert werden kann, kann der Adapter für andere Benutzer freigegeben werden indem die Benutzer gebeten werden den Adapter wie folgt zu installieren:
 
 ```
 npm install https://github.com/yourName/iobroker.adapterName/tarball/master/
 ```
 
-Wenn alles in Ordnung ist und Sie positives Feedback von Benutzern erhalten haben, können Sie den Adapter auf npm veröffentlichen.
-Es wäre gut, wenn Sie vor der Veröffentlichung eine Veröffentlichung auf github erstellen würden.
+Wenn alles in Ordnung ist und positives Feedback von Benutzern kommt, kann der Adapter auf npm veröffentlicht werden.
+Es wäre gut, wenn vor der Veröffentlichung eine Veröffentlichung auf github erstellt wird.
 
 Das Veröffentlichen kann mit folgendem Befehl erfolgen:
 
@@ -306,18 +305,18 @@ Das Veröffentlichen kann mit folgendem Befehl erfolgen:
 npm publish
 ```
 
-Rufen Sie es im Adapterverzeichnis auf. Stellen Sie sicher, dass Sie alle anderen Dateien außer den erforderlichen gelöscht haben (z. B. `.idea`), oder fügen Sie sie der Datei `.gitignore` hinzu.
+Dies ist im Adapterverzeichnis auf zu rufen. Sicher stellen, dass alle anderen Dateien außer den erforderlichen gelöscht wurden (z. B. `.idea`), oder der Datei `.gitignore` hinzufügen.
 
-Natürlich müssen Sie zuerst das Konto auf npm erstellen
+Natürlich muss zuerst ein Konto auf npm erstellt werden.
 
-?> Hinweis: Sie können nicht zweimal den Code mit derselben Version veröffentlichen. Erhöhen Sie die Version in `package.json` und `io-package.json` vor der Veröffentlichung.
+?> Hinweis: Es kann der Code mit derselben Version nicht zweimal veröffentlicht werden. Deswegen die Version in `package.json` und `io-package.json` vor der Veröffentlichung erhöhen.
 
 Nachdem der Adapter getestet wurde und andere Benutzer ihn nützlich finden, kann er in ein gemeinsames Repository übernommen werden, sodass er über den `admin` Adapter installiert werden kann.
 
-## So erstellen Sie einen eigenen Adapter
-Unter https://github.com/ioBroker/ioBroker.template finden Sie eine Vorlage Ihres eigenen Adapters.
+## So wird ein eigener Adapter erstellt
+Unter https://github.com/ioBroker/ioBroker.template sind einige Vorlage zur Verwendung für den eigenen Adapter zu finden.
 
-Wenn Sie ein Widget oder einen Adapter mit einem Widget erstellen möchten, suchen Sie unter [ioBroker.vis-template] (https://github.com/ioBroker/ioBroker.vis-template) nach einer Vorlage Ihres eigenen Adapters.
+Wenn ein Widget oder einen Adapter mit einem Widget erstellt werden soll, sind diese unter https://github.com/ioBroker/ioBroker.example/tree/master/VIS zu finden.
 
 ### Struktur von main.js
 ```
@@ -327,11 +326,11 @@ var utils = require(__dirname + '/lib/utils'); // Get common adapter utils - man
 Diese Zeile lädt das Modul `lib/utils.js`. Allen Adapterfunktionen ist es gemeinsam, die Wurzel von `iobroker.js-controller` zu finden.
 Weil der Adapter in drei verschiedenen Pfaden installiert werden kann:
 
-* `... / iobroker / node_modules / iobroker.adapterName` - Dies ist der Standardpfad und wird zur Verwendung empfohlen
-* `... / iobroker.js-controller / node_modules / iobroker.adapterName` - wird beim Debuggen verwendet
-* `... / iobroker.js-controller / adapter / adapterName` - alter Stil (veraltet)
+* `.../iobroker/node_modules/iobroker.adapterName` - Dies ist der Standardpfad und wird zur Verwendung empfohlen
+* `.../iobroker.js-controller/node_modules/iobroker.adapterName` - wird beim Debuggen verwendet
+* `.../iobroker.js-controller/adapter/adapterName` - alter Stil (veraltet)
 
-utils.js macht nichts anderes als sucht nach der Datei `iobroker.js-controller/lib/adapter.js` und lädt sie.
+utils.js macht nichts anderes als nach der Datei `iobroker.js-controller/lib/adapter.js` zu suchen und lädt sie.
 
 ```
 var adapter = utils.adapter('adapterName'); // - mandatory
@@ -345,7 +344,7 @@ Diese Zeile erstellt das Objekt `adapter` mit dem Namen `adapterName`. Es lädt 
 child_process.fork('pathToAdapter/main.js', '0 info');
 ```
 
-Es wird alles automatisch in `adapter.js` verarbeitet und der Entwickler des Adapters darf sich nicht darum kümmern.
+Es wird alles automatisch in `adapter.js` verarbeitet und der Entwickler des Adapters muss sich nicht darum kümmern.
 
 Der Adapter unterstützt 3 weitere Startflags:
 
@@ -357,11 +356,11 @@ Der Adapter unterstützt 3 weitere Startflags:
 var myPacket1= require('myPacket1'); // add own module
 ```
 
-Anschließend können Sie alle anderen im Adapter erforderlichen Module laden, z. B. `fs`, `require` usw.
-Vergessen Sie nur nicht, sie in `package.json` zu deklarieren.
+Anschließend können alle anderen im Adapter erforderlichen Module, z. B. `fs`, `require` usw. geladen werden.
+Nicht vergessen sie in `package.json` zu deklarieren.
 
 ### Optionen des Adapters
-Sie können Adapterobjekte nur mit Namen wie `utils.adapter('adapterName')` oder mit zusätzlichen Parametern wie: erstellen
+Adapterobjekte können nur mit Namen wie `utils.adapter('adapterName')` oder mit folgenden zusätzlichen Parametern erstellt werden:
 
 ```
 var adapter = utils.adapter({
@@ -384,7 +383,7 @@ var adapter = utils.adapter({
 });
 ```
 
-Alle Handler können durch Ereignisse (siehe unten) simuliert werden, wie z.
+Alle Handler können durch Ereignisse (siehe unten) simuliert werden, wie z.B.
 
 ```
 adapter.on('ready', function () {
@@ -435,7 +434,7 @@ adapter.on('stateChange', function (id, state) {
 });
 ```
 
-!> *Einstiegspunkt* Nehmen Sie alle Initialisierungen in main vor, da vor "ready" keine Konfiguration erfolgt.
+!> *Einstiegspunkt* Alle Initialisierungen sind main vorzunehmen, da vor "ready" keine Konfiguration erfolgt.
 
 ```
 adapter.on('ready', function () {
@@ -486,7 +485,7 @@ Die `adapter.config` sind also gleich:
 }
 ```
 
-und hat die Daten vom Benutzer im Konfigurationsdialog eingegeben. Sie können auf den **gemeinsamen** Teil der Instanzkonfiguration mit dem Attribut "common" des Objekts "adapter" zugreifen. Z.B. für das gezeigte io-package.json lautet "adapter.common":
+und hat die Daten vom Benutzer im Konfigurationsdialog eingegeben. Es kann auf den **gemeinsamen** Teil der Instanzkonfiguration mit dem Attribut "common" des Objekts "adapter" zugegriffen werden. Z.B. für das gezeigte io-package.json lautet "adapter.common":
 
 ```
 {
@@ -494,7 +493,7 @@ und hat die Daten vom Benutzer im Konfigurationsdialog eingegeben. Sie können a
 }
 ```
 
-Um auf die ioBroker-Konfiguration zuzugreifen (gespeichert in der Datei `iobroker-data/iobroker.json`), setzen Sie die Adapteroption `systemConfig` auf true.
+Um auf die ioBroker-Konfiguration zuzugreifen (gespeichert in der Datei `iobroker-data/iobroker.json`), die Adapteroption `systemConfig` auf true setzen.
 
 ```
 var adapter = utils.adapter({
@@ -515,22 +514,23 @@ var adapter = utils.adapter({
 Das Datumsformat ist unter adapter.dateFormat verfügbar.
 
 Alle anderen Konfigurationen können manuell mit der Funktion `getForeignObject` gelesen werden.
-Wie man den Zustand liest
+
+**Wie man den Zustand liest**
 
 Es gibt zwei Modi zum Lesen von Status im ioBroker-Adapter:
 
-* Event-Abonnement (empfohlen)
-* Abfrage
+* event Abonnement (empfohlen)
+* polling
 
 Um eigene Ereignisse zu abonnieren, muss der folgende Befehl aufgerufen werden:
 
-`adapter.subscribeStates('*');` // Abonnieren Sie alle Variablen dieser Adapterinstanz mit dem Muster `adapterName.X.*`
+`adapter.subscribeStates('*');` // Abonniert alle Variablen dieser Adapterinstanz mit dem Muster `adapterName.X.*`
 
-`adapter.subscribeStates('memory*');` // Abonnieren Sie alle Variablen dieser Adapterinstanz mit dem Muster `adapterName.X.memory*`
+`adapter.subscribeStates('memory*');` // Abonniert alle Variablen dieser Adapterinstanz mit dem Muster `adapterName.X.memory*`
 
-So abonnieren Sie andere Veranstaltungen:
+So werden andere events abonniert:
 
-`adapter.subscribeForeignStates('yr.*.forecast.html');` // Variable abonnieren `forecast.html` aller Adapterinstanzen `yr`.
+`adapter.subscribeForeignStates('yr.*.forecast.html');` // Variable `forecast.html` abonnieren aller Adapterinstanzen `yr`.
 
 Der Platzhalter "*" kann in beiden Funktionen verwendet werden.
 
@@ -783,6 +783,7 @@ Vor der Veröffentlichung in npm: In ioBroker / node_modules kopieren, zu `admin
 * Flags für die Anwendung: `--force, Instanz, Protokollebene` (Sie können den Adapter als` Knoten xxx.js 1 Debug --force` starten, 1 ist Instanzindex (standardmäßig 0, Debug ist Protokollebene und `- -force` bedeutet, dass die Einstellungen "enabled: false" ignoriert werden.)
 
 ## Admin.html
+
 ```
 * function showMessage(message, title, icon)
 * function getObject(id, callback)
@@ -801,4 +802,4 @@ Vor der Veröffentlichung in npm: In ioBroker / node_modules kopieren, zu `admin
 * function getTableResult(tabId, cols)
 ```
 
-## Beste Übung
+## Best practice
