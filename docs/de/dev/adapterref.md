@@ -60,7 +60,7 @@ Für jede Instanz befindet sich das Konfigurationsobjekt im Datenspeicher unter 
 * `host`: Hostname, auf dem diese Instanz ausgeführt werden muss;
 * `mode`: keine, daemon, abonnieren, planen, einmal;
 
-Beschreibung finden Sie [Hier](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/objectsschema.md).
+Beschreibung ist [hier](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/objectsschema.md) zu finden.
 
 `Native` Einstellungen bestehen aus spezifischen Konfigurationen für diesen Adapter, z. B.: IP-Adresse des Geräts, Geräteeinstellungen usw.
 
@@ -314,7 +314,7 @@ Natürlich muss zuerst ein Konto auf npm erstellt werden.
 Nachdem der Adapter getestet wurde und andere Benutzer ihn nützlich finden, kann er in ein gemeinsames Repository übernommen werden, sodass er über den `admin` Adapter installiert werden kann.
 
 ## So wird ein eigener Adapter erstellt
-Unter https://github.com/ioBroker/ioBroker.template sind einige Vorlage zur Verwendung für den eigenen Adapter zu finden.
+Unter https://github.com/ioBroker/ioBroker.template sind einige Vorlagen zur Verwendung für den eigenen Adapter zu finden.
 
 Wenn ein Widget oder einen Adapter mit einem Widget erstellt werden soll, sind diese unter https://github.com/ioBroker/ioBroker.example/tree/master/VIS zu finden.
 
