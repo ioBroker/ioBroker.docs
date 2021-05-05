@@ -321,10 +321,9 @@ After the adapter is tested and other users find it useful, it can be taken into
 
 ## How to create own adapter
 
-Please check https://github.com/ioBroker/ioBroker.template for a template of your own adapter.
+Please check https://github.com/ioBroker/ioBroker.template for a template for your own adapter.
 
-If you want to create a widget or an adapter with a widget please check [ioBroker.vis-template]https://github.com/ioBroker/ioBroker.vis-template)
-for a template of your own adapter.
+If you want to create a widget or an adapter with a widget please check https://github.com/ioBroker/ioBroker.example/tree/master/VIS for a template for your own adapter.
 
 ### Structure of main.js
 
