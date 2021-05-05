@@ -11,7 +11,7 @@ editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/dev/ada
    <br>Daher werden hier, neben den hier bisher vorhandenen Themen zur Adapter-Entwicklung, noch hilfreiche Links gelistet.
    <br><br>
    *Hilf mit bei ioBroker und erweitere die Artikel.*
-   *Bitte beachte dabei den [ioBroker Style Guide](community/styleguidedoc),
+   *Bitte beachte dabei den [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md),
    damit die Änderungen einfacher übernommen werden können.*
 
 
@@ -20,7 +20,7 @@ editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/dev/ada
 ## Hilfreiche Links
 
 ### Dokumentation
-[Adapter Development Documentation](https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation): Dokumentation zur Adapter-Entwicklung auf GitHub (in Englisch)
+[Adapter Development Documentation](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md): Dokumentation zur Adapter-Entwicklung auf GitHub (in Englisch)
 
 [Kick-Start für Neulinge](https://forum.iobroker.net/topic/12663/adapter-entwicklung-kick-start-f%C3%BCr-neulinge): Hilfreiche PDF-Datei zum Start mit der Adapter-Entwicklung (im ersten Beitrag des verlinkten Threads).
 
