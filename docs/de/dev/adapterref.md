@@ -1,6 +1,6 @@
 ---
 title: Adapterreferenz
-lastChanged: 14.09.2018
+lastChanged: 05.05.2021
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterref.md
 ---
 
