@@ -1,30 +1,44 @@
 ---
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/aliases.md
 title: Alias
+lastChanged: 06.05.2021
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/aliases.md
 ---
+
 # Alias
-Alias (Pseudonym) ist ein virtueller Datenpunkt, der mit einem realen Datenpunkt verknüpft ist.
+Alias (Pseudonym) ist ein virtueller Datenpunkt, der mit einem realen Datenpunkt 
+verknüpft ist.
 
 ## Anwendungsfälle
-Oft sind die realen Geräte defekt und der Benutzer muss dieses Gerät austauschen.
-Zusätzlich dazu, dass die Hardware ausgetauscht wird, wird die Adresse dieses Geräts geändert. Z.B. von `hm-rpc.0.ABC123` in `hm-rpc.0.QJU978`.
+Irgendwann können reale Geräte einen defekt haben und müssen ausgetauscht werden.
+Beim Tausch wird aber auch die Adresse dieses Geräts geändert z.B. von 
+`hm-rpc.0.ABC123` in `hm-rpc.0.QJU978`.
 
-Da die alte Adresse an vielen Stellen wie vis, Javascript, Szenen oder anderen verwendet wurde, muss der Benutzer nun alle diese Stellen finden und dort ersetzen.
+Da die alte Adresse an vielen Stellen wie vis, Javascript, Szenen oder anderen 
+verwendet wurde, müsste der Benutzer nun alle diese Stellen finden und dort 
+ersetzen.
 
-Diese Funktion ermöglicht es dem Benutzer, einen Alias für den Datenpunkt eines physisches Gerätes zuzuweisen und diesen Alias in allen Fällen zu verwenden.
-Wenn das Gerät ausgetauscht werden muss, muss die ID nur im Alias geändert werden.
+Die Alias Funktion ermöglicht es nun dem Benutzer, einen Alias für den Datenpunkt
+eines physisches Gerätes zuzuweisen und diesen Alias in allen Stellen vie vis,
+javascript usw. zu verwenden. Beim Geräte Tausch muss dann nur die ID im Alias 
+geändert werden.
 
-Ein weiterer Anwendungsfall für diese Funktion ist die Unterstützung von Geräten in speziellen intelligenten Adaptern wie iot oder material.
-Mit Hilfe von Aliasen kann die erforderliche Statusstruktur erstellt werden, die Werte werden jedoch von physischen Geräten gelesen.
+Ein weiterer Anwendungsfall für diese Funktion ist die Unterstützung von Geräten 
+in speziellen intelligenten Adaptern wie iot oder material. Mit Hilfe von Aliasen 
+kann die erforderliche Statusstruktur erstellt werden, die Werte werden jedoch 
+von physischen Geräten gelesen.
 
 ## Erklärung
-Alle Datenpunkte, die im Objektnamensraum `alias.0` angelegt werden, werden als Alias-Datenpunkte verwaltet.
+Alle Datenpunkte, die im Objektnamensraum `alias.0` angelegt werden, werden als 
+Alias-Datenpunkte verwaltet.
 
-Der Wert des Alias wird aus dem verknüpften Datenpunkt (Ziel) gelesen, aber Objekteigenschaften (wie common, native) werden selbst aus dem Alias-Datenpunkt gelesen.
+Der Wert des Alias wird aus dem verknüpften Datenpunkt (Ziel) gelesen, aber 
+Objekteigenschaften (wie common, native) werden selbst aus dem Alias-Datenpunkt 
+gelesen.
 
 Tatsächlich spiegelt ein `alias`-Objekt den Wert des Zielobjekts.
-Falls zulässig, können beide Werte geändert werden und werden vom ioBroker-Kernsystem automatisch synchronisiert.
-Beide Zustände können auch zum Abonnieren von Skripten verwendet werden und sollten sich genau gleich verhalten.
+Falls zulässig, können beide Werte geändert werden und werden vom ioBroker-
+Kernsystem automatisch synchronisiert. Beide Zustände können auch zum Abonnieren 
+von Skripten verwendet werden und sollten sich genau gleich verhalten.
 
 Hier ist ein Beispiel für ein solches Objekt:
 
@@ -44,15 +58,21 @@ Hier ist ein Beispiel für ein solches Objekt:
 }
 ```
 
-`native` ist immer leer, da sich kein Gerät hinter dem Alias befindet und alle Einstellungen in `common` gespeichert werden.
+`native` ist immer leer, da sich kein Gerät hinter dem Alias befindet und alle 
+Einstellungen in `common` gespeichert werden.
 
-In der `common.alias.id` ist die ID des Datenpunktes gespeichert, dessen Wert eingelesen oder eingeschrieben werden muss.
+In der `common.alias.id` ist die ID des Datenpunktes gespeichert, dessen Wert 
+eingelesen oder eingeschrieben werden muss.
 
-Alias konvertiert den Wert automatisch, wenn Min / Max-Einstellungen für beide Objekte (Alias und Ziel) definiert sind.
+Alias konvertiert den Wert automatisch, wenn Min/Max-Einstellungen für beide 
+Objekte (Alias und Ziel) definiert sind.
 
-Z.B. Wenn der Alias `min=0,max=100` und das Ziel `min=0,max=255` hat, wird beim Lesen der Wert 10 aus dem Zielstatus in 3,9215686274509802 konvertiert und der in den Alias 10 geschriebene Wert wird in 25,5 konvertiert.
+Z.B. Wenn der Alias `min=0,max=100` und das Ziel `min=0,max=255` hat, wird beim 
+Lesen der Wert 10 aus dem Zielstatus in 3,9215686274509802 konvertiert und der 
+im Alias geschriebene Wert 10 wird nach 25,5 konvertiert.
 
-Die Typen werden ebenfalls automatisch konvertiert: Von string zu number, von number zu boolean und so weiter. Es hängt von den Alias- und Zieltypen ab.
+Die Typen werden ebenfalls automatisch konvertiert: Von string zu number, von 
+number zu boolean und so weiter. Dies hängt von den Alias- und Zieltypen ab.
 
 Zusätzlich können Schreib- und Lesefunktionen in `common.alias` definiert werden:
 
@@ -91,7 +111,9 @@ Ziel
 }
 ```
 
-Wenn Konvertierungsfunktionen definiert sind, wird die automatische Konvertierung deaktiviert. Für Nur-Lese-Funktionen könnte die Schreibfunktion weggelassen werden, entsprechend für Nur-Schreiben-Funktionen - die Lesefunktion.
+Wenn Konvertierungsfunktionen definiert sind, wird die automatische Konvertierung 
+deaktiviert. Für Nur-Lese-Funktionen könnte die Schreibfunktion weggelassen werden, 
+entsprechend für Nur-Schreiben-Funktionen - die Lesefunktion.
 
 Z.B.
 
@@ -129,13 +151,18 @@ Ziel
 }
 ```
 
-Die Abonnements werden automatisch verwaltet. Wenn ein Alias abonniert wird, wird auch die Ziel-ID abonniert.
+Die Abonnements werden automatisch verwaltet. Wird ein Alias abonniert, wird 
+auch die Ziel-ID abonniert.
 
-Die ID des Zielgeräts kann dynamisch (über den Administrator) geändert werden, und das Abonnement wird für eine neue Ziel-ID aktualisiert.
+Die ID des Zielgeräts kann dynamisch (über den Administrator) geändert werden, 
+und das Abonnement wird für eine neue Ziel-ID aktualisiert.
 
-Seit Version 3.0 des js-controllers können getrennte Status- und Kommando-Datenpunkte im Alias zusammengeführt werden:
+Seit Version 3.0 des js-controllers können getrennte Status- und Kommando-
+Datenpunkte im Alias zusammengeführt werden:
+
 * alias.id.write enthält die ID des Datenpunktes, der gesetzt wird, wenn der Alias geschrieben wird
 * alias.id.read enthält die ID des Datenpunktes, der durch den Alias gespiegelt wird
+
 ```
 {
     _id: "alias.0.aliasName",
@@ -158,4 +185,3 @@ Seit Version 3.0 des js-controllers können getrennte Status- und Kommando-Daten
     type: 'state'
 }
 ```
-
