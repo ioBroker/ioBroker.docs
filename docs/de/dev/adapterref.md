@@ -107,7 +107,7 @@ Das Adapterpaket muss einige obligatorische Verzeichnisse und Dateien enthalten:
 ?> Hinweis: lib/utils.js ist eine gemeinsame Datei für alle Adapter, mit der die Position des js-Controllers und der entsprechende Pfad zu iobroker.js-controller/lib/adapter.js ermittelt werden. Die meisten aktuellen utils.js können hier heruntergeladen werden. Diese Datei nicht ändern!
 
 ## Dateinamen
-Um vom ioBroker-Controller akzeptiert und gestartet werde zu können muss der Adapter einer Namenskonvention entsprechen.
+Um vom ioBroker-Controller akzeptiert und gestartet werden zu können muss der Adapter einer Namenskonvention entsprechen.
 
 * Auf github (oder woanders) muss es den Namen `io**B**roker.adapterName` (Großes B) haben.
 * Wenn der Adapter auf npm verfügbar sein soll, muss er den Namen iobroker.adapterName haben, da npm keine Großbuchstaben in Paketnamen zulässt. Es kann in package.json definiert werden
@@ -297,9 +297,9 @@ npm install https://github.com/yourName/iobroker.adapterName/tarball/master/
 ```
 
 Wenn alles in Ordnung ist und positives Feedback von Benutzern kommt, kann der Adapter auf npm veröffentlicht werden.
-Es wäre gut, wenn vor der Veröffentlichung eine Veröffentlichung auf github erstellt wird.
+Es wäre gut, wenn davor eine Veröffentlichung auf github erfolgt.
 
-Das Veröffentlichen kann mit folgendem Befehl erfolgen:
+Das Veröffentlichen erfolgt mit folgendem Befehl:
 
 ```
 npm publish
@@ -452,7 +452,7 @@ adapter.log.warn("warning");        // log message with info warn
 adapter.log.error("error");         // log message with info error
 ```
 
-Es ist nicht erforderlich, den Ursprung oder die Zeit der Nachricht anzugeben. Diese Attribute werden automatisch hinzugefügt, z.
+Es ist nicht erforderlich, den Ursprung oder die Zeit der Nachricht anzugeben. Diese Attribute werden automatisch hinzugefügt, z.B.
 
 ```
 admin-0 2015-07-10 17:35:52 info successful connection to socket.io from xx.yy.17.17
@@ -557,11 +557,11 @@ Beachten Sie, dass dieses Ergebnis asynchron zurückgegeben wird.
 
 Um Zustände anderer Adapter zu lesen, sollten Sie die Funktion `adapter.getForeignState` verwenden. Es werden keine Platzhalter unterstützt.
 
-#### Befehle und Status
-Wir sollten zwischen Befehlen und Status unterscheiden, wenn wir über Zustände sprechen. "Befehl" hat das Bestätigungsflag als falsch und wird vom Benutzer (über vis, Javascript-Adapter, Admin) gesendet, um die Geräte oder einen bestimmten Adapter zu steuern. Normalerweise werden Adapter (z. B. homematisch) für alle eigenen Änderungen abonniert, und wenn sich einige Zustände mit ack = false ändern, versuchen sie, diesen Befehl auszuführen (z. B. Licht an).
+#### Befehle und Stati
+Es sollte zwischen Befehlen und Stati unterscheiden werden, wenn über Zustände gesprochen wird. "Befehl" hat das ack-flag als falsch und wird vom Benutzer (über vis, Javascript-Adapter, Admin) gesendet, um die Geräte oder einen bestimmten Adapter zu steuern. Normalerweise werden Adapter (z. B. Homematic) für alle eigenen Änderungen abonniert, und wenn sich einige Zustände mit ack = false ändern, versuchen sie, diesen Befehl auszuführen (z. B. Licht an).
 
 "Status" hat das Flag `ack` als wahr und zeigt an, dass es vom Gerät oder Dienst stammt.
-Z.B. Wenn der Wetteradapter eine neue Wettervorhersage erhalten hat, wird diese mit `ack=true` veröffentlicht, oder wenn das homematische Thermometer eine neue Temperatur misst, wird sie auch mit `ack=true` veröffentlicht.
+Z.B. Wenn der Wetteradapter eine neue Wettervorhersage erhalten hat, wird diese mit `ack=true` veröffentlicht, oder wenn das Homematic Thermometer eine neue Temperatur misst, wird sie auch mit `ack=true` veröffentlicht.
 Selbst wenn der Benutzer das Licht physisch einschaltet, wird der neue Status mit `ack=true` veröffentlicht.
 
 `Ack=false` werden normalerweise durch Ausführung nach der Antwort vom Gerät überschrieben.
@@ -569,15 +569,15 @@ Selbst wenn der Benutzer das Licht physisch einschaltet, wird der neue Status mi
 Z.B. wenn der Benutzer in `vis` die Taste gedrückt und den Befehl `hm-rpc.0.kitchen.light=ON` gesendet hat.
 Der Socket-io-Adapter sendet den neuen Status mit `kitchen.light = {val: 1, ack: false}` an die Instanz `hm-rpc.0`.
 
-Der Homematikadapter ist für alle Zustände von `hm-rpc.0` abonniert, und wenn der neue Zustand mit `ack=false` empfangen wird, sendet er den neuen Wert an den physischen Schalter.
+Der Homematic Adapter ist für alle Zustände von `hm-rpc.0` abonniert, und wenn der neue Zustand mit `ack=false` empfangen wird, sendet er den neuen Wert an den physischen Schalter.
 
 Der physische Schalter führt den Befehl aus und sendet den neuen eigenen Status EIN an den `hm-rpc` Adapter.
 Der Adapter `hm-rpc.0` veröffentlicht den neuen Status des Staates `hm-rpc.0.kitchen.light={val: 1, ack: true}` (mit Zeitstempeln).
 
 Diese Änderung wird vom hm-rpc-Adapter nicht ausgeführt, da ack true ist. Und dies ist eine Bestätigung vom physischen Gerät.
 
-#### Wie schreibe ich den Status
-Zustände können als Befehle oder als Status geschrieben werden. Dafür müssen `adapter.setState` und `adapter.setForeignState` verwendet werden:
+#### Wie wird der state geschrieben
+Zustände können als Befehle oder als Stati geschrieben werden. Dafür müssen `adapter.setState` und `adapter.setForeignState` verwendet werden:
 
 `adapter.setForeignState('otherAdapter.X.someState', 1);` // Andere Adapter steuern (es ist nicht erforderlich, den eigenen Status zu steuern, wir können dies direkt tun)
 
@@ -599,7 +599,7 @@ adapter.setState('myState', 1, false);
 adapter.setState('myState', 1);
 ```
 
-#### Staatsstruktur
+#### State Struktur
 State ist ein Javascript-Objekt mit folgenden Attributen:
 
 * `val`: Wert des Zustands (gewünschter Wert oder tatsächlicher Wert)
@@ -610,7 +610,7 @@ State ist ein Javascript-Objekt mit folgenden Attributen:
 * `expire`: (optional) Es besteht die Möglichkeit, das Ablaufzeitlimit in Sekunden festzulegen. Nach dieser Zeit wird die Variable auf "null" gesetzt. Es wird z.B. durch "aktive" Zustände der Adapterinstanzen. Wenn die Adapterinstanz innerhalb von 30 Sekunden keinen "aktiven" Status auslöst, wird sie als "down" markiert. Um den Status mit Ablauf festzulegen, verwenden Sie den folgenden Code setState ('Variable', {val: true, expire: 30})
 * `q`: (optional) Qualität. Siehe hier die Beschreibung
 
-Betriebsmodi des Adapters
+**Betriebsmodi des Adapters**
 
 Der Adapter kann in verschiedenen Modi ausgeführt werden. Der Modus für den Adapter kann über das Attribut common.mode definiert werden.
 
@@ -624,7 +624,7 @@ Normalerweise sollten Adapter den Modus-Daemon verwenden.
 
 Wenn der Adapter nur alle X Minuten etwas überprüft, sollte er den Modus `schedule` verwenden und den Cron-Zeitplan gemeinsam definieren (z. B. `1 * * * *` - jede Stunde).
 
-#### Wie lese ich ein Objekt?
+#### Wie wird ein Objekt gelesen?
 Objekte können mit dem Befehl getObject oder getForeignObject gelesen werden:
 
 ```
@@ -647,7 +647,7 @@ Objekte des Adapters müssen in Geräten, Kanälen und Zuständen organisiert se
 
 Siehe: getForeignObjects, findForeignObject, getForeignObject, getDevices, getChannels, getStatesOf
 
-#### Wie schreibe ich ein Objekt?
+#### Wie wird ein Objekt geschrieben?
 Zum Schreiben der Objekte können im Allgemeinen zwei Funktionen verwendet werden: `setObject, setForeignObject`. Es gibt jedoch viele Hilfefunktionen zum Ändern von Objekten:
 
 * `verlängernObject, verlängernForeignObject`
@@ -762,7 +762,7 @@ In diesem Fall wird der Verbindungsstatus in der Liste der Instanz in `admin` an
 * log.error(msg)
 ```
 
-## Veranstaltungen
+## Events
 ```
 * ready
 * objectChange(id, obj) (Warning obj can be null if deleted)
@@ -771,14 +771,14 @@ In diesem Fall wird der Verbindungsstatus in der Liste der Instanz in `admin` an
 * unload
 ```
 
-### So erstellen Sie eine Instanz
-Vor der Veröffentlichung in npm: In ioBroker / node_modules kopieren, zu `admin` gehen und Instanz hinzufügen Nach der Veröffentlichung in npm: zu `ioBroker/` gehen und `npm install iobroker.xxx --production --no-optional --logevel=error` schreiben, zu `admin` gehen und hinzufügen Beispiel
+### So wird eine Instanz erstellt
+Vor der Veröffentlichung in npm: In ioBroker/node_modules kopieren, zu `admin` gehen und Instanz hinzufügen. Nach der Veröffentlichung in npm: zu `ioBroker/` gehen und `npm install iobroker.xxx --production --no-optional --logevel=error` schreiben, zu `admin` gehen und hinzufügen.
 
-## So debuggen Sie
-* Starten Sie ioBroker
+## So wird debugt
+* ioBroker starten
 * Instanz des Adapters hinzufügen
 * Instanz des Adapters deaktivieren
-* Starten Sie WebStorm
+* WebStorm starten
 * Konfiguration für Debug mit node.js erstellen
 * Flags für die Anwendung: `--force, Instanz, Protokollebene` (Sie können den Adapter als` Knoten xxx.js 1 Debug --force` starten, 1 ist Instanzindex (standardmäßig 0, Debug ist Protokollebene und `- -force` bedeutet, dass die Einstellungen "enabled: false" ignoriert werden.)
 
