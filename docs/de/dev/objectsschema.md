@@ -1,8 +1,10 @@
 ---
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/objectsschema.md
 title: Kernkonzept
+lastChanged: 06.05.2021
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/objectsschema.md
 hash: mG9F6aWkgsId38qcRUEcjkU7m6+afwc4m6L2RBBrG9U=
 ---
+
 # Kernkonzept
 In ioBroker gibt es zwei grundlegend unterschiedliche Datentypen. Sogenannte **Zustände** (`states`) und **Objekte**
 
@@ -221,7 +223,7 @@ Eine Liste der Transporte finden Sie im Verlaufsadapter README
 ##### Attribut `common.role`
 * `common.role` (gibt an, wie dieser Status in Benutzeroberflächen dargestellt werden soll)
 
-[mögliche Werte](stateroles.md)
+[mögliche Werte][]
 
 #### Kanal
 ##### Kanal `common.role` (optional)
@@ -609,3 +611,5 @@ id `system.host.<host>`
 * `common.name` - (obligatorischer) Name der Gruppe
 * `common.members` - (obligatorisches) Array von Benutzerobjekt-IDs
 * `common.desc` - (optionale) Beschreibung des Gruppenzwecks
+
+[mögliche Werte]: https://www.iobroker.net/#de/documentation/dev/stateroles.md
