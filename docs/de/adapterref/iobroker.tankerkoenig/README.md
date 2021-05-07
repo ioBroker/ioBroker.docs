@@ -91,6 +91,9 @@ Der Inhalt des Datenpunktes `combined` wird mit einer CSS-Klasse übergeben. Die
 Der Adapter ist im Kompaktmodus von ioBroker lauffähig.
 
 ## Changelog
+### 2.0.12 (2021-05-05)
+* (pix) connectionType and dataSource added
+
 ### 2.0.11 (2021-05-02)
 * (anwa) "wrong type" and "ack flag" issues fixed (upcoming in js-controller > 3.3)
 

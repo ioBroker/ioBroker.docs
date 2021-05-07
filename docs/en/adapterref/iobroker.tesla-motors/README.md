@@ -2,6 +2,7 @@
 # ioBroker.tesla-motors
 [![NPM version](http://img.shields.io/npm/v/iobroker.tesla-motors.svg)](https://www.npmjs.com/package/iobroker.tesla-motors)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.tesla-motors.svg)](https://www.npmjs.com/package/iobroker.tesla-motors)
+[![Stable](http://iobroker.live/badges/tesla-motors-stable.svg)](http://iobroker.live/badges/tesla-motors-stable.svg)
 [![installed](http://iobroker.live/badges/tesla-motors-installed.svg)](http://iobroker.live/badges/tesla-motors-installed.svg)
 [![Dependency Status](https://img.shields.io/david/dbweb-ch/iobroker.tesla-motors.svg)](https://david-dm.org/dbweb-ch/iobroker.tesla-motors)
 [![Known Vulnerabilities](https://snyk.io/test/github/dbweb-ch/ioBroker.tesla-motors/badge.svg)](https://snyk.io/test/github/dbweb-ch/ioBroker.tesla-motors)
@@ -92,8 +93,14 @@ Keep your credentials save! <br />To reject all Tokens, change your Tesla accoun
 * dbweb-ch
 * Apollon77
 * Hombach
+* klein0r
 
 ## Changelog
+### 0.5.0
+* (klein0r) Store passwords and other sensitive information encrypted (BREAKING CHANGE)
+### 0.4.3
+* (dbweb-ch) Refresh mode aggressive: change refresh rate to 1 second instead of 1 minute
+* (dbweb-ch) Add homelink support
 ### 0.4.2
 * (dbweb-ch) Define instanceObject \"info.connection\" to prevent warning with js-controller 3.2.
 ### 0.4.1

@@ -1,6 +1,11 @@
 ![Logo](admin/ham-wemo.png)
 # ioBroker Wemo adapter based on homebridge-platform-wemo
-![Number of Installations](http://iobroker.live/badges/ham-wemo-installed.svg) ![Number of Installations](http://iobroker.live/badges/ham-wemo-stable.svg)
+![Number of Installations](http://iobroker.live/badges/ham-wemo-installed.svg)
+![Number of Installations](http://iobroker.live/badges/ham-wemo-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.ham-wemo.svg)](https://www.npmjs.com/package/iobroker.ham-wemo)
+
+![Test and Release](https://github.com/ioBroker/iobroker.ham-wemo/workflows/Test%20and%20Release/badge.svg)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.ham-wemo.svg)](https://www.npmjs.com/package/iobroker.ham-wemo)
 
 =================
 
@@ -10,6 +15,9 @@ This adapter is based on homebridge-platform-wemo plugin.
 Read more about it here https://www.npmjs.com/package/homebridge-platform-wemo
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) plugin and homebridge updated
 
 ### 1.1.1 (2021-03-24)
 * (Apollon77) js-controller 2.0 now needed as minimum

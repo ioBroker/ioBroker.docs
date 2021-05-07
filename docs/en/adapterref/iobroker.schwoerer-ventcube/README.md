@@ -56,10 +56,13 @@ The ioBroker adapter was tested sucessfully with:
 |---------------|----------|-----------------------------------|
 | V01.10        | V02.26   | Parameterliste_Modbus_TCP_03.2020 |
 
+## Changelog
+See [Changelog](https://github.com/Excodibur/ioBroker.schwoerer-ventcube/blob/master/CHANGELOG.md).
+
 ## License
 MIT License
 
-Copyright (c) 2020 Excodibur <non@existant.com>
+Copyright (c) 2020-2021 Excodibur
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

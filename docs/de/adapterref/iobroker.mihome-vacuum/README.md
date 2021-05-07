@@ -3,10 +3,11 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker Mihome-Vakuumadapter
-hash: FaIquw6p8eo5suLeCkr2ZUWN7jvpSLsSD+qTVlLGozU=
+hash: U/aoXXnLeLYe5euziTFca/0uZlariNMUGCbRI8MYwV0=
 ---
 ![Logo](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
+![Paypal-Spende](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.mihome-vacuum.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.mihome-vacuum.svg)
 ![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/mihome-vacuum-installed.svg)
@@ -44,6 +45,8 @@ Mit diesem Adapter können Sie den Xiaomi-Staubsauger steuern.
 - [Changelog] (# changelog)
 
 ## Unterstützte Geräte und Funktionen
+Reiniger nicht unterstützt? [Stimmen Sie hier ab!](https://doodle.com/poll/8m8238ridkifua99?utm_source=poll&utm_medium=link)
+
 | Gerät | Grundlegende Steuerung | Geschichte | Zimmer | Karte |
 |:------------------    |:-------------------:      |:-------------------:  |:-------------------:|:-------------------:|
 | viomi.vacuum.v6 | : heavy_check_mark: | : x: |: x: | : x: |
@@ -280,6 +283,24 @@ Die unterstützten Befehle sind:
 - Widget zu der Zeit ohne Funktion
 
 ## Changelog
+### 3.1.6 (05.05.2021)
+* minimize Disk write
+* minimized Messages 
+* changed warn Messages to debug
+* extend Debuglog to find error for e2 vacuum
+* added getStates when map is changed
+### 3.1.5 (03.05.2021)
+* try fix map error
+* Map64 chnaged. now without img tags
+* add Multimap support (get romms and map when map is changed)
+* select Multimaps
+* fix error eith zone coordinates
+* add Wifi
+* fix connection Problems
+* fix Valetudo map
+* add Mopstate
+* fix some objects
+
 ### 3.1.1 (18.4.2021)
  * Full rewrite
  * Fix map bug with multiple vacuums
@@ -404,7 +425,7 @@ Die unterstützten Befehle sind:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2021 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

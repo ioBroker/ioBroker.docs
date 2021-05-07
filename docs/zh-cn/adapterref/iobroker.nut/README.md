@@ -3,19 +3,16 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.nut/README.md
 title: ioBroker.nut
-hash: 1XnHuFKmyG55WGJQpHOmqGh0OJzUsyMfqL+05Hzp5CQ=
+hash: Ty2TUQVoPfL4x6EuLPk3oAeQRg9BuuixVh42eCA/DEE=
 ---
 ![商标](../../../en/adapterref/iobroker.nut/admin/nut.png)
 
 ![安装数量](http://iobroker.live/badges/nut-stable.svg)
 ![NPM版本](http://img.shields.io/npm/v/iobroker.nut.svg)
 ![资料下载](https://img.shields.io/npm/dm/iobroker.nut.svg)
-![特拉维斯](http://img.shields.io/travis/Apollon77/ioBroker.nut/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Apollon77/ioBroker.nut?branch=master&svg=true)
-![NPM](https://nodei.co/npm/iobroker.nut.png?downloads=true)
 
 ＃ioBroker.nut
-[![代码气候]（https://codeclimate.com/github/Apollon77/ioBroker.nut/badges/gpa.svg）](https://codeclimate.com/github/Apollon77/ioBroker.nut)
+![测试与发布](https://github.com/Apollon77/iobroker.nut/workflows/Test%20and%20Release/badge.svg)[![翻译状态]（https://weblate.iobroker.net/widgets/adapters/-/nut/svg-badge.svg）](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ioBroker的此适配器连接到已定义的NUT服务器，以提供ioBroker的状态和已连接的UPS / USV的详细信息，以便可以在此处使用。
 
@@ -23,7 +20,7 @@ ioBroker的此适配器连接到已定义的NUT服务器，以提供ioBroker的�
 
 ##参数说明
 ### Host_ip
-NUT服务器的IP地址。 NUT需要在服务器模式下运行，并且需要运行iobroker NUT适配器的计算机可以访问。因此，如果您有问题并允许访问，请检查防火墙设置。如果UPS在本地连接，则还可以使用127.0.0.1或localhost。
+NUT服务器的IP地址。 NUT需要在服务器模式下运行，并且需要运行iobroker NUT适配器的计算机可以访问。因此，如果有问题并允许访问，请检查防火墙设置。如果UPS在本地连接，则还可以使用127.0.0.1或localhost。
 
 ### Host_port
 NUT的端口。默认端口是<b>3493</b>
@@ -37,7 +34,7 @@ NUT的端口。默认端口是<b>3493</b>
 ### Update_interval
 时间间隔以秒为单位来更新数据。默认为300秒
 
-## UPS监视器通知
+## UPS-Monitor通知
 在scripts / nut-notify.sh中包含一个小的Linux shell脚本，可以在upsmon中对其进行配置。
 
 该脚本需要执行权限（chmod + x nut-notify.sh）。
@@ -48,7 +45,7 @@ NUT的端口。默认端口是<b>3493</b>
 NOTIFYCMD "cd /opt/iobroker/;./nut-notify.sh"
 ```
 
-另外，配置所有相关的通知消息，例如：
+此外，配置所有相关的通知消息，例如：
 
 ```
 NOTIFYFLAG ONLINE       SYSLOG+WALL+EXEC
@@ -77,7 +74,7 @@ logger -t nut-notify "Notify iobroker $UPSNAME -> $NOTIFYTYPE"
 ```
 
 ＃＃ 故障排除
-如果您有问题，并且适配器不提供数据，则可以使用适配器安装目录“ test”中的两个脚本（通常在iobroker安装目录的node_modules / iobroker.nut / test中）进行尝试。命令行。使用“ node filename.js”调用脚本以查看等待的参数。</ p>
+如果您有问题，并且适配器未提供数据，则可以使用适配器安装目录“ test”中的两个脚本（通常在iobroker安装目录的node_modules / iobroker.nut / test中）进行尝试。命令行。使用“ node filename.js”调用脚本以查看等待的参数。</ p>
 
 * **test_upslist.js** 连接到NUT服务器并返回可用的UPS名称列表
 * **test_upsvars.js** 连接到已定义的UPS的NUT服务器并返回可用UPS变量的列表
@@ -86,6 +83,23 @@ logger -t nut-notify "Notify iobroker $UPSNAME -> $NOTIFYTYPE"
 *网页文档
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
+### __WORK IN PROGRESS__
+* (foxriver76) we fixed the state value type set to `battery.charge`
+* (Apollon77) Add connection states
+
+### 1.4.3 (2021-02-04)
+* (Apollon77) Enhance the port check
+
+### 1.4.2 (2021-01-23)
+* (Apollon77) Check configured port before using it (Sentry IOBROKER-NUT-3)
+
+### 1.4.1 (2021-01-21)
+* (Apollon77) Optimize stop handling (Sentry IOBROKER-NUT-1)
 
 ### 1.4.0 (2021-01-14)
 * (Apollon77) Prevent warnings in js-controller 3.2

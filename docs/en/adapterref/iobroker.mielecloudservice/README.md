@@ -181,6 +181,9 @@ Here is a list of what these raw values stand for:
 
 ## Changelog
 
+### V4.0.22 (2021-05-06) (Twisted mind)
+* (grizzelbee) Fix: [142](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/142) Reintroduced TargetTemp for washing machines
+
 ### V4.0.21 (2021-05-03) (The Edge)
 * (grizzelbee) Fix: Fixed accidental function name: createStateSpinAPIStartActionningSpeed
 * (grizzelbee) Fix: Fixed State value to set for "*.PlateStep_1" has to be type "number" but received type "string"

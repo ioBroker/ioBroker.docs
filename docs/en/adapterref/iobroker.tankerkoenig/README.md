@@ -90,6 +90,9 @@ The value of the datapoint `combined` deliveres a css class. These classes are `
 This adapter is ready for iobroker's compact mode.
 
 ## Changelog
+### 2.0.12 (2021-05-05)
+* (pix) connectionType and dataSource added
+
 ### 2.0.11 (2021-05-02)
 * (anwa) "wrong type" and "ack flag" issues fixed (upcoming in js-controller > 3.3)
 

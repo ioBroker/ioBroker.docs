@@ -170,20 +170,20 @@ IP-адрес с которого доступен драйвер (поддер�
 ![ioBroker.admin - system settings](img/admin_SystemSettings.jpg)
 
 ## Changelog
+### 5.0.17 (2021-05-06)
+* (bluefox) Admin5: Fixed many bugs
+
+### 5.0.16 (2021-05-05)
+* (bluefox) Admin5: Fixed many bugs
+
+### 5.0.15 (2021-05-05)
+* (bluefox) optimized the loading process
+
 ### 5.0.14 (2021-05-03)
 * (bluefox) Admin5: Fixed many bugs
 
 ### 5.0.13 (2021-05-02)
 * (bluefox) Admin5: Fixed many bugs
-
-### 5.0.12 (2021-05-01)
-* (bluefox) Admin5: Fixed many bugs
-
-### 5.0.11 (2021-04-29)
-* (bluefox) Admin5: users management implemented
-
-### 5.0.10 (2021-04-27)
-* (bluefox) Admin5: Implemented the language filter and selector for rating with comments
 
 ## License
 

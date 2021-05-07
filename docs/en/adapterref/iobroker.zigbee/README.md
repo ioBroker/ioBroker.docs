@@ -37,6 +37,10 @@ There are knowledge bases that can be useful for working with Zigbee-devices and
 
 ## Changelog
 
+### 1.5.5 (2021-05-05)
+* Fixes for new zigbee-herdsman-converters
+* UI fixes
+
 ### 1.5.3 (2021-04-30)
 * (arteck) Fix for js-controller 3.3.*
 

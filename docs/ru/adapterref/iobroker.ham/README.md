@@ -3,19 +3,16 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ham/README.md
 title: Менеджер по аксессуарам ioBroker Homebridge
-hash: VVjUsOWBM3T0R4hTH7h7G0A7fshotq1t3rSBmkuux4A=
+hash: hUvbkZy2OBzJvWiov5BK/C8IBdn/Hi1+NWwzHyonC9w=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ham/admin/ham.png)
 
-![Версия NPM](https://img.shields.io/npm/v/iobroker.ham.svg)
+![Количество установок](http://iobroker.live/badges/ham-stable.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.ham.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.ham.svg)
-![Количество установок (последнее)](https://iobroker.live/badges/ham-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/ham-stable.svg)
-![Статус зависимости](https://img.shields.io/david/ioBroker/iobroker.ham.svg)
-![НПМ](https://nodei.co/npm/iobroker.ham.png?downloads=true)
 
-# IoBroker Менеджер по аксессуарам Homebridge [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/ham/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-** Тесты: ** ![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.ham/workflows/Test%20and%20Release/badge.svg)
+# IoBroker Менеджер по аксессуарам Homebridge
+![Тестирование и выпуск](https://github.com/ioBroker/iobroker.ham/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/ham/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 Используйте плагины Homebridge в ioBroker или запустите глобально установленный Homebridge в качестве адаптера ioBroker.
 Все состояния из Homebridge также будут доступны в ioBroker и там также можно будет управлять.
@@ -24,33 +21,33 @@ hash: VVjUsOWBM3T0R4hTH7h7G0A7fshotq1t3rSBmkuux4A=
 Этот адаптер обеспечивает три различных режима:
 
 ### Режим по умолчанию (обертка)
-В режиме по умолчанию адаптер позволяет напрямую использовать модули подключаемых модулей homebridge.
+В режиме по умолчанию адаптер позволяет напрямую использовать модули плагинов homebridge.
 Вы можете изучить все доступные плагины на сайте NPM в [поиск по ключевому слову `homebridge-plugin`](https://www.npmjs.com/search?q=homebridge-plugin).
 
 Вы просто добавляете список модулей в конфигурацию адаптера и предоставляете конфигурацию в JSON-редакторе (см. Описания плагинов).
-После этого все объекты Homebridge будут созданы в ioBroker, и все объекты, доступные для записи, также можно будет изменить.
+После этого все объекты Homebridge также будут созданы в ioBroker, и все объекты, доступные для записи, также можно будет изменить.
 
-** ВАЖНО: этот режим позволяет использовать интеграции с устройствами предоставленных плагинов Homebridge. Никакого «моста», который можно использовать в приложении Home, не предусмотрено! **
+** ВАЖНО: этот режим позволяет использовать интеграции с устройствами предоставленных плагинов Homebridge. Не предусмотрено никакого «моста», который можно использовать в приложении Home! **
 
 Ссылку на успешно опробованные плагины с примерами можно найти здесь: https://forum.iobroker.net/viewtopic.php?f=20&t=15021
 
 ### Local-Homebridge-Mode
-Если вы хотите, чтобы опубликованный мост использовался домашним приложением, а также вы хотите взаимодействовать с ним из ioBroker и получать данные, но у вас еще нет установленного домашнего моста, используйте этот режим.
+Если вы хотите, чтобы опубликованный мост использовался домашним приложением, и вы также хотите взаимодействовать с ним из ioBroker и получать данные, но у вас еще нет установленного домашнего моста, используйте этот режим.
 
 В локальном режиме устанавливается текущая совместимая версия homebridge и запускается от имени пользователя ioBroker. Вы предоставляете полную конфигурацию домашнего моста с помощью ioBroker.
 Установка модулей Homebridge также выполняется через ioBroker.
 
-** ВАЖНО: при использовании дочерних мостов (новая функция домашнего моста с версии 1.3.x) адаптер НЕ МОЖЕТ получить доступ к данным, предоставляемым этими дочерними мостами! Доступен только главный мост! **
+** ВАЖНО: При использовании дочерних мостов (новая функция домашнего моста с версии 1.3.x) адаптер НЕ МОЖЕТ получить доступ к данным, предоставляемым этими дочерними мостами! Доступен только главный мост! **
 
 ### Global-Homebridge-Mode
 Если вы уже используете Homebridge (Apple OpenSource SmartHome) в качестве глобальной установки на хосте, на котором также работает ioBroker, вы можете использовать эту существующую установку Homebridge и запустить эту установку Homebridge как процесс ioBroker. В этом случае сервер Homebridge запускается ioBroker.
 Кроме того, все состояния из Homebridge доступны как состояния в ioBroker и могут управляться из ioBroker.
 
-Чтобы это работало, вам необходимо указать расположение глобальной папки системных узлов-модулей. Для этого вызовите **npm root -g** Кроме того, вам необходимо указать путь к каталогу конфигурации homebridge (обычно .homebridge в папке "users").
+Чтобы это работало, вам необходимо указать расположение глобальной папки системных узлов и модулей. Для этого вызовите **npm root -g** Дополнительно вам необходимо указать путь к каталогу конфигурации homebridge (обычно .homebridge в папке "users").
 
-** ВАЖНО: ioBroker работает как пользователь «iobroker», но homebridge обычно как пользователь root или homebridge (в зависимости от того, как вы его установили). Вам необходимо убедиться, что папка homebride "persistance" доступна для пользователя ioBroker, иначе вы увидите ошибки, что файл не может быть сохранен (что может привести к сбою адаптера!) **
+** ВАЖНО: ioBroker запускается как пользователь «iobroker», но homebridge обычно как пользователь root или homebridge (в зависимости от того, как вы его установили). Вам необходимо убедиться, что папка homebride "persistance" доступна для пользователя ioBroker, иначе вы увидите ошибки, что файл не может быть сохранен (что может привести к сбою адаптера!) **
 
-** ВАЖНО: при использовании дочерних мостов (новая функция домашнего моста с версии 1.3.x) адаптер НЕ МОЖЕТ получить доступ к данным, предоставляемым этими дочерними мостами! Доступен только главный мост! **
+** ВАЖНО: При использовании дочерних мостов (новая функция домашнего моста с версии 1.3.x) адаптер НЕ МОЖЕТ получить доступ к данным, предоставляемым этими дочерними мостами! Доступен только главный мост! **
 
 ## Следующие плагины были протестированы в режиме по умолчанию
 * homebridge-Chamberlain v1.0.1 - плагин для открывателей гаражных ворот Chamberlain с MyQ
@@ -67,11 +64,14 @@ hash: VVjUsOWBM3T0R4hTH7h7G0A7fshotq1t3rSBmkuux4A=
 
 ... и многое другое
 
-## СДЕЛАТЬ
+## ДЕЛАТЬ
 * Тесты
 * Больше документации ?!
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) prevent warnings in js-controller 3.3
 
 ### 4.0.1 (2021-03-24)
 * (Apollon77) update homebridge and wrapper to 1.3.4 (latest as of today). IMPORTANT: Requires also homebridge 1.3.x installed when using global mode and local mode will update to 1.3.x too! Check your plugins for updates!

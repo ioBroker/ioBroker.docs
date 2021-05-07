@@ -151,6 +151,9 @@ Beinhaltet die Informationen für die "anderen" Alarmkreise 1 + 2.
 
 ## Changelog
 
+#### 2.0.1 (04.05.2021)
+* (misanorot) fixed ack issues
+
 #### 2.0.0 (22.03.2021)
 * (misanorot) added other alarms
 

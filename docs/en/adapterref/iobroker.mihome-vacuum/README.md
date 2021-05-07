@@ -1,6 +1,8 @@
 ![Logo](admin/mihome-vacuum.png)
 # ioBroker mihome-vacuum adapter
 
+[![Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://www.paypal.com/paypalme/MeisterTR)
+
 [![NPM version](http://img.shields.io/npm/v/iobroker.mihome-vacuum.svg)](https://www.npmjs.com/package//iobroker.mihome-vacuum)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.mihome-vacuum.svg)](https://www.npmjs.com/package/iobroker.mihome-vacuum)
 ![Number of Installations (latest)](http://iobroker.live/badges/mihome-vacuum-installed.svg)
@@ -36,6 +38,10 @@ This adapter allows you control the Xiaomi vacuum cleaner.
 - [bugs](#bugs)
 - [Changelog](#changelog)
 ## Supported Devices and Fetures
+
+Cleaner not supported? 
+[Vote Here!](https://doodle.com/poll/8m8238ridkifua99?utm_source=poll&utm_medium=link)
+
 | Device                | Basic Control             | history               | rooms               | map                 | 
 |:------------------    |:-------------------:      |:-------------------:  |:-------------------:|:-------------------:|
 | viomi.vacuum.v6       | :heavy_check_mark:        | :x:                   |:x:                  | :x:                 |
@@ -268,6 +274,12 @@ The supported commands are:
 - Widget at the time without function
 
 ## Changelog
+### 3.1.6 (05.05.2021)
+* minimize Disk write
+* minimized Messages 
+* changed warn Messages to debug
+* extend Debuglog to find error for e2 vacuum
+* added getStates when map is changed
 ### 3.1.5 (03.05.2021)
 * try fix map error
 * Map64 chnaged. now without img tags
@@ -404,7 +416,7 @@ The supported commands are:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2021 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

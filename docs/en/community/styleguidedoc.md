@@ -1,98 +1,100 @@
 ---
-title: Styleguide documentation
+title: Style guide documentation
 lastChanged: 13.06.2019
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/community/styleguidedoc.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: zYMYJTDJZd4RMfw2Eue6+EZ1MeHREXK5s1f4oZeAmOA=
+hash: mfCPW6sFRTOA8DZNqHydfib2TK+qdfZMNwiFfig9vtw=
 ---
-# Style Guide documentation
-* The documentation is created using the "Markdown" language.
+# Style guide documentation
+* The documentation is created using the [Markdown] [] language.
 * File and folder names are written in lowercase letters.
 
-Allowed are the characters `a-z`, `0-9`, the underscore `_` and the decimal point `.`
+The characters `a-z`, `0-9`, the underscore `_` and the decimal point `.` are allowed.
 
-* Documents should have a line break at 80 characters.
-* Preferably the text formatting is done as in the file `.editorconfig`
+* Documents should have a line break of 80 characters.
+* Preferably the text formatting is done like in the file `.editorconfig`
 
-  described.
+  described.
 
-      * A [Plugin] [] to automatically apply these rules is for
+      * A [plugin] [] to automatically apply these rules is for
 
-        various editors available.
+        different editors available.
 
-* For German texts, compliance with the new German spelling
+* For German texts, compliance with the new German spelling is required
 
-  prefers.
+  prefers.
 
 * In reference documentation, the use of personal pronouns (e.g.
 
-  "I", "you", "we") to avoid.
+  "I", "you", "we") should be avoided.
 
-* Use gender-neutral pronouns and multiple-key nouns.
-    * Okay: "she (several)", "her (possession)", "persons",
+* Use gender-neutral pronouns and multiple nouns.
+    * OK: "they (several)", "their (property)", "persons",
 
-      "People", "Developer"
+      "People", "developers"
 
-    * Not OK: "his", "her", "he", "she (woman)", "boys", "girls"
+    * Not okay: "his", "her", "he", "she (woman)", "boys", "girls"
 
-* Use bracket elements (all bracket shapes and
+* If bracket elements are used (all bracket forms and
 
-  Quotation marks), punctuation marks are set as follows:
+  Quotation marks), punctuation marks are set as follows:
 
-    * Inside the bracket when the bracket element is a complete
+    * Inside the bracket if the bracket element is a complete
 
-    Contains sentence (subject, predicate, object).
+    Sentence contains (subject, predicate, object).
 
-    * Outside the bracket, if the bracket element is only a subset
+    * Outside the bracket if the bracket element is only a subset
 
-    contains.
+    contains.
 
-* Documents always start with a H1 level heading.
-* Links are not placed inline (for example, with `[a link] (http://example.com)`),
+* Documents always begin with a heading on level H1.
+* Links are not placed inline (e.g. with `[a link] (http://example.com)`),
 
-but with the help of inline `[a link][]` and `[a link]: https://a.link/to/know` placed at the end of the document.
+but placed at the end of the document with the help of inline `[a link][]` and `[a link]: https://a.link/to/know`.
 
 * If dashes are used, use the short notation
 
-  with the minus sign and not "-" or `Option+Shift+"-"` in OSX.
+  with the minus sign and not "-" or `Option+Shift+"-"` in OSX.
 
 * Additional content:
-      * Documents such as binaries, pictures, video or audio recordings will be
+      * Documents such as binary files, images, video or audio recordings will be
 
-      stored in the folder `media`.
+      stored in the folder `media`.
 
-      * The inclusion of the media in the text is for general files
+      * The media are included in the text for general files
 
-by means of `§§LLLLL_0§§` and for pictures by `![media concept](../../de/community/media/{dateiname})`.
+by means of `§§LLLLL_0§§` and for images by means of `![Media term](../../de/community/media/{dateiname})`.
 
-      * Images are preferably stored in SVG format. If SVG
+      * Images are preferably stored in SVG format. When SVG
 
-is not possible, then as jpg or png file. Please keep an eye on the file size.
+is not possible, then as a jpg or png file. Please keep an eye on the file size.
 
-* For source code sections, the following applies:
-      * Depending on the source code language, an appropriate markup must be selected. To the
+* The following applies to source code sections:
+      * Depending on the source code language, a corresponding markup must be selected. To the
 
-        Example ` ``js` for JavaScript.
+        Example ` ```js` for JavaScript.
 
-      * A source code may or may not be complete. blocks of code
+      * A source text can, but does not have to be, complete. Source code blocks
 
-Examples are for clarification of jeweis just described point of view. So no completely executable programs must be delivered. If, nevertheless, a completely executable program is to be provided, this is done as a media file in the folder `media/{code_beispieldatei}` with a corresponding link in the documentation.
+represent examples to clarify the point of view just described. So there is no need to deliver completely executable programs. However, if a fully executable program is to be provided, this is done as a media file in the folder `media/{code_beispieldatei}` with a corresponding link in the documentation.
 
-* If using underscores, single quotes, asterisks or backslashes
+* If underscores, inverted commas, asterisks or backslashes are used
 
-the appropriate escape characters are to be set: `\_`, `\*`, `\\` and ``\`` ` anstelle von ``, ` * §§ SSSSS_6§§ \ ` und `§SSSSSSS_8§§ ``.
+the correct escape characters have to be used: `\_`, `\*`, `\\` and ``\`` ` anstelle von `_`, ` * §§ SSSSS_6§§ \ ` und `` ` ``.
 
 * To emphasize a note, the following guidelines are
 
-  to note:
+  to note:
 
-     - The "hint:" identifier is to be set in italic, ie as `* hint *:`.
-     - After the "Note:" identifier, continue with a capital letter.
-     - The note should be placed at the beginning of a new paragraph so that it is more visible.
+     - The "Note:" identifier must be set in italic, i.e. as `* Note *:`.
+     - After the "Note:" identifier, continue with a capital letter.
+     - The note should be placed at the beginning of a new paragraph so that it is more visible.
 
-* Adapter documentation has its own [Style Guide] [].
+* There is a separate [Style Guide] [] for adapter documentation.
 
 [Plugin]: http://editorconfig.org/#download
 
-[Style Guide]: ../dev/adapterdocstyleguide.md
+[Style Guide]: https://www.iobroker.net/#de/documentation/dev/adapterdocstyleguide.md
+
+[Markdown]: https://www.iobroker.net/#de/documentation/community/docmarkdown.md

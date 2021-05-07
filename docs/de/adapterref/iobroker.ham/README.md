@@ -3,19 +3,16 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ham/README.md
 title: ioBroker Homebridge Zubehörmanager
-hash: VVjUsOWBM3T0R4hTH7h7G0A7fshotq1t3rSBmkuux4A=
+hash: hUvbkZy2OBzJvWiov5BK/C8IBdn/Hi1+NWwzHyonC9w=
 ---
 ![Logo](../../../en/adapterref/iobroker.ham/admin/ham.png)
 
-![NPM-Version](https://img.shields.io/npm/v/iobroker.ham.svg)
+![Anzahl der Installationen](http://iobroker.live/badges/ham-stable.svg)
+![NPM-Version](http://img.shields.io/npm/v/iobroker.ham.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.ham.svg)
-![Anzahl der Installationen (spätestens)](https://iobroker.live/badges/ham-installed.svg)
-![Anzahl der Installationen (stabil)](https://iobroker.live/badges/ham-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/ioBroker/iobroker.ham.svg)
-![NPM](https://nodei.co/npm/iobroker.ham.png?downloads=true)
 
-# IoBroker Homebridge Zubehörmanager [![Übersetzungsstatus] (https://weblate.iobroker.net/widgets/adapters/-/ham/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-** Tests: ** ![Testen und freigeben](https://github.com/ioBroker/ioBroker.ham/workflows/Test%20and%20Release/badge.svg)
+# IoBroker Homebridge Zubehörmanager
+![Testen und freigeben](https://github.com/ioBroker/iobroker.ham/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus] (https://weblate.iobroker.net/widgets/adapters/-/ham/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 Verwenden Sie Homebridge-Plugins in ioBroker oder führen Sie eine global installierte Homebridge als ioBroker-Adapter aus.
 Alle Staaten von Homebridge werden auch in ioBroker verfügbar sein und können dort auch gesteuert werden.
@@ -32,7 +29,7 @@ Danach werden alle Homebridge-Objekte auch in ioBroker erstellt und alle beschre
 
 ** WICHTIG: In diesem Modus können die Geräteintegrationen der bereitgestellten Homebridge-Plugins verwendet werden. Es wird keine "Brücke" bereitgestellt, die von der Home App verwendet werden kann! **
 
-Einen Link zu erfolgreich getesteten Plugins mit Beispielen finden Sie hier: https://forum.iobroker.net/viewtopic.php?f=20&t=15021
+Einen Link erfolgreich erprobter Plugins mit Beispielen finden Sie hier: https://forum.iobroker.net/viewtopic.php?f=20&t=15021
 
 ### Local-Homebridge-Modus
 Wenn Sie möchten, dass eine veröffentlichte Bridge von der Home-App verwendet wird und Sie auch über ioBroker mit ihr interagieren und die Daten abrufen möchten, Homebridge jedoch noch nicht installiert ist, verwenden Sie diesen Modus.
@@ -61,7 +58,7 @@ Damit dies funktioniert, müssen Sie den Speicherort des globalen Knotenmodulord
 * homebridge-homee v0.2.4 - Ein vollwertiges, aktuelles Plugin für Homee
 * homebridge-ikea-tradfri-gateway v1.0.26 - Tradfri
 * homebridge-noolite v0.0.29 - Noolite über USB MTRF-64- oder МТRF-64-Module
-* homebridge-platform-wemo v1.0.1 - Belkin WeMo Platform-Plugin
+* homebridge-platform-wemo v1.0.1 - Belkin WeMo Platform Plugin
 * homebridge-saisone v1.0.1 - Ein Plugin zur Anzeige der aktuellen Jahreszeit.
 * homebridge-vera v0.8.2 - VeraLink ist eine Anwendung für Z-Wave-Zubehör von Vera (Node.js 8.11.3).
 
@@ -72,6 +69,9 @@ Damit dies funktioniert, müssen Sie den Speicherort des globalen Knotenmodulord
 * Mehr Dokumentation?!
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) prevent warnings in js-controller 3.3
 
 ### 4.0.1 (2021-03-24)
 * (Apollon77) update homebridge and wrapper to 1.3.4 (latest as of today). IMPORTANT: Requires also homebridge 1.3.x installed when using global mode and local mode will update to 1.3.x too! Check your plugins for updates!

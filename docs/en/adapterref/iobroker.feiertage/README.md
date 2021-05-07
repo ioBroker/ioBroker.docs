@@ -27,6 +27,9 @@ Only selected holidays count in the process.
 The adapter starts daily at midnight. Due to the nature of the subject, no higher frequency is required.
 
 ## Changelog
+### 1.0.20 (2021-05-05)
+* (pix) connectionType and dataSource added
+
 ### 1.0.19 (2020-04-21)
 * (pix) NodeJS 10 or higher required
 

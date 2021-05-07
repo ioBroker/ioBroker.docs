@@ -3,12 +3,13 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tesla-motors/README.md
 title: ioBroker.tesla-Motoren
-hash: exSkZOo4rWuvSAZ3ldy3L4RuQ0nnHcTQRqgG2X6mVj8=
+hash: fJvJopDFz/Lh+FeqwDQjVQeMycDUPM47VLWM0B3MTSk=
 ---
 ![Logo](../../../en/adapterref/iobroker.tesla-motors/admin/tesla-motors.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.tesla-motors.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.tesla-motors.svg)
+![Stabil](http://iobroker.live/badges/tesla-motors-stable.svg)
 ![Eingerichtet](http://iobroker.live/badges/tesla-motors-installed.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/dbweb-ch/iobroker.tesla-motors.svg)
 ![Bekannte Sicherheitslücken](https://snyk.io/test/github/dbweb-ch/ioBroker.tesla-motors/badge.svg)
@@ -38,7 +39,7 @@ Um Batterie zu sparen, geht das Auto nach einer bestimmten Zeit ohne Aktivität 
 * **Smart** - Der Adapter versucht, intelligent zu sein. Es wird den Schlafzustand des Autos beobachten. Wenn das Auto aufwacht,
 
 Es wird davon ausgegangen, dass jemand bald fährt, und der Staat wird 10 Minuten lang jede Minute nach dem Status gefragt.
-Wenn nichts passiert ist (kein Klima, kein Fahren, kein Laden), fordert der Adapter 15 Minuten lang nicht mehr auf, das Auto einschlafen zu lassen. In jedem Fall wird das Auto geweckt und nach 12 Stunden werden Daten abgerufen.
+Wenn nichts passiert ist (kein Klima, kein Fahren, kein Aufladen), fordert der Adapter 15 Minuten lang nicht mehr auf, das Auto einschlafen zu lassen. In jedem Fall wird das Auto geweckt und nach 12 Stunden werden Daten abgerufen.
 
 ## Verwenden des Adapters
 Der Adapter erstellt mehrere Zustände. Sie sind nach ihren Themen gruppiert:
@@ -50,9 +51,9 @@ Der Adapter erstellt mehrere Zustände. Sie sind nach ihren Themen gruppiert:
 * **Fahrzeug** - Informationen zu Ihrem Fahrzeug
 
 Es gibt eine spezielle Gruppe namens **Befehl** in der Sie alle Befehle zur Steuerung Ihres Autos finden.
-Einige von ihnen arbeiten in beide Richtungen, zum Beispiel ändert sich der Klimazustand, wenn das Klima vom Auto abgeschaltet wird. Sie können dies in der Spalte "Senden / Empfangen" sehen.
+Einige von ihnen arbeiten in beide Richtungen, zum Beispiel wird sich der Klimazustand ändern, wenn das Klima vom Auto ausgeschaltet wird. Sie können dies in der Spalte "Senden / Empfangen" sehen.
 
-Name | Beschreibung | **S** end / **R** ecieve -------------- | -------------- | -------------- ChargePort | Ladeanschluss öffnen / schließen | SR UnlockChargePort | Schaltet den Ladeanschluss | frei S Aufladen | Laden starten / stoppen | SR Klima | Klima starten / stoppen | SR RemoteStart | Fernstart aktivieren / deaktivieren | SR SentryMode | Sentry-Modus aktivieren / deaktivieren | SR SetChargeLimit | Gebührenlimit in% | einstellen SR SetTemperature | Zieltemperatur einstellen. Vergessen Sie nicht, das Klima einzuschalten! | SR SpeedLimit | Geschwindigkeitsbegrenzung aktivieren | SR SpeedLimitValue | Geschwindigkeitsbegrenzungswert | SR StartSoftwareUpdate | Starten Sie das Software-Update | SR SunRoofVent | Sonnendachentlüftung | SR ValetMode | Parkservice | SR ValetPin | Valet Pin | SR Standby | Wenn sich das Auto im Standby-Modus befindet (Stellen Sie dies so ein, dass es manuell aufwacht) SR Türschloss | Schließt / öffnet die Tür | SR Blitzlichter | Blink die Lichter | S honkHorn | Hupen | S openFrunk | Open Frunk (kein Empfang) | S openTrunk | Kofferraum öffnen (kein Empfang) | S seat_heater_left | Sitzheizung Linke Ebene (0-3) | SR seat_heater_rear_center | Sitzheizung hinten hinten (0-3) | SR seat_heater_rear_left | Sitzheizung hinten links (0-3) | SR seat_heater_rear_right | Rücksitzheizung rechts (0-3) | SR seat_heater_right | Sitzheizung Rechte Ebene (0-3) | SR Lenkradheizung | Lenkradheizung | SR windowVent | Fensterlüftung | SR
+Name | Beschreibung | **S** end / **R** ecieve -------------- | -------------- | -------------- ChargePort | Ladeanschluss öffnen / schließen | SR UnlockChargePort | Schaltet den Ladeanschluss | frei S Aufladen | Laden starten / stoppen | SR Klima | Klima starten / stoppen | SR RemoteStart | Fernstart aktivieren / deaktivieren | SR SentryMode | Sentry-Modus aktivieren / deaktivieren | SR SetChargeLimit | Gebührenlimit in% | einstellen SR SetTemperature | Zieltemperatur einstellen. Vergessen Sie nicht, das Klima einzuschalten! | SR SpeedLimit | Geschwindigkeitsbegrenzung aktivieren | SR SpeedLimitValue | Geschwindigkeitsbegrenzungswert | SR StartSoftwareUpdate | Starten Sie das Software-Update | SR SunRoofVent | Sonnendachentlüftung | SR ValetMode | Parkservice | SR ValetPin | Valet Pin | SR Standby | Wenn sich das Auto im Standby-Modus befindet (Stellen Sie dies so ein, dass es manuell aufwacht) SR Türschloss | Schließt / öffnet die Tür | SR Blitzlichter | Blink die Lichter | S honkHorn | Hupen | S openFrunk | Open Frunk (kein Empfang) | S openTrunk | Kofferraum öffnen (kein Empfang) | S seat_heater_left | Sitzheizung Linke Ebene (0-3) | SR seat_heater_rear_center | Sitzheizung hinten in der Mitte (0-3) | SR seat_heater_rear_left | Sitzheizung hinten links (0-3) | SR seat_heater_rear_right | Rücksitzheizung rechts (0-3) | SR seat_heater_right | Sitzheizung Rechte Ebene (0-3) | SR Lenkradheizung | Lenkradheizung | SR windowVent | Fensterlüftung | SR
 
 ## Sicherheit &amp; Referenzen
 Die Tesla-API verwendet einen Token-basierten Sicherheitsansatz.<br /> Das Token läuft ab (derzeit nach 45 Tagen), aber das System kann mithilfe des Aktualisierungstokens ein neues Token abrufen.<br /> Ihre Anmeldeinformationen müssen nicht gespeichert werden, damit der Adapter funktioniert. Wenn Sie jedoch Probleme beim Aktualisieren des Tokens haben, kann dies zu einer Stabilisierung des Tokens führen, da der Adapter jederzeit ein vollständig neues Token erhalten kann.<br /><aside class="warning"> Warnung:<br /> Mit Ihren Tesla-Anmeldeinformationen können Sie das Auto steuern, einschließlich geöffneter Fenster und sogar herumfahren. Bewahren Sie Ihre Anmeldeinformationen auf!<br /> Um alle Token abzulehnen, ändern Sie das Passwort Ihres Tesla-Kontos!</aside>
@@ -61,8 +62,24 @@ Die Tesla-API verwendet einen Token-basierten Sicherheitsansatz.<br /> Das Token
 * dbweb-ch
 * Apollon77
 * Hombach
+* klein0r
 
 ## Changelog
+### 0.5.0
+* (klein0r) Store passwords and other sensitive information encrypted (BREAKING CHANGE)
+### 0.4.3
+* (dbweb-ch) Refresh mode aggressive: change refresh rate to 1 second instead of 1 minute
+* (dbweb-ch) Add homelink support
+### 0.4.2
+* (dbweb-ch) Define instanceObject \"info.connection\" to prevent warning with js-controller 3.2.
+### 0.4.1
+* (dbweb-ch) Add \"Stopped\" as charge state where car can go asleep
+### 0.4.0
+* (dbweb-ch) Implement 2FA Authentification, use new authentification flow
+### 0.3.2
+* (dbweb-ch) Bugfix logging leading to a crash when authentication failed
+### 0.3.1
+* (dbweb-ch) Check token refresh more often
 ### 0.3.0
 * (Hombach) Removed tests for node 8; updated dependencies
 ### 0.2.3
@@ -92,14 +109,14 @@ Die Tesla-API verwendet einen Token-basierten Sicherheitsansatz.<br /> Das Token
 ## License
 MIT License
 
-Copyright (c) 2020 Dominic Blattmann <nick@dbweb.ch>
+Copyright (c) 2021 Dominic Blattmann <nick@dbweb.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+furnished to do so, subject to the following conditions: 
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.

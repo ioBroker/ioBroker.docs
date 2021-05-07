@@ -1,14 +1,13 @@
 ![Logo](admin/nut.png)
 # ioBroker.nut
 
-![Number of Installations](http://iobroker.live/badges/nut-installed.svg) ![Number of Installations](http://iobroker.live/badges/nut-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.nut.svg)](https://www.npmjs.com/package/iobroker.nut)
+![Number of Installations](http://iobroker.live/badges/nut-installed.svg)
+![Number of Installations](http://iobroker.live/badges/nut-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.nut.svg)](https://www.npmjs.com/package/iobroker.nut)
+
+![Test and Release](https://github.com/Apollon77/iobroker.nut/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/nut/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.nut.svg)](https://www.npmjs.com/package/iobroker.nut)
-[![Code Climate](https://codeclimate.com/github/Apollon77/ioBroker.nut/badges/gpa.svg)](https://codeclimate.com/github/Apollon77/ioBroker.nut)
-
-**Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/Apollon77/ioBroker.nut/master.svg)](https://travis-ci.org/Apollon77/ioBroker.nut)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Apollon77/ioBroker.nut?branch=master&svg=true)](https://ci.appveyor.com/project/Apollon77/ioBroker-nut/)
-
-[![NPM](https://nodei.co/npm/iobroker.nut.png?downloads=true)](https://nodei.co/npm/iobroker.nut/)
 
 This adapter for ioBroker connects to a defined NUT server to provide the status and details of a connected UPS/USV as ioBroker states, so that it can be used there.
 
@@ -88,6 +87,7 @@ directory) to try it out on the commandline. Call the scripts using "node filena
 
 ### __WORK IN PROGRESS__
 * (foxriver76) we fixed the state value type set to `battery.charge`
+* (Apollon77) Add connection states
 
 ### 1.4.3 (2021-02-04)
 * (Apollon77) Enhance the port check

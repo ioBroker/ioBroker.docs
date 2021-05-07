@@ -31,8 +31,12 @@ Documentation:
 	### __WORK IN PROGRESS__
 -->
 
+### __WORK IN PROGRESS__
+* (Black-Thunder) extend existing objects to ensure compability with js-controller >= v3.2
+* (Black-Thunder) only allow values with 0.5 steps for "targetTemp" 
+
 ### 1.1.2 (2021-04-30)
-* (Black-Thunder) added compability with js-controller >= v3.3.1
+* (Black-Thunder) added compability with js-controller >= v3.2
 * (Black-Thunder) updated dependencies
 
 ### 1.1.1 (2021-01-10)
@@ -147,7 +151,7 @@ Documentation:
 ## License
 MIT License
 
-Copyright (c) 2020 Black-Thunder <glwars@aol.de>
+Copyright (c) 2021 Black-Thunder <glwars@aol.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

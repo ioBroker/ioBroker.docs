@@ -1,135 +1,134 @@
 ---
-title: Adapterrefenz
-lastChanged: 14.09.2018
+title: 适配器参考
+lastChanged: 05.05.2021
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterref.md
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
-hash: KcgRtQ6Bo8BtjAcGVTpKRfxKSrE1pBlIrkhgjrvtXfM=
+hash: VNEYNjstH+I1+ngC4LIIX38UBV+wjpexBJICrd3D5SM=
 ---
-#Adinler reflex
-？&gt; ***这是一张通配符***。 <br><br>帮助ioBroker并扩展这篇文章。请注意[ioBroker风格指南](community/styleguidedoc)，以便更容易采用这些更改。
+＃适配器参考
+##数据结构-对象和状态
+ioBroker中的适配器是一个独立的过程，用于在中央数据存储区中读写对象和状态。数据存储可以显示为数据库（redis / couchDB）或仅显示为文本文件，但是连接方法始终相同-通过API。这意味着开发人员不必在乎它是哪个数据库，以及如何在该数据库中存储和使用数据。
 
-@@@ substructure：https：//github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation和IDE，nodejs-versions，own tag，更多ROllen，类型杂项...... @@@
+内存中有两种类型的数据：
 
-##数据结构 - 对象和状态
-ioBroker中的适配器是一个独立的进程，可以在中央数据存储中读取和写入对象和状态。数据存储可以表示为数据库（redis / couchDB）或只是文本文件，但连接方式始终相同 - 通过API。这意味着，开发人员不应该关心它。
+*对象
+* 状态
 
-存储中有两种类型的数据：
+对象是某些数据点的静态描述。状态是数据点的动态值。通常，会有一个带有每个状态描述的对象。 （但不是相反）。
 
-*物件
-*国家
+对象还描述：
 
-对象是某些数据点的静态描述。状态是数据点的动态值。所以通常对于每个州都有一个描述对象。 （但反之亦然）。
-
-对象因此描述：
-
-*主机配置
-*适配器的描述
+*主机的配置
+*适配器说明
 *适配器实例的配置
 *配置HTML文件的内容
 * WEB文件的内容
-*枚举
+*清单
 *用户
-*州的层次结构（渠道和设备）
+*状态层次结构（通道和设备）
 
-您可以在“对象”选项卡上的管理适配器中浏览对象和当前状态值。
+可以在“对象”选项卡上的管理适配器中检查对象和当前状态值。
 
-不同部分的对象名称。每个部分除以“。”彼此。有一个系统对象（名称以_或“system。”开头）和适配器对象（名称以adapterName开头）。
+对象的名称由不同部分组成。每个部分均以“。”表示。彼此分开。有系统对象（名称以_或“ system”开头。）和适配器对象（名称以adapterName开头）。
 
-注意：来回，adapterName是开发人员想要创建的适配器的名称。
+？>注意：在描述中，这里的** adapterName **代表开发人员要创建的适配器的名称。
 
-状态可以分组在通道和设备中的通道中。以下是Homematic组和频道的示例：
+可以在通道中将状态分组，而在设备中可以将通道分组。这是Homematic组和渠道的示例：
 
-* hm-rpc.0.IEQ1234567  - 设备
-  * hm-rpc.0.IEQ1234567.0  - 频道
-    * hm-rpc.0.IEQ1234567.0.INFO  - 州
-    * hm-rpc.0.IEQ1234567.0.RSSI  - 状态
-  * hm-rpc.0.IEQ1234567.0  - 频道
-    * hm-rpc.0.IEQ1234567.0.STATE  - 状态
-    * hm-rpc.0.IEQ1234567.0.BATTERY  - 状态
+```
+* hm-rpc.0.IEQ1234567 - device
+  * hm-rpc.0.IEQ1234567.0 - channel
+    * hm-rpc.0.IEQ1234567.0.INFO - state
+    * hm-rpc.0.IEQ1234567.0.RSSI - state
+  * hm-rpc.0.IEQ1234567.0 - channel
+    * hm-rpc.0.IEQ1234567.0.STATE - state
+    * hm-rpc.0.IEQ1234567.0.BATTERY - state
+```
 
-状态ID必须始终以通道名称和通道名称与设备名称开头。例如在上面的状态名称hm-rpc.0.IEQ1234567.0.INFO中，部分hm-rpc.0.IEQ1234567.0是通道名称，hm-rpc.0.IEQ1234567是设备名称。
+状态ID必须始终以通道名称开头，而通道名称必须以设备名称开头。例如，在上述状态名称hm-rpc.0.IEQ1234567.0.INFO中，部分hm-rpc.0.IEQ1234567.0是通道名称，而hm-rpc.0.IEQ1234567是设备名称。
 
-它用于构建层次结构中的设备，通道和状态的协调。
+这用于在层次结构中设置设备，通道和状态的协调。
 
-注意：如果适配器不那么复杂，可以省略设备和偶数通道。
+？>注意：如果适配器不是那么复杂，则可以忽略设备甚至通道。
 
-** Adapter **只是文件包，放在node_modules目录中。对于每个适配器，可以在对象“system.adapter.adapterName”中找到此适配器的描述。它只是来自io-package.json文件的“common”和“native”字段。当iobroker安装adapterName或iobroker add adapterName被调用时，将自动创建此条目。 Iobroker.adapterName在创建第一个实例之前不会创建任何条目。但它并不那么重要。 “更新”信息所需的信息将直接从io-package.json中读取。为适配器常用设置完整列表，可以发现[这里](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#adapter)。
+**适配器**是一个文件包，存储在node_modules目录中。对于每个适配器，可以在“ system.adapter.adapterName”对象中找到该适配器的描述。这些只是文件io-package.json中的“ common”和“ native”字段。当调用`iobroker install adapterName`或`iobroker add adapterName`时，将自动创建此条目。如果适配器与`npm install iobroker.adapterName`一起安装，则在创建第一个实例之前不会创建任何条目。但这不是那么重要。直接从io-package.json中读取“更新”所需的信息。适配器的常规设置的完整列表可以在[这里](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/objectsschema.md)中找到。
 
-**实例**是适配器的实例。根据适配器的类型，可以创建多个实例，但对于某些适配器，创建多个实例是没有用的。例如在vis或rickshaw的情况下，只能创建一个实例。此行为由io-package.json中的标志控制。
+**实例**是适配器的实例。根据适配器类型，可以创建多个实例。对于某些适配器，只能使用一个，例如Vis或Rickshaw。此行为由io-package.json中的标志控制。
 
-对于每个实例，可以在“system.adapter.adapterName.X”ID下的数据存储中找到配置对象，其中X是适配器实例编号。它包含适配器的此实例的设置。通常它由“常见”和“原生”设置组成。常见设置是：
+对于每个实例，配置对象都位于数据存储区中，标识为“ system.adapter.adapterName.X”，其中X是适配器实例号。它包含该适配器实例的设置。通常，它由“常规”和“本机”设置组成。常规设置为：
 
-*`enabled`：true / false;
-*`host`：此实例必须运行的主机名;
-*`mode`：none，daemon，subscribe，schedule，once;
+*`enabled`：是/否；
+*`host`：该实例必须在其上运行的主机名；
+*`mode`：无，守护程序，订阅，计划，一次；
 
-描述可以在[这里](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#instance)中找到。
+可以在[这里](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/objectsschema.md)中找到说明。
 
-`Native`设置包含此适配器的特定配置，例如：设备的IP地址，设备设置等。
+`Native`设置包含此适配器的特定配置，例如例如：设备的IP地址，设备设置等。
 
-注意：实例可以在不同的主机（在多主机系统中）和适配器上运行。
+？>注意：实例可以在不同的主机（多主机）上运行，此外，不同主机上的适配器可以具有不同的版本。
 
-所有适配器实例对象ID都以adapterName.X开头，其中X是适配器实例的编号。
+适配器实例的所有对象ID均以adapterName.X开头，其中X是适配器实例的编号。
 
-对象具有不同类型以用于不同目的。
+出于不同目的，对象具有不同的类型。
 
-对于每个适配器，将自动创建以下对象：
+对于每个适配器（不是实例），将自动创建以下对象：
 
-*`system.adapter.adapterName`：适配器的描述（如名称，版本号，......）
-*`adapterName`：包含来自适配器“www”目录的HTML / JS / CSS文件的对象。仅当在适配器包中找到“www”目录时，才会创建此对象。
-*`adapterName.admin`：包含来自适配器包的“admin”目录的HTML / JS / CSS文件的对象。
+*`system.adapter.adapterName`：适配器的描述（例如名称，版本号等）
+*`adapterName`：由适配器的“ www”目录中的HTML / JS / CSS文件组成的对象。仅当在适配器包中找到www目录时，才创建此对象。
+*`adapterName.admin`：由适配器包的“ admin”目录中的HTML / JS / CSS文件组成的对象。
 
-对于每个适配器实例'X'，将自动创建以下内容：
+将为每个适配器实例“ X”自动创建以下对象：
 
 *`system.adapter.adapterName.X`：适配器实例的配置
-*`system.adapter.adapterName.X.alive`：指示实例是否存活（每30秒发送一次消息）
-*`system.adapter.adapterName.X.connected`：指示实例是否连接到数据存储，因为它无法连接，但由于死锁无法发送活动消息。
-*`system.adapter.adapterName.X.memHeapTotal`：内存使用情况
+*`system.adapter.adapterName.X.alive`：指示实例是否处于活动状态（每30秒发送一次消息）
+*`system.adapter.adapterName.X.connected`：指定实例是否连接到数据存储。它可以连接，但是由于死锁而无法发送活动消息。
+*`system.adapter.adapterName.X.memHeapTotal`：总内存使用量
 *`system.adapter.adapterName.X.memHeapUsed`：内存使用情况
 *`system.adapter.adapterName.X.memRss`：内存使用情况
-*`system.adapter.adapterName.X.uptime`：适配器运行多少秒。
+*`system.adapter.adapterName.X.uptime`：适配器运行的秒数。
 
-可以找到内存的解释[这里](http://stackoverflow.com/questions/12023359/what-do-the-return-values-of-node-js-process-memoryusage-stand-for)。
+内存状态的说明可以在[这里](http://stackoverflow.com/questions/12023359/what-do-the-return-values-of-node-js-process-memoryusage-stand-for)中找到。
 
-如果适配器具有'none'或'once'模式，则不会创建alive，uptime，...对象。
-适配器的目录结构
+如果适配器处于“无”或“一次”模式，则不会创建任何活动对象，正常运行时间等对象。
 
-适配器包必须具有一些必需的目录和文件：
+**适配器的目录结构**
 
-* admin（强制目录）
-  * index.html
-  * xxx.png  - 可选，如果名称为adapterName.png则更好（支持任何图像格式：jpeg，jpg，svg，bmp，...）
-* www  - （可选目录）
-* lib  - （强制目录，因为utils.js）
-  * utils.js
-* package.json  - 必填
-* io-package.json  - 必填
-* main.js  - 必填（可以是adapterName.js）
+适配器软件包必须包含一些必需的目录和文件：
 
-注意：lib / utils.js是所有适配器的公共文件，用于检测js-controller的位置以及相应的iobroker.js-controller / lib / adapter.js路径。大多数实际的utils.js都可以在这里下载。请勿更改此文件。
+*`admin`（必需目录）
+*`index.html`
+*`xxx.png`-可选；更好：“ adapterName.png”（支持所有图像格式：jpeg，jpg，svg，bmp等）
+*`www`-（必需目录）
+*`lib`-（由于utils.js`而为必需目录）
+*`utils.js`
+*`package.json`-必填
+*`io-package.json`-必填
+*`main.js`-必需（也可以是`AdapterName.js`）
 
-##文件命名
-适配器必须遵循某些命名约定，以便由ioBroker控制器接受和启动。
+？>注意：lib / utils.js是所有适配器的通用文件，通过它可以确定js-controller的位置以及iobroker.js-controller / lib / adapter.js的对应路径。当前大多数utils.js均可在此处下载。不要更改此文件！
 
-*在github（或其他地方），它必须具有名称* io **B** roker.adapterName *。
-Iobroker.adapterName，因为npm doe允许包名中的大写字母。它可以在package.json中定义
-*用于配置适配器的GUI html文件必须具有admin / index.html。它可以是“admin”目录中的更多文件，但index.html必须存在。
-*适配器的启动文件必须具有名称main.js或adapterName.js。
-*适配器的名称必须是唯一的，小写的，没有特殊字符且没有空格。适配器名称中允许使用“ - ”，“_”。
+##个文件名
+为了被ioBroker控制器接受并启动，适配器必须符合命名约定。
+
+*在github（或其他地方）上，它必须命名为`io **B** roker.adapterName`（大写字母B）。
+*如果适配器要在npm上可用，则其名称必须为iobroker.adapterName，因为npm不允许软件包名称中使用大写字母。可以在package.json中定义
+*用于配置适配器的GUI HTML文件必须命名为admin / index.html。 admin目录中可以有更多文件，但是index.html必须存在。
+*适配器启动文件必须命名为main.js或adapterName.js。
+*适配器的名称必须是唯一的，用小写字母，没有特殊字符和空格。适配器名称中允许使用“-”，“ _”。
 
 ## Io-package.json的结构
-js-controller使用io-package.json来显示适配器以及如何处理它。可以在此处找到共同部分中所有字段的完整描述
+js-controller使用io-package.json来显示有关适配器的信息并知道如何处理它。可以在[here]（）中找到公共部分中所有字段的完整描述。
 
-io-package.json希望被“admin”读取以找出适配器的在线版本。
-常见的领域
+io-package.json由“ admin”读取，以查找适配器的联机版本。
 
+###公用字段
 最重要的共同领域是：
 
-*姓名：必填。没有“ioBroker。”的适配器名称，类似于adapterName而不是“ioBroker.adapterName”
-*版本：强制性。必须与package.json中一样。
-*标题：强制性。适配器的简称，如“适配器名称”
-* desc：强制性。适配器的描述。它可能是一个字符串，如“此适配器执行此操作”
+*`name`：必填。不带“ ioBroker。”的适配器的名称，即“ adapterName”而不是“ ioBroker.adapterName”
+*`version`：必填。必须与package.json相同。
+*`title`：必填。适配器的简称，例如“适配器名称”
+*`desc`：必要。适配器的说明。它可以是一个字符串，例如“此适配器执行此操作”或诸如以下的对象：
 
 ```
 {
@@ -139,36 +138,36 @@ io-package.json希望被“admin”读取以找出适配器的在线版本。
 }
 ```
 
-如果当前语言不存在条目，则将显示英语说明。
+如果没有当前语言的条目，则说明以英语显示。
 
-*平台：强制性。实际上只支持“Javascript / Node.js”。
-*模式：强制性。时尚如何启动适配器。
-*启用：可选。设置为true时，将在添加后激活实例。
-* license“：许可证名称和适配器的许可证;
-* loglevel“：创建后想要设置的初始日志级别。”可以“调试”，“信息”，“警告”或“错误”
-*自述“：链接到互联网中的自述页面由管理适配器用于显示链接，如果单击”？“按钮。
-* icon“：适配器图标的图标名称（不是路径）。
-* extIcon：Internet中的图标路径，显示适配器的图标。
-*关键字：关键字作为数组，以启用管理适配器中的搜索。
-* localLink：链接到适配器“www”文件（或适配器服务器）。 “Http://192.168.0.100”
-*类型：以下类型是可能的：硬件，社交，存储，视觉，api，脚本，天气，其他，连接。
-* messagebox：可选。如果适配器应接收系统消息，则必须设置为true。
+*`Platform`：必要。目前仅支持Javascript /Node.js。
+*`mode`：必要。适配器启动的模式。
+*`enabled`：可选。如果为true，则在添加实例后将其激活。
+*`License`：许可适配器使用的许可名称；
+*`loglevel`：创建实例后设置的初始日志级别。可以是Debug，Info，Warning或Error
+*`readme`：链接到Internet上的自述文件页面。管理适配器用于在显示“？”时显示链接。按钮被点击。
+*`icon`：适配器图标的图标名称（而不是路径）。此图标必须在适配器的管理员目录中。
+*`extIcon`：Internet上的图标路径，用于显示适配器的图标（如果尚未安装适配器的话）。
+*`keywords`：关键字作为数组，以启用在管理适配器中的搜索。
+*`localLink`：链接到适配器“ www”文件（或适配器服务器）。 “ http://192.168.0.100”
+*`type`：以下类型是可能的：`硬件，社交，存储，视觉，api，脚本，天气，其他，连接`。
+*`messagebox`：可选。如果适配器要接收系统消息，则必须将其设置为true。
 
-注意：localLink可以有特殊键。
+？>注意：localLink可以具有用实值替换的特殊键。
 
-*％ip％：想要替换为第一个“web”实例中定义的IP地址。
-*％field％，其中field是来自适配器实例配置的“native”部分的属性。
+*`％ip％`：将被第一个“ web”实例中定义的IP地址替换。
+*`％field％`，其中field是适配器实例的“ native”部分的属性。
 
-例如“http：//％ip％：％port％”希望显示为“http://192.168.0.1:8080”，其中“192.168.0.1”是来自“web”适配器的IP地址，8080是来自“system”的值.adapter.adapterName.X => native.port“。
-对象字段
+例如，`http://%ip%:%port%`显示为“ http://192.168.0.1:8080”，其中“ 192.168.0.1”是“ Web”适配器的IP地址，而8080是`system.adapter.adapterName.X => native.port`的值。
 
-对象 - 无法自动创建适配器的所有实例（xxx.object）的静态对象。这些对象不能依赖于任何特定实例，并且对于此适配器的所有实例都是通用的。例如，hm-rpc适配器具有所有HomeMatic设备的结构描述。
+###对象字段
+对象-适配器的所有实例的静态对象（xxx.object）。通过安装适配器（而不是实例创建），可以自动创建一些预定义的对象（通常描述某些内容）。这些对象不得依赖于特定实例，而应应用于此适配器的所有实例。例如，hm-rpc适配器具有所有HomeMatic设备的结构描述。
 
-此外，可以定义新视图。在SQL中，它们被称为“存储过程”，在couchDB中也称为视图。
+此外，可以定义新视图。在SQL中，它们在“ couchDB”视图中称为“存储过程”。
 
-注意：不要与“vis”视图混合使用。
+？>注意：请勿将视图与`vis`混合使用。
 
-对于视图定义，使用javascript语言。这是样本：
+Java语言用于视图定义。例子：
 
 ```
 {
@@ -185,9 +184,10 @@ io-package.json希望被“admin”读取以找出适配器的在线版本。
 }
 ```
 
-以下是为hm-rpc适配器定义的两个视图：“listDevices”和“paramsetDescription”。它们从数据存储中返回由视图条件对象过滤的集合。它可以有效（如果使用CouchDB）请求指定的对象列表。
+hm-rpc适配器的两个视图在此处定义：`listDevices`和`paramsetDescription`。
+它们从数据存储返回按视图条件筛选的对象集。它可以有效地（当使用CouchDB时）请求指定的对象列表。
 
-要使用视图：
+例子：
 
 ```
 adapter.objects.getObjectView('hm-rpc', 'listDevices',
@@ -207,16 +207,16 @@ adapter.objects.getObjectView('hm-rpc', 'listDevices',
 );
 ```
 
-startkey和endkey的使用也可以在同一页面上找到。
+`startkey`和`endkey`的使用也可以在同一页面上找到。
 
-注意：视图的使用基于有关CouchDB的基本知识水平。
+注意：视图的使用是可选的，并且要求开发人员对CouchDB有基本的了解。
 
 ###实例对象字段
-可以在io-package.json的instanceObjects中定义一些特定的对象或对象。
+某些特定的对象或具有类型状态的对象可以在`io-package.json`的`instanceObjects`中定义。
 
-对于每个创建的实例，将创建instanceObjects字段中的所有实例。
+对于创建的每个实例，都会创建`instanceObjects`字段中的所有条目。
 
-例如，适配器hm-rpc为每个实例创建“更新”状态，以便向其他适配器发出信号，这些信号必须由hm-rega处理。
+例如，适配器`hm-rpc`为每个实例创建状态`updated`，以便向另一个适配器发出信号，表明某些新设备出现在数据存储中，并且它们需要由§§SSSSS_2处理§§。
 
 ```
 "instanceObjects": [
@@ -233,13 +233,14 @@ startkey和endkey的使用也可以在同一页面上找到。
 ]
 ```
 
-没有必要提供对象的完整路径，因为适配器实例未知，所以无法完成。您可以在common.name中使用特殊单词“％INSTANCE％”在对象名称中显示它。例如：
+不必提供对象的完整路径，也不能提供对象的完整路径，因为适配器实例未知。
+`common.name`中的特殊词`%INSTANCE%`可用于在对象名称中表示它。例如：
 
 ```
 "name": "Some new devices added in hm-rpc.%INSTANCE%",
 ```
 
-将扩大到
+将扩展到
 
 ```
 "name": "Some new devices added in hm-rpc.0,
@@ -248,9 +249,9 @@ startkey和endkey的使用也可以在同一页面上找到。
 通过创建第一个实例。
 
 ### Package.json
-package.json是npm包标准描述文件，可以在https://docs.npmjs.com/files/package.json下找到。
+package.json是npm软件包的标准描述文件。完整的描述可以在https://docs.npmjs.com/files/package.json中找到。
 
-package.json的简短结构：
+`package.json`的简短结构：
 
 ```
 {
@@ -288,75 +289,80 @@ package.json的简短结构：
 }
 ```
 
-！>所有字段都是必填项。 devDependencies应该能够完成grunt任务。
+！>所有字段均为必填项。 `devDependencies`也应位于内部，以启用密集任务。
 
-###部署
-建议在github上使用代码。安装适配器后跟随您：
+＃＃＃ 提供
+建议在Github上使用代码。在代码稳定并且可以安装适配器之后，可以通过要求用户如下安装适配器来与其他用户共享该适配器：
 
 ```
 npm install https://github.com/yourName/iobroker.adapterName/tarball/master/
 ```
 
-如果一切正常并且您收到了用户的积极反馈，您可以在npm上发布适配器。如果你想在github上创建realease会很好。
+如果一切正常，并且得到用户的积极反馈，则可以在npm上发布适配器。
+如果事先在github上有出版物，那将是很好的。
 
-可以使用以下命令完成发布：
+使用以下命令完成发布：
 
 ```
 npm publish
 ```
 
-在适配器目录中调用它。确保删除了除必需之外的所有其他文件（例如.idea）或将其添加到“.gitignore”文件中。
+可以在适配器目录中调用它。确保已删除除必要文件以外的所有其他文件（例如`.idea`），或将`.gitignore`添加到文件中。
 
-当然，您必须先在npm上创建帐户
+当然，必须先在npm上创建一个帐户。
 
-注意：您不能使用相同版本发布两次代码。在发布之前增加package.json和io-package.json中的版本。
+？>注意：相同版本的代码不能发布两次因此，在发布之前，请增加`package.json`和`io-package.json`中的版本。
 
-它可以通过“admin”适配器安装。
+在测试了适配器并且其他用户发现它有用之后，可以将其转移到共享存储库中，以便可以使用`admin`适配器进行安装。
 
-##如何创建自己的适配器
-请查看https://github.com/ioBroker/ioBroker.template以获取您自己的适配器的模板。
+##这是您创建自己的适配器的方式
+在https://github.com/ioBroker/ioBroker.template中，您可以找到一些用于您自己的适配器的模板。
 
-如果要使用窗口小部件创建窗口小部件或适配器，请检查[ioBroker.vis-template] https://github.com/ioBroker/ioBroker.vis-template）以获取您自己的适配器的模板。
+如果要创建窗口小部件或带有窗口小部件的适配器，可以在https://github.com/ioBroker/ioBroker.example/tree/master/VIS中找到它们。
 
 ### Main.js的结构
 ```
 var utils = require(__dirname + '/lib/utils'); // Get common adapter utils - mandatory
 ```
 
-该行加载模块lib / utils.js。所有适配器函数都有共同点，可以找到iobroker.js控制器的根目录。因为适配器可以安装在三个不同的路径中：
+此行加载模块`lib/utils.js`。所有适配器功能的共同点是找到`iobroker.js-controller`的根。
+因为可以在三个不同的路径中安装适配器：
 
-* ... / iobroker / node_modules / iobroker.adapterName  - 这是标准路径，建议使用
-* ... / iobroker.js-controller / node_modules / iobroker.adapterName  - 调试使用
-* ... / iobroker.js-controller / adapter / adapterName  - 旧样式（不建议使用）
+*`... / iobroker / node_modules / iobroker.adapterName`-这是默认路径，建议使用
+*`... / iobroker.js-controller / node_modules / iobroker.adapterName`-调试时使用
+*`... / iobroker.js-controller / adapter / adapterName`-旧样式（已弃用）
 
-utils.js什么都不做，除了查找iobroker.js-controller / lib / adapter.js文件并加载它。
+utils.js除了搜索文件`iobroker.js-controller/lib/adapter.js`并进行加载外什么也不做。
 
 ```
 var adapter = utils.adapter('adapterName'); // - mandatory
 ```
 
-该行创建名为“adapterName”的对象“Adapter”。它加载adapterName.X的所有配置，其中X是适配器的实例号。
+该行创建名称为`adapterName`的对象`adapter`。它为实例`adapterName.X`加载整个配置，其中X是适配器的实例号。
 
-js-controller使用两个参数启动适配器作为自己进程的fork：实例和日志级别;这样的：
+`js-controller`通过两个参数将适配器作为其自身进程的分支来启动：实例和协议级别；喜欢：
 
 ```
 child_process.fork('pathToAdapter/main.js', '0 info');
 ```
 
-它将全部在adapter.js中处理，适配器必须不关心它。
+一切都在`adapter.js`中自动处理，并且适配器的开发人员不必担心。
 
 适配器支持3个其他启动标志：
 
-* --install  - 即使没有配置也启动适配器。适配器用于执行某些安装过程。
-* --force  - 即使在配置中禁用了适配器，也会启动适配器
-* --logs  - 在控制台中显示日志，如果它们仅显示在日志表中。
+*`--install`-即使没有可用的配置也启动适配器。适配器用于通过安装适配器执行安装过程。
+*`--force`-启动适配器，即使已在配置中将其禁用
+*`--logs`-如果仅在日志表中显示日志，则在控制台中显示日志。
 
-var myPacket1 = require（'myPacket1'）; //添加自己的模块
+```
+var myPacket1= require('myPacket1'); // add own module
+```
 
-然后，您可以将所有其他模块加载到适配器，如'fs'，'require'等。只是不要忘记在package.json中声明它们。
-适配器的选项
+然后是适配器中所需的所有其他模块，例如B.`fs`，`require`等已加载。
+不要忘记在`package.json`中声明它们。
 
-您可以使用名称创建适配器对象，例如utils.adapter（'adapterName'）或其他参数，例如：
+###适配器的选项
+只能使用诸如`utils.adapter('adapterName')`之类的名称或以下附加参数来创建适配器对象：
 
 ```
 var adapter = utils.adapter({
@@ -379,7 +385,7 @@ var adapter = utils.adapter({
 });
 ```
 
-所有处理程序都可以通过事件进行模拟（见下文），如：
+可以通过事件（请参见下文）模拟所有处理程序，例如
 
 ```
 adapter.on('ready', function () {
@@ -388,27 +394,29 @@ adapter.on('ready', function () {
 ```
 
 ###适配器对象的属性
-在您创建“Adapter”对象时
+如何创建`adapter`对象
 
-var adapter = utils.adapter（'adapterName'）;
+```
+var adapter = utils.adapter('adapterName');
+```
 
-将在此对象实例中创建以下属性：
+在此对象实例中创建以下属性：
 
-* name  - 适配器的名称，例如“adapterName”
-* host  -  hostname，适配器实例运行的位置
-* instance  - 此适配器实例的实例编号
-* namespace  - 适配器对象的命名空间，例如“adapterName.0”
-* config  - 适配器设置的本机部分
-* common  - 适配器设置的常见部分
-* systemConfig  -  iobroker-data / iobroker.json的内容（仅当options.systemConfig = true时）
-* adapterDir  - 适配器文件夹的路径
-* ioPack  -  io-package.json的内容
-* pack  -  package.json的内容
-* log  -  logger对象
-*版本 - 适配器版本
-*州 - （仅限专家）
-*对象 - （仅限专家）
-* connected  - 如果适配器连接到主机
+*`name`-适配器的名称，例如B.`adapterName`
+*`host`-运行适配器实例的主机名
+*`instance`-该适配器实例的实例号
+*`Namespace`-适配器对象的名称空间，例如B.`adapterName.0`
+*`config`-适配器设置的本机部分
+*`common`-适配器设置的通用部分
+*`systemConfig`-iobroker-data / iobroker.json`的内容（仅当`options.systemConfig = true`时）
+*`adapterDir`-适配器文件夹的路径
+*`ioPack`-io-package.json`的内容
+*`pack`-package.json`的内容
+*`log`-记录器对象
+*`version`-适配器版本
+*`状态`-（仅限专家）
+*`对象`-（仅适用于专家）
+*`connected`-如果适配器连接到主机
 
 ####最重要的事件
 ```
@@ -428,7 +436,7 @@ adapter.on('stateChange', function (id, state) {
 });
 ```
 
-！> *入口点*。在main中进行所有初始化，因为在“ready”之前没有配置。
+！> *入口点*所有初始化均应主要进行，因为在“就绪”之前未进行任何配置。
 
 ```
 adapter.on('ready', function () {
@@ -437,7 +445,7 @@ adapter.on('ready', function () {
 ```
 
 ####记录
-能够审核事件以进行调试和控制是非常重要的。以下函数可用于记录事件：
+能够记录事件以进行调试和控制非常重要。以下功能可用于记录事件：
 
 ```
 adapter.log.debug("debug message"); // log message with debug level
@@ -446,325 +454,353 @@ adapter.log.warn("warning");        // log message with info warn
 adapter.log.error("error");         // log message with info error
 ```
 
-无需指明消息的来源或时间。这些属性将自动添加，例如：
+无需指定消息的来源或时间。这些属性是自动添加的，例如
 
 ```
 admin-0 2015-07-10 17:35:52 info successful connection to socket.io from xx.yy.17.17
 ```
 
-当然也可以使用console.log，console.debug或console.error，但只有在控制台或编程IDE中手动启动适配器时，这些消息才会可见。
+当然，也可以使用`console.log`，`console.debug`或`console.error`§，但是这些消息仅在适配器是在控制台或编程IDE中手动启动时才可见。
 
 ####实例配置
-有一个适配器用于配置实例：“adapter.config”。该对象是对象“system.adapter.adapterName.X”的“本机”部分。例如如果io-package.json看起来像：
+适配器对象的属性用于读取实例的配置：`adapter.config`。
+该对象由`system.adapter.adapterName.X`对象的`native`组成。例如`io-package.json`看起来像这样：
 
+```
 {
-
-*“常见”：{
-* *“name”：“adapterName”
-* },
-*“native”：{
-* *“位置”：“斯图加特”，
-* *“语言”：“”
-* }
-
+   "common": {
+       "name": "adapterName"
+   },
+   "native": {
+       "location": "Stuttgart",
+       "language": ""
+   }
 }
+```
 
-所以adapter.config等于：
+因此，`adapter.config`是相同的：
 
+```
 {
-
-*“位置”：“斯图加特”，
-*“语言”：“”
-
+   "location": "Stuttgart",
+   "language": ""
 }
+```
 
-并且具有用户在配置对话框中输入的数据。您可以使用对象“adapter”的属性“common”访问实例配置的** common **部分。例如对于显示的io-package.json“adapter.common”想成为：
+并已在配置对话框中从用户输入数据。可以使用“适配器”对象的“公共”属性来访问实例配置的“公共”部分。例如，对于所示的io-package.json为“ adapter.common”：
 
-{“name”：“adapterName”}
+```
+{
+   "name": "adapterName"
+}
+```
 
-要访问ioBroker配置（存储在文件iobroker-data / iobroker.json中），请将适配器选项systemConfig设置为true。
+要访问ioBroker配置（保存在文件`iobroker-data/iobroker.json`中），请将适配器选项`systemConfig`设置为true。
 
-var adapter = utils.adapter（{
-
-* name：* *'adapterName'，//适配器名称
-* systemConfig：true *** //将ioBroker配置加载到systemConfig中
-
+```
+var adapter = utils.adapter({
+    name: 'adapterName',  // adapter name
+    systemConfig:  true // load ioBroker configuration into systemConfig
 });
+```
 
-要获取全局日期格式，必须将选项“useFormatDate”设置为true：
+要获取全局日期格式，必须将选项`useFormatDate`设置为true：
 
-var adapter = utils.adapter（{
-
-* name：* *'adapterName'，//适配器名称
-* useFormatDate：true * * //从system.config加载全局日期格式
-
+```
+var adapter = utils.adapter({
+    name: 'adapterName',  // adapter name
+    useFormatDate:  true  // load from system.config the global date format
 });
+```
 
-日期格式将在adapter.dateFormat下可用。
+日期格式在adapter.dateFormat下可用。
 
-可以使用getForeignObject函数手动读取所有其他配置。
-如何阅读状态
+可以使用功能`getForeignObject`手动读取所有其他配置。
 
-在ioBroker适配器中有两种读取状态的模式：
+**如何读取状态**
 
-*活动订阅（建议）
-*投票
+ioBroker适配器中有两种读取状态的模式：
 
-要订阅自己的活动，必须说明以下内容：
+*活动订阅（推荐）
+*轮询
 
-adapter.subscribeStates（ '*'）; //使用模式“adapterName.X。*”订阅此适配器实例adapter.subscribeStates（'memory *'）; //使用模式“adapterName.X.memory *”订阅此适配器实例
+要订阅您自己的事件，必须调用以下命令：
 
-订阅其他活动：
+`adapter.subscribeStates('*');`//用模式`adapterName.X.*`订阅此适配器实例的所有变量
 
-adapter.subscribeForeignStates（ '*年forecast.html。'）; //订阅所有适配器实例“yr”的变量“forecast.html”。
+`adapter.subscribeStates('memory*');`//用模式`adapterName.X.memory*`订阅此适配器实例的所有变量
 
-通配符“*”可用于两种功能。
+如何订阅其他活动：
 
-之后，您希望获得事件“stateChange”并可以使用该值执行某些操作。订阅后，您将无法获得实际状态，因为事件只会在变化时出现。要获得初始状态，您应该在开始时执行“轮询”一次（通常在“就绪”事件中）。
+`adapter.subscribeForeignStates('yr.*.forecast.html');`//变量`forecast.html`订阅所有适配器实例`yr`。
 
-轮询要在启动时读取自己的状态或使用interval使用函数adapter.getState读取值，如下所示：
+占位符“ *”可以在两个函数中使用。
 
-adapter.getState（'myState'，function（err，state）{*
+然后，您将收到事件`stateChange`，并可以使用此值进行操作。
+订阅后，您将不会收到当前状态，因为事件仅在发生更改时发生。
+为了获得初始状态，您应该在开始时执行一次“查询”（通常在“就绪”事件中）。
 
-* adapter.log.info（
-* *'State'+ adapter.namespace +'。myState  - '+
-* *价值：'** + state.val +
-* *，ack：'** + state.ack +
-* *'，时间戳：'+ state.ts +
-* *'，最后更改：'+ state.lc
-* );
+轮询为了从头开始读取自己的状态或以一定间隔读取值，请使用`adapter.getState`函数，如下所示：
 
+```
+adapter.getState('myState', function (err, state) {
+
+  adapter.log.info(
+      'State ' + adapter.namespace + '.myState -' +
+      '  Value: '    + state.val +
+      ', ack: '      + state.ack +
+      ', time stamp: '   + state.ts  +
+      ', last changed: ' + state.lc
+  );
 });
+```
 
-注意，这将是异步返回。
+请注意，此结果是异步返回的。
 
-要读取其他适配器的状态，您应该使用adapter.getForeignState函数。不支持通配符。
+要读取其他适配器的状态，应使用功能`adapter.getForeignState`。不支持通配符。
 
 ####命令和状态
-当我们谈论国家时，我们应该区分命令和状态。 “Command”的标志为false，将由用户（通过vis，javascript adapter，admin）发送以控制设备或特定适配器。通常，适配器（例如，homematic）订阅它们自己的所有改变，并且如果某些状态改变为ack = false，则它们试图执行该命令（例如，点亮）。
+在谈论状态时，应在命令和状态之间进行区分。 “命令”的ack标志为false，由用户（通过vis，Javascript适配器，admin）发送，以控制设备或特定适配器。通常，适配器（例如Homematic）被订阅以进行其自身的所有更改，并且如果某些状态更改为ack = false，则它们将尝试执行此命令（例如，点亮）。
 
-“Status”将“ack”标志设置为true，表示它来自设备或服务。例如如果天气适配器获得新的天气预报，它将以ack = true发布，或者如果家用温度计测量新的温度，它也将以ack = true发布。即使用户想要打开灯，新的状态也将以ack = true发布。
+“状态”将标志`ack`标记为true，并指示它来自设备或服务。
+例如，如果天气适配器收到了新的天气预报，它将与`ack=true`一起发布，或者如果Homematic温度计测量了新的温度，那么它还将与`ack=true`一起发布。
+即使用户实际打开了灯，新状态也会用`ack=true`发布。
 
-Ack = false希望在设备响应后被执行覆盖。
+`Ack=false`通常在设备响应后被执行覆盖。
 
-例如如果“vis”中的用户按下按钮并发送命令“hm-rpc.0.kitchen.light”= ON。 Socketio适配器想要使用“kitchen.light”= {val：1，ack：false}向hm-rpc.0实例发送新状态。
+例如，如果用户按下`vis`中的键并发送了`hm-rpc.0.kitchen.light=ON`命令。
+Socket-io适配器将带有`kitchen.light = {val: 1, ack: false}`的新状态发送到实例`hm-rpc.0`。
 
-Homematic适配器订阅了hm-rpc.0的所有状态，如果想要通过ack = false接收新状态，它会将新值发送到物理交换机。
+Homematic适配器已订阅`hm-rpc.0`的所有状态，并且当使用`ack=false`接收到新状态时，它将新值发送到物理交换机。
 
-物理交换机执行命令并向hm-rpc适配器发送新的自身状态ON。 hm-rpc.0适配器发布状态“hm-rpc.0.kitchen.light”= {val：1，ack：true}的新状态（带有时间戳）。
+物理交换机执行命令并将新的自身状态发送到`hm-rpc`适配器。
+适配器`hm-rpc.0`发布状态`hm-rpc.0.kitchen.light={val: 1, ack: true}`的新状态（带有时间戳）。
 
-hm-rpc适配器不会执行此更改，因为ack为true。这是来自物理设备的确认。
+hm-rpc适配器不执行此更改，因为ack为true。这是来自物理设备的确认。
 
-####如何写状态
-状态可以写为命令或状态。为此，必须使用adapter.setState和adapter.setForeignState：
+####状态如何写？
+状态可以写为命令或状态。为此，必须使用`adapter.setState`和`adapter.setForeignState`：
 
-adapter.setForeignState（'otherAdapter.X.someState'，1）; //控制其他适配器adapter.setState（'myState'，1，true）; //表示自己状态的新状态adapter.setState（'myState'，{val：1，ack：true}）; //与上面相同
+`adapter.setForeignState('otherAdapter.X.someState', 1);`//控制其他适配器（不必控制您自己的状态，我们可以直接执行此操作）
 
-adapter.setState（'myState'，1，true，function（err）{
+`adapter.setState('myState', 1, true);`// //显示您自己国家的新状态
 
-* //分析是否可以设置状态（由于权限）
-* if（err）adapter.log.error（err）;
+`adapter.setState('myState', {val: 1, ack: true});`//如上
 
+```
+adapter.setState('myState', 1, true, function (err) {
+   // analyse if the state could be set (because of permissions)
+   if (err) adapter.log.error(err);
 });
+```
 
 注意：以下命令是相同的
 
-adapter.setState（'myState'，1，false）; adapter.setState（'myState'，1）;
+```
+adapter.setState('myState', 1, false);
+adapter.setState('myState', 1);
+```
 
-####国家结构
-State是一个具有以下属性的javascript对象：
+####状态结构
+State是具有以下属性的Javascript对象：
 
-* val：状态值（期望值或实际值）
-* ack：方向旗。 false表示期望值，true表示实际值。默认值：false（命令）
-* ts：时间戳记为1970年1月1日午夜到指定日期之间的毫秒数。 Javascript对象Date的方法getTime（）的结果。默认值：实际时间。
-* lc：最后更改时间戳。格式与ts相同，但值的时间戳会发生变化。它可能会更新，但值将保持不变。在这种情况下，lc将不会更改。
-* from：适配器实例的名称，用于设置值，例如： “system.adapter.web.0”（如果是vis）
-*过期:(可选）有可能以秒为单位设置过期超时。在这段时间之后，变量想要设置为“零”。它想要使用，例如通过适配器实例的“活动”状态。如果适配器实例在30秒内未触发“活动”状态，则将其标记为关闭。要使用expiration设置状态，请使用以下代码setState（'variable'，{val：true，expire：30}）
-* q :(可选）质量。请参阅此处的说明
+*`val`：状态值（期望值或实际值）
+*`ack`：方向标志。对于期望值，为false；对于实际值，为true。默认值：false（命令）
+*`ts`：时间戳，表示从1970年1月1日午夜到指定日期的毫秒数。 Javascript对象Date的getTime（）方法的结果。默认值：当前时间。
+*`lc`：最后一次更改的时间戳。与ts的格式相同，但值的时间戳会更改。该值可以更新，但该值可以保持不变。在这种情况下，lc不会更改。
+*`from`：定义值的适配器实例的名称，例如“ system.adapter.web.0”（使用vis）
+*`expire` ：（可选）可以设置以秒为单位的到期时间限制。在此时间之后，变量将设置为“零”。例如，通过适配器实例的“活动”状态。如果适配器实例在30秒内未触发“活动”状态，则将其标记为“关闭”。要设置到期状态，请使用以下代码setState（'Variable'，{val：true，expire：30}）
+*`q` ：（可选）质量。看到这里的描述
 
-适配器的运行模式
+**适配器的操作模式**
 
-适配器可以以不同的模式运行。适配器的模式允许我定义common.mode属性。
+适配器可以在不同的模式下运行。可以使用common.mode属性定义适配器的模式。
 
-* none  - 此适配器不会启动。
-*守护进程 - 始终运行进程（如果进程退出，将重新启动）
-* subscribe  - 当状态system.adapter ... alive变为true时启动。当.alive更改为false时被杀死，如果进程退出则将.alive设置为false（当进程退出时不会重新启动）
-* schedule  - 由system.adapter中找到的计划启动... common.schedule  - 通过重新安排新状态对.schedule的更改做出反应
-*一次 - 每次更改system.adapter ..对象时都会启动此适配器。终止后不会重新启动。
+*`none`-此适配器将无法启动。
+*`daemon`-始终运行的进程（在进程终止时重新启动）
+*`subscribe`-在状态system.adapter ... alive变为true时启动。当.alive更改为false时退出，并在进程退出时将.alive设置为false（在进程退出时不重新启动）
+*`Schedule`-根据在system.adapter ... common.schedule中找到的时间表启动。
+*`once`-每次更改system.adapter ..对象时，都会启动此适配器。完成后将不会重新启动。
 
 通常，适配器应使用模式守护程序。
 
-如果适配器每X分钟检查一次，它应该使用模式“schedule”并在common.schedule中定义cron schedule（例如“1 *** *” - 每小时）
+如果适配器仅每X分钟检查一次，则应使用`schedule`模式并一起定义cron计划（例如，每小时`1 * * * *`）。
 
-####如何阅读对象
+####如何读取对象？
 可以使用getObject或getForeignObject命令读取对象：
 
-adapter.getForeignObject（'otherAdapter.X.someState'，function（err，obj）{
-
-* if（错误）{
-* * adapter.log.error（错误）;
-*} else {
-* * adapter.log.info（JSON.stringify（obj））;
-* }
-
+```
+adapter.getForeignObject('otherAdapter.X.someState', function (err, obj) {
+  if (err) {
+    adapter.log.error(err);
+  } else {
+    adapter.log.info(JSON.stringify(obj));
+  }
 });
 
-adapter.getObject（'myObject'，function（err，obj）{
+adapter.getObject('myObject', function (err, obj) {
 
 });
+```
 
 函数始终是异步的。
 
-适配器的对象必须组织成设备，通道和状态。
+适配器的对象必须按设备，通道和状态进行组织。
 
 请参阅：getForeignObjects，findForeignObject，getForeignObject，getDevices，getChannels，getStatesOf
 
-####如何编写对象
-要编写对象，通常可以使用两个函数：setObject，setForeignObject。但是有许多帮助函数来修改对象：
+####如何编写对象？
+通常可以使用两个函数来编写对象：`setObject, setForeignObject`。但是，有许多用于更改对象的帮助功能：
 
-* extendObject，extendForeignObject，
-* delObject，delForeignObject，
-* setObjectNotExists，setForeignObjectNotExists
-* createDevice，deleteDevice
-* createChannel，deleteChannel，
-* createState，deleteState
-* addStateToEnum，deleteStateFromEnum
+*`extendObject，extendForeignObject`
+*`delObject，delForeignObject`
+*`setObjectNotExists，setForeignObjectNotExists`
+*`createDevice，deleteDevice`
+*`createChannel，deleteChannel`
+*`createState，deleteState`
+*`addStateToEnum，deleteStateFromEnum`
 
-extendObject只是读取对象，与给定对象合并并将对象写回。
+extensObject仅读取对象，与特定对象合并，然后写回对象。
 
-xxxObject和xxxForeignObject之间的区别在于xxxObject使用“adapter.instance”自动扩展对象id。文本。
+`xxxObject`和`xxxForeignObject`之间的区别在于，`xxxObject`自动将`adapter.instance.`文本添加到对象ID。
 
 函数始终是异步的。
 
-adapter.getForeignObject（'otherAdapter.X.someState'，function（err，obj）{
-
-* if（错误）{
-* * adapter.log.error（错误）;
-*} else {
-* * adapter.log.info（JSON.stringify（obj））;
-* * obj.native = {}; //修改对象
-* * adapter.setForeignObject（obj._id，obj，function（err）{
-* * * if（err）adapter.log.error（err）;
-* * });
-* }
-
+```
+adapter.getForeignObject('otherAdapter.X.someState', function (err, obj) {
+  if (err) {
+    adapter.log.error(err);
+  } else {
+    adapter.log.info(JSON.stringify(obj));
+    obj.native = {}; // modify object
+    adapter.setForeignObject(obj._id, obj, function (err) {
+      if (err) adapter.log.error(err);
+    });
+  }
 });
+```
 
-#### Info.connection
-如果适配器建立并监视某些连接，则应创建并维护info.connection变量。
+####信息连接
+当适配器建立连接并进行监视（例如连接到受控设备）时，它应创建一个变量`info.connection`并等待。
 
-如果发生这种情况，连接状态将显示在“admin”的实例列表中，如果需要，状态的质量将取决于连接状态。
+在这种情况下，连接状态将显示在`admin`中的实例列表中。如果需要，状态的质量取决于连接状态。
 
-##功能
-* setObject = function setObject（id，obj，callback）
-* extendObject = function extendObject（id，obj，callback）
-* setForeignObject = function setForeignObject（id，obj，callback）
-* extendForeignObject = function extendForeignObject（id，obj，callback）
-* getEnum = function getEnum（_enum，callback）
-* getEnums = function getEnums（_enumList，callback）
-* getForeignObjects = function getForeignObjects（pattern，type，enums，callback）
-* findForeignObject = function findForeignState（id，type，callback）
-* getForeignObject = function getForeignObject（id，callback）
-* delObject = function delObject（id，callback）
-* delForeignObject = function delForeignObject（id，callback）
-* subscribeObjects = function subscribeObjects（pattern）
-* subscribeForeignObjects = function subscribeObjects（pattern）
-* setObjectNotExists = function setObjectNotExists（id，object，callback）
-* setForeignObjectNotExists = function setForeignObjectNotExists（id，obj，callback）
-* createDevice = function createDevice（deviceName，common，_native，callback）
-* createChannel = function createChannel（parentDevice，channelName，roleOrCommon，_native，callback）
-* createState = function createState（parentDevice，parentChannel，stateName，roleOrCommon，_native，callback）
-* deleteDevice = function deleteDevice（deviceName，callback）
-* addChannelToEnum = function addChannelToEnum（enumName，addTo，parentDevice，channelName，callback）
-* deleteChannelFromEnum = function deleteChannelFromEnum（enumName，parentDevice，channelName，callback）
-* deleteChannel = function deleteChannel（parentDevice，channelName，callback）
-* deleteState = function deleteState（parentDevice，parentChannel，stateName，callback）
-* deleteStateFromEnum（''，parentDevice，parentChannel，stateName）;
-* getDevices = function getDevices（callback）
-* getChannelsOf = function getChannelsOf（parentDevice，callback）
-* getStatesOf = function getStatesOf（parentDevice，parentChannel，callback）
-* addStateToEnum = function addStateToEnum（enumName，addTo，parentDevice，parentChannel，stateName，callback）
-* deleteStateFromEnum = function deleteStateFromEnum（enumName，parentDevice，parentChannel，stateName，callback）
-* rmDir = function rmDir（path，callback）
-* mkDir = function mkDir（path，mode，callback）
-* readDir = function readDir（adapter，path，callback）
-* unlink = function unlink（适配器，名称，回调）
-rename = function rename（adapter，oldName，newName，callback）
-* mkdir = function mkdir（adapter，dirname，callback）
-* readFile = function readFile（adapter，filename，options，callback）
-* writeFile = function writeFile（adapter，filename，data，mimeType，callback）
-* formatDate = function formatDate（dateObj，isSeconds，_format）
-* sendTo = function sendTo（objName，command，message，callback）
-* sendToHost = function sendToHost（objName，command，message，callback）
-* setState = function setState（id，state，callback）
-* setForeignState = function setForeignState（id，state，callback）
-* getState = function getState（id，callback）
-* getStateHistory = function getStateHistory（id，start，end，callback）
-* getForeignStateHistory = function getStateHistory（id，start，end，callback）
-* idToDCS = function idToDCS（id）
-* getForeignState = function getForeignState（id，callback）
-* delForeignState = function delForeignState（id，callback）
-* delState = function delState（id，callback）
-* getStates = function getStates（pattern，callback）
-* getForeignStates = function getForeignStates（pattern，callback）
-* subscribeForeignStates = function subscribeForeignStates（pattern）
-* unsubscribeForeignStates = function unsubscribeForeignStates（pattern）
-* subscribeStates = function subscribeStates（pattern）
-* pushFifo = function pushFifo（id，state，callback）
-* trimFifo = function trimFifo（id，start，end，callback）
-* getFifoRange = function getFifoRange（id，start，end，callback）
-* getFifo = function getFifo（id，callback）
-* lenFifo = function lenFifo（id，callback）
-* subscribeFifo = function subscribeFifo（pattern）
-* getSession = function getSession（id，callback）
-* setSession = function setSession（id，ttl，data，callback）
-* destroySession = function destroySession（id，callback）
-* getMessage = function getMessage（callback）
-* lenMessage = function lenMessage（callback）
-* setBinaryState = function setBinaryState（id，binary，callback）
-* getBinaryState = function getBinaryState（id，callback）
-* getPort = function adapterGetPort（port，callback）
-* checkPassword = function checkPassword（user，pw，callback）
-* setPassword = function setPassword（user，pw，callback）
-* checkGroup = function checkGroup（用户，组，回调）
-*停止（common.mode：订阅，安排，一次）
-* log.debug（msg）
-* log.info（msg）
-* log.warn（msg）
-* log.error（msg）
+＃＃ 职能
+```
+* setObject = function setObject(id, obj, callback)
+* extendObject = function extendObject(id, obj, callback)
+* setForeignObject = function setForeignObject(id, obj, callback)
+* extendForeignObject = function extendForeignObject(id, obj, callback)
+* getEnum = function getEnum(_enum, callback)
+* getEnums = function getEnums(_enumList, callback)
+* getForeignObjects = function getForeignObjects(pattern, type, enums, callback)
+* findForeignObject = function findForeignState(id, type, callback)
+* getForeignObject = function getForeignObject(id, callback)
+* delObject = function delObject(id, callback)
+* delForeignObject = function delForeignObject(id, callback)
+* subscribeObjects = function subscribeObjects(pattern)
+* subscribeForeignObjects = function subscribeObjects(pattern)
+* setObjectNotExists = function setObjectNotExists(id, object, callback)
+* setForeignObjectNotExists = function setForeignObjectNotExists(id, obj, callback)
+* createDevice = function createDevice(deviceName, common, _native, callback)
+* createChannel = function createChannel(parentDevice, channelName, roleOrCommon, _native, callback)
+* createState = function createState(parentDevice, parentChannel, stateName, roleOrCommon, _native, callback)
+* deleteDevice = function deleteDevice(deviceName, callback)
+* addChannelToEnum = function addChannelToEnum(enumName, addTo, parentDevice, channelName, callback)
+* deleteChannelFromEnum = function deleteChannelFromEnum(enumName, parentDevice, channelName, callback)
+* deleteChannel = function deleteChannel(parentDevice, channelName, callback)
+* deleteState = function deleteState(parentDevice, parentChannel, stateName, callback)
+* deleteStateFromEnum('', parentDevice, parentChannel, stateName);
+* getDevices = function getDevices(callback)
+* getChannelsOf = function getChannelsOf(parentDevice, callback)
+* getStatesOf = function getStatesOf(parentDevice, parentChannel, callback)
+* addStateToEnum = function addStateToEnum(enumName, addTo, parentDevice, parentChannel, stateName, callback)
+* deleteStateFromEnum = function deleteStateFromEnum(enumName, parentDevice, parentChannel, stateName, callback)
+* rmDir = function rmDir(path, callback)
+* mkDir = function mkDir(path, mode, callback)
+* readDir = function readDir(adapter, path, callback)
+* unlink = function unlink(adapter, name, callback)
+* rename = function rename(adapter, oldName, newName, callback)
+* mkdir = function mkdir(adapter, dirname, callback)
+* readFile = function readFile(adapter, filename, options, callback)
+* writeFile = function writeFile(adapter, filename, data, mimeType, callback)
+* formatDate = function formatDate(dateObj, isSeconds, _format)
+* sendTo = function sendTo(objName, command, message, callback)
+* sendToHost = function sendToHost(objName, command, message, callback)
+* setState = function setState(id, state, callback)
+* setForeignState = function setForeignState(id, state, callback)
+* getState = function getState(id, callback)
+* getStateHistory = function getStateHistory(id, start, end, callback)
+* getForeignStateHistory = function getStateHistory(id, start, end, callback)
+* idToDCS = function idToDCS(id)
+* getForeignState = function getForeignState(id, callback)
+* delForeignState = function delForeignState(id, callback)
+* delState = function delState(id, callback)
+* getStates = function getStates(pattern, callback)
+* getForeignStates = function getForeignStates(pattern, callback)
+* subscribeForeignStates = function subscribeForeignStates(pattern)
+* unsubscribeForeignStates = function unsubscribeForeignStates(pattern)
+* subscribeStates = function subscribeStates(pattern)
+* getSession = function getSession(id, callback)
+* setSession = function setSession(id, ttl, data, callback)
+* destroySession = function destroySession(id, callback)
+* getMessage = function getMessage(callback)
+* lenMessage = function lenMessage(callback)
+* setBinaryState = function setBinaryState(id, binary, callback)
+* getBinaryState = function getBinaryState(id, callback)
+* getPort = function adapterGetPort(port, callback)
+* checkPassword = function checkPassword(user, pw, callback)
+* setPassword = function setPassword(user, pw, callback)
+* checkGroup = function checkGroup(user, group, callback)
+* stop (common.mode: subscribe, schedule, once)
+* terminate
+* setInteral
+* clearInterval
+* setTimeout
+* clearTimeout
+* log.debug(msg)
+* log.info(msg)
+* log.warn(msg)
+* log.error(msg)
+```
 
-##事件
-*准备好了
-* objectChange（id，obj）（如果删除，警告obj可以为null）
-*消息（obj）
-* stateChange（id，state）（如果删除，警告状态可以为null）
-*卸载
+##活动
+```
+* ready
+* objectChange(id, obj) (Warning obj can be null if deleted)
+* message(obj)
+* stateChange(id, state) (Warning state can be null if deleted)
+* unload
+```
 
-###如何创建实例
-在发布到npm之前：复制到ioBroker / node_modules，转到“admin”并添加实例在npm发布后：转到ioBroker /并编写`npm install iobroker.xxx --production --no-optional --logevel=error`，转到`admin`并添加实例如何调试
+###这是创建实例的方式
+在npm中发布之前：复制到ioBroker / node_modules，转到`admin`并添加一个实例。在npm中发布后：转到`ioBroker/`并编写`npm install iobroker.xxx --production --no-optional --logevel=error`，然后转到`admin`并添加。
 
+##这是调试的方式
 *启动ioBroker
 *添加适配器的实例
-*禁用适配器实例
+*停用适配器实例
 *启动WebStorm
-*使用node.js创建Debug的配置
-*应用程序的标志：` -  force，instance，log level`（你可以启动适配器为`node xxx.js 1 debug --force`，1是实例索引（默认为0，debug是日志级别和` - -force`表示忽略“enabled：false”设置）
+*使用node.js创建调试配置。
+*应用程序的标志：“-force，instance，log level”（您可以将适配器启动为“ node xxx.js 1 Debug --force”，1是实例索引（默认为0，debug是log level和` - -force`意味着设置“启用：假”被忽略）。
 
 ## Admin.html
-* function showMessage（消息，标题，图标）
-* function getObject（id，callback）
-* function getState（id，callback）
-* function getEnums（_enum，callback）
-* function getIPs（host，callback）
-* function fillSelectIPs（id，actualAddr，noIPv4，noIPv6）
-* function sendTo（_adapter_instance，command，message，callback）
-* function sendToHost（host，command，message，callback）
-* function fillSelectCertificates（id，type，actualValued）
-* function getAdapterInstances（_adapter，callback）
-* function getIsAdapterAlive（_adapter，callback）
-* function addToTable（tabId，value，$ grid，_isInitial）
-* function enumName2Id（enums，name）
-* function editTable（tabId，cols，values，top，onChange）
-* function getTableResult（tabId，cols）
+```
+* function showMessage(message, title, icon)
+* function getObject(id, callback)
+* function getState(id, callback)
+* function getEnums(_enum, callback)
+* function getIPs(host, callback)
+* function fillSelectIPs(id, actualAddr, noIPv4, noIPv6)
+* function sendTo(_adapter_instance, command, message, callback)
+* function sendToHost(host, command, message, callback)
+* function fillSelectCertificates(id, type, actualValued)
+* function getAdapterInstances(_adapter, callback)
+* function getIsAdapterAlive(_adapter, callback)
+* function addToTable(tabId, value, $grid, _isInitial)
+* function enumName2Id(enums, name)
+* function editTable(tabId, cols, values, top, onChange)
+* function getTableResult(tabId, cols)
+```
 
-##最佳实践
+＃＃ 最佳实践

@@ -1,15 +1,13 @@
 ![Logo](admin/ham.png)
 # ioBroker Homebridge accessories manager
-[![NPM version](https://img.shields.io/npm/v/iobroker.ham.svg)](https://www.npmjs.com/package/iobroker.ham)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.ham.svg)](https://www.npmjs.com/package/iobroker.ham)
-![Number of Installations (latest)](https://iobroker.live/badges/ham-installed.svg)
-![Number of Installations (stable)](https://iobroker.live/badges/ham-stable.svg)
-[![Dependency Status](https://img.shields.io/david/ioBroker/iobroker.ham.svg)](https://david-dm.org/ioBroker/iobroker.ham)
+
+![Number of Installations](http://iobroker.live/badges/ham-installed.svg)
+![Number of Installations](http://iobroker.live/badges/ham-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.ham.svg)](https://www.npmjs.com/package/iobroker.ham)
+
+![Test and Release](https://github.com/ioBroker/iobroker.ham/workflows/Test%20and%20Release/badge.svg)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/ham/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
-[![NPM](https://nodei.co/npm/iobroker.ham.png?downloads=true)](https://nodei.co/npm/iobroker.ham/)
-
-**Tests:** ![Test and Release](https://github.com/ioBroker/ioBroker.ham/workflows/Test%20and%20Release/badge.svg)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.ham.svg)](https://www.npmjs.com/package/iobroker.ham)
 
 Use Homebridge plugins in ioBroker or run a global installed Homebridge as ioBroker adapter.
 All States from Homebridge will be available in ioBroker too and can also be controlled there.
@@ -70,6 +68,9 @@ For this to work you need to provide the location of the systems global node-mod
 * More documentation?!
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) prevent warnings in js-controller 3.3
 
 ### 4.0.1 (2021-03-24)
 * (Apollon77) update homebridge and wrapper to 1.3.4 (latest as of today). IMPORTANT: Requires also homebridge 1.3.x installed when using global mode and local mode will update to 1.3.x too! Check your plugins for updates!

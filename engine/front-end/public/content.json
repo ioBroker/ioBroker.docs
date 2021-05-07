@@ -31,7 +31,7 @@
         "no title": {
           "title": {
             "en": "no title",
-            "de": "no title",
+            "de": "ioBroker Grundlagen",
             "ru": "без заголовка",
             "zh-cn": "无题"
           },
@@ -748,12 +748,12 @@
               },
               "content": "community/doc.md"
             },
-            "Styleguide documentation": {
+            "Style guide documentation": {
               "title": {
-                "en": "Styleguide documentation",
+                "en": "Style guide documentation",
                 "de": "Styleguide Dokumentation",
-                "ru": "Стилегидная документация",
-                "zh-cn": "Styleguide文档"
+                "ru": "Документация руководства по стилю",
+                "zh-cn": "样式指南文档"
               },
               "content": "community/styleguidedoc.md"
             },
@@ -819,8 +819,8 @@
           "title": {
             "en": "Adapter reference",
             "de": "Adapterreferenz",
-            "ru": "Adapterrefenz",
-            "zh-cn": "Adapterrefenz"
+            "ru": "Ссылка на адаптер",
+            "zh-cn": "适配器参考"
           },
           "content": "dev/adapterref.md"
         },
@@ -854,9 +854,18 @@
         "Development - Adapter template": {
           "title": {
             "en": "Development - Adapter template",
-            "de": "Testing",
+            "de": "Adaptervorlage",
             "ru": "Разработка - шаблон адаптера",
             "zh-cn": "开发 - 适配器模板"
+          },
+          "content": "dev/adaptertemplate.md"
+        },
+        "Testing": {
+          "title": {
+            "en": "Testing",
+            "de": "Testing",
+            "ru": "Тестирование",
+            "zh-cn": "测验"
           },
           "content": "dev/adaptertesting.md"
         },
@@ -869,21 +878,21 @@
           },
           "content": "dev/adapterdoctemplate.md"
         },
-        "Documentation Style Guide": {
+        "Documentation style guide": {
           "title": {
-            "en": "Documentation Style Guide",
+            "en": "Documentation style guide",
             "de": "Dokumentation-Styleguide",
-            "ru": "Руководство Документация Стиль",
-            "zh-cn": "文档风格指南"
+            "ru": "Руководство по стилю документации",
+            "zh-cn": "文档样式指南"
           },
           "content": "dev/adapterdocstyleguide.md"
         },
-        "Development - Styleguide User Interface": {
+        "Style guide UI": {
           "title": {
-            "en": "Development - Styleguide User Interface",
+            "en": "Style guide UI",
             "de": "Styleguide UI",
-            "ru": "Разработка - Пользовательский интерфейс Styleguide",
-            "zh-cn": "开发 -  Styleguide用户界面"
+            "ru": "Руководство по стилю UI",
+            "zh-cn": "样式指南UI"
           },
           "content": "dev/styleguideui.md"
         },

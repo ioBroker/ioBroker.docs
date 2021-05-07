@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.schoolfree/README.md
 title: ioBroker.schoolfree
-hash: uzju6TA2Nd+imMw4P3aGsSgS0hBAeyPIQshsOhieXkI=
+hash: wN18juysKPSF8CRtXU2o7IO+98KeQ0F3ee1AtnacO50=
 ---
 ![Logo](../../../en/adapterref/iobroker.schoolfree/admin/schoolfree.png)
 
@@ -17,6 +17,8 @@ hash: uzju6TA2Nd+imMw4P3aGsSgS0hBAeyPIQshsOhieXkI=
 ![NPM](https://nodei.co/npm/iobroker.schoolfree.png?downloads=true)
 
 # IoBroker.schoolfree
+![Testen und freigeben](https://github.com/simatec/ioBroker.schoolfree/workflows/Test%20and%20Release/badge.svg)
+
 Dieser Adapter verwendet den Dienst Sentry.io, um Ausnahmen und Codefehler sowie neue Geräteschemata automatisch an mich als Entwickler zu melden. Weitere Details siehe unten!
 
 ## Schulfreier Adapter für ioBroker
@@ -27,7 +29,7 @@ Dieser Adapter verwendet den Dienst Sentry.io, um Ausnahmen und Codefehler sowie
 ### Deutsche Beschreibung:
 Schulfrei ist ein Adapter für iobroker Installationen.
 Mit dem Adapter lassen sich die Schulferien auswerten und in Datenpunkte erstellen.
-Die Datenpunkte können somit für weitere Funktionen wie Heizungssteuerungen, Rolladen- und Besitzssteuerungen werden.
+Die Datenpunkte können somit für weitere Funktionen wie Heizungssteuerungen, Rolladen- und Besitzssteuerungen ausgewertet und werden werden.
 
 Der aktuelle Bezug von Terminen für die Schulferien gehört über die API von https://www.mehr-schulferien.de
 
@@ -64,16 +66,42 @@ Die folgenden Datenpunkte stehen für die weitere Verarbeitung mit Schoolfree zu
 * info.next.name: Name der nächsten Schulferien
 * info.next.start: Startdatum des nächsten Feiertags
 * info.today: Wechseln Sie heute zum aktuellen Status (wahr / falsch)
-* info.tomorrow: morgen auf den aktuellen Status umschalten (true / false)
+* info.tomorrow: morgen auf den aktuellen Status umschalten (wahr / falsch)
 
 ### Was ist Sentry.io und was wird den Servern dieses Unternehmens gemeldet?
-Sentry.io ist ein Dienst, mit dem Entwickler einen Überblick über Fehler in ihren Anwendungen erhalten. Und genau das ist in diesem Adapter implementiert.
+Sentry.io ist ein Dienst für Entwickler, um einen Überblick über Fehler in ihren Anwendungen zu erhalten. Und genau das ist in diesem Adapter implementiert.
 
 Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll angezeigt wird, an Sentry gesendet. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder dergleichen) enthalten. Auf diese Weise kann Sentry Fehler gruppieren und anzeigen, wie viele eindeutige Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
 
 *************************************************************************************************************************************
 
 ## Changelog
+
+### 1.0.0 (06.05.2021)
+* (simatec) GUI revised
+* (simatec) Added support for admin5
+* (simatec) code cleaned
+* (simatec) dependencies updated
+* (simatec) Github Test and Release added
+
+### 0.7.0 (27.10.2020)
+* (simatec) Changeover from request to axios for data retrieval
+* (simatec) Conversion of the code structure
+* (simatec) code cleaned
+* (simatec) dependencies updated
+
+### 0.6.4 (06.07.2020)
+* (simatec) small Bugfixes
+
+### 0.6.3 (02.07.2020)
+* (simatec) Bugfix API Request error
+
+### 0.6.2 (27.05.2020)
+* (simatec) small Bugfixes at locations settings
+
+### 0.6.1 (11.05.2020)
+* (simatec) added errorhandling for sentry.io
+* (simatec) added node 14 support
 
 ### 0.6.0 (04.05.2020)
 * (simatec) added new features
@@ -127,7 +155,7 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 ## License
 MIT License
 
-Copyright (c) 2019 - 2020 simatec
+Copyright (c) 2019 - 2021 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

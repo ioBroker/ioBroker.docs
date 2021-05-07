@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tvprogram/README.md
 title: ioBroker.tvprogram
-hash: cPgdwWrJXbqS7GiB5bHHUoeTEtqBbkObLE5a1q2aq6Y=
+hash: OoTO1/+EPou6/8b6v3kD2t4M8FFmQCTBSPS2oktpsow=
 ---
 ![Logo](../../../en/adapterref/iobroker.tvprogram/admin/tvprogram.png)
 
@@ -24,19 +24,13 @@ hash: cPgdwWrJXbqS7GiB5bHHUoeTEtqBbkObLE5a1q2aq6Y=
 Dieser Adapter fragt in regelmäßigen Abständen Informationen über das Fernsehprogramm ab.
 Die Daten können in verschiedenen Widgets angezeigt werden.
 
-Der Adapter befindet sich in einer Beta-Phase, in der Widgets / Funktionen noch getestet werden. Funktionen / Widgets können hinzugefügt und entfernt oder vollständig ausgetauscht werden.
-
-Verweise auf Probleme oder Funktionsanfragen können im iobroker-Forum im entsprechenden Thread hinterlassen oder diskutiert werden
-
 Zum Einrichten muss der Adapter bereits auf die erforderlichen Daten zugegriffen und diese ausgefüllt haben.
 Aufgrund ihrer Größe werden die Daten nicht in Datenpunkten, sondern in Dateien (Linux-Pfad: / opt / iobroker / data-files / tvprogram) und im Speicher des Adapters gespeichert.
 In der Konfiguration muss das Widget nur mit einem Datenpunkt des Adapters (z. B. cmd) gefüllt werden.
 Das Widget sucht automatisch nach allen verbleibenden Datenpunkten.
 
-## Entwicklerhandbuch
-Der Adapter kann derzeit nur über Github installiert werden. Dies kann im iobroker auf der Registerkarte "Adapter" mit der Expertenansicht über die Github-Schaltfläche (Katzensymbol) erfolgen.
-
-Geben Sie dann die URL des Github-Repositorys https://github.com/oweitman/ioBroker.tvprogram in die Registerkarte "any" ein und installieren Sie sie.
+## Installation
+Der Adapter kann über den Stable oder zum Testen von Versionen über das Beta / neueste Repository installiert werden.
 
 ### Adapterkonfiguration
 Sie können konfigurieren, wie viele verschiedene Fernsehgeräte oder zumindest verschiedene Konfigurationen Sie haben werden.
@@ -56,13 +50,14 @@ Wenn nach der Installation etwas schief geht und das Widget nicht korrekt angeze
 
 iobroker lade alle hoch
 
-Die folgenden Attribute stehen für die Konfiguration in vis zur Verfügung
+Die folgenden Attribute stehen für die Konfiguration in vis zur Verfügung. Die Mindestkonfiguration besteht darin, den Datenpunkt auf den cmd-Datenpunkt zu setzen.
 
 | Attribut | Beispiel | Beschreibung |
 | --------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------- |
 | tvprogram_oid | tvprogram.0.tv1.cmd | Ein Datenpunkt einer Instanz des TV-Programmadapters. |
 | widthItem | 120 | Standardbreite in Pixel für ein 30-Minuten-Segment |
 | heightRow | 35 | Höhe für jede angezeigte Linie |
+| Bilder | x | Bilder in der Timeline anzeigen, falls verfügbar |
 | headerfontpercent | 125 | Zeichengröße in Prozent für die Überschrift (Zeit) |
 | Rundfunkanteil | 75 | Zeichengröße in Prozent für die Sendungen |
 | Highlightfarbe | gelb | Farbe für die Favoriten |
@@ -117,7 +112,7 @@ So ändern Sie die Formatierung der abwechselnden Hintergrundfarben der Sendunge
 #### Favoriten
 Dieses Widget zeigt eine Liste der ausgewählten Favoriten, sortiert nach Datum und Uhrzeit.
 
-Die folgenden Attribute stehen für die Konfiguration in vis zur Verfügung
+Die folgenden Attribute stehen für die Konfiguration in vis zur Verfügung. Die Mindestkonfiguration besteht darin, den Datenpunkt auf den cmd-Datenpunkt zu setzen.
 
 | Attribut | Beispiel | Beschreibung |
 | -------------- | -------------------- | --------------------------------------------------- |
@@ -131,7 +126,7 @@ Die folgenden Attribute stehen für die Konfiguration in vis zur Verfügung
 Dieses Widget zeigt alle aktuellen Sendungen an. Sie können auf das Kanallogo klicken, um den Kanal zu wechseln.
 Sie können auf die Sendung klicken, um detaillierte Informationen über die Sendung zu erhalten.
 
-Die folgenden Attribute stehen für die Konfiguration in vis zur Verfügung
+Die folgenden Attribute stehen für die Konfiguration in vis zur Verfügung. Die Mindestkonfiguration besteht darin, den Datenpunkt auf den cmd-Datenpunkt zu setzen.
 
 | Attribut | Beispiel | Beschreibung |
 | --------------------- | ------------------------ | -------------------------------------------------------------------------------------------------- |
@@ -141,6 +136,7 @@ Die folgenden Attribute stehen für die Konfiguration in vis zur Verfügung
 | Zeit | 20: 15/200 | Wenn Zeit mit Dauer, würde die Sendung zu diesem Zeitpunkt für 200 Minuten angezeigt |
 | Zeit | 2021-02-15T20: 15: 00.000Z | Wenn ein gültiger Datestring vorhanden ist, wird die Sendung zu diesem Zeitpunkt angezeigt. Erinnere dich an die Zeitzonen |
 | heightRow | 35 | Höhe für jede angezeigte Linie |
+| Bilder | x | Bilder anzeigen, falls verfügbar |
 | Rundfunkanteil | 75 | Zeichengröße in Prozent für die Sendungen |
 | Highlightfarbe | gelb | Farbe für die Favoriten |
 | dialogwidthpercent | 90 | Größe der Dialoge in Prozent des Widgets |
@@ -162,16 +158,17 @@ So ändern Sie die Formatierung der abwechselnden Hintergrundfarben der Sendunge
 ```
 
 #### Suche
-Mit diesem Widget können Sie nach Sendungen innerhalb des Titels, nach einem Startdatum und nach einem Sendetyp suchen.
+Mit diesem Widget können Sie nach Sendung innerhalb des Titels, der Beschreibung, eines Startdatums und nach einem Sendetyp suchen.
 Das Eingabefeld "Von" ist mit dem aktuellen Datum vorgefüllt. Wenn dieses Feld unverändert bleibt, beginnt die Suche mit der tatsächlichen Zeit.
 Wenn Sie dieses Feld in ein zukünftiges oder vergangenes Datum ändern, beginnt die Suche um 00:00 Uhr dieses Datums.
 Eines oder beide der Suchfelder Suchtext und Kategorie müssen ausgefüllt / ausgewählt sein.
 
-Die folgenden Attribute stehen für die Konfiguration in vis zur Verfügung
+Die folgenden Attribute stehen für die Konfiguration in vis zur Verfügung. Die Mindestkonfiguration besteht darin, den Datenpunkt auf den cmd-Datenpunkt zu setzen.
 
 | Attribut | Beispiel | Beschreibung |
 | --------------------- | ------------------- | ---------------------------------------------------- |
 | Objekt ID | tvprogram.0.tv1.cmd | Ein Datenpunkt einer Instanz des TV-Programmadapters. |
+| Bilder | x | Bilder anzeigen, falls verfügbar |
 | maxresults | 10 | max Ergebnisse in der Liste |
 | heightRow | 35 | Höhe für jede angezeigte Linie |
 | Rundfunkanteil | 75 | Zeichengröße in Prozent für die Sendungen |
@@ -263,7 +260,7 @@ Programmdaten vom Adapter anfordern.
 
 ** Gültige Parameter sind **
 
-ein Datenring im folgenden Format: JJJJ-MM-TT
+ein Datenstring im folgenden Format: JJJJ-MM-TT
 
 **Kehrt zurück:**
 
@@ -297,7 +294,7 @@ Fordern Sie ab sofort alle Lieblingssendungen bis zum Ende der gespeicherten Dat
 
 ** Gültige Parameter sind **
 
-Reihe von Favoriten
+Array von Favoriten
 
 **Kehrt zurück:**
 
@@ -351,7 +348,7 @@ Suchen Sie nach Sendungen in einem bestimmten Zeitraum und optional mit Kategori
 
 ** Gültige Parameter sind **
 
-Kanalfilter: Array von Kanal-IDs Ihrer Lieblingskanäle Kategoriefilter: Optional Array von Kategorie-IDs Datum / Uhrzeit von: Datum / Uhrzeit von Datum bis Datum: Uhrzeit bis Textfilter: Optionaler Titel oder Teil eines Titels zur Suche nach Maximalergebnissen: Optional die maximale Anzahl von Ergebnissen. Der Standardwert ist 10
+Kanalfilter: Array von Kanal-IDs Ihrer Lieblingskanäle Kategoriefilter: Optional Array von Kategorie-IDs Datum / Uhrzeit von: Datum / Uhrzeit von Datenzeit bis: Datum / Uhrzeit bis Textfilter: Optionaler Titel oder Teil eines Titels zur Suche nach Maximalergebnissen: Optional die maximale Anzahl von Ergebnissen. Der Standardwert ist 10
 
 **Kehrt zurück:**
 
@@ -385,6 +382,107 @@ Array
 
 ```javascript
 sendTo("tvprogram.0","getServerInfo","{}",(data)=>console.log(data));
+
+```
+
+### Community bietet Widgets / Skripte
+#### Harmony und MagentaTV
+Skript liefert per Bild Nach dem Klicken auf das Kanallogo setzt das Skript die zugeordnete Kanal-ID auf den Harmony-Datenpunkt
+
+```javascript
+/* TV Programm Adapter
+{1}
+Skripte zur Ausführung von Aktionen, die
+mit dem tvprogramm-Adapter zusammenhängen
+(z.B. umschalten)
+{1}
+Adapter von 1/2021 von oweitmann https://github.com/oweitman/ioBroker.tvprogram
+{1}
+20210503 init
+*/
+
+const logging = true;
+const idKanalWahl = "tvprogram.0.tv1.selectchannel"; // Dateingabe aus VIS
+const fbdelay = 1000; // delay zwischen Tastendrücken der IR_Fernbedienung in ms
+const channelList = {  // Ausgabe vom Adapter : Kanalnummer im Receiver
+   "ard" : 1,
+   "zdf" : 2,
+   "rtl" : 3,
+   "sat1": 4,
+   "pro7": 5,
+   "vox" : 6,
+   "kaka":7,
+   "rtl2":8,
+   "superrtl":9,
+   "kika":10,
+   /* nickelodeon 11 */
+   "3sat":12,
+   "welt":13,
+   "ntv":14,
+   "phoenix":15,
+   "tele5":16,
+   "zdfneo":17,
+   /* #dabeiTV 18 */
+   /* disneyplus 19 */
+   /* lokalTV 20 */
+   "bayern3":21,
+   "hessen3":25,
+   "mdr":27,
+   "nord3":29,
+   /* "bremen":30, */
+   /* "rbb berlin":31, */
+   /* "sr":36, */
+   "sw3":37, // bw
+   /* "sw3":38, // rp */
+   "west3":39,
+   /* "eurosport1":50, */
+   "sport1":51,
+   /* sky sport news 52 */
+   "arte":55,
+   "one":56,
+   /* anixe 60 */
+   "dmax":64,
+   "pro7maxx":69,
+   "nitro":70,
+   /* sat1 gold 73 */
+   "sixx":75,
+   /* ard alpha 80 */
+   /* DW 85 */
+   /* euronews */
+   /* Kabel Eins Doku 89 */
+   /* N24 Doku 90 */
+   "tagesschau24":91,
+   /* Welt der Wunder 92 */
+   /* zdfinfo 93 */
+   "mtv":99,
+};
+
+function selectChannel (chNo) {
+   // Zerlegen mehrstelliger Zahlen
+   let ch_arr = new Array();
+   ch_arr = [];
+   if (logging) log("Kanalnummer gewählt: " + chNo);
+   while (chNo > 0) { // rückwärts
+       if (logging) log("erkannte Ziffer: " + chNo % 10 );
+       ch_arr.push(chNo % 10); // letzte Ziffer hinten dran hängen
+       chNo = chNo / 10;
+       chNo = parseInt(chNo);
+   }
+   // array umdrehen und wieder auslesen und Taste(n) der HARMONY+Fernbedienung drücken
+   ch_arr.reverse();
+   if (logging) log ("Senderplatz hat " + ch_arr.length + " Ziffern" + ch_arr);
+   for (let i = 0; i < ch_arr.length; i++) {
+       // passende OID füllen
+       setStateDelayed("harmony.0.Harmony_Hub.Telekom-DVR.Number" + ch_arr[i], 1, fbdelay, function() {
+           if (logging) log ((i+1) + ". Taste: " + ch_arr[i] + " gedrückt");
+       });
+   }
+}
+
+on(idKanalWahl, function (obj) {
+   log("Neues TV Programm: " + obj.state.val + " auf Kanal " + channelList[obj.state.val] + " gewählt");
+   selectChannel(channelList[obj.state.val]);
+});
 
 ```
 
@@ -434,7 +532,7 @@ var timer = setInterval(function() {
  ```
 
 Um diese Daten zu visualisieren, kann die Widget-JSON-Vorlage des Adapters myTime bei der folgenden Vorlage hilfreich sein.
-Geben Sie als json_oid den Datenpunkt mit der Datensatzliste und als json_template den folgenden Code ein:
+Geben Sie als json_oid den Datenpunkt mit der Aufzeichnungsliste und als json_template den folgenden Code ein:
 
 ```javascript
 <% data.sort((a,b)=>new Date(a.startTime) - new Date(b.startTime)) %>
@@ -478,7 +576,7 @@ var timer = setInterval(function() {
 ```
 
 #### Färbung von Programmen, die sich im Datenpunkt der Aufnahmeliste im Widget-Fernsehprogramm befinden
-Die folgende Vorlage ist für die Widget-JSON-Vorlage aus dem Adapter-RSS-Feed.
+Die folgende Vorlage bezieht sich auf die Widget-JSON-Vorlage aus dem Adapter-RSS-Feed.
 Diese Vorlage generiert keine sichtbare Ausgabe, sondern CSS-Anweisungen, die die aktuellen Programme färben.
 Außerdem wird die Aufnahmetaste in der Detailansicht eingefärbt.
 
@@ -529,7 +627,12 @@ Um diese Vorlage zu verwenden, wählen Sie bitte den Datensatzlisten-Datenpunkt 
 ### Machen
 Widget-Fernsehprogramm:
 
+- Vielleicht sendet ein Highlight-Widget
 - Datenadapter für andere Quellen (Internet, Hardware wie Enigma, VU-Box). Überlegungen hierzu werden derzeit aufgrund der geringen Nachfrage ausgesetzt
+- ~~ Verbesserung der Dokumentation zur Konfiguration der Widgets ~~
+- ~~ Bilder senden, falls in der Hauptansicht des Zeit-Widgets verfügbar ~~
+- ~~ Durchsuche den gesamten Text, um auch Regisseure und Schauspieler zu finden ~~
+- ~~ Tooltips für die Schaltflächen im Zeit-Widget ~~
 - ~~ Ideen für weitere Widgets basierend auf dem vorhandenen TV-Programm-Skript ~~
 - ~~ Problem: endlose Schriftrolle in Firefox ~~
 - ~~ zu besprechen: Datenpunkt, mit allen Aufnahmedaten, sollte auf einem Videorecorder-Adapter oder in einem separaten Skript ~~ implementiert werden
@@ -537,9 +640,12 @@ Widget-Fernsehprogramm:
 - ~~ Problem: kleiner Pixelfehler, wenn der Bildlaufbereich auf der linken Seite vollständig ist ~~
 
 ## Changelog
+### 1.1.0 (2021-05-06)
+* tooltips for the buttons in the time widget / search through the whole text to also find directors and actors / add showpictures option in time,control and search widget / improve documentation
 
-### 0.0.1
-* (oweitman) initial release
+
+### 1.0.0
+* (oweitman) stable version
 
 ## License
 MIT License

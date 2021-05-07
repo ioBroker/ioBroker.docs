@@ -3,10 +3,11 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker mihome-вакуумный адаптер
-hash: FaIquw6p8eo5suLeCkr2ZUWN7jvpSLsSD+qTVlLGozU=
+hash: U/aoXXnLeLYe5euziTFca/0uZlariNMUGCbRI8MYwV0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
+![Пожертвование Paypal](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.mihome-vacuum.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.mihome-vacuum.svg)
 ![Количество установок (последнее)](http://iobroker.live/badges/mihome-vacuum-installed.svg)
@@ -44,6 +45,8 @@ hash: FaIquw6p8eo5suLeCkr2ZUWN7jvpSLsSD+qTVlLGozU=
 - [Список изменений] (# список изменений)
 
 ## Поддерживаемые устройства и функции
+Очиститель не поддерживается? [Голосуйте здесь!](https://doodle.com/poll/8m8238ridkifua99?utm_source=poll&utm_medium=link)
+
 | Устройство | Базовое управление | история | комнаты | карта |
 |:------------------    |:-------------------:      |:-------------------:  |:-------------------:|:-------------------:|
 | viomi.vacuum.v6 | : heavy_check_mark: | : x: |: x: | : x: |
@@ -86,7 +89,7 @@ hash: FaIquw6p8eo5suLeCkr2ZUWN7jvpSLsSD+qTVlLGozU=
 В конфигурации активируется добавление состояния alexa, здесь устанавливается хак, дополнительное состояние «clean_home» это переключатель, который запускается с «true» присоски, а при «false» он идет домой, он автоматически становится интеллектуальным устройством в облаке Адаптер создан с названием «пылесос», который можно изменить в облачном адаптере.
 
 #### Возобновить приостановленную очистку зоны кнопкой запуска
-Если эта опция включена, пылесос возобновит очистку зоны при установке состояния «старт» на истинное значение, если она была приостановлена во время выполнения очистки зоны.
+Если эта опция включена, пылесос возобновит очистку зоны при установке состояния «старт» в значение «истина», если она была приостановлена во время выполнения очистки зоны.
 Если этот параметр отключен, пылесос начнет новую «обычную очистку», когда вы отправите команду запуска, даже если она была приостановлена во время выполнения очистки зоны.
 
 - Экспериментально: с помощью флажка «Отправлять собственные команды» создаются объекты, с помощью которых вы можете отправлять и получать свои собственные команды роботу.
@@ -120,7 +123,7 @@ hash: FaIquw6p8eo5suLeCkr2ZUWN7jvpSLsSD+qTVlLGozU=
 
 Вы можете найти изображение карты в следующих точках данных:
 
-- base64: `` mihome-Vacuum.0.cleanmap.map64``
+- base64: `` mihome-vac.0.cleanmap.map64``
 - PNG: `` mihome-vac.0.cleanmap.mapURL``
 
 Вы можете использовать оба изображения в качестве источника изображения в желаемой ВИС. В HTML-стиле вы можете использовать изображение следующим образом:
@@ -264,7 +267,7 @@ sendTo("mihome-vacuum.0",
 | Удалите таймер *не беспокоить* | `deleteDNDTimer` | - нет - | |
 | Получить текущую скорость вентилятора | `getFanSpeed` | - нет - | |
 | Установите новую скорость вентилятора | `setFanSpeed` | `fanSpeed` | `fanSpeed` - это число от 1 до 100 |
-| Запуск функции дистанционного управления | `startRemoteControl` | - нет - | |
+| Запустить функцию дистанционного управления | `startRemoteControl` | - нет - | |
 | Выполните команду перемещения для дистанционного управления | `move` | `velocity`, `angularVelocity`, `duration`, `sequenceNumber` | Порядковый номер должен указываться последовательно, Продолжительность в мс |
 | Завершить функцию дистанционного управления | `stopRemoteControl` | - нет - | |
 | чистая комната / комнаты | `cleanRooms` | `rooms` | `rooms` - это строка, разделенная запятыми, с enum.rooms.XXX |
@@ -280,6 +283,24 @@ sendTo("mihome-vacuum.0",
 - Виджет в то время без функции
 
 ## Changelog
+### 3.1.6 (05.05.2021)
+* minimize Disk write
+* minimized Messages 
+* changed warn Messages to debug
+* extend Debuglog to find error for e2 vacuum
+* added getStates when map is changed
+### 3.1.5 (03.05.2021)
+* try fix map error
+* Map64 chnaged. now without img tags
+* add Multimap support (get romms and map when map is changed)
+* select Multimaps
+* fix error eith zone coordinates
+* add Wifi
+* fix connection Problems
+* fix Valetudo map
+* add Mopstate
+* fix some objects
+
 ### 3.1.1 (18.4.2021)
  * Full rewrite
  * Fix map bug with multiple vacuums
@@ -404,7 +425,7 @@ sendTo("mihome-vacuum.0",
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2021 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

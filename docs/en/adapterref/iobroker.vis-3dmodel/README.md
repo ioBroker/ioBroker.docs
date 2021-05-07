@@ -30,7 +30,7 @@ See [Changelog](https://github.com/Excodibur/ioBroker.vis-3dmodel/blob/master/CH
 ## License
 MIT License
 
-Copyright (c) 2020 Excodibur
+Copyright (c) 2020-2021 Excodibur
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

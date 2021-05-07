@@ -3,10 +3,11 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker mihome-真空适配器
-hash: FaIquw6p8eo5suLeCkr2ZUWN7jvpSLsSD+qTVlLGozU=
+hash: U/aoXXnLeLYe5euziTFca/0uZlariNMUGCbRI8MYwV0=
 ---
 ![商标](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
+![贝宝捐赠](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![NPM版本](http://img.shields.io/npm/v/iobroker.mihome-vacuum.svg)
 ![资料下载](https://img.shields.io/npm/dm/iobroker.mihome-vacuum.svg)
 ![安装数量（最新）](http://iobroker.live/badges/mihome-vacuum-installed.svg)
@@ -44,6 +45,8 @@ hash: FaIquw6p8eo5suLeCkr2ZUWN7jvpSLsSD+qTVlLGozU=
 -[变更日志]（＃changelog）
 
 ##支持的设备和功能
+不支持清洁剂？ [在这里投票！](https://doodle.com/poll/8m8238ridkifua99?utm_source=poll&utm_medium=link)
+
 |设备|基本控制|历史|房间|地图|
 |:------------------    |:-------------------:      |:-------------------:  |:-------------------:|:-------------------:|
 | viomi.vacuum.v6 | ：heavy_check_mark：| ：x：|：x：| ：x：|
@@ -63,7 +66,7 @@ hash: FaIquw6p8eo5suLeCkr2ZUWN7jvpSLsSD+qTVlLGozU=
 
 ``npm ERR！ canvas@2.6.1安装：node-pre-gyp install --fallback-to-build npm ERR！退出状态1``
 
-请使用以下命令手动安装canvas和libs：``sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev``
+请使用以下命令手动安装canvas和libs：``sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev''
 
 ``sudo npm install canvas --unsafe-perm = true''
 
@@ -103,7 +106,7 @@ hash: FaIquw6p8eo5suLeCkr2ZUWN7jvpSLsSD+qTVlLGozU=
 
 -要使用地图，您必须在配置中选择valetudo或原始地图
 -请求间隔必须大于1000毫秒，这是更新html映射的间隔
--地图间隔必须超过5000毫秒，此间隔会更新png地图文件（您可以将其用于Telegram或vis或其他任何东西）
+-地图间隔必须超过5000毫秒，此间隔会更新png地图文件（您可以将其用于Telegram，Vis或其他任何东西）
 -颜色在那里，您可以为地图示例选择颜色：
 
 ```
@@ -189,7 +192,7 @@ xVal, yval
 ####计时器
 吸尘器一旦支持房间功能（见上文），就可以创建计时器，然后触发相应的房间通道或确定其mapIndexes。
 计时器可以直接通过房间和/或房间通道触发。
-计时器本身是通过config区域创建的，但随后成为数据点。在那里，每个计时器都可以被激活/关闭或跳过一次。也可以直接启动。 ioBroker计时器的优点是它们可以在VIS中显示和使用，并且您可以使机器人与互联网断开连接，因为该应用程序的计时器是从中国触发的。
+计时器本身是通过config区域创建的，但随后成为数据点。在那里，每个计时器都可以被激活/关闭或跳过一次。也可以直接启动。 ioBroker计时器的优点是可以在VIS中显示和使用它们，并且您可以使机器人与互联网断开连接，因为该应用程序的计时器是从中国触发的。
 
 ###发送您自己的命令
 注意：此功能只能由专家使用，因为错误的命令可能会损坏吸盘
@@ -205,7 +208,7 @@ xVal, yval
 |方法参数| Beschreibung |
 |-----------      |-------                                                              |-------------------                                                                                     |
 | get_timer | |返回设置的计时器设置吸气时间BSp。 5天12时30分|
-| set_timer | [[“” TIME_IN_MS“，[” 30 12 * * 1,2,3,4,5“，[” start_clean“，”“]]]] | |启用/禁用计时器 |
+| set_timer | [[“” TIME_IN_MS“，[” 30 12 * * 1,2,3,4,5“，[” start_clean“，”“]]]] | | [启用/禁用计时器 |
 | upd_timer | [“ 1481997713308”，“打开/关闭”] | |
 | | |拯救“请勿打扰”的时代 |
 | get_dnd_timer | |删除免打扰时间|
@@ -280,6 +283,24 @@ sendTo("mihome-vacuum.0",
 -当时没有功能的小部件
 
 ## Changelog
+### 3.1.6 (05.05.2021)
+* minimize Disk write
+* minimized Messages 
+* changed warn Messages to debug
+* extend Debuglog to find error for e2 vacuum
+* added getStates when map is changed
+### 3.1.5 (03.05.2021)
+* try fix map error
+* Map64 chnaged. now without img tags
+* add Multimap support (get romms and map when map is changed)
+* select Multimaps
+* fix error eith zone coordinates
+* add Wifi
+* fix connection Problems
+* fix Valetudo map
+* add Mopstate
+* fix some objects
+
 ### 3.1.1 (18.4.2021)
  * Full rewrite
  * Fix map bug with multiple vacuums
@@ -404,7 +425,7 @@ sendTo("mihome-vacuum.0",
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2021 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

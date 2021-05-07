@@ -1,9 +1,7 @@
 ---
 BADGE-Number of Installations: http://iobroker.live/badges/mqtt-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.mqtt.svg
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.mqtt.svg
-BADGE-Tests: https://travis-ci.org/ioBroker/ioBroker.mqtt.svg?branch=master
-BADGE-NPM: https://nodei.co/npm/iobroker.mqtt.png?downloads=true
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.meross.svg
 ---
 ![](MQTT)
 ## MQTT Broker и клиент
@@ -748,6 +746,12 @@ void loop() {
 получать от нее данные через облачный сервис!
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) only remember messages for this client id and not from others
+* (Apollon77) do not remember last will and only process internally
+* (Apollon77) on "disconnect" message do not send last will as specified
+* (foxriver76) prevent errors in js-controller 3.3 and detect datatype changes for objects
 
 ### 2.3.5 (2021-02-27)
 * (Apollon77) js-controller 2.0 is now required at least

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fahrplan/README.md
 title: ioBroker.fahrplan
-hash: GWsU7BbGjTvlvQnERDAQlzFxtmNflVVqO1gilez5GBI=
+hash: s9SQ+G/1sCPvJhE6taLGgoHSlqIFoJgRT01FtTRcK7I=
 ---
 ![Logo](../../../en/adapterref/iobroker.fahrplan/admin/fahrplan.png)
 
@@ -25,10 +25,10 @@ Der Zugriff auf HAFAS gehört hierbei über [HAFAS-Client](https://github.com/pu
 Der Adapter Nord hierbei drei Funktionen:
 
 #### Fahrplan für Verbindungen (Routen)
-Die einzelnen Routen müssen in der Adapterkonfiguration behandelt und werden werden.
+Die einzelnen Routen müssen in der Adapterkonfiguration behandelt und überprüft werden.
 Über einen konfigurierbaren Intervall ruft den Adapter dann führt die Verbindungsinformationen ab.
 Die letzten drei Verbindungen werden als HTML und optional auch detailliert als Objekte in ioBroker Darstellung.
-Das HTML-Objekt kann einfach in VIS verwendetunden werden.
+Das HTML-Objekt kann einfach in VIS verbundenunden werden.
 
 #### Beanspruchung bei Verspätungen der Routen
 Für die konfigurierten Routen kann ein Verspätungsalarm werden werden. So kann eine bestimmte Ablehnung per Telegramm oder Alexa Vertretung, fällt alle oder eine persönliche Verbindung verspätet ist.
@@ -37,7 +37,7 @@ Für die konfigurierten Routen kann ein Verspätungsalarm werden werden. So kann
 Viele Nord der Adapter eine Abfahrtstafel für konfigurierte Stationen.
 Hierbei werden die verschiedenen drei Abfahrten einer Station behandelt und als Objekte und HTML angezeigt.
 
-** Dieser Adapter verwendet die Sentry Bibliotheken um sich Abstrakt und Programmfehler und die Entwickler zu überstehen. ** Weitere Details und für Informationen zur Deaktivierung der Fehlerberichterstattung in der [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab JS-Controller 3.0 verwendet.
+** Dieser Adapter verwendet die Sentry Bibliotheken um sich Abstrakt und Programmfehler und die Entwickler zu überentwickeln. ** Weitere Details und für Informationen zur Deaktivierung der Fehlerberichterstattung in der [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab JS-Controller 3.0 verwendet.
 
 ### Englisch
 Dieser Adapter für ioBroker verwendet die mobile API von HAFAS. HAFAS ist ein Managementsystem für den öffentlichen Verkehr, das von Anbietern öffentlicher Verkehrsmittel in ganz Europa verwendet wird, z. Deutsche Bahn.
@@ -62,16 +62,16 @@ Hier werden die nächsten drei Verbindungen wiederbelebt und als Objekte und HTM
 
 ## Konfiguration
 ### Deutsch
-Die Start- und Zielorte sowie Zwischenziele müssen mit ihren numerischen ID werden.
+Die Start- und Zielorte sowie Zwischenziele müssen mit ihren numerischen IDs werden.
 Eine solche Funktion ist im Tab Einstellungen.
 
 #### Tab Einstellungen
 ![](../../../en/adapterref/iobroker.fahrplan/docs/de/img/settings.png)
 
-| Einstellung | Beschreibung | ------------------------------ | --- | Angebote | Auswahl des zu gehörenenden Vertretern, aktuelle DB, ÖBB und SBB | Aktualisierungsintervall | Intervall in dem die Route aktualisiert werden, Angabe in Minuten | Verspätet entfernen ab | Verspätung in Minuten ab der Verbindung als verspätet wird wird. Standardmäßig werden nur Verspätungen ab zwei Minuten HTML-Ansicht zeigt | Ertritt pro Route eine konfigurierbare HTML-Tabelle in einem Objekt | Detailierte Objekte erhalten | Konfiguration der Interessengebenden Objekte | JSON-Elemente speichern | Die Rückgabe von HAFAS gehört als JSON, diese werden zur Fehlerbehebung werden
+| Einstellung | Beschreibung | ------------------------------ | --- | Angebote | Auswahl des zu gehörenenden Empfängers, aktuelle DB, ÖBB und SBB | Aktualisierungsintervall | Intervall in dem die Route aktualisiert werden, Angabe in Minuten | Verspätet entfernen ab | Verspätung in Minuten ab der Verbindung als verspätet wird wird. Standardmäßig werden nur Verspätungen ab zwei Minuten HTML-Ansicht zeigt | Ertritt pro Route eine konfigurierbare HTML-Tabelle in einem Objekt | Detailierte Objekte erhalten | Konfiguration der Interessengebenden Objekte | JSON-Elemente speichern | Die Rückgabe von HAFAS gehört als JSON, diese werden zur Fehlerbehebung werden
 
-Auf der rechten Seite ist die Suchfunktion gehört. Dies muss ein persönliches Aussehen werden.
-Nach kann über das Suchfeld und die Suche nach einer Station gesucht werden.
+Auf der rechten Seite ist die Suchfunktion gehört. Dies muss ein Gespräch gehört werden.
+Die Suche nach dem Suchfeld und der Suche nach einer Station wurde nach einer Station gesucht.
 Die Suchenden der neuen Suche werden in der Tabelle aufgeführt.
 
 #### Tab Routen
@@ -79,17 +79,17 @@ Die Suchenden der neuen Suche werden in der Tabelle aufgeführt.
 
 Mit dem + -Button können neue Einträge zur Tabelle hinzugefügt werden.
 
-| Einstellung | Beschreibung | ----------------------------- | --- | Nr | Die Nummer gehört dem Unterknoten in den Besitz und wird in die Lage genommen.
+| Einstellung | Beschreibung | ----------------------------- | --- | Nr | Die Nummer gehört dem Unterknoten in den Besitz und wird zu Recht gehört.
 | Aktiv | Wenn die Route zuständig ist, werden die Verbindungsinfos aktualisiert | Von | Numerische ID von Startbahnhof oder Starthaltestelle | Von (Eigenername) | Benutzerdefinierter Name von Startbahnhof oder Starthaltestelle, für HTML- und Verspätungstext verwendet | Nach | Numerische ID von Zielbahnhof oder Zielhaltestelle | Nach (Eigenername) | Benutzerdefinierter Name von Zielbahnhof oder Zielhaltestelle, für HTML- und Verspätungstext verwendet | Über 1 | Fahrt über den gleichen Ort als numerische ID (optional, sonst leer) | Über 2 | Fahrt über den gleichen Ort als numerische ID (optional, sonst leer) | Verkehrsmittel | Auswahl des Verkehrsmittels, z.B. Bus, S-Bahn, usw. Standardmäßig werden alle Verkehrsmittelwechsel | Max. Umstiege | Maximale Anzahl an Umstiegen. 0 für nur direkter Verbindungen.
-| Abfahrten | Anzahl abserder Fahrten | Fahrradmitnahme | Nur Verbindungen mit Fahrradmitnahme treten
+| Abfahrten | Anzahl abserder Fahrten | Fahrradmitnahme | Nur Verbindungen mit Fahrradmitnahme Zeitversatz | Abfahrtszeit: 0 = Jetzt, sonst n Minuten = Jetzt plus n Minuten
 
 #### Tab Verspätungsalarm
 ![](../../../en/adapterref/iobroker.fahrplan/docs/de/img/settings_delaynotification.png)
 
 Mit dem + -Button können neue Einträge zur Tabelle hinzugefügt werden.
 
-| Einstellung | Beschreibung | ----------------------------- | --- | Nr | Die Nummer gehört dem Unterknoten in den Besitz und wird in die Lage genommen.
-| Aktiv | Wenn der Verspätungsalarm Bescheid wird wird diese Aufgaben | Route | Route auf die sich des Alarms soll soll | Geplante Abfahrt | Geplante Abfahrtszeit der zu prüfenden Route | Wochentag | Wochentage an die die Befragung soll | Entsprechenigung in Minuten | Anzahl der Minuten vor der Abfahrt, in den folgendenigt werden soll | Objekt für Ausgabetext | Angabe eines bekannten Objekts
+| Einstellung | Beschreibung | ----------------------------- | --- | Nr | Die Nummer gehört dem Unterknoten in den Besitz und wird zu Recht gehört.
+| Aktiv | Wenn der Verspätungsalarm-Vertrag ist wird dieser Aufgaben | Route | Route auf die sich des Alarms soll soll | Geplante Abfahrt | Geplante Abfahrtszeit der zu prüfenden Route | Wochentag | Wochentage an die die Befragung soll | Schuldigung in Minuten | Anzahl der Minuten vor der Abfahrt, in den folgendenigt werden soll | Objekt für Ausgabetext | Angabe eines bekannten Objekts
 
 Hinweis zum Ausgabetext: Hier kann neben dem eigenen Kontakt für VIS z.B. auch das "sprechen" -Objekt des Alexa-Adapters oder das "reponse" -Objekt des Telegramm-Adapters werden werden.
 
@@ -98,8 +98,8 @@ Hinweis zum Ausgabetext: Hier kann neben dem eigenen Kontakt für VIS z.B. auch 
 
 Mit dem + -Button können neue Einträge zur Tabelle hinzugefügt werden.
 
-| Einstellung | Beschreibung | ----------------------------- | --- | Nr | Die Nummer gehört dem Unterknoten in den Besitz und wird in die Lage genommen.
-| Aktiv | Wenn der nachtragungsberechtigt ist, wird dieser nachlassen | Von | Numerische ID von Startbahnhof oder Starthaltestelle | Von (Eigenername) | Benutzerdefinierter Name von Startbahnhof oder Starthaltestelle, für HTML-Ausgabe verwendet | Abfahrten | Anzahl abserder Abfahrten | Verkehrsmittel | Auswahl des Verkehrsmittels, z.B. Bus, S-Bahn, usw. Standardmäßig werden alle Verkehrsmittelwechsel
+| Einstellung | Beschreibung | ----------------------------- | --- | Nr | Die Nummer gehört dem Unterknoten in den Besitz und wird zu Recht gehört.
+| Aktiv | Wenn der nachtragungsberechtigt ist, wird dieser nachlassen | Von | Numerische ID von Startbahnhof oder Starthaltestelle | Von (Eigenername) | Benutzerdefinierter Name von Startbahnhof oder Starthaltestelle, für HTML-Ausgabe verwendet | Abfahrten | Anzahl abserder Abfahrten | Verkehrsmittel | Auswahl des Verkehrsmittels, z.B. Bus, S-Bahn, usw. Standardmäßig werden alle Verkehrsmittelwechsel | Zeitversatz | Abfahrtszeit: 0 = Jetzt, sonst n Minuten = Jetzt plus n Minuten
 
 ### Englisch
 Start und Ziel sowie Zwischenstopps müssen mit einer numerischen ID gekennzeichnet sein.
@@ -115,7 +115,7 @@ Die Suchfunktion für diese IDs ist in die Registerkarteneinstellungen integrier
 
 Mit der + -Taste können neue Einträge zur Tabelle hinzugefügt werden.
 
-| Einstellung | Beschreibung | ----------------------------- | --- | Nr | Die Nummer stimmt mit dem Unterknoten in Objekten überein und wird automatisch zugewiesen Aktiv | Die Verbindungsinformationen werden aktualisiert, wenn die Route aktiviert ist Von | Numerische ID der Startstation oder des Startstopps | Von (Benutzerdefinierter Name) | Benutzerdefinierter Name für Startstation oder Startstopp, der in der HTML- und Verzögerungsbenachrichtigungsausgabe verwendet wird Zu | Numerische ID der Zielstation oder Zielhaltestelle | Von (Benutzerdefinierter Name) | Benutzerdefinierter Name für Zielstation oder Zielstopp, der in der HTML- und Verzögerungsbenachrichtigungsausgabe verwendet wird Über 1 | Fahren Sie als numerische ID über eine spezielle Station (optional, standardmäßig leer) Über 2 | Fahren Sie als numerische ID über eine spezielle Station (optional, standardmäßig leer) Fahrzeug | Auswahl des Fahrzeugs, z.B. Bus, S-Bahn usw. Standardmäßig sind alle Fahrzeuge ausgewählt Max. Übertragungen | Maximale Übertragungen auf der Route, 0 nur für direkte Verbindungen | Abfahrten | Anzahl der zu empfangenden Abfahrten Bycicle | Wählen Sie nur Verbindungen aus, bei denen Fahrzeuge zulässig sind
+| Einstellung | Beschreibung | ----------------------------- | --- | Nr | Die Nummer stimmt mit dem Unterknoten in Objekten überein und wird automatisch zugewiesen Aktiv | Die Verbindungsinformationen werden aktualisiert, wenn die Route aktiviert ist Von | Numerische ID der Startstation oder des Startstopps | Von (Benutzerdefinierter Name) | Benutzerdefinierter Name für Startstation oder Startstopp, der in der Ausgabe von HTML- und Verzögerungsbenachrichtigungen verwendet wird Zu | Numerische ID der Zielstation oder Zielhaltestelle | Von (Benutzerdefinierter Name) | Benutzerdefinierter Name für Zielstation oder Zielstopp, der in der Ausgabe von HTML- und Verzögerungsbenachrichtigungen verwendet wird Über 1 | Fahren Sie als numerische ID über eine spezielle Station (optional, standardmäßig leer) Über 2 | Fahren Sie als numerische ID über eine spezielle Station (optional, standardmäßig leer) Fahrzeug | Auswahl des Fahrzeugs, z.B. Bus, S-Bahn usw. Standardmäßig sind alle Fahrzeuge ausgewählt Max. Übertragungen | Maximale Übertragungen auf der Route, 0 nur für direkte Verbindungen | Abfahrten | Anzahl der zu empfangenden Abfahrten Bycicle | Wählen Sie nur Verbindungen aus, bei denen Fahrzeuge zulässig sind Zeitversatz | Abfahrtszeit: 0 = jetzt, sonst n Minuten = jetzt plus n Minuten
 
 #### Tab Verzögerungsalarm
 ![](../../../en/adapterref/iobroker.fahrplan/docs/en/img/settings_delaynotification.png)
@@ -131,7 +131,7 @@ Hinweis für "Objekt für Ausgabetext": Es können einfache Zustände für die V
 
 Mit der + -Taste können neue Einträge zur Tabelle hinzugefügt werden.
 
-| Einstellung | Beschreibung | ----------------------------- | --- | Nr | Die Nummer stimmt mit dem Unterknoten in Objekten überein und wird automatisch zugewiesen Aktiv | Die Verbindungsinformationen werden aktualisiert, wenn das Element aktiviert ist Von | Numerische ID der Startstation oder des Startstopps | Von (Benutzerdefinierter Name) | Benutzerdefinierter Name für Startstation oder Startstopp, der in der HTML- und Verzögerungsbenachrichtigungsausgabe verwendet wird Abfahrten | Anzahl der zu empfangenden Abfahrten Fahrzeug | Auswahl des Fahrzeugs, z.B. Bus, S-Bahn usw. Standardmäßig sind alle Fahrzeuge ausgewählt
+| Einstellung | Beschreibung | ----------------------------- | --- | Nr | Die Nummer stimmt mit dem Unterknoten in Objekten überein und wird automatisch zugewiesen Aktiv | Die Verbindungsinformationen werden aktualisiert, wenn das Element aktiviert ist Von | Numerische ID der Startstation oder des Startstopps | Von (Benutzerdefinierter Name) | Benutzerdefinierter Name für Startstation oder Startstopp, der in der Ausgabe von HTML- und Verzögerungsbenachrichtigungen verwendet wird Abfahrten | Anzahl der zu empfangenden Abfahrten Fahrzeug | Auswahl des Fahrzeugs, z.B. Bus, S-Bahn usw. Standardmäßig sind alle Fahrzeuge ausgewählt Zeitversatz | Abfahrtszeit: 0 = jetzt, sonst n Minuten = jetzt plus n Minuten
 
 ## Changelog
 
@@ -141,8 +141,15 @@ Mit der + -Taste können neue Einträge zur Tabelle hinzugefügt werden.
 -->
 
 ### __WORK IN PROGRESS__
+* (Gaudes) Time offset for routes and departure tables (Git #88)
+* (Gaudes) Check if unloaded before writing/deleting objects (Sentry #7)
+* (Gaudes) Include Dependabot updates
+
+### 1.0.7 (2021-04-06)
+* (Gaudes) Update HAFAS client to 5.15.2 (Fix error 'invalid json response body' with OEBB profile)
 * (Gaudes) Configurable colors for delays and on time
 * (Gaudes) Prepare for WebLate translations
+* (Gaudes) Include Dependabot updates
 
 ### 1.0.6 (2021-03-16)
 * (Gaudes) Fix route selection in delay config
@@ -166,15 +173,10 @@ Mit der + -Taste können neue Einträge zur Tabelle hinzugefügt werden.
 * (Gaudes) Fix call of helper for correct counters
 * (Gaudes) Include Dependabot updates
 
-### 1.0.2 (2021-01-12)
-* (Gaudes) Configurable Headline for HTML tables
-* (Gaudes) Fix correct deletion of unneeded objects (Sentry)
-* (Gaudes) Include Dependabot updates
-
 ## License
 MIT License
 
-Copyright (c) 2020 Ralf Gaudes <ralf@gaudes.net>
+Copyright (c) 2021 Ralf Gaudes <ralf@gaudes.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shuttercontrol/README.md
 title: ioBroker.shuttercontrol
-hash: ZNQY7H9D/tC0wLr+J6jPF4jUN+5924R5t+G925Ji8fE=
+hash: sTiQ6F824iVt6KOfi7vdk/mhnWHCfuilSlxUzWd1QUE=
 ---
 ![商标](../../../en/adapterref/iobroker.shuttercontrol/admin/shuttercontrol.png)
 
@@ -16,7 +16,9 @@ hash: ZNQY7H9D/tC0wLr+J6jPF4jUN+5924R5t+G925Ji8fE=
 ![NPM](https://nodei.co/npm/iobroker.shuttercontrol.png?downloads=true)
 
 ＃ioBroker.shuttercontrol
-该适配器使用服务Sentry.io向开发人员自动向我报告异常和代码错误以及新设备架构。详情请见下文！
+![测试与发布](https://github.com/simatec/ioBroker.shuttercontrol/workflows/Test%20and%20Release/badge.svg)
+
+该适配器使用服务Sentry.io向开发人员自动向我报告异常和代码错误以及新设备架构。更多详细信息请参见下文！
 
 **如果您愿意，请考虑捐赠：**
 
@@ -34,24 +36,170 @@ hash: ZNQY7H9D/tC0wLr+J6jPF4jUN+5924R5t+G925Ji8fE=
 ###什么是Sentry.io，什么报告给该公司的服务器？
 Sentry.io是一项服务，供开发人员从其应用程序中获取有关错误的概述。确切地说，这是在此适配器中实现的。
 
-当适配器崩溃或发生其他代码错误时，此错误消息（也出现在ioBroker日志中）将提交给Sentry。当您允许iobroker GmbH收集诊断数据时，还将包括您的安装ID（这是唯一的ID，**没有**有关您的任何其他信息，电子邮件，姓名等）。这使Sentry可以对错误进行分组，并显示有多少唯一用户受此错误影响。所有这些都帮助我提供了基本不会崩溃的无错误适配器。
+当适配器崩溃或发生其他代码错误时，此错误消息（也出现在ioBroker日志中）将提交给Sentry。当您允许iobroker GmbH收集诊断数据时，还将包括您的安装ID（这是唯一的ID，**没有**有关您的任何其他信息，电子邮件，姓名等）。这使Sentry可以对错误进行分组，并显示有多少唯一用户受此错误影响。所有这些都帮助我提供了基本上不会崩溃的无错误适配器。
 
 *************************************************************************************************************************************
 
 ## Changelog
 
-### 0.6.0 (xx.05.2020)
+### 1.2.0 (2021-05-04)
+* (simatec) new Feature shutterSettings added
+* (simatec) new Feature brightness sensor for opening added
+* (simatec) new Feature brightness sensor for closing added
+* (simatec) new Feature schoolfree adapter added
+* (simatec) new Feature middle position added
+* (simatec) new Feature Xmas position added
+* (simatec) Bugfix
+* (simatec) DEPENDENCIES updated
+* (simatec) Dev-DEPENDENCIES updated
+* (simatec) timeout settings for shutterstatus added
+
+### 1.1.5 (2021-01-22)
+* (simatec) BugFix io-package
+* (simatec) Source code structure changed
+* (FoxRo) new Feature "trigger delay"
+* (FoxRo) Bugfix for trigger
+
+### 1.1.4 (2021-01-22)
+* (simatec) BugFix Log
+* (simatec) DEPENDENCIES updated
+* (simatec) Dev-DEPENDENCIES updated
+
+### 1.1.3 (2021-01-21)
+* (simatec) small fix for objects
+
+### 1.1.2 (2021-01-18)
+* (simatec) small fix for holiday state
+
+### 1.1.1 (2021-01-04)
+* (René) bug fix xmas time
+* (simatec) copy function for shutter-table added
+
+### 1.1.0 (2020-12-08)
+* (simatec) GUI redesign
+* (simatec) Intermediate position added for closing
+
+### 1.0.5 (2020-12-05)
+* (Rene) fix xMas Time
+
+### 1.0.4 (2020-10-28)
+* (simatec) fix summertime for childrenarea
+
+### 1.0.3 (2020-10-28)
+* (René) bug fix: calculation IsSummerTime
+* (René) bug fix: use weekend down time already on friday instead of sunday
+* (René) handling of shutters in xmas time added
+* (FredF63) documentation updated
+* (FredF63) words.js updated
+* (simatec) some Bugfixes
+
+### 1.0.2 (2020-10-08)
+* (simatec) fix uptime for childrenarea
+
+### 1.0.1 (2020-10-06)
+* (simatec) Adjustment of the configuration menu
+* (simatec) time settings for the children's area added
+* (simatec) button for closing the children's area added
+* (simatec) button for opening the children's area added
+* (simatec) button for sun protection of the children's area added
+
+### 1.0.0 (2020-09-28)
+* (simatec) some Bugfixes
+* (simatec) code cleaning
+* (simatec) DEPENDENCIES updated
+* (simatec) Dev-DEPENDENCIES updated
+* (FoxRo) Added buttons for Sunprotect Living and Sunprotect Sleep
+* (FoxRo) Included Living-Auto and Sleep-Auto in Buttons for Open/Close Sleep and Living
+* (FoxRo) KeepSunprotect added
+* (FoxRo) Drive after close added
+* (FoxRo) Extend status handling
+
+### 0.8.7 (2020-09-22)
+* (simatec) small Bugfix for weekend
+
+### 0.8.6 (2020-08-21)
+* (simatec) small Bugfixes trigger
+
+### 0.8.5 (2020-08-03)
+* (simatec) small Bugfixes
+* (5G7K) bugfixes trigger
+* (FredF63) new german doku
+
+### 0.8.4 (2020-07-17)
+* (simatec) small Bugfixes
+* (5G7K) debug log changed
+* (simatec) Dependencies updated
+* (MeisterTR) Time left to detect second sleep
+
+### 0.8.3 (2020-07-07)
+* (simatec) Bugfix IsSummerTime
+* (simatec) Bugfix shutter convert
+
+### 0.8.2 (2020-07-06)
+* (simatec) small Bugfixs
+* (simatec) Buttons for sunprotect operation added
+
+### 0.8.1 (2020-07-03)
+* (simatec) Bugfix shutterstates
+* (simatec) support for KNX
+
+### 0.8.0 (2020-07-02)
+* (simatec) added state for current shutter Action
+* (simatec) added state for current shutter Level
+* (simatec) added Indicator for manual operation in the states
+* (simatec) code cleanup
+* (simatec) complete new structure of the code
+* (simatec) Buttons for manual opening and closing operation added
+* (simatec) Display in the States if the shutter was moved manually
+* (5G7K) Bug fix sunprotect
+
+### 0.7.3 (2020-06-29)
+* (simatec) errorhandling for sentry.io
+* (simatec) bugfixes
+* (simatec) cancel all schedule by unload
+* (rg-engineering) bug fix and documentation
+
+### 0.7.2 (2020-06-26)
+* (simatec) Bugfix sunprotect for outsidetemp
+* (simatec) better translation for all languages
+* (simatec) better overview in the user interface
+
+### 0.7.1 (2020-06-24)
+* (simatec) small bugfixes
+* (simatec) errorhandling for sentry.io
+
+### 0.7.0 (2020-06-23)
+* (rg-engineering) better (userfriendly) check for adjustable times
+* (rg-engineering) datapoint for Holiday incl. internal check and handling
+* (rg-engineering) late all down added 
+* (5G7K) Extended sun protection
+* (simatec) edited User Menu for Timesettings
+* (simatec) Bugfix Lightvalue to 20.000 Lux
+* (simatec) added better German Translation
+
+### 0.6.2 (18.05.2020)
+* (simatec) errorhandling for sentry.io
+* (simatec) Bugfix getState
+
+### 0.6.1 (11.05.2020)
+* (simatec) bugfix index_m.html
+
+### 0.6.0 (10.05.2020)
 * (simatec) added sentry.io
-* (simatec) Added node Support
+* (simatec) added node 14 Support
+* (simatec) many small Bugfixes
 * (simatec) node 8 support removed
 * (5G7K) added new feature for sunprotect
-* (5G7K) Added more debug logs
+* (5G7K) added more debug logs
 
 ### 0.5.1 (15.04.2020)
 * (simatec) Bugfix for Adapter checker
 * (simatec) Added more debug logs
 * (simatec) Added node Support
 * (simatec) node 8 support removed
+* (Rene) late all down added
+* (Rene) late all down configurable per shutter
+* (Rene) in summer time not to move down (configurable)
 
 ### 0.5.0 (06.04.2020)
 * (simatec) Bugfix Goldenhour
@@ -182,7 +330,7 @@ Sentry.io是一项服务，供开发人员从其应用程序中获取有关错�
 ## License
 MIT License
 
-Copyright (c) 2019 - 2020 simatec
+Copyright (c) 2019 - 2021 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

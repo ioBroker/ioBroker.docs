@@ -102,6 +102,7 @@ Mit dem +-Button können neue Einträge zur Tabelle hinzugefügt werden.
 | Max. Umstiege               | Maximale Anzahl an Umstiegen. 0 für nur direkte Verbindungen.
 | Abfahrten                   | Anzahl abzurufender Fahrten
 | Fahrradmitnahme             | Nur Verbindungen mit Fahrradmitnahme auswählen
+| Zeit-Offset                 | Abfahrtszeit: 0 = Jetzt, sonst n Minuten = Jetzt plus n Minuten
 
 #### Tab Verspätungsalarm
 
@@ -135,6 +136,7 @@ Mit dem +-Button können neue Einträge zur Tabelle hinzugefügt werden.
 | Von (Eigener Name)          | Benutzerdefinierter Name von Startbahnhof oder Starthaltestelle, für HTML-Ausgabe verwendet
 | Abfahrten                   | Anzahl abzurufender Abfahrten
 | Verkehrsmittel              | Auswahl des Verkehrsmittels, z.B. Bus, S-Bahn, usw. Standardmäßig werden alle Verkehrsmittel ausgewählt
+| Zeit-Offset                 | Abfahrtszeit: 0 = Jetzt, sonst n Minuten = Jetzt plus n Minuten
 
 ### English
 
@@ -174,6 +176,7 @@ With +-Button new entries can be added to the table.
 | Max. transfers              | Maximum transfers on route, 0 for direct connections only
 | Departures                  | Number of departures to receive
 | Bycicle                     | Select only connections where bycicles allowed
+| Time Offset                 | Departure Time: 0 = now, otherwise n minutes = now plus n minutes
 
 #### Tab Delay alarm
 
@@ -207,6 +210,7 @@ With +-Button new entries can be added to the table.
 | From (Custom name)          | Custom name for start station oder start stop, used in HTML- and delay notification output
 | Departures                  | Number of departures to receive
 | Vehicle                     | Selection of vehicle, e.g. Bus, S-Bahn, etc. Per default all vehicles are selected
+| Time Offset                 | Departure Time: 0 = now, otherwise n minutes = now plus n minutes
 
 ## Changelog
 
@@ -216,7 +220,9 @@ With +-Button new entries can be added to the table.
 -->
 
 ### __WORK IN PROGRESS__
+* (Gaudes) Time offset for routes and departure tables (Git #88)
 * (Gaudes) Check if unloaded before writing/deleting objects (Sentry #7)
+* (Gaudes) Include Dependabot updates
 
 ### 1.0.7 (2021-04-06)
 * (Gaudes) Update HAFAS client to 5.15.2 (Fix error 'invalid json response body' with OEBB profile)
@@ -249,7 +255,7 @@ With +-Button new entries can be added to the table.
 ## License
 MIT License
 
-Copyright (c) 2020 Ralf Gaudes <ralf@gaudes.net>
+Copyright (c) 2021 Ralf Gaudes <ralf@gaudes.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
