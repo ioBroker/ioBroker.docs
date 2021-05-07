@@ -26,7 +26,7 @@ die Integration einer selbst erstellten Lösung - ioBroker macht fast alles mög
    Artikel oder für Verbesserungen dankbar. Informationen dazu gibt
    es [im Forum][].
    <br><br>
-   **Bis alle Inhalte übernommen wurden, ist die alte Dokumentation noch [hier zu finden].
+   **Bis alle Inhalte übernommen wurden, ist die alte Dokumentation noch [hier zu finden][].
    Sie wird sukzessive durch die neue Dokumentation ersetzt.**
 
 
