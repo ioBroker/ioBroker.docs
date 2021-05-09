@@ -99,4 +99,4 @@ Dokumentation zu verbessern!
 [Adapter-Referenz]: https://www.iobroker.net/#de/adapters
 [Logik & Automatisierung]: https://www.iobroker.net/#de/documentation/logic/examples.md
 [Developer Bereich]: https://www.iobroker.net/#de/documentation/dev/adapterdev.md
-[helfen Sie uns dabei]: hhttps://forum.iobroker.net/viewtopic.php?f=8&t=16933
+[helfen Sie uns dabei]: https://forum.iobroker.net/viewtopic.php?f=8&t=16933
