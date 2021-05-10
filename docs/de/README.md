@@ -5,7 +5,7 @@ lastChanged: "02.05.2020"
 # Willkommen bei ioBroker
 !> **Hinweis für Einsteiger**  
     Sollten beim Lesen dieser ersten Worte schon zu viele unbekannten Begriffe
-    verwendet worden sein, werden diese nochmals auf der Seite [Grundlagen][]
+    verwendet worden sein, werden diese nochmals auf der Seite [Grundlagen](https://www.iobroker.net/#de/documentation/basics/README.md)
     ausführlich erklärt.
 
 ioBroker ist eine Softwarelösung um verschiedene Smarthome-Systeme, die ohne
@@ -13,7 +13,7 @@ ioBroker Insellösungen bleiben würden, in einem Gesamtsystem zu integrieren.
 
 ioBroker ist daher **die** Integrationsplattform für das Internet der Dinge.
 
-Ein ioBroker-System ist modular aufgebaut. Eine Vielzahl von [Adaptern][] ermöglicht
+Ein ioBroker-System ist modular aufgebaut. Eine Vielzahl von [Adaptern](http://download.iobroker.net/list.html) ermöglicht
 die Kommunikation mit über 400 verschiedenen Plattformen von A wie Alexa bis Z
 wie Z-Wave.  
 
@@ -24,9 +24,9 @@ die Integration einer selbst erstellten Lösung - ioBroker macht fast alles mög
    Daher kann es vorkommen, dass Links noch nicht funktionieren oder
    Inhalte fehlen. Wir sind für jede Hilfe bei der Erstellung neuer
    Artikel oder für Verbesserungen dankbar. Informationen dazu gibt
-   es [im Forum][].
+   es [im Forum](https://forum.iobroker.net/viewtopic.php?f=8&t=16933).
    <br><br>
-   **Bis alle Inhalte übernommen wurden, ist die alte Dokumentation noch [hier zu finden][].
+   **Bis alle Inhalte übernommen wurden, ist die alte Dokumentation noch [hier zu finden](https://www.iobroker.net/docu/).
    Sie wird sukzessive durch die neue Dokumentation ersetzt.**
 
 
@@ -95,9 +95,9 @@ HabPanel-Adapter schnell realisiert werden.
 ## Community
 Seit 2014 hat sich ioBroker aufgrund seiner vielen Vorzüge eine breite 
 Unterstützung von tausenden Anwendern und Entwicklern gesichert. Im eigens 
-eingerichteten [Forum][] treffen sich Anwender und Entwickler und tauschen dort ihre 
+eingerichteten [Forum](https://forum.iobroker.net) treffen sich Anwender und Entwickler und tauschen dort ihre 
 Erfahrungen und Anregungen miteinander aus. Da ioBroker Open Source-Software ist, 
-stehen alle Quelltexte auf der Plattform [GitHub][] 
+stehen alle Quelltexte auf der Plattform [GitHub](https://github.com/ioBroker) 
 zur freien Verfügung. 
 
 ?> Was ioBroker nicht ist: 
