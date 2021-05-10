@@ -47,7 +47,7 @@ A small excerpt just of the command options:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Arthur Rupp <arteck@outlook.com>
+Copyright (c) 2018-2021 Arthur Rupp <arteck@outlook.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

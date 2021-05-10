@@ -3,23 +3,23 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.simple-api/README.md
 title: Simple-api
-hash: CmFb3bicG5lruCvSom8AvKW7IIT9XQ2XllE+tsP92ys=
+hash: XBgw/uh1wA9PMCoE5ptG0L6MJ7HAYknrnmMUR6Ohk+M=
 ---
 ![Логотип](../../../en/adapterref/iobroker.simple-api/admin/simple-api.png)
 
 ![Количество установок](http://iobroker.live/badges/simple-api-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.simple-api.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.simple-api.svg)
-![Тесты](https://travis-ci.org/ioBroker/ioBroker.simple-api.svg?branch=master)
-![НПМ](https://nodei.co/npm/iobroker.simple-api.png?downloads=true)
 
 # Simple-api
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.simple-api/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/simple-api/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 Это интерфейс RESTFul для чтения объектов и состояний из ioBroker и для записи / управления состояниями через HTTP-запросы Get / Post.
 
 ** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
 ## Применение
-Позвоните в браузере ```http://ipaddress:8087/help```, чтобы получить помощь по API. Результат:
+Позвоните в браузер ```http://ipaddress:8087/help```, чтобы получить помощь по API. Результат:
 
 ```
 {
@@ -53,7 +53,7 @@ http://ipaddress:8087/getPlainValue/system.adapter.admin.0.alive
 true
 ```
 
-### Получить
+### Получать
 Звоните, например:
 
 ```
@@ -138,7 +138,7 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&type=string
 http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 ```
 
-### Переключить
+### Переключать
     переключает значение:
 
 - логическое: true => false, false => true
@@ -162,14 +162,14 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 Если был указан источник данных (History, SQL), данные из указанных точек данных считываются за указанный период, в противном случае считывается только текущее значение.
 Эта команда необходима для подключаемого модуля Grafana JSON / SimpleJSON.
 
-### Помогите
+### Помощь
 Возвращает вывод [это](#usage)
 
 ## Установить
 ```node iobroker.js add simple-api```
 
 ## Применение
-Предположим, у нас нет безопасности, и сервер работает на порту по умолчанию 8087.
+Предположим, у нас нет безопасности, и сервер работает на порте по умолчанию 8087.
 
 Для всех запросов можно указать имя или идентификатор состояния.
 
@@ -186,7 +186,7 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 
 <pre>http:// ip: 8087 / getPlainValue / admin.0.memHeapTotal, admin.0.memHeapUsed</pre><pre> 31,19 17,52</pre>
 
-### Получить
+### Получать
 Считывать состояние и данные объекта состояния как json. Вы можете указать несколько идентификаторов, разделенных точкой с запятой.
 Если запрошено более одного идентификатора, будет возвращен массив JSON.
 
@@ -211,10 +211,10 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 
 <pre>http:// ip: 8087 / set / hm-rpc.0.IEQ12345.LEVEL? value = 1 &amp; wait = 5000 &amp; prettyPrint</pre><pre> {&quot;val&quot;: 1, &quot;ack&quot;: true, &quot;ts&quot;: 1423155399, &quot;from&quot;: &quot;hm-rpc.0.IEQ12345.LEVEL&quot;, &quot;lc&quot;: 1423155399}</pre>
 
-Если в указанное время не будет получен ответ, будет возвращено значение *null* В первом случае ответ будет возвращен немедленно и *ack* будет ложным. Во втором случае верно *ack* Значит, это был ответ водителя.
+Если в указанное время не будет получен ответ, будет возвращено значение *null* В первом случае ответ будет возвращен сразу и *ack* будет ложным. Во втором случае верно *ack* Значит, это был ответ водителя.
 
 ### SetBulk
-- записать множество идентификаторов за один запрос.
+- записать множество идентификаторов в одном запросе.
 
 <pre>http:// ip: 8087 / setBulk? hm-rpc.0.FEQ1234567: 1.LEVEL = 0.7 &amp; Anwesenheit = 0 &amp; prettyPrint</pre><pre> [{&quot;id&quot;: &quot;hm-rpc.0.FEQ1234567: 1.LEVEL&quot;, &quot;val&quot;: &quot;0.7&quot;}, {&quot;error&quot;: &quot;error: datapoint \&quot; Anwesenheit \ &quot;не найден»}]</pre> Вы также можете отправить этот запрос как POST.
 
@@ -224,7 +224,7 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 <pre>http:// ip: 8087 / объекты? prettyPrint</pre><pre> {&quot;system.adapter.admin.0.uptime&quot;: {&quot;_id&quot;: &quot;system.adapter.admin.0.uptime&quot;, &quot;type&quot;: &quot;state&quot;, &quot;common&quot;: {&quot;name&quot;: &quot;admin. 0.uptime &quot;,&quot; тип &quot;:&quot; число &quot;,&quot; роль &quot;:&quot; indicator.state &quot;,&quot; unit &quot;:&quot; секунды &quot;},&quot; native &quot;: {}},&quot; system.adapter.admin.0.memRss &quot; &quot;: {&quot; _id &quot;:&quot; system.adapter.admin.0.memRss &quot;,&quot; type &quot;:&quot; state &quot;,&quot; common &quot;: {&quot; name &quot;:&quot; admin.0.memRss &quot;,&quot; desc &quot;:&quot; Resident set size &quot;,&quot; type &quot;:&quot; number &quot;,&quot; role &quot;:&quot; indicator.state &quot;,&quot; unit &quot;:&quot; MB &quot;,&quot; history &quot;: {&quot; enabled &quot;: true,&quot; changesOnly &quot;: true,&quot; minLength &quot; : 480, «maxLength»: 960, «retention»: 604800, «debounce»: 10000}}, «native»: {}}, ...
 </pre>
 
-Получить все управляющие объекты адаптера system.adapter.admin.0:<pre> http:// ip: 8087 / objects? pattern = system.adapter.admin.0 * &amp; prettyPrint</pre><pre> {&quot;system.adapter.admin.0.uptime&quot;: {&quot;_id&quot;: &quot;system.adapter.admin.0.uptime&quot;, &quot;type&quot;: &quot;state&quot;, &quot;common&quot;: {&quot;name&quot;: &quot;admin. 0.uptime &quot;,&quot; type &quot;:&quot; number &quot;,&quot; role &quot;:&quot; indicator.state &quot;,&quot; unit &quot;:&quot; seconds &quot;},&quot; native &quot;: {}}, ...
+Получить все управляющие объекты адаптера system.adapter.admin.0:<pre> http:// ip: 8087 / objects? pattern = system.adapter.admin.0 * &amp; prettyPrint.</pre><pre> {&quot;system.adapter.admin.0.uptime&quot;: {&quot;_id&quot;: &quot;system.adapter.admin.0.uptime&quot;, &quot;type&quot;: &quot;state&quot;, &quot;common&quot;: {&quot;name&quot;: &quot;admin. 0.uptime &quot;,&quot; type &quot;:&quot; number &quot;,&quot; role &quot;:&quot; indicator.state &quot;,&quot; unit &quot;:&quot; seconds &quot;},&quot; native &quot;: {}}, ...
 
 </pre>
 
@@ -236,7 +236,7 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 
  Получить все управляющие объекты адаптера system.adapter.admin.0:
 
-<pre>http:// ip: 8087 / состояния? pattern = system.adapter.admin.0 * &amp; prettyPrint</pre><pre> {&quot;system.adapter.admin.0.uptime&quot;: {&quot;val&quot;: 32161, &quot;ack&quot;: true, &quot;ts&quot;: 1423156149, &quot;from&quot;: &quot;system.adapter.admin.0&quot;, &quot;lc&quot;: 1423156149}, &quot;system.adapter.admin.0.memRss&quot;: {&quot;val&quot;: 41.14, &quot;ack&quot;: true, &quot;ts&quot;: 1423156149, &quot;from&quot;: &quot;system.adapter.admin.0&quot;, &quot;lc &quot;: 1423156119},&quot; system.adapter.admin.0.memHeapTotal &quot;: {&quot; val &quot;: 31.19,&quot; ack &quot;: true,&quot; ts &quot;: 1423156149,&quot; from &quot;:&quot; system.adapter.admin.0 &quot;, &quot;lc&quot;: 1423155084}, &quot;system.adapter.admin.0.memHeapUsed&quot;: {&quot;val&quot;: 19.07, &quot;ack&quot;: true, &quot;ts&quot;: 1423156149, &quot;from&quot;: &quot;system.adapter.admin.0 &quot;,&quot; lc &quot;: 1423156149},&quot; system.adapter.admin.0.connected &quot;: {&quot; val &quot;: true,&quot; ack &quot;: true,&quot; ts &quot;: 1423156149,&quot; from &quot;:&quot; system.adapter.admin .0 &quot;,&quot; lc &quot;: 1423128324,&quot; expire &quot;: 28100},&quot; system.adapter.admin.0.alive &quot;: {&quot; val &quot;: true,&quot; ack &quot;: true,&quot; ts &quot;: 1423156149,&quot; from &quot;:&quot; system.adapter.admin.0 &quot;,&quot; lc &quot;: 1423128324,&quot; expire &quot;: 28115}}</pre>
+<pre>http:// ip: 8087 / состояния? pattern = system.adapter.admin.0 * &amp; prettyPrint</pre><pre> {&quot;system.adapter.admin.0.uptime&quot;: {&quot;val&quot;: 32161, &quot;ack&quot;: true, &quot;ts&quot;: 1423156149, &quot;from&quot;: &quot;system.adapter.admin.0&quot;, &quot;lc&quot;: 1423156149}, «system.adapter.admin.0.memRss»: {«val»: 41.14, «ack»: true, «ts»: 1423156149, «from»: «system.adapter.admin.0», «lc» &quot;: 1423156119},&quot; system.adapter.admin.0.memHeapTotal &quot;: {&quot; val &quot;: 31.19,&quot; ack &quot;: true,&quot; ts &quot;: 1423156149,&quot; from &quot;:&quot; system.adapter.admin.0 &quot;, &quot;lc&quot;: 1423155084}, &quot;system.adapter.admin.0.memHeapUsed&quot;: {&quot;val&quot;: 19.07, &quot;ack&quot;: true, &quot;ts&quot;: 1423156149, &quot;from&quot;: &quot;system.adapter.admin.0 &quot;,&quot; lc &quot;: 1423156149},&quot; system.adapter.admin.0.connected &quot;: {&quot; val &quot;: true,&quot; ack &quot;: true,&quot; ts &quot;: 1423156149,&quot; from &quot;:&quot; system.adapter.admin .0 &quot;,&quot; lc &quot;: 1423128324,&quot; expire &quot;: 28100},&quot; system.adapter.admin.0.alive &quot;: {&quot; val &quot;: true,&quot; ack &quot;: true,&quot; ts &quot;: 1423156149,&quot; from &quot;:&quot; system.adapter.admin.0 &quot;,&quot; lc &quot;: 1423128324,&quot; expire &quot;: 28115}}</pre>
 
 ### Поиск
 Если в конфигурации установлен источник данных (История, SQL), то отображаются только точки данных, известные источнику данных.
@@ -247,7 +247,7 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 ### Запрос
 Если указан источник данных (История, SQL), данные из указанных точек данных считываются за указанный период.
 
-<pre>http:// ip: 8087 / query / system.host.iobroker-dev.load, system.host.iobroker-dev.memHeapUsed /? prettyPrint &amp; dateFrom = 2019-06-08T01: 00: 00.000Z &amp; dateTo = 2019-06-08T01: 00: 10.000Z</pre><pre> [{&quot;target&quot;: &quot;system.host.iobroker-dev.load&quot;, &quot;datapoints&quot;: [[0.12, 1559955600000], [0.46, 1559955601975], [0.44, 1559955610000]]}, {&quot;target&quot;: &quot;system .host.iobroker-dev.memHeapUsed &quot;,&quot; datapoints &quot;: [[23.01, 1559955600000], [22.66, 1559955601975], [22.69, 1559955610000]]}]</pre>
+<pre>http:// ip: 8087 / query / system.host.iobroker-dev.load, system.host.iobroker-dev.memHeapUsed /? prettyPrint &amp; dateFrom = 2019-06-08T01: 00: 00.000Z &amp; dateTo = 2019-06-08T01: 00: 10.000Z</pre><pre> [{&quot;target&quot;: &quot;system.host.iobroker-dev.load&quot;, &quot;datapoints&quot;: [[0.12, 1559955600000], [0.46, 1559955601975], [0.44, 1559955610000]]}, {&quot;target&quot;: &quot;system .host.iobroker-dev.memHeapUsed &quot;,&quot; точки данных &quot;: [[23.01, 1559955600000], [22.66, 1559955601975], [22.69, 1559955610000]]}]</pre>
 
 Если источник данных не указан или передан параметр noHistory, то считывается только текущее значение точки данных.
 
@@ -256,6 +256,14 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 ### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
+
+### 2.6.0 (2021-05-09)
+* (Apollon77) Also URL-Decode the path parts like state ids
+* (Apollon77) Optimize for js-controller 3.3
+
+### 2.5.3 (2021-01-25)
+* (Apollon77) Make sure that delayed answers are not crashing (Sentry IOBROKER-SIMPLE-API-Z)
+
 ### 2.5.2 (2021-01-09)
 * (bluefox) Support of new Let's Encrypt (only with js-controller 3.2.x)
 

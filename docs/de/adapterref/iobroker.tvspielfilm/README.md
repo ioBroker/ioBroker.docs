@@ -132,8 +132,11 @@ Für eine optisch ansprechende Formatierung, empfehle ich folge CSS Definitionen
 ```
 
 ## Changelog
+### 2.0.3 (2021-05-05)
+* (pix) connectionType and dataSource added
+
 ### 2.0.2 (2021-03-19)
-(DutchmanNL) Now cron is initialized at adapter start
+* (DutchmanNL) Now cron is initialized at adapter start
 
 ### 2.0.1 (2020-04-21)
 * (pix) NodeJS 10 or higher required

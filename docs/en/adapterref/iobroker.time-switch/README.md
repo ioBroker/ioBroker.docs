@@ -33,6 +33,11 @@ For setup instructions visit the [wiki](https://github.com/walli545/ioBroker.tim
 - Switching of arbitrary values
 
 ## Changelog
+### 2.2.2
+* (walli545)
+  * (Fix) Astro triggers not executing after time change (#133)
+  * (Fix) Set common.dataSource and common.connectionType in io-package.json (#135)
+
 
 ### 2.2.1
 * (walli545)

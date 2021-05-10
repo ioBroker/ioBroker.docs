@@ -805,10 +805,13 @@ Congratulations! Now you can control the system ioBroker and receive data via a 
 
 ## Changelog
 
-### __WORK IN PROGRESS__
-* (Apollon77) only remember messages for this client id and not from others
-* (Apollon77) do not remember last will and only process internally
-* (Apollon77) on "disconnect" message do not send last will as specified
+### 2.4.0 (2021-05-09)
+* (Apollon77) only remember the last message per topic for offline clients that subscribed the topics when using persistent sessions
+* (Apollon77) only remember last wills for clients that subscribed the topics
+* (Apollon77) on "disconnect" message do not send last will as defined by specs
+* (Apollon77) set a new messageId when sending remembered messages
+* (Apollon77) Add small delay after subscribe before sending out topic values
+* (Apollon77) optimize for js-controller 3.3
 * (foxriver76) prevent errors in js-controller 3.3 and detect datatype changes for objects
 
 ### 2.3.5 (2021-02-27)

@@ -3,30 +3,27 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.smartmeter/README.md
 title: ioBroker.smartmeter
-hash: Wf0ob83Vrele/5QNmX5h6bMft7FJTwzbQeLGTJpQN68=
+hash: 9dOljDK0i0oB4JTAREhUN+jeNYxcrVu9G5Uy2DHbrYI=
 ---
 ![商标](../../../en/adapterref/iobroker.smartmeter/admin/smartmeter.png)
 
 ![安装数量](http://iobroker.live/badges/smartmeter-stable.svg)
 ![NPM版本](http://img.shields.io/npm/v/iobroker.smartmeter.svg)
 ![资料下载](https://img.shields.io/npm/dm/iobroker.smartmeter.svg)
-![特拉维斯](http://img.shields.io/travis/Apollon77/ioBroker.smartmeter/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Apollon77/ioBroker.smartmeter?branch=master&svg=true)
-![NPM](https://nodei.co/npm/iobroker.smartmeter.png?downloads=true)
 
 ＃ioBroker.smartmeter
-[![代码气候]（https://codeclimate.com/github/Apollon77/ioBroker.smartmeter/badges/gpa.svg）](https://codeclimate.com/github/Apollon77/ioBroker.smartmeter)
+![测试与发布](https://github.com/Apollon77/iobroker.smartmeter/workflows/Test%20and%20Release/badge.svg)[![翻译状态]（https://weblate.iobroker.net/widgets/adapters/-/smartmeter/svg-badge.svg）](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **此适配器使用Sentry库自动向开发人员报告异常和代码错误。**更多详细信息，请参见下文！
 
-这个用于ioBroker的适配器允许读取和解析遵循OBIS编号逻辑的智能电表协议，以使其数据可用。
+ioBroker的此适配器允许读取和解析遵循OBIS编号逻辑的智能电表协议，以使其数据可用。
 
 ***适配器需要nodejs 8.x +才能工作！***
 
 ***此适配器当前需要安装git才能安装！***
 
 ##参数说明
-ioBroker-Forum-Thread：http://forum.iobroker.net/viewtopic.php?f=23&t=5047&p=54973
+ioBroker-论坛线程：http://forum.iobroker.net/viewtopic.php?f=23&t=5047&p=54973
 
 ###数据协议
 支持的协议：
@@ -37,14 +34,14 @@ ioBroker-Forum-Thread：http://forum.iobroker.net/viewtopic.php?f=23&t=5047&p=54
 
 ＃＃＃ 数据传输
 * **串行接收**：通过串行推送数据接收（智能电表定期发送数据，而无需任何请求）。主要用于SML
-* **双向双向通讯**：模式A，B，C和D（当前不支持模式E！）的D0协议，带有Wakeup-，Signon-，pot。 ACK和数据消息以读取数据（到目前为止尚未实现编程/写入模式）
-* **Http-Requests** 通过HTTP请求定义的URL读取数据
+* **双向双向通讯**：模式A，B，C和D（目前不支持模式E！）中的D0协议，带有Wakeup-，Signon-，pot。 ACK和数据消息以读取数据（到目前为止尚未实现编程/写入模式）
+* **Http-Requests** 通过请求定义的URL通过HTTP读取数据
 * **本地文件**：从本地文件读取数据
 
 ###数据请求间隔
 等待下一个请求或暂停串行接收的秒数，值0可能在完成一条消息后立即重新启动，
 
-预设值：300（= 5分钟）
+默认值：300（= 5分钟）
 
 ###串行设备波特率
 初始串行连接的波特率，如果未定义，则使用每种传输类型的默认值（SerialResponseTransprt为9600，SerialRequestResponseTransport为300）
@@ -60,10 +57,10 @@ ioBroker-Forum-Thread：http://forum.iobroker.net/viewtopic.php?f=23&t=5047&p=54
 *模式B：波特率转换，无确认消息
 *模式C：需要波特率转换和确认消息
 *模式D：无波特率转换，波特率始终为2400
-*模式E：需要波特率转换和Ack-Message，需要自定义协议，暂不支持！如果您有这样的智能电表，请与我联系
+*模式E：需要波特率转换和确认消息，自定义协议，暂不支持！如果您有这样的智能电表，请与我联系
 
 ### D0：波特率-转换-覆盖
-适配器尝试确定协议规范中定义的数据消息的波特率。但是，与“模式”一样，某些智能电表在此处提供了错误的数据。因此，您可以根据需要使用它来覆盖数据消息的波特率。保留为空以使用智能仪表定义的波特率转换。
+适配器尝试确定协议规范中定义的数据消息的波特率。但是，与“模式”一样，某些智能仪表在此处提供错误的数据。因此，您可以根据需要使用它来覆盖数据消息的波特率。保留为空以使用智能仪表定义的波特率转换。
 
 ##适配器已经过测试...
 ... 至少：
@@ -79,9 +76,9 @@ ioBroker-Forum-Thread：http://forum.iobroker.net/viewtopic.php?f=23&t=5047&p=54
 *兰迪斯＆吉尔E220
 *使用DSRM协议的荷兰智能电表（使用“仅串行设备读取数据”和“ D0”作为协议）
 * DZG DWS7412.1T
-    * *重要*：似乎存在固件错误，有时当前的能源消耗为负！可以使用来自https://github.com/Apollon77/smartmeter-obis/issues/75#issuecomment-581650736*的公式进行手动重新计算...
+    * *重要*：似乎存在固件错误，有时当前的能源消耗为负！可以使用https://github.com/Apollon77/smartmeter-obis/issues/75#issuecomment-581650736*中的公式手动进行重新计算...
 
-请向我发送有关您已成功使用该库的设备的信息，我将在此处添加它。
+请向我发送有关您已成功使用该库的设备的信息，我将在此处添加。
 
 ##特殊的智能电表和问题
 ### DZG DVS74
@@ -95,9 +92,12 @@ ioBroker-Forum-Thread：http://forum.iobroker.net/viewtopic.php?f=23&t=5047&p=54
 ##什么是Sentry，什么报告给服务器？
 Sentry.io是开发人员从其应用程序中获得有关错误概述的一种方式。确切地说，这是在此适配器中实现的。
 
-当适配器崩溃或发生其他代码错误时，此错误消息（也出现在ioBroker日志中）将提交给我们在德国托管的Sentry服务器。当您允许iobroker GmbH收集诊断数据时，还包括您的安装ID（这是唯一的ID，**没有**有关您的任何其他信息，电子邮件，姓名等）。这使Sentry可以对错误进行分组，并显示有多少唯一用户受此错误影响。所有这些都帮助我提供了基本上不会崩溃的无错误适配器。
+当适配器崩溃或发生其他代码错误时，此错误消息（也出现在ioBroker日志中）将提交给我们在德国托管的Sentry服务器。当您允许iobroker GmbH收集诊断数据时，还将包括您的安装ID（这是唯一ID，**没有**有关您的任何其他信息，电子邮件，姓名等）。这使Sentry可以对错误进行分组，并显示有多少唯一用户受此错误影响。所有这些都帮助我提供了基本上不会崩溃的无错误适配器。
 
 ## Changelog
+
+### 3.2.1 (2021-05-09)
+* (Apollon77) Optimize for js-controller 3.3
 
 ### 3.2.0 (2021-01-24)
 * (Apollon77) Add new protocolSmlInputEncoding option for SML protocol. With this also ascii or base64 based encodings (e.g. with TCP transports) are possible.
@@ -240,7 +240,7 @@ Sentry.io是开发人员从其应用程序中获得有关错误概述的一种�
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2020 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2017-2021 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,19 +3,16 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.smartmeter/README.md
 title: ioBroker.smartmeter
-hash: Wf0ob83Vrele/5QNmX5h6bMft7FJTwzbQeLGTJpQN68=
+hash: 9dOljDK0i0oB4JTAREhUN+jeNYxcrVu9G5Uy2DHbrYI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.smartmeter/admin/smartmeter.png)
 
 ![Количество установок](http://iobroker.live/badges/smartmeter-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.smartmeter.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.smartmeter.svg)
-![Трэвис-Си](http://img.shields.io/travis/Apollon77/ioBroker.smartmeter/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Apollon77/ioBroker.smartmeter?branch=master&svg=true)
-![НПМ](https://nodei.co/npm/iobroker.smartmeter.png?downloads=true)
 
 # IoBroker.smartmeter
-[![Code Climate] (https://codeclimate.com/github/Apollon77/ioBroker.smartmeter/badges/gpa.svg)](https://codeclimate.com/github/Apollon77/ioBroker.smartmeter)
+![Тестирование и выпуск](https://github.com/Apollon77/iobroker.smartmeter/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/smartmeter/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ** Этот адаптер использует библиотеки Sentry, чтобы автоматически сообщать мне как разработчику об исключениях и ошибках кода. ** Подробнее см. Ниже!
 
@@ -44,7 +41,7 @@ ioBroker-Forum-Thread: http://forum.iobroker.net/viewtopic.php?f=23&t=5047&p=549
 ### Интервал запроса данных
 Количество секунд ожидания следующего запроса или паузы последовательного приема, значение 0, возможен перезапуск сразу после завершения одного сообщения,
 
-По умолчанию: 300 (= 5 минут).
+По умолчанию: 300 (= 5 минут)
 
 ### Скорость последовательного устройства в бодах
 скорость для начального последовательного соединения, если не определены значения по умолчанию для каждого типа транспорта (9600 для SerialResponseTransprt и 300 для SerialRequestResponseTransport)
@@ -93,11 +90,14 @@ ioBroker-Forum-Thread: http://forum.iobroker.net/viewtopic.php?f=23&t=5047&p=549
 Лучше всего установить адаптер в режим журнала отладки (Экземпляры -> Экспертный режим -> Уровень журнала столбцов). Затем получите файл журнала с диска (подкаталог "log" в установочном каталоге ioBroker, а не из Admin, потому что Admin сокращает строки). Если вам не нравится предоставлять его в выпуске GitHub, вы также можете отправить его мне по электронной почте (iobroker@fischer-ka.de). Добавьте ссылку на соответствующую проблему GitHub И также опишите, что я вижу в журнале и в какое время.
 
 ## Что такое Sentry и что передается на серверы?
-Sentry.io - это способ для разработчиков получить обзор ошибок в своих приложениях. Именно это и реализовано в этом адаптере.
+Sentry.io - это способ для разработчиков получить обзор ошибок в своих приложениях. Именно это и реализовано в данном адаптере.
 
-Когда адаптер выходит из строя или возникает другая ошибка кода, это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется на наш собственный сервер Sentry, расположенный в Германии. Когда вы разрешили iobroker GmbH собирать диагностические данные, включается также ваш идентификатор установки (это просто уникальный идентификатор **без** дополнительной информации о вас, электронной почты, имени и т. Д.). Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуты такой ошибкой. Все это помогает мне предоставлять безошибочные адаптеры, которые практически никогда не дают сбоев.
+Когда адаптер выходит из строя или возникает другая ошибка кода, это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется на наш собственный сервер Sentry, расположенный в Германии. Когда вы разрешили iobroker GmbH собирать диагностические данные, включается также ваш установочный идентификатор (это просто уникальный идентификатор **без** дополнительной информации о вас, электронной почты, имени и т. Д.). Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуты такой ошибкой. Все это помогает мне предоставлять безошибочные адаптеры, которые практически никогда не дают сбоев.
 
 ## Changelog
+
+### 3.2.1 (2021-05-09)
+* (Apollon77) Optimize for js-controller 3.3
 
 ### 3.2.0 (2021-01-24)
 * (Apollon77) Add new protocolSmlInputEncoding option for SML protocol. With this also ascii or base64 based encodings (e.g. with TCP transports) are possible.
@@ -240,7 +240,7 @@ Sentry.io - это способ для разработчиков получит
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2020 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2017-2021 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

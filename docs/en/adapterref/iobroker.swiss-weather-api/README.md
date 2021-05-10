@@ -43,6 +43,9 @@ The first query is made 10s after the adapter was started. After the first start
 
 ## Changelog
 
+### 0.3.3
+* (baerengraben)  Removed NodeJs 10 support and added NodeJs 16 support 
+
 ### 0.3.2
 * (baerengraben)  Fix for https://github.com/baerengraben/iobroker.swiss-weather-api/issues/13.
 

@@ -68,9 +68,12 @@ Soundtouch Application itself.
 
 ## Changelog
 
+### 0.9.4 (07.05.2021)
+* fixed vulnerability in NPM
+
 ### 0.9.3 (02.02.2021)
 
-*transfer of adapter to iobroker-community-adapters
+* transfer of adapter to iobroker-community-adapters
 
 ### 0.9.3 (10.01.2021)
 

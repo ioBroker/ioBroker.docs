@@ -28,12 +28,12 @@
         "zh-cn": "基础概念"
       },
       "pages": {
-        "no title": {
+        "ioBroker basics": {
           "title": {
-            "en": "no title",
+            "en": "ioBroker basics",
             "de": "ioBroker Grundlagen",
-            "ru": "без заголовка",
-            "zh-cn": "无题"
+            "ru": "Основы ioBroker",
+            "zh-cn": "ioBroker基础"
           },
           "content": "basics/README.md"
         },
@@ -332,12 +332,12 @@
           },
           "content": "admin/users.md"
         },
-        "hosts": {
+        "Hosts": {
           "title": {
-            "en": "hosts",
+            "en": "Hosts",
             "de": "Hosts",
-            "ru": "хостов",
-            "zh-cn": "主机"
+            "ru": "Хосты",
+            "zh-cn": "主持人"
           },
           "content": "admin/hosts.md"
         }

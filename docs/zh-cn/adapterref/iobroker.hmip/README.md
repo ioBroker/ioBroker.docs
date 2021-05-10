@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hmip/README.md
 title: ioBroker HomeMatic IP Cloud AccessPoint适配器
-hash: ijuFp8aNeY4Hy2i0Nl5rlSZyjDVdk8LiQwte36/U8hw=
+hash: epSSpIL9StOJGWYuOWtlU8h50UmJ9N+GQKPVrCqTtvY=
 ---
 ![商标](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
@@ -32,7 +32,7 @@ hash: ijuFp8aNeY4Hy2i0Nl5rlSZyjDVdk8LiQwte36/U8hw=
 我会不断改进它，但是这需要时间。社区的任何帮助，例如拉取请求将不胜感激。
 
 对于无法正常使用的HmIP设备，请创建与此信息有关的问题（每台设备一个，如果可能，请在主题中提供技术名称）。
-将登录ioBroker的适配器切换为傻模式，然后将打印的设备的json添加到问题中的日志中。
+将在ioBroker中登录的适配器切换为傻模式，并将打印的设备的json添加到问题中的日志中。
 我可能还需要状态更改的json。
 
 谢谢
@@ -40,11 +40,11 @@ hash: ijuFp8aNeY4Hy2i0Nl5rlSZyjDVdk8LiQwte36/U8hw=
 如果要查找信息，则如果警报设置处于活动状态，则必须检查组INTERNAL和EXTERNAL的活动状态，它们组合表示三种警报状态。 “内部”和“外部”活动表示“离开”，仅“外部”活动表示仅“外围”活动。
 
 ##重要信息此适配器可以做什么
-!!!您只能使用可通过原始Homematic IP应用程序触发的此适配器来触发事件。
+!!!您只能使用此适配器触发可以通过原始Homematic IP应用程序触发的事件。
 例如，设备之间的直接连接在应用程序中没有事件，也无法通过此适配器触发！！！
 
 ##设置
-*输入您的SGTIN（接入点的背面）和PIN（如果之前已设置），然后通过按下蓝色的LED按钮来验证数据。这将创建一个身份验证令牌。
+*输入您的SGTIN（接入点的背面）和PIN（如果之前已设置），然后通过按蓝色LED按钮验证数据。这将创建一个身份验证令牌。
 
 ＃＃ 谢谢
 到coreGreenberet获取他的python库（https://github.com/coreGreenberet/homematicip-rest-api）
@@ -56,6 +56,11 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
+
+### 1.11.1 (2021-05-08)
+* (Apollon77) IMPORTANT: The adapter now requires js-controller 3.1 at least!
+* (Apollon77) Update objects on startup to make sure definition is current
+* (Apollon77) prevent warnings in js-controller 3.3
 
 ### 1.11.0 (2021-04-25)
 * (Apollon77) Implement CARBON_DIOXIDE_SENSOR_CHANNEL
@@ -183,7 +188,7 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2019 jogibear9988 <jochen.kuehner@gmx.de>
+Copyright (c) 2018-2021 jogibear9988 <jochen.kuehner@gmx.de>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

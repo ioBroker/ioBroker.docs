@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kecontact/README.md
 title: 用于KEBA KeContact壁盒的ioBroker适配器
-hash: 3TGw2BzL18r0FDVXL2G3tXy67ifvIYC96MS8+edrVxY=
+hash: 2CBPs1RJKdWFQcmLu1r7jOSp5xfW57UhNFz0wiNC+Ro=
 ---
 ![适配器徽标](../../../en/adapterref/iobroker.kecontact/admin/charger.png)
 
@@ -40,22 +40,22 @@ hash: 3TGw2BzL18r0FDVXL2G3tXy67ifvIYC96MS8+edrVxY=
 v1.1.1及以下版本的用户要注意：您必须选中此选项才能继续接收充电会话！
 
 ＃＃＃ 刷新间隔
-这是间隔（以秒为单位），应该多久查询一次壁盒以获取新值。通常不需要它（设置为0）。
-Wallbox连续发送绝对足够使数据保持最新状态的广播。
+这是间隔时间（以秒为单位），应该多久查询一次壁挂盒以获取新的充电值。
 
-默认值为30秒，这是KeConnect的负载与ioBroker中的最新信息之间的良好平衡。
+默认值为10分钟，这是KeConnect的负载与ioBroker中的最新信息之间的良好平衡。
 
 ### PV自动装置
-为了使您的车辆过剩地充电（例如通过光伏），您还可以定义代表过剩和主电源状态的状态。这些值用于计算可用于充电的安培数。通过其他值，您可以定义
+为了对车辆进行过盈充电（例如通过光伏），您还可以定义代表过盈和主电源状态的状态。这些值用于计算可用于充电的安培数。通过其他值，您可以定义
 
-*与默认的6 A不同的最小安培数（仅适用于例如Renault Zoe）
-*可用于开始充电的参考功率值（这意味着即使没有足够的剩余电量也将开始充电-建议1阶段充电为0 W，3阶段充电为500 W至2000 W）
+*与默认的6 A不同的最小安培数（仅对于例如Renault Zoe才需要）
+*可用于开始充电的参考功率值（这意味着即使没有足够的剩余电量也会开始充电-建议1阶段充电0 W，3阶段充电500 W至2000 W）
 *安培数的增量（建议500 mA）
 *可以暂时用于维持充电时段的关注值（这意味着即使不再有足够的剩余电量，充电也将在以后停止-将添加开始关注-建议500 W）
-*充电会话的最短持续时间（即使剩余不再足够，充电会话也至少会持续此时间-建议300秒）
+*充电会话的最短持续时间（即使剩余部分不再足够，充电会话也至少会持续此时间-建议300秒）
+*每次盈余不再足够时继续进行充电的时间（以弥合阴天的时间）
 
 ###功率限制
-您还可以限制最大壁箱的功率以限制主功率。例如。在运行夜间存储加热器时，您可能必须遵守最大功率限制。
+您还可以限制最大壁箱的功率以限制主功率。例如。当运行夜间存储加热器时，您可能必须遵守最大功率限制。
 如果您输入一个值，则您的wallbox将连续受到限制，以不超过您的功率限制。
 最多可以指定三种状态的电度表进行限制。所有值都将相加以计算电流消耗。
 一个额外的复选框用于指定是否包括墙盒电源（在这种情况下，将从状态值中减去墙盒电源）。
@@ -66,6 +66,11 @@ Wallbox连续发送绝对足够使数据保持最新状态的广播。
 KeConnect是KEBA AG的注册商标。
 
 ## Changelog
+
+### 1.1.3 (2021-04-26)
+* (Sneak-L8) new time option to continue charging session with regard
+* (Sneak-L8) optimized calculation of surplus (prevent alternating amerage)
+* (Sneak-L8) support for compact mode
 
 ### 1.1.2 (2021-04-02)
 * (Sneak-L8) default state of photovoltaics automatic set to true for new users
@@ -137,7 +142,7 @@ KeConnect是KEBA AG的注册商标。
 
 ## License
 
-Copyright 2020 UncleSamSwiss
+Copyright (c) 2020-2021 UncleSamSwiss
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

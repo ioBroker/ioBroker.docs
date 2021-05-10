@@ -165,9 +165,10 @@ ioBroker Material Design Widgets are based on [Google's material design guidelin
 		- [Editor Settings](#editor-settings-35)
 	- [HTML Widgets](#html-widgets)
 		- [Examples](#examples)
-- [used libraries](#used-libraries)
-- [Changelog](#changelog)
-		- [0.5.5 (2021-04-21)](#055-2021-04-21)
+- [Informations](#informations)
+	- [used libraries](#used-libraries)
+	- [Changelog](#changelog)
+	- [License](#license)
 
 # General
 
@@ -12815,7 +12816,9 @@ View to import via VIS Editor:
 
 </details>
 
-# used libraries
+# Informations
+
+## used libraries
 The adapter uses the following libraries:
 * [Google material components for the web](https://github.com/material-components/material-components-web)
 * [Vuetify](https://github.com/vuetifyjs/vuetify)
@@ -12824,16 +12827,23 @@ The adapter uses the following libraries:
 * [Material Design Icons](https://materialdesignicons.com/)
 
 
-# Changelog
+## Changelog
 
 <!--
-    Placeholder for the next version (at the beginning of the line):    
+    Placeholder for the next version (at the beginning of the line):	   
 	### __WORK IN PROGRESS__
 -->
 
+<!-- omit in toc -->
+### 0.5.6 (2021-05-07)
+* (Scrounger) Html Widgets: escaping bug fix
+* (Scrounger) iconList: layout bug fix
+
+<!-- omit in toc -->
 ### 0.5.5 (2021-04-21)
 * (Scrounger) adapter settings bug fixes
 * (Scrounger) icon buttons: color bug fixes
+* (Scrounger) Fixing bugs found by sentry
 
 <!-- omit in toc -->
 ### 0.5.4 (2021-04-18)
@@ -12876,44 +12886,25 @@ The adapter uses the following libraries:
 * (Scrougner): icon list: scrollbar bug fix
 * (Scrounger): bug fixes
 
-<!-- omit in toc -->
-### 0.4.0-beta (2020-12-09)
-* (Scrounger): Line History Chart Widget: Breaking Changes !!! aggregate (display) method for every dataset configurable, [see documentation for detailed infos](#line-history-chart)!
-* (Scrounger): TopAppBar Widget: Breaking Changes !!! Submenus must now be created using JSON string, [see documentation for detailed infos](#since-version-040)!
-* (Scrounger): Adapter settings wiht theme editor added
-* (Scrounger): bug fix for compatibility issues with other widget adapters
-* (Scrounger): Chechbox Widget: option for border and hover color added
-* (Scrounger): Chechbox Widget: ripple effect bug fix
-* (Scrounger): Buttons Vertical: text alignment option added
-* (Scrounger): added URL support as source for symbols / images
-* (Scrounger): HTML Card Widget: option to hide title, subtitle and text added
-* (Scrounger): HTML Card Widget: background image refresh options by datapoint added
-* (Scrounger): Fixed some errors reported via Sentry
-* (Scrounger): Select & Autocomplete Widget: overriding icon color bug fix
-* (Scrounger): Select & Autocomplete Widget: overriding icon bug fix
-* (Scrounger): Select & Autocomplete Widget: colors bug fixes
-* (Scrounger): Select & Autocomplete Widget: option to override the icon color of textfield for selected menu icon
-* (Scrounger): Select & Autocomplete Widget: text alignment option added
-* (Scrounger): Input Widget: text alignment option added
-* (Scrounger): JSON Chart Widget: option to force x-axis time unit added
-* (Scrounger): JSON Chart Widget: gradient colors for multipe dataset bug fixes
-* (Scrounger): JSON Chart: default tooltip title added
-* (Scrounger): JSON Chart: option to use Today / Yesterday for x-axis labeling added
-* (Scrounger): JSON Chart: option to use Today / Yesterday for tooltip added
-* (Scrounger): JSON Chart: option to change x-axis label distance added
-* (Scrounger): Line History Chart: option for point color added
-* (Scrounger): Line History Chart: option to use Today / Yesterday for x-axis labeling added
-* (Scrounger): Line History Chart: option to use Today / Yesterday for tooltip added
-* (Scrounger): Line History Chart: tooption change x-axis label distance added
-* (Scrounger): Charts Widget: x-Axis time axis bug fixes
-* (Scrounger): Calendar Widget: option to show calendar week numbers in month view added
-* (Scrounger): Calendar Widget: option for custom date format added
-* (Scrounger): IconList Widget: bug fix for performance issue
-* (Scrounger): TopAppBar Widget: options for user groups added
-* (Scrounger): Table Widget: html element added
-* (Scrounger): Masonry & Grid View Widget: default width for handy portrait and landscape view changed
-* (Scrounger): Progress Widget: option for indeterminate style added
-* (Scrounger): dependencies updated
-* (Scrounger): bug fixes
+## License
+MIT License
 
-<!-- omit in toc -->
+Copyright (c) 2021 Scrounger <scrounger@gmx.net>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

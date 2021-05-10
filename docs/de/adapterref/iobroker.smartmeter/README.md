@@ -3,19 +3,16 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.smartmeter/README.md
 title: ioBroker.smartmeter
-hash: Wf0ob83Vrele/5QNmX5h6bMft7FJTwzbQeLGTJpQN68=
+hash: 9dOljDK0i0oB4JTAREhUN+jeNYxcrVu9G5Uy2DHbrYI=
 ---
 ![Logo](../../../en/adapterref/iobroker.smartmeter/admin/smartmeter.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/smartmeter-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.smartmeter.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.smartmeter.svg)
-![Travis-CI](http://img.shields.io/travis/Apollon77/ioBroker.smartmeter/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Apollon77/ioBroker.smartmeter?branch=master&svg=true)
-![NPM](https://nodei.co/npm/iobroker.smartmeter.png?downloads=true)
 
 # IoBroker.smartmeter
-[![Code Climate] (https://codeclimate.com/github/Apollon77/ioBroker.smartmeter/badges/gpa.svg)](https://codeclimate.com/github/Apollon77/ioBroker.smartmeter)
+![Testen und freigeben](https://github.com/Apollon77/iobroker.smartmeter/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus] (https://weblate.iobroker.net/widgets/adapters/-/smartmeter/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an mich als Entwickler zu melden. ** Weitere Details siehe unten!
 
@@ -98,6 +95,9 @@ Mit Sentry.io erhalten Entwickler einen Überblick über Fehler in ihren Anwendu
 Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll angezeigt wird, an unseren eigenen Sentry-Server in Deutschland gesendet. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder dergleichen) enthalten. Auf diese Weise kann Sentry Fehler gruppieren und anzeigen, wie viele eindeutige Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
 
 ## Changelog
+
+### 3.2.1 (2021-05-09)
+* (Apollon77) Optimize for js-controller 3.3
 
 ### 3.2.0 (2021-01-24)
 * (Apollon77) Add new protocolSmlInputEncoding option for SML protocol. With this also ascii or base64 based encodings (e.g. with TCP transports) are possible.
@@ -240,7 +240,7 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2020 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2017-2021 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

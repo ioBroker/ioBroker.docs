@@ -34,6 +34,9 @@ Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column
 
 ## Changelog
 
+### 1.6.2 (2021-05-07)
+* (Apollon77) optimize for js-controller 3.3
+
 ### 1.6.1 (2021-04-23)
 * (Apollon77) prevent crash case (Sentry IOBROKER-MEROSS-Z)
 
@@ -114,7 +117,7 @@ Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2021 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

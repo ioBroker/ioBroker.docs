@@ -3,11 +3,10 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.metalarm
-hash: W7B0P7++h+ffZsqBivQS+nC9dJ8mA30Rph2P8A63ANo=
+hash: t4W+whBjVkdsu5kxkZwHOH7v6dtTuIvKgqCLEolI/Gg=
 ---
 ![商标](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
-![保管员徽章](https://snyk.io/test/github/jack-blackson/ioBroker.meteoalarm/badge.svg)
 ![NPM版本](http://img.shields.io/npm/v/iobroker.meteoalarm.svg)
 ![资料下载](https://img.shields.io/npm/dm/iobroker.meteoalarm.svg)
 ![安装数量](http://iobroker.live/badges/meteoalarm-stable.svg)
@@ -108,6 +107,12 @@ ioBroker的meteoalarm适配器---------------------------------------------- ---
 ##要实现的功能
 *一天处理多个警报
 
+## 1.1.10（2021-05-09）
+*（jack-blackson）软件包更新
+
+## 1.1.9（2021-05-07）
+*（jack-blackson）软件包更新
+
 ## 1.1.5（2021-05-02）
 *（jack-blackson）Bugfix JS-Controller 3.3.1错误，错误处理未定义语言
 
@@ -118,10 +123,10 @@ ioBroker的meteoalarm适配器---------------------------------------------- ---
 *（jack-blackson）错误修复了适配器检查器
 
 ## 1.1.2（2021-03-29）
-*（jack-blackson）无法修复数据更新的错误修正，由于CORS错误而删除了链接自动生成
+*（jack-blackson）错误修正，无法更新数据，并由于CORS错误而删除了链接自动生成
 
 ## 1.1.1（2020-10-28）
-*（jack-blackson）错误修正HTML数据
+*（jack-blackson）错误修正HTML资料
 
 ## 1.1.0（2020-03-29）
 *（杰克·布莱克森）Bugfix德国
@@ -167,7 +172,7 @@ ioBroker的meteoalarm适配器---------------------------------------------- ---
 
 ### 0.4.0（2019-07-20）
 *（jack-blackson）添加了NL，NO，HR，FI，ES的数据
-*（jack-blackson）添加了Type文本，如果Level为1，则Type为空（无警告）
+*（jack-blackson）添加了Type文本，如果Level为1，Type现在为空（无警告）
 *（杰克·布莱克森）调整后的颜色
 
 ### 0.3.0（2019-07-13）
@@ -181,7 +186,7 @@ ioBroker的meteoalarm适配器---------------------------------------------- ---
 *（杰克·布莱克森）初始版本
 
 ##学分
-钟声由Freepik从www.flaticon.com设计
+图标中的钟声由Freepik从www.flaticon.com设计
 
 ## Changelog
 

@@ -16,8 +16,9 @@ Read more about it here https://www.npmjs.com/package/homebridge-platform-wemo
 
 ## Changelog
 
-### __WORK IN PROGRESS__
-* (Apollon77) plugin and homebridge updated
+### 2.0.0 (2021-05-08)
+* (Apollon77) wemo plugin and homebridge updated - check wem plugin changelog!
+* (Apollon77) optimize for js-controller 3.3
 
 ### 1.1.1 (2021-03-24)
 * (Apollon77) js-controller 2.0 now needed as minimum
@@ -46,7 +47,7 @@ Read more about it here https://www.npmjs.com/package/homebridge-platform-wemo
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2019 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2021 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

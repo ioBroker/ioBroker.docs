@@ -6,20 +6,19 @@ BADGE-Number of Installations (stable): http://iobroker.live/badges/senec-stable
 BADGE-Dependency Status: https://img.shields.io/david/nobl/iobroker.senec.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/nobl/ioBroker.senec/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.senec.png?downloads=true
-BADGE-Travis-CI: http://img.shields.io/travis/nobl/ioBroker.senec/master.svg
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.senec/README.md
 title: ioBroker.senec
-hash: yHSh9ZxI8b/Rf5ZSdeDzYz/gikzalfpid0Vt2yPaIgQ=
+hash: eq0tEavmZQdUHsMdoA2rp6f7fOqtYmg9DjUqwQkBieA=
 ---
 ![商标](../../../de/adapterref/iobroker.senec/admin/senec.png)
 
 ＃ioBroker.senec
-## IoBroker的SENEC适配器
+##用于ioBroker的SENEC适配器
 该适配器是为Senec Home V2.1系统开发的。
 Senec.Home系统中无法更改任何值。故意省略了担保费用的合并。
-Senec当前不再提供通过Web界面影响削峰的可靠方法。为此，mein-senec.de必须努力。
+Senec当前不再提供通过Web界面影响削峰的可靠方法。为此，必须尝试mein-senec.de。
 其他系统（例如V3）是否也可以使用它取决于它们是否也基于lala.cgi并提供相同的JSON信息。
 即使集成到Senec.Clound中，也无法保证仍可以通过Web界面调用数据（请参考现场报告）。
 
@@ -46,14 +45,14 @@ Senec当前不再提供通过Web界面影响削峰的可靠方法。为此，mei
 * Solarinvert Storage 10.0 /铅
 
 ### SENEC.Home
-它是一个系统，其核心是锂离子电池，该电池可存储和释放屋顶上太阳能系统产生的电能。它的工作原理与智能手机，笔记本电脑或无绳螺丝刀中的电池完全相同。原则上，也使用相同的久经考验的技术。如果您在屋顶上发电的电量超过了在房屋中的使用能力，则电力不会流入电网，而是流入您的存储系统。您可以在天黑或乌云密布且发电量少或不多时使用它。然后，您可以在晚上使用自己的太阳能电池操作电视或烹饪食物。
+它是一个系统，其核心是锂离子电池，该电池可存储和释放屋顶上太阳能系统产生的电能。它的工作原理与智能手机，笔记本电脑或无绳螺丝刀中的电池完全相同。原则上，也使用相同的久经考验的技术。如果您在屋顶上发电的电量超过了在房屋中的使用能力，则电力不会流入电网，而是流入您的存储系统。您可以在天黑或有乌云进入并且发电量减少或减少时使用它。然后，您可以在晚上使用自己的太阳能电池操作电视或烹饪食物。
 
 ##安装前的要求
-使用ioBroker来运行Senec.Home存储系统的前提是电工必须成功安装该系统。该系统还必须与ioBroker位于同一网络中。
+使用ioBroker操作Senec.Home存储系统的前提条件是该系统已由电工成功设置。该系统还必须与ioBroker位于同一网络中。
 
 ＃＃＃ 安装
 适配器的实例是通过ioBroker管理界面安装的。
-完成适配器实例的安装后，配置窗口将自动打开。
+适配器实例的安装完成后，配置窗口将自动打开。
 
 ＃＃ 配置
 ###“主要设置”窗口
@@ -64,13 +63,13 @@ Senec当前不再提供通过Web界面影响削峰的可靠方法。为此，mei
 | SENEC系统|在此处输入所需的Senec.Home系统的IP地址。如果网络中有可用的DNS，则还可以指定FQDN。 |
 |查询间隔高优先级|在此处输入Senec.Home系统检索高优先级的时间间隔（毫秒）。 （默认：10秒）|
 
-|查询间隔低优先级|在此输入Senec.Home系统检索低优先级的时间间隔（毫秒）。 （默认值：60分钟）<br>危险！如果以太高的频率查询SENEC系统，则可能意味着无法再将更多数据传输到SENEC服务器！ （例如应用程序或mein-senec.de中没有当前值）|
+|查询间隔低优先级|在此输入Senec.Home系统检索低优先级的时间间隔（毫秒）。 （默认值：60分钟）<br>危险！如果以太高的频率查询SENEC系统，则可能意味着无法再将更多数据传输到SENEC服务器！ （例如应用程式或mein-senec.de中没有当前值）|
 
-|请求超时|在此输入毫秒数，在此毫秒数之前，最晚必须由Senec.Home系统回答该请求，然后该请求才能被取消。 （默认值：5000） |
-|重试尝试|在此指定出现错误时应多久尝试查询Senec系统一次。启动适配器时，此方法不适用-如果无法访问系统，则适配器将终止其工作。 （默认值：10） |
-|轮询重复因子|此值可用于影响重复尝试之间的间隔。适用以下规则：第n次重复尝试发生在间隔*乘数*尝试n-1之后的n秒之后。示例：使用标准值，第一次重试将在初始尝试后20秒发生，而第二次重试将在1次尝试后40秒发生。成功的数据检索将重置重复计数器。 |
+|请求超时|在此输入毫秒数，在该毫秒数之前，最晚必须由Senec.Home系统回答该请求，然后该请求才能被取消。 （默认值：5000） |
+|重试尝试|在此您可以指定在发生错误时应多久尝试查询Senec系统一次。启动适配器时，此方法不适用-如果无法访问系统，则适配器将终止其工作。 （默认值：10） |
+|轮询重复因子|此值可用于影响重复尝试之间的间隔。适用以下规则：第n次重复尝试发生在间隔n乘数*尝试n-1之后n秒之后。示例：使用标准值，第一次重试将在初始尝试后20秒发生，而第二次重试将在1次尝试后40秒发生。成功的数据检索将重置重复计数器。 |
 
-完成配置后，配置对话框将保留`SPEICHERN UND SCHLIEßEN`。
+完成配置后，使用`SPEICHERN UND SCHLIEßEN`退出配置对话框。
 然后，这将重新启动适配器。
 
 ##个实例
@@ -83,7 +82,7 @@ Senec当前不再提供通过Web界面影响削峰的可靠方法。为此，mei
 
 在下文中，对象被分成状态。
 列出每个数据点及其关联的数据类型及其授权。
-当前只能读取授权（R）。每个数据点至少可以读取（R）。
+当前只能读取权限（R）。每个数据点至少可以读取（R）。
 要搜索特定的数据点，我们建议使用组合键“ CTRL + F”进行搜索。
 根据各个系统的不同，状态可能不存在，也可能出现未记录的状态。
 如果没有关于某个州的文档，但是有人知道该州代表什么，请给我发送请求请求（或打开包含相关信息的票证）。
@@ -99,39 +98,39 @@ Senec当前不再提供通过Web界面影响削峰的可靠方法。为此，mei
    *仅可读的布尔值，如果在ioBroker和Senec.Home之间建立了连接，则为true。
 
 ####频道：_calc
-该通道包含计算值。当前这些是某些数据点的每日值。
+该通道包含计算值。当前这些是某些数据点的每日/每周/每月/每年的值。
 
-* xxx.refDay
-
-    |数据类型|权限|
-    |:---:|:---:|
-    |号| W |
-
-   *可更改的数字，表示每日数据适用的日期。
-
-* xxx.refValue
+* xxx.ref日/周/月/年
 
     |数据类型|权限|
     |:---:|:---:|
     |号| W |
 
-   *可更改的数字，指示用于计算当前日值的参考值。
+   *可更改的数字，指示数据适用的日期/星期/月份/年份。
 
-* xxx.today
-
-    |数据类型|权限|
-    |:---:|:---:|
-    |号| W |
-
-   *代表相应数据点当前日期值的可变数字。
-
-* xxx。昨天
+* xxx.ref值/周/月/年
 
     |数据类型|权限|
     |:---:|:---:|
     |号| W |
 
-   *代表相应数据点前一天值的可变数字。
+   *可更改的数字，指示用于计算当前值的参考值。
+
+* xxx.today/week/month/year
+
+    |数据类型|权限|
+    |:---:|:---:|
+    |号| W |
+
+   *可更改的数字，代表相应数据点的日/周/月/年的当前值。
+
+* xxx。昨天/上周/上月/上年
+
+    |数据类型|权限|
+    |:---:|:---:|
+    |号| W |
+
+   *可更改的数字，代表相应数据点的日/周/月/年的先前值。
 
 ####频道：BMS
 * BL [0-3]
@@ -212,7 +211,7 @@ Senec当前不再提供通过Web界面影响削峰的可靠方法。为此，mei
     |:---:|:---:|
     |号| R |
 
-   *可读的数字，指示相应电池组主板的硬件版本。
+   *可读数字，指示相应电池组主板的硬件版本。
 
 * MAX_CELL_VOTAGE [0-3]
 
@@ -220,7 +219,7 @@ Senec当前不再提供通过Web界面影响削峰的可靠方法。为此，mei
     |:---:|:---:|
     |号| R |
 
-   *可读的数字，指示单个电池组的最大电压有多高。
+   *可读数字，指示单个电池组的最大电压。
 
 * MIN_CELL_VOTAGE [0-3]
 
@@ -228,7 +227,7 @@ Senec当前不再提供通过Web界面影响削峰的可靠方法。为此，mei
     |:---:|:---:|
     |号| R |
 
-   *可读数字，指示单个电池组的最低电压多少。
+   *可读数字，指示单个电池组的最低电压。
 
 *序列号[0-3]
 
@@ -308,7 +307,7 @@ Senec当前不再提供通过Web界面影响削峰的可靠方法。为此，mei
     |:---:|:---:|
     |号| R |
 
-   *仅可读的数字，指示系统中连接了多少个模块（包括未配置的模块）。
+   *可读的数字，指示系统中连接了多少个模块（包括未配置的模块）
 
 * 开始升级
 
@@ -348,7 +347,7 @@ Senec当前不再提供通过Web界面影响削峰的可靠方法。为此，mei
     |:---:|:---:|
     |布尔值| R |
 
-   *仅可读的布尔值，在安装过程开始时为true。
+   *仅可读的布尔值，在开始设置过程时为true。
 
 * WIZARD_STATE
 
@@ -373,7 +372,7 @@ Senec当前不再提供通过Web界面影响削峰的可靠方法。为此，mei
     |:---:|:---:|
     |号| R |
 
-   *可读数字，指示系统液位的百分比。
+   *可读的数字，指示系统液位的百分比。
 
 * GUI_BAT_DATA_VOLTAGE
 
@@ -381,7 +380,7 @@ Senec当前不再提供通过Web界面影响削峰的可靠方法。为此，mei
     |:---:|:---:|
     |号| R |
 
-   *只读数字，显示以伏特为单位的当前电池电压*
+   *只读数字，以伏特表示当前电池电压*
 
 * GUI_BAT_DATA_POWER
 
@@ -413,7 +412,7 @@ Senec当前不再提供通过Web界面影响削峰的可靠方法。为此，mei
     |:---:|:---:|
     |号| R |
 
-   *可读的数字，指示当前从电网汲取或馈入电网的瓦数（负值）。
+   *可读数字，指示当前从电网汲取或馈入电网的瓦数（负值）。
 
 * GUI_HOUSE_POW
 
@@ -486,7 +485,7 @@ Senec当前不再提供通过Web界面影响削峰的可靠方法。为此，mei
     |:---:|:---:|
     |号| R |
 
-   *可读的数字，表示今天已将多少千瓦时馈入电网。
+   *可读的数字，指示今天已将多少千瓦时馈入电网。
 
 * STAT_DAY_E_GRID_IMPORT
 
@@ -535,7 +534,7 @@ Senec当前不再提供通过Web界面影响削峰的可靠方法。为此，mei
     |:---:|:---:|
     |布尔值| R |
 
-   *仅可读的布尔值，指示是否有可用的更新（但是，这些值由Senec提供，并且也自动导入）。
+   *仅可读的布尔值，指示是否有更新（但是，这些值由Senec提供，并且也自动导入）。
 
 ####频道：向导
 * APPLICATION_VERSION
@@ -579,9 +578,16 @@ Senec当前不再提供通过Web界面影响削峰的可靠方法。为此，mei
    *仅可读的文本，指示任何壁挂式墙0-3的序列号。
 
 ## Changelog
+### 1.3.0 (NoBl) 20210509
+* Rewrote translations handling
+* Added translations for wallbox status.
+* Translated status get an extra datapoint with _Text as postfix. Former translations that didn't add an extra dp will now revert to their numeric representation and add the _Text DP.
+* Translations are now handled via lib/state_trans.js for all 3 languages available in the senec system (german, english, italian).
+* Language used is decided by the language of the SENEC appliance.
+
 ### 1.2.0 (NoBl)
 * Added datapoints for: PM1OBJ1, PM1OBJ2, EG_CONTROL, RTC, PM1, TEMPMEASURE, DEBUG, SOCKETS, CASC, WALLBOX, CONNX50, STECA (please report wrong / missing units).
-* Adapter now calculates day-values for: STATISTIC.LIVE_GRID_EXPORT, STATISTIC.LIVE_GRID_IMPORT, STATISTIC.LIVE_HOUSE_CONS, STATISTIC.LIVE_PV_GEN, STATISTIC.LIVE_BAT_CHARGE_MASTER, STATISTIC.LIVE_BAT_DISCHARGE_MASTER. Calculated values can be found below the "_calc." datapoint. Information about daily values was removed from the API by SENEC in the past. So here we go again ...
+* Adapter now calculates day/week/month/year-values for: STATISTIC.LIVE_GRID_EXPORT, STATISTIC.LIVE_GRID_IMPORT, STATISTIC.LIVE_HOUSE_CONS, STATISTIC.LIVE_PV_GEN, STATISTIC.LIVE_BAT_CHARGE_MASTER, STATISTIC.LIVE_BAT_DISCHARGE_MASTER. Calculated values can be found below the "_calc." datapoint. Information about daily values was removed from the API by SENEC in the past. So here we go again ...
 
 ### 1.1.1 (NoBl)
 * Object attributes are updated to what they are expected to be: unit, description, datatype (this will break anything that still relies on datapoints being STRING that aren't meant to be string)
@@ -591,72 +597,7 @@ Senec当前不再提供通过Web界面影响削峰的可靠方法。为此，mei
 * Integrated GitHub Testing and auto npm publishing
 * Some other administrative updates
 
-### 1.0.13 (NoBl)
-* Added System Description 19 for Senec.Home V3 Hybrid (Credits to noffycws)
-* Added Mode Descriptions for 86-91. (Credits to noffycws)
-
-### 1.0.12 (NoBl)
-* Just set 'supportCustoms' to false so it won't show up in admin custom config.
-
-### 1.0.11 (NoBl)
-* Update to current adapter template
-* Added Datapoints: PV1.MPP_CUR, MPP_VOL, MPP_POWER (former: MPP_INT which is unused at this moment but does still exist)
-* Added Datapoints (please feedback any improvements for their descriptions, ...): FEATURES.SGREADY, WIZARD.SETUP_WALLBOX_MAX_TOTAL_CURRENT_BY_GRID, WIZARD.SG_READY_CURR_MODE, BMS.ERROR, BMS.RECOVERLOCKED, BMS.SERIAL, BMS.START_SELFTEST, BAT1.RESET, BAT1.SELFTEST_ACT, BAT1.SELFTEST_LIMIT, BAT1.SELFTEST_OFF, BAT1.SELFTEST_OVERALL_STATE, BAT1.SELFTEST_STATE, BAT1.SELFTEST_STEP, BAT1.SELFTEST_TIME, BAT1.SERIAL, BAT1.TRIG_ITALY_SELF, BAT1OBJ1.COMM, GRIDCONFIG.AU_SOFT_RAMP_EN, GRIDCONFIG.AU_VRR_MAX, GRIDCONFIG.AU_VRR_MIN, GRIDCONFIG.AU_VVAR_PERCENTAGE, GRIDCONFIG.AU_VVAR_P_MAX, GRIDCONFIG.AU_VVAR_P_MIN, GRIDCONFIG.AU_VVAR_VOLTAGE, GRIDCONFIG.AU_VWC_VOLTAGE, GRIDCONFIG.AU_VWD_VOLTAGE, GRIDCONFIG.CEI_SEGNALE_ESTERNO, GRIDCONFIG.VDELVFRTDISABLE, GRIDCONFIG.VDEURMSMAX10
-
-### 1.0.10 (NoBl, smartpran)
-* DateType objects are stored as date again
-* changed WIZARD.SETUP_POWER_RULE unit to '%'
-* changed name of STATISTIC.STAT_SUM_E_PU to "STAT_SUM Energy PowerUnit"
-* changed name of STATISTIC.STAT_SUM_E_WB to "STAT_SUM Energy Wallbox"
-* changed name of STATISTIC.LIVE_WB_ENERGY to "Live Wallbox Energy"
-* changed name of STATISTIC.LIVE_PU_ENERGY to "Live PowerUnit Energy"
-* changed name of WIZARD.PWRCFG_PEAK_PV_POWER to "Configured Peak PV Power"
-* enforcing conversion of number values to Number(). Otherwise they are created as String in ioBroker (manually delete existing datapoints in ioBroker to change them!)
-* fixed representation for temp values (off by *10)
-* json delivers a non-value (apparently an error message produced by senec itself). Ignoring that.
-* Added variable mpp_int to high priority and changed unit it. (smartpran)
-
-### 1.0.9 (NoBl)
-* IP types are shown as IP again.
-* added datapoints for FACTORY along with more state descriptions for Battery Type, Country and System Type.
-* added datapoints for GRIDCONFIG
-
-### 1.0.8 (NoBl)
-* Added more states to known states (please feedback if they need special handling (unit, special description, value modification, ...))
-* Bugfix in creating debug data
-* Unknown states are now reported in debug instead of info.
-* Code cleanup
-
-### 1.0.7 (NoBl)
-* Reading all known states from SENEC.
-* Split states into high/low priority (heavy requesting the SENEC system renders it unable to sync with the SENEC datacenter!).
-* Updated adapter-core and testing versions along with current dev dependencies. Removed node 8 support.
-* Added more state descriptions to manual. But need input on these and those that are still not documented.
-
-### 1.0.6 (NoBl)
-* Moved senec states and state attributes to libs
-* Added missing state descriptions
-
-### 1.0.5 (2020-03-07) (NoBl)
-* Added States for: Energy: GUI_BAT_DATA_VOLTAGE, GUI_BAT_DATA_CURRENT, STAT_HOURS_OF_OPERATION; Sys_update: NPU_VER, NPU_IMAGE_VERSION, Wizard: APPLICATION_VERSION, INTERFACE_VERSION
-* Readme and Documentation (EN exists, now) updated
-* Changed behavior for unknown values completely. They will now be stored as string plus prefixed with "REPORT TO DEV:" so users can easily report back what needs updating.
-* added handling for "st_" values in json
-* added additional configuration options
-* changed retry-behaviour in case of connection issues, ...
-
-### 1.0.4 (2020-03-06)
-* (NoBl) Repo URL updated
-### 1.0.3 (2020-03-06)
-* (NoBl) added link to documentation in german
-### 1.0.2 (2020-03-04)
-* (NoBl) added missing status codes (85 in total now)
-* (NoBl) added status code to status message for easier reference
-* (NoBl) added states for wallboxes and battery modules
-### 1.0.1
-* (NoBl) updated readme
-### 1.0.0
-* (NoBl) initial release
+### [Former Updates](CHANGELOG_old.md)
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kecontact/README.md
 title: ioBroker-Adapter für KEBA KeContact Wallbox
-hash: 3TGw2BzL18r0FDVXL2G3tXy67ifvIYC96MS8+edrVxY=
+hash: 2CBPs1RJKdWFQcmLu1r7jOSp5xfW57UhNFz0wiNC+Ro=
 ---
 ![Adapter-Logo](../../../en/adapterref/iobroker.kecontact/admin/charger.png)
 
@@ -40,10 +40,9 @@ Sie können diese Option aktivieren, um regelmäßig die neuesten Ladesitzungen 
 ACHTUNG für Benutzer ab Version v1.1.1: Sie müssen diese Option aktivieren, um weiterhin Ladesitzungen zu erhalten!
 
 ### Aktualisierungsintervall
-Dies ist das Intervall in Sekunden, in dem die Wallbox nach neuen Werten abgefragt werden soll. Normalerweise wird es nicht benötigt (auf 0 gesetzt).
-Die Wallbox sendet kontinuierlich Sendungen, die absolut ausreichend sind, um die Daten auf dem neuesten Stand zu halten.
+Dies ist das Intervall in Sekunden, in dem die Wallbox nach neuen Ladewerten abgefragt werden soll.
 
-Der Standardwert ist 30 Sekunden. Dies ist ein gutes Gleichgewicht zwischen der Last für KeConnect und den aktuellen Informationen in ioBroker.
+Der Standardwert ist 10 Minuten. Dies ist ein gutes Gleichgewicht zwischen der Last für KeConnect und den aktuellen Informationen in ioBroker.
 
 ### PV-Automatik
 Um Ihr Fahrzeug entsprechend einem Überschuss aufzuladen (z. B. durch Photovoltaik), können Sie auch Zustände definieren, die den Überschuss und die Berücksichtigung der Hauptleistung darstellen. Diese Werte werden zur Berechnung der Stromstärke verwendet, die zum Laden verwendet werden kann. Durch zusätzliche Werte können Sie definieren
@@ -53,6 +52,7 @@ Um Ihr Fahrzeug entsprechend einem Überschuss aufzuladen (z. B. durch Photovolt
 * ein Inkrement für die Stromstärke (empfohlen 500 mA)
 * Ein Wert, der vorübergehend verwendet werden kann, um die Ladesitzung aufrechtzuerhalten (das bedeutet, dass der Ladevorgang später beendet wird, auch wenn nicht mehr genügend Überschuss verfügbar ist - Start-Rücksicht wird hinzugefügt - empfohlene 500 W).
 * Mindestdauer der Ladesitzung (auch wenn der Überschuss nicht mehr ausreicht, dauert eine Ladesitzung mindestens dieses Mal - empfohlen 300 Sekunden)
+* Zeit, um die Ladesitzung jedes Mal fortzusetzen, wenn ein Überschuss nicht mehr ausreicht (um die Zeit an bewölkten Tagen zu überbrücken)
 
 ### Leistungsbegrenzung
 Sie können auch max. Leistung Ihrer Wallbox zur Begrenzung der Hauptleistung. Z.B. Wenn Sie Nachtspeicherheizungen betreiben, müssen Sie möglicherweise eine maximale Leistungsbegrenzung einhalten.
@@ -66,6 +66,11 @@ Dieses Projekt ist weder direkt noch indirekt mit der Firma KEBA AG verbunden.
 KeConnect ist eine eingetragene Marke der KEBA AG.
 
 ## Changelog
+
+### 1.1.3 (2021-04-26)
+* (Sneak-L8) new time option to continue charging session with regard
+* (Sneak-L8) optimized calculation of surplus (prevent alternating amerage)
+* (Sneak-L8) support for compact mode
 
 ### 1.1.2 (2021-04-02)
 * (Sneak-L8) default state of photovoltaics automatic set to true for new users
@@ -137,7 +142,7 @@ KeConnect ist eine eingetragene Marke der KEBA AG.
 
 ## License
 
-Copyright 2020 UncleSamSwiss
+Copyright (c) 2020-2021 UncleSamSwiss
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

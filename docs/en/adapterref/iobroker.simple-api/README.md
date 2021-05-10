@@ -1,11 +1,13 @@
 ![Logo](admin/simple-api.png)
 # Simple-api
 
-![Number of Installations](http://iobroker.live/badges/simple-api-installed.svg) ![Number of Installations](http://iobroker.live/badges/simple-api-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.simple-api.svg)](https://www.npmjs.com/package/iobroker.simple-api)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.simple-api.svg)](https://www.npmjs.com/package/iobroker.simple-api)
-[![Tests](https://travis-ci.org/ioBroker/ioBroker.simple-api.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.simple-api)
+![Number of Installations](http://iobroker.live/badges/simple-api-installed.svg)
+![Number of Installations](http://iobroker.live/badges/simple-api-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.simple-api.svg)](https://www.npmjs.com/package/iobroker.simple-api)
 
-[![NPM](https://nodei.co/npm/iobroker.simple-api.png?downloads=true)](https://nodei.co/npm/iobroker.simple-api/)
+![Test and Release](https://github.com/ioBroker/ioBroker.simple-api/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/simple-api/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.simple-api.svg)](https://www.npmjs.com/package/iobroker.simple-api)
 
 This is RESTFul interface to read the objects and states from ioBroker and to write/control the states over HTTP Get/Post requests.
 
@@ -553,8 +555,9 @@ If no data source was specified or the noHistory parameter is passed, then only 
 -->
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 2.6.0 (2021-05-09)
 * (Apollon77) Also URL-Decode the path parts like state ids
+* (Apollon77) Optimize for js-controller 3.3
 
 ### 2.5.3 (2021-01-25)
 * (Apollon77) Make sure that delayed answers are not crashing (Sentry IOBROKER-SIMPLE-API-Z)

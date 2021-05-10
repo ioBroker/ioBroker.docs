@@ -3,11 +3,10 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.unifi/README.md
 title: ioBroker.unifi
-hash: uzAYLNiazFB+pRFLhUAVnrVOUtlnYN9uaWaHamOgHaE=
+hash: 1eu6brniZsV62zT/Li5E57rGEfySbXdC9MBXNIPLd1U=
 ---
 ![Логотип](../../../en/adapterref/iobroker.unifi/admin/unifi.png)
 
-![Статус сборки](https://travis-ci.org/iobroker-community-adapters/ioBroker.unifi.svg?branch=master)
 ![Количество установок](http://iobroker.live/badges/unifi-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.unifi.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.unifi.svg)
@@ -44,10 +43,10 @@ hash: uzAYLNiazFB+pRFLhUAVnrVOUtlnYN9uaWaHamOgHaE=
 Изменяя состояние «включено» WLAN, можно включить / отключить его. Через несколько секунд изменение будет внесено в точки доступа.
 
 ### Создание ваучера
-Используя кнопку "vouchers.create_vouchers", можно создавать предопределенные ваучеры. Можно настроить количество создаваемых ваучеров, срок действия ваучеров, а также установить лимиты для загрузки и скачивания.
+Используя кнопку «vouchers.create_vouchers», можно создавать предопределенные ваучеры. Можно настроить количество создаваемых ваучеров, срок действия ваучеров, а также установить лимиты на загрузку и скачивание.
 
 ## Отсутствующие точки данных
-Адаптер использует [узел-унифи](https://github.com/jens-maus/node-unifi) для подключения к вашему UniFi Controller. Чтобы упростить задачу, не все доступные точки данных загружаются в ваш ioBroker. Если вам не хватает точек данных, используйте следующие URL-адреса для проверки API. (Примечание: вы должны заменить IP, PORT и SITE своими настройками)
+Адаптер использует [узел-унифи](https://github.com/jens-maus/node-unifi) для подключения к вашему контроллеру UniFi. Чтобы упростить ситуацию, не все доступные точки данных загружаются в ваш ioBroker. Если вам не хватает точек данных, используйте следующие URL-адреса для проверки API. (Примечание: вы должны заменить IP, ПОРТ и САЙТ своими настройками)
 
 | Информация | URL API |
 |-------------|---------------------------------------------|
@@ -77,77 +76,9 @@ hash: uzAYLNiazFB+pRFLhUAVnrVOUtlnYN9uaWaHamOgHaE=
 | Сигнализация | https:// IP / прокси / сеть / api / s / SITE / stat / alarm |
 
 ## Известные проблемы
-* Состояние is_wired клиентов неверно после того, как клиент отключился. Это известная проблема контроллера UniFi, не имеющая отношения к адаптеру. (см. https://community.ui.com/questions/Wireless-clients-shown-as-wired-clients/49d49818-4dab-473a-ba7f-d51bc4c067d1)
+* Состояние is_wired клиентов неверно после того, как клиент перешел в автономный режим. Это известная проблема контроллера UniFi, не связанная с адаптером. (см. https://community.ui.com/questions/Wireless-clients-shown-as-wired-clients/49d49818-4dab-473a-ba7f-d51bc4c067d1)
 
-## __РАБОТА В ПРОЦЕССЕ__
-### 0.5.8 (29.08.2020)
-* (braindead1) Исправлены проблемы, связанные с неиспользуемыми сайтами
-* (braindead1) Исправлены некоторые ошибки, о которых сообщалось через Sentry.
-
-### 0.5.7 (27.07.2020)
-* (braindead1) Исправлены ошибки Sentry, вызванные не обновленной конфигурацией после обновления
-
-### 0.5.6 (25.07.2020)
-* (Scrounger, braindead1) Реализованы сигналы тревоги, DPI и трафик шлюза
-* (braindead1) Предотвращено создание призрачных клиентов из-за рандомизации MAC iOS.
-* (dklinger) Реализован триггер ручного обновления
-* (braindead1) Реализовано удаление использованных ваучеров
-* (braindead1) Исправлены некоторые ошибки, о которых сообщалось через Sentry.
-
-### 0.5.5 (13.06.2020)
-* (braindead1) Исправлены некоторые ошибки, о которых сообщалось через Sentry.
-
-### 0.5.4 (06.06.2020)
-* (braindead1) Реализовано смещение для is_online
-* (braindead1) Исправлены некоторые проблемы, связанные с is_online
-* (braindead1) Подготовлен белый список клиентов и т. д.
-
-### 0.5.2 (2020-05-23)
-* (jens-maus) Реализована поддержка UniFiOS / UDM-Pro.
-* (braindead1) Реализована возможность включения / отключения WLAN.
-* (braindead1) Реализовано создание ваучера
-* (braindead1) Реализовано онлайн-состояние для клиентов
-* (braindead1) Обновленные состояния клиентов
-* (braindead1) Обновленные состояния устройства
-* (braindead1) Улучшенные сообщения об ошибках
-
-### 0.5.0 (09.05.2020)
-* (braindead1) Реализована настройка обновлений
-* (braindead1) Улучшенный JsonLogic
-* (braindead1) Удален устаревший код
-* (braindead1) Реализован Sentry
-
-### 0.4.3 (24.04.2020)
-* (braindead1) исправлена проблема конфигурации
-
-### 0.4.2 (23.04.2020)
-* (braindead1) проблема с подсистемой исправлена
-
-### 0.4.1 (16.04.2020)
-* (braindead1) Улучшенный рефакторинг
-
-### 0.4.0 (16.04.2020)
-* (bluefox) Рефакторинг
-
-### 0.3.1
-* (jens-maus) добавлена поддержка многосайтовых сред.
-
-### 0.3.0
-* (jens-maus) добавил запрос данных устройства доступа и вместо этого переместил клиентские устройства в поддерево «клиенты»
-
-### 0.2.1
-* (jens-maus) мелкие исправления
-
-### 0.2.0
-* (jens-maus) переместил `lib / unifi.js` в выделенный класс node-unifi nodejs и добавил его в качестве зависимости.
-
-### 0.1.0
-* (jens-maus) реализована первая в основном рабочая версия, которая может получать информацию о состоянии от контроллера UniFi.
-
-### 0.0.1
-* (jens-maus) начальная регистрация нерабочей разрабатываемой версии
-
-## Ссылки
+## Рекомендации
 Этот адаптер использует функции следующих сторонних модулей nodejs:
 
 * [узел-unifi] (https://github.com/jens-maus/node-unifi)
@@ -156,8 +87,80 @@ hash: uzAYLNiazFB+pRFLhUAVnrVOUtlnYN9uaWaHamOgHaE=
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
-    ## __WORK IN PROGRESS__
+    ### **WORK IN PROGRESS**
 -->
+### 0.5.9 (2021-05-07)
+* (jens-maus) Fixed all js-controller 3.3 related state warnings
+* (kirovilya, jens-maus) Added device state object with dedicated states list.
+* (jens-maus) Updated node-unifi to latest version
+* (jens-maus) Updated dependencies
+
+### 0.5.8 (2020-08-29)
+* (braindead1) Fixed problems related to unused sites
+* (braindead1) Fixed some errors reported via Sentry
+
+### 0.5.7 (2020-07-27)
+* (braindead1) Fixed Sentry errors caused by not updated configuration after update
+
+### 0.5.6 (2020-07-25)
+* (Scrounger, braindead1) Implemented Alarms, DPI & Gateway Traffic
+* (braindead1) Prevented creation of ghost clients caused by iOS MAC randomization
+* (dklinger) Implemented manual update trigger
+* (braindead1) Implemented deletion of used vouchers
+* (braindead1) Fixed some errors reported via Sentry
+
+### 0.5.5 (2020-06-13)
+* (braindead1) Fixed some errors reported via Sentry
+
+### 0.5.4 (2020-06-06)
+* (braindead1) Implemented offset for is_online
+* (braindead1) Fixed some issues related to is_online
+* (braindead1) Prepared whitelisting of clients etc.
+
+### 0.5.2 (2020-05-23)
+* (jens-maus) Implemented UniFiOS/UDM-Pro support
+* (braindead1) Implemented possibility to enable/disable WLANs
+* (braindead1) Implemented voucher creation
+* (braindead1) Implemented online state for clients
+* (braindead1) Updated client states
+* (braindead1) Updated device states
+* (braindead1) Improved error messages
+
+### 0.5.0 (2020-05-09)
+* (braindead1) Implemented configuration of updates
+* (braindead1) Improved JsonLogic
+* (braindead1) Removed legacy code
+* (braindead1) Implemented Sentry
+
+### 0.4.3 (2020-04-24)
+* (braindead1) fixed configuration issue
+
+### 0.4.2 (2020-04-23)
+* (braindead1) subsystem issue fixed
+
+### 0.4.1 (2020-04-16)
+* (braindead1) Enhanced refactoring
+
+### 0.4.0 (2020-04-16)
+* (bluefox) Refactoring
+  
+### 0.3.1
+* (jens-maus) added support for multi-site environments.
+
+### 0.3.0
+* (jens-maus) added access device data query and moved the client devices to the 'clients' subtree instead
+
+### 0.2.1
+* (jens-maus) minor fixes
+
+### 0.2.0
+* (jens-maus) moved `lib/unifi.js` to dedicated node-unifi nodejs class and added it as a dependency.
+
+### 0.1.0
+* (jens-maus) implemented a first basically working version which can retrieve status information from a UniFi controller.
+
+### 0.0.1
+* (jens-maus) initial checkin of non-working development version
 
 ## License
 The MIT License (MIT)

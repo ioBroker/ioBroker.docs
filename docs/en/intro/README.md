@@ -4,19 +4,19 @@ lastChanged: 02.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/intro/README.md
-hash: rT6+7YFFaqlLKu60Z+UiKSTbacwuZzSym1Rqe544mCw=
+hash: CPVoZ1Kk4lwNc3YB1GjGxDsiZgb5zVPN5QjvJz6q8s0=
 ---
 ** This documentation is the central reference for all ioBroker users: **
 
 ## Page structure
-This page was created in a ***responsive design*** . This means that it is displayed differently for optimal readability depending on the resolution of the display of the reader (PC / tablet / mobile phone).
+This page was created in a ***responsive design*** . This means that it is displayed differently depending on the resolution of the display of the reader (PC / tablet / mobile phone) for optimal readability.
 
 With low (effective) resolutions, operating elements are partially hidden in order to make space for the main window.
 
 It is therefore possible that the current display differs from the screenshots.
 
 ### Different menus
-To get the best possible overview, there are a total of three different menus:
+In order to get the greatest possible overview, there are a total of three different menus:
 
 ![Side menus](../../de/intro/media/Seite_numbers.png)
 
@@ -50,7 +50,7 @@ The menu can be hidden again using the icon with the **X**
 
 ### More controls
 #### 4.) Language selection
-The website is multilingual. More languages will be added gradually. Some are generated automatically first, native speakers are invited to improve the texts.
+The website is multilingual. More languages will gradually be added. Some are generated automatically first, native speakers are invited to improve the texts.
 
 The desired language can be selected at the globe icon.
 
@@ -71,7 +71,7 @@ More on this in the chapter [Basics] [].
 
 Detailed installation instructions for some hardware platforms are also available there.
 
-* Information on all adapters can be found in the central [adapter reference] [].
+* Information on all adapters can be found in the central [Adapter Reference] [].
 * The creation of control rules is described in section [Logic & Automation] [].
 
 We are grateful for every helping hand. If you would like to contribute to the further development of ioBroker, you will find information in the [Developer area] [].
@@ -88,4 +88,4 @@ This documentation is constantly being expanded. If you think something is missi
 
 [Developer Bereich]: https://www.iobroker.net/#de/documentation/dev/adapterdev.md
 
-[helfen Sie uns dabei]: hhttps://forum.iobroker.net/viewtopic.php?f=8&t=16933
+[helfen Sie uns dabei]: https://forum.iobroker.net/viewtopic.php?f=8&t=16933

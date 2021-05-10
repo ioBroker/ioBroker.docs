@@ -3,11 +3,10 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: W7B0P7++h+ffZsqBivQS+nC9dJ8mA30Rph2P8A63ANo=
+hash: t4W+whBjVkdsu5kxkZwHOH7v6dtTuIvKgqCLEolI/Gg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
-![Значок Greenkeeper](https://snyk.io/test/github/jack-blackson/ioBroker.meteoalarm/badge.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.meteoalarm.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.meteoalarm.svg)
 ![Количество установок](http://iobroker.live/badges/meteoalarm-stable.svg)
@@ -107,6 +106,12 @@ hash: W7B0P7++h+ffZsqBivQS+nC9dJ8mA30Rph2P8A63ANo=
 
 ## Возможности для реализации
 * Обработка нескольких сигналов тревоги за один день
+
+## 1.1.10 (2021-05-09)
+* (jack-blackson) Обновления пакетов
+
+## 1.1.9 (2021-05-07)
+* (jack-blackson) Обновления пакетов
 
 ## 1.1.5 (2021-05-02)
 * (jack-blackson) Исправление ошибок JS-Controller 3.3.1, обработка ошибок не определен язык

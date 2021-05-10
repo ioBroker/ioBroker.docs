@@ -4,19 +4,19 @@ lastChanged: 02.05.2021
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/intro/README.md
-hash: rT6+7YFFaqlLKu60Z+UiKSTbacwuZzSym1Rqe544mCw=
+hash: CPVoZ1Kk4lwNc3YB1GjGxDsiZgb5zVPN5QjvJz6q8s0=
 ---
 **本文档是所有ioBroker用户的主要参考资料：**
 
 ##页面结构
-此页面是采用***响应式设计***创建的。这意味着，根据阅读器（PC /平板电脑/手机）显示屏的分辨率，它的显示方式会有所不同，以实现最佳的可读性。
+该页面是采用***响应式设计***创建的。这意味着，根据阅读器（PC /平板电脑/手机）显示屏的分辨率，它的显示方式会有所不同，以实现最佳的可读性。
 
-在低（有效）分辨率下，操作元素被部分隐藏，以便为主窗口腾出空间。
+在低（有效）分辨率下，有时会隐藏操作元素，以便为主窗口腾出空间。
 
 因此，当前显示可能与屏幕截图有所不同。
 
 ###不同的菜单
-为了获得最大的概览，共有三个不同的菜单：
+为了获得最佳的概览，提供了三个不同的菜单：
 
 ![侧面菜单](../../de/intro/media/Seite_numbers.png)
 
@@ -88,4 +88,4 @@ hash: rT6+7YFFaqlLKu60Z+UiKSTbacwuZzSym1Rqe544mCw=
 
 [Developer Bereich]: https://www.iobroker.net/#de/documentation/dev/adapterdev.md
 
-[helfen Sie uns dabei]: hhttps://forum.iobroker.net/viewtopic.php?f=8&t=16933
+[helfen Sie uns dabei]: https://forum.iobroker.net/viewtopic.php?f=8&t=16933

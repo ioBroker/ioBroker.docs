@@ -1,7 +1,7 @@
 ![Logo](admin/meteoalarm.png)
 # ioBroker.meteoalarm
 
-[![Greenkeeper badge](https://snyk.io/test/github/jack-blackson/ioBroker.meteoalarm/badge.svg)](https://snyk.io/test/github/jack-blackson/ioBroker.meteoalarm) [![NPM version](http://img.shields.io/npm/v/iobroker.meteoalarm.svg)](https://www.npmjs.com/package/iobroker.meteoalarm) [![Build Status Travis](https://travis-ci.com/jack-blackson/ioBroker.meteoalarm.svg?branch=master)](https://travis-ci.com/jack-blackson/ioBroker.meteoalarm) [![Downloads](https://img.shields.io/npm/dm/iobroker.meteoalarm.svg)](https://www.npmjs.com/package/iobroker.meteoalarm) ![Number of Installations](http://iobroker.live/badges/meteoalarm-installed.svg) ![Number of Installations](http://iobroker.live/badges/meteoalarm-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.meteoalarm.svg)](https://www.npmjs.com/package/iobroker.meteoalarm) [![Build Status Travis](https://travis-ci.com/jack-blackson/ioBroker.meteoalarm.svg?branch=master)](https://travis-ci.com/jack-blackson/ioBroker.meteoalarm) [![Downloads](https://img.shields.io/npm/dm/iobroker.meteoalarm.svg)](https://www.npmjs.com/package/iobroker.meteoalarm) ![Number of Installations](http://iobroker.live/badges/meteoalarm-installed.svg) ![Number of Installations](http://iobroker.live/badges/meteoalarm-stable.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.meteoalarm.png?downloads=true)](https://nodei.co/npm/iobroker.meteoalarm.png?downloads=true/)
 
@@ -107,6 +107,10 @@ If you don't find your country, please create an issue on github, and I will be 
 
 
 ## Changelog
+## 1.1.10 (2021-05-09)
+* (jack-blackson) Package Updates
+## 1.1.9 (2021-05-07)
+* (jack-blackson) Package Updates
 ## 1.1.5 (2021-05-02)
 * (jack-blackson) Bugfix JS-Controller 3.3.1 errors, error handling no language defined
 ## 1.1.4 (2021-04-05)

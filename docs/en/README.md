@@ -4,7 +4,7 @@ lastChanged: 02.05.2020
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/README.md
-hash: HJRn/VegqtsIr9BaRyLaS9QGoH3GgiXNiAvVKxc9kwE=
+hash: Om7xcAl2j1F6Y0kXvYikVlOKgkq0/EE1Yd6+VEDFPQ4=
 ---
 # Welcome to ioBroker
 !> **Note for beginners** If too many unknown terms have been used while reading these first words, they will be explained in detail on the [Basics] [] page.
@@ -17,7 +17,7 @@ An ioBroker system has a modular structure. A multitude of [adapters] [] enables
 
 Be it the integration of commercial products from almost all areas of life or the integration of a self-created solution - ioBroker makes almost everything possible.
 
-!> The documentation is under construction and is constantly being expanded. It is therefore possible that links do not yet work or that content is missing. We appreciate any help with creating new articles or for improvements. Information on this is available [in the forum] [].<br><br> **Until all content has been adopted, the old documentation is still [to be found here]. It will be successively replaced by the new documentation.**
+!> The documentation is under construction and is constantly being expanded. It is therefore possible that links do not yet work or that content is missing. We appreciate any help with creating new articles or for improvements. Information on this is available [in the forum] [].<br><br> **Until all content has been adopted, the old documentation is still [to be found here] []. It will be successively replaced by the new documentation.**
 
 ## Cross-platform
 Anyone who deals with home automation will sooner or later find that individual systems are often not perfect. Every system has its strengths and weaknesses. ioBroker is therefore cross-platform and parallel operation with existing solutions is possible at any time. In this way, synergy effects can be used and the best of all worlds can be brought together.
@@ -25,7 +25,7 @@ Anyone who deals with home automation will sooner or later find that individual 
 ioBroker itself IS at home on almost all platforms. ioBroker can be installed on Windows, Linux, OSX or as a Docker image.
 Preconfigured installation images relieve the user of the installation work.
 
-Remote management on a locally installed ioBroker system is possible 24/7 for the user or system integrators via optional cloud-based access. The access control can be freely configured by the user by means of users and groups.
+Remote management on a locally installed ioBroker system is possible 24/7 for the user or system integrators via optional cloud-based access. The access control can be freely configured by the user using users and groups.
 
 ## Scalable
 If further smart home systems are to be connected in the course of time, these can be implemented by the user at any time using additional adapters during operation.
@@ -47,7 +47,7 @@ The user has maximum freedom of design. Prefabricated modules for easy use help 
 Simple, prefabricated user interfaces can be implemented quickly with the material or HabPanel adapter.
 
 ## Community
-Since 2014, ioBroker has secured broad support from thousands of users and developers due to its many advantages. In the specially set up [Forum] [] users and developers meet and exchange their experiences and suggestions with one another. Since ioBroker is open source software, all source texts are freely available on the [GitHub] [] platform.
+Since 2014, ioBroker has secured broad support from thousands of users and developers due to its many advantages. In the specially set up [Forum] [] users and developers meet and exchange their experiences and suggestions. Since ioBroker is open source software, all source texts are freely available on the [GitHub] [] platform.
 
 ?> What ioBroker is not: ioBroker is not commercial software. ioBroker is developed and maintained by volunteers. Therefore, the use of the software is at your own liability, with the exception of willful damage.
 There is no contractually stipulated support!

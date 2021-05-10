@@ -11,13 +11,17 @@
 This adapter reads out the data from your proxmox installation
 
 ## Requirements
-At least Node 10.X.X is needed and js-controller 2.0.0 or above is required
+At least Node 10.X.X is needed and js-controller 3.2.0 or above is required
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
+### 1.3.4 (2021-05-07)
+* (foxriver76) add dataSource and connectionType
+* (foxriver76) add compact mode (closes #12, closes #49)
 
 ### 1.3.3 (2021-05-02)
 * (foxriver76) we fixed some incorrect types
@@ -85,7 +89,7 @@ __node v10 or above required__
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2020 MeisterTR <meistertr.smarthome@gmail.com>
+Copyright (c) 2018 - 2021 MeisterTR <meistertr.smarthome@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

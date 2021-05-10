@@ -1,9 +1,7 @@
 ---
-BADGE-Build Status: https://travis-ci.org/ioBroker/ioBroker.ical.svg?branch=master
 BADGE-Number of Installations: http://iobroker.live/badges/ical-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.ical.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.ical.svg
-BADGE-Github Issues: http://githubbadges.herokuapp.com/ioBroker/ioBroker.ical/issues.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.ical.png?downloads=true
 ---
 ![Logo](ical.png)
@@ -188,6 +186,12 @@ Blacklist: Wenn Sie alle Ereignisse eines bestimmten Ortes ausschließen möchte
 Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möchten, verwenden Sie reguläre Ausdrücke wie `/^(SUMMARY:.*)\s*(DESCRIPTION:.*)\s*(LOCATION:(?!MyLocation).*)$/` oder für 2 Standorte `/^(SUMMARY:.*)\s*(DESCRIPTION:.*)\s*(LOCATION:(?!((MyHomeLocation)|(MyWorkLocation))).*)$/`
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+* (jens-maus) updated dependencies
 
 ### 1.9.3 (2021-04-01)
 * (Apollon77) Better handling of some ical cases 

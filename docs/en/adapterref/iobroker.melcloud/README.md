@@ -32,6 +32,8 @@ Documentation:
 -->
 
 ### __WORK IN PROGRESS__
+* (Black-Thunder) IMPORTANT: The adapter now requires js-controller 3.1 at least
+* (Black-Thunder) ignore unchanged state values to decrease network traffic
 * (Black-Thunder) extend existing objects to ensure compability with js-controller >= v3.2
 * (Black-Thunder) only allow values with 0.5 steps for "targetTemp" 
 

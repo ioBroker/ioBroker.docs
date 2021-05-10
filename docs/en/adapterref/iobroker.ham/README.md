@@ -69,7 +69,7 @@ For this to work you need to provide the location of the systems global node-mod
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 4.0.2 (2021-05-08)
 * (Apollon77) prevent warnings in js-controller 3.3
 
 ### 4.0.1 (2021-03-24)
@@ -149,7 +149,7 @@ For this to work you need to provide the location of the systems global node-mod
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2018-2021 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

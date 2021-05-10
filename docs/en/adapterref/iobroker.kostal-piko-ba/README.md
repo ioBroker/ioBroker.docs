@@ -27,41 +27,32 @@ You could also edit the update frequencies of live, daily and livetime data.
 This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers. For more details and for informations on how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Changelog
+### 1.1.7 (09.05.2021)
+* (HombachC) added tests for node.js 16; fixed vulnerability
 ### 1.1.6 (02.03.2021)
 * (HombachC) bumped dependencies; changes for new year 2021
-
 ### 1.1.5 (14.12.2020)
 * (HombachC) bumped dependencies; added tests for node.js 15
-
 ### 1.1.4 (14.12.2020)
 * (HombachC) removed potential security vulnerability; bumped dependencies
-
 ### 1.1.3 (23.11.2020)
 * (HombachC) added battery.Voltage; added additional error handler; bumped dependencies
-
 ### 1.1.1 (09.10.2020) stable
 * (HombachC) minor documentation tweaks; DC current accuracy changed to mA
-
 ### 1.1.0 (09.10.2020)
 * (tobstare) added DC1-3 Current, Voltage and Power
 * (HombachC) added battery.ChargeCycles
 * (HombachC) bumped dependencies; added battery.temperature
-
 ### 1.0.2 (23.09.2020) stable
 * (HombachC) public release for stable repo
-
 ### 0.8.0 (18.08.2020)
 * (HombachC) seperate editable poll timer for statistics data
-
 ### 0.7.4 (03.07.2020)
 * (HombachC) added sentry.io support
-
 ### 0.6.1 (28.06.2020)
 * (HombachC) poll of statistics data separated
-
 ### 0.5.1 (22.06.2020)
 * (HombachC) introduced editable poll interval 
-
 ### 0.1.0 (15.05.2020)
 * (HombachC) initial working release
 

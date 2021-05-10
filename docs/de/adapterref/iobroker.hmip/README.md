@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hmip/README.md
 title: ioBroker HomeMatic IP Cloud AccessPoint-Adapter
-hash: ijuFp8aNeY4Hy2i0Nl5rlSZyjDVdk8LiQwte36/U8hw=
+hash: epSSpIL9StOJGWYuOWtlU8h50UmJ9N+GQKPVrCqTtvY=
 ---
 ![Logo](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
@@ -40,7 +40,7 @@ Vielen Dank
 Wenn Sie nach Informationen suchen und die Alarmeinstellungen aktiv sind, müssen Sie den aktiven Status der Gruppe INTERN und EXTERN überprüfen. Diese repräsentieren in Kombination die drei Alarmzustände. INTERNE und EXTERNE Wirkstoffe bedeuten Auswärts, nur EXTERN aktiv bedeutet nur Perimeter aktiv.
 
 ## Wichtige Informationen, was mit diesem Adapter gemacht werden kann
-!!! Mit diesem Adapater können Sie nur Ereignisse auslösen, die über die ursprüngliche Homematic IP-App ausgelöst werden können.
+!!! Mit diesem Adapter können Sie nur Ereignisse auslösen, die über die ursprüngliche Homematic IP-App ausgelöst werden können.
 Zum Beispiel haben direkte Verbindungen zwischen Geräten keine Ereignisse in der App und können auch nicht über diesen Adapter ausgelöst werden !!!
 
 ## Die Einstellungen
@@ -56,6 +56,11 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
+
+### 1.11.1 (2021-05-08)
+* (Apollon77) IMPORTANT: The adapter now requires js-controller 3.1 at least!
+* (Apollon77) Update objects on startup to make sure definition is current
+* (Apollon77) prevent warnings in js-controller 3.3
 
 ### 1.11.0 (2021-04-25)
 * (Apollon77) Implement CARBON_DIOXIDE_SENSOR_CHANNEL
@@ -183,7 +188,7 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2019 jogibear9988 <jochen.kuehner@gmx.de>
+Copyright (c) 2018-2021 jogibear9988 <jochen.kuehner@gmx.de>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

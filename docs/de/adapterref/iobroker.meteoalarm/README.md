@@ -3,11 +3,10 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: W7B0P7++h+ffZsqBivQS+nC9dJ8mA30Rph2P8A63ANo=
+hash: t4W+whBjVkdsu5kxkZwHOH7v6dtTuIvKgqCLEolI/Gg=
 ---
 ![Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
-![Greenkeeper-Abzeichen](https://snyk.io/test/github/jack-blackson/ioBroker.meteoalarm/badge.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.meteoalarm.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.meteoalarm.svg)
 ![Anzahl der Installationen](http://iobroker.live/badges/meteoalarm-stable.svg)
@@ -61,7 +60,7 @@ Option 2: Gehen Sie zu http://meteoalarm.eu und wählen Sie Ihre Region aus. Geh
 | 9 | Lawine |
 | 10 | Regen |
 | 11 | Unbekannt |
-| 12 | Flut |
+| 12 | Hochwasser |
 | 13 | Regenflut |
 
 ## Alarmstufen
@@ -107,6 +106,12 @@ Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf github, und 
 
 ## Zu implementierende Funktionen
 * Behandeln Sie mehrere Alarme an einem Tag
+
+## 1.1.10 (2021-05-09)
+* (jack-blackson) Paketaktualisierungen
+
+## 1.1.9 (2021-05-07)
+* (jack-blackson) Paketaktualisierungen
 
 ## 1.1.5 (2021-05-02)
 * (jack-blackson) Bugfix JS-Controller 3.3.1 Fehler, Fehlerbehandlung keine Sprache definiert

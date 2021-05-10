@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hmip/README.md
 title: ioBroker HomeMatic IP Cloud AccessPoint адаптер
-hash: ijuFp8aNeY4Hy2i0Nl5rlSZyjDVdk8LiQwte36/U8hw=
+hash: epSSpIL9StOJGWYuOWtlU8h50UmJ9N+GQKPVrCqTtvY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
@@ -19,7 +19,7 @@ hash: ijuFp8aNeY4Hy2i0Nl5rlSZyjDVdk8LiQwte36/U8hw=
 ## Описание
 Этот адаптер позволяет обмениваться данными с HomematicIP CloudAccessPoint через Rest API из Homematic IP Cloud.
 
-** Важное примечание: ** Пожалуйста, ограничьте запросы управления до минимума, потому что EQ-3 начал блокировать IP-адреса, когда вы делаете слишком много!
+** Важное примечание: ** Пожалуйста, ограничьте количество запросов на управление до минимума, потому что EQ-3 начал блокировать IP-адреса, когда вы делаете слишком много!
 
 ## Монтаж
 Этому адаптеру требуется node-js версии> = 8.6.
@@ -40,8 +40,8 @@ hash: ijuFp8aNeY4Hy2i0Nl5rlSZyjDVdk8LiQwte36/U8hw=
 Если вы ищете информацию, если настройки сигнализации активны, вы должны проверить активный статус группы ВНУТРЕННИЙ и ВНЕШНИЙ, они представляют в комбинации три состояния сигнализации. ВНУТРЕННИЙ и ВНЕШНИЙ активны означает Нет на месте, активен только ВНЕШНИЙ означает, что активен только Периметр.
 
 ## Важная информация, что можно сделать с этим адаптером
-!!! С помощью этого адаптера вы можете запускать только события, которые могут запускаться через исходное приложение Homematic IP.
-Например, прямые соединения между устройствами не имеют событий в приложении и не могут быть запущены через этот адаптер !!!
+!!! С помощью этого адаптера можно запускать только события, которые могут запускаться через исходное приложение Homematic IP.
+Например, прямые соединения между устройствами не имеют событий в приложении и также не могут быть запущены через этот адаптер !!!
 
 ## Настройки
 * введите свой SGTIN (на задней панели точки доступа) и PIN-код (если установлен ранее) и подтвердите данные, нажав синюю светодиодную кнопку. Это создаст токен аутентификации.
@@ -56,6 +56,11 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
+
+### 1.11.1 (2021-05-08)
+* (Apollon77) IMPORTANT: The adapter now requires js-controller 3.1 at least!
+* (Apollon77) Update objects on startup to make sure definition is current
+* (Apollon77) prevent warnings in js-controller 3.3
 
 ### 1.11.0 (2021-04-25)
 * (Apollon77) Implement CARBON_DIOXIDE_SENSOR_CHANNEL
@@ -183,7 +188,7 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2019 jogibear9988 <jochen.kuehner@gmx.de>
+Copyright (c) 2018-2021 jogibear9988 <jochen.kuehner@gmx.de>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
