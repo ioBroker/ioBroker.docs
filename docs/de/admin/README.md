@@ -1,6 +1,6 @@
 ---
 title:       "Admin"
-lastChanged: "25.03.2019"
+lastChanged: "10.05.2021"
 ---
 
 # Die Admin-Oberfläche
@@ -35,9 +35,9 @@ Die Adapteransicht teilt sich in drei Bereiche auf:
 
 ![Die Struktur des Admin](media/ADMIN_Screen_numbers.png)
 
-1. [Menü-Sidebar](#Menüpunkte)
-2. [Hauptfenster](#das-hauptfenster)
-3. [Systemeinstellungen](#Systemeinstellungen)
+### 1 - [Menü-Sidebar](#Menüpunkte)
+### 2 - [Hauptfenster](#das-hauptfenster)
+### 3 - [Systemeinstellungen](#Systemeinstellungen)
 
 
 ## Menüpunkte
@@ -62,18 +62,18 @@ Das Hauptfenster zeigt den jeweils zum ausgewählten Menüpunkt gehörenden Inha
 Ausführliche Informationen zu diesem Inhalt sind in den Seiten hinterlegt, die über die 
 Überschriften verlinkt sind.
 
-### [Übersicht](overview.md)
+### [Übersicht][]
 Hier werden alle Seiten mit eigenem Webinterface sowie Informationen zu den 
 Hosts angezeigt.
 
-### [Adapter](adapter.md)
+### [Adapter][]
 Hier werden die verfügbaren und installierten Adapter angezeigt und verwaltet.
 
-### [Instanzen](instances.md)
+### [Instanzen][]
 Hier werden die bereits über den Reiter Adapter installierten Instanzen aufgelistet 
 und können entsprechend konfiguriert werden.
 
-### [Objekte](objects.md)
+### [Objekte][]
 Die verwalteten Objekte Strukturen und Datenpunkte der Geräte, die über Adapter 
 eingebunden sind. Hier können Objekte angelegt und gelöscht werden. Über die 
 "Pfeil hoch"" und ""Pfeil runter"" Buttons können ganze Objektstrukturen 
@@ -82,10 +82,10 @@ hoch- oder runtergeladen werden.
 Werden Werte in roter Schrift angezeigt, sind sie noch nicht vom Empfänger 
 bestätigt (ack = false).
 
-### [Aufzählungen](enums.md)
+### [Aufzählungen][]
 Hier werden die Favoriten, Gewerke und Räume aus der Homematic-CCU aufgelistet.
 
-### [Log](log.md)
+### [Log][]
 Hier wird das log angezeigt
 
 Im Reiter Instanzen kann bei den einzelnen Instanzen der zu loggende Loglevel 
@@ -93,22 +93,34 @@ eingestellt werden. In dem Auswahlmenü wird der anzuzeigende Mindest-Loglevel
 ausgewählt. Sollte ein Error auftreten, erscheint die Beschriftung des Reiters in roter Farbe.
 
 
-### [Ereignisse](events.md)
+### [Ereignisse][]
 Eine Liste der laufenden Aktualisierung der Zustände.
 
-### [Benutzer](users.md)
+### [Benutzer][]
 Hier können Benutzer angelegt und zu den bestehenden Gruppen hinzugefügt werden.
 
 ### [Skripte](scripts.md)
 Auf dieser Seite könne eigene Skripte mit javascript, Blocly oder Typescript erstellt werden.
 
-### [Hosts](hosts.md)
+### [Hosts][]
 Informationen über den Rechner, auf dem ioBroker installiert ist.  Liegt eine neue Version vor, 
 erscheint ein Hinweis in diesem Eintrag der Menüleiste.
 
 
-## [Systemeinstellungen](settings.md)
+## [Systemeinstellungen][]
 In dem sich hier öffnenden Menü werden Einstellungen wie Sprache, Zeit- und 
 Datumsformat sowie weitere systemweite Einstellungen getätigt.
 
 Auch die Repositories und Sicherheitseinstellungen können hier eingestellt werden.
+
+
+[Übersicht]: https://www.iobroker.net/#de/documentation/admin/overview.md
+[Adapter]: https://www.iobroker.net/#de/documentation/admin/adapter.md
+[Instanzen]: https://www.iobroker.net/#de/documentation/admin/instances.md
+[Objekte]: https://www.iobroker.net/#de/documentation/admin/objects.md
+[Aufzählungen]: https://www.iobroker.net/#de/documentation/admin/enums.md
+[Log]: https://www.iobroker.net/#de/documentation/admin/log.md
+[Ereignisse]: https://www.iobroker.net/#de/documentation/admin/events.md
+[Benutzer]: https://www.iobroker.net/#de/documentation/admin/users.md
+[Hosts]: https://www.iobroker.net/#de/documentation/admin/hosts.md
+[Systemeinstellungen]: https://www.iobroker.net/#de/documentation/admin/settings.md
