@@ -3,17 +3,19 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.heatingcontrol/README.md
 title: ioBroker.HeatingControl
-hash: QSvQPDMUstUgUng8PB4U+05xrwrmuxU06lsfjKX97FU=
+hash: X5MlFyDe+6L/X4kED2NEJY8VmMEEOG0s2mJgcylMH/M=
 ---
 ![Logo](../../../en/adapterref/iobroker.heatingcontrol/admin/heatingcontrol.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/heatingcontrol-stable.svg)
-![NPM-Version](https://img.shields.io/npm/v/iobroker.heatingcontrol.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.heatingcontrol.svg)
-![Tests](https://travis-ci.org/rg-engineering/ioBroker.heatingcontrol.svg?branch=master)
+![NPM-Version](http://img.shields.io/npm/v/iobroker.heatingcontrol.svg)
+![Bekannte Sicherheitslücken](https://snyk.io/test/github/rg-engineering/ioBroker.heatingcontrol/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.heatingcontrol.png?downloads=true)
 
 # IoBroker.HeatingControl
+![GitHub-Aktionen](https://github.com/rg-engineering/ioBroker.heatingcontrol/workflows/Test%20and%20Release/badge.svg)
+
 ** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ** Wenn es Ihnen gefällt, ziehen Sie bitte eine Spende in Betracht: **
@@ -23,7 +25,7 @@ hash: QSvQPDMUstUgUng8PB4U+05xrwrmuxU06lsfjKX97FU=
 ## Adapter zur Steuerung Ihres Heizungssystems.
 Eigenschaften:
 
-* Kontrollieren Sie die Solltemperaturen aller Thermostate gemäß den Zeitplänen
+* Kontrollieren Sie die Solltemperaturen aller Thermostate nach Zeitplan
 * Konfigurieren Sie mehrere Heizperioden für jeden Tag und jede Nacht
 * Unterstützt alle Arten von Thermostaten (Voraussetzung: Es muss in ioBroker verfügbar sein)
 * Homematic Device Autodetection
@@ -38,7 +40,7 @@ Eigenschaften:
 * Manuelle Temperaturüberschreibung für eine bestimmte Zeit
 * vordefinierte Heizperiode
 * Änderungen vom Thermostat übernehmen (optional)
-* Die Visualisierung von [Pittini] (https://github.com/Pittini/iobroker-heatingcontrol-vis) wird unterstützt. Danke!
+* Die Visualisierung von [Pittini] (https://github.com/Pittini/iobroker-heatingcontrol-vis) wird unterstützt. Vielen Dank!
 
 [FAQ](doc/FAQ.md)
 
@@ -46,12 +48,12 @@ Eigenschaften:
 ## Die Einstellungen
 ### Main
 * Funktion = Funktion zur Erkennung von Thermostaten, Aktuatoren und Sensoren pro Raum. Es ist eines der Systemaufzählungen
-* Zeitzone = Wird verwendet, damit Cron Cron-Jobs anpasst
+* Zeitzone = Wird für Cron verwendet, um Cron-Jobs anzupassen
 * Pfad zum Feiertag - Adapter = Wenn Sie den Feiertag-Adapter verwenden möchten, um den Feiertag für heute automatisch zu erkennen, legen Sie hier den Pfad fest (z. B. Ereignisseage.0).
 * Alle Geräte löschen, wenn der Administrator geöffnet wird = sollte deaktiviert sein. Aktivieren Sie es nur, wenn Sie alle Raum-, Aktor- und Sensoreinstellungen löschen müssen. Eine Gerätesuche wird ausgeführt, wenn der Adapteradministrator geöffnet wird
 * Sensor verwendet = Wenn Sie Fenstersensoren haben und die Zieltemperatur bei geöffnetem Fenster senken möchten, aktivieren Sie diese Option
 * Aktuatoren verwendet = wenn Sie Aktuatoren direkt vom Adapter aus steuern möchten. Nur für den Fall, dass keine direkte Verbindung zwischen Thermostat und Stellantrieb besteht.
-* Aktuatoren verwenden, wenn keine Heizperiode = nur gültig für Aktuatoren. Definiert, wie Aktuatoren eingestellt werden, wenn keine Heizperiode aktiv ist
+* Aktuatoren verwenden, wenn keine Heizperiode = nur gültig mit Aktuatoren. Definiert, wie Aktuatoren eingestellt werden, wenn keine Heizperiode aktiv ist
 * Aktuatoren verwenden, wenn kein Thermostat verfügbar ist = nur gültig mit Aktuatoren. Wenn Sie Räume ohne Thermostat, aber mit Heizungsaktuator haben, können Sie diese dauerhaft ein- oder ausschalten
 
 ### Profil
@@ -62,12 +64,12 @@ Eigenschaften:
 * Heizperiode = Start- und Enddatum der Heizperiode. Wird verwendet, um "HeatingPeriodActive" einzustellen
 
 ### Geräte
-* eine Liste aller Räume. Hier können Sie ein Zimmer deaktivieren.
+* eine Liste aller Zimmer. Hier können Sie ein Zimmer deaktivieren.
 * Drücken Sie die Bearbeitungstaste auf der rechten Seite, um das Einstellungsfenster für Thermostate, Aktuatoren und Sensoren für diesen Raum zu öffnen
 
 ### Bearbeitungsraum
 * Hier können Sie Objekt-IDs für Thermostate, Aktoren und Sensoren überprüfen und einstellen
-* Sie können manuell neue Thermostate, Aktuatoren oder Sensoren hinzufügen. Drücken Sie einfach die + -Taste. Dann erhalten Sie eine leere Zeile, die ausgefüllt werden muss. Die Schaltfläche Bearbeiten öffnet eine Liste der verfügbaren Geräte im System
+* Sie können manuell neue Thermostate, Aktuatoren oder Sensoren hinzufügen. Drücken Sie einfach die + Taste. Dann erhalten Sie eine leere Zeile, die ausgefüllt werden muss. Die Schaltfläche Bearbeiten öffnet eine Liste der verfügbaren Geräte im System
 * Thermostate:
 
 ** Name, Temperaturziel-OID und aktuelle Temperatur-OID sollten eingestellt werden.
@@ -120,12 +122,12 @@ In diesem Fall und wenn Sie Aktuatoren aus dem Adapter verwenden, haben Sie die 
 Wenn Sie in admin "Feiertagsgeschenk wie Sonntag" oder "Feiertag wie Sonntag" aktivieren, wird das Profil für Sonntag verwendet, wenn der Adapter darüber informiert wird, dass heute ein Feiertag ist oder Sie im Urlaub zu Hause sind.
 
 ### Fenster geöffnet
-Wenn "Sensoren verwenden" aktiv ist und die Sensoren für einen Raum konfiguriert sind
+Wenn "Sensoren verwenden" aktiv ist und die Sensoren für einen Raum konfiguriert sind / sind
 
 * Verringern Sie die aktuelle Profiltemperatur, wenn das Fenster von Profiles.0.room.WindowOpenDecrease geöffnet ist (true), wenn die relative Verringerung konfiguriert ist
 * Setzen Sie das Ziel auf Profiles.0.room.absolute.WindowOpenDecrease, wenn das Fenster geöffnet ist (true), wenn die absolute Abnahme konfiguriert ist
 
-optional kann eine Verzögerung verwendet werden. Wenn das Fenster nur für eine kurze Zeit geöffnet wird, kann eine Sensorverzögerung verhindern, dass sie in sehr kurzen Zeiten reduziert und wieder normalisiert wird.
+Optional kann eine Verzögerung verwendet werden. Wenn das Fenster nur für eine kurze Zeit geöffnet wird, kann eine Sensorverzögerung verhindern, dass sie in sehr kurzen Zeiten reduziert und wieder normal wird.
 
 ## Ical Unterstützung
 Sie können Ihren Kalender oder einen anderen Datenpunkt verwenden, um Datenpunkte im Adapter zu ändern.
@@ -156,7 +158,7 @@ Dies ist die bekannte Funktion, die eine Temperatur und eine Dauer verwendet. Di
 Dies ist eine neue Funktion. Hier können wir eine Temperaturüberschreibung bis zum nächsten Profilpunkt verwenden. Die Dauer wird ignoriert, muss aber ungleich Null sein!
 
 ## Thermostat behandelt "Fenster ist offen"
-Einige Thermostate können "Fenster ist offen" von selbst handhaben. In diesen Fällen wird eine direkte Verbindung zwischen Fenstersensor und Thermostat konfiguriert und der Thermostat reduziert die Zieltemperatur um sich selbst, wenn ein Fenster geöffnet wird.
+Einige Thermostate können "Fenster ist offen" von selbst handhaben. In diesen Fällen wird eine direkte Verbindung zwischen Fenstersensor und Thermostat konfiguriert und der Thermostat reduziert die Zieltemperatur beim Öffnen eines Fensters um das Selbst.
 In Kombination mit der Option "Verwendung von Änderungen vom Thermostat" / "bis zum nächsten Profilpunkt" führt dies zu einem unerwarteten manuellen Zustand. In dieser Situation würde die reduzierte Temperatur bis zum nächsten Profilpunkt verwendet.
 Aber der Adpater kann mit diesem Verhalten umgehen. Sie müssen die Option "Thermostat behandelt 'Fenster ist offen'" aktivieren und Sie können Fenstersensoren auch im Adapter konfigurieren.
 Beim Öffnen des Fensters wartet der Adapter auf max. 3 Sekunden für neue Zieltemperatur vom Thermostat. Wenn es in dieser Zeit eine neue Zieltemperatur erhält, wird es als reduzierte absolute Temperatur verwendet. Der Status lautet dann "Automatisches Fenster öffnen". Sobald das Fenster geschlossen wird, kehrt der Status zu Auto zurück und der Thermostat setzt die ursprüngliche Zieltemperatur zurück. **Achtung** Verwenden Sie in diesem Fall keine Sensoröffnungsverzögerung. Wenn Sie es verwenden, wird das Ereignis "Fenster öffnen" nach der vom Thermostat empfangenen Zieltemperatur angezeigt. Dies endet im manuellen Zustand.
@@ -190,6 +192,16 @@ Wenn der Thermostat Informationen vom Fenstersensor verwendet, sollte die Option
 Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll angezeigt wird, an Sentry gesendet. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
 
 ## Changelog
+
+### 2.4.0 (2021-05-15)
+* (René) make it ready for js-controller 3.3
+
+### 2.3.2 (2021-04-18)
+* (ericsboro) vis translation to russian
+* (René) see issue #231: bug fix detect heating period
+
+### 2.3.1 (2021-04-05)
+* (René) some optimisations for vis translation
 
 ### 2.3.0 (2021-03-20)
 * (René) see issue #187: show remaining override timeConverter

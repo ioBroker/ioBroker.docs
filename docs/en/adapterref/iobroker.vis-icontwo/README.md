@@ -61,6 +61,11 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+### 0.67.0
+
+• Neue Icons hinzugefügt (Hobbies)
+
+
 ### 0.66.0
 
 • Neue Icons hinzugefügt (Clock & Timer)

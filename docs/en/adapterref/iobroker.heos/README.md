@@ -128,9 +128,10 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 
 ## Changelog
 
-### 1.8.x 
+### 1.8.2 
 * (withstu) BREAKING: add queue paging
 * (withstu) BREAKING: volume_max -> volume_limit
+* (foxriver76) Fix type issues and some more minor changes
 
 ### 1.8.1 (2021-05-07)
 * (withstu) fix reboot loop

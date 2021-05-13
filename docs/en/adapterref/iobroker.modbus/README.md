@@ -238,6 +238,8 @@ There are some programs in folder *test' to test the TCP communication:
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 3.3.1 (2021-05-10)
+* (bluefox) fixed the configuration dialog for "input registers" in slave mode 
 
 ### 3.3.0 (2021-04-16)
 * (Apollon77) Allow to use write-only (no poll) states

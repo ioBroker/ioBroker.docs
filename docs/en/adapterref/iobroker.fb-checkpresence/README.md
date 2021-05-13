@@ -193,6 +193,28 @@ Here you will find information about the history of the current day.
     * Did some changes
     * Did some more changes
 -->
+### 1.1.4 (2021-05-11)
+* (afuerhoff) family groups implemented
+* (afuerhoff) compatability mode implemented
+* (afuerhoff) dependencies updated
+* (afuerhoff) configuration options added
+* (afuerhoff) dialogboxes optimized
+* (afuerhoff) translations updated
+* (afuerhoff) general program structure optimized
+* (afuerhoff) filter for family members implemeted
+* (afuerhoff) password handling updated
+* (afuerhoff) documentation updated
+* (afuerhoff) QR-Code implemented
+* (afuerhoff) setState presence only if changed
+* (afuerhoff) access rights implemented
+* (afuerhoff) use name for presence
+* (afuerhoff) active / inactive devices
+* (afuerhoff) interval 10s bug fixed
+* (afuerhoff) Bugfix dateformat pattern
+* (afuerhoff) SSL (https) workaround implemented
+* (afuerhoff) Connection check optimized
+* (afuerhoff) Mesh handling optimized 
+
 ### 1.1.3 (2021-03-31)
 * (afuerhoff) family groups implemented
 * (afuerhoff) compatability mode implemented
@@ -204,6 +226,7 @@ Here you will find information about the history of the current day.
 * (afuerhoff) filter for family members implemeted
 * (afuerhoff) password handling updated
 * (afuerhoff) documentation updated
+
 
 ### 1.1.2 (2021-01-13)
 * (afuerhoff) QR-Code implemented
@@ -230,9 +253,6 @@ Here you will find information about the history of the current day.
 * (afuerhoff) switch on, off internet access of devices 
 * (afuerhoff) structural changes
 * (afuerhoff) code optimization
-
-### 1.0.4 (2020-06-28)
-* (afuerhoff) bugfix json list and guest handling, new object guest.presence
 
 ## License
 MIT License

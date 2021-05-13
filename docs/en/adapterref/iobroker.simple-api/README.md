@@ -555,6 +555,9 @@ If no data source was specified or the noHistory parameter is passed, then only 
 -->
 ## Changelog
 
+### 2.6.1 (2021-05-13)
+* (Apollon77) Catch error in request parsing when malformed (Sentry IOBROKER-SIMPLE-API-16)
+
 ### 2.6.0 (2021-05-09)
 * (Apollon77) Also URL-Decode the path parts like state ids
 * (Apollon77) Optimize for js-controller 3.3

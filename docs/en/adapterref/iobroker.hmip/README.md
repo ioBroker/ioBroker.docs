@@ -55,6 +55,9 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
 
+### 1.12.0 (2021-05-13)
+* (Apollon77) Implement NOTIFICATION_MP3_SOUND_CHANNEL
+
 ### 1.11.1 (2021-05-08)
 * (Apollon77) IMPORTANT: The adapter now requires js-controller 3.1 at least!
 * (Apollon77) Update objects on startup to make sure definition is current

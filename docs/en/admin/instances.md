@@ -1,118 +1,95 @@
 ---
-title: instances
-lastChanged: 26.03.2019
+title: Instances
+lastChanged: 10.05.02021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/instances.md
-hash: o4NbcdCMTEAGqfXVVUwOROSQAhQ/lJyJQ+I3F3vGEkc=
+hash: UoGLmTCoECn4hXH3ZdHdTGnXR2yC6U/6IeuOooI7o5A=
 ---
-# The instance window
-?> ***This is a wildcard*** . <br><br> Help with ioBroker and extend this article. Please note the [ioBroker style guide](community/styleguidedoc), so that the changes can be adopted more easily.
+The instances already installed on the Adapter tab are listed here and can be configured accordingly.
 
-# The tab Instances
-Here, the instances already installed via the Adapter tab are listed and can be configured accordingly.
-
-## The title bar
-The title bar contains icons for the most important processes. There is a context help for each icon. Just keep the mouse on the icon for a while. There is also information about the load of the server
+## The title line
+in the title line there are icons for the most important processes. There is context help for each icon. To do this, simply hold the mouse on the icon for a while. There is also information about the load on the server.
 
 ![The icons in the title bar](../../de/admin/media/ADMIN_Instanzen_numbers.png)
 
 The icons in detail:
 
-** 1.) Update view **
+### 1 - Refresh the view
+If instances that have just been created are not visible, clicking this icon helps to bring the status of the page up to date.
 
-If just created instances are not visible, clicking this icon will help to bring the state of the page up to date.
+### 2 - Switch on administrator mode
+When you select this icon, additional columns for configuring the instances are displayed (toggle function). Information on this in the section on page content.
 
-** 2.) Turn on administrator mode **
+### 3 - Show only instances of the selected host
+![The available hosts](../../de/admin/media/ADMIN_Instanzen_hosts.png)
 
-When this icon is selected, additional columns for configuring the instances are displayed (toggle function). See page content for more information.
+In multihost systems, the instances of all hosts are managed by the master's admin. The information on which host this instance is located is in the ***Server*** column
 
-** 3.) Show only instances of the selected host **
+If a host is selected in the header, this button only shows the instances installed there.
 
 ![The available hosts](../../de/admin/media/ADMIN_Instanzen_hosts.png)
 
-In multi-host systems, the instances of all hosts are managed by the admin of the master. The information on which host this instance is located in the column ***Server***
+### 4 - filter
+A term for filtering or searching for instances can be entered in this field
 
-If a host is selected in the header, you can only use this button to display the instances installed there.
-
-![The available hosts](../../de/admin/media/ADMIN_Instanzen_hosts.png)
-
-** 4.) Filter **
-
-You can enter a term for filtering or searching for instances in this field
-
-## Further information in the Instances window
-The first numbers indicate the memory used by the instances so far and the remaining free memory in MB. Behind it the free memory in%. The square brackets contain the name of the ioBroker server and the number of running processes.
+## More information in the Instances window
+The first numbers indicate the memory used by the instances so far and the remaining free memory in MB. Behind the free memory in%. The name of the ioBroker server and the number of running processes are in the square brackets.
 
 ## The page content
 ![The available hosts](../../de/admin/media/ADMIN_Instanzen_numbers02.png)
 
-On the page, the installed instances of the adapters are tabulated.
+The installed instances of the adapters are shown in a table on the page.
 
 The table consists of the following columns:
 
-** 1.) Condition **
+### 1 - state
+The state of the instance is shown here by a traffic light. Further information can be obtained by holding the mouse on the signal.
 
-Here, the status of the instance is displayed by a traffic light. Further information is obtained by standing with the mouse on the signal.
+Not all instances have this traffic light. But don't panic. These are either time-controlled instances that only briefly connect to the controller and then switch off again immediately or continue to run in the background, for example.
 
-Not all instances have this traffic light. This is no reason to panic. These are either timed instances that only connect to the controller for a short time and then shut off immediately or shut down, for example. continue running in the background.
+### 2 - Icon
+The icon that is used throughout ioBroker for this adapter is displayed here
 
-** 2.) Icon **
+### 3 - instance
+The name of the instance is in this column. it is made up of the name of the adapter and a number that is consecutively numbered in the order in which the instances are installed. The first instance receives the
 
-This will show the icon used ioBroker-wide for this adapter
+0. This designation is the basis for the designation of the data points in ioBroker.
 
-** 3.) Instance **
+### 4 - activated
+The instance is started or stopped here. The green pause symbol shows that the adapter is running and can be paused by clicking on it, the red play symbol shows a stopped instance that can be started with one click.
 
-This column contains the name of the instance. it consists of the name of the adapter as well as a number, which is consecutively numbered in the order of installation of the instances. The first instance receives the
+### 5 - configuration
+Clicking this icon opens an adapter-specific configuration menu. The corresponding menus are described for the associated adapters.
 
-0. This name is the basis for naming the data points in ioBroker.
+### 6 - restart
+When you click on this icon, the corresponding instance is restarted
 
-** 4.) Activated **
+### 7 - trash can
+The corresponding instance is deleted with this icon. Other instances of the same adapter are retained. The adapter itself also remains.
 
-Here the instance is started or stopped. The green pause sign indicates that the adapter is running and can be paused by clicking on it, the red play sign shows a stopped instance that can be started with a click.
+### 8 - web link
+Behind this icon there is a link to the website of this instance. Either because this adapter has its own web interface (with a different port), or just a different path. In some cases, this link also leads to help pages.
 
-** 5.) Configuration **
+### 9 - title
+The name of the instance is specified here. You can change this name according to your own wishes or needs. This is particularly useful if there are several instances of an adapter (otherwise with the same name). This would be the case with hm-rpc, for example, if there is one instance each for RF, Wired and CuxD.
 
-Clicking on this icon opens an adapter-specific configuration menu. The corresponding menus are described in the corresponding adapters.
+### 10.) Timing
+For adapters that are started time-controlled, the time when this adapter should start is entered here. This scheduling is in the format of a cron job. To change, click on the button with the three dots. An input window opens with a lot of additional information and help.
 
-** 6.) Restart **
-
-Click on this icon to restart the corresponding instance
-
-** 7.) Trash can **
-
-This icon deletes the corresponding instance. Other instances of the same adapter are retained. Even the adapter itself remains.
-
-** 8.) Weblink **
-
-Behind this icon hides a link to the website of this instance. Either because this adapter comes with its own web interface (with a different port), or just another path. Partly this link also leads to help pages.
-
-** 9.) Title **
-
-Here the name of the instance is given. This name can be changed according to your own wishes or needs. This is particularly useful if there are several instances of an adapter (with otherwise the same name). This would be e.g. for hm-rpc, if there is one instance for RF, Wired, and CuxD.
-
-** 10.) Scheduling **
-
-For adapters, which are started on a scheduled basis, you will be entered here when this adapter should start. This scheduling is in the format of a cronjobs. To change click on the button with the three dots. It opens an input window with a lot of additional information and help.
-
-** 11.) Restart **
-
-The clock icon can also be used to create a schedule when this instance should be restarted.
+### 11 - restart
+Using the clock icon, a schedule can also be created here when this instance should be restarted.
 
 This column is only visible in expert mode!
 
-** 12.) Log Level **
+### 12 - Log level
+The respective log level for the instance can be adjusted in this column. Debug, info, warn and error are available. By default, this value is set to info. If you have the impression that something is not running smoothly, you can set it to debug. then debug information is output for this instance in the log tab, which can help to find an error. Conversely, you can set this value higher so that the log is not so extensive.
+This column is only visible in expert mode!
 
-In this column the respective loglevel for the instance can be adjusted. Available are debug, info, warn and error. By default, this value is set to info. If you have the impression that something is not going well you can put it on debug. then in the tab log to this instance also debug information is output, which can help to find an error. Conversely, you can set this value higher, so that the log is not so extensive.
+### 13 - RAM limit
+Here you can specify how much main memory of the instance should be provided as a precaution. This amount of memory is then no longer available for other tasks and should not be selected too high, especially in systems with little memory. If the instance needs more memory temporarily, this will of course be allocated to it by the system, but will then be immediately released for the system. During the time in which an instance requires more memory than it was reserved, the required memory is shown in red.
 
 This column is only visible in expert mode!
 
-** 13.) RAM limit **
-
-Here you can specify how much memory of the instance should be provided as a precautionary measure. This amount of memory is then no longer available for other tasks and should not be too high especially for systems with low memory. If the instance temporarily requires more memory, it will of course be allocated by the system but will be immediately released back to the system. In the time in which an instance requires more memory than was reserved, the required memory is displayed in red.
-
-This column is only visible in expert mode!
-
-** 14.) RAM usage **
-
-This shows the actual memory used by the instance. These values are updated regularly. After updating, these values appear briefly in green.
+### 14 - RAM usage
+The actual memory used by the instance is displayed here. These values are updated regularly. After the update, these values appear briefly in green.

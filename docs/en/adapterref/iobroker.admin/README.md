@@ -76,20 +76,20 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
+### 5.0.22 (2021-05-12)
+* (bluefox) Admin5: Fixed some bugs
+
+### 5.0.21 (2021-05-11)
+* (bluefox) Admin5: Fixed many bugs
+
+### 5.0.20 (2021-05-10)
+* (bluefox) Admin5: Fixed many bugs
+
 ### 5.0.19 (2021-05-09)
 * (bluefox) Admin5: Fixed many bugs
 
 ### 5.0.18 (2021-05-07)
 * (bluefox) Admin5: Fixed many bugs
-
-### 5.0.17 (2021-05-06)
-* (bluefox) Admin5: Fixed many bugs
-
-### 5.0.16 (2021-05-05)
-* (bluefox) Admin5: Fixed many bugs
-
-### 5.0.15 (2021-05-05)
-* (bluefox) optimized the loading process
 
 ## License
 

@@ -1,11 +1,7 @@
 ![Logo](admin/upnp-discovery.png)
 # ioBroker.upnp
 
-
 ![Number of Installations](http://iobroker.live/badges/upnp-installed.svg) ![Number of Installations](http://iobroker.live/badges/upnp-stable.svg) ![Logo](http://img.shields.io/npm/v/iobroker.upnp.svg) ![Image](https://travis-ci.org/Jey-Cee/ioBroker.upnp.svg?branch=master)
-
-
-***Node 10.x+ needed!***
 
 1. [Deutsch](#german_description)
 	 * [Was ist UPnP?](#was-ist-upnp)
@@ -220,11 +216,17 @@ You can enable polling in admin via objects configuration.
 
 **Amazon Kindle:** Provides an UPnP service, but no UPnP service description is provided and therefore cannot be used.
 
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
 ## Changelog
+### __WORK IN PROGRESS__
+* (bluefox) added support for Admin5
 
 ### 1.0.17 (2021-02-21)
 * (jey-cee) fix warning messages with js-controller 3.2.x [Github issue #63](https://github.com/iobroker-community-adapters/ioBroker.upnp/issues/63)
-
 
 ### 1.0.16 (2020-04-27)
 * (jey-cee) fixes for js-controller 3
@@ -283,27 +285,23 @@ Breaking change: naming was changed and command to poll has another name - "requ
 * (jey-cee) bugfix: iobroker stops while updating a lot of objects
 * (jey-cee) added handling for initial messages from devices
 
-## Changelog
 ### 0.2.3
 * (jey-cee) fixed Dead message handler
 * (jey-cee) added Subscription to service (only event message handling)
 * (jey-cee) when adapter stops Alive state is set to false and sid(subscription id) is cleared
 
-## Changelog
 ### 0.2.2
 * (jey-cee) added listener for Alive/Dead messages from devices
 * (jey-cee) if new devices joining the network they will added automatically
 * (jey-cee) replace whitespace chars in device id's on creation, because objects and sub-object with whitespace chars wasn't usable
 
-
 ### 0.2.1
 * (jey-cee) bug fixing: corrected creation of native's and smaller Bugs
 
-
-#### 0.2.0
+### 0.2.0
 * (jey-cee) getting all xml data from UPnP devices
 
-#### 0.1.0
+### 0.1.0
 * (jey-cee) initial release
 
 ## License

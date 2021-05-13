@@ -50,11 +50,10 @@ Todo:
 
 
 ## Changelog
+### 0.1.3
+* (André Iske) Security patches 
 
 ### 0.1.2
-* (André Iske) Minor bug fixes 
-
-### 0.1.1
 * (André Iske) Minor bug fixes 
 
 ### 0.1.0

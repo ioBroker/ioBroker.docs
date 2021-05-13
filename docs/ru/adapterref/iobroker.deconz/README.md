@@ -2,45 +2,35 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.deconz/README.md
-title: Важно: Разработка версии 2.x.x остановлена, но адаптер будет дорабатываться. Не устанавливать.
-hash: nAn5U6ErrjXj/7L/tYDfl9+h6Co6C40uUfaJ7/5oke0=
+title: без заголовка
+hash: saW+/pIe9u/UUKrgG+mLiPePkgK0e2tqxOM/kdSAsyM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
 ![Количество установок](http://iobroker.live/badges/deconz-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.deconz.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.deconz.svg)
-![NPM](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
 
 ioBroker deConz dresden-elektronik Адаптер
 
 ==============
 
-# Важно: разработка версии 2.x.x остановлена, но адаптер будет дорабатываться. Не устанавливать.
 ## Уведомление
-Нет поддержки бета / предварительных версий deConz.
+Нет поддержки бета-версий deConz
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
-
-Требуемая версия js-контроллера> 2.x.x, обязательная node.js> = 10.x.x
+Требуемая версия js-контроллера> 2.x.x, Требуемая версия node.js> = 10.x.x
 
 ## Английский
-Подключается к программному обеспечению deConz, разработанному dresden-elektronik. Это программное обеспечение призвано стать универсальным решением для шлюзов ZigBee, использующим оборудование от dresden-elektronik, USB-накопитель ConBee и модуль RaspBee для Raspberry Pi.
+Подключается к программному обеспечению deConz, разработанному dresden-elektronik. Это программное обеспечение призвано стать универсальным решением ZigBee Gateway с использованием оборудования от dresden-elektronik, USB-накопителя ConBee и модуля RaspBee для Raspberry Pi.
 
-### Настроить
-1. Прочтите документацию deConz / Phoscon, посмотрите раздел [ссылки] (https://github.com/iobroker-community-adapters/ioBroker.deconz#links).
-2. Пусковой адаптер
-3. * Введите IP-адрес для deConz
-    * Введите номер порта, стандартный - 80.
-    * IP и порт будут сохранены автоматически
-  * **Альтернатива:** Закройте конфигурацию и откройте снова.
+Вы должны сначала сделать ссылку на deConz.
 
-    Если deConz был найден IP и порт отображается сейчас.
+1. а) Введите IP-адрес для deConz
 
-4. Нажмите «Создать ключ API».
-5. * Введите имя пользователя (Стандартное удовольствие)
-    * Введите пароль (устанавливается при первом входе в приложение Phoscon)
-  * **Альтернатива:** Откройте приложение Phoscon -> Меню -> Настройки -> Шлюз -> Дополнительно -> Разблокировать шлюз
+    б) Введите номер порта, стандартный - 80.
+
+2. После ввода и сохранения IP-адреса и порта нажмите кнопку «Создать ключ API». Теперь вы можете ввести учетные данные для deConz или перейти в приложение Phoscon и зарегистрировать ioBroker как стороннее приложение.
 
 #### Отправить более одной команды одновременно
 Для этого есть объект под названием «действие».
@@ -51,112 +41,235 @@ ioBroker deConz dresden-elektronik Адаптер
 
 `"on": true, "transitiontime": 5, "hue": 65500`
 
-#### Создайте сцену
-   1. Установите все источники света в группе в желаемое состояние для сцены.
-   2. Напишите название вашей сцены в состояние «createdcene».
-
-   Это оно!
-
-#### Создать группу
-   1. Установите состояние «groups.creategroup» с желаемым именем группы.
-
-      Это создает пустую группу.
-
-   2. лампы теперь можно добавить с помощью `manage.addtoGroup`.
-
-      Для этого установите состояние с идентификатором группы.
-
-## Немецкий
-Verbindet mit der von dresden-elektronik entwickelten deConz-Software. Diese Software Soll eine universelle ZigBee Gateway-Lösung sein, die die Hardware von dresden-elektronik, ConBee USB-Stick и RaspBee, ein Modul für den Raspberry Pi, verwendet.
-
-### Эйнрихтен
-1. Документация от deConz / Phoscon lesen, Quellen siehe [Ссылки] (https://github.com/iobroker-community-adapters/ioBroker.deconz#links).
-2. Запуск адаптера
-3. * IP-адрес от deConz und
-    * Порт eingeben, Стандартный порт ist 80
-    * IP и порт wird Automatisch gespeichert
-  * **Alterantiv:** Adpterkonfiguration schließen und erneut öffnen.
-
-    Wurde deConz gefunden steht jetzt IP und Port schon in der Maske.
-
-4. Кликен "Erstelle API Key"
-5. * Benutzername (Стандартное наслаждение) и
-    * Passwort (wird beim ersten Anmelden in der Phoscon APP vergeben) eingeben
-   * **Alterantiv:** Phoscon APP öffnen -> Menü -> Einstellungen -> Gateway -> Erweitert -> Auf "App verbinden" klicken
-
-#### Mehr als einen Befehl senden
-Dafür gibt es das Objekt "действие".
-
-Биспиле:
-
-`"on": true, "xy": [0.6586,0.3138]`
-
-`"on": true, "transitiontime": 5, "hue": 65500`
-
-#### Erstellen Sie eine Szene
-   1. Stellen Sie alle Lichter in der Gruppe auf den Zustand ein, den Sie für die Szene wünschen
-   2. Schreiben Sie den Namen Ihrer Szene in den Status "Erstellt Szene"
-
-   Das wars!
-
-#### Gruppe erstellen
-   1. Обозначьте состояние «groups.creategroup» с дем gewünschten Namen der Gruppe setzen.
-
-      Damit wird eine leere Gruppe erstellt.
-
-   2. Die Lampe (n) können jetzt mit `manage.addtoGroup` hinzugefügt werden.
-
-      Dazu setzt man den State mit der ID der Gruppe.
-
 ## Ссылки
-- [Приложение Phoscon] (https://phoscon.de/)
-- [Поддерживаемые устройства] (https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Supported-Devices)
-- [deConz] (https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/)
-- [Плагин REST на Github] (https://github.com/dresden-elektronik/deconz-rest-plugin)
-- [Шлюзы (аппаратные)] (https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
+[deConz](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/) [Плагин REST](https://github.com/dresden-elektronik/deconz-rest-plugin) [Шлюзы (оборудование)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
 
 ## [Спонсоры](https://github.com/iobroker-community-adapters/ioBroker.deconz/blob/master/SPONSORS.MD)
-Если вам понравилась моя работа, пожалуйста, сделайте личное пожертвование (это личная ссылка для пожертвования для Jey Cee, не имеющая отношения к проекту ioBroker!) [![Пожертвовать] (https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)
-
-## Присоединяйтесь к серверу Discord, чтобы обсудить все, что касается интеграции ioBroker-deconz!
-<a href="https://discord.gg/uPwfzvR"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
 ## Changelog
 
-### 2.0.5
-* fix buttonpressed not shown
+### 1.3.15 (2021-05-08)
+* fix info message: "State value to set for "deconz.0.Sensors.3.pending" has to be stringified but received type "object""
+* fix info message: State value to set for "deconz.0.Sensors.3.orientation" has to be stringified but received type "object"
 
-### 2.0.4
-* remove sentry for js-controller version <3
-* replace request with axios
-* use object_definition.js and iobroker-adapter-helpers
-* added channel objects for information and scenes for better overview
-* refactored scenes
-* use only lower case for ids
-* added management for groups and lights
+### 1.3.13
+* fixes for js-controller 3.3
 
-### 2.0.3
-* fix incoming rename event for sensors
-* fix release_press is set to true at start
-* added websocket port info to configuration
-* added event types handling for websocket messages
-* added backup, deConz update & firmware update states under Gateway_info
-* added touchlink functions
-* fix sensor handling for virtual devices (fsm and vpir)
+### 1.3.12
+* fixes for js-controller 3.3
 
-### 2.0.2
-* Bugfix
+### 1.3.11
+* fix auto reconnect
 
-### 2.0.1
-* Bugfixes
+### 1.3.10
+* (bortim) added change-event handling, new in deConz v2.05.78
 
-### 2.0.0
-* changed id naming from id to mac (uniqueid)
-* possibility to rename devices
+### 1.3.9
+* set default port to 80
 
-Full changelog history can be found in CHANGELOG.md
+### 1.3.8
+* fix colorloopspeed is not working
+* fix set xy has no effect 
+* some small fixes
+
+### 1.3.7
+* stable re-release
+
+### 1.3.6
+* fix object definition dimup and dimdown
+
+### 1.3.5
+* disable node v8 tests
+* fix createscene object definition
+* prevent websocket to connect if port, api key or ip is missing
+* catch errors on ackStateVal
+* fix "Cannot read property 'id' of undefined" for controlId
+* fix crash on scene actions with js-controller 3
+* catch onStateChange stateObj is null
+* fix level update when bri was set by other deConz instance
+
+### 1.3.4
+* fix message "State value to set is invalid"
+* terminate websocket connection on error to make sure the session is closed
+* check response is not undefined
+* catch request errors and send to sentry
+* prevent sending message with wrong value type
+
+### 1.3.3
+* fix catch response of setLightState is undefined
+* fix ws.terminate at unload
+* catch ip/port undefined at auto updates
+* catch res is undefined at deleteApiKey
+
+### 1.3.2
+* transitiontime now in seconds instead 1/10 seconds
+* fix colorspeed
+* use new class style
+* add sentry for error collection
+* fix transition time if set to 0
+* objects will be now deleted if the device is removed by adapter
+* fix multiple websocket connections
+* try to fix #120 reconnect after 60 seconds
+
+### 1.3.1
+* fix set dimspeed
+* connect to Websocket in any case
+
+### 1.3.0
+* fix websocket connection if there are no upnp broadcast answer from deconz
+* corrected duration role
+* added level to lights and groups
+
+### 1.2.6
+* fix crash by executing commands without parameters
+
+### 1.2.5
+* code cleanup
+* (Zefau) fixed duplicated subscription
+* (Zefau) useless loop within getGroupAttributes()
+* refactor logging
+* refactor state change
+* fix API Key Dialog
+* Websocket reconnect after 60 Seconds if no message is received
+
+### 1.2.4
+* dynamicly add boolean states for button events
+* added new object definitions
+* (mobilutz) remove ip overwrite
+* (njeisecke) add transitiontime for bri_inc (dim step)
+
+
+### 1.2.3
+* fix expire time for alive 
+* add object for open zigbee network to add new devices without admin config
+* removed input for opne network time
+* fix device list in admin config
+
+### 1.2.2
+* adapter configuration handling rewritten
+* fix lastupdated UTC to locale time
+
+### 1.2.1
+* convert lastupdated time to locale
+* object creation refactored
+* fix adapter config update
+* add auto detect deConz
+* include ssdp discovery to repo
+
+### 1.2.0
+* fix adapter crash when deConz is not reachable
+* show connection state as adapter state
+* add auto reconnect to deconz
+* add new objects for thermostat support and others
+
+### 1.1.3
+* Changed default port to 80
+* (mplogas) fixed config save 
+* (mplogas) added config.delay to set up presence sensor cooldown
+
+### 1.1.2
+* fix button objects
+*  changed buttonpressed from boolean to number
+
+### 1.1.0
+*  added objects for "tiltangle", "vibration", "vibrationstrength" and "orientation"
+*  (asgothian) added object "buttonpressd"
+*  some fixes
+
+
+### 1.0.2
+* fix set bri for groups
+
+
+### 1.0.1
+* small fixes
+
+
+### 1.0.0
+*  (thewhobox) skip helper groups
+*  (thewhobox) added channels for lights, groups and sensors
+*  (thewhobox) skip unusable sensors
+*  (thewhobox/KristianHeider) turn light/groups on when changing brightness
+*  (jey-cee) added object group for remotes
+*  (jey-cee) stop overwrite objects on adapter start
+*  (jey-cee) prepared for compact mode
+*  (jey-cee) new possible to change offset (if the device accept it)
+*  (jey-cee) new possible to change duration (if the device accept it)
+*  (jey-cee) get API key with credentials
+
+
+### 0.4.0
+* (asgothian) Fix for hue change
+* (halloamt)  Added support for dimming lights and groups
+* (halloamt)  Added support for custom actions
+
+### 0.3.1
+* Fixing hue from range 0-65535 to 0-360
+
+
+### 0.3.0
+* Added scene support
+*  Drop nodejs 4 support
+
+
+### 0.2.5
+* Fix/Change handling create objects during running Adapter
+
+### 0.2.4
+* Fix create objects during running adapter
+
+### 0.2.3
+* Create objects during runing adapter
+
+### 0.2.2
+*  Changed id naming
+*  Use websocket messages instead polling afterwards
+
+### 0.2.1
+* (Jey-Cee) Added new elements to config
+* (Jey-Cee) Changed som small things
+
+### 0.2.0
+* (Jey-Cee) next Try with Xiaomi Sensors
+* (Jey-Cee) Added "pressure" sensor
+* (Jey-Cee) Added create group to adapter config
+
+### 0.1.7
+
+* (Jey-Cee) add possibility to delete devices from deConz
+* (Jey-Cee) fix issue on getAll... functions when there are is nothing
+
+### 0.1.6
+
+* (Jey-Cee) fix Xiaomi Sensors recognition
+
+### 0.1.5
+
+* (Jey-Cee) Try to fix Sensors
+
+### 0.1.4
+
+* (Jey-Cee) Added support for Admin v3
+* (Jey-Cee) Create API Key without use of WebApp/Phoscon (only with deConz standard password)
+
+### 0.1.3
+
+* (Jey-Cee) Stop Spam in log
+* (Jey-Cee) Added filter for name to id conversation
+
+### 0.1.2
+
+* (Jey-Cee) Added new datapoints for sensors (experimental)
+
+### 0.1.1
+
+* (Jey-Cee) Adapter complete rewritten
+
+### 0.1.0
+
+* (Jey-Cee) first release
 
 ## License
 Apache-2.0
 
-Copyright (c) 2017-2020 Jey Cee jey-cee@live.com
+Copyright (c) 2017-2021 Jey Cee jey-cee@live.com

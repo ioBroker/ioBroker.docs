@@ -843,6 +843,9 @@ The adapter is tested with an DENON AVR-X1200W and a Marantz SR5009.
 	### __WORK IN PROGRESS__
 -->
 
+### 1.10.7 (2021-05-12)
+* (foxriver76) fix missing conversion to db on equalizer states for additional zones (fixes #137)
+
 ### 1.10.6 (2021-05-03)
 * (foxriver76) we fixed some more types
 
@@ -1091,7 +1094,7 @@ The adapter is tested with an DENON AVR-X1200W and a Marantz SR5009.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2018-2021 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

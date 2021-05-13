@@ -1,74 +1,60 @@
 ---
 title: Events
-lastChanged: 26.03.2019
+lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/events.md
-hash: 4kDExpUZKC8PTd5MvmCtNV09qByeQl3bT117RjVwvZg=
+hash: +KFMmCj/chMyEZB/QW+TFWarAfGD1U+w6FxSkTJrUbw=
 ---
-# The events window
-?> ***This is a wildcard*** . <br><br> Help with ioBroker and extend this article. Please note the [ioBroker style guide](community/styleguidedoc), so that the changes can be adopted more easily.
+The current states of all data points are displayed in this tab.
+The values cannot be changed here.
 
-# The Events tab
-In this tab, the current states of all data points are displayed.
-The values can not be changed here.
+![The events page](../../de/admin/media/ADMIN_Ereignisse_numbers.png)
 
-![The event page](../../de/admin/media/ADMIN_Ereignisse_numbers.png)
-
-## The title bar
-The title bar contains icons for the most important processes. There is a context help for each icon. Just keep the mouse on the icon for a while.
+## The title line
+in the title line there are icons for the most important processes. There is context help for each icon. To do this, simply hold the mouse on the icon for a while.
 
 ### The icons in detail:
-** 1.) Pause view **
+### 1 - pause view
+With this button you can stop the current display of the latest events. The button then changes to a yellow background on which the number of "missed" events is counted up.
 
-With this button you can stop the current display of the latest events. The button then changes to a yellow background where the number of "missed" events is counted up.
+!> Since the events are sometimes updated in the millisecond range, there may be delays up to and including the display freezing
 
-!> Since the events are partially updated in the millisecond range, there may be delays or even the freezing of the display
+Clicking the button again starts the live display.
 
-Clicking the button again restarts the live presentation.
-
-** 2.) Delete ad **
-
+### 2 - delete display
 This button clears the screen
 
 ## The page content
-On the page, the existing events are displayed in tabular form. The most recent event is at the top.
+The existing events are displayed in a table on the page. The most recent event is at the top.
 
-![The event page](../../de/admin/media/ADMIN_Ereignisse_numbers02.png)
+![The events page](../../de/admin/media/ADMIN_Ereignisse_numbers02.png)
 
-By clicking on the column headers you can filter according to certain criteria.
+By clicking on the column headers, you can filter according to certain criteria.
 
-### The table consists of the following columns:
-** 1.) Type **
+### 1 - type
+Here either ***stateChange*** is an update of a value or ***objectChange*** These are also the two filter options.
 
-Here either ***stateChange*** is an update of a value, or ***objectChange*** These are also the two filter options.
+### 2 - ID
+This is the unique name of the corresponding data point, according to the structure consisting of e.g. name of the adapter, number of the instance, device name, channel name, data point name.
 
-** 2.) ID **
+Here you can filter for complete IDs, but also for parts thereof, e.g. for all TEMPERATURE data points.
 
-This is the unique name of the corresponding data point, according to the structure consisting of e.g. Name of the adapter.Number of the instance.User name.Channel name.Data point name.
-
-Here you can filter for complete IDs, but also for parts thereof, e.g. after all TEMPERATURE data points.
-
-** 3.) Value **
-
+### 3 - value
 This is the current value of the respective data point.
 
-** 4.) Confirmed **
-
-If this value has been changed and adopted by the system, the value is true, otherwise false.
+### 4 - Confirmed
+If this value was changed and this was adopted by the system, the value is true, otherwise false.
 
 These are also the filter options
 
-** 5.) Source **
+### 5 - source
+Here it is specified which instance made the last change to the data point.
 
-Here it is specified, which instance has carried out the last change of the data point.
+You can filter according to these in this column.
 
-After these can be filtered in this column.
+### 6 - time
+This is the time stamp at which the data point was last updated.
 
-** 6.) Time **
-
-This is the timestamp to which the data point was last updated.
-
-** 7.) Changed **
-
-This is the timestamp to which the value of the datapoint last changed.
+### 7 - Changed
+This is the time stamp at which the value of the data point last changed.

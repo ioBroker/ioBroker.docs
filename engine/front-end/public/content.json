@@ -246,8 +246,8 @@
       "title": {
         "en": "Admin",
         "de": "Admin",
-        "ru": "Администратор",
-        "zh-cn": "管理员"
+        "ru": "Админ",
+        "zh-cn": "行政"
       },
       "content": "admin/README.md",
       "pages": {
@@ -278,20 +278,20 @@
           },
           "content": "admin/adapter.md"
         },
-        "instances": {
+        "Instances": {
           "title": {
-            "en": "instances",
+            "en": "Instances",
             "de": "Instanzen",
-            "ru": "экземпляры",
-            "zh-cn": "实例"
+            "ru": "Экземпляры",
+            "zh-cn": "实例数"
           },
           "content": "admin/instances.md"
         },
-        "objects": {
+        "Objects": {
           "title": {
-            "en": "objects",
+            "en": "Objects",
             "de": "Objekte",
-            "ru": "объекты",
+            "ru": "Объекты",
             "zh-cn": "对象"
           },
           "content": "admin/objects.md"
@@ -300,8 +300,8 @@
           "title": {
             "en": "Enums",
             "de": "Aufzählungen",
-            "ru": "Администратор",
-            "zh-cn": "管理员"
+            "ru": "Перечисления",
+            "zh-cn": "枚举"
           },
           "content": "admin/enums.md"
         },
@@ -309,7 +309,7 @@
           "title": {
             "en": "log",
             "de": "Log",
-            "ru": "журнал",
+            "ru": "бревно",
             "zh-cn": "日志"
           },
           "content": "admin/log.md"
@@ -318,8 +318,8 @@
           "title": {
             "en": "Events",
             "de": "Ereignisse",
-            "ru": "события",
-            "zh-cn": "活动"
+            "ru": "События",
+            "zh-cn": "大事记"
           },
           "content": "admin/events.md"
         },

@@ -191,6 +191,7 @@ Whitelist: If you only want to include events of a specific location use regular
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (BasGo) added analysis for events marked as private in Google Calendar
 * (jens-maus) updated dependencies
 
 ### 1.9.3 (2021-04-01)
@@ -370,7 +371,7 @@ Whitelist: If you only want to include events of a specific location use regular
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2021, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

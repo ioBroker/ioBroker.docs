@@ -139,6 +139,9 @@ CCU / Homematic поддерживает различные типы устро�
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.14.38 (2021-05-11)
+* (Jens Maus) fixed the VirtualDevices min/max/default assignment (fixes #332)
+* (foxriver76) do not scale on normal '%' UNIT because its inconsistent (fixes #326)
 
 ### 1.14.37 (2021-04-23)
 * (foxriver76) added tier, is now 2
@@ -297,7 +300,7 @@ of this approach (more requests to CCU on first setup)
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>
 
 Copyright (c) 2014 hobbyquaker
 

@@ -3,18 +3,17 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tuya/README.md
 title: ioBroker.tuya
-hash: w5Wvp8cqmi7jYdq4nzNU5aCU6AKPwoCacnh/D6CUl1M=
+hash: YMrzpnbTUt/3afAiGyNrfmH41Ah98LziOJHXWkCoMTY=
 ---
 ![Logo](../../../en/adapterref/iobroker.tuya/admin/tuya.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/tuya-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.tuya.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.tuya.svg)
-![Travis-CI](http://img.shields.io/travis/Apollon77/ioBroker.tuya/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Apollon77/ioBroker.tuya?branch=master&svg=true)
-![NPM](https://nodei.co/npm/iobroker.tuya.png?downloads=true)
 
 # IoBroker.tuya
+![Testen und freigeben](https://github.com/Apollon77/iobroker.tuya/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus] (https://weblate.iobroker.net/widgets/adapters/-/tuya/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 ** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ioBroker-Adapter für die Verbindung mit mehreren kleinen und billigen Wifi-Geräten, die mit der Tuya Cloud verbunden sind und hauptsächlich die Smartlife App / Alexa-Skill verwenden. Der Adapter unterstützt das Lesen von Statusaktualisierungen in Echtzeit und das Steuern dieser Geräte, sobald diese mit der jeweiligen Mobiltelefon-App synchronisiert wurden.
@@ -28,7 +27,7 @@ Der Adapter funktioniert nachweislich sehr gut mit allen Geräten, die "immer ü
 Eine Adapterinstanz kann alle Geräte in einem Netzwerk verarbeiten, die UDP-Pakete weiterleiten.
 
 ## Kompatible mobile Apps und Versionen
-Die aktuellen Versionen des Tuya Smart und auch der Smartlife App sind **nicht mehr kompatibel** mit der Funktionsweise des Adapters, da Tuya den gesamten Datenverkehr verschlüsselt hat, den der Adapter abhören könnte. Im Moment funktionieren noch einige ältere Versionen der Apps ...
+Die aktuellen Versionen des Tuya Smart und auch der Smartlife App sind ** nicht mehr ** mit der Funktionsweise des Adapters kompatibel **, da Tuya den gesamten Datenverkehr verschlüsselt hat, den der Adapter abhören könnte. Im Moment funktionieren noch einige ältere Versionen der Apps ...
 
 * Smartlife App <3.14, am besten 3.12.6 !!
 * Tuya Smart App <3.14, am besten 3.12.x.
@@ -40,9 +39,9 @@ Wenn die Geräte über ihre UDP-Pakete nicht korrekt erkannt werden, können Sie
 
 ## Wie der Adapter funktioniert
 ### Grundfunktionalität
-Der Adapter überwacht das lokale Netzwerk auf UDP-Pakete von Tuya-Geräten (alte Firmware, also nur unverschlüsselt). Der ioBroker-Host, auf dem der Adapter ausgeführt wird, muss sich im selben Netzwerksegment befinden wie die Geräte, und UDP-Multicasting muss vom Router unterstützt werden!
+Der Adapter überwacht das lokale Netzwerk auf UDP-Pakete von Tuya-Geräten (alte Firmware, also nur unverschlüsselt). Der ioBroker-Host, auf dem der Adapter ausgeführt wird, muss sich im selben Netzwerksegment wie die Geräte befinden, und UDP-Multicasting muss vom Router unterstützt werden!
 
-Alle erkannten Geräte werden dem Adapter hinzugefügt, und als Basisfunktionalität fordert der Adapter Daten im definierten Abfrageintervall an. Ohne eine Synchronisierung mit der jeweiligen mobilen App (siehe unten) sind KEINE weiteren Funktionen wie Echtzeit-Updates oder Controlling möglich.
+Alle erkannten Geräte werden dem Adapter hinzugefügt und als Basisfunktionalität fordert der Adapter Daten im definierten Abfrageintervall an. Ohne Synchronisation mit der jeweiligen mobilen App (siehe unten) sind KEINE weiteren Funktionen wie Echtzeit-Updates oder Controlling möglich.
 
 Neuere verschlüsselte Geräte werden NICHT angezeigt, bevor Sie eine Gerätesynchronisierung durchführen (siehe nächste ...).
 
@@ -87,6 +86,10 @@ Bitte verwenden Sie dazu GitHub-Probleme.
 Am besten stellen Sie den Adapter auf den Debug-Protokollmodus (Instanzen -> Expertenmodus -> Spaltenprotokollstufe). Dann holen Sie sich bitte die Protokolldatei von der Festplatte (Unterverzeichnis "log" im ioBroker-Installationsverzeichnis und nicht von Admin, da Admin die Zeilen abschneidet). Wenn Sie es nicht gerne in der GitHub-Ausgabe bereitstellen, können Sie es mir auch per E-Mail senden (iobroker@fischer-ka.de). Bitte fügen Sie einen Verweis auf das relevante GitHub-Problem hinzu UND beschreiben Sie auch, was ich zu welchem Zeitpunkt im Protokoll sehe.
 
 ## Changelog
+
+### 3.6.2 (2021-05-10)
+* (Apollon77) type "bitmap" is a number
+* (Apollon77) More schema information added
 
 ### 3.6.1 (2021-04-11)
 * (Apollon77) More schema information added
@@ -293,7 +296,7 @@ Am besten stellen Sie den Adapter auf den Debug-Protokollmodus (Instanzen -> Exp
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2021 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
