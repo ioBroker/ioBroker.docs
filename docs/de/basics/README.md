@@ -1,6 +1,6 @@
 ---
 title:       "ioBroker Grundlagen"
-lastChanged: "07.05.2021"
+lastChanged: "14.05.2021"
 ---
 
 
@@ -13,7 +13,7 @@ Hardware (USB-Stick o.ä.) an den ioBroker Server angesteckt werden.
 
 ## Modularität
 ioBroker ist modular aufgebaut. Diese Module heißen bei ioBroker ***Adapter***.  
-Es gibt über 400 [Adapter][] zur Anbindung von diverser Hardware oder Einbindung  
+Es gibt über 400 [Adapter](http://download.iobroker.net/list.html) zur Anbindung von diverser Hardware oder Einbindung  
 verschiedenster Informationen wie Wetter, Kalender usw.
 
 Daher müssen in einer Installation nur die Adapter installiert werden, die für  
@@ -37,9 +37,9 @@ eine Leistungsverteilung sein.
 ### Anforderungen an die Hardware
 Ein ioBroker Server kann nahezu auf jeder Hardware installiert werden. Einzige  
 Bedingung ist, dass es für das entsprechende Betriebssystem eine aktuelle  
-Version von [nodejs][] gibt.
+Version von [nodejs](https://nodejs.org/en/download/) gibt.
 
-!> Stand Mai 2021 wird für ioBroker nodejs 12.x empfohlen.
+!> Stand Mai 2021 wird für ioBroker noch nodejs 12.x empfohlen.
 
 Für eine größere Installation wird außerdem ein Arbeitsspeicher (RAM) von  
 mindestens 2GB empfohlen. Zum Testen reicht ein Raspberry Pi 2/3 mit 1GB RAM,  
