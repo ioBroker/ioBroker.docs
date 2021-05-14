@@ -33,8 +33,10 @@ Funktionen abgerufen werden:
 
 Die Adapteransicht teilt sich in drei Bereiche auf:
 
-1 - [Menüleiste](#menüpunkte)
+1 - [Menüleiste](#menüleiste)
+
 2 - [Hauptfenster](#das-hauptfenster)
+
 3 - [Systemeinstellungen](#systemeinstellungen)
 
 ![Die Struktur des Admin](media/ADMIN_Screen_numbers.png)
