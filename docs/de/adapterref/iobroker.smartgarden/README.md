@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.smartgarden/README.md
 title: ioBroker.smartgarden
-hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
+hash: bbKCZ49g0LWG4EJYAGtuSSRM1C6FmTKx/qpQ3e+qTHY=
 ---
 ![Logo](../../../en/adapterref/iobroker.smartgarden/admin/smartgarden.png)
 
@@ -89,6 +89,7 @@ Und natürlich benötigen Sie eine laufende ioBroker-Installation und sollten mi
   * [Wünsche für Datenpunkte] (# Wünsche für Datenpunkte)
   * [Anmerkung] (# Anmerkung)
   * [Changelog] (# changelog)
+     * [1.0.5] (# 105)
      * [1.0.4] (# 104)
      * [1.0.3] (# 103)
      * [frühere Versionen] (# 102)
@@ -103,7 +104,7 @@ Adapter ist verfügbar
 
 Eine Beschreibung zur Installation von GitHub finden Sie in [Hier](https://www.iobroker.net/docu/index-235.htm?page_id=5379&lang=de#3_Adapter_aus_eigener_URL_installieren) (deutsche Sprache).
 
-## Setup-Adapter
+## Adapter einrichten
 1. Installieren Sie den Adapter
 2. Erstellen Sie eine Instanz des Adapters
 3. Überprüfen und vervollständigen Sie die Instanzkonfiguration
@@ -127,13 +128,14 @@ Bitte beachten Sie, dass Kennwort und Anwendungsschlüssel im Adapter codiert un
    | Zustände vordefinieren | Definieren Sie alle Zustände der Gardena-API vorab, unabhängig davon, ob sie aktuell übertragen werden. ein- oder ausschalten; Wenn diese Option aktiviert ist, werden alle Status der GARDENA-Smart-System-API erstellt, unabhängig davon, ob sie derzeit vom GARDENA-Dienst übertragen werden oder nicht. Standard: Aus; *(neu in v0.4.0)* |
    | Prognose | Verwenden Sie die Prognose für die Ladezeit und die verbleibende Zeit des Mähers. Ein- / Ausschalten der prognostizierten Lade- und Mähzeit des Mähers; Standard: Aus; *(neu in v0.5.0)* |
    | Zyklen | Anzahl der MOWER-Verlaufszyklen; Sie können eine beliebige Zahl von 3 (Minimum) verwenden, aber 10 (Standard) scheint ein guter Wert zu sein. nur relevant, wenn die obige *'Prognose'* aktiviert ist; *(neu in v0.5.0)* |
-   | Bewässerungsprüfung | Überprüfen Sie, ob beim Mähen eine Bewässerung zulässig ist. Ein-/ Ausschalten; Standard: Aus; *(neu in v0.6.0)* |
+   | Bewässerungsprüfung | Verwenden Sie die Prüfung, ob beim Mähen eine Bewässerung zulässig ist. Ein-/ Ausschalten; Standard: Aus; *(neu in v0.6.0)* |
 
 3.3 Überprüfen Sie die Standardwerte der Systemeinstellungen und schalten Sie die Optionen in der Instanzkonfiguration ein / aus. **Die meisten Benutzer müssen auf dieser Registerkarte nichts ändern.**
 
       | Parameter | Beschreibung |
       | - | - |
       | Loglevel | Loglevel: 0 = kein Protokoll, 1 = einige Protokolle, 2 = einige weitere Protokolle, 3 = alle Protokolle; Standard: 0 |
+   | verschönern log | Status-IDs im Protokoll kürzer machen; Ein-/ Ausschalten; Standard ein; *(neu in v1.0.5)* |
 | Überwachung der Ratengrenzen | Verwenden Sie die Überwachung für die Ratengrenzen der Gardena Smart System API. Ein-/ Ausschalten; Standard: Aus; *(neu in v1.0.2)* |
    | Verbindungswiederholungsintervall | Intervall für den erneuten Versuch, im Fehlerfall eine Verbindung zum Gardena Webservice herzustellen (in Sekunden); Standard: 300, Minimum: 60; *(neu in v1.0.3)* |
       | Ping-Frequenz | Häufigkeit für das Senden von Pings an Gardena Webservice (in Sekunden); Standard: 150, Minimum: 1, Maximum: 300 |
@@ -170,11 +172,11 @@ Die Steuerung / Überwachung für jedes Gerät ist über die in der folgenden Ta
 Wenn Sie weitere Informationen zu den Datenpunkten benötigen, lesen Sie bitte [https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger).
 Dort finden Sie eine Beschreibung für jeden Datenpunkt; mit Ausnahme derjenigen, die als Datenpunkte des Adapters und nicht der GARDENA Smart System API gekennzeichnet sind.
 
-Der Adapter erstellt seine eigenen Datenpunkte für verschiedene Features / Optionen, wenn das Feature ausgewählt wird. Diese Datenpunkte werden nicht automatisch gelöscht, wenn die Funktion deaktiviert wird. Wenn Sie diese Datenpunkte nicht mehr benötigen, können Sie sie manuell löschen.
+Der Adapter erstellt eigene Datenpunkte für verschiedene Funktionen / Optionen, wenn die Funktion ausgewählt wird. Diese Datenpunkte werden nicht automatisch gelöscht, wenn die Funktion deaktiviert wird. Wenn Sie diese Datenpunkte nicht mehr benötigen, können Sie sie manuell löschen.
 
 ### Allgemeine Informationen zu Datenpunkten
 Der Adapter ändert keine von der GARDENA Smart System API übertragenen Werte.
-Das einzige, was getan wird (ab Version 1.0.0), ist die Überprüfung der Art der *Zeitstempel* und *Zahlen*
+Das einzige, was (ab Version 1.0.0) getan wird, ist die Überprüfung der Art der *Zeitstempel* und *Zahlen*
 
 | auf | prüfen Beschreibung |
 | - | - |
@@ -184,7 +186,13 @@ Das einzige, was getan wird (ab Version 1.0.0), ist die Überprüfung der Art de
 Anforderungen zur Steuerung eines Geräts sind erfolgreich, sobald der Befehl vom Smart Gateway akzeptiert wurde. Eine erfolgreiche Ausführung des Befehls auf dem Gerät selbst kann durch eine entsprechende Statusänderung beobachtet werden.
 * Beispiel: * Das Senden eines Befehls zum Starten des VALVE-Dienstes einer intelligenten Wassersteuerung führt dazu, dass der Datenpunkt `activity_value` des Dienstes geändert wird, nachdem das Gerät den Befehl verarbeitet hat.
 
-** Hinweis: ** Anforderungen zur Steuerung eines Geräts können nicht gesendet werden, solange der Smartgarden-Adapter nicht mit der GARDENA Smart System API verbunden ist.
+**Anmerkungen:**
+
+  - Anfragen zur Steuerung eines Geräts können nicht gesendet werden, während der Smartgarden-Adapter dies nicht ist
+
+    verbunden mit der GARDENA Smart System API.
+
+  - Bitte überprüfen Sie, ob Sie den Wert für einen Befehl mit "ack = false" festgelegt haben. Siehe [Kapitel Befehle und Status im Handbuch für Adapterentwickler] (https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md#commands-and-statuses)
 
 ### Für SERVICE_MOWER
 #### Controlling
@@ -201,13 +209,15 @@ Verwenden Sie zur Steuerung des Geräts den Datenpunkt
   Sekunden (bitte ein Vielfaches von 60 verwenden)
 
   - Für den automatischen Betrieb setzen Sie die Zeichenfolge "START_DONT_OVERRIDE"
-  - um den aktuellen Betrieb abzubrechen und zur Verwendung an der Ladestation zurückzukehren
+  - um den aktuellen Betrieb abzubrechen und zur Nutzung der Ladestation zurückzukehren
 
   Zeichenfolge `PARK_UNTIL_NEXT_TASK`
 
   - Um den aktuellen Vorgang abzubrechen, kehren Sie zur Ladestation zurück und ignorieren Sie diese
 
   Zeitplan verwenden Zeichenfolge `PARK_UNTIL_FURTHER_NOTICE`
+
+ **Hinweis:** Der Mäher startet nur mit einem voll aufgeladenen Akku.
 
 #### Überwachung
 Alle anderen Datenpunkte dienen nur zur Überwachung und Information.
@@ -258,7 +268,7 @@ Diese Funktion kann in der Konfiguration der Adapterinstanz zusammen mit der Anz
 Um diese Funktion in Betrieb zu nehmen, **stellen Sie bitte sicher, dass mindestens ein Zyklus von Mäh- und Ladeläufen fehlerfrei ist (z. B. nicht manuell unterbrochen oder Sensorsteuerung).** Es ist besser, wenn mindestens drei Läufe fehlerfrei ausgeführt werden.
 Diese Funktion versucht, den Normalfall zu erkennen und geht zunächst davon aus, dass der nächste Prozess ein Normalfall ist. Wenn dies fehlerhaft ist, wird dieser fehlerhafte Lauf als normaler Fall angesehen und die Läufe, die dann normal durchlaufen werden, als Fehlerfall. Wenn während des Laufs ein Fehler auftritt, stoppen Sie bitte den Adapter, löschen Sie die beiden Datenpunkte und starten Sie erneut.
 
-Weitere Informationen zu allgemeinen Prognosemechanismen finden Sie unter [PROGNOSE.md](FORECAST.md).
+Weitere Informationen zu allgemeinen Prognosemechanismen finden Sie in [PROGNOSE.md](FORECAST.md).
 
   **Anmerkungen:**
 
@@ -268,7 +278,7 @@ Der Lade- und Mähzyklus wird in der Historie gespeichert.
 
     2. Der Verlauf wird unter "info" gespeichert, damit der "LOCATION" benötigt wird
 
-gelöscht werden, z.B. Im Falle eines zukünftigen Updates geht es nicht verloren.
+gelöscht werden, z. Im Falle eines zukünftigen Updates geht es nicht verloren.
 
     3. Wenn Sie Ihren Mäher vom GARDENA Smart System trennen und
 
@@ -407,7 +417,7 @@ Um festzustellen, ob Sie diese Ratenlimits erreicht haben, können Sie die Über
 Wenn Sie den Überwachungsstatus aktiviert haben, wird `info.RateLimitCounter` bei jeder Anforderung aktualisiert.
 Dieser Status speichert eine Datenstruktur mit der Anzahl der Anforderungen pro Monat, Tag, Stunde und für die letzten 30 und 31 Tage.
 
-Die Struktur ist in [JSON](https://en.wikipedia.org/wiki/JSON) und sieht aus wie
+Die Struktur befindet sich in [JSON](https://en.wikipedia.org/wiki/JSON) und sieht aus wie
 
 ```
 {
@@ -475,7 +485,7 @@ Sie werden zur Konfiguration und zum Melden von Warnungen verwendet.
   | - | - | - |
   | `irrigationWhileMowing_allowed_i` | ja | auf `false` setzen, wenn überprüft werden soll, ob eine Bewässerung zulässig ist, während der Mäher auf dem Rasen mäht, andernfalls `true` |
   | `irrigationWhileMowing_warningCode_i` | nein | Der Warncode wird gesetzt, wenn das Ventil öffnet. Mögliche Warncodes siehe nächste Tabelle. Wenn mehr als eine Warnung festgelegt ist, werden Codes mit `+` (z. B. `STOPPED+UNKNOWN_MOWER`) verkettet |
-  | `irrigationWhileMowing_warningCode_i` | nein | Der Warncode wird gesetzt, wenn das Ventil öffnet. Mögliche Warncodes siehe nächste Tabelle. Wenn mehr als eine Warnung gesetzt ist, werden Codes mit "+" verknüpft (z. B. "STOPPED + UNKNOWN_MOWER") |
+  | `irrigationWhileMowing_warningCode_i` | nein | Der Warncode wird gesetzt, wenn das Ventil öffnet. Mögliche Warncodes siehe nächste Tabelle. Wenn mehr als eine Warnung gesetzt ist, werden Codes mit "+" verknüpft (z. B. "STOPPED + UNKNOWN_MOWER"). |
 
 * ***Mäher-ID-Format***
 
@@ -508,7 +518,7 @@ Diese Funktion kann nicht verhindern, dass sich ein Ventil öffnet, während der
 Diese Funktion kann das Ventil im Konfliktfall nur so schnell wie möglich schließen. Und ein Konflikt kann auch nicht erkannt werden.
 So kann es passieren, dass Wasser durchgelassen wird.
 **Z.B. Es kann nicht verhindert werden, dass sich die Aufklappsprinkler ausfahren und der Mäher auf die Aufklappsprinkler **trifft, aber die Wahrscheinlichkeit, dass dies geschieht, wurde minimiert.
-** Es liegt also an Ihrer Bewerbung, sicherzustellen, dass dieser Konflikt niemals auftritt.**
+** Es liegt also an Ihrer Anwendung, sicherzustellen, dass dieser Konflikt niemals auftritt.**
 
 ## Wünsche für Datenpunkte
 Dieser Adapter meldet **jeden Wert** als Datenpunkt, der über die GARDENA Smart System API bereitgestellt wird. Wenn jemand mehr Werte möchte, wenden Sie sich bitte an GARDENA und teilen Sie ihm mit, dass dieser Wert auch in der API enthalten sein wird. Gehen Sie dazu in der Fußzeile auf [GARDENA Entwicklerportal](https://developer.husqvarnagroup.cloud) zu ***Kontaktieren Sie uns und hinterlassen Sie Feedback*** .
@@ -522,31 +532,44 @@ Vielen Dank an GARDENA / Husqvarna für die Bereitstellung dieser [öffentliche 
 smartgarden logo: http://www.freepik.com Entworfen von Freepik
 
 ## Changelog
+### 1.0.5
+* (jpgorganizer) 2021-May-13
+  - necessary adjustments due to js-controller v3.3; e.g. [Issue 29](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/29)
+    - nearly all data points get deleted and created again with intended role/unit
+    - data types for following data points changed from `string` to `number`: 
+	  - for all devices: `rfLinkLevel_value` 
+      - for mower: `batteryLevel_value`, `operatingHours_value` 
+      - for sensor: `batteryLevel_value`, `soilHumidity_value`, `soilTemperature_value`, `lightIntensity_value`, `ambientTemperature_value`
+  - compatibility test with node.js v14 and node.js v16 and added to Travis CI test; 
+    compatibility test with the upcoming Admin 5 React UI;
+    e.g. [Issue 30](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/30)
+  - new parameter *beautify log* in instance configuration; makes state ids a little bit shorter in log if switched on
+
 ### 1.0.4
-* (jpgorganizer)
+* (jpgorganizer) 2021-Feb-22
   - necessary adjustments due to js-controller v3.2
   - option `useTestVariable` in adapter/instance configuration removed
 
 ### 1.0.3
-* (jpgorganizer)
+* (jpgorganizer) 2021-Jan-26
   - improved error handling
   - new parameter `connection retry interval`
   - axios vulnerability solved, using version `>=0.21.1`
   
 ### 1.0.2
-* (jpgorganizer)
+* (jpgorganizer) 2020-Aug-30
   - monitoring rate limits, see chapter [Rate Limits](#rate-limits) and discussion at 
   [Issue 18](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/18)
 
 
 ### 1.0.1
-* (jpgorganizer)
+* (jpgorganizer) 2020-Aug-17
   - better reconnection to GARDENA smart system server in case of your internet connection was broken
   - textual changes in io-package.json
   - improved README and FAQ
   
 ### 1.0.0
-* (jpgorganizer)
+* (jpgorganizer) 2020-Jun-13
   - code rework, no functional change expected
   - support `PAUSE` for SERVICE_VALVE, SERVICE_POWER_SOCKET. e.g. 
 	[Issue 14](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/14)
@@ -564,7 +587,7 @@ smartgarden logo: http://www.freepik.com Entworfen von Freepik
   - README: links to GARDENA/Husqvarna developer portal adjusted to the new address
 
 ### 0.6.0
-* (jpgorganizer) 
+* (jpgorganizer) 2020-May-03
   - new feature *Irrigation not allowed while mowing*, 
     for detailed description see 
 	[Irrigation not allowed while mowing](#Irrigation-not-allowed-while-mowing); 
@@ -574,12 +597,12 @@ smartgarden logo: http://www.freepik.com Entworfen von Freepik
   - improvement of documentation
 
 ### 0.5.1
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Apr-26
   - some corrections (sensor, typo)
   - integration of travis-ci
   
 ### 0.5.0
-* (jpgorganizer) 
+* (jpgorganizer)  2020-Apr-25
   - MOWER: forecast for remaining charging time and remaining mowing time 
   integrated, e.g. [Issue 1](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/1)
   - **IMPORTANT CHANGE** for existing users: the id for LOCATION, all 
@@ -601,17 +624,17 @@ smartgarden logo: http://www.freepik.com Entworfen von Freepik
   - adapter now available at npm
   
 ### 0.4.2
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Apr-01
   - error *missing SENSOR data* fixed (many thanks to user dslraser and 
   muckel at 
   [ioBroker Forum](https://forum.iobroker.net/topic/31289/neuer-adapter-smartgarden-adapter-for-gardena-smart-system/) for testing)
 
 ### 0.4.1
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Mar-31
   - Dependency get's resolved now
   
-### 0.4.0
-* (jpgorganizer) 
+### 0.4.0 
+* (jpgorganizer) 2020-Mar-31
   - **NOTE:** with this version an additional dependency is necessary at runtime. 
   If it does not get installed together with the installation of this adapter, 
   please install seperately with 
@@ -639,7 +662,7 @@ smartgarden logo: http://www.freepik.com Entworfen von Freepik
   - error in command  `stop_all_valves_i` in VALVE_SET fixed
   
 ### 0.3.0
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Mar-25
   - create all states read/write 
   - error TypeError: Cannot read property 'val' of null with useTestVariable 
   fixed
@@ -647,15 +670,16 @@ smartgarden logo: http://www.freepik.com Entworfen von Freepik
 
 
 ### 0.2.0
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Mar-24
   - **IMPORTANT** : data point for MOWER control (command) changed from  
   `duration_value` to `activity_control_i`
   - rework leftovertimer 
   - improved error handling
   - improved logging (see  loglevel in adapter configurations)
 
-### 0.0.1
-* (jpgorganizer) initial release
+### 0.0.1 
+* (jpgorganizer) 2020-Mar-01
+  - initial release
 
 ## License
 
@@ -667,4 +691,4 @@ Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
 Based on a work at https://github.com/jpgorganizer/ioBroker.smartgarden. 
  
 
-<!--- SVN: $Rev: 2466 $ $Date: 2021-02-22 17:30:13 +0100 (Mo, 22 Feb 2021) $ --->
+<!--- SVN: $Rev: 2507 $ $Date: 2021-05-13 18:07:01 +0200 (Do, 13 Mai 2021) $ --->

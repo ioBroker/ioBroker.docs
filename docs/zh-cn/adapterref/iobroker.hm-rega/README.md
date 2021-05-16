@@ -112,6 +112,10 @@ CCU和信息文件夹包含网关的基本信息。
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
+### 3.0.25 (2021-05-14)
+* (foxriver76) remove old code, which also scaled unit: % values and not only unit: 100 %
+
 ### 3.0.24 (2021-04-30)
 * (foxriver76) we fixed more occurrences of incorrect types (fixes #146)
 

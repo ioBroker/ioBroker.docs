@@ -3,17 +3,19 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: 8aotru73N3/+THRhHXAzo4uriEoughYC2hblYdLXlUY=
+hash: MFk/Bv62pf+xKrCvXgg4OCQhaAz9GoW7WtIQ2vuasA8=
 ---
 ![Logo](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/ebus-stable.svg)
-![NPM-Version](https://img.shields.io/npm/v/iobroker.ebus.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.ebus.svg)
-![Tests](https://travis-ci.org/rg-engineering/ioBroker.ebus.svg?branch=master)
+![NPM-Version](http://img.shields.io/npm/v/iobroker.ebus.svg)
+![Bekannte Sicherheitslücken](https://snyk.io/test/github/rg-engineering/ioBroker.ebus/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.ebus.png?downloads=true)
 
 # IoBroker.ebus
+![GitHub-Aktionen](https://github.com/rg-engineering/ioBroker.ebus/workflows/Test%20and%20Release/badge.svg)
+
 ** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ** Wenn es Ihnen gefällt, ziehen Sie bitte eine Spende in Betracht: **
@@ -38,7 +40,7 @@ aktuell unterstützte ebusd-version: 3.3
 ## 2.2.5 (2021-03-21)
 * (René) Abhängigkeiten aktualisiert
 
-#2.2.2.4 (2021-02-17)
+## 2.2.4 (2021-02-17)
 * (René) siehe Problem Nr. 42: Nicht erfasster Referenzfehler: oView ist im gelösten Widget nicht definiert
 
 ## 2.2.3 (2020-10-24)

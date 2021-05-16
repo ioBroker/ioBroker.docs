@@ -361,6 +361,19 @@ Here is a list of the problems that have occurred so far and their solutions, if
 
 ## Changelog
 
+### 2.1.9 (15.05.2021)
+* (simatec) adminTab for admin 5 changed
+
+### 2.1.8 (14.05.2021)
+* (simatec) adminTab for admin 5 changed
+
+### 2.1.7 (14.05.2021)
+* (simatec) Bugfix mysql Restore
+* (simatec) Bugfix pgsql Restore
+* (simatec) small Bugfix
+* (simatec) dependencies updated
+* (simatec) node 16 support added
+
 ### 2.1.6 (01.05.2021)
 * (simatec) Bugfix for js-controller 3.3.x
 * (simatec) small Bugfix Dropbox Log

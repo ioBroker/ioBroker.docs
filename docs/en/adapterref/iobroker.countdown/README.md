@@ -78,6 +78,8 @@ Parameters here are:
 * Possibility to use plus and minus in addminutes and the other add functions
 
 ## Changelog
+## 1.2.1 (2021-05-09) 
+* (jack-blackson) Small Bugfixes
 
 ## 1.2.0 (2021-05-09) 
 * (jack-blackson) Updated packages, added Sentry

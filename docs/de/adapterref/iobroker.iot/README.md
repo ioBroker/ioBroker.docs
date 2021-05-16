@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iot/README.md
 title: ioBroker IoT Adapter
-hash: RPZLbAhefWe0dN9Y6h+0qu9Ba1TiO9thmROCEbuQWGw=
+hash: BmoMf+LIXUxNddbcDjCBbnqlvBWGyuq6DE962F5aVYI=
 ---
 ![Logo](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -19,14 +19,14 @@ Es ist nicht für den Remotezugriff auf Ihre ioBroker-Instanz vorgesehen. Verwen
 ** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Die Einstellungen
-Um einen Cloud-Adapter zu verwenden, müssen Sie sich zuerst in der ioBroker-Cloud registrieren. [https://iobroker.pro](https://iobroker.pro).
+Um den Cloud-Adapter zu verwenden, müssen Sie sich zuerst in der ioBroker-Cloud registrieren. [https://iobroker.pro](https://iobroker.pro).
 
 [Verweis auf die Einstellungen des Google API-Typs](https://developers.google.com/actions/smarthome/guides/)
 
 ![Intro](../../../en/adapterref/iobroker.iot/img/intro.png)
 
 ### Sprache
-Wenn Sie "Standard" -Sprache auswählen, werden die Smart-Namen von Geräten und Aufzählungen nicht übersetzt. Wenn eine Sprache angegeben ist, werden alle bekannten Namen in diese Sprache übersetzt.
+Wenn Sie "Standard" -Sprache auswählen, werden die intelligenten Namen von Geräten und Aufzählungen nicht übersetzt. Wenn eine Sprache angegeben ist, werden alle bekannten Namen in diese Sprache übersetzt.
 Zu Demonstrationszwecken wird schnell zwischen vielen Sprachen gewechselt.
 
 ### Platziere die Funktion zuerst in den Namen
@@ -54,7 +54,7 @@ Beispiel:
 - Befehl: "Licht auf 40% einstellen". Der Adapter speichert diesen Wert für *Dimmer* stellt ihn auf "Dimmer" und schaltet den *Schalter* ein.
 - Befehl: "Licht ausschalten". Der Adapter stellt den *Dimmer* auf 0% und schaltet den *Schalter* aus.
 - Befehl: "Licht einschalten". *Dimmer* => 40%, *Schalter* => ON.
-- Befehl: "Licht auf 20% einstellen". *Dimmer* => 20%, *Schalter* => AUS. Der Wert für den Dimmer wird nicht gespeichert, da er unter *AUS* liegt.
+- Befehl: "Licht auf 20% einstellen". *Dimmer* => 20%, *Schalter* => AUS. Der Wert für Dimmer wird nicht gespeichert, da er unter *OFF-Pegel* liegt.
 - Befehl: "Licht einschalten". *Dimmer* => 40%, *Schalter* => ON.
 
 ### Von ON
@@ -64,7 +64,7 @@ Sie können das Verhalten des ON-Befehls für den Nummernstatus auswählen. Der 
 Für jeden Befehl wird die Textantwort generiert. Hier können Sie die Objekt-ID definieren, in die dieser Text geschrieben werden muss. Z.B. *sayit.0.tts.text*
 
 ### Farben
-Momentan unterstützt nur Englisch Alexa die Farbkontrolle.
+Momentan unterstützt nur Englisch Alexa die Farbsteuerung.
 Der Kanal muss 4 Zustände mit folgenden Rollen haben:
 
 - level.color.saturation (erforderlich für die Erkennung des Kanals),
@@ -266,6 +266,12 @@ Folgende Typen werden unterstützt:
 ### __WORK IN PROGRESS__ ->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (foxriver76) we now write data received from custom services with acknowledge flag
+
+### 1.8.19 (2021-05-14)
+* (bluefox) Only added one debug output
+
 ### 1.8.16 (2021-03-13)
 * (bluefox) fixed the blind functionality in alisa
 

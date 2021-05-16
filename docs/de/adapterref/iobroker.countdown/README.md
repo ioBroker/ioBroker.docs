@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.countdown/README.md
 title: ioBroker.countdown
-hash: UR3SrC6/ISooSboGsloFdNGal7zBM/aIsqWdrp/Le3c=
+hash: IWWBZACoI0aKN12/ZfJlMXnjCkpobJp2o482UsNdwG8=
 ---
 ![Logo](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
@@ -77,10 +77,13 @@ Parameter hier sind:
 * Möglichkeit, ein Skript als Parameter hinzuzufügen und zu starten, wenn der Countdown endet
 * Möglichkeit, Plus und Minus in Addminutes und den anderen Add-Funktionen zu verwenden
 
+## 1.2.1 (2021-05-09)
+* (jack-blackson) Kleine Bugfixes
+
 ## 1.2.0 (2021-05-09)
 * (jack-blackson) Aktualisierte Pakete, Sentry hinzugefügt
 * (jack-blackson) Korrekturen für JS-Controller 3.3
-* (jack-blackson) Korrigiert, dass Countdowns sofort erstellt werden
+* (jack-blackson) Korrigieren Sie, dass Countdowns sofort erstellt werden
 
 ## 1.1.0 (2020-04-02)
 * (Jack-Blackson) Bugfix Read-Me-Link
@@ -110,23 +113,23 @@ Parameter hier sind:
 * (Jack-Blackson) Verschiedene Bugfixes
 * (jack-blackson) Es ist jetzt möglich, mehrere Instanzen des Adapaters zu haben
 
-## 1.0.2 (22.07.2019)
+## 1.0.2 (2019-07-22)
 * (Jack-Blackson) Release-Version
 
 ## 0.7.0 (2019-07-07)
 * (Jack-Blackson) Bugfixes
 * (Jack-Blackson) Addminutes und Addhours sind jetzt ebenfalls möglich
 * (jack-blackson) Datenpunkt im Setup kann jetzt bearbeitet werden
-* (Jack-Blackson) hat die Gesamtzahl hinzugefügt. von Wochen
+* (Jack-Blackson) hinzugefügt Gesamt-Nr. von Wochen
 
-## 0.6.0 (2019-07-06)
+## 0.6.0 (06.07.2019)
 * (Jack-Blackson) einstellbares Datumsformat für Ein- und Ausgabe
 * (jack-blackson) Countdowns mit sendto löschen
 * (Jack-Blackson) Fähigkeit, Countdowns in "Tagen / Monaten / Wochen ab jetzt) hinzuzufügen
 
 ## 0.5.0 (2019-07-04)
 * (Jack-Blackson) Passen Sie die Daten in der Tabelle an
-* (Jack-Blackson) Bugfix-Datumsimport
+* (Jack-Blackson) Bugfix Datumsimport
 
 ### 0.4.0 (04.06.2019)
 * (Jack-Blackson) Restrukturierung - Die Erstellung von Alarmen mit Sendto oder manuell mit Datenpunkt ist jetzt möglich

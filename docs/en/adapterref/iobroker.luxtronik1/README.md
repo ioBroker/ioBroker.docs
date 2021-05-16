@@ -34,9 +34,13 @@ Values in the 'control' - channel have to be set with ack=false to trigger an ac
 
 ## Changelog
 
+### 0.3.1
+
+-   bugfixes related to js-controller update (3.3x)
+
 ### 0.3.0
 
-- info on temperature - settings and hysteresis - control added
+-   info on temperature - settings and hysteresis - control added
 
 ### 0.2.7
 

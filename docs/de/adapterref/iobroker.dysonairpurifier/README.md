@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: s1zJIIEJa9uBBcgsAcVnaaBMO6CxukCwj8/He7bfINo=
+hash: O6SB+OXHA3GdSIb3tZpGPsvoVJplaZxuEOC575VGttE=
 ---
 # IoBroker.dysonAirPurifier
 ![Logo] (admin / dyson_logo.svg)! [Logo](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -26,6 +26,7 @@ Fan-Icon im Logo erstellt von [Freepik] (https://www.flaticon.com/de/autoren/fre
 ### Unterstützte Geräte
 * Dyson Pure Cool Link Tower (TP02, Produkttyp 475)
 * Dyson Pure Cool Tower, Modell 2018 (TP04, Produkttyp 438)
+* Dyson Pure Cool Tower, Modell 2018 (TP07, Produkttyp 438E)
 * Dyson Pure Cool Link Desk (DP01, Produkttyp 469)
 * Dyson Pure Cool Desk, Modell 2018 (DP04, Produkttyp 520)
 * Dyson Pure Hot + Cool Link (HP02, Produkttyp 455)
@@ -41,12 +42,15 @@ Verbindet Ihre Dyson-Lüfter, Heizlüfter, Luftreiniger und Luftbefeuchter mit i
 * Liest die Geräteliste von Dyson-Servern
 
 ## Installation
+### Sentry.io
+Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch dem Autor zu melden. Dafür wird das Plugin [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) verwendet. In den [Plugin Homepage](https://github.com/ioBroker/plugin-sentry) finden Sie detaillierte Informationen darüber, was das Plugin tut, welche Informationen gesammelt werden und wie Sie es deaktivieren können, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
+
 ### Voraussetzungen
 * Dieser Adapter benötigt Node.js> = Version 10
 * Mindestens js-Controller 3.0.0 ist erforderlich
 * Mindestens Admin 4.0.9 ist erforderlich
 * Um diesen Adapter zum Laufen zu bringen, benötigen Sie ein Dyson-Konto.
-* Stellen Sie sicher, dass Sie Ihren Fan Ihrem Konto hinzufügen. Entweder per App oder online.
+* Stellen Sie sicher, dass Sie Ihren Fan zu Ihrem Konto hinzufügen. Entweder per App oder online.
 
 ### Adapterinstallation
 #### Verwenden von npm
@@ -72,6 +76,22 @@ Sie können auch ältere Release-Versionen mit diesen Methoden installieren (ind
 > Beim ersten Start dieses Adapters wird die Dyson-API für alle Ihre Geräte abgefragt und alle unterstützten Geräte werden im Gerätebaum erstellt - mit ihren grundlegenden Informationen, die von der API bereitgestellt werden, und einem zusätzlichen Feld "Hostadresse".
 >> Führen Sie den Adapter also einmal aus, und Ihre Dyson-Geräte werden in der Gerätestruktur mit ihren Grundeinstellungen erstellt.
 >> Stoppen Sie dann den Adapter, geben Sie die IP (s) in das Feld Hostadresse (n) ein und starten Sie den Adapter neu. Danach sollten Ihre Dyson-Geräte in der Gerätestruktur mit Daten gefüllt werden.
+
+### 2-Faktor-Authentifizierung (seit V0.9.0)
+Nach der Installation des Adapters sollte dieser automatisch gestartet werden - wenn nicht, starten Sie ihn bitte zuerst.
+Nach einem Update wird es auch automatisch neu gestartet. In beiden Fällen bleibt es im "gelben" Zustand und zeigt wahrscheinlich einige Fehler im Protokoll an - das ist vorerst in Ordnung.
+
+* Öffnen Sie den Konfigurationsdialog des Adapters
+* Geben Sie mindestens Ihre E-Mail-Adresse, das Passwort und den Ländercode ein - der Rest ist optional
+* Klicken Sie auf die Schaltfläche 2FA-Code Email, um den Vorgang zu starten
+* Sie erhalten automatisch eine "ChallengeId" im entsprechenden Feld, eine E-Mail und einen Dialog mit weiteren Anweisungen
+* Geben Sie den 6-stelligen Code aus der E-Mail in das Feld "Dyson Einmalpasswort" ein.
+* Klicken Sie auf die Schaltfläche "Fertig stellen"
+* Danach sollten Sie ein Token von Dyson erhalten haben (aus Sicherheitsgründen unsichtbar).
+* Klicken Sie auf Speichern und schließen, nachdem Sie die Einrichtung abgeschlossen haben. Der Adapter sollte neu starten und grün werden.
+
+Alle Werte werden gespeichert und weiter angezeigt.
+> Normalerweise müssen Sie diese 2 FA nicht planmäßig ausführen - Sie können sie jedoch bei Bedarf wiederholen.
 
 ## Steuern Ihrer Geräte
 Dieser Adapter kann derzeit die folgenden Zustände Ihrer Geräte steuern:
@@ -196,7 +216,7 @@ Redundante Werte?
 | ------------- | ----- | ----- | ----- |
 | pal0 - pal9 | Anzahl der zweiten Ausgaben in diesem Staubniveau seit Beginn der Stunde 0000 - 3600 | |
 | Handfläche | scheint ein Medianwert von palX | zu sein | |
-| vol0 - vol9 | Anzahl der zweiten Ausgaben in diesem Voc-Level seit Beginn der Stunde | 0000 - 3600 | |
+| vol0 - vol9 | Anzahl der zweiten Ausgaben in diesem Vokalniveau seit Beginn der Stunde | 0000 - 3600 | |
 | volm | scheint ein Medianwert von volX | zu sein | |
 | aql0 - aql9 | Anzahl der zweiten Ausgaben in diesem Bereich der Luftqualität max (pal, vol)) seit Beginn der Stunde | 0000 - 3600 | |
 | aqlm | scheint ein Medianwert von aqlX | zu sein | |
@@ -212,10 +232,17 @@ Dyson, pure cool, pure hot & cool und andere sind Marken oder eingetragene Marke
 
 ## Changelog
 
+### V0.9.0 (2021-04-26) (Still breathing)
+* (grizzelbee) New: Added ioBroker sentry plugin to report errors automatically 
+* (grizzelbee) New: Added support for Dyson Pure Cool TP07 (438E)
+* (grizzelbee) New: Added support for Dyson 2-factor login method
+* (grizzelbee) New: Added "keep Sensorvalues" to config to prevent destroying old values when continuous monitoring is off and fan is switched off (TP02)  
+* (grizzelbee) Fix: FilterLife should now be correctly in hours and percent in two separate data fields for fans supporting this (e.g. TP02)
+
 ### V0.8.2 (2021-04-09) (Still breathing)
 * (grizzelbee) Fix: [#80](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/80) fixed npm install hint in documentation
 * (grizzelbee) Fix: [#82](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/82) fixed common.dataSource type with type >poll<
-* (grizzelbee) Fix: [#95](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/95) Added new heater model type 527E
+* (grizzelbee) Fix: [#95](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/95) Added support for dyson Hot+Cool Formaldehyde (527E)
 * (grizzelbee) Fix: [#94](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/94) Fixed dustIndex
 
 

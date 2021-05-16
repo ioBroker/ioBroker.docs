@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iot/README.md
 title: IoT-адаптер ioBroker
-hash: RPZLbAhefWe0dN9Y6h+0qu9Ba1TiO9thmROCEbuQWGw=
+hash: BmoMf+LIXUxNddbcDjCBbnqlvBWGyuq6DE962F5aVYI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -26,7 +26,7 @@ hash: RPZLbAhefWe0dN9Y6h+0qu9Ba1TiO9thmROCEbuQWGw=
 ![вступление](../../../en/adapterref/iobroker.iot/img/intro.png)
 
 ### Язык
-Если вы выберете язык "по умолчанию", умные имена устройств и перечислений переводиться не будут. Если указан какой-либо язык, все известные имена будут переведены на этот язык.
+Если вы выберете язык «по умолчанию», умные имена устройств и перечислений переводиться не будут. Если указан какой-либо язык, все известные имена будут переведены на этот язык.
 Это сделано для быстрого переключения между многими языками в демонстрационных целях.
 
 ### Сначала поместите функцию в имена
@@ -36,7 +36,7 @@ hash: RPZLbAhefWe0dN9Y6h+0qu9Ba1TiO9thmROCEbuQWGw=
 - если true: "Функциональная комната", например «Диммерная гостиная»
 
 ### Соедините слова с
-Вы можете определить слово, которое будет помещено между функцией и помещением. Например. «В» и «Диммер в гостиной» будет «Диммер в гостиной».
+Вы можете определить слово, которое будет помещено между функцией и комнатой. Например. «В» и «Диммер в гостиной» будет «Диммер в гостиной».
 
 Но делать это не рекомендуется, поскольку механизм распознавания должен проанализировать еще одно слово, и это может привести к недоразумениям.
 
@@ -265,6 +265,12 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 ### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (foxriver76) we now write data received from custom services with acknowledge flag
+
+### 1.8.19 (2021-05-14)
+* (bluefox) Only added one debug output
+
 ### 1.8.16 (2021-03-13)
 * (bluefox) fixed the blind functionality in alisa
 

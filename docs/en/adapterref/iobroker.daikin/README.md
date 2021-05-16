@@ -1,17 +1,13 @@
 ![Logo](admin/daikin.jpg)
 # ioBroker.daikin
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/Apollon77/ioBroker.daikin.svg)](https://greenkeeper.io/)
+![Number of Installations](http://iobroker.live/badges/daikin-installed.svg)
+![Number of Installations](http://iobroker.live/badges/daikin-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.daikin.svg)](https://www.npmjs.com/package/iobroker.daikin)
 
-![Number of Installations](http://iobroker.live/badges/daikin-installed.svg) ![Number of Installations](http://iobroker.live/badges/daikin-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.daikin.svg)](https://www.npmjs.com/package/iobroker.daikin)
+![Test and Release](https://github.com/Apollon77/iobroker.daikin/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/daikin/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.daikin.svg)](https://www.npmjs.com/package/iobroker.daikin)
-[![Maintainability](https://api.codeclimate.com/v1/badges/ccc74a3ef8de69265ca1/maintainability)](https://codeclimate.com/github/Apollon77/ioBroker.daikin/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/ccc74a3ef8de69265ca1/test_coverage)](https://codeclimate.com/github/Apollon77/ioBroker.daikin/test_coverage)
-
-**Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/Apollon77/ioBroker.daikin/master.svg)](https://travis-ci.org/Apollon77/ioBroker.daikin)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Apollon77/ioBroker.daikin?branch=master&svg=true)](https://ci.appveyor.com/project/Apollon77/ioBroker-daikin/)
-
-[![NPM](https://nodei.co/npm/iobroker.daikin.png?downloads=true)](https://nodei.co/npm/iobroker.daikin/)
 
 This adapter connects to a Daikin Air Conditioner device and allows to control the device and to read values from it.
 The Daikin Device needs to be equipped with a Daikin Wifi controller. Normally all wifi controllers should be supportedthat are supported by the Daikin App.
@@ -63,6 +59,9 @@ After the Adapter has connected to the Daikin Device a structure of objects are 
 * VIS widget
 
 ## Changelog
+
+### 1.3.1 (2021-05-14)
+* (Apollon77) Prepare for js-controller 3.3
 
 ### 1.3.0 (2021-01-14)
 * (Apollon77) Prevent warnings in js-controller 3.2
@@ -119,7 +118,7 @@ After the Adapter has connected to the Daikin Device a structure of objects are 
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2020 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2017-2021 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

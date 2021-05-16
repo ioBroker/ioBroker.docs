@@ -42,7 +42,7 @@ SolarLog 50: There is no open JSON-Interface @ SolarLog 50 devices. So certain v
 
 ### 2.1.2
 
--   bugfixes
+-   bugfixes (js-controller 3.3.x)
 
 ### 2.1.1
 

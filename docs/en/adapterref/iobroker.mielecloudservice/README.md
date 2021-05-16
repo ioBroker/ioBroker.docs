@@ -168,6 +168,7 @@ Here is a list of what these raw values stand for:
 
 | Raw value | State| available for |
 |----------|-------|---------------|
+|258 | "Einweichen"           | Washing Machine | 
 |260 | "Waschen" / "Washing"  | Washing Machine |
 |261 | "Spülen"  / "Rinse"    | Washing Machine |
 |265 | "Pumpen" | Washing Machine |
@@ -180,6 +181,10 @@ Here is a list of what these raw values stand for:
 |532 | "Flusen ausspülen" | Washer Dryer |
 
 ## Changelog
+
+### V4.1.0 (2021-05-15) (Carry me over)
+* (grizzelbee) New: [149](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/149) Adding support (Start, Stop, Pause) for Miele Scout RX2 vacuum cleaner robots
+* (Stan23)     New: Added new program phase  soak/Einweichen
 
 ### V4.0.22 (2021-05-06) (Twisted mind)
 * (grizzelbee) Fix: [142](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/142) Reintroduced TargetTemp for washing machines

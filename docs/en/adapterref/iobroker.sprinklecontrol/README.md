@@ -30,7 +30,7 @@ Wetterabhängige automatische Steuerung der Gartenbewässerung
 
 ## Changelog
 
-### 0.1.5 (.05.2021)
+### 0.1.5 (05.05.2021)
 * (Dirk-Peter-md) Zurücksetzen der Regenmenge im 24-Stunden-Modus hinzugefügt
 
 ### 0.1.4 (21.04.2021)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.MieleCloudService
-hash: TVWPynVxQGOLdsNkmmd5Cj1LxQC+xmZzN/NcAKQqdPE=
+hash: kkSktIrdhuN2rLvgkbAYfJcBEo8WMtlHoRqWRIw9uW0=
 ---
 ![Logo](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
@@ -20,7 +20,7 @@ Mit diesem Adapter können Sie Informationen zu allen Ihren Miele @ Home-Geräte
 Unabhängig davon, ob sie direkt über Wi-Fi oder XGW3000 Gateway verbunden sind. Es implementiert die **Miele 3rd Party API V1.0.4**
 
 ## Sentry.io
-Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch dem Autor zu melden. Das Plugin [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) wird dafür verwendet. In den [Plugin Homepage](https://github.com/ioBroker/plugin-sentry) finden Sie detaillierte Informationen darüber, was das Plugin tut, welche Informationen gesammelt werden und wie Sie es deaktivieren können, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
+Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch dem Autor zu melden. Dafür wird das Plugin [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) verwendet. In den [Plugin Homepage](https://github.com/ioBroker/plugin-sentry) finden Sie detaillierte Informationen darüber, was das Plugin tut, welche Informationen gesammelt werden und wie Sie es deaktivieren können, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
 
 ## Voraussetzungen
 * Miele @ Home User (Smartphone App)
@@ -38,11 +38,11 @@ Gehen Sie zur Installation wie folgt vor:
 2. Erstellen Sie in der Miele Smartphone App ein App-Konto für Miele @ Home
 3. Erstellen Sie ein Entwicklerkonto unter https://www.miele.com/f/com/en/register_api.aspx
 4. Fügen Sie Ihre Miele-Geräte zur App hinzu (falls nicht automatisch hinzugefügt)
-6. Geben Sie die vom Miele-Entwicklerteam erhaltenen client_secret und client_id sowie die Konto-ID und das Kennwort von der App ein.
+6. Geben Sie client_secret und client_id ein, die Sie vom Miele-Entwicklerteam erhalten haben, sowie die Konto-ID und das Kennwort von der App.
 
 ## Steuern Ihrer Geräte
 Alle derzeit unterstützten und dokumentierten Aktionen für alle Geräte sind implementiert (API V1.0.4).
-> Bitte denken Sie daran, dass Aktionen nur funktionieren, wenn Sie Ihr Gerät in den entsprechenden Zustand versetzen (z. B. Mobile Control, powerOn, ...).
+> Bitte denken Sie daran, dass Aktionen nur funktionieren, wenn Sie Ihr Gerät in den entsprechenden Zustand versetzen (z. B. Mobile Control, PowerOn, ...).
 Weitere Informationen zu Aktionen finden Sie in [Miele-Dokumentation](#documentation).
 
 ## Bekannte Probleme
@@ -54,7 +54,7 @@ Bitte beziehen Sie sich hauptsächlich auf die von Miele veröffentlichte API-Ha
 * [Allgemeine Dokumentation] (https://www.miele.com/developer/swagger-ui/index.html)
 * [Voraussetzungen für die Ausführung einer Aktion auf einem Gerät] (https://www.miele.com/developer/swagger-ui/put_additional_info.html)
 
-Es gibt einige Datenpunkte in 2 Arten. Als lesbarer Text und als Zahl.
+Es gibt einige Datenpunkte in zwei Arten. Als lesbarer Text und als Zahl.
 Diese numerischen Datenfelder, die zu einem Textfeld gehören, haben denselben Namen, aber ein "_raw" wird angehängt.
 Die Felder, die eine allgemeine Bedeutung haben, sind unten aufgeführt.
 Die Felder, die nicht aufgeführt sind, unterscheiden sich in ihrer Bedeutung von Gerät zu Gerät und werden von Miele nicht dokumentiert.
@@ -163,6 +163,7 @@ Hier ist eine Liste, wofür diese Rohwerte stehen:
 ### ProgramPhase
 | Rohwert | Staat | verfügbar für |
 |----------|-------|---------------|
+| 258 | "Einweichen" | Waschmaschine |
 | 260 | "Waschen" / "Waschen" | Waschmaschine |
 | 261 | "Spülen" / "Spülen" | Waschmaschine |
 | 265 | "Pumpen" | Waschmaschine |
@@ -178,6 +179,30 @@ Hier ist eine Liste, wofür diese Rohwerte stehen:
 Copyright (c) 2019, 2021 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+
+### V4.1.0 (2021-05-15) (Carry me over)
+* (grizzelbee) New: [149](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/149) Adding support (Start, Stop, Pause) for Miele Scout RX2 vacuum cleaner robots
+* (Stan23)     New: Added new program phase  soak/Einweichen
+
+### V4.0.22 (2021-05-06) (Twisted mind)
+* (grizzelbee) Fix: [142](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/142) Reintroduced TargetTemp for washing machines
+
+### V4.0.21 (2021-05-03) (The Edge)
+* (grizzelbee) Fix: Fixed accidental function name: createStateSpinAPIStartActionningSpeed
+* (grizzelbee) Fix: Fixed State value to set for "*.PlateStep_1" has to be type "number" but received type "string"
+
+### V4.0.20 (2021-04-30) (Sleepwalkers)
+* (grizzelbee) Fix: [137](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/137) Fixed Read-only state "info.connection" has been written without ack-flag with value "false"
+* (grizzelbee) Fix: [138](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/138) Fixed State value to set for ".Schleuderdrehzahl" has wrong type "string" but has to be "number"
+* (grizzelbee) Fix: [139](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/139) Fixed State value to set for ".ACTIONS.Light" has wrong type "number" but has to be "string" 
+* (grizzelbee) Upd: Changed device group from channel to folder  as documented [here](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/objectsschema.md)
+
+### V4.0.19 (2021-04-29) (The scarecrow)
+* (grizzelbee) Fix: Fixed light switch bug causing an exception when switching - 2nd attempt
+* (grizzelbee) Fix: Fixed No-Icon Bug when appliance is unknown
+
+### V4.0.18 (2021-04-28) (Ghostlights)
+* (grizzelbee) Fix: Fixed light switch bug causing an exception when switching 
 
 ### V4.0.17 (2021-04-27) (Ghost in the moon)
 * (grizzelbee) New: Added ioBroker sentry plugin to report issues automatically

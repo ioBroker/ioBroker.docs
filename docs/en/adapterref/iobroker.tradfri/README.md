@@ -70,6 +70,9 @@ The result object `ret` looks as follows:
 	Placeholder for next release:
 	### __WORK IN PROGRESS__
 -->
+### 2.7.3 (2021-05-14)
+* Fix remaining JS-Controller 3.3 warnings
+
 ### 2.7.2 (2021-04-30)
 * Avoid warning about `undefined` states in JS-Controller 3.3+
 

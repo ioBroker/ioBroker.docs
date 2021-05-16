@@ -3,11 +3,11 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.countdown/README.md
 title: ioBroker.countdown
-hash: UR3SrC6/ISooSboGsloFdNGal7zBM/aIsqWdrp/Le3c=
+hash: IWWBZACoI0aKN12/ZfJlMXnjCkpobJp2o482UsNdwG8=
 ---
 ![商标](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
-![保镖徽章](https://snyk.io/test/github/jack-blackson/ioBroker.countdown/badge.svg)
+![保管员徽章](https://snyk.io/test/github/jack-blackson/ioBroker.countdown/badge.svg)
 ![NPM版本](http://img.shields.io/npm/v/iobroker.countdown.svg)
 ![资料下载](https://img.shields.io/npm/dm/iobroker.countdown.svg)
 ![安装数量](http://iobroker.live/badges/countdown-stable.svg)
@@ -18,9 +18,9 @@ hash: UR3SrC6/ISooSboGsloFdNGal7zBM/aIsqWdrp/Le3c=
 
 **此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
 
-ioBroker的倒计时适配器---------------------------------------------- --------------------------------
+ioBroker的倒数适配器---------------------------------------------- --------------------------------
 
-适配器的目标是为您提供可能的倒计时，以进行未来的事件（包括年，月，日，小时和分钟）。它将分别为您提供所有这些价位，以及两个带有日期的长短版本的字符串。
+适配器的目标是使您可以为未来的事件运行倒计时，包括年，月，日，小时和分钟。它将分别为您提供所有这些价位，以及两个带有日期的长短版本的字符串。
 
 ##显示倒计时
 适配器会自动为您扩展一个json表。您只需要将其与json表一起使用即可。请在此处勾选“无标题”。可以显示短文本或长文本。
@@ -43,7 +43,7 @@ ioBroker的倒计时适配器---------------------------------------------- ----
 您可以使用sendto删除倒数计时。因此，仅将带有sendto的名称发送到适配器，倒计时将被自动删除。
 
 ##重复倒数
-如果您希望倒计时在指定的时间段内重复进行（例如，您无法为每年的结婚日倒数），也可以使用此适配器进行。因此，要么在适配器的设置中填写“重复周期”字段，要么在创建类型为“日期”的倒计时时在日期之后添加周期。 sendTo类似于倒计时，应该在2020年4月1日结束并每年重复一次：
+如果您希望倒计时在指定的时间段内重复进行（例如，您无法在每年的婚礼当天倒数），也可以使用此适配器进行。因此，要么在适配器的设置中填写“重复周期”字段，要么在创建类型为“日期”的倒计时时在日期之后添加周期。 sendTo看起来像这样的倒计时，倒计时应在2020年4月1日结束，并每年重复一次：
 
 sendTo（“ countdown.0”，“ send”，{“ name”：'Wedding Day'，“ date”：'01 .04.2020 00：01 + 1Y'}）;
 
@@ -59,10 +59,10 @@ sendTo（“ countdown.0”，“ send”，{“ name”：'Wedding Day'，“ d
 |数据类型|描述|
 |:---:|:---:|
 |分钟|分钟，直到倒计时结束（不总计！）|
-|小时|数到倒计时结束为止的小时数（不总计！）|
+|小时|倒计时结束为止的小时数（不是总计！）|
 |天|直到倒计时结束的天数（不总计！）|
 |月|直到倒计时结束的月数（不总计！）|
-|年|倒计时结束之前的年数（不总计！）|
+|年|直至倒数计时结束的年限（并非总计！）|
 |名称|倒数名称|
 | endDate |倒计时的结束日期-格式与所定义的设置相同|
 | inWordsShort |分钟，小时，...的组合值-例如1年5M 4D |
@@ -71,11 +71,14 @@ sendTo（“ countdown.0”，“ send”，{“ name”：'Wedding Day'，“ d
 | totalDays |到结束日期的总天数|
 | totalWeeks |到结束日期为止的总周数|
 | reached |布尔值字段，定义是否达到结束日期|
-| repeatEvery |在到达结束日期后的这段时间内重复倒数|
+| repeatEvery |在到达结束日期后的这段时间内重复倒计时|
 
 ##要添加的功能
 *可以添加脚本作为参数并在倒计时结束时启动它
 *可以在addminutes和其他添加函数中使用加号和减号
+
+## 1.2.1（2021-05-09）
+*（jack-blackson）小错误修正
 
 ## 1.2.0（2021-05-09）
 *（jack-blackson）更新了程序包，增加了Sentry
@@ -107,7 +110,7 @@ sendTo（“ countdown.0”，“ send”，{“ name”：'Wedding Day'，“ d
 
 ## 1.0.3（2019-08-10）
 *（jack-blackson）更改为紧凑模式
-*（杰克·布莱克森）各种错误修正
+*（jack-blackson）各种错误修正
 *（jack-blackson）现在可以具有多个adapater实例
 
 ## 1.0.2（2019-07-22）

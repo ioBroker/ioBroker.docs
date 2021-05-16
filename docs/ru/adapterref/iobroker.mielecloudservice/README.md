@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.MieleCloudService
-hash: TVWPynVxQGOLdsNkmmd5Cj1LxQC+xmZzN/NcAKQqdPE=
+hash: kkSktIrdhuN2rLvgkbAYfJcBEo8WMtlHoRqWRIw9uW0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
@@ -72,31 +72,31 @@ hash: TVWPynVxQGOLdsNkmmd5Cj1LxQC+xmZzN/NcAKQqdPE=
  | 12 | ПЕЧЬ |
  | 13 | ПЕЧЬ СВЧ |
  | 14 | HOB HIGHLIGHT |
- | 15 | ПАРНАЯ ПЕЧЬ |
+ | 15 | ПАРОВАЯ ПЕЧЬ |
  | 16 | СВЧ |
  | 17 | КОФЕЙНАЯ СИСТЕМА |
- | 18 | КАПОТ |
+ | 18 | ВЫТЯЖКА |
  | 19 | ХОЛОДИЛЬНИК |
  | 20 | МОРОЗИЛЬНИК |
  | 21 | КОМБИНАЦИЯ ХОЛОДИЛЬНИКА / МОРОЗИЛЬНИКА |
- | 23 | ВАКУУМНЫЙ ПЫЛЕСОС, АВТОМАТИЧЕСКИЙ РОБОТ-ПЫЛЕСОС |
+ | 23 | ПЫЛЕСОС, АВТОМАТИЧЕСКИЙ ПЫЛЕСОС |
  | 24 | СТИРАЛЬНАЯ МАШИНА |
  | 25 | ПОДОГРЕВАТЕЛЬ |
  | 27 | ИНДУКЦИОННАЯ ПАНЕЛЬ |
  | 28 | ВАРОЧНЫЙ ГАЗ |
  | 31 | ПАРОВАЯ ПЕЧЬ КОМБИНАЦИЯ |
  | 32 | ВИННЫЙ ШКАФ |
- | 33 | КОНДИЦИОНЕР ВИНА |
+ | 33 | КОНДИЦИОНЕР ДЛЯ ВИНА |
  | 34 | КОНДИЦИОНЕР ДЛЯ ХРАНЕНИЯ ВИНА |
  | 39 | ДВОЙНАЯ ПЕЧЬ |
  | 40 | ДВОЙНАЯ ПАРОВАЯ ПЕЧЬ |
  | 41 | ДВОЙНАЯ ПЕЧЬ КОМБИНАЦИЯ |
  | 42 | ДВОЙНОЕ СВЧ |
  | 43 | ДВОЙНАЯ СВЧ-ПЕЧЬ |
- | 45 | ПАРОВАЯ ПЕЧЬ СВЧ-КОМБИНАЦИЯ |
+ | 45 | ПАРНАЯ ПЕЧЬ СВЧ-КОМБИНАЦИЯ |
  | 48 | ВАКУУМНЫЙ ЯЩИК |
  | 67 | ДИАЛОГОВЕН |
- | 68 | ВИННЫЙ ШКАФ КОМБИНАЦИЯ МОРОЗИЛЬНИКОВ |
+ | 68 | ВИННЫЙ ШКАФ КОМБИНАЦИЯ МОРОЗИЛЬНЫХ КАБЕЛЕЙ |
 
 ### Состояние / Статус
  | Исходное значение | Государство |
@@ -137,7 +137,7 @@ hash: TVWPynVxQGOLdsNkmmd5Cj1LxQC+xmZzN/NcAKQqdPE=
  | 2 | Нормальный |
  | 3 | Слегка сухая |
  | 4 | Подручный утюг 1-го уровня |
- | 5 | Подручный утюг 2-го уровня |
+ | 5 | Под утюг 2-го уровня |
  | 6 | Машинный утюг |
 
 ### Programmbezeichnung
@@ -156,13 +156,14 @@ hash: TVWPynVxQGOLdsNkmmd5Cj1LxQC+xmZzN/NcAKQqdPE=
 | 37 | «На открытом воздухе» | Стиральная машина |
 | 48 | "Flusen ausspülen" | Стиральная машина с сушкой |
 | 50 | "Dunkle Wäsche" | Стиральная машина с сушкой |
-| 52 | "Нур Спюлен / Стэркен" | Стиральная машина |
+| 52 | «Нур Спюлен / Стэркен» | Стиральная машина |
 | 122 | «Экспресс 20» | Стиральная машина с сушкой |
-| 123 | «Дунклз / Джинсы» | Стиральная машина |
+| 123 | «Дунклс / Джинсы» | Стиральная машина |
 
 ### ProgramPhase
 | Исходное значение | Государство | доступно для |
 |----------|-------|---------------|
+| 258 | «Айнвейхен» | Стиральная машина |
 | 260 | «Вашен» / «Стирка» | Стиральная машина |
 | 261 | «Spülen» / «Полоскание» | Стиральная машина |
 | 265 | «Помпа» | Стиральная машина |
@@ -178,6 +179,30 @@ hash: TVWPynVxQGOLdsNkmmd5Cj1LxQC+xmZzN/NcAKQqdPE=
 Авторские права (c) 2019, 2021 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+
+### V4.1.0 (2021-05-15) (Carry me over)
+* (grizzelbee) New: [149](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/149) Adding support (Start, Stop, Pause) for Miele Scout RX2 vacuum cleaner robots
+* (Stan23)     New: Added new program phase  soak/Einweichen
+
+### V4.0.22 (2021-05-06) (Twisted mind)
+* (grizzelbee) Fix: [142](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/142) Reintroduced TargetTemp for washing machines
+
+### V4.0.21 (2021-05-03) (The Edge)
+* (grizzelbee) Fix: Fixed accidental function name: createStateSpinAPIStartActionningSpeed
+* (grizzelbee) Fix: Fixed State value to set for "*.PlateStep_1" has to be type "number" but received type "string"
+
+### V4.0.20 (2021-04-30) (Sleepwalkers)
+* (grizzelbee) Fix: [137](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/137) Fixed Read-only state "info.connection" has been written without ack-flag with value "false"
+* (grizzelbee) Fix: [138](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/138) Fixed State value to set for ".Schleuderdrehzahl" has wrong type "string" but has to be "number"
+* (grizzelbee) Fix: [139](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/139) Fixed State value to set for ".ACTIONS.Light" has wrong type "number" but has to be "string" 
+* (grizzelbee) Upd: Changed device group from channel to folder  as documented [here](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/objectsschema.md)
+
+### V4.0.19 (2021-04-29) (The scarecrow)
+* (grizzelbee) Fix: Fixed light switch bug causing an exception when switching - 2nd attempt
+* (grizzelbee) Fix: Fixed No-Icon Bug when appliance is unknown
+
+### V4.0.18 (2021-04-28) (Ghostlights)
+* (grizzelbee) Fix: Fixed light switch bug causing an exception when switching 
 
 ### V4.0.17 (2021-04-27) (Ghost in the moon)
 * (grizzelbee) New: Added ioBroker sentry plugin to report issues automatically

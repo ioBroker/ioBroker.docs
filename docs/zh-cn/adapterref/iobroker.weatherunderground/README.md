@@ -3,28 +3,29 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.weatherunderground/README.md
 title: ioBroker.weatherunderground
-hash: KQBKAuXaHZmK2XRbNAt/ff0+mkMYDLf0Ao3vFnFby04=
+hash: tzGdNig2Zr1fpKhzP9WLQqNVGjUWPlk3j/vm+9/NodI=
 ---
 ![商标](../../../en/adapterref/iobroker.weatherunderground/admin/wu.png)
 
 ![安装数量](http://iobroker.live/badges/weatherunderground-stable.svg)
 ![NPM版本](http://img.shields.io/npm/v/iobroker.weatherunderground.svg)
 ![资料下载](https://img.shields.io/npm/dm/iobroker.weatherunderground.svg)
-![NPM](https://nodei.co/npm/iobroker.weatherunderground.png?downloads=true)
 
 ＃ioBroker.weatherunderground
+![测试与发布](https://github.com/iobroker-community-adapters/iobroker.weatherunderground/workflows/Test%20and%20Release/badge.svg)[![翻译状态]（https://weblate.iobroker.net/widgets/adapters/-/weatherunderground/svg-badge.svg）](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 **此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
 
 ioBroker适配器可从[地下天气](http://www.wunderground.com/)加载您所在位置的24小时天气预报。
-适配器将加载所有15分钟（默认）的每日和每小时预测数据。
+适配器加载所有15分钟（默认）的每日和每小时预测数据。
 
 ##注意
-您可以在提供官方“ PWS所有者” API密钥的情况下使用此适配器，也可以将API密钥留空以使用从WU网页中提取的密钥。
+您可以在提供正式的“ PWS所有者” API密钥的情况下使用此适配器，也可以将API密钥留空以使用从WU网页中提取的密钥。
 
 ##图标集
-使用“旧版API”时，有一些不同的图标集可用，请参见下文。对于使用新API的美国，图片名称已更改（请参阅https://docs.google.com/document/d/1dNCf6nF6cjm4oOxQxjtqNuAvG_iEe5f9MQH1xlCeV4s/edit），并且现在是基于编号的...可以从例如下载。 https://drive.google.com/drive/folders/0B6fWQWXuE09OOWtBOXJNX190TDQ，可以用作自定义设置（请参见下文）。
+使用“旧版API”时，有一些不同的图标集可用，请参见下文。对于使用新API的美国，图片名称已更改（请参见https://docs.google.com/document/d/1dNCf6nF6cjm4oOxQxjtqNuAvG_iEe5f9MQH1xlCeV4s/edit），并且现在是基于编号的...可以从例如下载。 https://drive.google.com/drive/folders/0B6fWQWXuE09OOWtBOXJNX190TDQ，可以用作自定义设置（请参见下文）。
 
-在“适配器设置”中，将“自定义图标库URL”更改为Weatherunderground上可用的图标集之一：（来源：https：//www.wunderground.com/weather/api/d/docs？d = resources / icon-sets ）
+在适配器设置中，将“自定义图标库URL”更改为Weatherunderground上可用的图标集之一：（来源：https://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets ）
 
 |图标集|网址|例子 |
 | ------------- | -------------------------------- | --------------------- 	|
@@ -34,7 +35,7 @@ ioBroker适配器可从[地下天气](http://www.wunderground.com/)加载您所�
 | 5 | https://icons.wxug.com/i/c/e/ | ![替代文字](https://icons.wxug.com/i/c/e/partlycloudy.gif)|
 | 6 | https://icons.wxug.com/i/c/f/ | ![替代文字](https://icons.wxug.com/i/c/f/partlycloudy.gif)|
 | 7 | https://icons.wxug.com/i/c/g/ | ![替代文字](https://icons.wxug.com/i/c/g/partlycloudy.gif)|
-| 8 | https://icons.wxug.com/i/c/h/ | | ![替代文字](https://icons.wxug.com/i/c/h/partlycloudy.gif)|
+| 8 | https://icons.wxug.com/i/c/h/ | ![替代文字](https://icons.wxug.com/i/c/h/partlycloudy.gif)|
 | 9 | https://icons.wxug.com/i/c/i/ | ![替代文字](https://icons.wxug.com/i/c/i/partlycloudy.gif)|
 | 10 | https://icons.wxug.com/i/c/j/ | ![替代文字](https://icons.wxug.com/i/c/j/partlycloudy.gif)|
 | 11 | https://icons.wxug.com/i/c/k/ | ![替代文字](https://icons.wxug.com/i/c/k/partlycloudy.gif)|
@@ -75,6 +76,13 @@ http://forum.iobroker.org/viewtopic.php?f=20&t=2042&sid=a863d19838bc49439759bef8
 编码仍然存在问题。带“äüöß”的地址将显示错误。
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Optimize for js-controller 3.3
+
+### 3.3.0 (2021-01-22)
+* (Apollon77) Optimize for js-controller 3.2
+* (Apollon77) js-controller 2.0 is now required at least
 
 ### 3.2.5 (2020-12-27)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-WEATHERUNDERGROUND-1, IOBROKER-WEATHERUNDERGROUND-2)
@@ -213,7 +221,7 @@ initial release with all basics to load WU-forecast data
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2020 dschaedl <daniel.schaedler@gmail.com>
+Copyright (c) 2015-2021 dschaedl <daniel.schaedler@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

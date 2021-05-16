@@ -3,17 +3,19 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-weather/README.md
 title: ioBroker.vis-Wetter
-hash: 9kdqDhi+btPZ0neZoDFdB8A77uv3pxdmCKw5C04ENzk=
+hash: Idkwye4z5+4DWez86HGlvNPZk3JPTNhIGrGsOS8h+gA=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-weather/admin/vis-weather.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/vis-weather-stable.svg)
-![NPM-Version](https://img.shields.io/npm/v/iobroker.vis-weather.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-weather.svg)
-![Tests](https://travis-ci.org/rg-engineering/ioBroker.vis-weather.svg?branch=master)
+![NPM-Version](http://img.shields.io/npm/v/iobroker.vis-weather.svg)
+![Bekannte Sicherheitslücken](https://snyk.io/test/github/rg-engineering/ioBroker.vis-weather/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-weather.png?downloads=true)
 
 # IoBroker.vis-Wetter
+![GitHub-Aktionen](https://github.com/rg-engineering/ioBroker.vis-weather/workflows/Test%20and%20Release/badge.svg)
+
 ** Wenn es Ihnen gefällt, ziehen Sie bitte eine Spende in Betracht: **
 
 [![paypal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
@@ -28,7 +30,7 @@ In DasWetter.com muss eine von vier Prognosedatenstrukturen aktiviert sein. Sie 
 Standardmäßig zeigt das Prognosediagramm 40 Stunden (DasWetter) oder 36 Stunden (Wunderground). Wenn Sie es vorziehen, nur z. 10 Stunden Prognose, löschen Sie einfach die unnötigen OIDs unter oid_groups in vis-edit.
 
 ### OIDs werden bei Verwendung von DasWetter nicht automatisch erstellt
-Normalerweise werden OIDs automatisch erstellt, wenn Sie eine Instanz oder Datenstruktur auswählen. Wenn Sie "Keine OIDs verfügbar" erhalten, überprüfen Sie, ob Sie "NextDaysDetailed" in DasWetter verwenden.
+Normalerweise werden OIDs automatisch erstellt, wenn Sie eine Instanz oder Datenstruktur auswählen. Wenn Sie "keine OIDs verfügbar" erhalten, überprüfen Sie, ob Sie "NextDaysDetailed" in DasWetter verwenden.
 Möglicherweise müssen Sie "NextDaysDetailed" aktivieren.
 
 ## Bekannte Probleme

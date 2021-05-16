@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.MieleCloudService
-hash: TVWPynVxQGOLdsNkmmd5Cj1LxQC+xmZzN/NcAKQqdPE=
+hash: kkSktIrdhuN2rLvgkbAYfJcBEo8WMtlHoRqWRIw9uW0=
 ---
 ![商标](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
@@ -42,8 +42,8 @@ hash: TVWPynVxQGOLdsNkmmd5Cj1LxQC+xmZzN/NcAKQqdPE=
 
 ##控制您的设备
 实现了所有设备当前所有受支持和记录的操作（API V1.0.4）。
->请记住，仅当您将设备置于适当的状态（例如，Mobile Control，powerOn等）时，“操作”才有效。
-请参阅[Miele文档](#documentation)了解有关操作的更多信息。
+>请记住，仅当您将设备置于适当的状态（例如，Mobile Control，powerOn等）时，“操作”才起作用。
+请参阅[Miele文档](#documentation)有关动作的更多信息。
 
 ＃＃ 已知的问题
 * 没有任何
@@ -51,12 +51,12 @@ hash: TVWPynVxQGOLdsNkmmd5Cj1LxQC+xmZzN/NcAKQqdPE=
 ##文档
 请主要参考Miele发布的主要API文档
 
-* [常规文档]（https://www.miele.com/developer/swagger-ui/index.html）
+* [一般文档]（https://www.miele.com/developer/swagger-ui/index.html）
 * [在设备上执行操作的前提条件]（https://www.miele.com/developer/swagger-ui/put_additional_info.html）
 
 有2种可用的数据点。作为人类可读的文本和数字。
 这些属于文本字段的数字数据字段具有相同的名称，但附加了“ _raw”。
-那些具有一般意义的字段在下面列出。
+下面列出了具有一般含义的字段。
 未列出的字段的含义因设备而异，并且未由Miele记录。
 如果需要在脚本中引用这些字段，请始终使用_raw值。
 文本值将来可能会更改，并且还取决于语言。
@@ -133,11 +133,11 @@ hash: TVWPynVxQGOLdsNkmmd5Cj1LxQC+xmZzN/NcAKQqdPE=
  |原始值状态|
  |----------|-------|
  | 0 |超干|
- | 1 |普通加|
+ | 1 |普通加号|
  | 2 |正常|
  | 3 |稍干|
- | 4 |手工铁水准1 |
- | 5 |手动熨斗2 |
+ | 4 |手铁1级|
+ | 5 |手动熨斗2级|
  | 6 |机铁|
 
 ### Programmbezeichnung
@@ -163,6 +163,7 @@ hash: TVWPynVxQGOLdsNkmmd5Cj1LxQC+xmZzN/NcAKQqdPE=
 ### ProgramPhase
 |原始值状态|可用于|
 |----------|-------|---------------|
+| 258 | “ Einweichen” |洗衣机|
 | 260 | “洗涤” /“洗涤” |洗衣机|
 | 261 | “Spülen” /“冲洗” |洗衣机|
 | 265 | “泵” |洗衣机|
@@ -178,6 +179,30 @@ hash: TVWPynVxQGOLdsNkmmd5Cj1LxQC+xmZzN/NcAKQqdPE=
 版权所有（c）2019，2021 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+
+### V4.1.0 (2021-05-15) (Carry me over)
+* (grizzelbee) New: [149](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/149) Adding support (Start, Stop, Pause) for Miele Scout RX2 vacuum cleaner robots
+* (Stan23)     New: Added new program phase  soak/Einweichen
+
+### V4.0.22 (2021-05-06) (Twisted mind)
+* (grizzelbee) Fix: [142](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/142) Reintroduced TargetTemp for washing machines
+
+### V4.0.21 (2021-05-03) (The Edge)
+* (grizzelbee) Fix: Fixed accidental function name: createStateSpinAPIStartActionningSpeed
+* (grizzelbee) Fix: Fixed State value to set for "*.PlateStep_1" has to be type "number" but received type "string"
+
+### V4.0.20 (2021-04-30) (Sleepwalkers)
+* (grizzelbee) Fix: [137](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/137) Fixed Read-only state "info.connection" has been written without ack-flag with value "false"
+* (grizzelbee) Fix: [138](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/138) Fixed State value to set for ".Schleuderdrehzahl" has wrong type "string" but has to be "number"
+* (grizzelbee) Fix: [139](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/139) Fixed State value to set for ".ACTIONS.Light" has wrong type "number" but has to be "string" 
+* (grizzelbee) Upd: Changed device group from channel to folder  as documented [here](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/objectsschema.md)
+
+### V4.0.19 (2021-04-29) (The scarecrow)
+* (grizzelbee) Fix: Fixed light switch bug causing an exception when switching - 2nd attempt
+* (grizzelbee) Fix: Fixed No-Icon Bug when appliance is unknown
+
+### V4.0.18 (2021-04-28) (Ghostlights)
+* (grizzelbee) Fix: Fixed light switch bug causing an exception when switching 
 
 ### V4.0.17 (2021-04-27) (Ghost in the moon)
 * (grizzelbee) New: Added ioBroker sentry plugin to report issues automatically

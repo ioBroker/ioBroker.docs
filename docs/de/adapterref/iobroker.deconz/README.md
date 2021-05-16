@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.deconz/README.md
 title: kein Titel
-hash: saW+/pIe9u/UUKrgG+mLiPePkgK0e2tqxOM/kdSAsyM=
+hash: 4Q95qlMPJ1GRwW4YORp1JEHRxM0wDdpigsWkH6r7kNY=
 ---
 ![Logo](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 

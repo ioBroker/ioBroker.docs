@@ -3,17 +3,19 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: 8aotru73N3/+THRhHXAzo4uriEoughYC2hblYdLXlUY=
+hash: MFk/Bv62pf+xKrCvXgg4OCQhaAz9GoW7WtIQ2vuasA8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
 ![Количество установок](http://iobroker.live/badges/ebus-stable.svg)
-![Версия NPM](https://img.shields.io/npm/v/iobroker.ebus.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.ebus.svg)
-![Тесты](https://travis-ci.org/rg-engineering/ioBroker.ebus.svg?branch=master)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.ebus.svg)
+![Известные уязвимости](https://snyk.io/test/github/rg-engineering/ioBroker.ebus/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.ebus.png?downloads=true)
 
 # IoBroker.ebus
+![Действия GitHub](https://github.com/rg-engineering/ioBroker.ebus/workflows/Test%20and%20Release/badge.svg)
+
 ** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
 ** Если вам это нравится, рассмотрите возможность пожертвования: **
@@ -32,7 +34,7 @@ hash: 8aotru73N3/+THRhHXAzo4uriEoughYC2hblYdLXlUY=
 
 текущая поддерживаемая версия ebusd: 3.3
 
-## Известные вопросы
+## Известные проблемы
 * пожалуйста, создавайте проблемы на [github] (https://github.com/rg-engineering/ioBroker.ebus/issues), если вы обнаружите ошибки или захотите новые функции
 
 ## 2.2.5 (21.03.2021)

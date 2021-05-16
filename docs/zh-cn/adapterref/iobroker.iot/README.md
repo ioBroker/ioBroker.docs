@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iot/README.md
 title: ioBroker物联网适配器
-hash: RPZLbAhefWe0dN9Y6h+0qu9Ba1TiO9thmROCEbuQWGw=
+hash: BmoMf+LIXUxNddbcDjCBbnqlvBWGyuq6DE962F5aVYI=
 ---
 ![商标](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -41,7 +41,7 @@ hash: RPZLbAhefWe0dN9Y6h+0qu9Ba1TiO9thmROCEbuQWGw=
 但不建议这样做，因为识别引擎必须再分析一个单词，否则可能导致误解。
 
 ###开关的OFF级别
-某些组由混合设备组成：调光器和开关。允许使用“ ON”和“ OFF”命令以及百分数来控制它们。
+一些组由混合设备组成：调光器和开关。允许使用“ ON”和“ OFF”命令以及百分数来控制它们。
 如果命令是`Set to 30%`和`OFF level is 30%`，则开关将打开。通过命令“设置为25％”，所有开关都将关闭。
 
 另外，如果命令为“ OFF”，那么如果实际值大于或等于“ 30％”，则适配器将记住当前的调光器级别。
@@ -54,7 +54,7 @@ hash: RPZLbAhefWe0dN9Y6h+0qu9Ba1TiO9thmROCEbuQWGw=
 -命令：“将灯光设置为40％”。适配器将记住* dimmer *的该值，将其设置为“ dimmer”并打开* switch *。
 -命令：“关灯”。适配器会将* dimmer *设置为0％，并关闭* switch *。
 -命令：“开灯”。 *调光器* => 40％，*开关* =>开。
--命令：“将灯光设置为20％”。 *调光器* => 20％，*开关* => OFF。调光器的值低于* OFF级别*，因此不会记住该值。
+-命令：“将灯光设置为20％”。 *调光器* => 20％，*开关* => OFF。调光器的值低于* OFF电平*，因此不会被记住。
 -命令：“开灯”。 *调光器* => 40％，*开关* =>开。
 
 ###由ON
@@ -93,9 +93,9 @@ Alexa, lock the "lock name"
 这是两个重要的枚举：房间和功能。
 
 房间就像：起居室，浴室，卧室。
-功能如：灯光，百叶窗，暖气。
+功能如：灯光，窗帘，暖气。
 
-必须满足以下条件才能在自动生成的列表中获取状态：
+必须满足以下条件才能在自动生成的列表中获得状态：
 
 -状态必须处于某些“功能”枚举中。
 -如果未直接包含在“功能”中，则状态必须具有角色（“状态”，“开关”或“ level。*”，例如level.dimmer）。
@@ -119,7 +119,7 @@ Alexa, lock the "lock name"
 通过配置对话框，可以轻松删除单个状态并将其添加到虚拟组或作为单个设备。
 ![配置](../../../en/adapterref/iobroker.iot/img/configuration.png)
 
-如果该组只有一个状态，则可以重命名，因为将使用该状态的smartName。
+如果该组只有一个状态，则可以将其重命名，为此将使用该状态的smartName。
 如果该组具有多个状态，则必须通过枚举名称重命名该组。
 
 要创建自己的组，用户可以安装“场景”适配器或在Javascript适配器中创建“脚本”。
@@ -159,7 +159,7 @@ Alexa, lock the "lock name"
 保留名称为`ifttt`，`text2command`§，`simpleApi`，`swagger`。必须在没有`custom_`前缀的情况下使用它们。
 
 ###`text2command`
-您可以在白名单中写入“ text2command”，可以将POST请求发送到`https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>`以将数据写入* text2command.X.text *变量。
+您可以在白名单中写入“ text2command”，您可以将POST请求发送到`https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>`以将数据写入* text2command.X.text *变量。
 
 您也可以使用GET方法`https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>&data=<MY COMMAND>`
 
@@ -189,7 +189,7 @@ Alexa, lock the "lock name"
   * **意图**包含查询的类型。当前可能的值是“ askDevice”，“ controlDevice”，“ actionStart”，“ actionEnd”，“ askWhen”，“ askWhere”，“ askWho”
  * **deviceId** 含一个设备ID，用于标识由Amazon交付的请求发送到的设备，如果未提供，则为空字符串
  * **sessionId** 含Skill会话的sessionId，如果亚马逊说了多个命令，则应该相同，如果未提供，则为空字符串
- * **userId** 含由设备所有者（或后来与该技能进行交互的用户）来自亚马逊的用户ID，如果未提供，则为空字符串
+ * **userId** 含来自设备所有者（或稍后与该技能进行交互的用户）的AmazonId，由Amazon提供，如果未提供，则为空字符串
 
  有关如何检测单词以及Alexa自定义技能区分哪些类型的查询的更多详细信息，请检查https://forum.iobroker.net/viewtopic.php?f=37&t=17452。
 
@@ -266,6 +266,12 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 ### __正在进行的工程__->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (foxriver76) we now write data received from custom services with acknowledge flag
+
+### 1.8.19 (2021-05-14)
+* (bluefox) Only added one debug output
+
 ### 1.8.16 (2021-03-13)
 * (bluefox) fixed the blind functionality in alisa
 

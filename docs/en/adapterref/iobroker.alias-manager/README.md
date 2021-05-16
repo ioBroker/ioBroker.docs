@@ -89,8 +89,9 @@ Here you can:
 
 ## Changelog
 
-### dev
+### 1.2.2 (2021-05-13)
 * (sbormann) Updated dependencies.
+* (sbormann) Add empty native-object to datapoint, if it is missing.
 
 ### 1.2.1 (2021-05-06)
 * (sbormann) Added treeview.

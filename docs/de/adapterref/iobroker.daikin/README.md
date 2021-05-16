@@ -3,25 +3,21 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.daikin/README.md
 title: ioBroker.daikin
-hash: VP5fbClhWQRh8dvqK+L/9ZCpfk3VD2amiEvyQvLNGl0=
+hash: 4PrusdRlwgE7SPSpTy4rMpdJOabjqia5G+WxaDJZYw4=
 ---
 ![Logo](../../../en/adapterref/iobroker.daikin/admin/daikin.jpg)
 
-![Greenkeeper-Abzeichen](https://badges.greenkeeper.io/Apollon77/ioBroker.daikin.svg)
 ![Anzahl der Installationen](http://iobroker.live/badges/daikin-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.daikin.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.daikin.svg)
-![Travis-CI](http://img.shields.io/travis/Apollon77/ioBroker.daikin/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Apollon77/ioBroker.daikin?branch=master&svg=true)
-![NPM](https://nodei.co/npm/iobroker.daikin.png?downloads=true)
 
 # IoBroker.daikin
-[![Wartbarkeit] (https://api.codeclimate.com/v1/badges/ccc74a3ef8de69265ca1/mainainability)](https://codeclimate.com/github/Apollon77/ioBroker.daikin/maintainability) [![Testabdeckung] (https://api.codeclimate.com/v1/badges/ccc74a3ef8de69265ca1/test_coverage)](https://codeclimate.com/github/Apollon77/ioBroker.daikin/test_coverage)
+![Testen und freigeben](https://github.com/Apollon77/iobroker.daikin/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus] (https://weblate.iobroker.net/widgets/adapters/-/daikin/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Dieser Adapter verbindet sich mit einem Daikin Air Conditioner-Gerät und ermöglicht die Steuerung des Geräts und das Ablesen von Werten.
-Das Daikin-Gerät muss mit einem Daikin-WLAN-Controller ausgestattet sein. Normalerweise sollten alle WLAN-Controller unterstützt werden, die von der Daikin App unterstützt werden.
+Dieser Adapter wird an ein Daikin Air Conditioner-Gerät angeschlossen und ermöglicht die Steuerung des Geräts und das Lesen von Werten daraus.
+Das Daikin-Gerät muss mit einem Daikin-WLAN-Controller ausgestattet sein. Normalerweise sollten alle WLAN-Controller unterstützt werden, die von der Daikin-App unterstützt werden.
 
-Laut Daikin Support Documents sollten die folgenden Geräte (mindestens) kompatibel sein:
+Laut Daikin-Supportdokumenten sollten die folgenden Geräte (zumindest) kompatibel sein:
 
 Kompatible Einheiten in Kombination mit BRP069A41: FTXG20LV1BW, FTXG20LV1BS, FTXG25LV1BW, FTXG25LV1BS, FTXG35LV1BW, FTXG35LV1BS, FTXG50LV1BW, FTXG50LV1BS, FTXJ20LV1BW, FTXJ20LV1BS, FTXJ25LV1BW, FTXJ25LV1BS, FTXJ35LV1BW, FTXJ35LV1BS, FTXJ50LV1BW, FTXJ50LV1BS,
 
@@ -33,27 +29,56 @@ Kompatible Einheiten in Kombination mit BRP069A44 (?): FTX50KV1B, FTX60KV1B
 
 ## Beschreibung der Parameter
 ### DaikinIp
-Die IP-Adresse des WLAN-Controllers vom Gerät
+Die IP des Wifi-Controllers vom Gerät
 
 ### Abrufintervall
-Intervall in Sekunden zum Aktualisieren der Daten vom Gerät. Zusätzliche Werte werden bei jeder Änderung aktualisiert
+Intervall in Sekunden, um die Daten vom Gerät zu aktualisieren. Zusätzlich werden die Werte bei jeder Änderung aktualisiert
 
 ## Beschreibung der verfügbaren Instanzobjekte / -zustände
-Nachdem der Adapter eine Verbindung mit dem Daikin-Gerät hergestellt hat, wird eine Struktur von Objekten erstellt:
+Nachdem der Adapter eine Verbindung zum Daikin-Gerät hergestellt hat, wird eine Struktur von Objekten erstellt:
 
 * deviceInfo. *: Allgemeine Informationen zum Daikin-Gerät, schreibgeschützt
-* control. *: Hauptsteuerbare Werte des Geräts wie Zieltemperatur, Modus und dergleichen, **lesbar und beschreibbar**
-* controlInfo. *: Zusätzliche Steuerinformationen vom Gerät, nur lesbar
-* modelInfo. *: Informationen zum Gerät selbst und den unterstützten Funktionen, schreibgeschützt
+* control. *: Vom Gerät steuerbare Hauptwerte wie Zieltemperatur, Modus und dergleichen, **lesbar und beschreibbar**
+* controlInfo. *: Zusätzliche Steuerinformationen vom Gerät, schreibgeschützt
+* modelInfo. *: Informationen zum Gerät selbst und den unterstützten Funktionen sind schreibgeschützt
 * sensorInfo. *: Sensordaten vom Gerät wie die gemessene Innen- und Außentemperatur
 
 ## Machen
-* Verbessern Sie das Testen: Statusprüfungen und SetState's
-* Modellinformationen / unterstützte Funktionen prüfen
-* docs für die Webseite
-* VIS Widget
+* Testen verbessern: Statusprüfungen und setState's
+* Überprüfen Sie die Modellinformationen / unterstützten Funktionen
+* Dokumente für die Webseite
+* VIS-Widget
 
 ## Changelog
+
+### 1.3.1 (2021-05-14)
+* (Apollon77) Prepare for js-controller 3.3
+
+### 1.3.0 (2021-01-14)
+* (Apollon77) Prevent warnings in js-controller 3.2
+* (Apollon77) Allow overwriting the name in Daikin channel object
+* (Apollon77) Require at least js-controller 2.0
+
+### 1.2.0 (2020-12-27)
+* add compact mode
+
+### 1.1.3 (2020-11-19)
+* add experimental support for lpw parameter
+* crash cases prevented (Sentry IOBROKER-DAIKIN-7)
+
+### 1.1.2 (2020-08-06)
+* crash cases prevented (Sentry IOBROKER-DAIKIN-2, IOBROKER-DAIKIN-3, IOBROKER-DAIKIN-4)
+
+### 1.1.1 (2020-08-02)
+* better handle case where configuration is missing (Sentry IOBROKER-DAIKIN-1)
+
+### 1.1.0 (2020-07-21)
+* Adjust Texts and translate
+* create daikin.X ads device object and add one role
+* Update dependencies
+
+### 1.0.4 (2019-06-25)
+* Daikin library updated, communication error handling optimized
 
 ### 1.0.3 (2019-02-xx)
 * Daikin library updated, communication errors optimized
@@ -84,7 +109,7 @@ Nachdem der Adapter eine Verbindung mit dem Daikin-Gerät hergestellt hat, wird 
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2018 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2017-2021 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.deconz/README.md
 title: 无题
-hash: saW+/pIe9u/UUKrgG+mLiPePkgK0e2tqxOM/kdSAsyM=
+hash: 4Q95qlMPJ1GRwW4YORp1JEHRxM0wDdpigsWkH6r7kNY=
 ---
 ![商标](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
@@ -30,7 +30,7 @@ ioBroker deConz dresden-elektronik适配器
 
     b）输入端口号，标准为80。
 
-2.输入并保存IP地址和端口后，单击“创建API密钥”按钮。现在，您可以输入deConz的凭据，或转到Phoscon APP并将ioBroker注册为第三方APP。
+2.输入并保存IP地址和端口后，单击“创建API密钥”按钮。现在，您可以输入deConz的凭据或转到Phoscon APP并将ioBroker注册为第三方APP。
 
 ####同时发送多个命令
 为此，存在一个称为“动作”的对象。
@@ -42,7 +42,7 @@ ioBroker deConz dresden-elektronik适配器
 `"on": true, "transitiontime": 5, "hue": 65500`
 
 ##链接
-[德康](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/)[REST插件](https://github.com/dresden-elektronik/deconz-rest-plugin)[网关（硬件）](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
+[德康兹](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/)[REST插件](https://github.com/dresden-elektronik/deconz-rest-plugin)[网关（硬件）](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
 
 ## [赞助商](https://github.com/iobroker-community-adapters/ioBroker.deconz/blob/master/SPONSORS.MD)
 

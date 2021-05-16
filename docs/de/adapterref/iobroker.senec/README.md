@@ -583,6 +583,13 @@ Dieser Kanal enthält berechnete Werte. Aktuell sind dies Tages-/Wochen-/Monats-
    *Nur lesbarer Text, die die Seriennummern der evtl. vorhandenen Wallboxen 0-3 angibt.*
 
 ## Changelog
+### 1.3.2 (NoBl) Beta
+* autarky without decimal places (again). They are causing more updates than we really need.
+* Ensuring that only values meant to be changeable by user are defined so (attribute changes upon the next update of value)
+
+### 1.3.1 (NoBl) 20210513
+* Added calculation of autarky for day/week/month/year
+
 ### 1.3.0 (NoBl) 20210509
 * Rewrote translations handling
 * Added translations for wallbox status.

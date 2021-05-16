@@ -16,7 +16,6 @@
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8C7M7MH3KPYDC&source=url) 
   
 
-
 ## ioBroker smartgarden adapter for GARDENA smart system
 
 An adapter for GARDENA smart system using official 
@@ -105,6 +104,7 @@ at least one [GARDENA smart device](#supported-devices).
   * [Wishes for data points](#Wishes-for-data-points)
   * [Note](#note)
   * [Changelog](#changelog)
+     * [1.0.5](#105)
      * [1.0.4](#104)
      * [1.0.3](#103)
      * [previous versions](#102)
@@ -150,7 +150,7 @@ An description how to install from GitHub is available
       | pre-define states | pre-define all states of Gardena API regardless they are currently transmitted; switch on or off; if switched on then all states of the GARDENA smart system API are created regardless if they are currently transmitted by GARDENA service or not; default: off; *(new in v0.4.0)*|
       | forecast | use forecast for charging time and mower remaining time; switch forecast charging and mowing time of mower on/off; default: off; *(new in v0.5.0)*|
       | cycles | number of MOWER history cycles; you can use any number from 3 (minimum), but 10 (default) seems to be a good value; only relevant if the above *'forecast'* is on; *(new in v0.5.0)*|
-      | irrigation check| Use the check whether irrigation is allowed while mowing; switch on/off; default: off; *(new in v0.6.0)*|
+      | irrigation check| use the check whether irrigation is allowed while mowing; switch on/off; default: off; *(new in v0.6.0)*|
     
    3.3 Verify default values of systems settings and switch on/off options in 
    instance configuration. **Most users will not have to change anything on this tab.**
@@ -158,6 +158,7 @@ An description how to install from GitHub is available
       | Parameter | Description |
       | - | - |
       | Loglevel | Loglevel: 0 = no log, 1 = some logs, 2 = some more logs, 3 = all logs; default: 0|
+      | beautify log | make state ids shorter in log; switch on/off; default: on; *(new in v1.0.5)*|
 	  | monitoring Rate Limits | use monitoring for the rate limits of Gardena smart system API; switch on/off; default: off; *(new in v1.0.2)*|	
       | connection retry interval | interval for retry to connect to Gardena Webservice in case of an error (in seconds); default: 300, minimum: 60; *(new in v1.0.3)*|
       | ping frequence | Frequence for sending Ping's to Gardena Webservice (in seconds); default: 150, minimum: 1, maximum: 300|
@@ -225,8 +226,11 @@ execution of the command on the device itself can be observed by a respective st
 *Example:* sending a command to start the VALVE service of a smart Water Control will result in the `activity_value` 
 data point of the service to be changed after the device processed the command.
 
-**Note:** Requests to control a device cannot be sent while the smartgarden adapter is not connected to  
-GARDENA smart system API.
+**Notes:** 
+  - Requests to control a device cannot be sent while the smartgarden adapter is not 
+    connected to GARDENA smart system API.
+  - Please check that you set the value for a command with `ack=false`. See [Chapter Commands and Statuses in Guide for adapter developers](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md#commands-and-statuses)
+
   
 ### For SERVICE_MOWER
 #### Controlling
@@ -243,6 +247,8 @@ To control the device use data point
   string `PARK_UNTIL_NEXT_TASK`
   - to cancel the current operation, return to charging station and ignore 
   schedule use string `PARK_UNTIL_FURTHER_NOTICE`
+  
+  **Note:** The mower only starts with a fully charged battery.  
 
 #### Monitoring
 All other data points are just for monitoring and information.
@@ -417,7 +423,7 @@ To control the device use data point
   - To switch on the device forever please use the string `START_OVERRIDE`.
   - To stop the device use `STOP_UNTIL_NEXT_TASK`.
   - To skip automatic operation until specified time. The currently active operation 
-    will NOT be cancelled. use string `PAUSE_<number_of_seconds>`, 
+    will NOT be cancelled. Use string `PAUSE_<number_of_seconds>`, 
     e.g. `PAUSE_86400` to pause for 24 hours (please use multiples of 60)
   - To restore automatic operation if it was paused use string `UNPAUSE`
 
@@ -603,31 +609,44 @@ GARDENA or Husqvarna.
 
 
 ## Changelog
+### 1.0.5
+* (jpgorganizer) 2021-May-13
+  - necessary adjustments due to js-controller v3.3; e.g. [Issue 29](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/29)
+    - nearly all data points get deleted and created again with intended role/unit
+    - data types for following data points changed from `string` to `number`: 
+	  - for all devices: `rfLinkLevel_value` 
+      - for mower: `batteryLevel_value`, `operatingHours_value` 
+      - for sensor: `batteryLevel_value`, `soilHumidity_value`, `soilTemperature_value`, `lightIntensity_value`, `ambientTemperature_value`
+  - compatibility test with node.js v14 and node.js v16 and added to Travis CI test; 
+    compatibility test with the upcoming Admin 5 React UI;
+    e.g. [Issue 30](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/30)
+  - new parameter *beautify log* in instance configuration; makes state ids a little bit shorter in log if switched on
+
 ### 1.0.4
-* (jpgorganizer)
+* (jpgorganizer) 2021-Feb-22
   - necessary adjustments due to js-controller v3.2
   - option `useTestVariable` in adapter/instance configuration removed
 
 ### 1.0.3
-* (jpgorganizer)
+* (jpgorganizer) 2021-Jan-26
   - improved error handling
   - new parameter `connection retry interval`
   - axios vulnerability solved, using version `>=0.21.1`
   
 ### 1.0.2
-* (jpgorganizer)
+* (jpgorganizer) 2020-Aug-30
   - monitoring rate limits, see chapter [Rate Limits](#rate-limits) and discussion at 
   [Issue 18](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/18)
 
 
 ### 1.0.1
-* (jpgorganizer)
+* (jpgorganizer) 2020-Aug-17
   - better reconnection to GARDENA smart system server in case of your internet connection was broken
   - textual changes in io-package.json
   - improved README and FAQ
   
 ### 1.0.0
-* (jpgorganizer)
+* (jpgorganizer) 2020-Jun-13
   - code rework, no functional change expected
   - support `PAUSE` for SERVICE_VALVE, SERVICE_POWER_SOCKET. e.g. 
 	[Issue 14](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/14)
@@ -645,7 +664,7 @@ GARDENA or Husqvarna.
   - README: links to GARDENA/Husqvarna developer portal adjusted to the new address
 
 ### 0.6.0
-* (jpgorganizer) 
+* (jpgorganizer) 2020-May-03
   - new feature *Irrigation not allowed while mowing*, 
     for detailed description see 
 	[Irrigation not allowed while mowing](#Irrigation-not-allowed-while-mowing); 
@@ -655,12 +674,12 @@ GARDENA or Husqvarna.
   - improvement of documentation
 
 ### 0.5.1
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Apr-26
   - some corrections (sensor, typo)
   - integration of travis-ci
   
 ### 0.5.0
-* (jpgorganizer) 
+* (jpgorganizer)  2020-Apr-25
   - MOWER: forecast for remaining charging time and remaining mowing time 
   integrated, e.g. [Issue 1](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/1)
   - **IMPORTANT CHANGE** for existing users: the id for LOCATION, all 
@@ -682,17 +701,17 @@ GARDENA or Husqvarna.
   - adapter now available at npm
   
 ### 0.4.2
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Apr-01
   - error *missing SENSOR data* fixed (many thanks to user dslraser and 
   muckel at 
   [ioBroker Forum](https://forum.iobroker.net/topic/31289/neuer-adapter-smartgarden-adapter-for-gardena-smart-system/) for testing)
 
 ### 0.4.1
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Mar-31
   - Dependency get's resolved now
   
-### 0.4.0
-* (jpgorganizer) 
+### 0.4.0 
+* (jpgorganizer) 2020-Mar-31
   - **NOTE:** with this version an additional dependency is necessary at runtime. 
   If it does not get installed together with the installation of this adapter, 
   please install seperately with 
@@ -720,7 +739,7 @@ GARDENA or Husqvarna.
   - error in command  `stop_all_valves_i` in VALVE_SET fixed
   
 ### 0.3.0
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Mar-25
   - create all states read/write 
   - error TypeError: Cannot read property 'val' of null with useTestVariable 
   fixed
@@ -728,15 +747,16 @@ GARDENA or Husqvarna.
 
 
 ### 0.2.0
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Mar-24
   - **IMPORTANT** : data point for MOWER control (command) changed from  
   `duration_value` to `activity_control_i`
   - rework leftovertimer 
   - improved error handling
   - improved logging (see  loglevel in adapter configurations)
 
-### 0.0.1
-* (jpgorganizer) initial release
+### 0.0.1 
+* (jpgorganizer) 2020-Mar-01
+  - initial release
 
 
 ## Credits
@@ -757,4 +777,4 @@ Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
 Based on a work at https://github.com/jpgorganizer/ioBroker.smartgarden. 
  
 
-<!--- SVN: $Rev: 2466 $ $Date: 2021-02-22 17:30:13 +0100 (Mo, 22 Feb 2021) $ --->
+<!--- SVN: $Rev: 2507 $ $Date: 2021-05-13 18:07:01 +0200 (Do, 13 Mai 2021) $ --->

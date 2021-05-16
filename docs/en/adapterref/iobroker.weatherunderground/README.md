@@ -1,10 +1,13 @@
 ![Logo](admin/wu.png)
 # ioBroker.weatherunderground
 
-![Number of Installations](http://iobroker.live/badges/weatherunderground-installed.svg) ![Number of Installations](http://iobroker.live/badges/weatherunderground-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.weatherunderground.svg)](https://www.npmjs.com/package/iobroker.weatherunderground)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.weatherunderground.svg)](https://www.npmjs.com/package/iobroker.weatherunderground)
+![Number of Installations](http://iobroker.live/badges/weatherunderground-installed.svg)
+![Number of Installations](http://iobroker.live/badges/weatherunderground-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.weatherunderground.svg)](https://www.npmjs.com/package/iobroker.weatherunderground)
 
-[![NPM](https://nodei.co/npm/iobroker.weatherunderground.png?downloads=true)](https://nodei.co/npm/iobroker.weatherunderground/)
+![Test and Release](https://github.com/iobroker-community-adapters/iobroker.weatherunderground/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/weatherunderground/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.weatherunderground.svg)](https://www.npmjs.com/package/iobroker.weatherunderground)
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
@@ -70,6 +73,9 @@ http://forum.iobroker.org/viewtopic.php?f=20&t=2042&sid=a863d19838bc49439759bef8
 There is a still a problem with encoding. The addresses with "äüöß" will be shown wrong.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Optimize for js-controller 3.3
 
 ### 3.3.0 (2021-01-22)
 * (Apollon77) Optimize for js-controller 3.2
@@ -212,7 +218,7 @@ initial release with all basics to load WU-forecast data
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2020 dschaedl <daniel.schaedler@gmail.com>
+Copyright (c) 2015-2021 dschaedl <daniel.schaedler@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,24 +3,26 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-weather/README.md
 title: ioBroker.vis天气
-hash: 9kdqDhi+btPZ0neZoDFdB8A77uv3pxdmCKw5C04ENzk=
+hash: Idkwye4z5+4DWez86HGlvNPZk3JPTNhIGrGsOS8h+gA=
 ---
-![标识](../../../en/adapterref/iobroker.vis-weather/admin/vis-weather.png)
+![商标](../../../en/adapterref/iobroker.vis-weather/admin/vis-weather.png)
 
 ![安装数量](http://iobroker.live/badges/vis-weather-stable.svg)
-![NPM版本](https://img.shields.io/npm/v/iobroker.vis-weather.svg)
 ![资料下载](https://img.shields.io/npm/dm/iobroker.vis-weather.svg)
-![测验](https://travis-ci.org/rg-engineering/ioBroker.vis-weather.svg?branch=master)
+![NPM版本](http://img.shields.io/npm/v/iobroker.vis-weather.svg)
+![已知漏洞](https://snyk.io/test/github/rg-engineering/ioBroker.vis-weather/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-weather.png?downloads=true)
 
 ＃ioBroker.vis-天气
+![GitHub动作](https://github.com/rg-engineering/ioBroker.vis-weather/workflows/Test%20and%20Release/badge.svg)
+
 **如果您愿意，请考虑捐赠：**
 
 [![贝宝（https://www.paypalobjects.com/zh_CN/DK/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
 
 该可视组件显示来自DasWetter.com或weatherunderground的天气预报数据。您还需要运行DasWetter-Adpater或weatherunderground-Adapter ...
 
-在地下天气中，您需要启用接下来的36小时的预测。
+在地下天气中，您需要预测接下来的36小时启用。
 在DasWetter.com中，您需要启用四个预测数据结构之一。您可以选择要显示的那个。
 
 ##注释/ Wiki
@@ -32,7 +34,7 @@ hash: 9kdqDhi+btPZ0neZoDFdB8A77uv3pxdmCKw5C04ENzk=
 您可能需要启用“ NextDaysDetailed”。
 
 ＃＃ 已知的问题
-*如果发现错误或有新功能，请在[github]（https://github.com/rg-engineering/ioBroker.vis-weather/issues）上创建问题
+*如果发现错误或希望获得新功能，请在[github]（https://github.com/rg-engineering/ioBroker.vis-weather/issues）上创建问题
 
 ## Changelog
 

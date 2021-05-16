@@ -24,6 +24,7 @@ Fan-Icon in Logo created by [Freepik](https://www.flaticon.com/de/autoren/freepi
 
 * Dyson Pure Cool Link Tower (TP02, ProductType 475)
 * Dyson Pure Cool Tower, 2018 model (TP04, ProductType 438)
+* Dyson Pure Cool Tower, 2018 model (TP07, ProductType 438E)
 * Dyson Pure Cool Link Desk (DP01, ProductType 469)
 * Dyson Pure Cool Desk, 2018 model (DP04, ProductType 520)
 * Dyson Pure Hot+Cool Link (HP02, ProductType 455)
@@ -40,6 +41,12 @@ Connects your Dyson fans, fan heaters, air purifiers, and air humidifiers to ioB
 * Reads device list from Dyson servers
 
 ## Installation
+
+### sentry.io
+This adapter uses sentry.io to collect details on crashes and report it automated to the author. The [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry)
+plugin is used for it. Please refer to the [plugin homepage](https://github.com/ioBroker/plugin-sentry) for detailed information
+on what the plugin does, which information is collected and how to disable it, if you don't like to support the author with
+you're information on crashes.
 
 ### Prerequisites
 
@@ -80,6 +87,23 @@ You can also install older release versions using this methods (by pointing to a
 >
 > Then stop the adapter, enter the IP(s) into the Hostaddress field(s) and restart the adapter. After that your Dyson devices in the device tree should be populated with data.
 
+### 2 factor Authentication (since V0.9.0)
+After installation of the adapter it should be started automatically - if not please start it first. 
+After an update it will also restart automatically. In both cases it will remain in "yellow" state
+and probably show some errors in the log - that's fine for now.
+* Open the config dialog of the adapter
+* At least fill in your eMail address, the password and the country code - the rest is optional  
+* Click the 2FA-Code Email button to initiate the process
+* You'll receive a "challengeId" automatically in the according field, an eMail and a dialog with further instructions
+* enter the 6-digit code from the eMail into the field "dyson one time password"
+* Click the "Finish" button
+* after that you should have received a token from dyson (invisible for security purposes)
+* Click save & close after you have completed your setup - the adapter should start anew and turn green.
+
+All the values will be saved and shown furthermore. 
+> Usually you don't need to do this 2 FA on a scheduled basis - but you may repeat it when needed.
+
+
 ## Controlling your device(s)
 This adapter is currently able to control the following states of your devices:
 * FanSpeed                  , Current fan speed
@@ -108,10 +132,17 @@ Which is what the dyson app does also.
 
 ## Changelog
 
+### V0.9.0 (2021-04-26) (Still breathing)
+* (grizzelbee) New: Added ioBroker sentry plugin to report errors automatically 
+* (grizzelbee) New: Added support for Dyson Pure Cool TP07 (438E)
+* (grizzelbee) New: Added support for Dyson 2-factor login method
+* (grizzelbee) New: Added "keep Sensorvalues" to config to prevent destroying old values when continuous monitoring is off and fan is switched off (TP02)  
+* (grizzelbee) Fix: FilterLife should now be correctly in hours and percent in two separate data fields for fans supporting this (e.g. TP02)
+
 ### V0.8.2 (2021-04-09) (Still breathing)
 * (grizzelbee) Fix: [#80](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/80) fixed npm install hint in documentation
 * (grizzelbee) Fix: [#82](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/82) fixed common.dataSource type with type >poll<
-* (grizzelbee) Fix: [#95](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/95) Added new heater model type 527E
+* (grizzelbee) Fix: [#95](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/95) Added support for dyson Hot+Cool Formaldehyde (527E)
 * (grizzelbee) Fix: [#94](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/94) Fixed dustIndex
 
 

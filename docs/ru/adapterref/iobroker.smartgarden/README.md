@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.smartgarden/README.md
 title: ioBroker.smartgarden
-hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
+hash: bbKCZ49g0LWG4EJYAGtuSSRM1C6FmTKx/qpQ3e+qTHY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.smartgarden/admin/smartgarden.png)
 
@@ -35,7 +35,7 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
   - Умный адаптер питания GARDENA
   - Умный датчик GARDENA
 
-Дополнительную информацию об устройствах см. В разделах [GARDENA Немецкий сайт](https://www.gardena.com/de/produkte/smart/smartsystem/) и [здесь на английском](https://www.gardena.com/uk/products/smart/smart-system/).
+Дополнительные сведения об устройствах см. В разделах [GARDENA Немецкий сайт](https://www.gardena.com/de/produkte/smart/smartsystem/) и [здесь на английском](https://www.gardena.com/uk/products/smart/smart-system/).
 
 ## Требования
 Для использования этого адаптера вам понадобятся две вещи:
@@ -43,7 +43,7 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
 1. Учетная запись умной системы GARDENA
 1. ключ приложения GARDENA
 
-Чтобы получить и то, и другое, перейдите к [https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/](https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/).
+Чтобы получить обе вещи, перейдите к [https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/](https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/).
 
 ![get_application_key](../../../en/adapterref/iobroker.smartgarden/getting_application_key.jpg)
 
@@ -55,7 +55,7 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
 
 	---
 
-*** И почти наверняка у вас есть учетная запись. *** *Используйте ту же учетную запись, что и для приложения GARDENA, в котором зарегистрированы ваши устройства GARDENA. В противном случае вы не получите доступ к своим устройствам.*
+*** И почти наверняка у вас есть учетная запись. *** *Используйте ту же учетную запись, что и для приложения GARDENA, в котором зарегистрированы ваши устройства GARDENA. В противном случае вы не получите доступа к своим устройствам.*
 
 	---
 
@@ -63,10 +63,10 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
   - API аутентификации ***и***
 - API интеллектуальной системы GARDENA.
 
-И, конечно же, вам потребуется работающая установка ioBroker и у вас должен быть хотя бы один [Умное устройство GARDENA](#supported-devices).
+И, конечно же, вам потребуется работающая установка ioBroker и у вас должен быть хотя бы один [Смарт-устройство GARDENA](#supported-devices).
 
 ## Оглавление
-  * [адаптер ioBroker smartgarden для умной системы GARDENA] (# iobroker-smartgarden-adapter-for-gardena-smart-system)
+  * [Адаптер ioBroker smartgarden для умной системы GARDENA] (# iobroker-smartgarden-adapter-for-gardena-smart-system)
   * [Поддерживаемые устройства] (# поддерживаемых устройств)
   * [Требования] (# требований)
   * [Оглавление] (# оглавление)
@@ -82,20 +82,21 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
      * [Для SERVICE_SENSOR] (# для-service_sensor)
      * [Для SERVICE_COMMON] (# для-service_common)
   * [Ограничения скорости] (# ограничения скорости)
-  * [Орошение запрещено во время кошения] (# Орошение запрещено при кошении)
+  * [Орошение запрещено во время скашивания] (# Орошение-запрещено-во время скашивания)
      * [В чем проблема?] (# В чем-проблема)
 * [Что делается?] (# Что делается)
 * [Базовое поведение - ПРЕДУПРЕЖДЕНИЕ] (# базовое поведение ---- предупреждение)
   * [Пожелания по точкам данных] (# Пожелания по точкам данных)
   * [Примечание] (# примечание)
   * [Список изменений] (# список изменений)
+     * [1.0.5] (# 105)
      * [1.0.4] (# 104)
      * [1.0.3] (# 103)
      * [предыдущие версии] (# 102)
   * [Кредиты] (# кредитов)
   * [Лицензия] (# лицензия)
 
-## Установка
+## Монтаж
 Адаптер доступен
 
 - at npm: установить с помощью `npm install iobroker.smartgarden`
@@ -124,16 +125,17 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
 
       | Параметр | Описание |
       | - | - |
-   | предварительно определить состояния | предварительно определить все состояния Gardena API независимо от того, передаются ли они в данный момент; включить или выключить; при включении создаются все состояния API интеллектуальной системы GARDENA, независимо от того, передаются они в данный момент сервисом GARDENA или нет; по умолчанию: выключено; *(новое в v0.4.0)* |
+   | предварительно определить состояния | предварительно определить все состояния Gardena API независимо от того, передаются они в данный момент; включить или выключить; если он включен, то создаются все состояния API интеллектуальной системы GARDENA, независимо от того, передаются они в данный момент сервисом GARDENA или нет; по умолчанию: выключено; *(новое в v0.4.0)* |
    | прогноз | использовать прогноз времени зарядки и оставшегося времени косилки; включить / выключить прогнозируемую зарядку и время кошения косилки; по умолчанию: выключено; *(новое в v0.5.0)* |
    | циклы | количество циклов истории MOWER; вы можете использовать любое число от 3 (минимум), но 10 (по умолчанию) кажется хорошим значением; актуально, только если включен вышеуказанный *'прогноз'* *(новое в v0.5.0)* |
-   | проверка орошения | Используйте проверку, разрешен ли полив во время кошения; включить / выключить; по умолчанию: выключено; *(новое в v0.6.0)* |
+   | проверка орошения | используйте проверку, разрешен ли полив во время кошения; включить / выключить; по умолчанию: выключено; *(новое в v0.6.0)* |
 
 3.3. Проверьте значения по умолчанию для системных настроек и включите / выключите опции в конфигурации экземпляра. **Большинству пользователей не нужно ничего менять на этой вкладке.**
 
       | Параметр | Описание |
       | - | - |
       | Loglevel | Loglevel: 0 = нет журнала, 1 = несколько журналов, 2 = еще несколько журналов, 3 = все журналы; по умолчанию: 0 |
+   | украсить журнал | сделать идентификаторы состояния в журнале короче; включить / выключить; по умолчанию: включено; *(новое в v1.0.5)* |
 | мониторинг пределов скорости | использовать мониторинг лимитов скорости API интеллектуальной системы Gardena; включить / выключить; по умолчанию: выключено; *(новое в v1.0.2)* |
    | интервал повторной попытки подключения | интервал повторной попытки подключения к Gardena Webservice в случае ошибки (в секундах); по умолчанию: 300, минимум: 60; *(новое в v1.0.3)* |
       | частота пинга | Частота отправки пингов на Gardena Webservice (в секундах); по умолчанию: 150, минимум: 1, максимум: 300 |
@@ -178,13 +180,19 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
 
 | проверить на | описание |
 | - | - |
-| отметки времени | все временные метки указаны в формате UTC; если полученная отметка времени не является действительной отметкой времени, вместо нее используется `01 Jan 1970 00:00:00Z` (нулевое время Unix). Если вы видите эту дату / время, сообщите об этом. |
-| числа | если число не является допустимым числом, вместо него используется «-1». Так что, если вы видите это число, сообщите об этом. |
+| отметки времени | все временные метки указаны в формате UTC; если полученная метка времени не является действительной меткой времени, вместо нее используется `01 Jan 1970 00:00:00Z` (нулевое время Unix). Так что, если вы видите эту дату / время, сообщите об этом. |
+| числа | если число не является допустимым числом, вместо него используется «-1». Если вы видите это число, сообщите об этом. |
 
-Запросы на управление устройством будут выполнены, как только команда будет принята интеллектуальным шлюзом. Успешное выполнение команды на самом устройстве можно наблюдать по соответствующему изменению состояния.
-* Пример: * отправка команды на запуск службы VALVE в системе Smart Water Control приведет к изменению точки данных `activity_value` службы после того, как устройство обработало команду.
+Запросы на управление устройством будут выполнены, как только команда будет принята интеллектуальным шлюзом. Об успешном выполнении команды на самом устройстве можно судить по соответствующему изменению состояния.
+* Пример: * отправка команды для запуска службы VALVE в системе Smart Water Control приведет к изменению точки данных `activity_value` службы после того, как устройство обработало команду.
 
-** Примечание. ** Запросы на управление устройством не могут быть отправлены, пока адаптер smartgarden не подключен к API интеллектуальной системы GARDENA.
+**Заметки:**
+
+  - Запросы на управление устройством не могут быть отправлены, пока адаптер smartgarden не отправлен
+
+    подключен к API интеллектуальной системы GARDENA.
+
+  - Убедитесь, что вы установили значение для команды с `ack = false`. См. [Главные команды и статусы в Руководстве для разработчиков адаптеров] (https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md#commands-and-statuses)
 
 ### Для SERVICE_MOWER
 #### Контроллинг
@@ -198,9 +206,9 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
 
   - Для запуска в течение определенного времени установите значение планируемой продолжительности в
 
-  секунд (используйте число, кратное 60)
+  секунды (используйте число, кратное 60)
 
-  - для автоматической работы установить строку `START_DONT_OVERRIDE`
+  - для автоматической работы установите строку `START_DONT_OVERRIDE`
   - для отмены текущей операции и возврата к использованию зарядной станции
 
   строка `PARK_UNTIL_NEXT_TASK`
@@ -208,6 +216,8 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
   - чтобы отменить текущую операцию, вернитесь на зарядную станцию и проигнорируйте
 
   использовать строку расписания `PARK_UNTIL_FURTHER_NOTICE`
+
+ **Примечание.** Газонокосилка запускается только с полностью заряженным аккумулятором.
 
 #### Мониторинг
 Все остальные точки данных предназначены только для мониторинга и информации.
@@ -223,7 +233,7 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
   - `true`: косить или
   - `false`: не косить.
 
-Эта точка данных может использоваться для дальнейших действий, когда важно знать, безопасно ли газонокосилка находится на газоне или нет.
+Эту точку данных можно использовать для дальнейших действий, когда важно знать, безопасно ли газонокосилка находится на газоне или нет.
 
 Эта точка данных устанавливается в зависимости от значения точки данных `activity_value`.
 См. Подробную информацию в следующей таблице.
@@ -255,12 +265,12 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
 
 Эту функцию можно включить / выключить в конфигурации экземпляра адаптера вместе с количеством сохраненных циклов зарядки и стрижки в истории.
 
-Чтобы включить эту функцию, **убедитесь, что хотя бы один цикл кошения и зарядки выполняется без ошибок (например, не прерывается вручную или с помощью сенсорного управления).** Лучше, если хотя бы три цикла будут выполнены без ошибок.
+Чтобы запустить эту функцию, **убедитесь, что хотя бы один цикл стрижки и зарядки выполняется без ошибок (например, не прерывается вручную или с помощью сенсорного управления).** Лучше, если хотя бы три цикла будут выполнены без ошибок.
 Эта функция пытается распознать нормальный случай и изначально предполагает, что следующий процесс является нормальным. Если это неисправно, то этот ошибочный цикл рассматривается как нормальный случай, а цикл, который затем проходит нормально, как случай неисправности. Если во время выполнения произошла ошибка, остановите адаптер, удалите две точки данных и начните заново.
 
 Для получения дополнительной информации об общих механизмах прогнозирования см. [FORECAST.md](FORECAST.md).
 
-  **Примечания:**
+  **Заметки:**
 
     1. Значения прогноза доступны только в том случае, если хотя бы один полный
 
@@ -273,11 +283,11 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
     3. Если вы отключите газонокосилку от интеллектуальной системы GARDENA и
 
 подключите его снова, история будет потеряна, потому что ваша газонокосилка получит новый идентификатор в интеллектуальной системе GARDENA. Это означает, что адаптер не может распознать косилку как предыдущую - может быть, это вторая.
-В этом случае рекомендуется удалить эти две точки данных и перезапустить адаптер, чтобы предыдущие (теперь уже старые) наборы истории не читались и не записывались постоянно. Затем адаптер начинает создавать новую историю.
+В этом случае рекомендуется удалить эти две точки данных и перезапустить адаптер, чтобы предыдущие (теперь старые) наборы истории не читались и не записывались постоянно. Затем адаптер начинает создавать новую историю.
 
 4. Эта функция должна работать более чем с одной косилкой, но она
 
-не тестировалось *(я не могу этого сделать, потому что у меня всего одна косилка)* Если у вас несколько косилок, пожалуйста, проверьте и сообщите об ошибках и, конечно, сообщите, работает ли она должным образом. Заранее спасибо за это.
+не тестировалось *(не могу, потому что у меня только одна косилка)* Если у вас несколько косилок, пожалуйста, проверьте и сообщите об ошибках и, конечно, сообщите, работает ли она должным образом. Заранее спасибо за это.
 
 - `lastErrorCode_value`
 
@@ -369,7 +379,7 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
   - Чтобы остановить устройство, используйте `STOP_UNTIL_NEXT_TASK`.
   - Пропустить автоматическую операцию до указанного времени. Текущая активная операция
 
-НЕ будет отменен. используйте строку `PAUSE_<number_of_seconds>`, например `PAUSE_86400` для паузы на 24 часа (используйте число, кратное 60)
+НЕ будет отменен. Используйте строку `PAUSE_<number_of_seconds>`, например `PAUSE_86400` для паузы на 24 часа (используйте число, кратное 60)
 
   - Для восстановления автоматической работы, если она была приостановлена, используйте строку `UNPAUSE`
 
@@ -396,18 +406,18 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
 
 ### Для SERVICE_COMMON
 В `SERVICE_COMMON` представлена общая информация об устройстве.
-Описание интегрируется в описание других УСЛУГ _... где необходимо.
+Описание интегрируется в описание других УСЛУГ _..., где это необходимо.
 
 ## Пределы скорости
 Вам следует помнить о некоторых ограничениях.
 См. Главу *Ограничения скорости* в [*ПРОЧТИ МЕНЯ*](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/readme) описания API интеллектуальной системы GARDENA.
 
-Чтобы помочь вам увидеть, достигли ли вы этих ограничений скорости, вы можете включить мониторинг в конфигурации экземпляра с помощью параметра *Monitoring Rate Limits*
+Чтобы помочь вам увидеть, достигли ли вы этих пределов скорости, вы можете включить мониторинг в конфигурации экземпляра с помощью параметра *Monitoring Rate Limits*
 
-Если вы включили состояние мониторинга, `info.RateLimitCounter` обновляется при каждом запросе.
+Если вы включили состояние мониторинга, `info.RateLimitCounter` обновляется с каждым запросом.
 В этом состоянии сохраняется структура данных с количеством запросов в месяц, день, час и за последние 30 и 31 день.
 
-Структура находится в [JSON](https://en.wikipedia.org/wiki/JSON) и выглядит так:
+Структура находится в [JSON](https://en.wikipedia.org/wiki/JSON) и выглядит как
 
 ```
 {
@@ -464,7 +474,7 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
 Для каждого клапана можно определить одну или несколько косилок, для которых нельзя открывать клапан во время кошения.
 По сути, газонокосилка имеет приоритет перед поливом, т.е. если возникает конфликт, когда газонокосилка работает и клапан открыт, клапан закрывается и устанавливается соответствующее предупреждение.
 
-Кроме того, можно указать, что клапан никогда не должен открываться независимо от косилки. Например. может использоваться при повреждении клапана или трубы за ним.
+Кроме того, можно определить, что клапан никогда не должен открываться независимо от косилки. Например. может использоваться при повреждении клапана или трубы за ним.
 
 Всю проверку можно включить или выключить в конфигурации экземпляра с помощью параметра *проверка полива*
 
@@ -474,7 +484,7 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
   | точка данных | записываемый | Описание точек данных |
   | - | - | - |
   | `irrigationWhileMowing_allowed_i` | да | установите на `false`, если необходимо проверить, разрешен ли полив, когда газонокосилка косит газон, в противном случае - на `true` |
-  | `irrigationWhileMowing_warningCode_i` | нет | код предупреждения устанавливается, если клапан открывается. Возможные коды предупреждений см. В следующей таблице. Если установлено более одного предупреждения, коды объединяются с `+` (например, `STOPPED+UNKNOWN_MOWER`). |
+  | `irrigationWhileMowing_warningCode_i` | нет | код предупреждения устанавливается, если клапан открывается. Возможные коды предупреждений см. В следующей таблице. Если установлено несколько предупреждений, коды объединяются с `+` (например, `STOPPED+UNKNOWN_MOWER`). |
   | `irrigationWhileMowing_warningCode_i` | нет | код предупреждения устанавливается, если клапан открывается. Возможные коды предупреждений см. В следующей таблице. Если установлено более одного предупреждения, коды объединяются с помощью `+` (например, `STOPPED + UNKNOWN_MOWER`). |
 
 * ***формат идентификатора косилки***
@@ -490,24 +500,24 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
   | код предупреждения | описание |
   | - | - |
   | `NO_WARNING` | нет предупреждения, клапан открыт |
-  | `STOPPED` | клапан закрывается автоматически, потому что косилка работает |
+  | `STOPPED` | клапан автоматически закрывается, потому что косилка косит |
   | `FORBIDDEN` | клапан закрыт, поскольку в точке данных `irrigationWhileMowing_mowerDefinition_i` установлен специальный код `IRRIGATION_FORBIDDEN` |
-  | `FORBIDDEN` | клапан закрыт, поскольку в точке данных` irrigationWhileMowing_mowerDefinition_i` установлен специальный код `IRRIGATION_FORBIDDEN` |
+  | `FORBIDDEN` | клапан закрыт, потому что в точке данных` irrigationWhileMowing_mowerDefinition_i` установлен специальный код `IRRIGATION_FORBIDDEN` |
 
 Эта функция запускается каждый раз, когда
 
 - клапан открывается или
 - косилка начинает косить
 
-Он не запускается, когда вы меняете значения в точках данных, перечисленных выше.
-Это означает: если возникает конфликтная ситуация и вы меняете `irrigationWhileMowing_allowed_i` с `true` на `false`, конфликт не распознается, и конфликт будет продолжен. То же самое относится и к изменению `irrigationWhileMowing_mowerDefinition_i`.
+Он не запускается, когда вы изменяете значения в точках данных, перечисленных выше.
+Это означает: если возникает конфликтная ситуация и вы меняете `irrigationWhileMowing_allowed_i` с `true` на `false`, конфликт не распознается, и конфликт будет продолжаться. То же самое относится и к изменению `irrigationWhileMowing_mowerDefinition_i`.
 
 ### Основное поведение - ПРЕДУПРЕЖДЕНИЕ
 Эта функция не может предотвратить открытие клапана во время кошения. Например. это можно сделать вручную через приложение GARDENA или автоматически по расписанию.
 
 Эта функция позволяет максимально быстро закрыть клапан только в случае конфликта. И конфликт тоже нельзя признать.
 Так что может случиться так, что вода будет пропущена.
-**Например. невозможно предотвратить выдвижение выдвижных разбрызгивателей и столкновение газонокосилки с выдвижными разбрызгивателями **, но вероятность того, что это произойдет, сведена к минимуму.
+**Например. невозможно предотвратить выдвижение выдвижных разбрызгивателей и удар газонокосилки по выдвижным разбрызгивателям **, но вероятность того, что это произойдет, сведена к минимуму.
 ** Таким образом, ваше приложение должно убедиться, что этого конфликта никогда не произойдет. **
 
 ## Пожелания для точек данных
@@ -517,36 +527,49 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
 Это частный проект. Я не имею отношения к GARDENA или Husqvarna.
 
 ## Кредиты
-Большое спасибо GARDENA / Husqvarna за предоставление этого [общедоступный API](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/general) и особую благодарность вашей команде поддержки за очень хорошую и очень быструю поддержку.
+Большое спасибо GARDENA / Husqvarna за предоставление этого [общедоступный API](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/general) и особую благодарность вашей службе поддержки за очень хорошую и очень быструю поддержку.
 
 Логотип smartgarden: http://www.freepik.com Разработано Freepik
 
 ## Changelog
+### 1.0.5
+* (jpgorganizer) 2021-May-13
+  - necessary adjustments due to js-controller v3.3; e.g. [Issue 29](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/29)
+    - nearly all data points get deleted and created again with intended role/unit
+    - data types for following data points changed from `string` to `number`: 
+	  - for all devices: `rfLinkLevel_value` 
+      - for mower: `batteryLevel_value`, `operatingHours_value` 
+      - for sensor: `batteryLevel_value`, `soilHumidity_value`, `soilTemperature_value`, `lightIntensity_value`, `ambientTemperature_value`
+  - compatibility test with node.js v14 and node.js v16 and added to Travis CI test; 
+    compatibility test with the upcoming Admin 5 React UI;
+    e.g. [Issue 30](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/30)
+  - new parameter *beautify log* in instance configuration; makes state ids a little bit shorter in log if switched on
+
 ### 1.0.4
-* (jpgorganizer)
+* (jpgorganizer) 2021-Feb-22
   - necessary adjustments due to js-controller v3.2
   - option `useTestVariable` in adapter/instance configuration removed
 
 ### 1.0.3
-* (jpgorganizer)
+* (jpgorganizer) 2021-Jan-26
   - improved error handling
   - new parameter `connection retry interval`
   - axios vulnerability solved, using version `>=0.21.1`
   
 ### 1.0.2
-* (jpgorganizer)
+* (jpgorganizer) 2020-Aug-30
   - monitoring rate limits, see chapter [Rate Limits](#rate-limits) and discussion at 
   [Issue 18](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/18)
 
 
 ### 1.0.1
-* (jpgorganizer)
+* (jpgorganizer) 2020-Aug-17
   - better reconnection to GARDENA smart system server in case of your internet connection was broken
   - textual changes in io-package.json
   - improved README and FAQ
   
 ### 1.0.0
-* (jpgorganizer)
+* (jpgorganizer) 2020-Jun-13
   - code rework, no functional change expected
   - support `PAUSE` for SERVICE_VALVE, SERVICE_POWER_SOCKET. e.g. 
 	[Issue 14](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/14)
@@ -564,7 +587,7 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
   - README: links to GARDENA/Husqvarna developer portal adjusted to the new address
 
 ### 0.6.0
-* (jpgorganizer) 
+* (jpgorganizer) 2020-May-03
   - new feature *Irrigation not allowed while mowing*, 
     for detailed description see 
 	[Irrigation not allowed while mowing](#Irrigation-not-allowed-while-mowing); 
@@ -574,12 +597,12 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
   - improvement of documentation
 
 ### 0.5.1
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Apr-26
   - some corrections (sensor, typo)
   - integration of travis-ci
   
 ### 0.5.0
-* (jpgorganizer) 
+* (jpgorganizer)  2020-Apr-25
   - MOWER: forecast for remaining charging time and remaining mowing time 
   integrated, e.g. [Issue 1](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/1)
   - **IMPORTANT CHANGE** for existing users: the id for LOCATION, all 
@@ -601,17 +624,17 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
   - adapter now available at npm
   
 ### 0.4.2
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Apr-01
   - error *missing SENSOR data* fixed (many thanks to user dslraser and 
   muckel at 
   [ioBroker Forum](https://forum.iobroker.net/topic/31289/neuer-adapter-smartgarden-adapter-for-gardena-smart-system/) for testing)
 
 ### 0.4.1
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Mar-31
   - Dependency get's resolved now
   
-### 0.4.0
-* (jpgorganizer) 
+### 0.4.0 
+* (jpgorganizer) 2020-Mar-31
   - **NOTE:** with this version an additional dependency is necessary at runtime. 
   If it does not get installed together with the installation of this adapter, 
   please install seperately with 
@@ -639,7 +662,7 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
   - error in command  `stop_all_valves_i` in VALVE_SET fixed
   
 ### 0.3.0
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Mar-25
   - create all states read/write 
   - error TypeError: Cannot read property 'val' of null with useTestVariable 
   fixed
@@ -647,15 +670,16 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
 
 
 ### 0.2.0
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Mar-24
   - **IMPORTANT** : data point for MOWER control (command) changed from  
   `duration_value` to `activity_control_i`
   - rework leftovertimer 
   - improved error handling
   - improved logging (see  loglevel in adapter configurations)
 
-### 0.0.1
-* (jpgorganizer) initial release
+### 0.0.1 
+* (jpgorganizer) 2020-Mar-01
+  - initial release
 
 ## License
 
@@ -667,4 +691,4 @@ Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
 Based on a work at https://github.com/jpgorganizer/ioBroker.smartgarden. 
  
 
-<!--- SVN: $Rev: 2466 $ $Date: 2021-02-22 17:30:13 +0100 (Mo, 22 Feb 2021) $ --->
+<!--- SVN: $Rev: 2507 $ $Date: 2021-05-13 18:07:01 +0200 (Do, 13 Mai 2021) $ --->

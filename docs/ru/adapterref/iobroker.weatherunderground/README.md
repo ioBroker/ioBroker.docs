@@ -3,23 +3,24 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.weatherunderground/README.md
 title: ioBroker.weatherunderground
-hash: KQBKAuXaHZmK2XRbNAt/ff0+mkMYDLf0Ao3vFnFby04=
+hash: tzGdNig2Zr1fpKhzP9WLQqNVGjUWPlk3j/vm+9/NodI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.weatherunderground/admin/wu.png)
 
 ![Количество установок](http://iobroker.live/badges/weatherunderground-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.weatherunderground.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.weatherunderground.svg)
-![НПМ](https://nodei.co/npm/iobroker.weatherunderground.png?downloads=true)
 
 # IoBroker.weatherunderground
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/iobroker.weatherunderground/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/weatherunderground/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 ** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
 ioBroker Адаптер для загрузки суточного прогноза погоды для вашего местоположения из [Weather Underground](http://www.wunderground.com/).
-Адаптер загружает все 15-минутные (по умолчанию) ежедневные и ежечасные данные прогноза.
+Адаптер загружает все данные 15-минутного (по умолчанию) суточного и ежечасного прогноза.
 
-## Ноты
-Вы можете использовать этот адаптер с предоставлением официального API-ключа «владельца PWS» или оставить API-ключ пустым, чтобы использовать ключи, извлеченные с веб-страницы WU.
+## Заметки
+Вы можете использовать этот адаптер с предоставлением официального API-ключа «владельца PWS» или оставить ключ API пустым, чтобы использовать ключи, извлеченные с веб-страницы WU.
 
 ## Наборы значков
 При использовании «Legacy API» доступны несколько различных наборов значков, см. Ниже. Для использования с новым API имена изображений были изменены (см. Https://docs.google.com/document/d/1dNCf6nF6cjm4oOxQxjtqNuAvG_iEe5f9MQH1xlCeV4s/edit) и теперь основаны на числах ... их можно загрузить, например, с https://drive.google.com/drive/folders/0B6fWQWXuE09OOWtBOXJNX190TDQ и может использоваться как настраиваемый набор (см. ниже).
@@ -42,7 +43,7 @@ ioBroker Адаптер для загрузки суточного прогно�
 
 Или вы также можете использовать свои собственные "пользовательские" значки, для этого в каталоге Base-URL должны быть предоставлены следующие файлы gif:
 
-| Значок на день | Икона на ночь |
+| Иконка на день | Икона на ночь |
 | -----------------------------	| ----------------------------- |
 | Chanceflurries.gif | nt_chanceflurries.gif |
 | Chancerain.gif | nt_chancerain.gif |
@@ -75,6 +76,13 @@ http://forum.iobroker.org/viewtopic.php?f=20&t=2042&sid=a863d19838bc49439759bef8
 Проблема с кодировкой не устранена. Адреса с "äüöß" будут отображаться неправильно.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Optimize for js-controller 3.3
+
+### 3.3.0 (2021-01-22)
+* (Apollon77) Optimize for js-controller 3.2
+* (Apollon77) js-controller 2.0 is now required at least
 
 ### 3.2.5 (2020-12-27)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-WEATHERUNDERGROUND-1, IOBROKER-WEATHERUNDERGROUND-2)
@@ -213,7 +221,7 @@ initial release with all basics to load WU-forecast data
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2020 dschaedl <daniel.schaedler@gmail.com>
+Copyright (c) 2015-2021 dschaedl <daniel.schaedler@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

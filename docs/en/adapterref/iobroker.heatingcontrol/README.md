@@ -21,6 +21,13 @@ For more details and for information how to disable the error reporting see [Sen
                                                                           
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url) 
 
+
+## Documentation
+
+**I'm looking for support in creating / updating the user documentation and the FAQ's. If anyone is interested, please contact me...**
+
+
+
 ## Adapter for controlling your heating system.
 
 Features:
@@ -217,7 +224,14 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
-### 2.4.0 (2021-05-15)
+### 2.4.2 (2021-05-17)
+* (René) logging for ActorsOn optimized
+
+### 2.4.1 (2021-05-15)
+* (René) see #233: remaining override time set also for choosen room in vis
+* (René) bug fix public holiday detection
+
+### 2.4.0 (2021-05-13)
 * (René) make it ready for js-controller 3.3
 
 ### 2.3.2 (2021-04-18)

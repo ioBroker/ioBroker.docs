@@ -1,3 +1,5 @@
+[![Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://www.paypal.com/paypalme/MeisterTR)
+
 [![Number of Installations](http://iobroker.live/badges/worx-installed.svg)](http://iobroker.live/badges/worx-installed.svg)
 [![Stable version](http://iobroker.live/badges/worx-stable.svg)](http://iobroker.live/badges/worx-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.worx.svg)](https://www.npmjs.com/package/iobroker.worx)
@@ -27,6 +29,8 @@ The adapter can control the mower and you can change config params like mowtimes
 
 
 ## Changelog
+### 1.3.2 (13.05.2021)
+* (MeisterTR) bugfixes
 ### 1.2.9 (02.12.2020)
 * (MeisterTR) add sentry
 *(MeisterTR) Bugfix (error type of sc... again) (IOBROKER-WORX-3)
@@ -62,7 +66,7 @@ The adapter can control the mower and you can change config params like mowtimes
 ## License
 MIT License
 
-Copyright (c) 2020 MeisterTR
+Copyright (c) 2021 MeisterTR
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
