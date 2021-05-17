@@ -899,7 +899,6 @@
         "class": "warn",
         "fa-icon": "exclamation-triangle",
         "created": "2021-05-02T01:00:00.000Z",
-        "repo": "latest",
         "conditions": {
             "device-reminder": "smaller(1.2.1)"
         }
