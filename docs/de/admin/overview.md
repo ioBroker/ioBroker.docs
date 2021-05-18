@@ -3,14 +3,6 @@ title:       "Übersicht"
 lastChanged: "26.03.2019"
 ---
 
-# Das Übersicht-Fenster
-
-?> ***Dies ist ein Platzhalter***.
-   <br><br>
-   Hilf mit bei ioBroker und erweitere diesen Artikel.  
-   Bitte beachte den [ioBroker Style Guide](community/styleguidedoc), 
-   damit die Änderungen einfacher übernommen werden können.
----
 
 # Der Reiter Übersicht
 
