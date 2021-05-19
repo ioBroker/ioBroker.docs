@@ -4,21 +4,21 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/states.md
 title: States and data points
-hash: LckQ97BkDH4EmltlDIAD72KvCp6AJTRf+cc7ykp+fjE=
+hash: OUheU+wHUm8+dmMTruV37xytEJKhWqBC2U5RwekU/9g=
 ---
 # States and data points
-A **data point** consists of a static object of type "state" and of a dynamic state.
+A **data point** consists of a static object of the type "state" and a dynamic state (state).
 
-Properties of a state are
+Are properties of a state
 
- * val - current value
- * ack - Flag indicating the confirmation of the value by the target system
- * ts - Unix timestamp of last state update (in milliseconds)
- * lc - Unix timestamp of the last value change (in milliseconds)
- * q - [quality] (../ dev / objectsschema.md # states)
- * from - (optional) source (adapter instance) of the last update
- * user - (optional) user name, who last wrote the value.
- * c - (optional) comment
- * expire - (optional) Time in seconds when the value will reset to `null`.
+ * val - current value
+ * ack - Flag that shows the confirmation of the value by the target system
+ * ts - Unix time stamp of the last update of the status (in milliseconds)
+ * lc - Unix time stamp of the last change in value (in milliseconds)
+ * q - [quality] (../ dev / objectsschema.md # states)
+ * from - (optional) source (adapter instance) of the last update
+ * user - (optional) user name, who was the last to write the value.
+ * c - (optional) comment
+ * expire - (optional) time in seconds, when the value is reset to `null`.
 
-?> ***This is a wildcard*** . <br><br> Help with ioBroker and extend this article. Please note the [ioBroker style guide](community/styleguidedoc), so that the changes can be adopted more easily.
+?> ***This is a placeholder*** .<br><br> Help with ioBroker and expand this article. Please note [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.

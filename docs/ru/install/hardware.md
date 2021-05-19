@@ -1,12 +1,12 @@
 ---
-title: установка
+title: аппаратное обеспечение
 lastChanged: 13.09.2018
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/install/hardware.md
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
-hash: vkjwEt+cyTNrJ82pCQYK5Jeu/ZBPFVFDF6ljy1sjeAQ=
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/install/hardware.md
+hash: eohsyZSTJWUcUnxeOCLvsX1tPZnyeJIJaoSb/5mP5Eg=
 ---
-# Оборудование
-?> ***Это подстановочный знак*** . <br><br> Помогите с ioBroker и расширьте эту статью. Пожалуйста, обратите внимание на [Руководство по стилю ioBroker](community/styleguidedoc), чтобы изменения могли быть легко приняты.
+# Аппаратное обеспечение
+?> ***Это заполнитель*** .<br><br> Помогите с ioBroker и расширьте эту статью. Обратите внимание на [Руководство по стилю ioBroker](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md), чтобы изменения можно было легко применить.
 
-@@@ Какой HW рекомендуется для ioBroker, что было протестировано, что является экспериментальным? Нет оборудования для адаптеров здесь. @@@
+@@@ Какое оборудование рекомендуется для ioBroker, что было протестировано, какое является экспериментальным? Никакого железа для переходников здесь нет. @@@

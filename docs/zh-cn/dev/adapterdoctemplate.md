@@ -1,13 +1,13 @@
 ---
-title: 文档模板
+title: 文件范本
 lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterdoctemplate.md
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
-hash: idNqdPEU1+HSIqD5A/xdiBqc4Rurmp0Kmsx3GQqqHnY=
+hash: aMIAyAyQuyMcxAVsHhH2hAYItlEb5HbGe42fHJ0L0VU=
 ---
 ＃用于创建适配器文档的模板
-？&gt; ***这是一张通配符***。 <br><br>帮助ioBroker并扩展这篇文章。请注意[ioBroker风格指南](community/styleguidedoc)，以便更容易采用这些更改。
+？&gt; ***这是一个占位符***。<br><br>帮助ioBroker并扩展本文。请注意[ioBroker样式指南](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md)，以便可以更轻松地采用更改。
 
 ```
 ---

@@ -19,6 +19,9 @@ a password is required. you can set it in settings of BYD Manager
 
 
 ## Changelog
+### 1.0.5  (2021-05-16)
+* (arteck) add user selector and Batteryarray up to 9 
+
 ### 1.0.4  (2021-04-14)
 * (arteck)corr psw save method"
 

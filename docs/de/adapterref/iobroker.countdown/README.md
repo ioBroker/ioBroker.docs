@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.countdown/README.md
 title: ioBroker.countdown
-hash: IWWBZACoI0aKN12/ZfJlMXnjCkpobJp2o482UsNdwG8=
+hash: oUuKL0pCKSuM4BOd6q3+yv7Ueqo8+iWZ2GuajDACnvk=
 ---
 ![Logo](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
@@ -14,7 +14,7 @@ hash: IWWBZACoI0aKN12/ZfJlMXnjCkpobJp2o482UsNdwG8=
 ![NPM](https://nodei.co/npm/iobroker.countdown.png?downloads=true)
 
 # IoBroker.countdown
-[![Build Status Travis] (https://travis-ci.com/jack-blackson/ioBroker.countdown.svg?branch=master)](https://travis-ci.com/jack-blackson/ioBroker.countdown)
+[![Build Status Travis] (https://travis-ci.com/jack-blackson/ioBroker.countdown.svg?branch=master)](https://travis-ci.com/jack-blackson/ioBroker.countdown) [![Übersetzungsstatus] (https://weblate.iobroker.net/widgets/adapters/-/countdown/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
@@ -86,7 +86,7 @@ Parameter hier sind:
 * (jack-blackson) Korrigieren Sie, dass Countdowns sofort erstellt werden
 
 ## 1.1.0 (2020-04-02)
-* (Jack-Blackson) Bugfix Read-Me-Link
+* (jack-blackson) Bugfix Read-Me-Link
 * (Jack-Blackson) Bugfix RepeatCycle
 
 ## 1.0.9 (2020-03-31)

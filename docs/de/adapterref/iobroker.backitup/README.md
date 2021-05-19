@@ -361,6 +361,9 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 
 ## Changelog
 
+### 2.1.10 (16.05.2021)
+* (simatec) Bugfix adminTab
+
 ### 2.1.9 (15.05.2021)
 * (simatec) adminTab for admin 5 changed
 

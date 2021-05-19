@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iot/README.md
 title: ioBroker IoT Adapter
-hash: BmoMf+LIXUxNddbcDjCBbnqlvBWGyuq6DE962F5aVYI=
+hash: RPZLbAhefWe0dN9Y6h+0qu9Ba1TiO9thmROCEbuQWGw=
 ---
 ![Logo](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -19,14 +19,14 @@ Es ist nicht für den Remotezugriff auf Ihre ioBroker-Instanz vorgesehen. Verwen
 ** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Die Einstellungen
-Um den Cloud-Adapter zu verwenden, müssen Sie sich zuerst in der ioBroker-Cloud registrieren. [https://iobroker.pro](https://iobroker.pro).
+Um einen Cloud-Adapter zu verwenden, müssen Sie sich zuerst in der ioBroker-Cloud registrieren. [https://iobroker.pro](https://iobroker.pro).
 
 [Verweis auf die Einstellungen des Google API-Typs](https://developers.google.com/actions/smarthome/guides/)
 
 ![Intro](../../../en/adapterref/iobroker.iot/img/intro.png)
 
 ### Sprache
-Wenn Sie "Standard" -Sprache auswählen, werden die intelligenten Namen von Geräten und Aufzählungen nicht übersetzt. Wenn eine Sprache angegeben ist, werden alle bekannten Namen in diese Sprache übersetzt.
+Wenn Sie "Standard" -Sprache auswählen, werden die Smart-Namen von Geräten und Aufzählungen nicht übersetzt. Wenn eine Sprache angegeben ist, werden alle bekannten Namen in diese Sprache übersetzt.
 Zu Demonstrationszwecken wird schnell zwischen vielen Sprachen gewechselt.
 
 ### Platziere die Funktion zuerst in den Namen
@@ -266,7 +266,13 @@ Folgende Typen werden unterstützt:
 ### __WORK IN PROGRESS__ ->
 
 ## Changelog
-### __WORK IN PROGRESS__
+### 1.8.22 (2021-05-16)
+* (bluefox) Make it admin4 compatible
+
+### 1.8.21 (2021-05-16)
+* (bluefox) Fixed the encryption of the password. Warning: if you see the message in the log, that password is invalid, please enter the password in configuration dialog one more time and save.
+
+### 1.8.20 (2021-05-16)
 * (foxriver76) we now write data received from custom services with acknowledge flag
 
 ### 1.8.19 (2021-05-14)

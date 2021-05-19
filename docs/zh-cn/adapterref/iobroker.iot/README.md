@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iot/README.md
 title: ioBroker物联网适配器
-hash: BmoMf+LIXUxNddbcDjCBbnqlvBWGyuq6DE962F5aVYI=
+hash: RPZLbAhefWe0dN9Y6h+0qu9Ba1TiO9thmROCEbuQWGw=
 ---
 ![商标](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -36,16 +36,16 @@ hash: BmoMf+LIXUxNddbcDjCBbnqlvBWGyuq6DE962F5aVYI=
 -如果为true：“多功能厅”，例如“调光客厅”
 
 ###将单词与
-您可以定义将在功能和房间之间放置的单词。例如。在“调光器起居室中”和“调光器起居室”中将是“调光器起居室”。
+您可以定义将在功能和房间之间放置的单词。例如。 “在调光器起居室中”和“在调光器起居室中”将是“调光器起居室”。
 
 但不建议这样做，因为识别引擎必须再分析一个单词，否则可能导致误解。
 
 ###开关的OFF级别
-一些组由混合设备组成：调光器和开关。允许使用“ ON”和“ OFF”命令以及百分数来控制它们。
+某些组由混合设备组成：调光器和开关。允许使用“ ON”和“ OFF”命令以及百分数来控制它们。
 如果命令是`Set to 30%`和`OFF level is 30%`，则开关将打开。通过命令“设置为25％”，所有开关都将关闭。
 
 另外，如果命令为“ OFF”，那么如果实际值大于或等于“ 30％”，则适配器将记住当前的调光器级别。
-稍后，当出现新的“ ON”命令时，适配器将调光器不是切换到100％，而是切换到内存中的电平。
+稍后，当出现新的“ ON”命令时，适配器会将调光器切换到内存中的电平而不是100％。
 
 例子：
 
@@ -54,7 +54,7 @@ hash: BmoMf+LIXUxNddbcDjCBbnqlvBWGyuq6DE962F5aVYI=
 -命令：“将灯光设置为40％”。适配器将记住* dimmer *的该值，将其设置为“ dimmer”并打开* switch *。
 -命令：“关灯”。适配器会将* dimmer *设置为0％，并关闭* switch *。
 -命令：“开灯”。 *调光器* => 40％，*开关* =>开。
--命令：“将灯光设置为20％”。 *调光器* => 20％，*开关* => OFF。调光器的值低于* OFF电平*，因此不会被记住。
+-命令：“将灯光设置为20％”。 *调光器* => 20％，*开关* => OFF。调光器的值低于* OFF级别*，因此不会记住该值。
 -命令：“开灯”。 *调光器* => 40％，*开关* =>开。
 
 ###由ON
@@ -93,14 +93,14 @@ Alexa, lock the "lock name"
 这是两个重要的枚举：房间和功能。
 
 房间就像：起居室，浴室，卧室。
-功能如：灯光，窗帘，暖气。
+功能如：灯光，百叶窗，暖气。
 
-必须满足以下条件才能在自动生成的列表中获得状态：
+必须满足以下条件才能在自动生成的列表中获取状态：
 
 -状态必须处于某些“功能”枚举中。
 -如果未直接包含在“功能”中，则状态必须具有角色（“状态”，“开关”或“ level。*”，例如level.dimmer）。
 
-可能是该通道位于“功能”中，但未声明其自身。
+可能是通道在“功能”中，但未声明其自身。
 
 -状态必须是可写的：common.write = true
 -状态调光器必须具有common.type作为'number'
@@ -156,10 +156,10 @@ Alexa, lock the "lock name"
 
 仅当设置了IFTTT密钥时，才允许使用IFTTT服务。
 
-保留名称为`ifttt`，`text2command`§，`simpleApi`，`swagger`。必须在没有`custom_`前缀的情况下使用它们。
+保留名称为`ifttt`，`text2command`，`simpleApi`，`swagger`。必须在没有`custom_`前缀的情况下使用它们。
 
 ###`text2command`
-您可以在白名单中写入“ text2command”，您可以将POST请求发送到`https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>`以将数据写入* text2command.X.text *变量。
+您可以在白名单中写入“ text2command”，可以将POST请求发送到`https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>`以将数据写入* text2command.X.text *变量。
 
 您也可以使用GET方法`https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>&data=<MY COMMAND>`
 
@@ -181,7 +181,7 @@ Alexa, lock the "lock name"
 
 如果定义了`text2command`实例，则此实例必须提供答案，并且来自* script *的答案将被忽略。
 
-适配器将在两种状态下提供具有不同详细信息级别的详细信息
+适配器将在两种状态下提供具有不同详细程度的详细信息
 
 * **smart.lastCommand** 含收到的文本，包括有关查询类型（意图）的信息。示例：“ askDevice StatusRasenmäher”
 * ** smart.lastCommandObj ***包含一个JSON字符串，可以将其解析为包含以下信息的对象
@@ -204,7 +204,7 @@ Alexa, lock the "lock name"
 
 **通过消息将结果返回到物联网实例**
 
-物联网实例还接受名称为“ alexaCustomResponse”的消息，其中包含键“ response”，并且对象可以包含键** responseText **和** shouldEndSession **，如上所述。
+物联网实例还接受名称为“ alexaCustomResponse”的消息，其中包含键“ response”，该对象可以包含键** responseText **和** shouldEndSession **，如上所述。
 物联网实例将不会对消息做出任何响应！
 
 **使用文字的脚本示例**
@@ -266,7 +266,13 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 ### __正在进行的工程__->
 
 ## Changelog
-### __WORK IN PROGRESS__
+### 1.8.22 (2021-05-16)
+* (bluefox) Make it admin4 compatible
+
+### 1.8.21 (2021-05-16)
+* (bluefox) Fixed the encryption of the password. Warning: if you see the message in the log, that password is invalid, please enter the password in configuration dialog one more time and save.
+
+### 1.8.20 (2021-05-16)
 * (foxriver76) we now write data received from custom services with acknowledge flag
 
 ### 1.8.19 (2021-05-14)

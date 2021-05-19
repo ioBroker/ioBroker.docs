@@ -74,20 +74,20 @@ BADGE-NPM: https://nodei.co/npm/iobroker.admin.png?downloads=true
 日志的字体显示为红色。
 
 ## Changelog
+### 5.0.28 (2021-05-18)
+* (bluefox) Admin5: GUI fixes
+
+### 5.0.27 (2021-05-17)
+* (bluefox) Admin5: GUI fixes
+
+### 5.0.26 (2021-05-16)
+* (bluefox) Admin5: GUI fixes
+
 ### 5.0.25 (2021-05-15)
 * (bluefox) Admin5: GUI fixes
 
 ### 5.0.24 (2021-05-14)
 * (bluefox) Admin5: GUI fixes
-
-### 5.0.22 (2021-05-12)
-* (bluefox) Admin5: Fixed some bugs
-
-### 5.0.21 (2021-05-11)
-* (bluefox) Admin5: Fixed many bugs
-
-### 5.0.20 (2021-05-10)
-* (bluefox) Admin5: Fixed many bugs
 
 ## License
 

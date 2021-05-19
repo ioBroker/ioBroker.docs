@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: luSshPXawVP0dind2uFKzaaic/fGolnl/iOJ0QeZgbI=
+hash: BrgQr0FQ/Wwz8Owf81J4OqXqvh5PzGMXJifra53T91Q=
 ---
 ![商标](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
 
@@ -40,6 +40,19 @@ hash: luSshPXawVP0dind2uFKzaaic/fGolnl/iOJ0QeZgbI=
 -系统命令
 -点动X，Y和Z轴
 -选择一个文件或打印它
+
+＃＃ 重要的！
+不要使用以下代码重新启动octoprint实例（或任何其他实例）：
+
+```javascript
+var obj = getObject('system.adapter.octoprint.0');
+obj.common.enabled = false;
+setObject('system.adapter.octoprint.0', obj);
+```
+
+由于API密钥从1.1.0版开始是受保护的属性，因此将删除已配置的API密钥。原因是`getObject`不返回受保护的信息（因此api密钥不包含在返回的对象中）。保存对象时，将保存不带键的对象。
+
+请使用状态`system.adapter.octoprint.0.alive`停止/启动实例。
 
 ## Changelog
 

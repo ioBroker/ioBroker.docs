@@ -1,12 +1,12 @@
 ---
-title: Устранение неполадок - ошибка адаптера
+title: Сбой адаптера
 lastChanged: 14.09.2018
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/trouble/adapter.md
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
-hash: 0kInk6qgZY8klUK323jmfledPo0H+YZwkCh3RKLErAQ=
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/trouble/adapter.md
+hash: tRIkrGOoz0GVKr3ChJ2M8R7OghRNwQ2GhHSdGu7WqNQ=
 ---
-# Устранить ошибки адаптеров
-?> ***Это подстановочный знак*** . <br><br> Помогите с ioBroker и расширьте эту статью. Пожалуйста, обратите внимание на [Руководство по стилю ioBroker](community/styleguidedoc), чтобы изменения могли быть легко приняты.
+# Решение ошибок в адаптерах
+?> ***Это заполнитель*** .<br><br> Помогите с ioBroker и расширьте эту статью. Обратите внимание на [Руководство по стилю ioBroker](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md), чтобы изменения можно было легко применить.
 
-@@@ ссылка на ссылку на адаптер @@@
+@@@ Ссылка на ссылку на адаптер @@@

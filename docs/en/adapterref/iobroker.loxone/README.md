@@ -19,6 +19,8 @@
 
 Fetches all information available in Loxone Miniserver (and Loxone Miniserver Go) and provides changes in realtime.
 
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 ## Install
 
 Install this adapter via ioBroker Admin:
@@ -67,6 +69,15 @@ This will populate the enum.rooms enumeration with all rooms provided by the Lox
 
 This will populate the enum.functions enumeration with all categories provided by the Loxone Miniserver and will link all controls.
 
+### Weather Server
+
+Choose what weather data you wish to synchronize:
+
+-   "Don't synchronize weather data" will not synchronize anything related to the Weather Server
+-   "Synchronize current weather only" will synchronize the data under "Actual"
+-   "Synchronize 24 hours of weather forcast" will synchronize the current weather and 24 hours of weather forcast
+-   "Synchronize entire weather forcast" will synchronize the current weather and the entire weather forcast (96 hours)
+
 ## States
 
 The adapter automatically connects to the configured Loxone Miniserver and creates states for each control state it finds.
@@ -88,9 +99,17 @@ By default Loxone Miniserver hides many controls (and thus their states) from th
 
 That means, they are also hidden from this ioBroker adapter.
 
-To ensure, all your states are properly reported to ioBroker, please verify that they have "Use in Visualization" checked:
+### Use in User Interface
 
-![Use in Visualization settings](doc/loxone-config-use-in-visualization.png)
+To ensure, all your states are properly reported to ioBroker, please verify that they have "Use" in the "User Interface" section checked:
+
+![Use in User Interface settings](doc/loxone-config-use-in-visualization.png)
+
+### Display diagnostic inputs
+
+To see diagnostic inputs (e.g. battery status of Air devices), please verify that the device has "Display diagnostic inputs" checked:
+
+![Display diagnostic inputs settings](doc/loxone-config-display-diagnostics.png)
 
 ## Global States
 
@@ -113,6 +132,37 @@ Behind the name of the state, you can see the type of the state:
 -   `(rw)`: readable and writable: this state can be changed from ioBroker
 -   `(ro)`: read-only: this state can't be changed from ioBroker
 -   `(wo)`: write-only: this state's value isn't reported by this adapter, but it can be changed, triggering some action on the Loxone Miniserver
+
+### AalSmartAlarm
+
+Provided by AAL Smart Alarm control.
+
+-   `alarmLevel` (ro) the ID of the current alarm level
+    -   0 = No alarm
+    -   1 = Immediate alarm
+    -   2 = Delayed alarm
+-   `alarmCause` (ro) A string representing the last cause for an alarm
+-   `isLocked` (ro) Reset active, inputs will be ignored and therefore no alarms will be executed
+-   `isLeaveActive` (ro) Leave input is set, no alarms will be executed
+-   `disableEndTime` (ro) End time for the control to be disabled
+-   `confirm` (wo) Confirm pending alarm
+-   `disable` (wo) Disable control for a certain period of time, no alarms will be executed. Setting it to 0 will reenable the Smart Alarm
+-   `startDrill` (wo) Execute test alarm
+
+### AalEmergency
+
+Provided by AAL Smart Emergency Button control.
+
+-   `status` (ro) the ID of the current status
+    -   0 = running, normal operation, waiting for emergency button press
+    -   1 = alarm triggered
+    -   2 = reset input in config asserted, control is shut down
+    -   3 = app has temporarily disabled control
+-   `disableEndTime` (ro) End time for the control to be disabled
+-   `resetActive` (ro) text state with the active reset input (if control is in reset)
+-   `trigger` (wo) trigger an alarm from the app
+-   `quit` (wo) quit an active alarm
+-   `disable` (wo) disable the control for the given time in seconds. Set to 0 to start control again if it is disabled
 
 ### Alarm
 
@@ -248,6 +298,14 @@ Provided by dimmers.
 -   `on` (wo) writing any value to this state sets the dimmer to the last known position
 -   `off` (wo) writing any value to this state disables the dimmer, sets position to 0 but remembers the last position
 
+### EIBDimmer
+
+Provided by EIB/KNX dimmers.
+
+-   `position` (rw) current position for the dimmer
+-   `on` (wo) writing any value to this state sets the dimmer to the last known position
+-   `off` (wo) writing any value to this state disables the dimmer, sets position to 0 but remembers the last position
+
 ### Gate
 
 Provided by gate controls.
@@ -291,12 +349,18 @@ Provided by virtual states as well as the Loxone Touch switch.
 Provided by door controllers.
 
 -   `bell` (ro) whether the bell is ringing
--   `lastBellEvents` (ro) array containing the timestamps for each bell-activity that wasn�t answered
+-   `lastBellEvents` (ro) array containing the timestamps for each bell-activity that wasn't answered
 -   `version` (ro) Loxone Intercoms only - text containing the currently installed firmware
     versions
 -   `answer` (wo) writing any value to this state will deactivate the bell
 
 This type of channel might contain other devices. See the respective chapter for more information.
+
+### Intelligent Room Controller V2
+
+Provided by the intelligent room controller V2 since Miniserver 10.0.
+
+TODO: Documentation currently missing
 
 ### Jalousie
 
@@ -363,6 +427,18 @@ Provided by central lighting controller.
 
 -   `control` (wo) turns all lights on or off
 
+### Mailbox
+
+Provided by Paketsafe Air / Tree.
+
+-   `notificationsDisabledInput` (ro) State of the notifications disabled input
+-   `packetReceived` (ro) State if a packet has been received
+-   `mailReceived` (ro) State if mail has been received
+-   `disableEndTime` (ro) timestamp until the notifications are disabled
+-   `confirmPacket` (wo) Confirm receive of a packet
+-   `confirmMail` (wo) Confirm receive of mail
+-   `disableNotifications` (wo) Disable the notifications for x seconds; 0 seconds for cancelling timer
+
 ### Meter
 
 Provided by utility meters.
@@ -372,6 +448,15 @@ Provided by utility meters.
 -   `total` (ro) the total value (number)
 -   `total-formatted` (ro) if configured, the formatted total value of the state (using the "Unit" format from Loxone Config)
 -   `reset` (wo) writing any value to this state resets the total value
+
+### Presence Detector
+
+Provided by presence detector.
+
+-   `active` (ro) presence state
+-   `locked` (ro) locked state
+-   `events` (ro) the number of events
+-   `infoText` (ro) reason why the presence detector is locked
 
 ### Pushbutton
 
@@ -430,6 +515,12 @@ Provided by virtual input switches.
 
 -   `active` (rw) the current state of the switch
 
+### Text State
+
+Provided by "state".
+
+-   `textAndIcon` (ro) the current value of the state
+
 ### TimedSwitch
 
 Provided by stairwell and multifunction switches.
@@ -457,6 +548,23 @@ Provided by stairwell and multifunction switches.
 Provided by stairwell and multifunction switches.
 
 -   `entries` (ro) list of entries returned from the miniserver
+
+### UpDownAnalog
+
+Provided by Virtual Input (Up-Down buttons).
+
+-   `value` (rw) the current value of the input
+-   `value-formatted` (ro) if configured, the formatted value of the state (using the "Unit" format from Loxone Config)
+-   `error` (ro) indicates an invalid value of the slider
+
+### ValueSelector
+
+Value selection.
+
+-   `value` (rw) current value
+-   `min` (ro) current minimum value
+-   `max` (ro) current maximum value
+-   `step` (ro) current step value
 
 ### WindowMonitor
 
@@ -510,15 +618,23 @@ Every channel contains the following states:
 -   `windSpeed`: wind speed value
 -   `windSpeed-formatted`: formatted wind speed value with unit
 
-## Compatibility
+## Unsupported Control Types
 
-Compatibility has been tested with Loxone Miniserver Go 9.0.9.26 using Loxone Config 9.0.9.26.
+When Loxone adds new control types, they are most often not immediately supported by this adapter.
+
+In this case, the control will have "Unknown:" in front of its name. E.g. `Unknown: Wallbox`
+
+Those controls will contain all states reported by the Miniserver, but they will all be read-only strings.
+
+If you need better support for a new control type, please follow the steps in the next section to requeset a new feature.
+
+**Sentry:** unsupported control types will be reported to the developers using Sentry. This way you might get new controls in the next release without having to request it yourself.
 
 ## Bug Reports and Feature Requests
 
 Please use the GitHub repository to report any bugs or request new features.
 
-If you require a missing control type, please provide the name as it is reported in the error log of ioBroker as well as the entire raw contents of the device in the ioBroker object tree:
+If you require an unsupported control type, please provide the name as it is reported in the error log of ioBroker as well as the entire raw contents of the device in the ioBroker object tree:
 
 Log file example for "LightController":
 
@@ -529,6 +645,33 @@ Native value from ioBroker &gt; Objects
 ![Details of missing LightController control](doc/details-missing-control-type.png)
 
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+
+### 2.2.1 (2021-05-18)
+
+-   (UncleSamSwiss) Fixed typo causing "Cannot read property 'off' of undefined" (IOBROKER-LOXONE-2R, #72)
+-   (UncleSamSwiss) Improved Sentry reporting for structure file
+
+### 2.2.0 (2021-05-17)
+
+-   (UncleSamSwiss) Unknown/unsupported controls are now shown with their states as read-only strings
+-   (raintonr) Fixes for auto-position based on percentage (#76)
+-   (raintonr) Added support for IRoomControllerV2 (#22)
+-   (UncleSamSwiss) Added experimental support for EIBDimmer (#15)
+-   (UncleSamSwiss) Added support for ValueSelector (#36)
+-   (UncleSamSwiss) Added support for TextState (#73)
+-   (UncleSamSwiss) Added support for UpDownAnalog (#57)
+-   (UncleSamSwiss) Fixed some "State has wrong type" warnings (#99, #128)
+-   (UncleSamSwiss) Added support for Lumitech color picker (#44)
+-   (UncleSamSwiss) Weather server data can now be filtered (#131)
+-   (UncleSamSwiss) Added support for PresenceDetector (IOBROKER-LOXONE-1R)
+-   (UncleSamSwiss) Added support for AAL Smart Alarm (IOBROKER-LOXONE-1X)
+-   (UncleSamSwiss) Added support for AAL Emergency Button (IOBROKER-LOXONE-1W)
+-   (UncleSamSwiss) Added support for Paketsafe (IOBROKER-LOXONE-1P)
 
 ### 2.1.0 (2020-12-21)
 
@@ -608,7 +751,7 @@ Native value from ioBroker &gt; Objects
 
 ## License
 
-Copyright 2020 UncleSamSwiss
+Copyright 2021 UncleSamSwiss
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

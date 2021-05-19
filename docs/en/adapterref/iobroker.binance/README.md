@@ -1,3 +1,7 @@
+# !!!
+# Please note, that this plugin/repository is discontinued (open for adoption)
+# !!!
+
 ![Logo](admin/binance.png)
 # ioBroker.binance
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: luSshPXawVP0dind2uFKzaaic/fGolnl/iOJ0QeZgbI=
+hash: BrgQr0FQ/Wwz8Owf81J4OqXqvh5PzGMXJifra53T91Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
 
@@ -40,6 +40,19 @@ hash: luSshPXawVP0dind2uFKzaaic/fGolnl/iOJ0QeZgbI=
 - Системные команды
 - Перемещение по осям X, Y и Z
 - Выберите файл или распечатайте его
+
+## Важный!
+НЕ перезапускайте экземпляр octoprint (или любой другой экземпляр) с таким кодом:
+
+```javascript
+var obj = getObject('system.adapter.octoprint.0');
+obj.common.enabled = false;
+setObject('system.adapter.octoprint.0', obj);
+```
+
+Поскольку ключ API является защищенным атрибутом, начиная с версии 1.1.0, это приведет к удалению настроенного ключа API. Причина в том, что `getObject` не возвращает защищенную информацию (поэтому ключ api не включается в возвращаемый объект). При сохранении объекта вы сохраните объект без ключа.
+
+Пожалуйста, используйте состояние `system.adapter.octoprint.0.alive`, чтобы остановить / запустить экземпляр.
 
 ## Changelog
 

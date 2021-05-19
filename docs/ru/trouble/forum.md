@@ -1,12 +1,12 @@
 ---
-title: Решение проблем - Форум
+title: Форум
 lastChanged: 14.09.2018
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/trouble/forum.md
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
-hash: QXSzEgG3xTrBlLv0yJhY+xY54jz0tUvkBW0oIqlmuKc=
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/trouble/forum.md
+hash: ccNUXa6jeeGR73TIVGkvUifnaArfqoOgdZlkw8VPkJ0=
 ---
 # Помощь на форуме
-?> ***Это подстановочный знак*** . <br><br> Помогите с ioBroker и расширьте эту статью. Пожалуйста, обратите внимание на [Руководство по стилю ioBroker](community/styleguidedoc), чтобы изменения могли быть легко приняты.
+?> ***Это заполнитель*** .<br><br> Помогите с ioBroker и расширьте эту статью. Обратите внимание на [Руководство по стилю ioBroker](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md), чтобы изменения можно было легко применить.
 
-@@@ Как собрать информацию для квалифицированных сообщений об ошибках на форуме. @@@
+@@@ Как вы собираете информацию для квалифицированных сообщений об ошибках на форуме. @@@

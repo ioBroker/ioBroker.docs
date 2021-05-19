@@ -33,7 +33,7 @@ With adapter you can use both: **v6 Bridge** and **Legacy Bridge**.
 
 **Description**
 
-A detailed description can be found [hier](https://steiger04.github.io/milight-smart-light-doku/).
+A detailed description can be found [here](https://steiger04.github.io/milight-smart-light-doku/).
 
 ### Versions
 - **Node.js**: use v. 10.18.1 or higher
@@ -41,6 +41,8 @@ A detailed description can be found [hier](https://steiger04.github.io/milight-s
 
 
 ## Changelog
+### 1.2.1 (2020-05-18)
+- (steiger04) Compatibility with socketio v3.1.4
 ### 1.2.0 (2020-01-16)
 - (steiger04) compact mode added
 ### 1.0.5 (2020-01-10)

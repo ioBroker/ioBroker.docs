@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: luSshPXawVP0dind2uFKzaaic/fGolnl/iOJ0QeZgbI=
+hash: BrgQr0FQ/Wwz8Owf81J4OqXqvh5PzGMXJifra53T91Q=
 ---
 ![Logo](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
 
@@ -40,6 +40,19 @@ Getestet mit OctoPrint 1.6.0
 - Systembefehle
 - Joggen Sie die X-, Y- und Z-Achse
 - Wählen Sie eine Datei aus oder drucken Sie sie aus
+
+## Wichtig!
+Starten Sie die Octoprint-Instanz (oder eine andere Instanz) NICHT mit folgendem Code neu:
+
+```javascript
+var obj = getObject('system.adapter.octoprint.0');
+obj.common.enabled = false;
+setObject('system.adapter.octoprint.0', obj);
+```
+
+Da der API-Schlüssel seit Version 1.1.0 ein geschütztes Attribut ist, wird der konfigurierte API-Schlüssel entfernt. Der Grund ist, dass `getObject` keine geschützten Informationen zurückgibt (daher ist der API-Schlüssel nicht im zurückgegebenen Objekt enthalten). Wenn Sie das Objekt speichern, speichern Sie ein Objekt ohne Schlüssel.
+
+Bitte verwenden Sie den Status `system.adapter.octoprint.0.alive`, um die Instanz zu stoppen / zu starten.
 
 ## Changelog
 

@@ -8,6 +8,7 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.countdown.svg)](https://www.npmjs.com/package/iobroker.countdown) 
 ![Number of Installations](http://iobroker.live/badges/countdown-installed.svg) 
 ![Number of Installations](http://iobroker.live/badges/countdown-stable.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/countdown/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 [![NPM](https://nodei.co/npm/iobroker.countdown.png?downloads=true)](https://nodei.co/npm/iobroker.countdown.png?downloads=true/)
 

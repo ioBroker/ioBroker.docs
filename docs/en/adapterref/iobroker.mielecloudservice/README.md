@@ -182,6 +182,9 @@ Here is a list of what these raw values stand for:
 
 ## Changelog
 
+### V4.2.0 (2021-05-17) (A new Dimension)
+* (grizzelbee) New: Adding Pause action to dish washers
+
 ### V4.1.0 (2021-05-15) (Carry me over)
 * (grizzelbee) New: [149](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/149) Adding support (Start, Stop, Pause) for Miele Scout RX2 vacuum cleaner robots
 * (Stan23)     New: Added new program phase  soak/Einweichen

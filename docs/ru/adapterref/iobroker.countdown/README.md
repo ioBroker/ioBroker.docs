@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.countdown/README.md
 title: ioBroker.countdown
-hash: IWWBZACoI0aKN12/ZfJlMXnjCkpobJp2o482UsNdwG8=
+hash: oUuKL0pCKSuM4BOd6q3+yv7Ueqo8+iWZ2GuajDACnvk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
@@ -14,7 +14,7 @@ hash: IWWBZACoI0aKN12/ZfJlMXnjCkpobJp2o482UsNdwG8=
 ![НПМ](https://nodei.co/npm/iobroker.countdown.png?downloads=true)
 
 # IoBroker.countdown
-[![Статус сборки Трэвис] (https://travis-ci.com/jack-blackson/ioBroker.countdown.svg?branch=master)](https://travis-ci.com/jack-blackson/ioBroker.countdown)
+[![Статус сборки Трэвис] (https://travis-ci.com/jack-blackson/ioBroker.countdown.svg?branch=master)](https://travis-ci.com/jack-blackson/ioBroker.countdown) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/countdown/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
@@ -31,7 +31,7 @@ hash: IWWBZACoI0aKN12/ZfJlMXnjCkpobJp2o482UsNdwG8=
 
 * Вы можете создать обратный отсчет в настройках адаптера, во вкладке «Создать обратный отсчет».
 * Вы можете создать вручную состояние в «настройке» устройства. Имя объекта - это имя сигнала тревоги, а значение будет датой. Дата должна быть в формате «ДД.ММ.ГГГГ ЧЧ: мм: сс».
-* Вы можете создать сигнал тревоги с помощью sendto. Здесь вы можете отправить компоненты (минимум год, месяц, дату) или строку даты. Для строки даты вы можете настроить формат в настройках адаптера.
+* Вы можете создать сигнал тревоги с помощью sendto. Там вы можете отправить компоненты (минимум год, месяц, дату) или строку даты. Для строки даты вы можете настроить формат в настройках адаптера.
 
 ![Логотип](../../../en/adapterref/iobroker.countdown/admin/countdown_blocky.png)
 
@@ -47,7 +47,7 @@ hash: IWWBZACoI0aKN12/ZfJlMXnjCkpobJp2o482UsNdwG8=
 
 sendTo ("countdown.0", "send", {"name": 'День свадьбы', "date": '01 .04.2020 00: 01 + 1Y '});
 
-Параметры здесь:
+Параметры здесь следующие:
 
 * Y: Годы
 * M: Месяцы
@@ -83,7 +83,7 @@ sendTo ("countdown.0", "send", {"name": 'День свадьбы', "date": '01 .
 ## 1.2.0 (2021-05-09)
 * (jack-blackson) Обновлены пакеты, добавлен Sentry
 * (jack-blackson) Исправления для JS-контроллера 3.3
-* (jack-blackson) Исправлено, что обратный отсчет создается немедленно
+* (Джек-Блэксон) Исправлено, что обратный отсчет создается немедленно
 
 ## 1.1.0 (02.04.2020)
 * (jack-blackson) исправление ошибки Ссылка Read-Me
@@ -110,7 +110,7 @@ sendTo ("countdown.0", "send", {"name": 'День свадьбы', "date": '01 .
 
 ## 1.0.3 (10.08.2019)
 * (jack-blackson) Изменения для компактного режима
-* (jack-blackson) Различные исправления
+* (Джек-Блэксон) Различные исправления
 * (jack-blackson) Теперь возможно наличие нескольких экземпляров адаптера.
 
 ## 1.0.2 (22.07.2019)

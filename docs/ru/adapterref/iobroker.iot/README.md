@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iot/README.md
 title: IoT-адаптер ioBroker
-hash: BmoMf+LIXUxNddbcDjCBbnqlvBWGyuq6DE962F5aVYI=
+hash: RPZLbAhefWe0dN9Y6h+0qu9Ba1TiO9thmROCEbuQWGw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -14,7 +14,7 @@ hash: BmoMf+LIXUxNddbcDjCBbnqlvBWGyuq6DE962F5aVYI=
 
 # IoBroker IoT-адаптер
 Этот адаптер предназначен ТОЛЬКО для связи с Amazon Alexa, Google Home и Nightscout.
-Это не для удаленного доступа к вашему экземпляру ioBroker. Для этого воспользуйтесь адаптером ioBroker.cloud.
+Это не для удаленного доступа к вашему экземпляру ioBroker. Для этого используйте адаптер ioBroker.cloud.
 
 ** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
@@ -26,7 +26,7 @@ hash: BmoMf+LIXUxNddbcDjCBbnqlvBWGyuq6DE962F5aVYI=
 ![вступление](../../../en/adapterref/iobroker.iot/img/intro.png)
 
 ### Язык
-Если вы выберете язык «по умолчанию», умные имена устройств и перечислений переводиться не будут. Если указан какой-либо язык, все известные имена будут переведены на этот язык.
+Если вы выберете язык "по умолчанию", умные имена устройств и перечислений переводиться не будут. Если указан какой-либо язык, все известные имена будут переведены на этот язык.
 Это сделано для быстрого переключения между многими языками в демонстрационных целях.
 
 ### Сначала поместите функцию в имена
@@ -38,7 +38,7 @@ hash: BmoMf+LIXUxNddbcDjCBbnqlvBWGyuq6DE962F5aVYI=
 ### Соедините слова с
 Вы можете определить слово, которое будет помещено между функцией и комнатой. Например. «В» и «Диммер в гостиной» будет «Диммер в гостиной».
 
-Но делать это не рекомендуется, поскольку механизм распознавания должен проанализировать еще одно слово, и это может привести к недоразумениям.
+Но делать это не рекомендуется, потому что движок распознавания должен проанализировать еще одно слово, и это может привести к недоразумениям.
 
 ### Уровень ВЫКЛ для переключателей
 Некоторые группы состоят из смешанных устройств: диммеров и переключателей. Допускается управлять ими командами «ВКЛ» и «ВЫКЛ» и процентами.
@@ -151,7 +151,7 @@ Alexa, lock the "lock name"
 
 Вы можете написать «*» в белом списке, и все услуги будут разрешены.
 
-Здесь вы можете найти инструкции, как использовать его с [исполнитель](doc/tasker.md).
+Здесь вы можете найти инструкции, как использовать его с [надсмотрщик](doc/tasker.md).
 
 Услуга IFTTT разрешена, только если установлен ключ IFTTT.
 
@@ -265,7 +265,13 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 ### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
-### __WORK IN PROGRESS__
+### 1.8.22 (2021-05-16)
+* (bluefox) Make it admin4 compatible
+
+### 1.8.21 (2021-05-16)
+* (bluefox) Fixed the encryption of the password. Warning: if you see the message in the log, that password is invalid, please enter the password in configuration dialog one more time and save.
+
+### 1.8.20 (2021-05-16)
 * (foxriver76) we now write data received from custom services with acknowledge flag
 
 ### 1.8.19 (2021-05-14)

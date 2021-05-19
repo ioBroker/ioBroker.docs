@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.countdown/README.md
 title: ioBroker.countdown
-hash: IWWBZACoI0aKN12/ZfJlMXnjCkpobJp2o482UsNdwG8=
+hash: oUuKL0pCKSuM4BOd6q3+yv7Ueqo8+iWZ2GuajDACnvk=
 ---
 ![商标](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
@@ -14,7 +14,7 @@ hash: IWWBZACoI0aKN12/ZfJlMXnjCkpobJp2o482UsNdwG8=
 ![NPM](https://nodei.co/npm/iobroker.countdown.png?downloads=true)
 
 ＃ioBroker.countdown
-[![构建状态Travis]（https://travis-ci.com/jack-blackson/ioBroker.countdown.svg?branch=master）](https://travis-ci.com/jack-blackson/ioBroker.countdown)
+[![构建状态Travis]（https://travis-ci.com/jack-blackson/ioBroker.countdown.svg?branch=master）](https://travis-ci.com/jack-blackson/ioBroker.countdown)[![翻译状态]（https://weblate.iobroker.net/widgets/adapters/-/countdown/svg-badge.svg）](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)]
 
 **此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
 

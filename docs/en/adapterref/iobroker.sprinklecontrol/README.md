@@ -30,6 +30,16 @@ Wetterabhängige automatische Steuerung der Gartenbewässerung
 
 ## Changelog
 
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+
+### 0.1.6 (18.05.2021)
+* (Dirk-Peter-md) AutoOn-Schalter pro Bewässerungskreis hinzugefügt
+* (Dirk-Peter-md) weitere Fehler beseitigt (js-Controller)
+* (Dirk-Peter-md) Niederschlagszähler von der Verdunstung gelöst
+
 ### 0.1.5 (05.05.2021)
 * (Dirk-Peter-md) Zurücksetzen der Regenmenge im 24-Stunden-Modus hinzugefügt
 
@@ -51,34 +61,6 @@ Wetterabhängige automatische Steuerung der Gartenbewässerung
 ### 0.0.11 (30.08.2020)
 * (Dirk-Peter-md) Bug in der Verarbeitung der Regenvorhersage vom Adapter "Das Wetter"
 * (Dirk-Peter-md) Bug auf Travis CI
-
-### 0.0.10 (29.08.2020)
-* (Dirk-Peter-md) Bug in der Verarbeitung der Regenvorhersage vom Adapter "Das Wetter"
-
-### 0.0.9 (28.08.2020)
-* (Dirk-Peter-md) integration des Adapters "Das Wetter“ <Pfad 2: XML-Datei mit 5-Tage-Wettervorhersage> zur Regenvorhersage (siehe Doku)
-
-### 0.0.8 (17.08.2020)
-* (Dirk-Peter-md) adapter.unload: (setTimeout > 1s) >>> delete
-
-### 0.0.7 (23.07.2020)
-* (Dirk-Peter-md) history zu festen Zeit 0:05 (nicht über dayNum)
-* (Dirk-Peter-md) main.js aufgeräumt
-
-### 0.0.6 (16.07.2020)
-* (Dirk-Peter-md) calcPosTimer angepasst
-* (Dirk-Peter-md) Beschreibung vervollständigt
-
-### 0.0.5 (12.07.2020)
-* (Dirk-Peter-md) .travis.yml für Node.js 10, 12 und 14 laut ioBroker.template angepasst
-
-### 0.0.4 (04.07.2020)
-* (Dirk-Peter-md) readme.md hinzugefügt
-* (Dirk-Peter-md) sprinklecontrol.md hinzugefügt
-* (Dirk-Peter-md) words.js hinzugefügt
-
-### 0.0.1 (01.06.2020)
-* (Dirk-Peter-md) initial release
 
 
 *************************************************************************************************************************************

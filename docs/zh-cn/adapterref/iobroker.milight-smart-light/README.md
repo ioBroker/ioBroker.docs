@@ -3,13 +3,13 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.milight-smart-light/README.md
 title: ioBroker.milight-smart-light
-hash: cWv7WlDzwUw8WHGt7KPNdnmutK4CenySEwXQgJItWjc=
+hash: 5pIHYWxLRBx9JzitGECa91GS6s7APvK2vcMJLXLqx1Y=
 ---
 ![milight-smart-light徽标](../../../en/adapterref/iobroker.milight-smart-light/admin/milight-smart-light.png)
 
 ![NPM版本](http://img.shields.io/npm/v/iobroker.milight-smart-light.svg)
 ![资料下载](https://img.shields.io/npm/dm/iobroker.milight-smart-light.svg)
-![稳定](http://iobroker.live/badges/milight-smart-light-stable.svg)
+![稳定的](http://iobroker.live/badges/milight-smart-light-stable.svg)
 ![已安装](http://iobroker.live/badges/milight-smart-light-installed.svg)
 ![依赖状态](https://img.shields.io/david/steiger04/iobroker.milight-smart-light.svg)
 ![已知漏洞](https://snyk.io/test/github/steiger04/ioBroker.milight-smart-light/badge.svg)
@@ -27,26 +27,28 @@ mwittig /[Node-milight-promise](https://github.com/mwittig/node-milight-promise)
 ** v6桥：**
 
 -网桥（仅iBox1）
--白色
+- 白色的
 -rgb（w）
 - 饱满的色彩
 -fullColor8Zone
 
 **旧桥：**
 
--白色
+- 白色的
 -rgb（w）
 
 **描述**
 
-可以在[er](https://steiger04.github.io/milight-smart-light-doku/)中找到详细说明。
+可以在[这里](https://steiger04.github.io/milight-smart-light-doku/)中找到详细说明。
 
 ###版本
 -** Node.js **：使用10.18.1版或更高版本
--** iobroker.admin **：使用3.5.10或更高版本
+-** iobroker.admin **：使用3.5.10版或更高版本
 
 ## Changelog
-### 1.1.1 (2020-01-13)
+### 1.2.1 (2020-05-18)
+- (steiger04) Compatibility with socketio v3.1.4
+### 1.2.0 (2020-01-16)
 - (steiger04) compact mode added
 ### 1.0.5 (2020-01-10)
 - (steiger04) Small bug fix
