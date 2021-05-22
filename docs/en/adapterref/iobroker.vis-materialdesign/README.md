@@ -12835,6 +12835,15 @@ The adapter uses the following libraries:
 -->
 
 <!-- omit in toc -->
+### __WORK IN PROGRESS__
+* (Scrounger) Top App Bar Widget: color option for menu icon added ([#171](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/171))
+* (Scrounger) Top App Bar Widget: Permission group - option to deactivate default value added ([#173](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/173))
+* (Scrounger) iconList Widget: bug fix for active state at diffrent types ([#168](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/168))
+* (Scrounger) iconList Widget: layout bug fix for radius of buttons ([#174](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/174))
+* (Scrounger) list Widget: bug fix for theme properties
+* (Scrounger) select Widget: bug fix for long text ([#169](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/169))
+
+<!-- omit in toc -->
 ### 0.5.6 (2021-05-07)
 * (Scrounger) Html Widgets: escaping bug fix
 * (Scrounger) iconList: layout bug fix

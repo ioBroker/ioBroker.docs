@@ -1,8 +1,8 @@
 ---
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.mydlink.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.mydlink.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.mydlink.svg
-BADGE-Number of Installations (latest): http://iobroker.live/badges/mydlink-installed.svg
-BADGE-Number of Installations (stable): http://iobroker.live/badges/mydlink-stable.svg
+BADGE-Number of Installations (latest): https://iobroker.live/badges/mydlink-installed.svg
+BADGE-Number of Installations (stable): https://iobroker.live/badges/mydlink-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.mydlink.png?downloads=true
 ---
 ![Logo](../../admin/mydlink.png)
@@ -74,8 +74,9 @@ Gerät, die er braucht.
 	### __WORK IN PROGRESS__
 	npm install @alcalzone/release-script
 -->
-### __WORK IN PROGRESS__
+### 1.1.8 (2021-05-20)
 * added: `telnet` token is now case insensitive
+* fixed: prevent object missing warning on new devices
 
 ### 1.1.7 (2020-10-09)
 * fixed: prevent error message with new mydlink plugs on switch
@@ -185,7 +186,7 @@ Gerät, die er braucht.
 ## License
 MIT License
 
-Copyright (c) 2020 Garfonso <garfonso@mobo.info>
+Copyright (c) 2021 Garfonso <garfonso@mobo.info>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

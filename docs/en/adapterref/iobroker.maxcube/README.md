@@ -19,6 +19,9 @@ Before using you must first connect all devices to MAX! Cube via MAX! Firmware.
 
 ## Changelog
 
+### 1.0.4 (2021-05-08)
+* (thost96) fixes for issues found by adapter checker (issue #31)
+
 ### 1.0.3 (2021-04-10)
 * (thost96) fixed state has no existing object for info.serial_number
 
@@ -50,4 +53,4 @@ Before using you must first connect all devices to MAX! Cube via MAX! Firmware.
 
 ## License
 
-MIT Copyright (c) 2017-2020 bluefox
+MIT Copyright (c) 2017-2021 bluefox

@@ -26,6 +26,11 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
+### 0.0.7 (2021-05-21)
+* Fixed some vulnerabilities in dev-dependencies
+* Fixed js-controller 3* issues
+* Fixed node 16 compatability
+
 ### 0.0.6 (2021-01-21)
 * Added Sentry.io Integration
 

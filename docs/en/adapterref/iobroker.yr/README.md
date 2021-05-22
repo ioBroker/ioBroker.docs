@@ -1,4 +1,3 @@
-
 ![Logo](admin/yr.png)
 # ioBroker.yr
 
@@ -19,7 +18,15 @@ http://om.yr.no/verdata/free-weather-data/
 ## Icons
 Icons are taken from here [https://github.com/YR/weather-symbols](https://github.com/YR/weather-symbols) and belongs to yr.no.
 
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
 ## Changelog
+### __WORK IN PROGRESS__
+* (arteck) Type of state was corrected  
+
 ### 2.0.3 [2018-10-10]
 * (bluefox) add translations
 
@@ -100,7 +107,7 @@ Icons are taken from here [https://github.com/YR/weather-symbols](https://github
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2018 hobbyquaker <hq@ccu.io>
+Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

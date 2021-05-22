@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.swiss-weather-api/README.md
 title: ioBroker.swiss-weather-api
-hash: pLbVrk1AXeOxB8SDnfr8FEkVce9i++LOGy0MotabGSg=
+hash: w5/s9Oyl4qRqCQlepfC5uMcSa3gYyBYf1wzyJ/F0OXo=
 ---
 ![商标](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
 
@@ -18,34 +18,33 @@ hash: pLbVrk1AXeOxB8SDnfr8FEkVce9i++LOGy0MotabGSg=
 
 ＃ioBroker.swiss-weather-api
 ##适用于ioBroker的swiss-weather-api适配器
-连接到出色的SRG-SSR天气API（https://developer.srgssr.ch/apis/srgssr-weather）。
+连接到出色的SRF天气API（https://developer.srgssr.ch/apis/srf-weather）。
+SRF Weather REST API使您可以从瑞士超过25.000个地点获取天气预报和报告。 “免费增值”订阅可让您每天获得50个请求。
 
-SRG-SSR Weather REST API可让您从瑞士超过25.000个地点获取天气预报和报告。
+## **图标**
+从版本0.1.8开始，SRG-SSR提供了自己的图标。因此，每个数据点都提供一个指向对应天气情况的URL（颜色，深色和浅色图标）。
 
-**图标**
-
-天气图标可从https://erikflowers.github.io/weather-icons/重用
-
-从0.1.8版开始，SRG-SSR甚至提供了自己的图标。因此，您可以选择要使用的图标集。
-
-**请注意，此适配器仅支持瑞士境内的位置。**
-
+## **请注意，此适配器仅支持瑞士境内的位置。**
 ＃＃＃ 入门
 1.在https://developer.srgssr.ch/上获得免费帐户
-1.确保使用产品“ SRG-SSR-PUBLIC-API-V2”，因为这是他们的免费产品
-1.转到“我的应用程序”并创建一个新的应用程序。这将创建一个特定的ConsumerKey和ConsumerSecret
-1.找出需要进行预测的所选位置的经度/纬度（十进制）
+1.转到“我的应用程序”并创建一个新的应用程序。在这里您可以选择一种产品。 “免费增值”是他们的免费产品。如果您只想每天（每30分钟）执行50个请求或/并且不想每天支付更多请求，则可以选择“免费增值”。现在，这将创建一个特定的ConsumerKey和ConsumerSecret
+1.找出需要进行预测的所选位置的经度/纬度（十进制度）。如果您已在ioBroker设置（主要设置）中（通过地图）设置了位置，则此信息是可选的。在这种情况下，您可以将纬度和经度字段留空。然后，适配器接管ioBroker的设置。在适配器配置中输入的纬度和经度将覆盖ioBroker设置。
 1.在ioBroker上安装此适配器=>这可能需要几分钟（在Raspberry Pi 3上约为7分钟）
-1.在“适配器配置”上填写
+1.在“适配器配置”上，填写
    1.应用名称
    1. App的ConsumerKey
    1. App的ConsumerSecret
    1.需要预测的所选瑞士位置的经度/纬度。 =>请使用十进制度数（例如苏黎世：47.36667 / 8.5）
-   1.以分钟为单位的轮询间隔（默认为30分钟）
+   1.以分钟为单位的轮询间隔（默认为30分钟-50个请求/天）
 
-适配器启动后10秒钟进行第一个查询。首次启动后，将根据配置参数（以分钟为单位的轮询间隔）定期执行查询
+适配器启动后10秒钟将进行第一个查询。首次启动后，将根据配置参数（以分钟为单位的轮询间隔）定期执行查询
 
 ## Changelog
+
+### 0.9.0
+* (baerengraben)  Removed NodeJs 10 support and added NodeJs 16 support 
+* (baerengraben)  Update to new SRF Weater API (https://developer.srgssr.ch/apis/srf-weather). Attention: Old Weather-API (Adapter Version 0.3.2 and earlier) will be decommissioned on Sept. 2021)
+* (baerengraben)  Removed Icon-Support from https://erikflowers.github.io/weather-icons/ since SRF is providing their own icons.
 
 ### 0.3.2
 * (baerengraben)  Fix for https://github.com/baerengraben/iobroker.swiss-weather-api/issues/13.

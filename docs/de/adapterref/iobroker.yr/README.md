@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.yr/README.md
 title: ioBroker.yr
-hash: s+SkqMZbnSFY2acITgHvIqIIe9qKW6oTr0EU8TLj2nE=
+hash: Wv+VSiCyLkFwarjbReHt20yyPPZ0pCInwx5v1zeUOZg=
 ---
 ![Logo](../../../en/adapterref/iobroker.yr/admin/yr.png)
 
@@ -14,83 +14,89 @@ hash: s+SkqMZbnSFY2acITgHvIqIIe9qKW6oTr0EU8TLj2nE=
 ![NPM](https://nodei.co/npm/iobroker.yr.png?downloads=true)
 
 # IoBroker.yr
-holt 48h Wettervorhersage von [yr.nr.](yr.no)
+holt 48h Wettervorhersage aus [yr.no](yr.no)
 
-[yr.no] (yr.no) ist eine gemeinsame Dienstleistung des [Norwegian Meteorological Institute] (met.no) und der [Norwegian Broadcasting Corporation](nrk.no)
+[yr.no] (yr.no) ist ein gemeinsamer Dienst des [Norwegischen Meteorologischen Instituts] (met.no) und der [Norwegian Broadcasting Corporation](nrk.no)
 
 http://om.yr.no/verdata/free-weather-data/
 
-** Hinweis ** - Wenn _ "Fehlende Übersetzungen an iobroker.net senden" _ aktiviert ist (Standardeinstellung), werden fehlende Übersetzungen an den iobroker.net-Server gesendet. Es werden keine IPS oder zusätzliche Informationen gespeichert oder analysiert. Nur die Übersetzung fehlt.
+** Hinweis ** - Wenn _ "Fehlende Übersetzungen an iobroker.net senden" _ aktiviert ist (Standard), werden fehlende Übersetzungen an den iobroker.net-Server gesendet. Es werden keine ips oder zusätzliche Informationen gespeichert oder analysiert. Nur fehlende Übersetzung.
 
-## Icons
-Icons werden hier [https://github.com/YR/weather-symbols](https://github.com/YR/weather-symbols) entnommen und gehören zu yr.no.
+## Symbole
+Die Symbole stammen von hier [https://github.com/YR/weather-symbols](https://github.com/YR/weather-symbols) und gehören zu yr.no.
 
+<! - Platzhalter für die nächste Version (am Zeilenanfang):
+
+### __WORK IN PROGRESS__ ->
 ## 1.0.4 [2016-07-06]
 * (bluefox) Link zur Readme-Datei korrigieren
 
 ### 1.0.3 [2016-05-17]
-* (bluefox) Liesmichpfad ändern
+* (Bluefox) Readme-Pfad ändern
 
 ### 1.0.2 [2016-05-16]
-* (bluefox) füge Übersetzungen hinzu
+* (Bluefox) Übersetzungen hinzufügen
 
 ### 1.0.1 [2016-04-25]
-* (bluefox) füge Übersetzungen hinzu
+* (Bluefox) Übersetzungen hinzufügen
 
-### 1.0.0 [2016-03-15]
-* (bluefox) Parsing von Städten ändern
+### 1.0.0 [15.03.2016]
+* (Bluefox) Parsing von Städten ändern
 
 ### 0.1.9 [2015-10-28]
-* (bluefox) behebt Fehler bei Übersetzungen
+* (bluefox) Fehler bei Übersetzungen behoben
 
 ### 0.1.8 [2015-10-27]
-* (bluefox) übersetzungen
-* (bluefox) lädt fehlende Übersetzungen automatisch zu iobroker.net hoch
+* (Bluefox) Übersetzungen
+* (bluefox) lädt fehlende Übersetzungen automatisch auf iobroker.net hoch
 
-### 0.1.7 [2015-07-10]
-* (bluefox) macht Ihre Arbeit mit Metro-Widgets möglich
+### 0.1.7 [10.07.2015]
+* (bluefox) lass dich mit Metro-Widgets arbeiten
 
 ### 0.1.6 [2015-06-12]
-* (bluefox) übersetzungen
+* (Bluefox) Übersetzungen
 
 ### 0.1.5 [2015-03-26]
-* (bluefox) übersetzungen
+* (Bluefox) Übersetzungen
 
 ### 0.1.4 [2015-03-24]
-* (bluefox) Einheit "%" für "Windrichtung" entfernen
+* (Bluefox) entferne die Einheit "%" für "Windrichtung"
 
 ### 0.1.3 [2015-03-22]
-* (bluefox) behebt Fehler mit morgen und übermorgen
+* (bluefox) Fehler mit morgen und übermorgen beheben
 
-### 0.1.2 [2015-03-08]
-* (bluefox) richtige Links zur Website yr.no
+### 0.1.2 [08.03.2015]
+* (bluefox) korrekte Links zu Ihrer Website
 
-0.1.1
-* (bluefox) fügt Übersetzungen für die Wetterzustände in anderen Sprachen hinzu
+### 0.1.1
+* (bluefox) Übersetzungen für die Wetterzustände in andere Sprachen hinzufügen
 
-0,1,0
-* (bluefox) aktualisiert Ihr neues Objektmodell
+### 0.1.0
+* (bluefox) aktualisiere dein Jahr für das neue Objektmodell
 
-0,04
-* (Hobbyquaker) "Prognose" voranstellen. IDs angeben
+### 0.0.4
+* (Hobbyquaker) stellen "Prognose" voran. IDs angeben
 
-0.0.3
-* (Hobbyquaker) Einstellungen der Benutzeroberfläche mit automatischer Vervollständigung der Position
-* (Hobbyquaker) wurde in Prognose in yr_forecast umbenannt
-* (Hobbyquaker) Kinderattribut hinzugefügt
-* (Hobbyquaker) verringerte die Log-Ausführlichkeit
+### 0.0.3
+* (Hobbyquaker) Einstellungen ui mit Autocomplete für Standort
+* (Hobbyquaker) wurde in yr_forecast umbenannt, um eine Prognose zu erstellen
+* (Hobbyquaker) hat ein Kinderattribut hinzugefügt
+* (Hobbyquaker) verringerte die Ausführlichkeit des Protokolls
 * (Hobbyquaker) Korrekturen
 
-0,02
+### 0.0.2
 * (Hobbyquaker) Korrekturen
 
 ### 0.0.1
 * (Hobbyquaker) erste Veröffentlichung
 
 ## Machen
-* setState Forecast_object
+* setState Forecast_Object
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (arteck) Type of state was corrected  
+
 ### 2.0.3 [2018-10-10]
 * (bluefox) add translations
 
@@ -107,7 +113,7 @@ Icons werden hier [https://github.com/YR/weather-symbols](https://github.com/YR/
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2018 hobbyquaker <hq@ccu.io>
+Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

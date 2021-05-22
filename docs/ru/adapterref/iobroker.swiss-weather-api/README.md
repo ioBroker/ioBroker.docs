@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.swiss-weather-api/README.md
 title: ioBroker.swiss-weather-api
-hash: pLbVrk1AXeOxB8SDnfr8FEkVce9i++LOGy0MotabGSg=
+hash: w5/s9Oyl4qRqCQlepfC5uMcSa3gYyBYf1wzyJ/F0OXo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
 
@@ -13,39 +13,38 @@ hash: pLbVrk1AXeOxB8SDnfr8FEkVce9i++LOGy0MotabGSg=
 ![Количество установок (стабильно)](http://iobroker.live/badges/swiss-weather-api-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/baerengraben/iobroker.swiss-weather-api.svg)
 ![Известные уязвимости](https://snyk.io/test/github/baerengraben/ioBroker.swiss-weather-api/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.swiss-weather-api.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.swiss-weather-api.png?downloads=true)
 ![Трэвис-Си](http://img.shields.io/travis/baerengraben/ioBroker.swiss-weather-api/master.svg)
 
 # IoBroker.swiss-weather-api
 ## Swiss-weather-api адаптер для ioBroker
-Подключается к отличному API погоды SRG-SSR (https://developer.srgssr.ch/apis/srgssr-weather).
+Подключается к отличному API погоды SRF (https://developer.srgssr.ch/apis/srf-weather).
+API-интерфейс SRF Weather REST позволяет получать прогнозы погоды и отчеты из более чем 25 000 мест по всей Швейцарии. Подписка «Freemium» позволяет получать 50 запросов в день.
 
-API REST погоды SRG-SSR позволяет получать прогнозы погоды и отчеты из более чем 25 000 мест по всей Швейцарии.
+## **Иконки**
+Начиная с версии 0.1.8, SRG-SSR предоставляет собственные значки. Таким образом, каждая точка данных предоставляет URL-адрес соответствующей погодной ситуации (цветные, темные и светлые значки).
 
-** Иконки **
-
-Иконки погоды повторно используются с https://erikflowers.github.io/weather-icons/
-
-Начиная с версии 0.1.8 SRG-SSR даже предоставляет собственные значки. Таким образом, вы можете выбрать, какой набор иконок вы хотите использовать.
-
-** Имейте в виду, что этот адаптер поддерживает только местоположения в Швейцарии. **
-
+## **Имейте в виду, что этот адаптер поддерживает только местоположения в Швейцарии.**
 ### Начиная
 1. Получите бесплатный аккаунт на https://developer.srgssr.ch/.
-1. Убедитесь, что используете продукт "SRG-SSR-PUBLIC-API-V2", поскольку это их бесплатный продукт.
-1. Перейдите в «Мои приложения» и создайте новое приложение. Это создаст определенные ConsumerKey и ConsumerSecret.
-1. Узнайте долготу / широту (в десятичных градусах) выбранного места, для которого требуется прогноз.
-1. Установите этот адаптер на ioBroker => Это может занять несколько минут (~ 7 минут на Raspberry Pi 3)
+1. Перейдите в «Мои приложения» и создайте новое приложение. Здесь вы можете выбрать товар. «Freemium» - это их бесплатный продукт. Если вы хотите делать только 50 запросов в день (каждые 30 минут) или / и не хотите платить за большее количество запросов в день, вы хотите выбрать «Freemium». Теперь это создаст определенные ConsumerKey и ConsumerSecret.
+1. Узнайте долготу / широту (в десятичных градусах) выбранного места, для которого требуется прогноз. Эта информация не является обязательной, если вы указали свое местоположение в настройках ioBroker (основные настройки) (через карту). В этом случае вы можете оставить поля широты и долготы пустыми. Затем адаптер принимает настройки ioBroker. Широта и долгота, введенные в конфигурации адаптера, имеют приоритет над настройками ioBroker.
+1. Установите этот адаптер на ioBroker => Это может занять несколько минут (~ 7 минут на Raspberry Pi 3).
 1. В разделе «Конфигурация адаптера» введите
    1. Название приложения
    1. ConsumerKey приложения
    1. ConsumerSecret приложения
-   1. Долгота / широта выбранного места в Швейцарии, для которого требуется прогноз. => Используйте десятичные градусы (например, Цюрих: 47,36667 / 8,5)
-   1. Интервал опроса в минутах (по умолчанию 30 минут)
+   1. Долгота / широта выбранного швейцарского местоположения, для которого требуется прогноз. => Используйте десятичные градусы (например, Цюрих: 47,36667 / 8,5)
+   1. Интервал опроса в минутах (по умолчанию 30 минут - 50 запросов в день)
 
-Первый запрос выполняется через 10 секунд после запуска адаптера. После первого запуска запрос будет выполняться регулярно в соответствии с параметром конифугирования (Интервал опроса в минутах)
+Первый запрос выполняется через 10 секунд после запуска адаптера. После первого запуска запрос будет выполняться регулярно в соответствии с параметром conifugation (Интервал опроса в минутах)
 
 ## Changelog
+
+### 0.9.0
+* (baerengraben)  Removed NodeJs 10 support and added NodeJs 16 support 
+* (baerengraben)  Update to new SRF Weater API (https://developer.srgssr.ch/apis/srf-weather). Attention: Old Weather-API (Adapter Version 0.3.2 and earlier) will be decommissioned on Sept. 2021)
+* (baerengraben)  Removed Icon-Support from https://erikflowers.github.io/weather-icons/ since SRF is providing their own icons.
 
 ### 0.3.2
 * (baerengraben)  Fix for https://github.com/baerengraben/iobroker.swiss-weather-api/issues/13.

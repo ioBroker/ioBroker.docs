@@ -361,6 +361,10 @@ Here is a list of the problems that have occurred so far and their solutions, if
 
 ## Changelog
 
+### 2.1.11 (19.05.2021)
+* (simatec) adminTab edited
+* (simatec) translation changed
+
 ### 2.1.10 (16.05.2021)
 * (simatec) Bugfix adminTab
 

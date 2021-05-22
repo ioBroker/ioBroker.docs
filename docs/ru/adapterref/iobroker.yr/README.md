@@ -3,94 +3,100 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.yr/README.md
 title: ioBroker.yr
-hash: s+SkqMZbnSFY2acITgHvIqIIe9qKW6oTr0EU8TLj2nE=
+hash: Wv+VSiCyLkFwarjbReHt20yyPPZ0pCInwx5v1zeUOZg=
 ---
-![логотип](../../../en/adapterref/iobroker.yr/admin/yr.png)
+![Логотип](../../../en/adapterref/iobroker.yr/admin/yr.png)
 
 ![Количество установок](http://iobroker.live/badges/yr-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.yr.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.yr.svg)
-![тесты](https://travis-ci.org/ioBroker/ioBroker.yr.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.yr.png?downloads=true)
+![Тесты](https://travis-ci.org/ioBroker/ioBroker.yr.svg?branch=master)
+![НПМ](https://nodei.co/npm/iobroker.yr.png?downloads=true)
 
 # IoBroker.yr
-получает прогноз погоды на 48 часов из [yr.no](yr.no)
+получает прогноз погоды на 48 часов из [год нет](yr.no)
 
-[yr.no] (yr.no) является совместной службой [Норвежский метеорологический институт] (met.no) и [Норвежская радиовещательная корпорация](nrk.no)
+[yr.no] (yr.no) - совместная служба [Норвежского метеорологического института] (met.no) и [Норвежской радиовещательной корпорации](nrk.no)
 
 http://om.yr.no/verdata/free-weather-data/
 
-** Примечание ** - если _ «Отправить отсутствующие переводы на iobroker.net» _ активировано (по умолчанию), то отсутствующие переводы будут отправлены на сервер iobroker.net. Никакие ips или любая дополнительная информация не будут сохранены или проанализированы. Просто отсутствует перевод.
+** Примечание ** - если _ "Отправить недостающие переводы на iobroker.net" _ активировано (по умолчанию) отсутствующие переводы будут отправлены на сервер iobroker.net. Никакие IP-адреса или какая-либо дополнительная информация не будет храниться или анализироваться. Просто отсутствует перевод.
 
 ## Иконки
-Иконки взяты отсюда [https://github.com/YR/weather-symbols](https://github.com/YR/weather-symbols) и принадлежит yr.no.
+Иконки взяты отсюда [https://github.com/YR/weather-symbols](https://github.com/YR/weather-symbols) и принадлежат yr.no.
 
+<! - Заполнитель для следующей версии (в начале строки):
+
+### __РАБОТА В ПРОЦЕССЕ__ ->
 ## 1.0.4 [2016-07-06]
-* (bluefox) исправление ссылки на readme
+* (bluefox) исправить ссылку на readme
 
 ### 1.0.3 [2016-05-17]
-* (bluefox) изменить путь чтения
+* (bluefox) изменить путь к файлу readme
 
 ### 1.0.2 [2016-05-16]
-* (bluefox) добавить перевод
+* (bluefox) добавить переводы
 
 ### 1.0.1 [2016-04-25]
-* (bluefox) добавить перевод
+* (bluefox) добавить переводы
 
 ### 1.0.0 [2016-03-15]
-* (bluefox) изменение парсинга городов
+* (bluefox) изменить парсинг городов
 
 ### 0.1.9 [2015-10-28]
 * (bluefox) исправить ошибку с переводами
 
 ### 0.1.8 [2015-10-27]
 * (bluefox) переводы
-* (bluefox) автоматическая загрузка отсутствующих переводов на iobroker.net
+* (bluefox) автоматическая загрузка недостающих переводов на iobroker.net
 
 ### 0.1.7 [2015-07-10]
-* (bluefox) заставляет вас работать с виджетами метро
+* (bluefox) make yr работает с виджетами метро
 
-### 0.1.6 [2015-06-12]
+### 0.1.6 [12.06.2015]
 * (bluefox) переводы
 
 ### 0.1.5 [2015-03-26]
 * (bluefox) переводы
 
 ### 0.1.4 [2015-03-24]
-* (bluefox) убрать единицу «%» для «направления ветра»
+* (bluefox) удалить единицу "%" для "направления ветра"
 
 ### 0.1.3 [2015-03-22]
-* (bluefox) исправляет ошибку завтра и послезавтра
+* (bluefox) исправить ошибку с завтра и послезавтра
 
 ### 0.1.2 [2015-03-08]
 * (bluefox) правильные ссылки на сайт yr.no
 
 ### 0.1.1
-* (bluefox) добавить переводы для погодных условий на другие языки
+* (bluefox) добавить переводы погодных условий на другие языки
 
 ### 0.1.0
-* (bluefox) обновить год на новой модели объектов
+* (bluefox) год обновления модели новых объектов
 
 ### 0.0.4
-* (hobbyquaker) предварять "прогноз". указать идентификаторы
+* (hobbyquaker) добавить «прогноз». указать идентификаторы
 
 ### 0.0.3
-* (hobbyquaker) настройки интерфейса с автозаполнением для местоположения
-* (hobbyquaker) переименован в yr_forecast для прогноза
-* (hobbyquaker) добавлен атрибут детей
-* (хобби-квакер) уменьшенная детализация журнала
-* (хобби-квакер) исправления
+* (hobbyquaker) пользовательский интерфейс настроек с автозаполнением местоположения
+* (hobbyquaker) yr_forecast переименован в прогноз
+* (hobbyquaker) добавлен атрибут children
+* (hobbyquaker) уменьшена детализация журнала
+* (hobbyquaker) исправления
 
 ### 0.0.2
-* (хобби-квакер) исправления
+* (hobbyquaker) исправления
 
 ### 0.0.1
 * (hobbyquaker) первый выпуск
 
-## Сделать
-* setState forecast_object
+## Делать
+* setState прогноз_объект
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (arteck) Type of state was corrected  
+
 ### 2.0.3 [2018-10-10]
 * (bluefox) add translations
 
@@ -107,7 +113,7 @@ http://om.yr.no/verdata/free-weather-data/
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2018 hobbyquaker <hq@ccu.io>
+Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

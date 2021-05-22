@@ -61,6 +61,10 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+### 0.68.0
+
+• Neue Icons hinzugefügt (Devices/Sandfilter)
+
 ### 0.67.0
 
 • Neue Icons hinzugefügt (Hobbies)
@@ -413,7 +417,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## License
 
-Urheberrechte (c) 2020 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
+Urheberrechte (c) 2021 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
 
 
 MIT License (nur in englisch / englisch only)

@@ -3,28 +3,31 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.yr/README.md
 title: ioBroker.yr
-hash: s+SkqMZbnSFY2acITgHvIqIIe9qKW6oTr0EU8TLj2nE=
+hash: Wv+VSiCyLkFwarjbReHt20yyPPZ0pCInwx5v1zeUOZg=
 ---
 ![商标](../../../en/adapterref/iobroker.yr/admin/yr.png)
 
 ![安装数量](http://iobroker.live/badges/yr-stable.svg)
 ![NPM版本](http://img.shields.io/npm/v/iobroker.yr.svg)
-![下载](https://img.shields.io/npm/dm/iobroker.yr.svg)
-![测试](https://travis-ci.org/ioBroker/ioBroker.yr.svg?branch=master)
+![资料下载](https://img.shields.io/npm/dm/iobroker.yr.svg)
+![测验](https://travis-ci.org/ioBroker/ioBroker.yr.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.yr.png?downloads=true)
 
 ＃ioBroker.yr
-从[yr.no](yr.no)获取48小时天气预报
+从[yr.no](yr.no)获取48h天气预报
 
-[yr.no]（yr.no）是[挪威气象研究所]（met.no）和[挪威广播公司]的联合服务](nrk.no)
+[yr.no]（yr.no）是[Norwegian Meteorological Institute]（met.no）和[Norwegian Broadcasting Corporation]的联合服务](nrk.no)
 
 http://om.yr.no/verdata/free-weather-data/
 
-**注意**  - 如果_“将缺失的翻译发送到iobroker.net”_被激活（默认）缺少的翻译将被发送到iobroker.net服务器。不会存储或分析任何ips或任何其他信息。只是缺少翻译。
+**注意**-如果激活了“将缺少的翻译发送到iobroker.net” _（默认），则缺少的翻译将发送到iobroker.net服务器。没有IP或任何其他信息将被存储或分析。只是缺少翻译。
 
 ##图标
-图标取自此处[https://github.com/YR/weather-symbols](https://github.com/YR/weather-symbols)，属于yr.no.
+图标取自[https://github.com/YR/weather-symbols](https://github.com/YR/weather-symbols)，属于yr.no。
 
+<！-下一个版本的占位符（在该行的开头）：
+
+### __正在进行的工程__->
 ## 1.0.4 [2016-07-06]
 *（bluefox）修复了自述文件的链接
 
@@ -38,17 +41,17 @@ http://om.yr.no/verdata/free-weather-data/
 *（bluefox）添加翻译
 
 ### 1.0.0 [2016-03-15]
-*（bluefox）改变城市的解析
+*（bluefox）更改城市解析
 
 ### 0.1.9 [2015-10-28]
-*（bluefox）修复了翻译错误
+*（bluefox）修复翻译错误
 
 ### 0.1.8 [2015-10-27]
 *（bluefox）翻译
-*（bluefox）自动将缺失的翻译上传到iobroker.net
+*（bluefox）自动将缺少的翻译内容上传到iobroker.net
 
 ### 0.1.7 [2015-07-10]
-*（bluefox）让你的地铁小部件工作
+*（bluefox）使yr与Metro小部件一起使用
 
 ### 0.1.6 [2015-06-12]
 *（bluefox）翻译
@@ -57,40 +60,43 @@ http://om.yr.no/verdata/free-weather-data/
 *（bluefox）翻译
 
 ### 0.1.4 [2015-03-24]
-*（bluefox）删除“风向”单位“％”
+*（bluefox）删除“风向”的单位“％”
 
 ### 0.1.3 [2015-03-22]
-*（bluefox）明天和后天修复错误
+*（bluefox）修复明天和后天的错误
 
 ### 0.1.2 [2015-03-08]
-*（bluefox）正确链接到yr.no网站
+*（bluefox）指向yr.no网站的正确链接
 
 ### 0.1.1
-*（bluefox）为其他语言的天气状态添加翻译
+*（bluefox）添加翻译为其他语言的天气状态
 
 ### 0.1.0
-*（bluefox）更新新对象模型
+*（bluefox）在新对象模型上更新yr
 
 ### 0.0.4
-*（业余爱好者）在“预测”之前。陈述ID
+*（业余爱好者）在“预测”之前添加。陈述ID
 
 ### 0.0.3
-*（hobbyquaker）设置ui自动完成位置
-*（hobbyquaker）将yr_forecast重命名为预测
-*（hobbyquaker）添加了儿童属性
-*（业余爱好者）减少日志冗长
+*（hobbyquaker）设置ui具有位置自动完成功能
+*（业余爱好者）将yr_forecast重命名为Forecast
+*（爱好者）添加了子级属性
+*（业余爱好者）日志详细程度降低
 *（业余爱好者）修复
 
 ### 0.0.2
 *（业余爱好者）修复
 
 ### 0.0.1
-*（hobbyquaker）首次发布
+*（业余爱好者）首次发布
 
 ＃＃ 去做
-* setState forecast_object
+* setState Forecast_object
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (arteck) Type of state was corrected  
+
 ### 2.0.3 [2018-10-10]
 * (bluefox) add translations
 
@@ -107,7 +113,7 @@ http://om.yr.no/verdata/free-weather-data/
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2018 hobbyquaker <hq@ccu.io>
+Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

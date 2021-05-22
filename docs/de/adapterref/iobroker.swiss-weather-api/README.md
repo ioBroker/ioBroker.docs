@@ -3,13 +3,13 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.swiss-weather-api/README.md
 title: ioBroker.swiss-weather-api
-hash: pLbVrk1AXeOxB8SDnfr8FEkVce9i++LOGy0MotabGSg=
+hash: w5/s9Oyl4qRqCQlepfC5uMcSa3gYyBYf1wzyJ/F0OXo=
 ---
 ![Logo](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.swiss-weather-api.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.swiss-weather-api.svg)
-![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/swiss-weather-api-installed.svg)
+![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/swiss-weather-api-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/swiss-weather-api-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/baerengraben/iobroker.swiss-weather-api.svg)
 ![Bekannte Sicherheitslücken](https://snyk.io/test/github/baerengraben/ioBroker.swiss-weather-api/badge.svg)
@@ -18,34 +18,33 @@ hash: pLbVrk1AXeOxB8SDnfr8FEkVce9i++LOGy0MotabGSg=
 
 # IoBroker.swiss-weather-api
 ## Swiss-weather-api adapter für ioBroker
-Stellt eine Verbindung zur großartigen SRG-SSR-Wetter-API her (https://developer.srgssr.ch/apis/srgssr-weather).
+Stellt eine Verbindung zur großartigen SRF-Wetter-API her (https://developer.srgssr.ch/apis/srf-weather).
+Mit der SRF Weather REST API können Sie Wettervorhersagen und -berichte von mehr als 25.000 Standorten in der ganzen Schweiz abrufen. Mit einem "Freemium" -Abonnement erhalten Sie 50 Anfragen pro Tag.
 
-Mit der SRG-SSR-Wetter-REST-API können Sie Wettervorhersagen und -berichte von mehr als 25.000 Standorten in der ganzen Schweiz abrufen.
+## **Symbole**
+Seit Version 0.1.8 bietet SRG-SSR eigene Symbole. Daher liefert jeder Datenpunkt eine URL zur entsprechenden Wettersituation (Farb-, Dunkel- und Hell-Symbole).
 
-** Symbole **
-
-Wettersymbole werden von https://erikflowers.github.io/weather-icons/ wiederverwendet.
-
-Seit Version 0.1.8 bietet SRG-SSR sogar eigene Symbole. So können Sie auswählen, welches Icons-Set Sie verwenden möchten.
-
-** Beachten Sie, dass dieser Adapter nur Standorte innerhalb der Schweiz unterstützt. **
-
-### Fertig machen
+## **Bitte beachten Sie, dass dieser Adapter nur Standorte innerhalb der Schweiz unterstützt.**
+### Einstieg
 1. Holen Sie sich ein kostenloses Konto unter https://developer.srgssr.ch/
-1. Stellen Sie sicher, dass Sie das Produkt "SRG-SSR-PUBLIC-API-V2" verwenden, da dies das kostenlose Produkt ist
-1. Gehen Sie zu "Meine Apps" und erstellen Sie eine neue App. Dadurch werden ein spezifischer ConsumerKey und ConsumerSecret erstellt
-1. Ermitteln Sie den Längen- / Breitengrad (Dezimalgrad) des ausgewählten Standorts, für den eine Vorhersage erforderlich ist
+1. Gehen Sie zu "Meine Apps" und erstellen Sie eine neue App. Hier können Sie ein Produkt auswählen. "Freemium" ist ihr kostenloses Produkt. Wenn Sie nur 50 Anfragen pro Tag (alle 30 Minuten) oder / und nicht für mehr Anfragen pro Tag bezahlen möchten, ist "Freemium" das, was Sie auswählen möchten. Dadurch werden nun ein spezifischer ConsumerKey und ConsumerSecret erstellt
+1. Ermitteln Sie den Längen- / Breitengrad (Dezimalgrad) des ausgewählten Standorts, für den eine Vorhersage erforderlich ist. Diese Informationen sind optional, wenn Sie Ihren Standort in den ioBroker-Einstellungen (Haupteinstellungen) (über die Karte) festgelegt haben. In diesem Fall können Sie die Breiten- und Längengrade leer lassen. Der Adapter übernimmt dann die Einstellungen des ioBroker. In der Adapterkonfiguration eingegebene Breiten- und Längengrade überschreiben die ioBroker-Einstellungen.
 1. Installieren Sie diesen Adapter auf ioBroker => Dies kann einige Minuten dauern (~ 7 Minuten auf einem Raspberry Pi 3).
 1. Füllen Sie bei Adapterkonfiguration aus
    1. Name der App
    1. ConsumerKey der App
    1. ConsumerSecret der App
    1. Längen- / Breitengrad des gewählten Schweizer Standorts, für den eine Prognose erforderlich ist. => Bitte Dezimalgrad verwenden (zum Beispiel Zürich: 47.36667 / 8.5)
-   1. Abfrageintervall in Minuten (standardmäßig 30 Minuten)
+   1. Abfrageintervall in Minuten (Standardmäßig 30 Minuten - 50 Anfragen / Tag)
 
 Die erste Abfrage erfolgt 10 Sekunden nach dem Start des Adapters. Nach dem ersten Start wird die Abfrage regelmäßig gemäß dem Zentrifugationsparameter (Abfrageintervall in Minuten) ausgeführt.
 
 ## Changelog
+
+### 0.9.0
+* (baerengraben)  Removed NodeJs 10 support and added NodeJs 16 support 
+* (baerengraben)  Update to new SRF Weater API (https://developer.srgssr.ch/apis/srf-weather). Attention: Old Weather-API (Adapter Version 0.3.2 and earlier) will be decommissioned on Sept. 2021)
+* (baerengraben)  Removed Icon-Support from https://erikflowers.github.io/weather-icons/ since SRF is providing their own icons.
 
 ### 0.3.2
 * (baerengraben)  Fix for https://github.com/baerengraben/iobroker.swiss-weather-api/issues/13.

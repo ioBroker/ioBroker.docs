@@ -14,37 +14,34 @@
 
 ## swiss-weather-api adapter for ioBroker
 
-Connects to the great SRG-SSR weather API (https://developer.srgssr.ch/apis/srgssr-weather).  
+Connects to the great SRF weather API (https://developer.srgssr.ch/apis/srf-weather).  
+The SRF Weather REST API allows you to get weather forecasts and reports from more than 25.000 locations across Switzerland. A "Freemium" subscription allows you to get 50 Request/day. 
 
-The SRG-SSR Weather REST API allows you to get weather forecasts and reports from more than 25.000 locations across Switzerland.
+##**Icons**
+Since Version 0.1.8 SRG-SSR provides their own icons. So each Datapoint provides an URL to the correspondig weather-situation (Color, Dark, and Light Icons).
 
-**Icons**
-
-Weather-Icons are reused from https://erikflowers.github.io/weather-icons/ 
-
-Since Version 0.1.8 SRG-SSR even provides their own icons. So you can choose which Icons-Set you want to use.
-
-**Be aware that this adapter only supports locations within Switzerland.**
+##**Please Be aware that this adapter only supports locations within Switzerland.**
 
 ### Getting started
 1. Get a free accout on https://developer.srgssr.ch/ 
-1. Make sure using the product "SRG-SSR-PUBLIC-API-V2" since this is their free product  
-1. Go to "My Apps" and create a new App. This will create a specific ConsumerKey and ConsumerSecret
-1. Find out Longitude / Latitude (decimal degrees) of the chosen location for which forecast is needed
+1. Go to "My Apps" and create a new App. Here you can choose a Product. "Freemium" is their free product. If you only want to do 50 request per day (every 30min) or/and don't want to pay for more request per day, "Freemium" is what you want to choose. Now, this will create a specific ConsumerKey and ConsumerSecret
+1. Find out Longitude / Latitude (decimal degrees) of the chosen location for which forecast is needed. This information is optional if you have set your location in the ioBroker settings (main settings) (via the map). In this case you could leave the latitude and longitude fields empty. The adapter then takes over the settings of the ioBroker. Latitude and longitude entered in the adapter configuration override the ioBroker settings.
 1. Install this Adapter on ioBroker => This can take several minutes (~7min on a Raspberry Pi 3)
 1. On Adapter Configuration fill in
    1. Name of App
    1. ConsumerKey of App
    1. ConsumerSecret of App
    1. Longitude / Latitude of the chosen swiss location for which forecast is needed. => Please use decimal degrees (for example Zürich: 47.36667 / 8.5)
-   1. Poll Interval in Minutes (By default 30 minutes)
+   1. Poll Interval in Minutes (By default 30 minutes - 50 Request/Day)
 
 The first query is made 10s after the adapter was started. After the first start, the query will be executed regularly according to the conifugation parameter (Poll Interval in Minutes)
 
 ## Changelog
 
-### 0.3.3
+### 0.9.0
 * (baerengraben)  Removed NodeJs 10 support and added NodeJs 16 support 
+* (baerengraben)  Update to new SRF Weater API (https://developer.srgssr.ch/apis/srf-weather). Attention: Old Weather-API (Adapter Version 0.3.2 and earlier) will be decommissioned on Sept. 2021)
+* (baerengraben)  Removed Icon-Support from https://erikflowers.github.io/weather-icons/ since SRF is providing their own icons.
 
 ### 0.3.2
 * (baerengraben)  Fix for https://github.com/baerengraben/iobroker.swiss-weather-api/issues/13.
