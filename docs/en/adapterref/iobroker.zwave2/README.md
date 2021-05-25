@@ -40,6 +40,13 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.10.1 (2021-05-24)
+Removed some warnings about wrong state value types in JS-Controller 3.3
+Upgraded to `zwave-js` version `7.5.1`. Notable changes include:
+* Improved stability
+* Improved healing strategy
+* Several config file changes
+
 ### 1.10.0 (2021-04-29)
 * The associations tab now shows the name of devices along with their node ID
 * Associations can now also be managed on the endpoints of a node
@@ -78,16 +85,6 @@ For a full list of changes, check out https://github.com/zwave-js/node-zwave-js/
 * The `deltaTime` and `previousValue` values for the Meter CC are now hidden
 * Fixed a crash that could happen after node inclusion
 * Tons of new and improved device configuration files
-
-### 1.8.12 (2021-02-23)
-* Implemented `Scene Actuator Configuration CC` and `Scene Controller Configuration CC`
-* Fixed an issue where sleeping nodes could block the send queue when it is not yet known whether they support `Wake Up CC`
-* Fixed a crash that could happen while logging a message while the driver is not ready yet
-* Fixed a crash that could happen while trying to bootstrap a device that does not respond after inclusion
-* The state value in `Thermostat Fan Mode CC` is now readonly
-* Configuration parameters may now have a unit
-* Tons of new and improved device configuration files
-* Unsolicited reports are no longer incorrectly mapped to all endpoints
 
 ## License
 

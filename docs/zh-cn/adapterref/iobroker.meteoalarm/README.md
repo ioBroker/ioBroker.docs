@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.metalarm
-hash: t4W+whBjVkdsu5kxkZwHOH7v6dtTuIvKgqCLEolI/Gg=
+hash: 8Q/1vN8a1K+Lofg+VaZ4YQhEoG4CiTKEjdoFZOakcGI=
 ---
 ![商标](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -68,7 +68,7 @@ ioBroker的meteoalarm适配器---------------------------------------------- ---
 |:---:|:---:|
 |绿色|当前无警告。 |
 |黄色|天气潜在危险。预计的天气现象并不罕见，但应更加重视面临气象风险的活动。使自己了解预期的气象状况，并且不要承担任何可避免的风险。 |
-|橙色|天气很危险。已经预测到异常的气象现象。可能会造成损坏和事故。要非常专心和细心，并与预期的气象条件保持同步。 |
+|橙色|天气很危险。已经预测到异常的气象现象。可能会造成损坏和事故。要非常细心和小心，并与预期的气象条件保持同步。 |
 |红色|天气非常危险。可以预料到异常强烈的气象现象。经常在大面积上发生的极端损坏和事故威胁着生命和财产安全。 |
 
 ##支持的国家
@@ -107,7 +107,14 @@ ioBroker的meteoalarm适配器---------------------------------------------- ---
 ##要实现的功能
 *一天处理多个警报
 
-## 1.1.10（2021-05-09）
+## 1.2.0（2021-05-16）
+*（jack-blackson）新设置：
+
+“ HTML小部件中没有背景色”：可以使用没有背景色的HTML小部件（例如，如果您想使用颜色对象来填充整个小部件，而不仅仅是HTML小部件）“定义警告颜色”：可以定义十六进制代码中各种警报级别的颜色。用于HTML小部件，还用于将颜色对象手动分配给另一个小部件“使用白色图标”：使用白色图标代替黑色图标“不使用图标”：在HTML小部件中不显示图标-如果要显示单独的图标，或只是图标
+
+*（jack-blackson）新图标
+
+## 1.1.11（2021-05-09）
 *（jack-blackson）软件包更新
 
 ## 1.1.9（2021-05-07）
@@ -123,7 +130,7 @@ ioBroker的meteoalarm适配器---------------------------------------------- ---
 *（jack-blackson）错误修复了适配器检查器
 
 ## 1.1.2（2021-03-29）
-*（jack-blackson）错误修正，无法更新数据，并由于CORS错误而删除了链接自动生成
+*（jack-blackson）无法修复数据更新的错误修正，由于CORS错误而删除了链接自动生成
 
 ## 1.1.1（2020-10-28）
 *（jack-blackson）错误修正HTML资料

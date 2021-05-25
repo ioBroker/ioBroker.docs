@@ -584,7 +584,8 @@ Dieser Kanal enthält berechnete Werte. Aktuell sind dies Tages-/Wochen-/Monats-
 
 ## Changelog
 ### 1.3.2 (NoBl) Beta
-* autarky without decimal places (again). They are causing more updates than we really need.
+* Autarky without decimal places (again). They are causing more updates than we really need.
+* Autarky values won't reset to 0 at change of timeframe (day, week, ...) anymore. They are calculated based on reference values anyways.
 * Ensuring that only values meant to be changeable by user are defined so (attribute changes upon the next update of value)
 
 ### 1.3.1 (NoBl) 20210513

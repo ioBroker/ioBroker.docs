@@ -2,19 +2,21 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.fb-checkpresence/README.md
-title: 无题
-hash: DMvFhWFPYeS5t66i2pAeuERPxhK73GromMQBTBGJUmE=
+title: ioBroker.fb-checkpresence
+hash: 716YzLmTM3wTgPjJrRAiV4xC/nUyt7Cehw5dpLJ2vOU=
 ---
-![安装数量](http://iobroker.live/badges/fb-checkpresence-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)
+![商标](../../../en/adapterref/iobroker.fb-checkpresence/admin/fb-checkpresence.png)
+
+![NPM版本](https://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)
 ![资料下载](https://img.shields.io/npm/dm/iobroker.fb-checkpresence.svg)
+![安装数量（最新）](https://iobroker.live/badges/fb-checkpresence-installed.svg)
+![安装数量（稳定）](https://iobroker.live/badges/fb-checkpresence-stable.svg)
 ![依赖状态](https://img.shields.io/david/afuerhoff/iobroker.fb-checkpresence.svg)
 ![已知漏洞](https://snyk.io/test/github/afuerhoff/ioBroker.fb-checkpresence/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.fb-checkpresence.png?downloads=true)
-![特拉维斯](http://img.shields.io/travis/afuerhoff/ioBroker.fb-checkpresence/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/afuerhoff/ioBroker.fb-checkpresence?branch=master&svg=true)
 
-<h1><img src="admin/fb-checkpresence.png" width="64"/>ioBroker.fb-checkpresence</h1>
+＃ioBroker.fb-checkpresence
+**测试：**![测试与发布](https://github.com/afuerhoff/ioBroker.fb-checkpresence/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker的fb-checkpresence适配器
 适配器检查在炸弹箱上是否存在家庭成员。
@@ -72,7 +74,7 @@ fritzbox服务通过TR-064协议使用。
 
 ＃＃＃ 间隔
 家庭成员和Fritzbox设备的间隔时间是分开的。
-Fritzbox设备的间隔可以配置为1到59分钟。通常，1到5分钟之间的值是读取fritzbox数据的最佳间隔。家庭成员的配置时间可以从10秒到600秒。如果前一个周期结束，则每个新周期都会开始。
+Fritzbox设备的间隔可以配置为1到59分钟。通常，1到5分钟之间的值是读取fritzbox数据的最佳间隔。家庭成员的配置时间可以从10s到600s。如果前一个周期结束，则每个新周期都会开始。
 
 ###过滤时间
 如果筛选时间大于0s，则在状态更改为false时（在筛选时间之后）检查一次家庭成员的状态两次。如果状态为true，则立即设置状态。
@@ -109,7 +111,7 @@ Fritzbox设备的间隔可以配置为1到59分钟。通常，1到5分钟之间�
 要获得对象中的速度信息，必须选择fb-devices选项。
 
 ###白名单设置
-在白名单中，您可以插入每个已知的设备。黑名单对象中列出了所有未知设备。
+在白名单中，您可以插入每个已知设备。黑名单对象中列出了所有未知设备。
 如果您选中表格标题中的复选框，则会选中所有设备。
 
 ＃＃ 特征
@@ -117,7 +119,7 @@ Fritzbox设备的间隔可以配置为1到59分钟。通常，1到5分钟之间�
 该功能检查已使用的fritzbox功能的可用性。可用性记录为信息。如果有问题，请查看所有功能是否都设置为true。如果访问权限不正确，还将检查用户的访问权限，并将功能设置为false。
 
 ###开启/关闭访客无线局域网
-在guest虚拟机文件夹下，您可以将状态wlan设置为true或false，然后guest虚拟机wlan开启或关闭。
+在guest虚拟机文件夹下，您可以将状态wlan设置为true或false，然后guest虚拟机wlan打开或关闭。
 
 ###访客无线局域网的QR码
 来宾wlan的QR码保存在来宾文件夹中的状态wlanQR中。 QR代码可以在基本的Bool SVG小部件中可见显示。
@@ -161,7 +163,7 @@ Fritzbox设备的间隔可以配置为1到59分钟。通常，1到5分钟之间�
 以下列出了有关未知设备数量和其中包含未知设备信息的表对象的信息。
 
 ###对象member.present
-在这里，您将找到有关当日成员在场的信息以及自上次更改以来该成员的状态为真多久的信息。
+在这里，您可以找到有关当日成员在场的信息以及自上次更改以来该成员的状态为真的时间。
 
 ###对象member.absent
 在这里，您可以找到有关当日缺少成员以及该成员自上次更改以来一直处于错误状态的信息。
@@ -179,6 +181,33 @@ Fritzbox设备的间隔可以配置为1到59分钟。通常，1到5分钟之间�
     * Did some changes
     * Did some more changes
 -->
+
+### __WORK IN PROGRESS__
+* (afuerhoff) npm updated
+* (afuerhoff) checkservice fixed
+
+### 1.1.4 (2021-05-11)
+* (afuerhoff) family groups implemented
+* (afuerhoff) compatability mode implemented
+* (afuerhoff) dependencies updated
+* (afuerhoff) configuration options added
+* (afuerhoff) dialogboxes optimized
+* (afuerhoff) translations updated
+* (afuerhoff) general program structure optimized
+* (afuerhoff) filter for family members implemeted
+* (afuerhoff) password handling updated
+* (afuerhoff) documentation updated
+* (afuerhoff) QR-Code implemented
+* (afuerhoff) setState presence only if changed
+* (afuerhoff) access rights implemented
+* (afuerhoff) use name for presence
+* (afuerhoff) active / inactive devices
+* (afuerhoff) interval 10s bug fixed
+* (afuerhoff) Bugfix dateformat pattern
+* (afuerhoff) SSL (https) workaround implemented
+* (afuerhoff) Connection check optimized
+* (afuerhoff) Mesh handling optimized 
+
 ### 1.1.3 (2021-03-31)
 * (afuerhoff) family groups implemented
 * (afuerhoff) compatability mode implemented
@@ -190,6 +219,7 @@ Fritzbox设备的间隔可以配置为1到59分钟。通常，1到5分钟之间�
 * (afuerhoff) filter for family members implemeted
 * (afuerhoff) password handling updated
 * (afuerhoff) documentation updated
+
 
 ### 1.1.2 (2021-01-13)
 * (afuerhoff) QR-Code implemented
@@ -216,9 +246,6 @@ Fritzbox设备的间隔可以配置为1到59分钟。通常，1到5分钟之间�
 * (afuerhoff) switch on, off internet access of devices 
 * (afuerhoff) structural changes
 * (afuerhoff) code optimization
-
-### 1.0.4 (2020-06-28)
-* (afuerhoff) bugfix json list and guest handling, new object guest.presence
 
 ## License
 MIT License

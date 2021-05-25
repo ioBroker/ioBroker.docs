@@ -61,6 +61,10 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+### 0.69.0
+
+• Neue Icons hinzugefügt (Hobbies/Train & Spa_Fitness)
+
 ### 0.68.0
 
 • Neue Icons hinzugefügt (Devices/Sandfilter)

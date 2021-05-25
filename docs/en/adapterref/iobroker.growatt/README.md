@@ -125,6 +125,9 @@ Auf System Restart gehen und Button herzhaft, aber vorsichtig Klicken.
 
 ## Changelog
 
+### 1.1.0 (24.05.2021)
+* (PLCHome) Improvement of the connection via Axios Session
+
 ### 1.0.1 (05.03.2021)
 * (PLCHome) Duplicate keys are transmitted, I try to filter them out.
 
@@ -195,7 +198,7 @@ Auf System Restart gehen und Button herzhaft, aber vorsichtig Klicken.
 ## License
 MIT License
 
-Copyright (c) 2021 PLCHome <https://github.com/PLCHome>
+Copyright (c) 2021 PLCHome <https://github.com/PLCHome> <ioBroker@****.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

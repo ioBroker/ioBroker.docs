@@ -2,19 +2,21 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fb-checkpresence/README.md
-title: kein Titel
-hash: DMvFhWFPYeS5t66i2pAeuERPxhK73GromMQBTBGJUmE=
+title: ioBroker.fb-checkpresence
+hash: 716YzLmTM3wTgPjJrRAiV4xC/nUyt7Cehw5dpLJ2vOU=
 ---
-![Anzahl der Installationen](http://iobroker.live/badges/fb-checkpresence-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)
+![Logo](../../../en/adapterref/iobroker.fb-checkpresence/admin/fb-checkpresence.png)
+
+![NPM-Version](https://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.fb-checkpresence.svg)
+![Anzahl der Installationen (spätestens)](https://iobroker.live/badges/fb-checkpresence-installed.svg)
+![Anzahl der Installationen (stabil)](https://iobroker.live/badges/fb-checkpresence-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/afuerhoff/iobroker.fb-checkpresence.svg)
 ![Bekannte Sicherheitslücken](https://snyk.io/test/github/afuerhoff/ioBroker.fb-checkpresence/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.fb-checkpresence.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/afuerhoff/ioBroker.fb-checkpresence/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/afuerhoff/ioBroker.fb-checkpresence?branch=master&svg=true)
 
-<h1><img src="admin/fb-checkpresence.png" width="64"/>ioBroker.fb-checkpresence</h1>
+# IoBroker.fb-checkpresence
+** Tests: ** ![Testen und freigeben](https://github.com/afuerhoff/ioBroker.fb-checkpresence/workflows/Test%20and%20Release/badge.svg)
 
 ## Fb-checkpresence Adapter für ioBroker
 Der Adapter überprüft die Anwesenheit von Familienmitgliedern über die Fritzbox.
@@ -99,7 +101,7 @@ Diese Option kann aktiviert werden, wenn die Erstellung von FB-Geräten zulässi
 Wenn diese Option aktiviert ist, werden die Status für Gäste erstellt.
 
 ### Qr-Code-Generierung
-Wenn diese Option aktiviert ist, wird der QR-Code vom Gast-WLAN generiert.
+Wenn diese Option aktiviert ist, wird der QR-Code aus dem Gast-WLAN generiert.
 
 ### Einstellungen für Familienmitglieder
 Für ein konfiguriertes Familienmitglied sollten Sie den Mitgliedsnamen, den Hostnamen, die Mac- und IP-Adresse sowie einen Kommentar eingeben und das Mitglied aktivieren oder deaktivieren. Eine Gruppe ist optional. Wenn Sie die Gruppe leer lassen und das Kompatibilitätsflag auf true setzen, ähnelt das Verhalten einer älteren Version des Adapers. In einer zukünftigen Version müssen Sie den Anwesenheitsstatus eines Familienmitglieds verwenden. Dieses Verhalten wird mit dem Kontrollkästchen Kompatibilität ein- und ausgeschaltet: -> Kompatibilität = true: Verhalten als ältere Version mit leerer Gruppe.
@@ -133,7 +135,7 @@ Diese Geräte werden der Blacklist hinzugefügt.
 Für jedes Familienmitglied werden die Anwesenheit, das Kommen und Gehen sowie mehrere andere Informationen berechnet und im Mitgliedsobjekt gespeichert, wenn ein Verlaufsadapter ausgewählt ist.
 
 ### Hostnummer, aktive Geräte
-Die Anzahl der Geräte und wie viele aktiv sind, wird von der Fritzbox abgerufen.
+Die Anzahl der Geräte und wie viele aktiv sind, werden von der Fritzbox abgerufen.
 
 ## Objekte
 ### ObjektpräsenzAlle
@@ -161,7 +163,7 @@ Hier finden Sie Informationen zur Anzahl der aktiven Gäste und Tabellenobjekte 
 Hier finden Sie Informationen zur Anzahl unbekannter Geräte und Tabellenobjekte mit den darin enthaltenen unbekannten Geräteinformationen.
 
 ### Objekt member.present
-Hier finden Sie Informationen über die Anwesenheit eines Mitglieds am aktuellen Tag und darüber, wie lange der Status des Mitglieds seit der letzten Änderung gültig war.
+Hier finden Sie Informationen über die Anwesenheit eines Mitglieds am aktuellen Tag und darüber, wie lange der Status des Mitglieds seit der letzten Änderung wahr war.
 
 ### Objekt member.absent
 Hier finden Sie Informationen zur Abwesenheit eines Mitglieds am aktuellen Tag und wie lange der Status des Mitglieds seit der letzten Änderung falsch war.
@@ -179,6 +181,33 @@ Hier finden Sie Informationen zur Geschichte des aktuellen Tages.
     * Did some changes
     * Did some more changes
 -->
+
+### __WORK IN PROGRESS__
+* (afuerhoff) npm updated
+* (afuerhoff) checkservice fixed
+
+### 1.1.4 (2021-05-11)
+* (afuerhoff) family groups implemented
+* (afuerhoff) compatability mode implemented
+* (afuerhoff) dependencies updated
+* (afuerhoff) configuration options added
+* (afuerhoff) dialogboxes optimized
+* (afuerhoff) translations updated
+* (afuerhoff) general program structure optimized
+* (afuerhoff) filter for family members implemeted
+* (afuerhoff) password handling updated
+* (afuerhoff) documentation updated
+* (afuerhoff) QR-Code implemented
+* (afuerhoff) setState presence only if changed
+* (afuerhoff) access rights implemented
+* (afuerhoff) use name for presence
+* (afuerhoff) active / inactive devices
+* (afuerhoff) interval 10s bug fixed
+* (afuerhoff) Bugfix dateformat pattern
+* (afuerhoff) SSL (https) workaround implemented
+* (afuerhoff) Connection check optimized
+* (afuerhoff) Mesh handling optimized 
+
 ### 1.1.3 (2021-03-31)
 * (afuerhoff) family groups implemented
 * (afuerhoff) compatability mode implemented
@@ -190,6 +219,7 @@ Hier finden Sie Informationen zur Geschichte des aktuellen Tages.
 * (afuerhoff) filter for family members implemeted
 * (afuerhoff) password handling updated
 * (afuerhoff) documentation updated
+
 
 ### 1.1.2 (2021-01-13)
 * (afuerhoff) QR-Code implemented
@@ -216,9 +246,6 @@ Hier finden Sie Informationen zur Geschichte des aktuellen Tages.
 * (afuerhoff) switch on, off internet access of devices 
 * (afuerhoff) structural changes
 * (afuerhoff) code optimization
-
-### 1.0.4 (2020-06-28)
-* (afuerhoff) bugfix json list and guest handling, new object guest.presence
 
 ## License
 MIT License

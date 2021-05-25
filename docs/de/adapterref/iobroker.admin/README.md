@@ -123,6 +123,13 @@ Auch die Repositorien und Sicherheitseinstellungen können hier eingestellt werd
 Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitts zu erreichen.
 
 ## Changelog
+### 5.1.0 (2021-05-24)
+* (bluefox) Admin5: Fixed update of objects
+* (bluefox) Admin5: React UI is by default enabled
+
+### 5.0.32 (2021-05-23)
+* (bluefox) Admin5: Support of ANSI codes in log
+
 ### 5.0.31 (2021-05-21)
 * (bluefox) Admin5: Improved the enumerations
 
@@ -131,12 +138,6 @@ Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitt
 
 ### 5.0.29 (2021-05-19)
 * (bluefox) Admin5: Fixed reorder of the items in menu
-
-### 5.0.28 (2021-05-18)
-* (bluefox) Admin5: GUI fixes
-
-### 5.0.27 (2021-05-17)
-* (bluefox) Admin5: GUI fixes
 
 ## License
 

@@ -74,6 +74,9 @@ Gerät, die er braucht.
 	### __WORK IN PROGRESS__
 	npm install @alcalzone/release-script
 -->
+### 1.1.9 (2021-05-23)
+* updated translations
+
 ### 1.1.8 (2021-05-20)
 * added: `telnet` token is now case insensitive
 * fixed: prevent object missing warning on new devices

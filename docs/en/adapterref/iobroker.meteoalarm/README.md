@@ -1,7 +1,7 @@
 ![Logo](admin/meteoalarm.png)
 # ioBroker.meteoalarm
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.meteoalarm.svg)](https://www.npmjs.com/package/iobroker.meteoalarm) [![Build Status Travis](https://travis-ci.com/jack-blackson/ioBroker.meteoalarm.svg?branch=master)](https://travis-ci.com/jack-blackson/ioBroker.meteoalarm) [![Downloads](https://img.shields.io/npm/dm/iobroker.meteoalarm.svg)](https://www.npmjs.com/package/iobroker.meteoalarm) ![Number of Installations](http://iobroker.live/badges/meteoalarm-installed.svg) ![Number of Installations](http://iobroker.live/badges/meteoalarm-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.meteoalarm.svg)](https://www.npmjs.com/package/iobroker.meteoalarm) [![Build Status Travis](https://travis-ci.com/jack-blackson/ioBroker.meteoalarm.svg?branch=master)](https://travis-ci.com/jack-blackson/ioBroker.meteoalarm) [![Downloads](https://img.shields.io/npm/dm/iobroker.meteoalarm.svg)](https://www.npmjs.com/package/iobroker.meteoalarm) ![Number of Installations](http://iobroker.live/badges/meteoalarm-installed.svg) ![Number of Installations](http://iobroker.live/badges/meteoalarm-stable.svg)[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/meteoalarm/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) 
 
 [![NPM](https://nodei.co/npm/iobroker.meteoalarm.png?downloads=true)](https://nodei.co/npm/iobroker.meteoalarm.png?downloads=true/)
 
@@ -107,7 +107,16 @@ If you don't find your country, please create an issue on github, and I will be 
 
 
 ## Changelog
-## 1.1.10 (2021-05-09)
+
+## 1.2.0 (2021-05-16)
+* (jack-blackson) New Setup: 
+                    "No Background Color in HTML Widget": Ability to use the HTML Widget without background color (e.g. if you want to use the color object to fill your whole widget, not just the html widget)
+                    "Define Warning colors": Ability to define the colors for the various alarm levels in HEX code. Used for HTML widget and also for the color object to manually assign it to another widget
+                    "Use white icons": Use white icons instead of black ones
+                    "No Icons": Don't show icon in HTML widget - if you want to show the icon seperatly, or just the icon
+* (jack-blackson) New Icons
+
+## 1.1.11 (2021-05-09)
 * (jack-blackson) Package Updates
 ## 1.1.9 (2021-05-07)
 * (jack-blackson) Package Updates

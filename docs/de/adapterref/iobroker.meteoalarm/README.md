@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: t4W+whBjVkdsu5kxkZwHOH7v6dtTuIvKgqCLEolI/Gg=
+hash: 8Q/1vN8a1K+Lofg+VaZ4YQhEoG4CiTKEjdoFZOakcGI=
 ---
 ![Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -107,7 +107,14 @@ Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf github, und 
 ## Zu implementierende Funktionen
 * Behandeln Sie mehrere Alarme an einem Tag
 
-## 1.1.10 (2021-05-09)
+## 1.2.0 (2021-05-16)
+* (Jack-Blackson) Neues Setup:
+
+"Keine Hintergrundfarbe im HTML-Widget": Möglichkeit, das HTML-Widget ohne Hintergrundfarbe zu verwenden (z. B. wenn Sie das Farbobjekt verwenden möchten, um Ihr gesamtes Widget zu füllen, nicht nur das HTML-Widget) "Warnfarben definieren": Möglichkeit zum Definieren der Farben für die verschiedenen Alarmstufen im HEX-Code. Wird für das HTML-Widget und auch für das Farbobjekt verwendet, um es manuell einem anderen Widget zuzuweisen. "Weiße Symbole verwenden": Weiße Symbole anstelle von schwarzen verwenden. "Keine Symbole": Symbol im HTML-Widget nicht anzeigen - wenn Sie das anzeigen möchten Symbol separat oder nur das Symbol
+
+* (Jack-Blackson) Neue Symbole
+
+## 1.1.11 (2021-05-09)
 * (jack-blackson) Paketaktualisierungen
 
 ## 1.1.9 (2021-05-07)
@@ -134,7 +141,7 @@ Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf github, und 
 ## 1.0.9 (2020-02-06)
 * (Jack-Blackson) Bugfix Deutschland
 
-## 1.0.8 (2019-11-15)
+## 1.0.8 (15.11.2019)
 * (jack-blackson) Hinzugefügt Polen, Moldawien, Griechenland, Rumänien
 * (jack-blackson) Neuer Datenpunkt hinzugefügt, um einen Link zur Wetterkarte zu erhalten
 
@@ -186,7 +193,7 @@ Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf github, und 
 * (Jack-Blackson) Erstversion
 
 ## Credits
-Bell in Icon von Freepik von www.flaticon.com
+Bell in Icon von Freepik von www.flaticon.com entworfen
 
 ## Changelog
 

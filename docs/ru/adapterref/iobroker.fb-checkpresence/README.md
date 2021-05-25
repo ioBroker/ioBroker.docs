@@ -2,19 +2,21 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fb-checkpresence/README.md
-title: без заголовка
-hash: DMvFhWFPYeS5t66i2pAeuERPxhK73GromMQBTBGJUmE=
+title: ioBroker.fb-checkpresence
+hash: 716YzLmTM3wTgPjJrRAiV4xC/nUyt7Cehw5dpLJ2vOU=
 ---
-![Количество установок](http://iobroker.live/badges/fb-checkpresence-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)
+![Логотип](../../../en/adapterref/iobroker.fb-checkpresence/admin/fb-checkpresence.png)
+
+![Версия NPM](https://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.fb-checkpresence.svg)
+![Количество установок (последнее)](https://iobroker.live/badges/fb-checkpresence-installed.svg)
+![Количество установок (стабильно)](https://iobroker.live/badges/fb-checkpresence-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/afuerhoff/iobroker.fb-checkpresence.svg)
 ![Известные уязвимости](https://snyk.io/test/github/afuerhoff/ioBroker.fb-checkpresence/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.fb-checkpresence.png?downloads=true)
-![Трэвис-Си](http://img.shields.io/travis/afuerhoff/ioBroker.fb-checkpresence/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/afuerhoff/ioBroker.fb-checkpresence?branch=master&svg=true)
 
-<h1><img src="admin/fb-checkpresence.png" width="64"/>ioBroker.fb-checkpresence</h1>
+# IoBroker.fb-checkpresence
+** Тесты: ** ![Тестирование и выпуск](https://github.com/afuerhoff/ioBroker.fb-checkpresence/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер fb-checkpresence для ioBroker
 Адаптер проверяет присутствие членов семьи над фритцбоксом.
@@ -78,7 +80,7 @@ hash: DMvFhWFPYeS5t66i2pAeuERPxhK73GromMQBTBGJUmE=
 Если время фильтрации больше 0 с, состояние члена семейства проверяется дважды (после времени фильтрации), если состояние меняется на ложное. Если состояние истинно, состояние устанавливается немедленно.
 
 ### Адаптер истории
-По адаптеру истории вычисляются некоторые значения. Вы можете выбрать, будет ли использоваться история, sql или адаптер infxdb для этих вычислений. Адаптер истории должен быть установлен предварительно, а затем его можно будет выбрать в диалоговом окне конфигурации.
+По адаптеру истории вычисляются некоторые значения. Вы можете выбрать, будет ли использоваться история, sql или адаптер infxdb для этих вычислений. Адаптер истории должен быть установлен предварительно, после чего его можно будет выбрать в диалоговом окне конфигурации.
 Если конфигурация истории отключена, то вычисление некоторых значений не может быть осуществлено.
 
 ### Формат даты
@@ -90,7 +92,7 @@ hash: DMvFhWFPYeS5t66i2pAeuERPxhK73GromMQBTBGJUmE=
 Если этот параметр отключен, информация о сетке также отключена.
 
 ### Ресинхронизация объектов устройства FB
-Если этот параметр отмечен, то объект устройства FB повторно синхронизируется со списком устройств Fritzbox.
+Если этот флажок установлен, объект устройства FB повторно синхронизируется со списком устройств Fritzbox.
 
 ### Создание информации о сетке
 Эта опция может быть отмечена, если создание FB-устройств разрешено. Если этот флажок установлен, объекты сетки создаются для каждого устройства в списке устройств Fritzbox.
@@ -105,7 +107,7 @@ hash: DMvFhWFPYeS5t66i2pAeuERPxhK73GromMQBTBGJUmE=
 Для настроенного члена семьи вы должны ввести имя члена, имя хоста, Mac- и IP-адрес, комментарий, и вы можете включить или отключить члена. Группа не обязательна. Если вы оставите группу пустой и установите флаг совместимости в значение true, поведение будет похоже на более старую версию adaper. В будущей версии вы должны использовать состояние присутствия от члена семьи. Это поведение включается / выключается флажком совместимости: -> compatibility = true: поведение как в более старой версии с пустой группой.
 -> совместимость = false: новое поведение. Все состояния под папкой familymembers.
 Для каждого члена адаптер создает состояние присутствия и проверяет, присутствует ли член или нет. Состояние было изменено, если изменилось состояние присутствия. Вы также можете включить фильтрацию для члена. Если состояние истинно, состояние немедленно меняется на истинное. Если это ложь, то значение будет проверено снова по истечении времени фильтрации.
-Если состояние в обоих случаях ложно, то состояние меняется на ложное. В остальном не меняется.
+Если состояние в обоих случаях ложно, то состояние меняется на ложное. В остальном это не изменится.
 Для получения информации о скорости в объектах необходимо выбрать опцию fb-devices.
 
 ### Настройки белого списка
@@ -179,6 +181,33 @@ QR-код гостевой wlan сохраняется в состоянии wla
     * Did some changes
     * Did some more changes
 -->
+
+### __WORK IN PROGRESS__
+* (afuerhoff) npm updated
+* (afuerhoff) checkservice fixed
+
+### 1.1.4 (2021-05-11)
+* (afuerhoff) family groups implemented
+* (afuerhoff) compatability mode implemented
+* (afuerhoff) dependencies updated
+* (afuerhoff) configuration options added
+* (afuerhoff) dialogboxes optimized
+* (afuerhoff) translations updated
+* (afuerhoff) general program structure optimized
+* (afuerhoff) filter for family members implemeted
+* (afuerhoff) password handling updated
+* (afuerhoff) documentation updated
+* (afuerhoff) QR-Code implemented
+* (afuerhoff) setState presence only if changed
+* (afuerhoff) access rights implemented
+* (afuerhoff) use name for presence
+* (afuerhoff) active / inactive devices
+* (afuerhoff) interval 10s bug fixed
+* (afuerhoff) Bugfix dateformat pattern
+* (afuerhoff) SSL (https) workaround implemented
+* (afuerhoff) Connection check optimized
+* (afuerhoff) Mesh handling optimized 
+
 ### 1.1.3 (2021-03-31)
 * (afuerhoff) family groups implemented
 * (afuerhoff) compatability mode implemented
@@ -190,6 +219,7 @@ QR-код гостевой wlan сохраняется в состоянии wla
 * (afuerhoff) filter for family members implemeted
 * (afuerhoff) password handling updated
 * (afuerhoff) documentation updated
+
 
 ### 1.1.2 (2021-01-13)
 * (afuerhoff) QR-Code implemented
@@ -216,9 +246,6 @@ QR-код гостевой wlan сохраняется в состоянии wla
 * (afuerhoff) switch on, off internet access of devices 
 * (afuerhoff) structural changes
 * (afuerhoff) code optimization
-
-### 1.0.4 (2020-06-28)
-* (afuerhoff) bugfix json list and guest handling, new object guest.presence
 
 ## License
 MIT License
