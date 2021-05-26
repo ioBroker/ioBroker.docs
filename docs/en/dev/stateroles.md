@@ -167,6 +167,7 @@ Switch controls boolean device (true = ON, false = OFF)
 * `switch.mode.silent`    - silent mode on/off
 * `switch.mode.moonlight` - moon light mode on/off
 * `switch.mode.color`     - color mode on/off
+* `switch.gate'           - closes(false) or opens(true) the gate
 
 ## Air condition or thermostat
 * `level.mode.fan`        - `AUTO, HIGH, LOW, MEDIUM, QUIET, TURBO`
@@ -186,6 +187,12 @@ TODO: Think about ionization`and oscillation.
 
 Additionally to these states normally the `switch.power` required to map the vacuum cleaner. `switch.power` in this case works as: `true` - clean, `false` - back to home.
 Optionally `value.battery` and  
+
+## Gate
+* `switch.gate`           - closes(false) or opens(true) the gate (required)
+* `value.position`        - position of the gate in percent (100% opend, 0% - closed)
+* `value.gate`            - same as `value.position`
+* `button.stop`           - stop motion of gate
 
 ## Media
 
