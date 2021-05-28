@@ -678,6 +678,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.benq/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.binance/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.ble/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.blink4home/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.bluelink/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.bmw/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.boblight/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.bosesoundtouch/README.md
@@ -726,9 +727,12 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.energymanager/README.m
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.enet/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.epson_ecotank_et_2750/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.epson_stylus_px830/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.epson_xp540/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.esphome/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.eufy-security/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.eventlist/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.exchangerates/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.extron/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.fahrplan/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.fakeroku/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.fb-checkpresence/README.md
@@ -1037,6 +1041,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.vis-plumb/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.vis-rgraph/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.vis-timeandweather/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.vis-weather/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.vivitek/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.vodafone-speedtest/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.volumio/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.volvo/README.md
@@ -1056,7 +1061,9 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.wlanthermo-nano/README
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.wled/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.wm-bus/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.wolf/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.wolf-smartset/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.worx/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.x-touch/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.xbox/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.xs1/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.yahka/README.md
@@ -1108,6 +1115,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.benq/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.binance/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.ble/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.blink4home/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.bluelink/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.bmw/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.boblight/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.bosesoundtouch/README.md
@@ -1156,9 +1164,12 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.energymanager/README.m
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.enet/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.epson_ecotank_et_2750/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.epson_stylus_px830/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.epson_xp540/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.esphome/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.eufy-security/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.eventlist/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.exchangerates/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.extron/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.fahrplan/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.fakeroku/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.fb-checkpresence/README.md
@@ -1467,6 +1478,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.vis-plumb/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.vis-rgraph/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.vis-timeandweather/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.vis-weather/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.vivitek/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.vodafone-speedtest/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.volumio/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.volvo/README.md
@@ -1486,7 +1498,9 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.wlanthermo-nano/README
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.wled/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.wm-bus/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.wolf/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.wolf-smartset/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.worx/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.x-touch/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.xbox/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.xs1/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.yahka/README.md
@@ -1538,6 +1552,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.benq/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.binance/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.ble/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.blink4home/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.bluelink/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.bmw/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.boblight/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.bosesoundtouch/README.md
@@ -1586,9 +1601,12 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.energymanager/README.m
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.enet/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.epson_ecotank_et_2750/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.epson_stylus_px830/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.epson_xp540/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.esphome/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.eufy-security/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.eventlist/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.exchangerates/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.extron/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.fahrplan/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.fakeroku/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.fb-checkpresence/README.md
@@ -1897,6 +1915,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.vis-plumb/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.vis-rgraph/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.vis-timeandweather/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.vis-weather/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.vivitek/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.vodafone-speedtest/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.volumio/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.volvo/README.md
@@ -1916,7 +1935,9 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.wlanthermo-nano/README
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.wled/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.wm-bus/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.wolf/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.wolf-smartset/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.worx/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.x-touch/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.xbox/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.xs1/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.yahka/README.md
@@ -1968,6 +1989,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.benq/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.binance/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ble/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.blink4home/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.bluelink/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.bmw/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.boblight/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.bosesoundtouch/README.md
@@ -2016,9 +2038,12 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.energymanager/READM
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.enet/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.epson_ecotank_et_2750/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.epson_stylus_px830/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.epson_xp540/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.esphome/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.eufy-security/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.eventlist/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.exchangerates/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.extron/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fahrplan/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fakeroku/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fb-checkpresence/README.md
@@ -2327,6 +2352,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-plumb/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-rgraph/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-timeandweather/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-weather/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vivitek/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vodafone-speedtest/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.volumio/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.volvo/README.md
@@ -2346,7 +2372,9 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wlanthermo-nano/REA
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wled/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wm-bus/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wolf/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wolf-smartset/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.worx/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.x-touch/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.xbox/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.xs1/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.yahka/README.md

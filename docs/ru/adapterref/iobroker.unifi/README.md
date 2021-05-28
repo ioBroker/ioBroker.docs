@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.unifi/README.md
 title: ioBroker.unifi
-hash: 1eu6brniZsV62zT/Li5E57rGEfySbXdC9MBXNIPLd1U=
+hash: ZzOpiHmdAxM0QjTfyZeBcdKrkbb/LWCiGRdFFOieXts=
 ---
 ![Логотип](../../../en/adapterref/iobroker.unifi/admin/unifi.png)
 
@@ -19,11 +19,11 @@ hash: 1eu6brniZsV62zT/Li5E57rGEfySbXdC9MBXNIPLd1U=
 ### Минимальная необходимая информация
 Для запуска этого адаптера необходима следующая информация:
 
-* IP-адрес и порт вашего контроллера UniFi (оставьте порт пустым, если ваш контроллер работает на UbiOS (например, UDM Pro))
-* Имя пользователя и пароль (2FA не поддерживается)
+* IP-адрес и порт вашего контроллера UniFi (оставьте порт пустым, если ваш контроллер работает на UbiOS (например, UDM-Pro))
+* Локальное имя пользователя и пароль (2FA **не может** поддерживаться)
 * Интервал обновления
 
-По умолчанию информация обновляется каждые 60 секунд. В зависимости от вашего оборудования ioBroker и размера вашей сети (количество клиентов, устройств UniFi и т. Д.) Не рекомендуется дополнительно уменьшать интервал.
+По умолчанию информация обновляется каждые 60 секунд. В зависимости от вашего оборудования ioBroker и размера вашей сети (количество клиентов, устройств UniFi и т. Д.) Рекомендуется сохранять этот интервал и избегать его дальнейшего уменьшения.
 
 ### Фильтровать объекты
 Адаптер обновляет как можно больше информации с вашего контроллера UniFi, но предлагает возможность ограничить обновленную информацию.
@@ -34,19 +34,19 @@ hash: 1eu6brniZsV62zT/Li5E57rGEfySbXdC9MBXNIPLd1U=
 |-------------|-----------------------------------------|
 | Клиенты | Имя, имя хоста, IP-адрес, MAC-адрес |
 | Устройства | Имя, IP-адрес, MAC-адрес |
-| WLAN | Имя |
+| WiFis | Имя |
 | Сети | Имя |
 | Здоровье | Подсистема |
 
 ## Контроль
-### Включение / отключение WLAN
-Изменяя состояние «включено» WLAN, можно включить / отключить его. Через несколько секунд изменение будет внесено в точки доступа.
+### Включение / отключение WiFis
+Изменяя состояние «включено» Wi-Fi, можно включить / отключить его. Через несколько секунд изменение будет внесено в точки доступа.
 
 ### Создание ваучера
-Используя кнопку «vouchers.create_vouchers», можно создавать предопределенные ваучеры. Можно настроить количество создаваемых ваучеров, срок действия ваучеров, а также установить лимиты на загрузку и скачивание.
+С помощью кнопки `vouchers.create_vouchers` можно создавать предопределенные ваучеры. Можно настроить количество создаваемых ваучеров, срок действия ваучеров, а также установить лимиты на загрузку и скачивание.
 
 ## Отсутствующие точки данных
-Адаптер использует [узел-унифи](https://github.com/jens-maus/node-unifi) для подключения к вашему контроллеру UniFi. Чтобы упростить ситуацию, не все доступные точки данных загружаются в ваш ioBroker. Если вам не хватает точек данных, используйте следующие URL-адреса для проверки API. (Примечание: вы должны заменить IP, ПОРТ и САЙТ своими настройками)
+Адаптер использует [узел-унифи](https://github.com/jens-maus/node-unifi) для подключения к вашему контроллеру UniFi. Чтобы упростить задачу, не все доступные точки данных втягиваются в ваш ioBroker. Если вам не хватает точек данных, используйте следующие URL-адреса для проверки API. (Примечание: вы должны заменить IP, ПОРТ и САЙТ своими настройками)
 
 | Информация | URL API |
 |-------------|---------------------------------------------|
@@ -54,21 +54,21 @@ hash: 1eu6brniZsV62zT/Li5E57rGEfySbXdC9MBXNIPLd1U=
 | SysInfo | https:// IP: ПОРТ / api / s / SITE / stat / sysinfo |
 | Клиенты | https:// IP: ПОРТ / api / s / SITE / stat / sta |
 | Устройства | https:// IP: ПОРТ / api / s / SITE / stat / device |
-| WLAN | https:// IP: ПОРТ / api / s / SITE / rest / wlanconf |
+| WiFis | https:// IP: ПОРТ / api / s / SITE / rest / wlanconf |
 | Сети | https:// IP: ПОРТ / api / s / SITE / rest / networkconf |
 | Здоровье | https:// IP: PORT / api / s / SITE / stat / health |
 | Ваучеры | https:// IP: PORT / api / s / SITE / stat / voucher |
 | DPI | https:// IP: ПОРТ / api / s / SITE / stat / dpi |
 | Сигнализация | https:// IP: ПОРТ / api / s / SITE / stat / alarm |
 
-### Конечные точки UbiOS
+### Конечные точки UbiOS / UDM-Pro
 | Информация | URL API |
 |-------------|------------------------------------------------------|
 | Сайты | https:// IP / прокси / сеть / api / self / sites |
 | SysInfo | https:// IP / прокси / сеть / api / s / SITE / stat / sysinfo |
 | Клиенты | https:// IP / прокси / сеть / api / s / SITE / stat / sta |
 | Устройства | https:// IP / прокси / сеть / api / s / SITE / stat / device |
-| WLAN | https:// IP / прокси / сеть / api / s / SITE / rest / wlanconf |
+| WiFis | https:// IP / прокси / сеть / api / s / SITE / rest / wlanconf |
 | Сети | https:// IP / прокси / сеть / api / s / SITE / rest / networkconf |
 | Здоровье | https:// IP / прокси / сеть / api / s / SITE / stat / health |
 | Ваучеры | https:// IP / прокси / сеть / api / s / SITE / stat / voucher |
@@ -89,6 +89,10 @@ hash: 1eu6brniZsV62zT/Li5E57rGEfySbXdC9MBXNIPLd1U=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.10 (2021-05-27)
+* (jens-maus) Changed "Update done" output to be output as debug info.
+* (jens-maus) Updated dependencies.
+
 ### 0.5.9 (2021-05-07)
 * (jens-maus) Fixed all js-controller 3.3 related state warnings
 * (kirovilya, jens-maus) Added device state object with dedicated states list.

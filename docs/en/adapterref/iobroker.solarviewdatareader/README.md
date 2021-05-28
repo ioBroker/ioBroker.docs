@@ -1,16 +1,16 @@
 ![Logo](admin/solarviewdatareader.png)
 # ioBroker.solarviewdatareader
 
-![Number of Installations](http://iobroker.live/badges/solarviewdatareader-installed.svg) 
-![Number of Installations](http://iobroker.live/badges/solarviewdatareader-stable.svg)
-[![NPM version](http://img.shields.io/npm/v/iobroker.solarviewdatareader.svg)](https://www.npmjs.com/package/iobroker.solarviewdatareader)
+[![NPM version](https://img.shields.io/npm/v/iobroker.solarviewdatareader.svg)](https://www.npmjs.com/package/iobroker.solarviewdatareader)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.solarviewdatareader.svg)](https://www.npmjs.com/package/iobroker.solarviewdatareader)
+![Number of Installations (latest)](https://iobroker.live/badges/solarviewdatareader-installed.svg)
+![Number of Installations (stable)](https://iobroker.live/badges/solarviewdatareader-stable.svg)
 [![Dependency Status](https://img.shields.io/david/afuerhoff/iobroker.solarviewdatareader.svg)](https://david-dm.org/afuerhoff/iobroker.solarviewdatareader)
 [![Known Vulnerabilities](https://snyk.io/test/github/afuerhoff/ioBroker.solarviewdatareader/badge.svg)](https://snyk.io/test/github/afuerhoff/ioBroker.solarviewdatareader)
 
 [![NPM](https://nodei.co/npm/iobroker.solarviewdatareader.png?downloads=true)](https://nodei.co/npm/iobroker.solarviewdatareader/)
 
-**Tests:**: [![Travis-CI](http://img.shields.io/travis/afuerhoff/ioBroker.solarviewdatareader/master.svg)](https://travis-ci.org/afuerhoff/ioBroker.solarviewdatareader)
+**Tests:** ![Test and Release](https://github.com/afuerhoff/ioBroker.solarviewdatareader/workflows/Test%20and%20Release/badge.svg)
 
 ## solarviewdatareader adapter for ioBroker
 

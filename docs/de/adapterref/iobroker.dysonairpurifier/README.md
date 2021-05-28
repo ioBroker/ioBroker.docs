@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: O6SB+OXHA3GdSIb3tZpGPsvoVJplaZxuEOC575VGttE=
+hash: mVco6iaD07UO1wopefxpYIaCfD7j3WesVgoR2YjtgnQ=
 ---
 # IoBroker.dysonAirPurifier
 ![Logo] (admin / dyson_logo.svg)! [Logo](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -50,7 +50,7 @@ Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und dies
 * Mindestens js-Controller 3.0.0 ist erforderlich
 * Mindestens Admin 4.0.9 ist erforderlich
 * Um diesen Adapter zum Laufen zu bringen, benötigen Sie ein Dyson-Konto.
-* Stellen Sie sicher, dass Sie Ihren Fan zu Ihrem Konto hinzufügen. Entweder per App oder online.
+* Stellen Sie sicher, dass Sie Ihren Fan Ihrem Konto hinzufügen. Entweder per App oder online.
 
 ### Adapterinstallation
 #### Verwenden von npm
@@ -138,7 +138,7 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | ------------- | ----- | ----- | ----- |
 | ercd | Letzter Fehlercode | NONE oder einige Hexa-Werte | |
 | filf | verbleibende Filterlebensdauer | 0000 - 4300 | Stunden |
-| fmod | Modus | LÜFTER, AUTO | |
+| fmod | Modus | LÜFTER, AUTO, AUS | |
 | fpwr | Hauptstrom | EIN, AUS | |
 | fnst | Lüfterstatus | EIN, AUS, LÜFTER | |
 | fnsp | Lüftergeschwindigkeit | 0001 - 0010, AUTO | |
@@ -216,7 +216,7 @@ Redundante Werte?
 | ------------- | ----- | ----- | ----- |
 | pal0 - pal9 | Anzahl der zweiten Ausgaben in diesem Staubniveau seit Beginn der Stunde 0000 - 3600 | |
 | Handfläche | scheint ein Medianwert von palX | zu sein | |
-| vol0 - vol9 | Anzahl der zweiten Ausgaben in diesem Vokalniveau seit Beginn der Stunde | 0000 - 3600 | |
+| vol0 - vol9 | Anzahl der zweiten Ausgaben in diesem Voc-Level seit Beginn der Stunde | 0000 - 3600 | |
 | volm | scheint ein Medianwert von volX | zu sein | |
 | aql0 - aql9 | Anzahl der zweiten Ausgaben in diesem Bereich der Luftqualität max (pal, vol)) seit Beginn der Stunde | 0000 - 3600 | |
 | aqlm | scheint ein Medianwert von aqlX | zu sein | |
@@ -232,7 +232,10 @@ Dyson, pure cool, pure hot & cool und andere sind Marken oder eingetragene Marke
 
 ## Changelog
 
-### V0.9.0 (2021-04-26) (Still breathing)
+### V0.9.1 (2021-05-17) (Still breathing)
+* (grizzelbee) New: [#105](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/105) TP02, HP02 and others supporting the fmod token are now able to switch from Off to Auto- and manual-mode
+
+### V0.9.0 (2021-05-15) (Still breathing)
 * (grizzelbee) New: Added ioBroker sentry plugin to report errors automatically 
 * (grizzelbee) New: Added support for Dyson Pure Cool TP07 (438E)
 * (grizzelbee) New: Added support for Dyson 2-factor login method

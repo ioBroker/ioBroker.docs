@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis/README.md
 title: Визуализация
-hash: 0/WhX+8/BEES00UkNOAlQGpMkGBAUjWmKW1ywEDjUKg=
+hash: Sw/yjJuk/qGdIt7UG6e5P16JYqG9InI+CFfibXx1cZs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
@@ -207,6 +207,12 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 ### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (thost96) fixes for issues found by adapter-checker
+
+### 1.3.10 (2021-05-25)
+* (bluefox) Fixed the support of admin5
+
 ### 1.3.9 (2021-04-29)
 * (agav99) Added support of local browser variables
 * (Scrounger) Bug fix for null & NaN values in width and height

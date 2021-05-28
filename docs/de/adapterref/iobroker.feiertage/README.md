@@ -13,7 +13,9 @@ BADGE-AppVeyor: https://ci.appveyor.com/api/projects/status/github/Pix---/ioBrok
 # ioBroker.feiertage
 
 ## Beschreibung
-Dieser Adapter liefert das Datum, die Dauer bis zu diesem Datum in Tagen und den Namen des nächsten deutschen Feiertages und gibt Auskunft, ob heute, morgen oder übermorgen ein Feiertag ist.  
+Dieser Adapter liefert das Datum, die Dauer bis zu diesem Datum in Tagen und den Namen des nächsten deutschen Feiertages und gibt Auskunft, ob heute, morgen oder übermorgen ein Feiertag ist.
+
+Brückentage, die jährlich fest am Freitag nach einem Feiertag stattfinden sind auswählbar.
 
 ##  Datenpunkte
 ![alt text](img/DatapointsScreenshot.jpg "Screenshot Datenpunkte")
@@ -30,6 +32,15 @@ Der Adapter startet jeden Tag um Mitternacht. Ein häufigeres Starten ist nicht 
 Es können natürlich weitere Instanzen des Adapters mit abweichenden Feiertagsauswahlen angelegt werden. So kann man z.B. die unterschiedlichen Anforderungen bei Feiertagsarbeitern abdecken. Eine Beispielanwendung ist der [Shuttercontrol Adapter](https://github.com/simatec/ioBroker.shuttercontrol/blob/master/docs/de/shuttercontrol.md#extra-einstellungen)
 
 ## Changelog
+### 1.0.23 (2021-05-27)
+* (pix, crycode-de) Code improved (timer)
+
+### 1.0.22 (2021-05-27)
+* (pix) Fridays after holidays on Thursday can be selected (Brückentag)
+
+### 1.0.21 (2021-05-05)
+* (pix) minor code fixes, update news cleaned
+
 ### 1.0.20 (2021-05-05)
 * (pix) connectionType and dataSource added
 

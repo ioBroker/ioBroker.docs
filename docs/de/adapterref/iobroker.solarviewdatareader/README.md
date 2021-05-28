@@ -3,19 +3,21 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solarviewdatareader/README.md
 title: ioBroker.solarviewdatareader
-hash: 05N10yWtxS1P7K3+raksbc/gr4OudAtGI2km5AIX8jw=
+hash: DGtXy5iIPV0aJXSBR+TGxY/qUvt9Dhwsqoorf7fJtlU=
 ---
 ![Logo](../../../en/adapterref/iobroker.solarviewdatareader/admin/solarviewdatareader.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/solarviewdatareader-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.solarviewdatareader.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.solarviewdatareader.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.solarviewdatareader.svg)
+![Anzahl der Installationen (spätestens)](https://iobroker.live/badges/solarviewdatareader-installed.svg)
+![Anzahl der Installationen (stabil)](https://iobroker.live/badges/solarviewdatareader-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/afuerhoff/iobroker.solarviewdatareader.svg)
 ![Bekannte Sicherheitslücken](https://snyk.io/test/github/afuerhoff/ioBroker.solarviewdatareader/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.solarviewdatareader.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/afuerhoff/ioBroker.solarviewdatareader/master.svg)
 
 # IoBroker.solarviewdatareader
+** Tests: ** ![Testen und freigeben](https://github.com/afuerhoff/ioBroker.solarviewdatareader/workflows/Test%20and%20Release/badge.svg)
+
 ## Solarviewdatareader Adapter für ioBroker
 Der Adapter liest die Daten aus dem Solarview-Datenlogger.
 Hier finden Sie weitere Informationen zu Solarview: https://www.solarview.info/solarlogger.aspx
@@ -56,26 +58,23 @@ täglich = Tagesertrag (kWh) monatlich = monatlicher Ertrag (kWh) jährlich = j�
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
+### 1.0.2 (2021-05-07)
+* (afuerhoff) node.js 14 and 16 compatibilty
+* (afuerhoff) dependencies updated
+
+### 1.0.1 (2021-05-01)
+* (afuerhoff) changes due to js-controller 3.3.x
+
+### 1.0.0 (2021-04-25)
 * (afuerhoff) dependencies updated
 * (afuerhoff) documentation changed
+* (afuerhoff) minor changes
+* (afuerhoff) due to stable state version set to 1.0.0
 
 ### 0.2.1
 * (afuerhoff) self consumption meter optimized
 ### 0.2.0
 * (afuerhoff) Error handling optimized, self consumption meter implemented
-### 0.1.0
-* (afuerhoff) optimizations for adding to latest repository
-### 0.0.5
-* (afuerhoff) Code optimized, unload optimized, documentation added 
-### 0.0.4
-* (afuerhoff) Objects, Telnet client and checksum calculation changed
-### 0.0.3
-* (afuerhoff) inverter selection added
-### 0.0.2
-* (afuerhoff) test version
-### 0.0.1
-* (afuerhoff) initial release
 
 ## License
 MIT License

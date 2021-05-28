@@ -3,10 +3,10 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/stateroles.md
 title: Государственные роли
-hash: qi3zseFX6yIqNE65DkhlS2tmp6kcU7YiPFKWPZTMQgc=
+hash: PBmK6eOAAY3iD4WhjDJz3Lsc2G4fFpyloWL7KB/XDVw=
 ---
 # Государственные роли
-## Общие
+## Общий
 * состояние - очень обычная цель. Если вы не знаете, какую роль играет государство, используйте эту.
 * `текст` (common.type = строка)
 * `text.url` (common.type = string) state val содержит URL-адрес для использования в привязке, iframe или img
@@ -17,11 +17,11 @@ hash: qi3zseFX6yIqNE65DkhlS2tmp6kcU7YiPFKWPZTMQgc=
 * `дата` (common.type = number - эпоха в секундах * 1000
 
 ## Датчик (логические, только для чтения)
-*common.type = логическое, common.write = false*
+*common.type = логический, common.write = false*
 
 * `sensor.window` - окно открыто (true) или закрыто (false)
 * `sensor.door` - дверь открыта (true) или закрыта (false)
-* `sensor.alarm` - обычная тревога
+* `sensor.alarm` - какая-то обычная тревога
 * `sensor.alarm.flood` - утечка воды
 * `sensor.alarm.fire` - датчик пожара
 * «sensor.alarm.secure» - дверь открыта, открыто окно или обнаружено движение при тревоге.
@@ -51,7 +51,7 @@ hash: qi3zseFX6yIqNE65DkhlS2tmp6kcU7YiPFKWPZTMQgc=
 * `button.mode.manual`
 * `button.mode.silent`
 
-## Кнопки как датчик
+## Кнопки как сенсор
 *common.type = логическое, common.write = false, common.read = true*
 
 * `button` - разница, что` common.write = false`. Избегайте этой роли и используйте button.press или button.long.
@@ -65,7 +65,7 @@ hash: qi3zseFX6yIqNE65DkhlS2tmp6kcU7YiPFKWPZTMQgc=
 * `value.window` (common.states = {" 0 ":" CLOSED "," 1 ":" TILTED "," 2 ":" OPEN "}) Важно иметь (CLOSED / TILTED / OPEN). Значения могут отличаться.
 * `значение.температура` (common.unit = '°C', '°F' или 'K')
 * `value.humidity`
-* `value.brightness` - уровень яркости (единицы: люкс,)
+* `value.brightness` - уровень яркости (единица: люкс,)
 * `value.min`
 * `value.max`
 * `value.default`
@@ -93,22 +93,22 @@ hash: qi3zseFX6yIqNE65DkhlS2tmp6kcU7YiPFKWPZTMQgc=
 * `value.warning` - некоторое предупреждение (можно указать состояния), чем выше, тем важнее
 * `value.sun.elevation` - высота солнца в °
 * `value.sun.azimuth` - азимут солнца в °
-* `value.voltage` - Напряжение в вольтах, единица измерения = В
-* `value.current` - Ток в амперах, единица = A
+* `value.voltage` - Напряжение в Вольтах, единица = В
+* `value.current` - ток в амперах, единица = A
 * `value.fill` - Уровень заполнения, единица = л, мл, м3,%
 * `value.blood.sugar` - значение сахара в крови, единица = ммоль, мгдл
 
 ## Индикаторы (логические, только для чтения)
-*common.type = логическое, common.write = false*
+*common.type = логический, common.write = false*
 
-Отличие *индикаторов* от *датчиков* заключается в том, что индикаторы отображаются в виде небольшого значка. Датчики как реальная ценность.
+Отличие *индикаторов* от *датчиков* в том, что индикаторы отображаются в виде небольшого значка. Датчики как реальная ценность.
 Так что индикатор может быть не один в канале. Это должно быть какое-то другое главное состояние внутри канала.
 
 * `индикатор`
 * `indicator.working` - указывает, что целевые системы что-то выполняют, например, жалюзи или открывание замка.
 * `indicator.reachable` - если устройство в сети
 * `indicator.connected` - используется только для экземпляров. Используйте indicator.reachable для устройств
-* `indicator.main maintenance` - указывает системные предупреждения / ошибки, аварийные сигналы, служебные сообщения, разряд батареи и тому подобное
+* `indicator.main maintenance` - указывает системные предупреждения / ошибки, аварийные сигналы, служебные сообщения, разряд батареи и тому подобное.
 * `indicator.main maintenance.lowbat`
 * `indicator.main maintenance.unreach`
 * `indicator.main maintenance.alarm`
@@ -136,16 +136,16 @@ hash: qi3zseFX6yIqNE65DkhlS2tmp6kcU7YiPFKWPZTMQgc=
 * `level.color.white` - rgbW
 * `level.color.hue` - цвет в ° 0-360; 0 = красный, 120 = зеленый, 240 = синий, 360 = красный (циклический)
 * `level.color.saturation`
-* `level.color.rgb` - шестнадцатеричный цвет вроде '#rrggbb'
+* `level.color.rgb` - шестнадцатеричный цвет как '#rrggbb'
 * `level.color.luminance`
-* `level.color.temperature` - цветовая температура в K ° 2200 теплый-белый, 6500 ° холодный белый
+* `level.color.temperature` - цветовая температура в К ° 2200 теплый-белый, 6500 ° холодный белый
 * `level.timer`
 * `level.timer.sleep` - таймер сна. 0 - выкл или через минуты
 * ...
 * `level.volume` - (min = 0, max = 100) - громкость звука, но min, max могут отличаться. мин <макс
 * `level.volume.group` - (min = 0, max = 100) - громкость звука, для группы устройств
 * `level.curtain` - установить положение шторки
-* `level.tilt` - установить положение наклона жалюзи (max = полностью открыт, min = полностью закрыт)
+* `level.tilt` - установить наклон жалюзи (max = полностью открыт, min = полностью закрыт)
 
 ## Переключатели (логические, чтение-запись)
 Переключатель управляет логическим устройством (true = ON, false = OFF)
@@ -167,9 +167,10 @@ hash: qi3zseFX6yIqNE65DkhlS2tmp6kcU7YiPFKWPZTMQgc=
 * `switch.mode.silent` - включение / выключение беззвучного режима
 * `switch.mode.moonlight` - включение / выключение режима лунного света
 * `switch.mode.color` - включение / выключение цветового режима
+* `switch.gate '- закрывает (false) или открывает (true) ворота
 
 ## Кондиционер или термостат
-* `level.mode.fan` -` AUTO, HIGH, LOW, MEDIUM, QUIET, TURBO`
+* `level.mode.fan` -` АВТО, ВЫСОКИЙ, НИЗКИЙ, СРЕДНИЙ, ТИХОЙ, ТУРБО`
 * `level.mode.swing` -` АВТО, ГОРИЗОНТАЛЬНО, СТАЦИОНАРНЫЙ, ВЕРТИКАЛЬНЫЙ`
 * `level.mode.thermostat` -` AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`
 
@@ -181,14 +182,20 @@ TODO: подумайте об ионизации и колебаниях.
 * `level.mode.cleanup` - Перечисление` AUTO, ECO, EXPRESS, NORMAL, QUIET`. Требуются только «АВТО» и «НОРМАЛЬНЫЙ».
 * `level.mode.work` - Перечисление` AUTO, FAST, MEDIUM, SLOW, TURBO`. Необязательное состояние.
 * `value.water` - уровень воды 0-100%.
-* `value.waste` - уровень мусора 0-100%. (0% - пустой, 100% - полный)
+* `value.waste` - уровень мусорного бака 0-100%. (0% - пустой, 100% - полный)
 * `indicator.main maintenance.waste` - мусорное ведро дурацкое.
 * `value.state` -` HOME, CLEANING, PAUSE` и так далее.
 
 В дополнение к этим состояниям обычно требуются `switch.power`, необходимые для отображения пылесоса. `switch.power` в этом случае работает как: `true` - очистить, `false` - вернуться домой.
 Необязательно `value.battery` и
 
-## Средства массовой информации
+## Ворота
+* `switch.gate` - закрывает (false) или открывает (true) ворота (обязательно)
+* `value.position` - положение ворот в процентах (100% открыто, 0% - закрыто)
+* `value.gate` - то же, что` value.position`
+* `button.stop` - остановить движение ворот
+
+## СМИ
 Специальные роли для медиаплееров
 
 * `button.stop`
@@ -206,13 +213,13 @@ TODO: подумайте об ионизации и колебаниях.
 * `media.seek` - (common.type = number)%
 * `media.mode.shuffle` - (common.type = number) 0 - нет, 1 - все, 2 - один
 * `media.mode.repeat` - (common.type = boolean)
-* `media.state` - ['play', 'stop', 'pause'] или [0 - пауза, 1 - play, 2 - stop] или [true - воспроизведение / false - пауза]
+* `media.state` - ['play', 'stop', 'pause'] или [0 - пауза, 1 - воспроизведение, 2 - остановка] или [true - воспроизведение / false - пауза]
 * `media.artist`
 * `media.album`
 * `media.title`
 * `media.title.next`
 * `media.cover` - URL обложки
-* `media.cover.big` - большой URL обложки
+* `media.cover.big` - большая ссылка на обложку
 * `media.cover.small` - крошечный URL обложки
 * `media.duration.text` - например," 2:35 "
 * `media.duration` - (common.type = number) секунд
@@ -235,7 +242,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `media.url` - url для воспроизведения или текущий url
 * `media.url.announcement` - URL для воспроизведения объявления
 * `media.jump` - количество элементов для перехода в плейлист (может быть отрицательным)
-* `media.content` - Тип воспроизводимого медиа, например аудио / mp3
+* `media.content` - Тип воспроизводимого мультимедиа, например аудио / mp3.
 * `media.link` - Состояние с текущим файлом
 * `media.input` - номер или строка входа (AUX, AV, TV, SAT, ...)
 * `level.bass` - Уровень низких частот
@@ -328,8 +335,8 @@ TODO: подумайте об ионизации и колебаниях.
 * `weather.chart.url` - URL-адрес диаграммы для истории погоды
 * `weather.chart.url.forecast` - URL-адрес диаграммы для прогноза погоды
 * `weather.html` - HTML-объект с описанием погоды
-* `weather.title` - Очень краткое описание
-* `weather.title.short` - очень-очень короткое описание (одно слово)
+* `weather.title` - очень краткое описание
+* `weather.title.short` - Очень-очень короткое описание (одно слово)
 * `weather.type` - Тип информации о погоде
 * `weather.json` - объект JSON с конкретными данными
 * `value.speed.wind.forecast.0` - прогноз скорости ветра на сегодня
@@ -345,7 +352,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `value.precipitation.day.forecast.0` - Прогноз осадков на дневное время
 * `value.precipitation.night.forecast.0` - Прогноз осадков в ночное время
 
-* `date.forecast.1` - дата завтра
+* `date.forecast.1` - завтрашняя дата
 * `weather.icon.forecast.1` - значок завтра
 * `weather.state.forecast.1` - состояние погоды на завтра
 * `значение.температура.мин.прогноз.1`
@@ -387,5 +394,5 @@ TODO: подумайте об ионизации и колебаниях.
 * `url.audio` - URL аудиофайла
 * `text.phone` - номер телефона
 
-* `adapter.messagebox` (common.type = object, common.write = true) используется для отправки сообщений на электронную почту, pushover и другие адаптеры
+* `adapter.messagebox` (common.type = object, common.write = true), используемый для отправки сообщений на электронную почту, pushover и другие адаптеры
 * `adapter.wakeup` (common.type = boolean, common.write = true) пробуждает адаптер из приостановленного режима

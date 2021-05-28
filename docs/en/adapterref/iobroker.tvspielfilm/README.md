@@ -132,6 +132,9 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
 ```
 
 ## Changelog
+### 2.0.4 (2021-05-27)
+* (pix, crycode) Code improved (timer)
+
 ### 2.0.3 (2021-05-05)
 * (pix) connectionType and dataSource added
 

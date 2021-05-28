@@ -15,6 +15,8 @@ BADGE-AppVeyor: https://ci.appveyor.com/api/projects/status/github/Pix---/ioBrok
 ## Description
 This adapter delivers date, distance in days to this date and name of the next German holiday. Furthermore it tells if today, tommorw or the day after tommorow is a holiday in Germany.
 
+Fridays after holidays on Thursday can be selected.
+
 ## Datapoints
 ![alt text](img/DatapointsScreenshot.jpg "Screenshot Datapoints")
 
@@ -27,6 +29,15 @@ Only selected holidays count in the process.
 The adapter starts daily at midnight. Due to the nature of the subject, no higher frequency is required.
 
 ## Changelog
+### 1.0.23 (2021-05-27)
+* (pix, crycode-de) Code improved (timer)
+
+### 1.0.22 (2021-05-27)
+* (pix) Fridays after holidays on Thursday can be selected (Brückentag)
+
+### 1.0.21 (2021-05-05)
+* (pix) minor code fixes, update news cleaned
+
 ### 1.0.20 (2021-05-05)
 * (pix) connectionType and dataSource added
 

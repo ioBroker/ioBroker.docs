@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.swiss-weather-api/README.md
 title: ioBroker.swiss-weather-api
-hash: w5/s9Oyl4qRqCQlepfC5uMcSa3gYyBYf1wzyJ/F0OXo=
+hash: Y4XW7jc7X0m8UrHWpSUBaBDPQhCs2u/8oH6uVk03k8Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
 
@@ -17,6 +17,21 @@ hash: w5/s9Oyl4qRqCQlepfC5uMcSa3gYyBYf1wzyJ/F0OXo=
 ![Travis-CI](http://img.shields.io/travis/baerengraben/ioBroker.swiss-weather-api/master.svg)
 
 # IoBroker.swiss-weather-api
+#Beachtung!!!
+** SRG hat seine API komplett neu erstellt. Die alte API (<= Adapterversion 0.3.2) wird NICHT mehr unterstützt. Ab Adapterversion 0.9.x wird die neue API der SRG verwendet. Aus diesem Grund muss eine neue SRG-App (z. B. Produkt "Freemium") erstellt werden (https://developer.srgssr.ch/apis/srf-weather). Siehe auch Readme, Kapitel "Erste Schritte" (unten). Bitte beachten Sie auch, dass die neue API auch völlig neue Objekte erstellt. **
+
+** Die gute Nachricht ist, dass die neue API auch mehr Daten bereitstellt. ;) **
+
+** Update-Vorgang **
+
+Meine Empfehlung für das Update von 0.3.2 auf 0.9.x lautet also:
+
+- Entfernen Sie den alten Adapter, bevor Sie Version 0.9.x installieren.
+   - Bitte beachten Sie, dass die Datenobjekte ebenfalls entsprechend entfernt werden.
+- Erstellen Sie eine neue Freemium-App auf dem srg-Entwicklerportal (https://developer.srgssr.ch/apis/srf-weather).
+- Installieren Sie die neue Version 0.9.x und stellen Sie die Konfiguration mit neuem Consumerkey und ConsumerSecret ein
+  - Beim Start erstellt der neue Adapter neue, unterschiedliche Datenobjekte.
+
 ## Swiss-weather-api adapter für ioBroker
 Stellt eine Verbindung zur großartigen SRF-Wetter-API her (https://developer.srgssr.ch/apis/srf-weather).
 Mit der SRF Weather REST API können Sie Wettervorhersagen und -berichte von mehr als 25.000 Standorten in der ganzen Schweiz abrufen. Mit einem "Freemium" -Abonnement erhalten Sie 50 Anfragen pro Tag.
@@ -34,12 +49,18 @@ Seit Version 0.1.8 bietet SRG-SSR eigene Symbole. Daher liefert jeder Datenpunkt
    1. Name der App
    1. ConsumerKey der App
    1. ConsumerSecret der App
-   1. Längen- / Breitengrad des gewählten Schweizer Standorts, für den eine Prognose erforderlich ist. => Bitte Dezimalgrad verwenden (zum Beispiel Zürich: 47.36667 / 8.5)
+   1. Längen- / Breitengrad des ausgewählten Schweizer Standorts, für den eine Prognose erforderlich ist. => Bitte Dezimalgrad verwenden (zum Beispiel Zürich: 47.36667 / 8.5)
    1. Abfrageintervall in Minuten (Standardmäßig 30 Minuten - 50 Anfragen / Tag)
 
 Die erste Abfrage erfolgt 10 Sekunden nach dem Start des Adapters. Nach dem ersten Start wird die Abfrage regelmäßig gemäß dem Zentrifugationsparameter (Abfrageintervall in Minuten) ausgeführt.
 
 ## Changelog
+
+### 0.9.1
+* (baerengraben)  Fix to reduce amount of Rest-Calls: https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/41
+* (baerengraben)  Fix for https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/32 (Crashes when no Internet Connection is available)
+* (baerengraben)  Partly Fix for https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/24: Handling Adapter State Info.
+
 
 ### 0.9.0
 * (baerengraben)  Removed NodeJs 10 support and added NodeJs 16 support 

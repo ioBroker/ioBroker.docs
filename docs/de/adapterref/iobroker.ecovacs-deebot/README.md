@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot Adapter für ioBroker
-hash: 1d7KU08pEpgFEPk5lobDG6m7w25Ap2BBBkHzvhuuKN8=
+hash: 49L0KJ5YoprBrRIjUEykIuGtjd3pyv4qd/iYj/AVN7s=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -23,7 +23,7 @@ Einige bemerkenswerte Merkmale sind:
 
 * Informationen abrufen (z. B. Batterie, Reinigungsprotokoll, Verbrauchsmaterial, Reinigungs- und Ladestatus)
 * Senden Sie saubere Befehle (z. B. Auto, Spot-Bereich, benutzerdefinierter Bereich).
-* Senden Sie einige andere Befehle (z. B. Sound abspielen, Verbrauchsmaterialien zurücksetzen, verschieben)
+* Senden Sie einige andere Befehle (z. B. Ton abspielen, Verbrauchsmaterialien zurücksetzen, verschieben)
 * Speichern Sie den zuletzt ausgeführten benutzerdefinierten Bereich und führen Sie die gespeicherten Bereiche erneut aus
 * Einstellung der Vakuumleistung (Reinigungsgeschwindigkeit) und des Wasserstandes
 * Informationen während des Reinigungsvorgangs abrufen (z. B. aktuelle Position und Bereich)
@@ -50,13 +50,14 @@ Die aufgeführten Modelle sind diejenigen, die ich selbst in Gebrauch habe oder 
 * Deebot 710/711/711s
 * Deebot OZMO 610
 * Deebot OZMO 900/905
-* Deebot OZMO T5
-* Deebot OZMO T8-Serie
 * Deebot OZMO Slim 10
+* Deebot OZMO T5
+* Deebot U2-Serie
 * Deebot N3 MAX
 * Deebot N7
 * Deebot N8-Serie
-* Deebot U2-Serie
+* Deebot (OZMO) T8-Serie
+* Deebot T9-Serie
 
 Die aufgeführten Modelle funktionieren entweder bereits oder sind diesen Modellen technisch ähnlich.
 Trotzdem kann die Funktionalität teilweise eingeschränkt sein.
@@ -98,13 +99,19 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
 
 ## Changelog
 
-### 1.1.2 (alpha)
-* Using library version 0.6.0-beta.3
-* Added experimental functions for deleting, saving and recreating saved virtual boundaries (920,950,T8)
-* Added option to control clean speed and water level separately for each spot area
-* Quite a lot of improvements for processing map data, spot areas and virtual boundaries
-* Move some states from "info" channel to sub channels "info.library" and "info.network"
+### 1.2.0 (alpha)
+* Using library version 0.6.1
+* Added functions for deleting, saving and recreating saved virtual boundaries (e.g. 920, 950, T8 series)
+* Added functions for saving and recreating sets of virtual boundaries (e.g. 920, 950, T8 series)
+* Added options to control clean speed and water level separately for each spot area
+* Added function to save current spot area values
 * Added some cleaning log values and some states for current cleaning stats
+* Removed "Use alternative API call for lastCleaningMapImageURL and lastCleaningTimestamp" option
+* Moved some states from "info" channel to sub channels "info.library" and "info.network"
+* Quite a lot of improvements for processing map data, spot areas and virtual boundaries
+* Some optimisations for js-controller 3.3
+* Improved support for N8 series
+* Initial support for T9/T9+
 * Some improvements and fixes
 
 ### 1.1.1

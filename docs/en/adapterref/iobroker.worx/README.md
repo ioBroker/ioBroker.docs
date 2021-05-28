@@ -29,11 +29,12 @@ The adapter can control the mower and you can change config params like mowtimes
 
 
 ## Changelog
-### 1.3.5 (13.05.2021)
+### 1.3.6 (27.05.2021)
 * (MeisterTR) bugfixes
+* (MeisterTR) better errorhandling
 ### 1.2.9 (02.12.2020)
 * (MeisterTR) add sentry
-*(MeisterTR) Bugfix (error type of sc... again) (IOBROKER-WORX-3)
+* (MeisterTR) Bugfix (error type of sc... again) (IOBROKER-WORX-3)
 ### 1.2.4 (15.11.2020)
 * (MeisterTR) Bugfix (error type of sc...)
 * (MeisterTR) change Testing to git

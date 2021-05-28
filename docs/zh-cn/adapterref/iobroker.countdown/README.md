@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.countdown/README.md
 title: ioBroker.countdown
-hash: oUuKL0pCKSuM4BOd6q3+yv7Ueqo8+iWZ2GuajDACnvk=
+hash: LrKhxAVrwjHmNGYgW5ktyrOZ6gOgaOx5DsTXtT7NDzc=
 ---
 ![商标](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
@@ -20,10 +20,10 @@ hash: oUuKL0pCKSuM4BOd6q3+yv7Ueqo8+iWZ2GuajDACnvk=
 
 ioBroker的倒数适配器---------------------------------------------- --------------------------------
 
-适配器的目标是使您可以为未来的事件运行倒计时，包括年，月，日，小时和分钟。它将分别为您提供所有这些价位，以及两个带有日期的长短版本的字符串。
+适配器的目标是为您提供可能的倒计时，以进行未来的事件（包括年，月，日，小时和分钟）。它将分别为您提供所有这些价位，以及两个带有日期的长短版本的字符串。
 
 ##显示倒计时
-适配器会自动为您扩展一个json表。您只需要将其与json表一起使用即可。请在此处勾选“无标题”。可以显示短文本或长文本。
+适配器会自动为您扩展一个json表。您只需要在widged的json表中使用它。请在此处勾选“无标题”。可以显示短文本或长文本。
 ![商标](../../../en/adapterref/iobroker.countdown/admin/countdown_json.png)
 
 ##如何创建倒数计时
@@ -62,7 +62,7 @@ sendTo（“ countdown.0”，“ send”，{“ name”：'Wedding Day'，“ d
 |小时|倒计时结束为止的小时数（不是总计！）|
 |天|直到倒计时结束的天数（不总计！）|
 |月|直到倒计时结束的月数（不总计！）|
-|年|直至倒数计时结束的年限（并非总计！）|
+|年|倒计时结束之前的年数（不总计！）|
 |名称|倒数名称|
 | endDate |倒计时的结束日期-格式与所定义的设置相同|
 | inWordsShort |分钟，小时，...的组合值-例如1年5M 4D |
@@ -76,6 +76,12 @@ sendTo（“ countdown.0”，“ send”，{“ name”：'Wedding Day'，“ d
 ##要添加的功能
 *可以添加脚本作为参数并在倒计时结束时启动它
 *可以在addminutes和其他添加函数中使用加号和减号
+
+## 1.2.3（2021-05-27）
+*（jack-blackson）小错误修正，翻译
+
+## 1.2.2（2021-05-25）
+*（jack-blackson）的小错误修正，添加了翻译的网络版
 
 ## 1.2.1（2021-05-09）
 *（jack-blackson）小错误修正

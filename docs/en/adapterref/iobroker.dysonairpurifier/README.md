@@ -133,7 +133,7 @@ Which is what the dyson app does also.
 ## Changelog
 
 ### V0.9.1 (2021-05-17) (Still breathing)
-* (grizzelbee) New: [#105](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/105) TP05 and others supporting the fmod token are now able to switch from Off to Auto- and manual-mode
+* (grizzelbee) New: [#105](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/105) TP02, HP02 and others supporting the fmod token are now able to switch from Off to Auto- and manual-mode
 
 ### V0.9.0 (2021-05-15) (Still breathing)
 * (grizzelbee) New: Added ioBroker sentry plugin to report errors automatically 
@@ -291,7 +291,7 @@ Information copied and extended from <https://github.com/shadowwa/Dyson-MQTT2RRD
 | ------------- | ----- | ----- | ----- |
 | ercd | Last Error Code | NONE , or some hexa values |  |
 | filf | remaining Filter life | 0000 - 4300 | hours|
-| fmod | Mode | FAN , AUTO | |
+| fmod | Mode | FAN , AUTO, OFF | |
 | fpwr | Main Power | ON, OFF | |
 | fnst | Fan Status | ON , OFF, FAN | |
 | fnsp | Fan speed | 0001 - 0010, AUTO | |

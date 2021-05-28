@@ -8,7 +8,7 @@
 [![NPM](https://nodei.co/npm/iobroker.statistics.png?downloads=true)](https://nodei.co/npm/iobroker.statistics/)
 
 ## Description
-This adapter will make the configuration of statistics more easier.
+This adapter will make the configuration of statistics easier.
 
 `The adapter only reacts on state changes (state.ack=true), not on commands!`
 
@@ -26,8 +26,8 @@ choose from the following settings:
 The adapter subscribes to the configured objects and creates his own states in the statistics tree.
 
 2 separate trees are created:
-* statistics.0.save -> final values of the time frame
-* statistics.0.temp -> temporary values up to the moment of transfer to save, then temp starts again
+* `statistics.0.save` -> final values of the time frame
+* `statistics.0.temp` -> temporary values up to the moment of transfer to save, then temp starts again
 
 The structure of the state is: `statistics.0.{save|temp}.{kind of stat}.{original observed state}.{state of statistical value}`
 
@@ -37,7 +37,15 @@ A german HowTo doc is available here: [howto_de](./doc/howto_de.md)
 * specify the relevant groups in the instance configuration page (admin => instances => statistics config)
 * specify the configuration in the settings of the state (admin => objects)
 
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
 ## Changelog
+### __WORK IN PROGRESS__
+* (bluefox) added the support of Admin5 
+
 ### 1.0.4
 * (foxthefox) changed the state change to BOTH positive and negative edges, hence it causes a lot of log entries
 

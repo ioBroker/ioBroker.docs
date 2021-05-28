@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis/README.md
 title: Visualisierung
-hash: 0/WhX+8/BEES00UkNOAlQGpMkGBAUjWmKW1ywEDjUKg=
+hash: Sw/yjJuk/qGdIt7UG6e5P16JYqG9InI+CFfibXx1cZs=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
@@ -16,7 +16,7 @@ hash: 0/WhX+8/BEES00UkNOAlQGpMkGBAUjWmKW1ywEDjUKg=
 WEB-Visualisierung für die ioBroker-Plattform.
 
 ## Installation & Dokumentation
-![Demo-Oberfläche](img/user0.png) ![Demo-Oberfläche](../../../en/adapterref/iobroker.vis/img/user7.png)
+![Demo-Schnittstelle](img/user0.png) ![Demo-Schnittstelle](../../../en/adapterref/iobroker.vis/img/user7.png)
 
 [Online-Demos](https://iobroker.click/)
 
@@ -45,7 +45,7 @@ Folgende Operationen werden unterstützt:
 - `hex2` - Wert in Hexadezimalwert umwandeln. Alle Buchstaben sind in Kleinbuchstaben geschrieben. Wenn der Wert kleiner als 16 ist, wird die führende Null addiert.
 - `HEX` - wie Hex, jedoch in Großbuchstaben.
 - `HEX2` - wie hex2, jedoch in Großbuchstaben.
-- `Datum` - Format Datum gemäß gegebenem Format. Das Format ist das gleiche wie in [iobroker.javascript] (https://github.com/iobroker/iobroker.javascript/blob/master/README.md#formatdate).
+- `Datum` - Formatieren Sie das Datum gemäß dem angegebenen Format. Das Format ist das gleiche wie in [iobroker.javascript] (https://github.com/iobroker/iobroker.javascript/blob/master/README.md#formatdate).
 - `min (N)` - Wenn der Wert kleiner als N ist, nimm den Wert N, sonst
 - `max (M)` - Wenn der Wert größer als M ist, nehmen Sie den Wert M, sonst
 - `sqrt` - Quadratwurzel
@@ -136,13 +136,13 @@ Vis erstellt 3 Variablen:
 
 - `control.instance` - Hier sollte die Browserinstanz geschrieben werden oder FFFFFFFF, wenn jeder Browser gesteuert werden muss.
 - `control.data` - Parameter für den Befehl. Siehe spezifische Befehlsbeschreibung.
-- `control.command` - Befehlsname. Das Schreiben dieser Variablen löst den Befehl aus. Das heißt, bevor der Befehl geschrieben wird, müssen "Instanz" und "Daten" mit Daten vorbereitet werden.
+- `control.command` - Befehlsname. Das Schreiben dieser Variablen löst den Befehl aus. Das heißt, bevor der Befehl geschrieben wird, müssen die "Instanz" und "Daten" mit Daten vorbereitet werden.
 
 Befehle:
 
 * `alert` - Alarmfenster im Vis anzeigen. "control.data" hat das folgende Format "message; title; jquery-icon". Titel und Abfragesymbol sind optional. Symbolnamen finden Sie [hier] (http://jqueryui.com/themeroller/). Um das Symbol "ui-icon-info" anzuzeigen, schreiben Sie `` `Message ;; info```.
 * `changeView` - wechselt zur gewünschten Ansicht. "control.data" muss den Namen view haben. Sie können den Projektnamen auch als "Projekt / Ansicht" angeben. Das Standardprojekt ist "main".
-* `refresh` - lädt das vis neu, zum Beispiel nachdem das Projekt geändert wurde, um es in allen Browsern neu zu laden.
+* `refresh` - lädt das vis neu, beispielsweise nachdem das Projekt geändert wurde, um es in allen Browsern neu zu laden.
 * `reload` - wie aktualisieren.
 * `dialog` - Dialogfenster anzeigen. Der Dialog muss in der Ansicht vorhanden sein. Einer von:
 
@@ -207,6 +207,12 @@ Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung und nicht
 ### __WORK IN PROGRESS__ ->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (thost96) fixes for issues found by adapter-checker
+
+### 1.3.10 (2021-05-25)
+* (bluefox) Fixed the support of admin5
+
 ### 1.3.9 (2021-04-29)
 * (agav99) Added support of local browser variables
 * (Scrounger) Bug fix for null & NaN values in width and height

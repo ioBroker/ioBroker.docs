@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.swiss-weather-api/README.md
 title: ioBroker.swiss-weather-api
-hash: w5/s9Oyl4qRqCQlepfC5uMcSa3gYyBYf1wzyJ/F0OXo=
+hash: Y4XW7jc7X0m8UrHWpSUBaBDPQhCs2u/8oH6uVk03k8Y=
 ---
 ![商标](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
 
@@ -17,9 +17,24 @@ hash: w5/s9Oyl4qRqCQlepfC5uMcSa3gYyBYf1wzyJ/F0OXo=
 ![特拉维斯](http://img.shields.io/travis/baerengraben/ioBroker.swiss-weather-api/master.svg)
 
 ＃ioBroker.swiss-weather-api
+＃注意力！！！
+** SRG已完全重建其API。不再支持旧的API（<=适配器版本0.3.2）。从适配器版本0.9.x开始，将使用SRG的新API。因此，必须创建一个新的SRG APP（例如产品“免费增值”）（https://developer.srgssr.ch/apis/srf-weather）。另请参见自述文件，“入门”一章（如下）。另请注意，新的API也将创建全新的对象。**
+
+**好消息是，新的API还提供了更多数据。 ;）**
+
+**更新步骤**
+
+因此，我建议从0.3.2更新到0.9.x是：
+
+-在安装0.9.x版本之前，请删除旧的适配器。
+   -请注意，数据对象也将相应删除。
+-在srg开发人员门户上创建一个新的免费增值应用（https://developer.srgssr.ch/apis/srf-weather）
+-安装新版本0.9.x并使用新的consumerkey和consumersecret设置配置
+  -启动时，新适配器将创建新的不同数据对象。
+
 ##适用于ioBroker的swiss-weather-api适配器
 连接到出色的SRF天气API（https://developer.srgssr.ch/apis/srf-weather）。
-SRF Weather REST API使您可以从瑞士超过25.000个地点获取天气预报和报告。 “免费增值”订阅可让您每天获得50个请求。
+SRF Weather REST API使您能够从瑞士超过25.000个地点获取天气预报和报告。 “免费增值”订阅可让您每天获得50个请求。
 
 ## **图标**
 从版本0.1.8开始，SRG-SSR提供了自己的图标。因此，每个数据点都提供一个指向对应天气情况的URL（颜色，深色和浅色图标）。
@@ -30,7 +45,7 @@ SRF Weather REST API使您可以从瑞士超过25.000个地点获取天气预报
 1.转到“我的应用程序”并创建一个新的应用程序。在这里您可以选择一种产品。 “免费增值”是他们的免费产品。如果您只想每天（每30分钟）执行50个请求或/并且不想每天支付更多请求，则可以选择“免费增值”。现在，这将创建一个特定的ConsumerKey和ConsumerSecret
 1.找出需要进行预测的所选位置的经度/纬度（十进制度）。如果您已在ioBroker设置（主要设置）中（通过地图）设置了位置，则此信息是可选的。在这种情况下，您可以将纬度和经度字段留空。然后，适配器接管ioBroker的设置。在适配器配置中输入的纬度和经度将覆盖ioBroker设置。
 1.在ioBroker上安装此适配器=>这可能需要几分钟（在Raspberry Pi 3上约为7分钟）
-1.在“适配器配置”上，填写
+1.在“适配器配置”上填写
    1.应用名称
    1. App的ConsumerKey
    1. App的ConsumerSecret
@@ -40,6 +55,12 @@ SRF Weather REST API使您可以从瑞士超过25.000个地点获取天气预报
 适配器启动后10秒钟将进行第一个查询。首次启动后，将根据配置参数（以分钟为单位的轮询间隔）定期执行查询
 
 ## Changelog
+
+### 0.9.1
+* (baerengraben)  Fix to reduce amount of Rest-Calls: https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/41
+* (baerengraben)  Fix for https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/32 (Crashes when no Internet Connection is available)
+* (baerengraben)  Partly Fix for https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/24: Handling Adapter State Info.
+
 
 ### 0.9.0
 * (baerengraben)  Removed NodeJs 10 support and added NodeJs 16 support 

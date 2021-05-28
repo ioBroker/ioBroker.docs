@@ -132,6 +132,9 @@ Für eine optisch ansprechende Formatierung, empfehle ich folge CSS Definitionen
 ```
 
 ## Changelog
+### 2.0.4 (2021-05-27)
+* (pix, crycode) Code improved (timer)
+
 ### 2.0.3 (2021-05-05)
 * (pix) connectionType and dataSource added
 

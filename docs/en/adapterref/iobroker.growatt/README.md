@@ -125,6 +125,9 @@ Auf System Restart gehen und Button herzhaft, aber vorsichtig Klicken.
 
 ## Changelog
 
+### 1.1.1 (27.05.2021)
+* (PLCHome) The web request timeout was increased due to login issues
+
 ### 1.1.0 (24.05.2021)
 * (PLCHome) Improvement of the connection via Axios Session
 

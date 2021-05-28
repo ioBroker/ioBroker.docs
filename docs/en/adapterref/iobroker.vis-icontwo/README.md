@@ -61,6 +61,14 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+### 0.71.0
+
+• Neue Icons hinzugefügt (Devices/Computer)
+
+### 0.70.0
+
+• Neue Icons hinzugefügt (Player/Cover)
+
 ### 0.69.0
 
 • Neue Icons hinzugefügt (Hobbies/Train & Spa_Fitness)

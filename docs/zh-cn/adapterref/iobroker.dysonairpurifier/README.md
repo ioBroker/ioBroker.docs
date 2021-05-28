@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: O6SB+OXHA3GdSIb3tZpGPsvoVJplaZxuEOC575VGttE=
+hash: mVco6iaD07UO1wopefxpYIaCfD7j3WesVgoR2YjtgnQ=
 ---
 ![安装数量（最新）](http://iobroker.live/badges/dysonairpurifier-installed.svg)
 ![NPM版本](https://img.shields.io/npm/v/iobroker.dysonairpurifier.svg)
@@ -21,7 +21,7 @@ hash: O6SB+OXHA3GdSIb3tZpGPsvoVJplaZxuEOC575VGttE=
 ##戴森空气净化器和风扇的ioBroker适配器
 该适配器将ioBroker连接到各种戴森空气净化器。
 
-由[Freepik]（https://www.flaticon.com/de/autoren/freepik）来自[www.flaticon.com](https://www.flaticon.com/de/)创建的徽标中的风扇图标。
+由[Freepik]（https://www.flaticon.com/de/autoren/freepik）来自[www.flaticon.com](https://www.flaticon.com/de/)创建的徽标中的Fan-Icon。
 
 ###支持的设备
 *戴森Pure Cool Link塔（TP02，产品类型475）
@@ -59,7 +59,7 @@ hash: O6SB+OXHA3GdSIb3tZpGPsvoVJplaZxuEOC575VGttE=
 ####替代方法：使用GitHub URL
 通过将ioBroker Admin UI指向GitHub上的最新稳定版本进行安装：<https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
 
-您也可以使用此方法安装较早的发行版（通过指向版本标记，例如，URL中的§§JJJJ_0_0§§而不是```master```§），但是通常首选最新版本。
+您也可以使用此方法安装较早的发行版（通过指向版本标记，例如，URL中的```v0.6.0```而不是```master```），但是通常首选最新版本。
 
 ###需要配置数据
 * Dyson帐户用户名
@@ -73,13 +73,13 @@ hash: O6SB+OXHA3GdSIb3tZpGPsvoVJplaZxuEOC575VGttE=
 1.您的局域网中有一个DNS服务器正在运行。既可以在您的路由器中（例如FritzBox上运行的是DNS），也可以是专用的。
 2.您尚未更改默认设备名称。
 
->在此适配器的首次启动时，将查询所有设备的Dyson API，并将在设备树中创建所有受支持的设备-其基本信息由API提供，并带有附加字段“ Hostaddress”。
+>在此适配器的首次启动时，将为您的所有设备查询Dyson API，并且将在设备树中创建所有受支持的设备-其基本信息由API提供，并带有附加字段“ Hostaddress”。
 >>>因此，请运行适配器一次，您的Dyson设备将使用其基本设置在设备树中创建。
 >>然后停止适配器，在“主机地址”字段中输入IP，然后重新启动适配器。之后，应在设备树中的Dyson设备中填充数据。
 
-### 2因子身份验证（自V0.9.0起）
+### 2要素验证（自V0.9.0起）
 安装适配器后，应自动启动它-如果没有，请先启动它。
-更新后，它也会自动重新启动。在这两种情况下，它都将保持“黄色”状态，并且可能在日志中显示一些错误-暂时可以。
+更新后，它也会自动重新启动。在这两种情况下，它都将保持“黄色”状态，并可能在日志中显示一些错误-暂时可以。
 
 *打开适配器的配置对话框
 *至少填写您的电子邮件地址，密码和国家/地区代码-其余为可选
@@ -91,7 +91,7 @@ hash: O6SB+OXHA3GdSIb3tZpGPsvoVJplaZxuEOC575VGttE=
 *完成设置后，单击“保存并关闭”-适配器应重新启动并变为绿色。
 
 所有值将被保存并进一步显示。
->通常，您不需要定期执行这2次FA-但您可以在需要时重复执行。
+>通常，您不需要定期执行这2次FA-但是您可以在需要时重复执行。
 
 ##控制您的设备
 该适配器当前能够控制设备的以下状态：
@@ -138,16 +138,16 @@ hash: O6SB+OXHA3GdSIb3tZpGPsvoVJplaZxuEOC575VGttE=
 | ------------- | ----- | ----- | ----- |
 | ercd |最后的错误代码| NONE或某些六进制值| |
 |战利品|剩余滤清器寿命| 0000-4300 |小时|
-| fmod |模式|风扇，汽车| |
+| fmod |模式|风扇，自动，关闭| |
 | fpwr |主电源|开，关| |
 | fnst |风扇状态|开，关，风扇| |
 | fnsp |风扇转速0001-0010，自动| |
-| fdir |又称Fandirection。喷气对焦/开=前，关=后|开，关| |
+| fdir |又称Fandirection。喷气对焦/开=前，关=后开，关| |
 | ffoc | JetFocus |开，关|
 | nmod |夜间模式|开启，关闭| |
 |儿子|振荡|开启，关闭| |
 | osal |振荡角度下界| 0005-355 | °（度）|
-| osau |振荡角度上边界| 0005-355 | °（度）|
+| osau | OscillationAngle上边界| 0005-355 | °（度）|
 | oscs |振荡活动|开，关，空闲| |
 | ancp |摆角| CUST，0180 |°（度）|
 | qtar |空气质量指标| 0001 =好，0002 =正常，0003 =差，0004 =非常差| |
@@ -228,11 +228,14 @@ hash: O6SB+OXHA3GdSIb3tZpGPsvoVJplaZxuEOC575VGttE=
 | tmpm |开尔文的温度？ | 0000-5000 | |
 
 ＃＃ 法律声明
-戴森，纯净，纯净和凉爽等是[戴森有限公司](https://www.dyson.com)的商标或注册商标。所有其他商标均为其各自所有者的财产。
+戴森，纯净，纯净，凉爽和其他均为[戴森有限公司](https://www.dyson.com)的商标或注册商标。所有其他商标均为其各自所有者的财产。
 
 ## Changelog
 
-### V0.9.0 (2021-04-26) (Still breathing)
+### V0.9.1 (2021-05-17) (Still breathing)
+* (grizzelbee) New: [#105](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/105) TP02, HP02 and others supporting the fmod token are now able to switch from Off to Auto- and manual-mode
+
+### V0.9.0 (2021-05-15) (Still breathing)
 * (grizzelbee) New: Added ioBroker sentry plugin to report errors automatically 
 * (grizzelbee) New: Added support for Dyson Pure Cool TP07 (438E)
 * (grizzelbee) New: Added support for Dyson 2-factor login method

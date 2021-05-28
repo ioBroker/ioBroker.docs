@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: O6SB+OXHA3GdSIb3tZpGPsvoVJplaZxuEOC575VGttE=
+hash: mVco6iaD07UO1wopefxpYIaCfD7j3WesVgoR2YjtgnQ=
 ---
 # IoBroker.dysonAirPurifier
 ![Логотип] (admin / dyson_logo.svg)! [Логотип](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -138,7 +138,7 @@ hash: O6SB+OXHA3GdSIb3tZpGPsvoVJplaZxuEOC575VGttE=
 | ------------- | ----- | ----- | ----- |
 | ercd | Код последней ошибки | NONE или несколько шестнадцатеричных значений | |
 | filf | оставшийся срок службы фильтра | 0000 - 4300 | часы |
-| fmod | Режим | ВЕНТИЛЯТОР, АВТО | |
+| fmod | Режим | ВЕНТИЛЯТОР, АВТО, ВЫКЛ | |
 | fpwr | Основная мощность | ВКЛ, ВЫКЛ | |
 | fnst | Статус вентилятора | ВКЛ, ВЫКЛ, ВЕНТИЛЯТОР | |
 | fnsp | Скорость вентилятора | 0001-0010, АВТО | |
@@ -148,7 +148,7 @@ hash: O6SB+OXHA3GdSIb3tZpGPsvoVJplaZxuEOC575VGttE=
 | осон | Колебание | ВКЛ, ВЫКЛ | |
 | осал | OscillationAngle Нижняя граница | 0005 - 355 | ° (градусы) |
 | Osau | OscillationAngle Верхняя граница | 0005 - 355 | ° (градусы) |
-| осск | OscillationActive | ВКЛ, ВЫКЛ, ПРОХОЖДЕНИЕ | |
+| осск | OscillationActive | ВКЛ, ВЫКЛ, ХОЛОСТОЙ ХОД | |
 | ancp | OscillationAngle | CUST, 0180 | ° (градусы) |
 | qtar | Целевое качество воздуха | 0001 = Хорошо, 0002 = Нормально, 0003 = Плохо, 0004 = Очень плохо | |
 | rhtm | Непрерывный мониторинг | ВКЛ, ВЫКЛ | |
@@ -232,7 +232,10 @@ Dyson, pure cool, pure hot & cool и другие являются товарн�
 
 ## Changelog
 
-### V0.9.0 (2021-04-26) (Still breathing)
+### V0.9.1 (2021-05-17) (Still breathing)
+* (grizzelbee) New: [#105](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/105) TP02, HP02 and others supporting the fmod token are now able to switch from Off to Auto- and manual-mode
+
+### V0.9.0 (2021-05-15) (Still breathing)
 * (grizzelbee) New: Added ioBroker sentry plugin to report errors automatically 
 * (grizzelbee) New: Added support for Dyson Pure Cool TP07 (438E)
 * (grizzelbee) New: Added support for Dyson 2-factor login method

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.unifi/README.md
 title: ioBroker.unifi
-hash: 1eu6brniZsV62zT/Li5E57rGEfySbXdC9MBXNIPLd1U=
+hash: ZzOpiHmdAxM0QjTfyZeBcdKrkbb/LWCiGRdFFOieXts=
 ---
 ![Logo](../../../en/adapterref/iobroker.unifi/admin/unifi.png)
 
@@ -19,11 +19,11 @@ Dieser ioBroker-Adapter ermöglicht die Überwachung und eingeschränkte Steueru
 ### Erforderliche Mindestinformationen
 Um diesen Adapter zum Laufen zu bringen, werden die folgenden Informationen benötigt:
 
-* IP-Adresse und Port Ihres UniFi-Controllers (Lassen Sie den Port leer, falls Ihr Controller unter UbiOS ausgeführt wird (z. B. UDM Pro).)
-* Benutzername und Passwort (2FA wird nicht unterstützt)
+* IP-Adresse und Port Ihres UniFi-Controllers (Lassen Sie den Port leer, falls Ihr Controller unter UbiOS (z. B. UDM-Pro) ausgeführt wird.)
+* Lokaler Benutzername und Passwort (2FA **kann nicht** unterstützt werden)
 * Updateintervall
 
-Standardmäßig werden die Informationen alle 60 Sekunden aktualisiert. Abhängig von Ihrer ioBroker-Hardware und Ihrer Netzwerkgröße (Anzahl der Clients, UniFi-Geräte usw.) wird nicht empfohlen, das Intervall weiter zu verkürzen.
+Standardmäßig werden die Informationen alle 60 Sekunden aktualisiert. Abhängig von Ihrer ioBroker-Hardware und Ihrer Netzwerkgröße (Anzahl der Clients, UniFi-Geräte usw.) wird empfohlen, dieses Intervall beizubehalten und sich davor zu schützen, es weiter zu verringern.
 
 ### Objekte filtern
 Der Adapter aktualisiert so viele Informationen wie möglich von Ihrem UniFi-Controller, bietet jedoch die Möglichkeit, die aktualisierten Informationen einzuschränken.
@@ -34,16 +34,16 @@ Es ist möglich, die Aktualisierung ausgewählter Informationen zu deaktivieren 
 |-------------|-----------------------------------------|
 | Kunden | Name, Hostname, IP-Adresse, MAC-Adresse |
 | Geräte | Name, IP-Adresse, MAC-Adresse |
-| WLANs | Name |
+| WiFis | Name |
 | Netzwerke | Name |
 | Gesundheit | Subsystem |
 
 ## Steuerung
-### WLANs aktivieren / deaktivieren
-Durch Ändern des Status 'Aktiviert' eines WLAN kann es aktiviert / deaktiviert werden. Einige Sekunden später wird die Änderung für die Access Points bereitgestellt.
+### Aktivieren / Deaktivieren von WiFis
+Durch Ändern des Status "Aktiviert" eines WLANs kann es aktiviert / deaktiviert werden. Einige Sekunden später wird die Änderung für die Access Points bereitgestellt.
 
 ### Gutscheinerstellung
-Mit der Schaltfläche 'vouchers.create_vouchers' können vordefinierte Gutscheine erstellt werden. Es ist möglich, die Anzahl der zu erstellenden Gutscheine, die Gültigkeitsdauer der Gutscheine und Grenzwerte für das Hoch- und Herunterladen festzulegen.
+Mit der Schaltfläche `vouchers.create_vouchers` können vordefinierte Gutscheine angelegt werden. Es ist möglich, die Anzahl der zu erstellenden Gutscheine, die Gültigkeitsdauer der Gutscheine und Grenzwerte für das Hoch- und Herunterladen festzulegen.
 
 ## Fehlende Datenpunkte
 Der Adapter verwendet [Node-Unifi](https://github.com/jens-maus/node-unifi), um eine Verbindung zu Ihrem UniFi-Controller herzustellen. Zur Vereinfachung werden nicht alle verfügbaren Datenpunkte in Ihren ioBroker gezogen. Wenn Sie Datenpunkte vermissen, verwenden Sie die folgenden URLs, um die API zu überprüfen. (Hinweis: Sie müssen IP, PORT und SITE durch Ihre Einstellungen ersetzen.)
@@ -54,21 +54,21 @@ Der Adapter verwendet [Node-Unifi](https://github.com/jens-maus/node-unifi), um 
 | SysInfo | https:// IP: PORT / api / s / SITE / stat / sysinfo |
 | Kunden | https:// IP: PORT / api / s / SITE / stat / sta |
 | Geräte | https:// IP: PORT / api / s / SITE / stat / device |
-| WLANs | https:// IP: PORT / api / s / SITE / rest / wlanconf |
+| WiFis | https:// IP: PORT / api / s / SITE / rest / wlanconf |
 | Netzwerke | https:// IP: PORT / api / s / SITE / rest / networkconf |
 | Gesundheit | https:// IP: PORT / api / s / SITE / stat / health |
 | Gutscheine | https:// IP: PORT / api / s / SITE / stat / voucher |
 | DPI | https:// IP: PORT / api / s / SITE / stat / dpi |
 | Alarme | https:// IP: PORT / api / s / SITE / stat / alarm |
 
-### UbiOS-Endpunkte
+### UbiOS / UDM-Pro-Endpunkte
 | Informationen | API URL |
 |-------------|------------------------------------------------------|
 | Websites | https:// IP / proxy / network / api / self / sites |
 | SysInfo | https:// IP / proxy / network / api / s / SITE / stat / sysinfo |
 | Kunden | https:// IP / proxy / network / api / s / SITE / stat / sta |
 | Geräte | https:// IP / proxy / network / api / s / SITE / stat / device |
-| WLANs | https:// IP / proxy / network / api / s / SITE / rest / wlanconf |
+| WiFis | https:// IP / proxy / network / api / s / SITE / rest / wlanconf |
 | Netzwerke | https:// IP / proxy / network / api / s / SITE / rest / networkconf |
 | Gesundheit | https:// IP / proxy / network / api / s / SITE / stat / health |
 | Gutscheine | https:// IP / proxy / network / api / s / SITE / stat / voucher |
@@ -89,6 +89,10 @@ Dieser Adapter verwendet die Funktionen der folgenden NodeJS-Module von Drittanb
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.10 (2021-05-27)
+* (jens-maus) Changed "Update done" output to be output as debug info.
+* (jens-maus) Updated dependencies.
+
 ### 0.5.9 (2021-05-07)
 * (jens-maus) Fixed all js-controller 3.3 related state warnings
 * (kirovilya, jens-maus) Added device state object with dedicated states list.

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis/README.md
 title: 可视化
-hash: 0/WhX+8/BEES00UkNOAlQGpMkGBAUjWmKW1ywEDjUKg=
+hash: Sw/yjJuk/qGdIt7UG6e5P16JYqG9InI+CFfibXx1cZs=
 ---
 ![商标](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
@@ -24,8 +24,8 @@ ioBroker平台的Web可视化。
 通常，大多数小部件都具有ObjectID属性，并且此属性可以与对象ID的某些值绑定。
 但是还有另一种选择如何将窗口小部件的* any *属性绑定到某个ObjectID。
 
-只需写入属性```{object.id}```§中，它将绑定到该对象的值（不在编辑模式下）。
-如果您使用特殊格式，甚至可以对其进行一些简单的操作，例如乘法或格式化。
+只需写入属性```{object.id}```§，它将绑定到该对象的值（不在编辑模式下）。
+如果您使用特殊格式，甚至可以使用它进行一些简单的操作，例如乘法或格式化。
 彭定康的格式如下：
 
 ```
@@ -83,7 +83,7 @@ Last change: {objectRed.lc;date(hh:mm)}
 Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(h*h + w*w))}
 ```
 
-`{h:height;w:width;h*w}`将被解释为功能：
+`{h:height;w:width;h*w}`将被解释为以下功能：
 
 ```
 value = (function () {
@@ -127,7 +127,7 @@ Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(Ma
 为了那个原因。
 
 ##过滤器
-要在一个视图上可视化所有小部件的数量，可以使用过滤器减少视图上同时显示的小部件的数量。
+要在一个视图上可视化窗口小部件的总数，可以使用过滤器减少视图上同时显示的窗口小部件的数量。
 
 每个窗口小部件都有一个字段`filter`。如果您将其设置为某个值，例如`light`，因此您可以使用其他小部件`(bars - filters, filter - dropdown)`来控制哪个过滤器实际处于活动状态。
 
@@ -178,7 +178,7 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 ＃＃ 默认视图
 您可以为每个视图定义所需的分辨率（菜单=>工具=>分辨率）。这只是在编辑模式下的可视边框，用于向您显示某些特定设备上的屏幕尺寸。在实时模式下，它将不可见，并且边框外的所有小部件都将可见。
 
-此外，您可以定义是否必须将此视图用作此分辨率的默认视图。
+此外，您可以定义是否必须将此视图用作该分辨率的默认视图。
 
 因此，每次调用`index.html`（不包含`#viewName`）时，都会打开最适合此分辨率视图的视图。
 如果只有一个视图带有*“ Default” *标志，那么将独立于屏幕分辨率或方向打开此视图。
@@ -189,11 +189,11 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 
 ##设置
 ###如果睡眠时间超过
-有一条规则是，在断开连接一段时间后，将重新加载整个VIS页面以同步项目。
+有一条规则，在断开连接一段时间后，将重新加载整个VIS页面以同步项目。
 您可以在菜单“设置...”中对其进行配置。如果将时间间隔设置为“从不”，则将永远不会重新加载该页面。
 
 ###重新连接间隔
-设置连接尝试之间的间隔（如果断开连接）。如果设置为2秒，它将尝试每2秒建立一次连接。
+如果断开连接，请设置两次连接尝试之间的时间间隔。如果设置为2秒，它将尝试每2秒建立一次连接。
 
 ###黑暗重新连接屏幕
 有时（夜间），需要具有黑暗的加载屏幕。使用此选项可以进行设置。
@@ -207,6 +207,12 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 ### __正在进行的工程__->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (thost96) fixes for issues found by adapter-checker
+
+### 1.3.10 (2021-05-25)
+* (bluefox) Fixed the support of admin5
+
 ### 1.3.9 (2021-04-29)
 * (agav99) Added support of local browser variables
 * (Scrounger) Bug fix for null & NaN values in width and height

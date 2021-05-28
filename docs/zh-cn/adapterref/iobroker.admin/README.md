@@ -74,21 +74,22 @@ BADGE-NPM: https://nodei.co/npm/iobroker.admin.png?downloads=true
 日志的字体显示为红色。
 
 ## Changelog
+### 5.1.4 (2021-05-27)
+* (bluefox) Corrected error in log
+
+### 5.1.3 (2021-05-26)
+* (bluefox) Improved the GUI for enumerations
+
+### 5.1.2 (2021-05-26)
+* (bluefox) Admin5: Fixed logs by the changing of host
+
+### 5.1.1 (2021-05-25)
+* (bluefox) Admin5: Fixed the host selector
+* (bluefox) Admin5: Implemented the colored logs
+
 ### 5.1.0 (2021-05-24)
 * (bluefox) Admin5: Fixed update of objects
 * (bluefox) Admin5: React UI is by default enabled
-
-### 5.0.32 (2021-05-23)
-* (bluefox) Admin5: Support of ANSI codes in log
-
-### 5.0.31 (2021-05-21)
-* (bluefox) Admin5: Improved the enumerations
-
-### 5.0.30 (2021-05-21)
-* (bluefox) Admin5: Fixed update of objects
-
-### 5.0.29 (2021-05-19)
-* (bluefox) Admin5: Fixed reorder of the items in menu
 
 ## License
 

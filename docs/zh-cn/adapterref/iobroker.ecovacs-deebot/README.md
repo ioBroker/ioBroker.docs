@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
 title: 适用于ioBroker的Ecovacs Deebot适配器
-hash: 1d7KU08pEpgFEPk5lobDG6m7w25Ap2BBBkHzvhuuKN8=
+hash: 49L0KJ5YoprBrRIjUEykIuGtjd3pyv4qd/iYj/AVN7s=
 ---
 ![商标](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -23,7 +23,7 @@ hash: 1d7KU08pEpgFEPk5lobDG6m7w25Ap2BBBkHzvhuuKN8=
 
 *检索信息（例如电池，清洁日志，消耗品，清洁和充电状态）
 *发送整洁的命令（例如自动，专色区域，自定义区域）
-*发送其他一些命令（例如播放声音，重置消耗品，移动）
+*发送其他一些命令（例如播放声音，重置耗材，移动）
 *保存上次运行的自定义区域，然后重新运行保存的区域
 *调整真空功率（清洁速度）和水位
 *在清洁过程中检索信息（例如当前位置和区域）
@@ -50,13 +50,14 @@ hash: 1d7KU08pEpgFEPk5lobDG6m7w25Ap2BBBkHzvhuuKN8=
 * Deebot 710/711 / 711s
 * Deebot OZMO 610
 * Deebot OZMO 900/905
-* Deebot OZMO T5
-* Deebot OZMO T8系列
 * Deebot OZMO苗条10
+* Deebot OZMO T5
+* Deebot U2系列
 * Deebot N3 MAX
 * Deebot N7
 * Deebot N8系列
-* Deebot U2系列
+* Deebot（OZMO）T8系列
+* Deebot T9系列
 
 列出的模型已经众所周知可以使用，或者在技术上与这些模型相似。
 但是，功能可能会受到部分限制。
@@ -98,13 +99,19 @@ sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev l
 
 ## Changelog
 
-### 1.1.2 (alpha)
-* Using library version 0.6.0-beta.3
-* Added experimental functions for deleting, saving and recreating saved virtual boundaries (920,950,T8)
-* Added option to control clean speed and water level separately for each spot area
-* Quite a lot of improvements for processing map data, spot areas and virtual boundaries
-* Move some states from "info" channel to sub channels "info.library" and "info.network"
+### 1.2.0 (alpha)
+* Using library version 0.6.1
+* Added functions for deleting, saving and recreating saved virtual boundaries (e.g. 920, 950, T8 series)
+* Added functions for saving and recreating sets of virtual boundaries (e.g. 920, 950, T8 series)
+* Added options to control clean speed and water level separately for each spot area
+* Added function to save current spot area values
 * Added some cleaning log values and some states for current cleaning stats
+* Removed "Use alternative API call for lastCleaningMapImageURL and lastCleaningTimestamp" option
+* Moved some states from "info" channel to sub channels "info.library" and "info.network"
+* Quite a lot of improvements for processing map data, spot areas and virtual boundaries
+* Some optimisations for js-controller 3.3
+* Improved support for N8 series
+* Initial support for T9/T9+
 * Some improvements and fixes
 
 ### 1.1.1

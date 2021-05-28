@@ -3,19 +3,21 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.solarviewdatareader/README.md
 title: ioBroker.solarviewdatareader
-hash: 05N10yWtxS1P7K3+raksbc/gr4OudAtGI2km5AIX8jw=
+hash: DGtXy5iIPV0aJXSBR+TGxY/qUvt9Dhwsqoorf7fJtlU=
 ---
 ![商标](../../../en/adapterref/iobroker.solarviewdatareader/admin/solarviewdatareader.png)
 
-![安装数量](http://iobroker.live/badges/solarviewdatareader-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.solarviewdatareader.svg)
+![NPM版本](https://img.shields.io/npm/v/iobroker.solarviewdatareader.svg)
 ![资料下载](https://img.shields.io/npm/dm/iobroker.solarviewdatareader.svg)
+![安装数量（最新）](https://iobroker.live/badges/solarviewdatareader-installed.svg)
+![安装数量（稳定）](https://iobroker.live/badges/solarviewdatareader-stable.svg)
 ![依赖状态](https://img.shields.io/david/afuerhoff/iobroker.solarviewdatareader.svg)
 ![已知漏洞](https://snyk.io/test/github/afuerhoff/ioBroker.solarviewdatareader/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.solarviewdatareader.png?downloads=true)
-![特拉维斯](http://img.shields.io/travis/afuerhoff/ioBroker.solarviewdatareader/master.svg)
 
 ＃ioBroker.solarviewdatareader
+**测试：**![测试与发布](https://github.com/afuerhoff/ioBroker.solarviewdatareader/workflows/Test%20and%20Release/badge.svg)
+
 ##用于ioBroker的solarviewdatareader适配器
 适配器从Solarview数据记录器读取数据。
 在这里您可以找到有关Solarview的其他信息：https://www.solarview.info/solarlogger.aspx
@@ -26,10 +28,10 @@ hash: 05N10yWtxS1P7K3+raksbc/gr4OudAtGI2km5AIX8jw=
 标准端口是15000。请参考Solarview文档https://www.solarview.info/solarlogger.aspx。
 
 ### D0转换器
-如果您将D0转换器连接到Solarview数据记录器，则可以启用此选项。
+如果将D0转换器连接到Solarview数据记录器，则可以启用此选项。
 如有疑问，请参阅Solarview文档。
 
-###自我消费表总和和1到4
+###自我消费表总和和1至4
 如果您有S0表，则可以启用此选项。
 您最多可以有4个自用电表以及所有电表的总和。
 如有疑问，请参阅Solarview文档。
@@ -56,26 +58,23 @@ hash: 05N10yWtxS1P7K3+raksbc/gr4OudAtGI2km5AIX8jw=
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
+### 1.0.2 (2021-05-07)
+* (afuerhoff) node.js 14 and 16 compatibilty
+* (afuerhoff) dependencies updated
+
+### 1.0.1 (2021-05-01)
+* (afuerhoff) changes due to js-controller 3.3.x
+
+### 1.0.0 (2021-04-25)
 * (afuerhoff) dependencies updated
 * (afuerhoff) documentation changed
+* (afuerhoff) minor changes
+* (afuerhoff) due to stable state version set to 1.0.0
 
 ### 0.2.1
 * (afuerhoff) self consumption meter optimized
 ### 0.2.0
 * (afuerhoff) Error handling optimized, self consumption meter implemented
-### 0.1.0
-* (afuerhoff) optimizations for adding to latest repository
-### 0.0.5
-* (afuerhoff) Code optimized, unload optimized, documentation added 
-### 0.0.4
-* (afuerhoff) Objects, Telnet client and checksum calculation changed
-### 0.0.3
-* (afuerhoff) inverter selection added
-### 0.0.2
-* (afuerhoff) test version
-### 0.0.1
-* (afuerhoff) initial release
 
 ## License
 MIT License

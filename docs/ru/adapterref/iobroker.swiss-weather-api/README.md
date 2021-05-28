@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.swiss-weather-api/README.md
 title: ioBroker.swiss-weather-api
-hash: w5/s9Oyl4qRqCQlepfC5uMcSa3gYyBYf1wzyJ/F0OXo=
+hash: Y4XW7jc7X0m8UrHWpSUBaBDPQhCs2u/8oH6uVk03k8Y=
 ---
 ![Логотип](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
 
@@ -17,6 +17,21 @@ hash: w5/s9Oyl4qRqCQlepfC5uMcSa3gYyBYf1wzyJ/F0OXo=
 ![Трэвис-Си](http://img.shields.io/travis/baerengraben/ioBroker.swiss-weather-api/master.svg)
 
 # IoBroker.swiss-weather-api
+#Внимание!!!
+** SRG полностью перестроила свой API. Старый API (<= версия адаптера 0.3.2) больше НЕ поддерживается. Начиная с версии адаптера 0.9.x используется новый API SRG. Вот почему необходимо создать новое приложение SRG (например, продукт «Freemium») (https://developer.srgssr.ch/apis/srf-weather). См. Также Readme, раздел «Начало работы» (ниже). Также обратите внимание, что новый API также будет создавать совершенно новые объекты. **
+
+** Хорошая новость заключается в том, что новый API также предоставляет больше данных. ;) **
+
+** Процедура обновления **
+
+Итак, моя рекомендация по обновлению с 0.3.2 до 0.9.x:
+
+- удалите старый адаптер перед установкой версии 0.9.x.
+   - обратите внимание, что объекты данных также будут удалены соответственно.
+- создать новое бесплатное приложение на портале разработчика srg (https://developer.srgssr.ch/apis/srf-weather)
+- установите новую версию 0.9.x и настройте конфигурацию с помощью новых ключей consumerkey и consumersecret
+  - при запуске новый адаптер создаст новые, разные объекты данных.
+
 ## Swiss-weather-api адаптер для ioBroker
 Подключается к отличному API погоды SRF (https://developer.srgssr.ch/apis/srf-weather).
 API-интерфейс SRF Weather REST позволяет получать прогнозы погоды и отчеты из более чем 25 000 мест по всей Швейцарии. Подписка «Freemium» позволяет получать 50 запросов в день.
@@ -34,12 +49,18 @@ API-интерфейс SRF Weather REST позволяет получать пр
    1. Название приложения
    1. ConsumerKey приложения
    1. ConsumerSecret приложения
-   1. Долгота / широта выбранного швейцарского местоположения, для которого требуется прогноз. => Используйте десятичные градусы (например, Цюрих: 47,36667 / 8,5)
+   1. Долгота / широта выбранного места в Швейцарии, для которого требуется прогноз. => Используйте десятичные градусы (например, Цюрих: 47,36667 / 8,5)
    1. Интервал опроса в минутах (по умолчанию 30 минут - 50 запросов в день)
 
-Первый запрос выполняется через 10 секунд после запуска адаптера. После первого запуска запрос будет выполняться регулярно в соответствии с параметром conifugation (Интервал опроса в минутах)
+Первый запрос выполняется через 10 секунд после запуска адаптера. После первого запуска запрос будет выполняться регулярно в соответствии с параметром конифугирования (Интервал опроса в минутах)
 
 ## Changelog
+
+### 0.9.1
+* (baerengraben)  Fix to reduce amount of Rest-Calls: https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/41
+* (baerengraben)  Fix for https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/32 (Crashes when no Internet Connection is available)
+* (baerengraben)  Partly Fix for https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/24: Handling Adapter State Info.
+
 
 ### 0.9.0
 * (baerengraben)  Removed NodeJs 10 support and added NodeJs 16 support 

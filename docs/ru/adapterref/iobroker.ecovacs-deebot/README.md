@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecovacs-deebot/README.md
 title: Адаптер Ecovacs Deebot для ioBroker
-hash: 1d7KU08pEpgFEPk5lobDG6m7w25Ap2BBBkHzvhuuKN8=
+hash: 49L0KJ5YoprBrRIjUEykIuGtjd3pyv4qd/iYj/AVN7s=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -50,13 +50,14 @@ hash: 1d7KU08pEpgFEPk5lobDG6m7w25Ap2BBBkHzvhuuKN8=
 * Deebot 710/711/711s
 * Deebot OZMO 610
 * Deebot OZMO 900/905
-* Deebot OZMO T5
-* Deebot OZMO T8 серии
 * Deebot OZMO Slim 10
+* Deebot OZMO T5
+* Серия Deebot U2
 * Deebot N3 MAX
 * Deebot N7
 * Серия Deebot N8
-* Серия Deebot U2
+* Deebot (OZMO) серии T8
+* Серия Deebot T9
 
 Перечисленные модели либо уже работают, либо технически аналогичны этим моделям.
 Тем не менее, функциональность может быть частично ограничена.
@@ -64,7 +65,7 @@ hash: 1d7KU08pEpgFEPk5lobDG6m7w25Ap2BBBkHzvhuuKN8=
 Я стараюсь достичь широкого диапазона функциональных возможностей, но решаю этот вопрос индивидуально, в зависимости от сложности и различных других критериев.
 Претензий на полную функциональность конечно же нет.
 
-## Установка
+## Монтаж
 Рекомендуется использовать Node.js. версии 10.x, 12.x или 14.x. Минимальная необходимая версия - 10.x
 
 Этот адаптер использует библиотеку [узел-холст](https://www.npmjs.com/package/canvas) для некоторых функций, связанных с картой, которые могут потребовать установки некоторых дополнительных пакетов.
@@ -79,7 +80,7 @@ sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev l
 
 Для получения инструкций для других систем посетите https://www.npmjs.com/package/canvas#compiling.
 
-## Использование
+## Применение
 * Информацию о том, как использовать этот адаптер, можно найти [здесь] (https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
 
 ### Состояния
@@ -98,13 +99,19 @@ sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev l
 
 ## Changelog
 
-### 1.1.2 (alpha)
-* Using library version 0.6.0-beta.3
-* Added experimental functions for deleting, saving and recreating saved virtual boundaries (920,950,T8)
-* Added option to control clean speed and water level separately for each spot area
-* Quite a lot of improvements for processing map data, spot areas and virtual boundaries
-* Move some states from "info" channel to sub channels "info.library" and "info.network"
+### 1.2.0 (alpha)
+* Using library version 0.6.1
+* Added functions for deleting, saving and recreating saved virtual boundaries (e.g. 920, 950, T8 series)
+* Added functions for saving and recreating sets of virtual boundaries (e.g. 920, 950, T8 series)
+* Added options to control clean speed and water level separately for each spot area
+* Added function to save current spot area values
 * Added some cleaning log values and some states for current cleaning stats
+* Removed "Use alternative API call for lastCleaningMapImageURL and lastCleaningTimestamp" option
+* Moved some states from "info" channel to sub channels "info.library" and "info.network"
+* Quite a lot of improvements for processing map data, spot areas and virtual boundaries
+* Some optimisations for js-controller 3.3
+* Improved support for N8 series
+* Initial support for T9/T9+
 * Some improvements and fixes
 
 ### 1.1.1

@@ -79,6 +79,13 @@ Parameters here are:
 * Possibility to use plus and minus in addminutes and the other add functions
 
 ## Changelog
+
+## 1.2.3 (2021-05-27) 
+* (jack-blackson) Small bugfixes, translations
+
+## 1.2.2 (2021-05-25) 
+* (jack-blackson) Small bugfixes, added weblate for translations
+
 ## 1.2.1 (2021-05-09) 
 * (jack-blackson) Small Bugfixes
 

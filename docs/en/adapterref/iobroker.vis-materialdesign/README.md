@@ -12835,13 +12835,14 @@ The adapter uses the following libraries:
 -->
 
 <!-- omit in toc -->
-### __WORK IN PROGRESS__
+### 0.5.7 (2021-05-26)
 * (Scrounger) Top App Bar Widget: color option for menu icon added ([#171](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/171))
 * (Scrounger) Top App Bar Widget: Permission group - option to deactivate default value added ([#173](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/173))
 * (Scrounger) iconList Widget: bug fix for active state at diffrent types ([#168](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/168))
 * (Scrounger) iconList Widget: layout bug fix for radius of buttons ([#174](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/174))
 * (Scrounger) list Widget: bug fix for theme properties
 * (Scrounger) select Widget: bug fix for long text ([#169](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/169))
+* (Scrounger) fixed bugs found by sentry
 
 <!-- omit in toc -->
 ### 0.5.6 (2021-05-07)
@@ -12885,16 +12886,6 @@ The adapter uses the following libraries:
 * (Scrounger) vis-google-fonts dependency removed
 
 <!-- omit in toc -->
-### 0.4.1 (2020-12-27)
-* (Scrounger): Adapter settings: theme editor implementation completed
-* (Scrounger): Progress Widget: condition binding bug fix
-* (Scrounger): minimal VIS adapter dependency set to v1.3.6
-* (Scrounger): VIS editor: image dialog bug fix
-* (Scrounger): Color themes for buttons and dialogs widgets implemented
-* (Scrounger): Calendar Widget: week number bug fix
-* (Scrougner): icon list: scrollbar bug fix
-* (Scrounger): bug fixes
-
 ## License
 MIT License
 

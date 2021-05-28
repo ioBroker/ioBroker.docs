@@ -3,19 +3,21 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.solarviewdatareader/README.md
 title: ioBroker.solarviewdatareader
-hash: 05N10yWtxS1P7K3+raksbc/gr4OudAtGI2km5AIX8jw=
+hash: DGtXy5iIPV0aJXSBR+TGxY/qUvt9Dhwsqoorf7fJtlU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.solarviewdatareader/admin/solarviewdatareader.png)
 
-![Количество установок](http://iobroker.live/badges/solarviewdatareader-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.solarviewdatareader.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.solarviewdatareader.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.solarviewdatareader.svg)
+![Количество установок (последнее)](https://iobroker.live/badges/solarviewdatareader-installed.svg)
+![Количество установок (стабильно)](https://iobroker.live/badges/solarviewdatareader-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/afuerhoff/iobroker.solarviewdatareader.svg)
 ![Известные уязвимости](https://snyk.io/test/github/afuerhoff/ioBroker.solarviewdatareader/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.solarviewdatareader.png?downloads=true)
-![Трэвис-Си](http://img.shields.io/travis/afuerhoff/ioBroker.solarviewdatareader/master.svg)
 
 # IoBroker.solarviewdatareader
+** Тесты: ** ![Тестирование и выпуск](https://github.com/afuerhoff/ioBroker.solarviewdatareader/workflows/Test%20and%20Release/badge.svg)
+
 ## Адаптер solarviewdatareader для ioBroker
 Адаптер считывает данные из регистратора данных Solarview.
 Здесь вы можете найти дополнительную информацию о Solarview: https://www.solarview.info/solarlogger.aspx
@@ -56,26 +58,23 @@ daily = дневная выработка (кВтч) ежемесячно = еж
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
+### 1.0.2 (2021-05-07)
+* (afuerhoff) node.js 14 and 16 compatibilty
+* (afuerhoff) dependencies updated
+
+### 1.0.1 (2021-05-01)
+* (afuerhoff) changes due to js-controller 3.3.x
+
+### 1.0.0 (2021-04-25)
 * (afuerhoff) dependencies updated
 * (afuerhoff) documentation changed
+* (afuerhoff) minor changes
+* (afuerhoff) due to stable state version set to 1.0.0
 
 ### 0.2.1
 * (afuerhoff) self consumption meter optimized
 ### 0.2.0
 * (afuerhoff) Error handling optimized, self consumption meter implemented
-### 0.1.0
-* (afuerhoff) optimizations for adding to latest repository
-### 0.0.5
-* (afuerhoff) Code optimized, unload optimized, documentation added 
-### 0.0.4
-* (afuerhoff) Objects, Telnet client and checksum calculation changed
-### 0.0.3
-* (afuerhoff) inverter selection added
-### 0.0.2
-* (afuerhoff) test version
-### 0.0.1
-* (afuerhoff) initial release
 
 ## License
 MIT License

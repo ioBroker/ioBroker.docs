@@ -12,6 +12,20 @@
 
 **Tests:**: [![Travis-CI](http://img.shields.io/travis/baerengraben/ioBroker.swiss-weather-api/master.svg)](https://travis-ci.org/baerengraben/ioBroker.swiss-weather-api)
 
+#Attention!!!
+**SRG has completely rebuilt its API. The old API (<= adapter version 0.3.2) is NOT supported anymore. From adapter version 0.9.x the new API of the SRG is used. That's why a new SRG APP (eg product "Freemium") must be created (https://developer.srgssr.ch/apis/srf-weather). See also Readme, chapter "Getting started" (below). Please also note that the new API will also create completely new objects.**
+
+**The good news is that the new API also provides  more data. ;)**
+
+**Update procedure**
+
+So my recommendation for the update from 0.3.2 to 0.9.x is:
+- remove the old adapter before installing version 0.9.x.
+   - please note that the data-objects will be removed accordingly as well.
+- create a new freemium app on srg developer portal (https://developer.srgssr.ch/apis/srf-weather)
+- install new version 0.9.x and set configuration with new consumerkey and consumersecret    
+  - on startup, the new adapter will create new, different data-objects.
+
 ## swiss-weather-api adapter for ioBroker
 
 Connects to the great SRF weather API (https://developer.srgssr.ch/apis/srf-weather).  
@@ -37,6 +51,12 @@ Since Version 0.1.8 SRG-SSR provides their own icons. So each Datapoint provides
 The first query is made 10s after the adapter was started. After the first start, the query will be executed regularly according to the conifugation parameter (Poll Interval in Minutes)
 
 ## Changelog
+
+### 0.9.1
+* (baerengraben)  Fix to reduce amount of Rest-Calls: https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/41
+* (baerengraben)  Fix for https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/32 (Crashes when no Internet Connection is available)
+* (baerengraben)  Partly Fix for https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/24: Handling Adapter State Info.
+
 
 ### 0.9.0
 * (baerengraben)  Removed NodeJs 10 support and added NodeJs 16 support 

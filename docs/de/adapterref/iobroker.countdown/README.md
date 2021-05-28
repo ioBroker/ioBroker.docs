@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.countdown/README.md
 title: ioBroker.countdown
-hash: oUuKL0pCKSuM4BOd6q3+yv7Ueqo8+iWZ2GuajDACnvk=
+hash: LrKhxAVrwjHmNGYgW5ktyrOZ6gOgaOx5DsTXtT7NDzc=
 ---
 ![Logo](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
@@ -77,6 +77,12 @@ Parameter hier sind:
 * Möglichkeit, ein Skript als Parameter hinzuzufügen und zu starten, wenn der Countdown endet
 * Möglichkeit, Plus und Minus in Addminutes und den anderen Add-Funktionen zu verwenden
 
+## 1.2.3 (2021-05-27)
+* (jack-blackson) Kleine Bugfixes, Übersetzungen
+
+## 1.2.2 (2021-05-25)
+* (jack-blackson) Kleine Bugfixes, Weblate für Übersetzungen hinzugefügt
+
 ## 1.2.1 (2021-05-09)
 * (jack-blackson) Kleine Bugfixes
 
@@ -86,7 +92,7 @@ Parameter hier sind:
 * (jack-blackson) Korrigieren Sie, dass Countdowns sofort erstellt werden
 
 ## 1.1.0 (2020-04-02)
-* (jack-blackson) Bugfix Read-Me-Link
+* (Jack-Blackson) Bugfix Read-Me-Link
 * (Jack-Blackson) Bugfix RepeatCycle
 
 ## 1.0.9 (2020-03-31)
@@ -122,7 +128,7 @@ Parameter hier sind:
 * (jack-blackson) Datenpunkt im Setup kann jetzt bearbeitet werden
 * (Jack-Blackson) hinzugefügt Gesamt-Nr. von Wochen
 
-## 0.6.0 (06.07.2019)
+## 0.6.0 (2019-07-06)
 * (Jack-Blackson) einstellbares Datumsformat für Ein- und Ausgabe
 * (jack-blackson) Countdowns mit sendto löschen
 * (Jack-Blackson) Fähigkeit, Countdowns in "Tagen / Monaten / Wochen ab jetzt) hinzuzufügen

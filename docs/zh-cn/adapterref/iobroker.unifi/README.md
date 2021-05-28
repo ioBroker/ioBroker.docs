@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.unifi/README.md
 title: ioBroker.unifi
-hash: 1eu6brniZsV62zT/Li5E57rGEfySbXdC9MBXNIPLd1U=
+hash: ZzOpiHmdAxM0QjTfyZeBcdKrkbb/LWCiGRdFFOieXts=
 ---
 ![商标](../../../en/adapterref/iobroker.unifi/admin/unifi.png)
 
@@ -19,11 +19,11 @@ hash: 1eu6brniZsV62zT/Li5E57rGEfySbXdC9MBXNIPLd1U=
 ###最低要求信息
 要启动此适配器并运行，需要以下信息：
 
-* UniFi控制器的IP地址和端口（如果该控制器在UbiOS（例如UDM Pro）上运行，请将该端口留空）
-*用户名和密码（不支持2FA）
+* UniFi控制器的IP地址和端口（如果该控制器在UbiOS上运行（例如UDM-Pro），请将该端口留空）
+*本地用户名和密码（不支持2FA）
 *更新间隔
 
-默认情况下，信息每60秒更新一次。根据您的ioBroker硬件和网络大小（客户端，UniFi设备等），不建议进一步缩短间隔。
+默认情况下，信息每60秒更新一次。根据您的ioBroker硬件和您的网络大小（客户端，UniFi设备等的数量），建议您保持此间隔，并避免进一步减小该间隔。
 
 ###过滤对象
 适配器会从您的UniFi控制器中更新尽可能多的信息，但可以限制更新的信息。
@@ -34,16 +34,16 @@ hash: 1eu6brniZsV62zT/Li5E57rGEfySbXdC9MBXNIPLd1U=
 |-------------|-----------------------------------------|
 |客户|名称，主机名，IP地址，MAC地址|
 |设备|名称，IP地址，MAC地址|
-|无线局域网|姓名|
+| WiFi |姓名|
 |网络|姓名|
 |健康|子系统|
 
 ＃＃ 控制
-###启用/禁用WLAN
-通过更改WLAN的“启用”状态，可以启用/禁用它。几秒钟后，更改将被提供给访问点。
+###启用/禁用WiFi
+通过更改WiFi的“启用”状态，可以启用/禁用它。几秒钟后，更改将被提供给访问点。
 
 ###凭证创建
-使用“ vouchers.create_vouchers”按钮可以创建预定义的凭单。可以配置将创建的凭证的数量，凭证的有效期限，还可以设置上传和下载的限制。
+使用`vouchers.create_vouchers`按钮可以创建预定义的凭单。可以配置将创建的凭证的数量，凭证的有效期限，还可以设置上传和下载的限制。
 
 ##缺少数据点
 适配器使用[节点统一](https://github.com/jens-maus/node-unifi)连接到您的UniFi控制器。为简化起见，并非所有可用的数据点都被拉到ioBroker中。如果您缺少数据点，请使用以下URL来检查API。 （注意：您必须用设置替换IP，PORT和SITE）
@@ -54,21 +54,21 @@ hash: 1eu6brniZsV62zT/Li5E57rGEfySbXdC9MBXNIPLd1U=
 | SysInfo | https：// IP：PORT / api / s / SITE / stat / sysinfo |
 |客户| https：// IP：PORT / api / s / SITE / stat / sta |
 |设备| https：// IP：PORT / api / s / SITE / stat / device |
-|无线局域网| https：// IP：PORT / api / s / SITE / rest / wlanconf |
+| WiFi | https：// IP：PORT / api / s / SITE / rest / wlanconf |
 |网络| https：// IP：PORT / api / s / SITE / rest / networkconf |
 |健康| https：// IP：PORT / api / s / SITE / stat / health |
 |优惠券| https：// IP：PORT / api / s / SITE / stat / voucher |
 | DPI | https：// IP：PORT / api / s / SITE / stat / dpi |
 |警报器| https：// IP：PORT / api / s / SITE / stat / alarm |
 
-### UbiOS端点
+### UbiOS / UDM-Pro端点
 |信息| API URL |
 |-------------|------------------------------------------------------|
 |网站| https：// IP / proxy / network / api / self / sites |
 | SysInfo | https：// IP / proxy / network / api / s / SITE / stat / sysinfo |
 |客户| https：// IP / proxy / network / api / s / SITE / stat / sta |
 |设备| https：// IP / proxy / network / api / s / SITE / stat / device |
-|无线局域网| https：// IP / proxy / network / api / s / SITE / rest / wlanconf |
+| WiFi | https：// IP / proxy / network / api / s / SITE / rest / wlanconf |
 |网络| https：// IP / proxy / network / api / s / SITE / rest / networkconf |
 |健康| https：// IP / proxy / network / api / s / SITE / stat / health |
 |优惠券| https：// IP / proxy / network / api / s / SITE / stat / voucher |
@@ -89,6 +89,10 @@ hash: 1eu6brniZsV62zT/Li5E57rGEfySbXdC9MBXNIPLd1U=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.10 (2021-05-27)
+* (jens-maus) Changed "Update done" output to be output as debug info.
+* (jens-maus) Updated dependencies.
+
 ### 0.5.9 (2021-05-07)
 * (jens-maus) Fixed all js-controller 3.3 related state warnings
 * (kirovilya, jens-maus) Added device state object with dedicated states list.
