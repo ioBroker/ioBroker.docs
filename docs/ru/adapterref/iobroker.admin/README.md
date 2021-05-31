@@ -170,6 +170,9 @@ IP-адрес с которого доступен драйвер (поддер�
 ![ioBroker.admin - system settings](img/admin_SystemSettings.jpg)
 
 ## Changelog
+### 5.1.5 (2021-05-30)
+* (bluefox) Fix edit of enumeration
+
 ### 5.1.4 (2021-05-27)
 * (bluefox) Corrected error in log
 
@@ -182,10 +185,6 @@ IP-адрес с которого доступен драйвер (поддер�
 ### 5.1.1 (2021-05-25)
 * (bluefox) Admin5: Fixed the host selector
 * (bluefox) Admin5: Implemented the colored logs
-
-### 5.1.0 (2021-05-24)
-* (bluefox) Admin5: Fixed update of objects
-* (bluefox) Admin5: React UI is by default enabled
 
 ## License
 

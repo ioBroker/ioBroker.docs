@@ -3,86 +3,86 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.unifi/README.md
 title: ioBroker.unifi
-hash: ZzOpiHmdAxM0QjTfyZeBcdKrkbb/LWCiGRdFFOieXts=
+hash: zSzVMfDGm9zu8qpM6269G1Ytu9zXQOIIt8F9wdWr3NA=
 ---
-![商标](../../../en/adapterref/iobroker.unifi/admin/unifi.png)
-
 ![安装数量](http://iobroker.live/badges/unifi-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.unifi.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.unifi.svg)
-![NPM](https://nodei.co/npm/iobroker.unifi.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.unifi.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.unifi.svg)
+![新产品管理](https://nodei.co/npm/iobroker.unifi.png?downloads=true)
 
-＃ioBroker.unifi
-此ioBroker适配器允许使用公共UniFi控制器Web-API监视和限制[UniFi设备](http://www.ubnt.com/)，例如UniFi WiFi接入点。
+<img height="100px" src="admin/unifi.png" align="left"><br/>
+
+# IoBroker.unifi
+此 ioBroker 适配器允许对 [UniFi 设备](http://www.ubnt.com/) 进行监控和有限控制，例如使用公共 UniFi 控制器 Web-API 的 UniFi WiFi 接入点。
 
 ＃＃ 配置
-###最低要求信息
-要启动此适配器并运行，需要以下信息：
+### 最低要求信息
+要启动并运行此适配器，需要以下信息：
 
-* UniFi控制器的IP地址和端口（如果该控制器在UbiOS上运行（例如UDM-Pro），请将该端口留空）
-*本地用户名和密码（不支持2FA）
-*更新间隔
+* UniFi 控制器的 IP 地址和端口（如果您的控制器在 UbiOS（例如 UDM-Pro）上运行，请将端口留空）
+* 本地用户名和密码（2FA **不支持**）
+* 更新间隔
 
-默认情况下，信息每60秒更新一次。根据您的ioBroker硬件和您的网络大小（客户端，UniFi设备等的数量），建议您保持此间隔，并避免进一步减小该间隔。
+默认情况下，信息每 60 秒更新一次。根据您的 ioBroker 硬件和网络规模（客户端数量、UniFi 设备等），建议保持此间隔并避免进一步减少它。
 
-###过滤对象
-适配器会从您的UniFi控制器中更新尽可能多的信息，但可以限制更新的信息。
+### 过滤对象
+适配器从 UniFi 控制器更新尽可能多的信息，但提供了限制更新信息的可能性。
 
 可以禁用所选信息的更新或过滤该信息的特定对象。
 
-|信息|可过滤的对象|
+|信息 |可过滤的对象 |
 |-------------|-----------------------------------------|
-|客户|名称，主机名，IP地址，MAC地址|
-|设备|名称，IP地址，MAC地址|
-| WiFi |姓名|
-|网络|姓名|
-|健康|子系统|
+|客户 |名称、主机名、IP 地址、MAC 地址 |
+|设备 |姓名、IP 地址、MAC 地址 |
+| WiFi |姓名 |
+|网络 |姓名 |
+|健康 |子系统 |
 
 ＃＃ 控制
-###启用/禁用WiFi
-通过更改WiFi的“启用”状态，可以启用/禁用它。几秒钟后，更改将被提供给访问点。
+### 启用/禁用 WiFi
+通过更改 WiFi 的“启用”状态，可以启用/禁用它。几秒钟后，更改将提供给接入点。
 
-###凭证创建
-使用`vouchers.create_vouchers`按钮可以创建预定义的凭单。可以配置将创建的凭证的数量，凭证的有效期限，还可以设置上传和下载的限制。
+### 凭证创建
+使用 `vouchers.create_vouchers` 按钮可以创建预定义的优惠券。可以配置将创建的凭证数量、凭证的有效期以及设置上传和下载限制。
 
-##缺少数据点
-适配器使用[节点统一](https://github.com/jens-maus/node-unifi)连接到您的UniFi控制器。为简化起见，并非所有可用的数据点都被拉到ioBroker中。如果您缺少数据点，请使用以下URL来检查API。 （注意：您必须用设置替换IP，PORT和SITE）
+## 缺少数据点
+适配器使用 [节点统一](https://github.com/jens-maus/node-unifi) 连接到您的 UniFi 控制器。为简化起见，并非所有可用数据点都被拉入您的 ioBroker。如果您缺少数据点，请使用以下 URL 检查 API。 （注意：您必须用您的设置替换 IP、PORT 和 SITE）
 
-|信息| API URL |
+|信息 | API 网址 |
 |-------------|---------------------------------------------|
-|网站| https：// IP：PORT / api / self / sites |
-| SysInfo | https：// IP：PORT / api / s / SITE / stat / sysinfo |
-|客户| https：// IP：PORT / api / s / SITE / stat / sta |
-|设备| https：// IP：PORT / api / s / SITE / stat / device |
-| WiFi | https：// IP：PORT / api / s / SITE / rest / wlanconf |
-|网络| https：// IP：PORT / api / s / SITE / rest / networkconf |
-|健康| https：// IP：PORT / api / s / SITE / stat / health |
-|优惠券| https：// IP：PORT / api / s / SITE / stat / voucher |
-| DPI | https：// IP：PORT / api / s / SITE / stat / dpi |
-|警报器| https：// IP：PORT / api / s / SITE / stat / alarm |
+|网站 | https://IP:PORT/api/self/sites |
+|系统信息 | https://IP:PORT/api/s/SITE/stat/sysinfo |
+|客户 | https://IP:PORT/api/s/SITE/stat/sta |
+|设备 | https://IP:PORT/api/s/SITE/stat/device |
+| WiFi | https://IP:PORT/api/s/SITE/rest/wlanconf |
+|网络 | https://IP:PORT/api/s/SITE/rest/networkconf |
+|健康 | https://IP:PORT/api/s/SITE/stat/health |
+|优惠券 | https://IP:PORT/api/s/SITE/stat/voucher |
+|新闻部 | https://IP:PORT/api/s/SITE/stat/dpi |
+|警报 | https://IP:PORT/api/s/SITE/stat/alarm |
 
-### UbiOS / UDM-Pro端点
-|信息| API URL |
+### UbiOS/UDM-Pro 端点
+|信息 | API 网址 |
 |-------------|------------------------------------------------------|
-|网站| https：// IP / proxy / network / api / self / sites |
-| SysInfo | https：// IP / proxy / network / api / s / SITE / stat / sysinfo |
-|客户| https：// IP / proxy / network / api / s / SITE / stat / sta |
-|设备| https：// IP / proxy / network / api / s / SITE / stat / device |
-| WiFi | https：// IP / proxy / network / api / s / SITE / rest / wlanconf |
-|网络| https：// IP / proxy / network / api / s / SITE / rest / networkconf |
-|健康| https：// IP / proxy / network / api / s / SITE / stat / health |
-|优惠券| https：// IP / proxy / network / api / s / SITE / stat / voucher |
-| DPI | https：// IP / proxy / network / api / s / SITE / stat / dpi |
-|警报器| https：// IP / proxy / network / api / s / SITE / stat / alarm |
+|网站 | https://IP/proxy/network/api/self/sites |
+|系统信息 | https://IP/proxy/network/api/s/SITE/stat/sysinfo |
+|客户 | https://IP/proxy/network/api/s/SITE/stat/sta |
+|设备 | https://IP/proxy/network/api/s/SITE/stat/device |
+| WiFi | https://IP/proxy/network/api/s/SITE/rest/wlanconf |
+|网络 | https://IP/proxy/network/api/s/SITE/rest/networkconf |
+|健康 | https://IP/proxy/network/api/s/SITE/stat/health |
+|优惠券 | https://IP/proxy/network/api/s/SITE/stat/voucher |
+|新闻部 | https://IP/proxy/network/api/s/SITE/stat/dpi |
+|警报 | https://IP/proxy/network/api/s/SITE/stat/alarm |
 
 ＃＃ 已知的问题
-*客户端下线后，客户端的is_wired状态不正确。这是UniFi控制器的已知问题，与适配器无关。 （请参阅https://community.ui.com/questions/Wireless-clients-shown-as-wired-clients/49d49818-4dab-473a-ba7f-d51bc4c067d1）
+* 客户端离线后，客户端的is_wired 状态不正确。这是 UniFi 控制器的已知问题，与适配器无关。 （参见 https://community.ui.com/questions/Wireless-clients-shown-as-wired-clients/49d49818-4dab-473a-ba7f-d51bc4c067d1）
 
 ＃＃ 参考
-该适配器使用以下第三方nodejs模块的功能：
+此适配器使用以下第三方 nodejs 模块的功能：
 
-* [node-unifi]（https://github.com/jens-maus/node-unifi）
-* [json-logic-js]（https://github.com/jwadhams/json-logic-js）
+* [节点统一](https://github.com/jens-maus/node-unifi)
+* [json-logic-js](https://github.com/jwadhams/json-logic-js)
 
 ## Changelog
 <!--

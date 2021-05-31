@@ -563,7 +563,7 @@ This channel contains calculated values. Currently these are day/week/month/year
    *Read-only text, which designates the serial number of wallbox [0..3].*
 
 ## Changelog
-### 1.3.2 (NoBl) Beta
+### 1.3.2 (NoBl)
 * Autarky without decimal places (again). They are causing more updates than we really need.
 * Autarky values won't reset to 0 at change of timeframe (day, week, ...) anymore. They are calculated based on reference values anyways.
 * Ensuring that only values meant to be changeable by user are defined so (attribute changes upon the next update of value)

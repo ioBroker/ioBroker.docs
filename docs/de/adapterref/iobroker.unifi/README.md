@@ -3,86 +3,86 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.unifi/README.md
 title: ioBroker.unifi
-hash: ZzOpiHmdAxM0QjTfyZeBcdKrkbb/LWCiGRdFFOieXts=
+hash: zSzVMfDGm9zu8qpM6269G1Ytu9zXQOIIt8F9wdWr3NA=
 ---
-![Logo](../../../en/adapterref/iobroker.unifi/admin/unifi.png)
-
 ![Anzahl der Installationen](http://iobroker.live/badges/unifi-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.unifi.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.unifi.svg)
 ![NPM](https://nodei.co/npm/iobroker.unifi.png?downloads=true)
 
+<img height="100px" src="admin/unifi.png" align="left"><br/>
+
 # IoBroker.unifi
-Dieser ioBroker-Adapter ermöglicht die Überwachung und eingeschränkte Steuerung von [UniFi-Geräte](http://www.ubnt.com/), z. B. UniFi WiFi Access Points, mithilfe der öffentlichen UniFi Controller-Web-API.
+Dieser ioBroker Adapter ermöglicht die Überwachung und eingeschränkte Steuerung von [UniFi-Geräte](http://www.ubnt.com/), wie z.B. UniFi WiFi Access Points über die öffentliche UniFi Controller Web-API.
 
 ## Aufbau
 ### Erforderliche Mindestinformationen
-Um diesen Adapter zum Laufen zu bringen, werden die folgenden Informationen benötigt:
+Um diesen Adapter in Betrieb zu nehmen, werden die folgenden Informationen benötigt:
 
-* IP-Adresse und Port Ihres UniFi-Controllers (Lassen Sie den Port leer, falls Ihr Controller unter UbiOS (z. B. UDM-Pro) ausgeführt wird.)
+* IP-Adresse und Port Ihres UniFi-Controllers (lassen Sie den Port leer, falls Ihr Controller unter UbiOS (z. B. UDM-Pro) läuft)
 * Lokaler Benutzername und Passwort (2FA **kann nicht** unterstützt werden)
 * Updateintervall
 
-Standardmäßig werden die Informationen alle 60 Sekunden aktualisiert. Abhängig von Ihrer ioBroker-Hardware und Ihrer Netzwerkgröße (Anzahl der Clients, UniFi-Geräte usw.) wird empfohlen, dieses Intervall beizubehalten und sich davor zu schützen, es weiter zu verringern.
+Standardmäßig werden die Informationen alle 60 Sekunden aktualisiert. Abhängig von Ihrer ioBroker-Hardware und Ihrer Netzwerkgröße (Anzahl der Clients, UniFi-Geräte usw.) wird empfohlen, dieses Intervall beizubehalten und es nicht weiter zu verkürzen.
 
 ### Objekte filtern
 Der Adapter aktualisiert so viele Informationen wie möglich von Ihrem UniFi-Controller, bietet jedoch die Möglichkeit, die aktualisierten Informationen einzuschränken.
 
 Es ist möglich, die Aktualisierung ausgewählter Informationen zu deaktivieren oder bestimmte Objekte dieser Informationen zu filtern.
 
-| Informationen | Objekte, die nach | gefiltert werden können |
+| Informationen | Objekte filterbar nach |
 |-------------|-----------------------------------------|
 | Kunden | Name, Hostname, IP-Adresse, MAC-Adresse |
 | Geräte | Name, IP-Adresse, MAC-Adresse |
-| WiFis | Name |
+| WLANs | Name |
 | Netzwerke | Name |
 | Gesundheit | Subsystem |
 
 ## Steuerung
-### Aktivieren / Deaktivieren von WiFis
-Durch Ändern des Status "Aktiviert" eines WLANs kann es aktiviert / deaktiviert werden. Einige Sekunden später wird die Änderung für die Access Points bereitgestellt.
+### WLAN aktivieren/deaktivieren
+Durch Ändern des 'aktivierten' Zustands eines WLANs ist es möglich, es zu aktivieren/deaktivieren. Einige Sekunden später wird die Änderung den Access Points bereitgestellt.
 
-### Gutscheinerstellung
-Mit der Schaltfläche `vouchers.create_vouchers` können vordefinierte Gutscheine angelegt werden. Es ist möglich, die Anzahl der zu erstellenden Gutscheine, die Gültigkeitsdauer der Gutscheine und Grenzwerte für das Hoch- und Herunterladen festzulegen.
+###Gutscheinerstellung
+Über die Schaltfläche `vouchers.create_vouchers` können vordefinierte Gutscheine erstellt werden. Es ist möglich, die Anzahl der zu erstellenden Gutscheine, die Gültigkeitsdauer der Gutscheine sowie Limits für Up- und Download zu konfigurieren.
 
 ## Fehlende Datenpunkte
-Der Adapter verwendet [Node-Unifi](https://github.com/jens-maus/node-unifi), um eine Verbindung zu Ihrem UniFi-Controller herzustellen. Zur Vereinfachung werden nicht alle verfügbaren Datenpunkte in Ihren ioBroker gezogen. Wenn Sie Datenpunkte vermissen, verwenden Sie die folgenden URLs, um die API zu überprüfen. (Hinweis: Sie müssen IP, PORT und SITE durch Ihre Einstellungen ersetzen.)
+Der Adapter verwendet [Knoten-Unifi](https://github.com/jens-maus/node-unifi), um sich mit Ihrem UniFi Controller zu verbinden. Zur Vereinfachung werden nicht alle verfügbaren Datenpunkte in Ihren ioBroker gezogen. Falls Datenpunkte fehlen, verwenden Sie die folgenden URLs, um die API zu überprüfen. (Hinweis: Sie müssen IP, PORT und SITE durch Ihre Einstellungen ersetzen)
 
-| Informationen | API URL |
+| Informationen | API-URL |
 |-------------|---------------------------------------------|
-| Websites | https:// IP: PORT / api / self / sites |
-| SysInfo | https:// IP: PORT / api / s / SITE / stat / sysinfo |
-| Kunden | https:// IP: PORT / api / s / SITE / stat / sta |
-| Geräte | https:// IP: PORT / api / s / SITE / stat / device |
-| WiFis | https:// IP: PORT / api / s / SITE / rest / wlanconf |
-| Netzwerke | https:// IP: PORT / api / s / SITE / rest / networkconf |
-| Gesundheit | https:// IP: PORT / api / s / SITE / stat / health |
-| Gutscheine | https:// IP: PORT / api / s / SITE / stat / voucher |
-| DPI | https:// IP: PORT / api / s / SITE / stat / dpi |
-| Alarme | https:// IP: PORT / api / s / SITE / stat / alarm |
+| Seiten | https://IP:PORT/api/self/sites |
+| SysInfo | https://IP:PORT/api/s/SITE/stat/sysinfo |
+| Kunden | https://IP:PORT/api/s/SITE/stat/sta |
+| Geräte | https://IP:PORT/api/s/SITE/stat/device |
+| WLANs | https://IP:PORT/api/s/SITE/rest/wlanconf |
+| Netzwerke | https://IP:PORT/api/s/SITE/rest/networkconf |
+| Gesundheit | https://IP:PORT/api/s/SITE/stat/health |
+| Gutscheine | https://IP:PORT/api/s/SITE/stat/voucher |
+| DPI | https://IP:PORT/api/s/SITE/stat/dpi |
+| Alarme | https://IP:PORT/api/s/SITE/stat/alarm |
 
-### UbiOS / UDM-Pro-Endpunkte
-| Informationen | API URL |
+### UbiOS/UDM-Pro-Endpunkte
+| Informationen | API-URL |
 |-------------|------------------------------------------------------|
-| Websites | https:// IP / proxy / network / api / self / sites |
-| SysInfo | https:// IP / proxy / network / api / s / SITE / stat / sysinfo |
-| Kunden | https:// IP / proxy / network / api / s / SITE / stat / sta |
-| Geräte | https:// IP / proxy / network / api / s / SITE / stat / device |
-| WiFis | https:// IP / proxy / network / api / s / SITE / rest / wlanconf |
-| Netzwerke | https:// IP / proxy / network / api / s / SITE / rest / networkconf |
-| Gesundheit | https:// IP / proxy / network / api / s / SITE / stat / health |
-| Gutscheine | https:// IP / proxy / network / api / s / SITE / stat / voucher |
-| DPI | https:// IP / proxy / network / api / s / SITE / stat / dpi |
-| Alarme | https:// IP / proxy / network / api / s / SITE / stat / alarm |
+| Seiten | https://IP/proxy/network/api/self/sites |
+| SysInfo | https://IP/proxy/network/api/s/SITE/stat/sysinfo |
+| Kunden | https://IP/proxy/network/api/s/SITE/stat/sta |
+| Geräte | https://IP/proxy/network/api/s/SITE/stat/device |
+| WLANs | https://IP/proxy/network/api/s/SITE/rest/wlanconf |
+| Netzwerke | https://IP/proxy/network/api/s/SITE/rest/networkconf |
+| Gesundheit | https://IP/proxy/network/api/s/SITE/stat/health |
+| Gutscheine | https://IP/proxy/network/api/s/SITE/stat/voucher |
+| DPI | https://IP/proxy/network/api/s/SITE/stat/dpi |
+| Alarme | https://IP/proxy/network/api/s/SITE/stat/alarm |
 
 ## Bekannte Probleme
-* Der Status is_wired von Clients ist falsch, nachdem ein Client offline geschaltet wurde. Dies ist ein bekanntes Problem des UniFi-Controllers und hängt nicht mit dem Adapter zusammen. (Siehe https://community.ui.com/questions/Wireless-clients-shown-as-wired-clients/49d49818-4dab-473a-ba7f-d51bc4c067d1)
+* Der is_wired-Status von Clients ist falsch, nachdem ein Client offline gegangen ist. Dies ist ein bekanntes Problem des UniFi-Controllers und hängt nicht mit dem Adapter zusammen. (siehe https://community.ui.com/questions/Wireless-clients-shown-as-wired-clients/49d49818-4dab-473a-ba7f-d51bc4c067d1)
 
 ## Verweise
-Dieser Adapter verwendet die Funktionen der folgenden NodeJS-Module von Drittanbietern:
+Dieser Adapter verwendet Funktionen der folgenden Nodejs-Module von Drittanbietern:
 
-* [node-unifi] (https://github.com/jens-maus/node-unifi)
-* [json-logic-js] (https://github.com/jwadhams/json-logic-js)
+* [node-unifi](https://github.com/jens-maus/node-unifi)
+* [json-logic-js](https://github.com/jwadhams/json-logic-js)
 
 ## Changelog
 <!--

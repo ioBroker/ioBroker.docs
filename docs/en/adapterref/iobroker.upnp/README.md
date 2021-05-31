@@ -222,7 +222,7 @@ You can enable polling in admin via objects configuration.
 -->
 
 ## Changelog
-### 1.0.18 (2021-05-18)
+### 1.0.19 (2021-05-28)
 * (bluefox) added support for Admin5
 
 ### 1.0.17 (2021-02-21)

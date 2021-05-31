@@ -96,6 +96,8 @@ Keep your credentials save! <br />To reject all Tokens, change your Tesla accoun
 * klein0r
 
 ## Changelog
+### 0.5.1
+* (Hombach) Added tests for node 16; updated dependencies
 ### 0.5.0
 * (klein0r) Store passwords and other sensitive information encrypted (BREAKING CHANGE)
 ### 0.4.3

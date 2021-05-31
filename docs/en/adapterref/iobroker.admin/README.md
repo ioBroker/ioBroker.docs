@@ -76,6 +76,9 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
+### 5.1.5 (2021-05-30)
+* (bluefox) Fix edit of enumeration
+
 ### 5.1.4 (2021-05-27)
 * (bluefox) Corrected error in log
 
@@ -88,10 +91,6 @@ lettering of the log appears in red.
 ### 5.1.1 (2021-05-25)
 * (bluefox) Admin5: Fixed the host selector
 * (bluefox) Admin5: Implemented the colored logs
-
-### 5.1.0 (2021-05-24)
-* (bluefox) Admin5: Fixed update of objects
-* (bluefox) Admin5: React UI is by default enabled
 
 ## License
 

@@ -20,6 +20,10 @@ A small excerpt just of the command options:
 <b>NodeJs >> 8.x.x </b>
 
 ## Changelog
+
+### 2.0.9 (2021-05-30)
+* (arteck)  lastInfoUpdate is now correct
+
 ### 2.0.6 (2021-03-18)
 * (arteck) timeout new defined
 
