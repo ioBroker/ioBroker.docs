@@ -168,7 +168,7 @@ ioBroker Material Design Widgets are based on [Google's material design guidelin
 - [Informations](#informations)
 	- [used libraries](#used-libraries)
 	- [Changelog](#changelog)
-	- [License](#license)
+		- [__WORK IN PROGRESS__](#work-in-progress)
 
 # General
 
@@ -12833,6 +12833,9 @@ The adapter uses the following libraries:
     Placeholder for the next version (at the beginning of the line):	   
 	### __WORK IN PROGRESS__
 -->
+
+### __WORK IN PROGRESS__
+* (Scrounger) Top App Bar Widget: option added to set value on click at item that toggle submenu
 
 <!-- omit in toc -->
 ### 0.5.7 (2021-05-26)

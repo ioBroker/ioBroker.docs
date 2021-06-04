@@ -72,6 +72,10 @@ Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to s
 
 ## Changelog
 
+### 0.0.36
+
+- fix for js.controller 3.3. Please delete the device in Objects manually
+
 ### 0.0.32 (29.12.2020)
 
 - (Morluktom) bugfix for devices that are completely switched off (e.g. washing machine, dryer)

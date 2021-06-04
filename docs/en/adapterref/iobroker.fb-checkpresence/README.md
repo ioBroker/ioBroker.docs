@@ -191,8 +191,8 @@ Here you will find information about the history of the current day.
     * Did some more changes
 -->
 
-### __WORK IN PROGRESS__
-* (afuerhoff) npm updated
+### 1.1.5 (2021-06-03)
+* (afuerhoff) dependencies updated
 * (afuerhoff) checkservice fixed
 
 ### 1.1.4 (2021-05-11)
@@ -229,7 +229,6 @@ Here you will find information about the history of the current day.
 * (afuerhoff) password handling updated
 * (afuerhoff) documentation updated
 
-
 ### 1.1.2 (2021-01-13)
 * (afuerhoff) QR-Code implemented
 * (afuerhoff) setState presence only if changed
@@ -246,15 +245,6 @@ Here you will find information about the history of the current day.
 * (afuerhoff) Connection check optimized
 * (afuerhoff) Documentation added
 * (afuerhoff) Mesh handling optimized 
-
-### 1.1.0 (2020-10-24)
-* (afuerhoff) second interval for family members implemented
-* (afuerhoff) mesh info added
-* (afuerhoff) configuration validation added
-* (afuerhoff) switch on, off guest wlan
-* (afuerhoff) switch on, off internet access of devices 
-* (afuerhoff) structural changes
-* (afuerhoff) code optimization
 
 ## License
 MIT License

@@ -645,6 +645,9 @@ msg.payload = {
 -->
 
 ## Changelog
+### 1.8.2 (2021-05-28)
+* (Diginix) fixed data types
+
 ### 1.8.1 (2021-04-20)
 * (bluefox) added the admin5 support
 

@@ -128,6 +128,9 @@ sudo chmod u+s `which ping`
 
 ## Changelog
 
+### 1.3.6-beta1 (01.06.2021)
+* (Stübi) Bugfixing
+
 ### 1.3.5 (24.04.2021)
 * (Stübi) Add device keypad outdoor v2
 * (Stübi) Add log file state. Important time of Lupusec Alarm system and ioBroker have to be synchrony

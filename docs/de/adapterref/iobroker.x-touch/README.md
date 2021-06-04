@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.x-touch/README.md
 title: ioBroker.x-touch
-hash: DXBWewtBHnnWtY70fczTP8KKMEYoLjdrk7iyIlpgR7A=
+hash: WIHz2zmoIFHGH8dlrg2iIAKeaishdLYIfWK2QOSAv7c=
 ---
 ![Logo](../../../en/adapterref/iobroker.x-touch/admin/x-touch.png)
 
@@ -12,18 +12,18 @@ hash: DXBWewtBHnnWtY70fczTP8KKMEYoLjdrk7iyIlpgR7A=
 ![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/x-touch-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/x-touch-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/Bannsaenger/iobroker.x-touch.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/Bannsaenger/ioBroker.x-touch/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/Bannsaenger/ioBroker.x-touch/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.x-touch.png?downloads=true)
 
-# IoBroker.x-touch
-## X-Touch-Adapter für ioBroker
-Kommunizieren Sie mit einer Behringer X-Touch-Bedienoberfläche (DAW-Controller)
+#ioBroker.x-touch
+## X-touch-Adapter für ioBroker
+Kommunizieren mit einer Behringer X-Touch-Bedienoberfläche (DAW-Controller)
 
 ## Machen
-- Fügen Sie die Encoder und ihre LEDs hinzu
+- Encoder und deren LEDs hinzufügen -> fertig, links ist sync_global und prüft auf Datenbankänderungen
 - Fügen Sie die Timecode-Anzeige hinzu
-- Fügen Sie die große Bildlaufschaltfläche hinzu
-- Fügen Sie die Funktionalität von Bank- und Fader-Kanalschaltern hinzu (nur für den Moment vorbereitet).
+- Funktionalität von Bank- und Fader-Kanalschaltern hinzufügen -> fertig, benötigt zusätzliche Tests
+- Fügen Sie die syncGlobal-Funktionalität hinzu
 
 ## Changelog
 
@@ -35,6 +35,18 @@ Kommunizieren Sie mit einer Behringer X-Touch-Bedienoberfläche (DAW-Controller)
 
 ### 0.1.0
 * (Bannsaenger) introduced channel and page switching
+
+### 0.2.0
+* (Bannsaenger) introduced encoders
+
+### 0.2.1
+* (Bannsaenger) changed the way to send data. Added sendDelay
+
+### 0.2.2
+* (Bannsaenger) fixed fader handling and data distribution to the device group
+
+### 0.2.3
+* (Bannsaenger) fixed setting of diplay inverted
 
 ## License
 MIT License

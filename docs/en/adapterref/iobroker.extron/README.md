@@ -52,6 +52,9 @@ If you are a non commercial organisation or use it for private use you can get a
 ### 0.1.0
 * (mschlgl) extend device/database structure to cover all controllable elements
 
+### 0.1.1
+* (mschlgl) extend device/database structure to add devices CP82, SME211, SMD202
+
 ## License
 Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
 

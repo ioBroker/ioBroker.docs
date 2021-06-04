@@ -170,6 +170,9 @@ IP-адрес с которого доступен драйвер (поддер�
 ![ioBroker.admin - system settings](img/admin_SystemSettings.jpg)
 
 ## Changelog
+### 5.1.6 (2021-06-02)
+* (bluefox) Improved the custom settings
+
 ### 5.1.5 (2021-05-30)
 * (bluefox) Fix edit of enumeration
 
@@ -181,10 +184,6 @@ IP-адрес с которого доступен драйвер (поддер�
 
 ### 5.1.2 (2021-05-26)
 * (bluefox) Admin5: Fixed logs by the changing of host
-
-### 5.1.1 (2021-05-25)
-* (bluefox) Admin5: Fixed the host selector
-* (bluefox) Admin5: Implemented the colored logs
 
 ## License
 

@@ -361,6 +361,13 @@ Here is a list of the problems that have occurred so far and their solutions, if
 
 ## Changelog
 
+### 2.1.12 (01.06.2021)
+* (simatec) adminTab edited
+* (simatec) translation changed
+* (simatec) dependencies updated
+* (simatec) more debug for mount added
+* (simatec) Bugfix history json
+
 ### 2.1.11 (19.05.2021)
 * (simatec) adminTab edited
 * (simatec) translation changed

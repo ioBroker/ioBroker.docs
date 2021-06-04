@@ -76,6 +76,9 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
+### 5.1.6 (2021-06-02)
+* (bluefox) Improved the custom settings
+
 ### 5.1.5 (2021-05-30)
 * (bluefox) Fix edit of enumeration
 
@@ -87,10 +90,6 @@ lettering of the log appears in red.
 
 ### 5.1.2 (2021-05-26)
 * (bluefox) Admin5: Fixed logs by the changing of host
-
-### 5.1.1 (2021-05-25)
-* (bluefox) Admin5: Fixed the host selector
-* (bluefox) Admin5: Implemented the colored logs
 
 ## License
 

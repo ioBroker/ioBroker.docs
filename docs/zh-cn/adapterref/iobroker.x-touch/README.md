@@ -3,27 +3,27 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.x-touch/README.md
 title: ioBroker.x-touch
-hash: DXBWewtBHnnWtY70fczTP8KKMEYoLjdrk7iyIlpgR7A=
+hash: WIHz2zmoIFHGH8dlrg2iIAKeaishdLYIfWK2QOSAv7c=
 ---
 ![商标](../../../en/adapterref/iobroker.x-touch/admin/x-touch.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.x-touch.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.x-touch.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.x-touch.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.x-touch.svg)
 ![安装数量（最新）](http://iobroker.live/badges/x-touch-installed.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/x-touch-stable.svg)
 ![依赖状态](https://img.shields.io/david/Bannsaenger/iobroker.x-touch.svg)
 ![已知漏洞](https://snyk.io/test/github/Bannsaenger/ioBroker.x-touch/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.x-touch.png?downloads=true)
+![新产品管理](https://nodei.co/npm/iobroker.x-touch.png?downloads=true)
 
-＃ioBroker.x-touch
-## IoBroker的x-touch适配器
-与Behringer X-Touch控制界面（DAW控制器）进行通信
+# IoBroker.x-touch
+## IoBroker 的 x-touch 适配器
+与 Behringer X-Touch 控制表面（DAW 控制器）通信
 
 ＃＃ 去做
--添加编码器及其LED
--添加时间码显示
--添加大滚动按钮
--增加了库和推子通道开关的功能（仅适用于现在）
+- 添加编码器及其 LED -> 完成，左边是 sync_global 并检查数据库更改
+- 添加时间码显示
+- 添加库和推子通道开关的功能 -> 完成，需要额外测试
+- 添加同步全局功能
 
 ## Changelog
 
@@ -35,6 +35,18 @@ hash: DXBWewtBHnnWtY70fczTP8KKMEYoLjdrk7iyIlpgR7A=
 
 ### 0.1.0
 * (Bannsaenger) introduced channel and page switching
+
+### 0.2.0
+* (Bannsaenger) introduced encoders
+
+### 0.2.1
+* (Bannsaenger) changed the way to send data. Added sendDelay
+
+### 0.2.2
+* (Bannsaenger) fixed fader handling and data distribution to the device group
+
+### 0.2.3
+* (Bannsaenger) fixed setting of diplay inverted
 
 ## License
 MIT License

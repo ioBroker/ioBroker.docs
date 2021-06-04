@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.x-touch/README.md
 title: ioBroker.x-touch
-hash: DXBWewtBHnnWtY70fczTP8KKMEYoLjdrk7iyIlpgR7A=
+hash: WIHz2zmoIFHGH8dlrg2iIAKeaishdLYIfWK2QOSAv7c=
 ---
 ![Логотип](../../../en/adapterref/iobroker.x-touch/admin/x-touch.png)
 
@@ -20,10 +20,10 @@ hash: DXBWewtBHnnWtY70fczTP8KKMEYoLjdrk7iyIlpgR7A=
 Общайтесь с панелью управления Behringer X-Touch (контроллером DAW)
 
 ## Делать
-- Добавьте энкодеры и их светодиоды
+- Добавьте кодировщики и их светодиоды -> готово, слева - sync_global и проверяет изменения в базе данных.
 - Добавить отображение временного кода
-- Добавить большую кнопку прокрутки
-- Добавлена функциональность переключателей каналов банка и фейдера (пока только готово)
+- Добавить функциональность переключателей каналов банка и фейдера -> готово, требуется дополнительное тестирование
+- Добавить функцию syncGlobal
 
 ## Changelog
 
@@ -35,6 +35,18 @@ hash: DXBWewtBHnnWtY70fczTP8KKMEYoLjdrk7iyIlpgR7A=
 
 ### 0.1.0
 * (Bannsaenger) introduced channel and page switching
+
+### 0.2.0
+* (Bannsaenger) introduced encoders
+
+### 0.2.1
+* (Bannsaenger) changed the way to send data. Added sendDelay
+
+### 0.2.2
+* (Bannsaenger) fixed fader handling and data distribution to the device group
+
+### 0.2.3
+* (Bannsaenger) fixed setting of diplay inverted
 
 ## License
 MIT License

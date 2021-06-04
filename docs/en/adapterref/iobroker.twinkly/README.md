@@ -39,11 +39,6 @@ The following additionals States are created per device when checked:
 
 [Private API information](https://xled-docs.readthedocs.io/en/latest/) by [Pavol Babinčák](https://github.com/scrool)
 
-## TODO
-* After Switch "expand JSON" checked, channels don't get created (**restart solves this error atm**)
-* Network-Status (write)
-* State On: Checkbox for which ON-Mode Playlist/Movie 
-
 ## Changelog
 
 ### 0.1.x

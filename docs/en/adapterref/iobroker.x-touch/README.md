@@ -15,10 +15,10 @@
 Communicate with a Behringer X-Touch Control Surface (DAW Controller)
 
 ## ToDo
-- Add the encoders and their LEDs
+- Add the encoders and their LEDs -> done, left is sync_global and checks on database changes
 - Add the timecode display
-- Add the big scroll button
-- Add the functionality of bank and fader channel switches (only prepared for now)
+- Add the functionality of bank and fader channel switches -> done, needs additional testing
+- Add the syncGlobal functionality
 
 ## Changelog
 
@@ -30,6 +30,18 @@ Communicate with a Behringer X-Touch Control Surface (DAW Controller)
 
 ### 0.1.0
 * (Bannsaenger) introduced channel and page switching
+
+### 0.2.0
+* (Bannsaenger) introduced encoders
+
+### 0.2.1
+* (Bannsaenger) changed the way to send data. Added sendDelay
+
+### 0.2.2
+* (Bannsaenger) fixed fader handling and data distribution to the device group
+
+### 0.2.3
+* (Bannsaenger) fixed setting of diplay inverted
 
 ## License
 MIT License

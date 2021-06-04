@@ -74,6 +74,9 @@ BADGE-NPM: https://nodei.co/npm/iobroker.admin.png?downloads=true
 日志的字体显示为红色。
 
 ## Changelog
+### 5.1.6 (2021-06-02)
+* (bluefox) Improved the custom settings
+
 ### 5.1.5 (2021-05-30)
 * (bluefox) Fix edit of enumeration
 
@@ -85,10 +88,6 @@ BADGE-NPM: https://nodei.co/npm/iobroker.admin.png?downloads=true
 
 ### 5.1.2 (2021-05-26)
 * (bluefox) Admin5: Fixed logs by the changing of host
-
-### 5.1.1 (2021-05-25)
-* (bluefox) Admin5: Fixed the host selector
-* (bluefox) Admin5: Implemented the colored logs
 
 ## License
 
