@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import MarkdownView from 'react-showdown';
+
 import Paper from '@material-ui/core/Paper';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -310,6 +311,48 @@ const styles = theme => ({
     },
     paragraph: {
 
+    },
+
+    changeLog: {
+        display: 'block'
+    },
+    changeLogDiv: {
+        display: 'block',
+        marginBottom: theme.spacing(2),
+        marginLeft: theme.spacing(1),
+        '&:hover': {
+            backgroundColor: theme.palette.type === 'dark' ? '#333' : '#CCC',
+        }
+    },
+    changeLogVersion: {
+        fontWeight: 'bold',
+        fontSize: 16,
+    },
+    changeLogDate: {
+        fontSize: 14,
+        fontStyle: 'italic',
+        marginLeft: theme.spacing(1),
+        opacity: 0.7
+    },
+    changeLogLine: {
+        display: 'block',
+        fontSize: 12,
+        marginLeft: theme.spacing(1),
+        '&:before': {
+            content: '"- "',
+        }
+    },
+    changeLogAuthor: {
+        fontStyle: 'italic',
+        fontWeight: 'bold',
+        marginRight: theme.spacing(1),
+    },
+    changeLogLineText: {
+
+    },
+
+    changeLogAccordion: {
+        justifyContent: 'flex-start',
     }
 });
 
@@ -531,7 +574,7 @@ class Markdown extends Router {
             title: _title
         });
 
-        setTimeout(() => this.onHashChange(), 200);
+        this.onHashChange && setTimeout(() => this.onHashChange(), 200);
     }
 
     load(path, language) {
@@ -552,7 +595,9 @@ class Markdown extends Router {
         body = body.replace(/\r\n|\n/g, '§$§$');
         body = body.replace(/<!--[^>]*-->/, '\n');
         body = body.replace(/§\$§\$/g, '\n');
-
+        body = body.replace(/\[\*\*\*\s(.+)\s\*\*\*]/g, '[***$1***]');
+        body = body.replace(/\[\*\*\s(.+)\s\*\*]/g, '[**$1**]');
+        body = body.replace(/\[\*\s(.+)\s\*]/g, '[*$1*]');
 
         body = Utils.removeDocsify(body);
         let {parts, content, license, changeLog, title} = Utils.decorateText(body, header, `${this.props.path && (this.props.path[0] === '/' ? this.props.path : '/' + this.props.path)}`);
@@ -588,7 +633,7 @@ class Markdown extends Router {
             // Translate language from english to actual language
             translatedFrom = I18n.t(translatedFrom);
 
-            data.push(<div key="translatedFrom" className={this.props.classes.headerTranslated} onClick={() => this.props.onNavigate(this.state.header.translatedFrom)} title={I18n.t('Go to original')}>{I18n.t('Translated from %s', translatedFrom)}</div>);
+            data.push(<div key="translatedFrom" className={this.props.classes.headerTranslated} onClick={() => this.props.onNavigate && this.props.onNavigate(this.state.header.translatedFrom)} title={I18n.t('Go to original')}>{I18n.t('Translated from %s', translatedFrom)}</div>);
         }
 
         if (this.state.header.adapter) {
@@ -618,7 +663,7 @@ class Markdown extends Router {
                                 <span>{attr === 'authors' ? this.formatAuthors(this.state.header[attr]) : this.state.header[attr].toString()}</span>
                             </ListItem>)}
                 </List></AccordionActions>
-                </Accordion>);
+            </Accordion>);
         }
 
         if (Object.keys(this.state.header).find(attr => attr.startsWith('BADGE-'))) {
@@ -627,9 +672,9 @@ class Markdown extends Router {
                 <AccordionActions classes={{root: this.props.classes.badgesDetails}}>{
                     Object.keys(this.state.header).filter(attr => attr.startsWith('BADGE-'))
                         .map((attr, i) => [
-                                this.state.header[attr].indexOf('nodei.co') !== -1 ? (<br key={'br' + i}/>) : null,
-                                (<img key={'img' + i} src={this.state.header[attr]} alt={attr.substring(6)}/>)
-                            ])}
+                            this.state.header[attr].indexOf('nodei.co') !== -1 ? (<br key={'br' + i}/>) : null,
+                            <img key={'img' + i} src={this.state.header[attr]} alt={attr.substring(6)}/>
+                        ])}
                 </AccordionActions>
             </Accordion>);
         }
@@ -642,13 +687,13 @@ class Markdown extends Router {
             {this.state.header.lastChanged ? [
                 <span key="lastChangedTitle" className={this.props.classes.infoTitle}>{I18n.t('Last changed:')} </span>,
                 <span key="lastChangedValue" className={this.props.classes.infoValue}>{this.state.header.lastChanged}</span>,
-                ] : null}
+            ] : null}
             {this.state.header.editLink ?
                 <a className={this.props.classes.infoEdit}
-                    href={this.state.header.editLink}
-                    rel="noopener noreferrer"
-                    target="_blank"><IconGithub />{I18n.t('Edit on github')}
-                    </a> : null}
+                   href={this.state.header.editLink}
+                   rel="noopener noreferrer"
+                   target="_blank"><IconGithub />{I18n.t('Edit on github')}
+                </a> : null}
             {this.props.editEnabled && this.editText ?
                 <div className={this.props.classes.infoEditLocal} onClick={() => {
                     this.props.onEditMode && this.props.onEditMode(true);
@@ -754,7 +799,7 @@ class Markdown extends Router {
             const CustomH = this.customH;
             return <Accordion>
                 <AccordionSummary className={this.props.classes.summary} classes={{expanded: this.props.classes.summaryExpanded}} expandIcon={<IconExpandMore />}>{I18n.t('Changelog')}</AccordionSummary>
-                <AccordionActions>
+                <AccordionActions classes={{root: this.props.classes.changeLogAccordion}}>
                     <MarkdownView markdown={this.state.changeLog} options={CONVERTER_OPTIONS} components={{CustomLink, CustomH}}/>
                 </AccordionActions>
             </Accordion>;
@@ -903,9 +948,7 @@ class Markdown extends Router {
                 mobile={this.props.mobile}
                 theme={this.props.theme}
                 path={this.state.header.editLink}
-                onClose={() => {
-                    this.props.onEditMode && this.props.onEditMode(false);
-                }}
+                onClose={() => this.props.onEditMode && this.props.onEditMode(false)}
             />;
         }
         if (this.state.loadTimeout && !this.state.parts.length) {
@@ -958,7 +1001,7 @@ class Markdown extends Router {
             }
         });
 
-        return <div className={this.props.classes.root} ref={this.contentRef}>
+        return <div className={Utils.clsx(this.props.classes.root, this.props.className)} ref={this.contentRef}>
             {this.renderHeader()}
             {this.state.title && !this.state.header.adapter ? <h1>{this.state.title}</h1> : null}
             {this.renderAffiliates()}
@@ -986,6 +1029,7 @@ Markdown.propTypes = {
     editEnabled:  PropTypes.bool,
     affiliates: PropTypes.object,
     editor: PropTypes.object,
+    className: PropTypes.string,
 };
 
 export default withStyles(styles)(Markdown);

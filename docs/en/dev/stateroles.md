@@ -322,6 +322,8 @@ Special roles for media players
 * `value.precipitation`         - (type: number, unit: mm) precipitation for last 24 hours rain/snow (Niederschlag heute für Schnee oder Regen / осадки сегодня снега или дождя)
 * `value.precipitation.hour`    - Actual precipitation level in last hour
 * `value.precipitation.today`   - Actual precipitation level for today (till 0:00)
+* `value.precipitation.chance`  - Actual precipitation chance for today
+* `value.precipitation.type`    - Actual precipitation type for today. (type: `number`) States: 0 - NO, 1 - RAIN, 2 - SNOW, 3 - HAIL
 * `value.radiation`             - Actual sun radiation level
 * `value.uv`                    - Actual UV level
 * `value.clouds`                - Clouds on the sky. 0% - no clouds, 100% - many clouds.
@@ -336,7 +338,7 @@ Special roles for media players
 * `weather.chart.url.forecast`  - URL to chart for weather forecast
 * `weather.html`                - HTML object with weather description
 * `weather.title`               - Very short description
-* `weather.title.short`         - Very very short description (One word)
+* `weather.title.short`         - Very, very short description (One word)
 * `weather.type`                - Type of weather information
 * `weather.json`                - JSON object with specific data
 * `value.speed.wind.forecast.0`     - wind speed forecast for today
@@ -350,7 +352,7 @@ Special roles for media players
 * `value.precipitation.forecast.0`  - (type: number, unit: mm) Forecast of precipitation level for today
 * `weather.title.forecast.0`        - Very short description for tomorrow
 * `value.precipitation.day.forecast.0`     - Forecast for precipitation for day time
-* `value.precipitation.night.forecast.0`   - Forecast for precipitation for night time
+* `value.precipitation.night.forecast.0`   - Forecast for precipitation for nighttime
 
 * `date.forecast.1`                 - tomorrow date
 * `weather.icon.forecast.1`         - tomorrow icon
