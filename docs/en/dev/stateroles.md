@@ -156,7 +156,9 @@ Switch controls boolean device (true = ON, false = OFF)
 * `switch.lock`           - lock (true - open lock, false - close lock)
 * `switch.lock.door`      - door lock
 * `switch.lock.window`    - window lock
-* `switch.boost`          - start/stop boost mode of thermostat
+* `switch.mode.boost`     - start/stop boost mode of thermostat
+* `switch.mode.party`     - start/stop party mode of thermostat
+* `switch.power`          - on/off thermostat or air conditioner
 * `switch.light`
 * `switch.comfort`        - comfort mode
 * `switch.enable`
@@ -172,7 +174,7 @@ Switch controls boolean device (true = ON, false = OFF)
 ## Air condition or thermostat
 * `level.mode.fan`        - `AUTO, HIGH, LOW, MEDIUM, QUIET, TURBO`
 * `level.mode.swing`      - `AUTO, HORIZONTAL, STATIONARY, VERTICAL`
-* `level.mode.thermostat` - `AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`
+* `level.mode.thermostat` - air conditioner: `AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`, heating thermostat: `AUTO, MANUAL, VACATION`, 
  Additionally to these states normally the `level.temperature` and `switch.power` required to map the air conditioner.
 
 TODO: Think about ionization`and oscillation. 
@@ -190,7 +192,7 @@ Optionally `value.battery` and
 
 ## Gate
 * `switch.gate`           - closes(false) or opens(true) the gate (required)
-* `value.position`        - position of the gate in percent (100% opend, 0% - closed)
+* `value.position`        - position of the gate in percent (100% opened, 0% - closed)
 * `value.gate`            - same as `value.position`
 * `button.stop`           - stop motion of gate
 
@@ -211,7 +213,7 @@ Special roles for media players
 * `button.volume.up`
 * `button.volume.down`
 * `media.seek`            - (common.type=number) %
-* `media.mode.shuffle`   - (common.type=number) 0 - none, 1 - all, 2 - one
+* `media.mode.shuffle`    - (common.type=number) 0 - none, 1 - all, 2 - one
 * `media.mode.repeat`     - (common.type=boolean)
 * `media.state`           - ['play','stop','pause'] or [0 - pause, 1 - play, 2 - stop] or [true - playing/false - pause]
 * `media.artist`
@@ -295,7 +297,7 @@ Special roles for media players
 ## Weather
 * `value.temperature`           - Actual temperature
 * `value.temperature.windchill` - Actual wind chill
-* `value.temperature.dewpoint`  - Actual dewpoint
+* `value.temperature.dewpoint`  - Actual dew-point
 * `value.temperature.feelslike` - Actual temperature "feels like"
 * `value.temperature.min`       - Minimal temperature in last 24h
 * `value.temperature.max`       - Maximal temperature in last 24h
