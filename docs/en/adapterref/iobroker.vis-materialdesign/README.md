@@ -129,46 +129,46 @@ ioBroker Material Design Widgets are based on [Google's material design guidelin
 			- [Menu JSON Properties](#menu-json-properties-1)
 			- [HTML Properties](#html-properties-28)
 	- [Top App Bar](#top-app-bar)
+		- [Editor Settings](#editor-settings-27)
 		- [Submenu](#submenu)
 			- [Submenu JSON Properties](#submenu-json-properties)
 	- [Charts](#charts)
 		- [Bar Chart](#bar-chart)
-			- [Editor Settings](#editor-settings-27)
+			- [Editor Settings](#editor-settings-28)
 			- [Dataset JSON Properties](#dataset-json-properties)
 		- [Pie Chart](#pie-chart)
-			- [Editor Settings](#editor-settings-28)
+			- [Editor Settings](#editor-settings-29)
 			- [Dataset JSON Properties](#dataset-json-properties-1)
 		- [Line History Chart:](#line-history-chart)
-			- [Editor Settings](#editor-settings-29)
+			- [Editor Settings](#editor-settings-30)
 		- [JSON Chart](#json-chart)
 			- [JSON Properties](#json-properties)
 	- [Table](#table)
-		- [Editor Settings](#editor-settings-30)
+		- [Editor Settings](#editor-settings-31)
 		- [Data - JSON Stucture](#data---json-stucture)
 		- [internal object binding](#internal-object-binding)
 		- [Control Elements using HTML Widgets](#control-elements-using-html-widgets)
 		- [Control Elements - **deprecated since v0.5.0**](#control-elements---deprecated-since-v050)
 	- [Responsive Layout](#responsive-layout)
 		- [Masonry Views](#masonry-views)
-			- [Editor Settings](#editor-settings-31)
-		- [Grid Views](#grid-views)
 			- [Editor Settings](#editor-settings-32)
+		- [Grid Views](#grid-views)
+			- [Editor Settings](#editor-settings-33)
 	- [Alerts](#alerts)
-		- [Editor Settings](#editor-settings-33)
+		- [Editor Settings](#editor-settings-34)
 		- [Datapoint JSON Properties](#datapoint-json-properties)
 		- [Script: send alert to widget](#script-send-alert-to-widget)
 	- [Calendar](#calendar)
-		- [Editor Settings](#editor-settings-34)
+		- [Editor Settings](#editor-settings-35)
 		- [Datapoint JSON Properties](#datapoint-json-properties-1)
 		- [Script: ical conversion](#script-ical-conversion)
 	- [Dialog](#dialog)
-		- [Editor Settings](#editor-settings-35)
+		- [Editor Settings](#editor-settings-36)
 	- [HTML Widgets](#html-widgets)
 		- [Examples](#examples)
 - [Informations](#informations)
 	- [used libraries](#used-libraries)
 	- [Changelog](#changelog)
-		- [__WORK IN PROGRESS__](#work-in-progress)
 
 # General
 
@@ -5261,6 +5261,12 @@ JSON string must be an array of objects with the following properties:
 			<td/>
 		</tr>
 		<tr>
+			<td>fullRow</td>
+			<td>display element over whole row</td>
+			<td>boolean</td>
+			<td>false | true</td>
+		</tr>		
+		<tr>
 			<td>buttonStateValue</td>
 			<td>value for button state</td>
 			<td>string</td>
@@ -8720,6 +8726,45 @@ Top App Bar with Navigation Drawer can be combined with the <a href="https://www
 
 ##### Layout permanent:
 ![Logo](doc/en/media/topappbar_permanent.gif)
+
+##### Layout auto:
+![Logo](doc/en/media/topappbar_auto.gif)
+
+Layout 'auto' switch automatically between layout 'modal' and 'permanent' depending on screen resolution. Via VIS-Editor you can set the resolution from which the 'permanent' layout should be used (bigger than condition).
+
+**Hint: Using with the 'View in Widget 8' widget**
+
+To work correct with the 'view in widget 8' widget you have to define a css media rule.
+
+* First assign a "Common CSS Rule" to the widget , e.g. named `my-view-in-widget8`.
+* Then add the following CSS to your project:
+```
+.my-view-in-widget8 {
+    top: 64px !important;
+    height: calc(100% - 64px) !important;
+    overflow-y: auto;
+}
+@media screen and (max-width: 800px) {
+    /* Resolution lower than 800px -> using 'modal' layout */
+    .my-view-in-widget8 {
+        left: 0 !important;
+        width: 100% !important;
+    }
+}
+@media screen and (min-width: 800px) {
+    /* Resolution higher than 800px -> using 'modal' layout */
+    .my-view-in-widget8 {
+        left: 256px !important;
+        width: calc(100% - 256px) !important;
+    }
+}
+```
+* In the CSS customize the resolution to the resolution that you set via VIS Editor (in the example `max-width: 800px` and `min-width: 800px`)
+* If you set a custome width for the menu drawer, than you also have to change 'left' and 'width' property in the CSS to this value (in the example `left: 256px !important;` and `width: calc(100% - 256px) !important;`)
+
+### Editor Settings
+
+Settings that are not listed in the table below are self-explanatory.
 
 <table>
     <thead>
@@ -12834,8 +12879,12 @@ The adapter uses the following libraries:
 	### __WORK IN PROGRESS__
 -->
 
+<!-- omit in toc -->
 ### __WORK IN PROGRESS__
+* (Scrounger) Top App Bar Widget: new layout 'auto' added - change between modal and permanent layout depending on screen resolution. [Details see documentation!](#layout-auto)
 * (Scrounger) Top App Bar Widget: option added to set value on click at item that toggle submenu
+* (Scrounger) IconList Widget: option added to show single element over whole row
+* (Scrounger) IconList Widget: bug fix for applying active color ([#176](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/176))
 
 <!-- omit in toc -->
 ### 0.5.7 (2021-05-26)

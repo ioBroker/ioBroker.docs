@@ -573,6 +573,30 @@ Die folgenden States werden vom Adapter angelegt:
     
     *Eingehende Daten, die der RegEx in `settings.expertReadingPattern` entsprechen, werden in diesen State geschrieben.*
 
+* settings.dialogControl
+
+    |Datentyp|Berechtigung|                                                                       
+    |:---:|:---:|
+    |number|R/W|
+
+  *Dialogkontrolle, welche zwischen 0 dB und 6 dB konfiguriert werden kann.*
+
+* settings.dialogLevelAdjust
+
+    |Datentyp|Berechtigung|                                                                       
+    |:---:|:---:|
+    |boolean|R/W|
+
+    *Erlaubt das Anschalten der Dialoglautstärkenanpassung für DTS Quellen.*
+
+* settings.dialogLevel
+
+    |Datentyp|Berechtigung|                                                                       
+    |:---:|:---:|
+    |boolean|R/W|
+
+    *Wenn die Dialogstärkenanpassung aktiv ist, kann diese zwischen -12 dB und +12 dB feinjustiert werden.*
+
 * settings.outputMonitor
 
     |Datentyp|Berechtigung|                                                                       
@@ -898,6 +922,10 @@ und info.connection. Zusätzlich werden die folgenden States für jede Zone 2-12
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
+### 1.11.0 (2021-06-06)
+* (foxriver76) implemented dialog level adjustment for DTS content (closes #143)
+* (foxriver76) new datapoints are `settings.dialogLevelAdjust`, `settings.dialogLevel`, `settings.dialogControl`
 
 ### 1.10.7 (2021-05-12)
 * (foxriver76) fix missing conversion to db on equalizer states for additional zones (fixes #137)

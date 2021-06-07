@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-materialdesign/README.md
 title: Виджеты материального дизайна для ioBroker VIS
-hash: pdqQLewTkodcFW6TFIVrYBjg+g2c26nmXUjYWyMOSTA=
+hash: oQMVwervJppon0mSdqitg8D9On6i/hQ0BtFGgnSjhrU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/admin/vis-materialdesign.png) <! - пропустить в toc ->
 
@@ -133,46 +133,46 @@ hash: pdqQLewTkodcFW6TFIVrYBjg+g2c26nmXUjYWyMOSTA=
 - [Свойства меню JSON] (# menu-json-properties-1)
 - [Свойства HTML] (# html-properties-28)
 - [Верхняя панель приложений] (# верхняя панель приложений)
+- [Настройки редактора] (# editor-settings-27)
 - [Подменю] (# подменю)
 - [Подменю JSON Properties] (# submenu-json-properties)
 - [Диаграммы] (# диаграмм)
 - [Гистограмма] (# гистограмма)
-- [Настройки редактора] (# editor-settings-27)
+- [Настройки редактора] (# editor-settings-28)
 - [Свойства JSON набора данных] (# набор данных-json-properties)
 - [Круговая диаграмма] (# круговая диаграмма)
-- [Настройки редактора] (# editor-settings-28)
+- [Настройки редактора] (# editor-settings-29)
 - [Свойства JSON набора данных] (# dataset-json-properties-1)
 - [Линейная диаграмма истории:] (# линия-история-диаграмма)
-- [Настройки редактора] (# editor-settings-29)
+- [Настройки редактора] (# editor-settings-30)
 - [JSON Chart] (# json-chart)
 - [Свойства JSON] (# свойства json)
 - [Таблица] (# таблица)
-- [Настройки редактора] (# editor-settings-30)
+- [Настройки редактора] (# editor-settings-31)
 - [Data - JSON Stucture] (# data --- json-stucture)
 - [привязка внутреннего объекта] (# привязка внутреннего объекта)
 - [Элементы управления с помощью виджетов HTML] (# control-elements-using-html-widgets)
 - [Элементы управления - **устарело с версии v0.5.0** (# элементы управления --- устарело с версии v050)
 - [Адаптивный макет] (# адаптивный макет)
 - [Виды кладки] (# вида кладки)
-- [Настройки редактора] (# editor-settings-31)
-- [Представления сетки] (# представлений сетки)
 - [Настройки редактора] (# editor-settings-32)
-- [Оповещения] (# оповещений)
+- [Представления сетки] (# представлений сетки)
 - [Настройки редактора] (# editor-settings-33)
+- [Оповещения] (# оповещений)
+- [Настройки редактора] (# editor-settings-34)
 - [Свойства Datapoint JSON] (# datapoint-json-properties)
 - [Сценарий: отправить предупреждение виджету] (# script-send-alert-to-widget)
 - [Календарь] (# календарь)
-- [Настройки редактора] (# editor-settings-34)
+- [Настройки редактора] (# editor-settings-35)
 - [Свойства Datapoint JSON] (# datapoint-json-properties-1)
 - [Скрипт: ical-преобразование] (# скрипт-ical-преобразование)
 - [Диалог] (# диалог)
-- [Настройки редактора] (# editor-settings-35)
+- [Настройки редактора] (# editor-settings-36)
 - [HTML-виджеты] (# html-widgets)
 - [Примеры] (# примеров)
 - [Информация] (# информации)
 - [используемые библиотеки] (# используемые библиотеки)
 - [Список изменений] (# список изменений)
-- [__РАБОТА В ПРОЦЕССЕ __] (# незавершенная работа)
 
 # Общий
 ## Интернет-пример проекта
@@ -1160,7 +1160,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 ### Настройки редактора
 Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=4><img src="doc/en/media/list_settings_layout.png"></td><td> тип списка</td><td> тип управления списком, например флажок, состояние кнопки, переключатель кнопки и т. д.</td></tr><tr><td> стиль разделителя</td><td> стиль разделителя</td></tr><tr><td> макет</td><td> стандартный или карточный макет</td></tr><tr><td> показать полосу прокрутки</td><td> при необходимости показать полосу прокрутки</td></tr><tr><td rowspan=4><img src="doc/en/media/list_settings_data.png"></td><td> метод ввода для данных списка</td><td> используйте редактор или строку json для определения элементов</td></tr><tr><td> Редактор: количество элементов списка</td><td> подсчет элементов списка с помощью редактора</td></tr><tr><td> JSON-String: идентификатор объекта</td><td> идентификатор объекта точки данных, содержащей строку json. Допустимые свойства описаны ниже.</td></tr></tbody></table>
+<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=4><img src="doc/en/media/list_settings_layout.png"></td><td> тип списка</td><td> тип управления списком, например флажок, состояние кнопки, переключатель кнопки и т. д.</td></tr><tr><td> стиль разделителя</td><td> стиль разделителя</td></tr><tr><td> макет</td><td> стандартный или карточный макет</td></tr><tr><td> показать полосу прокрутки</td><td> при необходимости показать полосу прокрутки</td></tr><tr><td rowspan=4><img src="doc/en/media/list_settings_data.png"></td><td> метод ввода для данных списка</td><td> используйте редактор или строку json для определения элементов</td></tr><tr><td> Редактор: количество элементов списка</td><td> подсчет элементов списка с помощью редактора</td></tr><tr><td> JSON-String: идентификатор объекта</td><td> идентификатор объекта точки данных, содержащей строку json. Допустимые свойства описаны ниже</td></tr></tbody></table>
 
 ### Свойства данных JSON
 <table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> objectId</td><td> идентификатор точки данных</td><td> нить</td><td></td></tr><tr><td> buttonStateValue</td><td> значение для кнопки, если список взят из состояния кнопки типа</td><td> нить</td><td></td></tr><tr><td> buttonNavView</td><td> вид для кнопки, если список взят из типа навигации по кнопке</td><td> нить</td><td></td></tr><tr><td> buttonLink</td><td> адрес ссылки для кнопки, если список взят из кнопки типа ссылка</td><td> нить</td><td></td></tr><tr><td> заголовок</td><td> текст заголовка элемента</td><td> нить</td><td></td></tr><tr><td> текст</td><td> основной текст</td><td> нить</td><td></td></tr><tr><td> подтекст</td><td> вторичный текст</td><td> нить</td><td></td></tr><tr><td> rightText</td><td> основной правый текст</td><td> нить</td><td></td></tr><tr><td> rightSubText</td><td> второй правый текст</td><td> нить</td><td></td></tr><tr><td> изображение</td><td> значок материального дизайна или путь к изображению</td><td> нить</td><td></td></tr><tr><td> imageColor</td><td> Цвет значка материального дизайна</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> imageActive</td><td> значок материального дизайна или путь к изображению, если точка данных активна</td><td> нить</td><td></td></tr><tr><td> imageActiveColor</td><td> цвет значка материального дизайна, если точка данных активна</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> showDivider</td><td> показать разделитель</td><td> логический</td><td> ложь | правда</td></tr></tbody></table>
@@ -1176,12 +1176,12 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 ### Настройки редактора
 Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=6><img src="doc/en/media/iconlist_settings_data.png"></td><td> метод ввода для данных списка</td><td> Данные для IconList можно ввести через редактор или использовать строку JSON.</td></tr><tr><td> Редактор: количество элементов списка</td><td> количество элементов списка с использованием редактора vis для данных списка</td></tr><tr><td> JSON-String: идентификатор объекта</td><td> идентификатор объекта точки данных, содержащей строку json. Допустимые свойства описаны ниже.</td></tr></tbody></table>
+<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=6><img src="doc/en/media/iconlist_settings_data.png"></td><td> метод ввода для данных списка</td><td> Данные для IconList можно ввести через редактор или использовать строку JSON.</td></tr><tr><td> Редактор: количество элементов списка</td><td> количество элементов списка с использованием редактора vis для данных списка</td></tr><tr><td> JSON-String: идентификатор объекта</td><td> идентификатор объекта точки данных, содержащей строку json. Допустимые свойства описаны ниже</td></tr></tbody></table>
 
 ### Свойства данных JSON
 Строка JSON должна быть массивом объектов со следующими свойствами:
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> listType</td><td> тип списка</td><td> нить</td><td> текст | buttonState | buttonToggle | buttonToggleValueTrue | buttonToggleValueFalse | buttonNav | buttonLink</td></tr><tr><td> objectId</td><td> идентификатор объекта для кнопки</td><td> нить</td><td/></tr><tr><td> buttonStateValue</td><td> значение для состояния кнопки</td><td> нить</td><td/></tr><tr><td> buttonNavView</td><td> вид для навигации</td><td> нить</td><td/></tr><tr><td> buttonLink</td><td> URL для навигации</td><td> нить</td><td/></tr><tr><td> buttonToggleValueTrue</td><td> истинное значение для кнопки переключения</td><td> нить</td><td/></tr><tr><td> buttonToggleValueFalse</td><td> ложное значение для кнопки переключения</td><td> нить</td><td/></tr><tr><td> только для чтения</td><td> кнопка доступна только для чтения</td><td> логический</td><td> ложь | правда</td></tr><tr><td> showValueLabel</td><td> показать значение как текст</td><td> логический</td><td> ложь | правда</td></tr><tr><td> valueAppendix</td><td> добавить текст к значению</td><td> нить</td><td/></tr><tr><td> задний план</td><td> фоновый цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> текст</td><td> текст</td><td> нить</td><td/></tr><tr><td> подтекст</td><td> второй текст</td><td> нить</td><td/></tr><tr><td> изображение</td><td> путь к изображению или имя иконок Material Design</td><td> нить</td><td/></tr><tr><td> imageColor</td><td> цвет иконок материального дизайна</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> imageActive</td><td> путь к изображению или имя иконок Material Design</td><td> нить</td><td/></tr><tr><td> imageActiveColor</td><td> путь к изображению или имя иконок Material Design для активной кнопки</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> buttonBackgroundColor</td><td> цвет фона кнопки</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> buttonBackgroundActiveColor</td><td> цвет фона кнопки для активной кнопки</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> statusBarColor</td><td> цвет строки состояния</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> statusBarText</td><td> текст строки состояния</td><td> нить</td><td/></tr><tr><td> lockEnabled</td><td> включить блокировку</td><td> логический</td><td> ложь | правда</td></tr></tbody></table>
+<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> listType</td><td> тип списка</td><td> нить</td><td> текст | buttonState | buttonToggle | buttonToggleValueTrue | buttonToggleValueFalse | buttonNav | buttonLink</td></tr><tr><td> objectId</td><td> идентификатор объекта для кнопки</td><td> нить</td><td/></tr><tr><td> fullRow</td><td> отображать элемент по всей строке</td><td> логический</td><td> ложь | правда</td></tr><tr><td> buttonStateValue</td><td> значение для состояния кнопки</td><td> нить</td><td/></tr><tr><td> buttonNavView</td><td> вид для навигации</td><td> нить</td><td/></tr><tr><td> buttonLink</td><td> URL для навигации</td><td> нить</td><td/></tr><tr><td> buttonToggleValueTrue</td><td> истинное значение для кнопки переключения</td><td> нить</td><td/></tr><tr><td> buttonToggleValueFalse</td><td> ложное значение для кнопки переключения</td><td> нить</td><td/></tr><tr><td> только для чтения</td><td> кнопка доступна только для чтения</td><td> логический</td><td> ложь | правда</td></tr><tr><td> showValueLabel</td><td> показать значение как текст</td><td> логический</td><td> ложь | правда</td></tr><tr><td> valueAppendix</td><td> добавить текст к значению</td><td> нить</td><td/></tr><tr><td> задний план</td><td> фоновый цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> текст</td><td> текст</td><td> нить</td><td/></tr><tr><td> подтекст</td><td> второй текст</td><td> нить</td><td/></tr><tr><td> изображение</td><td> путь к изображению или имя иконок Material Design</td><td> нить</td><td/></tr><tr><td> imageColor</td><td> цвет иконок материального дизайна</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> imageActive</td><td> путь к изображению или имя иконок Material Design</td><td> нить</td><td/></tr><tr><td> imageActiveColor</td><td> путь к изображению или имя иконок Material Design для активной кнопки</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> buttonBackgroundColor</td><td> цвет фона кнопки</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> buttonBackgroundActiveColor</td><td> цвет фона кнопки для активной кнопки</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> statusBarColor</td><td> цвет строки состояния</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> statusBarText</td><td> текст строки состояния</td><td> нить</td><td/></tr><tr><td> lockEnabled</td><td> включить блокировку</td><td> логический</td><td> ложь | правда</td></tr></tbody></table>
 
 <! - опустить в toc ->
 
@@ -1776,6 +1776,46 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 ##### Макет постоянный:
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/topappbar_permanent.gif)
 
+##### Автоматическая раскладка:
+![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/topappbar_auto.gif)
+
+Макет «Авто» автоматически переключается между «модальным» и «постоянным» макетом в зависимости от разрешения экрана. С помощью VIS-Editor вы можете установить разрешение, с которого должен использоваться «постоянный» макет (больше, чем условие).
+
+** Подсказка: использование с виджетом «Просмотр в виджете 8» **
+
+Для правильной работы с виджетом «вид в виджете 8» вам необходимо определить медиа-правило CSS.
+
+* Сначала назначьте виджету «Общее правило CSS», например с именем `my-view-in-widget8`.
+* Затем добавьте в свой проект следующий CSS:
+
+```
+.my-view-in-widget8 {
+    top: 64px !important;
+    height: calc(100% - 64px) !important;
+    overflow-y: auto;
+}
+@media screen and (max-width: 800px) {
+    /* Resolution lower than 800px -> using 'modal' layout */
+    .my-view-in-widget8 {
+        left: 0 !important;
+        width: 100% !important;
+    }
+}
+@media screen and (min-width: 800px) {
+    /* Resolution higher than 800px -> using 'modal' layout */
+    .my-view-in-widget8 {
+        left: 256px !important;
+        width: calc(100% - 256px) !important;
+    }
+}
+```
+
+* В CSS настройте разрешение в соответствии с разрешением, которое вы установили с помощью редактора VIS (в примере `max-width: 800px` и` min-width: 800px`)
+* Если вы устанавливаете индивидуальную ширину для панели меню, вам также необходимо изменить свойства 'left' и 'width' в CSS на это значение (в примере `left: 256px! Important;` и `width: calc ( 100% - 256 пикселей)! Important; `)
+
+### Настройки редактора
+Настройки, не указанные в таблице ниже, не требуют пояснений.
+
 <table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание</th></tr></thead><tbody><tr><td rowspan=3><img src="doc/en/media/topappbar_settings.png"></td><td> ID объекта</td><td> должен быть установлен на точку данных от типового номера. Например, эту точку данных можно использовать в <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">представлении в виджете 8.</a></td></tr><tr><td> показать индекс элементов навигации</td><td> показывает индекс навигации перед меткой элемента. Этот номер можно использовать в <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">представлении в виджете 8</a> для определения представления, которое должно отображаться, если элемент выбран.</td></tr><tr><td> количество элементов навигации</td><td> Определите количество элементов навигации</td></tr></tbody></table>
 
 ### Подменю
@@ -1798,7 +1838,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 #### Настройки редактора
 Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=3><img src="doc/en/media/barchart_settings_common.png"></td><td>установить наборы данных с</td><td> Данные для BarChart можно ввести через редактор или использовать строку JSON.</td></tr><tr><td> Количество предметов</td><td> количество баров с использованием редактора vis для данных списка</td></tr><tr><td> Идентификатор объекта</td><td> идентификатор объекта точки данных, содержащей строку json. Допустимые свойства описаны ниже.</td></tr><tr><td rowspan=><img src="doc/en/media/barchart_settings_dataset.png"></td><td> ID объекта [x]</td><td> идентификатор объекта для отдельных столбцов с использованием редактора vis</td></tr></tbody></table>
+<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=3><img src="doc/en/media/barchart_settings_common.png"></td><td>установить наборы данных с</td><td> Данные для BarChart можно ввести через редактор или использовать строку JSON.</td></tr><tr><td> Количество предметов</td><td> количество баров с использованием редактора vis для данных списка</td></tr><tr><td> Идентификатор объекта</td><td> идентификатор объекта точки данных, содержащей строку json. Допустимые свойства описаны ниже</td></tr><tr><td rowspan=><img src="doc/en/media/barchart_settings_dataset.png"></td><td> ID объекта [x]</td><td> идентификатор объекта для отдельных столбцов с использованием редактора vis</td></tr></tbody></table>
 
 #### Свойства JSON набора данных
 Строка JSON должна быть массивом объектов со следующими свойствами:
@@ -1816,7 +1856,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 #### Настройки редактора
 Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=3><img src="doc/en/media/piechart_settings_common.png"></td><td>установить наборы данных с</td><td> Данные для PieChart можно ввести через редактор или использовать строку JSON.</td></tr><tr><td> Количество предметов</td><td> количество штук пирожков с использованием редактора vis для данных списка</td></tr><tr><td> Идентификатор объекта</td><td> идентификатор объекта точки данных, содержащей строку json. Допустимые свойства описаны ниже.</td></tr><tr><td rowspan=><img src="doc/en/media/barchart_settings_dataset.png"></td><td> ID объекта [x]</td><td> идентификатор объекта для отдельных частей пирога с использованием редактора vis</td></tr></tbody></table>
+<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=3><img src="doc/en/media/piechart_settings_common.png"></td><td>установить наборы данных с</td><td> Данные для PieChart можно ввести через редактор или использовать строку JSON.</td></tr><tr><td> Количество предметов</td><td> количество штук пирожков с использованием редактора vis для данных списка</td></tr><tr><td> Идентификатор объекта</td><td> идентификатор объекта точки данных, содержащей строку json. Допустимые свойства описаны ниже</td></tr><tr><td rowspan=><img src="doc/en/media/barchart_settings_dataset.png"></td><td> ID объекта [x]</td><td> идентификатор объекта для отдельных частей пирога с использованием редактора vis</td></tr></tbody></table>
 
 #### Свойства JSON набора данных
 Строка JSON должна быть массивом объектов со следующими свойствами:
@@ -1867,7 +1907,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 <! - опустить в toc ->
 
 ##### График оси Y
-<details><table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> yAxis_id</td><td> id оси y. Если вы хотите использовать общую ось Y для данных графика умножения, используйте тот же идентификатор.</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_position</td><td> положение оси y</td><td> нить</td><td> лево право</td></tr><tr><td> yAxis_show</td><td> показать ось Y</td><td> логический</td><td> false true</td></tr><tr><td> yAxis_title_text</td><td> заголовок оси Y</td><td> нить</td><td></td></tr><tr><td> yAxis_title_color</td><td> переопределить цвет заголовка оси Y</td><td> цвет</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> yAxis_title_fontFamily</td><td> переопределить семейство шрифтов заголовка оси Y</td><td> нить</td><td></td></tr><tr><td> yAxis_title_fontSize</td><td> переопределить размер шрифта заголовка оси Y</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_min</td><td> минимальное значение оси Y</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_max</td><td> максимальное значение оси Y</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_step</td><td> шаги оси y</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_minimumDigits</td><td> Минимальное количество десятичных знаков по оси Y</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_maximumDigits</td><td> Максимальное количество десятичных знаков по оси Y</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_maxSteps</td><td> максимальные шаги по оси ординат</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_distance</td><td> переопределить значение оси Y расстояние до оси</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_appendix</td><td> добавить текст к значению оси Y</td><td> нить</td><td></td></tr><tr><td> yAxis_color</td><td> переопределить цвет значения оси Y</td><td> цвет</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> yAxis_fontFamily</td><td> переопределить семейство шрифтов значения оси Y</td><td> нить</td><td></td></tr><tr><td> yAxis_fontSize</td><td> переопределить размер шрифта значения оси Y</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_zeroLineWidth</td><td> ширина нулевой линии по оси Y</td><td> номер</td><td> 0,3, 1,5, 4, ...</td></tr><tr><td> yAxis_zeroLineColor</td><td> цвет нулевой линии по оси Y</td><td> цвет</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> yAxis_gridLines_show</td><td> показать линии сетки по оси Y</td><td> логический</td><td> false true</td></tr><tr><td> yAxis_gridLines_color</td><td> цвет линий сетки по оси Y</td><td> цвет</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> yAxis_gridLines_lineWidth</td><td> ширина линий сетки</td><td> номер</td><td> 0 - 1</td></tr><tr><td> yAxis_gridLines_border_show</td><td> показать границу линий сетки по оси Y</td><td> логический</td><td> false true</td></tr><tr><td> yAxis_gridLines_ticks_show</td><td> показать отметки интервала сетки по оси Y</td><td> логический</td><td> false true</td></tr><tr><td> yAxis_gridLines_ticks_length</td><td> длина штрихов сетки по оси Y</td><td> номер</td><td> 1, 2, 5, ...</td></tr></tbody></table></details>
+<details><table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> yAxis_id</td><td> id оси y. Если вы хотите использовать общую ось Y для данных графика умножения, используйте тот же идентификатор.</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_position</td><td> положение оси Y</td><td> нить</td><td> лево право</td></tr><tr><td> yAxis_show</td><td> показать ось Y</td><td> логический</td><td> false true</td></tr><tr><td> yAxis_title_text</td><td> заголовок оси Y</td><td> нить</td><td></td></tr><tr><td> yAxis_title_color</td><td> переопределить цвет заголовка оси Y</td><td> цвет</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> yAxis_title_fontFamily</td><td> переопределить семейство шрифтов заголовка оси Y</td><td> нить</td><td></td></tr><tr><td> yAxis_title_fontSize</td><td> переопределить размер шрифта заголовка оси Y</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_min</td><td> минимальное значение оси Y</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_max</td><td> максимальное значение оси Y</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_step</td><td> шаги оси y</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_minimumDigits</td><td> Минимальное количество десятичных знаков по оси Y</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_maximumDigits</td><td> Максимальное количество десятичных знаков по оси Y</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_maxSteps</td><td> максимальные шаги по оси ординат</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_distance</td><td> переопределить значение оси Y расстояние до оси</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_appendix</td><td> добавить текст к значению оси Y</td><td> нить</td><td></td></tr><tr><td> yAxis_color</td><td> переопределить цвет значения оси Y</td><td> цвет</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> yAxis_fontFamily</td><td> переопределить семейство шрифтов значения оси Y</td><td> нить</td><td></td></tr><tr><td> yAxis_fontSize</td><td> переопределить размер шрифта значения оси Y</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_zeroLineWidth</td><td> ширина нулевой линии по оси Y</td><td> номер</td><td> 0,3, 1,5, 4, ...</td></tr><tr><td> yAxis_zeroLineColor</td><td> цвет нулевой линии по оси Y</td><td> цвет</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> yAxis_gridLines_show</td><td> показать линии сетки по оси Y</td><td> логический</td><td> false true</td></tr><tr><td> yAxis_gridLines_color</td><td> цвет линий сетки по оси Y</td><td> цвет</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> yAxis_gridLines_lineWidth</td><td> ширина линий сетки</td><td> номер</td><td> 0 - 1</td></tr><tr><td> yAxis_gridLines_border_show</td><td> показать границу линий сетки по оси Y</td><td> логический</td><td> false true</td></tr><tr><td> yAxis_gridLines_ticks_show</td><td> показать отметки интервала сетки по оси Y</td><td> логический</td><td> false true</td></tr><tr><td> yAxis_gridLines_ticks_length</td><td> длина штрихов сетки по оси Y</td><td> номер</td><td> 1, 2, 5, ...</td></tr></tbody></table></details>
 
 <! - опустить в toc ->
 
@@ -2526,7 +2566,7 @@ Grid Views имеет несколько интегрированных `view in
 ### Настройки редактора
 Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание</th></tr></thead><tbody><tr><td rowspan=3><img src="doc/en/media/alerts_settings.png"></td><td> Число столбцов</td><td> определить количество столбцов</td></tr><tr><td> ID объекта</td><td> Объект должен быть строкой json. Допустимые свойства описаны ниже.</td></tr><tr><td> Максимум. Оповещения</td><td> максимальное количество отображаемых предупреждений.</td></tr></tbody></table>
+<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание</th></tr></thead><tbody><tr><td rowspan=3><img src="doc/en/media/alerts_settings.png"></td><td> Число столбцов</td><td> определить количество столбцов</td></tr><tr><td> ID объекта</td><td> Объект должен быть строкой json. Допустимые свойства описаны ниже</td></tr><tr><td> Максимум. Оповещения</td><td> максимальное количество отображаемых предупреждений.</td></tr></tbody></table>
 
 ### Свойства Datapoint JSON
 <table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> текст</td><td> текст пункта меню</td><td> нить</td><td></td></tr><tr><td> фоновый цвет</td><td> цвет фона элемента предупреждения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> цвет границы</td><td> цвет границы элемента предупреждения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> икона</td><td> значок материального дизайна или путь к изображению для пункта меню</td><td> нить</td><td/></tr><tr><td> iconColor</td><td> Цвет значка материального дизайна</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> Цвет шрифта</td><td> цвет шрифта элемента предупреждения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr></tbody></table>
@@ -4334,8 +4374,12 @@ ical2CalendarWidget();
 	### __WORK IN PROGRESS__
 -->
 
+<!-- omit in toc -->
 ### __WORK IN PROGRESS__
+* (Scrounger) Top App Bar Widget: new layout 'auto' added - change between modal and permanent layout depending on screen resolution. [Details see documentation!](#layout-auto)
 * (Scrounger) Top App Bar Widget: option added to set value on click at item that toggle submenu
+* (Scrounger) IconList Widget: option added to show single element over whole row
+* (Scrounger) IconList Widget: bug fix for applying active color ([#176](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/176))
 
 <!-- omit in toc -->
 ### 0.5.7 (2021-05-26)

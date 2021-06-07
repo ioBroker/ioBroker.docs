@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/stateroles.md
 title: Государственные роли
-hash: PBmK6eOAAY3iD4WhjDJz3Lsc2G4fFpyloWL7KB/XDVw=
+hash: sc8CTt3g6afhGisHFUtmJYnjYSZtk9exigwGKGIl2Jw=
 ---
 # Государственные роли
 ## Общий
@@ -17,7 +17,7 @@ hash: PBmK6eOAAY3iD4WhjDJz3Lsc2G4fFpyloWL7KB/XDVw=
 * `дата` (common.type = number - эпоха в секундах * 1000
 
 ## Датчик (логические, только для чтения)
-*common.type = логический, common.write = false*
+*common.type = логическое, common.write = false*
 
 * `sensor.window` - окно открыто (true) или закрыто (false)
 * `sensor.door` - дверь открыта (true) или закрыта (false)
@@ -93,16 +93,16 @@ hash: PBmK6eOAAY3iD4WhjDJz3Lsc2G4fFpyloWL7KB/XDVw=
 * `value.warning` - некоторое предупреждение (можно указать состояния), чем выше, тем важнее
 * `value.sun.elevation` - высота солнца в °
 * `value.sun.azimuth` - азимут солнца в °
-* `value.voltage` - Напряжение в Вольтах, единица = В
+* `value.voltage` - Напряжение в вольтах, единица = В
 * `value.current` - ток в амперах, единица = A
 * `value.fill` - Уровень заполнения, единица = л, мл, м3,%
 * `value.blood.sugar` - значение сахара в крови, единица = ммоль, мгдл
 
 ## Индикаторы (логические, только для чтения)
-*common.type = логический, common.write = false*
+*common.type = логическое, common.write = false*
 
-Отличие *индикаторов* от *датчиков* в том, что индикаторы отображаются в виде небольшого значка. Датчики как реальная ценность.
-Так что индикатор может быть не один в канале. Это должно быть какое-то другое главное состояние внутри канала.
+Отличие *индикаторов* от *датчиков* заключается в том, что индикаторы отображаются в виде небольшого значка. Датчики как реальная ценность.
+Так что индикатор может быть не один в канале. Это должно быть какое-то другое основное состояние внутри канала.
 
 * `индикатор`
 * `indicator.working` - указывает, что целевые системы что-то выполняют, например, жалюзи или открывание замка.
@@ -145,7 +145,7 @@ hash: PBmK6eOAAY3iD4WhjDJz3Lsc2G4fFpyloWL7KB/XDVw=
 * `level.volume` - (min = 0, max = 100) - громкость звука, но min, max могут отличаться. мин <макс
 * `level.volume.group` - (min = 0, max = 100) - громкость звука, для группы устройств
 * `level.curtain` - установить положение шторки
-* `level.tilt` - установить наклон жалюзи (max = полностью открыт, min = полностью закрыт)
+* `level.tilt` - установить положение наклона жалюзи (max = полностью открыт, min = полностью закрыт)
 
 ## Переключатели (логические, чтение-запись)
 Переключатель управляет логическим устройством (true = ON, false = OFF)
@@ -322,6 +322,8 @@ TODO: подумайте об ионизации и колебаниях.
 * `value.precipitation` - (тип: число, единица измерения: мм) количество осадков за последние 24 часа дождь / снег (Niederschlag heute für Schnee oder Regen / осадки сегодня снега или дождя)
 * `value.precipitation.hour` - Фактический уровень осадков за последний час
 * `value.precipitation.today` - Фактический уровень осадков на сегодня (до 0:00)
+* `value.precipitation.chance` - Фактическая вероятность осадков на сегодня
+* `value.precipitation.type` - актуальный тип осадков на сегодня. (тип: `number`) Состояния: 0 - НЕТ, 1 - ДОЖДЬ, 2 - СНЕГ, 3 - ГРАД
 * `value.radiation` - Фактический уровень солнечной радиации
 * `value.uv` - Фактический уровень УФ
 * `value.clouds` - Облака на небе. 0% - облаков нет, 100% - облаков много.
@@ -335,8 +337,8 @@ TODO: подумайте об ионизации и колебаниях.
 * `weather.chart.url` - URL-адрес диаграммы для истории погоды
 * `weather.chart.url.forecast` - URL-адрес диаграммы для прогноза погоды
 * `weather.html` - HTML-объект с описанием погоды
-* `weather.title` - очень краткое описание
-* `weather.title.short` - Очень-очень короткое описание (одно слово)
+* `weather.title` - Очень краткое описание
+* `weather.title.short` - очень, очень краткое описание (одно слово)
 * `weather.type` - Тип информации о погоде
 * `weather.json` - объект JSON с конкретными данными
 * `value.speed.wind.forecast.0` - прогноз скорости ветра на сегодня
@@ -350,7 +352,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `value.precipitation.forecast.0` - (тип: число, единица: мм) Прогноз уровня осадков на сегодня
 * `weather.title.forecast.0` - Очень краткое описание на завтра
 * `value.precipitation.day.forecast.0` - Прогноз осадков на дневное время
-* `value.precipitation.night.forecast.0` - Прогноз осадков в ночное время
+* `value.precipitation.night.forecast.0` - Прогноз осадков на ночь
 
 * `date.forecast.1` - завтрашняя дата
 * `weather.icon.forecast.1` - значок завтра

@@ -3,27 +3,37 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.yr/README.md
 title: ioBroker.yr
-hash: Wv+VSiCyLkFwarjbReHt20yyPPZ0pCInwx5v1zeUOZg=
+hash: qOo57l4UKwcb/jpMdhk/Zk4lcG4tAvY1se4xjUcxfGk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.yr/admin/yr.png)
 
-![Количество установок](http://iobroker.live/badges/yr-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.yr.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.yr.svg)
-![Тесты](https://travis-ci.org/ioBroker/ioBroker.yr.svg?branch=master)
+![Количество установок (последнее)](http://iobroker.live/badges/yr-installed.svg)
+![Количество установок (стабильно)](http://iobroker.live/badges/yr-stable.svg)
+![Статус зависимости](https://img.shields.io/david/ioBroker/iobroker.yr.svg)
+![Известные уязвимости](https://snyk.io/test/github/ioBroker/ioBroker.yr/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.yr.png?downloads=true)
 
 # IoBroker.yr
-получает прогноз погоды на 48 часов из [год нет](yr.no)
+** Тесты: ** ![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.met/workflows/Test%20and%20Release/badge.svg)
+
+## Год нет адаптера для ioBroker
+получает прогноз погоды на 10 дней из [год нет](yr.no)
 
 [yr.no] (yr.no) - совместная служба [Норвежского метеорологического института] (met.no) и [Норвежской радиовещательной корпорации](nrk.no)
 
-http://om.yr.no/verdata/free-weather-data/
+https://api.met.no/weatherapi/locationforecast/2.0/documentation
 
 ** Примечание ** - если _ "Отправить недостающие переводы на iobroker.net" _ активировано (по умолчанию) отсутствующие переводы будут отправлены на сервер iobroker.net. Никакие IP-адреса или какая-либо дополнительная информация не будет храниться или анализироваться. Просто отсутствует перевод.
 
 ## Иконки
-Иконки взяты отсюда [https://github.com/YR/weather-symbols](https://github.com/YR/weather-symbols) и принадлежат yr.no.
+Иконки взяты отсюда [https://api.met.no/weatherapi/weathericon/2.0/documentation](https://api.met.no/weatherapi/weathericon/2.0/documentation) и принадлежат yr.no.
+
+## ДЕЛАТЬ
+* Добавить метеограмму (png, вероятно, перестанет работать с новым API)
+* Добавить ежедневный прогноз на основе почасового прогноза
+* Добавить таблицу html
 
 <! - Заполнитель для следующей версии (в начале строки):
 
@@ -94,7 +104,10 @@ http://om.yr.no/verdata/free-weather-data/
 * setState прогноз_объект
 
 ## Changelog
+
 ### __WORK IN PROGRESS__
+* (withstu) Switch to new JSON API and change data Structure (breaking)
+* (withstu) Update project dependencies
 * (arteck) Type of state was corrected  
 
 ### 2.0.3 [2018-10-10]

@@ -40,7 +40,10 @@ Example of VIS view
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-## ChangeLog   
+## ChangeLog
+### 2.0.6 (2021-05-28)
+* (Diginix) fixed data types
+
 ### 2.0.5 (2021-04-27)
 * (Diginix) fixed some object properties
 * (bluefox) Added the support of compact mode

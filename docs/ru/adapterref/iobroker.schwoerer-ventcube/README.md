@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.schwoerer-ventcube/README.md
 title: ioBroker.schwoerer-ventcube
-hash: ooQd7u6nAw3NV7A4xcAwWg32vY9GzGvOivxyM/aXzcQ=
+hash: aBfWMJanRauvuqMhJ8iYqrkhjzBVlq3oBmX+Gd6wvyc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.schwoerer-ventcube/admin/schwoerer-ventcube.png)
 
@@ -60,12 +60,15 @@ hash: ooQd7u6nAw3NV7A4xcAwWg32vY9GzGvOivxyM/aXzcQ=
 
 | Панель управления | Ventcube | Спецификация Modbus |
 |---------------|----------|-----------------------------------|
-| V01.10 | V02.26 | Parameterliste_Modbus_TCP_03.2020 |
+| V01.10 | V02.26 | [Parameterliste_Modbus_TCP_03.2020](https://schwoerer-service.com/storage/files/Community/2020/Parameterliste_Modbus_TCP_032020.pdf) |
+
+## Changelog
+See [Changelog](https://github.com/Excodibur/ioBroker.schwoerer-ventcube/blob/master/CHANGELOG.md).
 
 ## License
 MIT License
 
-Copyright (c) 2020 Excodibur <non@existant.com>
+Copyright (c) 2020-2021 Excodibur
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

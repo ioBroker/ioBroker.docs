@@ -74,6 +74,12 @@ BADGE-NPM: https://nodei.co/npm/iobroker.admin.png?downloads=true
 日志的字体显示为红色。
 
 ## Changelog
+### 5.1.8 (2021-06-06)
+* (bluefox) Improved the list of predefined icons
+
+### 5.1.7 (2021-06-04)
+* (bluefox) Added the possibility to clear the schedule
+
 ### 5.1.6 (2021-06-02)
 * (bluefox) Improved the custom settings
 
@@ -82,12 +88,6 @@ BADGE-NPM: https://nodei.co/npm/iobroker.admin.png?downloads=true
 
 ### 5.1.4 (2021-05-27)
 * (bluefox) Corrected error in log
-
-### 5.1.3 (2021-05-26)
-* (bluefox) Improved the GUI for enumerations
-
-### 5.1.2 (2021-05-26)
-* (bluefox) Admin5: Fixed logs by the changing of host
 
 ## License
 

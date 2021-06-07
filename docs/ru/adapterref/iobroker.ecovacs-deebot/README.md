@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecovacs-deebot/README.md
 title: Адаптер Ecovacs Deebot для ioBroker
-hash: 49L0KJ5YoprBrRIjUEykIuGtjd3pyv4qd/iYj/AVN7s=
+hash: FnMYOflQ5eNPmJub4vSXFG64MYs86SP/qderkgRQ7ME=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -69,7 +69,7 @@ hash: 49L0KJ5YoprBrRIjUEykIuGtjd3pyv4qd/iYj/AVN7s=
 Рекомендуется использовать Node.js. версии 10.x, 12.x или 14.x. Минимальная необходимая версия - 10.x
 
 Этот адаптер использует библиотеку [узел-холст](https://www.npmjs.com/package/canvas) для некоторых функций, связанных с картой, которые могут потребовать установки некоторых дополнительных пакетов.
-Это необязательно и не обязательно для моделей без функции карты, но для полного функционального диапазона установите следующие пакеты.
+Это необязательно и не обязательно для моделей без функции карты, но для полного набора функций установите следующие пакеты.
 
 Для систем Linux на базе Debian необходимо выполнить следующие команды:
 
@@ -93,6 +93,7 @@ sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev l
 * Для некоторых моделей (например, Deebot OZMO 930) рекомендуется [запланировать перезапуск] (https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) один раз в день. потому что есть некоторые сообщения о том, что соединение теряется через прибл. 24 часа
 * Некоторые функции очистки могут не работать с Deebot 710/711 / 711s. Пожалуйста, используйте пока версию 0.5.8.
 * Функция "edge" не работает с Deebot U2 (вместо этого запускает автоматическую очистку)
+* Некоторые состояния "журнала очистки" пусты на серии T9 ("last20Logs", "lastCleaningDate" и "lastCleaningMapImageURL")
 
 ## Заявление об ограничении ответственности
 Я никоим образом не связан с ECOVACS.

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iogo/README.md
 title: ioBroker.iogo
-hash: yk5U6cZpi1vr4MAnRb+S96DdU2ZGKTH4Xe3ih//Tk/g=
+hash: QL2wzeIR6M4+eTIT45OnCbDxi4/yh6wmTyVyBdUwvKI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.iogo/admin/iogo.png)
 
@@ -14,19 +14,17 @@ hash: yk5U6cZpi1vr4MAnRb+S96DdU2ZGKTH4Xe3ih//Tk/g=
 ![НПМ](https://nodei.co/npm/iobroker.iogo.png?downloads=true)
 
 # IoBroker.iogo
-=================
-
 Этот адаптер добавляет дополнительные функции в приложение smarthome ioGo https://play.google.com/store/apps/details?id=de.nisnagel.iogo.
 Посетите www.iogo.app для получения дополнительной информации о том, как начать работу.
 
 ## Конфигурация
-Для использования этого адаптера вам потребуется действующий лицензионный ключ.
+Для использования этого адаптера необходим действующий лицензионный ключ.
 Лицензию можно купить после создания учетной записи на https://www.iogo.app.
 
 Пожалуйста, введите данные своей учетной записи (адрес электронной почты / пароль) в конфигурации экземпляра.
 
 ## Применение
-Вы можете отправить сообщение всем авторизованным пользователям через messageBox ```sendTo('iogo', 'New message')``` или конкретному пользователю ```sendTo('iogo', {user: 'Username', text: 'Test message'})```.
+Вы можете отправить сообщение всем авторизованным пользователям через messageBox `sendTo('iogo', 'New message')` или конкретному пользователю `sendTo('iogo', {user: 'Username', text: 'Test message'})`.
 Пользователь должен быть создан раньше (подробнее см. В документации к приложению).
 
 Можно указать более одного получателя (просто разделите имена пользователей запятыми). Например: Получатель: «Пользователь1, Пользователь4, Пользователь5».
@@ -53,7 +51,7 @@ sendTo('iogo', {title: 'News', text: 'New message'}, function (res) {
 });
 ```
 
-Просто отправьте путь к вашему изображению вместо текста или используйте атрибут url ```sendTo('iogo.0', 'absolute/path/file.png')```
+Просто отправьте путь к вашему изображению вместо текста или используйте атрибут url `sendTo('iogo.0', 'absolute/path/file.png')`
 
 ```
 sendTo('iogo', {
@@ -66,13 +64,22 @@ sendTo('iogo', {
 
 ** Возможные варианты **:
 
-- *пользователь* один пользователь или список пользователей.
-- *текст* само сообщение
-- *title* заголовок уведомления.
-- *url* абсолютный путь к изображению
-- *expiry* время истечения в секундах
+- `user`: один пользователь или список пользователей.
+- `text`: само сообщение
+- `title`: заголовок уведомления.
+- `url`: Абсолютный путь к изображению.
+- `expiry`: время истечения в секундах
+
+<! - Заполнитель для следующей версии (в начале строки):
+
+### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
+### 0.7.0 (2021-05-24)
+* (bluefox) Added support of Admin5
+
+### 0.6.x
+* (nisio) Changes for ioGo app version 2.3.0+ (older versions no longer supported)
 
 ### 0.5.x
 * (nisio) Changes for ioGo app version 2.1.0+ (older versions no longer supported)
@@ -94,7 +101,7 @@ sendTo('iogo', {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2020 Nis Nagel <info@iogo.app>
+Copyright (c) 2018 - 2021 Nis Nagel <info@iogo.app>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

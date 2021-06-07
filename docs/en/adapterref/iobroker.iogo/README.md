@@ -1,7 +1,5 @@
 ![Logo](admin/iogo.png)
-
 # ioBroker.iogo
-=================
 
 ![Number of Installations](http://iobroker.live/badges/iogo-installed.svg) ![Number of Installations](http://iobroker.live/badges/iogo-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.iogo.svg)](https://www.npmjs.com/package/iobroker.iogo)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.iogo.svg)](https://www.npmjs.com/package/iobroker.iogo)
@@ -9,19 +7,19 @@
 
 [![NPM](https://nodei.co/npm/iobroker.iogo.png?downloads=true)](https://nodei.co/npm/iobroker.iogo/)
 
-This adapter is adding extra featrures to the smarthome app ioGo https://play.google.com/store/apps/details?id=de.nisnagel.iogo.
-Please visit www.iogo.app for more information on how to getting started.
+This adapter is adding extra features to the smarthome app ioGo https://play.google.com/store/apps/details?id=de.nisnagel.iogo.
+Please visit www.iogo.app for more information on how to get started.
 
 
 ## Configuration
-You need an valid licence key to use this adapter.
-A licence can be bought after creating an acoount at https://www.iogo.app.
+You need a valid licence key to use this adapter.
+A licence can be bought after creating an account at https://www.iogo.app.
 
 Please enter your account information (email/password) in the instance configuration.
 
 ## Usage
-You can send message to all authenticated users over messageBox ```sendTo('iogo', 'New message')```
-or to specific user ```sendTo('iogo', {user: 'Username', text: 'Test message'})```.
+You can send message to all authenticated users over messageBox `sendTo('iogo', 'New message')`
+or to specific user `sendTo('iogo', {user: 'Username', text: 'Test message'})`.
 User must be created before (please read the application documentation for further details).
 
 It is possible to specify more than one recipient (just separate the Usernames by comma). For example: Recipient: "User1,User4,User5"
@@ -39,14 +37,14 @@ And one example with blockly:
 
 ![blockly](img/blockly.png)
 
-Callbacks are supported aswell:
+Callbacks are supported as well:
 ```
 sendTo('iogo', {title: 'News', text: 'New message'}, function (res) {
     console.log('Sent to ' + res + ' users');
 });
 ```
 
-Just send the path to your image instead of text or use url attribute ```sendTo('iogo.0', 'absolute/path/file.png')```
+Just send the path to your image instead of text or use url attribute `sendTo('iogo.0', 'absolute/path/file.png')`
 ```
 sendTo('iogo', {
     user:                   'Username',
@@ -57,13 +55,20 @@ sendTo('iogo', {
 ```
 
 **Possible options**:
-- *user*: Single user or list of users
-- *text*: The message itself
-- *title*: The notification's title
-- *url*: Absolute path to an image
-- *expiry*: Expiration time in seconds
+- `user`: Single user or list of users
+- `text`: The message itself
+- `title`: The notification's title
+- `url`: Absolute path to an image
+- `expiry`: Expiration time in seconds
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
 
 ## Changelog
+### 0.7.0 (2021-05-24)
+* (bluefox) Added support of Admin5
 
 ### 0.6.x
 * (nisio) Changes for ioGo app version 2.3.0+ (older versions no longer supported)
@@ -88,7 +93,7 @@ sendTo('iogo', {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2020 Nis Nagel <info@iogo.app>
+Copyright (c) 2018 - 2021 Nis Nagel <info@iogo.app>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

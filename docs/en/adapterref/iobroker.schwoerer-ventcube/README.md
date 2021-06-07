@@ -54,7 +54,7 @@ The ioBroker adapter was tested sucessfully with:
 
 | Control Panel | Ventcube | Modbus specification              |
 |---------------|----------|-----------------------------------|
-| V01.10        | V02.26   | Parameterliste_Modbus_TCP_03.2020 |
+| V01.10        | V02.26   | [Parameterliste_Modbus_TCP_03.2020](https://schwoerer-service.com/storage/files/Community/2020/Parameterliste_Modbus_TCP_032020.pdf) |
 
 ## Changelog
 See [Changelog](https://github.com/Excodibur/ioBroker.schwoerer-ventcube/blob/master/CHANGELOG.md).

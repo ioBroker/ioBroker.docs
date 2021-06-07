@@ -524,6 +524,31 @@ Following states will be created by the adapter:
     
     *Incoming data, which matches the RegEx of `settings.expertReadingPattern` will be set to this state.*
 
+
+* settings.dialogControl
+
+    |Data type|Permission|                                                                       
+    |:---:|:---:|
+    |number|R/W|
+
+    *The dialog control, which can be operated from 0 dB to 6 dB.*
+
+* settings.dialogLevelAdjust
+
+    |Data type|Permission|                                                                       
+    |:---:|:---:|
+    |boolean|R/W|
+
+    *Turns the dialog level adjustment on, which allows to modify the dialog volume of DTS content.*
+
+* settings.dialogLevel
+
+    |Data type|Permission|                                                                       
+    |:---:|:---:|
+    |boolean|R/W|
+
+    *If dialog level adjustment is turned on you can modify the dialog volume of DTS content between -12 dB and +12 dB.*
+
 * settings.outputMonitor
 
     |Data type|Permission|                                                                       
@@ -842,6 +867,10 @@ The adapter is tested with an DENON AVR-X1200W and a Marantz SR5009.
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
+### 1.11.0 (2021-06-06)
+* (foxriver76) implemented dialog level adjustment for DTS content (closes #143)
+* (foxriver76) new datapoints are `settings.dialogLevelAdjust`, `settings.dialogLevel`, `settings.dialogControl`
 
 ### 1.10.7 (2021-05-12)
 * (foxriver76) fix missing conversion to db on equalizer states for additional zones (fixes #137)

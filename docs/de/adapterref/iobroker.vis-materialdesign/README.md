@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-materialdesign/README.md
 title: Materialdesign-Widgets für ioBroker VIS
-hash: pdqQLewTkodcFW6TFIVrYBjg+g2c26nmXUjYWyMOSTA=
+hash: oQMVwervJppon0mSdqitg8D9On6i/hQ0BtFGgnSjhrU=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-materialdesign/admin/vis-materialdesign.png) <!-- im Inhaltsverzeichnis weglassen -->
 
@@ -133,46 +133,46 @@ ioBroker Material Design Widgets basieren auf [Richtlinien für das Materialdesi
 - [Menü JSON-Eigenschaften](#menu-json-properties-1)
 - [HTML-Eigenschaften](#html-properties-28)
 - [Top App Bar](#top-app-bar)
+- [Editoreinstellungen](#editor-settings-27)
 - [Untermenü](#Untermenü)
 - [Untermenü JSON-Eigenschaften](#submenu-json-properties)
 - [Charts](#Charts)
 - [Balkendiagramm](#balkendiagramm)
-- [Editoreinstellungen](#editor-settings-27)
+- [Editoreinstellungen](#editor-settings-28)
 - [Dataset-JSON-Eigenschaften](#dataset-json-properties)
 - [Kreisdiagramm](#Kreisdiagramm)
-- [Editoreinstellungen](#editor-settings-28)
+- [Editoreinstellungen](#editor-settings-29)
 - [Dataset-JSON-Eigenschaften](#dataset-json-properties-1)
 - [Linienverlaufsdiagramm:](#line-history-chart)
-- [Editoreinstellungen](#editor-settings-29)
+- [Editoreinstellungen](#editor-settings-30)
 - [JSON-Diagramm](#json-chart)
 - [JSON-Eigenschaften](#json-Eigenschaften)
 - [Tabelle](#Tabelle)
-- [Editoreinstellungen](#editor-settings-30)
+- [Editoreinstellungen](#editor-settings-31)
 - [Daten - JSON-Struktur](#data---json-Struktur)
 - [interne Objektbindung](#internal-object-binding)
 - [Steuerelemente mit HTML-Widgets](#control-elements-using-html-widgets)
 - [Control Elements - **veraltet seit v0.5.0**](#control-elements---deprecated-seit-v050)
 - [Responsives Layout](#responsive-layout)
 - [Mauerwerk-Ansichten](#mauerwerk-Ansichten)
-- [Editoreinstellungen](#editor-settings-31)
-- [Rasteransichten](#grid-views)
 - [Editoreinstellungen](#editor-settings-32)
-- [Benachrichtigungen](#alerts)
+- [Rasteransichten](#grid-views)
 - [Editoreinstellungen](#editor-settings-33)
+- [Benachrichtigungen](#alerts)
+- [Editoreinstellungen](#editor-settings-34)
 - [Datenpunkt-JSON-Eigenschaften](#datapoint-json-properties)
 - [Skript: Benachrichtigung an Widget senden](#script-send-alert-to-widget)
 - [Kalender](#Kalender)
-- [Editoreinstellungen](#editor-settings-34)
+- [Editoreinstellungen](#editor-settings-35)
 - [Datenpunkt-JSON-Eigenschaften](#datapoint-json-properties-1)
 - [Skript: ical-Konvertierung](#script-ical-conversion)
 - [Dialog](#dialog)
-- [Editoreinstellungen](#editor-settings-35)
+- [Editoreinstellungen](#editor-settings-36)
 - [HTML-Widgets](#html-Widgets)
 - [Beispiele](#Beispiele)
 - [Informationen](#Informationen)
 - [verwendete Bibliotheken](#verwendete-Bibliotheken)
 - [Changelog](#changelog)
-- [__WORK IN PROGRESS__](#work-in-progress)
 
 # Allgemeines
 ##Online-Beispielprojekt
@@ -1109,7 +1109,7 @@ Als HTML-Widget kann es als Alternative für Bindings verwendet werden, da es ei
 ### Editor-Einstellungen
 Einstellungen, die in der folgenden Tabelle nicht aufgeführt sind, sind selbsterklärend.
 
-<table><thead><tr><th>Bildschirmfoto</th><th> Rahmen</th><th> Beschreibung </th></tr></thead><tbody><tr><td rowspan=2><img src="doc/en/media/value_settings_common.png"></td><td> Zieltyp</td><td> Wenn Sie in einen anderen Typ konvertieren möchten, wählen Sie den Zieltyp aus, in den konvertiert werden soll.</td></tr><tr><td> Text überschreiben</td><td> den Werttext überschreiben. Sie können <code>#value</code> , um den Wert im Text anzuzeigen</td></tr><tr><td rowspan=3><img src="doc/en/media/value_settings_layout.png"></td><td> Schriftfarbe</td><td> Definieren Sie die Farbe des Textes. Zusätzlich ist es möglich, <code>#value</code> für Bedingungen zu verwenden, um je nach Wert des Datenpunkts unterschiedliche Farben anzuzeigen. Zulässiger Ausdruck siehe <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">mathematische Auswertungsausdrücke</a></td></tr><tr><td> Farbe des Textes vorgefertigt</td><td> Definieren Sie die Farbe des Textes. Zusätzlich ist es möglich, <code>#value</code> für Bedingungen zu verwenden, um je nach Wert des Datenpunkts unterschiedliche Farben anzuzeigen. Zulässiger Ausdruck siehe <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">mathematische Auswertungsausdrücke</a></td></tr><tr><td> Farbe des angehängten Textes</td><td> Definieren Sie die Farbe des Textes. Zusätzlich ist es möglich, <code>#value</code> für Bedingungen zu verwenden, um je nach Wert des Datenpunkts unterschiedliche Farben anzuzeigen. Zulässiger Ausdruck siehe <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">mathematische Auswertungsausdrücke</a></td></tr><tr><td rowspan=3><img src="doc/en/media/value_settings_number_formatting.png"></td><td> Berechnung</td><td> Verwenden Sie <code>#value</code> für den Wert des Datenpunkts und konvertieren Sie ihn durch Berechnung mit <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">mathematischen Auswertungsausdrücken</a></td></tr><tr><td> Sekunden in Dauer umrechnen</td><td> Wandeln Sie eine Dauer in Sekunden in eine lesbare Zeichenfolge um. Freigegebene Formate müssen entsprechend der <a href="https://github.com/jsmreese/moment-duration-format#template-string">Moment-Dauer-Formatbibliothek eingetragen werden</a> . Sie können auch <code>humanize</code> .<br><br> Es ist auch möglich, dies mit der Berechnung zu kombinieren, z. B. wenn der Quellwert in Minuten angegeben ist, können Sie ihn mithilfe von Berechnung in Sekunden umrechnen</td></tr><tr><td> Zeitstempel in Datum/Uhrzeit konvertieren</td><td> Konvertieren Sie einen Zeitstempel in eine lesbare Datumszeit. Genehmigte Formate müssen gemäß der <a href="https://momentjs.com/docs/#/displaying/format/">momentjs-</a> Bibliothek eingegeben werden.<br><br> Es ist auch möglich, dies mit der Berechnung zu kombinieren</td></tr><tr><td rowspan=1><img src="doc/en/media/value_settings_boolean_formatting.png"></td><td> Bedingung</td><td> Verwenden Sie <code>#value</code> für den Wert des Datenpunkts und Bedingungen, um andere Typen mithilfe der <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">mathematischen Auswertungsausdrücke in Boolean zu formatieren</a></td></tr><tr><td rowspan=2><img src="doc/en/media/value_settings_image.png"></td><td> Bild</td><td> Wählen Sie ein Materialdesignicon oder ein Bild aus. Zusätzlich ist es möglich, <code>#value</code> für Bedingungen zu verwenden, um je nach Wert des Datenpunktes verschiedene Bilder / Icons anzuzeigen. Zulässiger Ausdruck siehe <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">mathematische Auswertungsausdrücke</a></td></tr><tr><td> Bildfarbe</td><td> Definieren Sie die Farbe des Materialdesignicons. Zusätzlich ist es möglich, <code>#value</code> für Bedingungen zu verwenden, um je nach Wert des Datenpunkts unterschiedliche Farben anzuzeigen. Zulässiger Ausdruck siehe <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">mathematische Bewertungsausdrücke</a></td></tr></tbody></table>
+<table><thead><tr><th>Bildschirmfoto</th><th> Rahmen</th><th> Beschreibung </th></tr></thead><tbody><tr><td rowspan=2><img src="doc/en/media/value_settings_common.png"></td><td> Zieltyp</td><td> Wenn Sie in einen anderen Typ konvertieren möchten, wählen Sie den Zieltyp aus, in den konvertiert werden soll.</td></tr><tr><td> Text überschreiben</td><td> den Werttext überschreiben. Sie können <code>#value</code> , um den Wert im Text anzuzeigen</td></tr><tr><td rowspan=3><img src="doc/en/media/value_settings_layout.png"></td><td> Schriftfarbe</td><td> Definieren Sie die Farbe des Textes. Zusätzlich ist es möglich, <code>#value</code> für Bedingungen zu verwenden, um je nach Wert des Datenpunkts unterschiedliche Farben anzuzeigen. Zulässiger Ausdruck siehe <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">mathematische Bewertungsausdrücke</a></td></tr><tr><td> Farbe des Textes vorgefertigt</td><td> Definieren Sie die Farbe des Textes. Zusätzlich ist es möglich, <code>#value</code> für Bedingungen zu verwenden, um je nach Wert des Datenpunkts unterschiedliche Farben anzuzeigen. Zulässiger Ausdruck siehe <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">mathematische Bewertungsausdrücke</a></td></tr><tr><td> Farbe des angehängten Textes</td><td> Definieren Sie die Farbe des Textes. Zusätzlich ist es möglich, <code>#value</code> für Bedingungen zu verwenden, um je nach Wert des Datenpunkts unterschiedliche Farben anzuzeigen. Zulässiger Ausdruck siehe <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">mathematische Bewertungsausdrücke</a></td></tr><tr><td rowspan=3><img src="doc/en/media/value_settings_number_formatting.png"></td><td> Berechnung</td><td> Verwenden Sie <code>#value</code> für den Wert des Datenpunkts und konvertieren Sie ihn durch Berechnung mit <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">mathematischen Auswertungsausdrücken</a></td></tr><tr><td> Sekunden in Dauer umrechnen</td><td> Wandeln Sie eine Dauer in Sekunden in eine lesbare Zeichenfolge um. Freigegebene Formate müssen entsprechend der <a href="https://github.com/jsmreese/moment-duration-format#template-string">Moment-Dauer-Formatbibliothek eingetragen werden</a> . Sie können auch <code>humanize</code> .<br><br> Es ist auch möglich, dies mit der Berechnung zu kombinieren, z. B. wenn der Quellwert in Minuten angegeben ist, können Sie ihn mithilfe von Berechnung in Sekunden umrechnen</td></tr><tr><td> Zeitstempel in Datum/Uhrzeit konvertieren</td><td> Konvertieren Sie einen Zeitstempel in eine lesbare Datumszeit. Genehmigte Formate müssen gemäß der <a href="https://momentjs.com/docs/#/displaying/format/">momentjs-</a> Bibliothek eingegeben werden.<br><br> Es ist auch möglich, dies mit der Berechnung zu kombinieren</td></tr><tr><td rowspan=1><img src="doc/en/media/value_settings_boolean_formatting.png"></td><td> Bedingung</td><td> Verwenden Sie <code>#value</code> für den Wert des Datenpunkts und Bedingungen, um andere Typen mithilfe der <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">mathematischen Auswertungsausdrücke in Boolean zu formatieren</a></td></tr><tr><td rowspan=2><img src="doc/en/media/value_settings_image.png"></td><td> Bild</td><td> Wählen Sie ein Materialdesignicon oder ein Bild aus. Zusätzlich ist es möglich, <code>#value</code> für Bedingungen zu verwenden, um je nach Wert des Datenpunktes verschiedene Bilder / Icons anzuzeigen. Zulässiger Ausdruck siehe <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">mathematische Bewertungsausdrücke</a></td></tr><tr><td> Bildfarbe</td><td> Definieren Sie die Farbe des Materialdesignicons. Zusätzlich ist es möglich, <code>#value</code> für Bedingungen zu verwenden, um je nach Wert des Datenpunkts unterschiedliche Farben anzuzeigen. Zulässiger Ausdruck siehe <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">mathematische Bewertungsausdrücke</a></td></tr></tbody></table>
 
 ### HTML-Eigenschaften
 Die folgenden Eigenschaften können als [HTML-Widgets](#html-widgets) verwendet werden.
@@ -1181,7 +1181,7 @@ Einstellungen, die in der folgenden Tabelle nicht aufgeführt sind, sind selbste
 ### Daten-JSON-Eigenschaften
 Der JSON-String muss ein Array von Objekten mit den folgenden Eigenschaften sein:
 
-<table><thead><tr><th>Eigentum</th><th> Beschreibung</th><th> Art</th><th> Werte</th></tr></thead><tbody><tr><td> Listentyp</td><td> Art der Liste</td><td> Schnur</td><td> Text | buttonState | buttonToggle | buttonToggleValueTrue | buttonToggleValueFalse | buttonNav | SchaltflächeLink</td></tr><tr><td> Objekt Identifikation</td><td> Objekt-ID für Schaltfläche</td><td> Schnur</td><td/></tr><tr><td> buttonStateValue</td><td> Wert für Schaltflächenstatus</td><td> Schnur</td><td/></tr><tr><td> SchaltflächeNavView</td><td> zum Navigieren anzeigen</td><td> Schnur</td><td/></tr><tr><td> SchaltflächeLink</td><td> URL zum Navigieren</td><td> Schnur</td><td/></tr><tr><td> buttonToggleValueTrue</td><td> wahrer Wert für Schaltflächenumschaltung</td><td> Schnur</td><td/></tr><tr><td> buttonToggleValueFalse</td><td> falscher Wert für Schaltfläche Toggle</td><td> Schnur</td><td/></tr><tr><td> schreibgeschützt</td><td> Schaltfläche ist schreibgeschützt</td><td> boolesch</td><td> falsch | wahr</td></tr><tr><td> showValueLabel</td><td> Wert als Text anzeigen</td><td> boolesch</td><td> falsch | wahr</td></tr><tr><td> WertAnhang</td><td> Text an Wert anhängen</td><td> Schnur</td><td/></tr><tr><td> Hintergrund</td><td> Hintergrundfarbe</td><td> Schnur</td><td> hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0,5)</td></tr><tr><td> Text</td><td> Text</td><td> Schnur</td><td/></tr><tr><td> Untertext</td><td> zweiter Text</td><td> Schnur</td><td/></tr><tr><td> Bild</td><td> Bildpfad oder Name von Material Design Icons</td><td> Schnur</td><td/></tr><tr><td> BildFarbe</td><td> Farbe von Material Design Icons</td><td> Schnur</td><td> hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0,5)</td></tr><tr><td> BildAktiv</td><td> Bildpfad oder Name von Material Design Icons</td><td> Schnur</td><td/></tr><tr><td> imageActiveColor</td><td> Bildpfad oder Name von Material Design Icons für aktive Schaltfläche</td><td> Schnur</td><td> hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0,5)</td></tr><tr><td> SchaltflächeHintergrundfarbe</td><td> Hintergrundfarbe der Schaltfläche</td><td> Schnur</td><td> hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0,5)</td></tr><tr><td> SchaltflächeHintergrundActiveColor</td><td> Hintergrundfarbe des Buttons für den aktiven Button</td><td> Schnur</td><td> hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0,5)</td></tr><tr><td> statusBarColor</td><td> Farbe der Statusleiste</td><td> Schnur</td><td> hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0,5)</td></tr><tr><td> statusBarText</td><td> Text der Statusleiste</td><td> Schnur</td><td/></tr><tr><td> lockEnabled</td><td> Sperren aktivieren</td><td> boolesch</td><td> falsch | wahr</td></tr></tbody></table>
+<table><thead><tr><th>Eigentum</th><th> Beschreibung</th><th> Art</th><th> Werte</th></tr></thead><tbody><tr><td> Listentyp</td><td> Art der Liste</td><td> Schnur</td><td> Text | buttonState | buttonToggle | buttonToggleValueTrue | buttonToggleValueFalse | buttonNav | SchaltflächeLink</td></tr><tr><td> Objekt Identifikation</td><td> Objekt-ID für Schaltfläche</td><td> Schnur</td><td/></tr><tr><td> volleReihe</td><td> Anzeigeelement über ganze Zeile</td><td> boolesch</td><td> falsch | wahr</td></tr><tr><td> buttonStateValue</td><td> Wert für Schaltflächenstatus</td><td> Schnur</td><td/></tr><tr><td> SchaltflächeNavView</td><td> zum Navigieren anzeigen</td><td> Schnur</td><td/></tr><tr><td> SchaltflächeLink</td><td> URL zum Navigieren</td><td> Schnur</td><td/></tr><tr><td> buttonToggleValueTrue</td><td> wahrer Wert für Schaltflächenumschaltung</td><td> Schnur</td><td/></tr><tr><td> buttonToggleValueFalse</td><td> falscher Wert für Schaltfläche Toggle</td><td> Schnur</td><td/></tr><tr><td> schreibgeschützt</td><td> Schaltfläche ist schreibgeschützt</td><td> boolesch</td><td> falsch | wahr</td></tr><tr><td> showValueLabel</td><td> Wert als Text anzeigen</td><td> boolesch</td><td> falsch | wahr</td></tr><tr><td> WertAnhang</td><td> Text an Wert anhängen</td><td> Schnur</td><td/></tr><tr><td> Hintergrund</td><td> Hintergrundfarbe</td><td> Schnur</td><td> hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0,5)</td></tr><tr><td> Text</td><td> Text</td><td> Schnur</td><td/></tr><tr><td> Untertext</td><td> zweiter Text</td><td> Schnur</td><td/></tr><tr><td> Bild</td><td> Bildpfad oder Name von Material Design Icons</td><td> Schnur</td><td/></tr><tr><td> BildFarbe</td><td> Farbe von Material Design Icons</td><td> Schnur</td><td> hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0,5)</td></tr><tr><td> BildAktiv</td><td> Bildpfad oder Name von Material Design Icons</td><td> Schnur</td><td/></tr><tr><td> imageActiveColor</td><td> Bildpfad oder Name von Material Design Icons für aktive Schaltfläche</td><td> Schnur</td><td> hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0,5)</td></tr><tr><td> SchaltflächeHintergrundfarbe</td><td> Hintergrundfarbe der Schaltfläche</td><td> Schnur</td><td> hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0,5)</td></tr><tr><td> SchaltflächeHintergrundActiveColor</td><td> Hintergrundfarbe des Buttons für den aktiven Button</td><td> Schnur</td><td> hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0,5)</td></tr><tr><td> statusBarColor</td><td> Farbe der Statusleiste</td><td> Schnur</td><td> hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0,5)</td></tr><tr><td> statusBarText</td><td> Text der Statusleiste</td><td> Schnur</td><td/></tr><tr><td> lockEnabled</td><td> Sperren aktivieren</td><td> boolesch</td><td> falsch | wahr</td></tr></tbody></table>
 
 <!-- im Inhaltsverzeichnis weglassen -->
 
@@ -1776,6 +1776,46 @@ Die obere App-Leiste mit Navigationsschublade kann mit der <a href="https://www.
 ##### Layout permanent:
 ![Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/topappbar_permanent.gif)
 
+##### Layout automatisch:
+![Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/topappbar_auto.gif)
+
+Layout 'auto' schaltet je nach Bildschirmauflösung automatisch zwischen Layout 'modal' und 'permanent' um. Über den VIS-Editor können Sie einstellen, ab welcher Auflösung das 'permanente' Layout verwendet werden soll (größer als Bedingung).
+
+**Hinweis: Verwendung mit dem Widget „In Widget 8 anzeigen“**
+
+Um mit dem Widget 'Ansicht in Widget 8' korrekt zu arbeiten, müssen Sie eine CSS-Medienregel definieren.
+
+* Weisen Sie dem Widget zunächst eine "Common CSS Rule" zu, z.B. namens `my-view-in-widget8`.
+* Fügen Sie dann das folgende CSS zu Ihrem Projekt hinzu:
+
+```
+.my-view-in-widget8 {
+    top: 64px !important;
+    height: calc(100% - 64px) !important;
+    overflow-y: auto;
+}
+@media screen and (max-width: 800px) {
+    /* Resolution lower than 800px -> using 'modal' layout */
+    .my-view-in-widget8 {
+        left: 0 !important;
+        width: 100% !important;
+    }
+}
+@media screen and (min-width: 800px) {
+    /* Resolution higher than 800px -> using 'modal' layout */
+    .my-view-in-widget8 {
+        left: 256px !important;
+        width: calc(100% - 256px) !important;
+    }
+}
+```
+
+* Passen Sie die Auflösung im CSS an die Auflösung an, die Sie über den VIS-Editor einstellen (im Beispiel `max-width: 800px` und `min-width: 800px`)
+* Wenn Sie eine benutzerdefinierte Breite für die Menüleiste festlegen, müssen Sie auch die Eigenschaften 'left' und 'width' im CSS auf diesen Wert ändern (im Beispiel `left: 256px !important;` und `width: calc( 100% - 256px) !wichtig;`)
+
+### Editor-Einstellungen
+Einstellungen, die in der folgenden Tabelle nicht aufgeführt sind, sind selbsterklärend.
+
 <table><thead><tr><th>Bildschirmfoto</th><th> Rahmen</th><th> Beschreibung</th></tr></thead><tbody><tr><td rowspan=3><img src="doc/en/media/topappbar_settings.png"></td><td> Objekt Identifikation</td><td> muss auf einen Datenpunkt ab Typnummer gesetzt werden. Zum Beispiel kann dieser Datenpunkt von der <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">Ansicht in Widget 8 verwendet werden</a></td></tr><tr><td> Index der Navigationselemente anzeigen</td><td> zeigt den Navigationsindex vor dem Elementlabel. Diese Nummer kann in der <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">Ansicht in Widget 8 verwendet werden</a> , um die Ansicht zu definieren, die angezeigt werden soll, wenn das Element ausgewählt ist</td></tr><tr><td> Anzahl der Navigationselemente</td><td> Definieren Sie die Anzahl der Navigationselemente</td></tr></tbody></table>
 
 ### Untermenü
@@ -1862,7 +1902,7 @@ Mit dem JSON-Diagramm haben Sie die maximale Freiheit, ein gemischtes Diagramm (
 <!-- im Inhaltsverzeichnis weglassen -->
 
 ##### Diagramm Balkendiagramm spfeicifc
-<details><table><thead><tr><th>Eigentum</th><th> Beschreibung</th><th> Art</th><th> Werte</th></tr></thead><tbody><tr><td> barIsStacked</td><td> gestapelter Balken. Wenn Sie ein kombiniertes Diagramm (Linie + gestapelter Balken) haben, müssen Sie diesen Wert auch für den Liniendatensatz festlegen!</td><td> boolesch</td><td> Falsch Richtig</td></tr><tr><td> barStackId</td><td> ID des Stapels. Bar, die zu einem Stack kombiniert werden soll, muss die gleiche ID haben</td><td> Nummer</td><td> 1, 2, 5, ...</td></tr><tr><td> barColorHover</td><td> Hover-Farbe des Balkens</td><td> Farbe | Array[Farben]</td><td> hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0,5)</td></tr><tr><td> BalkenBorderColor</td><td> Rahmenfarbe des Balkens</td><td> Farbe | Array[Farben]</td><td> hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0,5)</td></tr><tr><td> barGrenze</td><td> Dicke der Balkengrenze</td><td> Nummer</td><td> 1, 2, 5, ...</td></tr><tr><td> barBorderColorHover</td><td> Rahmen-Hover-Farbe des Balkens</td><td> Farbe | Array[Farben]</td><td> hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0,5)</td></tr><tr><td> barBorderWidthHover</td><td> Schwebestärke der Balkengrenze</td><td> Nummer</td><td> 1, 2, 5, ...</td></tr></tbody></table></details>
+<details><table><thead><tr><th>Eigentum</th><th> Beschreibung</th><th> Art</th><th> Werte</th></tr></thead><tbody><tr><td> barIstStacked</td><td> gestapelter Balken. Wenn Sie ein kombiniertes Diagramm (Linie + gestapelter Balken) haben, müssen Sie diesen Wert auch für den Liniendatensatz festlegen!</td><td> boolesch</td><td> Falsch Richtig</td></tr><tr><td> barStackId</td><td> ID des Stapels. Bar, die zu einem Stack kombiniert werden soll, muss die gleiche ID haben</td><td> Nummer</td><td> 1, 2, 5, ...</td></tr><tr><td> barColorHover</td><td> Hover-Farbe des Balkens</td><td> Farbe | Array[Farben]</td><td> hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0,5)</td></tr><tr><td> BalkenBorderColor</td><td> Rahmenfarbe des Balkens</td><td> Farbe | Array[Farben]</td><td> hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0,5)</td></tr><tr><td> barGrenze</td><td> Dicke der Balkengrenze</td><td> Nummer</td><td> 1, 2, 5, ...</td></tr><tr><td> barBorderColorHover</td><td> Rahmen-Hover-Farbe des Balkens</td><td> Farbe | Array[Farben]</td><td> hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0,5)</td></tr><tr><td> barBorderWidthHover</td><td> Schwebestärke der Balkengrenze</td><td> Nummer</td><td> 1, 2, 5, ...</td></tr></tbody></table></details>
 
 <!-- im Inhaltsverzeichnis weglassen -->
 
@@ -4334,8 +4374,12 @@ Der Adapter verwendet die folgenden Bibliotheken:
 	### __WORK IN PROGRESS__
 -->
 
+<!-- omit in toc -->
 ### __WORK IN PROGRESS__
+* (Scrounger) Top App Bar Widget: new layout 'auto' added - change between modal and permanent layout depending on screen resolution. [Details see documentation!](#layout-auto)
 * (Scrounger) Top App Bar Widget: option added to set value on click at item that toggle submenu
+* (Scrounger) IconList Widget: option added to show single element over whole row
+* (Scrounger) IconList Widget: bug fix for applying active color ([#176](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/176))
 
 <!-- omit in toc -->
 ### 0.5.7 (2021-05-26)

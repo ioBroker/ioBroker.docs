@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
-title: Ecovacs Deebot Adapter für ioBroker
-hash: 49L0KJ5YoprBrRIjUEykIuGtjd3pyv4qd/iYj/AVN7s=
+title: Ecovacs Deebot-Adapter für ioBroker
+hash: FnMYOflQ5eNPmJub4vSXFG64MYs86SP/qderkgRQ7ME=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -15,34 +15,34 @@ hash: 49L0KJ5YoprBrRIjUEykIuGtjd3pyv4qd/iYj/AVN7s=
 ![Abhängigkeitsstatus](https://img.shields.io/david/mrbungle64/iobroker.ecovacs-deebot.svg)
 ![Travis-CI](https://travis-ci.org/mrbungle64/ioBroker.ecovacs-deebot.svg?branch=master)
 
-# Ecovacs Deebot Adapter für ioBroker
-Dieser Adapter verwendet die Bibliothek [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js).
+# Ecovacs Deebot-Adapter für ioBroker
+Dieser Adapter verwendet die [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js) Bibliothek.
 
 ## Eigenschaften
 Einige bemerkenswerte Merkmale sind:
 
-* Informationen abrufen (z. B. Batterie, Reinigungsprotokoll, Verbrauchsmaterial, Reinigungs- und Ladestatus)
-* Senden Sie saubere Befehle (z. B. Auto, Spot-Bereich, benutzerdefinierter Bereich).
-* Senden Sie einige andere Befehle (z. B. Ton abspielen, Verbrauchsmaterialien zurücksetzen, verschieben)
+* Abrufen von Informationen (z. B. Akku, Reinigungsprotokoll, Verbrauchsmaterial, Reinigungs- und Ladestatus)
+* Senden Sie saubere Befehle (z. B. Auto, Spot-Bereich, benutzerdefinierter Bereich)
+* Senden Sie einige andere Befehle (z. B. Sound abspielen, Verbrauchsmaterialien zurücksetzen, bewegen)
 * Speichern Sie den zuletzt ausgeführten benutzerdefinierten Bereich und führen Sie die gespeicherten Bereiche erneut aus
-* Einstellung der Vakuumleistung (Reinigungsgeschwindigkeit) und des Wasserstandes
-* Informationen während des Reinigungsvorgangs abrufen (z. B. aktuelle Position und Bereich)
-* Informationen zu den Karten abrufen inkl. Spotbereiche und virtuelle Grenzen
-* Löschen, Speichern und Neuerstellen einzelner virtueller Grenzen sowie eines vollständigen Satzes virtueller Grenzen *)
+* Einstellung von Saugleistung (Reinigungsgeschwindigkeit) und Wasserstand
+* Abrufen von Informationen während des Reinigungsvorgangs (z. B. aktuelle Position und Bereich)
+* Abrufen von Informationen der Karten inkl. Spotbereiche und virtuelle Grenzen
+* Löschen, speichern und neu erstellen einzelner virtueller Grenzen sowie eines vollständigen Satzes virtueller Grenzen *)
 
 *) Experimentell
 
-Bitte beachten Sie: Einige Funktionen sind nur für einige Modelle verfügbar
+Bitte beachten: Einige Funktionen sind nur für einige Modelle verfügbar
 
-## Modelle
-### Unterstützte Modelle
+##Modelle
+###Unterstützte Modelle
 * Deebot 900/901
 * Deebot OZMO 930
 * Deebot OZMO 920/950
 
-Die aufgeführten Modelle sind diejenigen, die ich selbst in Gebrauch habe oder die technisch mit diesen identisch sind.
+Die aufgeführten Modelle sind diejenigen, die ich selbst im Einsatz habe oder die technisch mit diesen identisch sind.
 
-### Diese Modelle sollten ordnungsgemäß oder zumindest teilweise funktionieren
+### Diese Modelle sollten richtig oder zumindest teilweise funktionieren
 * Deebot Slim 2
 * Deebot N79-Serie
 * Deebot M88
@@ -59,17 +59,17 @@ Die aufgeführten Modelle sind diejenigen, die ich selbst in Gebrauch habe oder 
 * Deebot (OZMO) T8-Serie
 * Deebot T9-Serie
 
-Die aufgeführten Modelle funktionieren entweder bereits oder sind diesen Modellen technisch ähnlich.
-Trotzdem kann die Funktionalität teilweise eingeschränkt sein.
+Die aufgeführten Modelle sind entweder bereits bekannt oder technisch ähnlich zu diesen Modellen.
+Dennoch kann die Funktionalität teilweise eingeschränkt sein.
 
-Ich versuche, ein breites Spektrum an Funktionen zu erreichen, entscheide dies jedoch von Fall zu Fall in Abhängigkeit von der Komplexität und verschiedenen anderen Kriterien.
+Ich versuche eine breite Palette an Funktionalität zu erreichen, entscheide dies aber von Fall zu Fall je nach Komplexität und diversen anderen Kriterien.
 Es besteht natürlich kein Anspruch auf volle Funktionalität.
 
 ## Installation
-Es wird empfohlen, Version 10.x, 12.x oder 14.x von Node.js zu verwenden. Die mindestens erforderliche Version ist 10.x.
+Es wird empfohlen, die Version 10.x, 12.x oder 14.x von Node.js zu verwenden. Die erforderliche Mindestversion ist 10.x
 
-Dieser Adapter verwendet die Bibliothek [Node-Canvas](https://www.npmjs.com/package/canvas) für einige kartenbezogene Funktionen, für die möglicherweise einige zusätzliche Pakete installiert werden müssen.
-Dies ist optional und für Modelle ohne Kartenfunktionalität nicht erforderlich. Für den vollen Funktionsumfang installieren Sie bitte die folgenden Pakete.
+Dieser Adapter verwendet die [Knoten-Leinwand](https://www.npmjs.com/package/canvas) Bibliothek für einige kartenbezogene Funktionen, die die Installation einiger zusätzlicher Pakete erfordern können.
+Dies ist optional und bei Modellen ohne Kartenfunktionalität nicht notwendig, aber für den vollen Funktionsumfang installieren Sie bitte die folgenden Pakete.
 
 Für Debian-basierte Linux-Systeme sollten die folgenden Befehle ausgeführt werden:
 
@@ -81,18 +81,19 @@ sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev l
 Anweisungen für andere Systeme finden Sie unter https://www.npmjs.com/package/canvas#compiling
 
 ## Verwendung
-* Informationen zur Verwendung dieses Adapters finden Sie [hier] (https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
+* Informationen zur Verwendung dieses Adapters finden Sie [hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
 
 ### Zustände
-* Informationen zu den Bundesstaaten finden Sie [hier] (https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29) (Englisch) und [hier] (https:// github .com / mrbungle64 / ioBroker.ecovacs-deebot / wiki / Datenpunkte-% 28DE% 29)
+* Informationen zu den Staaten finden Sie [hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29) (Englisch) und [hier](https://github .com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Datenpunkte-%28DE%29) (Deutsch)
 
 ## FAQ
-* Häufig gestellte Fragen finden Sie [hier] (https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
+* Häufig gestellte Fragen finden Sie [hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
 
 ## Bekannte Probleme
-* Für einige Modelle (z. B. Deebot OZMO 930) wird empfohlen, einmal täglich [einen Neustart zu planen] (https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) da es einige Berichte gibt, dass die Verbindung nach ca. 24 Stunden
-* Einige Reinigungsfunktionen funktionieren möglicherweise nicht mit Deebot 710/711 / 711s. Bitte verwenden Sie vorerst Version 0.5.8.
-* Die "Kanten" -Funktion funktioniert nicht mit Deebot U2 (startet stattdessen die automatische Reinigung)
+* Für einige Modelle (zB Deebot OZMO 930) wird empfohlen, einmal täglich einen [Neustart zu planen](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) weil es einige Meldungen gibt, dass die Verbindung nach ca. 24 Stunden
+* Einige Reinigungsfunktionen funktionieren möglicherweise nicht mit Deebot 710/711/711s. Bitte verwenden Sie vorerst Version 0.5.8.
+* Die Funktion "edge" funktioniert nicht mit Deebot U2 (startet stattdessen die automatische Reinigung)
+* Einige "cleaninglog"-Zustände sind bei der T9-Serie leer ("last20Logs", "lastCleaningDate" und "lastCleaningMapImageURL")
 
 ## Haftungsausschluss
 Ich bin in keiner Weise mit ECOVACS verbunden.

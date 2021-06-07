@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-materialdesign/README.md
 title: ioBroker VIS 的材料设计小部件
-hash: pdqQLewTkodcFW6TFIVrYBjg+g2c26nmXUjYWyMOSTA=
+hash: oQMVwervJppon0mSdqitg8D9On6i/hQ0BtFGgnSjhrU=
 ---
 ![商标](../../../en/adapterref/iobroker.vis-materialdesign/admin/vis-materialdesign.png) <!-- 在目录中省略 -->
 
@@ -133,46 +133,46 @@ ioBroker Material Design Widgets 基于 [Google 的材料设计指南](https://m
 - [菜单 JSON 属性](#menu-json-properties-1)
 - [HTML 属性](#html-properties-28)
 - [顶部应用栏](#top-app-bar)
+- [编辑器设置](#editor-settings-27)
 - [子菜单](#submenu)
 - [子菜单 JSON 属性](#submenu-json-properties)
 - [图表](#charts)
 - [条形图](#bar-chart)
-- [编辑器设置](#editor-settings-27)
+- [编辑器设置](#editor-settings-28)
 - [数据集 JSON 属性](#dataset-json-properties)
 - [饼图](#饼图)
-- [编辑器设置](#editor-settings-28)
+- [编辑器设置](#editor-settings-29)
 - [数据集 JSON 属性](#dataset-json-properties-1)
 - [线历史图表:](#line-history-chart)
-- [编辑器设置](#editor-settings-29)
+- [编辑器设置](#editor-settings-30)
 - [JSON 图表](#json-chart)
 - [JSON 属性](#json-properties)
 - [表](#table)
-- [编辑器设置](#editor-settings-30)
+- [编辑器设置](#editor-settings-31)
 - [数据 - JSON 结构](#data---json-stucture)
 - [内部对象绑定](#internal-object-binding)
 - [使用 HTML 小部件控制元素](#control-elements-using-html-widgets)
 - [控制元素 - **自 v0.5.0 起已弃用**](#control-elements---deprecated-since-v050)
 - [响应式布局](#responsive-layout)
 - [砌体景观](#masonry-views)
-- [编辑器设置](#editor-settings-31)
-- [网格视图](#grid-views)
 - [编辑器设置](#editor-settings-32)
-- [警报](#alerts)
+- [网格视图](#grid-views)
 - [编辑器设置](#editor-settings-33)
+- [警报](#alerts)
+- [编辑器设置](#editor-settings-34)
 - [数据点 JSON 属性](#datapoint-json-properties)
 - [脚本：向小部件发送警报](#script-send-alert-to-widget)
 - [日历](#calendar)
-- [编辑器设置](#editor-settings-34)
+- [编辑器设置](#editor-settings-35)
 - [数据点 JSON 属性](#datapoint-json-properties-1)
 - [脚本：ical 转换](#script-ical-conversion)
 - [对话](#dialog)
-- [编辑器设置](#editor-settings-35)
+- [编辑器设置](#editor-settings-36)
 - [HTML 小部件](#html-widgets)
 - [例子](#examples)
 - [信息](#informations)
 - [使用的库](#used-libraries)
 - [更新日志](#changelog)
-- [__工作进行中__](#工作进行中)
 
 ＃ 一般的
 ## 在线示例项目
@@ -1181,7 +1181,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 ### 数据 JSON 属性
 JSON 字符串必须是具有以下属性的对象数组：
 
-<table><thead><tr><th>财产</th><th>描述</th><th>类型</th><th>价值观</th></tr></thead><tbody><tr><td>列表类型</td><td>列表类型</td><td>细绳</td><td>文字 |按钮状态 |按钮切换 | buttonToggleValueTrue | buttonToggleValueFalse |按钮导航 |按钮链接</td></tr><tr><td>对象标识</td><td>按钮的对象 ID</td><td>细绳</td><td/></tr><tr><td>按钮状态值</td><td>按钮状态的值</td><td>细绳</td><td/></tr><tr><td>按钮导航视图</td><td>查看导航</td><td>细绳</td><td/></tr><tr><td>按钮链接</td><td>要导航的网址</td><td>细绳</td><td/></tr><tr><td>buttonToggleValueTrue</td><td>按钮切换的真值</td><td>细绳</td><td/></tr><tr><td>buttonToggleValueFalse</td><td>按钮切换的假值</td><td>细绳</td><td/></tr><tr><td>只读</td><td>按钮是只读的</td><td>布尔值</td><td>假|真的</td></tr><tr><td>显示值标签</td><td>将值显示为文本</td><td>布尔值</td><td>假|真的</td></tr><tr><td>值附录</td><td>将文本附加到值</td><td>细绳</td><td/></tr><tr><td>背景</td><td>背景颜色</td><td>细绳</td><td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td></tr><tr><td>文本</td><td>文本</td><td>细绳</td><td/></tr><tr><td>潜台词</td><td>第二个文本</td><td>细绳</td><td/></tr><tr><td>图像</td><td>Material Design 图标的图像路径或名称</td><td>细绳</td><td/></tr><tr><td>图像颜色</td><td>Material Design 图标的颜色</td><td>细绳</td><td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td></tr><tr><td>图像活动</td><td>Material Design 图标的图像路径或名称</td><td>细绳</td><td/></tr><tr><td>图像活动颜色</td><td>活动按钮的 Material Design 图标的图像路径或名称</td><td>细绳</td><td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td></tr><tr><td>按钮背景颜色</td><td>按钮的背景颜色</td><td>细绳</td><td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td></tr><tr><td>按钮背景活动颜色</td><td>活动按钮的按钮背景颜色</td><td>细绳</td><td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td></tr><tr><td>状态栏颜色</td><td>状态栏颜色</td><td>细绳</td><td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td></tr><tr><td>状态栏文本</td><td>状态栏文本</td><td>细绳</td><td/></tr><tr><td>锁定已启用</td><td>启用锁定</td><td>布尔值</td><td>假|真的</td></tr></tbody></table>
+<table><thead><tr><th>财产</th><th>描述</th><th>类型</th><th>价值观</th></tr></thead><tbody><tr><td>列表类型</td><td>列表类型</td><td>细绳</td><td>文字 |按钮状态 |按钮切换 | buttonToggleValueTrue | buttonToggleValueFalse |按钮导航 |按钮链接</td></tr><tr><td>对象标识</td><td>按钮的对象 ID</td><td>细绳</td><td/></tr><tr><td>全行</td><td>整行显示元素</td><td>布尔值</td><td>假|真的</td></tr><tr><td>按钮状态值</td><td>按钮状态的值</td><td>细绳</td><td/></tr><tr><td>按钮导航视图</td><td>查看导航</td><td>细绳</td><td/></tr><tr><td>按钮链接</td><td>要导航的网址</td><td>细绳</td><td/></tr><tr><td>buttonToggleValueTrue</td><td>按钮切换的真值</td><td>细绳</td><td/></tr><tr><td>buttonToggleValueFalse</td><td>按钮切换的假值</td><td>细绳</td><td/></tr><tr><td>只读</td><td>按钮是只读的</td><td>布尔值</td><td>假|真的</td></tr><tr><td>显示值标签</td><td>将值显示为文本</td><td>布尔值</td><td>假|真的</td></tr><tr><td>值附录</td><td>将文本附加到值</td><td>细绳</td><td/></tr><tr><td>背景</td><td>背景颜色</td><td>细绳</td><td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td></tr><tr><td>文本</td><td>文本</td><td>细绳</td><td/></tr><tr><td>潜台词</td><td>第二个文本</td><td>细绳</td><td/></tr><tr><td>图像</td><td>Material Design 图标的图像路径或名称</td><td>细绳</td><td/></tr><tr><td>图像颜色</td><td>Material Design 图标的颜色</td><td>细绳</td><td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td></tr><tr><td>图像活动</td><td>Material Design 图标的图像路径或名称</td><td>细绳</td><td/></tr><tr><td>图像活动颜色</td><td>活动按钮的 Material Design 图标的图像路径或名称</td><td>细绳</td><td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td></tr><tr><td>按钮背景颜色</td><td>按钮的背景颜色</td><td>细绳</td><td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td></tr><tr><td>按钮背景活动颜色</td><td>活动按钮的按钮背景颜色</td><td>细绳</td><td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td></tr><tr><td>状态栏颜色</td><td>状态栏颜色</td><td>细绳</td><td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td></tr><tr><td>状态栏文本</td><td>状态栏文本</td><td>细绳</td><td/></tr><tr><td>锁定已启用</td><td>启用锁定</td><td>布尔值</td><td>假|真的</td></tr></tbody></table>
 
 <!-- 在目录中省略 -->
 
@@ -1766,7 +1766,7 @@ JSON 字符串必须是具有以下属性的对象数组：
 </详情>
 
 ## 顶部应用栏
-Top App Bar with Navigation Drawer 可以与<a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">小部件 8 中</a>的视图结合。
+Top App Bar with Navigation Drawer 可以与<a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">小部件 8 中</a>的视图相结合。
 
 <b>查看 [Material Design Widgets 示例项目](https://github.com/Scrounger/ioBroker.vis-materialdesign#online-example-project)</b>以了解其工作原理。
 
@@ -1775,6 +1775,46 @@ Top App Bar with Navigation Drawer 可以与<a href="https://www.iobroker.net/#e
 
 ##### 布局永久：
 ![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/topappbar_permanent.gif)
+
+##### 布局自动：
+![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/topappbar_auto.gif)
+
+布局“自动”根据屏幕分辨率在布局“模态”和“永久”之间自动切换。通过 VIS-Editor，您可以设置应使用“永久”布局的分辨率（大于条件）。
+
+**提示：与“在小部件 8 中查看”小部件一起使用**
+
+要正确使用“在小部件 8 中查看”小部件，您必须定义一个 css 媒体规则。
+
+* 首先为小部件分配一个“通用 CSS 规则”，例如名为“my-view-in-widget8”。
+* 然后将以下 CSS 添加到您的项目中：
+
+```
+.my-view-in-widget8 {
+    top: 64px !important;
+    height: calc(100% - 64px) !important;
+    overflow-y: auto;
+}
+@media screen and (max-width: 800px) {
+    /* Resolution lower than 800px -> using 'modal' layout */
+    .my-view-in-widget8 {
+        left: 0 !important;
+        width: 100% !important;
+    }
+}
+@media screen and (min-width: 800px) {
+    /* Resolution higher than 800px -> using 'modal' layout */
+    .my-view-in-widget8 {
+        left: 256px !important;
+        width: calc(100% - 256px) !important;
+    }
+}
+```
+
+* 在 CSS 中自定义分辨率为您通过 VIS 编辑器设置的分辨率（在示例中为 `max-width: 800px` 和 `min-width: 800px`）
+* 如果您为菜单抽屉设置自定义宽度，那么您还必须将 CSS 中的 'left' 和 'width' 属性更改为该值（在示例中为 `left: 256px !important;` 和 `width: calc( 100% - 256px) !important;`)
+
+### 编辑器设置
+下表中未列出的设置是不言自明的。
 
 <table><thead><tr><th>截屏</th><th>环境</th><th>描述</th></tr></thead><tbody><tr><td rowspan=3><img src="doc/en/media/topappbar_settings.png"></td><td> 对象 ID</td><td>必须设置为来自典型编号的数据点。例如，此数据点可以由<a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">小部件 8 中的视图使用</a></td></tr><tr><td>显示导航项的索引</td><td>在项目标签之前显示导航索引。此数字可用于<a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">小部件 8</a>中的视图，以定义选择项目时应显示的视图</td></tr><tr><td>导航项数</td><td>定义导航项的数量</td></tr></tbody></table>
 
@@ -4321,7 +4361,7 @@ html 小部件中的圆形滑块和图标按钮
 ##使用的库
 适配器使用以下库：
 
-* [Google Material components for web](https://github.com/material-components/material-components-web)
+* [Google 网页材质组件](https://github.com/material-components/material-components-web)
 * [Vuetify](https://github.com/vuetifyjs/vuetify)
 * [chartjs](https://www.chartjs.org/)
 * [来自 thomasloven 的圆形滑块](https://github.com/thomasloven/round-slider)
@@ -4334,8 +4374,12 @@ html 小部件中的圆形滑块和图标按钮
 	### __WORK IN PROGRESS__
 -->
 
+<!-- omit in toc -->
 ### __WORK IN PROGRESS__
+* (Scrounger) Top App Bar Widget: new layout 'auto' added - change between modal and permanent layout depending on screen resolution. [Details see documentation!](#layout-auto)
 * (Scrounger) Top App Bar Widget: option added to set value on click at item that toggle submenu
+* (Scrounger) IconList Widget: option added to show single element over whole row
+* (Scrounger) IconList Widget: bug fix for applying active color ([#176](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/176))
 
 <!-- omit in toc -->
 ### 0.5.7 (2021-05-26)

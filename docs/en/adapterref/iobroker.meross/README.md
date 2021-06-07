@@ -34,6 +34,9 @@ Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column
 
 ## Changelog
 
+### 1.6.3 (2021-06-04)
+* (Apollon77) Update translations
+
 ### 1.6.2 (2021-05-07)
 * (Apollon77) optimize for js-controller 3.3
 

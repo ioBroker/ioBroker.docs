@@ -3,98 +3,111 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.yr/README.md
 title: ioBroker.yr
-hash: Wv+VSiCyLkFwarjbReHt20yyPPZ0pCInwx5v1zeUOZg=
+hash: qOo57l4UKwcb/jpMdhk/Zk4lcG4tAvY1se4xjUcxfGk=
 ---
 ![商标](../../../en/adapterref/iobroker.yr/admin/yr.png)
 
-![安装数量](http://iobroker.live/badges/yr-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.yr.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.yr.svg)
-![测验](https://travis-ci.org/ioBroker/ioBroker.yr.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.yr.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.yr.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.yr.svg)
+![安装数量（最新）](http://iobroker.live/badges/yr-installed.svg)
+![安装数量（稳定）](http://iobroker.live/badges/yr-stable.svg)
+![依赖状态](https://img.shields.io/david/ioBroker/iobroker.yr.svg)
+![已知漏洞](https://snyk.io/test/github/ioBroker/ioBroker.yr/badge.svg)
+![新产品管理](https://nodei.co/npm/iobroker.yr.png?downloads=true)
 
-＃ioBroker.yr
-从[yr.no](yr.no)获取48h天气预报
+# IoBroker.yr
+**测试：** ![测试和发布](https://github.com/ioBroker/ioBroker.met/workflows/Test%20and%20Release/badge.svg)
 
-[yr.no]（yr.no）是[Norwegian Meteorological Institute]（met.no）和[Norwegian Broadcasting Corporation]的联合服务](nrk.no)
+## Yr.no ioBroker 适配器
+从 [年号](yr.no) 获取 10 天天气预报
 
-http://om.yr.no/verdata/free-weather-data/
+[yr.no](yr.no) 是[挪威气象研究所](met.no) 和[挪威广播公司](nrk.no)
 
-**注意**-如果激活了“将缺少的翻译发送到iobroker.net” _（默认），则缺少的翻译将发送到iobroker.net服务器。没有IP或任何其他信息将被存储或分析。只是缺少翻译。
+https://api.met.no/weatherapi/locationforecast/2.0/documentation
 
-##图标
-图标取自[https://github.com/YR/weather-symbols](https://github.com/YR/weather-symbols)，属于yr.no。
+**注意** - 如果 _“将丢失的翻译发送到 iobroker.net”_ 被激活（默认）丢失的翻译将被发送到 iobroker.net 服务器。不会存储或分析任何 ips 或任何其他信息。只是缺少翻译。
 
-<！-下一个版本的占位符（在该行的开头）：
-
-### __正在进行的工程__->
-## 1.0.4 [2016-07-06]
-*（bluefox）修复了自述文件的链接
-
-### 1.0.3 [2016-05-17]
-*（bluefox）更改自述文件路径
-
-### 1.0.2 [2016-05-16]
-*（bluefox）添加翻译
-
-### 1.0.1 [2016-04-25]
-*（bluefox）添加翻译
-
-### 1.0.0 [2016-03-15]
-*（bluefox）更改城市解析
-
-### 0.1.9 [2015-10-28]
-*（bluefox）修复翻译错误
-
-### 0.1.8 [2015-10-27]
-*（bluefox）翻译
-*（bluefox）自动将缺少的翻译内容上传到iobroker.net
-
-### 0.1.7 [2015-07-10]
-*（bluefox）使yr与Metro小部件一起使用
-
-### 0.1.6 [2015-06-12]
-*（bluefox）翻译
-
-### 0.1.5 [2015-03-26]
-*（bluefox）翻译
-
-### 0.1.4 [2015-03-24]
-*（bluefox）删除“风向”的单位“％”
-
-### 0.1.3 [2015-03-22]
-*（bluefox）修复明天和后天的错误
-
-### 0.1.2 [2015-03-08]
-*（bluefox）指向yr.no网站的正确链接
-
-### 0.1.1
-*（bluefox）添加翻译为其他语言的天气状态
-
-### 0.1.0
-*（bluefox）在新对象模型上更新yr
-
-### 0.0.4
-*（业余爱好者）在“预测”之前添加。陈述ID
-
-### 0.0.3
-*（hobbyquaker）设置ui具有位置自动完成功能
-*（业余爱好者）将yr_forecast重命名为Forecast
-*（爱好者）添加了子级属性
-*（业余爱好者）日志详细程度降低
-*（业余爱好者）修复
-
-### 0.0.2
-*（业余爱好者）修复
-
-### 0.0.1
-*（业余爱好者）首次发布
+## 图标
+图标取自此处 [https://api.met.no/weatherapi/weathericon/2.0/documentation](https://api.met.no/weatherapi/weathericon/2.0/documentation) 并且属于 yr.no。
 
 ＃＃ 去做
-* setState Forecast_object
+* 添加气象图（png 可能会因新 API 停止使用）
+* 根据每小时预测添加每日预测
+* 添加html表格
+
+<!-- 下一版本的占位符（在行首）：
+
+### __工作进行中__ -->
+## 1.0.4 [2016-07-06]
+* (bluefox) 修复自述文件链接
+
+### 1.0.3 [2016-05-17]
+* (bluefox) 更改自述文件路径
+
+### 1.0.2 [2016-05-16]
+* (bluefox) 添加翻译
+
+### 1.0.1 [2016-04-25]
+* (bluefox) 添加翻译
+
+### 1.0.0 [2016-03-15]
+* (bluefox) 更改城市解析
+
+### 0.1.9 [2015-10-28]
+* (bluefox) 修复翻译错误
+
+### 0.1.8 [2015-10-27]
+* (bluefox) 翻译
+* (bluefox) 自动将丢失的翻译上传到 iobroker.net
+
+### 0.1.7 [2015-07-10]
+* (bluefox) 使 yr 与 Metro 小部件配合使用
+
+### 0.1.6 [2015-06-12]
+* (bluefox) 翻译
+
+### 0.1.5 [2015-03-26]
+* (bluefox) 翻译
+
+### 0.1.4 [2015-03-24]
+* (bluefox) 删除“风向”的单位“%”
+
+### 0.1.3 [2015-03-22]
+* (bluefox) 修复明天和后天的错误
+
+### 0.1.2 [2015-03-08]
+* (bluefox) 正确链接到 yr.no 网站
+
+### 0.1.1
+* (bluefox) 为天气状态添加其他语言的翻译
+
+### 0.1.0
+* (bluefox) 在新的对象模型上更新 yr
+
+### 0.0.4
+* (hobbyquaker) 加上“预测”。陈述身份
+
+### 0.0.3
+* (hobbyquaker) 设置 ui 与位置自动完成
+* (hobbyquaker) 将 yr_forecast 重命名为预测
+* (hobbyquaker) 添加了 children 属性
+* (hobbyquaker) 减少日志冗长
+* (hobbyquaker) 修复
+
+### 0.0.2
+* (hobbyquaker) 修复
+
+### 0.0.1
+* (hobbyquaker) 首次发布
+
+＃＃ 去做
+* 设置状态预测对象
 
 ## Changelog
+
 ### __WORK IN PROGRESS__
+* (withstu) Switch to new JSON API and change data Structure (breaking)
+* (withstu) Update project dependencies
 * (arteck) Type of state was corrected  
 
 ### 2.0.3 [2018-10-10]

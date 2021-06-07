@@ -195,6 +195,14 @@ Auszug:
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
+### 1.14.41 (2021-06-05)
+* (foxriver76) we made sure, that controller does not send stopInstance message anymore
+
+### 1.14.39 (2021-06-04)
+* (foxriver76) remove the stopInstance message handling and put everything in unload
+* (bluefox) removed the white background by some icons
+
 ### 1.14.38 (2021-05-11)
 * (Jens Maus) fixed the VirtualDevices min/max/default assignment (fixes #332)
 * (foxriver76) do not scale on normal '%' UNIT because its inconsistent (fixes #326)

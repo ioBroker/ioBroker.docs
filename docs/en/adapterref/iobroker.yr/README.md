@@ -1,22 +1,35 @@
 ![Logo](admin/yr.png)
 # ioBroker.yr
 
-![Number of Installations](http://iobroker.live/badges/yr-installed.svg) ![Number of Installations](http://iobroker.live/badges/yr-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.yr.svg)](https://www.npmjs.com/package/iobroker.yr)
+[![NPM version](http://img.shields.io/npm/v/iobroker.yr.svg)](https://www.npmjs.com/package/iobroker.yr)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.yr.svg)](https://www.npmjs.com/package/iobroker.yr)
-[![Tests](https://travis-ci.org/ioBroker/ioBroker.yr.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.yr)
+![Number of Installations (latest)](http://iobroker.live/badges/yr-installed.svg)
+![Number of Installations (stable)](http://iobroker.live/badges/yr-stable.svg)
+[![Dependency Status](https://img.shields.io/david/ioBroker/iobroker.yr.svg)](https://david-dm.org/ioBroker/iobroker.yr)
+[![Known Vulnerabilities](https://snyk.io/test/github/ioBroker/ioBroker.yr/badge.svg)](https://snyk.io/test/github/ioBroker/ioBroker.yr)
 
 [![NPM](https://nodei.co/npm/iobroker.yr.png?downloads=true)](https://nodei.co/npm/iobroker.yr/)
 
-fetches 48h weather forecast from [yr.no](yr.no)
+**Tests:** ![Test and Release](https://github.com/ioBroker/ioBroker.met/workflows/Test%20and%20Release/badge.svg)
+
+## yr.no adapter for ioBroker
+
+fetches 10d weather forecast from [yr.no](yr.no)
 
 [yr.no](yr.no) is a joint service by the [Norwegian Meteorological Institute](met.no) and the [Norwegian Broadcasting Corporation](nrk.no)
 
-http://om.yr.no/verdata/free-weather-data/
+https://api.met.no/weatherapi/locationforecast/2.0/documentation
 
 **Note** - if _"Send missing translations to iobroker.net"_ is activated (default) missing translations will be sent to iobroker.net server. No ips or any additional info will be stored or analysed. Just missing translation.
 
 ## Icons
-Icons are taken from here [https://github.com/YR/weather-symbols](https://github.com/YR/weather-symbols) and belongs to yr.no.
+Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documentation](https://api.met.no/weatherapi/weathericon/2.0/documentation) and belongs to yr.no.
+
+
+## TODO
+* Add meteogram (png probably will discontinue with new API)
+* Add daily forecast based on hourly forecast
+* Add html table
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -24,7 +37,10 @@ Icons are taken from here [https://github.com/YR/weather-symbols](https://github
 -->
 
 ## Changelog
+
 ### __WORK IN PROGRESS__
+* (withstu) Switch to new JSON API and change data Structure (breaking)
+* (withstu) Update project dependencies
 * (arteck) Type of state was corrected  
 
 ### 2.0.3 [2018-10-10]
