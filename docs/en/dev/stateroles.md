@@ -2,20 +2,19 @@
 
 ## Common
 * state - very common purpose. If you don't know which role the state has, use this one.
-* `text`              (common.type = string)
-* `text.url`          (common.type = string) state val contains a url for usage in an anchor, iframe or img
-* `html`              (common.type = string)
-* `json`              (common.type = string)
-* `list`              (common.type = array)
-* `date`              (common.type = string - parsable by "new Date(ddd)" string
-* `date`              (common.type = number - epoch seconds * 1000
+* `text`              `common.type = string`
+* `text.url`          `common.type = string` state val contains an url for usage in an anchor, iframe or img
+* `html`              `common.type = string`
+* `json`              `common.type = string`
+* `list`              `common.type = array`
+* `date`              `common.type = string` - parsable by `new Date(ddd)` string
+* `date`              `common.type = number` - epoch seconds * 1000
 
 ## Sensor (booleans, read-only)
+`common.type=boolean, common.write=false`
 
-*common.type=boolean, common.write=false*
-
-* `sensor.window`         - window opened (true) or closed (false)
-* `sensor.door`           - door opened (true) or closed (false)
+* `sensor.window`         - window opened-`true` or closed-`false`
+* `sensor.door`           - door opened-`true` or closed-`false`
 * `sensor.alarm`          - some common alarm
 * `sensor.alarm.flood`    - water leakage
 * `sensor.alarm.fire`     - fire sensor
@@ -28,8 +27,7 @@
 * `sensor.noise`          - noise detected
 
 ## Buttons (booleans, write-only)
-
-*common.type=boolean, common.write=true, common.read=false*
+`common.type=boolean, common.write=true, common.read=false`
 
 * `button`
 * `button.long`
@@ -48,15 +46,14 @@
 * `button.mode.silent`
 
 ## Buttons as sensor
-*common.type=boolean, common.write=false, common.read=true*
+`common.type=boolean, common.write=false, common.read=true`
 
 * `button`         - the difference, that `common.write=false`. Please avoid this role and use `button.press` or `button.long`.
 * `button.long`
 * `button.press`
 
 ## Values (numbers, read-only)
-
-*common.type=number, common.write=false*
+`common.type=number, common.write=false`
 
 * `value`
 * `value.window`      (common.states={"0": "CLOSED", "1": "TILTED", "2": "OPEN"}) It is important to have (CLOSED/TILTED/OPEN). Values can differ.
@@ -96,8 +93,7 @@
 * `value.blood.sugar`     - Blood sugar value, unit=mmol,mgdl
 
 ## Indicators (boolean, read-only)
-
-*common.type=boolean, common.write=false*
+`common.type=boolean, common.write=false`
 
 The difference of *Indicators* from *Sensors* is that indicators will be shown as small icon. Sensors as a real value.
 So the indicator may not be alone in the channel. It must be some other main state inside channel.
@@ -118,10 +114,9 @@ So the indicator may not be alone in the channel. It must be some other main sta
 * `indicator.alarm.health` - health problem
 
 ## Levels (numbers, read-write)
-
 With **levels** you can control or set some number value.
 
-*common.type=number, common.write=true*
+`common.type=number, common.write=true`
 
 * `level`
 * `level.co2`             - 0-100% ait quality
@@ -147,10 +142,9 @@ With **levels** you can control or set some number value.
 * `level.tilt`           - set the tilt position of blinds (max = fully open, min = fully closed)
 
 ## Switches (booleans, read-write)
-
 Switch controls boolean device (true = ON, false = OFF)
 
-*common.type=boolean, common.write=true*
+`common.type=boolean, common.write=true`
 
 * `switch`
 * `switch.lock`           - lock (true - open lock, false - close lock)
@@ -197,7 +191,6 @@ Optionally `value.battery` and
 * `button.stop`           - stop motion of gate
 
 ## Media
-
 Special roles for media players
 
 * `button.stop`
@@ -380,7 +373,7 @@ Special roles for media players
 * `date.end`       - string or number
 
 ## Health
-(common.type=number, common.read=true, common.write=false)
+`common.type=number, common.read=true, common.write=false`
 
 * `value.health.fat`      - body fat index in %
 * `value.health.weight`   - body weight in kg, lbs
@@ -390,7 +383,6 @@ Special roles for media players
 * `value.health.bpm`      - heart beats per minute
 
 ## Others
-
 * `url`
 * `url.icon`               - icon (additionally every object can have common.icon)
 * `url.cam`                - web camera url
