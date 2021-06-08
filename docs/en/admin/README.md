@@ -4,13 +4,13 @@ lastChanged: 14.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/README.md
-hash: 8QIadDWLLIIZKQI36XihWSBAgZURM6srhXzxg/rnSH0=
+hash: 5er2O4sYaQKEffMa00REXFvb4Dq6YvMu/Fh8S9B1Ln0=
 ---
 # The admin interface
 !> **Due to the scope of the documentation, this is only an overview; detailed information is provided on the pages linked to the tabs via the headings of the sections. Please click on the headings.**
 
 The Adapter Admin is used to operate the entire ioBroker installation.
-He provides a web interface. This is called up under ``<IP-Adresse des Servers>:8081``.
+He provides a web interface. This is called up under the ``<IP-Adresse des Servers>:8081``.
 
 This adapter is created directly when ioBroker is installed - manual installation is not necessary
 

@@ -3,24 +3,24 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/stateroles.md
 title: Государственные роли
-hash: sc8CTt3g6afhGisHFUtmJYnjYSZtk9exigwGKGIl2Jw=
+hash: MTZJhJc4Hk+EjaxmRl5WPHh2d0r4ZMa/FIOsiCHmpR8=
 ---
 # Государственные роли
 ## Общий
 * состояние - очень обычная цель. Если вы не знаете, какую роль играет государство, используйте эту.
-* `текст` (common.type = строка)
-* `text.url` (common.type = string) state val содержит URL-адрес для использования в привязке, iframe или img
-* `html` (common.type = строка)
-* `json` (common.type = строка)
-* `список` (common.type = array)
-* `date` (common.type = string - разбирается с помощью строки" new Date (ddd) "
-* `дата` (common.type = number - эпоха в секундах * 1000
+* `текст`` common.type = строка`
+* `text.url`` common.type = string` state val содержит URL-адрес для использования в привязке, iframe или img
+* `html`` common.type = string`
+* `json`` common.type = string`
+* `список`` common.type = array`
+* `date`` common.type = string` - анализируется строкой `new Date (ddd)`
+* `date`` common.type = number` - эпоха в секундах * 1000
 
 ## Датчик (логические, только для чтения)
-*common.type = логическое, common.write = false*
+`common.type=boolean, common.write=false`
 
-* `sensor.window` - окно открыто (true) или закрыто (false)
-* `sensor.door` - дверь открыта (true) или закрыта (false)
+* `sensor.window` - окно открыто-` истинно` или закрыто-`ложно`
+* `sensor.door` - дверь открыта-` истинно` или закрыта-`ложно`
 * `sensor.alarm` - какая-то обычная тревога
 * `sensor.alarm.flood` - утечка воды
 * `sensor.alarm.fire` - датчик пожара
@@ -33,7 +33,7 @@ hash: sc8CTt3g6afhGisHFUtmJYnjYSZtk9exigwGKGIl2Jw=
 * `sensor.noise` - обнаружен шум
 
 ## Кнопки (логические, только для записи)
-*common.type = логическое, common.write = true, common.read = false*
+`common.type=boolean, common.write=true, common.read=false`
 
 * `button`
 * `button.long`
@@ -52,14 +52,14 @@ hash: sc8CTt3g6afhGisHFUtmJYnjYSZtk9exigwGKGIl2Jw=
 * `button.mode.silent`
 
 ## Кнопки как сенсор
-*common.type = логическое, common.write = false, common.read = true*
+`common.type=boolean, common.write=false, common.read=true`
 
 * `button` - разница, что` common.write = false`. Избегайте этой роли и используйте button.press или button.long.
 * `button.long`
 * `button.press`
 
 ## Значения (числа, только для чтения)
-*common.type = number, common.write = false*
+`common.type=number, common.write=false`
 
 * `значение`
 * `value.window` (common.states = {" 0 ":" CLOSED "," 1 ":" TILTED "," 2 ":" OPEN "}) Важно иметь (CLOSED / TILTED / OPEN). Значения могут отличаться.
@@ -80,7 +80,7 @@ hash: sc8CTt3g6afhGisHFUtmJYnjYSZtk9exigwGKGIl2Jw=
 * `value.gps.elevation` - высота по GPS
 * `value.gps` - долгота и широта вместе, например '5.56; 43.45'
 * `value.power.consuming` (единица измерения = Втч или кВтч)
-* `value.direction` - (common.type = number ~~ или string ~~, указывает вверх / вниз, влево / вправо, 4-позиционные переключатели, направление ветра, ...)
+* `value.direction` - (common.type = number ~~ или строка ~~, указывает вверх / вниз, влево / вправо, 4-позиционные переключатели, направление ветра, ...)
 * `value.curtain` - фактическое положение занавеса
 * `value.blind` - фактическое положение жалюзи (max = полностью открыто, min = полностью закрыто)
 * `value.tilt` - фактическое положение наклона (max = полностью открыто, min = полностью закрыто)
@@ -99,16 +99,16 @@ hash: sc8CTt3g6afhGisHFUtmJYnjYSZtk9exigwGKGIl2Jw=
 * `value.blood.sugar` - значение сахара в крови, единица = ммоль, мгдл
 
 ## Индикаторы (логические, только для чтения)
-*common.type = логическое, common.write = false*
+`common.type=boolean, common.write=false`
 
-Отличие *индикаторов* от *датчиков* заключается в том, что индикаторы отображаются в виде небольшого значка. Датчики как реальная ценность.
-Так что индикатор может быть не один в канале. Это должно быть какое-то другое основное состояние внутри канала.
+Отличие *индикаторов* от *датчиков* в том, что индикаторы отображаются в виде небольшого значка. Датчики как реальная ценность.
+Так что индикатор может быть не один в канале. Это должно быть какое-то другое главное состояние внутри канала.
 
 * `индикатор`
 * `indicator.working` - указывает, что целевые системы что-то выполняют, например, жалюзи или открывание замка.
 * `indicator.reachable` - если устройство в сети
 * `indicator.connected` - используется только для экземпляров. Используйте indicator.reachable для устройств
-* `indicator.main maintenance` - указывает системные предупреждения / ошибки, аварийные сигналы, служебные сообщения, разряд батареи и тому подобное.
+* `indicator.main maintenance` - указывает системные предупреждения / ошибки, сигналы тревоги, служебные сообщения, разряд батареи и тому подобное.
 * `indicator.main maintenance.lowbat`
 * `indicator.main maintenance.unreach`
 * `indicator.main maintenance.alarm`
@@ -122,7 +122,7 @@ hash: sc8CTt3g6afhGisHFUtmJYnjYSZtk9exigwGKGIl2Jw=
 ## Уровни (числа, чтение-запись)
 С помощью **уровней** вы можете контролировать или устанавливать какое-либо числовое значение.
 
-*common.type = number, common.write = true*
+`common.type=number, common.write=true`
 
 * `уровень`
 * `level.co2` - качество изображения 0-100%
@@ -136,27 +136,29 @@ hash: sc8CTt3g6afhGisHFUtmJYnjYSZtk9exigwGKGIl2Jw=
 * `level.color.white` - rgbW
 * `level.color.hue` - цвет в ° 0-360; 0 = красный, 120 = зеленый, 240 = синий, 360 = красный (циклический)
 * `level.color.saturation`
-* `level.color.rgb` - шестнадцатеричный цвет как '#rrggbb'
+* `level.color.rgb` - шестнадцатеричный цвет вроде '#rrggbb'
 * `level.color.luminance`
-* `level.color.temperature` - цветовая температура в К ° 2200 теплый-белый, 6500 ° холодный белый
+* `level.color.temperature` - цветовая температура в K ° 2200 теплый-белый, 6500 ° холодный белый
 * `level.timer`
 * `level.timer.sleep` - таймер сна. 0 - выкл или через минуты
 * ...
 * `level.volume` - (min = 0, max = 100) - громкость звука, но min, max могут отличаться. мин <макс
 * `level.volume.group` - (min = 0, max = 100) - громкость звука, для группы устройств
 * `level.curtain` - установить положение шторки
-* `level.tilt` - установить положение наклона жалюзи (max = полностью открыт, min = полностью закрыт)
+* `level.tilt` - установить положение наклона жалюзи (max = полностью открыты, min = полностью закрыты)
 
 ## Переключатели (логические, чтение-запись)
 Переключатель управляет логическим устройством (true = ON, false = OFF)
 
-*common.type = логический, common.write = true*
+`common.type=boolean, common.write=true`
 
 * `переключатель`
 * `switch.lock` - блокировка (true - открыть блокировку, false - закрыть блокировку)
 * `switch.lock.door` - дверной замок
 * `switch.lock.window` - блокировка окна
-* `switch.boost` - запуск / остановка повышенного режима термостата
+* `switch.mode.boost` - запуск / остановка повышенного режима термостата
+* `switch.mode.party` - запуск / остановка режима вечеринки термостата
+* `switch.power` - включение / выключение термостата или кондиционера
 * `switch.light`
 * `switch.comfort` - комфортный режим
 * `switch.enable`
@@ -172,7 +174,7 @@ hash: sc8CTt3g6afhGisHFUtmJYnjYSZtk9exigwGKGIl2Jw=
 ## Кондиционер или термостат
 * `level.mode.fan` -` АВТО, ВЫСОКИЙ, НИЗКИЙ, СРЕДНИЙ, ТИХОЙ, ТУРБО`
 * `level.mode.swing` -` АВТО, ГОРИЗОНТАЛЬНО, СТАЦИОНАРНЫЙ, ВЕРТИКАЛЬНЫЙ`
-* `level.mode.thermostat` -` AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`
+* `level.mode.thermostat` - кондиционер:` AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`, термостат отопления: `AUTO, MANUAL, VACATION`,
 
  В дополнение к этим состояниям обычно требуются `level.temperature` и `switch.power`, необходимые для отображения кондиционера.
 
@@ -182,7 +184,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `level.mode.cleanup` - Перечисление` AUTO, ECO, EXPRESS, NORMAL, QUIET`. Требуются только «АВТО» и «НОРМАЛЬНЫЙ».
 * `level.mode.work` - Перечисление` AUTO, FAST, MEDIUM, SLOW, TURBO`. Необязательное состояние.
 * `value.water` - уровень воды 0-100%.
-* `value.waste` - уровень мусорного бака 0-100%. (0% - пустой, 100% - полный)
+* `value.waste` - уровень мусора 0-100%. (0% - пусто, 100% - полно)
 * `indicator.main maintenance.waste` - мусорное ведро дурацкое.
 * `value.state` -` HOME, CLEANING, PAUSE` и так далее.
 
@@ -213,7 +215,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `media.seek` - (common.type = number)%
 * `media.mode.shuffle` - (common.type = number) 0 - нет, 1 - все, 2 - один
 * `media.mode.repeat` - (common.type = boolean)
-* `media.state` - ['play', 'stop', 'pause'] или [0 - пауза, 1 - воспроизведение, 2 - остановка] или [true - воспроизведение / false - пауза]
+* `media.state` - ['play', 'stop', 'pause'] или [0 - пауза, 1 - воспроизведение, 2 - стоп] или [true - воспроизведение / false - пауза]
 * `media.artist`
 * `media.album`
 * `media.title`
@@ -266,7 +268,7 @@ TODO: подумайте об ионизации и колебаниях.
 ]
 ```
 
-* `media.browser` - массив json типа" файлы "
+* `media.browser` - массив json типа" files "
 
 ```
 [
@@ -351,7 +353,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `value.precipitation.forecast.0` - (type: number, unit:%) Прогноз вероятности осадков на сегодня
 * `value.precipitation.forecast.0` - (тип: число, единица: мм) Прогноз уровня осадков на сегодня
 * `weather.title.forecast.0` - Очень краткое описание на завтра
-* `value.precipitation.day.forecast.0` - Прогноз осадков на дневное время
+* `value.precipitation.day.forecast.0` - Прогноз осадков в дневное время
 * `value.precipitation.night.forecast.0` - Прогноз осадков на ночь
 
 * `date.forecast.1` - завтрашняя дата
@@ -360,7 +362,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `значение.температура.мин.прогноз.1`
 * `значение.температура.макс.прогноз.1`
 * `value.precipitation.forecast.1` - (type: number, unit:%) Прогноз вероятности осадков на завтра
-* `value.precipitation.forecast.1` - (тип: число, единица: мм) Прогноз уровня осадков на завтра
+* `value.precipitation.forecast.1` - (type: number, unit: mm) Прогноз уровня осадков на завтра
 * `value.direction.wind.forecast.1`
 * `value.speed.wind.forecast.1`
 * `value.pressure.forecast.1`
@@ -371,14 +373,14 @@ TODO: подумайте об ионизации и колебаниях.
 * `info.name` - имя устройства
 * `info.address` - какой-либо другой адрес (например, KNX)
 * `info.port` - порт tcp
-* `info.standby` - true, если устройство в режиме ожидания
+* `info.standby` - истина, если устройство в режиме ожидания
 * `info.status` - статус устройства
 * `info.display` - информация, отображаемая на дисплее устройства
 * `date.start` - строка или число
 * `date.end` - строка или число
 
 ## Здоровье
-(common.type = число, common.read = true, common.write = false)
+`common.type=number, common.read=true, common.write=false`
 
 * `value.health.fat` - индекс жировой прослойки в%
 * `value.health.weight` - масса тела в кг, фунтах

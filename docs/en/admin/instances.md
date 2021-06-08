@@ -4,7 +4,7 @@ lastChanged: 10.05.02021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/instances.md
-hash: UoGLmTCoECn4hXH3ZdHdTGnXR2yC6U/6IeuOooI7o5A=
+hash: ryoo5q50Xq8cxSezNgJU212bACYAHiFSrZdXotHE6us=
 ---
 The instances already installed on the Adapter tab are listed here and can be configured accordingly.
 
@@ -18,7 +18,7 @@ The icons in detail:
 ### 1 - Refresh the view
 If instances that have just been created are not visible, clicking this icon helps to bring the status of the page up to date.
 
-### 2 - Switch on administrator mode
+### 2 - Turn on administrator mode
 When you select this icon, additional columns for configuring the instances are displayed (toggle function). Information on this in the section on page content.
 
 ### 3 - Show only instances of the selected host
@@ -26,7 +26,7 @@ When you select this icon, additional columns for configuring the instances are 
 
 In multihost systems, the instances of all hosts are managed by the master's admin. The information on which host this instance is located is in the ***Server*** column
 
-If a host is selected in the header, this button only shows the instances installed there.
+If a host is selected in the header, this button can only be used to display the instances installed there.
 
 ![The available hosts](../../de/admin/media/ADMIN_Instanzen_hosts.png)
 
@@ -34,7 +34,7 @@ If a host is selected in the header, this button only shows the instances instal
 A term for filtering or searching for instances can be entered in this field
 
 ## More information in the Instances window
-The first numbers indicate the memory used by the instances so far and the remaining free memory in MB. Behind the free memory in%. The name of the ioBroker server and the number of running processes are in the square brackets.
+The first numbers indicate the memory used by the instances so far and the remaining free memory in MB. Behind it the free memory in%. The name of the ioBroker server and the number of running processes are in the square brackets.
 
 ## The page content
 ![The available hosts](../../de/admin/media/ADMIN_Instanzen_numbers02.png)
@@ -78,7 +78,7 @@ The name of the instance is specified here. You can change this name according t
 For adapters that are started time-controlled, the time when this adapter should start is entered here. This scheduling is in the format of a cron job. To change, click on the button with the three dots. An input window opens with a lot of additional information and help.
 
 ### 11 - restart
-Using the clock icon, a schedule can also be created here when this instance should be restarted.
+The clock icon can also be used to create a schedule when this instance should be restarted.
 
 This column is only visible in expert mode!
 
@@ -87,9 +87,9 @@ The respective log level for the instance can be adjusted in this column. Debug,
 This column is only visible in expert mode!
 
 ### 13 - RAM limit
-Here you can specify how much main memory of the instance should be provided as a precaution. This amount of memory is then no longer available for other tasks and should not be selected too high, especially in systems with little memory. If the instance needs more memory temporarily, this will of course be allocated to it by the system, but will then be immediately released for the system. During the time in which an instance requires more memory than it was reserved, the required memory is shown in red.
+Here you can specify how much main memory of the instance should be made available as a precaution. This amount of memory is then no longer available for other tasks and should not be selected too high, especially in systems with little memory. If the instance needs more memory temporarily, this will of course be allocated to it by the system, but will then be immediately released for the system. During the time in which an instance requires more memory than it was reserved, the required memory is shown in red.
 
 This column is only visible in expert mode!
 
 ### 14 - RAM usage
-The actual memory used by the instance is displayed here. These values are updated regularly. After the update, these values appear briefly in green.
+The actual memory used by the instance is displayed here. These values are updated regularly. After the update, these values appear briefly in green font.

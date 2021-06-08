@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.yr/README.md
 title: ioBroker.yr
-hash: qOo57l4UKwcb/jpMdhk/Zk4lcG4tAvY1se4xjUcxfGk=
+hash: nJ8ThmSwhhe6DrBPNofMOL2H//cmHUGTqSf3IviPa0w=
 ---
 ![商标](../../../en/adapterref/iobroker.yr/admin/yr.png)
 
@@ -21,11 +21,11 @@ hash: qOo57l4UKwcb/jpMdhk/Zk4lcG4tAvY1se4xjUcxfGk=
 ## Yr.no ioBroker 适配器
 从 [年号](yr.no) 获取 10 天天气预报
 
-[yr.no](yr.no) 是[挪威气象研究所](met.no) 和[挪威广播公司](nrk.no)
+[yr.no](yr.no) 是[挪威气象研究所](met.no) 和[挪威广播公司]](nrk.no)
 
 https://api.met.no/weatherapi/locationforecast/2.0/documentation
 
-**注意** - 如果 _“将丢失的翻译发送到 iobroker.net”_ 被激活（默认）丢失的翻译将被发送到 iobroker.net 服务器。不会存储或分析任何 ips 或任何其他信息。只是缺少翻译。
+**注意** - 如果 _“将丢失的翻译发送到 iobroker.net”_ 被激活（默认）丢失的翻译将被发送到 iobroker.net 服务器。不会存储或分析 IP 或任何其他信息。只是缺少翻译。
 
 ## 图标
 图标取自此处 [https://api.met.no/weatherapi/weathericon/2.0/documentation](https://api.met.no/weatherapi/weathericon/2.0/documentation) 并且属于 yr.no。
@@ -88,7 +88,7 @@ https://api.met.no/weatherapi/locationforecast/2.0/documentation
 * (hobbyquaker) 加上“预测”。陈述身份
 
 ### 0.0.3
-* (hobbyquaker) 设置 ui 与位置自动完成
+* (hobbyquaker) 设置用户界面，位置自动完成
 * (hobbyquaker) 将 yr_forecast 重命名为预测
 * (hobbyquaker) 添加了 children 属性
 * (hobbyquaker) 减少日志冗长
@@ -105,7 +105,7 @@ https://api.met.no/weatherapi/locationforecast/2.0/documentation
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 3.0.0 [2021-06-06]
 * (withstu) Switch to new JSON API and change data Structure (breaking)
 * (withstu) Update project dependencies
 * (arteck) Type of state was corrected  

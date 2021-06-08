@@ -3,98 +3,93 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.esphome/README.md
 title: ioBroker.esphome
-hash: E454mMb+nPjhHG6HRyFwJRxALtjTn4+6hZk2i/fgT2Q=
+hash: Dt7exYpicamV8Dz7Cp/guOqRF3n5zPg3tNjA2xrdMX4=
 ---
-![标识](../../../en/adapterref/iobroker.esphome/admin/esphome.png)
-
-![NPM版本](http://img.shields.io/npm/v/iobroker.esphome.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.esphome.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.esphome.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.esphome.svg)
 ![安装数量（最新）](http://iobroker.live/badges/esphome-installed.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/esphome-stable.svg)
 ![依赖状态](https://img.shields.io/david/DrozmotiX/iobroker.esphome.svg)
 ![已知漏洞](https://snyk.io/test/github/DrozmotiX/ioBroker.esphome/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.esphome.png?downloads=true)
+![新产品管理](https://nodei.co/npm/iobroker.esphome.png?downloads=true)
 
-＃ioBroker.esphome
-[![翻译状态]（https://weblate.iobroker.net/widgets/adapters/-/ESPHome/svg-badge.svg）](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+<img src="./admin/esphome.png" width="10%" height="10%" align="center">
 
-**测试：**![测试与发布](https://github.com/DrozmotiX/ioBroker.esphome/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.esphome
+[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/ESPHome/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+**测试：** ![测试和发布](https://github.com/DrozmotiX/ioBroker.esphome/workflows/Test%20and%20Release/badge.svg)
 
-## IoBroker的ESPHome适配器
-使用由ESPHome创建和管理的简单但功能强大的配置文件来控制ESP8266 / ESP32。
-ESPHome受管设备（包括仪表板）通过其本机API进行本机集成，并确保所有数据都是同步的（实时事件处理，无数据轮询！:)
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
 
-![标识](../../../en/adapterref/iobroker.esphome/admin/img/dashboard.png)
+## 用于 ioBroker 的 ESPHome 适配器
+使用由 ESPHome 创建和管理的简单而强大的配置文件来控制您的 ESP8266/ESP32。
+通过其原生 API 原生集成 ESPHome 管理设备（包括仪表板）并确保所有数据同步（实时事件处理，无数据轮询！:)
 
-该适配器使用[esphome-native-api]（https://github.com/Nafaya/esphome-native-api#readme），所有积分均归@Nafaya所有，以与[ESPHome API进行交互](https://esphome.io/components/api.html?highlight=api)！
+![商标](../../../en/adapterref/iobroker.esphome/admin/img/dashboard.png)
 
-## [文献资料](https://DrozmotiX.github.io/languages/en/ESPHome/)
-我们所有的适配器文档都可以在[DrozmotiX文档页面](https://DrozmotiX.github.io/languages/en/ESPHome)中找到
+此适配器使用 [esphome-native-api](https://github.com/Nafaya/esphome-native-api#readme) @Nafaya 与 [ESPHome API 交互]](https://esphome.io/components/api.html?highlight=api)!
 
-##先决条件
-    * NodeJS> = 12.x
-    * Python> = 3.6，<4.0
-    * API已在YAML中激活
-    *对于管理标签（可选）
-        *实例设置中提供了ESPHome仪表板IP
+## [文档](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/)
+我们所有的适配器文档都可以在 [DrozmotiX 文档页面](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/) 找到
 
-###在YAML中激活API
+## 先决条件
+    * NodeJS >= 12.x
+    * Python >=3.6, <4.0
+    * API 在 YAML 中激活
+    * 对于管理选项卡（可选）
+        * ESPHome Dashboard IP 在实例设置中提供
+
+### 在 YAML 中激活 API
 ```
 api:
   password: 'MyPassword'
 ```
 
-###示例配置
-示例配置，有关更多示例，请参见[DrozmotiX Docu页面]（https://DrozmotiX.github.io）或[ESPHome文档](https://esphome.io/index.html)
+### 示例配置
+示例配置，更多示例见[DrozmotiX 文档页面](https://DrozmotiX.github.io) 或 [ESPHome 文档](https://esphome.io/index.html)
 
-```
-esphome:
-  name: sensor_badkamer
-  platform: ESP32
-  board: esp-wrover-kit
+<details><summary>显示示例配置</summary>
 
-wifi:
-  use_address: 192.168.10.122
-  ssid: "xxxxx"
-  password: "xxxxxx"
+esphome：名称：sensor_badkamer 平台：ESP32 开发板：esp-wrover-kit
 
-# Enable ESPHome API
-api:
-    password: 'MyPassword'
-# Activate i2c bus
-i2c:
-  sda: 21
-  scl: 22
-  scan: True
-  id: bus_a
+wifi：use_address：192.168.10.122 ssid：“xxxxx” 密码：“xxxxxx”
 
-# Example configuration for bh1750
-sensor:
-  - platform: bh1750
-    name: "Hal_Illuminance"
-    address: 0x23
-    measurement_time: 69
-    update_interval: 10s
+    # 启用ESPHome API
+api：密码：'我的密码'
 
-# Example configuration for an GPIO output
-output:
-  - platform: gpio
-    pin: 12
-    inverted: true
-    id: gpio_12
+# 激活 i2c 总线 i2c: sda: 21 scl: 22 scan: True id: bus_a
+    # bh1750 的示例配置
+    传感器：
 
-# Example configuration linking a switch to the previous defined output
-switch:
-  - platform: output
-    name: "Generic Output"
-    output: 'gpio_12'
+      - 平台：bh1750
 
-```
+名称：“Hal_Illuminance” 地址：0x23measurement_time：69 update_interval：10s
+
+    # GPIO 输出的示例配置
+    输出：
+
+      - 平台：gpio
+
+引脚：12 倒置：真实 id：gpio_12
+
+    # 示例配置将交换机链接到先前定义的输出
+    转变：
+
+      - 平台：输出
+
+名称：“通用输出”输出：'gpio_12' </details>
+
+## Tasmota / ESPEasy 迁移
+从以前的 Sonoff Tasmota 或 ESPEasy 设置迁移非常容易。您只需要让 ESPHome 为您创建一个二进制文件，然后将其上传到 Web 界面中。
+有关更多详细信息，请参阅我们的 [文档页面](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/06.migration.html)
+
+.. 笔记：：
+
+    生成的 yaml 文件存储在 ```/opt/iobroker/node_modules/iobroker.esphome/config/>device<.yaml```
 
 ＃＃ 支持我
-如果您喜欢我的作品，请考虑个人捐赠（这是DutchmanNL的个人捐赠链接，与ioBroker项目无关！）[![捐赠]（https://raw.githubusercontent.com/DrozmotiX/ioBroker.sourceanalytix/main/admin/button.png）](http://paypal.me/DutchmanNL)
+如果您喜欢我的作品，请考虑个人捐赠（这是 DutchmanNL 的个人捐赠链接，与 ioBroker 项目无关！）[![捐赠](https://raw.githubusercontent.com/DrozmotiX/ioBroker.sourceanalytix/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Changelog
 
@@ -103,7 +98,15 @@ switch:
     ### __WORK IN PROGRESS__
 -->
 
-### 0.2.0-0 (2021-03-27) Native Integration of ESPHome Dashboard
+### 0.2.1-1 (2021-03-30)
+* (DutchmanNL) add cover component
+* (DutchmanNL) add transitionLength for lights
+
+### 0.2.1-0 (2021-03-30)
+* (DutchmanNL) Logging improved, solves [#48](https://github.com/DrozmotiX/ioBroker.esphome/issues/48)
+* (DutchmanNL) Name of states changed, solves [#49](https://github.com/DrozmotiX/ioBroker.esphome/issues/49)
+
+### 0.2.0 (2021-03-29)
 * (DutchmanNL) Translations updated
 * (DutchmanNL) Configuration page updated
 * (DutchmanNL) Added to sentry error reporting

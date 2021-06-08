@@ -93,6 +93,7 @@ Don't use the symbol in the HTML widget. You can still access it in the objects.
 * Italy
 * Latvia
 * Lithuania
+* Luxembourg
 * Malta
 * Moldova
 * Montenegro
@@ -118,11 +119,12 @@ If you don't find your country, please create an issue on github, and I will be 
 
 
 ## Changelog
-
+## 1.2.1 (2021-06-05)
+* (jack-blackson) Bugfix to handle incorrect XML (if country instead of region is used)
+* (jack-blackson) Added Luxembourg
 ## 1.2.0 (2021-05-16)
 * (jack-blackson) New Setup: "No Background Color in HTML Widget", "Define Warning colors" and "Use white icons"
 * (jack-blackson) New Icons
-
 ## 1.1.11 (2021-05-09)
 * (jack-blackson) Package Updates
 ## 1.1.9 (2021-05-07)

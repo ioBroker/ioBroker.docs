@@ -4,7 +4,7 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/admin/adapter.md
-hash: WMGHnDlc1DVIkuuUYX/rzRRpv7TElDq4iQ86l+lUBCo=
+hash: svGv1TgKOa2pP8zn85C5t9Xd7FgJNy5dfaEK2af4S84=
 ---
 # Вкладка Адаптер
 Доступные и установленные адаптеры отображаются и управляются здесь.
@@ -51,4 +51,4 @@ hash: WMGHnDlc1DVIkuuUYX/rzRRpv7TElDq4iQ86l+lUBCo=
 ![Установить другие версии](../../de/admin/media/ADMIN_Adapter_Kachel_versions.png)
 
 ### 7 - фильтр
-Определенные адаптеры можно искать, используя термин фильтра.
+Здесь вы можете искать конкретные адаптеры, используя термин фильтра.

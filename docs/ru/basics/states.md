@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/basics/states.md
 title: Состояния и точки данных
-hash: OUheU+wHUm8+dmMTruV37xytEJKhWqBC2U5RwekU/9g=
+hash: MOsvNxcXWYjRz8dmEGJh+aRa220Vu/VeRkYJYlt2zFQ=
 ---
 # Состояния и точки данных
 ** точка данных ** состоит из статического объекта типа «состояние» и динамического состояния (состояния).

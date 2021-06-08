@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.yr/README.md
 title: ioBroker.y
-hash: qOo57l4UKwcb/jpMdhk/Zk4lcG4tAvY1se4xjUcxfGk=
+hash: nJ8ThmSwhhe6DrBPNofMOL2H//cmHUGTqSf3IviPa0w=
 ---
 ![Logo](../../../en/adapterref/iobroker.yr/admin/yr.png)
 
@@ -25,14 +25,14 @@ holt 10d Wettervorhersage von [Jahr.nr](yr.no)
 
 https://api.met.no/weatherapi/locationforecast/2.0/documentation
 
-**Hinweis** - wenn _"Fehlende Übersetzungen an iobroker.net senden"_ aktiviert ist (Standard), werden fehlende Übersetzungen an den iobroker.net-Server gesendet. Es werden keine IPs oder zusätzliche Informationen gespeichert oder analysiert. Fehlt nur noch die Übersetzung.
+**Hinweis** - wenn _"Fehlende Übersetzungen an iobroker.net senden"_ aktiviert ist (Standard), werden fehlende Übersetzungen an den iobroker.net-Server gesendet. Es werden keine IPs oder sonstige Informationen gespeichert oder analysiert. Fehlt nur noch die Übersetzung.
 
 ##Symbole
 Icons werden von hier [https://api.met.no/weatherapi/weathericon/2.0/documentation](https://api.met.no/weatherapi/weathericon/2.0/documentation) übernommen und gehören zur Bj.Nr.
 
 ## MACHEN
 * Meteogramm hinzufügen (png wird wahrscheinlich mit der neuen API eingestellt)
-* Fügen Sie eine tägliche Vorhersage basierend auf der stündlichen Vorhersage hinzu
+* Fügen Sie eine tägliche Vorhersage basierend auf einer stündlichen Vorhersage hinzu
 * HTML-Tabelle hinzufügen
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
@@ -51,7 +51,7 @@ Icons werden von hier [https://api.met.no/weatherapi/weathericon/2.0/documentati
 * (bluefox) Übersetzungen hinzufügen
 
 ### 1.0.0 [2016-03-15]
-* (bluefox) Parsing von Städten ändern
+* (bluefox) Parsen von Städten ändern
 
 ###0,1.9 [2015-10-28]
 * (bluefox) Fehler bei Übersetzungen beheben
@@ -105,7 +105,7 @@ Icons werden von hier [https://api.met.no/weatherapi/weathericon/2.0/documentati
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 3.0.0 [2021-06-06]
 * (withstu) Switch to new JSON API and change data Structure (breaking)
 * (withstu) Update project dependencies
 * (arteck) Type of state was corrected  

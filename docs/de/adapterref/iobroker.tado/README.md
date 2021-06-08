@@ -3,34 +3,58 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: TZNiHjYi+xQcj55oEwLLXnVq4nI+BbJlFUGzUf9pCqk=
+hash: v8Nn0pHa0q3jQUGVBWTgkYffVo+Prd50VC+FyYWOICk=
 ---
-# IoBroker.tado
-
 ![Anzahl der Installationen](http://iobroker.live/badges/tado-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.tado.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.tado.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/iobroker-community-adapters/iobroker.tado.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.tado/badge.svg)
+![Abhängigkeitsstatus](https://img.shields.io/david/DrozmotiX/iobroker.tado.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/DrozmotiX/ioBroker.tado/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.tado.png?downloads=true)
 
+#ioBroker.tado
 <img src="./admin/tado.png" width="50" height="50">
 
-[![Übersetzungsstatus] (https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
+![Testen und freigeben](https://github.com/DrozmotiX/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
 
 ## Tado-Adapter für ioBroker
-tado ° sorgt für ein angenehmes und gesundes Klima und spart bis zu 31% Ihrer Heizkosten.
+tado° sorgt für ein angenehmes und gesundes Klima und spart bis zu 31% Heizkosten.
 
 ## Unterstütze mich
-Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende leisten (dies ist ein persönlicher Spendenlink für DutchmanNL, keine Beziehung zum ioBroker-Projekt! [![Spenden] (https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.tado/master/admin/button.png)](http://paypal.me/DutchmanNL)
+Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende zukommen lassen (dies ist ein persönlicher Spendenlink für DutchmanNL, kein Bezug zum ioBroker-Projekt ! [![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
+
+## Wichtige Änderungen in v0.3.x
+Upgrade von 0.2.x auf v0.3.x beinhaltet ein technisches Refactoring mit Breaking Changes (zB Temperatureinstellung befindet sich jetzt unter tado.[x]].[yyyyy]].Rooms.[z].setting.temperature. Celsius).
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+
+### 0.3.0-4 (2021-06-04)
+* (HGlab01) Technical re-factoring of state management !BREAKING CHANGES! (see above)
+* (HGlab01) implement offset functionality
+* (HGlab01) Set minimum refresh time to 30 seconds
+* (HGlab01) Bump iobroker-jsonexplorer to v0.1.0
+
+### 0.2.7 (2021-05-11)
+* (HGlab01) prepare for js-controller v3.3.x (has wrong type "xxxx" but has to be "yyyy") (#214)
+* (HGlab01) improve state creation by using iobroker-jsonexplorer
+* (HGlab01) improve CPU usage (#192)
+* (HGlab01) add attribute enabledFeatures (#226)
+
+### 0.2.6 (2021-03-20)
+* (HGlab01) apply formatting for main.js
+* (HGlab01) add quickActionsEnabled (#164)
+* (HGlab01) support HOT_WATER devices (#138)
+* (HGlab01) support AIR_CONDITIONING devices (#146)
+* (HGlab01) Implement pool handling for setZoneOverlay
+* (HGlab01) fix issue: state has no existing object (#184)
+* (HGlab01) add cleaning function for existing timer 'polling'
+* (HGlab01) state_attr.js: attribute 'support' was defined twice
 
 ### 0.2.5 (2020-12-16)
 * (HGlab01) add childLockEnabled
@@ -110,7 +134,7 @@ Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende lei
 * (DutchmanNL) reset states to NULL when polling time * 2 no data is received
 
 ### 0.0.7 Improve overlay states
-* (DutchmanNL) improve overlay states  (https://github.com/iobroker-community-adapters/ioBroker.tado/issues/1)
+* (DutchmanNL) improve overlay states  (https://github.com/DrozmotiX/ioBroker.tado/issues/1)
 
 ### 0.0.6 Implemented away status
 * (DutchmanNL) Implemented away status

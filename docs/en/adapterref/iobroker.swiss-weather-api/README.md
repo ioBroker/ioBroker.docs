@@ -50,7 +50,23 @@ Since Version 0.1.8 SRG-SSR provides their own icons. So each Datapoint provides
 
 The first query is made 10s after the adapter was started. After the first start, the query will be executed regularly according to the conifugation parameter (Poll Interval in Minutes)
 
+### Visualisation Example
+
+###### Prerequisite:
+* Adapter [Material Design Widgets](https://github.com/Scrounger/ioBroker.vis-materialdesign) >= 0.5.7
+* Adapter [Vis](https://github.com/iobroker/iobroker.vis/blob/master/README.md)
+* [Improt Views to Vis](https://github.com/baerengraben/ioBroker.swiss-weather-api/tree/master/views)
+
+###### Example
+![Tablet](doc/Wettervorhersage_visu_anim.gif)
+
 ## Changelog
+
+### 0.9.3
+* (baerengraben)  Function Update: Added day_name to identify weekday from "forecast.day.day0.day_name" to "forecast.day.day7.day_name". 
+* (baerengraben)  Added last_run as Object on swiss-weather-api.0.info.lastrun.
+* (baerengraben)  Added JsonChart Object on swiss-weather-api.0.forecast.60minutes.day(0-4).JsonChart.
+* (baerengraben)  Added some Examples how to do visualisation (folder views) based on https://forum.iobroker.net/topic/32232/material-design-widgets-wetter-view 
 
 ### 0.9.2
 * (baerengraben)  Function Update: The current weather information is provided as a forecast.current_hour object. Every hour this information is updated. This is done every hour by copying the corresponding values from forecast.60minutes.day0.<current_time>. So no new http request will be executed. The values are only copied from the forecast objects. This makes it easier to display the current weather in the visualization.

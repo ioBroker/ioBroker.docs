@@ -135,10 +135,9 @@ CCU / Homematic поддерживает различные типы устро�
 ## FAQ
 
 ## Changelog
-<!--
-	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
--->
+
+### __WORK IN PROGRESS__
+* (bluefox) Added the roles to thermostat states
 
 ### 1.14.41 (2021-06-05)
 * (foxriver76) we made sure, that controller does not send stopInstance message anymore

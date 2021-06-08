@@ -4,7 +4,7 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/log.md
-hash: 66gpVVstVxHlQUyyBYv8juocwLyP/pXvD9q5MXSJDlE=
+hash: SF9PSkEVT8mItnrGcqW4liNccrJ/ZhU4DElrk63Agz4=
 ---
 The system's messages are continuously output here. The latest message is at the top.
 
@@ -57,7 +57,7 @@ The timestamp of the message is listed here. This column cannot be filtered.
 This menu can be used to set the severity of the message to be displayed. However, this is only a filter of the existing list.
 In order to set the logging in a certain level for an instance, this must be set on the instance page.
 
-Errors are shown in red:
+Errors are shown in red font:
 
 ![Error](../../de/admin/media/ADMIN_Log02_error.png)
 

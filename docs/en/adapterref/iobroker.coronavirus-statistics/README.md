@@ -1,4 +1,4 @@
-<img src="./admin/coronavirus-statistics.png" width="50" height="50">
+<img src="./admin/coronavirus-statistics.png" width="50" height="50" alt="">
 
 # ioBroker.coronavirus-statistics
 
@@ -14,7 +14,7 @@
 [![Dependency Status](https://img.shields.io/david/DrozmotiX/ioBroker.coronavirus-statistics.svg)](https://david-dm.org/DrozmotiX/ioBroker.coronavirus-statistics)
 ## Coronavirus Live Statistics adapter for ioBroker
 
-Adapter to show Global Corona Virus information and current reports
+Adapter to show Global Coronavirus information and current reports
 
 There is no configuration required, after installation it will : 
 
@@ -36,10 +36,10 @@ The following information is available :
 | recovered | Amount of totally known recovered cases |
 | todayCases | New Cases by Today |
 | todayDeaths | Amount of totally known people died today |
-| test | Total number of covid-19 tests taken globally |
-| tests per one  million counties | Total number of covid-19 tests taken globally per one  million |
+| test | Total number of COVID-19 tests taken globally |
+| tests per one  million counties | Total number of COVID-19 tests taken globally per one  million |
 
-Please be aware this adapter uses as much as possible up-to-date information but there can be an delay of several hours depending on the country's report.  
+Please be aware this adapter uses as much as possible up-to-date information but there can be a delay of several hours depending on the country's report.  
 German Federal States : https://npgeo-corona-npgeo-de.hub.arcgis.com/  s
 Generic Source : https://coronavirus-19-api.herokuapp.com
 
@@ -47,7 +47,7 @@ Generic Source : https://coronavirus-19-api.herokuapp.com
 | Option | Description |
 |--|--|
 | All Countries | Get data for all countries World-Wide (Default: false) |
-| Continents | Group total amounts by continent in seperate state (Default: false) |
+| Continents | Group total amounts by a continent in separate state (Default: false) |
 | Delete unused States | Delete data when countries are deselected (Default: false) |
 
 ## For Germany only
@@ -63,7 +63,7 @@ Generic Source : https://coronavirus-19-api.herokuapp.com
 It's possible to get data for federal states (Bundesländer), cities (Städte) counties (Landeskreise).
 You can choose to receive all data or just select specific regions in advanced settings.
 
-<span style="color:red">Vaccination data is currently only available for Germany and will only be retrieved when *"Bundeslaender"* is activated</span>
+<span style="color:red">Vaccination data is currently only available for Germany and will only be retrieved when *"Bundesländer"* is activated</span>
 
 ## Add missing countries
 It may happen that countries are not recognized correctly because the API delivers some country names not ISO conform. In such a case you will get a warning message in the log, which looks like this
@@ -86,18 +86,28 @@ The JSON string then looks like this, for example:
 }
 ```
 
-As first value the name from the warning message must be taken from the log. The name of the country from the [List with country names](https://github.com/i-rocky/country-list-js/blob/master/data/names.json) is then assigned to this.
+As first value, the name from the warning message must be taken from the log. The name of the country from the [List with country names](https://github.com/i-rocky/country-list-js/blob/master/data/names.json) is then assigned to this.
 
 ## Changelog
 
 <!--
 	### __WORK IN PROGRESS__
-	* (DutchmanNL) xxxx
+	* (DutchmanNL) 
 -->
 
+### 0.7.0-4 (2021-03-30)
+* (DutchmanNL) round Impfquote to 2 digits
+* (lembnau) Vaccination data for AstraZeneca Germany added
+* (DutchmanNL) Bugfix : Solve last_update is invalid warn message
+* (DutchmanNL) Bugfix : Solve cannot read property 'Erstimpfung' of undefined
+
+### 0.6.9 (2021-03-22)
+
+* (lembnau) Adapter issues with vaccination data from Germany solved
+
 ### 0.6.8 (2021-01-27)
-* (DutchmanNL) Bugfix : Gernmany vaccinaation data, source changed code updated
-* (DutchmanNL) Removed states (not available anymore by RKI)
+* (DutchmanNL) Bugfix : Germany vaccination data, source changed code updated
+* (DutchmanNL) Removed states (not provided by RKI anymore)
   * Impfungen pro 1.000 Einwohner
   * Indikation nach Alter 
   * Berufliche Indikation
@@ -106,8 +116,8 @@ As first value the name from the warning message must be taken from the log. The
 * (DutchmanNL) New states (provided by RKI)
   * Differenz zum Vortag 
   * Gesamtzahl bisher verabreichter Impfstoffdosen
-  * Gesamtzahl kumulatiev BioNTech
-  * Gesamtzahl kumulatiev Moderna
+  * Gesamtzahl kumulativ BioNTech
+  * Gesamtzahl kumulativ Moderna
   * Impf-quote
   * Zweit Impfungen kumulativ
   * Zweit Impfungen Differenz zum Vortag
@@ -156,10 +166,10 @@ add "Cases per 100k" in total & during the last 7 days for Germany's Bundesländ
 * (DutchmanNL) Bugfix : Selected items not shown in tables
 * (DutchmanNL) Bugfix : Remove incorrect countryInfo state
 * (Scrounger)  Bugfix : Timestamp for continents calculation
-* (Scrounger)  Bugfix : Replace " , " in country name causing errors
+* (Scrounger)  Bugfix : Replace " , " in a country name causing errors
 * (DutchmanNL) Bugfix : Saint Pierre Miquelon (iso2: null, iso3: null) not found in lib!
-* (DutchmanNL) Implemented Total number of covid-19 tests taken globally.  
- It reflects the Total Tests column in the table at https://www.worldometers.info/coronavirus/.
+* (DutchmanNL) Implemented Total number of COVID-19 tests taken globally.  
+ It reflects the Total Tests' column in the table at https://www.worldometers.info/coronavirus/.
 
 ### 0.5.1 (2020-03-31) BugFix : State attribute definition missing for + affectedCountries
 * (DutchmanNL) BugFix : State attribute definition missing for + affectedCountries
@@ -170,7 +180,7 @@ add "Cases per 100k" in total & during the last 7 days for Germany's Bundesländ
 * (DutchmanNL) BugFix : Do not write objects unneeded
 
 ### 0.4.9 Fixed issues in country names, added counties and cities for germany
-* (DutchmanNL  & AlCalzone) Code optimations 
+* (DutchmanNL  & AlCalzone) Code optimizations 
 * (DutchmanNL) Cities for germany added
 * (DutchmanNL) counties for germany added
 * (DutchmanNL) Hiding tables if "all" is selected
@@ -179,7 +189,7 @@ add "Cases per 100k" in total & during the last 7 days for Germany's Bundesländ
 * (GermanBluefox) BugFix : hidden numbers
 * (DutchmanNL) BugFix : Several translations
 * (DutchmanNL) BugFix : Issues with integration testing
-* (Scrounger)  Bugfix : Country names by ISO format (could result in new datapoints !)
+* (Scrounger)  Bugfix : Country names by ISO format (could result in new data points!)
 * (DutchmanNL) BugFix : Deletion of unselected federal states and counties (Germany)
 * (DutchmanNL) BugFix : Button only respond when clicking on lable (not all browser)
 * (DutchmanNL) BugFix : Ensure incorrect created states for "countryInfo" are removed

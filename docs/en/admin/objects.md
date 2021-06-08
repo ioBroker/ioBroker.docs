@@ -4,12 +4,12 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/objects.md
-hash: h2W27+wNG9J4NAF0r8ajYsHYxjCj462PmXNxMN8AJCo=
+hash: nrgsR+t5T1y8xfMjA6VUTr0FxR1LbtTJ/uuWyowBAJg=
 ---
 All managed objects are located under this tab. For each instance, a folder is created in which the data points created by it are located in a hierarchical structure. Objects can also be created and deleted manually here. Entire object structures can be uploaded or downloaded. Another button enables the expert view to be displayed.
 
 ## The title line
-The headline contains icons for the most important processes. There is context help for each icon. To do this, simply hold the mouse on the icon for a while.
+In the title line there are icons for the most important processes. There is context help for each icon. To do this, simply hold the mouse on the icon for a while.
 
 ![The icons of the objects tab](../../de/admin/media/ADMIN_Objekte_numbers.png)
 
@@ -39,7 +39,7 @@ This button displays further information on the respective states of the data po
 
 Here with the menu bar folded up
 
-> Attention: Due to the immense flood of data, the display may hang up when using this view> in the list view.
+> Attention: Due to the immense flood of data, the display may hang up when using this view in the list view.
 
 ### 6 - Administrator mode
 If you select this icon, further objects are displayed (toggle function).
@@ -65,7 +65,7 @@ As soon as you confirm the input window with ok, another window opens:
 
 Some data can still be entered here. A role and an icon can be added to the object.
 
-The other tabs contain further properties of the object. Such information is available for every object.
+The other tabs contain further properties of the object. There is such information for every object.
 
 To create a completely new namespace, two things must be observed:
 
@@ -73,7 +73,7 @@ To create a completely new namespace, two things must be observed:
 
 New objects tab opens.
 
-* The top item must end with a period and a number (e.g. MyNamespace.0)
+* The top object must end with a period and a number (e.g. MyNamespace.0).
 
 The next levels can then be created there.
 
@@ -94,12 +94,12 @@ The table consists of the following columns (the fields under column headers 1 a
 These are the top levels of the object hierarchy. Here, the name of the instance, for example, and the respective structure of the data are created as the top level.
 
 ### 2 - name
-The name of the object is given in this column. In addition, a preceding icon shows which hierarchy level this is (device, channel or data point)
+The name of the object is given in this column. In addition, a preceding icon shows which hierarchy level is involved here (device, channel or data point)
 
 The values in this column can be edited.
 
 ### 3 - type
-The type in the hierarchy level, which was already visible in the Name column from the preceding icon, is explicitly mentioned again here. The pull-down menu in the column header can be used to filter for these types and, for example, only display all data points.
+The type in the hierarchy level, which was already visible in the Name column by the preceding icon, is explicitly mentioned here again. The pull-down menu in the column header can be used to filter for these types and, for example, only display all data points.
 
 ### 4 - role
 The role specifies how user interfaces such as .vis and material should handle this data point. This is basically the function of this object briefly described using a term. You can then filter again.
@@ -114,7 +114,7 @@ This also serves, among other things, for filtering when searching for objects.
 
 ![Room allocations](../../de/admin/media/ADMIN_Objekte_rooms.png)
 
-The values in this column can be edited. In this way, the objects can still be assigned to rooms later. If you click on the field, a popup opens with the rooms that have been created so far.
+The values in this column can be edited. In this way, the objects can still be assigned to rooms at a later date. If you click on the field, a popup opens with the rooms that have been created so far.
 
 ### 6 - function
 This column contains the trade to which the corresponding object is assigned.
@@ -136,6 +136,6 @@ If the object is a data point, the current value of this data point is displayed
 3.) The wrench icon only appears if at least one history instance is installed (History, InfluxDB or SQL). The data point for logging the historical data can be configured here.
 Further information can be found in the description of the history adapter.
 
-Using the wrench in the title bar, this action can be carried out simultaneously for all data points that meet the current filter criteria. It is therefore important to check carefully whether the filter criteria on this page are selected in such a way that only the desired data points are included.
+This action can be carried out simultaneously for all data points that meet the current filter criteria using the wrench in the title bar. It is therefore important to check carefully whether the filter criteria on this page are selected in such a way that only the desired data points are included.
 
 The pull-down menu for filtering this column refers to data points with logged data. With, without and all as well as the installed history instances are available here.

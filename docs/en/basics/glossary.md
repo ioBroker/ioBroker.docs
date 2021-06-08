@@ -5,7 +5,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/glossary.md
 title: no title
-hash: pNXghnzEUIUGnqswpze2CJ8dmBmPOIWjCZiDbzPOvVA=
+hash: YHltgX7oCBrfgffqJry+MOvUzBLV28rn4SoXbROJAMc=
 ---
 To make it easy to get started and to make further help easier to understand, the most important terms that appear in and around the ioBroker are explained here.
 
@@ -44,7 +44,7 @@ Cascading style sheets. Using CSS, the presentation of websites can be described
 
 * **Cubietruck / Cubieboard 3**
 
-Single board computer similar to Raspberry PI / Odroid, but with SATA interface and 2GB RAM
+Single-board computer similar to Raspberry PI / Odroid, but with SATA interface and 2GB RAM
 
 * **Device**
 
@@ -79,7 +79,7 @@ Example: 2 Hue bridges are to be integrated into ioBroker. Since only one bridge
 
 Programming language with which everything is programmed at ioBroker and also own scripts are programmed.
 
-* **js-controller**
+* **js controller**
 
 The js-controller is the main process of ioBroker and provides the necessary central basic functionality for all other modules.
 It also provides access to the central object and status databases, coordinates and monitors all running adapter instances and processes. If necessary, adapters are restarted by the js-controller.
@@ -90,11 +90,11 @@ A channel groups thematically related states and is usually located under a devi
 
 * **Master**
 
-The master is the host, which is centrally responsible for the administration of all instances (including the instances of the slaves!). When the master is terminated, the slave instances are also terminated. The master provides the central object and status databases for all slaves, to which all slaves connect.
+The master is the host, which is responsible for the administration of all instances (including the instances of the slaves!). When the master is terminated, the slave instances are also terminated. The master provides the central object and status databases for all slaves, to which all slaves connect.
 
 * **Multihost mode**
 
-The multihost mode of ioBroker can be used to distribute the control tasks to several computers if these require special interfaces (e.g. reading out electricity meters in the basement). Furthermore, several hosts can be used in order to distribute the load or the memory consumption evenly. In multihost mode, one host is defined as the master; all others are slaves. The master controls all slaves and also the distribution of the instances to the slaves.
+The multihost mode of ioBroker can be used to distribute the control tasks to several computers if these require special interfaces (e.g. reading out electricity meters in the basement). Furthermore, several hosts can be used to distribute the load or the memory consumption evenly. In multihost mode, one host is defined as the master; all others are slaves. The master controls all slaves and also the distribution of the instances to the slaves.
 
 * **Node-Red**
 
@@ -117,7 +117,7 @@ Single board computer similar to a Raspberry PI. There are several versions with
 * **Parser adapter**
 
 An adapter that is made up of texts regardless of their origin by specifying so-called.
-Regular expressions, cuts out parts that can then be written into states. These values can then be used in scripts and the like. are further processed.
+Regular expressions, cuts out parts that can then be written into states. These values can then be used in scripts and the like. further processed.
 
 * **Raspberry PI**
 
@@ -125,7 +125,7 @@ Credit card-sized single-board computer (developed by the Raspberry PI Foundatio
 
 * **Redis**
 
-A no-SQL database that holds your data in memory and can be used in ioBroker to store status data. Is used optionally to increase the performance, since no access to a hard drive, SSD or SD card is necessary for write and read actions. To use a Redis DB with ioBroker, this must be specified in the js-controller basic configuration.
+A no-SQL database that holds your data in memory and can be used in ioBroker to store status data. Is optionally used to increase the performance, since no access to a hard drive, SSD or SD card is necessary for write and read actions. To use a Redis DB with ioBroker, this must be specified in the js-controller basic configuration.
 
 * **State**
 

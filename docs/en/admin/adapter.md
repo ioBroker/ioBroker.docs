@@ -4,7 +4,7 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/adapter.md
-hash: WMGHnDlc1DVIkuuUYX/rzRRpv7TElDq4iQ86l+lUBCo=
+hash: svGv1TgKOa2pP8zn85C5t9Xd7FgJNy5dfaEK2af4S84=
 ---
 # The Adapter tab
 The available and installed adapters are displayed and managed here.
@@ -41,7 +41,7 @@ After clicking this icon, a corresponding selection window opens:
 
 ![Install GitHub](../../de/admin/media/ADMIN_Adapter_GitHub.png)
 
-Under the ***FROM GITHUB*** tab, simply select the required adapter in the pull-down menu and the latest preliminary version will be installed.
+Under the ***FROM GITHUB*** tab, simply select the desired adapter in the pull-down menu and the latest preliminary version will be installed.
 
 When selecting the ***ANY*** tab, any file path or URL (e.g. a URL to an external adapter developer) can be entered in the field and the corresponding adapter installed.
 

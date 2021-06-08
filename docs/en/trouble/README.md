@@ -4,21 +4,21 @@ lastChanged: 14.09.2018
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/trouble/README.md
-hash: zyX2YdM6CIiREEqfh+LxO6fCXcvENhSZ8SXnod+1Dh8=
+hash: NAHfCKNrau6ZZZiSXWF0k0KN7z/OGtn4WhfS7IzATmk=
 ---
 # Troubleshooting
-?> ***This is a placeholder*** .<br><br> Help with ioBroker and expand this article. Please note [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.
+?> ***This is a placeholder*** .<br><br> Help with ioBroker and expand this article. Please note the [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.
 
 @@@ Overarching procedures. Refer to individual help with the specific adapter, installation method and platform.
 @@@
 
 On this page you will find information on problems and their solutions or approaches for solutions.
-Please look through the topics to see whether your problem is already included here or on the subpages and thus the solution, if applicable.
+Please look through the topics to see whether your problem is already included here or on the sub-pages and thus the solution, if applicable.
 
 ## First aid checklist "My ioBroker has stopped working" - What should I check first and always post in the forum?
 Important information is always the following version information:
 
-* `node -v`: ioBroker supports the" LTS versions "of nodejs (even version numbers). New installations must use at least nodejs 8.12. **Attention:** Development versions of nodejs (uneven version numbers) are not officially supported! Please also use completely new LTS versions only after having informed the forum. We recommend nodejs 8.15 or higher.
+* `node -v`: ioBroker supports the" LTS versions "of nodejs (even version numbers). New installations must use at least nodejs 8.12. **Attention:** Development versions of nodejs (uneven version numbers) are not officially supported! Please do not use completely new LTS versions until you have received information from the forum. We recommend nodejs 8.15 or higher.
 * `npm -v`: ioBroker supports npm in version 3 and> 5.7.1, recommended is 6.4.1 or higher
 * `iobroker -v`
 * Version number of the adapter (s) concerned
@@ -29,21 +29,21 @@ It is best to provide this information directly in the thread.
 
 Furthermore, please check this troubleshooting page and the FAQ --LINK-- BEFORE a forum request whether the topic is already included there. If you have already tried actions from these documents, please write them down at the same time.
 
-Please check the logs to see whether there are any helpful entries from the relevant adapters at the time of the problem. Always puts logs and scripts or similar in spoilers.
+Please check the logs to see whether there are any helpful entries from the relevant adapters at the point in time of the problem. Always puts logs and scripts or similar in spoilers.
 
 ## Where can I find logs?
-In the simplest case, logs can be found in the admin UI in the web browser. Please note, however, that in the admin the log lines are cut off after approx. 200 characters. As a result, important information may be lost or incomplete.
+In the simplest case, logs can be found in the admin UI in the web browser. Please note, however, that in the admin the log lines are cut off after about 200 characters. As a result, important information may be lost or incomplete.
 Furthermore, the logs in the admin are only available for the current browser session.
 
-ioBroker continues to write all logs to a log file. This is located in the ioBroker directory in the "log" subdirectory and is normally available there for 7 days. Simply open it with a text editor and send excerpts if necessary.
+ioBroker continues to write all logs to a log file. This is located in the ioBroker directory in the "log" subdirectory and is usually available there for 7 days. Simply open it with a text editor and send excerpts if necessary.
 
 ## How do I change the log level of an adapter instance?
-By default, the js-controller and the adapters run in the "info" log level. This means that information that the adapter developer considered useful is output in the log. In total there are the following log levels:
+By default, the js-controller and the adapter run in the "info" log level. This means that information that the adapter developer considered useful is output in the log. In total there are the following log levels:
 
 * **error** Only errors are logged
 * **warn** Errors and warnings are logged
 * **info** Information, warnings and errors are logged, standard
-* **debug** in addition to information, warnings and errors, additional information is logged that the adapter developer considers useful for troubleshooting.
+* **debug** In addition to information, warnings and errors, additional information is logged that the adapter developer considers useful for troubleshooting.
 * **silly** Most detailed log level, in which messages from the js controller are also logged, only use if explicitly requested.
 
 The log level of an instance can be set in the Admin WebUI. To do this, activate the expert mode under "Instances" and set the log level in the column of the same name for the instance.
@@ -51,8 +51,8 @@ After changing the log level, the instance is automatically restarted.
 
 ** Attention: ** Depending on the log level (especially debug and silly) the log file on the disk can be quite large. Pay attention to the available storage space.
 
-## After operating system updates, ioBroker no longer works (check node versions and something like that)
-## An adapter / ioBroker no longer starts with the error "wrong node version native packet. Blah"? (npm rebuild and such)
+## After operating system updates, ioBroker no longer works (check node versions and something)
+## An adapter / ioBroker no longer starts with the error "wrong node version native packet. Blah"? (npm rebuild and so)
 ## I have several different nodejs versions on my computer?
 ## Suddenly ioBroker / Adapter no longer works with the message "Syntax Error Unexpected / Invalid Token or similar." (File corrupt, SD card ...)
 ## At adapter start Error 7 / Reconnect to DB (reasons ... solutions)

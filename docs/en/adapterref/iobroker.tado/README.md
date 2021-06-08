@@ -1,15 +1,15 @@
- # ioBroker.tado 
+# ioBroker.tado 
 <img src="./admin/tado.png" width="50" height="50">
 
 ![Number of Installations](http://iobroker.live/badges/tado-installed.svg) ![Number of Installations](http://iobroker.live/badges/tado-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.tado.svg)](https://www.npmjs.com/package/iobroker.tado)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.tado.svg)](https://www.npmjs.com/package/iobroker.tado)
-[![Dependency Status](https://img.shields.io/david/iobroker-community-adapters/iobroker.tado.svg)](https://david-dm.org/iobroker-community-adapters/iobroker.tado)
-[![Known Vulnerabilities](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.tado/badge.svg)](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.tado)
+[![Dependency Status](https://img.shields.io/david/DrozmotiX/iobroker.tado.svg)](https://david-dm.org/DrozmotiX/iobroker.tado)
+[![Known Vulnerabilities](https://snyk.io/test/github/DrozmotiX/ioBroker.tado/badge.svg)](https://snyk.io/test/github/DrozmotiX/ioBroker.tado)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 [![NPM](https://nodei.co/npm/iobroker.tado.png?downloads=true)](https://nodei.co/npm/iobroker.tado/)
 
-![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
+![Test and Release](https://github.com/DrozmotiX/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
 
 ## tado adapter for ioBroker
 
@@ -18,13 +18,38 @@ tado° ensures a comfortable and healthy climate while saving up to 31% on your 
 ## Support me
 If you like my work, please feel free to provide a personal donation  
 (this is an personal Donate link for DutchmanNL, no relation to the ioBroker Project !  
-[![Donate](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.tado/master/admin/button.png)](http://paypal.me/DutchmanNL)
+[![Donate](https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
+
+## Breaking changes in v0.3.x
+Upgrade from 0.2.x to v0.3.x includes a technical re-factioring with breaking changes (e.g. temperature setting is now located at tado.[x]].[yyyyy]].Rooms.[z].setting.temperature.celsius).
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+
+### 0.3.0-4 (2021-06-04)
+* (HGlab01) Technical re-factoring of state management !BREAKING CHANGES! (see above)
+* (HGlab01) implement offset functionality
+* (HGlab01) Set minimum refresh time to 30 seconds
+* (HGlab01) Bump iobroker-jsonexplorer to v0.1.0
+
+### 0.2.7 (2021-05-11)
+* (HGlab01) prepare for js-controller v3.3.x (has wrong type "xxxx" but has to be "yyyy") (#214)
+* (HGlab01) improve state creation by using iobroker-jsonexplorer
+* (HGlab01) improve CPU usage (#192)
+* (HGlab01) add attribute enabledFeatures (#226)
+
+### 0.2.6 (2021-03-20)
+* (HGlab01) apply formatting for main.js
+* (HGlab01) add quickActionsEnabled (#164)
+* (HGlab01) support HOT_WATER devices (#138)
+* (HGlab01) support AIR_CONDITIONING devices (#146)
+* (HGlab01) Implement pool handling for setZoneOverlay
+* (HGlab01) fix issue: state has no existing object (#184)
+* (HGlab01) add cleaning function for existing timer 'polling'
+* (HGlab01) state_attr.js: attribute 'support' was defined twice
 
 ### 0.2.5 (2020-12-16)
 * (HGlab01) add childLockEnabled
@@ -104,7 +129,7 @@ If you like my work, please feel free to provide a personal donation
 * (DutchmanNL) reset states to NULL when polling time * 2 no data is received
 
 ### 0.0.7 Improve overlay states
-* (DutchmanNL) improve overlay states  (https://github.com/iobroker-community-adapters/ioBroker.tado/issues/1)
+* (DutchmanNL) improve overlay states  (https://github.com/DrozmotiX/ioBroker.tado/issues/1)
 
 ### 0.0.6 Implemented away status
 * (DutchmanNL) Implemented away status

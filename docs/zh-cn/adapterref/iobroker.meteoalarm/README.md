@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: kBaShtjPs24XEaIcv6XpFuhXcnngk++euf8elrsCNbI=
+hash: WTSAKgVijJSIgYS1KHyy/KSxzMFRzASqr8S3BdDDI+A=
 ---
 ![商标](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -70,14 +70,14 @@ ioBroker 的meteoalarm 适配器---------------------------------------------- -
 
 “使用白色图标”：使用白色图标而不是黑色图标
 
-“小部件中没有符号”：不要在 HTML 小部件中使用符号。您仍然可以在对象中访问它。如果您想与小部件分开显示图标，则这是有用的 - 例如在更大的尺寸。
+“小部件中没有符号”：不要在 HTML 小部件中使用符号。您仍然可以在对象中访问它。如果您想与小部件分开显示图标 - 例如，这是 usefill在更大的尺寸。
 
 ## 警报级别
 |报警级别|说明|
 |:---:|:---:|
 |绿色|目前没有可用的警告。|
 |黄色|天气有潜在危险。预测的天气现象并不少见，但应更加关注面临气象风险的活动。随时了解预期的气象条件，不要冒任何可避免的风险。|
-|橙色|天气很危险。已经预测到不寻常的气象现象。可能会发生损坏和事故。要非常细心和小心，并及时了解预期的气象条件。 |
+|橙色|天气很危险。已经预测到不寻常的气象现象。可能会造成损坏和事故。要非常细心和小心，并及时了解预期的气象条件。 |
 |红色|天气非常危险。预测到异常强烈的气象现象。严重的破坏和事故，通常是大面积的，威胁着生命和财产。 |
 
 ## 支持的国家
@@ -93,6 +93,7 @@ ioBroker 的meteoalarm 适配器---------------------------------------------- -
 * 意大利
 * 拉脱维亚
 * 立陶宛
+* 卢森堡
 * 马耳他
 * 摩尔多瓦
 * 黑山
@@ -115,6 +116,10 @@ ioBroker 的meteoalarm 适配器---------------------------------------------- -
 
 ##要实现的功能
 * 一天处理多个闹钟
+
+## 1.2.1 (2021-06-05)
+* (jack-blackson) 修正错误以处理不正确的 XML（如果使用国家而不是地区）
+* (jack-blackson) 添加卢森堡
 
 ## 1.2.0 (2021-05-16)
 * (jack-blackson) 新设置：“HTML 小部件中无背景颜色”、“定义警告颜色”和“使用白色图标”
@@ -142,10 +147,10 @@ ioBroker 的meteoalarm 适配器---------------------------------------------- -
 * (jack-blackson) 修正 HTML 数据
 
 ## 1.1.0 (2020-03-29)
-*（杰克布莱克森）修正德国
+* (jack-blackson) 修正德国
 
 ## 1.0.9 (2020-02-06)
-*（杰克布莱克森）修正德国
+* (jack-blackson) 修正德国
 
 ## 1.0.8 (2019-11-15)
 * (jack-blackson) 添加了波兰、摩尔多瓦、希腊、罗马尼亚
@@ -176,7 +181,7 @@ ioBroker 的meteoalarm 适配器---------------------------------------------- -
 * (jack-blackson) 发布版本
 
 ### 0.6.0 (2019-08-05)
-* (jack-blackson) 在适配器中本地存储天气图标
+* (jack-blackson) 在适配器本地存储天气图标
 
 ### 0.5.0 (2019-07-21)
 * (jack-blackson) 处理超时

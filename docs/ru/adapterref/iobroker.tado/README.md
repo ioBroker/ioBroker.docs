@@ -3,34 +3,59 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: TZNiHjYi+xQcj55oEwLLXnVq4nI+BbJlFUGzUf9pCqk=
+hash: v8Nn0pHa0q3jQUGVBWTgkYffVo+Prd50VC+FyYWOICk=
 ---
 # IoBroker.tado
 
 ![Количество установок](http://iobroker.live/badges/tado-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.tado.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.tado.svg)
-![Статус зависимости](https://img.shields.io/david/iobroker-community-adapters/iobroker.tado.svg)
-![Известные уязвимости](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.tado/badge.svg)
+![Статус зависимости](https://img.shields.io/david/DrozmotiX/iobroker.tado.svg)
+![Известные уязвимости](https://snyk.io/test/github/DrozmotiX/ioBroker.tado/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.tado.png?downloads=true)
 
 <img src="./admin/tado.png" width="50" height="50">
 
 [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
+![Тестирование и выпуск](https://github.com/DrozmotiX/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер tado для ioBroker
 tado ° обеспечивает комфортный и здоровый климат, экономя до 31% на счетах за отопление.
 
 ## Поддержите меня
-Если вам нравится моя работа, пожалуйста, сделайте личное пожертвование (это личная ссылка для пожертвований для DutchmanNL, не имеющая отношения к проекту ioBroker! [![Пожертвовать] (https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.tado/master/admin/button.png)](http://paypal.me/DutchmanNL)
+Если вам нравятся мои работы, пожалуйста, сделайте личное пожертвование (это личная ссылка для пожертвования для DutchmanNL, не имеющая отношения к проекту ioBroker! [![Пожертвовать] (https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
+
+## Критические изменения в v0.3.x
+Обновление с 0.2.x до v0.3.x включает техническое переоснащение с критическими изменениями (например, установка температуры теперь находится в tado. [X]]. [Yyyyy]]. Rooms. [Z] .setting.temperature. по Цельсию).
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+
+### 0.3.0-4 (2021-06-04)
+* (HGlab01) Technical re-factoring of state management !BREAKING CHANGES! (see above)
+* (HGlab01) implement offset functionality
+* (HGlab01) Set minimum refresh time to 30 seconds
+* (HGlab01) Bump iobroker-jsonexplorer to v0.1.0
+
+### 0.2.7 (2021-05-11)
+* (HGlab01) prepare for js-controller v3.3.x (has wrong type "xxxx" but has to be "yyyy") (#214)
+* (HGlab01) improve state creation by using iobroker-jsonexplorer
+* (HGlab01) improve CPU usage (#192)
+* (HGlab01) add attribute enabledFeatures (#226)
+
+### 0.2.6 (2021-03-20)
+* (HGlab01) apply formatting for main.js
+* (HGlab01) add quickActionsEnabled (#164)
+* (HGlab01) support HOT_WATER devices (#138)
+* (HGlab01) support AIR_CONDITIONING devices (#146)
+* (HGlab01) Implement pool handling for setZoneOverlay
+* (HGlab01) fix issue: state has no existing object (#184)
+* (HGlab01) add cleaning function for existing timer 'polling'
+* (HGlab01) state_attr.js: attribute 'support' was defined twice
 
 ### 0.2.5 (2020-12-16)
 * (HGlab01) add childLockEnabled
@@ -110,7 +135,7 @@ tado ° обеспечивает комфортный и здоровый кли
 * (DutchmanNL) reset states to NULL when polling time * 2 no data is received
 
 ### 0.0.7 Improve overlay states
-* (DutchmanNL) improve overlay states  (https://github.com/iobroker-community-adapters/ioBroker.tado/issues/1)
+* (DutchmanNL) improve overlay states  (https://github.com/DrozmotiX/ioBroker.tado/issues/1)
 
 ### 0.0.6 Implemented away status
 * (DutchmanNL) Implemented away status

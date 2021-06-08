@@ -135,10 +135,9 @@ CCU / Homematic支持不同的设备类型（有线，无线，HMIP，CUxD）。
 ##常见问题
 
 ## Changelog
-<!--
-	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
--->
+
+### __WORK IN PROGRESS__
+* (bluefox) Added the roles to thermostat states
 
 ### 1.14.41 (2021-06-05)
 * (foxriver76) we made sure, that controller does not send stopInstance message anymore

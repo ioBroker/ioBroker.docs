@@ -4,14 +4,14 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/intro/README.md
-hash: 1pcQ4cJSUZw7qUIgvAoPS5dTCF9w4xA9paAs8EKiD7w=
+hash: idk0gZfgjRkBsHrpF2r3lK1a0goTdH4DOHijnHKP5zE=
 ---
 ** This documentation is the central reference for all ioBroker users: **
 
 ## Page structure
-This page was created in a ***responsive design*** . This means that it is displayed differently depending on the resolution of the display of the reader (PC / tablet / mobile phone) for optimal readability.
+This page was created in a ***responsive design*** . This means that it is displayed differently depending on the resolution of the reading device (PC / tablet / mobile phone) for optimal readability.
 
-In the case of low (effective) resolutions, operating elements are partially hidden in order to make space for the main window.
+With low (effective) resolutions, operating elements are partially hidden to make space for the main window.
 
 It is therefore possible that the current display differs from the screenshots.
 
@@ -41,7 +41,7 @@ The menu can be hidden again using the icon with the arrow to make more space fo
 
 ---
 
-#### 3 - subject menu
+#### 3 - Topic menu
 In this menu the main topics of the selected article are displayed in order to be able to navigate more quickly to a desired point.
 
 ![Themed menu](../../de/intro/media/Themenmenu.png)

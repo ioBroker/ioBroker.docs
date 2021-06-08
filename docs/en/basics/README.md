@@ -4,7 +4,7 @@ lastChanged: 14.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/README.md
-hash: 4nSU2ciROiZWPofjIMQZOXpmkahrbQBmUU3WwJDFExw=
+hash: cEgurBTKHvIBRyuTiU1oG92EA/xzc85JUd1ChW5iwa4=
 ---
 ioBroker is a pure software solution to connect different IoT systems to one overall system. Accordingly, a control center (gateway / interface) is still required for each system in order to be able to integrate its devices.
 
@@ -16,7 +16,7 @@ There are over 400 [adapter](http://download.iobroker.net/list.html) for connect
 
 Therefore, only those adapters that are required for the individual needs have to be installed in an installation. This saves storage space and computing power.
 
-So-called ***instances*** are created for each adapter. These are the "working versions" of the adapters. Depending on the adapter, any number of instances can be created to delimit different subsystems or different areas of responsibility.
+So-called ***instances*** are created for each adapter. These are the "working versions" of the adapters. Depending on the adapter, any number of instances can be created in order to separate different subsystems or different task areas from one another.
 
 The corresponding configuration takes place in these instances.
 
@@ -29,12 +29,12 @@ An ioBroker server can be installed on almost any hardware. The only condition i
 
 !> As of May 2021, nodejs 12.x is still recommended for ioBroker.
 
-For a larger installation, a working memory (RAM) of at least 2GB is recommended. A Raspberry Pi 2/3 with 1GB RAM is sufficient for testing, as a slave for individual adapters in a multihost environment even smaller small computers are sometimes sufficient.
+For a larger installation, a working memory (RAM) of at least 2GB is also recommended. A Raspberry Pi 2/3 with 1GB RAM is sufficient for testing; as a slave for individual adapters in a multihost environment, even smaller microcomputers are sometimes sufficient.
 
 ### Software
 ioBroker manages the data in a database. The structure of the data is organized accordingly.
 
-For each adapter there is a so-called namespace that contains all data on an instance of the adapter. Accordingly, the name of the namespace is e.g .: ***AdapterName.0***
+Each adapter has a so-called namespace that contains all the data on an instance of the adapter. Accordingly, the name of the namespace is e.g .: ***AdapterName.0***
 
 Within this area, ioBroker creates the devices, their channels and, in turn, their data points with their values (states).
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: kBaShtjPs24XEaIcv6XpFuhXcnngk++euf8elrsCNbI=
+hash: WTSAKgVijJSIgYS1KHyy/KSxzMFRzASqr8S3BdDDI+A=
 ---
 ![Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -22,7 +22,7 @@ Es gibt zwei Möglichkeiten, wie Sie den Link zum Abrufen der Meteoalarm-Informa
 
 Option 1: Wählen Sie Ihr Land aus, drücken Sie dann auf "Region laden" und wählen Sie dann die Region aus. Die XML wird dann automatisch gefüllt. Drücken Sie einfach auf Speichern und Sie sind bereit.
 
-Option 2: Gehen Sie zu http://meteoalarm.eu und wählen Sie Ihre Region aus. Dann gehen Sie auf das RSS-Symbol oben rechts, machen einen Rechtsklick und kopieren den Link. Dies ist der Link, den Sie bitte zur Einrichtung des Adapters hinzufügen.
+Option 2: Gehen Sie zu http://meteoalarm.eu und wählen Sie Ihre Region. Gehen Sie dann auf das RSS-Symbol oben rechts, machen Sie einen Rechtsklick und kopieren Sie den Link. Dies ist der Link, den Sie bitte zur Einrichtung des Adapters hinzufügen.
 
 ![Logo](../../../en/adapterref/iobroker.meteoalarm/screenshot.png)
 
@@ -76,8 +76,8 @@ Option 2: Gehen Sie zu http://meteoalarm.eu und wählen Sie Ihre Region aus. Dan
 |Alarmstufe|Beschreibung|
 |:---:|:---:|
 |Grün|Im Moment ist keine Warnung verfügbar.|
-|Gelb|Das Wetter ist potenziell gefährlich. Die vorhergesagten Wetterphänomene sind nicht ungewöhnlich, aber Aktivitäten, die meteorologischen Risiken ausgesetzt sind, sollte erhöhte Aufmerksamkeit gewidmet werden. Informieren Sie sich über die zu erwartenden meteorologischen Bedingungen und gehen Sie keine vermeidbaren Risiken ein.|
-|Orange|Das Wetter ist gefährlich. Ungewöhnliche meteorologische Phänomene wurden vorhergesagt. Schäden und Unfälle sind wahrscheinlich. Seien Sie sehr aufmerksam und vorsichtig und informieren Sie sich über die zu erwartenden meteorologischen Bedingungen. |
+|Gelb|Das Wetter ist potenziell gefährlich. Die vorhergesagten Wetterphänomene sind nicht ungewöhnlich, aber Aktivitäten, die meteorologischen Risiken ausgesetzt sind, sollte erhöhte Aufmerksamkeit geschenkt werden. Informieren Sie sich über die zu erwartenden meteorologischen Bedingungen und gehen Sie keine vermeidbaren Risiken ein.|
+|Orange|Das Wetter ist gefährlich. Ungewöhnliche meteorologische Phänomene wurden vorhergesagt. Schäden und Unfälle sind wahrscheinlich. Seien Sie sehr aufmerksam und vorsichtig und halten Sie sich über die zu erwartenden meteorologischen Bedingungen auf dem Laufenden. |
 |Rot|Das Wetter ist sehr gefährlich. Es wurden ungewöhnlich intensive meteorologische Phänomene vorhergesagt. Extreme Schäden und Unfälle, oft großflächig, bedrohen Leben und Sachwerte. |
 
 ##Unterstützte Länder
@@ -93,6 +93,7 @@ Option 2: Gehen Sie zu http://meteoalarm.eu und wählen Sie Ihre Region aus. Dan
 * Italien
 * Lettland
 * Litauen
+* Luxemburg
 * Malta
 * Moldawien
 * Montenegro
@@ -115,6 +116,10 @@ Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf github, und 
 
 ## Zu implementierende Funktionen
 * Behandeln Sie mehrere Alarme an einem Tag
+
+## 1.2.1 (2021-06-05)
+* (jack-blackson) Bugfix zum Umgang mit falschem XML (wenn Land statt Region verwendet wird)
+* (jack-blackson) Luxemburg hinzugefügt
 
 ## 1.2.0 (2021-05-16)
 * (jack-blackson) Neues Setup: "Keine Hintergrundfarbe im HTML-Widget", "Warnfarben definieren" und "Weiße Symbole verwenden"
@@ -164,10 +169,10 @@ Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf github, und 
 * (jack-blackson) Travis-Fehler
 
 ## 1.0.3 (2019-09-09)
-* (jack-blackson) Kleine Bugfixes, Änderung von Typ "Deamon" zu "Schedule"
+* (jack-blackson) Kleine Bugfixes, Änderung vom Typ "Deamon" zu "Schedule"
 
 ## 1.0.2 (2019-08-25)
-* (jack-blackson) Infos zur Veröffentlichung nachbestellt
+* (jack-blackson) Nachbestellte Release-Infos
 
 ### 1.0.1 (18.08.2019)
 * (jack-blackson) Bugfix kein Alarmsymbol

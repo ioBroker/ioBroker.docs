@@ -4,7 +4,7 @@ lastChanged: 06.05.2021
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/dev/adapterdocstyleguide.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: gVPviuMsPHyCd+k12PaNgL3hB9dKVQ9VYcYm4GfPQkg=
+hash: amdkGGbA28UH+A3DZkX3kwJ7W9Z1znae5k5zXk7cVMU=
 ---
 # Style guide for creating adapter documentation
 * The documentation is created using the "Markdown" language.
@@ -15,7 +15,7 @@ hash: gVPviuMsPHyCd+k12PaNgL3hB9dKVQ9VYcYm4GfPQkg=
 
   * If the documentation is in German, it will be in the subfolder
 
-`de` saved. Currently supported languages and thus folder names are: `en, de, ru, pt, nl, fr, it, es, pl`.
+`de` saved. Currently supported languages and therefore folder names are: `en, de, ru, pt, nl, fr, it, es, pl`.
 
   * The actual adapter documentation is in the file `README.md`,
 
@@ -69,7 +69,7 @@ The characters `a-z`, `0-9`, the underscore `_` and the decimal point `.` are al
 
 but placed at the end of the document with the help of inline `[a link][]` and `[a link]: https://a.link/to/know`.
 
-* If dashes are used, use the short notation
+* When dashes are used, the short notation is used
 
   with the minus sign and not "-" or `Option+Shift+"-"` in OSX.
 
@@ -100,11 +100,11 @@ is not possible, then as a PNG file. Please keep an eye on the file size.
 
 represent examples to clarify the point of view just described. So there is no need to deliver completely executable programs. However, if a fully executable program is to be provided, this is done as a media file in the folder `media/{code_beispieldatei}` with a corresponding link in the documentation.
 
-* If underscores, inverted commas, asterisks or backslashes are used
+* If underscores, quotation marks, asterisks or backslashes are used
 
 the correct escape characters have to be used: `\_`, `\*`, `\\` and ``\`` ` anstelle von `_`, ` * §§ SSSSS_6§§ \ ` und `` ` ``.
 
-* To emphasize a note, the following guidelines are
+* To make a note stand out, the following guidelines are
 
   to note:
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.yr/README.md
 title: ioBroker.yr
-hash: qOo57l4UKwcb/jpMdhk/Zk4lcG4tAvY1se4xjUcxfGk=
+hash: nJ8ThmSwhhe6DrBPNofMOL2H//cmHUGTqSf3IviPa0w=
 ---
 ![Логотип](../../../en/adapterref/iobroker.yr/admin/yr.png)
 
@@ -21,7 +21,7 @@ hash: qOo57l4UKwcb/jpMdhk/Zk4lcG4tAvY1se4xjUcxfGk=
 ## Год нет адаптера для ioBroker
 получает прогноз погоды на 10 дней из [год нет](yr.no)
 
-[yr.no] (yr.no) - совместная служба [Норвежского метеорологического института] (met.no) и [Норвежской радиовещательной корпорации](nrk.no)
+[yr.no] (yr.no) является совместной службой [Норвежского метеорологического института] (met.no) и [Норвежской радиовещательной корпорации](nrk.no)
 
 https://api.met.no/weatherapi/locationforecast/2.0/documentation
 
@@ -32,7 +32,7 @@ https://api.met.no/weatherapi/locationforecast/2.0/documentation
 
 ## ДЕЛАТЬ
 * Добавить метеограмму (png, вероятно, перестанет работать с новым API)
-* Добавить ежедневный прогноз на основе почасового прогноза
+* Добавить дневной прогноз на основе почасового прогноза
 * Добавить таблицу html
 
 <! - Заполнитель для следующей версии (в начале строки):
@@ -105,7 +105,7 @@ https://api.met.no/weatherapi/locationforecast/2.0/documentation
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 3.0.0 [2021-06-06]
 * (withstu) Switch to new JSON API and change data Structure (breaking)
 * (withstu) Update project dependencies
 * (arteck) Type of state was corrected  

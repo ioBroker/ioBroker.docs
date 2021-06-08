@@ -3,33 +3,58 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: TZNiHjYi+xQcj55oEwLLXnVq4nI+BbJlFUGzUf9pCqk=
+hash: v8Nn0pHa0q3jQUGVBWTgkYffVo+Prd50VC+FyYWOICk=
 ---
 ![安装数量](http://iobroker.live/badges/tado-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.tado.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.tado.svg)
-![依赖状态](https://img.shields.io/david/iobroker-community-adapters/iobroker.tado.svg)
-![已知漏洞](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.tado/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.tado.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.tado.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.tado.svg)
+![依赖状态](https://img.shields.io/david/DrozmotiX/iobroker.tado.svg)
+![已知漏洞](https://snyk.io/test/github/DrozmotiX/ioBroker.tado/badge.svg)
+![新产品管理](https://nodei.co/npm/iobroker.tado.png?downloads=true)
 
-＃ioBroker.tado
+#ioBroker.tado
 <img src="./admin/tado.png" width="50" height="50">
 
-[![翻译状态]（https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg）](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-![测试与发布](https://github.com/iobroker-community-adapters/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
+![测试和发布](https://github.com/DrozmotiX/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
 
-## Tado ioBroker适配器
-tado°确保舒适健康的气候，同时节省多达31％的暖气费用。
+## IoBroker 的 tado 适配器
+tado° 确保舒适健康的气候，同时节省高达 31% 的取暖费用。
 
 ＃＃ 支持我
-如果您喜欢我的作品，请随时提供个人捐款（这是DutchmanNL的个人捐款链接，与ioBroker项目无关！[![捐赠]（https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.tado/master/admin/button.png）](http://paypal.me/DutchmanNL)]
+如果您喜欢我的作品，请随时提供个人捐赠（这是 DutchmanNL 的个人捐赠链接，与 ioBroker 项目无关！[![捐赠](https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
+
+## V0.3.x 中的重大更改
+从 0.2.x 升级到 v0.3.x 包括具有重大变化的技术重构（例如，温度设置现在位于 tado.[x]].[yyyyy]].Rooms.[z].setting.temperature。摄氏度）。
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+
+### 0.3.0-4 (2021-06-04)
+* (HGlab01) Technical re-factoring of state management !BREAKING CHANGES! (see above)
+* (HGlab01) implement offset functionality
+* (HGlab01) Set minimum refresh time to 30 seconds
+* (HGlab01) Bump iobroker-jsonexplorer to v0.1.0
+
+### 0.2.7 (2021-05-11)
+* (HGlab01) prepare for js-controller v3.3.x (has wrong type "xxxx" but has to be "yyyy") (#214)
+* (HGlab01) improve state creation by using iobroker-jsonexplorer
+* (HGlab01) improve CPU usage (#192)
+* (HGlab01) add attribute enabledFeatures (#226)
+
+### 0.2.6 (2021-03-20)
+* (HGlab01) apply formatting for main.js
+* (HGlab01) add quickActionsEnabled (#164)
+* (HGlab01) support HOT_WATER devices (#138)
+* (HGlab01) support AIR_CONDITIONING devices (#146)
+* (HGlab01) Implement pool handling for setZoneOverlay
+* (HGlab01) fix issue: state has no existing object (#184)
+* (HGlab01) add cleaning function for existing timer 'polling'
+* (HGlab01) state_attr.js: attribute 'support' was defined twice
 
 ### 0.2.5 (2020-12-16)
 * (HGlab01) add childLockEnabled
@@ -109,7 +134,7 @@ tado°确保舒适健康的气候，同时节省多达31％的暖气费用。
 * (DutchmanNL) reset states to NULL when polling time * 2 no data is received
 
 ### 0.0.7 Improve overlay states
-* (DutchmanNL) improve overlay states  (https://github.com/iobroker-community-adapters/ioBroker.tado/issues/1)
+* (DutchmanNL) improve overlay states  (https://github.com/DrozmotiX/ioBroker.tado/issues/1)
 
 ### 0.0.6 Implemented away status
 * (DutchmanNL) Implemented away status

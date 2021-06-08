@@ -14,7 +14,7 @@
             "en": "Structure of the documentation",
             "de": "Aufbau der Doku",
             "ru": "Структура документации",
-            "zh-cn": "文件结构"
+            "zh-cn": "文档的结构"
           },
           "content": "intro/README.md"
         }
@@ -33,7 +33,7 @@
             "en": "ioBroker basics",
             "de": "ioBroker Grundlagen",
             "ru": "Основы ioBroker",
-            "zh-cn": "ioBroker基础"
+            "zh-cn": "ioBroker 基础知识"
           },
           "content": "basics/README.md"
         },
@@ -60,7 +60,7 @@
             "en": "Repositories",
             "de": "Repositories",
             "ru": "Репозитории",
-            "zh-cn": "储存库"
+            "zh-cn": "存储库"
           },
           "content": "basics/repositories.md"
         },
@@ -197,7 +197,7 @@
                 "en": "Linux",
                 "de": "Linux",
                 "ru": "Linux",
-                "zh-cn": "的Linux"
+                "zh-cn": "Linux"
               },
               "content": "install/linux.md"
             },
@@ -264,7 +264,7 @@
           "title": {
             "en": "System settings",
             "de": "Systemeinstellungen",
-            "ru": "Настройки системы",
+            "ru": "Системные настройки",
             "zh-cn": "系统设置"
           },
           "content": "admin/settings.md"
@@ -292,7 +292,7 @@
             "en": "Instances",
             "de": "Instanzen",
             "ru": "Экземпляры",
-            "zh-cn": "实例数"
+            "zh-cn": "实例"
           },
           "content": "admin/instances.md"
         },
@@ -328,7 +328,7 @@
             "en": "Events",
             "de": "Ereignisse",
             "ru": "События",
-            "zh-cn": "大事记"
+            "zh-cn": "活动"
           },
           "content": "admin/events.md"
         },
@@ -346,7 +346,7 @@
             "en": "Hosts",
             "de": "Hosts",
             "ru": "Хосты",
-            "zh-cn": "主持人"
+            "zh-cn": "主机"
           },
           "content": "admin/hosts.md"
         }
@@ -410,7 +410,7 @@
                     "en": "Widgets",
                     "de": "Widgets",
                     "ru": "Виджеты",
-                    "zh-cn": "小部件"
+                    "zh-cn": "小工具"
                   },
                   "content": "viz/widgets.md"
                 },
@@ -571,7 +571,7 @@
             "en": "The Redis database for ioBroker",
             "de": "Die Redis-Datenbank für IoBroker",
             "ru": "Redis",
-            "zh-cn": "ioBroker的Redis数据库"
+            "zh-cn": "ioBroker 的 Redis 数据库"
           },
           "content": "config/redis.md"
         },
@@ -762,7 +762,7 @@
                 "en": "Style guide documentation",
                 "de": "Styleguide Dokumentation",
                 "ru": "Документация руководства по стилю",
-                "zh-cn": "样式指南文档"
+                "zh-cn": "风格指南文档"
               },
               "content": "community/styleguidedoc.md"
             },
@@ -771,7 +771,7 @@
                 "en": "Markdown",
                 "de": "Markdown",
                 "ru": "Уценка",
-                "zh-cn": "降价促销"
+                "zh-cn": "降价"
               },
               "content": "community/docmarkdown.md"
             }
@@ -792,7 +792,7 @@
             "en": "Guide for adapter developers",
             "de": "Eigener Adapter",
             "ru": "Собственный адаптер",
-            "zh-cn": "自己的适配器"
+            "zh-cn": "自带适配器"
           },
           "content": "dev/adapterdev.md"
         },
@@ -874,7 +874,7 @@
             "en": "Testing",
             "de": "Testing",
             "ru": "Тестирование",
-            "zh-cn": "测验"
+            "zh-cn": "测试"
           },
           "content": "dev/adaptertesting.md"
         },
@@ -883,7 +883,7 @@
             "en": "Documentation template",
             "de": "Dokumentation-Template",
             "ru": "Шаблон документации",
-            "zh-cn": "文件范本"
+            "zh-cn": "文档模板"
           },
           "content": "dev/adapterdoctemplate.md"
         },
@@ -892,7 +892,7 @@
             "en": "Documentation style guide",
             "de": "Dokumentation-Styleguide",
             "ru": "Руководство по стилю документации",
-            "zh-cn": "文档样式指南"
+            "zh-cn": "文档风格指南"
           },
           "content": "dev/adapterdocstyleguide.md"
         },
@@ -901,7 +901,7 @@
             "en": "Style guide UI",
             "de": "Styleguide UI",
             "ru": "Руководство по стилю UI",
-            "zh-cn": "样式指南UI"
+            "zh-cn": "风格指南 UI"
           },
           "content": "dev/styleguideui.md"
         },
@@ -944,9 +944,9 @@
         "How to add the device to alexa or google home": {
           "title": {
             "en": "How to add the device to alexa or google home",
-            "de": "So fügen Sie das Gerät zu alexa oder google home hinzu",
+            "de": "So fügen Sie das Gerät zu Alexa oder Google Home hinzu",
             "ru": "Как добавить устройство в alexa или google home",
-            "zh-cn": "如何将设备添加到Alexa或Google Home"
+            "zh-cn": "如何将设备添加到 alexa 或 google home"
           },
           "content": "dev/adddevice.md"
         }
@@ -965,7 +965,7 @@
             "en": "System Integrators - Introduction",
             "de": "System-Integratoren - Einleitung",
             "ru": "Системные интеграторы - Введение",
-            "zh-cn": "系统集成商-简介"
+            "zh-cn": "系统集成商 - 简介"
           },
           "content": "integrators/README.md"
         },
@@ -974,7 +974,7 @@
             "en": "System integrators - link box",
             "de": "System-Integratoren - Link-Box",
             "ru": "Системные интеграторы - поле ссылок",
-            "zh-cn": "系统集成商-链接盒"
+            "zh-cn": "系统集成商 - 链接盒"
           },
           "content": "integrators/linkbox.md"
         }

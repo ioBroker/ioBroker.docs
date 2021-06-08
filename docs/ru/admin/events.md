@@ -4,7 +4,7 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/admin/events.md
-hash: +KFMmCj/chMyEZB/QW+TFWarAfGD1U+w6FxSkTJrUbw=
+hash: 5xQhxMr82Fyb7tKpihP3Sp/Vj7as6+yQvCM9e0k1ZGI=
 ---
 На этой вкладке отображаются текущие состояния всех точек данных.
 Здесь нельзя изменить значения.
@@ -49,7 +49,7 @@ hash: +KFMmCj/chMyEZB/QW+TFWarAfGD1U+w6FxSkTJrUbw=
 Это также параметры фильтра
 
 ### 5 - источник
-Здесь указывается, какой экземпляр внес последнее изменение в точку данных.
+Это указывает, какой экземпляр внес последнее изменение в точку данных.
 
 Вы можете отфильтровать их в этом столбце.
 

@@ -3,10 +3,8 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.esphome/README.md
 title: ioBroker.esphome
-hash: E454mMb+nPjhHG6HRyFwJRxALtjTn4+6hZk2i/fgT2Q=
+hash: Dt7exYpicamV8Dz7Cp/guOqRF3n5zPg3tNjA2xrdMX4=
 ---
-![Логотип](../../../en/adapterref/iobroker.esphome/admin/esphome.png)
-
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.esphome.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.esphome.svg)
 ![Количество установок (последнее)](http://iobroker.live/badges/esphome-installed.svg)
@@ -14,6 +12,8 @@ hash: E454mMb+nPjhHG6HRyFwJRxALtjTn4+6hZk2i/fgT2Q=
 ![Статус зависимости](https://img.shields.io/david/DrozmotiX/iobroker.esphome.svg)
 ![Известные уязвимости](https://snyk.io/test/github/DrozmotiX/ioBroker.esphome/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.esphome.png?downloads=true)
+
+<img src="./admin/esphome.png" width="10%" height="10%" align="center">
 
 # IoBroker.esphome
 [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/ESPHome/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
@@ -30,8 +30,8 @@ hash: E454mMb+nPjhHG6HRyFwJRxALtjTn4+6hZk2i/fgT2Q=
 
 Этот адаптер использует [esphome-native-api] (https://github.com/Nafaya/esphome-native-api#readme) со всеми кредитами @Nafaya для взаимодействия с [ESPHome API](https://esphome.io/components/api.html?highlight=api)!
 
-## [Документация](https://DrozmotiX.github.io/languages/en/ESPHome/)
-Всю нашу документацию по адаптерам можно найти в [Страница документации DrozmotiX](https://DrozmotiX.github.io/languages/en/ESPHome)
+## [Документация](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/)
+Всю нашу документацию по адаптерам можно найти в [Страница документации DrozmotiX](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/).
 
 ## Предварительные требования
     * NodeJS> = 12.x
@@ -49,49 +49,44 @@ api:
 ### Пример конфигурации
 Пример конфигурации, дополнительные примеры см. В [Страница документации DrozmotiX] (https://DrozmotiX.github.io) или [ESPHome Documentation](https://esphome.io/index.html)
 
-```
-esphome:
-  name: sensor_badkamer
-  platform: ESP32
-  board: esp-wrover-kit
+<details><summary>Показать пример конфигурации</summary>
 
-wifi:
-  use_address: 192.168.10.122
-  ssid: "xxxxx"
-  password: "xxxxxx"
+esphome: name: sensor_badkamer platform: ESP32 board: esp-wrover-kit
 
-# Enable ESPHome API
-api:
-    password: 'MyPassword'
-# Activate i2c bus
-i2c:
-  sda: 21
-  scl: 22
-  scan: True
-  id: bus_a
+Wi-Fi: use_address: 192.168.10.122 ssid: «xxxxx» пароль: «xxxxxx»
 
-# Example configuration for bh1750
-sensor:
-  - platform: bh1750
-    name: "Hal_Illuminance"
-    address: 0x23
-    measurement_time: 69
-    update_interval: 10s
+    # Включить ESPHome API
+api: пароль: 'MyPassword'
 
-# Example configuration for an GPIO output
-output:
-  - platform: gpio
-    pin: 12
-    inverted: true
-    id: gpio_12
+# Активировать шину i2c i2c: sda: 21 scl: 22 scan: True id: bus_a
+    # Пример конфигурации для bh1750
+    датчик:
 
-# Example configuration linking a switch to the previous defined output
-switch:
-  - platform: output
-    name: "Generic Output"
-    output: 'gpio_12'
+      - платформа: bh1750
 
-```
+имя: "Hal_Illuminance" адрес: 0x23 измерение_время: 69 интервал_обновления: 10 с
+
+    # Пример конфигурации для выхода GPIO
+    выход:
+
+      - платформа: gpio
+
+контакт: 12 перевернутый: true id: gpio_12
+
+    # Пример конфигурации, связывающей переключатель с предыдущим определенным выходом
+    выключатель:
+
+      - платформа: выход
+
+name: Вывод «Общий вывод»: 'gpio_12' </details>
+
+## Миграция Tasmota / ESPEasy
+Переход с предыдущих настроек Sonoff Tasmota или ESPEasy очень прост. Вам просто нужно, чтобы ESPHome создал для вас двоичный файл, а затем загрузил его в веб-интерфейс.
+Для получения более подробной информации см. Наш [Страница документа](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/06.migration.html)
+
+.. Примечание::
+
+    Сгенерированные файлы yaml хранятся в ```/opt/iobroker/node_modules/iobroker.esphome/config/>device<.yaml```
 
 ## Поддержите меня
 Если вам нравятся мои работы, рассмотрите возможность личного пожертвования (это личная ссылка для пожертвований для DutchmanNL, не имеющая отношения к проекту ioBroker!) [![Пожертвовать] (https://raw.githubusercontent.com/DrozmotiX/ioBroker.sourceanalytix/main/admin/button.png)](http://paypal.me/DutchmanNL)
@@ -103,7 +98,15 @@ switch:
     ### __WORK IN PROGRESS__
 -->
 
-### 0.2.0-0 (2021-03-27) Native Integration of ESPHome Dashboard
+### 0.2.1-1 (2021-03-30)
+* (DutchmanNL) add cover component
+* (DutchmanNL) add transitionLength for lights
+
+### 0.2.1-0 (2021-03-30)
+* (DutchmanNL) Logging improved, solves [#48](https://github.com/DrozmotiX/ioBroker.esphome/issues/48)
+* (DutchmanNL) Name of states changed, solves [#49](https://github.com/DrozmotiX/ioBroker.esphome/issues/49)
+
+### 0.2.0 (2021-03-29)
 * (DutchmanNL) Translations updated
 * (DutchmanNL) Configuration page updated
 * (DutchmanNL) Added to sentry error reporting

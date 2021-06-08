@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/adapterref/iobroker.hm-rega/README.md
 title: HomeMatic ReGaHSS
-hash: 5nzOtddjd6p/3BVJJkfR7yHWPQUqVm2mcbdsP7tvrkM=
+hash: G+XgC3bx73W0XgVhW1GkYuvI38TcQQgIsp3P1ggWznM=
 ---
 ![logo](../../../de/adapterref/iobroker.hm-rega/media/homematic.png)
 
@@ -22,7 +22,7 @@ It synchronizes real names, system variables, rooms, trades and programs between
 
 If several central units are to be integrated into ioBroker, a separate instance must be installed and configured for each central unit.
 
-With the installation of ReGaHSS an instance of the adapter "hm-rpc" is also installed, which should be configured and activated in advance.
+When ReGaHSS is installed, an instance of the "hm-rpc" adapter is also installed, which should be configured and activated in advance.
 
 One instance of this adapter can manage up to 5 different instances of the Homematic RPC adapter, which provide different services (each service requires its own RPC instance):
 
@@ -30,7 +30,7 @@ One instance of this adapter can manage up to 5 different instances of the Homem
 - hs485d (Wired) (for wired bus components)
 - CuxD (additional software to provide a universal interface)
 - Homematic IP (IP-supported components)
-- Virtual Devices
+- Virtual devices
 
 ### Requirements before installation
 - Homematic Gateway (CCU / CCU2 / CCU3…) *or*
@@ -61,12 +61,12 @@ The required services are then activated and linked to the appropriate HM-RPC in
 
 Polling
 
-If activated, the RegaHSS data is regularly queried by the CCU, based on the seconds set in the Intervals field. The interval should not be set too low, as too frequent polling can lead to the CCU crashing.
+If activated, the RegaHSS data is regularly queried by the CCU, based on the seconds set in the Intervals field. The interval should not be set too low, as too frequent polling can lead to a crash of the CCU.
 
 Trigger
 
 In order to minimize the active queries from ioBroker to the RegaHSS, a trigger can also push the data on the CCU within a program when changes are made.
-A virtual button on the CCU that is triggered in a CCU program can be used for this. By default, this is the BidCosRF.50.PRESS_SHORT key (see sample program).
+A virtual button on the CCU can be used for this, which is triggered in a CCU program. By default, this is the BidCosRF.50.PRESS_SHORT key (see sample program).
 
 ### Synchronize area
 Here the user can specify which information is to be transferred from the CCU to ioBroker. The corresponding objects and data points are then created in ioBroker.
@@ -80,7 +80,7 @@ Here the user can specify which information is to be transferred from the CCU to
 - Trades: Activates the transfer of trades and a list of them
 
 ### Additional settings area
-Here the user can decide whether https (encrypted and tap-proof connection) should be used. If activated, the user name and the associated password are required
+Here the user can decide whether https (encrypted and tap-proof connection) should be used. If activated, the username and password must be entered
 
 Once all settings have been made, the configuration page is closed with the command "save and close" (button below the settings area). The adapter is closed and the instance is started with the new values.
 

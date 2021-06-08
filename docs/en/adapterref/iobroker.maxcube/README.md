@@ -19,6 +19,9 @@ Before using you must first connect all devices to MAX! Cube via MAX! Firmware.
 
 ## Changelog
 
+### 1.0.5 (2021-05-20)
+* (thost96) added test for node 16 and updated documentation
+
 ### 1.0.4 (2021-05-08)
 * (thost96) fixes for issues found by adapter checker (issue #31)
 
