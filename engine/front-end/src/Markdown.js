@@ -642,7 +642,9 @@ class Markdown extends Router {
                 <div key="title" className={this.props.classes.titleText}>{this.state.header.title}</div>
             ]}</h1>);
             if (this.state.header.readme) {
-                const link = this.state.header.readme.replace(/blob\/master\/README.md$/, '');
+                const link = this.state.header.readme
+                    .replace(/blob\/master\/README.md$/, '')
+                    .replace(/blob\/main\/README.md$/, '');
                 data.push(<IconButton key="github" title={I18n.t('Open repository')} onClick={() => Utils.openLink(link)}><IconGithub/></IconButton>);
             }
         }

@@ -244,7 +244,8 @@ function getReadme(lang, dirName, repo, adapter) {
     // download readme
     const readme = repo.readme
         .replace('github.com', 'raw.githubusercontent.com')
-        .replace('/blob/master/', '/master/');
+        .replace('/blob/master/', '/master/')
+        .replace('/blob/main/', '/main/');
 
     return getUrl(readme)
         .then(readmeDoc => {
@@ -295,7 +296,10 @@ function getReadme(lang, dirName, repo, adapter) {
                             relative = relative.join('/') + '/';
                             results.forEach(item => {
                                 item.relative = relative;
-                                item.editLink = item.link.replace('/master/', '/edit/master/').replace('raw.githubusercontent.com', 'github.com');
+                                item.editLink = item.link
+                                    .replace('/master/', '/edit/master/')
+                                    .replace('/main/', '/edit/main/')
+                                    .replace('raw.githubusercontent.com', 'github.com');
                             });
 
                             results[0].link = relative + 'README.md';
@@ -488,7 +492,11 @@ function processAdapterLang(adapter, repo, lang, content) {
                     content.pages[repo.type].pages[adapter].description   = repo.desc;
                     content.pages[repo.type].pages[adapter].titleFull     = repo.titleLang || repo.title;
                     content.pages[repo.type].pages[adapter].created       = repo.created;
-                    content.pages[repo.type].pages[adapter].github        = repo.readme.replace('/blob/master/README.md', '').replace('raw.githubusercontent.com', 'github.com');
+                    content.pages[repo.type].pages[adapter].branch        = repo.readme.match(/\/blob\/([-_a-z0-9]+)\//) ? repo.readme.match(/\/blob\/([-_a-z0-9]+)\//)[1] : 'master';
+                    content.pages[repo.type].pages[adapter].github        = repo.readme
+                        .replace('/blob/master/README.md', '')
+                        .replace('/blob/main/README.md', '')
+                        .replace('raw.githubusercontent.com', 'github.com');
 
                     return Promise.all(results.map(result =>
                         downloadImagesForReadme(lang, repo, result)
@@ -631,9 +639,17 @@ function copyAdapterToFrontEnd(lang, adapter) {
                         if (!repo[adapter].readme) {
                             console.error(`Adapter ${adapter} has no readme. Please fix it!!!!`);
                         } else {
-                            link = repo[adapter].readme.replace('/blob/master/README.md', '')
-                                .replace('/master/README.md', '')
-                                .replace('github.com', 'raw.githubusercontent.com') + '/master/' + file.replace(dirName.endsWith('/') ? dirName : dirName + '/', '');
+                            if (repo[adapter].readme.indexOf('/main/')) {
+                                link = repo[adapter].readme
+                                    .replace('/blob/main/README.md', '')
+                                    .replace('/main/README.md', '')
+                                    .replace('github.com', 'raw.githubusercontent.com') + '/main/' + file.replace(dirName.endsWith('/') ? dirName : dirName + '/', '');
+                            } else {
+                                link = repo[adapter].readme
+                                    .replace('/blob/master/README.md', '')
+                                    .replace('/master/README.md', '')
+                                    .replace('github.com', 'raw.githubusercontent.com') + '/master/' + file.replace(dirName.endsWith('/') ? dirName : dirName + '/', '');
+                            }
                         }
                     }
 
@@ -641,7 +657,10 @@ function copyAdapterToFrontEnd(lang, adapter) {
                         body:     text,
                         relative: dirName,
                         link:     file,
-                        editLink: link.replace('raw.githubusercontent.com', 'github.com').replace('/master/', '/edit/master/')
+                        editLink: link
+                            .replace('raw.githubusercontent.com', 'github.com')
+                            .replace('/master/', '/edit/master/')
+                            .replace('/main/', '/edit/main/')
                     }).then(result => {
                         if (result) {
                             utils.writeSafe(`${consts.FRONT_END_DIR + lang}/adapterref/iobroker.${adapter}${result.name}`, result.body);

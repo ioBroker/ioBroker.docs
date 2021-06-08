@@ -84,7 +84,11 @@ class Editor extends Component {
     }
 
     load(path) {
-        path = (path || this.props.path).replace(/\/edit\/master\/|\/edit\/engine\//, '/master/').replace('github.com', 'raw.githubusercontent.com');
+        path = (path || this.props.path)
+            .replace(/\/edit\/master\/|\/edit\/engine\//, '/master/')
+            .replace(/\/edit\/main\//, '/main/')
+            .replace('github.com', 'raw.githubusercontent.com');
+
         if (path) {
             fetch(path)
                 .then(res => res.text())
