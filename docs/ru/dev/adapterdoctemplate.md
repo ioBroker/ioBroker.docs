@@ -4,9 +4,9 @@ lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adapterdoctemplate.md
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
-hash: hRDZ9tHsP1S4T38BJqbTomoyaJfJq/U9sroihjXdOl4=
+hash: aMIAyAyQuyMcxAVsHhH2hAYItlEb5HbGe42fHJ0L0VU=
 ---
-# Шаблон для создания документации по адаптеру
+# Шаблон для создания документации адаптера
 ?> ***Это заполнитель*** .<br><br> Помогите с ioBroker и расширьте эту статью. Обратите внимание на [Руководство по стилю ioBroker](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md), чтобы изменения можно было легко применить.
 
 ```

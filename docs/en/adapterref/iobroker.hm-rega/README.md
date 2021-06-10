@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/adapterref/iobroker.hm-rega/README.md
 title: HomeMatic ReGaHSS
-hash: G+XgC3bx73W0XgVhW1GkYuvI38TcQQgIsp3P1ggWznM=
+hash: 5nzOtddjd6p/3BVJJkfR7yHWPQUqVm2mcbdsP7tvrkM=
 ---
 ![logo](../../../de/adapterref/iobroker.hm-rega/media/homematic.png)
 
@@ -61,7 +61,7 @@ The required services are then activated and linked to the appropriate HM-RPC in
 
 Polling
 
-If activated, the RegaHSS data is regularly queried by the CCU, based on the seconds set in the Intervals field. The interval should not be set too low, as too frequent polling can lead to a crash of the CCU.
+If activated, the RegaHSS data is regularly queried by the CCU, based on the seconds set in the Intervals field. The interval should not be set too low, since too frequent polling can lead to a crash of the CCU.
 
 Trigger
 

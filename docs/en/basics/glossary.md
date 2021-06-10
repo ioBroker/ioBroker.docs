@@ -5,7 +5,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/glossary.md
 title: no title
-hash: YHltgX7oCBrfgffqJry+MOvUzBLV28rn4SoXbROJAMc=
+hash: pNXghnzEUIUGnqswpze2CJ8dmBmPOIWjCZiDbzPOvVA=
 ---
 To make it easy to get started and to make further help easier to understand, the most important terms that appear in and around the ioBroker are explained here.
 
@@ -40,11 +40,11 @@ Homematic devices are available in radio and wired versions (wired bus).
 
 * **CSS**
 
-Cascading style sheets. Using CSS, the presentation of websites can be described independently of the content. As a supplement to the page structure defined in HTML, CSS defines how the page is displayed.
+Cascading style sheets. The presentation of websites can be described independently of the content using CSS. As a supplement to the page structure defined in HTML, CSS defines how the page is displayed.
 
 * **Cubietruck / Cubieboard 3**
 
-Single-board computer similar to Raspberry PI / Odroid, but with SATA interface and 2GB RAM
+Single board computer similar to Raspberry PI / Odroid, but with SATA interface and 2GB RAM
 
 * **Device**
 
@@ -64,7 +64,7 @@ In multihost mode there are several hosts, one of which is the master and the ot
 
 * **HTML**
 
-Hypertext Markup Language. A page description language (basis of the WWW), which is used to display content (text, links, graphics, videos, etc.) in web browsers.
+Hypertext Markup Language. A page description language (based on the WWW) that is used to display content (text, links, graphics, videos, etc.) in web browsers.
 
 * **Instance**
 
@@ -73,7 +73,7 @@ There are different reasons why multiple instances are used.
 For example, you can test with a second instance of the JavaScript adapter without the risk of important scripts failing, since only the test instance is affected in the event of an error.
 
 Most adapters can start several instances in order to be able to address several devices of the same type or with the same protocol. An instance corresponds to a running process on the host.
-Example: 2 Hue bridges are to be integrated into ioBroker. Since only one bridge can be configured per adapter, a 1st and a 2nd instance of the Hue adapter are simply created and each bridge is configured in the corresponding instance of the adapter. The instantiation also makes it easy to tell the data points apart, since the object structure is preceded by the instance name (e.g. hue.0 and hue.1).
+Example: 2 Hue bridges are to be integrated into ioBroker. Since only one bridge can be configured per adapter, a 1st and a 2nd instance of the Hue adapter are simply created and each bridge is configured in the corresponding instance of the adapter. The instantiation also makes it easy to distinguish between the data points, since the object structure is preceded by the instance name (e.g. hue.0 and hue.1).
 
 * **Javascript**
 
@@ -90,15 +90,15 @@ A channel groups thematically related states and is usually located under a devi
 
 * **Master**
 
-The master is the host, which is responsible for the administration of all instances (including the instances of the slaves!). When the master is terminated, the slave instances are also terminated. The master provides the central object and status databases for all slaves, to which all slaves connect.
+The master is the host, which is centrally responsible for the administration of all instances (including the instances of the slaves!). When the master is terminated, the slave instances are also terminated. The master provides the central object and status databases for all slaves, to which all slaves connect.
 
 * **Multihost mode**
 
-The multihost mode of ioBroker can be used to distribute the control tasks to several computers if these require special interfaces (e.g. reading out electricity meters in the basement). Furthermore, several hosts can be used to distribute the load or the memory consumption evenly. In multihost mode, one host is defined as the master; all others are slaves. The master controls all slaves and also the distribution of the instances to the slaves.
+The multihost mode of ioBroker can be used to distribute the control tasks to several computers if these require special interfaces (e.g. reading out electricity meters in the basement). Furthermore, several hosts can be used in order to distribute the load or the memory consumption evenly. In multihost mode, one host is defined as the master; all others are slaves. The master controls all slaves and also the distribution of the instances to the slaves.
 
 * **Node-Red**
 
-Graphic programming interface in which finished modules (nodes) can be linked to complex programs by simple chaining (flow).
+Graphic programming surface in which finished modules (nodes) can be linked to complex programs by simple chaining (flow)
 
 * **Objects and states**
 
@@ -108,16 +108,16 @@ Graphic programming interface in which finished modules (nodes) can be linked to
 
 Objects describe a state in more detail and provide meta information, configuration and description of this. An object has a type, e.g. host, adapter, instance, enumeration, device, channel or data point ...
 
-The metadata also define the data type of the state, e.g. number, boolean, string and also how the state should be displayed in the visualization interfaces.
+The metadata also define the data type of the state, e.g. number, boolean, string and also how the state should be displayed in visualization interfaces.
 
 * **Odroid**
 
-Single board computer similar to a Raspberry PI. There are several versions with different hardware equipment.
+Single-board computer similar to a Raspberry PI. There are several versions with different hardware equipment.
 
 * **Parser adapter**
 
 An adapter that is made up of texts regardless of their origin by specifying so-called.
-Regular expressions, cuts out parts that can then be written into states. These values can then be used in scripts and the like. further processed.
+Regular expressions, cuts out parts that can then be written into states. These values can then be used in scripts and the like. are further processed.
 
 * **Raspberry PI**
 
@@ -125,7 +125,7 @@ Credit card-sized single-board computer (developed by the Raspberry PI Foundatio
 
 * **Redis**
 
-A no-SQL database that holds your data in memory and can be used in ioBroker to store status data. Is optionally used to increase the performance, since no access to a hard drive, SSD or SD card is necessary for write and read actions. To use a Redis DB with ioBroker, this must be specified in the js-controller basic configuration.
+A no-SQL database that holds your data in memory and can be used in ioBroker to store status data. Is used optionally to increase the performance, since no access to a hard drive, SSD or SD card is necessary for write and read actions. To use a Redis DB with ioBroker, this must be specified in the js-controller basic configuration.
 
 * **State**
 
@@ -133,7 +133,7 @@ A no-SQL database that holds your data in memory and can be used in ioBroker to 
 
 * **vis**
 
-The VIS adapter allows you to create your own operating and visualization interfaces for ioBroker and to display them on various devices. The surfaces are put together from customizable widgets and your own HTML code and their appearance can be changed using CSS.
+The VIS adapter allows you to create your own operating and visualization interfaces for ioBroker and to display them on various devices. The surfaces are composed of customizable widgets and your own HTML code and their appearance can be changed using CSS.
 
 * **Widget**
 

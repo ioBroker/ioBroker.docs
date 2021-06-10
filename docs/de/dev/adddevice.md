@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adddevice.md
 title: So fügen Sie das Gerät zu Alexa oder Google Home hinzu
-hash: 7LOEqf58Vo+Ne7CyV77jozHsy8UjnC7Ghl8TQAR8aD0=
+hash: KJyj2QNgNPa29Jr/BcB/QJi6yPa8ucW5nGzTU+4Hr+A=
 ---
 # So fügen Sie das Gerät zu Alexa oder Google Home hinzu
 Um das Gerät hinzuzufügen, haben wir 4 Schritte:
@@ -37,7 +37,7 @@ Alle anderen Zustände (Leistung, Solltemperatur) sind noch vorhanden.
 
 ## Typ Detektor
 Nachdem alle benötigten Rollen hinzugefügt oder gefunden wurden, muss der Typ Detektor erweitert werden.
-Fügen Sie der globalen Liste einen neuen Gerätetyp hinzu: https://github.com/ioBroker/ioBroker.type-detector/blob/master/index.js#L29 Nehmen Sie ein Gerät als Basis und kopieren Sie es in die `patterns` von die `ChannelDetector` Klasse.
+Fügen Sie der globalen Liste einen neuen Gerätetyp hinzu: https://github.com/ioBroker/ioBroker.type-detector/blob/master/index.js#L29 Nehmen Sie ein Gerät als Basis und kopieren Sie es in die `patterns` von die Klasse `ChannelDetector`.
 Der Typdetektor muss irgendwie zwischen Geräten unterscheiden, daher muss Ihr Gerät eindeutige Rollen haben.
 Wir nehmen `level.temperature` und `level.mode.thermostat` als spezifisches Muster für Klimaanlagen und markieren diese beiden Zustände als `required`.
 Die meisten komplexen Geräte müssen in der Liste ganz oben stehen, damit sie zuerst erkannt werden und am Ende immer einfachere Geräte kommen.

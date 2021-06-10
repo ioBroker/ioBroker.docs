@@ -123,6 +123,9 @@ Auch die Repositorien und Sicherheitseinstellungen können hier eingestellt werd
 Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitts zu erreichen.
 
 ## Changelog
+### 5.1.9 (2021-06-09)
+* (bluefox) Corrected some GUI errors
+
 ### 5.1.8 (2021-06-06)
 * (bluefox) Improved the list of predefined icons
 
@@ -134,9 +137,6 @@ Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitt
 
 ### 5.1.5 (2021-05-30)
 * (bluefox) Fix edit of enumeration
-
-### 5.1.4 (2021-05-27)
-* (bluefox) Corrected error in log
 
 ## License
 

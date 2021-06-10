@@ -4,17 +4,17 @@ lastChanged: 03.12.2019
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/tutorial/restore.md
-hash: 9SyQw5gWCDpvFS0ksEa7NULgmuancyWYV7tkASkVhpg=
+hash: 6M6JLNd7LLD21j0ulNOqyghHCguiQLMi21AkSJnTYyY=
 ---
 # Basics
 How is a restore of the ioBroker installation correctly carried out on a Linux system?
 
 ### Preface:
-Since some users find it very difficult to restore, step-by-step instructions for restoring after a crash, or after a hardware change, system change or something else should help.
+Since some users find it very difficult to restore, step-by-step instructions for restoring after a crash, or after a hardware change, system change, or something else should help.
 
-Basically, however, you can say one thing in advance: a restore can be done in a few minutes if executed correctly and nobody needs to be afraid of it.
+Basically, one can say one thing in advance: a restore can be done in a few minutes if executed correctly and nobody needs to be afraid of it.
 
-In the end, all data is available again and a new system was set up.
+In the end, all data is available again and a new system has been set up.
 
 ### Preparation:
 An executable ioBroker installation is essential for the preparation.
@@ -23,9 +23,9 @@ There are 2 ways to do this.
 Either take a finished image from [Download area](https://www.iobroker.net/#de/download), set up your own Linux OS and install ioBroker according to this [manual](https://www.iobroker.net/#de/documentation/install/linux.md).
 
 ### Next Step
-If the old system had saved the states and / or objects in Redis, the new system must first be equipped with the Redis server.
+If the old system saved the states and / or objects in Redis, the new system must first be equipped with the Redis server.
 
-If you are not sure whether Redis was used and there is still access to the old system, use the command `iobroker status` to call up the required information. "When using Redis, the output looks like this:
+If you are not sure whether Redis was used and there is still access to the old system, use the command `iobroker status` to get the required information. "When using Redis, the output looks like this:
 
 ```
 iobroker is running on this host.
@@ -75,7 +75,7 @@ There are also 2 options:
 #### **1. Automatic restore with backup **
 Since no Linux knowledge is required here, and the whole thing is done via the Iobroker web interface, the variant of the automatic restore using [Backitup](https://github.com/simatec/ioBroker.backitup/blob/master/README.md) takes place first.
 
-To do this, the adapter Backitup must be installed.
+The adapter Backitup must be installed for this.
 This is done via the "Adapter" tab. Search for Backitup there and install an instance using the (+).
 
 Once the installation is complete, you save the "ioBroker backup" created previously by the old system on your new system with an sftp program such as FileZilla or WinSCP in the path / opt / iobroker / backups.
@@ -139,7 +139,7 @@ Depending on the size of the installation and the speed of your computer and the
 
 Congratulations, the newly installed system is now complete with all settings, scripts, visualizations, etc.
 
-With Backitup there is now the possibility of restoring further data, if this was backed up on the old system in advance.
+With Backitup there is now the possibility of restoring further data, if this was also backed up on the old system in advance.
 You can restore the Redis database, the Zigbee database, the mySql database and your history data with the same steps as described above.
 
 The list of retrieved backups would then look like this in the example.
@@ -157,13 +157,13 @@ First a backup folder has to be created:
 sudo mkdir /opt/iobroker/backups
 ```
 
-Here, too, the backup created on the old system and, if necessary, Redis backup, zigbee backup etc.
+Here, too, the backup created on the old system and, if necessary, Redis backup, zigbee backup, etc. is then carried out using an sftp program such as FileZilla or WinSCP.
 placed in the folder / opt / iobroker / backups.
 
 If states and objects were saved in the Redis DB, the saved Redis database should be restored here first.
 If only the states were running under Redis, this does not necessarily have to be in advance.
 
-Once this is done, you stop your ioBroker as follows:
+If this is done, you stop your ioBroker as follows:
 
 ```
 iobroker stop

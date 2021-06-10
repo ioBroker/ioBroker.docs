@@ -171,6 +171,13 @@ The forecast values can then be used to set the MinSoC of the battery, enable or
 
 ## Changelog
 
+### 2.2.0
+- Fixed state value types for new version of js-controller  
+  Warning: Please delete state object scb.export.LastExportOk after update and restart adapter
+- Allow providing a custom port for connection to converter
+- Allow using https connection to converter
+- Fixed some state object types
+
 ### 2.1.9
 - Fixed met.no rain forecast value
 

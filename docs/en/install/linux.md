@@ -4,7 +4,7 @@ lastChanged: 05.12.2020
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/linux.md
-hash: 2bivwGfw76TUKQErCbAT6AH3p+ON+LdhtpJDarp9e0Q=
+hash: 0RSomjzprx5ZN1ThmqOllojkXxchwdAmnMTCBbjJ9OQ=
 ---
 # IoBroker installation on Linux
 !> These instructions do NOT apply to finished images of the website! However, manual installation is preferable to an image.
@@ -25,7 +25,7 @@ or any other hardware with a common Linux. However, Debian, Ubuntu or one of the
 
 We do not recommend using a Pi 1 as a master. It's just not powerful enough (500MB RAM, etc.). Due to the different hardware, these instructions do not fit a Pi 1 anyway.
 
-Even a Pi 2 or Pi 3 only has a maximum of 1 GB RAM. With 15 adapter instances this should be sufficient, but beyond that it can be tight. Each adapter instance requires around 40 MB (and sometimes 200MB and more) of RAM. You should therefore always keep an eye on the RAM usage before activating further adapter instances - 1 GB of RAM is finite.
+Even a Pi 2 or Pi 3 only has a maximum of 1 GB RAM. With 15 adapter instances this should still be sufficient, but beyond that it can be tight. Each adapter instance requires around 40 MB (and sometimes 200MB and more) of RAM. You should therefore always keep an eye on the RAM usage before activating additional adapter instances - 1 GB of RAM is finite.
 
 Therefore the Raspberry4 with 4, better 8 GB RAM is recommended from the Raspberry series.
 
@@ -54,7 +54,7 @@ Root access for SSH can be activated.
 For the well-known safety aspects, we advise against it. For the installation of ioBroker it is sufficient to use the command sudo and prefix the respective command.
 
 ### Installation Node.js
-!> with the current installer from ioBroker (see below) **on a system without node.js** the currently recommended version of node.js is automatically installed! A separate installation of node.js beforehand is **no longer necessary**
+!> with the current ioBroker installer (see below) **on a system without node.js** the currently recommended version of node.js is automatically installed! A separate installation of node.js beforehand is **no longer necessary**
 
 The following instructions should also be used when downgrading.
 
@@ -78,7 +78,7 @@ Depending on the OS used, the update can also be carried out using ``sudo apt up
 
     ``npm -v``
 
-only if **ALL** these commands do not produce a result (i.e. no longer display the version number) continue with step 4. of this section, otherwise, or if the version does not correspond to the desired, do the following beforehand:
+only if **ALL** these commands do not produce a result (i.e. no longer display the version number) continue with step 4 of this section, otherwise, or if the version does not correspond to the desired, do the following beforehand:
 
 3. Uninstall the existing node & node.js versions
 

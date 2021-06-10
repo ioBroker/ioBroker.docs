@@ -80,6 +80,9 @@ Parameters here are:
 
 ## Changelog
 
+## 1.2.4 (2021-06-09) 
+* (jack-blackson) Small bugfixes, translations
+
 ## 1.2.3 (2021-05-27) 
 * (jack-blackson) Small bugfixes, translations
 

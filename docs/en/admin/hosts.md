@@ -4,7 +4,7 @@ lastChanged: 07.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/hosts.md
-hash: b/cl0uw+yfoPT0T/XNqIz/AUhBq050Wlkmzg4UG42hI=
+hash: vui0+3EZSKz2XJdrrGwCONv3my8EhEnFlpgcAu982o0=
 ---
 The available hosts are displayed here.
 
@@ -13,7 +13,7 @@ The available hosts are displayed here.
 In a standard system there is only one host. In the case of a multihost system, several.
 
 ## The title line
-in the title line there are icons for the most important processes. There is context help for each icon. To do this, simply hold the mouse on the icon for a while.
+in the title line there are icons for the most important processes. There is context help for each icon. Simply stay on the icon with the mouse for a while.
 
 The icons in detail:
 
@@ -37,7 +37,7 @@ The following icons are used to manage the hosts:
 The name of the host can be changed here. This name must be unique.
 
 ### 5 - Restart host
-With this button the corresponding host can be restarted. Clicking on it corresponds to the reboot command.
+The corresponding host can be restarted with this button. Clicking on it corresponds to the reboot command.
 
 ### 6 - Remove host
 This button is only available for slaves. If a slave has been removed from the multihost environment, all objects belonging to this host can also be removed with it.

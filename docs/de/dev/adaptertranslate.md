@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adaptertranslate.md
 title: Übersetzung von Adapter
-hash: L2W7WsInFLrJZUsGZg0wORin1/ZdGZR0Zd1zpbnKDjo=
+hash: 8XvB1Gq0qo9gVlIP2+QfpMZ3OQTE+OfKgPD94WrJdcQ=
 ---
 # Übersetzung von Adaptern
 ## Einführung

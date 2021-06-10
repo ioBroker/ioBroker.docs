@@ -4,14 +4,14 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/log.md
-hash: SF9PSkEVT8mItnrGcqW4liNccrJ/ZhU4DElrk63Agz4=
+hash: 66gpVVstVxHlQUyyBYv8juocwLyP/pXvD9q5MXSJDlE=
 ---
 The system's messages are continuously output here. The latest message is at the top.
 
 ![The log page](../../de/admin/media/ADMIN_Log_numbers.png)
 
 ## The title line
-in the title line there are icons for the most important processes. There is context help for each icon. To do this, simply hold the mouse on the icon for a while.
+in the title line there are icons for the most important processes. There is context help for each icon. Simply stay on the icon with the mouse for a while.
 
 ### 1 - update log
 This button updates the list.
@@ -27,7 +27,7 @@ Clicking on this icon only deletes the list on the screen
 By clicking on this icon, the entire log on the host is permanently deleted.
 
 ### 5 - Download log
-With this button you can download a complete daily log of the last days from the directory / opt / iobroker / logs:
+With this button you can download a complete daily log of the last few days from the directory / opt / iobroker / logs:
 
 ![Log download](../../de/admin/media/ADMIN_Log_download.png)
 

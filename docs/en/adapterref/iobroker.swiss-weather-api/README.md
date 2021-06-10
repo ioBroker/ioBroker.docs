@@ -62,6 +62,12 @@ The first query is made 10s after the adapter was started. After the first start
 
 ## Changelog
 
+### 0.9.5
+* (baerengraben)  Some small improvements
+
+### 0.9.4
+* (baerengraben)  Bugfix: https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/47 
+
 ### 0.9.3
 * (baerengraben)  Function Update: Added day_name to identify weekday from "forecast.day.day0.day_name" to "forecast.day.day7.day_name". 
 * (baerengraben)  Added last_run as Object on swiss-weather-api.0.info.lastrun.
@@ -141,7 +147,7 @@ The first query is made 10s after the adapter was started. After the first start
 ## License
 MIT License
 
-Copyright (c) 2020 baerengraben <baerengraben@intelli.ch>
+Copyright (c) 2021 baerengraben <baerengraben@intelli.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tr-064/README.md
 title: ioBroker.tr-064
-hash: rN4KkHkTgQi739/0GZDQZ274L23nvqhd+4OxJHA44Ww=
+hash: D59HzSVYkdStJaSDx6e91FA6u2/6TTOD7QeUisJd0X0=
 ---
 ![商标](../../../en/adapterref/iobroker.tr-064/media/tr-064.png)
 
@@ -26,7 +26,7 @@ hash: rN4KkHkTgQi739/0GZDQZ274L23nvqhd+4OxJHA44Ww=
 
 例如：**610[,超时]
 
-- 使用外部号码时，振铃状态会将您连接到外部号码。
+- 使用外线号码时，振铃状态会将您连接到外线号码。
 
 当被叫电话被拿起时，FritzBox 将呼叫外部号码，您的默认电话将响铃。
 默认电话可以在 FritsBox 下配置：Telefonie/Anrufe/[Tab]Wahlhilfe/Wählhilfe verwenden
@@ -34,7 +34,7 @@ hash: rN4KkHkTgQi739/0GZDQZ274L23nvqhd+4OxJHA44Ww=
 ### ToPauseState
 - 值：环、连接、结束
 - 可用于在来电（振铃）或拿起电话（连接）时暂停视频播放器。
-- 可以在最终值上完成恢复。
+- 恢复可以在最终值上完成。
 
 ＃＃＃ 在场
 您可以配置要收听的设备列表。
@@ -90,7 +90,7 @@ command = {
 
 ### 启用呼叫监控
 要使用呼叫监控功能，必须首先在 AVM Fritz!Box 中启用它。
-要启用呼叫监视器，请拨 ```#96*5*``` 并且 TCP/IP 端口 1012 将被打开。要关闭端口拨号 ```#96*4*```。
+要启用呼叫监控，请拨 ```#96*5*``` 并且 TCP/IP 端口 1012 将被打开。要关闭端口拨号 ```#96*4*```。
 
 ### 预发布版本
 预发布版本在 npm 上可用，标签为 dev。

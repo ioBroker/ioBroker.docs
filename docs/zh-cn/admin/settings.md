@@ -4,7 +4,7 @@ lastChanged: 27.03.2019
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/admin/settings.md
-hash: 02egT4dS8FPOlfDkZM4zQwt/5ydE8a4Uba+M1PJ66n8=
+hash: s6o2Rv2JpMj2fiMJqFO3Z5NSWJCOg8Boyq6qyw/Ih4Q=
 ---
 #系统设置
 通过屏幕标题栏中的扳手图标，可以从管理员的每个菜单点访问系统设置。
@@ -16,7 +16,7 @@ hash: 02egT4dS8FPOlfDkZM4zQwt/5ydE8a4Uba+M1PJ66n8=
 ##主要设置
 在主设置中，设置了ioBroker 的基本参数，ioBroker 中的适配器也使用这些参数。
 
-一些参数已经从主机设置中获取。
+一些参数已经从主机的设置中获取。
 
 ** 系统语言 **
 
@@ -24,7 +24,7 @@ hash: 02egT4dS8FPOlfDkZM4zQwt/5ydE8a4Uba+M1PJ66n8=
 
 ** 温度单位 **
 
-某些适配器使用此值。 °C 或 °F 是可能的。
+某些适配器使用此值。它可以是°C或°F。
 
 **货币**
 
@@ -34,15 +34,15 @@ hash: 02egT4dS8FPOlfDkZM4zQwt/5ydE8a4Uba+M1PJ66n8=
 
 选择日期在 admin 和 vis 中的显示方式。
 
-** 小数分隔符 **
+** 小数点分隔符 **
 
 浮点值的逗号或点
 
 ** 标准历史实例 **
 
-在这种情况下，默认情况下会记录数据并用于船队和人力车的图表。
+在这种情况下，默认情况下会记录数据并用于船队和人力车的图表中。
 
-如果仅安装了一个历史适配器（SQL / History / InfluxDB），则使用它，如果有多个可用，则可以选择一个。
+如果只安装了一个历史适配器（SQL/History/InfluxDB），则使用它；如果有多个，则可以选择一个。
 
 ** 活跃的托管 **
 
@@ -64,7 +64,7 @@ ioBroker 可以从不同来源获取适配器列表。在安装过程中输入�
 这是用于 SSL/HTTPS 通信的证书的中心点。这些证书由 admin、web、simple-api、socketio 使用。默认情况下安装标准证书。你不能用它验证任何东西。它们仅用于 SSL 通信。由于证书是开放的，您应该使用自己的（自签名）证书，购买真实证书或切换到 Let's Encrypt。与默认证书的通信是不安全的，如果有人想读取流量，可以这样做。请务必安装您自己的证书。
 例如。在linux下。
 
-证书可以指定为路径，也可以使用拖放完全上传
+证书可以指定为路径，也可以使用拖放方式完全上传
 
 ##让我们加密
 ![让我们加密](../../de/admin/media/ADMIN_Settings_letsencrypt.png)
@@ -81,7 +81,7 @@ Let's Encrypt 是独立互联网安全研究小组 (ISRG) 的免费、自动化�
 
 如果自动更新被激活，实例会尝试从 Let's Encrypt 请求证书并自动更新它们。
 
-首次调用相关地址时，将首次请求证书。即，如果您配置例如“sub.domain.com”作为地址，然后调用 https://sub.domain.com，则会首次请求证书，这可能需要一段时间才能得到答案。
+第一次调用相关地址时，将首次请求证书。即，如果您配置例如“sub.domain.com”作为地址，然后调用 https://sub.domain.com，则会首次请求证书，这可能需要一段时间才能得到答案。
 
 证书的颁发是一个复杂的过程，但如果您按照下面的说明进行操作，应该很容易获得免费证书。
 
@@ -101,13 +101,13 @@ Let's encrypt 总是使用端口 80 来检查地址。
 
 Let's Encrypt 服务器发送回一个质询短语以响应请求，并在一段时间后尝试在地址“http:// yourdomain: 80 / .well-known / acme-challenge /”处读取此质询短语。
 
-当服务器从我们这边收到这个挑战短语时，Let's Encrypt 服务器发送证书。这些保存在系统设置中输入的目录中。
+当服务器从我们这边得到这个挑战短语时，Let's Encrypt 服务器发送证书。这些保存在系统设置中输入的目录中。
 
 这听起来很复杂，但您所要做的就是激活几个复选框并在系统设置中输入电子邮件地址和网址。
 
 收到的证书有效期约为 90 天。首次颁发这些证书后，将启动另一项自动延长有效期的任务。
 
-这个话题非常复杂，可能会出现数以千计的问题。如果这不起作用，建议在旅途中使用 IoT 适配器进行访问。
+这个话题非常复杂，可能会出现数以千计的问题。如果这不起作用，建议在移动时使用 IoT 适配器进行访问。
 
 Let's Encrypt 仅适用于 node.js 版本> = 4.5
 
@@ -119,7 +119,7 @@ Let's Encrypt 仅适用于 node.js 版本> = 4.5
 ＃＃ 统计数据
 ![统计数据](../../de/admin/media/ADMIN_Settings_statistics.png)
 
-因此，我们对安装（使用的适配器）和地理分布有一些概述，如果我们收到此信息，我们会非常高兴。
+为了让我们对安装（使用的适配器）和地理分布有一些概述，如果我们收到这些信息，我们会非常高兴。
 
 您可以发送不同数量的信息。可以在左侧选择此范围。
 

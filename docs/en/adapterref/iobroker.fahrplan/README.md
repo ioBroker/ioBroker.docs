@@ -225,6 +225,9 @@ With +-Button new entries can be added to the table.
 	### __WORK IN PROGRESS__
 -->
 
+### __WORK IN PROGRESS__
+* (Gaudes) Advanced error reporting for HAFAS errors
+
 ### 1.1.0 (2021-06-04)
 * (Gaudes) Time offset for routes and departure tables (Git #88)
 * (Gaudes) Check if unloaded before writing/deleting objects (Sentry #7)

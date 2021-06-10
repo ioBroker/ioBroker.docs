@@ -3,41 +3,58 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.devices/README.md
 title: ioBroker.devices
-hash: BwI4wZaBzqbt1aZcKszEcHW3vHdbJgcceFvET+mdYKY=
+hash: efdaBj7R5bRViyZzeYNECStL/IJPpxighScsPt2Qm7M=
 ---
-![логотип](../../../en/adapterref/iobroker.devices/admin/devices.png)
+![Логотип](../../../en/adapterref/iobroker.devices/admin/devices.png)
 
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.devices.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.devices.svg)
 ![Статус зависимости](https://img.shields.io/david/ioBroker/iobroker.devices.svg)
 ![Известные уязвимости](https://snyk.io/test/github/ioBroker/ioBroker.devices/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.devices.png?downloads=true)
-![Трэвис-CI](http://img.shields.io/travis/ioBroker/ioBroker.devices/master.svg)
+![НПМ](https://nodei.co/npm/iobroker.devices.png?downloads=true)
+![Трэвис-Си](http://img.shields.io/travis/ioBroker/ioBroker.devices/master.svg)
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/github/ioBroker/ioBroker.devices?branch=master&svg=true)
 
 # IoBroker.devices
 ## Адаптер устройств для ioBroker
 Управляйте и создавайте устройства для использования в других адаптерах, таких как материал, iot, ...
 
-** Важно: включить вкладку в админке, например, журнал и скрипты **
+** Важно: включить вкладку в админке, например журнал и скрипты **
 
-![экран](../../../en/adapterref/iobroker.devices/img/screen.png)
+![Экран](../../../en/adapterref/iobroker.devices/img/screen.png)
 
 ** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. **
 
 ## Делать
-- клонировать существующее устройство в связанные устройства / псевдоним / javascript
-- добавить иконки для всех состояний каналов
 - добавить описания состояний
-- показать ошибки для google / alisa / alexa
-- определить, установлен ли js-controller 2.0
 
 <! - Заполнитель для следующей версии (в начале строки):
 
 ### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
-### 0.3.8 (2020-08-12)
+### 1.0.4 (2021-06-08)
+* (bluefox) Fixed some GUI errors
+
+### 1.0.1 (2021-06-07)
+* (bluefox) Added sentry
+
+### 1.0.0 (2021-06-07)
+* (bluefox) Added new devices
+
+### 0.3.16 (2021-03-11)
+* (bluefox) Fixed the error for IDs with the strange characters 
+
+### 0.3.15 (2020-12-13)
+* (bluefox) Updated the select ID dialog
+
+### 0.3.13 (2020-08-17)
+* (bluefox) Fixed errors by optional states
+
+### 0.3.12 (2020-08-16)
+* (bluefox) added the vacuum cleaner
+
+### 0.3.10 (2020-08-12)
 * (bluefox) added the air conditioner
 
 ### 0.3.6 (2020-04-17)
@@ -73,7 +90,7 @@ hash: BwI4wZaBzqbt1aZcKszEcHW3vHdbJgcceFvET+mdYKY=
 ## License
 MIT License
 
-Copyright (c) 2019-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2019-2021 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

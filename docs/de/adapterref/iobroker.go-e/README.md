@@ -3,33 +3,44 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.go-e/README.md
 title: ioBroker.go-echarger
-hash: z6Xgq5QQSdBHuRZHWfl2FDeCbmlLRy5CK6sYe9/ShmU=
+hash: 7hip1hsyJb3wxZsJ4wwU3F8pfiS5sppmGSddrs8O/zg=
 ---
 ![Logo](../../../en/adapterref/iobroker.go-e/admin/go-echarger.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.go-e.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.go-e.svg)
-![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/go-e-installed.svg)
+![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/go-e-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/go-e-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/MK-2001/iobroker.go-e.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/MK-2001/ioBroker.go-e/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/MK-2001/ioBroker.go-e/badge.svg)
 ![Build & Tests](https://img.shields.io/travis/MK-2001/ioBroker.go-e/master.svg)
 ![NPM](https://nodei.co/npm/iobroker.go-e.png?mini=true)
+![Codacy-Abzeichen](https://app.codacy.com/project/badge/Grade/34be1ff5fb7943c4aab5ec6a06f0e4a5)
+![Benachrichtigungen](https://img.shields.io/lgtm/alerts/github/MK-2001/ioBroker.go-e)
+![Codequalität](https://img.shields.io/lgtm/grade/javascript/github/MK-2001/ioBroker.go-e)
 
 # IoBroker.go-echarger
+# Verwendung von Sentry
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+
 # Die go-eCharger Wallbox
 ![Produktbild](../../../en/adapterref/iobroker.go-e/admin/go-eCharger-HOME-Wallbox.png) Weitere Informationen finden Sie unter https://go-e.co/
 
-## Go-eCharger Adapter für ioBroker
-** DE ** go-e ist eine Einladung, sich elektrisch zu bewegen. Elektromobilität ist unser Antrieb, wobei unsere Kernkompetenz die Ladetechnologie für Elektroautos ist. Von der individuellen Ladestation für E-Autos über Photovoltaik-Anschlüsse bis hin zum Lastmanagement ganzer Gebäude bieten wir ganzheitliche Systemlösungen für alle Anforderungen der modernen Elektromobilität.
+## Beachten
+Dieser Adapter läuft derzeit nur mit API v1. Die Unterstützung für die neue API v2 steht derzeit aus.
+Bitte stellen Sie sicher, dass Sie in der App die API v1.
 
-** DE ** go-e ist die Aufforderung, sich elektrisch zu bewegen. Die e-Mobilität ist unser Antrieb, unsere unsere Kernkompetenz die Ladetechnik für Elektroautos ist. Von der grundlegenden Ladestation für E-Autos über Photovoltaik-Anbindung bis hin zum Lastmanagement
+Dieser Adapter unterstützt derzeit nur die API v1. Die Entwicklung auf die API v2 steht in der Warteschlange. Bitte stellen Sie sicher, dass in der APP die API v1 aktiviert wurde.
+![API_v1](../../../en/adapterref/iobroker.go-e/./99-docs/active_v1.jpg)
+
+## Go-eCharger Adapter für ioBroker **DE** go-e ist eine Einladung, sich elektrisch zu bewegen. E-Mobilität ist unser Antrieb, wobei unsere Kernkompetenz die Ladetechnik für Elektroautos ist. Von der einzelnen Ladestation für E-Autos über Photovoltaik-Anbindungen bis hin zum Lastmanagement ganzer Gebäude sind wir Anbieter ganzheitlicher Systemlösungen für alle Anforderungen der modernen E-Mobilität.
+**DE** go-e ist die Aufforderung, sich elektrisch zu bewegen. e-Mobilität ist unser Antrieb, wobei unsere Kernkompetenz die Ladetechnik für Elektroautos ist. Von der einzelnen Ladestation für e-Autos über Photovoltaik-Anbindung bis hin zum Lastmanagement von ganzen Gebäuden, sind wir Anbieter gesamtheitlicher Systemlösungen für alle Anforderungen der modernen e-Mobilität.
 
 ## IoBroker-Adapter Handbuch
 Das Handbuch zur Installation und Konfiguration finden Sie hier: [Adapterhandbuch](./docs/Readme.md)
 
 ## Entwicklerhandbuch
-Treten Sie der Adapter-Community https://t.me/goECharger bei
+Treten Sie der Adapter-Community bei https://t.me/goECharger
 
 Offizielle API-Dokumentation: https://github.com/goecharger/go-eCharger-API-v1
 

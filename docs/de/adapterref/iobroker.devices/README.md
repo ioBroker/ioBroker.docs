@@ -3,41 +3,58 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.devices/README.md
 title: ioBroker.devices
-hash: BwI4wZaBzqbt1aZcKszEcHW3vHdbJgcceFvET+mdYKY=
+hash: efdaBj7R5bRViyZzeYNECStL/IJPpxighScsPt2Qm7M=
 ---
 ![Logo](../../../en/adapterref/iobroker.devices/admin/devices.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.devices.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.devices.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/ioBroker/iobroker.devices.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/ioBroker/ioBroker.devices/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/ioBroker/ioBroker.devices/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.devices.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.devices/master.svg)
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/github/ioBroker/ioBroker.devices?branch=master&svg=true)
 
 # IoBroker.devices
 ## Geräteadapter für ioBroker
-Verwalten und erstellen Sie Geräte für die Verwendung in anderen Adaptern wie Material, iot, ...
+Verwalten und erstellen Sie Geräte für die Verwendung in anderen Adaptern wie Material, IOT,...
 
-** Wichtig: Registerkarte im Administrator aktivieren, z. B. Protokoll und Skripte **
+**Wichtig: Registerkarte im Admin aktivieren, wie Protokoll und Skripte**
 
 ![Bildschirm](../../../en/adapterref/iobroker.devices/img/screen.png)
 
-** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. **
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.**
 
 ## Machen
-- Klonen Sie ein vorhandenes Gerät in linkeddevices / alias / javascript
-- Fügen Sie Symbole für alle Zustände von Kanälen hinzu
-- Beschreibungen für Zustände hinzufügen
-- Fehler für Google / Alisa / Alexa anzeigen
-- Erkennen, ob js-controller 2.0 installiert ist
+- Beschreibungen für Staaten hinzufügen
 
-<! - Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __WORK IN PROGRESS__ ->
+### __ARBEITEN IN PROGRESS__ -->
 
 ## Changelog
-### 0.3.8 (2020-08-12)
+### 1.0.4 (2021-06-08)
+* (bluefox) Fixed some GUI errors
+
+### 1.0.1 (2021-06-07)
+* (bluefox) Added sentry
+
+### 1.0.0 (2021-06-07)
+* (bluefox) Added new devices
+
+### 0.3.16 (2021-03-11)
+* (bluefox) Fixed the error for IDs with the strange characters 
+
+### 0.3.15 (2020-12-13)
+* (bluefox) Updated the select ID dialog
+
+### 0.3.13 (2020-08-17)
+* (bluefox) Fixed errors by optional states
+
+### 0.3.12 (2020-08-16)
+* (bluefox) added the vacuum cleaner
+
+### 0.3.10 (2020-08-12)
 * (bluefox) added the air conditioner
 
 ### 0.3.6 (2020-04-17)
@@ -73,7 +90,7 @@ Verwalten und erstellen Sie Geräte für die Verwendung in anderen Adaptern wie 
 ## License
 MIT License
 
-Copyright (c) 2019-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2019-2021 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

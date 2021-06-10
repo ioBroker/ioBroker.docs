@@ -4,17 +4,17 @@ lastChanged: 27.03.2019
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/settings.md
-hash: 02egT4dS8FPOlfDkZM4zQwt/5ydE8a4Uba+M1PJ66n8=
+hash: s6o2Rv2JpMj2fiMJqFO3Z5NSWJCOg8Boyq6qyw/Ih4Q=
 ---
 # The system settings
-The system settings can be accessed from every menu point of the administrator via the wrench icon in the title bar of the screen.
+The system settings can be reached from every menu point of the administrator via the wrench icon in the title bar of the screen.
 
 ![The system settings](../../de/admin/media/ADMIN_Settings_main.png)
 
 The system settings are distributed over several sub-pages:
 
 ## Main settings
-In the main settings, basic parameters for ioBroker are set, which are also used by the adapters in ioBroker.
+In the main settings, basic parameters for ioBroker are set which are also used by the adapters in ioBroker.
 
 Some parameters are already taken from the host settings.
 
@@ -24,7 +24,7 @@ so you can choose between different system languages. It is possible that not al
 
 ** temperature unit **
 
-this value is used by some adapters. °C or °F is possible.
+this value is used by some adapters. It can be °C or °F.
 
 **Currency**
 
@@ -42,7 +42,7 @@ Comma or point for float values
 
 In this instance the data is logged by default and used in the charts of flot and rickshaw.
 
-If only one history adapter (SQL / History / InfluxDB) is installed, it is used, if several are available, one can be selected.
+If only one history adapter (SQL / History / InfluxDB) is installed, it is used; if there are several, one can be selected.
 
 ** Active depository **
 
@@ -81,7 +81,7 @@ If you activate the option to use certificates, but not the automatic update, th
 
 If the automatic updates are activated, the instance tries to request certificates from Let's Encrypt and updates them automatically.
 
-The certificates are requested for the first time when the relevant address is called up for the first time. I.e. if you configure e.g. “sub.domain.com” as the address and then call https://sub.domain.com, the certificates are requested for the first time, which can take a while before the answer comes.
+The certificates are requested for the first time when the relevant address is called up for the first time. I.e. if you configure e.g. “sub.domain.com” as the address and then call up https://sub.domain.com, the certificates are requested for the first time, which can take a while before the answer comes.
 
 The issuing of the certificates is a complex procedure, but if you follow the explanation below it should be easy to obtain the free certificates.
 
@@ -101,9 +101,9 @@ When the small web server is started, the request for the certificates for the s
 
 The Let's Encrypt server sends a challenge phrase back in response to the request and after a while tries to read this challenge phrase at the address “http:// yourdomain: 80 / .well-known / acme-challenge /”.
 
-When the server receives this challenge phrase back from our side, the Let's Encrypt server sends the certificates. These are saved in the directory that is entered in the system settings.
+When the server receives this challenge phrase back from us, the Let's Encrypt server sends the certificates. These are saved in the directory that is entered in the system settings.
 
-This sounds complex, but all you have to do is activate a few checkboxes and enter the email address and web address in the system settings.
+This sounds complex, but all you have to do is activate a few checkboxes and enter the email address and the web address in the system settings.
 
 The certificates received are valid for about 90 days. After these certificates have been issued for the first time, another task is started which automatically extends the validity.
 
@@ -123,5 +123,5 @@ So that we have a bit of an overview of the installations (adapters used) and th
 
 You can send different amounts of information. This scope can be selected on the left.
 
-The exact form in which this data is sent is then displayed on the right.
+The exact form in which this data is sent is then displayed on the right-hand side.
 This data is evaluated absolutely anonymously.

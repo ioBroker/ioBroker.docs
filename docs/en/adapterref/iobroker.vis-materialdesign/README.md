@@ -5250,7 +5250,12 @@ JSON string must be an array of objects with the following properties:
 	<tbody>
 		<tr>
 			<td>listType</td>
-			<td>type of list</td>
+			<td>type of list
+				<ul>
+					<li>buttonToggleValueTrue: is only on if the value equals the condition 'on'</li>
+					<li>buttonToggleValueFalse: is only off if the value equals the condition 'off'</li>
+				</ul>
+			</td>
 			<td>string</td>
 			<td>text | buttonState | buttonToggle | buttonToggleValueTrue | buttonToggleValueFalse | buttonNav | buttonLink</td>
 		</tr>
@@ -5261,11 +5266,11 @@ JSON string must be an array of objects with the following properties:
 			<td/>
 		</tr>
 		<tr>
-			<td>fullRow</td>
-			<td>display element over whole row</td>
-			<td>boolean</td>
-			<td>false | true</td>
-		</tr>		
+			<td>usePercentOfRow</td>
+			<td>item use x percent of row.</td>
+			<td>number</td>
+			<td>0 = auto</td>
+		</tr>
 		<tr>
 			<td>buttonStateValue</td>
 			<td>value for button state</td>
@@ -5386,6 +5391,24 @@ JSON string must be an array of objects with the following properties:
 			<td>boolean</td>
 			<td>false | true</td>
 		</tr>
+		<tr>
+			<td>visibilityOid</td>
+			<td>Object Id for visibility</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>visibilityCondition</td>
+			<td>visibility condition</td>
+			<td>string</td>
+			<td>== | != | <= | >= | < | > | consist | not consist | exist | not exist</td>
+		</tr>
+		<tr>
+			<td>visibilityConditionValue</td>
+			<td>value for visibility condition</td>
+			<td>string</td>
+			<td/>
+		</tr>				
 	</tbody>
 </table>
 
@@ -12880,11 +12903,14 @@ The adapter uses the following libraries:
 -->
 
 <!-- omit in toc -->
-### __WORK IN PROGRESS__
+### 0.5.8 (2021-06-09)
 * (Scrounger) Top App Bar Widget: new layout 'auto' added - change between modal and permanent layout depending on screen resolution. [Details see documentation!](#layout-auto)
 * (Scrounger) Top App Bar Widget: option added to set value on click at item that toggle submenu
-* (Scrounger) IconList Widget: option added to show single element over whole row
+* (Scrounger) IconList Widget: option added to set used space per row for every items
+* (Scrounger) IconList Widget: option added to set visibility condition for every items ([#118](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/118))
 * (Scrounger) IconList Widget: bug fix for applying active color ([#176](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/176))
+* (Scrounger) Grid Widget: bug fix for visibility condition
+* (Scrounger) Masonry Widget: bug fix for visibility condition
 
 <!-- omit in toc -->
 ### 0.5.7 (2021-05-26)
@@ -12932,10 +12958,6 @@ The adapter uses the following libraries:
 * (Scrounger) Documentation revised
 * (Scrounger) materialdesignicons library updated to v5.9.55
 * (Scrounger) bug fixes
-
-<!-- omit in toc -->
-### 0.4.2 (2020-12-29)
-* (Scrounger) vis-google-fonts dependency removed
 
 <!-- omit in toc -->
 ## License

@@ -4,7 +4,7 @@ lastChanged: 13.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/config/multihost.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: 7p04RSBKSqzT7tsDxGIcpCudxD5hddp6qX54ZYOCAEE=
+hash: gH4zuuZ+a67CUc09gI901hft2T4V48aHFUypPcHeiak=
 ---
 # The multihost operation
 ioBroker is able to have the tasks done by several servers. This allows the processing load to be distributed across multiple hosts.
@@ -94,7 +94,7 @@ Example:**
 * Normal LAN (for PC, tablet, use.) = 192.168.178.0/24
 * IoT LAN (for Shelly, cameras, etc.) = 10.20.30.0/24
 
-... the multihost automatic (“sudo iobroker multihost enable” and “sudo iobroker multihost browse“) does not work, only the old way (`iobroker setup custom`) see above
+... the multihost automatic (“sudo iobroker multihost enable” and “sudo iobroker multihost browse“) does not work, but only the old way (`iobroker setup custom`) see above
 
 ## Multihost with redis
 If a multihost environment is to be installed in which the states are saved in redis, there are still a few things to consider.
@@ -132,11 +132,11 @@ sudo service redis-server restart
 ## Distribute tasks
 There are two ways to distribute the tasks among the hosts.
 
-* If it is a new installation, select the host on which the instance of the adapter is to be installed in the Adapter tab from the pulldown menu above the adapter list.
+* If it is a new installation, select the host on which the instance of the adapter is to be installed in the Adapter tab from the pull-down menu above the adapter list.
 
 Then add the instance there by clicking on the (+) in the right column.
 
-* If you have already installed a large number of adapters on a host, you can change the assignment of the instances that have already been installed in the Instances tab.
+* If you have already installed many adapters on a host, you can change the assignment of the installed instances in the Instances tab.
 
 ## Delete host
 To delete a host, activate the expert mode in the objects admin tab of the master and activate the host selection in the Type column. Then delete the desired host.
@@ -150,4 +150,4 @@ Then please edit the file in which this occurs with the nano Editor. Right at th
 
 ```> IP Address of the host is 127.0.0.1. It accepts no connections. Please change.```
 
-if you didn't do ``` setup custom ``` on the master system
+if you did not do ``` setup custom ``` on the master system

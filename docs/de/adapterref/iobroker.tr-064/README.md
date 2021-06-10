@@ -4,14 +4,14 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tr-064/README.md
 title: ioBroker.tr-064
-hash: rN4KkHkTgQi739/0GZDQZ274L23nvqhd+4OxJHA44Ww=
+hash: D59HzSVYkdStJaSDx6e91FA6u2/6TTOD7QeUisJd0X0=
 ---
 ![Logo](../../../en/adapterref/iobroker.tr-064/media/tr-064.png)
 
 #ioBroker.tr-064
 ### Die Info
 Dieser Adapter liest die wichtigsten Informationen der AVM Fritz!Box, wie Anrufliste oder Anzahl der Nachrichten auf dem Anrufbeantworter.
-Auf dieser Grundlage [AVM-Dokumentationen](https://avm.de/service/schnittstellen/)
+Auf dieser Grundlage [AVM Dokumentationen](https://avm.de/service/schnittstellen/)
 
 ### Einfache Zustände und Funktionen
 - WLAN für 2,4 GHz und 5 GHz ein-/ausschalten,
@@ -44,9 +44,9 @@ Kann durch mDNS ausgelöst werden. Bei Verwendung von MDNS ist kein Polling erfo
 Kann ein-/ausgeschaltet werden.
 Der Zustand cbIndex kann auf die Adresse # des Anrufbeantworters gesetzt werden.
 
-### Anrufmonitor
+### Anrufüberwachung
 Der Callmonitor erstellt Echtzeitstatus für jeden eingehenden und ausgehenden Anruf.
-Wenn das Telefonbuch aktiviert ist (Standard), werden Nummern in Namen aufgelöst. Es gibt auch einen Status, der auf ein klingelndes Telefon hinweist.
+Wenn das Telefonbuch aktiviert ist (Standard), werden Nummern in Namen aufgelöst. Es gibt auch einen Status, der ein klingelndes Telefon anzeigt.
 
 ### Telefonbuch
 - Das Telefonbuch, falls aktiviert, wird verwendet, um den Namen der Telefonnummer des Anrufers abzurufen.
@@ -86,7 +86,7 @@ command = {
 };
 ```
 
-Der Befehlsstatus sollte auf einen JSON der obigen Zeilen gesetzt werden. Also { ... } (ohne Befehl = und Zeilenumbrüche) Der Rückruf des Aufrufs setzt den Befehlsergebnis-Zustand.
+Der Befehlsstatus sollte auf einen JSON der obigen Zeilen gesetzt werden. Also { ... } (ohne Befehl = und Zeilenumbrüche) Der Rückruf des Aufrufs setzt den Befehlsergebniszustand.
 
 ### Anrufüberwachung aktivieren
 Um die Anrufüberwachung nutzen zu können, muss diese zunächst in der AVM Fritz!Box aktiviert werden.
