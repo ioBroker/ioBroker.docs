@@ -1000,6 +1000,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.tr-064/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.traccar/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.tradfri/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.trashschedule/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.trivum/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.tunnelbroker-endpoint-updater/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.tuya/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.tvprogram/README.md
@@ -1439,6 +1440,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.tr-064/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.traccar/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.tradfri/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.trashschedule/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.trivum/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.tunnelbroker-endpoint-updater/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.tuya/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.tvprogram/README.md
@@ -1878,6 +1880,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.tr-064/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.traccar/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.tradfri/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.trashschedule/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.trivum/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.tunnelbroker-endpoint-updater/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.tuya/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.tvprogram/README.md
@@ -2317,6 +2320,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.tr-064/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.traccar/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.tradfri/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.trashschedule/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.trivum/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.tunnelbroker-endpoint-updater/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.tuya/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.tvprogram/README.md

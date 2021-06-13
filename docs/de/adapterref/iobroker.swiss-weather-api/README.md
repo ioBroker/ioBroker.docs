@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.swiss-weather-api/README.md
 title: ioBroker.swiss-weather-api
-hash: WDW3IjUe7KhQ2OQJWNA7w+d4L8Tuoh94bV8IPdkC0VM=
+hash: vnDfTZn2qAakTnrpH7PNW+q/yfQg9T8TudfRJ/INW5Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
 
@@ -28,7 +28,7 @@ Meine Empfehlung für das Update von 0.3.2 auf 0.9.x lautet also:
 
 - Entfernen Sie den alten Adapter, bevor Sie Version 0.9.x installieren.
    - Bitte beachten Sie, dass auch die Datenobjekte entsprechend entfernt werden.
-- Erstellen Sie eine neue Freemium-App auf dem srg-Entwicklerportal (https://developer.srgssr.ch/apis/srf-weather)
+- eine neue Freemium-App auf dem srg-Entwicklerportal erstellen (https://developer.srgssr.ch/apis/srf-weather)
 - neue Version 0.9.x installieren und Konfiguration mit neuem Consumerkey und Consumersecret einstellen
   - Beim Start erstellt der neue Adapter neue, andere Datenobjekte.
 
@@ -37,7 +37,7 @@ Verbindet sich mit der großartigen SRF-Wetter-API (https://developer.srgssr.ch/
 Mit der SRF Weather REST API können Sie Wettervorhersagen und Berichte von mehr als 25.000 Orten in der ganzen Schweiz abrufen. Ein "Freemium"-Abonnement ermöglicht es Ihnen, 50 Anfragen/Tag zu erhalten.
 
 #****Symbole**
-Seit Version 0.1.8 bietet SRG-SSR eigene Icons. Jeder Datenpunkt liefert also eine URL zur entsprechenden Wetterlage (Farb-, Dunkel- und Lichtsymbole).
+Seit Version 0.1.8 bietet SRG-SSR eigene Icons. Jeder Datenpunkt liefert also eine URL zur entsprechenden Wetterlage (Color, Dark und Light Icons).
 
 #***Bitte beachten Sie, dass dieser Adapter nur Standorte innerhalb der Schweiz unterstützt.**
 ### Einstieg
@@ -52,7 +52,8 @@ Seit Version 0.1.8 bietet SRG-SSR eigene Icons. Jeder Datenpunkt liefert also ei
    1. Längengrad / Breitengrad des gewählten Schweizer Standorts, für den eine Vorhersage benötigt wird. => Bitte Dezimalgrad verwenden (zum Beispiel Zürich: 47.36667 / 8.5)
    1. Abfrageintervall in Minuten (Standardmäßig 30 Minuten - 50 Anfragen/Tag)
 
-Die erste Abfrage erfolgt 10s nach dem Start des Adapters. Nach dem ersten Start wird die Abfrage regelmäßig entsprechend dem Konifugationsparameter (Poll Interval in Minutes) ausgeführt
+Die erste Abfrage erfolgt 10s nach dem Start des Adapters. Nach dem ersten Start wird die Abfrage regelmäßig entsprechend dem Konifugationsparameter (Poll-Intervall in Minuten) ausgeführt.
+Die Objekte in outlook.current_hour werden 30s nach dem ersten Start erstellt und stündlich aktualisiert, indem die entsprechenden Werte aus Forecast.60minutes kopiert werden.
 
 ### Visualisierungsbeispiel
 ###### Voraussetzung:
@@ -64,6 +65,12 @@ Die erste Abfrage erfolgt 10s nach dem Start des Adapters. Nach dem ersten Start
 ![Tablette](../../../en/adapterref/iobroker.swiss-weather-api/doc/Wettervorhersage_visu_anim.gif)
 
 ## Changelog
+
+### 0.9.5
+* (baerengraben)  Some small improvements
+
+### 0.9.4
+* (baerengraben)  Bugfix: https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/47 
 
 ### 0.9.3
 * (baerengraben)  Function Update: Added day_name to identify weekday from "forecast.day.day0.day_name" to "forecast.day.day7.day_name". 
@@ -143,7 +150,7 @@ Die erste Abfrage erfolgt 10s nach dem Start des Adapters. Nach dem ersten Start
 ## License
 MIT License
 
-Copyright (c) 2020 baerengraben <baerengraben@intelli.ch>
+Copyright (c) 2021 baerengraben <baerengraben@intelli.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -61,6 +61,14 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+### 0.73.0
+
+• Neue Icons hinzugefügt (Hobbies/Train)
+
+### 0.72.0
+
+• Neue Icons hinzugefügt (Hobbies/Train)
+
 ### 0.71.0
 
 • Neue Icons hinzugefügt (Devices/Computer)

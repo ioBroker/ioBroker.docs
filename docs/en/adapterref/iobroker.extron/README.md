@@ -55,6 +55,12 @@ If you are a non commercial organisation or use it for private use you can get a
 ### 0.1.1
 * (mschlgl) extend device/database structure to add devices CP82, SME211, SMD202
 
+### 0.1.2
+* (mschlgl) extend device/database structure to add user flash memory
+
+### 0.1.3
+* (mschlgl) fixes on device communication and user flash file management
+
 ## License
 Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
 

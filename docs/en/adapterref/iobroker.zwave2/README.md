@@ -40,6 +40,18 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.10.2 (2021-06-10)
+Upgraded to `zwave-js` version `7.7.3`. Notable changes include:
+* Improved how dropped invalid messages are logged in the Z-Wave logfile
+* Improved handling of the legacy `alarmType` and `alarmLevel` values under some circumstances
+* Improved handling of notification values for devices that support `Notification CC` version 2
+* Improved how some devices with incorrect capability reports are queried
+* Endpoints of multi channel devices should now always be queried with the correct CC version
+* Throttled some automatic queries
+* Avoid a situation where multiple instances of the adapter try to access the same cache files, potentially corrupting them
+* Improved behavior of secure communication when transmission failures are involved
+* Several new and improved config files
+
 ### 1.10.1 (2021-05-24)
 Removed some warnings about wrong state value types in JS-Controller 3.3
 Upgraded to `zwave-js` version `7.5.1`. Notable changes include:
@@ -70,21 +82,6 @@ Upgraded to `zwave-js` version `7.1.0`. Notable changes include:
 * Several stability improvements
 
 For a full list of changes, check out https://github.com/zwave-js/node-zwave-js/blob/master/CHANGELOG.md
-
-### 1.9.0 (2021-03-16)
-* Upgraded to `zwave-js` version 7
-* Nodes with a completed interview are no longer queried for all their values when restarting. As a result the adapter is now ready much much faster after a restart, but you'll see many yellow values until the devices have sent updated data.
-* The device list in the configuration dialog now displays a better type for the devices, for example `Wall Controller` instead of `Routing Slave`
-* Network heal no longer times out early in large networks
-* Fixed a crash: `supportedCCs is not iterable`. If this happens to you, re-interview affected devices.
-* Relaxed the checks when a report gets mapped from the root endpoint to higher endpoints
-* Some encrypted messages that were previously dropped are now accepted
-* Prevent the interview of sleeping nodes to get stuck until a re-interview under certain circumstances
-* After a restart, sleeping nodes have their status correctly determined even if they weren't interviewed completely before
-* Notification variables are now auto-idled after 5 minutes as it was intended, not after 5 hours
-* The `deltaTime` and `previousValue` values for the Meter CC are now hidden
-* Fixed a crash that could happen after node inclusion
-* Tons of new and improved device configuration files
 
 ## License
 

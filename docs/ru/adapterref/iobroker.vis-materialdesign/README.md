@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-materialdesign/README.md
 title: Виджеты материального дизайна для ioBroker VIS
-hash: Hi81kgDyekH1Z72C8T8TDVg3zOpHWXegVQPNA3cBcDQ=
+hash: f44Q7Tu0clIY9cCO/GVWID/Sd08qjn6XttPaIURIs98=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/admin/vis-materialdesign.png) <! - пропустить в toc ->
 
@@ -134,6 +134,7 @@ hash: Hi81kgDyekH1Z72C8T8TDVg3zOpHWXegVQPNA3cBcDQ=
 - [Свойства HTML] (# html-properties-28)
 - [Верхняя панель приложений] (# верхняя панель приложений)
 - [Настройки редактора] (# editor-settings-27)
+- [Свойства меню JSON] (# menu-json-properties-2)
 - [Подменю] (# подменю)
 - [Подменю JSON Properties] (# submenu-json-properties)
 - [Диаграммы] (# диаграмм)
@@ -1783,7 +1784,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 
 ** Подсказка: использование с виджетом «Просмотр в виджете 8» **
 
-Для правильной работы с виджетом «вид в виджете 8» вам необходимо определить медиа-правило CSS.
+Для правильной работы с виджетом «просмотр в виджете 8» вам необходимо определить медиа-правило CSS.
 
 * Сначала назначьте виджету «Общее правило CSS», например с именем `my-view-in-widget8`.
 * Затем добавьте в свой проект следующий CSS:
@@ -1811,12 +1812,22 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 ```
 
 * В CSS настройте разрешение в соответствии с разрешением, которое вы установили с помощью редактора VIS (в примере `max-width: 800px` и` min-width: 800px`)
-* Если вы устанавливаете индивидуальную ширину для панели меню, вам также необходимо изменить свойства 'left' и 'width' в CSS на это значение (в примере `left: 256px! Important;` и `width: calc ( 100% - 256 пикселей)! Important; `)
+* Если вы устанавливаете произвольную ширину для панели меню, вам также необходимо изменить свойства 'left' и 'width' в CSS на это значение (в примере `left: 256px! Important;` и `width: calc ( 100% - 256 пикселей)! Important; `)
 
 ### Настройки редактора
 Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание</th></tr></thead><tbody><tr><td rowspan=3><img src="doc/en/media/topappbar_settings.png"></td><td> ID объекта</td><td> должен быть установлен на точку данных от типового номера. Например, эту точку данных можно использовать в <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">представлении в виджете 8.</a></td></tr><tr><td> показать индекс элементов навигации</td><td> показывает индекс навигации перед меткой элемента. Этот номер можно использовать в <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">представлении в виджете 8</a> для определения представления, которое должно отображаться, если элемент выбран.</td></tr><tr><td> количество элементов навигации</td><td> Определите количество элементов навигации</td></tr></tbody></table>
+<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание</th></tr></thead><tbody><tr><td rowspan=6><img src="doc/en/media/topappbar_common.png"></td><td> ID объекта</td><td> должен быть установлен на точку данных от типового номера. Например, эту точку данных можно использовать в <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">представлении в виджете 8.</a></td></tr><tr><td> показать индекс элементов навигации</td><td> показывает индекс навигации перед меткой элемента. Этот номер можно использовать в <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">представлении в виджете 8</a> для определения представления, которое должно отображаться, если элемент выбран.</td></tr><tr><td> количество элементов навигации</td><td> Определите количество элементов навигации</td></tr><tr><td> резервное значение, если не в группе пользователей</td><td> если вы используете разрешения группы, вы можете определить здесь значение, на которое нужно переключиться, если пользователь не входит в группу</td></tr><tr><td> отключить резервное значение</td><td> отключить резервное значение</td></tr><tr><td> Идентификатор объекта для идентификатора или имени выбранного пункта меню</td><td> При желании вы можете указать точку данных, в которую записывается имя или идентификатор меню выбранного элемента навигации.<br> Если идентификатор меню не указан, используется текст элемента навигации. Если выбранный элемент навигации является подменю, имя или идентификатор меню соответствующего элемента навигации и элемента подменю записываются через &#39;.&#39;, Например <code>EG.Wohnzimmer</code><br><br> Например, это можно использовать для динамического создания виджетов в зависимости от выбранного элемента навигации.</td></tr><tr><td rowspan=2><img src="doc/en/media/topappbar_data.png"></td><td> метод ввода для элементов навигации</td><td> Выберите, создаются ли элементы навигации редактором VIS или строкой json.</td></tr><tr><td> Строка JSON для элементов навигации</td><td> <a href="#menu-json-properties-2">подробности см. в меню «Свойства JSON» и «Свойства подменю JSON».</a></td></tr></tbody></table>
+
+### Меню свойств JSON
+пункты меню могут быть определены строкой JSON:
+
+<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> menuId</td><td> определить пользовательский идентификатор для элемента меню, будет записан в «Идентификатор объекта для идентификатора или имени выбранного элемента меню», если он выбран</td><td> нить</td><td></td></tr><tr><td> текст</td><td> текст пункта меню</td><td> нить</td><td></td></tr><tr><td> заголовок</td><td> заголовок пункта меню</td><td> нить</td><td></td></tr><tr><td> икона</td><td> значок или изображение путь входа</td><td> нить</td><td></td></tr><tr><td> iconColor</td><td> цвет значка (не работает, если используется изображение)</td><td> цвет</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> разделитель</td><td> показать разделитель</td><td> логический</td><td> false true</td></tr><tr><td> userGroups</td><td> группы пользователей, которым разрешено просматривать эту запись и управлять ею.</td><td> массив [строка]</td><td> id групп пользователей</td></tr><tr><td> behaviorNotInUserGroup</td><td> скрыть или отключить запись, если пользователь не входит в группу пользователей</td><td> нить</td><td> скрыть, отключен</td></tr><tr><td> setValueOnMenuToggleClick</td><td> установить значение при нажатии на элемент, который переключает подменю</td><td> логический</td><td> false true</td></tr><tr><td> subMenuIconColor</td><td> цвет значка пунктов подменю (не работает, если используется изображение)</td><td> цвет</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> subMenus</td><td> Объект с элементами подменю, <a href="#submenu-json-properties">подробности см. В подменю Свойства JSON</a></td><td> массив [подменю]</td><td></td></tr></tbody></table>
+
+<! - опустить в toc ->
+
+#### Меню свойств JSON - пример
+<details> <pre><code> [ { "text": "Start", "divider": "true", "icon": "home" }, { "menuId": "EG", "text": "Erdgeschoss", "icon": "home-floor-0", "setValueOnMenuToggleClick": "true", "subMenus": [ { "menuId": "Esszimmer", "text": "Esszimmer", "icon": "table-furniture" }, { "menuId": "Wohnzimmer", "text": "Wohnzimmer", "icon": "sofa" }, { "menuId": "Kueche", "text": "Küche", "icon": "sofa" }, { "menuId": "Eingang", "text": "Eingang", "icon": "sofa" }, { "menuId": "Flur", "text": "Flur", "icon": "sofa" }, { "menuId": "Bad", "text": "Bad", "icon": "sofa" }, { "menuId": "Zimmer", "text": "Zimmer", "icon": "sofa" } ] }, { "menuId": "DG", "text": "Dachgeschoss", "icon": "home-roof", "setValueOnMenuToggleClick": "true", "subMenus": [ { "text": "Flur", "icon": "table-furniture" }, { "text": "Galerie", "icon": "sofa" }, { "text": "Schlafzimmer", "icon": "sofa" }, { "text": "Ankleide", "icon": "sofa" }, { "text": "Bad", "icon": "sofa" }, { "text": "Kinderzimmer", "icon": "sofa" } ] } ] </code></pre> </details>
 
 ### Подменю
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/drawer_subMenu.png)
@@ -1824,11 +1835,11 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 подменю должны быть определены строкой JSON:
 
 #### Подменю Свойства JSON
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> текст</td><td> текст записи</td><td> нить</td><td></td></tr><tr><td> икона</td><td> значок или изображение путь входа</td><td> нить</td><td></td></tr><tr><td> iconColor</td><td> цвет значка (не работает, если используется изображение)</td><td> цвет</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> разделитель</td><td> показать разделитель</td><td> логический</td><td> false true</td></tr><tr><td> userGroups</td><td> группы пользователей, которым разрешено просматривать эту запись и управлять ею.</td><td> массив [строка]</td><td> id групп пользователей</td></tr><tr><td> behaviorNotInUserGroup</td><td> скрыть или отключить запись, если пользователь не входит в группу пользователей</td><td> нить</td><td> скрыть, отключен</td></tr></tbody></table>
+<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> menuId</td><td> определить пользовательский идентификатор для элемента меню, будет записан в «Идентификатор объекта для идентификатора или имени выбранного элемента меню», если он выбран</td><td> нить</td><td></td></tr><tr><td> текст</td><td> текст подменю</td><td> нить</td><td></td></tr><tr><td> икона</td><td> значок или изображение путь входа</td><td> нить</td><td></td></tr><tr><td> iconColor</td><td> цвет значка (не работает, если используется изображение)</td><td> цвет</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> разделитель</td><td> показать разделитель</td><td> логический</td><td> false true</td></tr><tr><td> userGroups</td><td> группы пользователей, которым разрешено просматривать эту запись и управлять ею.</td><td> массив [строка]</td><td> id групп пользователей</td></tr><tr><td> behaviorNotInUserGroup</td><td> скрыть или отключить запись, если пользователь не входит в группу пользователей</td><td> нить</td><td> скрыть, отключен</td></tr></tbody></table>
 
 <! - опустить в toc ->
 
-#### Подменю "Свойства JSON" - пример
+##### Подменю "Свойства JSON" - пример
 <details> <pre><code> [ { "text": "subitem0", "icon": "account", "iconColor": "red" }, { "text": "subitem1", "icon": "home", "iconColor": "green", "divider": "true" }, { "text": "subitem1", "divider": "true", "icon": "/vis.0/myImages/devices/lxc_iobroker.png", "userGroups": ["administrator", "user"], "behaviorNotInUserGroup": "disabled" } ] </code></pre> </details>
 
 ## Графики
@@ -2855,7 +2866,7 @@ ical2CalendarWidget();
 
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/hauskraftwerk.gif)
 
-Просмотр для импорта через VIS Editor:<details>
+Просмотр для импорта с помощью редактора VIS:<details>
 
 ```
 {
@@ -4373,6 +4384,11 @@ ical2CalendarWidget();
     Placeholder for the next version (at the beginning of the line):	   
 	### __WORK IN PROGRESS__
 -->
+
+<!-- omit in toc -->
+### __WORK IN PROGRESS__
+* (Scrounger) Top App Bar Widget: option added to define navigation items per JSON String [Details see documentation!](#top-app-bar)
+* (Scrounger) Top App Bar Widget: option added to define an id per item
 
 <!-- omit in toc -->
 ### 0.5.8 (2021-06-09)

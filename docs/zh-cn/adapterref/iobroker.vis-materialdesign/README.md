@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-materialdesign/README.md
 title: ioBroker VIS 的材料设计小部件
-hash: Hi81kgDyekH1Z72C8T8TDVg3zOpHWXegVQPNA3cBcDQ=
+hash: f44Q7Tu0clIY9cCO/GVWID/Sd08qjn6XttPaIURIs98=
 ---
 ![商标](../../../en/adapterref/iobroker.vis-materialdesign/admin/vis-materialdesign.png) <!-- 在目录中省略 -->
 
@@ -134,6 +134,7 @@ ioBroker Material Design Widgets 基于 [Google 的材料设计指南](https://m
 - [HTML 属性](#html-properties-28)
 - [顶部应用栏](#top-app-bar)
 - [编辑器设置](#editor-settings-27)
+- [菜单 JSON 属性](#menu-json-properties-2)
 - [子菜单](#submenu)
 - [子菜单 JSON 属性](#submenu-json-properties)
 - [图表](#charts)
@@ -1011,7 +1012,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 ### 编辑器设置
 下表中未列出的设置是不言自明的。
 
-<table><thead><tr><th>截屏</th><th>环境</th><th>描述</th></tr></thead><tbody><tr><td rowspan=4><img src="doc/en/media/checkbox_settings_common.png"></td><td>切换类型</td><td>定义应切换哪种类型的数据点（布尔值或值）</td></tr><tr><td>关闭的价值</td><td>设置复选框为假的值</td></tr><tr><td>价值</td><td>设置复选框为真的值</td></tr><tr><td>状态如果值不等于“开”条件</td><td>当值与&#39;on&#39;条件不匹配时设置复选框的状态</td></tr></tbody></table>
+<table><thead><tr><th>截屏</th><th>环境</th><th>描述</th></tr></thead><tbody><tr><td rowspan=4><img src="doc/en/media/checkbox_settings_common.png"></td><td>切换类型</td><td>定义应该切换哪种类型的数据点（布尔值或值）</td></tr><tr><td>关闭的价值</td><td>设置复选框为假的值</td></tr><tr><td>价值</td><td>设置复选框为真的值</td></tr><tr><td>状态如果值不等于“开”条件</td><td>当值与&#39;on&#39;条件不匹配时设置复选框的状态</td></tr></tbody></table>
 
 ### HTML 属性
 以下属性可用作[HTML 小部件](#html-widgets)。
@@ -1058,7 +1059,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 ### 编辑器设置
 下表中未列出的设置是不言自明的。
 
-<table><thead><tr><th>截屏</th><th>环境</th><th>描述</th></tr></thead><tbody><tr><td rowspan=4><img src="doc/en/media/switch_settings_common.png"></td><td>切换类型</td><td>定义应切换哪种类型的数据点（布尔值或值）</td></tr><tr><td>关闭的价值</td><td>设置开关为假的值</td></tr><tr><td>价值</td><td>设置开关为真的值</td></tr><tr><td>状态如果值不等于“开”条件</td><td>当值与&#39;on&#39;条件不匹配时设置开关的状态</td></tr></tbody></table>
+<table><thead><tr><th>截屏</th><th>环境</th><th>描述</th></tr></thead><tbody><tr><td rowspan=4><img src="doc/en/media/switch_settings_common.png"></td><td>切换类型</td><td>定义应该切换哪种类型的数据点（布尔值或值）</td></tr><tr><td>关闭的价值</td><td>设置开关为假的值</td></tr><tr><td>价值</td><td>设置开关为真的值</td></tr><tr><td>状态如果值不等于“开”条件</td><td>当值与&#39;on&#39;条件不匹配时设置开关的状态</td></tr></tbody></table>
 
 ### HTML 属性
 以下属性可用作[HTML 小部件](#html-widgets)。
@@ -1766,7 +1767,7 @@ JSON 字符串必须是具有以下属性的对象数组：
 </详情>
 
 ## 顶部应用栏
-Top App Bar with Navigation Drawer 可以与<a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">小部件 8 中</a>的视图相结合。
+Top App Bar with Navigation Drawer 可以与<a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">小部件 8 中</a>的视图结合。
 
 <b>查看 [Material Design Widgets 示例项目](https://github.com/Scrounger/ioBroker.vis-materialdesign#online-example-project)</b>以了解其工作原理。
 
@@ -1816,7 +1817,17 @@ Top App Bar with Navigation Drawer 可以与<a href="https://www.iobroker.net/#e
 ### 编辑器设置
 下表中未列出的设置是不言自明的。
 
-<table><thead><tr><th>截屏</th><th>环境</th><th>描述</th></tr></thead><tbody><tr><td rowspan=3><img src="doc/en/media/topappbar_settings.png"></td><td> 对象 ID</td><td>必须设置为来自典型编号的数据点。例如，此数据点可以由<a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">小部件 8 中的视图使用</a></td></tr><tr><td>显示导航项的索引</td><td>在项目标签之前显示导航索引。此数字可用于<a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">小部件 8</a>中的视图，以定义选择项目时应显示的视图</td></tr><tr><td>导航项数</td><td>定义导航项的数量</td></tr></tbody></table>
+<table><thead><tr><th>截屏</th><th>环境</th><th>描述</th></tr></thead><tbody><tr><td rowspan=6><img src="doc/en/media/topappbar_common.png"></td><td>对象 ID</td><td>必须设置为来自典型编号的数据点。例如，此数据点可以由<a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">小部件 8 中的视图使用</a></td></tr><tr><td>显示导航项的索引</td><td>在项目标签之前显示导航索引。此数字可用于<a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">小部件 8</a>中的视图，以定义选择项目时应显示的视图</td></tr><tr><td>导航项数</td><td>定义导航项的数量</td></tr><tr><td>如果不在用户组中，则回退值</td><td>如果使用组权限，则可以在此处定义用户不在组中时要切换到的值</td></tr><tr><td>禁用回退值</td><td>禁用回退值</td></tr><tr><td>所选菜单项 ID 或名称的对象 ID</td><td>您可以选择指定一个数据点，其中写入所选导航元素的名称或菜单 ID。<br>如果未指定菜单 ID，则使用导航元素的文本。如果所选导航元素是子菜单，则相应导航元素和子菜单元素的名称或菜单 ID 用“.”分隔，例如<code>EG.Wohnzimmer</code><br><br>例如，这可用于根据所选导航元素动态创建小部件。</td></tr><tr><td rowspan=2><img src="doc/en/media/topappbar_data.png"></td><td>导航项的输入法</td><td>选择导航元素是由 VIS 编辑器创建还是由 json 字符串创建。</td></tr><tr><td>用于导航项的 JSON 字符串</td><td><a href="#menu-json-properties-2">详细信息请参阅菜单 JSON 属性和子菜单 JSON 属性</a></td></tr></tbody></table>
+
+### 菜单 JSON 属性
+菜单项可以由 JSON 字符串定义：
+
+<table><thead><tr><th>财产</th><th>描述</th><th>类型</th><th>价值观</th></tr></thead><tbody><tr><td>菜单ID</td><td>为菜单项定义自定义 ID，如果选中，将写入“所选菜单项 ID 或名称的对象 ID”</td><td>细绳</td><td></td></tr><tr><td>文本</td><td>菜单项的文本</td><td>细绳</td><td></td></tr><tr><td>标题</td><td>菜单项的标题</td><td>细绳</td><td></td></tr><tr><td>图标</td><td>进入的图标或图像路径</td><td>细绳</td><td></td></tr><tr><td>图标颜色</td><td>图标颜色（如果使用图像则无效）</td><td>颜色</td><td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td></tr><tr><td>分隔线</td><td>显示分隔符</td><td>布尔值</td><td>假的，真的</td></tr><tr><td>用户组</td><td>允许查看和控制此条目的用户组。</td><td>数组[字符串]</td><td>用户组id</td></tr><tr><td>行为NotInUserGroup</td><td>如果用户不属于用户组，则隐藏或禁用条目</td><td>细绳</td><td>隐藏，禁用</td></tr><tr><td>setValueOnMenuToggleClick</td><td>单击切换子菜单的项目时设置值</td><td>布尔值</td><td>假的，真的</td></tr><tr><td>子菜单图标颜色</td><td>子菜单项的图标颜色（如果使用图像则无效）</td><td>颜色</td><td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td></tr><tr><td>子菜单</td><td>带有子菜单项的对象，<a href="#submenu-json-properties">详细信息请参阅子菜单 JSON 属性</a></td><td>数组[子菜单]</td><td></td></tr></tbody></table>
+
+<!-- 在目录中省略 -->
+
+#### 菜单 JSON 属性 - 示例
+<details> <pre><code> [ { "text": "Start", "divider": "true", "icon": "home" }, { "menuId": "EG", "text": "Erdgeschoss", "icon": "home-floor-0", "setValueOnMenuToggleClick": "true", "subMenus": [ { "menuId": "Esszimmer", "text": "Esszimmer", "icon": "table-furniture" }, { "menuId": "Wohnzimmer", "text": "Wohnzimmer", "icon": "sofa" }, { "menuId": "Kueche", "text": "Küche", "icon": "sofa" }, { "menuId": "Eingang", "text": "Eingang", "icon": "sofa" }, { "menuId": "Flur", "text": "Flur", "icon": "sofa" }, { "menuId": "Bad", "text": "Bad", "icon": "sofa" }, { "menuId": "Zimmer", "text": "Zimmer", "icon": "sofa" } ] }, { "menuId": "DG", "text": "Dachgeschoss", "icon": "home-roof", "setValueOnMenuToggleClick": "true", "subMenus": [ { "text": "Flur", "icon": "table-furniture" }, { "text": "Galerie", "icon": "sofa" }, { "text": "Schlafzimmer", "icon": "sofa" }, { "text": "Ankleide", "icon": "sofa" }, { "text": "Bad", "icon": "sofa" }, { "text": "Kinderzimmer", "icon": "sofa" } ] } ] </code></pre> </details>
 
 ### 子菜单
 ![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/drawer_subMenu.png)
@@ -1824,11 +1835,11 @@ Top App Bar with Navigation Drawer 可以与<a href="https://www.iobroker.net/#e
 子菜单必须由 JSON 字符串定义：
 
 #### 子菜单 JSON 属性
-<table><thead><tr><th>财产</th><th>描述</th><th>类型</th><th>价值观</th></tr></thead><tbody><tr><td>文本</td><td>条目文本</td><td>细绳</td><td></td></tr><tr><td>图标</td><td>进入的图标或图像路径</td><td>细绳</td><td></td></tr><tr><td>图标颜色</td><td>图标颜色（如果使用图像则无效）</td><td>颜色</td><td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td></tr><tr><td>分隔线</td><td>显示分隔符</td><td>布尔值</td><td>假的，真的</td></tr><tr><td>用户组</td><td>允许查看和控制此条目的用户组。</td><td>数组[字符串]</td><td>用户组id</td></tr><tr><td>行为NotInUserGroup</td><td>如果用户不属于用户组，则隐藏或禁用条目</td><td>细绳</td><td>隐藏，禁用</td></tr></tbody></table>
+<table><thead><tr><th>财产</th><th>描述</th><th>类型</th><th>价值观</th></tr></thead><tbody><tr><td>菜单ID</td><td>为菜单项定义自定义 ID，如果选中，将写入“所选菜单项 ID 或名称的对象 ID”</td><td>细绳</td><td></td></tr><tr><td>文本</td><td>子菜单文本</td><td>细绳</td><td></td></tr><tr><td>图标</td><td>进入的图标或图像路径</td><td>细绳</td><td></td></tr><tr><td>图标颜色</td><td>图标颜色（如果使用图像则无效）</td><td>颜色</td><td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td></tr><tr><td>分隔线</td><td>显示分隔符</td><td>布尔值</td><td>假的，真的</td></tr><tr><td>用户组</td><td>允许查看和控制此条目的用户组。</td><td>数组[字符串]</td><td>用户组id</td></tr><tr><td>行为NotInUserGroup</td><td>如果用户不属于用户组，则隐藏或禁用条目</td><td>细绳</td><td>隐藏，禁用</td></tr></tbody></table>
 
 <!-- 在目录中省略 -->
 
-#### 子菜单 JSON 属性 - 示例
+##### 子菜单 JSON 属性 - 示例
 <details> <pre><code> [ { "text": "subitem0", "icon": "account", "iconColor": "red" }, { "text": "subitem1", "icon": "home", "iconColor": "green", "divider": "true" }, { "text": "subitem1", "divider": "true", "icon": "/vis.0/myImages/devices/lxc_iobroker.png", "userGroups": ["administrator", "user"], "behaviorNotInUserGroup": "disabled" } ] </code></pre> </details>
 
 ##图表
@@ -1940,7 +1951,7 @@ JSON 字符串必须是具有以下属性的对象数组：
 ![商标](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/table.gif)
 
 ### 编辑器设置
-<table><thead><tr><th>截屏</th><th>环境</th><th>描述</th></tr></thead><tbody><tr><td rowspan=2><img src="doc/en/media/table_general.png"></td><td>转变</td><td>来自具有输入数据的字符串类型的数据点，如上所示</td></tr><tr><td>数据为 JSON</td><td>可选，如果没有设置oid数据点，输入数据如上图</td></tr><tr><td rowspan=4><img src="doc/en/media/table_column.png"></td><td>颜色类型[x]</td><td>如果选择图像，对象属性必须具有图像的路径（<a href="https://github.com/Scrounger/ioBroker.vis-materialdesign#input-data">见上文</a>）</td></tr><tr><td>前缀[x]</td><td>可以使用对象属性、内部对象绑定（<a href="https://github.com/Scrounger/ioBroker.vis-materialdesign#internal-object-binding">见下文</a>）和 html 的前缀</td></tr><tr><td>后缀[x]</td><td>可以使用对象属性的后缀，内部对象绑定（<a href="https://github.com/Scrounger/ioBroker.vis-materialdesign#internal-object-binding">见下文</a>）和 html</td></tr><tr><td>排序对象名称[x]</td><td>您可以在此处定义用于排序的其他对象属性。</td></tr></tbody></table>
+<table><thead><tr><th>截屏</th><th>环境</th><th>描述</th></tr></thead><tbody><tr><td rowspan=2><img src="doc/en/media/table_general.png"></td><td>转变</td><td>来自具有输入数据的字符串类型的数据点，如上所示</td></tr><tr><td>数据为 JSON</td><td>可选，如果没有设置oid数据点，输入数据如上图</td></tr><tr><td rowspan=4><img src="doc/en/media/table_column.png"></td><td>颜色类型[x]</td><td>如果选择图像，则对象属性必须具有图像的路径（<a href="https://github.com/Scrounger/ioBroker.vis-materialdesign#input-data">见上文</a>）</td></tr><tr><td>前缀[x]</td><td>可以使用对象属性、内部对象绑定（<a href="https://github.com/Scrounger/ioBroker.vis-materialdesign#internal-object-binding">见下文</a>）和 html 的前缀</td></tr><tr><td>后缀[x]</td><td>可以使用对象属性的后缀，内部对象绑定（<a href="https://github.com/Scrounger/ioBroker.vis-materialdesign#internal-object-binding">见下文</a>）和 html</td></tr><tr><td>排序对象名称[x]</td><td>您可以在此处定义用于排序的其他对象属性。</td></tr></tbody></table>
 
 ### 数据 - JSON 结构
 输入数据必须是一个 json 对象数组。您可以使用任何属性，没有修复结构。第 0 列获取第一个属性的值，第 1 列获取第二个属性的值，依此类推。
@@ -4361,7 +4372,7 @@ html 小部件中的圆形滑块和图标按钮
 ##使用的库
 适配器使用以下库：
 
-* [Google 网页材质组件](https://github.com/material-components/material-components-web)
+* [Google Material components for web](https://github.com/material-components/material-components-web)
 * [Vuetify](https://github.com/vuetifyjs/vuetify)
 * [chartjs](https://www.chartjs.org/)
 * [来自 thomasloven 的圆形滑块](https://github.com/thomasloven/round-slider)
@@ -4373,6 +4384,11 @@ html 小部件中的圆形滑块和图标按钮
     Placeholder for the next version (at the beginning of the line):	   
 	### __WORK IN PROGRESS__
 -->
+
+<!-- omit in toc -->
+### __WORK IN PROGRESS__
+* (Scrounger) Top App Bar Widget: option added to define navigation items per JSON String [Details see documentation!](#top-app-bar)
+* (Scrounger) Top App Bar Widget: option added to define an id per item
 
 <!-- omit in toc -->
 ### 0.5.8 (2021-06-09)

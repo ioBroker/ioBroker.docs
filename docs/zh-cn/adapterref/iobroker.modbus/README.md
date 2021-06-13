@@ -3,232 +3,292 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.modbus/README.md
 title: iobroker.modbus
-hash: W78h8cDmiiVC7EQz9IpNrKqsdqu4+7O5CWHO43ZIHVY=
+hash: gNmu0hv+Aq+NEhK/K4rv7rBlSTc+rbgpabulbpGAzyI=
 ---
 ![商标](../../../en/adapterref/iobroker.modbus/admin/modbus.png)
 
 ![安装数量](http://iobroker.live/badges/modbus-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.modbus.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.modbus.svg)
-![NPM](https://nodei.co/npm/iobroker.modbus.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.modbus.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.modbus.svg)
 
-＃iobroker.modbus
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+# Iobroker.modbus
+![测试和发布](https://github.com/ioBroker/iobroker.modbus/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/modbus/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-ioBroker的ModBus从站和主站的实现。支持以下类型：
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
 
--串行Modbus RTU（主站）
--通过TCP的Modbus RTU（主站）
--Modbus TCP（从站，主站）
+ioBroker 的 ModBus Slave 和 Master 的实现。支持以下类型：
+
+- Modbus RTU 通过串行（主站）
+- 基于 TCP 的 Modbus RTU（主站）
+- Modbus TCP（从站，主站）
 
 ##设置
-###合作伙伴IP地址
-Modbus伙伴的IP地址。
+### 合作伙伴 IP 地址
+modbus 伙伴的 IP 地址。
 
 ＃＃＃ 港口
-Modbus伙伴的TCP端口（如果配置为主机（客户端））或自己的端口（如果配置为从机（服务器））。
+如果配置为主机（客户端）或自己的端口（如果配置为从机（服务器）），则 modbus 伙伴的 TCP 端口。
 
 ＃＃＃ 设备编号
-Modbus设备ID。如果使用TCP / Modbus网桥，则很重要。
+Modbus 设备 ID。如果使用 TCP/Modbus 桥接器，这一点很重要。
 
-###类型
-从站（服务器）或主站（客户端）。
+＃＃＃ 类型
+从（服务器）或主（客户端）。
 
-###使用别名作为地址
-通常，所有寄存器的地址范围都可以从0到65535。通过使用别名，您可以为每种类型的寄存器定义虚拟地址字段。一般：
+### 使用别名作为地址
+通常所有寄存器的地址都可以从 0 到 65535。通过使用别名，您可以为每种类型的寄存器定义虚拟地址字段。一般：
 
--离散量输入为10001至20000
--线圈从1到1000
--输入寄存器为30001至40000
--保持寄存器从40001到60000
+- 离散输入从 10001 到 20000
+- 线圈从 1 到 1000
+- 输入寄存器从 30001 到 40000
+- 保持寄存器从 40001 到 60000
 
-每个别名都将在内部映射到地址，例如30011将映射到输入寄存器10。依此类推。
+每个别名都将在内部映射到地址，例如30011 将被映射到输入寄存器 10。等等。
 
-###不要将地址与单词对齐
-通常，线圈和离散输入地址对齐为16位。从3到20的类似地址将与0到32对齐。
-如果启用此选项，则地址将不对齐。
+###不要将地址与字对齐
+通常，线圈和离散输入地址对齐为 16 位。从 3 到 20 的类似地址将与 0 到 32 对齐。
+如果此选项处于活动状态，地址将不会对齐。
 
-###舍入为
-逗号后的位数为float和double。
+### 圆形真实到
+浮点数和双精度数的逗号后有多少位数字。
 
-###轮询延迟
-循环轮询间隔（仅与主设备相关）
+### 轮询延迟
+循环轮询间隔（仅与 master 相关）
 
 ###重新连接时间
-重新连接间隔（仅与主设备相关）
+重连间隔（只与master相关）
 
 ###脉冲时间
-如果脉冲用于线圈，则定义脉冲间隔多长时间。
+如果脉冲用于线圈，这定义了脉冲的间隔时间。
 
-###最大读取请求长度
-命令READ_MULTIPLE_REGISTERS的最大长度，作为要读取的寄存器数。
+### 最大读取请求长度
+命令 READ_MULTIPLE_REGISTERS 的最大长度作为要读取的寄存器数。
 
-一些系统需要首先“写入请求”才能根据“读取请求”传递数据。
-您可以通过将“最大读取请求长度”设置为1来强制此模式。
+一些系统需要首先“写请求”来传递“读请求”上的数据。
+您可以通过将“最大读取请求长度”设置为 1 来强制使用此模式。
 
-**注意：**某些USB Modbus解决方案（例如，基于socat）可能无法与Serialport npm模块一起使用。
+**注意：** 某些 USB Modbus 解决方案（例如基于 socat）可能无法使用串行端口 npm 模块。
 
-有一个软件[**基于TCP的Modbus RTU <-> Modbus RTU **](http://mbus.sourceforge.net/index.html)网关，可以通过TCP协议使用串行RTU。
+有一个软件 [**Modbus RTU <-> TCP 上的 Modbus RTU**](http://mbus.sourceforge.net/index.html) 网关可以通过 TCP 协议使用串行 RTU。
 
-两种解决方案**基于TCP的RTU **和** TCP **都能很好地工作。
+**RTU over TCP** 和 **TCP** 两种解决方案都运行良好。
 
 ###不要使用多个寄存器
-如果从站不支持“写入多个寄存器”命令，则可以在写入多个寄存器时激活它以获取警告。
+如果从机不支持“写入多个寄存器”命令，您可以激活它以获取警告，当多个寄存器将被写入时。
 
-###写入间隔
-两个写入请求之间的延迟（以毫秒为单位）。默认值0。
+### 写入间隔
+两次写入请求之间的延迟（以毫秒为单位）。默认 0。
 
-##配置中单个地址线的参数
+## 配置中单个地址行的参数
 ＃＃＃ 地址
-读取的Modbus地址
+要读取的 Modbus 地址
 
-###从站ID如果有多个从站，则这是ID（如果不是全局配置中提供的默认从站ID）
-###名称这是参数的名称
-###说明参数说明
-###单位参数的单位
-###键入要从总线读取的数据类型。有关可能的数据类型的详细信息，请参见数据类型部分。
-### Length参数的长度。对于大多数参数，这是根据数据类型确定的，但对于字符串，则以字节/字符为单位定义长度
-###因子此因子用于乘以总线的读取值，以进行静态缩放。所以计算看起来像下面的val = x * Factor + Offset
-###偏移量在上述乘法之后，此偏移量将添加到读取值中。所以计算看起来像下面的val = x * Factor + Offset
-###公式如果因子和偏移量不足，则此字段可用于高级计算。如果设置了此字段，则将忽略“因子和偏移”字段。
-该公式由eval（）函数执行。因此，支持所有常用功能。特别是数学功能。该公式必须符合Javascript语法，因此也要注意大小写。
-在公式中，“ x”必须用于从Modbus读取的值。例如。 “ x * Math.pow（10，sf ['40065']）;”
+###从属ID
+如果有多个从站，那么这就是 id，如果不是全局配置中给出的默认值
 
-如果无法在运行时对公式求值，则适配器将警告消息写入日志。
+＃＃＃ 名称
+这是参数的名称
 
-###角色
-分配的IOBroker角色
+＃＃＃ 描述
+参数说明
 
-### Room IOBroker要分配的房间
-###轮询如果激活，则会以预定义的间隔从从站轮询值。
-### WP写脉冲
-### CW循环写入
-### SF使用值作为比例因子。使用某些接口上通过值提供的动态缩放因子是必需的。如果使用此标记标记值，则该值将按照以下命名约定存储到变量中：sf ['Modbus_address']。此变量随后可以在任何公式中用于其他参数。例如。可以设置以下公式：“（x * sf ['40065']）+ 50;”
-##数据类型
--uint16be-无符号16位（Big Endian）：AABB => AABB
--uint16le-无符号16位（Little Endian）：AABB => BBAA
--int16be-有符号16位（Big Endian）：AABB => AABB
--int16le-有符号16位（Little Endian）：AABB => BBAA
--uint32be-无符号32位（Big Endian）：AABBCCDD => AABBCCDD
--uint32le-无符号32位（Little Endian）：AABBCCDD => DDCCBBAA
--uint32sw-无符号32位（大尾数字交换）：AABBCCDD => CCDDAABB
--uint32sb-无符号32位（大字节序交换）：AABBCCDD => DDCCBBAA
--int32be-有符号32位（Big Endian）：AABBCCDD => AABBCCDD
--int32le-带符号的32位（Little Endian）：ABBCCDD => DDCCBBAA
--int32sw-有符号32位（大尾数字交换）：AABBCCDD => CCDDAABB
--int32sb-有符号32位（大字节序交换）：AABBCCDD => DDCCBBAA
--uint64be-无符号64位（Big Endian）：AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH
--uint64le-无符号64位（Little Endian）：AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA
--uint8be-无符号8位（Big Endian）：AA => AA
--uint8le-无符号8位（Little Endian）：AA => AA
--int8be-有符号8位（Big Endian）：AA => AA
--int8le-带符号的8位（小端）：AA => AA
--floatbe-浮动（大尾数法）：AABBCCDD => AABBCCDD
--浮法-浮法（小尾数法）：AABBCCDD => DDCCBBAA
--floatsw-浮动（大尾数法交换）：AABBCCDD => CCDDAABB
--floatsb-浮点数（大尾数字节交换）：AABBCCDD => DDCCBBAA
--doublebe-Double（Big Endian）：AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH
--doublele-Double（Little Endian）：AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA
--字符串-字符串（零结尾）：ABCDEF \ 0 => ABCDEF \ 0
--字符串-字符串（Little Endian，零端）：BADCFE \ 0 => ABCDEF \ 0
+＃＃＃ 单元
+参数单位
 
-以下描述摘自[这里](http://www.chipkin.com/how-real-floating-point-and-32-bit-data-is-encoded-in-modbus-rtu-messages/)
+＃＃＃ 类型
+从总线读取的数据类型。有关可能的数据类型的详细信息，请参阅数据类型部分
 
-点对点Modbus协议是RTU通信的一种普遍选择，只要它没有其他基本便利就可以了。协议本身控制Modbus网络上每个设备的交互，设备如何建立已知地址，每个设备如何识别其消息以及如何从数据中提取基本信息。本质上，该协议是整个Modbus网络的基础。
+＃＃＃ 长度
+参数的长度。对于大多数参数，这是根据数据类型确定的，但对于字符串，这定义了以字节/字符为单位的长度
 
-但是，这种便利并非毫无复杂性，而且Modbus RTU消息协议也不例外。协议本身是基于具有16位寄存器长度的设备设计的。因此，在实现32位数据元素时需要特别考虑。该实现方式使用两个连续的16位寄存器表示32位数据或本质上为4字节数据。可以在这4个字节的数据内将单精度浮点数据编码为Modbus RTU消息。
+＃＃＃ 因素
+该因子用于乘以来自总线的读取值以进行静态缩放。所以计算看起来像下面的 val = x * Factor + Offset
 
-###字节顺序的重要性
-Modbus本身未定义浮点数据类型，但它被广泛接受，它使用IEEE-754标准实现32位浮点数据。但是，IEEE标准没有明确定义数据有效载荷的字节顺序。因此，处理32位数据时，最重要的考虑因素是按照正确的顺序对数据进行寻址。
+＃＃＃ 抵消
+在上述乘法之后，该偏移量被添加到读取值中。所以计算看起来像下面的 val = x * Factor + Offset
 
-例如，在IEEE 754标准中为单精度32位浮点数定义的数字123 / 456.00如下所示：
+＃＃＃ 公式
+如果 Factor 和 Offset 不够用，此字段可用于高级计算。如果设置了该字段，则忽略 Factor 和 Offset 字段。
+该公式由 eval() 函数执行。因此支持所有常用功能。尤其是数学函数。公式必须符合 Javascript 语法，因此也要注意大小写。
+
+在公式中，“x”必须用于从 Modbus 读取的值。例如。 `x * Math.pow(10, sf['40065'])`
+
+如果无法在运行时评估公式，则适配器将警告消息写入日志。
+
+公式的另一个用例也可能是使用“x > 2000000 ? null : x”之类的公式来防止不合理的数据
+
+＃＃＃ 角色
+要分配的 ioBroker 角色。
+
+＃＃＃ 房间
+要分配的 ioBroker 房间。
+
+### 投票
+如果激活，将从从站以预定义的时间间隔轮询这些值。
+
+### WP
+写脉冲
+
+### 连续波
+循环写入
+
+### 顺丰
+使用值作为比例因子。这需要使用通过接口上的值提供的某些系统上的动态缩放因子。如果一个值用此 flac 标记，则该值将存储到具有以下命名约定的变量中：sf['Modbus_address']。此变量随后可用于其他参数的任何公式。例如。以下公式可以设置："(x * sf['40065']) + 50;"
+
+## 数据类型
+- uint16be - 无符号 16 位（大端）：AABB => AABB
+- uint16le - 无符号 16 位（小端）：AABB => BBAA
+- int16be - 有符号 16 位（大端）：AABB => AABB
+- int16le - 有符号 16 位（小端）：AABB => BBAA
+- uint32be - 无符号 32 位（大端）：AABBCCDD => AABBCCDD
+- uint32le - 无符号 32 位（小端）：AABBCCDD => DDCCBBAA
+- uint32sw - 无符号 32 位（大端字交换）：AABBCCDD => CCDDAABB
+- uint32sb - 无符号 32 位（大端字节交换）：AABBCCDD => DDCCBBAA
+- int32be - 有符号 32 位（大端）：AABBCCDD => AABBCCDD
+- int32le - 有符号 32 位（小端）：ABBCCDD => DDCCBBAA
+- int32sw - 有符号 32 位（大端字交换）：AABBCCDD => CCDDAABB
+- int32sb - 有符号 32 位（大端字节交换）：AABBCCDD => DDCCBBAA
+- uint64be - 无符号 64 位（大端）：AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH
+- uint64le - 无符号 64 位（小端）：AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA
+- uint8be - 无符号 8 位（大端）：AA => AA
+- uint8le - 无符号 8 位（小端）：AA => AA
+- int8be - 有符号 8 位（大端）：AA => AA
+- int8le - 有符号 8 位（小端）：AA => AA
+- floatbe - Float (Big Endian): AABBCCDD => AABBCCDD
+- floatle - Float (Little Endian): AABBCCDD => DDCCBBAA
+- floatsw - Float (Big Endian Word Swap): AABBCCDD => CCDDAABB
+- floatsb - Float（大端字节交换）：AABBCCDD => DDCCBBAA
+- doublebe - Double (Big Endian)：AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH
+- doublele - Double (Little Endian)：AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA
+- 字符串 - 字符串（零端）：ABCDEF\0 => ABCDEF\0
+- stringle - 字符串（小端，零端）：BADCFE\0 => ABCDEF\0
+
+以下描述复制自 [这里](http://www.chipkin.com/how-real-floating-point-and-32-bit-data-is-encoded-in-modbus-rtu-messages/)
+
+如果没有其他原因，点对点 Modbus 协议是 RTU 通信的流行选择，因为它是基本的便利。协议本身控制 Modbus 网络上每个设备的交互、设备如何建立已知地址、每个设备如何识别其消息以及如何从数据中提取基本信息。从本质上讲，协议是整个 Modbus 网络的基础。
+
+然而，这种便利并非没有一些复杂性，Modbus RTU 消息协议也不例外。协议本身是基于具有 16 位寄存器长度的设备设计的。因此，在实现 32 位数据元素时需要特别考虑。此实现决定使用两个连续的 16 位寄存器来表示 32 位数据或基本上 4 个字节的数据。单精度浮点数据可以在这 4 个字节的数据中编码为 Modbus RTU 消息。
+
+### 字节顺序的重要性
+Modbus 本身没有定义浮点数据类型，但人们普遍认为它使用 IEEE-754 标准实现 32 位浮点数据。但是，IEEE 标准没有明确定义数据负载的字节顺序。因此，处理 32 位数据时最重要的考虑因素是数据以正确的顺序寻址。
+
+例如，IEEE 754 标准中为单精度 32 位浮点数定义的数字 123/456.00 显示如下：
 
 ![图片1](../../../en/adapterref/iobroker.modbus/img/img1.png)
 
-各种字节顺序的影响很大。例如，以“ B A D C”顺序对表示123456.00的4个字节的数据进行排序（称为“字节交换”）。当解释为IEEE 744浮点数据类型时，结果是完全不同的：
+各种字节顺序的影响是显着的。例如，以“B A D C”序列对表示 123456.00 的 4 字节数据进行排序，称为“字节交换”。当解释为 IEEE 744 浮点数据类型时，结果完全不同：
 
 ![图片2](../../../en/adapterref/iobroker.modbus/img/img2.png)
 
-在“ C D A B”序列中排序相同的字节称为“字交换”。同样，结果与原始值123456.00截然不同：
+在“C D A B”序列中对相同字节进行排序称为“字交换”。同样，结果与原始值 123456.00 大不相同：
 
 ![图3](../../../en/adapterref/iobroker.modbus/img/img3.png)
 
-此外，“字节交换”和“字交换”都将实质上完全颠倒字节的顺序，以产生另一个结果：
+此外，“字节交换”和“字交换”本质上都将完全颠倒字节序列以产生另一个结果：
 
-![图4](../../../en/adapterref/iobroker.modbus/img/img4.png)
+![图 4](../../../en/adapterref/iobroker.modbus/img/img4.png)
 
-显然，在使用诸如Modbus之类的网络协议时，必须严格注意在传输内存字节时如何对其进行排序（也称为“字节顺序”）。
+显然，在使用 Modbus 等网络协议时，必须严格注意传输时内存字节的顺序，也称为“字节顺序”。
 
-###确定字节顺序
-根据Modbus应用协议规范V1.1.b，Modbus协议本身被声明为“ big-Endian”协议：
+### 确定字节顺序
+根据 Modbus 应用协议规范 V1.1.b，Modbus 协议本身被声明为“大端”协议：
 
 ```Modbus uses a “big-Endian” representation for addresses and data items. This means that when a numerical quantity larger than a single byte is transmitted, the most significant byte is sent first.```
 
-Big-Endian是网络协议最常用的格式-实际上非常普遍，因此也称为“网络顺序”。
+Big-Endian 是网络协议最常用的格式 - 事实上，它是如此常见，以至于它也被称为“网络顺序”。
 
-假定Modbus RTU消息协议为big-Endian，则为了通过Modbus RTU消息成功交换32位数据类型，必须同时考虑主站和从站的字节序。许多RTU主设备和从设备允许特定的字节顺序选择，特别是在软件模拟单元的情况下。只需确保所有两个单元都设置为相同的字节顺序即可。
+鉴于 Modbus RTU 消息协议是 big-Endian，为了通过 Modbus RTU 消息成功交换 32 位数据类型，必须考虑主站和从站的字节序。许多 RTU 主从设备允许特定的字节顺序选择，特别是在软件模拟单元的情况下。人们只需确保所有单元都设置为相同的字节顺序。
 
-根据经验，设备的微处理器家族决定其字节序。通常，在使用Motorola处理器设计的CPU中通常会找到big-Endian样式（先存储高位字节，然后存储低位字节）。 little-Endian样式（低位字节先存储，然后是高位字节）通常在使用Intel架构的CPU中找到。至于哪种样式被视为“后退”，则取决于个人观点。
+根据经验，设备微处理器的家族决定了它的字节序。通常，在采用 Motorola 处理器设计的 CPU 中通常可以找到 big-Endian 样式（首先存储高位字节，然后是低位字节）。 little-Endian 样式（首先存储低位字节，然后是高位字节）通常在使用 Intel 架构的 CPU 中找到。至于哪种风格被认为是“落后的”，这是个人观点的问题。
 
-但是，如果字节顺序和字节序不是可配置的选项，则必须确定如何解释字节。可以从从站请求一个已知的浮点值来完成。如果返回一个不可能的值，即具有两位数或类似数字的数字，则很可能需要修改字节顺序。
+但是，如果字节顺序和字节序不是可配置的选项，则必须确定如何解释字节。这可以通过从从设备请求一个已知的浮点值来完成。如果返回一个不可能的值，即具有两位数指数的数字等，则字节顺序很可能需要修改。
 
-###实用帮助
-FieldServer Modbus RTU驱动程序提供了几种处理32位整数和32位浮点值的功能。更重要的是，这些函数移动考虑了字节排序的所有不同形式。下表显示了将两个相邻的16位寄存器复制到32位整数值的FieldServer函数移动。
+### 实用帮助
+FieldServer Modbus RTU 驱动程序提供了多种处理 32 位整数和 32 位浮点值的函数移动。更重要的是，这些函数移动考虑了所有不同形式的字节排序。下表显示了 FieldServer 函数将两个相邻的 16 位寄存器复制为 32 位整数值的移动。
 
-|功能关键字|交换模式源字节|目标字节|
+|功能关键字 |交换模式 |源字节 |目标字节 |
 |-------------------|--------------------|-----------------|--------------|
-| 2.i16-1.i32 | N / A | [a b] [c d] | [a b c d] |
-| 2.i16-1.i32-s |字节和字交换| [a b] [c d] | [d c b a] |
-| 2.i16-1.i32-sb |字节交换| [a b] [c d] | [b a d c] |
-| 2.i16-1.i32-sw |单词互换| [a b] [c d] | [c d a b] |
+| 2.i16-1.i32 |不适用 | [ a b ] [ c d ] | [ a b c d ] |
+| 2.i16-1.i32-s |字节和字交换| [ a b ] [ c d ] | [ dc b a ] |
+| 2.i16-1.i32-sb |字节交换| [ a b ] [ c d ] | [ b a d c ] |
+| 2.i16-1.i32-sw |换字 | [ a b ] [ c d ] | [ c d a b ] |
 
-下表显示了将两个相邻的16位寄存器复制到32位浮点值的FieldServer函数移动：
+下表显示了 FieldServer 函数将两个相邻的 16 位寄存器复制到 32 位浮点值的移动：
 
-|功能关键字|交换模式源字节|目标字节|
+|功能关键字 |交换模式 |源字节 |目标字节 |
 |-------------------|--------------------|-----------------|--------------|
-| 2.i16-1.ifloat | N / A | [a b] [c d] | [a b c d] |
-| 2.i16-1.ifloat-s |字节和字交换| [a b] [c d] | [d c b a] |
-| 2.i16-1.ifloat-sb |字节交换| [a b] [c d] | [b a d c] |
-| 2.i16-1.ifloat-sw |单词互换| [a b] [c d] | [c d a b] |
+| 2.i16-1.ifloat |不适用 | [ a b ] [ c d ] | [ a b c d ] |
+| 2.i16-1.ifloat-s |字节和字交换| [ a b ] [ c d ] | [ dc b a ] |
+| 2.i16-1.ifloat-sb |字节交换| [ a b ] [ c d ] | [ b a d c ] |
+| 2.i16-1.ifloat-sw |换字 | [ a b ] [ c d ] | [ c d a b ] |
 
-下表显示了将单个32位浮点值复制到两个相邻的16位寄存器的FieldServer函数移动：
+下表显示了 FieldServer 函数将单个 32 位浮点值复制到两个相邻的 16 位寄存器的移动：
 
-|功能关键字|交换模式源字节|目标字节|
+|功能关键字 |交换模式 |源字节 |目标字节 |
 |------------------|-------------------|-----------------|----------------|
-| 1.float-2.i16 |不适用| [a b] [c d] | [a b] [c d] |
-| 1.float-2.i16-s |字节和字交换| [a b] [c d] | [d c] [b a] |
-| 1.float-2.i16-sb |字节交换| [a b] [c d] | [b a] [d c] |
-| 1.float-2.i16-sw |单词交换| [a b] [c d] | [c d] [a b] |
+| 1.float-2.i16 |不适用 | [ a b ] [ c d ] | [ a b ][ c d ] |
+| 1.float-2.i16-s |字节和字交换| [ a b ] [ c d ] | [ dc ][ b a ] |
+| 1.float-2.i16-sb |字节交换 | [ a b ] [ c d ] | [ b a ][ dc ] |
+| 1.float-2.i16-sw |字交换 | [ a b ] [ c d ] | [ c d ][ a b ] |
 
-考虑到各种FieldServer函数的动作，对32位数据的正确处理取决于选择正确的数据。观察这些FieldServer函数在已知的单精度十进制浮点值123456.00上移动的以下行为：
+鉴于各种 FieldServer 功能移动，32 位数据的正确处理取决于选择正确的数据。观察这些 FieldServer 函数在已知单精度十进制浮点值 123456.00 上的以下行为：
 
-| 16位值|功能移动|结果功能移动|结果 |
+|16 位值 |功能移动 |结果 |功能移动 |结果 |
 |---------------|-------------------|-----------|-------------------|---------------|
-| 0x2000 0x47F1 | 2.i16-1.float | 123456.00 | 1.float-2.i16 | 0x2000 0x47F1 |
-| 0xF147 0x0020 | 2.i16-1.float-s | 123456.00 | 1.float-2.i16-s | 0xF147 0X0020 |
-| 0x0020 0xF147 | 2.i16-1.float-sb | 123456.00 | 1.float-2.i16-sb | 0x0020 0xF147 |
-| 0x47F1 0x2000 | 2.i16-1.float-sw | 123456.00 | 1.float-2.i16-sw | 0x47F1 0x2000 |
+|0x2000 0x47F1 | 2.i16-1.float | 123456.00 | 1.float-2.i16 | 0x2000 0x47F1 |
+|0xF147 0x0020 | 2.i16-1.float-s | 123456.00 | 1.float-2.i16-s | 0xF147 0X0020 |
+|0x0020 0xF147 | 2.i16-1.float-sb | 123456.00 | 1.float-2.i16-sb | 0x0020 0xF147 |
+|0x47F1 0x2000 | 2.i16-1.float-sw | 123456.00 | 1.float-2.i16-sw | 0x47F1 0x2000 |
 
-请注意，不同的字节和单词顺序要求使用适当的FieldServer函数移动。一旦选择了正确的功能移动，就可以在两个方向上转换数据。
+请注意，不同的字节和字顺序需要使用适当的 FieldServer 函数 move。一旦选择了正确的功能移动，数据就可以双向转换。
 
-Internet上有许多十六进制至浮点转换器和计算器，实际上很少有允许对字节和字序进行操作的。 www.61131.com/download.htm上有一个这样的实用程序，可以在此下载Linux和Windows版本的实用程序。安装后，该实用程序将作为具有单个对话框界面的可执行文件运行。该实用程序显示十进制浮点值123456.00，如下所示：
+在 Internet 上可用的许多十六进制到浮点转换器和计算器中，很少有真正允许操作字节和字顺序。一个这样的实用程序位于 www.61131.com/download.htm，可以下载该实用程序的 Linux 和 Windows 版本。安装后，该实用程序将作为具有单个对话框界面的可执行文件运行。该实用程序显示十进制浮点值 123456.00，如下所示：
 
 ![图片5](../../../en/adapterref/iobroker.modbus/img/img5.png)
 
-然后可以交换字节和/或字来分析Modbus RTU主站和从站设备之间可能存在哪些潜在的字节序问题。
+然后可以交换字节和/或字来分析 Modbus RTU 主设备和从设备之间可能存在哪些潜在的字节序问题。
 
-##测试
-文件夹* test'中有一些程序可以测试TCP通信：
+＃＃ 测试
+文件夹 *test' 中有一些程序可以测试 TCP 通信：
 
--Ananas32 / 64是从属模拟器（仅保存寄存器和输入，没有线圈和数字输入）
--RMMS是主模拟器
--mod_RSsim.exe是从属模拟器。可能是您需要[Microsoft Visual C ++ 2008 SP1可再发行组件包]（https://www.microsoft.com/zh-cn/download/details.aspx?id=5582）来启动它（由于SideBySide错误）。
+- Ananas32/64 是从模拟器（只保存寄存器和输入，没有线圈和数字输入）
+- RMMS 是主模拟器
+- mod_RSsim.exe 是从模拟器。可能是您需要 [Microsoft Visual C++ 2008 SP1 Redistributable Package](https://www.microsoft.com/en-us/download/details.aspx?id=5582) 来启动它（因为 SideBySide 错误）。
 
-<！-下一个版本的占位符（在该行的开头）：
+<!-- 下一版本的占位符（在行首）：
 
-### __正在进行的工程__->
+### __工作进行中__ -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (nkleber78) Corrected issue with the scale factors
+* (bluefox) New react GUI added
+* (bluefox) Add new option: Use only Write multiple registers
+
+### 3.3.1 (2021-05-10)
+* (bluefox) fixed the configuration dialog for "input registers" in slave mode 
+
+### 3.3.0 (2021-04-16)
+* (Apollon77) Allow to use write-only (no poll) states
+* (Apollon77/TmShaz) F Write multiple registers
+* (prog42) create states of type string with default value of type string
+
+### 3.2.6 (2021-03-05)
+* (Apollon77) Prevent a crash case (Sentry IOBROKER-MODBUS-20)
+* (Apollon77) Better handle invalid responses
+
+### 3.2.4 (2021-01-30)
+* (Sierra83) also support ttyXRUSB0 style devices
+
+### 3.2.3 (2021-01-21)
+* (Apollon77) Catch value encoding error and do not crash adapter (Sentry IOBROKER-MODBUS-1W)
+* (Apollon77) add a meta object as instance object
+
+### 3.2.2 (2020-12-15)
+* (Apollon77) prevent a rash case (Sentry IOBROKER-MODBUS-1S)
+
+### 3.2.1 (2020-12-12)
+* (Apollon77) prevent a crash case (Sentry IOBROKER-MODBUS-1R)
 
 ### 3.2.0 (2020-12-09)
 * (nkleber78) Fixed formula where return keyword was missing
@@ -405,9 +465,10 @@ Internet上有许多十六进制至浮点转换器和计算器，实际上很少
 ### 0.0.1
 * (bluefox) initial commit
 
+## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2020 Bluefox <dogafox@gmail.com>
+Copyright (c) 2015-2021 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

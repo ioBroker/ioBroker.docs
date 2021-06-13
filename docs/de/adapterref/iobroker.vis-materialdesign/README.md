@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-materialdesign/README.md
 title: Materialdesign-Widgets für ioBroker VIS
-hash: Hi81kgDyekH1Z72C8T8TDVg3zOpHWXegVQPNA3cBcDQ=
+hash: f44Q7Tu0clIY9cCO/GVWID/Sd08qjn6XttPaIURIs98=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-materialdesign/admin/vis-materialdesign.png) <!-- im Inhaltsverzeichnis weglassen -->
 
@@ -134,6 +134,7 @@ ioBroker Material Design Widgets basieren auf [Richtlinien für das Materialdesi
 - [HTML-Eigenschaften](#html-properties-28)
 - [Top App Bar](#top-app-bar)
 - [Editoreinstellungen](#editor-settings-27)
+- [Menü JSON-Eigenschaften](#menu-json-properties-2)
 - [Untermenü](#Untermenü)
 - [Untermenü JSON-Eigenschaften](#submenu-json-properties)
 - [Charts](#Charts)
@@ -1810,13 +1811,23 @@ Um mit dem Widget 'Ansicht in Widget 8' korrekt zu arbeiten, müssen Sie eine CS
 }
 ```
 
-* Passen Sie die Auflösung im CSS an die Auflösung an, die Sie über den VIS-Editor einstellen (im Beispiel `max-width: 800px` und `min-width: 800px`)
+* Passen Sie im CSS die Auflösung an die Auflösung an, die Sie über den VIS-Editor einstellen (im Beispiel `max-width: 800px` und `min-width: 800px`)
 * Wenn Sie eine benutzerdefinierte Breite für die Menüleiste festlegen, müssen Sie auch die Eigenschaften 'left' und 'width' im CSS auf diesen Wert ändern (im Beispiel `left: 256px !important;` und `width: calc( 100% - 256px) !wichtig;`)
 
 ### Editor-Einstellungen
 Einstellungen, die in der folgenden Tabelle nicht aufgeführt sind, sind selbsterklärend.
 
-<table><thead><tr><th>Bildschirmfoto</th><th> Rahmen</th><th> Beschreibung</th></tr></thead><tbody><tr><td rowspan=3><img src="doc/en/media/topappbar_settings.png"></td><td> Objekt Identifikation</td><td> muss auf einen Datenpunkt ab Typnummer gesetzt werden. Zum Beispiel kann dieser Datenpunkt von der <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">Ansicht in Widget 8 verwendet werden</a></td></tr><tr><td> Index der Navigationselemente anzeigen</td><td> zeigt den Navigationsindex vor dem Elementlabel. Diese Nummer kann in der <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">Ansicht in Widget 8 verwendet werden</a> , um die Ansicht zu definieren, die angezeigt werden soll, wenn das Element ausgewählt ist</td></tr><tr><td> Anzahl der Navigationselemente</td><td> Definieren Sie die Anzahl der Navigationselemente</td></tr></tbody></table>
+<table><thead><tr><th>Bildschirmfoto</th><th> Rahmen</th><th> Beschreibung</th></tr></thead><tbody><tr><td rowspan=6><img src="doc/en/media/topappbar_common.png"></td><td> Objekt Identifikation</td><td> muss auf einen Datenpunkt ab Typnummer gesetzt werden. Zum Beispiel kann dieser Datenpunkt von der <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">Ansicht in Widget 8 verwendet werden</a></td></tr><tr><td> Index der Navigationselemente anzeigen</td><td> zeigt den Navigationsindex vor dem Elementlabel. Diese Nummer kann in der <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">Ansicht in Widget 8 verwendet werden</a> , um die Ansicht zu definieren, die angezeigt werden soll, wenn das Element ausgewählt ist</td></tr><tr><td> Anzahl der Navigationselemente</td><td> Definieren Sie die Anzahl der Navigationselemente</td></tr><tr><td> Fallback-Wert, wenn nicht in Benutzergruppe</td><td> Wenn Sie die Gruppenberechtigungen verwenden, können Sie hier den Wert festlegen, zu dem gewechselt werden soll, wenn der Benutzer nicht in der Gruppe ist</td></tr><tr><td> Fallback-Wert deaktivieren</td><td> Fallback-Wert deaktivieren</td></tr><tr><td> Objekt-ID für ausgewählte Menüelement-ID oder -Name</td><td> Optional können Sie einen Datenpunkt angeben, in den der Name oder die Menü-ID des ausgewählten Navigationselements geschrieben wird.<br> Wird keine Menü-ID angegeben, wird der Text des Navigationselements verwendet. Handelt es sich bei dem ausgewählten Navigationselement um ein Untermenü, wird der Name bzw. die Menü-ID des entsprechenden Navigationselements und Untermenüelements mit einem &#39;.&#39; getrennt geschrieben, zB <code>EG.Wohnzimmer</code><br><br> Damit lassen sich beispielsweise Widgets dynamisch je nach ausgewähltem Navigationselement erstellen.</td></tr><tr><td rowspan=2><img src="doc/en/media/topappbar_data.png"></td><td> Eingabemethode für die Navigationselemente</td><td> Wählen Sie aus, ob die Navigationselemente vom VIS-Editor oder vom JSON-String erstellt werden.</td></tr><tr><td> JSON-String für Navigationselemente</td><td> <a href="#menu-json-properties-2">Details siehe Menü JSON-Eigenschaften und Untermenü JSON-Eigenschaften</a></td></tr></tbody></table>
+
+### Menü JSON-Eigenschaften
+Menüelemente können durch einen JSON-String definiert werden:
+
+<table><thead><tr><th>Eigentum</th><th> Beschreibung</th><th> Art</th><th> Werte</th></tr></thead><tbody><tr><td> menuId</td><td> Definieren Sie eine benutzerdefinierte ID für das Menüelement, wird in die &quot;Objekt-ID für die ausgewählte Menüelement-ID oder den Namen&quot; geschrieben, wenn ausgewählt</td><td> Schnur</td><td></td></tr><tr><td> Text</td><td> Text des Menüpunktes</td><td> Schnur</td><td></td></tr><tr><td> Header</td><td> Kopfzeile des Menüpunktes</td><td> Schnur</td><td></td></tr><tr><td> Symbol</td><td> Symbol oder Bildpfad des Eintrags</td><td> Schnur</td><td></td></tr><tr><td> SymbolFarbe</td><td> Symbolfarbe (funktioniert nicht, wenn Bild verwendet wird)</td><td> Farbe</td><td> hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0,5)</td></tr><tr><td> Teiler</td><td> einen Teiler anzeigen</td><td> boolesch</td><td> Falsch Richtig</td></tr><tr><td> Benutzergruppen</td><td> Benutzergruppen, die diesen Eintrag anzeigen und steuern dürfen.</td><td> Array[string]</td><td> ID der Benutzergruppen</td></tr><tr><td> VerhaltenNotInUserGroup</td><td> Eintrag ausblenden oder deaktivieren, wenn Benutzer nicht Teil der Benutzergruppe ist</td><td> Schnur</td><td> verstecken, deaktiviert</td></tr><tr><td> setValueOnMenuToggleClick</td><td> Wert einstellen beim Klicken auf ein Element, das das Untermenü umschaltet</td><td> boolesch</td><td> Falsch Richtig</td></tr><tr><td> subMenuIconColor</td><td> Symbolfarbe der Untermenüpunkte (funktioniert nicht, wenn Bild verwendet wird)</td><td> Farbe</td><td> hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0,5)</td></tr><tr><td> Untermenüs</td><td> Objekt mit Untermenüpunkten, <a href="#submenu-json-properties">Details siehe Untermenü JSON-Eigenschaften</a></td><td> Array[Untermenü]</td><td></td></tr></tbody></table>
+
+<!-- im Inhaltsverzeichnis weglassen -->
+
+#### Menü JSON-Eigenschaften - Beispiel
+<details> <pre><code> [ { "text": "Start", "divider": "true", "icon": "home" }, { "menuId": "EG", "text": "Erdgeschoss", "icon": "home-floor-0", "setValueOnMenuToggleClick": "true", "subMenus": [ { "menuId": "Esszimmer", "text": "Esszimmer", "icon": "table-furniture" }, { "menuId": "Wohnzimmer", "text": "Wohnzimmer", "icon": "sofa" }, { "menuId": "Kueche", "text": "Küche", "icon": "sofa" }, { "menuId": "Eingang", "text": "Eingang", "icon": "sofa" }, { "menuId": "Flur", "text": "Flur", "icon": "sofa" }, { "menuId": "Bad", "text": "Bad", "icon": "sofa" }, { "menuId": "Zimmer", "text": "Zimmer", "icon": "sofa" } ] }, { "menuId": "DG", "text": "Dachgeschoss", "icon": "home-roof", "setValueOnMenuToggleClick": "true", "subMenus": [ { "text": "Flur", "icon": "table-furniture" }, { "text": "Galerie", "icon": "sofa" }, { "text": "Schlafzimmer", "icon": "sofa" }, { "text": "Ankleide", "icon": "sofa" }, { "text": "Bad", "icon": "sofa" }, { "text": "Kinderzimmer", "icon": "sofa" } ] } ] </code></pre> </details>
 
 ### Untermenü
 ![Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/drawer_subMenu.png)
@@ -1824,11 +1835,11 @@ Einstellungen, die in der folgenden Tabelle nicht aufgeführt sind, sind selbste
 Untermenüs müssen durch einen JSON-String definiert werden:
 
 #### Untermenü JSON-Eigenschaften
-<table><thead><tr><th>Eigentum</th><th> Beschreibung</th><th> Art</th><th> Werte</th></tr></thead><tbody><tr><td> Text</td><td> Eintragstext</td><td> Schnur</td><td></td></tr><tr><td> Symbol</td><td> Symbol oder Bildpfad des Eintrags</td><td> Schnur</td><td></td></tr><tr><td> SymbolFarbe</td><td> Symbolfarbe (funktioniert nicht, wenn Bild verwendet wird)</td><td> Farbe</td><td> hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0,5)</td></tr><tr><td> Teiler</td><td> einen Teiler anzeigen</td><td> boolesch</td><td> Falsch Richtig</td></tr><tr><td> Benutzergruppen</td><td> Benutzergruppen, die diesen Eintrag anzeigen und steuern dürfen.</td><td> Array[string]</td><td> ID der Benutzergruppen</td></tr><tr><td> VerhaltenNotInUserGroup</td><td> Eintrag ausblenden oder deaktivieren, wenn Benutzer nicht Teil der Benutzergruppe ist</td><td> Schnur</td><td> verstecken, deaktiviert</td></tr></tbody></table>
+<table><thead><tr><th>Eigentum</th><th> Beschreibung</th><th> Art</th><th> Werte</th></tr></thead><tbody><tr><td> menuId</td><td> Definieren Sie eine benutzerdefinierte ID für das Menüelement, wird in die &quot;Objekt-ID für die ausgewählte Menüelement-ID oder den Namen&quot; geschrieben, wenn ausgewählt</td><td> Schnur</td><td></td></tr><tr><td> Text</td><td> Text des Untermenüs</td><td> Schnur</td><td></td></tr><tr><td> Symbol</td><td> Symbol oder Bildpfad des Eintrags</td><td> Schnur</td><td></td></tr><tr><td> SymbolFarbe</td><td> Symbolfarbe (funktioniert nicht, wenn Bild verwendet wird)</td><td> Farbe</td><td> hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0,5)</td></tr><tr><td> Teiler</td><td> einen Teiler anzeigen</td><td> boolesch</td><td> Falsch Richtig</td></tr><tr><td> Benutzergruppen</td><td> Benutzergruppen, die diesen Eintrag anzeigen und steuern dürfen.</td><td> Array[string]</td><td> ID der Benutzergruppen</td></tr><tr><td> VerhaltenNotInUserGroup</td><td> Eintrag ausblenden oder deaktivieren, wenn Benutzer nicht Teil der Benutzergruppe ist</td><td> Schnur</td><td> verstecken, deaktiviert</td></tr></tbody></table>
 
 <!-- im Inhaltsverzeichnis weglassen -->
 
-#### Untermenü JSON-Eigenschaften - Beispiel
+##### Untermenü JSON-Eigenschaften - Beispiel
 <details> <pre><code> [ { "text": "subitem0", "icon": "account", "iconColor": "red" }, { "text": "subitem1", "icon": "home", "iconColor": "green", "divider": "true" }, { "text": "subitem1", "divider": "true", "icon": "/vis.0/myImages/devices/lxc_iobroker.png", "userGroups": ["administrator", "user"], "behaviorNotInUserGroup": "disabled" } ] </code></pre> </details>
 
 ## Diagramme
@@ -4373,6 +4384,11 @@ Der Adapter verwendet die folgenden Bibliotheken:
     Placeholder for the next version (at the beginning of the line):	   
 	### __WORK IN PROGRESS__
 -->
+
+<!-- omit in toc -->
+### __WORK IN PROGRESS__
+* (Scrounger) Top App Bar Widget: option added to define navigation items per JSON String [Details see documentation!](#top-app-bar)
+* (Scrounger) Top App Bar Widget: option added to define an id per item
 
 <!-- omit in toc -->
 ### 0.5.8 (2021-06-09)

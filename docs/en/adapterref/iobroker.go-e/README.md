@@ -2,9 +2,10 @@
 # ioBroker.go-echarger
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.go-e.svg)](https://www.npmjs.com/package/iobroker.go-e)
+[!License](https://img.shields.io/github/license/MK-2001/ioBroker.go-eCharger)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.go-e.svg)](https://www.npmjs.com/package/iobroker.go-e)
 ![Number of Installations (latest)](http://iobroker.live/badges/go-e-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/go-e-stable.svg)
+![Version of Installations (stable)](http://iobroker.live/badges/go-e-stable.svg)
 [![Dependency Status](https://img.shields.io/david/MK-2001/iobroker.go-e.svg)](https://david-dm.org/MK-2001/iobroker.go-e)
 [![Known Vulnerabilities](https://snyk.io/test/github/MK-2001/ioBroker.go-e/badge.svg)](https://snyk.io/test/github/MK-2001/ioBroker.go-e)
 ![Build & Tests](https://img.shields.io/travis/MK-2001/ioBroker.go-e/master.svg)
@@ -24,7 +25,7 @@ This Adapter is currently only running with API v1. The new API v2 support is cu
 Please make sure that in the App you turned on the API v1.
 
 Dieser Adapter unterstützt derzeit nur die API v1. Die Entwicklung auf die API v2 steht in der Warteschlange. Bitte stelle sicher, dass in der APP die API v1 aktiviert wurde.
-![API_v1](./99-docs/active_v1.jpg)
+![API_v1](./docs/active_v1.jpg)
 ## go-eCharger adapter for ioBroker
 **EN**
 go-e is an invitation to move electrically. E-mobility is our drive, whereby our core competence is the charging technology for electric cars. From the individual charging station for e-cars to photovoltaic connections to load management of entire buildings, we are providers of holistic system solutions for all requirements of modern e-mobility.

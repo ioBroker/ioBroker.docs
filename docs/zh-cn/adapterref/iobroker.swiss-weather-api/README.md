@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.swiss-weather-api/README.md
 title: ioBroker.swiss-weather-api
-hash: WDW3IjUe7KhQ2OQJWNA7w+d4L8Tuoh94bV8IPdkC0VM=
+hash: vnDfTZn2qAakTnrpH7PNW+q/yfQg9T8TudfRJ/INW5Y=
 ---
 ![商标](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
 
@@ -37,12 +37,12 @@ hash: WDW3IjUe7KhQ2OQJWNA7w+d4L8Tuoh94bV8IPdkC0VM=
 SRF Weather REST API 允许您从瑞士各地的 25.000 多个地点获取天气预报和报告。 “免费增值”订阅允许您每天获得 50 个请求。
 
 ##**图标**
-从 0.1.8 版开始，SRG-SSR 提供了自己的图标。因此，每个数据点都提供了一个指向相应天气情况的 URL（颜色、深色和浅色图标）。
+从 0.1.8 版开始，SRG-SSR 提供了自己的图标。因此，每个数据点都提供了一个指向相应天气情况（颜色、深色和浅色图标）的 URL。
 
 ##**请注意，此适配器仅支持瑞士境内的位置。**
 ＃＃＃ 入门
-1. 在 https://developer.srgssr.ch/ 获取免费账户
-1. 前往“我的应用程序”并创建一个新应用程序。在这里您可以选择一个产品。 “免费增值”是他们的免费产品。如果您只想每天（每 30 分钟）执行 50 个请求或/并且不想为每天更多的请求付费，那么“免费增值”就是您想要选择的。现在，这将创建一个特定的 ConsumerKey 和 ConsumerSecret
+1. 在 https://developer.srgssr.ch/ 获得免费账户
+1. 前往“我的应用程序”并创建一个新应用程序。在这里您可以选择一个产品。 “免费增值”是他们的免费产品。如果您只想每天（每 30 分钟）执行 50 个请求或/并且不想为每天更多的请求付费，那么您要选择“免费增值”。现在，这将创建一个特定的 ConsumerKey 和 ConsumerSecret
 1. 找出需要预测的所选位置的经度/纬度（十进制度数）。如果您在 ioBroker 设置（主要设置）（通过地图）中设置了您的位置，则此信息是可选的。在这种情况下，您可以将纬度和经度字段留空。然后适配器接管 ioBroker 的设置。在适配器配置中输入的纬度和经度会覆盖 ioBroker 设置。
 1. 在 ioBroker 上安装此适配器 => 这可能需要几分钟（在 Raspberry Pi 3 上大约需要 7 分钟）
 1.在Adapter Configuration填写
@@ -52,7 +52,8 @@ SRF Weather REST API 允许您从瑞士各地的 25.000 多个地点获取天气
    1. 需要预测的所选瑞士位置的经度/纬度。 => 请使用十进制度数（例如苏黎世：47.36667 / 8.5）
    1. 以分钟为单位的轮询间隔（默认为 30 分钟 - 50 个请求/天）
 
-第一个查询是在适配器启动后 10 秒进行的。第一次启动后，会根据配置参数（Poll Interval in Minutes）定时执行查询
+第一个查询是在适配器启动后 10 秒进行的。第一次启动后，会根据配置参数（Poll Interval in Minutes）定时执行查询。
+predict.current_hour 中的对象将在第一次启动后 30 秒创建，并通过复制 forecast.60 分钟中的相应值每小时更新一次。
 
 ### 可视化示例
 ###### 先决条件：
@@ -64,6 +65,12 @@ SRF Weather REST API 允许您从瑞士各地的 25.000 多个地点获取天气
 ![药片](../../../en/adapterref/iobroker.swiss-weather-api/doc/Wettervorhersage_visu_anim.gif)
 
 ## Changelog
+
+### 0.9.5
+* (baerengraben)  Some small improvements
+
+### 0.9.4
+* (baerengraben)  Bugfix: https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/47 
 
 ### 0.9.3
 * (baerengraben)  Function Update: Added day_name to identify weekday from "forecast.day.day0.day_name" to "forecast.day.day7.day_name". 
@@ -143,7 +150,7 @@ SRF Weather REST API 允许您从瑞士各地的 25.000 多个地点获取天气
 ## License
 MIT License
 
-Copyright (c) 2020 baerengraben <baerengraben@intelli.ch>
+Copyright (c) 2021 baerengraben <baerengraben@intelli.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

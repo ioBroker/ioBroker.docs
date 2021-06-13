@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.go-e/README.md
 title: ioBroker.go-echarger
-hash: 7hip1hsyJb3wxZsJ4wwU3F8pfiS5sppmGSddrs8O/zg=
+hash: oCNZvv8a1LjfwBn7pwwqGINRdoYd+6zEwtnEEvsRHyc=
 ---
 ![Logo](../../../en/adapterref/iobroker.go-e/admin/go-echarger.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.go-e.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.go-e.svg)
 ![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/go-e-installed.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/go-e-stable.svg)
+![Installationsversion (stabil)](http://iobroker.live/badges/go-e-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/MK-2001/iobroker.go-e.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/MK-2001/ioBroker.go-e/badge.svg)
 ![Build & Tests](https://img.shields.io/travis/MK-2001/ioBroker.go-e/master.svg)
@@ -20,9 +20,9 @@ hash: 7hip1hsyJb3wxZsJ4wwU3F8pfiS5sppmGSddrs8O/zg=
 ![Codequalität](https://img.shields.io/lgtm/grade/javascript/github/MK-2001/ioBroker.go-e)
 
 # IoBroker.go-echarger
-# Verwendung von Sentry
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+[!Lizenz](https://img.shields.io/github/license/MK-2001/ioBroker.go-eCharger)
 
+# Verwendung von Sentry **Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Für weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung siehe [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 # Die go-eCharger Wallbox
 ![Produktbild](../../../en/adapterref/iobroker.go-e/admin/go-eCharger-HOME-Wallbox.png) Weitere Informationen finden Sie unter https://go-e.co/
 
@@ -31,7 +31,7 @@ Dieser Adapter läuft derzeit nur mit API v1. Die Unterstützung für die neue A
 Bitte stellen Sie sicher, dass Sie in der App die API v1.
 
 Dieser Adapter unterstützt derzeit nur die API v1. Die Entwicklung auf die API v2 steht in der Warteschlange. Bitte stellen Sie sicher, dass in der APP die API v1 aktiviert wurde.
-![API_v1](../../../en/adapterref/iobroker.go-e/./99-docs/active_v1.jpg)
+![API_v1](../../../en/adapterref/iobroker.go-e/./docs/active_v1.jpg)
 
 ## Go-eCharger Adapter für ioBroker **DE** go-e ist eine Einladung, sich elektrisch zu bewegen. E-Mobilität ist unser Antrieb, wobei unsere Kernkompetenz die Ladetechnik für Elektroautos ist. Von der einzelnen Ladestation für E-Autos über Photovoltaik-Anbindungen bis hin zum Lastmanagement ganzer Gebäude sind wir Anbieter ganzheitlicher Systemlösungen für alle Anforderungen der modernen E-Mobilität.
 **DE** go-e ist die Aufforderung, sich elektrisch zu bewegen. e-Mobilität ist unser Antrieb, wobei unsere Kernkompetenz die Ladetechnik für Elektroautos ist. Von der einzelnen Ladestation für e-Autos über Photovoltaik-Anbindung bis hin zum Lastmanagement von ganzen Gebäuden, sind wir Anbieter gesamtheitlicher Systemlösungen für alle Anforderungen der modernen e-Mobilität.

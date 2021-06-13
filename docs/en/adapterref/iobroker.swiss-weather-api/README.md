@@ -48,7 +48,8 @@ Since Version 0.1.8 SRG-SSR provides their own icons. So each Datapoint provides
    1. Longitude / Latitude of the chosen swiss location for which forecast is needed. => Please use decimal degrees (for example Zürich: 47.36667 / 8.5)
    1. Poll Interval in Minutes (By default 30 minutes - 50 Request/Day)
 
-The first query is made 10s after the adapter was started. After the first start, the query will be executed regularly according to the conifugation parameter (Poll Interval in Minutes)
+The first query is made 10s after the adapter was started. After the first start, the query will be executed regularly according to the conifugation parameter (Poll Interval in Minutes).
+The Objects in forecast.current_hour will be createt 30s after frist startup and updated every hour by copying the corresponding values from forecast.60minutes. 
 
 ### Visualisation Example
 
