@@ -179,7 +179,8 @@ Switch controls boolean device (true = ON, false = OFF)
 ## Air condition or thermostat
 * `level.mode.fan`        - `AUTO, HIGH, LOW, MEDIUM, QUIET, TURBO`
 * `level.mode.swing`      - `AUTO, HORIZONTAL, STATIONARY, VERTICAL`
-* `level.mode.thermostat` - air conditioner: `AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`, heating thermostat: `AUTO, MANUAL, VACATION`, 
+* `level.mode.airconditioner` - air conditioner: `AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`, heating thermostat: `AUTO, MANUAL, VACATION`, 
+* `level.mode.thermostat` - thermostat: `AUTO, MANUAL, VACATION`, 
  Additionally to these states normally the `level.temperature` and `switch.power` required to map the air conditioner.
 
 TODO: Think about ionization`and oscillation. 
