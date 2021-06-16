@@ -61,6 +61,12 @@ If you are a non commercial organisation or use it for private use you can get a
 ### 0.1.3
 * (mschlgl) fixes on device communication and user flash file management
 
+### 0.1.4
+* (mschlgl) fixes on device communication cp82 and smd202
+
+### 0.1.5
+* (mschlgl) fixes on device communication sme211
+
 ## License
 Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
 

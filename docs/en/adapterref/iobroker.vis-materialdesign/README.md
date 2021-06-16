@@ -13091,9 +13091,10 @@ The adapter uses the following libraries:
 -->
 
 <!-- omit in toc -->
-### __WORK IN PROGRESS__
-* (Scrounger) Top App Bar Widget: option added to define navigation items per JSON String [Details see documentation!](#top-app-bar)
+### 0.5.9 (2021-06-13)
+* (Scrounger) Top App Bar Widget: option added to define navigation items per JSON String [Details see documentation!](https://github.com/Scrounger/ioBroker.vis-materialdesign#top-app-bar)
 * (Scrounger) Top App Bar Widget: option added to define an id per item
+* (Scrounger) fixed bugs found by sentry
 
 <!-- omit in toc -->
 ### 0.5.8 (2021-06-09)
@@ -13125,32 +13126,6 @@ The adapter uses the following libraries:
 * (Scrounger) adapter settings bug fixes
 * (Scrounger) icon buttons: color bug fixes
 * (Scrounger) Fixing bugs found by sentry
-
-<!-- omit in toc -->
-### 0.5.4 (2021-04-18)
-* (Scrounger) HTML Widgets added - use Material Design Widgets in any html element
-* (Scrounger) Table: Control Elements removed, using new HTML Widgets -> breaking changes !!!
-* (Scrounger) list: using object id for json string added -> breaking changes !!!
-* (Scrounger) new Value Widget added
-* (Scrounger) Card layout bug fixes for HTML Card, IconList, List and Table Widget
-* (Scrounger) icon list: option for status bar text added
-* (Scrounger) icon list: status bar position bug fix
-* (Scrounger) icon list: read only option for buttons added
-* (Scrounger) dialog: option to set height in percent added
-* (Scrounger) json chart: option to override tooltip for every dataset added
-* (Scrounger) json chart: tooltip mode x / y added
-* (Scrounger) json chart: option to override data label added
-* (Scrounger) charts: legend distance to bottom option added
-* (Scrounger) button state: active background color option added
-* (Scrounger) buttons: vibrate on mobil devices bug fix
-* (Scrounger) progress: rotate option added
-* (Scrounger) list: background color option added
-* (Scrounger) progress circular: auto size option added
-* (Scrounger) VIS editor: html previews bug fixes
-* (Scrounger) input, autocomplete, select: autofocus option added
-* (Scrounger) Documentation revised
-* (Scrounger) materialdesignicons library updated to v5.9.55
-* (Scrounger) bug fixes
 
 <!-- omit in toc -->
 ## License

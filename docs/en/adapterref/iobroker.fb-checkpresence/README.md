@@ -69,6 +69,8 @@ Therefore a user has to be created in the fritzbox. This is required with newer
 firmware version (>= 7.25)of the fritzbox. See here fore information: https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/Empfehlungen%20zur%20Benutzerfu%CC%88hrung%20bei%20der%20Anmeldung%20an%20einer%20FRITZ%21Box_v1.1.pdf 
 The password is encrypted and wasn't saved in clear text. The user name and password may have a maximum of 
 32 characters. See for information: https://service.avm.de/help/de/FRITZ-Box-Fon-WLAN-7490/014/hilfe_zeichen_fuer_kennwoerter#:~:text=Namen%20f%C3%BCr%20Benutzer,Kennwortfeld%20darf%20nicht%20leer%20sein.
+Hint: In some cases it could be that the fritzbox blocked the user if the password was not correctly inserted.
+Often a timeout message is in the log. Please check than the if you has insert the correct username and password.Then you have to reboot the fritzbox. 
 
 ### Ssl option
 In some cases the adapter could not connect to the fritzbox. It could help to disable this option.
@@ -108,11 +110,16 @@ If this option is checked the states for guests are created.
 If this option is checked the qr-code from guest wlan is generated. 
 
 ### Family member settings
-For a configured family member you should enter the member name, the hostname, the mac- and ip-address, a comment and you can enable or disable the member. A group is optional. If you leave the group empty and set the compatibility flag to true the behaviour is like an older version of the adaper. In a future version you have to use the presence state from a family member. This behaviour is switched on/off with the compatibility checkbox:
+For a configured family member you should enter the member name, the hostname, the mac- and ip-address, a comment and you can enable or disable the member. A group is optional. 
+If you leave the group empty and set the compatibility flag to true the behaviour is like an older version of the adaper. You can use the presence state from the family member or the state directly mapped to the family member name. In a future version you must use the presence state. This behaviour could be switched on/off with the compatibility checkbox:
 -> compatibility = true: behaviour as an older version with empty group. 
+-> compatibility = true and group not empty: new behaviour. All states beneath the familymembers folder. 
 -> compatibility = false: new behaviour. All states beneath the familymembers folder.
-For every member the adapter creates a presence state and checks if the member is present or absent. The state was changed if the presence state changed. You can also enable the filtering for a member. If the state is true the state changes immediately to true. If it is false then the value will checked after the filter time again.
+
+For every member the adapter creates a presence state and checks if the member is present or absent. The state was changed if the presence state changed. 
+You can also enable the filtering for a member. If the state is true the state changes immediately to true. If it is false then the value will checked after the filter time again.
 If the state is in both cases false then the state changes to false. Otherwise it does not change.
+
 To get the speed information in the objects you have to select fb-devices option.
 
 ### Whitelist settings
@@ -190,6 +197,9 @@ Here you will find information about the history of the current day.
     * Did some changes
     * Did some more changes
 -->
+### __WORK IN PROGRESS__
+* (afuerhoff) html input pattern fixed for password and user
+* (afuerhoff) dependencies updated
 
 ### 1.1.5 (2021-06-03)
 * (afuerhoff) dependencies updated

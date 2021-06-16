@@ -261,6 +261,9 @@ If activated so by every command (no matter if the request came via state or sen
 -->
 
 ## Changelog
+### 2.1.1 (2021-06-15)
+* (PeterVoronov) Corrected usage of regex
+
 ### 2.1.0 (2021-05-24)
 * (bluefox) Updated GUI.
 

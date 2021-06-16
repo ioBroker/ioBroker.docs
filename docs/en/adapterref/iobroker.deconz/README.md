@@ -43,6 +43,15 @@ Examples:
 
 ## Changelog
 
+### 1.3.17
+* fix crash [#248](https://github.com/iobroker-community-adapters/ioBroker.deconz/issues/248)
+
+### 1.3.16 
+* added datapoints melody and volume (Used by NEO-Alarm-Sirene by Tuya)
+* added new effects for Müller Licht Tint: sunset, party, worklight, campfire, romance, nightlight
+* added new effects for Lidl Melinera: steady, snow, rainbow, snake, twinkle, fireworks, flag, waves, updown, vintage, fading, collide, strobe, sparkles, carnival, glow 
+* added 2 new datapoints they were used by Lidl Melinera effects: effectspeed: simple number; effectcolours: array of rgb values = [[255,0,0],[0,255,0],[0,0,255]] https://github.com/dresden-elektronik/deconz-rest-plugin/issues/3716#issuecomment-735467996
+
 ### 1.3.15 (2021-05-08)
 * fix info message: "State value to set for "deconz.0.Sensors.3.pending" has to be stringified but received type "object""
 * fix info message: State value to set for "deconz.0.Sensors.3.orientation" has to be stringified but received type "object"

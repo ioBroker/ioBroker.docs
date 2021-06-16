@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.go-e/README.md
 title: ioBroker.go-echarger
-hash: oCNZvv8a1LjfwBn7pwwqGINRdoYd+6zEwtnEEvsRHyc=
+hash: wnEwj3vtISxrEMdQh63/cVXtX2WdfQoqIq+f6KyjDhk=
 ---
 ![商标](../../../en/adapterref/iobroker.go-e/admin/go-echarger.png)
 
@@ -28,15 +28,15 @@ hash: oCNZvv8a1LjfwBn7pwwqGINRdoYd+6zEwtnEEvsRHyc=
 
 ＃＃ 注意
 此适配器当前仅与 API v1 一起运行。新的 API v2 支持目前正在等待中。
-请确保在应用程序中您打开了 API v1。
+请确保在应用程序中您打开了 API v1.
 
 Dieser Adapter unterstützt derzeit nur die API v1。 Die Entwicklung auf die API v2 steht in der Warteschlange。 Bitte stelle sicher, dass in der APP die API v1 aktiviert wurde。
 ![API_v1](../../../en/adapterref/iobroker.go-e/./docs/active_v1.jpg)
 
-## IoBroker 的 go-eCharger 适配器 **EN** go-e 是电动移动的邀请。电动汽车是我们的动力，我们的核心竞争力是电动汽车的充电技术。从电动汽车的单独充电站到光伏连接，再到整个建筑物的负载管理，我们是满足现代电动汽车所有要求的整体系统解决方案提供商。
+## IoBroker 的 go-eCharger 适配器 **EN** go-e 是电动移动的邀请。电动汽车是我们的动力，我们的核心竞争力是电动汽车的充电技术。从电动汽车的单独充电站到光伏连接，再到整个建筑物的负载管理，我们是满足现代电动汽车所有要求的整体系统解决方案供应商。
 **DE** go-e ist die Aufforderung, sich elektrisch zu bewegen。 e-Mobilität ist unser Antrieb, wobei unsere Kernkompetenz die Ladetechnik für Elektroautos ist。 Von der einzelnen Ladestation für e-Autos über Photovoltaik-Anbindung bis hin zum Lastmanagement von ganzen Gebäuden, sind wir Anbieter gesamtheitlicher Systemlösungen für sämtliche Anforderungen der modernen e-Mobilität。
 
-## IoBroker 适配器手册
+## IoBroker-Adapter 手册/快速入门指南
 您可以在此处找到安装和配置手册：[适配器手册](./docs/Readme.md)
 
 ## 开发者手册
@@ -46,7 +46,7 @@ Dieser Adapter unterstützt derzeit nur die API v1。 Die Entwicklung auf die AP
 
 官方产品支持：https://go-e.co/support/
 
-##版权
+## 版权
 版权所有 (c) 2021 MK-2001 go-e@itinsi.de
 
 ## Changelog

@@ -113,6 +113,9 @@ Finally, the variables created in the CCU are listed
 	### __WORK IN PROGRESS__
 -->
 
+### 3.0.26 (2021-06-14)
+* (bluefox) Use name from device if channel has a default name
+
 ### 3.0.25 (2021-05-14)
 * (foxriver76) remove old code, which also scaled unit: % values and not only unit: 100 %
 
@@ -506,7 +509,6 @@ or non existent if no rpc instance existed
 * (hobbyquaker) Fix common.name attribute
 
 ## License
-
 The MIT License (MIT)
 
 Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>

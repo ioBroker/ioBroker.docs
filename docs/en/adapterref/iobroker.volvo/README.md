@@ -23,6 +23,10 @@ Use objects under remote to control the vehicle
 
 ## Changelog
 
+### 0.0.4
+
+* (TA2k) fix jscontroller
+  
 ### 0.0.3
 
 * (TA2k) fix preclimate

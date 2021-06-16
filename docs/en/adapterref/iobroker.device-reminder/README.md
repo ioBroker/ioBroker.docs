@@ -163,6 +163,14 @@ is displayed.
     ### __WORK IN PROGRESS__
 -->
 
+### 1.2.4 (2021-06-13)
+* (xenon-s) bugfix: incorrect JSON format 
+<br>**Important! Delete the data point "last operations" manually and restart the adapter afterwards!**
+
+### 1.2.3 (2021-06-13)
+* (xenon-s) bugfix: [issue #76](https://github.com/Xenon-s/ioBroker.device-reminder/issues/76) messages from datapoint were not displayed
+* (xenon-s) bugfix: [issue #75](https://github.com/Xenon-s/ioBroker.device-reminder/issues/75) "undefined is not a valid state"
+
 ### 1.2.1 (2021-05-01)
 * (xenon-s) Adapter structure redesigned to classes
 * (xenon-s) Admin UI design and inputs made more user friendly
@@ -252,7 +260,7 @@ is displayed.
 
 MIT License
 
-Copyright (c) 2020 xenon-s
+Copyright (c) 2021 xenon-s
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

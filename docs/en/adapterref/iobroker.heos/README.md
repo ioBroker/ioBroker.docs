@@ -127,6 +127,11 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 
 
 ## Changelog
+### 1.8.6 (2021-06-13)
+* (withstu) test fixed pipeline
+
+### 1.8.4 (2021-06-13)
+* (withstu) improve stability
 
 ### 1.8.3 (2021-05-13)
 * (withstu) fix upnp values on failure

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.modbus/README.md
 title: iobroker.modbus
-hash: gNmu0hv+Aq+NEhK/K4rv7rBlSTc+rbgpabulbpGAzyI=
+hash: xkNd5mJeFpG/k6t2CHMxxHryp80Gj3rnLw06dghu72M=
 ---
 ![Logo](../../../en/adapterref/iobroker.modbus/admin/modbus.png)
 
@@ -45,21 +45,33 @@ Normalerweise können alle Register Adressen von 0 bis 65535 haben. Durch die Ve
 
 Jeder Alias wird intern auf eine Adresse gemappt, z.B. 30011 wird dem Eingangsregister 10 zugeordnet und so weiter.
 
-### Adressen nicht an Wort ausrichten
+### Adressen nicht auf 16 Bit (Wort) ausrichten
 Normalerweise sind die Spulen und die diskreten Eingangsadressen auf 16 Bit ausgerichtet. Gleiche Adressen von 3 bis 20 werden auf 0 bis 32 ausgerichtet.
 Wenn diese Option aktiv ist, werden die Adressen nicht ausgerichtet.
+
+### Verwenden Sie nicht mehrere Register
+Wenn der Slave den Befehl "Mehrere Register schreiben" nicht unterstützt, können Sie ihn aktivieren, um Warnungen zu erhalten, wenn mehrere Register geschrieben werden.
+
+### Verwenden Sie nur mehrere Schreibregister
+Wenn der Slave nur den Befehl "Mehrere Register schreiben" unterstützt, können Sie aktivieren, dass die Register immer mit dem Befehl FC15/FC16 geschrieben werden.
 
 ### Round Real to
 Wie viele Stellen nach dem Komma für Float und Doubles.
 
-### Poll-Verzögerung
+### Datenabfrageintervall
 Zyklisches Poll-Intervall (Nur für Master relevant)
 
-### Wiederverbindungszeit
+### Verzögerung beim Wiederverbinden
 Wiederverbindungsintervall (Nur für Master relevant)
 
+### Zeitüberschreitung beim Lesen
+Timeout für Leseanfragen in Millisekunden.
+
 ### Pulszeit
-Wenn Puls für Spulen verwendet wird, definiert dies das Intervall, wie lange der Puls ist.
+Wenn Puls für Spulen verwendet wird, definiert dies das Intervall wie lange der Puls ist.
+
+### Wartezeit
+Wartezeit zwischen Abfragen zweier unterschiedlicher Geräte-IDs in Millisekunden.
 
 ### Max. Leseanforderungslänge
 Maximale Länge des Befehls READ_MULTIPLE_REGISTERS als Anzahl der zu lesenden Register.
@@ -73,11 +85,20 @@ Es gibt ein Software-[**Modbus RTU <-> Modbus RTU über TCP**](http://mbus.sourc
 
 Beide Lösungen **RTU over TCP** und **TCP** funktionieren gut.
 
-### Verwenden Sie nicht mehrere Register
-Wenn der Slave den Befehl "Mehrere Register schreiben" nicht unterstützt, können Sie ihn aktivieren, um Warnungen zu erhalten, wenn mehrere Register geschrieben werden.
+### Leseintervall
+Verzögerung zwischen zwei Leseanfragen in ms. Standard 0.
 
 ### Schreibintervall
 Verzögerung zwischen zwei Schreibanforderungen in ms. Standard 0.
+
+### Unveränderte Zustände aktualisieren
+Wenn sich der Wert nicht geändert hat, wird er normalerweise nicht in ioBroker geschrieben. Dieses Flag ermöglicht es, den Zeitstempel des Werts bei jedem Zyklus zu aktualisieren.
+
+### Adressen nicht in ID aufnehmen
+Fügen Sie der generierten ioBroker-ID keine Adresse hinzu. `10_Input10` vs `Input10`.
+
+### Punkte in ID beibehalten
+Mit diesem Flag ist der Name `Inputs.Input10`. Ohne => `Inputs_Input10`
 
 ## Parameter für einzelne Adresszeile in der Konfiguration
 ### Adresse
@@ -113,9 +134,9 @@ Die Formel wird von der Funktion eval() ausgeführt. Daher werden alle gängigen
 
 In der Formel muss "x" für den gelesenen Wert von Modbus verwendet werden. Z.B. `x * Math.pow(10, sf['40065'])`
 
-Kann die Formel zur Laufzeit nicht ausgewertet werden, schreibt der Adapter eine Warnmeldung in das Protokoll.
+Wenn die Formel zur Laufzeit nicht ausgewertet werden kann, schreibt der Adapter eine Warnmeldung in das Protokoll.
 
-Ein weiterer Anwendungsfall für Formeln könnte auch sein, unplausible Daten mit einer Formel wie "x > 2000000 ? null : x" zu verhindern.
+Ein weiterer Anwendungsfall für Formeln könnte auch sein, unplausible Daten mit einer Formel wie `x > 2000000 ? null : x` zu verhindern.
 
 ###Rolle
 ioBroker-Rolle zuzuweisen.
@@ -167,16 +188,16 @@ Folgende Beschreibung wurde aus [Hier](http://www.chipkin.com/how-real-floating-
 
 Das Punkt-zu-Punkt-Modbus-Protokoll ist eine beliebte Wahl für die RTU-Kommunikation, wenn es nicht aus anderen Gründen als grundlegender Komfort dient. Das Protokoll selbst steuert die Interaktionen jedes Geräts in einem Modbus-Netzwerk, wie das Gerät eine bekannte Adresse aufbaut, wie jedes Gerät seine Nachrichten erkennt und wie grundlegende Informationen aus den Daten extrahiert werden. Im Wesentlichen ist das Protokoll die Grundlage des gesamten Modbus-Netzwerks.
 
-Dieser Komfort ist jedoch nicht ohne Komplikationen und das Modbus RTU Message-Protokoll ist keine Ausnahme. Das Protokoll selbst wurde auf Basis von Geräten mit 16-Bit-Registerlänge entwickelt. Folglich waren bei der Implementierung von 32-Bit-Datenelementen besondere Überlegungen erforderlich. Diese Implementierung entschied sich für die Verwendung von zwei aufeinanderfolgenden 16-Bit-Registern, um 32 Datenbits oder im Wesentlichen 4 Datenbytes darzustellen. Innerhalb dieser 4 Datenbytes können Gleitkommadaten mit einfacher Genauigkeit in eine Modbus RTU-Nachricht codiert werden.
+Diese Bequemlichkeit ist jedoch nicht ohne Komplikationen und das Modbus RTU Message-Protokoll ist keine Ausnahme. Das Protokoll selbst wurde auf Basis von Geräten mit 16-Bit-Registerlänge entwickelt. Folglich waren bei der Implementierung von 32-Bit-Datenelementen besondere Überlegungen erforderlich. Diese Implementierung entschied sich für die Verwendung von zwei aufeinanderfolgenden 16-Bit-Registern, um 32 Datenbits oder im Wesentlichen 4 Datenbytes darzustellen. Innerhalb dieser 4 Datenbytes können Gleitkommadaten mit einfacher Genauigkeit in eine Modbus RTU-Nachricht codiert werden.
 
 ### Die Bedeutung der Byte-Reihenfolge
-Modbus selbst definiert keinen Gleitkomma-Datentyp, aber es wird allgemein akzeptiert, dass es 32-Bit-Gleitkommadaten unter Verwendung des IEEE-754-Standards implementiert. Der IEEE-Standard hat jedoch keine eindeutige Definition der Byte-Reihenfolge der Datennutzlast. Daher ist die wichtigste Überlegung beim Umgang mit 32-Bit-Daten, dass die Daten in der richtigen Reihenfolge adressiert werden.
+Modbus selbst definiert keinen Gleitkomma-Datentyp, aber es wird allgemein akzeptiert, dass es 32-Bit-Gleitkommadaten unter Verwendung des IEEE-754-Standards implementiert. Der IEEE-Standard hat jedoch keine klare Definition der Byte-Reihenfolge der Datennutzlast. Daher ist die wichtigste Überlegung beim Umgang mit 32-Bit-Daten, dass die Daten in der richtigen Reihenfolge adressiert werden.
 
 Die Zahl 123/456.00, wie sie im IEEE 754-Standard für 32-Bit-Gleitkommazahlen mit einfacher Genauigkeit definiert ist, sieht beispielsweise wie folgt aus:
 
 ![Bild1](../../../en/adapterref/iobroker.modbus/img/img1.png)
 
-Die Auswirkungen verschiedener Byte-Anordnungen sind signifikant. Zum Beispiel wird die Anordnung der 4 Datenbytes, die 123456.00 darstellen, in einer „B A D C“-Sequenz als „Byte-Swap“ bezeichnet. Bei der Interpretation als IEEE 744 Gleitkomma-Datentyp sieht das Ergebnis ganz anders aus:
+Die Auswirkungen verschiedener Byte-Anordnungen sind signifikant. Das Anordnen der 4 Datenbytes, die 123456.00 darstellen, in einer „B A D C“-Sequenz wird beispielsweise als „Byte-Swap“ bezeichnet. Bei der Interpretation als IEEE 744 Gleitkomma-Datentyp sieht das Ergebnis ganz anders aus:
 
 ![Bild2](../../../en/adapterref/iobroker.modbus/img/img2.png)
 
@@ -184,7 +205,7 @@ Das Anordnen derselben Bytes in einer „C D A B“-Sequenz wird als „Worttaus
 
 ![Bild3](../../../en/adapterref/iobroker.modbus/img/img3.png)
 
-Darüber hinaus würden sowohl ein „Byte-Swap“ als auch ein „Wort-Swap“ die Reihenfolge der Bytes im Wesentlichen umkehren, um ein weiteres Ergebnis zu erzielen:
+Darüber hinaus würden sowohl ein `byte swap` als auch ein `word swap` die Reihenfolge der Bytes im Wesentlichen umkehren, um ein weiteres Ergebnis zu erzielen:
 
 ![Bild4](../../../en/adapterref/iobroker.modbus/img/img4.png)
 
@@ -197,29 +218,29 @@ Das Modbus-Protokoll selbst ist gemäß der Modbus Application Protocol Specific
 
 Big-Endian ist das am häufigsten verwendete Format für Netzwerkprotokolle – so verbreitet, dass es auch als „Netzwerkreihenfolge“ bezeichnet wird.
 
-Da das Modbus RTU-Nachrichtenprotokoll Big-Endian ist, muss für den erfolgreichen Austausch eines 32-Bit-Datentyps über eine Modbus RTU-Nachricht die Endianness sowohl des Masters als auch des Slaves berücksichtigt werden. Viele RTU-Master- und -Slave-Geräte erlauben eine gezielte Auswahl der Byte-Reihenfolge, insbesondere bei Software-simulierten Einheiten. Es muss lediglich sichergestellt werden, dass beide Einheiten auf die gleiche Byte-Reihenfolge eingestellt sind.
+Da das Modbus RTU-Nachrichtenprotokoll Big-Endian ist, muss für den erfolgreichen Austausch eines 32-Bit-Datentyps über eine Modbus RTU-Nachricht die Endianness sowohl des Masters als auch des Slaves berücksichtigt werden. Viele RTU-Master- und -Slave-Geräte erlauben eine gezielte Auswahl der Byte-Reihenfolge, insbesondere bei software-simulierten Einheiten. Es muss lediglich darauf geachtet werden, dass beide Einheiten auf die gleiche Byte-Reihenfolge eingestellt sind.
 
-Als Faustregel gilt, dass die Familie des Mikroprozessors eines Geräts seine Endianness bestimmt. Typischerweise findet sich der Big-Endian-Stil (das höherwertige Byte wird zuerst gespeichert, gefolgt vom niederwertigen Byte) im Allgemeinen in CPUs, die mit einem Motorola-Prozessor ausgestattet sind. Der Little-Endian-Stil (das niederwertige Byte wird zuerst gespeichert, dann das höherwertige Byte) findet sich im Allgemeinen in CPUs mit der Intel-Architektur. Es ist eine Frage der persönlichen Perspektive, welcher Stil als „rückständig“ gilt.
+Als Faustregel gilt, dass die Familie des Mikroprozessors eines Geräts seine Endianness bestimmt. Typischerweise findet sich der Big-Endian-Stil (das höherwertige Byte wird zuerst gespeichert, gefolgt vom niederwertigen Byte) im Allgemeinen in CPUs, die mit einem Motorola-Prozessor ausgestattet sind. Der Little-Endian-Stil (das niederwertige Byte wird zuerst gespeichert, dann das höherwertige Byte) findet sich im Allgemeinen in CPUs mit der Intel-Architektur. Welcher Stil als „rückständig“ gilt, ist eine Frage der persönlichen Perspektive.
 
 Wenn Byte-Reihenfolge und Endianness jedoch keine konfigurierbare Option sind, müssen Sie festlegen, wie das Byte interpretiert wird. Dazu kann ein bekannter Gleitkommawert vom Slave angefordert werden. Wenn ein unmöglicher Wert zurückgegeben wird, d. h. eine Zahl mit einem zweistelligen Exponenten oder dergleichen, muss die Byte-Reihenfolge höchstwahrscheinlich geändert werden.
 
-### Praktische Hilfe
-Die FieldServer Modbus RTU-Treiber bieten mehrere Funktionsverschiebungen, die 32-Bit-Ganzzahlen und 32-Bit-Floatwerte verarbeiten. Noch wichtiger ist, dass diese Funktionsbewegungen alle verschiedenen Formen der Bytesequenzierung berücksichtigen. Die folgende Tabelle zeigt die Verschiebungen der FieldServer-Funktion, die zwei benachbarte 16-Bit-Register in einen 32-Bit-Ganzzahlwert kopieren.
+###Praktische Hilfe
+Die FieldServer Modbus RTU-Treiber bieten mehrere Funktionsverschiebungen, die 32-Bit-Ganzzahlen und 32-Bit-Floatwerte verarbeiten. Noch wichtiger ist, dass diese Funktionsbewegungen alle verschiedenen Formen der Byte-Sequenzierung berücksichtigen. Die folgende Tabelle zeigt die Verschiebungen der FieldServer-Funktion, die zwei benachbarte 16-Bit-Register in einen 32-Bit-Ganzzahlwert kopieren.
 
 | Funktionsschlüsselwort | Wechselmodus | Quellbytes | Zielbytes |
 |-------------------|--------------------|-----------------|--------------|
-| 2.i16-1.i32 | k.A. | [ a b ] [ c d ] | [ a b c d ] |
+| 2.i16-1.i32 | Nicht zutreffend | [ a b ] [ c d ] | [ a b c d ] |
 | 2.i16-1.i32-s | Byte- und Worttausch | [ a b ] [ c d ] | [ d c b a ] |
-| 2.i16-1.i32-sb | Byte-Swap | [ a b ] [ c d ] | [ b a d c ] |
+| 2.i16-1.i32-sb | Bytetausch | [ a b ] [ c d ] | [ b a d c ] |
 | 2.i16-1.i32-sw | Wortwechsel | [ a b ] [ c d ] | [ c d a b ] |
 
 Die folgende Tabelle zeigt die Verschiebungen der FieldServer-Funktion, die zwei benachbarte 16-Bit-Register in einen 32-Bit-Gleitkommawert kopieren:
 
 | Funktionsschlüsselwort | Wechselmodus | Quellbytes | Zielbytes |
 |-------------------|--------------------|-----------------|--------------|
-| 2.i16-1.ifloat | k.A. | [ a b ] [ c d ] | [ a b c d ] |
+| 2.i16-1.ifloat | Nicht zutreffend | [ a b ] [ c d ] | [ a b c d ] |
 | 2.i16-1.ifloat-s | Byte- und Worttausch | [ a b ] [ c d ] | [ d c b a ] |
-| 2.i16-1.ifloat-sb | Byte-Swap | [ a b ] [ c d ] | [ b a d c ] |
+| 2.i16-1.ifloat-sb | Bytetausch | [ a b ] [ c d ] | [ b a d c ] |
 | 2.i16-1.ifloat-sw | Wortwechsel | [ a b ] [ c d ] | [ c d a b ] |
 
 Die folgende Tabelle zeigt die Verschiebungen der FieldServer-Funktion, die einen einzelnen 32-Bit-Gleitkommawert in zwei benachbarte 16-Bit-Register kopieren:
@@ -249,7 +270,7 @@ Von den vielen Hex-zu-Gleitkomma-Umsetzern und -Rechnern, die im Internet verfü
 Anschließend können Bytes und/oder Wörter ausgetauscht werden, um zu analysieren, welche potenziellen Endianness-Probleme zwischen Modbus RTU-Master- und -Slave-Geräten bestehen können.
 
 ## Prüfung
-Im Ordner *test' befinden sich einige Programme zum Testen der TCP-Kommunikation:
+Im Ordner *test befinden sich einige Programme zum Testen der TCP-Kommunikation:
 
 - Ananas32/64 ist Slave-Simulator (nur Halteregister und Eingänge, keine Spulen und digitale Eingänge)
 - RMMS ist Mastersimulator
@@ -260,16 +281,16 @@ Im Ordner *test' befinden sich einige Programme zum Testen der TCP-Kommunikation
 ### __ARBEITEN IN PROGRESS__ -->
 
 ## Changelog
-### __WORK IN PROGRESS__
+### 3.4.2 (2021-06-15)
 * (nkleber78) Corrected issue with the scale factors
 * (bluefox) New react GUI added
-* (bluefox) Add new option: Use only Write multiple registers
+* (bluefox) Add new option: Use only Write multiple registers, read interval
 
 ### 3.3.1 (2021-05-10)
 * (bluefox) fixed the configuration dialog for "input registers" in slave mode 
 
 ### 3.3.0 (2021-04-16)
-* (Apollon77) Allow to use write-only (no poll) states
+* (Apollon77) Allow usage of write-only (no poll) states
 * (Apollon77/TmShaz) F Write multiple registers
 * (prog42) create states of type string with default value of type string
 
@@ -333,7 +354,7 @@ Im Ordner *test' befinden sich einige Programme zum Testen der TCP-Kommunikation
 
 ### 3.0.4 (2020-06-05)
 * (bluefox) Added device ID by export/import
-* (bluefox) Added the write interval parameter
+* (bluefox) Added the "write interval" parameter
 * (bluefox) Added the disabling of write multiple registers
 
 ### 3.0.3 (2020-06-05)
@@ -385,7 +406,7 @@ Im Ordner *test' befinden sich einige Programme zum Testen der TCP-Kommunikation
 * (bluefox) Create all states each after other
 
 ### 0.4.10 (2017-02-10)
-* (Apollon77) Do not recreate all datapoints on start of adapter
+* (Apollon77) Do not recreate all data points on start of adapter
 * (ykuendig) Multiple optimization and wording fixes
 
 ### 0.4.9 (2016-12-20)

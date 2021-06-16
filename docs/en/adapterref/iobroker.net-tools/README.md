@@ -64,6 +64,9 @@ Remark: This feature is limited to the subnet of the ioBroker host.
 
 ## Changelog
 
+### 0.1.5
+* changes on testing
+
 ### 0.1.4
 * fixes for js-controller 3.3
 
