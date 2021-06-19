@@ -5267,6 +5267,12 @@ JSON string must be an array of objects with the following properties:
 			<td/>
 		</tr>
 		<tr>
+			<td>minWidth</td>
+			<td>min width for item</td>
+			<td>string</td>
+			<td>30px | 60%</td>
+		</tr>		
+		<tr>
 			<td>usePercentOfRow</td>
 			<td>item use x percent of row.</td>
 			<td>number</td>
@@ -13089,6 +13095,14 @@ The adapter uses the following libraries:
     Placeholder for the next version (at the beginning of the line):	   
 	### __WORK IN PROGRESS__
 -->
+
+<!-- omit in toc -->
+### __WORK IN PROGRESS__
+* (Scrounger) Button Toggle Widgets: bug fix for state on runtime load
+* (Scrounger) Value Widget: bug fix for show unit only if result is of type number
+* (Scrounger) IconList Widget: option to set minimal width for single item added
+* (Scrounger) Top App Bar Widget: fixed bugs found by sentry
+* (Scrounger) bug fix for VIS Editor dev values
 
 <!-- omit in toc -->
 ### 0.5.9 (2021-06-13)

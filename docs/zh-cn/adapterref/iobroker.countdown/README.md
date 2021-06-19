@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.countdown/README.md
 title: ioBroker.countdown
-hash: OBGsQSNA2a3INavUciECKOo87Iu69HijMV4FIKAePsc=
+hash: dETjBmfzNc9wIRecCRd+xFOUle+ySHlM2PoOBFXnRJg=
 ---
 ![商标](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
@@ -43,7 +43,7 @@ ioBroker 倒计时适配器---------------------------------------------- ------
 您可以使用 sendto 删除倒计时。因此，只需将带有 sendto 的名称发送到适配器，倒计时将被自动删除。
 
 ##重复倒计时
-如果您希望在定义的时间段内重复倒计时（例如，您不能每年为您的婚礼倒计时），您也可以使用此适配器执行此操作。因此，要么在适配器的设置中填写“重复周期”字段，要么在创建类型为“日期”的倒计时时在日期之后添加周期。一个 sendTo 看起来像倒计时，它应该在 2020 年 4 月 1 日结束并每年重复：
+如果您希望在规定的时间段内重复倒计时（例如，您不能每年为您的婚礼日倒计时），您也可以使用此适配器执行此操作。因此，要么在适配器的设置中填写“重复周期”字段，要么在创建类型为“日期”的倒计时时在日期之后添加周期。一个 sendTo 看起来像倒计时，它应该在 2020 年 4 月 1 日结束并每年重复：
 
 sendTo("countdown.0", "send", { "name": 'Wedding Day', "date": '01.04.2020 00:01+1Y' });
 
@@ -58,7 +58,7 @@ sendTo("countdown.0", "send", { "name": 'Wedding Day', "date": '01.04.2020 00:01
 ## 可用输出
 |数据类型|说明|
 |:---:|:---:|
-|分钟|倒计时结束前的分钟（不是总数！）|
+|分钟|倒计时结束前的分钟数（不是总数！）|
 |小时|倒计时结束前的小时数（不是总数！）|
 |天|距离倒计时结束的天数（不是总数！）|
 |月|距倒计时结束的月数（不是总数！）|
@@ -77,6 +77,9 @@ sendTo("countdown.0", "send", { "name": 'Wedding Day', "date": '01.04.2020 00:01
 * 可以添加脚本作为参数并在倒计时结束时启动它
 * 可以在 addminutes 和其他 add 函数中使用加号和减号
 
+## 1.2.5 (2021-06-16)
+* (jack-blackson) 修正使用 sendto 删除倒计时
+
 ## 1.2.4 (2021-06-09)
 * (jack-blackson) 小错误修正、翻译
 
@@ -84,7 +87,7 @@ sendTo("countdown.0", "send", { "name": 'Wedding Day', "date": '01.04.2020 00:01
 * (jack-blackson) 小错误修正、翻译
 
 ## 1.2.2 (2021-05-25)
-* (jack-blackson) 小错误修正，为翻译添加了 weblate
+* (jack-blackson) 小错误修正，添加了用于翻译的 weblate
 
 ## 1.2.1 (2021-05-09)
 * (jack-blackson) 小错误修正

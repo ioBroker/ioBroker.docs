@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.countdown/README.md
 title: ioBroker.countdown
-hash: OBGsQSNA2a3INavUciECKOo87Iu69HijMV4FIKAePsc=
+hash: dETjBmfzNc9wIRecCRd+xFOUle+ySHlM2PoOBFXnRJg=
 ---
 ![Logo](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
@@ -43,7 +43,7 @@ Es gibt zwei Möglichkeiten, Countdowns einzurichten:
 Mit sendto können Sie einen Countdown löschen. Senden Sie daher nur den Namen mit sendto an den Adapter, und der Countdown wird automatisch gelöscht.
 
 ## Wiederholter Countdown
-Wenn Sie möchten, dass sich ein Countdown in einem definierten Zeitraum wiederholt (z. B. können Sie nicht jedes Jahr einen Countdown für Ihren Hochzeitstag durchführen), können Sie dies auch mit diesem Adapter tun. Füllen Sie daher entweder das Feld „Wiederholungszeitraum“ in den Einstellungen des Adapters aus, oder fügen Sie beim Anlegen eines Countdowns vom Typ „Datum“ den Zeitraum nach dem Datum hinzu. So würde ein sendTo für einen Countdown aussehen, der am 1. April 2020 enden soll und sich jedes Jahr wiederholen soll:
+Wenn Sie möchten, dass sich ein Countdown in einem definierten Zeitraum wiederholt (z. B. können Sie nicht jedes Jahr einen Countdown für Ihren Hochzeitstag durchführen), können Sie dies auch mit diesem Adapter tun. Füllen Sie daher entweder das Feld „Wiederholungszeitraum“ in den Einstellungen des Adapters aus, oder fügen Sie beim Anlegen eines Countdowns vom Typ „Datum“ den Zeitraum nach dem Datum hinzu. So würde ein sendTo für einen Countdown aussehen, der am 1. April 2020 enden und sich jedes Jahr wiederholen soll:
 
 sendTo("countdown.0", "send", { "name": 'Hochzeitstag', "date": '01.04.2020 00:01+1Y' });
 
@@ -77,6 +77,9 @@ Parameter hier sind:
 * Möglichkeit, ein Skript als Parameter hinzuzufügen und es zu starten, wenn der Countdown endet
 * Möglichkeit, Plus und Minus in Addminutes und den anderen Add-Funktionen zu verwenden
 
+## 1.2.5 (2021-06-16)
+* (jack-blackson) Bugfix zum Löschen des Countdowns mit sendto
+
 ## 1.2.4 (2021-06-09)
 * (jack-blackson) Kleine Bugfixes, Übersetzungen
 
@@ -90,7 +93,7 @@ Parameter hier sind:
 * (jack-blackson) Kleine Bugfixes
 
 ## 1.2.0 (2021-05-09)
-* (jack-blackson) Aktualisierte Pakete, hinzugefügt Sentry
+* (jack-blackson) Aktualisierte Pakete, Sentry hinzugefügt
 * (jack-blackson) Fixes für JS-Controller 3.3
 * (jack-blackson) Fix, dass Countdowns sofort erstellt werden
 
@@ -115,7 +118,7 @@ Parameter hier sind:
 * (jack-blackson) Bugfix für Alarm um Mitternacht -> danke an @Lueghi
 
 ## 1.0.4 (2019-08-25)
-* (jack-blackson) Infos zur Veröffentlichung nachbestellt
+* (jack-blackson) Veröffentlichungsinfos neu geordnet
 
 ## 1.0.3 (2019-08-10)
 * (jack-blackson) Änderungen für den Kompaktmodus
@@ -129,7 +132,7 @@ Parameter hier sind:
 * (jack-blackson) Bugfixes
 * (jack-blackson) addminutes und addhours sind jetzt auch möglich
 * (Jack-Blackson) Datenpunkt im Setup ist jetzt editierbar
-* (jack-blackson) hinzugefügte Gesamtnr. von Wochen
+* (jack-blackson) hinzugefügte Gesamtzahl von Wochen
 
 ## 0.6.0 (2019-07-06)
 * (Jack-Blackson) einstellbares Datumsformat für Ein- und Ausgabe
@@ -141,7 +144,7 @@ Parameter hier sind:
 * (jack-blackson) Bugfix-Datumsimport
 
 ### 0.4.0 (2019-06-04)
-* (jack-blackson) Restrukturierung - Erstellung von Alarmen mit sendto oder manuell mit Datapoint ist jetzt möglich
+* (jack-blackson) Restrukturierung - Erstellen von Alarmen mit sendto oder manuell mit Datapoint ist jetzt möglich
 
 ### 0.3.0 (2019-05-24)
 * (jack-blackson) hinzugefügte Gesamtzahl der Tage und Stunden

@@ -8,11 +8,9 @@ BADGE-NPM: https://nodei.co/npm/iobroker.s7.png?downloads=true
 # ioBroker.S7
 
 ## Detailed description
-
 The S7 adapter which comes with ioBroker is based on Snap7\. Snap7 will be installed during the first time installation of the adapter and handles the TCP/IP communication between the S7 PLC and ioBroker. So it is mandatory that the S7 is equipped with an Ethernet interface (integrated or external CP) in order to communicate over TCP/IP with the hardware ioBroker is running on. As a prerequisite the user has to know the basics about TCP/IP communication and he/ she has to be able to configure the S7 PLC with the Step7 software. But that shouldn’t be a challenge for someone considering to linking an S7 to ioBroker.
 
 ## Installation
-
 This guide is based on the following configuration:
 
 * S7-315 with integrated Ethernet interface
@@ -23,14 +21,12 @@ This guide is based on the following configuration:
     * Google Chrome Browser
     * Step7 V5.5 SP4 HF5
 
-**needed additional document: (iobroker_adapter_S7.xlsx)[iobroker_adapter_S7.xlsx]**
+**needed additional document:  (iobroker_adapter_S7.xlsx)[iobroker_adapter_S7.xlsx]**
 
 ### Communication through Data Blocks (DBs)
-
 This guide describes the communication between ioBroker and the S7 PLC through data blocks. Ideally dedicated DBs can be generated for the communication. The DBs have to be integrated in the code running in the S7\. The advantage with that approach is that you can be sure that you won’t overwrite data accidentally for example in an instance data block which could lead to unwanted or unexpected reactions in your S7 software. If you have to use existing data blocks due to memory restrictions or that you can not do any modification to the S7 software, make sure that you populate the relevant data to ioBroker only in order to avoid conflicts.
 
 ### Generate communication DBs
-
 We are going to work with 4 DBs: 
 * DB20 – Binary values sent from ioBroker to the S7 (digital input from an S7 view)
 * DB21 – Binary values sent to ioBroker from the S7 (digital output from an S7 view)
@@ -42,7 +38,6 @@ The DBs will be generated using a spread sheet with one table per data block.
 ![](img/adapter_en_s7_tabelle_1.png)
 
 #### Preparation of DB20 – Binary values sent from ioBroker to the S7
-
 ![](img/adapter_en_s7_tabelle_3.png)
 
 ![](img/zoom61_black.png)
@@ -70,7 +65,6 @@ Column A through M are based on the structure in ioBroker and have to be filled 
 * Column O: DB content = content which will be copied to Step7 for DB generation, formula: ```=CONCATENATE(D2;":";F2;":=";"false;";"//";E2)```
 
 #### Preparation of DB21 – Binary values sent to ioBroker from the S7
-
 ![](img/adapter_en_s7_tabelle_3.png)
 
 ![](img/zoom61_black.png)
@@ -79,7 +73,6 @@ Column A through M are based on the structure in ioBroker and have to be filled 
 * Column L: RW è “false” in DB21 as we want to read data from the S7
 
 #### Preparation of DB22 – Real values sent from ioBroker to the S7
-
 ![](img/adapter_en_s7_tabelle_4.png)
 
 ![](img/zoom61_black.png)
@@ -91,7 +84,6 @@ Column A through M are based on the structure in ioBroker and have to be filled 
 * Column O: Formula: ```=CONCATENATE_ _(D2;":";F2;":=";"0.000000e+000;";"//";E2)```
 
 #### Preparation of DB23 – Real values sent to ioBroker from the S7
-
 ![](img/adapter_en_s7_tabelle_5.png)
 
 ![](img/zoom61_black.png)
@@ -102,7 +94,6 @@ Column A through M are based on the structure in ioBroker and have to be filled 
 * Column O: Formula: ```=CONCATENATE_ _(D2;":";F2;":=";"0.000000e+000;";"//";E2)```
 
 #### Create DB sources in Step7
-
 We will now generate the DBs in Step7 using the code in column O of our spread sheet. In your Step7 program insert an STL source by clicking the right mouse button on “Sources”. [
 ![](img/adapter_en_s7_step7_1.png)
  
@@ -168,11 +159,9 @@ We now have the 4 DBs required for the communication:
 You should give them a symbolic name accordingly, that helps to maintain clarity. Don’t forget to connect them to the S7 logic and download the modified code.
 
 ### Populate DBs to ioBroker
-
 Now that the 4 DBs are part of the code running in the S7, we will tell ioBroker how to communicate with the S7.
 
 #### Installation of S7 Adapter instance
-
 Adapters – hardware – Siemens S7 Adapter – +
 
 ![](img/adapter_en_s7_1.png)
@@ -213,7 +202,6 @@ and start to configure the S7 adapter:
     * Add DB Feature to import Step7 DBs from an ASCII file – not used here
 
 #### Configure ioBroker for the communication
-
 We skip the tabs “Inputs”, “Outputs” and “Markers” and go right to “DBs”:
 
 ![](img/adapter_en_s7_7.png)
@@ -240,7 +228,6 @@ Repeat for DB21, DB22, DB23\. Each time you click “Import from CSV” you get 
 
 
 #### Communication test
-
 Go to the tab “Objects” in ioBroker and find the S7 instance (e.g. s7.0, not system.adapter.S7.0). If you’re missing anything: F5 (webpage update) is king! Her you find two groups:
 
 * DBs with the 4 DBs we configured:
@@ -258,7 +245,6 @@ Go to the tab “Objects” in ioBroker and find the S7 instance (e.g. s7.0, not
  We have configured DB21 and DB23 as DBs sending information to ioBroker, i.e. if you open the DBs under “Objects”, you should see values coming in already, give that the DBs are being supplied with data from the S7 code.
 
 ## Monitoring and Operation in vis
-
 Start ioBroker.vis from the tab “Instances”. I recommend to have the vis-hqwidgets installed. Let’s start with a switch:
 
 ![](img/adapter_en_s7_14.png)
@@ -270,6 +256,8 @@ Drag& drop a switch widget on your view, connect it to the Object ID of a switch
 Important: The user is in charge of connecting the correct data points to the widgets. You can connect a real value to a binary status (e.g. light bulb), so the light bulb will show “on” once the real value is >1.0. That’s all, folks, pretty easy and straight forward, huh?
 
 ## Changelog
+### 1.3.0 (2021-06-17)
+* (bluefox) New configuration page on react 
 
 ### 1.2.5 (2021-04-17)
 * (Apollon77) Fix pot crash case (Sentry IOBROKER-S7-16)
@@ -419,10 +407,11 @@ Important: The user is in charge of connecting the correct data points to the wi
 * Bugfix start file
 
 ## License
-
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 smiling_Jack <steffen.schorling@googlemail.com>, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>,
+
+Copyright (c) 2014-2016 smiling_Jack <steffen.schorling@googlemail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
