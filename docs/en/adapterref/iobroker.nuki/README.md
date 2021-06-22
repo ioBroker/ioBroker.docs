@@ -85,6 +85,8 @@ When updating from 1.0.x to 1.1.0 or higher it is recommended to delete all inst
 
 ## Changelog
 
+### 1.5.0
+* (smaragdschlange) bug fix: compatibility with jscontroller 3.3.13
 ### 1.4.4
 * (smaragdschlange) update: changes to comply with admin 5.x.x requirements
 ### 1.4.3

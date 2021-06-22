@@ -5128,6 +5128,12 @@ Settings that are not listed in the table below are self-explanatory.
 			<td>boolean</td>
 			<td>false | true</td>
 		</tr>
+		<tr>
+			<td>listOverflow</td>
+			<td>automatically adjust column width to value</td>
+			<td>boolean</td>
+			<td>false | true</td>
+		</tr>
 	</tbody>
 </table> 
 
@@ -5151,7 +5157,8 @@ Settings that are not listed in the table below are self-explanatory.
 		"objectId": "0_userdata.0.MDW.list.bool.val0",
 		"buttonStateValue": "",
 		"buttonNavView": "",
-		"buttonLink": ""
+		"buttonLink": "",
+		"listOverflow": false
 	}, {
 		"text": "item1",
 		"subText": "{0_userdata.0.MDW.list.bind1}",
@@ -5166,7 +5173,8 @@ Settings that are not listed in the table below are self-explanatory.
 		"objectId": "0_userdata.0.MDW.list.bool.val1",
 		"buttonStateValue": "",
 		"buttonNavView": "",
-		"buttonLink": ""
+		"buttonLink": "",
+		"listOverflow": false
 	}, {
 		"text": "item2",
 		"subText": "",
@@ -5181,7 +5189,8 @@ Settings that are not listed in the table below are self-explanatory.
 		"objectId": "0_userdata.0.MDW.list.bool.val2",
 		"buttonStateValue": "",
 		"buttonNavView": "",
-		"buttonLink": ""
+		"buttonLink": "",
+		"listOverflow": false
 	}, {
 		"text": "item3",
 		"subText": "fuuuu",
@@ -5196,7 +5205,8 @@ Settings that are not listed in the table below are self-explanatory.
 		"objectId": "0_userdata.0.MDW.list.bool.val3",
 		"buttonStateValue": "",
 		"buttonNavView": "",
-		"buttonLink": ""
+		"buttonLink": "",
+		"listOverflow": false
 	}
 ]
 </code></pre>
@@ -13101,6 +13111,8 @@ The adapter uses the following libraries:
 * (Scrounger) Button Toggle Widgets: bug fix for state on runtime load
 * (Scrounger) Value Widget: bug fix for show unit only if result is of type number
 * (Scrounger) IconList Widget: option to set minimal width for single item added
+* (Scrounger) IconList Widget: header added
+* (Scrounger) List Widget: main header added
 * (Scrounger) Top App Bar Widget: fixed bugs found by sentry
 * (Scrounger) bug fix for VIS Editor dev values
 

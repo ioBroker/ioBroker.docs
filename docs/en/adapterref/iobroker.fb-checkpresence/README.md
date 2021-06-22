@@ -197,8 +197,9 @@ Here you will find information about the history of the current day.
     * Did some changes
     * Did some more changes
 -->
-### __WORK IN PROGRESS__
+### 1.1.6 (2021-06-20)
 * (afuerhoff) html input pattern fixed for password and user
+* (afuerhoff) getActive function fixed
 * (afuerhoff) dependencies updated
 
 ### 1.1.5 (2021-06-03)
@@ -247,14 +248,6 @@ Here you will find information about the history of the current day.
 * (afuerhoff) active / inactive devices
 * (afuerhoff) interval 10s bug fixed
 * (afuerhoff) documentation edited 
-
-### 1.1.1 (2020-12-27)
-* (afuerhoff) Configuration optimized
-* (afuerhoff) Bugfix dateformat pattern
-* (afuerhoff) SSL (https) workaround implemented
-* (afuerhoff) Connection check optimized
-* (afuerhoff) Documentation added
-* (afuerhoff) Mesh handling optimized 
 
 ## License
 MIT License

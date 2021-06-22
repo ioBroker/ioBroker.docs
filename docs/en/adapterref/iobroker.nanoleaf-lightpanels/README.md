@@ -53,6 +53,11 @@ You can use the nanoleaf vis demo project found in the /vis subfolder on github.
 
 ## Changelog
 
+### 1.2.1 (2021-06-20)
+* (daniel_2k) fixed: get a new authorization token is not possible when the current token is already invalid
+* (daniel_2k) fixed: device search in admin settings fixed
+* (daniel_2k) changed: obtaining an authorization token is also possible when field is already filled
+
 ### 1.2.0 (2021-01-03)
 * (daniel_2k) new: possibility to use polling for keep alive detection instead of SSDP notify messages (for nanoleaf devices which stop sending SSDP notify packages)
 * (daniel_2k) changed: small internal adjustments

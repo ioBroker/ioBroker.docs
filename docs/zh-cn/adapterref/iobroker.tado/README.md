@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: v8Nn0pHa0q3jQUGVBWTgkYffVo+Prd50VC+FyYWOICk=
+hash: 06PSBrUK/jVnZap4HFoySXhDFkBKDh7HZglT9q+NeVY=
 ---
 ![安装数量](http://iobroker.live/badges/tado-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.tado.svg)
@@ -26,7 +26,14 @@ tado° 确保舒适健康的气候，同时节省高达 31% 的取暖费用。
 如果您喜欢我的作品，请随时提供个人捐赠（这是 DutchmanNL 的个人捐赠链接，与 ioBroker 项目无关！[![捐赠](https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## V0.3.x 中的重大更改
-从 0.2.x 升级到 v0.3.x 包括具有重大变化的技术重构（例如，温度设置现在位于 tado.[x]].[yyyyy]].Rooms.[z].setting.temperature。摄氏度）。
+从 0.2.x 升级到 v0.3.x 包括具有重大更改的技术重构。某些州更改了名称/路径，例如
+
+| v0.2.x | v0.3.x |
+| ------ | ------ |
+| tado.[x].[yyyyy].Rooms.[z].setting.temperature |tado.[x].[yyyyy].Rooms.[z].setting.temperature.celsius |
+| tado.[x].[yyyyy].Rooms.[z].overlay.clearZoneOverlay | tado.[x].[yyyyy].Rooms.[z].overlayClearZone |
+
+很高兴根据您的反馈添加其他重大更改！
 
 ## Changelog
 <!--

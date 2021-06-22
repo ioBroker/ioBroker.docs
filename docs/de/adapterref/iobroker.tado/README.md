@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: v8Nn0pHa0q3jQUGVBWTgkYffVo+Prd50VC+FyYWOICk=
+hash: 06PSBrUK/jVnZap4HFoySXhDFkBKDh7HZglT9q+NeVY=
 ---
 ![Anzahl der Installationen](http://iobroker.live/badges/tado-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.tado.svg)
@@ -26,7 +26,14 @@ tado° sorgt für ein angenehmes und gesundes Klima und spart bis zu 31% Heizkos
 Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende zukommen lassen (dies ist ein persönlicher Spendenlink für DutchmanNL, kein Bezug zum ioBroker-Projekt ! [![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Wichtige Änderungen in v0.3.x
-Upgrade von 0.2.x auf v0.3.x beinhaltet ein technisches Refactoring mit Breaking Changes (zB Temperatureinstellung befindet sich jetzt unter tado.[x]].[yyyyy]].Rooms.[z].setting.temperature. Celsius).
+Upgrade von 0.2.x auf v0.3.x beinhaltet ein technisches Re-Factoring mit Breaking Changes. Einige Staaten haben ihren Namen/Pfad geändert, z.B.
+
+| v0.2.x | v0.3.x |
+| ------ | ------ |
+| tado.[x].[yyyyy].Rooms.[z].setting.temperature |tado.[x].[yyyyy].Rooms.[z].setting.temperature.celsius |
+| tado.[x].[yyyyy].Rooms.[z].overlay.clearZoneOverlay | tado.[x].[yyyyy].Rooms.[z].overlayClearZone |
+
+Gerne weitere wichtige Änderungen basierend auf Ihrem Feedback!
 
 ## Changelog
 <!--

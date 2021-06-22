@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: v8Nn0pHa0q3jQUGVBWTgkYffVo+Prd50VC+FyYWOICk=
+hash: 06PSBrUK/jVnZap4HFoySXhDFkBKDh7HZglT9q+NeVY=
 ---
 # IoBroker.tado
 
@@ -24,10 +24,17 @@ hash: v8Nn0pHa0q3jQUGVBWTgkYffVo+Prd50VC+FyYWOICk=
 tado ° обеспечивает комфортный и здоровый климат, экономя до 31% на счетах за отопление.
 
 ## Поддержите меня
-Если вам нравятся мои работы, пожалуйста, сделайте личное пожертвование (это личная ссылка для пожертвования для DutchmanNL, не имеющая отношения к проекту ioBroker! [![Пожертвовать] (https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
+Если вам нравится моя работа, пожалуйста, сделайте личное пожертвование (это личная ссылка для пожертвования для DutchmanNL, не имеющая отношения к проекту ioBroker! [![Пожертвовать] (https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Критические изменения в v0.3.x
-Обновление с 0.2.x до v0.3.x включает техническое переоснащение с критическими изменениями (например, установка температуры теперь находится в tado. [X]]. [Yyyyy]]. Rooms. [Z] .setting.temperature. по Цельсию).
+Обновление с 0.2.x до v0.3.x включает техническое переоснащение с критическими изменениями. Некоторые состояния изменили там имя / путь, например.
+
+| v0.2.x | v0.3.x |
+| ------ | ------ |
+| tado. [x]. [yyyyy] .Rooms. [z] .setting.temperature | tado. [x]. [yyyyy] .Rooms. [z] .setting.temperature.celsius |
+| тадо. [x]. [yyyyy] .Rooms. [z] .overlay.clearZoneOverlay | тадо. [x]. [yyyyy] .Rooms. [z] .overlayClearZone |
+
+Рады добавить дополнительные важные изменения на основе ваших отзывов!
 
 ## Changelog
 <!--

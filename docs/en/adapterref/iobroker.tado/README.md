@@ -21,7 +21,14 @@ If you like my work, please feel free to provide a personal donation
 [![Donate](https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Breaking changes in v0.3.x
-Upgrade from 0.2.x to v0.3.x includes a technical re-factioring with breaking changes (e.g. temperature setting is now located at tado.[x]].[yyyyy]].Rooms.[z].setting.temperature.celsius).
+Upgrade from 0.2.x to v0.3.x includes a technical re-factioring with breaking changes. Some states changed there name/path, e.g.
+
+| v0.2.x | v0.3.x |
+| ------ | ------ |
+| tado.[x].[yyyyy].Rooms.[z].setting.temperature |tado.[x].[yyyyy].Rooms.[z].setting.temperature.celsius |
+| tado.[x].[yyyyy].Rooms.[z].overlay.clearZoneOverlay | tado.[x].[yyyyy].Rooms.[z].overlayClearZone |
+
+Happy to add additonal major changes based on your feedback!
 
 ## Changelog
 <!--

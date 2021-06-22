@@ -163,6 +163,9 @@ is displayed.
     ### __WORK IN PROGRESS__
 -->
 
+### 1.2.6 (2021-06-20)
+* (xenon-s) bugfix: error catching JSON "last operations" doesn't work
+
 ### 1.2.4 (2021-06-13)
 * (xenon-s) bugfix: incorrect JSON format 
 <br>**Important! Delete the data point "last operations" manually and restart the adapter afterwards!**
