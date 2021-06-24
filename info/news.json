@@ -1,6 +1,39 @@
 [
     {
         "title": {
+            "en": "BREAKING CHANGE: Your YAML configurations will be lost during an update!",
+            "de": "BREAKING CHANGE: Ihre YAML-Konfigurationen gehen bei einem Update verloren!",
+            "ru": "BREAKING CHANGE: ваши конфигурации YAML будут потеряны во время обновления!",
+            "pt": "BREAKING CHANGE: Suas configurações YAML serão perdidas durante uma atualização!",
+            "nl": "BREAKING CHANGE: Uw YAML-configuraties gaan verloren tijdens een update!",
+            "fr": "BREAKING CHANGE : vos configurations YAML seront perdues lors d'une mise à jour !",
+            "it": "CAMBIAMENTO DI ROTTURA: le tue configurazioni YAML andranno perse durante un aggiornamento!",
+            "es": "CAMBIO IMPORTANTE: ¡Tus configuraciones de YAML se perderán durante una actualización!",
+            "pl": "PRZEŁOMOWA ZMIANA: Twoje konfiguracje YAML zostaną utracone podczas aktualizacji!",
+            "zh-cn": "重大变化：您的 YAML 配置将在更新期间丢失！"
+        },
+        "content": {
+            "en": "If you use the integrated ESPHome dashboard, your YAML configurations will be lost during an update! Please ensure your YAML configuration before you update the adapter. There is no possibility to restore lost YAML configurations from the chip itself or from a previous ioBroker backup! From version 0.2.2 this error has been fixed and the YAML configurations saved in a different folder and by that also part of the ioBroker backup!",
+            "de": "Wenn Sie das integrierte ESPHome-Dashboard verwenden, gehen Ihre YAML-Konfigurationen bei einem Update verloren! Bitte stellen Sie Ihre YAML-Konfiguration sicher, bevor Sie den Adapter aktualisieren. Es gibt keine Möglichkeit, verlorene YAML-Konfigurationen vom Chip selbst oder von einem früheren ioBroker-Backup wiederherzustellen! Ab Version 0.2.2 wurde dieser Fehler behoben und die YAML-Konfigurationen in einem anderen Ordner gespeichert und damit auch Teil des ioBroker-Backups!",
+            "ru": "Если вы используете встроенную панель управления ESPHome, ваши конфигурации YAML будут потеряны во время обновления! Перед обновлением адаптера проверьте конфигурацию YAML. Нет возможности восстановить утерянные конфигурации YAML из самого чипа или из предыдущей резервной копии ioBroker! Начиная с версии 0.2.2, эта ошибка была исправлена, и конфигурации YAML сохранены в другой папке, что также является частью резервной копии ioBroker!",
+            "pt": "Se você usar o painel ESPHome integrado, suas configurações YAML serão perdidas durante uma atualização! Certifique-se de sua configuração YAML antes de atualizar o adaptador. Não há possibilidade de restaurar configurações YAML perdidas do próprio chip ou de um backup ioBroker anterior! A partir da versão 0.2.2, este erro foi corrigido e as configurações YAML salvas em uma pasta diferente e por isso também fazem parte do backup do ioBroker!",
+            "nl": "Als u het geïntegreerde ESPHome-dashboard gebruikt, gaan uw YAML-configuraties verloren tijdens een update! Controleer uw YAML-configuratie voordat u de adapter bijwerkt. Er is geen mogelijkheid om verloren YAML-configuraties te herstellen vanaf de chip zelf of vanaf een eerdere ioBroker-back-up! Vanaf versie 0.2.2 is deze fout verholpen en zijn de YAML-configuraties in een andere map opgeslagen en daarmee ook onderdeel van de ioBroker-back-up!",
+            "fr": "Si vous utilisez le tableau de bord ESPHome intégré, vos configurations YAML seront perdues lors d'une mise à jour ! Veuillez vous assurer de votre configuration YAML avant de mettre à jour l'adaptateur. Il n'y a aucune possibilité de restaurer les configurations YAML perdues à partir de la puce elle-même ou d'une précédente sauvegarde ioBroker ! À partir de la version 0.2.2, cette erreur a été corrigée et les configurations YAML enregistrées dans un dossier différent et faisant également partie de la sauvegarde ioBroker !",
+            "it": "Se utilizzi la dashboard ESPHome integrata, le tue configurazioni YAML andranno perse durante un aggiornamento! Assicurati la tua configurazione YAML prima di aggiornare l'adattatore. Non è possibile ripristinare le configurazioni YAML perse dal chip stesso o da un precedente backup di ioBroker! Dalla versione 0.2.2 questo errore è stato corretto e le configurazioni YAML salvate in una cartella diversa e da quella anche parte del backup ioBroker!",
+            "es": "Si usa el panel de control ESPHome integrado, ¡sus configuraciones de YAML se perderán durante una actualización! Asegúrese de su configuración YAML antes de actualizar el adaptador. ¡No hay posibilidad de restaurar configuraciones YAML perdidas desde el propio chip o desde una copia de seguridad de ioBroker anterior! A partir de la versión 0.2.2, este error se corrigió y las configuraciones de YAML se guardaron en una carpeta diferente y, por lo tanto, también forman parte de la copia de seguridad de ioBroker.",
+            "pl": "Jeśli korzystasz ze zintegrowanego pulpitu nawigacyjnego ESPHome, Twoje konfiguracje YAML zostaną utracone podczas aktualizacji! Przed aktualizacją adaptera sprawdź konfigurację YAML. Nie ma możliwości przywrócenia utraconych konfiguracji YAML z samego chipa lub z poprzedniej kopii zapasowej ioBroker! Od wersji 0.2.2 ten błąd został naprawiony i konfiguracje YAML zostały zapisane w innym folderze, a przez to również część kopii zapasowej ioBroker!",
+            "zh-cn": "如果您使用集成的 ESPHome 仪表板，您的 YAML 配置将在更新过程中丢失！在更新适配器之前，请确保您的 YAML 配置。无法从芯片本身或从以前的 ioBroker 备份恢复丢失的 YAML 配置！从版本 0.2.2 开始，此错误已得到修复，YAML 配置保存在不同的文件夹中，也是 ioBroker 备份的一部分！"
+        },
+        "id": "esphome-update-yaml",
+        "class": "danger",
+        "fa-icon": "bolt",
+        "created": "2021-06-24T01:00:00.000Z",
+        "conditions": {
+            "esphome": "smaller(0.2.2)",
+        }
+    },
+    {
+        "title": {
             "en": "BREAKING CHANGE: No support for iPad 1+2/Android<4.4 with updates for web, socketio and admin!",
             "de": "BREAKING CHANGE: Keine Unterstützung für iPad 1+2/Android<4.4 mit Updates für Web, Socketio und Admin!",
             "ru": "BREAKING CHANGE: нет поддержки iPad 1+2/Android<4.4 с обновлениями для Интернета, socketio и admin!",
@@ -384,7 +417,7 @@
             "pl": "Wersje Node.JS mniejsze niż 12 nie są już obsługiwane przez zespół Node",
             "zh-cn": "小于12的Node.JS版本不再由节点团队维护"
         },
-        "content": {            
+        "content": {
             "en": "Dear ioBroker user, you are using a Node.JS version that is no longer maintained by the Node team. We recommend switching to Node.JS 12.x. To be on the safe side, please make a backup of the current system beforehand. Instructions for the update can be found here: <a>https://forum.iobroker.net/topic/44566/how-to-node-js-f%C3%BCr-iobroker-richtig-updaten-2021-edition</a>",
             "de": "Lieber ioBroker Anwender, du nutzt eine Node.JS Version, die nicht mehr vom Node-Team gepflegt wird. Wir empfehlen den Wechsel auf Node.JS 12.x. Bitte zur Sicherheit vorher ein Backup des aktuellen Systems erstellen. Eine Anleitung zum Update haben wir hier bereitgestellt: <a>https://forum.iobroker.net/topic/44566/how-to-node-js-f%C3%BCr-iobroker-richtig-updaten-2021-edition</a>",
             "ru": "Уважаемый пользователь ioBroker, вы используете версию Node.JS, которая больше не поддерживается командой Node. Мы рекомендуем перейти на Node.JS 12.x. На всякий случай заранее сделайте резервную копию текущей системы. Инструкции по обновлению можно найти здесь: <a>https://forum.iobroker.net/topic/44566/how-to-node-js-f%C3%BCr-iobroker-richtig-updaten-2021-edition</a>",
