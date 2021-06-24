@@ -11,7 +11,7 @@ A RGB Lamp can have thw following three objects (or more) with different roles t
 Different Device templates used for the detecting with the required and optional objects and their roles can be found in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md).
 
 ## Common
-* state - very common purpose. If you don't know which role the state has, use this one.
+* `state` - very common purpose. If you don't know which role the state has, use this one.
 * `text`              `common.type = string`
 * `text.url`          `common.type = string` state val contains an url for usage in an anchor, iframe or img
 * `html`              `common.type = string`
