@@ -8,7 +8,7 @@ A RGB Lamp can have thw following three objects (or more) with different roles t
 * level.color.rgb with #RRGGBB color code of the lamp
 * level.brightness with the brightness value
 
-Different Device templates used for the detecting with the required and optional objects and their roles can be found at [Type-detector repository](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md).
+Different Device templates used for the detecting with the required and optional objects and their roles can be found in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md).
 
 ## Common
 * state - very common purpose. If you don't know which role the state has, use this one.
