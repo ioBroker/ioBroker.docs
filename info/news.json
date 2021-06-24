@@ -29,7 +29,7 @@
         "fa-icon": "bolt",
         "created": "2021-06-24T01:00:00.000Z",
         "conditions": {
-            "esphome": "smaller(0.2.2)",
+            "esphome": "smaller(0.2.2)"
         }
     },
     {
