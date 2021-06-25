@@ -45,6 +45,12 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
+### 1.2.1 (2021-06-22)
+* (simatec) auto-mode button added
+* (simatec) many small BugFix
+* (simatec) DEPENDENCIES updated
+* (simatec) Dev-DEPENDENCIES updated
+
 ### 1.2.0 (2021-05-04)
 * (simatec) new Feature shutterSettings added
 * (simatec) new Feature brightness sensor for opening added

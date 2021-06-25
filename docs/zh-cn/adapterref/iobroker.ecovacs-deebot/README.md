@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
 title: 适用于 ioBroker 的 Ecovacs Deebot 适配器
-hash: FnMYOflQ5eNPmJub4vSXFG64MYs86SP/qderkgRQ7ME=
+hash: l8b096PyevCHB/rEOZ9SDhiJE7qhXMnfwljGlyPDQJc=
 ---
 ![商标](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -22,8 +22,7 @@ hash: FnMYOflQ5eNPmJub4vSXFG64MYs86SP/qderkgRQ7ME=
 一些值得注意的功能是：
 
 * 检索信息（例如电池、清洁日志、耗材、清洁和充电状态）
-* 发送清理命令（例如自动、点区域、自定义区域）
-* 发送一些其他命令（例如播放声音、重置消耗品、移动）
+* 发送清洁命令（例如自动、点区域、自定义区域）和各种其他命令（例如播放声音、重置耗材）
 * 保存上次运行的自定义区域并重新运行保存的区域
 * 真空功率（清洁速度）和水位的调节
 * 在清洁过程中检索信息（例如当前位置和区域）
@@ -45,7 +44,7 @@ hash: FnMYOflQ5eNPmJub4vSXFG64MYs86SP/qderkgRQ7ME=
 ### 这些模型应该正常工作或至少部分工作
 * Deebot Slim 2
 * Deebot N79 系列
-* Deebot M88
+* 地宝 M88
 * Deebot 600/601/605
 * Deebot 710/711/711s
 * Deebot OZMO 610
@@ -56,13 +55,13 @@ hash: FnMYOflQ5eNPmJub4vSXFG64MYs86SP/qderkgRQ7ME=
 * Deebot N3 MAX
 * 地宝 N7
 * Deebot N8 系列
-* Deebot (OZMO) T8 系列
+* Deebot T8系列
 * Deebot T9系列
 
 列出的模型要么是已知的，要么在技术上与这些模型相似。
 然而，功能可能会受到部分限制。
 
-我尝试实现广泛的功能，但根据复杂性和其他各种标准逐案决定。
+我试图实现广泛的功能，但根据复杂性和其他各种标准逐案决定。
 当然，没有要求提供完整的功能。
 
 ＃＃ 安装
@@ -112,7 +111,7 @@ sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev l
 * Quite a lot of improvements for processing map data, spot areas and virtual boundaries
 * Some optimisations for js-controller 3.3
 * Improved support for N8 series
-* Initial support for T9/T9+
+* Initial support for T9 series
 * Some improvements and fixes
 
 ### 1.1.1

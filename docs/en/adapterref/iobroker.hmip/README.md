@@ -55,6 +55,9 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
 
+### 1.13.0 (2021-06-23)
+* (Apollon77) Add support for HM-WGC/IMPULSE_OUTPUT_CHANNEL
+
 ### 1.12.2 (2021-06-04)
 * (Apollon77) Fix a warning in js-controller 3.3
 

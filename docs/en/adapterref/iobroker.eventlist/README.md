@@ -140,6 +140,9 @@ The generated report will be stored for instance 0 in `eventlist/report.pdf`, bu
 -->
 
 ## Changelog
+### 0.4.4 (2021-06-24)
+* (bluefox) Corrected the warning for js-controller 3.x
+
 ### 0.4.3 (2021-04-19)
 * (bluefox) Added the support of Admin5
 

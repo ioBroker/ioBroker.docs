@@ -52,6 +52,9 @@ When the adapter crashes or an other Code error happens, this error message that
 ### 0.0.1 (2020-04-18)
 * (Peter Baumert) initial release
 
+## Disclaimer
+Vodafone is a trademark of Vodafone GmbH. I am in no way endorsed by or affiliated with Vodafone GmbH, or any associated subsidiaries, logos or trademarks
+
 ## License
 MIT License
 

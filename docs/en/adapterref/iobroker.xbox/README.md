@@ -13,6 +13,11 @@ BADGE-NPM: https://nodei.co/npm/iobroker.xbox.png?downloads=true
 
 [![NPM](https://nodei.co/npm/iobroker.xbox.png?downloads=true)](https://nodei.co/npm/iobroker.xbox/)
 
+## Disclaimer
+Xbox, Xbox One, Smartglass and Xbox Live are trademarks of Microsoft Corporation.
+The developers of this module are in no way endorsed by or affiliated with
+Microsoft Corporation, or any associated subsidiaries, logos or trademarks.
+
 ## Steps 
 
 * Fulfill the requirements

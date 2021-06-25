@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.seq/README.md
 title: ioBroker.seq
-hash: GWOm6qik6DBmClBZTVf0rDvxim11t2phQTWTJ97SKFk=
+hash: i9TsHUWk2z1BB53FMXnsOzRuZW7GtoP7TM6JcwiBYj8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.seq/admin/seq.png)
 
@@ -11,11 +11,10 @@ hash: GWOm6qik6DBmClBZTVf0rDvxim11t2phQTWTJ97SKFk=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.seq.svg?dummy=unused)
 ![Количество установок (последнее)](https://iobroker.live/badges/seq-installed.svg?dummy=0.2.7)
 ![Количество установок (стабильно)](https://iobroker.live/badges/seq-stable.svg?dummy=0.2.7)
-![Статус зависимости](https://img.shields.io/david/o0shojo0o/iobroker.seq.svg)
 ![НПМ](https://nodei.co/npm/iobroker.seq.png?downloads=true)
 
 # IoBroker.seq
-[![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Статус зависимостей] (https://status.david-dm.org/gh/o0shojo0o/iobroker.seq.svg)](https://david-dm.org/o0shojo0o/iobroker.seq) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Адаптер Seq для ioBroker
 Этот адаптер позволяет вам поместить ваш логин ioBroker в систему [Seq](https://datalust.co/seq).

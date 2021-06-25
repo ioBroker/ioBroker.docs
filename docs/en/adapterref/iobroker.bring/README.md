@@ -15,6 +15,10 @@ BADGE-NPM: https://nodei.co/npm/iobroker.bring.png?downloads=true
 
 [![NPM](https://nodei.co/npm/iobroker.bring.png?downloads=true)](https://nodei.co/npm/iobroker.bring/)
 
+## Disclaimer
+The developers of this module are in no way endorsed by or affiliated with
+Bring! Labs AG, or any associated subsidiaries, logos or trademarks.
+
 ## States
 For a description of the created states, see below.
 

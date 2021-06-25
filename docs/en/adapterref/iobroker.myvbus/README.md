@@ -89,6 +89,7 @@ RESOL, VBus, VBus.net, DeltaSol and others are trademarks or registered trademar
 <https://www.resol.de/en>
 
 All other trademarks are the property of their respective owners.
+The authors are in no way endorsed by or affiliated with RESOL GmbH, or any associated subsidiaries, logos or trademarks.
 
 ## License
 

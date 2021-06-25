@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: FnMYOflQ5eNPmJub4vSXFG64MYs86SP/qderkgRQ7ME=
+hash: l8b096PyevCHB/rEOZ9SDhiJE7qhXMnfwljGlyPDQJc=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -22,8 +22,7 @@ Dieser Adapter verwendet die [ecovacs-deebot.js](https://github.com/mrbungle64/e
 Einige bemerkenswerte Merkmale sind:
 
 * Abrufen von Informationen (z. B. Akku, Reinigungsprotokoll, Verbrauchsmaterial, Reinigungs- und Ladestatus)
-* Senden Sie saubere Befehle (z. B. Auto, Spot-Bereich, benutzerdefinierter Bereich)
-* Senden Sie einige andere Befehle (z. B. Sound abspielen, Verbrauchsmaterialien zurücksetzen, bewegen)
+* Senden Sie saubere Befehle (z. B. Auto, Spot-Bereich, benutzerdefinierter Bereich) und verschiedene andere Befehle (z. B. Sound abspielen, Verbrauchsmaterialien zurücksetzen)
 * Speichern Sie den zuletzt ausgeführten benutzerdefinierten Bereich und führen Sie die gespeicherten Bereiche erneut aus
 * Einstellung von Saugleistung (Reinigungsgeschwindigkeit) und Wasserstand
 * Abrufen von Informationen während des Reinigungsvorgangs (z. B. aktuelle Position und Bereich)
@@ -56,13 +55,13 @@ Die aufgeführten Modelle sind diejenigen, die ich selbst im Einsatz habe oder d
 * Deebot N3 MAX
 * Deebot N7
 * Deebot N8-Serie
-* Deebot (OZMO) T8-Serie
+* Deebot T8-Serie
 * Deebot T9-Serie
 
-Die aufgeführten Modelle sind entweder bereits bekannt oder technisch ähnlich zu diesen Modellen.
+Die aufgeführten Modelle sind entweder bereits bekannt oder technisch ähnlich diesen Modellen.
 Dennoch kann die Funktionalität teilweise eingeschränkt sein.
 
-Ich versuche eine breite Palette an Funktionalität zu erreichen, entscheide dies aber von Fall zu Fall je nach Komplexität und diversen anderen Kriterien.
+Ich versuche eine breite Funktionalität zu erreichen, entscheide dies aber von Fall zu Fall je nach Komplexität und diversen anderen Kriterien.
 Es besteht natürlich kein Anspruch auf volle Funktionalität.
 
 ## Installation
@@ -84,7 +83,7 @@ Anweisungen für andere Systeme finden Sie unter https://www.npmjs.com/package/c
 * Informationen zur Verwendung dieses Adapters finden Sie [hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
 
 ### Zustände
-* Informationen zu den Staaten finden Sie [hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29) (Englisch) und [hier](https://github .com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Datenpunkte-%28DE%29) (Deutsch)
+* Informationen zu den Staaten finden Sie [hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29) (englisch) und [hier](https://github .com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Datenpunkte-%28DE%29) (Deutsch)
 
 ## FAQ
 * Häufig gestellte Fragen finden Sie [hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
@@ -112,7 +111,7 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
 * Quite a lot of improvements for processing map data, spot areas and virtual boundaries
 * Some optimisations for js-controller 3.3
 * Improved support for N8 series
-* Initial support for T9/T9+
+* Initial support for T9 series
 * Some improvements and fixes
 
 ### 1.1.1

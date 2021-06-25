@@ -3,32 +3,40 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vodafone-speedtest/README.md
 title: ioBroker.vodafone-speedtest
-hash: +IOdcWrUCNgyMOAXgoIEkc0/nKCJtzsE0iXB29hapt0=
+hash: fCrOkIaGmkqjssySHbDUn9kxnmER4ltSmW20HgcInJI=
 ---
 ![Logo](../../../en/adapterref/iobroker.vodafone-speedtest/admin/vodafone-speedtest.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.vodafone-speedtest.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vodafone-speedtest.svg)
-![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/vodafone-speedtest-installed.svg)
+![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/vodafone-speedtest-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/vodafone-speedtest-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/peterbaumert/iobroker.vodafone-speedtest.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/peterbaumert/ioBroker.vodafone-speedtest/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/peterbaumert/ioBroker.vodafone-speedtest/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.vodafone-speedtest.png?downloads=true)
 
 # IoBroker.vodafone-speedtest
-** Dieser Adapter verwendet den Dienst [Sentry.io](https://sentry.io), um Ausnahmen und Codefehler sowie neue Geräteschemata automatisch an mich als Entwickler zu melden. ** Weitere Details siehe unten!
+**Dieser Adapter nutzt den Dienst [Sentry.io](https://sentry.io), um mir als Entwickler automatisch Ausnahmen und Codefehler sowie neue Geräteschemata zu melden.** Weitere Details siehe unten!
 
-## Vodafone-Speedtest-Adapter für ioBroker
+##vodafone-speedtest-adapter für ioBroker
 Speedtest von Vodafone.de
 
 Implementiert dieselbe Technik wie https://speedtest.vodafone.de
 
-## Was ist Sentry.io und was wird den Servern dieses Unternehmens gemeldet?
-Sentry.io ist ein Dienst für Entwickler, um einen Überblick über Fehler in ihren Anwendungen zu erhalten. Und genau das ist in diesem Adapter implementiert.
+## Was ist Sentry.io und was wird an die Server dieses Unternehmens gemeldet?
+Sentry.io ist ein Dienst für Entwickler, um sich einen Überblick über Fehler ihrer Anwendungen zu verschaffen. Und genau das ist in diesem Adapter implementiert.
 
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll angezeigt wird, an Sentry gesendet. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder dergleichen) enthalten. Auf diese Weise kann Sentry Fehler gruppieren und anzeigen, wie viele eindeutige Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
+Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll angezeigt wird, an Sentry gesendet. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, dann ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder dergleichen) enthalten. Auf diese Weise kann Sentry Fehler gruppieren und anzeigen, wie viele eindeutige Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
+
+## Haftungsausschluss
+Vodafone ist eine Marke der Vodafone GmbH. Ich werde in keiner Weise von der Vodafone GmbH oder verbundenen Tochtergesellschaften, Logos oder Marken unterstützt oder mit ihr verbunden
 
 ## Changelog
+
+### 0.0.7 (2021-05-21)
+* Fixed some vulnerabilities in dev-dependencies
+* Fixed js-controller 3* issues
+* Fixed node 16 compatability
 
 ### 0.0.6 (2021-01-21)
 * Added Sentry.io Integration
@@ -54,7 +62,7 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 ## License
 MIT License
 
-Copyright (c) 2020 Peter Baumert <ioBroker.vodafone-speedtest@outlook.com>
+Copyright (c) 2021 Peter Baumert <ioBroker.vodafone-speedtest@outlook.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

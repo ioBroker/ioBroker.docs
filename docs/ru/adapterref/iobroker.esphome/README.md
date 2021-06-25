@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.esphome/README.md
 title: ioBroker.esphome
-hash: Dt7exYpicamV8Dz7Cp/guOqRF3n5zPg3tNjA2xrdMX4=
+hash: xAXrVlj1KEjp5T55pPs4+ScYfjFy9mDtGyQ5Z/srTLE=
 ---
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.esphome.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.esphome.svg)
@@ -35,7 +35,7 @@ hash: Dt7exYpicamV8Dz7Cp/guOqRF3n5zPg3tNjA2xrdMX4=
 
 ## Предварительные требования
     * NodeJS> = 12.x
-    * Python> = 3.6, <4.0
+    * Python> = 3.7, <4.0
     * API активирован в YAML
     * Для вкладок администратора (необязательно)
         * IP-адрес панели управления ESPHome указывается в настройках экземпляра.
@@ -97,6 +97,11 @@ name: Вывод «Общий вывод»: 'gpio_12' </details>
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+
+### 0.2.2 (2021-06-24)
+* (DutchmanNL) [!!! Breaking !!!] Make YAML file persistent, backup your configuration before updating ! solves [#57](https://github.com/DrozmotiX/ioBroker.esphome/issues/57)
+* (DutchmanNL) Update ESPHome Dashboard to 1.18.0, requires  Python >=3.7 (and ensure <4.0!)
+* (DutchmanNL) Bugfix : Reconnect to devices without autodiscovery / MDNS-Broadcast in network, solves [#66](https://github.com/DrozmotiX/ioBroker.esphome/issues/66)
 
 ### 0.2.1-1 (2021-03-30)
 * (DutchmanNL) add cover component

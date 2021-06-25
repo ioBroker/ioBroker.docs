@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sma-em/README.md
 title: ioBroker.sma-em
-hash: vIxnJU5+4gRaAdEznofPvvebwkka4SysNVbqfTkSZAU=
+hash: Vn5OSe2MGQA2G6eKIMgiKGqDXBCuHYPLzzaW6LRnY4w=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sma-em/admin/sma-em.png)
 
@@ -34,12 +34,12 @@ SMA Energy Meter и Sunny Home Manager 2 рассылают многоадрес
   - Показания счетчика энергии активной мощности (pregardcounter) и подачи активной мощности (psurpluscounter) по фазе
 
 ### Состояния в расширенном режиме
-Помимо состояний в нерасширенном режиме, в расширенном режиме доступны следующие значения
+В дополнение к состояниям в нерасширенном режиме в расширенном режиме доступны следующие значения
 
 - Мгновенные значения общей потребляемой реактивной мощности (qregard) и подводимой реактивной мощности (qsurplus)
-- Показания счетчика энергии общего потребления реактивной мощности (qregardcounter) и подачи реактивной мощности (qsurpluscounter)
+- Показания счетчика энергии общей потребляемой реактивной мощности (qregardcounter) и подачи реактивной мощности (qsurpluscounter)
 - Мгновенные значения полной полной потребляемой мощности (sregard) и полной потребляемой мощности (ssurplus)
-- Значения счетчика энергии полной полной потребляемой мощности (sregardcounter) и полной потребляемой мощности (ssurpluscounter)
+- Показания счетчика энергии полной кажущейся потребляемой мощности (sregardcounter) и полной потребляемой мощности (ssurpluscounter)
 - cosphi (коэффициент мощности)
 - частота сети (доступно только с Sunny Home Manager 2, SMA Energy Meter в настоящее время не предоставляет никаких значений частоты сети)
 - Подробно для каждой из отдельных фаз L1 / L2 / L3 (необязательно):
@@ -64,9 +64,11 @@ SMA Energy Meter и Sunny Home Manager 2 рассылают многоадрес
 
 ### __РАБОТА В ПРОЦЕССЕ__ ->
 ## Юридические уведомления
-SMA и Sunny Home Manager являются зарегистрированными товарными знаками SMA Solar Technology AG <https://www.sma.de/en.html>.
+SMA и Sunny Home Manager являются зарегистрированными товарными знаками SMA Solar Technology AG <https://www.sma.de/en.html>
 
 Все остальные товарные знаки являются собственностью соответствующих владельцев.
+
+Авторы никоим образом не одобрены и не связаны с SMA Solar Technology AG или какими-либо связанными дочерними компаниями, логотипами или товарными знаками.
 
 ## Changelog
 ### 0.6.4 (2021-04-14)

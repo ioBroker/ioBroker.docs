@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.canbus/README.md
 title: ioBroker.canbus
-hash: BsHvCP3XTKPy/kU0CP3ByqkoVjiWxgvleJmi5vIW3nQ=
+hash: tMg9bs8laDd02JYcEJwNoU9LIeXIWbRTszVkW2f7KfE=
 ---
 # IoBroker.canbus
 ![Логотип](../../../en/adapterref/iobroker.canbus/admin/canbus.png)
@@ -25,26 +25,27 @@ hash: BsHvCP3XTKPy/kU0CP3ByqkoVjiWxgvleJmi5vIW3nQ=
 ** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
 ## Функции
-* Получать и отправлять необработанные сообщения с использованием стандартных и расширенных фреймов.
+* Получать и отправлять необработанные сообщения с использованием стандартных и расширенных фреймов
 * Каждое сообщение может быть настроено для приема и / или отправки данных
 * Возможность автоматического добавления объектов для увиденных сообщений CAN, которые еще не настроены
 * Настройте парсеры для каждого сообщения для чтения / записи данных из / в буфер необработанных сообщений
   * Числовые типы
-  * Логические значения, включая поддержку битовой маски
+  * Логические, включая поддержку битовой маски
   * Строки в разных кодировках символов
   * Пользовательские скрипты для чтения / записи из / в буфер необработанных данных
 * Расширенная функция импорта / экспорта
   * Импорт конфигураций сообщений для расширения существующей конфигурации
   * Импорт предопределенных "хорошо известных" конфигураций из GitHub в интерфейсе администратора.
-  * Экспортируйте и импортируйте конфигурации сообщений в виде файлов `json` или` csv`
+  * Экспорт и импорт конфигураций сообщений в виде файлов `json` или` csv`
 * Дополнительная поддержка фиксированной длины данных (DLC)
 * Дополнительная поддержка флага RTR
 * Дополнительные необработанные состояния, содержащие необработанные объекты сообщений CAN
+* Необязательно автоматически устанавливать определенное значение в заданном интервале для каждого парсера (полезно для данных опроса)
 
 ## Требования
 * Операционная система Linux (из-за используемой библиотеки socketcan)
 * Оборудование CAN, которое поддерживается ядром и создает интерфейс, подобный `can0`
-* Некоторые знания о сообщениях, отправляемых на CAN-шину
+* Некоторые знания о сообщениях, отправляемых на шину CAN
 
 ## Парсеры
 Используя синтаксические анализаторы, вы можете читать или записывать данные в буфер сообщений CAN.
@@ -141,6 +142,18 @@ buffer.writeInt16BE(value, 5);
 `ext` и `rtr` являются необязательными и по умолчанию равны `false`.
 
 ## Changelog
+
+### 1.2.1 (2021-06-22)
+* (crycode-de) Added option to automatically set a certain value in a given interval for each parser
+* (crycode-de) Added checks for duplicate parser IDs
+* (VeSler) Russian translation updates
+* (crycode-de) Use inline sourcemaps for the adapter build files to make remote debugging work
+* (crycode-de) Updated dependencies
+
+### 1.1.4 (2021-04-30)
+* (crycode-de) Added license information to import of well-known configurations
+* (crycode-de) Fixed "Parser returned wrong data type undefined" log message
+* (crycode-de) Updated dependencies
 
 ### 1.1.3 (2021-04-12)
 * (crycode-de) Added definition of possible state values in admin

@@ -287,6 +287,19 @@ This device only appears inside a Light Controller V2 in Loxone software version
 Setting one or more of the above states from ioBroker will only send a command to the Miniserver after about 100 ms.
 This is to prevent the color from changing multiple times for a single user input.
 
+### Daytimer / IRCDaytimer
+
+Provided by timer/schedule.
+
+-   `mode` (ro) current operating mode of the daytimer
+-   `mode-text` (ro) current operating mode name of the daytimer
+-   `override` (ro) the remaining time of the timer
+-   `value` (ro) current value, `true` or `false` for digital and a value for analog
+-   `value-formatted` (ro) current formatted value as text
+-   `needsActivation` (ro) only available if the control needs to be activated
+-   `resetActive` (ro) stays active as long as the reset input of the daytimer is active
+-   `pulse` (wo) activates the new value if an entry needs activation
+
 ### Dimmer
 
 Provided by dimmers.
@@ -305,6 +318,29 @@ Provided by EIB/KNX dimmers.
 -   `position` (rw) current position for the dimmer
 -   `on` (wo) writing any value to this state sets the dimmer to the last known position
 -   `off` (wo) writing any value to this state disables the dimmer, sets position to 0 but remembers the last position
+
+### Fronius
+
+Provided by energy monitor.
+
+-   `prodCurr` (ro) current production power
+-   `prodCurrDay` (ro) energy production all over the current day
+-   `prodCurrMonth` (ro) energy production all over the current month
+-   `prodCurrYear` (ro) energy production all over the current year
+-   `prodTotal` (ro) energy production since setting up
+-   `consCurr` (ro) current consumption power
+-   `consCurrDay` (ro) energy consumed throughout the current day
+-   `consTotal` (ro) energy consumed since setting up
+-   `deliveryDay` (ro) unknown
+-   `earningsDay` (ro) how much money was earned over the current by either consuming the produced power yourself instead of consuming it from the grid, or by exporting unused produced power to the grid
+-   `earningsMonth` (ro) how much money was earned over the current month
+-   `earningsYear` (ro) how much money was earned over the current year
+-   `earningsTotal` (ro) how much money was earned since setting up
+-   `gridCurr` (ro) current grid consumption/delivery power. If negative, power is being delivered to the grid.
+-   `batteryCurr` (ro) current battery charging/usage power. If negative, the battery is charging.
+-   `stateOfCharge` (ro) represents the charging state of the battery. 100 = fully charged.
+-   `co2Factor` (ro) How much co2 does it take to produce one kWh, used to compute CO2 savings
+-   `online` (ro) true: online, false: offline
 
 ### Gate
 
@@ -326,6 +362,32 @@ Provided by central gate control.
 -   `close` (wo) closes all gates
 -   `stop` (wo) stops all gate motors
 
+### Hourcounter
+
+Provided by
+
+-   `total` (ro) total number of seconds the counter has been active so far
+-   `remaining` (ro) how many seconds left until the next maintenance is required
+-   `lastActivation` (ro) the timestamp when the counter was activated the last time
+-   `overdue` (ro) `false` if not overdue, otherwise maintenance is required
+-   `maintenanceInterval` (ro) seconds until the next maintenance
+-   `active` (ro) whether or not the counter is currently active
+-   `overdueSince` (ro) seconds since the maintainanceInterval was exceeded
+-   `reset` (wo) will cause a reset of the following values
+    -   remaining to maintenanceInterval
+    -   overdue to 0
+    -   overdueSince to 0
+-   `resetAll` (wo) like `reset`, but also sets
+    -   total to 0
+    -   lastActivation to 0
+
+### InfoOnlyAnalog
+
+Provided by virtual states as well as the Loxone Touch switch.
+
+-   `value` (ro) the state value (number) of the control
+-   `value-formatted` (ro) if configured, the formatted value of the state (using the "Unit" format from Loxone Config)
+
 ### InfoOnlyDigital
 
 Provided by virtual states as well as the Loxone Touch switch.
@@ -337,12 +399,12 @@ Provided by virtual states as well as the Loxone Touch switch.
 
 ![InfoOnlyDigital settings](doc/loxone-config-info-only-digital.png)
 
-### InfoOnlyAnalog
+### InfoOnlyText
 
-Provided by virtual states as well as the Loxone Touch switch.
+Provided by virtual text states.
 
--   `value` (ro) the state value (number) of the control
--   `value-formatted` (ro) if configured, the formatted value of the state (using the "Unit" format from Loxone Config)
+-   `text` (ro) the state value of the control
+-   `text-formatted` (ro) if configured, the formatted value of the state
 
 ### Intercom
 
@@ -464,6 +526,12 @@ Provided by virtual push-button inputs.
 
 -   `active` (rw) the current state of the pushbutton
 -   `pulse` (wo) writing any value to this state will simulate the button being pushed only for a very short time
+
+### Radio
+
+Provided by radio buttons (8x and 16x).
+
+-   `activeOutput` (rw) ID of the currently active output or 0 if none is active ("All Off")
 
 ### Slider
 
@@ -650,6 +718,17 @@ Native value from ioBroker &gt; Objects
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 2.2.2 (2021-06-23)
+
+-   (UncleSamSwiss) Explicitly setting adapter tier to 2.
+-   (UncleSamSwiss) Added support for Daytimer (IOBROKER-LOXONE-1Z)
+-   (UncleSamSwiss) Added support for Radio (IOBROKER-LOXONE-21)
+-   (UncleSamSwiss) Added support for Fronius (IOBROKER-LOXONE-1Y)
+-   (UncleSamSwiss) Added support for IRCDaytimer (IOBROKER-LOXONE-27)
+-   (UncleSamSwiss) Added support for Hourcounter (IOBROKER-LOXONE-23)
+-   (UncleSamSwiss) Added support for InfoOnlyText (IOBROKER-LOXONE-29)
+-   (UncleSamSwiss) Fixed issues with Lumitech color pickers (#150)
 
 ### 2.2.1 (2021-05-18)
 

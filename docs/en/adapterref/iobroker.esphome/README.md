@@ -32,7 +32,7 @@ All our adapter documentation can be found at [The DrozmotiX Docu Page](https://
 ## Prerequisites
 
     * NodeJS >= 12.x
-    * Python >=3.6, <4.0
+    * Python >=3.7, <4.0
     * API is activated in YAML
     * For admin tabs (optional)
         * ESPHome Dashboard IP is provided in instance settings
@@ -114,6 +114,11 @@ If you like my work, please consider a personal donation
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+
+### 0.2.2 (2021-06-24)
+* (DutchmanNL) [!!! Breaking !!!] Make YAML file persistent, backup your configuration before updating ! solves [#57](https://github.com/DrozmotiX/ioBroker.esphome/issues/57)
+* (DutchmanNL) Update ESPHome Dashboard to 1.18.0, requires  Python >=3.7 (and ensure <4.0!)
+* (DutchmanNL) Bugfix : Reconnect to devices without autodiscovery / MDNS-Broadcast in network, solves [#66](https://github.com/DrozmotiX/ioBroker.esphome/issues/66)
 
 ### 0.2.1-1 (2021-03-30)
 * (DutchmanNL) add cover component

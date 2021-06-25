@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.seq/README.md
 title: ioBroker.seq
-hash: GWOm6qik6DBmClBZTVf0rDvxim11t2phQTWTJ97SKFk=
+hash: i9TsHUWk2z1BB53FMXnsOzRuZW7GtoP7TM6JcwiBYj8=
 ---
 ![Logo](../../../en/adapterref/iobroker.seq/admin/seq.png)
 
@@ -11,20 +11,19 @@ hash: GWOm6qik6DBmClBZTVf0rDvxim11t2phQTWTJ97SKFk=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.seq.svg?dummy=unused)
 ![Anzahl der Installationen (spätestens)](https://iobroker.live/badges/seq-installed.svg?dummy=0.2.7)
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/seq-stable.svg?dummy=0.2.7)
-![Abhängigkeitsstatus](https://img.shields.io/david/o0shojo0o/iobroker.seq.svg)
 ![NPM](https://nodei.co/npm/iobroker.seq.png?downloads=true)
 
 # IoBroker.seq
-[![Übersetzungsstatus] (https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Abhängigkeiten Status](https://status.david-dm.org/gh/o0shojo0o/iobroker.seq.svg)](https://david-dm.org/o0shojo0o/iobroker.seq) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-## Seq Adapter für ioBroker
-Mit diesem Adapter können Sie Ihr ioBroker-Protokoll in das System von [Seq](https://datalust.co/seq) verschieben.
+## Seq-Adapter für ioBroker
+Mit diesem Adapter können Sie Ihr ioBroker-Log in das System von [Seq](https://datalust.co/seq) pushen.
 Es ist auch möglich, einen Filter auf die Protokollebenen und auch auf die Adapter anzuwenden.
 
 ## Aufbau
 1. Erstellen Sie eine neue Instanz des Adapters
-2. Geben Sie die URL / IP und den Port der Instanz [Seq] (https://datalust.co/seq) ein
-3. Geben Sie an, welche Protokollereignisse Sie an [Seq] senden möchten (https://datalust.co/seq).
+2. Geben Sie die URL/IP und den Port der [Seq](https://datalust.co/seq)-Instanz ein
+3. Geben Sie an, welche Protokollereignisse Sie an [Seq] senden möchten (https://datalust.co/seq)
 4. Speichern Sie die Einstellungen
 
 ## Changelog

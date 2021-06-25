@@ -3,29 +3,28 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.seq/README.md
 title: ioBroker.seq
-hash: GWOm6qik6DBmClBZTVf0rDvxim11t2phQTWTJ97SKFk=
+hash: i9TsHUWk2z1BB53FMXnsOzRuZW7GtoP7TM6JcwiBYj8=
 ---
 ![商标](../../../en/adapterref/iobroker.seq/admin/seq.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.seq.svg?dummy=unused)
-![资料下载](https://img.shields.io/npm/dm/iobroker.seq.svg?dummy=unused)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.seq.svg?dummy=unused)
+![下载](https://img.shields.io/npm/dm/iobroker.seq.svg?dummy=unused)
 ![安装数量（最新）](https://iobroker.live/badges/seq-installed.svg?dummy=0.2.7)
 ![安装数量（稳定）](https://iobroker.live/badges/seq-stable.svg?dummy=0.2.7)
-![依赖状态](https://img.shields.io/david/o0shojo0o/iobroker.seq.svg)
-![NPM](https://nodei.co/npm/iobroker.seq.png?downloads=true)
+![新产品管理](https://nodei.co/npm/iobroker.seq.png?downloads=true)
 
-＃ioBroker.seq
-[![翻译状态]（https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg）](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker.seq
+[![依赖状态](https://status.david-dm.org/gh/o0shojo0o/iobroker.seq.svg)](https://david-dm.org/o0shojo0o/iobroker.seq) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-## IoBroker的Seq适配器
-该适配器使您可以将ioBroker日志推送到[序号](https://datalust.co/seq)的系统中。
-也可以将过滤器应用于日志级别以及适配器。
+## IoBroker 的 Seq 适配器
+该适配器允许您将 ioBroker 日志推送到 [序列](https://datalust.co/seq) 的系统中。
+还可以将过滤器应用于日志级别和适配器。
 
 ＃＃ 配置
-1.创建适配器的新实例
-2.填写[Seq]（https://datalust.co/seq）实例的URL / IP和端口
-3.指定要推送到[Seq]（https://datalust.co/seq）的日志事件
-4.保存设置
+1. 创建一个新的适配器实例
+2.填写[Seq](https://datalust.co/seq)实例的URL/IP和端口
+3.指定要推送到[Seq]的日志事件(https://datalust.co/seq)
+4. 保存设置
 
 ## Changelog
 

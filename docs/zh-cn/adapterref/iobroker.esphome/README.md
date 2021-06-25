@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.esphome/README.md
 title: ioBroker.esphome
-hash: Dt7exYpicamV8Dz7Cp/guOqRF3n5zPg3tNjA2xrdMX4=
+hash: xAXrVlj1KEjp5T55pPs4+ScYfjFy9mDtGyQ5Z/srTLE=
 ---
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.esphome.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.esphome.svg)
@@ -24,7 +24,7 @@ hash: Dt7exYpicamV8Dz7Cp/guOqRF3n5zPg3tNjA2xrdMX4=
 
 ## 用于 ioBroker 的 ESPHome 适配器
 使用由 ESPHome 创建和管理的简单而强大的配置文件来控制您的 ESP8266/ESP32。
-通过其原生 API 原生集成 ESPHome 管理设备（包括仪表板）并确保所有数据同步（实时事件处理，无数据轮询！:)
+ESPHome 托管设备（包括仪表板）通过其本机 API 进行本机集成，并确保所有数据同步（实时事件处理，无数据轮询！:)
 
 ![商标](../../../en/adapterref/iobroker.esphome/admin/img/dashboard.png)
 
@@ -35,7 +35,7 @@ hash: Dt7exYpicamV8Dz7Cp/guOqRF3n5zPg3tNjA2xrdMX4=
 
 ## 先决条件
     * NodeJS >= 12.x
-    * Python >=3.6, <4.0
+    * Python >=3.7, <4.0
     * API 在 YAML 中激活
     * 对于管理选项卡（可选）
         * ESPHome Dashboard IP 在实例设置中提供
@@ -97,6 +97,11 @@ api：密码：'我的密码'
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+
+### 0.2.2 (2021-06-24)
+* (DutchmanNL) [!!! Breaking !!!] Make YAML file persistent, backup your configuration before updating ! solves [#57](https://github.com/DrozmotiX/ioBroker.esphome/issues/57)
+* (DutchmanNL) Update ESPHome Dashboard to 1.18.0, requires  Python >=3.7 (and ensure <4.0!)
+* (DutchmanNL) Bugfix : Reconnect to devices without autodiscovery / MDNS-Broadcast in network, solves [#66](https://github.com/DrozmotiX/ioBroker.esphome/issues/66)
 
 ### 0.2.1-1 (2021-03-30)
 * (DutchmanNL) add cover component

@@ -7,7 +7,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.denon/README.md
 title: ioBroker.denon
-hash: QJOQw2ySmAxZxcy7FlzxYF/KQ/SiBO4lyLxKnHMYyBE=
+hash: Lgps1TGVssycmZzRnz9NYrW48iy3XCnv0nz7IaZVV+M=
 ---
 ![商标](../../../en/adapterref/iobroker.denon/admin/denon.png)
 
@@ -20,6 +20,10 @@ hash: QJOQw2ySmAxZxcy7FlzxYF/KQ/SiBO4lyLxKnHMYyBE=
 ===========================
 
 ![构建状态](https://github.com/foxriver76/ioBroker.denon/workflows/Test%20and%20Release/badge.svg)
+
+## 免责声明
+DENON 和 Marantz 是 D&M Holdings Inc. 的商标。
+本模块的开发者不受 D&M Holdings Inc. 或其任何关联子公司、徽标或商标的认可或附属。
 
 ＃＃ 安装
 您可以通过 ioBroker Web 界面或通过 npm 在本地计算机上安装适配器。
@@ -60,7 +64,7 @@ npm i iobroker.denon
 默认设置应该适合大多数用户。
 ![高级设置](../../../en/adapterref/iobroker.denon/docs/en/media/advancedSettings.png)
 
-6. 点击保存并关闭
+6. 单击保存并关闭
 
 ### AV 接收器的网络设置
 1. 按 SETUP 按钮，然后菜单出现在 FL 显示器（和 GUI）上
@@ -86,7 +90,7 @@ npm i iobroker.denon
 6. 将此参数设置为“始终开启”。
 
 ＃＃ 用法
-请注意，AVR 只能管理一个 telnet 连接。如果您有一个活动的 telnet 连接 e. G。使用 javascript 适配器，AVR 将拒绝此适配器的连接。
+请注意，AVR 只能管理单个 telnet 连接。如果您有一个活动的 telnet 连接 e. G。使用 javascript 适配器，AVR 将拒绝此适配器的连接。
 在这里您可以找到状态的描述以及如何使用它们。
 
 ＃＃＃ 纽扣
@@ -160,7 +164,7 @@ npm i iobroker.denon
 
 * settings.containmentAmountDown
 
-   *减少 Audyssey LFC 金额。仅当您的 AVR 支持该按钮时，才会创建该按钮。*
+   *减少 Audyssey LFC 数量。仅当您的 AVR 支持该按钮时，才会创建该按钮。*
 
 * settings.containmentAmountUp
 
@@ -261,7 +265,7 @@ setState('denon.0.zoneMain.muteIndicator', true); // Mutes the Main Zone of your
     |:---:|:---:|
     |布尔值|读/写|
 
-   *布尔值，如果 Zone 开启则为真，否则为假。您可以在此状态下打开和关闭 AVR/Zone。*
+   *布尔值，如果Zone打开则为真，否则为假。您可以在此状态下打开和关闭 AVR/Zone。*
 
 * zoneMain.selectInput / zone2.selectInput / zone3.selectInput
 
@@ -285,7 +289,7 @@ setState('denon.0.zoneMain.muteIndicator', true); // Mutes the Main Zone of your
 
    *6：SAT/CBL*
 
-   *7：MPLAY*
+   *7：播放*
 
    *8：游戏*
 
@@ -606,7 +610,7 @@ setState('denon.0.settings.videoProcessingMode', '2'); // Sets Video Processing 
     |:---:|:---:|
     |布尔值|读/写|
 
-   *代表动态均衡器状态的布尔值。您还可以在此状态下打开和关闭动态均衡器。 *
+   *代表动态均衡器状态的布尔值。您还可以在此状态下打开和关闭动态均衡器。*
 
 * settings.subwooferLevelState
 
@@ -802,7 +806,7 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
     |:---:|:---:|
     |字符串|读/写|
 
-*键值对，代表AVR的操作模式。如果 operationMode 设置为“BRIDGED”，则扬声器无法独立控制，控制扬声器 1 也可以控制扬声器 2。*
+*键值对，代表AVR的操作模式。如果 operationMode 设置为“BRIDGED”，则扬声器无法独立控制，控制扬声器一也控制扬声器二。 *
 
     *以下值是可能的：*
 
@@ -850,7 +854,7 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
     |:---:|:---:|
     |布尔值|读/写|
 
-    *布尔值，指示和控制 AVR 的音频信号输入。*
+    *指示和控制 AVR 音频信号输入的布尔值。*
 
 ## 缺少功能和错误
 如果您缺少任何功能或检测到错误，请打开 [问题](https://github.com/foxriver76/ioBroker.denon/issues)。

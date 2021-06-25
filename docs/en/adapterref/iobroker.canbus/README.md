@@ -35,7 +35,8 @@ This adapter connects ioBroker to a Controller Area Network (CAN bus).
   * Export and import your message configurations as `json` or `csv` files
 * Optional support for fixed data lengths (DLC)
 * Optional support for the RTR flag
-* Optional raw states cotaining raw CAN message objects
+* Optional raw states containing raw CAN message objects
+* Optional automatically set a certain value in a given interval for each parser (usefull for polling data)
 
 ## Requirements
 
@@ -150,10 +151,12 @@ By writing JSON data to the `raw.send` state you are able to send CAN messages c
 
 ## Changelog
 
-### 1.1.5 (WIP)
+### 1.2.1 (2021-06-22)
+* (crycode-de) Added option to automatically set a certain value in a given interval for each parser
 * (crycode-de) Added checks for duplicate parser IDs
 * (VeSler) Russian translation updates
 * (crycode-de) Use inline sourcemaps for the adapter build files to make remote debugging work
+* (crycode-de) Updated dependencies
 
 ### 1.1.4 (2021-04-30)
 * (crycode-de) Added license information to import of well-known configurations

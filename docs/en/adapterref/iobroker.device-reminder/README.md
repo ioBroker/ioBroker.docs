@@ -162,8 +162,7 @@ is displayed.
 	Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-
-### 1.2.6 (2021-06-20)
+### 1.2.9 (2021-06-22)
 * (xenon-s) bugfix: error catching JSON "last operations" doesn't work
 
 ### 1.2.4 (2021-06-13)
@@ -181,26 +180,6 @@ is displayed.
 * (xenon-s) Fix for js-controller 3.3.*
 * (xenon-s) new datapoints added (runtime max, last runs as JSON, last runtime, runtime max, runtime alert)
 * (xenon-s) add: runtime-alert
-
-### 1.0.6 (2021-01-19)
-* (xenon-s) bugfix: removed incorrect status
-
-### 1.0.5 (2021-01-16)
-* (xenon-s) bugfix: no messages were sent
-
-### 1.0.4 (2021-01-12)
-* (xenon-s) bugfix pushover
-* (xenon-s) bugfix message: there may now be a "." at the end of the messages
-
-### 1.0.3 (2021-01-07)
-* (xenon-s) bugfix pushover
-* (xenon-s) added link "german readme" in readme
-
-### 1.0.2 (2021-01-06)
-* (xenon-s) fix name in io-package.json
-
-### 1.0.1 (2021-01-05)
-* (xenon-s) bugfix
 
 ### 1.0.0 (2021-01-05)
 * (xenon-s) initial commit version 1.0

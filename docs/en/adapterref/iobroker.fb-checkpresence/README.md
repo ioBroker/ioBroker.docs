@@ -197,6 +197,10 @@ Here you will find information about the history of the current day.
     * Did some changes
     * Did some more changes
 -->
+### 1.1.7 (2021-06-23)
+* (afuerhoff) message handling optimized
+* (afuerhoff) dependencies updated
+
 ### 1.1.6 (2021-06-20)
 * (afuerhoff) html input pattern fixed for password and user
 * (afuerhoff) getActive function fixed
@@ -239,15 +243,6 @@ Here you will find information about the history of the current day.
 * (afuerhoff) filter for family members implemeted
 * (afuerhoff) password handling updated
 * (afuerhoff) documentation updated
-
-### 1.1.2 (2021-01-13)
-* (afuerhoff) QR-Code implemented
-* (afuerhoff) setState presence only if changed
-* (afuerhoff) access rights implemented
-* (afuerhoff) use name for presence
-* (afuerhoff) active / inactive devices
-* (afuerhoff) interval 10s bug fixed
-* (afuerhoff) documentation edited 
 
 ## License
 MIT License

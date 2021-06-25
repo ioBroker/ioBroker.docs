@@ -119,6 +119,8 @@ SMA and Sunny Home Manager are registered trademarks of SMA Solar Technology AG 
 
 All other trademarks are the property of their respective owners.
 
+The authors are in no way endorsed by or affiliated with SMA Solar Technology AG, or any associated subsidiaries, logos or trademarks.
+
 ## License
 The MIT License (MIT)
 

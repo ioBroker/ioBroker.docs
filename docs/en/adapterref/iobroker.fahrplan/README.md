@@ -225,8 +225,9 @@ With +-Button new entries can be added to the table.
 	### __WORK IN PROGRESS__
 -->
 
-### __WORK IN PROGRESS__
+### 1.1.1 (2021-06-22)
 * (Gaudes) Advanced error reporting for HAFAS errors
+* (Gaudes) Include Dependabot updates
 
 ### 1.1.0 (2021-06-04)
 * (Gaudes) Time offset for routes and departure tables (Git #88)
@@ -246,12 +247,6 @@ With +-Button new entries can be added to the table.
 
 ### 1.0.5 (2021-02-22)
 * (Gaudes) Quality fixing (lgtm.com)
-* (Gaudes) Include Dependabot updates
-
-### 1.0.4 (2021-02-13)
-* (Gaudes) Add product selection to departure timetable
-* (Gaudes) Update HAFAS client to 5.15.1 (Fix error Clientversion with OEBB profile)
-* (Gaudes) Enhanced information reporting on error (Sentry Breadcrumbs)
 * (Gaudes) Include Dependabot updates
 
 ## License

@@ -72,6 +72,33 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 3.0.3
+- Bugfix
+
+## 3.0.2
+- Bugfix
+
+## 3.0.1
+- Bugfix
+
+## 3.0.0
+```diff
+#### ACHTUNG ####
+Nach dem Update sind die Icons vom Universal- und Multiwidget 
+nicht zu sehen, sind aber nicht weg! Damit diese wieder zu sehen sind müssen 
+die Widgets einmal EINZELN im Editor angeklickt werden.
+```
+- Beim Universal- und Multiwidget kann der Inhaltstyp geändert werden.
+    - Inhaltstypen: Bild (Standard), Analoge Uhr, Digitale Uhr und HTML/Text 
+    - Analoge und digitale Uhr: Farbe des Ziffernblatts under Zeiger kann frei gewählt werden, Zeitzone kann geändert werden
+    - Statt dem Icon kann ein eigener Text oder ein Datenpunktwert per Binding angezeigt werden
+- Vergleichsoperatoren Größer-Gelich und Kleiner-Gleich
+- PopUp kann per Datenpunk geöffnet werden
+- Bugfix:
+    - Colorslider unsichtbar wenn für CIE kein Wert vorhanden ist
+    - Links funktionieren nicht im Popup
+    - State Rückmeldedauer funktioniert nicht richtig
+
 ## 2.9.7
 - Bugfix
 
@@ -357,7 +384,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## License
 
-Urheberrechte (c) 2020 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
+Urheberrechte (c) 2021 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
 
 
 MIT License (nur in englisch / englisch only)

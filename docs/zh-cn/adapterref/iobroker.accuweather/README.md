@@ -3,56 +3,65 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.accuweather/README.md
 title: ioBroker.accuweather
-hash: Vm6u4S5Hm5i0K/bayhQgQbmkVZfQxch1DGJiUvq19jI=
+hash: WdILwFFXh50ulU8fUrumN2VctPbMVRgQq67NIVy8DpY=
 ---
 ![商标](../../../en/adapterref/iobroker.accuweather/admin/accuweather.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.accuweather.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.accuweather.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.accuweather.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.accuweather.svg)
 ![依赖状态](https://img.shields.io/david/algar42/iobroker.accuweather.svg)
 ![已知漏洞](https://snyk.io/test/github/algar42/ioBroker.accuweather/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.accuweather.png?downloads=true)
-![特拉维斯](http://img.shields.io/travis/algar42/ioBroker.accuweather/master.svg)
+![新产品管理](https://nodei.co/npm/iobroker.accuweather.png?downloads=true)
+![特拉维斯CI](http://img.shields.io/travis/algar42/ioBroker.accuweather/master.svg)
 
-＃ioBroker.accuweather
-## IoBroker的AccuWeather适配器
-使用AccuWeather API进行天气预报
+# IoBroker.accuweather
+## IoBroker 的 accuweather 适配器
+使用 AccuWeather API 进行天气预报。
 
-Adapter接收当前状况（每小时更新一次），5天每日预报（每天大约7am更新一次）和12小时预报（每6小时在12 am、6am、12pm和6pm更新一次）。
+适配器接收当前状况（每小时更新一次）、5 天每日预报（每天大约上午 7 点更新一次）和 12 小时预报（每 6 小时在上午 12 点、上午 6 点、下午 12 点和下午 6 点更新）。
 
 ＃＃ 入门
-###获取API密钥
-要获取API密钥，请在https://developer.accuweather.com/上注册并在\“我的应用\”菜单中创建应用。创建应用程序后，您将生成API密钥。
-对于免费使用，每天可以向API发出50个请求。
-需要注意的是，要使API正常工作，最好使用以下设置（请选择您所在的国家！）：![设定](../../../en/adapterref/iobroker.accuweather/admin/image.png)
+### 获取 API 密钥
+要获取 API 密钥，请在 https://developer.accuweather.com/ 上注册并在“我的应用程序”菜单中创建应用程序。创建应用程序后，您将生成 API 密钥。
+对于免费使用，每天可以向 API 发出 50 个请求。
+值得注意的是，要使 API 工作，首选以下设置（请选择您所在的国家/地区！）：![设置](../../../en/adapterref/iobroker.accuweather/admin/image.png)
 
-###获取位置密钥
-为了获取位置键，请访问https://www.accuweather.com/并输入您的城市名称，或者尝试输入您的坐标（纬度，经度），例如在ioBroker设置中。
-您的位置密钥将是预测URL末尾的数字。
+### 获取位置键
+要获取位置密钥，请访问 https://www.accuweather.com/ 并输入您的城市名称，或尝试输入您拥有的坐标（纬度、经度），例如在 ioBroker 设置中。
+您的位置键将是预测 URL 末尾的数字。
 
-###在Lovelace可视化中使用（从1.1.0版开始）
-“摘要”通道包含当前和每天的预测，以及类型检测器支持的状态/状态类型。
-可以使用新功能来在Lovelace UI中显示天气预报。
-为了更好地查看，创建了一个定制的lovelace卡-请参见https://github.com/algar42/IoB.lovelace.accuweather-card
+### 在 Lovelace 可视化中使用（从 1.1.0 版开始）
+摘要频道包含当前和按天的预测，以及类型检测器支持的角色/状态类型。
+新功能可用于在 Lovelace UI 中显示天气预报。
+为了更好地查看创建的自定义 lovelace 卡 - 请参阅 https://github.com/algar42/IoB.lovelace.accuweather-card
 
-## Changelog
+<!-- 下一版本的占位符（在行首）：
+
+### __工作进行中__ -->
+## V1.1.6 (2021-05-05) 对`Object.common` 部分的小错误修复
+### 1.1.5 (2021-01-25)
+* (algar42) 解决 js-controller 3.2 的日志警告
 
 ### 1.1.4
-* (HGlab01) small bugfix regarding setTimeout range
+* (HGlab01) 关于 setTimeout 范围的小错误修正
 
-### 1.1.3
-* (algar42) Minor updates for compact mode
+### 1.1.3 (2020-03-04)
+* (algar42) 紧凑模式的小更新
 
-### 1.1.0
-* (algar42) Summary channel added to support type-detector and automatic weather device creation
+### 1.1.0 (2019-11-09)
+* (algar42) 添加了摘要频道以支持类型检测器和自动天气设备创建
 
-### 1.0.2
-* (algar42) Production Release
+### 1.0.2 (2019-09-12)
+* (algar42) 生产发布
+
+## Changelog
+### 1.1.7 (2021-06-24)
+* (bluefox) Create device for device-detector
 
 ## License
 MIT License
 
-Copyright (c) 2020 algar42 <igor.aleschenkov@gmail.com>
+Copyright (c) 2021 algar42 <igor.aleschenkov@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

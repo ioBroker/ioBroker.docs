@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventorywo
-hash: x+BNm4J8571YbbEE8vai1GfImzPAJPNZES/K793B8+M=
+hash: 6p41iJSyC7wqdCokx+COKC/ej6I7a1Oj4YSuttaWvA8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -41,6 +41,34 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 [![Sdency] (http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
+
+## 3.0.3
+- Исправлена ошибка
+
+## 3.0.2
+- Исправлена ошибка
+
+## 3.0.1
+- Исправлена ошибка
+
+## 3.0.0
+```diff
+#### ACHTUNG ####
+Nach dem Update sind die Icons vom Universal- und Multiwidget
+nicht zu sehen, sind aber nicht weg! Damit diese wieder zu sehen sind müssen
+die Widgets einmal EINZELN im Editor angeklickt werden.
+```
+
+- Beim Universal- и Multiwidget kann der Inhaltstyp geändert werden.
+    - Тип текста: Bild (стандартный), Analoge Uhr, Digitale Uhr и HTML / Text
+    - Analoge und digitale Uhr: Farbe des Ziffernblatts под руководством Zeiger kann frei gewählt werden, Zeitzone kann geändert werden
+    - Statt dem Icon kann ein eigener Text oder ein Datenpunktwert per Binding angezeigt werden
+- Vergleichsoperatoren Größer-Gelich und Kleiner-Gleich
+- PopUp kann для Datenpunk geöffnet werden
+- Исправлена ошибка:
+    - Colorslider unsichtbar wenn für CIE kein Wert vorhanden ist
+    - Ссылки funktionieren nicht im Popup
+    - Государственный Rückmeldedauer funktioniert nicht richtig
 
 ## 2.9.7
 - Исправлена ошибка
@@ -253,7 +281,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ### 1.3.6
 - Добавлена опция установки состояния для навигации.
-- Исправлена проблема с датапоинтами без конфига.
+- Исправлена проблема с точками данных без конфигурации.
 
 ### 1.3.5
 - Добавлена частота обновления таблицы
@@ -289,7 +317,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ### 1.2.0
 - Добавлен виджет изображений
-- Добавлен ползунок для изменения радиуса границы для всех 4 углов (если эта версия является обновлением для вас, вам нужно щелкнуть каждую кнопку в редакторе vis, чтобы вернуть углы по умолчанию)
+- Добавлен ползунок для изменения радиуса границы для всех 4 углов (если эта версия является обновлением для вас, вам нужно нажимать каждую кнопку в редакторе vis, чтобы вернуть углы по умолчанию)
 - Добавлены новые иконки
 
 ### 1.1.1
@@ -302,7 +330,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 - Изменены виджеты кнопок для использования шрифта и текста по умолчанию.
 
 ### 1.0.0
-- Фон виджета и прозрачность содержимого, переключатель можно изменить с логического на значение, значки изменены с белого на черный, добавлены бесшовные фоны
+- Фон виджета и непрозрачность содержимого, переключатель можно изменить с логического на значение, значки изменены с белого на черный, добавлены бесшовные фоны
 
 ### 0.1.2
 - Исправление ошибок
@@ -315,7 +343,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 ...
 
 ### 0.1.0 (Erstveröffentlichung)
-- Дизайн-виджеты inventorywo
+- Дизайн-виджеты изобретателя
 
 ...
 
@@ -328,7 +356,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## License
 
-Urheberrechte (c) 2020 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
+Urheberrechte (c) 2021 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
 
 
 MIT License (nur in englisch / englisch only)

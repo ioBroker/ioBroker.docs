@@ -7,7 +7,11 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.sonnen.svg)](https://www.npmjs.com/package/iobroker.sonnen)
 
 
-[![NPM](https://nodei.co/npm/iobroker.sonnen.png?downloads=true)](https://nodei.co/npm/iobroker.sonnen/) 
+[![NPM](https://nodei.co/npm/iobroker.sonnen.png?downloads=true)](https://nodei.co/npm/iobroker.sonnen/)
+## Disclaimer
+The developers of this module are in no way endorsed by or affiliated with sonnen GmbH,
+or any associated subsidiaries, logos or trademarks.
+
 ## Installation
 You can either install the adapter via the ioBroker web interface or on your local machine via npm.
 

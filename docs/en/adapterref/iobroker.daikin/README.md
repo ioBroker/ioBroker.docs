@@ -60,6 +60,9 @@ After the Adapter has connected to the Daikin Device a structure of objects are 
 
 ## Changelog
 
+### 1.3.3 (2021-06-24)
+* (Apollon77) Prevent crash case when no temperature was read out (Sentry IOBROKER-DAIKIN-D, IOBROKER-DAIKIN-M)
+
 ### 1.3.2 (2021-06-05)
 * (Apollon77) Handle modes correctly where no temperature or humidity parameters are required
 

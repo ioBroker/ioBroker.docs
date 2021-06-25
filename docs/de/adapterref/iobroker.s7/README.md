@@ -2,8 +2,6 @@
 BADGE-Number of Installations: http://iobroker.live/badges/s7-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.s7.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.s7.svg
-BADGE-Tests: https://travis-ci.org/ioBroker/ioBroker.s7.svg?branch=master
-BADGE-NPM: https://nodei.co/npm/iobroker.s7.png?downloads=true
 ---
 Der Siemens S7 Adapter basiert auf Snap7, wobei Snap7 bei der Erstinstallation des
 S7 Adapters mitinstalliert wird und die eigentliche S7-Kommunikation zwischen ioBroker und der S7 über TCP/IP organisiert.
@@ -38,6 +36,13 @@ Sie können für S7TIME 4 Zeitversatzmodi verwenden:
 S5 dekodiert wie hier beschrieben: http://www.plccenter.cn/Siemens_Step7/Format_des_Datentyps_S5TIME_Zeitdauer.htm
 
 ## Changelog
+
+### 1.3.2 (2021-06-23)
+* (Apollon77) Add adapter tier for js-controller 3.3
+
+### 1.3.1 (2021-06-23)
+* (bluefox) Corrected the type of states
+
 ### 1.3.0 (2021-06-17)
 * (bluefox) New configuration page on react 
 

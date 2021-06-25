@@ -14,6 +14,11 @@ BADGE-NPM: https://nodei.co/npm/iobroker.denon.png?downloads=true
 
 [![NPM](https://nodei.co/npm/iobroker.denon.png?downloads=true)](https://nodei.co/npm/iobroker.denon/)
 
+## Disclaimer
+DENON and Marantz are trademarks of D&M Holdings Inc.
+The developers of this module are in no way endorsed by or affiliated with D&M Holdings Inc.,
+or any associated subsidiaries, logos or trademarks.
+
 ## Installation
 You can either install the adapter via the ioBroker web interface or on your local machine via npm.
 
