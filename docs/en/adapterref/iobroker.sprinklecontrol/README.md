@@ -98,7 +98,8 @@ Open the individual configuration of the respective irrigation circuit
     - **Hint:** My pump delivers a maximum of 1800 l/h, and my lawn sprinklers need 1400 l/h, but full pressure, to start them. With the booster function, I can also water my conifers with a drip line that only needs 300 l / h.
     > - **Danger:** This function should be used very sparingly, as only one irrigation circuit can water with an active booster at a time.
 
-- - -
+---
+---
 #### Individual configuration of an irrigation circuit - PUMP SETTINGS
 - - -
 
@@ -182,6 +183,11 @@ Activate the Notifications tab. The communication settings are then made on the 
 ![screenshot7.jpg](img/screenshot7.jpg)
 
 - Once the NOTIFICATIONS tab has been activated, you can choose your notification method and enter your details here.
+- The following notification methods are supported:
+  - E-mail
+  - Pushover
+  - Telegram
+  - WhatsApp
 
 ---
 ---

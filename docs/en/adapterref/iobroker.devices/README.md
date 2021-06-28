@@ -30,6 +30,12 @@ Manage and create devices for using it in other adapters like material, iot,...
 -->
 
 ## Changelog
+### 1.0.6 (2021-06-27)
+* (bluefox) Implemented the filters
+
+### 1.0.5 (2021-06-26)
+* (bluefox) Implemented the edit of `states` parameter
+
 ### 1.0.4 (2021-06-08)
 * (bluefox) Fixed some GUI errors
 

@@ -1,17 +1,19 @@
 ![Logo](admin/telegram.png)
 # ioBroker telegram Adapter
 
-![Number of Installations](http://iobroker.live/badges/telegram-installed.svg) ![Number of Installations](http://iobroker.live/badges/telegram-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.telegram.svg)](https://www.npmjs.com/package/iobroker.telegram)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.telegram.svg)](https://www.npmjs.com/package/iobroker.telegram)
-[![Tests](https://travis-ci.org/ioBroker/ioBroker.telegram.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.telegram)
+![Number of Installations](http://iobroker.live/badges/telegram-installed.svg)
+![Number of Installations](http://iobroker.live/badges/telegram-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.telegram.svg)](https://www.npmjs.com/package/iobroker.telegram)
 
-[![NPM](https://nodei.co/npm/iobroker.telegram.png?downloads=true)](https://nodei.co/npm/iobroker.telegram/)
+![Test and Release](https://github.com/iobroker-community-adapters/iobroker.telegram/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/telegram/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.telegram.svg)](https://www.npmjs.com/package/iobroker.telegram)
 
 ## Configuration
 Ask [@BotFather](https://telegram.me/botfather) to create new bot ```/newbot```.
 
 You will be asked to enter name of the bot and then the username.
-After that you will get the Token.
+After that, you will get the Token.
 
 ![Screenshot](img/chat.png)
 
@@ -38,7 +40,7 @@ sendTo('telegram', {user: 'UserName', text: 'Test message'}, function (res) {
 If you use the example above be aware of that you have to replace 'UserName' with either the first name or the Public-Telegram-Username of the User you want to send the message to. (Depends on if the 'Store username not firstname' setting in the adapter settings is enabled or not)
 If the option is set and the user did not specify a public username in his telegram account, then the adapter will continue to use the firstname of the user. Keep in mind that if the user sets a public username later (after authenticating to your bot) the saved firstname will be replaced by the username the next time the user sends a message to the bot.
 
-It is possible to specify more than one recipient (just separate the User names by comma).
+It is possible to specify more than one recipient (just separate the usernames by comma).
 For example: Recipient: "User1,User4,User5"
 
 You can send message over state too, just set state *"telegram.INSTANCE.communicate.response"* with value *"@userName Test message"* or with a JSON object:
@@ -49,7 +51,7 @@ You can send message over state too, just set state *"telegram.INSTANCE.communic
 }
 ```
 
-The JSON syntax also allows to add options from the [telegram bots API](https://core.telegram.org/bots/api), as well as setting the user or chatId:
+The JSON syntax also allows the adding options from the [telegram bots API](https://core.telegram.org/bots/api), as well as setting the user or chatId:
 
 ```
 {
@@ -60,7 +62,7 @@ The JSON syntax also allows to add options from the [telegram bots API](https://
 }
 ```
 
-In order to send messages to groups, you have to invite the bot to the group you want the bot to post in. 
+In order to send messages to the groups, you have to invite the bot to the group you want the bot to post in. 
 By providing the `chat_id` to the JSON message payload you can actually send messages to those groups. 
 
 In order to find out the `chat_id` you have to set the adapter's log level to `debug`. 
@@ -73,7 +75,7 @@ You can use telegram with [text2command](https://github.com/ioBroker/ioBroker.te
 
 To send a photo, just send a path to file instead of text or URL: `sendTo('telegram', 'absolute/path/file.png')` or `sendTo('telegram', 'https://telegram.org/img/t_logo.png')`.
 
-Example how to send a screen shot from web-cam to telegram:
+Example how to send a screenshot from web-cam to telegram:
 
 ```
 var request = require('request');
@@ -128,7 +130,7 @@ sendTo('telegram.0', {
 ```
 
 **Possible options**:
-- *disable_notification*: Sends the message silently. iOS users will not receive a notification, Android users will receive a notification with no sound. (all types)
+- *disable_notification*: Sends the message silently. The iOS users will not receive a notification, Android users will receive a notification with no sound. (all types)
 - *parse_mode*: Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message. Possible values: "Markdown", "MarkdownV2", "HTML" (message)
 - *disable_web_page_preview*: Disables link previews for links in this message (message)
 - *caption*: Caption for the document, photo or video, 0-200 characters (video, audio, photo, document)
@@ -224,7 +226,7 @@ Timeout can be set in configuration and by default is 60 seconds.
 ```
 sendTo('telegram.0', 'ask', {
     user: user, // optional
-    text: 'Aure you sure?',
+    text: 'Are you sure?',
     reply_markup: {
         inline_keyboard: [
             // two buttons could be on one line too, but here they are on different
@@ -287,6 +289,50 @@ if (command ==="1_2") {
 ```
 
 You can read more [here](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagetexttext-options--promise).     
+
+### editMessageCaption
+Use this method to edit caption of the message sent by the bot or via the bot (for inline bots). 
+On success, if edited message is sent by the bot, the edited Message is returned, otherwise *True* is returned.
+
+```
+if (command === "1_2") {
+    sendTo('telegram', {
+        user, // optional
+        text: 'New caption',
+        editMessageCaption: {
+            options: {
+                chat_id: getState("telegram.0.communicate.requestChatId").val,
+                message_id: getState("telegram.0.communicate.requestMessageId").val
+            }
+        }
+    });
+}
+```
+
+You can read more [here](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagetexttext-options--promise).     
+
+### editMessageMedia
+Use this method to edit picture of the message sent by the bot or via the bot (for inline bots). 
+On success, if edited message is sent by the bot, the edited Message is returned, otherwise *True* is returned.
+
+```
+if (command === "1_2") {
+    sendTo('telegram', {
+        user, // optional
+        text: 'picture.jpg',
+        editMessageMedia: {
+            options: {
+                chat_id: (await getStateAsync('telegram.0.communicate.botSendChatId')).val,
+                message_id: (await getStateAsync('telegram.0.communicate.botSendMessageId')).val
+            }
+        }
+    });
+}
+```
+
+Supported are following media types: `photo`, `animation`, `audio`, `document`, `video`.
+
+You can read more [here](https://core.telegram.org/bots/api#editmessagemedia).     
 
 ### editMessageReplyMarkup
 Use this method to edit only the reply markup of messages sent by the bot or via the bot (for inline bots). On success, if edited message is sent by the bot, the edited Message is returned, otherwise *True* is returned.
@@ -383,7 +429,7 @@ You can set the value of state if you now the ID:
 ## Polling or Server mode
 If polling mode is used, the adapter polls by default every 300ms the telegram server for updates. It uses traffic and messages can be delayed for up to the polling interval. The polling interval can be defined in adapter configuration.
 
-To use server mode you ioBroker instance must be reachable from internet (e.g. with noip.com dynamic DNS service).
+To use server mode you ioBroker instance must be reachable from internet (e.g. with `noip.com` dynamic DNS service).
 
 Telegram can work only with HTTPS servers, but you can use **let's encrypt** certificates.
 
@@ -391,11 +437,23 @@ Following settings must be provided for server mode:
 
 - URL - in form https://yourdomain.com:8443.
 - IP - Ip address, where the server will be bound. Default 0.0.0.0. Do not change it if you are not sure.
-- Port - actually only 443, 80, 88, 8443 ports are supported by telegram, but you can forward ports to any one through your router.
+- Port - actually only 443, 80, 88, 8443 ports are supported by telegram, but you can forward ports to anyone through your router.
 - Public certificate - required, if **let's encrypt** is disabled.
 - Private key - required, if **let's encrypt** is disabled.
 - Chain certificate (optional)
-- Let's encrypt options - It is very easy to setup **let's encrypt** certificates. Please read [here](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates) about it.
+- Let's encrypt options - It is very easy to set up **let's encrypt** certificates. Please read [here](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates) about it.
+
+## Advanced security
+The authentication of users could be disabled. So no one new can authenticate.
+
+To create a list of trusted users, first disable the option "Do not authenticate new users" and 
+authenticate all users that should be in the trusted list by sending the `/password <PASSWORD>` message.
+
+The users, that sent valid password will be stored in the trusted list. 
+
+After that teh option "Do not authenticate new users" could be activated and no new users can authenticate.
+
+To use this option the option "Remember authenticated users" must be activated.
 
 ## Calls via telegram
 Thanks to [callmebot](https://www.callmebot.com/) api, you can make a call to your telegram account and some text will be read via TTS engine.
@@ -537,19 +595,19 @@ For every state the additional settings could be enabled:
 
 ![settings](img/stateSettings.png)
 
-By entering "/cmds" the following keyboard will be displayed in telegram:
+By entering `/cmds` the following keyboard will be displayed in telegram:
 
 ![settings](img/stateSettings1.png)
 
-"/cmds" could be replaced by any text (e.g. "?") in the configuration dialog of telegram adapter.
+`/cmds` could be replaced by any text (e.g. "?") in the configuration dialog of telegram adapter.
 
 If **Use rooms in keyboard command** option is enabled in the configuration dialog of telegram adapter, so in the first step the room list will be shown. ***Not yet implemented***
 
 ### Settings in the state
-First of all the configuration must be enabled.
+First the configuration must be enabled.
 
 #### Alias  
-Name of the device. If empty the name will be taken from object. 
+Name of the device. If the name is empty, the name will be taken from object. 
 By entering "Door lamp" following menu will be shown for boolean state.
 ![settings](img/stateSettings2.png)
 
@@ -557,10 +615,10 @@ You can switch the device ON, turn the device OFF or request the state.
 If you Click `Door lamp ?`, you will get `Door lamp  => switched off`.
  
 ### Read only
-If activated, no ON/OFF buttons will be shown, just a `Door lamp ?`.
+If activated, ON/OFF buttons will be not shown, just a `Door lamp ?`.
 
 ### Report changes
-If the status of device changed (e.g. some one turned the lamp on physically), the new status will be delivered to telegram.
+If the status of device changed (e.g. someone turned the lamp on physically), the new status will be delivered to telegram.
 E.g. `Door lamp  => switched on`.
 
 ### Buttons in line
@@ -570,7 +628,7 @@ Because of the long name maybe it is better to show only 2 (or even just one) bu
 ![settings](img/stateSettings3.png)
 
 ### Write only
-If activated, no the status query (`Door lamp ?`) button will be shown.
+If activated, the status query (`Door lamp ?`) button will be not shown.
  ![settings](img/stateSettings4.png)
  
 ### ON Command
@@ -582,7 +640,7 @@ Will produce following keyboard:
 ![settings](img/stateSettings6.png)
 
 ### ON Text
-Which text will be shown by state report. 
+The text, that will be shown by state report. 
 E.g. `Door lamp => activated` if the state of the device changed to true and the **ON Text** is `activated` 
 
 The ON/OFF Texts will be shown only if **Report changes** is activated.
@@ -595,13 +653,13 @@ Same as **ON Text**, but for OFF.
 E.g. `Door lamp => deactivated` if the state of the device changed to false and the **OFF Text** is `deactivated` 
 
 ### Only true
-E.g. for buttons, they have no OFF state. In this case no OFF button will be shown.
+E.g. for buttons, they have no OFF state. In this case the OFF button will be not shown.
 
 ![settings](img/stateSettings7.png)
 
 ## How to receive messages in group chats using telegram adapter
 If telegram bot receives messages sent by user to the bot in private chats, but not receives messages sent by users in group chats. 
-In this case you must talk to @botfather and disable the privacy mode.
+In this case you must talk to `@botfather` and disable the privacy mode.
 
 BotFather chat:
 
@@ -625,16 +683,16 @@ BotFather: Success! The new status is: DISABLED. /help
 
 ## How to send messages via node-red
 For simple text messages to all users, just put the text within the payload of the message and
-send it to the ioBroker state *"telegram.INSTANCE.communicate.response"*.
+send it to the ioBroker state `telegram.INSTANCE.communicate.response`.
 
 If you want to set additional options, fill the payload with a JSON object, such as:
 ```
 msg.payload = {
-    /* text is the only mandatory field here */
+    // text is the only mandatory field here
     "text": "*bold _italic bold ~italic bold strikethrough~ __underline italic bold___ bold*",
-    /* optional chatId or user, the receipient of the message */
+    // optional chatId or user, the recipient of the message
     "chatId": "1234567890",
-    /* optional settings from the telegram bots API */
+    // optional settings from the telegram bots API
     "parse_mode": "MarkdownV2"
 }
 ```
@@ -645,6 +703,22 @@ msg.payload = {
 -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Add tier for js-controller 3.3
+
+### 1.9.0 (2021-06-26)
+* (bluefox) Added the option to not authenticate the new users
+* (bluefox) Added the option to disable system messages for specific users
+
+### 1.8.3 (2021-06-26)
+* (Nahasapeemapetilon) corrected bug with many simultaneous requests 
+* (bluefox) formatting
+* (bluefox) implemented editMessageMedia and editMessageCaption
+* (bluefox) Encrypt token 
+* (bluefox) Corrected error with password
+* (bluefox) Corrected error with boolean easy controls
+
 ### 1.8.2 (2021-05-28)
 * (Diginix) fixed data types
 
@@ -681,11 +755,11 @@ msg.payload = {
 * (bluefox) Added description of easy-keyboard
 
 ### 1.5.5 (2020-04-04)
-* (alutov) Fixed bug for telegram users with an empty user name
+* (alutov) Fixed bug for telegram users with an empty username
 * (Mark Rohrbacher) Allowed JSON objects in telegram.*.communicate.response 
 
 ### 1.5.4 (2020-03-11)
-* (bluefox) Improvement of callmebot
+* (bluefox) Improvement of `callmebot`
 
 ### 1.5.3 (2020-02-23)
 * (foxriver76) removed usage of adapter.objects
@@ -710,7 +784,7 @@ msg.payload = {
 * (BuZZy1337) Bugfix for not yet completely implemented feature
 
 ### 1.4.2 (2019-02-18)
-* (BuZZy1337) fix for recipients containing withespaces
+* (BuZZy1337) fix for recipients containing spaces
 * (BuZZy1337) change loglevel of "getMe" info-messages to debug
 * (bluefox) fix scroll in firefox
 
@@ -740,7 +814,7 @@ msg.payload = {
 
 ### 1.3.0 (2018-09-19)
 * (BuZZy1337) Added possibility to delete authenticated users in the Adapter-Config screen (via Messages tab)
-* (BuZZy1337) fixed a problem "building" the Blockly sendto block when no adapter instance exists.
+* (BuZZy1337) fixed a problem "building" the Blockly `sendto` block when no adapter instance exists.
 
 ### 1.2.7 (2018-08-29)
 * (BuZZy1337) Added "disable notification" checkbox to blockly block.
@@ -791,7 +865,7 @@ msg.payload = {
 * (Haba) Updating for Admin3
 
 ### 1.0.9 (2017-11-27)
-* (kirovilya) Allow send gif via sendDocument
+* (kirovilya) Allow the sending of GIF via sendDocument
 
 ### 1.0.8 (2017-10-03)
 * (Haba1234) initPolling() this is deprecated. -> startPolling()
@@ -837,7 +911,7 @@ msg.payload = {
 * (bluefox) add new states: requestChatId and requestUserId
 
 ### 0.4.0 (2016-07-21)
-* (bluefox) allow send messages to chats via chat-ID
+* (bluefox) allow sending of messages to chats via chat-ID
 * (bluefox) support of video(mp4), audio, document, location, sticker, action
 
 ### 0.3.0 (2016-05-31)
@@ -866,7 +940,7 @@ msg.payload = {
 * (bluefox) fix error with sendTo
 
 ### 0.0.1 (2016-02-13)
-* (bluefox) intial commit
+* (bluefox) initial commit
 
 ## License
 

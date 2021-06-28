@@ -21,14 +21,21 @@ If you like my work, please feel free to provide a personal donation
 [![Donate](https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Breaking changes in v0.3.x
+Recommendation: If possible, delete old adapter installation first or delete all states so that no unsupported states keep in the installation.
 Upgrade from 0.2.x to v0.3.x includes a technical re-factioring with breaking changes. Some states changed there name/path, e.g.
 
 | v0.2.x | v0.3.x |
 | ------ | ------ |
 | tado.[x].[yyyyy].Rooms.[z].setting.temperature |tado.[x].[yyyyy].Rooms.[z].setting.temperature.celsius |
 | tado.[x].[yyyyy].Rooms.[z].overlay.clearZoneOverlay | tado.[x].[yyyyy].Rooms.[z].overlayClearZone |
+| tado.[x].[yyyyy].Rooms.[z].Actual_Temperature | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.insideTemperature.celsius |
+| tado.[x].[yyyyy].Rooms.[z].Actual_Humidity | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.humidity.percentage |
+| tado.[x].[yyyyy].Rooms.[z].heatingPower | tado.[x].[yyyyy].Rooms.[z]..activityDataPoints.heatingPower.percentage |
+| tado.[x].[yyyyy].Weather.solarIntensity | tado.[x].[yyyyy].Weather.solarIntensity.percentage |
+| tado.[x].[yyyyy].Weather.outsideTemperature | tado.[x].[yyyyy].Weather.outsideTemperature.celsius |
 
-Happy to add additonal major changes based on your feedback!
+In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x sometimes the old value was kept, sometimes replaced with 0 sometimes NULL was used.  
+**Happy to add additonal major changes based on your feedback!**
 
 ## Changelog
 <!--
@@ -36,7 +43,7 @@ Happy to add additonal major changes based on your feedback!
     ### __WORK IN PROGRESS__
 -->
 
-### 0.3.0-4 (2021-06-04)
+### 0.3.0 (2021-06-26)
 * (HGlab01) Technical re-factoring of state management !BREAKING CHANGES! (see above)
 * (HGlab01) implement offset functionality
 * (HGlab01) Set minimum refresh time to 30 seconds

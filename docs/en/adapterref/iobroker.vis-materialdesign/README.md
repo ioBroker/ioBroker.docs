@@ -5560,19 +5560,19 @@ The following properties can be used as [HTML Widgets](#html-widgets).
 			<td>mdw-progressIndeterminate</td>
 			<td>indeterminate - continuously animates</td>
 			<td>boolean</td>
-			<td>false | true
+			<td>false | true</td>
 		</tr>
 		<tr>
 			<td>mdw-reverse</td>
 			<td>Revers value</td>
 			<td>boolean</td>
-			<td>false | true
+			<td>false | true</td>
 		</tr>
 		<tr>
 			<td>mdw-debug</td>
 			<td>debug</td>
 			<td>boolean</td>
-			<td>false | true
+			<td>false | true</td>
 		</tr>
 		<tr>
 			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>layout</b></i></td>
@@ -5581,20 +5581,26 @@ The following properties can be used as [HTML Widgets](#html-widgets).
 			<td>mdw-progressRounded</td>
 			<td>rounded corners</td>
 			<td>boolean</td>
-			<td>false | true
+			<td>false | true</td>
 		</tr>
 		<tr>
 			<td>mdw-progressStriped</td>
 			<td>striped</td>
 			<td>boolean</td>
-			<td>false | true
+			<td>false | true</td>
 		</tr>
 		<tr>
 			<td>mdw-progressStripedColor</td>
 			<td>progressStripedColor</td>
 			<td>string</td>
-			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
 		</tr>
+		<tr>
+			<td>mdw-stripDistance</td>
+			<td>stripDistance</td>
+			<td>number</td>
+			<td>
+		</tr>		
 		<tr>
 			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
 		</tr>
@@ -5620,7 +5626,7 @@ The following properties can be used as [HTML Widgets](#html-widgets).
 			<td>mdw-colorOne</td>
 			<td>color 1 progress</td>
 			<td>string</td>
-			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
 		</tr>
 		<tr>
 			<td>mdw-colorTwoCondition</td>
@@ -5632,7 +5638,7 @@ The following properties can be used as [HTML Widgets](#html-widgets).
 			<td>mdw-colorTwo</td>
 			<td>color 2 progress</td>
 			<td>string</td>
-			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
 		</tr>
 		<tr>
 			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>labeling</b></i></td>
@@ -5647,7 +5653,7 @@ The following properties can be used as [HTML Widgets](#html-widgets).
 			<td>mdw-valueLabelStyle</td>
 			<td>value caption style</td>
 			<td>string</td>
-			<td>progressPercent | progressValue | progressCustom
+			<td>progressPercent | progressValue | progressCustom</td>
 		</tr>
 		<tr>
 			<td>mdw-valueLabelUnit</td>
@@ -5671,7 +5677,7 @@ The following properties can be used as [HTML Widgets](#html-widgets).
 			<td>mdw-textColor</td>
 			<td>Minutes text color</td>
 			<td>string</td>
-			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
 		</tr>
 		<tr>
 			<td>mdw-textFontSize</td>
@@ -5689,7 +5695,7 @@ The following properties can be used as [HTML Widgets](#html-widgets).
 			<td>mdw-textAlign</td>
 			<td>textAlign</td>
 			<td>string</td>
-			<td>start | center | end
+			<td>start | center | end</td>
 		</tr>
 	</tbody>
 </table>
@@ -13110,13 +13116,21 @@ The adapter uses the following libraries:
 ### __WORK IN PROGRESS__
 * (Scrounger) Button Toggle Widgets: bug fix for state on runtime load
 * (Scrounger) Value Widget: bug fix for show unit only if result is of type number
+* (Scrounger) Value Widget: bug fix for data ovveride
 * (Scrounger) IconList Widget: option to set minimal width for single item added
 * (Scrounger) IconList Widget: header added
+* (Scrounger) IconList Widget: color options added
 * (Scrounger) List Widget: main header added
 * (darkiop) documentation updated ([#PR179](https://github.com/Scrounger/ioBroker.vis-materialdesign/pull/179))
 * (Scrounger) Top App Bar Widget: fixed bugs found by sentry
+* (Scrounger) Top App Bar Widget: icon color bug fix if using json string
+* (Scrounger) Top App Bar Widget: selected item icon color option added
+* (Scrounger) Round Slider Widget: control bug fix
 * (Scrounger) Grid Views Widget: Bug fix for nested grid views widgets
 * (Scrounger) Masonry Views Widget: Bug fix for nested masonry views widgets
+* (Scrounger) Progress Widget: striped distance option added
+* (Scrounger) Advanced View in Widget widget added
+* (Scrounger) Dialog Widget: background color bug fix on close animation
 * (Scrounger) bug fix for VIS Editor dev values
 
 

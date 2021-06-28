@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: 06PSBrUK/jVnZap4HFoySXhDFkBKDh7HZglT9q+NeVY=
+hash: mXMBDAoCTwgdhbzFlAc6GjyQ4cn8Ywh7uAyKl9acmGg=
 ---
 ![Anzahl der Installationen](http://iobroker.live/badges/tado-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.tado.svg)
@@ -26,14 +26,21 @@ tado° sorgt für ein angenehmes und gesundes Klima und spart bis zu 31% Heizkos
 Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende zukommen lassen (dies ist ein persönlicher Spendenlink für DutchmanNL, kein Bezug zum ioBroker-Projekt ! [![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Wichtige Änderungen in v0.3.x
+Empfehlung: Löschen Sie nach Möglichkeit zuerst die alte Adapterinstallation oder löschen Sie alle Zustände, damit keine nicht unterstützten Zustände in der Installation verbleiben.
 Upgrade von 0.2.x auf v0.3.x beinhaltet ein technisches Re-Factoring mit Breaking Changes. Einige Staaten haben ihren Namen/Pfad geändert, z.B.
 
 | v0.2.x | v0.3.x |
 | ------ | ------ |
 | tado.[x].[yyyyy].Rooms.[z].setting.temperature |tado.[x].[yyyyy].Rooms.[z].setting.temperature.celsius |
 | tado.[x].[yyyyy].Rooms.[z].overlay.clearZoneOverlay | tado.[x].[yyyyy].Rooms.[z].overlayClearZone |
+| tado.[x].[yyyyy].Rooms.[z].Ist_Temperatur | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.insideTemperature.celsius |
+| tado.[x].[yyyyy].Rooms.[z].Actual_Humidity | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.humidity.percentage |
+| tado.[x].[yyyyy].Rooms.[z].heatingPower | tado.[x].[yyyyy].Rooms.[z]..activityDataPoints.heatingPower.percentage |
+| tado.[x].[yyyyy].Weather.solarIntensity | tado.[x].[yyyyy].Wetter.solarIntensity.Prozent |
+| tado.[x].[yyyyy].Weather.outsideTemperature | tado.[x].[yyyyy].Weather.outsideTemperature.celsius |
 
-Gerne weitere wichtige Änderungen basierend auf Ihrem Feedback!
+Im Allgemeinen sind Werte jetzt NULL, wenn die API NULL oder einfach nichts sendet. In v0.2.x wurde manchmal der alte Wert beibehalten, manchmal durch 0 ersetzt, manchmal wurde NULL verwendet.
+** Gerne weitere wichtige Änderungen basierend auf Ihrem Feedback!**
 
 ## Changelog
 <!--
@@ -41,7 +48,7 @@ Gerne weitere wichtige Änderungen basierend auf Ihrem Feedback!
     ### __WORK IN PROGRESS__
 -->
 
-### 0.3.0-4 (2021-06-04)
+### 0.3.0 (2021-06-26)
 * (HGlab01) Technical re-factoring of state management !BREAKING CHANGES! (see above)
 * (HGlab01) implement offset functionality
 * (HGlab01) Set minimum refresh time to 30 seconds

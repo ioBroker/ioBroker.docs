@@ -401,11 +401,8 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 ---
 <a id="was-ist-fr-die-zukunft-geplant"></a>
 # Was ist für die Zukunft geplant
- 
-* **Version 0.1.? ins stable bringen** → Ich hoffe, das ich an alles gedacht habe!
-* **Restfehler beseitigen (ESLint)** → Wird wohl eine Lebensaufgabe, da ich blutiger Anfänger bin. :)
+
 * **integration von Bodenfeuchte Sensoren** → Es wird wohl eine Config geben, sodass der Sensortyp egal ist.
-* **Visualisierung**
 
 ---  
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)

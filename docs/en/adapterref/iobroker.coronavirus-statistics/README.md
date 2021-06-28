@@ -95,6 +95,12 @@ As first value, the name from the warning message must be taken from the log. Th
 	* (DutchmanNL) 
 -->
 
+### 0.7.0-5 (2021-06-25)
+* (DutchmanNL) Bugfix: State attribute definition missing for + undefined
+* (DutchmanNL) Bugfix: Vaccination data for Germany, several states missing in new API and will not be updated anymore !
+* (DutchmanNL) Bugfix: State value to set for "xxx.BL" has to be type "number" but received type "string", solves [#237](https://github.com/DrozmotiX/ioBroker.coronavirus-statistics/issues/237)
+* (DutchmanNL) Bugfix: State value to set for "xxx.Tests*" has to be type "string" but received type "number", solves [#237](https://github.com/DrozmotiX/ioBroker.coronavirus-statistics/issues/237)
+
 ### 0.7.0-4 (2021-03-30)
 * (DutchmanNL) round Impfquote to 2 digits
 * (lembnau) Vaccination data for AstraZeneca Germany added

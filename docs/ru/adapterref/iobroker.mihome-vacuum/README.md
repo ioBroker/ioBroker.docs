@@ -3,25 +3,23 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker mihome-вакуумный адаптер
-hash: U/aoXXnLeLYe5euziTFca/0uZlariNMUGCbRI8MYwV0=
+hash: aIfH+iYBWOkmIheZ73ZJw/HBNXL8KV9LqrdRJ5H/QBk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
 ![Пожертвование Paypal](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
+![Количество установок](http://iobroker.live/badges/mihome-vacuum-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.mihome-vacuum.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.mihome-vacuum.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/mihome-vacuum-installed.svg)
-![Статус зависимости](https://img.shields.io/david/iobroker-community-adapters/iobroker.mihome-vacuum.svg)
-![Известные уязвимости](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.mihome-vacuum/badge.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/mihome-vacuum-stable.svg)
-![НПМ](https://nodei.co/npm/iobroker.mihome-vacuum.png?downloads=true)
 
 # IoBroker mihome-вакуумный адаптер
-![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum/workflows/Test%20and%20Release/badge.svg)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/iobroker.mihome-vacuum/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/mihome-vacuum/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 [Deutsche beschreibung hier](README_de.md)
 
 Этот адаптер позволяет управлять пылесосом Xiaomi.
+
+** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
 ## Содержание
  - [Известные ошибки] (# известных_ошибок)
@@ -41,7 +39,7 @@ hash: U/aoXXnLeLYe5euziTFca/0uZlariNMUGCbRI8MYwV0=
     - [Собственные команды] (# отправь свои собственные команды)
     - [sendTo hook] (# send-custom-commands-with-sendto)
 - [виджет] (# виджет)
-- [ошибки] (# ошибок)
+- [ошибки] (# ошибки)
 - [Список изменений] (# список изменений)
 
 ## Поддерживаемые устройства и функции
@@ -62,7 +60,7 @@ hash: U/aoXXnLeLYe5euziTFca/0uZlariNMUGCbRI8MYwV0=
 
 ## Известные ошибки
 ### Ошибка при установке
-если ваша установка выполняется по ошибке. Пакет холста не может быть установлен
+если ваша установка выполняется по ошибке. Не удалось установить пакет холста
 
 `` npm ERR! canvas@2.6.1 install: node-pre-gyp install --fallback-to-build npm ERR! Статус выхода 1 ''
 
@@ -71,25 +69,26 @@ hash: U/aoXXnLeLYe5euziTFca/0uZlariNMUGCbRI8MYwV0=
 `` sudo npm установить холст --unsafe-perm = true ''
 
 ### Ошибка HTTP при получении токена cookie {}
-иногда вы не можете подключиться к облаку xiaomi. Пожалуйста, откройте Browswer, перейдите в Mihome и войдите в систему. Введите код, который вы получили по почте. После этого соединение должно работать.
+Иногда не получается подключиться к облаку xiaomi.
+Пожалуйста, откройте браузер, перейдите в Mihome и войдите в систему. Введите код, который вы получили по почте. После этого соединение должно работать.
 
 ## Конфигурация
 На данный момент поиск токена - самая большая проблема.
 Пожалуйста, следуйте инструкциям в ссылке:
 
-[Жетон турориал](https://www.smarthomeassistent.de/token-auslesen-roborock-s6-roborock-s5-xiaomi-mi-robot-xiaowa/).
+[Руководство по токенам](https://www.smarthomeassistent.de/token-auslesen-roborock-s6-roborock-s5-xiaomi-mi-robot-xiaowa/).
 
 ### Конфигурация адаптера
 - Для IP-адреса IP-адрес робота должен быть введен в формате «192.168.178.XX».
-- Порт робота по умолчанию установлен на «54321», это не должно быть изменено.
+- Порт робота по умолчанию установлен на "54321", это не должно быть изменено.
 - Собственный порт, следует менять только вторым роботом
 - Интервал запроса Время в мс, в течение которого извлекаются значения статуса робота (не должно быть <10000).
 
 #### Контроль над Alexa
-В конфигурации активируется добавление состояния alexa, здесь устанавливается хак, дополнительное состояние «clean_home» это переключатель, который запускается с «true» присоски, а при «false» он идет домой, он автоматически становится интеллектуальным устройством в облаке Адаптер создан с названием «пылесос», который можно изменить в облачном адаптере.
+В конфигурации активируется состояние add alexa, здесь устанавливается хак, дополнительное состояние "clean_home" это переключатель, который запускается с "true" присоски и с "false" - он идет домой, он автоматически становится интеллектуальным устройством в облачный адаптер создан с названием «пылесос», который можно изменить в облачном адаптере.
 
-#### Возобновить приостановленную очистку зоны кнопкой запуска
-Если эта опция включена, пылесос возобновит очистку зоны при установке состояния «старт» в значение «истина», если она была приостановлена во время выполнения очистки зоны.
+#### Возобновление приостановленной очистки зоны с помощью кнопки пуска
+Если эта опция включена, пылесос возобновит очистку зоны при установке состояния «start» в значение «истина», если она была приостановлена во время работы очистки зоны.
 Если этот параметр отключен, пылесос начнет новую «обычную очистку», когда вы отправите команду запуска, даже если она была приостановлена во время выполнения очистки зоны.
 
 - Экспериментально: с помощью флажка «Отправлять собственные команды» создаются объекты, с помощью которых вы можете отправлять и получать свои собственные команды роботу.
@@ -98,15 +97,17 @@ hash: U/aoXXnLeLYe5euziTFca/0uZlariNMUGCbRI8MYwV0=
 Если двумя роботами нужно управлять через ioBroker, необходимо создать два экземпляра. Второй робот должен изменить свой собственный порт (по умолчанию: 53421), чтобы у обоих роботов были разные порты.
 
 ## Конфигурация карты
-Есть два способа получить карту. Первые получают карту из облака. Для этого вам необходимо войти в систему и выбрать нужного робота из списка.
+Есть два способа получить карту. Первые получают карту из облака. Поэтому вам необходимо войти в систему и выбрать подходящего робота из списка.
 
-Второй способ - карта от valetudo (только локальная связь). Для этого вам необходимо выполнить рутинг и установить valetudo на свое устройство. Vatudo вы можете использовать [Valetudo RE] (https://github.com/rand256/valetudo) или нормальный [Valetudo](https://github.com/Hypfer/Valetudo)
+Второй способ - карта от valetudo (только локальная связь).
+Поэтому вам необходимо выполнить рутирование и установить valetudo на свое устройство.
+Вы можете использовать [Valetudo RE] (https://github.com/rand256/valetudo) или нормальный [Valetudo](https://github.com/Hypfer/Valetudo).
 
 ![Конфиг](../../../en/adapterref/iobroker.mihome-vacuum/admin/valetudo_conf.png)
 
 - Чтобы использовать карту, вы должны выбрать valetudo или оригинальную карту в конфигурации
 - Интервал запроса должен быть больше 1000 мс, это интервал для обновления карты html
-- интервал карты должен быть более 5000 мс, этот интервал обновляет файл карты png (вы можете использовать это для Telegram, vis или что-то еще)
+- интервал карты должен быть более 5000 мс, этот интервал обновляет файл карты png (вы можете использовать его для Telegram, vis или чего-то еще)
 - цвет там вы можете выбрать цвета для примера карты:
 
 ```
@@ -116,14 +117,14 @@ hash: U/aoXXnLeLYe5euziTFca/0uZlariNMUGCbRI8MYwV0=
 - green
 ```
 
-- роботы там вы можете выбрать разных роботов или другую технику для карты
+- роботы там вы можете выбрать разных роботов или другой транспорт для карты
 
 ### Использование карты
 Карта хранится либо в формате base64-raw, либо в формате PNG.
 
 Вы можете найти изображение карты в следующих точках данных:
 
-- base64: `` mihome-vac.0.cleanmap.map64``
+- base64: `` mihome-Vacuum.0.cleanmap.map64``
 - PNG: `` mihome-vac.0.cleanmap.mapURL``
 
 Вы можете использовать оба изображения в качестве источника изображения в желаемой ВИС. В HTML-стиле вы можете использовать изображение следующим образом:
@@ -132,7 +133,8 @@ hash: U/aoXXnLeLYe5euziTFca/0uZlariNMUGCbRI8MYwV0=
 
 С помощью дополнительных тегов стиля вы можете изменять размер и / или форматировать стиль карты.
 
-Чтобы использовать карту в ```jarvis```, просто используйте одну из точек данных в качестве URL-адреса DisplayImage-Widget. Там вы можете изменить размер изображения или всего виджета. В случае адаптивного дизайна jarvis размер карты будет изменяться в зависимости от размера отображения.
+Чтобы использовать карту в ```jarvis```, просто используйте одну из точек данных как URL-адрес DisplayImage-Widget.
+Там вы можете изменить размер изображения или всего виджета. В случае адаптивного дизайна jarvis размер карты будет изменяться в зависимости от размера отображения.
 
 Чтобы отобразить карту в ```ioBroker VIS```, вы можете использовать обычный виджет html, например:
 
@@ -201,11 +203,12 @@ xVal, yval
 Под объектом «mihome-Vacuum.X.control.X_send_command» вы можете отправлять роботу свои собственные команды.
 Структура объекта должна выглядеть следующим образом: метод; [параметры]
 
-Под объектом «mihome-vacuum.X.control.X_get_response» ответ вводится роботом после отправки. Если параметры были запрошены, они отображаются здесь в формате JSON. Если была отправлена только одна команда, робот отвечает только «0».
+Под объектом «mihome-Vacuum.X.control.X_get_response» ответ вводится роботом после отправки.
+Если параметры были запрошены, они отображаются здесь в формате JSON. Если была отправлена только одна команда, робот отвечает только «0».
 
 Поддерживаются следующие методы и параметры:
 
-| метод | параметры | Beschreibung |
+| метод | параметры | Описание |
 |-----------      |-------                                                              |-------------------                                                                                     |
 | get_timer | | Возвращает установленный таймер Установка времени всасывания BSp. 12 часов 30 через 5 дней |
 | set_timer | [[«TIME_IN_MS», [«30 12 * * 1,2,3,4,5», [«start_clean», «»]]]] | Включить / выключить таймер |
@@ -215,7 +218,7 @@ xVal, yval
 | close_dnd_timer | | Установка "Не беспокоить" ч, мин, ч, мин |
 | set_dnd_timer | [22,0,8,0] | |
 |                 |                                                                     |                                                                                                        |
-| app_rc_start | | Запустите Romote Control |
+| app_rc_start | | Начать дистанционное управление |
 | app_rc_end | | Завершить дистанционное управление |
 
 | app_rc_move | [{"seqnum": '0-1000', "velocity": VALUE1, "omega": VALUE2, "duration": VALUE3}] | Двигаться. Порядковый номер должен быть непрерывным, VALUE1 (скорость) = -0,3-0,3, VALUE2 (вращение) = -3,1-3,1, VALUE3 (продолжительность)
@@ -279,51 +282,69 @@ sendTo("mihome-vacuum.0",
 ![Виджет](../../../en/adapterref/iobroker.mihome-vacuum/widgets/mihome-vacuum/img/previewControl.png)
 
 ## Ошибки
-- случайные отключения, однако, это происходит не из-за адаптера, а в основном из-за его собственных сетей
+- Случайные отключения, однако, это происходит не из-за адаптера, а в основном из-за его собственных сетей.
 - Виджет в то время без функции
 
 ## Changelog
+
+### WORK_IN_PROGRESS__
+* (Apollon77) Adjust several crash cases (IOBROKER-MIHOME-VACUUM-K, IOBROKER-MIHOME-VACUUM-J, IOBROKER-MIHOME-VACUUM-F, IOBROKER-MIHOME-VACUUM-7, IOBROKER-MIHOME-VACUUM-A, IOBROKER-MIHOME-VACUUM-4, IOBROKER-MIHOME-VACUUM-G, IOBROKER-MIHOME-VACUUM-C, IOBROKER-MIHOME-VACUUM-B)
+
+### 3.2.0 (02.06.2021)
+* (MeisterTR) release candidate
+* (MeisterTR) get consumable after reset
+
+### 3.1.10 (23.05.2021)
+* error fixed
+* add sentry
+
 ### 3.1.6 (05.05.2021)
 * minimize Disk write
 * minimized Messages 
 * changed warn Messages to debug
 * extend Debuglog to find error for e2 vacuum
 * added getStates when map is changed
+
 ### 3.1.5 (03.05.2021)
-* try fix map error
-* Map64 chnaged. now without img tags
-* add Multimap support (get romms and map when map is changed)
+* try to fix the map error
+* Map64 changed. now without img tags
+* add Multimap support (get rooms and map when map is changed)
 * select Multimaps
-* fix error eith zone coordinates
-* add Wifi
+* fix error with zone coordinates
+* add WiFi
 * fix connection Problems
 * fix Valetudo map
-* add Mopstate
+* add Mop state
 * fix some objects
 
 ### 3.1.1 (18.4.2021)
  * Full rewrite
  * Fix map bug with multiple vacuums
  * fix performance Problems
- * better conntection to vacuum
+ * better connection to vacuum
  * fix bug in ReloadMap button
  * Show Goto and Zone States ti find places
  * and many more...
+
 ### 2.2.5 (2021-04-02)
 * added S7 Support
 * bugfixes for S5 Max and others
+
 ### 2.2.4 (2020-09-15)
 * (dirkhe) add config for send Pause Before Home
+
 ### 2.2.3 (2020-08-20)
 * (dirkhe) room DP are not deleted, on map change 
+
 ### 2.2.0 (2020-08-13)
 * (MeisterTR) add test for Viomi and Dreame Api 
+
 ### 2.1.1 (2020-07-10)
 * (bluefox) Refactoring
 * (bluefox) Support of compact mode added
 
 ### 2.0.10 (2020-07-05)
-* try to starting of cleaning 3 times, if robot not answers and some fixes
+* try to start the cleaning 3 times, if robot not answers and some fixes
 
 ### 2.0.9 (2020-03-05)
 * (dirkhe) add state info for room channels and change queue info from number to JSON
@@ -335,7 +356,7 @@ sendTo("mihome-vacuum.0",
 * (dirkhe) add Resuming after pause for rooms
 
 ### 2.0.6 (2020-02-17)
-* (MeisterTR) add roooms for s50 with map (cloud or Valetudo needed)
+* (MeisterTR) add rooms for s50 with map (cloud or Valetudo needed)
 
 ### 2.0.4 (2020-02-13)
 * (MeisterTR) add cloud login to get token
@@ -346,7 +367,7 @@ sendTo("mihome-vacuum.0",
 ### 1.10.5 (2020-02-11)
 * send Ping only if not connected, otherwise get_status
 * set button states to true, if clicked
-* move Timermanager and roomManager to own libs
+* move timer manager and room manager to own libs
 
 ### 1.10.4 (2020-02-06)
 * (MeiserTR) add valetudo map support for gen3 and gen2 2XXX
@@ -364,11 +385,11 @@ sendTo("mihome-vacuum.0",
 * (JoJ123) Added fan speed for MOP (S50+).
 
 ### 1.1.5 (2018-09-02)
-* (BuZZy1337) Added description for Status 16 and 17 (goTo and zonecleaning).
-* (BuZZy1337) Added setting for automatic resume of paused zonecleaning.
+* (BuZZy1337) Added description for Status 16 and 17 (goTo and zone cleaning).
+* (BuZZy1337) Added setting for automatic resume of paused zone cleaning.
 
 ### 1.1.4 (2018-08-24)
-* (BuZZy1337) Added possibility to resume a paused zoneclean (State: mihome-vacuum.X.control.resumeZoneClean)
+* (BuZZy1337) Added possibility to resume a paused zone clean (State: mihome-vacuum.X.control.resumeZoneClean)
 
 ### 1.1.3 (2018-07-11)
 * (BuZZy1337) fixed zoneCleanup state not working (vacuum was only leaving the dock, saying "Finished ZoneCleanup", and returned immediately back to the dock)
@@ -377,7 +398,7 @@ sendTo("mihome-vacuum.0",
 * (BuZZy1337) fixed detection of new Firmware / Second generation Vacuum
 
 ### 1.1.1 (2018-04-17)
-* (MeisterTR) error catched , added states for new fw
+* (MeisterTR) error caught , added states for new fw
 
 ### 1.1.0 (2018-04-10)
 * (mswiege) Finished the widget
@@ -404,7 +425,7 @@ sendTo("mihome-vacuum.0",
 * (MeisterTR) add option for crate switch for Alexa control
 
 ### 0.5.5 (2017-06-30)
-* (MeisterTR) add states, fetures, fix communication errors
+* (MeisterTR) add states, features, fix communication errors
 
 ### 0.3.2 (2017-06-07)
 * (MeisterTR) fix no communication after softwareupdate(Vers. 3.3.9)

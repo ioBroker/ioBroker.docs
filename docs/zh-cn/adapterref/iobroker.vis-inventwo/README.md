@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: 6p41iJSyC7wqdCokx+COKC/ej6I7a1Oj4YSuttaWvA8=
+hash: 01y9P+JyfT8QZDhsfBbr+BXOMdrhdsg/ot9Sh4KAMDc=
 ---
 ![商标](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -41,6 +41,24 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 [![Spende](http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
+
+## 3.0.9
+- 错误修正
+
+## 3.0.8
+- 错误修正
+
+## 3.0.7
+- 错误修正
+
+## 3.0.6
+- 错误修正
+
+## 3.0.5
+- 错误修正
+
+## 3.0.4
+- 错误修正
 
 ## 3.0.3
 - 错误修正

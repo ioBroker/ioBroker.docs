@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: 6p41iJSyC7wqdCokx+COKC/ej6I7a1Oj4YSuttaWvA8=
+hash: 01y9P+JyfT8QZDhsfBbr+BXOMdrhdsg/ot9Sh4KAMDc=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -41,6 +41,24 @@ Falls Dir unsere Arbeit und Du uns unterstützen möchten, freuen wir uns über 
 [![Ausgaben](http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
+
+## 3.0.9
+- Fehlerbehebung
+
+## 3.0.8
+- Fehlerbehebung
+
+## 3.0.7
+- Fehlerbehebung
+
+## 3.0.6
+- Fehlerbehebung
+
+## 3.0.5
+- Fehlerbehebung
+
+## 3.0.4
+- Fehlerbehebung
 
 ## 3.0.3
 - Fehlerbehebung
@@ -327,10 +345,10 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Slider-Widget hinzugefügt
 - Option zum Spiegeln des Bildes hinzugefügt
 - Neue Symbole hinzugefügt
-- Schaltflächen-Widgets geändert, um die Standardschrift- und Textoptionen zu verwenden
+- Schaltflächen-Widgets geändert, um die Standard-Schriftart- und Textoptionen zu verwenden
 
 ### 1.0.0
-- Widget-Hintergrund und Inhalts-Deckkraft, Schalter kann von Boolean auf Wert geändert werden, Symbole von Weiß auf Schwarz geändert, nahtlose Hintergründe hinzugefügt
+- Widget-Hintergrund und Inhalts-Deckkraft, Schalter kann von Boolean auf Wert geändert werden, Icons von Weiß auf Schwarz geändert, nahtlose Hintergründe hinzugefügt
 
 ### 0.1.2
 - Fehlerbehebung

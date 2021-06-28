@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: 06PSBrUK/jVnZap4HFoySXhDFkBKDh7HZglT9q+NeVY=
+hash: mXMBDAoCTwgdhbzFlAc6GjyQ4cn8Ywh7uAyKl9acmGg=
 ---
 ![安装数量](http://iobroker.live/badges/tado-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.tado.svg)
@@ -26,14 +26,21 @@ tado° 确保舒适健康的气候，同时节省高达 31% 的取暖费用。
 如果您喜欢我的作品，请随时提供个人捐赠（这是 DutchmanNL 的个人捐赠链接，与 ioBroker 项目无关！[![捐赠](https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## V0.3.x 中的重大更改
+建议：如果可能，首先删除旧的适配器安装或删除所有状态，以便安装中不会保留不受支持的状态。
 从 0.2.x 升级到 v0.3.x 包括具有重大更改的技术重构。某些州更改了名称/路径，例如
 
 | v0.2.x | v0.3.x |
 | ------ | ------ |
 | tado.[x].[yyyyy].Rooms.[z].setting.temperature |tado.[x].[yyyyy].Rooms.[z].setting.temperature.celsius |
 | tado.[x].[yyyyy].Rooms.[z].overlay.clearZoneOverlay | tado.[x].[yyyyy].Rooms.[z].overlayClearZone |
+| tado.[x].[yyyyy].Rooms.[z].Actual_Temperature | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.insideTemperature.celsius |
+| tado.[x].[yyyyy].Rooms.[z].Actual_Humidity | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.humity.percentage |
+| tado.[x].[yyyyy].Rooms.[z].heatingPower | tado.[x].[yyyyy].Rooms.[z]..activityDataPoints.heatingPower.percentage |
+| tado.[x].[yyyyy].Weather.solarIntensity | tado.[x].[yyyyy].Weather.solarIntensity.percentage |
+| tado.[x].[yyyyy].Weather.outsideTemperature | tado.[x].[yyyyy].Weather.outsideTemperature.celsius |
 
-很高兴根据您的反馈添加其他重大更改！
+一般情况下，如果 API 发送 NULL 或什么都不发送，则值现在为 NULL。在 v0.2.x 中，有时会保留旧值，有时会替换为 0，有时会使用 NULL。
+**很高兴根据您的反馈添加其他主要更改！**
 
 ## Changelog
 <!--
@@ -41,7 +48,7 @@ tado° 确保舒适健康的气候，同时节省高达 31% 的取暖费用。
     ### __WORK IN PROGRESS__
 -->
 
-### 0.3.0-4 (2021-06-04)
+### 0.3.0 (2021-06-26)
 * (HGlab01) Technical re-factoring of state management !BREAKING CHANGES! (see above)
 * (HGlab01) implement offset functionality
 * (HGlab01) Set minimum refresh time to 30 seconds

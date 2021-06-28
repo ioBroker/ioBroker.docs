@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: 06PSBrUK/jVnZap4HFoySXhDFkBKDh7HZglT9q+NeVY=
+hash: mXMBDAoCTwgdhbzFlAc6GjyQ4cn8Ywh7uAyKl9acmGg=
 ---
 # IoBroker.tado
 
@@ -24,17 +24,24 @@ hash: 06PSBrUK/jVnZap4HFoySXhDFkBKDh7HZglT9q+NeVY=
 tado ° обеспечивает комфортный и здоровый климат, экономя до 31% на счетах за отопление.
 
 ## Поддержите меня
-Если вам нравится моя работа, пожалуйста, сделайте личное пожертвование (это личная ссылка для пожертвования для DutchmanNL, не имеющая отношения к проекту ioBroker! [![Пожертвовать] (https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
+Если вам нравятся мои работы, пожалуйста, сделайте личное пожертвование (это личная ссылка для пожертвования для DutchmanNL, не имеющая отношения к проекту ioBroker! [![Пожертвовать] (https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Критические изменения в v0.3.x
+Рекомендация: Если возможно, сначала удалите старую установку адаптера или удалите все состояния, чтобы в установке не осталось неподдерживаемых состояний.
 Обновление с 0.2.x до v0.3.x включает техническое переоснащение с критическими изменениями. Некоторые состояния изменили там имя / путь, например.
 
 | v0.2.x | v0.3.x |
 | ------ | ------ |
 | tado. [x]. [yyyyy] .Rooms. [z] .setting.temperature | tado. [x]. [yyyyy] .Rooms. [z] .setting.temperature.celsius |
 | тадо. [x]. [yyyyy] .Rooms. [z] .overlay.clearZoneOverlay | тадо. [x]. [yyyyy] .Rooms. [z] .overlayClearZone |
+| tado. [x]. [yyyyy] .Rooms. [z] .Actual_Temperature | tado. [x]. [yyyyy] .Rooms. [z] .sensorDataPoints.insideTemperature.celsius |
+| тадо. [x]. [yyyyy] .Rooms. [z] .Actual_Humidity | tado. [x]. [yyyyy] .Rooms. [z] .sensorDataPoints.humidity.percentage |
+| тадо. [x]. [yyyyy] .Rooms. [z] .heatingPower | tado. [x]. [yyyyy] .Rooms. [z] .. activityDataPoints.heatingPower.percentage |
+| тадо. [x]. [yyyyy] .Weather.solarIntensity | тадо. [x]. [yyyyy] .Weather.solarIntensity.percentage |
+| tado. [x]. [yyyyy] .Weather.outsideTemperature | tado. [x]. [yyyyy] .Weather.outsideTemperature.celsius |
 
-Рады добавить дополнительные важные изменения на основе ваших отзывов!
+В общем, vaules теперь NULL, если API отправляет NULL или просто ничего. В v0.2.x иногда сохранялось старое значение, иногда заменялось на 0, иногда использовалось NULL.
+** Мы рады добавить дополнительные важные изменения на основе ваших отзывов! **
 
 ## Changelog
 <!--
@@ -42,7 +49,7 @@ tado ° обеспечивает комфортный и здоровый кли
     ### __WORK IN PROGRESS__
 -->
 
-### 0.3.0-4 (2021-06-04)
+### 0.3.0 (2021-06-26)
 * (HGlab01) Technical re-factoring of state management !BREAKING CHANGES! (see above)
 * (HGlab01) implement offset functionality
 * (HGlab01) Set minimum refresh time to 30 seconds
