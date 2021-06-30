@@ -718,16 +718,16 @@
             "zh-cn": "注意：MercedeMe适配器需要紧急更新"
         },
         "content": {
-                "en": "Because of a change in the mercedesMe protocol the adapter needs to be updated.",
-                "de": "Aufgrund einer Änderung des mercedesMe-Protokolls muss der Adapter aktualisiert werden.",
-                "ru": "Из-за изменения протокола mercedesMe адаптер необходимо обновить.",
-                "pt": "Devido a uma mudança no protocolo mercedesMe, o adaptador precisa ser atualizado.",
-                "nl": "Vanwege een wijziging in het mercedesMe-protocol moet de adapter worden bijgewerkt.",
-                "fr": "En raison d'un changement dans le protocole mercedesMe, l'adaptateur doit être mis à jour.",
-                "it": "A causa di una modifica nel protocollo mercedesMe, l'adattatore deve essere aggiornato.",
-                "es": "Debido a un cambio en el protocolo mercedesMe, el adaptador debe actualizarse.",
-                "pl": "Ze względu na zmianę protokołu mercedesMe adapter wymaga aktualizacji.",
-                "zh-cn": "由于mercedesMe协议的更改，因此需要更新适配器。"
+            "en": "Because of a change in the mercedesMe protocol the adapter needs to be updated.",
+            "de": "Aufgrund einer Änderung des mercedesMe-Protokolls muss der Adapter aktualisiert werden.",
+            "ru": "Из-за изменения протокола mercedesMe адаптер необходимо обновить.",
+            "pt": "Devido a uma mudança no protocolo mercedesMe, o adaptador precisa ser atualizado.",
+            "nl": "Vanwege een wijziging in het mercedesMe-protocol moet de adapter worden bijgewerkt.",
+            "fr": "En raison d'un changement dans le protocole mercedesMe, l'adaptateur doit être mis à jour.",
+            "it": "A causa di una modifica nel protocollo mercedesMe, l'adattatore deve essere aggiornato.",
+            "es": "Debido a un cambio en el protocolo mercedesMe, el adaptador debe actualizarse.",
+            "pl": "Ze względu na zmianę protokołu mercedesMe adapter wymaga aktualizacji.",
+            "zh-cn": "由于mercedesMe协议的更改，因此需要更新适配器。"
         },
         "id": "mercedesme",
         "created": "2021-02-17T22:00:00.000Z",
@@ -771,30 +771,30 @@
             "zwave2": "!installed"
         }
     },
-        {
+    {
         "title": {
-                "en": "Please remove ioBroker Forum entry from radar2 monitoring configuration.",
-                "de": "Bitte entfernen Sie den Eintrag ioBroker-Forum aus der Radar2-Überwachungskonfiguration.",
-                "ru": "Удалите запись на форуме ioBroker из конфигурации мониторинга radar2.",
-                "pt": "Remova a entrada do fórum ioBroker da configuração de monitoramento do radar2.",
-                "nl": "Verwijder het ioBroker Forum-item uit de radar2-bewakingsconfiguratie.",
-                "fr": "Veuillez supprimer l'entrée du forum ioBroker de la configuration de surveillance radar2.",
-                "it": "Rimuovere la voce del forum ioBroker dalla configurazione del monitoraggio radar2.",
-                "es": "Elimine la entrada del Foro ioBroker de la configuración de monitoreo de radar2.",
-                "pl": "Usuń wpis na forum ioBroker z konfiguracji monitorowania radar2.",
-                "zh-cn": "请从radar2监视配置中删除ioBroker论坛条目。"
+            "en": "Please remove ioBroker Forum entry from radar2 monitoring configuration.",
+            "de": "Bitte entfernen Sie den Eintrag ioBroker-Forum aus der Radar2-Überwachungskonfiguration.",
+            "ru": "Удалите запись на форуме ioBroker из конфигурации мониторинга radar2.",
+            "pt": "Remova a entrada do fórum ioBroker da configuração de monitoramento do radar2.",
+            "nl": "Verwijder het ioBroker Forum-item uit de radar2-bewakingsconfiguratie.",
+            "fr": "Veuillez supprimer l'entrée du forum ioBroker de la configuration de surveillance radar2.",
+            "it": "Rimuovere la voce del forum ioBroker dalla configurazione del monitoraggio radar2.",
+            "es": "Elimine la entrada del Foro ioBroker de la configuración de monitoreo de radar2.",
+            "pl": "Usuń wpis na forum ioBroker z konfiguracji monitorowania radar2.",
+            "zh-cn": "请从radar2监视配置中删除ioBroker论坛条目。"
         },
         "content": {
-                "en": "The radar2 adapter contains a default entry that monitors the ioBroker Forum. Please remove this entry (called \"Forum\" and points to forum.iobroker.net) from your adapter configuration, because this generates a huge unneeded traffic on the forum.",
-                "de": "Der Radar2-Adapter enthält einen Standardeintrag, der das ioBroker-Forum überwacht. Bitte entfernen Sie diesen Eintrag (\"Forum\" genannt und verweist auf forum.iobroker.net) aus Ihrer Adapterkonfiguration, da dies einen großen, nicht benötigten Datenverkehr im Forum erzeugt.",
-                "ru": "Адаптер radar2 содержит запись по умолчанию, которая отслеживает форум ioBroker. Пожалуйста, удалите эту запись (которая называется «Форум» и указывает на forum.iobroker.net) из конфигурации вашего адаптера, потому что это создает огромный ненужный трафик на форуме.",
-                "pt": "O adaptador radar2 contém uma entrada padrão que monitora o fórum ioBroker. Remova esta entrada (chamada \"Fórum\" e aponta para forum.iobroker.net) da configuração do adaptador, porque isso gera um enorme tráfego desnecessário no fórum.",
-                "nl": "De radar2-adapter bevat een standaarditem dat het ioBroker-forum bewaakt. Verwijder dit item (genaamd \"Forum\" en verwijst naar forum.iobroker.net) uit uw adapterconfiguratie, omdat dit een enorm onnodig verkeer op het forum genereert.",
-                "fr": "L'adaptateur radar2 contient une entrée par défaut qui surveille le forum ioBroker. Veuillez supprimer cette entrée (appelée \"Forum\" et pointe vers forum.iobroker.net) de la configuration de votre adaptateur, car cela génère un énorme trafic inutile sur le forum.",
-                "it": "L'adattatore radar2 contiene una voce predefinita che controlla il forum ioBroker. Per favore rimuovi questa voce (chiamata \"Forum\" e punta a forum.iobroker.net) dalla configurazione dell'adattatore, perché questo genera un enorme traffico non necessario sul forum.",
-                "es": "El adaptador radar2 contiene una entrada predeterminada que supervisa el ioBroker Forum. Elimine esta entrada (llamada \"Foro\" y apunta a forum.iobroker.net) de la configuración de su adaptador, ya que esto genera un enorme tráfico innecesario en el foro.",
-                "pl": "Adapter radar2 zawiera domyślny wpis, który monitoruje forum ioBroker. Usuń ten wpis (zwany „Forum” i wskazuje na forum.iobroker.net) z konfiguracji twojego adaptera, ponieważ generuje to ogromny niepotrzebny ruch na forum.",
-                "zh-cn": "Radar2适配器包含一个监视ioBroker论坛的默认条目。请从您的适配器配置中删除此条目（称为“论坛”，并指向forum.iobroker.net），因为这会在论坛上产生大量不必要的流量。"
+            "en": "The radar2 adapter contains a default entry that monitors the ioBroker Forum. Please remove this entry (called \"Forum\" and points to forum.iobroker.net) from your adapter configuration, because this generates a huge unneeded traffic on the forum.",
+            "de": "Der Radar2-Adapter enthält einen Standardeintrag, der das ioBroker-Forum überwacht. Bitte entfernen Sie diesen Eintrag (\"Forum\" genannt und verweist auf forum.iobroker.net) aus Ihrer Adapterkonfiguration, da dies einen großen, nicht benötigten Datenverkehr im Forum erzeugt.",
+            "ru": "Адаптер radar2 содержит запись по умолчанию, которая отслеживает форум ioBroker. Пожалуйста, удалите эту запись (которая называется «Форум» и указывает на forum.iobroker.net) из конфигурации вашего адаптера, потому что это создает огромный ненужный трафик на форуме.",
+            "pt": "O adaptador radar2 contém uma entrada padrão que monitora o fórum ioBroker. Remova esta entrada (chamada \"Fórum\" e aponta para forum.iobroker.net) da configuração do adaptador, porque isso gera um enorme tráfego desnecessário no fórum.",
+            "nl": "De radar2-adapter bevat een standaarditem dat het ioBroker-forum bewaakt. Verwijder dit item (genaamd \"Forum\" en verwijst naar forum.iobroker.net) uit uw adapterconfiguratie, omdat dit een enorm onnodig verkeer op het forum genereert.",
+            "fr": "L'adaptateur radar2 contient une entrée par défaut qui surveille le forum ioBroker. Veuillez supprimer cette entrée (appelée \"Forum\" et pointe vers forum.iobroker.net) de la configuration de votre adaptateur, car cela génère un énorme trafic inutile sur le forum.",
+            "it": "L'adattatore radar2 contiene una voce predefinita che controlla il forum ioBroker. Per favore rimuovi questa voce (chiamata \"Forum\" e punta a forum.iobroker.net) dalla configurazione dell'adattatore, perché questo genera un enorme traffico non necessario sul forum.",
+            "es": "El adaptador radar2 contiene una entrada predeterminada que supervisa el ioBroker Forum. Elimine esta entrada (llamada \"Foro\" y apunta a forum.iobroker.net) de la configuración de su adaptador, ya que esto genera un enorme tráfico innecesario en el foro.",
+            "pl": "Adapter radar2 zawiera domyślny wpis, który monitoruje forum ioBroker. Usuń ten wpis (zwany „Forum” i wskazuje na forum.iobroker.net) z konfiguracji twojego adaptera, ponieważ generuje to ogromny niepotrzebny ruch na forum.",
+            "zh-cn": "Radar2适配器包含一个监视ioBroker论坛的默认条目。请从您的适配器配置中删除此条目（称为“论坛”，并指向forum.iobroker.net），因为这会在论坛上产生大量不必要的流量。"
         },
         "id": "radar2-forum",
         "class": "info",
@@ -934,6 +934,39 @@
         "created": "2021-06-24T01:00:00.000Z",
         "conditions": {
             "esphome": "smaller(0.2.2)"
+        }
+    },
+    {
+        "title": {
+            "en": "Do not update the Tradfri Gateway to v1.15.x",
+            "de": "Aktualisieren Sie das Tradfri Gateway nicht auf v1.15.x",
+            "ru": "Не обновляйте Tradfri Gateway до v1.15.x",
+            "pt": "Não atualize o Tradfri Gateway para v1.15.x",
+            "nl": "Werk de Tradfri Gateway niet bij naar v1.15.x",
+            "fr": "Ne pas mettre à jour la passerelle Tradfri vers v1.15.x",
+            "it": "Non aggiornare il gateway Tradfri alla v1.15.x",
+            "es": "No actualice Tradfri Gateway a v1.15.x",
+            "pl": "Nie aktualizuj Tradfri Gateway do wersji 1.15.x",
+            "zh-cn": "不要将 Tradfri 网关更新到 v1.15.x"
+        },
+        "content": {
+            "en": "The adapter is not compatible yet and won't be able to connect to the gateway after the update.",
+            "de": "Der Adapter ist noch nicht kompatibel und kann sich nach dem Update nicht mit dem Gateway verbinden.",
+            "ru": "Адаптер еще несовместим и не сможет подключиться к шлюзу после обновления.",
+            "pt": "O adaptador ainda não é compatível e não será capaz de se conectar ao gateway após a atualização.",
+            "nl": "De adapter is nog niet compatibel en kan na de update geen verbinding maken met de gateway.",
+            "fr": "L'adaptateur n'est pas encore compatible et ne pourra pas se connecter à la passerelle après la mise à jour.",
+            "it": "L'adattatore non è ancora compatibile e non sarà in grado di connettersi al gateway dopo l'aggiornamento.",
+            "es": "El adaptador aún no es compatible y no podrá conectarse a la puerta de enlace después de la actualización.",
+            "pl": "Adapter nie jest jeszcze zgodny i po aktualizacji nie będzie mógł połączyć się z bramą.",
+            "zh-cn": "适配器尚不兼容，更新后将无法连接到网关。"
+        },
+        "id": "tradfri-gateway-1.15-noupdate",
+        "class": "warning",
+        "fa-icon": "exclamation-triangle",
+        "created": "2021-06-30T08:00:00.000Z",
+        "conditions": {
+            "tradfri": "installed"
         }
     }
 ]
