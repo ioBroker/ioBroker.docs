@@ -950,23 +950,56 @@
             "zh-cn": "不要将 Tradfri 网关更新到 v1.15.x"
         },
         "content": {
-            "en": "The adapter is not compatible yet and won't be able to connect to the gateway after the update.",
-            "de": "Der Adapter ist noch nicht kompatibel und kann sich nach dem Update nicht mit dem Gateway verbinden.",
-            "ru": "Адаптер еще несовместим и не сможет подключиться к шлюзу после обновления.",
-            "pt": "O adaptador ainda não é compatível e não será capaz de se conectar ao gateway após a atualização.",
-            "nl": "De adapter is nog niet compatibel en kan na de update geen verbinding maken met de gateway.",
-            "fr": "L'adaptateur n'est pas encore compatible et ne pourra pas se connecter à la passerelle après la mise à jour.",
-            "it": "L'adattatore non è ancora compatibile e non sarà in grado di connettersi al gateway dopo l'aggiornamento.",
-            "es": "El adaptador aún no es compatible y no podrá conectarse a la puerta de enlace después de la actualización.",
-            "pl": "Adapter nie jest jeszcze zgodny i po aktualizacji nie będzie mógł połączyć się z bramą.",
-            "zh-cn": "适配器尚不兼容，更新后将无法连接到网关。"
+            "en": "If you update your Trådfri gateway to v1.15.x, you need at least the adapter version 3.0.1. Keep in mind that this version requires Node.js 12.\nA fix for version 2.7.x (Node.js 10) will follow tomorrow.\n\nWithout this fix, the adapter won't be able to connect after the gateway update.",
+            "de": "Wenn Sie Ihr Trådfri-Gateway auf v1.15.x aktualisieren, benötigen Sie mindestens die Adapterversion 3.0.1. Beachten Sie, dass diese Version Node.js 12 erfordert.\nEin Fix für Version 2.7.x (Node.js 10) folgt morgen.\n\nOhne diesen Fix kann der Adapter nach dem Gateway-Update keine Verbindung herstellen.",
+            "ru": "Если вы обновите свой шлюз Trådfri до v1.15.x, вам понадобится адаптер как минимум версии 3.0.1. Имейте в виду, что для этой версии требуется Node.js 12.\nИсправление для версии 2.7.x (Node.js 10) выйдет завтра.\n\nБез этого исправления адаптер не сможет подключиться после обновления шлюза.",
+            "pt": "Se você atualizar seu gateway Trådfri para v1.15.x, será necessário pelo menos a versão 3.0.1 do adaptador. Lembre-se de que esta versão requer o Node.js 12.\nUma correção para a versão 2.7.x (Node.js 10) virá amanhã.\n\nSem essa correção, o adaptador não será capaz de se conectar após a atualização do gateway.",
+            "nl": "Als u uw Trådfri-gateway bijwerkt naar v1.15.x, hebt u minimaal de adapterversie 3.0.1 nodig. Houd er rekening mee dat deze versie Node.js 12 vereist.\nEen oplossing voor versie 2.7.x (Node.js 10) volgt morgen.\n\nZonder deze oplossing kan de adapter geen verbinding maken na de gateway-update.",
+            "fr": "Si vous mettez à jour votre passerelle Trådfri vers la v1.15.x, vous avez au moins besoin de l'adaptateur version 3.0.1. Gardez à l'esprit que cette version nécessite Node.js 12.\nUn correctif pour la version 2.7.x (Node.js 10) suivra demain.\n\nSans ce correctif, l'adaptateur ne pourra pas se connecter après la mise à jour de la passerelle.",
+            "it": "Se aggiorni il tuo gateway Trådfri alla v1.15.x, hai bisogno almeno della versione dell'adattatore 3.0.1. Tieni presente che questa versione richiede Node.js 12.\nDomani seguirà una correzione per la versione 2.7.x (Node.js 10).\n\nSenza questa correzione, l'adattatore non sarà in grado di connettersi dopo l'aggiornamento del gateway.",
+            "es": "Si actualiza su puerta de enlace Trådfri a v1.15.x, necesita al menos la versión 3.0.1 del adaptador. Tenga en cuenta que esta versión requiere Node.js 12.\nMañana habrá una solución para la versión 2.7.x (Node.js 10).\n\nSin esta solución, el adaptador no podrá conectarse después de la actualización de la puerta de enlace.",
+            "pl": "Jeśli zaktualizujesz bramę Trådfri do wersji 1.15.x, potrzebujesz przynajmniej wersji adaptera 3.0.1. Pamiętaj, że ta wersja wymaga Node.js 12.\nPoprawka dla wersji 2.7.x (Node.js 10) pojawi się jutro.\n\nBez tej poprawki karta nie będzie mogła nawiązać połączenia po aktualizacji bramy.",
+            "zh-cn": "如果您将 Trådfri 网关更新到 v1.15.x，则至少需要适配器版本 3.0.1。请记住，此版本需要 Node.js 12。\n2.7.x 版（Node.js 10）的修复将于明天发布。\n\n如果没有此修复程序，适配器将无法在网关更新后连接。"
         },
         "id": "tradfri-gateway-1.15-noupdate",
         "class": "warning",
         "fa-icon": "exclamation-triangle",
         "created": "2021-06-30T08:00:00.000Z",
         "conditions": {
-            "tradfri": "installed"
+            "tradfri": "smaller(2.7.4)"
+        }
+    },
+    {
+        "title": {
+            "en": "Compatibility with Trådfri gateway v1.15.x",
+            "de": "Kompatibilität mit Trådfri-Gateway v1.15.x",
+            "ru": "Совместимость со шлюзом Trådfri v1.15.x",
+            "pt": "Compatibilidade com gateway Trådfri v1.15.x",
+            "nl": "Compatibiliteit met Trådfri gateway v1.15.x",
+            "fr": "Compatibilité avec la passerelle Trådfri v1.15.x",
+            "it": "Compatibilità con il gateway Trådfri v1.15.x",
+            "es": "Compatibilidad con la puerta de enlace Trådfri v1.15.x",
+            "pl": "Kompatybilność z bramą Trådfri v1.15.x",
+            "zh-cn": "与 Trådfri 网关 v1.15.x 的兼容性"
+        },
+        "content": {
+            "en": "If you update your Trådfri gateway to v1.15.x, you need at least the adapter version 3.0.1.",
+            "de": "Wenn Sie Ihr Trådfri-Gateway auf v1.15.x aktualisieren, benötigen Sie mindestens die Adapterversion 3.0.1.",
+            "ru": "Если вы обновите свой шлюз Trådfri до v1.15.x, вам понадобится адаптер как минимум версии 3.0.1.",
+            "pt": "Se você atualizar seu gateway Trådfri para v1.15.x, será necessário pelo menos a versão 3.0.1 do adaptador.",
+            "nl": "Als u uw Trådfri-gateway bijwerkt naar v1.15.x, hebt u minimaal de adapterversie 3.0.1 nodig.",
+            "fr": "Si vous mettez à jour votre passerelle Trådfri vers la v1.15.x, vous avez au moins besoin de l'adaptateur version 3.0.1.",
+            "it": "Se aggiorni il tuo gateway Trådfri alla v1.15.x, hai bisogno almeno della versione dell'adattatore 3.0.1.",
+            "es": "Si actualiza su puerta de enlace Trådfri a v1.15.x, necesita al menos la versión 3.0.1 del adaptador.",
+            "pl": "Jeśli zaktualizujesz bramę Trådfri do wersji 1.15.x, potrzebujesz przynajmniej wersji adaptera 3.0.1.",
+            "zh-cn": "如果您将 Trådfri 网关更新到 v1.15.x，则至少需要适配器版本 3.0.1。"
+        },
+        "id": "tradfri-gateway-1.15-compat-v3",
+        "class": "warning",
+        "fa-icon": "exclamation-triangle",
+        "created": "2021-06-30T08:00:00.000Z",
+        "conditions": {
+            "tradfri": "equals(3.0.0)"
         }
     }
 ]
