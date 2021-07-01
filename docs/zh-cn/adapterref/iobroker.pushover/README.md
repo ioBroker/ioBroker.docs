@@ -2,31 +2,32 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.pushover/README.md
-title: ioBroker推入式适配器
-hash: c5Imzg+xdaAI5z1XO+xdJJq9QlsjoXmHDkHiUVJ6Vlo=
+title: ioBroker pushover 适配器
+hash: 8uVUvVWDJ0tLUQJQXXAaaPEfh0TOt1FQ6IXV3kwF0lY=
 ---
 ![商标](../../../en/adapterref/iobroker.pushover/admin/pushover.png)
 
 ![安装数量](http://iobroker.live/badges/pushover-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.pushover.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.pushover.svg)
-![NPM](https://nodei.co/npm/iobroker.pushover.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.pushover.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.pushover.svg)
 
-＃ioBroker推入式适配器
-从ioBroker发送推送通知。
+# IoBroker pushover 适配器
+![测试和发布](https://github.com/ioBroker/iobroker.pushover/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/pushover/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**更多详细信息，请参见下文！
+从 ioBroker 发送推送通知。
 
-##配置
-首先，需要在推入帐户。
-![推入配置](../../../en/adapterref/iobroker.pushover/img/Screen0.png)
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
 
-![API令牌](../../../en/adapterref/iobroker.pushover/img/Screen1.png)
+＃＃ 配置
+首先，它需要一个关于 pushover 的帐户。
+![Pushover 配置](../../../en/adapterref/iobroker.pushover/img/Screen0.png)
 
-![组令牌](../../../en/adapterref/iobroker.pushover/img/Screen3.png)
+![API 令牌](../../../en/adapterref/iobroker.pushover/img/Screen1.png)
 
-##用法
-要从ScriptEngine发送通知，只需编写：
+![团体代币](../../../en/adapterref/iobroker.pushover/img/Screen3.png)
+
+＃＃ 用法
+要从 ScriptEngine 发送通知，只需编写：
 
 ```
 // send notification to all instances of pushover adapter
@@ -48,14 +49,16 @@ sendTo("pushover", {
                           //    1 to display as high-priority and bypass the user's quiet hours, or
                           //    2 to also require confirmation from the user
    token: 'API/KEY token' // optional
-                          // add other than configurated token to the call
+                          // add other than configured token to the call
    url,                   // optional  - a supplementary URL to show with your message
    url_title,             // optional  - a title for your supplementary URL, otherwise just the URL is shown
    device,                // optional  - your user's device name to send the message directly to that device, rather than all of the user's devices
    timestamp              // optional  - a Unix timestamp of your message's date and time to display to the user, rather than the time your message is received by our API
-   html                   // optional  - 1 to enable parsing of HTML formating for bold, italic, underlined and font color
+   html                   // optional  - 1 to enable parsing of HTML formatting for bold, italic, underlined and font color
    monospace              // optional  - 1 to display the message in monospace font
                           //    either html or monospace is allowed
+   file:                  '/opt/picture.png', // optional - attachment
+   file:                  { name: '/opt/picture.png', data: fs.readFileSync('/opt/picture.png') }, // optional - attachment
 });
 
 // Example for HTML format in the message
@@ -72,16 +75,40 @@ sendTo("pushover", {
 
 ```
 
-##什么是Sentry，什么报告给服务器？
-Sentry.io是开发人员从其应用程序中获得有关错误概述的一种方式。确切地说，这是在此适配器中实现的。
+## 一瞥
+使用 Pushover 的 Glances，您可以将少量数据直接推送到不断更新的屏幕，称为小部件，例如智能手表上的复杂功能或手机锁定屏幕上的小部件。
 
-当适配器崩溃或发生其他代码错误时，此错误消息（也出现在ioBroker日志中）将提交给我们在德国托管的Sentry服务器。当您允许iobroker GmbH收集诊断数据时，还将包括您的安装ID（这是唯一ID，**没有**有关您，电子邮件，姓名等的任何其他信息）。这使Sentry可以对错误进行分组并显示有多少唯一用户受此错误影响。所有这些都帮助我提供了基本不会崩溃的无错误适配器。
+```
+sendTo("pushover", "glances", {
+   message:  'Test text',    // mandatory - (100 characters) - the main line of data, used on most screens
+   title:    'SweetHome',    // optional  - (100 characters) - a description of the data being shown, such as "Widgets Sold"
+   token:    'API/KEY token' // optional  - add other than configured token to the call
+   subtext:  'Second line',  // optional  - (100 characters) - a second line of data
+   count:    3,              // optional  - (integer, may be negative) - shown on smaller screens; useful for simple counts
+   percent:   90,            // optional  - (integer 0 through 100, inclusive) - shown on some screens as a progress bar/circle
+   device:   'DEVICE_NAME',  // optional  - a user's device name to restrict messages to the widget on that device, otherwise leave blank to send messages to all available widgets of that user
+});
+```
 
-<！-下一个版本的占位符（在该行的开头）：
+您可以使用名称为 `glances` 的 blockly 来发送来自 `blockly` 的消息。
 
-### __进展中__->
+## 什么是 Sentry 以及向服务器报告什么？
+Sentry.io 是开发人员从他们的应用程序中获取错误概览的一种方式。而这正是在这个适配器中实现的。
+
+当适配器崩溃或发生其他代码错误时，ioBroker 日志中也出现的此错误消息将提交到我们自己托管在德国的 Sentry 服务器。当您允许 iobroker GmbH 收集诊断数据时，您的安装 ID（这只是一个唯一 ID **没有**关于您、电子邮件、姓名等的任何其他信息）也包括在内。这允许 Sentry 对错误进行分组并显示受此类错误影响的唯一用户数量。所有这些都帮助我提供基本上从不崩溃的无错误适配器。
+
+<!-- 下一个版本的占位符（在行首）：
+
+### __工作进行中__ -->
 
 ## Changelog
+### 2.0.5 (2021-06-29)
+* (bluefox) Corrected error with token
+
+### 2.0.4 (2021-06-28)
+* (dipts) Blockly input value for attachments
+* (bluefox) implemented the "glances"
+
 ### 2.0.3 (2020-09-25)
 * (klein0r) Removed spaces in the admin config dropdown
 
@@ -143,7 +170,7 @@ Sentry.io是开发人员从其应用程序中获得有关错误概述的一种�
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

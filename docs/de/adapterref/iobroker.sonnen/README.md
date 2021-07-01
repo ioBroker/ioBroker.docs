@@ -347,6 +347,15 @@ Der Kanal besteht aus schreibgeschützten Zuständen vom Typ `number`, die Infor
 	### __WORK IN PROGRESS__
 -->
 
+### 1.8.2 (2021-06-30)
+* (foxriver76) widget: css classes now have adapter specific names to avoid conflicts
+
+### 1.8.1 (2021-06-30)
+* (foxriver76) widget now has flow directions
+
+### 1.8.0 (2021-06-30)
+* (foxriver76) added widget
+
 ### 1.7.3 (2021-05-01)
 * (foxriver76) we now update objects if attributes are updated, but preserve common.name attribute
 
@@ -433,7 +442,7 @@ Der Kanal besteht aus schreibgeschützten Zuständen vom Typ `number`, die Infor
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2018-2021 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

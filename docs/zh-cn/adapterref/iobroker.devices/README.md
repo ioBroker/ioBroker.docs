@@ -3,19 +3,17 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.devices/README.md
 title: ioBroker.devices
-hash: efdaBj7R5bRViyZzeYNECStL/IJPpxighScsPt2Qm7M=
+hash: EKlEeUDulaPAGqvzFy8sBCGa2rBx+SZkDyo4Rz9FSRo=
 ---
 ![商标](../../../en/adapterref/iobroker.devices/admin/devices.png)
 
+![安装数量](http://iobroker.live/badges/devices-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.devices.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.devices.svg)
-![依赖状态](https://img.shields.io/david/ioBroker/iobroker.devices.svg)
-![已知漏洞](https://snyk.io/test/github/ioBroker/ioBroker.devices/badge.svg)
-![新产品管理](https://nodei.co/npm/iobroker.devices.png?downloads=true)
-![特拉维斯CI](http://img.shields.io/travis/ioBroker/ioBroker.devices/master.svg)
-![应用程序](https://ci.appveyor.com/api/projects/status/github/ioBroker/ioBroker.devices?branch=master&svg=true)
 
 # IoBroker.devices
+![测试和发布](https://github.com/ioBroker/iobroker.devices/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/devices/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 ## IoBroker 设备适配器
 管理和创建设备以在其他适配器中使用它，如材料、物联网、...
 
@@ -23,16 +21,25 @@ hash: efdaBj7R5bRViyZzeYNECStL/IJPpxighScsPt2Qm7M=
 
 ![屏幕](../../../en/adapterref/iobroker.devices/img/screen.png)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
 
 ＃＃ 去做
 - 添加状态描述
 
-<!-- 下一版本的占位符（在行首）：
+<!-- 下一个版本的占位符（在行首）：
 
 ### __工作进行中__ -->
 
 ## Changelog
+### 1.0.7 (2021-06-30)
+* (bluefox) Corrected creation the folders
+
+### 1.0.6 (2021-06-27)
+* (bluefox) Implemented the filters
+
+### 1.0.5 (2021-06-26)
+* (bluefox) Implemented the edit of `states` parameter
+
 ### 1.0.4 (2021-06-08)
 * (bluefox) Fixed some GUI errors
 

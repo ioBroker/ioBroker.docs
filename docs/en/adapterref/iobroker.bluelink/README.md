@@ -15,6 +15,8 @@
 
 Adapter to control Hyundai or Kia vehicle
 
+Discussion: https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo
+
 ## Changelog
 ### 1.0.3
 * (Newan) Changes for PHEV

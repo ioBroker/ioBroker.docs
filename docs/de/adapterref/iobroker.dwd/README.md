@@ -3,29 +3,76 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dwd/README.md
 title: ioBroker.dwd
-hash: 39/h4ENoIuZXO+aJD88gFbM7fOmSVWBu9tkkJ7PtkvA=
+hash: hMqC9TzffM0CXLhIv++7Lym4DA59/buppGlYwt3rwlk=
 ---
 ![Logo](../../../en/adapterref/iobroker.dwd/admin/dwd.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/dwd-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.dwd.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.dwd.svg)
-![Tests](https://travis-ci.org/ioBroker/ioBroker.dwd.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.dwd.png?downloads=true)
 
-# IoBroker.dwd
+#ioBroker.dwd
+![Testen und freigeben](https://github.com/ioBroker/iobroker.dwd/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/dwd/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 Copyright Deutscher Wetterdienst
 
-Dieser Adapter lädt die Wetterwarnungen vom deutschen Wetterdienst über JSON Link.
+This Adapter lädt die Wetterwarnungen vom deutschen Wetterdienst über JSON link.
 
-Dieser Adapter lädt die Wetterwarnungen des deutschen Wetterdienstes über JSON-Link.
+Dieser Adapter lädt die Wetterwarnungen des Deutschen Wetterdienstes per JSON-Link.
 
-** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
-## Machen
-* Behandeln Sie FTP-Timeouts
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+
+### __ARBEITEN IN PROGRESS__ -->
 
 ## Changelog
+### 2.7.6 (2021-06-28)
+* (sbormann) Added new states to `warning.severity`
+* (bluefox) Removed warnings
+* (bluefox) Replaces `request` packet with `axios`
+* (bluefox) Breaking change: Rename state `numberofwarnings` to `numberOfWarnings`
+
+### 2.7.5 (2021-02-09)
+* (Apollon77) Update region list to the official one completely
+
+### 2.7.4 (2021-02-04)
+* (Apollon77) Fix region list entry
+
+### 2.7.2 (2021-01-19)
+* (Apollon77) Fix issue on deleting old objects
+
+### 2.7.1 (2021-01-19)
+* (Apollon77) Make sure to end process when no data could be received
+
+### 2.7.0 (2021-01-18)
+* (Apollon77) restructure code to not exit before really done with setting all states
+* (Apollon77) js-controller 2.0 is now required at minimum
+
+### 2.6.1 (2021-01-16)
+* (wendy2702) correct Region "Leer"
+
+### 2.6.0 (2021-01-11)
+* (maeb3) Add datapoint for number of warnings
+
+### 2.5.2 (2020-12-25)
+* (Apollon77) fix state cleanup for warnings to prevent invalid ones to be deleted
+
+### 2.5.1 (2020-11-17)
+* (Apollon77) Crash prevented (Sentry IOBROKER-DWD-F)
+* (Homoran) Add background colors for new conditions
+
+### 2.5.0 (2020-06-21)
+* (bluefox) Compact mode is supported
+
+### 2.4.10 (2020-05-16)
+* (Apollon77) Better handle errors when adapter ends (again Sentry)
+
+### 2.4.9 (2020-05-11)
+* (Apollon77) Better handle errors when adapter ends (Sentry IOBROKER-DWD-1) 
+
+### 2.4.8 (2020-04-30)
+* (Apollon77) Better handle errors when adapter ends 
 
 ### 2.4.7 (2020-04-18)
 * (Apollon77) Add Sentry for error reporting with js-controller 3.0
@@ -126,7 +173,7 @@ Dieser Adapter lädt die Wetterwarnungen des deutschen Wetterdienstes über JSON
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2020 bluefox <dogafox@gmail.com>, hobbyquaker
+Copyright (c) 2016-2021 bluefox <dogafox@gmail.com>, hobbyquaker
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

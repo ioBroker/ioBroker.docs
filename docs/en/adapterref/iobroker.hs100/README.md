@@ -18,6 +18,10 @@ Switch TP-Link Plug and Bulb
 <b>NodeJs >> 8.x.x </b>
 
 ## Changelog
+
+### 2.0.5 (2021-06-27)
+* (arrizer) error handling
+
 ### 2.0.4  (2021-04-30)
 * (arteck) js-controller 3.3.x 
 

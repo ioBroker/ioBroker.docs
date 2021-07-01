@@ -923,6 +923,9 @@ und info.connection. Zusätzlich werden die folgenden States für jede Zone 2-12
 	### __WORK IN PROGRESS__
 -->
 
+### 1.11.1 (2021-06-29)
+* (foxriver76) fixes for silent reconnection - if ETIMEDOUT occurs repeately switch to debug, like for other errors (closes #149)
+
 ### 1.11.0 (2021-06-06)
 * (foxriver76) implemented dialog level adjustment for DTS content (closes #143)
 * (foxriver76) new datapoints are `settings.dialogLevelAdjust`, `settings.dialogLevel`, `settings.dialogControl`

@@ -2,143 +2,155 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.discovery/README.md
-title: ioBroker发现适配器
-hash: cSp632WFSVsYiDyNAPd4gSLbTsUOjf5nEERQyCe6Ngc=
+title: ioBroker 发现适配器
+hash: RdRGHBIkYaCIaGJ7onXI7yxUdEBVYhhNzPC8GMrMFtQ=
 ---
-![标识](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
+![商标](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
 ![安装数量](http://iobroker.live/badges/discovery-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.discovery.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.discovery.svg)
-![测验](https://travis-ci.org/ioBroker/ioBroker.discovery.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.discovery.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.discovery.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.discovery.svg)
 
-＃ioBroker发现适配器
-**使用所有已知方法检测设备。**
+# IoBroker 发现适配器
+![测试和发布](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) **使用所有已知方法检测设备。**
 
-这是特殊的适配器，试图查找主机可以访问的所有可能的设备。
-到目前为止，它可以通过ping，UPnP（串行计划）进行检测。
+这是特殊的适配器，它试图找到所有可能的设备，可以从主机访问。
+刚才它可以通过ping，UPnP（串行计划）进行检测。
 
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
 
 ##实际支持
-###自动发现
--Beckhoff PLC
--博世智能家居
--Bose Soundtouch
--Broadlink
--Chromecast
--大金气候控制
--deConz
--天龙/马兰士
--门鸟
--巴士
--钥匙
--能源经理（E.ON / Solarwatt）
--enet（Jung）
--爱普生Stylus PX830
--Fakeroku（和声）
--FHEM
--消防电视
--Fritzdect
--Fronius
--G-Homa插头
--和谐
--Heos
--家庭助理
--Homematic CCU（hm-rpc，hm-rega）
--飞行员
--HP-lio
--飞利浦HUE
--Plex
--InfluxDB
--KLF-200
--KNX（实际上已禁用）
--科迪
--Landroid
--LGTV
--轻巧
--Loxone
--狼疮
+### 自动发现
+- 倍福 PLC
+- 博世智能家居
+- Bose Soundtouch
+- 广联
+- BSBL
+- Chromecast
+- 大金气候控制
+- 德康兹
+- 天龙/马兰士
+- 门鸟
+- 巴士
+- ekey
+- 能源管理器（E.ON/Solarwatt）
+- enet (荣格)
+- 爱普生触控笔 PX830
+- Fakeroku（和谐）
+- FHEM
+- 消防电视
+- 弗里茨检测
+- 弗洛纽斯
+- G-Homa 插头
+- 和谐
+- Heos
+- 家庭助理
+- Homematic CCU (hm-rpc, hm-rega)
+- Homepilot
+- HP-lio
+- 飞利浦 HUE
+- 丛
+- 流入数据库
+- KLF-200
+- KNX（实际上已禁用）
+- 科迪
+- 安卓
+- LGTV
+- 点亮
+- Loxone
+- 卢普塞克
 - 最大限度！立方体
--McLighting
--MegaD
--Miele
--Miele云服务
--小米家居Smarthome
--Mikrotik
--MiLight桥（v6）
--MPD
--音乐广播
--myDlink
--Mysensors USB /串行（9600、38400、57600、115200）
--纳米叶灯板/帆布
--网络工具
--Nuki2
--坚果
--安桥
--OpenHAB
--平
--Plex
--Proxmox
--RFLink（序列号57600baud）
--三星电视
--Smappee
--Solarlog
--索南
--索诺斯（Sonos）
--Stiebel-Eltron / Tecalor ISG（加号）
--SQL（MySQL，MSSQL，PostgreSQL）
--挤压盒
--SqueezeboxRPC
--Synology
--TR-064
--Trådfri
--UPnP
--Wifilight
--雅马哈
--Yeelight
--Z-wave USB（已通过Aeon Labs测试）
+- 麦克莱特
+- MegaD
+- 美诺
+- Miele 云服务
+- 米家智能家居
+- 米克罗蒂克
+- MiLight 桥 (v6)
+- Mpd
+- 音乐广播
+- myDlink
+- Mysensors USB/串口（9600、38400、57600、115200）
+- nanoleaf 灯板/帆布
+- 网络工具
+- 努基2
+- 螺母
+- 安桥
+- OpenHAB
+- 平
+- 丛
+- Proxmox
+- RFLink (Serial 57600baud)
+- 三星电视
+- Smappe
+- 太阳能日志
+- 索嫩
+- 索诺斯
+- Stiebel-Eltron/Tecalor ISG（加）
+- SQL（MySQL、MSSQL、PostgreSQL）
+- 挤压盒
+- SqueezeboxRPC
+- 群晖
+- TR-064
+- 特拉德弗里
+- UPnP
+- 瓦洛克斯MV
+- 无线上网
+- 雅马哈
+- Yeelight
+- Z-wave USB（经 Aeon Labs 测试）
 
-###作为附加适配器提供
+### 作为附加适配器提供
 - 云
--历史记录（如果未找到SQL或InfluxDB）
--物联网
--flot（存在历史记录适配器时提供）
--JavaScript
--信息
--可见
--网页
+- 历史（如果没有找到 SQL 或 InfluxDB）
+- 物联网
+- 浮动（当存在历史适配器时提供）
+- JavaScript
+- 信息
+- 可见
+- 网络
 
-##如果适配器找不到IP ...
-适配器对当前主机的IP（x.y.z.1..255）的网络执行ping操作。另外，UPnP和mDNS用于检测IP。
+## 如果适配器找不到 IPs ...
+适配器 ping 当前主机 (x.y.z.1..255) 的 IP 的网络。此外，UPnP 和 mDNS 用于检测 IP。
 
-如果未找到所有IP，请检查iobroker用户是否可以执行/ bin / ping。罐执行`sudo setcap cap_net_raw+p /bin/ping`以添加缺少的功能/权限。
+如果没有找到所有 IP，请检查 iobroker 用户是否可以执行 /bin/ping。执行 `sudo setcap cap_net_raw+p /bin/ping` 以添加缺少的功能/权限。
 
 ＃＃ 去做
--artnet？ （蓝狐）
--B-Control-Em？ （蓝狐）
--cul / maxcul（Bluefox）
--Foobar200（安装程序）
--fritzbox（ruhr70）
--km200（弗兰克·乔克）
--megaesp（ausHaus）
--modbus（蓝狐）
--mqtt / mqtt-client（Bluefox）
--owfs（Bluefox）
--rpi2（如果ioBroker在Raspberry上运行）
--rwe-smarthome（PArns）
--s7（Bluefox）
--智能电表（Apollon77）
--统一（jens-maus）
--狼（微笑杰克）
--xs1（frankjoke）
+- 艺术网？ (蓝狐)
+- B-Control-Em？ (蓝狐)
+- cul / maxcul（蓝狐）
+- Foobar200（安装器）
+- fritzbox (ruhr70)
+- km200（坦率的笑话）
+- megaesp (ausHaus)
+- modbus（蓝狐）
+- mqtt/mqtt-client (Bluefox)
+- owfs（蓝狐）
+- rpi2（如果 ioBroker 在 Raspberry 上运行）
+- rwe-smarthome (PARns)
+- s7（蓝狐）
+- 智能电表 (Apollon77)
+- unifi (jens-maus)
+- 狼（微笑杰克）
+- xs1（坦率的笑话）
 
-<！-下一个版本的占位符（在该行的开头）：
+<!-- 下一个版本的占位符（在行首）：
 
-### __正在进行的工程__->
+### __工作进行中__ -->
 
 ## Changelog
+
+### 2.7.0 (2021-07-01)
+* (hacki11) Add discovery for BSBLan and ValloxMV
+* (Apollon77) Optimize for js-controller 3.3
+
+### 2.6.3 (2021-05-03)
+* (bluefox) Added support of Admin5 
+
+### 2.6.2 (2021-04-13)
+* (Apollon77) Fix crash case in mihome discovery (Sentry IOBROKER-DISCOVERY-30)
+* (Apollon77) Fix crash case in ping logic (Sentry IOBROKER-DISCOVERY-2Y)
+* (Apollon77) Fix crash case in hf-lpb100 logic (Sentry IOBROKER-DISCOVERY-34)
 
 ### 2.6.1 (2021-02-28)
 * (JeyCee) added iot and net-tools
@@ -303,7 +315,7 @@ hash: cSp632WFSVsYiDyNAPd4gSLbTsUOjf5nEERQyCe6Ngc=
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2020, Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2021, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

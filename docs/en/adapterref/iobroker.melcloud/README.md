@@ -31,6 +31,9 @@ Documentation:
 	### __WORK IN PROGRESS__
 -->
 
+### __WORK IN PROGRESS__
+* (Black-Thunder) replaced deprecated package "request" with "axios"
+
 ### 1.1.4 (2021-05-16)
 * (Black-Thunder) implemented separate queue for sending device commands to improve robustness when sending multiple commands
 * (Black-Thunder) only update "control" state values with ack=true when it was requested by user before

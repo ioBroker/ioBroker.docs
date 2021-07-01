@@ -928,6 +928,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.radar2/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.radiohead/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.rainbird/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.rflink/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.rfxcom/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.rickshaw/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.ring/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.roadtraffic/README.md
@@ -1368,6 +1369,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.radar2/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.radiohead/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.rainbird/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.rflink/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.rfxcom/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.rickshaw/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.ring/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.roadtraffic/README.md
@@ -1808,6 +1810,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.radar2/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.radiohead/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.rainbird/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.rflink/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.rfxcom/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.rickshaw/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.ring/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.roadtraffic/README.md
@@ -2248,6 +2251,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.radar2/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.radiohead/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.rainbird/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.rflink/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.rfxcom/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.rickshaw/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ring/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.roadtraffic/README.md

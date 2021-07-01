@@ -3,55 +3,103 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fhem/README.md
 title: ioBroker.fhem
-hash: OTu+lFTj7lttlyJ7nwZz62mxUIImTL766Zs6iY46Sx0=
+hash: bffB6fPUVd7gXMnqL4+H/0xbklbZRyDpdCutMtV09j0=
 ---
-![логотип](../../../en/adapterref/iobroker.fhem/admin/fhem.png)
+![Логотип](../../../en/adapterref/iobroker.fhem/admin/fhem.png)
 
 ![Количество установок](http://iobroker.live/badges/fhem-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.fhem.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.fhem.svg)
-![NPM](https://nodei.co/npm/iobroker.fhem.png?downloads=true)
 
 # IoBroker.fhem
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.fhem/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/fhem/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 Этот адаптер позволяет подключить FHEM к ioBroker.
 
-Чтобы включить соединение, telnet должен быть включен в FHEM. Чтобы включить его (включено по умолчанию), проверьте следующие настройки в fhen.cfg:
+** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+
+Для включения соединения в FHEM должен быть включен telnet. Чтобы включить его (включено по умолчанию), проверьте следующие настройки в fhen.cfg:
 
 ```define telnetPort telnet 7072 global```
 
 Точно такой же порт и IP-адрес хоста FHEM (или localhost, если FHEM и ioBroker работают на одном ПК) должны использоваться для настроек адаптера.
 
-ioBroker отправляет в начале команду «jsonlist2», чтобы получить все «Показания» из списка.
+ioBroker отправляет в начале команду «jsonlist2», чтобы получить все «чтения» из списка.
 
 ## Поддерживаемые устройства
-Обычно все устройства поддерживаются. Но некоторые из них лучше интегрированы.
+Обычно поддерживаются все устройства. Но некоторые из них лучше интегрированы.
 
-Проблемы возникают особенно при контроле штатов.
-Поскольку нет четкой структуры атрибутов, ioBroker пытается угадать, какие поля «Возможные наборы» можно использовать.
-На самом деле поддерживаются только следующие атрибуты:
+Проблемы возникают особенно при управлении состояниями.
+Поскольку нет четкой структуры атрибутов, ioBroker пытается угадать, какие поля «PossibleSets» можно использовать.
+Фактически поддерживаются только следующие атрибуты:
 
-- RGB: если RGB существует в *возможном наборе* и в *чтениях* он будет объединен в одно состояние, которое может быть прочитано и записано. Значения типа `` `# 234567``` будут автоматически преобразованы в` `` 234567```.
-- состояние выключено: если **включено** и **выключено** существует в *Возможные наборы* и **состояние** в *Показания* оно будет объединено во включенное состояние под именем **состояние** Им можно управлять с помощью true и false, и команды будут изменены на `` `set DEVICE on``` и` `` set DEVICE off```.
+- RGB: если RGB существует в *PossibleSets* и в *Readings* он будет объединен в одно состояние, которое можно читать и записывать. Такие значения, как `` # 234567`` будут автоматически преобразованы в `` 234567``.
+- on off state: если **on** и **off** существуют в *PossibleSets* и **state** в *Readings* они будут объединены в состояние on под именем **state** Его можно контролировать с помощью true и false, а команды будут изменены на `` включить УСТРОЙСТВО '' и `` установить УСТРОЙСТВО выключено ''.
 
-## Особенности и использование
-* Если комната «ioBroker» существует в FHEM, будут синхронизированы только эти объекты
-* После синхронизации FHEM неиспользуемые объекты будут автоматически удалены.
-* Внутренние элементы, такие как TYPE, NAME, PORT, имя производителя, modelid, swversion будут синхронизированы (role = value.xxx)
-* Атрибуты, такие как комната, псевдоним, отключение, комментарий будут синхронизированы, и можно редактировать атрибуты в ioBroker. (Роль = state.xxx)
-* Установите роль и другое во время синхронизации
-  * Показания xxx с любыми возможными наборами будут установлены role = state.xxx
-  * Показания xxx без возможных наборов будут установлены role = value.xxx
-  * Показания xxx с возможными наборами "noArg" будут установлены role = button.xxx
-  * Показания xxx с «ползунком» возможных наборов будут установлены role = level.xxx, min = ползунок (min), max = ползунок (max)
-  * Показания «требуемая температура» будут установлены: роль = уровень. Температура, минимум = 5, максимум = 35, единица = °C.
-  * Показания "pct, яркость, затемнение" будут установлены role = level.dimmer, min = 0, max = 100, unit =%
-  * Показания «Громкость, громкость, групповой объем» будут установлены. Role = level.volume, min = 0, max = 100, unit =%
-  * Показания "GroupVolume" будут установлены role = level.volume.group, min = 0, max = 100, unit =%
-* SmartName для Cloud Adapter будет установлен автоматически с псевдонимом или именем (только fhem.0 и объекты с role = level.temperam, level.dim, level.volume)
+## Возможности и использование
+* Если в FHEM существует комната «ioBroker», синхронизируются только эти объекты
+* После синхронизации неиспользуемые объекты FHEM будут автоматически удалены.
+* Внутренние параметры, такие как TYPE, NAME, PORT, Manufacturername, modelid, swversion, будут синхронизированы (role = value.xxx)
+* Атрибуты, такие как комната, псевдоним, отключение, комментарий, будут синхронизированы, и в ioBroker можно будет редактировать атрибуты. (роль = состояние.xxx)
+* Установить роль и прочее во время синхронизации
+  * Показания xxx с любыми возможными наборами будут установлены role = state.xxx
+  * Показания xxx без PossibleSets будут установлены role = value.xxx
+  * Показания xxx с PossibleSets "noArg" будут установлены role = button.xxx
+  * Показания xxx с «ползунком» PossibleSets будут установлены role = level.xxx, min = slider (min), max = slider (max)
+  * Показания «желаемая температура» будут установлены роль = уровень.температура, мин. = 5, макс = 35, единица измерения = °C.
+  * Показания "процент, яркость, тусклость" будут установлены роль = уровень. Диммер, мин = 0, макс = 100, единица =%
+  * Показания «Volume, volume, GroupVolume» будут установлены role = level.volume, min = 0, max = 100, unit =%
+  * Показания "GroupVolume" будут установлены role = level.volume.group, min = 0, max = 100, unit =%
+* SmartName для облачного адаптера будет автоматически установлен с псевдонимом или именем (только fhem.0 и объекты с ролью = level.temperature, level.dim, level.volume)
 
 ## Changelog
+
+### 1.6.1 (2021-06-30)
+* (LausiD) fix use Controller 3.3.x
+* (Apollon77) js-controller 3.3 optimizations
+* (Apollon77) Add Sentry crash reporting
+
+### 1.6.0 (2021-04-09)
+* (LausiD) Several fixes and changes
+
+### 1.5.3 (2020-06-30)
+* (LausiD) Several fixes
+
+### 1.5.2 (2020-05-15)
+* (Apollon77) Fix wrong method calls
+
+### 1.5.0 (2020-05-08)
+* (LausiD) Several fixes and changes
+
+### 1.4.3 (2020-03-21)
+* (LausiD) fix compact mode
+
+### 1.4.2 (2020-01-10)
+* (bluefox) Running timers will be stopped by unload
+
+### 1.4.1 (2019-12-12)
+* (LausiD) Several fixes and changes
+
+### 1.4.0 (2019-10-22)
+* (LausiD) Optimized adapter
+
+### 1.3.0 (2019-07-14)
+* (bluefox) Compact mode was added
+
+### 1.2.2 (2019-06-12)
+* (LausiD) Several fixes and changes
+
+### 1.2.1 (2019-03-28)
+* (LausiD) Several fixes and changes
+
+### 1.2.0 (2019-02-16)
+* (LausiD) Sync readingsGroup, set states ioBroker from FHEM, add different sensors
+
+### 1.1.1 (2018-11-08)
+* (LausiD) add debug mode
+
 ### 1.1.0 (2018-10-22)
-* (LausiD) Big changes
+* (LausiD) Sync objects from ioBroker to FHEM is possible
 
 ### 1.0.0 (2018-10-15)
 * (LausiD) Min/max were defined as number
@@ -97,7 +145,7 @@ ioBroker отправляет в начале команду «jsonlist2», чт
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2018 bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2021 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

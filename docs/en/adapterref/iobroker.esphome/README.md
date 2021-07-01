@@ -113,7 +113,12 @@ If you like my work, please consider a personal donation
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
+    * (DutchmanNL) 
 -->
+
+### 0.2.3 (2021-06-29)
+* (Jey-Cee) Bugfix : Light component state not changed [#74](https://github.com/DrozmotiX/ioBroker.esphome/issues/74)
+* (DutchmanNL) Update compatibility to version 1.19.4 of ESPHome Dashboard
 
 ### 0.2.2 (2021-06-24)
 * (DutchmanNL) [!!! Breaking !!!] Make YAML file persistent, backup your configuration before updating ! solves [#57](https://github.com/DrozmotiX/ioBroker.esphome/issues/57)

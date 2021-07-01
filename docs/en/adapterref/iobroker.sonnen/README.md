@@ -1,3 +1,9 @@
+---
+BADGE-Number of Installations: http://iobroker.live/badges/sonnen-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.sonnen.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.sonnen.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.sonnen.png?downloads=true
+---
 ![Logo](admin/sonnen.png)
 # ioBroker.sonnen
 ===========================
@@ -11,6 +17,10 @@
 ## Disclaimer
 The developers of this module are in no way endorsed by or affiliated with sonnen GmbH,
 or any associated subsidiaries, logos or trademarks.
+
+## Widget
+From version 1.8.0 on, the adapter comes with a vis widget.
+![Widget](/docs/en/media/widgetPreview.png)
 
 ## Installation
 You can either install the adapter via the ioBroker web interface or on your local machine via npm.
@@ -290,6 +300,15 @@ The channel consists of read-only states of type `number`, providing information
 	### __WORK IN PROGRESS__
 -->
 
+### 1.8.2 (2021-06-30)
+* (foxriver76) widget: css classes now have adapter specific names to avoid conflicts
+
+### 1.8.1 (2021-06-30)
+* (foxriver76) widget now has flow directions
+
+### 1.8.0 (2021-06-30)
+* (foxriver76) added widget
+
 ### 1.7.3 (2021-05-01)
 * (foxriver76) we now update objects if attributes are updated, but preserve common.name attribute
 
@@ -376,7 +395,7 @@ The channel consists of read-only states of type `number`, providing information
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2018-2021 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

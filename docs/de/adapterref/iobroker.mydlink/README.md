@@ -71,9 +71,16 @@ Gerät, die er braucht.
 ## Changelog
 <!-- 
 	Placeholder for next versions (this needs to be indented):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 	npm install @alcalzone/release-script
 -->
+### 1.1.11 (2021-06-30)
+* adjusted types & roles to type-detector.
+
+### 1.1.10 (2021-06-30)
+* fix type warnings
+* updated translations and dependencies
+
 ### 1.1.9 (2021-05-23)
 * updated translations
 

@@ -3,19 +3,17 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.devices/README.md
 title: ioBroker.devices
-hash: efdaBj7R5bRViyZzeYNECStL/IJPpxighScsPt2Qm7M=
+hash: EKlEeUDulaPAGqvzFy8sBCGa2rBx+SZkDyo4Rz9FSRo=
 ---
 ![Logo](../../../en/adapterref/iobroker.devices/admin/devices.png)
 
+![Anzahl der Installationen](http://iobroker.live/badges/devices-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.devices.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.devices.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/ioBroker/iobroker.devices.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/ioBroker/ioBroker.devices/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.devices.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.devices/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/ioBroker/ioBroker.devices?branch=master&svg=true)
 
 # IoBroker.devices
+![Testen und freigeben](https://github.com/ioBroker/iobroker.devices/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/devices/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 ## Geräteadapter für ioBroker
 Verwalten und erstellen Sie Geräte für die Verwendung in anderen Adaptern wie Material, IOT,...
 
@@ -23,7 +21,7 @@ Verwalten und erstellen Sie Geräte für die Verwendung in anderen Adaptern wie 
 
 ![Bildschirm](../../../en/adapterref/iobroker.devices/img/screen.png)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.**
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Machen
 - Beschreibungen für Staaten hinzufügen
@@ -33,6 +31,15 @@ Verwalten und erstellen Sie Geräte für die Verwendung in anderen Adaptern wie 
 ### __ARBEITEN IN PROGRESS__ -->
 
 ## Changelog
+### 1.0.7 (2021-06-30)
+* (bluefox) Corrected creation the folders
+
+### 1.0.6 (2021-06-27)
+* (bluefox) Implemented the filters
+
+### 1.0.5 (2021-06-26)
+* (bluefox) Implemented the edit of `states` parameter
+
 ### 1.0.4 (2021-06-08)
 * (bluefox) Fixed some GUI errors
 

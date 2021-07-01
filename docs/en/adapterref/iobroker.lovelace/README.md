@@ -434,19 +434,21 @@ First of all the actual https://github.com/home-assistant/frontend (dev branch) 
 
 All changes for ioBroker are marked with comment `// IoB`.
 For now (20201021.4) following files were modified:
-- `.gitignore` - add `.idea` ignore
 - `build-scripts/gulp/app.js` - Add new gulp task
 - `build-scripts/gulp/webpack.js` - Add new gulp task
 - `src/data/lovelace.ts` - add hide toolbar option
+- `src/data/weather.ts` - add support to display weather icon from url.
 - `src/dialogs/more-info/ha-more-info-dialog.ts` - remove entity settings button and remove weather state & history
+- `src/dialogs/more-info/controls/more-info-climate.ts` - print mode name for unsupported modes
+- `src/dialogs/more-info/controls/more-info-weather.ts` - add support to display weather icon from url.
 - `src/entrypoints/core.ts` - modified authentication process
 - `src/layouts/home-assistant-main.ts` - remove app sidebar
-- `src/panels/lovelace/hui-root.ts` - added notifications and voice control
-- `src/util/documentation-url.ts` - for link to iobroker help instead of homeassistant.
-- `src/dialogs/more-info/controls/more-info-weather.ts` - add support to display weather icon from url.
-- `src/data/weather.ts` - add support to display weather icon from url.
 - `src/panels/lovelace/cards/hui-weather-forecast-card.ts` - add support to display weather icon from url.
 - `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` - add support to display weather icon from url with auth.
+- `src/panels/lovelace/hui-root.ts` - added notifications and voice control
+- `src/util/documentation-url.ts` - for link to iobroker help instead of homeassistant.
+- `.gitignore` - add `.idea` ignore
+- `package.json` - remove husky commit hook
 
 
 After that checkout modified version in `./build` folder. Then.
@@ -464,8 +466,23 @@ After that checkout modified version in `./build` folder. Then.
 
 <!--
 	PLACEHOLDER for next version:
-	## __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
+### 2.0.0 (2021-06-17)
+* (Garfonso) Changed: !Breaking! Battery warning is now binary_sensor instead of sensor (now ui sets icon and  translates ok)
+* (Garfonso) Fixed:   !Breaking! entity_id conflict for low_bat / humidity when part of another device
+* (Garfonso) Updated frontend to 20210603.0 (changed light entity to not convert color anymore)
+* (Garfonso) Changed: increased file size limit to 5 MB during upload in config.
+* (Garfonso) Added: Support for input_datetime
+* (Garfonso) Added: Support for manual complex light entities
+* (Garfonso) Added: Support for images from base64 data in iobroker states 
+* (Garfonso) Added: Support for additional alarm states.
+* (Garfonso) Added: Parameter to only enter code when disarming alarm
+* (Garfonso) Added: Support for admin 5 (jsonCustom)
+* (Garfonso) Added: Support for airCondition / rework thermostat
+* (Garfonso) Added: manual entities can be more complex now (needs documentation)
+* (Garfonso) Added: darkMode control
+
 ### 1.5.0 (2021-02-15)
 * (Garfonso) Changed: defaultTheme and control.theme were in conflict. Now control.theme is set when selecting a new default theme.
 * (Garfonso) Added: control.themeDark to control devices in dark mode, too.
@@ -486,16 +503,6 @@ After that checkout modified version in `./build` folder. Then.
 
 ### 1.4.1 (2021-01-08)
 * (bluefox) Support of new Let's Encrypt (only with js-controller 3.2.x)
-
-### 1.3.6 (2021-01-08)
-* (Garfonso) Fixed: do not ignore devices deleted from iot / without smartName
-* (Garfosno) Added: Support location devices with one GPS state in string form
-* (Garfonso) Added: Support for log service, logs frontend errors in server log
-* (Garfonso) Added: Support for service calls with multiple ids, i.e. header switch of elements card
-* (Garfonso) Fixed: unique check for manual entities only checked instance 0. Made them a bit more userfriendly, too.
-* (Garfonso) Added: Possibility to select theme during runtime / select default dark theme
-* (Garfonso) Fixed: hideToolbar did hide tab bar, too
-* (Garfonso) Added: Support for iobroker_say service call (allows tts in mini-mediaplayer card using platform iobroker)
 
 ## License
 

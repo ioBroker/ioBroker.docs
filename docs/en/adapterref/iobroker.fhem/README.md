@@ -1,13 +1,17 @@
 ![Logo](admin/fhem.png)
 # ioBroker.fhem
 
-![Number of Installations](http://iobroker.live/badges/fhem-installed.svg) ![Number of Installations](http://iobroker.live/badges/fhem-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.fhem.svg)](https://www.npmjs.com/package/iobroker.fhem)
+![Number of Installations](http://iobroker.live/badges/fhem-installed.svg)
+![Number of Installations](http://iobroker.live/badges/fhem-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.fhem.svg)](https://www.npmjs.com/package/iobroker.fhem)
+
+![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.fhem/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/fhem/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.fhem.svg)](https://www.npmjs.com/package/iobroker.fhem)
 
-[![NPM](https://nodei.co/npm/iobroker.fhem.png?downloads=true)](https://nodei.co/npm/iobroker.fhem/)
+This adapter allows to connect FHEM to ioBroker.
 
-
-This adapter allows connect FHEM to ioBroker.
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 To enable the connection the telnet must be enabled in FHEM. To enable it (enabled by default) check following settings in fhen.cfg:
 
@@ -45,6 +49,11 @@ Actually only following attributes are supported:
 
 
 ## Changelog
+
+### 1.6.1 (2021-06-30)
+* (LausiD) fix use Controller 3.3.x
+* (Apollon77) js-controller 3.3 optimizations
+* (Apollon77) Add Sentry crash reporting
 
 ### 1.6.0 (2021-04-09)
 * (LausiD) Several fixes and changes
@@ -132,7 +141,7 @@ Actually only following attributes are supported:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2021 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

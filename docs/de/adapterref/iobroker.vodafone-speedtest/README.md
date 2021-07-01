@@ -2,23 +2,23 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vodafone-speedtest/README.md
-title: ioBroker.vodafone-speedtest
-hash: fCrOkIaGmkqjssySHbDUn9kxnmER4ltSmW20HgcInJI=
+title: ioBroker.vofo-speedtest
+hash: 2OWK9bGidtbE4CoRu0md2lqebVJMbzOBGqPSf3kx2Iw=
 ---
-![Logo](../../../en/adapterref/iobroker.vodafone-speedtest/admin/vodafone-speedtest.png)
+![Logo](../../../en/adapterref/iobroker.vodafone-speedtest/admin/vofo-speedtest.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.vodafone-speedtest.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.vodafone-speedtest.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/vodafone-speedtest-installed.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/vodafone-speedtest-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/peterbaumert/iobroker.vodafone-speedtest.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/peterbaumert/ioBroker.vodafone-speedtest/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.vodafone-speedtest.png?downloads=true)
+![NPM-Version](http://img.shields.io/npm/v/iobroker.vofo-speedtest.svg)
+![Downloads](https://img.shields.io/npm/dm/iobroker.vofo-speedtest.svg)
+![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/vofo-speedtest-installed.svg)
+![Anzahl der Installationen (stabil)](http://iobroker.live/badges/vofo-speedtest-stable.svg)
+![Abhängigkeitsstatus](https://img.shields.io/david/peterbaumert/iobroker.vofo-speedtest.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/peterbaumert/ioBroker.vofo-speedtest/badge.svg)
+![NPM](https://nodei.co/npm/iobroker.vofo-speedtest.png?downloads=true)
 
-# IoBroker.vodafone-speedtest
+# IoBroker.vofo-speedtest
 **Dieser Adapter nutzt den Dienst [Sentry.io](https://sentry.io), um mir als Entwickler automatisch Ausnahmen und Codefehler sowie neue Geräteschemata zu melden.** Weitere Details siehe unten!
 
-##vodafone-speedtest-adapter für ioBroker
+## Vofo-speedtest-Adapter für ioBroker
 Speedtest von Vodafone.de
 
 Implementiert dieselbe Technik wie https://speedtest.vodafone.de
@@ -62,7 +62,7 @@ Vodafone ist eine Marke der Vodafone GmbH. Ich werde in keiner Weise von der Vod
 ## License
 MIT License
 
-Copyright (c) 2021 Peter Baumert <ioBroker.vodafone-speedtest@outlook.com>
+Copyright (c) 2021 Peter Baumert <ioBroker.vofo-speedtest@outlook.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

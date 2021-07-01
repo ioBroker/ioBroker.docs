@@ -3,18 +3,16 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.discovery/README.md
 title: Адаптер ioBroker Discover
-hash: cSp632WFSVsYiDyNAPd4gSLbTsUOjf5nEERQyCe6Ngc=
+hash: RdRGHBIkYaCIaGJ7onXI7yxUdEBVYhhNzPC8GMrMFtQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
 ![Количество установок](http://iobroker.live/badges/discovery-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.discovery.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.discovery.svg)
-![Тесты](https://travis-ci.org/ioBroker/ioBroker.discovery.svg?branch=master)
-![НПМ](https://nodei.co/npm/iobroker.discovery.png?downloads=true)
 
 # IoBroker Откройте для себя адаптер
-** Обнаруживайте устройства всеми известными методами. **
+![Тестирование и выпуск](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) **Обнаружение устройств всеми известными методами.**
 
 Это специальные адаптеры, которые пытаются найти все возможные устройства, доступные с хоста.
 Только сейчас он может обнаруживать через ping, UPnP (планируется серийный).
@@ -27,6 +25,7 @@ hash: cSp632WFSVsYiDyNAPd4gSLbTsUOjf5nEERQyCe6Ngc=
 - Умный дом Bosch
 - Bose Soundtouch
 - Broadlink
+- BSBLan
 - Chromecast
 - климат-контроль Daikin
 - deConz
@@ -71,7 +70,7 @@ hash: cSp632WFSVsYiDyNAPd4gSLbTsUOjf5nEERQyCe6Ngc=
 - Мпд
 - Musiccast
 - myDlink
-- Mysensors USB / последовательный порт (9600, 38400, 57600, 115200)
+- Mysensors USB / последовательный (9600, 38400, 57600, 115200)
 - световые панели / холст nanoleaf
 - Сетевые инструменты
 - Нуки2
@@ -95,6 +94,7 @@ hash: cSp632WFSVsYiDyNAPd4gSLbTsUOjf5nEERQyCe6Ngc=
 - TR-064
 - Trådfri
 - UPnP
+- ВаллоксМВ
 - Wifilight
 - Ямаха
 - Yeelight
@@ -115,7 +115,7 @@ hash: cSp632WFSVsYiDyNAPd4gSLbTsUOjf5nEERQyCe6Ngc=
 
 Если не все IP-адреса найдены, убедитесь, что пользователь iobroker может выполнить / bin / ping. Pot выполнить `sudo setcap cap_net_raw+p /bin/ping`, чтобы добавить недостающие возможности / разрешения.
 
-## Сделать
+## Делать
 - артнет? (Bluefox)
 - B-Control-Em? (Bluefox)
 - Cul / Maxcul (Bluefox)
@@ -132,13 +132,25 @@ hash: cSp632WFSVsYiDyNAPd4gSLbTsUOjf5nEERQyCe6Ngc=
 - смартметр (Apollon77)
 - унифи (jens-maus)
 - волк (улыбается-валет)
-- xs1 (откровенный шуток)
+- xs1 (откровенный шутник)
 
 <! - Заполнитель для следующей версии (в начале строки):
 
 ### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
+
+### 2.7.0 (2021-07-01)
+* (hacki11) Add discovery for BSBLan and ValloxMV
+* (Apollon77) Optimize for js-controller 3.3
+
+### 2.6.3 (2021-05-03)
+* (bluefox) Added support of Admin5 
+
+### 2.6.2 (2021-04-13)
+* (Apollon77) Fix crash case in mihome discovery (Sentry IOBROKER-DISCOVERY-30)
+* (Apollon77) Fix crash case in ping logic (Sentry IOBROKER-DISCOVERY-2Y)
+* (Apollon77) Fix crash case in hf-lpb100 logic (Sentry IOBROKER-DISCOVERY-34)
 
 ### 2.6.1 (2021-02-28)
 * (JeyCee) added iot and net-tools
@@ -303,7 +315,7 @@ hash: cSp632WFSVsYiDyNAPd4gSLbTsUOjf5nEERQyCe6Ngc=
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2020, Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2021, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

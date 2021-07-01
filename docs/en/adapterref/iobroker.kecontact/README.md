@@ -59,10 +59,12 @@ An extra checkbox is used to specified whether wallbox power is included (in thi
 
 ## Changelog
 
+### 1.2.0 (2021-06-07)
+* (Sneak-L8) support for compact mode
+
 ### 1.1.3 (2021-04-26)
 * (Sneak-L8) new time option to continue charging session with regard
-* (Sneak-L8) optimized calculation of surplus (prevent alternating amerage)
-* (Sneak-L8) support for compact mode
+* (Sneak-L8) optimized calculation of surplus (prevent alternating amperage)
 
 ### 1.1.2 (2021-04-02)
 * (Sneak-L8) default state of photovoltaics automatic set to true for new users

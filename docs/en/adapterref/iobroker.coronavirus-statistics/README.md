@@ -95,17 +95,17 @@ As first value, the name from the warning message must be taken from the log. Th
 	* (DutchmanNL) 
 -->
 
-### 0.7.0-5 (2021-06-25)
+### 0.7.1 (2021-06-30)
+* (DutchmanNL) Bugfix: Vaccination data for Germany
+
+### 0.7.0 (2021-06-28)
+* (DutchmanNL) round Impfquote to 2 digits
+* (DutchmanNL) Bugfix: Solved last_update is invalid warn message
 * (DutchmanNL) Bugfix: State attribute definition missing for + undefined
-* (DutchmanNL) Bugfix: Vaccination data for Germany, several states missing in new API and will not be updated anymore !
+* (DutchmanNL) Bugfix: Solved cannot read property 'Erstimpfung' of undefined
 * (DutchmanNL) Bugfix: State value to set for "xxx.BL" has to be type "number" but received type "string", solves [#237](https://github.com/DrozmotiX/ioBroker.coronavirus-statistics/issues/237)
 * (DutchmanNL) Bugfix: State value to set for "xxx.Tests*" has to be type "string" but received type "number", solves [#237](https://github.com/DrozmotiX/ioBroker.coronavirus-statistics/issues/237)
-
-### 0.7.0-4 (2021-03-30)
-* (DutchmanNL) round Impfquote to 2 digits
-* (lembnau) Vaccination data for AstraZeneca Germany added
-* (DutchmanNL) Bugfix : Solve last_update is invalid warn message
-* (DutchmanNL) Bugfix : Solve cannot read property 'Erstimpfung' of undefined
+* (DutchmanNL/jlssmt) Bugfix: Vaccination data for Germany, several states missing in new API and will not be updated anymore !
 
 ### 0.6.9 (2021-03-22)
 

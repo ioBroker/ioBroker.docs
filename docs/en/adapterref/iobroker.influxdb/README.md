@@ -1,15 +1,18 @@
 ![Logo](admin/influxdb.png)
 # ioBroker.influxdb
 
-![Number of Installations](http://iobroker.live/badges/influxdb-installed.svg) ![Number of Installations](http://iobroker.live/badges/influxdb-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.influxdb.svg)](https://www.npmjs.com/package/iobroker.influxdb)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.influxdb.svg)](https://www.npmjs.com/package/iobroker.influxdb)
-[![Tests](http://img.shields.io/travis/ioBroker/ioBroker.history/master.svg)](https://travis-ci.org/ioBroker/ioBroker.history)
+![Number of Installations](http://iobroker.live/badges/influxdb-installed.svg)
+![Number of Installations](http://iobroker.live/badges/influxdb-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.influxdb.svg)](https://www.npmjs.com/package/iobroker.influxdb)
 
-[![NPM](https://nodei.co/npm/iobroker.influxdb.png?downloads=true)](https://nodei.co/npm/iobroker.influxdb/)
+![Test and Release](https://github.com/ioBroker/iobroker.influxdb/workflows/Test%20and%20Release/badge.svg)
+[![Tests](http://img.shields.io/travis/ioBroker/ioBroker.influxdb/master.svg)](https://travis-ci.org/ioBroker/ioBroker.influxdb)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/influxdb/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.influxdb.svg)](https://www.npmjs.com/package/iobroker.influxdb)
 
 This adapter saves state history into InfluxDB.
 
-**Only InfluxDB >= v0.9 supported, v1.0 recommended**
+**Only InfluxDB >= v0.9 supported, v1.0 or v2.x recommended**
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
@@ -55,6 +58,8 @@ echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stabl
 ```
 
 ### Setup authentication for influxDB (can be omitted)
+**NOTE:** Influx DB V2.x relies on organization/token login, instead of username/password!
+
 If you use DB localy you may leave authentication disabled and skip this part.
 
 - Start service: ``` service influxdb start ```
@@ -80,6 +85,8 @@ Enable authentication, by editing /etc/influxdb/influxdb.conf:
 ```
 - Restart service: ``` service influxdb restart ```
 
+
+
 ## Installation of Grafana
 There is additional charting tool for InfluxDB - Grafana.
 It must be installed additionally.
@@ -100,6 +107,7 @@ The multi-query feature is also supported. You can send multiple queries separat
 
 That's why the result is always an array with one numbered index for each query.
 
+### Influx 1.x
 Example with one query:
 
 ```
@@ -122,6 +130,37 @@ sendTo('influxdb.0', 'query', 'SELECT * FROM iobroker.global."system.adapter.adm
         // show result
         console.log('Rows First: ' + JSON.stringify(result.result[0]));
         console.log('Rows Second: ' + JSON.stringify(result.result[1]));
+    }
+});
+```
+**NOTE:** The values are coming back in the result array in filename "value" (instead of "val" as normal in ioBroker)
+
+### Influx 2.x
+In InfluxDB v2.0 onwards the SQL-based query language *InfluxQL* is deprecated in favour of *Flux*. For more information please refer to [the offical InfluxDB 2.0 documentation](https://docs.influxdata.com/influxdb/v2.0/reference/flux/).
+
+Example with one query:
+
+```
+sendTo('influxdb.0', 'query', 'from(bucket: "iobroker") |> range(start: -3h)', function (result) {
+    if (result.error) {
+        console.error(result.error);
+    } else {
+        // show result
+         console.log('Rows: ' + JSON.stringify(result));
+    }
+});
+```
+Two queries:
+**NOTE:** By default you cannot execute 2 queries at once via Flux-language, as there is no delimiter available. This adapter emulates this behaviour by defining ; as delimiter, so you can still run two queries in one statement.
+
+```
+sendTo('influxdb.0', 'query', 'from(bucket: "iobroker") |> range(start: -3h); from(bucket: "iobroker") |> range(start: -1h)" LIMIT 100', function (result) {
+    if (result.error) {
+        console.error(result.error);
+    } else {
+        // show result
+        console.log('Rows First: ' + JSON.stringify(result.result[0])); //Values from last 3 hours
+        console.log('Rows Second: ' + JSON.stringify(result.result[1])); //Values from last hour
     }
 });
 ```
@@ -250,6 +289,10 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### __WORK IN PROGRESS__
+* (Excodibur) Fixed bugged "Test Connection" button (Admin 4)
+* (Excodibur) Added InfluxDB 2.0 support
+
 ### 1.9.5 (2021-04-19)
 * (bluefox) Added the support of Admin5
 

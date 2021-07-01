@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: GkcfybNy6TMH1f8iji8UmNgkzStEcjmXEdx+vBTAMB0=
+hash: h86j1Q50oSwUfp9KVkLzHZfJkatM95ozIakZr30kQ9I=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
@@ -19,6 +19,8 @@ hash: GkcfybNy6TMH1f8iji8UmNgkzStEcjmXEdx+vBTAMB0=
 
 ## Адаптер bluelink для ioBroker
 Адаптер для управления автомобилем Hyundai или Kia
+
+Обсуждение: https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo
 
 ## Пожертвование
 [![] (https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)

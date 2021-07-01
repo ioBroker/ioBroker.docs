@@ -3,19 +3,17 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.devices/README.md
 title: ioBroker.devices
-hash: efdaBj7R5bRViyZzeYNECStL/IJPpxighScsPt2Qm7M=
+hash: EKlEeUDulaPAGqvzFy8sBCGa2rBx+SZkDyo4Rz9FSRo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.devices/admin/devices.png)
 
+![Количество установок](http://iobroker.live/badges/devices-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.devices.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.devices.svg)
-![Статус зависимости](https://img.shields.io/david/ioBroker/iobroker.devices.svg)
-![Известные уязвимости](https://snyk.io/test/github/ioBroker/ioBroker.devices/badge.svg)
-![НПМ](https://nodei.co/npm/iobroker.devices.png?downloads=true)
-![Трэвис-Си](http://img.shields.io/travis/ioBroker/ioBroker.devices/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/ioBroker/ioBroker.devices?branch=master&svg=true)
 
 # IoBroker.devices
+![Тестирование и выпуск](https://github.com/ioBroker/iobroker.devices/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/devices/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 ## Адаптер устройств для ioBroker
 Управляйте и создавайте устройства для использования в других адаптерах, таких как материал, iot, ...
 
@@ -23,7 +21,7 @@ hash: efdaBj7R5bRViyZzeYNECStL/IJPpxighScsPt2Qm7M=
 
 ![Экран](../../../en/adapterref/iobroker.devices/img/screen.png)
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. **
+** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
 ## Делать
 - добавить описания состояний
@@ -33,6 +31,15 @@ hash: efdaBj7R5bRViyZzeYNECStL/IJPpxighScsPt2Qm7M=
 ### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
+### 1.0.7 (2021-06-30)
+* (bluefox) Corrected creation the folders
+
+### 1.0.6 (2021-06-27)
+* (bluefox) Implemented the filters
+
+### 1.0.5 (2021-06-26)
+* (bluefox) Implemented the edit of `states` parameter
+
 ### 1.0.4 (2021-06-08)
 * (bluefox) Fixed some GUI errors
 

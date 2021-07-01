@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: GkcfybNy6TMH1f8iji8UmNgkzStEcjmXEdx+vBTAMB0=
+hash: h86j1Q50oSwUfp9KVkLzHZfJkatM95ozIakZr30kQ9I=
 ---
 ![Logo](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
@@ -14,14 +14,16 @@ hash: GkcfybNy6TMH1f8iji8UmNgkzStEcjmXEdx+vBTAMB0=
 ![Abhängigkeitsstatus](https://img.shields.io/david/Newan/iobroker.bluelink.svg)
 ![NPM](https://nodei.co/npm/iobroker.bluelink.png?downloads=true)
 
-# IoBroker.bluelink
-** Tests: ** ![Testen und freigeben](https://github.com/Newan/ioBroker.bluelink/workflows/Test%20and%20Release/badge.svg)
+#ioBroker.bluelink
+**Tests:** ![Testen und freigeben](https://github.com/Newan/ioBroker.bluelink/workflows/Test%20and%20Release/badge.svg)
 
-## Bluelink Adapter für ioBroker
-Adapter zur Steuerung des Hyundai- oder Kia-Fahrzeugs
+##bluelink-Adapter für ioBroker
+Adapter zur Steuerung von Hyundai- oder Kia-Fahrzeugen
 
-## Spende
-[![] (https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
+Diskussion: https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo
+
+##Spende
+[![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
 ### 1.0.3

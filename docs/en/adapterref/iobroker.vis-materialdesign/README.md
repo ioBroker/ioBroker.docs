@@ -13131,8 +13131,8 @@ The adapter uses the following libraries:
 * (Scrounger) Progress Widget: striped distance option added
 * (Scrounger) Advanced View in Widget widget added
 * (Scrounger) Dialog Widget: background color bug fix on close animation
+* (Scrounger) HTML Widget: bug fix for wrong type ([#182](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/182))
 * (Scrounger) bug fix for VIS Editor dev values
-
 
 <!-- omit in toc -->
 ### 0.5.9 (2021-06-13)

@@ -1,9 +1,8 @@
 ---
 BADGE-Number of Installations: http://iobroker.live/badges/influxdb-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.influxdb.svg
+BADGE-Tests: http://img.shields.io/travis/ioBroker/ioBroker.influxdb/master.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.influxdb.svg
-BADGE-Tests: http://img.shields.io/travis/ioBroker/ioBroker.history/master.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.influxdb.png?downloads=true
 ---
 * * *
 
@@ -106,6 +105,10 @@ Wählt man in der Titelzeile unter Historie "mit" oder "influxdb.0" aus, werden
 Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (Excodibur) Fixed bugged "Test Connection" button (Admin 4)
+* (Excodibur) Added InfluxDB 2.0 support
+
 ### 1.9.5 (2021-04-19)
 * (bluefox) Added the support of Admin5
 

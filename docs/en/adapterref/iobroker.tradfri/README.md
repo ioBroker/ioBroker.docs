@@ -70,6 +70,9 @@ The result object `ret` looks as follows:
 	Placeholder for next release:
 	### __WORK IN PROGRESS__
 -->
+### 3.0.1 (2021-06-30)
+* Workaround for a bug in IKEA gateway firmware `v1.15.x`
+
 ### 3.0.0 (2021-06-19)
 * Update dependencies, require Node.js 12+
 

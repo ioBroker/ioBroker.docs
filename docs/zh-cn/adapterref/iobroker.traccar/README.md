@@ -3,29 +3,28 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.traccar/README.md
 title: ioBroker.traccar
-hash: OFm1lXncX7HqJZ8Rc8bK6eA7dMOP9KvSDX7+HQY1cXU=
+hash: 78YzG+cU28r2SmJ9qs6AdOooe7i8tqc/IJn76EYcDIs=
 ---
 ![商标](../../../en/adapterref/iobroker.traccar/admin/traccar.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.traccar.svg?dummy=unused)
-![资料下载](https://img.shields.io/npm/dm/iobroker.traccar.svg?dummy=unused)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.traccar.svg?dummy=unused)
+![下载](https://img.shields.io/npm/dm/iobroker.traccar.svg?dummy=unused)
 ![安装数量（最新）](https://iobroker.live/badges/traccar-installed.svg?dummy=unused)
 ![安装数量（稳定）](https://iobroker.live/badges/traccar-stable.svg?dummy=unused)
-![依赖状态](https://img.shields.io/david/o0shojo0o/iobroker.traccar.svg?dummy=unused)
 ![已知漏洞](https://snyk.io/test/github/o0shojo0o/ioBroker.traccar/badge.svg?dummy=unused)
-![NPM](https://nodei.co/npm/iobroker.traccar.png?downloads=true)
+![新产品管理](https://nodei.co/npm/iobroker.traccar.png?downloads=true)
 
-＃ioBroker.traccar
-[![翻译状态]（https://weblate.iobroker.net/widgets/adapters/-/traccar/svg-badge.svg）](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker.traccar
+[![依赖状态](https://status.david-dm.org/gh/o0shojo0o/iobroker.traccar.svg?dummy=unused)](https://david-dm.org/o0shojo0o/iobroker.traccar) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/traccar/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-## IoBroker的Traccar适配器
-该适配器从[特拉卡](https://www.traccar.org)实时导入位置和扩展数据，并使它们在ioBroker中可用。
+## IoBroker 的 Traccar 适配器
+该适配器从 [特拉卡](https://www.traccar.org) 实时导入位置和扩展数据，并使它们在 ioBroker 中可用。
 
 ＃＃ 配置
-1.创建适配器的新实例
-2.填写Traccar服务器的URL / IP和端口
-3.配置用户名和密码
-4.保存设置
+1. 创建一个新的适配器实例
+2. 填写 Traccar 服务器的 URL/IP 和端口
+3. 配置用户名和密码
+4. 保存设置
 5.玩得开心:)
 
 ## Changelog
@@ -38,6 +37,11 @@ hash: OFm1lXncX7HqJZ8Rc8bK6eA7dMOP9KvSDX7+HQY1cXU=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 0.0.9 (2021-05-19)
+
+-   (o0shojo0o) prevent unnecessary process attributes from being interrupted
+-   (o0shojo0o) optimization of the link between device and incoming message
 
 ### 0.0.8 (2021-04-30)
 

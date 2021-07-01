@@ -2,8 +2,6 @@
 BADGE-Number of Installations: http://iobroker.live/badges/zigbee-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.zigbee.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.zigbee.svg
-BADGE-Tests: https://travis-ci.org/ioBroker/ioBroker.zigbee.svg?branch=master
-BADGE-NPM: https://nodei.co/npm/iobroker.zigbee.png?downloads=true
 ---
 # Драйвер ioBroker для работы с Zigbee-устройствами
 При помощи координатора Zigbee-сети на базе Texas Instruments SoC cc253x (и другими) создается собственная сеть, в которую подключаются zigbee-устройства. Взаимодействуя напрямую с координатором сети, драйвер позволяет управлять устройствами без дополнительных шлюзов/бриджей от производителей устройств (Xiaomi/TRADFRI/Hue). Про устройство Zigbee-сети можно прочитать [тут (на английском языке)](https://github.com/Koenkk/zigbee2mqtt/wiki/ZigBee-network). 
@@ -261,7 +259,7 @@ new Zigbee-herdsman features:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Kirov Ilya <kirovilya@gmail.com>
+Copyright (c) 2018-2021 Kirov Ilya <kirovilya@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,14 +1,13 @@
 ![Logo](admin/discovery.png)
 # ioBroker Discover Adapter
 
-![Number of Installations](http://iobroker.live/badges/discovery-installed.svg) 
-![Number of Installations](http://iobroker.live/badges/discovery-stable.svg) 
+![Number of Installations](http://iobroker.live/badges/discovery-installed.svg)
+![Number of Installations](http://iobroker.live/badges/discovery-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.discovery.svg)](https://www.npmjs.com/package/iobroker.discovery)
+
+![Test and Release](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.discovery.svg)](https://www.npmjs.com/package/iobroker.discovery)
-[![Tests](https://travis-ci.org/ioBroker/ioBroker.discovery.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.discovery)
-
-[![NPM](https://nodei.co/npm/iobroker.discovery.png?downloads=true)](https://nodei.co/npm/iobroker.discovery/)
-
 **Detect devices with all known methods.**
 
 This is special adapters, that tries to find all possible devices, that can be reachable from host.
@@ -24,6 +23,7 @@ Just now it can detect via ping, UPnP (serial planned).
 - Bosch Smart Home
 - Bose Soundtouch
 - Broadlink
+- BSBLan
 - Chromecast
 - Daikin climate control
 - deConz
@@ -92,6 +92,7 @@ Just now it can detect via ping, UPnP (serial planned).
 - TR-064
 - Trådfri
 - UPnP
+- ValloxMV
 - Wifilight
 - Yamaha
 - Yeelight
@@ -137,6 +138,11 @@ If not all IPs are found then please check that the iobroker user can execute /b
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+
+### 2.7.0 (2021-07-01)
+* (hacki11) Add discovery for BSBLan and ValloxMV
+* (Apollon77) Optimize for js-controller 3.3
+
 ### 2.6.3 (2021-05-03)
 * (bluefox) Added support of Admin5 
 
