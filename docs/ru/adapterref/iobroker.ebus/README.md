@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: MFk/Bv62pf+xKrCvXgg4OCQhaAz9GoW7WtIQ2vuasA8=
+hash: hwnSvGdtB2ANX+jFQ3fI09f8e+vlELKqck7xjXfp8Mg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
@@ -36,6 +36,10 @@ hash: MFk/Bv62pf+xKrCvXgg4OCQhaAz9GoW7WtIQ2vuasA8=
 
 ## Известные проблемы
 * пожалуйста, создавайте проблемы на [github] (https://github.com/rg-engineering/ioBroker.ebus/issues), если вы обнаружите ошибки или захотите новые функции
+
+## 2.2.7 (2021-07-03)
+* (René) зависимости обновлены
+* (Рене) см. Проблему # 48: исправление ошибки для журналов неправильного типа данных
 
 ## 2.2.5 (21.03.2021)
 * (René) зависимости обновлены

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.myvbus/README.md
 title: ioBroker.myvbus
-hash: vrblLAmPDLheq6IrG8M5j1mev6UNtfmV+UTYNM4yR74=
+hash: 6kKllJqqY6mebKgEc/lPReCJxOPTFTpcWPfDSiCXAfY=
 ---
 ![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/myvbus-installed.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.myvbus.svg)
@@ -12,10 +12,11 @@ hash: vrblLAmPDLheq6IrG8M5j1mev6UNtfmV+UTYNM4yR74=
 ![Abhängigkeitsstatus](https://img.shields.io/david/iobroker-community-adapters/iobroker.myvbus.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.myvbus/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.myvbus.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.myvbus/master.svg)
 
 #ioBroker.myvbus
 ![Logo](../../../en/adapterref/iobroker.myvbus/admin/myvbus.png)
+
+**Tests:** ![Testen und freigeben](https://github.com/iobroker-community-adapters/iobroker.myvbus/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker-Adapter für Resol VBus
 Dieser Adapter verbindet ioBroker mit verschiedenen VBus-basierten Geräten unter Verwendung von resol-vbus, einer JavaScript-Bibliothek zur Erfassung von RESOL-VBus-Daten, bereitgestellt von Daniel Wippermann.
@@ -41,7 +42,7 @@ Dieser Adapter verbindet ioBroker mit verschiedenen VBus-basierten Geräten unte
   * Anschlussport: Standardeinstellung 7053 sollte nicht geändert werden
   * DL3-Kanal: Nur für DL3 relevant (Werte 1-6, Kanal 0 können nicht ausgelesen werden)
   * Aktualisierungsintervall: Zeit zwischen Aktualisierungen der Messwerte (Standard 30s)
-* Die korrekten Einstellungen für den DL3-, DL2-, KM2-Zugang über VBus.net sind:
+* Die korrekten Einstellungen für den DL3-, DL2-, KM2-Zugriff über VBus.net sind:
   * Anschlussart: DL3 oder DL2 oder KM2
   * Verbindungskennung: vbus.net (oder vbus.io) - beide ohne http:// und Via Kennung!
   * Anschlussport: Standardeinstellung 7053 sollte nicht geändert werden
@@ -57,9 +58,11 @@ Alle anderen Marken sind Eigentum ihrer jeweiligen Inhaber.
 Die Autoren werden in keiner Weise von der RESOL GmbH oder verbundenen Tochtergesellschaften, Logos oder Marken unterstützt oder mit ihr verbunden.
 
 ## Changelog
+### 0.2.0 (2021-06-25)
+* Dropped node.js 10 support, added node.js 14 and 16 support
+
 ### 0.1.1 (2021-05-18)
 * Fixes for supporting js-controller >=3.2.x
-
 
 ### 0.1.0
 * (grizzelbee) Fix: config page shows current settings now (not default anymore)

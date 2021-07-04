@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.myvbus/README.md
 title: ioBroker.myvbus
-hash: vrblLAmPDLheq6IrG8M5j1mev6UNtfmV+UTYNM4yR74=
+hash: 6kKllJqqY6mebKgEc/lPReCJxOPTFTpcWPfDSiCXAfY=
 ---
 # IoBroker.myvbus
 ![Логотип](../../../en/adapterref/iobroker.myvbus/admin/myvbus.png)
@@ -15,7 +15,8 @@ hash: vrblLAmPDLheq6IrG8M5j1mev6UNtfmV+UTYNM4yR74=
 ![Статус зависимости](https://img.shields.io/david/iobroker-community-adapters/iobroker.myvbus.svg)
 ![Известные уязвимости](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.myvbus/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.myvbus.png?downloads=true)
-![Трэвис-Си](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.myvbus/master.svg)
+
+** Тесты: ** ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/iobroker.myvbus/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер ioBroker для Resol VBus
 Этот адаптер подключает ioBroker к различным устройствам на базе VBus с помощью resol-vbus, библиотеки JavaScript для получения данных RESOL VBus, предоставленной Дэниелом Випперманном.
@@ -33,7 +34,7 @@ hash: vrblLAmPDLheq6IrG8M5j1mev6UNtfmV+UTYNM4yR74=
 * Чтение канала 0 DL3 (датчики, напрямую подключенные к устройству DL3) не поддерживается из-за ограничений интерфейса DL3.
 
 ## Подсказки по настройке
-* По умолчанию для типа подключения используется VBus / LAN, но он должен быть явно выбран даже для VBus / LAN, иначе соединение не будет установлено.
+* По умолчанию для типа подключения используется VBus / LAN, но он должен быть явно выбран даже для VBus / LAN, в противном случае соединение не будет установлено.
 * Правильные настройки для прямого доступа к локальной сети для VBus / LAN, DL3, DL2, KM2:
   * Тип подключения: VBus / LAN или KM2 или DL2 или DL3
   * Идентификатор подключения: IP-адрес (например, 192.168.178.188) или FullyQualifiedHostName (например, host1.example.com)
@@ -54,12 +55,14 @@ hash: vrblLAmPDLheq6IrG8M5j1mev6UNtfmV+UTYNM4yR74=
 RESOL, VBus, VBus.net, DeltaSol и другие являются товарными знаками или зарегистрированными товарными знаками RESOL - Elektronische Regelungen GmbH <https://www.resol.de/en>
 
 Все остальные товарные знаки являются собственностью соответствующих владельцев.
-Авторы никоим образом не одобрены и не связаны с RESOL GmbH или какими-либо связанными с ними дочерними компаниями, логотипами или товарными знаками.
+Авторы никоим образом не одобрены или связаны с RESOL GmbH или какими-либо связанными с ними дочерними компаниями, логотипами или товарными знаками.
 
 ## Changelog
+### 0.2.0 (2021-06-25)
+* Dropped node.js 10 support, added node.js 14 and 16 support
+
 ### 0.1.1 (2021-05-18)
 * Fixes for supporting js-controller >=3.2.x
-
 
 ### 0.1.0
 * (grizzelbee) Fix: config page shows current settings now (not default anymore)

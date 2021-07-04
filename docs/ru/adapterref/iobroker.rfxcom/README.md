@@ -3,16 +3,17 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rfxcom/README.md
 title: ioBroker.rfxcom
-hash: g+sM+YoZCIEaWawTkGsM2PvA9rS3y5erN1M1+/+W3iQ=
+hash: sHn5GJunDJU2gCzbWU1P920vRVUfOaaV3gTF/zyrpN4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.rfxcom/admin/rfxcom.png)
 
+![Количество установок](http://iobroker.live/badges/rfxcom-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.rfxcom.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.rfxcom.svg)
-![Тесты](https://travis-ci.org/ioBroker/ioBroker.rfxcom.svg?branch=master)
-![НПМ](https://nodei.co/npm/iobroker.rfxcom.png?downloads=true)
 
 # IoBroker.rfxcom
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.rfxcom/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/rfxcom/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 Этот адаптер взаимодействует с [rfxcom](http://www.rfxcom.com).
 Используется для получения данных от погодных датчиков и беспроводных переключателей питания.
 
@@ -54,7 +55,7 @@ hash: g+sM+YoZCIEaWawTkGsM2PvA9rS3y5erN1M1+/+W3iQ=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2020, Bluefox<dogafox@gmail.com>
+Copyright (c) 2017-2021, Bluefox<dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

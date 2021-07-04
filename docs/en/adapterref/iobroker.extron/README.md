@@ -70,6 +70,9 @@ If you are a non commercial organisation or use it for private use you can get a
 ### 0.1.6
 * (mschlgl) added limiter section for DMP128
 
+### 0.1.7
+* (mschlgl) added plaint Telnet communication for DMP128
+
 ## License
 Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
 

@@ -3,30 +3,30 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis/README.md
 title: 可视化
-hash: Sw/yjJuk/qGdIt7UG6e5P16JYqG9InI+CFfibXx1cZs=
+hash: KHzz5K4cmU2+0wZDuIMwQ6k8XSX96vzulY7MCQdq4vo=
 ---
 ![商标](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
 ![安装数量](http://iobroker.live/badges/vis-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.vis.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.vis.svg)
-![NPM](https://nodei.co/npm/iobroker.vis.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.vis.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.vis.svg)
+![新产品管理](https://nodei.co/npm/iobroker.vis.png?downloads=true)
 
-＃可视化
-ioBroker平台的Web可视化。
+# 可视化
+ioBroker 平台的 WEB 可视化。
 
-##安装与说明文件
+## 安装和文档
 ![演示界面](img/user0.png)![演示界面](../../../en/adapterref/iobroker.vis/img/user7.png)
 
 [在线演示](https://iobroker.click/)
 
-##对象绑定
-通常，大多数小部件都具有ObjectID属性，并且此属性可以与对象ID的某些值绑定。
-但是还有另一种选择如何将窗口小部件的* any *属性绑定到某个ObjectID。
+## 对象绑定
+通常，大多数小部件都有 ObjectID 属性，该属性可以与对象 ID 的某个值绑定。
+但是还有另一种选择如何将小部件的 *any* 属性绑定到某个 ObjectID。
 
-只需写入属性```{object.id}```§，它将绑定到该对象的值（不在编辑模式下）。
-如果您使用特殊格式，甚至可以使用它进行一些简单的操作，例如乘法或格式化。
-彭定康的格式如下：
+只需写入属性 ```{object.id}``` ，它就会被绑定（不是在编辑模式下）到这个对象的值。
+如果你使用特殊格式，你甚至可以用它做一些简单的操作，例如乘法或格式化。
+模式有以下格式：
 
 ```
 {objectID;operation1;operation2;...}
@@ -34,30 +34,30 @@ ioBroker平台的Web可视化。
 
 支持以下操作：
 
--`\ *`-相乘。参数必须放在方括号中，例如“ *（4）”。在此示例中，我们将值乘以4。
--`\ +`-添加。参数必须放在方括号中，例如“ +（4.5）”。在此示例中，我们将值添加为4.5。
--`\ -`-减去。参数必须放在方括号中，例如“-（-674.5）”。在此样本中，我们从值-674.5中减去。
--`/`-除法。参数必须放在方括号中，例如“ /(0.5）”。在此示例中，我们将值除以0.5。
--`％`-取模。参数必须放在方括号中，例如“％（5）”。在此示例中，我们取5的模。
--`round`-取整值。
--`round（N）`-将值四舍五入到点后N个位置，例如34.678; round（1）=> 34.7
--`hex`-将值转换为十六进制值。所有字母均小写。
--`hex2`-将值转换为十六进制值。所有字母均小写。如果值小于16，则将添加前导零。
--`HEX`-与十六进制相同，但大写。
--`HEX2`-与hex2相同，但大写。
--`date`-根据给定的格式格式化日期。格式与[iobroker.javascript]（https://github.com/iobroker/iobroker.javascript/blob/master/README.md#formatdate）中的格式相同
--`min（N）`-如果值小于N，则取N，否则取值
--`max（M）`-如果值大于M，则取M，否则取值
--`sqrt`-平方根
--`pow（n）`-N的幂。
--`pow`-2的幂。
--`floor`-Math.floor
--`ceil`-Math.ceil
--`random（R）`-Math.random（）* R，或者如果没有参数则只是Math.random（）
--`formatValue（decimals）`-根据系统设置格式化值并使用小数
--`date（format）`-将值格式化为日期。格式如下：“ YYYY-MM-DD hh：mm：ss.sss”
--`momentDate（format，useTodayOrYesterday）`-使用Moment.js将值格式化为日期。 [必须根据moment.js库输入批准的格式]（https://momentjs.com/docs/#/displaying/format/）。使用`useTodayOrYesterday = true`时，todayjs格式`ddd` /`dddd`被今天/昨天覆盖。
--`array（element1，element2 [，element3，element4]）`-返回索引的元素。例如：`{id.ack; array（ack为假，ack为真）}}
+- `\*` - 乘法。参数必须在方括号中，如“*(4)”。在此示例中，我们将 value 乘以 4。
+- `\+` - 添加。参数必须在方括号中，如“+(4.5)”。在此示例中，我们添加到值 4.5。
+- `\-` - 减去。参数必须在方括号中，例如“-(-674.5)”。在此示例中，我们从值 -674.5 中减去。
+- `/` - 分割。参数必须在方括号中，如“/(0.5)”。在此示例中，我们将值除以 0.5。
+- `%` - 取模。参数必须在方括号中，例如“%(5)”。在此示例中，我们取模 5。
+- `round` - 舍入值。
+- `round(N)` - 在点之后用 N 个位置舍入值，例如34.678；轮（1）=> 34.7
+- `hex` - 将值转换为十六进制值。所有字母都是小写的。
+- `hex2` - 将值转换为十六进制值。所有字母都是小写的。如果值小于 16，则将添加前导零。
+- `HEX` - 与十六进制相同，但大写。
+- `HEX2` - 与 hex2 相同，但大写。
+- `date` - 根据给定的格式格式化日期。格式与 [iobroker.javascript](https://github.com/iobroker/iobroker.javascript/blob/master/README.md#formatdate) 中的相同
+- `min(N)` - 如果值小于 N，则取 N，否则取值
+- `max(M)` - 如果值大于 M，则取 M，否则取值
+- `sqrt` - 平方根
+- `pow(n)` - N 的幂。
+- `pow` - 2 的幂。
+- `地板` - Math.floor
+- `ceil` - Math.ceil
+- `random(R)` - Math.random() * R，或者只是 Math.random() 如果没有参数
+- `formatValue(decimals)` - 根据系统设置格式化值并使用小数
+- `date(format)` - 将值格式化为日期。格式类似于：“YYYY-MM-DD hh:mm:ss.sss”
+- `momentDate(format, useTodayOrYesterday)` - 使用 Moment.js 将值格式化为日期。 [批准的格式必须根据moment.js库输入](https://momentjs.com/docs/#/displaying/format/)。使用`useTodayOrYesterday=true`，momentjs 格式`ddd`/`dddd` 被今天/昨天覆盖
+- `array(element1,element2[,element3,element4])` - 返回索引的元素。例如：`{id.ack;array(ack is false,ack is true)}`
 
 您可以在任何文本中使用此模式，例如
 
@@ -71,7 +71,7 @@ My calculations with {objectID1;operation1;operation2;...} are {objectID2;operat
 #{objectRed;/(100);*(255);HEX2}{objectGreen;HEX2}{objectBlue;HEX2}
 ```
 
-要显示对象的时间戳记，请在对象ID的末尾写入`.ts`或`.lc`（用于最后一次更改），例如：
+要在对象 id 的末尾显示对象写入 `.ts` 或 `.lc`（最后一次更改）的时间戳，例如：
 
 ```
 Last change: {objectRed.lc;date(hh:mm)}
@@ -83,7 +83,7 @@ Last change: {objectRed.lc;date(hh:mm)}
 Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(h*h + w*w))}
 ```
 
-`{h:height;w:width;h*w}`将被解释为以下功能：
+`{h:height;w:width;h*w}` 将被解释为函数：
 
 ```
 value = (function () {
@@ -93,30 +93,30 @@ value = (function () {
 })();
 ```
 
-您可以使用* any * JavaScript函数。参数必须用'：'定义，否则，将被解释为公式。
+您可以使用*任何* javascript 函数。参数必须用':'定义，否则将被解释为公式。
 
-注意类型。它们都定义为字符串。可以肯定的是，使用parseFloat函数将该值视为数字。
+注意类型。所有这些都定义为字符串。可以肯定的是，该值将被视为数字使用 parseFloat 函数。
 
 ```
 Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(Math.pow(parseFloat(h), 2) + Math.pow(parseFloat(w), 2)))}
 ```
 
-###特殊绑定
-有许多不同的内部绑定可在视图中提供其他信息：
+### 特殊绑定
+有许多不同的内部绑定可以在视图中提供附加信息：
 
-*`username`-显示已登录的用户
-*`view`-实际视图的名称
-*`wname`-小部件名称
-*`widget`-是具有小部件所有数据的对象。只能在JS部分中使用，例如`{a：a; widget.data.name}`
-*`wid`-实际小部件的名称
-*`language`-可以是`de`，`en`或`ru`。
-*`instance`-浏览器实例
-*`login`-是否需要登录（例如显示/隐藏注销按钮）
-*`local_ *`-如果状态名称是从`local_`开始的，则不会将其报告给ioBroker，而是会更新所有依赖此状态的窗口小部件。 （当前浏览器会话的局部变量）
+* `username` - 显示登录用户
+* `view` - 实际视图的名称
+* `wname` - 小部件名称
+* `widget` - 是一个包含所有小部件数据的对象。只能在JS部分使用，如`{a:a;widget.data.name}`
+* `wid` - 实际小部件的名称
+* `language` - 可以是 `de`、`en` 或 `ru`。
+* `instance` - 浏览器实例
+* `login` - 是否需要登录（例如显示/隐藏注销按钮）
+* `local_*` - 如果状态名称从 `local_` 开始，它不会报告给 ioBroker，但会更新所有依赖于此状态的小部件。 （当前浏览器会话的局部变量）
 
-注意：要在计算中使用“：”（例如，在字符串公式中），请改用“ ::”。
+注意：要在计算中使用“:”（例如在字符串公式中），请改用“::”。
 
-**请记住**，样式定义将被解释为绑定，因此请使用`{{style: value}}`或仅
+**记住**，样式定义将被解释为绑定，所以使用 `{{style: value}}` 或只是
 
 ```
 {
@@ -126,88 +126,92 @@ Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(Ma
 
 为了那个原因。
 
-##过滤器
-要在一个视图上可视化窗口小部件的总数，可以使用过滤器减少视图上同时显示的窗口小部件的数量。
+## 过滤器
+要在一个视图上显示整数个小部件，您可以使用过滤器来减少视图上同时显示的小部件数量。
 
-每个窗口小部件都有一个字段`filter`。如果您将其设置为某个值，例如`light`，因此您可以使用其他小部件`(bars - filters, filter - dropdown)`来控制哪个过滤器实际处于活动状态。
+每个小部件都有一个字段 `filter`。如果您将其设置为某个值，例如`light`，因此您可以使用其他小部件 `(bars - filters, filter - dropdown)` 来控制实际处于活动状态的过滤器。
 
 ##控制界面
-Vis创建3个变量：
+Vis 创建 3 个变量：
 
--`control.instance`-如果必须控制每个浏览器，则应在此处编写浏览器实例或FFFFFFFF。
--`control.data`-命令参数。请参阅特定的命令描述。
--`control.command`-命令名称。编写此变量将触发命令。这意味着在写入命令之前，“实例”和“数据”必须与数据一起准备。
+- `control.instance` - 如果每个浏览器都必须被控制，这里应该写浏览器实例或者`FFFFFFFF`。
+- `control.data` - 命令参数。见具体命令说明。
+- `control.command` - 命令名称。写这个变量会触发命令。这意味着在写入命令之前，“实例”和“数据”必须准备好数据。
 
 命令：
 
-*`alert`-在可见中显示警报窗口。 “ control.data”具有以下格式“ message; title; jquery-icon”。标题和jquery-icon是可选的。可以在[here]（http://jqueryui.com/themeroller/）中找到图标名称。要显示图标“ ui-icon-info”，请写“ Message ;; info`”。
-*`changeView`-切换到所需的视图。 “ control.data”必须具有视图名称。您也可以将项目名称指定为“项目/视图”。默认项目为“ main”。
-*`refresh`-重新加载vis，例如在将项目更改为在所有浏览器上重新加载后。
-*`reload`-与刷新相同。
-*`dialog`-显示对话框窗口。对话框必须存在于视图中。之一：
+* `alert` - 在 vis 中显示警报窗口。 “control.data”具有以下格式“message;title;jquery-icon”。标题和 jquery-icon 是可选的。图标名称可以在 [here](http://jqueryui.com/themeroller/) 中找到。显示图标“ui-icon-info”写```Message;;info```。
+* `changeView` - 切换到想要的视图。 “control.data”必须具有视图名称。您也可以将项目名称指定为“项目/视图”。默认项目是“主”。
+* `refresh` - 重新加载 vis，例如在项目更改为在所有浏览器上重新加载后。
+* `reload` - 与刷新相同。
+* `dialog` - 显示对话窗口。对话框必须存在于视图中。之一：
 
-    -`static-HTML-对话框`，
-    -`static-图标-对话框`，
-    -`container-HTML-在jqui对话框中查看，
-    -`container-ext cmd-在jqui对话框中查看，
-    -`container-Icon-在jqui对话框中查看，
-    -`容器-按钮-在jqui对话框中查看。
+    - `静态 - HTML - 对话框`，
+    -`静态-图标-对话框`，
+    -`容器 - HTML - 在 jqui 对话框中查看`，
+    - `container - ext cmd - 在 jqui 对话框中查看`，
+    -`容器-图标-在jqui对话框中查看`，
+    - `容器 - 按钮 - 在 jqui 对话框中查看`。
 
-    `control.data`必须具有对话框小部件的ID，例如`w00056`。
+    `control.data` 必须有对话框小部件的 id，例如`w00056`。
 
-*`dialogClose`
-*`popup`-打开一个新的浏览器窗口。链接必须在`control.data`中指定，例如http://google.com
-*`playSound`-播放声音文件。文件的链接在`control.data`中指定，例如http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3。
+* `对话框关闭`
+* `popup` - 打开一个新的浏览器窗口。链接必须在 `control.data` 中指定，例如http://google.com
+* `playSound` - 播放声音文件。文件链接在“control.data”中指定，例如http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3。
 
-  您可以在vis中上传自己的文件，并使其像`/vis.0/main/img/myFile.mp3`一样播放。
+  你可以在 vis 中上传你自己的文件，让它像 `/vis.0/main/img/myFile.mp3` 一样播放。
 
-如果用户更改视图或在开始时，变量将由vis填充。
+如果用户更改视图或在开始时变量将由 vis 填充
 
--`control.instance`：浏览器实例和`ack = true`
--`control.data`：以`project / view`形式的项目和视图名称，例如`main / view`（和`ack = true`）
--`control.command`：`changedView`和`ack = true`
+- `control.instance`：浏览器实例和 `ack=true`
+- `control.data`：形式为`project/view`的项目和视图名称，例如`main/view`（和 `ack=true`）
+- `control.command`：`changedView` 和 `ack=true`
 
-您可以将JSON字符串或对象作为`{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`写入control.command中。在这种情况下，实例和数据将从JSON对象获取。
+您可以将 JSON 字符串或对象写入 `control.command` 作为 `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`。在这种情况下，实例和数据将从 JSON 对象中获取。
 
-JavaScript适配器示例：
+javascript 适配器示例：
 
 ```
 setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data": ""});
 ```
 
 ＃＃ 默认视图
-您可以为每个视图定义所需的分辨率（菜单=>工具=>分辨率）。这只是在编辑模式下的可视边框，用于向您显示某些特定设备上的屏幕尺寸。在实时模式下，它将不可见，并且边框外的所有小部件都将可见。
+您可以为每个视图定义所需的分辨率（菜单=>工具=>分辨率）。这只是编辑模式下的视觉边框，用于向您显示某些特定设备上的屏幕大小。在实时模式下，它将不可见，边界外的所有小部件都将可见。
 
-此外，您可以定义是否必须将此视图用作该分辨率的默认视图。
+此外，您可以定义是否必须将此视图用作此分辨率的默认值。
 
-因此，每次调用`index.html`（不包含`#viewName`）时，都会打开最适合此分辨率视图的视图。
-如果只有一个视图带有*“ Default” *标志，那么将独立于屏幕分辨率或方向打开此视图。
+所以每次调用 `index.html`（没有 `#viewName`）时，都会打开最适合这个分辨率的视图。
+如果只有一个视图具有 *"Default"* 标志，则此视图将独立于屏幕分辨率或方向打开。
 
-例如。您可以创建两个视图“ Landscape-Mobile”和“ Portrait-Mobile”，并且当您更改方向或屏幕尺寸时，这两个视图将自动切换。
+例如。您可以创建两个视图“横向移动”和“纵向移动”，当您更改方向或屏幕大小时，这两个视图将自动切换。
 
-有一个帮助器小部件“基本-屏幕分辨率”，它显示实际屏幕分辨率和最适合该分辨率的默认视图。
+有一个帮助小部件“基本 - 屏幕分辨率”，可显示实际屏幕分辨率和最适合该分辨率的默认视图。
 
 ##设置
-###如果睡眠时间超过
-有一条规则，在断开连接一段时间后，将重新加载整个VIS页面以同步项目。
-您可以在菜单“设置...”中对其进行配置。如果将时间间隔设置为“从不”，则将永远不会重新加载该页面。
+### 如果睡眠时间超过
+有一个规则，在断开连接一段时间后，整个 VIS 页面将重新加载以同步项目。
+您可以在菜单“设置...”中对其进行配置。如果您将时间间隔设置为“从不”，则永远不会重新加载页面。
 
 ###重新连接间隔
-如果断开连接，请设置两次连接尝试之间的时间间隔。如果设置为2秒，它将尝试每2秒建立一次连接。
+如果断开连接，设置连接尝试之间的间隔。如果设置为 2 秒，它将每 2 秒尝试建立一次连接。
 
-###黑暗重新连接屏幕
-有时（夜间），需要具有黑暗的加载屏幕。使用此选项可以进行设置。
+### 黑暗的重新连接屏幕
+有时（在夜间）需要有黑暗的加载屏幕。使用此选项，您可以设置它。
 
-请注意，这些设置仅对重新连接有效，而对首次连接无效。
+请注意，这些设置仅对重新连接有效，对第一次连接无效。
 
 ![黑暗的](../../../en/adapterref/iobroker.vis/img/dark_screen.png)
 
-<！-下一个版本的占位符（在该行的开头）：
+<!-- 下一个版本的占位符（在行首）：
 
-### __正在进行的工程__->
+### __工作进行中__ -->
 
 ## Changelog
-### __WORK IN PROGRESS__
+### 1.4.1 (2021-07-03)
+* (bluefox) Added possibility to check license offline (only special once)
+
+### 1.4.0 (2021-07-01)
+* (bluefox) Changed path for check of certificates 
 * (thost96) fixes for issues found by adapter-checker
 
 ### 1.3.10 (2021-05-25)
@@ -221,7 +225,7 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 ### 1.3.8 (2021-03-03)
 * (bluefox) fix play sounds on iOS Safari an android
 * (Scrounger) visEditInspect: format dimension added
-* (foxriver76) Replace travis and appveyor by the github actions
+* (foxriver76) Replace travis and appveyor by the GitHub actions
 * (Excodibur) Allow resources to be loaded as blob
 * (Excodibur ) Allow resources to be loaded as blob
 
@@ -312,7 +316,7 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 ### 1.1.3 (2018-04-12)
 * (bluefox) ignore click by scrolling on touch devices
 * (bluefox) remove wrong state vis.0.command
-* (bluefox) fix error with jplot
+* (bluefox) fix error with jPlot
 * (bluefox) better widget behaviour in edit Mode (basic, jqui)
 * Fix config dialog
 
@@ -327,7 +331,7 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 * (bluefox) The problem with view change on the touch devices fixed
 
 ### 1.0.5 (2017-11-19)
-* (bluefox) show number of datapoints in every project
+* (bluefox) show number of data points in every project
 
 ### 1.0.4 (2017-10-22)
 * (bluefox) Add autocomplete for view CSS options
@@ -342,7 +346,7 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 * (bluefox) fix fonts
 
 ### 0.15.7 (2017-10-01)
-* (bluefox) allow update of images without additional query (but it works only in spome very specific cases)
+* (bluefox) allow update of images without additional query (but it works only in some very specific cases)
 * (bluefox) zoom of iframes
 
 ### 0.15.5 (2017-07-24)
@@ -360,7 +364,7 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 
 ### 0.15.1 (2017-06-30)
 * (bluefox) Fix error with context menu
-* (bluefox) Allow add class to view
+* (bluefox) Allow adding of class to view
 
 ### 0.15.0 (2017-05-25)
 * (bluefox) fix copy of grouped widgets
@@ -374,7 +378,7 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 * (apollon77) fix jqui-dialog for auto-open
 
 ### 0.14.3 (2017-05-11)
-* (bluefox) fix export/import of groupped widgets
+* (bluefox) fix export/import of grouped widgets
 
 ### 0.14.2 (2017-04-29)
 * (bluefox) Fix install error
@@ -433,7 +437,7 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 
 ### 0.10.13 (2016-09-23)
 * (bluefox) fixed errors for iPad 1
-* (bluefox) start wokring on relative positions
+* (bluefox) start working on relative positions
 
 ### 0.10.12 (2016-09-16)
 * (bluefox) group specific visibility of widgets and views
@@ -448,9 +452,9 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 
 ### 0.10.9 (2016-09-04)
 * (bluefox) support of web-sockets force
-* (bluefox) destory unused views after 30 seconds
+* (bluefox) destroy unused views after 30 seconds
 * (bluefox) do not show middle leading lines if top and bottom are shown
-* (bluefox) let timestamp and lastchange to show time as interval
+* (bluefox) let timestamp and last-change to show time as interval
 
 ### 0.10.7 (2016-07-09)
 * (bluefox) add settings to reload vis
@@ -459,7 +463,7 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 * (bluefox) export/import
 * (bluefox) add global script
 * (bluefox) add 'not exist'/'not consist'/'exist' to signal and visibility
-* (bluefox) fix oids in editor
+* (bluefox) fix OIDs in editor
 
 ### 0.10.5 (2016-06-15)
 * (bluefox) fix select ID dialog

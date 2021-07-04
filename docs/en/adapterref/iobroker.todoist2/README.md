@@ -166,6 +166,12 @@ Example for any image you like:
 ```
 
 ## Changelog
+### 0.8.7
+* (rde-master) Bugfix for Filter JSON there was missing a "}"
+* (rde-master) Bugfix for Filter HTML no longer shows duplicate entries
+* (rde-master) Bugfix for Filter URL now encoding so that you can use "# &" for better Filters
+* (rde-master) Bugfix for auto delete old objects
+
 ### 0.8.6
 * (rde-master) Bugfix and bump axios to 0.21.1
 
@@ -250,7 +256,7 @@ Example for any image you like:
 
 ## License
 The MIT License (MIT)
-Copyright (c) 2020 rde-master <info@rde-master.de>
+Copyright (c) 2021 rde-master <info@rde-master.de>
 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -270,3 +276,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Copyright (c) 2021 rde-master <info@rde-master.de>

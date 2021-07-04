@@ -3,16 +3,17 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rfxcom/README.md
 title: ioBroker.rfxcom
-hash: g+sM+YoZCIEaWawTkGsM2PvA9rS3y5erN1M1+/+W3iQ=
+hash: sHn5GJunDJU2gCzbWU1P920vRVUfOaaV3gTF/zyrpN4=
 ---
 ![Logo](../../../en/adapterref/iobroker.rfxcom/admin/rfxcom.png)
 
+![Anzahl der Installationen](http://iobroker.live/badges/rfxcom-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.rfxcom.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.rfxcom.svg)
-![Tests](https://travis-ci.org/ioBroker/ioBroker.rfxcom.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.rfxcom.png?downloads=true)
 
 #ioBroker.rfxcom
+![Testen und freigeben](https://github.com/ioBroker/ioBroker.rfxcom/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/rfxcom/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 Dieser Adapter kommuniziert mit [rfxcom](http://www.rfxcom.com).
 Wird zum Empfangen der Daten von Wettersensoren und drahtlosen Netzschaltern verwendet.
 
@@ -54,7 +55,7 @@ Drücken Sie dazu kurz vor dem Einlegen des Akkus die Pair-Taste und das Gerät 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2020, Bluefox<dogafox@gmail.com>
+Copyright (c) 2017-2021, Bluefox<dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

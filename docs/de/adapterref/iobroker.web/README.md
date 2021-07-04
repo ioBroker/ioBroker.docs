@@ -3,46 +3,46 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: cmyhSPUcwEz1iT5OdupfqQ7rtrelYjXPf5Mm/RTK5A0=
+hash: O/9g9KEHoarO9stxwgzMohQQNlrQowOwH4pnbPJLC+8=
 ---
 ![Logo](../../../en/adapterref/iobroker.web/admin/web.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/web-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.web.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.web.svg)
-![Tests](https://travis-ci.org/ioBroker/ioBroker.web.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.web.png?downloads=true)
 
-# IoBroker.web
-Webserver auf der Basis von Node.js und Express zum Lesen der Dateien aus ioBroker DB
+#ioBroker.web
+![Testen und freigeben](https://github.com/ioBroker/ioBroker.web/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+Webserver auf Basis von Node.js und Express zum Lesen der Dateien aus ioBroker DB
 
-## Optimieren von Web-Sockets
-Auf einigen Web-Sockets-Clients gibt es Leistungsprobleme bei der Kommunikation.
-Manchmal ist dieses Problem auf einen Fallback der Socket.io-Kommunikation bei einem langen Abfragemechanismus zurückzuführen.
-Sie können die Option *Web-Sockets erzwingen* so einstellen, dass nur der Transport von Web-Sockets erzwungen wird.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
-## Verschlüsseln wir Zertifikate
+## Tuning Web-Sockets
+Bei einigen Web-Sockets-Clients gibt es Leistungsprobleme bei der Kommunikation.
+Manchmal ist dieses Problem auf einen Fallback der socket.io-Kommunikation auf einen langen Polling-Mechanismus zurückzuführen.
+Sie können die Option *Web-Sockets erzwingen* so einstellen, dass nur die Verwendung von Web-Sockets erzwungen wird.
+
+## Lassen Sie uns Zertifikate verschlüsseln
 Lesen Sie [Hier](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
 
 ## Erweiterungen
-Der Webtreiber unterstützt Erweiterungen. Die Erweiterung ist URL-Handler, der aufgerufen wird, wenn eine solche URL-Anforderung angezeigt wird.
-Die Erweiterungen sehen aus wie der normale Adapter, haben jedoch keinen laufenden Prozess und werden vom Webserver aufgerufen.
+Webtreiber unterstützt Erweiterungen. Die Erweiterung ist ein URL-Handler, der aufgerufen wird, wenn eine solche URL-Anfrage erscheint.
+Die Erweiterungen sehen aus wie die normalen Adapter, haben aber keinen laufenden Prozess und werden vom Webserver aufgerufen.
 
-Z.B. Der Benutzer kann einen speziellen Proxy-Adapter aktivieren und andere Geräte (wie Webcams) auf demselben Webserver erreichen.
+Z.B. der Benutzer kann einen speziellen Proxy-Adapter aktivieren und andere Geräte (wie Webcams) im selben Webserver erreichen.
 Es ist erforderlich, dass alle Dienste unter einem Webserver verfügbar sind.
 
 ## Brute-Force-Schutz
-Wenn die Authentifizierung aktiviert ist und der Benutzer innerhalb einer Minute ein fünfmal ungültiges Kennwort eingibt, muss er mindestens eine Minute bis zum nächsten Versuch warten.
+Wenn die Authentifizierung aktiviert ist und der Benutzer innerhalb einer Minute fünfmal ein ungültiges Passwort eingibt, muss er mindestens eine Minute bis zum nächsten Versuch warten.
 Nach dem 15. Fehlversuch muss der Benutzer 1 Stunde warten.
 
 ## Option "Angemeldet bleiben"
-Wenn diese Option ausgewählt ist, bleibt der Benutzer einen Monat lang angemeldet.
-Wenn nicht, bleibt der Benutzer für das konfigurierte "Anmeldezeitlimit" angemeldet.
+Wenn diese Option ausgewählt ist, bleibt der Benutzer einen Monat lang eingeloggt.
+Wenn nicht, bleibt der Benutzer für die konfigurierte "Login-Zeitüberschreitung" angemeldet.
 
-## Zugriffsstatuswerte
-Sie können über die HTTP-Abrufanforderung auf die normalen und binären Statuswerte zugreifen.
+## Auf die Werte des Status zugreifen
+Sie können über die HTTP-Get-Anforderung auf die normalen und binären Zustandswerte zugreifen.
 
 ```
 http://IP:8082/state/system.adapter.web.0.alive =>
@@ -56,7 +56,7 @@ http://IP:8082/state/javascript.picture.png =>
 [IMAGE]
 ```
 
-Das Bild muss wie folgt in den Javascript-Adapter geschrieben werden:
+Das Bild muss in den Javascript-Adapter geschrieben werden wie:
 
 ```
 createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
@@ -64,15 +64,25 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 });
 ```
 
-## Option "Basisauthentifizierung"
-Ermöglicht die Anmeldung über die Standardauthentifizierung durch Senden von `401` Nicht autorisiert mit einem `WWW-Authenticate`-Header.
-Dies kann für Anwendungen wie *FullyBrowser* verwendet werden. Wenn Sie einmal die falschen Anmeldeinformationen eingeben, werden Sie zur Anmeldeseite weitergeleitet.
+## Option "Basis-Authentifizierung"
+Ermöglicht die Anmeldung über die Basisauthentifizierung durch Senden von `401` Unauthorized mit einem `WWW-Authenticate`-Header.
+Dies kann für Anwendungen wie *FullyBrowser* verwendet werden. Wenn Sie einmal die falschen Zugangsdaten eingeben, werden Sie auf die Anmeldeseite weitergeleitet.
 
-<! - Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __WORK IN PROGRESS__ ->
+### __ARBEITEN IN PROGRESS__ -->
 
 ## Changelog
+
+### 3.4.4 (2021-07-04)
+* (Apollon77) Fix missing www files
+
+### 3.4.3 (2021-07-01)
+* (Apollon77) Add tier for js-controller 3.3
+
+### 3.4.2 (2021-07-01)
+* (bluefox) Update GUI
+
 ### 3.4.1 (2021-04-30)
 * (bluefox) Added support of admin5
 

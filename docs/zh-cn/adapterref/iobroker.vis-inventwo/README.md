@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: 01y9P+JyfT8QZDhsfBbr+BXOMdrhdsg/ot9Sh4KAMDc=
+hash: nTe5CmHUbAywNVoDUwj6qFBtYwxIPOcQ4VF08ehlH8Q=
 ---
 ![商标](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -42,6 +42,12 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ---
 
+## 3.0.11
+- 错误修正
+
+## 3.0.10
+- 错误修正
+
 ## 3.0.9
 - 错误修正
 
@@ -79,7 +85,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 - Beim Universal- 和 Multiwidget kann der Inhaltstyp geändert werden。
     - Inhaltstypen：图片（标准）、Analoge Uhr、Digitale Uhr 和 HTML/Text
-    - Analoge und digitale Uhr：Zeiger kann frei gewählt werden、Zeitzone kann geändert werden 下的 Farbe des Ziffernblatts
+    - Analoge und digitale Uhr：Zeiger kann frei gewählt werden 下的 Farbe des Ziffernblatts，Zeitzone kann geändert werden
     - Statt dem Icon kann ein eigener Text oder ein Datenpunktwert per Binding angezeigt werden
 - Vergleichsoperatoren Größer-Gelich und Kleiner-Gleich
 - PopUp kann per Datenpunk geöffnet werden
@@ -257,7 +263,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 ## 2.3.0
 - 问题 behoben, bei dem Schaltflächen zweimal Werte senden
 - Datum / Uhrzeit und Bildformat für Tabellenzellen hinzugefügt
-- Universal- und Multi-Widget-Attribute werden beim Klicken auf Widget aktualisiert
+- Universal- 和 Multi-Widget-Attribute werden beim Klicken auf Widget aktualisiert
 
 ## 2.2.3
 - Fehler JSON Tabelle behoben

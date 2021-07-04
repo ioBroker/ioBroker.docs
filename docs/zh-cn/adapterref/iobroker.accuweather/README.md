@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.accuweather/README.md
 title: ioBroker.accuweather
-hash: WdILwFFXh50ulU8fUrumN2VctPbMVRgQq67NIVy8DpY=
+hash: On/fFF4r+ZCWa0rqet1IurukKyyXPW/+FChGXPNRW7k=
 ---
 ![商标](../../../en/adapterref/iobroker.accuweather/admin/accuweather.png)
 
@@ -24,7 +24,7 @@ hash: WdILwFFXh50ulU8fUrumN2VctPbMVRgQq67NIVy8DpY=
 ### 获取 API 密钥
 要获取 API 密钥，请在 https://developer.accuweather.com/ 上注册并在“我的应用程序”菜单中创建应用程序。创建应用程序后，您将生成 API 密钥。
 对于免费使用，每天可以向 API 发出 50 个请求。
-值得注意的是，要使 API 工作，首选以下设置（请选择您所在的国家/地区！）：![设置](../../../en/adapterref/iobroker.accuweather/admin/image.png)
+有人指出，要使 API 工作，首选以下设置（请选择您所在的国家/地区！）：![设置](../../../en/adapterref/iobroker.accuweather/admin/image.png)
 
 ### 获取位置键
 要获取位置密钥，请访问 https://www.accuweather.com/ 并输入您的城市名称，或尝试输入您拥有的坐标（纬度、经度），例如在 ioBroker 设置中。
@@ -35,28 +35,35 @@ hash: WdILwFFXh50ulU8fUrumN2VctPbMVRgQq67NIVy8DpY=
 新功能可用于在 Lovelace UI 中显示天气预报。
 为了更好地查看创建的自定义 lovelace 卡 - 请参阅 https://github.com/algar42/IoB.lovelace.accuweather-card
 
-<!-- 下一版本的占位符（在行首）：
+<!-- 下一个版本的占位符（在行首）：
 
-### __工作进行中__ -->
-## V1.1.6 (2021-05-05) 对`Object.common` 部分的小错误修复
-### 1.1.5 (2021-01-25)
-* (algar42) 解决 js-controller 3.2 的日志警告
-
-### 1.1.4
-* (HGlab01) 关于 setTimeout 范围的小错误修正
-
-### 1.1.3 (2020-03-04)
-* (algar42) 紧凑模式的小更新
-
-### 1.1.0 (2019-11-09)
-* (algar42) 添加了摘要频道以支持类型检测器和自动天气设备创建
-
-### 1.0.2 (2019-09-12)
-* (algar42) 生产发布
+### **工作正在进行中** -->
+＃＃＃ **工作正在进行中** *
 
 ## Changelog
+### 1.2.0 (2021-07-03)
+* (Garfonso) adjust roles to properly detect weather forecast in Summary folder. (Summary objects need to be deleted and adapter restarted after that)
+
 ### 1.1.7 (2021-06-24)
-* (bluefox) Create device for device-detector
+* (bluefox) Create device for device-detector 
+
+### v1.1.6 (2021-05-05)
+Minor bug fixes to `Object.common` section
+
+### 1.1.5 (2021-01-25)
+* (algar42) Resolve log Warning for js-controller 3.2
+
+### 1.1.4
+* (HGlab01) small bugfix regarding setTimeout range
+
+### 1.1.3 (2020-03-04)
+* (algar42) Minor updates for compact mode
+
+### 1.1.0 (2019-11-09)
+* (algar42) Summary channel added to support type-detector and automatic weather device creation
+
+### 1.0.2 (2019-09-12)
+* (algar42) Production Release
 
 ## License
 MIT License

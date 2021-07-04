@@ -1,11 +1,13 @@
 ![Logo](admin/rfxcom.png)
 # ioBroker.rfxcom
 
+![Number of Installations](http://iobroker.live/badges/rfxcom-installed.svg)
+![Number of Installations](http://iobroker.live/badges/rfxcom-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.rfxcom.svg)](https://www.npmjs.com/package/iobroker.rfxcom)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.rfxcom.svg)](https://www.npmjs.com/package/iobroker.rfxcom)
-[![Tests](https://travis-ci.org/ioBroker/ioBroker.rfxcom.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.rfxcom)
 
-[![NPM](https://nodei.co/npm/iobroker.rfxcom.png?downloads=true)](https://nodei.co/npm/iobroker.rfxcom/)
+![Test and Release](https://github.com/ioBroker/ioBroker.rfxcom/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/rfxcom/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.rfxcom.svg)](https://www.npmjs.com/package/iobroker.rfxcom)
 
 This adapter communicates with [rfxcom](http://www.rfxcom.com).
 Used for receiving the data from weather sensors and wireless power switches.
@@ -48,7 +50,7 @@ To do that press the pair button just before inserting the battery and the devic
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2020, Bluefox<dogafox@gmail.com>
+Copyright (c) 2017-2021, Bluefox<dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

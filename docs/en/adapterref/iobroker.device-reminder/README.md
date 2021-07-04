@@ -163,11 +163,10 @@ is displayed.
     ### __WORK IN PROGRESS__
 -->
 ### 1.2.9 (2021-06-22)
-* (xenon-s) bugfix: error catching JSON "last operations" doesn't work
+* (xenon-s) bugfix: error catching JSON last operations doesn't work
 
 ### 1.2.4 (2021-06-13)
-* (xenon-s) bugfix: incorrect JSON format 
-<br>**Important! Delete the data point "last operations" manually and restart the adapter afterwards!**
+* (xenon-s) bugfix: incorrect JSON format
 
 ### 1.2.3 (2021-06-13)
 * (xenon-s) bugfix: [issue #76](https://github.com/Xenon-s/ioBroker.device-reminder/issues/76) messages from datapoint were not displayed
@@ -242,7 +241,7 @@ is displayed.
 
 MIT License
 
-Copyright (c) 2021 xenon-s
+Copyright (c) 2021 xenon-s <ente_s@hotmail.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

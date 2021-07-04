@@ -3,16 +3,17 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rfxcom/README.md
 title: ioBroker.rfxcom
-hash: g+sM+YoZCIEaWawTkGsM2PvA9rS3y5erN1M1+/+W3iQ=
+hash: sHn5GJunDJU2gCzbWU1P920vRVUfOaaV3gTF/zyrpN4=
 ---
 ![商标](../../../en/adapterref/iobroker.rfxcom/admin/rfxcom.png)
 
+![安装数量](http://iobroker.live/badges/rfxcom-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.rfxcom.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.rfxcom.svg)
-![测试](https://travis-ci.org/ioBroker/ioBroker.rfxcom.svg?branch=master)
-![新产品管理](https://nodei.co/npm/iobroker.rfxcom.png?downloads=true)
 
 # IoBroker.rfxcom
+![测试和发布](https://github.com/ioBroker/ioBroker.rfxcom/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/rfxcom/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 此适配器与 [rfxcom](http://www.rfxcom.com) 通信。
 用于接收来自天气传感器和无线电源开关的数据。
 
@@ -54,7 +55,7 @@ hash: g+sM+YoZCIEaWawTkGsM2PvA9rS3y5erN1M1+/+W3iQ=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2020, Bluefox<dogafox@gmail.com>
+Copyright (c) 2017-2021, Bluefox<dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

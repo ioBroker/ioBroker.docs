@@ -300,6 +300,15 @@ The channel consists of read-only states of type `number`, providing information
 	### __WORK IN PROGRESS__
 -->
 
+### 1.8.5 (2021-07-02)
+* (foxriver76) widget: stroke width can now be configured
+
+### 1.8.4 (2021-07-01)
+* (foxriver76) widget: we made ID names more adapter specific to avoid getting wrong translations
+
+### 1.8.3 (2021-07-01)
+* (foxriver76) widget: we now allow defining the used adapter instance
+
 ### 1.8.2 (2021-06-30)
 * (foxriver76) widget: css classes now have adapter specific names to avoid conflicts
 

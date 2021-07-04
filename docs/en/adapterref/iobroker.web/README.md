@@ -1,11 +1,13 @@
 ![Logo](admin/web.png)
 # ioBroker.web
 
-![Number of Installations](http://iobroker.live/badges/web-installed.svg) ![Number of Installations](http://iobroker.live/badges/web-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.web.svg)](https://www.npmjs.com/package/iobroker.web)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.web.svg)](https://www.npmjs.com/package/iobroker.web)
-[![Tests](https://travis-ci.org/ioBroker/ioBroker.web.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.web)
+![Number of Installations](http://iobroker.live/badges/web-installed.svg)
+![Number of Installations](http://iobroker.live/badges/web-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.web.svg)](https://www.npmjs.com/package/iobroker.web)
 
-[![NPM](https://nodei.co/npm/iobroker.web.png?downloads=true)](https://nodei.co/npm/iobroker.web/)
+![Test and Release](https://github.com/ioBroker/ioBroker.web/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.web.svg)](https://www.npmjs.com/package/iobroker.web)
 
 
 Web server on the base of Node.js and express to read the files from ioBroker DB
@@ -70,6 +72,16 @@ to the Login Page.
 -->
 
 ## Changelog
+
+### 3.4.4 (2021-07-04)
+* (Apollon77) Fix missing www files
+
+### 3.4.3 (2021-07-01)
+* (Apollon77) Add tier for js-controller 3.3
+
+### 3.4.2 (2021-07-01)
+* (bluefox) Update GUI
+
 ### 3.4.1 (2021-04-30)
 * (bluefox) Added support of admin5
 

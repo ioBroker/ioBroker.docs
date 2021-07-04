@@ -4,7 +4,6 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.sprinklecontrol.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.sprinklecontrol.svg
 BADGE-Dependency Status: https://img.shields.io/david/Dirk-Peter-md/iobroker.sprinklecontrol.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/Dirk-Peter-md/ioBroker.sprinklecontrol/badge.svg
-BADGE-Travis-CI: http://img.shields.io/travis/Dirk-Peter-md/ioBroker.sprinklecontrol/master.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.sprinklecontrol.png?downloads=true
 ---
 ![Logo](img/sprinklecontrol.png)
@@ -59,6 +58,7 @@ Im ioBroker Forum laufen aber auch einige Tests mit Wetterstationen über den Sa
 
 ---
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ---
 ---
 <a id="installation"></a>
@@ -73,6 +73,7 @@ Nach anklicken des (+) wird eine Instanz angelegt und die notwendigen Daten des 
 
 ---
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ---
 ---
 <a id="haupteinstellungen"></a>
@@ -138,15 +139,31 @@ Diese Konfigurationsebene besteht aus zwei Reitern: **Haupteinstellungen** und *
 * **maximale Bewässerungsverlängerung in %** – Begrenzung der Bewässerungsdauer in Prozent (100 % = Bewässerungsdauer wird nicht verlängert)
 * **Bewässerungsintervall in min** – Die Bewässerungsdauer wird in einem Intervall aufgeteilt. (z. B. 5 min an, mindestens 5 min aus, 5 min an, usw.)
     * **Tipp** –> Bei mir habe ich ein Rasengitter bei der Autoauffahrt. Hier läuft das Wasser beim Bewässern einfach nur die Schräge herunter. Durch die Bewässerung in Intervallen konnte ich dem entgegenwirken. 
-#### Einschaltpunkt zum Gießen
+#### Einschaltpunkt zum Gießen (Berechnung der Verdunstung)
+* **Methode zur Kontrolle der Bodenfeuchtigkeit** → Berechnung der Verdunstung
 * **Einschaltpunkt (Bodenfeuchte) der Bewässerungsventile in %** – Auslösetrigger: Wenn dieser Wert unterschritten wird, so beginnt zum Startzeitpunkt die Bewässerung.
 * **Bodenfeuchte = 100 % nach der Bewässerung** – bei Aktivierung, wird die Bodenfeuchte nach der Bewässerung auf 100 % gesetzt. Ansonsten bleibt sie knapp darunter Aufgrund der Verdunstung während der Bewässerung.
 #### maximale Bodenfeuchtigkeit
-* **maximale Bewässerung nach der Bewässerung in (mm)** – Max. Wassergehalt im Boden nach der Bewässerung.
+* **maximale Bodenfeuchte nach der Bewässerung in (mm)** – Max. Wassergehalt im Boden nach der Bewässerung.
     * **Tipp** –> Rasengitter: 5; Blumenbeet: 10; Rasenfläche: 14
 * **maximale Bodenfeuchte nach einem Regen in (mm)** – Max. Wassergehalt im Boden nach einem kräftigen Regen.
     * **Tipp** –> Rasengitter: 6; Blumenbeet: 15; Rasenfläche: 19
-    
+      
+![bistabil.jpg](img/bistabil.jpg)
+#### Einschaltpunkt zum Gießen (Bodenfeuchte-Sensor → bistabil true(ein), false(aus))
+* **Methode zur Kontrolle der Bodenfeuchtigkeit** → Bodenfeuchte-Sensor bistabil (zwei Schaltzustände) true === Bewässerung EIN
+* **Bodenfeuchte-Sensor** Auswahl des Sensors über das PLUS-Zeichen
+* **Sensor im Gewächshaus** bei true (Auswahl) wird die Regenvorhersage nicht berücksichtigt
+
+![analog.jpg](img/analog.jpg)
+#### Einschaltpunkt zum Gießen (Berechnung der Verdunstung → analog interne Umrechnung in 0 - 100 %)
+* **Methode zur Kontrolle der Bodenfeuchtigkeit** → Bodenfeuchte-Sensor analog
+* **Bodenfeuchte-Sensor** Auswahl des Sensors über das PLUS-Zeichen
+* **Sensor im Gewächshaus** bei true (Auswahl) wird die Regenvorhersage nicht berücksichtigt
+* **Einschaltpunkt (Bodenfeuchte) der Bewässerungsventile in %** – Auslösetrigger: Wenn dieser Wert unterschritten wird, so beginnt zum Startzeitpunkt die Bewässerung.
+#### Konfiguration des analogen Bodenfeuchte-Sensors
+* **analoger Bodenfeuchte-Sensor bei 0 Prozent (Sensor in der Luft)** Wert des Sensors an der Luft hier eingeben! Sollte dieser unterschritten werden erfolgt eine Warnung im Protokoll(Debug)
+* **analoger Bodenfeuchte-Sensor bei 100 Prozent (Sensor im Wasser)** Wert des Sensors im Wasser hier eingeben! Sollte dieser überschritten werden erfolgt eine Warnung im Protokoll(Debug)
 ---
 
 <a id="pumpeneinstellungen-des-ventils"></a>
@@ -162,6 +179,7 @@ Diese Konfigurationsebene besteht aus zwei Reitern: **Haupteinstellungen** und *
 
 ---
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ---
 ---
 <a id="pumpen-einstellungen"></a>
@@ -192,6 +210,7 @@ Hier werden die Einstellung der Hauptpumpe (Grundwasser), einer zweiten Pumpe (Z
     
 ---
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ---
 ---
 <a id="zeit-einstellungen"></a>
@@ -219,6 +238,7 @@ In diesem Abschnitt wird die Startzeiten von SprinkleControl festgelegt.
     
 ---
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ---
 ---
 <a id="zustzliche-einstellungen"></a>
@@ -270,9 +290,10 @@ Dies geschieht jedes Mal, wenn die Temperatur sich ändert.
 Beim Aktivieren des Feldes "Wettervorhersage verwenden", erscheint ein Auswahlfeld. In diesem muss die Instanz vom Adapter "Das Wetter" ausgewählt werden.
 Im Adapter "Das Wetter“ muss der "Pfad 2: XML-Datei mit 5-Tage-Wettervorhersage und detaillierten Informationen für alle 3 Stunden" ausgefüllt sein, 
 damit SprinkleControl auf das Objekt **"daswetter.0.NextDaysDetailed.Location_1.Day_1.rain_value"** zugreifen kann. Dieser Wert wird dann bei jedem Start im Automatikmodus zur Entscheidung einer Beregnung verwendet.
-
+* **Niederschlags-Schwellwert in mm** Erst wenn dieser Wert von der Regenvorhersage überschritten wird, so wird diese berücksichtigt.
 ---
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ---
 ---
 # Objekte
@@ -320,6 +341,7 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 
 ---
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ---
 ---
 <a id="benachrichtigungen"></a>
@@ -334,6 +356,7 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
     
 ---
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 --- 
 <a id="telegram"></a>
 ### Telegram
@@ -350,6 +373,7 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 
 ---
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ---
 <a id="pushover"></a>
 ### Pushover
@@ -367,6 +391,7 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 
 ---
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ---
 <a id="e-mail"></a>
 ### E-Mail
@@ -383,6 +408,7 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 
 ---
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ---
 <a id="whatsapp"></a>
 ### WhatsApp
@@ -397,6 +423,7 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 
 ---
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ---
 ---
 <a id="was-ist-fr-die-zukunft-geplant"></a>
@@ -406,15 +433,19 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 
 ---  
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ---
 ---
 
 ## Changelog
-
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 0.2.0 (03.07.2021)
+* (Dirk-Peter-md) Bodenfeuchte-Sensor hinzugefügt
+* (Dirk-Peter-md) Schwellwert für Wettervorhersage hinzugefügt
 
 ### 0.1.7 (22.05.2021)
 * (Dirk-Peter-md) Beschreibung in englischer Sprache hinzugefügt

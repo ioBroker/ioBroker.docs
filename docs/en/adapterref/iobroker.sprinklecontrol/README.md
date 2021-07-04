@@ -4,7 +4,6 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.sprinklecontrol.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.sprinklecontrol.svg
 BADGE-Dependency Status: https://img.shields.io/david/Dirk-Peter-md/iobroker.sprinklecontrol.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/Dirk-Peter-md/ioBroker.sprinklecontrol/badge.svg
-BADGE-Travis-CI: http://img.shields.io/travis/Dirk-Peter-md/ioBroker.sprinklecontrol/master.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.sprinklecontrol.png?downloads=true
 ---
 ![Logo](img/sprinklecontrol.png)
@@ -237,11 +236,14 @@ Activate the Notifications tab. The communication settings are then made on the 
   - off(Boost)(5) → Irrigation circuit interrupted for 30 s because a boost function is active.
 
 ## Changelog
-
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 0.2.0 (03.07.2021)
+* (Dirk-Peter-md) Bodenfeuchte-Sensor hinzugefügt
+* (Dirk-Peter-md) Schwellwert für Wettervorhersage hinzugefügt
 
 ### 0.1.7 (22.05.2021)
 * (Dirk-Peter-md) Beschreibung in englischer Sprache hinzugefügt

@@ -1,7 +1,6 @@
 ---
 BADGE-Number of Installations: http://iobroker.live/badges/influxdb-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.influxdb.svg
-BADGE-Tests: http://img.shields.io/travis/ioBroker/ioBroker.influxdb/master.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.influxdb.svg
 ---
 * * *

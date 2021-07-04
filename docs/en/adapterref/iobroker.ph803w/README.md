@@ -33,6 +33,10 @@ Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column
 
 ## Changelog
 
+### 1.0.0 (2021-07-01)
+* Declare adapter as stable, so lets do a 1.0
+* (Apollon77) Add tier for js-controller 3.3
+
 ### 0.1.5 (2021-06-09)
 * (Apollon77) Optimize edge cases on device connection and try reconnect and make sure connection status is correct
 * (Apollon77) Better handle pingpong related reconnects

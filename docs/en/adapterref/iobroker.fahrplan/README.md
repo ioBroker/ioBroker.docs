@@ -225,6 +225,9 @@ With +-Button new entries can be added to the table.
 	### __WORK IN PROGRESS__
 -->
 
+### __WORK IN PROGRESS__
+* (Gaudes) Include Dependabot updates
+
 ### 1.1.1 (2021-06-22)
 * (Gaudes) Advanced error reporting for HAFAS errors
 * (Gaudes) Include Dependabot updates

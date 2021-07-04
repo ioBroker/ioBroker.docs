@@ -90,6 +90,12 @@ thanks to @sigi234
 * 
 -->
 
+### 1.7.2 (2021-07-02)
+* bugfix 2 Temp Humidity
+
+### 1.7.1 (2021-07-02)
+* bugfix for Temp Humidity
+
 ### 1.7.0 (2021-04-19)
 * added new Widget Window3 for possibility showing open/tilted/closed [0/1/2] windows 
 
@@ -98,13 +104,6 @@ thanks to @sigi234
 
 ### 1.5.1 (2021-03-28)
 * replaced presence images with smaller ones
-
-
-### 1.5.0 (2021-03-26)
-* new widget Presence
-
-### 1.4.7 (2021-03-26)
-* removed unit test 
 
 
 ## License

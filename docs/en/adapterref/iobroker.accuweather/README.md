@@ -34,13 +34,18 @@ For better view a custom lovelace card is created - see https://github.com/algar
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+*
 ## Changelog
+### 1.2.0 (2021-07-03)
+* (Garfonso) adjust roles to properly detect weather forecast in Summary folder. (Summary objects need to be deleted and adapter restarted after that)
+
 ### 1.1.7 (2021-06-24)
 * (bluefox) Create device for device-detector 
 
-## v1.1.6 (2021-05-05)
+### v1.1.6 (2021-05-05)
 Minor bug fixes to `Object.common` section
 
 ### 1.1.5 (2021-01-25)

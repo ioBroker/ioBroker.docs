@@ -1046,7 +1046,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.vis-rgraph/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.vis-timeandweather/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.vis-weather/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.vivitek/README.md
-https://doc.iobroker.net/#de/adapters/adapterref/iobroker.vodafone-speedtest/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.vofo-speedtest/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.volumio/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.volvo/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.vr200/README.md
@@ -1487,7 +1487,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.vis-rgraph/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.vis-timeandweather/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.vis-weather/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.vivitek/README.md
-https://doc.iobroker.net/#en/adapters/adapterref/iobroker.vodafone-speedtest/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.vofo-speedtest/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.volumio/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.volvo/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.vr200/README.md
@@ -1928,7 +1928,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.vis-rgraph/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.vis-timeandweather/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.vis-weather/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.vivitek/README.md
-https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.vodafone-speedtest/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.vofo-speedtest/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.volumio/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.volvo/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.vr200/README.md
@@ -2369,7 +2369,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-rgraph/README.m
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-timeandweather/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-weather/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vivitek/README.md
-https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vodafone-speedtest/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vofo-speedtest/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.volumio/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.volvo/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vr200/README.md

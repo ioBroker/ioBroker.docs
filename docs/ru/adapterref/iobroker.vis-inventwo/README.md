@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventorywo
-hash: 01y9P+JyfT8QZDhsfBbr+BXOMdrhdsg/ot9Sh4KAMDc=
+hash: nTe5CmHUbAywNVoDUwj6qFBtYwxIPOcQ4VF08ehlH8Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -42,6 +42,12 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ---
 
+## 3.0.11
+- Исправлена ошибка
+
+## 3.0.10
+- Исправлена ошибка
+
 ## 3.0.9
 - Исправлена ошибка
 
@@ -77,7 +83,7 @@ nicht zu sehen, sind aber nicht weg! Damit diese wieder zu sehen sind müssen
 die Widgets einmal EINZELN im Editor angeklickt werden.
 ```
 
-- Beim Universal- и Multiwidget kann der Inhaltstyp geändert werden.
+- Beim Universal- und Multiwidget kann der Inhaltstyp geändert werden.
     - Тип текста: Bild (стандартный), Analoge Uhr, Digitale Uhr и HTML / Text
     - Analoge und digitale Uhr: Farbe des Ziffernblatts под руководством Zeiger kann frei gewählt werden, Zeitzone kann geändert werden
     - Statt dem Icon kann ein eigener Text oder ein Datenpunktwert per Binding angezeigt werden
@@ -299,13 +305,13 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 ### 1.3.6
 - Добавлена опция установки состояния для навигации.
-- Исправлена проблема с точками данных без конфигурации.
+- Исправлена проблема с датапоинтами без конфига.
 
 ### 1.3.5
 - Добавлена частота обновления таблицы
 
 ### 1.3.4
-- Удалены значки и фоны, изменен конфиг, Исправлена навигация.
+- Убраны значки и фоны, изменен конфиг, Исправлена навигация.
 
 ### 1.3.3
 - Исправлена опция значения фонового виджета
@@ -335,7 +341,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 ### 1.2.0
 - Добавлен виджет изображений
-- Добавлен ползунок для изменения радиуса границы для всех 4 углов (если эта версия является обновлением для вас, вам нужно нажимать каждую кнопку в редакторе vis, чтобы вернуть углы по умолчанию)
+- Добавлен ползунок для изменения радиуса границы для всех 4 углов (если эта версия является обновлением для вас, вам нужно щелкнуть каждую кнопку в редакторе vis, чтобы вернуть углы по умолчанию)
 - Добавлены новые иконки
 
 ### 1.1.1
@@ -348,7 +354,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Изменены виджеты кнопок для использования шрифта и текста по умолчанию.
 
 ### 1.0.0
-- Фон виджета и непрозрачность содержимого, переключатель можно изменить с логического на значение, значки изменены с белого на черный, добавлены бесшовные фоны
+- Фон виджета и прозрачность содержимого, переключатель можно изменить с логического на значение, значки изменены с белого на черный, добавлены бесшовные фоны
 
 ### 0.1.2
 - Исправление ошибок

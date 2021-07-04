@@ -191,6 +191,9 @@ However, access to certain photo albums or folders can easily be implemented in 
 	### __WORK IN PROGRESS__
 -->
 
+### __WORK IN PROGRESS__
+* (Gaudes) Include Dependabot updates
+
 ### 0.1.4 (2021-04-18)
 * (Gaudes) Configurable order for Filesystem (Git #37)
 * (Gaudes) Configurable picture list update every n hours (Git #41)

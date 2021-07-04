@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.accuweather/README.md
 title: ioBroker.accuweather
-hash: WdILwFFXh50ulU8fUrumN2VctPbMVRgQq67NIVy8DpY=
+hash: On/fFF4r+ZCWa0rqet1IurukKyyXPW/+FChGXPNRW7k=
 ---
 ![Logo](../../../en/adapterref/iobroker.accuweather/admin/accuweather.png)
 
@@ -15,10 +15,10 @@ hash: WdILwFFXh50ulU8fUrumN2VctPbMVRgQq67NIVy8DpY=
 ![Travis-CI](http://img.shields.io/travis/algar42/ioBroker.accuweather/master.svg)
 
 # IoBroker.accuweather
-## Akkuwetteradapter für ioBroker
+## Akkuwetter-Adapter für ioBrokerB
 Wettervorhersage mit AccuWeather API.
 
-Der Adapter empfängt die aktuellen Bedingungen (wird stündlich aktualisiert), die 5-Tage-Tagesvorhersage (aktualisiert einmal täglich um ca. 7 Uhr morgens) und die 12-Stunden-Vorhersage (aktualisiert alle sechs Stunden um 12 Uhr, 6 Uhr, 12 Uhr und 18 Uhr).
+Der Adapter empfängt aktuelle Bedingungen (wird stündlich aktualisiert), 5-Tage-Tagesvorhersagen (aktualisiert einmal täglich um ca. 7 Uhr morgens) und 12-Stunden-Vorhersagen (aktualisiert alle sechs Stunden um 12 Uhr, 6 Uhr, 12 Uhr und 18 Uhr).
 
 ## Einstieg
 ### API-Schlüssel abrufen
@@ -31,32 +31,39 @@ Um den Standortschlüssel zu erhalten, gehen Sie zu https://www.accuweather.com/
 Ihr Standortschlüssel ist die Zahl am Ende der URL der Prognose.
 
 ### Verwendung in Lovelace-Visualisierung (ab Version 1.1.0)
-Zusammenfassungskanal enthält aktuelle und tagesbezogene Prognosen mit Rolle/Typen von Zuständen, die vom Typdetektor unterstützt werden
+Der Zusammenfassungskanal enthält aktuelle und tagesbezogene Prognosen mit Rolle/Typen von Zuständen, die vom Typdetektor unterstützt werden.
 Die neue Funktion kann verwendet werden, um die Wettervorhersage in der Lovelace-Benutzeroberfläche anzuzeigen.
 Zur besseren Ansicht wird eine benutzerdefinierte Lovelace-Karte erstellt - siehe https://github.com/algar42/IoB.lovelace.accuweather-card
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __ARBEITEN IN PROGRESS__ -->
-## V1.1.6 (2021-05-05) Kleinere Fehlerbehebungen im Abschnitt `Object.common`
-### 1.1.5 (2021-01-25)
-* (algar42) Log-Warnung auflösen für js-controller 3.2
-
-### 1.1.4
-* (HGlab01) kleiner Bugfix bezüglich setTimeout BereichTime
-
-### 1.1.3 (2020-03-04)
-* (algar42) Kleinere Updates für den Kompaktmodus
-
-### 1.1.0 (2019-11-09)
-* (algar42) Zusammenfassungskanal hinzugefügt, um die Erstellung von Typdetektoren und automatischen Wettergeräten zu unterstützen
-
-### 1.0.2 (2019-09-12)
-* (algar42) Produktionsfreigabe
+### **ARBEITEN LÄUFT** -->
+### **IN ARBEIT** *
 
 ## Changelog
+### 1.2.0 (2021-07-03)
+* (Garfonso) adjust roles to properly detect weather forecast in Summary folder. (Summary objects need to be deleted and adapter restarted after that)
+
 ### 1.1.7 (2021-06-24)
-* (bluefox) Create device for device-detector
+* (bluefox) Create device for device-detector 
+
+### v1.1.6 (2021-05-05)
+Minor bug fixes to `Object.common` section
+
+### 1.1.5 (2021-01-25)
+* (algar42) Resolve log Warning for js-controller 3.2
+
+### 1.1.4
+* (HGlab01) small bugfix regarding setTimeout range
+
+### 1.1.3 (2020-03-04)
+* (algar42) Minor updates for compact mode
+
+### 1.1.0 (2019-11-09)
+* (algar42) Summary channel added to support type-detector and automatic weather device creation
+
+### 1.0.2 (2019-09-12)
+* (algar42) Production Release
 
 ## License
 MIT License

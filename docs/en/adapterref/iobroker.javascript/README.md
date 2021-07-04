@@ -2,8 +2,6 @@
 BADGE-Number of Installations: http://iobroker.live/badges/javascript-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.javascript.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.javascript.svg
-BADGE-Tests: https://travis-ci.org/ioBroker/ioBroker.javascript.svg?branch=master
-BADGE-NPM: https://nodei.co/npm/iobroker.javascript.png?downloads=true
 chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.javascript/README.md"},"en/adapterref/iobroker.javascript/blockly.md":{"title":{"en":"Contents"},"content":"en/adapterref/iobroker.javascript/blockly.md"}}}
 ---
 ## Content
@@ -1583,11 +1581,12 @@ Scripts can be activated and deactivated by controlling of this state with ack=f
 ## Changelog
 
 ### __WORK IN PROGRESS__
-* (foxriver76) add adapter to TIER 1
-* (Apollon77) Prevent crash case(Sentry IOBROKER-JAVASCRIPT-70)
-
-### 5.1.4 (2021-03-23)
+* (foxriver76) add adapter to tier 1 for js-controller 3.3 (this means will be started first!)
+* (bluefox) Implemented the change of theme and the expert mode via admin
 * (bluefox) fixed the error with the simulation
+* (Xyolyp) Blockly: Allow Value read from datapoint as switch input
+* (ThomasPohl) Blockly:  add text_multiline block
+* (Apollon77) Prevent crash case(Sentry IOBROKER-JAVASCRIPT-70)
 
 ### 5.1.3 (2021-03-23)
 * (bluefox) fixed the error in the debugging

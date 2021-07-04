@@ -75,6 +75,9 @@ You can debug view charts locally with:
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 1.0.0 (2021-07-02)
+* (bluefox) Fixed many bugs
+
 ### 0.4.14 (2021-04-29)
 * (bluefox) Fixed reorder of presets
 

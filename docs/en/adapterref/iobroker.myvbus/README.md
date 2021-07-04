@@ -10,8 +10,8 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.myvbus/badge.svg)](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.myvbus)
 [![NPM](https://nodei.co/npm/iobroker.myvbus.png?downloads=true)](https://nodei.co/npm/iobroker.myvbus/)
 
-**Tests:** [![Travis-CI](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.myvbus/master.svg)](https://travis-ci.org/iobroker-community-adapters/ioBroker.myvbus)
-  
+**Tests:** ![Test and Release](https://github.com/iobroker-community-adapters/iobroker.myvbus/workflows/Test%20and%20Release/badge.svg)  
+
 ## ioBroker Adapter for Resol VBus
 
 This adapter connects ioBroker to various VBus-based devices using resol-vbus, a JavaScript library for the acquisition of RESOL VBus data, provided by Daniel Wippermann.

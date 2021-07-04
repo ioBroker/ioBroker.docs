@@ -3,46 +3,46 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: cmyhSPUcwEz1iT5OdupfqQ7rtrelYjXPf5Mm/RTK5A0=
+hash: O/9g9KEHoarO9stxwgzMohQQNlrQowOwH4pnbPJLC+8=
 ---
 ![商标](../../../en/adapterref/iobroker.web/admin/web.png)
 
 ![安装数量](http://iobroker.live/badges/web-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.web.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.web.svg)
-![测验](https://travis-ci.org/ioBroker/ioBroker.web.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.web.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.web.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.web.svg)
 
-＃ioBroker.web
-基于Node.js的Web服务器，并表示可以从ioBroker DB中读取文件
+# IoBroker.web
+![测试和发布](https://github.com/ioBroker/ioBroker.web/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+基于 Node.js 的 Web 服务器和 express 从 ioBroker DB 读取文件
 
-##调整Web套接字
-在某些网络套接字客户端上，通信存在性能问题。
-有时，此问题是由于长轮询机制上的socket.io通信回退所致。
-您可以设置选项* Force Web-Sockets *强制仅使用Web套接字传输。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
+
+## 调整 Web 套接字
+在某些 Web 套接字客户端上，通信存在性能问题。
+有时这个问题是由于 socket.io 通信在长轮询机制上的回退。
+您可以设置选项 *Force Web-Sockets* 以强制仅使用 web-sockets 传输。
 
 ##让我们加密证书
-阅读[这里](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
+阅读 [这里](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
 
-##扩展
-Web驱动程序支持扩展。扩展名是URL处理程序，如果出现此类URL请求，则将调用该处理程序。
-这些扩展看起来像普通的适配器，但是它们没有正在运行的进程，将由Web服务器调用。
+## 扩展
+Web 驱动程序支持扩展。扩展名是 URL 处理程序，如果出现此类 URL 请求，它将被调用。
+扩展看起来像普通的适配器，但它们没有正在运行的进程，将被 Web 服务器调用。
 
-例如。用户可以激活特殊的代理适配器并访问同一Web服务器中的其他设备（例如网络摄像头）。
-必须让所有服务在一台Web服务器下可用。
+例如。用户可以激活特殊的代理适配器并访问同一网络服务器中的其他设备（如网络摄像头）。
+需要让所有服务在一台 Web 服务器下可用。
 
-##暴力保护
-如果启用了身份验证，并且用户在一分钟内输入了5次无效密码，则他必须至少等待一分钟才能进行下一次尝试。
-第15次错误尝试后，用户必须等待1个小时。
+## 蛮力保护
+如果启用了身份验证，并且用户在一分钟内输入了 5 次无效密码，则他必须至少等待一分钟才能再次尝试。
+第 15 次错误尝试后，用户必须等待 1 小时。
 
-##“保持登录状态”选项
-如果选择此选项，则用户将保持登录状态一个月。
-否则，用户将保持登录状态，以进行配置的“登录超时”。
+##“保持登录”选项
+如果选择此选项，用户将保持登录状态一个月。
+如果没有，用户将在配置的“登录超时”内保持登录状态。
 
-##访问状态的值
-您可以通过HTTP get请求访问常规状态值和二进制状态值。
+## 访问状态值
+您可以通过 HTTP get 请求访问正常和二进制状态值。
 
 ```
 http://IP:8082/state/system.adapter.web.0.alive =>
@@ -56,7 +56,7 @@ http://IP:8082/state/javascript.picture.png =>
 [IMAGE]
 ```
 
-该图像必须使用如下所示的javascript适配器编写：
+图像必须写在 javascript 适配器中，如：
 
 ```
 createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
@@ -65,14 +65,24 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 ```
 
 ##“基本身份验证”选项
-通过发送未经授权的`WWW-Authenticate`标头允许`401`来允许通过基本身份验证登录。
-可以用于* FullyBrowser *之类的应用程序。一旦输入了错误的凭据，您将被重定向到登录页面。
+通过发送带有 `WWW-Authenticate` 头的 `401` 未经授权，允许通过基本身份验证登录。
+这可用于*FullyBrowser* 等应用程序。一次输入错误的凭据时，您将被重定向到登录页面。
 
-<！-下一个版本的占位符（在该行的开头）：
+<!-- 下一个版本的占位符（在行首）：
 
-### __正在进行的工程__->
+### __工作进行中__ -->
 
 ## Changelog
+
+### 3.4.4 (2021-07-04)
+* (Apollon77) Fix missing www files
+
+### 3.4.3 (2021-07-01)
+* (Apollon77) Add tier for js-controller 3.3
+
+### 3.4.2 (2021-07-01)
+* (bluefox) Update GUI
+
 ### 3.4.1 (2021-04-30)
 * (bluefox) Added support of admin5
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.myvbus/README.md
 title: ioBroker.myvbus
-hash: vrblLAmPDLheq6IrG8M5j1mev6UNtfmV+UTYNM4yR74=
+hash: 6kKllJqqY6mebKgEc/lPReCJxOPTFTpcWPfDSiCXAfY=
 ---
 # IoBroker.myvbus
 ![商标](../../../en/adapterref/iobroker.myvbus/admin/myvbus.png)
@@ -15,7 +15,8 @@ hash: vrblLAmPDLheq6IrG8M5j1mev6UNtfmV+UTYNM4yR74=
 ![依赖状态](https://img.shields.io/david/iobroker-community-adapters/iobroker.myvbus.svg)
 ![已知漏洞](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.myvbus/badge.svg)
 ![新产品管理](https://nodei.co/npm/iobroker.myvbus.png?downloads=true)
-![特拉维斯CI](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.myvbus/master.svg)
+
+**测试：** ![测试和发布](https://github.com/iobroker-community-adapters/iobroker.myvbus/workflows/Test%20and%20Release/badge.svg)
 
 ## Resol VBus ioBroker 适配器
 该适配器使用 resol-vbus 将 ioBroker 连接到各种基于 VBus 的设备，resol-vbus 是一个用于获取 RESOL VBus 数据的 JavaScript 库，由 Daniel Wippermann 提供。
@@ -25,7 +26,7 @@ hash: vrblLAmPDLheq6IrG8M5j1mev6UNtfmV+UTYNM4yR74=
 <https://www.npmjs.com/package/resol-vbus>
 
 ＃＃ 特征
-* 允许从各种 RESOL(R) VBus(R) 设备读取测量数据 - 最好是来自 DeltaSol(R) 系列的太阳能和系统控制器，包括内置热量计 (HQM) - 使用 DL3 或 DL2 数据记录器，KM2通信模块、VBus/LAN 接口适配器或本地通过 TCP/IP 的串行/LAN 网关。
+* 允许从各种 RESOL(R) VBus(R) 设备读取测量数据 - 最好是 DeltaSol(R) 系列的太阳能和系统控制器，包括内置热量计 (HQM) - 使用 DL3 或 DL2 数据记录器，KM2通信模块、VBus/LAN 接口适配器或本地通过 TCP/IP 的串行/LAN 网关。
 * 还支持使用 VBus/USB 串行接口适配器或使用 DLx/KMx 通过 VBus.net(R) 访问设备。
 * 处理实时 VBus 数据流并使它们作为 ioBroker 状态可用。
 * 使用可配置的循环时间更新值。
@@ -57,9 +58,11 @@ RESOL、VBus、VBus.net、DeltaSol 和其他是 RESOL - Elektronische Regelungen
 作者不以任何方式获得 RESOL GmbH 或其任何关联子公司、徽标或商标的认可或附属。
 
 ## Changelog
+### 0.2.0 (2021-06-25)
+* Dropped node.js 10 support, added node.js 14 and 16 support
+
 ### 0.1.1 (2021-05-18)
 * Fixes for supporting js-controller >=3.2.x
-
 
 ### 0.1.0
 * (grizzelbee) Fix: config page shows current settings now (not default anymore)
