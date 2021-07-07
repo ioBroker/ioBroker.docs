@@ -347,6 +347,10 @@ Der Kanal besteht aus schreibgeschützten Zuständen vom Typ `number`, die Infor
 	### __WORK IN PROGRESS__
 -->
 
+### 1.8.6 (2021-07-04)
+* (foxriver76) widget: we removed debug logging and unnecessary template functions
+* (foxriver76) widget: we now cache the jquery selectors to improve the performance
+
 ### 1.8.5 (2021-07-02)
 * (foxriver76) widget: stroke width can now be configured
 

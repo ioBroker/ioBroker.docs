@@ -1,16 +1,13 @@
 ![Logo](admin/digitalstrom.png)
 # ioBroker.digitalstrom
 
+![Number of Installations](http://iobroker.live/badges/digitalstrom-installed.svg)
+![Number of Installations](http://iobroker.live/badges/digitalstrom-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.digitalstrom.svg)](https://www.npmjs.com/package/iobroker.digitalstrom)
+
+![Test and Release](https://github.com/ioBroker/ioBroker.digitalstrom/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/digitalstrom/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.digitalstrom.svg)](https://www.npmjs.com/package/iobroker.digitalstrom)
-![Number of Installations (latest)](http://iobroker.live/badges/digitalstrom-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/digitalstrom-stable.svg)
-[![Dependency Status](https://img.shields.io/david/Apollon77/iobroker.digitalstrom.svg)](https://david-dm.org/Apollon77/iobroker.digitalstrom)
-[![Known Vulnerabilities](https://snyk.io/test/github/Apollon77/ioBroker.digitalstrom/badge.svg)](https://snyk.io/test/github/Apollon77/ioBroker.digitalstrom)
-
-[![NPM](https://nodei.co/npm/iobroker.digitalstrom.png?downloads=true)](https://nodei.co/npm/iobroker.digitalstrom/)
-
-**Tests:**: [![Travis-CI](http://img.shields.io/travis/Apollon77/ioBroker.digitalstrom/master.svg)](https://travis-ci.org/Apollon77/ioBroker.digitalstrom)
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
@@ -95,6 +92,10 @@ Please use GitHub issues for this.
 Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Optimize for js-controller 3.3
+* (Apollon77) Optimize get/set Value handling for new devices
 
 ### 2.2.0 (2021-04-16)
 * (Apollon77) Add support for integrated (IC) devices (SW, GE, GR)
@@ -199,7 +200,7 @@ Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column
 ## License
 MIT License
 
-Copyright (c) 2020 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2020-2021 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

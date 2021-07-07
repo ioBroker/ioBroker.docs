@@ -11,17 +11,38 @@
 
 This adapter saves state history into InfluxDB.
 
-**Only InfluxDB >= v0.9 supported, v1.0 or v2.x recommended**
+**The Adapter supports InfluxDB 1.x and 2.x**
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
+## InfluxDB version support
+
+### InfluxDB 1.x
+If you have an InfluxDB 1.x installation (preferably 1.8.x or 1.9.x) then you choose " 1.x" in the adapter configuration and enter the Host-IP and Port together with Username and Password for the Access.
+You can also define a database name. The default is "iobroker". On first adapter start this database is created.
+
+When doing custom queries via the "query" message you can use InfluxQL to select the data you want.
+
+### InfluxDB 2.x
+Since 2.0 of the adapter also InfluxDB 2.x is supported which works a bit different.
+Here beside the Host-IP and Port the following data are required:
+* **Organization**: You need to create an organization on the commandline and need to enter the name or ID of that organization here. If you created one Organization when doing the InfluxDB setup you have created an initial organization and can use this here, else use `influx org list` to see available organizations.
+* **Authentication Token**: You need to create an Authentication token  that have sufficient rights to basically do all actions on the provided organization! **Important: For now just use the initial owner auth token because we still struggle on how to create an Token that has sufficient permissions. The Owner Token was generated on InfluxDB setup process.**
+
+You can also define a database name - this is used as Bucket. The default is "iobroker". On first adapter start this bucket is created in the configured organization.
+
+When doing custom queries via the "query" message you can use Flux queries to select the data you want. Details on Flux can be found at https://docs.influxdata.com/influxdb/v2.0/reference/flux/
+
+## Retention Policy
+TBD
+
 ## Direct writes or buffered writes?
-With the default configuration the adapter stores each single datapoint directly into the database and only use the internal buffer if the database is not available. If database was not available the buffer is flushed at the given interval, so it can take the defined interval till the missing points are written!
+With the default configuration the adapter stores each single datapoint directly into the database and only use the internal buffer if the database is not available. If the database was not available the buffer is flushed at the given interval, so it can take the defined interval till the missing points are written!
 
 By changing the configuration it is possible to cache new datapoints up to a defined count or a defined maximum interval after which all points are stored into the database. This also gives better performance and less system load compared to writing the datapoints directly.
 InfluxDB has a limitation of the maximum size for writes which is at around 2MB. It should be save to have up to 15.000 datapoints as buffer maximum, maybe also 20.000, but this highly depends on the length of your datapoint-IDs.
 
-On exit of the adapter the buffer is stored and reinitialized with next start, so no datapoints should be lost and will be written after next start.
+On exit of the adapter the buffer is storedon disk and reinitialized with next adapter start, so no datapoints should be lost and will be written after next start.
 
 ## InfluxDB and datatypes
 InfluxDB is very strict on datatypes. The datatype for a measurement value is defined with it's first write.
@@ -31,33 +52,13 @@ errors into the InfluxDB. The adapter detects this and will write these potentia
 Additionally InfluxDB do not support "null" values, so these are not written at all into the DB.
 
 ## Installation of InfluxDB
+Please refer to the official InfluxDB pages for installationinstructions depending on your OS.
 
-**Only influxDB >= v0.9 supported, v1.0 recommended**
+* InfluxDB 1.x: https://docs.influxdata.com/influxdb/v1.8/introduction/install/
+* InfluxDB 2.x: https://docs.influxdata.com/influxdb/v2.0/install/
 
-The installation package for windows and other OS's can be downloaded [here](https://www.influxdata.com/downloads/).
-
-Before you start influxd.exe under windows, you must edit influxdb.conf file to remove all linux paths. You can use ioBroker certificate as certificate:
-
-```
-https-certificate = "C:/ioBroker/node_modules/ioBroker.js-controller/conf.key"
-```
-
-Under debian you can install it with:
-```
-sudo apt-get update
-sudo apt-get install influxdb
-```
-
-Best is to add the Influxdata repository before to get the most current version:
-
-```
-curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
-source /etc/lsb-release
-echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
-```
-
-### Setup authentication for influxDB (can be omitted)
-**NOTE:** Influx DB V2.x relies on organization/token login, instead of username/password!
+### Setup authentication for InfluxDB 1.x (optional)
+**NOTE:** Influx DB V2.x relies on organization/token login, instead of username/password! This is only applicable for InfluxDB 1.x
 
 If you use DB localy you may leave authentication disabled and skip this part.
 
@@ -84,13 +85,11 @@ Enable authentication, by editing /etc/influxdb/influxdb.conf:
 ```
 - Restart service: ``` service influxdb restart ```
 
-
-
-## Installation of Grafana
+## Installation of Grafana (Charting Tool)
 There is additional charting tool for InfluxDB - Grafana.
 It must be installed additionally.
 
-Try to install a current v3.x version of Grafana because InfluxDB support is enhanced there in comparism to v2.x
+Install a current version of Grafana 3.x+ because InfluxDB support is enhanced there in comparism to earlier Grafana versions.
 
 Under debian you can install it as described at http://docs.grafana.org/installation/debian/ .
 For ARM platforms your can check vor v3.x at https://github.com/fg2it/grafana-on-raspberry.
@@ -289,7 +288,6 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 -->
 ## Changelog
 ### __WORK IN PROGRESS__
-* (Excodibur) Fixed bugged "Test Connection" button (Admin 4)
 * (Excodibur) Added InfluxDB 2.0 support
 
 ### 1.9.5 (2021-04-19)

@@ -1,16 +1,15 @@
 ![Logo](admin/yr.png)
 # ioBroker.yr
 
+![Number of Installations](http://iobroker.live/badges/yr-installed.svg)
+![Number of Installations](http://iobroker.live/badges/yr-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.yr.svg)](https://www.npmjs.com/package/iobroker.yr)
+
+![Test and Release](https://github.com/ioBroker/ioBroker.yr/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/yr/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.yr.svg)](https://www.npmjs.com/package/iobroker.yr)
-![Number of Installations (latest)](http://iobroker.live/badges/yr-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/yr-stable.svg)
-[![Dependency Status](https://img.shields.io/david/ioBroker/iobroker.yr.svg)](https://david-dm.org/ioBroker/iobroker.yr)
-[![Known Vulnerabilities](https://snyk.io/test/github/ioBroker/ioBroker.yr/badge.svg)](https://snyk.io/test/github/ioBroker/ioBroker.yr)
 
-[![NPM](https://nodei.co/npm/iobroker.yr.png?downloads=true)](https://nodei.co/npm/iobroker.yr/)
-
-**Tests:** ![Test and Release](https://github.com/ioBroker/ioBroker.met/workflows/Test%20and%20Release/badge.svg)
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## yr.no adapter for ioBroker
 
@@ -37,6 +36,10 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 -->
 
 ## Changelog
+
+### 3.0.1 (2021-07-06)
+* (Apollon77) Optimizations and Fixes
+* (Apollon77) Add Sentry crash reporting
 
 ### 3.0.0 [2021-06-06]
 * (withstu) Switch to new JSON API and change data Structure (breaking)
@@ -123,7 +126,7 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>
+Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>, Bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -136,6 +136,9 @@ CCU / Homematic поддерживает различные типы устро�
 
 ## Changelog
 
+### 1.14.43 (2021-07-05)
+* (foxriver76) we now correctly map the role of smoke detectors (closes #354)
+ 
 ### 1.14.42 (2021-06-27)
 * (bluefox) Added the roles to thermostat states
 * (bluefox) Added the roles for switch

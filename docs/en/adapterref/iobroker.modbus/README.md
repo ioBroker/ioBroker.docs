@@ -276,6 +276,8 @@ There are some programs in folder *test' to test the TCP communication:
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 3.4.9 (2021-07-06)
+* (bluefox) Changed edit behaviour
 
 ### 3.4.8 (2021-06-24)
 * (Apollon77) Fix crash case on writing floats (Sentry IOBROKER-MODBUS-2D)

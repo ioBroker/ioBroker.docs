@@ -28,6 +28,9 @@ Manage and create devices for using it in other adapters like material, iot,...
 -->
 
 ## Changelog
+### 1.0.8 (2021-07-04)
+* (bluefox) Corrected creation of the devices
+
 ### 1.0.7 (2021-06-30)
 * (bluefox) Corrected creation the folders
 

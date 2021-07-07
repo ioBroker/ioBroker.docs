@@ -2637,12 +2637,20 @@ return 'your result';
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 5.2.2 (2021-07-06)
+* (Apollon77) Add support to install npm packages as defined version (name@version)
+
+### 5.2.1 (2021-07-05)
+* IMPORTANT: Admin 5.1.9 is now required for this JavaScript version!
+* (Apollon77) Adjust logging for "array"/"object" type handling
+
+### 5.2.0 (2021-07-04)
+* (Apollon77) BREAKING: Convert state values for object types "array"/"object" to stringified  as required by js-controller 3.3. This means such objects should not be "JSON.parsed" after reading!
 * (foxriver76) add adapter to tier 1 for js-controller 3.3 (this means will be started first!)
 * (bluefox) Implemented the change of theme and the expert mode via admin
 * (bluefox) fixed the error with the simulation
 * (Xyolyp) Blockly: Allow Value read from datapoint as switch input
-* (ThomasPohl) Blockly:  add text_multiline block
+* (ThomasPohl) Blockly: add text_multiline block
 * (Apollon77) Prevent crash case(Sentry IOBROKER-JAVASCRIPT-70)
 
 ### 5.1.3 (2021-03-23)
@@ -2650,12 +2658,6 @@ return 'your result';
 
 ### 5.1.2 (2021-03-22)
 * (bluefox) Showed the runtime information for the rules
-
-### 5.1.1 (2021-03-21)
-* (bluefox) Implemented the debug of the instances from javascript adapter
-
-### 5.1.0 (2021-03-19)
-* (bluefox) Implemented the debug of scripts possibility
 
 ## License
 

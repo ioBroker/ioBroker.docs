@@ -719,6 +719,10 @@ Native value from ioBroker &gt; Objects
     ### **WORK IN PROGRESS**
 -->
 
+### 2.2.3 (2021-07-06)
+
+-   (UncleSamSwiss) Reduced number of Sentry reports for unsupported controls.
+
 ### 2.2.2 (2021-06-23)
 
 -   (UncleSamSwiss) Explicitly setting adapter tier to 2.

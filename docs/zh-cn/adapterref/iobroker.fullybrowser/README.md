@@ -3,68 +3,58 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.fullybrowser/README.md
 title: ioBroker.fullybrowser
-hash: Nn/bwU4XpkZRblqnE/mWtJmqwuB2cy2UOK5wp0oEm4I=
+hash: ECD123bEy/KhBj8XVmBQn3J6yXBMvFPc/mRZSQbmi7Y=
 ---
 ![商标](../../../en/adapterref/iobroker.fullybrowser/admin/fully.png)
 
 ![安装数量](http://iobroker.live/badges/fullybrowser-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.fullybrowser.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.fullybrowser.svg)
-![测验](https://travis-ci.org/arteck/iobroker.fullybrowser.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.fullybrowser.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.fullybrowser.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.fullybrowser.svg)
+![新产品管理](https://nodei.co/npm/iobroker.fullybrowser.png?downloads=true)
 
-＃ioBroker.fullybrowser
+# IoBroker.fullybrowser
 =================
 
-ioBroker的fullyBrowser适配器---------------------------------------------- --------------------------------
+ioBroker 的全浏览器适配器 ---------------------------------------------- --------------------------------
 
-该适配器管理您的[完全信息亭浏览器](https://www.ozerov.de/fully-kiosk-browser)（需要Plus许可证）。它为您提供了许多通过ioBroker来控制平板电脑的可能性，例如打开/关闭显示屏，启动任何平板电脑应用程序，启动屏幕保护程序等。此外，它还提供各种状态下的信息，例如平板电脑的电池电量等。 。您可以使用例如可视化。
-以下是命令选项的简短摘录：
+此适配器管理您的 [完全自助服务终端浏览器](https://www.fully-kiosk.com)（需要 Plus 许可证）。它为您提供了许多通过 ioBroker 控制平板电脑的可能性，例如打开/关闭显示器、启动任何平板电脑应用程序、启动屏幕保护程序等。此外，它还提供各种状态信息，例如平板电脑的电池电量等. 你可以使用例如用于可视化。
+命令选项的一小部分摘录：
 
-![Möglichkeiten](https://github.com/arteck/iobroker.fullyBrowser/blob/master/doku/auszug.png)
+![莫格利希凯滕](https://github.com/arteck/iobroker.fullyBrowser/blob/master/doku/auszug.png)
 
-<b>节点&gt;&gt; 8.xx</b>
+<b>NodeJs &gt;&gt; 8.xx</b>
 
 ## Changelog
+
+### 2.0.9 (2021-05-30)
+* (arteck)  lastInfoUpdate is now correct
+
+### 2.0.6 (2021-03-18)
+* (arteck) timeout new defined
+
+### 2.0.4 (2021-01-20)
+* (arteck) new js-controller upd
+
+### 2.0.2 (2020-12-28)
+* (arteck) little update
+
+### 2.0.1 (2020-08-19)
+* (arteck) refactoring
+* (arteck) settings update interval switch so sec
+
+### 1.0.4 (2020-08-06)
+* (arteck) volume set
+
 ### 1.0.3 (2020-02-16)
 * (arteck) support compact mode
-
 
 ### 1.0.1 (2019-06-20)
 * (arteck) encodeURL
 
-### 1.0.0 (2019-05-22)
-* (arteck) stable
-
-### 0.0.17 (2019-05-01)
-* (arteck) add queue
-
-### 0.0.16 (2019-02-28)
-* (arteck) fix url send
-
-### 0.0.13 (2019-02-09)
-* (arteck) support for compact-mode added
-
-### 0.0.12 (2019-01-04)
-
-### 0.0.11 (2019-01-01)
-* (arteck) exception handling
-
-
-### 0.0.8 (2018-12-22)
-* (arteck) psw field crypted
-*          clear added
- 
-### 0.0.7 (2018-12-16)
-* (arteck) bug 'no config' corr
-
-### 0.0.6 (2018-12-10)
-* (arteck) first free test version
-
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Arthur Rupp <arteck@outlook.com>
+Copyright (c) 2018-2021 Arthur Rupp <arteck@outlook.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

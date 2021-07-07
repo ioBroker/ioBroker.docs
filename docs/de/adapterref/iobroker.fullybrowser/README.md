@@ -2,69 +2,59 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fullybrowser/README.md
-title: ioBroker.fullybrowser
-hash: Nn/bwU4XpkZRblqnE/mWtJmqwuB2cy2UOK5wp0oEm4I=
+title: ioBroker.vollbrowser
+hash: ECD123bEy/KhBj8XVmBQn3J6yXBMvFPc/mRZSQbmi7Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.fullybrowser/admin/fully.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/fullybrowser-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.fullybrowser.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.fullybrowser.svg)
-![Tests](https://travis-ci.org/arteck/iobroker.fullybrowser.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.fullybrowser.png?downloads=true)
 
-# IoBroker.fullybrowser
+# IoBroker.vollbrowser
 =================
 
-fullBrowser Adapter für ioBroker ---------------------------------------------- --------------------------------
+fullBrowser Adapter für ioBroker ---------------------------------------------------------- --------------------------------
 
-Dieser Adapter verwaltet Ihre [Voll Kiosk Browser](https://www.ozerov.de/fully-kiosk-browser) (eine Plus-Lizenz ist erforderlich). Es bietet Ihnen eine Reihe von Möglichkeiten, Ihr Tablet über ioBroker zu steuern, z. B. das Ein- und Ausschalten des Displays, das Starten einer beliebigen Tablet-App, das Starten des Bildschirmschoners usw. Außerdem bietet es verschiedene Informationen zu Zuständen wie dem Akkuladestand Ihres Tablets usw. . die Sie zB verwenden können zur Visualisierung.
+Dieser Adapter verwaltet Ihre [Vollständiger Kiosk-Browser](https://www.fully-kiosk.com) (eine Plus-Lizenz ist erforderlich). Es bietet Ihnen eine Reihe von Möglichkeiten, Ihr Tablet über ioBroker zu steuern, wie das Ein- und Ausschalten des Displays, das Starten einer Tablet-App, das Starten des Bildschirmschoners usw. Außerdem bietet es verschiedene Informationen zum Status, wie zum Beispiel den Akkustand Ihres Tablets usw. . die Sie zB verwenden können zur Visualisierung.
 Ein kleiner Auszug nur der Befehlsoptionen:
 
-![möglichkeiten](https://github.com/arteck/iobroker.fullyBrowser/blob/master/doku/auszug.png)
+![Möglichkeiten](https://github.com/arteck/iobroker.fullyBrowser/blob/master/doku/auszug.png)
 
-<b>Knoten &gt;&gt; 8.xx.</b>
+<b>NodeJs &gt;&gt; 8.xx</b>
 
 ## Changelog
+
+### 2.0.9 (2021-05-30)
+* (arteck)  lastInfoUpdate is now correct
+
+### 2.0.6 (2021-03-18)
+* (arteck) timeout new defined
+
+### 2.0.4 (2021-01-20)
+* (arteck) new js-controller upd
+
+### 2.0.2 (2020-12-28)
+* (arteck) little update
+
+### 2.0.1 (2020-08-19)
+* (arteck) refactoring
+* (arteck) settings update interval switch so sec
+
+### 1.0.4 (2020-08-06)
+* (arteck) volume set
+
 ### 1.0.3 (2020-02-16)
 * (arteck) support compact mode
-
 
 ### 1.0.1 (2019-06-20)
 * (arteck) encodeURL
 
-### 1.0.0 (2019-05-22)
-* (arteck) stable
-
-### 0.0.17 (2019-05-01)
-* (arteck) add queue
-
-### 0.0.16 (2019-02-28)
-* (arteck) fix url send
-
-### 0.0.13 (2019-02-09)
-* (arteck) support for compact-mode added
-
-### 0.0.12 (2019-01-04)
-
-### 0.0.11 (2019-01-01)
-* (arteck) exception handling
-
-
-### 0.0.8 (2018-12-22)
-* (arteck) psw field crypted
-*          clear added
- 
-### 0.0.7 (2018-12-16)
-* (arteck) bug 'no config' corr
-
-### 0.0.6 (2018-12-10)
-* (arteck) first free test version
-
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Arthur Rupp <arteck@outlook.com>
+Copyright (c) 2018-2021 Arthur Rupp <arteck@outlook.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

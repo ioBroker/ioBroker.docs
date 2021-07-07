@@ -9,38 +9,19 @@
 
 meteoalarm Adapter for ioBroker
 ------------------------------------------------------------------------------
-This adapter is pulling weather alarms from meteoalarm.eu, which includes wind, snow, rain, high and low temperature,etc. This information is available in local language and for detailed regions.
+
+## !!!! The new version 2.0.0 which can handle the new website is currently in testing and available in the latest/beta channel
+
+This adapter is pulling weather alarms from https://meteoalarm.org, which includes wind, snow, rain, high and low temperature,etc. This information is available in local language and for detailed regions.
+
+Disclaimer: Time delays between this website and the www.meteoalarm.org website are possible, for the most up to date information about alert levels as published by the participating National Meteorological Services please use https://www.meteoalarm.org.
 
 ## How to use it
-There are two options how you can get the link to retrieve the meteoalarm information.
-
-Option 1: Choose your country, then press "load region", and then choose the region. The xml is then filled automatically. Just press save and you are ready.
-
-Option 2: Go to http://meteoalarm.eu and choose your region. Then go to the RSS symbol on the top right side, do a right click and copy the link. This is the link which you please add to the setup of the adapter.
-
-![Logo](screenshot.png)
+Choose your country, and afterwards the region you want the warnings for. If you are unsure what your region name is, please go to https://meteoalarm.org and try to find it on the map. 
 
 
-## Available fields
-|Field Name|Description|                                                                       
-|:---:|:---:|
-|Last Update|Date when the adapter received data the last time|
-|Link|Link to the RSS Feed|
-|Location|Alarm Location|
-|Publication Date|Publication Date of the alarm according to the website|
-|HTMLToday|HTML Widget that displays Alarms for today|
-|Weather Map Country|HTML Link to Weather Map of the Alarm Country|
-|Today/Tomorrow|These datapoints are available for today and tomorrow:|
-|   Text|Alarm Text in country specific language|
-|   From|Alarm starting date|
-|   To|Alarm ending date|
-|   Type|Type of Alarm as number|
-|   TypeText|Type of Alarm as text|
-|   Level|Level of Alarm as number|
-|   LevelText|Level of Alarm as text|
-|   Color|Alarm color for widgets|
-|   Icon|Alarm type icon|
-
+## Add it to your vis
+The easiest way to add it to your vis is by using the widget basic - string, and there choosing the datapoint htmlToday. This gives you a predesigned HTML widget, which you can adjust in the setup.
 
 ## Alarm Types
 |Alarm Type|Description|                                                                       
@@ -69,6 +50,9 @@ Ability to define the colors for the various alarm levels in HEX code. Used for 
 "Use white icons": 
 Use white icons instead of black ones
 
+"Icons": 
+Define the size of the icon in the HTML widget
+
 "No symbols in widget":
 Don't use the symbol in the HTML widget. You can still access it in the objects. This is usefill if you want to show the icon seperatly from the widget - e.g. in a bigger size.
 
@@ -82,43 +66,48 @@ Don't use the symbol in the HTML widget. You can still access it in the objects.
 
 ## Supported countries
 * Austria
-* Croatia
-* Czech Republic
-* Finnland
 * Germany
+* Belgium
+* BosniaHerzegovina
+* Croatia
+* Cyprus
+* Czech Republic
+* Denmark
+* Estonia
+* Finland
+* France
 * Greece
 * Hungary
-* Ireland
+* Iceland
 * Israel
 * Italy
 * Latvia
 * Lithuania
 * Luxembourg
 * Malta
-* Moldova
-* Montenegro
 * Netherlands
 * Norway
 * Poland
 * Romania
 * Serbia
 * Slovakia
+* Slovenia
 * Spain
-* Switzerland
 * Sweden
+* UK
 
 If you don't find your country, please create an issue on github, and I will be happy to add it
 
 ## Not possible countries
-* France (no rss feed available)
-* Portugal (no splitting possible)
-* Slovenia (no rss feed available)
+* Switzerland (geocode file from meteoalarm.org is probably incorrect)
+* Portugal (geocode file from meteoalarm.org is probably incorrect)
+* Bulgaria (geocode file from meteoalarm.org is probably incorrect)
 
-## Features to implement
-* Handle multiple alarms on one day
 
 
 ## Changelog
+## 2.0.0 (2021-06-20)
+* (jack-blackson) Switch to Meteoalarm.org, complete rebuild
 ## 1.2.1 (2021-06-05)
 * (jack-blackson) Bugfix to handle incorrect XML (if country instead of region is used)
 * (jack-blackson) Added Luxembourg

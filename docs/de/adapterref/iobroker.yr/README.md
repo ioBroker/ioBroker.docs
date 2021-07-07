@@ -3,20 +3,18 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.yr/README.md
 title: ioBroker.y
-hash: nJ8ThmSwhhe6DrBPNofMOL2H//cmHUGTqSf3IviPa0w=
+hash: kHJRFHx1Jtc5V1ZJAdTrNxLCKuWfpgZQIgTYS78ts54=
 ---
 ![Logo](../../../en/adapterref/iobroker.yr/admin/yr.png)
 
+![Anzahl der Installationen](http://iobroker.live/badges/yr-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.yr.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.yr.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/yr-installed.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/yr-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/ioBroker/iobroker.yr.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/ioBroker/ioBroker.yr/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.yr.png?downloads=true)
 
 # IoBroker.yr
-**Tests:** ![Testen und freigeben](https://github.com/ioBroker/ioBroker.met/workflows/Test%20and%20Release/badge.svg)
+![Testen und freigeben](https://github.com/ioBroker/ioBroker.yr/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/yr/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Jahr kein Adapter für ioBroker
 holt 10d Wettervorhersage von [Jahr.nr](yr.no)
@@ -25,14 +23,14 @@ holt 10d Wettervorhersage von [Jahr.nr](yr.no)
 
 https://api.met.no/weatherapi/locationforecast/2.0/documentation
 
-**Hinweis** - wenn _"Fehlende Übersetzungen an iobroker.net senden"_ aktiviert ist (Standard), werden fehlende Übersetzungen an den iobroker.net-Server gesendet. Es werden keine IPs oder sonstige Informationen gespeichert oder analysiert. Fehlt nur noch die Übersetzung.
+**Hinweis** - wenn _"Fehlende Übersetzungen an iobroker.net senden"_ aktiviert ist (Standard), werden fehlende Übersetzungen an den iobroker.net-Server gesendet. Es werden keine IPs oder zusätzliche Informationen gespeichert oder analysiert. Fehlt nur noch die Übersetzung.
 
 ##Symbole
 Icons werden von hier [https://api.met.no/weatherapi/weathericon/2.0/documentation](https://api.met.no/weatherapi/weathericon/2.0/documentation) übernommen und gehören zur Bj.Nr.
 
 ## MACHEN
 * Meteogramm hinzufügen (png wird wahrscheinlich mit der neuen API eingestellt)
-* Fügen Sie eine tägliche Vorhersage basierend auf einer stündlichen Vorhersage hinzu
+* Fügen Sie eine tägliche Vorhersage basierend auf der stündlichen Vorhersage hinzu
 * HTML-Tabelle hinzufügen
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
@@ -51,7 +49,7 @@ Icons werden von hier [https://api.met.no/weatherapi/weathericon/2.0/documentati
 * (bluefox) Übersetzungen hinzufügen
 
 ### 1.0.0 [2016-03-15]
-* (bluefox) Parsen von Städten ändern
+* (bluefox) Parsing von Städten ändern
 
 ###0,1.9 [2015-10-28]
 * (bluefox) Fehler bei Übersetzungen beheben
@@ -105,6 +103,10 @@ Icons werden von hier [https://api.met.no/weatherapi/weathericon/2.0/documentati
 
 ## Changelog
 
+### 3.0.1 (2021-07-06)
+* (Apollon77) Optimizations and Fixes
+* (Apollon77) Add Sentry crash reporting
+
 ### 3.0.0 [2021-06-06]
 * (withstu) Switch to new JSON API and change data Structure (breaking)
 * (withstu) Update project dependencies
@@ -126,7 +128,7 @@ Icons werden von hier [https://api.met.no/weatherapi/weathericon/2.0/documentati
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>
+Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>, Bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

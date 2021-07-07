@@ -3,25 +3,23 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.yr/README.md
 title: ioBroker.yr
-hash: nJ8ThmSwhhe6DrBPNofMOL2H//cmHUGTqSf3IviPa0w=
+hash: kHJRFHx1Jtc5V1ZJAdTrNxLCKuWfpgZQIgTYS78ts54=
 ---
 ![商标](../../../en/adapterref/iobroker.yr/admin/yr.png)
 
+![安装数量](http://iobroker.live/badges/yr-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.yr.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.yr.svg)
-![安装数量（最新）](http://iobroker.live/badges/yr-installed.svg)
-![安装数量（稳定）](http://iobroker.live/badges/yr-stable.svg)
-![依赖状态](https://img.shields.io/david/ioBroker/iobroker.yr.svg)
-![已知漏洞](https://snyk.io/test/github/ioBroker/ioBroker.yr/badge.svg)
-![新产品管理](https://nodei.co/npm/iobroker.yr.png?downloads=true)
 
 # IoBroker.yr
-**测试：** ![测试和发布](https://github.com/ioBroker/ioBroker.met/workflows/Test%20and%20Release/badge.svg)
+![测试和发布](https://github.com/ioBroker/ioBroker.yr/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/yr/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
 
 ## Yr.no ioBroker 适配器
 从 [年号](yr.no) 获取 10 天天气预报
 
-[yr.no](yr.no) 是[挪威气象研究所](met.no) 和[挪威广播公司]](nrk.no)
+[yr.no](yr.no) 是[挪威气象研究所](met.no) 和[挪威广播公司](nrk.no)
 
 https://api.met.no/weatherapi/locationforecast/2.0/documentation
 
@@ -35,7 +33,7 @@ https://api.met.no/weatherapi/locationforecast/2.0/documentation
 * 根据每小时预测添加每日预测
 * 添加html表格
 
-<!-- 下一版本的占位符（在行首）：
+<!-- 下一个版本的占位符（在行首）：
 
 ### __工作进行中__ -->
 ## 1.0.4 [2016-07-06]
@@ -88,7 +86,7 @@ https://api.met.no/weatherapi/locationforecast/2.0/documentation
 * (hobbyquaker) 加上“预测”。陈述身份
 
 ### 0.0.3
-* (hobbyquaker) 设置用户界面，位置自动完成
+* (hobbyquaker) 设置用户界面，自动完成位置
 * (hobbyquaker) 将 yr_forecast 重命名为预测
 * (hobbyquaker) 添加了 children 属性
 * (hobbyquaker) 减少日志冗长
@@ -104,6 +102,10 @@ https://api.met.no/weatherapi/locationforecast/2.0/documentation
 * 设置状态预测对象
 
 ## Changelog
+
+### 3.0.1 (2021-07-06)
+* (Apollon77) Optimizations and Fixes
+* (Apollon77) Add Sentry crash reporting
 
 ### 3.0.0 [2021-06-06]
 * (withstu) Switch to new JSON API and change data Structure (breaking)
@@ -126,7 +128,7 @@ https://api.met.no/weatherapi/locationforecast/2.0/documentation
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>
+Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>, Bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

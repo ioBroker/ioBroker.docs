@@ -2,19 +2,20 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iot/README.md
-title: IoT-адаптер ioBroker
-hash: RPZLbAhefWe0dN9Y6h+0qu9Ba1TiO9thmROCEbuQWGw=
+title: ioBroker IoT-адаптер
+hash: p7+y58cPamys/HPMVn50ltJt7Mtgyizqs0PzeBOubhI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
 ![Количество установок](http://iobroker.live/badges/iot-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.iot.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.iot.svg)
-![НПМ](https://nodei.co/npm/iobroker.iot.png?downloads=true)
 
 # IoBroker IoT-адаптер
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.iot/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/iot/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 Этот адаптер предназначен ТОЛЬКО для связи с Amazon Alexa, Google Home и Nightscout.
-Это не для удаленного доступа к вашему экземпляру ioBroker. Для этого используйте адаптер ioBroker.cloud.
+Это не для удаленного доступа к вашему экземпляру ioBroker. Для этого воспользуйтесь адаптером ioBroker.cloud.
 
 ** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
@@ -92,7 +93,7 @@ Alexa, lock the "lock name"
 
 Для этого есть два важных перечисления: комнаты и функции.
 
-Комнаты такие: гостиная, ванная, спальня.
+Комнаты похожи на: гостиную, с / у, спальню.
 Функции такие: свет, жалюзи, обогрев.
 
 Чтобы состояние появилось в автоматически сгенерированном списке, должны быть выполнены следующие условия:
@@ -151,7 +152,7 @@ Alexa, lock the "lock name"
 
 Вы можете написать «*» в белом списке, и все услуги будут разрешены.
 
-Здесь вы можете найти инструкции, как использовать его с [надсмотрщик](doc/tasker.md).
+Здесь вы можете найти инструкции, как использовать его с [исполнитель](doc/tasker.md).
 
 Услуга IFTTT разрешена, только если установлен ключ IFTTT.
 

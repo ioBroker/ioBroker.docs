@@ -23,6 +23,10 @@ Use objects under remote to control the vehicle
 
 ## Changelog
 
+### 0.0.6
+
+* (TA2k) fix trip object naming
+  
 ### 0.0.5
 
 * (TA2k) fix receiving data

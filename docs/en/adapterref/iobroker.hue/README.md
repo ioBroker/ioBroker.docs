@@ -2,10 +2,13 @@
 # ioBroker Philips Hue Bridge Adapter
 ==============
 
-![Build Status](https://github.com/iobroker-community-adapters/ioBroker.hue/workflows/Test%20and%20Release/badge.svg)
-![Number of Installations](http://iobroker.live/badges/hue-installed.svg) ![Number of Installations](http://iobroker.live/badges/hue-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.hue.svg)](https://www.npmjs.com/package/iobroker.hue)
+![Number of Installations](http://iobroker.live/badges/hue-installed.svg)
+![Number of Installations](http://iobroker.live/badges/hue-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.hue.svg)](https://www.npmjs.com/package/iobroker.hue)
+
+![Test and Release](https://github.com/iobroker-community-adapters/iobroker.hue/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/hue/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.hue.svg)](https://www.npmjs.com/package/iobroker.hue)
-[![NPM](https://nodei.co/npm/iobroker.hue.png?downloads=true)](https://nodei.co/npm/iobroker.hue/)
 
 **This adapter uses the service [Sentry.io](https://sentry.io) to automatically report exceptions and code errors and new device schemas to me as the developer.** More details see below!
 
@@ -56,6 +59,9 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+* (Apollon77) Add tier for js-controller 3.3
+
 ### 3.5.19 (2021-06-02)
 * (foxriver76) fix crash case if we cannot get min/max ct values
 

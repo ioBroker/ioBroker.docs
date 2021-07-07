@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: WTSAKgVijJSIgYS1KHyy/KSxzMFRzASqr8S3BdDDI+A=
+hash: pR3ExXYvFbo7WZLJsJaV+Mu9UHOusC1bRA/UV484FtE=
 ---
 ![Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -15,36 +15,18 @@ hash: WTSAKgVijJSIgYS1KHyy/KSxzMFRzASqr8S3BdDDI+A=
 # IoBroker.meteoalarm
 **Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
-meteoalarm Adapter für ioBroker ---------------------------------------------------------- -------------------------------- Dieser Adapter zieht Wetteralarme von meteoalarm.eu, die Wind, Schnee, Regen einschließen , hohe und niedrige Temperatur usw. Diese Informationen sind in der Landessprache und für detaillierte Regionen verfügbar.
+meteoalarm Adapter für ioBroker ---------------------------------------------------------- --------------------------------
+
+## !!!! Die neue Version 2.0.0, die mit der neuen Website umgehen kann, befindet sich derzeit im Test und ist im neuesten/Beta-Kanal verfügbar
+Dieser Adapter ruft Wetteralarme von https://meteoalarm.org ab, die Wind, Schnee, Regen, hohe und niedrige Temperaturen usw. umfassen. Diese Informationen sind in der Landessprache und für detaillierte Regionen verfügbar.
+
+Haftungsausschluss: Zeitverzögerungen zwischen dieser Website und der Website www.meteoalarm.org sind möglich. Für die aktuellsten Informationen zu den von den teilnehmenden nationalen Wetterdiensten veröffentlichten Alarmstufen verwenden Sie bitte https://www.meteoalarm.org.
 
 ## So verwenden Sie es
-Es gibt zwei Möglichkeiten, wie Sie den Link zum Abrufen der Meteoalarm-Informationen abrufen können.
+Wählen Sie Ihr Land und anschließend die Region aus, für die Sie die Warnungen erhalten möchten. Wenn Sie sich nicht sicher sind, wie Ihre Region heißt, gehen Sie bitte zu https://meteoalarm.org und versuchen Sie, sie auf der Karte zu finden.
 
-Option 1: Wählen Sie Ihr Land aus, drücken Sie dann auf "Region laden" und wählen Sie dann die Region aus. Die XML wird dann automatisch gefüllt. Drücken Sie einfach auf Speichern und Sie sind bereit.
-
-Option 2: Gehen Sie zu http://meteoalarm.eu und wählen Sie Ihre Region. Gehen Sie dann auf das RSS-Symbol oben rechts, machen Sie einen Rechtsklick und kopieren Sie den Link. Dies ist der Link, den Sie bitte zur Einrichtung des Adapters hinzufügen.
-
-![Logo](../../../en/adapterref/iobroker.meteoalarm/screenshot.png)
-
-## Verfügbare Felder
-|Feldname|Beschreibung|
-|:---:|:---:|
-|Letzte Aktualisierung|Datum, an dem der Adapter das letzte Mal Daten empfangen hat|
-|Link|Link zum RSS-Feed|
-|Standort|Alarmstandort|
-|Veröffentlichungsdatum|Veröffentlichungsdatum des Alarms laut Website|
-|HTMLToday|HTML-Widget, das Alarme für heute anzeigt|
-|Wetterkarte Land|HTML Link zur Wetterkarte des Alarmlandes|
-|Heute/Morgen|Diese Datenpunkte sind für heute und morgen verfügbar:|
-| Text|Alarmtext in länderspezifischer Sprache|
-| Von|Alarm Startdatum|
-| Bis|Alarm-Enddatum|
-| Typ|Alarmtyp als Zahl|
-| TypeText|Alarmtyp als Text|
-| Stufe|Alarmstufe als Zahl|
-| LevelText|Alarmstufe als Text|
-| Farbe|Alarmfarbe für Widgets|
-| Symbol|Symbol für Alarmtyp|
+## Fügen Sie es Ihrem vis hinzu
+Der einfachste Weg, es zu Ihrem Vis hinzuzufügen, ist die Verwendung des Widget basic - string und dort die Auswahl des Datenpunkts htmlToday. Damit erhalten Sie ein vorgefertigtes HTML-Widget, das Sie im Setup anpassen können.
 
 ## Alarmtypen
 |Alarmtyp|Beschreibung|
@@ -70,6 +52,8 @@ Option 2: Gehen Sie zu http://meteoalarm.eu und wählen Sie Ihre Region. Gehen S
 
 „Weiße Icons verwenden“: Verwende weiße statt schwarzer Icons
 
+"Icons": Definieren Sie die Größe des Icons im HTML-Widget
+
 "Keine Symbole im Widget": Verwenden Sie das Symbol nicht im HTML-Widget. Sie können weiterhin in den Objekten darauf zugreifen. Dies ist sinnvoll, wenn Sie das Symbol getrennt vom Widget anzeigen möchten - z.B. in größerer Größe.
 
 ## Alarmstufen
@@ -77,45 +61,50 @@ Option 2: Gehen Sie zu http://meteoalarm.eu und wählen Sie Ihre Region. Gehen S
 |:---:|:---:|
 |Grün|Im Moment ist keine Warnung verfügbar.|
 |Gelb|Das Wetter ist potenziell gefährlich. Die vorhergesagten Wetterphänomene sind nicht ungewöhnlich, aber Aktivitäten, die meteorologischen Risiken ausgesetzt sind, sollte erhöhte Aufmerksamkeit geschenkt werden. Informieren Sie sich über die zu erwartenden meteorologischen Bedingungen und gehen Sie keine vermeidbaren Risiken ein.|
-|Orange|Das Wetter ist gefährlich. Ungewöhnliche meteorologische Phänomene wurden vorhergesagt. Schäden und Unfälle sind wahrscheinlich. Seien Sie sehr aufmerksam und vorsichtig und halten Sie sich über die zu erwartenden meteorologischen Bedingungen auf dem Laufenden. |
-|Rot|Das Wetter ist sehr gefährlich. Es wurden ungewöhnlich intensive meteorologische Phänomene vorhergesagt. Extreme Schäden und Unfälle, oft großflächig, bedrohen Leben und Sachwerte. |
+|Orange|Das Wetter ist gefährlich. Ungewöhnliche meteorologische Phänomene wurden vorhergesagt. Schäden und Unfälle sind wahrscheinlich. Seien Sie sehr aufmerksam und vorsichtig und informieren Sie sich über die zu erwartenden meteorologischen Bedingungen. |
+|Rot|Das Wetter ist sehr gefährlich. Es wurden ungewöhnlich intensive meteorologische Phänomene vorhergesagt. Extreme Schäden und Unfälle, oft großflächig, gefährden Leben und Sachwerte. |
 
 ##Unterstützte Länder
 * Österreich
-* Kroatien
-* Tschechien
-* Finnland
 * Deutschland
+* Belgien
+* BosnienHerzegowina
+* Kroatien
+* Zypern
+* Tschechien
+* Dänemark
+* Estland
+* Finnland
+* Frankreich
 * Griechenland
 * Ungarn
-* Irland
+* Island
 * Israel
 * Italien
 * Lettland
 * Litauen
 * Luxemburg
 * Malta
-* Moldawien
-* Montenegro
 * Niederlande
 * Norwegen
 * Polen
 * Rumänien
 * Serbien
 * Slowakei
+* Slowenien
 * Spanien
-* Schweiz
 * Schweden
+* Großbritannien
 
 Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf github, und ich füge es gerne hinzu
 
 ## Nicht mögliche Länder
-* Frankreich (kein RSS-Feed verfügbar)
-* Portugal (keine Aufteilung möglich)
-* Slowenien (kein RSS-Feed verfügbar)
+* Schweiz (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
+* Portugal (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
+* Bulgarien (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
 
-## Zu implementierende Funktionen
-* Behandeln Sie mehrere Alarme an einem Tag
+## 2.0.0 (2021-06-20)
+* (jack-blackson) Wechsel zu Meteoalarm.org, kompletter Neuaufbau
 
 ## 1.2.1 (2021-06-05)
 * (jack-blackson) Bugfix zum Umgang mit falschem XML (wenn Land statt Region verwendet wird)
@@ -163,18 +152,18 @@ Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf github, und 
 * (jack-blackson) Schweiz & Slowakei hinzugefügt
 
 ## 1.0.5 (2019-09-22)
-* (jack-blackson) Kleine Logging-Anpassungen
+* (jack-blackson) Kleine Protokollierungsanpassungen
 
 ## 1.0.4 (2019-09-11)
 * (jack-blackson) Travis-Fehler
 
 ## 1.0.3 (2019-09-09)
-* (jack-blackson) Kleine Bugfixes, Änderung vom Typ "Deamon" zu "Schedule"
+* (jack-blackson) Kleine Bugfixes, Änderung von Typ "Deamon" zu "Schedule"
 
 ## 1.0.2 (2019-08-25)
-* (jack-blackson) Nachbestellte Release-Infos
+* (jack-blackson) Infos zur Veröffentlichung nachbestellt
 
-### 1.0.1 (18.08.2019)
+### 1.0.1 (2019-08-18)
 * (jack-blackson) Bugfix kein Alarmsymbol
 
 ### 1.0.0 (2019-08-12)

@@ -105,7 +105,6 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 ## Changelog
 ### __WORK IN PROGRESS__
-* (Excodibur) Fixed bugged "Test Connection" button (Admin 4)
 * (Excodibur) Added InfluxDB 2.0 support
 
 ### 1.9.5 (2021-04-19)
