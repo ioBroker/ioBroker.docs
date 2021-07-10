@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: pR3ExXYvFbo7WZLJsJaV+Mu9UHOusC1bRA/UV484FtE=
+hash: /0XsFtPpaSdNPnI6JYhKKO07s7LilG2Z501Y/fGyVNo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -103,7 +103,12 @@ hash: pR3ExXYvFbo7WZLJsJaV+Mu9UHOusC1bRA/UV484FtE=
 * Португалия (файл геокода с сайта meteoalarm.org, вероятно, неверен)
 * Болгария (файл геокода с сайта meteoalarm.org, вероятно, неверен)
 
-## 2.0.0 (20.06.2021)
+## 2.0.1 (2021-07-08)
+* (jack-blackson) Имя папки с сигналами тревоги изменено на Alarm_X
+* (jack-blackson) Определите в настройке, какие будильники вы хотите видеть
+* (Джек-Блэксон) Сортировка сигналов тревоги по дате вступления в силу
+
+## 2.0.0 (06.07.2021)
 * (jack-blackson) Перейдите на Meteoalarm.org, полностью перестроите
 
 ## 1.2.1 (05.06.2021)

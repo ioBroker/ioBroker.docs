@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: pR3ExXYvFbo7WZLJsJaV+Mu9UHOusC1bRA/UV484FtE=
+hash: /0XsFtPpaSdNPnI6JYhKKO07s7LilG2Z501Y/fGyVNo=
 ---
 ![商标](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -103,7 +103,12 @@ ioBroker的meteoalarm适配器---------------------------------------- ---------
 * 葡萄牙（来自meteoalarm.org 的地理编码文件可能不正确）
 * 保加利亚（来自meteoalarm.org 的地理编码文件可能不正确）
 
-## 2.0.0 (2021-06-20)
+## 2.0.1 (2021-07-08)
+* (jack-blackson) 将警报文件夹名称更改为 Alarm_X
+* (jack-blackson) 在设置中定义您想要查看的警报
+* (jack-blackson) 按生效日期排序警报
+
+## 2.0.0 (2021-07-06)
 * (jack-blackson) 切换到 Meteoalarm.org，完成重建
 
 ## 1.2.1 (2021-06-05)

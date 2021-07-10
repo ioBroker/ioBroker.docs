@@ -8,12 +8,12 @@
 
 [![NPM](https://nodei.co/npm/iobroker.tino.png?downloads=true)](https://nodei.co/npm/iobroker.tino/)
 
-**Tests:**: [![Travis-CI](http://img.shields.io/travis/bowao/ioBroker.tino/master.svg)](https://travis-ci.org/bowao/ioBroker.tino)
+**Tests:**: [![Travis-CI](https://img.shields.io/travis/com/bowao/ioBroker.tino/master)](https://travis-ci.com/bowao/ioBroker.tino)
 
 ## TiNo adapter for ioBroker
 (German version see below)
 
-Read wireless sensordata received via TiNo Protocol Version 1.01 and TiNo Protocol Version 2.0.
+Read wireless sensordata received via TiNo Protocol Version 1.01 and TiNo Protocol Version 2.2.
 The corresponding protocol version is automatically detected on the basis of the received data.
 
 The wireless transceiver and receiver TiNo were developed by nurazur.
@@ -55,7 +55,7 @@ The following data points would be created for receiver protocol Version 1.01:
 * RFM69 Temperature (Only in Protocol Version 1.01)
 * Bit errors
 
-In addition, the following data points are created for the receiver protocol version 2.0 (if available).
+In addition, the following data points are created for the receiver protocol version 2.2 (if available).
 
 * Interrupt 4 to 8
 * synchronized
@@ -65,13 +65,15 @@ In addition, the following data points are created for the receiver protocol ver
 * Height (Only with height sensor installed)
 * Air pressure (Only with air pressure sensor installed)
 * Contact (Only with reed contact installed)
+* Temperature 1
+* Temperature 2
 
 
 -------------------------------------------------------------------------------------------
 
 ## TiNo adapter für ioBroker
 
-Einlesen der vom TiNo Version 1.01 und TiNo Version 2.0 empfangenen Funksensordaten.
+Einlesen der vom TiNo Version 1.01 und TiNo Version 2.2 empfangenen Funksensordaten.
 Die entsprechende Protokoll-Version wird automatisch anhand der empfangen Daten erkannt. 
 
 Der Funksender und -empfänger TiNo wurden von nurazur entwickelt.
@@ -112,7 +114,7 @@ Folgende Datenpunkte werden für das Empfänger-Protokoll Version 1.01 angelegt:
 * RFM69 Temperatur (Nur in Protokoll Version 1.01)
 * Bitfehler
 
-zusätzlich werden für das Empfänger-Protokoll Version 2.0 folgende Datenpunkte angelegt (wenn vorhanden).
+zusätzlich werden für das Empfänger-Protokoll Version 2.2 folgende Datenpunkte angelegt (wenn vorhanden).
 
 * Interrupt 4 bis 8
 * Synchronisation
@@ -122,9 +124,18 @@ zusätzlich werden für das Empfänger-Protokoll Version 2.0 folgende Datenpunkt
 * Höhe (Nur bei installiertem Höhensensor)
 * Luftdruck (Nur bei installiertem Luftdrucksensor)
 * Reed-Kontakt (Nur bei installiertem Reed-Kontakt)
+* Temperatur 1
+* Temperatur 2
 
 
 ## Changelog
+### 1.1.0
+- Add TiNo Protocol V2.2 support
+- (Add Datapoints temperature 1 and Temperatur 2)
+- (max value of data point temperature increased to 600)
+- Add connectionType and dataSource in io-package.json
+- Add testing for Node.js 16
+
 ### 1.0.3
 - Displays the interrupt value only for short time
 
@@ -174,7 +185,7 @@ zusätzlich werden für das Empfänger-Protokoll Version 2.0 folgende Datenpunkt
 ## License
 MIT License
 
-Copyright (c) 2020 bowao <cryolab@web.de>
+Copyright (c) 2021 bowao <cryolab@web.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sma-em/README.md
 title: ioBroker.sma-em
-hash: Vn5OSe2MGQA2G6eKIMgiKGqDXBCuHYPLzzaW6LRnY4w=
+hash: sHkyL4gjIdsp0it4l9mTtPAqsVo9KKLkpK19bf/DJ+Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.sma-em/admin/sma-em.png)
 
@@ -15,10 +15,10 @@ hash: Vn5OSe2MGQA2G6eKIMgiKGqDXBCuHYPLzzaW6LRnY4w=
 
 #ioBroker.sma-em
 ### Die Info
-Dieser Adapter liest Informationen von SMA Energy Meter und Sunny Home Manager 2.
-Es unterstützt das SMA-EMETER-Protokoll-2.
+Dieser Adapter liest Informationen von SMA Energy Meter (EMETER-20) und Sunny Home Manager 2 (HM-20).
+Es unterstützt das SMA-EMETER-Protokoll-2. Damit funktionieren auch kompatible Energiezähler anderer Hersteller.
 
-SMA Energy Meter und Sunny Home Manager 2 senden jede Sekunde Multicast-Datagramme mit ihren Energiemessdaten ins Netz.
+SMA Energy Meter und Sunny Home Manager 2 Multicast-Datagramme mit ihren Energiemessdaten im Sekundentakt ins Netz.
 Der SMA Energy Meter Adapter empfängt diese Multicast-Nachrichten und speichert sie als iobroker-States.
 Eine einzige Instanz des SMA Energy Meter Adapters erkennt alle SMA Energy Meter und Sunny Home Manager in allen angeschlossenen Netzwerken.
 
@@ -51,7 +51,7 @@ Zusätzlich zu den Zuständen im nicht erweiterten Modus stehen im erweiterten M
 ![die Einstellungen](../../../en/adapterref/iobroker.sma-em/docs/en/img/adminpage.png)
 
 - Multicast-IP: Die Standardeinstellung ist 239.12.255.254.
-- Multicast-Port: Die Standardeinstellung für den UDP-Port ist 9522.
+- Multicast Port: Die Standardeinstellung für den UDP-Port ist 9522.
 
   (Beide sollten nicht geändert werden, da SMA Geräte immer diese IP-Adresse und diesen Port verwenden)
 

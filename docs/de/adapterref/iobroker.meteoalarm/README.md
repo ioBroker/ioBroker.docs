@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: pR3ExXYvFbo7WZLJsJaV+Mu9UHOusC1bRA/UV484FtE=
+hash: /0XsFtPpaSdNPnI6JYhKKO07s7LilG2Z501Y/fGyVNo=
 ---
 ![Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -103,7 +103,12 @@ Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf github, und 
 * Portugal (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
 * Bulgarien (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
 
-## 2.0.0 (2021-06-20)
+## 2.0.1 (2021-07-08)
+* (jack-blackson) Name des Alarmordners in Alarm_X geändert
+* (jack-blackson) Definieren Sie im Setup, welche Alarme Sie sehen möchten
+* (jack-blackson) Wecker nach Gültigkeitsdatum sortieren
+
+## 2.0.0 (2021-07-06)
 * (jack-blackson) Wechsel zu Meteoalarm.org, kompletter Neuaufbau
 
 ## 1.2.1 (2021-06-05)

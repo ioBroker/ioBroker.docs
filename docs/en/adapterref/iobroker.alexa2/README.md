@@ -292,6 +292,9 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
+### __WORK IN PROGRESS__
+* (Apollon77) Try to fix setting targetTemperature
+
 ### 3.9.2 (2021-07-05)
 * (Apollon77) Only ignore empty history entries if both, summary and alexaResponse is empty
 

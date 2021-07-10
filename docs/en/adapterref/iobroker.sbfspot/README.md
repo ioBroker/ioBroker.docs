@@ -51,6 +51,9 @@ sometimes npm intall must be called more then one time to successfully install a
 
 ## Changelog
 
+### 4.0.6 (2021-07-09)
+* (René) bug fix data types
+
 ### 4.0.5 (2021-03-21)
 * (René) dependencies updated
 

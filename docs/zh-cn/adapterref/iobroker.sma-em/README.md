@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sma-em/README.md
 title: ioBroker.sma-em
-hash: Vn5OSe2MGQA2G6eKIMgiKGqDXBCuHYPLzzaW6LRnY4w=
+hash: sHkyL4gjIdsp0it4l9mTtPAqsVo9KKLkpK19bf/DJ+Y=
 ---
 ![商标](../../../en/adapterref/iobroker.sma-em/admin/sma-em.png)
 
@@ -15,17 +15,17 @@ hash: Vn5OSe2MGQA2G6eKIMgiKGqDXBCuHYPLzzaW6LRnY4w=
 
 # IoBroker.sma-em
 ### 信息
-该适配器从 SMA Energy Meter 和 Sunny Home Manager 2 读取信息。
-它支持 SMA-EMETER-protocol-2。
+该适配器从 SMA Energy Meter (EMETER-20) 和 Sunny Home Manager 2 (HM-20) 读取信息。
+它支持 SMA-EMETER-protocol-2。因此，其他制造商的兼容电能表也可以使用。
 
-SMA Energy Meter 和 Sunny Home Manager 2 每秒向网络发送带有能量测量数据的组播数据报。
+SMA Energy Meter 和 Sunny Home Manager 2 每秒向网络发送带有能量测量数据的多播数据报。
 SMA Energy Meter Adapter 接收这些多播消息并将它们存储为 iobroker 状态。
-SMA 电能表适配器的单个实例可检测所有连接网络中的所有 SMA 电能表和 Sunny Home Manager。
+SMA Energy Meter Adapter 的单个实例可检测所有连接网络中的所有 SMA Energy Meter 和 Sunny Home Manager。
 
 ![状态](../../../en/adapterref/iobroker.sma-em/docs/en/img/overview.png)
 
 ### 处于非扩展模式的状态
-- 总有功功耗（pregard）和有功功率馈入（psurplus）的瞬时值
+- 总有功功率消耗（pregard）和有功功率馈入（psurplus）的瞬时值
 - 总有功功耗（pregardcounter）和有功功率馈入（psurpluscounter）的电能表值
 - SMA Time Tick 计数器，收到的最后一条消息的时间戳，
 - 序列号、SUSyID、SMA Energy Meter 和 Sunny Home Manager 的软件版本

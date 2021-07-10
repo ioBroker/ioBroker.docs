@@ -2637,6 +2637,9 @@ return 'your result';
 
 ## Changelog
 
+### 5.2.3 (2021-07-08)
+* (agross) Fix imports like "rxjs/operators" for versioned npm modules
+
 ### 5.2.2 (2021-07-06)
 * (Apollon77) Add support to install npm packages as defined version (name@version)
 
@@ -2655,9 +2658,6 @@ return 'your result';
 
 ### 5.1.3 (2021-03-23)
 * (bluefox) fixed the error in the debugging
-
-### 5.1.2 (2021-03-22)
-* (bluefox) Showed the runtime information for the rules
 
 ## License
 

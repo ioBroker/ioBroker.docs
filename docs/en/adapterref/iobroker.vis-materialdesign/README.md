@@ -13132,6 +13132,7 @@ The adapter uses the following libraries:
 * (Scrounger) Advanced View in Widget widget added
 * (Scrounger) Dialog Widget: background color bug fix on close animation
 * (Scrounger) HTML Widget: bug fix for wrong type ([#182](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/182))
+* (Scrounger) support for base64 images added
 * (Scrounger) bug fix for VIS Editor dev values
 
 <!-- omit in toc -->

@@ -61,6 +61,10 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+### 0.75.0
+
+• Neue Icons hinzugefügt (Hobbies/Train)
+
 ### 0.74.0
 
 • Neue Icons hinzugefügt (Letters/Rounded)
