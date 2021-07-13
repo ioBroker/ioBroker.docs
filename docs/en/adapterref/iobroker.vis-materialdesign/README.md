@@ -13121,6 +13121,7 @@ The adapter uses the following libraries:
 * (Scrounger) IconList Widget: header added
 * (Scrounger) IconList Widget: color options added
 * (Scrounger) List Widget: main header added
+* (Scrounger) List Widget: events bug fix
 * (darkiop) documentation updated ([#PR179](https://github.com/Scrounger/ioBroker.vis-materialdesign/pull/179))
 * (Scrounger) Top App Bar Widget: fixed bugs found by sentry
 * (Scrounger) Top App Bar Widget: icon color bug fix if using json string

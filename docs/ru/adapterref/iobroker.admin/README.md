@@ -170,6 +170,9 @@ IP-адрес с которого доступен драйвер (поддер�
 ![ioBroker.admin - system settings](img/admin_SystemSettings.jpg)
 
 ## Changelog
+### 5.1.11 (2021-07-12)
+* (bluefox) Changed the filter of objects
+
 ### 5.1.10 (2021-07-09)
 * (bluefox) Corrected some GUI errors
 
@@ -181,9 +184,6 @@ IP-адрес с которого доступен драйвер (поддер�
 
 ### 5.1.7 (2021-06-04)
 * (bluefox) Added the possibility to clear the schedule
-
-### 5.1.6 (2021-06-02)
-* (bluefox) Improved the custom settings
 
 ## License
 

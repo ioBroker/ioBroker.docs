@@ -61,6 +61,8 @@ An extra checkbox is used to specified whether wallbox power is included (in thi
 
 ### 1.2.0 (2021-06-07)
 * (Sneak-L8) support for compact mode
+* (Sneak-L8) using sentry.io to track errors
+* (Sneak-L8) support for KeContact P30 Deutschland edition
 
 ### 1.1.3 (2021-04-26)
 * (Sneak-L8) new time option to continue charging session with regard

@@ -28,6 +28,9 @@ Manage and create devices for using it in other adapters like material, iot,...
 -->
 
 ## Changelog
+### 1.0.9 (2021-07-11)
+* (bluefox) Implement the narrow rows
+
 ### 1.0.8 (2021-07-04)
 * (bluefox) Corrected creation of the devices
 

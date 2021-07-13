@@ -76,6 +76,9 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
+### 5.1.11 (2021-07-12)
+* (bluefox) Changed the filter of objects
+
 ### 5.1.10 (2021-07-09)
 * (bluefox) Corrected some GUI errors
 
@@ -87,9 +90,6 @@ lettering of the log appears in red.
 
 ### 5.1.7 (2021-06-04)
 * (bluefox) Added the possibility to clear the schedule
-
-### 5.1.6 (2021-06-02)
-* (bluefox) Improved the custom settings
 
 ## License
 

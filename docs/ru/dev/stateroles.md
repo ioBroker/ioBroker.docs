@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/stateroles.md
 title: Государственные роли
-hash: kIse9BQRTxMVb/cNPwLYoI2Z3YovaBKIRGcIq7UwrHI=
+hash: RIoaLUKHMF+3b7Pjv2VrwWbHfSu0ld2jZl6DjjgW7kU=
 ---
 # Государственные роли
 Для объектов типа «State» необходимо, чтобы их свойству common.role была присвоена одна из ролей, указанных в списке ниже. Информация о ролях является очень важной информацией и позволяет адаптерам Visualization- и Smart-Assistant определять функцию объекта, а также то, как / если они связаны с другими объектами в том же канале, устройстве или папке.
@@ -104,7 +104,7 @@ hash: kIse9BQRTxMVb/cNPwLYoI2Z3YovaBKIRGcIq7UwrHI=
 * `value.warning` - некоторое предупреждение (можно указать состояния), чем выше, тем важнее
 * `value.sun.elevation` - высота солнца в °
 * `value.sun.azimuth` - азимут солнца в °
-* `value.voltage` - Напряжение в вольтах, единица измерения = В
+* `value.voltage` - Напряжение в вольтах, единица = В
 * `value.current` - ток в амперах, единица = A
 * `value.fill` - Уровень заполнения, единица = л, мл, м3,%
 * `value.blood.sugar` - значение сахара в крови, единица = ммоль, мгдл
@@ -185,7 +185,8 @@ hash: kIse9BQRTxMVb/cNPwLYoI2Z3YovaBKIRGcIq7UwrHI=
 ## Кондиционер или термостат
 * `level.mode.fan` -` АВТО, ВЫСОКИЙ, НИЗКИЙ, СРЕДНИЙ, ТИХОЙ, ТУРБО`
 * `level.mode.swing` -` АВТО, ГОРИЗОНТАЛЬНО, СТАЦИОНАРНЫЙ, ВЕРТИКАЛЬНЫЙ`
-* `level.mode.thermostat` - кондиционер:` AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`, термостат отопления: `AUTO, MANUAL, VACATION`,
+* `level.mode.airconditioner` - кондиционер:` AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`, термостат отопления: `AUTO, MANUAL, VACATION`,
+* `level.mode.thermostat` - термостат:` AUTO, MANUAL, VACATION`,
 
  В дополнение к этим состояниям обычно требуются `level.temperature` и `switch.power`, необходимые для отображения кондиционера.
 
@@ -384,7 +385,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `info.name` - имя устройства
 * `info.address` - какой-либо другой адрес (например, KNX)
 * `info.port` - порт tcp
-* `info.standby` - истина, если устройство в режиме ожидания
+* `info.standby` - true, если устройство в режиме ожидания
 * `info.status` - статус устройства
 * `info.display` - информация, отображаемая на дисплее устройства
 * `date.start` - строка или число
