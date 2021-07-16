@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker mihome 真空适配器
-hash: aIfH+iYBWOkmIheZ73ZJw/HBNXL8KV9LqrdRJ5H/QBk=
+hash: tMA0cL0xw9g6IZ947Gc7TFWXHoxaY1DaLO7pZgdsyvU=
 ---
 ![商标](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
@@ -50,7 +50,7 @@ hash: aIfH+iYBWOkmIheZ73ZJw/HBNXL8KV9LqrdRJ5H/QBk=
 | viomi.vacuum.v6 | :heavy_check_mark: | :x: |:x: | :x: |
 | viomi.vacuum.v7 | :heavy_check_mark: | :x: |:x: | :x: |
 | viomi.vacuum.v8 | :heavy_check_mark: | :x: |:x: | :x: |
-| rockrobo.vacuum.v1 | :heavy_check_mark: | :heavy_check_mark: |:x: |:heavy_check_mark: |
+| Rockrobo.vacuum.v1 | :heavy_check_mark: | :heavy_check_mark: |:x: |:heavy_check_mark: |
 | roborock.vacuum.s4 | :heavy_check_mark: | :heavy_check_mark: |:heavy_check_mark: |:heavy_check_mark: |
 | roborock.vacuum.s5 | :heavy_check_mark: | :heavy_check_mark: |:heavy_check_mark: |:heavy_check_mark: |
 | roborock.vacuum.s5e | :heavy_check_mark: | :heavy_check_mark: |:heavy_check_mark: |:heavy_check_mark: |
@@ -79,17 +79,19 @@ hash: aIfH+iYBWOkmIheZ73ZJw/HBNXL8KV9LqrdRJ5H/QBk=
 [代币教程](https://www.smarthomeassistent.de/token-auslesen-roborock-s6-roborock-s5-xiaomi-mi-robot-xiaowa/).
 
 ### 适配器配置
-- 对于 IP 地址，机器人的 IP 地址必须以“192.168.178.XX”格式输入
+- 对于IP地址，机器人的IP地址必须以`192.168.178.XX`格式输入
 - 机器人的端口默认设置为“54321”，不应更改
 - 自己的端口，只能用第二个机器人改变
 - 查询间隔 检索机器人状态值的时间（以毫秒为单位）（不应<10000）
 
 #### 对 Alexa 的控制
-在配置中添加 alexa 状态在这里被激活是一个 hack 设置了一个附加状态“clean_home”它是一个开关，从“真”开始，在“假”处开始 - 它回家，它自动成为智能设备中的使用名称“吸尘器”创建的云适配器，可以在云适配器中更改。
+将为 Alexa 创建特殊控制状态 `clean_home`。
+这是一个开关，从 `true` 吸盘开始，在 `false` 它回家。
+它自动成为云适配器中的智能设备，名称为“吸尘器”，可在云适配器中更改。
 
 #### 使用开始按钮恢复暂停的区域清洁
 启用此选项后，如果在运行区域清洁期间暂停，真空将在将“开始”状态设置为 true 时恢复区域清洁。
-如果此选项被禁用，当您发送启动命令时，真空将开始新的“正常清洁”，即使它在运行区域清洁期间暂停。
+如果禁用此选项，则在您发送启动命令时，真空将开始新的“正常清洁”，即使它在运行区域清洁期间暂停。
 
 - 实验性：使用复选框“发送您自己的命令”创建对象，通过它您可以向机器人发送和接收您自己的命令。
 
@@ -106,7 +108,7 @@ hash: aIfH+iYBWOkmIheZ73ZJw/HBNXL8KV9LqrdRJ5H/QBk=
 ![配置](../../../en/adapterref/iobroker.mihome-vacuum/admin/valetudo_conf.png)
 
 - 要使用地图，您必须在配置中选择 valetudo 或原始地图
-- 请求间隔必须大于 1000 毫秒 这是更新 html 地图的间隔
+- 请求间隔必须大于 1000 ms 这是更新 html 地图的间隔
 - 地图间隔必须超过 5000 毫秒，此间隔会更新 png 地图文件（您可以将其用于 Telegram 或 vis 或其他任何内容）
 - 颜色，您可以选择地图示例的颜色：
 
@@ -117,26 +119,26 @@ hash: aIfH+iYBWOkmIheZ73ZJw/HBNXL8KV9LqrdRJ5H/QBk=
 - green
 ```
 
-- 机器人那里你可以为地图选择不同的机器人或其他车辆
+- 那里的机器人，您可以为地图选择不同的机器人或其他车辆
 
 ### 地图使用
 地图存储为 base64-raw 或 PNG。
 
 您可以在以下数据点中找到地图图像：
 
-- base64：```mihome-vacuum.0.cleanmap.map64```
-- PNG：```mihome-vacuum.0.cleanmap.mapURL```
+- base64：`mihome-vacuum.0.cleanmap.map64`
+- PNG：`mihome-vacuum.0.cleanmap.mapURL`
 
 您可以将这两个图像用作所需 VIS 中的图像源。在 HTML 样式中，您可以通过以下方式使用图像：
 
-```<img src="mihome-vacuum.0.cleanmap.map64">```
+`<img src="mihome-vacuum.0.cleanmap.map64">`
 
 使用额外的样式标签，您可以调整地图样式的大小和/或格式。
 
-要使用 ```jarvis``` 中的地图，只需使用数据点之一作为 DisplayImage-Widget 的 URL。
+要使用 `jarvis` 中的地图，只需使用数据点之一作为 DisplayImage-Widget 的 URL。
 在那里您可以调整图像或整个小部件的大小。在 jarvis 的响应式设计的情况下，地图将在显示大小的情况下调整大小。
 
-要在 ```ioBroker VIS``` 中显示地图，您可以使用普通的 html 小部件，例如：
+要在 `ioBroker VIS` 中显示地图，您可以使用普通的 html 小部件，例如：
 
 ```
 [{"tpl":"tplHtml","data":{"g_fixed":false,"g_visibility":false,"g_css_font_text":false,"g_css_background":false,"g_css_shadow_padding":false,"g_css_border":false,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","refreshInterval":"0","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"html":"{mihome-vacuum.0.map.map64}"},"style":{"left":"0","top":"0","width":"100%","height":"100%"},"widgetSet":"basic"}]
@@ -166,7 +168,7 @@ xVal, yval
 ```
 
 #### 区域清洁
-要对区域抽真空，必须按如下方式填充 ZoneClean：
+要对区域抽真空，ZoneClean 必须按如下方式填充：
 
 ```
 [X1, y1, x2, x2, count]
@@ -185,13 +187,13 @@ xVal, yval
 [24117,26005,25767,27205,1], [24320,24693,25970,25843,1]
 ```
 
-####房间
+#### 房间
 带有最新家庭应用程序的较新的真空吸尘器支持房间的定义，请参阅[视频](https://www.youtube.com/watch?v=vEiUZzoXfPg)
 
-当前地图中的每个房间都有一个索引，然后从应用程序分配给该房间。从机器人我们只能得到一个带有房间号和索引的映射。适配器每次启动时都会查询这些房间，并为每个房间创建一个通道，然后就知道当前的房间索引。使用按钮 loadRooms 手动也会发生同样的情况。然后可以将该通道分配给 ioBroker 房间。如果按下按钮 roomClean，则确定卡的索引并将其发送给机器人，以便它可以对该房间进行吸尘。在此之前，FAN 功率设置为单室吸力。如果您还不能在应用程序中命名房间，也可以通过指定地图索引手动创建这样的频道。也可以添加区域坐标而不是 mapIndex。
-如果您想自发清洁多个房间，您可以通过 multiRoomClean 将 ioBroker 房间分配给该数据点，然后按下按钮来完成此操作。
+当前地图中的每个房间都有一个索引，然后从应用程序分配给该房间。从机器人我们只能得到一个带有房间号和索引的映射。适配器每次启动时都会查询这些房间，并为每个房间创建一个通道，然后知道当前的房间索引。使用按钮 loadRooms 手动也会发生同样的情况。然后可以将该通道分配给 ioBroker 房间。如果按下按钮 roomClean，则确定卡的索引并将其发送到机器人，以便它可以对该房间进行吸尘。在此之前，FAN 功率设置为单室抽吸。如果您还不能在应用程序中命名房间，也可以通过指定地图索引手动创建这样的频道。也可以添加区域坐标而不是 mapIndex。
+如果您想自发清洁多个房间，您可以通过 multiRoomClean 完成此操作，将 ioBroker 房间分配给该数据点，然后按下按钮。
 
-####计时器
+#### 计时器
 一旦真空吸尘器支持房间功能（见上文），也可以创建定时器，然后触发相应的房间通道或确定它们的 mapIndexes。
 定时器可以直接通过房间和/或房间频道触发。
 计时器本身是通过配置区域创建的，但随后成为数据点。在那里，每个计时器都可以被激活/停用或跳过一次。也可以直接启动。 ioBroker 定时器的优点是它们可以在 VIS 中显示和使用，并且您可以断开机器人与互联网的连接，因为应用程序的定时器是从中国触发的。
@@ -200,10 +202,10 @@ xVal, yval
 注意：此功能仅供专家使用，因为错误的命令可能会损坏吸盘
 
 机器人区分方法（方法）中的命令和用于指定方法的参数（参数）。
-在对象“mihome-vacuum.X.control.X_send_command”下，您可以向机器人发送您自己的命令。
+在对象 `mihome-vacuum.X.control.X_send_command` 下，您可以向机器人发送您自己的命令。
 对象结构必须如下所示： 方法； [参数]
 
-在对象“mihome-vacuum.X.control.X_get_response”下，响应由机器人在发送后输入。
+在对象`mihome-vacuum.X.control.X_get_response`下，响应由机器人在发送后输入。
 如果查询了参数，它们会以 JSON 格式显示在此处。如果只发送了一个命令，机器人只响应“0”。
 
 支持以下方法和参数：
@@ -211,17 +213,16 @@ xVal, yval
 |方法 |参数 |说明 |
 |-----------      |-------                                                              |-------------------                                                                                     |
 | get_timer | |返回设置的 timerSetting 抽吸次数 BSp。 5 天 12 点 30 |
-|设置计时器| [["TIME_IN_MS",["30 12 * * 1,2,3,4,5",["start_clean",""]]]] |启用/禁用计时器 |
-| upd_timer | ["1481997713308","开/关"] | |
+| set_timer | `[["TIME_IN_MS",["30 12 * * 1,2,3,4,5",["start_clean",""]]]]` |启用/禁用计时器 |
+| upd_timer | `["1481997713308","开/关"]` | |
 | | |拯救请勿打扰的时代 |
 | get_dnd_timer | |删除免打扰次数 |
-| close_dnd_timer | | DND 设置 h, min, h, min |
-| set_dnd_timer | [22,0,8,0] | |
+| set_dnd_timer | `[22,0,8,0]` | |
+| set_dnd_timer | `[22,0,8,0]` | |
 |                 |                                                                     |                                                                                                        |
 | app_rc_start | |启动远程控制 |
 | app_rc_end | |完成远程控制 |
-
-| app_rc_move |[{"seqnum":'0-1000',"velocity":VALUE1,"omega":VALUE2,"duration":VALUE3}]|移动。序号必须是连续的，VALUE1（速度）=-0.3-0.3，VALUE2（旋转）=-3.1-3.1，VALUE3（持续时间）
+| app_rc_move | `[{"seqnum":'0-1000',"velocity":VALUE1,"omega":VALUE2,"duration":VALUE3}]`|移动。序号必须是连续的，VALUE1（速度）=-0.3-0.3，VALUE2（旋转）=-3.1-3.1，VALUE3（持续时间） |
 
 您可以在此处找到更多方法和参数（[关联](https://github.com/MeisterTR/XiaomiRobotVacuumProtocol)）。
 
@@ -271,12 +272,12 @@ sendTo("mihome-vacuum.0",
 |检索当前风扇速度 | `getFanSpeed` | - 无 - | |
 |设置新的风扇速度 | `setFanSpeed` | `fanSpeed` | `fanSpeed` 是 1 到 100 之间的数字 |
 |启动遥控功能| `startRemoteControl` | - 无 - | |
-|发出远程控制的移动命令| `move` | `velocity`、`angularVelocity`、`duration`、`sequenceNumber`|序号必须是顺序的，持续时间以毫秒为单位 |
+|发出远程控制的移动命令| `move` | `velocity`、`angularVelocity`、`duration`、`sequenceNumber`|序号必须是连续的，持续时间以毫秒为单位 |
 |结束遥控功能| `stopRemoteControl` | - 无 - | |
 |洁净室/房间| `cleanRooms` | `rooms` | `rooms` 是一个逗号分隔的字符串，带有 enum.rooms.XXX |
 |清洁段| `cleanSegments` | `rooms` | `rooms` 是一个带有 mapIndex 的 Array 或带有 mapIndex 的逗号分隔的 String |
-|洁净区| `cleanZone` | `coordinates` | `coordinates` 是一个带有坐标和计数的字符串，见[区域清洁](#zoneClean) |
-|洁净区| `cleanZone` | `坐标` | `coordinates` 是一个带有坐标和计数的字符串，参见 [zoneClean](#zoneClean) |
+|洁净区| `cleanZone` | `coordinates` | `coordinates` 是一个带有坐标和计数的字符串，见[区域清洁](#zonecleaning) |
+|洁净区| `cleanZone` | `坐标` | `coordinates` 是一个带有坐标和计数的字符串，参见 [zoneClean](#zonecleaning) |
 
 ##小部件
 ![小工具](../../../en/adapterref/iobroker.mihome-vacuum/widgets/mihome-vacuum/img/previewControl.png)
@@ -287,8 +288,8 @@ sendTo("mihome-vacuum.0",
 
 ## Changelog
 
-### WORK_IN_PROGRESS__
-* (Apollon77) Adjust several crash cases (IOBROKER-MIHOME-VACUUM-K, IOBROKER-MIHOME-VACUUM-J, IOBROKER-MIHOME-VACUUM-F, IOBROKER-MIHOME-VACUUM-7, IOBROKER-MIHOME-VACUUM-A, IOBROKER-MIHOME-VACUUM-4, IOBROKER-MIHOME-VACUUM-G, IOBROKER-MIHOME-VACUUM-C, IOBROKER-MIHOME-VACUUM-B)
+### 3.2.1 (2021-07-02)
+* (Apollon77) Adjust several crash cases (IOBROKER-MIHOME-VACUUM-K, IOBROKER-MIHOME-VACUUM-J, IOBROKER-MIHOME-VACUUM-F, IOBROKER-MIHOME-VACUUM-7, IOBROKER-MIHOME-VACUUM-A, IOBROKER-MIHOME-VACUUM-4, IOBROKER-MIHOME-VACUUM-G, IOBROKER-MIHOME-VACUUM-C, IOBROKER-MIHOME-VACUUM-B, IOBROKER-MIHOME-VACUUM-Q, IOBROKER-MIHOME-VACUUM-M)
 
 ### 3.2.0 (02.06.2021)
 * (MeisterTR) release candidate
@@ -379,7 +380,7 @@ sendTo("mihome-vacuum.0",
 ### 1.10.0 (2020-01-17)
 * (dirkhe) added room handling
 * (dirkhe) added Timer 
-* (dirkhe) changed featurehandling 
+* (dirkhe) changed feature handling 
 
 ### 1.1.6 (2018-12-06)
 * (JoJ123) Added fan speed for MOP (S50+).

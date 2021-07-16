@@ -32,7 +32,7 @@ Pings specified IP addresses in defined interval and monitors the results. (aliv
 
 ### Wake-on-LAN
 
-Set the wol object to true and 3 WOL packages are sent, with a pasue of 750ms, to your device. 
+Set the wol object to true and 3 WOL packages are sent, with a pause of 750ms, to your device. 
 
 
 ### Port scan

@@ -3,17 +3,19 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.statistics/README.md
 title: ioBroker.statistics
-hash: AuaRcz6l0S7OYjP7Y0x2/PW7EwSI1OhFRue1IYG3Nj4=
+hash: 50F3oa1dUN0ZXS5QMiPgTULKjXr2Y6gjxR/q4zvXj1k=
 ---
 ![Логотип](../../../en/adapterref/iobroker.statistics/admin/statistics.png)
 
 ![Количество установок](http://iobroker.live/badges/statistics-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.statistics.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.statistics.svg)
-![Статус сборки](https://travis-ci.org/iobroker-community-adapters/ioBroker.statistics.svg?branch=master)
-![НПМ](https://nodei.co/npm/iobroker.statistics.png?downloads=true)
 
 # IoBroker.statistics
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.statistics/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/statistics/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+
 ## Описание
 Этот адаптер упростит настройку статистики.
 
@@ -21,9 +23,9 @@ hash: AuaRcz6l0S7OYjP7Y0x2/PW7EwSI1OhFRue1IYG3Nj4=
 
 выберите одну из следующих настроек:
 
-* подсчет импульсов или включения / выключения изменений (только для двоичных значений и положительного фронта)
+* подсчет импульсов или включение / выключение изменений (только для двоичных значений и положительного фронта)
 * рассчитать затраты на основе подсчитанных значений (только для двоичных значений)
-* как долго был статус true / ON и как долго false / OFF (только для двоичных значений)
+* как долго статус был истинным / включенным и как долго ложным / выключенным (только для двоичных значений)
 * дельта между зарегистрированными аналоговыми значениями (только для аналоговых значений)
 * дневной максимум, минимум и среднее значение (не для расчетов дельты)
 * мин / макс за год
@@ -51,6 +53,8 @@ hash: AuaRcz6l0S7OYjP7Y0x2/PW7EwSI1OhFRue1IYG3Nj4=
 
 ## Changelog
 ### __WORK IN PROGRESS__
+* (Apollon77) prepare for js-controller 3.3
+* (Apollon77) make sure all tasks are processed to prevent missing objects
 * (bluefox) added the support of Admin5 
 
 ### 1.0.4

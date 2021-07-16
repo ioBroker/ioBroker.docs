@@ -75,6 +75,9 @@ You can debug view charts locally with:
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 1.0.1 (2021-07-14)
+* (bluefox) Fixed the "no background" option
+
 ### 1.0.0 (2021-07-02)
 * (bluefox) Fixed many bugs
 

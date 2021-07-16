@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker Mihome-Vakuumadapter
-hash: aIfH+iYBWOkmIheZ73ZJw/HBNXL8KV9LqrdRJ5H/QBk=
+hash: tMA0cL0xw9g6IZ947Gc7TFWXHoxaY1DaLO7pZgdsyvU=
 ---
 ![Logo](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
@@ -31,13 +31,13 @@ Mit diesem Adapter können Sie den Xiaomi Staubsauger steuern.
         - [Zweiter Roboter](#zweiter Roboter)
     - [Valetudo konfigurieren](#valetudo-config)
 - [Funktionen](#Funktionen)
-    - [S50-Befehle](#Befehle-des-s50)
+    - [S50-Befehle](#commands-of-the-s50)
     - [Gehe zu](#goto)
 - [zone Clean](#zoneclean)
     - [Zimmer](#Zimmer)
     - [timer](#timer)
     - [Eigene Befehle](#send-your-own-commands)
-    - [sendTo Hook](#send-custom-commands-with-sendto)
+    - [sendTo-Hook](#send-custom-commands-with-sendto)
 - [Widget](#Widget)
 - [Fehler](#Fehler)
 - [Changelog](#changelog)
@@ -79,13 +79,15 @@ Bitte folgen Sie den Anweisungen im Link:
 [Token-Tutorial](https://www.smarthomeassistent.de/token-auslesen-roborock-s6-roborock-s5-xiaomi-mi-robot-xiaowa/).
 
 ### Adapterkonfiguration
-- Bei IP-Adresse muss die IP-Adresse des Roboters im Format "192.168.178.XX" eingegeben werden
+- Bei IP-Adresse muss die IP-Adresse des Roboters im Format `192.168.178.XX` . eingegeben werden
 - Der Port des Roboters ist standardmäßig auf "54321" eingestellt, dieser sollte nicht geändert werden
 - Eigener Port, sollte nur mit zweitem Roboter geändert werden
 - Abfrageintervall Die Zeit in ms, in der die Statuswerte des Roboters abgerufen werden (darf nicht <10000 sein)
 
 #### Kontrolle über Alexa
-In der Config add alexa state ist aktiviert hier ist ein Hack gesetzt ein zusätzlicher State "clean_home" es ist ein Schalter der bei "true" den Sauger und bei "false" anfängt - geht es nach Hause, wird es automatisch zu einem Smart Device im Cloud-Adapter mit dem Namen "Staubsauger" erstellt, der im Cloud-Adapter geändert werden kann.
+Für Alexa wird der spezielle Kontrollzustand `clean_home` erstellt.
+Es ist ein Schalter, der bei `true` dem Sauger beginnt und bei `false` nach Hause geht.
+Es wird automatisch ein Smart Device im Cloud-Adapter erstellt mit dem Namen "Staubsauger", der im Cloud-Adapter geändert werden kann.
 
 #### Fortsetzen der angehaltenen Zonenreinigung mit der Starttaste
 Wenn diese Option aktiviert ist, nimmt der Staubsauger die Zonenreinigung wieder auf, wenn der "Start"-Zustand auf "true" gesetzt wird, wenn er während einer laufenden Zonenreinigung angehalten wurde.
@@ -106,7 +108,7 @@ Sie können [Valetudo RE](https://github.com/rand256/valetudo) oder normal [Vale
 ![Konfig](../../../en/adapterref/iobroker.mihome-vacuum/admin/valetudo_conf.png)
 
 - Um die Karte zu verwenden, müssen Sie in der Konfiguration Valetudo oder Originalkarte auswählen
-- Request Interval muss mehr als 1000 ms betragen dies ist das Intervall für das Update der HTML Map
+- Anforderungsintervall muss mehr als 1000 ms betragen dies ist das Intervall für die Aktualisierung der HTML-Karte
 - Map-Intervall muss mehr als 5000 ms betragen dieses Intervall aktualisiert die PNG-Map-Datei (Sie können dies für Telegram oder vis oder alles andere verwenden)
 - Farbe dort können Sie die Farben für das Kartenbeispiel auswählen:
 
@@ -117,26 +119,26 @@ Sie können [Valetudo RE](https://github.com/rand256/valetudo) oder normal [Vale
 - green
 ```
 
-- Roboter dort können Sie verschiedene Roboter oder andere Fahrzeuge für die Karte auswählen
+- Roboter dort kannst du verschiedene Roboter oder andere Fahrzeuge für die Karte auswählen
 
 ### Kartennutzung
 Die Karte wird entweder als base64-raw oder als PNG gespeichert.
 
 Das Kartenbild finden Sie in folgenden Datenpunkten:
 
-- base64: ```mihome-vacuum.0.cleanmap.map64```
-- PNG: ```mihome-vacuum.0.cleanmap.mapURL```
+- base64: `mihome-vacuum.0.cleanmap.map64`
+- PNG: `mihome-vacuum.0.cleanmap.mapURL`
 
 Sie können beide Bilder als Bildquelle im gewünschten VIS verwenden. Im HTML-Stil können Sie das Bild auf diese Weise verwenden:
 
-```<img src="mihome-vacuum.0.cleanmap.map64">```
+`<img src="mihome-vacuum.0.cleanmap.map64">`
 
 Mit zusätzlichen Style-Tags können Sie den Kartenstil in der Größe ändern und/oder formatieren.
 
-Um die Karte in ```jarvis``` zu verwenden, verwenden Sie einfach einen der Datenpunkte als URL des DisplayImage-Widgets.
-Dort können Sie die Größe des Bildes oder des gesamten Widgets ändern. Beim Responsive Design von jarvis wird die Karte entsprechend der Anzeigegröße skaliert.
+Um die Karte in `jarvis` zu verwenden, verwenden Sie einfach einen der Datenpunkte als URL des DisplayImage-Widgets.
+Dort können Sie die Größe des Bildes oder des gesamten Widgets ändern. Beim Responsive Design von jarvis wird die Kartengröße entsprechend der Anzeigegröße angepasst.
 
-Um die Karte in ```ioBroker VIS``` anzuzeigen, können Sie ein normales HTML-Widget verwenden, z.B.:
+Um die Karte in `ioBroker VIS` anzuzeigen, können Sie ein normales HTML-Widget verwenden, z.B.:
 
 ```
 [{"tpl":"tplHtml","data":{"g_fixed":false,"g_visibility":false,"g_css_font_text":false,"g_css_background":false,"g_css_shadow_padding":false,"g_css_border":false,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","refreshInterval":"0","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"html":"{mihome-vacuum.0.map.map64}"},"style":{"left":"0","top":"0","width":"100%","height":"100%"},"widgetSet":"basic"}]
@@ -165,7 +167,7 @@ Beispiel:
 24,850.26500
 ```
 
-#### ZoneClean
+#### Zonenreinigung
 Um eine Zone zu saugen, muss ZoneClean wie folgt befüllt werden:
 
 ```
@@ -188,7 +190,7 @@ Beispiel:
 #### Räume
 neuer Staubsauger mit aktueller Home App unterstützt die Definition von Räumen, siehe [Video](https://www.youtube.com/watch?v=vEiUZzoXfPg)
 
-Jeder Raum in der aktuellen Karte hat einen Index, der dann aus der App dem Raum zugeordnet wird. Vom Roboter bekommen wir nur ein Mapping mit Zimmernummer und Index. Der Adapter fragt diese Räume bei jedem Start des Adapters ab und legt für jeden Raum einen Kanal an, der dann den aktuellen Raumindex kennt. Dasselbe geschieht manuell mit der Schaltfläche loadRooms. Dieser Kanal kann dann den ioBroker Räumen zugewiesen werden. Wird die Taste roomClean gedrückt, wird der Index der Karte ermittelt und an den Roboter gesendet, damit dieser anschließend diesen Raum saugen kann. Zuvor wird die FAN-Leistung auf Einzelraumabsaugung eingestellt. Falls Sie in der App noch nicht die Möglichkeit haben, die Räume zu benennen, besteht auch die Möglichkeit, einen solchen Kanal manuell durch Angabe des Kartenindexes zu erstellen. Anstelle von mapIndex können auch Zonenkoordinaten hinzugefügt werden.
+Jeder Raum in der aktuellen Karte hat einen Index, der dann aus der App dem Raum zugeordnet wird. Vom Roboter bekommen wir nur ein Mapping mit Zimmernummer und Index. Der Adapter fragt diese Räume bei jedem Start des Adapters ab und legt für jeden Raum einen Kanal an, der dann den aktuellen Raumindex kennt. Dasselbe geschieht manuell mit dem Button loadRooms. Dieser Kanal kann dann den ioBroker Räumen zugewiesen werden. Wird die Taste roomClean gedrückt, wird der Index der Karte ermittelt und an den Roboter gesendet, damit dieser anschließend diesen Raum saugen kann. Zuvor wird die FAN-Leistung auf Einzelraumabsaugung eingestellt. Falls Sie in der App noch nicht die Möglichkeit haben, die Räume zu benennen, besteht auch die Möglichkeit, einen solchen Kanal manuell durch Angabe des Kartenindexes zu erstellen. Anstelle von mapIndex können auch Zonenkoordinaten hinzugefügt werden.
 Wenn Sie spontan mehrere Räume reinigen möchten, können Sie dies über multiRoomClean tun, indem Sie diesem Datenpunkt die ioBroker-Räume zuordnen und dann die Taste drücken.
 
 #### Timer
@@ -197,13 +199,13 @@ Der Timer könnte direkt über Räume und/oder Raumkanäle auslösen.
 Die Timer selbst werden über den Konfig-Bereich angelegt, werden dann aber zu einem Datenpunkt. Dort kann jeder Timer einmal aktiviert/deaktiviert oder übersprungen werden. Auch ein Direktstart ist möglich. Der Vorteil der ioBroker Timer ist, dass sie im VIS angezeigt und verwendet werden können und man den Roboter vom Internet trennen kann, da die Timer der App aus China ausgelöst werden.
 
 ### Senden Sie Ihre eigenen Befehle
-HINWEIS: Diese Funktion sollte nur von Experten verwendet werden, da der Sauger durch falsche Befehle beschädigt werden kann
+HINWEIS: Diese Funktion sollte nur von Experten verwendet werden, da der Sauger durch falsche Befehle beschädigt werden könnte
 
 Der Roboter unterscheidet zwischen den Befehlen in Methoden (Methoden) und Parametern (Params), die der Spezifikation der Methoden dienen.
-Unter dem Objekt „mihome-vacuum.X.control.X_send_command“ können Sie eigene Befehle an den Roboter senden.
+Unter dem Objekt `mihome-vacuum.X.control.X_send_command` können Sie eigene Befehle an den Roboter senden.
 Die Objektstruktur muss wie folgt aussehen: Methode; [Parameter]
 
-Unter dem Objekt „mihome-vacuum.X.control.X_get_response“ wird die Antwort nach dem Senden vom Roboter eingetragen.
+Unter dem Objekt `mihome-vacuum.X.control.X_get_response` wird die Antwort nach dem Senden vom Roboter eingetragen.
 Wurden Parameter abgefragt, erscheinen diese hier im JSON-Format. Wurde nur ein Befehl gesendet, antwortet der Roboter nur mit "0".
 
 Die folgenden Methoden und Parameter werden unterstützt:
@@ -211,17 +213,16 @@ Die folgenden Methoden und Parameter werden unterstützt:
 | Methode | Parameter | Beschreibung |
 |-----------      |-------                                                              |-------------------                                                                                     |
 | get_timer | | Gibt den eingestellten Timer zurück. Einstellen der Saugzeiten BSp. 12 Uhr 30 in 5 Tagen |
-| set_timer | [["TIME_IN_MS",["30 12 * * 1,2,3,4,5",["start_clean",""]]]] | Timer aktivieren / deaktivieren |
-| upd_timer | ["1481997713308","ein/aus"] | |
+| set_timer | `[["TIME_IN_MS",["30 12 * * 1,2,3,4,5",["start_clean",""]]]]` | Timer aktivieren / deaktivieren |
+| upd_timer | `["1481997713308","ein/aus"]` | |
 | | | Rettet die Zeiten der Bitte nicht stören |
 | get_dnd_timer | | DND-Zeiten löschen |
-| close_dnd_timer | | DND-Einstellung h, min, h, min |
-| set_dnd_timer | [22,0,8,0] | |
+| set_dnd_timer | `[22,0,8,0]` | |
+| set_dnd_timer | `[22,0,8,0]` | |
 |                 |                                                                     |                                                                                                        |
 | app_rc_start | | Fernbedienung starten |
-| app_rc_end | | Fertigstellen der Fernbedienung |
-
-| app_rc_move |[{"seqnum":'0-1000',"velocity":VALUE1,"omega":VALUE2,"duration":VALUE3}]| Bewegung. Sequenznummer muss fortlaufend sein, VALUE1 (Geschwindigkeit) = -0.3-0.3, VALUE2 (Rotation) = -3.1-3.1, VALUE3 (Dauer)
+| app_rc_end | | Fernbedienung fertigstellen |
+| app_rc_move | `[{"seqnum":'0-1000',"velocity":VALUE1,"omega":VALUE2,"duration":VALUE3}]`| Bewegung. Sequenznummer muss fortlaufend sein, VALUE1 (Geschwindigkeit) = -0.3-0.3, VALUE2 (Rotation) = -3.1-3.1, VALUE3 (Dauer) |
 
 weitere Methoden und Parameter finden Sie hier ([Verknüpfung](https://github.com/MeisterTR/XiaomiRobotVacuumProtocol)).
 
@@ -272,11 +273,11 @@ Die unterstützten Befehle sind:
 | Stellen Sie eine neue Lüftergeschwindigkeit ein | `setFanSpeed` | `fanSpeed` | `fanSpeed` ist eine Zahl zwischen 1 und 100 |
 | Fernbedienungsfunktion starten | `startRemoteControl` | - Keine - | |
 | Fahrbefehl für Fernbedienung ausgeben | `move` | `velocity`, `angularVelocity`, `duration`, `sequenceNumber` | Sequenznummer muss fortlaufend sein, Dauer ist in ms |
-| Fernbedienungsfunktion beenden | `stopRemoteControl` | - Keine - | |
+| Beenden der Fernbedienungsfunktion | `stopRemoteControl` | - Keine - | |
 | Reinraum/Räume | `cleanRooms` | `rooms` | `rooms` ist ein durch Kommas getrennter String mit enum.rooms.XXX |
 | sauberes Segment | `cleanSegments` | `rooms` | `rooms` ist ein Array mit mapIndex oder ein durch Kommas getrennter String mit mapIndex |
-| saubere Zone | `cleanZone` | `coordinates` | `coordinates` ist ein String mit Koordinaten und Anzahl, siehe [zoneClean](#zoneClean) |
-| saubere Zone | `saubere Zone` | `Koordinaten` | `coordinates` ist ein String mit Koordinaten und Anzahl, siehe [zoneClean](#zoneClean) |
+| saubere Zone | `cleanZone` | `coordinates` | `coordinates` ist ein String mit Koordinaten und Anzahl, siehe [zoneClean](#zonecleaning) |
+| saubere Zone | `saubere Zone` | `Koordinaten` | `coordinates` ist ein String mit Koordinaten und Anzahl, siehe [zoneClean](#zonecleaning) |
 
 ##Widget
 ![Widget](../../../en/adapterref/iobroker.mihome-vacuum/widgets/mihome-vacuum/img/previewControl.png)
@@ -287,8 +288,8 @@ Die unterstützten Befehle sind:
 
 ## Changelog
 
-### WORK_IN_PROGRESS__
-* (Apollon77) Adjust several crash cases (IOBROKER-MIHOME-VACUUM-K, IOBROKER-MIHOME-VACUUM-J, IOBROKER-MIHOME-VACUUM-F, IOBROKER-MIHOME-VACUUM-7, IOBROKER-MIHOME-VACUUM-A, IOBROKER-MIHOME-VACUUM-4, IOBROKER-MIHOME-VACUUM-G, IOBROKER-MIHOME-VACUUM-C, IOBROKER-MIHOME-VACUUM-B)
+### 3.2.1 (2021-07-02)
+* (Apollon77) Adjust several crash cases (IOBROKER-MIHOME-VACUUM-K, IOBROKER-MIHOME-VACUUM-J, IOBROKER-MIHOME-VACUUM-F, IOBROKER-MIHOME-VACUUM-7, IOBROKER-MIHOME-VACUUM-A, IOBROKER-MIHOME-VACUUM-4, IOBROKER-MIHOME-VACUUM-G, IOBROKER-MIHOME-VACUUM-C, IOBROKER-MIHOME-VACUUM-B, IOBROKER-MIHOME-VACUUM-Q, IOBROKER-MIHOME-VACUUM-M)
 
 ### 3.2.0 (02.06.2021)
 * (MeisterTR) release candidate
@@ -379,7 +380,7 @@ Die unterstützten Befehle sind:
 ### 1.10.0 (2020-01-17)
 * (dirkhe) added room handling
 * (dirkhe) added Timer 
-* (dirkhe) changed featurehandling 
+* (dirkhe) changed feature handling 
 
 ### 1.1.6 (2018-12-06)
 * (JoJ123) Added fan speed for MOP (S50+).

@@ -3,54 +3,58 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.statistics/README.md
 title: ioBroker.statistics
-hash: AuaRcz6l0S7OYjP7Y0x2/PW7EwSI1OhFRue1IYG3Nj4=
+hash: 50F3oa1dUN0ZXS5QMiPgTULKjXr2Y6gjxR/q4zvXj1k=
 ---
 ![Logo](../../../en/adapterref/iobroker.statistics/admin/statistics.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/statistics-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.statistics.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.statistics.svg)
-![Build-Status](https://travis-ci.org/iobroker-community-adapters/ioBroker.statistics.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.statistics.png?downloads=true)
 
 # IoBroker.statistics
+![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.statistics/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/statistics/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+
 ## Beschreibung
 Dieser Adapter erleichtert die Konfiguration von Statistiken.
 
 `The adapter only reacts on state changes (state.ack=true), not on commands!`
 
-Wählen Sie aus folgenden Einstellungen:
+wählen Sie aus den folgenden Einstellungen:
 
-* Impulse zählen oder Ein / Aus-Änderungen (nur für Binärwerte und positive Flanke)
-* Kosten aus den gezählten Werten berechnen (nur für Binärwerte)
-* Wie lange war der Status wahr / EIN und wie lange falsch / AUS (nur für Binärwerte)
-* Delta zwischen protokollierten Analogwerten (nur für Analogwerte)
-* tägliche Max, Min und Durchschnitt (nicht für Delta-Berechnungen)
-* min / max über das Jahr
+* Impulse oder Ein/Aus-Änderungen zählen (Nur für Binärwerte und positive Flanke)
+* Kosten aus den gezählten Werten berechnen (Nur bei Binärwerten)
+* wie lange war Status true/ON und wie lange false/OFF (Nur für Binärwerte)
+* Delta zwischen protokollierten Analogwerten (Nur für Analogwerte)
+* Tagesmax, min und Durchschnitt (nicht für Delta-Berechnungen)
+* min/max über das Jahr
 * zählt innerhalb von 5 min und täglich max, min und Durchschnitt davon (nicht für Delta-Berechnungen)
 * Summe der gruppierten Werte
 
-Der Adapter abonniert die konfigurierten Objekte und erstellt seine eigenen Status im Statistikbaum.
+Der Adapter abonniert die konfigurierten Objekte und erstellt eigene Zustände im Statistikbaum.
 
 Es werden 2 separate Bäume erstellt:
 
 * `statistics.0.save` -> Endwerte des Zeitrahmens
-* `statistics.0.temp` -> temporäre Werte bis zum Zeitpunkt der Übertragung zum Speichern, dann beginnt die Temperatur erneut
+* `statistics.0.temp` -> temporäre Werte bis zum Moment der Übertragung zu speichern, dann startet Temp wieder
 
 Die Struktur des Staates ist: `statistics.0.{save|temp}.{kind of stat}.{original observed state}.{state of statistical value}`
 
 Ein deutsches HowTo-Dokument finden Sie hier: [howto_de](./doc/howto_de.md)
 
 ## Die Einstellungen
-* Geben Sie die relevanten Gruppen auf der Instanzkonfigurationsseite an (admin => Instanzen => Statistikkonfiguration).
-* Geben Sie die Konfiguration in den Einstellungen des Status an (admin => Objekte)
+* Geben Sie die relevanten Gruppen auf der Instanzkonfigurationsseite an (admin => Instanzen => Statistikkonfiguration)
+* die Konfiguration in den Einstellungen des Staates angeben (admin => Objekte)
 
-<! - Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __WORK IN PROGRESS__ ->
+### __ARBEITEN IN PROGRESS__ -->
 
 ## Changelog
 ### __WORK IN PROGRESS__
+* (Apollon77) prepare for js-controller 3.3
+* (Apollon77) make sure all tasks are processed to prevent missing objects
 * (bluefox) added the support of Admin5 
 
 ### 1.0.4

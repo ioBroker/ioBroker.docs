@@ -1,11 +1,13 @@
 ![Logo](admin/maxcube.png)
 # ioBroker.maxcube
 ==================================
-![Number of Installations](http://iobroker.live/badges/maxcube-installed.svg) ![Number of Installations](http://iobroker.live/badges/maxcube-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.maxcube.svg)](https://www.npmjs.com/package/iobroker.maxcube)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.maxcube.svg)](https://www.npmjs.com/package/iobroker.maxcube)
-[![Tests](https://travis-ci.org/ioBroker/ioBroker.maxcube.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.maxcube)
+![Number of Installations](http://iobroker.live/badges/maxcube-installed.svg)
+![Number of Installations](http://iobroker.live/badges/maxcube-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.maxcube.svg)](https://www.npmjs.com/package/iobroker.maxcube)
 
-[![NPM](https://nodei.co/npm/iobroker.maxcube.png?downloads=true)](https://nodei.co/npm/iobroker.maxcube/)
+![Test and Release](https://github.com/ioBroker/ioBroker.maxcube/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/maxcube/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.maxcube.svg)](https://www.npmjs.com/package/iobroker.maxcube)
 
 ioBroker adapter to control Max! via Cube
 
@@ -19,11 +21,8 @@ Before using you must first connect all devices to MAX! Cube via MAX! Firmware.
 
 ## Changelog
 
-### 1.0.5 (2021-05-20)
-* (thost96) added test for node 16 and updated documentation
-
-### 1.0.4 (2021-05-08)
-* (thost96) fixes for issues found by adapter checker (issue #31)
+### 1.0.4 (2021-07-15)
+* (thost96/Apollon77) optimize for js-controller 3.3
 
 ### 1.0.3 (2021-04-10)
 * (thost96) fixed state has no existing object for info.serial_number

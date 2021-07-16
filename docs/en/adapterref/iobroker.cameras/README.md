@@ -15,7 +15,7 @@ You can integrate you web/ip cameras into vis and other visualisations.
 If you configure a camera with name `cam1` it will be available on 
 web server under `http(s)://iobroker-IP:8082/cameras.0/cam1`.
 
-Additionally you the image could be requested via message:
+Additionally, you the image could be requested via message:
 ```
 sendTo('cameras.0', 'image', {
     name: 'cam1', 
@@ -43,6 +43,9 @@ This is URL request for image, where all parameters are in URL, but you can prov
 -->
 
 ## Changelog
+### 0.1.4 (2021-07-13)
+* (bluefox) Add role for states
+
 ### 0.1.3 (2020-08-08)
 * (Hirsch-DE) Parameters were applied
 
@@ -58,7 +61,7 @@ This is URL request for image, where all parameters are in URL, but you can prov
 ## License
 MIT License
 
-Copyright (c) 2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2020-2021 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

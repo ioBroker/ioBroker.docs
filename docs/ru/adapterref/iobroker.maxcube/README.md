@@ -3,28 +3,44 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.maxcube/README.md
 title: ioBroker.maxcube
-hash: QHOIZ10wpa1+8vkJ/NuVAfODNeN1o6wQrzoHrHMwPkE=
+hash: MpkrEy9ZuJa1izqwLyLwRZ+vzSRMcw2ofpiX+aml4wU=
 ---
-![логотип](../../../en/adapterref/iobroker.maxcube/admin/maxcube.png)
+![Логотип](../../../en/adapterref/iobroker.maxcube/admin/maxcube.png)
 
 ![Количество установок](http://iobroker.live/badges/maxcube-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.maxcube.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.maxcube.svg)
-![тесты](https://travis-ci.org/ioBroker/ioBroker.maxcube.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.maxcube.png?downloads=true)
 
-# IoBroker.maxcube =======================================
-ioBroker адаптер для управления Максом! через куб
+# IoBroker.maxcube
+==================================
+
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.maxcube/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/maxcube/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+Адаптер ioBroker для управления Max! через куб
 
 ## Поддерживаемые устройства
 - термостат
 - Датчик двери / окна
-- кнопка (только состояние батареи)
+- Нажимная кнопка (только состояние батареи)
 
-## Использование
+## Применение
 Перед использованием необходимо сначала подключить все устройства к MAX! Куб через MAX! Прошивка.
 
 ## Changelog
+
+### 1.0.4 (2021-07-15)
+* (thost96/Apollon77) optimize for js-controller 3.3
+
+### 1.0.3 (2021-04-10)
+* (thost96) fixed state has no existing object for info.serial_number
+
+### 1.0.3 (2021-04-11)
+* (thost96) Prevent js-controller 3.2 warnings
+
+### 1.0.2 (2020-07-28)
+* (Apollon77) Update dependencies
+* (Apollon77) make compatible with js-controller 3
+
 ### 1.0.1 (2018-07-06)
 * (stabilostick) initialization of working state
 * (stabilostick) setpoint rounding to 0.5
@@ -46,4 +62,4 @@ ioBroker адаптер для управления Максом! через к�
 
 ## License
 
-MIT Copyright (c) 2017-2018 bluefox
+MIT Copyright (c) 2017-2021 bluefox

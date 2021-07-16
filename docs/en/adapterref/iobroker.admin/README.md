@@ -76,6 +76,9 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (bluefox) Show 
+
 ### 5.1.11 (2021-07-12)
 * (bluefox) Changed the filter of objects
 

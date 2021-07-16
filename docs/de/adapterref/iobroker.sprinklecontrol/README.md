@@ -430,6 +430,8 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 # Was ist für die Zukunft geplant
 
 * **integration von Bodenfeuchte Sensoren** → Es wird wohl eine Config geben, sodass der Sensortyp egal ist.
+* **Start der Bewässerung auch ohne Sensoren** → Start der Bewässerung nach einem festen Wochenprogramm. (jeden 3. Tag; jeden 2. Tag; So; Mo; Di; Mi; Do; Fr)
+            → Und wenn es geht und ich eine gute Idee habe mit Bewässerungszeitverlängerung zum Sommer hin.
 
 ---  
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)

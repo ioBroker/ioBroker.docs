@@ -91,6 +91,7 @@ andere ebenfalls beschrieben werden können. Zur Suche nach einem bestimmten Dat
 der Tastenkombination "STRG + F".
 
 ### States
+Hinweis: Die States der Legacy API (Port 3480) sind derzeit nicht dokumentiert
 
 #### Channel: info
 
@@ -346,6 +347,9 @@ Der Kanal besteht aus schreibgeschützten Zuständen vom Typ `number`, die Infor
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
+### __WORK IN PROGRESS__
+* (foxriver76) we now also support the legacy api (port 3480)
 
 ### 1.8.6 (2021-07-04)
 * (foxriver76) widget: we removed debug logging and unnecessary template functions

@@ -44,7 +44,16 @@ Better if every device belongs to both categories. Because every device has the 
 - Used icons from flaticon
 - Volume knob from [here](https://codepen.io/blucube/pen/cudAz) By [Ed Hicks](https://twitter.com/blucube) - Inspired by a [dribbble shot](https://dribbble.com/shots/753124-Volume-Knob)  by [Ricardo Salazar](https://twitter.com/rickss)
 
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
 ## Changelog
+### __WORK IN PROGRESS__
+### 1.0.0 (2021.07.13)
+* (bluefox) Redesign
+
 ### 0.13.9 (2020.08.22)
 * (bluefox) Added support for new socket.io
 

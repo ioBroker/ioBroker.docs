@@ -40,6 +40,17 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.10.3 (2021-07-14)
+Upgraded to `zwave-js` version `7.12.0`. Notable changes include:
+* Further improved handling of the legacy `alarmType` and `alarmLevel` values under some circumstances
+* Improved support for Aeotec firmware updaters
+* Nodes are no longer sent to sleep while a value change is planned to be verified
+* Hardened the checks to prevent simultaneous write-accesses for the cache files
+* The adapter should now be restarted when the serial connection is disconnected
+* Fixed a bug where associatiations on endpoints had incorrect labels
+* Updated dependencies
+* Tons of new and improved config files
+
 ### 1.10.2 (2021-06-10)
 Upgraded to `zwave-js` version `7.7.3`. Notable changes include:
 * Improved how dropped invalid messages are logged in the Z-Wave logfile
@@ -73,15 +84,6 @@ Upgraded to `zwave-js` version `7.5.1`. Notable changes include:
 ### 1.9.3 (2021-04-10)
 * Restored the old behavior for devices that report their values via the root endpoint
 * Some minor config file changes
-
-### 1.9.2 (2021-04-05)
-Upgraded to `zwave-js` version `7.1.0`. Notable changes include:
-* Added reporting of usage statistics. For details, refer to the `node-zwave-js` documentation.
-* Better support for 700-series Z-Wave sticks
-* Notification values are no longer auto-reset to idle after 5 minutes by default. This behavior can now be enabled per device if necessary.
-* Several stability improvements
-
-For a full list of changes, check out https://github.com/zwave-js/node-zwave-js/blob/master/CHANGELOG.md
 
 ## License
 

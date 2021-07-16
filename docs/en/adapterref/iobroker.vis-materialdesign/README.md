@@ -5395,10 +5395,22 @@ JSON string must be an array of objects with the following properties:
 			<td>color of status bar</td>
 			<td>string</td>
 			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>
+		<tr>
+			<td>statusBarColorActive</td>
+			<td>color of status bar if active</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
 		</tr>		
 		<tr>
 			<td>statusBarText</td>
 			<td>text of status bar</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>statusBarTextActive</td>
+			<td>text of status bar if active</td>
 			<td>string</td>
 			<td/>
 		</tr>		
@@ -13120,6 +13132,7 @@ The adapter uses the following libraries:
 * (Scrounger) IconList Widget: option to set minimal width for single item added
 * (Scrounger) IconList Widget: header added
 * (Scrounger) IconList Widget: color options added
+* (Scrounger) IconList Widget: added option for color and text of status bar if state is active
 * (Scrounger) List Widget: main header added
 * (Scrounger) List Widget: events bug fix
 * (darkiop) documentation updated ([#PR179](https://github.com/Scrounger/ioBroker.vis-materialdesign/pull/179))
@@ -13132,6 +13145,7 @@ The adapter uses the following libraries:
 * (Scrounger) Progress Widget: striped distance option added
 * (Scrounger) Advanced View in Widget widget added
 * (Scrounger) Dialog Widget: background color bug fix on close animation
+* (Scrounger) Dialog Widget: option added to show a save button and write a value to a datapoint
 * (Scrounger) HTML Widget: bug fix for wrong type ([#182](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/182))
 * (Scrounger) support for base64 images added
 * (Scrounger) bug fix for VIS Editor dev values

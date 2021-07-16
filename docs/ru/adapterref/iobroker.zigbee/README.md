@@ -33,6 +33,9 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.zigbee.svg
 
 ## Changelog
 
+### 1.5.6 (2021-05-26)
+* (kirovilya) new UI add
+
 ### 1.5.5 (2021-05-05)
 * Fixes for new zigbee-herdsman-converters
 * UI fixes

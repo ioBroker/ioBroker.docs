@@ -3,54 +3,58 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.statistics/README.md
 title: ioBroker.statistics
-hash: AuaRcz6l0S7OYjP7Y0x2/PW7EwSI1OhFRue1IYG3Nj4=
+hash: 50F3oa1dUN0ZXS5QMiPgTULKjXr2Y6gjxR/q4zvXj1k=
 ---
 ![商标](../../../en/adapterref/iobroker.statistics/admin/statistics.png)
 
 ![安装数量](http://iobroker.live/badges/statistics-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.statistics.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.statistics.svg)
-![建置状态](https://travis-ci.org/iobroker-community-adapters/ioBroker.statistics.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.statistics.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.statistics.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.statistics.svg)
 
-＃ioBroker.statistics
+# IoBroker.statistics
+![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.statistics/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/statistics/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
+
 ＃＃ 描述
-该适配器将使统计信息的配置更加容易。
+此适配器将使统计信息的配置更容易。
 
 `The adapter only reacts on state changes (state.ack=true), not on commands!`
 
 从以下设置中选择：
 
-*计算脉冲或开/关变化（仅适用于二进制值和上升沿）
-*根据计数值计算成本（仅适用于二进制值）
-*状态为true / ON多长时间，为false / OFF多长时间（仅适用于二进制值）
-*记录的模拟值之间的增量（仅适用于模拟值）
-*每日最大，最小和平均值（不适用于增量计算）
-*一年中的最小值/最大值
-*在5分钟内以及每天的最大值，最小值和平均值之内计数（不适用于增量计算）
-*分组值的总和
+*计数脉冲或开/关变化（仅适用于二进制值和上升沿）
+* 从计数值计算成本（仅适用于二进制值）
+* 状态为真/开多长时间，假/关多长时间（仅适用于二进制值）
+* 记录的模拟值之间的增量（仅适用于模拟值）
+* 每日最大值、最小值和平均值（不适用于增量计算）
+* 全年最小/最大
+* 在 5 分钟内计数以及每天的最大值、最小值和平均值（不适用于增量计算）
+* 分组值的总和
 
-适配器订阅已配置的对象，并在统计树中创建自己的状态。
+适配器订阅配置的对象并在统计树中创建自己的状态。
 
-将创建2个单独的树：
+创建了 2 个独立的树：
 
-*`statistics.0.save`->时间范围的最终值
-*`statistics.0.temp`->临时值，直到传输保存为止，然后temp重新开始
+* `statistics.0.save` -> 时间范围的最终值
+* `statistics.0.temp` -> 传输到保存时的临时值，然后 temp 再次启动
 
-状态的结构为：`statistics.0.{save|temp}.{kind of stat}.{original observed state}.{state of statistical value}`
+状态结构为：`statistics.0.{save|temp}.{kind of stat}.{original observed state}.{state of statistical value}`
 
-此处提供德语HowTo文档：[howto_de](./doc/howto_de.md)
+可在此处获得德语 HowTo 文档：[howto_de](./doc/howto_de.md)
 
 ##设置
-*在实例配置页面中指定相关组（管理员=>实例=>统计信息配置）
-*在状态设置中指定配置（admin =>对象）
+* 在实例配置页面指定相关组（admin => instances => statistics config）
+* 在状态设置中指定配置（admin => objects）
 
-<！-下一个版本的占位符（在该行的开头）：
+<!-- 下一版本的占位符（在行首）：
 
-### __正在进行的工程__->
+### __工作进行中__ -->
 
 ## Changelog
 ### __WORK IN PROGRESS__
+* (Apollon77) prepare for js-controller 3.3
+* (Apollon77) make sure all tasks are processed to prevent missing objects
 * (bluefox) added the support of Admin5 
 
 ### 1.0.4

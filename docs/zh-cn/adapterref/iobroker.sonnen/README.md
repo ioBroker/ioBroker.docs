@@ -7,308 +7,349 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sonnen/README.md
 title: 声纳适配器
-hash: sji7Vk7L1ru2xOORB4OM6cKSlk2BrONMW9eFqpQMHLs=
+hash: 1eF8G6QCUKew7oY3I/Hk9qzWpaGFV7TjijufbaqKVNs=
 ---
 ![商标](../../../de/adapterref/iobroker.sonnen/media/sonnen.png)
 
-＃Sonnen适配器
-sonnen适配器可将sonnenBatterie集成到ioBroker中。
+#sonnen 适配器
+Sonnen 适配器允许在ioBroker 中集成sonnenBatterie。
 
-##概述
-### Sonnen电池
-借助sonnenBatterie，来自太阳能系统的自生能量可以存储起来供个人使用，并在需要时准确使用。这样就可以使自己独立于匿名的能源公司，并成为一个自给自足的电力生产商。借助集成的能源管理器，智能高科技蓄电系统可确保为家庭提供尽可能最佳的电力。
-这不仅价格便宜，而且环保！ sonnenBatterie有多种灵活的存储型号。
+＃＃ 概述
+###sonnen电池
+有了sonnenBatterie，来自太阳系的自生能量可以储存起来供个人使用，并在需要时准确使用。这使得独立于匿名能源公司并成为自给自足的电力生产商成为可能。得益于集成能源管理器，智能高科技蓄电系统确保以最佳方式为家庭提供自有电力。
+这不仅便宜，而且环保！ SonnenBatterie 有多种灵活的存储模型可供选择。
 
-### Sonnen适配器
-Sonnen适配器可以监视和控制网络中的SonnenBatterie。借助发现适配器（TODO：链接），可以在网络中自动找到sonnenBatterien。<br/>适配器以对象的形式创建用于监视和控制sonnenBatterie的状态。大多数状态仅用于监视电池，而可以通过描述某些状态来另外控制电池。
+###sonnen 适配器
+子网适配器可以监视和控制网络中的子电池。在发现适配器（TODO：链接）的帮助下，可以在网络中自动找到sonnenBatterien。<br/>适配器以对象的形式创建用于监视和控制sonnenBatterie 的状态。大多数状态仅用于监控电池，同时也可以通过描述一些状态来控制电池。
 
 ##安装前的要求
-使用ioBroker操作sonnenBatterie的前提是电池已由电工成功安装。电池还必须与ioBroker位于同一网络中。
+使用 ioBroker 操作 sonnenBatterie 的先决条件是电工成功安装电池。电池还必须与 ioBroker 位于同一网络中。
 
-###安装
-适配器的实例是通过ioBroker管理界面安装的。有关必要安装步骤的详细说明，请参见此处（TODO：LINK）。<br/><br/>完成适配器实例的安装后，配置窗口将自动打开。
+＃＃＃ 安装
+适配器的一个实例是通过 ioBroker 管理界面安装的。可以在此处找到必要安装步骤的详细说明（TODO：链接）。<br/><br/>适配器实例安装完成后，会自动打开一个配置窗口。
 
-##配置
+＃＃ 配置
 ###“主要设置”窗口
-![主要设定](../../../de/adapterref/iobroker.sonnen/media/mainSettings.png "主要设定")
+![主要设置](../../../de/adapterref/iobroker.sonnen/media/mainSettings.png "主要设置")
 
-|领域描述 |
+|领域 |说明 |
 |:-------------|:-------------|
-| IP地址|所需sonnenBatterie的IP地址应在此处输入。 |
+| IP 地址 | 应在此处输入所需的 SonnenBatterie 的 IP 地址。 |
 
-|领域描述 |
+|领域 |说明 |
 |:-------------|:-------------|
-| Auth-Token |应该在此处输入Auth-Token，可以在sonnen Web界面的“软件集成”下找到它。如果没有输入Auth-Token，则使用非官方的API，可以随时将其关闭。 |
+| Auth-Token | 此处应输入Auth-Token，可在sonnen Web 界面的“软件集成”下找到。如果没有输入Auth-Token，则使用非官方API，可以随时关闭。 |
 
 ###“高级设置”窗口
 ![高级设置](../../../de/adapterref/iobroker.sonnen/media/advancedSettings.png "高级设置")
 
-|领域描述 |
+|领域 |说明 |
 |:-------------|:-------------|
-|查询间隔|可以在此处设置替代值（以毫秒为单位）。在此间隔中更新sonnenBatterie的状态。 |
+| 查询间隔 | 可以在此处设置以毫秒为单位的替代值。在此时间间隔中，sonnenBatterie 的状态被更新。 |
 
-完成配置后，使用`SPEICHERN UND SCHLIEßEN`退出配置对话框。
-这将导致适配器重新启动。
+完成配置后，配置对话框以 `SPEICHERN UND SCHLIEßEN` 退出。
+这会导致适配器重新启动。
 
-##个实例
-适配器的安装已在`Objekte`节中创建了Sonnen适配器的活动实例。<br/><br/> ![实例](../../../de/adapterref/iobroker.sonnen/media/instance.png "实例") <span style="color:grey">*一审*</span>
+## 实例
+适配器的安装已在 `Objekte` 部分中创建了 Sonnen 适配器的活动实例。<br/><br/> ![实例](../../../de/adapterref/iobroker.sonnen/media/instance.png "实例") <span style="color:grey">*初审*</span>
 
-可以在ioBroker服务器上创建多个sonnen Adapter实例。相反，sonnenBatterie也可以与多个ioBroker服务器一起运行。如果一个ioBroker服务器要控制多个设备，则应为每个电池创建一个实例。<br/><br/>实例的状态字段的颜色指示适配器是激活的还是连接到电池的。如果鼠标指针指向该符号，则会显示更多详细信息。
+可以在 ioBroker 服务器上创建多个 Sonnen Adapter 实例。相反，一个sonnenBatterie 也可以与多个ioBroker 服务器一起运行。如果多个设备要由一个 ioBroker 服务器控制，则应为每个电池创建一个实例。<br/><br/>适配器是否激活或连接到电池由实例的状态字段的颜色指示。如果鼠标指针指向该符号，则会显示更多详细信息。
 
-##适配器的对象
-在`Objekte`部分中，树状结构中列出了集线器中适配器识别的所有设备和活动。另外，还提供关于与集线器的通信是否顺利进行的信息。
+## 适配器的对象
+在 `Objekte` 节中，集线器中适配器识别的所有设备和活动都以树状结构列出。此外，还提供有关与集线器的通信是否顺利运行的信息。
 
-![对象](../../../de/adapterref/iobroker.sonnen/media/objects.png "太阳物体") <span style="color:grey">*</span> Sonnen<span style="color:grey">适配器的对象*</span>
+![对象](../../../de/adapterref/iobroker.sonnen/media/objects.png "太阳物体") <span style="color:grey">* Sonnen 适配器的对象 *</span>
 
-在下文中，对象分为状态和按钮。由于有两种不同的API取决于电池，因此仅创建相应电池支持的状态。
-列出了每个数据点及其关联的数据类型及其授权。
-可以读取（R）和写入（W）授权。每个数据点至少可以读取（R），而其他数据点也可以写入。要搜索特定的数据点，我们建议使用组合键“ CTRL + F”。
+下面将对象分为状态和按钮。由于根据电池有两种不同的 API，因此只会创建相应电池支持的那些状态。
+每个数据点都列出了其关联的数据类型及其授权。
+可以读取 (R) 和写入 (W) 权限。每个数据点至少可以读取（R），而其他数据点也可以写入。要搜索特定数据点，我们建议使用组合键“CTRL + F”进行搜索。
 
 ＃＃＃ 状态
-####频道：信息
-*信息连接
+注意：Legacy API（端口 3480）的状态目前没有记录
 
-    |数据类型|授权|
+#### 频道：信息
+* info.connection
+
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |布尔值| R |
+    | 布尔值 | R |
 
-   *仅可读的布尔值，如果在ioBroker和电池之间建立了连接，则为true。
+   *只有可读的布尔值，如果 ioBroker 和电池之间建立连接，则为真。*
 
 * info.lastSync
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |时间戳记| R |
+    | 时间戳 | R |
 
-   *只读时间戳记，每次更新数据时都会更新。
+   *只读时间戳，每次数据更新时都会更新*
 
-*信息配置
+* info.configuration
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |字符串| R |
+    | 字符串 | R |
 
-   *唯一可读的JSON字符串，带有sonnenBatterie的配置信息。
+   * 只有可读的 JSON 字符串，带有 sonnenBatterie 的配置信息。*
 
 * info.powerMeter
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |字符串| R |
+    | 字符串 | R |
 
-   *唯一可读的JSON字符串，带有sonnenBatterie的当前测量信息。
+   * 只有可读的 JSON 字符串，带有 sonnenBatterie 的当前测量信息。*
 
-*信息逆变器
+* info.inverter
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |字符串| R |
+    | 字符串 | R |
 
-   *仅可读的JSON字符串，带有来自sonnenBatterie的逆变器信息。
+   * 只有可读的 JSON 字符串，带有来自 SonnenBatterie 的逆变器信息。*
 
-####频道：状态
-* status.consumption
+#### 频道：状态
+* 状态.消费
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |号| R |
+    | 数量 | R |
 
-   *仅可读数字值，其中包含以瓦特为单位的房屋电流消耗。
+   * 仅可读数值，其中包含房屋的当前消耗（以瓦为单位）。*
 
-* status.production
+* 状态.生产
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |号| R |
+    | 数量 | R |
 
-   *仅可读的数字值，它指示光伏系统当前正在产生多少瓦特。
+   * 可读数值，表示光伏系统当前产生的瓦数。*
 
 * status.pacTotal
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |号| R |
+    | 数量 | R |
 
-*可读的数值，表示变频器的交流电源。
-如果该值大于0，则电池将放电；如果该值小于0，则电池将被充电。
+* 可读数值，表示逆变器交流功率。
+如果该值大于 0，则电池放电，如果该值小于 0，则充电。*
 
 * status.relativeSoc
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |号| R |
+    | 数量 | R |
 
-   *仅可读数字值，代表当前电池的电量。
+   * 仅可读数值，代表当前电池电量。*
 
 * status.userSoc
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |号| R |
+    | 数量 | R |
 
-   *仅可读数字值，代表当前电池的电量。
+   * 仅可读数值，代表当前电池电量。*
 
 * status.acFrequency
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |号| R |
+    | 数量 | R |
 
-   *仅可读的数字值，代表以赫兹为单位的交流频率。
+   * 仅可读数值，表示以赫兹为单位的交流频率。*
 
 * status.acVoltage
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |号| R |
+    | 数量 | R |
 
-   *仅可读的数字值，代表变频器的当前AC（交流）电压。
+   * 仅可读数值，代表逆变器当前的AC（交流）电压。*
 
 * status.batteryVoltage
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |号| R |
+    | 数量 | R |
 
-   *仅可读数字值，代表电池的当前DC（直流）电压。
+   * 仅可读数值，代表电池当前的 DC（直流）电压。*
 
 * status.systemTime
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |日期| R |
+    | 日期 | R |
 
-   *只读的ISO日期，代表电池的系统时间。
+   * 只有可读的 ISO 日期，代表电池的系统时间。*
 
-* status.system已安装
+* status.systemInstalled
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |布尔值| R |
+    | 布尔值 | R |
 
-   *仅可读的布尔值，如果正确安装了系统，则为true。
+   * 只有可读的布尔值，如果系统安装正确，则为真。*
 
 * status.batteryCharging
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |布尔值| R |
+    | 布尔值 | R |
 
-   *仅可读的布尔值。如果sonnenBatterie当前正在充电，则为真。
+   * 仅可读布尔值。如果sonnenBatterie 当前正在充电，则为真。*
 
 * status.flowConsumptionBattery
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |布尔值| R |
+    | 布尔值 | R |
 
-   *仅可读的布尔值。如果电池当前正在放电，则为真。
+   * 仅可读布尔值。如果电池当前正在放电，则为真。*
 
 * status.flowConsumptionGrid
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |布尔值| R |
+    | 布尔值 | R |
 
-   *仅可读的布尔值，如果当前正在从网格中获取电源，则为true。
+   * 只有可读的布尔值，如果当前正在从电网中汲取电力，则为真。*
 
 * status.flowConsumptionProduction
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |布尔值| R |
+    | 布尔值 | R |
 
-   *仅可读的布尔值。如果当前光伏系统直接消耗电力，这是正确的。
+   * 仅可读布尔值。如果当前光伏系统直接消耗电力，则情况确实如此。*
 
 * status.flowGridBattery
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |布尔值| R |
+    | 布尔值 | R |
 
-   *只读布尔型指示器，如果电池当前正在由市电充电，则为true。
+   * 只读布尔指示器，如果电池当前正在由电源充电，则为真。*
 
 * status.flowProductionBattery
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |布尔值| R |
+    | 布尔值 | R |
 
-   *仅可读的布尔值，如果当前正在由PV系统直接为电池充电，则为true。
+   * 只有可读的布尔值，如果电池当前正由光伏系统直接充电，则为真。*
 
 * status.flowProductionGrid
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |布尔值| R |
+    | 布尔值 | R |
 
-   *仅可读的布尔值，如果当前将发电量馈入电网，则为true。
+   * 只有可读的布尔值，如果所产生的电力当前正在馈入电网，则为真。*
 
 * status.gridFeedIn
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |号| R |
+    | 数量 | R |
 
-*只读数字值，代表当前正在馈入或从电网抽取的电量（瓦）。
-如果该值为正，则表示当前正在将电网馈入电网；如果为负，则表示正在从电网中汲取电量。
+* 只读数值，表示当前馈入或从电网中提取的电量（以瓦为单位）。
+如果值为正，则当前正在向电网馈电；如果值为负，则表示正在从电网中提取电量。*
 
 * status.onlineStatus
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |布尔值| R |
+    | 布尔值 | R |
 
-   *仅可读的布尔值（为true），sonnenBatterie在线。
+   * 只有可读的布尔值，为真，sonnenBatterie 在线。*
 
-####频道：控制
-*控制费
+#### 通道：控制
+* 控制.充电
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |号| R / W |
+    | 数量 | 读/写 |
 
-   *数字值，可指定以瓦特为单位的电池最大放电量。
+   * 允许以瓦特为单位指定电池最大放电的数值。*
 
-*注意：如果设置了无效值，则无论如何都会被确认。确认（确认）该值仅表示该命令已发送到电池。
+* 注意：如果设置了无效值，无论如何都会被确认。该值的确认（acknowledge）仅表示该命令已传输至电池。*
 
-*设定值的相应值会一直保留，直到电池收到新的充电或放电值为止。
-如果VPP处于活动状态，则该请求将被拒绝。
+* 设置点的相应值将保留，直到电池收到新的充电或放电值。
+如果 VPP 处于活动状态，请求将被拒绝。*
 
-   *示例：*
+   *例子：*
 
 ```javascript
 setState('sonnen.0.control.charge', 1250); // Die Batterie wird mit maximal 1250 Watt geladen
 ```
 
-*控制放电
+* 控制.放电
 
-    |数据类型|授权|
+    | 数据类型 | 授权 |
     |:---:|:---:|
-    |号| R / W |
+    | 数量 | 读/写 |
 
-   *数字值，可让您指定电池的最大电量（瓦）。
+   * 数值，允许以瓦特为单位指定电池的最大电量。*
 
-*注意：如果设置了无效值，则无论如何都会被确认。确认（确认）该值仅表示该命令已发送到电池。
+* 注意：如果设置了无效值，无论如何都会被确认。该值的确认（acknowledge）仅表示该命令已传输至电池。*
 
-*设定值的相应值会一直保留，直到电池收到新的充电或放电值为止。
-如果VPP处于活动状态，则该请求将被拒绝。
+* 设置点的相应值将保留，直到电池收到新的充电或放电值。
+如果 VPP 处于活动状态，请求将被拒绝。*
 
-   *示例：*
+   *例子：*
 
 ```javascript
 setState('sonnen.0.control.discharge', 1250); // Die Batterie wird maximal mit 1250 Watt entladen
 ```
 
-####通道：功率计
-此频道有两个子频道，例如`4_1`和`4_2`，其中一个代表消费，另一个代表生产。
+#### 通道：功率计
+该通道有两个子通道，例如 `4_1` 和 `4_2`，其中一个代表消费，另一个代表生产。
 
-这两个通道具有相同的状态。所有状态均为写保护，类型为`number`。
+两个通道具有相同的状态。所有状态都是写保护的并且类型为 `number`。
 
-###通道：逆变器
-该通道由`number`类型的写保护状态组成，这些状态提供有关太阳能电池逆变器的信息。
+### 通道：逆变器
+该通道由类型为 `number` 的写保护状态组成，提供有关太阳能电池逆变器的信息。
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
+### __WORK IN PROGRESS__
+* (foxriver76) we now also support the legacy api (port 3480)
+
+### 1.8.6 (2021-07-04)
+* (foxriver76) widget: we removed debug logging and unnecessary template functions
+* (foxriver76) widget: we now cache the jquery selectors to improve the performance
+
+### 1.8.5 (2021-07-02)
+* (foxriver76) widget: stroke width can now be configured
+
+### 1.8.4 (2021-07-01)
+* (foxriver76) widget: we made ID names more adapter specific to avoid getting wrong translations
+
+### 1.8.3 (2021-07-01)
+* (foxriver76) widget: we now allow defining the used adapter instance
+
+### 1.8.2 (2021-06-30)
+* (foxriver76) widget: css classes now have adapter specific names to avoid conflicts
+
+### 1.8.1 (2021-06-30)
+* (foxriver76) widget now has flow directions
+
+### 1.8.0 (2021-06-30)
+* (foxriver76) added widget
+
+### 1.7.3 (2021-05-01)
+* (foxriver76) we now update objects if attributes are updated, but preserve common.name attribute
+
+### 1.7.2 (2021-04-30)
+* (foxriver76) we fixed some type issues (fixes #58)
+
+### 1.7.1 (2021-03-19)
+* (foxriver76) do not log warnings on inverter endpoint if battery does not support it (closes #55)
+
 ### 1.7.0 (2020-11-12)
 * (foxriver76) new channels for powermeter and inverter
 
@@ -386,7 +427,7 @@ setState('sonnen.0.control.discharge', 1250); // Die Batterie wird maximal mit 1
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2018-2021 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

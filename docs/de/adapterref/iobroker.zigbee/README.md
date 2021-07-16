@@ -33,6 +33,9 @@ Es gibt noch ein [Freundschaftprojekt](https://github.com/koenkk/zigbee2mqtt) mi
 
 ## Changelog
 
+### 1.5.6 (2021-05-26)
+* (kirovilya) new UI add
+
 ### 1.5.5 (2021-05-05)
 * Fixes for new zigbee-herdsman-converters
 * UI fixes

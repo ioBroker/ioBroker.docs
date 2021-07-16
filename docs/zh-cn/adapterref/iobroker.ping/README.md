@@ -2,27 +2,31 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ping/README.md
-title: PING适配器
-hash: GdWVwWTl7oGrOnfAZSsq98vq6ttnGHj4BDlk0yANw4U=
+title: PING 适配器
+hash: +5lYN9qiDWSBQAH4sB07H5AywY1QfrPZQ7Td3Xynt1I=
 ---
 ![商标](../../../en/adapterref/iobroker.ping/admin/ping.png)
 
 ![安装数量](http://iobroker.live/badges/ping-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.ping.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.ping.svg)
-![测验](https://travis-ci.org/ioBroker/ioBroker.ping.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.ping.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.ping.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.ping.svg)
 
-＃PING适配器
-## Ping配置的IP地址。
-以定义的间隔Ping指定的IP地址并监视结果。
+# PING 适配器
+![测试和发布](https://github.com/ioBroker/ioBroker.ping/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/ping/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+## Ping 配置的 IP 地址。
+在定义的时间间隔内 Ping 指定的 IP 地址并监控结果。
+
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
 
 ＃＃ 已知的问题
-*如果无法ping您的Linux客户端，请检查客户端上是否正确安装了iputils-ping
+* 如果无法 ping 你的 linux 客户端，请检查客户端上是否正确安装了 `iputils-ping`
 
 ## Changelog
+
+### 1.5.0 (2021-07-14)
+* js-controller 2.0 required at least
+* (Apollon77) optimize for js-controller 3.3
 
 ### 1.4.12 (2020-09-18)
 * (Apollon77) Prevent crash case when no devices are defined (Sentry IOBROKER-PING-R)
