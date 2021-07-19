@@ -50,8 +50,7 @@ Better if every device belongs to both categories. Because every device has the 
 -->
 
 ## Changelog
-### __WORK IN PROGRESS__
-### 1.0.0 (2021.07.13)
+### 1.0.2 (2021-07-18)
 * (bluefox) Redesign
 
 ### 0.13.9 (2020.08.22)

@@ -2,7 +2,6 @@
 BADGE-Number of Installations: http://iobroker.live/badges/ical-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.ical.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.ical.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.ical.png?downloads=true
 ---
 ![Logo](ical.png)
 # ioBroker iCal adapter
@@ -190,7 +189,10 @@ Whitelist: If you only want to include events of a specific location use regular
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+
+### 1.10.0 (2021-07-16)
+* IMPORTANT: data.table is now a stringified array!! Consider when using this value!
+* (Apollon77) Optimize for js-controller 3.3
 * (BasGo) added analysis for events marked as private in Google Calendar
 * (jens-maus) updated dependencies
 

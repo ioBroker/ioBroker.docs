@@ -123,8 +123,9 @@ Auch die Repositorien und Sicherheitseinstellungen können hier eingestellt werd
 Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitts zu erreichen.
 
 ## Changelog
-### __WORK IN PROGRESS__
-* (bluefox) Show 
+### 5.1.12 (2021-07-16)
+* (bluefox) The charts were improved
+* (bluefox) Corrected the error with the jump links if more than one web instance
 
 ### 5.1.11 (2021-07-12)
 * (bluefox) Changed the filter of objects
@@ -137,9 +138,6 @@ Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitt
 
 ### 5.1.8 (2021-06-06)
 * (bluefox) Improved the list of predefined icons
-
-### 5.1.7 (2021-06-04)
-* (bluefox) Added the possibility to clear the schedule
 
 ## License
 

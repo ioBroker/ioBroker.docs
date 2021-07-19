@@ -50,6 +50,9 @@ Actually only following attributes are supported:
 
 ## Changelog
 
+### 1.6.2 (2021-07-16)
+* (LausiD) fix crash case
+
 ### 1.6.1 (2021-06-30)
 * (LausiD) fix use Controller 3.3.x
 * (Apollon77) js-controller 3.3 optimizations

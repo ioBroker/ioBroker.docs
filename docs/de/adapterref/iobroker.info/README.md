@@ -314,10 +314,10 @@ Forumeinträge werde ohne Probleme angezeigt, wenn man auf ioBroker per IP oder 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
 
-### 1.8.0 (2021-04-10)
-* (ldittmar81) Update libraries
+### __WORK IN PROGRESS__
+* Breaking changes: Some systemdata objects have new names and corrected types and content! YOu might need to adjust scripts and visualizations!
 * (ldittmar81) Added Wifi, Docker, USB, Printer, Bluetooth and Audio infos
-* (ldittmar81) Breaking changes: Some sytemdata objects have new names
+* (Apollon77) Optimize for js-controller 3.3
 
 ### 1.7.15 (2021-01-13)
 * (Apollon77) fix crash case (Sentry IOBROKER-INFO-1X)

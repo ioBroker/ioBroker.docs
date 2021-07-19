@@ -1,11 +1,15 @@
 ![Logo](admin/sonoff.png)
 # ioBroker Sonoff
 
-![Number of Installations](http://iobroker.live/badges/sonoff-installed.svg) ![Number of Installations](http://iobroker.live/badges/sonoff-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.sonoff.svg)](https://www.npmjs.com/package/iobroker.sonoff)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.sonoff.svg)](https://www.npmjs.com/package/iobroker.sonoff)
-[![Tests](https://travis-ci.org/ioBroker/ioBroker.sonoff.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.sonoff)
+![Number of Installations](http://iobroker.live/badges/sonoff-installed.svg)
+![Number of Installations](http://iobroker.live/badges/sonoff-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.sonoff.svg)](https://www.npmjs.com/package/iobroker.sonoff)
 
-[![NPM](https://nodei.co/npm/iobroker.sonoff.png?downloads=true)](https://nodei.co/npm/iobroker.sonoff/)
+![Test and Release](https://github.com/ioBroker/ioBroker.sonoff/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/sonoff/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.sonoff.svg)](https://www.npmjs.com/package/iobroker.sonoff)
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Usage
 
@@ -76,11 +80,11 @@ Following topics are expected:
 **Note**: The list could be easily extended. Please send `Pull Requests` or *debug data* for unknown states to developer (via issue).
 
 ## Auto-creation of objects
-In the web config you can determine which MQTT telegrams create the new objects not in default datapoints
+In the web config you can determine which MQTT telegrams create the new objects not in default data points:
 
-* `TELE_SENSOR` creates objects from `tele/xxx/SENSOR` telegrams
-* `TELE_STATE` creates objects from `tele/xxx/STATE` telegrams
-* `STAT_RESULT` creates objects from `stat/xxx/RESULT` telegrams
+* `TELE_SENSOR` - creates objects from `tele/xxx/SENSOR` telegrams
+* `TELE_STATE` - creates objects from `tele/xxx/STATE` telegrams
+* `STAT_RESULT` - creates objects from `stat/xxx/RESULT` telegrams
 
 Usually TELE_SENSOR should be sufficient for most users.
 
@@ -97,14 +101,27 @@ The mode states will be created only if device has one of the states:
 
 States:
 
-* `modeLedExor` - exor for white LEDs and color leds => if the white LEDs are switched on, color LEDs are switched off and vice versa (default true)
+* `modeLedExor` - exor for white LEDs and color LEDs => if the white LEDs are switched on, color LEDs are switched off and vice versa (default true)
 * `modeReadColors` - allow for color read from MQTT (default false)
 
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
 ## Changelog
+### 2.4.3 (2021-07-18)
+* (bluefox) Better type detection for non-described states
+
+### 2.4.2 (2021-07-17)
+* (bluefox) Optimize for js-controller 3.3
+
+### 2.4.1 (2021-07-17)
+* (Apollon77/bluefox) Optimize for js-controller 3.3
+* (Apollon77) Add Sentry for error reporting with js-controller 3.x+
 
 ### 2.4.0 (2021-02-04)
-* (anwa) add several datapoints
-* (anwa) Fix tranlation for 'ignorePings'
+* (anwa) add several data points
+* (anwa) Fix translation for 'ignorePings'
 * (anwa) Fix wrong unit for humidity
 * (anwa) Config option to create a complete object tree instead of a flat structure
 * (anwa) Change Action type to string
@@ -123,7 +140,7 @@ States:
 * (bluefox) Correct processing of `{temp: nan}`
 
 ### 2.2.3 (2019-01-10)
-* (simatec) Support for comapct mode
+* (simatec) Support for compact mode
 
 ### 2.2.2 (2018-06-22)
 * (bluefox) Configuration was fixed
@@ -132,7 +149,7 @@ States:
 * (bluefox) '-' in names was allowed again
 
 ### 2.2.0 (2018-05-22)
-* (gemu2015) auto generate objects, support for arrays (channel), ledcontrollers improved
+* (gemu2015) auto generate objects, support for arrays (channel), led-controllers improved
 
 ### 2.1.3 (2018-05-08)
 * (bluefox) Added HC-SR04 Ultrasonic Sensor
@@ -171,7 +188,7 @@ States:
 
 ### 1.0.0 (2017-11-27)
 * (AlZiBa) typo @ alive
-* (AlZiBa) add Todays power consumption for Sonoff POW
+* (AlZiBa) add Today's power consumption for Sonoff POW
 * (AlZiBa) unit of power consumption is kWh
 
 ### 0.3.3 (2017-11-03)
@@ -196,7 +213,7 @@ States:
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2019, bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2021, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

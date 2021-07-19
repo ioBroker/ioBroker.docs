@@ -194,9 +194,13 @@ show();
 
 ## Changelog
 
+### 1.3.1
+
+* (klein0r) Fixed js-controller warnings
+
 ### 1.3.0
 
-* (klein0r) Encrypt sensitive information
+* (klein0r) Encrypt sensitive information **(BREAKING CHANGE - RE-ENTER YOUR API KEY)**
 
 ### 1.2.1
 

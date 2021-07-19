@@ -7,7 +7,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sonnen/README.md
 title: sonnen адаптер
-hash: 1eF8G6QCUKew7oY3I/Hk9qzWpaGFV7TjijufbaqKVNs=
+hash: ErqgSDbG/EFc2HU7jcVSTbfxu/0Mq0tfC1sN9jh+tiY=
 ---
 ![логотип](../../../de/adapterref/iobroker.sonnen/media/sonnen.png)
 
@@ -23,7 +23,7 @@ hash: 1eF8G6QCUKew7oY3I/Hk9qzWpaGFV7TjijufbaqKVNs=
 Адаптер sonnen может контролировать и управлять sonnenBatterie в сети. С помощью адаптера Discovery (TODO: Link) sonnenBatterien можно автоматически найти в сети.<br/> Адаптер создает состояния для мониторинга и управления sonnenBatterie в виде объектов. Большинство состояний используются только для контроля заряда батареи, а батареей также можно управлять, описывая некоторые состояния.
 
 ## Требования перед установкой
-Обязательным условием для работы sonnenBatterie с ioBroker является успешная установка аккумулятора электриком. Аккумулятор также должен быть в той же сети, что и ioBroker.
+Обязательным условием для работы sonnenBatterie с ioBroker является успешная установка аккумулятора электриком. Батарея также должна быть в той же сети, что и ioBroker.
 
 ### Монтаж
 Экземпляр адаптера устанавливается через интерфейс администратора ioBroker. Подробные инструкции по необходимым этапам установки можно найти здесь (TODO: LINK).<br/><br/> После завершения установки экземпляра адаптера автоматически открывается окно конфигурации.
@@ -65,7 +65,7 @@ hash: 1eF8G6QCUKew7oY3I/Hk9qzWpaGFV7TjijufbaqKVNs=
 Авторизация может быть прочитана (R) и записана (W). Каждая точка данных может быть по крайней мере прочитана (R), в то время как другие также могут быть записаны. Для поиска определенной точки данных мы рекомендуем использовать для поиска комбинацию клавиш «CTRL + F».
 
 ### Состояния
-Примечание. Состояние устаревшего API (порт 3480) в настоящее время не задокументировано.
+Примечание. Состояния устаревшего API (порт 3480) и старого API (порт 7979) в настоящее время не задокументированы или задокументированы лишь частично.
 
 #### Канал: информация
 * info.connection
@@ -164,7 +164,7 @@ hash: 1eF8G6QCUKew7oY3I/Hk9qzWpaGFV7TjijufbaqKVNs=
     |:---:|:---:|
     | номер | R |
 
-   *Только читаемое числовое значение, которое представляет текущее переменное напряжение инвертора.*
+   * Читаемое числовое значение, которое представляет текущее переменное напряжение инвертора.
 
 * status.batteryVoltage
 
@@ -316,8 +316,21 @@ setState('sonnen.0.control.discharge', 1250); // Die Batterie wird maximal mit 1
 	### __WORK IN PROGRESS__
 -->
 
-### __WORK IN PROGRESS__
-* (foxriver76) we now also support the legacy api (port 3480)
+### 1.9.4 (2021-07-17)
+* (foxriver76) widget: make the svg smaller by using a flexbox to center the svg correctly inside the div
+
+### 1.9.3 (2021-07-16)
+* (foxriver76) also poll the configuration instead of updating it only once at start (closes #70)
+
+### 1.9.2 (2021-07-16)
+* (foxriver76) fix for legacy API
+
+### 1.9.1 (2021-07-16)
+* (foxriver76) use legacy API if old API is not completely implemented
+
+### 1.9.0 (2021-07-16)
+* (foxriver76) we now also support the legacy API (port 3480)
+* (foxriver76) switch from intervals to timeouts to avoid overlapping poll runs
 
 ### 1.8.6 (2021-07-04)
 * (foxriver76) widget: we removed debug logging and unnecessary template functions

@@ -85,10 +85,14 @@ Click for widget source.
 ## Changelog
 
 ### 1.1.0 (in dev)
+* IMPORTANT: js-controller 2.0.0 is now required at least
 * (twonky) added control widgets
 * (twonky) added compact mode
 * (Apollon77) Core Files/Testing Update and introduce adapter-core
 * (twonky) added state `player.playUri` to support user defined input
+* (Apollon77) Fix js-controller 3.3 warnings
+* (Xyolyp) Listen on player.volume instead of player.device.volume as the latter is readonly
+* (bellerG) fix player.playUri
 
 ### 1.0.0 (2018.12.18)
 * (twonky) `playbackInfo` and `player` merged together to `player`
@@ -185,7 +189,7 @@ Click for widget source.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019 Alexander Kose <twonky4@gmx.de>
+Copyright (c) 2019-2021 Alexander Kose <twonky4@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

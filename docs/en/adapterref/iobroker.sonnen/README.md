@@ -59,7 +59,7 @@ Here you can find a description of the states and how to use them. The most stat
 Note, that there are two different sonnen API's so if you are missing states, they are probably not supported.
 
 ### States
-Note: The legacy API states (API port 3480) are currently not documented
+Note: The old and legacy API states (API port 3480/7979) are currently not or only partially documented
 
 #### Channel: info
 
@@ -302,8 +302,21 @@ The channel consists of read-only states of type `number`, providing information
 	### __WORK IN PROGRESS__
 -->
 
-### __WORK IN PROGRESS__
-* (foxriver76) we now also support the legacy api (port 3480)
+### 1.9.4 (2021-07-17)
+* (foxriver76) widget: make the svg smaller by using a flexbox to center the svg correctly inside the div
+
+### 1.9.3 (2021-07-16)
+* (foxriver76) also poll the configuration instead of updating it only once at start (closes #70)
+
+### 1.9.2 (2021-07-16)
+* (foxriver76) fix for legacy API
+
+### 1.9.1 (2021-07-16)
+* (foxriver76) use legacy API if old API is not completely implemented
+
+### 1.9.0 (2021-07-16)
+* (foxriver76) we now also support the legacy API (port 3480)
+* (foxriver76) switch from intervals to timeouts to avoid overlapping poll runs
 
 ### 1.8.6 (2021-07-04)
 * (foxriver76) widget: we removed debug logging and unnecessary template functions

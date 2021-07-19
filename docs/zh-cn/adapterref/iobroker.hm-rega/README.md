@@ -113,6 +113,9 @@ CCU 和 info 文件夹包含网关的基本信息，包括。
 	### __WORK IN PROGRESS__
 -->
 
+### 3.0.30 (2021-07-18)
+* (foxriver76) improved the detection of ALARM occurrences for virtual devices
+
 ### 3.0.29 (2021-07-01)
 * (foxriver76) fixed bug on ALARM datapoint creation
 

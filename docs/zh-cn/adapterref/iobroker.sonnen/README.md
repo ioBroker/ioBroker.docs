@@ -7,7 +7,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sonnen/README.md
 title: 声纳适配器
-hash: 1eF8G6QCUKew7oY3I/Hk9qzWpaGFV7TjijufbaqKVNs=
+hash: ErqgSDbG/EFc2HU7jcVSTbfxu/0Mq0tfC1sN9jh+tiY=
 ---
 ![商标](../../../de/adapterref/iobroker.sonnen/media/sonnen.png)
 
@@ -26,7 +26,7 @@ Sonnen 适配器允许在ioBroker 中集成sonnenBatterie。
 使用 ioBroker 操作 sonnenBatterie 的先决条件是电工成功安装电池。电池还必须与 ioBroker 位于同一网络中。
 
 ＃＃＃ 安装
-适配器的一个实例是通过 ioBroker 管理界面安装的。可以在此处找到必要安装步骤的详细说明（TODO：链接）。<br/><br/>适配器实例安装完成后，会自动打开一个配置窗口。
+适配器的一个实例是通过 ioBroker 管理界面安装的。可以在此处找到必要安装步骤的详细说明（TODO：链接）。<br/><br/>完成适配器实例的安装后，会自动打开一个配置窗口。
 
 ＃＃ 配置
 ###“主要设置”窗口
@@ -65,7 +65,7 @@ Sonnen 适配器允许在ioBroker 中集成sonnenBatterie。
 可以读取 (R) 和写入 (W) 权限。每个数据点至少可以读取（R），而其他数据点也可以写入。要搜索特定数据点，我们建议使用组合键“CTRL + F”进行搜索。
 
 ＃＃＃ 状态
-注意：Legacy API（端口 3480）的状态目前没有记录
+注意：旧 API（端口 3480）和旧 API（端口 7979）的状态目前没有或仅部分记录
 
 #### 频道：信息
 * info.connection
@@ -164,7 +164,7 @@ Sonnen 适配器允许在ioBroker 中集成sonnenBatterie。
     |:---:|:---:|
     | 数量 | R |
 
-   * 仅可读数值，代表逆变器当前的AC（交流）电压。*
+   * 可读数值，代表逆变器当前的AC（交流）电压。
 
 * status.batteryVoltage
 
@@ -272,7 +272,7 @@ Sonnen 适配器允许在ioBroker 中集成sonnenBatterie。
 
    * 允许以瓦特为单位指定电池最大放电的数值。*
 
-* 注意：如果设置了无效值，无论如何都会被确认。该值的确认（acknowledge）仅表示该命令已传输至电池。*
+* 注意：如果设置了无效值，无论如何都会确认。该值的确认（acknowledge）仅表示该命令已传输至电池。*
 
 * 设置点的相应值将保留，直到电池收到新的充电或放电值。
 如果 VPP 处于活动状态，请求将被拒绝。*
@@ -291,7 +291,7 @@ setState('sonnen.0.control.charge', 1250); // Die Batterie wird mit maximal 1250
 
    * 数值，允许以瓦特为单位指定电池的最大电量。*
 
-* 注意：如果设置了无效值，无论如何都会被确认。该值的确认（acknowledge）仅表示该命令已传输至电池。*
+* 注意：如果设置了无效值，无论如何都会确认。该值的确认（acknowledge）仅表示该命令已传输至电池。*
 
 * 设置点的相应值将保留，直到电池收到新的充电或放电值。
 如果 VPP 处于活动状态，请求将被拒绝。*
@@ -316,8 +316,21 @@ setState('sonnen.0.control.discharge', 1250); // Die Batterie wird maximal mit 1
 	### __WORK IN PROGRESS__
 -->
 
-### __WORK IN PROGRESS__
-* (foxriver76) we now also support the legacy api (port 3480)
+### 1.9.4 (2021-07-17)
+* (foxriver76) widget: make the svg smaller by using a flexbox to center the svg correctly inside the div
+
+### 1.9.3 (2021-07-16)
+* (foxriver76) also poll the configuration instead of updating it only once at start (closes #70)
+
+### 1.9.2 (2021-07-16)
+* (foxriver76) fix for legacy API
+
+### 1.9.1 (2021-07-16)
+* (foxriver76) use legacy API if old API is not completely implemented
+
+### 1.9.0 (2021-07-16)
+* (foxriver76) we now also support the legacy API (port 3480)
+* (foxriver76) switch from intervals to timeouts to avoid overlapping poll runs
 
 ### 1.8.6 (2021-07-04)
 * (foxriver76) widget: we removed debug logging and unnecessary template functions

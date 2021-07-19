@@ -91,7 +91,7 @@ andere ebenfalls beschrieben werden können. Zur Suche nach einem bestimmten Dat
 der Tastenkombination "STRG + F".
 
 ### States
-Hinweis: Die States der Legacy API (Port 3480) sind derzeit nicht dokumentiert
+Hinweis: Die States der Legacy API (Port 3480) und der alten API (Port 7979) sind derzeit nicht oder nur partiell dokumentiert
 
 #### Channel: info
 
@@ -348,8 +348,21 @@ Der Kanal besteht aus schreibgeschützten Zuständen vom Typ `number`, die Infor
 	### __WORK IN PROGRESS__
 -->
 
-### __WORK IN PROGRESS__
-* (foxriver76) we now also support the legacy api (port 3480)
+### 1.9.4 (2021-07-17)
+* (foxriver76) widget: make the svg smaller by using a flexbox to center the svg correctly inside the div
+
+### 1.9.3 (2021-07-16)
+* (foxriver76) also poll the configuration instead of updating it only once at start (closes #70)
+
+### 1.9.2 (2021-07-16)
+* (foxriver76) fix for legacy API
+
+### 1.9.1 (2021-07-16)
+* (foxriver76) use legacy API if old API is not completely implemented
+
+### 1.9.0 (2021-07-16)
+* (foxriver76) we now also support the legacy API (port 3480)
+* (foxriver76) switch from intervals to timeouts to avoid overlapping poll runs
 
 ### 1.8.6 (2021-07-04)
 * (foxriver76) widget: we removed debug logging and unnecessary template functions

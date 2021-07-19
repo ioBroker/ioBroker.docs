@@ -203,6 +203,11 @@ Scans an ical calendar to calculate the days left until next trash pickup
 
 ## Changelog
 
+### 1.2.0
+
+* (klein0r) Added compatibility with iCal 1.10.0
+* (klein0r) Added color of type to channel object
+
 ### 1.1.3
 
 * (klein0r) Fixed weekday state type (string -> number)

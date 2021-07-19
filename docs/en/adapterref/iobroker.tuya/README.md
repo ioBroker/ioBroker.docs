@@ -88,6 +88,19 @@ Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column
 
 ## Changelog
 
+### 3.6.9 (2021-07-18)
+* (Apollon77) Adjust reconnect handling on initialization
+
+### 3.6.8 (2021-07-18)
+* (Apollon77) Another fix on reconnect handling
+
+### 3.6.7 (2021-07-18)
+* (Apollon77) Another fix on reconnect handling
+
+### 3.6.6 (2021-07-17)
+* (Apollon77) Fix reconnect handling
+* (Apollon77) More schema information added
+
 ### 3.6.5 (2021-06-23)
 * (Apollon77) Make sure for enums values are set with correct type
 * (Apollon77) More schema information added
