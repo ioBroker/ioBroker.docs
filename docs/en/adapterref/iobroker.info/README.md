@@ -314,8 +314,12 @@ Forum entries will be displayed without problems when accessing ioBroker via IP 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
 
-### __WORK IN PROGRESS__
-* Breaking changes: Some systemdata objects have new names and corrected types and content! YOu might need to adjust scripts and visualizations!
+### 1.9.1 (2021-07-21)
+* Adjust object types to prevent js-controller 3.3 warnings
+* Disable all data collection by default  -  users can activate whatever they really need
+
+### 1.9.0 (2021-07-20)
+* Breaking changes: Some systemdata objects have new names and corrected types and content! You might need to adjust scripts and visualizations!
 * (ldittmar81) Added Wifi, Docker, USB, Printer, Bluetooth and Audio infos
 * (Apollon77) Optimize for js-controller 3.3
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.innogy-smarthome/README.md
 title: ioBroker.Innogy-SmartHome
-hash: DH6N8vNW5jb3ueTxzS9i6bNH+vSpkHlgKEiaMW3gVkg=
+hash: zrb54oRrAQSQ5uDovpjPK36mZBfe+C2c8GS969PRa9o=
 ---
 ![Логотип](../../../en/adapterref/iobroker.innogy-smarthome/admin/innogy-smarthome.png)
 
@@ -14,12 +14,15 @@ hash: DH6N8vNW5jb3ueTxzS9i6bNH+vSpkHlgKEiaMW3gVkg=
 Этот адаптер используется для подключения устройств Innogy smarthome к ioBroker. Вы можете узнать больше об Innogy [здесь](https://www.innogy.com).
 
 ### Требуется Node> 8.x
-Обратите внимание: для процесса аутентификации на хосте должен быть доступен порт 300. Убедитесь, что его больше ничем не использует (например, Grafana)
+Обратите внимание: для процесса аутентификации на хосте должен быть доступен порт 3000. Убедитесь, что его больше ничем не использует (например, Grafana)
 
 ## ТРЕБУЕТСЯ ПОМОЩЬ!
 Поскольку этот проект разрабатывается в мое свободное время, я * активно ищу помощь в поддержке и расширении этой библиотеки! Если вы готовы помочь, напишите мне!
 
 ## Changelog
+
+### 0.3.7
+   Prevent js-controller 3.3 warnings
 
 ### 0.3.6
     Fixed authorization issues

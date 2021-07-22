@@ -43,6 +43,7 @@ The default value is 10 minutes which is a good balance between the load for the
 ### PV automatics
 
 To charge your vehicle accordingly to a surplus (e.g. by photovoltaics) you can also define states which represent surplus and regard of main power. These value are used to calculate amperage which can be used for charging. By additional values you can define
+* toggle X1 option if you want to use X1 input from charging station to control whether to charge with full power or by photovoltaic automatic
 * a different mimimum amperage than the default 6 A (only needed for e.g. Renault Zoe)
 * a value of regard power that may be used to start charging (that means charging will start even if not enough surplus is available - suggested 0 W for 1 phases charging, 500 W to 2000 W for 3 phases charging)
 * an increment for amperage (suggested 500 mA)
@@ -58,6 +59,9 @@ Up to three states of energy meters can be specified for limitation. All values 
 An extra checkbox is used to specified whether wallbox power is included (in this case wallbox power will be subtracted from the state values).
 
 ## Changelog
+
+### 1.2.1 (2021-07-20)
+* (Sneak-L8) support X1 contact of charging station to switch photovoltaics automatic
 
 ### 1.2.0 (2021-06-07)
 * (Sneak-L8) support for compact mode

@@ -2,75 +2,83 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kecontact/README.md
-title: 用于KEBA KeContact壁盒的ioBroker适配器
-hash: 2CBPs1RJKdWFQcmLu1r7jOSp5xfW57UhNFz0wiNC+Ro=
+title: 用于 KEBA KeContact 墙盒的 ioBroker 适配器
+hash: nw5zoKj8cUHEDoonJTfpYhct7J+7hPccu1KmFunlX4A=
 ---
-![适配器徽标](../../../en/adapterref/iobroker.kecontact/admin/charger.png)
+![适配器标志](../../../en/adapterref/iobroker.kecontact/admin/charger.png)
 
 ![安装数量](http://iobroker.live/badges/kecontact-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.kecontact.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.kecontact.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.kecontact.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.kecontact.svg)
 ![特拉维斯](https://img.shields.io/travis/iobroker-community-adapters/ioBroker.kecontact.svg)
-![GitHub问题](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.kecontact.svg)
+![GitHub 问题](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.kecontact.svg)
 
-＃用于KEBA KeContact壁盒的ioBroker适配器
-使用其UDP协议提供有关KEBA KeContact Wallbox当前状态的信息。
+# 用于 KEBA KeContact 墙盒的 ioBroker 适配器
+使用其 UDP 协议提供有关 KEBA KeContact 墙盒当前状态的信息。
 
 ＃＃ 安装
-通过ioBroker Admin安装此适配器：
+通过 ioBroker Admin 安装此适配器：
 
-1.打开实例配置对话框
-2.输入您的KEBA KeContact壁盒的IP地址
+1. 打开实例配置对话框
+2. 输入您的 KEBA KeContact 墙盒的 IP 地址
 3.根据需要调整刷新间隔
-4.保存配置
+4. 保存配置
 5.启动适配器
 
 ＃＃ 配置
-### KeContact IP地址
-这是您的KEBA KeContact壁盒的IP地址。
+### KeContact IP 地址
+这是 KEBA KeContact 墙盒的 IP 地址。
 
 ###固件检查
-每天一次适配器将在KEBA网站上检查是否有更新的固件。该信息将被打印以记录为警告。
+适配器将每天检查一次 KEBA 网站上是否有更新的固件可用。此信息将被打印以作为警告记录。
 
 ###被动模式
-如果您自己控制自己的Wallbox，并且不希望此适配器自动执行操作，请激活此选项。在这种情况下，有关光伏自动控制和功率限制的所有后续选项将被忽略。
+如果您想自己控制您的wallbox 并且不希望此适配器执行某些自动操作，请激活此选项。在这种情况下，所有有关 PV 自动和功率限制的后续选项都将被忽略。
 
-###加载充电会话
-您可以选中此选项以从墙上的盒子中定期下载最新的充电会话（30）。
-v1.1.1及以下版本的用户要注意：您必须选中此选项才能继续接收充电会话！
+### 加载充电会话
+您可以选中此选项以定期从壁挂盒下载最新的充电会话 (30)。
+v1.1.1 及以下版本的用户注意：您必须选中此选项才能继续接收充电会话！
 
 ＃＃＃ 刷新间隔
-这是间隔时间（以秒为单位），应该多久查询一次壁挂盒以获取新的充电值。
+这是应该以秒为单位查询墙盒以获取新充电值的间隔。
 
-默认值为10分钟，这是KeConnect的负载与ioBroker中的最新信息之间的良好平衡。
+默认值为 10 分钟，这是 KeConnect 的负载和 ioBroker 中的最新信息之间的良好平衡。
 
-### PV自动装置
-为了对车辆进行过盈充电（例如通过光伏），您还可以定义代表过盈和主电源状态的状态。这些值用于计算可用于充电的安培数。通过其他值，您可以定义
+### PV 自动装置
+为了给您的车辆相应地充电到剩余（例如通过光伏），您还可以定义代表剩余和主电源的状态。这些值用于计算可用于充电的安培数。通过附加值，您可以定义
 
-*与默认的6 A不同的最小安培数（仅对于例如Renault Zoe才需要）
-*可用于开始充电的参考功率值（这意味着即使没有足够的剩余电量也会开始充电-建议1阶段充电0 W，3阶段充电500 W至2000 W）
-*安培数的增量（建议500 mA）
-*可以暂时用于维持充电时段的关注值（这意味着即使不再有足够的剩余电量，充电也将在以后停止-将添加开始关注-建议500 W）
-*充电会话的最短持续时间（即使剩余部分不再足够，充电会话也至少会持续此时间-建议300秒）
-*每次盈余不再足够时继续进行充电的时间（以弥合阴天的时间）
+* 如果您想使用充电站的X1输入来控制是全功率充电还是光伏自动充电，请切换X1选项
+* 与默认 6 A 不同的最小安培数（仅适用于例如 Renault Zoe）
+* 可用于开始充电的关注功率值（这意味着即使没有足够的剩余电量也会开始充电 - 建议 0 W 用于 1 相充电，500 W 至 2000 W 用于 3 相充电）
+* 电流增量（建议 500 mA）
+* 可以暂时用于维持充电会话的关注值（这意味着即使不再有足够的剩余，充电也会在稍后停止 - 将添加开始关注 - 建议 500 W）
+* 充电会话的最短持续时间（即使剩余不再足够，充电会话将至少持续这次 - 建议 300 秒）
+* 每次剩余时间不再充足时继续充电的时间（以弥补阴天的时间）
 
 ###功率限制
-您还可以限制最大壁箱的功率以限制主功率。例如。当运行夜间存储加热器时，您可能必须遵守最大功率限制。
-如果您输入一个值，则您的wallbox将连续受到限制，以不超过您的功率限制。
-最多可以指定三种状态的电度表进行限制。所有值都将相加以计算电流消耗。
-一个额外的复选框用于指定是否包括墙盒电源（在这种情况下，将从状态值中减去墙盒电源）。
+您还可以限制最大值。墙盒的电源以限制主电源。例如。运行夜间蓄热式加热器时，您可能必须遵守最大功率限制。
+如果您输入一个值，您的 wallbox 将被连续限制以不超过您的功率限制。
+最多可以指定三种电能表状态进行限制。将所有值相加以计算电流消耗。
+一个额外的复选框用于指定是否包括壁箱功率（在这种情况下，壁箱功率将从状态值中减去）。
 
 ＃＃ 合法的
-该项目与KEBA AG公司没有直接或间接的联系。
+该项目与 KEBA AG 公司没有直接或间接的关联。
 
-KeConnect是KEBA AG的注册商标。
+KeConnect 是 KEBA AG 的注册商标。
 
 ## Changelog
 
+### 1.2.1 (2021-07-20)
+* (Sneak-L8) support X1 contact of charging station to switch photovoltaics automatic
+
+### 1.2.0 (2021-06-07)
+* (Sneak-L8) support for compact mode
+* (Sneak-L8) using sentry.io to track errors
+* (Sneak-L8) support for KeContact P30 Deutschland edition
+
 ### 1.1.3 (2021-04-26)
 * (Sneak-L8) new time option to continue charging session with regard
-* (Sneak-L8) optimized calculation of surplus (prevent alternating amerage)
-* (Sneak-L8) support for compact mode
+* (Sneak-L8) optimized calculation of surplus (prevent alternating amperage)
 
 ### 1.1.2 (2021-04-02)
 * (Sneak-L8) default state of photovoltaics automatic set to true for new users

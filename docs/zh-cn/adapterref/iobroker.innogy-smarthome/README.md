@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.innogy-smarthome/README.md
 title: ioBroker.Innogy-SmartHome
-hash: DH6N8vNW5jb3ueTxzS9i6bNH+vSpkHlgKEiaMW3gVkg=
+hash: zrb54oRrAQSQ5uDovpjPK36mZBfe+C2c8GS969PRa9o=
 ---
-![商标](../../../en/adapterref/iobroker.innogy-smarthome/admin/innogy-smarthome.png)
+![标识](../../../en/adapterref/iobroker.innogy-smarthome/admin/innogy-smarthome.png)
 
 ![安装数量](http://iobroker.live/badges/innogy-smarthome-stable.svg)
 ![建造](https://travis-ci.org/PArns/ioBroker.innogy-smarthome.svg?branch=master)
@@ -14,12 +14,15 @@ hash: DH6N8vNW5jb3ueTxzS9i6bNH+vSpkHlgKEiaMW3gVkg=
 该适配器用于将 Innogy 智能家居设备连接到 ioBroker。您可以阅读有关 Innogy [这里](https://www.innogy.com) 的更多信息。
 
 ###需要节点> 8.x
-请注意：对于身份验证过程，主机需要使用端口 300。请检查是否没有其他人在使用它（例如 Grafana）
+请注意：对于身份验证过程，主机需要使用端口 3000。请检查是否没有其他人在使用它（例如 Grafana）
 
 ＃＃ 把招工广告！
 由于这个项目是在我的业余时间开发的，我正在积极寻求帮助来维护和扩展这个库！如果你愿意帮忙，请给我留言！
 
 ## Changelog
+
+### 0.3.7
+   Prevent js-controller 3.3 warnings
 
 ### 0.3.6
     Fixed authorization issues

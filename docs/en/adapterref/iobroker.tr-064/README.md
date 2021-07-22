@@ -96,6 +96,9 @@ iobroker upload tr-064
 
 ## Changelog
 
+### 4.2.14 (2021-07-21)
+* (Apollon77) Further optimizations for js-controller 3.3
+
 ### 4.2.13 (2021-07-12)
 * (Apollon77) Optimize for js-controller 3.3 and prevent warnings (you pot. need to delete datapoints if you still see errors, they will be recreated)
 

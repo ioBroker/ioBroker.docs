@@ -74,6 +74,9 @@ Gerät, die er braucht.
 	### **WORK IN PROGRESS**
 	npm install @alcalzone/release-script
 -->
+### 1.1.12 (2021-07-21)
+* Update translations
+
 ### 1.1.11 (2021-06-30)
 * adjusted types & roles to type-detector.
 

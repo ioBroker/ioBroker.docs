@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.innogy-smarthome/README.md
 title: ioBroker.Innogy-SmartHome
-hash: DH6N8vNW5jb3ueTxzS9i6bNH+vSpkHlgKEiaMW3gVkg=
+hash: zrb54oRrAQSQ5uDovpjPK36mZBfe+C2c8GS969PRa9o=
 ---
 ![Logo](../../../en/adapterref/iobroker.innogy-smarthome/admin/innogy-smarthome.png)
 
@@ -14,12 +14,15 @@ hash: DH6N8vNW5jb3ueTxzS9i6bNH+vSpkHlgKEiaMW3gVkg=
 Dieser Adapter wird verwendet, um die Innogy Smarthome-Geräte mit ioBroker zu verbinden. Lesen Sie mehr über Innogy [Hier](https://www.innogy.com).
 
 ###Erfordert Knoten > 8.x
-Bitte beachten: Für den Authentifizierungsprozess muss Port 300 auf dem Host verfügbar sein. Bitte überprüfen Sie, ob es von anderen Benutzern verwendet wird (z. B. Grafana).
+Bitte beachten: Für den Authentifizierungsprozess muss Port 3000 auf dem Host verfügbar sein. Bitte überprüfen Sie, ob es von anderen Benutzern verwendet wird (z. B. Grafana).
 
 ## STELLENANGEBOTE!
 Da dieses Projekt in meiner Freizeit entwickelt wird, suche ich aktiv nach Hilfe bei der Pflege und Erweiterung dieser Lib! Wenn Sie bereit sind zu helfen, schreiben Sie mir!
 
 ## Changelog
+
+### 0.3.7
+   Prevent js-controller 3.3 warnings
 
 ### 0.3.6
     Fixed authorization issues

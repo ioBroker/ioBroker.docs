@@ -7,13 +7,16 @@ This adapter is used to connect the Innogy smarthome devices to ioBroker. You ca
 
 ###Requires Node > 8.x
 
-Please note: For the Authentication process Port 300 is needed to be available om the host. Please check that nothing else is using it (e.g. Grafana)
+Please note: For the Authentication process Port 3000 is needed to be available om the host. Please check that nothing else is using it (e.g. Grafana)
 
 ## HELP WANTED!
 
 As this project is developed during my spare time, I*m actively looking for help to maintain and extend this lib! If you're willing to help, drop me a line!
 
 ## Changelog
+
+### 0.3.7
+   Prevent js-controller 3.3 warnings
 
 ### 0.3.6
     Fixed authorization issues

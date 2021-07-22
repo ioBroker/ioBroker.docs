@@ -34,7 +34,9 @@ You can also define a database name - this is used as Bucket. The default is "io
 When doing custom queries via the "query" message you can use Flux queries to select the data you want. Details on Flux can be found at https://docs.influxdata.com/influxdb/v2.0/reference/flux/
 
 ## Retention Policy
-TBD
+While Influx 1.x supports the concept of multiple **retention policies** for one database, Influx 2 by design allows only one **retention period** per bucket. Therefore, it is only possible to set one policy for the whole database/bucket with this adapter via _Default Settings -> Storage retention_. The retention selected here will be applied on the fly and can be changed at any time. Retention policies set by the adapter will never be deleted, but instead altered if required, as otherwise Influx 1.x would delete all data that the policy applied to.
+
+Please also read [Understanding Retention Policies](RetentionPolicies.md). 
 
 ## Direct writes or buffered writes?
 With the default configuration the adapter stores each single datapoint directly into the database and only use the internal buffer if the database is not available. If the database was not available the buffer is flushed at the given interval, so it can take the defined interval till the missing points are written!

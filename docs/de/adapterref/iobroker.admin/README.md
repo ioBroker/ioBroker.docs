@@ -123,6 +123,9 @@ Auch die Repositorien und Sicherheitseinstellungen können hier eingestellt werd
 Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitts zu erreichen.
 
 ## Changelog
+### 5.1.13 (2021-07-21)
+* (bluefox) Improved json config
+
 ### 5.1.12 (2021-07-16)
 * (bluefox) The charts were improved
 * (bluefox) Corrected the error with the jump links if more than one web instance
@@ -135,9 +138,6 @@ Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitt
 
 ### 5.1.9 (2021-06-09)
 * (bluefox) Corrected some GUI errors
-
-### 5.1.8 (2021-06-06)
-* (bluefox) Improved the list of predefined icons
 
 ## License
 

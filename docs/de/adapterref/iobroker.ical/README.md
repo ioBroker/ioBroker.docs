@@ -190,6 +190,9 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 	### **WORK IN PROGRESS**
 -->
 
+### __WORK IN PROGRESS__
+* (Apollon77) Make sure all Event objects are created before values are written
+
 ### 1.10.0 (2021-07-16)
 * IMPORTANT: data.table is now a stringified array!! Consider when using this value!
 * (Apollon77) Optimize for js-controller 3.3

@@ -73,6 +73,9 @@ to the Login Page.
 
 ## Changelog
 
+### 3.4.5 (2021-07-20)
+* (Apollon77) fix admin dependency because since 3.4.2 Admin 5.1 is required
+
 ### 3.4.4 (2021-07-04)
 * (Apollon77) Fix missing www files
 

@@ -74,6 +74,9 @@ BADGE-NPM: https://nodei.co/npm/iobroker.admin.png?downloads=true
 日志的字体显示为红色。
 
 ## Changelog
+### 5.1.13 (2021-07-21)
+* (bluefox) Improved json config
+
 ### 5.1.12 (2021-07-16)
 * (bluefox) The charts were improved
 * (bluefox) Corrected the error with the jump links if more than one web instance
@@ -86,9 +89,6 @@ BADGE-NPM: https://nodei.co/npm/iobroker.admin.png?downloads=true
 
 ### 5.1.9 (2021-06-09)
 * (bluefox) Corrected some GUI errors
-
-### 5.1.8 (2021-06-06)
-* (bluefox) Improved the list of predefined icons
 
 ## License
 
