@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.accuweather/README.md
 title: ioBroker.accuweather
-hash: On/fFF4r+ZCWa0rqet1IurukKyyXPW/+FChGXPNRW7k=
+hash: 88xK3dX4/SElIoDVN0/WmOMWo3S/TiNznNZtVDvyOKw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.accuweather/admin/accuweather.png)
 
@@ -22,7 +22,8 @@ hash: On/fFF4r+ZCWa0rqet1IurukKyyXPW/+FChGXPNRW7k=
 
 ## Начиная
 ### Получить ключ API
-Чтобы получить ключ API, зарегистрируйтесь на https://developer.accuweather.com/ и создайте приложение в меню «Мои приложения». После создания приложения вам будет сгенерирован ключ API.
+Чтобы получить API-ключ, зарегистрируйтесь на https://developer.accuweather.com/ и создайте приложение в меню `My Apps`.
+После создания приложения вам будет сгенерирован ключ API.
 Для бесплатного использования можно делать 50 запросов к API в день.
 Было отмечено, что для работы API предпочтительны следующие настройки (выберите страну!): ![настройки](../../../en/adapterref/iobroker.accuweather/admin/image.png)
 
@@ -38,9 +39,11 @@ hash: On/fFF4r+ZCWa0rqet1IurukKyyXPW/+FChGXPNRW7k=
 <! - Заполнитель для следующей версии (в начале строки):
 
 ### **РАБОТА В ПРОЦЕССЕ** ->
-### **РАБОТА В ПРОЦЕССЕ** *
 
 ## Changelog
+### 1.2.1 (2021-07-22)
+* (bluefox) Updated logo
+
 ### 1.2.0 (2021-07-03)
 * (Garfonso) adjust roles to properly detect weather forecast in Summary folder. (Summary objects need to be deleted and adapter restarted after that)
 

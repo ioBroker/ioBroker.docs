@@ -316,6 +316,15 @@ $ sudo apt-get install smartmontools
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
 
+### 1.9.5 (2021-07-25)
+* (simatec) Design Fix
+
+### 1.9.4 (2021-07-24)
+* Ready for Admin 5
+
+### 1.9.2 (2021-07-22)
+* Fix too high load because of wrong parsing of settings
+
 ### 1.9.1 (2021-07-21)
 * Adjust object types to prevent js-controller 3.3 warnings
 * Disable all data collection by default  -  users can activate whatever they really need

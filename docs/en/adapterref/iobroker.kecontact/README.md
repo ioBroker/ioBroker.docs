@@ -62,6 +62,7 @@ An extra checkbox is used to specified whether wallbox power is included (in thi
 
 ### 1.2.1 (2021-07-20)
 * (Sneak-L8) support X1 contact of charging station to switch photovoltaics automatic
+* (Sneak-L8) prevent a crash case (Sentry IOBROKER-KECONTACT-2)
 
 ### 1.2.0 (2021-06-07)
 * (Sneak-L8) support for compact mode

@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: /0XsFtPpaSdNPnI6JYhKKO07s7LilG2Z501Y/fGyVNo=
+hash: Ivc9JQq1WS4r3oaGmex9rQJhzXisBdA3bRtHq/dirUc=
 ---
-![商标](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
+![标识](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.meteoalarm.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.meteoalarm.svg)
@@ -15,10 +15,7 @@ hash: /0XsFtPpaSdNPnI6JYhKKO07s7LilG2Z501Y/fGyVNo=
 # IoBroker.meteoalarm
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
 
-ioBroker的meteoalarm适配器---------------------------------------- --------------------------------
-
-##！！！可以处理新网站的新版本 2.0.0 目前正在测试中，可在最新/测试版通道中使用
-该适配器从https://meteoalarm.org 拉取天气警报，包括风、雪、雨、高低温等。此信息以当地语言提供，适用于详细地区。
+ioBroker 的meteoalarm 适配器---------------------------------------------- -------------------------------- 此适配器正在从 https://meteoalarm.org 拉天气警报，其中包括风、雪、雨、高低温等。此信息以当地语言提供，适用于详细地区。
 
 免责声明：本网站与 www.meteoalarm.org 网站之间可能存在时间延迟，有关参与国家气象服务部门发布的有关警报级别的最新信息，请使用 https://www.meteoalarm.org。
 
@@ -60,7 +57,7 @@ ioBroker的meteoalarm适配器---------------------------------------- ---------
 |报警级别|说明|
 |:---:|:---:|
 |绿色|目前没有可用的警告。|
-|黄色|天气有潜在危险。预测的天气现象并不少见，但应更加注意暴露于气象风险的活动。随时了解预期的气象条件，不要冒任何可避免的风险。|
+|黄色|天气有潜在危险。预测的天气现象并不少见，但应更加关注面临气象风险的活动。随时了解预期的气象条件，不要冒任何可避免的风险。|
 |橙色|天气很危险。已经预测到不寻常的气象现象。可能会发生损坏和事故。要非常细心和小心，并及时了解预期的气象条件。 |
 |红色|天气非常危险。预测到异常强烈的气象现象。严重的破坏和事故，通常是大面积的，威胁着生命和财产。 |
 

@@ -50,6 +50,9 @@ Better if every device belongs to both categories. Because every device has the 
 -->
 
 ## Changelog
+### 1.0.3 (2021-07-23)
+* (bluefox) Corrected the size of icons
+
 ### 1.0.2 (2021-07-18)
 * (bluefox) Redesign
 

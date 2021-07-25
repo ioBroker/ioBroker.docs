@@ -13,12 +13,15 @@
 ## accuweather adapter for ioBroker
 Weather forecast using AccuWeather API.
 
-Adapter receives Current Conditions (updated every hour), 5 Days daily forecast (update once daily at approximately 7am), and 12 hours forecast (updated every six hours at 12am, 6am, 12pm and 6pm). 
+Adapter receives Current Conditions (updated every hour), 
+5 Days daily forecast (update once daily at approximately 7am), 
+and 12 hours forecast (updated every six hours at 12am, 6am, 12pm and 6pm). 
 
 ## Getting started
 
 ### Get API Key
-To get API Key, register on https://developer.accuweather.com/ and create application in \"My Apps\" menu. Once the application created, you will have API key generated. 
+To get API Key, register on https://developer.accuweather.com/ and create application in `My Apps` menu. 
+Once the application created, you will have API key generated. 
 For free use it is possible to make 50 requests to API per day. 
 It was noted that to get API working the following settings are preferred (please choose your country!):
 ![settings](admin/image.png)
@@ -36,9 +39,11 @@ For better view a custom lovelace card is created - see https://github.com/algar
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-*
+
 ## Changelog
+### 1.2.1 (2021-07-22)
+* (bluefox) Updated logo
+
 ### 1.2.0 (2021-07-03)
 * (Garfonso) adjust roles to properly detect weather forecast in Summary folder. (Summary objects need to be deleted and adapter restarted after that)
 

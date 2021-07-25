@@ -123,6 +123,9 @@ Auch die Repositorien und Sicherheitseinstellungen können hier eingestellt werd
 Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitts zu erreichen.
 
 ## Changelog
+### 5.1.14 (2021-07-23)
+* (bluefox) Corrected error with "Intro" page. Warning: All cards must be deactivated anew.
+
 ### 5.1.13 (2021-07-21)
 * (bluefox) Improved json config
 
@@ -134,9 +137,6 @@ Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitt
 * (bluefox) Changed the filter of objects
 
 ### 5.1.10 (2021-07-09)
-* (bluefox) Corrected some GUI errors
-
-### 5.1.9 (2021-06-09)
 * (bluefox) Corrected some GUI errors
 
 ## License

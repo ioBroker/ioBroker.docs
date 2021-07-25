@@ -663,6 +663,8 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.admin/tab-objects.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.admin/tab-states.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.admin/tab-system.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.admin/tab-users.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.airconwithme/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.airzone/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.alarm/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.alexa2/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.alias-manager/README.md
@@ -1104,6 +1106,8 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.admin/tab-objects.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.admin/tab-states.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.admin/tab-system.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.admin/tab-users.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.airconwithme/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.airzone/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.alarm/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.alexa2/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.alias-manager/README.md
@@ -1545,6 +1549,8 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.admin/tab-objects.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.admin/tab-states.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.admin/tab-system.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.admin/tab-users.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.airconwithme/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.airzone/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.alarm/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.alexa2/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.alias-manager/README.md
@@ -1986,6 +1992,8 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.admin/tab-objects.m
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.admin/tab-states.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.admin/tab-system.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.admin/tab-users.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.airconwithme/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.airzone/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.alarm/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.alexa2/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.alias-manager/README.md

@@ -18,19 +18,18 @@ See also the [Spotify Developer API Documentation](https://developer.spotify.com
 ### Setup / Authorization
 1. Sign in on https://developer.spotify.com/dashboard/
 2. Create an application, you get a Client ID and a Client Secret
-3. set the redirect URIs to `http://localhost` in your app settings at your created spotify application
-4. put the Cliend ID and Client Secret in the fields down below
-5. start the instance
-6. switch to objects tab and push the button getAuthorization at `spotify-premium.0.authorization`
-7. copy the appearing URL from `spotify-premium.0.authorization.authorizationUrl` to your webbrowser and call it
+3. Set the redirect URIs to `http://localhost` in your app settings at your created spotify application
+4. Put the Client ID and Client Secret in the fields down below
+5. Start the instance
+6. Switch to the objects tab and push the button getAuthorization at `spotify-premium.0.authorization`
+7. Copy the appearing URL from `spotify-premium.0.authorization.authorizationUrl` to your webbrowser and call it
 8. You maybe need to sign in to spotify and grant access
-9. the browser will redirected to an invalid URL. If the error `invalid redirect uri` occurs please verify step 3
-10. copy that url and put it to `spotify-premium.0.authorization.authorizationReturnUri`
-11. the value in `spotify-premium.0.authorization.authorized` turns to true if everything was successful
+9. The browser will be redirected to an invalid URL. If the error `invalid redirect uri` occurs please verify step 3
+10. Copy that url and put it to `spotify-premium.0.authorization.authorizationReturnUri`
+11. The value in `spotify-premium.0.authorization.authorized` turns to true if everything was successful
 
 #### [Video tutorial](https://www.youtube.com/watch?v=n0m9201qABU)
 [![How to authorize](https://img.youtube.com/vi/n0m9201qABU/0.jpg "https://www.youtube.com/watch?v=n0m9201qABU")](https://www.youtube.com/watch?v=n0m9201qABU)
-
 
 ### States
 All states are described in admin.
@@ -82,7 +81,16 @@ Click for widget source.
 <pre><code>[{"tpl":"tplJquiSelectList","data":{"oid":"spotify-premium.0.playlists.playlistList","g_fixed":false,"g_visibility":false,"g_css_font_text":false,"g_css_background":false,"g_css_shadow_padding":false,"g_css_border":false,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","values":"{spotify-premium.0.playlists.playlistListIds}","texts":"{spotify-premium.0.playlists.playlistListString}","height":"100","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0},"style":{"left":"571px","top":"509px"},"widgetSet":"jqui"}]</code></pre>
 </details>
 
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
 ## Changelog
+### 1.1.3 (2021-07-22)
+* (bluefox) Improved authorization process
+
+### 1.1.1 (2021-07-22)
+* (bluefox) removed warnings for js-controller 3.x
 
 ### 1.1.0 (in dev)
 * IMPORTANT: js-controller 2.0.0 is now required at least
@@ -91,7 +99,7 @@ Click for widget source.
 * (Apollon77) Core Files/Testing Update and introduce adapter-core
 * (twonky) added state `player.playUri` to support user defined input
 * (Apollon77) Fix js-controller 3.3 warnings
-* (Xyolyp) Listen on player.volume instead of player.device.volume as the latter is readonly
+* (Xyolyp) Listen on `player.volume` instead of player.device.volume as the latter is readonly
 * (bellerG) fix player.playUri
 
 ### 1.0.0 (2018.12.18)

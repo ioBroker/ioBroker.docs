@@ -9,9 +9,6 @@
 
 meteoalarm Adapter for ioBroker
 ------------------------------------------------------------------------------
-
-## !!!! The new version 2.0.0 which can handle the new website is currently in testing and available in the latest/beta channel
-
 This adapter is pulling weather alarms from https://meteoalarm.org, which includes wind, snow, rain, high and low temperature,etc. This information is available in local language and for detailed regions.
 
 Disclaimer: Time delays between this website and the www.meteoalarm.org website are possible, for the most up to date information about alert levels as published by the participating National Meteorological Services please use https://www.meteoalarm.org.

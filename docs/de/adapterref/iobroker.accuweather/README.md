@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.accuweather/README.md
 title: ioBroker.accuweather
-hash: On/fFF4r+ZCWa0rqet1IurukKyyXPW/+FChGXPNRW7k=
+hash: 88xK3dX4/SElIoDVN0/WmOMWo3S/TiNznNZtVDvyOKw=
 ---
 ![Logo](../../../en/adapterref/iobroker.accuweather/admin/accuweather.png)
 
@@ -22,7 +22,8 @@ Der Adapter empfängt aktuelle Bedingungen (wird stündlich aktualisiert), 5-Tag
 
 ## Einstieg
 ### API-Schlüssel abrufen
-Um den API-Schlüssel zu erhalten, registrieren Sie sich auf https://developer.accuweather.com/ und erstellen Sie eine Anwendung im Menü \"Meine Apps\". Sobald die Anwendung erstellt wurde, wird der API-Schlüssel generiert.
+Um den API-Schlüssel zu erhalten, registrieren Sie sich auf https://developer.accuweather.com/ und erstellen Sie eine Anwendung im Menü `My Apps`.
+Sobald die Anwendung erstellt wurde, wird der API-Schlüssel generiert.
 Zur kostenlosen Nutzung ist es möglich, pro Tag 50 Anfragen an API zu stellen.
 Es wurde darauf hingewiesen, dass die folgenden Einstellungen bevorzugt werden, damit die API funktioniert (bitte wählen Sie Ihr Land aus!): ![die Einstellungen](../../../en/adapterref/iobroker.accuweather/admin/image.png)
 
@@ -38,9 +39,11 @@ Zur besseren Ansicht wird eine benutzerdefinierte Lovelace-Karte erstellt - sieh
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
 ### **ARBEITEN LÄUFT** -->
-### **IN ARBEIT** *
 
 ## Changelog
+### 1.2.1 (2021-07-22)
+* (bluefox) Updated logo
+
 ### 1.2.0 (2021-07-03)
 * (Garfonso) adjust roles to properly detect weather forecast in Summary folder. (Summary objects need to be deleted and adapter restarted after that)
 

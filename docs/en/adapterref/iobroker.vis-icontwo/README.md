@@ -61,6 +61,10 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+### 0.76.0
+
+• Neue Icons hinzugefügt (Devices/thermostat)
+
 ### 0.75.0
 
 • Neue Icons hinzugefügt (Hobbies/Train)

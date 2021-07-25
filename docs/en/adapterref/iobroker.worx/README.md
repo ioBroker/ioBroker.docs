@@ -29,8 +29,10 @@ The adapter can control the mower and you can change config params like mowtimes
 
 
 ## Changelog
-### **WORK IN PROGRESS**
-(TA2k) fix error with wrong serialnumber
+### 1.4.2 (2021-07-24)
+(MeisterTR) fix bug with OLMSwitch_Cutting
+(MeisterTR) fix bug with PartyMode
+(TA2k) fix error with wrong serialnumber (please delete all objects manually)
 (MeisterTR) fix bug in autolock function
 ### 1.4.1 (2021-07-06)
 * (MeisterTR) fix bug in sendCommand (please remove state manually)

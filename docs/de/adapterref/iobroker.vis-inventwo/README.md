@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: nTe5CmHUbAywNVoDUwj6qFBtYwxIPOcQ4VF08ehlH8Q=
+hash: qSHSTsoKI6tdAnYHzKg0ZeOJMsmp3OwLjf7DU9htRqo=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -20,13 +20,15 @@ hash: nTe5CmHUbAywNVoDUwj6qFBtYwxIPOcQ4VF08ehlH8Q=
 
 # IoBroker.vis-inventwo
 ## Schalter Widgets für den ioBroker.vis Adapter
+Schalter, Slider, Tabellen, Regler, Checkboxen, Radiobuttons und mehr...<br> Mit unserem Widgets-Set hast du die freie Wahl individuelle Visualisierungen ganz einfach für dein Smart-Home zu erstellen.
+
 ###### .. ab v 2.0.0
-<table><tr><td><center><b>Universal</b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td><td><center> <b>Multi</b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td><td><center> <b>Bild</b><br><img src="widgets/vis-inventwo/img/Image.png"></td><td><center> <b>Tabelle</b> <br><img src="widgets/vis-inventwo/img/Table.png"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>Aufführen</b><br><img src="widgets/vis-inventwo/img/List.png"></td><td><center> <b>Festzelt</b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td><td><center> <b>Radio knopf</b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td><td><center> <b>Schieberegler vertikal</b> <br><img src="widgets/vis-inventwo/img/Slider2.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Schieberegler horizontal</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td><td><center> <b>Farbschieber horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td><td><center> <b>Farbschieber horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td><td><center> <b>Kippschalter</b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td></tr></table>
+<table><tr><td><center><b>Universal<br></b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td><td><center> <b>Multi<br></b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td><td><center> <b>Bild<br></b><br><img src="widgets/vis-inventwo/img/Image.png"></td><td><center> <b>Tisch<br></b> <br><img src="widgets/vis-inventwo/img/Table.png"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>Aufführen<br></b><br><img src="widgets/vis-inventwo/img/List.png"></td><td><center> <b>Festzelt<br></b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td><td><center> <b>Radio knopf<br></b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td><td><center> <b>Schieberegler<br> vertikal</b> <br><img src="widgets/vis-inventwo/img/Slider2.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Schieberegler<br> horizontal</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td><td><center> <b>Farbschieberegler<br> horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td><td><center> <b>Farbschieberegler<br> horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td><td><center> <b>Kippschalter<br></b> <br><img src="widgets/vis-inventwo/img/Toggle.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Basisschalter<br></b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td><td><center> <b>Kontrollkästchen/<br> Radio knopf</b><br><img src="widgets/vis-inventwo/img/Check.gif"></td></tr></table>
 
 ###### .. v 1.3.8
 ![Beispiel](http://resources.inventwo.com/github/inventwo/Set.png)
 
-Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit befinden sich in unserem Adapter NUR sterben reinen Schaltflächen (siehe oben) und sterben Icons. Uhr und Wetter stammen aus anderen Adaptern und müssen ggf. zusätzlich installiert werden.
+Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit befinden sich in unserem Adapter NUR die reinen Schaltflächen (siehe oben). Uhr und Wetter stammen aus anderen Adaptern und müssen ggf. zusätzlich installiert werden.
 
 ![Beispiel](http://resources.inventwo.com/github/inventwo/Preview.png)
 
@@ -41,6 +43,17 @@ Falls Dir unsere Arbeit und Du uns unterstützen möchten, freuen wir uns über 
 [![Ausgaben](http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
+
+## 3.1.2
+- Fehlerbehebung
+
+##3.1.1
+- Fehlerbehebung
+
+## 3.1.0
+- Neues Widget: Basisschalter
+- Neues Widget: Checkbox/Radiobutton
+- Fehlerbehebung
 
 ##3.0.11
 - Fehlerbehebung

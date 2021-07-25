@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: /0XsFtPpaSdNPnI6JYhKKO07s7LilG2Z501Y/fGyVNo=
+hash: Ivc9JQq1WS4r3oaGmex9rQJhzXisBdA3bRtHq/dirUc=
 ---
 ![Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -15,15 +15,12 @@ hash: /0XsFtPpaSdNPnI6JYhKKO07s7LilG2Z501Y/fGyVNo=
 # IoBroker.meteoalarm
 **Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
-meteoalarm Adapter für ioBroker ---------------------------------------------------------- --------------------------------
-
-## !!!! Die neue Version 2.0.0, die mit der neuen Website umgehen kann, befindet sich derzeit im Test und ist im neuesten/Beta-Kanal verfügbar
-Dieser Adapter ruft Wetteralarme von https://meteoalarm.org ab, die Wind, Schnee, Regen, hohe und niedrige Temperaturen usw. umfassen. Diese Informationen sind in der Landessprache und für detaillierte Regionen verfügbar.
+meteoalarm Adapter für ioBroker ---------------------------------------------------------- -------------------------------- Dieser Adapter ruft Wetteralarme von https://meteoalarm.org ab, die Wind enthalten , Schnee, Regen, hohe und niedrige Temperaturen usw. Diese Informationen sind in der Landessprache und für detaillierte Regionen verfügbar.
 
 Haftungsausschluss: Zeitverzögerungen zwischen dieser Website und der Website www.meteoalarm.org sind möglich. Für die aktuellsten Informationen zu den von den teilnehmenden nationalen Wetterdiensten veröffentlichten Alarmstufen verwenden Sie bitte https://www.meteoalarm.org.
 
 ## So verwenden Sie es
-Wählen Sie Ihr Land und anschließend die Region aus, für die Sie die Warnungen erhalten möchten. Wenn Sie sich nicht sicher sind, wie Ihre Region heißt, gehen Sie bitte zu https://meteoalarm.org und versuchen Sie, sie auf der Karte zu finden.
+Wählen Sie Ihr Land und anschließend die Region, für die Sie die Warnungen erhalten möchten. Wenn Sie sich nicht sicher sind, wie Ihre Region heißt, gehen Sie bitte zu https://meteoalarm.org und versuchen Sie, sie auf der Karte zu finden.
 
 ## Fügen Sie es Ihrem vis hinzu
 Der einfachste Weg, es zu Ihrem Vis hinzuzufügen, ist die Verwendung des Widget basic - string und dort die Auswahl des Datenpunkts htmlToday. Damit erhalten Sie ein vorgefertigtes HTML-Widget, das Sie im Setup anpassen können.
@@ -45,7 +42,7 @@ Der einfachste Weg, es zu Ihrem Vis hinzuzufügen, ist die Verwendung des Widget
 |12|Hochwasser|
 |13|Regen-Flut|
 
-## Einrichten
+## Installieren
 "Keine Hintergrundfarbe im HTML-Widget": Möglichkeit, das HTML-Widget ohne Hintergrundfarbe zu verwenden (z. B. wenn Sie das Farbobjekt verwenden möchten, um Ihr gesamtes Widget auszufüllen, nicht nur das HTML-Widget)
 
 "Warnfarben definieren": Möglichkeit, die Farben für die verschiedenen Alarmstufen im HEX-Code zu definieren. Wird für das HTML-Widget und auch für das Farbobjekt verwendet, um es manuell einem anderen Widget zuzuweisen
@@ -60,9 +57,9 @@ Der einfachste Weg, es zu Ihrem Vis hinzuzufügen, ist die Verwendung des Widget
 |Alarmstufe|Beschreibung|
 |:---:|:---:|
 |Grün|Im Moment ist keine Warnung verfügbar.|
-|Gelb|Das Wetter ist potenziell gefährlich. Die vorhergesagten Wetterphänomene sind nicht ungewöhnlich, aber Aktivitäten, die meteorologischen Risiken ausgesetzt sind, sollte erhöhte Aufmerksamkeit geschenkt werden. Informieren Sie sich über die zu erwartenden meteorologischen Bedingungen und gehen Sie keine vermeidbaren Risiken ein.|
-|Orange|Das Wetter ist gefährlich. Ungewöhnliche meteorologische Phänomene wurden vorhergesagt. Schäden und Unfälle sind wahrscheinlich. Seien Sie sehr aufmerksam und vorsichtig und informieren Sie sich über die zu erwartenden meteorologischen Bedingungen. |
-|Rot|Das Wetter ist sehr gefährlich. Es wurden ungewöhnlich intensive meteorologische Phänomene vorhergesagt. Extreme Schäden und Unfälle, oft großflächig, gefährden Leben und Sachwerte. |
+|Gelb|Das Wetter ist potenziell gefährlich. Die vorhergesagten Wetterphänomene sind nicht ungewöhnlich, aber Aktivitäten, die meteorologischen Risiken ausgesetzt sind, sollte erhöhte Aufmerksamkeit gewidmet werden. Informieren Sie sich über die zu erwartenden meteorologischen Bedingungen und gehen Sie keine vermeidbaren Risiken ein.|
+|Orange|Das Wetter ist gefährlich. Ungewöhnliche meteorologische Phänomene wurden vorhergesagt. Schäden und Unfälle sind wahrscheinlich. Seien Sie sehr aufmerksam und vorsichtig und halten Sie sich über die erwarteten meteorologischen Bedingungen auf dem Laufenden. |
+|Rot|Das Wetter ist sehr gefährlich. Es wurden ungewöhnlich intensive meteorologische Phänomene vorhergesagt. Extreme Schäden und Unfälle, oft großflächig, bedrohen Leben und Sachwerte. |
 
 ##Unterstützte Länder
 * Österreich
@@ -71,7 +68,7 @@ Der einfachste Weg, es zu Ihrem Vis hinzuzufügen, ist die Verwendung des Widget
 * BosnienHerzegowina
 * Kroatien
 * Zypern
-* Tschechien
+* Tschechische Republik
 * Dänemark
 * Estland
 * Finnland
@@ -157,7 +154,7 @@ Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf github, und 
 * (jack-blackson) Schweiz & Slowakei hinzugefügt
 
 ## 1.0.5 (2019-09-22)
-* (jack-blackson) Kleine Protokollierungsanpassungen
+* (jack-blackson) Kleine Logging-Anpassungen
 
 ## 1.0.4 (2019-09-11)
 * (jack-blackson) Travis-Fehler
@@ -168,7 +165,7 @@ Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf github, und 
 ## 1.0.2 (2019-08-25)
 * (jack-blackson) Infos zur Veröffentlichung nachbestellt
 
-### 1.0.1 (2019-08-18)
+### 1.0.1 (18.08.2019)
 * (jack-blackson) Bugfix kein Alarmsymbol
 
 ### 1.0.0 (2019-08-12)

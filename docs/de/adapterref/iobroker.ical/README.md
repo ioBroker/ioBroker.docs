@@ -190,7 +190,11 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 	### **WORK IN PROGRESS**
 -->
 
-### __WORK IN PROGRESS__
+### 1.10.2 (2021-07-25)
+* (Apollon77/Feuersturm) Fix wrong times and dates introduced in 1.7.5.
+* (Feuersturm) Allow Setting daysPast to be decreased to zero with button again
+
+### 1.10.1 (2021-07-22)
 * (Apollon77) Make sure all Event objects are created before values are written
 
 ### 1.10.0 (2021-07-16)

@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: nTe5CmHUbAywNVoDUwj6qFBtYwxIPOcQ4VF08ehlH8Q=
+hash: qSHSTsoKI6tdAnYHzKg0ZeOJMsmp3OwLjf7DU9htRqo=
 ---
-![商标](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
+![标识](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.vis-inventwo.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/vis-inventwo-stable.svg)
@@ -20,13 +20,15 @@ hash: nTe5CmHUbAywNVoDUwj6qFBtYwxIPOcQ4VF08ehlH8Q=
 
 # IoBroker.vis-inventwo
 ## Schalter Widgets für den ioBroker.vis Adapter
+Schalter、Slider、Tabellen、Regler、Checkboxen、Radiobuttons 和 mehr...<br> Mit unserem Widgets-Set hast du die freie Wahl individuelle Visualisierungen ganz einfach für dein Smart-Home zu erstellen。
+
 ###### .. ab v 2.0.0
-<table><tr><td><center><b>普遍的</b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td><td><center><b>多</b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td><td><center><b>图像</b><br><img src="widgets/vis-inventwo/img/Image.png"></td><td><center><b>桌子</b><br><img src="widgets/vis-inventwo/img/Table.png"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>列表</b><br><img src="widgets/vis-inventwo/img/List.png"></td><td><center><b>天棚</b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td><td><center><b>单选按钮</b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td><td><center><b>滑块垂直</b><br><img src="widgets/vis-inventwo/img/Slider2.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>滑块水平</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td><td><center><b>颜色滑块水平</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td><td><center><b>颜色滑块水平</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td><td><center><b>拨动开关</b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td></tr></table>
+<table><tr><td><center><b>普遍的<br></b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td><td><center><b>多<br></b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td><td><center><b>图像<br></b><br><img src="widgets/vis-inventwo/img/Image.png"></td><td><center><b>桌子<br></b><br><img src="widgets/vis-inventwo/img/Table.png"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>列表<br></b><br><img src="widgets/vis-inventwo/img/List.png"></td><td><center><b>天棚<br></b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td><td><center><b>单选按钮<br></b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td><td><center><b>滑块<br>垂直的</b><br><img src="widgets/vis-inventwo/img/Slider2.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>滑块<br>水平的</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td><td><center><b>颜色滑块<br>水平的</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td><td><center><b>颜色滑块<br>水平的</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td><td><center><b>拨动开关<br></b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>基本开关<br></b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td><td><center><b>复选框/<br>单选按钮</b><br><img src="widgets/vis-inventwo/img/Check.gif"></td></tr></table>
 
 ###### .. v 1.3.8
 ![贝斯皮尔](http://resources.inventwo.com/github/inventwo/Set.png)
 
-Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen。 Zur Zeit befinden sich in unserem Adapter NUR die reinen Schaltflächen (siehe oben) 和 die Icons。 Uhr 和 Wetter stammen aus anderen Adaptern und müssen ggf。 zusätzlich 安装程序。
+Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen。 Zur Zeit befinden sich in unserem Adapter NUR die reinen Schaltflächen (siehe oben)。 Uhr 和 Wetter stammen aus anderen Adaptern und müssen ggf。 zusätzlich 安装程序。
 
 ![贝斯皮尔](http://resources.inventwo.com/github/inventwo/Preview.png)
 
@@ -41,6 +43,17 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 [![Spende](http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
+
+## 3.1.2
+- 错误修正
+
+## 3.1.1
+- 错误修正
+
+## 3.1.0
+- 新小工具：Basisschalter
+- Neues 小工具：复选框/单选按钮
+- Bug修复
 
 ## 3.0.11
 - 错误修正
@@ -85,7 +98,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 - Beim Universal- 和 Multiwidget kann der Inhaltstyp geändert werden。
     - Inhaltstypen：图片（标准）、Analoge Uhr、Digitale Uhr 和 HTML/Text
-    - Analoge und digitale Uhr：Zeiger kann frei gewählt werden 下的 Farbe des Ziffernblatts，Zeitzone kann geändert werden
+    - Analoge und digitale Uhr：Zeiger kann frei gewählt werden、Zeitzone kann geändert werden 下的 Farbe des Ziffernblatts
     - Statt dem Icon kann ein eigener Text oder ein Datenpunktwert per Binding angezeigt werden
 - Vergleichsoperatoren Größer-Gelich und Kleiner-Gleich
 - PopUp kann per Datenpunk geöffnet werden
@@ -263,7 +276,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 ## 2.3.0
 - 问题 behoben, bei dem Schaltflächen zweimal Werte senden
 - Datum / Uhrzeit und Bildformat für Tabellenzellen hinzugefügt
-- Universal- 和 Multi-Widget-Attribute werden beim Klicken auf Widget aktualisiert
+- Universal- und Multi-Widget-Attribute werden beim Klicken auf Widget aktualisiert
 
 ## 2.2.3
 - Fehler JSON Tabelle behoben

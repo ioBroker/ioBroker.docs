@@ -16,30 +16,36 @@
 
 ## Schalter Widgets für den ioBroker.vis Adapter
 
+Schalter, Slider, Tabellen, Regler, Checkboxen, Radiobuttons und mehr...<br>
+Mit unserem Widgets-Set hast du die freie Wahl individuelle Visualisierungen ganz einfach für dein Smart-Home zu erstellen. 
+
 ###### .. ab v 2.0.0
-
-
 
 <table>
    <tr>
-        <td><center><b>Universal</b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td>
-        <td><center><b>Multi</b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td>
-        <td><center><b>Image</b><br><img src="widgets/vis-inventwo/img/Image.png"></td>
-         <td><center><b>Table</b><br><img src="widgets/vis-inventwo/img/Table.png"></td>
+        <td><center><b>Universal<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td>
+        <td><center><b>Multi<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td>
+        <td><center><b>Image<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Image.png"></td>
+         <td><center><b>Table<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Table.png"></td>
     </tr>
 <tr><td colspan=4></td></tr>   
     <tr>
-        <td><center><b>List</b><br><img src="widgets/vis-inventwo/img/List.png"></td>
-        <td><center><b>Marquee</b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td>
-        <td><center><b>Radio Button</b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td>
-        <td><center><b>Slider vertical</b><br><img src="widgets/vis-inventwo/img/Slider2.gif"></td>
+        <td><center><b>List<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/List.png"></td>
+        <td><center><b>Marquee<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td>
+        <td><center><b>Radio Button<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td>
+        <td><center><b>Slider<br>vertical</b><br><img src="widgets/vis-inventwo/img/Slider2.gif"></td>
     </tr>
 <tr><td colspan=4></td></tr>   
       <tr>
-        <td><center><b>Slider horizontal</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td>
-        <td><center><b>Colorslider horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td>
-        <td><center><b>Colorslider horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td>
-        <td><center><b>Toggle Switch</b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td>
+        <td><center><b>Slider<br>horizontal</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td>
+        <td><center><b>Colorslider<br>horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td>
+        <td><center><b>Colorslider<br>horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td>
+        <td><center><b>Toggle Switch<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td>
+    </tr>
+<tr><td colspan=4></td></tr>   
+      <tr>
+        <td><center><b>Basic Switch<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td>
+        <td><center><b>Checkbox/<br>Radiobutton</b><br><img src="widgets/vis-inventwo/img/Check.gif"></td>
     </tr>
 </table>
 
@@ -53,7 +59,7 @@
 
 
 
-Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit befinden sich in unserem Adapter NUR die reinen Schaltflächen (siehe oben) und die Icons. Uhr und Wetter stammen aus anderen Adaptern und müssen ggf. zusätzlich installiert werden.
+Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit befinden sich in unserem Adapter NUR die reinen Schaltflächen (siehe oben). Uhr und Wetter stammen aus anderen Adaptern und müssen ggf. zusätzlich installiert werden.
 
 ![Beispiel](http://resources.inventwo.com/github/inventwo/Preview.png)
 
@@ -71,6 +77,17 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 ---
 
 ## Changelog / Änderungsprotokoll
+
+## 3.1.2
+- Bugfix
+
+## 3.1.1
+- Bugfix
+
+## 3.1.0
+- Neues Widget: Basisschalter
+- Neues Widget: Checkbox/Radiobutton
+- Bugfixes
 
 ## 3.0.11
 - Bugfix
