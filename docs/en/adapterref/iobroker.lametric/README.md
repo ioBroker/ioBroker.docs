@@ -17,7 +17,7 @@ All you need is the IP address of your device and the api developer key.
 
 ## Configuration
 
-Tested with LaMetric firmware *2.1.3* (recommended)
+Tested with LaMetric firmware *2.2.1* (recommended)
 
 You can get your personal key [here](https://developer.lametric.com/).
 
@@ -196,7 +196,7 @@ show();
 
 ### 1.3.1
 
-* (klein0r) Fixed js-controller warnings
+* (klein0r) Added local start and end time for screensaver
 
 ### 1.3.0
 

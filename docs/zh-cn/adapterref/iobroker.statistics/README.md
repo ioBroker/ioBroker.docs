@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.statistics/README.md
 title: ioBroker.statistics
-hash: 50F3oa1dUN0ZXS5QMiPgTULKjXr2Y6gjxR/q4zvXj1k=
+hash: fiNJphnoUsmKpxwF5jGT/eEOdyBHMdwDQyzzI1eQtBM=
 ---
-![商标](../../../en/adapterref/iobroker.statistics/admin/statistics.png)
+![标识](../../../en/adapterref/iobroker.statistics/admin/statistics.png)
 
 ![安装数量](http://iobroker.live/badges/statistics-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.statistics.svg)
@@ -41,18 +41,21 @@ hash: 50F3oa1dUN0ZXS5QMiPgTULKjXr2Y6gjxR/q4zvXj1k=
 
 状态结构为：`statistics.0.{save|temp}.{kind of stat}.{original observed state}.{state of statistical value}`
 
-可在此处获得德语 HowTo 文档：[howto_de](./doc/howto_de.md)
+德语 HowTo 文档可在此处获得：[howto_de](./doc/howto_de.md)
 
 ##设置
 * 在实例配置页面指定相关组（admin => instances => statistics config）
 * 在状态设置中指定配置（admin => objects）
 
-<!-- 下一版本的占位符（在行首）：
+<!-- 下一个版本的占位符（在行首）：
 
 ### __工作进行中__ -->
 
 ## Changelog
-### __WORK IN PROGRESS__
+### 1.0.8 (2021-07-27)
+* (bluefox) Removed the warnings for js-controller 3.x
+
+### 1.0.6 (2021-05-27)
 * (Apollon77) prepare for js-controller 3.3
 * (Apollon77) make sure all tasks are processed to prevent missing objects
 * (bluefox) added the support of Admin5 

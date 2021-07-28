@@ -29,6 +29,8 @@ if you type in a smartname, the device is add to the iobroker.cloud and can cont
 ### Find device
 with this button you can scan your Network for devices, if something is found, the divices added to the table. It takes about 20 seconds to scan the network. if the devices not found, the Lan mode is not enabled or the bulbs are in a nother network.
 
+### Device not in the list
+If your Device is not in the list eg. yltd003 use a different lamp with the same fetures in ths case desklamp or Color or something else.
 ## set_scene
 Usage: This method is used to set the smart LED directly to specified state. If
 the smart LED is off, then it will turn on the smart LED firstly and then apply the specified
@@ -67,6 +69,9 @@ NOTE: Accepted on both "on" and "off" state.
 after 5 minutes.
 
 ## Changelog
+### 1.1.0 (2021-07-26)
+* (MeisterTR) add release-script update testing and dependencies
+* (Diginix) fixed data types
 ### 1.0.3 (2019-12-01)
 * (MeisterTR) add Pedant
 * (MeisterTR) transfer to community

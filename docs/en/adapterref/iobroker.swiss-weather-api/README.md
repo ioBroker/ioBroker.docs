@@ -63,6 +63,9 @@ The Objects in forecast.current_hour will be createt 30s after frist startup and
 
 ## Changelog
 
+### 0.9.8
+* (jobe451)  Bugfix: JsonChart is missing 15h and 16h as x-labels
+
 ### 0.9.7
 * (baerengraben)  Bugfix - RC2 for stable release.
 

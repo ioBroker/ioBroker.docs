@@ -276,6 +276,10 @@ There are some programs in folder *test' to test the TCP communication:
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Make sure that slave reconnections at least wait 1000ms to allow old connectio to close properly
+
 ### 3.4.9 (2021-07-06)
 * (bluefox) Changed edit behaviour
 

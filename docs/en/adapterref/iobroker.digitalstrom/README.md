@@ -94,6 +94,9 @@ Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column
 ## Changelog
 
 ### __WORK IN PROGRESS__
+* (Apollon77) Add support for use defined properties on apartment level
+
+### 2.2.1 (2021-07-26)
 * (Apollon77) Optimize for js-controller 3.3
 * (Apollon77) Optimize get/set Value handling for new devices
 

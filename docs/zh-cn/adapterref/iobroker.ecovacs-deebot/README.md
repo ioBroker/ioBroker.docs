@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
 title: 适用于 ioBroker 的 Ecovacs Deebot 适配器
-hash: l8b096PyevCHB/rEOZ9SDhiJE7qhXMnfwljGlyPDQJc=
+hash: tVVB/QKZKzBgB47O93mAIMbnQKgb6jRdkS+1o/iGkKo=
 ---
-![商标](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
+![标识](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
 ![稳定版](http://iobroker.live/badges/ecovacs-deebot-stable.svg)
 ![最新版本](http://img.shields.io/npm/v/iobroker.ecovacs-deebot.svg)
@@ -61,20 +61,27 @@ hash: l8b096PyevCHB/rEOZ9SDhiJE7qhXMnfwljGlyPDQJc=
 列出的模型要么是已知的，要么在技术上与这些模型相似。
 然而，功能可能会受到部分限制。
 
-我试图实现广泛的功能，但根据复杂性和其他各种标准逐案决定。
+我尝试实现广泛的功能，但根据复杂性和其他各种标准逐案决定。
 当然，没有要求提供完整的功能。
 
 ＃＃ 安装
 建议使用 Node.js 的 10.x、12.x 或 14.x 版本。最低要求版本为 10.x
 
 此适配器使用 [节点画布](https://www.npmjs.com/package/canvas) 库来实现一些与地图相关的功能，这些功能可能需要安装一些附加包。
-这是可选的，对于没有地图功能的模型不是必需的，但对于完整的功能范围，请安装以下软件包。
+
+对于没有地图功能的模型，画布的安装是可选的，不是必需的，但对于完整的功能范围，请安装以下软件包。
 
 对于基于 Debian 的 Linux 系统，应执行以下命令：
 
 ```bash
 sudo apt-get update
 sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+```
+
+在执行下一个命令之前可能需要重新启动
+
+```bash
+sudo npm install canvas --unsafe-perm=true
 ```
 
 有关其他系统的说明，请访问 https://www.npmjs.com/package/canvas#compiling
@@ -99,12 +106,18 @@ sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev l
 
 ## Changelog
 
-### 1.2.0 (alpha)
+### 1.2.1
+* Using library version 0.6.1-beta.2
+* Some enhancements and fixes
+* (benep) Added state to play sound by id
+
+### 1.2.0
 * Using library version 0.6.1
 * Added functions for deleting, saving and recreating saved virtual boundaries (e.g. 920, 950, T8 series)
 * Added functions for saving and recreating sets of virtual boundaries (e.g. 920, 950, T8 series)
 * Added options to control clean speed and water level separately for each spot area
 * Added function to save current spot area values
+* Added function to load current map image (e.g. 920, 950, T8 series)
 * Added some cleaning log values and some states for current cleaning stats
 * Removed "Use alternative API call for lastCleaningMapImageURL and lastCleaningTimestamp" option
 * Moved some states from "info" channel to sub channels "info.library" and "info.network"

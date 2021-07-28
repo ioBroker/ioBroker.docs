@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: J96EEfhXaMPbFj1J6CUCiIB2CbfhWhEyF1gfJdaKe8A=
+hash: B8jOLP7FaNUbsP2j03ZQAzejHOezL11HtuI7N+7I6RM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lametric/admin/lametric.png)
 
@@ -14,24 +14,24 @@ hash: J96EEfhXaMPbFj1J6CUCiIB2CbfhWhEyF1gfJdaKe8A=
 ![Статус зависимости](https://img.shields.io/david/klein0r/iobroker.lametric.svg)
 ![Известные уязвимости](https://snyk.io/test/github/klein0r/ioBroker.lametric/badge.svg)
 ![Статус сборки](http://img.shields.io/travis/klein0r/ioBroker.lametric.svg)
-![NPM](https://nodei.co/npm/iobroker.lametric.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.lametric.png?downloads=true)
 
 # IoBroker.lametric
 Этот адаптер позволяет получать информацию о статусе вашего [LaMetric Time](https://haus-auto.com/p/amz/LaMetricTime) *(Партнерская ссылка)* и отправлять на него уведомления.
 Все, что вам нужно, это IP-адрес вашего устройства и ключ разработчика API.
 
 ## Конфигурация
-Протестировано с прошивкой LaMetric *2.1.3* (рекомендуется)
+Протестировано с прошивкой LaMetric *2.2.1* (рекомендуется)
 
-Вы можете получить личный ключ [Вот](https://developer.lametric.com/).
+Вы можете получить личный ключ [здесь](https://developer.lametric.com/).
 
 ![API-ключ](../../../en/adapterref/iobroker.lametric/docs/apiKey.png)
 
-## Особенности
+## Функции
 - Установите яркость дисплея (в процентах, автоматический режим / ручной режим)
 - Установить громкость звука (в процентах)
 - Настроить заставку (включить / выключить, по времени, в темноте)
-- Активировать / деактивировать Bluetooth и изменить имя Bluetooth
+- Активировать / деактивировать bluetooth и изменить имя bluetooth
 - Переключение между приложениями (следующее, предыдущее, перейти к определенному приложению)
 - Отправлять уведомления блочно (с настраиваемым приоритетом, звуком, значками, текстом и т. Д.)
 - Управляйте специальными приложениями, такими как часы, радио, секундомер или погода
@@ -40,15 +40,15 @@ hash: J96EEfhXaMPbFj1J6CUCiIB2CbfhWhEyF1gfJdaKe8A=
 Возможности ограничены [официальные функции API](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html).
 
 ## Примеры блоков
-В качестве сообщения можно использовать простую строку, которая будет отображаться в виде одного кадра.
+Вы можете использовать простую строку в качестве сообщения, которое будет отображаться в виде одного кадра
 
 ![одиночный кадр](../../../en/adapterref/iobroker.lametric/docs/blockly1.png)
 
-Чтобы показать несколько кадров, вы также можете предоставить массив как сообщение
+Чтобы показать несколько кадров, вы также можете предоставить массив в виде сообщения
 
 ![несколько кадров](../../../en/adapterref/iobroker.lametric/docs/blockly2.png)
 
-Если вы хотите использовать рамки диаграммы, вы должны указать массив чисел как рамку
+Если вы хотите использовать фреймы диаграммы, вы должны указать массив чисел как фрейм
 
 ![фреймы данных диаграммы](../../../en/adapterref/iobroker.lametric/docs/blockly3.png)
 
@@ -86,7 +86,7 @@ http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/
 
 ### Конфигурация фрейма *(версия> 1.1.0)*
 - Используйте значок плюса, чтобы добавить столько кадров, сколько хотите
-- Значок: выберите значок на [официальном сайте] (https://developer.lametric.com/icons) и введите идентификатор в поле конфигурации. ** Важно: добавьте i (для статических значков) или a (для анимированных значков) в качестве префикса для этого идентификатора. (Пример: `i3389`)
+- Значок: выберите значок на [официальном веб-сайте] (https://developer.lametric.com/icons) и введите идентификатор в поле конфигурации. ** Важно: добавьте i (для статических значков) или a (для анимированных значков) в качестве префикса для этого идентификатора. (Пример: `i3389`)
 - Текст: просто введите текстовую информацию для рамки. Вы можете использовать состояния в фигурных скобках. Эта информация будет заменена соответствующим значением состояния. (Пример: `{youtube.0.channels.HausAutomatisierungCom.statistics.subscriberCount} Подписчики`)
 
 Пример конфигурации 2 кадров:
@@ -94,12 +94,12 @@ http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/
 ![пример конфигурации кадра](../../../en/adapterref/iobroker.lametric/docs/myDataDIYConfig.png)
 
 ## Специальные приложения / виджеты *(версия> 1.1.2)*
-Вы можете управлять некоторыми приложениями с помощью специальной информации
+Вы можете управлять некоторыми приложениями с помощью настраиваемой информации
 
 ### Clock.clockface
 Допустимые значения:
 
-- один из вариантов: weather, page_a_day, custom или none
+- одно из `weather`,` page_a_day`, `custom` или` none`
 - данные пользовательского значка в формате `data: image / png; base64, <двоичный png в кодировке base64>` или `data: image / gif; base64, <двоичный gif в кодировке base64>`
 
 Пример: `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAOklEQVQYlWNUVFBgwAeYcEncv//gP04FMEmsCmCSiooKjHAFMEF0SRQTsEnCFcAE0SUZGBgYGAl5EwA+6RhuHb9bggAAAABJRU5ErkJggg==`
@@ -108,7 +108,7 @@ http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/
 Допустимое значение: время в секундах.
 
 ## Скрипты
-Чтобы отобразить сообщение в вашей метрике la, просто отправьте сообщение этому экземпляру с помощью адаптера сценария:
+Чтобы отобразить сообщение на вашей метрике la, просто отправьте сообщение этому экземпляру с помощью адаптера сценария:
 
 ```JavaScript
 sendTo(
@@ -162,7 +162,7 @@ sendTo(
 );
 ```
 
-Пример для отображения некоторой информации циклически:
+Пример показа некоторой информации циклически:
 
 ```JavaScript
 let i = 0;
@@ -187,6 +187,18 @@ show();
 ```
 
 ## Changelog
+
+### 1.3.1
+
+* (klein0r) Added local start and end time for screensaver
+
+### 1.3.0
+
+* (klein0r) Encrypt sensitive information **(BREAKING CHANGE - RE-ENTER YOUR API KEY)**
+
+### 1.2.1
+
+* (klein0r) Extended regex for My Data (DIY)
 
 ### 1.2.0
 

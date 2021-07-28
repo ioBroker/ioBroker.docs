@@ -1579,6 +1579,10 @@ There is a possibility to enabled and disable scripts via states. For every scri
 Scripts can be activated and deactivated by controlling of this state with ack=false.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Make sure day of weeks is an array (Sentry IOBROKER-JAVASCRIPT-7Y)
+
 ### 5.2.8 (2021-07-22)
 * (bluefox) Fixed the debug of scripts
 

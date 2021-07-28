@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: l8b096PyevCHB/rEOZ9SDhiJE7qhXMnfwljGlyPDQJc=
+hash: tVVB/QKZKzBgB47O93mAIMbnQKgb6jRdkS+1o/iGkKo=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -18,7 +18,7 @@ hash: l8b096PyevCHB/rEOZ9SDhiJE7qhXMnfwljGlyPDQJc=
 # Ecovacs Deebot-Adapter für ioBroker
 Dieser Adapter verwendet die [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js) Bibliothek.
 
-## Eigenschaften
+## Merkmale
 Einige bemerkenswerte Merkmale sind:
 
 * Abrufen von Informationen (z. B. Akku, Reinigungsprotokoll, Verbrauchsmaterial, Reinigungs- und Ladestatus)
@@ -58,17 +58,18 @@ Die aufgeführten Modelle sind diejenigen, die ich selbst im Einsatz habe oder d
 * Deebot T8-Serie
 * Deebot T9-Serie
 
-Die aufgeführten Modelle sind entweder bereits bekannt oder technisch ähnlich diesen Modellen.
+Die aufgeführten Modelle sind entweder bereits bekannt oder technisch ähnlich zu diesen Modellen.
 Dennoch kann die Funktionalität teilweise eingeschränkt sein.
 
-Ich versuche eine breite Funktionalität zu erreichen, entscheide dies aber von Fall zu Fall je nach Komplexität und diversen anderen Kriterien.
+Ich versuche eine breite Palette an Funktionalität zu erreichen, entscheide dies aber von Fall zu Fall je nach Komplexität und diversen anderen Kriterien.
 Es besteht natürlich kein Anspruch auf volle Funktionalität.
 
 ## Installation
 Es wird empfohlen, die Version 10.x, 12.x oder 14.x von Node.js zu verwenden. Die erforderliche Mindestversion ist 10.x
 
 Dieser Adapter verwendet die [Knoten-Leinwand](https://www.npmjs.com/package/canvas) Bibliothek für einige kartenbezogene Funktionen, die die Installation einiger zusätzlicher Pakete erfordern können.
-Dies ist optional und bei Modellen ohne Kartenfunktionalität nicht notwendig, aber für den vollen Funktionsumfang installieren Sie bitte die folgenden Pakete.
+
+Die Installation von Canvas ist optional und bei Modellen ohne Kartenfunktionalität nicht notwendig, aber für den vollen Funktionsumfang installieren Sie bitte die folgenden Pakete.
 
 Für Debian-basierte Linux-Systeme sollten die folgenden Befehle ausgeführt werden:
 
@@ -77,13 +78,19 @@ sudo apt-get update
 sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 ```
 
+Möglicherweise ist ein Neustart erforderlich, bevor der nächste Befehl ausgeführt wird
+
+```bash
+sudo npm install canvas --unsafe-perm=true
+```
+
 Anweisungen für andere Systeme finden Sie unter https://www.npmjs.com/package/canvas#compiling
 
-## Verwendung
+## Verwendungszweck
 * Informationen zur Verwendung dieses Adapters finden Sie [hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
 
 ### Zustände
-* Informationen zu den Staaten finden Sie [hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29) (englisch) und [hier](https://github .com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Datenpunkte-%28DE%29) (Deutsch)
+* Informationen zu den Staaten finden Sie [hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29) (Englisch) und [hier](https://github .com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Datenpunkte-%28DE%29) (Deutsch)
 
 ## FAQ
 * Häufig gestellte Fragen finden Sie [hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
@@ -99,12 +106,18 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
 
 ## Changelog
 
-### 1.2.0 (alpha)
+### 1.2.1
+* Using library version 0.6.1-beta.2
+* Some enhancements and fixes
+* (benep) Added state to play sound by id
+
+### 1.2.0
 * Using library version 0.6.1
 * Added functions for deleting, saving and recreating saved virtual boundaries (e.g. 920, 950, T8 series)
 * Added functions for saving and recreating sets of virtual boundaries (e.g. 920, 950, T8 series)
 * Added options to control clean speed and water level separately for each spot area
 * Added function to save current spot area values
+* Added function to load current map image (e.g. 920, 950, T8 series)
 * Added some cleaning log values and some states for current cleaning stats
 * Removed "Use alternative API call for lastCleaningMapImageURL and lastCleaningTimestamp" option
 * Moved some states from "info" channel to sub channels "info.library" and "info.network"

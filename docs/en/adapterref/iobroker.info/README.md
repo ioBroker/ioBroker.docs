@@ -313,6 +313,11 @@ Forum entries will be displayed without problems when accessing ioBroker via IP 
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 1.9.7 (2021-07-27)
+* (bluefox) updated the clock background 
+
+### 1.9.6 (2021-07-26)
+* (simatec) Design fix
 
 ### 1.9.5 (2021-07-25)
 * (simatec) Design Fix
@@ -500,7 +505,7 @@ Forum entries will be displayed without problems when accessing ioBroker via IP 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017 - 2020 ldittmar <iobroker@lmdsoft.de>
+Copyright (c) 2017 - 2021 ldittmar <iobroker@lmdsoft.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

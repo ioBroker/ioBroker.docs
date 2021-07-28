@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.statistics/README.md
 title: ioBroker.statistics
-hash: 50F3oa1dUN0ZXS5QMiPgTULKjXr2Y6gjxR/q4zvXj1k=
+hash: fiNJphnoUsmKpxwF5jGT/eEOdyBHMdwDQyzzI1eQtBM=
 ---
 ![Logo](../../../en/adapterref/iobroker.statistics/admin/statistics.png)
 
@@ -29,7 +29,7 @@ wählen Sie aus den folgenden Einstellungen:
 * Delta zwischen protokollierten Analogwerten (Nur für Analogwerte)
 * Tagesmax, min und Durchschnitt (nicht für Delta-Berechnungen)
 * min/max über das Jahr
-* zählt innerhalb von 5 min und täglich max, min und Durchschnitt davon (nicht für Delta-Berechnungen)
+* zählt innerhalb von 5 min und täglich max, min und Durchschnitt davon (nicht für Deltaberechnungen)
 * Summe der gruppierten Werte
 
 Der Adapter abonniert die konfigurierten Objekte und erstellt eigene Zustände im Statistikbaum.
@@ -43,7 +43,7 @@ Die Struktur des Staates ist: `statistics.0.{save|temp}.{kind of stat}.{original
 
 Ein deutsches HowTo-Dokument finden Sie hier: [howto_de](./doc/howto_de.md)
 
-## Die Einstellungen
+## Einstellungen
 * Geben Sie die relevanten Gruppen auf der Instanzkonfigurationsseite an (admin => Instanzen => Statistikkonfiguration)
 * die Konfiguration in den Einstellungen des Staates angeben (admin => Objekte)
 
@@ -52,7 +52,10 @@ Ein deutsches HowTo-Dokument finden Sie hier: [howto_de](./doc/howto_de.md)
 ### __ARBEITEN IN PROGRESS__ -->
 
 ## Changelog
-### __WORK IN PROGRESS__
+### 1.0.8 (2021-07-27)
+* (bluefox) Removed the warnings for js-controller 3.x
+
+### 1.0.6 (2021-05-27)
 * (Apollon77) prepare for js-controller 3.3
 * (Apollon77) make sure all tasks are processed to prevent missing objects
 * (bluefox) added the support of Admin5 

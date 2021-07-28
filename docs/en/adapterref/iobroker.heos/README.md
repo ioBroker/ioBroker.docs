@@ -127,6 +127,9 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 
 
 ## Changelog
+### 1.9.0 (2021-07-27)
+* (stephanritscher) add option to configure udp source port
+
 ### 1.8.6 (2021-06-13)
 * (withstu) test fixed pipeline
 

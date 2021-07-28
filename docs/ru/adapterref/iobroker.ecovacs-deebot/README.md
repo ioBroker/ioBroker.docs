@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecovacs-deebot/README.md
 title: Адаптер Ecovacs Deebot для ioBroker
-hash: l8b096PyevCHB/rEOZ9SDhiJE7qhXMnfwljGlyPDQJc=
+hash: tVVB/QKZKzBgB47O93mAIMbnQKgb6jRdkS+1o/iGkKo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -68,7 +68,8 @@ hash: l8b096PyevCHB/rEOZ9SDhiJE7qhXMnfwljGlyPDQJc=
 Рекомендуется использовать Node.js. версии 10.x, 12.x или 14.x. Минимальная необходимая версия - 10.x
 
 Этот адаптер использует библиотеку [узел-холст](https://www.npmjs.com/package/canvas) для некоторых функций, связанных с картой, которые могут потребовать установки некоторых дополнительных пакетов.
-Это необязательно и не обязательно для моделей без функции карты, но для полного функционального диапазона установите следующие пакеты.
+
+Установка Canvas необязательна и не требуется для моделей без функции карты, но для полного функционального диапазона установите следующие пакеты.
 
 Для систем Linux на базе Debian необходимо выполнить следующие команды:
 
@@ -77,19 +78,25 @@ sudo apt-get update
 sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 ```
 
+Перед выполнением следующей команды может потребоваться перезагрузка.
+
+```bash
+sudo npm install canvas --unsafe-perm=true
+```
+
 Для получения инструкций для других систем посетите https://www.npmjs.com/package/canvas#compiling.
 
-## Применение
+## Использование
 * Информацию о том, как использовать этот адаптер, можно найти [здесь] (https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
 
 ### Состояния
 * Информацию о состояниях можно найти [здесь] (https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29) (на английском языке) и [здесь] (https:// github .com / mrbungle64 / ioBroker.ecovacs-deebot / wiki / Datenpunkte-% 28DE% 29) (немецкий)
 
-## ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
+## ВОПРОСЫ-ОТВЕТЫ
 * Часто задаваемые вопросы можно найти [здесь] (https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
 
 ## Известные проблемы
-* Для некоторых моделей (например, Deebot OZMO 930) рекомендуется [запланировать перезапуск] (https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) один раз в день. потому что есть некоторые сообщения о том, что соединение теряется примерно через 2 часа. 24 часа
+* Для некоторых моделей (например, Deebot OZMO 930) рекомендуется [запланировать перезапуск] (https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) один раз в день. потому что есть некоторые сообщения о том, что соединение теряется через прибл. 24 часа
 * Некоторые функции очистки могут не работать с Deebot 710/711 / 711s. Пожалуйста, используйте пока версию 0.5.8.
 * Функция "edge" не работает с Deebot U2 (вместо этого запускает автоматическую очистку)
 * Некоторые состояния "журнала очистки" пусты на серии T9 ("last20Logs", "lastCleaningDate" и "lastCleaningMapImageURL")
@@ -99,12 +106,18 @@ sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev l
 
 ## Changelog
 
-### 1.2.0 (alpha)
+### 1.2.1
+* Using library version 0.6.1-beta.2
+* Some enhancements and fixes
+* (benep) Added state to play sound by id
+
+### 1.2.0
 * Using library version 0.6.1
 * Added functions for deleting, saving and recreating saved virtual boundaries (e.g. 920, 950, T8 series)
 * Added functions for saving and recreating sets of virtual boundaries (e.g. 920, 950, T8 series)
 * Added options to control clean speed and water level separately for each spot area
 * Added function to save current spot area values
+* Added function to load current map image (e.g. 920, 950, T8 series)
 * Added some cleaning log values and some states for current cleaning stats
 * Removed "Use alternative API call for lastCleaningMapImageURL and lastCleaningTimestamp" option
 * Moved some states from "info" channel to sub channels "info.library" and "info.network"

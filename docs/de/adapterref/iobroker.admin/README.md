@@ -123,6 +123,10 @@ Auch die Repositorien und Sicherheitseinstellungen können hier eingestellt werd
 Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitts zu erreichen.
 
 ## Changelog
+### 5.1.15 (2021-07-26)
+* (bluefox) Replaced the formula icon in the edit aliases dialog
+* (bluefox) Added the logic for checkbox in JsonConfig 
+
 ### 5.1.14 (2021-07-23)
 * (bluefox) Corrected error with "Intro" page. Warning: All cards must be deactivated anew.
 
@@ -135,9 +139,6 @@ Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitt
 
 ### 5.1.11 (2021-07-12)
 * (bluefox) Changed the filter of objects
-
-### 5.1.10 (2021-07-09)
-* (bluefox) Corrected some GUI errors
 
 ## License
 

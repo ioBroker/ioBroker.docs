@@ -2636,6 +2636,10 @@ return 'your result';
 Вы можете использовать этот блок как обычные блоки в своих скриптах.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Make sure day of weeks is an array (Sentry IOBROKER-JAVASCRIPT-7Y)
+
 ### 5.2.8 (2021-07-22)
 * (bluefox) Fixed the debug of scripts
 

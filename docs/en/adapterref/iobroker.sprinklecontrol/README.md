@@ -241,6 +241,15 @@ Activate the Notifications tab. The communication settings are then made on the 
 	### **WORK IN PROGRESS**
 -->
 
+### 0.2.2 (27.07.2021)
+* (Dirk-Peter-md) Fehler FixDay behoben
+* (Dirk-Peter-md) Anzeige actualSoilMoisture überarbeitet
+* (Dirk-Peter-md) Infomeldungen überarbeitet
+
+### 0.2.1 (13.07.2021)
+* (Dirk-Peter-md) Start an festen Wochentagen (ohne Sensoren) hinzugefügt
+* (Dirk-Peter-md) Fehler behoben
+
 ### 0.2.0 (03.07.2021)
 * (Dirk-Peter-md) Bodenfeuchte-Sensor hinzugefügt
 * (Dirk-Peter-md) Schwellwert für Wettervorhersage hinzugefügt
