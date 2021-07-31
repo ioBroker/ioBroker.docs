@@ -1520,7 +1520,10 @@ This device has some special predefined size- and display-settings to show a tex
     
 ## Changelog
 
-### 1.8.1 dev
+### 1.8.2 dev
+* (sbormann) Added JSON-Table Widget (Displays JSON-Data as table).
+
+### 1.8.1 (2021-07-28)
 * (sbormann) Some design-adjustments for react-ui.
 * (sbormann) Keep track of ioBroker object changes in admin.
 * (sbormann) Fixed crash if active view has no devices.
@@ -1528,6 +1531,8 @@ This device has some special predefined size- and display-settings to show a tex
 * (Einstein2002, sbormann) Added HomematicIP-Thermostat.
 * (sbormann) Enhanced max-height of dialog.
 * (sbormann) Fixed up, down and stop button for blinds.
+* (sbormann) Changed some log messages.
+* (sbormann) Enhanced FLOT-Chart-Widget to set axis options.
 
 ### 1.8.0 (2021-04-29)
 * (sbormann) Some design-adjustments for react-ui.

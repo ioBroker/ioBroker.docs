@@ -290,7 +290,10 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 -->
 ## Changelog
 ### __WORK IN PROGRESS__
+* IMPORTANT: The adapter now needs Admin 5.1.15+ and js-controller 3.3+!
 * (Excodibur) Added InfluxDB 2.0 support
+* (Excodibur) Adjust Retention handling on Database level to work for InfluxDB 1.x and 2.x
+* (Excodibur) Removed retention options on datapoint level because never worked and also not supported really by InfluxDB anymore
 
 ### 1.9.5 (2021-04-19)
 * (bluefox) Added the support of Admin5

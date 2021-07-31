@@ -17,6 +17,8 @@
 Adapter to connect Easee Wallbox
 
 ## Changelog
+### 1.0.3
+* (Newan) Adapter crash fixed an other bugfixes
 
 ### 1.0.1
 * (Newan) Add circuitMaxCurrentPX to limit current ampere

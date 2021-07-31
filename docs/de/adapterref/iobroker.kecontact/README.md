@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kecontact/README.md
 title: ioBroker Adapter für KEBA KeContact Wallbox
-hash: nw5zoKj8cUHEDoonJTfpYhct7J+7hPccu1KmFunlX4A=
+hash: oFcNDTJRraBHoUmXI8B0wNy26gXsXupB+mS3aius/Io=
 ---
 ![Adapterlogo](../../../en/adapterref/iobroker.kecontact/admin/charger.png)
 
@@ -45,7 +45,7 @@ Dies ist das Intervall in Sekunden, wie oft die Wallbox nach neuen Ladewerten ab
 Der Standardwert beträgt 10 Minuten, was eine gute Balance zwischen der Auslastung des KeConnect und aktuellen Informationen in ioBroker darstellt.
 
 ### PV-Automatik
-Um Ihr Fahrzeug entsprechend auf Überschuss aufzuladen (z.B. durch Photovoltaik) können Sie auch Zustände definieren, die Überschuss und Netzbezug darstellen. Diese Werte werden zur Berechnung der Stromstärke verwendet, die zum Laden verwendet werden kann. Durch zusätzliche Werte können Sie definieren
+Um Ihr Fahrzeug entsprechend auf Überschuss aufzuladen (z.B. durch Photovoltaik) können Sie auch Zustände definieren, die Überschuss und Netzbezug darstellen. Diese Werte werden verwendet, um die Stromstärke zu berechnen, die zum Laden verwendet werden kann. Durch zusätzliche Werte können Sie definieren
 
 * Schalten Sie die X1-Option um, wenn Sie den X1-Eingang von der Ladestation verwenden möchten, um zu steuern, ob mit voller Leistung oder mit Photovoltaik-Automatik geladen werden soll
 * eine andere Mindeststromstärke als die Standard 6 A (nur erforderlich für z.B. Renault Zoe)
@@ -61,6 +61,17 @@ Wenn Sie einen Wert eingeben, wird Ihre Wallbox kontinuierlich eingeschränkt, u
 Zur Begrenzung können bis zu drei Zustände von Energiezählern angegeben werden. Alle Werte werden addiert, um den aktuellen Verbrauch zu berechnen.
 Ein zusätzliches Kontrollkästchen wird verwendet, um anzugeben, ob die Wallbox-Leistung enthalten ist (in diesem Fall wird die Wallbox-Leistung von den Statuswerten abgezogen).
 
+### Dynamische Optionen
+Darüber hinaus gibt es einige Zustände, die das Verhalten der Photovoltaik-Automatik on the fly beeinflussen, z.B. durch ein eigenes Skript, das diese Werte nach Ihren Bedürfnissen aktualisiert)
+
+* kecontact.0.automatic.photovoltaics - Aktiviert die Photovoltaik automatisch (true) oder lädt das Fahrzeug mit maximaler Leistung, wenn auf false gesetzt
+* kecontact.0.automatic.calcPhases - definiert die aktuelle Anzahl der Phasen, die für die Ladeberechnung verwendet werden. Dies wird für die Keba Deutschland Edition benötigt und kann für den ersten Ladevorgang für alle Ladestationen verwendet werden
+* kecontact.0.automatic.addPower - definiert eine zulässige Wattzahl zum Aufladen Ihres Fahrzeugs (wie in den Optionen)
+* kecontact.0.automatic.pauseWallbox - stoppt jede Ladesitzung sofort, solange sie auf true gesetzt ist
+* kecontact.0.automatic.limitCurrent - begrenzt Ihre Ladung auf die angegebene Stromstärke in mA (0 = keine Begrenzung)
+
+Beispiel: Um Ihr Fahrzeug unabhängig vom Überschuss mit einer konstanten Stromstärke von 6A zu laden, stellen Sie Photovoltaik auf false und limitCurrent auf 6000.
+
 ##Rechtliches
 Dieses Projekt ist weder direkt noch indirekt mit der Firma KEBA AG verbunden.
 
@@ -68,8 +79,14 @@ KeConnect ist eine eingetragene Marke der KEBA AG.
 
 ## Changelog
 
+### 1.2.2 (2021-07-28)
+* (Sneak-L8) new: limit max. charging current dynamically
+* (Sneak-L8) support BMW charging station (Keba OEM, Sentry IOBROKER-KECONTACT-3)
+* (Sneak-L8) optimized power calculation for Deutschland edition
+
 ### 1.2.1 (2021-07-20)
 * (Sneak-L8) support X1 contact of charging station to switch photovoltaics automatic
+* (Sneak-L8) prevent a crash case (Sentry IOBROKER-KECONTACT-2)
 
 ### 1.2.0 (2021-06-07)
 * (Sneak-L8) support for compact mode

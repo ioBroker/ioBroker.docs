@@ -277,8 +277,9 @@ There are some programs in folder *test' to test the TCP communication:
 -->
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 3.4.10 (2021-07-30)
 * (Apollon77) Make sure that slave reconnections at least wait 1000ms to allow old connectio to close properly
+* (bluefox) Corrected the error with write single registers
 
 ### 3.4.9 (2021-07-06)
 * (bluefox) Changed edit behaviour

@@ -501,6 +501,7 @@ on({id: 'nuki-extended.0.openers.opener.state.ringStateUpdate', change: "any", a
 ## Changelog
 
 Please see [release page](https://github.com/Zefau/ioBroker.nuki-extended/releases) for changelog and detailed information.
+
 ### v2.3.1 (2021-07-20)
 - (Apollon77) Optimize for js-controller 3.3 and warnings prevented
 

@@ -68,6 +68,10 @@ Soundtouch Application itself.
 
 ## Changelog
 
+### 0.10.0 (2021-07-30)
+* IMPORTANT: The adapter now requires at least js-controller 2.0
+* (Apollon77) Optimize for js-controller 3.3
+
 ### 0.9.4 (07.05.2021)
 * fixed vulnerability in NPM
 
@@ -188,4 +192,4 @@ Soundtouch Application itself.
 
 [The MIT License (MIT)](LICENSE)
 
-Copyright (c) 2019 SwedishChef <swedish.chef@gmx.at>
+Copyright (c) 2019-2021 SwedishChef <swedish.chef@gmx.at>

@@ -47,7 +47,7 @@ A german HowTo doc is available here: [howto_de](./doc/howto_de.md)
 -->
 
 ## Changelog
-### 1.0.8 (2021-07-27)
+### 1.0.9 (2021-07-29)
 * (bluefox) Removed the warnings for js-controller 3.x
 
 ### 1.0.6 (2021-05-27)

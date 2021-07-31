@@ -32,6 +32,10 @@ Help or hints are welcome.
 
 ## Changelog
 
+### 1.3.2
+
+* (unltdnetworx) ready for Admin 5 and NodeJS 16
+
 ### 1.3.1
 
 * (unltdnetworx) new adapter testing and security update
@@ -93,7 +97,7 @@ Kaffee spendieren/serve a coffee
 
 MIT License
 
-Copyright (c) 2020 Michael Schuster
+Copyright (c) 2021 Michael Schuster
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

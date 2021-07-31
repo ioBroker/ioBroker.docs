@@ -58,7 +58,24 @@ If you enter a value, your wallbox will be limited continously to not pass your 
 Up to three states of energy meters can be specified for limitation. All values will be added to calculate current consumption.
 An extra checkbox is used to specified whether wallbox power is included (in this case wallbox power will be subtracted from the state values).
 
+### dynamic options
+
+Additionally there are some states to influence behaviour of photovoltaics automatic on the fly, e.g. by a script of your own updating these values according to your needs)
+* kecontact.0.automatic.photovoltaics - actives photovoltaics automatic (true) or will charge vehicle with maximum power when set to false
+* kecontact.0.automatic.calcPhases - defines the current number of phases to be used for charging calculation. This is needed for Keba Deutschland edition and can be used for initial charging session for all charging stations
+* kecontact.0.automatic.addPower - defines an amount of watts of regard allowed to charge your vehicle (same as in options)
+* kecontact.0.automatic.pauseWallbox - stops every charging session immediately as long a set to true
+* kecontact.0.automatic.limitCurrent - limits your charging to specified amperage in mA (0 = no limitation)
+
+Sample:
+To charge your vehicle with a constant amperage of 6A regardless of surplus, set photovoltaics to false and limitCurrent to 6000.
+
 ## Changelog
+
+### 1.2.2 (2021-07-28)
+* (Sneak-L8) new: limit max. charging current dynamically
+* (Sneak-L8) support BMW charging station (Keba OEM, Sentry IOBROKER-KECONTACT-3)
+* (Sneak-L8) optimized power calculation for Deutschland edition
 
 ### 1.2.1 (2021-07-20)
 * (Sneak-L8) support X1 contact of charging station to switch photovoltaics automatic

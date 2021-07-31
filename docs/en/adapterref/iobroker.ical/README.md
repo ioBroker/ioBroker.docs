@@ -190,6 +190,23 @@ Whitelist: If you only want to include events of a specific location use regular
 	### **WORK IN PROGRESS**
 -->
 
+### 1.11.1 (2021-07-30)
+* (Apollon77) Adjust date length for full day events to the full day
+
+### 1.11.0 (2021-07-30)
+* (Apollon77) Locally cache remote calendars to be used in case of request errors
+
+### 1.10.4 (2021-07-30)
+* (Apollon77) Make sure daysPast is correctly initialized if not provided
+* (Apollon77) When no calendar could be read then no events are updated/cleanup
+* (Apollon77) Respect HTTP statuscode from server response too to detect errors
+
+### 1.10.3 (2021-07-30)
+* (Apollon77/Feuersturm) Fix other timezone issues
+* (Apollon77) Fix setting external States when events are active
+* (Apollon77) Also list recurring entries from the past
+* (Apollon77) Fix the event states for the days in future
+
 ### 1.10.2 (2021-07-25)
 * (Apollon77/Feuersturm) Fix wrong times and dates introduced in 1.7.5.
 * (Feuersturm) Allow Setting daysPast to be decreased to zero with button again

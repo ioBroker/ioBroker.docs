@@ -69,6 +69,9 @@ NOTE: Accepted on both "on" and "off" state.
 after 5 minutes.
 
 ## Changelog
+### 1.1.1 (2021-07-28)
+* (jlssmt) fixed unhandled promise rejection causing the adapter to stop
+* (jlssmt) adapter won't set power of offline devices to off anymore 
 ### 1.1.0 (2021-07-26)
 * (MeisterTR) add release-script update testing and dependencies
 * (Diginix) fixed data types

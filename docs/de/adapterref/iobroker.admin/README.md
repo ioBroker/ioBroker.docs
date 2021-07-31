@@ -123,6 +123,12 @@ Auch die Repositorien und Sicherheitseinstellungen können hier eingestellt werd
 Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitts zu erreichen.
 
 ## Changelog
+### 5.1.17 (2021-07-30)
+* (bluefox) Corrected the error on the adapter's tab
+
+### 5.1.16 (2021-07-30)
+* (bluefox) Make the appearance of buttons configurable
+ 
 ### 5.1.15 (2021-07-26)
 * (bluefox) Replaced the formula icon in the edit aliases dialog
 * (bluefox) Added the logic for checkbox in JsonConfig 
@@ -133,15 +139,7 @@ Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitt
 ### 5.1.13 (2021-07-21)
 * (bluefox) Improved json config
 
-### 5.1.12 (2021-07-16)
-* (bluefox) The charts were improved
-* (bluefox) Corrected the error with the jump links if more than one web instance
-
-### 5.1.11 (2021-07-12)
-* (bluefox) Changed the filter of objects
-
 ## License
-
 The MIT License (MIT)
 
 Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>
