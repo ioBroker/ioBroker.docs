@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.modbus/README.md
 title: iobroker.modbus
-hash: xkNd5mJeFpG/k6t2CHMxxHryp80Gj3rnLw06dghu72M=
+hash: 5EM3kFXujpXTPD3nsFQUWbDL2u2+tkf9QRbzm13jNJM=
 ---
 ![Logo](../../../en/adapterref/iobroker.modbus/admin/modbus.png)
 
@@ -22,7 +22,7 @@ Implementierung von ModBus Slave und Master für ioBroker. Folgende Typen werden
 - Modbus RTU über TCP (Master)
 - Modbus TCP (Slave, Master)
 
-## Die Einstellungen
+## Einstellungen
 ### Partner-IP-Adresse
 IP-Adresse des Modbus-Partners.
 
@@ -32,7 +32,7 @@ TCP Port des Modbus-Partners bei Konfiguration als Master (Client) oder eigener 
 ### Geräte ID
 Modbus-Geräte-ID. Wichtig, wenn TCP/Modbus-Bridge verwendet wird.
 
-### Art
+### Typ
 Slave (Server) oder Master (Client).
 
 ### Aliasse als Adresse verwenden
@@ -68,7 +68,7 @@ Wiederverbindungsintervall (Nur für Master relevant)
 Timeout für Leseanfragen in Millisekunden.
 
 ### Pulszeit
-Wenn Puls für Spulen verwendet wird, definiert dies das Intervall wie lange der Puls ist.
+Wenn Puls für Spulen verwendet wird, definiert dies das Intervall, wie lang der Puls ist.
 
 ### Wartezeit
 Wartezeit zwischen Abfragen zweier unterschiedlicher Geräte-IDs in Millisekunden.
@@ -113,11 +113,11 @@ Dies ist der Name für den Parameter
 ### Beschreibung
 Parameterbeschreibung
 
-###Einheit
+### Einheit
 Einheit des Parameters
 
-### Art
-Datentyp, der vom Bus gelesen werden soll. Details zu den möglichen Datentypen finden Sie im Abschnitt Datentypen
+### Typ
+Datentyp, der vom Bus gelesen werden soll. Details zu den möglichen Datentypen siehe Abschnitt Datentypen
 
 ### Länge
 Länge des Parameters. Bei den meisten Parametern wird dies anhand des Datentyps bestimmt, bei Strings jedoch die Länge in Bytes / Zeichen
@@ -144,7 +144,7 @@ ioBroker-Rolle zuzuweisen.
 ### Zimmer
 ioBroker-Raum zuzuweisen.
 
-###Umfrage
+### Umfrage
 Wenn aktiviert, werden die Werte in vordefinierten Intervallen vom Slave abgefragt.
 
 ### WP
@@ -184,11 +184,11 @@ Wert als Skalierungsfaktor verwenden. Dies ist erforderlich, um dynamische Skali
 - string - String (Null-Ende): ABCDEF\0 => ABCDEF\0
 - stringle - String (Little Endian, Zero-End): BADCFE\0 => ABCDEF\0
 
-Folgende Beschreibung wurde aus [Hier](http://www.chipkin.com/how-real-floating-point-and-32-bit-data-is-encoded-in-modbus-rtu-messages/) kopiert
+Folgende Beschreibung wurde aus [hier](http://www.chipkin.com/how-real-floating-point-and-32-bit-data-is-encoded-in-modbus-rtu-messages/) kopiert
 
 Das Punkt-zu-Punkt-Modbus-Protokoll ist eine beliebte Wahl für die RTU-Kommunikation, wenn es nicht aus anderen Gründen als grundlegender Komfort dient. Das Protokoll selbst steuert die Interaktionen jedes Geräts in einem Modbus-Netzwerk, wie das Gerät eine bekannte Adresse aufbaut, wie jedes Gerät seine Nachrichten erkennt und wie grundlegende Informationen aus den Daten extrahiert werden. Im Wesentlichen ist das Protokoll die Grundlage des gesamten Modbus-Netzwerks.
 
-Diese Bequemlichkeit ist jedoch nicht ohne Komplikationen und das Modbus RTU Message-Protokoll ist keine Ausnahme. Das Protokoll selbst wurde auf Basis von Geräten mit 16-Bit-Registerlänge entwickelt. Folglich waren bei der Implementierung von 32-Bit-Datenelementen besondere Überlegungen erforderlich. Diese Implementierung entschied sich für die Verwendung von zwei aufeinanderfolgenden 16-Bit-Registern, um 32 Datenbits oder im Wesentlichen 4 Datenbytes darzustellen. Innerhalb dieser 4 Datenbytes können Gleitkommadaten mit einfacher Genauigkeit in eine Modbus RTU-Nachricht codiert werden.
+Dieser Komfort ist jedoch nicht ohne Komplikationen und das Modbus RTU Message-Protokoll ist keine Ausnahme. Das Protokoll selbst wurde auf Basis von Geräten mit 16-Bit-Registerlänge entwickelt. Folglich waren bei der Implementierung von 32-Bit-Datenelementen besondere Überlegungen erforderlich. Diese Implementierung entschied sich für die Verwendung von zwei aufeinanderfolgenden 16-Bit-Registern, um 32 Datenbits oder im Wesentlichen 4 Datenbytes darzustellen. Innerhalb dieser 4 Datenbytes können Gleitkommadaten mit einfacher Genauigkeit in eine Modbus RTU-Nachricht codiert werden.
 
 ### Die Bedeutung der Byte-Reihenfolge
 Modbus selbst definiert keinen Gleitkomma-Datentyp, aber es wird allgemein akzeptiert, dass es 32-Bit-Gleitkommadaten unter Verwendung des IEEE-754-Standards implementiert. Der IEEE-Standard hat jedoch keine klare Definition der Byte-Reihenfolge der Datennutzlast. Daher ist die wichtigste Überlegung beim Umgang mit 32-Bit-Daten, dass die Daten in der richtigen Reihenfolge adressiert werden.
@@ -197,7 +197,7 @@ Die Zahl 123/456.00, wie sie im IEEE 754-Standard für 32-Bit-Gleitkommazahlen m
 
 ![Bild1](../../../en/adapterref/iobroker.modbus/img/img1.png)
 
-Die Auswirkungen verschiedener Byte-Anordnungen sind signifikant. Das Anordnen der 4 Datenbytes, die 123456.00 darstellen, in einer „B A D C“-Sequenz wird beispielsweise als „Byte-Swap“ bezeichnet. Bei der Interpretation als IEEE 744 Gleitkomma-Datentyp sieht das Ergebnis ganz anders aus:
+Die Auswirkungen verschiedener Byte-Anordnungen sind signifikant. Zum Beispiel wird die Anordnung der 4 Datenbytes, die 123456.00 darstellen, in einer „B A D C“-Sequenz als „Byte-Swap“ bezeichnet. Bei der Interpretation als IEEE 744 Gleitkomma-Datentyp sieht das Ergebnis ganz anders aus:
 
 ![Bild2](../../../en/adapterref/iobroker.modbus/img/img2.png)
 
@@ -218,29 +218,29 @@ Das Modbus-Protokoll selbst ist gemäß der Modbus Application Protocol Specific
 
 Big-Endian ist das am häufigsten verwendete Format für Netzwerkprotokolle – so verbreitet, dass es auch als „Netzwerkreihenfolge“ bezeichnet wird.
 
-Da das Modbus RTU-Nachrichtenprotokoll Big-Endian ist, muss für den erfolgreichen Austausch eines 32-Bit-Datentyps über eine Modbus RTU-Nachricht die Endianness sowohl des Masters als auch des Slaves berücksichtigt werden. Viele RTU-Master- und -Slave-Geräte erlauben eine gezielte Auswahl der Byte-Reihenfolge, insbesondere bei software-simulierten Einheiten. Es muss lediglich darauf geachtet werden, dass beide Einheiten auf die gleiche Byte-Reihenfolge eingestellt sind.
+Da das Modbus RTU-Nachrichtenprotokoll Big-Endian ist, muss für den erfolgreichen Austausch eines 32-Bit-Datentyps über eine Modbus RTU-Nachricht die Endianness sowohl des Masters als auch des Slaves berücksichtigt werden. Viele RTU-Master- und -Slave-Geräte erlauben eine gezielte Auswahl der Byte-Reihenfolge, insbesondere bei Software-simulierten Einheiten. Es muss lediglich darauf geachtet werden, dass beide Einheiten auf die gleiche Byte-Reihenfolge eingestellt sind.
 
-Als Faustregel gilt, dass die Familie des Mikroprozessors eines Geräts seine Endianness bestimmt. Typischerweise findet sich der Big-Endian-Stil (das höherwertige Byte wird zuerst gespeichert, gefolgt vom niederwertigen Byte) im Allgemeinen in CPUs, die mit einem Motorola-Prozessor ausgestattet sind. Der Little-Endian-Stil (das niederwertige Byte wird zuerst gespeichert, dann das höherwertige Byte) findet sich im Allgemeinen in CPUs mit der Intel-Architektur. Welcher Stil als „rückständig“ gilt, ist eine Frage der persönlichen Perspektive.
+Als Faustregel gilt, dass die Familie des Mikroprozessors eines Geräts seine Endianness bestimmt. Typischerweise findet sich der Big-Endian-Stil (das höherwertige Byte wird zuerst gespeichert, gefolgt vom niederwertigen Byte) im Allgemeinen in CPUs, die mit einem Motorola-Prozessor ausgestattet sind. Der Little-Endian-Stil (das niederwertige Byte wird zuerst gespeichert, dann das höherwertige Byte) findet sich im Allgemeinen in CPUs mit der Intel-Architektur. Es ist eine Frage der persönlichen Perspektive, welcher Stil als „rückständig“ gilt.
 
 Wenn Byte-Reihenfolge und Endianness jedoch keine konfigurierbare Option sind, müssen Sie festlegen, wie das Byte interpretiert wird. Dazu kann ein bekannter Gleitkommawert vom Slave angefordert werden. Wenn ein unmöglicher Wert zurückgegeben wird, d. h. eine Zahl mit einem zweistelligen Exponenten oder dergleichen, muss die Byte-Reihenfolge höchstwahrscheinlich geändert werden.
 
-###Praktische Hilfe
+### Praktische Hilfe
 Die FieldServer Modbus RTU-Treiber bieten mehrere Funktionsverschiebungen, die 32-Bit-Ganzzahlen und 32-Bit-Floatwerte verarbeiten. Noch wichtiger ist, dass diese Funktionsbewegungen alle verschiedenen Formen der Byte-Sequenzierung berücksichtigen. Die folgende Tabelle zeigt die Verschiebungen der FieldServer-Funktion, die zwei benachbarte 16-Bit-Register in einen 32-Bit-Ganzzahlwert kopieren.
 
 | Funktionsschlüsselwort | Wechselmodus | Quellbytes | Zielbytes |
 |-------------------|--------------------|-----------------|--------------|
-| 2.i16-1.i32 | Nicht zutreffend | [ a b ] [ c d ] | [ a b c d ] |
+| 2.i16-1.i32 | k.A. | [ a b ] [ c d ] | [ a b c d ] |
 | 2.i16-1.i32-s | Byte- und Worttausch | [ a b ] [ c d ] | [ d c b a ] |
-| 2.i16-1.i32-sb | Bytetausch | [ a b ] [ c d ] | [ b a d c ] |
+| 2.i16-1.i32-sb | Byte-Swap | [ a b ] [ c d ] | [ b a d c ] |
 | 2.i16-1.i32-sw | Wortwechsel | [ a b ] [ c d ] | [ c d a b ] |
 
 Die folgende Tabelle zeigt die Verschiebungen der FieldServer-Funktion, die zwei benachbarte 16-Bit-Register in einen 32-Bit-Gleitkommawert kopieren:
 
 | Funktionsschlüsselwort | Wechselmodus | Quellbytes | Zielbytes |
 |-------------------|--------------------|-----------------|--------------|
-| 2.i16-1.ifloat | Nicht zutreffend | [ a b ] [ c d ] | [ a b c d ] |
+| 2.i16-1.ifloat | k.A. | [ a b ] [ c d ] | [ a b c d ] |
 | 2.i16-1.ifloat-s | Byte- und Worttausch | [ a b ] [ c d ] | [ d c b a ] |
-| 2.i16-1.ifloat-sb | Bytetausch | [ a b ] [ c d ] | [ b a d c ] |
+| 2.i16-1.ifloat-sb | Byte-Swap | [ a b ] [ c d ] | [ b a d c ] |
 | 2.i16-1.ifloat-sw | Wortwechsel | [ a b ] [ c d ] | [ c d a b ] |
 
 Die folgende Tabelle zeigt die Verschiebungen der FieldServer-Funktion, die einen einzelnen 32-Bit-Gleitkommawert in zwei benachbarte 16-Bit-Register kopieren:
@@ -269,18 +269,44 @@ Von den vielen Hex-zu-Gleitkomma-Umsetzern und -Rechnern, die im Internet verfü
 
 Anschließend können Bytes und/oder Wörter ausgetauscht werden, um zu analysieren, welche potenziellen Endianness-Probleme zwischen Modbus RTU-Master- und -Slave-Geräten bestehen können.
 
-## Prüfung
-Im Ordner *test befinden sich einige Programme zum Testen der TCP-Kommunikation:
+## Prüfen
+Im Ordner *test' befinden sich einige Programme zum Testen der TCP-Kommunikation:
 
 - Ananas32/64 ist Slave-Simulator (nur Halteregister und Eingänge, keine Spulen und digitale Eingänge)
 - RMMS ist Mastersimulator
 - mod_RSsim.exe ist ein Slave-Simulator. Es kann sein, dass Sie [Microsoft Visual C++ 2008 SP1 Redistributable Package](https://www.microsoft.com/en-us/download/details.aspx?id=5582) benötigen, um es zu starten (wegen eines SideBySide-Fehlers).
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+<!--
 
 ### __ARBEITEN IN PROGRESS__ -->
 
 ## Changelog
+### 3.4.11 (2021-07-31)
+* (bluefox) Corrected import of last line
+ 
+### 3.4.10 (2021-07-30)
+* (Apollon77) Make sure that slave reconnections at least wait 1000ms to allow old connectio to close properly
+* (bluefox) Corrected the error with write single registers
+
+### 3.4.9 (2021-07-06)
+* (bluefox) Changed edit behaviour
+
+### 3.4.8 (2021-06-24)
+* (Apollon77) Fix crash case on writing floats (Sentry IOBROKER-MODBUS-2D)
+
+### 3.4.7 (2021-06-22)
+* (bluefox) Corrected addressing with aliases in GUI
+
+### 3.4.6 (2021-06-21)
+* (bluefox) Corrected addressing with aliases
+
+### 3.4.5 (2021-06-19)
+* (bluefox) Corrected the "write multiple registers" option
+
+### 3.4.4 (2021-06-16)
+* (bluefox) GUI bugs were corrected
+* (bluefox) Added output of error codes
+
 ### 3.4.2 (2021-06-15)
 * (nkleber78) Corrected issue with the scale factors
 * (bluefox) New react GUI added

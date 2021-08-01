@@ -72,7 +72,9 @@ to the Login Page.
 -->
 
 ## Changelog
-
+### 3.4.7 (2021-07-31)
+* (bluefox) Corrected the small config GUI error
+ 
 ### 3.4.5 (2021-07-20)
 * (Apollon77) fix admin dependency because since 3.4.2 Admin 5.1 is required
 

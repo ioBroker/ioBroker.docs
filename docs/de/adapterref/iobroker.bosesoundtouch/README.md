@@ -2,36 +2,37 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bosesoundtouch/README.md
-title: ioBroker.bosesoundtouch! [Logo] (admin / bosesoundtouch.png)
-hash: y7eAT0+9YRxANKW9rG+VTdK2tjmY4kwJW/z/1HBl0G0=
+title: ioBroker.bosesoundtouch
+hash: EQkIheOfB3+GIXK55QxZ1pS+XER1FIKvlwMEdpzYPWY=
 ---
-# IoBroker.bosesoundtouch ![Logo](../../../en/adapterref/iobroker.bosesoundtouch/admin/bosesoundtouch.png)
+![Logo](../../../en/adapterref/iobroker.bosesoundtouch/admin/bosesoundtouch.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/bosesoundtouch-installed.svg)
 ![NPM](https://nodei.co/npm/iobroker.bosesoundtouch.png?downloads=true)
 
+#ioBroker.bosesoundtouch
 Bose SoundTouch-Adapter für die ioBroker IoT-Plattform
 
 ## Kontrollzustände
-Zur Steuerung Ihres Lautsprechers können die folgenden Objekte geschrieben werden:
+Um Ihren Lautsprecher zu steuern, können die folgenden Objekte geschrieben werden:
 
 | Staat | Beschreibung |
 | :---           | :---        |
-| Schlüssel | Einer der folgenden zu sendenden Schlüssel: <br><br> ABSPIELEN <br> PAUSE <br> HALT <br> PREV_TRACK <br> NÄCHSTER TITEL <br> DAUMEN HOCH <br> DAUMEN RUNTER <br> LESEZEICHEN <br> LEISTUNG <br> STUMM <br> VOLUME_UP <br> LAUTSTÄRKE RUNTER <br> PRESET_1 <br> PRESET_2 <br> PRESET_3 <br> PRESET_4 <br> PRESET_5 <br> PRESET_6 <br> AUX_INPUT <br> SHUFFLE_OFF <br> SHUFFLE_ON <br> REPEAT_OFF <br> REPEAT_ONE <br> WIEDERHOLE ALLES <br> SPIELPAUSE <br> FAVORIT HINZUFÜGEN <br> REMOVE_FAVORITE <br> INVALID_KEY |
+| Schlüssel | Einer der folgenden Schlüssel zum Senden:<br><br> ABSPIELEN<br> PAUSE<br> STOPPEN<br> PREV_TRACK<br> NÄCHSTER TITEL<br> DAUMEN HOCH<br> DAUMEN RUNTER<br> LESEZEICHEN<br> ENERGIE<br> STUMM<br> VOLUME_UP<br> LAUTSTÄRKE RUNTER<br> PRESET_1<br> PRESET_2<br> PRESET_3<br> PRESET_4<br> PRESET_5<br> PRESET_6<br> AUX_INPUT<br> SHUFFLE_OFF<br> SHUFFLE_ON<br> REPEAT_OFF<br> REPEAT_ONE<br> WIEDERHOLE ALLES<br> SPIELPAUSE<br> FAVORIT HINZUFÜGEN<br> REMOVE_FAVORITE<br> INVALID_KEY |
 | gedämpft | Schalten Sie das Gerät stumm oder heben Sie die Stummschaltung auf. |
 | auf | Schalten Sie das Gerät ein oder aus. |
-| playEverywhere | Definieren Sie den Lautsprecher als Zonenmaster und geben Sie seinen Inhalt auf allen anderen Lautsprechern wieder. |
-| volumen | Ändern Sie die Gerätelautstärke zwischen 0 und 100. |
+| Überall spielen | Definieren Sie Lautsprecher als Zonenmaster und spielen Sie seinen Inhalt auf allen anderen Lautsprechern ab. |
+| Lautstärke | Gerätelautstärke zwischen 0 und 100 ändern. |
 
-## Info States
-Die folgenden Informationen werden von Ihrem Sprecher gesammelt (schreibgeschützt):
+## Info-Staaten
+Die folgenden Informationen werden von Ihrem Sprecher gesammelt (schreibgeschützte Zustände):
 
 ### Geräteinformationen
 | Staat | Beschreibung |
 | :---       | :---        |
-| ipAddress | Die IP-Adresse des Geräts, normalerweise dieselbe, die Sie in den Adaptereinstellungen konfiguriert haben. |
-| macAddress | Die MAC-Adresse des Geräts |
-| name | Der Name, den Sie mit Ihrer SoundTouch-App konfiguriert haben. |
+| IP-Adresse | Die Geräte-IP-Adresse, normalerweise dieselbe, die Sie in den Adaptereinstellungen konfiguriert haben. |
+| macAdresse | Die MAC-Adresse des Geräts |
+| Name | Der Name, den Sie mit Ihrer SoundTouch App konfiguriert haben. |
 | Typ | Der Gerätetyp (z. B. SoundTouch 300). |
 
 ### Läuft gerade
@@ -39,31 +40,50 @@ Die folgenden Informationen werden von Ihrem Sprecher gesammelt (schreibgeschüt
 | :---       | :---        |
 | Album | Das aktuell abgespielte Album. |
 | Kunst | Die URL der Quellgrafik. |
-| Künstler | Der momentan spielende Künstler. |
+| Künstler | Der aktuell spielende Künstler. |
 | Genre | Das Genre des aktuell wiedergegebenen Titels. |
-| Quelle | Der Typ oder Name des Dienstes, der abgespielt wird. Um festzustellen, ob sich das Produkt im Standby-Modus befindet, überprüfen Sie, ob source == STANDBY ist. |
-| station | Der Name des Senders oder der Wiedergabeliste. |
+| Quelle | Der Typ oder Name des wiedergegebenen Dienstes. Um festzustellen, ob sich das Produkt im Standby-Modus befindet, prüfen Sie, ob source == STANDBY ist. |
+| Bahnhof | Der Name des Senders oder der Playlist. |
 | verfolgen | Der aktuell wiedergegebene Titel. |
 
-### Presets
-Die folgenden Status sind für jede der 6 verfügbaren Voreinstellungen vorhanden:
+###Voreinstellungen
+Die folgenden Zustände sind für jede der 6 verfügbaren Voreinstellungen vorhanden:
 
 | Staat | Beschreibung |
 | :---       | :---        |
-| iconUrl | Die URL der Quellgrafik. |
-| name | Der Name des Albums, des Senders, der Wiedergabeliste, des Musiktitels, des Telefons usw. hängt von der Quelle ab. |
+| iconURL | Die URL der Quellgrafik. |
+| Name | Der Name von Album, Sender, Playlist, Song, Telefon usw. hängt von der Quelle ab. |
 | Quelle | Der Typ oder Name des Dienstes. |
 
 ### Zonen
-Die folgende Beschreibung hilft Ihnen bei der Erstellung von Gruppen mit Ihrem Multi-Room-System. Das schreibgeschützte Feld wird von den Soundtouch-Geräten automatisch aktualisiert, auch wenn Sie die Gruppen von der Soundtouch-Anwendung selbst ändern.
+Die folgende Beschreibung hilft Ihnen bei der Gruppenbildung mit Ihrem Multiroom-System. Die schreibgeschützten Felder werden von den Soundtouch-Geräten automatisch aktualisiert, auch wenn Sie die Gruppen durch die Soundtouch-Anwendung selbst ändern.
 
 | Staat | Beschreibung |
 | :---       | :---        |
 
-| masterOf | Anzeigen der MAC-Adressen der Slaves eines Lautsprechers (durch ";" getrennt) (schreibgeschützt) | memberOf | Zeigen Sie die MAC-Adresse des Masters dieses Lautsprechers an (schreibgeschützt) addMasterOf | Fügen Sie die MAC-Adresse des Lautsprechers hinzu, den Sie diesem Master-Lautsprecher hinzufügen möchten. Es ist auch möglich, mehr als einen Lautsprecher zu platzieren (durch ";" getrennt).
-| removeMasterOf | Fügen Sie die MAC-Adresse des Lautsprechers hinzu, den Sie von diesem Master-Lautsprecher entfernen möchten. Es ist auch möglich, mehr als einen Lautsprecher zu platzieren (durch ";" getrennt).
+| masterOf | Anzeige der MAC-Adressen der Slaves eines Lautsprechers (getrennt durch ";") (schreibgeschützt) | MitgliedOf | Zeigt die MAC-Adresse des Masters dieses Lautsprechers an (schreibgeschützt) | addMasterOf| Fügen Sie die MAC-Adresse des Lautsprechers hinzu, den Sie diesem Master-Lautsprecher hinzufügen möchten. Es ist auch möglich, mehr als einen Lautsprecher zu platzieren (getrennt durch ";").
+| entfernenMasterOf| Fügen Sie die MAC-Adresse des Lautsprechers hinzu, den Sie von diesem Master-Lautsprecher entfernen möchten. Es ist auch möglich, mehr als einen Lautsprecher zu platzieren (getrennt durch ";").
 
 ## Changelog
+
+### 0.10.0 (2021-07-30)
+* IMPORTANT: The adapter now requires at least js-controller 2.0
+* (Apollon77) Optimize for js-controller 3.3
+
+### 0.9.4 (07.05.2021)
+* fixed vulnerability in NPM
+
+### 0.9.3 (02.02.2021)
+
+* transfer of adapter to iobroker-community-adapters
+
+### 0.9.3 (10.01.2021)
+
+* Added elapsed time, duration, status, keys and roles
+
+### 0.9.2 (09.12.2019)
+
+* We don't use adapter.objects anymore
 
 ### 0.9.1 (12.05.2019)
 
@@ -170,4 +190,4 @@ Die folgende Beschreibung hilft Ihnen bei der Erstellung von Gruppen mit Ihrem M
 
 [The MIT License (MIT)](LICENSE)
 
-Copyright (c) 2019 SwedishChef <swedish.chef@gmx.at>
+Copyright (c) 2019-2021 SwedishChef <swedish.chef@gmx.at>

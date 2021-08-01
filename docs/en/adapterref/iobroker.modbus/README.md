@@ -272,11 +272,12 @@ There are some programs in folder *test' to test the TCP communication:
 - mod_RSsim.exe is slave simulator. It can be that you need [Microsoft Visual C++ 2008 SP1 Redistributable Package](https://www.microsoft.com/en-us/download/details.aspx?id=5582) to start it (because of SideBySide error).
 
 <!--
-	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
-
+### 3.4.11 (2021-07-31)
+* (bluefox) Corrected import of last line
+ 
 ### 3.4.10 (2021-07-30)
 * (Apollon77) Make sure that slave reconnections at least wait 1000ms to allow old connectio to close properly
 * (bluefox) Corrected the error with write single registers

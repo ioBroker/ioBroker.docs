@@ -1,4 +1,5 @@
-# ioBroker.bosesoundtouch ![Logo](admin/bosesoundtouch.png)
+![Logo](admin/bosesoundtouch.png)
+# ioBroker.bosesoundtouch
 
 ![Number of Installations](http://iobroker.live/badges/bosesoundtouch-stable.svg)
 ![Number of Installations](http://iobroker.live/badges/bosesoundtouch-installed.svg)  

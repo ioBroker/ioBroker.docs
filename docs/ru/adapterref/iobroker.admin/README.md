@@ -170,6 +170,9 @@ IP-адрес с которого доступен драйвер (поддер�
 ![ioBroker.admin - system settings](img/admin_SystemSettings.jpg)
 
 ## Changelog
+### 5.1.19 (2021-07-31)
+* (bluefox) Corrected some GUI errors
+
 ### 5.1.17 (2021-07-30)
 * (bluefox) Corrected the error on the adapter's tab
 
@@ -182,9 +185,6 @@ IP-адрес с которого доступен драйвер (поддер�
 
 ### 5.1.14 (2021-07-23)
 * (bluefox) Corrected error with "Intro" page. Warning: All cards must be deactivated anew.
-
-### 5.1.13 (2021-07-21)
-* (bluefox) Improved json config
 
 ## License
 The MIT License (MIT)

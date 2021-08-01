@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.modbus/README.md
 title: iobroker.modbus
-hash: xkNd5mJeFpG/k6t2CHMxxHryp80Gj3rnLw06dghu72M=
+hash: 5EM3kFXujpXTPD3nsFQUWbDL2u2+tkf9QRbzm13jNJM=
 ---
-![商标](../../../en/adapterref/iobroker.modbus/admin/modbus.png)
+![标识](../../../en/adapterref/iobroker.modbus/admin/modbus.png)
 
 ![安装数量](http://iobroker.live/badges/modbus-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.modbus.svg)
@@ -19,7 +19,7 @@ hash: xkNd5mJeFpG/k6t2CHMxxHryp80Gj3rnLw06dghu72M=
 ioBroker 的 ModBus Slave 和 Master 的实现。支持以下类型：
 
 - Modbus RTU 通过串行（主站）
-- TCP 上的 Modbus RTU（主站）
+- 基于 TCP 的 Modbus RTU（主站）
 - Modbus TCP（从站，主站）
 
 ##设置
@@ -30,7 +30,7 @@ modbus 伙伴的 IP 地址。
 如果配置为主机（客户端）或自己的端口（如果配置为从机（服务器）），则 modbus 伙伴的 TCP 端口。
 
 ＃＃＃ 设备编号
-Modbus 设备 ID。如果使用 TCP/Modbus 网桥，这一点很重要。
+Modbus 设备 ID。如果使用 TCP/Modbus 桥接器，这一点很重要。
 
 ＃＃＃ 类型
 从（服务器）或主（客户端）。
@@ -46,14 +46,14 @@ Modbus 设备 ID。如果使用 TCP/Modbus 网桥，这一点很重要。
 每个别名都将在内部映射到地址，例如30011 将被映射到输入寄存器 10。等等。
 
 ### 不要将地址对齐到 16 位（字）
-通常线圈和离散输入地址对齐到 16 位。从 3 到 20 的类似地址将与 0 到 32 对齐。
+通常，线圈和离散输入地址对齐为 16 位。从 3 到 20 的类似地址将与 0 到 32 对齐。
 如果此选项处于活动状态，地址将不会对齐。
 
 ###不要使用多个寄存器
 如果从站不支持“写入多个寄存器”命令，您可以激活它以获取警告，当多个寄存器将被写入时。
 
 ### 只使用多个写寄存器
-如果slave只支持“write multiple registers”命令，你可以激活，这样寄存器会一直用FC15/FC16命令写入。
+如果从站只支持“写多个寄存器”命令，你可以激活，这样寄存器将始终用 FC15/FC16 命令写入。
 
 ### 圆形真实到
 浮点数和双精度数的逗号后有多少位数字。
@@ -65,7 +65,7 @@ Modbus 设备 ID。如果使用 TCP/Modbus 网桥，这一点很重要。
 重连间隔（只与master相关）
 
 ### 读取超时
-读取请求的超时时间（以毫秒为单位）。
+以毫秒为单位的读取请求超时。
 
 ###脉冲时间
 如果脉冲用于线圈，这定义了脉冲的间隔时间。
@@ -145,7 +145,7 @@ Modbus 设备 ID。如果使用 TCP/Modbus 网桥，这一点很重要。
 要分配的 ioBroker 房间。
 
 ### 投票
-如果激活，将从从站以预定义的时间间隔轮询这些值。
+如果激活，这些值将在预定义的时间间隔内从从站轮询。
 
 ### WP
 写脉冲
@@ -191,19 +191,19 @@ Modbus 设备 ID。如果使用 TCP/Modbus 网桥，这一点很重要。
 然而，这种便利并非没有一些复杂性，Modbus RTU 消息协议也不例外。协议本身是基于具有 16 位寄存器长度的设备设计的。因此，在实现 32 位数据元素时需要特别考虑。此实现决定使用两个连续的 16 位寄存器来表示 32 位数据或基本上 4 个字节的数据。在这 4 个字节的数据中，单精度浮点数据可以编码为 Modbus RTU 消息。
 
 ### 字节顺序的重要性
-Modbus 本身并没有定义浮点数据类型，但人们普遍认为它使用 IEEE-754 标准实现 32 位浮点数据。但是，IEEE 标准没有明确定义数据负载的字节顺序。因此，处理 32 位数据时最重要的考虑因素是数据以正确的顺序寻址。
+Modbus 本身并没有定义浮点数据类型，但人们普遍认为它使用 IEEE-754 标准实现 32 位浮点数据。但是，IEEE 标准并没有明确定义数据负载的字节顺序。因此，处理 32 位数据时最重要的考虑因素是数据以正确的顺序寻址。
 
 例如，IEEE 754 标准中为单精度 32 位浮点数定义的数字 123/456.00 显示如下：
 
 ![图片1](../../../en/adapterref/iobroker.modbus/img/img1.png)
 
-各种字节顺序的影响是显着的。例如，以“B A D C”序列对表示 123456.00 的 4 字节数据进行排序，称为“字节交换”。当解释为 IEEE 744 浮点数据类型时，结果完全不同：
+各种字节顺序的影响是显着的。例如，在称为“字节交换”的“B A D C”序列中对表示 123456.00 的 4 字节数据进行排序。当解释为 IEEE 744 浮点数据类型时，结果完全不同：
 
 ![图片2](../../../en/adapterref/iobroker.modbus/img/img2.png)
 
 在“C D A B”序列中对相同字节进行排序称为“字交换”。同样，结果与原始值 123456.00 大不相同：
 
-![图片3](../../../en/adapterref/iobroker.modbus/img/img3.png)
+![图3](../../../en/adapterref/iobroker.modbus/img/img3.png)
 
 此外， `byte swap` 和 `word swap` 基本上都将完全颠倒字节序列以产生另一个结果：
 
@@ -216,13 +216,13 @@ Modbus 本身并没有定义浮点数据类型，但人们普遍认为它使用 
 
 ```Modbus uses a “big-Endian” representation for addresses and data items. This means that when a numerical quantity larger than a single byte is transmitted, the most significant byte is sent first.```
 
-Big-Endian 是网络协议最常用的格式——事实上，它是如此常见，以至于它也被称为“网络顺序”。
+Big-Endian 是网络协议最常用的格式 - 事实上，它是如此常见，以至于它也被称为“网络顺序”。
 
 鉴于 Modbus RTU 消息协议是 big-Endian，为了通过 Modbus RTU 消息成功交换 32 位数据类型，必须考虑主站和从站的字节序。许多 RTU 主从设备允许特定的字节顺序选择，特别是在软件模拟单元的情况下。只需确保两个单元都设置为相同的字节顺序。
 
-根据经验，设备微处理器的家族决定了它的字节序。通常，在采用 Motorola 处理器设计的 CPU 中通常可以找到 big-Endian 样式（首先存储高位字节，然后是低位字节）。 little-Endian 样式（先存储低位字节，然后是高位字节）通常在使用 Intel 架构的 CPU 中找到。至于哪种风格被认为是“落后的”，这是个人观点的问题。
+根据经验，设备微处理器的家族决定了它的字节序。通常，在采用 Motorola 处理器设计的 CPU 中通常可以找到 big-Endian 样式（首先存储高位字节，然后是低位字节）。 little-Endian 样式（首先存储低位字节，然后是高位字节）通常在使用 Intel 架构的 CPU 中找到。至于哪种风格被认为是“落后的”，这是个人观点的问题。
 
-但是，如果字节顺序和字节序不是可配置的选项，则必须确定如何解释字节。这可以通过从从设备请求一个已知的浮点值来完成。如果返回一个不可能的值，即具有两位数指数的数字等，则字节顺序很可能需要修改。
+但是，如果字节顺序和字节序不是可配置的选项，则您必须确定如何解释字节。这可以通过从从设备请求一个已知的浮点值来完成。如果返回一个不可能的值，即具有两位数指数的数字等，则字节顺序很可能需要修改。
 
 ### 实用帮助
 FieldServer Modbus RTU 驱动程序提供了多种处理 32 位整数和 32 位浮点值的函数移动。更重要的是，这些函数移动考虑了所有不同形式的字节排序。下表显示了 FieldServer 函数将两个相邻的 16 位寄存器复制为 32 位整数值的移动。
@@ -252,7 +252,7 @@ FieldServer Modbus RTU 驱动程序提供了多种处理 32 位整数和 32 位�
 | 1.float-2.i16-sb |字节交换 | [ a b ] [ c d ] | [ b a ][ dc ] |
 | 1.float-2.i16-sw |字交换 | [ a b ] [ c d ] | [ c d ][ a b ] |
 
-鉴于各种 FieldServer 功能移动，32 位数据的正确处理取决于选择正确的数据。观察这些 FieldServer 函数在已知单精度十进制浮点值 123456.00 上移动的以下行为：
+鉴于各种 FieldServer 功能移动，32 位数据的正确处理取决于选择正确的数据。观察这些 FieldServer 函数在已知单精度十进制浮点值 123456.00 上的以下行为：
 
 |16 位值 |功能移动 |结果 |功能移动 |结果 |
 |---------------|-------------------|-----------|-------------------|---------------|
@@ -263,9 +263,9 @@ FieldServer Modbus RTU 驱动程序提供了多种处理 32 位整数和 32 位�
 
 请注意，不同的字节和字顺序需要使用适当的 FieldServer 函数 move。一旦选择了正确的功能移动，数据就可以双向转换。
 
-在 Internet 上可用的许多十六进制到浮点转换器和计算器中，实际上很少允许操作字节和字顺序。一个这样的实用程序位于 www.61131.com/download.htm，可以下载该实用程序的 Linux 和 Windows 版本。安装后，该实用程序将作为具有单个对话框界面的可执行文件运行。该实用程序显示 123456.00 的十进制浮点值如下：
+在 Internet 上可用的许多十六进制到浮点转换器和计算器中，很少有真正允许操作字节和字顺序。一个这样的实用程序位于 www.61131.com/download.htm，可以下载该实用程序的 Linux 和 Windows 版本。安装后，该实用程序将作为具有单个对话框界面的可执行文件运行。该实用程序显示十进制浮点值 123456.00，如下所示：
 
-![图5](../../../en/adapterref/iobroker.modbus/img/img5.png)
+![图片5](../../../en/adapterref/iobroker.modbus/img/img5.png)
 
 然后可以交换字节和/或字来分析 Modbus RTU 主设备和从设备之间可能存在哪些潜在的字节序问题。
 
@@ -276,11 +276,37 @@ FieldServer Modbus RTU 驱动程序提供了多种处理 32 位整数和 32 位�
 - RMMS 是主模拟器
 - mod_RSsim.exe 是从模拟器。可能是您需要 [Microsoft Visual C++ 2008 SP1 Redistributable Package](https://www.microsoft.com/en-us/download/details.aspx?id=5582) 来启动它（因为 SideBySide 错误）。
 
-<!-- 下一版本的占位符（在行首）：
+<!--
 
 ### __工作进行中__ -->
 
 ## Changelog
+### 3.4.11 (2021-07-31)
+* (bluefox) Corrected import of last line
+ 
+### 3.4.10 (2021-07-30)
+* (Apollon77) Make sure that slave reconnections at least wait 1000ms to allow old connectio to close properly
+* (bluefox) Corrected the error with write single registers
+
+### 3.4.9 (2021-07-06)
+* (bluefox) Changed edit behaviour
+
+### 3.4.8 (2021-06-24)
+* (Apollon77) Fix crash case on writing floats (Sentry IOBROKER-MODBUS-2D)
+
+### 3.4.7 (2021-06-22)
+* (bluefox) Corrected addressing with aliases in GUI
+
+### 3.4.6 (2021-06-21)
+* (bluefox) Corrected addressing with aliases
+
+### 3.4.5 (2021-06-19)
+* (bluefox) Corrected the "write multiple registers" option
+
+### 3.4.4 (2021-06-16)
+* (bluefox) GUI bugs were corrected
+* (bluefox) Added output of error codes
+
 ### 3.4.2 (2021-06-15)
 * (nkleber78) Corrected issue with the scale factors
 * (bluefox) New react GUI added
