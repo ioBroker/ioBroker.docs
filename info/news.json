@@ -1068,5 +1068,38 @@
         "conditions": {
             "vis": "bigger(1.0.0)"
         }
+    },
+    {
+        "title": {
+            "en": "Update your adapters before updaating to js-controller 3.3!",
+            "de": "Vor Update auf js-controller 3.3 alle Adapter aktualisieren!",
+            "ru": "Обновите свои адаптеры перед обновлением до js-controller 3.3!",
+            "pt": "Atualize seus adaptadores antes de atualizar para js-controller 3.3!",
+            "nl": "Werk uw adapters bij voordat u bijwerkt naar js-controller 3.3!",
+            "fr": "Mettez à jour vos adaptateurs avant de passer à js-controller 3.3!",
+            "it": "Aggiorna i tuoi adattatori prima di aggiornare a js-controller 3.3!",
+            "es": "Actualice sus adaptadores antes de actualizar a js-controller 3.3!",
+            "pl": "Zaktualizuj swoje adaptery przed aktualizacją do js-controller 3.3!",
+            "zh-cn": "在更新到 js-controller 3.3 之前更新您的适配器"
+        },
+        "content": {
+            "en": "Before updating to js-controller 3.3 please make sure to update all adapters on your system that refernce in the changelog to be optimized for js-controller 3.3. Additional information about the changes in the new js-controller can be found in forum on https://forum.iobroker.net/topic/46758/js-controller-3-3-jetzt-im-stable",
+            "de": "Bitte vor dem Update auf js-controller 3.3 sicherstellen, dass alle Adapter auf dem System aktualisiert wurden, die im Changelog auf Optimierungen für js-controller 3.3 verweisen. Weitere Informationen zu den Änderungen im neuen js-controller finden sich im Forum unter https://forum.iobroker.net/topic/46758/js-controller-3-3-jetzt-im-stable",
+            "ru": "Перед обновлением до js-controller 3.3 обязательно обновите все адаптеры в вашей системе, которые упоминаются в журнале изменений, чтобы быть оптимизированными для js-controller 3.3. Дополнительную информацию об изменениях в новом js-controller можно найти на форуме на https://forum.iobroker.net/topic/46758/js-controller-3-3-jetzt-im-stable",
+            "pt": "Antes de atualizar para o js-controller 3.3, certifique-se de atualizar todos os adaptadores em seu sistema que fazem referência no changelog para serem otimizados para o js-controller 3.3. Informações adicionais sobre as mudanças no novo js-controller podem ser encontradas no fórum em https://forum.iobroker.net/topic/46758/js-controller-3-3-jetzt-im-stable",
+            "nl": "Voordat u bijwerkt naar js-controller 3.3, moet u ervoor zorgen dat u alle adapters op uw systeem bijwerkt die verwijzen naar de changelog om te worden geoptimaliseerd voor js-controller 3.3. Aanvullende informatie over de wijzigingen in de nieuwe js-controller is te vinden in het forum op https://forum.iobroker.net/topic/46758/js-controller-3-3-jetzt-im-stable",
+            "fr": "Avant de mettre à jour vers js-controller 3.3, assurez-vous de mettre à jour tous les adaptateurs de votre système qui font référence dans le journal des modifications à optimiser pour js-controller 3.3. Des informations supplémentaires sur les modifications apportées au nouveau js-controller peuvent être trouvées dans le forum sur https://forum.iobroker.net/topic/46758/js-controller-3-3-jetzt-im-stable",
+            "it": "Prima di aggiornare a js-controller 3.3, assicurati di aggiornare tutti gli adattatori sul tuo sistema che fanno riferimento nel log delle modifiche per essere ottimizzati per js-controller 3.3. Ulteriori informazioni sulle modifiche nel nuovo js-controller possono essere trovate nel forum su https://forum.iobroker.net/topic/46758/js-controller-3-3-jetzt-im-stable",
+            "es": "Antes de actualizar a js-controller 3.3, asegúrese de actualizar todos los adaptadores en su sistema que hacen referencia en el registro de cambios para ser optimizados para js-controller 3.3. Se puede encontrar información adicional sobre los cambios en el nuevo js-controller en el foro en https://forum.iobroker.net/topic/46758/js-controller-3-3-jetzt-im-stable",
+            "pl": "Przed aktualizacją do js-controller 3.3 upewnij się, że zaktualizowałeś wszystkie adaptery w systemie, które odwołują się w changelogu do optymalizacji dla js-controller 3.3. Dodatkowe informacje o zmianach w nowym js-controllerze znajdziecie na forum na https://forum.iobroker.net/topic/46758/js-controller-3-3-jetzt-im-stable",
+            "zh-cn": "在更新到 js-controller 3.3 之前，请确保更新系统上所有在更改日志中引用的适配器，以便针对 js-controller 3.3 进行优化。有关新 js-controller 更改的其他信息可以在 https://forum.iobroker.net/topic/46758/js-controller-3-3-jetzt-im-stable 上的论坛中找到"
+        },
+        "id": "jscontroller33",
+        "class": "info",
+        "fa-icon": "exclamation-circle",
+        "created": "2021-08-1104T23:22:00.000Z",
+        "conditions": {
+            "js-controller": "smaller(3.3.15)"
+        }
     }
 ]
