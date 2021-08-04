@@ -69,7 +69,8 @@ NOTE: Accepted on both "on" and "off" state.
 after 5 minutes.
 
 ## Changelog
-### 1.1.1 (2021-07-28)
+### 1.1.1 (2021-08-03)
+* (MeisterTR) js-controller 3.3 fixes
 * (jlssmt) fixed unhandled promise rejection causing the adapter to stop
 * (jlssmt) adapter won't set power of offline devices to off anymore 
 ### 1.1.0 (2021-07-26)
@@ -125,9 +126,10 @@ after 5 minutes.
 
 base from: adb backup https://github.com/cahek2202/ioBroker.yeelight
 
+## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2019 MeisterTR <meistertr.smarthome@gmail.com>, cahek2202 <cahek2202@mail.ru>
+Copyright (c) 2018-2021 MeisterTR <meistertr.smarthome@gmail.com>, cahek2202 <cahek2202@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

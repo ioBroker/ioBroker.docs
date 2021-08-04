@@ -93,7 +93,7 @@ Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 2.3.0 (2021-08-01)
 * (Apollon77) Add support for use defined properties on apartment level
 
 ### 2.2.1 (2021-07-26)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.airzone/README.md
 title: без названия
-hash: yZDbaH/uK+xigaCMr6To8q2Ea7LpCHjYeNmpJLdPP1s=
+hash: nEUFqAizEK7kb/Ab2YrYB8mecPvwgvJL29efkUdtPtE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.airzone/admin/Airzone.png)<br> https://airzonecloud.com/
 
@@ -16,6 +16,8 @@ hash: yZDbaH/uK+xigaCMr6To8q2Ea7LpCHjYeNmpJLdPP1s=
 ![НПМ](https://nodei.co/npm/iobroker.airzone.png?downloads=true)
 
 Управляйте устройствами аэрозоны и следите за ними с помощью ioBroker.
+
+*ПРИМЕЧАНИЕ. Эта версия адаптера iobroker больше не работает с текущим API AirzoneCloud. Планируется дальнейшее развитие этого адаптера ...*
 
 [![Статус сборки] (https://travis-ci.com/SilentPhoenix11/ioBroker.airzone.svg?branch=master)](https://travis-ci.com/github/SilentPhoenix11/ioBroker.airzone)
 

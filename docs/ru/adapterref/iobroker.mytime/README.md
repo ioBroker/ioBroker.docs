@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mytime/README.md
 title: ioBroker.mytime
-hash: hSNDCCJ3wn9bOMo9ZSs+ajXFifihxmdOadKkO+16SeY=
+hash: AIanR7D4MkMVi+1aVctXl3fS6CJleCBBuN/BRuRYvLQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mytime/admin/mytime.png)
 
@@ -19,25 +19,25 @@ hash: hSNDCCJ3wn9bOMo9ZSs+ajXFifihxmdOadKkO+16SeY=
 ## Адаптер mytime для ioBroker
 Этот адаптер обрабатывает время (например, обратный отсчет и т. Д.).
 Функция обратного отсчета предоставляет точки данных, которые вы можете использовать для управления обратным отсчетом (например, в сценарии). Адаптер также включает несколько виджетов для визуализации этих обратных отсчетов.
-Временные ряды могут использоваться для создания сложных временных рядов, в которых запускаются точки данных.
+Временные ряды можно использовать для создания сложных временных рядов, в которых запускаются точки данных.
 
 ### Конфигурация
 #### Обратный отсчет
 В диалоговом окне конфигурации Вкладка «Обратный отсчет» вы можете создать новый обратный отсчет, например, «тест», установить таймер на 10 секунд и импортировать следующие виджеты.
-Datapoints предварительно настроены для обратного отсчета с именем test.
+Точки данных предварительно настроены для обратного отсчета с именем test.
 
 ##### Таймер поведения остановки
 После того, как обратный отсчет остановится, обратный отсчет сбрасывается до времени, установленного таймером.
 
-##### Нулевое поведение остановки После того, как обратный отсчет получает сигнал остановки, обратный отсчет остается на 0.
+##### Нулевое поведение при остановке После того, как обратный отсчет получает сигнал остановки, обратный отсчет остается на 0.
 #### Временные ряды
-В диалоговом окне конфигурации Вкладка «Временные ряды» вы можете создать новый временной ряд с одним или несколькими временными правилами. Для каждого временного правила вы можете определить различные параметры. Каждая временная серия создает отдельную точку данных, которая запускается в рассчитанные временные события.
-Временные события рассчитываются в реальном времени. Однако используемая библиотека rrule еще не идеальна для всех комбинаций параметров.
-Это показывает, что при некоторых комбинациях страница заходит в бесконечный цикл.
+В диалоговом окне конфигурации Вкладка «Временные ряды» вы можете создать новый временной ряд с одним или несколькими временными правилами. Для каждого временного правила вы можете определить разные параметры. Каждая временная серия создает отдельную точку данных, которая запускается в рассчитанные временные события.
+Временные события рассчитываются в реальном времени. Однако используемая библиотека правил еще не идеальна для всех комбинаций параметров.
+Это показывает, что при некоторых комбинациях страница зацикливается.
 Демо-страницу http://jakubroztocil.github.io/rrule/ также можно использовать для экспериментов.
-Дополнительно, чтобы добавить правило времени, вы можете добавить правило времени для исключения временных событий, для добавления одноразовых временных событий, а также для исключения одноразовых временных событий.
+Дополнительно, чтобы добавить правило времени, вы можете добавить правило времени, чтобы исключить временные события, добавить одноразовые временные события, а также исключить одноразовые временные события.
 
-### Применение
+### Использование
 #### Временные ряды
 ##### Доступные точки данных
 После настройки новой таймсерии адаптер создает следующие точки данных:
@@ -51,7 +51,7 @@ Datapoints предварительно настроены для обратно
 | действие | описание |
 |-----------|-------------------------------------------------------------------------------------------------------|
 | стоп | в данный момент времени нет активных событий |
-| запустить | событие времени было запущено. по истечении заданного времени, точка данных изменяется на остановку |
+| запустить | сработало временное событие. по истечении заданного времени, точка данных изменится на остановку |
 
 #### Обратный отсчет
 ##### Доступные точки данных
@@ -62,16 +62,16 @@ Datapoints предварительно настроены для обратно
 | действие | Актуальное состояние обратного отсчета. возможные значения: stop, run, pause, end |
 | cmd | точка данных для команд. возможные команды описаны ниже |
 | начало | дата-точка для времени начала в миллисекундах |
-| конец | дата-точка для времени окончания в миллисекундах |
-| таймер | дата-точка для общего времени в миллисекундах |
+| конец | дата-точка для конечного времени в миллисекундах |
+| таймер | точка данных для общего времени в миллисекундах |
 
 ##### Доступные состояния действия
 | действие | описание |
 |-----------|-------------------------------------------------------------------------------------------------------|
 | стоп | обратный отсчет остановлен, время начала и окончания установлено на 0 |
-| запустить | обратный отсчет идет. если обратный отсчет дошел до конца. действие переключается на конец |
+| запустить | обратный отсчет идет. если обратный отсчет дойдет до конца. действие переключается на конец |
 | пауза | обратный отсчет находится в режиме паузы. время окончания было установлено на время паузы |
-| конец | обратный отсчет окончен. это состояние можно использовать как триггер для дальнейших действий (звук, всплывающие окна и т. д.) | |
+| конец | обратный отсчет окончен. это состояние вы можете использовать как триггер для дальнейших действий (звук, всплывающие окна и т. д.) | |
 
 ##### Доступные команды для точки данных cmd
 | команда | пример | описание |
@@ -79,8 +79,8 @@ Datapoints предварительно настроены для обратно
 | + значение | +1: 10 | добавляет время к настройке обратного отсчета. настройка будет учтена при следующем запуске |
 | -значение | -1: 2: 3 | вычитает время из обратного отсчета. настройка будет учтена при следующем запуске |
 | = значение | = 5: 00 | установите таймер обратного отсчета на это время. |
-| # ISO-Date | # 2020-01-01T10: 00: 00 | установите таймер обратного отсчета на целевое время. Время должно быть отформатировано как ISO-Datestring |
-| $ Time | $ 20: 15 | установите таймер обратного отсчета на целевое время. Если время раньше текущего времени. установлен следующий день. |
+| # ISO-Date | # 2020-01-01T10: 00: 00 | установите таймер обратного отсчета на заданное время. Время должно быть отформатировано как ISO-Datestring |
+| $ Time | $ 20: 15 | установите таймер обратного отсчета на заданное время. Если время раньше текущего. установлен следующий день. |
 | начало | начало | начинает обратный отсчет |
 | стоп | стоп | останавливает обратный отсчет. время обратного отсчета сбрасывается на настройку |
 | пауза | пауза | приостанавливает обратный отсчет |
@@ -129,20 +129,20 @@ Datapoints предварительно настроены для обратно
 | шаблон | пример | результат |
 |-----------------------|-------------------|--------------------------------------------------|
 | д \ д Чч м \ м с \ с | 1д 2ч 3м 4с | с escape-символами и без начальных нулей |
-| дд \ д Ччч мм \ м сс \ с | 01д 02ч 03м 04с | с escape-символами и ведущими нулями |
+| дд \ д Ччч мм \ м сс \ с | 01д 02ч 03м 04с | с escape-символами и с ведущими нулями |
 | сс \ с | 93784s | только секунды |
 | дд \ д ЧЧ \ ч | 01д 02ч | только дни и часы |
 | ЧЧ \ ч мм \ м | 26ч 03м | только часы и минуты |
 
 ### Виджеты
-#### Виджет обратного отсчета простой
+#### Обычный обратный отсчет виджета
 Виджет обратного отсчета для простого текстового вывода
 
 ##### Свойства виджета
 ###### Oid Точка данных таймера точки обратного отсчета.
 ###### Формат Форматирует вывод таймера. по умолчанию мм: сс. подробности см. в шаблоне формата главы
 ##### Пример кода виджета
-виджеты предварительно настроены для обратного отсчета с именем test.
+виджеты предварительно настроены для обратного отсчета под названием test.
 
 ```
 [{"tpl":"tplMyTimeCountdownPlain","data":{"g_fixed":false,"g_visibility":false,"g_css_font_text":false,"g_css_background":false,"g_css_shadow_padding":false,"g_css_border":false,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"countdown_oid":"mytime.0.Countdown.test.timer","format":"d H m s"},"style":{"left":"771px","top":"143px","width":"151px","height":"16px"},"widgetSet":"mytime"},{"tpl":"tplJquiButtonState","data":{"oid":"mytime.0.Countdown.test.cmd","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":true,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"buttontext":"+10s","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"value":"+10","visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","class":"mytime"},"style":{"left":"742px","top":"111px","color":"white","font-weight":"lighter","font-size":"x-small","background":"","border-width":"2px","border-style":"solid","border-color":"white","border-radius":"10px","background-color":"#303030 !important","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","width":"55px"},"widgetSet":"jqui"},{"tpl":"tplJquiButtonState","data":{"oid":"mytime.0.Countdown.test.cmd","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":true,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"buttontext":"-10s","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"value":"-10","visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","class":"mytime"},"style":{"left":"801px","top":"111px","color":"white","font-weight":"lighter","font-size":"x-small","background":"","border-width":"2px","border-style":"solid","border-color":"white","border-radius":"10px","background-color":"#303030 !important","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","width":"55px"},"widgetSet":"jqui"},{"tpl":"tplJquiButtonState","data":{"oid":"mytime.0.Countdown.test.cmd","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":true,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"buttontext":"=10","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"value":"=10","visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","class":"mytime"},"style":{"left":"864px","top":"111px","color":"white","font-weight":"lighter","font-size":"x-small","background":"","border-width":"2px","border-style":"solid","border-color":"white","border-radius":"10px","background-color":"#303030 !important","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","width":"55px"},"widgetSet":"jqui"},{"tpl":"tplJquiButtonState","data":{"oid":"mytime.0.Countdown.test.cmd","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":true,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"buttontext":"start","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"value":"start","visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","class":"mytime"},"style":{"left":"742px","top":"163px","color":"white","font-weight":"lighter","font-size":"x-small","background":"","border-width":"2px","border-style":"solid","border-color":"white","border-radius":"10px","background-color":"#303030 !important","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","width":"55px"},"widgetSet":"jqui"},{"tpl":"tplJquiButtonState","data":{"oid":"mytime.0.Countdown.test.cmd","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":true,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"buttontext":"pause","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"value":"pause","visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","class":"mytime"},"style":{"left":"801px","top":"163px","color":"white","font-weight":"lighter","font-size":"x-small","background":"","border-width":"2px","border-style":"solid","border-color":"white","border-radius":"10px","background-color":"#303030 !important","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","width":"55px"},"widgetSet":"jqui"},{"tpl":"tplJquiButtonState","data":{"oid":"mytime.0.Countdown.test.cmd","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":true,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"buttontext":"stop","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"value":"stop","visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","class":"mytime"},"style":{"left":"864px","top":"163px","color":"white","font-weight":"lighter","font-size":"x-small","background":"","border-width":"2px","border-style":"solid","border-color":"white","border-radius":"10px","background-color":"#303030 !important","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","width":"55px"},"widgetSet":"jqui"}]
@@ -197,7 +197,7 @@ Datapoints предварительно настроены для обратно
 ###### Countdown_color Цвет таймера обратного отсчета
 ###### Countdown_background_color Цвет фона таймера обратного отсчета
 ###### Countdown_dot_color Цвет точек таймера обратного отсчета
-##### Подсказки
+##### Советы
 Если вы хотите настроить размер флип-часов обратного отсчета, в настройках css в vis вы можете ввести половинный размер: Group CSS-Common / transform "scale (0.5)"
 
 ##### Фактическое состояние действия (cdstop, cdrun, cdpause, cdend) обратного отсчета доступно как селектор CSS-класса.
@@ -214,7 +214,9 @@ Datapoints предварительно настроены для обратно
 Виджет обратного отсчета в стиле Nixie-Tube / LED
 
 ##### Свойства виджета
-###### Oid Точка данных таймера точки обратного отсчета.
+###### Oid
+Точка данных таймера точки обратного отсчета.
+
 ###### Countdown_showsec Показывает часть секунды. между двумя блоками не должно быть промежутка.
 ###### Countdown_showmin Показывает минутную часть. между двумя блоками не должно быть промежутка.
 ###### Countdown_showhrs Показывает часть часов. между двумя блоками не должно быть промежутка.
@@ -222,8 +224,24 @@ Datapoints предварительно настроены для обратно
 ###### Countdown_color_active Цвет таймера обратного отсчета
 ###### Countdown_color_inactive Цвет неактивных цифр
 ###### Countdown_opacity_inactive Непрозрачность цвета неактивных цифр
-###### Countdown_glowcolor Цвет свечения вокруг цифр Nixie
-##### Подсказки
+###### Countdown_glowcolor Цвет свечения вокруг этих Nixie-цифр
+#### Виджет Wordclock
+Виджет для отображения часов с множеством опций
+
+##### Свойства виджета
+###### Язык
+Доступны несколько разных языков для Wordclock
+
+###### LetterActivated Цвет выделенных слов
+###### LetterDeactivated Цвет обычных букв
+###### WordclockMargin Поле между wordclock и светодиодами
+###### WithMinutes Показывает индикаторы минут в углу часов.
+###### MinuteSize Размер в пикселях минут Светодиоды
+###### Минута Цвет индикатора минут
+###### WithSeconds Отображение секунд-индикаторов часов Wordclock
+###### SecondSize Размер в пикселях светодиодов секунд
+###### SecondColor цвет светодиода секунд
+##### Советы
 Если вы хотите настроить размер nixieclock обратного отсчета, в настройках css в vis вы можете ввести половинный размер: Group CSS-Common / transform "scale (0.5)"
 
 ##### Фактическое состояние действия (cdstop, cdrun, cdpause, cdend) обратного отсчета доступно как селектор CSS-класса.
@@ -236,12 +254,12 @@ Datapoints предварительно настроены для обратно
 }
 ```
 
-## Делать
+## Сделать
 * 7-сегментный дисплей
 * скользящие числа
 * настраиваемые шрифты
-* таймер Wordclock?
 * ts: временные правила для исключения (временной диапазон, отдельные даты)
+* ~~ таймер Wordclock ~~
 * ~~ Планировщик по времени: планируйте единую дату / время и повторяющиеся события, такие как Outlook ~~
 * ~~ Стиль Никси ~~
 * ~~ флип-дисплей (аэропорт-дисплей) ~~
@@ -255,6 +273,12 @@ Datapoints предварительно настроены для обратно
 ## Changelog
 
 
+### 0.7.2
+* * add russian and espaniol for wordclock
+### 0.7.1
+* add margin property for wordclock * add italiano and francais for wordclock * wordclock remove border
+### 0.7.0
+* New widget wordclock
 ### 0.6.1
 * remove beta tag from widgets * m,assive reengeneering of the react classes, add functions für exclusion rules, adding single time events and exclude single time events
 ### 0.6.0

@@ -74,6 +74,9 @@ BADGE-NPM: https://nodei.co/npm/iobroker.admin.png?downloads=true
 日志的字体显示为红色。
 
 ## Changelog
+### 5.1.21 (2021-08-02)
+* (bluefox) Corrected some errors reported via sentry
+
 ### 5.1.19 (2021-07-31)
 * (bluefox) Corrected some GUI errors
 
@@ -85,10 +88,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.admin.png?downloads=true
  
 ### 5.1.15 (2021-07-26)
 * (bluefox) Replaced the formula icon in the edit aliases dialog
-* (bluefox) Added the logic for checkbox in JsonConfig 
-
-### 5.1.14 (2021-07-23)
-* (bluefox) Corrected error with "Intro" page. Warning: All cards must be deactivated anew.
+* (bluefox) Added the logic for checkbox in JsonConfig
 
 ## License
 The MIT License (MIT)

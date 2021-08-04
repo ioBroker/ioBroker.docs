@@ -13,8 +13,8 @@
 [![NPM](https://nodei.co/npm/iobroker.weatherflow_udp.png?downloads=true)](https://nodei.co/npm/iobroker.weatherflow_udp/)
 
 **Tests:**
-[![Travis-CI](http://img.shields.io/travis/woessmich/ioBroker.weatherflow_udp/master.svg)](https://travis-ci.org/woessmich/ioBroker.weatherflow_udp)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/woessmich/ioBroker.weatherflow_udp?branch=master&svg=true)](https://ci.appveyor.com/project//woessmich/ioBroker.weatherflow_udp/)
+[![Travis-CI](http://img.shields.io/travis/woessmich/ioBroker.weatherflow_udp/master.svg)](https://travis-ci.com/github/woessmich/ioBroker.weatherflow_udp)
+Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/woessmich/ioBroker.weatherflow_udp?branch=master&svg=true)](https://ci.appveyor.com/project/woessmich/iobroker-weatherflow-udp)
 
 
 ## weatherflow_udp adapter for ioBroker
@@ -28,7 +28,7 @@ Standard port the adpater listens on is 50222 but can be changed in setup.
 The adapter provides a minimum set of setup options.
 The listening port can be changed, which should not be required as the port the weatherstation hub is sending can not be changed, to my knowledge.
 
-The station height in meters above sea level is used to calculate the reduced pressure from local pressure as is provided by the station. Just use the same height as entered in the App. There may be small differences compared to the reduced pressure in the app depending on the formula used. The adapter uses the formula the german weather service DWD is using (http://dk0te.ba-ravensburg.de/cgi-bin/navi?m=WX_BAROMETER; nur noch [hier](https://www.symcon.de/forum/threads/6480-Relativen-Luftdruck-aus-absoluten-Luftdruck-errechnen)).
+The station height in meters above sea level is used to calculate the reduced pressure from local pressure as is provided by the station. Just use the same height as entered in the App. There may be small differences compared to the reduced pressure in the app depending on the formula used. The adapter uses the formula the german weather service DWD is using (http://dk0te.ba-ravensburg.de/cgi-bin/navi?m=WX_BAROMETER; found [here](https://www.symcon.de/forum/threads/6480-Relativen-Luftdruck-aus-absoluten-Luftdruck-errechnen)).
 
 When the debug checkbox is ticked, the adapter creates a lot of output in the log file. Should only be used for debugging.
 
@@ -59,31 +59,13 @@ Further, the adapter provides a selection of useful minimum and maximum values o
 The protocol sends a lightning distance of 0 when no lightning was detected. Values of 0 are modified to 999 to avoid the impression that lightning strikes are directly overhead.
 
 ## Changelog
-### 0.0.15
-(womi) only update min/max values if value has changed
-### 0.0.14
-(womi) Corrected wind chill calculation in feels like temperature calculation
-### 0.0.13
-(womi) Corrected precipitation duration (again); changed boolean raining behaviour
-### 0.0.12
-* (womi) Correction: Precipitation yesterday was not written
-### 0.0.11
-* (womi) Corrected more programming issues from review
-### 0.0.10
-* (womi) Corrected programming issues from review
-### 0.0.9
-* (womi) Assigned roles to states; fixes for status 'latest'
-### 0.0.8
-* (womi) Corrected rain accumulation/duration; added precipitation intensity; added experimental power mode; added raining and sunshine as boolean states
-### 0.0.7
-* (womi) Updated parts of adapter calculated data structure, added last message per message type instead of one for all; corrected calculation of feels like temperature
-### 0.0.6
-* (womi) initial release after testing with real tempest
+### 0.1.0
+(womi) Compatibility with Admin 5; Stable version 
 
 ## License
 MIT License
 
-Copyright (c) 2020 womi <woessmich@gmail.com>
+Copyright (c) 2021 womi <woessmich@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fullybrowser/README.md
 title: ioBroker.vollbrowser
-hash: ECD123bEy/KhBj8XVmBQn3J6yXBMvFPc/mRZSQbmi7Y=
+hash: 2cFA35vdi607lxQObwglRF4srrXVeogOzJ1RLJopqMQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.fullybrowser/admin/fully.png)
 
@@ -12,7 +12,7 @@ hash: ECD123bEy/KhBj8XVmBQn3J6yXBMvFPc/mRZSQbmi7Y=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.fullybrowser.svg)
 ![NPM](https://nodei.co/npm/iobroker.fullybrowser.png?downloads=true)
 
-# IoBroker.vollbrowser
+# IoBroker.fullybrowser
 =================
 
 fullBrowser Adapter für ioBroker ---------------------------------------------------------- --------------------------------
@@ -23,6 +23,12 @@ Ein kleiner Auszug nur der Befehlsoptionen:
 ![Möglichkeiten](https://github.com/arteck/iobroker.fullyBrowser/blob/master/doku/auszug.png)
 
 <b>NodeJs &gt;&gt; 8.xx</b>
+
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+
+https://github.com/AlCalzone/release-script#usage npm run release minor -- --all 0.9.8 -> 0.10.0 npm run release patch -- --all 0.9.8 -> 0.9.9 npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0 Platzhalter für die nächste Version (am Zeilenanfang):
+
+### **ARBEITEN LÄUFT** -->
 
 ## Changelog
 

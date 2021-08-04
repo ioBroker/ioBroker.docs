@@ -2,41 +2,53 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.homee/README.md
-title: ioBroker homee Adapter
-hash: FhOuxeUOxXI0VM55+mR5qD8k0SJ09JRQMcCp5MY++ds=
+title: ioBroker homee-Adapter
+hash: UebqvVp7K22VBsbePxsF3E6xIrE8m0q27YxLhfpZWn0=
 ---
 ![Logo](../../../en/adapterref/iobroker.homee/admin/homee.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/homee-stable.svg)
-![Greenkeeper-Abzeichen](https://badges.greenkeeper.io/Apollon77/ioBroker.homee.svg)
+![NPM-Version](http://img.shields.io/npm/v/iobroker.homee.svg)
+![Downloads](https://img.shields.io/npm/dm/iobroker.homee.svg)
 
-# IoBroker homee Adapter
-** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+# IoBroker homee-Adapter
+![Testen und freigeben](https://github.com/Apollon77/iobroker.homee/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/homee/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Beschreibung
-Dieser Adapter verbindet ioBroker mit homee und bietet die folgenden Funktionen:
+Dieser Adapter verbindet ioBroker mit homee und bietet folgende Funktionen:
 
-* ermöglicht die Verbindung über IP oder Homee-ID und Benutzername / Passwort
-* Lesen Sie alle Geräte (Knoten) und Status (Attribute) und zeigen Sie deren Werte einschließlich Aktualisierungen in ioBroker an
-* Erlaube das Ändern von Werten in ioBroker und sende sie an homee zurück, um Geräte zu steuern
-* fungiert als ioBroker-Verlaufsanbieter für alle Geräte mit Status, bei denen der Verlauf in homee aktiviert ist. Dies bedeutet, dass Sie die in homee gespeicherten Verlaufswerte verwenden können, um sie in ioBroker mithilfe von Flot, Admin oder auch JavaScript anzuzeigen, einschließlich aller Aggregationen auf Datenebene, wie z. Verlaufsadapter
+* ermöglicht Verbindung über IP oder homee-ID und Benutzername/Passwort
+* alle Geräte (Knoten) und Zustände (Attribute) lesen und deren Werte inklusive Updates in ioBroker anzeigen
+* Erlaube das Ändern von Werten in ioBroker und sende sie zurück an homee, um Geräte zu steuern
+* fungiert als ioBroker-Verlaufsanbieter für alle Statusgeräte, bei denen der Verlauf in homee aktiviert ist. Das heißt, Sie können die in homee hinterlegten Historienwerte zur Anzeige in ioBroker mittels flot, Admin oder auch JavaScript verwenden, inklusive aller Aggregationen auf Datenebene, wie sie z.B. Historienadapter
 
 (noch) nicht unterstützt:
 
-* Gruppen, weil sie keine Funktionen wie einen Status auf Gruppenebene oder echtes Schreiben für alle Geräte gleichzeitig in homee anbieten
+* Gruppen, da sie keine Funktionen wie einen Gruppenstatus oder echtes Schreiben auf alle Geräte gleichzeitig in homee bieten
 * Heizpläne
 
-Dieser Adapter basiert auf der herausragenden Arbeit von [stfnhmplr] (http://twitter.com/stfnhmplr) und seine [homee-api](https://github.com/stfnhmplr/homee-api).
+Dieser Adapter basiert auf der hervorragenden Arbeit von [stfnhmplr](http://twitter.com/stfnhmplr) und seine [homee-api](https://github.com/stfnhmplr/homee-api).
 
 ## Bekannte Probleme
-* Auf js-controller <1.5.0 kann es seltsame Auswirkungen haben, wenn andere Verlaufsanbieter für einige der Rollen aktiviert werden (z. B. "switch").
+* Auf js-controller <1.5.0 kann es seltsame Auswirkungen haben, wenn andere Verlaufsanbieter für einige der Rollen aktiviert werden (z. B. "switch")
 
-## So melden Sie Probleme und Funktionsanforderungen
-Bitte verwenden Sie dazu GitHub-Probleme.
+## So melden Sie Probleme und Funktionsanfragen
+Bitte verwenden Sie dafür GitHub-Probleme.
 
-Am besten stellen Sie den Adapter auf den Debug-Protokollmodus (Instanzen -> Expertenmodus -> Spaltenprotokollstufe). Dann holen Sie sich bitte die Protokolldatei von der Festplatte (Unterverzeichnis "log" im ioBroker-Installationsverzeichnis und nicht von Admin, da Admin die Zeilen abschneidet). Wenn Sie es nicht gerne in der GitHub-Ausgabe bereitstellen, können Sie es mir auch per E-Mail senden (iobroker@fischer-ka.de). Bitte fügen Sie einen Verweis auf das relevante GitHub-Problem hinzu UND beschreiben Sie auch, was ich zu welchem Zeitpunkt im Protokoll sehe.
+Am besten setzen Sie den Adapter in den Debug-Log-Modus (Instanzen -> Expertenmodus -> Spaltenprotokoll-Ebene). Dann holen Sie sich bitte die Logdatei von der Festplatte (Unterverzeichnis "log" im ioBroker-Installationsverzeichnis und nicht vom Admin, da der Admin die Zeilen abschneidet). Wenn Sie es nicht in der GitHub-Ausgabe bereitstellen möchten, können Sie es mir auch per E-Mail (iobroker@fischer-ka.de) zusenden. Bitte fügen Sie einen Verweis auf das relevante GitHub-Problem hinzu UND beschreiben Sie auch, was ich zu welchem Zeitpunkt im Protokoll sehe.
 
 ## Changelog
+### 1.2.0 (2021-08-01)
+* (bluefox) Added admin5 support
+* (Apollon77) Update to homee 2.33
+
+### 1.1.1 (2021-04-10)
+* (Apollon77) Update to homee 2.32
+
+### 1.1.0 (2020-11-30)
+* (Apollon77) Update to homee 2.30
 
 ### 1.0.7 (2020-06-12)
 * (Apollon77) Fix Admin finally
@@ -81,7 +93,7 @@ Am besten stellen Sie den Adapter auf den Debug-Protokollmodus (Instanzen -> Exp
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2021 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

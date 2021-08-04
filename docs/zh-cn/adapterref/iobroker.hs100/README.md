@@ -3,26 +3,40 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hs100/README.md
 title: ioBroker.hs100
-hash: lm/CDFdPTBxJAbjk7l1Wy/oVRjyrxim1HnZNucktYi8=
+hash: dDlSFwugLId+LLgjA6OFimZj8QDqrnQ8gUniavEIkoA=
 ---
-![商标](../../../en/adapterref/iobroker.hs100/admin/hs100.png)
+![标识](../../../en/adapterref/iobroker.hs100/admin/hs100.png)
 
 ![安装数量](http://iobroker.live/badges/hs100-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.hs100.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.hs100.svg)
-![NPM](https://nodei.co/npm/iobroker.hs100.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.hs100.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.hs100.svg)
+![新产品管理](https://nodei.co/npm/iobroker.hs100.png?downloads=true)
 
-＃ioBroker.hs100
+# IoBroker.hs100
 =================
 
-ioBroker的TP-Link适配器-------------------------------------------- ----------------------------------
+ioBroker 的 TP-Link 适配器-------------------------------------------- ----------------------------------
 
-开关TP-Link插头和灯泡
+开关 TP-Link 插头和灯泡
 
-<b>节点&gt;&gt; 8.xx</b>
+<b>NodeJs &gt;&gt; 8.xx</b>
+
+<!-- 下一个版本的占位符（在行首）：
+
+https://github.com/AlCalzone/release-script#usage npm run release minor -- --all 0.9.8 -> 0.10.0 npm run release patch -- --all 0.9.8 -> 0.9.9 npm运行 release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0 下一版本的占位符（在行的开头）：
+
+### **工作正在进行中** -->
 
 ## Changelog
 
+### 2.0.6 (2021-08-01)
+* (arrizer) error handling merge back 
+
+### 2.0.4  (2021-04-30)
+* (arteck) js-controller 3.3.x 
+
+### 2.0.2  (2021-01-20)
+* (arteck) new js-controller upd
 
 ### 2.0.1 (2020-06-17)
 * (arteck) optimization

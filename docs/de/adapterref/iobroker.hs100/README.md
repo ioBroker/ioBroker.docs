@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hs100/README.md
 title: ioBroker.hs100
-hash: lm/CDFdPTBxJAbjk7l1Wy/oVRjyrxim1HnZNucktYi8=
+hash: dDlSFwugLId+LLgjA6OFimZj8QDqrnQ8gUniavEIkoA=
 ---
 ![Logo](../../../en/adapterref/iobroker.hs100/admin/hs100.png)
 
@@ -15,14 +15,28 @@ hash: lm/CDFdPTBxJAbjk7l1Wy/oVRjyrxim1HnZNucktYi8=
 # IoBroker.hs100
 =================
 
-TP-Link Adapter für ioBroker ---------------------------------------- ---------------------------------- ------------------
+TP-Link-Adapter für ioBroker ---------------------------------------------- ----------------------------------
 
-TP-Link Stecker und Glühlampe schalten
+TP-Link-Stecker und -Glühbirne wechseln
 
-<b>Knoten &gt;&gt; 8.xx.</b>
+<b>NodeJs &gt;&gt; 8.xx</b>
+
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+
+https://github.com/AlCalzone/release-script#usage npm run release minor -- --all 0.9.8 -> 0.10.0 npm run release patch -- --all 0.9.8 -> 0.9.9 npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0 Platzhalter für die nächste Version (am Zeilenanfang):
+
+### **ARBEITEN LÄUFT** -->
 
 ## Changelog
 
+### 2.0.6 (2021-08-01)
+* (arrizer) error handling merge back 
+
+### 2.0.4  (2021-04-30)
+* (arteck) js-controller 3.3.x 
+
+### 2.0.2  (2021-01-20)
+* (arteck) new js-controller upd
 
 ### 2.0.1 (2020-06-17)
 * (arteck) optimization

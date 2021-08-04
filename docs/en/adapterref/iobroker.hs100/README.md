@@ -17,10 +17,23 @@ Switch TP-Link Plug and Bulb
 
 <b>NodeJs >> 8.x.x </b>
 
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    
+    https://github.com/AlCalzone/release-script#usage
+    npm run release minor -- --all 0.9.8 -> 0.10.0
+    npm run release patch -- --all 0.9.8 -> 0.9.9
+    npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+
+
+
 ## Changelog
 
-### 2.0.5 (2021-06-27)
-* (arrizer) error handling
+### 2.0.6 (2021-08-01)
+* (arrizer) error handling merge back 
 
 ### 2.0.4  (2021-04-30)
 * (arteck) js-controller 3.3.x 

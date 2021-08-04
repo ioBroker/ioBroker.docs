@@ -190,6 +190,9 @@ Whitelist: If you only want to include events of a specific location use regular
 	### **WORK IN PROGRESS**
 -->
 
+### 1.11.2 (2021-08-01)
+* (Apollon77) Change one logline to debug
+
 ### 1.11.1 (2021-07-30)
 * (Apollon77) Adjust date length for full day events to the full day
 

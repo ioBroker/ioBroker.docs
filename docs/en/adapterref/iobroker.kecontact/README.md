@@ -75,6 +75,7 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 ### 1.2.2 (2021-07-28)
 * (Sneak-L8) new: limit max. charging current dynamically
 * (Sneak-L8) support BMW charging station (Keba OEM, Sentry IOBROKER-KECONTACT-3)
+* (Sneak-L8) support P20 charging station (Sentry IOBROKER-KECONTACT-B)
 * (Sneak-L8) optimized power calculation for Deutschland edition
 
 ### 1.2.1 (2021-07-20)

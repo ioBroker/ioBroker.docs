@@ -313,6 +313,10 @@ Forum entries will be displayed without problems when accessing ioBroker via IP 
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+
+### 1.9.8 (2021-08-02)
+* Adjust object types to prevent js-controller 3.3 warnings
+
 ### 1.9.7 (2021-07-27)
 * (bluefox) updated the clock background 
 

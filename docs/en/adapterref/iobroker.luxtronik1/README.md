@@ -34,6 +34,10 @@ Values in the 'control' - channel have to be set with ack=false to trigger an ac
 
 ## Changelog
 
+### 0.3.2
+
+-   bugfix
+
 ### 0.3.1
 
 -   bugfixes related to js-controller update (3.3x)

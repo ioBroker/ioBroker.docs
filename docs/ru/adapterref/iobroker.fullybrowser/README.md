@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fullybrowser/README.md
 title: ioBroker.fullybrowser
-hash: ECD123bEy/KhBj8XVmBQn3J6yXBMvFPc/mRZSQbmi7Y=
+hash: 2cFA35vdi607lxQObwglRF4srrXVeogOzJ1RLJopqMQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.fullybrowser/admin/fully.png)
 
@@ -23,6 +23,12 @@ fullBrowser адаптер для ioBroker -------------------------------------
 ![Möglichkeiten](https://github.com/arteck/iobroker.fullyBrowser/blob/master/doku/auszug.png)
 
 <b>NodeJs &gt;&gt; 8.xx</b>
+
+<! - Заполнитель для следующей версии (в начале строки):
+
+https://github.com/AlCalzone/release-script#usage npm run release minor - --all 0.9.8 -> 0.10.0 npm run release patch - --all 0.9.8 -> 0.9.9 npm запустить предварительную бета-версию выпуска - --all v0.2.1 -> v0.2.2-beta.0 Заполнитель для следующей версии (в начале строки):
+
+### **РАБОТА В ПРОЦЕССЕ** ->
 
 ## Changelog
 

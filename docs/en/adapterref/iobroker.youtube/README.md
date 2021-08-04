@@ -8,7 +8,7 @@
 [![installed](http://iobroker.live/badges/youtube-installed.svg)](http://iobroker.live/badges/youtube-installed.svg)
 [![Dependency Status](https://img.shields.io/david/klein0r/iobroker.youtube.svg)](https://david-dm.org/klein0r/iobroker.youtube)
 [![Known Vulnerabilities](https://snyk.io/test/github/klein0r/ioBroker.youtube/badge.svg)](https://snyk.io/test/github/klein0r/ioBroker.youtube)
-[![Build Status](http://img.shields.io/travis/klein0r/ioBroker.youtube.svg)](https://travis-ci.org/klein0r/ioBroker.youtube)
+[![Build Status](http://img.shields.io/travis/klein0r/ioBroker.youtube.svg)](https://travis-ci.com/klein0r/ioBroker.youtube)
 
 [![NPM](https://nodei.co/npm/iobroker.youtube.png?downloads=true)](https://nodei.co/npm/iobroker.youtube/)
 
@@ -26,9 +26,13 @@ To get an API-Key you have to go to [console.developers.google.com](https://cons
 
 ## Changelog
 
+### 1.1.1
+
+* (klein0r) Updated dependencies
+
 ### 1.1.0
 
-* (klein0r) Encrypt sensitive information
+* (klein0r) Encrypt sensitive information **(BREAKING CHANGE - RE-ENTER YOUR API KEY)**
 
 ### 1.0.3
 

@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.fullybrowser/README.md
 title: ioBroker.fullybrowser
-hash: ECD123bEy/KhBj8XVmBQn3J6yXBMvFPc/mRZSQbmi7Y=
+hash: 2cFA35vdi607lxQObwglRF4srrXVeogOzJ1RLJopqMQ=
 ---
-![商标](../../../en/adapterref/iobroker.fullybrowser/admin/fully.png)
+![标识](../../../en/adapterref/iobroker.fullybrowser/admin/fully.png)
 
 ![安装数量](http://iobroker.live/badges/fullybrowser-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.fullybrowser.svg)
@@ -23,6 +23,12 @@ ioBroker 的全浏览器适配器 ----------------------------------------------
 ![莫格利希凯滕](https://github.com/arteck/iobroker.fullyBrowser/blob/master/doku/auszug.png)
 
 <b>NodeJs &gt;&gt; 8.xx</b>
+
+<!-- 下一个版本的占位符（在行首）：
+
+https://github.com/AlCalzone/release-script#usage npm run release minor -- --all 0.9.8 -> 0.10.0 npm run release patch -- --all 0.9.8 -> 0.9.9 npm运行 release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0 下一版本的占位符（在行的开头）：
+
+### **工作正在进行中** -->
 
 ## Changelog
 

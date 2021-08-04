@@ -19,6 +19,20 @@ A small excerpt just of the command options:
 
 <b>NodeJs >> 8.x.x </b>
 
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    
+    https://github.com/AlCalzone/release-script#usage
+    npm run release minor -- --all 0.9.8 -> 0.10.0
+    npm run release patch -- --all 0.9.8 -> 0.9.9
+    npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+
+
+
 ## Changelog
 
 ### 2.0.9 (2021-05-30)

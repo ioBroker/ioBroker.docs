@@ -1,6 +1,13 @@
 ![Logo](admin/homee.png)
 # ioBroker homee Adapter
-![Number of Installations](http://iobroker.live/badges/homee-installed.svg) ![Number of Installations](http://iobroker.live/badges/homee-stable.svg) 
+
+![Number of Installations](http://iobroker.live/badges/homee-installed.svg)
+![Number of Installations](http://iobroker.live/badges/homee-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.homee.svg)](https://www.npmjs.com/package/iobroker.homee)
+
+![Test and Release](https://github.com/Apollon77/iobroker.homee/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/homee/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.homee.svg)](https://www.npmjs.com/package/iobroker.homee)
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
@@ -28,6 +35,9 @@ Please use GitHub issues for this.
 Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
+### 1.2.0 (2021-08-01)
+* (bluefox) Added admin5 support
+* (Apollon77) Update to homee 2.33
 
 ### 1.1.1 (2021-04-10)
 * (Apollon77) Update to homee 2.32
@@ -75,11 +85,10 @@ Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column
 ### 0.1.1 (2018.07.04)
 * (Apollon77) initial version
 
-
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2021 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

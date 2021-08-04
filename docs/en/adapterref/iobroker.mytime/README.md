@@ -145,6 +145,7 @@ All following Examples with countdown timer 1:2:3:4
 | HH\h mm\m             | 26h 03m           | only hours and minutes                           |
 
 ### Widgets
+
 #### Widget Countdown plain
 A countdown widget for a plain textual output
 ##### Widget Properties
@@ -249,6 +250,7 @@ Group CSS-Common / transform "scale(0.5)"
 #### Widget Countdown NixieClock
 A countdown widget in a Nixie-Tube/LED style 
 ##### Widget Properties
+
 ###### oid
 The timer datapoint of a countdown datapoint.
 ###### countdown_showsec
@@ -267,6 +269,31 @@ Color of the inactiv digits
 Opacity of the color of the inactive digits
 ###### countdown_glowcolor
 Color of the glow around thie Nixie-digits
+
+#### Widget Wordclock
+A widget to show a wordclock with many options
+##### Widget Properties
+
+###### language
+Some different languages for the wordclock are available
+###### letterActivated
+Color for the highlighted words
+###### letterDeactivated
+Color for the normal letters
+###### wordclockMargin
+Margin between the wordclock and the LEDs
+###### withMinutes
+Show the Minute-LEDs in the Corner of the wordclock
+###### minuteSize
+Size in Pixels of the Minute LEDs
+###### minuteColor
+color of the Minute LED
+###### withSeconds
+Show the Seconds-LEDs of the wordclock
+###### secondSize
+Size in Pixels of the Seconds LEDs
+###### secondColor
+color of the Seconds LED
 
 ##### Tips
 If you want to adjust the size of the countdown nixieclock, under css settings in vis you can enter for half size:
@@ -288,8 +315,8 @@ Group CSS-Common / transform "scale(0.5)"
 * 7segment display
 * rolling numbers
 * customizable fonts
-* wordclock timer ?
 * ts: timerules for exclusion (time range, single dates)
+* ~~wordclock timer~~
 * ~~timed scheduler: plan single date/time and recurring events like outlook~~
 * ~~Nixie style~~
 * ~~flip board display (airport-display)~~
@@ -303,6 +330,12 @@ Group CSS-Common / transform "scale(0.5)"
 ## Changelog
 
 
+### 0.7.2
+* * add russian and espaniol for wordclock
+### 0.7.1
+* add margin property for wordclock * add italiano and francais for wordclock * wordclock remove border
+### 0.7.0
+* New widget wordclock
 ### 0.6.1
 * remove beta tag from widgets * m,assive reengeneering of the react classes, add functions für exclusion rules, adding single time events and exclude single time events
 ### 0.6.0

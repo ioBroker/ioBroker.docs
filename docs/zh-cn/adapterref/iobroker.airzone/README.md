@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.airzone/README.md
 title: 无题
-hash: yZDbaH/uK+xigaCMr6To8q2Ea7LpCHjYeNmpJLdPP1s=
+hash: nEUFqAizEK7kb/Ab2YrYB8mecPvwgvJL29efkUdtPtE=
 ---
 ![标识](../../../en/adapterref/iobroker.airzone/admin/Airzone.png)<br> https://airzonecloud.com/
 
@@ -16,6 +16,8 @@ hash: yZDbaH/uK+xigaCMr6To8q2Ea7LpCHjYeNmpJLdPP1s=
 ![新产品管理](https://nodei.co/npm/iobroker.airzone.png?downloads=true)
 
 使用 ioBroker 控制和监控 airzone 设备。
+
+*注意：此版本的 iobroker 适配器不再适用于 AirzoneCloud 的当前 API。该适配器的进一步开发计划...*
 
 [![构建状态](https://travis-ci.com/SilentPhoenix11/ioBroker.airzone.svg?branch=master)](https://travis-ci.com/github/SilentPhoenix11/ioBroker.airzone)
 

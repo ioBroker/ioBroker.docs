@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.airzone/README.md
 title: kein Titel
-hash: yZDbaH/uK+xigaCMr6To8q2Ea7LpCHjYeNmpJLdPP1s=
+hash: nEUFqAizEK7kb/Ab2YrYB8mecPvwgvJL29efkUdtPtE=
 ---
 ![Logo](../../../en/adapterref/iobroker.airzone/admin/Airzone.png)<br> https://airzonecloud.com/
 
@@ -16,6 +16,8 @@ hash: yZDbaH/uK+xigaCMr6To8q2Ea7LpCHjYeNmpJLdPP1s=
 ![NPM](https://nodei.co/npm/iobroker.airzone.png?downloads=true)
 
 Steuern und überwachen Sie airzone-Geräte mit ioBroker.
+
+*HINWEIS: Diese Version des iobroker-Adapters funktioniert nicht mehr mit der aktuellen API von AirzoneCloud. Eine Weiterentwicklung dieses Adapters ist geplant...*
 
 [![Build-Status](https://travis-ci.com/SilentPhoenix11/ioBroker.airzone.svg?branch=master)](https://travis-ci.com/github/SilentPhoenix11/ioBroker.airzone)
 
