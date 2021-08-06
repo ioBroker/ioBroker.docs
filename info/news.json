@@ -1030,8 +1030,7 @@
         "id": "javascript-520",
         "class": "warning",
         "fa-icon": "exclamation-triangle",
-        "created": "2021-07-06T08:00:00.000Z",
-        "repo": "latest",
+        "created": "2021-07-06T17:45:00.000Z",
         "conditions": {
             "javascript": "smaller(5.2.2)"
         }
@@ -1071,7 +1070,7 @@
     },
     {
         "title": {
-            "en": "Update your adapters before updaating to js-controller 3.3!",
+            "en": "Update your adapters before updating to js-controller 3.3!",
             "de": "Vor Update auf js-controller 3.3 alle Adapter aktualisieren!",
             "ru": "Обновите свои адаптеры перед обновлением до js-controller 3.3!",
             "pt": "Atualize seus adaptadores antes de atualizar para js-controller 3.3!",
@@ -1097,9 +1096,42 @@
         "id": "jscontroller33",
         "class": "info",
         "fa-icon": "exclamation-circle",
-        "created": "2021-08-1104T23:22:00.000Z",
+        "created": "2021-08-04T23:22:00.000Z",
         "conditions": {
             "js-controller": "smaller(3.3.15)"
+        }
+    },
+    {
+        "title": {
+            "en": "Important information prior Admin v5.x Update!",
+            "de": "Wichtige Informationen vor dem Admin v5.x Update!",
+            "ru": "Важная информация перед обновлением Admin v5.x!",
+            "pt": "Informações importantes antes da atualização do Admin v5.x!",
+            "nl": "Belangrijke informatie voorafgaand aan Admin v5.x Update!",
+            "fr": "Informations importantes avant la mise à jour Admin v5.x !",
+            "it": "Informazioni importanti prima dell'aggiornamento Admin v5.x!",
+            "es": "¡Información importante antes de la actualización Admin v5.x!",
+            "pl": "Ważne informacje przed aktualizacją Admin v5.x!",
+            "zh-cn": "Admin v5.x 更新之前的重要信息！"
+        },
+        "content": {
+            "en": "When you update the Admin Adapter to v5.x you need to do a \"Shift-Reload\" to be shire that the whole page is reloaded. You will see a completely new Admin user interface afterwards. If you want to get more informations on changes, new features or have questions please check in forum at https://forum.iobroker.net/topic/46813/admin-v5-jetzt-im-stable . Some other adapter updates also require Admin to be updated to version 5!",
+            "de": "Wenn der Admin Adapter auf v5.x aktualisiert wird, muß \"Shift-Reload\" ausgefphrt werden, um sicherzustellen, dass die gesamte Seite neu geladen wird. Danach begrüßt Euch eine komplett neue Admin-Benutzeroberfläche. Für mehr Informationen zu Änderungen, neuen Funktionen oder Fragen, besucht bitte das Forum unter https://forum.iobroker.net/topic/46813/admin-v5-jetzt-im-stable . Für einige andere Adapter-Updates muss Admin ebenfalls auf Version 5 aktualisiert werden!",
+            "ru": "Когда вы обновляете Admin Adapter до версии v5.x, вам нужно выполнить Shift-Reload, чтобы убедиться, что вся страница перезагружена. После этого вы увидите совершенно новый пользовательский интерфейс администратора. Если вы хотите получить дополнительную информацию об изменениях, новых функциях или задать вопросы, посетите форум по адресу https://forum.iobroker.net/topic/46813/admin-v5-jetzt-im-stable. Некоторые другие обновления адаптера также требуют обновления администратора до версии 5!",
+            "pt": "Quando você atualiza o Adaptador Admin para v5.x, você precisa fazer um \"Shift-Reload\" para que toda a página seja recarregada. Você verá uma interface de usuário Admin completamente nova posteriormente. Se você quiser obter mais informações sobre mudanças, novos recursos ou tiver dúvidas, consulte o fórum em https://forum.iobroker.net/topic/46813/admin-v5-jetzt-im-stable. Algumas outras atualizações do adaptador também requerem que o Admin seja atualizado para a versão 5!",
+            "nl": "Wanneer u de Admin Adapter bijwerkt naar v5.x, moet u een \"Shift-Reload\" uitvoeren om ervoor te zorgen dat de hele pagina opnieuw wordt geladen. U ziet daarna een volledig nieuwe Admin-gebruikersinterface. Als je meer informatie wilt over wijzigingen, nieuwe functies of vragen hebt, ga dan naar het forum op https://forum.iobroker.net/topic/46813/admin-v5-jetzt-im-stable. Sommige andere adapter-updates vereisen ook dat Admin wordt bijgewerkt naar versie 5!",
+            "fr": "Lorsque vous mettez à jour l'adaptateur d'administration vers la version 5.x, vous devez effectuer un \"Shift-Reload\" pour être sûr que toute la page est rechargée. Vous verrez ensuite une toute nouvelle interface utilisateur Admin. Si vous souhaitez obtenir plus d'informations sur les changements, les nouvelles fonctionnalités ou si vous avez des questions, veuillez consulter le forum à l'adresse https://forum.iobroker.net/topic/46813/admin-v5-jetzt-im-stable . Certaines autres mises à jour de l'adaptateur nécessitent également la mise à jour de l'administrateur vers la version 5 !",
+            "it": "Quando aggiorni l'adattatore di amministrazione alla v5.x, devi eseguire uno \"Shift-Reload\" per assicurarti che l'intera pagina venga ricaricata. In seguito vedrai un'interfaccia utente di amministrazione completamente nuova. Se vuoi avere maggiori informazioni su modifiche, nuove funzionalità o hai domande, controlla nel forum su https://forum.iobroker.net/topic/46813/admin-v5-jetzt-im-stable. Alcuni altri aggiornamenti dell'adattatore richiedono anche l'aggiornamento dell'amministratore alla versione 5!",
+            "es": "Cuando actualice el Adaptador de administrador a v5.x, debe hacer un \"Cambio-Recargar\" para estar seguro de que se recarga toda la página. A continuación, verá una interfaz de usuario de administrador completamente nueva. Si desea obtener más información sobre cambios, nuevas funciones o tiene preguntas, consulte el foro en https://forum.iobroker.net/topic/46813/admin-v5-jetzt-im-stable. ¡Algunas otras actualizaciones del adaptador también requieren que Admin se actualice a la versión 5!",
+            "pl": "Kiedy aktualizujesz Admin Adapter do v5.x, musisz wykonać \"Shift-Reload\", aby mieć pewność, że cała strona zostanie ponownie załadowana. Następnie zobaczysz zupełnie nowy interfejs użytkownika administratora. Jeśli chcesz uzyskać więcej informacji o zmianach, nowych funkcjach lub masz pytania, zajrzyj na forum pod adresem https://forum.iobroker.net/topic/46813/admin-v5-jetzt-im-stable . Niektóre inne aktualizacje adapterów wymagają również zaktualizowania administratora do wersji 5!",
+            "zh-cn": "当您将管理适配器更新到 v5.x 时，您需要执行“Shift-Reload”以重新加载整个页面。之后您将看到一个全新的管理员用户界面。如果您想获得有关更改、新功能的更多信息或有疑问，请在 https://forum.iobroker.net/topic/46813/admin-v5-jetzt-im-stable 的论坛中查看。其他一些适配器更新也需要 Admin 更新到版本 5！"
+        },
+        "id": "admin51stable",
+        "class": "info",
+        "fa-icon": "exclamation-circle",
+        "created": "2021-08-06T17:45:00.000Z",
+        "conditions": {
+            "js-controller": "smaller(5.1.0)"
         }
     }
 ]
