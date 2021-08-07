@@ -74,7 +74,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.admin.png?downloads=true
 日志的字体显示为红色。
 
 ## Changelog
-### 5.1.21 (2021-08-02)
+### 5.1.23 (2021-08-05)
 * (bluefox) Corrected some errors reported via sentry
 
 ### 5.1.19 (2021-07-31)

@@ -1,6 +1,6 @@
 ![Adapter Logo](admin/charger.png)
 
-# ioBroker adapter for KEBA KeContact wallbox
+# ioBroker adapter for KEBA KeContact P20 or P30 and BMW i wallbox
 
 ![Number of Installations](http://iobroker.live/badges/kecontact-installed.svg) ![Number of Installations](http://iobroker.live/badges/kecontact-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.kecontact.svg)](https://www.npmjs.com/package/iobroker.kecontact) [![Downloads](https://img.shields.io/npm/dm/iobroker.kecontact.svg)](https://www.npmjs.com/package/iobroker.kecontact) [![Travis](https://img.shields.io/travis/iobroker-community-adapters/ioBroker.kecontact.svg)](https://travis-ci.org/iobroker-community-adapters/ioBroker.kecontact/) [![GitHub issues](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.kecontact.svg)](https://github.com/iobroker-community-adapters/ioBroker.kecontact/issues)
 
@@ -19,7 +19,7 @@ Install this adapter via ioBroker Admin:
 
 ### KeContact IP Address
 
-This is the IP address of your KEBA KeContact wallbox.
+This is the IP address of your KEBA KeContact or BMW i wallbox.
 
 ### Firmware check
 

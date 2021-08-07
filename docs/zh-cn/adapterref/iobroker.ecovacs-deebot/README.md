@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
 title: 适用于 ioBroker 的 Ecovacs Deebot 适配器
-hash: tVVB/QKZKzBgB47O93mAIMbnQKgb6jRdkS+1o/iGkKo=
+hash: IgMRNinhgcjP0SsX5OmbLg6ko+aTvbgJtvWmYixSeKs=
 ---
 ![标识](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -12,7 +12,6 @@ hash: tVVB/QKZKzBgB47O93mAIMbnQKgb6jRdkS+1o/iGkKo=
 ![安装数量](http://iobroker.live/badges/ecovacs-deebot-installed.svg)
 ![下载次数](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
 ![新产品经理](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
-![依赖状态](https://img.shields.io/david/mrbungle64/iobroker.ecovacs-deebot.svg)
 ![特拉维斯CI](https://travis-ci.org/mrbungle64/ioBroker.ecovacs-deebot.svg?branch=master)
 
 # Ecovacs Deebot ioBroker 适配器
@@ -28,6 +27,7 @@ hash: tVVB/QKZKzBgB47O93mAIMbnQKgb6jRdkS+1o/iGkKo=
 * 在清洁过程中检索信息（例如当前位置和区域）
 *检索地图信息，包括。点区域和虚拟边界
 * 删除、保存和重新创建单个虚拟边界以及全套虚拟边界 *)
+* 加载当前地图图像的函数 *)
 
 *) 实验性的
 
@@ -49,7 +49,7 @@ hash: tVVB/QKZKzBgB47O93mAIMbnQKgb6jRdkS+1o/iGkKo=
 * Deebot 710/711/711s
 * Deebot OZMO 610
 * Deebot OZMO 900/905
-* Deebot OZMO Slim 10
+* Deebot OZMO Slim 10/11
 * Deebot OZMO T5
 * Deebot U2 系列
 * Deebot N3 MAX
@@ -65,7 +65,7 @@ hash: tVVB/QKZKzBgB47O93mAIMbnQKgb6jRdkS+1o/iGkKo=
 当然，没有要求提供完整的功能。
 
 ＃＃ 安装
-建议使用 Node.js 的 10.x、12.x 或 14.x 版本。最低要求版本为 10.x
+建议使用 Node.js 的 12.x 或 14.x 版本。所需的最低版本仍然是 10.x，但可能很快就会改变。
 
 此适配器使用 [节点画布](https://www.npmjs.com/package/canvas) 库来实现一些与地图相关的功能，这些功能可能需要安装一些附加包。
 
@@ -106,18 +106,20 @@ sudo npm install canvas --unsafe-perm=true
 
 ## Changelog
 
+### 1.2.2
+* Added function to load current map image (non 950 type models, e.g. OZMO 930, Deebot 901)
+
 ### 1.2.1
-* Using library version 0.6.1-beta.2
 * Some enhancements and fixes
 * (benep) Added state to play sound by id
 
 ### 1.2.0
 * Using library version 0.6.1
-* Added functions for deleting, saving and recreating saved virtual boundaries (e.g. 920, 950, T8 series)
-* Added functions for saving and recreating sets of virtual boundaries (e.g. 920, 950, T8 series)
+* Added functions for deleting, saving and recreating saved virtual boundaries (950 type models, e.g. OZMO 920/950, T8 series)
+* Added functions for saving and recreating sets of virtual boundaries (950 type models, e.g. OZMO 920/950, T8 series)
 * Added options to control clean speed and water level separately for each spot area
 * Added function to save current spot area values
-* Added function to load current map image (e.g. 920, 950, T8 series)
+* Added function to load current map image (950 type models, e.g. OZMO 920/950, T8 series)
 * Added some cleaning log values and some states for current cleaning stats
 * Removed "Use alternative API call for lastCleaningMapImageURL and lastCleaningTimestamp" option
 * Moved some states from "info" channel to sub channels "info.library" and "info.network"
@@ -128,7 +130,7 @@ sudo npm install canvas --unsafe-perm=true
 * Some improvements and fixes
 
 ### 1.1.1
-* Using library version 0.6.0-alpha.3
+* Using library version 0.6.0
   * Updated login process
   * Support for Chinese server login
 * Initial support for some models (e.g. N3, N7 and N8 series)
@@ -161,7 +163,7 @@ sudo npm install canvas --unsafe-perm=true
 * Some improvements for js-controller 3.2.x
 
 ### 1.0.8
-* Using library version 0.5.2 (0.5.2-beta.1)
+* Using library version 0.5.2
 * Added available virtualBoundaries channel for Deebot 900/901 and Ozmo 930 (read only)
 * Added "volume" and buttons for resetting consumable values for 950 type models (920/950/T8)
 * Improved synchronization of spot area buttons
@@ -171,7 +173,7 @@ sudo npm install canvas --unsafe-perm=true
 * Bump some dependencies
 
 ### 1.0.7
-* Using library version 0.5.1 (0.5.1-beta.3)
+* Using library version 0.5.1
 * Initial support for Deebot U2 series
 * Improved support for Ozmo T8 models
 * (boriswerner) Fixed cleaning log for 950 type models (920/950/T8)
@@ -180,7 +182,7 @@ sudo npm install canvas --unsafe-perm=true
 * Several enhancements and fixes
 
 ### 1.0.6
-* Using library version 0.5.0-beta.0
+* Using library version 0.5.0
 * Fix for running multiple devices
 * Support for additional Ozmo T8 models
 * Add option to synchronize spotArea buttons

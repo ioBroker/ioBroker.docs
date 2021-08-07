@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecovacs-deebot/README.md
 title: Адаптер Ecovacs Deebot для ioBroker
-hash: tVVB/QKZKzBgB47O93mAIMbnQKgb6jRdkS+1o/iGkKo=
+hash: IgMRNinhgcjP0SsX5OmbLg6ko+aTvbgJtvWmYixSeKs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -12,7 +12,6 @@ hash: tVVB/QKZKzBgB47O93mAIMbnQKgb6jRdkS+1o/iGkKo=
 ![Количество установок](http://iobroker.live/badges/ecovacs-deebot-installed.svg)
 ![Количество загрузок](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
 ![npm](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
-![Статус зависимости](https://img.shields.io/david/mrbungle64/iobroker.ecovacs-deebot.svg)
 ![Трэвис-Си](https://travis-ci.org/mrbungle64/ioBroker.ecovacs-deebot.svg?branch=master)
 
 # Ecovacs Адаптер Deebot для ioBroker
@@ -28,6 +27,7 @@ hash: tVVB/QKZKzBgB47O93mAIMbnQKgb6jRdkS+1o/iGkKo=
 * Получить информацию во время процесса очистки (например, текущее положение и площадь)
 * Получить информацию о картах, вкл. точечные области и виртуальные границы
 * Удалять, сохранять и воссоздавать отдельные виртуальные границы, а также полный набор виртуальных границ *)
+* Функция загрузки текущего изображения карты *)
 
 *) Экспериментальный
 
@@ -49,7 +49,7 @@ hash: tVVB/QKZKzBgB47O93mAIMbnQKgb6jRdkS+1o/iGkKo=
 * Deebot 710/711/711s
 * Deebot OZMO 610
 * Deebot OZMO 900/905
-* Deebot OZMO Slim 10
+* Deebot OZMO Slim 10/11
 * Deebot OZMO T5
 * Серия Deebot U2
 * Deebot N3 MAX
@@ -65,7 +65,7 @@ hash: tVVB/QKZKzBgB47O93mAIMbnQKgb6jRdkS+1o/iGkKo=
 Претензий на полную функциональность конечно же нет.
 
 ## Монтаж
-Рекомендуется использовать Node.js. версии 10.x, 12.x или 14.x. Минимальная необходимая версия - 10.x
+Рекомендуется использовать Node.js. версии 12.x или 14.x. Минимальная необходимая версия - все еще 10.x, но это может скоро измениться.
 
 Этот адаптер использует библиотеку [узел-холст](https://www.npmjs.com/package/canvas) для некоторых функций, связанных с картой, которые могут потребовать установки некоторых дополнительных пакетов.
 
@@ -106,18 +106,20 @@ sudo npm install canvas --unsafe-perm=true
 
 ## Changelog
 
+### 1.2.2
+* Added function to load current map image (non 950 type models, e.g. OZMO 930, Deebot 901)
+
 ### 1.2.1
-* Using library version 0.6.1-beta.2
 * Some enhancements and fixes
 * (benep) Added state to play sound by id
 
 ### 1.2.0
 * Using library version 0.6.1
-* Added functions for deleting, saving and recreating saved virtual boundaries (e.g. 920, 950, T8 series)
-* Added functions for saving and recreating sets of virtual boundaries (e.g. 920, 950, T8 series)
+* Added functions for deleting, saving and recreating saved virtual boundaries (950 type models, e.g. OZMO 920/950, T8 series)
+* Added functions for saving and recreating sets of virtual boundaries (950 type models, e.g. OZMO 920/950, T8 series)
 * Added options to control clean speed and water level separately for each spot area
 * Added function to save current spot area values
-* Added function to load current map image (e.g. 920, 950, T8 series)
+* Added function to load current map image (950 type models, e.g. OZMO 920/950, T8 series)
 * Added some cleaning log values and some states for current cleaning stats
 * Removed "Use alternative API call for lastCleaningMapImageURL and lastCleaningTimestamp" option
 * Moved some states from "info" channel to sub channels "info.library" and "info.network"
@@ -128,7 +130,7 @@ sudo npm install canvas --unsafe-perm=true
 * Some improvements and fixes
 
 ### 1.1.1
-* Using library version 0.6.0-alpha.3
+* Using library version 0.6.0
   * Updated login process
   * Support for Chinese server login
 * Initial support for some models (e.g. N3, N7 and N8 series)
@@ -161,7 +163,7 @@ sudo npm install canvas --unsafe-perm=true
 * Some improvements for js-controller 3.2.x
 
 ### 1.0.8
-* Using library version 0.5.2 (0.5.2-beta.1)
+* Using library version 0.5.2
 * Added available virtualBoundaries channel for Deebot 900/901 and Ozmo 930 (read only)
 * Added "volume" and buttons for resetting consumable values for 950 type models (920/950/T8)
 * Improved synchronization of spot area buttons
@@ -171,7 +173,7 @@ sudo npm install canvas --unsafe-perm=true
 * Bump some dependencies
 
 ### 1.0.7
-* Using library version 0.5.1 (0.5.1-beta.3)
+* Using library version 0.5.1
 * Initial support for Deebot U2 series
 * Improved support for Ozmo T8 models
 * (boriswerner) Fixed cleaning log for 950 type models (920/950/T8)
@@ -180,7 +182,7 @@ sudo npm install canvas --unsafe-perm=true
 * Several enhancements and fixes
 
 ### 1.0.6
-* Using library version 0.5.0-beta.0
+* Using library version 0.5.0
 * Fix for running multiple devices
 * Support for additional Ozmo T8 models
 * Add option to synchronize spotArea buttons

@@ -186,8 +186,7 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 
 ## Changelog
 <!--
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
+### 1.11.3 (2021-08-04)
 -->
 
 ### 1.11.2 (2021-08-01)

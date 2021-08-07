@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kecontact/README.md
-title: ioBroker Adapter für KEBA KeContact Wallbox
-hash: oFcNDTJRraBHoUmXI8B0wNy26gXsXupB+mS3aius/Io=
+title: ioBroker Adapter für KEBA KeContact P20 oder P30 und BMW i Wallbox
+hash: LjZdhIBc51HwBzjb27or5MaAFejnGQIfGy9+Tgmbfj4=
 ---
 ![Adapterlogo](../../../en/adapterref/iobroker.kecontact/admin/charger.png)
 
@@ -13,7 +13,7 @@ hash: oFcNDTJRraBHoUmXI8B0wNy26gXsXupB+mS3aius/Io=
 ![Travis](https://img.shields.io/travis/iobroker-community-adapters/ioBroker.kecontact.svg)
 ![GitHub-Probleme](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.kecontact.svg)
 
-# IoBroker Adapter für KEBA KeContact Wallbox
+# IoBroker Adapter für KEBA KeContact P20 oder P30 und BMW i Wallbox
 Liefert über deren UDP-Protokoll Auskunft über den aktuellen Zustand einer KEBA KeContact Wallbox.
 
 ## Installieren
@@ -27,7 +27,7 @@ Installieren Sie diesen Adapter über ioBroker Admin:
 
 ## Aufbau
 ### KeContact-IP-Adresse
-Dies ist die IP-Adresse Ihrer KEBA KeContact Wallbox.
+Dies ist die IP-Adresse Ihrer KEBA KeContact oder BMW i Wallbox.
 
 ### Firmware-Check
 Der Adapter prüft einmal täglich, ob eine neuere Firmware auf der KEBA-Website verfügbar ist. Diese Informationen werden als Warnung ausgedruckt.
@@ -82,6 +82,7 @@ KeConnect ist eine eingetragene Marke der KEBA AG.
 ### 1.2.2 (2021-07-28)
 * (Sneak-L8) new: limit max. charging current dynamically
 * (Sneak-L8) support BMW charging station (Keba OEM, Sentry IOBROKER-KECONTACT-3)
+* (Sneak-L8) support P20 charging station (Sentry IOBROKER-KECONTACT-B)
 * (Sneak-L8) optimized power calculation for Deutschland edition
 
 ### 1.2.1 (2021-07-20)

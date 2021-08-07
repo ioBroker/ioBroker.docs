@@ -55,6 +55,9 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
 
+### 1.13.1 (2021-08-06)
+* (Apollon77) Fix warning on js-controller 3.3 with "sabotage" datapoint
+
 ### 1.13.0 (2021-06-23)
 * (Apollon77) Add support for HM-WGC/IMPULSE_OUTPUT_CHANNEL
 

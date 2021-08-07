@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventorywo
-hash: qSHSTsoKI6tdAnYHzKg0ZeOJMsmp3OwLjf7DU9htRqo=
+hash: gzY6cQPMHD2tTHAon36ZrFqnMfSkRfFG15h+3Ix/DnM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -43,6 +43,9 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 [![Sdency] (http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
+
+## 3.1.3
+- Исправлена ошибка
 
 ## 3.1.2
 - Исправлена ошибка
@@ -96,7 +99,7 @@ nicht zu sehen, sind aber nicht weg! Damit diese wieder zu sehen sind müssen
 die Widgets einmal EINZELN im Editor angeklickt werden.
 ```
 
-- Beim Universal- и Multiwidget kann der Inhaltstyp geändert werden.
+- Beim Universal- und Multiwidget kann der Inhaltstyp geändert werden.
     - Тип текста: Bild (стандартный), Analoge Uhr, Digitale Uhr и HTML / Text
     - Analoge und digitale Uhr: Farbe des Ziffernblatts под руководством Zeiger kann frei gewählt werden, Zeitzone kann geändert werden
     - Statt dem Icon kann ein eigener Text oder ein Datenpunktwert per Binding angezeigt werden

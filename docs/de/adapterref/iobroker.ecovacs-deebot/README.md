@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: tVVB/QKZKzBgB47O93mAIMbnQKgb6jRdkS+1o/iGkKo=
+hash: IgMRNinhgcjP0SsX5OmbLg6ko+aTvbgJtvWmYixSeKs=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -12,7 +12,6 @@ hash: tVVB/QKZKzBgB47O93mAIMbnQKgb6jRdkS+1o/iGkKo=
 ![Anzahl der Installationen](http://iobroker.live/badges/ecovacs-deebot-installed.svg)
 ![Anzahl der Downloads](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
 ![npm](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/mrbungle64/iobroker.ecovacs-deebot.svg)
 ![Travis-CI](https://travis-ci.org/mrbungle64/ioBroker.ecovacs-deebot.svg?branch=master)
 
 # Ecovacs Deebot-Adapter für ioBroker
@@ -25,9 +24,10 @@ Einige bemerkenswerte Merkmale sind:
 * Senden Sie saubere Befehle (z. B. Auto, Spot-Bereich, benutzerdefinierter Bereich) und verschiedene andere Befehle (z. B. Sound abspielen, Verbrauchsmaterialien zurücksetzen)
 * Speichern Sie den zuletzt ausgeführten benutzerdefinierten Bereich und führen Sie die gespeicherten Bereiche erneut aus
 * Einstellung von Saugleistung (Reinigungsgeschwindigkeit) und Wasserstand
-* Abrufen von Informationen während des Reinigungsvorgangs (z. B. aktuelle Position und Bereich)
+* Abrufen von Informationen während des Reinigungsprozesses (z. B. aktuelle Position und Bereich)
 * Abrufen von Informationen der Karten inkl. Spotbereiche und virtuelle Grenzen
 * Löschen, speichern und neu erstellen einzelner virtueller Grenzen sowie eines vollständigen Satzes virtueller Grenzen *)
+* Funktion zum Laden des aktuellen Kartenbildes *)
 
 *) Experimentell
 
@@ -49,7 +49,7 @@ Die aufgeführten Modelle sind diejenigen, die ich selbst im Einsatz habe oder d
 * Deebot 710/711/711s
 * Deebot OZMO 610
 * Deebot OZMO 900/905
-* Deebot OZMO Slim 10
+* Deebot OZMO Slim 10/11
 * Deebot OZMO T5
 * Deebot U2-Serie
 * Deebot N3 MAX
@@ -65,7 +65,7 @@ Ich versuche eine breite Palette an Funktionalität zu erreichen, entscheide die
 Es besteht natürlich kein Anspruch auf volle Funktionalität.
 
 ## Installation
-Es wird empfohlen, die Version 10.x, 12.x oder 14.x von Node.js zu verwenden. Die erforderliche Mindestversion ist 10.x
+Es wird empfohlen, Version 12.x oder 14.x von Node.js zu verwenden. Die erforderliche Mindestversion ist immer noch 10.x, aber das kann sich bald ändern.
 
 Dieser Adapter verwendet die [Knoten-Leinwand](https://www.npmjs.com/package/canvas) Bibliothek für einige kartenbezogene Funktionen, die die Installation einiger zusätzlicher Pakete erfordern können.
 
@@ -106,18 +106,20 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
 
 ## Changelog
 
+### 1.2.2
+* Added function to load current map image (non 950 type models, e.g. OZMO 930, Deebot 901)
+
 ### 1.2.1
-* Using library version 0.6.1-beta.2
 * Some enhancements and fixes
 * (benep) Added state to play sound by id
 
 ### 1.2.0
 * Using library version 0.6.1
-* Added functions for deleting, saving and recreating saved virtual boundaries (e.g. 920, 950, T8 series)
-* Added functions for saving and recreating sets of virtual boundaries (e.g. 920, 950, T8 series)
+* Added functions for deleting, saving and recreating saved virtual boundaries (950 type models, e.g. OZMO 920/950, T8 series)
+* Added functions for saving and recreating sets of virtual boundaries (950 type models, e.g. OZMO 920/950, T8 series)
 * Added options to control clean speed and water level separately for each spot area
 * Added function to save current spot area values
-* Added function to load current map image (e.g. 920, 950, T8 series)
+* Added function to load current map image (950 type models, e.g. OZMO 920/950, T8 series)
 * Added some cleaning log values and some states for current cleaning stats
 * Removed "Use alternative API call for lastCleaningMapImageURL and lastCleaningTimestamp" option
 * Moved some states from "info" channel to sub channels "info.library" and "info.network"
@@ -128,7 +130,7 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
 * Some improvements and fixes
 
 ### 1.1.1
-* Using library version 0.6.0-alpha.3
+* Using library version 0.6.0
   * Updated login process
   * Support for Chinese server login
 * Initial support for some models (e.g. N3, N7 and N8 series)
@@ -161,7 +163,7 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
 * Some improvements for js-controller 3.2.x
 
 ### 1.0.8
-* Using library version 0.5.2 (0.5.2-beta.1)
+* Using library version 0.5.2
 * Added available virtualBoundaries channel for Deebot 900/901 and Ozmo 930 (read only)
 * Added "volume" and buttons for resetting consumable values for 950 type models (920/950/T8)
 * Improved synchronization of spot area buttons
@@ -171,7 +173,7 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
 * Bump some dependencies
 
 ### 1.0.7
-* Using library version 0.5.1 (0.5.1-beta.3)
+* Using library version 0.5.1
 * Initial support for Deebot U2 series
 * Improved support for Ozmo T8 models
 * (boriswerner) Fixed cleaning log for 950 type models (920/950/T8)
@@ -180,7 +182,7 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
 * Several enhancements and fixes
 
 ### 1.0.6
-* Using library version 0.5.0-beta.0
+* Using library version 0.5.0
 * Fix for running multiple devices
 * Support for additional Ozmo T8 models
 * Add option to synchronize spotArea buttons

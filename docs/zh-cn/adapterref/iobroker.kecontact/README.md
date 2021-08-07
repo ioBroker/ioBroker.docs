@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kecontact/README.md
-title: 用于 KEBA KeContact 墙盒的 ioBroker 适配器
-hash: oFcNDTJRraBHoUmXI8B0wNy26gXsXupB+mS3aius/Io=
+title: 用于 KEBA KeContact P20 或 P30 和 BMW i wallbox 的 ioBroker 适配器
+hash: LjZdhIBc51HwBzjb27or5MaAFejnGQIfGy9+Tgmbfj4=
 ---
 ![适配器标志](../../../en/adapterref/iobroker.kecontact/admin/charger.png)
 
@@ -13,7 +13,7 @@ hash: oFcNDTJRraBHoUmXI8B0wNy26gXsXupB+mS3aius/Io=
 ![特拉维斯](https://img.shields.io/travis/iobroker-community-adapters/ioBroker.kecontact.svg)
 ![GitHub 问题](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.kecontact.svg)
 
-# 用于 KEBA KeContact 墙盒的 ioBroker 适配器
+# 用于 KEBA KeContact P20 或 P30 和 BMW i wallbox 的 ioBroker 适配器
 使用其 UDP 协议提供有关 KEBA KeContact 墙盒当前状态的信息。
 
 ＃＃ 安装
@@ -27,13 +27,13 @@ hash: oFcNDTJRraBHoUmXI8B0wNy26gXsXupB+mS3aius/Io=
 
 ＃＃ 配置
 ### KeContact IP 地址
-这是 KEBA KeContact 墙盒的 IP 地址。
+这是您的 KEBA KeContact 或 BMW i Wallbox 的 IP 地址。
 
 ###固件检查
 适配器将每天检查一次 KEBA 网站上是否有更新的固件可用。此信息将被打印以作为警告记录。
 
 ###被动模式
-如果您想自己控制您的wallbox 并且不希望此适配器执行某些自动操作，请激活此选项。在这种情况下，所有有关 PV 自动和功率限制的后续选项都将被忽略。
+如果您想自己控制 Wallbox 并且不希望此适配器执行某些自动操作，请激活此选项。在这种情况下，所有有关 PV 自动和功率限制的后续选项都将被忽略。
 
 ### 加载充电会话
 您可以选中此选项以定期从壁挂盒下载最新的充电会话 (30)。
@@ -52,8 +52,8 @@ v1.1.1 及以下版本的用户注意：您必须选中此选项才能继续接�
 * 可用于开始充电的关注功率值（这意味着即使没有足够的剩余电量也会开始充电 - 建议 0 W 用于 1 相充电，500 W 至 2000 W 用于 3 相充电）
 * 电流增量（建议 500 mA）
 * 可以暂时用于维持充电会话的关注值（这意味着即使不再有足够的剩余，充电也会在稍后停止 - 将添加开始关注 - 建议 500 W）
-* 充电会话的最短持续时间（即使剩余不再足够，充电会话将持续至少这次 - 建议 300 秒）
-* 每次剩余时间不再充足时继续充电的时间（以弥补阴天的时间）
+* 充电会话的最短持续时间（即使剩余不再足够，充电会话将至少持续这次 - 建议 300 秒）
+* 每次剩余时间不再充足时继续充电的时间（在阴天弥补时间）
 
 ###功率限制
 您还可以限制最大值。墙盒的电源以限制主电源。例如。运行夜间蓄热式加热器时，您可能必须遵守最大功率限制。
@@ -64,7 +64,7 @@ v1.1.1 及以下版本的用户注意：您必须选中此选项才能继续接�
 ### 动态选项
 此外，还有一些状态会影响动态自动光伏的行为，例如通过您自己的脚本根据您的需要更新这些值）
 
-* kecontact.0.automatic.photovoltaics - 自动激活光伏（真）或设置为假时以最大功率为车辆充电
+* kecontact.0.automatic.photovoltaics - 激活光伏自动（真）或设置为假时以最大功率为车辆充电
 * kecontact.0.automatic.calcPhases - 定义用于充电计算的当前阶段数。这是 Keba Deutschland 版所必需的，可用于所有充电站的初始充电会话
 * kecontact.0.automatic.addPower - 定义允许为您的车辆充电的瓦数（与选项相同）
 * kecontact.0.automatic.pauseWallbox - 只要设置为 true，就会立即停止每个充电会话
@@ -82,6 +82,7 @@ KeConnect 是 KEBA AG 的注册商标。
 ### 1.2.2 (2021-07-28)
 * (Sneak-L8) new: limit max. charging current dynamically
 * (Sneak-L8) support BMW charging station (Keba OEM, Sentry IOBROKER-KECONTACT-3)
+* (Sneak-L8) support P20 charging station (Sentry IOBROKER-KECONTACT-B)
 * (Sneak-L8) optimized power calculation for Deutschland edition
 
 ### 1.2.1 (2021-07-20)

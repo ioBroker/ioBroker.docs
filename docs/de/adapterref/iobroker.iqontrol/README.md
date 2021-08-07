@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: 1xHizbVP5mGwCdO7ciYesfODvXOlTyXurEISO+UNRSU=
+hash: /SSU46qsWQYtX0qDwvx+DdMtlutTpS5wp60+gu1UWwg=
 ---
 ![Logo](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -48,6 +48,9 @@ Schnelle Web-App zur Visualisierung.
 
 \
 ![Bildschirmfoto](../../../en/adapterref/iobroker.iqontrol/img/screenshot_dslraser.jpg "&Kopieren; von dslraser")
+
+\
+![Bildschirmfoto](../../../en/adapterref/iobroker.iqontrol/img/screenshot_muuulle.jpg "&Kopieren; von muuulle")
 
 Läuft in jedem Browser.
 Einfach einzurichten, obwohl es vollständig anpassbar und reaktionsschnell ist.
@@ -161,7 +164,7 @@ Die kostenlosen integrierten Demo-Hintergründe stammen von www.pexels.com.
 
 ## Popup-Meldungen
 * Jede Instanz erzeugt den Zustand ``iqontrol.x.Popup.Message``
-* Wenn Werte an diesen Status übergeben werden, wird eine Popup-Nachricht (oder ein Toast) angezeigt
+* Beim Übergeben von Werten an diesen Status wird eine Popup-Nachricht (oder ein Toast) angezeigt
 * Sie können HTML-Tags verwenden, um den Nachrichtentext zu formatieren
 * Es gibt einige zusätzliche Zustände zur weiteren Anpassung des angezeigten Popups (diese müssen gesetzt werden, bevor der Nachrichtendatenpunkt gesetzt wird):
     * ``Dauer``: Dies ist die Zeit in ms, in der die Nachricht angezeigt wird; bei 0 muss die Meldung bestätigt werden
@@ -1158,7 +1161,7 @@ Hier kannst du:
 ##Beschreibung von Rollen und zugehörigen Zuständen
 Jedes Gerät hat eine Rolle, die die Funktion des Geräts definiert. Jede Rolle generiert eine Menge von Zuständen, die mit einem entsprechenden iobroker-Zustand verknüpft werden können.
 Wenn Sie die Auto-Create-Funktion verwenden, können Sie ein vorhandenes Gerät aus dem iobroker-Objektbaum auswählen. Autocreate versucht, die Rolle herauszufinden und so viele Zustände wie möglich abzugleichen.
-Dies funktioniert nur bei bekannten Geräten. Für unbekannte Geräte und um Geräten erweiterte Funktionen zu geben, können Sie diese manuell über die (+)-Schaltfläche hinzufügen oder die Geräte bearbeiten, die durch Autocreate erstellt wurden.
+Dies funktioniert nur bei bekannten Geräten. Für unbekannte Geräte und um Geräten erweiterte Funktionen zu geben, können Sie diese manuell über die (+)-Schaltfläche hinzufügen oder die durch Autocreate erstellten Geräte bearbeiten.
 Um die Rolle und den Status eines Geräts zu bearbeiten, klicken Sie auf den Stift hinter dem Gerät. Nachfolgend finden Sie eine kurze Beschreibung der Rollen und der verwendeten Zustände:
 
 ### Allgemeines:
@@ -1182,7 +1185,7 @@ Fast alle Rollen haben einen **STATE**- und/oder einen **LEVEL**-Status. In den 
 * iQontrol zeigt unter folgenden Umständen eine definierte Werteliste als Dropdown-Feld im Dialog an:
 * wenn type 'numbers' ist und die valueList genau so viele Einträge hat, als Schritte zwischen min- und max des Datenpunkts oder
 * wenn type 'boolean' ist, aber Rolle nicht 'switch' ist oder
-* wenn der Typ 'String' ist oder
+* wenn Typ 'String' ist oder
 * wenn "Option zur Eingabe von Freitext hinzufügen" aktiviert ist
 * Ob die Gerätekachel als aktiv oder inaktiv angezeigt wird, wird auch aus dem STATE oder LEVEL-Datenpunkt bestimmt. Darüber hinaus können Sie das Verhalten im Optionsbereich 'Bedingungen für eine aktive Kachel' frei anpassen. Sie können sogar einen weiteren externen Datenpunkt setzen, der den Zustand der Kachel bestimmt
 
@@ -1237,7 +1240,7 @@ Allerdings ist nicht jeder Typ für jede Rolle sinnvoll. So ist beispielsweise d
 Jedes Licht kann einen oder beide der folgenden Zustände haben:
 
 * **STATE**: *boolean* - Ein/Aus-Status anzeigen und einstellen
-* **STUFE**: *Zahl* - Lichtstärke anzeigen und einstellen
+* **STUFE**: *Zahl* - Anzeige und Einstellung der Lichtstärke
 
 Optional können Sie folgende Zustände definieren:
 
@@ -1542,13 +1545,15 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
 
 ## Changelog
 
-### 1.8.2 dev
+### 1.8.2 (2021-08-06)
 * (sbormann) Added JSON-Table Widget (Displays JSON-Data as table).
 * (sbormann) Enhanced device copy dialog with option to set new name and to replace datapoints.
 * (sbormann) You can now copy devices directly from the device list.
 * (sbormann) Entries with empty values in Arrays of INFO_A/B are now hidden.
 * (sbormann) Added option to hide UNREACH if device is inactive.
 * (sbormann) Fixed missing general options for device link to other view.
+* (sbormann) Fixed admin page not working in safari.
+* (sbormann) Added option to hide name for buttons in ADDITIONAL_CONTROLS.
 
 ### 1.8.1 (2021-07-28)
 * (sbormann) Some design-adjustments for react-ui.

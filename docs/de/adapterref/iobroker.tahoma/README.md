@@ -2,124 +2,97 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tahoma/README.md
-title: NICHT AKTUELL GEWARTET !!!
-hash: O8jue3Vsog/1wlwxiQ4xFu6UGjUptJA7NZEfwi+kqQo=
+title: ioBroker.tahoma
+hash: cPqOYG7QNS6lvH3iSlYXZHJcT/A0P/6YDaxL2MIfrr0=
 ---
 ![Logo](../../../en/adapterref/iobroker.tahoma/admin/tahoma.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/tahoma-installed.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.tahoma.svg)
 ![NPM](https://nodei.co/npm/iobroker.tahoma.png?downloads=true)
-![Stabil](http://iobroker.live/badges/tahoma-stable.svg)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.tahoma.svg)
-![Build-Status](https://travis-ci.org/StrathCole/ioBroker.tahoma.svg?branch=master)
 ![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
+![Abhängigkeitsstatus](https://img.shields.io/david/Excodibur/iobroker.schwoerer-ventcube.svg)
+![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/tahoma-installed.svg)
+![Anzahl der Installationen (stabil)](http://iobroker.live/badges/tahoma-stable.svg)
+![Sprachnote: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Excodibur/ioBroker.tahoma.svg?logo=lgtm&logoWidth=18)
 
-# NICHT AKTUELL GEWARTET !!!
-# IoBroker.tahoma
-Ein ioBroker-Adapter für Somfy Tahoma. Dieses Projekt ist nicht mit Somfy verbunden. Zunächst basierend auf dem Skript von https://forum.iobroker.net/post/336001.
+![Github-Release-Status](https://github.com/Excodibur/iobroker.tahoma/workflows/Build%2C%20Test%20and%20Release/badge.svg)
 
-Der Adapter stellt eine Verbindung zur Tahomalink-Endbenutzer-API her und steuert die über Tahoma Box (und höchstwahrscheinlich Connexoon) eingerichteten Geräte.
-Der Adapter ist noch nicht vollständig ausgestattet, sollte jedoch die meisten Aktionen zur Steuerung von Jalousien und Rollläden usw. unterstützen.
+#ioBroker.tahoma
+Ein ioBroker-Adapter für Somfy Tahoma. Dieses Projekt hat keine Verbindung zu Somfy. Ursprünglich basierend auf dem Skript von https://forum.iobroker.net/post/336001 und gegabelt von https://github.com/StrathCole/ioBroker.tahoma.
 
-Nach einigen der vom Adapter erstellten Zustände.
+Der Adapter stellt eine Verbindung zur Tahomalink-Endbenutzer-API her und steuert die über die Tahoma Box (und höchstwahrscheinlich Connexoon) eingerichteten Geräte.
+Der Adapter ist noch nicht mit allen Funktionen ausgestattet, sollte aber die meisten Aktionen zur Steuerung von Jalousien und Rollläden usw. unterstützen.
 
-## Tahoma.X.location
-Der Status in diesem Baum enthält die persönlichen Informationen des Benutzers wie Stadt, Straße und Längen- / Breitengrad.
+Befolgen Sie einige der vom Adapter erstellten Zustände.
 
-## Tahoma.X.devices. *. deviceURL
-Dieser Status enthält die Geräte-URL, die Tahoma zur Identifizierung des Geräts verwendet.
+## Derzeit getestete Geräte
+Generell sollte dieser Adapter alle Geräte unterstützen, auf die über __tahomalink.com__ zugegriffen werden kann, aber für den Adapter-Entwickler ist dies schwer zu garantieren. Vor allem, weil die Dokumentation der verwendeten Somfy-API (zumindest öffentlich) nicht existiert und der Entwickler nur Somfy-Geräte testen kann, die er selbst besitzt oder mit Unterstützung williger Teilnehmer testen kann.
 
-## Tahoma.X.devices. *. Befehle
-Diese Zustände enthalten Schaltflächenbefehle zur Steuerung der Geräte. Die meisten Geräte unterstützen Befehle wie `close` und `open`, aber auch einige mehr.
-Einige der Befehle haben am Ende einen `:slow`, wenn dies vom Gerät unterstützt wird. Die Verwendung dieser ermöglicht einen langsamen oder sogenannten Silent-Modus.
+Die folgenden Somfy-Geräte funktionieren mit diesem Adapter:
 
-## Tahoma.X.devices. *. Staaten
-Diese Zustände enthalten den aktuellen Status der Geräte wie folgt. Alle mit `[**]` gekennzeichneten Einstellungen können bearbeitet werden, um das Verhalten / die Sendebefehle des Geräts zu steuern.
-Einige Staaten haben am Ende einen `:slow`, wenn dies vom Gerät unterstützt wird. Durch Einstellen dieser Werte wird der langsame oder sogenannte Silent-Modus aktiviert.
+- S&SO RS100 io
+- Oximo io
+- Sonnensensor Sunis io
+- Temperatursensor io
+- Rauchsensor io
+- Adapterstecker io
 
-`[**] tahoma.X.devices.*.states.core:DeploymentState` - Enthält Informationen zum aktuellen Bereitstellungsstatus und steuert diesen. 100 bedeutet vollständig bereitgestellt, 0 ist nicht bereitgestellt. Nicht alle Geräte haben diesen Wert, einige haben stattdessen `ClosureState`.
-`[**] tahoma.X.devices.*.states.core:TargetDeploymentState` - Siehe `tahoma.X.devices.*.states.core:DeploymentState` `[**] tahoma.X.devices.*.states.coreClosureState` - Bietet Informationen über den aktuellen Stand der Schließung und steuert diesen. 100 bedeutet vollständig geschlossen, 0 ist offen. Nicht alle Geräte haben diesen Wert, einige haben stattdessen `DeploymentState`.
-`[**] tahoma.X.devices.*.states.core:TargetClosureState` - Siehe `tahoma.X.devices.*.states.core:ClosureState` `[**] tahoma.X.devices.*.states.core:OrientationState` - Bietet Informationen über und überwacht die Ausrichtung (z. B. für Rollläden) von Lamellen. Nicht alle Geräte bieten diesen Wert.
-`[**] tahoma.X.devices.*.states.core:TargetOrientationState` - Siehe `tahoma.X.devices.*.states.core:OrientationState` `tahoma.X.devices.*.states.core:NameState` - Enthält den aktuellen Namen des Geräts.
-`tahoma.X.devices.*.states.core:OpenClosedState` - Enthält `closed` wenn das Gerät zu 100% geschlossen oder zu 0% eingesetzt ist und `open` sonst.
-`tahoma.X.devices.*.states.core:PriorityLockTimerState` - Wenn ein Sensor das Gerät gesperrt hat, wird dies hier angegeben, z. G. ein Windsensor blockiert eine Markise.
-`tahoma.X.devices.*.states.core:RSSILevelState` - Die aktuelle Signalqualität des Gerätes.
-`tahoma.X.devices.*.states.core:StatusState` - `available` wenn das Gerät aktuell verfügbar ist.
-`tahoma.X.devices.*.states.io:PriorityLockLevelState` - Siehe `tahoma.X.devices.*.states.core:PriorityLockTimerState` `tahoma.X.devices.*.states.io:PriorityLockOriginatorState` - Siehe `tahoma.X.devices.*.states.core:PriorityLockTimerState` `tahoma.X.devices.*.states.moving` - Gibt an, ob sich das Gerät gerade bewegt. `0 = stopped`, `1 = up/undeploy`, `2 = down/deploy`, `3 = unknown direction`
+## Aufbau
+Die folgenden Konfigurationsparameter werden vom Adapter unterstützt.
 
-## Spenden
-[![paypal] (https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SFLJ8HCW9T698&source=url)
+| Parameter | (Standard-)Wert | Beschreibung |
+| Benutzername | _`<your Tahomalink user>`_ | Erforderlich, um Ihr Tahoma-Konto zu authentifizieren. |
+| Passwort | _`<Your Tahomalink password>`_ | Erforderlich, um Ihr Tahoma-Konto zu authentifizieren. |
+| Abfrageintervall | `20000` | Zeit (in Millisekunden), nach der der Adapter versucht, neue Daten von Tahomalink abzurufen. |
+| Anmeldeversuche <sup>1</sup> <sup>2</sup> | `3` | Anzahl der Versuche, sich nach einem Anmeldefehler erneut anzumelden. |
+| Verzögerung zwischen Anmeldeversuchen <sup>1</sup> <sup>2</sup> | `30` | Wartezeit (in Sekunden) zwischen den Anmeldeversuchen. |
+| Verzögerung nach fehlgeschlagener Anmeldung <sup>1</sup> <sup>2</sup> | `120` | Wartezeit (in Sekunden), nachdem alle aufeinanderfolgenden Anmeldeversuche fehlgeschlagen sind. |
+| Verzögerung vor erneutem Anwenden der Warteschlange <sup>1</sup> <sup>2</sup> | `1500` | Wartezeit (in Millisekunden), bevor ein zweiter Versuch unternommen wird, Änderungen aus der internen Apply-Warteschlange an Tahoma zu senden, falls diese verloren gehen. |
+| Verzögerung vor erneutem Anwenden der Warteschlange <sup>1</sup> <sup>2</sup> | `1500` | Wartezeit (in Millisekunden), bevor ein zweiter Versuch unternommen wird, Änderungen aus der internen Apply-Warteschlange an Tahoma zu senden, falls diese verloren gehen. |
+
+<sup>1</sup> Diese Konfigurationswerte sind nur in Admin 5 (neue GUI) oder höher sichtbar und konfigurierbar.
+
+<sup>2</sup> Alle Werte beziehen sich auf die Anmeldung bei Tahomalink, die aus Entwicklungssicht meist eine Blackbox ist. Wenn Sie die Nummern hier zu niedrig konfigurieren, besteht erfahrungsgemäß eine gute Chance, dass Somfy Ihren Account vorübergehend sperrt, daher sollten Sie hier die Standardwerte vorsichtig senken!
+
+## Zustände
+### Tahoma.X.Standort
+Das Bundesland in diesem Baum enthält die persönlichen Informationen des Benutzers wie Stadt, Anschrift und Längen-/Breitengrad.
+
+### Tahoma.X.devices.*.deviceURL
+Dieser Status enthält die Geräte-URL, die von Tahoma verwendet wird, um das Gerät zu identifizieren.
+
+### Tahoma.X.devices.*.commands
+Diese Zustände enthalten Tastenbefehle zur Steuerung der Geräte. Die meisten Geräte unterstützen Befehle wie `close` und `open` aber auch einige mehr.
+Einige der Befehle haben am Ende ein `:slow`, sofern dies vom Gerät unterstützt wird. Wenn Sie diese verwenden, wird eine niedrige Geschwindigkeit oder der sogenannte Silent-Modus aktiviert.
+
+### Tahoma.X.devices.*.states
+Diese Zustände enthalten den aktuellen Status der Geräte wie folgt. Einige der Zustände haben am Ende ein `:slow`, wenn sie vom Gerät unterstützt werden. Wenn Sie diese einstellen, wird eine niedrige Geschwindigkeit oder der sogenannte Silent-Modus aktiviert.
+
+| Gerätezustand | Bearbeitbar | Zweck/Beschreibung |
+|-------------------------------------------------------------|----------|---------------------|
+| _tahoma.X.devices.*.states.core:DeploymentState_ | &#10003; | Stellt Informationen über und steuert den Status der aktuellen Bereitstellung. 100 bedeutet vollständig bereitgestellt, 0 ist nicht bereitgestellt. Nicht alle Geräte haben diesen Wert, manche haben stattdessen `ClosureState`. |
+| _tahoma.X.devices.*.states.coreClosureState_ | &#10003; | Stellt Informationen über und steuert den Status der aktuellen Schließung. 100 bedeutet vollständig geschlossen, 0 ist offen. Nicht alle Geräte haben diesen Wert, manche haben stattdessen `DeploymentState`. |
+| _tahoma.X.devices.*.states.core:TargetClosureState_ | &#10003; | Siehe `tahoma.X.devices.*.states.core:ClosureState` |
+| _tahoma.X.devices.*.states.core:TargetClosureState_ | &#10003; | Siehe `tahoma.X.devices.*.states.core:ClosureState` |
+| _tahoma.X.devices.*.states.core:TargetOrientationState_ | &#10003; | Siehe `tahoma.X.devices.*.states.core:OrientationState` |
+| _tahoma.X.devices.*.states.core:TargetOrientationState_ | &#10003; | Siehe `tahoma.X.devices.*.states.core:OrientationState` |
+| _tahoma.X.devices.*.states.core:OpenClosedState_ | | Enthält `closed`, wenn das Gerät zu 100 % geschlossen oder zu 0 % bereitgestellt ist, andernfalls `open`. |
+| _tahoma.X.devices.*.states.core:OpenClosedState_ | | Enthält „geschlossen“, wenn das Gerät zu 100 % geschlossen oder zu 0 % bereitgestellt ist, andernfalls „offen“. |
+| _tahoma.X.devices.*.states.core:PriorityLockTimerState_ | | Wenn ein Sensor das Gerät gesperrt hat, wird dies hier angegeben, z. g. ein Windsensor, der eine Markise blockiert. |
+| _tahoma.X.devices.*.states.core:StatusState_ | | `available` wenn das Gerät gerade verfügbar ist. |
+| _tahoma.X.devices.*.states.io:PriorityLockLevelState_ | | Siehe `tahoma.X.devices.*.states.core:PriorityLockTimerState` |
+| _tahoma.X.devices.*.states.io:PriorityLockOriginatorState_ | | Siehe `tahoma.X.devices.*.states.core:PriorityLockTimerState` |
+| _tahoma.X.devices.*.states.moving_ | | Gibt an, ob sich das Gerät gerade bewegt. `0 = stopped`, `1 = up/undeploy`, `2 = down/deploy`, `3 = unknown direction` |
+| _tahoma.X.devices.*.states.moving_ | | Gibt an, ob sich das Gerät gerade bewegt. `0 = gestoppt`, `1 = hoch/aufheben`, `2 = runter/einsetzen`, `3 = unbekannte Richtung` |
 
 ## Changelog
-
-### 0.3.3
-
--  Removed credentials from log on error and debug
-
-### 0.3.2
-
--  Fixed silent modes (low speed) for newer Somfy devices
--  Fixed problem with wrong reference to `this`
-
-### 0.3.1
-
--   Fixed adapter crash on empty response object after request error
--   Fixed problems with slow/silent mode for closure
-
-### 0.3.0
-
--   Added possibility for low speed open and close on supported devices
--   Fixed commands not stopping on next command for device
--   Smaller fixes
-
-### 0.2.6
-
--   Added queue for device commands not already covered by update to 0.2.1
-
-### 0.2.5
-
--   Added README for states
-
-### 0.2.4
-
--   Switched moving state values 1 / 2 for DeploymentState devices
-
-### 0.2.3
-
--   Fixed direction (moving state) for deployment devices
-
-### 0.2.2
-
--   Fixed problem with DeploymentState treated as ClosureState on setting values
-
-### 0.2.1
-
--   Fixed problems with too many simultanous commands/devices
-
-### 0.2.0
-
--   Added deployment actions
--   Added new state for moving direction
--   Changed command buttons to boolean type
-
-### 0.1.2
-
--   Retry device command on error 400 (payload) once
-
-### 0.1.1
-
--   No changes
-
-### 0.1.0
-
--   First running Version
+See [Changelog](https://github.com/Excodibur/ioBroker.tahoma/blob/master/CHANGELOG.md).
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2020 Marius Burkard
+Copyright (c) 2020-2021 Marius Burkard
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

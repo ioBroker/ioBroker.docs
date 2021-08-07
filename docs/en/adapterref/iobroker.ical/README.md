@@ -186,8 +186,7 @@ Whitelist: If you only want to include events of a specific location use regular
 
 ## Changelog
 <!--
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
+### 1.11.3 (2021-08-04)
 -->
 
 ### 1.11.2 (2021-08-01)

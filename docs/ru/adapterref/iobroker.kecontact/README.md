@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kecontact/README.md
-title: Адаптер ioBroker для настенного бокса KEBA KeContact
-hash: oFcNDTJRraBHoUmXI8B0wNy26gXsXupB+mS3aius/Io=
+title: Адаптер ioBroker для KEBA KeContact P20 или P30 и настенного бокса BMW i
+hash: LjZdhIBc51HwBzjb27or5MaAFejnGQIfGy9+Tgmbfj4=
 ---
 ![Логотип адаптера](../../../en/adapterref/iobroker.kecontact/admin/charger.png)
 
@@ -13,7 +13,7 @@ hash: oFcNDTJRraBHoUmXI8B0wNy26gXsXupB+mS3aius/Io=
 ![Трэвис](https://img.shields.io/travis/iobroker-community-adapters/ioBroker.kecontact.svg)
 ![Проблемы с GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.kecontact.svg)
 
-# IoBroker адаптер для настенного бокса KEBA KeContact
+Адаптер # ioBroker для KEBA KeContact P20 или P30 и настенного бокса BMW i
 Предоставляет информацию о текущем состоянии настенного бокса KEBA KeContact, используя его протокол UDP.
 
 ## Установить
@@ -27,13 +27,13 @@ hash: oFcNDTJRraBHoUmXI8B0wNy26gXsXupB+mS3aius/Io=
 
 ## Конфигурация
 ### KeContact IP-адрес
-Это IP-адрес вашего настенного бокса KEBA KeContact.
+Это IP-адрес вашего KEBA KeContact или BMW i wallbox.
 
 ### Проверка прошивки
 Раз в день адаптер будет проверять, доступна ли более новая прошивка на сайте KEBA. Эта информация будет напечатана в журнале как предупреждение.
 
 ### Пассивный режим
-Активируйте эту опцию, если вы хотите управлять своим настенным ящиком самостоятельно и не хотите, чтобы этот адаптер выполнял какие-либо действия в автоматическом режиме. В этом случае все последующие опции, касающиеся фотоэлектрической автоматики и ограничения мощности, будут проигнорированы.
+Активируйте эту опцию, если вы хотите управлять своим настенным ящиком самостоятельно и не хотите, чтобы этот адаптер выполнял некоторые функции автоматики. В этом случае все последующие опции, касающиеся фотоэлектрической автоматики и ограничения мощности, будут проигнорированы.
 
 ### Загрузка сеансов зарядки
 Вы можете установить этот флажок, чтобы периодически загружать последние сеансы зарядки (30) из настенной коробки.
@@ -82,6 +82,7 @@ KeConnect является зарегистрированным товарным
 ### 1.2.2 (2021-07-28)
 * (Sneak-L8) new: limit max. charging current dynamically
 * (Sneak-L8) support BMW charging station (Keba OEM, Sentry IOBROKER-KECONTACT-3)
+* (Sneak-L8) support P20 charging station (Sentry IOBROKER-KECONTACT-B)
 * (Sneak-L8) optimized power calculation for Deutschland edition
 
 ### 1.2.1 (2021-07-20)

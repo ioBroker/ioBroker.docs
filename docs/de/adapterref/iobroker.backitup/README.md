@@ -361,6 +361,19 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 
 ## Changelog
 
+### 2.1.15 (05.08.2021)
+* (simatec) Bugfix Google Drive
+* (simatec) memory optimization
+* (simatec) fix Zigbee Restore
+* (simatec) Grafana Protocol selection added
+* (simatec) translations updated
+
+### 2.1.14 (04.08.2021)
+* (simatec) dependencies updated
+* (simatec) RAM memory optimization
+* (simatec) googleapis deleted
+* (simatec) @googleapis/drive added
+
 ### 2.1.13 (14.06.2021)
 * (simatec) ready for Grafana 8.x
 * (simatec) BugFix PostgreSQL

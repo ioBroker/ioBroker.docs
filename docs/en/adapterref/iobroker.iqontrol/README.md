@@ -47,6 +47,9 @@ Fast Web-App for Visualization.
 \
 ![Screenshot](img/screenshot_dslraser.jpg "&copy; by dslraser")
 
+\
+![Screenshot](img/screenshot_muuulle.jpg "&copy; by muuulle")
+
 Runs in any Browser. 
 Easy to setup, allthough it's fully customizable and responsive.
 
@@ -1523,13 +1526,15 @@ This device has some special predefined size- and display-settings to show a tex
     
 ## Changelog
 
-### 1.8.2 dev
+### 1.8.2 (2021-08-06)
 * (sbormann) Added JSON-Table Widget (Displays JSON-Data as table).
 * (sbormann) Enhanced device copy dialog with option to set new name and to replace datapoints.
 * (sbormann) You can now copy devices directly from the device list.
 * (sbormann) Entries with empty values in Arrays of INFO_A/B are now hidden.
 * (sbormann) Added option to hide UNREACH if device is inactive.
 * (sbormann) Fixed missing general options for device link to other view.
+* (sbormann) Fixed admin page not working in safari.
+* (sbormann) Added option to hide name for buttons in ADDITIONAL_CONTROLS.
 
 ### 1.8.1 (2021-07-28)
 * (sbormann) Some design-adjustments for react-ui.
