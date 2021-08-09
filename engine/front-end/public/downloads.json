@@ -18,7 +18,7 @@
     "info": "https://smarthome.buanet.de/docker/container-images/iobroker/"
   },
   {
-    "file": "ioBroker_Image_RPi_v1.0.0_latest.zip",
+    "file": "ioBroker_Image_RPi_v1.1.0_latest.zip",
     "linux": "Raspberry OS",
     "date": "20210415",
     "device": "Raspberry Pi",
