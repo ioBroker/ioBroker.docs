@@ -2,41 +2,40 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.discovery/README.md
-title: ioBroker Discover Adapter
-hash: cSp632WFSVsYiDyNAPd4gSLbTsUOjf5nEERQyCe6Ngc=
+title: ioBroker Discover-Adapter
+hash: RdRGHBIkYaCIaGJ7onXI7yxUdEBVYhhNzPC8GMrMFtQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/discovery-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.discovery.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.discovery.svg)
-![Tests](https://travis-ci.org/ioBroker/ioBroker.discovery.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.discovery.png?downloads=true)
 
-# IoBroker Discover Adapter
-** Geräte mit allen bekannten Methoden erkennen. **
+# IoBroker Discover-Adapter
+![Testen und freigeben](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) **Geräte mit allen bekannten Methoden erkennen.**
 
 Dies sind spezielle Adapter, die versuchen, alle möglichen Geräte zu finden, die vom Host aus erreichbar sind.
-Gerade jetzt kann es über Ping UPnP (seriell geplant) erkennen.
+Gerade jetzt kann es per Ping erkennen, UPnP (seriell geplant).
 
-** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
-## Wird tatsächlich unterstützt
+##Wird unterstützt
 ### Automatisch erkannt
-- Beckhoff PLC
+- Beckhoff-SPS
 - Bosch Smart Home
 - Bose Soundtouch
 - Broadlink
+- BSBLan
 - Chromecast
-- Daikin Klimatisierung
+- Daikin-Klimaautomatik
 - deConz
-- Denon / Marantz
-- DoorBird
+- Denon /Marantz
+- Türvogel
 - ebus
-- ekey
-- Energiemanager (E.ON / Solarwatt)
-- enet (Jung)
-- Epson Stylus PX830
+-ekey
+- Energiemanager (E.ON/Solarwatt)
+-enet (Jung)
+- Epson Eingabestift PX830
 - Fakeroku (Harmonie)
 - FHEM
 - FireTV
@@ -46,9 +45,9 @@ Gerade jetzt kann es über Ping UPnP (seriell geplant) erkennen.
 - Harmonie
 - Heos
 - Heimassistent
-- Homematische CCU (hm-rpc, hm-rega)
+- Homematic-CCU (hm-rpc, hm-rega)
 - Homepilot
-- HP-Lio
+- HP-lio
 - Philips HUE
 - Plex
 - InfluxDB
@@ -64,16 +63,16 @@ Gerade jetzt kann es über Ping UPnP (seriell geplant) erkennen.
 - McLighting
 - MegaD
 - Miele
-- Miele Cloud Service
+- Miele Cloud-Service
 - Mi Home Smarthome
 - Mikrotik
 - MiLight-Brücke (v6)
-- Mpd
+- MPD
 - Musiksendung
 - myDlink
-- Mysensoren USB / Seriell (9600, 38400, 57600, 115200)
+- Mysensors USB/Seriell (9600, 38400, 57600, 115200)
 - Nanoleaf Light Panels / Canvas
-- Net Tools
+- Netztools
 - Nuki2
 - Nuss
 - Onkyo
@@ -81,24 +80,25 @@ Gerade jetzt kann es über Ping UPnP (seriell geplant) erkennen.
 - Ping
 - Plex
 - Proxmox
-- RFLink (Serial 57600baud)
+- RFLink (Seriell 57600 Baud)
 - SamsungTV
 - Smappee
 - Solarlog
 - Sonnen
 - Sonos
-- Stiebel-Eltron / Tecalor ISG (plus)
+- Stiebel-Eltron/Tecalor ISG (plus)
 - SQL (MySQL, MSSQL, PostgreSQL)
-- Squeezebox
+- Quetschbox
 - SqueezeboxRPC
 - Synologie
 - TR-064
 - Trådfri
 - UPnP
-- Wifilight
+- ValloxMV
+- WLAN-Licht
 - Yamaha
 - Yeelight
-- Z-Wave USB (getestet mit Aeon Labs)
+- Z-Wave-USB (getestet mit Aeon Labs)
 
 ### Wird als zusätzliche Adapter angeboten
 - Wolke
@@ -111,34 +111,46 @@ Gerade jetzt kann es über Ping UPnP (seriell geplant) erkennen.
 - Netz
 
 ## Wenn der Adapter keine IPs finden kann ...
-Der Adapter pingt das Netzwerk der IP des aktuellen Hosts an (x.y.z.1..255). Zusätzlich werden UPnP und mDNS verwendet, um IPs zu erkennen.
+Der Adapter pingt das Netzwerk der IP des aktuellen Hosts (x.y.z.1..255). Zusätzlich werden UPnP und mDNS verwendet, um IPs zu erkennen.
 
-Wenn nicht alle IPs gefunden werden, überprüfen Sie bitte, ob der iobroker-Benutzer / bin / ping ausführen kann. Pot führen Sie `sudo setcap cap_net_raw+p /bin/ping` aus, um fehlende Funktionen / Berechtigungen hinzuzufügen.
+Wenn nicht alle IPs gefunden werden, überprüfen Sie bitte, ob der iobroker-Benutzer /bin/ping ausführen kann. Pot führe `sudo setcap cap_net_raw+p /bin/ping` aus, um fehlende Fähigkeiten/Berechtigungen hinzuzufügen.
 
 ## Machen
-- Artnet? (Blauer Fuchs)
+- artnet? (Blauer Fuchs)
 - B-Control-Em? (Blauer Fuchs)
 - cul / maxcul (Bluefox)
-- Foobar200 (Instalator)
-- Fritzbox (ruhr70)
-- km200 (Frankjoke)
-- Megaesp (ausHaus)
+- Foobar200 (Installationsgerät)
+- fritzbox (ruhr70)
+- km200 (Frankwitz)
+- megaesp (ausHaus)
 - Modbus (Bluefox)
-- mqtt / mqtt-client (Bluefox)
+- mqtt/mqtt-Client (Bluefox)
 - owfs (Bluefox)
 - rpi2 (wenn ioBroker auf Raspberry läuft)
 - rwe-smarthome (PArns)
 - s7 (Bluefox)
 - Smartmeter (Apollon77)
 - unifi (jens-maus)
-- Wolf (lächelnder Wagenheber)
-- xs1 (Frankjoke)
+- Wolf (lächelnder Jack)
+- xs1 (Frankwitz)
 
-<! - Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __WORK IN PROGRESS__ ->
+### __ARBEITEN IN PROGRESS__ -->
 
 ## Changelog
+
+### 2.7.0 (2021-07-01)
+* (hacki11) Add discovery for BSBLan and ValloxMV
+* (Apollon77) Optimize for js-controller 3.3
+
+### 2.6.3 (2021-05-03)
+* (bluefox) Added support of Admin5 
+
+### 2.6.2 (2021-04-13)
+* (Apollon77) Fix crash case in mihome discovery (Sentry IOBROKER-DISCOVERY-30)
+* (Apollon77) Fix crash case in ping logic (Sentry IOBROKER-DISCOVERY-2Y)
+* (Apollon77) Fix crash case in hf-lpb100 logic (Sentry IOBROKER-DISCOVERY-34)
 
 ### 2.6.1 (2021-02-28)
 * (JeyCee) added iot and net-tools
@@ -303,7 +315,7 @@ Wenn nicht alle IPs gefunden werden, überprüfen Sie bitte, ob der iobroker-Ben
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2020, Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2021, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

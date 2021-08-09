@@ -11,6 +11,7 @@
 
 ![Test and Release](https://github.com/AlCalzone/iobroker.zwave2/workflows/Test%20and%20Release/badge.svg)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/AlCalzone/ioBroker.zwave2.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/AlCalzone/ioBroker.zwave2/context:javascript)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/zwave2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 <h2 align="center">Z-Wave for ioBroker. But better.</h3>
 
@@ -39,54 +40,50 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.10.3 (2021-07-14)
+Upgraded to `zwave-js` version `7.12.0`. Notable changes include:
+* Further improved handling of the legacy `alarmType` and `alarmLevel` values under some circumstances
+* Improved support for Aeotec firmware updaters
+* Nodes are no longer sent to sleep while a value change is planned to be verified
+* Hardened the checks to prevent simultaneous write-accesses for the cache files
+* The adapter should now be restarted when the serial connection is disconnected
+* Fixed a bug where associatiations on endpoints had incorrect labels
+* Updated dependencies
+* Tons of new and improved config files
+
+### 1.10.2 (2021-06-10)
+Upgraded to `zwave-js` version `7.7.3`. Notable changes include:
+* Improved how dropped invalid messages are logged in the Z-Wave logfile
+* Improved handling of the legacy `alarmType` and `alarmLevel` values under some circumstances
+* Improved handling of notification values for devices that support `Notification CC` version 2
+* Improved how some devices with incorrect capability reports are queried
+* Endpoints of multi channel devices should now always be queried with the correct CC version
+* Throttled some automatic queries
+* Avoid a situation where multiple instances of the adapter try to access the same cache files, potentially corrupting them
+* Improved behavior of secure communication when transmission failures are involved
+* Several new and improved config files
+
+### 1.10.1 (2021-05-24)
+Removed some warnings about wrong state value types in JS-Controller 3.3
+Upgraded to `zwave-js` version `7.5.1`. Notable changes include:
+* Improved stability
+* Improved healing strategy
+* Several config file changes
+
+### 1.10.0 (2021-04-29)
+* The associations tab now shows the name of devices along with their node ID
+* Associations can now also be managed on the endpoints of a node
+* Experimental support for updating the embedded configuration files from the adapter configuration
+* Support firmware updates with `*.hec` files
+* Reduced traffic after controlling devices that report automatically
+* Fixed an issue where `Basic CC` values were not stored correctly
+* Added and updated many device configuration files
+* Stability improvements
+* Dependency updates
+
 ### 1.9.3 (2021-04-10)
 * Restored the old behavior for devices that report their values via the root endpoint
 * Some minor config file changes
-
-### 1.9.2 (2021-04-05)
-Upgraded to `zwave-js` version `7.1.0`. Notable changes include:
-* Added reporting of usage statistics. For details, refer to the `node-zwave-js` documentation.
-* Better support for 700-series Z-Wave sticks
-* Notification values are no longer auto-reset to idle after 5 minutes by default. This behavior can now be enabled per device if necessary.
-* Several stability improvements
-
-For a full list of changes, check out https://github.com/zwave-js/node-zwave-js/blob/master/CHANGELOG.md
-
-### 1.9.0 (2021-03-16)
-* Upgraded to `zwave-js` version 7
-* Nodes with a completed interview are no longer queried for all their values when restarting. As a result the adapter is now ready much much faster after a restart, but you'll see many yellow values until the devices have sent updated data.
-* The device list in the configuration dialog now displays a better type for the devices, for example `Wall Controller` instead of `Routing Slave`
-* Network heal no longer times out early in large networks
-* Fixed a crash: `supportedCCs is not iterable`. If this happens to you, re-interview affected devices.
-* Relaxed the checks when a report gets mapped from the root endpoint to higher endpoints
-* Some encrypted messages that were previously dropped are now accepted
-* Prevent the interview of sleeping nodes to get stuck until a re-interview under certain circumstances
-* After a restart, sleeping nodes have their status correctly determined even if they weren't interviewed completely before
-* Notification variables are now auto-idled after 5 minutes as it was intended, not after 5 hours
-* The `deltaTime` and `previousValue` values for the Meter CC are now hidden
-* Fixed a crash that could happen after node inclusion
-* Tons of new and improved device configuration files
-
-### 1.8.12 (2021-02-23)
-* Implemented `Scene Actuator Configuration CC` and `Scene Controller Configuration CC`
-* Fixed an issue where sleeping nodes could block the send queue when it is not yet known whether they support `Wake Up CC`
-* Fixed a crash that could happen while logging a message while the driver is not ready yet
-* Fixed a crash that could happen while trying to bootstrap a device that does not respond after inclusion
-* The state value in `Thermostat Fan Mode CC` is now readonly
-* Configuration parameters may now have a unit
-* Tons of new and improved device configuration files
-* Unsolicited reports are no longer incorrectly mapped to all endpoints
-
-### 1.8.11 (2021-02-14)
-* Implemented `Thermostat Fan Mode CC` and `Thermostat Fan State CC`
-* Fixed several sources of crashes
-* Fixed incorrect detection of secure nodes
-* Certain `.hex` firmware files are now parsed correctly
-* Added support for `.bin` firmware files
-* Avoid an infinite interview loop when devices don't advertise the end of the parameter list correctly
-* Sleeping nodes are now immediately marked as ready when restarting from cache
-* Unsolicited reports are no longer mapped from the root endpoint to endpoint 1 if that endpoint does not support the CC
-* Tons of new and improved device configuration files
 
 ## License
 

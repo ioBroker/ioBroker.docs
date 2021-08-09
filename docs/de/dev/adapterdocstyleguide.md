@@ -1,16 +1,11 @@
 ---
 title:       "Dokumentation-Styleguide"
-lastChanged: "14.09.2018"
+lastChanged: "06.05.2021"
 editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/dev/adapterdocstyleguide.md"
 ---
 
 # Style Guide für die Erstellung einer Adapterdokumentation
 
-?> ***Dies ist ein Platzhalter***.
-   <br><br>
-   Hilf mit bei ioBroker und erweitere diesen Artikel.  
-   Bitte beachte den [ioBroker Style Guide](community/styleguidedoc), 
-   damit die Änderungen einfacher übernommen werden können.
 
 * Die Dokumentation wird mit Hilfe der Sprache "Markdown" erstellt.
 * Die Dateiablage für die Adapterdokumentation ist wie folgt geregelt:

@@ -2,8 +2,6 @@
 BADGE-Number of Installations: http://iobroker.live/badges/influxdb-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.influxdb.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.influxdb.svg
-BADGE-Tests: http://img.shields.io/travis/ioBroker/ioBroker.history/master.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.influxdb.png?downloads=true
 ---
 * * *
 
@@ -106,6 +104,14 @@ Wählt man in der Titelzeile unter Historie "mit" oder "influxdb.0" aus, werden
 Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 ## Changelog
+### __WORK IN PROGRESS__
+* IMPORTANT: The adapter now needs Admin 5.1.15+ and js-controller 3.3+!
+* (Excodibur) Added InfluxDB 2.0 support
+* (Excodibur) Adjust Retention handling on Database level to work for InfluxDB 1.x and 2.x
+* (Excodibur) Removed retention options on datapoint level because never worked and also not supported really by InfluxDB anymore
+
+### 1.9.5 (2021-04-19)
+* (bluefox) Added the support of Admin5
 
 ### 1.9.4 (2021-01-17)
 * (Apollon77) Optimize stop handling
@@ -154,7 +160,7 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2020 bluefox, apollon77
+Copyright (c) 2015-2021 bluefox, apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

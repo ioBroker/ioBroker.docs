@@ -3,17 +3,19 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-weather/README.md
 title: ioBroker.vis-погода
-hash: 9kdqDhi+btPZ0neZoDFdB8A77uv3pxdmCKw5C04ENzk=
+hash: Idkwye4z5+4DWez86HGlvNPZk3JPTNhIGrGsOS8h+gA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-weather/admin/vis-weather.png)
 
 ![Количество установок](http://iobroker.live/badges/vis-weather-stable.svg)
-![Версия NPM](https://img.shields.io/npm/v/iobroker.vis-weather.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-weather.svg)
-![Тесты](https://travis-ci.org/rg-engineering/ioBroker.vis-weather.svg?branch=master)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.vis-weather.svg)
+![Известные уязвимости](https://snyk.io/test/github/rg-engineering/ioBroker.vis-weather/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.vis-weather.png?downloads=true)
 
 # IoBroker.vis-weather
+![Действия GitHub](https://github.com/rg-engineering/ioBroker.vis-weather/workflows/Test%20and%20Release/badge.svg)
+
 ** Если вам это нравится, рассмотрите возможность пожертвования: **
 
 [![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
@@ -31,7 +33,7 @@ hash: 9kdqDhi+btPZ0neZoDFdB8A77uv3pxdmCKw5C04ENzk=
 Обычно OID создаются автоматически при выборе экземпляра или структуры данных. Когда вы получите сообщение «Нет доступных OID», проверьте, используете ли вы «NextDaysDetailed» в DasWetter.
 Возможно, вам потребуется включить «NextDaysDetailed».
 
-## Известные вопросы
+## Известные проблемы
 * пожалуйста, создавайте проблемы на [github] (https://github.com/rg-engineering/ioBroker.vis-weather/issues), если вы обнаружите ошибки или захотите новые функции
 
 ## Changelog

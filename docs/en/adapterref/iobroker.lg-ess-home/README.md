@@ -37,6 +37,12 @@ This should give you the password and a status in return.
 
 ## Changelog
 
+### 0.0.10 (2021-05-04)
+* (Morluktom) Bugfix boolean value
+
+### 0.0.9 (2021-05-04)
+* (Morluktom) Bugfix boolean value
+
 ### 0.0.8 (2021-02-06)
 * (Morluktom) Code cleanup
 
@@ -65,7 +71,7 @@ This should give you the password and a status in return.
 ## License
 MIT License
 
-Copyright (c) 2020 - 2021 Morluktom <strassertom@gmx.de>
+Copyright (c) 2021 Morluktom <strassertom@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

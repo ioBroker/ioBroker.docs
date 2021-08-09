@@ -4,17 +4,17 @@
       "title": {
         "en": "welcome",
         "de": "Willkommen",
-        "ru": "добро пожаловать",
+        "ru": "Добро пожаловать",
         "zh-cn": "欢迎"
       },
       "content": "README.md",
       "pages": {
-        "Structure of the docu": {
+        "Structure of the documentation": {
           "title": {
-            "en": "Structure of the docu",
+            "en": "Structure of the documentation",
             "de": "Aufbau der Doku",
-            "ru": "Структура документа",
-            "zh-cn": "文件的结构"
+            "ru": "Структура документации",
+            "zh-cn": "文档的结构"
           },
           "content": "intro/README.md"
         }
@@ -28,12 +28,12 @@
         "zh-cn": "基础概念"
       },
       "pages": {
-        "modularity": {
+        "ioBroker basics": {
           "title": {
-            "en": "modularity",
-            "de": "Modularität",
-            "ru": "модульность",
-            "zh-cn": "模块化"
+            "en": "ioBroker basics",
+            "de": "ioBroker Grundlagen",
+            "ru": "Основы ioBroker",
+            "zh-cn": "ioBroker 基础知识"
           },
           "content": "basics/README.md"
         },
@@ -42,33 +42,33 @@
             "en": "architecture",
             "de": "Architektur",
             "ru": "архитектура",
-            "zh-cn": "架构"
+            "zh-cn": "建筑学"
           },
           "content": "basics/architecture.md"
         },
-        "Adapter and controller": {
+        "Adapters and controllers": {
           "title": {
-            "en": "Adapter and controller",
+            "en": "Adapters and controllers",
             "de": "Adapter und Controller",
-            "ru": "Адаптер и контроллер",
+            "ru": "Адаптеры и контроллеры",
             "zh-cn": "适配器和控制器"
           },
           "content": "basics/adapter.md"
         },
-        "repositories": {
+        "Repositories": {
           "title": {
-            "en": "repositories",
+            "en": "Repositories",
             "de": "Repositories",
-            "ru": "хранилища",
-            "zh-cn": "资料库"
+            "ru": "Репозитории",
+            "zh-cn": "存储库"
           },
           "content": "basics/repositories.md"
         },
-        "objects": {
+        "Objects": {
           "title": {
-            "en": "objects",
+            "en": "Objects",
             "de": "Objekte",
-            "ru": "объекты",
+            "ru": "Объекты",
             "zh-cn": "对象"
           },
           "content": "basics/objects.md"
@@ -78,16 +78,16 @@
             "en": "States and data points",
             "de": "States und Datenpunkte",
             "ru": "Состояния и точки данных",
-            "zh-cn": "国家和数据点"
+            "zh-cn": "状态和数据点"
           },
           "content": "basics/states.md"
         },
-        "features": {
+        "Functions": {
           "title": {
-            "en": "features",
+            "en": "Functions",
             "de": "Funktionen",
-            "ru": "черты",
-            "zh-cn": "功能"
+            "ru": "Функции",
+            "zh-cn": "职能"
           },
           "content": "basics/functions.md"
         },
@@ -95,7 +95,7 @@
           "title": {
             "en": "roll",
             "de": "Rollen",
-            "ru": "рулет",
+            "ru": "рулон",
             "zh-cn": "卷"
           },
           "content": "basics/roles.md"
@@ -114,7 +114,7 @@
           "title": {
             "en": "Introduction",
             "de": "Introduction",
-            "ru": "введение",
+            "ru": "Вступление",
             "zh-cn": "介绍"
           },
           "content": "install/README.md"
@@ -122,9 +122,18 @@
         "installation": {
           "title": {
             "en": "installation",
-            "de": "Hardware",
+            "de": "Anforderungen",
             "ru": "установка",
             "zh-cn": "安装"
+          },
+          "content": "install/requirements.md"
+        },
+        "hardware": {
+          "title": {
+            "en": "hardware",
+            "de": "Hardware",
+            "ru": "аппаратное обеспечение",
+            "zh-cn": "硬件"
           },
           "content": "install/hardware.md"
         },
@@ -188,7 +197,7 @@
                 "en": "Linux",
                 "de": "Linux",
                 "ru": "Linux",
-                "zh-cn": "的Linux"
+                "zh-cn": "Linux"
               },
               "content": "install/linux.md"
             },
@@ -246,8 +255,8 @@
       "title": {
         "en": "Admin",
         "de": "Admin",
-        "ru": "Администратор",
-        "zh-cn": "管理员"
+        "ru": "Админ",
+        "zh-cn": "行政"
       },
       "content": "admin/README.md",
       "pages": {
@@ -255,7 +264,7 @@
           "title": {
             "en": "System settings",
             "de": "Systemeinstellungen",
-            "ru": "Настройки системы",
+            "ru": "Системные настройки",
             "zh-cn": "系统设置"
           },
           "content": "admin/settings.md"
@@ -264,8 +273,8 @@
           "title": {
             "en": "Overview",
             "de": "Übersicht",
-            "ru": "обследование",
-            "zh-cn": "调查"
+            "ru": "Обзор",
+            "zh-cn": "概述"
           },
           "content": "admin/overview.md"
         },
@@ -278,20 +287,20 @@
           },
           "content": "admin/adapter.md"
         },
-        "instances": {
+        "Instances": {
           "title": {
-            "en": "instances",
+            "en": "Instances",
             "de": "Instanzen",
-            "ru": "экземпляры",
+            "ru": "Экземпляры",
             "zh-cn": "实例"
           },
           "content": "admin/instances.md"
         },
-        "objects": {
+        "Objects": {
           "title": {
-            "en": "objects",
+            "en": "Objects",
             "de": "Objekte",
-            "ru": "объекты",
+            "ru": "Объекты",
             "zh-cn": "对象"
           },
           "content": "admin/objects.md"
@@ -300,8 +309,8 @@
           "title": {
             "en": "Enums",
             "de": "Aufzählungen",
-            "ru": "Администратор",
-            "zh-cn": "管理员"
+            "ru": "Перечисления",
+            "zh-cn": "枚举"
           },
           "content": "admin/enums.md"
         },
@@ -309,7 +318,7 @@
           "title": {
             "en": "log",
             "de": "Log",
-            "ru": "журнал",
+            "ru": "бревно",
             "zh-cn": "日志"
           },
           "content": "admin/log.md"
@@ -318,7 +327,7 @@
           "title": {
             "en": "Events",
             "de": "Ereignisse",
-            "ru": "события",
+            "ru": "События",
             "zh-cn": "活动"
           },
           "content": "admin/events.md"
@@ -332,11 +341,11 @@
           },
           "content": "admin/users.md"
         },
-        "hosts": {
+        "Hosts": {
           "title": {
-            "en": "hosts",
+            "en": "Hosts",
             "de": "Hosts",
-            "ru": "хостов",
+            "ru": "Хосты",
             "zh-cn": "主机"
           },
           "content": "admin/hosts.md"
@@ -355,7 +364,7 @@
           "title": {
             "en": "Tutorial",
             "de": "Tutorial",
-            "ru": "учебник",
+            "ru": "Руководство",
             "zh-cn": "教程"
           },
           "content": "tutorial/updates.md"
@@ -396,12 +405,12 @@
                 "zh-cn": "小部件"
               },
               "pages": {
-                "widgets": {
+                "Widgets": {
                   "title": {
-                    "en": "widgets",
+                    "en": "Widgets",
                     "de": "Widgets",
-                    "ru": "виджеты",
-                    "zh-cn": "小部件"
+                    "ru": "Виджеты",
+                    "zh-cn": "小工具"
                   },
                   "content": "viz/widgets.md"
                 },
@@ -488,7 +497,7 @@
           "title": {
             "en": "Cloud",
             "de": "Cloud",
-            "ru": "облако",
+            "ru": "Облако",
             "zh-cn": "云"
           },
           "content": "cloud/iosapp.md"
@@ -507,35 +516,35 @@
           "title": {
             "en": "introduction",
             "de": "Einleitung",
-            "ru": "введение",
+            "ru": "вступление",
             "zh-cn": "介绍"
           },
           "content": "config/README.md"
         },
-        "user management": {
+        "User administration": {
           "title": {
-            "en": "user management",
+            "en": "User administration",
             "de": "Benutzerverwaltung",
-            "ru": "управление пользователями",
+            "ru": "Администрирование пользователей",
             "zh-cn": "用户管理"
           },
           "content": "config/userrights.md"
         },
-        "authentication": {
+        "Authentication": {
           "title": {
-            "en": "authentication",
+            "en": "Authentication",
             "de": "Authentifizierung",
-            "ru": "идентификация",
-            "zh-cn": "认证"
+            "ru": "Аутентификация",
+            "zh-cn": "验证"
           },
           "content": "config/login.md"
         },
-        "encoding": {
+        "Encryption": {
           "title": {
-            "en": "encoding",
+            "en": "Encryption",
             "de": "Verschlüsselung",
-            "ru": "кодирование",
-            "zh-cn": "编码"
+            "ru": "Шифрование",
+            "zh-cn": "加密"
           },
           "content": "config/encryption.md"
         },
@@ -562,7 +571,7 @@
             "en": "The Redis database for ioBroker",
             "de": "Die Redis-Datenbank für IoBroker",
             "ru": "Redis",
-            "zh-cn": "ioBroker的Redis数据库"
+            "zh-cn": "ioBroker 的 Redis 数据库"
           },
           "content": "config/redis.md"
         },
@@ -570,7 +579,7 @@
           "title": {
             "en": "data backup",
             "de": "Datensicherung",
-            "ru": "резервирование данных",
+            "ru": "резервное копирование данных",
             "zh-cn": "数据备份"
           },
           "content": "config/backup.md"
@@ -585,12 +594,12 @@
         "zh-cn": "故障排除手册"
       },
       "pages": {
-        "Troubleshooting - Introduction": {
+        "introduction": {
           "title": {
-            "en": "Troubleshooting - Introduction",
+            "en": "introduction",
             "de": "Einleitung",
-            "ru": "Устранение неисправностей - Введение",
-            "zh-cn": "故障排除 - 简介"
+            "ru": "вступление",
+            "zh-cn": "介绍"
           },
           "content": "trouble/README.md"
         },
@@ -603,12 +612,12 @@
           },
           "content": "trouble/RunsNoMore.md"
         },
-        "Troubleshooting - Troubleshooting": {
+        "Troubleshooting": {
           "title": {
-            "en": "Troubleshooting - Troubleshooting",
+            "en": "Troubleshooting",
             "de": "Fehlersuche",
-            "ru": "Устранение неисправностей - Устранение неисправностей",
-            "zh-cn": "故障排除 - 故障排"
+            "ru": "Поиск проблемы",
+            "zh-cn": "故障排除"
           },
           "content": "trouble/search.md"
         },
@@ -616,35 +625,35 @@
           "title": {
             "en": "Resolve adapters errors",
             "de": "Adapterfehler",
-            "ru": "Устранение неполадок - ошибка адаптера",
-            "zh-cn": "故障排除 - 适配器错误"
+            "ru": "Сбой адаптера",
+            "zh-cn": "适配器故障"
           },
           "content": "trouble/adapter.md"
         },
-        "Troubleshooting - Report a bug": {
+        "Report an error": {
           "title": {
-            "en": "Troubleshooting - Report a bug",
+            "en": "Report an error",
             "de": "Fehler melden",
-            "ru": "Устранение неполадок - Сообщить об ошибке",
-            "zh-cn": "疑难解答 - 报告错误"
+            "ru": "Сообщить об ошибке",
+            "zh-cn": "报告错误"
           },
           "content": "trouble/issue.md"
         },
-        "Troubleshooting - Recovery": {
+        "Restoration": {
           "title": {
-            "en": "Troubleshooting - Recovery",
+            "en": "Restoration",
             "de": "Wiederherstellung",
-            "ru": "Устранение неполадок - Восстановление",
-            "zh-cn": "故障排除 - 恢复"
+            "ru": "Реставрация",
+            "zh-cn": "恢复"
           },
           "content": "trouble/restore.md"
         },
-        "Troubleshooting - Forum": {
+        "Forum": {
           "title": {
-            "en": "Troubleshooting - Forum",
+            "en": "Forum",
             "de": "Forum",
-            "ru": "Решение проблем - Форум",
-            "zh-cn": "疑难解答 - 论坛"
+            "ru": "Форум",
+            "zh-cn": "论坛"
           },
           "content": "trouble/forum.md"
         },
@@ -726,7 +735,7 @@
           "title": {
             "en": "development",
             "de": "Entwicklung",
-            "ru": "развитие",
+            "ru": "разработка",
             "zh-cn": "发展"
           },
           "content": "community/project.md"
@@ -748,12 +757,12 @@
               },
               "content": "community/doc.md"
             },
-            "Styleguide documentation": {
+            "Style guide documentation": {
               "title": {
-                "en": "Styleguide documentation",
+                "en": "Style guide documentation",
                 "de": "Styleguide Dokumentation",
-                "ru": "Стилегидная документация",
-                "zh-cn": "Styleguide文档"
+                "ru": "Документация руководства по стилю",
+                "zh-cn": "风格指南文档"
               },
               "content": "community/styleguidedoc.md"
             },
@@ -761,7 +770,7 @@
               "title": {
                 "en": "Markdown",
                 "de": "Markdown",
-                "ru": "уценка",
+                "ru": "Уценка",
                 "zh-cn": "降价"
               },
               "content": "community/docmarkdown.md"
@@ -783,7 +792,7 @@
             "en": "Guide for adapter developers",
             "de": "Eigener Adapter",
             "ru": "Собственный адаптер",
-            "zh-cn": "自己的适配器"
+            "zh-cn": "自带适配器"
           },
           "content": "dev/adapterdev.md"
         },
@@ -819,8 +828,8 @@
           "title": {
             "en": "Adapter reference",
             "de": "Adapterreferenz",
-            "ru": "Adapterrefenz",
-            "zh-cn": "Adapterrefenz"
+            "ru": "Ссылка на адаптер",
+            "zh-cn": "适配器参考"
           },
           "content": "dev/adapterref.md"
         },
@@ -854,36 +863,45 @@
         "Development - Adapter template": {
           "title": {
             "en": "Development - Adapter template",
-            "de": "Testing",
+            "de": "Adaptervorlage",
             "ru": "Разработка - шаблон адаптера",
             "zh-cn": "开发 - 适配器模板"
           },
+          "content": "dev/adaptertemplate.md"
+        },
+        "Testing": {
+          "title": {
+            "en": "Testing",
+            "de": "Testing",
+            "ru": "Тестирование",
+            "zh-cn": "测试"
+          },
           "content": "dev/adaptertesting.md"
         },
-        "Documentation Template": {
+        "Documentation template": {
           "title": {
-            "en": "Documentation Template",
+            "en": "Documentation template",
             "de": "Dokumentation-Template",
-            "ru": "Документация Шаблон",
+            "ru": "Шаблон документации",
             "zh-cn": "文档模板"
           },
           "content": "dev/adapterdoctemplate.md"
         },
-        "Documentation Style Guide": {
+        "Documentation style guide": {
           "title": {
-            "en": "Documentation Style Guide",
+            "en": "Documentation style guide",
             "de": "Dokumentation-Styleguide",
-            "ru": "Руководство Документация Стиль",
+            "ru": "Руководство по стилю документации",
             "zh-cn": "文档风格指南"
           },
           "content": "dev/adapterdocstyleguide.md"
         },
-        "Development - Styleguide User Interface": {
+        "Style guide UI": {
           "title": {
-            "en": "Development - Styleguide User Interface",
+            "en": "Style guide UI",
             "de": "Styleguide UI",
-            "ru": "Разработка - Пользовательский интерфейс Styleguide",
-            "zh-cn": "开发 -  Styleguide用户界面"
+            "ru": "Руководство по стилю UI",
+            "zh-cn": "风格指南 UI"
           },
           "content": "dev/styleguideui.md"
         },
@@ -905,30 +923,30 @@
           },
           "content": "dev/adapterpublish.md"
         },
-        "Development - ioBroker backend": {
+        "Backend development": {
           "title": {
-            "en": "Development - ioBroker backend",
+            "en": "Backend development",
             "de": "Backend-Entwicklung",
-            "ru": "Разработка - бэкэнд ioBroker",
-            "zh-cn": "开发 -  ioBroker后端"
+            "ru": "Backend разработка",
+            "zh-cn": "后端开发"
           },
           "content": "dev/controller.md"
         },
-        "development": {
+        "Best practices": {
           "title": {
-            "en": "development",
+            "en": "Best practices",
             "de": "Best Practices",
-            "ru": "развитие",
-            "zh-cn": "发展"
+            "ru": "Лучшие практики",
+            "zh-cn": "最佳实践"
           },
           "content": "dev/bestpractices.md"
         },
         "How to add the device to alexa or google home": {
           "title": {
             "en": "How to add the device to alexa or google home",
-            "de": "So fügen Sie das Gerät zu alexa oder google home hinzu",
+            "de": "So fügen Sie das Gerät zu Alexa oder Google Home hinzu",
             "ru": "Как добавить устройство в alexa или google home",
-            "zh-cn": "如何将设备添加到Alexa或Google Home"
+            "zh-cn": "如何将设备添加到 alexa 或 google home"
           },
           "content": "dev/adddevice.md"
         }
@@ -951,11 +969,11 @@
           },
           "content": "integrators/README.md"
         },
-        "System Integrators - Link Box": {
+        "System integrators - link box": {
           "title": {
-            "en": "System Integrators - Link Box",
+            "en": "System integrators - link box",
             "de": "System-Integratoren - Link-Box",
-            "ru": "Системные интеграторы - Link Box",
+            "ru": "Системные интеграторы - поле ссылок",
             "zh-cn": "系统集成商 - 链接盒"
           },
           "content": "integrators/linkbox.md"

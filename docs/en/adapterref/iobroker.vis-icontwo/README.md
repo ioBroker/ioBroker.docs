@@ -61,6 +61,72 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+### 0.76.0
+
+• Neue Icons hinzugefügt (Devices/thermostat)
+
+### 0.75.0
+
+• Neue Icons hinzugefügt (Hobbies/Train)
+
+### 0.74.0
+
+• Neue Icons hinzugefügt (Letters/Rounded)
+
+### 0.73.0
+
+• Neue Icons hinzugefügt (Hobbies/Train)
+
+### 0.72.0
+
+• Neue Icons hinzugefügt (Hobbies/Train)
+
+### 0.71.0
+
+• Neue Icons hinzugefügt (Devices/Computer)
+
+### 0.70.0
+
+• Neue Icons hinzugefügt (Player/Cover)
+
+### 0.69.0
+
+• Neue Icons hinzugefügt (Hobbies/Train & Spa_Fitness)
+
+### 0.68.0
+
+• Neue Icons hinzugefügt (Devices/Sandfilter)
+
+### 0.67.0
+
+• Neue Icons hinzugefügt (Hobbies)
+
+
+### 0.66.0
+
+• Neue Icons hinzugefügt (Clock & Timer)
+
+### 0.65.1
+
+• Bugfix
+
+
+### 0.65.0
+
+• Neue Icons hinzugefügt (Player)
+
+### 0.64.0
+
+• Neue Icons hinzugefügt (Brands & Computer)
+
+### 0.63.0
+
+• Neue Icons hinzugefügt (Animated Icons - Arrows, Maps, Phones & Weather)
+
+### 0.62.0
+
+• Neue Icons hinzugefügt (Animated Icons - Charts & Alarm)
+
 ### 0.61.0
 
 • Neue Icons hinzugefügt (Finance & Charts)
@@ -383,7 +449,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## License
 
-Urheberrechte (c) 2020 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
+Urheberrechte (c) 2021 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
 
 
 MIT License (nur in englisch / englisch only)

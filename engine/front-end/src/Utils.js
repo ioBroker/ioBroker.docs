@@ -327,6 +327,65 @@ class Utils {
     static padding(num) {
         return num > 9 ? num.toString() : '0' + num;
     }
+
+    // https://github.com/lukeed/clsx/blob/master/src/index.js
+    // License
+    // MIT © Luke Edwards
+    /**
+     * @private
+     * @param {any} mix
+     * @returns {string}
+     */
+    static _toVal(mix) {
+        let k, y, str='';
+
+        if (typeof mix === 'string' || typeof mix === 'number') {
+            str += mix;
+        } else if (typeof mix === 'object') {
+            if (Array.isArray(mix)) {
+                for (k=0; k < mix.length; k++) {
+                    if (mix[k]) {
+                        if ((y = Utils._toVal(mix[k]))) {
+                            str && (str += ' ');
+                            str += y;
+                        }
+                    }
+                }
+            } else {
+                for (k in mix) {
+                    if (mix[k]) {
+                        str && (str += ' ');
+                        str += k;
+                    }
+                }
+            }
+        }
+
+        return str;
+    }
+
+    // https://github.com/lukeed/clsx/blob/master/src/index.js
+    // License
+    // MIT © Luke Edwards
+    /**
+     * Convert any object to a string with its values.
+     * @returns {string}
+     */
+    static clsx () {
+        let i = 0;
+        let tmp;
+        let x;
+        let str = '';
+        while (i < arguments.length) {
+            if ((tmp = arguments[i++])) {
+                if ((x = Utils._toVal(tmp))) {
+                    str && (str += ' ');
+                    str += x
+                }
+            }
+        }
+        return str;
+    }
 }
 
 export default Utils;

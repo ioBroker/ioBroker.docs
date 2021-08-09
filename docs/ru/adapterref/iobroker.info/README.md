@@ -316,10 +316,32 @@ $ sudo apt-get install smartmontools
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
 
-### 1.8.0 (2021-04-10)
-* (ldittmar81) Update libraries
+### 1.9.8 (2021-08-02)
+* Adjust object types to prevent js-controller 3.3 warnings
+
+### 1.9.7 (2021-07-27)
+* (bluefox) updated the clock background 
+
+### 1.9.6 (2021-07-26)
+* (simatec) Design fix
+
+### 1.9.5 (2021-07-25)
+* (simatec) Design Fix
+
+### 1.9.4 (2021-07-24)
+* Ready for Admin 5
+
+### 1.9.2 (2021-07-22)
+* Fix too high load because of wrong parsing of settings
+
+### 1.9.1 (2021-07-21)
+* Adjust object types to prevent js-controller 3.3 warnings
+* Disable all data collection by default  -  users can activate whatever they really need
+
+### 1.9.0 (2021-07-20)
+* Breaking changes: Some systemdata objects have new names and corrected types and content! You might need to adjust scripts and visualizations!
 * (ldittmar81) Added Wifi, Docker, USB, Printer, Bluetooth and Audio infos
-* (ldittmar81) Breaking changes: Some sytemdata objects have new names
+* (Apollon77) Optimize for js-controller 3.3
 
 ### 1.7.15 (2021-01-13)
 * (Apollon77) fix crash case (Sentry IOBROKER-INFO-1X)
@@ -489,7 +511,7 @@ $ sudo apt-get install smartmontools
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017 - 2020 ldittmar <iobroker@lmdsoft.de>
+Copyright (c) 2017 - 2021 ldittmar <iobroker@lmdsoft.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -70,6 +70,18 @@ The result object `ret` looks as follows:
 	Placeholder for next release:
 	### __WORK IN PROGRESS__
 -->
+### 3.0.1 (2021-06-30)
+* Workaround for a bug in IKEA gateway firmware `v1.15.x`
+
+### 3.0.0 (2021-06-19)
+* Update dependencies, require Node.js 12+
+
+### 2.7.3 (2021-05-14)
+* Fix remaining JS-Controller 3.3 warnings
+
+### 2.7.2 (2021-04-30)
+* Avoid warning about `undefined` states in JS-Controller 3.3+
+
 ### 2.7.1 (2021-03-12)
 * Dependency updates
 * Fixed issues in `io-package.json` and README found by the adapter checker

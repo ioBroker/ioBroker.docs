@@ -2,29 +2,30 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.email/README.md
-title: ioBroker E-Mail
-hash: toVqq++uwVaVbxSeS8PlFQ/2PCwgh6XNZ/6O0xhptzM=
+title: ioBroker-E-Mail
+hash: mGpv2SOd2J5VYHrF3xxx5reEDja3CX4LhnpHoG0jI7w=
 ---
 ![Logo](../../../en/adapterref/iobroker.email/admin/email.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/email-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.email.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.email.svg)
-![NPM](https://nodei.co/npm/iobroker.email.png?downloads=true)
 
-# IoBroker E-Mail
+# IoBroker-E-Mail
+![Testen und freigeben](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 Senden Sie E-Mails von ioBroker.
 
 Der Adapter verwendet [Nodemailer](https://github.com/nodemailer/nodemailer), um die Funktionalität bereitzustellen.
 
-** Dieser Adapter benötigt NodeJS 6.x oder höher !! **
+**Dieser Adapter erfordert nodejs 6.x oder höher!!**
 
-** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
-Um Google Mail verwenden zu können, müssen Sie möglicherweise "Weniger sichere Apps zulassen" in Ihrem Google Mail-Konto konfigurieren, es sei denn, Sie verwenden 2FA. In diesem Fall müssten Sie ein anwendungsspezifisches Kennwort erstellen. Möglicherweise müssen Sie Ihr Konto auch mit "Zugriff auf Ihr Google-Konto zulassen" entsperren, um SMTP verwenden zu können.
+Um Google Mail zu verwenden, müssen Sie möglicherweise in Ihrem Google Mail-Konto "Weniger sichere Apps zulassen" konfigurieren, es sei denn, Sie verwenden 2FA. In diesem Fall müssen Sie ein anwendungsspezifisches Passwort erstellen. Möglicherweise müssen Sie Ihr Konto auch mit "Zugriff auf Ihr Google-Konto zulassen" entsperren, um SMTP zu verwenden.
 
 ## Verwendung
-Um eine E-Mail von ScriptEngine zu senden, schreiben Sie einfach:
+Um E-Mails von ScriptEngine zu senden, schreiben Sie einfach:
 
 ```
 // send email to all instances of email adapter
@@ -62,23 +63,23 @@ sendTo("email", {
 });
 ```
 
-Verwenden Sie die Funktion **adapter.sendTo** um E-Mails von einem anderen Adapter zu senden.
+Um E-Mails von einem anderen Adapter zu senden, verwenden Sie die Funktion **adapter.sendTo**.
 
-## Unterstützte Dienste
+##Unterstützte Dienste
 - 1und1
 - AOL
 - DebugMail.io
-- DynectEmail
+- DynectE-Mail
 - FastMail
 - GandiMail
 - Google Mail
 - Los Papa
-- GodaddyAsia
+- GodaddyAsien
 - GodaddyEurope
 - hot.ee
 - Heisse Mail
 - iCloud
-- ith
+- it
 - mail.ee
 - Mail.ru
 - Mailgun
@@ -93,18 +94,25 @@ Verwenden Sie die Funktion **adapter.sendTo** um E-Mails von einem anderen Adapt
 - SendCloud
 - SendGrid
 - SES
-- SES-US-EAST-1
+- SES-US-OST-1
 - SES-US-WEST-2
 - SES-EU-WEST-1
-- Sparkpost
+- Funkenpfosten
 - Yahoo
 - Yandex
 - Zoho
 - Benutzerspezifisch (Server, Port und Sicherheit manuell definiert)
 
-Für andere Dienste siehe Dokumentation von **Nodemailer** `§§LLLLL_0§§`
+Für weitere Dienste siehe Dokumentation von **Nodemailer**: `§§LLLLL_0§§`
 
 ## Changelog
+
+### 1.0.10 (2021-07-06)
+* (Apollon77) Optimize for js-controller 3.3
+
+### 1.0.9 (2021-02-22)
+* (Apollon77) Call message callback always with error or without
+
 ### 1.0.7 (2020-06-11)
 * (Apollon77) Make sure adapter is not crashing on stop in some edge cases
 * (Apollon77) Add Sentry for crash reporting with js-controller >=3.x
@@ -158,7 +166,7 @@ Für andere Dienste siehe Dokumentation von **Nodemailer** `§§LLLLL_0§§`
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020 bluefox
+Copyright (c) 2014-2021 bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

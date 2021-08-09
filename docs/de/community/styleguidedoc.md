@@ -6,7 +6,7 @@ editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/communi
 
 # Style Guide Dokumentation
 
-* Die Dokumentation wird mit Hilfe der Sprache "Markdown" erstellt.
+* Die Dokumentation wird mit Hilfe der Sprache [Markdown][] erstellt.
 * Datei- und Ordnernamen werden mit Kleinbuchstaben geschrieben.
   Erlaubt sind die Zeichen `a-z`, `0-9`, der Unterstrich `_` sowie der
   Dezimalpunkt `.`
@@ -71,4 +71,5 @@ editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/communi
 * Für Adapter-Dokumentionen gibt es einen eigenen [Style Guide][].
 
 [Plugin]: http://editorconfig.org/#download
-[Style Guide]: ../dev/adapterdocstyleguide.md
+[Style Guide]: https://www.iobroker.net/#de/documentation/dev/adapterdocstyleguide.md
+[Markdown]: https://www.iobroker.net/#de/documentation/community/docmarkdown.md

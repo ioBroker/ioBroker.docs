@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: xiWyDYd30ali/ijXzsYDvpZQ4LlbKF9of94Ml/eduSA=
+hash: yAp86KmeXQAQiaNEOn928YYT8VWxt8WjMp8pT/XXcVo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
@@ -13,18 +13,20 @@ hash: xiWyDYd30ali/ijXzsYDvpZQ4LlbKF9of94Ml/eduSA=
 
 # IoBroker.knx
 ## Описание
+ru: [Установка и базовая настройка адаптера](doc/ru/readme.md)
+
 ru: Этот адаптер позволяет импортировать файлы knxproj из ETS. Он генерирует преобразование между адресами группы KNX и ioBroker и помещает устройства в комнаты (особенно для MobileUI).
 
 Он подключается к стандартным шлюзам KNX / LAN.
 
-Перед началом: Каждый DPT com.Objects должен быть установлен в вашем проекте ETS. Каждое устройство должно быть рассортировано по структуре вашего объекта.
+Перед началом: Каждый DPT com.Objects должен быть установлен в вашем проекте ETS. Каждое устройство должно быть отсортировано по структуре вашего объекта.
 
 ## Функции:
 * импорт файла `knxproj`
 * создание ETS-подобной объектной структуры
 * поиск и объединение act-channel и state-channel (эвристика)
 * обновление всех состояний при запуске
-* отправка READ в KNX-Bus при записи на объект-состояние
+* отправка READ на шину KNX при записи состояния-объекта
 * сортировка каналов по комнатам
 
 ## Конфигурация адаптера
@@ -52,16 +54,16 @@ ru: Этот адаптер позволяет импортировать фай
 Вот под knx.0 дерево групповых адресов, как в вашем проекте ETS.
 
 ### Перечисления
-Если в вашем ETS есть строительная конструкция с соответствующими устройствами, она будет показана здесь. Под «членами» находятся имена групповых адресов, перечисленных для устройств с флагом отправки в этой группе.
+Если у вас есть строительная конструкция в вашей ETS с соответствующими устройствами, она будет показана здесь. Под «членами» находятся имена групповых адресов, перечисленных для устройств с флагом отправки в этой группе.
 
-### Использование
+### Применение
 Если адаптер запускается успешно, ваши точки данных будут доступны для всего, что вы хотите делать.
 
 ### Типы точек данных
 Доступны все DPT в соответствии с «Системными спецификациями, взаимодействием, типами данных» от KNX Association. Это означает, что есть 2 типа информации, которую вы можете получить: 1) значение или строку 2) значения, разделенные запятыми, или массив значений (на данный момент я не знаю, как лучше обрабатывать)
 
 Например, DPT5.001 кодируется как 8-битное целое число без знака. Это дает единственное значение. DPT3.007 (Control Dimming) кодируется как 1 бит (логическое значение) + 3 бит (беззнаковое целое число).
-Это приводит, например, к в таком значении, как «0,5», где «0» означает «уменьшение», а «5» означает количество интервалов.
+Это приводит, например, к в значении вроде «0,5», где «0» означает «уменьшение», а «5» означает количество интервалов.
 
 ## Wie werden die Datenpunkte generiert (Deutsch)
 ### 1) Auslesen Aller Kommunikationsobjektreferenzen (im folgenden KOR)
@@ -80,7 +82,7 @@ Weiterhin werden die Флаги in den Gerätekonfigurationen betrachtet. Dabei 
 | KNX | | | iobroker | | |
 |-------|-----------|------------|----------|----------|-------------------------------------------------|
 | Lesen | Шрайбен | Übertragen | Lesen | Шрайбен | Erklärung |
-| - | - | - | - | - | der wert wird über GroupValueResponse aktualiesiert |
+| - | - | - | - | - | der wert wird über GroupValueResponse актуальный |
 | х | - | - | х | х | ein Trigger darauf löst GroupValueRead aus |
 | - | х | - | - | х | Schreibt den angegeben Wert mit GroupValueWrite auf den KNX-Bus |
 | - | - | х | х | - | der Wert wird über GroupValueResponse актуальный |
@@ -110,7 +112,7 @@ Durch senden eines Wertes auf eine Statusadresse werden die Kommunikationsobjekt
 
 4) Der Port der LAN Schnittstelle ist i.d.R. 3671
 
-5) Durch die Möglichkeit der Statusabfrage ist eines zu beachten: Es ist sicherzustellen, dass nicht mehr als 40 Anfragen pro Sekunde vom ioBroker generiert werden, denn diese können dann Physikalisch Bedingt nicht détémehr dépétée andemehr dépété.
+5) Durch die Möglichkeit der Statusabfrage ist eines zu beachten: Es ist sicherzustellen, dass nicht mehr als 40 Anfragen pro Sekunde vom ioBroker genert werden, denn diese können dann Physikalisch Bedingt nicht déstemehr dépétée de nicht mehr dépété.
 
 ## Запланированные функции
 * добавление адресов в описание объекта (id)

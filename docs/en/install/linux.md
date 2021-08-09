@@ -15,7 +15,7 @@ The ioBroker then runs under this user.
 
 If reloading a script is too dangerous for you, you can check the script beforehand under [this link](https://raw.githubusercontent.com/ioBroker/ioBroker/stable-installer/installer.sh).
 
-These installation instructions for ioBroker show the installation on Linux using the example of Raspberry Pi with Raspberry OS 'Buster'.
+These installation instructions for ioBroker show the installation on Linux using the example of the Raspberry Pi with Raspberry OS 'Buster'.
 
 Due to dependencies on other packages or additional installations, special features can occur again and again during the installation.
 
@@ -25,7 +25,7 @@ or any other hardware with a common Linux. However, Debian, Ubuntu or one of the
 
 We do not recommend using a Pi 1 as a master. It's just not powerful enough (500MB RAM, etc.). Due to the different hardware, these instructions do not fit a Pi 1 anyway.
 
-Even a Pi 2 or Pi 3 only has a max. 1 GB RAM. With 15 adapter instances this should be sufficient, but beyond that it can be tight. Each adapter instance requires around 40 MB (and sometimes 200MB and more) of RAM. Therefore you should always keep an eye on the RAM usage before activating further adapter instances - 1 GB RAM is finite.
+Even a Pi 2 or Pi 3 only has a maximum of 1 GB RAM. With 15 adapter instances this should still be sufficient, but beyond that it can be tight. Each adapter instance requires around 40 MB (and sometimes 200MB and more) of RAM. You should therefore always keep an eye on the RAM usage before activating additional adapter instances - 1 GB of RAM is finite.
 
 Therefore the Raspberry4 with 4, better 8 GB RAM is recommended from the Raspberry series.
 
@@ -51,18 +51,18 @@ Help and instructions for the respective versions are available on the correspon
 
 Root access for SSH can be activated.
 
-For the well-known safety aspects, we advise against it. To install ioBroker, it is sufficient to use the sudo command and precede the respective command.
+For the well-known safety aspects, we advise against it. For the installation of ioBroker it is sufficient to use the command sudo and prefix the respective command.
 
 ### Installation Node.js
-!> with the current ioBroker installer (see below) ** on a system without node.js ** the currently recommended version of node.js is automatically installed! A separate installation of node.js beforehand is ** no longer necessary.
+!> with the current ioBroker installer (see below) **on a system without node.js** the currently recommended version of node.js is automatically installed! A separate installation of node.js beforehand is **no longer necessary**
 
-The following instructions should also be used for a downgrade.
+The following instructions should also be used when downgrading.
 
 The currently recommended version is node 12.x; for other desired versions in step 4.1. replace the “12.x” with Y.x ”.
 
 !> Debian Buster requires at least node.js v10.x !!
 
-<span style="color:red">Odd nodejs versions are generally not recommended as they are developer versions.</span>
+<span style="color:red">odd nodejs versions are generally not recommended because they are developer versions.</span>
 
 <span style="color:red">npm is installed appropriately together with nodejs. A manual installation or upgrade of npm is not advisable!</span>
 
@@ -112,10 +112,10 @@ If this results in a version <6, please perform an npm update with ``sudo -H npm
 
 ---
 
-### Installation of ioBroker
-The installation can be done with the user pi but also with the user root.
+### Installation ioBroker
+The installation can be carried out with the user pi but also with the user root.
 
-Run on the console:
+Execute on the console:
 
 ``curl -sLf https://iobroker.net/install.sh | bash -``
 

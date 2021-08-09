@@ -8,9 +8,9 @@ hash: gH4zuuZ+a67CUc09gI901hft2T4V48aHFUypPcHeiak=
 ---
 # The multihost operation
 ioBroker is able to have the tasks done by several servers. This allows the processing load to be distributed across multiple hosts.
-But you can also use system-specific extensions of a single-board computer (GPIO from a RaspberryPi, although the "main computer" is a more powerful Intel NUC).
+However, you can also use system-specific extensions of a single-board computer (GPIO from a RaspberryPi, although the "main computer" is a more powerful Intel NUC).
 
-After creating a multihost system, all configurations are carried out centrally via the master's admin. The admin of the slave (s) can no longer be reached via their web interface (s).
+After creating a multihost system, all configurations are carried out centrally via the admin of the master. The admin of the slave (s) can no longer be reached via their web interface (s).
 
 It therefore makes sense to use a host with a minimal installation for a slave, i.e. only the js-controller and the admin.
 
@@ -97,7 +97,7 @@ Example:**
 ... the multihost automatic (“sudo iobroker multihost enable” and “sudo iobroker multihost browse“) does not work, but only the old way (`iobroker setup custom`) see above
 
 ## Multihost with redis
-If a multihost environment is to be installed in which the states are saved in redis, a number of things must be taken into account.
+If a multihost environment is to be installed in which the states are saved in redis, there are still a few things to consider.
 
 The redis.conf file on the host on which the states are saved must be changed as follows.
 
@@ -130,7 +130,7 @@ sudo service redis-server restart
 ```
 
 ## Distribute tasks
-There are two ways of distributing the tasks among the hosts.
+There are two ways to distribute the tasks among the hosts.
 
 * If it is a new installation, select the host on which the instance of the adapter is to be installed in the Adapter tab from the pull-down menu above the adapter list.
 

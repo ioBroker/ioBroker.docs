@@ -3,10 +3,11 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.netatmo/README.md
 title: ioBroker.netatmo
-hash: wUStXr7TvXEX/ihhR6zd6MFzoTMsrCpKc3NoBP/7LQk=
+hash: wnL39RRsXHajzRiYCAIDRJ05Yhdq6qC6OgfCzBEEQEM=
 ---
 ![Logo](../../../en/adapterref/iobroker.netatmo/admin/netatmo.png)
 
+![Anzahl der Installationen](http://iobroker.live/badges/netatmo-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.netatmo.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.netatmo.svg)
 ![NPM](https://nodei.co/npm/iobroker.netatmo.png?downloads=true)
@@ -15,9 +16,9 @@ hash: wUStXr7TvXEX/ihhR6zd6MFzoTMsrCpKc3NoBP/7LQk=
 Netatmo-Adapter für ioBroker
 
 ## Installation
-Geben Sie einfach Ihren Netatmo-Benutzernamen und Ihr Kennwort in den Adaptereinstellungen ein
+Geben Sie einfach Ihren Netatmo-Benutzernamen und Ihr Passwort in den Adaptereinstellungen ein
 
-Mit dem Befehl sendTo können Sie auch alle Personen als abwesend festlegen (z. B. bei Verwendung als Alarmsystem).
+Sie können auch den sendTo-Befehl verwenden, um alle Personen als abwesend zu setzen (z. B. bei Verwendung als Alarmanlage)
 
 ```
 sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: []});
@@ -29,17 +30,31 @@ oder
 sendTo('netatmo.0', "setAway");
 ```
 
-Alle Personen für alle Kameras als abwesend markieren
+um alle Personen für alle Kameras als abwesend zu markieren
 
-Es ist auch möglich, eine oder mehrere bestimmte Personen als abwesend zu kennzeichnen
+es ist auch möglich eine oder mehrere bestimmte Personen als abwesend zu markieren
 
 ```
 sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123123123123']});
 ```
 
-Der Parameter homeId ist die Zeichenfolge, die hinter dem Namen Ihrer Kamera auf der Registerkarte Objekte aufgeführt ist (optional, wenn mehrere Kameras installiert sind), die Personen-ID ist die ID im Personenordner "Bekannte"
+Der Parameter homeId ist der String, der hinter dem Namen Ihrer Kamera auf der Registerkarte Objekte aufgeführt ist (optional, wenn mehrere Kameras installiert sind), die personId ist die ID im Ordner "Bekannte" Personen
+
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+
+### __ARBEITEN IN PROGRESS__ -->
 
 ## Changelog
+### 1.4.0 (2021-06-24)
+* (bluefox) Added the support of admin5 
+* (bluefox) Removed warnings about the type of states  
+
+### 1.3.3
+* (PArns) removed person history
+
+### 1.3.2
+* (PArns) Updated libs & merged pending patches
+* (PArns) Changed update interval from 5 to 10 minutes (requested by Netatmo)
 
 ### 1.3.1
 * (PArns) Fixed event cleanup crash
@@ -116,33 +131,33 @@ Der Parameter homeId ist die Zeichenfolge, die hinter dem Namen Ihrer Kamera auf
 ### 0.2.2
 * (PArns) Fixed SumRain24MaxDate & SumRain24Max which won't update in some rare cases
 
-#### 0.2.1
+### 0.2.1
 * (PArns) Corrected DateTime values & object types
 
-#### 0.2.0
+### 0.2.0
 * (PArns) Added SumRain1Max/SumRain1MaxDate & SumRain24Max/SumRain24MaxDate to get overall rain max since adapter installation
 
-#### 0.1.1
+### 0.1.1
 * (PArns) Fixed TemperatureAbsoluteMin/TemperatureAbsoluteMax
 
-#### 0.1.0
+### 0.1.0
 * (PArns) Fixed CO2 calibrating status
 * (PArns) Added last update for devices
 * (PArns) Added TemperatureAbsoluteMin/TemperatureAbsoluteMax to get overall temperature min/max since adapter installation
 
-#### 0.0.4
+### 0.0.4
 * (PArns) Fixed typo/missing parameter in GustStrength
 
-#### 0.0.3
+### 0.0.3
 * (PArns) Added error handling to prevent exceptions for missing parameters
 
-#### 0.0.2
+### 0.0.2
 * (PArns) Fixed rain sensor
 
-#### 0.0.1
+### 0.0.1
 * (PArns) Initial release
 
 ## License
 MIT
 
-Copyright (c) 2016-2017 Patrick Arns <iobroker@patrick-arns.de>
+Copyright (c) 2016-2021 Patrick Arns <iobroker@patrick-arns.de>

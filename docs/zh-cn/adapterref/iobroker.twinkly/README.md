@@ -3,50 +3,45 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.twinkly/README.md
 title: ioBroker.twinkly
-hash: hldAZkmyW8gb0j+l0H2YzXZmhkZQE2diQeEA+IatQy8=
+hash: /lG0DQSc6EvjJOdXRtxZRURjSWcr9Iiujz1V4IHVEOE=
 ---
 ![商标](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
 ![安装数量（最新）](http://iobroker.live/badges/twinkly-installed.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/twinkly-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.twinkly.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.twinkly.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.twinkly.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.twinkly.svg)
 ![依赖状态](https://img.shields.io/david/patrickbs96/iobroker.twinkly.svg)
 ![已知漏洞](https://snyk.io/test/github/patrickbs96/ioBroker.twinkly/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.twinkly.png?downloads=true)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/patrickbs96/ioBroker.twinkly?branch=master&svg=true)
+![新产品管理](https://nodei.co/npm/iobroker.twinkly.png?downloads=true)
+![应用程序](https://ci.appveyor.com/api/projects/status/github/patrickbs96/ioBroker.twinkly?branch=master&svg=true)
 
-＃ioBroker.twinkly
-**测试：** Linux / Mac：[![Travis-CI]（https://travis-ci.com/patrickbs96/ioBroker.twinkly.svg）](https://travis-ci.com/github/patrickbs96/ioBroker.twinkly)]
+# IoBroker.twinkly
+**测试：** Linux/Mac：[![Travis-CI](https://travis-ci.com/patrickbs96/ioBroker.twinkly.svg)](https://travis-ci.com/github/patrickbs96/ioBroker.twinkly)
 
 ##用于ioBroker的twinkly适配器
-与[闪烁的灯光](https://www.twinkly.com/)通信的适配器。
+与 [闪烁的灯光](https://www.twinkly.com/) 通信的适配器。
 
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
 
 ##设置
-可以使用以下设置：![admin.png](../../../en/adapterref/iobroker.twinkly/img/admin.png)
+以下设置可用：![管理.png](../../../en/adapterref/iobroker.twinkly/img/admin.png)
 
-在表中，您可以添加要控制的所有Twinkly灯。
+在表格中，您可以添加所有要控制的 Twinkly 灯。
 
-|专栏描述 |
+|专栏 |说明 |
 | ------------ | ---------------------------------- |
-| `Enabled`|是否应访问此连接|
-| `IP Address`|闪烁灯的IP地址|
-| IP地址|闪烁灯的IP地址|
+| `Enabled` |是否可以访问此连接？ |
+| `IP Address` |闪烁灯的 IP 地址 |
+| `IP 地址` |闪烁灯的 IP 地址 |
 
-选中后，将为每个设备创建以下附加状态：
+选中时，将为每个设备创建以下附加状态：
 
-*设备信息（已读）
-*网络状态（已读）
+* 设备信息（读取）
+* 网络状态（读取）
 * MQTT（读/写）
 
-[私人API信息] [https://xled-docs.readthedocs.io/en/latest/）[PavolBabinčák](https://github.com/scrool)
-
-＃＃ 去做
-*选中“扩展JSON”开关后，不会创建频道（**重启解决了atm错误**）
-*网络状态（写）
-*状态为开：选中其“模式”播放列表/电影的复选框
+[私有 API 信息](https://xled-docs.readthedocs.io/en/latest/) 由 [Pavol Babinčák]](https://github.com/scrool)
 
 ## Changelog
 

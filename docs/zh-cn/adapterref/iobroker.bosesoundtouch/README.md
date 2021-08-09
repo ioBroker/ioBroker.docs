@@ -2,67 +2,88 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bosesoundtouch/README.md
-title: ioBroker.bosesoundtouch！[Logo]（admin / bosesoundtouch.png）
-hash: y7eAT0+9YRxANKW9rG+VTdK2tjmY4kwJW/z/1HBl0G0=
+title: ioBroker.bosesoundtouch
+hash: EQkIheOfB3+GIXK55QxZ1pS+XER1FIKvlwMEdpzYPWY=
 ---
+![标识](../../../en/adapterref/iobroker.bosesoundtouch/admin/bosesoundtouch.png)
+
 ![安装数量](http://iobroker.live/badges/bosesoundtouch-installed.svg)
-![NPM](https://nodei.co/npm/iobroker.bosesoundtouch.png?downloads=true)
+![新产品管理](https://nodei.co/npm/iobroker.bosesoundtouch.png?downloads=true)
 
-＃ioBroker.bosesoundtouch![商标](../../../en/adapterref/iobroker.bosesoundtouch/admin/bosesoundtouch.png)
-用于ioBroker IoT平台的Bose SoundTouch适配器
+# IoBroker.boseoundtouch
+适用于 ioBroker IoT 平台的 Bose SoundTouch 适配器
 
-##控制状态
+## 控制状态
 要控制扬声器，可以编写以下对象：
 
-|国家|说明|
+|状态 |说明 |
 | :---           | :---        |
-|关键|要发送的以下密钥之一： <br><br>玩<br>暂停<br>停<br> PREV_TRACK <br> NEXT_TRACK <br>竖起大拇指<br>不看好<br>书签<br>功率<br>静音<br>提高音量<br>音量减小<br> PRESET_1 <br> PRESET_2 <br> PRESET_3 <br> PRESET_4 <br> PRESET_5 <br> PRESET_6 <br> AUX_INPUT <br> SHUFFLE_OFF <br> SHUFFLE_ON <br> REPEAT_OFF <br> REPEAT_ONE <br> REPEAT_ALL <br> PLAY_PAUSE <br> ADD_FAVORITE <br> REMOVE_FAVORITE <br> INVALID_KEY |
-|静音|将设备静音或取消静音。 |
-|在|打开或关闭设备电源。 |
-| playEverywhere |将扬声器定义为区域主控并在所有其他扬声器上播放其内容。 |
-|音量|将设备容量更改为0到100之间 |
+|键 |要发送的以下键之一：<br><br>玩<br>暂停<br>停止<br>PREV_TRACK<br>下一条轨道<br>竖起大拇指<br>不看好<br>书签<br>力量<br>沉默的<br>提高音量<br>音量减小<br>预设_1<br>预设_2<br>预设_3<br>预设_4<br>预设_5<br>预设_6<br>辅助输入<br>SHUFFLE_OFF<br> SHUFFLE_ON<br> REPEAT_OFF<br> REPEAT_ONE<br> REPEAT_ALL<br> PLAY_PAUSE<br>添加_收藏夹<br>REMOVE_FAVORITE<br> INVALID_KEY |
+|静音 |将设备静音或取消静音。 |
+|上 |打开或关闭设备。 |
+|到处玩|将扬声器定义为区域主控并在所有其他扬声器上播放其内容。 |
+|音量 |在 0 到 100 之间更改设备音量。 |
 
-##信息状态
-从您的发言人那里收集以下信息（只读状态）：
+## 信息状态
+以下信息是从您的扬声器收集的（只读状态）：
 
 ＃＃＃ 设备信息
-|国家|说明|
+|状态 |说明 |
 | :---       | :---        |
-| ipAddress |设备IP地址，通常与您在适配器设置中配置的相同。 |
-| macAddress |设备MAC地址|
-|名字|您使用SoundTouch应用程序配置的名称。 |
-|类型|设备类型（例如SoundTouch 300）。 |
+| ip地址 |设备 IP 地址，通常与您在适配器设置中配置的相同。 |
+| mac地址 |设备MAC地址|
+|姓名 |您使用 SoundTouch 应用程序配置的名称。 |
+|类型 |设备类型（例如 SoundTouch 300）。 |
 
-###正在播放
-|国家|说明|
+### 正在播放
+|状态 |说明 |
 | :---       | :---        |
-|专辑|目前正在播放的专辑。 |
-|艺术|源艺术的URL。 |
-|艺术家|目前正在播放的艺术家|
-|类型|当前播放曲目的类型。 |
-|来源|播放服务的类型或名称。要确定产品是否处于待机模式，请检查source == STANDBY。 |
-|车站|电台或播放列表名称。 |
-|跟踪|目前正在播放的曲目。 |
+|专辑 |当前播放的专辑。 |
+|艺术 |源艺术的 URL。 |
+|艺术家 |当前播放的艺术家。 |
+|流派|当前播放曲目的类型。 |
+|来源 |正在播放的服务的类型或名称。要确定产品是否处于待机模式，请检查 source == STANDBY。 |
+|站 |电台或播放列表名称。 |
+|跟踪|当前播放的曲目。 |
 
 ###预设
-6个可用预设中的每一个都存在以下状态：
+6 个可用预设中的每一个都有以下状态：
 
-|国家|说明|
+|状态 |说明 |
 | :---       | :---        |
-| iconUrl |源艺术的URL。 |
-|名字|专辑，电台，播放列表，歌曲，电话等名称取决于来源。 |
-|来源|服务的类型或名称。 |
+|图标网址 |源艺术的 URL。 |
+|姓名 |专辑、电台、播放列表、歌曲、电话等名称取决于来源。 |
+|来源 |服务的类型或名称。 |
 
-### Zones
-以下说明将帮助您使用多房间系统创建组。如果您通过Soundtouch应用程序本身更改组，则只读字段会由声音触控设备自动更新。
+### 区域
+以下说明将帮助您使用多房间系统创建群组。只读字段由 soundtouch 设备自动更新，如果您通过 Soundtouch 应用程序本身更改组也是如此。
 
-|国家|说明|
+|状态 |说明 |
 | :---       | :---        |
 
-| masterOf |显示扬声器从站的MAC地址（用“;”分隔）（只读）| memberOf |显示该扬声器主机的MAC地址（只读）| addMasterOf |添加要添加到此主扬声器的扬声器的MAC地址。也可以放一个以上的扬声器（用“;”分开）。
-| removeMasterOf |添加要从此主扬声器中移除的扬声器的MAC地址。也可以放一个以上的扬声器（用“;”分开）。
+|大师|显示扬声器从机的MAC地址（以“;”分隔）（只读）|会员|显示此音箱主控的MAC地址（只读）| addMasterOf|添加您要添加到此主扬声器的扬声器的 MAC 地址。也可以放置不止一个扬声器（用“;”分隔）。
+|移除MasterOf|添加要从此主扬声器中删除的扬声器的 MAC 地址。也可以放置不止一个扬声器（用“;”分隔）。
 
 ## Changelog
+
+### 0.10.0 (2021-07-30)
+* IMPORTANT: The adapter now requires at least js-controller 2.0
+* (Apollon77) Optimize for js-controller 3.3
+
+### 0.9.4 (07.05.2021)
+* fixed vulnerability in NPM
+
+### 0.9.3 (02.02.2021)
+
+* transfer of adapter to iobroker-community-adapters
+
+### 0.9.3 (10.01.2021)
+
+* Added elapsed time, duration, status, keys and roles
+
+### 0.9.2 (09.12.2019)
+
+* We don't use adapter.objects anymore
 
 ### 0.9.1 (12.05.2019)
 
@@ -169,4 +190,4 @@ hash: y7eAT0+9YRxANKW9rG+VTdK2tjmY4kwJW/z/1HBl0G0=
 
 [The MIT License (MIT)](LICENSE)
 
-Copyright (c) 2019 SwedishChef <swedish.chef@gmx.at>
+Copyright (c) 2019-2021 SwedishChef <swedish.chef@gmx.at>

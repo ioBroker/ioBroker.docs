@@ -3,29 +3,76 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.dwd/README.md
 title: ioBroker.dwd
-hash: 39/h4ENoIuZXO+aJD88gFbM7fOmSVWBu9tkkJ7PtkvA=
+hash: hMqC9TzffM0CXLhIv++7Lym4DA59/buppGlYwt3rwlk=
 ---
 ![商标](../../../en/adapterref/iobroker.dwd/admin/dwd.png)
 
 ![安装数量](http://iobroker.live/badges/dwd-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.dwd.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.dwd.svg)
-![测验](https://travis-ci.org/ioBroker/ioBroker.dwd.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.dwd.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.dwd.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.dwd.svg)
 
-＃ioBroker.dwd
-Deutscher Wetterdienst版权所有
+#ioBroker.dwd
+![测试和发布](https://github.com/ioBroker/iobroker.dwd/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/dwd/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Dieser Adapter可以连接到德国的WetterdienstüberJSON链接。
+版权所有 Deutscher Wetterdienst
 
-该适配器通过JSON链接从德国气象服务加载天气警告。
+Dieser Adapter lädt die Wetterwarnungen vom deutschen Wetterdienst über JSON 链接。
 
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+此适配器通过 JSON 链接加载来自德国气象服务的气象警告。
 
-＃＃ 去做
-*处理FTP超时
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
+
+<!-- 下一个版本的占位符（在行首）：
+
+### __工作进行中__ -->
 
 ## Changelog
+### 2.7.6 (2021-06-28)
+* (sbormann) Added new states to `warning.severity`
+* (bluefox) Removed warnings
+* (bluefox) Replaces `request` packet with `axios`
+* (bluefox) Breaking change: Rename state `numberofwarnings` to `numberOfWarnings`
+
+### 2.7.5 (2021-02-09)
+* (Apollon77) Update region list to the official one completely
+
+### 2.7.4 (2021-02-04)
+* (Apollon77) Fix region list entry
+
+### 2.7.2 (2021-01-19)
+* (Apollon77) Fix issue on deleting old objects
+
+### 2.7.1 (2021-01-19)
+* (Apollon77) Make sure to end process when no data could be received
+
+### 2.7.0 (2021-01-18)
+* (Apollon77) restructure code to not exit before really done with setting all states
+* (Apollon77) js-controller 2.0 is now required at minimum
+
+### 2.6.1 (2021-01-16)
+* (wendy2702) correct Region "Leer"
+
+### 2.6.0 (2021-01-11)
+* (maeb3) Add datapoint for number of warnings
+
+### 2.5.2 (2020-12-25)
+* (Apollon77) fix state cleanup for warnings to prevent invalid ones to be deleted
+
+### 2.5.1 (2020-11-17)
+* (Apollon77) Crash prevented (Sentry IOBROKER-DWD-F)
+* (Homoran) Add background colors for new conditions
+
+### 2.5.0 (2020-06-21)
+* (bluefox) Compact mode is supported
+
+### 2.4.10 (2020-05-16)
+* (Apollon77) Better handle errors when adapter ends (again Sentry)
+
+### 2.4.9 (2020-05-11)
+* (Apollon77) Better handle errors when adapter ends (Sentry IOBROKER-DWD-1) 
+
+### 2.4.8 (2020-04-30)
+* (Apollon77) Better handle errors when adapter ends 
 
 ### 2.4.7 (2020-04-18)
 * (Apollon77) Add Sentry for error reporting with js-controller 3.0
@@ -126,7 +173,7 @@ Dieser Adapter可以连接到德国的WetterdienstüberJSON链接。
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2020 bluefox <dogafox@gmail.com>, hobbyquaker
+Copyright (c) 2016-2021 bluefox <dogafox@gmail.com>, hobbyquaker
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

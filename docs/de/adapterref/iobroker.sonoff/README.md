@@ -3,115 +3,130 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sonoff/README.md
 title: ioBroker Sonoff
-hash: 3sJtUS1rjlgVC9EW6ImdUqJPd9fS0yVC1S2ABMdysCw=
+hash: VDlcSKuA7whtiJQgKK9PL2zdKYwGkNcFtmHhOcwoe9c=
 ---
 ![Logo](../../../en/adapterref/iobroker.sonoff/admin/sonoff.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/sonoff-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sonoff.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sonoff.svg)
-![Tests](https://travis-ci.org/ioBroker/ioBroker.sonoff.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.sonoff.png?downloads=true)
 
-# IoBroker Sonoff
+#ioBroker Sonoff
+![Testen und freigeben](https://github.com/ioBroker/ioBroker.sonoff/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/sonoff/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+
 ## Verwendung
 Dieser Adapter kommuniziert mit Sonoff-Geräten mit Tasmota-Firmware oder ESP-Geräten über MQTT.
 
 Folgende Themen werden erwartet:
 
-- `tele / DeviceNAME / STATE`
-- `tele / DeviceNAME / SENSOR`
-- `tele / DeviceNAME / INFOx`
-- `tele / DeviceNAME / ENERGY`
-- `cmnd / DeviceNAME / POWERx`
-- `stat / DeviceNAME / POWERx`
-- `/ DeviceNAME / BM280 / Temperature`
-- `/ DeviceNAME / BM280 / Humidity`
-- `/ DeviceNAME / BM280 / Temperatur`
-- `/ DeviceNAME / BM280 / Verletzungen`
-- `/ DeviceNAME / BM280 / Vcc`
-- `/ DeviceNAME / BM280 / VCC`
-- `/ DeviceNAME / BM280 / Runden`
-- `/ DeviceNAME / BM280 / RSSI`
-- `/ DeviceNAME / BM280 / POWER`
-- `/ DeviceNAME / BM280 / POWER1`
-- `/ DeviceNAME / BM280 / POWER2`
-- `/ DeviceNAME / BM280 / POWER3`
-- `/ DeviceNAME / BM280 / POWER4`
-- `/ DeviceNAME / BM280 / Switch1`
-- `/ DeviceNAME / BM280 / Switch2`
-- `/ DeviceNAME / BM280 / Total`
-- `/ DeviceNAME / BM280 / Today`
-- `/ DeviceNAME / BM280 / heute`
-- `/ DeviceNAME / BM280 / Yesterday`
-- `/ DeviceNAME / BM280 / gestern`
-- `/ DeviceNAME / BM280 / Faktor`
-- `/ DeviceNAME / BM280 / Factor`
-- `/ DeviceNAME / BM280 / Power`
-- `/ DeviceNAME / BM280 / Leistung`
-- `/ DeviceNAME / BM280 / Voltage`
-- `/ DeviceNAME / BM280 / Spannung`
-- `/ DeviceNAME / BM280 / Current`
-- `/ DeviceNAME / BM280 / Strom`
-- `/ DeviceNAME / BM280 / Punkt`
-- `/ DeviceNAME / BM280 / Counter1`
-- `/ DeviceNAME / BM280 / Counter2`
-- `/ DeviceNAME / BM280 / Counter3`
-- `/ DeviceNAME / BM280 / Counter4`
-- `/ DeviceNAME / BM280 / Pressure`
-- `/ DeviceNAME / BM280 / SeaPressure`
-- `/ DeviceNAME / BM280 / Druck`
-- `/ DeviceNAME / BM280 / Ca. Höhe`
-- `/ DeviceNAME / BM280 / Module`
-- `/ DeviceNAME / BM280 / Version`
-- `/ DeviceNAME / BM280 / Hostname`
-- `/ DeviceNAME / BM280 / IPAddress`
-- `/ DeviceNAME / BM280 / IPaddress`
-- `/ DeviceNAME / BM280 / RestartReason`
-- `/ DeviceNAME / BM280 / CarbonDioxide`
-- `/ DeviceNAME / DHT11 / Illuminance`
-- `/ DeviceNAME / SonoffSC / Light`
-- `/ DeviceNAME / SonoffSC / Noise`
-- `/ DeviceNAME / SonoffSC / AirQuality`
-- `/ DeviceNAME / SDS0X1 / PM2.5`
-- `/ DeviceNAME / SDS0X1 / PM10`
-- `/ DeviceNAME / SDS0X1 / UvLevel`
-- `/ DeviceNAME / SDS0X1 / Latitude`
-- `/ DeviceNAME / SDS0X1 / Longitude`
-- `/ DeviceNAME / SR04 / Distance`
+- `tele/Gerätename/STATE`
+- `tele/Gerätename/SENSOR`
+- `tele/Gerätename/INFOx`
+- `tele/DeviceNAME/ENERGY`
+- `cmnd/DeviceNAME/POWERx`
+- `stat/DeviceNAME/POWERx`
+- `/Gerätename/BM280/Temperatur`
+- `/Gerätename/BM280/Luftfeuchtigkeit`
+- `/Gerätename/BM280/Temperatur`
+- `/DeviceNAME/BM280/Feuchtigkeit`
+- `/Gerätename/BM280/Vcc`
+- `/Gerätename/BM280/VCC`
+- `/Gerätename/BM280/Laufzeit`
+- `/Gerätename/BM280/RSSI`
+- `/Gerätename/BM280/POWER`
+- `/Gerätename/BM280/POWER1`
+- `/Gerätename/BM280/POWER2`
+- `/Gerätename/BM280/POWER3`
+- `/Gerätename/BM280/POWER4`
+- `/Gerätename/BM280/Switch1`
+- `/Gerätename/BM280/Switch2`
+- `/Gerätename/BM280/Gesamt`
+- `/Gerätename/BM280/Heute`
+- `/Gerätename/BM280/heute`
+- `/Gerätename/BM280/Gestern`
+- `/Gerätename/BM280/gestern`
+- `/Gerätename/BM280/Faktor`
+- `/Gerätename/BM280/Faktor`
+- `/Gerätename/BM280/Power`
+- `/Gerätename/BM280/Leistung`
+- `/Gerätename/BM280/Spannung`
+- `/DeviceNAME/BM280/Spannung`
+- `/Gerätename/BM280/Aktuell`
+- `/Gerätename/BM280/Strom`
+- `/Gerätename/BM280/Punkt`
+- `/Gerätename/BM280/Zähler1`
+- `/Gerätename/BM280/Zähler2`
+- `/Gerätename/BM280/Zähler3`
+- `/Gerätename/BM280/Zähler4`
+- `/Gerätename/BM280/Druck`
+- `/Gerätename/BM280/SeaPressure`
+- `/DeviceNAME/BM280/Druck`
+- `/Gerätename/BM280/Ca. Höhe`
+- `/Gerätename/BM280/Modul`
+- `/Gerätename/BM280/Version`
+- `/Gerätename/BM280/Hostname`
+- `/Gerätename/BM280/IPAdresse`
+- `/Gerätename/BM280/IP-Adresse`
+- `/DeviceNAME/BM280/RestartReason`
+- `/DeviceNAME/BM280/CarbonDioxide`
+- `/Gerätename/DHT11/Beleuchtungsstärke`
+- `/Gerätename/SonoffSC/Light`
+- `/Gerätename/SonoffSC/Noise`
+- `/DeviceNAME/SonoffSC/AirQuality`
+- `/Gerätename/SDS0X1/PM2.5`
+- `/Gerätename/SDS0X1/PM10`
+- `/Gerätename/SDS0X1/UvLevel`
+- `/DeviceNAME/SDS0X1/Latitude`
+- `/Gerätename/SDS0X1/Längengrad`
+- `/Gerätename/SR04/Entfernung`
 
-** Hinweis **: Die Liste kann leicht erweitert werden. Bitte senden Sie `Pull Requests` oder *Debug-Daten* für unbekannte Zustände an den Entwickler (per Ausgabe).
+**Hinweis**: Die Liste könnte leicht erweitert werden. Bitte senden Sie `Pull Requests` oder *Debug-Daten* für unbekannte Zustände an den Entwickler (per Problem).
 
 ## Automatische Erstellung von Objekten
-In der Webkonfiguration können Sie festlegen, welche MQTT-Telegramme die neuen Objekte erstellen, die sich nicht in Standarddatenpunkten befinden
+In der Webkonfiguration können Sie festlegen, welche MQTT-Telegramme die neuen Objekte nicht in Standarddatenpunkten erstellen:
 
-* `TELE_SENSOR` erstellt Objekte aus` tele / xxx / SENSOR` Telegrammen
-* `TELE_STATE` erstellt Objekte aus` tele / xxx / STATE` Telegrammen
-* `STAT_RESULT` erstellt Objekte aus` stat / xxx / RESULT` Telegrammen
+* `TELE_SENSOR` - erzeugt Objekte aus `tele/xxx/SENSOR` Telegrammen
+* `TELE_STATE` - erzeugt Objekte aus `tele/xxx/STATE` Telegrammen
+* `STAT_RESULT` - erstellt Objekte aus `stat/xxx/RESULT` Telegrammen
 
 Normalerweise sollte TELE_SENSOR für die meisten Benutzer ausreichend sein.
 
 * `Objektbaum erstellen` erstellt Objekte als Baumstruktur
 
-** Warnung! ** Diese Option bringt Ihren Sonoff-Objektbaum durcheinander! Sie müssen alle Einstellungen für die Speicherung wiederholen ...
+**Warnung!** Diese Option wird Ihren Sonoff-Objektbaum durcheinander bringen! Sie müssen alle Einstellungen für die Speicherung wiederholen...
 Speichern Sie die Objektstruktur als JSON-Datei, damit Sie Ihre alte Struktur neu erstellen können.
 Am besten stoppen Sie den Adapter, löschen alle Objekte unter sonoff und starten den Adapter erneut.
 
 ## Flags für LED-Controller
 Die Moduszustände werden nur erstellt, wenn das Gerät einen der folgenden Zustände hat:
 
-- "Rot", "Grün", "Blau", "WW", "CW", "Farbe", "RGB_POWER", "WW_POWER", "CW_POWER", "Farbton", "Sättigung"
+- `Rot`, `Grün`, `Blau`, `WW`, `CW`, `Farbe`, `RGB_POWER`, `WW_POWER`, `CW_POWER`, `Farbton`, `Sättigung`
 
 Zustände:
 
-* `modeLedExor` - Exor für weiße LEDs und Farb-LEDs => Wenn die weißen LEDs eingeschaltet sind, werden die Farb-LEDs ausgeschaltet und umgekehrt (Standard wahr)
-* `modeReadColors` - Ermöglicht das Lesen von Farben aus MQTT (Standardwert false)
+* `modeLedExor` - Exor für weiße LEDs und Farb-LEDs => wenn die weißen LEDs eingeschaltet sind, werden Farb-LEDs ausgeschaltet und umgekehrt (Default true)
+* `modeReadColors` - ermöglicht das Lesen von Farben aus MQTT (Standardwert false)
+
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+
+### __ARBEITEN IN PROGRESS__ -->
 
 ## Changelog
+### 2.4.3 (2021-07-18)
+* (bluefox) Better type detection for non-described states
 
-### __WORK IN PRGRESS__
-* (anwa) add several datapoints
-* (anwa) Fix tranlation for 'ignorePings'
+### 2.4.2 (2021-07-17)
+* (bluefox) Optimize for js-controller 3.3
+
+### 2.4.1 (2021-07-17)
+* (Apollon77/bluefox) Optimize for js-controller 3.3
+* (Apollon77) Add Sentry for error reporting with js-controller 3.x+
+
+### 2.4.0 (2021-02-04)
+* (anwa) add several data points
+* (anwa) Fix translation for 'ignorePings'
 * (anwa) Fix wrong unit for humidity
 * (anwa) Config option to create a complete object tree instead of a flat structure
 * (anwa) Change Action type to string
@@ -130,7 +145,7 @@ Zustände:
 * (bluefox) Correct processing of `{temp: nan}`
 
 ### 2.2.3 (2019-01-10)
-* (simatec) Support for comapct mode
+* (simatec) Support for compact mode
 
 ### 2.2.2 (2018-06-22)
 * (bluefox) Configuration was fixed
@@ -139,7 +154,7 @@ Zustände:
 * (bluefox) '-' in names was allowed again
 
 ### 2.2.0 (2018-05-22)
-* (gemu2015) auto generate objects, support for arrays (channel), ledcontrollers improved
+* (gemu2015) auto generate objects, support for arrays (channel), led-controllers improved
 
 ### 2.1.3 (2018-05-08)
 * (bluefox) Added HC-SR04 Ultrasonic Sensor
@@ -178,7 +193,7 @@ Zustände:
 
 ### 1.0.0 (2017-11-27)
 * (AlZiBa) typo @ alive
-* (AlZiBa) add Todays power consumption for Sonoff POW
+* (AlZiBa) add Today's power consumption for Sonoff POW
 * (AlZiBa) unit of power consumption is kWh
 
 ### 0.3.3 (2017-11-03)
@@ -203,7 +218,7 @@ Zustände:
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2019, bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2021, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

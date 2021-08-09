@@ -71,6 +71,10 @@ Upload your *.tpy File from your PLC Project -> Every Time you change something 
 3. Sync never meant the Dataexchange of the Symbols. Sync is the create or delete the States in ioBroker dependent on the GlobalVariableTable in the PLC.
 
 ## Changelog
+### 1.4.1 (2021-06-13)
+
+-   (dkleber89) Some little Adapter maintenance
+
 ### 1.4.0 (2021-01-25)
 
 -   (dkleber89) Add LREAL Support
@@ -114,10 +118,6 @@ Upload your *.tpy File from your PLC Project -> Every Time you change something 
 ### 1.0.2 (2019-05-18)
 
 -   (Appollon77) Update testing for Node.js v12 in Appveyor und Travis
-
-### 1.0.1 (2019-04-06)
-
--   (dkleber89) Random Bugfixes, Add some monitoring that States get correct Ack
 
 ## License
 

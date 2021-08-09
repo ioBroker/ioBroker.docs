@@ -89,6 +89,25 @@ Here you can:
 
 ## Changelog
 
+### 1.2.3 (2021-06-05)
+* (sbormann) Fixed autocreate not working after deleting or renaming alias.
+
+### 1.2.2 (2021-05-13)
+* (sbormann) Updated dependencies.
+* (sbormann) Add empty native-object to datapoint, if it is missing.
+
+### 1.2.1 (2021-05-06)
+* (sbormann) Added treeview.
+* (sbormann) Fixed renaming and copying of datapoints.
+
+### 1.2.0 (2021-05-02)
+* (sbormann) Some design-adjustments for react-ui.
+* (sbormann) Keep track of ioBroker object changes.
+* (sbormann) Added handling of common.custom and common.states.
+
+### 1.1.0 (2021-04-20)
+* (sbormann) Added compatibility to new react-ui of admin-adapter.
+
 ### 1.0.2 (2021-04-10)
 * (sbormann) Added info texts and translations.
 

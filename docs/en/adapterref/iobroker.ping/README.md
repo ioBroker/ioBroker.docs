@@ -1,11 +1,13 @@
 ![Logo](admin/ping.png)
 # PING Adapter
 
-![Number of Installations](http://iobroker.live/badges/ping-installed.svg) ![Number of Installations](http://iobroker.live/badges/ping-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.ping.svg)](https://www.npmjs.com/package/iobroker.ping)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.ping.svg)](https://www.npmjs.com/package/iobroker.ping)
-[![Tests](https://travis-ci.org/ioBroker/ioBroker.ping.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.ping)
+![Number of Installations](http://iobroker.live/badges/ping-installed.svg)
+![Number of Installations](http://iobroker.live/badges/ping-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.ping.svg)](https://www.npmjs.com/package/iobroker.ping)
 
-[![NPM](https://nodei.co/npm/iobroker.ping.png?downloads=true)](https://nodei.co/npm/iobroker.ping/)
+![Test and Release](https://github.com/ioBroker/ioBroker.ping/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/ping/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.ping.svg)](https://www.npmjs.com/package/iobroker.ping)
 
 ## Pings configured IP addresses.
 
@@ -17,6 +19,10 @@ Pings specified IP addresses in defined interval and monitors the results.
 * if its not possible to ping your linux client, check if `iputils-ping` is correct installed on client
 
 ## Changelog
+
+### 1.5.0 (2021-07-14)
+* js-controller 2.0 required at least
+* (Apollon77) optimize for js-controller 3.3
 
 ### 1.4.12 (2020-09-18)
 * (Apollon77) Prevent crash case when no devices are defined (Sentry IOBROKER-PING-R)

@@ -30,6 +30,9 @@ Important: The desired schedules must be set up in the app prior to use. These c
 
 ## Changelog
 
+### 0.1.9
+* (Smart-Gang) Community suggestion: The trigger data points (buttons) now have the status set to false by default.
+
 ### 0.1.8
 * (Smart-Gang) Retrieve historical data (API update from manufacturer) and optimize data point settings.
 

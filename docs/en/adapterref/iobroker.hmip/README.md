@@ -1,11 +1,13 @@
 ![Logo](admin/homematic.png)
 # ioBroker HomeMatic IP Cloud AccessPoint Adapter
 
-![Number of Installations](http://iobroker.live/badges/hmip-installed.svg) ![Number of Installations](http://iobroker.live/badges/hmip-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.hmip.svg)](https://www.npmjs.com/package/iobroker.hmip)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.hmip.svg)](https://www.npmjs.com/package/iobroker.hmip)
-[![Build Status](https://travis-ci.org/iobroker-community-adapters/ioBroker.hmip.svg?branch=master)](https://travis-ci.org/iobroker-community-adapters/ioBroker.hmip.svg?branch=master)
+![Number of Installations](http://iobroker.live/badges/hmip-installed.svg)
+![Number of Installations](http://iobroker.live/badges/hmip-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.hmip.svg)](https://www.npmjs.com/package/iobroker.hmip)
 
-[![NPM](https://nodei.co/npm/iobroker.hmip.png?downloads=true)](https://nodei.co/npm/iobroker.hmip/) 
+![Test and Release](https://github.com/Apollon77/iobroker.hmip/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.hmip.svg)](https://www.npmjs.com/package/iobroker.hmip)
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
@@ -36,8 +38,8 @@ If you are looking for the information, if the alarm settings are active you hav
 
 ## Important Info what can be done with this adapter
 
-!!! You can only trigger events with this adapater that can be triggered thru the original Homematic IP app. 
-For example direct connections between devices have no events in the app and can also not be triggert thru this adapter!!! 
+!!! You can only trigger events with this adapter that can be triggered through the original Homematic IP app. 
+For example direct connections between devices have no events in the app and can also not be triggert through this adapter!!! 
 
 ## Settings
 * enter your SGTIN (back of the Access Point) and the PIN (if set before), and validate the data via press of the blue LED Button. This will create an Authentication token.
@@ -52,6 +54,29 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
+
+### 1.13.1 (2021-08-06)
+* (Apollon77) Fix warning on js-controller 3.3 with "sabotage" datapoint
+
+### 1.13.0 (2021-06-23)
+* (Apollon77) Add support for HM-WGC/IMPULSE_OUTPUT_CHANNEL
+
+### 1.12.2 (2021-06-04)
+* (Apollon77) Fix a warning in js-controller 3.3
+
+### 1.12.1 (2021-05-13)
+* (Apollon77) Fix a warning in js-controller 3.3
+
+### 1.12.0 (2021-05-13)
+* (Apollon77) Implement NOTIFICATION_MP3_SOUND_CHANNEL
+
+### 1.11.1 (2021-05-08)
+* (Apollon77) IMPORTANT: The adapter now requires js-controller 3.1 at least!
+* (Apollon77) Update objects on startup to make sure definition is current
+* (Apollon77) prevent warnings in js-controller 3.3
+
+### 1.11.0 (2021-04-25)
+* (Apollon77) Implement CARBON_DIOXIDE_SENSOR_CHANNEL
 
 ### 1.10.0 (2021-04-12)
 * (Apollon77) Implement TEMPERATURE_SENSOR_2_EXTERNAL_DELTA_CHANNEL, DOOR_LOCK_CHANNEL and ACCESS_AUTHORIZATION_CHANNEL
@@ -176,7 +201,7 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2019 jogibear9988 <jochen.kuehner@gmx.de>
+Copyright (c) 2018-2021 jogibear9988 <jochen.kuehner@gmx.de>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

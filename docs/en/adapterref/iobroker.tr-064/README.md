@@ -96,7 +96,14 @@ iobroker upload tr-064
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 4.2.14 (2021-07-21)
+* (Apollon77) Further optimizations for js-controller 3.3
+
+### 4.2.13 (2021-07-12)
+* (Apollon77) Optimize for js-controller 3.3 and prevent warnings (you pot. need to delete datapoints if you still see errors, they will be recreated)
+
+### 4.2.12 (2021-04-16)
+* (Apollon77) prevent html template for calllists to be overwritten by default one
 * (Apollon77) fix crash case (Sentry IOBROKER-TR-064-2M)
 
 ### 4.2.11 (2021-03-12)
@@ -208,7 +215,7 @@ iobroker upload tr-064
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2020 soef <soef@gmx.net>
+Copyright (c) 2015-2021 soef <soef@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -2,8 +2,6 @@
 BADGE-Number of Installations: http://iobroker.live/badges/javascript-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.javascript.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.javascript.svg
-BADGE-Tests: https://travis-ci.org/ioBroker/ioBroker.javascript.svg?branch=master
-BADGE-NPM: https://nodei.co/npm/iobroker.javascript.png?downloads=true
 ---
 # Содержание
 
@@ -2640,22 +2638,22 @@ return 'your result';
 ## Changelog
 
 ### __WORK IN PROGRESS__
-* (Apollon77) Prevent crash case(Sentry IOBROKER-JAVASCRIPT-70)
+* (Apollon77) Make sure day of weeks is an array (Sentry IOBROKER-JAVASCRIPT-7Y)
 
-### 5.1.4 (2021-03-23)
-* (bluefox) fixed the error with the simulation
+### 5.2.8 (2021-07-22)
+* (bluefox) Fixed the debug of scripts
 
-### 5.1.3 (2021-03-23)
-* (bluefox) fixed the error in the debugging
+### 5.2.7 (2021-07-17)
+* (bluefox) Fixed error in rules
 
-### 5.1.2 (2021-03-22)
-* (bluefox) Showed the runtime information for the rules
+### 5.2.6 (2021-07-16)
+* (bluefox) Added fallback for admin4
 
-### 5.1.1 (2021-03-21)
-* (bluefox) Implemented the debug of the instances from javascript adapter
+### 5.2.3 (2021-07-08)
+* (agross) Fix imports like "rxjs/operators" for versioned npm modules
 
-### 5.1.0 (2021-03-19)
-* (bluefox) Implemented the debug of scripts possibility
+### 5.2.2 (2021-07-06)
+* (Apollon77) Add support to install npm packages as defined version (name@version)
 
 ## License
 

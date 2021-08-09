@@ -3,17 +3,19 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sbfspot/README.md
 title: ioBroker.sbfspot
-hash: Ky9zdbU5WI/dZsBo0e469I5mZiA68K9OX0CRy77/Vw0=
+hash: AmUOKGNs+9jMar8oo7NBMt5/OVdBe1LIQxXvFOe4zOs=
 ---
 ![Logo](../../../en/adapterref/iobroker.sbfspot/admin/sbfspot.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/sbfspot-stable.svg)
-![NPM-Version](https://img.shields.io/npm/v/iobroker.sbfspot.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sbfspot.svg)
-![Tests](https://travis-ci.org/rg-engineering/ioBroker.sbfspot.svg?branch=master)
+![NPM-Version](http://img.shields.io/npm/v/iobroker.sbfspot.svg)
+![Bekannte Sicherheitslücken](https://snyk.io/test/github/rg-engineering/ioBroker.sbfspot/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.sbfspot.png?downloads=true)
 
 # IoBroker.sbfspot
+![GitHub-Aktionen](https://github.com/rg-engineering/ioBroker.sbfspot/workflows/Test%20and%20Release/badge.svg)
+
 ** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ** Wenn es Ihnen gefällt, ziehen Sie bitte eine Spende in Betracht: **
@@ -56,7 +58,7 @@ Manchmal muss npm intall mehrmals aufgerufen werden, um alle erforderlichen Pake
 * (René) Fehlerbehebung basierend auf CI-Tests
 
 ## 4.0.0 (2020-07-28)
-* (René) Überarbeitung, um async / await zu verwenden
+* (René) überarbeiten, um async / await zu verwenden
 * (René) benutze mysql2
 
 ## 3.0.0 (2020-04-25)
@@ -84,7 +86,7 @@ Manchmal muss npm intall mehrmals aufgerufen werden, um alle erforderlichen Pake
 ### 2.3.1 (2019-02-02)
 * (René) Fehlerbehebung: Mit SQLite "Heute" wurden keine Daten angezeigt
 
-### 2.3.0 (20.01.2019)
+### 2.3.0 (2019-01-20)
 * (René) Unterstützung des Kompaktmodus
 * (René) zusätzliche Fehlerinformationen im Protokoll hinzufügen
 
@@ -164,6 +166,9 @@ Achtung: Das Widget ist nicht mit Version 1.x.x kompatibel. Überprüfen Sie ein
 * (René) Erstveröffentlichung
 
 ## Changelog
+
+### 4.0.5 (2021-03-21)
+* (René) dependencies updated
 
 ## License
 Copyright (C) <2017-2021>  <info@rg-engineering.eu>

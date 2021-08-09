@@ -3,17 +3,17 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: CdIj955L1zu2HVxws/1QoD0VWQqXAJrLhpzEZiVyhPQ=
+hash: O/9g9KEHoarO9stxwgzMohQQNlrQowOwH4pnbPJLC+8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.web/admin/web.png)
 
 ![Количество установок](http://iobroker.live/badges/web-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.web.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.web.svg)
-![Тесты](https://travis-ci.org/ioBroker/ioBroker.web.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.web.png?downloads=true)
 
 # IoBroker.web
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.web/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 Веб-сервер на базе Node.js и экспресс для чтения файлов из БД ioBroker
 
 ** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
@@ -24,14 +24,14 @@ hash: CdIj955L1zu2HVxws/1QoD0VWQqXAJrLhpzEZiVyhPQ=
 Вы можете установить опцию *Force Web-Sockets* чтобы принудительно использовать только транспорт веб-сокетов.
 
 ## Let's Encrypt Certificates
-Прочтите [Вот](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
+Прочтите [здесь](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
 
 ## Расширения
 Веб-драйвер поддерживает расширения. Расширение - это обработчик URL-адресов, который будет вызываться при появлении такого URL-запроса.
 Расширения выглядят как обычный адаптер, но у них нет запущенного процесса, и они будут вызываться веб-сервером.
 
 Например. пользователь может активировать специальный прокси-адаптер и подключаться к другим устройствам (например, веб-камерам) на том же веб-сервере.
-Требуется, чтобы все службы были доступны на одном веб-сервере.
+Требуется, чтобы все сервисы были доступны на одном веб-сервере.
 
 ## Защита от перебора
 Если аутентификация включена и пользователь 5 раз вводит неверный пароль в течение одной минуты, он должен подождать не менее одной минуты до следующей попытки.
@@ -39,7 +39,7 @@ hash: CdIj955L1zu2HVxws/1QoD0VWQqXAJrLhpzEZiVyhPQ=
 
 ## Опция «Оставаться в системе»
 Если выбрана эта опция, пользователь остается в системе в течение одного месяца.
-В противном случае пользователь останется в системе в течение настроенного «тайм-аута входа».
+В противном случае пользователь останется в системе в течение настроенного «тайм-аута входа в систему».
 
 ## Доступ к значениям состояния
 Вы можете получить доступ к значениям нормального и двоичного состояния через HTTP-запрос на получение.
@@ -49,7 +49,7 @@ http://IP:8082/state/system.adapter.web.0.alive =>
 {"val":true,"ack":true,"ts":1606831924559,"q":0,"from":"system.adapter.web.0","lc":1606777539894}
 ```
 
-или
+или же
 
 ```
 http://IP:8082/state/javascript.picture.png =>
@@ -64,14 +64,33 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 });
 ```
 
+## Параметр «Обычная проверка подлинности»
+Разрешает вход через базовую аутентификацию, отправляя `401` Неавторизованный с заголовком `WWW-Authenticate`.
+Это можно использовать для таких приложений, как *FullyBrowser* При однократном вводе неправильных учетных данных вы будете перенаправлены на страницу входа.
+
 <! - Заполнитель для следующей версии (в начале строки):
 
 ### __РАБОТА В ПРОЦЕССЕ__ ->
-## Параметр «Обычная проверка подлинности»
-Разрешает вход через базовую аутентификацию, отправив `401` Неавторизованный с заголовком `WWW-Authenticate`.
-Это можно использовать для таких приложений, как *FullyBrowser* При однократном вводе неправильных учетных данных вы будете перенаправлены на страницу входа.
 
 ## Changelog
+
+### 3.4.4 (2021-07-04)
+* (Apollon77) Fix missing www files
+
+### 3.4.3 (2021-07-01)
+* (Apollon77) Add tier for js-controller 3.3
+
+### 3.4.2 (2021-07-01)
+* (bluefox) Update GUI
+
+### 3.4.1 (2021-04-30)
+* (bluefox) Added support of admin5
+
+### 3.4.0 (2021-04-12)
+* IMPORTANT: js-controller 3.1 is now needed at least
+* (foxrive76) fix a special case for requesting ranges only (Sentry IOBROKER-WEB-3M)
+* (Apollon77) automatically decrypt secrets for web-extensions
+
 ### 3.3.0 (2021-02-01)
 * (bluefox) The admin GUI was rewritten with reactJS 
 

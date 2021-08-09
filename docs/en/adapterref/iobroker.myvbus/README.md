@@ -10,8 +10,8 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.myvbus/badge.svg)](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.myvbus)
 [![NPM](https://nodei.co/npm/iobroker.myvbus.png?downloads=true)](https://nodei.co/npm/iobroker.myvbus/)
 
-**Tests:** [![Travis-CI](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.myvbus/master.svg)](https://travis-ci.org/iobroker-community-adapters/ioBroker.myvbus)
-  
+**Tests:** ![Test and Release](https://github.com/iobroker-community-adapters/iobroker.myvbus/workflows/Test%20and%20Release/badge.svg)  
+
 ## ioBroker Adapter for Resol VBus
 
 This adapter connects ioBroker to various VBus-based devices using resol-vbus, a JavaScript library for the acquisition of RESOL VBus data, provided by Daniel Wippermann.
@@ -49,6 +49,11 @@ This adapter connects ioBroker to various VBus-based devices using resol-vbus, a
   * Update interval: Time between the update of the measured values (default 30s)
 
 ## Changelog
+### 0.2.0 (2021-06-25)
+* Dropped node.js 10 support, added node.js 14 and 16 support
+
+### 0.1.1 (2021-05-18)
+* Fixes for supporting js-controller >=3.2.x
 
 ### 0.1.0
 * (grizzelbee) Fix: config page shows current settings now (not default anymore)
@@ -57,8 +62,8 @@ This adapter connects ioBroker to various VBus-based devices using resol-vbus, a
 * (grizzelbee) Fix: removed default password from config to ensure it's encrypted on first config
 * (grizzelbee) Fix: removed Force-ReInit
 * (grizzelbee) Fix: sensor maintenance indicators are booleans now
-* (grizzelbee) New: added new activity indicator states for each relay
-* (pdbjjens) Fix: avoid warnings from latest js-controller 3.2.x
+* (grizzelbee) New: added activity indicator states for relays
+* (pdbjjens) Fix: Prevent warnings regarding non-existent objects upon adapter instance creation and start-up with js-controller 3.2.x
 * (pdbjjens) Fix: updated dependencies and vulnerabilities
 
 ### 0.0.6
@@ -86,12 +91,13 @@ RESOL, VBus, VBus.net, DeltaSol and others are trademarks or registered trademar
 <https://www.resol.de/en>
 
 All other trademarks are the property of their respective owners.
+The authors are in no way endorsed by or affiliated with RESOL GmbH, or any associated subsidiaries, logos or trademarks.
 
 ## License
 
 MIT License
 
-Copyright (c) 2020 Jens-Peter Jensen <jjensen@t-online.de>
+Copyright (c) 2021 Jens-Peter Jensen <jjensen@t-online.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,10 +1,13 @@
 ![Logo](admin/modbus.png)
 # iobroker.modbus
 
-![Number of Installations](http://iobroker.live/badges/modbus-installed.svg) ![Number of Installations](http://iobroker.live/badges/modbus-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.modbus.svg)](https://www.npmjs.com/package/iobroker.modbus)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.modbus.svg)](https://www.npmjs.com/package/iobroker.modbus)
+![Number of Installations](http://iobroker.live/badges/modbus-installed.svg)
+![Number of Installations](http://iobroker.live/badges/modbus-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.modbus.svg)](https://www.npmjs.com/package/iobroker.modbus)
 
-[![NPM](https://nodei.co/npm/iobroker.modbus.png?downloads=true)](https://nodei.co/npm/iobroker.modbus/)
+![Test and Release](https://github.com/ioBroker/iobroker.modbus/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/modbus/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.modbus.svg)](https://www.npmjs.com/package/iobroker.modbus)
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
@@ -35,21 +38,33 @@ Normally all registers can have address from 0 to 65535. By using of aliases you
 
 Every alias will be mapped internally to address, e.g. 30011 will be mapped to input register 10. and so on.
 
-### Do not align addresses to word
+### Do not align addresses to 16 bits (word)
 Normally the coils and the discrete inputs addresses are aligned to 16 bit. Like addresses from 3 to 20 will be aligned to 0 up 32.
 If this option is active the addresses will not be aligned.
+
+### Do not use multiple registers
+If slave does not support "write multiple registers" command, you can activate it to get warnings, when the multiple registers will be written.
+
+### Use only multiple write registers
+If slave only supports "write multiple registers" command, you can activate so the registers will be written always with FC15/FC16 command.
 
 ### Round Real to
 How many digits after comma for float and doubles.
 
-### Poll delay
+### Data polling interval
 Cyclic poll interval (Only relevant for master)
 
-### Reconnect time
+### Reconnect delay
 Reconnection interval (Only relevant for master)
 
+### Read timeout
+Timeout for read requests in milliseconds.
+
 ### Pulse time
-if pulse used for coils, this define the interval how long is pulse.
+If pulse used for coils, this defines the interval how long is the pulse.
+
+### Wait time
+Wait time between polling of two different device IDs in milliseconds.
 
 ### Max read request length
 Maximal length of command READ_MULTIPLE_REGISTERS as number of registers to read.
@@ -64,54 +79,78 @@ There is a software [**Modbus RTU <-> Modbus RTU over TCP**](http://mbus.sourcef
 
 Both solutions **RTU over TCP** and **TCP** works well.
 
-### Do not use multiple registers
-If slave does not support "write multiple registers" command, you can activate it to get warnings, when the multiple registers will be written.
+### Read interval
+Delay between two read requests in ms. Default 0.
 
 ### Write interval
 Delay between two write requests in ms. Default 0.
 
+### Update unchanged states
+Normally if the value has not changed it will not be written into ioBroker. This flag allows to update the value's timestamp by every cycle.
+
+### Do not include addresses in ID
+Do not add address in the generated ioBroker iD. `10_Input10` vs `Input10`.
+
+### Preserve dots in ID
+With this flag the Name will be `Inputs.Input10`. Without => `Inputs_Input10` 
+
 ## Parameters for single address line in config
 ### Address
 Modbus address to read
+
 ### Slave ID
 In case there are multiple slaves, then this is the id if not the default one which is given in global config
+
 ### Name
 This is the name for the Parameter
+
 ### Description
 Parameter description 
+
 ### Unit
 Unit of the Parameter
+
 ### Type
-Datatype to read from Bus. For details about the possible datatypes see section Data types
+Datatype to read from Bus. For details about the possible data types see section Data types
+
 ### Length
-Length of parameter. For the most parameters this is determined based on the data type, but for Strings this defines the lenght in Bytes / characters
+Length of parameter. For the most parameters this is determined based on the data type, but for Strings this defines the length in Bytes / characters
+
 ### Factor
 This factor is used to multiply the read value from Bus for static scaling. So the calculation looks like following val = x * Factor + Offset
+
 ### Offset
 This offset is added to the read value after above multiplication. So the calculation looks like following val = x * Factor + Offset
+
 ### Formula
 This field can be used for advanced calculations if Factor and Offset is not sufficient. If this field is set, then the Factor and Offset field is ignored.
-The Formula is executed by the eval() function. Therefore all common functions are supported. Especially the Math functions. The formula must comply with Javascript syntax, therefore also take care about uper and lower cases.
+The Formula is executed by the eval() function. Therefore all common functions are supported. Especially the Math functions. The formula must comply with Javascript syntax, therefore also take care about upper and lower cases.
 
-In the formula, "x" has to be used for the read value from Modbus. E.g. "x * Math.pow(10,sf['40065']);"
+In the formula, "x" has to be used for the read value from Modbus. E.g. `x * Math.pow(10, sf['40065'])`
 
-If the formula cannot evaluated during runtime, then the Adapter writes a warning message to the log.
+If the formula cannot be evaluated during runtime, then the Adapter writes a warning message to the log.
+
+Another use case for formulas could also be to prevent implausible data with a formula like `x > 2000000 ? null : x`
 
 ### Role
-IOBroker role to assign
+ioBroker role to assign.
+
 ### Room
-IOBroker room to assign
+ioBroker room to assign.
+
 ### Poll
 If activated, the values are polled in predefined interval from slave.
+
 ### WP
 Write pulse
+
 ### CW
 Cyclic write
+
 ### SF
 Use value as scaling factor. This is needed to used dynamic scaling factors which are on some systems provided through values on interface. If a value is marked with this flac, then the value will stored into a variable with following naming convention: sf['Modbus_address']. This variable can then later used in any formula for other parameters. E.g. following formula can set: "(x * sf['40065']) + 50;"
 
 ## Data types
-
 - uint16be - Unsigned 16 bit (Big Endian): AABB => AABB
 - uint16le - Unsigned 16 bit (Little Endian): AABB => BBAA
 - int16be  - Signed 16 bit (Big Endian): AABB => AABB
@@ -146,8 +185,7 @@ The point-to-point Modbus protocol is a popular choice for RTU communications if
 Such convenience does not come without some complications however, and Modbus RTU Message protocol is no exception. The protocol itself was designed based on devices with a 16-bit register length. Consequently, special considerations were required when implementing 32-bit data elements. This implementation settled on using two consecutive 16-bit registers to represent 32 bits of data or essentially 4 bytes of data. It is within these 4 bytes of data that single-precision floating point data can be encoded into a Modbus RTU message.
 
 ### The Importance of Byte Order
-
-Modbus itself does not define a floating point data type but it is widely accepted that it implements 32-bit floating point data using the IEEE-754 standard. However, the IEEE standard has no clear cut definition of byte order of the data payload. Therefore the most important consideration when dealing with 32-bit data is that data is addressed in the proper order.
+Modbus itself does not define a floating point data type, but it is widely accepted that it implements 32-bit floating point data using the IEEE-754 standard. However, the IEEE standard has no clear definition of byte order of the data payload. Therefore the most important consideration when dealing with 32-bit data is that data is addressed in the proper order.
 
 For example, the number 123/456.00 as defined in the IEEE 754 standard for single-precision 32-bit floating point numbers appears as follows:
 
@@ -161,7 +199,7 @@ Ordering the same bytes in a “C D A B” sequence is known as a “word swap�
 
 ![Image3](img/img3.png)
 
-Furthermore, both a “byte swap” and a “word swap” would essentially reverse the sequence of the bytes altogether to produce yet another result:
+Furthermore, both a `byte swap` and a `word swap` would essentially reverse the sequence of the bytes altogether to produce yet another result:
 
 ![Image4](img/img4.png)
 
@@ -175,7 +213,7 @@ The Modbus protocol itself is declared as a ‘big-Endian’ protocol, as per th
 
 Big-Endian is the most commonly used format for network protocols – so common, in fact, that it is also referred to as ‘network order’.
 
-Given that the Modbus RTU message protocol is big-Endian, in order to successfully exchange a 32-bit datatype via a Modbus RTU message, the endianness of both the master and the slave must considered. Many RTU master and slave devices allow specific selection of byte order particularly in the case of software-simulated units. One must merely insure that both all units are set to the same byte order.
+Given that the Modbus RTU message protocol is big-Endian, in order to successfully exchange a 32-bit datatype via a Modbus RTU message, the endianness of both the master, and the slave must be considered. Many RTU master and slave devices allow specific selection of byte order particularly in the case of software-simulated units. It only has to be ensured that both units are set to the same byte order.
 
 As a rule of thumb, the family of a device’s microprocessor determines its endianness. Typically, the big-Endian style (the high-order byte is stored first, followed by the low-order byte) is generally found in CPUs designed with a Motorola processor. The little-Endian style (the low-order byte is stored first, followed by the high-order byte) is generally found in CPUs using the Intel architecture. It is a matter of personal perspective as to which style is considered ‘backwards’.
 
@@ -234,14 +272,47 @@ There are some programs in folder *test' to test the TCP communication:
 - mod_RSsim.exe is slave simulator. It can be that you need [Microsoft Visual C++ 2008 SP1 Redistributable Package](https://www.microsoft.com/en-us/download/details.aspx?id=5582) to start it (because of SideBySide error).
 
 <!--
-	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 3.4.11 (2021-07-31)
+* (bluefox) Corrected import of last line
+ 
+### 3.4.10 (2021-07-30)
+* (Apollon77) Make sure that slave reconnections at least wait 1000ms to allow old connectio to close properly
+* (bluefox) Corrected the error with write single registers
 
-### __WORK IN PROGRESS__
-* (Apollon77/TmShaz) Fix Write multiple registers
-* (prog42)  create states of type string with default value of type string
+### 3.4.9 (2021-07-06)
+* (bluefox) Changed edit behaviour
+
+### 3.4.8 (2021-06-24)
+* (Apollon77) Fix crash case on writing floats (Sentry IOBROKER-MODBUS-2D)
+
+### 3.4.7 (2021-06-22)
+* (bluefox) Corrected addressing with aliases in GUI
+
+### 3.4.6 (2021-06-21)
+* (bluefox) Corrected addressing with aliases
+
+### 3.4.5 (2021-06-19)
+* (bluefox) Corrected the "write multiple registers" option
+
+### 3.4.4 (2021-06-16)
+* (bluefox) GUI bugs were corrected
+* (bluefox) Added output of error codes
+
+### 3.4.2 (2021-06-15)
+* (nkleber78) Corrected issue with the scale factors
+* (bluefox) New react GUI added
+* (bluefox) Add new option: Use only Write multiple registers, read interval
+
+### 3.3.1 (2021-05-10)
+* (bluefox) fixed the configuration dialog for "input registers" in slave mode 
+
+### 3.3.0 (2021-04-16)
+* (Apollon77) Allow usage of write-only (no poll) states
+* (Apollon77/TmShaz) F Write multiple registers
+* (prog42) create states of type string with default value of type string
 
 ### 3.2.6 (2021-03-05)
 * (Apollon77) Prevent a crash case (Sentry IOBROKER-MODBUS-20)
@@ -303,7 +374,7 @@ There are some programs in folder *test' to test the TCP communication:
 
 ### 3.0.4 (2020-06-05)
 * (bluefox) Added device ID by export/import
-* (bluefox) Added the write interval parameter
+* (bluefox) Added the "write interval" parameter
 * (bluefox) Added the disabling of write multiple registers
 
 ### 3.0.3 (2020-06-05)
@@ -355,7 +426,7 @@ There are some programs in folder *test' to test the TCP communication:
 * (bluefox) Create all states each after other
 
 ### 0.4.10 (2017-02-10)
-* (Apollon77) Do not recreate all datapoints on start of adapter
+* (Apollon77) Do not recreate all data points on start of adapter
 * (ykuendig) Multiple optimization and wording fixes
 
 ### 0.4.9 (2016-12-20)
@@ -435,9 +506,10 @@ There are some programs in folder *test' to test the TCP communication:
 ### 0.0.1
 * (bluefox) initial commit
 
+## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2020 Bluefox <dogafox@gmail.com>
+Copyright (c) 2015-2021 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

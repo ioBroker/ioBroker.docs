@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis/README.md
 title: Визуализация
-hash: FNj0GFQMdP+2EQnt3r9YurmvL4m/NY9Iy4yigkqRIUs=
+hash: KHzz5K4cmU2+0wZDuIMwQ6k8XSX96vzulY7MCQdq4vo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
@@ -37,7 +37,7 @@ WEB-визуализация для платформы ioBroker.
 - `\ *` - умножение. Аргумент должен быть заключен в квадратные скобки, например «* (4)». В этом примере мы умножаем значение на 4.
 - `\ +` - добавить. Аргумент должен быть в скобках, например «+ (4.5)». В этом примере мы добавляем к значению 4.5.
 - `\ -` - вычесть. Аргумент должен быть в скобках, например «- (- 674,5)». В этом примере мы вычитаем из значения -674,5.
-- `/` - разделение. Аргумент должен быть в скобках, например «/(0.5)». В этом примере мы разделили значение на 0,5.
+- `/` - разделение. Аргумент должен быть в скобках, например «/(0.5)». В этом примере мы делим значение на 0,5.
 - `%` - по модулю. Аргумент должен быть в скобках, например «% (5)». В этом примере мы берем по модулю 5.
 - `round` - округлить значение.
 - `round (N)` - округлить значение с N разрядами после точки, например 34,678; круглый (1) => 34,7
@@ -112,6 +112,7 @@ Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(Ma
 * `language` - может быть` de`, `en` или` ru`.
 * `instance` - экземпляр браузера
 * `login` - если вход требуется или нет (например, чтобы показать / скрыть кнопку выхода)
+* `local_ *` - если имя состояния начинается с `local_`, оно не будет передано ioBroker, но обновит все виджеты, которые зависят от этого состояния. (Локальная переменная для текущего сеанса браузера)
 
 Примечание: чтобы использовать ":" в вычислениях (например, в строковой формуле), используйте вместо этого "::".
 
@@ -133,7 +134,7 @@ Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(Ma
 ## Интерфейс управления
 Vis создает 3 переменные:
 
-- `control.instance` - здесь должен быть написан экземпляр браузера или FFFFFFFF, если каждый браузер должен контролироваться.
+- `control.instance` - здесь должен быть написан экземпляр браузера или` FFFFFFFF`, если каждый браузер должен контролироваться.
 - `control.data` - параметр для команды. См. Описание конкретной команды.
 - `control.command` - Имя команды. Запись в эту переменную запускает команду. Это означает, что перед записью команды необходимо подготовить «экземпляр» и «данные» с данными.
 
@@ -166,7 +167,7 @@ Vis создает 3 переменные:
 - `control.data`: название проекта и представления в форме` проект / представление`, например main / view (и ack = true)
 - `control.command`:` changedView` и `ack = true`
 
-Вы можете записать JSON-строку или объект в control.command как `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`. В этом случае экземпляр и данные будут взяты из объекта JSON.
+Вы можете записать JSON-строку или объект в `control.command` как `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`. В этом случае экземпляр и данные будут взяты из объекта JSON.
 
 Пример для адаптера javascript:
 
@@ -199,17 +200,32 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 
 Обратите внимание, что эти настройки действительны только для повторного подключения, а не для первого подключения.
 
-![Тьма](../../../en/adapterref/iobroker.vis/img/dark_screen.png)
+![Темный](../../../en/adapterref/iobroker.vis/img/dark_screen.png)
 
 <! - Заполнитель для следующей версии (в начале строки):
 
 ### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
+### 1.4.1 (2021-07-03)
+* (bluefox) Added possibility to check license offline (only special once)
+
+### 1.4.0 (2021-07-01)
+* (bluefox) Changed path for check of certificates 
+* (thost96) fixes for issues found by adapter-checker
+
+### 1.3.10 (2021-05-25)
+* (bluefox) Fixed the support of admin5
+
+### 1.3.9 (2021-04-29)
+* (agav99) Added support of local browser variables
+* (Scrounger) Bug fix for null & NaN values in width and height
+* (bluefox) Added support for admin5
+
 ### 1.3.8 (2021-03-03)
 * (bluefox) fix play sounds on iOS Safari an android
 * (Scrounger) visEditInspect: format dimension added
-* (foxriver76) Replace travis and appveyor by the github actions
+* (foxriver76) Replace travis and appveyor by the GitHub actions
 * (Excodibur) Allow resources to be loaded as blob
 * (Excodibur ) Allow resources to be loaded as blob
 
@@ -300,7 +316,7 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 ### 1.1.3 (2018-04-12)
 * (bluefox) ignore click by scrolling on touch devices
 * (bluefox) remove wrong state vis.0.command
-* (bluefox) fix error with jplot
+* (bluefox) fix error with jPlot
 * (bluefox) better widget behaviour in edit Mode (basic, jqui)
 * Fix config dialog
 
@@ -315,7 +331,7 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 * (bluefox) The problem with view change on the touch devices fixed
 
 ### 1.0.5 (2017-11-19)
-* (bluefox) show number of datapoints in every project
+* (bluefox) show number of data points in every project
 
 ### 1.0.4 (2017-10-22)
 * (bluefox) Add autocomplete for view CSS options
@@ -330,7 +346,7 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 * (bluefox) fix fonts
 
 ### 0.15.7 (2017-10-01)
-* (bluefox) allow update of images without additional query (but it works only in spome very specific cases)
+* (bluefox) allow update of images without additional query (but it works only in some very specific cases)
 * (bluefox) zoom of iframes
 
 ### 0.15.5 (2017-07-24)
@@ -348,7 +364,7 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 
 ### 0.15.1 (2017-06-30)
 * (bluefox) Fix error with context menu
-* (bluefox) Allow add class to view
+* (bluefox) Allow adding of class to view
 
 ### 0.15.0 (2017-05-25)
 * (bluefox) fix copy of grouped widgets
@@ -362,7 +378,7 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 * (apollon77) fix jqui-dialog for auto-open
 
 ### 0.14.3 (2017-05-11)
-* (bluefox) fix export/import of groupped widgets
+* (bluefox) fix export/import of grouped widgets
 
 ### 0.14.2 (2017-04-29)
 * (bluefox) Fix install error
@@ -421,7 +437,7 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 
 ### 0.10.13 (2016-09-23)
 * (bluefox) fixed errors for iPad 1
-* (bluefox) start wokring on relative positions
+* (bluefox) start working on relative positions
 
 ### 0.10.12 (2016-09-16)
 * (bluefox) group specific visibility of widgets and views
@@ -436,9 +452,9 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 
 ### 0.10.9 (2016-09-04)
 * (bluefox) support of web-sockets force
-* (bluefox) destory unused views after 30 seconds
+* (bluefox) destroy unused views after 30 seconds
 * (bluefox) do not show middle leading lines if top and bottom are shown
-* (bluefox) let timestamp and lastchange to show time as interval
+* (bluefox) let timestamp and last-change to show time as interval
 
 ### 0.10.7 (2016-07-09)
 * (bluefox) add settings to reload vis
@@ -447,7 +463,7 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 * (bluefox) export/import
 * (bluefox) add global script
 * (bluefox) add 'not exist'/'not consist'/'exist' to signal and visibility
-* (bluefox) fix oids in editor
+* (bluefox) fix OIDs in editor
 
 ### 0.10.5 (2016-06-15)
 * (bluefox) fix select ID dialog

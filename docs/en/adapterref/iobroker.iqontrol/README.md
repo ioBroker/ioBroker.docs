@@ -47,6 +47,9 @@ Fast Web-App for Visualization.
 \
 ![Screenshot](img/screenshot_dslraser.jpg "&copy; by dslraser")
 
+\
+![Screenshot](img/screenshot_muuulle.jpg "&copy; by muuulle")
+
 Runs in any Browser. 
 Easy to setup, allthough it's fully customizable and responsive.
 
@@ -192,7 +195,10 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 
 ![Popup Screenshot](img/widget_screenshot.png)
 
-### postMessage-Communication (for experts only)
+<details>
+<summary>Widget development (for experts only): (<ins>klick to open</ins>)</summary>
+
+### postMessage-Communication
 * Technically the content of BACKGROUND_VIEW/URL/HTML is placed inside a HTML-Element called iframe, which is a website inside a website
 * By enabling the option "Allow postMessage-Communication for BACKGROUND_VIEW/URL/HTML" you can enable postMessage-Communication between the website inside this iframe and iQontrol itself
 * To send commands to iQontrol you can use the following javascript-command: ``window.parent.postMessage(message, "*");`` 
@@ -487,6 +493,20 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* Default: "Down" 
 	* ``controlModeDisarmedValue`` (Value of CONTROL_MODE for 'disarmed') - only valid for role Alarm:
 		* Default: "0" 
+	* ``timeCaption`` (Caption for TIME) - only valid for role DateAndTime:
+		* Default: "" 
+	* ``timeFormat`` (Format of TIME (as stored in the datapoint, see readme)) - only valid for role DateAndTime:
+		* Default: "x" 
+	* ``timeDisplayFormat`` (Display-Format of TIME (how it should be displayed, see readme)) - only valid for role DateAndTime:
+		* Default: "dddd, DD.MM.YYYY HH:mm:ss" 
+	* ``dateAndTimeTileActiveConditions`` (Tile is active when all selected items are true) - only valid for role DateAndTime:
+		* Possible values (array): "activeIfStateActive", "activeIfTimeNotZero", "activeIfTimeInFuture", "activeIfTimeInPast"
+		* Default: "activeIfStateActive,activeIfTimeInFuture" 
+	* ``dateAndTimeTileActiveWhenRinging`` (Tile is always active when RINGING is active) - only valid for role DateAndTime:
+		* Default: true 
+	* ``dateAndTimeShowInState`` (Show in state) - only valid for role DateAndTime:
+		* Possible values (array): "showStateIfInactive", "showStateIfActive", "showSubjectIfActive", "showSubjectIfInactive", "showTimeIfInactiveAndInPast", "showTimeIfInactiveAndInFuture", "showTimeIfActiveAndInPast", "showTimeIfActiveAndInFuture", "showTimeDistanceIfInactiveAndInPast", "showTimeDistanceIfInactiveAndInFuture", "showTimeDistanceIfActiveAndInPast", "showTimeDistanceIfActiveAndInFuture"
+		* Default: "showStateIfInactive,showSubjectIfActive,showTimeDistanceIfActiveAndInFuture" 
 	* ``coverImageReloadDelay`` (Delay reload of cover-image [ms]) - only valid for role Media:
 		* Possible values: number from 0 to 5000
 		* Default: "" 
@@ -718,6 +738,9 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* Default: ""
 * UNREACH Icon:
 	* ``invertUnreach`` (Invert UNREACH (use connected instead of unreach)):
+		* Possible values: "true"|"false"
+		* Default: "false" 
+	* ``invertUnreach`` (Hide (resp. ignore) UNREACH, if the device is inactive):
 		* Possible values: "true"|"false"
 		* Default: "false" 
 * ERROR Icon:
@@ -1101,15 +1124,15 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 </html>
 ````
 </details>
+</details>
 
-## Description of roles and associated states
-Every device has a role, which defines the function of the device. Every role generates a set of states, which can be linked to a corresponding iobroker state.
-If you use the auto-create-function, you can choose an existing device from the iobroker-object tree.  Autocreate tries to find out the role and to match as many states as possible.
-This will only work for known devices. For unknown devices, and to give devices advanced features, you can add them manually via the (+)-Button or edit the devices that were created by autocreate.
-To edit the role and the states of a device, click on the pencil behind the device. You will find a short description of the roles and the used states below:
+## Modifying Datapoint Configuration
+You can modify the configuration of datapoints via the wrench-icon (or rather gear-icon in new react-ui) behind a datapoint in the device-configuration dialog or in objects-tab of iobroker. 
 
-### Modifying Datapoint Configuration
-You can modify the configuration of datapoints via the wrench-icon behind a datapoint in the device-configuration dialog or in objects-tab of iobroker. Here you can:
+![CustomDialog Call](img/custom_call.png)
+![CustomDialog Example](img/custom_dialog.png)
+
+Here you can:
 * Set Readonly-Flag
 * Set Invert-Flag
 * Set Confirm-Flag (forces the user to confirm before a change is written to a datapoint)
@@ -1128,10 +1151,14 @@ You can modify the configuration of datapoints via the wrench-icon behind a data
 	* Example: 
 	    * Key: ``TuneIn-Playlist: *``, Target-Datapoint ID: ``alexa2.0.Echo-Devices.XYZ.Music-Provider.TuneIn-Playlist``, Target-Value: ``*``
 	    * If the user enters ``TuneIn-Playlist: Ambient`` the value ``Ambient`` will be written to ``alexa2.0.Echo-Devices.XYZ.Music-Provider.TuneIn-Playlist``
+        ![Concept of Target-Value-List](img/target-value-list_concept.png)
 
-![CustomDialog Call](img/custom_call.png)
-![CustomDialog Example](img/custom_dialog.png)
-![Concept of Target-Value-List](img/target-value-list_concept.png)
+
+## Description of roles and associated states
+Every device has a role, which defines the function of the device. Every role generates a set of states, which can be linked to a corresponding iobroker state.
+If you use the auto-create-function, you can choose an existing device from the iobroker-object tree.  Autocreate tries to find out the role and to match as many states as possible.
+This will only work for known devices. For unknown devices, and to give devices advanced features, you can add them manually via the (+)-Button or edit the devices that were created by autocreate.
+To edit the role and the states of a device, click on the pencil behind the device. You will find a short description of the roles and the used states below:
   
 ### General states:
 #### STATE and LEVEL
@@ -1147,7 +1174,7 @@ Almost all roles have a **STATE**- and/or a **LEVEL**-state. In most cases this 
             ...
         }
         ````
-    * You can create your own value list by modifying the datapoint (wrench-icon behind the datapoint in the objects-tab of iobroker, see above)
+    * You can create your own value list by modifying the datapoint (wrench-icon, or rather gear-icon in new react-ui, behind the datapoint in the objects-tab of iobroker, see above)
 	* iQontrol will display a defined valueList as a drop down field in the dialog under the following circumstances:
 	    * if type is 'numbers' and the valueList has exact as many entries, as steps between min- and max of the datapoint or
 		* if type is 'boolean', but role is not 'switch' or
@@ -1161,7 +1188,7 @@ However, not every type makes sense to every role. So the STATE of a switch for 
 * **INFO_A** and **INFO_B**: *array* - an array of datapoints and icons, that will be cyclical displayed in the upper right side of the tile
 
     ![INFO_A and INFO_B](img/info_a_info_b.png)
-* **ADDITIONAL_CONTROLS**: *array* - an array of datapoints, that define additional control elements that will be displayed inside info-dialog
+* **ADDITIONAL_CONTROLS**: *array* - an array of datapoints, that define additional control elements that will be displayed inside info-dialog. You can use variables inside names and captions (use the same syntax as for normal device-names)
 * **ADDITIONAL_INFO**: *array* - an array of datapoints, that will be displayed at the bottom of the info-dialog
 * **URL**: CONSTANT or DATAPOINT *string* - this url will be opened as iframe inside the dialog
 * **HTML**: CONSTANT or DATAPOINT *string* - this markup will be displayed inside the iframe, if no URL-Datapoint is specified
@@ -1329,7 +1356,9 @@ In addition to normal thermostat you can define:
 <details>
 <summary>Show possible time formats: (<ins>klick to open</ins>)</summary>
 
-In the device options, under the device-specific section, you can set the timeformat of your datapoint and how it is displayed. You can use the following tokens:
+* In the custom-section (wrench-icon or rather gear-icon in new react-ui) of any datapoint you can configure time-format and time-display-format. If the datapoint contains time informations, these two parameters specify in which format the time is saved in the datapoint and how iQontrols displays the time to the user.
+* For the 'Date and Time'-Device these two settings can also be made in the device options inside the device-specific section. These will overwrite the settings made in the custom-section of the datapoint.
+* You can use the following tokens:
 
 |           |                                | Token              | Example                                                                      | Datapoint | Display                              | Picker                      |
 |----------:|-------------------------------:|--------------------|------------------------------------------------------------------------------|-----------|--------------------------------------|-----------------------------|
@@ -1413,7 +1442,7 @@ In the device options, under the device-specific section, you can set the timefo
 |           | Keep old missing parts         | to                 | E.g. leave date as before, if only a time is given                           | X         | ---                                  | ---                         |
 | Free text | Mark free text in brackets     | []                 | [this is an example, all tokens are ignored]                                 | X         | X                                    | ---                         |
 * If you use different configurations for datapoint-timeformat and display-timeformat, the following conversion-rules are used.
-* You can use the flags tb, tn and to inside the datapoint-timeformat to influence the behavior.
+* You can use the flags ``tb``, ``tn`` and ``to`` inside the datapoint-timeformat to influence the behavior.
 
     ![Glow](img/dateandtime_conversionrules.png)
 
@@ -1449,7 +1478,7 @@ In the device options, under the device-specific section, you can set the timefo
     * 'ok' if the middle of the pad is clicked, 
 	* 'left', 'right', 'up' or 'down', if the edges of the pad are clicked or the pad is swiped in the corresponding direction or
 	* 'back', 'home' or 'menu*, if the corresponding buttons are clicked
-	* Keep in mind: You can use the Target-Value-List (accessible via the wrench-icon of each datapoint) to link from one datapoint to multiple datapoints, depending on the returned value (see Modifying Datapoints section above)
+	* Keep in mind: You can use the Target-Value-List (accessible via the wrench-icon, or rather gear-icon in new react ui, of each datapoint) to link from one datapoint to multiple datapoints, depending on the returned value (see Modifying Datapoints section above)
 * **REMOTE_COLOR**: *string* - shows colored buttons an returns the corresponding color ('red', 'green', 'yellow' or 'blue'), if a color is clicked
 * **REMOTE_CHANNELS**: *array* - an array of buttons. The name of the button is sent to the corresponding state-id, if the button is clicked
 * **REMOTE_ADDITIONAL_BUTTONS**: *array* - an array of buttons. The name of the button is sent to the corresponding state-id, if the button is clicked
@@ -1497,11 +1526,54 @@ This device has some special predefined size- and display-settings to show a tex
     
 ## Changelog
 
-### 1.7.0 dev
+### 1.8.2 (2021-08-06)
+* (sbormann) Added JSON-Table Widget (Displays JSON-Data as table).
+* (sbormann) Enhanced device copy dialog with option to set new name and to replace datapoints.
+* (sbormann) You can now copy devices directly from the device list.
+* (sbormann) Entries with empty values in Arrays of INFO_A/B are now hidden.
+* (sbormann) Added option to hide UNREACH if device is inactive.
+* (sbormann) Fixed missing general options for device link to other view.
+* (sbormann) Fixed admin page not working in safari.
+* (sbormann) Added option to hide name for buttons in ADDITIONAL_CONTROLS.
+
+### 1.8.1 (2021-07-28)
+* (sbormann) Some design-adjustments for react-ui.
+* (sbormann) Keep track of ioBroker object changes in admin.
+* (sbormann) Fixed crash if active view has no devices.
+* (sbormann) Removed old conn.js from admin.
+* (Einstein2002, sbormann) Added HomematicIP-Thermostat.
+* (sbormann) Enhanced max-height of dialog.
+* (sbormann) Fixed up, down and stop button for blinds.
+* (sbormann) Changed some log messages.
+* (sbormann) Enhanced FLOT-Chart-Widget to set axis options.
+
+### 1.8.0 (2021-04-29)
+* (sbormann) Some design-adjustments for react-ui.
+
+### 1.7.3 (2021-04-27)
+* (sbormann) Fixed admin-tab for react.
+
+### 1.7.2 (2021-04-27)
+* (sbormann) Added compatibility to new react-ui of admin-adapter.
+* (sbormann) Fixed uploading of larger files.
+* (sbormann) Changed background-images in autocreate views function.
+* (sbormann) Internal definition and handling of device options changed.
+* (sbormann) The directories /usericons, /usersymbols and /userwidgets are now automatically created, if not existant.
+* (sbormann) Some design-adjustments for react-ui.
+
+### 1.7.1 (2021-04-18)
+* (sbormann) Fix to work with Admin v5.0.3 (renaming files and folders will only work with the upcoming next admin-update).
+* (sbormann) Updated dependencies.
+* (sbormann) Added option to show name of INFO_A/B.
+
+### 1.7.0 (2021-04-13)
 * (sbormann) Added combobox as possible option type.
 * (sbormann) Added Date and Time as new device for dates, times and periods (durations).
+* (sbormann) Added time-format and time-display-format to custom settings of datapoints.
+* (sbormann) Added time-picker for every STATE datapoint and ADDITIONAL_CONTROLS - of role value.time, value.date, value.datetime, level.timer and level.timer.sleep.
 * (sbormann) Enhanced blind to better show opening and closing, even if level is 0 or 100.
 * (sbormann) Added STOP_SET_VALUE for blinds.
+* (sbormann) You can now use variables in device-names, button-captions and headings of ADDITIONAL_CONTROLS.
 
 ### 1.6.6 (2021-03-21)
 * (sbormann) Fix for double admin page.
@@ -1618,6 +1690,9 @@ This device has some special predefined size- and display-settings to show a tex
 ### 1.5.1 (2020-12-01)
 * (sbormann) Added url-paremeter noPanel.
 * (sbormann) Changed fetching-method of ioBroker Objects.
+
+<details>
+<summary>Older Changelog: (<ins>klick to open</ins>)</summary>
 
 ### 1.5.0 (2020-11-24)
 * (sbormann) Added Flot-Chart widget.
@@ -1862,9 +1937,6 @@ This device has some special predefined size- and display-settings to show a tex
 * (sbormann) Added a few captions to admin.
 * (sbormann) Prevent pressure menu when scrolling and after opening menu.
 * (sbormann) Corrected a few translations.
-
-<details>
-<summary>Older Changelog: (<ins>klick to open</ins>)</summary>
 
 ### 0.4.1 (2020-05-15)
 * (sbormann) Added icons for toplight and tilted to window and enhanced window to recognize tilted position.

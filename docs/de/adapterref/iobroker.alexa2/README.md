@@ -3,16 +3,17 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alexa2/README.md
 title: ioBroker.alexa2
-hash: YS664LlJFQCGEbRyCmgg8011yvMup+1T6IICYbs+tSQ=
+hash: hIgfNRM8mI+AD4Vh929r4j7dHFzbcmZU/Q3a1cuctuw=
 ---
 ![Logo](../../../en/adapterref/iobroker.alexa2/admin/alexa.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/alexa2-stable.svg)
-![NPM-Version](https://img.shields.io/npm/v/iobroker.alexa2.svg)
-![Build-Status](https://ci.appveyor.com/api/projects/status/c92hrxu79mvs1qxo?svg=true)
-![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
+![NPM-Version](http://img.shields.io/npm/v/iobroker.alexa2.svg)
+![Downloads](https://img.shields.io/npm/dm/iobroker.alexa2.svg)
 
 # IoBroker.alexa2
+![Testen und freigeben](https://github.com/Apollon77/iobroker.alexa2/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus] (https://weblate.iobroker.net/widgets/adapters/-/alexa2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 ** Dieser Adapter verwendet den Dienst [Sentry.io](https://sentry.io), um Ausnahmen und Codefehler sowie neue Geräteschemata automatisch an mich als Entwickler zu melden. ** Weitere Details siehe unten!
 
 Mit diesem Adapter können Sie Ihre Alexa-Geräte (Amazon Echo) fernsteuern.
@@ -47,8 +48,8 @@ Alarmeinstellungen (Wecker) für jedes Gerät, falls verfügbar.
 
 | Staatsname | Bedeutung | Wert |
 | - | - | - |
-| aktiviert | Zeigt den Status des Alarms an und ermöglicht das Ändern: Alarm mit true aktivieren - Alarm mit false deaktivieren | wahr / falsch |
-| Zeit | Zeit für Alarm. Überschreiben Sie die Zeit für den vorhandenen Alarm, um eine neue Zeit für diesen Alarm festzulegen. Falls ein Alarm vorhanden ist, können Sie die Zeit hier ändern, indem Sie einfach die Zeit im Format hh: mm: ss überschreiben. Für die Einstellung von | werden keine Sekunden benötigt Zeiteingabe |
+| aktiviert | Zeigt den Status des Alarms an und ermöglicht das Ändern: Alarm mit wahr aktivieren - Alarm mit falsch deaktivieren | wahr / falsch |
+| Zeit | Zeit für Alarm. Überschreiben Sie die Zeit für einen vorhandenen Alarm, um eine neue Zeit für diesen Alarm festzulegen. Falls ein Alarm vorhanden ist, können Sie die Zeit hier ändern, indem Sie einfach die Zeit im Format hh: mm: ss überschreiben. Für die Einstellung von | werden keine Sekunden benötigt Zeiteingabe |
 | ausgelöst | true, wenn der Alarm erreicht und ausgelöst wird. Die Uhr muss mit Amazon und iobroker synchron sein. Verwenden Sie diese Option, um eine andere Aktion auszulösen, sobald die Alarmzeit erreicht ist wahr / falsch |
 | neu | Zeit für neuen Alarm für dieses Gerät. Wenn Sie hier einen Wert eingeben, wird ein neuer Alarm erstellt Zeiteingabe (hh: mm: ss, Sekunden werden nicht benötigt) |
 
@@ -57,8 +58,8 @@ Hier finden Sie alle verbundenen oder bekannten Bluetooth-Geräte mit MAC-Adress
 
 | Staatsname | Bedeutung |
 | - | - |
-| verbunden | Zeigt den aktuellen Verbindungsstatus an und erlaubt die Verbindung (auf true gesetzt) oder die Trennung (auf false gesetzt) |
-| entkoppeln | Schaltfläche zum Trennen dieses Geräts vom Echogerät |
+| verbunden | Zeigt den aktuellen Verbindungsstatus an und ermöglicht die Verbindung (auf true gesetzt) oder die Trennung (auf false gesetzt) |
+| ungepaart | Schaltfläche zum Trennen dieses Geräts vom Echogerät |
 
 ### Alexa2.0.Echo-Devices.Serialnumber.Commands. *
 Mit Befehlen können Sie einige Aktionen auf Ihrem Alexa-Gerät auslösen. Wenn Sie diese auf einem Multiroom-Gerät verwenden, werden sie unabhängig ausgeführt und *werden* auf den einzelnen Geräten nicht synchron ausgeführt!
@@ -82,7 +83,7 @@ Mit Befehlen können Sie einige Aktionen auf Ihrem Alexa-Gerät auslösen. Wenn 
 | Benachrichtigung | Senden Sie eine Textbenachrichtigung an den Kunden des Geräts Text |
 | Ankündigung | Ansage abspielen (wie sprechen, aber mit Bing vor dem Text) | Text |
 | ssml | Sprechen Sie die SSML-XML-Zeichenfolge | Text |
-| Textbefehl | Senden Sie einen Textbefehl an Alexa, derzeit nur an die USA! | Text |
+| Textbefehl | Senden Sie einen Textbefehl an Alexa, derzeit nur USA! | Text |
 
 Detaillierte Informationen Sprechen und Ankündigung: Geben Sie hier ein, was Alexa sagen soll. Sie können die Lautstärke von Alexa auch anpassen, indem Sie vor Ihrem Text einen Prozentsatz angeben.
 Beispiel: 10; Alexa sagt Alexa mit 10% Volumen, während 100; Alexa 100% Volumen ist.
@@ -115,33 +116,33 @@ Weisen Sie Alexa direkt an, Musik oder eine Wiedergabeliste von unterstützten M
 | Meine Bibliothek | Phrase zum Spielen mit My Library | Texteingabe |
 | Meine-Bibliothek-Wiedergabeliste | Wiedergabeliste zum Spielen mit Meine Bibliothek | Texteingabe |
 | Einschalten | Phrase zum Spielen mit Tune In | Texteingabe |
-| Wiedergabeliste einschalten | Wiedergabeliste zum Spielen mit Tune In | Texteingabe |
+| Tune-In-Playlist | Wiedergabeliste zum Spielen mit Tune In | Texteingabe |
 
 ### Alexa2.0.Echo-Devices.Serialnumber.Player. *
 Gibt an, dass die Wiedergabe des Geräts gesteuert und der aktuelle Status und die Medieninformationen angezeigt werden sollen
 
 | Staatsname | Bedeutung | Wert |
 | - | - | - |
-| TuneIn-Station | Textfeld zum Eingeben eines Sendernamens zum Abspielen dieser Station auf diesem Gerät. Es ist auch möglich, die Sendernummer (s123456 ...), eine Show- / Podcast-ID (p1234567 ...) oder eine Themen-ID (t123456789 ...) | einzugeben Texteingabe |
+| TuneIn-Station | Textfeld, in das Sie einen Sendernamen eingeben können, um diesen Sender auf diesem Gerät abzuspielen. Es ist auch möglich, die Sendernummer (s123456 ...), eine Show- / Podcast-ID (p1234567 ...) oder eine Themen-ID (t123456789 ...) | einzugeben Texteingabe |
 | ContentType | Textfeld zum Einfügen des gewünschten Inhalts zur Wiedergabe auf diesem Gerät | Informationen |
 | controlForward | Taste zum Auslösen des Vorwärtsbefehls des Spielers (30s) | Taste |
 | controlNext | Taste zum Auslösen des Befehls "Weiter" des Spielers | Taste |
 | controlPause | Taste zum Auslösen des Befehls "Pause" des Spielers | Taste |
 | controlPlay | Taste zum Auslösen des Befehls "Abspielen" des Spielers | Taste |
-| controlPrevious | Taste zum Auslösen des Befehls "Vorheriger" des Spielers | Taste |
+| controlPrevious | Taste zum Auslösen des vorherigen "Befehls" des Spielers | Taste |
 | controlRepeat | Taste zum Auslösen des Befehls "Wiederholen" des Spielers | wahr / falsch |
 | controlRewind | Taste zum Auslösen des Befehls "Zurückspulen" des Spielers (30s) | Taste |
 | controlShuffle | Umschalten, um den Zufallsmodus für den Spieler zu aktivieren oder zu deaktivieren wahr / falsch |
 | currentAlbum | Aktuelles Album läuft gerade | Informationen |
 | currentArtist | Aktueller Künstler spielt tatsächlich | Informationen |
 | currentState | Beim Spielen -> wahr, sonst falsch | wahr / falsch |
-| currentTitle | Aktueller Titel, der gerade abgespielt wird | Informationen |
+| currentTitle | Aktueller Titel spielt gerade | Informationen |
 | imageURL | URL zum Bild des Albums | Informationen |
 | mainArtURL | URL zum aktuellen Hauptbild | Informationen |
 | mediaLength | Länge des aktuellen Titels | Informationen |
 | mediaLengthStr | aktive Medienlänge als (HH :) MM: SS | Informationen |
 | mainProgress | verstrichene Zeit des aktiven Mediums | Informationen |
-| mainProgressPercent | verstrichene aktive Medien in Prozent | Informationen |
+| mainProgressPercent | verstrichene aktive Medienzeit in Prozent | Informationen |
 | mediaProgressStr | aktiver Medienfortschritt als (HH :) MM: SS | Informationen |
 | miniArtUrl | URL zur Kunst (mini) | Informationen |
 | stumm geschaltet | Zustand von 'MUTE' | Information, wahr / falsch, Volumen = 0 wird als stummgeschaltet betrachtet |
@@ -290,6 +291,17 @@ Sentry.io ist ein Dienst für Entwickler, um einen Überblick über Fehler in ih
 Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll angezeigt wird, an Sentry gesendet. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder dergleichen) enthalten. Auf diese Weise kann Sentry Fehler gruppieren und anzeigen, wie viele eindeutige Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
 
 ## Changelog
+
+### 3.9.0 (2021-05-11)
+* (Apollon77) Add some new devices
+* (Apollon77) Always recognize "alexa" as wakeword to handle commands via the apps correctly
+
+### 3.8.4 (2021-05-11)
+* (Apollon77) Optimize Cookie refresh handling
+* (Apollon77) Fix warnings from js-controller 3.3 and optimize
+
+### 3.8.2 (2021-04-19)
+* (Apollon77) Adjust automatic Cookie Refresh interval from 7 to 4 days
 
 ### 3.8.1 (2021-02-09)
 * (Apollon77) Initialize volume for all devices on start
@@ -608,7 +620,7 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2018 soef <soef@gmx.net>, 2018-2020 Ingo Fischer <iobroker@fischer-ka.de>
+Copyright (c) 2017-2018 soef <soef@gmx.net>, 2018-2021 Ingo Fischer <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

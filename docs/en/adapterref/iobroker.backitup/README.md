@@ -23,6 +23,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.backitup.png?downloads=true
 # Content
 * [Basic](#basic)
 * [Dependencies](#Dependencies)
+* [Use and operation](#Use-and-operation)
 * [Backup types](#Backup-types)
     * [ioBroker Backup](#ioBroker-Backup)
     * [CCU Backup (Homematic)](#CCU-Backup-(Homematic))
@@ -55,7 +56,7 @@ Backitup is a backup solution with which the cyclical backup of an IoBroker inst
 
 The adapter is suitable for multi-platforms and can be used on Windows and Mac installations in addition to Linux installations.
 
-[back](#Content)
+### [back](#Content)
 ---
 
 # Dependencies
@@ -66,7 +67,7 @@ The adapter is suitable for multi-platforms and can be used on Windows and Mac i
      - `sudo apt-get install nfs-common`
 
 * To use the MySql backup, mysqldump must be installed on the system
-     - `sudo apt-get install mysql-client`
+     - `sudo apt-get install mysql-client` or under Debian `sudo apt-get install default-mysql-client`
 
 * To use the PostgreSQL backup, mysqldump must be installed on the system
      - [Installation instructions PostgreSQL](https://www.postgresql.org/download/linux/debian/)
@@ -74,7 +75,20 @@ The adapter is suitable for multi-platforms and can be used on Windows and Mac i
 * Influxd must be installed to use the InfluxDB backup
      - [Installation instructions InfluxDB](https://docs.influxdata.com/influxdb/v1.8/introduction/install/)
 
-[back](#Content)
+### [back](#Content)
+---
+
+# Use and operation
+Backitup can be configured in the adapter instances. All of the following setting options are available there.<br><br>
+A tab is available in the admin tab for the daily work and operation of Backitup.<br>
+If this tab is active in the tab menu of the admin interface, Backitup can be operated directly via the tab in the left tab bar of the iobroker.<br><br>
+Information on the backups made is available there, backups can be made and the backup can be restored.
+
+![adminTab](img/adminTab.png)
+![adminTabRestore](img/adminTabRestore.png)
+![adminTabInfo](img/adminTabInfo.png)
+
+### [back](#Content)
 ---
 
 # Backup types
@@ -88,7 +102,7 @@ This backup offers the possibility to save 3 different variants of a Homematic i
 
 ## Mysql backup
 If activated, this separately adjustable backup is created with every ioBroker backup and is also deleted after the specified retention time has expired. FTP or CIFS are also valid for this backup if the other IoBroker backup types are set.<br><br>
-It is important that even if the mysql server is running on a remote system, the mysqldump must run on the ioBroker system. <br> For Linux systems, the installation command would be as follows: `sudo apt-get install mysql-client`
+It is important that even if the mysql server is running on a remote system, the mysqldump must run on the ioBroker system. <br> For Linux systems, the installation command would be as follows: `sudo apt-get install mysql-client` or under Debian `sudo apt-get install default-mysql-client`
 
 ## Redis backup
 If activated, this separately adjustable backup is created with every ioBroker backup and deleted after the specified retention period has expired. FTP or CIFS are also valid for this backup provided the other IoBroker backup types are set. <br>
@@ -141,7 +155,7 @@ If activated, this separately adjustable backup is created with every ioBroker b
 **Furthermore, an API key must be generated in the Grafana web interface in order to get access to the dashboards.** <br>
 The API key can be created under ***"Configuration → API Keys"***.
 
-[back](#Content)
+### [back](#Content)
 ---
 
 # Storage options
@@ -170,12 +184,14 @@ Here in the CIFS settings the path must be entered where the copy is to be made.
 The specification of the IP address must remain empty for the copy function.
   
 ## Dropbox
-To use the backup in the Dropbox, an access token and an APP must be created at https://www.dropbox.com/developers/apps <br><br>
-* Step 1: Use the "Create Backup" button
-* Step 2: Select "Dropbox API"
+To use the backup in the Dropbox, an access token and an APP must be created at https://www.dropbox.com/developers/apps<br><br>
+* Step 1: Use the "Create App" button
+* Step 2: Select "Scoped access"
 * Step 3: Select "App folder"
-* Step 4: Enter "Name your app"
-* Step 5: Press the "Generated access token" button (the token is entered in the Backitup settings)<br><br>
+* Step 4: Enter "Name your app" and select the "Create App" button
+* Step 5: In the "Permissions" tab, set all 4 ticks in the "Files and folders" area
+* Step 6: In the "Settings" tab, set the "Access token expiration" to "No expiration"
+* Step 7: Press the "Generated access token" button (This generated token is entered in the Backitup settings)<br><br>
 In your Dropbox there is now a new folder called "Apps"
   
 ## Google Drive
@@ -191,7 +207,7 @@ In order to be able to establish a connection, the host name of the cloud must m
 A connection with a local IP address is not possible because it does not contain any Lets Encrypt certificates.<br><br>
 > Example URL: "https://example.com/remote.php/dav/files/username/"
 
-[back](#Content)
+### [back](#Content)
 ---
 
 # Use
@@ -247,7 +263,7 @@ Syntax: {BackitupInstance.history.html}
 ```
 Syntax: {value: <BackitupInstance>.oneClick.<trigger>; value ==="true" || value === true ? "Text during backup creation" : "Standard text"}
 
-[back](#Content)
+### [back](#Content)
 ---
 
 # Notifications
@@ -259,7 +275,7 @@ Syntax: {value: <BackitupInstance>.oneClick.<trigger>; value ==="true" || value 
     * Email
     * Whatsapp
 
-[back](#Content)
+### [back](#Content)
 ---
 
 # Restore
@@ -295,14 +311,14 @@ Detailed instructions for restoring with Backup and also for manual restoring ca
     - Execute the command: “reboot“ on the Raspberrymatic to restart the PI
     - Alternatively, the backup can of course also be restored as usual via the web interface.
 
-[back](#Content)
+### [back](#Content)
 ---
 
 # Troubleshooting:
 
 In order to make mistakes, Backitup must be set to log level "debug" in the IoBroker rider instances
 
-[back](#Content)
+### [back](#Content)
 ---
 
 # Errors / solutions encountered
@@ -329,7 +345,7 @@ Here is a list of the problems that have occurred so far and their solutions, if
     iobroker fix
     sudo reboot
     ``
-8. If you get an error message when creating the Redis database, please check whether your user iobroker has the rights and whether he is in the Redis user group.
+7. If you get an error message when creating the Redis database, please check whether your user iobroker has the rights and whether he is in the Redis user group.
     If this is not the case, you can fix it with the following command in the console.
     
     ``
@@ -338,10 +354,85 @@ Here is a list of the problems that have occurred so far and their solutions, if
     ``
     If you have not set up your Iobroker installation with the installer script and your user has a different name, please replace "iobroker" with your user in the command.
 
-[back](#Content)
+8. If a Fritzbox is used as a NAS with a firmware > = 7.21, the SMB settings should be set to "3.1.1" in Backitup and the "noserverino" option should be activated.
+
+### [back](#Content)
 ---
 
 ## Changelog
+
+### 2.1.15 (05.08.2021)
+* (simatec) Bugfix Google Drive
+* (simatec) memory optimization
+* (simatec) fix Zigbee Restore
+* (simatec) Grafana Protocol selection added
+* (simatec) translations updated
+
+### 2.1.14 (04.08.2021)
+* (simatec) dependencies updated
+* (simatec) RAM memory optimization
+* (simatec) googleapis deleted
+* (simatec) @googleapis/drive added
+
+### 2.1.13 (14.06.2021)
+* (simatec) ready for Grafana 8.x
+* (simatec) BugFix PostgreSQL
+* (simatec) dependencies updated
+* (simatec) Name-Sufix for Messages added
+
+### 2.1.12 (01.06.2021)
+* (simatec) adminTab edited
+* (simatec) translation changed
+* (simatec) dependencies updated
+* (simatec) more debug for mount added
+* (simatec) Bugfix history json
+
+### 2.1.11 (19.05.2021)
+* (simatec) adminTab edited
+* (simatec) translation changed
+
+### 2.1.10 (16.05.2021)
+* (simatec) Bugfix adminTab
+
+### 2.1.9 (15.05.2021)
+* (simatec) adminTab for admin 5 changed
+
+### 2.1.8 (14.05.2021)
+* (simatec) adminTab for admin 5 changed
+
+### 2.1.7 (14.05.2021)
+* (simatec) Bugfix mysql Restore
+* (simatec) Bugfix pgsql Restore
+* (simatec) small Bugfix
+* (simatec) dependencies updated
+* (simatec) node 16 support added
+
+### 2.1.6 (01.05.2021)
+* (simatec) Bugfix for js-controller 3.3.x
+* (simatec) small Bugfix Dropbox Log
+* (simatec) small Bugfix for History Config reading
+
+### 2.1.5 (29.04.2021)
+* (simatec) Bugfix AdminTab
+* (simatec) small Bugfix
+
+### 2.1.4 (26.04.2021)
+* (simatec) Redesign Restore GUI
+* (simatec) small GUI Bugfix
+
+### 2.1.3 (22.04.2021)
+* (simatec) Admin-Tab changed
+* (simatec) Javascript Restore changed
+* (simatec) Redesign Admin-Tab
+* (simatec) Redesign Config
+* (simatec) Preparation for admin 5
+
+### 2.1.2 (13.04.2021)
+* (simatec) Creation of temporary folders changed
+* (simatec) Filter for redis rdb files changed
+* (simatec) automatic deletion of old influx databases added
+* (simatec) noserverino option for CIFS mount added
+* (simatec) dependencies updated
 
 ### 2.1.1 (11.04.2021)
 * (simatec) Bugfix redis

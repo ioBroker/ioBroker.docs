@@ -204,6 +204,14 @@ Für jede Einkaufsliste wird ein Channel mit den folgenden Objekten angelegt:
     *Nur lesbarer JSON-String, der ein Wörterbuch zur Übersetzung der schweizerischen Namen in die Listensprache darstellt.
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+
+### 1.7.8 (2021-08-04)
+* (foxriver76) widget: fix blue border on input text field in Safari when focussing
+
 ### 1.7.7 (2020-12-12)
 * (foxriver76) fix potential crash on `pollAllLists` function
 
@@ -313,7 +321,7 @@ Für jede Einkaufsliste wird ein Channel mit den folgenden Objekten angelegt:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2020 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2019-2021 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

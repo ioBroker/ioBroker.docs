@@ -1,3 +1,5 @@
+[![Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://www.paypal.com/paypalme/MeisterTR)
+
 [![Number of Installations](http://iobroker.live/badges/worx-installed.svg)](http://iobroker.live/badges/worx-installed.svg)
 [![Stable version](http://iobroker.live/badges/worx-stable.svg)](http://iobroker.live/badges/worx-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.worx.svg)](https://www.npmjs.com/package/iobroker.worx)
@@ -27,9 +29,29 @@ The adapter can control the mower and you can change config params like mowtimes
 
 
 ## Changelog
+### 1.4.3 (2021-07-25)
+* (MeisterTR) fix Partymode detection
+### 1.4.2 (2021-07-24)
+(MeisterTR) fix bug with OLMSwitch_Cutting
+(MeisterTR) fix bug with PartyMode
+(TA2k) fix error with wrong serialnumber (please delete all objects manually)
+(MeisterTR) fix bug in autolock function
+### 1.4.1 (2021-07-06)
+* (MeisterTR) fix bug in sendCommand (please remove state manually)
+### 1.4.0 (2021-07-05)
+* update testing
+* add gps coordinates
+* add new status states
+* add new Autolock states
+* add new OffLinits states
+### 1.3.7 (03.06.2021)
+* (TA2k) type fixes
+### 1.3.6 (27.05.2021)
+* (MeisterTR) bugfixes
+* (MeisterTR) better errorhandling
 ### 1.2.9 (02.12.2020)
 * (MeisterTR) add sentry
-*(MeisterTR) Bugfix (error type of sc... again) (IOBROKER-WORX-3)
+* (MeisterTR) Bugfix (error type of sc... again) (IOBROKER-WORX-3)
 ### 1.2.4 (15.11.2020)
 * (MeisterTR) Bugfix (error type of sc...)
 * (MeisterTR) change Testing to git
@@ -62,7 +84,7 @@ The adapter can control the mower and you can change config params like mowtimes
 ## License
 MIT License
 
-Copyright (c) 2020 MeisterTR
+Copyright (c) 2021 MeisterTR
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

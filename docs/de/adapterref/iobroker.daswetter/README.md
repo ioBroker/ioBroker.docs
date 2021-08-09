@@ -3,17 +3,19 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.daswetter/README.md
 title: ioBroker.DasWetter.
-hash: kfEgeJieyITeTDJH7RePBpBzCH0jn96NceNQjCQ46x8=
+hash: T0xUoiSI74CQfozKb+M++No+TerMO4EyKbH3kVB3PV0=
 ---
 ![Logo](../../../en/adapterref/iobroker.daswetter/admin/daswettercom.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/daswetter-stable.svg)
-![NPM-Version](https://img.shields.io/npm/v/iobroker.daswetter.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.daswetter.svg)
-![Tests](https://travis-ci.org/rg-engineering/ioBroker.daswetter.svg?branch=master)
+![NPM-Version](http://img.shields.io/npm/v/iobroker.daswetter.svg)
+![Bekannte Sicherheitslücken](https://snyk.io/test/github/rg-engineering/ioBroker.daswetter/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.daswetter.png?downloads=true)
 
 # IoBroker.DasWetter.
+![GitHub-Aktionen](https://github.com/rg-engineering/ioBroker.daswetter/workflows/Test%20and%20Release/badge.svg)
+
 ** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ** Wenn es Ihnen gefällt, ziehen Sie bitte eine Spende in Betracht: **
@@ -60,9 +62,17 @@ Jetzt haben wir eine "Autoreparatur" implementiert, die die Struktur in die doku
 
 ## Changelog
 
+### 3.0.7 (2021-05-03)
+* (René) issue #91: remove warnings with js-controller 3.3.
+
+### 3.0.5 (2021-03-21)
+* (René) dependencies updated
+
+### 3.0.4 (2020-10-16)
+* (René) see issue #76: parse rain values as float instead integer 
+
 ### 3.0.3 (2020-09-19)
 * (René) see issue #66: parse numbers added 
-
 
 ### 3.0.1 (2020-05-01)
 * (René) breaking change: old data structure is not supported anymore
@@ -140,7 +150,7 @@ for compatibility: in configuration old data structure can be enabled
 needs also 2.x of vis-weather-widget
 
 ## License
-Copyright (C) <2017 - 2020>  <info@rg-engineering.eu>
+Copyright (C) <2017 - 2021>  <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

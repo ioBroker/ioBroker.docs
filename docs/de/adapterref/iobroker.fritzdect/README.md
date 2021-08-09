@@ -69,9 +69,14 @@ Vergleichbar für den Soll-/Istverlaufs ist demnach atualtemp und targettemp.
 Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig Information ist der debug modus über die Experteneinstellung der Instanz vorzuwählen.
 
 ## Changelog
+### 2.1.15 (npm)
+* correction in timestamp as date/string
+* several version bumps
+
 ### 2.1.14
 * operationmode and hkrmode tracking also after commands
 * extended datapoints for blinds from Rollotron
+* presence=0 was detected but not written to the datapoint, now corrected (skipping the updated is not affected)
 
 ### 2.1.13
 * correction at group of switches (switchtype not recognized -> simpleonoff)

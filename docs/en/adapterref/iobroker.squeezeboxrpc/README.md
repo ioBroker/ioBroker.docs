@@ -183,6 +183,20 @@ https://github.com/elParaguayo/LMS-CLI-Documentation/blob/master/LMS-CLI.md
 
 ## Changelog
 
+### 1.3.7
+* fix object creation of states in player modul
+### 1.3.6
+* fix object creation of states
+### 1.3.5
+* fix object creation for favorites
+### 1.3.4
+* fix object creation for favorites / * center widgets in sidebar
+### 1.3.3
+* repair imageproxy for image datapoints of favorites
+### 1.3.2
+* fix for Alarm contains only enabled Alarms
+### 1.3.1
+* fix problem with git dependency url
 ### 1.3.0
 * fix problem wit setting own icon in player widget / * add infos about alarms to a player datapoint
 ### 1.2.1
@@ -287,8 +301,6 @@ https://github.com/elParaguayo/LMS-CLI-Documentation/blob/master/LMS-CLI.md
 ## License
 MIT License
 
-Copyright (c) 2019-2020 oweitman
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -306,3 +318,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Copyright (c) 2019-2021 oweitman

@@ -3,19 +3,16 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.nut/README.md
 title: ioBroker.nut
-hash: 1XnHuFKmyG55WGJQpHOmqGh0OJzUsyMfqL+05Hzp5CQ=
+hash: Ty2TUQVoPfL4x6EuLPk3oAeQRg9BuuixVh42eCA/DEE=
 ---
 ![Logo](../../../en/adapterref/iobroker.nut/admin/nut.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/nut-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.nut.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.nut.svg)
-![Travis-CI](http://img.shields.io/travis/Apollon77/ioBroker.nut/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Apollon77/ioBroker.nut?branch=master&svg=true)
-![NPM](https://nodei.co/npm/iobroker.nut.png?downloads=true)
 
 # IoBroker.nut
-[![Code Climate] (https://codeclimate.com/github/Apollon77/ioBroker.nut/badges/gpa.svg)](https://codeclimate.com/github/Apollon77/ioBroker.nut)
+![Testen und freigeben](https://github.com/Apollon77/iobroker.nut/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus] (https://weblate.iobroker.net/widgets/adapters/-/nut/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 Dieser Adapter für ioBroker stellt eine Verbindung zu einem definierten NUT-Server her, um den Status und die Details einer verbundenen USV / USV gemäß ioBroker-Status bereitzustellen, damit sie dort verwendet werden können.
 
@@ -35,7 +32,7 @@ Name der USV, wie in der NUT-Konfiguration des NUT-Servers definiert. </ P> Hinw
 - Wenn Sie eine Verbindung zu einer USV herstellen möchten, die mit einem QNAP NAS verbunden ist, lautet der Name einfach "qnapups".
 
 ### Updateintervall
-Intervall in Sekunden, um die Daten zu aktualisieren. Standard ist 300s
+Intervall in Sekunden, um die Daten zu aktualisieren. Die Standardeinstellung ist 300s
 
 ## UPS-Monitor benachrichtigt
 Enthalten ist ein kleines Linux-Shell-Skript unter scripts / nut-notify.sh, das in upsmon konfiguriert werden kann.
@@ -86,6 +83,23 @@ Wenn Sie Probleme haben und der Adapter die Daten nicht liefert, können Sie sie
 * Dokumente für die Webseite
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
+### __WORK IN PROGRESS__
+* (foxriver76) we fixed the state value type set to `battery.charge`
+* (Apollon77) Add connection states
+
+### 1.4.3 (2021-02-04)
+* (Apollon77) Enhance the port check
+
+### 1.4.2 (2021-01-23)
+* (Apollon77) Check configured port before using it (Sentry IOBROKER-NUT-3)
+
+### 1.4.1 (2021-01-21)
+* (Apollon77) Optimize stop handling (Sentry IOBROKER-NUT-1)
 
 ### 1.4.0 (2021-01-14)
 * (Apollon77) Prevent warnings in js-controller 3.2

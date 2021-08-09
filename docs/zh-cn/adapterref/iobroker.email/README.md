@@ -2,29 +2,30 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.email/README.md
-title: ioBroker电子邮件
-hash: toVqq++uwVaVbxSeS8PlFQ/2PCwgh6XNZ/6O0xhptzM=
+title: ioBroker 邮箱
+hash: mGpv2SOd2J5VYHrF3xxx5reEDja3CX4LhnpHoG0jI7w=
 ---
 ![商标](../../../en/adapterref/iobroker.email/admin/email.png)
 
 ![安装数量](http://iobroker.live/badges/email-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.email.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.email.svg)
-![NPM](https://nodei.co/npm/iobroker.email.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.email.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.email.svg)
 
-＃ioBroker电子邮件
-从ioBroker发送电子邮件。
+# IoBroker 电子邮件
+![测试和发布](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-适配器使用[节点邮件程序](https://github.com/nodemailer/nodemailer)来提供功能。
+从 ioBroker 发送电子邮件。
 
-**此适配器需要nodejs 6.x或更高版本！**
+适配器使用 [节点邮件程序](https://github.com/nodemailer/nodemailer) 来提供功能。
 
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+**此适配器需要 nodejs 6.x 或更高版本！！**
 
-要使用Gmail，您可能需要在Gmail帐户中配置“允许安全程度较低的应用程序”，除非您使用的是2FA，在这种情况下，您必须创建“应用程序专用”密码。您可能还需要使用“允许访问您的Google帐户”来解锁您的帐户才能使用SMTP。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
 
-##用法
-要从ScriptEngine发送电子邮件，只需编写：
+要使用 Gmail，您可能需要在 Gmail 帐户中配置“允许安全性较低的应用程序”，除非您使用 2FA，在这种情况下您必须创建应用程序专用密码。您可能还需要通过“允许访问您的 Google 帐户”解锁您的帐户才能使用 SMTP。
+
+＃＃ 用法
+要从 ScriptEngine 发送电子邮件，只需编写：
 
 ```
 // send email to all instances of email adapter
@@ -62,49 +63,56 @@ sendTo("email", {
 });
 ```
 
-要从其他适配器发送电子邮件，请使用** adapter.sendTo **函数。
+要从其他适配器发送电子邮件，请使用 **adapter.sendTo** 函数。
 
-##支持的服务
--1und1
--美国在线
--DebugMail.io
--Dynect电子邮件
--快速邮件
--GandiMail
--Gmail
+## 支持的服务
+- 1und1
+- 美国在线
+- DebugMail.io
+- DynectEmail
+- 快邮
+- GandiMail
+- Gmail
 - 去吧爸爸
--GodaddyAsia
--GodaddyEurope
--hot.ee
--Hotmail
--iCloud
--第
--mail.ee
--Mail.ru
--Mailgun
--Mailjet
--山d
--纳弗
--Office365
--OpenMailBox
--邮戳
--QQ
--QQex
--SendCloud
--SendGrid
--SES
--SES-US-EAST-1
--SES-US-WEST-2
--SES-EU-WEST-1
--Sparkpost
--雅虎
--Yandex
--Zoho
--特定于用户（手动定义服务器，端口和安全性）
+- GodaddyAsia
+- GodaddyEurope
+- hot.ee
+- 热信
+- iCloud
+- 第
+- 邮件.ee
+- Mail.ru
+- 邮枪
+- Mailjet
+- 山魈
+- Naver
+- Office365
+- 打开邮箱
+- 邮戳
+- QQ
+- QQex
+- 发送云
+- 发送网格
+- SES
+- SES-US-EAST-1
+- SES-US-WEST-2
+- SES-EU-WEST-1
+- 火花柱
+- 雅虎
+- Yandex
+- 佐霍
+- 用户特定（手动定义的服务器、端口和安全性）
 
-有关其他服务，请参阅** Nodemailer **的文档：`§§LLLLL_0§§`
+对于其他服务，请参阅 **Nodemailer** 的文档：`§§LLLLL_0§§`
 
 ## Changelog
+
+### 1.0.10 (2021-07-06)
+* (Apollon77) Optimize for js-controller 3.3
+
+### 1.0.9 (2021-02-22)
+* (Apollon77) Call message callback always with error or without
+
 ### 1.0.7 (2020-06-11)
 * (Apollon77) Make sure adapter is not crashing on stop in some edge cases
 * (Apollon77) Add Sentry for crash reporting with js-controller >=3.x
@@ -158,7 +166,7 @@ sendTo("email", {
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020 bluefox
+Copyright (c) 2014-2021 bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

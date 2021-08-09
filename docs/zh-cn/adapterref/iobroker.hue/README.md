@@ -2,74 +2,129 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hue/README.md
-title: ioBroker飞利浦Hue桥适配器
-hash: j1mPVDqpHsySN+sZGj7QwQbOalRdpf1bIWnKI9DgA3Q=
+title: ioBroker 飞利浦 Hue 桥接适配器
+hash: bv59gOesE6PinHZZAYDDXUrgWagSmbu3Z58g6MAowAU=
 ---
-![标识](../../../en/adapterref/iobroker.hue/admin/hue.jpeg)
+![商标](../../../en/adapterref/iobroker.hue/admin/hue.jpeg)
 
 ![安装数量](http://iobroker.live/badges/hue-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.hue.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.hue.svg)
-![NPM](https://nodei.co/npm/iobroker.hue.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.hue.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.hue.svg)
 
-＃ioBroker飞利浦Hue桥适配器
+# IoBroker 飞利浦 Hue 桥接适配器
 ==============
 
-![建立状态](https://github.com/iobroker-community-adapters/ioBroker.hue/workflows/Test%20and%20Release/badge.svg)
+![测试和发布](https://github.com/iobroker-community-adapters/iobroker.hue/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/hue/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用服务[哨兵](https://sentry.io)向开发人员自动向我报告异常和代码错误以及新设备架构。**更多详细信息，请参见下文！
+**此适配器使用服务 [Sentry.io](https://sentry.io) 自动向作为开发人员的我报告异常和代码错误以及新设备架构。** 更多详细信息见下文！
 
-##什么是Sentry.io，什么报告给该公司的服务器？
-Sentry.io是一项服务，供开发人员从其应用程序中获取有关错误的概述。确切地说，这是在此适配器中实现的。
+## 什么是 Sentry.io 以及向该公司的服务器报告什么？
+Sentry.io 是一项服务，供开发人员从他们的应用程序中获取有关错误的概述。正是在此适配器中实现了这一点。
 
-当适配器崩溃或发生另一个代码错误时，此错误消息（也出现在ioBroker日志中）将提交给Sentry。
-当您允许ioBroker GmbH收集诊断数据时，还将包括您的安装ID（这是唯一ID，**没有**有关您的任何其他信息，电子邮件，姓名等）。这使Sentry可以对错误进行分组，并显示有多少唯一用户受此错误影响。所有这些都帮助我提供了基本不会崩溃的无错误适配器。
+当适配器崩溃或发生其他代码错误时，此错误消息也会出现在 ioBroker 日志中，并提交给 Sentry。
+当您允许 ioBroker GmbH 收集诊断数据时，您的安装 ID（这只是一个唯一 ID **没有**关于您的任何其他信息、电子邮件、姓名等）也包括在内。这允许 Sentry 对错误进行分组并显示受此类错误影响的唯一用户数量。所有这些都帮助我提供基本上从不崩溃的无错误适配器。
 
-##英语：gb：
-此适配器将您的Philips Hue桥与ioBroker连接，以控制Philips Hue LED灯泡，Hue Hue LED灯，条纹，Osram之类的插头以及其他支持SmartLink的设备（如LivingWhites和某些LivingColors）。
+## 英语:gb:
+该适配器将您的飞利浦 Hue 桥接器与 ioBroker 连接起来，以控制飞利浦 Hue LED 灯泡、Hue 之友 LED 灯、条纹、插头（如欧司朗）以及其他支持 SmartLink 的设备（如 LivingWhites 和一些 LivingColors）。
 
 ＃＃＃ 设置
-在ioBroker中安装此适配器后，请相应地创建一个适配器实例。接下来，您需要在适配器设置中将Hue桥与ioBroker连接：
+在 ioBroker 中安装此适配器后，请相应地创建一个适配器实例。接下来，您需要在适配器设置中将您的 Hue 桥接器与 ioBroker 连接起来：
 
-1.如果您使用的不是v2，则将端口配置为80（非https），否则应使用443（https）。
-2.单击“查找网桥”按钮以获取网桥的IP地址。这将搜索您环境中的所有网桥。然后选择要连接的网桥。字段“网桥地址”将填充您所选的色相网桥的IP地址。
-3.接下来，单击设置中的“创建用户”按钮，然后步行至Hue桥接设备（即您的硬件）以按其圆形按钮。您将有30秒钟的时间进行。按下按钮后，应在字段“ Bridge User”中填充生成的字符串。
-4.修改适配器设置中的任何其他选项，然后选择“保存并关闭”。
-5.最后，您已经准备就绪：适配器将生成所有对象，以相应地控制Hue设备。
+1. 如果您使用的是 v2 以外的其他网桥，请将端口配置为 80（非 https），否则 443（https）应该是可行的方法。
+2. 单击“查找网桥”按钮以获取网桥的 IP 地址。这将搜索您环境中的所有网桥。然后选择要连接的网桥。 “网桥地址”字段将填充您选择的 Hue 网桥的 IP 地址。
+3.接下来，点击设置中的“创建用户”按钮，然后走到你的Hue桥设备，也就是你的硬件，按下它的圆形按钮。您将有 30 秒的时间继续。按下按钮后，应使用生成的字符串填充“桥接用户”字段。
+4. 修改适配器设置中的任何其他选项，然后选择“保存并关闭”。
+5. 最后，您应该已准备就绪：适配器将生成所有对象以相应地控制您的 Hue 设备。
 
-请注意：如果填写了“网桥地址”字段，则适配器设置按钮“查找网桥”将无效，而如果填写了“网桥用户”字段，则“创建用户”按钮将无效。
+请注意：如果填充了“网桥地址”字段，适配器设置按钮“查找网桥”将处于非活动状态，如果填充了“网桥用户”字段，则按钮“创建用户”将处于非活动状态。
 
-###设置
-|名称|描述|
+### 设置
+|名称|说明|
 |---|---|
-| __网桥地址__ |您的色相网桥的IP地址，您可以尝试通过按`Find Bridge`按钮检测到它。 |
-| __Port__ | Hue网桥的端口，通常为443（SSL）和80（非SSL）。 |
-| __User__ |网桥用户的用户名。您可以通过按`Create User`按钮并按照屏幕说明进行创建。 |
-| __User__ |网桥用户的用户名。您可以通过按“创建用户”按钮并按照屏幕说明进行创建。 |
-| __忽略场景__ |如果选中，则场景将不会由适配器显示/控制。 |
-| __忽略组__ |如果选中，则适配器将不会显示/控制组。
-| __“旧版”结构__ |为了支持向后兼容，可以在ioBroker中保留旧的对象结构。这个旧结构是`hue.<instance_number>.<brdige_name_channel>.<light_or_group_channel>.<state>`。新结构删除了`<brdige_name_channel>`，因此有必要改编旧脚本等。如果适配器检测到现有的旧结构，则将使用该结构而无需选中该复选框。但是，如果需要从旧结构迁移到新结构，则一次删除整个`hue.<instance_number>`命名空间。 |
-| __同步软件传感器__ |也同步软件传感器。这些是虚拟传感器，例如由Hue Labs场景创建。通过控制此类传感器的`status`数据点，您可以启动/停止遵循此逻辑的场景。在大多数情况下，`0`将场景关闭，而`1`将其打开。 |
-| __同步软件传感器__ |也同步软件传感器。这些是虚拟传感器，例如由Hue Labs场景创建。通过控制此类传感器的“状态”数据点，您可以启动/停止遵循此逻辑的场景。在大多数情况下，“ 0”关闭场景，而“ 1”打开场景。 |
-| __轮询__ |如果选中，则适配器将轮询状态更改，否则只能用于控制指示灯，而不能显示其状态。 |
-| __轮询间隔__ ||定义轮询状态的频率，然后在ioBroker中进行更新。低轮询间隔可能会在某些设置中导致性能问题。因此，最小允许轮询间隔为2秒。如果将轮询间隔设置为小于2秒，则它将在运行期间设置为2秒。 |
+|__网桥地址__|您的 Hue 网桥的 IP 地址，您可以尝试通过按 `Find Bridge` 按钮来检测它。|
+|__端口__|Hue 网桥的端口，通常为 443 (SSL) 和 80 (非 SSL)。|
+|__用户__|您的网桥用户的用户名。您可以通过按 `Create User` 按钮并按照屏幕说明进行创建。|
+|__用户__|您的网桥用户的用户名。您可以通过按“创建用户”按钮并按照屏幕说明进行创建。|
+|__忽略场景__|如果选中，则适配器不会显示/控制场景。|
+|__忽略组__|如果选中，则适配器不会显示/控制组。|
+|__“传统”结构__|为了支持向后兼容，可以在 ioBroker 中保存旧的对象结构。这个旧结构是`hue.<instance_number>.<brdige_name_channel>.<light_or_group_channel>.<state>`。新结构删除了 `<brdige_name_channel>`，因此有必要适应旧脚本等。如果适配器检测到现有的旧结构，则无需选中复选框即可使用该结构。但是，如果需要从旧结构迁移到新结构，请删除整个 `hue.<instance_number>` 命名空间一次。 |
+|__同步软件传感器__|也同步软件传感器。这些是虚拟传感器，例如由 Hue Labs 场景创建。通过控制此类传感器的 `status` 数据点，您可以启动/停止遵循此逻辑的场景。在大多数情况下，`0` 关闭场景，`1` 将其打开。|
+|__同步软件传感器__|也同步软件传感器。这些是虚拟传感器，例如由 Hue Labs 场景创建。通过控制此类传感器的“状态”数据点，您可以启动/停止遵循此逻辑的场景。在大多数情况下，`0` 关闭场景，`1` 打开。|
+|__轮询__|如果勾选，适配器会轮询状态变化，否则只能用于控制灯，不能显示灯的状态。|
+|__轮询间隔__|定义轮询状态的频率，从而在 ioBroker 中进行更新。在某些设置中，低轮询间隔可能会导致性能问题。因此，允许的最小轮询间隔为 2 秒。如果轮询间隔设置为小于 2 秒，它将在运行时设置为 2 秒。|
 
 ＃＃＃ 附加信息
-在版本3.3.0中，组状态`anyOn`和`allOn`变得可控制，请注意，它们在被控制时的行为就像`on`状态。在某些情况下，可能希望在可视化中具有可控制的`anyOn`状态。
+在 3.3.0 版本中，组状态 `anyOn` 和 `allOn` 变得可控，请注意，当受到控制时，它们将像 `on` 状态一样工作。在某些情况下，可能需要在您的可视化中具有可控的 `anyOn` 状态。
 
-## Deutsch：de：
-Bindet Philips Hue / LivingColors / LivingWhites Lampen ein。
-在Adapter-Settings中，用户名konfiguriert werden属于IP der Hue Bridge。 Um einen用户zu aktivieren einmal auf创建用户drücken和dann innerhalb von 30 Sekunden den Button Button der Hue桥drücken。 Dann wird自动用户übergeben。
+## 德语 :de:
+Binet Philips Hue / LivingColors / LivingWhites Lampen ein。
+在 den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfiguriert werden。 Um einen 用户 zu aktivieren einmal auf 创建用户 drücken und dann innerhalb von 30 Sekunden den Button an der Hue bridge drücken。 Dann wird automatisch der User übergeben。
 
-##路线图/ Todo
-*自动桥接发现
-*通过桥接链接按钮自动设置用户
+##路线图/待办事项
+* 自动网桥发现
+* 通过桥接链接按钮自动设置用户
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+* (Apollon77) Add tier for js-controller 3.3
+
+### 3.5.19 (2021-06-02)
+* (foxriver76) fix crash case if we cannot get min/max ct values
+
+### 3.5.18 (2021-06-01)
+* (foxriver76) get the correct min/max ct values from api for lights (closes #192)
+
+### 3.5.17 (2021-05-26)
+* (foxriver76) prevent edge case crash (fixes #196)
+
+### 3.5.16 (2021-05-07)
+* (foxriver76) make buttons type `boolean` (closes #189)
+
+### 3.5.15 (2021-05-05)
+* (foxriver76) fixed some default type values, which produced warnings once
+
+### 3.5.14 (2021-05-04)
+* (foxriver76) protect the user token from access by foreign adapters
+* (foxriver76) fixed types of default values on groups 
+
+### 3.5.13 (2021-05-03)
+* (foxriver76) we fixed some more types
+
+### 3.5.12 (2021-05-02)
+* (foxriver76) we give skipped switches common.type 'mixed' instead of none
+* (foxriver76) we have corrected the min max of color temperature (empirically found)
+
+### 3.5.11 (2021-05-02)
+* (foxriver76) we now update objects if type has changed
+
+### 3.5.10 (2021-04-30)
+* (foxriver76) we removed the common.max from lightlevel, was 17,000 but can be much higher
+* (foxriver76) we added common.type for states where the attribute was missing
+
+### 3.5.9 (2021-04-30)
+* (foxriver76) start this adapter in TIER 2
+
+### 3.5.8 (2021-04-17)
+* (foxriver76) minor changes
+
+### 3.5.5 (2021-04-07)
+* (foxriver76) fixed a bug where an error on user creation crashed the adapter instance
+
+### 3.5.4 (2021-03-25)
+* (foxriver76) fixing several edge case crashes
+
+### 3.5.2 (2021-02-24)
+* (foxriver76) fix crashes if wrong data type or invalid value passed for ct and hue, now logging an error
+* (foxriver76) fix crashes if rgb where outside allowed range or wrong type
+* (foxriver76) fix potential crashes on bridge discovery, due to unnecessary stringify/parse logic
+* (foxriver76) fix graphical issue with the label of bridge user when newly created, due to missing call of updateTextFields 
+
+### 3.5.1 (2021-02-20)
+* (foxriver76) avoid crash cases on invalid xy, setting state for non-existing device and on failing user creation
 
 ### 3.5.0 (2021-02-18)
 * (foxriver76) use official js-controller regex for replacing forbidden chars (fixes #165)
@@ -353,5 +408,5 @@ __ATTENTION: Remove all objects once, ids have changed__
 
 Apache 2.0
 
-Copyright (c) 2017-2020 Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2021 Bluefox <dogafox@gmail.com>
 Copyright (c) 2014-2016 hobbyquaker

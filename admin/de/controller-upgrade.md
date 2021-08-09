@@ -4,12 +4,19 @@ Aufgrund der verschiedenen Hardware und Platformen unter denen ioBroker läuft, 
 
 ## Generelle Informationen für alle Plattformen
 
-**Für ein Update von js-controller 1.x auf 2.x bitte in jedem Fall die Informationen unter https://forum.iobroker.net/topic/26759/js-controller-2-jetzt-f%C3%BCr-alle-im-stable lesen und beachten!**
-
+### js-controller 2.x
+Für ein Update von js-controller 1.x auf 2.x bitte in jedem Fall die Informationen unter https://forum.iobroker.net/topic/26759/js-controller-2-jetzt-f%C3%BCr-alle-im-stable lesen und beachten!
 Ansonsten bitte bei einem Update von Master-Slave-Systemen die Slaves zuerst aktualisieren und den Master als letztes! 
 
-## Linux/macOS (neuer Installer)
-Dies ist die empfohlene Variante!!
+### js-controller 3.x
+Für ein Update von js-controller von der 2.0/2.1/2.2 auf 3.x bitte in jedem Fall die Informtionen im relevanten Forum-Thread, z.B. https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable for 3.2 lesen und beachten! js-controller 3.x benötigt mindestens Node.js Version 10.x.
+
+Bei einem Multi-Host-System, welches auf js-controller 2.2 oder einer 3.x läuft ist es beim Update auf eine höhere 3.x Version nötig, zuerst das Master-System zu aktualisieren. Der Master muss dann wieder gestartet werden. Die Slaves werden danach aktualisiert! 
+
+
+
+## Linux/macOS (neuer Installer - "curl shell installation script")
+Dies ist die empfohlene Variante zur Aktualisierung des js-controller, wenn ioBroker mittels "curl shell installation script" installiert wurde.
 
 Bitte in einer SSH-Shell (Konsole) folgende Befehle ausführen:
 * `iobroker stop`

@@ -7,11 +7,20 @@
 [![NPM](https://nodei.co/npm/iobroker.knx.png?downloads=true)](https://nodei.co/npm/iobroker.knx/)
 
 ## Description
+ru: [Установка и базовая настройка адаптера](doc/ru/readme.md)
+
 en: This adapter allows importing of knxproj Files from ETS. It generates the translation between KNX- group addresses and ioBroker and puts the devices into rooms (esp. for MobileUI).
 
 It connects to standard KNX/LAN Gateways.
 
 Before beginning: Every DPT of com.Objects should be set in your ETS project. Every device should be sorted into your facility structure.
+
+## License requirements
+To use this adapter in ioBroker you need to accept the source code license of the adapter. The source code of this adapter is available under the CC-NC-BY license.
+
+Additionally you need a license to use the adapter. The following license editions are available on https://iobroker.net/www/pricing 
+* **Community-License: Free for private use!**: Get a free license by registering an account on https://iobroker.net . The license if checked online against the ioBroker license server when the KNX adapter is started, so an online connection at this timepoint is required!
+* **Commercial License**: When using KNX in a commercial environment or selling KNX as part of ioBroker packages to your customers this license is for you. License check is also not requiring an online connection.
 
 ## Features:
 * importing `knxproj` file

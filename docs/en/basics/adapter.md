@@ -3,8 +3,8 @@ lastChanged: 13.09.2018
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/adapter.md
-title: Adapter and controller
-hash: wx10e6EHDVo51t8H3q6Zc2SSsq91P26Z8+V04em9JJI=
+title: Adapters and controllers
+hash: rNbYv7iEcRVCZsGtugtAscQMj4Xka6tdVCZuO11Zfc8=
 ---
-# Adapter and controller
-?> ***This is a wildcard*** . <br><br> Help with ioBroker and extend this article. Please note the [ioBroker style guide](community/styleguidedoc), so that the changes can be adopted more easily.
+# Adapters and controllers
+?> ***This is a placeholder*** .<br><br> Help with ioBroker and expand this article. Please note [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.

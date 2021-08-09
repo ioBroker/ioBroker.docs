@@ -8,6 +8,7 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/simatec/ioBroker.schoolfree/badge.svg)](https://snyk.io/test/github/simatec/ioBroker.schoolfree)
 [![Travis-CI](http://img.shields.io/travis/simatec/ioBroker.schoolfree/master.svg)](https://travis-ci.org/simatec/ioBroker.schoolfree)
 [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/simatec/ioBroker.schoolfree?branch=master&svg=true)](https://ci.appveyor.com/project/simatec/ioBroker-schoolfree/)
+![Test and Release](https://github.com/simatec/ioBroker.schoolfree/workflows/Test%20and%20Release/badge.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.schoolfree.png?downloads=true)](https://nodei.co/npm/iobroker.schoolfree/)
 
@@ -78,6 +79,13 @@ When the adapter crashes or an other Code error happens, this error message that
 *************************************************************************************************************************************
 
 ## Changelog
+
+### 1.0.0 (06.05.2021)
+* (simatec) GUI revised
+* (simatec) Added support for admin5
+* (simatec) code cleaned
+* (simatec) dependencies updated
+* (simatec) Github Test and Release added
 
 ### 0.7.0 (27.10.2020)
 * (simatec) Changeover from request to axios for data retrieval
@@ -151,7 +159,7 @@ When the adapter crashes or an other Code error happens, this error message that
 ## License
 MIT License
 
-Copyright (c) 2019 - 2020 simatec
+Copyright (c) 2019 - 2021 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

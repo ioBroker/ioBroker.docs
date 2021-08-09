@@ -119,6 +119,16 @@ Many thanks to [backfisch](https://github.com/backfisch88) for the initial idea 
 
 ## Changelog
 
+### 0.5.1
+* (Bart19) updates dependencies
+### 0.5.0
+* (Bart19) adds measures for wind and gust with m/s (#22) and do not query rain_today in the first 15 minutes of a day (#21)
+### 0.4.1
+* (Bart19) changes exit code and introduces an exit message
+### 0.4.0
+* (Bart19) Rounds values to two decimals
+### 0.3.13
+* (Bart19) updates dependencies
 ### 0.3.9
 * (Bart19) updates dependencies
 ### 0.3.8

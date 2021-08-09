@@ -1,6 +1,6 @@
 ---
 title:       "Admin"
-lastChanged: "25.03.2019"
+lastChanged: "14.05.2021"
 ---
 
 # Die Admin-Oberfläche
@@ -33,18 +33,19 @@ Funktionen abgerufen werden:
 
 Die Adapteransicht teilt sich in drei Bereiche auf:
 
+1 - [Menüleiste](#menüleiste)
+
+2 - [Hauptfenster](#das-hauptfenster)
+
+3 - [Systemeinstellungen](#systemeinstellungen)
+
 ![Die Struktur des Admin](media/ADMIN_Screen_numbers.png)
 
-1. [Menü-Sidebar](#Menüpunkte)
-2. [Hauptfenster](#das-hauptfenster)
-3. [Systemeinstellungen](#Systemeinstellungen)
-
-
-## Menüpunkte
+## Menüleiste
 Die Menüleiste enthält mehrere Menüpunkte. In der Grundinstallation werden diese 
 Punkte wie in der Abbildung angezeigt. Über das Dreieck-Icon links oben (1) können 
-nach der Installation zusätzlicher Adapter weitere Punkte hinzugefügt oder deaktiviert 
-werden um eine bessere Übersicht zu erhalten.
+nach der Installation zusätzlicher Adapter weitere Punkte aktiviert bzw. für eine 
+bessere Übersicht auch deaktiviert werden.
 
 ![Menüpunkte](media/ADMIN_Screen01_menuitems_numbers.png)
 
@@ -62,18 +63,18 @@ Das Hauptfenster zeigt den jeweils zum ausgewählten Menüpunkt gehörenden Inha
 Ausführliche Informationen zu diesem Inhalt sind in den Seiten hinterlegt, die über die 
 Überschriften verlinkt sind.
 
-### [Übersicht](overview.md)
+[Übersicht](https://www.iobroker.net/#de/documentation/admin/overview.md)
 Hier werden alle Seiten mit eigenem Webinterface sowie Informationen zu den 
 Hosts angezeigt.
 
-### [Adapter](adapter.md)
+[Adapter](https://www.iobroker.net/#de/documentation/admin/adapter.md)
 Hier werden die verfügbaren und installierten Adapter angezeigt und verwaltet.
 
-### [Instanzen](instances.md)
+[Instanzen](https://www.iobroker.net/#de/documentation/admin/instances.md)
 Hier werden die bereits über den Reiter Adapter installierten Instanzen aufgelistet 
 und können entsprechend konfiguriert werden.
 
-### [Objekte](objects.md)
+[Objekte](https://www.iobroker.net/#de/documentation/admin/objects.md)
 Die verwalteten Objekte Strukturen und Datenpunkte der Geräte, die über Adapter 
 eingebunden sind. Hier können Objekte angelegt und gelöscht werden. Über die 
 "Pfeil hoch"" und ""Pfeil runter"" Buttons können ganze Objektstrukturen 
@@ -82,10 +83,10 @@ hoch- oder runtergeladen werden.
 Werden Werte in roter Schrift angezeigt, sind sie noch nicht vom Empfänger 
 bestätigt (ack = false).
 
-### [Aufzählungen](enums.md)
+[Aufzählungen](https://www.iobroker.net/#de/documentation/admin/enums.md)
 Hier werden die Favoriten, Gewerke und Räume aus der Homematic-CCU aufgelistet.
 
-### [Log](log.md)
+[Log](https://www.iobroker.net/#de/documentation/admin/log.md)
 Hier wird das log angezeigt
 
 Im Reiter Instanzen kann bei den einzelnen Instanzen der zu loggende Loglevel 
@@ -93,22 +94,35 @@ eingestellt werden. In dem Auswahlmenü wird der anzuzeigende Mindest-Loglevel
 ausgewählt. Sollte ein Error auftreten, erscheint die Beschriftung des Reiters in roter Farbe.
 
 
-### [Ereignisse](events.md)
+[Ereignisse](https://www.iobroker.net/#de/documentation/admin/events.md)
 Eine Liste der laufenden Aktualisierung der Zustände.
 
-### [Benutzer](users.md)
+[Benutzer](https://www.iobroker.net/#de/documentation/admin/users.md)
 Hier können Benutzer angelegt und zu den bestehenden Gruppen hinzugefügt werden.
 
-### [Skripte](scripts.md)
-Auf dieser Seite könne eigene Skripte mit javascript, Blocly oder Typescript erstellt werden.
+[Skripte](scripts.md)
+Bei installierten Java-Skript Adapter kann auf dieser Seite eigene Skripte mit 
+javascript, Blockly oder Typescript erstellt werden.
 
-### [Hosts](hosts.md)
+[Hosts](https://www.iobroker.net/#de/documentation/admin/hosts.md)
 Informationen über den Rechner, auf dem ioBroker installiert ist.  Liegt eine neue Version vor, 
 erscheint ein Hinweis in diesem Eintrag der Menüleiste.
 
 
-## [Systemeinstellungen](settings.md)
-In dem sich hier öffnenden Menü werden Einstellungen wie Sprache, Zeit- und 
-Datumsformat sowie weitere systemweite Einstellungen getätigt.
+## Systemeinstellungen
+In dem sich hier öffnenden Menü werden [Systemeinstellungen](https://www.iobroker.net/#de/documentation/admin/settings.md) wie Sprache, Zeit- 
+und Datumsformat sowie weitere systemweite Einstellungen getätigt.
 
 Auch die Repositories und Sicherheitseinstellungen können hier eingestellt werden.
+
+
+[Übersicht]: https://www.iobroker.net/#de/documentation/admin/overview.md
+[Adapter]: https://www.iobroker.net/#de/documentation/admin/adapter.md
+[Instanzen]: https://www.iobroker.net/#de/documentation/admin/instances.md
+[Objekte]: https://www.iobroker.net/#de/documentation/admin/objects.md
+[Aufzählungen]: https://www.iobroker.net/#de/documentation/admin/enums.md
+[Log]: https://www.iobroker.net/#de/documentation/admin/log.md
+[Ereignisse]: https://www.iobroker.net/#de/documentation/admin/events.md
+[Benutzer]: https://www.iobroker.net/#de/documentation/admin/users.md
+[Hosts]: https://www.iobroker.net/#de/documentation/admin/hosts.md
+[Systemeinstellungen]: https://www.iobroker.net/#de/documentation/admin/settings.md

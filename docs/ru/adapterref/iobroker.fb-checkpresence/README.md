@@ -2,19 +2,21 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fb-checkpresence/README.md
-title: без заголовка
-hash: DMvFhWFPYeS5t66i2pAeuERPxhK73GromMQBTBGJUmE=
+title: ioBroker.fb-checkpresence
+hash: Z1IAPH1AFvuhK6O6okTb1JeGm4LYqDzN76Z39ij0Ymw=
 ---
-![Количество установок](http://iobroker.live/badges/fb-checkpresence-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)
+![Логотип](../../../en/adapterref/iobroker.fb-checkpresence/admin/fb-checkpresence.png)
+
+![Версия NPM](https://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.fb-checkpresence.svg)
+![Количество установок (последнее)](https://iobroker.live/badges/fb-checkpresence-installed.svg)
+![Количество установок (стабильно)](https://iobroker.live/badges/fb-checkpresence-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/afuerhoff/iobroker.fb-checkpresence.svg)
 ![Известные уязвимости](https://snyk.io/test/github/afuerhoff/ioBroker.fb-checkpresence/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.fb-checkpresence.png?downloads=true)
-![Трэвис-Си](http://img.shields.io/travis/afuerhoff/ioBroker.fb-checkpresence/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/afuerhoff/ioBroker.fb-checkpresence?branch=master&svg=true)
 
-<h1><img src="admin/fb-checkpresence.png" width="64"/>ioBroker.fb-checkpresence</h1>
+# IoBroker.fb-checkpresence
+** Тесты: ** ![Тестирование и выпуск](https://github.com/afuerhoff/ioBroker.fb-checkpresence/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер fb-checkpresence для ioBroker
 Адаптер проверяет присутствие членов семьи над фритцбоксом.
@@ -64,7 +66,9 @@ hash: DMvFhWFPYeS5t66i2pAeuERPxhK73GromMQBTBGJUmE=
 
 ### IP-адрес, пользователь и пароль Fritzbox
 Конфигурация ip-адреса, пользователя и пароля необходима для получения данных устройства из fritzbox.
-Следовательно, пользователь должен быть создан в fritzbox. Это требуется для более новой версии прошивки (> = 7.25) fritzbox. См. Информацию здесь: https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/Empfehlungen%20zur%20Benutzerfu%CC%88hrung%20bei%20der%20Anmeldung%20an%20einer%20FRITZ%.1Box. Пароль зашифрован и не был сохранен в виде открытого текста. Имя пользователя и пароль могут содержать не более 32 символов. См. Информацию: https://service.avm.de/help/de/FRITZ-Box-Fon-WLAN-7490/014/hilfe_zeichen_fuer_kennwoerter#:~:text=Namen%20f%C3%BCr%20Benutzer,Kennwortfeld%20darf % 20nicht% 20leer% 20sein.
+Следовательно, пользователь должен быть создан в fritzbox. Это требуется для более новой версии прошивки (> = 7.25) fritzbox. См. Здесь информацию: https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/Empfehlungen%20zur%20Benutzerfu%CC%88hrung%20bei%20der%20Anmeldung%20an%20einer%20FRITZ%.1Box. Пароль зашифрован и не был сохранен в виде открытого текста. Имя пользователя и пароль могут содержать не более 32 символов. См. Информацию: https://service.avm.de/help/de/FRITZ-Box-Fon-WLAN-7490/014/hilfe_zeichen_fuer_kennwoerter#:~:text=Namen%20f%C3%BCr%20Benutzer,Kennwortfeld%20darf % 20nicht% 20leer% 20sein.
+Подсказка: в некоторых случаях могло случиться так, что fritzbox заблокировал пользователя, если пароль был введен неправильно.
+Часто в журнале появляется сообщение о тайм-ауте. Пожалуйста, проверьте, правильно ли вы ввели имя пользователя и пароль. Затем вам необходимо перезагрузить fritzbox.
 
 ### Параметр SSL
 В некоторых случаях адаптер не мог подключиться к fritzbox. Может помочь отключить эту опцию.
@@ -75,17 +79,17 @@ hash: DMvFhWFPYeS5t66i2pAeuERPxhK73GromMQBTBGJUmE=
 Интервал для устройств Fritzbox можно настроить от 1 до 59 минут. Обычно значение от 1 до 5 минут является оптимальным интервалом для чтения данных fritzbox. Члены семьи могут быть настроены от 10 до 600. Каждый новый цикл начинается, если предыдущий цикл завершен.
 
 ### Время фильтрации
-Если время фильтрации больше 0 с, состояние члена семейства проверяется дважды (после времени фильтрации), если состояние меняется на ложное. Если состояние истинно, состояние устанавливается немедленно.
+Если время фильтрации больше 0 с, состояние члена семьи проверяется дважды (после времени фильтрации), если состояние меняется на ложное. Если состояние истинно, состояние устанавливается немедленно.
 
 ### Адаптер истории
-По адаптеру истории вычисляются некоторые значения. Вы можете выбрать, будет ли использоваться история, sql или адаптер infxdb для этих вычислений. Адаптер истории должен быть установлен предварительно, а затем его можно будет выбрать в диалоговом окне конфигурации.
+По адаптеру истории вычисляются некоторые значения. Вы можете выбрать, будет ли использоваться история, sql или адаптер infxdb для этих вычислений. Адаптер истории должен быть установлен предварительно, после чего его можно будет выбрать в диалоговом окне конфигурации.
 Если конфигурация истории отключена, то вычисление некоторых значений не может быть осуществлено.
 
 ### Формат даты
 Параметры маски формата даты описаны на этой веб-странице: https://www.npmjs.com/package/dateformat.
 Маска формата используется для форматирования объектов таблиц html и json.
 
-### Создание FB устройств
+### Создание устройств FB
 Если этот параметр отмечен, объекты создаются для каждого устройства в списке устройств Fritzbox.
 Если этот параметр отключен, информация о сетке также отключена.
 
@@ -93,7 +97,7 @@ hash: DMvFhWFPYeS5t66i2pAeuERPxhK73GromMQBTBGJUmE=
 Если этот параметр отмечен, то объект устройства FB повторно синхронизируется со списком устройств Fritzbox.
 
 ### Создание информации о сетке
-Эта опция может быть отмечена, если создание FB-устройств разрешено. Если этот флажок установлен, объекты сетки создаются для каждого устройства в списке устройств Fritzbox.
+Эта опция может быть отмечена, если создание FB устройств разрешено. Если этот параметр отмечен, объекты сетки создаются для каждого устройства в списке устройств Fritzbox.
 
 ### Информация о гостях
 Если этот параметр отмечен, создаются состояния для гостей.
@@ -102,10 +106,15 @@ hash: DMvFhWFPYeS5t66i2pAeuERPxhK73GromMQBTBGJUmE=
 Если эта опция отмечена, генерируется qr-код от гостевой wlan.
 
 ### Настройки членов семьи
-Для настроенного члена семьи вы должны ввести имя члена, имя хоста, Mac- и IP-адрес, комментарий, и вы можете включить или отключить члена. Группа не обязательна. Если вы оставите группу пустой и установите флаг совместимости в значение true, поведение будет похоже на более старую версию adaper. В будущей версии вы должны использовать состояние присутствия от члена семьи. Это поведение включается / выключается флажком совместимости: -> compatibility = true: поведение как в более старой версии с пустой группой.
+Для настроенного члена семьи вы должны ввести имя члена, имя хоста, Mac- и IP-адрес, комментарий, и вы можете включить или отключить члена. Группа не обязательна.
+Если вы оставите группу пустой и установите флаг совместимости в значение true, поведение будет похоже на более старую версию adaper. Вы можете использовать состояние присутствия члена семьи или состояние, напрямую сопоставленное с именем члена семьи. В будущей версии вы должны использовать состояние присутствия. Это поведение можно включить / выключить с помощью флажка совместимости: -> compatibility = true: поведение как в более старой версии с пустой группой.
+-> совместимость = true и группа не пуста: новое поведение. Все состояния под папкой familymembers.
 -> совместимость = false: новое поведение. Все состояния под папкой familymembers.
-Для каждого члена адаптер создает состояние присутствия и проверяет, присутствует ли член или нет. Состояние было изменено, если изменилось состояние присутствия. Вы также можете включить фильтрацию для члена. Если состояние истинно, состояние немедленно меняется на истинное. Если это ложь, то значение будет проверено снова по истечении времени фильтрации.
-Если состояние в обоих случаях ложно, то состояние меняется на ложное. В остальном не меняется.
+
+Для каждого члена адаптер создает состояние присутствия и проверяет, присутствует ли член или нет. Состояние было изменено, если изменилось состояние присутствия.
+Вы также можете включить фильтрацию для члена. Если состояние истинно, состояние немедленно меняется на истинное. Если это ложь, то значение будет проверено снова после истечения времени фильтрации.
+Если состояние в обоих случаях ложно, то состояние меняется на ложное. В остальном это не изменится.
+
 Для получения информации о скорости в объектах необходимо выбрать опцию fb-devices.
 
 ### Настройки белого списка
@@ -137,10 +146,10 @@ QR-код гостевой wlan сохраняется в состоянии wla
 
 ## Объекты
 ### Наличие объекта Все
-Если присутствуют все члены семьи, значит, объект верен.
+Если присутствуют все члены семьи, то объект верен.
 
 ### Наличие объекта
-Если присутствует один член семьи, значит, объект верен.
+Если присутствует один член семьи, то объект верен.
 
 ### Объектные устройства
 Все эти устройства перечислены в fritzbox.
@@ -149,7 +158,7 @@ QR-код гостевой wlan сохраняется в состоянии wla
 Это количество всех активных устройств в fritzbox
 
 ### Объект html, json
-Эти объекты представляют собой таблицы (json и html) с информацией о приходе и уходе всех членов семьи в них.
+Эти объекты представляют собой таблицы (json и html), в которых содержится информация о приходе и уходе всех членов семьи.
 
 ### Информация об объекте
 Здесь перечислены сведения о последнем обновлении и состоянии подключения адаптера.
@@ -179,6 +188,36 @@ QR-код гостевой wlan сохраняется в состоянии wla
     * Did some changes
     * Did some more changes
 -->
+### __WORK IN PROGRESS__
+* (afuerhoff) html input pattern fixed for password and user
+* (afuerhoff) dependencies updated
+
+### 1.1.5 (2021-06-03)
+* (afuerhoff) dependencies updated
+* (afuerhoff) checkservice fixed
+
+### 1.1.4 (2021-05-11)
+* (afuerhoff) family groups implemented
+* (afuerhoff) compatability mode implemented
+* (afuerhoff) dependencies updated
+* (afuerhoff) configuration options added
+* (afuerhoff) dialogboxes optimized
+* (afuerhoff) translations updated
+* (afuerhoff) general program structure optimized
+* (afuerhoff) filter for family members implemeted
+* (afuerhoff) password handling updated
+* (afuerhoff) documentation updated
+* (afuerhoff) QR-Code implemented
+* (afuerhoff) setState presence only if changed
+* (afuerhoff) access rights implemented
+* (afuerhoff) use name for presence
+* (afuerhoff) active / inactive devices
+* (afuerhoff) interval 10s bug fixed
+* (afuerhoff) Bugfix dateformat pattern
+* (afuerhoff) SSL (https) workaround implemented
+* (afuerhoff) Connection check optimized
+* (afuerhoff) Mesh handling optimized 
+
 ### 1.1.3 (2021-03-31)
 * (afuerhoff) family groups implemented
 * (afuerhoff) compatability mode implemented
@@ -206,19 +245,7 @@ QR-код гостевой wlan сохраняется в состоянии wla
 * (afuerhoff) SSL (https) workaround implemented
 * (afuerhoff) Connection check optimized
 * (afuerhoff) Documentation added
-* (afuerhoff) Mesh handling optimized 
-
-### 1.1.0 (2020-10-24)
-* (afuerhoff) second interval for family members implemented
-* (afuerhoff) mesh info added
-* (afuerhoff) configuration validation added
-* (afuerhoff) switch on, off guest wlan
-* (afuerhoff) switch on, off internet access of devices 
-* (afuerhoff) structural changes
-* (afuerhoff) code optimization
-
-### 1.0.4 (2020-06-28)
-* (afuerhoff) bugfix json list and guest handling, new object guest.presence
+* (afuerhoff) Mesh handling optimized
 
 ## License
 MIT License

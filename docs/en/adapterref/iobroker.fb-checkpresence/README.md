@@ -1,18 +1,15 @@
-<h1>
-    <img src="admin/fb-checkpresence.png" width="64"/>
-    ioBroker.fb-checkpresence
-</h1>
+![Logo](admin/fb-checkpresence.png)
+# ioBroker.fb-checkpresence
 
-![Number of Installations](http://iobroker.live/badges/fb-checkpresence-installed.svg) ![Number of Installations](http://iobroker.live/badges/fb-checkpresence-stable.svg)
-[![NPM version](http://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)](https://www.npmjs.com/package/iobroker.fb-checkpresence)
+[![NPM version](https://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)](https://www.npmjs.com/package/iobroker.fb-checkpresence)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.fb-checkpresence.svg)](https://www.npmjs.com/package/iobroker.fb-checkpresence)
+![Number of Installations (latest)](https://iobroker.live/badges/fb-checkpresence-installed.svg)
+![Number of Installations (stable)](https://iobroker.live/badges/fb-checkpresence-stable.svg)
 [![Dependency Status](https://img.shields.io/david/afuerhoff/iobroker.fb-checkpresence.svg)](https://david-dm.org/afuerhoff/iobroker.fb-checkpresence)
 [![Known Vulnerabilities](https://snyk.io/test/github/afuerhoff/ioBroker.fb-checkpresence/badge.svg)](https://snyk.io/test/github/afuerhoff/ioBroker.fb-checkpresence)
-
 [![NPM](https://nodei.co/npm/iobroker.fb-checkpresence.png?downloads=true)](https://nodei.co/npm/iobroker.fb-checkpresence/)
 
-**Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/afuerhoff/ioBroker.fb-checkpresence/master.svg)](https://travis-ci.org/afuerhoff/ioBroker.fb-checkpresence)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/afuerhoff/ioBroker.fb-checkpresence?branch=master&svg=true)](https://ci.appveyor.com/project/afuerhoff/ioBroker-fb-checkpresence/)
+**Tests:** ![Test and Release](https://github.com/afuerhoff/ioBroker.fb-checkpresence/workflows/Test%20and%20Release/badge.svg)
 
 ## fb-checkpresence adapter for ioBroker
 
@@ -72,6 +69,8 @@ Therefore a user has to be created in the fritzbox. This is required with newer
 firmware version (>= 7.25)of the fritzbox. See here fore information: https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/Empfehlungen%20zur%20Benutzerfu%CC%88hrung%20bei%20der%20Anmeldung%20an%20einer%20FRITZ%21Box_v1.1.pdf 
 The password is encrypted and wasn't saved in clear text. The user name and password may have a maximum of 
 32 characters. See for information: https://service.avm.de/help/de/FRITZ-Box-Fon-WLAN-7490/014/hilfe_zeichen_fuer_kennwoerter#:~:text=Namen%20f%C3%BCr%20Benutzer,Kennwortfeld%20darf%20nicht%20leer%20sein.
+Hint: In some cases it could be that the fritzbox blocked the user if the password was not correctly inserted.
+Often a timeout message is in the log. Please check than the if you has insert the correct username and password.Then you have to reboot the fritzbox. 
 
 ### Ssl option
 In some cases the adapter could not connect to the fritzbox. It could help to disable this option.
@@ -111,11 +110,16 @@ If this option is checked the states for guests are created.
 If this option is checked the qr-code from guest wlan is generated. 
 
 ### Family member settings
-For a configured family member you should enter the member name, the hostname, the mac- and ip-address, a comment and you can enable or disable the member. A group is optional. If you leave the group empty and set the compatibility flag to true the behaviour is like an older version of the adaper. In a future version you have to use the presence state from a family member. This behaviour is switched on/off with the compatibility checkbox:
+For a configured family member you should enter the member name, the hostname, the mac- and ip-address, a comment and you can enable or disable the member. A group is optional. 
+If you leave the group empty and set the compatibility flag to true the behaviour is like an older version of the adaper. You can use the presence state from the family member or the state directly mapped to the family member name. In a future version you must use the presence state. This behaviour could be switched on/off with the compatibility checkbox:
 -> compatibility = true: behaviour as an older version with empty group. 
+-> compatibility = true and group not empty: new behaviour. All states beneath the familymembers folder. 
 -> compatibility = false: new behaviour. All states beneath the familymembers folder.
-For every member the adapter creates a presence state and checks if the member is present or absent. The state was changed if the presence state changed. You can also enable the filtering for a member. If the state is true the state changes immediately to true. If it is false then the value will checked after the filter time again.
+
+For every member the adapter creates a presence state and checks if the member is present or absent. The state was changed if the presence state changed. 
+You can also enable the filtering for a member. If the state is true the state changes immediately to true. If it is false then the value will checked after the filter time again.
 If the state is in both cases false then the state changes to false. Otherwise it does not change.
+
 To get the speed information in the objects you have to select fb-devices option.
 
 ### Whitelist settings
@@ -193,6 +197,41 @@ Here you will find information about the history of the current day.
     * Did some changes
     * Did some more changes
 -->
+### 1.1.7 (2021-06-23)
+* (afuerhoff) message handling optimized
+* (afuerhoff) dependencies updated
+
+### 1.1.6 (2021-06-20)
+* (afuerhoff) html input pattern fixed for password and user
+* (afuerhoff) getActive function fixed
+* (afuerhoff) dependencies updated
+
+### 1.1.5 (2021-06-03)
+* (afuerhoff) dependencies updated
+* (afuerhoff) checkservice fixed
+
+### 1.1.4 (2021-05-11)
+* (afuerhoff) family groups implemented
+* (afuerhoff) compatability mode implemented
+* (afuerhoff) dependencies updated
+* (afuerhoff) configuration options added
+* (afuerhoff) dialogboxes optimized
+* (afuerhoff) translations updated
+* (afuerhoff) general program structure optimized
+* (afuerhoff) filter for family members implemeted
+* (afuerhoff) password handling updated
+* (afuerhoff) documentation updated
+* (afuerhoff) QR-Code implemented
+* (afuerhoff) setState presence only if changed
+* (afuerhoff) access rights implemented
+* (afuerhoff) use name for presence
+* (afuerhoff) active / inactive devices
+* (afuerhoff) interval 10s bug fixed
+* (afuerhoff) Bugfix dateformat pattern
+* (afuerhoff) SSL (https) workaround implemented
+* (afuerhoff) Connection check optimized
+* (afuerhoff) Mesh handling optimized 
+
 ### 1.1.3 (2021-03-31)
 * (afuerhoff) family groups implemented
 * (afuerhoff) compatability mode implemented
@@ -204,35 +243,6 @@ Here you will find information about the history of the current day.
 * (afuerhoff) filter for family members implemeted
 * (afuerhoff) password handling updated
 * (afuerhoff) documentation updated
-
-### 1.1.2 (2021-01-13)
-* (afuerhoff) QR-Code implemented
-* (afuerhoff) setState presence only if changed
-* (afuerhoff) access rights implemented
-* (afuerhoff) use name for presence
-* (afuerhoff) active / inactive devices
-* (afuerhoff) interval 10s bug fixed
-* (afuerhoff) documentation edited 
-
-### 1.1.1 (2020-12-27)
-* (afuerhoff) Configuration optimized
-* (afuerhoff) Bugfix dateformat pattern
-* (afuerhoff) SSL (https) workaround implemented
-* (afuerhoff) Connection check optimized
-* (afuerhoff) Documentation added
-* (afuerhoff) Mesh handling optimized 
-
-### 1.1.0 (2020-10-24)
-* (afuerhoff) second interval for family members implemented
-* (afuerhoff) mesh info added
-* (afuerhoff) configuration validation added
-* (afuerhoff) switch on, off guest wlan
-* (afuerhoff) switch on, off internet access of devices 
-* (afuerhoff) structural changes
-* (afuerhoff) code optimization
-
-### 1.0.4 (2020-06-28)
-* (afuerhoff) bugfix json list and guest handling, new object guest.presence
 
 ## License
 MIT License

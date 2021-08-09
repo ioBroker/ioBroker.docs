@@ -90,6 +90,12 @@ After the first start the devices must be scanned. It can be done in the configu
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 1.0.4 (2021-05-21)
+* (bluefox) Ack will be ignored for the display commands
+
+### 1.0.3 (2021-05-21)
+* (bluefox) Changed the calculation of the temperature variables
+
 ### 1.0.2 (2020-10-11)
 * (bluefox) Implemented the regulators and the display support.
 
@@ -126,6 +132,6 @@ After the first start the devices must be scanned. It can be done in the configu
 ## License
 CC-BY-NC-4.0
 
-Copyright (c) 2018-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2021 bluefox <dogafox@gmail.com>
 
 Up to 10 devices can be connected for free. If you need more devices, you must buy a commercial license.

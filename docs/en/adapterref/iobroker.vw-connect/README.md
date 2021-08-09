@@ -112,7 +112,20 @@ Door and window states:
 
 ## Changelog
 
-### 0.0.33
+### 0.0.39
+
+- fix id login
+
+### 0.0.36
+
+- add Skoda Enyaq support
+  
+### 0.0.35
+
+- add nodeJS v10 compatibility 
+  
+
+### 0.0.34
 
 - add auto accept of new privacy consent
   

@@ -32,7 +32,7 @@ Pings specified IP addresses in defined interval and monitors the results. (aliv
 
 ### Wake-on-LAN
 
-Set the wol object to true and 3 WOL packages are sent, with a pasue of 750ms, to your device. 
+Set the wol object to true and 3 WOL packages are sent, with a pause of 750ms, to your device. 
 
 
 ### Port scan
@@ -63,6 +63,18 @@ Remark: This feature is limited to the subnet of the ioBroker host.
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Changelog
+
+### 0.1.7 (2021-07-31)
+* fix device settings in adapter configuration
+
+### 0.1.5
+* changes on testing
+
+### 0.1.4
+* fixes for js-controller 3.3
+
+### 0.1.3
+* fixes for js-controller 3.3
 
 ### 0.1.2
 * added device discovery to configuration page

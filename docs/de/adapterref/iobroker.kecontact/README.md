@@ -2,10 +2,10 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kecontact/README.md
-title: ioBroker-Adapter für KEBA KeContact Wallbox
-hash: 3TGw2BzL18r0FDVXL2G3tXy67ifvIYC96MS8+edrVxY=
+title: ioBroker Adapter für KEBA KeContact P20 oder P30 und BMW i Wallbox
+hash: LjZdhIBc51HwBzjb27or5MaAFejnGQIfGy9+Tgmbfj4=
 ---
-![Adapter-Logo](../../../en/adapterref/iobroker.kecontact/admin/charger.png)
+![Adapterlogo](../../../en/adapterref/iobroker.kecontact/admin/charger.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/kecontact-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.kecontact.svg)
@@ -13,59 +13,90 @@ hash: 3TGw2BzL18r0FDVXL2G3tXy67ifvIYC96MS8+edrVxY=
 ![Travis](https://img.shields.io/travis/iobroker-community-adapters/ioBroker.kecontact.svg)
 ![GitHub-Probleme](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.kecontact.svg)
 
-# IoBroker-Adapter für KEBA KeContact Wallbox
-Bietet Informationen zum aktuellen Status einer KEBA KeContact-Wallbox mithilfe ihres UDP-Protokolls.
+# IoBroker Adapter für KEBA KeContact P20 oder P30 und BMW i Wallbox
+Liefert über deren UDP-Protokoll Auskunft über den aktuellen Zustand einer KEBA KeContact Wallbox.
 
 ## Installieren
 Installieren Sie diesen Adapter über ioBroker Admin:
 
-1. Öffnen Sie den Instanzkonfigurationsdialog
-2. Geben Sie die IP-Adresse Ihrer KEBA KeContact-Wallbox ein
+1. Instanzkonfigurationsdialog öffnen
+2. Geben Sie die IP-Adresse Ihrer KEBA KeContact Wallbox ein
 3. Passen Sie das Aktualisierungsintervall bei Bedarf an
 4. Speichern Sie die Konfiguration
 5. Starten Sie den Adapter
 
 ## Aufbau
-### KeContact IP-Adresse
-Dies ist die IP-Adresse Ihrer KEBA KeContact-Wallbox.
+### KeContact-IP-Adresse
+Dies ist die IP-Adresse Ihrer KEBA KeContact oder BMW i Wallbox.
 
-### Firmware-Prüfung
-Einmal am Tag prüft der Adapter, ob auf der KEBA-Website eine neuere Firmware verfügbar ist. Diese Informationen werden gedruckt, um als Warnung zu protokollieren.
+### Firmware-Check
+Der Adapter prüft einmal täglich, ob eine neuere Firmware auf der KEBA-Website verfügbar ist. Diese Informationen werden als Warnung ausgedruckt.
 
 ### Passivmodus
-Aktivieren Sie diese Option, wenn Sie Ihre Wallbox selbst steuern möchten und Sie nicht möchten, dass dieser Adapter einige Automatisierungen ausführt. In diesem Fall werden alle nachfolgenden Optionen bezüglich PV-Automatik und Leistungsbegrenzung ignoriert.
+Aktivieren Sie diese Option, wenn Sie Ihre Wallbox selbst steuern möchten und nicht möchten, dass dieser Adapter einige Automatiken durchführt. In diesem Fall werden alle nachfolgenden Optionen bezüglich PV-Automatik und Leistungsbegrenzung ignoriert.
 
 ### Ladesitzungen laden
 Sie können diese Option aktivieren, um regelmäßig die neuesten Ladesitzungen (30) von Ihrer Wallbox herunterzuladen.
-ACHTUNG für Benutzer ab Version v1.1.1: Sie müssen diese Option aktivieren, um weiterhin Ladesitzungen zu erhalten!
+ACHTUNG für Benutzer ab Version v1.1.1: Sie müssen diese Option aktivieren, um weiterhin Ladevorgänge zu erhalten!
 
 ### Aktualisierungsintervall
-Dies ist das Intervall in Sekunden, in dem die Wallbox nach neuen Werten abgefragt werden soll. Normalerweise wird es nicht benötigt (auf 0 gesetzt).
-Die Wallbox sendet kontinuierlich Sendungen, die absolut ausreichend sind, um die Daten auf dem neuesten Stand zu halten.
+Dies ist das Intervall in Sekunden, wie oft die Wallbox nach neuen Ladewerten abgefragt werden soll.
 
-Der Standardwert ist 30 Sekunden. Dies ist ein gutes Gleichgewicht zwischen der Last für KeConnect und den aktuellen Informationen in ioBroker.
+Der Standardwert beträgt 10 Minuten, was eine gute Balance zwischen der Auslastung des KeConnect und aktuellen Informationen in ioBroker darstellt.
 
 ### PV-Automatik
-Um Ihr Fahrzeug entsprechend einem Überschuss aufzuladen (z. B. durch Photovoltaik), können Sie auch Zustände definieren, die den Überschuss und die Berücksichtigung der Hauptleistung darstellen. Diese Werte werden zur Berechnung der Stromstärke verwendet, die zum Laden verwendet werden kann. Durch zusätzliche Werte können Sie definieren
+Um Ihr Fahrzeug entsprechend auf Überschuss aufzuladen (z.B. durch Photovoltaik) können Sie auch Zustände definieren, die Überschuss und Netzbezug darstellen. Diese Werte werden verwendet, um die Stromstärke zu berechnen, die zum Laden verwendet werden kann. Durch zusätzliche Werte können Sie definieren
 
-* eine andere minimale Stromstärke als die Standard-6 A (nur für z. B. Renault Zoe erforderlich)
-* Ein Wert für die Leistung, die zum Starten des Ladevorgangs verwendet werden kann (dh der Ladevorgang beginnt auch dann, wenn nicht genügend Überschuss verfügbar ist - empfohlen 0 W für 1-Phasen-Ladevorgang, 500 W bis 2000 W für 3-Phasen-Ladevorgang).
+* Schalten Sie die X1-Option um, wenn Sie den X1-Eingang von der Ladestation verwenden möchten, um zu steuern, ob mit voller Leistung oder mit Photovoltaik-Automatik geladen werden soll
+* eine andere Mindeststromstärke als die Standard 6 A (nur erforderlich für z.B. Renault Zoe)
+* ein Wert der Leistung, die verwendet werden kann, um den Ladevorgang zu starten (das bedeutet, dass der Ladevorgang beginnt, auch wenn nicht genügend Überschuss vorhanden ist - empfohlen 0 W für 1-Phasen-Laden, 500 W bis 2000 W für 3-Phasen-Laden)
 * ein Inkrement für die Stromstärke (empfohlen 500 mA)
-* Ein Wert, der vorübergehend verwendet werden kann, um die Ladesitzung aufrechtzuerhalten (das bedeutet, dass der Ladevorgang später beendet wird, auch wenn nicht mehr genügend Überschuss verfügbar ist - Start-Rücksicht wird hinzugefügt - empfohlene 500 W).
-* Mindestdauer der Ladesitzung (auch wenn der Überschuss nicht mehr ausreicht, dauert eine Ladesitzung mindestens dieses Mal - empfohlen 300 Sekunden)
+* ein Wert, der vorübergehend verwendet werden kann, um den Ladevorgang aufrechtzuerhalten (d. h. der Ladevorgang wird später beendet, auch wenn nicht mehr genügend Überschuss vorhanden ist - Startwert wird hinzugefügt - empfohlene 500 W)
+* Mindestdauer des Ladevorgangs (auch wenn der Überschuss nicht mehr ausreicht, dauert ein Ladevorgang mindestens diese Zeit - empfohlen 300 Sek.)
+* Zeit zum Fortsetzen des Ladevorgangs jedes Mal, wenn der Überschuss nicht mehr ausreicht (um die Zeit an bewölkten Tagen zu überbrücken)
 
 ### Leistungsbegrenzung
-Sie können auch max. Leistung Ihrer Wallbox zur Begrenzung der Hauptleistung. Z.B. Wenn Sie Nachtspeicherheizungen betreiben, müssen Sie möglicherweise eine maximale Leistungsbegrenzung einhalten.
+Sie können auch max. Strom Ihrer Wallbox, um die Hauptstromversorgung zu begrenzen. Z.B. Beim Betrieb von Nachtspeicherheizungen müssen Sie eventuell eine maximale Leistungsbegrenzung beachten.
 Wenn Sie einen Wert eingeben, wird Ihre Wallbox kontinuierlich eingeschränkt, um Ihr Leistungslimit nicht zu überschreiten.
-Zur Begrenzung können bis zu drei Zustände von Energiezählern angegeben werden. Alle Werte werden addiert, um den Stromverbrauch zu berechnen.
-Über ein zusätzliches Kontrollkästchen wird angegeben, ob die Wallbox-Leistung enthalten ist (in diesem Fall wird die Wallbox-Leistung von den Statuswerten abgezogen).
+Zur Begrenzung können bis zu drei Zustände von Energiezählern angegeben werden. Alle Werte werden addiert, um den aktuellen Verbrauch zu berechnen.
+Ein zusätzliches Kontrollkästchen wird verwendet, um anzugeben, ob die Wallbox-Leistung enthalten ist (in diesem Fall wird die Wallbox-Leistung von den Statuswerten abgezogen).
 
-## Legal
+### Dynamische Optionen
+Darüber hinaus gibt es einige Zustände, die das Verhalten der Photovoltaik-Automatik on the fly beeinflussen, z.B. durch ein eigenes Skript, das diese Werte nach Ihren Bedürfnissen aktualisiert)
+
+* kecontact.0.automatic.photovoltaics - Aktiviert die Photovoltaik automatisch (true) oder lädt das Fahrzeug mit maximaler Leistung, wenn auf false gesetzt
+* kecontact.0.automatic.calcPhases - definiert die aktuelle Anzahl der Phasen, die für die Ladeberechnung verwendet werden. Dies wird für die Keba Deutschland Edition benötigt und kann für den ersten Ladevorgang für alle Ladestationen verwendet werden
+* kecontact.0.automatic.addPower - definiert eine zulässige Wattzahl zum Aufladen Ihres Fahrzeugs (wie in den Optionen)
+* kecontact.0.automatic.pauseWallbox - stoppt jede Ladesitzung sofort, solange sie auf true gesetzt ist
+* kecontact.0.automatic.limitCurrent - begrenzt Ihre Ladung auf die angegebene Stromstärke in mA (0 = keine Begrenzung)
+
+Beispiel: Um Ihr Fahrzeug unabhängig vom Überschuss mit einer konstanten Stromstärke von 6A zu laden, stellen Sie Photovoltaik auf false und limitCurrent auf 6000.
+
+##Rechtliches
 Dieses Projekt ist weder direkt noch indirekt mit der Firma KEBA AG verbunden.
 
 KeConnect ist eine eingetragene Marke der KEBA AG.
 
 ## Changelog
+
+### 1.2.2 (2021-07-28)
+* (Sneak-L8) new: limit max. charging current dynamically
+* (Sneak-L8) support BMW charging station (Keba OEM, Sentry IOBROKER-KECONTACT-3)
+* (Sneak-L8) support P20 charging station (Sentry IOBROKER-KECONTACT-B)
+* (Sneak-L8) optimized power calculation for Deutschland edition
+
+### 1.2.1 (2021-07-20)
+* (Sneak-L8) support X1 contact of charging station to switch photovoltaics automatic
+* (Sneak-L8) prevent a crash case (Sentry IOBROKER-KECONTACT-2)
+
+### 1.2.0 (2021-06-07)
+* (Sneak-L8) support for compact mode
+* (Sneak-L8) using sentry.io to track errors
+* (Sneak-L8) support for KeContact P30 Deutschland edition
+
+### 1.1.3 (2021-04-26)
+* (Sneak-L8) new time option to continue charging session with regard
+* (Sneak-L8) optimized calculation of surplus (prevent alternating amperage)
 
 ### 1.1.2 (2021-04-02)
 * (Sneak-L8) default state of photovoltaics automatic set to true for new users
@@ -137,7 +168,7 @@ KeConnect ist eine eingetragene Marke der KEBA AG.
 
 ## License
 
-Copyright 2020 UncleSamSwiss
+Copyright (c) 2020-2021 UncleSamSwiss
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.coronavirus-statistics/README.md
 title: ioBroker.coronavirus-статистика
-hash: MOsS11IupbrP75CRJu1NoKyrADHytwiXSEIZfcLWpzc=
+hash: gW9jg70uEEKlA3PAWaRnAxKZqrZMBnBFDoBGPkr9l9o=
 ---
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.coronavirus-statistics.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.coronavirus-statistics.svg)
@@ -13,13 +13,13 @@ hash: MOsS11IupbrP75CRJu1NoKyrADHytwiXSEIZfcLWpzc=
 ![НПМ](https://nodei.co/npm/iobroker.coronavirus-statistics.png?downloads=true)
 ![Статус зависимости](https://img.shields.io/david/DrozmotiX/ioBroker.coronavirus-statistics.svg)
 
-<img src="./admin/coronavirus-statistics.png" width="50" height="50">
+<img src="./admin/coronavirus-statistics.png" width="50" height="50" alt="">
 
 # IoBroker.coronavirus-statistics
 ![Тестирование и выпуск](https://github.com/c/ioBroker.coronavirus-statistics/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер живой статистики по коронавирусу для ioBroker
-Адаптер для отображения информации о Global Corona Virus и текущих отчетов
+Адаптер для отображения информации о глобальном коронавирусе и текущих отчетов
 
 Конфигурация не требуется, после установки она:
 
@@ -41,8 +41,8 @@ hash: MOsS11IupbrP75CRJu1NoKyrADHytwiXSEIZfcLWpzc=
 | восстановлен | Количество полностью известных выздоровевших случаев |
 | сегодняКейсы | Новые дела к сегодняшнему дню |
 | todayDeaths | Сегодня погибло количество полностью известных людей |
-| тест | Общее количество тестов на covid-19, проведенных во всем мире |
-| тестов на миллион уездов | Общее количество тестов на covid-19, проведенных в мире на один миллион |
+| тест | Общее количество тестов на COVID-19, проведенных во всем мире |
+| тестов на миллион уездов | Общее количество тестов на COVID-19, сданных в мире на миллион |
 
 Имейте в виду, что этот адаптер использует как можно больше актуальной информации, но возможна задержка на несколько часов в зависимости от отчета страны.
 Федеральные земли Германии: https://npgeo-corona-npgeo-de.hub.arcgis.com/ s Общий источник: https://coronavirus-19-api.herokuapp.com
@@ -50,9 +50,9 @@ hash: MOsS11IupbrP75CRJu1NoKyrADHytwiXSEIZfcLWpzc=
 ## Расширенные настройки
 | Вариант | Описание |
 |--|--|
-| Все страны | Получить данные для всех стран мира (по умолчанию: false) |
-| Континенты | Группировать общие суммы по континентам в отдельном состоянии (по умолчанию: false) |
-| Удалить неиспользуемые состояния | Удалять данные, когда выбор стран отменен (по умолчанию: false) |
+| Все страны | Получить данные по всем странам мира (по умолчанию: false) |
+| Континенты | Группировать общие суммы по континентам в отдельное состояние (по умолчанию: false) |
+| Удалить неиспользуемые состояния | Удалять данные, когда страны не выбраны (по умолчанию: false) |
 
 ## Только для Германии
 | Вариант | Описание |
@@ -62,15 +62,15 @@ hash: MOsS11IupbrP75CRJu1NoKyrADHytwiXSEIZfcLWpzc=
 | Города | Получить данные по городам Германии (только выбрано, по умолчанию false) |
 | Все федеральные земли | Все федеральные земли Германии (по умолчанию false) |
 | Все города | Все города Германии (по умолчанию false) |
-| Все уезды | Все округа Германии (по умолчанию false) |
+| Все округа | Все округа Германии (по умолчанию false) |
 
 Можно получить данные для федеральных земель (Bundesländer), городов (Städte) округов (Landeskreise).
 Вы можете выбрать получение всех данных или просто выбрать определенные регионы в дополнительных настройках.
 
-<span style="color:red">Данные о вакцинации в настоящее время доступны только для Германии и будут получены только при активации *&quot;Bundeslaender&quot;* </span>
+<span style="color:red">Данные о вакцинации в настоящее время доступны только для Германии и будут получены только при активации *&quot;Bundesländer&quot;* </span>
 
 ## Добавить отсутствующие страны
-Может случиться так, что страны не распознаются правильно, потому что API предоставляет названия некоторых стран, не соответствующих ISO. В таком случае вы получите предупреждающее сообщение в журнале, которое выглядит следующим образом:
+Может случиться так, что страны не распознаются правильно, потому что API предоставляет названия некоторых стран, не соответствующих ISO. В таком случае вы получите предупреждающее сообщение в журнале, которое выглядит следующим образом
 
 ```
 coronavirus-statistics.0	2020-03-21 09:05:31.328	warn	(22937) Timor-Leste not found in lib! Must be added to the country name translator.
@@ -96,12 +96,22 @@ coronavirus-statistics.0	2020-03-21 09:05:31.328	warn	(22937) Timor-Leste not fo
 
 <!--
 	### __WORK IN PROGRESS__
-	* (DutchmanNL) xxxx
+	* (DutchmanNL) 
 -->
 
+### 0.7.0-4 (2021-03-30)
+* (DutchmanNL) round Impfquote to 2 digits
+* (lembnau) Vaccination data for AstraZeneca Germany added
+* (DutchmanNL) Bugfix : Solve last_update is invalid warn message
+* (DutchmanNL) Bugfix : Solve cannot read property 'Erstimpfung' of undefined
+
+### 0.6.9 (2021-03-22)
+
+* (lembnau) Adapter issues with vaccination data from Germany solved
+
 ### 0.6.8 (2021-01-27)
-* (DutchmanNL) Bugfix : Gernmany vaccinaation data, source changed code updated
-* (DutchmanNL) Removed states (not available anymore by RKI)
+* (DutchmanNL) Bugfix : Germany vaccination data, source changed code updated
+* (DutchmanNL) Removed states (not provided by RKI anymore)
   * Impfungen pro 1.000 Einwohner
   * Indikation nach Alter 
   * Berufliche Indikation
@@ -110,8 +120,8 @@ coronavirus-statistics.0	2020-03-21 09:05:31.328	warn	(22937) Timor-Leste not fo
 * (DutchmanNL) New states (provided by RKI)
   * Differenz zum Vortag 
   * Gesamtzahl bisher verabreichter Impfstoffdosen
-  * Gesamtzahl kumulatiev BioNTech
-  * Gesamtzahl kumulatiev Moderna
+  * Gesamtzahl kumulativ BioNTech
+  * Gesamtzahl kumulativ Moderna
   * Impf-quote
   * Zweit Impfungen kumulativ
   * Zweit Impfungen Differenz zum Vortag
@@ -160,10 +170,10 @@ add "Cases per 100k" in total & during the last 7 days for Germany's Bundesländ
 * (DutchmanNL) Bugfix : Selected items not shown in tables
 * (DutchmanNL) Bugfix : Remove incorrect countryInfo state
 * (Scrounger)  Bugfix : Timestamp for continents calculation
-* (Scrounger)  Bugfix : Replace " , " in country name causing errors
+* (Scrounger)  Bugfix : Replace " , " in a country name causing errors
 * (DutchmanNL) Bugfix : Saint Pierre Miquelon (iso2: null, iso3: null) not found in lib!
-* (DutchmanNL) Implemented Total number of covid-19 tests taken globally.  
- It reflects the Total Tests column in the table at https://www.worldometers.info/coronavirus/.
+* (DutchmanNL) Implemented Total number of COVID-19 tests taken globally.  
+ It reflects the Total Tests' column in the table at https://www.worldometers.info/coronavirus/.
 
 ### 0.5.1 (2020-03-31) BugFix : State attribute definition missing for + affectedCountries
 * (DutchmanNL) BugFix : State attribute definition missing for + affectedCountries
@@ -174,7 +184,7 @@ add "Cases per 100k" in total & during the last 7 days for Germany's Bundesländ
 * (DutchmanNL) BugFix : Do not write objects unneeded
 
 ### 0.4.9 Fixed issues in country names, added counties and cities for germany
-* (DutchmanNL  & AlCalzone) Code optimations 
+* (DutchmanNL  & AlCalzone) Code optimizations 
 * (DutchmanNL) Cities for germany added
 * (DutchmanNL) counties for germany added
 * (DutchmanNL) Hiding tables if "all" is selected
@@ -183,7 +193,7 @@ add "Cases per 100k" in total & during the last 7 days for Germany's Bundesländ
 * (GermanBluefox) BugFix : hidden numbers
 * (DutchmanNL) BugFix : Several translations
 * (DutchmanNL) BugFix : Issues with integration testing
-* (Scrounger)  Bugfix : Country names by ISO format (could result in new datapoints !)
+* (Scrounger)  Bugfix : Country names by ISO format (could result in new data points!)
 * (DutchmanNL) BugFix : Deletion of unselected federal states and counties (Germany)
 * (DutchmanNL) BugFix : Button only respond when clicking on lable (not all browser)
 * (DutchmanNL) BugFix : Ensure incorrect created states for "countryInfo" are removed

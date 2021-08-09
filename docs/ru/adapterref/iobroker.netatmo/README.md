@@ -3,21 +3,22 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.netatmo/README.md
 title: ioBroker.netatmo
-hash: wUStXr7TvXEX/ihhR6zd6MFzoTMsrCpKc3NoBP/7LQk=
+hash: wnL39RRsXHajzRiYCAIDRJ05Yhdq6qC6OgfCzBEEQEM=
 ---
-![логотип](../../../en/adapterref/iobroker.netatmo/admin/netatmo.png)
+![Логотип](../../../en/adapterref/iobroker.netatmo/admin/netatmo.png)
 
+![Количество установок](http://iobroker.live/badges/netatmo-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.netatmo.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.netatmo.svg)
-![NPM](https://nodei.co/npm/iobroker.netatmo.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.netatmo.png?downloads=true)
 
 # IoBroker.netatmo
 Адаптер Netatmo для ioBroker
 
 ## Монтаж
-Просто введите имя пользователя и пароль Netatmo в настройках адаптера
+Просто введите свое имя пользователя и пароль Netatmo в настройках адаптера.
 
-Вы также можете использовать команду sendTo, чтобы отключить всех людей (например, если они используются в качестве охранной системы).
+Вы также можете использовать команду sendTo, чтобы отключить всех людей (например, если они используются в качестве системы сигнализации).
 
 ```
 sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: []});
@@ -29,17 +30,31 @@ sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: []});
 sendTo('netatmo.0', "setAway");
 ```
 
-отметить всех людей как удаленных для всех камер
+пометить всех людей как отсутствующих для всех камер
 
-также можно отметить одно или несколько конкретных лиц как прочь
+также можно отметить одного или нескольких конкретных людей как отсутствующих
 
 ```
 sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123123123123']});
 ```
 
-Параметр homeId - это строка, указанная за именем вашей камеры на вкладке «Объекты» (необязательно, если установлено несколько камер).
+Параметр homeId - это строка, указанная за именем вашей камеры на вкладке «Объекты» (необязательно, если установлено несколько камер), personId - это идентификатор в папке «Известные» люди.
+
+<! - Заполнитель для следующей версии (в начале строки):
+
+### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
+### 1.4.0 (2021-06-24)
+* (bluefox) Added the support of admin5 
+* (bluefox) Removed warnings about the type of states  
+
+### 1.3.3
+* (PArns) removed person history
+
+### 1.3.2
+* (PArns) Updated libs & merged pending patches
+* (PArns) Changed update interval from 5 to 10 minutes (requested by Netatmo)
 
 ### 1.3.1
 * (PArns) Fixed event cleanup crash
@@ -116,33 +131,33 @@ sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123
 ### 0.2.2
 * (PArns) Fixed SumRain24MaxDate & SumRain24Max which won't update in some rare cases
 
-#### 0.2.1
+### 0.2.1
 * (PArns) Corrected DateTime values & object types
 
-#### 0.2.0
+### 0.2.0
 * (PArns) Added SumRain1Max/SumRain1MaxDate & SumRain24Max/SumRain24MaxDate to get overall rain max since adapter installation
 
-#### 0.1.1
+### 0.1.1
 * (PArns) Fixed TemperatureAbsoluteMin/TemperatureAbsoluteMax
 
-#### 0.1.0
+### 0.1.0
 * (PArns) Fixed CO2 calibrating status
 * (PArns) Added last update for devices
 * (PArns) Added TemperatureAbsoluteMin/TemperatureAbsoluteMax to get overall temperature min/max since adapter installation
 
-#### 0.0.4
+### 0.0.4
 * (PArns) Fixed typo/missing parameter in GustStrength
 
-#### 0.0.3
+### 0.0.3
 * (PArns) Added error handling to prevent exceptions for missing parameters
 
-#### 0.0.2
+### 0.0.2
 * (PArns) Fixed rain sensor
 
-#### 0.0.1
+### 0.0.1
 * (PArns) Initial release
 
 ## License
 MIT
 
-Copyright (c) 2016-2017 Patrick Arns <iobroker@patrick-arns.de>
+Copyright (c) 2016-2021 Patrick Arns <iobroker@patrick-arns.de>

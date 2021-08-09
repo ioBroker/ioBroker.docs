@@ -3,55 +3,55 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.jarvis/README.md
 title: ioBroker.jarvis
-hash: cLWheySDyJUZJ7fq/+9AITzQqm3qGQyORdnJkr5te9M=
+hash: hEhY9ZtTShlgbofIzCvWIdunG4h1LcUueEycbYGtzqA=
 ---
 ![Logo](../../../en/adapterref/iobroker.jarvis/admin/jarvis.png)
 
 ![Paypal-Spende](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
-![Anzahl der Installationen](http://iobroker.live/badges/jarvis-installed.svg)
-![Stabile Version](http://iobroker.live/badges/jarvis-stable.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/jarvis-installed.svg)
+![Stabile Version](https://iobroker.live/badges/jarvis-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.jarvis.svg)
 ![Commits seit der letzten Veröffentlichung](https://img.shields.io/github/commits-since/Zefau/ioBroker.jarvis/latest.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.jarvis.svg)
 ![NPM](https://nodei.co/npm/iobroker.jarvis.png?downloads=true)
 
-# IoBroker.jarvis jarvis - nur ein weiterer bemerkenswerter vis
-[![Travis CI] (https://travis-ci.com/Zefau/ioBroker.jarvis.svg?branch=master)](https://travis-ci.com/Zefau/ioBroker.jarvis)
+# IoBroker.jarvis jarvis - nur ein weiteres bemerkenswertes vis
+[![Travis CI](https://travis-ci.com/Zefau/ioBroker.jarvis.svg?branch=master)](https://travis-ci.com/Zefau/ioBroker.jarvis)
 
-## Deutsche Version
+##Deutsche Version
 [Hier gibt es die deutsche Übersetzung](README.de.md).
 
 ## Was ist Jarvis?
-jarvis ist eine Materialdesign-Visualisierung, die auf [Material-Benutzeroberfläche](https://material-ui.com/) basiert. jarvis bietet eine Struktur und Module, die für die Visualisierung verwendet und flexibel konfiguriert werden können.
+jarvis ist eine Material Design Visualisierung basierend auf [Material-UI](https://material-ui.com/). jarvis bietet eine Struktur und Module, die für die Visualisierung verwendet und flexibel konfiguriert werden können.
 
-jarvis ist [*reaktionsschnell*](https://de.wikipedia.org/wiki/Responsive_Webdesign) und passt sich der Bildschirmgröße des Browsers an.
+jarvis ist [*ansprechbar*](https://de.wikipedia.org/wiki/Responsive_Webdesign) und passt sich der Bildschirmgröße des Browsers an.
 
-Das Layout ist flexibel konfigurierbar. Sie können beliebig viele Registerkarten hinzufügen. Jede Registerkarte kann entweder `fullscreen` sein oder so viele `columns` wie bevorzugt haben, wobei jede Spalte die `modules` in einer flexiblen Reihenfolge enthält.
+Das Layout ist flexibel konfigurierbar. Sie können beliebig viele Registerkarten hinzufügen. Jede Registerkarte kann entweder `fullscreen` sein oder beliebig viele `columns` haben, wobei jede Spalte die `modules` in einer flexiblen Reihenfolge enthält.
 
-Jedes Modul hat seine eigenen Konfigurationsmöglichkeiten ([siehe Wiki](https://github.com/Zefau/ioBroker.jarvis/wiki/de-Modules)).
+Jedes Modul hat seine eigenen Konfigurationsmöglichkeiten ([siehe Wiki](https://github.com/Zefau/ioBroker.jarvis/wiki)).
 
 ## Warum Jarvis?
-jarvis ist nicht so flexibel wie ioBroker.vis, bietet jedoch ein Standarddesign für eine schnelle Visualisierung.
+jarvis ist nicht so flexibel wie ioBroker.vis, bietet aber ein einheitliches Design für eine schnelle Visualisierung.
 
 ## Installation und weitere Informationen
-[Weitere Informationen - insbesondere zum Redarding der Konfiguration - finden Sie im Wiki](https://zefau.gitbook.io/jarvis-de/).
+[Weitere Informationen - insbesondere Redarding-Konfiguration - finden Sie im Wiki](https://zefau.gitbook.io/jarvis-v3/).
 
 _____
 
 ## Impressionen
-Die Konfiguration der Module kann frei ausgerichtet werden. Nachfolgend einige Eindrücke / Beispiele:
+Die Konfiguration der Module kann frei ausgerichtet werden. Nachfolgend einige Impressionen / Beispiele:
 
-### Screencast / Video
-[![Video abspielen] (https://raw.githubusercontent.com/Zefau/ioBroker.jarvis/master/App/play.png)](https://youtu.be/jltXTSDGoQw)
+###Screencast / Video
+[![Video abspielen](https://raw.githubusercontent.com/Zefau/ioBroker.jarvis/master/App/play.png)](https://youtu.be/jltXTSDGoQw)
 
-Weitere Videos finden Sie in den [YouTube-Kanäle](https://www.youtube.com/channel/UCQ7rw5Uect8PSx1aVzEOlzQ).
+Weitere Videos finden Sie unter [YouTube-Kanäle](https://www.youtube.com/channel/UCQ7rw5Uect8PSx1aVzEOlzQ).
 
 ### Screenshots
 #### Beispiel: Dashboard (3 `columns`)
 ![Dashboard.png](https://raw.githubusercontent.com/Zefau/ioBroker.jarvis/master/App/Dashboard.png)
 
 #### Beispiel: Karte (Vollbild)
-![Map.png](https://raw.githubusercontent.com/Zefau/ioBroker.jarvis/master/App/Map.png)
+![Karte.png](https://raw.githubusercontent.com/Zefau/ioBroker.jarvis/master/App/Map.png)
 
 #### Beispiel: Statistik (2 `columns`)
 ![Statistik.png](https://raw.githubusercontent.com/Zefau/ioBroker.jarvis/master/App/Statistik.png)
@@ -62,6 +62,45 @@ Weitere Videos finden Sie in den [YouTube-Kanäle](https://www.youtube.com/chann
 ## Changelog
 
 Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+
+### v2.2.0 - Sherlock Holmes (2021-02-24)
+
+#### :exclamation: BREAKING CHANGES
+- Remove all hard coded state keys from source code ([550](https://github.com/Zefau/ioBroker.jarvis/issues/550))
+
+#### :star2: newly added features
+- Shelly Importer ([622](https://github.com/Zefau/ioBroker.jarvis/issues/622))
+- Support of Yeelight devices in the importer ([593](https://github.com/Zefau/ioBroker.jarvis/issues/593))
+- Support of Lifx devices in the importer ([592](https://github.com/Zefau/ioBroker.jarvis/issues/592))
+- add additional device Types to ioBroker.hmip adapter import ([573](https://github.com/Zefau/ioBroker.jarvis/issues/573))
+- Support import of devices from ioBroker.deconz adapter ([565](https://github.com/Zefau/ioBroker.jarvis/issues/565))
+- Move icons to iconify ([563](https://github.com/Zefau/ioBroker.jarvis/issues/563))
+- Introduce new functions ([546](https://github.com/Zefau/ioBroker.jarvis/issues/546))
+- Improve general error page ([539](https://github.com/Zefau/ioBroker.jarvis/issues/539))
+- DeviceImporter: Automatically detect function based on name ([532](https://github.com/Zefau/ioBroker.jarvis/issues/532))
+- Support import of devices from ioBroker.unifi.0 ([483](https://github.com/Zefau/ioBroker.jarvis/issues/483))
+- Support import of devices from ioBroker.innogy-smarthome ([479](https://github.com/Zefau/ioBroker.jarvis/issues/479))
+- Option zur Sicherung der Jarvis Dateien ([478](https://github.com/Zefau/ioBroker.jarvis/issues/478))
+- Support import of devices from ioBroker.linkeddevices ([467](https://github.com/Zefau/ioBroker.jarvis/issues/467))
+- Support import of devices from ioBroker.ble ([465](https://github.com/Zefau/ioBroker.jarvis/issues/465))
+- Support import of devices from ioBroker.rpi2 ([463](https://github.com/Zefau/ioBroker.jarvis/issues/463))
+- Farbliche Sekundäre Datenpunkte ([456](https://github.com/Zefau/ioBroker.jarvis/issues/456))
+- Support import of devices from ioBroker.mqtt ([454](https://github.com/Zefau/ioBroker.jarvis/issues/454))
+- Support import of devices from ioBroker.mihome ([448](https://github.com/Zefau/ioBroker.jarvis/issues/448))
+- Formatieren von Werten via Formeln / Callback function ([416](https://github.com/Zefau/ioBroker.jarvis/issues/416))
+- Support import of more devices from ioBroker.hm-rpc ([414](https://github.com/Zefau/ioBroker.jarvis/issues/414))
+- Support import of devices from ioBroker.modbus adapter ([360](https://github.com/Zefau/ioBroker.jarvis/issues/360))
+- Support import wifilight.0 Objects ([325](https://github.com/Zefau/ioBroker.jarvis/issues/325))
+- add new module MediaControl ([173](https://github.com/Zefau/ioBroker.jarvis/issues/173))
+- add option to hide TopBar ([124](https://github.com/Zefau/ioBroker.jarvis/issues/124))
+- Notifications ([56](https://github.com/Zefau/ioBroker.jarvis/issues/56))
+
+#### :bug: fixed bugs
+- Remove all hard coded state keys from source code ([550](https://github.com/Zefau/ioBroker.jarvis/issues/550))
+
+#### core
+- Remove all hard coded state keys from source code ([550](https://github.com/Zefau/ioBroker.jarvis/issues/550))
 
 
 ### v2.1.0-rc.4 - Into the Wild (2021-01-01)
@@ -282,7 +321,7 @@ Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2020 Zefau <zefau@mailbox.org>
+Copyright (c) 2019-2021 Zefau <zefau@mailbox.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,10 +1,13 @@
 ![Logo](admin/email.png)
 # ioBroker email
 
-![Number of Installations](http://iobroker.live/badges/email-installed.svg) ![Number of Installations](http://iobroker.live/badges/email-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.email.svg)](https://www.npmjs.com/package/iobroker.email)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.email.svg)](https://www.npmjs.com/package/iobroker.email)
+![Number of Installations](http://iobroker.live/badges/email-installed.svg)
+![Number of Installations](http://iobroker.live/badges/email-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.email.svg)](https://www.npmjs.com/package/iobroker.email)
 
-[![NPM](https://nodei.co/npm/iobroker.email.png?downloads=true)](https://nodei.co/npm/iobroker.email/)
+![Test and Release](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.email.svg)](https://www.npmjs.com/package/iobroker.email)
 
 Send emails from ioBroker.
 
@@ -102,6 +105,9 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
 
 ## Changelog
 
+### 1.0.10 (2021-07-06)
+* (Apollon77) Optimize for js-controller 3.3
+
 ### 1.0.9 (2021-02-22)
 * (Apollon77) Call message callback always with error or without
 
@@ -158,7 +164,7 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020 bluefox
+Copyright (c) 2014-2021 bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

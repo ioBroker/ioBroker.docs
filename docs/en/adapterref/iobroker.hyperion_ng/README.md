@@ -66,6 +66,10 @@ You can manually update the data of the whole adaptor, if you set general.contro
 
 ## Changelog
 
+### 0.1.21 (2021.07.27)
+* (felixganzer) bugfix setColor with duration 0 used false JSON
+* (felixganzer) bugfix setEffect with duration 0 used false JSON
+
 ### 0.1.19 (2021.03.29)
 * (felixganzer) little bugfixing
 

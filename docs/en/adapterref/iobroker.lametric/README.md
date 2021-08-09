@@ -8,7 +8,7 @@
 [![installed](http://iobroker.live/badges/lametric-installed.svg)](http://iobroker.live/badges/lametric-installed.svg)
 [![Dependency Status](https://img.shields.io/david/klein0r/iobroker.lametric.svg)](https://david-dm.org/klein0r/iobroker.lametric)
 [![Known Vulnerabilities](https://snyk.io/test/github/klein0r/ioBroker.lametric/badge.svg)](https://snyk.io/test/github/klein0r/ioBroker.lametric)
-[![Build Status](http://img.shields.io/travis/klein0r/ioBroker.lametric.svg)](https://travis-ci.org/klein0r/ioBroker.lametric)
+[![Build Status](http://img.shields.io/travis/klein0r/ioBroker.lametric.svg)](https://travis-ci.com/klein0r/ioBroker.lametric)
 
 [![NPM](https://nodei.co/npm/iobroker.lametric.png?downloads=true)](https://nodei.co/npm/iobroker.lametric/)
 
@@ -17,7 +17,7 @@ All you need is the IP address of your device and the api developer key.
 
 ## Configuration
 
-Tested with LaMetric firmware *2.1.3* (recommended)
+Tested with LaMetric firmware *2.2.1* (recommended)
 
 You can get your personal key [here](https://developer.lametric.com/).
 
@@ -193,6 +193,18 @@ show();
 ```
 
 ## Changelog
+
+### 1.3.2
+
+* (klein0r) Updated dependencies
+
+### 1.3.1
+
+* (klein0r) Added local start and end time for screensaver
+
+### 1.3.0
+
+* (klein0r) Encrypt sensitive information **(BREAKING CHANGE - RE-ENTER YOUR API KEY)**
 
 ### 1.2.1
 

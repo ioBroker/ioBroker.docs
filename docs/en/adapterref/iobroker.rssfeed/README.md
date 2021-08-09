@@ -154,6 +154,11 @@ Z7: Without output. This line closed the javascript loop . Everything that was d
 
 ## Changelog
 
+### 0.9.0
+* fix/extend json template
+### 0.8.0
+* adapt configuration pages to react. 
+* Prepare for stable release
 ### 0.0.30
 * add some template examples to the widget documentation
 ### 0.0.29

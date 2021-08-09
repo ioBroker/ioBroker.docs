@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: FOpGMM+D05q9oz7BUxwiyH8xTi4YKqbiRxE8w9KqhiU=
+hash: Vsarg6AJFBh+tqIfiMJeA5EbUjdOYQHNNYLyi3W0cW8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -25,7 +25,7 @@ hash: FOpGMM+D05q9oz7BUxwiyH8xTi4YKqbiRxE8w9KqhiU=
 Есть два способа настройки сущностей:
 
 - авто
-- руководство
+- руководство по эксплуатации
 
 ### Авто
 В автоматическом режиме будет применяться тот же процесс, что и для `google home` или `material adapter`.
@@ -34,9 +34,9 @@ hash: FOpGMM+D05q9oz7BUxwiyH8xTi4YKqbiRxE8w9KqhiU=
 
 Вы можете определить понятные имена, и они будут использоваться в сущностях.
 
-### Руководство
+### Руководство по эксплуатации
 Объекты могут быть определены вручную в дереве объектов, например sql или histroy. Должен быть предоставлен тип объекта и, необязательно, имя объекта.
-С помощью этого метода могут быть созданы только простые сущности, такие как input_number, input_text или input_boolean. У него не может быть более одного состояния или атрибута.
+С помощью этого метода могут быть созданы только простые сущности, такие как input_number, input_text или input_boolean. Он не может иметь более одного состояния или атрибута.
 
 ## Панели
 ### Панель сигнализации
@@ -426,7 +426,7 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 });
 ```
 
-## Исправление проблем
+## Поиск проблемы
 Если вы испортили код YAML и видите пустую страницу, но все еще есть верхнее меню, вы можете включить режим редактирования (если он еще не включен) из меню, а затем снова открыть меню, чтобы получить доступ к «Редактору RAW Yaml», в котором вы увидеть полный код YAML и очистить его.
 Если это не помогает, вы можете открыть конфигурацию объекта lovelace. *. В raw-редакторе ioBroker и посмотреть там.
 Вы также можете восстановить этот объект из резервной копии. Он содержит полную конфигурацию вашей визуализации.
@@ -434,7 +434,7 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 ## Первоисточники lovelace
 Используемые источники находятся здесь https://github.com/GermanBluefox/home-assistant-polymer.
 
-## Сделать
+## Делать
 Безопасность должна быть взята у текущего пользователя, а не у default_user
 
 ## Разработка
@@ -447,19 +447,21 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 Все изменения для ioBroker отмечены комментарием `// IoB`.
 На данный момент (20201021.4) были изменены следующие файлы:
 
-- `.gitignore` - добавить` .idea` ignore
 - `build-scripts / gulp / app.js` - Добавить новую задачу gulp
 - `build-scripts / gulp / webpack.js` - Добавить новую задачу gulp
 - `src / data / lovelace.ts` - добавить опцию скрытия панели инструментов
+- `src / data / weather.ts` - добавить поддержку отображения значка погоды по URL-адресу.
 - `src / dialogs / more-info / ha-more-info-dialog.ts` - удалить кнопку настроек объекта и удалить состояние погоды и историю
+- `src / dialogs / more-info / controls / more-info-clim.ts` - название режима печати для неподдерживаемых режимов
+- `src / dialogs / more-info / controls / more-info-weather.ts` - добавить поддержку отображения значка погоды по URL-адресу.
 - `src / entrypoints / core.ts` - измененный процесс аутентификации
 - `src / layouts / home-assistant-main.ts` - удалить боковую панель приложения
-- `src / panel / lovelace / hui-root.ts` - добавлены уведомления и голосовое управление
-- `src / util / documentation-url.ts` - для ссылки на справку iobroker вместо homeassistant.
-- `src / dialogs / more-info / controls / more-info-weather.ts` - добавить поддержку отображения значка погоды по URL-адресу.
-- `src / data / weather.ts` - добавить поддержку отображения значка погоды по URL-адресу.
 - `src / panel / lovelace / cards / hui-weather-прогноз-card.ts` - добавить поддержку отображения значка погоды по URL-адресу.
 - `src / panel / lovelace / entity-rows / hui-weather-entity-row.ts` - добавить поддержку отображения значка погоды по URL-адресу с аутентификацией.
+- `src / panel / lovelace / hui-root.ts` - добавлены уведомления и голосовое управление
+- `src / util / documentation-url.ts` - для ссылки на справку iobroker вместо homeassistant.
+- `.gitignore` - добавить` .idea` ignore
+- `package.json` - удалить хук фиксации хаски
 
 После этого оформляйте измененную версию в папке `./build`. Потом.
 
@@ -476,8 +478,23 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 <!--
 	PLACEHOLDER for next version:
-	## __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
+### 2.0.0 (2021-06-17)
+* (Garfonso) Changed: !Breaking! Battery warning is now binary_sensor instead of sensor (now ui sets icon and  translates ok)
+* (Garfonso) Fixed:   !Breaking! entity_id conflict for low_bat / humidity when part of another device
+* (Garfonso) Updated frontend to 20210603.0 (changed light entity to not convert color anymore)
+* (Garfonso) Changed: increased file size limit to 5 MB during upload in config.
+* (Garfonso) Added: Support for input_datetime
+* (Garfonso) Added: Support for manual complex light entities
+* (Garfonso) Added: Support for images from base64 data in iobroker states 
+* (Garfonso) Added: Support for additional alarm states.
+* (Garfonso) Added: Parameter to only enter code when disarming alarm
+* (Garfonso) Added: Support for admin 5 (jsonCustom)
+* (Garfonso) Added: Support for airCondition / rework thermostat
+* (Garfonso) Added: manual entities can be more complex now (needs documentation)
+* (Garfonso) Added: darkMode control
+
 ### 1.5.0 (2021-02-15)
 * (Garfonso) Changed: defaultTheme and control.theme were in conflict. Now control.theme is set when selecting a new default theme.
 * (Garfonso) Added: control.themeDark to control devices in dark mode, too.
@@ -498,16 +515,6 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 ### 1.4.1 (2021-01-08)
 * (bluefox) Support of new Let's Encrypt (only with js-controller 3.2.x)
-
-### 1.3.6 (2021-01-08)
-* (Garfonso) Fixed: do not ignore devices deleted from iot / without smartName
-* (Garfosno) Added: Support location devices with one GPS state in string form
-* (Garfonso) Added: Support for log service, logs frontend errors in server log
-* (Garfonso) Added: Support for service calls with multiple ids, i.e. header switch of elements card
-* (Garfonso) Fixed: unique check for manual entities only checked instance 0. Made them a bit more userfriendly, too.
-* (Garfonso) Added: Possibility to select theme during runtime / select default dark theme
-* (Garfonso) Fixed: hideToolbar did hide tab bar, too
-* (Garfonso) Added: Support for iobroker_say service call (allows tts in mini-mediaplayer card using platform iobroker)
 
 ## License
 

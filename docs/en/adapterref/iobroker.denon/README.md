@@ -1,3 +1,9 @@
+---
+BADGE-Number of Installations: http://iobroker.live/badges/denon-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.denon.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.denon.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.denon.png?downloads=true
+---
 ![Logo](/admin/denon.png)
 # ioBroker.denon
 ===========================
@@ -7,6 +13,11 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.denon.svg)](https://www.npmjs.com/package/iobroker.denon)
 
 [![NPM](https://nodei.co/npm/iobroker.denon.png?downloads=true)](https://nodei.co/npm/iobroker.denon/)
+
+## Disclaimer
+DENON and Marantz are trademarks of D&M Holdings Inc.
+The developers of this module are in no way endorsed by or affiliated with D&M Holdings Inc.,
+or any associated subsidiaries, logos or trademarks.
 
 ## Installation
 You can either install the adapter via the ioBroker web interface or on your local machine via npm.
@@ -518,6 +529,31 @@ Following states will be created by the adapter:
     
     *Incoming data, which matches the RegEx of `settings.expertReadingPattern` will be set to this state.*
 
+
+* settings.dialogControl
+
+    |Data type|Permission|                                                                       
+    |:---:|:---:|
+    |number|R/W|
+
+    *The dialog control, which can be operated from 0 dB to 6 dB.*
+
+* settings.dialogLevelAdjust
+
+    |Data type|Permission|                                                                       
+    |:---:|:---:|
+    |boolean|R/W|
+
+    *Turns the dialog level adjustment on, which allows to modify the dialog volume of DTS content.*
+
+* settings.dialogLevel
+
+    |Data type|Permission|                                                                       
+    |:---:|:---:|
+    |boolean|R/W|
+
+    *If dialog level adjustment is turned on you can modify the dialog volume of DTS content between -12 dB and +12 dB.*
+
 * settings.outputMonitor
 
     |Data type|Permission|                                                                       
@@ -837,6 +873,22 @@ The adapter is tested with an DENON AVR-X1200W and a Marantz SR5009.
 	### __WORK IN PROGRESS__
 -->
 
+### 1.11.1 (2021-06-29)
+* (foxriver76) fixes for silent reconnection - if ETIMEDOUT occurs repeately switch to debug, like for other errors (closes #149)
+
+### 1.11.0 (2021-06-06)
+* (foxriver76) implemented dialog level adjustment for DTS content (closes #143)
+* (foxriver76) new datapoints are `settings.dialogLevelAdjust`, `settings.dialogLevel`, `settings.dialogControl`
+
+### 1.10.7 (2021-05-12)
+* (foxriver76) fix missing conversion to db on equalizer states for additional zones (fixes #137)
+
+### 1.10.6 (2021-05-03)
+* (foxriver76) we fixed some more types
+
+### 1.10.5 (2021-05-02)
+* (foxriver76) we fixed some datapoints having wrong types or wrong state values set (fixes #130)
+
 ### 1.10.4 (2021-02-20)
 * (foxriver76) if an older model (e.g. AVR 3808) just sends `NSE`, we do not set displayContent state anymore (fixes #112)
 
@@ -1079,7 +1131,7 @@ The adapter is tested with an DENON AVR-X1200W and a Marantz SR5009.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2018-2021 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

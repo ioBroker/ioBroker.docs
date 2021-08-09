@@ -150,6 +150,46 @@ Abschließend sind die in der CCU angelegten Variablen aufgelistet
 	### __WORK IN PROGRESS__
 -->
 
+### 3.0.30 (2021-07-18)
+* (foxriver76) improved the detection of ALARM occurrences for virtual devices
+
+### 3.0.29 (2021-07-01)
+* (foxriver76) fixed bug on ALARM datapoint creation
+
+### 3.0.28 (2021-06-30)
+* (foxriver76) improve creation of ALARM dps even if no states provided by `getDatapoints` (fixes #168)
+
+### 3.0.27 (2021-06-28)
+* (foxriver76) fixed a bug that already deleted programs were only partially deleted in ioBroker
+__Please note: This will only work for deleted programs up from now. You have to clean up orphan programs manually__
+
+### 3.0.26 (2021-06-14)
+* (bluefox) Use name from device if channel has a default name
+
+### 3.0.25 (2021-05-14)
+* (foxriver76) remove old code, which also scaled unit: % values and not only unit: 100 %
+
+### 3.0.24 (2021-04-30)
+* (foxriver76) we fixed more occurrences of incorrect types (fixes #146)
+
+### 3.0.23 (2021-04-30)
+* (foxriver76) we now correctly convert the rssi values, workaround for https://github.com/jens-maus/RaspberryMatic/issues/897
+* (foxriver76) we made counter states of type "number", was incorrectly "string" (closes #145)
+
+### 3.0.22 (2021-04-30)
+* (foxriver76) parse the dutyCycle state to int (fixes #144)
+* (foxriver76) update dependencies
+* (foxriver76) removed unneeded dependency
+
+### 3.0.21 (2021-04-24)
+* (foxriver76) bring back io-package json readme attribute, admin does not fall back to docs as expected (fixes #135)
+
+### 3.0.20 (2021-04-20)
+* (foxriver76) admin/controller has a bug still requiring `common.title` (fixes #133)
+
+### 3.0.19 (2021-04-16)
+* (foxriver76) fix for custom webinterface port (addresses #117)
+
 ### 3.0.18 (2021-04-05)
 * (foxriver76) local link now respects port and protocol
 
@@ -519,7 +559,6 @@ or non existent if no rpc instance existed
 * (hobbyquaker) Fix common.name attribute
 
 ## License
-
 The MIT License (MIT)
 
 Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>

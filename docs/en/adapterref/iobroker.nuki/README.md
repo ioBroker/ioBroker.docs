@@ -85,6 +85,10 @@ When updating from 1.0.x to 1.1.0 or higher it is recommended to delete all inst
 
 ## Changelog
 
+### 1.5.0
+* (smaragdschlange) bug fix: compatibility with jscontroller 3.3.13
+### 1.4.4
+* (smaragdschlange) update: changes to comply with admin 5.x.x requirements
 ### 1.4.3
 * (smaragdschlange) update: dependency axios to >=0.21.1
 ### 1.4.2
@@ -194,7 +198,7 @@ When updating from 1.0.x to 1.1.0 or higher it is recommended to delete all inst
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Smaragdschlange <smaragdschlange@gmx.de>
+Copyright (c) 2018-2021 Smaragdschlange <smaragdschlange@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

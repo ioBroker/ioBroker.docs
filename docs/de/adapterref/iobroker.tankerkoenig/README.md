@@ -91,6 +91,16 @@ Der Inhalt des Datenpunktes `combined` wird mit einer CSS-Klasse übergeben. Die
 Der Adapter ist im Kompaktmodus von ioBroker lauffähig.
 
 ## Changelog
+### 2.1.1 (2021-06-22)
+* (pix) New adapter category "vehicle" [#67](https://github.com/Pix---/ioBroker.tankerkoenig/issues/67)
+* (pix) Testing for Nodejs 16
+
+### 2.0.12 (2021-05-05)
+* (pix) connectionType and dataSource added
+
+### 2.0.11 (2021-05-02)
+* (anwa) "wrong type" and "ack flag" issues fixed (upcoming in js-controller > 3.3)
+
 ### 2.0.10 (2021-02-01)
 * (wendy) "has no existing object" issue fixed
 

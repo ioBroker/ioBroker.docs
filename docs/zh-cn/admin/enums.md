@@ -1,71 +1,66 @@
 ---
-title: 管理员
-lastChanged: 14.09.2018
+title: 枚举
+lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/admin/enums.md
-hash: D7MAS/uEgXnpYxUjm87fT1ofzV90HsJzSj2pvxO/hY0=
+hash: YnndBRm2DXksgY6BJgZQ8FZZrKWnc5B4a4TWESq/mWk=
 ---
-＃枚举窗口
-？&gt; ***这是一张通配符***。 <br><br>帮助ioBroker并扩展这篇文章。请注意[ioBroker风格指南](community/styleguidedoc)，以便更容易采用这些更改。
+此处列出了收藏夹、交易和房间。如果有 HomeMatic 安装，则采用其中包含的列表。
+例如，您还可以创建自己的列表，然后可以在脚本中使用这些列表。
 
-＃选项卡枚举
-这里列出了最爱，行业和房间。如果有HomeMatic安装，则其中包含的列表将被接管。您也可以创建自己的列表可以在脚本中使用。
+![平铺视图中的列表](../../de/admin/media/ADMIN_Aufzaehlungen_kachel.png)
 
-![平铺视图中的枚举](../../de/admin/media/ADMIN_Aufzaehlungen_kachel.png)
+您可以使用标题栏中的第一个图标切换到列表视图。此视图用于以下情况：
 
-标题栏中的第一个图标可用于切换到列表视图。该视图使用如下：
+![列表视图中的列表](../../de/admin/media/ADMIN_Aufzaehlungen_liste_numbers.png)
 
-![列表视图中的枚举](../../de/admin/media/ADMIN_Aufzaehlungen_liste_numbers.png)
+##标题行
+在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需在图标上按住鼠标一会儿。
 
-##标题栏
-标题栏包含最重要流程的图标。每个图标都有一个上下文帮助。只需将鼠标停留在图标上一段时间即可。
+### 1 - 切换视图
+此按钮可用于在平铺视图和列表视图之间切换（切换功能）
 
-###详细图标：
-** 1.）切换视图**
+### 2 - 创建一个新列表
+使用此按钮会创建一个新列表。为此将打开一个新窗口
 
-使用此按钮，您可以在平铺视图和列表视图之间切换（切换功能）
+![创建一个新列表](../../de/admin/media/ADMIN_Aufzaehlungen_liste_erstellen.png)
 
-** 2.）创建一个新列表**
+**姓**
 
-使用此按钮可以创建新的枚举。这将打开一个新窗口
+在此处输入列表所需的名称。或者，也可以将此列表的图标拖放到此字段中。
 
-![创建一个新的枚举](../../de/admin/media/ADMIN_Aufzaehlungen_liste_erstellen.png)
+** 保留 ID **
 
-**姓名**
+创建新列表时默认取消选中此复选框，因为此处创建了新 ID。
 
-此处输入所需的枚举名称。或者，也可以将此枚举的图标拖放到此字段中。
+在现有列表的编辑模式（见下文）中，可以在不更改 ID 的情况下更改名称。
 
-** ID保留**
+**预习**
 
-创建新枚举时，默认情况下取消选中此复选框，因为此处创建了新ID。
+枚举的完整 ID 显示在此处。
 
-在现有枚举的编辑模式（s.u。）中，您可以更改不带ID的名称。
+**颜色**
 
-** **预览
+此时可以选择要标记列表的颜色。
 
-此处显示枚举的完整ID。
+在 tile 视图中，tile 以这种颜色着色，在列表视图中，带有枚举名称的行以这种颜色加下划线。
 
-** **彩
+### 3 - 创建一个新类别
+使用此按钮，将创建一个类似于列表的新类别（例如功能/房间等）。
 
-此时，可以选择用于标记枚举的颜色。
-
-在图块视图中，图块以此颜色着色，在列表视图中，带有此颜色的枚举名称的行带有下划线。
-
-** 3.）创建一个新类别**
-
-使用此按钮，可以创建类似于枚举的新类别（例如函数/房间等）。
-
-** 4）编辑**
-
-通过此按钮，枚举的数据点可能已过时。首先，用鼠标单击标记所需的枚举，然后激活编辑模式。
+### 4 - 编辑
+可以使用此按钮管理枚举的数据点。
+首先用鼠标单击标记所需的列表，然后激活编辑模式。
 
 屏幕现在分为两部分：
 
-![编辑枚举](../../de/admin/media/ADMIN_Aufzaehlungen_liste_hinzufuegen.png)
+![编辑列表](../../de/admin/media/ADMIN_Aufzaehlungen_liste_hinzufuegen.png)
 
-右半部分的构造对应于[对象页](opbjects.md)的构造。
+右半部分的结构对应于 [Objects page] [] 的结构。
 
-通过将数据点拖动到左侧所需的列表中，可以从右侧拖动数据点。
+只需将数据点拖动到左侧所需的枚举中，即可从右侧拖动数据点。
 
-枚举中删除数据点是通过垃圾桶图标完成的
+使用垃圾桶图标删除列表中的数据点。
+
+[Objekte-Seite]: https://www.iobroker.net/#de/documentation/admin/objects.md

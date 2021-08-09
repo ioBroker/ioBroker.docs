@@ -8,11 +8,13 @@
 [![installed](http://iobroker.live/badges/octoprint-installed.svg)](http://iobroker.live/badges/octoprint-installed.svg)
 [![Dependency Status](https://img.shields.io/david/klein0r/iobroker.octoprint.svg)](https://david-dm.org/klein0r/iobroker.octoprint)
 [![Known Vulnerabilities](https://snyk.io/test/github/klein0r/ioBroker.octoprint/badge.svg)](https://snyk.io/test/github/klein0r/ioBroker.octoprint)
-[![Build Status](http://img.shields.io/travis/klein0r/ioBroker.octoprint.svg)](https://travis-ci.org/klein0r/ioBroker.octoprint)
+[![Build Status](http://img.shields.io/travis/klein0r/ioBroker.octoprint.svg)](https://travis-ci.com/klein0r/ioBroker.octoprint)
 
 [![NPM](https://nodei.co/npm/iobroker.octoprint.png?downloads=true)](https://nodei.co/npm/iobroker.octoprint/)
 
 Adapter to connect OctoPrint to ioBroker
+
+Tested with OctoPrint 1.6.0
 
 ## Features
 
@@ -38,7 +40,33 @@ Adapter to connect OctoPrint to ioBroker
 - Jog X, Y and Z axis
 - Select a file or print it
 
+## Important!
+
+DO NOT restart the octoprint instance (or any other instance) with code like this:
+
+```javascript
+var obj = getObject('system.adapter.octoprint.0');
+obj.common.enabled = false;
+setObject('system.adapter.octoprint.0', obj);
+```
+
+Since the API key is a protected attribute since version 1.1.0, this will remove the configured API key. The reason is, that `getObject` doesn't return protected information (so the api key is not included in the returned object). When you save the object, you will save an object without the key.
+
+Please use state `system.adapter.octoprint.0.alive` to stop/start the instance.
+
 ## Changelog
+
+### 1.1.1
+
+* (klein0r) Minor fixes
+
+### 1.1.0
+
+* (klein0r) Encrypt sensitive information
+
+### 1.0.10
+
+* (klein0r) Fixed printjob state format issues
 
 ### 1.0.9
 

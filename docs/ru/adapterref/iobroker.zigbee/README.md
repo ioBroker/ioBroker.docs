@@ -2,8 +2,6 @@
 BADGE-Number of Installations: http://iobroker.live/badges/zigbee-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.zigbee.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.zigbee.svg
-BADGE-Tests: https://travis-ci.org/ioBroker/ioBroker.zigbee.svg?branch=master
-BADGE-NPM: https://nodei.co/npm/iobroker.zigbee.png?downloads=true
 ---
 # Драйвер ioBroker для работы с Zigbee-устройствами
 При помощи координатора Zigbee-сети на базе Texas Instruments SoC cc253x (и другими) создается собственная сеть, в которую подключаются zigbee-устройства. Взаимодействуя напрямую с координатором сети, драйвер позволяет управлять устройствами без дополнительных шлюзов/бриджей от производителей устройств (Xiaomi/TRADFRI/Hue). Про устройство Zigbee-сети можно прочитать [тут (на английском языке)](https://github.com/Koenkk/zigbee2mqtt/wiki/ZigBee-network). 
@@ -34,9 +32,25 @@ BADGE-NPM: https://nodei.co/npm/iobroker.zigbee.png?downloads=true
 Поэтому, если какие-либо улучшения или поддержка новых zigbee-устройств происходит в проекте Zigbee2MQTT, то можно перенести и добавить этот же функционал в этот драйвер. Если заметили это, то напиши issue - перенесем.
 
 ## Changelog
-* [Experimental support EZSP protocol for EFR32 chips](https://github.com/Koenkk/zigbee-herdsman/issues/319) (zigbee-herdsman)
 
-### 1.4.5 (2021-02-20)
+### 1.5.6 (2021-05-26)
+* (kirovilya) new UI add
+
+### 1.5.5 (2021-05-05)
+* Fixes for new zigbee-herdsman-converters
+* UI fixes
+
+### 1.5.3 (2021-04-30)
+* (arteck) Fix for js-controller 3.3.*
+
+### 1.5.2 (2021-04-29)
+* (asgothian) Groups on dashboard
+
+
+### 1.5.1 (2021-04-14)
+* (kirovilya) Dashboard
+* (asgothian) Groups (reworked)
+* [Experimental support EZSP protocol for EFR32 chips](https://github.com/Koenkk/zigbee-herdsman/issues/319) (zigbee-herdsman)
 
 
 ### 1.4.4 (2021-02-14)
@@ -248,7 +262,7 @@ new Zigbee-herdsman features:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Kirov Ilya <kirovilya@gmail.com>
+Copyright (c) 2018-2021 Kirov Ilya <kirovilya@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

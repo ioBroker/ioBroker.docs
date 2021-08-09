@@ -3,17 +3,17 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.node-red/README.md
 title: Адаптер ioBroker node-red
-hash: x/QTu0owyv92klKSi7Cn7RXGk5HnDi5EUbAB8ZYEVKE=
+hash: AgNQnwTJCNBC0dL0nEBTbA7tSwart/TPIlH6540t8Oc=
 ---
-![логотип](../../../en/adapterref/iobroker.node-red/admin/node-red.png)
+![Логотип](../../../en/adapterref/iobroker.node-red/admin/node-red.png)
 
 ![Количество установок](http://iobroker.live/badges/node-red-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.node-red.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.node-red.svg)
-![тесты](https://travis-ci.org/ioBroker/ioBroker.node-red.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.node-red.png?downloads=true)
 
 # IoBroker node-red Адаптер
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.node-red/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/node-red/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 Запускает экземпляр node-red и связывается с ним.
 
 Этот адаптер использует сервер node-red из https://github.com/node-red/node-red
@@ -23,13 +23,45 @@ hash: x/QTu0owyv92klKSi7Cn7RXGk5HnDi5EUbAB8ZYEVKE=
 ** Обновление до 1.17.2: ** Если вы уже использовали аутентификацию Node-Red: снова установите пароль в настройках экземпляра Node-Red в ioBroker после обновления! В противном случае вы больше не сможете войти в Node-Red после обновления.
 
 ## Настройки
-- Безопасный режим - потоки не будут запускаться, и вы можете редактировать потоки, чтобы исправить некоторые проблемы с перегрузкой.
+- Безопасный режим - потоки не запускаются, и вы можете редактировать потоки, чтобы исправить некоторые проблемы с перегрузкой.
 
 <! - Заполнитель для следующей версии (в начале строки):
 
 ### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
+
+### 2.4.0 (2021-07-16)
+* (Apollon77) update to node-red 1.3.5
+* (Apollon77) Optimize for js-controller 3.3
+* (Apollon77) Add option to override the default ack flag in the message for OutNode
+
+### 2.3.0 (2021-04-17)
+* (Apollon77) BREAKING update from node-red-contrib-aggregator: topic is NOT converted to lowercase anymore!
+* (Apollon77) update to node-red 1.3.2
+* (Apollon77) Add done calls to OutNode
+
+### 2.2.0 (2021-03-07)
+* (Apollon77/mickym2) Correct readonly flags. IMPORTANT: Notw Readonly works as it should be. If you worked around the issue before please adjust your nodes!
+* (Apollon77) Fix using wildcards inside the id
+* (Apollon77) Update value on out node trigger 
+* (Apollon77) Update to node-red 1.2.9
+* (Apollon77) Add triggering in Nodes when delayed initialization on start
+* (Apollon77) Fix list node to support all object types
+
+### 2.1.0 (2021-02-04)
+* (Apollon77) Try to fix the MaxSubscribes error when having many nodes
+* (Apollon77) Update to node-red 1.2.8
+
+### 2.0.4 (2021-01-20)
+* (withstu) Fixed node-red modules installation
+
+### 2.0.3 (2020-12-27)
+* (Apollon77) make sure empty state values do not crash list node
+
+### 2.0.2 (2020-12-07)
+* (jwiesel) Updated settings.js, node-red and dependencies to latest version.
+
 ### 2.0.1 (2020-08-08)
 * (jwiesel) Updated settings.js, node-red and dependencies to latest version.
 
@@ -253,7 +285,7 @@ hash: x/QTu0owyv92klKSi7Cn7RXGk5HnDi5EUbAB8ZYEVKE=
 
 ## License
 
-Copyright 2014-2020 bluefox <dogafox@gmail.com>.
+Copyright 2014-2021 bluefox <dogafox@gmail.com>.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

@@ -135,13 +135,33 @@ CCU / Homematic поддерживает различные типы устро�
 ## FAQ
 
 ## Changelog
-<!--
-	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
--->
 
-__WORK IN PROGRESS__
+### 1.14.43 (2021-07-05)
+* (foxriver76) we now correctly map the role of smoke detectors (closes #354)
+ 
+### 1.14.42 (2021-06-27)
+* (bluefox) Added the roles to thermostat states
+* (bluefox) Added the roles for switch
+* (bluefox) Apply new roles to existing states
+
+### 1.14.41 (2021-06-05)
+* (foxriver76) we made sure, that controller does not send stopInstance message anymore
+
+### 1.14.39 (2021-06-04)
+* (foxriver76) remove the stopInstance message handling and put everything in unload
+* (bluefox) removed the white background by some icons
+
+### 1.14.38 (2021-05-11)
+* (Jens Maus) fixed the VirtualDevices min/max/default assignment (fixes #332)
+* (foxriver76) do not scale on normal '%' UNIT because its inconsistent (fixes #326)
+
+### 1.14.37 (2021-04-23)
+* (foxriver76) added tier, is now 2
+* (foxriver76) added missing images (closes #319)
+
+### 1.14.36 (2021-04-14)
 * (foxriver76) error handling improved when deleting obsolete devices/channels
+* (foxriver76) if no message id provided on `sendTo`, we do not send `undefined` params anymore (fixes #318)
 
 ### 1.14.35 (2021-02-13)
 * (foxriver76) virtual devices now support ping, so use it, else it can be that instance won't register at CCU again (fixes #308)
@@ -152,8 +172,8 @@ __WORK IN PROGRESS__
 * (foxriver76) detect invalid params and log instead of crash
 
 ### 1.14.33 (2021-01-30)
-* (foxriver76) fix problems with CuxD and HMIP (fixes #307)
-* (foxriver76) more palces where we now log message on real errors instead of error object
+* (foxriver76) fix problems with CuxD and HM-IP (fixes #307)
+* (foxriver76) more places where we now log message on real errors instead of error object
 
 ### 1.14.32 (2021-01-29)
 * (foxriver76) revert received messages with invalid command
@@ -161,7 +181,7 @@ __WORK IN PROGRESS__
 * (foxriver76) fix for crashes on decrypt
 
 ### 1.14.31 (2021-01-15)
-* (foxriver76) fixed default values of HMIP value list states
+* (foxriver76) fixed default values of HM-IP value list states
 
 ### 1.14.30 (2021-01-10)
 * (foriver76) in general reject events of unregistered devices, see #298
@@ -182,7 +202,7 @@ __WORK IN PROGRESS__
 * (foxriver76) `value.temperature` will have unit °C no matter of delivered unit by CCU
 
 ### 1.14.21 (2020-08-18)
-* (foxriver76) fixed virtual-devices objects being recreated on instance startage (#271)
+* (foxriver76) fixed virtual-devices objects being recreated on the instance start (#271)
 
 ### 1.14.20 (2020-08-17)
 * (foxriver76) fix for % scaling of float numbers
@@ -201,26 +221,26 @@ __WORK IN PROGRESS__
 * (bluefox) Added roles for presence sensor
 
 ### 1.14.13 (2020-07-07)
-* (foxriver76) fix edge case on EPAPER command (IOBROKER-HM-RPC-5Z)
+* (foxriver76) fix edge case on E-PAPER command (IOBROKER-HM-RPC-5Z)
 * (foxriver76) Catch error on `createDevices` if CCU does not deliver valid ADDRESS (IOBROKER-HM-RPC-5X)
 
 ### 1.14.12 (2020-07-03)
 * (foxriver76) Continue execution if error on retrieving a paramset from CCU
 
 ### 1.14.11 (2020-06-21)
-* (bluefox) Change name of Instance according to the role (RF, Wired, HMIP)
+* (bluefox) Change name of Instance according to the role (RF, Wired, HM-IP)
 
 ### 1.14.10 (2020-06-14)
-* (foxriver76) removed meta data caching completely because meta data can be dynamic due to FW update or CuxD
+* (foxriver76) removed metadata caching completely because metadata can be dynamic due to FW update or CuxD
 
 ### 1.14.6 (2020-06-05)
-* (foxriver76) added some hmip roles for channel 0
+* (foxriver76) added some HM-IP roles for channel 0
 
 ### 1.14.5 (2020-05-29)
 * (foxriver76) fixed edge case problem IOBROKER-HM-RPC-5E
 
 ### 1.14.4 (2020-05-28)
-* (jens-maus) updated all device images to latest ones include hmip-wired ones
+* (jens-maus) updated all device images to latest ones include HM-IP-wired ones
 
 ### 1.14.3 (2020-05-18)
 * (foxriver76) catch edge case error if row.value has no native 
@@ -230,8 +250,8 @@ __WORK IN PROGRESS__
 
 ### 1.14.1 (2020-04-23)
 * (foxriver76) catch potential errors on createServer
-* (foxriver76) new meta data approach: we only store meta data gathered by the user,
-otherwise cached meta data can be very old and outdated, we have to monitor performance
+* (foxriver76) new metadata approach: we only store metadata gathered by the user,
+otherwise cached metadata can be very old and outdated, we have to monitor performance
 of this approach (more requests to CCU on first setup)
 * (foxriver76) add name and icon to meta folder
 * (foxriver76) minor code improvements
@@ -255,7 +275,7 @@ of this approach (more requests to CCU on first setup)
 * (foxriver76) make all LEVEL dps of unit % if they are w.o. unit and have min/max
 
 ### 1.12.5 (2020-01-06)
-* (foxriver76) handle some meta data more abstract
+* (foxriver76) handle some metadata more abstract
 * (foxriver76) make DIMMER_REAL.LEVEL of unit '%' even it is not by definition
 
 ### 1.12.2 (2019-12-19)
@@ -272,17 +292,17 @@ of this approach (more requests to CCU on first setup)
 * (foxriver76) LOCK.OPEN is now of type button to prevent misunderstandings
 
 ### 1.11.0 (2019-11-10)
-* (foxriver76) make OFFSET and REPEATS of epaper configurable
+* (foxriver76) make OFFSET and REPEATS of e-paper configurable
 * (foxriver76) EPAPER_SIGNAL is now type string
 
 ### 1.10.3 (2019-10-27)
 * (foxriver76) fixed info channel
 
 ### 1.10.2 (2019-10-24)
-* (foxriver76) replace min max values of hmip with correct numbers 
+* (foxriver76) replace min max values of HM-IP with correct numbers 
 
 ### 1.10.0 (2019-08-12)
-* (foxriver76) new meta data handling procedure
+* (foxriver76) new metadata handling procedure
 * __js-controller >= 1.4.2 required__
 
 ### Older entries
@@ -292,7 +312,7 @@ of this approach (more requests to CCU on first setup)
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>
 
 Copyright (c) 2014 hobbyquaker
 

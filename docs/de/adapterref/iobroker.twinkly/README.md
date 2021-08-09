@@ -3,50 +3,45 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.twinkly/README.md
 title: ioBroker.twinkly
-hash: hldAZkmyW8gb0j+l0H2YzXZmhkZQE2diQeEA+IatQy8=
+hash: /lG0DQSc6EvjJOdXRtxZRURjSWcr9Iiujz1V4IHVEOE=
 ---
 ![Logo](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
-![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/twinkly-installed.svg)
+![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/twinkly-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/twinkly-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.twinkly.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.twinkly.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/patrickbs96/iobroker.twinkly.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/patrickbs96/ioBroker.twinkly/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/patrickbs96/ioBroker.twinkly/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.twinkly.png?downloads=true)
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/github/patrickbs96/ioBroker.twinkly?branch=master&svg=true)
 
-# IoBroker.twinkly
-** Tests: ** Linux / Mac: [![Travis-CI] (https://travis-ci.com/patrickbs96/ioBroker.twinkly.svg)](https://travis-ci.com/github/patrickbs96/ioBroker.twinkly)
+#ioBroker.twinkly
+**Tests:** Linux/Mac: [![Travis-CI](https://travis-ci.com/patrickbs96/ioBroker.twinkly.svg)](https://travis-ci.com/github/patrickbs96/ioBroker.twinkly)
 
-## Twinkly Adapter für ioBroker
+## Twinkly-Adapter für ioBroker
 Adapter zur Kommunikation mit den [Funkelnde Lichter](https://www.twinkly.com/).
 
-** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Die Einstellungen
 Folgende Einstellungen stehen zur Verfügung: ![admin.png](../../../en/adapterref/iobroker.twinkly/img/admin.png)
 
-In der Tabelle können Sie alle Twinkly-Lichter hinzufügen, die Sie steuern möchten.
+In der Tabelle können Sie alle Twinkly-Leuchten hinzufügen, die Sie steuern möchten.
 
 | Spalte | Beschreibung |
 | ------------ | ---------------------------------- |
-| `Enabled` | Soll auf diese Verbindung zugegriffen werden? |
+| `Enabled` | Soll auf diese Verbindung zugegriffen werden |
 | `IP Address` | IP-Adresse zu den Twinkly Lights |
-| `IP Address` | IP-Adresse zu den Twinkly Lights |
+| `IP-Adresse` | IP-Adresse zu den Twinkly Lights |
 
-Die folgenden zusätzlichen Status werden pro Gerät erstellt, wenn diese Option aktiviert ist:
+Die folgenden zusätzlichen Status werden pro Gerät erstellt, wenn sie aktiviert sind:
 
 * Geräteinfo (lesen)
 * Netzwerkstatus (gelesen)
-* MQTT (Lesen / Schreiben)
+* MQTT (lesen/schreiben)
 
-[Private API-Informationen] (https://xled-docs.readthedocs.io/en/latest/) von [Pavol Babinčák](https://github.com/scrool)
-
-## MACHEN
-* Nachdem der Schalter "JSON erweitern" aktiviert ist, werden keine Kanäle erstellt (** Neustart behebt diesen Fehler atm **)
-* Netzwerkstatus (schreiben)
-* Status Ein: Kontrollkästchen für welche Wiedergabeliste / welchen Film im EIN-Modus
+[Private API-Informationen](https://xled-docs.readthedocs.io/en/latest/) von [Pavol Babinčák](https://github.com/scrool)
 
 ## Changelog
 

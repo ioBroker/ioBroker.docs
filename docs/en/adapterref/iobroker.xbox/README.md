@@ -13,6 +13,11 @@ BADGE-NPM: https://nodei.co/npm/iobroker.xbox.png?downloads=true
 
 [![NPM](https://nodei.co/npm/iobroker.xbox.png?downloads=true)](https://nodei.co/npm/iobroker.xbox/)
 
+## Disclaimer
+Xbox, Xbox One, Smartglass and Xbox Live are trademarks of Microsoft Corporation.
+The developers of this module are in no way endorsed by or affiliated with
+Microsoft Corporation, or any associated subsidiaries, logos or trademarks.
+
 ## Steps 
 
 * Fulfill the requirements
@@ -332,6 +337,9 @@ In this section you can find a description of every state of the adapter.
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
+### 0.7.7 (2021-04-18)
+* (foxriver76) do not log rest server logging on levels above debug, so it can be activated when needed
 
 ### 0.7.6 (2021-03-29)
 * (foxriver76) added `requests` package as pip dev

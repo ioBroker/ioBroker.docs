@@ -3,33 +3,34 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.netatmo/README.md
 title: ioBroker.netatmo
-hash: wUStXr7TvXEX/ihhR6zd6MFzoTMsrCpKc3NoBP/7LQk=
+hash: wnL39RRsXHajzRiYCAIDRJ05Yhdq6qC6OgfCzBEEQEM=
 ---
 ![商标](../../../en/adapterref/iobroker.netatmo/admin/netatmo.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.netatmo.svg)
+![安装数量](http://iobroker.live/badges/netatmo-stable.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.netatmo.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.netatmo.svg)
-![NPM](https://nodei.co/npm/iobroker.netatmo.png?downloads=true)
+![新产品管理](https://nodei.co/npm/iobroker.netatmo.png?downloads=true)
 
-＃ioBroker.netatmo
-适用于ioBroker的Netatmo适配器
+# IoBroker.netatmo
+ioBroker 的 Netatmo 适配器
 
-##安装
-只需在适配器设置中输入您的Netatmo用户名和密码即可
+＃＃ 安装
+只需在适配器设置中输入您的 Netatmo 用户名和密码
 
-您还可以使用sendTo命令将所有人员设置为离开（例如，如果用作报警系统）
+您还可以使用 sendTo 命令将所有人员设置为离开（例如，如果用作警报系统）
 
 ```
 sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: []});
 ```
 
-要么
+或者
 
 ```
 sendTo('netatmo.0', "setAway");
 ```
 
-将所有人标记为所有摄像机
+将所有人员标记为离开所有摄像机
 
 也可以将一个或多个特定人员标记为离开
 
@@ -37,9 +38,23 @@ sendTo('netatmo.0', "setAway");
 sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123123123123']});
 ```
 
-参数homeId是在Objects选项卡中列出的Camera名称后面的字符串（可选，如果安装了多个摄像头），personsId是“Known”people文件夹中的id
+参数 homeId 是在“对象”选项卡中列在您的相机名称后面的字符串（可选，如果安装了多个相机），personId 是“已知”人员文件夹中的 ID
+
+<!-- 下一版本的占位符（在行首）：
+
+### __工作进行中__ -->
 
 ## Changelog
+### 1.4.0 (2021-06-24)
+* (bluefox) Added the support of admin5 
+* (bluefox) Removed warnings about the type of states  
+
+### 1.3.3
+* (PArns) removed person history
+
+### 1.3.2
+* (PArns) Updated libs & merged pending patches
+* (PArns) Changed update interval from 5 to 10 minutes (requested by Netatmo)
 
 ### 1.3.1
 * (PArns) Fixed event cleanup crash
@@ -116,33 +131,33 @@ sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123
 ### 0.2.2
 * (PArns) Fixed SumRain24MaxDate & SumRain24Max which won't update in some rare cases
 
-#### 0.2.1
+### 0.2.1
 * (PArns) Corrected DateTime values & object types
 
-#### 0.2.0
+### 0.2.0
 * (PArns) Added SumRain1Max/SumRain1MaxDate & SumRain24Max/SumRain24MaxDate to get overall rain max since adapter installation
 
-#### 0.1.1
+### 0.1.1
 * (PArns) Fixed TemperatureAbsoluteMin/TemperatureAbsoluteMax
 
-#### 0.1.0
+### 0.1.0
 * (PArns) Fixed CO2 calibrating status
 * (PArns) Added last update for devices
 * (PArns) Added TemperatureAbsoluteMin/TemperatureAbsoluteMax to get overall temperature min/max since adapter installation
 
-#### 0.0.4
+### 0.0.4
 * (PArns) Fixed typo/missing parameter in GustStrength
 
-#### 0.0.3
+### 0.0.3
 * (PArns) Added error handling to prevent exceptions for missing parameters
 
-#### 0.0.2
+### 0.0.2
 * (PArns) Fixed rain sensor
 
-#### 0.0.1
+### 0.0.1
 * (PArns) Initial release
 
 ## License
 MIT
 
-Copyright (c) 2016-2017 Patrick Arns <iobroker@patrick-arns.de>
+Copyright (c) 2016-2021 Patrick Arns <iobroker@patrick-arns.de>

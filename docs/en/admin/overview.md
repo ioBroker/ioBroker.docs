@@ -4,26 +4,23 @@ lastChanged: 26.03.2019
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/overview.md
-hash: PD6yIIqFzsSUrDaS2ybFDiFqx6FBchPXTCkYWisNvOc=
+hash: L3woSgQsM+65FZxL45MseZX1u5AmjMk69mxD0H7RrGI=
 ---
-# The overview window
-?> ***This is a wildcard*** . <br><br> Help with ioBroker and extend this article. Please note the [ioBroker style guide](community/styleguidedoc), so that the changes can be adopted more easily. ---
+# The overview tab
+Information on all adapters with their own web interface and on the hosts is displayed here.
 
-# The tab overview
-Information about all adapters with their own web interface and the hosts is displayed here.
+![The overview tab](../../de/admin/media/ADMIN_Uebersicht.png)
 
-![The tab overview](../../de/admin/media/ADMIN_Uebersicht.png)
+If you click on a tile you will be directed to the corresponding website, the address of which is at the bottom of the tile.
 
-If you click on a tile, you will be redirected to the corresponding website whose address is located at the bottom of the tile.
+At the very end there is still a tile for each host that is in the system. In standalone installations this is **the** ioBroker server, in multihost installations this is the master and slaves.
 
-At the very end, there is one tile left for each host in the system. For standalone installations this is **the** ioBroker server, for multihost installations this is the master and the slaves.
+If you click the info button on such a tile, further information about the respective host appears:
 
-If you click on the information button on such a tile further information about the respective host appears:
+![The overview tab](../../de/admin/media/ADMIN_Uebersicht_host.png)
 
-![The tab overview](../../de/admin/media/ADMIN_Uebersicht_host.png)
+The content of this tab can be adapted to suit your own requirements. To do this, click on the pencil icon at the bottom right:
 
-The content of this tab can be customized according to your own wishes. To do this, click on the pencil icon on the bottom right:
+![The overview tab](../../de/admin/media/ADMIN_Uebersicht_edit.png)
 
-![The tab overview](../../de/admin/media/ADMIN_Uebersicht_edit.png)
-
-unwanted tiles can then be ticked off. Then confirm the selection with the hook icon or cancel with the X.
+Unwanted tiles can then be ticked off. Then confirm the selection with the tick icon or cancel with the X.

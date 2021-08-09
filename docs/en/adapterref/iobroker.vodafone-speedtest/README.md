@@ -1,19 +1,19 @@
-![Logo](admin/vodafone-speedtest.png)
-# ioBroker.vodafone-speedtest
+![Logo](admin/vofo-speedtest.png)
+# ioBroker.vofo-speedtest
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.vodafone-speedtest.svg)](https://www.npmjs.com/package/iobroker.vodafone-speedtest)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.vodafone-speedtest.svg)](https://www.npmjs.com/package/iobroker.vodafone-speedtest)
-![Number of Installations (latest)](http://iobroker.live/badges/vodafone-speedtest-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/vodafone-speedtest-stable.svg)
-[![Dependency Status](https://img.shields.io/david/peterbaumert/iobroker.vodafone-speedtest.svg)](https://david-dm.org/peterbaumert/iobroker.vodafone-speedtest)
-[![Known Vulnerabilities](https://snyk.io/test/github/peterbaumert/ioBroker.vodafone-speedtest/badge.svg)](https://snyk.io/test/github/peterbaumert/ioBroker.vodafone-speedtest)
+[![NPM version](http://img.shields.io/npm/v/iobroker.vofo-speedtest.svg)](https://www.npmjs.com/package/iobroker.vofo-speedtest)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.vofo-speedtest.svg)](https://www.npmjs.com/package/iobroker.vofo-speedtest)
+![Number of Installations (latest)](http://iobroker.live/badges/vofo-speedtest-installed.svg)
+![Number of Installations (stable)](http://iobroker.live/badges/vofo-speedtest-stable.svg)
+[![Dependency Status](https://img.shields.io/david/peterbaumert/iobroker.vofo-speedtest.svg)](https://david-dm.org/peterbaumert/iobroker.vofo-speedtest)
+[![Known Vulnerabilities](https://snyk.io/test/github/peterbaumert/ioBroker.vofo-speedtest/badge.svg)](https://snyk.io/test/github/peterbaumert/ioBroker.vofo-speedtest)
 
-[![NPM](https://nodei.co/npm/iobroker.vodafone-speedtest.png?downloads=true)](https://nodei.co/npm/iobroker.vodafone-speedtest/)
+[![NPM](https://nodei.co/npm/iobroker.vofo-speedtest.png?downloads=true)](https://nodei.co/npm/iobroker.vofo-speedtest/)
 
 **This adapter uses the service [Sentry.io](https://sentry.io) to automatically report exceptions and code errors and new device schemas to me as the developer.** More details see below!
 
 
-## vodafone-speedtest adapter for ioBroker
+## vofo-speedtest adapter for ioBroker
 
 Speedtest of Vodafone.de
 
@@ -25,6 +25,11 @@ Sentry.io is a service for developers to get an overview about errors from their
 When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry. When you allowed iobroker GmbH to collect diagnostic data then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of this helps me to provide error free adapters that basically never crashs.
 
 ## Changelog
+
+### 0.0.7 (2021-05-21)
+* Fixed some vulnerabilities in dev-dependencies
+* Fixed js-controller 3* issues
+* Fixed node 16 compatability
 
 ### 0.0.6 (2021-01-21)
 * Added Sentry.io Integration
@@ -47,10 +52,13 @@ When the adapter crashes or an other Code error happens, this error message that
 ### 0.0.1 (2020-04-18)
 * (Peter Baumert) initial release
 
+## Disclaimer
+Vodafone is a trademark of Vodafone GmbH. I am in no way endorsed by or affiliated with Vodafone GmbH, or any associated subsidiaries, logos or trademarks
+
 ## License
 MIT License
 
-Copyright (c) 2020 Peter Baumert <ioBroker.vodafone-speedtest@outlook.com>
+Copyright (c) 2021 Peter Baumert <ioBroker.vofo-speedtest@outlook.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

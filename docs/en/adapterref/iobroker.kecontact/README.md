@@ -1,6 +1,6 @@
 ![Adapter Logo](admin/charger.png)
 
-# ioBroker adapter for KEBA KeContact wallbox
+# ioBroker adapter for KEBA KeContact P20 or P30 and BMW i wallbox
 
 ![Number of Installations](http://iobroker.live/badges/kecontact-installed.svg) ![Number of Installations](http://iobroker.live/badges/kecontact-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.kecontact.svg)](https://www.npmjs.com/package/iobroker.kecontact) [![Downloads](https://img.shields.io/npm/dm/iobroker.kecontact.svg)](https://www.npmjs.com/package/iobroker.kecontact) [![Travis](https://img.shields.io/travis/iobroker-community-adapters/ioBroker.kecontact.svg)](https://travis-ci.org/iobroker-community-adapters/ioBroker.kecontact/) [![GitHub issues](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.kecontact.svg)](https://github.com/iobroker-community-adapters/ioBroker.kecontact/issues)
 
@@ -19,7 +19,7 @@ Install this adapter via ioBroker Admin:
 
 ### KeContact IP Address
 
-This is the IP address of your KEBA KeContact wallbox.
+This is the IP address of your KEBA KeContact or BMW i wallbox.
 
 ### Firmware check
 
@@ -36,19 +36,20 @@ ATTENTION for users from version v1.1.1 and below: you have to check this option
 
 ### Refresh Interval
 
-This is the interval in seconds how often the wallbox should be queried for new values. Normally it is not needed (set to 0).
-The wallbox continually sends broadcasts that are absolutely sufficient to keep data up to date.
+This is the interval in seconds how often the wallbox should be queried for new charging values.
 
-The default value is 30 seconds which is a good balance between the load for the KeConnect and having up-to-date information in ioBroker.
+The default value is 10 minutes which is a good balance between the load for the KeConnect and having up-to-date information in ioBroker.
 
 ### PV automatics
 
 To charge your vehicle accordingly to a surplus (e.g. by photovoltaics) you can also define states which represent surplus and regard of main power. These value are used to calculate amperage which can be used for charging. By additional values you can define
+* toggle X1 option if you want to use X1 input from charging station to control whether to charge with full power or by photovoltaic automatic
 * a different mimimum amperage than the default 6 A (only needed for e.g. Renault Zoe)
 * a value of regard power that may be used to start charging (that means charging will start even if not enough surplus is available - suggested 0 W for 1 phases charging, 500 W to 2000 W for 3 phases charging)
 * an increment for amperage (suggested 500 mA)
 * a value of regard that may be temporarily used to uphold charging session (that means charging will stop later even if enough surplus is no longer available - starting regard will be added - suggested 500 W)
-* minimum duration of charging session (even if surplus is no longer sufficient, a charging session wil llast at least this time - suggested 300 sec)
+* minimum duration of charging session (even if surplus is no longer sufficient, a charging session will last at least this time - suggested 300 sec)
+* time to continue charging session each time surplus is no longer sufficient (to bridge the time on cloudy days)
 
 ### power limitation
 
@@ -57,7 +58,38 @@ If you enter a value, your wallbox will be limited continously to not pass your 
 Up to three states of energy meters can be specified for limitation. All values will be added to calculate current consumption.
 An extra checkbox is used to specified whether wallbox power is included (in this case wallbox power will be subtracted from the state values).
 
+### dynamic options
+
+Additionally there are some states to influence behaviour of photovoltaics automatic on the fly, e.g. by a script of your own updating these values according to your needs)
+* kecontact.0.automatic.photovoltaics - actives photovoltaics automatic (true) or will charge vehicle with maximum power when set to false
+* kecontact.0.automatic.calcPhases - defines the current number of phases to be used for charging calculation. This is needed for Keba Deutschland edition and can be used for initial charging session for all charging stations
+* kecontact.0.automatic.addPower - defines an amount of watts of regard allowed to charge your vehicle (same as in options)
+* kecontact.0.automatic.pauseWallbox - stops every charging session immediately as long a set to true
+* kecontact.0.automatic.limitCurrent - limits your charging to specified amperage in mA (0 = no limitation)
+
+Sample:
+To charge your vehicle with a constant amperage of 6A regardless of surplus, set photovoltaics to false and limitCurrent to 6000.
+
 ## Changelog
+
+### 1.2.2 (2021-07-28)
+* (Sneak-L8) new: limit max. charging current dynamically
+* (Sneak-L8) support BMW charging station (Keba OEM, Sentry IOBROKER-KECONTACT-3)
+* (Sneak-L8) support P20 charging station (Sentry IOBROKER-KECONTACT-B)
+* (Sneak-L8) optimized power calculation for Deutschland edition
+
+### 1.2.1 (2021-07-20)
+* (Sneak-L8) support X1 contact of charging station to switch photovoltaics automatic
+* (Sneak-L8) prevent a crash case (Sentry IOBROKER-KECONTACT-2)
+
+### 1.2.0 (2021-06-07)
+* (Sneak-L8) support for compact mode
+* (Sneak-L8) using sentry.io to track errors
+* (Sneak-L8) support for KeContact P30 Deutschland edition
+
+### 1.1.3 (2021-04-26)
+* (Sneak-L8) new time option to continue charging session with regard
+* (Sneak-L8) optimized calculation of surplus (prevent alternating amperage)
 
 ### 1.1.2 (2021-04-02)
 * (Sneak-L8) default state of photovoltaics automatic set to true for new users
@@ -129,7 +161,7 @@ An extra checkbox is used to specified whether wallbox power is included (in thi
 
 ## License
 
-Copyright 2020 UncleSamSwiss
+Copyright (c) 2020-2021 UncleSamSwiss
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

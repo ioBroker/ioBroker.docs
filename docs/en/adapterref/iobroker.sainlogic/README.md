@@ -24,6 +24,8 @@ Known working devices:
 1. Froggit WH400SE
 1. Froggit DP1500
 1. Sainlogic WS3500 (Listener mode only)
+1. WH51 Moisture sensor
+1. Ecowitt GW1000
 
 ## Usage
 
@@ -73,6 +75,12 @@ The schheduler will start and connect to the weather station after the first int
 
 Latest version
 
+#### 0.7.2 Dependency updates for security vulnerabilities 
+
+#### 0.7.1 Fix Soilbatt mapping
+
+#### 0.7.0 Support for Soil Moisture devices like attached to DP1500
+
 #### 0.6.6 Adressed github issue #53 - warning on non existing object
 
 #### 0.6.5 Removed unneeded events
@@ -96,7 +104,7 @@ Lisa for her [code to translate wind degrees in a heading](https://www.programmi
 ## License
 MIT License
 
-Copyright (c) 2020 Fogg <foggch@gmail.com>
+Copyright (c) 2020 - 2021 Fogg <foggch@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

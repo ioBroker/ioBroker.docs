@@ -1,79 +1,91 @@
 ---
-title: Structure of the docu
-lastChanged: 29.03.2019
+title: Structure of the documentation
+lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/intro/README.md
-hash: JK4hXxeI2Jv9HJJK3Ui66cAETRWRmPYofo65gmWK8ZA=
+hash: 1pcQ4cJSUZw7qUIgvAoPS5dTCF9w4xA9paAs8EKiD7w=
 ---
 ** This documentation is the central reference for all ioBroker users: **
 
-# Use of the document
 ## Page structure
-This page was created in a ***responsive design*** . This means that it will be displayed differently depending on the resolution of the reader (PC / tablet / mobile phone) for optimal readability.
+This page was created in a ***responsive design*** . This means that it is displayed differently depending on the resolution of the display of the reader (PC / tablet / mobile phone) for optimal readability.
 
-Thus, at low (effective) resolutions, some controls are also hidden to make room for the main windows.
+With low (effective) resolutions, operating elements are sometimes hidden to make space for the main window.
 
-Therefore, it may well be that the current presentation differs from the screenshots.
+It is therefore possible that the current display differs from the screenshots.
 
 ### Different menus
 To get the best possible overview, there are three different menus:
 
-![Pages menus](../../de/intro/media/Seite_numbers.png)
+![Side menus](../../de/intro/media/Seite_numbers.png)
 
-** 1.) Main Menu **
+---
 
-The main items of this menu are usually visible on the PC in the title bar of the page, the entire menu is hidden at low resolutions. Then it has to be opened by clicking on the burger icon:
+#### 1 - main menu
+The main points of this menu are usually visible on the PC in the title bar of the page; the entire menu is hidden at low resolutions.
+Then it has to be opened by clicking the burger icon:
 
-![Page menu](../../de/intro/media/Hauptmenu.png)
+![Pages menu](../../de/intro/media/Hauptmenu.png)
 
-After clicking on a menu item, the menu automatically closes to make more space for the content.
+After clicking on a menu item, the menu closes automatically to make more space for the content.
 
-** 2.) Document Menu ** This menu is usually visible on the PC, but disappears at low resolutions. Then it has to be opened by clicking on the burger icon:
+---
 
-![Doku menu](../../de/intro/media/Dokumenu.png)
+#### 2 - Documentation menu This menu is usually visible on the PC, but is hidden at low resolutions. Then it has to be opened by clicking the burger icon:
+![Documentation menu](../../de/intro/media/Dokumenu.png)
 
-The top line contains a filter field. By entering a term, the entire menu tree is filtered by this term and only matching menu items are displayed.
+There is a filter field in the top line. By entering a term, the entire menu tree is filtered for this term and only suitable menu items are displayed.
 
-Via the icon with the arrow, the menu can be hidden again to make more space for the content.
+The menu can be hidden again using the icon with the arrow to make more space for the content.
 
-** 3.) Theme Menu **
+---
 
-In this menu the main topics of the selected article are displayed in order to be able to navigate faster to a searched point.
+#### 3 - subject menu
+In this menu the main topics of the selected article are displayed in order to be able to navigate more quickly to a desired point.
 
-![Topics menu](../../de/intro/media/Themenmenu.png)
+![Themed menu](../../de/intro/media/Themenmenu.png)
 
-Via the icon with the **X** the menu can be hidden again.
+The menu can be hidden again using the icon with the **X**
 
-### Other controls
-** 4.) Language selection **
+### More controls
+#### 4 - language selection
+The website is multilingual. Little by little, more languages will be added. Some are generated automatically first, native speakers are invited to improve the texts.
 
-The website is multilingual. Gradually more languages will be added.
-Some are automatically generated first, native speakers are invited to improve the lyrics.
-
-The desired language can be selected on the globe icon.
+The desired language can be selected at the globe icon.
 
 ![language selection](../../de/intro/media/Languages.png)
 
 This language list will be expanded if necessary.
 
-** 5.) Search **
-
-This field needs no explanation. Please use extensively!
+#### 5 - search
+This field does not need any explanation. Please use extensively!
 
 ---
 
-* For beginners we recommend to read some basics about ioBroker first.
+* For beginners, we recommend reading up some basics about ioBroker first.
 
-For more see chapter [introduction](#Einführung).
+More on this in the chapter [Basics] [].
 
-* On the [Download] (../../ download) page there are prepared images for different systems.
+* On the [Download] [] page there are prepared images for different systems.
 
-There are also detailed installation instructions for some hardware platforms.
+Detailed installation instructions for some hardware platforms are also available there.
 
-* For all adapters, refer to the central [Adapter Reference] [../../ adapters].
-* The creation of control rules is described in the section [Logic] [../ logic].
+* Information on all adapters can be found in the central [Adapter Reference] [].
+* The creation of control rules is described in section [Logic & Automation] [].
 
-We are grateful for every helping hand. If you would like to further develop ioBroker, you will find information in [Developer section] [].
+We are grateful for every helping hand. If you would like to contribute to the further development of ioBroker, you will find information in the [Developer area] [].
 
-This documentation is constantly being expanded. If you think something is missing or better described, [help us] [] improve the documentation!
+This documentation is constantly being expanded. If you think something is missing or needs better description, [help us] [] improve the documentation!
+
+[Grundlagen]: https://www.iobroker.net/#de/documentation/basics/README.md
+
+[Download]: https://www.iobroker.net/#de/download
+
+[Adapter-Referenz]: https://www.iobroker.net/#de/adapters
+
+[Logik & Automatisierung]: https://www.iobroker.net/#de/documentation/logic/examples.md
+
+[Developer Bereich]: https://www.iobroker.net/#de/documentation/dev/adapterdev.md
+
+[helfen Sie uns dabei]: https://forum.iobroker.net/viewtopic.php?f=8&t=16933

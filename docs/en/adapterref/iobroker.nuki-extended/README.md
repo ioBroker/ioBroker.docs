@@ -502,6 +502,9 @@ on({id: 'nuki-extended.0.openers.opener.state.ringStateUpdate', change: "any", a
 
 Please see [release page](https://github.com/Zefau/ioBroker.nuki-extended/releases) for changelog and detailed information.
 
+### v2.3.1 (2021-07-20)
+- (Apollon77) Optimize for js-controller 3.3 and warnings prevented
+
 ### v2.3.0 (2020-08-10)
 - (Zefau) added support for the door sensor of the Nuki Smartlock ([introduced with Bridge firmware 2.6.0 / 1.16.0](https://developer.nuki.io/t/bridge-beta-fw-2-6-0-1-16-0-with-door-sensor-state/6159))
 - (Zefau) added support for the ring bell action of the Nuki Opener ([introduced with Bridge firmware 2.7.0 / 1.17.0](https://developer.nuki.io/t/bridge-beta-fw-2-7-0-1-17-0/6792))

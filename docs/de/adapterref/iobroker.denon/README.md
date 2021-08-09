@@ -573,6 +573,30 @@ Die folgenden States werden vom Adapter angelegt:
     
     *Eingehende Daten, die der RegEx in `settings.expertReadingPattern` entsprechen, werden in diesen State geschrieben.*
 
+* settings.dialogControl
+
+    |Datentyp|Berechtigung|                                                                       
+    |:---:|:---:|
+    |number|R/W|
+
+  *Dialogkontrolle, welche zwischen 0 dB und 6 dB konfiguriert werden kann.*
+
+* settings.dialogLevelAdjust
+
+    |Datentyp|Berechtigung|                                                                       
+    |:---:|:---:|
+    |boolean|R/W|
+
+    *Erlaubt das Anschalten der Dialoglautstärkenanpassung für DTS Quellen.*
+
+* settings.dialogLevel
+
+    |Datentyp|Berechtigung|                                                                       
+    |:---:|:---:|
+    |boolean|R/W|
+
+    *Wenn die Dialogstärkenanpassung aktiv ist, kann diese zwischen -12 dB und +12 dB feinjustiert werden.*
+
 * settings.outputMonitor
 
     |Datentyp|Berechtigung|                                                                       
@@ -899,6 +923,22 @@ und info.connection. Zusätzlich werden die folgenden States für jede Zone 2-12
 	### __WORK IN PROGRESS__
 -->
 
+### 1.11.1 (2021-06-29)
+* (foxriver76) fixes for silent reconnection - if ETIMEDOUT occurs repeately switch to debug, like for other errors (closes #149)
+
+### 1.11.0 (2021-06-06)
+* (foxriver76) implemented dialog level adjustment for DTS content (closes #143)
+* (foxriver76) new datapoints are `settings.dialogLevelAdjust`, `settings.dialogLevel`, `settings.dialogControl`
+
+### 1.10.7 (2021-05-12)
+* (foxriver76) fix missing conversion to db on equalizer states for additional zones (fixes #137)
+
+### 1.10.6 (2021-05-03)
+* (foxriver76) we fixed some more types
+
+### 1.10.5 (2021-05-02)
+* (foxriver76) we fixed some datapoints having wrong types or wrong state values set (fixes #130)
+
 ### 1.10.4 (2021-02-20)
 * (foxriver76) if an older model (e.g. AVR 3808) just sends `NSE`, we do not set displayContent state anymore (fixes #112)
 
@@ -1141,7 +1181,7 @@ und info.connection. Zusätzlich werden die folgenden States für jede Zone 2-12
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2018-2021 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

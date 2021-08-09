@@ -3,21 +3,18 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nut/README.md
 title: ioBroker.nut
-hash: 1XnHuFKmyG55WGJQpHOmqGh0OJzUsyMfqL+05Hzp5CQ=
+hash: Ty2TUQVoPfL4x6EuLPk3oAeQRg9BuuixVh42eCA/DEE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.nut/admin/nut.png)
 
 ![Количество установок](http://iobroker.live/badges/nut-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.nut.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.nut.svg)
-![Трэвис-Си](http://img.shields.io/travis/Apollon77/ioBroker.nut/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Apollon77/ioBroker.nut?branch=master&svg=true)
-![NPM](https://nodei.co/npm/iobroker.nut.png?downloads=true)
 
 # IoBroker.nut
-[![Code Climate] (https://codeclimate.com/github/Apollon77/ioBroker.nut/badges/gpa.svg)](https://codeclimate.com/github/Apollon77/ioBroker.nut)
+![Тестирование и выпуск](https://github.com/Apollon77/iobroker.nut/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/nut/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Этот адаптер для ioBroker подключается к определенному серверу NUT, чтобы предоставить состояние и подробную информацию о подключенном ИБП / USV, как сообщает ioBroker, чтобы его можно было там использовать.
+Этот адаптер для ioBroker подключается к определенному серверу NUT, чтобы предоставить статус и подробную информацию о подключенном ИБП / USV, как сообщает ioBroker, чтобы его можно было там использовать.
 
 ** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
@@ -86,6 +83,23 @@ logger -t nut-notify "Notify iobroker $UPSNAME -> $NOTIFYTYPE"
 * документы для веб-страницы
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
+### __WORK IN PROGRESS__
+* (foxriver76) we fixed the state value type set to `battery.charge`
+* (Apollon77) Add connection states
+
+### 1.4.3 (2021-02-04)
+* (Apollon77) Enhance the port check
+
+### 1.4.2 (2021-01-23)
+* (Apollon77) Check configured port before using it (Sentry IOBROKER-NUT-3)
+
+### 1.4.1 (2021-01-21)
+* (Apollon77) Optimize stop handling (Sentry IOBROKER-NUT-1)
 
 ### 1.4.0 (2021-01-14)
 * (Apollon77) Prevent warnings in js-controller 3.2

@@ -3,30 +3,31 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rpi2/README.md
 title: kein Titel
-hash: LuTrQrlZ5YW5/rS6OYyVphiuYRKeh2CH3Y22fvNr/zQ=
+hash: R9fOiJyoT2DZytnnC+cE6C+nwMWndONVOBFvcpla20A=
 ---
-![Logo](../../../en/adapterref/iobroker.rpi2/admin/rpi.png) ioBroker RPI-Monitor Adapter
+![Logo](../../../en/adapterref/iobroker.rpi2/admin/rpi.png) ioBroker RPI-Monitor-Adapter
 
 ![Anzahl der Installationen](http://iobroker.live/badges/rpi2-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.rpi2.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.rpi2.svg)
-![NPM](https://nodei.co/npm/iobroker.rpi2.png?downloads=true)
 
 ==============
 
-RPI-Monitor-Implementierung zur Integration in ioBroker. Es ist die gleiche Implementierung wie für iobroker.rpi, jedoch mit GPIOs.
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/rpi2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+RPI-Monitor-Implementierung zur Integration in ioBroker. Es ist die gleiche Implementierung wie bei iobroker.rpi, jedoch mit GPIOs.
 
 ## Wichtige Informationen
-Funktioniert nur mit Knoten> = 0.12
+Funktioniert nur mit Knoten >= 0.12
 
-** ioBroker benötigt spezielle Berechtigungen zur Steuerung von GPIOs. ** Bei den meisten Linux-Distributionen kann dies erreicht werden, indem der ioBroker-Benutzer zur Gruppe `gpio` hinzugefügt wird (empfohlen) oder ioBroker unter `root` ausgeführt wird (weniger sicher).
+**ioBroker benötigt spezielle Berechtigungen, um GPIOs zu steuern.** Bei den meisten Linux-Distributionen kann dies erreicht werden, indem der ioBroker-Benutzer zur Gruppe `gpio` hinzugefügt wird (empfohlen) oder ioBroker unter `root` ausgeführt wird (weniger sicher).
 
 ## Installation
-Nach der Installation müssen Sie alle erforderlichen Module über die Administrationsseite konfigurieren.
+Nach der Installation müssen Sie alle benötigten Module über die Administrationsseite konfigurieren.
 
-Nach dem Start von iobroker.rpi generieren alle ausgewählten Module einen Objektbaum in ioBroker innerhalb von rpi. <Instanz>. <Modulenname>, z. rpi.0.cpu
+Nach dem Start von iobroker.rpi erzeugen alle ausgewählten Module einen Objektbaum in ioBroker innerhalb von rpi.<Instanz>.<Modulname> z.B. rpi.0.cpu
 
-Stellen Sie sicher, dass Python und Build-Essential installiert sind:
+Stellen Sie sicher, dass Python und build-essential installiert sind:
 
 ```
 sudo apt-get update
@@ -36,18 +37,18 @@ sudo apt-get install -y build-essential python
 Folgende Objekte stehen nach Auswahl zur Verfügung:
 
 #### **ZENTRALPROZESSOR**
-- CPU-Frequenz
-- load1
-- load5
-- load15
+- CPU_Frequenz
+- laden1
+- laden5
+- Last15
 
 #### **Himbeere (vcgencmd ist erforderlich)**
-- CPU-Spannung
+- CPU_Spannung
 - mem_arm
 - mem_gpu
 
 #### **Erinnerung**
-- memory_available
+- Speicher_verfügbar
 - memory_free
 - memory_total
 
@@ -68,7 +69,7 @@ Folgende Objekte stehen nach Auswahl zur Verfügung:
 #### **Temperatur**
 - soc_temp
 
-#### **Betriebszeit**
+#### **Verfügbarkeit**
 - Betriebszeit
 
 #### **WLAN**
@@ -88,24 +89,24 @@ Auf der Konfigurationsseite können Sie folgende Module auswählen:
 - Betriebszeit
 - WLAN
 
-## Protokolldateien / Konfigurationseinstellungen
+## Logfiles / Konfigurationseinstellungen
 ## Eigenschaften
 ## Machen
 ## Getestete Hardware
  - Odroid C1
- - Himbeer-Pi 1
+ - Raspberry Pi 1
 
 ## GPIOs
 Sie können auch GPIOs lesen und steuern.
-Sie müssen lediglich in den Einstellungen die GPIO-Optionen konfigurieren (zusätzliche Registerkarte).
+Alles was Sie tun müssen, ist in den Einstellungen die GPIOs-Optionen zu konfigurieren (zusätzlicher Reiter).
 
 ![GPIOs](../../../en/adapterref/iobroker.rpi2/img/pi3_gpio.png)
 
-Nachdem einige Ports aktiviert wurden, werden im Objektbaum folgende Status angezeigt:
+Nachdem einige Ports aktiviert wurden, erscheinen folgende Zustände im Objektbaum:
 
 - rpi.0.gpio.PORT.state
 
-Die Nummerierung der Ports ist BCM (BroadComm Pins on Chip). Sie können die Aufzählung mit ```gpio readall``` erhalten.
+Die Nummerierung der Ports ist BCM (BroadComm Pins on Chip). Die Aufzählung erhalten Sie mit ```gpio readall```.
 Zum Beispiel PI2:
 
 ```
@@ -137,12 +138,21 @@ Zum Beispiel PI2:
 +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
 ```
 
-## DHTxx / AM23xx-Sensoren
-Sie können von den Temperatur- / Feuchtigkeitssensoren DHT11, DHT22 und AM2302 lesen.
+## DHTxx/AM23xx-Sensoren
+Sie können von den Temperatur-/Feuchtesensoren DHT11, DHT22 und AM2302 ablesen.
 
-Schließen Sie einen solchen Sensor an einen GPIO-Pin an, wie auf der Paketseite [Node-Dht-Sensor](https://www.npmjs.com/package/node-dht-sensor) beschrieben. Wie beschrieben, können mehrere Sensoren an *mehrere* Pins angeschlossen werden (dies ist *kein* Bussystem).
+Schließen Sie einen solchen Sensor an einen GPIO-Pin an, wie auf der [Knoten-dht-Sensor](https://www.npmjs.com/package/node-dht-sensor) Paketseite beschrieben. Mehrere Sensoren können wie besprochen an *mehrere* Pins angeschlossen werden (dies ist *kein* ein Bussystem).
 
 ## Changelog
+
+### 1.3.1 (2021-07-16)
+* (Apollon77) Prevent js-controller 3.3 warnings
+
+### 1.3.0 (2021-07-16)
+* (asgothian) Fix to get CPU frequencies also on Raspi 4
+* (raintor) Add support for DHTxx/AM23xx Sensors
+* (raintor) Configure internal Pull UP/Down Resistor
+* (raintor) Add port 'label'/'friendly name' to GPIO config
 
 ### 1.2.0 (2020-01-17)
 - (janfromberlin) GPIO configuration as output with defined initial value
@@ -196,6 +206,6 @@ Schließen Sie einen solchen Sensor an einen GPIO-Pin an, wie auf der Paketseite
 
 ## License
 
-Copyright (c) 2015-2020 husky-koglhof <husky.koglhof@icloud.com>
+Copyright (c) 2015-2021 husky-koglhof <husky.koglhof@icloud.com>
 
 MIT License

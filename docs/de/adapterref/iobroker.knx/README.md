@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: xiWyDYd30ali/ijXzsYDvpZQ4LlbKF9of94Ml/eduSA=
+hash: yAp86KmeXQAQiaNEOn928YYT8VWxt8WjMp8pT/XXcVo=
 ---
 ![Logo](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
@@ -11,111 +11,113 @@ hash: xiWyDYd30ali/ijXzsYDvpZQ4LlbKF9of94Ml/eduSA=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.knx.svg)
 ![NPM](https://nodei.co/npm/iobroker.knx.png?downloads=true)
 
-# IoBroker.knx
+#ioBroker.knx
 ## Beschreibung
-de: Dieser Adapter ermöglicht den Import von knxproj-Dateien aus ETS. Es generiert die Übersetzung zwischen KNX-Gruppenadressen und ioBroker und platziert die Geräte in Räumen (insbesondere für MobileUI).
+ru: [Установка и базовая настройка адаптера](doc/ru/readme.md)
 
-Es stellt eine Verbindung zu Standard-KNX / LAN-Gateways her.
+de: Dieser Adapter ermöglicht den Import von knxproj-Dateien aus der ETS. Es erzeugt die Übersetzung zwischen KNX-Gruppenadressen und ioBroker und stellt die Geräte in Räume (insb. für MobileUI).
 
-Bevor Sie beginnen: Jeder DPT von com.Objects sollte in Ihrem ETS-Projekt festgelegt werden. Jedes Gerät sollte nach Ihrer Einrichtungsstruktur sortiert sein.
+Es verbindet sich mit Standard-KNX/LAN-Gateways.
+
+Vor Beginn: Jeder DPT von com.Objects sollte in Ihrem ETS-Projekt gesetzt sein. Jedes Gerät sollte in Ihre Anlagenstruktur einsortiert werden.
 
 ## Eigenschaften:
-* Importieren der Datei "knxproj"
+* `knxproj`-Datei importieren
 * Generieren einer ETS-ähnlichen Objektstruktur
-* Finden und Kombinieren von Act-Channel und State-Channel (Heuristik)
+* Act-Channel und State-Channel finden und kombinieren (Heuristik)
 * Aktualisierung aller Zustände beim Start
-* Senden eines READ an den KNX-Bus, während auf das Statusobjekt geschrieben wird
-* Sortieren von Kanälen zu Räumen
+* Ausgeben eines READ auf den KNX-Bus, während auf das Zustandsobjekt geschrieben wird
+* Kanäle zu Zimmern sortieren
 
 ## Adapterkonfiguration
 Öffnen Sie nach der Installation dieses Adapters die Adapterkonfiguration. Ergänze:
 
-### KNX Gateway IP
-<IP Ihres KNX / Lan GW> im IPv4-Format
+### KNX-Gateway-IP
+<IP Ihres KNX/Lan GW> mit IPv4-Format
 
 ### Hafen
 Dies ist normalerweise Port 3671.
 
 ### Phys. EIB-Adresse
-Füllen Sie freie phys. Adresse, die Ihrer KNX-Architektur entspricht, **ABER NICHT die Adresse Ihres KNX-Gateways!** Darf nicht mit 0 enden !!!
+Füllen Sie kostenlose phys. Adresse entsprechend Ihrer KNX-Architektur, **ABER NICHT die Adresse Ihres KNX Gateways!** Darf nicht auf 0 enden !!!
 
 ### Debug-Ebene
 Erweitert den Ausgangspegel des Adapters für Debugging-Zwecke.
 
-### Knxproj hochladen
-Hier können Sie Ihren ETS-Export im Format `knxproj` hochladen.
+### Knxproj . hochladen
+hier können Sie Ihren ETS-Export im `knxproj` Format hochladen.
 
-Nach erfolgreichem Import wird in einem Dialogfeld die Anzahl der importierten Objekte angezeigt. Drücken Sie nun "Speichern & Schließen" und der Adapter sollte starten.
-Beim Starten liest der Adapter alle Gruppenadressen mit read-Flag. Dies kann eine Weile dauern und Ihren KNX-Bus stark belasten. Die Werte in Ihrem Vis werden jedoch nach dem Start aktualisiert.
+Nach erfolgreichem Import zeigt ein Dialog die Anzahl der importierten Objekte an. Drücken Sie nun "Speichern & Schließen" und der Adapter sollte starten.
+Beim Start liest der Adapter alle Gruppenadressen mit Read-Flag. Dies kann eine Weile dauern und Ihren KNX-Bus stark belasten. Aber die Werte in Ihrem vis werden nach dem Start aktualisiert.
 
-### Objekte
-Hier ist unter knx.0 der Gruppenadressbaum wie in Ihrem ETS-Projekt.
+###Objekte
+Hier befindet sich unter knx.0 der Gruppenadressbaum wie in Ihrem ETS-Projekt.
 
 ### Aufzählungen
-Wenn Sie in Ihrem ETS eine Gebäudestruktur mit den entsprechenden Geräten haben, wird diese hier angezeigt. Unter "Mitglieder" sind die Namen der Gruppenadressen aufgeführt, die von den Geräten mit Sendeflag in dieser Gruppe aufgelistet wurden.
+Wenn Sie in Ihrer ETS eine Gebäudestruktur mit den entsprechenden Geräten haben, wird diese hier angezeigt. Unter „Mitglieder“ sind die Namen der Gruppenadressen der Geräte mit Sende-Flag in dieser Gruppe aufgeführt.
 
 ### Verwendung
-Wenn der Adapter erfolgreich gestartet wird, stehen Ihre Datenpunkte für alles zur Verfügung, was Sie tun möchten.
+Wenn der Adapter erfolgreich startet, stehen Ihre Datenpunkte für alles zur Verfügung, was Sie tun möchten.
 
 ### Datenpunkttypen
-Alle DPTs gemäß "Systemspezifikationen, Interworking, Datenpunkttypen" der KNX Association sind verfügbar. Das bedeutet, dass Sie zwei Arten von Informationen erhalten können: 1) einen Wert oder eine Zeichenfolge 2) durch Kommas getrennte Werte oder ein Array von Werten (im Moment weiß ich nicht, wie ich besser damit umgehen soll)
+Es stehen alle DPTs gemäß "System Specifications, Interworking, Datapointtypes" der KNX Association zur Verfügung. Das bedeutet, dass Sie 2 Arten von Informationen erhalten können: 1) einen Wert oder eine Zeichenfolge 2) durch Kommas getrennte Werte oder ein Array von Werten (im Moment weiß ich nicht, wie ich besser damit umgehen soll)
 
-Beispielsweise wird ein DPT5.001 als vorzeichenlose Ganzzahl mit 8 Bit codiert. Dies ergibt einen einzelnen Wert. Der DPT3.007 (Control Dimming) ist als 1Bit (Boolean) + 3Bit (Int ohne Vorzeichen) codiert.
-Dies führt z.B. in einem Wert wie "0,5", wobei "0" "Abnahme" und "5" die Anzahl der Intervalle bedeutet.
+Zum Beispiel wird ein DPT5.001 als unsigned Integer mit 8-Bit codiert. Dies ergibt einen einzelnen Wert. Der DPT3.007 (Control Dimming) ist als 1Bit(Boolean)+3Bit(unsigned Int) codiert.
+Dies ergibt z.B. in einem Wert wie "0,5", wobei "0" "verringern" bedeutet und "5" die Anzahl der Intervalle bedeutet.
 
-## Wie werden die Datenpunkte entstehen?
-### 1) Auslesen aller Kommunikationsobjektreferenzen (im folgenden KOR)
-Es werden die Gruppenaddressreferenz (im folgenden GAR) IDs der betreffenden DPT der KOR gehören, wenn er vorhanden ist. Ausserdem erhalten der erste gehört die Attribut write = yes und read = no. Alle betreffenden GAR IDs werden nur den DPT empfangen
+## Wie werden die Datenpunkte generiert (English)
+### 1) Auslesen aller Kommunikationsobjektreferenzen (im following KOR)
+Dabei Werden den Gruppenaddressreferenz (im following GAR) IDs der jeweiligen DPT der KOR zugeordnet, wenn er vorhanden ist. Außerdem bekommt der erste Eintrag die Attribute write=yes und read=no. Alle darauf folgenden GAR ID's bekommen nur den DPT zugeordnet
 
-### 2) Erzeugen der Gruppenadressstruktur (im folgenden GAS)
-Hier wird die GAS-Anzeige der GAR-IDs entfernt und auch die DPTs verkauft, fällt stirbt unter 1) noch nicht erwartet ist.
+### 2) Erstellen der Gruppenadressstruktur (im following GAS)
+Hier WIRd sterben GAS anhand der GAR IDs erzeugt und ebenfalls sterben DPTs zugeordnet, fällt dies unter 1) noch Nicht geschehen ist.
 
-### 3) Herausfinden der Schalt- und Statusaddressen
-Im ETS-Export sind die Schalt- und Statusadressen nicht hinterlegt. Somit führe ich eine Betrachtungsprüfung aller Gruppenadressnamen durch mit der Auswertung auf Status und Staat.
-Wird ein Pärchen gefunden, wird mehr als 90% gefunden, dann wird entschieden, dass die GA1 die Schaltadresse und GA2 die Statusadresse ist. Dabei heißt GA1 das schreiben = wahr und lesen = falsch und GA2 das schreiben = falsch und lesen = wahr.
-Werden werden die DPT abgezogen aus der entsprechendenig korrespondierenden GA. Aus diesem Grund ist es anders, Pärchen zu finden, wenn die Gruppenadressbeschriftungen nicht konsistent sind.
+### 3) Herausfinden der Schalt- und Statusadressen
+In dem ETS-Export sind die Schalt- und Statusadressen nicht angegeben. führe ich eine Ähnlichkeitsprüfung aller Gruppenadressnamen durch mit der Auswertung auf Status und Status.
+Wird ein Pärchen gefunden, dessen Ähnlichkeit mehr als 90% beträgt, dann wird angenommen, dass die GA1 sterben Schaltadresse und GA2 sterben Statusadresse ist. Dabei erhält GA1 das write=true und read=false und GA2 das write=false und read=true.
+Außerdem Werden sterben DPT abgeglichen aus der jeweilig korrespondierenden GA. Aus diesem Grund ist es schwierig, Pärchen zu finden, wenn die Gruppenadressbeschriftungen nicht konsistent sind.
 
-Weiterhin werden die Flaggen in den Gerätekonfigurationen betrachtet. Dabei werden die Flaggen wie folgt gehört:
+Weiter werden die Flags in den Gerätekonfigurationen betrachtet. Dabei werden die Flags wie folgt umgesetzt:
 
 | KNX | | | iobroker | | |
 |-------|-----------|------------|----------|----------|-------------------------------------------------|
-| Lesen | Schreiben | Übertragen | Lesen | Schreiben | Erklärung |
-| - | - | - | - | - | der Wert wird über GroupValueResponse aktualiesiert |
-| x | - | - | x | x | ein Trigger bezieht sich auf GroupValueRead aus |
-| - | x | - | - | x | Schreiben den Wert Wert mit GroupValueWrite auf den KNX-Bus |
+| Lesen | Schreiben | Übertragen | Lesen | Schreiben| Erklärung |
+| - | - | - | - | - | der wert wird über GroupValueResponse aktualisiert |
+| x | - | - | x | x | ein Trigger darauf löst GroupValueRead aus|
+| - | x | - | - | x | Schreibt den angegebenen Wert mit GroupValueWrite auf den KNX-Bus|
 | - | - | x | x | - | der Wert wird über GroupValueResponse aktualisiert |
-| x | - | x | x | x | ein Trigger bezieht sich auf GroupValueRead aus |
+| x | - | x | x | x | ein Trigger darauf löst GroupValueRead aus|
 
-### 4) Erzeugen der Datenpunktpaare (im offenen DPP)
-Ein DPP wird erledigt, wenn die GA, GAR und der DPT gültig sind. Mit diesen DPP arbeiten der Adapter. Fehlt auch der DPT in einer GA, weil er auf keine der o. A. Wege gefunden werden können, so wird für diese GA kein DPP gewählt und sie ist im Weiteren nicht nutzbar.
+### 4)Erzeugen der Datenpunktpaare (im following DPP)
+Ein DPP wird erzeugt, wenn die GA, GAR und der DPT gültig sind. Mit diesen DPP arbeitet der Adapter. Fehlen auch der DPT in einer GA, weil er auf keiner der o. A. Wege gefunden werden konnte, so WIRD for this GA kein DPP erzeugt und sie ist weiterhin nicht nutzbar.
 
-Im Idealfall werden somit für einen Schaltkanal 2 DPP erforderlich. Das erste ist das Schalten. In diesem ist die GAR ID des Status DPP hinterlegt. Das zweite ist dann das Status DPP ohne weitere Referenz.
+Im Idealfall Werden somit für einen Schaltkanal 2 DPP erzeugt. Das erste ist das Schalten. In diesem ist die GAR ID des DPP-Status angegeben. Das zweite ist dann das Status DPP ohne weitere Referenz.
 
-## Beim Start des Adapters
-Alle mit dem Lesen-Flag markierten DPP werden beim Start abgefragt. Dies verursacht u.U. eine erhöhte Buslast und gehört einen Moment. Im Anschluss sind aber alle wichtigen Werte möglich.
+##Beim Start des Adapters
+Alle mit dem Lesen-Flag markierten DPP werden beim Start abgefragt. Dies verursacht u.U. eine höhere Buslast und dauert einen Moment. Im Anschluss sind aber alle aktuellen Werte verfügbar.
 
 ## (versteckt) Funktionen:
-Durch senden eines Wertes auf eine Statusadresse werden die Kommunikationsobjekte dieser Gruppenadresse per GroupValueRead abgefragt.
+Durch senden eines Wertes auf Eine Statusadresse Werden sterben Kommunikationsobjekte innerhalb dieser Gruppenadresse per GroupValueRead abgefragt.
 
-### Vermeidung von Fähigkeiten
-1) ETS-Programmierung und harte ETS-Programmierung und emotionale ETS-Programmierung
+###Vermeidung von Problemen
+1) saubere ETS Programmierung und saubere ETS Programmierung und saubere ETS Programmierung
 
-* zuweisen der DPTs !!
-* einheitliche Beschriftung der GA-Namen (z.B "EG Wohnen Decke Licht schalten" und "EG Wohnen Decke Licht schalten status")
-* Vermeidung von Sonderzeichen ",. /; \ &% $ § []".
+* zuweisen der DPTs!!
+* einheitliche Beschriftung der GA-Namen (z.B "EG Wohnen Decke Licht schalten" und "EG Wohnen Decke Licht schalten status" )
+* Vermeidung von Sonderzeichen ",./;\&%$§[]" (kann zu Problemen bei der Erzeugung der GAS führen)
 
-2) Prüfen ob das KNX / LAN GW befindetbar ist. Wenn es das nicht ist, wird der Adapter sich selbst zugegeben.
+2) Prüfen ob das KNX/LAN GW erreichbar ist. Wenn es das nicht ist, versucht der Adapter sich kontinuierlich zu verbinden.
 
-3) Physikalische Adresse richtig gewählt (wichtig beim Einsatz von Linienkopplern). !!! ACHTUNG: Die hier ist die physikalische Adresse ist nicht die Adresse des LAN Gateways und darf nicht auf 0 enden !!!
+3) Physikalische Adresse richtig wählen ( wichtig beim Einsatz von Linienkopplern ). !!! ACHTUNG: die hier eingetragene physikalische Adresse ist NICHT die Adresse des LAN Gateways und darf nicht auf 0 enden !!!
 
-4) Der Port der LAN Schnittstelle ist i.d.R. 3671
+4) Der Port der LAN-Schnittstelle ist i.d.R. 3671
 
-5.
+5) Durch die Möglichkeit der Statusabfrage ist eines zu beachten: Es ist sicherzustellen, dass nicht mehr als 40 Anfragen pro Sekunde vom ioBroker generiert werden, denn this can dann physikalisch bedingt nicht mehr durch den Adapter an das Gateway weitergereicht Werden.
 
 ## Geplante Funktionen
-* Hinzufügen von Adressen zur Objektbeschreibung (ID)
-* selektiver Import von knx-Projekt
-* Knotenversion> 8.9.4 erforderlich!
+* Adressen zur Objektbeschreibung (id) hinzufügen
+* selektiver Import von knx-Projekten
+* benötigt Knotenversion >8.9.4!
 
 ## Changelog
 ### 1.0.45 (2021_03_22)

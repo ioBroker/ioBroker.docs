@@ -1,30 +1,38 @@
 ---
+BADGE-Number of Installations: http://iobroker.live/badges/denon-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.denon.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.denon.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.denon.png?downloads=true
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.denon/README.md
 title: ioBroker.denon
-hash: JYREJt7gT3z33R1WkTzC1mRy5Fp2M+2eeCHRIxmYS5E=
+hash: Lgps1TGVssycmZzRnz9NYrW48iy3XCnv0nz7IaZVV+M=
 ---
 ![Логотип](../../../en/adapterref/iobroker.denon/admin/denon.png)
 
 ![Количество установок](http://iobroker.live/badges/denon-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.denon.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.denon.svg)
-![NPM](https://nodei.co/npm/iobroker.denon.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.denon.png?downloads=true)
 
 # IoBroker.denon
 ===========================
 
 ![Статус сборки](https://github.com/foxriver76/ioBroker.denon/workflows/Test%20and%20Release/badge.svg)
 
-## Установка
+## Заявление об ограничении ответственности
+DENON и Marantz являются товарными знаками D&M Holdings Inc.
+Разработчики этого модуля никоим образом не одобрены и не связаны с D&M Holdings Inc. или какими-либо связанными с ней дочерними компаниями, логотипами или товарными знаками.
+
+## Монтаж
 Вы можете установить адаптер через веб-интерфейс ioBroker или на локальный компьютер через npm.
 
 ### На основе браузера
-1. Откройте веб-интерфейс ioBroker в браузере (например: 192.168.30.70:8081)
+1. Откройте веб-интерфейс ioBroker в браузере (например: 192.168.30.70:8081).
 2. Щелкните вкладку «Адаптеры».
-3. Введите "Denon" в фильтр.
-4. Щелкните три точки, а затем символ «+» адаптера DENON AVR.
+3. Введите «Denon» в фильтр.
+4. Щелкните по трем точкам, а затем по символу «+» адаптера DENON AVR.
 
 ![Добавить адаптер](../../../en/adapterref/iobroker.denon/docs/en/media/plusAddAdapter.png)
 
@@ -35,13 +43,13 @@ hash: JYREJt7gT3z33R1WkTzC1mRy5Fp2M+2eeCHRIxmYS5E=
 npm i iobroker.denon
 ```
 
-## Настроить
+## Настраивать
 В дополнение к установке адаптера вы должны убедиться, что ваш AVR правильно настроен.
 
 ### IoBroker
-1. Откройте интерфейс ioBroker в браузере (например: 192.168.1.33:8081)
+1. Откройте интерфейс ioBroker в браузере (например: 192.168.1.33:8081).
 2. Перейдите на вкладку «Адаптеры».
-3. Щелкните три точки, а затем символ «+» адаптера DENON AVR.
+3. Щелкните по трем точкам, а затем по символу «+» адаптера DENON AVR.
 
 ![Добавить адаптер](../../../en/adapterref/iobroker.denon/docs/en/media/plusAddAdapter.png)
 
@@ -53,7 +61,7 @@ npm i iobroker.denon
 
 Уменьшая интервал опроса, адаптер сократит время между обновлением содержимого дисплея.
 При уменьшении интервала запроса время между отправкой команд будет уменьшено.
-Настройки по умолчанию должны подходить большинству пользователей.
+Настройки по умолчанию подходят большинству пользователей.
 ![Расширенные настройки](../../../en/adapterref/iobroker.denon/docs/en/media/advancedSettings.png)
 
 6. Нажмите "Сохранить и закрыть".
@@ -63,7 +71,7 @@ npm i iobroker.denon
 2. Выберите «Сеть» -> «Настройки».
 3. Установите параметры, описанные ниже.
 
-   *DHCP: «ВКЛ.» (Используйте этот параметр, если DHCP-сервер находится в локальной сети.)*
+   *DHCP: «ВКЛ.» (Используйте эту настройку, если DHCP-сервер находится в локальной сети.)*
 
    *IP-адрес: если для <DHCP> установлено значение «Выкл.», Установите IP-адрес.*
 
@@ -75,14 +83,14 @@ npm i iobroker.denon
 
    *Второй DNS: не устанавливайте этот параметр.*
 
-   *Прокси: установите для этого параметра «Выкл.».*
+   *Прокси: установите для этого параметра значение «Выкл.».*
 
 4. Нажмите кнопку SETUP, затем на FL-дисплее (и в графическом интерфейсе пользователя) появится меню.
 5. Выберите «Сеть» -> Управление сетью / IP-контроль ».
 6. Установите для этого параметра значение «Всегда включен».
 
 ## Применение
-Обратите внимание, что AVR могут управлять только одним соединением Telnet. Если у вас есть активное соединение Telnet e. г. с адаптером javascript AVR откажется от подключения этого адаптера.
+Обратите внимание, что AVR могут управлять только одним соединением Telnet. Если у вас есть активное соединение Telnet e. грамм. с адаптером javascript AVR откажется от подключения этого адаптера.
 Здесь вы можете найти описание состояний и способы их использования.
 
 ### Кнопки
@@ -135,7 +143,7 @@ npm i iobroker.denon
 
 * zoneMain.equalizerTrebleUp / zone2.equalizerTrebleUp / zone3.equalizerTrebleUp
 
-   *Кнопка увеличения высоких частот Зоны.*
+   *Кнопка увеличения уровня высоких частот Зоны.*
 
    *Настройки низких и высоких частот можно регулировать, если для параметра Dyn EQ установлено значение OFF, а для параметра Tone Control включено*
 
@@ -219,7 +227,7 @@ npm i iobroker.denon
     | номер | R / W |
 
 *Числовое значение, которое представляет текущую громкость основной зоны / зоны 2 / зоны 3 вашего AVR. Вы также можете установить громкость здесь.
-Громкость также отображается в дБ в отдельных состояниях, т.е. г. mainVolumeDB*
+Громкость также отображается в дБ в отдельных состояниях, например. грамм. mainVolumeDB*
 
    *Диапазон от 0 до 98 (может быть меньше из-за максимальной громкости), где 80 = 0 дБ*
 
@@ -386,7 +394,7 @@ setState('denon.0.zoneMain.muteIndicator', true); // Mutes the Main Zone of your
 
    *Строка только для чтения, которая содержит содержимое вашего дисплея AVR. Он имеет девять состояний от 0 до 9.*
 
-   *ДИСПЛЕЙ НЕ ПОДДЕРЖИВАЕТСЯ ДЛЯ HEOS AVR*
+   *КОНТЕНТ ДИСПЛЕЯ НЕ ПОДДЕРЖИВАЕТСЯ ДЛЯ HEOS AVR*
 
 * display.brightness
 
@@ -435,9 +443,9 @@ setState('denon.0.display.brightness', '3'); // Sets display brightness to "Brig
 
    *3: MCH STEREO*
 
-   *4: DTS ОБЪЕМНОЕ*
+   *4: DTS SURROUND*
 
-   *5: DOLBY DIGITAL*
+   *5: ДОЛБИ ЦИФРОВОЙ*
 
    *6: ФИЛЬМ*
 
@@ -483,7 +491,7 @@ setState('denon.0.settings.surroundMode', '3'); // Sets Multi Channel Stereo as 
     |:---:|:---:|
     | номер | R / W |
 
-*Количество дополнительного сигнала сабвуфера, направленного на динамики в дБ.
+*Уровень дополнительного сигнала сабвуфера, направленного на динамики, в дБ.
 Диапазон от 0 дБ до -10 дБ. Где 10 = -10 дБ.*
 
 * settings.expertCommand
@@ -506,7 +514,7 @@ setState('denon.0.settings.expertCommand', 'ECOON'); // Turns Main Zone ECO mode
     |:---:|:---:|
     | строка | R / W |
 
-*Если вы хотите получить конкретные ответы, хранящиеся в `settings.expertReadingResult`, вы должны установить RegEx в это состояние.
+*Если вы хотите получить конкретные ответы, хранящиеся в `settings.expertReadingResult`, вам необходимо установить RegEx в это состояние.
 RegEx должен быть установлен, чтобы его мог использовать конструктор RegEx. Рекомендуется использовать [Тестер RegEx](https://regexr.com/).
 Не устанавливайте `/` в начале или конце RegEx.*
 
@@ -522,6 +530,31 @@ ttings.expertReadingResult
 |string|R|
 
 *Incoming data, which matches the RegEx of `settings.expertReadingPattern` will be set to this state.*
+
+
+ttings.dialogControl
+
+|Data type|Permission|
+|:---:|:---:|
+|number|R/W|
+
+*The dialog control, which can be operated from 0 dB to 6 dB.*
+
+ttings.dialogLevelAdjust
+
+|Data type|Permission|
+|:---:|:---:|
+|boolean|R/W|
+
+*Turns the dialog level adjustment on, which allows to modify the dialog volume of DTS content.*
+
+ttings.dialogLevel
+
+|Data type|Permission|
+|:---:|:---:|
+|boolean|R/W|
+
+*If dialog level adjustment is turned on you can modify the dialog volume of DTS content between -12 dB and +12 dB.*
 
 ttings.outputMonitor
 
@@ -549,7 +582,7 @@ etState('denon.0.settings.outputMonitor', '2'); // Sets monitor 2 as active moni
     |:---:|:---:|
     | строка | R / W |
 
-   *Выберите режим обработки видео вашего AVR. Это состояние будет создано, только если ваш AVR поддерживает его. Вы можете переключать состояние между:*
+   *Выберите режим обработки видео вашего AVR. Это состояние будет создано только в том случае, если ваш AVR поддерживает его. Вы можете переключать состояние между:*
 
    *0: АВТО*
 
@@ -577,7 +610,7 @@ setState('denon.0.settings.videoProcessingMode', '2'); // Sets Video Processing 
     |:---:|:---:|
     | логическое | R / W |
 
-   *Логическое значение, которое представляет состояние Dynamic EQ. В этом состоянии также можно включать и выключать динамический эквалайзер.*
+   *Логическое значение, представляющее состояние динамического эквалайзера. Вы также можете включать и выключать динамический эквалайзер в этом состоянии.*
 
 * settings.subwooferLevelState
 
@@ -602,7 +635,7 @@ setState('denon.0.settings.videoProcessingMode', '2'); // Sets Video Processing 
     |:---:|:---:|
     | логическое | R / W |
 
-*Логическое значение, которое содержит и может контролировать состояние низкочастотного сдерживания Audyssey (вкл. / Выкл.).
+*Логическое значение, которое содержит и может управлять состоянием низкочастотного сдерживания Audyssey (вкл. / Выкл.).
 Состояние будет создано только в том случае, если оно поддерживается вашим AVR.*
 
 * settings.containmentAmount
@@ -653,7 +686,7 @@ setState('denon.0.settings.videoProcessingMode', '2'); // Sets Video Processing 
     |:---:|:---:|
     | строка | R / W |
 
-   *Строковое значение для выбора опорного уровня смещения следующей кодировкой:*
+   *Строковое значение для выбора смещения опорного уровня в следующей кодировке:*
 
    *0: 0 дБ*
 
@@ -661,7 +694,7 @@ setState('denon.0.settings.videoProcessingMode', '2'); // Sets Video Processing 
 
    *10: 10 дБ*
 
-   *15: 15 дБ*
+   *15:15 дБ*
 
    *Пример:*
 
@@ -679,17 +712,17 @@ setState('denon.0.settings.referenceLevelOffset', '5'); // Sets Reference Level 
 
    *Вы можете установить следующие значения в виде строки:*
 
-   *'Выкл.'*
+   *'Выключенный'*
 
    *'Стандартный'*
 
-   *'Фильм'*
+   *'Кино'*
 
    *'Яркий'*
 
    *'Поток'*
 
-   *'Пользовательский'*
+   *'Обычай'*
 
    *«День ISF»*
 
@@ -709,7 +742,7 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
 
    *Логическое значение, которое указывает состояние управления тоном. Вы можете выключить / включить его в этом состоянии.*
 
-   *Управление тоном можно включить, только если для параметра Dyn EQ установлено значение OFF*
+   *Регулятор тембра можно включить, только если для параметра Dyn EQ установлено значение ВЫКЛ.*
 
 * settings.setupMenu
 
@@ -725,8 +758,8 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
     |:---:|:---:|
     | номер | R / W |
 
-*Числовое значение, которое может быть установлено равным значению info.onlinePresets. Затем текущий канал будет сохранен в качестве предустановки под заданным номером.
-Могут использоваться только числа, содержащиеся в info.onlinePresets. Состояние не получит подтверждения, независимо от того, была команда успешна или нет. Вы можете проверить info.onlinePresets, чтобы проверить, правильно ли работает команда.*
+*Числовое значение, которое может быть установлено равным значению info.onlinePresets. Затем текущий канал будет сохранен в качестве предустановки с заданным номером.
+Могут использоваться только числа, содержащиеся в info.onlinePresets. Состояние не получит подтверждения, независимо от того, была команда успешна или нет. Вы можете проверить info.onlinePresets, чтобы проверить, работает ли команда должным образом.*
 
 * settings.loadPreset
 
@@ -739,7 +772,7 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
 
 ### Другие состояния
 Из-за того, что некоторые AVR, такие как DENON POA-3012CI, используют другую логику, есть некоторые различия в состояниях.
-Состояниями, которые равны перечисленным выше, являются: settings.powerSystem, settings.expertCommand, display.brightness и info.connection. Для каждой зоны 2-12 (четная) дополнительно создаются следующие состояния:
+Состояниями, которые соответствуют перечисленным выше, являются: settings.powerSystem, settings.expertCommand, display.brightness и info.connection. Для каждой зоны 2-12 (четная) дополнительно создаются следующие состояния:
 
 * zoneX.speakerOneVolume / zoneX.speakerTwoVolume
 
@@ -755,7 +788,7 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
     |:---:|:---:|
     | строка | R / W |
 
-*Пара ключевых значений, которая представляет выбранный вход динамика AVR. Если для параметра operationMode установлено значение «BRIDGED», динамики не могут управляться независимо, и управление одним из них также управляет входом других.*
+*Пара ключевых значений, которая представляет выбранный вход динамика AVR. Если для operationMode установлено значение «BRIDGED», динамики не могут управляться независимо, и управление одним из них также управляет входом других.*
 
     *Возможны следующие значения:*
 
@@ -779,7 +812,7 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
 
     *'0': 'НОРМАЛЬНЫЙ'*
 
-    *'1': 'МОСТ'*
+    *'1': 'МОСТ*
 
 * zoneX.lowCutFilterSpeakerOne / zoneX.lowCutFilterSpeakerTwo
 
@@ -824,11 +857,39 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
     *Логическое значение, которое указывает и контролирует вход аудиосигнала вашего AVR.*
 
 ## Отсутствующие функции и ошибки
-Если у вас отсутствуют какие-либо функции или обнаружена ошибка, откройте [выпуск](https://github.com/foxriver76/ioBroker.denon/issues).
+Если у вас отсутствуют какие-либо функции или обнаружена ошибка, откройте [проблема](https://github.com/foxriver76/ioBroker.denon/issues).
 
 Адаптер протестирован с DENON AVR-X1200W и Marantz SR5009.
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
+### 1.11.0 (2021-06-06)
+* (foxriver76) implemented dialog level adjustment for DTS content (closes #143)
+* (foxriver76) new datapoints are `settings.dialogLevelAdjust`, `settings.dialogLevel`, `settings.dialogControl`
+
+### 1.10.7 (2021-05-12)
+* (foxriver76) fix missing conversion to db on equalizer states for additional zones (fixes #137)
+
+### 1.10.6 (2021-05-03)
+* (foxriver76) we fixed some more types
+
+### 1.10.5 (2021-05-02)
+* (foxriver76) we fixed some datapoints having wrong types or wrong state values set (fixes #130)
+
+### 1.10.4 (2021-02-20)
+* (foxriver76) if an older model (e.g. AVR 3808) just sends `NSE`, we do not set displayContent state anymore (fixes #112)
+
+### 1.10.3 (2021-01-28)
+* (foxriver76) don't poll whole online presets after change, it is unnecessary load
+
+### 1.10.2 (2021-01-28)
+* (foxriver76) return after detecting NSH command
+* (foxriver76) use release script
+
 ### 1.10.0 (2021-01-17)
 * (foxriver76) auto-detect selectInput of all zones
 
@@ -1061,7 +1122,7 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2018-2021 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -4,7 +4,7 @@
 ![Number of Installations](http://iobroker.live/badges/mielecloudservice-stable.svg)
 [![NPM version](https://img.shields.io/npm/v/iobroker.mielecloudservice.svg)](https://www.npmjs.com/package/iobroker.mielecloudservice)
 [![Known Vulnerabilities](https://snyk.io/test/github/Grizzelbee/ioBroker.mielecloudservice/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Grizzelbee/ioBroker.mielecloudservice?targetFile=package.json)
-[![Travis-CI](http://img.shields.io/travis/Grizzelbee/ioBroker.mielecloudservice/master.svg)](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice) 
+[![Build Status](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice.svg?branch=master)](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice)
 [![NPM](https://nodei.co/npm/iobroker.mielecloudservice.png?downloads=true)](https://nodei.co/npm/iobroker.mielecloudservice/)
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/grizzelbee/iobroker.mielecloudservice/blob/master/LICENSE) 
@@ -13,6 +13,13 @@
 ## Description
 This adapter is for retrieving information about all your Miele@Home devices from the official Miele 3rd-party API. 
 Regardless if they are connected directly via Wi-Fi or XGW3000 Gateway. It implements the **Miele 3rd Party API V1.0.4**
+
+## sentry.io
+This adapter uses sentry.io to collect details on crashes and report it automated to the author. The [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) 
+plugin is used for it. Please refer to the [plugin homepage](https://github.com/ioBroker/plugin-sentry) for detailed information
+on what the plugin does, which information is collected and how to disable it, if you don't like to support the author with 
+you're information on crashes.
+
 
 ## Prerequisites
 * Miele@Home User (Smartphone App)
@@ -95,7 +102,7 @@ Here is a list of what these raw values stand for:
 
  | Raw value | State|
  |----------|-------|
-|1| OFF|
+ |1|   OFF|
  |2|   STAND_BY|
  |3|   PROGRAMMED|
  |4|   PROGRAMMED_WAITING_TO_START|
@@ -136,27 +143,38 @@ Here is a list of what these raw values stand for:
  |5 |   Hand iron level 2|
  |6 |   Machine iron|
 
-### ProgramBezeichnung
+### Programmbezeichnung
 
-| Raw value | State| avaliable for |
-|----------|-------|---------------|
-|  1 | "Baumwolle" / "Cotton"  | Washing Machine |
-| 23 | "Oberhemden" /  | Washing Machine |
-| 27 | "Imprägnieren"  /     | Washing Machine |
-| 48 | "Flusen ausspülen"| Washer Dryer |
-| 50 | "Dunkle Wäsche" / | Washer Dryer |
-| 122 | "Express 20" / | Washer Dryer |
-| 123 | "Dunkles / Jeans"  |   Washing Machine |
+| Raw value | State                   | available for   |
+|-----------|-------------------------|-----------------|
+|         1 | "Baumwolle" / "Cotton"  | Washing Machine |
+|         3 | "Pflegeleicht"          | Washing Machine |
+|         4 | "Feinwäsche"            | Washing Machine |
+|         8 | "Wolle"                 | Washing Machine |
+|         9 | "Seide"                 | Washing Machine |
+|        21 | "Pumpen/Schleudern"     | Washing Machine |
+|        23 | "Oberhemden"            | Washing Machine |
+|        27 | "Imprägnieren"          | Washing Machine |
+|        29 | "Sportwäsche"           | Washing Machine |
+|        31 | "Automatic plus"        | Washing Machine |
+|        37 | "Outdoor"               | Washing Machine |
+|        48 | "Flusen ausspülen"      | Washer Dryer    |
+|        50 | "Dunkle Wäsche"         | Washer Dryer    |
+|        52 | "Nur Spülen/Stärken"    | Washing Machine |
+|       122 | "Express 20"            | Washer Dryer    |
+|       123 | "Dunkles/Jeans"         | Washing Machine |
 
 ### ProgramPhase
 
-| Raw value | State| avaliable for |
+| Raw value | State| available for |
 |----------|-------|---------------|
+|258 | "Einweichen"           | Washing Machine | 
 |260 | "Waschen" / "Washing"  | Washing Machine |
 |261 | "Spülen"  / "Rinse"    | Washing Machine |
-|266 | "Schleudern" / "Spinning"| Washing Machine |
-|267 | "Knitterschutz" / ""| Washing Machine |
-|268 |  "Ende" / "End"| Most devices |
+|265 | "Pumpen" | Washing Machine |
+|266 | "Schleudern" / "Spinning" | Washing Machine |
+|267 | "Knitterschutz" / "" | Washing Machine |
+|268 | "Ende" / "End" | Most devices |
 |256 | "Vorbügeln" | Washing Machine |
 |514 | "Trocknen" | Washer Dryer |
 |519 | "Abkühlen" | Washer Dryer |
@@ -164,105 +182,153 @@ Here is a list of what these raw values stand for:
 
 ## Changelog
 
+### V4.2.0 (2021-05-17) (A new Dimension)
+* (grizzelbee) New: Adding Pause action to dish washers
+
+### V4.1.0 (2021-05-15) (Carry me over)
+* (grizzelbee) New: [149](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/149) Adding support (Start, Stop, Pause) for Miele Scout RX2 vacuum cleaner robots
+* (Stan23)     New: Added new program phase  soak/Einweichen
+
+### V4.0.22 (2021-05-06) (Twisted mind)
+* (grizzelbee) Fix: [142](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/142) Reintroduced TargetTemp for washing machines
+
+### V4.0.21 (2021-05-03) (The Edge)
+* (grizzelbee) Fix: Fixed accidental function name: createStateSpinAPIStartActionningSpeed
+* (grizzelbee) Fix: Fixed State value to set for "*.PlateStep_1" has to be type "number" but received type "string"
+
+### V4.0.20 (2021-04-30) (Sleepwalkers)
+* (grizzelbee) Fix: [137](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/137) Fixed Read-only state "info.connection" has been written without ack-flag with value "false"
+* (grizzelbee) Fix: [138](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/138) Fixed State value to set for ".Schleuderdrehzahl" has wrong type "string" but has to be "number"
+* (grizzelbee) Fix: [139](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/139) Fixed State value to set for ".ACTIONS.Light" has wrong type "number" but has to be "string" 
+* (grizzelbee) Upd: Changed device group from channel to folder  as documented [here](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/objectsschema.md)
+
+### V4.0.19 (2021-04-29) (The scarecrow)
+* (grizzelbee) Fix: Fixed light switch bug causing an exception when switching - 2nd attempt
+* (grizzelbee) Fix: Fixed No-Icon Bug when appliance is unknown
+
+### V4.0.18 (2021-04-28) (Ghostlights)
+* (grizzelbee) Fix: Fixed light switch bug causing an exception when switching 
+
+### V4.0.17 (2021-04-27) (Ghost in the moon)
+* (grizzelbee) New: Added ioBroker sentry plugin to report issues automatically
+* (grizzelbee) New: Added Light-Switch to washing machines, Tumble Dryers, Washer dryers and Dish washers
+* (grizzelbee) Upd: Updated dependencies
+
+> **Hint:** 
+> The behavior of the light-switch has slightly changed with this release. It not only tests the action capabilities of 
+> the device but also shows the state of the light state delivered by the API. If no actions are reported by the API, the 
+> switch will be without function and only show the current state. If actions have been reported the switch will work as you expect.
+> If your device reports no light state and no actions the switch will show 'None' and won't do anything.
+
+### V4.0.16 (2021-04-21) (Black Orchid)
+* (grizzelbee) Fix: Units for EcoFeedback will be shown now, even machine is not running during setup
+* (stan23)     New: added new program states
+
+### V4.0.15 (2021-04-19) (Moonglow)
+* (grizzelbee) Fix: [130](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/130) targetTemp for fridges and freezers will now correctly been updated in action section with current values
+
+### V4.0.14 (2021-04-18) (Alchemy)
+* (grizzelbee) Fix: [127](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/127) targetTemp for fridges caused exception and crash of adapter
+
 ### V4.0.13 (2021-04-12) (The toy master)
-*  (grizzelbee) Fix: [90](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/90) targetTemp addresses zones for fridges and freezers dynamically now
+* (grizzelbee) Fix: [90](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/90) targetTemp addresses zones for fridges and freezers dynamically now
 
 ### V4.0.12 (2021-04-12) (Promised land)
-*  (grizzelbee) Fix: [90](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/90) targetTemp addresses zones for fridges and freezers dynamically now
+* (grizzelbee) Fix: [90](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/90) targetTemp addresses zones for fridges and freezers dynamically now
 
 ### V4.0.11 (2021-04-11) (Cry just a little)
-*  (grizzelbee) Fix: targetTemp min and max values are now taken from API - no constant values anymore
+* (grizzelbee) Fix: targetTemp min and max values are now taken from API - no constant values anymore
 
 ### V4.0.10 (2021-04-10) (Another angel down)
-*  (grizzelbee) Fix: targetTemp min and max values are now taken from API - no constant values anymore
+* (grizzelbee) Fix: targetTemp min and max values are now taken from API - no constant values anymore
 
 ### V4.0.9 (2021-04-09) (Farewell)
-*  (grizzelbee) Fix: Errors during action execution will be shown correctly
-*  (grizzelbee) Fix: Actions will be executed correctly
+* (grizzelbee) Fix: Errors during action execution will be shown correctly
+* (grizzelbee) Fix: Actions will be executed correctly
 
 ### V4.0.8 (2021-04-09) (The seven angels)
-*  (grizzelbee) Fix: fixed datatype of VentilationStep data point
-*  (grizzelbee) Fix: fixed ventilation step switch for hoods (attempt 4)
+* (grizzelbee) Fix: fixed datatype of VentilationStep data point
+* (grizzelbee) Fix: fixed ventilation step switch for hoods (attempt 4)
 
 ### V4.0.7 (2021-04-09) (Lost in space)
-*  (grizzelbee) Fix: [90](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/90) added missing path to object ID; data point will be created in the correct place now
-*  (grizzelbee) New: targetTemp min and max values are now taken from API - no constant values anymore
+* (grizzelbee) Fix: [90](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/90) added missing path to object ID; data point will be created in the correct place now
+* (grizzelbee) New: targetTemp min and max values are now taken from API - no constant values anymore
 
 ### V4.0.6 (2021-04-08) (The great mystery)
-*  (grizzelbee) Fix: fixes Light switch for hoods and other devices supporting light
-*  (grizzelbee) Fix: fixes ventilation step switch for hoods (attempt 3)
+* (grizzelbee) Fix: fixes Light switch for hoods and other devices supporting light
+* (grizzelbee) Fix: fixes ventilation step switch for hoods (attempt 3)
 
 ### V4.0.5 (2021-04-08) (The haunting)
-*  (grizzelbee) Fix: fixes ventilation step switch for hoods (attempt 2)
-*  (grizzelbee) Fix: fixes error on creating TargetTemperature data points
+* (grizzelbee) Fix: fixes ventilation step switch for hoods (attempt 2)
+* (grizzelbee) Fix: fixes error on creating TargetTemperature data points
 
 ### V4.0.4 (2021-04-07) (Wastelands)
-*  (grizzelbee) Fix: fixes ventilation step switch for hoods
-*  (grizzelbee) Fix: fixed missing getLightState
+* (grizzelbee) Fix: fixes ventilation step switch for hoods
+* (grizzelbee) Fix: fixed missing getLightState
 
 ### V4.0.3 (2021-04-07) (The raven child)
-*  (grizzelbee) Fix: [109](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/109) fixes 404 error when querying possible actions for device.
-*  (grizzelbee) Fix: fixes errors when executing actions on devices with API-Id!=fabNumber
+* (grizzelbee) Fix: [109](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/109) fixes 404 error when querying possible actions for device.
+* (grizzelbee) Fix: fixes errors when executing actions on devices with API-Id!=fabNumber
 
 ### V4.0.2 (2021-04-07) (Angel of Babylon)
-*  (grizzelbee) Fix: [107](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/107) fixes #107 and 404 error when device is unknown.
+* (grizzelbee) Fix: [107](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/107) fixes #107 and 404 error when device is unknown.
 
 ### V4.0.1 (2021-04-06) (Sign of the cross)
-*  (grizzelbee) Fix: [90](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/90) setting the targetTemperature should work now.
-*  (grizzelbee) Fix: [96](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/96) Added missing ACTIONS.Action_Information again
-*  (grizzelbee) Fix: [97](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/97) removed unneeded additional "VentilationStep/Lüfterstufe" in path and fixed warning with this. VentilationStep-switch should work properly now.
-*  (grizzelbee) Fix: [98](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/98) Color-Action has now valid type 'String'
-*  (grizzelbee) Fix: [102](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/102) Fixed ACTIONS.VentilationStep has no existing object
-*  (grizzelbee) Fix: Power switch is write protected now when in state 'None'. State 'None' means: No action permitted.
-*  (grizzelbee) Fix: Light switch is write protected now when in state 'None'. State 'None' means: No action permitted.
-*  (grizzelbee) Fix: http error 404 will be catched when requesting device actions
+* (grizzelbee) Fix: [90](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/90) setting the targetTemperature should work now.
+* (grizzelbee) Fix: [96](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/96) Added missing ACTIONS.Action_Information again
+* (grizzelbee) Fix: [97](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/97) removed unneeded additional "VentilationStep/Lüfterstufe" in path and fixed warning with this. VentilationStep-switch should work properly now.
+* (grizzelbee) Fix: [98](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/98) Color-Action has now valid type 'String'
+* (grizzelbee) Fix: [102](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/102) Fixed ACTIONS.VentilationStep has no existing object
+* (grizzelbee) Fix: Power switch is write protected now when in state 'None'. State 'None' means: No action permitted.
+* (grizzelbee) Fix: Light switch is write protected now when in state 'None'. State 'None' means: No action permitted.
+* (grizzelbee) Fix: http error 404 will be catched when requesting device actions
 
 ### V4.0.0 (2021-03-18) (Symphony of life)
 > ***Hint:*** The adapter received a complete code refactoring! This means that most of the code has been changed and some parts are working now differently than ever before. Update with care and read the change log!
-*  (grizzelbee) New: FULL support of Miele cloud API v1.0.4
-*  (grizzelbee) Upd: [83](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/83) estimatedEndTime isn't shown anymore after the device has finished
-*  (grizzelbee) Upd: [85](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/85) full code refactoring and split into multiple files. 
-*  (grizzelbee) Upd: [86](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/86) every folder and device now gets a nice little icon
-*  (grizzelbee) Upd: [89](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/89) Washer dryers are fully supported now
-*  (grizzelbee) Upd: [90](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/90) implemented targetTemperature for fridges & freezers
-*  (grizzelbee) Upd: Devices get fully created on startup and aren't modified afterwards - only updated
-*  (grizzelbee) Upd: New folder ecoFeedback to group ecoFeedback states 
-*  (grizzelbee) Upd: New folder IDENT to group ident states
-*  (grizzelbee) Upd: Removed signalActionRequired - since there is no signalDoor for washing machines, dryers and dishwashers this approach doesn't work
-*  (grizzelbee) Upd: All folders and states which are being created depend on the capabilities of their devices as described in [this Miele documentation](https://www.miele.com/developer/assets/API_V1.x.x_capabilities_by_device.pdf). So there shouldn't be useless states anymore caused by the generic Miele cloud API.
+* (grizzelbee) New: FULL support of Miele cloud API v1.0.4
+* (grizzelbee) Upd: [83](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/83) estimatedEndTime isn't shown anymore after the device has finished
+* (grizzelbee) Upd: [85](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/85) full code refactoring and split into multiple files. 
+* (grizzelbee) Upd: [86](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/86) every folder and device now gets a nice little icon
+* (grizzelbee) Upd: [89](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/89) Washer dryers are fully supported now
+* (grizzelbee) Upd: [90](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/90) implemented targetTemperature for fridges & freezers
+* (grizzelbee) Upd: Devices get fully created on startup and aren't modified afterwards - only updated
+* (grizzelbee) Upd: New folder ecoFeedback to group ecoFeedback states 
+* (grizzelbee) Upd: New folder IDENT to group ident states
+* (grizzelbee) Upd: Removed signalActionRequired - since there is no signalDoor for washing machines, dryers and dishwashers this approach doesn't work
+* (grizzelbee) Upd: All folders and states which are being created depend on the capabilities of their devices as described in [this Miele documentation](https://www.miele.com/developer/assets/API_V1.x.x_capabilities_by_device.pdf). So there shouldn't be useless states anymore caused by the generic Miele cloud API.
 
 ### V3.0.2 (2021-03-05)
-*  (grizzelbee) Fix: [79](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/79) When a devices serial is missing, the identNumber is assigned instead.
-*  (grizzelbee) Upd: Changed folder name cooktops to hobs since this is the more common name
-*  (grizzelbee) Upd: added PowerOn/Off buttons for Coffee-systems & hoods
-*  (grizzelbee) Upd: [74](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/74) testing actions better before sending to permit errors
+* (grizzelbee) Fix: [79](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/79) When a devices serial is missing, the identNumber is assigned instead.
+* (grizzelbee) Upd: Changed folder name cooktops to hobs since this is the more common name
+* (grizzelbee) Upd: added PowerOn/Off buttons for Coffee-systems & hoods
+* (grizzelbee) Upd: [74](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/74) testing actions better before sending to permit errors
 
 ### V3.0.1 (2021-02-25)
 > *Hint:* Action_Information and Action_Status objects are created on first action execution and contain infos to the last executed action.
 > Please take care of notes regarding [Controlling your devices](#Controlling your devices).
-*  (grizzelbee) Upd: Improved logging in some parts - objects get stringified.
-*  (grizzelbee) Fix: [74](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/74) Actions are working again
-*  (grizzelbee) Upd: Actions are tested before sending whether they are permitted in current device state
-*  (grizzelbee) Upd: estimatedEndTime doesn't show seconds anymore
-*  (grizzelbee) Upd: Improved documentation
-*  (grizzelbee) Upd: removed unused function decrypt
-*  (grizzelbee) Upd: removed superfluent parameters
+* (grizzelbee) Upd: Improved logging in some parts - objects get stringified.
+* (grizzelbee) Fix: [74](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/74) Actions are working again
+* (grizzelbee) Upd: Actions are tested before sending whether they are permitted in current device state
+* (grizzelbee) Upd: estimatedEndTime doesn't show seconds anymore
+* (grizzelbee) Upd: Improved documentation
+* (grizzelbee) Upd: removed unused function decrypt
+* (grizzelbee) Upd: removed superfluent parameters
 
 
 ### V3.0.0 (2021-02-18)
 > Hint: ecoFeedback objects are created on the first run of the device. This allows to only create them, when they contain data.
-*  (grizzelbee) New: BREAKING CHANGE: Making use of build-in password de-/encryption. This raises the need to re-enter your passwords again, because the old ones can't be decrypted anymore.
-*  (grizzelbee) New: [70](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/70) Implements Miele API 1.0.4
-*  (grizzelbee) New: [64](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/64) Introduces data point estimatedFinishingTime
-*  (grizzelbee) New: [54](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/54) Poll interval can now freely be selected in seconds and minutes
-*  (grizzelbee) Upd: [73](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/73) BREAKING CHANGE: Removed white-spaces from any ID in device tree. This creates completely new device trees. So please delete the old ones.
-*  (grizzelbee) Upd: removed david-dm badge
-*  (grizzelbee) Upd: updated dependencies
-*  (grizzelbee) Fix: added passwords to encryptedNative
-*  (grizzelbee) Fix: added passwords to protectedNative
-*  (grizzelbee) Fix: [63](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/63) added missing info.connection object to io-package
-*  (grizzelbee) Fix: [63](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/63) Fixed new Warnings introduced with js-controller 3.2
-*  (grizzelbee) Fix: [74](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/74) Light-Actions should work now
+* (grizzelbee) New: BREAKING CHANGE: Making use of build-in password de-/encryption. This raises the need to re-enter your passwords again, because the old ones can't be decrypted anymore.
+* (grizzelbee) New: [70](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/70) Implements Miele API 1.0.4
+* (grizzelbee) New: [64](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/64) Introduces data point estimatedFinishingTime
+* (grizzelbee) New: [54](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/54) Poll interval can now freely be selected in seconds and minutes
+* (grizzelbee) Upd: [73](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/73) BREAKING CHANGE: Removed white-spaces from any ID in device tree. This creates completely new device trees. So please delete the old ones.
+* (grizzelbee) Upd: removed david-dm badge
+* (grizzelbee) Upd: updated dependencies
+* (grizzelbee) Fix: added passwords to encryptedNative
+* (grizzelbee) Fix: added passwords to protectedNative
+* (grizzelbee) Fix: [63](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/63) added missing info.connection object to io-package
+* (grizzelbee) Fix: [63](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/63) Fixed new Warnings introduced with js-controller 3.2
+* (grizzelbee) Fix: [74](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/74) Light-Actions should work now
 
 ### V2.0.3 (2020-09-15)
 * (grizzelbee) Upd: Updated country list in config dialog

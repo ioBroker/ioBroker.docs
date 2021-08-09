@@ -1,4 +1,5 @@
-# ioBroker.bosesoundtouch ![Logo](admin/bosesoundtouch.png)
+![Logo](admin/bosesoundtouch.png)
+# ioBroker.bosesoundtouch
 
 ![Number of Installations](http://iobroker.live/badges/bosesoundtouch-stable.svg)
 ![Number of Installations](http://iobroker.live/badges/bosesoundtouch-installed.svg)  
@@ -68,9 +69,16 @@ Soundtouch Application itself.
 
 ## Changelog
 
+### 0.10.0 (2021-07-30)
+* IMPORTANT: The adapter now requires at least js-controller 2.0
+* (Apollon77) Optimize for js-controller 3.3
+
+### 0.9.4 (07.05.2021)
+* fixed vulnerability in NPM
+
 ### 0.9.3 (02.02.2021)
 
-*transfer of adapter to iobroker-community-adapters
+* transfer of adapter to iobroker-community-adapters
 
 ### 0.9.3 (10.01.2021)
 
@@ -185,4 +193,4 @@ Soundtouch Application itself.
 
 [The MIT License (MIT)](LICENSE)
 
-Copyright (c) 2019 SwedishChef <swedish.chef@gmx.at>
+Copyright (c) 2019-2021 SwedishChef <swedish.chef@gmx.at>

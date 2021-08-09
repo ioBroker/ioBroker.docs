@@ -3,28 +3,30 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.daswetter/README.md
 title: ioBroker.DasWetter.
-hash: kfEgeJieyITeTDJH7RePBpBzCH0jn96NceNQjCQ46x8=
+hash: T0xUoiSI74CQfozKb+M++No+TerMO4EyKbH3kVB3PV0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.daswetter/admin/daswettercom.png)
 
 ![Количество установок](http://iobroker.live/badges/daswetter-stable.svg)
-![Версия NPM](https://img.shields.io/npm/v/iobroker.daswetter.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.daswetter.svg)
-![Тесты](https://travis-ci.org/rg-engineering/ioBroker.daswetter.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.daswetter.png?downloads=true)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.daswetter.svg)
+![Известные уязвимости](https://snyk.io/test/github/rg-engineering/ioBroker.daswetter/badge.svg)
+![НПМ](https://nodei.co/npm/iobroker.daswetter.png?downloads=true)
 
 # IoBroker.DasWetter.
+![Действия GitHub](https://github.com/rg-engineering/ioBroker.daswetter/workflows/Test%20and%20Release/badge.svg)
+
 ** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
 ** Если вам это нравится, рассмотрите возможность пожертвования: **
 
 [![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
 
-Этот адаптер считывает данные прогноза погоды с DasWetter.com.
+Этот адаптер считывает данные прогноза погоды с сайта DasWetter.com.
 
-Вам нужен аккаунт на DasWetter.com. Зарегистрируйтесь на https://www.daswetter.com/api/#/login. Учетная запись предоставляется бесплатно при определенных условиях.
+Вам нужна учетная запись на DasWetter.com. Зарегистрируйтесь на https://www.daswetter.com/api/#/login. Учетная запись предоставляется бесплатно при определенных условиях.
 
-В своем аккаунте вы найдете три URL для четырех разных моделей данных:
+В вашем аккаунте вы найдете три URL для четырех разных моделей данных:
 
 * Прогноз на следующие 7 дней и общая информация на день: максимум и минимум, ветер (символ и описание), символ дня и погодные условия
 * подробная информация за 5 дней и каждые 3 часа: Общая ежедневная информация следующая: пик, минимумы, ветер, порывы, осадки, относительная влажность,
@@ -40,18 +42,18 @@ hash: kfEgeJieyITeTDJH7RePBpBzCH0jn96NceNQjCQ46x8=
 ## Подсказки
 ### Значки, используемые в vis
 * Доступ к таким иконкам, как `http:// ip: 8082 / adapter / daswetter / icons / tiempo-weather / galeria1 / 1.png`.
-* в galerie6 оригинальные иконки имеют формат svg. В приложении Vis могут возникнуть проблемы с визуализацией. Так что конвертированные png доступны. Просто используйте опцию «использовать png»
+* в galerie6 оригинальные иконки имеют формат svg. В приложении Vis могут возникнуть проблемы с его визуализацией. Так что конвертированные png доступны. Просто используйте опцию «использовать png».
 * в galerie5 оригинальные иконки имеют формат svg и png. Также доступны цветная и белая версии.
 
 ### "текущий" в NextHours_Day1:
-* DasWetter.com не предоставляет реальные текущие значения погоды
+* DasWetter.com не предоставляет реальные текущие данные о погоде.
 * но иногда полезно иметь прогноз на текущий час
-* поэтому мы добавили «текущий», который является просто копией связанных значений часов прогноза
-* убедитесь, что вы звоните адаптеру хотя бы один раз в час, чтобы убедиться, что "текущий" обновлен правильно
+* поэтому мы добавили «текущий», который является просто копией соответствующих значений часов прогноза.
+* пожалуйста, убедитесь, что вы звоните адаптеру хотя бы один раз в час, чтобы убедиться, что "текущий" обновлен правильно
 * см. также запрос функции github [issue24] (https://github.com/rg-engineering/ioBroker.daswetter/issues/24)
 
 ### Путь 4
-* на данный момент DasWetter.com отправляет данные, которые отличаются от их собственной спецификации.
+* на данный момент DasWetter.com отправляет данные, которые отличаются от их собственных спецификаций.
 
 Теперь мы реализовали «автоматический ремонт», который меняет структуру до задокументированной формы.
 
@@ -60,9 +62,17 @@ hash: kfEgeJieyITeTDJH7RePBpBzCH0jn96NceNQjCQ46x8=
 
 ## Changelog
 
+### 3.0.7 (2021-05-03)
+* (René) issue #91: remove warnings with js-controller 3.3.
+
+### 3.0.5 (2021-03-21)
+* (René) dependencies updated
+
+### 3.0.4 (2020-10-16)
+* (René) see issue #76: parse rain values as float instead integer 
+
 ### 3.0.3 (2020-09-19)
 * (René) see issue #66: parse numbers added 
-
 
 ### 3.0.1 (2020-05-01)
 * (René) breaking change: old data structure is not supported anymore
@@ -140,7 +150,7 @@ for compatibility: in configuration old data structure can be enabled
 needs also 2.x of vis-weather-widget
 
 ## License
-Copyright (C) <2017 - 2020>  <info@rg-engineering.eu>
+Copyright (C) <2017 - 2021>  <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

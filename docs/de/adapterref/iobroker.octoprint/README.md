@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: RhuVhsrm5wHw3MgX58i2+1fP1GcFb3XghrYQP9Yc6Mo=
+hash: BrgQr0FQ/Wwz8Owf81J4OqXqvh5PzGMXJifra53T91Q=
 ---
 ![Logo](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
 
@@ -18,6 +18,8 @@ hash: RhuVhsrm5wHw3MgX58i2+1fP1GcFb3XghrYQP9Yc6Mo=
 
 # IoBroker.octoprint
 Adapter zum Verbinden von OctoPrint mit ioBroker
+
+Getestet mit OctoPrint 1.6.0
 
 ## Eigenschaften
 ### Information
@@ -36,10 +38,47 @@ Adapter zum Verbinden von OctoPrint mit ioBroker
 - SD-Karte: Init, Refresh, Release
 - Benutzerdefinierte Druckerbefehle
 - Systembefehle
-- X-, Y- und Z-Achse bewegen
+- Joggen Sie die X-, Y- und Z-Achse
 - Wählen Sie eine Datei aus oder drucken Sie sie aus
 
+## Wichtig!
+Starten Sie die Octoprint-Instanz (oder eine andere Instanz) NICHT mit folgendem Code neu:
+
+```javascript
+var obj = getObject('system.adapter.octoprint.0');
+obj.common.enabled = false;
+setObject('system.adapter.octoprint.0', obj);
+```
+
+Da der API-Schlüssel seit Version 1.1.0 ein geschütztes Attribut ist, wird der konfigurierte API-Schlüssel entfernt. Der Grund ist, dass `getObject` keine geschützten Informationen zurückgibt (daher ist der API-Schlüssel nicht im zurückgegebenen Objekt enthalten). Wenn Sie das Objekt speichern, speichern Sie ein Objekt ohne Schlüssel.
+
+Bitte verwenden Sie den Status `system.adapter.octoprint.0.alive`, um die Instanz zu stoppen / zu starten.
+
 ## Changelog
+
+### 1.1.0
+
+* (klein0r) Encrypt sensitive information
+
+### 1.0.10
+
+* (klein0r) Fixed printjob state format issues
+
+### 1.0.9
+
+* (klein0r) nodejs 12 required
+
+### 1.0.8
+
+* (klein0r) Avoid constant refresh of file list
+
+### 1.0.7
+
+* (klein0r) Fixed async object creation
+
+### 1.0.6
+
+* (foxriver76) Avoid spamming the same error again and again
 
 ### 1.0.5
 
@@ -96,7 +135,7 @@ Adapter zum Verbinden von OctoPrint mit ioBroker
 
 The MIT License (MIT)
 
-Copyright (c) 2020 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2021 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

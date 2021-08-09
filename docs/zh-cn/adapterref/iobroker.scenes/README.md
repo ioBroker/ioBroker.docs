@@ -2,31 +2,32 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.scenes/README.md
-title: ioBroker场景适配器
-hash: twASJxCRZq+yqe5SjyTCaHNRF2nZdHP/VeGPh8flq/k=
+title: ioBroker 场景适配器
+hash: rjPLw23kWM4giMXmlsiE83vZjEa6NJvzdOUuByzxe0Y=
 ---
 ![商标](../../../en/adapterref/iobroker.scenes/admin/scenes.png)
 
 ![安装数量](http://iobroker.live/badges/scenes-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.scenes.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.scenes.svg)
-![NPM](https://nodei.co/npm/iobroker.scenes.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.scenes.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.scenes.svg)
 
-＃ioBroker场景适配器
-_scenes Adapter_可以创建场景并在ioBroker环境中执行它们。
+# IoBroker 场景适配器
+![测试和发布](https://github.com/ioBroker/ioBroker.scenes/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/scenes/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+_scenes Adapter_ 可以创建场景并在ioBroker环境中执行。
 
-该适配器可以创建三种类型的场景：
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
 
--**场景**
--**团体**
--**虚拟团体**
+这个适配器可以创建三种类型的场景：
+
+- **场景**
+- **组**
+- **虚拟群组**
 
 ##场景
-如果未使用“设置为假”设置，将创建“场景”。
-每个场景都可以单独配置，因此您可以在一个适配器实例中拥有“场景”和“组”。
-场景只是状态ID和值的列表，这些状态必须通过激活场景才能具有。例如。我们在场景“ _scene.allLightInBath_”上创建了：
+如果未使用设置“设置为假”，将创建**场景**。
+每个场景都可以单独配置，因此您可以在一个适配器实例中拥有 **scenes** 和 **groups**。
+**scene** 只是状态 id 和值的列表，这些状态必须通过场景激活才能拥有。例如。我们在场景“_scene.allLightInBath_”上创建：
 
 ```
   scene.allLightInBath
@@ -34,11 +35,11 @@ _scenes Adapter_可以创建场景并在ioBroker环境中执行它们。
   +- hm-rpc.0.TOP_LIGHT.STATE     - true
 ```
 
-要激活场景，我们必须将“ _scene.allLightInBath_”设置为true（例如，通过脚本或vis）。然后将两个状态都设置为期望值，即“ true”。
-_scene.allLightInBath_的值也将为“ true”。如果我们手动切换顶部灯，则_scene.allLightInBath_的值将变为** false **。
-如果我们将手动打开灯，请再次设为“ true”。
+要激活场景，我们必须将“_scene.allLightInBath_”设置为 true（例如通过脚本或可见性）。然后两种状态都将设置为所需的值，即 **true**。
+_scene.allLightInBath_ 的值也会是 **true**。如果我们手动切换顶灯，_scene.allLightInBath_ 的值将变为 **false**。
+如果我们将手动打开灯，再次设置为 **true**。
 
-让我们将“风扇”添加到“场景”中：
+让我们在**场景**中添加风扇：
 
 ```
   scene.allLightInBath
@@ -48,12 +49,12 @@ _scene.allLightInBath_的值也将为“ true”。如果我们手动切换顶�
   |- hm-rpc.0.FAN.STATE          - false (delay 60000ms)
 ```
 
-在这种情况下，风扇将在“场景”激活时打开，并在一分钟后关闭。
-风扇关闭后，_scene.allLightInBath_的值将变为** false **，因为并非所有状态都等于所需值。
-延迟的国家不参与计算。
+在这种情况下，风扇将在 **场景** 激活时打开，并在一分钟内关闭。
+风扇关闭后，_scene.allLightInBath_ 的值将变为 **false**，因为并非所有状态都等于所需值。
+有延迟的状态不参与计算。
 
 您可以使用“播放”按钮测试场景。
-此外，您可以将此“场景”直接与其他场景ID链接。例如。如果门上有传感器，则可以选择它作为触发器：
+此外，您可以将此 **scene** 直接与其他场景 ID 相关联。例如。如果门上有传感器，您可以选择它作为触发器：
 
 ```
   trigger
@@ -62,11 +63,11 @@ _scene.allLightInBath_的值也将为“ true”。如果我们手动切换顶�
     value:     true
 ```
 
-每次您打开浴缸的门时，所有带风扇的灯都会打开。
+每次您打开浴室的门时，所有带风扇的灯都会打开。
 
-##组
-**群组**就像虚拟频道。您可以借助来自多个执行器的“分组”虚拟设备进行创建，并像一台设备一样一起控制它们。
-让我们用浴缸的灯修改样本。
+## 组
+**群组**就像虚拟频道。您可以借助来自多个执行器的**组**虚拟设备创建并一起控制它们，就像一个设备一样。
+让我们用浴缸的灯修改我们的样本。
 
 ```
   scene.allLightInBath             "set on true"    "set on false"
@@ -74,7 +75,7 @@ _scene.allLightInBath_的值也将为“ true”。如果我们手动切换顶�
   +- hm-rpc.0.TOP_LIGHT.STATE     - true             false
 ```
 
-如果您将此“组”与门传感器链接起来，例如：
+如果您将此**组**与门传感器链接，例如：
 
 ```
   trigger on true
@@ -88,21 +89,21 @@ _scene.allLightInBath_的值也将为“ true”。如果我们手动切换顶�
     value:     false
 ```
 
-每次打开门时，浴池中的所有灯都会打开。 _scene.allLightInBath_的值将变为** true **。
-如果关上门，灯将关闭，并且_scene.allLightInBath_的值将变为** false **。
+每次您打开门时，浴缸中的所有灯都会打开。 _scene.allLightInBath_ 的值将变为 **true**。
+如果您关上门，灯将关闭，并且 _scene.allLightInBath_ 的值将变为 **false**。
 
-它没有用，但是很好地举例说明。
+它没有用，但作为例子很好。
 
-如果您将手动打开一盏灯，则_scene.allLightInBath_的值将变为**不确定**。
+如果您将手动打开一盏灯，_scene.allLightInBath_ 的值将变为 **uncertain**。
 
-延迟也可以在** group **组中使用，但是具有延迟的状态不会参与** group **当前值的计算。
+延迟也可以用于**组**，但有延迟的状态不参与**组**当前值的计算。
 
-##虚拟群组
-**虚拟组**就像虚拟通道和组一样，但可以具有任何类型的值：数字，字符串等。
-您可以创建虚拟组来控制客厅中的所有百叶窗。通过将40％写入虚拟组，所有快门将被设置为40％。
+## 虚拟组
+**虚拟组**类似于虚拟通道和组，但可以具有任何类型的值：数字、字符串等。
+您可以创建虚拟组来控制客厅的所有百叶窗。通过将 40% 写入虚拟组，所有百叶窗都将设置为 40%。
 
-##将实际状态另存为场景
-要在某些场景中保存实际状态，可以向适配器发送消息：
+## 将实际状态保存为场景
+要在某些场景中保存实际状态，您可以向适配器发送消息：
 
 ```
 sendTo(
@@ -116,13 +117,26 @@ sendTo(
 );
 ```
 
-适配器将读取该场景中定义的ID的所有实际值，并将其保存为已配置的ID。
+适配器将读取此场景中定义的 ID 的所有实际值，并将其保存为配置的值。
 
-<！-下一个版本的占位符（在该行的开头）：
+<!-- 下一个版本的占位符（在行首）：
 
-### __正在进行的工程__->
+### __工作进行中__ -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Handle case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
+
+### 2.3.6 (2021-01-22)
+* (Apollon77) Check state id before getting value (Sentry IOBROKER-SCENES-F)
+
+### 2.3.5 (2021-01-22)
+* (Apollon77) Add error logging if invalid ids are configured for scenes (Sentry IOBROKER-SCENES-Y)
+
+### 2.3.4 (2021-01-16)
+* (Apollon77) Prevent crash case (Sentry IOBROKER-SCENES-X, IOBROKER-SCENES-V)
+
 ### 2.3.3 (2020-12-06)
 * (bluefox) Implemented drag&drop for the reorder of scenes in folders
 * (bluefox) Implemented Easy mode
@@ -232,7 +246,7 @@ sendTo(
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2020, Bluefox (dogafox@gmail.com)
+Copyright (c) 2015-2021, Bluefox (dogafox@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,11 +1,13 @@
 ![Logo](admin/node-red.png)
 # ioBroker node-red Adapter
 
-![Number of Installations](http://iobroker.live/badges/node-red-installed.svg) ![Number of Installations](http://iobroker.live/badges/node-red-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.node-red.svg)](https://www.npmjs.com/package/iobroker.node-red)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.node-red.svg)](https://www.npmjs.com/package/iobroker.node-red)
-[![Tests](https://travis-ci.org/ioBroker/ioBroker.node-red.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.node-red)
+![Number of Installations](http://iobroker.live/badges/node-red-installed.svg)
+![Number of Installations](http://iobroker.live/badges/node-red-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.node-red.svg)](https://www.npmjs.com/package/iobroker.node-red)
 
-[![NPM](https://nodei.co/npm/iobroker.node-red.png?downloads=true)](https://nodei.co/npm/iobroker.node-red/)
+![Test and Release](https://github.com/ioBroker/ioBroker.node-red/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/node-red/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.node-red.svg)](https://www.npmjs.com/package/iobroker.node-red)
 
 Starts node-red instance and communicates with it.
 
@@ -25,6 +27,16 @@ This adapter uses the node-red server from https://github.com/node-red/node-red
 -->
 
 ## Changelog
+
+### 2.4.0 (2021-07-16)
+* (Apollon77) update to node-red 1.3.5
+* (Apollon77) Optimize for js-controller 3.3
+* (Apollon77) Add option to override the default ack flag in the message for OutNode
+
+### 2.3.0 (2021-04-17)
+* (Apollon77) BREAKING update from node-red-contrib-aggregator: topic is NOT converted to lowercase anymore!
+* (Apollon77) update to node-red 1.3.2
+* (Apollon77) Add done calls to OutNode
 
 ### 2.2.0 (2021-03-07)
 * (Apollon77/mickym2) Correct readonly flags. IMPORTANT: Notw Readonly works as it should be. If you worked around the issue before please adjust your nodes!

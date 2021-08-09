@@ -1,13 +1,13 @@
 ---
-title: Documentation Template
+title: Documentation template
 lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/dev/adapterdoctemplate.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: idNqdPEU1+HSIqD5A/xdiBqc4Rurmp0Kmsx3GQqqHnY=
+hash: aMIAyAyQuyMcxAVsHhH2hAYItlEb5HbGe42fHJ0L0VU=
 ---
-# Template for creating an adapter documentation
-?> ***This is a wildcard*** . <br><br> Help with ioBroker and extend this article. Please note the [ioBroker style guide](community/styleguidedoc), so that the changes can be adopted more easily.
+# Template for creating adapter documentation
+?> ***This is a placeholder*** .<br><br> Help with ioBroker and expand this article. Please note [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.
 
 ```
 ---

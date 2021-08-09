@@ -22,7 +22,7 @@ It synchronizes real names, system variables, rooms, trades and programs between
 
 If several central units are to be integrated into ioBroker, a separate instance must be installed and configured for each central unit.
 
-With the installation of ReGaHSS an instance of the adapter "hm-rpc" is also installed, which should be configured and activated in advance.
+When ReGaHSS is installed, an instance of the "hm-rpc" adapter is also installed, which should be configured and activated in advance.
 
 One instance of this adapter can manage up to 5 different instances of the Homematic RPC adapter, which provide different services (each service requires its own RPC instance):
 
@@ -30,7 +30,7 @@ One instance of this adapter can manage up to 5 different instances of the Homem
 - hs485d (Wired) (for wired bus components)
 - CuxD (additional software to provide a universal interface)
 - Homematic IP (IP-supported components)
-- Virtual Devices
+- Virtual devices
 
 ### Requirements before installation
 - Homematic Gateway (CCU / CCU2 / CCU3…) *or*
@@ -61,12 +61,12 @@ The required services are then activated and linked to the appropriate HM-RPC in
 
 Polling
 
-If activated, the RegaHSS data is regularly queried by the CCU, based on the seconds set in the Intervals field. The interval should not be set too low, as too frequent polling can lead to the CCU crashing.
+If activated, the RegaHSS data is regularly queried by the CCU, based on the seconds set in the Intervals field. The interval should not be set too low, since too frequent polling can lead to a crash of the CCU.
 
 Trigger
 
 In order to minimize the active queries from ioBroker to the RegaHSS, a trigger can also push the data on the CCU within a program when changes are made.
-A virtual button on the CCU that is triggered in a CCU program can be used for this. By default, this is the BidCosRF.50.PRESS_SHORT key (see sample program).
+A virtual button on the CCU can be used for this, which is triggered in a CCU program. By default, this is the BidCosRF.50.PRESS_SHORT key (see sample program).
 
 ### Synchronize area
 Here the user can specify which information is to be transferred from the CCU to ioBroker. The corresponding objects and data points are then created in ioBroker.
@@ -80,7 +80,7 @@ Here the user can specify which information is to be transferred from the CCU to
 - Trades: Activates the transfer of trades and a list of them
 
 ### Additional settings area
-Here the user can decide whether https (encrypted and tap-proof connection) should be used. If activated, the user name and the associated password are required
+Here the user can decide whether https (encrypted and tap-proof connection) should be used. If activated, the username and password must be entered
 
 Once all settings have been made, the configuration page is closed with the command "save and close" (button below the settings area). The adapter is closed and the instance is started with the new values.
 
@@ -112,6 +112,46 @@ Finally, the variables created in the CCU are listed
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
+### 3.0.30 (2021-07-18)
+* (foxriver76) improved the detection of ALARM occurrences for virtual devices
+
+### 3.0.29 (2021-07-01)
+* (foxriver76) fixed bug on ALARM datapoint creation
+
+### 3.0.28 (2021-06-30)
+* (foxriver76) improve creation of ALARM dps even if no states provided by `getDatapoints` (fixes #168)
+
+### 3.0.27 (2021-06-28)
+* (foxriver76) fixed a bug that already deleted programs were only partially deleted in ioBroker
+__Please note: This will only work for deleted programs up from now. You have to clean up orphan programs manually__
+
+### 3.0.26 (2021-06-14)
+* (bluefox) Use name from device if channel has a default name
+
+### 3.0.25 (2021-05-14)
+* (foxriver76) remove old code, which also scaled unit: % values and not only unit: 100 %
+
+### 3.0.24 (2021-04-30)
+* (foxriver76) we fixed more occurrences of incorrect types (fixes #146)
+
+### 3.0.23 (2021-04-30)
+* (foxriver76) we now correctly convert the rssi values, workaround for https://github.com/jens-maus/RaspberryMatic/issues/897
+* (foxriver76) we made counter states of type "number", was incorrectly "string" (closes #145)
+
+### 3.0.22 (2021-04-30)
+* (foxriver76) parse the dutyCycle state to int (fixes #144)
+* (foxriver76) update dependencies
+* (foxriver76) removed unneeded dependency
+
+### 3.0.21 (2021-04-24)
+* (foxriver76) bring back io-package json readme attribute, admin does not fall back to docs as expected (fixes #135)
+
+### 3.0.20 (2021-04-20)
+* (foxriver76) admin/controller has a bug still requiring `common.title` (fixes #133)
+
+### 3.0.19 (2021-04-16)
+* (foxriver76) fix for custom webinterface port (addresses #117)
 
 ### 3.0.18 (2021-04-05)
 * (foxriver76) local link now respects port and protocol
@@ -482,7 +522,6 @@ or non existent if no rpc instance existed
 * (hobbyquaker) Fix common.name attribute
 
 ## License
-
 The MIT License (MIT)
 
 Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>

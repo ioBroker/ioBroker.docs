@@ -127,6 +127,28 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 
 
 ## Changelog
+### 1.9.0 (2021-07-27)
+* (stephanritscher) add option to configure udp source port
+
+### 1.8.6 (2021-06-13)
+* (withstu) test fixed pipeline
+
+### 1.8.4 (2021-06-13)
+* (withstu) improve stability
+
+### 1.8.3 (2021-05-13)
+* (withstu) fix upnp values on failure
+
+### 1.8.2 (2021-05-12)
+* (withstu) BREAKING: add queue paging
+* (withstu) BREAKING: volume_max -> volume_limit
+* (foxriver76) Fix type issues and some more minor changes
+
+### 1.8.1 (2021-05-07)
+* (withstu) fix reboot loop
+
+### 1.8.0 (2021-04-24)
+* (withstu) add reboot on failure configuration
 
 ### 1.7.9 (2021-04-07)
 * (withstu) fix reboot

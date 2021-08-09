@@ -1,10 +1,14 @@
 ![Logo](admin/scenes.png)
 # ioBroker scenes adapter
 
-![Number of Installations](http://iobroker.live/badges/scenes-installed.svg) ![Number of Installations](http://iobroker.live/badges/scenes-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.scenes.svg)](https://www.npmjs.com/package/iobroker.scenes)
+![Number of Installations](http://iobroker.live/badges/scenes-installed.svg)
+![Number of Installations](http://iobroker.live/badges/scenes-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.scenes.svg)](https://www.npmjs.com/package/iobroker.scenes)
+
+![Test and Release](https://github.com/ioBroker/ioBroker.scenes/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/scenes/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.scenes.svg)](https://www.npmjs.com/package/iobroker.scenes)
 
-[![NPM](https://nodei.co/npm/iobroker.scenes.png?downloads=true)](https://nodei.co/npm/iobroker.scenes/)
 
 _scenes Adapter_ can create scenes and execute them in ioBroker environment.
 
@@ -114,6 +118,9 @@ The adapter will read all actual values for IDs defined in this scene and save i
 -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Handle case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
 
 ### 2.3.6 (2021-01-22)
 * (Apollon77) Check state id before getting value (Sentry IOBROKER-SCENES-F)
@@ -233,7 +240,7 @@ The adapter will read all actual values for IDs defined in this scene and save i
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2020, Bluefox (dogafox@gmail.com)
+Copyright (c) 2015-2021, Bluefox (dogafox@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

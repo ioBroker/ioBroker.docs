@@ -129,45 +129,47 @@ ioBroker Material Design Widgets are based on [Google's material design guidelin
 			- [Menu JSON Properties](#menu-json-properties-1)
 			- [HTML Properties](#html-properties-28)
 	- [Top App Bar](#top-app-bar)
+		- [Editor Settings](#editor-settings-27)
+		- [Menu JSON Properties](#menu-json-properties-2)
 		- [Submenu](#submenu)
 			- [Submenu JSON Properties](#submenu-json-properties)
 	- [Charts](#charts)
 		- [Bar Chart](#bar-chart)
-			- [Editor Settings](#editor-settings-27)
+			- [Editor Settings](#editor-settings-28)
 			- [Dataset JSON Properties](#dataset-json-properties)
 		- [Pie Chart](#pie-chart)
-			- [Editor Settings](#editor-settings-28)
+			- [Editor Settings](#editor-settings-29)
 			- [Dataset JSON Properties](#dataset-json-properties-1)
 		- [Line History Chart:](#line-history-chart)
-			- [Editor Settings](#editor-settings-29)
+			- [Editor Settings](#editor-settings-30)
 		- [JSON Chart](#json-chart)
 			- [JSON Properties](#json-properties)
 	- [Table](#table)
-		- [Editor Settings](#editor-settings-30)
+		- [Editor Settings](#editor-settings-31)
 		- [Data - JSON Stucture](#data---json-stucture)
 		- [internal object binding](#internal-object-binding)
 		- [Control Elements using HTML Widgets](#control-elements-using-html-widgets)
 		- [Control Elements - **deprecated since v0.5.0**](#control-elements---deprecated-since-v050)
 	- [Responsive Layout](#responsive-layout)
 		- [Masonry Views](#masonry-views)
-			- [Editor Settings](#editor-settings-31)
-		- [Grid Views](#grid-views)
 			- [Editor Settings](#editor-settings-32)
+		- [Grid Views](#grid-views)
+			- [Editor Settings](#editor-settings-33)
 	- [Alerts](#alerts)
-		- [Editor Settings](#editor-settings-33)
+		- [Editor Settings](#editor-settings-34)
 		- [Datapoint JSON Properties](#datapoint-json-properties)
 		- [Script: send alert to widget](#script-send-alert-to-widget)
 	- [Calendar](#calendar)
-		- [Editor Settings](#editor-settings-34)
+		- [Editor Settings](#editor-settings-35)
 		- [Datapoint JSON Properties](#datapoint-json-properties-1)
 		- [Script: ical conversion](#script-ical-conversion)
 	- [Dialog](#dialog)
-		- [Editor Settings](#editor-settings-35)
+		- [Editor Settings](#editor-settings-36)
 	- [HTML Widgets](#html-widgets)
 		- [Examples](#examples)
-- [used libraries](#used-libraries)
-- [Changelog](#changelog)
-- [License](#license)
+- [Informations](#informations)
+	- [used libraries](#used-libraries)
+	- [Changelog](#changelog)
 
 # General
 
@@ -5126,6 +5128,12 @@ Settings that are not listed in the table below are self-explanatory.
 			<td>boolean</td>
 			<td>false | true</td>
 		</tr>
+		<tr>
+			<td>listOverflow</td>
+			<td>automatically adjust column width to value</td>
+			<td>boolean</td>
+			<td>false | true</td>
+		</tr>
 	</tbody>
 </table> 
 
@@ -5149,7 +5157,8 @@ Settings that are not listed in the table below are self-explanatory.
 		"objectId": "0_userdata.0.MDW.list.bool.val0",
 		"buttonStateValue": "",
 		"buttonNavView": "",
-		"buttonLink": ""
+		"buttonLink": "",
+		"listOverflow": false
 	}, {
 		"text": "item1",
 		"subText": "{0_userdata.0.MDW.list.bind1}",
@@ -5164,7 +5173,8 @@ Settings that are not listed in the table below are self-explanatory.
 		"objectId": "0_userdata.0.MDW.list.bool.val1",
 		"buttonStateValue": "",
 		"buttonNavView": "",
-		"buttonLink": ""
+		"buttonLink": "",
+		"listOverflow": false
 	}, {
 		"text": "item2",
 		"subText": "",
@@ -5179,7 +5189,8 @@ Settings that are not listed in the table below are self-explanatory.
 		"objectId": "0_userdata.0.MDW.list.bool.val2",
 		"buttonStateValue": "",
 		"buttonNavView": "",
-		"buttonLink": ""
+		"buttonLink": "",
+		"listOverflow": false
 	}, {
 		"text": "item3",
 		"subText": "fuuuu",
@@ -5194,7 +5205,8 @@ Settings that are not listed in the table below are self-explanatory.
 		"objectId": "0_userdata.0.MDW.list.bool.val3",
 		"buttonStateValue": "",
 		"buttonNavView": "",
-		"buttonLink": ""
+		"buttonLink": "",
+		"listOverflow": false
 	}
 ]
 </code></pre>
@@ -5249,7 +5261,12 @@ JSON string must be an array of objects with the following properties:
 	<tbody>
 		<tr>
 			<td>listType</td>
-			<td>type of list</td>
+			<td>type of list
+				<ul>
+					<li>buttonToggleValueTrue: is only on if the value equals the condition 'on'</li>
+					<li>buttonToggleValueFalse: is only off if the value equals the condition 'off'</li>
+				</ul>
+			</td>
 			<td>string</td>
 			<td>text | buttonState | buttonToggle | buttonToggleValueTrue | buttonToggleValueFalse | buttonNav | buttonLink</td>
 		</tr>
@@ -5258,6 +5275,18 @@ JSON string must be an array of objects with the following properties:
 			<td>object id for button</td>
 			<td>string</td>
 			<td/>
+		</tr>
+		<tr>
+			<td>minWidth</td>
+			<td>min width for item</td>
+			<td>string</td>
+			<td>30px | 60%</td>
+		</tr>		
+		<tr>
+			<td>usePercentOfRow</td>
+			<td>item use x percent of row.</td>
+			<td>number</td>
+			<td>0 = auto</td>
 		</tr>
 		<tr>
 			<td>buttonStateValue</td>
@@ -5366,10 +5395,22 @@ JSON string must be an array of objects with the following properties:
 			<td>color of status bar</td>
 			<td>string</td>
 			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>
+		<tr>
+			<td>statusBarColorActive</td>
+			<td>color of status bar if active</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
 		</tr>		
 		<tr>
 			<td>statusBarText</td>
 			<td>text of status bar</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>statusBarTextActive</td>
+			<td>text of status bar if active</td>
 			<td>string</td>
 			<td/>
 		</tr>		
@@ -5379,6 +5420,24 @@ JSON string must be an array of objects with the following properties:
 			<td>boolean</td>
 			<td>false | true</td>
 		</tr>
+		<tr>
+			<td>visibilityOid</td>
+			<td>Object Id for visibility</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>visibilityCondition</td>
+			<td>visibility condition</td>
+			<td>string</td>
+			<td>== | != | <= | >= | < | > | consist | not consist | exist | not exist</td>
+		</tr>
+		<tr>
+			<td>visibilityConditionValue</td>
+			<td>value for visibility condition</td>
+			<td>string</td>
+			<td/>
+		</tr>				
 	</tbody>
 </table>
 
@@ -5513,19 +5572,19 @@ The following properties can be used as [HTML Widgets](#html-widgets).
 			<td>mdw-progressIndeterminate</td>
 			<td>indeterminate - continuously animates</td>
 			<td>boolean</td>
-			<td>false | true
+			<td>false | true</td>
 		</tr>
 		<tr>
 			<td>mdw-reverse</td>
 			<td>Revers value</td>
 			<td>boolean</td>
-			<td>false | true
+			<td>false | true</td>
 		</tr>
 		<tr>
 			<td>mdw-debug</td>
 			<td>debug</td>
 			<td>boolean</td>
-			<td>false | true
+			<td>false | true</td>
 		</tr>
 		<tr>
 			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>layout</b></i></td>
@@ -5534,20 +5593,26 @@ The following properties can be used as [HTML Widgets](#html-widgets).
 			<td>mdw-progressRounded</td>
 			<td>rounded corners</td>
 			<td>boolean</td>
-			<td>false | true
+			<td>false | true</td>
 		</tr>
 		<tr>
 			<td>mdw-progressStriped</td>
 			<td>striped</td>
 			<td>boolean</td>
-			<td>false | true
+			<td>false | true</td>
 		</tr>
 		<tr>
 			<td>mdw-progressStripedColor</td>
 			<td>progressStripedColor</td>
 			<td>string</td>
-			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
 		</tr>
+		<tr>
+			<td>mdw-stripDistance</td>
+			<td>stripDistance</td>
+			<td>number</td>
+			<td>
+		</tr>		
 		<tr>
 			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
 		</tr>
@@ -5573,7 +5638,7 @@ The following properties can be used as [HTML Widgets](#html-widgets).
 			<td>mdw-colorOne</td>
 			<td>color 1 progress</td>
 			<td>string</td>
-			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
 		</tr>
 		<tr>
 			<td>mdw-colorTwoCondition</td>
@@ -5585,7 +5650,7 @@ The following properties can be used as [HTML Widgets](#html-widgets).
 			<td>mdw-colorTwo</td>
 			<td>color 2 progress</td>
 			<td>string</td>
-			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
 		</tr>
 		<tr>
 			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>labeling</b></i></td>
@@ -5600,7 +5665,7 @@ The following properties can be used as [HTML Widgets](#html-widgets).
 			<td>mdw-valueLabelStyle</td>
 			<td>value caption style</td>
 			<td>string</td>
-			<td>progressPercent | progressValue | progressCustom
+			<td>progressPercent | progressValue | progressCustom</td>
 		</tr>
 		<tr>
 			<td>mdw-valueLabelUnit</td>
@@ -5624,7 +5689,7 @@ The following properties can be used as [HTML Widgets](#html-widgets).
 			<td>mdw-textColor</td>
 			<td>Minutes text color</td>
 			<td>string</td>
-			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
 		</tr>
 		<tr>
 			<td>mdw-textFontSize</td>
@@ -5642,7 +5707,7 @@ The following properties can be used as [HTML Widgets](#html-widgets).
 			<td>mdw-textAlign</td>
 			<td>textAlign</td>
 			<td>string</td>
-			<td>start | center | end
+			<td>start | center | end</td>
 		</tr>
 	</tbody>
 </table>
@@ -8720,6 +8785,45 @@ Top App Bar with Navigation Drawer can be combined with the <a href="https://www
 ##### Layout permanent:
 ![Logo](doc/en/media/topappbar_permanent.gif)
 
+##### Layout auto:
+![Logo](doc/en/media/topappbar_auto.gif)
+
+Layout 'auto' switch automatically between layout 'modal' and 'permanent' depending on screen resolution. Via VIS-Editor you can set the resolution from which the 'permanent' layout should be used (bigger than condition).
+
+**Hint: Using with the 'View in Widget 8' widget**
+
+To work correct with the 'view in widget 8' widget you have to define a css media rule.
+
+* First assign a "Common CSS Rule" to the widget , e.g. named `my-view-in-widget8`.
+* Then add the following CSS to your project:
+```
+.my-view-in-widget8 {
+    top: 64px !important;
+    height: calc(100% - 64px) !important;
+    overflow-y: auto;
+}
+@media screen and (max-width: 800px) {
+    /* Resolution lower than 800px -> using 'modal' layout */
+    .my-view-in-widget8 {
+        left: 0 !important;
+        width: 100% !important;
+    }
+}
+@media screen and (min-width: 800px) {
+    /* Resolution higher than 800px -> using 'modal' layout */
+    .my-view-in-widget8 {
+        left: 256px !important;
+        width: calc(100% - 256px) !important;
+    }
+}
+```
+* In the CSS customize the resolution to the resolution that you set via VIS Editor (in the example `max-width: 800px` and `min-width: 800px`)
+* If you set a custom width for the menu drawer, than you also have to change 'left' and 'width' property in the CSS to this value (in the example `left: 256px !important;` and `width: calc(100% - 256px) !important;`)
+
+### Editor Settings
+
+Settings that are not listed in the table below are self-explanatory.
+
 <table>
     <thead>
         <tr>
@@ -8730,7 +8834,7 @@ Top App Bar with Navigation Drawer can be combined with the <a href="https://www
     </thead>
     <tbody>
         <tr>
-            <td rowspan=3><img src="doc/en/media/topappbar_settings.png"></td>
+            <td rowspan=6><img src="doc/en/media/topappbar_common.png"></td>
             <td>Object ID</td>
             <td>must be set to a datapoint from typ number. For example this datapoint can be used by <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">view in widget 8</a></td>
         </tr>
@@ -8742,8 +8846,189 @@ Top App Bar with Navigation Drawer can be combined with the <a href="https://www
             <td>count of navigation items</td>
             <td>Define the count of the navigations items</td>
         </tr>
+        <tr>
+            <td>fallback value if not in user group</td>
+            <td>if you use the group permissions, you can define here the value to switch to if the user is not in the group</td>
+        </tr>
+        <tr>
+            <td>disable fallback value</td>
+            <td>disable fallback value</td>
+        </tr>
+        <tr>
+            <td>Object Id for selected menu item id or name</td>
+            <td>You can optionally specify a datapoint in which the name or the menu id of the selected navigation element is written.<br>If no menu id is specified, the text of the navigation element is used. If the selected navigation element is a submenu, the name or menu id of the corresponding navigation element and submenu element is written separated with a '.', e.g. <code>EG.Wohnzimmer</code><br><br>For example, this can be used to dynamically create widgets depending on the selected navigation element.</td>
+        </tr>		
+        <tr>
+            <td rowspan=2><img src="doc/en/media/topappbar_data.png"></td>
+            <td>input method for the navigation items</td>
+            <td>Choose if the navigation elements are created by VIS editor or by json string.</td>
+        </tr>
+        <tr>
+            <td>JSON String for navigation items</td>
+            <td><a href="#menu-json-properties-2">details see Menu JSON Properties and Submenu JSON Properties</a></td>
+        </tr>		
     </tbody>
 </table>
+
+### Menu JSON Properties
+
+menu items can be defined by a JSON string:
+
+<table>
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Values</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>menuId</td>
+            <td>define a custom id for menu item, will be written to the "Object Id for selected menu item id or name" if selected</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>text</td>
+            <td>text of menu item</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>header</td>
+            <td>header of menu item</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>icon</td>
+            <td>icon or image path of entry</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>iconColor</td>
+            <td>icon color (works not if image is used)</td>
+            <td>color</td>
+            <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+        </tr>
+        <tr>
+            <td>divider</td>
+            <td>show a divider</td>
+            <td>boolean</td>
+            <td>false, true</td>
+        </tr>
+        <tr>
+            <td>userGroups</td>
+            <td>user groups that are allowed to view and control this entry.</td>
+            <td>array[string]</td>
+            <td>id of user groups</td>
+        </tr>
+        <tr>
+            <td>behaviorNotInUserGroup</td>
+            <td>hide or disable entry if user is not part of user group</td>
+            <td>string</td>
+            <td>hide, disabled</td>
+        </tr>
+        <tr>
+            <td>setValueOnMenuToggleClick</td>
+            <td>set value on click at item that toggle submenu</td>
+            <td>boolean</td>
+            <td>false, true</td>
+        </tr>
+        <tr>
+            <td>subMenuIconColor</td>
+            <td>icon color of sub menu items (works not if image is used)</td>
+            <td>color</td>
+            <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+        </tr>
+        <tr>
+            <td>subMenus</td>
+            <td>Object with sub menu items, <a href="#submenu-json-properties">Details see Submenu JSON Properties</a></td>
+            <td>array[subMenu]</td>
+            <td></td>
+        </tr>		
+    </tbody>
+</table>
+
+<!-- omit in toc -->
+#### Menu JSON Properties - Example
+
+<details>
+<pre><code>
+[
+	{
+		"text": "Start",
+		"divider": "true",
+		"icon": "home"
+	}, {
+		"menuId": "EG",
+		"text": "Erdgeschoss",
+		"icon": "home-floor-0",
+		"setValueOnMenuToggleClick": "true",
+		"subMenus": [
+			{
+				"menuId": "Esszimmer",
+				"text": "Esszimmer",
+				"icon": "table-furniture"
+			}, {
+				"menuId": "Wohnzimmer",
+				"text": "Wohnzimmer",
+				"icon": "sofa"
+			}, {
+				"menuId": "Kueche",
+				"text": "Küche",
+				"icon": "sofa"
+			}, {
+				"menuId": "Eingang",
+				"text": "Eingang",
+				"icon": "sofa"
+			}, {
+				"menuId": "Flur",
+				"text": "Flur",
+				"icon": "sofa"
+			}, {
+				"menuId": "Bad",
+				"text": "Bad",
+				"icon": "sofa"
+			}, {
+				"menuId": "Zimmer",
+				"text": "Zimmer",
+				"icon": "sofa"
+			}
+		]
+	}, {
+		"menuId": "DG",
+		"text": "Dachgeschoss",
+		"icon": "home-roof",
+		"setValueOnMenuToggleClick": "true",
+		"subMenus": [
+			{
+				"text": "Flur",
+				"icon": "table-furniture"
+			}, {
+				"text": "Galerie",
+				"icon": "sofa"
+			}, {
+				"text": "Schlafzimmer",
+				"icon": "sofa"
+			}, {
+				"text": "Ankleide",
+				"icon": "sofa"
+			}, {
+				"text": "Bad",
+				"icon": "sofa"
+			}, {
+				"text": "Kinderzimmer",
+				"icon": "sofa"
+			}
+		]
+	}
+]
+</code></pre>
+</details>
 
 ### Submenu 
 ![Logo](doc/en/media/drawer_subMenu.png)
@@ -8763,8 +9048,14 @@ submenus must be defined by a JSON string:
     </thead>
     <tbody>
         <tr>
+            <td>menuId</td>
+            <td>define a custom id for menu item, will be written to the "Object Id for selected menu item id or name" if selected</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
             <td>text</td>
-            <td>text of entry</td>
+            <td>text of submenu</td>
             <td>string</td>
             <td></td>
         </tr>
@@ -8802,7 +9093,7 @@ submenus must be defined by a JSON string:
 </table>
 
 <!-- omit in toc -->
-#### Submenu JSON Properties - Example
+##### Submenu JSON Properties - Example
 
 <details>
 <pre><code>
@@ -11284,7 +11575,7 @@ Widget to import via VIS Editor:
 <details>
 
 ```
-[{"tpl":"tplVis-materialdesign-List","data":{"g_fixed":false,"g_visibility":false,"g_css_font_text":false,"g_css_background":false,"g_css_shadow_padding":false,"g_css_border":false,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","vibrateOnMobilDevices":"50","listType":"text","listItemDividerStyle":"padded","listLayout":"card","showScrollbar":false,"listItemDataMethod":"inputPerEditor","countListItems":"5","listItemAlignment":"left","listItemBackground":"#mdwTheme:vis-materialdesign.0.colors.list.background_off","listItemBackgroundActive":"#mdwTheme:vis-materialdesign.0.colors.list.background_on","colorSwitchThumb":"#mdwTheme:vis-materialdesign.0.colors.switch.off","colorSwitchTrack":"#mdwTheme:vis-materialdesign.0.colors.switch.track","colorSwitchTrue":"#mdwTheme:vis-materialdesign.0.colors.switch.on","colorSwitchHover":"#mdwTheme:vis-materialdesign.0.colors.switch.off_hover","colorCheckBox":"#mdwTheme:vis-materialdesign.0.colors.checkbox.on","colorListItemHover":"#mdwTheme:vis-materialdesign.0.colors.list.hover","colorListItemSelected":"#mdwTheme:vis-materialdesign.0.colors.list.selected","colorListItemText":"#mdwTheme:vis-materialdesign.0.colors.list.text","colorListItemTextSecondary":"#mdwTheme:vis-materialdesign.0.colors.list.subText","colorListItemTextRight":"#mdwTheme:vis-materialdesign.0.colors.list.text_right","colorListItemTextSecondaryRight":"{mode:vis-materialdesign.0.colors.darkTheme;light:vis-materialdesign.0.colors.light.list.subText_right;dark:vis-materialdesign.0.colors.dark.list.subText_right; mode === \"true\" ? dark : light}","colorListItemHeaders":"#mdwTheme:vis-materialdesign.0.colors.list.header","colorListItemDivider":"#mdwTheme:vis-materialdesign.0.colors.list.divider","headerFontFamily":"#mdwTheme:vis-materialdesign.0.fonts.list.header","listItemFont":"#mdwTheme:vis-materialdesign.0.fonts.list.text","listItemSubFont":"#mdwTheme:vis-materialdesign.0.fonts.list.subText","listItemRightFont":"#mdwTheme:vis-materialdesign.0.fonts.list.text_right","listItemSubRightFont":"#mdwTheme:vis-materialdesign.0.fonts.list.subText_right","listItemTextSize":"#mdwTheme:vis-materialdesign.0.fontSizes.list.text","listItemSubTextSize":"#mdwTheme:vis-materialdesign.0.fontSizes.list.subText","listItemTextRightSize":"#mdwTheme:vis-materialdesign.0.fontSizes.list.text_right","listItemSubTextRightSize":"#mdwTheme:vis-materialdesign.0.fontSizes.list.subText_right","listItemHeaderTextSize":"#mdwTheme:vis-materialdesign.0.fontSizes.list.header","listImageColor0":"#mdwTheme:vis-materialdesign.0.colors.list.icon_off","listImageActiveColor0":"#mdwTheme:vis-materialdesign.0.colors.list.icon_on","listImageColor1":"#mdwTheme:vis-materialdesign.0.colors.list.icon_off","listImageActiveColor1":"#mdwTheme:vis-materialdesign.0.colors.list.icon_on","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"groupHeader0":"List with HTML Widgets","label0":"Button Toggle","rightLabel0":"<div style=\"display: flex; justify-content: right;\">\n    <div class='vis-widget materialdesign-widget materialdesign-button materialdesign-button-html-element'\n    \tstyle='width: 103px; height: 29px; position: relative; padding: 0px; margin-right: 10px;'\n    \tmdw-type='toggle_default'\n    \tmdw-oid='0_userdata.0.bool'\n    \tmdw-buttonStyle='raised'\n    \tmdw-toggleType='boolean'\n    \tmdw-stateIfNotTrueValue='on'\n    \tmdw-vibrateOnMobilDevices='50'\n    \tmdw-buttontext='off'\n    \tmdw-labelTrue='on'\n    \tmdw-textFontFamily='#mdwTheme:vis-materialdesign.0.fonts.button.default.text'\n    \tmdw-textFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.button.default.text'\n    \tmdw-mdwButtonPrimaryColor='#mdwTheme:vis-materialdesign.0.colors.button.default.primary'\n    \tmdw-mdwButtonSecondaryColor='#mdwTheme:vis-materialdesign.0.colors.button.default.secondary'\n    \tmdw-colorBgTrue='green'\n    \tmdw-image='checkbox-blank-outline'\n    \tmdw-imageTrue='checkbox-marked'\n    \tmdw-iconPosition='left'\n    \tmdw-lockEnabled='false'\n    \tmdw-autoLockAfter='10'\n    \tmdw-lockIconColor='#mdwTheme:vis-materialdesign.0.colors.button.lock_icon'\n    \tmdw-lockFilterGrayscale='30'\n    ></div>\n</div>","rightTextWidth":"300","label1":"Switch","rightLabel1":"<div style=\"display: flex; justify-content: right;\">\n    <div class='vis-widget materialdesign-widget materialdesign-switch materialdesign-switch-html-element'\n    \tstyle='height: 50px; position: relative; overflow: visible !important; display: flex; align-items: center;'\n    \tmdw-oid='0_userdata.0.bool'\n    \tmdw-toggleType='boolean'\n    \tmdw-stateIfNotTrueValue='on'\n    \tmdw-vibrateOnMobilDevices='50'\n    \tmdw-labelPosition='right'\n    \tmdw-labelClickActive='true'\n    \tmdw-valueFontFamily='#mdwTheme:vis-materialdesign.0.fonts.switch.value'\n    \tmdw-valueFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.switch.value'\n    \tmdw-colorSwitchThumb='#mdwTheme:vis-materialdesign.0.colors.switch.off'\n    \tmdw-colorSwitchTrack='#mdwTheme:vis-materialdesign.0.colors.switch.track'\n    \tmdw-colorSwitchTrue='#mdwTheme:vis-materialdesign.0.colors.switch.on'\n    \tmdw-colorSwitchHover='#mdwTheme:vis-materialdesign.0.colors.switch.off_hover'\n    \tmdw-colorSwitchHoverTrue='#mdwTheme:vis-materialdesign.0.colors.switch.on_hover'\n    \tmdw-labelColorFalse='#mdwTheme:vis-materialdesign.0.colors.switch.text_off'\n    \tmdw-labelColorTrue='#mdwTheme:vis-materialdesign.0.colors.switch.text_on'\n    \tmdw-autoLockAfter='10'\n    \tmdw-lockIconTop='5'\n    \tmdw-lockIconLeft='5'\n    \tmdw-lockIconColor='#mdwTheme:vis-materialdesign.0.colors.switch.lock_icon'\n    \tmdw-lockFilterGrayscale='30'\n    ></div>\n</div>","listImageColor2":"#mdwTheme:vis-materialdesign.0.colors.list.icon_off","listImageActiveColor2":"#mdwTheme:vis-materialdesign.0.colors.list.icon_on","listImageColor3":"#mdwTheme:vis-materialdesign.0.colors.list.icon_off","listImageActiveColor3":"#mdwTheme:vis-materialdesign.0.colors.list.icon_on","listImageColor4":"#mdwTheme:vis-materialdesign.0.colors.list.icon_off","listImageActiveColor4":"#mdwTheme:vis-materialdesign.0.colors.list.icon_on","listImageColor5":"#mdwTheme:vis-materialdesign.0.colors.list.icon_off","listImageActiveColor5":"#mdwTheme:vis-materialdesign.0.colors.list.icon_on","listImageColor6":"#mdwTheme:vis-materialdesign.0.colors.list.icon_off","listImageActiveColor6":"#mdwTheme:vis-materialdesign.0.colors.list.icon_on","label2":"Slider","rightLabel2":"<div style=\"display: flex; justify-content: right; overflow:visible !important;\">\n    <div class='vis-widget materialdesign-widget materialdesign-slider-vertical materialdesign-slider-html-element'\n    \tstyle='width: 100%; height: 100%; position: relative; overflow:visible !important; display: flex; align-items: center; padding: 0; margin-right: -6px;'\n    \tmdw-oid='0_userdata.0.number'\n    \tmdw-orientation='horizontal'\n    \tmdw-knobSize='knobSmall'\n    \tmdw-step='1'\n    \tmdw-vibrateOnMobilDevices='50'\n    \tmdw-showTicks='no'\n    \tmdw-tickTextColor='#mdwTheme:vis-materialdesign.0.colors.slider.tick'\n    \tmdw-tickFontFamily='#mdwTheme:vis-materialdesign.0.fonts.slider.ticks'\n    \tmdw-tickFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.slider.ticks'\n    \tmdw-tickColorBefore='#mdwTheme:vis-materialdesign.0.colors.slider.tick_before'\n    \tmdw-tickColorAfter='#mdwTheme:vis-materialdesign.0.colors.slider.tick_after'\n    \tmdw-colorBeforeThumb='#mdwTheme:vis-materialdesign.0.colors.slider.control_before'\n    \tmdw-colorThumb='#mdwTheme:vis-materialdesign.0.colors.slider.control'\n    \tmdw-colorAfterThumb='#mdwTheme:vis-materialdesign.0.colors.slider.control_behind'\n    \tmdw-prepandTextColor='#mdwTheme:vis-materialdesign.0.colors.slider.text_prepand'\n    \tmdw-prepandTextFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.slider.prepand'\n    \tmdw-prepandTextFontFamily='#mdwTheme:vis-materialdesign.0.fonts.slider.prepand'\n    \tmdw-valueLabelStyle='sliderValue'\n    \tmdw-valueFontFamily='#mdwTheme:vis-materialdesign.0.fonts.slider.value'\n    \tmdw-valueFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.slider.value'\n    \tmdw-valueLabelColor='#mdwTheme:vis-materialdesign.0.colors.slider.text'\n    \tmdw-valueLabelWidth='50'\n    \tmdw-showThumbLabel='yes'\n    \tmdw-thumbBackgroundColor='#mdwTheme:vis-materialdesign.0.colors.slider.control_background'\n    \tmdw-thumbFontColor='#mdwTheme:vis-materialdesign.0.colors.slider.control_text'\n    \tmdw-thumbFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.slider.control'\n    \tmdw-thumbFontFamily='#mdwTheme:vis-materialdesign.0.fonts.slider.control'\n    ></div>\n</div>","listOverflow2":true,"listItemRightAlignment":"left","rightLabel3":"<div style=\"display: flex; justify-content: right; overflow:visible !important; margin-right: 10px;\">\n    <div class='vis-widget materialdesign-widget materialdesign-progress materialdesign-progress-html-element'\n    \tstyle='width: 100%; height: 30px; position: relative; padding: 0px;'\n    \tmdw-type='linear'\n    \tmdw-oid='0_userdata.0.number'\n    \tmdw-progressRounded='true'\n    \tmdw-colorProgressBackground='#mdwTheme:vis-materialdesign.0.colors.progress.track_background'\n    \tmdw-colorProgress='#mdwTheme:vis-materialdesign.0.colors.progress.track'\n    \tmdw-colorOneCondition='50'\n    \tmdw-colorOne='#mdwTheme:vis-materialdesign.0.colors.progress.track_condition1'\n    \tmdw-colorTwoCondition='70'\n    \tmdw-colorTwo='#mdwTheme:vis-materialdesign.0.colors.progress.track_condition2'\n    \tmdw-showValueLabel='true'\n    \tmdw-valueLabelStyle='progressPercent'\n    \tmdw-textColor='#000'\n    \tmdw-textFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.progress.text'\n    \tmdw-textFontFamily='#mdwTheme:vis-materialdesign.0.fonts.progress.text'\n    \tmdw-textAlign='end'\n    ></div>\n</div>\n\n\n\n","rightSubLabel3":"","listOverflow1":true,"label3":"Progress","dividers0":true,"dividers1":true,"dividers2":true,"dividers3":true,"listImageHeight":"","listItemHeight":"40","listImage0":"gesture-tap-button","oid1":"","listImage1":"application-export","listImage2":"view-day","listImage3":"progress-download","label4":"Select","rightLabel4":"<div style=\"display: flex; justify-content: right; margin-right: 10px;\">\n    <div class='vis-widget materialdesign-widget materialdesign-select materialdesign-select-html-element'\n    \tstyle='width: 183px; height: 28px; position: relative; overflow: visible; display: flex; align-items: center;'\n    \tmdw-oid='0_userdata.0.number'\n    \tmdw-inputType='text'\n    \tmdw-vibrateOnMobilDevices='50'\n    \tmdw-inputLayout='regular'\n    \tmdw-inputAlignment='left'\n    \tmdw-inputLayoutBorderColor='#mdwTheme:vis-materialdesign.0.colors.input.border'\n    \tmdw-inputLayoutBorderColorHover='#mdwTheme:vis-materialdesign.0.colors.input.border_hover'\n    \tmdw-inputLayoutBorderColorSelected='#mdwTheme:vis-materialdesign.0.colors.input.border_selected'\n    \tmdw-inputTextFontFamily='#mdwTheme:vis-materialdesign.0.fonts.input.text'\n    \tmdw-inputTextFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.text'\n    \tmdw-inputTextColor='#mdwTheme:vis-materialdesign.0.colors.input.text'\n    \tmdw-inputLabelText='by Value List'\n    \tmdw-inputLabelColor='#mdwTheme:vis-materialdesign.0.colors.input.label'\n    \tmdw-inputLabelColorSelected='#mdwTheme:vis-materialdesign.0.colors.input.label_selected'\n    \tmdw-inputLabelFontFamily='#mdwTheme:vis-materialdesign.0.fonts.input.label'\n    \tmdw-inputLabelFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.label'\n    \tmdw-inputTranslateX='-29'\n    \tmdw-inputAppendixColor='#mdwTheme:vis-materialdesign.0.colors.input.appendix'\n    \tmdw-inputAppendixFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.appendix'\n    \tmdw-inputAppendixFontFamily='#mdwTheme:vis-materialdesign.0.fonts.input.appendix'\n    \tmdw-showInputMessageAlways='true'\n    \tmdw-inputMessageFontFamily='#mdwTheme:vis-materialdesign.0.fonts.input.message'\n    \tmdw-inputMessageFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.message'\n    \tmdw-inputMessageColor='#mdwTheme:vis-materialdesign.0.colors.input.message'\n    \tmdw-inputCounterColor='#mdwTheme:vis-materialdesign.0.colors.input.counter'\n    \tmdw-inputCounterFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.counter'\n    \tmdw-inputCounterFontFamily='#mdwTheme:vis-materialdesign.0.fonts.input.counter'\n    \tmdw-clearIconShow='true'\n    \tmdw-clearIconColor='#mdwTheme:vis-materialdesign.0.colors.input.icon_clear'\n    \tmdw-collapseIconColor='#mdwTheme:vis-materialdesign.0.colors.input.icon_collapse'\n    \tmdw-listDataMethod='valueList'\n    \tmdw-countSelectItems='0'\n    \tmdw-valueList='10;30;90'\n    \tmdw-valueListLabels='val1;val2;val3'\n    \tmdw-valueListIcons='home;home;home'\n    \tmdw-listPosition='auto'\n    \tmdw-listItemBackgroundColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.background'\n    \tmdw-listItemBackgroundHoverColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.hover'\n    \tmdw-listItemBackgroundSelectedColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.selected'\n    \tmdw-listItemRippleEffectColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.effect'\n    \tmdw-showSelectedIcon='prepend-inner'\n    \tmdw-listIconColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.icon'\n    \tmdw-listItemFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.dropdown.text'\n    \tmdw-listItemFont='#mdwTheme:vis-materialdesign.0.fonts.input.dropdown.text'\n    \tmdw-listItemFontColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.text'\n    \tmdw-listItemSubFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.dropdown.subText'\n    \tmdw-listItemSubFont='#mdwTheme:vis-materialdesign.0.fonts.input.dropdown.subText'\n    \tmdw-listItemSubFontColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.subText'\n    \tmdw-showValue='true'\n    \tmdw-listItemValueFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.dropdown.value'\n    \tmdw-listItemValueFont='#mdwTheme:vis-materialdesign.0.fonts.input.dropdown.value'\n    \tmdw-listItemValueFontColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.value'\n    ></div>\n</div>\n\n\n\n","listImage4":"airplane-takeoff","dividers4":true,"label5":"Value","subLabel5":"","rightLabel5":"<div style=\"display: flex; justify-content: right; overflow:visible !important; margin-right: 10px;\">\n    <div class='vis-widget materialdesign-widget materialdesign-value materialdesign-value-html-element'\n    \tstyle='width: 80px; height: 100%; position: relative; display: flex; align-items: center;'\n    \tmdw-debug='false'\n    \tmdw-oid='0_userdata.0.number'\n    \tmdw-targetType='auto'\n    \tmdw-textAlign='end'\n    \tmdw-valuesFontColor='#mdwTheme:vis-materialdesign.0.colors.value.text'\n    \tmdw-valuesFontFamily='#mdwTheme:vis-materialdesign.0.fonts.value.text'\n    \tmdw-valuesFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.value.text'\n    \tmdw-prepandTextColor='#mdwTheme:vis-materialdesign.0.colors.value.prepand'\n    \tmdw-prepandTextFontFamily='#mdwTheme:vis-materialdesign.0.fonts.value.prepand'\n    \tmdw-prepandTextFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.value.prepand'\n    \tmdw-appendTextColor='#mdwTheme:vis-materialdesign.0.colors.value.append'\n    \tmdw-appendTextFontFamily='#mdwTheme:vis-materialdesign.0.fonts.value.append'\n    \tmdw-appendTextFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.value.append'\n    \tmdw-valueLabelUnit='%'\n    \tmdw-calculate='#value * 10'\n    \tmdw-image='information'\n    \tmdw-imageColor='#mdwTheme:vis-materialdesign.0.colors.value.icon'\n    \tmdw-iconPosition='left'\n    \tmdw-changeEffectEnabled='true'\n    \tmdw-effectFontColor='#00e640'\n    \tmdw-effectFontSize='16'\n    \tmdw-effectDuration='750'\n    ></div>\n    </div>","listOverflow5":false,"dividers5":true,"listImage5":"parachute","rightLabel6":"","subLabel4":"","listOverflow4":true},"style":{"left":"78px","top":"48px","width":"643px","height":"425px","overflow-x":""},"widgetSet":"materialdesign"}]
+[{"tpl":"tplVis-materialdesign-List","data":{"g_fixed":false,"g_visibility":false,"g_css_font_text":false,"g_css_background":false,"g_css_shadow_padding":false,"g_css_border":false,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","vibrateOnMobilDevices":"50","listType":"text","listItemDividerStyle":"padded","listLayout":"card","showScrollbar":false,"listItemDataMethod":"inputPerEditor","countListItems":"5","listItemAlignment":"left","listItemBackground":"#mdwTheme:vis-materialdesign.0.colors.list.background_off","listItemBackgroundActive":"#mdwTheme:vis-materialdesign.0.colors.list.background_on","colorSwitchThumb":"#mdwTheme:vis-materialdesign.0.colors.switch.off","colorSwitchTrack":"#mdwTheme:vis-materialdesign.0.colors.switch.track","colorSwitchTrue":"#mdwTheme:vis-materialdesign.0.colors.switch.on","colorSwitchHover":"#mdwTheme:vis-materialdesign.0.colors.switch.off_hover","colorCheckBox":"#mdwTheme:vis-materialdesign.0.colors.checkbox.on","colorListItemHover":"#mdwTheme:vis-materialdesign.0.colors.list.hover","colorListItemSelected":"#mdwTheme:vis-materialdesign.0.colors.list.selected","colorListItemText":"#mdwTheme:vis-materialdesign.0.colors.list.text","colorListItemTextSecondary":"#mdwTheme:vis-materialdesign.0.colors.list.subText","colorListItemTextRight":"#mdwTheme:vis-materialdesign.0.colors.list.text_right","colorListItemTextSecondaryRight":"{mode:vis-materialdesign.0.colors.darkTheme;light:vis-materialdesign.0.colors.light.list.subText_right;dark:vis-materialdesign.0.colors.dark.list.subText_right; mode === \"true\" ? dark : light}","colorListItemHeaders":"#mdwTheme:vis-materialdesign.0.colors.list.header","colorListItemDivider":"#mdwTheme:vis-materialdesign.0.colors.list.divider","headerFontFamily":"#mdwTheme:vis-materialdesign.0.fonts.list.header","listItemFont":"#mdwTheme:vis-materialdesign.0.fonts.list.text","listItemSubFont":"#mdwTheme:vis-materialdesign.0.fonts.list.subText","listItemRightFont":"#mdwTheme:vis-materialdesign.0.fonts.list.text_right","listItemSubRightFont":"#mdwTheme:vis-materialdesign.0.fonts.list.subText_right","listItemTextSize":"#mdwTheme:vis-materialdesign.0.fontSizes.list.text","listItemSubTextSize":"#mdwTheme:vis-materialdesign.0.fontSizes.list.subText","listItemTextRightSize":"#mdwTheme:vis-materialdesign.0.fontSizes.list.text_right","listItemSubTextRightSize":"#mdwTheme:vis-materialdesign.0.fontSizes.list.subText_right","listItemHeaderTextSize":"#mdwTheme:vis-materialdesign.0.fontSizes.list.header","listImageColor0":"#mdwTheme:vis-materialdesign.0.colors.list.icon_off","listImageActiveColor0":"#mdwTheme:vis-materialdesign.0.colors.list.icon_on","listImageColor1":"#mdwTheme:vis-materialdesign.0.colors.list.icon_off","listImageActiveColor1":"#mdwTheme:vis-materialdesign.0.colors.list.icon_on","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"groupHeader0":"List with HTML Widgets","label0":"Button Toggle","rightLabel0":"<div style=\"display: flex; justify-content: flex-end;\">\n    <div class='vis-widget materialdesign-widget materialdesign-button materialdesign-button-html-element'\n    \tstyle='width: 103px; height: 29px; position: relative; padding: 0px; margin-right: 10px;'\n    \tmdw-type='toggle_default'\n    \tmdw-oid='0_userdata.0.bool'\n    \tmdw-buttonStyle='raised'\n    \tmdw-toggleType='boolean'\n    \tmdw-stateIfNotTrueValue='on'\n    \tmdw-vibrateOnMobilDevices='50'\n    \tmdw-buttontext='off'\n    \tmdw-labelTrue='on'\n    \tmdw-textFontFamily='#mdwTheme:vis-materialdesign.0.fonts.button.default.text'\n    \tmdw-textFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.button.default.text'\n    \tmdw-mdwButtonPrimaryColor='#mdwTheme:vis-materialdesign.0.colors.button.default.primary'\n    \tmdw-mdwButtonSecondaryColor='#mdwTheme:vis-materialdesign.0.colors.button.default.secondary'\n    \tmdw-colorBgTrue='green'\n    \tmdw-image='checkbox-blank-outline'\n    \tmdw-imageTrue='checkbox-marked'\n    \tmdw-iconPosition='left'\n    \tmdw-lockEnabled='false'\n    \tmdw-autoLockAfter='10'\n    \tmdw-lockIconColor='#mdwTheme:vis-materialdesign.0.colors.button.lock_icon'\n    \tmdw-lockFilterGrayscale='30'\n    ></div>\n</div>","rightTextWidth":"300","label1":"Switch","rightLabel1":"<div style=\"display: flex; justify-content: flex-end;\">\n    <div class='vis-widget materialdesign-widget materialdesign-switch materialdesign-switch-html-element'\n    \tstyle='height: 50px; position: relative; overflow: visible !important; display: flex; align-items: center;'\n    \tmdw-oid='0_userdata.0.bool'\n    \tmdw-toggleType='boolean'\n    \tmdw-stateIfNotTrueValue='on'\n    \tmdw-vibrateOnMobilDevices='50'\n    \tmdw-labelPosition='right'\n    \tmdw-labelClickActive='true'\n    \tmdw-valueFontFamily='#mdwTheme:vis-materialdesign.0.fonts.switch.value'\n    \tmdw-valueFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.switch.value'\n    \tmdw-colorSwitchThumb='#mdwTheme:vis-materialdesign.0.colors.switch.off'\n    \tmdw-colorSwitchTrack='#mdwTheme:vis-materialdesign.0.colors.switch.track'\n    \tmdw-colorSwitchTrue='#mdwTheme:vis-materialdesign.0.colors.switch.on'\n    \tmdw-colorSwitchHover='#mdwTheme:vis-materialdesign.0.colors.switch.off_hover'\n    \tmdw-colorSwitchHoverTrue='#mdwTheme:vis-materialdesign.0.colors.switch.on_hover'\n    \tmdw-labelColorFalse='#mdwTheme:vis-materialdesign.0.colors.switch.text_off'\n    \tmdw-labelColorTrue='#mdwTheme:vis-materialdesign.0.colors.switch.text_on'\n    \tmdw-autoLockAfter='10'\n    \tmdw-lockIconTop='5'\n    \tmdw-lockIconLeft='5'\n    \tmdw-lockIconColor='#mdwTheme:vis-materialdesign.0.colors.switch.lock_icon'\n    \tmdw-lockFilterGrayscale='30'\n    ></div>\n</div>","listImageColor2":"#mdwTheme:vis-materialdesign.0.colors.list.icon_off","listImageActiveColor2":"#mdwTheme:vis-materialdesign.0.colors.list.icon_on","listImageColor3":"#mdwTheme:vis-materialdesign.0.colors.list.icon_off","listImageActiveColor3":"#mdwTheme:vis-materialdesign.0.colors.list.icon_on","listImageColor4":"#mdwTheme:vis-materialdesign.0.colors.list.icon_off","listImageActiveColor4":"#mdwTheme:vis-materialdesign.0.colors.list.icon_on","listImageColor5":"#mdwTheme:vis-materialdesign.0.colors.list.icon_off","listImageActiveColor5":"#mdwTheme:vis-materialdesign.0.colors.list.icon_on","listImageColor6":"#mdwTheme:vis-materialdesign.0.colors.list.icon_off","listImageActiveColor6":"#mdwTheme:vis-materialdesign.0.colors.list.icon_on","label2":"Slider","rightLabel2":"<div style=\"display: flex; justify-content: flex-end; overflow:visible !important;\">\n    <div class='vis-widget materialdesign-widget materialdesign-slider-vertical materialdesign-slider-html-element'\n    \tstyle='width: 100%; height: 100%; position: relative; overflow:visible !important; display: flex; align-items: center; padding: 0; margin-right: -6px;'\n    \tmdw-oid='0_userdata.0.number'\n    \tmdw-orientation='horizontal'\n    \tmdw-knobSize='knobSmall'\n    \tmdw-step='1'\n    \tmdw-vibrateOnMobilDevices='50'\n    \tmdw-showTicks='no'\n    \tmdw-tickTextColor='#mdwTheme:vis-materialdesign.0.colors.slider.tick'\n    \tmdw-tickFontFamily='#mdwTheme:vis-materialdesign.0.fonts.slider.ticks'\n    \tmdw-tickFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.slider.ticks'\n    \tmdw-tickColorBefore='#mdwTheme:vis-materialdesign.0.colors.slider.tick_before'\n    \tmdw-tickColorAfter='#mdwTheme:vis-materialdesign.0.colors.slider.tick_after'\n    \tmdw-colorBeforeThumb='#mdwTheme:vis-materialdesign.0.colors.slider.control_before'\n    \tmdw-colorThumb='#mdwTheme:vis-materialdesign.0.colors.slider.control'\n    \tmdw-colorAfterThumb='#mdwTheme:vis-materialdesign.0.colors.slider.control_behind'\n    \tmdw-prepandTextColor='#mdwTheme:vis-materialdesign.0.colors.slider.text_prepand'\n    \tmdw-prepandTextFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.slider.prepand'\n    \tmdw-prepandTextFontFamily='#mdwTheme:vis-materialdesign.0.fonts.slider.prepand'\n    \tmdw-valueLabelStyle='sliderValue'\n    \tmdw-valueFontFamily='#mdwTheme:vis-materialdesign.0.fonts.slider.value'\n    \tmdw-valueFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.slider.value'\n    \tmdw-valueLabelColor='#mdwTheme:vis-materialdesign.0.colors.slider.text'\n    \tmdw-valueLabelWidth='50'\n    \tmdw-showThumbLabel='yes'\n    \tmdw-thumbBackgroundColor='#mdwTheme:vis-materialdesign.0.colors.slider.control_background'\n    \tmdw-thumbFontColor='#mdwTheme:vis-materialdesign.0.colors.slider.control_text'\n    \tmdw-thumbFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.slider.control'\n    \tmdw-thumbFontFamily='#mdwTheme:vis-materialdesign.0.fonts.slider.control'\n    ></div>\n</div>","listOverflow2":true,"listItemRightAlignment":"left","rightLabel3":"<div style=\"display: flex; justify-content: flex-end; overflow:visible !important; margin-right: 10px;\">\n    <div class='vis-widget materialdesign-widget materialdesign-progress materialdesign-progress-html-element'\n    \tstyle='width: 100%; height: 30px; position: relative; padding: 0px;'\n    \tmdw-type='linear'\n    \tmdw-oid='0_userdata.0.number'\n    \tmdw-progressRounded='true'\n    \tmdw-colorProgressBackground='#mdwTheme:vis-materialdesign.0.colors.progress.track_background'\n    \tmdw-colorProgress='#mdwTheme:vis-materialdesign.0.colors.progress.track'\n    \tmdw-colorOneCondition='50'\n    \tmdw-colorOne='#mdwTheme:vis-materialdesign.0.colors.progress.track_condition1'\n    \tmdw-colorTwoCondition='70'\n    \tmdw-colorTwo='#mdwTheme:vis-materialdesign.0.colors.progress.track_condition2'\n    \tmdw-showValueLabel='true'\n    \tmdw-valueLabelStyle='progressPercent'\n    \tmdw-textColor='#000'\n    \tmdw-textFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.progress.text'\n    \tmdw-textFontFamily='#mdwTheme:vis-materialdesign.0.fonts.progress.text'\n    \tmdw-textAlign='end'\n    ></div>\n</div>\n\n\n\n","rightSubLabel3":"","listOverflow1":true,"label3":"Progress","dividers0":true,"dividers1":true,"dividers2":true,"dividers3":true,"listImageHeight":"","listItemHeight":"40","listImage0":"gesture-tap-button","oid1":"","listImage1":"application-export","listImage2":"view-day","listImage3":"progress-download","label4":"Select","rightLabel4":"<div style=\"display: flex; justify-content: flex-end; margin-right: 10px;\">\n    <div class='vis-widget materialdesign-widget materialdesign-select materialdesign-select-html-element'\n    \tstyle='width: 183px; height: 28px; position: relative; overflow: visible; display: flex; align-items: center;'\n    \tmdw-oid='0_userdata.0.number'\n    \tmdw-inputType='text'\n    \tmdw-vibrateOnMobilDevices='50'\n    \tmdw-inputLayout='regular'\n    \tmdw-inputAlignment='left'\n    \tmdw-inputLayoutBorderColor='#mdwTheme:vis-materialdesign.0.colors.input.border'\n    \tmdw-inputLayoutBorderColorHover='#mdwTheme:vis-materialdesign.0.colors.input.border_hover'\n    \tmdw-inputLayoutBorderColorSelected='#mdwTheme:vis-materialdesign.0.colors.input.border_selected'\n    \tmdw-inputTextFontFamily='#mdwTheme:vis-materialdesign.0.fonts.input.text'\n    \tmdw-inputTextFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.text'\n    \tmdw-inputTextColor='#mdwTheme:vis-materialdesign.0.colors.input.text'\n    \tmdw-inputLabelText='by Value List'\n    \tmdw-inputLabelColor='#mdwTheme:vis-materialdesign.0.colors.input.label'\n    \tmdw-inputLabelColorSelected='#mdwTheme:vis-materialdesign.0.colors.input.label_selected'\n    \tmdw-inputLabelFontFamily='#mdwTheme:vis-materialdesign.0.fonts.input.label'\n    \tmdw-inputLabelFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.label'\n    \tmdw-inputTranslateX='-29'\n    \tmdw-inputAppendixColor='#mdwTheme:vis-materialdesign.0.colors.input.appendix'\n    \tmdw-inputAppendixFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.appendix'\n    \tmdw-inputAppendixFontFamily='#mdwTheme:vis-materialdesign.0.fonts.input.appendix'\n    \tmdw-showInputMessageAlways='true'\n    \tmdw-inputMessageFontFamily='#mdwTheme:vis-materialdesign.0.fonts.input.message'\n    \tmdw-inputMessageFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.message'\n    \tmdw-inputMessageColor='#mdwTheme:vis-materialdesign.0.colors.input.message'\n    \tmdw-inputCounterColor='#mdwTheme:vis-materialdesign.0.colors.input.counter'\n    \tmdw-inputCounterFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.counter'\n    \tmdw-inputCounterFontFamily='#mdwTheme:vis-materialdesign.0.fonts.input.counter'\n    \tmdw-clearIconShow='true'\n    \tmdw-clearIconColor='#mdwTheme:vis-materialdesign.0.colors.input.icon_clear'\n    \tmdw-collapseIconColor='#mdwTheme:vis-materialdesign.0.colors.input.icon_collapse'\n    \tmdw-listDataMethod='valueList'\n    \tmdw-countSelectItems='0'\n    \tmdw-valueList='10;30;90'\n    \tmdw-valueListLabels='val1;val2;val3'\n    \tmdw-valueListIcons='home;home;home'\n    \tmdw-listPosition='auto'\n    \tmdw-listItemBackgroundColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.background'\n    \tmdw-listItemBackgroundHoverColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.hover'\n    \tmdw-listItemBackgroundSelectedColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.selected'\n    \tmdw-listItemRippleEffectColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.effect'\n    \tmdw-showSelectedIcon='prepend-inner'\n    \tmdw-listIconColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.icon'\n    \tmdw-listItemFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.dropdown.text'\n    \tmdw-listItemFont='#mdwTheme:vis-materialdesign.0.fonts.input.dropdown.text'\n    \tmdw-listItemFontColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.text'\n    \tmdw-listItemSubFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.dropdown.subText'\n    \tmdw-listItemSubFont='#mdwTheme:vis-materialdesign.0.fonts.input.dropdown.subText'\n    \tmdw-listItemSubFontColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.subText'\n    \tmdw-showValue='true'\n    \tmdw-listItemValueFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.dropdown.value'\n    \tmdw-listItemValueFont='#mdwTheme:vis-materialdesign.0.fonts.input.dropdown.value'\n    \tmdw-listItemValueFontColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.value'\n    ></div>\n</div>\n\n\n\n","listImage4":"airplane-takeoff","dividers4":true,"label5":"Value","subLabel5":"","rightLabel5":"<div style=\"display: flex; justify-content: flex-end; overflow:visible !important; margin-right: 10px;\">\n    <div class='vis-widget materialdesign-widget materialdesign-value materialdesign-value-html-element'\n    \tstyle='width: 80px; height: 100%; position: relative; display: flex; align-items: center;'\n    \tmdw-debug='false'\n    \tmdw-oid='0_userdata.0.number'\n    \tmdw-targetType='auto'\n    \tmdw-textAlign='end'\n    \tmdw-valuesFontColor='#mdwTheme:vis-materialdesign.0.colors.value.text'\n    \tmdw-valuesFontFamily='#mdwTheme:vis-materialdesign.0.fonts.value.text'\n    \tmdw-valuesFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.value.text'\n    \tmdw-prepandTextColor='#mdwTheme:vis-materialdesign.0.colors.value.prepand'\n    \tmdw-prepandTextFontFamily='#mdwTheme:vis-materialdesign.0.fonts.value.prepand'\n    \tmdw-prepandTextFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.value.prepand'\n    \tmdw-appendTextColor='#mdwTheme:vis-materialdesign.0.colors.value.append'\n    \tmdw-appendTextFontFamily='#mdwTheme:vis-materialdesign.0.fonts.value.append'\n    \tmdw-appendTextFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.value.append'\n    \tmdw-valueLabelUnit='%'\n    \tmdw-calculate='#value * 10'\n    \tmdw-image='information'\n    \tmdw-imageColor='#mdwTheme:vis-materialdesign.0.colors.value.icon'\n    \tmdw-iconPosition='left'\n    \tmdw-changeEffectEnabled='true'\n    \tmdw-effectFontColor='#00e640'\n    \tmdw-effectFontSize='16'\n    \tmdw-effectDuration='750'\n    ></div>\n    </div>","listOverflow5":false,"dividers5":true,"listImage5":"parachute","rightLabel6":"","subLabel4":"","listOverflow4":true,"listBackground":"#mdwTheme:vis-materialdesign.0.colors.list.background"},"style":{"left":"12px","top":"12px","width":"433px","height":"315px","overflow-x":""},"widgetSet":"materialdesign"}]
 ```
 
 </details>
@@ -12815,7 +13106,9 @@ View to import via VIS Editor:
 
 </details>
 
-# used libraries
+# Informations
+
+## used libraries
 The adapter uses the following libraries:
 * [Google material components for the web](https://github.com/material-components/material-components-web)
 * [Vuetify](https://github.com/vuetifyjs/vuetify)
@@ -12824,114 +13117,79 @@ The adapter uses the following libraries:
 * [Material Design Icons](https://materialdesignicons.com/)
 
 
-# Changelog
+## Changelog
 
 <!--
-    Placeholder for the next version (at the beginning of the line):    
+    Placeholder for the next version (at the beginning of the line):	   
 	### __WORK IN PROGRESS__
 -->
 
 <!-- omit in toc -->
 ### __WORK IN PROGRESS__
-* (Scrounger) HTML Widgets added - use Material Design Widgets in any html element
-* (Scrounger) Table: Control Elements removed, using new HTML Widgets -> breaking changes !!!
-* (Scrounger) list: using object id for json string added -> breaking changes !!!
-* (Scrounger) new Value Widget added
-* (Scrounger) Card layout bug fixes for HTML Card, IconList, List and Table Widget
-* (Scrounger) icon list: option for status bar text added
-* (Scrounger) icon list: status bar position bug fix
-* (Scrounger) icon list: read only option for buttons added
-* (Scrounger) dialog: option to set height in percent added
-* (Scrounger) json chart: option to override tooltip for every dataset added
-* (Scrounger) json chart: tooltip mode x / y added
-* (Scrounger) json chart: option to override data label added
-* (Scrounger) charts: legend distance to bottom option added
-* (Scrounger) button state: active background color option added
-* (Scrounger) buttons: vibrate on mobil devices bug fix
-* (Scrounger) progress: rotate option added
-* (Scrounger) list: background color option added
-* (Scrounger) progress circular: auto size option added
-* (Scrounger) VIS editor: html previews bug fixes
-* (Scrounger) input, autocomplete, select: autofocus option added
-* (Scrounger) Documentation revised
-* (Scrounger) materialdesignicons library updated to v5.9.55
-* (Scrounger) bug fixes
+* (Scrounger) Button Toggle Widgets: bug fix for state on runtime load
+* (Scrounger) Value Widget: bug fix for show unit only if result is of type number
+* (Scrounger) Value Widget: bug fix for data ovveride
+* (Scrounger) IconList Widget: option to set minimal width for single item added
+* (Scrounger) IconList Widget: header added
+* (Scrounger) IconList Widget: color options added
+* (Scrounger) IconList Widget: added option for color and text of status bar if state is active
+* (Scrounger) List Widget: main header added
+* (Scrounger) List Widget: events bug fix
+* (darkiop) documentation updated ([#PR179](https://github.com/Scrounger/ioBroker.vis-materialdesign/pull/179))
+* (Scrounger) Top App Bar Widget: fixed bugs found by sentry
+* (Scrounger) Top App Bar Widget: icon color bug fix if using json string
+* (Scrounger) Top App Bar Widget: selected item icon color option added
+* (Scrounger) Round Slider Widget: control bug fix
+* (Scrounger) Grid Views Widget: Bug fix for nested grid views widgets
+* (Scrounger) Masonry Views Widget: Bug fix for nested masonry views widgets
+* (Scrounger) Progress Widget: striped distance option added
+* (Scrounger) Advanced View in Widget widget added
+* (Scrounger) Advanced View in Widget 8 widget added
+* (Scrounger) Dialog Widget: background color bug fix on close animation
+* (Scrounger) Dialog Widget: option added to show a save button and write a value to a datapoint
+* (Scrounger) HTML Widget: bug fix for wrong type ([#182](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/182))
+* (Scrounger) support for base64 images added
+* (Scrounger) bug fix for VIS Editor dev values
 
 <!-- omit in toc -->
-### 0.4.2 (2020-12-29)
-* (Scrounger) vis-google-fonts dependency removed
+### 0.5.9 (2021-06-13)
+* (Scrounger) Top App Bar Widget: option added to define navigation items per JSON String [Details see documentation!](https://github.com/Scrounger/ioBroker.vis-materialdesign#top-app-bar)
+* (Scrounger) Top App Bar Widget: option added to define an id per item
+* (Scrounger) fixed bugs found by sentry
 
 <!-- omit in toc -->
-### 0.4.1 (2020-12-27)
-* (Scrounger): Adapter settings: theme editor implementation completed
-* (Scrounger): Progress Widget: condition binding bug fix
-* (Scrounger): minimal VIS adapter dependency set to v1.3.6
-* (Scrounger): VIS editor: image dialog bug fix
-* (Scrounger): Color themes for buttons and dialogs widgets implemented
-* (Scrounger): Calendar Widget: week number bug fix
-* (Scrougner): icon list: scrollbar bug fix
-* (Scrounger): bug fixes
+### 0.5.8 (2021-06-09)
+* (Scrounger) Top App Bar Widget: new layout 'auto' added - change between modal and permanent layout depending on screen resolution. [Details see documentation!](#layout-auto)
+* (Scrounger) Top App Bar Widget: option added to set value on click at item that toggle submenu
+* (Scrounger) IconList Widget: option added to set used space per row for every items
+* (Scrounger) IconList Widget: option added to set visibility condition for every items ([#118](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/118))
+* (Scrounger) IconList Widget: bug fix for applying active color ([#176](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/176))
+* (Scrounger) Grid Widget: bug fix for visibility condition
+* (Scrounger) Masonry Widget: bug fix for visibility condition
 
 <!-- omit in toc -->
-### 0.4.0-beta (2020-12-09)
-* (Scrounger): Line History Chart Widget: Breaking Changes !!! aggregate (display) method for every dataset configurable, [see documentation for detailed infos](#line-history-chart)!
-* (Scrounger): TopAppBar Widget: Breaking Changes !!! Submenus must now be created using JSON string, [see documentation for detailed infos](#since-version-040)!
-* (Scrounger): Adapter settings wiht theme editor added
-* (Scrounger): bug fix for compatibility issues with other widget adapters
-* (Scrounger): Chechbox Widget: option for border and hover color added
-* (Scrounger): Chechbox Widget: ripple effect bug fix
-* (Scrounger): Buttons Vertical: text alignment option added
-* (Scrounger): added URL support as source for symbols / images
-* (Scrounger): HTML Card Widget: option to hide title, subtitle and text added
-* (Scrounger): HTML Card Widget: background image refresh options by datapoint added
-* (Scrounger): Fixed some errors reported via Sentry
-* (Scrounger): Select & Autocomplete Widget: overriding icon color bug fix
-* (Scrounger): Select & Autocomplete Widget: overriding icon bug fix
-* (Scrounger): Select & Autocomplete Widget: colors bug fixes
-* (Scrounger): Select & Autocomplete Widget: option to override the icon color of textfield for selected menu icon
-* (Scrounger): Select & Autocomplete Widget: text alignment option added
-* (Scrounger): Input Widget: text alignment option added
-* (Scrounger): JSON Chart Widget: option to force x-axis time unit added
-* (Scrounger): JSON Chart Widget: gradient colors for multipe dataset bug fixes
-* (Scrounger): JSON Chart: default tooltip title added
-* (Scrounger): JSON Chart: option to use Today / Yesterday for x-axis labeling added
-* (Scrounger): JSON Chart: option to use Today / Yesterday for tooltip added
-* (Scrounger): JSON Chart: option to change x-axis label distance added
-* (Scrounger): Line History Chart: option for point color added
-* (Scrounger): Line History Chart: option to use Today / Yesterday for x-axis labeling added
-* (Scrounger): Line History Chart: option to use Today / Yesterday for tooltip added
-* (Scrounger): Line History Chart: tooption change x-axis label distance added
-* (Scrounger): Charts Widget: x-Axis time axis bug fixes
-* (Scrounger): Calendar Widget: option to show calendar week numbers in month view added
-* (Scrounger): Calendar Widget: option for custom date format added
-* (Scrounger): IconList Widget: bug fix for performance issue
-* (Scrounger): TopAppBar Widget: options for user groups added
-* (Scrounger): Table Widget: html element added
-* (Scrounger): Masonry & Grid View Widget: default width for handy portrait and landscape view changed
-* (Scrounger): Progress Widget: option for indeterminate style added
-* (Scrounger): dependencies updated
-* (Scrounger): bug fixes
+### 0.5.7 (2021-05-26)
+* (Scrounger) Top App Bar Widget: color option for menu icon added ([#171](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/171))
+* (Scrounger) Top App Bar Widget: Permission group - option to deactivate default value added ([#173](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/173))
+* (Scrounger) iconList Widget: bug fix for active state at diffrent types ([#168](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/168))
+* (Scrounger) iconList Widget: layout bug fix for radius of buttons ([#174](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/174))
+* (Scrounger) list Widget: bug fix for theme properties
+* (Scrounger) select Widget: bug fix for long text ([#169](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/169))
+* (Scrounger) fixed bugs found by sentry
 
 <!-- omit in toc -->
-### 0.3.19 (2020-07-18)
-* (Scrounger): Icon Button Widget: background color option for lock icon added
-* (Scrounger): possibility to deactivate sentry implemented -> see documentation
-* (Scrounger): Fixed some bugs reported via Sentry
-* (Scrounger): prevent set value in vis editor
-* (Scrounger): Grid & Mansonry Widget: visibilty by resoltuin bug fix
-* (Scrounger): IconList Widget: Card Background for whole icon list added
-* (Scrounger): Table Wigdet: button link widget added
-* (Scrounger): Table Wigdet: material design icon widget added
-* (Scrounger): Table Wigdet: alignment option for controls added
-* (Scrounger): materialdesignicons library updated to v5.3.45
-* (Scrounger): Round Slider lib updated to v0.5.0
-* (Scrounger): Round Slider Widget: readonly option added
-* (Scrounger): Table Widget: background color hover option added
-* (Scrounger): bug fixes
+### 0.5.6 (2021-05-07)
+* (Scrounger) Html Widgets: escaping bug fix
+* (Scrounger) iconList: layout bug fix
 
+<!-- omit in toc -->
+### 0.5.5 (2021-04-21)
+* (Scrounger) adapter settings bug fixes
+* (Scrounger) icon buttons: color bug fixes
+* (Scrounger) Fixing bugs found by sentry
 
-# License
-
+<!-- omit in toc -->
+## License
 MIT License
 
 Copyright (c) 2021 Scrounger <scrounger@gmx.net>

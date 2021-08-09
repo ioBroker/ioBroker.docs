@@ -170,36 +170,23 @@ IP-адрес с которого доступен драйвер (поддер�
 ![ioBroker.admin - system settings](img/admin_SystemSettings.jpg)
 
 ## Changelog
-### 5.0.2 (2020-12-26)
-* (bluefox) Merged the changes from admin4
+### 5.1.23 (2021-08-05)
+* (bluefox) Corrected some errors reported via sentry
 
-### 5.0.0 (2020-09_23)
-* (bluefox) The tile view implemented for the file browser
+### 5.1.19 (2021-07-31)
+* (bluefox) Corrected some GUI errors
 
-### 4.2.1 (2021-01-12)
-* (Apollon77) Also allow pre-prelease versions for dependency checks
+### 5.1.17 (2021-07-30)
+* (bluefox) Corrected the error on the adapter's tab
 
-### 4.2.0 (2021-01-08)
-* (bluefox) Support of new Let's Encrypt (only with js-controller 3.2.x)
-
-### 4.1.13 (2021-01-08)
-* (bluefox) Support of new Let's Encrypt (only with js-controller 3.2.x)
-
-### 4.1.12 (2020-12-12)
-* (bluefox) Corrected the error with empty names in enums
-
-### 4.1.11 (2020-11-22)
-* (theimo1221) Prevent Duplicate Event Handling on Dropdown Checkboxes
-* (paul53) fix Objects dialog
-
-### 4.1.10 (2020-10-08)
-* (bluefox) Corrected the icons of the custom tabs. 
-
-### 4.1.8 (2020-09-03)
-* (bluefox) Fixed editing of the objects with % sign in the ID.
+### 5.1.16 (2021-07-30)
+* (bluefox) Make the appearance of buttons configurable
+ 
+### 5.1.15 (2021-07-26)
+* (bluefox) Replaced the formula icon in the edit aliases dialog
+* (bluefox) Added the logic for checkbox in JsonConfig
 
 ## License
-
 The MIT License (MIT)
 
 Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>

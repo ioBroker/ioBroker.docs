@@ -3,65 +3,104 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.jarvis/README.md
 title: ioBroker.jarvis
-hash: cLWheySDyJUZJ7fq/+9AITzQqm3qGQyORdnJkr5te9M=
+hash: hEhY9ZtTShlgbofIzCvWIdunG4h1LcUueEycbYGtzqA=
 ---
-![商标](../../../en/adapterref/iobroker.jarvis/admin/jarvis.png)
+![标识](../../../en/adapterref/iobroker.jarvis/admin/jarvis.png)
 
 ![贝宝捐赠](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
-![安装数量](http://iobroker.live/badges/jarvis-installed.svg)
-![稳定版](http://iobroker.live/badges/jarvis-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.jarvis.svg)
-![自上次发行以来提交](https://img.shields.io/github/commits-since/Zefau/ioBroker.jarvis/latest.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.jarvis.svg)
-![NPM](https://nodei.co/npm/iobroker.jarvis.png?downloads=true)
+![安装数量](https://iobroker.live/badges/jarvis-installed.svg)
+![稳定版](https://iobroker.live/badges/jarvis-stable.svg)
+![新版本](http://img.shields.io/npm/v/iobroker.jarvis.svg)
+![自上次发布以来的提交](https://img.shields.io/github/commits-since/Zefau/ioBroker.jarvis/latest.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.jarvis.svg)
+![新产品管理](https://nodei.co/npm/iobroker.jarvis.png?downloads=true)
 
-＃ioBroker.jarvis jarvis-另一个非凡的视觉
-[![Travis CI]（https://travis-ci.com/Zefau/ioBroker.jarvis.svg?branch=master）](https://travis-ci.com/Zefau/ioBroker.jarvis)
+# IoBroker.jarvis jarvis - 又一个非凡的可视化
+[![Travis CI](https://travis-ci.com/Zefau/ioBroker.jarvis.svg?branch=master)](https://travis-ci.com/Zefau/ioBroker.jarvis)
 
-##德文版
-[德国国防军](README.de.md).
+## 德文版
+[Hier gibt es die deutsche Übersetzung](README.de.md).
 
-##什么是jarvis？
-jarvis是基于[材质界面](https://material-ui.com/)的材料设计可视化。 jarvis提供了一个结构和模块，可用于可视化并灵活配置。
+##什么是贾维斯？
+jarvis 是基于 [材质界面](https://material-ui.com/) 的 Material Design 可视化。 jarvis 提供了结构和模块，可用于可视化和灵活配置。
 
-jarvis为[*反应迅速*](https://de.wikipedia.org/wiki/Responsive_Webdesign)，并适应浏览器的屏幕大小。
+jarvis 是 [*响应*](https://de.wikipedia.org/wiki/Responsive_Webdesign) 并适应浏览器的屏幕尺寸。
 
-布局可灵活配置。您可以根据需要添加任意多个标签。每个选项卡可以是`fullscreen`，也可以具有任意数量的`columns`，其中每一列都以灵活的顺序保存`modules`。
+布局灵活可配置。您可以根据需要添加任意数量的选项卡。每个选项卡可以是 `fullscreen` 或根据需要具有尽可能多的 `columns`，其中每列以灵活的顺序保存 `modules`。
 
-每个模块都有其自己的配置可能性（[参见维基](https://github.com/Zefau/ioBroker.jarvis/wiki/de-Modules)）。
+每个模块都有自己的配置可能性（[见维基](https://github.com/Zefau/ioBroker.jarvis/wiki)）。
 
-##为什么要贾维斯？
-jarvis不像ioBroker.vis那样灵活，但是提供了快速可视化的标准设计。
+## 为什么是贾维斯？
+jarvis 不如 ioBroker.vis 灵活，但提供了快速可视化的标准设计。
 
 ##安装和更多信息
-[可以在Wiki中找到更多信息-特别是配置繁琐的信息。](https://zefau.gitbook.io/jarvis-de/).
+[更多信息 - 特别是重新配置 - 可以在 Wiki 中找到](https://zefau.gitbook.io/jarvis-v3/).
 
 _____
 
-##印象数
+##印象
 模块的配置可以自由对齐。随后的一些印象/例子：
 
-###截屏视频
-[![播放视频]（https://raw.githubusercontent.com/Zefau/ioBroker.jarvis/master/App/play.png）](https://youtu.be/jltXTSDGoQw)
+### 截屏视频/视频
+[![播放视频](https://raw.githubusercontent.com/Zefau/ioBroker.jarvis/master/App/play.png)](https://youtu.be/jltXTSDGoQw)
 
-您可以在[YouTube频道](https://www.youtube.com/channel/UCQ7rw5Uect8PSx1aVzEOlzQ)上找到更多视频。
+您可以在 [YouTube 频道](https://www.youtube.com/channel/UCQ7rw5Uect8PSx1aVzEOlzQ) 上找到更多视频。
 
-###截图
-####范例：资讯主页（3`columns`）
-![Dashboard.png](https://raw.githubusercontent.com/Zefau/ioBroker.jarvis/master/App/Dashboard.png)
+### 截图
+#### 示例：仪表板（3 `columns`）
+![仪表盘.png](https://raw.githubusercontent.com/Zefau/ioBroker.jarvis/master/App/Dashboard.png)
 
-####示例：地图（全屏）
-![Map.png](https://raw.githubusercontent.com/Zefau/ioBroker.jarvis/master/App/Map.png)
+#### 示例：地图（全屏）
+![地图.png](https://raw.githubusercontent.com/Zefau/ioBroker.jarvis/master/App/Map.png)
 
-####示例：统计信息（2`columns`）
-![Statistik.png](https://raw.githubusercontent.com/Zefau/ioBroker.jarvis/master/App/Statistik.png)
+#### 示例：统计数据（2 `columns`）
+![统计.png](https://raw.githubusercontent.com/Zefau/ioBroker.jarvis/master/App/Statistik.png)
 
-####示例：状态（3`columns`，davon 2 leer）
-![Status.png](https://raw.githubusercontent.com/Zefau/ioBroker.jarvis/master/App/Status.png)
+#### 示例：状态（3 `columns`，davon 2 leer）
+![状态.png](https://raw.githubusercontent.com/Zefau/ioBroker.jarvis/master/App/Status.png)
 
 ## Changelog
 
 Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+
+### v2.2.0 - Sherlock Holmes (2021-02-24)
+
+#### :exclamation: BREAKING CHANGES
+- Remove all hard coded state keys from source code ([550](https://github.com/Zefau/ioBroker.jarvis/issues/550))
+
+#### :star2: newly added features
+- Shelly Importer ([622](https://github.com/Zefau/ioBroker.jarvis/issues/622))
+- Support of Yeelight devices in the importer ([593](https://github.com/Zefau/ioBroker.jarvis/issues/593))
+- Support of Lifx devices in the importer ([592](https://github.com/Zefau/ioBroker.jarvis/issues/592))
+- add additional device Types to ioBroker.hmip adapter import ([573](https://github.com/Zefau/ioBroker.jarvis/issues/573))
+- Support import of devices from ioBroker.deconz adapter ([565](https://github.com/Zefau/ioBroker.jarvis/issues/565))
+- Move icons to iconify ([563](https://github.com/Zefau/ioBroker.jarvis/issues/563))
+- Introduce new functions ([546](https://github.com/Zefau/ioBroker.jarvis/issues/546))
+- Improve general error page ([539](https://github.com/Zefau/ioBroker.jarvis/issues/539))
+- DeviceImporter: Automatically detect function based on name ([532](https://github.com/Zefau/ioBroker.jarvis/issues/532))
+- Support import of devices from ioBroker.unifi.0 ([483](https://github.com/Zefau/ioBroker.jarvis/issues/483))
+- Support import of devices from ioBroker.innogy-smarthome ([479](https://github.com/Zefau/ioBroker.jarvis/issues/479))
+- Option zur Sicherung der Jarvis Dateien ([478](https://github.com/Zefau/ioBroker.jarvis/issues/478))
+- Support import of devices from ioBroker.linkeddevices ([467](https://github.com/Zefau/ioBroker.jarvis/issues/467))
+- Support import of devices from ioBroker.ble ([465](https://github.com/Zefau/ioBroker.jarvis/issues/465))
+- Support import of devices from ioBroker.rpi2 ([463](https://github.com/Zefau/ioBroker.jarvis/issues/463))
+- Farbliche Sekundäre Datenpunkte ([456](https://github.com/Zefau/ioBroker.jarvis/issues/456))
+- Support import of devices from ioBroker.mqtt ([454](https://github.com/Zefau/ioBroker.jarvis/issues/454))
+- Support import of devices from ioBroker.mihome ([448](https://github.com/Zefau/ioBroker.jarvis/issues/448))
+- Formatieren von Werten via Formeln / Callback function ([416](https://github.com/Zefau/ioBroker.jarvis/issues/416))
+- Support import of more devices from ioBroker.hm-rpc ([414](https://github.com/Zefau/ioBroker.jarvis/issues/414))
+- Support import of devices from ioBroker.modbus adapter ([360](https://github.com/Zefau/ioBroker.jarvis/issues/360))
+- Support import wifilight.0 Objects ([325](https://github.com/Zefau/ioBroker.jarvis/issues/325))
+- add new module MediaControl ([173](https://github.com/Zefau/ioBroker.jarvis/issues/173))
+- add option to hide TopBar ([124](https://github.com/Zefau/ioBroker.jarvis/issues/124))
+- Notifications ([56](https://github.com/Zefau/ioBroker.jarvis/issues/56))
+
+#### :bug: fixed bugs
+- Remove all hard coded state keys from source code ([550](https://github.com/Zefau/ioBroker.jarvis/issues/550))
+
+#### core
+- Remove all hard coded state keys from source code ([550](https://github.com/Zefau/ioBroker.jarvis/issues/550))
 
 
 ### v2.1.0-rc.4 - Into the Wild (2021-01-01)
@@ -282,7 +321,7 @@ Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2020 Zefau <zefau@mailbox.org>
+Copyright (c) 2019-2021 Zefau <zefau@mailbox.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

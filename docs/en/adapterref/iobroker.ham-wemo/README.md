@@ -1,6 +1,11 @@
 ![Logo](admin/ham-wemo.png)
 # ioBroker Wemo adapter based on homebridge-platform-wemo
-![Number of Installations](http://iobroker.live/badges/ham-wemo-installed.svg) ![Number of Installations](http://iobroker.live/badges/ham-wemo-stable.svg)
+![Number of Installations](http://iobroker.live/badges/ham-wemo-installed.svg)
+![Number of Installations](http://iobroker.live/badges/ham-wemo-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.ham-wemo.svg)](https://www.npmjs.com/package/iobroker.ham-wemo)
+
+![Test and Release](https://github.com/ioBroker/iobroker.ham-wemo/workflows/Test%20and%20Release/badge.svg)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.ham-wemo.svg)](https://www.npmjs.com/package/iobroker.ham-wemo)
 
 =================
 
@@ -10,6 +15,10 @@ This adapter is based on homebridge-platform-wemo plugin.
 Read more about it here https://www.npmjs.com/package/homebridge-platform-wemo
 
 ## Changelog
+
+### 2.0.0 (2021-05-08)
+* (Apollon77) wemo plugin and homebridge updated - check wem plugin changelog!
+* (Apollon77) optimize for js-controller 3.3
 
 ### 1.1.1 (2021-03-24)
 * (Apollon77) js-controller 2.0 now needed as minimum
@@ -38,7 +47,7 @@ Read more about it here https://www.npmjs.com/package/homebridge-platform-wemo
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2019 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2021 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

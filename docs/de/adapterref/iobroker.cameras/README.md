@@ -2,21 +2,21 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cameras/README.md
-title: ioBroker.cameras
-hash: S2DXJveAgZbhf55Ekua2qiIe7Z08WoOTSOJhirISeaA=
+title: ioBroker.kameras
+hash: md4NOTpy9bBQKDCixUgrVhRjR4M6ZCwAR29la883rHo=
 ---
 ![Logo](../../../en/adapterref/iobroker.cameras/admin/cameras.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.cameras.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.cameras.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/ioBroker/iobroker.cameras.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/ioBroker/ioBroker.cameras/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/ioBroker/ioBroker.cameras/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.cameras.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.cameras/master.svg)
 
 # IoBroker.cameras
 ## IP-Kamera-Adapter für ioBroker
-Sie können Ihre Web- / IP-Kameras in visuelle und andere Visualisierungen integrieren.
+Sie können Ihre Web-/IP-Kameras in vis und andere Visualisierungen einbinden.
 Wenn Sie eine Kamera mit dem Namen `cam1` konfigurieren, ist diese auf dem Webserver unter `http(s)://iobroker-IP:8082/cameras.0/cam1` verfügbar.
 
 Zusätzlich können Sie das Bild per Nachricht anfordern:
@@ -33,19 +33,22 @@ sendTo('cameras.0', 'image', {
 });
 ```
 
-Das Ergebnis ist immer im Format `jpg`.
+Das Ergebnis liegt immer im Format `jpg` vor.
 
 Unterstützte Kameras:
 
-### URL-Bild Dies ist eine normale URL-Anfrage, bei der sich alle Parameter in der URL befinden. Wie `http://mycam/snapshot.jpg`
+### URL-Bild Dies ist eine normale URL-Anfrage, bei der alle Parameter in der URL stehen. Gefällt mir `http://mycam/snapshot.jpg`
 ### URL-Bild mit Basisauthentifizierung
-Dies ist eine URL-Anforderung für ein Bild, bei der alle Parameter in der URL enthalten sind. Sie können jedoch die Anmeldeinformationen für die Basisauthentifizierung angeben. Wie `http://mycam/snapshot.jpg`
+Dies ist eine URL-Anforderung für ein Bild, bei der alle Parameter in der URL enthalten sind, Sie jedoch die Anmeldeinformationen für die Standardauthentifizierung bereitstellen können. Gefällt mir `http://mycam/snapshot.jpg`
 
-<! - Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __WORK IN PROGRESS__ ->
+### __ARBEITEN IN PROGRESS__ -->
 
 ## Changelog
+### 0.1.4 (2021-07-13)
+* (bluefox) Add role for states
+
 ### 0.1.3 (2020-08-08)
 * (Hirsch-DE) Parameters were applied
 
@@ -61,7 +64,7 @@ Dies ist eine URL-Anforderung für ein Bild, bei der alle Parameter in der URL e
 ## License
 MIT License
 
-Copyright (c) 2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2020-2021 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

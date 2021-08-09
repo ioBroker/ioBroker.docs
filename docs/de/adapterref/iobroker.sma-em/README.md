@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sma-em/README.md
 title: ioBroker.sma-em
-hash: 7NwCP3kKDqTEiFrkjO1XCWvLGkZFIT7V5xbCYadAA2Q=
+hash: sHkyL4gjIdsp0it4l9mTtPAqsVo9KKLkpK19bf/DJ+Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.sma-em/admin/sma-em.png)
 
@@ -13,60 +13,69 @@ hash: 7NwCP3kKDqTEiFrkjO1XCWvLGkZFIT7V5xbCYadAA2Q=
 ![Tests](https://travis-ci.org/CTJaeger/ioBroker.sma-em.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.sma-em.png?downloads=true)
 
-# IoBroker.sma-em
+#ioBroker.sma-em
 ### Die Info
-Dieser Adapter liest Informationen von SMA Energy Meter und Sunny Home Manager 2.
-Es unterstützt das SMA-EMETER-Protokoll-2.
-SMA Energy Meter und Sunny Home Manager 2 Multicast-Datagramme mit ihren Energiemessdaten werden jede Sekunde an das Netzwerk gesendet.
-Der SMA Energy Meter Adapter empfängt diese Multicast-Nachrichten und speichert sie als iobroker-Status.
+Dieser Adapter liest Informationen von SMA Energy Meter (EMETER-20) und Sunny Home Manager 2 (HM-20).
+Es unterstützt das SMA-EMETER-Protokoll-2. Damit funktionieren auch kompatible Energiezähler anderer Hersteller.
+
+SMA Energy Meter und Sunny Home Manager 2 Multicast-Datagramme mit ihren Energiemessdaten im Sekundentakt ins Netz.
+Der SMA Energy Meter Adapter empfängt diese Multicast-Nachrichten und speichert sie als iobroker-States.
+Eine einzige Instanz des SMA Energy Meter Adapters erkennt alle SMA Energy Meter und Sunny Home Manager in allen angeschlossenen Netzwerken.
 
 ![Zustände](../../../en/adapterref/iobroker.sma-em/docs/en/img/overview.png)
 
-### Zustände im nicht erweiterten Modus
-- Momentanwerte des gesamten Wirkleistungsverbrauchs (Pregard) und der Wirkleistungseinspeisung (Psurplus)
-- Energiezählerwerte des gesamten Wirkleistungsverbrauchs (Pregardcounter) und der Wirkleistungseinspeisung (Psurpluscounter)
-- SMA Time Tick Zähler, Zeitstempel der zuletzt empfangenen Nachricht,
+###Zustände im nicht erweiterten Modus
+- Momentanwerte der Gesamtwirkleistungsaufnahme (pregard) und Wirkleistungseinspeisung (Überschuss)
+- Energiezählerwerte der gesamten Wirkleistungsaufnahme (Pregardcounter) und Wirkleistungseinspeisung (Psurpluscounter)
+- SMA Time Tick-Zähler, Zeitstempel der letzten empfangenen Nachricht,
 - Seriennummer, SUSyID, Softwareversion von SMA Energy Meter und Sunny Home Manager
 - Detaillierte Werte für jede der einzelnen Phasen L1 / L2 / L3 (optional):
-  - Momentanwerte des Wirkleistungsverbrauchs (Pregard) und der Wirkleistungseinspeisung (Psurplus) pro Phase
-  - Energiezählerwerte des Wirkleistungsverbrauchs (Pregardcounter) und der Wirkleistungseinspeisung (Psurpluscounter) pro Phase
+  - Momentanwerte der Wirkleistungsaufnahme (Pregard) und Wirkleistungseinspeisung (Psurplus) pro Phase
+  - Energiezählerwerte von Wirkleistungsaufnahme (Pregardcounter) und Wirkleistungseinspeisung (Psurpluscounter) pro Phase
 
-### Zustände im erweiterten Modus
-Zusätzlich zu den Zuständen im nicht erweiterten Modus stehen im erweiterten Modus die folgenden Werte zur Verfügung
+###Zustände im erweiterten Modus
+Zusätzlich zu den Zuständen im nicht erweiterten Modus stehen im erweiterten Modus folgende Werte zur Verfügung
 
-- Momentanwerte des gesamten Blindleistungsverbrauchs (qRegard) und der Blindleistungseinspeisung (qsurplus)
-- Energiezählerwerte des gesamten Blindleistungsverbrauchs (qRegardcounter) und der Blindleistungseinspeisung (qsurpluscounter)
-- Momentanwerte des gesamten scheinbaren Stromverbrauchs (sregard) und der scheinbaren Stromzufuhr (ssurplus)
-- Energiezählerwerte des gesamten scheinbaren Stromverbrauchs (sregardcounter) und der scheinbaren Stromzufuhr (ssurpluscounter)
-- Phosphi (Leistungsfaktor)
-- Netzfrequenz (nur mit Sunny Home Manager 2 verfügbar, SMA Energy Meter liefert derzeit keine Netzfrequenzwerte)
+- Momentanwerte der gesamten Blindleistungsaufnahme (qregard) und Blindleistungseinspeisung (qsurplus)
+- Energiezählerwerte der gesamten Blindleistungsaufnahme (qregardcounter) und Blindleistungseinspeisung (qsurpluscounter)
+- Momentanwerte der gesamten Scheinleistungsaufnahme (Sregard) und Scheinleistungseinspeisung (Überschuss)
+- Energiezählerwerte der gesamten Scheinleistungsaufnahme (sregardcounter) und der Scheinleistungseinspeisung (ssurpluscounter)
+- cosphi (Leistungsfaktor)
+- Netzfrequenz (nur bei Sunny Home Manager 2 verfügbar, SMA Energy Meter liefert aktuell keine Netzfrequenzwerte)
 - Detailliert für jede der einzelnen Phasen L1 / L2 / L3 (optional):
-  - Momentanwerte des Blind- und Scheinleistungsverbrauchs / Einspeisung pro Phase
-  - Energiezählerwerte des Blind- und Scheinleistungsverbrauchs / Einspeisung pro Phase
+  - Momentanwerte der Blind- und Scheinleistungsaufnahme/Einspeisung pro Phase
+  - Energiezählerwerte der Blind- und Scheinleistungsaufnahme/Einspeisung pro Phase
   - Spannung und Stromstärke pro Phase
 
 ### Einstellmöglichkeiten
 ![die Einstellungen](../../../en/adapterref/iobroker.sma-em/docs/en/img/adminpage.png)
 
 - Multicast-IP: Die Standardeinstellung ist 239.12.255.254.
-- Multicast-Port: Die Standardeinstellung für den UDP-Port ist 9522.
+- Multicast Port: Die Standardeinstellung für den UDP-Port ist 9522.
 
-  (Beide sollten nicht geändert werden, da SMA-Geräte immer diese IP-Adresse und diesen Port verwenden.)
+  (Beide sollten nicht geändert werden, da SMA Geräte immer diese IP-Adresse und diesen Port verwenden)
 
-- Details L1 - L3: Mit diesen Auswahloptionen können Details zu jeder Phase angezeigt werden.
-- Erweiterter Modus: Bietet detailliertere Informationen wie Blindleistung, Scheinleistung, Phosphi, Netzfrequenz, Spannung und Stromstärke
+- Details L1 - L3: Mit diesen Auswahlmöglichkeiten können Details zu jeder Phase angezeigt werden.
+- Erweiterter Modus: Bietet detailliertere Informationen wie Blindleistung, Scheinleistung, Cosphi, Netzfrequenz, Spannung, Stromstärke
 
-  (Konfigurieren Sie die Details L1-L3 und den erweiterten Modus nicht gleichzeitig, da dies das ioBroker-System stark belastet.)
+  (Konfigurieren Sie Details L1-L3 und Extended Mode nicht gleichzeitig, da dies das ioBroker-System stark belastet)
 
-<! - Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __WORK IN PROGRESS__ ->
+### __ARBEITEN IN PROGRESS__ -->
 ## Rechtliche Hinweise
-SMA und Sunny Home Manager sind eingetragene Marken der SMA Solar Technology AG <https://www.sma.de/en.html>
+SMA und Sunny Home Manager sind eingetragene Marken der SMA Solar Technology AG <https://www.sma.de/de.html>
 
 Alle anderen Marken sind Eigentum ihrer jeweiligen Inhaber.
 
+Die Autoren sind in keiner Weise von der SMA Solar Technology AG oder verbundenen Tochtergesellschaften, Logos oder Marken unterstützt oder verbunden.
+
 ## Changelog
+### 0.6.4 (2021-04-14)
+* (TGuybrush) Bug fixes
+  * Prevent warnings regarding non-existent objects upon adapter instance creation and start-up under js-controller 3.2.x
+  * Improved check of SMA Energy Meter multicast messages to prevent ghost devices and warnings regarding unknown OBIS values.
+
 ### 0.6.3 (2021-03-04)
 * (TGuybrush) The adapter binds now to all external IPv4 addresses.
 

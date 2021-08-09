@@ -8,8 +8,12 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.countdown.svg)](https://www.npmjs.com/package/iobroker.countdown) 
 ![Number of Installations](http://iobroker.live/badges/countdown-installed.svg) 
 ![Number of Installations](http://iobroker.live/badges/countdown-stable.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/countdown/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 [![NPM](https://nodei.co/npm/iobroker.countdown.png?downloads=true)](https://nodei.co/npm/iobroker.countdown.png?downloads=true/)
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 
 Countdown Adapter for ioBroker
 ------------------------------------------------------------------------------
@@ -76,6 +80,27 @@ Parameters here are:
 
 ## Changelog
 
+## 1.2.5 (2021-06-16) 
+* (jack-blackson) Bugfix to delete countdown with sendto
+
+## 1.2.4 (2021-06-09) 
+* (jack-blackson) Small bugfixes, translations
+
+## 1.2.3 (2021-05-27) 
+* (jack-blackson) Small bugfixes, translations
+
+## 1.2.2 (2021-05-25) 
+* (jack-blackson) Small bugfixes, added weblate for translations
+
+## 1.2.1 (2021-05-09) 
+* (jack-blackson) Small Bugfixes
+
+## 1.2.0 (2021-05-09) 
+* (jack-blackson) Updated packages, added Sentry
+* (jack-blackson) Fixes for JS-controller 3.3
+* (jack-blackson) Fix that countdowns are created immediatly
+
+
 ## 1.1.0 (2020-04-02) 
 * (jack-blackson) bugfix Read-Me link
 * (jack-blackson) bugfix repeatCycle
@@ -137,7 +162,7 @@ Parameters here are:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2020 jack-blackson <blacksonj7@gmail.com>
+Copyright (c) 2019-2021 jack-blackson <blacksonj7@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

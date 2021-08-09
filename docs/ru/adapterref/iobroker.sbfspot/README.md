@@ -3,40 +3,42 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sbfspot/README.md
 title: ioBroker.sbfspot
-hash: Ky9zdbU5WI/dZsBo0e469I5mZiA68K9OX0CRy77/Vw0=
+hash: AmUOKGNs+9jMar8oo7NBMt5/OVdBe1LIQxXvFOe4zOs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sbfspot/admin/sbfspot.png)
 
 ![Количество установок](http://iobroker.live/badges/sbfspot-stable.svg)
-![Версия NPM](https://img.shields.io/npm/v/iobroker.sbfspot.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sbfspot.svg)
-![Тесты](https://travis-ci.org/rg-engineering/ioBroker.sbfspot.svg?branch=master)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.sbfspot.svg)
+![Известные уязвимости](https://snyk.io/test/github/rg-engineering/ioBroker.sbfspot/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.sbfspot.png?downloads=true)
 
 # IoBroker.sbfspot
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация по Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+![Действия GitHub](https://github.com/rg-engineering/ioBroker.sbfspot/workflows/Test%20and%20Release/badge.svg)
+
+** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
 ** Если вам это нравится, рассмотрите возможность пожертвования: **
 
 [![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
 
-Этот адаптер считывает данные с преобразователей мощности SMA с помощью sbfspot.
+Этот адаптер считывает данные с инверторов питания SMA с помощью sbfspot.
 Теперь поддерживаются оба типа баз данных (mySQL и sqlite).
 Начиная с версии 0.2.3 существует собственный виджет vis, основанный на flot, доступный для отображения исторических данных.
 
-## Установка
+## Монтаж
 следуйте инструкциям по установке sbfspot на странице https://github.com/SBFspot/SBFspot/wiki
 
-[детальная установка на системы на базе arm](docs/en/install_arm.md)
+[детальная установка на системы на базе кронштейна](docs/en/install_arm.md)
 
 ## Подсказки
 * используйте последнюю версию от sbfspot с https://github.com/SBFspot/SBFspot
 * адаптер, sbfspot и базы данных (mySQL или sqlite) должны работать в одной системе, например. Raspberry Pi
-* руководство по установке sbfspot на Raspberry Pi (или аналогичном) можно найти по адресу https://github.com/SBFspot/SBFspot/wiki/Installation-Linux-SQLite или https://www.rg-engineering.eu/index. php / produkte / программное обеспечение / плагин-fuer-iobroker-sbfspot
+* руководство по установке sbfspot на Raspberry Pi (или аналогичном) можно найти по адресу https://github.com/SBFspot/SBFspot/wiki/Installation-Linux-SQLite или https://www.rg-engineering.eu/index. PHP / продукт / программное обеспечение / плагин-fuer-iobroker-sbfspot
 * для Raspberry Pi существует полуавтоматический инструмент настройки, доступный по адресу https://github.com/SBFspot/sbfspot-config
 
-## Известные вопросы
-* иногда установка пакета npm sqlite3 не выполняется.
+## Известные проблемы
+* иногда не удается установить пакет npm sqlite3.
 
 в этом случае переустановите все пакеты npm
 
@@ -63,10 +65,10 @@ hash: Ky9zdbU5WI/dZsBo0e469I5mZiA68K9OX0CRy77/Vw0=
 * (René) пакет sqlite3 заменен на better-sqlite3
 * (Рене) роли DP перегружены
 * (Рене) см. Проблему №19: получать данные только при добавлении дневного света в качестве опции
-* (Рене) см. Проблему # 29: изменен цвет по умолчанию для метки оси виджета
+* (Рене) см. Проблему # 29: изменен цвет по умолчанию для метки оси виджета.
 * (Рене) виджет: добавлен журнал, если виджет слишком мал
 
-## 2.4.3 (02.04.2020)
+## 2.4.3 (2020-04-02)
 * (René) исправление ошибки в DB_CalcHistory_Today, используемой для виджета
 
 ## 2.4.2 (01.02.2020)
@@ -89,7 +91,7 @@ hash: Ky9zdbU5WI/dZsBo0e469I5mZiA68K9OX0CRy77/Vw0=
 * (Рене) добавить дополнительную информацию об ошибке в журнал
 
 ### 2.2.5 (26.11.2018)
-* (Рене) пакеты обновления
+* (Рене) пакеты обновлений
 
 ### 2.2.5 (04.11.2018)
 * (Рене) сбрасывает доход, если с сегодняшнего дня нет нового значения
@@ -108,7 +110,7 @@ hash: Ky9zdbU5WI/dZsBo0e469I5mZiA68K9OX0CRy77/Vw0=
 
 ### 2.2.0
 * (Nis) цвет фона и границы
-* (René) исправления ошибок в admin3
+* (Рене) исправления ошибок в admin3
 
 ### 2.1.0
 * (Рене) Поддержка MariaDB
@@ -122,7 +124,7 @@ hash: Ky9zdbU5WI/dZsBo0e469I5mZiA68K9OX0CRy77/Vw0=
 Внимание: виджет несовместим с версией 1.x.x; просто проверьте настройки в виджете после установки!
 
 ### 1.1.0
-* (René) автомасштаб по оси y
+* (René) автомасштабирование оси y
 * (René) цвет для оси y
 * (René) регулируемый формат даты
 
@@ -161,9 +163,12 @@ hash: Ky9zdbU5WI/dZsBo0e469I5mZiA68K9OX0CRy77/Vw0=
 * (Рене) первый выпуск
 
 ### 0.0.1
-* (Рене) первый выпуск
+* (Рене) первоначальный выпуск
 
 ## Changelog
+
+### 4.0.5 (2021-03-21)
+* (René) dependencies updated
 
 ## License
 Copyright (C) <2017-2021>  <info@rg-engineering.eu>

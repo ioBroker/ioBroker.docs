@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.milight-smart-light/README.md
 title: ioBroker.milight-smart-light
-hash: cWv7WlDzwUw8WHGt7KPNdnmutK4CenySEwXQgJItWjc=
+hash: 5pIHYWxLRBx9JzitGECa91GS6s7APvK2vcMJLXLqx1Y=
 ---
 ![milight-smart-light Logo](../../../en/adapterref/iobroker.milight-smart-light/admin/milight-smart-light.png)
 
@@ -39,14 +39,16 @@ Mit dem Adapter können Sie beide verwenden: **v6 Bridge** und **Legacy Bridge**
 
 **Beschreibung**
 
-Eine ausführliche Beschreibung finden Sie in [hier](https://steiger04.github.io/milight-smart-light-doku/).
+Eine ausführliche Beschreibung finden Sie in [Hier](https://steiger04.github.io/milight-smart-light-doku/).
 
 ### Versionen
 - **Node.js** Verwenden Sie Version 10.18.1 oder höher
 - **iobroker.admin** Verwenden Sie Version 3.5.10 oder höher
 
 ## Changelog
-### 1.1.1 (2020-01-13)
+### 1.2.1 (2020-05-18)
+- (steiger04) Compatibility with socketio v3.1.4
+### 1.2.0 (2020-01-16)
 - (steiger04) compact mode added
 ### 1.0.5 (2020-01-10)
 - (steiger04) Small bug fix

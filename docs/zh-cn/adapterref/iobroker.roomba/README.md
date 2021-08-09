@@ -3,251 +3,252 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.roomba/README.md
 title: ioBroker.roomba
-hash: PloH4aMgi5KrKN3YSTHxs1DcmVcx7d6tkETE/7jJ/Kg=
+hash: aTbrR6flAU9zIqlLYe+UDfALfaeI/rLZi8tOPuCxpmc=
 ---
 ![商标](../../../en/adapterref/iobroker.roomba/admin/roomba.png)
 
 ![安装数量](http://iobroker.live/badges/roomba-installed.svg)
 ![稳定版](http://iobroker.live/badges/roomba-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.roomba.svg)
-![自上次发布以来提交](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.roomba/latest.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.roomba.svg)
-![NPM](https://nodei.co/npm/iobroker.roomba.png?downloads=true)
+![新版本](http://img.shields.io/npm/v/iobroker.roomba.svg)
+![自上次发布以来的提交](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.roomba/latest.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.roomba.svg)
+![新产品管理](https://nodei.co/npm/iobroker.roomba.png?downloads=true)
 
-＃ioBroker.roomba将您的iRobot Roomba连接到ioBroker。
-基于dorita980库https://github.com/koalazak/dorita980#readme
+# IoBroker.roomba 将您的 iRobot Roomba 连接到 ioBroker。
+基于 dorita980 库 https://github.com/koalazak/dorita980#readme
 
-[![Travis CI]（https://travis-ci.com/iobroker-community-adapters/ioBroker.roomba.svg?branch=master）](https://travis-ci.com/iobroker-community-adapters/ioBroker.roomba)
+[![Travis CI](https://travis-ci.com/iobroker-community-adapters/ioBroker.roomba.svg?branch=master)](https://travis-ci.com/iobroker-community-adapters/ioBroker.roomba)
 
 **目录**
 
-1. [功能]（＃features）
-2. [安装]（＃installation）
-3. [设置说明]（＃setup-instructions）
-4. [支持的Roomba /固件版本]（＃supported-roombas--firmware-versions）
-5. [通道和状态]（＃channels--states）
-6. [首选项描述（不完整）]（＃description-of-preferences-incomplete）
-7. [使用ioBroker.javascript进行智能家居/ Alexa集成]（＃smart-home--alexa-integration-using-iobrokerjavascript）
-8. [Changelog]（＃changelog）
-9. [学分]（＃credits）
-10. [许可证]（＃license）
+1. [功能](#features)
+2. [安装](#installation)
+3.【设置说明】(#setup-instructions)
+4. [支持的 Roomba 的/固件版本](#supported-roombas--firmware-versions)
+5. [频道和状态](#channels--states)
+6. [偏好说明（不完整）](#description-of-preferences-incomplete)
+7. [使用ioBroker.javascript的智能家居/Alexa集成](#smart-home--alexa-integration-using-iobrokerjavascript)
+8. [更新日志](#changelog)
+9. [学分](#credits)
+10. [许可证](#license)
 
 ＃＃ 特征
-此适配器随附以下功能：
+此适配器具有以下功能：
 
--__发送命令__（“开始”，“停止”，“继续”，“暂停”，“停靠”）到您的Roomba
--检索__设备状态__，例如电池，对接的电池，已满/已插入的垃圾箱（有关完整列表，请参见[通道和状态]（＃channels--状态））
--检索__device configuration__，例如首选项，网络或时间表设置（有关完整列表，请参见[Channels and States]（＃channels--states））
--检索__device的统计信息__，例如总任务数，扩展坞的工作时间等。（有关完整列表，请参见[Channels and States]（＃channels--states））
--检索有关__当前任务__的信息（清理Roomba时），例如开始和结束时间，总运行时间，清理的平方米等。（仅在支持的Roomba上，请参阅[支持的Roomba /固件版本]（＃supported-roombas --firmware-versions））
--__根据任务数据绘制地图__（仅在受支持的Roomba上）
--__Web Interface__，显示当前任务以及先前/已存档任务的状态和地图：
+- __发送命令__（`start`、`stop`、`resume`、`pause`、`dock`）到您的Roomba
+- 检索__设备状态__，例如电池、停靠、已满/插入的垃圾箱（请参阅[频道和状态](#channels--states) 以获取完整列表）
+- 检索__设备配置__，例如首选项、网络或时间表设置（完整列表请参见[频道和状态](#channels--states)）
+- 检索__设备统计信息__，例如总任务数、停靠站上的小时数等（完整列表请参见[频道和状态](#channels--states)）
+- 检索有关__当前任务__的信息（当您的 Roomba 正在清扫时），例如开始和结束时间、总运行时间、已清扫的平方米等（仅在支持的 Roomba 上，请参阅[支持的 Roomba/固件版本](#supported-roombas --firmware-versions))
+- __根据收到的任务数据绘制地图__（仅在受支持的 Roomba 上）
+- __Web 界面__，显示当前和以前/存档任务的状态和地图：
 
-  ![Roomba介面](../../../en/adapterref/iobroker.roomba/img/roomba.interface.png)
+  ![Roomba 接口](../../../en/adapterref/iobroker.roomba/img/roomba.interface.png)
 
-##安装
-ioBroker.roomba需要[帆布](https://www.npmjs.com/package/canvas)才能绘制Roomba任务的地图。 ioBroker将尝试通过ioBroker.roomba安装来安装此依赖项。
+＃＃ 安装
+ioBroker.roomba 需要 [帆布](https://www.npmjs.com/package/canvas) 才能绘制 Roomba 任务的地图。 ioBroker 将尝试通过 ioBroker.roomba 安装来安装此依赖项。
 
-不过，您可能必须使用以下命令安装canvas的软件包依赖项（以及canvas本身）：
+不过，您可能必须使用以下命令安装画布（和画布本身）的软件包依赖项：
 
 ### Linux
 ```
 sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 ```
 
-此外，在ioBroker.roomba目录__（`/opt/iobroker/node_modules/iobroker.roomba`）中运行以下命令__：
+此外，在 ioBroker.roomba 目录中运行以下命令 __ (`/opt/iobroker/node_modules/iobroker.roomba`)：
 
 ```
 sudo npm install canvas --unsafe-perm=true
 ```
 
-### Windows
-1.确保您通过安装了“ node-gyp”
+### 窗户
+1. 确保您通过以下方式安装了`node-gyp`
 
 ```
 npm install -g node-gyp
 ```
 
-2.确保已通过安装了构建基础
+2. 确保您已经通过以下方式安装了 build Essentials
 
 ```
 npm install --global --production windows-build-tools
 ```
 
-3.下载GTK 2（用于[Win32]（http://ftp.gnome.org/pub/GNOME/binaries/win32/gtk+/2.24/gtk+-bundle_2.24.10-20120208_win32.zip）或[Win64]（http： //ftp.gnome.org/pub/GNOME/binaries/win64/gtk+/2.22/gtk+-bundle_2.22.1-20101229_win64.zip））并将其解压缩（例如，解压缩到“ C：\ path \ to \ GTK2”）
+3. 下载 GTK 2 (for [Win32](http://ftp.gnome.org/pub/GNOME/binaries/win32/gtk+/2.24/gtk+-bundle_2.24.10-20120208_win32.zip) 或 [Win64](http://ftp.gnome.org/pub/GNOME/binaries/win64/gtk+/2.22/gtk+-bundle_2.22.1-20101229_win64.zip)）并解压（例如到`C:\path\to\GTK2`）
 4.运行
 
 ```
 node-gyp rebuild --GTK_Root=C:\path\to\GTK2
 ```
 
-5.从iobroker.roomba文件夹中安装画布
+5. 从 iobroker.roomba 文件夹中安装画布
 
 ```
 cd C:\path\to\iobroker\node_modules\iobroker.roomba
 npm install canvas
 ```
 
-有关详细信息，请参见https://github.com/Automattic/node-canvas/wiki/Installation:-Windows。
+有关详细信息，请参阅 https://github.com/Automattic/node-canvas/wiki/Installation:-Windows。
 
-##安装说明
-###自动设置
-按照ioBroker.roomba管理面板中的说明自动设置ioBroker.roomba。
+##设置说明
+### 自动设置
+按照 ioBroker.roomba 管理面板中的说明自动设置 ioBroker.roomba。
 
-**注意**：身份验证凭据与您在智能手机应用中使用的身份凭据不同！
+**注意**：身份验证凭据与您在智能手机应用程序中使用的身份验证凭据不同！
 
-1.确保ioBroker.roomba适配器已启动。
-2.确保您的机器人在Home Base上并且已打开电源（绿灯亮）。
-3.然后，按住机器人上的HOME按钮，直到发出一系列音调（约2秒）。
-4.释放按钮，您的机器人将闪烁WIFI灯。
-5.然后回到此处，按按钮以检索IP和凭据。
+1. 确保 ioBroker.roomba 适配器已启动。
+2. 确保您的机器人位于 Home Base 充电座上并已通电（绿灯亮起）。
+3. 然后按住机器人上的 HOME 按钮，直到它播放一系列音调（约 2 秒）。
+4. 松开按钮，您的机器人将闪烁 WIFI 灯。
+5.然后回到这里按按钮检索IP和凭据。
 
 如果自动过程无法检索您的凭据，请使用手动设置。
 
 ###手动设置
-有关手动设置的信息，请参见https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password。
+有关手动设置，请参阅 https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password。
 
-##支持的Roomba /固件版本
-###支持的固件版本
-|软件版本|固件信息|支持|
+## 支持的 Roomba 的/固件版本
+### 支持的固件版本
+|软件版本 |固件信息 |支持 |
 | ---------------- | ------------- | --------- |
-| v1.4 | [发行说明](https://homesupport.irobot.com/app/answers/detail/a_id/19549#rn_PageTitle)| ![＃c5f015]（https://placehold.it/15/c5f015/000000?text=+）**受支持（！[＃c5f015](https://placehold.it/15/c5f015/000000?text=+)含地图）** |
-| v3.2.xx | [发行说明](https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle)| ![＃c5f015]（https://placehold.it/15/c5f015/000000?text=+）**支持**（！[＃f03c15](https://placehold.it/15/f03c15/000000?text=+)NO地图）|
-| v3.2.xx | [发行说明]（https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle）| ！[＃c5f015]（https://placehold.it/15/c5f015/000000?text=+）**支持**（！[＃f03c15]（https://placehold.it/15/f03c15/000000？ text = +）没有地图）|
+| v1.4 | [发行说明](https://homesupport.irobot.com/app/answers/detail/a_id/19549#rn_PageTitle) | ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) **支持 (![#c5f015](https://placehold.it/15/c5f015/000000?text=+) 包括。地图)** |
+| v3.2.xx | [发行说明](https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle) | ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) **支持** (![#f03c15](https://placehold.it/15/f03c15/000000?text=+) 没有地图）|
+| v3.2.xx | [发布说明](https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle) | ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) **支持** (![#f03c15](https://placehold.it/15/f03c15/000000?文本=+) 没有地图) |
 
-###支持的Roomba
-|意甲型号_（不完整）_ |软件版本|固件信息|支持|
+### 支持的 Roomba
+|意甲 |模型_（不完整）_ |软件版本 |固件信息 |支持 |
 | ----- | --------------------- | ---------------- | ------------- | --------- |
-| Roomba®6xx | 605、606、612、616、671、676、680、696 | v3.2.40 | [发行说明](https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle)| （最有可能）|
-| Roomba®7xx | 774，785，| -| | ![＃f03c15](https://placehold.it/15/f03c15/000000?text=+)_Model不提供Wifi连接，因此不提供支持 |
-| Roomba®8xx | 880、886、891、896 | -| [发行说明](https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle)| （最有可能）|
-| Roomba®8xx | [895]（（https://forum.iobroker.net/post/245274））| v3.2.10 / 40/69 | [发行说明](https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle)| ![＃c5f015]（https://placehold.it/15/c5f015/000000?text=+）**支持**（！[＃f03c15](https://placehold.it/15/f03c15/000000?text=+)NO地图）|
-| Roomba®9xx | 965、981 | -| [发行说明](https://homesupport.irobot.com/app/answers/detail/a_id/529#rn_PageTitle)| （最有可能）|
-| Roomba®9xx | [960]（https://forum.iobroker.net/user/jb_sullivan），[966]（https://forum.iobroker.net/user/thomaslpz），980 | v2.4.6-3 | [发行说明](https://homesupport.irobot.com/app/answers/detail/a_id/529#rn_PageTitle)| ![＃c5f015](https://placehold.it/15/c5f015/000000?text=+)**支持（包括地图）** |
-| Roomba®i | [i7（7150）]（https://forum.iobroker.net/post/240589），i7 +（7550）| v1.4 | [发行说明](https://homesupport.irobot.com/app/answers/detail/a_id/19549#rn_PageTitle)| ![＃c5f015](https://placehold.it/15/c5f015/000000?text=+)**支持（包括地图）** |
-| Roomba®e5 | [e5]（https://forum.iobroker.net/topic/7657/irobot-roomba-adapter/158）| v3.4.42 | [发行说明](https://homesupport.irobot.com/app/answers/detail/a_id/6345#rn_PageTitle)| ![＃c5f015]（https://placehold.it/15/c5f015/000000?text=+）**支持**（！[＃f03c15](https://placehold.it/15/f03c15/000000?text=+)NO地图）|
-| Roomba®s | [S9 +]（https://github.com/Zefau/ioBroker.roomba/issues/34）| v3.2.4 | [发行说明](https://homesupport.irobot.com/app/answers/detail/a_id/26887/kw/s9%2B#rn_PageTitle)| ![＃c5f015](https://placehold.it/15/c5f015/000000?text=+)**支持（包括地图）** |
-| Roomba®s | [S9 +]（https://github.com/Zefau/ioBroker.roomba/issues/34）| v3.2.4 | [发行说明]（https://homesupport.irobot.com/app/answers/detail/a_id/26887/kw/s9%2B#rn_PageTitle）| ！[＃c5f015]（https://placehold.it/15/c5f015/000000?text=+）**受支持（包括地图）** |
+| Roomba® 6xx | 605, 606, 612, 616, 671, 676, 680, 696 | v3.2.40 | [发行说明](https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle) | （最有可能） |
+| Roomba® 6xx | [692](https://github.com/iobroker-community-adapters/ioBroker.roomba/issues/28) | v3.5.62 | [发行说明](https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle) | ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) **支持** (![#f03c15](https://placehold.it/15/f03c15/000000?text=+) 没有地图）|
+| Roomba® 7xx | 774, 785, | - | | ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) _Model 不提供 Wifi 连接，因此不支持_ |
+| Roomba® 8xx | 880, 886, 891, 896 | - | [发行说明](https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle) | （最有可能） |
+| Roomba® 8xx | [895]((https://forum.iobroker.net/post/245274)) | v3.2.10 / 40 / 69 | [发行说明](https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle) | ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) **支持** (![#f03c15](https://placehold.it/15/f03c15/000000?text=+) 没有地图）|
+| Roomba® 9xx | 965, 981 | - | [发行说明](https://homesupport.irobot.com/app/answers/detail/a_id/529#rn_PageTitle) | （最有可能） |
+| Roomba® 9xx | [960](https://forum.iobroker.net/user/jb_sullivan), [966](https://forum.iobroker.net/user/thomaslpz), 980 | v2.4.6-3 | [发行说明](https://homesupport.irobot.com/app/answers/detail/a_id/529#rn_PageTitle) | ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) **支持（包括地图）** |
+| Roomba® i | [i7 (7150)](https://forum.iobroker.net/post/240589), i7+ (7550) | v1.4 | [发行说明](https://homesupport.irobot.com/app/answers/detail/a_id/19549#rn_PageTitle) | ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) **支持（包括地图）** |
+| Roomba® e5 | [e5](https://forum.iobroker.net/topic/7657/irobot-roomba-adapter/158) | v3.4.42 | [发行说明](https://homesupport.irobot.com/app/answers/detail/a_id/6345#rn_PageTitle) | ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) **支持** (![#f03c15](https://placehold.it/15/f03c15/000000?text=+) 没有地图）|
+| Roomba® | [S9+](https://github.com/Zefau/ioBroker.roomba/issues/34) | v3.2.4 | [发行说明](https://homesupport.irobot.com/app/answers/detail/a_id/26887/kw/s9%2B#rn_PageTitle) | ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) **支持（包括地图）** |
+| Roomba® | [S9+](https://github.com/Zefau/ioBroker.roomba/issues/34) | v3.2.4 | [发布说明](https://homesupport.irobot.com/app/answers/detail/a_id/26887/kw/s9%2B#rn_PageTitle) | ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) **支持（包括地图）** |
 
-请就支持的设备向我们提供帮助，无论您的Roomba型号是否支持，请让我[通过问题知道](https://github.com/iobroker-community-adapters/ioBroker.roomba/issues)！
+请帮助我们了解支持的设备，让我[通过问题了解](https://github.com/iobroker-community-adapters/ioBroker.roomba/issues)，是否支持您的 Roomba 型号！
 
-##频道和状态
+## 频道和状态
 成功设置后，将创建以下通道和状态：
 
-|频道|文件夹|州|描述 |
+|频道 |文件夹 |状态 |说明 |
 | ------- | ------ | ----- | ----------- |
-|清洁| -| -|有关清洁过程的命令和信息|
-|清洁|最后-|最后发送给机器人的命令 |
-|清洁|最后命令最后命令发送给机器人 |
-|清洁|最后时间戳|时间戳最后一条命令已发送|
-|清洁|最后日期时间| DateTime最后一个命令已发送|
-|清洁|最后发起人|最后命令的发起者|
-|清洁|最后循环|循环|
-|清洁|最后相相|
-|清洁|最后错误指示上一次任务期间发生错误|
-|清洁|时间表| -|时间表信息|
-|清洁|时间表|循环|时间表周期（周日至周六）|
-|清洁|时间表|小时小时开始循环（星期日至星期六）|
-|清洁|时间表|分钟|分钟开始循环（星期日至星期六）|
-|清洁| -|码头|将机器人发送到扩展坞|
-|清洁| -|暂停|暂停当前的清洁过程|
-|清洁| -|简历|恢复当前的清洁过程|
-|清洁| -|开始开始清洁过程|
-|清洁| -|停止|停止当前的清洁过程|
-|设备| -| -|设备信息|
-|设备|网络-|网络信息|
-|设备|网络dhcp |说明是否激活了DHCP |
-|设备|网络路由器|路由器的Mac地址|
-|设备|网络ip | IP地址 |
-|设备|网络子网|子网地址|
-|设备|网络网关|网关地址|
-|设备|网络dns1 |主DNS地址|
-|设备|网络dns2 |辅助DNS地址|
-|设备|偏好| -|设置首选项|
-|设备|偏好| binPause | **未知** |
-|设备|偏好| carpetBoostAuto |自动：Roomba将自动提高其真空能力，以清洁深层地毯。 |
-|设备|偏好| carpetBoostHigh |性能模式：Roomba始终会提高真空度，以最大程度地清洁所有地板表面。 |
-|设备|偏好| ecoCharge | **未知** |
-|设备|偏好| noAutoPasses |一张通行证：Roomba只需一张清洁通行证即可覆盖所有区域。 |
-|设备|偏好| noPP | **未知** |
-|设备|偏好| openOnly | **未知** |
-|设备|偏好| schedHold | **未知** |
-|设备|偏好| twoPass | Roomba将第二次覆盖所有区域。这在有宠物的家中或偶尔进行深层清洁时可能会有所帮助。 |
-|设备|版本| -|版本信息|
-|设备|版本| hardwareRev |硬件修订|
-|设备|版本|电池类型|电池类型 |
-|设备|版本| soundVer | **未知** |
-|设备|版本| uiSwVer | **未知** |
-|设备|版本| navSwVer | **未知** |
-|设备|版本| wifiSwVer | **未知** |
-|设备|版本| bilityVer | **未知** |
-|设备|版本| bootloaderVer |引导程序版本|
-|设备|版本| umiVer | **未知** |
-|设备|版本|软件版本|软件版本|
-|设备| -| \ _rawData |原始偏好数据为json |
-|设备| -| mac |机器人的Mac地址|
-|设备| -|名称|机器人名称|
-|设备| -|类型机器人类型|
-|州| -| -|状态信息 |
-|州| -| \ _connected |连接状态 |
-|州| -|电池|机器人的电池电量|
-|州| -| binFull |陈述垃圾箱状态是否已满|
-|州| -| binInserted |说明是否已插入垃圾箱|
-|州| -|对接|声明机器人是否对接|
-|州| -|信号|信号强度|
-|州| -|状态|机器人的当前状态|
-|统计-| -|统计信息|
-|统计任务| -|任务统计 |
-|统计任务|失败清洁作业失败的数量 |
-|统计任务|成功成功清洁工作的数量|
-|统计任务|总计清洁工作数量|
-|统计时间| -|时间统计|
-|统计时间| avgMin | **未知** |
-|统计时间| HonDock | **未知** |
-|统计时间| nAvail | **未知** |
-|统计时间| estCap | **未知** |
-|统计时间| nLithChrg | **未知** |
-|统计时间| nNimhChrg | **未知** |
-|统计时间| nDocks | **未知** |
-| -| -| refreshedDateTime |最后更新的日期时间|
-| -| -| refreshedTimestamp |最后更新的时间戳|
+|清洁 | - | - |有关清洁过程的命令和信息 |
+|清洁 |最后 | - |发送给机器人的最后命令 |
+|清洁 |最后 |命令 |发送给机器人的最后一条命令 |
+|清洁 |最后 |时间戳 |时间戳最后一个命令已发送 |
+|清洁 |最后 |日期时间 | DateTime 最后一条命令已发送 |
+|清洁 |最后 |发起人 |最后一条命令的发起者 |
+|清洁 |最后 |循环 |周期 |
+|清洁 |最后 |相|相|
+|清洁 |最后 |错误 |表示上次任务出错 |
+|清洁 |日程安排 | - |日程信息 |
+|清洁 |日程安排 |循环 |排班周期（周日至周六）|
+|清洁 |日程安排 |小时 |小时开始周期（周日至周六）|
+|清洁 |日程安排 |分钟|分钟开始周期（周日至周六）|
+|清洁 | - |码头|将机器人送到扩展坞 |
+|清洁 | - |暂停 |暂停当前的清洁过程 |
+|清洁 | - |简历|恢复当前的清洁过程 |
+|清洁 | - |开始 |开始清洁过程 |
+|清洁 | - |停止 |停止当前的清洁过程 |
+|设备 | - | - |设备信息 |
+|设备 |网络| - |网络信息|
+|设备 |网络| dhcp |说明 DHCP 是否已激活 |
+|设备 |网络|路由器|路由器的Mac地址|
+|设备 |网络| ip | IP地址|
+|设备 |网络|子网|子网地址 |
+|设备 |网络|网关 |网关地址 |
+|设备 |网络| dns1 |主 DNS 地址 |
+|设备 |网络| dns2 |辅助 DNS 地址 |
+|设备 |偏好 | - |设置首选项 |
+|设备 |偏好 | binPause | **未知** |
+|设备 |偏好 |地毯BoostAuto |自动：Roomba 将自动提升其真空功率以深度清洁地毯。 |
+|设备 |偏好 |地毯增压高|性能模式：Roomba 将始终提高其真空度，以最大限度地提高所有地板表面的清洁性能。 |
+|设备 |偏好 |生态充电 | **未知** |
+|设备 |偏好 | noAutoPasses |一次通行证：Roomba 将通过一次清洁通行证覆盖所有区域。 |
+|设备 |偏好 |没有PP | **未知** |
+|设备 |偏好 |仅开放 | **未知** |
+|设备 |偏好 |计划持有 | **未知** |
+|设备 |偏好 |二通| Roomba 将再次覆盖所有区域。这可能有助于养宠物的家庭或偶尔进行深度清洁。 |
+|设备 |版本| - |版本信息 |
+|设备 |版本|硬件评论 |硬件修订 |
+|设备 |版本|电池类型 |电池类型 |
+|设备 |版本| soundVer | **未知** |
+|设备 |版本| uiSwVer | **未知** |
+|设备 |版本| navSwVer | **未知** |
+|设备 |版本| wifiSwVer | **未知** |
+|设备 |版本|流动性Ver | **未知** |
+|设备 |版本|引导程序版本 |引导加载程序版本 |
+|设备 |版本| umiVer | **未知** |
+|设备 |版本|软件版本 |软件版本 |
+|设备 | - | \_rawData |原始首选项数据为 json |
+|设备 | - |麦克 |机器人的mac地址|
+|设备 | - |姓名 |机器人名称 |
+|设备 | - |类型 |机器人类型|
+|状态| - | - |状态信息 |
+|状态| - | \_连接|连接状态 |
+|状态| - |电池 |机器人的电池电量|
+|状态| - | binFull |说明 bin 状态是否已满 |
+|状态| - | binInserted |状态是否插入bin |
+|状态| - |停靠|状态机器人是否停靠|
+|状态| - |信号|信号强度 |
+|状态| - |状态 |机器人的现状|
+|统计| - | - |统计信息 |
+|统计|使命 | - |任务统计|
+|统计|使命 |失败 |失败的清洁作业数 |
+|统计|使命 |成功|成功的清洁工作数量|
+|统计|使命 |总计 |清洁工作数量 |
+|统计|时间 | - |时间统计 |
+|统计|时间 |平均最小值 | **未知** |
+|统计|时间 |码头 | **未知** |
+|统计|时间 | nAvail | **未知** |
+|统计|时间 | estCap | **未知** |
+|统计|时间 | nLithChrg | **未知** |
+|统计|时间 | nNimhChrg | **未知** |
+|统计|时间 | nDocks | **未知** |
+| - | - |刷新日期时间 |上次更新的日期时间 |
+| - | - |刷新时间戳 |上次更新的时间戳 |
 
-##首选项说明_（不完整）_
-调用```getPreferences()```时，将收到以下有效负载（请参阅https://github.com/koalazak/dorita980#getpreferences）：
+## 偏好描述_(不完整)_
+调用 ```getPreferences()``` 时将收到以下有效载荷（参见 https://github.com/koalazak/dorita980#getpreferences）：
 
-|对象索引|类型描述ioBroker州|
+|对象 |索引 |类型 |说明 | ioBroker 状态 |
 | ------ | ----- | ---- | ----------- | -------------- |
-|网信| -|对象Roomba连接的网络信息| -|
-|网信| .dhcp |布尔|说明是否激活了DHCP | device.network.dhcp |
-|网信| .addr | ip | IP地址device.network.ip |
-|网信| .mask | ip |子网地址| device.network.subnet |
-|网信| .gw | ip |网关地址| device.network.gateway |
-|网信| .dns1 | ip |主DNS地址| device.network.dns1 |
-|网信| .dns2 | ip |辅助DNS地址| device.network.dns2 |
-|网信| .bssid | mac |路由器的Mac地址| device.network.router |
-|网信| .sec |整数|未知_（未映射）_ |
-| wifistat | -|对象未知-|
-| wifistat | .wifi |整数|未知_（未映射）_ |
-| wifistat | .uap |布尔|未知_（未映射）_ |
-| wifistat | .cloud |整数|未知_（未映射）_ |
-| wlcfg | -|对象未知-|
-| wlcfg | .sec |整数|未知_（未映射）_ |
-| wlcfg | .ssid |字符串未知_（未映射）_ |
-| mac | -| mac | Roomba的Mac地址| -|
-|国家| -|字符串未知-|
-| cloudEnv | -|字符串未知-|
-| svc端点| .svcDeplId |字符串未知-|
-| mapUploadAllowed | -|布尔|未知-|
-| localtimeoffset | -|整数|未知-|
+|网讯 | - |对象 | Roomba 连接的网络信息 | - |
+|网讯 | .dhcp |布尔值 |说明 DHCP 是否已激活 | device.network.dhcp |
+|网讯 | .addr | ip | IP地址| device.network.ip |
+|网讯 | .mask | ip |子网地址 |设备.网络.子网|
+|网讯 | .gw | ip |网关地址 | device.network.gateway |
+|网讯 | .dns1 | ip |主 DNS 地址 | device.network.dns1 |
+|网讯 | .dns2 | ip |辅助 DNS 地址 | device.network.dns2 |
+|网讯 | .bssid |麦克 |路由器的Mac地址| device.network.router |
+|网讯 | .sec |整数 |未知 | _（未映射）_ |
+| wifistat | - |对象 |未知 | - |
+| wifistat | .wifi |整数 |未知 | _（未映射）_ |
+| wifistat | .uap |布尔值 |未知 | _（未映射）_ |
+| wifistat | .cloud |整数 |未知 | _（未映射）_ |
+| wlcfg | - |对象 |未知 | - |
+| wlcfg | .sec |整数 |未知 | _（未映射）_ |
+| wlcfg | .ssid |字符串 |未知 | _（未映射）_ |
+|麦克 | - |麦克 | Roomba的Mac地址| - |
+|国家 | - |字符串 |未知 | - |
+|云环境 | - |字符串 |未知 | - |
+| svc端点| .svcDeplId |字符串 |未知 | - |
+|地图上传允许 | - |布尔值 |未知 | - |
+|本地时间偏移| - |整数 |未知 | - |
 | ... | - | ... | ... | - |
 
-请帮助我们说明首选项。如果您知道表中表述为未知的首选项的含义，请让我[通过问题了解其含义](https://github.com/iobroker-community-adapters/ioBroker.roomba/issues)！
+请帮助我们了解偏好的描述。如果你知道表中未知的偏好的含义，让我[通过问题了解它们的含义](https://github.com/iobroker-community-adapters/ioBroker.roomba/issues)!
 
-##使用ioBroker.javascript的Smart Home / Alexa集成
-###任务完成后通过电报发送地图
-这需要安装ioBroker适配器ioBroker.telegram（https://github.com/ioBroker/ioBroker.telegram）。
+## 使用 ioBroker.javascript 的智能家居/Alexa 集成
+### 任务完成后通过电报发送地图
+这需要安装 ioBroker 适配器 ioBroker.telegram (https://github.com/ioBroker/ioBroker.telegram)。
 
-在ioBroker.javascript的“ common”文件夹中创建一个脚本，并向其中添加以下侦听器：
+在 ioBroker.javascript 的“common”文件夹中创建一个脚本，并在其中添加以下侦听器：
 
 ```javascript
 var _fs = require('fs');
@@ -303,18 +304,22 @@ on({id: ns + '.missions.current.ended', change: 'any'}, function(obj)
 });
 ```
 
-_2019-05-04修复了无法发送地图的错误_
+_2019-05-04 修复了阻止发送地图的错误_
 
-您可以将变量```message```修改为要与地图一起接收的任何通知。您可以使用```%name-of-state%```检索ioBroker.roomba对象树中的状态值。
+您可以将变量 ```message``` 编辑为您希望随地图接收的任何通知。您可以使用 ```%name-of-state%``` 来检索 ioBroker.roomba 对象树中的状态值。
 
-##积分
+##学分
 ###非官方API
-感谢[@@ koalazak]（https://github.com/koalazak）用于[非官方iRobot Roomba 980 node.js库（SDK）](https://github.com/koalazak/dorita980#readme)。
+感谢 [@koalazak](https://github.com/koalazak) 用于 [非官方 iRobot Roomba 980 node.js 库 (SDK)](https://github.com/koalazak/dorita980#readme)。
 
-###图标
-<a href="https://www.flaticon.com/authors/iconnice" title="圣像">Iconnice</a>从<a href="https://www.flaticon.com/" title="平面图标">www.flaticon.com</a>制作的图标<a href="https://www.flaticon.com/authors/iconnice" title="圣像">已获</a> <a href="http://creativecommons.org/licenses/by/3.0/" title="知识共享3.0" target="_blank">CC 3.0 BY</a>许可</div>
+### 图标
+<a href="https://www.flaticon.com/authors/iconnice" title="图标">Iconnice</a>从<a href="https://www.flaticon.com/" title="平面图标">www.flaticon.com</a>制作的图标已获得<a href="http://creativecommons.org/licenses/by/3.0/" title="知识共享 3.0" target="_blank">CC 3.0 BY 许可</a></div>
 
 ## Changelog
+
+### ___WORK IN PROGRESS__
+* (Apollon77) Adjust some types to prevent js-controller 3.3 warnings
+* (thost96) fix hanging state loading in frontend
 
 ### 1.1.1 (2020-02-16)
 - (Zefau) moved development to Community Repository

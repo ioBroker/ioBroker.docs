@@ -3,13 +3,14 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tesla-motors/README.md
 title: ioBroker.tesla-motors
-hash: exSkZOo4rWuvSAZ3ldy3L4RuQ0nnHcTQRqgG2X6mVj8=
+hash: fJvJopDFz/Lh+FeqwDQjVQeMycDUPM47VLWM0B3MTSk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tesla-motors/admin/tesla-motors.png)
 
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.tesla-motors.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.tesla-motors.svg)
-![установлен](http://iobroker.live/badges/tesla-motors-installed.svg)
+![Стабильный](http://iobroker.live/badges/tesla-motors-stable.svg)
+![установлены](http://iobroker.live/badges/tesla-motors-installed.svg)
 ![Статус зависимости](https://img.shields.io/david/dbweb-ch/iobroker.tesla-motors.svg)
 ![Известные уязвимости](https://snyk.io/test/github/dbweb-ch/ioBroker.tesla-motors/badge.svg)
 ![Статус сборки](http://img.shields.io/travis/dbweb-ch/ioBroker.tesla-motors.svg)
@@ -27,42 +28,58 @@ hash: exSkZOo4rWuvSAZ3ldy3L4RuQ0nnHcTQRqgG2X6mVj8=
 4. Выберите свой автомобиль в раскрывающемся списке.
 
 ###<a name="refreshRate"></a> Частота обновления
-Чтобы сэкономить заряд батареи, автомобиль переходит в спящий режим после определенного времени бездействия.<br /> Получить информацию из машины можно только когда машина не спит.<br /> Пользователи сообщили, что автомобиль может потреблять до 10 км диапазона в день, если он не переходит в спящий режим.<br /> Чтобы этого не произошло, вы можете выбрать желаемую частоту обновления:
+Чтобы сэкономить заряд батареи, автомобиль переходит в спящий режим после определенного времени бездействия.<br /> Получить информацию из машины можно только тогда, когда машина не спит.<br /> Пользователи сообщили, что автомобиль может потреблять до 10 км пробега в день, если он не переходит в спящий режим.<br /> Чтобы этого не произошло, вы можете выбрать желаемую частоту обновления:
 
 * **Выкл.** - Адаптер самостоятельно не будит машину. Он будит машину только по запросу (если вы установите состояние).
 
-<br />Если автомобиль проснулся сам по себе, адаптер запросит данные об автомобиле один раз.
+<br />Если машина проснулась сама по себе, адаптер запросит данные об автомобиле один раз.
 
 * **Умеренный** - Адаптер будит машину один раз в час, чтобы узнать его состояние.
-* **Агрессивный** - Адаптер будит машину раз в минуту.
+* **Агрессивный** - адаптер будит машину раз в минуту.
 * **Умный** - Адаптер пытается быть умным. Он будет наблюдать за состоянием сна автомобиля. Когда машина просыпается,
 
 он предполагает, что скоро кто-то будет за рулем, и запрашивает состояние каждую минуту в течение 10 минут.
-Если ничего не случилось (нет климата, нет вождения, нет зарядки), адаптер перестает запрашивать 15 минут, чтобы автомобиль заснул. В любом случае он разбудит машину и получит данные через 12 часов.
+Если ничего не произошло (нет климата, нет вождения, нет зарядки), адаптер перестает запрашивать 15 минут, чтобы автомобиль заснул. В любом случае он разбудит машину и получит данные через 12 часов.
 
 ## Использование адаптера
-Адаптер создает несколько состояний. Они сгруппированы по темам:
+Адаптер создает несколько состояний. Они сгруппированы по тематике:
 
 * **chargeState** - о зарядке, аккумуляторе и запасе хода.
-* **ClimateState** - температуры и состояния окон.
+* **climState** - Температура и состояние окон.
 * **driveState** - положение и скорость
 * **softwareUpdate** - информация об ожидающих обновлениях программного обеспечения.
-* **vehicle** - информация о вашем автомобиле
+* **транспортное средство** - информация о вашем транспортном средстве.
 
 Есть специальная группа под названием **команда** в которой вы можете найти все команды для управления автомобилем.
 Некоторые из них работают в обоих направлениях, например, состояние климата изменится, когда климат выключен автомобилем. Вы можете увидеть это в столбце «Отправить / получить».
 
-Имя | Описание | **S** end / **R** ecieve -------------- | -------------- | -------------- ChargePort | Открыть / закрыть порт зарядки | SR UnlockChargePort | Разблокирует порт зарядки | S Зарядка | Начать / остановить зарядку | SR Climate | Запуск / остановка климата | SR RemoteStart | Активировать / деактивировать удаленный запуск | SR SentryMode | Активировать / деактивировать сторожевой режим | SR SetChargeLimit | Установить лимит комиссии в% | SR SetTemperature | Установите целевую температуру. Не забудьте включить климат! | SR SpeedLimit | Активировать ограничение скорости | SR SpeedLimitValue | Значение ограничения скорости | SR StartSoftwareUpdate | Начать обновление программного обеспечения | SR SunRoofVent | Вентиляционное отверстие в крыше | SR ValetMode | Valet Mode | SR ValetPin | Булавка для камердинера | SR в режиме ожидания | Если автомобиль находится в режиме ожидания (установите это, чтобы просыпаться вручную) | Дверной замок SR | Замки / Открывает дверь | Фонари SR | Вспышка огнями | S honkHorn | Звуковой сигнал | S openFrunk | Открыть Frunk (без получения) | S openTrunk | Открытый багажник (без получения) | S seat_heater_left | Обогрев сиденья Левый уровень (0-3) | SR seat_heater_rear_center | Обогрев заднего центрального сиденья (0-3) | SR seat_heater_rear_left | Обогрев заднего левого сиденья (0-3) | SR seat_heater_rear_right | Обогрев заднего правого сиденья (0-3) | SR seat_heater_right | Обогрев сиденья Правый уровень (0-3) | SR cabin_wheel_heater | Обогрев рулевого колеса | SR windowVent | Оконное отверстие | SR
+Имя | Описание | **S** end / **R** ecieve -------------- | -------------- | -------------- ChargePort | Открыть / закрыть порт зарядки | SR UnlockChargePort | Разблокирует порт зарядки | S Зарядка | Начать / остановить зарядку | SR Climate | Запуск / остановка климата | SR RemoteStart | Активировать / деактивировать удаленный запуск | SR SentryMode | Активировать / деактивировать сторожевой режим | SR SetChargeLimit | Установить лимит заряда в% | SR SetTemperature | Установите целевую температуру. Не забудьте включить климат! | SR SpeedLimit | Активировать ограничение скорости | SR SpeedLimitValue | Значение ограничения скорости | SR StartSoftwareUpdate | Начать обновление программного обеспечения | SR SunRoofVent | Вентиляционное отверстие в крыше | SR ValetMode | Valet Mode | SR ValetPin | Булавка для камердинера | SR в режиме ожидания | Если автомобиль находится в режиме ожидания (включите ручной выход из спящего режима) | Дверной замок SR | Запирает / открывает дверь | Фонари SR | Вспышка огнями | S honkHorn | Звуковой сигнал | S openFrunk | Открыть Frunk (без получения) | S openTrunk | Открытый багажник (без приема) | S seat_heater_left | Обогрев сиденья Левый уровень (0-3) | SR seat_heater_rear_center | Обогрев заднего центрального сиденья (0-3) | SR seat_heater_rear_left | Обогрев заднего левого сиденья (0-3) | SR seat_heater_rear_right | Обогрев заднего правого сиденья (0-3) | SR seat_heater_right | Обогрев сиденья Правый уровень (0-3) | SR wheel_wheel_heater | Обогрев рулевого колеса | SR windowVent | Оконное отверстие | SR
 
-## Безопасность &amp; Полномочия
-Tesla API использует подход безопасности на основе токенов.<br /> Срок действия токена истекает (в настоящее время через 45 дней), но система может получить новый токен с помощью токена обновления.<br /> Ваши учетные данные не должны храниться для работы адаптера, но если у вас возникают проблемы с обновлением токена, это может сделать его более стабильным, поскольку адаптер может получить полностью новый токен в любое время.<br /><aside class="warning"> Предупреждение:<br /> С вашими учетными данными Tesla вы можете управлять автомобилем, в том числе открывать Windows и даже ездить. Сохраните свои учетные данные!<br /> Чтобы отклонить все токены, измените пароль своей учетной записи Tesla!</aside>
+## Безопасность &amp; Реквизиты для входа
+Tesla API использует подход безопасности на основе токенов.<br /> Срок действия токена истекает (в настоящее время через 45 дней), но система может получить новый токен с помощью токена обновления.<br /> Ваши учетные данные не должны храниться для работы адаптера, но если у вас возникают проблемы с обновлением токена, это может сделать его более стабильным, поскольку адаптер может получить полностью новый токен в любое время.<br /><aside class="warning"> Предупреждение:<br /> С вашими учетными данными Tesla вы можете управлять автомобилем, в том числе открывать окна и даже ездить. Сохраните свои учетные данные!<br /> Чтобы отклонить все токены, измените пароль своей учетной записи Tesla!</aside>
 
 ## Авторы
 * dbweb-ch
 * Аполлон77
 * Хомбах
+* klein0r
 
 ## Changelog
+### 0.5.0
+* (klein0r) Store passwords and other sensitive information encrypted (BREAKING CHANGE)
+### 0.4.3
+* (dbweb-ch) Refresh mode aggressive: change refresh rate to 1 second instead of 1 minute
+* (dbweb-ch) Add homelink support
+### 0.4.2
+* (dbweb-ch) Define instanceObject \"info.connection\" to prevent warning with js-controller 3.2.
+### 0.4.1
+* (dbweb-ch) Add \"Stopped\" as charge state where car can go asleep
+### 0.4.0
+* (dbweb-ch) Implement 2FA Authentification, use new authentification flow
+### 0.3.2
+* (dbweb-ch) Bugfix logging leading to a crash when authentication failed
+### 0.3.1
+* (dbweb-ch) Check token refresh more often
 ### 0.3.0
 * (Hombach) Removed tests for node 8; updated dependencies
 ### 0.2.3
@@ -92,14 +109,14 @@ Tesla API использует подход безопасности на осн
 ## License
 MIT License
 
-Copyright (c) 2020 Dominic Blattmann <nick@dbweb.ch>
+Copyright (c) 2021 Dominic Blattmann <nick@dbweb.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+furnished to do so, subject to the following conditions: 
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.

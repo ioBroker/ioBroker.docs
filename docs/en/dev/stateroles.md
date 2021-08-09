@@ -1,21 +1,30 @@
 # State roles
 
+Objects from type "State" need their common.role property set to one of the roles defined in the list below. The Role information is a very important information and allows Visualization- and Smart-Assistant adapters to detect the function of the object and also how/if they relate to other objects in the same channel, device or folder
+
+Example:
+A RGB Lamp can have thw following three objects (or more) with different roles that belong together:
+* switch (On/Off)
+* level.color.rgb with #RRGGBB color code of the lamp
+* level.brightness with the brightness value
+
+Different Device templates used for the detecting with the required and optional objects and their roles can be found in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md).
+
 ## Common
-* state - very common purpose. If you don't know which role the state has, use this one.
-* `text`              (common.type = string)
-* `text.url`          (common.type = string) state val contains a url for usage in an anchor, iframe or img
-* `html`              (common.type = string)
-* `json`              (common.type = string)
-* `list`              (common.type = array)
-* `date`              (common.type = string - parsable by "new Date(ddd)" string
-* `date`              (common.type = number - epoch seconds * 1000
+* `state` - very common purpose. If you don't know which role the state has, use this one.
+* `text`              `common.type = string`
+* `text.url`          `common.type = string` state val contains an url for usage in an anchor, iframe or img
+* `html`              `common.type = string`
+* `json`              `common.type = string`
+* `list`              `common.type = array`
+* `date`              `common.type = string` - parsable by `new Date(ddd)` string
+* `date`              `common.type = number` - epoch seconds * 1000
 
 ## Sensor (booleans, read-only)
+`common.type=boolean, common.write=false`
 
-*common.type=boolean, common.write=false*
-
-* `sensor.window`         - window opened (true) or closed (false)
-* `sensor.door`           - door opened (true) or closed (false)
+* `sensor.window`         - window opened-`true` or closed-`false`
+* `sensor.door`           - door opened-`true` or closed-`false`
 * `sensor.alarm`          - some common alarm
 * `sensor.alarm.flood`    - water leakage
 * `sensor.alarm.fire`     - fire sensor
@@ -28,8 +37,7 @@
 * `sensor.noise`          - noise detected
 
 ## Buttons (booleans, write-only)
-
-*common.type=boolean, common.write=true, common.read=false*
+`common.type=boolean, common.write=true, common.read=false`
 
 * `button`
 * `button.long`
@@ -48,15 +56,14 @@
 * `button.mode.silent`
 
 ## Buttons as sensor
-*common.type=boolean, common.write=false, common.read=true*
+`common.type=boolean, common.write=false, common.read=true`
 
 * `button`         - the difference, that `common.write=false`. Please avoid this role and use `button.press` or `button.long`.
 * `button.long`
 * `button.press`
 
 ## Values (numbers, read-only)
-
-*common.type=number, common.write=false*
+`common.type=number, common.write=false`
 
 * `value`
 * `value.window`      (common.states={"0": "CLOSED", "1": "TILTED", "2": "OPEN"}) It is important to have (CLOSED/TILTED/OPEN). Values can differ.
@@ -76,7 +83,8 @@
 * `value.gps.latitude`    - gps latitude
 * `value.gps.elevation`   - gps elevation
 * `value.gps`             - longitude and latitude together like '5.56;43.45'
-* `value.power.consumption` (unit=Wh or KWh)
+* `value.power`           - actual power (unit=W or KW)
+* `value.power.consumption` - energy consumption (unit=Wh or KWh)
 * `value.direction`       - (common.type=number ~~or string~~, indicates up/down, left/right, 4-way switches, wind-direction, ... )
 * `value.curtain`         - actual position of curtain
 * `value.blind`           - actual position of blind (max = fully open, min = fully closed)
@@ -96,8 +104,7 @@
 * `value.blood.sugar`     - Blood sugar value, unit=mmol,mgdl
 
 ## Indicators (boolean, read-only)
-
-*common.type=boolean, common.write=false*
+`common.type=boolean, common.write=false`
 
 The difference of *Indicators* from *Sensors* is that indicators will be shown as small icon. Sensors as a real value.
 So the indicator may not be alone in the channel. It must be some other main state inside channel.
@@ -118,10 +125,9 @@ So the indicator may not be alone in the channel. It must be some other main sta
 * `indicator.alarm.health` - health problem
 
 ## Levels (numbers, read-write)
-
 With **levels** you can control or set some number value.
 
-*common.type=number, common.write=true*
+`common.type=number, common.write=true`
 
 * `level`
 * `level.co2`             - 0-100% ait quality
@@ -147,16 +153,17 @@ With **levels** you can control or set some number value.
 * `level.tilt`           - set the tilt position of blinds (max = fully open, min = fully closed)
 
 ## Switches (booleans, read-write)
-
 Switch controls boolean device (true = ON, false = OFF)
 
-*common.type=boolean, common.write=true*
+`common.type=boolean, common.write=true`
 
 * `switch`
 * `switch.lock`           - lock (true - open lock, false - close lock)
 * `switch.lock.door`      - door lock
 * `switch.lock.window`    - window lock
-* `switch.boost`          - start/stop boost mode of thermostat
+* `switch.mode.boost`     - start/stop boost mode of thermostat
+* `switch.mode.party`     - start/stop party mode of thermostat
+* `switch.power`          - on/off thermostat or air conditioner
 * `switch.light`
 * `switch.comfort`        - comfort mode
 * `switch.enable`
@@ -167,11 +174,13 @@ Switch controls boolean device (true = ON, false = OFF)
 * `switch.mode.silent`    - silent mode on/off
 * `switch.mode.moonlight` - moon light mode on/off
 * `switch.mode.color`     - color mode on/off
+* `switch.gate'           - closes(false) or opens(true) the gate
 
 ## Air condition or thermostat
 * `level.mode.fan`        - `AUTO, HIGH, LOW, MEDIUM, QUIET, TURBO`
 * `level.mode.swing`      - `AUTO, HORIZONTAL, STATIONARY, VERTICAL`
-* `level.mode.thermostat` - `AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`
+* `level.mode.airconditioner` - air conditioner: `AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`, heating thermostat: `AUTO, MANUAL, VACATION`, 
+* `level.mode.thermostat` - thermostat: `AUTO, MANUAL, VACATION`, 
  Additionally to these states normally the `level.temperature` and `switch.power` required to map the air conditioner.
 
 TODO: Think about ionization`and oscillation. 
@@ -187,8 +196,13 @@ TODO: Think about ionization`and oscillation.
 Additionally to these states normally the `switch.power` required to map the vacuum cleaner. `switch.power` in this case works as: `true` - clean, `false` - back to home.
 Optionally `value.battery` and  
 
-## Media
+## Gate
+* `switch.gate`           - closes(false) or opens(true) the gate (required)
+* `value.position`        - position of the gate in percent (100% opened, 0% - closed)
+* `value.gate`            - same as `value.position`
+* `button.stop`           - stop motion of gate
 
+## Media
 Special roles for media players
 
 * `button.stop`
@@ -204,7 +218,7 @@ Special roles for media players
 * `button.volume.up`
 * `button.volume.down`
 * `media.seek`            - (common.type=number) %
-* `media.mode.shuffle`   - (common.type=number) 0 - none, 1 - all, 2 - one
+* `media.mode.shuffle`    - (common.type=number) 0 - none, 1 - all, 2 - one
 * `media.mode.repeat`     - (common.type=boolean)
 * `media.state`           - ['play','stop','pause'] or [0 - pause, 1 - play, 2 - stop] or [true - playing/false - pause]
 * `media.artist`
@@ -288,7 +302,7 @@ Special roles for media players
 ## Weather
 * `value.temperature`           - Actual temperature
 * `value.temperature.windchill` - Actual wind chill
-* `value.temperature.dewpoint`  - Actual dewpoint
+* `value.temperature.dewpoint`  - Actual dew-point
 * `value.temperature.feelslike` - Actual temperature "feels like"
 * `value.temperature.min`       - Minimal temperature in last 24h
 * `value.temperature.max`       - Maximal temperature in last 24h
@@ -315,6 +329,8 @@ Special roles for media players
 * `value.precipitation`         - (type: number, unit: mm) precipitation for last 24 hours rain/snow (Niederschlag heute für Schnee oder Regen / осадки сегодня снега или дождя)
 * `value.precipitation.hour`    - Actual precipitation level in last hour
 * `value.precipitation.today`   - Actual precipitation level for today (till 0:00)
+* `value.precipitation.chance`  - Actual precipitation chance for today
+* `value.precipitation.type`    - Actual precipitation type for today. (type: `number`) States: 0 - NO, 1 - RAIN, 2 - SNOW, 3 - HAIL
 * `value.radiation`             - Actual sun radiation level
 * `value.uv`                    - Actual UV level
 * `value.clouds`                - Clouds on the sky. 0% - no clouds, 100% - many clouds.
@@ -329,7 +345,7 @@ Special roles for media players
 * `weather.chart.url.forecast`  - URL to chart for weather forecast
 * `weather.html`                - HTML object with weather description
 * `weather.title`               - Very short description
-* `weather.title.short`         - Very very short description (One word)
+* `weather.title.short`         - Very, very short description (One word)
 * `weather.type`                - Type of weather information
 * `weather.json`                - JSON object with specific data
 * `value.speed.wind.forecast.0`     - wind speed forecast for today
@@ -343,7 +359,7 @@ Special roles for media players
 * `value.precipitation.forecast.0`  - (type: number, unit: mm) Forecast of precipitation level for today
 * `weather.title.forecast.0`        - Very short description for tomorrow
 * `value.precipitation.day.forecast.0`     - Forecast for precipitation for day time
-* `value.precipitation.night.forecast.0`   - Forecast for precipitation for night time
+* `value.precipitation.night.forecast.0`   - Forecast for precipitation for nighttime
 
 * `date.forecast.1`                 - tomorrow date
 * `weather.icon.forecast.1`         - tomorrow icon
@@ -369,7 +385,7 @@ Special roles for media players
 * `date.end`       - string or number
 
 ## Health
-(common.type=number, common.read=true, common.write=false)
+`common.type=number, common.read=true, common.write=false`
 
 * `value.health.fat`      - body fat index in %
 * `value.health.weight`   - body weight in kg, lbs
@@ -379,7 +395,6 @@ Special roles for media players
 * `value.health.bpm`      - heart beats per minute
 
 ## Others
-
 * `url`
 * `url.icon`               - icon (additionally every object can have common.icon)
 * `url.cam`                - web camera url
