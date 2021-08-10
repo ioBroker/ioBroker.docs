@@ -3,68 +3,96 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.minuvis/README.md
 title: ioBroker.minuvis
-hash: tNrxYMcgsm7/fTwesDag94NQmL/cOWyFdQoRgiIDbB0=
+hash: 33enf9MUrEMU2aI4sKX5yIWdb+eiXfNlk3ys9TkkgCE=
 ---
-![商标](../../../en/adapterref/iobroker.minuvis/admin/minuvis.png)
+![标识](../../../en/adapterref/iobroker.minuvis/admin/minuvis.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.minuvis.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.minuvis.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.minuvis.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.minuvis.svg)
 ![安装数量（最新）](http://iobroker.live/badges/minuvis-installed.svg)
 ![依赖状态](https://img.shields.io/david/minukodu/iobroker.minuvis.svg)
 ![已知漏洞](https://snyk.io/test/github/minukodu/ioBroker.minuvis/badge.svg)
-![建立状态](https://travis-ci.org/minukodu/ioBroker.minuvis.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.minuvis.png?downloads=true)
+![构建状态](https://travis-ci.org/minukodu/ioBroker.minuvis.svg?branch=master)
+![新产品管理](https://nodei.co/npm/iobroker.minuvis.png?downloads=true)
 
-＃ioBroker.minuvis
-##用于ioBroker的minuvis适配器
-可视化所有设备
-
-########################################################################
-＃重要！
-如果要从版本1.3.0升级，请注意：
-
-*配置文件的存储位置已更改
-*您不能在旧位置保存配置文件
-*使用红色下拉按钮读取配置文件
-*文件将获得前缀“ OF_”
-*现在保存配置文件
-*前缀将消失，并且配置文件将保存在新位置
+# IoBroker.minuvis
+## IoBroker 的 minuvis 适配器
+所有设备的可视化
 
 ########################################################################
-##说明
--照常安装适配器
--创建Minuvis实例（仅1种可能）
--在网络实例上启用socket.io-Instance
+版本 2 现已推出
+
+########################################################################
+＃ 重要的 ！！！！
+如果您从版本 < 1.3.0 升级，请注意：
+
+* 首先升级到版本 v1.4 并在新位置重新保存配置文件
+
+########################################################################
+* **版本 2 中的重大变化**参见：https://minukodu.de/en/news/minuvis-20-iobroker-available
+* 更新 v1 -> v2 的说明参见：https://minukodu.de/en/news/update-minuvis-v1-v2
+
+* 如果您想保留版本 1，请使用此 Docker-Image：https://hub.docker.com/r/sepp68/minuvis-image
+
+########################################################################
+＃＃ 指示
+- 像往常一样安装适配器
+- 创建 minuvis 的实例（只有 1 个可能）
+- 在 web-Instance 上启用 socket.io-Instance
 
 ![socket.io@web](https://minukodu.de/githubimg/web_instance_socket_io.jpg)
 
--打开Minuvis实例
+- 打开 miniuvis 实例
 
-![Minuvis实例](https://minukodu.de/githubimg/minuvis_instance.jpg)
+![小型可视化实例](https://minukodu.de/githubimg/minuvis_instance.jpg)
 
--连接到socket.io-web的端口或您自己的socket.io-instance
+- 连接到 web 的 socket.io-Port 或您自己的 socket.io-instance
 
 ![连接](https://minukodu.de/githubimg/minuvis_connect.jpg)
 
--添加新页面
+- 添加新页面
 
 ![添加页面](https://minukodu.de/githubimg/minuvis_addpage.jpg)
 
--添加小部件
+- 添加小部件
 
-![添加小部件](https://minukodu.de/githubimg/minuvis_addwidget.jpg)
+![添加小工具](https://minukodu.de/githubimg/minuvis_addwidget.jpg)
 
--编辑状态
+- 编辑状态
 
 ![选择状态](https://minukodu.de/githubimg/minuvis_selectstate.jpg)
 
--预浏览您的新应用
+- 预览你的新应用
 
 ![预习](https://minukodu.de/githubimg/minuvis_preview.jpg)
 
-有关更多信息，请访问https://minukodu.de/en或在youtube上观看https://youtu.be/dtHUBOEc4js
+有关更多信息，请访问 https://minukodu.de/en 或在 youtube 上观看 https://youtu.be/dtHUBOEc4js
 
 ## Changelog
+
+### 2.1.0 (2021-07-31)
+* updated app and builder to V2.1.0
+
+### 2.0.0-rc.2 (2021-05-16)
+* updated app and builder to V2.0.0-rc.2
+
+### 2.0.0-rc.1 (2021-05-02)
+* updated app and builder to V2.0.0-rc.1
+
+### 2.0.0-beta.1 (2021-04-11)
+* updated app and builder to V2.0.0-beta.1
+
+### 2.0.0-alpha.2 (2021-04-05)
+* updated app to V2.0.0-alpha.2
+
+### 2.0.0-alpha (2021-03-08)
+* updated app to V2.0.0-alpha
+
+=======
+### 1.4.0 (2021-03-07)
+* updated app to V1.13.0
+### 1.3.1 (2021-01-24)
+* updated app to V1.12.1
 ### 1.3.0 (2021-01-24)
 * updated builder and app to V1.12.0
 * new meta-datapoint "0_userdata.0" for storing config-files
@@ -104,7 +132,7 @@ hash: tNrxYMcgsm7/fTwesDag94NQmL/cOWyFdQoRgiIDbB0=
 ## License
 MIT License
 
-Copyright (c) 2020 svallant <svallant@gmx.eu>
+Copyright (c) 2021 svallant <svallant@gmx.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

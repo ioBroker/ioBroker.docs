@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.schwoerer-ventcube/README.md
 title: ioBroker.schwoerer-ventcube
-hash: aBfWMJanRauvuqMhJ8iYqrkhjzBVlq3oBmX+Gd6wvyc=
+hash: rjqmmMPuxlOO2pLoItSgaCjFBmKTBrhI/tT3cN3YOpw=
 ---
 ![Logo](../../../en/adapterref/iobroker.schwoerer-ventcube/admin/schwoerer-ventcube.png)
 
@@ -19,7 +19,7 @@ hash: aBfWMJanRauvuqMhJ8iYqrkhjzBVlq3oBmX+Gd6wvyc=
 ![Github-Release-Status](https://github.com/Excodibur/iobroker.schwoerer-ventcube/workflows/Build%2C%20Test%20and%20Release/badge.svg)
 
 ## Schwoerer-ventcube Adapter für ioBroker
-Adapter für Schwörerhaus Ventcube-System. Weitere Informationen zu Ventcube Fresh finden Sie unter [Hier](https://www.bauinfocenter.de/lueftung/lueftungsanlagen/).
+Adapter für Schwörerhaus Ventcube-System. Weitere Informationen zu Ventcube Fresh finden Sie unter [hier](https://www.bauinfocenter.de/lueftung/lueftungsanlagen/).
 
 **Haftungsausschluss**: Dieser Adapter wird weder von der Firma [Schwörerhaus KG](https://www.schwoererhaus.de/) entwickelt noch offiziell unterstützt, die das Ventcube-System vertreibt. Anweisungen sollten mit Sorgfalt und auf eigene Gefahr befolgt werden.
 
@@ -39,15 +39,15 @@ Alle Parameter, die in der unten aufgeführten Spezifikation erwähnt werden, wu
 
 Die folgenden Standardkonfigurationswerte müssen wahrscheinlich während der Adapterbereitstellung geändert werden, damit eine ordnungsgemäße Verbindung mit Ventcube hergestellt werden kann:
 
-| Parameter | Standardwert | **Sollte** | Erklärung |
-| `Server` | localhost | ***HERMES-LT*** oder ***lokale Netzwerk-IP von Ventcube*** | Standardwert wird für Tests verwendet und muss unbedingt geändert werden! |
-| `Port` | 10502 | ***502*** | Standardwert wird für Tests verwendet und muss unbedingt geändert werden! |
-| `Interval` | 30 | 30 | Nach wie vielen Sekunden sollen die Metriken vom Server aktualisiert werden |
-| `Request Timeout` | 5000 | 5000 | Wie viele Millisekunden soll gewartet werden, bis Anfragen an Ventcube ablaufen |
-| `Reconnection Attempts` | 10 | 10 | Falls die Verbindung zu Ventcube verloren geht, wie oft sollte eine erneute Verbindung versucht werden |
-| `Delay between reconnection attempts` | 10000 | 10000 | Wie lange zwischen Wiederverbindungsversuchen gewartet werden soll (in Millisekunden) |
-| `Advanced Functions` | &#10003; | | Während die Grundfunktionen ausreichend sein können, wenn Ventcube nur zur Belüftung verwendet wird, sollten erweiterte Funktionen aktiviert werden, wenn Heiz-/Kühlfunktionen oder Systemmetriken (Fehlercodes, Lüfterdetails) benötigt werden. |
-| `Erweiterte Funktionen` | &#10003; | | Während die Grundfunktionen ausreichend sein können, wenn Ventcube nur zur Belüftung verwendet wird, sollten erweiterte Funktionen aktiviert werden, wenn Heiz-/Kühlfunktionen oder Systemmetriken (Fehlercodes, Lüfterdetails) benötigt werden. |
+| Parameter | Standardwert | Erklärung |
+| `Server` | HERMES-LT | Normalerweise registriert sich Ventcube im Netzwerk mit _HERMES-LT_, aber wenn es nicht funktioniert, versuchen Sie es mit der IP-Adresse. |
+| `Port` | 502 | |
+| `Interval` | 30 | Nach wie vielen Sekunden sollen die Metriken vom Server aktualisiert werden |
+| `Request Timeout` | 5000 | Wie viele Millisekunden soll gewartet werden, bis Anfragen an Ventcube ablaufen |
+| `Reconnection Attempts` | 10 | Falls die Verbindung zu Ventcube verloren geht, wie oft sollte eine erneute Verbindung versucht werden |
+| `Delay between reconnection attempts` | 10000 | Wie lange zwischen Wiederverbindungsversuchen gewartet werden soll (in Millisekunden) |
+| `Advanced Functions` | &#10003; | Während die Grundfunktionen ausreichend sein können, wenn Ventcube nur zur Belüftung verwendet wird, sollten erweiterte Funktionen aktiviert werden, wenn Heiz-/Kühlfunktionen oder Systemmetriken (Fehlercodes, Lüfterdetails) benötigt werden. |
+| `Erweiterte Funktionen` | &#10003; | Während die Grundfunktionen ausreichend sein können, wenn Ventcube nur zur Belüftung verwendet wird, sollten erweiterte Funktionen aktiviert werden, wenn Heiz-/Kühlfunktionen oder Systemmetriken (Fehlercodes, Lüfterdetails) benötigt werden. |
 
 #### Interessante Funktionen (für den Anfang)
 - ***Betriebsart***, änderbar

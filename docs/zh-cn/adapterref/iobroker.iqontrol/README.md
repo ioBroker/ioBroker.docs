@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: /SSU46qsWQYtX0qDwvx+DdMtlutTpS5wp60+gu1UWwg=
+hash: UTxuek5frCognh7+EOOp41GijLzb/yNs5J5Ju9KNsNc=
 ---
 ![标识](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -51,6 +51,9 @@ hash: /SSU46qsWQYtX0qDwvx+DdMtlutTpS5wp60+gu1UWwg=
 
 \
 ![截屏](../../../en/adapterref/iobroker.iqontrol/img/screenshot_muuulle.jpg "＆复制;穆勒")
+
+\
+![截屏](../../../en/adapterref/iobroker.iqontrol/img/screenshot_peks-67.jpg "＆复制;由 peks-67")
 
 在任何浏览器中运行。
 易于设置，尽管它是完全可定制的且响应迅速。
@@ -189,7 +192,7 @@ hash: /SSU46qsWQYtX0qDwvx+DdMtlutTpS5wp60+gu1UWwg=
 * 在这里你可以定义一个链接（通过BACKGROUND_URL）到一个网站或放置直接的HTML代码（通过BACKGROUND_HTML），这将显示为磁贴的背景
 * 这使您可以在磁贴内放置（交互式）内容（如时钟、FLOT 图表、表格、天气预报等）
 * 默认情况下，鼠标事件将定向到此内容（因此您不能再单击磁贴本身），但您可以使用选项“将鼠标事件定向到磁贴而不是BACKGROUND_VIEW/URL/HTML 的内容”来禁用此功能”
-* iQontrol 提供了一个设备角色“小工具”，它有一些预定义的选项集，主要用于将网站显示为小工具。但是您可以通过正确修改设备选项来使用任何其他角色获得相同的结果。
+* iQontrol 提供了一个设备角色“小工具”，它有一些预定义的选项集，主要用于将网站显示为小工具。但是您可以通过正确修改设备选项来获得与任何其他角色相同的结果。
 
 ![弹出截图](../../../en/adapterref/iobroker.iqontrol/img/widget_screenshot.png)
 
@@ -467,6 +470,9 @@ hash: /SSU46qsWQYtX0qDwvx+DdMtlutTpS5wp60+gu1UWwg=
 * ``alternativeColorspace``（ALTERNATIVE_COLORSPACE_VALUE 的颜色空间） - 仅对角色 Light 有效：
 * 可能的值：""|"RGB"|"#RGB"|"RGBW"|"#RGBW"|"RGBWWCW"|"#RGBWWCW"|"RGBCWWW"|"#RGBCWWW"|"RGB_HUEONLY"|"#RGB_HUEONLY "|"HUE_MILIGHT"|"HHSSBB_TUYA"
 * 默认： ””
+* ``linkOverlayActiveColorToHue``（使用灯的颜色作为 OVERLAY_ACTIVE_COLOR） - 仅对角色 Light 有效：
+* 可能的值：“真”|“假”
+* 默认值：“假”
 * ``linkGlowActiveColorToHue``（使用灯的颜色作为 GLOW_ACTIVE_COLOR） - 仅对角色 Light 有效：
 * 可能的值：“真”|“假”
 * 默认值：“假”
@@ -557,13 +563,22 @@ hash: /SSU46qsWQYtX0qDwvx+DdMtlutTpS5wp60+gu1UWwg=
 * 可能的值：“真”|“假”
 * 默认值：“假”
 *瓷砖行为（一般）：
+* ``clickOnIconAction``（点击图标操作）：
+* 可能的值："toggle"|"openDialog"|"enlarge"|"openLinkToOtherView"|"openURLExternal"|"false"
+* 默认值：“切换”
+* ``clickOnTileAction``（点击平铺动作）：
+* 可能的值："toggle"|"openDialog"|"enlarge"|"openLinkToOtherView"|"openURLExternal"|"false"
+* 默认值：“openDialog”
 * ``clickOnIconOpensDialog``（点击图标打开对话框（而不是切换））：
+* *已弃用* 因为此选项现在包含在 clickOnIconAction 中
 * 可能的值：“真”|“假”
 * 默认值：“假”
 * ``clickOnTileToggles``（点击磁贴切换（而不是打开对话框））：
+* *已弃用* 因为此选项现在包含在 clickOnTileAction 中
 * 可能的值：“真”|“假”
 * 默认值：“假”
 * ``clickOnTileOpensDialog``（点击磁贴打开对话框）：
+* *已弃用* 因为此选项现在包含在 clickOnTileAction 中
 * 可能的值：“真”|“假”
 * 默认值：“true”（对于大多数设备）
 * ``noZoomOnHover``（在悬停时禁用缩放效果）：
@@ -1214,6 +1229,7 @@ hash: /SSU46qsWQYtX0qDwvx+DdMtlutTpS5wp60+gu1UWwg=
     ![徽章](../../../en/adapterref/iobroker.iqontrol/img/badge.png)
 
 * **OVERLAY_INACTIVE_COLOR** 和 **OVERLAY_ACTIVE_COLOR**: *string* - 任何有效的 html-color-string（如 'green'、'#00FF00'、'rgba(0,255,0,0.5)' 等等）表示图块叠加层的颜色（取决于图块是活动还是非活动）。如果没有给出有效的颜色字符串，则使用标准叠加颜色（可以在 iQontrol-Options 中配置）。请记住，iQontrol 选项中有一个选项可以定义叠加层的透明度，这将影响设置的叠加层颜色的外观。
+* 对于灯光，您还可以使用“使用灯的颜色作为 OVERLAY_ACTIVE_COLOR”选项，该选项可在设备特定选项中找到。
 
     ![叠加颜色](../../../en/adapterref/iobroker.iqontrol/img/overlay_color.png)
 
@@ -1544,6 +1560,10 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 ****
 
 ## Changelog
+
+### 1.8.3 dev
+* (sbormann) Added new configuration options for click on tile/icon behaviours - WARNING: Old configuration is automatically converted to the new settings. Its recommendet to create a backup of your config BEFORE doing the update, as the new settings are not backwards-compatible and in case of conversion errors.
+* (sbormann) Added option to link color of lamp to OVERLAY_ACTIVE_COLOR.
 
 ### 1.8.2 (2021-08-06)
 * (sbormann) Added JSON-Table Widget (Displays JSON-Data as table).

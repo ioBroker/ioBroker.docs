@@ -53,6 +53,9 @@ When the adapter crashes or an other Code error happens, this error message that
     ### __WORK IN PROGRESS__
 -->
 
+### __WORK IN PROGRESS__
+* (foxriver76) we fixed some incorrect object types
+
 ### 0.5.6 (2021-01-03)
 * (DutchmanNL) Bugfix : State type definition for time and pmt
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.minuvis/README.md
 title: ioBroker.minuvis
-hash: tNrxYMcgsm7/fTwesDag94NQmL/cOWyFdQoRgiIDbB0=
+hash: 33enf9MUrEMU2aI4sKX5yIWdb+eiXfNlk3ys9TkkgCE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.minuvis/admin/minuvis.png)
 
@@ -20,15 +20,19 @@ hash: tNrxYMcgsm7/fTwesDag94NQmL/cOWyFdQoRgiIDbB0=
 Визуализация для всех устройств
 
 ########################################################################
-# ВАЖНЫЙ !!!
-при обновлении с версии <1.3.0 обратите внимание:
+Версия 2 уже вышла
 
-* место хранения конфигурационных файлов изменилось
-* вы не можете сохранить ваш config-файл на старом месте
-* читать config-файл с красной выпадающей кнопкой
-* файл получит префикс "OF_"
-* теперь сохраните конфигурационный файл
-* префикс исчезнет, и конфигурационный файл будет сохранен на новом месте
+########################################################################
+# ВАЖНЫЙ !!!!
+если вы обновляетесь с версии <1.3.0, обратите внимание:
+
+* сначала обновитесь до версии v1.4 и повторно сохраните конфигурационные файлы в новом месте
+
+########################################################################
+* **ГЛАВНЫЕ ИЗМЕНЕНИЯ** в версии 2 см .: https://minukodu.de/en/news/minuvis-20-iobroker-available
+* инструкции по обновлению v1 -> v2 см .: https://minukodu.de/en/news/update-minuvis-v1-v2
+
+* Если вы хотите сохранить версию 1, используйте этот образ Docker: https://hub.docker.com/r/sepp68/minuvis-image
 
 ########################################################################
 ## Инструкции
@@ -44,7 +48,7 @@ hash: tNrxYMcgsm7/fTwesDag94NQmL/cOWyFdQoRgiIDbB0=
 
 - подключитесь к socket.io-Port в сети или к вашему собственному экземпляру socket.io
 
-![подключиться](https://minukodu.de/githubimg/minuvis_connect.jpg)
+![соединять](https://minukodu.de/githubimg/minuvis_connect.jpg)
 
 - добавить новую страницу
 
@@ -65,6 +69,30 @@ hash: tNrxYMcgsm7/fTwesDag94NQmL/cOWyFdQoRgiIDbB0=
 Для получения дополнительной информации посетите https://minukodu.de/en или посмотрите на YouTube https://youtu.be/dtHUBOEc4js
 
 ## Changelog
+
+### 2.1.0 (2021-07-31)
+* updated app and builder to V2.1.0
+
+### 2.0.0-rc.2 (2021-05-16)
+* updated app and builder to V2.0.0-rc.2
+
+### 2.0.0-rc.1 (2021-05-02)
+* updated app and builder to V2.0.0-rc.1
+
+### 2.0.0-beta.1 (2021-04-11)
+* updated app and builder to V2.0.0-beta.1
+
+### 2.0.0-alpha.2 (2021-04-05)
+* updated app to V2.0.0-alpha.2
+
+### 2.0.0-alpha (2021-03-08)
+* updated app to V2.0.0-alpha
+
+=======
+### 1.4.0 (2021-03-07)
+* updated app to V1.13.0
+### 1.3.1 (2021-01-24)
+* updated app to V1.12.1
 ### 1.3.0 (2021-01-24)
 * updated builder and app to V1.12.0
 * new meta-datapoint "0_userdata.0" for storing config-files
@@ -104,7 +132,7 @@ hash: tNrxYMcgsm7/fTwesDag94NQmL/cOWyFdQoRgiIDbB0=
 ## License
 MIT License
 
-Copyright (c) 2020 svallant <svallant@gmx.eu>
+Copyright (c) 2021 svallant <svallant@gmx.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

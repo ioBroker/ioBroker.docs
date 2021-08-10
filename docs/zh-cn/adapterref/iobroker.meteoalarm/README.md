@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: Ivc9JQq1WS4r3oaGmex9rQJhzXisBdA3bRtHq/dirUc=
+hash: /hFswYVp78SbL4dgv8RcvXmo3802qubwrkYNHw/Cwx0=
 ---
 ![标识](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -17,7 +17,7 @@ hash: Ivc9JQq1WS4r3oaGmex9rQJhzXisBdA3bRtHq/dirUc=
 
 ioBroker 的meteoalarm 适配器---------------------------------------------- -------------------------------- 此适配器正在从 https://meteoalarm.org 拉天气警报，其中包括风、雪、雨、高低温等。此信息以当地语言提供，适用于详细地区。
 
-免责声明：本网站与 www.meteoalarm.org 网站之间可能存在时间延迟，有关参与国家气象服务部门发布的有关警报级别的最新信息，请使用 https://www.meteoalarm.org。
+免责声明：本网站和 www.meteoalarm.org 网站之间可能存在时间延迟，有关参与国家气象服务部门发布的有关警报级别的最新信息，请使用 https://www.meteoalarm.org。
 
 ＃＃ 如何使用它
 选择您的国家，然后选择您想要警告的地区。如果您不确定您的地区名称是什么，请访问 https://meteoalarm.org 并尝试在地图上找到它。
@@ -53,11 +53,13 @@ ioBroker 的meteoalarm 适配器---------------------------------------------- -
 
 “小部件中没有符号”：不要在 HTML 小部件中使用符号。您仍然可以在对象中访问它。如果您想与小部件分开显示图标，则这是有用的 - 例如在更大的尺寸。
 
+“今天而不是工作日” 在小部件的标题中显示而不是工作日“今天”、“明天”或“昨天”。
+
 ## 警报级别
 |报警级别|说明|
 |:---:|:---:|
 |绿色|目前没有可用的警告。|
-|黄色|天气有潜在危险。预测的天气现象并不少见，但应更加关注面临气象风险的活动。随时了解预期的气象条件，不要冒任何可避免的风险。|
+|黄色|天气有潜在危险。预测的天气现象并不少见，但应更加注意暴露于气象风险的活动。随时了解预期的气象条件，不要冒任何可避免的风险。|
 |橙色|天气很危险。已经预测到不寻常的气象现象。可能会发生损坏和事故。要非常细心和小心，并及时了解预期的气象条件。 |
 |红色|天气非常危险。预测到异常强烈的气象现象。严重的破坏和事故，通常是大面积的，威胁着生命和财产。 |
 
@@ -100,6 +102,13 @@ ioBroker 的meteoalarm 适配器---------------------------------------------- -
 * 葡萄牙（来自meteoalarm.org 的地理编码文件可能不正确）
 * 保加利亚（来自meteoalarm.org 的地理编码文件可能不正确）
 
+## 2.0.3 (2021-08-09)
+* (jack-blackson) 在 HTML 小部件中以文字显示日期而不是日期
+* (jack-blackson) 添加了比利时的语言代码
+
+## 2.0.2 (2021-07-15)
+*（杰克布莱克森）修正
+
 ## 2.0.1 (2021-07-08)
 * (jack-blackson) 将警报文件夹名称更改为 Alarm_X
 * (jack-blackson) 在设置中定义您想要查看的警报
@@ -138,10 +147,10 @@ ioBroker 的meteoalarm 适配器---------------------------------------------- -
 * (jack-blackson) 修正 HTML 数据
 
 ## 1.1.0 (2020-03-29)
-*（杰克布莱克森）修正德国
+* (jack-blackson) 修正德国
 
 ## 1.0.9 (2020-02-06)
-*（杰克布莱克森）修正德国
+* (jack-blackson) 修正德国
 
 ## 1.0.8 (2019-11-15)
 * (jack-blackson) 添加了波兰、摩尔多瓦、希腊、罗马尼亚

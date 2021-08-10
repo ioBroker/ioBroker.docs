@@ -50,6 +50,9 @@ Fast Web-App for Visualization.
 \
 ![Screenshot](img/screenshot_muuulle.jpg "&copy; by muuulle")
 
+\
+![Screenshot](img/screenshot_peks-67.jpg "&copy; by peks-67")
+
 Runs in any Browser. 
 Easy to setup, allthough it's fully customizable and responsive.
 
@@ -465,6 +468,9 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* ``alternativeColorspace`` (Colorspace for ALTERNATIVE_COLORSPACE_VALUE") - only valid for role Light:
 		* Possible values: ""|"RGB"|"#RGB"|"RGBW"|"#RGBW"|"RGBWWCW"|"#RGBWWCW"|"RGBCWWW"|"#RGBCWWW"|"RGB_HUEONLY"|"#RGB_HUEONLY"|"HUE_MILIGHT"|"HHSSBB_TUYA"
 		* Default: "" 
+	* ``linkOverlayActiveColorToHue`` (Use color of lamp as OVERLAY_ACTIVE_COLOR) - only valid for role Light:
+		* Possible values: "true"|"false"
+		* Default: "false" 
 	* ``linkGlowActiveColorToHue`` (Use color of lamp as GLOW_ACTIVE_COLOR) - only valid for role Light:
 		* Possible values: "true"|"false"
 		* Default: "false" 
@@ -555,13 +561,22 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* Possible values: "true"|"false"
 		* Default: "false" 
 * Tile-Behaviour (general):
+	* ``clickOnIconAction`` (Click on Icon Action):
+		* Possible values: "toggle"|"openDialog"|"enlarge"|"openLinkToOtherView"|"openURLExternal"|"false"
+		* Default: "toggle" 
+	* ``clickOnTileAction`` (Click on Tile Action):
+		* Possible values: "toggle"|"openDialog"|"enlarge"|"openLinkToOtherView"|"openURLExternal"|"false"
+		* Default: "openDialog" 
 	* ``clickOnIconOpensDialog`` (Click on icon opens dialog (instead of toggling)):
+		* *deprecated* since this option is now included in clickOnIconAction
 		* Possible values: "true"|"false"
-		* Default: "false" 
+		* Default: "false" 		
 	* ``clickOnTileToggles`` (Click on tile toggles (instead of opening dialog))):
+		* *deprecated* since this option is now included in clickOnTileAction
 		* Possible values: "true"|"false"
 		* Default: "false" 
 	* ``clickOnTileOpensDialog`` (Click on tile opens dialog):
+		* *deprecated* since this option is now included in clickOnTileAction
 		* Possible values: "true"|"false"
 		* Default: "true" (for most devices)
 	* ``noZoomOnHover`` (Disable zoom-effect on hover):
@@ -1205,6 +1220,7 @@ However, not every type makes sense to every role. So the STATE of a switch for 
 
     ![Badge](img/badge.png)
 * **OVERLAY_INACTIVE_COLOR** and **OVERLAY_ACTIVE_COLOR**: *string* - any valid html-color-string (like 'green', '#00FF00', 'rgba(0,255,0,0.5)' and so on) that represents the color of the overlay of the tile (depending on whether the tile is active of inactive). If no valid color-string is given, the standard-overlay-color (which can be configured in iQontrol-Options) is used. Keep in mind, that there is an option to define the transparency of the overlay in the iQontrol options, which will affect the appereance of the set overlay color.
+	* For Lights you can also use the option "Use color of lamp as OVERLAY_ACTIVE_COLOR" which can be found in the devicespecific options. 
 
     ![Overlay Color](img/overlay_color.png)
 
@@ -1525,6 +1541,10 @@ This device has some special predefined size- and display-settings to show a tex
 ****
     
 ## Changelog
+
+### 1.8.3 dev
+* (sbormann) Added new configuration options for click on tile/icon behaviours - WARNING: Old configuration is automatically converted to the new settings. Its recommendet to create a backup of your config BEFORE doing the update, as the new settings are not backwards-compatible and in case of conversion errors.
+* (sbormann) Added option to link color of lamp to OVERLAY_ACTIVE_COLOR.
 
 ### 1.8.2 (2021-08-06)
 * (sbormann) Added JSON-Table Widget (Displays JSON-Data as table).

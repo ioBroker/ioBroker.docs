@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: /SSU46qsWQYtX0qDwvx+DdMtlutTpS5wp60+gu1UWwg=
+hash: UTxuek5frCognh7+EOOp41GijLzb/yNs5J5Ju9KNsNc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -51,6 +51,9 @@ hash: /SSU46qsWQYtX0qDwvx+DdMtlutTpS5wp60+gu1UWwg=
 
 \
 ![Скриншот](../../../en/adapterref/iobroker.iqontrol/img/screenshot_muuulle.jpg "& копировать; по muuulle")
+
+\
+![Скриншот](../../../en/adapterref/iobroker.iqontrol/img/screenshot_peks-67.jpg "& копировать; по пекс-67")
 
 Работает в любом браузере.
 Легко настроить, хотя он полностью настраиваемый и отзывчивый.
@@ -415,7 +418,7 @@ hash: /SSU46qsWQYtX0qDwvx+DdMtlutTpS5wp60+gu1UWwg=
 * Пользователю будет предложено ввести эти параметры при выборе виджета в качестве URL или BACKGROUND_URL или при автосоздании виджета.
 * type не является обязательным и может быть text (по умолчанию), number, checkbox, color, select, multipleSelect. `,` combobox`, `historyInstance`,` datapoint` или `icon`
 * Если типом является select, multipleSelect или combobox, вам необходимо указать возможные параметры, добавив / <selectOptions>, где <selectOptions> - это строка формата `` <value1>, <caption1> / <value2>, <caption2> / ... '' (combobox - это поле выбора с возможностью ввода произвольного текста)
-* Если тип - число, то можно указать минимальную, максимальную и ширину шага, добавив / <numberOptions>, где <numberOptions> - строка формата <min>, <макс>, <шаг> ''
+* Если типом является число, то можно указать минимальную, максимальную и ширину шага, добавив / <numberOptions>, где <numberOptions> - строка формата <min>, <макс>, <шаг> ''
 * Все эти параметры будут переданы веб-сайту виджета через строку параметра url (например, `` widget.html? Parameter = value & parameter2 = value2 '')
 * Вы можете использовать эти настройки на своем веб-сайте-виджете, запросив параметры URL-адреса с помощью такой функции:
 
@@ -444,7 +447,7 @@ hash: /SSU46qsWQYtX0qDwvx+DdMtlutTpS5wp60+gu1UWwg=
 * Иконки:
 * `` icon_on`` (значок включен):
 * Дефолт: ""
-* `icon_off` (значок выключен):
+* `` icon_off`` (значок выключен):
 * Дефолт: ""
 * Параметры для конкретных устройств:
 * showState (Показать состояние) - действительно только для кнопки роли и программы:
@@ -467,6 +470,9 @@ hash: /SSU46qsWQYtX0qDwvx+DdMtlutTpS5wp60+gu1UWwg=
 * `alternColorspace` (Цветовое пространство для ALTERNATIVE_COLORSPACE_VALUE") - допустимо только для роли Light:
 * Возможные значения: "" | "RGB" | "#RGB" | "RGBW" | "#RGBW" | "RGBWWCW" | "#RGBWWCW" | "RGBCWWW" | "#RGBCWWW" | "RGB_HUEONLY" | "#RGB_HUEONLY "|" HUE_MILIGHT "|" HHSSBB_TUYA "
 * Дефолт: ""
+* `` linkOverlayActiveColorToHue`` (использовать цвет лампы как OVERLAY_ACTIVE_COLOR) - действительно только для роли Light:
+* Возможные значения: «истина» | «ложь»
+* По умолчанию: «false»
 * `` linkGlowActiveColorToHue`` (использовать цвет лампы как GLOW_ACTIVE_COLOR) - действует только для роли Light:
 * Возможные значения: «истина» | «ложь»
 * По умолчанию: «false»
@@ -557,13 +563,22 @@ hash: /SSU46qsWQYtX0qDwvx+DdMtlutTpS5wp60+gu1UWwg=
 * Возможные значения: «истина» | «ложь»
 * По умолчанию: «false»
 * Поведение плитки (общее):
+* `` clickOnIconAction`` (щелкните действие значка):
+* Возможные значения: «toggle» | «openDialog» | «увеличить» | «openLinkToOtherView» | «openURLExternal» | «false»
+* По умолчанию: «переключатель».
+* `` clickOnTileAction`` (щелкните действие плитки):
+* Возможные значения: «toggle» | «openDialog» | «увеличить» | «openLinkToOtherView» | «openURLExternal» | «false»
+* По умолчанию: «openDialog».
 * `` clickOnIconOpensDialog`` (щелчок по значку открывает диалоговое окно (вместо переключения)):
+* *не рекомендуется* так как этот параметр теперь включен в clickOnIconAction
 * Возможные значения: «истина» | «ложь»
 * По умолчанию: «false»
 * `` clickOnTileToggles`` (Щелкайте по переключателям плитки (вместо открытия диалогового окна))):
+* *не рекомендуется* так как этот параметр теперь включен в clickOnTileAction
 * Возможные значения: «истина» | «ложь»
 * По умолчанию: «false»
 * `` clickOnTileOpensDialog`` (щелчок по плитке открывает диалоговое окно):
+* *не рекомендуется* так как этот параметр теперь включен в clickOnTileAction
 * Возможные значения: «истина» | «ложь»
 * По умолчанию: «true» (для большинства устройств)
 * `` noZoomOnHover`` (Отключить эффект масштабирования при наведении):
@@ -1204,9 +1219,9 @@ hash: /SSU46qsWQYtX0qDwvx+DdMtlutTpS5wp60+gu1UWwg=
 * **BACKGROUND_HTML** CONSTANT или DATAPOINT *string* - эта разметка будет отображаться как фон устройства-тайла, если не указан BACKGROUND_URL
 * **БАТАРЕЯ** *логическое* - если истина или *число* - когда меньше 10%, будет отображаться маленький значок разряда батареи
     * Вы можете дополнительно настроить поведение значка батареи в разделе параметров «Значок батареи пустой».
-* **ОШИБКА** *логическое* - если true, будет отображаться маленький значок восклицательного знака
+* **ОШИБКА** *логическое* - если истина, будет отображаться маленький значок восклицательного знака
 * **UNREACH** *boolean* - если true, будет отображаться маленький значок беспроводной связи
-    * Поведение можно инвертировать в разделе опций «Общие» (использовать подключенный вместо недосягаемого)
+    * Поведение можно инвертировать в разделе опций «Общие» (использовать подключенный вместо недоступного)
 * **ENLARGE_TILE** *boolean* - если true, тайл будет увеличен. Вы можете перезаписать это, нажав кнопку увеличения / уменьшения. Но каждый раз, когда состояние ENLARGE_TILE изменяется, он снова берет на себя управление состоянием увеличения тайлов. Если роль ENLARGE_TILE - *button* то каждое изменение состояния будет переключать состояние увеличения.
 * **BADGE** *число* или *строка* - если присутствует значение, отличное от нуля / false, то значок в верхнем левом углу отображается с этим значением
   * **BADGE_COLOR** * string * - любая допустимая строка цвета html (например, «зеленый», «# 00FF00», «rgba (0,255,0,0.5)» и т. Д.), Представляющая цвет значка. . Если отсутствует или недействителен, будет использован красный цвет с прозрачностью 20%.
@@ -1214,6 +1229,7 @@ hash: /SSU46qsWQYtX0qDwvx+DdMtlutTpS5wp60+gu1UWwg=
     ![Значок](../../../en/adapterref/iobroker.iqontrol/img/badge.png)
 
 * **OVERLAY_INACTIVE_COLOR** и **OVERLAY_ACTIVE_COLOR** *string* - любая допустимая строка цвета html (например, «зеленый», «# 00FF00», «rgba (0,255,0,0.5)» и т. Д.), представляет цвет наложения плитки (в зависимости от того, активен или неактивен тайл). Если действительная цветовая строка не указана, используется стандартный оверлейный цвет (который можно настроить в iQontrol-Options). Имейте в виду, что есть возможность определить прозрачность наложения в параметрах iQontrol, что повлияет на внешний вид установленного цвета наложения.
+* Для источников света вы также можете использовать параметр «Использовать цвет лампы как OVERLAY_ACTIVE_COLOR», который можно найти в параметрах для конкретных устройств.
 
     ![Цвет наложения](../../../en/adapterref/iobroker.iqontrol/img/overlay_color.png)
 
@@ -1544,6 +1560,10 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 ****
 
 ## Changelog
+
+### 1.8.3 dev
+* (sbormann) Added new configuration options for click on tile/icon behaviours - WARNING: Old configuration is automatically converted to the new settings. Its recommendet to create a backup of your config BEFORE doing the update, as the new settings are not backwards-compatible and in case of conversion errors.
+* (sbormann) Added option to link color of lamp to OVERLAY_ACTIVE_COLOR.
 
 ### 1.8.2 (2021-08-06)
 * (sbormann) Added JSON-Table Widget (Displays JSON-Data as table).

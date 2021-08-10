@@ -53,6 +53,9 @@ Define the size of the icon in the HTML widget
 "No symbols in widget":
 Don't use the symbol in the HTML widget. You can still access it in the objects. This is usefill if you want to show the icon seperatly from the widget - e.g. in a bigger size.
 
+"Today instead of Weekday"
+Show in the header of the widget instead of the weekday "today", "tomorrow" or "yesterday.
+
 ## Alarm Levels
 |Alarm Level|Description|                                                                       
 |:---:|:---:|
@@ -103,6 +106,14 @@ If you don't find your country, please create an issue on github, and I will be 
 
 
 ## Changelog
+
+## 2.0.3 (2021-08-09)
+* (jack-blackson) Show date in words instead of day in HTML widget
+* (jack-blackson) Added language code for Belgium
+
+## 2.0.2 (2021-07-15)
+* (jack-blackson) Bugfix
+
 ## 2.0.1 (2021-07-08)
 * (jack-blackson) Changed Alarm Folder Name to Alarm_X
 * (jack-blackson) Define in setup which Alarms you want to see

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: /SSU46qsWQYtX0qDwvx+DdMtlutTpS5wp60+gu1UWwg=
+hash: UTxuek5frCognh7+EOOp41GijLzb/yNs5J5Ju9KNsNc=
 ---
 ![Logo](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -51,6 +51,9 @@ Schnelle Web-App zur Visualisierung.
 
 \
 ![Bildschirmfoto](../../../en/adapterref/iobroker.iqontrol/img/screenshot_muuulle.jpg "&Kopieren; von muuulle")
+
+\
+![Bildschirmfoto](../../../en/adapterref/iobroker.iqontrol/img/screenshot_peks-67.jpg "&Kopieren; von peks-67")
 
 Läuft in jedem Browser.
 Einfach einzurichten, obwohl es vollständig anpassbar und reaktionsschnell ist.
@@ -467,6 +470,9 @@ Die kostenlosen integrierten Demo-Hintergründe stammen von www.pexels.com.
 * ``alternativeColorspace`` (Farbraum für ALTERNATIVE_COLORSPACE_VALUE") - nur gültig für Rolle Light:
 * Mögliche Werte: ""|"RGB"|"#RGB"|"RGBW"|"#RGBW"|"RGBWWCW"|"#RGBWWCW"|"RGBCWWW"|"#RGBCWWW"|"RGB_HUEONLY"|"#RGB_HUEONLY "|"HUE_MILIGHT"|"HHSSBB_TUYA"
 * Standard: ""
+* ``linkOverlayActiveColorToHue`` (Farbe der Lampe als OVERLAY_ACTIVE_COLOR verwenden) - nur gültig für Rolle Light:
+* Mögliche Werte: "true"|"false"
+* Standard: "falsch"
 * ``linkGlowActiveColorToHue`` (Farbe der Lampe als GLOW_ACTIVE_COLOR verwenden) - nur gültig für Rolle Light:
 * Mögliche Werte: "true"|"false"
 * Standard: "falsch"
@@ -557,13 +563,22 @@ Die kostenlosen integrierten Demo-Hintergründe stammen von www.pexels.com.
 * Mögliche Werte: "true"|"false"
 * Standard: "falsch"
 * Kachel-Verhalten (allgemein):
+* ``clickOnIconAction`` (Klicken Sie auf die Symbolaktion):
+* Mögliche Werte: "toggle"|"openDialog"|"enlarge"|"openLinkToOtherView"|"openURLExternal"|"false"
+* Standard: "umschalten"
+* ``clickOnTileAction`` (Auf Kachelaktion klicken):
+* Mögliche Werte: "toggle"|"openDialog"|"enlarge"|"openLinkToOtherView"|"openURLExternal"|"false"
+* Standard: "openDialog"
 * ``clickOnIconOpensDialog`` (Klicken Sie auf das Symbol öffnet den Dialog (statt umzuschalten)):
+* *veraltet*, da diese Option jetzt in clickOnIconAction enthalten ist
 * Mögliche Werte: "true"|"false"
 * Standard: "falsch"
 * ``clickOnTileToggles`` (Klicken Sie auf die Tile Toggles (anstatt den Dialog zu öffnen)):
+* *veraltet*, da diese Option jetzt in clickOnTileAction enthalten ist
 * Mögliche Werte: "true"|"false"
 * Standard: "falsch"
 * ``clickOnTileOpensDialog`` (Klick auf Kachel öffnet Dialog):
+* *veraltet*, da diese Option jetzt in clickOnTileAction enthalten ist
 * Mögliche Werte: "true"|"false"
 * Standard: "true" (für die meisten Geräte)
 * ``noZoomOnHover`` (Zoom-Effekt beim Schweben deaktivieren):
@@ -1185,7 +1200,7 @@ Fast alle Rollen haben einen **STATE**- und/oder einen **LEVEL**-Status. In den 
 * iQontrol zeigt unter folgenden Umständen eine definierte Werteliste als Dropdown-Feld im Dialog an:
 * wenn type 'numbers' ist und die valueList genau so viele Einträge hat, als Schritte zwischen min- und max des Datenpunkts oder
 * wenn type 'boolean' ist, aber Rolle nicht 'switch' ist oder
-* wenn Typ 'String' ist oder
+* wenn der Typ 'String' ist oder
 * wenn "Option zur Eingabe von Freitext hinzufügen" aktiviert ist
 * Ob die Gerätekachel als aktiv oder inaktiv angezeigt wird, wird auch aus dem STATE oder LEVEL-Datenpunkt bestimmt. Darüber hinaus können Sie das Verhalten im Optionsbereich 'Bedingungen für eine aktive Kachel' frei anpassen. Sie können sogar einen weiteren externen Datenpunkt setzen, der den Zustand der Kachel bestimmt
 
@@ -1214,6 +1229,7 @@ Allerdings ist nicht jeder Typ für jede Rolle sinnvoll. So ist beispielsweise d
     ![Abzeichen](../../../en/adapterref/iobroker.iqontrol/img/badge.png)
 
 * **OVERLAY_INACTIVE_COLOR** und **OVERLAY_ACTIVE_COLOR**: *string* - jeder gültige HTML-Farbstring (wie 'green', '#00FF00', 'rgba(0,255,0,0.5)' usw.), der stellt die Farbe der Überlagerung der Kachel dar (je nachdem, ob die Kachel aktiv oder inaktiv ist). Wenn kein gültiger Farbstring angegeben ist, wird die Standard-Overlay-Farbe (die in den iQontrol-Optionen konfiguriert werden kann) verwendet. Beachten Sie, dass es in den iQontrol-Optionen eine Option zum Definieren der Transparenz des Overlays gibt, die sich auf die Darstellung der eingestellten Overlay-Farbe auswirkt.
+* Für Lampen können Sie auch die Option "Farbe der Lampe als OVERLAY_ACTIVE_COLOR verwenden" verwenden, die in den gerätespezifischen Optionen zu finden ist.
 
     ![Overlay-Farbe](../../../en/adapterref/iobroker.iqontrol/img/overlay_color.png)
 
@@ -1544,6 +1560,10 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
 ****
 
 ## Changelog
+
+### 1.8.3 dev
+* (sbormann) Added new configuration options for click on tile/icon behaviours - WARNING: Old configuration is automatically converted to the new settings. Its recommendet to create a backup of your config BEFORE doing the update, as the new settings are not backwards-compatible and in case of conversion errors.
+* (sbormann) Added option to link color of lamp to OVERLAY_ACTIVE_COLOR.
 
 ### 1.8.2 (2021-08-06)
 * (sbormann) Added JSON-Table Widget (Displays JSON-Data as table).

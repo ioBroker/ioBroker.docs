@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.schwoerer-ventcube/README.md
 title: ioBroker.schwoerer-ventcube
-hash: aBfWMJanRauvuqMhJ8iYqrkhjzBVlq3oBmX+Gd6wvyc=
+hash: rjqmmMPuxlOO2pLoItSgaCjFBmKTBrhI/tT3cN3YOpw=
 ---
-![商标](../../../en/adapterref/iobroker.schwoerer-ventcube/admin/schwoerer-ventcube.png)
+![标识](../../../en/adapterref/iobroker.schwoerer-ventcube/admin/schwoerer-ventcube.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.schwoerer-ventcube.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.schwoerer-ventcube.svg)
@@ -19,7 +19,7 @@ hash: aBfWMJanRauvuqMhJ8iYqrkhjzBVlq3oBmX+Gd6wvyc=
 ![Github 发布状态](https://github.com/Excodibur/iobroker.schwoerer-ventcube/workflows/Build%2C%20Test%20and%20Release/badge.svg)
 
 ## 用于 ioBroker 的 schwoerer-ventcube 适配器
-Schwoererhaus Ventcube 系统的适配器。有关 Ventcube Fresh 的更多信息，请参见[这里](https://www.bauinfocenter.de/lueftung/lueftungsanlagen/)。
+Schwoererhaus Ventcube 系统的适配器。有关 Ventcube Fresh 的更多信息，请参见 [这里](https://www.bauinfocenter.de/lueftung/lueftungsanlagen/)。
 
 **免责声明**：该适配器既不是由分发 Ventcube 系统的公司 [Schwoererhaus KG](https://www.schwoererhaus.de/) 开发也不是官方支持的。应谨慎遵循说明并自担风险。
 
@@ -37,17 +37,17 @@ Schwoererhaus Ventcube 系统的适配器。有关 Ventcube Fresh 的更多信�
 
 下面引用的规范中提到的所有参数都已添加到适配器中，并且可以通过 ***高级功能*** 选项访问，该选项可在适配器部署期间进行配置。启用此选项将导致适配器定期检索 100 多个参数的数据，其中大多数可能不会在普通家庭中使用。测试范围仅限于***基本功能***（默认启用）。
 
-以下默认配置值可能需要在适配器部署期间更改才能正确连接到 Ventcube：
+在适配器部署期间可能需要更改以下默认配置值才能正确连接到 Ventcube：
 
-|参数 |默认值 | **应该是** |说明 |
-| `Server` |本地主机 | ***HERMES-LT*** 或***Ventcube 的本地网络IP*** |默认值用于测试，肯定需要更改！ |
-| `Port` | 10502 | ***502*** |默认值用于测试，肯定需要更改！ |
-| `Interval` | 30 | 30 |应该在多少秒后从服务器刷新指标 |
-| `Request Timeout` | 5000 | 5000 |等待 Ventcube 请求超时的毫秒数 |
-| `Reconnection Attempts` | 10 | 10 |如果与 Ventcube 的连接丢失，应尝试重新连接多少次 |
-| `Delay between reconnection attempts` | 10000 | 10000 |重新连接尝试之间等待的时间（以毫秒为单位）|
-| `Advanced Functions` | &#10003; | |如果 Ventcube 仅用于通风，基本功能可能就足够了，如果需要加热/冷却功能或系统指标（错误代码、风扇详细信息），则应激活高级功能。 |
-| `高级功能` | &#10003; | |如果 Ventcube 仅用于通风，基本功能可能就足够了，如果需要加热/冷却功能或系统指标（错误代码、风扇详细信息），则应激活高级功能。 |
+|参数 |默认值 |说明 |
+| `Server` |爱马仕-LT |通常 Ventcube 使用 _HERMES-LT_ 在网络中注册自己，但如果它不起作用，请尝试使用 IP 地址。 |
+| `Port` | 502 | |
+| `Interval` | 30 |应该在多少秒后从服务器刷新指标 |
+| `Request Timeout` | 5000 |等待 Ventcube 请求超时的毫秒数 |
+| `Reconnection Attempts` | 10 |如果与 Ventcube 的连接丢失，应尝试重新连接多少次 |
+| `Delay between reconnection attempts` | 10000 |重新连接尝试之间等待的时间（以毫秒为单位）|
+| `Advanced Functions` | &#10003; |如果 Ventcube 仅用于通风，基本功能可能就足够了，如果需要加热/冷却功能或系统指标（错误代码、风扇详细信息），则应激活高级功能。 |
+| `高级功能` | &#10003; |如果 Ventcube 仅用于通风，基本功能可能就足够了，如果需要加热/冷却功能或系统指标（错误代码、风扇详细信息），则应激活高级功能。 |
 
 #### 有趣的函数（开始）
 - ***Betriebsart***，多变
@@ -56,7 +56,7 @@ Schwoererhaus Ventcube 系统的适配器。有关 Ventcube Fresh 的更多信�
 - ***T10 温度***
 
 ###参考系统
-ioBroker 适配器已成功测试：
+ioBroker 适配器已成功通过以下测试：
 
 |控制面板 |风管 | Modbus规范|
 |---------------|----------|-----------------------------------|

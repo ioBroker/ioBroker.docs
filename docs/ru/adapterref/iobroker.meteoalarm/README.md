@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: Ivc9JQq1WS4r3oaGmex9rQJhzXisBdA3bRtHq/dirUc=
+hash: /hFswYVp78SbL4dgv8RcvXmo3802qubwrkYNHw/Cwx0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -53,6 +53,8 @@ hash: Ivc9JQq1WS4r3oaGmex9rQJhzXisBdA3bRtHq/dirUc=
 
 «В виджете нет символов»: не используйте символ в виджете HTML. Вы все еще можете получить к нему доступ в объектах. Это полезно, если вы хотите, чтобы значок отображался отдельно от виджета - например, в большем размере.
 
+«Сегодня вместо дня недели» Отображается в заголовке виджета вместо дня недели «сегодня», «завтра» или «вчера».
+
 ## Уровни срабатывания сигнализации
 | Уровень тревоги | Описание |
 |:---:|:---:|
@@ -100,6 +102,13 @@ hash: Ivc9JQq1WS4r3oaGmex9rQJhzXisBdA3bRtHq/dirUc=
 * Португалия (файл геокода с сайта meteoalarm.org, вероятно, неверен)
 * Болгария (файл геокода с сайта meteoalarm.org, вероятно, неверен)
 
+## 2.0.3 (2021-08-09)
+* (jack-blackson) Показывать дату словами вместо дня в HTML-виджете
+* (jack-blackson) Добавлен языковой код для Бельгии
+
+## 2.0.2 (15.07.2021)
+* (Джек-Блэксон) Исправление
+
 ## 2.0.1 (2021-07-08)
 * (jack-blackson) Имя папки с сигналами тревоги изменено на Alarm_X
 * (jack-blackson) Определите в настройке, какие будильники вы хотите видеть
@@ -109,7 +118,7 @@ hash: Ivc9JQq1WS4r3oaGmex9rQJhzXisBdA3bRtHq/dirUc=
 * (jack-blackson) Перейти на Meteoalarm.org, полностью перестроить
 
 ## 1.2.1 (05.06.2021)
-* (jack-blackson) Исправление ошибки для обработки некорректного XML (если используется страна вместо региона)
+* (jack-blackson) Исправление для обработки некорректного XML (если используется страна вместо региона)
 * (jack-blackson) Добавлен Люксембург
 
 ## 1.2.0 (2021-05-16)

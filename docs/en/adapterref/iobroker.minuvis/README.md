@@ -16,16 +16,22 @@ Visualization for all devices
 
 ########################################################################
 
-# IMPORTANT !!!
+Version 2 is out now 
+
+########################################################################
+
+# IMPORTANT !!!!
 
 if you are upgrading from version < 1.3.0 please note:
 
-* the storing-place of the config-files has changed
-* you cannot save you config-file at the old place
-* read config-file with the red dropdown-button
-* the file will get a prefix "OF_"
-* now save the config-file
-* prefix will disappear and config-file is saved at new place
+* upgrade to version v1.4 first and resave config-files in new place
+
+########################################################################
+
+* **BREAKING CHANGES** in version 2 see: https://minukodu.de/en/news/minuvis-20-iobroker-available
+* instructions for update v1 -> v2 see: https://minukodu.de/en/news/update-minuvis-v1-v2
+
+* If you want to keep Version 1, use this Docker-Image: https://hub.docker.com/r/sepp68/minuvis-image
 
 ########################################################################
 
@@ -60,6 +66,26 @@ For more information visit https://minukodu.de/en or watch at youtube https://yo
 
 
 ## Changelog
+
+### 2.1.0 (2021-07-31)
+* updated app and builder to V2.1.0
+
+### 2.0.0-rc.2 (2021-05-16)
+* updated app and builder to V2.0.0-rc.2
+
+### 2.0.0-rc.1 (2021-05-02)
+* updated app and builder to V2.0.0-rc.1
+
+### 2.0.0-beta.1 (2021-04-11)
+* updated app and builder to V2.0.0-beta.1
+
+### 2.0.0-alpha.2 (2021-04-05)
+* updated app to V2.0.0-alpha.2
+
+### 2.0.0-alpha (2021-03-08)
+* updated app to V2.0.0-alpha
+
+=======
 ### 1.4.0 (2021-03-07)
 * updated app to V1.13.0
 ### 1.3.1 (2021-01-24)
@@ -103,7 +129,7 @@ For more information visit https://minukodu.de/en or watch at youtube https://yo
 ## License
 MIT License
 
-Copyright (c) 2020 svallant <svallant@gmx.eu>
+Copyright (c) 2021 svallant <svallant@gmx.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

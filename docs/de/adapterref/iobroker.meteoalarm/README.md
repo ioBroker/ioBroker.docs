@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: Ivc9JQq1WS4r3oaGmex9rQJhzXisBdA3bRtHq/dirUc=
+hash: /hFswYVp78SbL4dgv8RcvXmo3802qubwrkYNHw/Cwx0=
 ---
 ![Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -20,7 +20,7 @@ meteoalarm Adapter für ioBroker -----------------------------------------------
 Haftungsausschluss: Zeitverzögerungen zwischen dieser Website und der Website www.meteoalarm.org sind möglich. Für die aktuellsten Informationen zu den von den teilnehmenden nationalen Wetterdiensten veröffentlichten Alarmstufen verwenden Sie bitte https://www.meteoalarm.org.
 
 ## So verwenden Sie es
-Wählen Sie Ihr Land und anschließend die Region, für die Sie die Warnungen erhalten möchten. Wenn Sie sich nicht sicher sind, wie Ihre Region heißt, gehen Sie bitte zu https://meteoalarm.org und versuchen Sie, sie auf der Karte zu finden.
+Wählen Sie Ihr Land und anschließend die Region aus, für die Sie die Warnungen erhalten möchten. Wenn Sie sich nicht sicher sind, wie Ihre Region heißt, gehen Sie bitte zu https://meteoalarm.org und versuchen Sie, sie auf der Karte zu finden.
 
 ## Fügen Sie es Ihrem vis hinzu
 Der einfachste Weg, es zu Ihrem Vis hinzuzufügen, ist die Verwendung des Widget basic - string und dort die Auswahl des Datenpunkts htmlToday. Damit erhalten Sie ein vorgefertigtes HTML-Widget, das Sie im Setup anpassen können.
@@ -53,12 +53,14 @@ Der einfachste Weg, es zu Ihrem Vis hinzuzufügen, ist die Verwendung des Widget
 
 "Keine Symbole im Widget": Verwenden Sie das Symbol nicht im HTML-Widget. Sie können weiterhin in den Objekten darauf zugreifen. Dies ist sinnvoll, wenn Sie das Symbol getrennt vom Widget anzeigen möchten - z.B. in größerer Größe.
 
+"Heute statt Wochentag" In der Kopfzeile des Widgets anstelle des Wochentags "heute", "morgen" oder "gestern" anzeigen.
+
 ## Alarmstufen
 |Alarmstufe|Beschreibung|
 |:---:|:---:|
 |Grün|Im Moment ist keine Warnung verfügbar.|
-|Gelb|Das Wetter ist potenziell gefährlich. Die vorhergesagten Wetterphänomene sind nicht ungewöhnlich, aber Aktivitäten, die meteorologischen Risiken ausgesetzt sind, sollte erhöhte Aufmerksamkeit gewidmet werden. Informieren Sie sich über die zu erwartenden meteorologischen Bedingungen und gehen Sie keine vermeidbaren Risiken ein.|
-|Orange|Das Wetter ist gefährlich. Ungewöhnliche meteorologische Phänomene wurden vorhergesagt. Schäden und Unfälle sind wahrscheinlich. Seien Sie sehr aufmerksam und vorsichtig und halten Sie sich über die erwarteten meteorologischen Bedingungen auf dem Laufenden. |
+|Gelb|Das Wetter ist potenziell gefährlich. Die vorhergesagten Wetterphänomene sind nicht ungewöhnlich, aber Aktivitäten, die meteorologischen Risiken ausgesetzt sind, sollte erhöhte Aufmerksamkeit geschenkt werden. Informieren Sie sich über die zu erwartenden meteorologischen Bedingungen und gehen Sie keine vermeidbaren Risiken ein.|
+|Orange|Das Wetter ist gefährlich. Ungewöhnliche meteorologische Phänomene wurden vorhergesagt. Schäden und Unfälle sind wahrscheinlich. Seien Sie sehr aufmerksam und vorsichtig und halten Sie sich über die zu erwartenden meteorologischen Bedingungen auf dem Laufenden. |
 |Rot|Das Wetter ist sehr gefährlich. Es wurden ungewöhnlich intensive meteorologische Phänomene vorhergesagt. Extreme Schäden und Unfälle, oft großflächig, bedrohen Leben und Sachwerte. |
 
 ##Unterstützte Länder
@@ -99,6 +101,13 @@ Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf github, und 
 * Schweiz (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
 * Portugal (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
 * Bulgarien (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
+
+## 2.0.3 (2021-08-09)
+* (jack-blackson) Datum in Worten statt Tag im HTML-Widget anzeigen
+* (jack-blackson) Sprachcode für Belgien hinzugefügt
+
+## 2.0.2 (2021-07-15)
+* (jack-blackson) Bugfix
 
 ## 2.0.1 (2021-07-08)
 * (jack-blackson) Name des Alarmordners in Alarm_X geändert
@@ -160,12 +169,12 @@ Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf github, und 
 * (jack-blackson) Travis-Fehler
 
 ## 1.0.3 (2019-09-09)
-* (jack-blackson) Kleine Bugfixes, Änderung von Typ "Deamon" zu "Schedule"
+* (jack-blackson) Kleine Bugfixes, Änderung vom Typ "Deamon" zu "Schedule"
 
 ## 1.0.2 (2019-08-25)
 * (jack-blackson) Infos zur Veröffentlichung nachbestellt
 
-### 1.0.1 (18.08.2019)
+### 1.0.1 (2019-08-18)
 * (jack-blackson) Bugfix kein Alarmsymbol
 
 ### 1.0.0 (2019-08-12)

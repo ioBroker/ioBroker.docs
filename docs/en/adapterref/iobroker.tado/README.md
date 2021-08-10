@@ -43,6 +43,14 @@ In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x some
     ### __WORK IN PROGRESS__
 -->
 
+### 0.3.6-0 (2021-08-09)
+* (HGlab01) support attribute 'orientation' (Sentry: IOBROKER-TADO-35)
+
+### 0.3.5 (2021-08-05)
+* (HGlab01) fix issue 'hot water cannot be switched on' (#309)
+* (HGlab01) change to new sentry dsn
+* (HGlab01) Bump iobroker-jsonexplorer to v0.1.2
+
 ### 0.3.4 (2021-07-24)
 * (HGlab01) add attribute 'location' to blacklist (Sentry IOBROKER-TADO-2Y)
 * (HGlab01) support attribute 'swing' (Sentry: IOBROKER-TADO-2G)
@@ -184,7 +192,7 @@ In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x some
 ## License
 MIT License
 
-Copyright (c) 2020 DutchmanNL <rdrozda@hotmail.com>
+Copyright (c) 2021 DutchmanNL <rdrozda@hotmail.com> & HGlab01
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
