@@ -27,7 +27,7 @@ When doing custom queries via the "query" message you can use InfluxQL to select
 Since 2.0 of the adapter also InfluxDB 2.x is supported which works a bit different.
 Here beside the Host-IP and Port the following data are required:
 * **Organization**: You need to create an organization on the commandline and need to enter the name or ID of that organization here. If you created one Organization when doing the InfluxDB setup you have created an initial organization and can use this here, else use `influx org list` to see available organizations.
-* **Authentication Token**: You need to create an Authentication token  that have sufficient rights to basically do all actions on the provided organization! **Important: For now just use the initial owner auth token because we still struggle on how to create an Token that has sufficient permissions. The Owner Token was generated on InfluxDB setup process.**
+* **Authentication Token**: You need to create an Authentication token  that have sufficient rights to basically do all actions on the provided organization! **Important: For now just use the initial owner auth token because we still struggle on how to create a token that has sufficient permissions. The Owner Token was generated on InfluxDB setup process. If you know how to create the right tokens let us now :-)**
 
 You can also define a database name - this is used as Bucket. The default is "iobroker". On first adapter start this bucket is created in the configured organization.
 
@@ -296,7 +296,7 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 -->
 ## Changelog
 ### __WORK IN PROGRESS__
-* IMPORTANT: The adapter now needs Admin 5.1.15+ and js-controller 3.3+!
+* IMPORTANT: The adapter now requires Admin 5.1.15+ and js-controller 3.3+! For other admin or js-controller versions please use the former v1.9.5 of thi adapter.
 * (Excodibur) Added InfluxDB 2.0 support
 * (Excodibur) Adjust Retention handling on Database level to work for InfluxDB 1.x and 2.x
 * (Excodibur) Removed retention options on datapoint level because never worked and also not supported really by InfluxDB anymore

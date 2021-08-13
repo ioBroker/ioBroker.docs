@@ -3,18 +3,19 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecovacs-deebot/README.md
 title: Адаптер Ecovacs Deebot для ioBroker
-hash: IgMRNinhgcjP0SsX5OmbLg6ko+aTvbgJtvWmYixSeKs=
+hash: 91+S1+K4Tvih7Ddub1IxnWC+Qoroym8kK+LngmsUuos=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
 ![Стабильная версия](http://iobroker.live/badges/ecovacs-deebot-stable.svg)
 ![Последняя версия](http://img.shields.io/npm/v/iobroker.ecovacs-deebot.svg)
 ![Количество установок](http://iobroker.live/badges/ecovacs-deebot-installed.svg)
-![Количество загрузок](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
-![npm](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
-![Трэвис-Си](https://travis-ci.org/mrbungle64/ioBroker.ecovacs-deebot.svg?branch=master)
+![Количество скачиваний в месяц](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
+![Количество скачиваний](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
 
 # Ecovacs Адаптер Deebot для ioBroker
+[![github-workflow] (https://github.com/mrbungle64/iobroker.ecovacs-deebot/actions/workflows/node.js.yml/badge.svg)](https://github.com/mrbungle64/iobroker.ecovacs-deebot)
+
 Этот адаптер использует библиотеку [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js).
 
 ## Функции

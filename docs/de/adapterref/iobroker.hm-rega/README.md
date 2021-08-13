@@ -150,6 +150,9 @@ Abschließend sind die in der CCU angelegten Variablen aufgelistet
 	### __WORK IN PROGRESS__
 -->
 
+### 3.0.31 (2021-08-12)
+* (foxriver76) we fixed some sentry issues (closes #182, closes #183)
+
 ### 3.0.30 (2021-07-18)
 * (foxriver76) improved the detection of ALARM occurrences for virtual devices
 

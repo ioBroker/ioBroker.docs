@@ -1,17 +1,24 @@
 ---
-title: 使用图像
-lastChanged: 31.07.2019
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/images.md
-hash: LSjzo4sW6IezL2SnJfsACfPQ5HrTdGmSNGF5hx3oFT0=
+title: 处理图像
+hash: +7btQz2YwNxQ7cvAm6lflniM5CCWalHSRI06eUPOpmQ=
 ---
-＃使用图像时的步骤
-在下载页面上下载图像后，使用图像工具（例如Balena-Etcher）将图像写入SD卡。
+--- 标题：处理图像 lastChanged：07/31/2019 ---
 
-每个单独图像的进一步程序可以是不同的。
-因此，按钮**信息**位于下载页面上的每个图像下方。
+# 如何使用图片
+从下载页面下载图像后，使用图像工具（例如 Balena-Etcher）将它们写入 SD 卡。
 
-如果单击此按钮，将显示属于此图像的自述文件。
+每个单独图像的进一步过程可能不同。
+这就是为什么 **信息** 按钮位于每个图像下方的下载页面上。
 
-在那里存放了进一步的程序以及安全说明。
+如果单击它，则会出现属于该图像的自述文件。
+
+进一步的程序和安全说明存储在那里。
+
+当前测试镜像“2021-07-30-ioBrokerPi-lite.img”可以在Unix下使用以下命令写入SD卡：
+
+** 须藤卸载 / 开发 / sdx **
+
+** sudo dd bs = 1M if = 2021-07-30-ioBrokerPi-lite.img of = / dev / sdx ***

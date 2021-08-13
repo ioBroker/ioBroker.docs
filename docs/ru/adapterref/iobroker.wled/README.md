@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wled/README.md
 title: ioBroker.wled
-hash: OuR8MefMR0W8HD0uepODxQyPj1gkE6QIp5bvy0IVcTE=
+hash: CciAZYMZtqyE/RIcKS7ZJeMC3ztO2j3JBJLO/tFr3k8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.wled/admin/wled_large.png)
 
@@ -37,7 +37,7 @@ hash: OuR8MefMR0W8HD0uepODxQyPj1gkE6QIp5bvy0IVcTE=
 * [] Переключить опрос на сокетные соединения, ожидается реализация в прошивке WLED.
 
 ## Поддержите меня
-Если вам нравятся мои работы, пожалуйста, сделайте личное пожертвование (это личная ссылка для пожертвований для DutchmanNL, не имеющая отношения к проекту ioBroker!) [![Пожертвовать] (https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
+Если вам нравятся мои работы, пожалуйста, сделайте личное пожертвование (это личная ссылка для пожертвований для DutchmanNL, не имеющая отношения к проекту ioBroker!) [![Пожертвовать] (https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Что такое Sentry.io и что передается на серверы этой компании?
 Sentry.io - это сервис, позволяющий разработчикам получать информацию об ошибках в своих приложениях. Именно это и реализовано в этом адаптере.
@@ -49,6 +49,18 @@ Sentry.io - это сервис, позволяющий разработчика
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.5.9 (2021-08-11)
+* (DutchmanNL) added new state attributes reported by Sentry
+* (DutchmanNL) added min & max for brightness value to support iOT adapter
+
+### 0.5.8 (2021-08-11)
+* (DutchmanNL) added new state attributes reported by Sentry
+* (DutchmanNL) Bugfix Live override datapoint created as read-only #252
+* (DutchmanNL) excluded value "PIR" from data write due to current formatting
+
+### 0.5.7 (2021-08-10)
+* (foxriver76) we fixed some incorrect object types, fixes warnings with JS-Controller 3.3.x [#215](https://github.com/DrozmotiX/ioBroker.wled/issues/215) & [#209](https://github.com/DrozmotiX/ioBroker.wled/issues/209)
+* (DutchmanNL) add support for WLED 0.13.x (added types fps, ndc, ip, of)
 
 ### 0.5.6 (2021-01-03)
 * (DutchmanNL) Bugfix : State type definition for time and pmt

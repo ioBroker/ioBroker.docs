@@ -1,107 +1,112 @@
 ---
-BADGE-Build Status: https://travis-ci.org/ioBroker/ioBroker.ical.svg?branch=master
 BADGE-Number of Installations: http://iobroker.live/badges/ical-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.ical.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.ical.svg
-BADGE-Github Issues: http://githubbadges.herokuapp.com/ioBroker/ioBroker.ical/issues.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.ical.png?downloads=true
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ical/README.md
-title: ioBroker iCal适配器
-hash: ChebhMhoZ0yebwHjnqwSf3xjQowF2GWOm3TesxP/sy0=
+title: ioBroker iCal 适配器
+hash: FsFdx4mujGjM+JFl+QirZJLQ4tF66bqOWrBT3dg8V2w=
 ---
-![商标](../../../en/adapterref/iobroker.ical/ical.png)
+![标识](../../../en/adapterref/iobroker.ical/ical.png)
 
-＃ioBroker iCal适配器此适配器允许从特定URL读取.ics文件并进行解析（Google日历或iCal）。
-或者，可以使用本地`.ics`文件（使用文件的绝对路径而不是URL）
-##用法
-基于适用于（CCU.IO）的iCal适配器[https://github.com/hobbyquaker/ccu.io/tree/master/adapter/ical]来自vader722
+# ioBroker iCal 适配器这个适配器允许从特定的 URL 读取 .ics 文件并解析它（谷歌日历或 iCal）。
+或者，可以使用本地 `.ics` 文件（使用文件的绝对路径而不是 URL）
+＃＃ 用法
+基于 iCal Adapter for (CCU.IO)[https://github.com/hobbyquaker/ccu.io/tree/master/adapter/ical] 来自 vader722
 
-###适配器iCal
-用于ioBroker的iCal适配器从指定的URL读取`.ics`格式的日历文件，并将事件（位于预定义的时间间隔内）写入ioBroker变量。另外，也可以使用本地.ics文件（使用文件的绝对路径代替URL）。
-可以使用`basic html - String (unescaped)`小部件在VIS中显示它们。
+### 适配器 iCal
+ioBroker 的 iCal 适配器从指定的 URL 读取 `.ics` 格式的日历文件，并将位于预定义时间间隔内的事件写入 ioBroker 变量。或者，可以使用本地 .ics 文件（使用文件的绝对路径而不是 URL）。
+它们可以使用 `basic html - String (unescaped)` 小部件在 VIS 中显示。
 
-创建两个变量：
+创建了两个变量：
 
 -`iCalReadTrigger`
 -`iCalEvents`
 
-变量`iCalReadTrigger`用于触发读入过程。
-在设置中，可以放置几个URL，从中读取日历。
-然后依次读取日历并汇总结果。
-可替代地，还可以给读取命令一个URL，例如URL。暂时阅读另一个日历。
+变量 `iCalReadTrigger` 用于触发读入过程。
+在设置中可以存放多个 URL，从中可以读取日历。
+然后连续读取日历并总结结果。
+或者，读取命令也可以被赋予一个 URL，例如暂时阅读另一个日历。
 
-要读取defaultURL，必须将字符串`read`写入变量`iCalReadTrigger`中。
+要读入 defaultURL，必须将字符串 `read` 写入变量 `iCalReadTrigger`。
 
-要从任何URL读取，必须将字符串`read https: // ...`写入变量`iCalReadTrigger`中。
+要从任何 URL 读取，必须将字符串 `read https: // ...` 写入变量 `iCalReadTrigger`。
 
-结果返回变量`iCalEvents`中的iCal适配器。
+结果返回变量 `iCalEvents` 中的 iCal 适配器。
 
-通过将`check`写入` iCalReadTrigger`，将在读取的数据上触发事件检查，而无需重新读取数据。
+通过将 `check` 写入` iCalReadTrigger`，在读取数据上触发事件检查，而无需重新读取数据。
 
-或者，适配器还可以按可定义的时间间隔自动查询日历（仅使用`defaultURL`）。
-为此，请使用变量runEveryMinutes在设置中设置轮询间隔（以分钟为单位）。
+或者，适配器还可以在可定义的时间间隔内自动查询日历（仅使用 `defaultURL`）。
+为此，请使用变量 runEveryMinutes 在设置中设置轮询间隔（以分钟为单位）。
 
 配置文件中选项的含义：
 
--`preview`：7＃表示约会提前7天显示
--`runEveryMinutes`：30＃表示适配器每30分钟自动重新记录一次日历。如果没有自动读取0
--`colorize`：true＃今天的约会将被涂成红色，明天的约会将被涂成橙色，此选项将覆盖选项everyCalOneColor
--`debug`：false＃如果为true，则将扩展输出写入CCU.IO日志
--`defColor`：`white`＃设置日历项的默认颜色
--`fulltime`：``＃确定全天约会用哪个字符串替换00:00时间。对于空格（引号之间），全天约会将省略时间
--`replaceDates`：true＃如果为true，则将今天的日期替换为字符串TodayString（例如Today）。明天通过字符串明日约会
--`everyCalOneColor`：false＃如果为true，则多个日历将使每个日历以指定的颜色上色。如果设置了colorize选项，则将不起作用！
--`Calendar1`：
--“ calURL”：“ http：//11111.ics”，日历的URL
--“ calColor”：如果设置了“ everyCalOneColor”选项，则为日历的“白色”颜色。
+- `preview`: 7 # 表示提前 7 天显示约会
+- `runEveryMinutes`: 30 # 表示适配器每 30 分钟自动重新调整日历。如果没有自动读取 0
+- `colorize`: true # 今天的约会是红色的，明天的约会是橙色的，这个选项覆盖了everyCalOneColor 的选项
+- `debug`: false # 如果为 true，扩展输出将写入 CCU.IO 日志
+- `defColor`:` white` # 设置日历条目的默认颜色
+- `fulltime`: ` ` # 确定用哪个字符串替换全天约会的时间 00:00。对于空格（引号之间），全天约会省略时间
+- `replaceDates`: true # 如果为 true，则今天的日期将替换为字符串 todayString（例如，Today）。明天的约会通过字符串明天字符串
+- `everyCalOneColor`: false # 如果为 true，则多个日历将使每个日历都以指定的颜色着色。如果设置了 colorize 选项，这将不起作用！
+-`日历1`：
+- "calURL": "http://11111.ics", 日历的 URL
+- “calColor”：日历的“白色”颜色，如果设置了“everyCalOneColor”选项。
 
-可以输入任意数量的日历。标准配置文件包含2个日历。
+可以输入任意数量的日历。标准配置文件包含 2 个日历。
 
 -`事件`：
--`name`：“假期”：
--`enabled`：true＃确定事件是否将被编辑
--`display`：false＃确定该事件是否也显示在iCalEvents中，或仅评估
+- `name`:"假期":
+- `enabled`: true # 确定事件是否将被编辑
+- `display`: false # 确定事件是否也显示在 iCalEvents 中，或者只被评估
 
-通过设置事件（在此示例中为“ vacation”），在日历中搜索字符串“ vacation”。
-如果日历中包含关键字“假期”的约会，则会自动将“名称假日”设置为“真”。如果约会结束，则状态将重置为false。
-在预览期间的每一天都会创建一个状态。危险！搜索一个子串，i。日历“假期”中的条目以及“假日父母”条目均被识别。设置事件时必须考虑到这一点。
+通过设置事件（在本例中为“假期”），日历将搜索字符串“假期”。
+如果带有关键字“假期”的约会在日历中，则名称假期自动设置为 True 的状态。如果约会结束，状态将重置为 false。
+为预览期的每一天创建一个状态。危险！搜索子串 i。日历中的“假期”条目以及“假期父母”条目都被认可。设置事件时必须考虑到这一点。
 
-通过在VIS中调整CSS，可以设置今天（标准红色）和明天（标准橙色）的样式：
+通过调整VIS中的CSS，可以设置今天（标准红色）和明天（标准橙色）日期的样式：
 
--`iCalWarn`-今天的换行日历条目
--`iCalPreWarn`-明天开始行日历输入
--`iCalNormal`-今天的行尾
--`iCalNormal2`-行的明天结束
+- `iCalWarn` - 今天换行日历条目
+- `iCalPreWarn` - 明天行日历条目的开始
+- `iCalNormal` - 从今天开始结束
+- `iCalNormal2` - 明天的行尾
 
-###日历
-#### Apple iCloud日历
-如果先前已共享，则可以查看Apple iCloud日历。最好为Homematic创建自己的日历，因为该日历将与所有人共享。
-为此，请在“日历”应用中的日历上单击鼠标右键，然后选择“共享设置”。现在检查“公共日历”并复制显示的URL。重要提示：网址以webcal开头：// p0X-cale .....
-`webcal`必须替换为` http`。然后在defaultURL的设置中输入此URL，或在`read URL`中指定它。 `readURL http: // p-03-calendarws.icloud.com / xxxxxxxxx`
+＃＃＃ 日历
+#### 苹果 iCloud 日历
+如果以前共享过，则可以查看 Apple iCloud 日历。最好为 Homematic 创建您自己的日历，因为日历将与所有人共享。
+为此，请右键单击日历应用程序中的日历，然后选择共享设置。现在选中“公共日历”并复制显示的 URL。重要提示：url 以 webcal: // p0X-cale ..... 开头
+`webcal` 必须替换为` http`。然后在 defaultURL 的设置中输入此 URL，或在 `read URL` 中指定它，例如。 `readURL http: // p-03-calendarws.icloud.com / xxxxxxxxx`
 
-#### Google日历
-要包括Google日历，您必须转到Google日历日历设置（鼠标单击日历旁边的“向下箭头”）。通过单击“专用地址”字段旁边的`ICAL`符号，可以找到日历的URL。然后在defaultURL的设置中输入此URL，或者在`read URL`中指定它。 `readURL https: // www.google.com / calendar / ical / xxxxxxxx / basic.ics`。
+#### 谷歌日历
+要包含 Google 日历，您必须转到 Google 日历日历设置（鼠标单击日历旁边的“向下箭头”）。单击“私人地址”字段旁边的 `ICAL` 符号可以找到日历的 URL。然后在 defaultURL 的设置中输入此 URL，或在 `read URL` 中指定它，例如。 `readURL https: // www.google.com / calendar / ical / xxxxxxxx / basic.ics`。
 
-#### OwnCloud日历
-要包括OwnCloud的硬日历，您必须在OwnCloud的日历视图中将该日历批准为硬地日历，并在其中链接。
+#### OwnCloud 日历
+要包含一个 OwnCloud 的硬日历，您必须在 OwnCloud 的日历视图中将此日历批准为硬地日历，并在那里批准链接。
 
-####贝加尔湖轻量级CalDAV + CardDAV服务器
-Baikal服务器提供了“ ics-export”插件，该插件可将日历导出为单个ICal文件。该导出插件是通过URL选择的，并允许与此ioBroker适配器进行无缝集成。请将导出过滤器添加到日历的URL（`https://SERVER/baikal/cal.php/calendars/path/to/calendar?export&accept=ical`）。如果遇到身份验证问题，请在贝加尔湖服务器的WebUI的管理设置中将`WebDAV authentication type`从`DIGEST`更改为`BASIC`。
+#### NextCloud 日历
+要包含 NextCloud 日历，必须在 NextCloud 的日历视图中复制用户所需的单个日历的下载链接。
+为此，请以用户身份登录 NextCloud 并转到“日历”。在左栏中，单击带有三个点的圆圈旁边的所需日历。
+在出现的菜单中，将鼠标悬停在“下载”上，然后右键单击以复制链接。
+示例：https://192.168.1.234/remote.php/dav/calendars/MYCALENDAR/personal/?export（链接包含“?export”很重要）。
+
+将此 URL 与用户名和密码一起输入到 ioBroker.ical 适配器中。这必须针对所有用户的所有所需日历单独完成。
+
+#### 贝加尔湖轻量级 CalDAV+CardDAV 服务器
+Baikal 服务器提供了“ics-export”插件，允许将日历导出为单个 ICal 文件。这个导出插件是通过 URL 选择的，并允许与这个 ioBroker 适配器无缝集成。请将导出过滤器添加到您日历的 URL (`https://SERVER/baikal/cal.php/calendars/path/to/calendar?export&accept=ical`)。如果您遇到身份验证问题，请在贝加尔湖服务器 WebUI 的管理设置中将 `WebDAV authentication type` 从 `DIGEST` 更改为 `BASIC`。
 
 ### CSS
-在生成的HTML中，包括两种CSS类，以允许设计自由。
+在生成的 HTML 中包含两种 css 类以允许设计自由。
 
-####基于时间的CSS类
-* _iCalNormal _ / _ iCalNormal2_：此事件在今天（仍在运行）之前或之后（三天内）开始，默认颜色（不带CSS且不带日历色）是配置的适配器颜色
-* _iCalWarn _ / _ iCalWarn2_：事件从今天开始，没有CSS且没有calendercolor的默认颜色是“红色”。
-* _iCalPreWarn _ / _ iCalPreWarn2_：活动将于明天开始，没有CSS和没有日历颜色的默认颜色是“橙色”。
-* _iCalPrePreWarn _ / _ iCalPrePreWarn2_：事件从明天开始，不带CSS和不带日历颜色的默认颜色为“黄色”。
+#### 基于时间的 CSS 类
+* _iCalNormal_/_iCalNormal2_：事件在今天之前开始（并且仍在运行）或在 3 天之后开始，没有 CSS 和日历颜色的默认颜色是配置的适配器颜色
+* _iCalWarn_/_iCalWarn2_：活动从今天开始，没有 CSS 和日历颜色的默认颜色是 `red`
+* _iCalPreWarn_/_iCalPreWarn2_：活动明天开始，没有CSS和日历颜色的默认颜色是`orange`
+* _iCalPrePreWarn_/_iCalPrePreWarn2_: 事件在后天开始，没有 CSS 和日历颜色的默认颜色是 `yellow`
 
-第一个CSS类（例如iCalNormal2）用于HTML的日期和时间部分，第二个CSS类（例如iCalNormal2）用于事件名称。
+第一个 CSS 类（例如 iCalNormal）用于 HTML 的日期和时间部分，第二个 CSS 类（例如 iCalNormal2）用于事件名称。
 
-这些CSS类用于格式化输出的CSS示例（例如，日期/时间向左+粗体和事件名称向右...）：
+这些 CSS 类的 CSS 示例用于格式化输出有点不同（例如日期/时间左+粗体和事件名称右......）：
 
 ```
 .icalWarn{
@@ -154,13 +159,13 @@ Baikal服务器提供了“ ics-export”插件，该插件可将日历导出为
 }
 ```
 
-####基于日历的CSS类
-每个跨度还根据事件所在的日历的名称分配了一个CSS类。为此，将在适配器配置中定义的“日历名称”用于此（空格由下划线代替）。
+#### 基于日历的 CSS 类
+每个跨度还有一个基于事件所在日历名称分配的 CSS 类。适配器配置中定义的“日历名称”用于此（空格由下划线替换）。
 
-* _iCal- <日历名称> _：此类用于HTML的日期和时间部分
-* _iCal-> calendername2> _：此类用于事件名称
+* _iCal-<calendername>_：此类用于HTML的日期和时间部分
+* _iCal->calendername2>_：该类用于事件名称
 
-要设置这些CSS类，您还需要使用基于时间的CSS类，例如_.icalNormal2.iCal- <日历名称> 2_：
+要设置这些 CSS 类，您也需要使用基于时间的 CSS 类，例如_.icalNormal2.iCal-<日历名称>2_：
 
 ```
 .icalNormal2.iCal-Google2{
@@ -177,10 +182,10 @@ Baikal服务器提供了“ ics-export”插件，该插件可将日历导出为
 <span style="font-weight: bold; color: red"><span class="icalWarn iCal-calendar-today">1.1.2018  ganzer Tag</span></span><span style="font-weight:normal;color:red"><span class='icalWarn2 iCal-calendar-today2'> Today Event</span></span><br/>
 ```
 
-##筛选
-在实例选项中，可以为每个日历维护一个过滤器。它必须是用分号分隔的列表。如果启用选项`Filter as regular expression`，则过滤器将解释为正则表达式。在日历刷新期间，将排除通过描述，位置或摘要匹配的所有事件。
+＃＃ 筛选
+在实例选项中，可以为每个日历维护一个过滤器。它必须是一个分号分隔的列表。如果启用选项 `Filter as regular expression` 过滤器将被解释为正则表达式。在日历刷新期间，所有按描述、位置或摘要匹配的事件都将被排除。
 
-搜索模式为：
+搜索模式是：
 
 ```
 SUMMARY:MySummary
@@ -188,10 +193,92 @@ DESCRIPTION:MyDescription
 LOCATION:MyLocation
 ```
 
-黑名单：如果要排除特定位置的所有事件，请使用`LOCATION:MyLocation`或简单的`MyLocation`或2个位置`LOCATION:MyLocation;LOCATION:SomewhereElse`。
-白名单：如果您只想包含特定位置的事件，请使用正则表达式，例如`/^(SUMMARY:.*)\s*(DESCRIPTION:.*)\s*(LOCATION:(?!MyLocation).*)$/`或2个位置`/^(SUMMARY:.*)\s*(DESCRIPTION:.*)\s*(LOCATION:(?!((MyHomeLocation)|(MyWorkLocation))).*)$/`
+黑名单：如果您想排除特定位置的所有事件，请使用 `LOCATION:MyLocation` 或简单的 `MyLocation` 或 2 个位置 `LOCATION:MyLocation;LOCATION:SomewhereElse`。
+白名单：如果您只想包含特定位置的事件，请使用正则表达式如 `/^(SUMMARY:.*)\s*(DESCRIPTION:.*)\s*(LOCATION:(?!MyLocation).*)$/` 或对于 2 个位置 `/^(SUMMARY:.*)\s*(DESCRIPTION:.*)\s*(LOCATION:(?!((MyHomeLocation)|(MyWorkLocation))).*)$/`
 
 ## Changelog
+<!--
+### 1.11.3 (2021-08-04)
+-->
+
+### 1.11.2 (2021-08-01)
+* (Apollon77) Change one logline to debug
+
+### 1.11.1 (2021-07-30)
+* (Apollon77) Adjust date length for full day events to the full day
+
+### 1.11.0 (2021-07-30)
+* (Apollon77) Locally cache remote calendars to be used in case of request errors
+
+### 1.10.4 (2021-07-30)
+* (Apollon77) Make sure daysPast is correctly initialized if not provided
+* (Apollon77) When no calendar could be read then no events are updated/cleanup
+* (Apollon77) Respect HTTP statuscode from server response too to detect errors
+
+### 1.10.3 (2021-07-30)
+* (Apollon77/Feuersturm) Fix other timezone issues
+* (Apollon77) Fix setting external States when events are active
+* (Apollon77) Also list recurring entries from the past
+* (Apollon77) Fix the event states for the days in future
+
+### 1.10.2 (2021-07-25)
+* (Apollon77/Feuersturm) Fix wrong times and dates introduced in 1.7.5.
+* (Feuersturm) Allow Setting daysPast to be decreased to zero with button again
+
+### 1.10.1 (2021-07-22)
+* (Apollon77) Make sure all Event objects are created before values are written
+
+### 1.10.0 (2021-07-16)
+* IMPORTANT: data.table is now a stringified array!! Consider when using this value!
+* (Apollon77) Optimize for js-controller 3.3
+* (BasGo) added analysis for events marked as private in Google Calendar
+* (jens-maus) updated dependencies
+
+### 1.9.3 (2021-04-01)
+* (Apollon77) Better handling of some ical cases 
+
+### 1.9.2 (2021-03-07)
+* (Apollon77) Prevent crash case when summary is not provided (Sentry IOBROKER-ICAL-K)
+
+### 1.9.1 (2021-01-30)
+* (Apollon77) try to make sure all code is executed before adapter is ended
+
+### 1.9.0 (2021-01-12)
+* (christofkac) Added option to ignore case when events are searched in calendars
+* (Apollon77) Prevent crash case (Sentry IOBROKER-ICAL-F)
+
+### 1.8.5 (2021-01-01)
+* (Apollon77) update ical library to prevent problems with RRULE parsing
+
+### 1.8.4 (2020-12-27)
+* (Apollon77) Prevent crash case (Sentry IOBROKER-ICAL-D)
+
+### 1.8.3 (2020-12-24)
+* (Apollon77) Prevent crash case (Sentry IOBROKER-ICAL-C)
+* (Apollon77) Upgrade node-ical
+
+### 1.8.2 (2020-11-29)
+* (klein0r) Several fixes and optimizations
+
+### 1.8.1 (2020-11-20)
+* (klein0r) Fixed past event calculation in html view
+
+### 1.8.0 (2020-11-14)
+* (klein0r) Moved html options to separate tab
+* (klein0r) Added option to hide "arrow" on for running events
+* (klein0r) Added feature to include past events (in days)
+
+### 1.7.5 (2020-11-08)
+* (Apollon77) Only handle events with a start date (Sentry IOBROKER-ICAL-1, IOBROKER-ICAL-2, IOBROKER-ICAL-4)
+* (JensMaus) Update dependencies, fix some more issues
+
+### 1.7.4 (2020-08-26)
+* (Apollon77) Fix multiple parsing
+
+### 1.7.3 (2020-08-26)
+* (foxriver76) we pin a specific dependency version, because "rrule" package broken
+* (foxriver76) added eslint
+
 ### 1.7.2 (2019-12-02)
 * (bluefox) Documentation was changed
 
@@ -324,7 +411,7 @@ LOCATION:MyLocation
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2021, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: O/9g9KEHoarO9stxwgzMohQQNlrQowOwH4pnbPJLC+8=
+hash: eY2PM8p+KrILW1ThtTPX4W9dPfYLwdbQngSP2IPbHY4=
 ---
 ![Logo](../../../en/adapterref/iobroker.web/admin/web.png)
 
@@ -21,17 +21,22 @@ Webserver auf Basis von Node.js und Express zum Lesen der Dateien aus ioBroker D
 ## Tuning Web-Sockets
 Bei einigen Web-Sockets-Clients gibt es Leistungsprobleme bei der Kommunikation.
 Manchmal ist dieses Problem auf einen Fallback der socket.io-Kommunikation auf einen langen Polling-Mechanismus zurückzuführen.
-Sie können die Option *Web-Sockets erzwingen* so einstellen, dass nur die Verwendung von Web-Sockets erzwungen wird.
+Sie können die Option *Web-Sockets erzwingen* einstellen, um nur den Transport von Web-Sockets zu erzwingen.
 
 ## Lassen Sie uns Zertifikate verschlüsseln
-Lesen Sie [Hier](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
+Lesen Sie [hier](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
 
 ## Erweiterungen
-Webtreiber unterstützt Erweiterungen. Die Erweiterung ist ein URL-Handler, der aufgerufen wird, wenn eine solche URL-Anfrage erscheint.
+Webtreiber unterstützt Erweiterungen.
+Die Erweiterung ist ein URL-Handler, der aufgerufen wird, wenn eine solche URL-Anfrage erscheint.
 Die Erweiterungen sehen aus wie die normalen Adapter, haben aber keinen laufenden Prozess und werden vom Webserver aufgerufen.
 
 Z.B. der Benutzer kann einen speziellen Proxy-Adapter aktivieren und andere Geräte (wie Webcams) im selben Webserver erreichen.
 Es ist erforderlich, dass alle Dienste unter einem Webserver verfügbar sind.
+
+Web-Erweiterung könnte und sollte `unload` Funktion unterstützen, die `promise` zurückgeben könnte, wenn die Entladeaktion einige Zeit in Anspruch nimmt.
+
+Lesen Sie mehr über Web-Erweiterungen [hier](WEB-EXTENSIONS-HOWTO.md).
 
 ## Brute-Force-Schutz
 Wenn die Authentifizierung aktiviert ist und der Benutzer innerhalb einer Minute fünfmal ein ungültiges Passwort eingibt, muss er mindestens eine Minute bis zum nächsten Versuch warten.
@@ -68,11 +73,28 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 Ermöglicht die Anmeldung über die Basisauthentifizierung durch Senden von `401` Unauthorized mit einem `WWW-Authenticate`-Header.
 Dies kann für Anwendungen wie *FullyBrowser* verwendet werden. Wenn Sie einmal die falschen Zugangsdaten eingeben, werden Sie auf die Anmeldeseite weitergeleitet.
 
+## Erweiterte Optionen
+### Standardumleitung
+Wenn beim Öffnen des Webports im Browser keine APP-Auswahl angezeigt werden soll, sondern eine bestimmte Anwendung, könnte hier der Pfad angegeben werden (z.B. `/vis/`), damit dieser Pfad automatisch geöffnet wird.
+
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
 ### __ARBEITEN IN PROGRESS__ -->
 
 ## Changelog
+### 3.4.9 (2021-08-11)
+* (bluefox) Fixed error with access list
+* (bluefox) Added support of the unload function for web-extensions 
+* (bluefox) Added readme for the web-extensions development 
+ 
+### 3.4.8 (2021-08-10)
+* (bluefox) added the default redirect option
+ 
+### 3.4.7 (2021-07-31)
+* (bluefox) Corrected the small config GUI error
+ 
+### 3.4.5 (2021-07-20)
+* (Apollon77) fix admin dependency because since 3.4.2 Admin 5.1 is required
 
 ### 3.4.4 (2021-07-04)
 * (Apollon77) Fix missing www files

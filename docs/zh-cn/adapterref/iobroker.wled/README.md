@@ -3,52 +3,64 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wled/README.md
 title: ioBroker.wled
-hash: OuR8MefMR0W8HD0uepODxQyPj1gkE6QIp5bvy0IVcTE=
+hash: CciAZYMZtqyE/RIcKS7ZJeMC3ztO2j3JBJLO/tFr3k8=
 ---
 ![标识](../../../en/adapterref/iobroker.wled/admin/wled_large.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.wled.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.wled.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.wled.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.wled.svg)
 ![安装数量（最新）](http://iobroker.live/badges/wled-installed.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/wled-stable.svg)
 ![依赖状态](https://img.shields.io/david/DrozmotiX/iobroker.wled.svg)
 ![已知漏洞](https://snyk.io/test/github/DrozmotiX/ioBroker.wled/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.wled.png?downloads=true)
+![新产品管理](https://nodei.co/npm/iobroker.wled.png?downloads=true)
 
-＃ioBroker.wled
-![测试与发布](https://github.com/DrozmotiX/ioBroker.wled/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.wled
+![测试和发布](https://github.com/DrozmotiX/ioBroker.wled/workflows/Test%20and%20Release/badge.svg)
 
-**此适配器使用服务[哨兵](https://sentry.io)向开发人员自动向我报告异常和代码错误以及新设备架构。**更多详细信息，请参见下文！
+**此适配器使用服务 [Sentry.io](https://sentry.io) 自动向作为开发人员的我报告异常和代码错误以及新设备架构。** 更多详细信息见下文！
 
-##用于ioBroker的wled适配器
-ESP8266 / ESP32 Web服务器的快速且功能丰富的实现，用于控制NeoPixel（WS2812B，WS2811，SK6812，APA102）LED或WS2801等基于SPI的芯片组！
+## IoBroker 的 wled 适配器
+ESP8266/ESP32 网络服务器的快速且功能丰富的实现，用于控制 NeoPixel（WS2812B、WS2811、SK6812、APA102）LED 或基于 SPI 的芯片组，如 WS2801！
 
-@Aircoookie的[WLED-Github项目](https://github.com/Aircoookie/WLED)§
+[WLED - Github 项目](https://github.com/Aircoookie/WLED)@Aircoookie
 
 ＃＃ 指示
-适配器会使用Bonjour服务自动尝试在网络中查找WLED设备。
-已知问题：具有VLAN分隔的网络通常不会路由广播流量，这意味着自动检测将失败。
+适配器会使用 Bonjour 服务自动尝试在您的网络中查找 WLED 设备。
+已知问题：具有 VLAN 分离的网络大多不路由广播流量，这意味着自动检测将失败。
 
-不用担心，在这种情况下，您可以通过IP地址手动添加设备。
+别担心，在这种情况下，您可以通过 IP 地址手动添加设备。
 
-1）确保WLED设备正在运行并且可以通过网络访问2）安装适配器3）配置数据轮询和自动检测周期的间隔时间4-A）启动适配器，应自动检测设备4-B）如果A失败，使用添加设备按钮并提供设备IP地址5）适配器将立即发送更改并每x秒轮询一次数据（可配置）
+1) 确保您的 WLED 设备正在运行并可通过网络访问 2) 安装适配器 3) 配置数据轮询和自动检测周期的间隔时间 4 - A) 启动适配器，设备应自动检测 4 - B) 如果 A 失败, 使用 Add-Device 按钮提供设备 IP 地址 5) 适配器将立即发送更改并每 x 秒轮询数据（可配置）
 
 ＃＃ 去做
-* []将轮询切换到套接字连接，等待WLED固件实施
+* [ ] 将轮询切换到套接字连接，等待 WLED 固件的实现
 
 ＃＃ 支持我
-如果您喜欢我的作品，请随时提供个人捐款（这是DutchmanNL的个人捐款链接，与ioBroker项目无关！）[![捐赠]（https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png）](http://paypal.me/DutchmanNL)
+如果您喜欢我的作品，请随时提供个人捐赠（这是 DutchmanNL 的个人捐赠链接，与 ioBroker 项目无关！）[![捐赠](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
-##什么是Sentry.io，什么报告给该公司的服务器？
-Sentry.io是一项服务，供开发人员从其应用程序中获取有关错误的概述。正是在此适配器中实现了这一点。
+## 什么是 Sentry.io 以及向该公司的服务器报告什么？
+Sentry.io 是一项服务，供开发人员从他们的应用程序中获取有关错误的概述。而这正是在这个适配器中实现的。
 
-当适配器崩溃或发生其他代码错误时，此错误消息（也出现在ioBroker日志中）将提交给Sentry。当您允许iobroker GmbH收集诊断数据时，还将包括您的安装ID（这是唯一ID，**没有**有关您的任何其他信息，电子邮件，姓名等）。这使Sentry可以对错误进行分组，并显示有多少唯一用户受此错误影响。所有这些都帮助我提供了基本上不会崩溃的无错误适配器。
+当适配器崩溃或发生其他代码错误时，此错误消息也会出现在 ioBroker 日志中，并提交给 Sentry。当您允许 iobroker GmbH 收集诊断数据时，您的安装 ID（这只是一个唯一 ID **没有**关于您、电子邮件、姓名等的任何其他信息）也包括在内。这允许 Sentry 对错误进行分组并显示受此类错误影响的唯一用户数量。所有这些都帮助我提供基本上从不崩溃的无错误适配器。
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.5.9 (2021-08-11)
+* (DutchmanNL) added new state attributes reported by Sentry
+* (DutchmanNL) added min & max for brightness value to support iOT adapter
+
+### 0.5.8 (2021-08-11)
+* (DutchmanNL) added new state attributes reported by Sentry
+* (DutchmanNL) Bugfix Live override datapoint created as read-only #252
+* (DutchmanNL) excluded value "PIR" from data write due to current formatting
+
+### 0.5.7 (2021-08-10)
+* (foxriver76) we fixed some incorrect object types, fixes warnings with JS-Controller 3.3.x [#215](https://github.com/DrozmotiX/ioBroker.wled/issues/215) & [#209](https://github.com/DrozmotiX/ioBroker.wled/issues/209)
+* (DutchmanNL) add support for WLED 0.13.x (added types fps, ndc, ip, of)
 
 ### 0.5.6 (2021-01-03)
 * (DutchmanNL) Bugfix : State type definition for time and pmt

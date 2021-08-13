@@ -170,6 +170,9 @@ IP-адрес с которого доступен драйвер (поддер�
 ![ioBroker.admin - system settings](img/admin_SystemSettings.jpg)
 
 ## Changelog
+### 5.1.24 (2021-08-11)
+* (bluefox) Corrected some errors reported via sentry and the github issues
+ 
 ### 5.1.23 (2021-08-05)
 * (bluefox) Corrected some errors reported via sentry
 
@@ -181,10 +184,6 @@ IP-адрес с которого доступен драйвер (поддер�
 
 ### 5.1.16 (2021-07-30)
 * (bluefox) Make the appearance of buttons configurable
- 
-### 5.1.15 (2021-07-26)
-* (bluefox) Replaced the formula icon in the edit aliases dialog
-* (bluefox) Added the logic for checkbox in JsonConfig
 
 ## License
 The MIT License (MIT)

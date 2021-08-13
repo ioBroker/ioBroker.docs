@@ -81,6 +81,15 @@ To include a Google Calendar, you must go to the Google Calendar calendar settin
 #### OwnCloud Calendar
 To include a hardcooked calendar of an OwnCloud, you have to approve this calendar in the calendar view in OwnCloud as a hardcourt calendar and there the link.
 
+#### NextCloud Calendar
+To include a NextCloud calendar, the download link of the single desired calendar of a user must be copied in the calendar view in NextCloud.
+To do this, log in to NextCloud as a user and go to 'Calendar'. In the left column, click on the desired calendar by the circle with three dots.
+In the menu that appears hover with the mouse over 'Download' and right click to copy the link.
+Example: https://192.168.1.234/remote.php/dav/calendars/MYCALENDAR/personal/?export (it is important that the link contains "?export").
+
+Enter this URL into the ioBroker.ical adapter with username and password. This must be done individually for all desired calendars of all users.
+
+
 #### Baikal lightweight CalDAV+CardDAV Server
 The Baikal server offers the "ics-export" plugin that allows to export a calendar as a single ICal file. This export plugin is selected with the URL and allows seamless integration with this ioBroker adaptor. Please add the export filter to the URL of your calendar (`https://SERVER/baikal/cal.php/calendars/path/to/calendar?export&accept=ical`). If you encounter authentication issues, please change the `WebDAV authentication type` from `DIGEST` to `BASIC` in the admin settings of the WebUI of the Baikal server.
 

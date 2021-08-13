@@ -62,7 +62,7 @@ Please use state `system.adapter.octoprint.0.alive` to stop/start the instance.
 
 ### 1.1.0
 
-* (klein0r) Encrypt sensitive information
+* (klein0r) Encrypt sensitive information **(BREAKING CHANGE - RE-ENTER YOUR API KEY)**
 
 ### 1.0.10
 

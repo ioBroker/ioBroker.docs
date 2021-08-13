@@ -105,7 +105,7 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 ## Changelog
 ### __WORK IN PROGRESS__
-* IMPORTANT: The adapter now needs Admin 5.1.15+ and js-controller 3.3+!
+* IMPORTANT: The adapter now requires Admin 5.1.15+ and js-controller 3.3+! For other admin or js-controller versions please use the former v1.9.5 of thi adapter.
 * (Excodibur) Added InfluxDB 2.0 support
 * (Excodibur) Adjust Retention handling on Database level to work for InfluxDB 1.x and 2.x
 * (Excodibur) Removed retention options on datapoint level because never worked and also not supported really by InfluxDB anymore

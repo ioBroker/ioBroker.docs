@@ -361,6 +361,11 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 
 ## Changelog
 
+### 2.1.16 (12.08.2021)
+* (simatec) dependencies updated
+* (simatec) https support for ccu backup
+* (simatec) sentry Bugfixes
+
 ### 2.1.15 (05.08.2021)
 * (simatec) Bugfix Google Drive
 * (simatec) memory optimization

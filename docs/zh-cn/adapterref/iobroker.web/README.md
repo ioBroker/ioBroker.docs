@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: O/9g9KEHoarO9stxwgzMohQQNlrQowOwH4pnbPJLC+8=
+hash: eY2PM8p+KrILW1ThtTPX4W9dPfYLwdbQngSP2IPbHY4=
 ---
-![商标](../../../en/adapterref/iobroker.web/admin/web.png)
+![标识](../../../en/adapterref/iobroker.web/admin/web.png)
 
 ![安装数量](http://iobroker.live/badges/web-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.web.svg)
@@ -27,11 +27,16 @@ hash: O/9g9KEHoarO9stxwgzMohQQNlrQowOwH4pnbPJLC+8=
 阅读 [这里](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
 
 ## 扩展
-Web 驱动程序支持扩展。扩展名是 URL 处理程序，如果出现此类 URL 请求，它将被调用。
+Web 驱动程序支持扩展。
+扩展名是 URL 处理程序，如果出现此类 URL 请求，它将被调用。
 扩展看起来像普通的适配器，但它们没有正在运行的进程，将被 Web 服务器调用。
 
 例如。用户可以激活特殊的代理适配器并访问同一网络服务器中的其他设备（如网络摄像头）。
 需要让所有服务在一台 Web 服务器下可用。
+
+Web 扩展可以并且应该支持 `unload` 功能，如果卸载操作需要一些时间，则可以返回 `promise`。
+
+您可以阅读更多关于网络扩展的信息[这里](WEB-EXTENSIONS-HOWTO.md)。
 
 ## 蛮力保护
 如果启用了身份验证，并且用户在一分钟内输入了 5 次无效密码，则他必须至少等待一分钟才能再次尝试。
@@ -49,7 +54,7 @@ http://IP:8082/state/system.adapter.web.0.alive =>
 {"val":true,"ack":true,"ts":1606831924559,"q":0,"from":"system.adapter.web.0","lc":1606777539894}
 ```
 
-或者
+要么
 
 ```
 http://IP:8082/state/javascript.picture.png =>
@@ -68,11 +73,28 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 通过发送带有 `WWW-Authenticate` 头的 `401` 未经授权，允许通过基本身份验证登录。
 这可用于*FullyBrowser* 等应用程序。一次输入错误的凭据时，您将被重定向到登录页面。
 
-<!-- 下一个版本的占位符（在行首）：
+＃＃ 高级选项
+### 默认重定向
+如果通过打开 web 端口 im 浏览器不应该显示 APP 选择，但是一些特定的应用程序，可以在此处提供路径（例如 `/vis/`），因此该路径将自动打开。
+
+<!-- 下一版本的占位符（在行首）：
 
 ### __工作进行中__ -->
 
 ## Changelog
+### 3.4.9 (2021-08-11)
+* (bluefox) Fixed error with access list
+* (bluefox) Added support of the unload function for web-extensions 
+* (bluefox) Added readme for the web-extensions development 
+ 
+### 3.4.8 (2021-08-10)
+* (bluefox) added the default redirect option
+ 
+### 3.4.7 (2021-07-31)
+* (bluefox) Corrected the small config GUI error
+ 
+### 3.4.5 (2021-07-20)
+* (Apollon77) fix admin dependency because since 3.4.2 Admin 5.1 is required
 
 ### 3.4.4 (2021-07-04)
 * (Apollon77) Fix missing www files

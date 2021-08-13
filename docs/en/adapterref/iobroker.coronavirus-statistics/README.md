@@ -95,13 +95,16 @@ As first value, the name from the warning message must be taken from the log. Th
 	* (DutchmanNL) 
 -->
 
-
-### 0.8.0-0 (2021-06-30)
+### 0.8.0 (2021-08-12)
 * (jlssmt) Added vaccination data for all countries
+* (DutchmanNL) added definitions for vaccination states
+* (DutchmanNL) Folder structure optimized with devices and channels
+* (DutchmanNL) Code improvement to handle state deletion more efficient
+* (DutchmanNL) Changeover to validated API for German vaccination data of Bundesländer
+* (DutchmanNL) Ensure (country) folder(s) including all states are removed if not selected
 
 ### 0.7.2 (2021-06-30)
 * (jlssmt) New vaccination data source for German (our world in data)
-
 
 ### 0.7.1 (2021-06-30)
 * (DutchmanNL) Bugfix: Vaccination data for Germany

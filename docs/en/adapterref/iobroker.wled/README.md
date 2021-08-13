@@ -40,7 +40,7 @@ Don't worry, in that case you can add the device manually by IP-Adress.
 ## Support me
 If you like my work, please feel free to provide a personal donation  
 (this is an personal Donate link for DutchmanNL, no relation to the ioBroker Project !)  
-[![Donate](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
+[![Donate](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## What is Sentry.io and what is reported to the servers of that company?
 Sentry.io is a service for developers to get an overview about errors from their applications. And exactly this is implemented in this adapter.
@@ -52,9 +52,18 @@ When the adapter crashes or an other Code error happens, this error message that
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.5.9 (2021-08-11)
+* (DutchmanNL) added new state attributes reported by Sentry
+* (DutchmanNL) added min & max for brightness value to support iOT adapter
 
-### __WORK IN PROGRESS__
-* (foxriver76) we fixed some incorrect object types
+### 0.5.8 (2021-08-11)
+* (DutchmanNL) added new state attributes reported by Sentry
+* (DutchmanNL) Bugfix Live override datapoint created as read-only #252
+* (DutchmanNL) excluded value "PIR" from data write due to current formatting
+
+### 0.5.7 (2021-08-10)
+* (foxriver76) we fixed some incorrect object types, fixes warnings with JS-Controller 3.3.x [#215](https://github.com/DrozmotiX/ioBroker.wled/issues/215) & [#209](https://github.com/DrozmotiX/ioBroker.wled/issues/209)
+* (DutchmanNL) add support for WLED 0.13.x (added types fps, ndc, ip, of)
 
 ### 0.5.6 (2021-01-03)
 * (DutchmanNL) Bugfix : State type definition for time and pmt

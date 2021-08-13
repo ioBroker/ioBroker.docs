@@ -3,18 +3,19 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
 title: 适用于 ioBroker 的 Ecovacs Deebot 适配器
-hash: IgMRNinhgcjP0SsX5OmbLg6ko+aTvbgJtvWmYixSeKs=
+hash: 91+S1+K4Tvih7Ddub1IxnWC+Qoroym8kK+LngmsUuos=
 ---
 ![标识](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
 ![稳定版](http://iobroker.live/badges/ecovacs-deebot-stable.svg)
 ![最新版本](http://img.shields.io/npm/v/iobroker.ecovacs-deebot.svg)
 ![安装数量](http://iobroker.live/badges/ecovacs-deebot-installed.svg)
-![下载次数](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
-![新产品经理](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
-![特拉维斯CI](https://travis-ci.org/mrbungle64/ioBroker.ecovacs-deebot.svg?branch=master)
+![每月下载次数](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
+![下载次数](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
 
 # Ecovacs Deebot ioBroker 适配器
+[![github-workflow](https://github.com/mrbungle64/iobroker.ecovacs-deebot/actions/workflows/node.js.yml/badge.svg)](https://github.com/mrbungle64/iobroker.ecovacs-deebot)
+
 此适配器使用 [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js) 库。
 
 ＃＃ 特征
@@ -44,7 +45,7 @@ hash: IgMRNinhgcjP0SsX5OmbLg6ko+aTvbgJtvWmYixSeKs=
 ### 这些模型应该正常工作或至少部分工作
 * Deebot Slim 2
 * Deebot N79 系列
-* 地宝 M88
+* Deebot M88
 * Deebot 600/601/605
 * Deebot 710/711/711s
 * Deebot OZMO 610
