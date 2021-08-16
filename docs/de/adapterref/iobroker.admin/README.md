@@ -123,7 +123,7 @@ Auch die Repositorien und Sicherheitseinstellungen können hier eingestellt werd
 Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitts zu erreichen.
 
 ## Changelog
-### 5.1.24 (2021-08-11)
+### 5.1.25 (2021-08-15)
 * (bluefox) Corrected some errors reported via sentry and the github issues
  
 ### 5.1.23 (2021-08-05)

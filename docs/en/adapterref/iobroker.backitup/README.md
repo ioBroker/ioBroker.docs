@@ -361,6 +361,10 @@ Here is a list of the problems that have occurred so far and their solutions, if
 
 ## Changelog
 
+### 2.1.17 (15.08.2021)
+* (simatec) dependencies updated
+* (simatec) Preparation for dark design by Admin 5
+
 ### 2.1.16 (12.08.2021)
 * (simatec) dependencies updated
 * (simatec) https support for ccu backup

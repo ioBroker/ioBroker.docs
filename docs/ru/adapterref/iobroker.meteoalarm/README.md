@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: /hFswYVp78SbL4dgv8RcvXmo3802qubwrkYNHw/Cwx0=
+hash: IRGmxo7E7IvvmRP0uCSwzpzMeMcr4qCmO7IdkhiN6pU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -102,6 +102,12 @@ hash: /hFswYVp78SbL4dgv8RcvXmo3802qubwrkYNHw/Cwx0=
 * Португалия (файл геокода с сайта meteoalarm.org, вероятно, неверен)
 * Болгария (файл геокода с сайта meteoalarm.org, вероятно, неверен)
 
+## 2.0.5 (15.08.2021)
+* (jack-blackson) Дата исправления ошибки прописью
+
+## 2.0.4 (13.08.2021)
+* (jack-blackson) Исправление ошибки, ссылка на файл readme
+
 ## 2.0.3 (2021-08-09)
 * (jack-blackson) Показывать дату словами вместо дня в HTML-виджете
 * (jack-blackson) Добавлен языковой код для Бельгии
@@ -115,7 +121,7 @@ hash: /hFswYVp78SbL4dgv8RcvXmo3802qubwrkYNHw/Cwx0=
 * (Джек-Блэксон) Сортировка сигналов тревоги по дате вступления в силу
 
 ## 2.0.0 (06.07.2021)
-* (jack-blackson) Перейти на Meteoalarm.org, полностью перестроить
+* (jack-blackson) Перейдите на Meteoalarm.org, полностью перестроите
 
 ## 1.2.1 (05.06.2021)
 * (jack-blackson) Исправление для обработки некорректного XML (если используется страна вместо региона)
@@ -138,7 +144,7 @@ hash: /hFswYVp78SbL4dgv8RcvXmo3802qubwrkYNHw/Cwx0=
 * (jack-blackson) Обработка сообщения об ошибке ENOTFOUND, добавлено Sentry
 
 ## 1.1.3 (29.03.2021)
-* (jack-blackson) Исправлены ошибки проверки адаптера
+* (jack-blackson) Исправлены ошибки адаптера проверки
 
 ## 1.1.2 (29.03.2021)
 * (jack-blackson) Исправление неработающего обновления данных, убрана автогенерация ссылок из-за ошибок CORS

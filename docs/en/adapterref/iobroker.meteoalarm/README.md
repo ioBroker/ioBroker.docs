@@ -107,6 +107,12 @@ If you don't find your country, please create an issue on github, and I will be 
 
 ## Changelog
 
+## 2.0.5 (2021-08-15)
+* (jack-blackson) Bugfix date in words
+
+## 2.0.4 (2021-08-13)
+* (jack-blackson) Bugfix readme link
+
 ## 2.0.3 (2021-08-09)
 * (jack-blackson) Show date in words instead of day in HTML widget
 * (jack-blackson) Added language code for Belgium

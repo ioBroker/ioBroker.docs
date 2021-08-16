@@ -21,7 +21,7 @@ An ioBroker adapter for Somfy Tahoma. This project has no affiliation with Somfy
 The adapter connects to the Tahomalink end user API and controls the devices set up through Tahoma Box (and most likely Connexoon).  
 The adapter is not feature-complete, yet, but it should support most actions for controlling blinds and shutters etc.
 
-Follwing some of the states created by the adapter.
+Please also read the [FAQ](https://github.com/Excodibur/ioBroker.tahoma/blob/master/FAQ.md) in case of issues first.
 
 ## Currently tested devices
 

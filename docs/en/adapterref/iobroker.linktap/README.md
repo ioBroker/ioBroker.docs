@@ -30,6 +30,9 @@ Important: The desired schedules must be set up in the app prior to use. These c
 
 ## Changelog
 
+### 0.2.0
+* (Smart-Gang) Changed types of state 'signal' to number and of button 'StartEcoInstantMode' to boolean.
+
 ### 0.1.9
 * (Smart-Gang) Community suggestion: The trigger data points (buttons) now have the status set to false by default.
 

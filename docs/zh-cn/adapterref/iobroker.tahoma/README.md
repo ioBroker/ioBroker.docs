@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tahoma/README.md
 title: ioBroker.tahoma
-hash: cPqOYG7QNS6lvH3iSlYXZHJcT/A0P/6YDaxL2MIfrr0=
+hash: QImgXDnqcseqFExAIgOv9vO8aj4eMIplehGK3l3puTQ=
 ---
 ![标识](../../../en/adapterref/iobroker.tahoma/admin/tahoma.png)
 
@@ -23,7 +23,7 @@ hash: cPqOYG7QNS6lvH3iSlYXZHJcT/A0P/6YDaxL2MIfrr0=
 该适配器连接到 Tahomalink 最终用户 API 并控制通过 Tahoma Box（最有可能是 Connexoon）设置的设备。
 该适配器的功能还不是很完整，但它应该支持大多数用于控制百叶窗和百叶窗等的操作。
 
-遵循适配器创建的一些状态。
+如果出现问题，请先阅读 [常问问题](https://github.com/Excodibur/ioBroker.tahoma/blob/master/FAQ.md)。
 
 ## 目前测试的设备
 一般来说，这个适配器应该支持所有可以通过 __tahomalink.com__ 访问的设备，但是对于适配器开发者来说很难保证这一点。主要是因为所使用的尚飞 API 的文档（至少公开）不存在，开发人员只能测试他自己拥有的尚飞设备，或者能够在自愿参与者的支持下进行测试。

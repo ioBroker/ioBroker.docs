@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: /hFswYVp78SbL4dgv8RcvXmo3802qubwrkYNHw/Cwx0=
+hash: IRGmxo7E7IvvmRP0uCSwzpzMeMcr4qCmO7IdkhiN6pU=
 ---
 ![Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -101,6 +101,12 @@ Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf github, und 
 * Schweiz (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
 * Portugal (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
 * Bulgarien (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
+
+## 2.0.5 (2021-08-15)
+* (jack-blackson) Bugfix-Datum in Worten
+
+## 2.0.4 (2021-08-13)
+* (jack-blackson) Bugfix Readme-Link
 
 ## 2.0.3 (2021-08-09)
 * (jack-blackson) Datum in Worten statt Tag im HTML-Widget anzeigen

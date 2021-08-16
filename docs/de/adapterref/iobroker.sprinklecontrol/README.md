@@ -563,6 +563,10 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 	### **WORK IN PROGRESS**
 -->
 
+### 0.2.4 (16.08.2021)
+* (Dirk-Peter-md) Triggerpunktanzeige hinzufügen
+* (Dirk-Peter-md) Fehler in der Bodenfeuchteanalyse behoben
+
 ### 0.2.3 (15.08.2021)
 * (Dirk-Peter-md) index_m-Fehler behoben
 * (Dirk-Peter-md) timeExtension (FixDay, bistabil) Fehler behoben

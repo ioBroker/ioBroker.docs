@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tahoma/README.md
 title: ioBroker.tahoma
-hash: cPqOYG7QNS6lvH3iSlYXZHJcT/A0P/6YDaxL2MIfrr0=
+hash: QImgXDnqcseqFExAIgOv9vO8aj4eMIplehGK3l3puTQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tahoma/admin/tahoma.png)
 
@@ -23,7 +23,7 @@ hash: cPqOYG7QNS6lvH3iSlYXZHJcT/A0P/6YDaxL2MIfrr0=
 Адаптер подключается к API конечного пользователя Tahomalink и управляет устройствами, настроенными через Tahoma Box (и, скорее всего, Connexoon).
 Адаптер еще не является полнофункциональным, но он должен поддерживать большинство действий по управлению жалюзи, ставнями и т. Д.
 
-Выполнение некоторых состояний, созданных адаптером.
+Пожалуйста, также сначала прочтите [Вопросы-Ответы](https://github.com/Excodibur/ioBroker.tahoma/blob/master/FAQ.md) в случае возникновения проблем.
 
 ## Протестированные в настоящее время устройства
 Как правило, этот адаптер должен поддерживать все устройства, к которым можно получить доступ через __tahomalink.com__, но для разработчика адаптера это сложно гарантировать. В основном потому, что документация по используемому Somfy-API (по крайней мере, публично) не существует, и разработчик может тестировать только устройства Somfy, которые ему принадлежат, или может тестировать при поддержке желающих участников.

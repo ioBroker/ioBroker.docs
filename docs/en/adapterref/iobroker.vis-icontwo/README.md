@@ -61,6 +61,10 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+### 0.77.0
+
+• Neue Icons hinzugefügt (Spa_Fitness)
+
 ### 0.76.0
 
 • Neue Icons hinzugefügt (Devices/thermostat)

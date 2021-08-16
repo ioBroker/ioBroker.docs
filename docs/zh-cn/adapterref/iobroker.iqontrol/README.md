@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: UTxuek5frCognh7+EOOp41GijLzb/yNs5J5Ju9KNsNc=
+hash: PSerHlQR+9joZH2zKxfxfszxkA87z1pYzA6fzMXEFsg=
 ---
 ![标识](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -78,7 +78,7 @@ hash: UTxuek5frCognh7+EOOp41GijLzb/yNs5J5Ju9KNsNc=
 访问 [iobroker论坛](https://forum.iobroker.net/topic/22039/neuer-adapter-visualisierung-iqontrol)。
 
 ＃＃ 如何使用
-**不要害怕您拥有的众多选择。** 大多数东西都是开箱即用的。您*可以*，但您不必使用 iQontrol 提供的所有配置可能性！就这样开始吧：
+**不要害怕您拥有的众多选项。** 大多数东西都是开箱即用的。您*可以*，但您不必使用 iQontrol 提供的所有配置可能性！就这样开始吧：
 
 * 开始创建视图。
 
@@ -89,7 +89,7 @@ hash: UTxuek5frCognh7+EOOp41GijLzb/yNs5J5Ju9KNsNc=
 设备有一个角色，它决定了设备的功能，使用了哪些图标等等。
 根据该角色，您可以将多个状态链接到设备。这些将为设备提供其功能。
 如果您选择“链接到其他视图”作为角色，您可以创建到其他视图的链接。我建议皮肤链接到具有相同背景的其他视图，链接视图具有。
-您还可以尝试使用 Autocreate-Function 从 iobroker-object-tree 中选择现有设备。 Autocreate 尝试找出角色并匹配尽可能多的状态。
+您也可以尝试使用 Autocreate-Function 从 iobroker-object-tree 中选择现有设备。 Autocreate 尝试找出角色并匹配尽可能多的状态。
 
 * 之后您可以创建一个工具栏，显示为页脚。
 
@@ -114,7 +114,7 @@ hash: UTxuek5frCognh7+EOOp41GijLzb/yNs5J5Ju9KNsNc=
 * 要打开指定的视图，您可以添加 ``renderView=<viewID>`` 作为 URL 参数。
     * ``<viewID>`` 需要格式化为 ``iqontrol.<instance-number>.Views.<view-name>``
 * 注意：这是区分大小写的！
-* 要打开指定的视图作为主页，您可以添加``home=<viewID>`` 作为 URL 参数。这也将更改第一个工具栏条目的链接视图！
+* 要将指定的视图作为主页打开，您可以添加``home=<viewID>`` 作为 URL 参数。这也将更改第一个工具栏条目的链接视图！
     * ``<viewID>`` 需要格式化为 ``iqontrol.<instance-number>.Views.<view-name>``
 * 注意：这是区分大小写的！
 * 要在加载页面时打开指定的对话框，您可以添加 ``openDialog=<deviceID>`` 作为 URL 参数
@@ -133,14 +133,27 @@ hash: UTxuek5frCognh7+EOOp41GijLzb/yNs5J5Ju9KNsNc=
 *``https://192.168.1.1:8082/iqontrol/index.html?namespace=iqontrol.1&home=iqontrol.1.Views.Living-Room``
     * 注意大小写
 
+## 字体
+* 您可以将自己的字体文件上传到 Images/Widgets-Tab 文件夹中的 /userfonts
+* 在选项选项卡中，您有几个地方可以选择这些字体
+* 这取决于您的服务器 MIME 设置，如果字体正确呈现给浏览器 - 对我来说最好的 .ttf 和 .woff（在 raspi 4b 上测试）
+    * 这些 mime 设置应该有效：
+* .otf: 应用程序/x-font-opentype
+* .ttf: application/x-font-ttf 或 application/x-font-truetype
+* .woff: 应用程序/font-woff
+* .woff2：应用程序/font-woff2
+* .eot：应用程序/vnd.ms-fontobject
+* 您可以在 fontsquirrel.com 上的生成器下将字体转换为其他格式
+* 请记住 - webfonts 总是有点棘手，并不是每个服务器和每个浏览器的每种字体都可以使用
+
 ## 图标和背景图像
-*您可以使用内置图像或在图像选项卡下上传的图像或您喜欢的任何免费网址
+*您可以使用内置图像或在图像选项卡或任何您喜欢的免费网址下上传的图像
 * 您还可以在 image-url 中使用变量。这可能对例如天气预报很有用。使用这种模式：
     * ``path/to/firstloaded.png|anotherpath/to/{iobrokerstate|fallback}.png``
     * 示例：``./../iqontrol.meta/userimages/demo/bottle.jpg|./../iqontrol.meta/userimages/demo/{javascript.0.myimage|whitestone}.jpg``
-* 当你打开视图时，这会加载``./../iqontrol.meta/userimages/demo/bottle.jpg``
+* 这会在您打开视图时加载``./../iqontrol.meta/userimages/demo/bottle.jpg``
 * 一旦从服务器获取 ``javascript.0.myimage`` 的状态，图像将被替换为 ``./../iqontrol.meta/userimages/demo/XXX.jpg`` 其中 ` `XXX` 是 ``javascript.0.myimage`` 的值
-* 如果 ``javascript.0.myimage`` 没有值，将使用后备 ``whitestone`` （使用后备是可选的）
+* 如果 ``javascript.0.myimage`` 没有值，将使用回退 ``whitestone`` （使用回退是可选的）
 
 ### 进度条
 * 可以将 SVG 定义与变量而不是图像文件结合使用来显示进度条
@@ -160,7 +173,7 @@ hash: UTxuek5frCognh7+EOOp41GijLzb/yNs5J5Ju9KNsNc=
 * 就像 image-urls 中的变量一样，您可以在 device-names 中使用变量。语法几乎相同：
     * ``加载时的文本|加载后的文本 {iobrokerstate|fallback}``
 * 另外可以将 iobrokerstate 放在方括号中，然后将使用不带单位的普通值：``加载时的文本|加载后的文本 {[iobrokerstate]|fallback}``
-    * 示例：``天气正在加载|天气：{javascript.0.weather|未找到天气数据}``
+    * 示例：``Weather is loading|Weather: {javascript.0.weather|No weather data found}``
 * 当您打开视图时，这会显示“天气正在加载”
 * 一旦从服务器获取 ``javascript.0.weather`` 的状态，文本将被替换为 ``Weather: XXX`` 其中 ``XXX`` 是 ``javascript.0 的值.天气``
 * 如果 ``javascript.0.weather`` 没有值，则将使用后备 ``No weather data found`` （使用后备是可选的）
@@ -188,7 +201,7 @@ hash: UTxuek5frCognh7+EOOp41GijLzb/yNs5J5Ju9KNsNc=
 ![弹出截图](img/popup_screenshot.png)![弹出块状](../../../en/adapterref/iobroker.iqontrol/img/popup_blockly.png)
 
 ##小部件
-* 每个图块都有一个 BACKGROUND_URL 和一个 BACKGROUND_HTML 数据点
+* 每个 tile 都有一个 BACKGROUND_URL 和一个 BACKGROUND_HTML 数据点
 * 在这里你可以定义一个链接（通过BACKGROUND_URL）到一个网站或放置直接的HTML代码（通过BACKGROUND_HTML），这将显示为磁贴的背景
 * 这使您可以在磁贴内放置（交互式）内容（如时钟、FLOT 图表、表格、天气预报等）
 * 默认情况下，鼠标事件将定向到此内容（因此您不能再单击磁贴本身），但您可以使用选项“将鼠标事件定向到磁贴而不是BACKGROUND_VIEW/URL/HTML 的内容”来禁用此功能”
@@ -209,13 +222,13 @@ hash: UTxuek5frCognh7+EOOp41GijLzb/yNs5J5Ju9KNsNc=
         * ``{ command: "getWidgetState", stateId: <widgetStateId> }``
 * 这将导致 iQontrol 发送 ioBroker 状态的值``iqontrol.<instance>.Widgets.<widgetStateId>``（见下文如何接收应答消息）
         * ``{ 命令：“getWidgetStateSubscribed”，stateId：<widgetStateId> }``
-* 这将导致 iQontrol 现在和每次其值更改时发送 ioBroker 状态 ``iqontrol.<instance>.Widgets.<widgetStateId>`` 的值（见下文如何接收应答消息）
+* 这将导致 iQontrol 现在和每次其值更改时发送 ioBroker 状态 ``iqontrol.<instance>.Widgets.<widgetStateId>`` 的值（参见下文如何接收应答消息）
         * ``{ command: "setWidgetDeviceState", stateId: <widgetDeviceState>, value: <value> }``
 * 这会将分配给设备 STATE ``<widgetDeviceState>``（例如分配给 LEVEL 的数据点）的 ioBroker 数据点设置为值 ``<value>`` (``<value>` ` 可以是字符串、数字或布尔值或像 ``{ val: <value>, ack: true|false }`` 之类的对象
         * ``{ command: "getWidgetDeviceState", stateId: <widgetDeviceState> }``
 * 这将导致 iQontrol 发送 ioBroker 数据点的值，即分配给设备 STATE ``<widgetDeviceState>``（例如，分配给 LEVEL 的数据点；见下文如何接收应答消息）
         * ``{ command: "getWidgetDeviceStateSubscribed", stateId: <widgetDeviceState> }``
-* 这将导致 iQontrol 发送 ioBroker 数据点的值，该值分配给设备 STATE ``<widgetDeviceState>``（例如，分配给 LEVEL 的数据点）现在和每次其值更改时（见下文如何接收应答消息）
+* 这将导致 iQontrol 发送 ioBroker 数据点的值，该值分配给设备 STATE ``<widgetDeviceState>``（例如，分配给 LEVEL 的数据点）现在和每次其值更改时（见下文）如何接收应答消息）
         * ``{ command: "setState", stateId: <stateId>, value: <value> }``
 * 这会将 ioBroker 状态 ``<stateId>`` 设置为值 ``<value>`` （``<value>`` 可以是字符串、数字或布尔值或类似 ``{ val: < value>, ack: true|false }``)
         * ``{ command: "getState", stateId: <stateId> }``
@@ -225,7 +238,7 @@ hash: UTxuek5frCognh7+EOOp41GijLzb/yNs5J5Ju9KNsNc=
         * ``{ 命令：“renderView”，值：<viewID> }``
 * 这将指示 iQontrol 渲染视图，其中 ``<viewID>`` 需要格式化为 ``iqontrol.<instance-number>.Views.<view-name>`` （区分大小写）
         * ``{ 命令：“openDialog”，值：<deviceID> }``
-* 这将指示 iQontrol 打开一个对话框，其中 ``<deviceID>`` 需要格式化为 ``iqontrol.<instance-number>.Views.<view-name>.devices.<device-number>``其中 ``<device-number>`` 从 0 开始（因此视图上的第一个设备是设备号 0）
+* 这将指示 iQontrol 打开一个对话框，其中 ``<deviceID>`` 需要格式化为 ``iqontrol.<instance-number>.Views.<view-name>.devices.<device-number>``其中 ``<device-number>`` 从 0 开始（所以视图上的第一个设备是设备号 0）
 * 要从 iQontrol 接收消息，您需要使用 javascript 命令 ``window.addEventListener("message", receivePostMessage, false);`` 将事件侦听器注册到“消息”事件
     * 函数 ``receivePostMessage`` 接收对象 ``event``
 * ``event.data`` 包含来自 iqontrol 的消息，它将是一个对象，如：
@@ -455,7 +468,7 @@ hash: UTxuek5frCognh7+EOOp41GijLzb/yNs5J5Ju9KNsNc=
 * 默认值：“假”
 * ``buttonCaption``（按钮标题） - 仅对角色按钮有效：
 * 默认： ””
-* ``returnToOffSetValueAfter``（[ms] 后返回到 'OFF_SET_VALUE'） - 仅对角色 Button 有效：
+* ``returnToOffSetValueAfter``（在 [ms] 后返回到 'OFF_SET_VALUE'） - 仅对角色 Button 有效：
 * 可能的值：从 10 到 60000 的数字
 * 默认： ””
 * ``alwaysSendTrue``（始终发送“true”（不切换））-仅对角色场景有效：
@@ -491,7 +504,7 @@ hash: UTxuek5frCognh7+EOOp41GijLzb/yNs5J5Ju9KNsNc=
 * 默认值：“1”
 * ``directionOpeningValue``（'opening'的DIRECTION的值）-仅对角色窗口有效：
 * 默认值：“2”
-* ``directionUncertainValue``（“不确定”的方向值） - 仅对角色窗口有效：
+* ``directionUncertainValue``（“不确定”的方向值）-仅对角色窗口有效：
 * 默认值：“3”
 * ``favoritePositionCaption``（FAVORITE_POSITION的标题）-仅对角色窗口有效：
 * 默认值：“最喜欢的位置”
@@ -501,7 +514,7 @@ hash: UTxuek5frCognh7+EOOp41GijLzb/yNs5J5Ju9KNsNc=
 * 默认值：“向下”
 * ``controlModeDisarmedValue``（“解除武装”的 CONTROL_MODE 值） - 仅对角色警报有效：
 * 默认值：“0”
-* ``timeCaption`` (Caption for TIME) - 只对角色 DateAndTime 有效：
+* ``timeCaption``（时间标题）-仅对角色 DateAndTime 有效：
 * 默认： ””
 * ``timeFormat``（时间格式（存储在数据点中，请参阅自述文件））-仅对角色 DateAndTime 有效：
 * 默认值：“x”
@@ -518,7 +531,7 @@ hash: UTxuek5frCognh7+EOOp41GijLzb/yNs5J5Ju9KNsNc=
 * ``coverImageReloadDelay``（延迟重新加载封面图像 [ms]） - 仅对角色 Media 有效：
 * 可能的值：从 0 到 5000 的数字
 * 默认： ””
-* ``statePlayValue``（'play' 的 STATE 值） - 仅对角色 Media 有效：
+* ``statePlayValue``（“播放”的状态值）-仅对角色媒体有效：
 * 默认值：“播放”
 * ``statePauseValue``（“暂停”的状态值）-仅对角色媒体有效：
 * 默认值：“暂停”
@@ -562,7 +575,7 @@ hash: UTxuek5frCognh7+EOOp41GijLzb/yNs5J5Ju9KNsNc=
 * ``renderLinkedViewInParentInstanceClosesPanel``（在父实例中打开链接视图后，关闭面板（如果它是可关闭的））：
 * 可能的值：“真”|“假”
 * 默认值：“假”
-*瓷砖行为（一般）：
+* 瓷砖行为（一般）：
 * ``clickOnIconAction``（点击图标操作）：
 * 可能的值："toggle"|"openDialog"|"enlarge"|"openLinkToOtherView"|"openURLExternal"|"false"
 * 默认值：“切换”
@@ -764,8 +777,8 @@ hash: UTxuek5frCognh7+EOOp41GijLzb/yNs5J5Ju9KNsNc=
 * ``invertError``（反转错误（使用 ok 而不是错误））：
 * 可能的值：“真”|“假”
 * 默认值：“假”
-* 背景视图/URL/HTML：
-* ``backgroundURLDynamicIframeZoom``（BACKGROUND_VIEW/URL/HTML 的动态缩放（这是所需的以 % 为单位的缩放级别，让内容适合单个 1x1 磁贴））：
+* 背景_视图/URL/HTML：
+* ``backgroundURLDynamicIframeZoom``（BACKGROUND_VIEW/URL/HTML 的动态缩放（这是需要的以 % 为单位的缩放级别，让内容适合单个 1x1 磁贴））：
 * 可能的值：从 0.01 到 200 的数字
 * 默认： ””
 * ``backgroundURLPadding``（对 Background_VIEW/URL/HTML 应用填充）：
@@ -808,7 +821,7 @@ hash: UTxuek5frCognh7+EOOp41GijLzb/yNs5J5Ju9KNsNc=
 * 默认值：“可折叠”
 * ``additionalControlsCaption``（ADDITIONAL_CONTROLS 的标题）：
 * 默认值：“附加控件”
-* ``additionalControlsHeadingType``（ADDITIONAL_CONTROLS 标题的外观）：
+*``additionalControlsHeadingType``（ADDITIONAL_CONTROLS 标题的外观）：
 * 可能的值：“无”|“可折叠”|“可折叠打开”
 * 默认值：“可折叠”
 * 附加信息：
@@ -1228,7 +1241,7 @@ hash: UTxuek5frCognh7+EOOp41GijLzb/yNs5J5Ju9KNsNc=
 
     ![徽章](../../../en/adapterref/iobroker.iqontrol/img/badge.png)
 
-* **OVERLAY_INACTIVE_COLOR** 和 **OVERLAY_ACTIVE_COLOR**: *string* - 任何有效的 html-color-string（如 'green'、'#00FF00'、'rgba(0,255,0,0.5)' 等等）表示图块叠加层的颜色（取决于图块是活动还是非活动）。如果没有给出有效的颜色字符串，则使用标准叠加颜色（可以在 iQontrol-Options 中配置）。请记住，iQontrol 选项中有一个选项可以定义叠加层的透明度，这将影响设置的叠加层颜色的外观。
+* **OVERLAY_INACTIVE_COLOR** 和 **OVERLAY_ACTIVE_COLOR**: *string* - 任何有效的 html-color-string（如 'green'、'#00FF00'、'rgba(0,255,0,0.5)' 等等）表示图块叠加层的颜色（取决于图块是活动还是非活动）。如果没有给出有效的颜色字符串，则使用标准叠加颜色（可以在 iQontrol-Options 中配置）。请记住，在 iQontrol 选项中有一个选项可以定义叠加层的透明度，这会影响设置的叠加层颜色的外观。
 * 对于灯光，您还可以使用“使用灯的颜色作为 OVERLAY_ACTIVE_COLOR”选项，该选项可在设备特定选项中找到。
 
     ![叠加颜色](../../../en/adapterref/iobroker.iqontrol/img/overlay_color.png)
@@ -1273,7 +1286,7 @@ hash: UTxuek5frCognh7+EOOp41GijLzb/yNs5J5Ju9KNsNc=
     如果您的设备不支持使用 HUE、SATURATION 和 COLOR_BRIGHTNESS（HSB/HSV 色彩空间），您可以使用多种替代色彩空间。在设备选项中，您可以选择以下颜色空间之一：
 
         * **RGB** / **#RGB**：您可以使用 RGB 格式（十六进制）代替 HUE、SATURATION 和 COLOR_BRIGHTNESS，可选带前导“#”
-        * **RGBW** / **#RGBW**：您可以使用 RGBW 格式（十六进制）代替 HUE、SATURATION、COLOR_BRIGHTNESS 和 WHITE_BRIGHTNESS，可选带前导“#”
+        * **RGBW** / **#RGBW**：您可以使用 RGBW 格式（十六进制），而不是使用 HUE、SATURATION、COLOR_BRIGHTNESS 和 WHITE_BRIGHTNESS，可选带前导“#”
         * **RGBWWCW** / **#RGBWWCW** / **RGBCWWW** / **#RGBCWWW**：您可以使用 RGBWWCW- 或 RGBCWWW 格式（十六进制）代替 HUE、SATURATION、COLOR_BRIGHTNESS、CT 和 WHITE_BRIGHTNESS , WW = 暖白，CW = 冷白），可选带前导“#”
         * **RGB（仅色调）** / **#RGB（仅色调）**：您可以使用 RGB（仅色调）-格式（十六进制）代替使用色调，可选带前导“#”。在这种特殊情况下，RGB 格式将只接受色调颜色圈的纯饱和颜色。不允许混合白色
     * **Milight 的 Hue** 这是 Milight-Devices (v5) 的 Hue-Value，在色相颜色圈中使用另一个起点：
@@ -1357,19 +1370,19 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 
 ###<img src="img/icons/fire_on.png" width="32">火灾传感器：
 * **STATE**: *boolean* - 如果为真，传感器将显示为已触发
-  *或者，您可以分配一个* alue-list*，以显示其他状态，例如“篡改”
+  *或者，您可以分配一个* alue-list*，以显示其他状态，如“篡改”
   *您还可以指定一个* tring* 来显示任何文本，例如“楼上的火”
 * **linked-view-property** 直接打开
 
 ###<img src="img/icons/flood_on.png" width="32">洪水传感器：
 * **STATE**: *boolean* - 如果为真，传感器将显示为已触发
-  *或者，您可以分配一个* alue-list*，以显示其他状态，例如“篡改”
+  *或者，您可以分配一个* alue-list*，以显示其他状态，如“篡改”
   *您还可以指定一个* tring* 来显示任何文本，例如“楼上的洪水”
 * **linked-view-property** 直接打开
 
 ###<img src="img/icons/alarm_on.png" width="32">警报：
 * **STATE**: *boolean* - 如果为真，传感器将显示为已触发
-  *或者，您可以分配一个* alue-list*，以显示其他状态，例如“篡改”
+  *或者，您可以分配一个* alue-list*，以显示其他状态，如“篡改”
   *您还可以指定一个* tring* 来显示任何文本，例如“楼上的火”
 * **CONTROL_MODE**: *value-list* - 选择操作模式，如“武装”和“解除武装”
     * 在设备选项中您可以定义代表撤防的值，因此可以显示代表图标
@@ -1424,7 +1437,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 | | | kk | 01 02 ... 23 24 | X | ---（转换为 HH） | ---（转换为 HH） |
 | |分钟 |米| 0 1 ... 58 59 | X | X | X |
 | | |毫米 | 00 01 ... 58 59 | X | X | X |
-| |第二 | | | 0 1 ... 58 59 | X | X | X |
+| |第二 | | 0 1 ... 58 59 | X | X | X |
 | | | ss | 00 01 ... 58 59 | X | X | X |
 | |小数秒 | | | 0 1 ... 8 9 | X | --- | --- |
 | | | SS | 00 01 ... 98 99 | X | --- | --- |
@@ -1561,9 +1574,20 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 
 ## Changelog
 
-### 1.8.3 dev
+### dev
+* (sbormann) Added option to set ADDITIONAL_CONTROLS to half width.
+
+### 1.9.1 (2021-08-15)
+* (sbormann) You can now upload own font files.
+* (sbormann) Admin tab is now linked to the iqontrol-administration page instead of frontend.
+* (sbormann) Fixed mkDir for redis.
+* (sbormann) Enhanced enlarge button for large screens.
+
+### 1.9.0 (2021-08-13)
+* (sbormann) Added Dark-Mode.
 * (sbormann) Added new configuration options for click on tile/icon behaviours - WARNING: Old configuration is automatically converted to the new settings. Its recommendet to create a backup of your config BEFORE doing the update, as the new settings are not backwards-compatible and in case of conversion errors.
 * (sbormann) Added option to link color of lamp to OVERLAY_ACTIVE_COLOR.
+* (sbormann) Added option to define caption of button for external URLs.
 
 ### 1.8.2 (2021-08-06)
 * (sbormann) Added JSON-Table Widget (Displays JSON-Data as table).

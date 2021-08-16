@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: UTxuek5frCognh7+EOOp41GijLzb/yNs5J5Ju9KNsNc=
+hash: PSerHlQR+9joZH2zKxfxfszxkA87z1pYzA6fzMXEFsg=
 ---
 ![Logo](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -126,12 +126,25 @@ Die kostenlosen integrierten Demo-Hintergründe stammen von www.pexels.com.
 * Diese Optionen sind hilfreich, wenn Sie iQontrol von einem an der Wand montierten Tablet aus aufrufen, das nach der Verwendung automatisch zur Home-Ansicht zurückkehren sollte
 * Um die Seite ohne Symbolleiste zu laden, können Sie ``noToolbar=true`` . hinzufügen
 * Um die Seite ohne Panel zu laden, können Sie ``noPanel=true`` . hinzufügen
-* Um die Seite ohne Toolbar und Panel zu laden, Swipen deaktiviert, kein Lade-Spinner und mit transparentem Lade-Bildschirm kann man ``isBackgroundView=true`` . hinzufügen
+* Um die Seite ohne Toolbar und Panel zu laden, Swipen deaktiviert, kein Lade-Spinner und mit transparentem Ladebildschirm kann man ``isBackgroundView=true`` . hinzufügen
 
 **Beispiel:**
 
 * ``https://192.168.1.1:8082/iqontrol/index.html?namespace=iqontrol.1&home=iqontrol.1.Views.Wohnzimmer``
     * Groß- und Kleinschreibung beachten
+
+## Schriftarten
+* Sie können Ihre eigenen Schriftdateien im Bilder/Widgets-Tab in den Ordner /userfonts hochladen
+* Im Options-Tab haben Sie mehrere Stellen, an denen diese Schriftarten ausgewählt werden können
+* Es hängt von den MIME-Einstellungen Ihres Servers ab, ob die Schriftart dem Browser korrekt angezeigt wird - bei mir funktionierten am besten .ttf und .woff (getestet auf einem raspi 4b)
+    * Diese Mime-Einstellungen sollten funktionieren:
+* .otf: application/x-font-opentype
+* .ttf: application/x-font-ttf oder application/x-font-truetype
+* .woff: application/font-woff
+* .woff2: application/font-woff2
+* .eot: application/vnd.ms-fontobject
+* Sie können Schriftarten auf fontsquirrel.com unter Generator in andere Formate konvertieren
+* Denken Sie daran - Webfonts sind immer etwas knifflig und nicht jede Schriftart mit jedem Server und jedem Browser funktioniert
 
 ##Icons und Hintergrundbilder
 * Sie können die eingebauten Bilder oder die unter der Registerkarte Bilder hochgeladenen Bilder oder eine beliebige kostenlose URL verwenden
@@ -167,7 +180,7 @@ Die kostenlosen integrierten Demo-Hintergründe stammen von www.pexels.com.
 
 ## Popup-Meldungen
 * Jede Instanz erzeugt den Zustand ``iqontrol.x.Popup.Message``
-* Beim Übergeben von Werten an diesen Status wird eine Popup-Nachricht (oder ein Toast) angezeigt
+* Wenn Werte an diesen Status übergeben werden, wird eine Popup-Nachricht (oder ein Toast) angezeigt
 * Sie können HTML-Tags verwenden, um den Nachrichtentext zu formatieren
 * Es gibt einige zusätzliche Zustände zur weiteren Anpassung des angezeigten Popups (diese müssen gesetzt werden, bevor der Nachrichtendatenpunkt gesetzt wird):
     * ``Dauer``: Dies ist die Zeit in ms, in der die Nachricht angezeigt wird; bei 0 muss die Meldung bestätigt werden
@@ -200,7 +213,7 @@ Die kostenlosen integrierten Demo-Hintergründe stammen von www.pexels.com.
 
 ### PostMessage-Kommunikation
 * Technisch gesehen wird der Inhalt von HINTERGRUND_VIEW/URL/HTML in einem HTML-Element namens iframe platziert, das eine Website innerhalb einer Website ist
-* Durch Aktivieren der Option "PostMessage-Kommunikation für HINTERGRUND_VIEW/URL/HTML zulassen" können Sie die postMessage-Kommunikation zwischen der Website in diesem iframe und iQontrol selbst aktivieren
+* Durch Aktivieren der Option "PostMessage-Kommunikation für HINTERGRUND_VIEW/URL/HTML zulassen" können Sie die PostMessage-Kommunikation zwischen der Website innerhalb dieses iframes und iQontrol selbst aktivieren
 * Um Befehle an iQontrol zu senden, können Sie den folgenden Javascript-Befehl verwenden: ``window.parent.postMessage(message, "*");``
     * ``message`` ist ein Javascript-Objekt des Formats ``{ command: command, stateId: stateId, value: value }``
     * Folgende Nachrichtenbefehle werden unterstützt:
@@ -1256,7 +1269,7 @@ Allerdings ist nicht jeder Typ für jede Rolle sinnvoll. So ist beispielsweise d
 Jedes Licht kann einen oder beide der folgenden Zustände haben:
 
 * **STATE**: *boolean* - Ein/Aus-Status anzeigen und einstellen
-* **STUFE**: *Zahl* - Anzeige und Einstellung der Lichtstärke
+* **STUFE**: *Zahl* - Lichtstärke anzeigen und einstellen
 
 Optional können Sie folgende Zustände definieren:
 
@@ -1483,7 +1496,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 </details>
 
 ###<img src="img/icons/value_on.png" width="32"> Wert:
-* **STATE**: *any* - Jeder gültige Status, der angezeigt werden soll (siehe allgemeine Status-Sektion)
+* **STATE**: *any* - jeder gültige Status, der angezeigt werden soll (siehe allgemeine Status-Sektion)
 * **STUFE**: *Zahl* - erzeugt einen Schieberegler im Dialog
 
 ###<img src="img/icons/play_on.png" width="32"> Programm:
@@ -1561,9 +1574,20 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
 
 ## Changelog
 
-### 1.8.3 dev
+### dev
+* (sbormann) Added option to set ADDITIONAL_CONTROLS to half width.
+
+### 1.9.1 (2021-08-15)
+* (sbormann) You can now upload own font files.
+* (sbormann) Admin tab is now linked to the iqontrol-administration page instead of frontend.
+* (sbormann) Fixed mkDir for redis.
+* (sbormann) Enhanced enlarge button for large screens.
+
+### 1.9.0 (2021-08-13)
+* (sbormann) Added Dark-Mode.
 * (sbormann) Added new configuration options for click on tile/icon behaviours - WARNING: Old configuration is automatically converted to the new settings. Its recommendet to create a backup of your config BEFORE doing the update, as the new settings are not backwards-compatible and in case of conversion errors.
 * (sbormann) Added option to link color of lamp to OVERLAY_ACTIVE_COLOR.
+* (sbormann) Added option to define caption of button for external URLs.
 
 ### 1.8.2 (2021-08-06)
 * (sbormann) Added JSON-Table Widget (Displays JSON-Data as table).

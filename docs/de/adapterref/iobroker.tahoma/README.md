@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tahoma/README.md
 title: ioBroker.tahoma
-hash: cPqOYG7QNS6lvH3iSlYXZHJcT/A0P/6YDaxL2MIfrr0=
+hash: QImgXDnqcseqFExAIgOv9vO8aj4eMIplehGK3l3puTQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.tahoma/admin/tahoma.png)
 
@@ -23,7 +23,7 @@ Ein ioBroker-Adapter für Somfy Tahoma. Dieses Projekt hat keine Verbindung zu S
 Der Adapter stellt eine Verbindung zur Tahomalink-Endbenutzer-API her und steuert die über die Tahoma Box (und höchstwahrscheinlich Connexoon) eingerichteten Geräte.
 Der Adapter ist noch nicht mit allen Funktionen ausgestattet, sollte aber die meisten Aktionen zur Steuerung von Jalousien und Rollläden usw. unterstützen.
 
-Befolgen Sie einige der vom Adapter erstellten Zustände.
+Bitte lesen Sie bei Problemen auch zuerst die [FAQ](https://github.com/Excodibur/ioBroker.tahoma/blob/master/FAQ.md).
 
 ## Derzeit getestete Geräte
 Generell sollte dieser Adapter alle Geräte unterstützen, auf die über __tahomalink.com__ zugegriffen werden kann, aber für den Adapter-Entwickler ist dies schwer zu garantieren. Vor allem, weil die Dokumentation der verwendeten Somfy-API (zumindest öffentlich) nicht existiert und der Entwickler nur Somfy-Geräte testen kann, die er selbst besitzt oder mit Unterstützung williger Teilnehmer testen kann.
