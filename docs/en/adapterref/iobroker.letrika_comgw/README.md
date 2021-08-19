@@ -21,7 +21,7 @@ Adapter needs at least nodejs version 8 / ES9 / ECMAScript2018.
 ## Changelog
 
 ### 0.0.6
-* (AWhiteKnight) fixed security alert
+* (AWhiteKnight) fixed security alert, remove node 10 from tests, issues #12-14
 
 ### 0.0.5
 * (AWhiteKnight) fixed issues and some minor bugs
@@ -59,4 +59,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2020 AWhiteKnight <awhiteknight@unity-mail.de>
+Copyright (c) 2021 AWhiteKnight <awhiteknight@unity-mail.de>

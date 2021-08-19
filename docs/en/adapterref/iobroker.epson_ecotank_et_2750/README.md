@@ -33,6 +33,18 @@ This adapter read tank level and other information from [EPSON EcoTank ET-2750](
 	### **WORK IN PROGRESS**
 -->
 
+### 0.0.9 (2021-08-18)
+
+-   (o0Shojo0o) bugfix for incorrect mapping of settings, second try ...
+
+### 0.0.8 (2021-08-18)
+
+-   (o0Shojo0o) bugfix for incorrect mapping of settings
+
+### 0.0.7 (2021-08-18)
+
+-   (o0Shojo0o) change UI to JSONConfig
+
 ### 0.0.6 (2021-08-01)
 
 -   (o0Shojo0o) better unload handling

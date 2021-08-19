@@ -2,67 +2,66 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.synology/README.md
-title: ioBroker Synology适配器
-hash: tmY0K1EQ19t8kcb8dvdFpborvlzzMaoGF8O4LaDq7og=
+title: ioBroker Synology 适配器
+hash: t5T/fzOgQKNpdGG0clmho59rs1eVvk6s5dKa7HwZgis=
 ---
 ![标识](../../../en/adapterref/iobroker.synology/admin/synology.png)
 
 ![安装数量](http://iobroker.live/badges/synology-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.synology.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.synology.svg)
-![NPM](https://nodei.co/npm/iobroker.synology.png?downloads=true)
-![捐](https://img.shields.io/badge/Donate-PayPal-green.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.synology.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.synology.svg)
+![新产品管理](https://nodei.co/npm/iobroker.synology.png?downloads=true)
 
-＃ioBroker Synology适配器
-[![测试]（https://github.com/instalator/iobroker.synology/workflows/Test%20and%20Release/badge.svg）](https://github.com/instalator/ioBroker.synology/actions/)
+# IoBroker Synology 适配器
+[![测试](https://github.com/iobroker-community-adapters/iobroker.synology/workflows/Test%20and%20Release/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.synology/actions/)
 
 ＃＃ 描述
-该驱动程序使您可以接收数据并管理Synology NAS服务器。
+该驱动程序允许您接收数据和管理您的 Synology NAS 服务器。
 
-### 2FA设置
-如果使用2FA，请参阅说明[这里](docs/en/template.md)
+### 2FA 设置
+如果您使用 2FA，请参阅说明 [这里](docs/en/template.md)
 
-### SendMethod
-您可以通过设置sendMethod对象来发送任何命令（方法），例如：获取SurveillanceStation信息是一个没有附加参数的getInfo方法。
+### 发送方法
+您可以通过设置 sendMethod 对象来发送任何命令（方法），例如： Get the SurveillanceStation info 是一个没有附加参数的 getInfo 方法。
 
 ```{"method": "getInfo", "params": {}}```
 
 ＃＃＃ 控制
-** commands.reboot **-重新启动NAS
+**commands.reboot** - 重启 NAS
 
-** commands.shutdown **-关闭NAS
+**commands.shutdown** - 关闭 NAS
 
-*** SurveillanceStation.cameras。{NAMECAM} ***：
+***SurveillanceStation.cameras.{NAMECAM}***：
 
-*启用-当前状态和启用/禁用摄像头
-* linkSnapshot-快照的URL
+* 启用 - 当前状态和启用/禁用相机
+* linkSnapshot - 快照的 URL
 
-*** SurveillanceStation.HomeMode.status_on ***-当前状态和启用/禁用Homemode
+***SurveillanceStation.HomeMode.status_on*** - 当前状态和启用/禁用家庭模式
 
-*** SurveillanceStation.getSnapshotCamera ***-通过摄像机编号获取快照，文件保存在目录“`...iobroker-data\synology_0\snapshotCam_2.jpg`”中
+***SurveillanceStation.getSnapshotCamera*** - 根据摄像机编号获取快照，文件保存在目录``...iobroker-data\synology_0\snapshotCam_2.jpg``
 
-*** AudioStation.players。{PLAYERID} ***：
+***AudioStation.players.{PLAYERID}***：
 
-*播放，暂停，停止，下一个，上一个-控制播放（按钮，仅true）
-*重复-重复控制（关闭，全部，一个）
-*随机播放-随机播放控制（对/错）
-*音量-音量远程播放器（0-100）
-*搜索-控制播放搜索（0-100）
-* play_folder-将文件夹中的曲目添加到播放列表（id文件夹，例如``dir_5816''）
-* play_track-按其ID播放曲目（例如``music_120847''）
-* current_play-根据当前曲目在播放列表中的编号来控制和状态（例如``14''）
+* 播放、暂停、停止、下一首、上一首 - 控制播放（按钮，仅 true）
+* 重复 - 重复控制（关闭、全部、一）
+* shuffle - 随机控制（真/假）
+* volume - 音量远程播放器（0-100）
+* seek - 控制播放搜索 (0-100)
+* play_folder - 将文件夹中的曲目添加到播放列表（id 文件夹，例如``dir_5816``）
+* play_track - 按 id 播放曲目（例如“music_120847”）
+* current_play - 当前曲目在播放列表中的编号（例如“14”）的控制和状态
 
-*** DownloadStation ***：
+***下载站***：
 
-* activeTask-不完整下载数
-* listTasks-下载不完整的数组
-* shedule_enabled，shedule_emule_enabled-计划或立即下载的状态和控制
-* add_hash_download-添加到哈希下载（例如``8BD3CAD02FC9ECB661A12378414FA310D3F3FE03''）
-* add_url_download-添加下载URL或磁铁链接
-*文件夹-要下载的文件夹，在添加下载之前设置，否则将加载到默认文件夹中
-* pause_task，resume_task-暂停下载并继续。 （例如``dbid_170''或``170''或``all''）
+* activeTask - 未完成下载的数量
+* listTasks - 下载不完整的数组
+* shedule_enabled, shedule_emule_enabled - 预定或立即下载的状态和控制
+* add_hash_download - 添加到哈希下载（例如``8BD3CAD02FC9ECB661A12378414FA310D3F3FE03``）
+* add_url_download - 添加下载地址或磁力链接
+* folder - 要下载的文件夹，添加下载前设置，否则加载到默认文件夹
+* pause_task, resume_task - 暂停下载并恢复。 （例如“dbid_170”或“170”或“all”）
 
-###消息框
+### 消息框
 ```
 sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
     if(res) sendTo('telegram.0', {text: res, caption: 'caption for image'});
@@ -70,6 +69,27 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ```
 
 ## Changelog
+### 1.1.2 (2021-08-12)
+* (MeisterTR) Fixed datatypes
+* (MeisterTR) added new ConfigJson (if you use 2FA pleease retype in config)
+* (MeisterTR) Fixed snapshot again
+### 1.1.1 (2021-08-09)
+* (MeisterTR) fix type of uptime
+* (MeisterTR) fix broken snapshot link
+### 1.1.0 (2021-08-07)
+* (MeisterTR) fixes for DSM7
+* (MeisterTR) added release-script
+* (MeisterTR) change testing
+* (MeisterTR) change syno repo to default
+
+### 1.0.1
+* (thost96) fix for wrong type number [issue 78](https://github.com/instalator/ioBroker.synology/issues/78)
+
+### 1.0.0
+* (instalator) changed name objects in hdd_info [issues 51](https://github.com/instalator/ioBroker.synology/issues/51)
+* (Apollon77) BREAKING CHANGE: Please set password new in admin!
+* (Apollon77) js-controller 3.0 is now needed minimum!
+* (Apollon77 store password now encrypted)
 
 ### 0.1.20
 * (instalator) fixed error

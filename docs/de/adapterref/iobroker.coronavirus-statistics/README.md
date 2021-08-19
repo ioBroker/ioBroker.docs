@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.coronavirus-statistics/README.md
 title: ioBroker.coronavirus-Statistik
-hash: gW9jg70uEEKlA3PAWaRnAxKZqrZMBnBFDoBGPkr9l9o=
+hash: TyH2PWbgdCBYOsKclBSNJh52wlOgfa3Nc07Oq3x/QY4=
 ---
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.coronavirus-statistics.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.coronavirus-statistics.svg)
@@ -16,7 +16,7 @@ hash: gW9jg70uEEKlA3PAWaRnAxKZqrZMBnBFDoBGPkr9l9o=
 <img src="./admin/coronavirus-statistics.png" width="50" height="50" alt="">
 
 # IoBroker.coronavirus-Statistik
-![Testen und freigeben](https://github.com/c/ioBroker.coronavirus-statistics/workflows/Test%20and%20Release/badge.svg)
+![Testen und freigeben](https://github.com/DrozmotiX/ioBroker.coronavirus-statistics/workflows/Test%20and%20Release/badge.svg)
 
 ## Coronavirus Live Statistics-Adapter für ioBroker
 Adapter zum Anzeigen von globalen Coronavirus-Informationen und aktuellen Berichten
@@ -36,7 +36,7 @@ Folgende Informationen stehen zur Verfügung:
 | FällePerOneMillion | Anzahl der vollständig bekannten Fälle pro Million Einwohner |
 | kritisch | Höhe der kritischen Situation (im Krankenhaus) |
 | Todesfälle | Anzahl aktuell registrierter Todesfälle |
-| TodesfällePerOneMillion | Anzahl der aktuell registrierten Todesfälle pro Million Einwohner |
+| TodesfälleProOneMillion | Anzahl der aktuell registrierten Todesfälle pro Million Einwohner |
 | Flagge | Länderflagge, Link zum Github-Standort |
 | wiederhergestellt | Anzahl der vollständig bekannten genesenen Fälle |
 | heuteFälle | Neue Fälle bis heute |
@@ -99,11 +99,34 @@ Als erster Wert muss der Name aus der Warnmeldung aus dem Protokoll entnommen we
 	* (DutchmanNL) 
 -->
 
-### 0.7.0-4 (2021-03-30)
+### 0.8.2 (2021-08-17)
+* (DutchmanNL & jlssmt) Small code improvements to prepare stable release 
+
+### 0.8.1 (2021-08-16)
+* (DutchmanNL) added definitions for total_boosters
+
+### 0.8.0 (2021-08-12)
+* (jlssmt) Added vaccination data for all countries
+* (DutchmanNL) added definitions for vaccination states
+* (DutchmanNL) Folder structure optimized with devices and channels
+* (DutchmanNL) Code improvement to handle state deletion more efficient
+* (DutchmanNL) Changeover to validated API for German vaccination data of Bundesländer
+* (DutchmanNL) Ensure (country) folder(s) including all states are removed if not selected
+
+### 0.7.2 (2021-06-30)
+* (jlssmt) New vaccination data source for German (our world in data)
+
+### 0.7.1 (2021-06-30)
+* (DutchmanNL) Bugfix: Vaccination data for Germany
+
+### 0.7.0 (2021-06-28)
 * (DutchmanNL) round Impfquote to 2 digits
-* (lembnau) Vaccination data for AstraZeneca Germany added
-* (DutchmanNL) Bugfix : Solve last_update is invalid warn message
-* (DutchmanNL) Bugfix : Solve cannot read property 'Erstimpfung' of undefined
+* (DutchmanNL) Bugfix: Solved last_update is invalid warn message
+* (DutchmanNL) Bugfix: State attribute definition missing for + undefined
+* (DutchmanNL) Bugfix: Solved cannot read property 'Erstimpfung' of undefined
+* (DutchmanNL) Bugfix: State value to set for "xxx.BL" has to be type "number" but received type "string", solves [#237](https://github.com/DrozmotiX/ioBroker.coronavirus-statistics/issues/237)
+* (DutchmanNL) Bugfix: State value to set for "xxx.Tests*" has to be type "string" but received type "number", solves [#237](https://github.com/DrozmotiX/ioBroker.coronavirus-statistics/issues/237)
+* (DutchmanNL/jlssmt) Bugfix: Vaccination data for Germany, several states missing in new API and will not be updated anymore !
 
 ### 0.6.9 (2021-03-22)
 

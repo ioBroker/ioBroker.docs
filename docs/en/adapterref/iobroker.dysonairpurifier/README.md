@@ -132,6 +132,11 @@ Which is what the dyson app does also.
 
 ## Changelog
 
+### V0.9.2 (2021-08-15) (Pearl in a world of dirt)
+* (bvol)       New: [#114](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/114) Added Switzerland to country selection in config 
+* (grizzelbee) Fix: [#119](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/119) Updated dyson certificate to enable connection again. Thanks @Krobipd for helping with the link
+* (grizzelbee) Upd: Updated dependencies 
+
 ### V0.9.1 (2021-05-17) (Still breathing)
 * (grizzelbee) New: [#105](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/105) TP02, HP02 and others supporting the fmod token are now able to switch from Off to Auto- and manual-mode
 

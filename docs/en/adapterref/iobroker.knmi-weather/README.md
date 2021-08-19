@@ -39,6 +39,10 @@ If you like my work, please feel free to provide a personal donation
 	### __WORK IN PROGRESS__
 -->
 
+### 1.0.1 (2021-08-17)
+* (DutchmanNL) Add support for windrgr
+* (DutchmanNL) Minor fixes & dependency updates
+
 ### 1.0.0 (2020-09-15)
 * (DutchmanNL) Final version release
 * (DutchmanNL) Bugfixes

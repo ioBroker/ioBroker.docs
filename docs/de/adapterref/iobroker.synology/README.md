@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.synology/README.md
-title: ioBroker Synology Adapter
-hash: tmY0K1EQ19t8kcb8dvdFpborvlzzMaoGF8O4LaDq7og=
+title: ioBroker Synology-Adapter
+hash: t5T/fzOgQKNpdGG0clmho59rs1eVvk6s5dKa7HwZgis=
 ---
 ![Logo](../../../en/adapterref/iobroker.synology/admin/synology.png)
 
@@ -11,56 +11,55 @@ hash: tmY0K1EQ19t8kcb8dvdFpborvlzzMaoGF8O4LaDq7og=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.synology.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.synology.svg)
 ![NPM](https://nodei.co/npm/iobroker.synology.png?downloads=true)
-![Spenden](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-# IoBroker Synology Adapter
-[![Tests] (https://github.com/instalator/iobroker.synology/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.synology/actions/)
+# IoBroker Synology-Adapter
+[![Tests](https://github.com/iobroker-community-adapters/iobroker.synology/workflows/Test%20and%20Release/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.synology/actions/)
 
 ## Beschreibung
 Mit dem Treiber können Sie Daten empfangen und Ihren Synology NAS-Server verwalten.
 
-### 2FA Einstellungen
-Wenn Sie 2FA verwenden, lesen Sie die Anweisungen [Hier](docs/en/template.md)
+### 2FA-Einstellungen
+Wenn Sie 2FA verwenden, siehe Anweisungen [hier](docs/en/template.md)
 
 ### SendMethod
-Sie können jeden Befehl (jede Methode) senden, indem Sie das sendMethod-Objekt festlegen. Beispiel: Get the SurveillanceStation info ist eine getInfo-Methode ohne zusätzliche Parameter.
+Sie können jeden Befehl (eine Methode) senden, indem Sie das sendMethod-Objekt setzen, zum Beispiel: Get the SurveillanceStation info ist eine getInfo-Methode ohne zusätzliche Parameter.
 
 ```{"method": "getInfo", "params": {}}```
 
 ### Steuerung
-** command.reboot ** - NAS neu starten
+**commands.reboot** - NAS neu starten
 
-** command.shutdown ** - NAS herunterfahren
+**commands.shutdown** - NAS herunterfahren
 
-*** SurveillanceStation.cameras. {NAMECAM} ***:
+***SurveillanceStation.cameras.{NAMECAM}***:
 
-* enabled - Aktueller Status und Kamera aktivieren / deaktivieren
-* linkSnapshot - URL für den Schnappschuss
+* aktiviert - Aktueller Status und Kamera aktivieren/deaktivieren
+* linkSnapshot - URL für Snapshot
 
-*** SurveillanceStation.HomeMode.status_on *** - Aktueller Status und Aktivieren / Deaktivieren des Homemode
+***SurveillanceStation.HomeMode.status_on*** - Aktueller Status und Homemode aktivieren/deaktivieren
 
-*** SurveillanceStation.getSnapshotCamera *** - Schnappschuss nach Kameranummer abrufen, die Datei wird in einem Verzeichnis ``...iobroker-data\synology_0\snapshotCam_2.jpg`` gespeichert
+***SurveillanceStation.getSnapshotCamera*** - Schnappschuss nach Kameranummer abrufen, die Datei wird in einem Verzeichnis ``...iobroker-data\synology_0\snapshotCam_2.jpg`` . gespeichert
 
-*** AudioStation.players. {PLAYERID} ***:
+***AudioStation.player.{PLAYERID}***:
 
-* Wiedergabe, Pause, Stopp, Weiter, Zurück - Steuerung der Wiedergabe (Taste, nur wahr)
-* wiederholen - Steuerung wiederholen (Aus, Alle, Eins)
-* shuffle - Shuffle-Steuerung (wahr / falsch)
-* Lautstärke - Lautstärke-Remote-Player (0-100)
-* seek - Steuern der Wiedergabesuche (0-100)
-* play_folder - Fügt Titel aus dem Ordner zur Wiedergabeliste hinzu (ID-Ordner, z. B. `` dir_5816``)
-* play_track - Titel nach seiner ID abspielen (z. B. `` music_120847``)
-* current_play - Steuerung und Status des aktuellen Titels anhand seiner Nummer in der Wiedergabeliste (z. B. `` 14``)
+* Play, Pause, Stop, Next, Prev - Steuerung der Wiedergabe (Button, nur true)
+* wiederholen - Wiederholungssteuerung (Aus, Alle, Eins)
+* Shuffle - Shuffle-Steuerung (true/false)
+* Lautstärke - Lautstärke Remote-Player (0-100)
+* seek - Steuerung der Wiedergabesuche (0-100)
+* play_folder - Füge Tracks aus dem Ordner zur Playlist hinzu (ID-Ordner z.B. ``dir_5816``)
+* play_track - Titel nach seiner ID abspielen (z. B. ``music_120847``)
+* current_play - Kontrolle und Status des aktuellen Tracks anhand seiner Nummer in der Playlist (z.B. ``14``)
 
-*** DownloadStation ***:
+***DownloadStation***:
 
 * activeTask - Anzahl unvollständiger Downloads
 * listTasks - ein Array mit unvollständigen Downloads
-*hedule_enabled, Shedule_emule_enabled - Status und Kontrolle von geplanten oder sofortigen Downloads
-* add_hash_download - zu Hash-Downloads hinzufügen (z. B. `` 8BD3CAD02FC9ECB661A12378414FA310D3F3FE03``)
-* add_url_download - Download-URL oder Magnet-Link hinzufügen
-* Ordner - Der Ordner, der heruntergeladen werden soll, bevor der Download hinzugefügt wird. Andernfalls wird er in den Standardordner geladen
-* pause_task, resume_task - Unterbrechen Sie den Download und setzen Sie den Vorgang fort. (z. B. `` dbid_170`` oder `` 170`` oder `` all``)
+* shedule_enabled, shedule_emule_enabled - Status und Kontrolle von geplanten oder sofortigen Downloads
+* add_hash_download - zu Hash-Downloads hinzufügen (z. B. ``8BD3CAD02FC9ECB661A12378414FA310D3F3FE03``)
+* add_url_download - Download-URL oder Magnetlink hinzufügen
+* Ordner - Der herunterzuladende Ordner, der vor dem Hinzufügen des Downloads festgelegt wird, andernfalls wird er in den Standardordner geladen
+* pause_task, restart_task - Unterbrechen Sie den Download und setzen Sie ihn fort. (z.B. ``dbid_170`` oder ``170`` oder ``all``)
 
 ### Nachrichtenbox
 ```
@@ -70,6 +69,27 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ```
 
 ## Changelog
+### 1.1.2 (2021-08-12)
+* (MeisterTR) Fixed datatypes
+* (MeisterTR) added new ConfigJson (if you use 2FA pleease retype in config)
+* (MeisterTR) Fixed snapshot again
+### 1.1.1 (2021-08-09)
+* (MeisterTR) fix type of uptime
+* (MeisterTR) fix broken snapshot link
+### 1.1.0 (2021-08-07)
+* (MeisterTR) fixes for DSM7
+* (MeisterTR) added release-script
+* (MeisterTR) change testing
+* (MeisterTR) change syno repo to default
+
+### 1.0.1
+* (thost96) fix for wrong type number [issue 78](https://github.com/instalator/ioBroker.synology/issues/78)
+
+### 1.0.0
+* (instalator) changed name objects in hdd_info [issues 51](https://github.com/instalator/ioBroker.synology/issues/51)
+* (Apollon77) BREAKING CHANGE: Please set password new in admin!
+* (Apollon77) js-controller 3.0 is now needed minimum!
+* (Apollon77 store password now encrypted)
 
 ### 0.1.20
 * (instalator) fixed error

@@ -22,18 +22,17 @@ This Adapter adds control over your Tesla car to ioBroker.
 4. Choose your car in the dropdown.
 
 ### <a name="refreshRate"></a>Refresh Rate
-To save battery, the car goes to sleep mode afer a certain time of no activity.<br />
+To save battery, the car goes to sleep mode after a certain time of no activity.<br />
 Getting information from the car can only be done when the car is awake.<br />
-Users reported, that the car can consume up to 10km of Range per day if it does not go to sleep state.<br />
+Users reported so called "vampire drain", where the car can consume up to 10km of Range per day if it does not go to sleep state.<br />
 To prevent from that, you can choose your desired Refresh Rate:
 * **Off** - The adapter does not wake up the car on its own. It only wakes up the car upon request (If you set a State).
 <br />If the car woke up on its own, the adapter will request car data once.
 * **Temperate** - The Adapter will wake up the car once per hour to get his state.
 * **Aggressive** - The Adapter will wake up the car once per minute.
-* **Smart** - The Adapter tries to be smart. It will observe the car sleep state. When the car wakes up,
-it assumes that someone might be driving soon and requests the state every minute for 10 minutes.
-If nothing happend (no Climate, no Driving, no Charging) the adapter stops requesting for 15 minutes
-to let the car fall asleep. In any case, it will wake up the car and get data after 12 hours.
+* **Smart** - The Adapter tries to be smart. It will observe the car states to determine if it should be awake or should go to sleep soon.
+In any case, it lets the car go asleep after 10 Minutes where noting was observed (no action, no Climate, no Driving, no Charging).
+It then does not wake up the car anymore, if you need that, you can trigger it on your own.
 
 ## Using the adapter
 The Adapter creates several states. They are grouped by their topics:
@@ -97,6 +96,16 @@ Keep your credentials save! <br />To reject all Tokens, change your Tesla accoun
 
 ## Changelog
 Note that missing version entries are typically dependency updates for security.
+### 0.5.5
+* (dbweb-ch) Fix issue with manual token input
+* (dbweb-ch) Fix issue with token refresh and double encryption
+### 0.5.4
+* (Hombach) Fixed vulnerability; removed tests for node 10
+* (dbweb-ch) Enable to manual entry tokens
+### 0.5.3
+* (dbweb-ch) Improved smart wakeup plan
+* (dbweb-ch) wakeup more reliable on action request
+* (dbweb-ch) Don't wake up the car every 12 hours anymore. If this is needed, trigger it by iobroker.
 ### 0.5.1
 * (Hombach) Added tests for node 16; updated dependencies
 ### 0.5.0

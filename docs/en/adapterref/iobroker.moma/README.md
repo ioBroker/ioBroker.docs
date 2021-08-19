@@ -36,6 +36,9 @@ MoMa needs at least nodejs version 10.
 
 ## Changelog
 
+### 1.2.9 (2021-08-17)
+* (AWhiteKnight) issue2 #53-55, upgrade to systeminformation lib 5.8.0, update all dependencies
+
 ### 1.2.8 (2021-03-26)
 * (AWhiteKnight) eliminate warning messages (issue #52), upgrade to systeminformation lib 5.6.8
 	- in systeminformation many states of currentLoad have been renamed. The old ones will be deleted and the new ones created. Have a look into the logs.
@@ -190,4 +193,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2020 AWhiteKnight
+Copyright (c) 2021 AWhiteKnight

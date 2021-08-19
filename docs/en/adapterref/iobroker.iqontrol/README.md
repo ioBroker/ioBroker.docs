@@ -238,6 +238,8 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 			* This will cause iQontrol to send the value of the ioBroker state ``<stateId>`` (see below how to receive the answer-message)
         * ``{ command: "getStateSubscribed", stateId: <stateId> }``
 			* This will cause iQontrol to send the value of the ioBroker state ``<stateId>`` now and every time its value changes (see below how to receive the answer-messages)
+        * ``{ command: "getOptions"}``
+			* This will cause iQontrol to send the user options the user has configured as object
         * ``{ command: "renderView", value: <viewID> }``
 			* This will instruct iQontrol to render a view, where ``<viewID>`` needs to be formatted like ``iqontrol.<instance-number>.Views.<view-name>`` (case-sensitive)
         * ``{ command: "openDialog", value: <deviceID> }``
@@ -1555,8 +1557,20 @@ This device has some special predefined size- and display-settings to show a tex
     
 ## Changelog
 
-### dev
+### 1.9.3 (2021-08-18)
+* (sbormann) Fixes for ADDITIONAL_CONTROLS.
+* (sbormann) Some minor enhancements for handling of Date and Time.
+* (sbormann) Added option to custom to hide period of date and time values.
+* (sbormann) Some design adjustments for dark-mode.
+* (sbormann) You can now freely configure all colours for dark-mode.
+* (sbormann) Added previous and next buttons to views-tab.
+
+### 1.9.2 (2021-08-17)
+* (sbormann) Fixed conversion error #199.
 * (sbormann) Added option to set ADDITIONAL_CONTROLS to half width.
+* (sbormann) Enhanced uploading of font files.
+* (sbormann) Added getOptions to postMessage-Communication for widgets.
+* (sbormann) Added Dark-Mode to JSON-Table-Widget.
 
 ### 1.9.1 (2021-08-15)
 * (sbormann) You can now upload own font files.

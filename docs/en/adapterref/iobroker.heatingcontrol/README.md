@@ -98,12 +98,15 @@ Features:
 
 ### temperature decrease / increase
 
-| DP name           | description                                                | target temperature for relative decrease                                       | target temperature for absolute decrease                      |
-|-------------------|------------------------------------------------------------|--------------------------------------------------------------------------------|---------------------------------------------------------------|
-| GuestsPresent     | increase temperature because guests wants it warmer        | increase current profile temperature by Profiles.0.room.GuestIncrease          | set target to Profiles.0.room.absolute.GuestIncrease          | 
-| PartyNow          | decrease temperature because it's becoming hot'            | decrease current profile temperature by Profiles.0.room.PartyDecrease          | set target to Profiles.0.room.absolute.PartyDecrease          | 
-| Present           | we are present, if we are not present decrease temperature | decrease current profile temperature by Profiles.0.room.AbsentDecrease         | set target to Profiles.0.room.absolute.AbsentDecrease         | 
-| VacationAbsent    | we are absent, so decrease also on weekend                 | decrease current profile temperature by Profiles.0.room.VacationAbsentDecrease | set target to Profiles.0.room.absolute.VacationAbsentDecrease | 
+| DP name             | description                                                | target temperature for relative decrease                                       | target temperature for absolute decrease                      |
+|---------------------|------------------------------------------------------------|--------------------------------------------------------------------------------|---------------------------------------------------------------|
+| GuestsPresent       | increase temperature because guests wants it warmer        | increase current profile temperature by Profiles.0.room.GuestIncrease          | set target to Profiles.0.room.absolute.GuestIncrease          | 
+| PartyNow            | decrease temperature because it's becoming hot'            | decrease current profile temperature by Profiles.0.room.PartyDecrease          | set target to Profiles.0.room.absolute.PartyDecrease          | 
+| Present             | we are present, if we are not present decrease temperature | decrease current profile temperature by Profiles.0.room.AbsentDecrease         | set target to Profiles.0.room.absolute.AbsentDecrease         | 
+| VacationAbsent	  | we are absent, so decrease also on weekend                 | decrease current profile temperature by Profiles.0.room.VacationAbsentDecrease | set target to Profiles.0.room.absolute.VacationAbsentDecrease | 
+| FireplaceModeActive | decrease temperature bacause you use a fireplace, will be  | decrease current profile temperature by Profiles.0.room.FireplaceModeDecrease  | set target to Profiles.0.room.absolute.FireplaceModeDecrease  | 
+|                     | reseted automatically at adjustable time
+
 
 
 * in both szenarious only one lowering is used (in previous version of adapter more then one degreases could be used)
@@ -224,11 +227,17 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
+
+### 2.5.0 (2021-08-xx)
+* (René) fireplace mode added
+* (René) see issue #247: disable temp offset calculation when heating is off
+* (René) see issue #223: bug fix to find correct period
+* (René) see issue #194: accept float as minimum / maximum in vis settings; add warning if minumum is lower then 4.5°C
+
 ### 2.4.3 (2021-06-17)
 * (René) see issue #243: bug fix for HeatingPeriod when adpater starts
 * (René) see issue #245: problem with manual mode when SensorOpenDelay is used
 * (René) see issue #244: bug fix for WindowOpenImg 
-
 
 ### 2.4.2 (2021-05-17)
 * (René) logging for ActorsOn optimized

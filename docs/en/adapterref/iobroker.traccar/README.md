@@ -35,6 +35,10 @@ This adapter imports in real time the position and the extended data from [Tracc
 	### **WORK IN PROGRESS**
 -->
 
+### 0.0.10 (2021-08-18)
+
+-   (o0Shojo0o) change UI to JSONConfig
+
 ### 0.0.9 (2021-05-19)
 
 -   (o0shojo0o) prevent unnecessary process attributes from being interrupted

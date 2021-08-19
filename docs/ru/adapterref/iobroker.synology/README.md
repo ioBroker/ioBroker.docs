@@ -2,25 +2,24 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.synology/README.md
-title: ioBroker адаптер Synology
-hash: tmY0K1EQ19t8kcb8dvdFpborvlzzMaoGF8O4LaDq7og=
+title: Адаптер ioBroker Synology
+hash: t5T/fzOgQKNpdGG0clmho59rs1eVvk6s5dKa7HwZgis=
 ---
 ![Логотип](../../../en/adapterref/iobroker.synology/admin/synology.png)
 
 ![Количество установок](http://iobroker.live/badges/synology-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.synology.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.synology.svg)
-![NPM](https://nodei.co/npm/iobroker.synology.png?downloads=true)
-![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-green.svg)
+![НПМ](https://nodei.co/npm/iobroker.synology.png?downloads=true)
 
 # IoBroker Адаптер Synology
-[![Тесты] (https://github.com/instalator/iobroker.synology/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.synology/actions/)
+[![Тесты] (https://github.com/iobroker-community-adapters/iobroker.synology/workflows/Test%20and%20Release/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.synology/actions/)
 
 ## Описание
 Драйвер позволяет получать данные и управлять сервером Synology NAS.
 
 ### Настройки 2FA
-Если вы используете 2FA, см. Инструкции [Вот](docs/en/template.md).
+Если вы используете 2FA, см. Инструкции [здесь](docs/en/template.md).
 
 ### SendMethod
 Вы можете отправить любую команду (метод), установив объект sendMethod, например: Get the SurveillanceStation info - это метод getInfo без дополнительных параметров.
@@ -44,7 +43,7 @@ hash: tmY0K1EQ19t8kcb8dvdFpborvlzzMaoGF8O4LaDq7og=
 *** AudioStation.players. {PLAYERID} ***:
 
 * play, pause, stop, next, prev - Управление воспроизведением (кнопка, только true)
-* repeat - Повторить контроль (Выкл., Все, Один)
+* repeat - Повтор управления (Выкл., Все, Один)
 * shuffle - управление перемешиванием (true / false)
 * volume - Громкость удаленного плеера (0-100)
 * seek - Управление поиском при воспроизведении (0-100)
@@ -60,7 +59,7 @@ hash: tmY0K1EQ19t8kcb8dvdFpborvlzzMaoGF8O4LaDq7og=
 * add_hash_download - добавить в хеш-загрузку (например, `` 8BD3CAD02FC9ECB661A12378414FA310D3F3FE03 '')
 * add_url_download - добавить ссылку для скачивания или магнитную ссылку
 * папка - папка для загрузки, задается перед добавлением загрузки, в противном случае она загружается в папку по умолчанию
-* pause_task, resume_task - Приостановить загрузку и возобновить. (например, dbid_170 или 170 или all)
+* pause_task, resume_task - Приостановить загрузку и возобновить. (например, dbid_170, 170 или all)
 
 ### Окно сообщения
 ```
@@ -70,6 +69,27 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ```
 
 ## Changelog
+### 1.1.2 (2021-08-12)
+* (MeisterTR) Fixed datatypes
+* (MeisterTR) added new ConfigJson (if you use 2FA pleease retype in config)
+* (MeisterTR) Fixed snapshot again
+### 1.1.1 (2021-08-09)
+* (MeisterTR) fix type of uptime
+* (MeisterTR) fix broken snapshot link
+### 1.1.0 (2021-08-07)
+* (MeisterTR) fixes for DSM7
+* (MeisterTR) added release-script
+* (MeisterTR) change testing
+* (MeisterTR) change syno repo to default
+
+### 1.0.1
+* (thost96) fix for wrong type number [issue 78](https://github.com/instalator/ioBroker.synology/issues/78)
+
+### 1.0.0
+* (instalator) changed name objects in hdd_info [issues 51](https://github.com/instalator/ioBroker.synology/issues/51)
+* (Apollon77) BREAKING CHANGE: Please set password new in admin!
+* (Apollon77) js-controller 3.0 is now needed minimum!
+* (Apollon77 store password now encrypted)
 
 ### 0.1.20
 * (instalator) fixed error

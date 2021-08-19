@@ -43,7 +43,11 @@ In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x some
     ### __WORK IN PROGRESS__
 -->
 
-### 0.3.6-0 (2021-08-09)
+### 0.3.7-1 (2021-08-18)
+* (HGlab01) ActiveTimeTable can be set
+* (HGlab01) Improve logs and change code structure a little bit
+
+### 0.3.6 (2021-08-16)
 * (HGlab01) support attribute 'orientation' (Sentry: IOBROKER-TADO-35)
 
 ### 0.3.5 (2021-08-05)

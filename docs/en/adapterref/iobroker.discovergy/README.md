@@ -38,6 +38,9 @@ If you like my work, please feel free to provide a personal donation
     ### __WORK IN PROGRESS__
 -->
 
+### 0.5.8 (2021-08-17)
+* (DutchmanNL) Minor dependency & configuration updates, stable release candidate
+
 ### 0.5.7 (2021-03-19)
 * (DutchmanNL) Change why of password encryption, you my need to re-enter your credentials !
 * (DutchmanNL) Bugfix : State "system.this.discovergy.0.alive" has no existing object, this might lead to an error in future versions

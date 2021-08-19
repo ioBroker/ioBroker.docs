@@ -29,12 +29,13 @@ Fill the IP and have fun :)
     npm run release patch -- --all 0.9.8 -> 0.9.9
     npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### 0.0.7 (2021-08-18)
 
--   (o0shojo0o) added datapoints info.hostname, info.note, sensor.pressure
+-   (o0Shojo0o) change UI to JSONConfig
+-   (o0shojo0o) added datapoints info->hostname, info->note, sensor->pressure
 -   (o0shojo0o) adjustments based on the adapter review
 
 ### 0.0.6 (2021-05-01)
