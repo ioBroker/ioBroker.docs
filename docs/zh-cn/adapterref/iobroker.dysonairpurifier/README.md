@@ -3,234 +3,250 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: mVco6iaD07UO1wopefxpYIaCfD7j3WesVgoR2YjtgnQ=
+hash: Z5wq7g9EZdLn0rvOdMJmgZWLy9m7lDBiOkDQ+5rf9Cs=
 ---
+# IoBroker.dysonAirPurifier
+![标志](admin/dyson_logo.svg)![标志](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
+
 ![安装数量（最新）](http://iobroker.live/badges/dysonairpurifier-installed.svg)
-![NPM版本](https://img.shields.io/npm/v/iobroker.dysonairpurifier.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.dysonairpurifier.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/dysonairpurifier-stable.svg)
 ![依赖状态](https://img.shields.io/david/Grizzelbee/iobroker.dysonairpurifier.svg)
 ![已知漏洞](https://snyk.io/test/github/Grizzelbee/ioBroker.dysonairpurifier/badge.svg)
-![特拉维斯](https://travis-ci.org/Grizzelbee/iobroker.dysonairpurifier.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.dysonAirPurifier.svg?downloads=true)
+![特拉维斯CI](https://travis-ci.org/Grizzelbee/iobroker.dysonairpurifier.svg?branch=master)
+![新产品管理](https://nodei.co/npm/iobroker.dysonAirPurifier.svg?downloads=true)
 ![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
-![资料下载](https://img.shields.io/npm/dm/iobroker.dysonairpurifier.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.dysonairpurifier.svg)
 
-＃ioBroker.dysonAirPurifier
-![徽标]（admin / dyson_logo.svg）！[徽标](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
+## IoBroker 适配器，适用于戴森空气净化器和风扇
+该适配器将 ioBroker 连接到各种戴森空气净化器。
 
-##戴森空气净化器和风扇的ioBroker适配器
-该适配器将ioBroker连接到各种戴森空气净化器。
+由 [Freepik](https://www.flaticon.com/de/autoren/freepik) 来自 [www.flaticon.com](https://www.flaticon.com/de/) 创建的徽标中的扇形图标。
 
-由[Freepik]（https://www.flaticon.com/de/autoren/freepik）来自[www.flaticon.com](https://www.flaticon.com/de/)创建的徽标中的Fan-Icon。
-
-###支持的设备
-*戴森Pure Cool Link塔（TP02，产品类型475）
-* Dyson Pure Cool Tower，2018年型号（TP04，ProductType 438）
-* Dyson Pure Cool Tower，2018年型号（TP07，ProductType 438E）
-*戴森Pure Cool Link办公桌（DP01，产品类型469）
-* Dyson Pure Cool Desk，2018型号（DP04，ProductType 520）
-* Dyson Pure Hot + Cool Link（HP02，产品类型455）
-* Dyson Pure Hot + Cool，2018年型号（HP04，ProductType 527）
-*戴森Pure Hot + Cool（HP07，产品类型527E）
-*戴森Pure Humidify + Cool（PH01，产品类型358）
+### 支持的设备
+* Dyson Pure Cool Link Tower (TP02, ProductType 475)
+* Dyson Pure Cool Tower，2018 款（TP04，产品类型 438）
+* Dyson Pure Cool Tower，2018 款（TP07，产品型号 438E）
+* Dyson Pure Cool Link 办公桌（DP01，产品类型 469）
+* Dyson Pure Cool Desk，2018 款（DP04，产品类型 520）
+* Dyson Pure Hot+Cool Link（HP02，产品类型 455）
+* Dyson Pure Hot+Cool，2018 款（HP04，产品类型 527）
+* Dyson Pure Hot+Cool (HP07, ProductType 527E)
+* Dyson Pure Humidify+Cool (PH01, ProductType 358)
 
 ＃＃ 特征
-将戴森的风扇，风扇加热器，空气净化器和空气加湿器连接到ioBroker。
+将您的戴森风扇、暖风机、空气净化器和空气加湿器连接到 ioBroker。
 
-*从设备和传感器读取值
-*通过使您能够更改某些值（主功率，振荡，加热，风扇速度等），可以控制设备
-*从Dyson服务器读取设备列表
+* 从设备和传感器读取值
+* 可以通过让您更改某些值（主功率、振荡、加热、风扇速度等）来控制设备
+* 从戴森服务器读取设备列表
 
 ＃＃ 安装
 ### Sentry.io
-该适配器使用sentry.io收集有关崩溃的详细信息，并自动将其报告给作者。使用[ioBroker.trytry](https://github.com/ioBroker/plugin-sentry)插件。如果您不希望支持作者，那么请参阅[插件首页](https://github.com/ioBroker/plugin-sentry)有关该插件的功能，收集的信息以及如何禁用它的详细信息，有关崩溃的信息。
+该适配器使用 sentry.io 收集有关崩溃的详细信息并自动向作者报告。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) 插件用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 有关插件功能、收集哪些信息以及如何禁用插件的详细信息，如果您不喜欢用您的崩溃信息支持作者。
 
-###先决条件
-*此适配器需要Node.js> =版本10
-*至少需要js-Controller 3.0.0
-*至少需要管理员4.0.9
-*要使此适配器运行，您需要一个Dyson帐户。
-*确保将粉丝添加到您的帐户中。通过App或在线。
+### 先决条件
+* 此适配器需要 Node.js >= 版本 10
+* 至少需要 js-Controller 3.0.0
+* 至少需要 Admin 4.0.9
+* 要运行此适配器，您需要一个戴森帐户。
+* 确保将您的粉丝添加到您的帐户中。通过应用程序或在线。
 
-###适配器安装
-####使用npm
-在ioBroker安装上运行```npm install iobroker.dysonairpurifier```，以从npm存储库中获取此适配器的最新版本。
+### 适配器安装
+#### 使用 npm
+在您的 ioBroker 安装上运行 ```npm install iobroker.dysonairpurifier``` 以从 npm 存储库中获取此适配器的最新版本。
 
-####替代方法：使用GitHub URL
-通过将ioBroker Admin UI指向GitHub上的最新稳定版本进行安装：<https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
+#### 替代方案：使用 GitHub URL
+通过 ioBroker 管理 UI 将其指向 GitHub 上的最新稳定版本进行安装：<https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
 
-您也可以使用此方法安装较早的发行版（通过指向版本标记，例如，URL中的```v0.6.0```而不是```master```），但是通常首选最新版本。
+您还可以使用这些方法安装旧版本（通过指向版本标记，例如，在 URL 中使用 ```v0.6.0``` 而不是 ```master```），但通常首选最新版本。
 
 ###需要配置数据
-* Dyson帐户用户名
-* Dyson帐户密码（此适配器最多可以处理32个字符的密码）
-*您的局域网中的风扇/空气净化器IP地址。
+* 戴森账户用户名
+* 戴森账户密码（此适配器最多可处理 32 个字符的密码）
+* 您局域网中的风扇/空气净化器 IP 地址。
 
-*请注意*：由于早期的开发状态以及Dyson实施的不符合mDNS的要求，因此您需要在首次运行之后*提供设备的本地IP。
+*请注意*：由于早期的开发状态和戴森不符合 mDNS 的实现，您需要*在第一次运行后*提供设备的本地 IP。
 
-*附加说明*：自版本0.7.1起，适配器在未提供主机地址/ IP时尝试使用其主机名（序列号）连接到设备。这将在两个先决条件下起作用：
+*附加说明*：自版本 0.7.1 起，当未提供主机地址/IP 时，适配器会尝试通过其主机名（序列号）连接到设备。这将在两个先决条件下工作：
 
-1.您的局域网中有一个DNS服务器正在运行。既可以在您的路由器中（例如FritzBox上运行的是DNS），也可以是专用的。
-2.您尚未更改默认设备名称。
+1. 您的局域网中有一台 DNS 服务器正在运行。无论是在您的路由器中（例如 FritzBoxes 有一个 DNS 运行）还是一个专用路由器。
+2. 您没有更改默认设备名称。
 
->在此适配器的首次启动时，将为您的所有设备查询Dyson API，并且将在设备树中创建所有受支持的设备-其基本信息由API提供，并带有附加字段“ Hostaddress”。
->>>因此，请运行适配器一次，您的Dyson设备将使用其基本设置在设备树中创建。
->>然后停止适配器，在“主机地址”字段中输入IP，然后重新启动适配器。之后，应在设备树中的Dyson设备中填充数据。
+> 在此适配器的第一次启动时，会为您的所有设备查询 Dyson API，并且所有支持的设备都将在设备树中创建——API 提供了它们的基本信息和一个附加字段“主机地址”。
+> > 所以请运行一次适配器，您的 Dyson 设备将在设备树中创建，并带有它们的基本设置。
+> > 然后停止适配器，在主机地址字段中输入 IP 并重新启动适配器。之后，设备树中的 Dyson 设备应填充数据。
 
-### 2要素验证（自V0.9.0起）
-安装适配器后，应自动启动它-如果没有，请先启动它。
-更新后，它也会自动重新启动。在这两种情况下，它都将保持“黄色”状态，并可能在日志中显示一些错误-暂时可以。
+### 2 因素身份验证（自 V0.9.0 起）
+安装适配器后，它应该会自动启动 - 如果没有，请先启动它。
+更新后它也会自动重启。在这两种情况下，它都会保持“黄色”状态，并且可能会在日志中显示一些错误 - 现在很好。
 
-*打开适配器的配置对话框
-*至少填写您的电子邮件地址，密码和国家/地区代码-其余为可选
-*单击2FA代码电子邮件按钮以启动该过程
-*您将在相应的字段中自动收到“ challengeId”，一封电子邮件和一个包含进一步说明的对话框
-*从电子邮件中输入6位数代码，输入“戴森一次密码”字段
-*单击“完成”按钮
-*之后，您应该已经收到dyson的令牌（出于安全目的不可见）
-*完成设置后，单击“保存并关闭”-适配器应重新启动并变为绿色。
+* 打开适配器的配置对话框
+* 至少填写您的电子邮件地址、密码和国家代码 - 其余可选
+* 单击 2FA-Code 电子邮件按钮以启动该过程
+* 您将在相应字段中自动收到“challengeId”、电子邮件和包含进一步说明的对话框
+* 在“戴森一次性密码”字段中输入电子邮件中的 6 位代码
+* 点击“完成”按钮
+* 之后您应该会收到来自戴森的令牌（出于安全目的不可见）
+* 完成设置后单击保存并关闭 - 适配器应重新启动并变为绿色。
 
-所有值将被保存并进一步显示。
->通常，您不需要定期执行这2次FA-但是您可以在需要时重复执行。
+所有值都将被保存并进一步显示。
+> 通常您不需要按计划进行这 2 次 FA - 但您可以在需要时重复它。
 
-##控制您的设备
-该适配器当前能够控制设备的以下状态：
+>如果您在 2-FA 期间遇到问题。请参阅 [问题 #124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) 以了解可能的解决方法。
 
-* FanSpeed，当前风扇速度
-*夜间模式，夜间模式状态
-*振荡，风扇振荡。
-* ContinuousMonitoring，即使设备关闭也可以连续监视环境传感器。
-* MainPower，风扇的主电源。
-* AutomaticMode，风扇处于自动模式。
-*气流方向，风扇吹向的方向。 ON =前； OFF =后退（又称Jet聚焦）
-* Jetfocus，风扇吹向的方向。 ON =前； OFF =后退（又称Jet聚焦）
-*加热模式，加热模式[ON / OFF]
-* HeatingTargetTemp，加热目标温度
-* AirQualityTarget，自动模式下的目标空气质量。
+## 控制您的设备此适配器目前能够控制您的设备的以下状态：
+* FanSpeed , 当前风扇速度
+* 夜间模式，夜间模式状态
+*振荡，风扇的振荡。
+* ContinuousMonitoring ，即使设备关闭也能持续监测环境传感器。
+* MainPower ，风扇的主电源。
+* AutomaticMode , 风扇处于自动模式。
+* Flowdirection ，风扇吹向的方向。 ON=正面； OFF=返回（又名喷射焦点）
+* Jetfocus ，风扇吹向的方向。 ON=正面； OFF=返回（又名喷射焦点）
+*加热模式，加热模式[开/关]
+* HeatingTargetTemp , 加热目标温度
+* AirQualityTarget ，自动模式的目标空气质量。
 *加湿模式，开/关
-* HumidifyAutoMode，自动/关
-*自动加湿目标，自动加湿目标
-*加湿目标，手动加湿目标
-*水硬度，软，中，硬
+*加湿自动模式，自动/关闭
+* 自动加湿目标，自动加湿目标
+* 加湿目标，手动加湿目标
+* 水硬度，软，中，硬
 
-据了解，这些状态的可能值记录在下面。
-风扇速度仅允许从1到10以及“自动”的值。如果要将风扇速度设置为0，则需要关闭主电源。
-戴森应用程序也可以做到这一点。
+据了解，这些状态的可能值记录如下。
+风扇速度只允许从 1 到 10 和自动的值。如果您想将风扇速度设置为 0，则需要关闭主电源。
+这也是戴森应用程序所做的。
 
 ＃＃＃ 已知的问题
-*不自动检测设备的IP
+* 没有设备的自动 IP 检测
 
-## Dyson API数据（消息有效负载）的说明
-从<https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md>复制和扩展的信息
+## Dyson API 数据说明（消息有效载荷）
+从 <https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md> 复制和扩展的信息
 
 ＃＃＃ 当前状态
-|名称|意思|可能的值|单位 |
+|姓名 |意思 |可能的值|单位 |
 | ------------- | ----- | ----- | ----- |
-|模式原因|当前模式已通过RemoteControl，App，Scheduler设置。 PRC，LAPP，LSCH，PUI | |
-|国家原因| |模式| |
-| rssi | WIFI强度| -100-0 | dBm |
+|模式原因 |当前模式已由 RemoteControl、App、Scheduler 设置 |中国、LAPP、LSCH、PUI | |
+|状态原因| |模式 | |
+| RSS | WIFI实力| -100 - 0|分贝|
 |频道| WIFI频道| 52 | |
 | fqhp | | 96704 | |
 | fghp | | 70480 | |
 
-####产品状态
-|名称|意思|可能的值|单位 |
+#### 产品状态
+|姓名 |意思 |可能的值|单位 |
 | ------------- | ----- | ----- | ----- |
-| ercd |最后的错误代码| NONE或某些六进制值| |
-|战利品|剩余滤清器寿命| 0000-4300 |小时|
-| fmod |模式|风扇，自动，关闭| |
-| fpwr |主电源|开，关| |
-| fnst |风扇状态|开，关，风扇| |
-| fnsp |风扇转速0001-0010，自动| |
-| fdir |又称Fandirection。喷气对焦/开=前，关=后开，关| |
-| ffoc | JetFocus |开，关|
-| nmod |夜间模式|开启，关闭| |
-|儿子|振荡|开启，关闭| |
-| osal |振荡角度下界| 0005-355 | °（度）|
-| osau | OscillationAngle上边界| 0005-355 | °（度）|
-| oscs |振荡活动|开，关，空闲| |
-| ancp |摆角| CUST，0180 |°（度）|
-| qtar |空气质量指标| 0001 =好，0002 =正常，0003 =差，0004 =非常差| |
-| rhtm |连续监控|开，关| |
-|汽车| AutomaticMode |开，关| |
-| nmdv | NightMode最大风扇速度？ | 0004 | |
-| cflr |状态碳过滤器| 0000-0100 |百分比 |
-| cflt |碳过滤器|车| |
-| hflr |状态HEPA过滤器| 0000-0100 |百分比 |
-| hflt | HEPA过滤器| GHEP | |
-| sltm |睡眠计时器|开，关||
-| hmod |加热器模式[ON / OFF] |热力| |
-| hmax |加热目标温度| 0 .. 5000 | K |
-|休ume加湿模式|开，关，|
-|小屋|加湿自动模式| |
-|哼！加湿目标| |
-| cdrr | CleanDurationRemaining | |
-| rect | AutoHumidificationTarget | |
-| cltr | TimeRemainingToNextClean | |
-|棉线|水硬度| |
-| wacd |警告代码？ |没有... |
-| rstf |重置过滤器生命周期|
+| ercd |上次错误代码 | NONE ，或一些十六进制值 | |
+|菲尔 |过滤器剩余寿命 | 0000 - 4300 |小时|
+| fmod |模式 |风扇、自动、关闭 | |
+| fpwr |主电源 |开、关 | |
+|第一 |粉丝状态 |开、关、风扇 | |
+| fnsp |风扇转速 | 0001 - 0010, 自动 | |
+|目录 | Fandirection 又名。喷射焦点/ ON=正面，OFF=背面|开、关 | |
+|福克| JetFocus |开、关 |
+| nmod |夜间模式 |开、关 | |
+|奥森|振荡|开、关| |
+|欧萨尔 |振荡角下边界 | 0005 - 355| °（度）|
+|奥绍|振荡角上边界 | 0005 - 355 | °（度）|
+|操作系统 |振荡活动 |开、关、空闲 | |
+|安普|振荡角| CUST, 0180 |°（度）|
+|卡塔尔 |空气质量目标 | 0001=好，0002=正常，0003=差，0004=非常差 | |
+| rtm |持续监测 |开、关 | |
+|汽车 |自动模式 |开、关 | |
+|微电影|夜间模式最大风扇速度？ | 0004 | |
+| cflr |状态碳过滤器 | 0000 - 0100 |百分比 |
+| cflt |碳过滤器 | CARF | |
+| hflr |状态 HEPA 过滤器 | 0000 - 0100 |百分比 |
+|高频| HEPA-过滤器|全球环境规划署 | |
+| sltm |睡眠定时器 |开，关 ||
+| hmod |加热器模式 [ON/OFF] |热 | |
+|最大|加热目标温度 | 0 .. 5000 |克|
+|休谟|加湿模式 |开、关、|
+|上|加湿自动模式| |
+|哼哼|加湿目标| |
+| CDR | CleanDurationRemaining| |
+|矩形 |自动加湿目标| |
+| ctr | TimeRemainingToNextClean| |
+|什么|水硬度| |
+| wacd |警告码？ |无... |
+| rstf |重置过滤器生命周期 |
 | bril | | 0002 |
-|科尔夫| |开，关|
-| psta | [HP0x]未知| |
-| hsta | [HP0x]未知| |
-|倾斜[HP0x]未知| |
-|拨| [DP0x]未知| |
-| fqhp | fqhp ||
-| msta | msta ||
+|科尔夫 | |开、关 |
+| psta | [HP0x] 未知 | |
+| hsta | [HP0x] 未知 | |
+|倾斜| [HP0x] 未知 | |
+|拨号 | [DP0x] 未知 | |
+| fqhp | fqhp||
+| msta | msta||
 
-|错误代码|含义|
+|错误代码|含义 |
 | ----- | ----- |
-|无|没有活动的错误|
-| 57C2 |不明|
-| 11E1 |振荡已被禁用。请按遥控器上的“振荡”按钮以继续。 |
+|无 |没有错误激活 |
+|57C2|未知 |
+|11E1|振荡已被禁用。请按遥控器上的“振荡”按钮继续。|
 
-####调度程序
-|名称|意思|可能的值|单位 |
+####调度器
+|姓名 |意思 |可能的值|单位 |
 | ------------- | ----- | ----- | ----- |
-| dstv | daylightSavingTime | 0001 ... | |
-| srsc | ？ | 7c68 ... | |
-| tzid |时区？ | 0001 ... | |
+|数字电视|夏令时| 0001... | |
+| srsc | ? | 7c68... | |
+|齐德 |时区？ | 0001... | |
 
-###环境电流传感器数据
+### 环境电流传感器数据
 ＃＃＃＃ 数据
-|名称|意思|可能的值|单位 |
+|姓名 |意思 |可能的值|单位 |
 | ------------- | ----- | ----- | ----- |
-|事实|湿度（％）| 0000-0100 |百分比 |
-|契约粉尘0000-0009 | |
-| sltm |睡眠计时器|关闭... 9999 |分钟|
-|机智开尔温的温度| 0000-5000 | K |
-| vact |挥发性有机化合物| 0001-0009 | |
-| pm25 | PM2.5 | 0018 ||
-| pm10 | PM10 | 0011 ||
-| va10 |挥发性有机化合物| 0004 ||
-| noxl | NO2 | 0000-0014 ||
-| p25r | | 0019 ||
-| p10r | | 0018 ||
+|黑客 |湿度 (%) | 0000 - 0100 |百分比 |
+|契约|灰尘 | 0000 - 0009 | |
+| sltm |睡眠定时器 |关闭... 9999 |分钟 |
+|机智|开尔文温度 | 0000 - 5000 | K|
+|真空|挥发性有机化合物| 0001 - 0009 | |
+|pm25| PM2.5 |0018||
+|下午10| PM10 |0011||
+|va10|挥发性有机化合物|0004||
+|noxl| NO2 |0000 - 0014||
+|p25r| |0019||
+|p10r| |0018||
 
-###环境和使用数据
+### 环境和使用数据
 冗余值？
 
 ＃＃＃＃ 数据
-|名称|意思|可能的值|单位 |
+|姓名 |意思 |可能的值|单位 |
 | ------------- | ----- | ----- | ----- |
-| pal0-pal9 |自小时开始以来在此级别的灰尘上花费的秒数| 0000-3600 | |
-|手掌|似乎是palX的中位数| | |
-| vol0-vol9 |自小时开始以来，此级别voc的第二次支出| 0000-3600 | |
-| volm |似乎是volX的中间值| | |
-| aql0-aql9 |在此空气质量水平上第二次消费的次数|从小时开始算起（max（pal，vol））| 0000-3600 | |
-| aqlm |似乎是aqlX的中位数| | |
-|收藏夹|似乎是在特定时间花费几秒钟| 0000-3600 | |
-| faos |似乎是在特定时间花费几秒钟| 0000-3600 | |
-| fofs |似乎是在特定时间花费几秒钟| 0000-3600 | |
-| fons |似乎是在特定时间花费几秒钟| 0000-3600 | |
-|哼！湿度 ？ （％）| 0000-0100 | |
-| tmpm |开尔文的温度？ | 0000-5000 | |
+| pal0 - pal9 |自一小时开始以来，在此级别的灰尘中花费的秒数| 0000 - 3600 | |
+|棕榈 |似乎是palX 的中值| | |
+| vol0 - vol9 |自一小时开始以来在此级别的 voc 中的第二次花费数 | 0000 - 3600 | |
+|卷 |似乎是 volX 的中值 | | |
+| aql0 - aql9 |在这种空气质量水平下的第二次花费数量| max (pal, vol)) 从小时开始 | 0000 - 3600 | |
+| aqlm |似乎是 aqlX 的中值 | | |
+| fafs |似乎是在特定时间内花费的秒数 | 0000 - 3600 | |
+|粮农组织 |似乎是在特定时间内花费的秒数 | 0000 - 3600 | |
+| fofs |似乎是在特定时间内花费的秒数 | 0000 - 3600 | |
+|冯|似乎是在特定时间内花费的秒数 | 0000 - 3600 | |
+|哼|湿度 ？ (%) | 0000 - 0100 | |
+| tmp |开尔文温度 ? | 0000 - 5000 | |
 
 ＃＃ 法律声明
-戴森，纯净，纯净，凉爽和其他均为[戴森有限公司](https://www.dyson.com)的商标或注册商标。所有其他商标均为其各自所有者的财产。
+Dyson、pure cool、pure hot &cool 等是[戴森有限公司](https://www.dyson.com) 的商标或注册商标。所有其他商标均为其各自所有者的财产。
 
 ## Changelog
+
+### V0.9.4 (2021-08-20) ()
+* (grizzelbee) New: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Credentials won't get logged but shown in a popup in admin when failing 2FA process. 
+* (grizzelbee) New: Added adminUI tag to io-package
+* (grizzelbee) New: Cleanup of io-package
+
+### V0.9.3 (2021-08-19) (Paralyzed)
+* (grizzelbee) New: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Leading and trailing whitespaces will be removed from all config values when saving
+* (grizzelbee) New: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Password will be logged in clear text in case of a http 401 (unauthorized) error during 2FA
+* (grizzelbee) Chg: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Removed general debug logging of 2FA login data
+
+
+### V0.9.2 (2021-08-15) (Pearl in a world of dirt)
+* (bvol)       New: [#114](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/114) Added Switzerland to country selection in config , Thanks, @BVol, for his code! 
+* (grizzelbee) Fix: [#119](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/119) Updated dyson certificate to enable connection again. Thanks, @Krobipd, for helping with the link
+* (grizzelbee) Upd: Updated dependencies 
 
 ### V0.9.1 (2021-05-17) (Still breathing)
 * (grizzelbee) New: [#105](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/105) TP02, HP02 and others supporting the fmod token are now able to switch from Off to Auto- and manual-mode
@@ -302,7 +318,7 @@ hash: mVco6iaD07UO1wopefxpYIaCfD7j3WesVgoR2YjtgnQ=
 * (jpwenzel)   New: Introducing unit tests
 * (jpwenzel)   New: At least NodeJs 10.0.0 is required
 * (grizzelbee) New: [#23](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/23) - Introduced new data field AirQuality which represents the worst value of all present indexes.
-* (grizzelbee) New: BREAKING CHANGE! - switched over to the adapter-prototype build-in password encryption. Therefore you'll need to enter your password again in config.
+* (grizzelbee) New: BREAKING CHANGE! - switched over to the adapter-prototype build-in password encryption. Therefore, you'll need to enter your password again in config.
 * (grizzelbee) New: At least js-controller 3.0.0 is required
 * (grizzelbee) New: At least admin 4.0.9 is required
 * (jpwenzel)   Fix: General overhaul of readme
@@ -313,21 +329,21 @@ hash: mVco6iaD07UO1wopefxpYIaCfD7j3WesVgoR2YjtgnQ=
 * (grizzelbee) Fix: [#13](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/13) - Creating additional Filter life value in percent
 * (grizzelbee) Fix: removed materializeTab from ioPackage
 * (grizzelbee) Fix: calling setState now as callback in createOrExtendObject
-* (grizzelbee) Fix: Removed non compliant values for ROLE
+* (grizzelbee) Fix: Removed non-compliant values for ROLE
 * (grizzelbee) Fix: calling setState in callback of set/createObject now
 * (grizzelbee) Fix: ensuring to clear all timeouts in onUnload-function
 
 ### V0.6.0 (2020-10-29) (Rage before the storm)
 * (grizzelbee) New: [#17](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/17) - Added online-indicator for each device
 * (grizzelbee) New: [#19](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/19) - Extended Password length from 15 characters to 32
-* (grizzelbee) New: [#20](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/20) - Improved errorhandling on http communication with Dyson API
+* (grizzelbee) New: [#20](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/20) - Improved error handling on http communication with Dyson API
 * (grizzelbee) Fix: Fixed typo within data field anchorpoint - please delete the old ancorpoint manually.
 * (grizzelbee) Fix: [#13](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/13) - Filter life value is now displayed in percent not in hours
 
-### V0.5.1 (2020-10-27) (Heart of the hurricance)
+### V0.5.1 (2020-10-27) (Heart of the hurricane)
 * (grizzelbee) Fix: Added missing clearTimeout
 
-### V0.5.0 (2020-10-27) (Heart of the hurricance)
+### V0.5.0 (2020-10-27) (Heart of the hurricane)
 * (grizzelbee) New: Editable data fields have now appropiate value lists
 * (grizzelbee) New: Added more country codes
 * (grizzelbee) New: Target temperature of heater can now be set - **in the configured unit!**
@@ -338,7 +354,7 @@ hash: mVco6iaD07UO1wopefxpYIaCfD7j3WesVgoR2YjtgnQ=
 * (grizzelbee) New: [#8](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/8) - Documented ProductTypes for better overview and user experience in ReadMe
 * (grizzelbee) New: [#9](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/9) - Added some Hot&Cool specific datafields
 * (grizzelbee) New: Logging of from devices, when shutting down the adapter
-* (grizzelbee) New: [#10](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/10) - Pollig device data every X (configurable) seconds for new data, hence sensors don't send updates on changing values
+* (grizzelbee) New: [#10](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/10) - Polling device data every X (configurable) seconds for new data, hence sensors don't send updates on changing values
 * (grizzelbee) New: [#11](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/11) - Added Austria and France to Country-List
 * (grizzelbee) Fix: Fixed bug in error handling when login to Dyson API fails
 * (grizzelbee) Fix: [#12](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/12) - Fixed Dyson API login by completely securing via HTTPS.
@@ -368,7 +384,7 @@ hash: mVco6iaD07UO1wopefxpYIaCfD7j3WesVgoR2YjtgnQ=
 * (grizzelbee) New: mqtt-request to [TP04] is responding
 
 ### V0.1.0 (2020-09-04) - not working! Do not install/use
-* (grizzelbee) first development body (non functional)
+* (grizzelbee) first development body (non-functional)
 
 ## License
 
@@ -392,4 +408,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2020 Hanjo Hingsen <hanjo@hingsen.de>
+Copyright (c) 2021 Hanjo Hingsen <open-source@hingsen.de>

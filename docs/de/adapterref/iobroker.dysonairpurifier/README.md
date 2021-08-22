@@ -3,25 +3,25 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: mVco6iaD07UO1wopefxpYIaCfD7j3WesVgoR2YjtgnQ=
+hash: Z5wq7g9EZdLn0rvOdMJmgZWLy9m7lDBiOkDQ+5rf9Cs=
 ---
 # IoBroker.dysonAirPurifier
-![Logo] (admin / dyson_logo.svg)! [Logo](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
+![Logo](admin/dyson_logo.svg)![Logo](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
 
 ![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/dysonairpurifier-installed.svg)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.dysonairpurifier.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/dysonairpurifier-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/Grizzelbee/iobroker.dysonairpurifier.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/Grizzelbee/ioBroker.dysonairpurifier/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/Grizzelbee/ioBroker.dysonairpurifier/badge.svg)
 ![Travis-CI](https://travis-ci.org/Grizzelbee/iobroker.dysonairpurifier.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.dysonAirPurifier.svg?downloads=true)
 ![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.dysonairpurifier.svg)
 
 ## IoBroker Adapter für Dyson Luftreiniger und Lüfter
-Dieser Adapter verbindet ioBroker mit verschiedenen Dyson-Luftreinigern.
+Dieser Adapter verbindet ioBroker mit verschiedenen Dyson Luftreinigern.
 
-Fan-Icon im Logo erstellt von [Freepik] (https://www.flaticon.com/de/autoren/freepik) von [www.flaticon.com](https://www.flaticon.com/de/).
+Fan-Icon im Logo erstellt von [Freepik](https://www.flaticon.com/de/autoren/freepik) von [www.flaticon.com](https://www.flaticon.com/de/).
 
 ### Unterstützte Geräte
 * Dyson Pure Cool Link Tower (TP02, Produkttyp 475)
@@ -29,208 +29,224 @@ Fan-Icon im Logo erstellt von [Freepik] (https://www.flaticon.com/de/autoren/fre
 * Dyson Pure Cool Tower, Modell 2018 (TP07, Produkttyp 438E)
 * Dyson Pure Cool Link Desk (DP01, Produkttyp 469)
 * Dyson Pure Cool Desk, Modell 2018 (DP04, Produkttyp 520)
-* Dyson Pure Hot + Cool Link (HP02, Produkttyp 455)
-* Dyson Pure Hot + Cool, Modell 2018 (HP04, Produkttyp 527)
-* Dyson Pure Hot + Cool (HP07, Produkttyp 527E)
-* Dyson Pure Humidify + Cool (PH01, Produkttyp 358)
+* Dyson Pure Hot+Cool Link (HP02, Produkttyp 455)
+* Dyson Pure Hot+Cool, Modell 2018 (HP04, Produkttyp 527)
+* Dyson Pure Hot+Cool (HP07, Produkttyp 527E)
+* Dyson Pure Humidify+Cool (PH01, Produkttyp 358)
 
-## Eigenschaften
+## Merkmale
 Verbindet Ihre Dyson-Lüfter, Heizlüfter, Luftreiniger und Luftbefeuchter mit ioBroker.
 
 * Liest Werte von Geräten und Sensoren
-* Kann Geräte steuern, indem Sie einige Werte ändern können (Hauptleistung, Schwingung, Heizung, Lüftergeschwindigkeit, ...)
-* Liest die Geräteliste von Dyson-Servern
+* Kann Geräte steuern, indem Sie einige Werte ändern können (Hauptleistung, Oszillation, Heizung, Lüftergeschwindigkeit, ...)
+* Liest Geräteliste von Dyson-Servern
 
 ## Installation
 ### Sentry.io
-Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch dem Autor zu melden. Dafür wird das Plugin [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) verwendet. In den [Plugin Homepage](https://github.com/ioBroker/plugin-sentry) finden Sie detaillierte Informationen darüber, was das Plugin tut, welche Informationen gesammelt werden und wie Sie es deaktivieren können, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
+Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch an den Autor zu melden. Dafür wird das [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) Plugin verwendet. Bitte lesen Sie die [Plugin-Homepage](https://github.com/ioBroker/plugin-sentry) für detaillierte Informationen darüber, was das Plugin tut, welche Informationen gesammelt werden und wie Sie es deaktivieren können, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
 
-### Voraussetzungen
-* Dieser Adapter benötigt Node.js> = Version 10
+###Voraussetzungen
+* Dieser Adapter benötigt Node.js >= Version 10
 * Mindestens js-Controller 3.0.0 ist erforderlich
 * Mindestens Admin 4.0.9 ist erforderlich
 * Um diesen Adapter zum Laufen zu bringen, benötigen Sie ein Dyson-Konto.
-* Stellen Sie sicher, dass Sie Ihren Fan Ihrem Konto hinzufügen. Entweder per App oder online.
+* Stellen Sie sicher, dass Sie Ihren Fan zu Ihrem Konto hinzufügen. Entweder per App oder online.
 
 ### Adapterinstallation
 #### Verwenden von npm
-Führen Sie ```npm install iobroker.dysonairpurifier``` in Ihrer ioBroker-Installation aus, um die neueste Version dieses Adapters aus dem npm-Repository abzurufen.
+Führen Sie ```npm install iobroker.dysonairpurifier``` auf Ihrer ioBroker-Installation aus, um die neueste Version dieses Adapters aus dem npm-Repository zu erhalten.
 
-#### Alternative: Verwenden der GitHub-URL
-Installieren Sie die Installation über die ioBroker Admin-Benutzeroberfläche, indem Sie auf die neueste stabile Version auf GitHub verweisen: <https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
+#### Alternative: GitHub-URL verwenden
+Installieren Sie über die ioBroker Admin-Benutzeroberfläche, indem Sie auf die neueste stabile Version auf GitHub verweisen: <https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
 
-Sie können auch ältere Release-Versionen mit diesen Methoden installieren (indem Sie auf ein Versions-Tag verweisen, z. B. ```v0.6.0``` anstelle von ```master``` in der URL). Die neueste Version wird jedoch im Allgemeinen bevorzugt.
+Sie können mit diesen Methoden auch ältere Release-Versionen installieren (indem Sie auf ein Versions-Tag verweisen, z.
 
-### Konfigurationsdaten benötigt
-* Benutzername des Dyson-Kontos
-* Passwort für das Dyson-Konto (dieser Adapter kann Passwörter mit bis zu 32 Zeichen verarbeiten)
-* IP-Adresse Ihrer Lüfter / Luftreiniger in Ihrem LAN.
+### Konfig-Daten benötigt
+* Dyson-Konto-Benutzername
+* Dyson-Kontopasswort (dieser Adapter kann Passwörter mit bis zu 32 Zeichen verarbeiten)
+* die IP-Adresse Ihrer Ventilatoren/Luftreiniger in Ihrem LAN.
 
-* Bitte beachten Sie *: Aufgrund des frühen Entwicklungsstatus und einer nicht konformen mDNS-Implementierung von Dyson müssen Sie die lokale IP des Geräts * nach dem ersten Lauf * angeben.
+*Bitte beachten*: Aufgrund des frühen Entwicklungsstandes und einer nicht konformen mDNS-Implementierung von Dyson müssen Sie *nach dem ersten Durchlauf* die lokale IP des Geräts angeben.
 
-* Zusätzlicher Hinweis *: Seit Version 0.7.1 versucht der Adapter, über seinen Hostnamen (Seriennummer) eine Verbindung zum Gerät herzustellen, wenn keine Hostadresse / IP angegeben ist. Dies funktioniert unter zwei Voraussetzungen:
+*Zusätzlicher Hinweis*: Seit Version 0.7.1 versucht der Adapter, sich über seinen Hostnamen (Seriennummer) mit dem Gerät zu verbinden, wenn keine Hostadresse/IP angegeben ist. Dies funktioniert unter zwei Voraussetzungen:
 
-1. In Ihrem LAN wird ein DNS-Server ausgeführt. Entweder in Ihrem Router (z. B. in FritzBoxen wird ein DNS ausgeführt) oder in einem dedizierten Router.
-2. Sie haben den Standard-Gerätenamen nicht geändert.
+1. In Ihrem LAN läuft ein DNS-Server. Entweder in Ihrem Router (z.B. FritzBoxen haben einen DNS am Laufen) oder einen dedizierten.
+2. Sie haben den Standardgerätenamen nicht geändert.
 
-> Beim ersten Start dieses Adapters wird die Dyson-API für alle Ihre Geräte abgefragt und alle unterstützten Geräte werden im Gerätebaum erstellt - mit ihren grundlegenden Informationen, die von der API bereitgestellt werden, und einem zusätzlichen Feld "Hostadresse".
->> Führen Sie den Adapter also einmal aus, und Ihre Dyson-Geräte werden in der Gerätestruktur mit ihren Grundeinstellungen erstellt.
->> Stoppen Sie dann den Adapter, geben Sie die IP (s) in das Feld Hostadresse (n) ein und starten Sie den Adapter neu. Danach sollten Ihre Dyson-Geräte in der Gerätestruktur mit Daten gefüllt werden.
+> Beim ersten Start dieses Adapters wird die Dyson API für alle Ihre Geräte abgefragt und alle unterstützten Geräte werden im Gerätebaum angelegt -- mit ihren von der API bereitgestellten Basisinformationen und einem zusätzlichen Feld "Hostadresse".
+> > Führen Sie den Adapter also einmal aus, und Ihre Dyson-Geräte werden mit ihren Grundeinstellungen im Gerätebaum angelegt.
+> > Stoppen Sie dann den Adapter, geben Sie die IP(s) in das/die Feld(er) Hostaddress ein und starten Sie den Adapter neu. Danach sollten Ihre Dyson-Geräte im Gerätebaum mit Daten gefüllt sein.
 
 ### 2-Faktor-Authentifizierung (seit V0.9.0)
-Nach der Installation des Adapters sollte dieser automatisch gestartet werden - wenn nicht, starten Sie ihn bitte zuerst.
+Nach der Installation des Adapters sollte dieser automatisch gestartet werden - falls nicht, starten Sie ihn bitte zuerst.
 Nach einem Update wird es auch automatisch neu gestartet. In beiden Fällen bleibt es im "gelben" Zustand und zeigt wahrscheinlich einige Fehler im Protokoll an - das ist vorerst in Ordnung.
 
 * Öffnen Sie den Konfigurationsdialog des Adapters
-* Geben Sie mindestens Ihre E-Mail-Adresse, das Passwort und den Ländercode ein - der Rest ist optional
-* Klicken Sie auf die Schaltfläche 2FA-Code Email, um den Vorgang zu starten
-* Sie erhalten automatisch eine "ChallengeId" im entsprechenden Feld, eine E-Mail und einen Dialog mit weiteren Anweisungen
-* Geben Sie den 6-stelligen Code aus der E-Mail in das Feld "Dyson Einmalpasswort" ein.
+* Geben Sie mindestens Ihre eMail-Adresse, das Passwort und den Ländercode ein - der Rest ist optional
+* Klicken Sie auf die Schaltfläche 2FA-Code E-Mail, um den Vorgang zu starten
+* Du erhältst automatisch eine "challengeId" im entsprechenden Feld, eine eMail und einen Dialog mit weiteren Anweisungen
+* geben Sie den 6-stelligen Code aus der eMail in das Feld "dyson one time password" ein
 * Klicken Sie auf die Schaltfläche "Fertig stellen"
-* Danach sollten Sie ein Token von Dyson erhalten haben (aus Sicherheitsgründen unsichtbar).
-* Klicken Sie auf Speichern und schließen, nachdem Sie die Einrichtung abgeschlossen haben. Der Adapter sollte neu starten und grün werden.
+* danach solltest du einen Token von Dyson erhalten haben (aus Sicherheitsgründen unsichtbar)
+* Klicken Sie auf Speichern & Schließen, nachdem Sie Ihre Einrichtung abgeschlossen haben - der Adapter sollte neu starten und grün werden.
 
-Alle Werte werden gespeichert und weiter angezeigt.
-> Normalerweise müssen Sie diese 2 FA nicht planmäßig ausführen - Sie können sie jedoch bei Bedarf wiederholen.
+Alle Werte werden gespeichert und weiterhin angezeigt.
+> Normalerweise müssen Sie diese 2 FA nicht planmäßig durchführen - Sie können sie jedoch bei Bedarf wiederholen.
 
-## Steuern Ihrer Geräte
-Dieser Adapter kann derzeit die folgenden Zustände Ihrer Geräte steuern:
+>Wenn Sie während 2-FA auf Probleme stoßen. Eine mögliche Problemumgehung finden Sie unter [Ausgabe #124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124).
 
-* Lüftergeschwindigkeit, aktuelle Lüftergeschwindigkeit
-* Nachtmodus, Nachtmodus
-* Schwingung, Schwingung des Lüfters.
-* ContinuousMonitoring, Continuous Monitoring von Umgebungssensoren, auch wenn das Gerät ausgeschaltet ist.
-* MainPower, Hauptleistung des Lüfters.
-* AutomaticMode, Lüfter befindet sich im automatischen Modus.
-* Durchflussrichtung, Richtung, in die der Lüfter bläst. EIN = vorne; AUS = Zurück (auch bekannt als Jet-Fokus)
-* Jetfocus, Richtung, in die der Lüfter bläst. EIN = vorne; AUS = Zurück (auch bekannt als Jet-Fokus)
-* Heizmodus, Heizmodus [EIN / AUS]
-* HeatingTargetTemp, Zieltemperatur für das Heizen
-* AirQualityTarget, Zielluftqualität für den automatischen Modus.
+## Steuerung Ihrer Geräte Dieser Adapter ist derzeit in der Lage, die folgenden Zustände Ihrer Geräte zu steuern:
+* FanSpeed, aktuelle Lüftergeschwindigkeit
+* Nachtmodus, Nachtmodusstatus
+* Schwingung, Schwingung des Ventilators.
+* ContinuousMonitoring, kontinuierliche Überwachung von Umgebungssensoren, auch wenn das Gerät ausgeschaltet ist.
+* MainPower , Hauptstrom des Lüfters.
+* AutomaticMode , Lüfter befindet sich im Automatikmodus.
+* Strömungsrichtung, Richtung, in die der Ventilator bläst. EIN=Vorne; AUS=Zurück (auch bekannt als Jet-Fokus)
+* Jetfocus, Richtung, in die der Lüfter bläst. EIN=Vorne; AUS=Zurück (auch bekannt als Jet-Fokus)
+* Heizmodus , Heizmodus [EIN/AUS]
+* HeatingTargetTemp , Zieltemperatur für das Heizen
+* AirQualityTarget , Zielluftqualität für den Automodus.
 * Befeuchtungsmodus, Ein / Aus
-* HumidifyAutoMode, Auto / Off
-* AutoHumidificationTarget, Auto HumidificationTarget
-* Befeuchtungsziel, manuelles Befeuchtungsziel
+* HumidifyAutoMode, Auto / Aus
+* AutoBefeuchtungsziel, Autobefeuchtungsziel
+* Befeuchtungsziel, Manuelles Befeuchtungsziel
 * Wasserhärte, weich, mittel, hart
 
-Mögliche Werte für diese Zustände sind nachstehend bekannt, soweit bekannt.
-Die Lüftergeschwindigkeit erlaubt nur Werte von 1 bis 10 und Auto. Wenn Sie die Lüftergeschwindigkeit auf 0 einstellen möchten, müssen Sie die Hauptstromversorgung ausschalten.
-Welches ist, was die Dyson-App auch tut.
+Mögliche Werte für diese Zustände sind, soweit bekannt, im Folgenden dokumentiert.
+Die Lüftergeschwindigkeit lässt nur Werte von 1 bis 10 und Auto zu. Wenn Sie die Lüftergeschwindigkeit auf 0 reduzieren möchten, müssen Sie die Hauptstromversorgung ausschalten.
+Das macht auch die Dyson-App.
 
 ### Bekannte Probleme
 * Keine automatische IP-Erkennung von Geräten
 
-## Erläuterung der Dyson-API-Daten (Nachrichtennutzlast)
+## Erläuterung der Dyson API-Daten (Nachrichtennutzlast)
 Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md>
 
 ### AKTUELLEN ZUSTAND
 | Name | Bedeutung | mögliche Werte | Einheit |
 | ------------- | ----- | ----- | ----- |
-| Modus-Grund | Der aktuelle Modus wurde von RemoteControl, App, Scheduler | eingestellt PRC, LAPP, LSCH, PUI | |
+| Modus-Grund | Aktueller Modus wurde von RemoteControl, App, Scheduler eingestellt | VR China, LAPP, LSCH, PUI | |
 | Staatsgrund | | MODUS | |
-| rssi | WIFI-Stärke | -100 - 0 | dBm |
-| Kanal | WIFI-Kanal | 52 | |
+| rssi | WLAN-Stärke| -100 - 0| dBm|
+| Kanal| WIFI-Kanal| 52 | |
 | fqhp | | 96704 | |
 | fghp | | 70480 | |
 
 #### Produktstatus
 | Name | Bedeutung | mögliche Werte | Einheit |
 | ------------- | ----- | ----- | ----- |
-| ercd | Letzter Fehlercode | NONE oder einige Hexa-Werte | |
-| filf | verbleibende Filterlebensdauer | 0000 - 4300 | Stunden |
+| ercd | Letzter Fehlercode | NONE oder einige Hexawerte | |
+| fil | Restlebensdauer des Filters | 0000 - 4300 | Stunden|
 | fmod | Modus | LÜFTER, AUTO, AUS | |
 | fpwr | Hauptstrom | EIN, AUS | |
 | fnst | Lüfterstatus | EIN, AUS, LÜFTER | |
 | fnsp | Lüftergeschwindigkeit | 0001 - 0010, AUTO | |
-| fdir | Fandirection aka. Jet Focus / ON = Front, OFF = Back | EIN, AUS | |
+| fdir | Fandirektion aka. Jet-Fokus/ EIN=Vorne, AUS=Zurück | EIN, AUS | |
 | ffoc | JetFocus | EIN, AUS |
-| nmod | Nachtmodus | EIN, AUS | |
-| oson | Schwingung | EIN, AUS | |
-| osal | OscillationAngle Lower Boundary | 0005 - 355 | ° (Grad) |
-| osau | OscillationAngle Upper Boundary | 0005 - 355 | ° (Grad) |
-| oscs | OscillationActive | EIN, AUS, LEERLAUF | |
-| ancp | Oszillationswinkel | CUST, 0180 | ° (Grad) |
-| qtar | Luftqualitätsziel | 0001 = gut, 0002 = normal, 0003 = schlecht, 0004 = sehr schlecht | |
-| rhtm | Kontinuierliche Überwachung EIN, AUS | |
-| auto | AutomaticMode | EIN, AUS | |
-| nmdv | NightMode Max Fanspeed? | 0004 | |
+| nmod | Nachtmodus | EIN , AUS | |
+| oson | Schwingung | EIN, AUS| |
+| osal | Oszillationswinkel untere Grenze | 0005 - 355| ° (Grad)|
+| osau | Oszillationswinkel Obere Grenze | 0005 - 355 | ° (Grad)|
+| oscs | OszillationAktiv | EIN, AUS, LEERLAUF | |
+| ancp | Oszillationswinkel | CUST, 0180 |° (Grad)|
+| qtar | Luftqualitätsziel | 0001=Gut, 0002=Normal, 0003=Schlecht, 0004=Sehr schlecht | |
+| rhtm | Kontinuierliche Überwachung | EIN, AUS | |
+| automatisch | Automatischer Modus | EIN, AUS | |
+| nmdv | Nachtmodus Max. Lüftergeschwindigkeit? | 0004 | |
 | cflr | Status Kohlefilter | 0000 - 0100 | Prozent |
 | cflt | Kohlefilter | CARF | |
 | hflr | Status HEPA-Filter | 0000 - 0100 | Prozent |
 | hflt | HEPA-Filter | GHEP | |
 | sltm | Sleeptimer | EIN, AUS ||
-| hmod | Heizmodus [EIN / AUS] | WÄRME | |
-| hmax | Zieltemperatur zum Heizen | 0 .. 5000 | K |
-| hume | Befeuchtungsmodus | EIN, AUS, |
-| haut | Befeuchten Sie den Auto-Modus | |
-| humt | Befeuchtungsziel | |
-| cdrr | CleanDurationRemaining | |
-| rect | AutoHumidificationTarget | |
-| cltr | TimeRemainingToNextClean | |
-| wath | Wasserhärte | |
-| wacd | WarningCode? | KEINE... |
+| hmod | Heizungsmodus [EIN/AUS] | HITZE | |
+| hmax | Solltemperatur zum Heizen | 0 .. 5000 | K |
+| Humus | Befeuchtungsmodus | EIN, AUS, |
+| haut | Auto-Modus befeuchten| |
+| summe | Befeuchtungsziel| |
+| cdrr | CleanDurationRemaining| |
+| gerade | AutoBefeuchtungsziel| |
+| cltr | TimeRemainingToNextClean| |
+| wat | Wasserhärte| |
+| wacd | Warncode? | KEINE... |
 | rstf | Filterlebenszyklus zurücksetzen |
-| bril | | 0002 |
-| corf | | EIN, AUS |
+| hell | | 0002 |
+| Korf | | EIN, AUS |
 | psta | [HP0x] Unbekannt | |
 | hsta | [HP0x] Unbekannt | |
-| kippen | [HP0x] Unbekannt | |
-| Wählen Sie | [DP0x] Unbekannt | |
-| fqhp | fqhp ||
-| msta | msta ||
+| Neigung | [HP0x] Unbekannt | |
+| Zifferblatt | [DP0x] Unbekannt | |
+| fqhp | fqhp||
+| msta | msta||
 
-| Fehlercodes | Bedeutung |
+|Fehlercodes| Bedeutung |
 | ----- | ----- |
 | KEINE | Es ist kein Fehler aktiv |
-| 57C2 | unbekannt |
-| 11E1 | Die Oszillation wurde deaktiviert. Bitte drücken Sie die Taste "Oszillation" auf Ihrer Fernbedienung, um fortzufahren. |
+|57C2| unbekannt |
+|11E1| Oszillation wurde deaktiviert. Bitte drücken Sie die Taste "Oszillation" auf Ihrer Fernbedienung, um fortzufahren.|
 
 #### Planer
 | Name | Bedeutung | mögliche Werte | Einheit |
 | ------------- | ----- | ----- | ----- |
-| dstv | daylightSavingTime | 0001 ... | |
-| srsc | ? | 7c68 ... | |
-| tzid | Zeitzone? | 0001 ... | |
+| dstv | TageslichtSparZeit | 0001... | |
+| srsc | ? | 7c68... | |
+| tzid | Zeitzone? | 0001... | |
 
-### UMWELTSTROM-SENSOR-DATEN
+###UMWELT-STROM-SENSOR-DATEN
 #### Daten
 | Name | Bedeutung | mögliche Werte | Einheit |
 | ------------- | ----- | ----- | ----- |
-| hact | Luftfeuchtigkeit (%) | 0000 - 0100 | Prozent |
+| tat | Luftfeuchtigkeit (%) | 0000 - 0100 | Prozent |
 | Pakt | Staub | 0000 - 0009 | |
-| sltm | Sleeptimer | AUS ... 9999 | Minuten |
-| Takt | Temperatur in Kelvin | 0000 - 5000 | K |
-| vact | flüchtige organische Verbindungen 0001 - 0009 | |
-| pm25 | PM2.5 | 0018 ||
-| pm10 | PM10 | 0011 ||
-| va10 | flüchtige organische Verbindungen | 0004 ||
-| noxl | NO2 | 0000 - 0014 ||
-| p25r | | 0019 ||
-| p10r | | 0018 ||
+| sltm | Sleeptimer | AUS... 9999 | Minuten |
+| Takt | Temperatur in Kelvin | 0000 - 5000 | K|
+| frei | flüchtige organische Verbindungen | 0001 - 0009 | |
+|pm25| PM2.5 |0018||
+|pm10| PM10 |0011||
+|va10| flüchtige organische Verbindungen|0004||
+|noxl| NO2 |0000 - 0014||
+|p25r| |0019||
+|p10r| |0018||
 
-### UMWELT- UND NUTZUNGSDATEN
+###UMWELT-UND-NUTZUNGSDATEN
 Redundante Werte?
 
 #### Daten
 | Name | Bedeutung | mögliche Werte | Einheit |
 | ------------- | ----- | ----- | ----- |
-| pal0 - pal9 | Anzahl der zweiten Ausgaben in diesem Staubniveau seit Beginn der Stunde 0000 - 3600 | |
-| Handfläche | scheint ein Medianwert von palX | zu sein | |
-| vol0 - vol9 | Anzahl der zweiten Ausgaben in diesem Voc-Level seit Beginn der Stunde | 0000 - 3600 | |
-| volm | scheint ein Medianwert von volX | zu sein | |
-| aql0 - aql9 | Anzahl der zweiten Ausgaben in diesem Bereich der Luftqualität max (pal, vol)) seit Beginn der Stunde | 0000 - 3600 | |
-| aqlm | scheint ein Medianwert von aqlX | zu sein | |
-| fafs | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden 0000 - 3600 | |
-| faos | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden 0000 - 3600 | |
-| fofs | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden 0000 - 3600 | |
-| fons | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden 0000 - 3600 | |
-| humm | Feuchtigkeit ? (%) | 0000 - 0100 | |
+| Kumpel0 - Kumpel9 | Anzahl der Sekunden, die seit Beginn der Stunde in dieser Staubschicht verbracht wurden | 0000 - 3600 | |
+| Handfläche | scheint ein Medianwert von palX | . zu sein | |
+| vol0 - vol9 | Anzahl der Sekunden, die seit Beginn der Stunde auf dieser Ebene von Voc verbracht wurden | 0000 - 3600 | |
+| volm | scheint ein Medianwert von volX | . zu sein | |
+| aql0 - aql9 | Anzahl der Zweitausgaben in dieser Luftqualität | max (pal, vol)) seit Beginn der Stunde | 0000 - 3600 | |
+| aqlm | scheint ein Medianwert von aqlX | . zu sein | |
+| fafs | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden | 0000 - 3600 | |
+| faos | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden | 0000 - 3600 | |
+| fofs | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden | 0000 - 3600 | |
+| fons | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden | 0000 - 3600 | |
+| summen | Feuchtigkeit ? (%) | 0000 - 0100 | |
 | tmpm | Temperatur in Kelvin? | 0000 - 5000 | |
 
 ## Rechtliche Hinweise
 Dyson, pure cool, pure hot & cool und andere sind Marken oder eingetragene Marken von [Dyson Ltd.](https://www.dyson.com) Alle anderen Marken sind Eigentum ihrer jeweiligen Inhaber.
 
 ## Changelog
+
+### V0.9.4 (2021-08-20) ()
+* (grizzelbee) New: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Credentials won't get logged but shown in a popup in admin when failing 2FA process. 
+* (grizzelbee) New: Added adminUI tag to io-package
+* (grizzelbee) New: Cleanup of io-package
+
+### V0.9.3 (2021-08-19) (Paralyzed)
+* (grizzelbee) New: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Leading and trailing whitespaces will be removed from all config values when saving
+* (grizzelbee) New: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Password will be logged in clear text in case of a http 401 (unauthorized) error during 2FA
+* (grizzelbee) Chg: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Removed general debug logging of 2FA login data
+
+
+### V0.9.2 (2021-08-15) (Pearl in a world of dirt)
+* (bvol)       New: [#114](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/114) Added Switzerland to country selection in config , Thanks, @BVol, for his code! 
+* (grizzelbee) Fix: [#119](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/119) Updated dyson certificate to enable connection again. Thanks, @Krobipd, for helping with the link
+* (grizzelbee) Upd: Updated dependencies 
 
 ### V0.9.1 (2021-05-17) (Still breathing)
 * (grizzelbee) New: [#105](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/105) TP02, HP02 and others supporting the fmod token are now able to switch from Off to Auto- and manual-mode
@@ -302,7 +318,7 @@ Dyson, pure cool, pure hot & cool und andere sind Marken oder eingetragene Marke
 * (jpwenzel)   New: Introducing unit tests
 * (jpwenzel)   New: At least NodeJs 10.0.0 is required
 * (grizzelbee) New: [#23](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/23) - Introduced new data field AirQuality which represents the worst value of all present indexes.
-* (grizzelbee) New: BREAKING CHANGE! - switched over to the adapter-prototype build-in password encryption. Therefore you'll need to enter your password again in config.
+* (grizzelbee) New: BREAKING CHANGE! - switched over to the adapter-prototype build-in password encryption. Therefore, you'll need to enter your password again in config.
 * (grizzelbee) New: At least js-controller 3.0.0 is required
 * (grizzelbee) New: At least admin 4.0.9 is required
 * (jpwenzel)   Fix: General overhaul of readme
@@ -313,21 +329,21 @@ Dyson, pure cool, pure hot & cool und andere sind Marken oder eingetragene Marke
 * (grizzelbee) Fix: [#13](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/13) - Creating additional Filter life value in percent
 * (grizzelbee) Fix: removed materializeTab from ioPackage
 * (grizzelbee) Fix: calling setState now as callback in createOrExtendObject
-* (grizzelbee) Fix: Removed non compliant values for ROLE
+* (grizzelbee) Fix: Removed non-compliant values for ROLE
 * (grizzelbee) Fix: calling setState in callback of set/createObject now
 * (grizzelbee) Fix: ensuring to clear all timeouts in onUnload-function
 
 ### V0.6.0 (2020-10-29) (Rage before the storm)
 * (grizzelbee) New: [#17](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/17) - Added online-indicator for each device
 * (grizzelbee) New: [#19](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/19) - Extended Password length from 15 characters to 32
-* (grizzelbee) New: [#20](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/20) - Improved errorhandling on http communication with Dyson API
+* (grizzelbee) New: [#20](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/20) - Improved error handling on http communication with Dyson API
 * (grizzelbee) Fix: Fixed typo within data field anchorpoint - please delete the old ancorpoint manually.
 * (grizzelbee) Fix: [#13](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/13) - Filter life value is now displayed in percent not in hours
 
-### V0.5.1 (2020-10-27) (Heart of the hurricance)
+### V0.5.1 (2020-10-27) (Heart of the hurricane)
 * (grizzelbee) Fix: Added missing clearTimeout
 
-### V0.5.0 (2020-10-27) (Heart of the hurricance)
+### V0.5.0 (2020-10-27) (Heart of the hurricane)
 * (grizzelbee) New: Editable data fields have now appropiate value lists
 * (grizzelbee) New: Added more country codes
 * (grizzelbee) New: Target temperature of heater can now be set - **in the configured unit!**
@@ -338,7 +354,7 @@ Dyson, pure cool, pure hot & cool und andere sind Marken oder eingetragene Marke
 * (grizzelbee) New: [#8](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/8) - Documented ProductTypes for better overview and user experience in ReadMe
 * (grizzelbee) New: [#9](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/9) - Added some Hot&Cool specific datafields
 * (grizzelbee) New: Logging of from devices, when shutting down the adapter
-* (grizzelbee) New: [#10](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/10) - Pollig device data every X (configurable) seconds for new data, hence sensors don't send updates on changing values
+* (grizzelbee) New: [#10](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/10) - Polling device data every X (configurable) seconds for new data, hence sensors don't send updates on changing values
 * (grizzelbee) New: [#11](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/11) - Added Austria and France to Country-List
 * (grizzelbee) Fix: Fixed bug in error handling when login to Dyson API fails
 * (grizzelbee) Fix: [#12](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/12) - Fixed Dyson API login by completely securing via HTTPS.
@@ -368,7 +384,7 @@ Dyson, pure cool, pure hot & cool und andere sind Marken oder eingetragene Marke
 * (grizzelbee) New: mqtt-request to [TP04] is responding
 
 ### V0.1.0 (2020-09-04) - not working! Do not install/use
-* (grizzelbee) first development body (non functional)
+* (grizzelbee) first development body (non-functional)
 
 ## License
 
@@ -392,4 +408,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2020 Hanjo Hingsen <hanjo@hingsen.de>
+Copyright (c) 2021 Hanjo Hingsen <open-source@hingsen.de>

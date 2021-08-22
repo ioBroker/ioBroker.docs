@@ -227,8 +227,10 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
+### 2.5.1 (2021-08-20)
+* (René) see issue #255: bug fix fireplace mode
 
-### 2.5.0 (2021-08-xx)
+### 2.5.0 (2021-08-20)
 * (René) fireplace mode added
 * (René) see issue #247: disable temp offset calculation when heating is off
 * (René) see issue #223: bug fix to find correct period

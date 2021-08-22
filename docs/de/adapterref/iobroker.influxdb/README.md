@@ -104,6 +104,10 @@ Wählt man in der Titelzeile unter Historie "mit" oder "influxdb.0" aus, werden
 Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (Excodibur) Added option to store metadata (q, ack, from) as tags instead of fields for Influx 2.x
+* (Excodibur) Failure to update/set retention policy will now cause warning instead of error/restart, to support more restrictive DB setups
+
 ### 2.1.1 (2021-08-13)
 * IMPORTANT: The adapter now requires Admin 5.1.15+ and js-controller 3.3+! For other admin or js-controller versions please use the former v1.9.5 of thi adapter.
 * (Excodibur) Added InfluxDB 2.0 support

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: mVco6iaD07UO1wopefxpYIaCfD7j3WesVgoR2YjtgnQ=
+hash: Z5wq7g9EZdLn0rvOdMJmgZWLy9m7lDBiOkDQ+5rf9Cs=
 ---
 # IoBroker.dysonAirPurifier
 ![Логотип] (admin / dyson_logo.svg)! [Логотип](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -41,7 +41,7 @@ hash: mVco6iaD07UO1wopefxpYIaCfD7j3WesVgoR2YjtgnQ=
 * Может управлять устройствами, давая вам возможность изменять некоторые значения (основная мощность, колебания, нагрев, скорость вентилятора, ...)
 * Читает список устройств с серверов Dyson
 
-## Монтаж
+## Установка
 ### Sentry.io
 Этот адаптер использует sentry.io для сбора сведений о сбоях и автоматического сообщения автору. Для этого используется плагин [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry). Пожалуйста, обратитесь к [домашняя страница плагина](https://github.com/ioBroker/plugin-sentry) для получения подробной информации о том, что делает плагин, какая информация собирается и как его отключить, если вы не хотите поддерживать автора своей информацией о сбоях.
 
@@ -59,7 +59,7 @@ hash: mVco6iaD07UO1wopefxpYIaCfD7j3WesVgoR2YjtgnQ=
 #### Альтернатива: использование URL-адреса GitHub
 Установите через интерфейс администратора ioBroker, указав последний стабильный выпуск на GitHub: <https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
 
-Вы также можете установить более ранние версии выпуска с помощью этих методов (указав тег версии, например, ```v0.6.0``` вместо ```master``` в URL-адресе), но, как правило, предпочтительнее использовать самые последние версии.
+Вы также можете установить более старые версии, используя эти методы (указав тег версии, например, ```v0.6.0``` вместо ```master``` в URL-адресе), но, как правило, предпочтительнее использовать самую последнюю версию.
 
 ### Необходимые данные конфигурации
 * Имя пользователя учетной записи Dyson
@@ -68,7 +68,7 @@ hash: mVco6iaD07UO1wopefxpYIaCfD7j3WesVgoR2YjtgnQ=
 
 * Обратите внимание *: из-за ранней стадии разработки и несоответствия реализации mDNS компанией Dyson вам необходимо будет предоставить локальный IP-адрес устройства * после первого запуска *.
 
-* Дополнительное примечание *: Начиная с версии 0.7.1 адаптер пытается подключиться к устройству по его имени хоста (серийному номеру), если не указан адрес хоста / IP. Это будет работать при двух предварительных условиях:
+* Дополнительное примечание *: Начиная с версии 0.7.1 адаптер пытается подключиться к устройству по его имени хоста (серийному номеру), если не указан хост-адрес / IP. Это будет работать при двух предварительных условиях:
 
 1. В вашей локальной сети работает DNS-сервер. Либо в вашем маршрутизаторе (например, у FritzBoxes работает DNS), либо в выделенном.
 2. Вы не изменили имя устройства по умолчанию.
@@ -93,9 +93,9 @@ hash: mVco6iaD07UO1wopefxpYIaCfD7j3WesVgoR2YjtgnQ=
 Все значения будут сохранены и показаны в дальнейшем.
 > Обычно вам не нужно делать эти 2 FA по расписанию, но вы можете повторить это при необходимости.
 
-## Управление вашим устройством (ами)
-В настоящее время этот адаптер может управлять следующими состояниями ваших устройств:
+> Если вы столкнулись с проблемами во время 2-FA. Пожалуйста, обратитесь к [Выпуск # 124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) для возможного обходного пути.
 
+## Управление вашим устройством (ами) Этот адаптер в настоящее время может управлять следующими состояниями ваших устройств:
 * FanSpeed, текущая скорость вентилятора
 * Ночной режим, состояние ночного режима
 * Колебание, Колебание вентилятора.
@@ -117,7 +117,7 @@ hash: mVco6iaD07UO1wopefxpYIaCfD7j3WesVgoR2YjtgnQ=
 Скорость вентилятора допускает только значения от 1 до 10 и Авто. Если вы хотите установить скорость вращения вентилятора на 0, вам необходимо отключить основное питание.
 То же самое и с приложением dyson.
 
-### Известные проблемы
+### Известные вопросы
 * Нет автоматического определения IP устройств
 
 ## Объяснение данных Dyson API (полезная нагрузка сообщения)
@@ -216,7 +216,7 @@ hash: mVco6iaD07UO1wopefxpYIaCfD7j3WesVgoR2YjtgnQ=
 | ------------- | ----- | ----- | ----- |
 | pal0 - pal9 | количество секунд, проведенных в этом уровне пыли с начала часа | 0000 - 3600 | |
 | пальма | кажется средним значением palX | | |
-| vol0 - vol9 | количество секунд, потраченных на этот уровень вокала с начала часа | 0000 - 3600 | |
+| vol0 - vol9 | количество секунд, проведенных на этом уровне вокала с начала часа | 0000 - 3600 | |
 | volm | кажется средним значением volX | | |
 | aql0 - aql9 | количество секунд, проведенных на этом уровне качества воздуха | max (pal, vol)) с начала часа | 0000 - 3600 | |
 | aqlm | кажется средним значением aqlX | | |
@@ -231,6 +231,22 @@ hash: mVco6iaD07UO1wopefxpYIaCfD7j3WesVgoR2YjtgnQ=
 Dyson, pure cool, pure hot & cool и другие являются товарными знаками или зарегистрированными товарными знаками [Dyson Ltd.](https://www.dyson.com). Все остальные товарные знаки являются собственностью соответствующих владельцев.
 
 ## Changelog
+
+### V0.9.4 (2021-08-20) ()
+* (grizzelbee) New: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Credentials won't get logged but shown in a popup in admin when failing 2FA process. 
+* (grizzelbee) New: Added adminUI tag to io-package
+* (grizzelbee) New: Cleanup of io-package
+
+### V0.9.3 (2021-08-19) (Paralyzed)
+* (grizzelbee) New: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Leading and trailing whitespaces will be removed from all config values when saving
+* (grizzelbee) New: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Password will be logged in clear text in case of a http 401 (unauthorized) error during 2FA
+* (grizzelbee) Chg: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Removed general debug logging of 2FA login data
+
+
+### V0.9.2 (2021-08-15) (Pearl in a world of dirt)
+* (bvol)       New: [#114](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/114) Added Switzerland to country selection in config , Thanks, @BVol, for his code! 
+* (grizzelbee) Fix: [#119](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/119) Updated dyson certificate to enable connection again. Thanks, @Krobipd, for helping with the link
+* (grizzelbee) Upd: Updated dependencies 
 
 ### V0.9.1 (2021-05-17) (Still breathing)
 * (grizzelbee) New: [#105](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/105) TP02, HP02 and others supporting the fmod token are now able to switch from Off to Auto- and manual-mode
@@ -302,7 +318,7 @@ Dyson, pure cool, pure hot & cool и другие являются товарн�
 * (jpwenzel)   New: Introducing unit tests
 * (jpwenzel)   New: At least NodeJs 10.0.0 is required
 * (grizzelbee) New: [#23](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/23) - Introduced new data field AirQuality which represents the worst value of all present indexes.
-* (grizzelbee) New: BREAKING CHANGE! - switched over to the adapter-prototype build-in password encryption. Therefore you'll need to enter your password again in config.
+* (grizzelbee) New: BREAKING CHANGE! - switched over to the adapter-prototype build-in password encryption. Therefore, you'll need to enter your password again in config.
 * (grizzelbee) New: At least js-controller 3.0.0 is required
 * (grizzelbee) New: At least admin 4.0.9 is required
 * (jpwenzel)   Fix: General overhaul of readme
@@ -313,21 +329,21 @@ Dyson, pure cool, pure hot & cool и другие являются товарн�
 * (grizzelbee) Fix: [#13](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/13) - Creating additional Filter life value in percent
 * (grizzelbee) Fix: removed materializeTab from ioPackage
 * (grizzelbee) Fix: calling setState now as callback in createOrExtendObject
-* (grizzelbee) Fix: Removed non compliant values for ROLE
+* (grizzelbee) Fix: Removed non-compliant values for ROLE
 * (grizzelbee) Fix: calling setState in callback of set/createObject now
 * (grizzelbee) Fix: ensuring to clear all timeouts in onUnload-function
 
 ### V0.6.0 (2020-10-29) (Rage before the storm)
 * (grizzelbee) New: [#17](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/17) - Added online-indicator for each device
 * (grizzelbee) New: [#19](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/19) - Extended Password length from 15 characters to 32
-* (grizzelbee) New: [#20](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/20) - Improved errorhandling on http communication with Dyson API
+* (grizzelbee) New: [#20](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/20) - Improved error handling on http communication with Dyson API
 * (grizzelbee) Fix: Fixed typo within data field anchorpoint - please delete the old ancorpoint manually.
 * (grizzelbee) Fix: [#13](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/13) - Filter life value is now displayed in percent not in hours
 
-### V0.5.1 (2020-10-27) (Heart of the hurricance)
+### V0.5.1 (2020-10-27) (Heart of the hurricane)
 * (grizzelbee) Fix: Added missing clearTimeout
 
-### V0.5.0 (2020-10-27) (Heart of the hurricance)
+### V0.5.0 (2020-10-27) (Heart of the hurricane)
 * (grizzelbee) New: Editable data fields have now appropiate value lists
 * (grizzelbee) New: Added more country codes
 * (grizzelbee) New: Target temperature of heater can now be set - **in the configured unit!**
@@ -338,7 +354,7 @@ Dyson, pure cool, pure hot & cool и другие являются товарн�
 * (grizzelbee) New: [#8](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/8) - Documented ProductTypes for better overview and user experience in ReadMe
 * (grizzelbee) New: [#9](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/9) - Added some Hot&Cool specific datafields
 * (grizzelbee) New: Logging of from devices, when shutting down the adapter
-* (grizzelbee) New: [#10](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/10) - Pollig device data every X (configurable) seconds for new data, hence sensors don't send updates on changing values
+* (grizzelbee) New: [#10](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/10) - Polling device data every X (configurable) seconds for new data, hence sensors don't send updates on changing values
 * (grizzelbee) New: [#11](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/11) - Added Austria and France to Country-List
 * (grizzelbee) Fix: Fixed bug in error handling when login to Dyson API fails
 * (grizzelbee) Fix: [#12](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/12) - Fixed Dyson API login by completely securing via HTTPS.
@@ -368,7 +384,7 @@ Dyson, pure cool, pure hot & cool и другие являются товарн�
 * (grizzelbee) New: mqtt-request to [TP04] is responding
 
 ### V0.1.0 (2020-09-04) - not working! Do not install/use
-* (grizzelbee) first development body (non functional)
+* (grizzelbee) first development body (non-functional)
 
 ## License
 
@@ -392,4 +408,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2020 Hanjo Hingsen <hanjo@hingsen.de>
+Copyright (c) 2021 Hanjo Hingsen <open-source@hingsen.de>

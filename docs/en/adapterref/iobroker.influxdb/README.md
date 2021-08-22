@@ -33,11 +33,21 @@ You can also define a database name - this is used as Bucket. The default is "io
 
 When doing custom queries via the "query" message you can use Flux queries to select the data you want. Details on Flux can be found at https://docs.influxdata.com/influxdb/v2.0/reference/flux/
 
+#### Store metadata information as tags instead of fields
+For Influx 1.x state value, as well as associated metadata fields (`q`, `ack` and `from`) are stored as fields within InfluxDB. When using Flux-commands to retrieve this data (instead of InfluxQL) the data is returned in separate tables, which makes it more difficult to view the data in a joined way when using external database clients or Influx CLI `query` command. This is by design, as Influx only supports one field per data-point.
+
+With Influx 2.x it is now also possible, to store this metadata-information besides the actual value of the state as Influx Tags. Tags are indexed and allow for faster search queries. In addition they are closely linked to the measurement stored within the db, meaning they will be returned in one table with the queried measurement which makes them much easier to handle, when used outside of this adapter. There are limitations with this however:
+- The use of tags for metadata needs to be enabled under `Advanced Settings`. It is disabled by default.
+- If you decide to use tags, you cannot continue to use old measurements that were gathered with Influx 1.x, as they are stored in fields.
+- Attempting to use an existing database that was setup without enabling the Tag-feature will cause the adapter to fail to initialize and you will see an error message about it in the log.
+  - This also is valid the other way: Once you start using the Tag-feature in a new database, you cannot switch back to using fields for this database.
+- This feature is currently only available, if you use Influx 2.x. And only if you use the new responsive GUI of Admin 5.
+
 ### Migration from InfluxDB 1 to 2
 
 Please refer to the [official guides on how to migrate](https://docs.influxdata.com/influxdb/v2.0/upgrade/v1-to-v2/) from InfluxDB 1.x to 2.x. Especially the [migration instructions for time series data](https://docs.influxdata.com/influxdb/v2.0/upgrade/v1-to-v2/manual-upgrade/#migrate-time-series-data) have been verified to work during adapter testing. Please always create a backup of your data before performing the migration.
 
-After the migration, the adapter is able to work with the old data (e.g. for history-queries) as well.
+After the migration, the adapter is able to work with the old data (e.g. for history-queries) as well. This only applies, if you don't decide to [use Tags for storing metadata fields](#Store-metadata-information-as-tags-instead-of-fields).
 
 ## Retention Policy
 While Influx 1.x supports the concept of multiple **retention policies** for one database, Influx 2 by design allows only one **retention period** per bucket. Therefore, it is only possible to set one policy for the whole database/bucket with this adapter via _Default Settings -> Storage retention_. The retention selected here will be applied on the fly and can be changed at any time. Retention policies set by the adapter will never be deleted, but instead altered if required, as otherwise Influx 1.x would delete all data that the policy applied to.
@@ -295,6 +305,10 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### __WORK IN PROGRESS__
+* (Excodibur) Added option to store metadata (q, ack, from) as tags instead of fields for Influx 2.x
+* (Excodibur) Failure to update/set retention policy will now cause warning instead of error/restart, to support more restrictive DB setups
+
 ### 2.1.1 (2021-08-13)
 * IMPORTANT: The adapter now requires Admin 5.1.15+ and js-controller 3.3+! For other admin or js-controller versions please use the former v1.9.5 of thi adapter.
 * (Excodibur) Added InfluxDB 2.0 support

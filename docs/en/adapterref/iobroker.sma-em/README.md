@@ -58,7 +58,7 @@ In addition to the states in non-extended mode, the following values are availab
 -->
         
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.6.4 (2021-08-19)
 * (TGuybrush) Bug fixes
   * Prevent warnings regarding non-existent objects upon adapter instance creation and start-up under js-controller 3.2.x
   * Improved check of SMA Energy Meter multicast messages to prevent ghost devices and warnings regarding unknown OBIS values.

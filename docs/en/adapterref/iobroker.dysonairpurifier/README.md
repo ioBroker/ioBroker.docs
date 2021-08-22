@@ -46,7 +46,7 @@ Connects your Dyson fans, fan heaters, air purifiers, and air humidifiers to ioB
 This adapter uses sentry.io to collect details on crashes and report it automated to the author. The [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry)
 plugin is used for it. Please refer to the [plugin homepage](https://github.com/ioBroker/plugin-sentry) for detailed information
 on what the plugin does, which information is collected and how to disable it, if you don't like to support the author with
-you're information on crashes.
+your information on crashes.
 
 ### Prerequisites
 
@@ -67,7 +67,7 @@ Run ```npm install iobroker.dysonairpurifier``` on your ioBroker installation to
 Install through the ioBroker Admin UI by pointing it to the latest stable release on GitHub:
 <https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
 
-You can also install older release versions using this methods (by pointing to a version tag, e.g., ```v0.6.0``` instead of ```master```in the URL), but the most recent one is generally preferred.
+You can also install older release versions using these methods (by pointing to a version tag, e.g., ```v0.6.0``` instead of ```master```in the URL), but the most recent one is generally preferred.
 
 ### Config-data needed
 
@@ -77,9 +77,9 @@ You can also install older release versions using this methods (by pointing to a
 
 *Please note*: Due to early development state and a non conform mDNS implementation by Dyson you'll need to provide the local IP of the device *after the first run*.
 
-*Additional Note*: Since Version 0.7.1 the adapter tries to connect to the device by it's hostname (serialnumber) when no host address/IP ist given. This will work under two prerequisites:
+*Additional Note*: Since Version 0.7.1 the adapter tries to connect to the device by its hostname (serial number) when no host address/IP ist given. This will work under two prerequisites:
 1. There is a DNS Server running in your LAN. Either in your router (e.g. FritzBoxes have a DNS running) or a dedicated one.
-2. You haven't changed the default devicename.
+2. You haven't changed the default device name.
 
 > On the first start of this adapter the Dyson API is queried for all your devices and all supported devices will be created in the devicetree -- with their basic information provided by the API and an additional field "Hostaddress".
 >
@@ -87,7 +87,7 @@ You can also install older release versions using this methods (by pointing to a
 >
 > Then stop the adapter, enter the IP(s) into the Hostaddress field(s) and restart the adapter. After that your Dyson devices in the device tree should be populated with data.
 
-### 2 factor Authentication (since V0.9.0)
+### 2-factor Authentication (since V0.9.0)
 After installation of the adapter it should be started automatically - if not please start it first. 
 After an update it will also restart automatically. In both cases it will remain in "yellow" state
 and probably show some errors in the log - that's fine for now.
@@ -103,7 +103,7 @@ and probably show some errors in the log - that's fine for now.
 All the values will be saved and shown furthermore. 
 > Usually you don't need to do this 2 FA on a scheduled basis - but you may repeat it when needed.
 
-
+>If you are facing problems during 2-FA. Please refer to [Issue #124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) for a possible workaround.
 ## Controlling your device(s)
 This adapter is currently able to control the following states of your devices:
 * FanSpeed                  , Current fan speed
@@ -132,9 +132,20 @@ Which is what the dyson app does also.
 
 ## Changelog
 
+### V0.9.4 (2021-08-20) ()
+* (grizzelbee) New: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Credentials won't get logged but shown in a popup in admin when failing 2FA process. 
+* (grizzelbee) New: Added adminUI tag to io-package
+* (grizzelbee) New: Cleanup of io-package
+
+### V0.9.3 (2021-08-19) (Paralyzed)
+* (grizzelbee) New: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Leading and trailing whitespaces will be removed from all config values when saving
+* (grizzelbee) New: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Password will be logged in clear text in case of a http 401 (unauthorized) error during 2FA
+* (grizzelbee) Chg: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Removed general debug logging of 2FA login data
+
+
 ### V0.9.2 (2021-08-15) (Pearl in a world of dirt)
-* (bvol)       New: [#114](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/114) Added Switzerland to country selection in config 
-* (grizzelbee) Fix: [#119](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/119) Updated dyson certificate to enable connection again. Thanks @Krobipd for helping with the link
+* (bvol)       New: [#114](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/114) Added Switzerland to country selection in config , Thanks, @BVol, for his code! 
+* (grizzelbee) Fix: [#119](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/119) Updated dyson certificate to enable connection again. Thanks, @Krobipd, for helping with the link
 * (grizzelbee) Upd: Updated dependencies 
 
 ### V0.9.1 (2021-05-17) (Still breathing)
@@ -207,7 +218,7 @@ Which is what the dyson app does also.
 * (jpwenzel)   New: Introducing unit tests
 * (jpwenzel)   New: At least NodeJs 10.0.0 is required
 * (grizzelbee) New: [#23](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/23) - Introduced new data field AirQuality which represents the worst value of all present indexes.
-* (grizzelbee) New: BREAKING CHANGE! - switched over to the adapter-prototype build-in password encryption. Therefore you'll need to enter your password again in config.
+* (grizzelbee) New: BREAKING CHANGE! - switched over to the adapter-prototype build-in password encryption. Therefore, you'll need to enter your password again in config.
 * (grizzelbee) New: At least js-controller 3.0.0 is required
 * (grizzelbee) New: At least admin 4.0.9 is required
 * (jpwenzel)   Fix: General overhaul of readme
@@ -218,21 +229,21 @@ Which is what the dyson app does also.
 * (grizzelbee) Fix: [#13](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/13) - Creating additional Filter life value in percent
 * (grizzelbee) Fix: removed materializeTab from ioPackage
 * (grizzelbee) Fix: calling setState now as callback in createOrExtendObject
-* (grizzelbee) Fix: Removed non compliant values for ROLE
+* (grizzelbee) Fix: Removed non-compliant values for ROLE
 * (grizzelbee) Fix: calling setState in callback of set/createObject now
 * (grizzelbee) Fix: ensuring to clear all timeouts in onUnload-function
 
 ### V0.6.0 (2020-10-29) (Rage before the storm)
 * (grizzelbee) New: [#17](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/17) - Added online-indicator for each device
 * (grizzelbee) New: [#19](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/19) - Extended Password length from 15 characters to 32
-* (grizzelbee) New: [#20](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/20) - Improved errorhandling on http communication with Dyson API
+* (grizzelbee) New: [#20](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/20) - Improved error handling on http communication with Dyson API
 * (grizzelbee) Fix: Fixed typo within data field anchorpoint - please delete the old ancorpoint manually.
 * (grizzelbee) Fix: [#13](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/13) - Filter life value is now displayed in percent not in hours
 
-### V0.5.1 (2020-10-27) (Heart of the hurricance)
+### V0.5.1 (2020-10-27) (Heart of the hurricane)
 * (grizzelbee) Fix: Added missing clearTimeout
 
-### V0.5.0 (2020-10-27) (Heart of the hurricance)
+### V0.5.0 (2020-10-27) (Heart of the hurricane)
 * (grizzelbee) New: Editable data fields have now appropiate value lists
 * (grizzelbee) New: Added more country codes
 * (grizzelbee) New: Target temperature of heater can now be set - **in the configured unit!**
@@ -243,7 +254,7 @@ Which is what the dyson app does also.
 * (grizzelbee) New: [#8](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/8) - Documented ProductTypes for better overview and user experience in ReadMe
 * (grizzelbee) New: [#9](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/9) - Added some Hot&Cool specific datafields
 * (grizzelbee) New: Logging of from devices, when shutting down the adapter
-* (grizzelbee) New: [#10](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/10) - Pollig device data every X (configurable) seconds for new data, hence sensors don't send updates on changing values
+* (grizzelbee) New: [#10](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/10) - Polling device data every X (configurable) seconds for new data, hence sensors don't send updates on changing values
 * (grizzelbee) New: [#11](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/11) - Added Austria and France to Country-List
 * (grizzelbee) Fix: Fixed bug in error handling when login to Dyson API fails
 * (grizzelbee) Fix: [#12](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/12) - Fixed Dyson API login by completely securing via HTTPS.
@@ -273,7 +284,7 @@ Which is what the dyson app does also.
 * (grizzelbee) New: mqtt-request to [TP04] is responding
 
 ### V0.1.0 (2020-09-04) - not working! Do not install/use
-* (grizzelbee) first development body (non functional)
+* (grizzelbee) first development body (non-functional)
 
 ## Explanation of Dyson API data (message payload)
 
@@ -309,7 +320,7 @@ Information copied and extended from <https://github.com/shadowwa/Dyson-MQTT2RRD
 | oscs | OscillationActive | ON, OFF, IDLE | |
 | ancp | OscillationAngle  | CUST, 0180 |° (degrees)|
 | qtar | Air Quality target | 0001=Good, 0002=Normal, 0003=Bad, 0004=Very bad | |
-| rhtm | Continious Monitoring | ON, OFF | |
+| rhtm | Continuous Monitoring | ON, OFF | |
 | auto | AutomaticMode | ON, OFF | |
 | nmdv | NightMode Max Fanspeed? | 0004 | |
 | cflr | Status Carbonfilter  | 0000 - 0100 | Percent |
@@ -362,10 +373,10 @@ Information copied and extended from <https://github.com/shadowwa/Dyson-MQTT2RRD
 | pact | Dust | 0000 - 0009 | |
 | sltm | Sleeptimer | OFF... 9999 | Minutes |
 | tact | Temperature in Kelvin | 0000 - 5000 | K|
-| vact | volatil organic compounds | 0001 - 0009 | |
+| vact | volatile organic compounds | 0001 - 0009 | |
 |pm25|  PM2.5 |0018||
 |pm10|  PM10 |0011||
-|va10|  volatil organic compounds|0004||
+|va10|  volatile organic compounds|0004||
 |noxl|  NO2 |0000 - 0014||
 |p25r|  |0019||
 |p10r|  |0018||
@@ -378,11 +389,11 @@ Redundant values?
 
 | name | meaning | possible values | Unit |
 | ------------- | ----- | ----- | ----- |
-| pal0 - pal9 | number of second spend in this level of dust since the begining of hour | 0000 - 3600 | |
+| pal0 - pal9 | number of second spend in this level of dust since the beginning of hour | 0000 - 3600 | |
 | palm | seems to be a median value of palX |  | |
-| vol0 - vol9 | number of second spend in this level of voc since the begining of hour | 0000 - 3600 | |
+| vol0 - vol9 | number of second spend in this level of voc since the beginning of hour | 0000 - 3600 | |
 | volm | seems to be a median value of volX |  | |
-| aql0 - aql9 | number of second spend in this level of air quality | max (pal, vol)) since the begining of hour | 0000 - 3600 | |
+| aql0 - aql9 | number of second spend in this level of air quality | max (pal, vol)) since the beginning of hour | 0000 - 3600 | |
 | aqlm | seems to be a median value of aqlX |  | |
 | fafs | seems to be a number of seconds spend in a specific time | 0000 - 3600 | |
 | faos | seems to be a number of seconds spend in a specific time | 0000 - 3600 | |
@@ -418,4 +429,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2020 Hanjo Hingsen <hanjo@hingsen.de>
+Copyright (c) 2021 Hanjo Hingsen <open-source@hingsen.de>

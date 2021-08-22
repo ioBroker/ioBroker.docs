@@ -32,6 +32,10 @@ Fill the IP and have fun :)
 	### **WORK IN PROGRESS**
 -->
 
+### 0.0.8 (2021-08-19)
+
+-   (o0Shojo0o) fix translation
+
 ### 0.0.7 (2021-08-18)
 
 -   (o0Shojo0o) change UI to JSONConfig

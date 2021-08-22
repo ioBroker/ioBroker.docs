@@ -675,6 +675,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.anelhut/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.artnet/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.asterisk/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.asuswrt/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.awattar/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.b-control-em/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.backitup/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.beckhoff/README.md
@@ -791,6 +792,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.hyperion/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.hyperion_ng/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.i2c/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.ical/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.ico-cloud/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.icons-addictive-flavour-png/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.icons-fatcow-hosting/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.icons-icons8/README.md
@@ -980,6 +982,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.sonos/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.sonus/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.sony-bravia/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.sourceanalytix/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.speedport/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.spotify-premium/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.sprinklecontrol/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.sql/README.md
@@ -1128,6 +1131,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.anelhut/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.artnet/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.asterisk/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.asuswrt/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.awattar/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.b-control-em/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.backitup/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.beckhoff/README.md
@@ -1244,6 +1248,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.hyperion/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.hyperion_ng/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.i2c/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.ical/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.ico-cloud/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.icons-addictive-flavour-png/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.icons-fatcow-hosting/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.icons-icons8/README.md
@@ -1433,6 +1438,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.sonos/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.sonus/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.sony-bravia/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.sourceanalytix/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.speedport/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.spotify-premium/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.sprinklecontrol/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.sql/README.md
@@ -1581,6 +1587,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.anelhut/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.artnet/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.asterisk/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.asuswrt/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.awattar/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.b-control-em/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.backitup/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.beckhoff/README.md
@@ -1697,6 +1704,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.hyperion/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.hyperion_ng/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.i2c/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.ical/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.ico-cloud/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.icons-addictive-flavour-png/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.icons-fatcow-hosting/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.icons-icons8/README.md
@@ -1886,6 +1894,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.sonos/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.sonus/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.sony-bravia/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.sourceanalytix/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.speedport/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.spotify-premium/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.sprinklecontrol/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.sql/README.md
@@ -2034,6 +2043,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.anelhut/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.artnet/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.asterisk/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.asuswrt/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.awattar/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.b-control-em/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.backitup/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.beckhoff/README.md
@@ -2150,6 +2160,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hyperion/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hyperion_ng/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.i2c/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ical/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ico-cloud/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.icons-addictive-flavour-png/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.icons-fatcow-hosting/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.icons-icons8/README.md
@@ -2339,6 +2350,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sonos/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sonus/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sony-bravia/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sourceanalytix/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.speedport/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.spotify-premium/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sprinklecontrol/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sql/README.md

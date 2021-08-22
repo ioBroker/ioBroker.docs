@@ -520,6 +520,9 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* Default: "x" 
 	* ``timeDisplayFormat`` (Display-Format of TIME (how it should be displayed, see readme)) - only valid for role DateAndTime:
 		* Default: "dddd, DD.MM.YYYY HH:mm:ss" 
+	* ``timeDisplayDontShowDistance`` (Show Distance) - only valid for role DateAndTime:
+		* Possible values: ""|"false"|"true"
+		* Default: "" (this means, use custom datapoint settings)
 	* ``dateAndTimeTileActiveConditions`` (Tile is active when all selected items are true) - only valid for role DateAndTime:
 		* Possible values (array): "activeIfStateActive", "activeIfTimeNotZero", "activeIfTimeInFuture", "activeIfTimeInPast"
 		* Default: "activeIfStateActive,activeIfTimeInFuture" 
@@ -566,6 +569,10 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* Possible values: "true"|"false"
 		* Default: "false" 
 * General:
+	* ``stateCaption`` (Caption of STATE):
+		* Default: "" 
+	* ``levelCaption`` (Caption of LEVEL):
+		* Default: "" 
 	* ``readonly`` (Readonly):
 		* Possible values: "true"|"false"
 		* Default: "false" 
@@ -1556,6 +1563,21 @@ This device has some special predefined size- and display-settings to show a tex
 ****
     
 ## Changelog
+
+### dev
+* (sbormann) Removed some unnecessary horizontal lines in dialog.
+* (sbormann) Added option to edit caption of STATE or LEVEL.
+* (sbormann) Enhanced ADDITIONAL_INFO list (you can go back to old style via option) and added optional columns.
+* (sbormann) Added some polyfils for older browsers.
+
+### 1.9.5 (2021-08-20)
+* (sbormann) Removed prevention of injection for iframes.
+
+### 1.9.4 (2021-08-20)
+* (sbormann, sandro_gera) Preventing injection of code into states.
+* (sbormann) Sub-Headers can now contain variables.
+* (sbormann) Added option to make sub-headers collapsible.
+* (sbormann) BACKGROUND_VIEWs are now lightend up in dark-mode.
 
 ### 1.9.3 (2021-08-18)
 * (sbormann) Fixes for ADDITIONAL_CONTROLS.
