@@ -66,7 +66,7 @@ Beschreibung ist [hier](https://github.com/ioBroker/ioBroker.docs/blob/master/do
 
 ?> Hinweis: Instanzen können auf verschiedenen Hosts (Multi-Host) ausgeführt werden, weiterhin können die Adapter auf den verschiedenen Hosts unterschiedliche Versionen haben.
 
-Alle Objekt-IDs der Adapterinstanz beginnen mit Adaptername.X, wobei X die Nummer der Adapterinstanz ist.
+Alle Objekt-IDs der Adapterinstanz beginnen mit adaptername.X, wobei X die Nummer der Adapterinstanz ist.
 
 Objekte haben unterschiedliche Typen für unterschiedliche Zwecke.
 
