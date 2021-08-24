@@ -102,7 +102,7 @@ Das Adapterpaket muss einige obligatorische Verzeichnisse und Dateien enthalten:
 * `utils.js`
 * `package.json` - notwendig
 * `io-package.json` - notwendig
-* `main.js` - notwendig (kann auch `Adaptername.js` sein)
+* `main.js` - notwendig (kann auch `adaptername.js` sein)
 
 ?> Hinweis: lib/utils.js ist eine gemeinsame Datei für alle Adapter, mit der die Position des js-Controllers und der entsprechende Pfad zu iobroker.js-controller/lib/adapter.js ermittelt werden. Die meisten aktuellen utils.js können hier heruntergeladen werden. Diese Datei nicht ändern!
 
