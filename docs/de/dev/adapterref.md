@@ -84,7 +84,7 @@ Für jede Adapterinstanz 'X' werden automatisch die folgenden Objekte erstellt:
 * `system.adapter.adaptername.X.memHeapTotal`: Speichernutzung Total
 * `system.adapter.adaptername.X.memHeapUsed`: Speichernutzung
 * `system.adapter.adaptername.X.memRss`: Speichernutzung
-* `system.adapter.Adaptername.X.uptime`: Sekunden die der Adapter läuft.
+* `system.adapter.adaptername.X.uptime`: Sekunden die der Adapter läuft.
 
 Erläuterungen zu den Speicherzuständen sind [hier](http://stackoverflow.com/questions/12023359/what-do-the-return-values-of-node-js-process-memoryusage-stand-for) zu finden.
 
