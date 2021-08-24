@@ -80,7 +80,7 @@ Für jede Adapterinstanz 'X' werden automatisch die folgenden Objekte erstellt:
 
 * `system.adapter.adaptername.X`: Konfiguration der Adapterinstanz
 * `system.adapter.adaptername.X.alive`: Angabe, ob die Instanz aktiv ist (Nachrichten alle 30 Sekunden senden)
-* `system.adapter.Adaptername.X.connected`: Angabe, ob die Instanz mit dem Datenspeicher verbunden ist. Sie kann verbunden sein, aber aufgrund eines Deadlocks keine alive  Nachricht senden kann.
+* `system.adapter.adaptername.X.connected`: Angabe, ob die Instanz mit dem Datenspeicher verbunden ist. Sie kann verbunden sein, aber aufgrund eines Deadlocks keine alive  Nachricht senden kann.
 * `system.adapter.adaptername.X.memHeapTotal`: Speichernutzung Total
 * `system.adapter.adaptername.X.memHeapUsed`: Speichernutzung
 * `system.adapter.adaptername.X.memRss`: Speichernutzung
