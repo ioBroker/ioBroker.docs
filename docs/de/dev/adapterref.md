@@ -96,7 +96,7 @@ Das Adapterpaket muss einige obligatorische Verzeichnisse und Dateien enthalten:
 
 * `admin` (notwendiges Verzeichnis)
 * `index.html`
-* `xxx.png` - optional; besser: `Adaptername.png` (alle Bildformate werden unterstützt: jpeg, jpg, svg, bmp, ...)
+* `xxx.png` - optional; besser: `adaptername.png` (alle Bildformate werden unterstützt: jpeg, jpg, svg, bmp, ...)
 * `www` - (notwendiges Verzeichnis)
 * `lib` - (notwendiges Verzeichnis wegen `utils.js`)
 * `utils.js`
