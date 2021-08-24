@@ -28,7 +28,7 @@ Objekte beschreiben zusätzlich:
 
 Objekte und die aktuellen Zustände können im Admin-Adapter auf der Registerkarte "Objekte" untersucht werden.
 
-Die ID des Objekts besteht aus verschiedenen Teilen. Jeder Teil wird durch "." von einander getrennt. Es gibt Systemobjekte (ID beginnt mit _ oder "system.") und Adapterobjekte (ID beginnt mit Adaptername).
+Die ID des Objekts besteht aus verschiedenen Teilen. Jeder Teil wird durch "." von einander getrennt. Es gibt Systemobjekte (ID beginnt mit _ oder "system.") und Adapterobjekte (ID beginnt mit adaptername.instanznummer).
 
 ?> Hinweis: Hier in der Beschreibung steht **Adaptername** für den Namen des Adapters, den ein Entwickler erstellen möchte.
 
