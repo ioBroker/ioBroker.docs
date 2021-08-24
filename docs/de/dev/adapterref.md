@@ -44,7 +44,7 @@ Objekte können in Kanälen und die Kanäle in Geräten gruppiert werden. Hier i
     * hm-rpc.0.IEQ1234567.0.BATTERY - state
 ```
 
-Die Datenpunkt-ID muss immer mit der Kanal-ID und die Kanal-ID mit der Geräte-ID beginnen. Z.B. Im obigen Statusnamen hm-rpc.0.IEQ1234567.0.INFO ist der Teil hm-rpc.0.IEQ1234567.0 die Kanal-ID und hm-rpc.0.IEQ1234567 die Geräte-ID.
+Die Objekt-ID muss immer mit der Kanal-ID und die Kanal-ID mit der Geräte-ID beginnen. Z.B. Im obigen Statusnamen hm-rpc.0.IEQ1234567.0.INFO ist der Teil hm-rpc.0.IEQ1234567.0 die Kanal-ID und hm-rpc.0.IEQ1234567 die Geräte-ID.
 
 Dies wird genutzt, um die Koordination von Geräten, Kanälen und Zuständen in Hierarchien aufzubauen.
 
