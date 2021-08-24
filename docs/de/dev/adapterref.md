@@ -73,7 +73,7 @@ Objekte haben unterschiedliche Typen für unterschiedliche Zwecke.
 Für jeden Adapter (nicht die Instanz) werden automatisch die folgenden Objekte erstellt:
 
 * `system.adapter.adaptername`: Beschreibung des Adapters (wie Name, Versionsnummer, ...)
-* `Adaptername`: Objekt, das aus HTML/JS/CSS-Dateien des "www" Verzeichnisses des Adapters besteht. Dieses Objekt wird nur erstellt, wenn das Verzeichnis "www" im Adapterpaket gefunden wird.
+* `adaptername`: Objekt, das aus HTML/JS/CSS-Dateien des "www" Verzeichnisses des Adapters besteht. Dieses Objekt wird nur erstellt, wenn das Verzeichnis "www" im Adapterpaket gefunden wird.
 * `Adaptername.admin`: Objekt, das aus HTML/JS/CSS-Dateien aus dem "admin" Verzeichnis des Adapterpakets besteht.
 
 Für jede Adapterinstanz 'X' werden automatisch die folgenden Objekte erstellt:
