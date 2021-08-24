@@ -32,7 +32,7 @@ Die ID des Objekts besteht aus verschiedenen Teilen. Jeder Teil wird durch "." v
 
 ?> Hinweis: Hier in der Beschreibung steht **Adaptername** für den Namen des Adapters, den ein Entwickler erstellen möchte.
 
-Datenpunkte können in Kanälen und die Kanäle in Geräten gruppiert werden. Hier ist ein Beispiel für Homematic Geräte und Kanäle:
+Objekte können in Kanälen und die Kanäle in Geräten gruppiert werden. Hier ist ein Beispiel für Homematic Geräte und Kanäle:
 
 ```
 * hm-rpc.0.IEQ1234567 - device
