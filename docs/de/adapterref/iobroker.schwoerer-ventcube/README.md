@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.schwoerer-ventcube/README.md
 title: ioBroker.schwoerer-ventcube
-hash: rjqmmMPuxlOO2pLoItSgaCjFBmKTBrhI/tT3cN3YOpw=
+hash: R21i7JZQEDmG0ZtnGRGE6OViAK5St/HwwIGOPIZRX0M=
 ---
 ![Logo](../../../en/adapterref/iobroker.schwoerer-ventcube/admin/schwoerer-ventcube.png)
 
@@ -18,8 +18,10 @@ hash: rjqmmMPuxlOO2pLoItSgaCjFBmKTBrhI/tT3cN3YOpw=
 #ioBroker.schwoerer-ventcube
 ![Github-Release-Status](https://github.com/Excodibur/iobroker.schwoerer-ventcube/workflows/Build%2C%20Test%20and%20Release/badge.svg)
 
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/schwaerer-ventcube/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 ## Schwoerer-ventcube Adapter für ioBroker
-Adapter für Schwörerhaus Ventcube-System. Weitere Informationen zu Ventcube Fresh finden Sie unter [hier](https://www.bauinfocenter.de/lueftung/lueftungsanlagen/).
+Adapter für Schwörerhaus Ventcube-System. Weitere Informationen zu Ventcube Fresh finden Sie unter [Hier](https://www.bauinfocenter.de/lueftung/lueftungsanlagen/).
 
 **Haftungsausschluss**: Dieser Adapter wird weder von der Firma [Schwörerhaus KG](https://www.schwoererhaus.de/) entwickelt noch offiziell unterstützt, die das Ventcube-System vertreibt. Anweisungen sollten mit Sorgfalt und auf eigene Gefahr befolgt werden.
 
@@ -46,8 +48,8 @@ Die folgenden Standardkonfigurationswerte müssen wahrscheinlich während der Ad
 | `Request Timeout` | 5000 | Wie viele Millisekunden soll gewartet werden, bis Anfragen an Ventcube ablaufen |
 | `Reconnection Attempts` | 10 | Falls die Verbindung zu Ventcube verloren geht, wie oft sollte eine erneute Verbindung versucht werden |
 | `Delay between reconnection attempts` | 10000 | Wie lange zwischen Wiederverbindungsversuchen gewartet werden soll (in Millisekunden) |
-| `Advanced Functions` | &#10003; | Während die Grundfunktionen ausreichend sein können, wenn Ventcube nur zur Belüftung verwendet wird, sollten erweiterte Funktionen aktiviert werden, wenn Heiz-/Kühlfunktionen oder Systemmetriken (Fehlercodes, Lüfterdetails) benötigt werden. |
-| `Erweiterte Funktionen` | &#10003; | Während die Grundfunktionen ausreichend sein können, wenn Ventcube nur zur Belüftung verwendet wird, sollten erweiterte Funktionen aktiviert werden, wenn Heiz-/Kühlfunktionen oder Systemmetriken (Fehlercodes, Lüfterdetails) benötigt werden. |
+| `Advanced Functions` | &#10003; | Während Grundfunktionen ausreichen können, wenn Ventcube nur zur Belüftung verwendet wird, sollten erweiterte Funktionen aktiviert werden, wenn Heiz-/Kühlfunktionen oder Systemmetriken (Fehlercodes, Lüfterdetails) benötigt werden. |
+| `Erweiterte Funktionen` | &#10003; | Während Grundfunktionen ausreichen können, wenn Ventcube nur zur Belüftung verwendet wird, sollten erweiterte Funktionen aktiviert werden, wenn Heiz-/Kühlfunktionen oder Systemmetriken (Fehlercodes, Lüfterdetails) benötigt werden. |
 
 #### Interessante Funktionen (für den Anfang)
 - ***Betriebsart***, änderbar

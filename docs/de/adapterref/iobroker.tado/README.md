@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: mXMBDAoCTwgdhbzFlAc6GjyQ4cn8Ywh7uAyKl9acmGg=
+hash: OLUxMuMNdnihxXi8rb+UiZ7OaKyLtsjQfjnmAjL1CsI=
 ---
 ![Anzahl der Installationen](http://iobroker.live/badges/tado-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.tado.svg)
@@ -35,18 +35,63 @@ Upgrade von 0.2.x auf v0.3.x beinhaltet ein technisches Re-Factoring mit Breakin
 | tado.[x].[yyyyy].Rooms.[z].overlay.clearZoneOverlay | tado.[x].[yyyyy].Rooms.[z].overlayClearZone |
 | tado.[x].[yyyyy].Rooms.[z].Ist_Temperatur | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.insideTemperature.celsius |
 | tado.[x].[yyyyy].Rooms.[z].Actual_Humidity | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.humidity.percentage |
-| tado.[x].[yyyyy].Rooms.[z].heatingPower | tado.[x].[yyyyy].Rooms.[z]..activityDataPoints.heatingPower.percentage |
+| tado.[x].[yyyyy].Zimmer.[z].heatingPower | tado.[x].[yyyyy].Rooms.[z]..activityDataPoints.heatingPower.percentage |
 | tado.[x].[yyyyy].Weather.solarIntensity | tado.[x].[yyyyy].Wetter.solarIntensity.Prozent |
-| tado.[x].[yyyyy].Weather.outsideTemperature | tado.[x].[yyyyy].Weather.outsideTemperature.celsius |
+| tado.[x].[yyyyy].Wetter.outsideTemperature | tado.[x].[yyyyy].Wetter.outsideTemperature.celsius |
 
 Im Allgemeinen sind Werte jetzt NULL, wenn die API NULL oder einfach nichts sendet. In v0.2.x wurde manchmal der alte Wert beibehalten, manchmal durch 0 ersetzt, manchmal wurde NULL verwendet.
 ** Gerne weitere wichtige Änderungen basierend auf Ihrem Feedback!**
+
+## Dinge, die du steuern kannst
+| Staat | Beschreibung |
+| ----- | ----------- |
+| tado.[x].[yyyyyy].Rooms.[z].setting.power | Gerät ein-/ausschalten |
+| tado.[x].[yyyyyy].Rooms.[z].setting.temperature.celsius | Temperatur definieren |
+| tado.[x].[yyyyyy].Rooms.[z].overlayClearZone | In den Automatikmodus wechseln |
+| tado.[x].[yyyyyy].Rooms.[z].overlay.termination.typeSkillBasedApp | Fahrplanmodus einstellen |
+| tado.[x].[yyyyyy].Rooms.[z].overlay.termination.durationInSeconds | Legen Sie fest, wie lange der Fahrplanmodus gelten soll |
+| tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].offset.offsetCelsius | Temperatur-Offset |
+| tado.[x].[yyyyyy].Rooms.[z].timeTables.tt_id | Aktiven Fahrplan auswählen |
+| Lüftergeschwindigkeit | Lüftergeschwindigkeit (nur AC-Geräte) |
+| Modus | AC-Modus (nur AC-Geräte) |
+
+**Bitte geben Sie für die letzten beiden Leitungen konkrete AC-Gerätepfade an, wenn Sie ein AC-Gerät haben!**
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+
+### 0.3.7 (2021-08-24)
+* (HGlab01) ActiveTimeTable can be set (#337)
+* (HGlab01) Improve logs and change code structure a little bit
+* (HGlab01) manage min/max temperature for heating (5-25 celsius) and hotwater (30-80 celsius) to avoid API crashes (#341)
+
+### 0.3.6 (2021-08-16)
+* (HGlab01) support attribute 'orientation' (Sentry: IOBROKER-TADO-35)
+
+### 0.3.5 (2021-08-05)
+* (HGlab01) fix issue 'hot water cannot be switched on' (#309)
+* (HGlab01) change to new sentry dsn
+* (HGlab01) Bump iobroker-jsonexplorer to v0.1.2
+
+### 0.3.4 (2021-07-24)
+* (HGlab01) add attribute 'location' to blacklist (Sentry IOBROKER-TADO-2Y)
+* (HGlab01) support attribute 'swing' (Sentry: IOBROKER-TADO-2G)
+* (HGlab01) support attribute 'end' and 'commandTableUploadState' (Sentry: IOBROKER-TADO-1M)
+
+### 0.3.3 (2021-07-19)
+* (HGlab01) Add attributes title, ssid and code
+* (HGlab01) Improve sentry handling by bumping iobroker-jsonexplorer to v0.1.1
+
+### 0.3.2 (2021-07-15)
+* (HGlab01) Use password handling from JS-Controller framework
+
+### 0.3.1 (2021-07-15)
+* (HGlab01) Works with Node 12.x or higher (simple-oauth2 update dependency)
+* (HGlab01) Bump simple-oauth2 from 2.5.2 to 4.2.0
+* (HGlab01) Prepare for first stable version
 
 ### 0.3.0 (2021-06-26)
 * (HGlab01) Technical re-factoring of state management !BREAKING CHANGES! (see above)
@@ -95,84 +140,12 @@ Im Allgemeinen sind Werte jetzt NULL, wenn die API NULL oder einfach nichts send
 * (LutzHelling) Bugfix : Add orientation
 * (LutzHelling) Bugfix : legacyHeatingInstallationsEnabled
 * (HGlab01) Bugfix : Add legacyHeatingInstallationsEnabled to DoHome
-* (HGlab01) Bugfix : Fix unhandled information found in DoReadDevices 
-
-### 0.1.9
-* (DutchmanNL) Implement Sentry
-* (DutchmanNL) Bugfix : Better error handling
-* (DutchmanNL) Bugfix : state creation with JS-controller 3.x
-
-### 0.1.8
-* (DutchmanNL) Correct countdown of "remainingtimeinseconds" implemented.
-
-### 0.1.7
-* (DutchmanNL) Fix Unhandable information found in DoZoneState : "openWindowDetected" 
-
-### 0.1.6
-* (DutchmanNL) fix geoTrackingEnabled & atHome
-* (DutchmanNL) fix error preventFromSubscribing
-
-### 0.1.5  
-* (DutchmanNL) Fix switching on/off heating & related auto mode
-* (DutchmanNL) Fix switching some incorrect logging
-
-### 0.1.4 Fixed Clear Overlay, Open Window & log error's
-* (DutchmanNL) Fixed Clear Overlay to Boolean
-* (DutchmanNL) Fixed datapoints for OpenWindow 
-* (DutchmanNL) Fixed setting overlay correctly for manuel temperature changes (use previous setting instead of always manual)
-* (DutchmanNL) Fixed error message Cannot read property 'percentage' of undefined"
-
-### 0.1.3 Several fixes for reported error's
-* (DutchmanNL) boilerId / onDemandLogRetrievalEnabled / openWindowDetected / onDemandLogRetrievalEnabled
-* (DutchmanNL) Open Window detection implemented, only by device not by room
-
-### 0.1.2 Bug fix
-* (DutchmanNL) Room temperature setting (overlay) fixed
-
-### 0.1.1 Write API information to states
-* (DutchmanNL) Write API information to states
-* (DutchmanNL) Keep temperature settings (do not reset to NULL)
-
-### 0.1.0 Release public Beta & Implement heating on / off
-* (DutchmanNL) Release public Beta
-* (DutchmanNL) Implement heating on / off
-
-### 0.0.9 Implemented room temperature settings
-* (DutchmanNL) Capability to change room temperature
-* (DutchmanNL) small code fixes
-
-### 0.0.8 Implement overlay clear states & control
-* (DutchmanNL) implement capability to reset running polling timer
-* (DutchmanNL) implement clear overlay
-* (DutchmanNL) execute polling after overlay clear
-* (DutchmanNL) reset states to NULL when polling time * 2 no data is received
-
-### 0.0.7 Improve overlay states
-* (DutchmanNL) improve overlay states  (https://github.com/DrozmotiX/ioBroker.tado/issues/1)
-
-### 0.0.6 Implemented away status
-* (DutchmanNL) Implemented away status
-* (DutchmanNL) fixed issue in state reading
-* (DutchmanNL) updated some attributes
-
-### 0.0.5 Public beta, released to latest repository
-* (DutchmanNL) add library to handle propper state and attribute creation
-* (DutchmanNL) beta release to latest repository
-* (DutchmanNL) released on NPM (installable by admin)
-
-### 0.0.3 
-* (DutchmanNL) implement all zone states & data refresh intervall
-
-### 0.0.2
-* (DutchmanNL) Alpha, read zones, their devices and related states
-
-### 0.0.1
-* (DutchmanNL) Alpha, read account and mobile device information
+* (HGlab01) Bugfix : Fix unhandled information found in DoReadDevices
 
 ## License
 MIT License
 
-Copyright (c) 2020 DutchmanNL <rdrozda@hotmail.com>
+Copyright (c) 2021 DutchmanNL <rdrozda@hotmail.com> & HGlab01
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

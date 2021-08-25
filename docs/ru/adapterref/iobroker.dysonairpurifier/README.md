@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: Z5wq7g9EZdLn0rvOdMJmgZWLy9m7lDBiOkDQ+5rf9Cs=
+hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
 ---
 # IoBroker.dysonAirPurifier
 ![Логотип] (admin / dyson_logo.svg)! [Логотип](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -64,7 +64,7 @@ hash: Z5wq7g9EZdLn0rvOdMJmgZWLy9m7lDBiOkDQ+5rf9Cs=
 ### Необходимые данные конфигурации
 * Имя пользователя учетной записи Dyson
 * Пароль учетной записи Dyson (этот адаптер может обрабатывать пароли до 32 символов)
-* IP-адрес вентиляторов / очистителей воздуха в вашей локальной сети.
+* IP-адрес ваших вентиляторов / очистителей воздуха в вашей локальной сети.
 
 * Обратите внимание *: из-за ранней стадии разработки и несоответствия реализации mDNS компанией Dyson вам необходимо будет предоставить локальный IP-адрес устройства * после первого запуска *.
 
@@ -93,9 +93,17 @@ hash: Z5wq7g9EZdLn0rvOdMJmgZWLy9m7lDBiOkDQ+5rf9Cs=
 Все значения будут сохранены и показаны в дальнейшем.
 > Обычно вам не нужно делать эти 2 FA по расписанию, но вы можете повторить это при необходимости.
 
-> Если вы столкнулись с проблемами во время 2-FA. Пожалуйста, обратитесь к [Выпуск # 124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) для возможного обходного пути.
+#### Если вы столкнулись с проблемой 401 во время 2-FA. Попробуйте это обходное решение:
+1. Выйдите из приложения для смартфона dyson.
+2. Подождите несколько минут.
+3. Введите данные для входа в адаптер (если это еще не сделано) и выполните процедуру 2FA до конца.
+4. Адаптер должен запуститься и стать зеленым.
+5. подождите немного (до часа или, может быть, больше, поскольку у Dyson есть блокировщик слишком большого количества запросов за короткий промежуток времени)
+6. Войдите в свое приложение для смартфона dyson, если хотите его использовать.
 
-## Управление вашим устройством (ами) Этот адаптер в настоящее время может управлять следующими состояниями ваших устройств:
+## Управление вашим устройством (ами)
+В настоящее время этот адаптер может управлять следующими состояниями ваших устройств:
+
 * FanSpeed, текущая скорость вентилятора
 * Ночной режим, состояние ночного режима
 * Колебание, Колебание вентилятора.
@@ -146,7 +154,7 @@ hash: Z5wq7g9EZdLn0rvOdMJmgZWLy9m7lDBiOkDQ+5rf9Cs=
 | ffoc | JetFocus | ВКЛ, ВЫКЛ |
 | nmod | Ночной режим | ВКЛ, ВЫКЛ | |
 | осон | Колебание | ВКЛ, ВЫКЛ | |
-| осал | OscillationAngle Нижняя граница | 0005 - 355 | ° (градусы) |
+| осал | Угол колебания нижней границы | 0005 - 355 | ° (градусы) |
 | Osau | OscillationAngle Верхняя граница | 0005 - 355 | ° (градусы) |
 | осск | OscillationActive | ВКЛ, ВЫКЛ, ХОЛОСТОЙ ХОД | |
 | ancp | OscillationAngle | CUST, 0180 | ° (градусы) |
@@ -231,6 +239,12 @@ hash: Z5wq7g9EZdLn0rvOdMJmgZWLy9m7lDBiOkDQ+5rf9Cs=
 Dyson, pure cool, pure hot & cool и другие являются товарными знаками или зарегистрированными товарными знаками [Dyson Ltd.](https://www.dyson.com). Все остальные товарные знаки являются собственностью соответствующих владельцев.
 
 ## Changelog
+
+### V0.9.5 (2021-08-23) (Marching on)
+* (grizzelbee) Doc: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Documented workaround for 2FA 401 Issue in ReadMe
+* (grizzelbee) Fix: [#128](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/128) Fixed saving of config data
+* (grizzelbee) Fix: [#107](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/107) Fixed type error on temperatures
+* (grizzelbee) Fix: fixed warnings on startup
 
 ### V0.9.4 (2021-08-20) ()
 * (grizzelbee) New: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Credentials won't get logged but shown in a popup in admin when failing 2FA process. 

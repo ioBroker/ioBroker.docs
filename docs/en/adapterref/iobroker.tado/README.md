@@ -37,15 +37,31 @@ Upgrade from 0.2.x to v0.3.x includes a technical re-factioring with breaking ch
 In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x sometimes the old value was kept, sometimes replaced with 0 sometimes NULL was used.  
 **Happy to add additonal major changes based on your feedback!**
 
+## Things you can steer
+| State | Description |
+| ----- | ----------- |
+| tado.[x].[yyyyyy].Rooms.[z].setting.power | Turn device on/off |
+| tado.[x].[yyyyyy].Rooms.[z].setting.temperature.celsius | Define temperature |
+| tado.[x].[yyyyyy].Rooms.[z].overlayClearZone | Switch to automatic mode |
+| tado.[x].[yyyyyy].Rooms.[z].overlay.termination.typeSkillBasedApp | Set time table mode |
+| tado.[x].[yyyyyy].Rooms.[z].overlay.termination.durationInSeconds | Set how long the time table mode shall apply |
+| tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].offset.offsetCelsius | Temperature offset |
+| tado.[x].[yyyyyy].Rooms.[z].timeTables.tt_id | Select active time table |
+| fanspeed | Fanspeed (only AC devices) |
+| mode | AC mode (only AC devices) |
+
+**Feel free to provide concrete AC device pathes for the last two lines if you have an AC device!**
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
 
-### 0.3.7-1 (2021-08-18)
-* (HGlab01) ActiveTimeTable can be set
+### 0.3.7 (2021-08-24)
+* (HGlab01) ActiveTimeTable can be set (#337)
 * (HGlab01) Improve logs and change code structure a little bit
+* (HGlab01) manage min/max temperature for heating (5-25 celsius) and hotwater (30-80 celsius) to avoid API crashes (#341)
 
 ### 0.3.6 (2021-08-16)
 * (HGlab01) support attribute 'orientation' (Sentry: IOBROKER-TADO-35)
@@ -120,78 +136,6 @@ In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x some
 * (LutzHelling) Bugfix : legacyHeatingInstallationsEnabled
 * (HGlab01) Bugfix : Add legacyHeatingInstallationsEnabled to DoHome
 * (HGlab01) Bugfix : Fix unhandled information found in DoReadDevices 
-
-### 0.1.9
-* (DutchmanNL) Implement Sentry
-* (DutchmanNL) Bugfix : Better error handling
-* (DutchmanNL) Bugfix : state creation with JS-controller 3.x
-
-### 0.1.8
-* (DutchmanNL) Correct countdown of "remainingtimeinseconds" implemented.
-
-### 0.1.7
-* (DutchmanNL) Fix Unhandable information found in DoZoneState : "openWindowDetected" 
-
-### 0.1.6
-* (DutchmanNL) fix geoTrackingEnabled & atHome
-* (DutchmanNL) fix error preventFromSubscribing
-
-### 0.1.5  
-* (DutchmanNL) Fix switching on/off heating & related auto mode
-* (DutchmanNL) Fix switching some incorrect logging
-
-### 0.1.4 Fixed Clear Overlay, Open Window & log error's
-* (DutchmanNL) Fixed Clear Overlay to Boolean
-* (DutchmanNL) Fixed datapoints for OpenWindow 
-* (DutchmanNL) Fixed setting overlay correctly for manuel temperature changes (use previous setting instead of always manual)
-* (DutchmanNL) Fixed error message Cannot read property 'percentage' of undefined"
-
-### 0.1.3 Several fixes for reported error's
-* (DutchmanNL) boilerId / onDemandLogRetrievalEnabled / openWindowDetected / onDemandLogRetrievalEnabled
-* (DutchmanNL) Open Window detection implemented, only by device not by room
-
-### 0.1.2 Bug fix
-* (DutchmanNL) Room temperature setting (overlay) fixed
-
-### 0.1.1 Write API information to states
-* (DutchmanNL) Write API information to states
-* (DutchmanNL) Keep temperature settings (do not reset to NULL)
-
-### 0.1.0 Release public Beta & Implement heating on / off
-* (DutchmanNL) Release public Beta
-* (DutchmanNL) Implement heating on / off
-
-### 0.0.9 Implemented room temperature settings
-* (DutchmanNL) Capability to change room temperature
-* (DutchmanNL) small code fixes
-
-### 0.0.8 Implement overlay clear states & control
-* (DutchmanNL) implement capability to reset running polling timer
-* (DutchmanNL) implement clear overlay
-* (DutchmanNL) execute polling after overlay clear
-* (DutchmanNL) reset states to NULL when polling time * 2 no data is received
-
-### 0.0.7 Improve overlay states
-* (DutchmanNL) improve overlay states  (https://github.com/DrozmotiX/ioBroker.tado/issues/1)
-
-### 0.0.6 Implemented away status
-* (DutchmanNL) Implemented away status
-* (DutchmanNL) fixed issue in state reading
-* (DutchmanNL) updated some attributes
-
-### 0.0.5 Public beta, released to latest repository
-* (DutchmanNL) add library to handle propper state and attribute creation
-* (DutchmanNL) beta release to latest repository
-* (DutchmanNL) released on NPM (installable by admin)
-
-### 0.0.3 
-* (DutchmanNL) implement all zone states & data refresh intervall
-
-### 0.0.2
-* (DutchmanNL) Alpha, read zones, their devices and related states
-
-### 0.0.1
-* (DutchmanNL) Alpha, read account and mobile device information
 
 ## License
 MIT License

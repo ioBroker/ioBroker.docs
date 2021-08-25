@@ -23,6 +23,10 @@ Please check it https://www.smarthomejetzt.de/mit-iobroker-auf-eine-home-assista
 -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Fix start issue
+
 ### 1.0.0 (2020-12-13)
 * (bluefox) added the support of compact mode
 

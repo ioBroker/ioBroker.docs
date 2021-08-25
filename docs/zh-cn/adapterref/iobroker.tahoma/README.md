@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tahoma/README.md
 title: ioBroker.tahoma
-hash: QImgXDnqcseqFExAIgOv9vO8aj4eMIplehGK3l3puTQ=
+hash: rvkM68eo+sAHuB+Ix4e454/xTBej0K9Cv6XYzR4jUZE=
 ---
 ![标识](../../../en/adapterref/iobroker.tahoma/admin/tahoma.png)
 
@@ -16,6 +16,8 @@ hash: QImgXDnqcseqFExAIgOv9vO8aj4eMIplehGK3l3puTQ=
 ![语言等级：JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Excodibur/ioBroker.tahoma.svg?logo=lgtm&logoWidth=18)
 
 ![Github 发布状态](https://github.com/Excodibur/iobroker.tahoma/workflows/Build%2C%20Test%20and%20Release/badge.svg)
+
+[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/tahoma/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 #ioBroker.tahoma
 用于尚飞 Tahoma 的 ioBroker 适配器。该项目与尚飞没有任何关系。最初基于取自 https://forum.iobroker.net/post/336001 并从 https://github.com/StrathCole/ioBroker.tahoma 分叉的脚本。

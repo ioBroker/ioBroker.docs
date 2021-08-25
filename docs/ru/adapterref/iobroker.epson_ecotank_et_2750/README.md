@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.epson_ecotank_et_2750/README.md
 title: ioBroker.epson_ecotank_et_2750
-hash: sMVzlTihy9ysKVgQVZZUYunBRCD+Fcv0WL750HstFeY=
+hash: QGYERdKPKZrMtzmYLiSa+4TLNez3Ad6i+rFBxaqw9eI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.epson_ecotank_et_2750/admin/epson_ecotank_et_2750.png)
 
@@ -18,7 +18,7 @@ hash: sMVzlTihy9ysKVgQVZZUYunBRCD+Fcv0WL750HstFeY=
 ## Адаптер EPSON EcoTank ET-2750 для ioBroker
 Этот адаптер считывает уровень в резервуаре и другую информацию из [EPSON EcoTank ET-2750](https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-2750) и сохраняет в ioBroker.
 
-[EPSON EcoTank ET-4750] (https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-4750) также поддерживается (проверено [Homoran](https://forum.iobroker.net/user/homoran)) [EPSON EcoTank ET-3750] (https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-3750) также поддерживается (проверено [christofkac](https://github.com/christofkac)) [EPSON EcoTank ET-2721] (https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-2721) также поддерживается (проверено [mikepiko](https://github.com/mikepiko))
+[EPSON EcoTank ET-4750] (https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-4750) также поддерживается (проверено [Homoran](https://forum.iobroker.net/user/homoran)) [EPSON EcoTank ET-3750] (https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-3750) также поддерживается (проверено [christofkac](https://github.com/christofkac)) [EPSON EcoTank ET-2721] (https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-2721) также поддерживается (проверено [mikepiko](https://github.com/mikepiko)) [EPSON WORKFORCE WF-3620DWF] (https://www.epson.de/products/printers/inkjet-printers/for-home/workforce-wf-3620dwf) также поддерживается (проверено [HReimann](https://github.com/HReimann))
 
 ## Конфигурация
 1. Создайте новый экземпляр адаптера.
@@ -36,6 +36,31 @@ hash: sMVzlTihy9ysKVgQVZZUYunBRCD+Fcv0WL750HstFeY=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 0.0.11 (2021-08-24)
+
+-   (o0Shojo0o) fix name for Workforce 3620
+-   (o0Shojo0o) fix firmware for Workforce 3620
+
+### 0.0.10 (2021-08-19)
+
+-   (o0Shojo0o) fix translation
+
+### 0.0.9 (2021-08-18)
+
+-   (o0Shojo0o) bugfix for incorrect mapping of settings, second try ...
+
+### 0.0.8 (2021-08-18)
+
+-   (o0Shojo0o) bugfix for incorrect mapping of settings
+
+### 0.0.7 (2021-08-18)
+
+-   (o0Shojo0o) change UI to JSONConfig
+
+### 0.0.6 (2021-08-01)
+
+-   (o0Shojo0o) better unload handling
 
 ### 0.0.5 (2021-05-01)
 

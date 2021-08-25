@@ -122,7 +122,12 @@ sendTo("kodi.0", {
 
 ## Changelog
 
-#### 2.0.7
+### __WORK IN PROGRESS__
+* Important: js-controller >= 2.0.0 is required at least
+* (Apollon77) Update kode-ws dependency
+* (Apollon77) Prevent some js-controller 3.3. errors
+
+### 2.0.7
 * (instalator) fixed error subscribeNotification Player.OnResume [issues 49](https://github.com/instalator/ioBroker.kodi/issues/49)
 * (instalator) added user ratings [issues 57](https://github.com/instalator/ioBroker.kodi/issues/57)
 * (instalator) fix error [issues 58](https://github.com/instalator/ioBroker.kodi/issues/58)

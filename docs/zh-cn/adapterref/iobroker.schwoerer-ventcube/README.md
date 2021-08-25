@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.schwoerer-ventcube/README.md
 title: ioBroker.schwoerer-ventcube
-hash: rjqmmMPuxlOO2pLoItSgaCjFBmKTBrhI/tT3cN3YOpw=
+hash: R21i7JZQEDmG0ZtnGRGE6OViAK5St/HwwIGOPIZRX0M=
 ---
 ![标识](../../../en/adapterref/iobroker.schwoerer-ventcube/admin/schwoerer-ventcube.png)
 
@@ -18,8 +18,10 @@ hash: rjqmmMPuxlOO2pLoItSgaCjFBmKTBrhI/tT3cN3YOpw=
 # IoBroker.schwoerer-ventcube
 ![Github 发布状态](https://github.com/Excodibur/iobroker.schwoerer-ventcube/workflows/Build%2C%20Test%20and%20Release/badge.svg)
 
+[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/schwoerer-ventcube/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 ## 用于 ioBroker 的 schwoerer-ventcube 适配器
-Schwoererhaus Ventcube 系统的适配器。有关 Ventcube Fresh 的更多信息，请参见 [这里](https://www.bauinfocenter.de/lueftung/lueftungsanlagen/)。
+Schwoererhaus Ventcube 系统的适配器。有关 Ventcube Fresh 的更多信息，请参见[这里](https://www.bauinfocenter.de/lueftung/lueftungsanlagen/)。
 
 **免责声明**：该适配器既不是由分发 Ventcube 系统的公司 [Schwoererhaus KG](https://www.schwoererhaus.de/) 开发也不是官方支持的。应谨慎遵循说明并自担风险。
 
@@ -56,7 +58,7 @@ Schwoererhaus Ventcube 系统的适配器。有关 Ventcube Fresh 的更多信�
 - ***T10 温度***
 
 ###参考系统
-ioBroker 适配器已成功通过以下测试：
+ioBroker 适配器已成功测试：
 
 |控制面板 |风管 | Modbus规范|
 |---------------|----------|-----------------------------------|

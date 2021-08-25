@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: Z5wq7g9EZdLn0rvOdMJmgZWLy9m7lDBiOkDQ+5rf9Cs=
+hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
 ---
 # IoBroker.dysonAirPurifier
 ![标志](admin/dyson_logo.svg)![标志](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -38,12 +38,12 @@ hash: Z5wq7g9EZdLn0rvOdMJmgZWLy9m7lDBiOkDQ+5rf9Cs=
 将您的戴森风扇、暖风机、空气净化器和空气加湿器连接到 ioBroker。
 
 * 从设备和传感器读取值
-* 可以通过让您更改某些值（主功率、振荡、加热、风扇速度等）来控制设备
+* 可以通过使您能够更改某些值（主功率、振荡、加热、风扇速度等）来控制设备
 * 从戴森服务器读取设备列表
 
 ＃＃ 安装
 ### Sentry.io
-该适配器使用 sentry.io 收集有关崩溃的详细信息并自动向作者报告。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) 插件用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 有关插件功能、收集哪些信息以及如何禁用插件的详细信息，如果您不喜欢用您的崩溃信息支持作者。
+该适配器使用 sentry.io 收集有关崩溃的详细信息并自动将其报告给作者。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) 插件用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 有关插件功能、收集哪些信息以及如何禁用插件的详细信息，如果您不喜欢用您的崩溃信息支持作者。
 
 ### 先决条件
 * 此适配器需要 Node.js >= 版本 10
@@ -57,7 +57,7 @@ hash: Z5wq7g9EZdLn0rvOdMJmgZWLy9m7lDBiOkDQ+5rf9Cs=
 在您的 ioBroker 安装上运行 ```npm install iobroker.dysonairpurifier``` 以从 npm 存储库中获取此适配器的最新版本。
 
 #### 替代方案：使用 GitHub URL
-通过 ioBroker 管理 UI 将其指向 GitHub 上的最新稳定版本进行安装：<https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
+通过将 ioBroker Admin UI 指向 GitHub 上最新的稳定版本来安装：<https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
 
 您还可以使用这些方法安装旧版本（通过指向版本标记，例如，在 URL 中使用 ```v0.6.0``` 而不是 ```master```），但通常首选最新版本。
 
@@ -74,7 +74,7 @@ hash: Z5wq7g9EZdLn0rvOdMJmgZWLy9m7lDBiOkDQ+5rf9Cs=
 2. 您没有更改默认设备名称。
 
 > 在此适配器的第一次启动时，会为您的所有设备查询 Dyson API，并且所有支持的设备都将在设备树中创建——API 提供了它们的基本信息和一个附加字段“主机地址”。
-> > 所以请运行一次适配器，您的 Dyson 设备将在设备树中创建，并带有它们的基本设置。
+> > 所以请运行一次适配器，您的戴森设备将在设备树中创建，并带有其基本设置。
 > > 然后停止适配器，在主机地址字段中输入 IP 并重新启动适配器。之后，设备树中的 Dyson 设备应填充数据。
 
 ### 2 因素身份验证（自 V0.9.0 起）
@@ -91,11 +91,19 @@ hash: Z5wq7g9EZdLn0rvOdMJmgZWLy9m7lDBiOkDQ+5rf9Cs=
 * 完成设置后单击保存并关闭 - 适配器应重新启动并变为绿色。
 
 所有值都将被保存并进一步显示。
-> 通常您不需要按计划进行这 2 次 FA - 但您可以在需要时重复它。
+> 通常您不需要按计划执行这 2 次 FA - 但您可以在需要时重复执行。
 
->如果您在 2-FA 期间遇到问题。请参阅 [问题 #124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) 以了解可能的解决方法。
+#### 如果您在 2-FA 期间遇到 401 问题。请尝试以下解决方法：
+1. 退出戴森智能手机应用程序
+2. 等待几分钟
+3. 将您的登录数据输入到适配器（如果尚未完成）并按照 2FA 程序进行到底。
+4. 适配器应启动并变为绿色。
+5. 等待一段时间（最多一个小时或更长时间，因为戴森在短时间内阻止了太多请求）
+6. 如果您想使用它，请重新登录戴森智能手机应用程序。
 
-## 控制您的设备此适配器目前能够控制您的设备的以下状态：
+## 控制您的设备
+此适配器目前能够控制您设备的以下状态：
+
 * FanSpeed , 当前风扇速度
 * 夜间模式，夜间模式状态
 *振荡，风扇的振荡。
@@ -181,7 +189,7 @@ hash: Z5wq7g9EZdLn0rvOdMJmgZWLy9m7lDBiOkDQ+5rf9Cs=
 
 |错误代码|含义 |
 | ----- | ----- |
-|无 |没有错误激活 |
+|无 |没有错误活动 |
 |57C2|未知 |
 |11E1|振荡已被禁用。请按遥控器上的“振荡”按钮继续。|
 
@@ -220,9 +228,9 @@ hash: Z5wq7g9EZdLn0rvOdMJmgZWLy9m7lDBiOkDQ+5rf9Cs=
 |卷 |似乎是 volX 的中值 | | |
 | aql0 - aql9 |在这种空气质量水平下的第二次花费数量| max (pal, vol)) 从小时开始 | 0000 - 3600 | |
 | aqlm |似乎是 aqlX 的中值 | | |
-| fafs |似乎是在特定时间内花费的秒数 | 0000 - 3600 | |
+| faf |似乎是在特定时间内花费的秒数 | 0000 - 3600 | |
 |粮农组织 |似乎是在特定时间内花费的秒数 | 0000 - 3600 | |
-| fofs |似乎是在特定时间内花费的秒数 | 0000 - 3600 | |
+|福斯|似乎是在特定时间内花费的秒数 | 0000 - 3600 | |
 |冯|似乎是在特定时间内花费的秒数 | 0000 - 3600 | |
 |哼|湿度 ？ (%) | 0000 - 0100 | |
 | tmp |开尔文温度 ? | 0000 - 5000 | |
@@ -231,6 +239,12 @@ hash: Z5wq7g9EZdLn0rvOdMJmgZWLy9m7lDBiOkDQ+5rf9Cs=
 Dyson、pure cool、pure hot &cool 等是[戴森有限公司](https://www.dyson.com) 的商标或注册商标。所有其他商标均为其各自所有者的财产。
 
 ## Changelog
+
+### V0.9.5 (2021-08-23) (Marching on)
+* (grizzelbee) Doc: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Documented workaround for 2FA 401 Issue in ReadMe
+* (grizzelbee) Fix: [#128](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/128) Fixed saving of config data
+* (grizzelbee) Fix: [#107](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/107) Fixed type error on temperatures
+* (grizzelbee) Fix: fixed warnings on startup
 
 ### V0.9.4 (2021-08-20) ()
 * (grizzelbee) New: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Credentials won't get logged but shown in a popup in admin when failing 2FA process. 

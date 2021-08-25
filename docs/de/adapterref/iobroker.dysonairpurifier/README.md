@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: Z5wq7g9EZdLn0rvOdMJmgZWLy9m7lDBiOkDQ+5rf9Cs=
+hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
 ---
 # IoBroker.dysonAirPurifier
 ![Logo](admin/dyson_logo.svg)![Logo](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -93,9 +93,17 @@ Nach einem Update wird es auch automatisch neu gestartet. In beiden Fällen blei
 Alle Werte werden gespeichert und weiterhin angezeigt.
 > Normalerweise müssen Sie diese 2 FA nicht planmäßig durchführen - Sie können sie jedoch bei Bedarf wiederholen.
 
->Wenn Sie während 2-FA auf Probleme stoßen. Eine mögliche Problemumgehung finden Sie unter [Ausgabe #124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124).
+#### Wenn Sie während 2-FA mit dem 401-Problem konfrontiert sind. Bitte versuchen Sie diese Problemumgehung:
+1. Melden Sie sich von Ihrer Dyson Smartphone-App ab
+2. Warten Sie ein paar Minuten
+3. Geben Sie Ihre Zugangsdaten zum Adapter ein (falls noch nicht geschehen) und folgen Sie dem 2FA-Verfahren bis zum Ende.
+4. Der Adapter sollte starten und grün werden.
+5. Warten Sie eine Weile (bis zu einer Stunde oder vielleicht länger, da Dyson einen Blocker für zu viele Anfragen in kurzer Zeit hat)
+6. Melden Sie sich wieder bei Ihrer Dyson Smartphone-App an, wenn Sie diese verwenden möchten.
 
-## Steuerung Ihrer Geräte Dieser Adapter ist derzeit in der Lage, die folgenden Zustände Ihrer Geräte zu steuern:
+## Steuern Sie Ihr(e) Gerät(e)
+Dieser Adapter kann derzeit die folgenden Zustände Ihrer Geräte steuern:
+
 * FanSpeed, aktuelle Lüftergeschwindigkeit
 * Nachtmodus, Nachtmodusstatus
 * Schwingung, Schwingung des Ventilators.
@@ -145,7 +153,7 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | fdir | Fandirektion aka. Jet-Fokus/ EIN=Vorne, AUS=Zurück | EIN, AUS | |
 | ffoc | JetFocus | EIN, AUS |
 | nmod | Nachtmodus | EIN , AUS | |
-| oson | Schwingung | EIN, AUS| |
+| oson | Schwingung | EIN , AUS| |
 | osal | Oszillationswinkel untere Grenze | 0005 - 355| ° (Grad)|
 | osau | Oszillationswinkel Obere Grenze | 0005 - 355 | ° (Grad)|
 | oscs | OszillationAktiv | EIN, AUS, LEERLAUF | |
@@ -231,6 +239,12 @@ Redundante Werte?
 Dyson, pure cool, pure hot & cool und andere sind Marken oder eingetragene Marken von [Dyson Ltd.](https://www.dyson.com) Alle anderen Marken sind Eigentum ihrer jeweiligen Inhaber.
 
 ## Changelog
+
+### V0.9.5 (2021-08-23) (Marching on)
+* (grizzelbee) Doc: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Documented workaround for 2FA 401 Issue in ReadMe
+* (grizzelbee) Fix: [#128](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/128) Fixed saving of config data
+* (grizzelbee) Fix: [#107](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/107) Fixed type error on temperatures
+* (grizzelbee) Fix: fixed warnings on startup
 
 ### V0.9.4 (2021-08-20) ()
 * (grizzelbee) New: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Credentials won't get logged but shown in a popup in admin when failing 2FA process. 

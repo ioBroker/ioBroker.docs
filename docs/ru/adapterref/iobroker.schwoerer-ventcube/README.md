@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.schwoerer-ventcube/README.md
 title: ioBroker.schwoerer-ventcube
-hash: rjqmmMPuxlOO2pLoItSgaCjFBmKTBrhI/tT3cN3YOpw=
+hash: R21i7JZQEDmG0ZtnGRGE6OViAK5St/HwwIGOPIZRX0M=
 ---
 ![Логотип](../../../en/adapterref/iobroker.schwoerer-ventcube/admin/schwoerer-ventcube.png)
 
@@ -17,6 +17,8 @@ hash: rjqmmMPuxlOO2pLoItSgaCjFBmKTBrhI/tT3cN3YOpw=
 
 # IoBroker.schwoerer-ventcube
 ![Статус выпуска Github](https://github.com/Excodibur/iobroker.schwoerer-ventcube/workflows/Build%2C%20Test%20and%20Release/badge.svg)
+
+[![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/schwoerer-ventcube/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Переходник schwoerer-ventcube для ioBroker
 Адаптер для системы Schwoererhaus Ventcube. Более подробную информацию о Ventcube Fresh можно найти в [здесь](https://www.bauinfocenter.de/lueftung/lueftungsanlagen/).

@@ -13,7 +13,8 @@ This adapter read tank level and other information from [EPSON EcoTank ET-2750](
 
 [EPSON EcoTank ET-4750](https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-4750) is also supported (tested by [Homoran](https://forum.iobroker.net/user/homoran))  
 [EPSON EcoTank ET-3750](https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-3750) is also supported (tested by [christofkac](https://github.com/christofkac))  
-[EPSON EcoTank ET-2721](https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-2721) is also supported (tested by [mikepiko](https://github.com/mikepiko))
+[EPSON EcoTank ET-2721](https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-2721) is also supported (tested by [mikepiko](https://github.com/mikepiko))  
+[EPSON WORKFORCE WF-3620DWF](https://www.epson.de/products/printers/inkjet-printers/for-home/workforce-wf-3620dwf) is also supported (tested by [HReimann](https://github.com/HReimann))
 
 ## Configuration
 
@@ -32,6 +33,11 @@ This adapter read tank level and other information from [EPSON EcoTank ET-2750](
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 0.0.11 (2021-08-24)
+
+-   (o0Shojo0o) fix name for Workforce 3620
+-   (o0Shojo0o) fix firmware for Workforce 3620
 
 ### 0.0.10 (2021-08-19)
 

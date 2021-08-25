@@ -103,7 +103,14 @@ and probably show some errors in the log - that's fine for now.
 All the values will be saved and shown furthermore. 
 > Usually you don't need to do this 2 FA on a scheduled basis - but you may repeat it when needed.
 
->If you are facing problems during 2-FA. Please refer to [Issue #124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) for a possible workaround.
+#### If you are facing the 401 issue during 2-FA. Please try this workaround:
+1. Log out of your dyson smartphone app
+2. Wait a few minutes
+3. Enter your login data to the adapter (if not already done) and follow the 2FA procedure to the end.
+4. Adapter should start and turn green.
+5. wait a while (up to an hour or maybe more since dyson has a blocker for too many requests in a short time frame)
+6. Login back into your dyson smartphone app if you like to use it.
+ 
 ## Controlling your device(s)
 This adapter is currently able to control the following states of your devices:
 * FanSpeed                  , Current fan speed
@@ -131,6 +138,12 @@ Which is what the dyson app does also.
 * No automatic IP detection of devices
 
 ## Changelog
+
+### V0.9.5 (2021-08-23) (Marching on)
+* (grizzelbee) Doc: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Documented workaround for 2FA 401 Issue in ReadMe
+* (grizzelbee) Fix: [#128](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/128) Fixed saving of config data
+* (grizzelbee) Fix: [#107](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/107) Fixed type error on temperatures
+* (grizzelbee) Fix: fixed warnings on startup
 
 ### V0.9.4 (2021-08-20) ()
 * (grizzelbee) New: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Credentials won't get logged but shown in a popup in admin when failing 2FA process. 

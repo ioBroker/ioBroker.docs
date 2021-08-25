@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: mXMBDAoCTwgdhbzFlAc6GjyQ4cn8Ywh7uAyKl9acmGg=
+hash: OLUxMuMNdnihxXi8rb+UiZ7OaKyLtsjQfjnmAjL1CsI=
 ---
 # IoBroker.tado
 
@@ -24,7 +24,7 @@ hash: mXMBDAoCTwgdhbzFlAc6GjyQ4cn8Ywh7uAyKl9acmGg=
 tado ° обеспечивает комфортный и здоровый климат, экономя до 31% на счетах за отопление.
 
 ## Поддержите меня
-Если вам нравятся мои работы, пожалуйста, сделайте личное пожертвование (это личная ссылка для пожертвования для DutchmanNL, не имеющая отношения к проекту ioBroker! [![Пожертвовать] (https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
+Если вам нравится моя работа, пожалуйста, сделайте личное пожертвование (это личная ссылка для пожертвования для DutchmanNL, не имеющая отношения к проекту ioBroker! [![Пожертвовать] (https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Критические изменения в v0.3.x
 Рекомендация: Если возможно, сначала удалите старую установку адаптера или удалите все состояния, чтобы в установке не осталось неподдерживаемых состояний.
@@ -43,11 +43,56 @@ tado ° обеспечивает комфортный и здоровый кли
 В общем, vaules теперь NULL, если API отправляет NULL или просто ничего. В v0.2.x иногда сохранялось старое значение, иногда заменялось на 0, иногда использовалось NULL.
 ** Мы рады добавить дополнительные важные изменения на основе ваших отзывов! **
 
+## Вещи, которыми можно управлять
+| Государство | Описание |
+| ----- | ----------- |
+| тадо. [x]. [yyyyyy] .Rooms. [z] .setting.power | Включение / выключение устройства |
+| tado. [x]. [yyyyyy] .Rooms. [z] .setting.temperature.celsius | Определите температуру |
+| тадо. [x]. [yyyyyy] .Rooms. [z] .overlayClearZone | Перейти в автоматический режим |
+| tado. [x]. [yyyyyy] .Rooms. [z] .overlay.termination.typeSkillBasedApp | Установить режим расписания |
+| tado. [x]. [yyyyyy] .Rooms. [z] .overlay.termination.durationInSeconds | Установите, как долго будет действовать режим расписания |
+| tado. [x]. [yyyyyy] .Rooms. [z] .devices. [RUaaaaaaaaaa] .offset.offsetCelsius | Температурное смещение |
+| тадо. [x]. [yyyyyy] .Rooms. [z] .timeTables.tt_id | Выбрать активное расписание |
+| фанспид | Fanspeed (только для устройств переменного тока) |
+| режим | Режим переменного тока (только устройства переменного тока) |
+
+** Не стесняйтесь предоставить конкретные схемы устройств переменного тока для последних двух строк, если у вас есть устройство переменного тока! **
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+
+### 0.3.7 (2021-08-24)
+* (HGlab01) ActiveTimeTable can be set (#337)
+* (HGlab01) Improve logs and change code structure a little bit
+* (HGlab01) manage min/max temperature for heating (5-25 celsius) and hotwater (30-80 celsius) to avoid API crashes (#341)
+
+### 0.3.6 (2021-08-16)
+* (HGlab01) support attribute 'orientation' (Sentry: IOBROKER-TADO-35)
+
+### 0.3.5 (2021-08-05)
+* (HGlab01) fix issue 'hot water cannot be switched on' (#309)
+* (HGlab01) change to new sentry dsn
+* (HGlab01) Bump iobroker-jsonexplorer to v0.1.2
+
+### 0.3.4 (2021-07-24)
+* (HGlab01) add attribute 'location' to blacklist (Sentry IOBROKER-TADO-2Y)
+* (HGlab01) support attribute 'swing' (Sentry: IOBROKER-TADO-2G)
+* (HGlab01) support attribute 'end' and 'commandTableUploadState' (Sentry: IOBROKER-TADO-1M)
+
+### 0.3.3 (2021-07-19)
+* (HGlab01) Add attributes title, ssid and code
+* (HGlab01) Improve sentry handling by bumping iobroker-jsonexplorer to v0.1.1
+
+### 0.3.2 (2021-07-15)
+* (HGlab01) Use password handling from JS-Controller framework
+
+### 0.3.1 (2021-07-15)
+* (HGlab01) Works with Node 12.x or higher (simple-oauth2 update dependency)
+* (HGlab01) Bump simple-oauth2 from 2.5.2 to 4.2.0
+* (HGlab01) Prepare for first stable version
 
 ### 0.3.0 (2021-06-26)
 * (HGlab01) Technical re-factoring of state management !BREAKING CHANGES! (see above)
@@ -96,84 +141,12 @@ tado ° обеспечивает комфортный и здоровый кли
 * (LutzHelling) Bugfix : Add orientation
 * (LutzHelling) Bugfix : legacyHeatingInstallationsEnabled
 * (HGlab01) Bugfix : Add legacyHeatingInstallationsEnabled to DoHome
-* (HGlab01) Bugfix : Fix unhandled information found in DoReadDevices 
-
-### 0.1.9
-* (DutchmanNL) Implement Sentry
-* (DutchmanNL) Bugfix : Better error handling
-* (DutchmanNL) Bugfix : state creation with JS-controller 3.x
-
-### 0.1.8
-* (DutchmanNL) Correct countdown of "remainingtimeinseconds" implemented.
-
-### 0.1.7
-* (DutchmanNL) Fix Unhandable information found in DoZoneState : "openWindowDetected" 
-
-### 0.1.6
-* (DutchmanNL) fix geoTrackingEnabled & atHome
-* (DutchmanNL) fix error preventFromSubscribing
-
-### 0.1.5  
-* (DutchmanNL) Fix switching on/off heating & related auto mode
-* (DutchmanNL) Fix switching some incorrect logging
-
-### 0.1.4 Fixed Clear Overlay, Open Window & log error's
-* (DutchmanNL) Fixed Clear Overlay to Boolean
-* (DutchmanNL) Fixed datapoints for OpenWindow 
-* (DutchmanNL) Fixed setting overlay correctly for manuel temperature changes (use previous setting instead of always manual)
-* (DutchmanNL) Fixed error message Cannot read property 'percentage' of undefined"
-
-### 0.1.3 Several fixes for reported error's
-* (DutchmanNL) boilerId / onDemandLogRetrievalEnabled / openWindowDetected / onDemandLogRetrievalEnabled
-* (DutchmanNL) Open Window detection implemented, only by device not by room
-
-### 0.1.2 Bug fix
-* (DutchmanNL) Room temperature setting (overlay) fixed
-
-### 0.1.1 Write API information to states
-* (DutchmanNL) Write API information to states
-* (DutchmanNL) Keep temperature settings (do not reset to NULL)
-
-### 0.1.0 Release public Beta & Implement heating on / off
-* (DutchmanNL) Release public Beta
-* (DutchmanNL) Implement heating on / off
-
-### 0.0.9 Implemented room temperature settings
-* (DutchmanNL) Capability to change room temperature
-* (DutchmanNL) small code fixes
-
-### 0.0.8 Implement overlay clear states & control
-* (DutchmanNL) implement capability to reset running polling timer
-* (DutchmanNL) implement clear overlay
-* (DutchmanNL) execute polling after overlay clear
-* (DutchmanNL) reset states to NULL when polling time * 2 no data is received
-
-### 0.0.7 Improve overlay states
-* (DutchmanNL) improve overlay states  (https://github.com/DrozmotiX/ioBroker.tado/issues/1)
-
-### 0.0.6 Implemented away status
-* (DutchmanNL) Implemented away status
-* (DutchmanNL) fixed issue in state reading
-* (DutchmanNL) updated some attributes
-
-### 0.0.5 Public beta, released to latest repository
-* (DutchmanNL) add library to handle propper state and attribute creation
-* (DutchmanNL) beta release to latest repository
-* (DutchmanNL) released on NPM (installable by admin)
-
-### 0.0.3 
-* (DutchmanNL) implement all zone states & data refresh intervall
-
-### 0.0.2
-* (DutchmanNL) Alpha, read zones, their devices and related states
-
-### 0.0.1
-* (DutchmanNL) Alpha, read account and mobile device information
+* (HGlab01) Bugfix : Fix unhandled information found in DoReadDevices
 
 ## License
 MIT License
 
-Copyright (c) 2020 DutchmanNL <rdrozda@hotmail.com>
+Copyright (c) 2021 DutchmanNL <rdrozda@hotmail.com> & HGlab01
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,28 +3,28 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.epson_ecotank_et_2750/README.md
 title: ioBroker.epson_ecotank_et_2750
-hash: sMVzlTihy9ysKVgQVZZUYunBRCD+Fcv0WL750HstFeY=
+hash: QGYERdKPKZrMtzmYLiSa+4TLNez3Ad6i+rFBxaqw9eI=
 ---
-![商标](../../../en/adapterref/iobroker.epson_ecotank_et_2750/admin/epson_ecotank_et_2750.png)
+![标识](../../../en/adapterref/iobroker.epson_ecotank_et_2750/admin/epson_ecotank_et_2750.png)
 
 ![安装数量](https://iobroker.live/badges/epson_ecotank_et_2750-stable.svg?dummy=unused)
-![NPM版本](https://img.shields.io/npm/v/iobroker.epson_ecotank_et_2750.svg?dummy=unused)
-![资料下载](https://img.shields.io/npm/dm/iobroker.epson_ecotank_et_2750.svg?dummy=unused)
-![NPM](https://nodei.co/npm/iobroker.epson_ecotank_et_2750.png?downloads=true)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.epson_ecotank_et_2750.svg?dummy=unused)
+![下载](https://img.shields.io/npm/dm/iobroker.epson_ecotank_et_2750.svg?dummy=unused)
+![新产品管理](https://nodei.co/npm/iobroker.epson_ecotank_et_2750.png?downloads=true)
 
-＃ioBroker.epson_ecotank_et_2750
-[![翻译状态]（https://weblate.iobroker.net/widgets/adapters/-/epson_ecotank_et_2750/svg-badge.svg）](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker.epson_ecotank_et_2750
+[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/epson_ecotank_et_2750/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-##用于ioBroker的EPSON EcoTank ET-2750适配器
-该适配器从[爱普生EcoTank ET-2750](https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-2750)中读取水箱液位和其他信息，并存储在ioBroker中。
+## 用于 ioBroker 的 EPSON EcoTank ET-2750 适配器
+该适配器从 [EPSON EcoTank ET-2750](https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-2750) 读取油箱液位和其他信息并存储在 ioBroker 中。
 
-[还支持EPSON EcoTank ET-4750]（https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-4750）（由[Homoran测试]](https://forum.iobroker.net/user/homoran)）[还支持EPSON EcoTank ET-3750]（https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-3750）（由[christofkac测试](https://github.com/christofkac)）[还支持EPSON EcoTank ET-2721]（https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-2721）（由[mikepiko测试](https://github.com/mikepiko)）
+[EPSON EcoTank ET-4750](https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-4750) 也受支持（由 [Homoran](https://forum.iobroker.net/user/homoran)) [EPSON EcoTank ET-3750](https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-3750) 也受支持（由 [christofkac 测试](https://github.com/christofkac)) [EPSON EcoTank ET-2721](https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-2721) 也受支持（由 [mikepiko 测试](https://github.com/mikepiko)) [EPSON WORKFORCE WF-3620DWF](https://www.epson.de/products/printers/inkjet-printers/for-home/workforce-wf-3620dwf) 也受支持（由 [HReimann 测试](https://github.com/HReimann))
 
 ＃＃ 配置
-1.创建适配器的新实例
-2.填写EPSON EcoTank ET-2750的URL / IP和端口
-3.配置同步时间（默认10分钟）
-4.保存设置
+1. 创建一个新的适配器实例
+2.填写EPSON EcoTank ET-2750的URL/IP和端口
+3. 配置同步时间（默认 10 分钟）
+4. 保存设置
 
 ## Changelog
 
@@ -36,6 +36,31 @@ hash: sMVzlTihy9ysKVgQVZZUYunBRCD+Fcv0WL750HstFeY=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 0.0.11 (2021-08-24)
+
+-   (o0Shojo0o) fix name for Workforce 3620
+-   (o0Shojo0o) fix firmware for Workforce 3620
+
+### 0.0.10 (2021-08-19)
+
+-   (o0Shojo0o) fix translation
+
+### 0.0.9 (2021-08-18)
+
+-   (o0Shojo0o) bugfix for incorrect mapping of settings, second try ...
+
+### 0.0.8 (2021-08-18)
+
+-   (o0Shojo0o) bugfix for incorrect mapping of settings
+
+### 0.0.7 (2021-08-18)
+
+-   (o0Shojo0o) change UI to JSONConfig
+
+### 0.0.6 (2021-08-01)
+
+-   (o0Shojo0o) better unload handling
 
 ### 0.0.5 (2021-05-01)
 
