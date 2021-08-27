@@ -407,14 +407,7 @@ In dieser Objektinstanz werden folgende Attribute erstellt:
 * `config` - nativer Teil der Adaptereinstellungen
 * `common` - gemeinsamer Teil der Adaptereinstellungen
 * `systemConfig` - Inhalt von` iobroker-data / iobroker.json` (nur wenn` options.systemConfig = true`)
-* `adapterDir` - Pfad zum Adapterordner
-* `ioPack` - Inhalt von` io-package.json`
-* `pack` - Inhalt von` package.json`
 * `log` - Logger-Objekt
-* `version` - Adapterversion
-* `states` - (nur Experten)
-* `objects` - (nur für Experten)
-* `connected` - wenn der Adapter mit dem Host verbunden ist
 
 #### Wichtigste Ereignisse
 ```
