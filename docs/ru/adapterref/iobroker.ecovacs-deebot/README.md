@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecovacs-deebot/README.md
 title: Адаптер Ecovacs Deebot для ioBroker
-hash: 91+S1+K4Tvih7Ddub1IxnWC+Qoroym8kK+LngmsUuos=
+hash: PhlLZ7EtzBVxzkvEaZfs/k2Z8YOBt1MFWzfD/y+XLeQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -65,8 +65,10 @@ hash: 91+S1+K4Tvih7Ddub1IxnWC+Qoroym8kK+LngmsUuos=
 Я стараюсь достичь широкого диапазона функциональных возможностей, но решаю этот вопрос индивидуально, в зависимости от сложности и различных других критериев.
 Претензий на полную функциональность конечно же нет.
 
-## Монтаж
-Рекомендуется использовать Node.js. версии 12.x или 14.x. Минимальная необходимая версия - все еще 10.x, но это может скоро измениться.
+## Установка
+Рекомендуется использовать Node.js. версии 12.x или 14.x.
+
+Минимальная необходимая версия - по-прежнему 10.x, **но это может скоро измениться**
 
 Этот адаптер использует библиотеку [узел-холст](https://www.npmjs.com/package/canvas) для некоторых функций, связанных с картой, которые могут потребовать установки некоторых дополнительных пакетов.
 
@@ -93,10 +95,10 @@ sudo npm install canvas --unsafe-perm=true
 ### Состояния
 * Информацию о состояниях можно найти [здесь] (https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29) (на английском языке) и [здесь] (https:// github .com / mrbungle64 / ioBroker.ecovacs-deebot / wiki / Datenpunkte-% 28DE% 29) (немецкий)
 
-## ВОПРОСЫ-ОТВЕТЫ
+## ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
 * Часто задаваемые вопросы можно найти [здесь] (https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
 
-## Известные проблемы
+## Известные вопросы
 * Для некоторых моделей (например, Deebot OZMO 930) рекомендуется [запланировать перезапуск] (https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) один раз в день. потому что есть некоторые сообщения о том, что соединение теряется через прибл. 24 часа
 * Некоторые функции очистки могут не работать с Deebot 710/711 / 711s. Пожалуйста, используйте пока версию 0.5.8.
 * Функция "edge" не работает с Deebot U2 (вместо этого запускает автоматическую очистку)
@@ -106,6 +108,10 @@ sudo npm install canvas --unsafe-perm=true
 Я никоим образом не связан с ECOVACS.
 
 ## Changelog
+
+### 1.2.3 (alpha)
+* Using library version 0.6.2 (alpha)
+* Lots of code refactoring, optimizations and some fixes
 
 ### 1.2.2
 * Added function to load current map image (non 950 type models, e.g. OZMO 930, Deebot 901)

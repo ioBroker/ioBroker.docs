@@ -7,6 +7,8 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.iqontrol.svg)](https://www.npmjs.com/package/iobroker.iqontrol)
 [![Dependency Status](https://img.shields.io/david/sbormann/iobroker.iqontrol.svg)](https://david-dm.org/sbormann/iobroker.iqontrol)
 [![Known Vulnerabilities](https://snyk.io/test/github/sbormann/ioBroker.iqontrol/badge.svg)](https://snyk.io/test/github/sbormann/ioBroker.iqontrol)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/iqontrol/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 
 [![NPM](https://nodei.co/npm/iobroker.iqontrol.png?downloads=true)](https://nodei.co/npm/iobroker.iqontrol/)
 
@@ -1571,6 +1573,9 @@ This device has some special predefined size- and display-settings to show a tex
 * (sbormann) Minor design enhancements to dark mode, ADDITIONAL_INFO and JSON-Table-Widget.
 * (sbormann) Added more options to configure cols of JSON-Table-Widget.
 * (sbormann) Redesigned CONTROL_MODE of Thermostats to be a fieldset instead of a dropdown.
+* (sbormann) Overwrite step for HomematicIP-Temperature sensors with wrong min and max values.
+* (sbormann) Added option to send state-values when clicking on play, pause and stop to media.
+* (sbormann) Updated dependencies.
 
 ### 1.9.6 (2021-08-21)
 * (sbormann) Removed some unnecessary horizontal lines in dialog.

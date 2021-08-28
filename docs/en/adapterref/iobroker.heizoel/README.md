@@ -1,28 +1,31 @@
-![Logo](admin/fiat.png)
-# ioBroker.fiat
+![Logo](admin/heizoel.png)
 
-[![NPM version](https://img.shields.io/npm/v/iobroker.fiat.svg)](https://www.npmjs.com/package/iobroker.fiat)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.fiat.svg)](https://www.npmjs.com/package/iobroker.fiat)
-![Number of Installations (latest)](https://iobroker.live/badges/fiat-installed.svg)
-![Number of Installations (stable)](https://iobroker.live/badges/fiat-stable.svg)
-[![Dependency Status](https://img.shields.io/david/TA2k/iobroker.fiat.svg)](https://david-dm.org/TA2k/iobroker.fiat)
+# ioBroker.heizoel
 
-[![NPM](https://nodei.co/npm/iobroker.fiat.png?downloads=true)](https://nodei.co/npm/iobroker.fiat/)
+[![NPM version](https://img.shields.io/npm/v/iobroker.heizoel.svg)](https://www.npmjs.com/package/iobroker.heizoel)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.heizoel.svg)](https://www.npmjs.com/package/iobroker.heizoel)
+![Number of Installations (latest)](https://iobroker.live/badges/heizoel-installed.svg)
+![Number of Installations (stable)](https://iobroker.live/badges/heizoel-stable.svg)
+[![Dependency Status](https://img.shields.io/david/TA2k/iobroker.heizoel.svg)](https://david-dm.org/TA2k/iobroker.heizoel)
 
-**Tests:** ![Test and Release](https://github.com/TA2k/ioBroker.fiat/workflows/Test%20and%20Release/badge.svg)
+[![NPM](https://nodei.co/npm/iobroker.heizoel.png?downloads=true)](https://nodei.co/npm/iobroker.heizoel/)
 
-## fiat adapter for ioBroker
+**Tests:** ![Test and Release](https://github.com/TA2k/ioBroker.heizoel/workflows/Test%20and%20Release/badge.svg)
 
-fiat adapter
+## heizoel adapter for ioBroker
+
+Adapter for Heizöl
+
+Adapter fragt regelmässig die Heizölpreise ab
 
 ## Changelog
 
-### 0.0.2
-* (TA2k) Enable deep refresh to update charging state
-### 0.0.1
-* (TA2k) initial release
+### 1.0.0
+
+-   (TA2k) initial release
 
 ## License
+
 MIT License
 
 Copyright (c) 2021 TA2k <tombox2020@gmail.com>

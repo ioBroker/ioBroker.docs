@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: 1rOTB2+1kKBbH3MLvLi0BP9S60Yqd8s7EcSIK8qHTfc=
+hash: W94CeikZa3nsqH752yJH3tJODNU9B2LeP/yZTT64uP0=
 ---
 ![Logo](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -18,6 +18,8 @@ hash: 1rOTB2+1kKBbH3MLvLi0BP9S60Yqd8s7EcSIK8qHTfc=
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/github/sbormann/ioBroker.iqontrol?branch=master&svg=true)
 
 #ioBroker.iqontrol
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/iqontrol/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 **Tests:**
 
 | Linux/Mac/Windows: | Cross-Browser-Checking: |
@@ -180,7 +182,7 @@ Die kostenlosen integrierten Demo-Hintergründe stammen von www.pexels.com.
 
 ## Popup-Meldungen
 * Jede Instanz erzeugt den Zustand ``iqontrol.x.Popup.Message``
-* Wenn Werte an diesen Status übergeben werden, wird eine Popup-Nachricht (oder ein Toast) angezeigt
+* Beim Übergeben von Werten an diesen Status wird eine Popup-Nachricht (oder ein Toast) angezeigt
 * Sie können HTML-Tags verwenden, um den Nachrichtentext zu formatieren
 * Es gibt einige zusätzliche Zustände zur weiteren Anpassung des angezeigten Popups (diese müssen gesetzt werden, bevor der Nachrichtendatenpunkt gesetzt wird):
     * ``Dauer``: Dies ist die Zeit in ms, in der die Nachricht angezeigt wird; bei 0 muss die Meldung bestätigt werden
@@ -241,7 +243,7 @@ Die kostenlosen integrierten Demo-Hintergründe stammen von www.pexels.com.
 * Dadurch wird iQontrol angewiesen, eine Ansicht zu rendern, wobei ``<viewID>`` wie ``iqontrol.<Instanznummer>.Views.<Ansichtsname>`` formatiert werden muss (Groß-/Kleinschreibung beachten)
         * ``{ Befehl: "openDialog", Wert: <deviceID> }``
 * Dadurch wird iQontrol angewiesen, einen Dialog zu öffnen, in dem ``<Geräte-ID>`` wie folgt formatiert werden muss: ``iqontrol.<Instanznummer>.Views.<Ansichtsname>.devices.<Gerätenummer>`` wobei ``<Gerätenummer>`` bei 0 beginnt (das erste Gerät in einer Ansicht ist also Gerätenummer 0)
-* Um Nachrichten von iQontrol zu empfangen, müssen Sie einen Event-Listener für das "message"-Ereignis mit dem Javascript-Befehl ``window.addEventListener("message", receivePostMessage, false);`` . registrieren
+* Um Nachrichten von iQontrol zu empfangen, müssen Sie einen Event-Listener für das "message"-Ereignis mit dem Javascript-Befehl ``window.addEventListener("message", receivePostMessage, false);``
     * Die Funktion ``receivePostMessage`` empfängt das Objekt ``Ereignis``
 * ``event.data`` enthält die Nachricht von iqontrol, die ein Objekt wie:
 * event.data = ``{ command: "getState", stateId: <stateId>, value: <stateObject> }`` - dies ist die Antwort auf einen getState-Befehl oder einen getStateSubsribed-Befehl und gibt Ihnen das aktuelle ` `<value>``-Objekt des ioBroker-Zustands``<stateId>``
@@ -528,7 +530,7 @@ Die kostenlosen integrierten Demo-Hintergründe stammen von www.pexels.com.
 * ``dateAndTimeTileActiveConditions`` (Tile ist aktiv, wenn alle ausgewählten Elemente wahr sind) - nur gültig für die Rolle DateAndTime:
 * Mögliche Werte (Array): „activeIfStateActive“, „activeIfTimeNotZero“, „activeIfTimeInFuture“, „activeIfTimeInPast“
 * Standard: "activeIfStateActive,activeIfTimeInFuture"
-* ``dateAndTimeTileActiveWhenRinging`` (Tile ist immer aktiv wenn RINGING aktiv ist) - nur gültig für Rolle DateAndTime:
+* ``dateAndTimeTileActiveWhenRinging`` (Tile ist immer aktiv, wenn RINGING aktiv ist) - nur gültig für Rolle DateAndTime:
 * Standard: wahr
 * ``dateAndTimeShowInState`` (Show in state) - nur gültig für Rolle DateAndTime:
 * Mögliche Werte (Array): "showStateIfInactive", "showStateIfActive", "showSubjectIfActive", "showSubjectIfInactive", "showTimeIfInactiveAndInPast", "showTimeIfInactiveAndInFuture", "showTimeIfActiveAndInPast", "showTimeIfActiveAndInFuture", "showTimeDistanceIfInactiveAndTimeInPast", "showTimeDistanceIfInactiveAndTimeInPast", "showTimeDistanceIfInactiveAndTimeInPast", "showTimeDistanceIfInactiveAndTimeInPast", , "showTimeDistanceIfActiveAndInFuture"
@@ -1270,7 +1272,7 @@ Allerdings ist nicht jeder Typ für jede Rolle sinnvoll. So ist beispielsweise d
 * **LEISTUNG**: *Zahl* - Stromverbrauch, der oben rechts klein angezeigt wird
 
 ###<img src="img/icons/button.png" width="32"> Taste:
-* **STATE**: *any* - jeder gewünschte Zustand
+* **STATE**: *any* - jeder gewünschte Zustandstyp
 * **SET_VALUE**: CONSTANT *string* - Dies ist eine Konstante (kein verknüpfter Iobroker-Zustand!), die dem STATE zugewiesen wird, wenn die Taste gedrückt wird
 * **OFF_SET_VALUE**: CONSTANT *string* - Dies ist eine Konstante (kein verknüpfter Iobroker-Zustand!). Falls definiert, wird STATE nach der in den Optionen definierten Zeit oder 100ms . auf diesen Wert zurückgesetzt
 
@@ -1278,7 +1280,7 @@ Allerdings ist nicht jeder Typ für jede Rolle sinnvoll. So ist beispielsweise d
 Jedes Licht kann einen oder beide der folgenden Zustände haben:
 
 * **STATE**: *boolean* - Ein/Aus-Status anzeigen und einstellen
-* **STUFE**: *Zahl* - Anzeige und Einstellung der Lichtstärke
+* **STUFE**: *Zahl* - Lichtstärke anzeigen und einstellen
 
 Optional können Sie folgende Zustände definieren:
 
@@ -1584,10 +1586,22 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
 ## Changelog
 
 ### dev
+* (sbormann) Added option to close collapsible subheaders, if others open.
+* (sbormann) Fixed missing subheaders if new line option was activated.
+* (sbormann) Added option to define new section spacing.
+* (sbormann) Minor design enhancements to dark mode, ADDITIONAL_INFO and JSON-Table-Widget.
+* (sbormann) Added more options to configure cols of JSON-Table-Widget.
+* (sbormann) Redesigned CONTROL_MODE of Thermostats to be a fieldset instead of a dropdown.
+* (sbormann) Overwrite step for HomematicIP-Temperature sensors with wrong min and max values.
+* (sbormann) Added option to send state-values when clicking on play, pause and stop to media.
+* (sbormann) Updated dependencies.
+
+### 1.9.6 (2021-08-21)
 * (sbormann) Removed some unnecessary horizontal lines in dialog.
 * (sbormann) Added option to edit caption of STATE or LEVEL.
 * (sbormann) Enhanced ADDITIONAL_INFO list (you can go back to old style via option) and added optional columns.
 * (sbormann) Added some polyfils for older browsers.
+* (sbormann) Fixed a bug that prevented certain options from being applied correctly.
 
 ### 1.9.5 (2021-08-20)
 * (sbormann) Removed prevention of injection for iframes.

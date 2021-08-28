@@ -195,8 +195,16 @@ Whitelist: If you only want to include events of a specific location use regular
 
 ## Changelog
 <!--
-### 1.11.3 (2021-08-04)
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
 -->
+
+### __WORK IN PROGRESS__
+* (Apollon77) fix cases where already ended entries where still listed
+* (Apollon77) fix reported sentry crash cases (IOBROKER-ICAL-S, IOBROKER-ICAL-N)
+
+### 1.11.3 (2021-08-04)
+* (JensMaus) fixed timezone related handling
 
 ### 1.11.2 (2021-08-01)
 * (Apollon77) Change one logline to debug

@@ -772,6 +772,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.harmony/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.hass/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.hass-mqtt/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.heatingcontrol/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.heizoel/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.heos/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.heytech/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.hid/README.md
@@ -844,6 +845,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.loxone/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.luftdaten/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.lupusec/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.luxtronik1/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.luxtronik2/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.material/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.maxcube/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.maxcul/README.md
@@ -1228,6 +1230,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.harmony/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.hass/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.hass-mqtt/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.heatingcontrol/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.heizoel/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.heos/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.heytech/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.hid/README.md
@@ -1300,6 +1303,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.loxone/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.luftdaten/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.lupusec/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.luxtronik1/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.luxtronik2/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.material/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.maxcube/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.maxcul/README.md
@@ -1684,6 +1688,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.harmony/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.hass/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.hass-mqtt/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.heatingcontrol/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.heizoel/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.heos/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.heytech/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.hid/README.md
@@ -1756,6 +1761,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.loxone/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.luftdaten/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.lupusec/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.luxtronik1/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.luxtronik2/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.material/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.maxcube/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.maxcul/README.md
@@ -2140,6 +2146,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.harmony/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hass/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hass-mqtt/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.heatingcontrol/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.heizoel/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.heos/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.heytech/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hid/README.md
@@ -2212,6 +2219,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.loxone/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.luftdaten/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.lupusec/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.luxtronik1/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.luxtronik2/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.material/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.maxcube/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.maxcul/README.md

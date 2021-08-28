@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: 91+S1+K4Tvih7Ddub1IxnWC+Qoroym8kK+LngmsUuos=
+hash: PhlLZ7EtzBVxzkvEaZfs/k2Z8YOBt1MFWzfD/y+XLeQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -66,7 +66,9 @@ Ich versuche eine breite Palette an Funktionalität zu erreichen, entscheide die
 Es besteht natürlich kein Anspruch auf volle Funktionalität.
 
 ## Installation
-Es wird empfohlen, Version 12.x oder 14.x von Node.js zu verwenden. Die erforderliche Mindestversion ist immer noch 10.x, aber das kann sich bald ändern.
+Es wird empfohlen, Version 12.x oder 14.x von Node.js zu verwenden.
+
+Die erforderliche Mindestversion ist immer noch 10.x, **aber das kann sich bald ändern**.
 
 Dieser Adapter verwendet die [Knoten-Leinwand](https://www.npmjs.com/package/canvas) Bibliothek für einige kartenbezogene Funktionen, die die Installation einiger zusätzlicher Pakete erfordern können.
 
@@ -106,6 +108,10 @@ Anweisungen für andere Systeme finden Sie unter https://www.npmjs.com/package/c
 Ich bin in keiner Weise mit ECOVACS verbunden.
 
 ## Changelog
+
+### 1.2.3 (alpha)
+* Using library version 0.6.2 (alpha)
+* Lots of code refactoring, optimizations and some fixes
 
 ### 1.2.2
 * Added function to load current map image (non 950 type models, e.g. OZMO 930, Deebot 901)

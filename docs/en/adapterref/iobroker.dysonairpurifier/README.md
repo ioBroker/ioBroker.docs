@@ -139,6 +139,11 @@ Which is what the dyson app does also.
 
 ## Changelog
 
+### V1.0.0 (2021-08-26) (Dim the spotlight)
+* (grizzelbee) Fix: [#130](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/130) Fixed the newly introduced bug showing wrong values for temperatures
+* (grizzelbee) Upd: Pushed to version 1.0.0
+* (grizzelbee) Upd: Updated dependencies
+
 ### V0.9.5 (2021-08-23) (Marching on)
 * (grizzelbee) Doc: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Documented workaround for 2FA 401 Issue in ReadMe
 * (grizzelbee) Fix: [#128](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/128) Fixed saving of config data

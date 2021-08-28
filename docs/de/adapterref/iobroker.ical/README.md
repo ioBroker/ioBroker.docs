@@ -79,6 +79,14 @@ Zum Einbinden eines Google Kalenders muss die Kalendereinstellung des Google Kal
 #### OwnCloud Kalender
 Zum Einbinden von gesharten Kalendern einer OwnCloud muss man dort in der Kalenderansicht in OwnCloud diesen Kalender als gesharten Kalender freigeben und dort den Link zum Kalender anzeigen lassen und diese URL (https://owncloud.xxxxxx.de/remote.php/dav/calendars/USER/xxxxxxx_shared_by_xxxxxx?export) entsprechend in den ioBroker.ical Adapter mit Nutzername und Passwort angeben.
 
+#### NextCloud Kalender
+Zum Einbinden eines NextCloud Kalenders muss in der Kalenderansicht in NextCloud der Herunterladen-Link des einzelnen gewünschte Kalender eines Anwenders kopiert werden.
+Dazu als Anwender in Nextcloud einloggen und zum 'Kalender' wechseln. In der linken Spalte den gewünschten Kalender bei dem Kreis mit den drei Punkten anklicken.
+Im Menu mit der Maus über 'Herunterladen' schweben und mittels Rechtsklick den Link kopieren.
+Bsp.: https://192.168.1.234/remote.php/dav/calendars/MEINCALENDER/personal/?export  (wichtig ist, dass hier "?export" im Link enthalten ist).
+
+Diese URL in den ioBroker.ical Adapter mit Nutzername und Passwort angeben. Dieses muss für alle gewünschten Kalender aller User einzeln erfolgen.
+
 #### Baikal CalDAV+CardDAV Server
 Der Baikal-Server bringt das "ics-export"-Plugin mit welches den Export eines Kalenders in eine gesammelte ICal-Datei erlaubt. Dieses Plugin wird direkt über die URL ausgewählt und erlaubt eine problemlose Zusammenarbeit mit dem vorliegenden ioBroker-Adapter. Wichtig ist der Exportfilter, welcher einfach an die Kalender-URL angehangen zu werden braucht (`https://SERVER/baikal/cal.php/calendars/path/to/calendar?export&accept=ical`). Bei Anmeldeproblemen bitte in den Admin-Einstellungen der Web-UI des Baikal-Servers unter `Settings` den `WebDAV authentication type` von `DIGEST` auf `BASIC` stellen.
 
@@ -186,8 +194,16 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 
 ## Changelog
 <!--
-### 1.11.3 (2021-08-04)
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
 -->
+
+### __WORK IN PROGRESS__
+* (Apollon77) fix cases where already ended entries where still listed
+* (Apollon77) fix reported sentry crash cases (IOBROKER-ICAL-S, IOBROKER-ICAL-N)
+
+### 1.11.3 (2021-08-04)
+* (JensMaus) fixed timezone related handling
 
 ### 1.11.2 (2021-08-01)
 * (Apollon77) Change one logline to debug
