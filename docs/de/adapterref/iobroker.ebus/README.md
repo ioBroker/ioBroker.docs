@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: hwnSvGdtB2ANX+jFQ3fI09f8e+vlELKqck7xjXfp8Mg=
+hash: FmAmCAzA5c8YiloNbWXupZAd2u4J+5hi5FFYnho9VRY=
 ---
 ![Logo](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
@@ -32,14 +32,19 @@ Es besteht die Möglichkeit Daten abzufragen, die nicht direkt von ebusd abgefra
 
 Eine weitere Funktion besteht darin, einen beliebigen Befehl an ebusd zu senden und eine Antwort zu erhalten, um z. Skripte.
 
-aktuell unterstützte ebusd-Version: 3.3
+aktuell unterstützte ebusd-Version: 21.2
 
 ## Bekannte Probleme
 * Bitte erstellen Sie Probleme unter [github](https://github.com/rg-engineering/ioBroker.ebus/issues), wenn Sie Fehler finden oder neue Funktionen wünschen
 
+## 2.3.0 (2021-09-02)
+* (René) siehe Ausgabe #49: Unterstützung für ebusd 21.2
+* (René) siehe Problem #40: Option, Boolean statt String für Werte mit on/off zu verwenden
+* (René) Abhängigkeiten aktualisiert
+
 ## 2.2.7 (2021-07-03)
 * (René) Abhängigkeiten aktualisiert
-* (René) siehe Problem #48: Fehlerbehebung für falsche Datentyp-Logs
+* (René) siehe Issue #48: Bugfix für falsche Datentyp-Logs
 
 ## 2.2.5 (2021-03-21)
 * (René) Abhängigkeiten aktualisiert
@@ -76,7 +81,7 @@ aktuell unterstützte ebusd-Version: 3.3
 * (René) hcmode2 Wert 5 = EVU Sperrzeit
 
 ### 0.7.0 (2019-01-28)
-* (René) einstellbares Timeout hinzufügen time
+* (René) einstellbares Timeout hinzufügen
 
 ### 0.6.0 (2019-01-06)
 * (René) Unterstützung des Kompaktmodus
@@ -117,7 +122,7 @@ aktuell unterstützte ebusd-Version: 3.3
 * (René) Flot-basiertes Widget hinzufügen, um Temperatur-, Status- und Leistungsdiagramm anzuzeigen
 
 ### 0.1.0
-* (René) geplanter Adapter statt Dämon de
+* (René) geplanter Adapter statt Dämon
 
 ### 0.0.3
 * (René) UTF8-Codierung

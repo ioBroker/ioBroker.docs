@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: hwnSvGdtB2ANX+jFQ3fI09f8e+vlELKqck7xjXfp8Mg=
+hash: FmAmCAzA5c8YiloNbWXupZAd2u4J+5hi5FFYnho9VRY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
@@ -32,10 +32,15 @@ hash: hwnSvGdtB2ANX+jFQ3fI09f8e+vlELKqck7xjXfp8Mg=
 
 Еще одна функция - отправить любую команду в ebusd и получить ответ для работы, например. скрипты.
 
-текущая поддерживаемая версия ebusd: 3.3
+текущая поддерживаемая версия ebusd: 21.2
 
-## Известные проблемы
+## Известные вопросы
 * пожалуйста, создавайте проблемы на [github] (https://github.com/rg-engineering/ioBroker.ebus/issues), если вы обнаружите ошибки или захотите новые функции
+
+## 2.3.0 (02.09.2021)
+* (Рене) см. Выпуск # 49: поддержка ebusd 21.2
+* (Рене) см. Проблему # 40: возможность использовать логическое значение вместо строки для значений с включением / выключением
+* (René) зависимости обновлены
 
 ## 2.2.7 (2021-07-03)
 * (René) зависимости обновлены
@@ -110,7 +115,7 @@ hash: hwnSvGdtB2ANX+jFQ3fI09f8e+vlELKqck7xjXfp8Mg=
 
 ### 0.3.0
 * (René) поддержка ebusd
-* (René) поддержка admin3
+* (Рене) поддержка admin3
 
 ### 0.2.0
 * (Рене) добавить историю как JSON для vis

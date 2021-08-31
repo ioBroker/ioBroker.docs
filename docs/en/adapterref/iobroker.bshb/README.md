@@ -35,6 +35,10 @@ If you want to support the work I would appreciate a small donation. This is 100
 
 ## Changelog
 
+### 0.1.14
+* (holomekc) RoomControlMode types added.
+* (holomekc) Update for js-controller 3.x.x. This serializes objects and arrays. Please check your logics.
+
 ### 0.1.13
 * (holomekc) update to api-version 2.1
 * (holomekc) add intrusionDetectionControl folder which contains trigger for alarm system

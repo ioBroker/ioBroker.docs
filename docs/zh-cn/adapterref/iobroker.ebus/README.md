@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: hwnSvGdtB2ANX+jFQ3fI09f8e+vlELKqck7xjXfp8Mg=
+hash: FmAmCAzA5c8YiloNbWXupZAd2u4J+5hi5FFYnho9VRY=
 ---
-![商标](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
+![标识](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
 ![安装数量](http://iobroker.live/badges/ebus-stable.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.ebus.svg)
@@ -32,10 +32,15 @@ hash: hwnSvGdtB2ANX+jFQ3fI09f8e+vlELKqck7xjXfp8Mg=
 
 另一个功能是向 ebusd 发送任何命令并接收答案以使用例如脚本。
 
-当前支持的 ebusd 版本：3.3
+当前支持的 ebusd 版本：21.2
 
 ＃＃ 已知的问题
 * 如果您发现错误或想要新功能，请在 [github](https://github.com/rg-engineering/ioBroker.ebus/issues) 创建问题
+
+## 2.3.0 (2021-09-02)
+* (René) 见问题 #49：支持 ebusd 21.2
+* (René) 参见问题 #40：使用布尔值代替字符串的选项，用于打开/关闭的值
+* (René) 依赖更新
 
 ## 2.2.7 (2021-07-03)
 * (René) 依赖更新

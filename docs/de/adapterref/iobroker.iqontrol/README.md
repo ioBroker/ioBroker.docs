@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: W94CeikZa3nsqH752yJH3tJODNU9B2LeP/yZTT64uP0=
+hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
 ---
 ![Logo](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -182,7 +182,7 @@ Die kostenlosen integrierten Demo-Hintergründe stammen von www.pexels.com.
 
 ## Popup-Meldungen
 * Jede Instanz erzeugt den Zustand ``iqontrol.x.Popup.Message``
-* Beim Übergeben von Werten an diesen Status wird eine Popup-Nachricht (oder ein Toast) angezeigt
+* Wenn Werte an diesen Status übergeben werden, wird eine Popup-Nachricht (oder ein Toast) angezeigt
 * Sie können HTML-Tags verwenden, um den Nachrichtentext zu formatieren
 * Es gibt einige zusätzliche Zustände zur weiteren Anpassung des angezeigten Popups (diese müssen gesetzt werden, bevor der Nachrichtendatenpunkt gesetzt wird):
     * ``Dauer``: Dies ist die Zeit in ms, in der die Nachricht angezeigt wird; bei 0 muss die Meldung bestätigt werden
@@ -433,7 +433,7 @@ Die kostenlosen integrierten Demo-Hintergründe stammen von www.pexels.com.
 * 'Widget-URL-Parameter'
 * Syntax: `` <meta name="widget-urlparameters" content="parameter/default value/description/type;parameter2/default value2/description2/type2"/> ``
 * Der Benutzer wird nach diesen Parametern gefragt, wenn er das Widget als URL oder HINTERGRUND_URL auswählt oder ein Widget automatisch erstellt
-* ``type`` ist optional und kann ``text`` sein (dies ist falsch), ``number``, ``checkbox``, ``color``, ``select``, ``multipleSelect` `, ``combobox``, ``historyInstance``, ``datapoint`` oder ``icon``
+* ``type`` ist optional und kann ``text`` sein (dies ist falsch), ``number``, ``checkbox``, ``color``, ``select``, ``multipleSelect` `, ``combobox``, ``historyInstance``, ``datapoint``, ``icon`` oder ``section``
 * Wenn type ``select``, ``multipleSelect`` oder ``combobox`` ist, müssen Sie die möglichen Optionen angeben, indem Sie ``/<selectOptions>`` hinzufügen, wobei ``<selectOptions>`` a . ist String im Format ``<value1>,<caption1>/<value2>,<caption2>/...`` (Combobox ist eine Auswahlbox mit der Möglichkeit Freitext einzugeben)
 * Wenn type ``number`` ist, dann können min, max und step-width durch Hinzufügen von ``/<numberOptions>`` angegeben werden, wobei ``<numberOptions>`` ein String im Format ``<min> ist, <max>,<Schritt>``
 * Alle diese Parameter werden der Widget-Website über einen URL-Parameter-String übergeben (wie ``widget.html?parameter=value&parameter2=value2``)
@@ -518,6 +518,9 @@ Die kostenlosen integrierten Demo-Hintergründe stammen von www.pexels.com.
 * Standard: "Unten"
 * ``controlModeDisarmedValue`` (Wert von CONTROL_MODE für 'unscharf') - nur gültig für Rolle Alarm:
 * Vorgabe: "0"
+* ``showStateAndLevelSeparatelyInTile`` (State und LEVEL separat in Kachel anzeigen) - nur gültig für Rollenwert:
+* Mögliche Werte: ""|"devidedByComma"|"devidedByComma preceedCaptions"|"devidedBySemicolon"|"devidedBySemicolon preceedCaptions"|"devidedByHyphen"|"devidedByHyphen preceedCaptions"
+* Standard: ""
 * ``timeCaption`` (Caption for TIME) - nur gültig für Rolle DateAndTime:
 * Standard: ""
 * ``timeFormat`` (Format von TIME (wie im Datenpunkt gespeichert, siehe Readme)) - nur gültig für Rolle DateAndTime:
@@ -530,7 +533,7 @@ Die kostenlosen integrierten Demo-Hintergründe stammen von www.pexels.com.
 * ``dateAndTimeTileActiveConditions`` (Tile ist aktiv, wenn alle ausgewählten Elemente wahr sind) - nur gültig für die Rolle DateAndTime:
 * Mögliche Werte (Array): „activeIfStateActive“, „activeIfTimeNotZero“, „activeIfTimeInFuture“, „activeIfTimeInPast“
 * Standard: "activeIfStateActive,activeIfTimeInFuture"
-* ``dateAndTimeTileActiveWhenRinging`` (Tile ist immer aktiv, wenn RINGING aktiv ist) - nur gültig für Rolle DateAndTime:
+* ``dateAndTimeTileActiveWhenRinging`` (Tile ist immer aktiv wenn RINGING aktiv ist) - nur gültig für Rolle DateAndTime:
 * Standard: wahr
 * ``dateAndTimeShowInState`` (Show in state) - nur gültig für Rolle DateAndTime:
 * Mögliche Werte (Array): "showStateIfInactive", "showStateIfActive", "showSubjectIfActive", "showSubjectIfInactive", "showTimeIfInactiveAndInPast", "showTimeIfInactiveAndInFuture", "showTimeIfActiveAndInPast", "showTimeIfActiveAndInFuture", "showTimeDistanceIfInactiveAndTimeInPast", "showTimeDistanceIfInactiveAndTimeInPast", "showTimeDistanceIfInactiveAndTimeInPast", "showTimeDistanceIfInactiveAndTimeInPast", , "showTimeDistanceIfActiveAndInFuture"
@@ -778,7 +781,7 @@ Die kostenlosen integrierten Demo-Hintergründe stammen von www.pexels.com.
 * ``batteryActiveConditionValue`` (Zustandswert):
 * Standard: ""
 * UNREACH-Symbol:
-* ``invertUnreach`` (UNREACH invertieren (verbunden statt unreach verwenden)):
+* ``invertUnreach`` (UNREACH invertieren (Verbunden statt Unreach verwenden)):
 * Mögliche Werte: "true"|"false"
 * Standard: "falsch"
 * ``invertUnreach`` (Verbergen (bzw. ignorieren) UNREACH, wenn das Gerät inaktiv ist):
@@ -1200,7 +1203,7 @@ Hier kannst du:
 ##Beschreibung von Rollen und zugehörigen Zuständen
 Jedes Gerät hat eine Rolle, die die Funktion des Geräts definiert. Jede Rolle generiert eine Menge von Zuständen, die mit einem entsprechenden iobroker-Zustand verknüpft werden können.
 Wenn Sie die Auto-Create-Funktion verwenden, können Sie ein vorhandenes Gerät aus dem iobroker-Objektbaum auswählen. Autocreate versucht, die Rolle herauszufinden und so viele Zustände wie möglich abzugleichen.
-Dies funktioniert nur bei bekannten Geräten. Für unbekannte Geräte und um Geräten erweiterte Funktionen zu geben, können Sie diese manuell über die (+)-Schaltfläche hinzufügen oder die durch Autocreate erstellten Geräte bearbeiten.
+Dies funktioniert nur bei bekannten Geräten. Für unbekannte Geräte und um Geräten erweiterte Funktionen zu geben, können Sie diese manuell über die (+)-Schaltfläche hinzufügen oder die Geräte bearbeiten, die durch Autocreate erstellt wurden.
 Um die Rolle und den Status eines Geräts zu bearbeiten, klicken Sie auf den Stift hinter dem Gerät. Nachfolgend finden Sie eine kurze Beschreibung der Rollen und der verwendeten Zustände:
 
 ### Allgemeines:
@@ -1272,7 +1275,7 @@ Allerdings ist nicht jeder Typ für jede Rolle sinnvoll. So ist beispielsweise d
 * **LEISTUNG**: *Zahl* - Stromverbrauch, der oben rechts klein angezeigt wird
 
 ###<img src="img/icons/button.png" width="32"> Taste:
-* **STATE**: *any* - jeder gewünschte Zustandstyp
+* **STATE**: *any* - jeder gewünschte Zustand
 * **SET_VALUE**: CONSTANT *string* - Dies ist eine Konstante (kein verknüpfter Iobroker-Zustand!), die dem STATE zugewiesen wird, wenn die Taste gedrückt wird
 * **OFF_SET_VALUE**: CONSTANT *string* - Dies ist eine Konstante (kein verknüpfter Iobroker-Zustand!). Falls definiert, wird STATE nach der in den Optionen definierten Zeit oder 100ms . auf diesen Wert zurückgesetzt
 
@@ -1296,7 +1299,7 @@ Optional können Sie folgende Zustände definieren:
 
     Wenn Ihr Gerät die Verwendung von HUE, SATURATION und COLOR_BRIGHTNESS (HSB/HSV-Farbraum) nicht unterstützt, können Sie verschiedene alternative Farbräume verwenden. In den Geräteoptionen können Sie einen der folgenden Farbräume auswählen:
 
-        * **RGB** / **#RGB**: statt HUE, SATURATION und COLOR_BRIGHTNESS kann man auch das RGB-Format (hex) verwenden, optional mit führendem '#'
+        * **RGB** / **#RGB**: anstelle von HUE, SATURATION und COLOR_BRIGHTNESS kann auch das RGB-Format (hex) verwendet werden, optional mit führendem '#'
         * **RGBW** / **#RGBW**: statt HUE, SATURATION, COLOR_BRIGHTNESS und WHITE_BRIGHTNESS kann auch das RGBW-Format (hex) verwendet werden, optional mit führendem '#'
         * **RGBWWCW** / **#RGBWWCW** / **RGBCWWW** / **#RGBCWWW**: statt HUE, SATURATION, COLOR_BRIGHTNESS, CT und WHITE_BRIGHTNESS können Sie das RGBWWCW- oder RGBCWWW-Format (hex , WW = warmweiß, CW = kaltweiß), optional mit führendem '#'
         * **RGB (nur Hue)** / **#RGB (nur Hue)**: Anstelle von HUE können Sie das RGB (nur Hue)-Format (hex) verwenden, optional mit führendem '#'. In diesem speziellen Fall akzeptiert das RGB-Format nur reine gesättigte Farben des Farbton-Farbkreises. Mischweiß ist nicht erlaubt
@@ -1536,7 +1539,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
     * 'ok' wenn die Mitte des Pads angeklickt wird,
 * 'links', 'rechts', 'oben' oder 'unten', wenn die Kanten des Pads angeklickt oder das Pad in die entsprechende Richtung gewischt wird oder
 * 'zurück', 'home' oder 'menu*, wenn die entsprechenden Schaltflächen angeklickt werden
-* Beachten Sie: Sie können die Zielwertliste (erreichbar über das Schraubenschlüssel-Symbol, bzw. Zahnrad-Symbol in der neuen Reaktionsoberfläche jedes Datenpunkts) verwenden, um von einem Datenpunkt zu mehreren Datenpunkten zu verlinken, abhängig vom zurückgegebenen Wert (siehe Abschnitt Ändern von Datenpunkten oben)
+* Beachten Sie: Sie können die Zielwertliste (erreichbar über das Schraubenschlüssel-Symbol, bzw. Zahnrad-Symbol in der neuen Reaktionsoberfläche jedes Datenpunkts) verwenden, um von einem Datenpunkt zu mehreren Datenpunkten zu verknüpfen, abhängig vom zurückgegebenen Wert (siehe Abschnitt Ändern von Datenpunkten oben)
 * **REMOTE_COLOR**: *string* - zeigt farbige Schaltflächen an und gibt die entsprechende Farbe ('rot', 'grün', 'gelb' oder 'blau') zurück, wenn eine Farbe angeklickt wird
 * **REMOTE_CHANNELS**: *array* - ein Array von Schaltflächen. Der Name des Buttons wird an die entsprechende State-ID gesendet, wenn der Button angeklickt wird
 * **REMOTE_ADDITIONAL_BUTTONS**: *array* - ein Array von Schaltflächen. Der Name des Buttons wird an die entsprechende State-ID gesendet, wenn der Button angeklickt wird
@@ -1585,7 +1588,7 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
 
 ## Changelog
 
-### dev
+### 1.9.7 (2021-08-31)
 * (sbormann) Added option to close collapsible subheaders, if others open.
 * (sbormann) Fixed missing subheaders if new line option was activated.
 * (sbormann) Added option to define new section spacing.
@@ -1595,6 +1598,8 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
 * (sbormann) Overwrite step for HomematicIP-Temperature sensors with wrong min and max values.
 * (sbormann) Added option to send state-values when clicking on play, pause and stop to media.
 * (sbormann) Updated dependencies.
+* (sbormann) Added sections to widget options.
+* (sbormann) Added option to show state and level devided for device type value.
 
 ### 1.9.6 (2021-08-21)
 * (sbormann) Removed some unnecessary horizontal lines in dialog.

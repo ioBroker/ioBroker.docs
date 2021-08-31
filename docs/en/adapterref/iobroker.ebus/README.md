@@ -32,12 +32,17 @@ There is a possibillity to poll data which are not polled by ebusd directly. Com
 
 Another feature is to send any command to ebusd and receive answer to work with e.g. scripts.
 
-current supported ebusd-version: 3.3
+current supported ebusd-version: 21.2
 
 ## known issues
 * please create issues at [github](https://github.com/rg-engineering/ioBroker.ebus/issues) if you find bugs or whish new features
    
 ## Changelog
+
+## 2.3.0 (2021-09-02)
+* (René) see issue #49: support for ebusd 21.2
+* (René) see issue #40: option to use boolean instead string for values with on/off
+* (René) dependencies updated
 
 ## 2.2.7 (2021-07-03)
 * (René) dependencies updated
