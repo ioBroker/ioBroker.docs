@@ -275,6 +275,11 @@ There are some programs in folder *test' to test the TCP communication:
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 3.4.14 (2021-08-31)
+* (nkleber78) Fixed issue with sorting
+* (bluefox) Corrected the calculations with scaling factor
+* (bluefox) Read times were optimized
+
 ### 3.4.11 (2021-07-31)
 * (bluefox) Corrected import of last line
  

@@ -166,6 +166,13 @@ Example for any image you like:
 ```
 
 ## Changelog
+### 0.8.9
+* (rde-master) Bugfix for no labels ar defined
+
+### 0.8.8
+* (rde-master) Bugfix for error when no Network is available
+* (rde-master) Bugfix for Date
+
 ### 0.8.7
 * (rde-master) Bugfix for Filter JSON there was missing a "}"
 * (rde-master) Bugfix for Filter HTML no longer shows duplicate entries

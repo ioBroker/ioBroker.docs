@@ -112,18 +112,21 @@ History with InfluxDB). Он может быть использован как 
 ![](img/Flot-use1.jpg)
 
 ## Changelog
+### 1.10.7 (2021-08-31)
+* (sbormann) Enhanced the preset list (now shows the full link and the edit link)
+ 
 ### 1.10.6 (2020-12-21)
-* (nobodyMO) added the X value mover and Y value multiplicator
+* (nobodyMO) added the X value mover and Y value multiplication
 
 ### 1.10.4 (2020-11-13)
 * (Apollon77/harvey637) use browser timezone
 
 ### 1.10.2 (2020-08-09)
-* (Apollon77/jlegen) colorpicker in flot edit page fixed
+* (Apollon77/jlegen) color picker in flot edit page fixed
 
 ### 1.10.1 (2020-08-02)
 * (sbormann) preset.html updated to allow german umlaute
-* (Apollon77) add www directory to Github to allow GitHub installs
+* (Apollon77) add www directory to GitHub to allow GitHub installs
 
 ### 1.10.0 (2020-05-14)
 * (sbormann) preset.html added to display a list of stored flot presets with direct links
@@ -302,4 +305,4 @@ History with InfluxDB). Он может быть использован как 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2020 bluefox<dogafox@gmail.com>
+Copyright (c) 2014-2021 bluefox<dogafox@gmail.com>

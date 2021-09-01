@@ -95,6 +95,9 @@ As first value, the name from the warning message must be taken from the log. Th
 	* (DutchmanNL) 
 -->
 
+### __WORK IN PROGRESS__
+* (jlssmt) Added hospital data for germany 
+
 ### 0.8.3 (2021-08-20)
 * (jlssmt) Code refactoring
 * (DutchmanNL) Bugfix: Unwanted deletion of data points for Germany solved 

@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.scenes/README.md
 title: ioBroker 场景适配器
-hash: rjPLw23kWM4giMXmlsiE83vZjEa6NJvzdOUuByzxe0Y=
+hash: 0DsSUdmPssFF9LGP26xHSDzqY0DSmyrZ0wAYSnvEHII=
 ---
-![商标](../../../en/adapterref/iobroker.scenes/admin/scenes.png)
+![标识](../../../en/adapterref/iobroker.scenes/admin/scenes.png)
 
 ![安装数量](http://iobroker.live/badges/scenes-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.scenes.svg)
@@ -35,7 +35,7 @@ _scenes Adapter_ 可以创建场景并在ioBroker环境中执行。
   +- hm-rpc.0.TOP_LIGHT.STATE     - true
 ```
 
-要激活场景，我们必须将“_scene.allLightInBath_”设置为 true（例如通过脚本或可见性）。然后两种状态都将设置为所需的值，即 **true**。
+要激活场景，我们必须将“_scene.allLightInBath_”设置为 true（例如通过脚本或可见性）。然后两种状态都将设置为所需的值，即**真**。
 _scene.allLightInBath_ 的值也会是 **true**。如果我们手动切换顶灯，_scene.allLightInBath_ 的值将变为 **false**。
 如果我们将手动打开灯，再次设置为 **true**。
 
@@ -100,7 +100,18 @@ _scene.allLightInBath_ 的值也会是 **true**。如果我们手动切换顶灯
 
 ## 虚拟组
 **虚拟组**类似于虚拟通道和组，但可以具有任何类型的值：数字、字符串等。
-您可以创建虚拟组来控制客厅的所有百叶窗。通过将 40% 写入虚拟组，所有百叶窗都将设置为 40%。
+您可以创建虚拟组来控制客厅的所有百叶窗。
+通过将 40% 写入虚拟组，所有百叶窗都将设置为 40%。
+
+此外，如果组的所有状态并非都具有相同的值，则您可以定义应为该组取值的行为。
+
+您可以提供以下聚合（仅在高级模式下可用）：
+
+- `uncertain` -（默认）- 组的值将包含文本 `uncertain`。
+- `any` - 组中所有状态的第一个非零值。
+- `min` - 组中所有状态的最小值。
+- `max` - 组中所有状态的最大值。
+- `avg` - 组中所有状态的平均值。
 
 ## 将实际状态保存为场景
 要在某些场景中保存实际状态，您可以向适配器发送消息：
@@ -117,16 +128,17 @@ sendTo(
 );
 ```
 
-适配器将读取此场景中定义的 ID 的所有实际值，并将其保存为配置的值。
+适配器将读取此场景中定义的 ID 的所有实际值并将其保存为配置的值。
 
-<!-- 下一个版本的占位符（在行首）：
+<!-- 下一版本的占位符（在行首）：
 
 ### __工作进行中__ -->
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 2.3.8 (2021-08-31)
 * (Apollon77) Handle case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
+* (TyrionWarMage) Added the aggregation mode for the virtual groups.
+* (bluefox) Sentry data will not be sent in front-end if the diagnostic or sentry is disabled
 
 ### 2.3.6 (2021-01-22)
 * (Apollon77) Check state id before getting value (Sentry IOBROKER-SCENES-F)
@@ -244,6 +256,7 @@ sendTo(
 ### 0.0.1 (2015-07-29)
 * (bluefox) initial commit
 
+## License
 The MIT License (MIT)
 
 Copyright (c) 2015-2021, Bluefox (dogafox@gmail.com)

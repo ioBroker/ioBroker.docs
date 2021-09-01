@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis/README.md
 title: 可视化
-hash: KHzz5K4cmU2+0wZDuIMwQ6k8XSX96vzulY7MCQdq4vo=
+hash: ryhb2CuqQrlCuXb8bunK8iY61NxkSPTTXOCc7qhEKeE=
 ---
-![商标](../../../en/adapterref/iobroker.vis/admin/vis.png)
+![标识](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
 ![安装数量](http://iobroker.live/badges/vis-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.vis.svg)
@@ -26,7 +26,7 @@ ioBroker 平台的 WEB 可视化。
 
 只需写入属性 ```{object.id}``` ，它就会被绑定（不是在编辑模式下）到这个对象的值。
 如果你使用特殊格式，你甚至可以用它做一些简单的操作，例如乘法或格式化。
-模式有以下格式：
+模式具有以下格式：
 
 ```
 {objectID;operation1;operation2;...}
@@ -37,7 +37,7 @@ ioBroker 平台的 WEB 可视化。
 - `\*` - 乘法。参数必须在方括号中，如“*(4)”。在此示例中，我们将 value 乘以 4。
 - `\+` - 添加。参数必须在方括号中，如“+(4.5)”。在此示例中，我们添加到值 4.5。
 - `\-` - 减去。参数必须在方括号中，例如“-(-674.5)”。在此示例中，我们从值 -674.5 中减去。
-- `/` - 分割。参数必须在方括号中，如“/(0.5)”。在此示例中，我们将值除以 0.5。
+- `/` - 分割。参数必须在方括号中，例如“/(0.5)”。在此示例中，我们将值除以 0.5。
 - `%` - 取模。参数必须在方括号中，例如“%(5)”。在此示例中，我们取模 5。
 - `round` - 舍入值。
 - `round(N)` - 在点之后用 N 个位置舍入值，例如34.678；轮（1）=> 34.7
@@ -129,7 +129,7 @@ Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(Ma
 ## 过滤器
 要在一个视图上显示整数个小部件，您可以使用过滤器来减少视图上同时显示的小部件数量。
 
-每个小部件都有一个字段 `filter`。如果您将其设置为某个值，例如`light`，因此您可以使用其他小部件 `(bars - filters, filter - dropdown)` 来控制实际处于活动状态的过滤器。
+每个小部件都有一个字段 `filter`。如果您将其设置为某个值，例如`light`，因此您可以使用其他小部件 `(bars - filters, filter - dropdown)` 来控制哪个过滤器实际处于活动状态。
 
 ##控制界面
 Vis 创建 3 个变量：
@@ -202,12 +202,15 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 
 ![黑暗的](../../../en/adapterref/iobroker.vis/img/dark_screen.png)
 
-<!-- 下一个版本的占位符（在行首）：
+<!-- 下一版本的占位符（在行首）：
 
 ### __工作进行中__ -->
 
 ## Changelog
-### 1.4.1 (2021-07-03)
+### 1.4.4 (2021-08-31)
+* (jobe451) Allowed to have ":" in the binding object IDs
+ 
+### 1.4.3 (2021-07-11)
 * (bluefox) Added possibility to check license offline (only special once)
 
 ### 1.4.0 (2021-07-01)
@@ -503,6 +506,14 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 * (bluefox) add types icon to preview
 * (bluefox) support edit on iPad1
 * (bluefox) change security settings
+
+## License
+To use this adapter in ioBroker you need to accept the source code license of the adapter. The source code of this adapter is available under the CC BY-NC license.
+
+Additionally, you need a license to use the adapter. The following license editions are available on https://iobroker.net/www/pricing 
+* **Community-License: Free for private use!**: Get a free license by registering an account on https://iobroker.net . The license if checked online against the ioBroker license server when the vis adapter is started, so an online connection at this timepoint is required!
+* **Private use Offline-License**: For paying a small support fee you can get rid of the required online license check on adapter startup. **Only for Private use!**
+* **Commercial License**: When using Vis in a commercial environment or selling Vis as part of ioBroker packages to your customers this license is for you. License check is also not requiring an online connection.
 
 ## License
  Copyright (c) 2013-2021 bluefox, https://github.com/GermanBluefox <dogafox@gmail.com>,

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.discovery/README.md
 title: Адаптер ioBroker Discover
-hash: RdRGHBIkYaCIaGJ7onXI7yxUdEBVYhhNzPC8GMrMFtQ=
+hash: Rk3aBQW4Y6gRfsf0rrgnDYU2nyJaCR+JESF1iyG6hU4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
@@ -14,7 +14,7 @@ hash: RdRGHBIkYaCIaGJ7onXI7yxUdEBVYhhNzPC8GMrMFtQ=
 # IoBroker Откройте для себя адаптер
 ![Тестирование и выпуск](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) **Обнаружение устройств всеми известными методами.**
 
-Это специальные адаптеры, которые пытаются найти все возможные устройства, доступные с хоста.
+Это специальный адаптер, который пытается найти все возможные устройства, доступные с хоста.
 Только сейчас он может обнаруживать через ping, UPnP (планируется серийный).
 
 ** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
@@ -53,6 +53,7 @@ hash: RdRGHBIkYaCIaGJ7onXI7yxUdEBVYhhNzPC8GMrMFtQ=
 - InfluxDB
 - КЛФ-200
 - KNX (фактически отключен)
+- Keba KeContact P30
 - Коди
 - Ландроид
 - LGTV
@@ -111,9 +112,10 @@ hash: RdRGHBIkYaCIaGJ7onXI7yxUdEBVYhhNzPC8GMrMFtQ=
 - Интернет
 
 ## Если адаптер не может найти IP ...
-Адаптер проверяет сеть на IP-адрес текущего хоста (x.y.z.1..255). Дополнительно UPnP и mDNS используются для обнаружения IP-адресов.
+Адаптер проверяет сеть на IP-адрес текущего хоста (x.y.z.1..255). Кроме того, для обнаружения IP-адресов используются UPnP и mDNS.
 
-Если не все IP-адреса найдены, убедитесь, что пользователь iobroker может выполнить / bin / ping. Pot выполнить `sudo setcap cap_net_raw+p /bin/ping`, чтобы добавить недостающие возможности / разрешения.
+Если не все IP-адреса найдены, проверьте, может ли пользователь iobroker выполнить `/bin/ping`.
+Вы можете выполнить `sudo setcap cap_net_raw+p /bin/ping`, чтобы добавить недостающие возможности / разрешения.
 
 ## Делать
 - артнет? (Bluefox)
@@ -128,17 +130,19 @@ hash: RdRGHBIkYaCIaGJ7onXI7yxUdEBVYhhNzPC8GMrMFtQ=
 - owfs (Bluefox)
 - rpi2 (если ioBroker работает на Raspberry)
 - rwe-smarthome (PArns)
-- S7 (Bluefox)
+- s7 (Bluefox)
 - смартметр (Apollon77)
 - унифи (jens-maus)
 - волк (улыбается-валет)
-- xs1 (откровенный шутник)
+- xs1 (откровенный шуток)
 
 <! - Заполнитель для следующей версии (в начале строки):
 
 ### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
+### 2.7.2 (2021-08-31)
+* (Sneak-L8) support KeBa KeContact P30
 
 ### 2.7.0 (2021-07-01)
 * (hacki11) Add discovery for BSBLan and ValloxMV
@@ -218,7 +222,7 @@ hash: RdRGHBIkYaCIaGJ7onXI7yxUdEBVYhhNzPC8GMrMFtQ=
 * (oweitman) Add discovery for SqueezeboxRPC
 
 ### 2.1.0 (2020-01-21)
-* (foxriver76) no longer use adapter.objects
+* (foxriver76) no longer use `adapter.objects`
 * __js-controller > 2.0.0 required__
 
 ### 2.0.0 (2019-05-15)

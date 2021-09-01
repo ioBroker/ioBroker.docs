@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.discovery/README.md
 title: ioBroker Discover-Adapter
-hash: RdRGHBIkYaCIaGJ7onXI7yxUdEBVYhhNzPC8GMrMFtQ=
+hash: Rk3aBQW4Y6gRfsf0rrgnDYU2nyJaCR+JESF1iyG6hU4=
 ---
 ![Logo](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
@@ -14,7 +14,7 @@ hash: RdRGHBIkYaCIaGJ7onXI7yxUdEBVYhhNzPC8GMrMFtQ=
 # IoBroker Discover-Adapter
 ![Testen und freigeben](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) **Geräte mit allen bekannten Methoden erkennen.**
 
-Dies sind spezielle Adapter, die versuchen, alle möglichen Geräte zu finden, die vom Host aus erreichbar sind.
+Dies ist ein spezieller Adapter, der versucht, alle möglichen Geräte zu finden, die vom Host aus erreichbar sind.
 Gerade jetzt kann es per Ping erkennen, UPnP (seriell geplant).
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
@@ -32,7 +32,7 @@ Gerade jetzt kann es per Ping erkennen, UPnP (seriell geplant).
 - Denon /Marantz
 - Türvogel
 - ebus
--ekey
+- ekey
 - Energiemanager (E.ON/Solarwatt)
 -enet (Jung)
 - Epson Eingabestift PX830
@@ -53,6 +53,7 @@ Gerade jetzt kann es per Ping erkennen, UPnP (seriell geplant).
 - InfluxDB
 - KLF-200
 - KNX (tatsächlich deaktiviert)
+- Keba KeContact P30
 - Kodi
 - Landroid
 - LGTV
@@ -111,9 +112,10 @@ Gerade jetzt kann es per Ping erkennen, UPnP (seriell geplant).
 - Netz
 
 ## Wenn der Adapter keine IPs finden kann ...
-Der Adapter pingt das Netzwerk der IP des aktuellen Hosts (x.y.z.1..255). Zusätzlich werden UPnP und mDNS verwendet, um IPs zu erkennen.
+Der Adapter pingt das Netzwerk der IP des aktuellen Hosts (x.y.z.1..255). Darüber hinaus werden UPnP und mDNS verwendet, um IPs zu erkennen.
 
-Wenn nicht alle IPs gefunden werden, überprüfen Sie bitte, ob der iobroker-Benutzer /bin/ping ausführen kann. Pot führe `sudo setcap cap_net_raw+p /bin/ping` aus, um fehlende Fähigkeiten/Berechtigungen hinzuzufügen.
+Wenn nicht alle IPs gefunden werden, prüfen Sie bitte, ob der iobroker-Benutzer `/bin/ping` ausführen kann.
+Sie können `sudo setcap cap_net_raw+p /bin/ping` ausführen, um fehlende Fähigkeiten/Berechtigungen hinzuzufügen.
 
 ## Machen
 - artnet? (Blauer Fuchs)
@@ -139,6 +141,8 @@ Wenn nicht alle IPs gefunden werden, überprüfen Sie bitte, ob der iobroker-Ben
 ### __ARBEITEN IN PROGRESS__ -->
 
 ## Changelog
+### 2.7.2 (2021-08-31)
+* (Sneak-L8) support KeBa KeContact P30
 
 ### 2.7.0 (2021-07-01)
 * (hacki11) Add discovery for BSBLan and ValloxMV
@@ -218,7 +222,7 @@ Wenn nicht alle IPs gefunden werden, überprüfen Sie bitte, ob der iobroker-Ben
 * (oweitman) Add discovery for SqueezeboxRPC
 
 ### 2.1.0 (2020-01-21)
-* (foxriver76) no longer use adapter.objects
+* (foxriver76) no longer use `adapter.objects`
 * __js-controller > 2.0.0 required__
 
 ### 2.0.0 (2019-05-15)

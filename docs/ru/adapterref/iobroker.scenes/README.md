@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.scenes/README.md
 title: Адаптер сцен ioBroker
-hash: rjPLw23kWM4giMXmlsiE83vZjEa6NJvzdOUuByzxe0Y=
+hash: 0DsSUdmPssFF9LGP26xHSDzqY0DSmyrZ0wAYSnvEHII=
 ---
 ![Логотип](../../../en/adapterref/iobroker.scenes/admin/scenes.png)
 
@@ -97,7 +97,18 @@ _scenes Adapter_ может создавать сцены и выполнять 
 
 ## Виртуальные группы
 ** Виртуальные группы ** похожи на виртуальные каналы и группы, но могут иметь любые значения: числа, строки и так далее.
-Вы можете создать виртуальную группу для управления всеми ставнями в гостиной. При записи 40% в виртуальную группу все ставни будут установлены на 40%.
+Вы можете создать виртуальную группу для управления всеми ставнями в гостиной.
+При записи 40% в виртуальную группу все ставни будут установлены на 40%.
+
+Кроме того, вы можете определить поведение, при котором значение должно приниматься для группы, если не все состояния группы имеют одинаковое значение.
+
+Вы можете предоставить следующие агрегаты (доступны только в расширенном режиме):
+
+- `неопределенный` - (по умолчанию) - значение группы будет иметь текст` неопределенно`.
+- `any` - первое ненулевое значение всех состояний в группе.
+- `min` - минимальное значение всех состояний в группе.
+- `max` - максимальное значение всех состояний в группе.
+- `avg` - среднее значение всех состояний в группе.
 
 ## Сохранить текущие состояния как сцену
 Чтобы сохранить текущие состояния в какой-либо сцене, вы можете отправить сообщение адаптеру:
@@ -121,9 +132,10 @@ sendTo(
 ### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 2.3.8 (2021-08-31)
 * (Apollon77) Handle case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
+* (TyrionWarMage) Added the aggregation mode for the virtual groups.
+* (bluefox) Sentry data will not be sent in front-end if the diagnostic or sentry is disabled
 
 ### 2.3.6 (2021-01-22)
 * (Apollon77) Check state id before getting value (Sentry IOBROKER-SCENES-F)
@@ -241,6 +253,7 @@ sendTo(
 ### 0.0.1 (2015-07-29)
 * (bluefox) initial commit
 
+## License
 The MIT License (MIT)
 
 Copyright (c) 2015-2021, Bluefox (dogafox@gmail.com)

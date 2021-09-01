@@ -468,6 +468,14 @@ After that checkout modified version in `./build` folder. Then.
 	PLACEHOLDER for next version:
 	### **WORK IN PROGRESS**
 -->
+### 2.0.6 (2021-08-31)
+* (Garfonso) Add manual entity support for geo_location (inofficial currently)
+* (Garfonso) Fix binding for other things than val (like ts or lc).
+* (algar42) Add additional field for accuweather weather (and custom card)
+* (algar42) translate russian characters to allowed charset in ids
+* (Garfonso) Add workaround for custom card upload issue with admin 5.
+* (Garfonso) fix history attribues with state and multiple attributes
+
 ### 2.0.4 (2021-07-23)
 * (Garfonso) Add support for fan entity (makes fan card working).
 * (Garfonso) fix backwards compatibility for input_datetime attributes.
@@ -481,21 +489,6 @@ After that checkout modified version in `./build` folder. Then.
 
 ### 2.0.1 (2021-07-01)
 * (Garfonso) fixed: Zigbee lights (issue 222).
-
-### 2.0.0 (2021-06-17)
-* (Garfonso) Changed: !Breaking! Battery warning is now binary_sensor instead of sensor (now ui sets icon and  translates ok)
-* (Garfonso) Fixed:   !Breaking! entity_id conflict for low_bat / humidity when part of another device
-* (Garfonso) Updated frontend to 20210603.0 (changed light entity to not convert color anymore)
-* (Garfonso) Changed: increased file size limit to 5 MB during upload in config.
-* (Garfonso) Added: Support for input_datetime
-* (Garfonso) Added: Support for manual complex light entities
-* (Garfonso) Added: Support for images from base64 data in iobroker states 
-* (Garfonso) Added: Support for additional alarm states.
-* (Garfonso) Added: Parameter to only enter code when disarming alarm
-* (Garfonso) Added: Support for admin 5 (jsonCustom)
-* (Garfonso) Added: Support for airCondition / rework thermostat
-* (Garfonso) Added: manual entities can be more complex now (needs documentation)
-* (Garfonso) Added: darkMode control
 
 ## License
 
