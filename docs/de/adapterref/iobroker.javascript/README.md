@@ -66,8 +66,10 @@ Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätz
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 5.2.9 (2021-09-02)
 * (Apollon77) Make sure day of weeks is an array (Sentry IOBROKER-JAVASCRIPT-7Y)
+* (bluefox) Report to sentry is disabled in GUI if sentry is deactivated
+* (bluefox) Fixed many GitHub issues
 
 ### 5.2.8 (2021-07-22)
 * (bluefox) Fixed the debug of scripts
@@ -80,9 +82,6 @@ Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätz
 
 ### 5.2.3 (2021-07-08)
 * (agross) Fix imports like "rxjs/operators" for versioned npm modules
-
-### 5.2.2 (2021-07-06)
-* (Apollon77) Add support to install npm packages as defined version (name@version)
 
 ## License
 

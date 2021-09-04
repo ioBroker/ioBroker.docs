@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: PhlLZ7EtzBVxzkvEaZfs/k2Z8YOBt1MFWzfD/y+XLeQ=
+hash: 8UZTeng3PyIFUc7UmWcgdvOakq2fv9DYx+ryxrT2PbM=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -99,7 +99,10 @@ Anweisungen für andere Systeme finden Sie unter https://www.npmjs.com/package/c
 * Häufig gestellte Fragen finden Sie [hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
 
 ## Bekannte Probleme
-* Für einige Modelle (zB Deebot OZMO 930) wird empfohlen, einmal täglich einen [Neustart zu planen](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) weil es einige Meldungen gibt, dass die Verbindung nach ca. 24 Stunden
+* Für einige Modelle (z.B. Deebot OZMO 930) wird es empfohlen
+
+zu [einen Neustart planen](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) einmal täglich, da es einige Meldungen gibt, dass die Verbindung nach ca. 24 Stunden
+
 * Einige Reinigungsfunktionen funktionieren möglicherweise nicht mit Deebot 710/711/711s. Bitte verwenden Sie vorerst Version 0.5.8.
 * Die Funktion "edge" funktioniert nicht mit Deebot U2 (startet stattdessen die automatische Reinigung)
 * Einige "cleaninglog"-Zustände sind bei der T9-Serie leer ("last20Logs", "lastCleaningDate" und "lastCleaningMapImageURL")
@@ -109,14 +112,17 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
 
 ## Changelog
 
-### 1.2.3 (alpha)
-* Using library version 0.6.2 (alpha)
+### 1.2.3
+
+* Using library version 0.6.6
 * Lots of code refactoring, optimizations and some fixes
 
 ### 1.2.2
+
 * Added function to load current map image (non 950 type models, e.g. OZMO 930, Deebot 901)
 
 ### 1.2.1
+
 * Some enhancements and fixes
 * (benep) Added state to play sound by id
 

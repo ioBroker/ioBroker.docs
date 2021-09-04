@@ -25,7 +25,9 @@ Please check it https://www.smarthomejetzt.de/mit-iobroker-auf-eine-home-assista
 ## Changelog
 
 ### __WORK IN PROGRESS__
+* IMPORTANT: js-controller 2.0 is needed st least!
 * (Apollon77) Fix start issue
+* (Apollon77/Garfonso) Fix issue where value could not be set in hass
 
 ### 1.0.0 (2020-12-13)
 * (bluefox) added the support of compact mode

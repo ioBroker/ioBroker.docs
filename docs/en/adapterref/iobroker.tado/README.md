@@ -58,6 +58,9 @@ In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x some
     ### __WORK IN PROGRESS__
 -->
 
+### __WORK IN PROGRESS__
+* (HGlab01) support attributes 'fanLevel', 'verticalSwing', 'horizontalSwing' (#352)
+
 ### 0.3.7 (2021-08-24)
 * (HGlab01) ActiveTimeTable can be set (#337)
 * (HGlab01) Improve logs and change code structure a little bit

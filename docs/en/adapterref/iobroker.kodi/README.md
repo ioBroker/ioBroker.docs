@@ -122,7 +122,7 @@ sendTo("kodi.0", {
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 2.0.8
 * Important: js-controller >= 2.0.0 is required at least
 * (Apollon77) Update kode-ws dependency
 * (Apollon77) Prevent some js-controller 3.3. errors

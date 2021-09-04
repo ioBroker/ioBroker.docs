@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecovacs-deebot/README.md
 title: Адаптер Ecovacs Deebot для ioBroker
-hash: PhlLZ7EtzBVxzkvEaZfs/k2Z8YOBt1MFWzfD/y+XLeQ=
+hash: 8UZTeng3PyIFUc7UmWcgdvOakq2fv9DYx+ryxrT2PbM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -99,7 +99,10 @@ sudo npm install canvas --unsafe-perm=true
 * Часто задаваемые вопросы можно найти [здесь] (https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
 
 ## Известные вопросы
-* Для некоторых моделей (например, Deebot OZMO 930) рекомендуется [запланировать перезапуск] (https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) один раз в день. потому что есть некоторые сообщения о том, что соединение теряется через прибл. 24 часа
+* Для некоторых моделей (например, Deebot OZMO 930) рекомендуется
+
+на [запланировать перезапуск](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) один раз в день, потому что есть сообщения о том, что соединение теряется приблизительно через 24 часа
+
 * Некоторые функции очистки могут не работать с Deebot 710/711 / 711s. Пожалуйста, используйте пока версию 0.5.8.
 * Функция "edge" не работает с Deebot U2 (вместо этого запускает автоматическую очистку)
 * Некоторые состояния "журнала очистки" пусты на серии T9 ("last20Logs", "lastCleaningDate" и "lastCleaningMapImageURL")
@@ -109,14 +112,17 @@ sudo npm install canvas --unsafe-perm=true
 
 ## Changelog
 
-### 1.2.3 (alpha)
-* Using library version 0.6.2 (alpha)
+### 1.2.3
+
+* Using library version 0.6.6
 * Lots of code refactoring, optimizations and some fixes
 
 ### 1.2.2
+
 * Added function to load current map image (non 950 type models, e.g. OZMO 930, Deebot 901)
 
 ### 1.2.1
+
 * Some enhancements and fixes
 * (benep) Added state to play sound by id
 

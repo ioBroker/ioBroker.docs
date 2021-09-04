@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
+hash: XOe8kkIiikVNnLMEviDD7ivNkxpGzrSUWCwjJtzxSTg=
 ---
 ![标识](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -80,7 +80,7 @@ hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
 访问 [iobroker论坛](https://forum.iobroker.net/topic/22039/neuer-adapter-visualisierung-iqontrol)。
 
 ＃＃ 如何使用
-**不要害怕您拥有的众多选择。** 大多数东西都是开箱即用的。您*可以*，但您不必使用 iQontrol 提供的所有配置可能性！就这样开始吧：
+**不要害怕您拥有的众多选项。** 大多数东西都是开箱即用的。您*可以*，但您不必使用 iQontrol 提供的所有配置可能性！就这样开始吧：
 
 * 开始创建视图。
 
@@ -91,12 +91,12 @@ hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
 设备有一个角色，它决定了设备的功能，使用了哪些图标等等。
 根据该角色，您可以将多个状态链接到设备。这些将为设备提供其功能。
 如果您选择“链接到其他视图”作为角色，您可以创建到其他视图的链接。我建议皮肤链接到具有相同背景的其他视图，链接视图具有。
-您也可以尝试使用 Autocreate-Function 从 iobroker-object-tree 中选择现有设备。 Autocreate 尝试找出角色并匹配尽可能多的状态。
+您还可以尝试使用 Autocreate-Function 从 iobroker-object-tree 中选择现有设备。 Autocreate 尝试找出角色并匹配尽可能多的状态。
 
 * 之后您可以创建一个工具栏，显示为页脚。
 
 工具栏条目是视图的链接。
-第一个工具栏条目将是您的“主视图”，将在开始时加载。
+第一个 Toolbar-Entry 将是您的“Home-View”，将在开始时加载。
 
 * 为了给所有东西一个花哨的风格，你可以上传你自己的图片。
 
@@ -110,13 +110,13 @@ hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
 * 请记住，由于 ioBroker-univese 中存在大量不同的适配器和设备，因此自动控制功能无法 100% 正确维护所有设备。您可能需要手动重新设置一些设置以获得最佳结果。但是自动创建为您提供了一个很好的起点，可以在几秒钟内构建自己的可视化。
 
 ## URL 参数
-* 前端通过``http[s]://<url or ip of iobroker>:<port of web adapter>/iqontrol/index.html``调用
+* 前端通过 ``http[s]://<iobroker 的 url 或 ip>:<web 适配器的端口>/iqontrol/index.html`` 调用
     * ``<网络适配器的端口>`` 通常是 8082
 * 要打开指定的实例，您可以添加``namespace=iqontrol.<instance-number>`` 作为 URL 参数
 * 要打开指定的视图，您可以添加 ``renderView=<viewID>`` 作为 URL 参数。
     * ``<viewID>`` 需要格式化为 ``iqontrol.<instance-number>.Views.<view-name>``
 * 注意：这是区分大小写的！
-* 要打开指定的视图作为主页，您可以添加``home=<viewID>`` 作为 URL 参数。这也将更改第一个工具栏条目的链接视图！
+* 要将指定的视图作为主页打开，您可以添加``home=<viewID>`` 作为 URL 参数。这也将更改第一个工具栏条目的链接视图！
     * ``<viewID>`` 需要格式化为 ``iqontrol.<instance-number>.Views.<view-name>``
 * 注意：这是区分大小写的！
 * 要在加载页面时打开指定的对话框，您可以添加 ``openDialog=<deviceID>`` 作为 URL 参数
@@ -137,13 +137,13 @@ hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
 
 ## 字体
 * 您可以将自己的字体文件上传到 Images/Widgets-Tab 文件夹中的 /userfonts
-* 在选项选项卡中，您有几个地方可以选择这些字体
+* 在选项选项卡中有几个地方可以选择这些字体
 * 这取决于您的服务器 MIME 设置，如果字体正确呈现给浏览器 - 对我来说最好的 .ttf 和 .woff（在 raspi 4b 上测试）
     * 这些 mime 设置应该有效：
 * .otf: 应用程序/x-font-opentype
 * .ttf: application/x-font-ttf 或 application/x-font-truetype
 * .woff: 应用程序/font-woff
-* .woff2: 应用程序/font-woff2
+* .woff2：应用程序/font-woff2
 * .eot：应用程序/vnd.ms-fontobject
 * 您可以在 fontsquirrel.com 上的生成器下将字体转换为其他格式
 * 请记住 - webfonts 总是有点棘手，并不是每个服务器和每个浏览器的每种字体都可以使用
@@ -175,7 +175,7 @@ hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
 * 就像 image-urls 中的变量一样，您可以在 device-names 中使用变量。语法几乎相同：
     * ``加载时的文本|加载后的文本 {iobrokerstate|fallback}``
 * 另外可以将 iobrokerstate 放在方括号中，然后将使用不带单位的普通值：``加载时的文本|加载后的文本 {[iobrokerstate]|fallback}``
-    * 示例：``天气正在加载|天气：{javascript.0.weather|未找到天气数据}``
+    * 示例：``Weather is loading|Weather: {javascript.0.weather|No weather data found}``
 * 当您打开视图时，这会显示“天气正在加载”
 * 一旦从服务器获取 ``javascript.0.weather`` 的状态，文本将被替换为 ``Weather: XXX`` 其中 ``XXX`` 是 ``javascript.0 的值.天气``
 * 如果 ``javascript.0.weather`` 没有值，则将使用后备 ``No weather data found`` （使用后备是可选的）
@@ -191,7 +191,7 @@ hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
     * ``ButtonNames``：在这里你可以指定一个逗号分隔的按钮列表，它将显示在弹出窗口的底部（例如“OK,Abort”）
         * ``ButtonValues`` 和 ``ButtonDestinationStates``：这些是将被发送到 ``iqontrol.x.Popup.BUTTON_CLICKED`` 的逗号分隔值列表，如果指定，附加到 ``ButtonDestinationStates` 中的数据点`，如果用户点击了相应的按钮
 * 您可以使用命令 ``COMMAND:renderView`` 和 ``COMMAND:openDialog`` 作为 ButtonDestinationState 来渲染视图或打开对话框，而不是数据点
-* ButtonValue 然后指定视图 resp。对话框并且需要采用``iqontrol.<instance-number>.Views.<view-name>`` 格式。 ``iqontrol.<instance-number>.Views.<view-name>.devices.<device-number>`` 其中``<device-number>`` 从 0 开始（因此视图上的第一个设备是 device数字 0)
+* ButtonValue 然后指定视图 resp。对话框并且需要采用“iqontrol.<instance-number>.Views.<view-name>”格式。 ``iqontrol.<instance-number>.Views.<view-name>.devices.<device-number>`` 其中``<device-number>`` 从 0 开始（因此视图上的第一个设备是 device数字 0)
 * 如果你只使用一个值（而不是逗号分隔的列表），这个值将用于所有按钮
 * 如果您将 ButtonValues 留空，将使用按钮的名称
 * 如果你只使用一个目标状态（而不是逗号分隔的列表），这个状态将用于所有按钮
@@ -203,11 +203,11 @@ hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
 ![弹出截图](img/popup_screenshot.png)![弹出块状](../../../en/adapterref/iobroker.iqontrol/img/popup_blockly.png)
 
 ##小部件
-* 每个 tile 都有一个 BACKGROUND_URL 和一个 BACKGROUND_HTML 数据点
+* 每个图块都有一个 BACKGROUND_URL 和一个 BACKGROUND_HTML 数据点
 * 在这里你可以定义一个链接（通过BACKGROUND_URL）到一个网站或放置直接的HTML代码（通过BACKGROUND_HTML），这将显示为磁贴的背景
 * 这使您可以在磁贴内放置（交互式）内容（如时钟、FLOT 图表、表格、天气预报等）
 * 默认情况下，鼠标事件将定向到此内容（因此您不能再单击磁贴本身），但您可以使用选项“将鼠标事件定向到磁贴而不是BACKGROUND_VIEW/URL/HTML 的内容”来禁用此功能”
-* iQontrol 提供了一个设备角色“小工具”，它有一些预定义的选项集，主要用于将网站显示为小工具。但是您可以通过正确修改设备选项来获得与任何其他角色相同的结果。
+* iQontrol 提供了一个设备角色“小工具”，它有一些预定义的选项集，主要用于将网站显示为小工具。但是您可以通过正确修改设备选项来使用任何其他角色获得相同的结果。
 
 ![弹出截图](../../../en/adapterref/iobroker.iqontrol/img/widget_screenshot.png)
 
@@ -224,13 +224,13 @@ hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
         * ``{ command: "getWidgetState", stateId: <widgetStateId> }``
 * 这将导致 iQontrol 发送 ioBroker 状态的值``iqontrol.<instance>.Widgets.<widgetStateId>``（见下文如何接收应答消息）
         * ``{ 命令：“getWidgetStateSubscribed”，stateId：<widgetStateId> }``
-* 这将导致 iQontrol 现在和每次其值更改时发送 ioBroker 状态 ``iqontrol.<instance>.Widgets.<widgetStateId>`` 的值（参见下文如何接收应答消息）
+* 这将导致 iQontrol 现在和每次其值更改时发送 ioBroker 状态 ``iqontrol.<instance>.Widgets.<widgetStateId>`` 的值（见下文如何接收应答消息）
         * ``{ command: "setWidgetDeviceState", stateId: <widgetDeviceState>, value: <value> }``
 * 这会将分配给设备 STATE ``<widgetDeviceState>``（例如分配给 LEVEL 的数据点）的 ioBroker 数据点设置为值 ``<value>`` (``<value>` ` 可以是字符串、数字或布尔值或像 ``{ val: <value>, ack: true|false }`` 之类的对象
         * ``{ command: "getWidgetDeviceState", stateId: <widgetDeviceState> }``
 * 这将导致 iQontrol 发送 ioBroker 数据点的值，即分配给设备 STATE ``<widgetDeviceState>``（例如，分配给 LEVEL 的数据点；见下文如何接收应答消息）
         * ``{ command: "getWidgetDeviceStateSubscribed", stateId: <widgetDeviceState> }``
-* 这将导致 iQontrol 发送 ioBroker 数据点的值，该值分配给设备 STATE ``<widgetDeviceState>``（例如，分配给 LEVEL 的数据点）现在和每次其值更改时（见下文）如何接收应答消息）
+* 这将导致 iQontrol 发送 ioBroker 数据点的值，该值分配给设备 STATE ``<widgetDeviceState>``（例如，分配给 LEVEL 的数据点）现在和每次其值更改时（见下文如何接收应答消息）
         * ``{ command: "setState", stateId: <stateId>, value: <value> }``
 * 这会将 ioBroker 状态 ``<stateId>`` 设置为值 ``<value>`` （``<value>`` 可以是字符串、数字或布尔值或类似 ``{ val: < value>, ack: true|false }``)
         * ``{ command: "getState", stateId: <stateId> }``
@@ -253,7 +253,7 @@ hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
 			event.data.value = {
 				val: <value (rounded)>,
 				unit: "<unit>",
-				valFull: <value (not rounded)>,
+				valFull: <value (not rounded, no javascript-injection prevention)>,
 				plainText: "<clear text of val, for example taken from valuelist>",
 				min: <minimum>,
 				max: <maximum>,
@@ -269,13 +269,19 @@ hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
 				ts: <timestamp of last actualization>,
 				q: <quality of signal>,
 				role: "<role of state>",
-				type: "<string|number|boolean>"
+				type: "<string|number|boolean>",
+				name: "<name of datapoint>",
+				desc: "<description of datapoint>"
 			}
 			````
 
 * 要指示 iQontrol 在 ``iqontrol.<instance>.Widgets`` 下生成小部件状态，您可以在小部件网站的头部部分中使用元标记：
 * 语法：``<meta name="widget-datapoint" content="WidgetName.StateName" data-type="string" data-role="text" /> ``
 * 您可以使用数据类型（可以设置为字符串、数字或布尔值）、数据角色、数据名称、数据最小值、数据最大值、数据定义和数据单元属性进一步配置数据点
+* 您还可以使用 url 参数（见下文）作为变量，例如使用自己的数据点创建不同的小部件实例。
+* 语法是： `` <meta name="widget-datapoint" content="WidgetName.StateName|WidgetName.{instance}.StateName" data-type="string" data-role="text" /> ``
+* 如果变量 ``instance`` 被设置，那么 ``|`` 之后的部分将用作 widgetState-Name 并且 ``{instance}`` 将被替换为 ``instance`` 的值
+* 如果变量 ``instance`` 未设置，则 ``|`` 之前的部分将用作 wigetState-Name
     * 相应的数据点才会被创建，如果widget-website 作为URL 或BACKGROUND_URL 添加到设备
 * 相同的概念可用于 URL/HTML-State，用于在设备对话框内显示网站
 * 要为您的小部件创建图标，请将与小部件具有相同文件名的 .png 文件放入小部件目录中
@@ -426,14 +432,14 @@ hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
 </详情>
 
 ###小部件的进一步配置
-* 还有额外的元标记，您可以在小部件网站的头部部分中使用来配置小部件的行为：
+* 还有额外的元标签，您可以在小部件网站的头部部分中使用来配置小部件的行为：
 * '小部件描述'
 * 语法：`` <meta name="widget-description" content="Please see www.mywebsite.com for further informations. (C) by me"/> ``
 *将窗口小部件作为URL或Background_URL或AutoCreate窗口小部件将窗口小部件介绍时，将显示内容
 * 'widget-urlparameters'
 * 语法：`` <meta name="widget-urlparameters" content="parameter/default value/description/type;parameter2/default value2/description2/type2"/> ``
-* 将小部件选择为 URL 或背景_URL 或自动创建小部件时，将要求用户提供这些参数
-* ``type`` 是可选的，可能是 ``text`` （这是 dafault）、``number``、``checkbox``、``color``、``select``、``multipleSelect` `、`combobox`、`historyInstance`、`datapoint`、`icon` 或`section`
+*将窗口小部件作为URL或Background_URL或AutoCroCateS进行小部件时，将要求用户询问这些参数
+* ``type`` 是可选的，可能是 ``text`` （这是 dafault）、``number``、``checkbox``、``color``、``select``、``multipleSelect`` `、`combobox`、`historyInstance`、`datapoint`、`icon`、`section` 或`divider`
 * 如果 type 是 ``select``, ``multipleSelect`` 或 ``combobox`` 那么你需要通过添加 ``/<selectOptions>`` 来指定可能的选项，其中 ``<selectOptions>`` 是一个``<value1>,<caption1>/<value2>,<caption2>/...`` 格式的字符串（组合框是一个可以输入自由文本的选择框）
 * 如果 type 是 ``number`` 则可以通过添加``/<numberOptions>`` 来指定最小、最大和步长，其中 ``<numberOptions>`` 是格式为 ``<min> 的字符串， <最大>,<步数>``
 * 所有这些参数都将通过 url-parameter-string（如 ``widget.html?parameter=value&parameter2=value2``）提供给小部件网站
@@ -504,9 +510,9 @@ hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
 * ``invertActuatorLevel`` (Invert LEVEL (0 = open)) - 只对盲人角色有效：
 * 可能的值：“真”|“假”
 * 默认值：“假”
-* ``directionOpeningValue``（'opening' 的 DIRECTION 值） - 仅对角色窗口有效：
+* ``directionOpeningValue``（'opening'的DIRECTION的值）-仅对角色窗口有效：
 * 默认值：“1”
-* ``directionOpeningValue``（'opening' 的 DIRECTION 值） - 仅对角色窗口有效：
+* ``directionOpeningValue``（'opening'的DIRECTION的值）-仅对角色窗口有效：
 * 默认值：“2”
 * ``directionUncertainValue``（“不确定”的方向值） - 仅对角色窗口有效：
 * 默认值：“3”
@@ -541,7 +547,7 @@ hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
 * ``coverImageReloadDelay``（延迟重新加载封面图像 [ms]） - 仅对角色 Media 有效：
 * 可能的值：从 0 到 5000 的数字
 * 默认： ””
-* ``statePlayValue``（'play' 的 STATE 值） - 仅对角色 Media 有效：
+* ``statePlayValue``（“播放”的状态值）-仅对角色媒体有效：
 * 默认值：“播放”
 * ``statePauseValue``（“暂停”的状态值）-仅对角色媒体有效：
 * 默认值：“暂停”
@@ -565,7 +571,7 @@ hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
 * ``remoteSectionsStartOpened``（从最初打开的这些部分开始） - 仅对角色 Media 有效：
 * 可能的值：包含“REMOTE_PAD”、“REMOTE_CONTROL”、“REMOTE_ADDITIONAL_BUTTONS”、“REMOTE_CHANNELS”、“REMOTE_NUMBERS”和/或“REMOTE_COLORS”的数组
 * 默认值：“假”
-* ``remoteShowDirectionsInsidePad``（在Pad内显示音量和通道+/-）-仅对角色媒体有效：
+* ``remoteShowDirectionsInsidePad``（在Pad内显示音量和Ch +/-）-仅对角色媒体有效：
 * 可能的值：“真”|“假”
 * 默认值：“假”
 * ``remoteChannelsCaption``（“频道”部分的标题）-仅对角色媒体有效：
@@ -781,7 +787,7 @@ hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
 * ``batteryActiveConditionValue``（条件值）：
 * 默认： ””
 * UNREACH图标：
-* ``invertUnreach``（反转UNREACH（使用connected而不是unreach））：
+* ``invertUnreach``（反转 UNREACH（使用 connected 而不是 unreach））：
 * 可能的值：“真”|“假”
 * 默认值：“假”
 * ``invertUnreach``（隐藏（忽略）UNREACH，如果设备处于非活动状态）：
@@ -801,7 +807,7 @@ hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
 * ``backgroundURLAllowPostMessage``（允许用于背景视图/URL/HTML 的 postMessage 通信）：
 * 可能的值：“真”|“假”
 * 默认值：“假”
-* ``backgroundURLNoPointerEvents``（将鼠标事件指向磁贴而不是指向 Background_VIEW/URL/HTML 的内容）：
+* ``backgroundURLNoPointerEvents``（将鼠标事件定向到磁贴而不是 Background_VIEW/URL/HTML 的内容）：
 * 可能的值：“真”|“假”
 * 默认值：“假”
 * ``overlayAboveBackgroundURL``（背景视图/URL/HTML 上方的位置叠加）：
@@ -830,12 +836,12 @@ hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
 * 可能的值：“真”|“假”
 * 默认值：“假”
 * ADDITIONAL_CONTROLS：
-* ``additionalControlsSectionType``（ADDITIONAL_CONTROLS 的外观）：
+*``additionalControlsSectionType``（ADDITIONAL_CONTROLS 的外观）：
 * 可能的值：“无”|“可折叠”|“可折叠打开”
 * 默认值：“可折叠”
 * ``additionalControlsCaption``（ADDITIONAL_CONTROLS 的标题）：
 * 默认值：“附加控件”
-* ``additionalControlsHeadingType``（ADDITIONAL_CONTROLS 标题的外观）：
+*``additionalControlsHeadingType``（ADDITIONAL_CONTROLS 标题的外观）：
 * 可能的值：“无”|“可折叠”|“可折叠打开”
 * 默认值：“可折叠”
 * 附加信息：
@@ -942,7 +948,7 @@ hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
 
 * 您可以将以下 HTML 代码作为 html-file 上传到 /userwidgets 子目录中，并将其引用到 Background_URL-State（然后需要将其配置为“Constant”）
 * 添加小部件时会显示说明
-* 询问标题的 url 参数
+* 询问标题和实例的 url 参数
 * 然后会询问您是否要应用包含的选项
 * 创建了一堆数据点来控制地图的位置并设置最喜欢的位置
 
@@ -951,63 +957,64 @@ hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
 <html style="width: 100%; height: 100%; margin: 0px;">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<meta name="widget-description" content="This is a map widget, please provide coordinates at iqontrol.x.Widgets.Map. (C) by Sebastian Bormann"/>
-	<meta name="widget-urlparameters" content="title/My Map/Please enter a title for your map">
+	<meta name="widget-description" content="This is a map widget, please provide coordinates at iqontrol.x.Widgets.Map[.instance]. (C) by Sebastian Bormann"/>
+	<meta name="widget-urlparameters" content="instance//Instance (create mulitple instances to get multiple distinct datapoints to configure your map)/number/0,100,1;title/My Map/Title for your map">
 	<meta name="widget-options" content="{'noZoomOnHover': 'true', 'hideDeviceName': 'true', 'sizeInactive': 'xwideIfInactive highIfInactive', 'iconNoPointerEventsInactive': 'true', 'hideDeviceNameIfInactive': 'true', 'hideStateIfInactive': 'true', 'sizeActive': 'fullWidthIfActive fullHeightIfActive', 'bigIconActive': 'true', 'iconNoPointerEventsActive': 'true', 'hideDeviceNameIfActive': 'true', 'hideStateIfActive': 'true', 'sizeEnlarged': 'fullWidthIfEnlarged fullHeightIfEnlarged', 'bigIconEnlarged': 'true', 'iconNoPointerEventsEnlarged': 'false', 'noOverlayEnlarged': 'true', 'hideDeviceNameIfEnlarged': 'true', 'hideStateIfEnlarged': 'true', 'popupAllowPostMessage': 'true', 'backgroundURLAllowPostMessage': 'true', 'backgroundURLNoPointerEvents': 'false'}"/>
 
-	<meta name="widget-datapoint" content="Map.Position.latitude" data-type="number" data-role="value.gps.latitude" />
-	<meta name="widget-datapoint" content="Map.Position.longitude" data-type="number" data-role="value.gps.longitude" />
-	<meta name="widget-datapoint" content="Map.Position.zoom" data-type="number" data-role="value.zoom" />
+	<meta name="widget-datapoint" content="Map.Position.latitude|Map.{instance}.Position.latitude" data-type="number" data-role="value.gps.latitude" />
+	<meta name="widget-datapoint" content="Map.Position.longitude|Map.{instance}.Position.longitude" data-type="number" data-role="value.gps.longitude" />
+	<meta name="widget-datapoint" content="Map.Position.zoom|Map.{instance}.Position.zoom" data-type="number" data-role="value.zoom" />
 
-	<meta name="widget-datapoint" content="Map.Favorites.0.Position.latitude" data-type="number" data-role="value.gps.latitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.0.Position.longitude" data-type="number" data-role="value.gps.longitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.0.name" data-type="string" data-role="text" />
-	<meta name="widget-datapoint" content="Map.Favorites.0.icon-url" data-type="string" data-role="url" />
+	<meta name="widget-datapoint" content="Map.Favorites.0.Position.latitude|Map.{instance}.Favorites.0.Position.latitude" data-type="number" data-role="value.gps.latitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.0.Position.longitude|Map.{instance}.Favorites.0.Position.longitude" data-type="number" data-role="value.gps.longitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.0.name|Map.{instance}.Favorites.0.name" data-type="string" data-role="text" />
+	<meta name="widget-datapoint" content="Map.Favorites.0.icon-url|Map.{instance}.Favorites.0.icon-url" data-type="string" data-role="url" />
 
-	<meta name="widget-datapoint" content="Map.Favorites.1.Position.latitude" data-type="number" data-role="value.gps.latitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.1.Position.longitude" data-type="number" data-role="value.gps.longitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.1.name" data-type="string" data-role="text" />
-	<meta name="widget-datapoint" content="Map.Favorites.1.icon-url" data-type="string" data-role="url" />
+	<meta name="widget-datapoint" content="Map.Favorites.1.Position.latitude|Map.{instance}.Favorites.1.Position.latitude" data-type="number" data-role="value.gps.latitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.1.Position.longitude|Map.{instance}.Favorites.1.Position.longitude" data-type="number" data-role="value.gps.longitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.1.name|Map.{instance}.Favorites.1.name" data-type="string" data-role="text" />
+	<meta name="widget-datapoint" content="Map.Favorites.1.icon-url|Map.{instance}.Favorites.1.icon-url" data-type="string" data-role="url" />
 
-	<meta name="widget-datapoint" content="Map.Favorites.2.Position.latitude" data-type="number" data-role="value.gps.latitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.2.Position.longitude" data-type="number" data-role="value.gps.longitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.2.name" data-type="string" data-role="text" />
-	<meta name="widget-datapoint" content="Map.Favorites.2.icon-url" data-type="string" data-role="url" />
+	<meta name="widget-datapoint" content="Map.Favorites.2.Position.latitude|Map.{instance}.Favorites.2.Position.latitude" data-type="number" data-role="value.gps.latitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.2.Position.longitude|Map.{instance}.Favorites.2.Position.longitude" data-type="number" data-role="value.gps.longitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.2.name|Map.{instance}.Favorites.2.name" data-type="string" data-role="text" />
+	<meta name="widget-datapoint" content="Map.Favorites.2.icon-url|Map.{instance}.Favorites.2.icon-url" data-type="string" data-role="url" />
 
-	<meta name="widget-datapoint" content="Map.Favorites.3.Position.latitude" data-type="number" data-role="value.gps.latitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.3.Position.longitude" data-type="number" data-role="value.gps.longitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.3.name" data-type="string" data-role="text" />
-	<meta name="widget-datapoint" content="Map.Favorites.3.icon-url" data-type="string" data-role="url" />
+	<meta name="widget-datapoint" content="Map.Favorites.3.Position.latitude|Map.{instance}.Favorites.3.Position.latitude" data-type="number" data-role="value.gps.latitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.3.Position.longitude|Map.{instance}.Favorites.3.Position.longitude" data-type="number" data-role="value.gps.longitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.3.name|Map.{instance}.Favorites.3.name" data-type="string" data-role="text" />
+	<meta name="widget-datapoint" content="Map.Favorites.3.icon-url|Map.{instance}.Favorites.3.icon-url" data-type="string" data-role="url" />
 
-	<meta name="widget-datapoint" content="Map.Favorites.4.Position.latitude" data-type="number" data-role="value.gps.latitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.4.Position.longitude" data-type="number" data-role="value.gps.longitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.4.name" data-type="string" data-role="text" />
-	<meta name="widget-datapoint" content="Map.Favorites.4.icon-url" data-type="string" data-role="url" />
+	<meta name="widget-datapoint" content="Map.Favorites.4.Position.latitude|Map.{instance}.Favorites.4.Position.latitude" data-type="number" data-role="value.gps.latitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.4.Position.longitude|Map.{instance}.Favorites.4.Position.longitude" data-type="number" data-role="value.gps.longitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.4.name|Map.{instance}.Favorites.4.name" data-type="string" data-role="text" />
+	<meta name="widget-datapoint" content="Map.Favorites.4.icon-url|Map.{instance}.Favorites.4.icon-url" data-type="string" data-role="url" />
 
-	<meta name="widget-datapoint" content="Map.Favorites.5.Position.latitude" data-type="number" data-role="value.gps.latitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.5.Position.longitude" data-type="number" data-role="value.gps.longitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.5.name" data-type="string" data-role="text" />
-	<meta name="widget-datapoint" content="Map.Favorites.5.icon-url" data-type="string" data-role="url" />
+	<meta name="widget-datapoint" content="Map.Favorites.5.Position.latitude|Map.{instance}.Favorites.5.Position.latitude" data-type="number" data-role="value.gps.latitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.5.Position.longitude|Map.{instance}.Favorites.5.Position.longitude" data-type="number" data-role="value.gps.longitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.5.name|Map.{instance}.Favorites.5.name" data-type="string" data-role="text" />
+	<meta name="widget-datapoint" content="Map.Favorites.5.icon-url|Map.{instance}.Favorites.5.icon-url" data-type="string" data-role="url" />
 
-	<meta name="widget-datapoint" content="Map.Favorites.6.Position.latitude" data-type="number" data-role="value.gps.latitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.6.Position.longitude" data-type="number" data-role="value.gps.longitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.6.name" data-type="string" data-role="text" />
-	<meta name="widget-datapoint" content="Map.Favorites.6.icon-url" data-type="string" data-role="url" />
+	<meta name="widget-datapoint" content="Map.Favorites.6.Position.latitude|Map.{instance}.Favorites.6.Position.latitude" data-type="number" data-role="value.gps.latitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.6.Position.longitude|Map.{instance}.Favorites.6.Position.longitude" data-type="number" data-role="value.gps.longitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.6.name|Map.{instance}.Favorites.6.name" data-type="string" data-role="text" />
+	<meta name="widget-datapoint" content="Map.Favorites.6.icon-url|Map.{instance}.Favorites.6.icon-url" data-type="string" data-role="url" />
 
-	<meta name="widget-datapoint" content="Map.Favorites.7.Position.latitude" data-type="number" data-role="value.gps.latitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.7.Position.longitude" data-type="number" data-role="value.gps.longitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.7.name" data-type="string" data-role="text" />
-	<meta name="widget-datapoint" content="Map.Favorites.7.icon-url" data-type="string" data-role="url" />
+	<meta name="widget-datapoint" content="Map.Favorites.7.Position.latitude|Map.{instance}.Favorites.7.Position.latitude" data-type="number" data-role="value.gps.latitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.7.Position.longitude|Map.{instance}.Favorites.7.Position.longitude" data-type="number" data-role="value.gps.longitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.7.name|Map.{instance}.Favorites.7.name" data-type="string" data-role="text" />
+	<meta name="widget-datapoint" content="Map.Favorites.7.icon-url|Map.{instance}.Favorites.7.icon-url" data-type="string" data-role="url" />
 
-	<meta name="widget-datapoint" content="Map.Favorites.8.Position.latitude" data-type="number" data-role="value.gps.latitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.8.Position.longitude" data-type="number" data-role="value.gps.longitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.8.name" data-type="string" data-role="text" />
-	<meta name="widget-datapoint" content="Map.Favorites.8.icon-url" data-type="string" data-role="url" />
+	<meta name="widget-datapoint" content="Map.Favorites.8.Position.latitude|Map.{instance}.Favorites.8.Position.latitude" data-type="number" data-role="value.gps.latitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.8.Position.longitude|Map.{instance}.Favorites.8.Position.longitude" data-type="number" data-role="value.gps.longitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.8.name|Map.{instance}.Favorites.8.name" data-type="string" data-role="text" />
+	<meta name="widget-datapoint" content="Map.Favorites.8.icon-url|Map.{instance}.Favorites.8.icon-url" data-type="string" data-role="url" />
 
-	<meta name="widget-datapoint" content="Map.Favorites.9.Position.latitude" data-type="number" data-role="value.gps.latitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.9.Position.longitude" data-type="number" data-role="value.gps.longitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.9.name" data-type="string" data-role="text" />
-	<meta name="widget-datapoint" content="Map.Favorites.9.icon-url" data-type="string" data-role="url" />
+	<meta name="widget-datapoint" content="Map.Favorites.9.Position.latitude|Map.{instance}.Favorites.9.Position.latitude" data-type="number" data-role="value.gps.latitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.9.Position.longitude|Map.{instance}.Favorites.9.Position.longitude" data-type="number" data-role="value.gps.longitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.9.name|Map.{instance}.Favorites.9.name" data-type="string" data-role="text" />
+	<meta name="widget-datapoint" content="Map.Favorites.9.icon-url|Map.{instance}.Favorites.9.icon-url" data-type="string" data-role="url" />
+
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
 	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 	<title>iQontrol Map Widget</title>
@@ -1025,19 +1032,22 @@ hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
 	var mapMarkerIcons = [];
 	var mymap = false;
 
-	//Set title from UrlParameter
+	//Get UrlParameters
+	var instance = getUrlParameter('instance');
+	var widgetDatapointsRoot = (instance ? "Map." + instance : "Map");
 	document.getElementById('title').innerHTML = getUrlParameter('title') || "";
 
 	//Subscribe to WidgetDatapoints now
-	sendPostMessage("getWidgetStateSubscribed", "Map.Position.latitude");
-	sendPostMessage("getWidgetStateSubscribed", "Map.Position.longitude");
-	sendPostMessage("getWidgetStateSubscribed", "Map.Position.zoom");
+	console.log("Getting Map Datapoints from " + widgetDatapointsRoot);
+	sendPostMessage("getWidgetStateSubscribed", widgetDatapointsRoot + ".Position.latitude");
+	sendPostMessage("getWidgetStateSubscribed", widgetDatapointsRoot + ".Position.longitude");
+	sendPostMessage("getWidgetStateSubscribed", widgetDatapointsRoot + ".Position.zoom");
 	for(var i=0; i<10; i++){
 		mapFavorites[i] = {};
-		sendPostMessage("getWidgetStateSubscribed", "Map.Favorites." + i + ".Position.latitude");
-		sendPostMessage("getWidgetStateSubscribed", "Map.Favorites." + i + ".Position.longitude");
-		sendPostMessage("getWidgetStateSubscribed", "Map.Favorites." + i + ".name");
-		sendPostMessage("getWidgetStateSubscribed", "Map.Favorites." + i + ".icon-url");
+		sendPostMessage("getWidgetStateSubscribed", widgetDatapointsRoot + ".Favorites." + i + ".Position.latitude");
+		sendPostMessage("getWidgetStateSubscribed", widgetDatapointsRoot + ".Favorites." + i + ".Position.longitude");
+		sendPostMessage("getWidgetStateSubscribed", widgetDatapointsRoot + ".Favorites." + i + ".name");
+		sendPostMessage("getWidgetStateSubscribed", widgetDatapointsRoot + ".Favorites." + i + ".icon-url");
 	}
 
 	//Initialize and Reposition map
@@ -1106,26 +1116,26 @@ hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
 		if(event.data && event.data.command) switch(event.data.command){
 			case "getState":
 				if(event.data.stateId && event.data.value) switch(event.data.stateId){
-					case "Map.Position.latitude":
+					case widgetDatapointsRoot + ".Position.latitude":
 						console.log("Set latitude to " + event.data.value.valFull);
 						mapPositionLatitude = parseFloat(event.data.value.valFull) || 0;
 						repositionMap();
 					break;
 
-					case "Map.Position.longitude":
+					case widgetDatapointsRoot + ".Position.longitude":
 						console.log("Set longitude to " + event.data.value.valFull);
 						mapPositionLongitude = parseFloat(event.data.value.valFull) || 0;
 						repositionMap();
 					break;
 
-					case "Map.Position.zoom":
+					case widgetDatapointsRoot + ".Position.zoom":
 						console.log("Set zoom to " + event.data.value.valFull);
 						mapPositionZoom = parseFloat(event.data.value.valFull) || 0;
 						repositionMap();
 					break;
 
 					default:
-					if(event.data.stateId.substring(0, 14) == "Map.Favorites."){
+					if(event.data.stateId.substring(0, 14) == widgetDatapointsRoot + ".Favorites."){
 						var favoritesIndex = parseInt(event.data.stateId.substring(14,15));
 						switch(event.data.stateId.substring(16)){
 							case "Position.latitude":
@@ -1300,7 +1310,7 @@ hash: c0zq2NOBcnblLYldADMxcceFvYCEf1fRyDGU3/NQdGs=
     如果您的设备不支持使用 HUE、SATURATION 和 COLOR_BRIGHTNESS（HSB/HSV 色彩空间），您可以使用多种替代色彩空间。在设备选项中，您可以选择以下颜色空间之一：
 
         * **RGB** / **#RGB**：您可以使用 RGB 格式（十六进制）代替 HUE、SATURATION 和 COLOR_BRIGHTNESS，可选带前导“#”
-        * **RGBW** / **#RGBW**：您可以使用 RGBW 格式（十六进制）代替 HUE、SATURATION、COLOR_BRIGHTNESS 和 WHITE_BRIGHTNESS，可选带前导“#”
+        * **RGBW** / **#RGBW**：您可以使用 RGBW 格式（十六进制），而不是使用 HUE、SATURATION、COLOR_BRIGHTNESS 和 WHITE_BRIGHTNESS，可选带前导“#”
         * **RGBWWCW** / **#RGBWWCW** / **RGBCWWW** / **#RGBCWWW**：您可以使用 RGBWWCW- 或 RGBCWWW 格式（十六进制）代替 HUE、SATURATION、COLOR_BRIGHTNESS、CT 和 WHITE_BRIGHTNESS , WW = 暖白，CW = 冷白），可选带前导“#”
         * **RGB（仅色调）** / **#RGB（仅色调）**：您可以使用 RGB（仅色调）-格式（十六进制）代替使用色调，可选带前导“#”。在这种特殊情况下，RGB 格式将只接受色调颜色圈的纯饱和颜色。不允许混合白色
     * **Milight 的 Hue** 这是 Milight-Devices (v5) 的 Hue-Value，在色相颜色圈中使用另一个起点：
@@ -1313,7 +1323,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 
         * **HHSSBB for Tuya**：12 位长十六进制字符串，代表色相（HH = 0000-016d [0-365]）、饱和度（SS = 0000-03e8 [0-1000]）和色亮度（BB = 0000-03e8 [0-1000])
 
-请记住：转换到替代色彩空间是由前端完成的，因此只有在某处打开 iQontrol 时它才处于活动状态。因此，您不能将其用作色彩空间的转换器。为了避免对话循环，建议使用原始色彩空间数据点（HUE、SATURATION、COLOR_BRIGHTNESS、CT、WHITE_BRIGHTNESS）*或*替代色彩空间数据点来*替换*这些数据点。
+请记住：转换到替代色彩空间是由前端完成的，因此它仅在 iQontrol 在某处打开时才处于活动状态。因此，您不能将其用作色彩空间的转换器。为了避免对话循环，建议使用原始色彩空间数据点（HUE、SATURATION、COLOR_BRIGHTNESS、CT、WHITE_BRIGHTNESS）*或*替代色彩空间数据点来*替换*这些数据点。
 
 *效果模式：
   ***EFFECT**:* alue-list* - 要播放的效果
@@ -1384,19 +1394,19 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 
 ###<img src="img/icons/fire_on.png" width="32">火灾传感器：
 * **STATE**: *boolean* - 如果为真，传感器将显示为已触发
-  *或者，您可以分配一个* alue-list*，以显示其他状态，例如“篡改”
+  *或者，您可以分配一个* alue-list*，以显示其他状态，如“篡改”
   *您还可以指定一个* tring* 来显示任何文本，例如“楼上的火”
 * **linked-view-property** 直接打开
 
 ###<img src="img/icons/flood_on.png" width="32">洪水传感器：
 * **STATE**: *boolean* - 如果为真，传感器将显示为已触发
-  *或者，您可以分配一个* alue-list*，以显示其他状态，例如“篡改”
+  *或者，您可以分配一个* alue-list*，以显示其他状态，如“篡改”
   *您还可以指定一个* tring* 来显示任何文本，例如“楼上的洪水”
 * **linked-view-property** 直接打开
 
 ###<img src="img/icons/alarm_on.png" width="32">警报：
 * **STATE**: *boolean* - 如果为真，传感器将显示为已触发
-  *或者，您可以分配一个* alue-list*，以显示其他状态，例如“篡改”
+  *或者，您可以分配一个* alue-list*，以显示其他状态，如“篡改”
   *您还可以指定一个* tring* 来显示任何文本，例如“楼上的火”
 * **CONTROL_MODE**: *value-list* - 选择操作模式，如“武装”和“解除武装”
     * 在设备选项中您可以定义代表撤防的值，因此可以显示代表图标
@@ -1408,7 +1418,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 * **VOLTAGE**: *number* - 右上角会以小字显示的电压
 
 ###<img src="img/icons/time_alarmclock_on.png" width="32">日期和时间：
-* **STATE**: *boolean* - 如果为真，图块将显示为活动状态
+* **STATE**: *boolean* - 如果为 true，则图块将显示为活动状态
 * **SUBJECT**: *string* - 设置描述
 * **RINGING**: *boolean* - 如果为真，则显示闹钟
 * 请记住：您可以通过 ADDITIONAL_CONTROLS 配置退出和暂停按钮
@@ -1451,7 +1461,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 | | | kk | 01 02 ... 23 24 | X | ---（转换为 HH） | ---（转换为 HH） |
 | |分钟 |米| 0 1 ... 58 59 | X | X | X |
 | | |毫米 | 00 01 ... 58 59 | X | X | X |
-| |第二 | | 0 1 ... 58 59 | X | X | X |
+| |第二 | | | 0 1 ... 58 59 | X | X | X |
 | | | ss | 00 01 ... 58 59 | X | X | X |
 | |小数秒 | | | 0 1 ... 8 9 | X | --- | --- |
 | | | SS | 00 01 ... 98 99 | X | --- | --- |
@@ -1466,7 +1476,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 |其他 |星期几（语言环境）|电子 | 0 1 ... 5 6 | X | --- | --- |
 | |星期几 (ISO) | E | 1 2 ... 6 7 | X | --- | --- |
 | |季度|问 | 1 2 3 4 | X | --- | --- |
-| | | Qo | 1 2 3 4 | X | --- | --- |
+| | | Qo |一二三四| X | --- | --- |
 | |一年中的一周 | | | 1 2 ... 52 53 | X | --- | --- |
 | | |我|第 2 次 ... 第 52 次 53 次 | X | --- | --- |
 | | | ww | 01 02 ... 52 53 | X | --- | --- |
@@ -1524,7 +1534,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
     * 在设备选项中，您可以定义代表播放、暂停和停止的值
 * **COVER_URL**: *string* - 封面图片的 url
 * **艺术家、专辑、标题**：*字符串* - 自我解释
-* **TRACK_NUMBER**：*number* - 自我解释
+* **TRACK_NUMBER**: *number* - 自我解释
 * **PREV, REWIND, PLAY, PAUSE, STOP, FORWARD, NEXT**: *boolean* - 将被设置为真，如果相应的按钮被按下
 * **SHUFFLE, MUTE, PLAY_EVERYWHERE, EJECT, POWER_SWITCH**: *boolean* - 对应函数的状态
 * **REPEAT**: *boolean* - 重复功能的状态或 *string* - 3 个状态可以通过相应的选项定义：关闭、重复所有和重复一个的值
@@ -1553,7 +1563,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 * **URL**: CONSTANT *string* - 这个 url 将被打开
 
 ###<img src="img/icons/widget_on.png" width="32">小部件：
-该设备有一些特殊的预定义大小和显示设置来显示网站，可以通过 **BACKGROUND_URL** 定义为小部件。使用默认选项，右上角会显示一个小的放大按钮。
+该设备有一些特殊的预定义大小和显示设置来显示网站，可以通过 **BACKGROUND_URL** 定义为小部件。使用默认选项时，右上角会显示一个小的放大按钮。
 
 * **STATE**：*any* - SPECIAL：如果为空，将创建一个虚拟数据点，因此您可以单击图标以激活并因此最大化小部件的大小
 
@@ -1580,13 +1590,20 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 * 切换到控制台窗口并重现错误
 * 在控制台窗口中查找消息
 * 出现错误时，会列出导致错误的行号
-* 请点击此行号并截取故障线路：
+* 请点击此行号并截图故障线路：
 
 ![故障排除控制台窗口](img/troubleshooting_consolewindow.png)![排除故障线路](../../../en/adapterref/iobroker.iqontrol/img/troubleshooting_faultyline.png)
 
 ****
 
 ## Changelog
+
+### 1.9.8 (2021-09-03)
+* (sbormann) Fixed variables with special chars not working.
+* (sbormann) Enhanced json-table-widget with datapoint recognition, which allows to see values and toggle datapoints in the list.
+* (sbormann) Fixed view rendering problems with thermostats without CONTROL_MODE.
+* (sbormann) Added the ability to widgets, to create widgetStates that contain a variable (for example to create distinct instances of a widget with own datapoints).
+* (sbormann) The map widget has been extended with a instance-option to create multiple maps with own datapoints.
 
 ### 1.9.7 (2021-08-31)
 * (sbormann) Added option to close collapsible subheaders, if others open.

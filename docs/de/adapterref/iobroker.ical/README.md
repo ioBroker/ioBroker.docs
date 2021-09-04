@@ -198,7 +198,7 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 	### **WORK IN PROGRESS**
 -->
 
-### __WORK IN PROGRESS__
+### 1.11.4 (2021-09-02)
 * (Apollon77) fix cases where already ended entries where still listed
 * (Apollon77) fix reported sentry crash cases (IOBROKER-ICAL-S, IOBROKER-ICAL-N)
 

@@ -30,9 +30,9 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
-### 1.1.10 (16.07.2020)
+### 1.1.10 (16.07.2021)
 * (HombachC) bumped dependencies; fixed vulnerability
-### 1.1.9 (13.06.2020)
+### 1.1.9 (13.06.2021)
 * (HombachC) bumped dependencies; fixed vulnerability
 ### 1.1.7 (09.05.2021)
 * (HombachC) added tests for node.js 16; fixed vulnerability
@@ -46,7 +46,7 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 * (tobstare) added DC1-3 Current, Voltage and Power
 * (HombachC) added battery.ChargeCycles
 * (HombachC) bumped dependencies; added battery.temperature
-### 1.0.2 (23.09.2020) stable
+### 1.0.2 (23.09.2020)
 * (HombachC) public release for stable repo
 ### 0.8.0 (18.08.2020)
 * (HombachC) seperate editable poll timer for statistics data

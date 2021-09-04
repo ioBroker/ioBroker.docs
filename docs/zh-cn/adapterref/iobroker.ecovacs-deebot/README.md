@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
 title: 适用于 ioBroker 的 Ecovacs Deebot 适配器
-hash: PhlLZ7EtzBVxzkvEaZfs/k2Z8YOBt1MFWzfD/y+XLeQ=
+hash: 8UZTeng3PyIFUc7UmWcgdvOakq2fv9DYx+ryxrT2PbM=
 ---
 ![标识](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -99,7 +99,10 @@ sudo npm install canvas --unsafe-perm=true
 * 常见问题可以在这里找到（https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ）
 
 ＃＃ 已知的问题
-* 对于某些型号（例如 Deebot OZMO 930），建议每天一次[安排重启](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content)因为有一些报告说大约在大约之后连接丢失了。 24小时
+* 对于某些型号（例如 Deebot OZMO 930），建议使用
+
+到 [安排重启](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) 每天一次，因为有一些报告说大约在大约 . 24小时
+
 * 某些清洁功能可能不适用于 Deebot 710/711/711s。请暂时使用 0.5.8 版本。
 * “边缘”功能不适用于 Deebot U2（改为启动自动清洁）
 * T9 系列上的一些“cleaninglog”状态为空（“last20Logs”、“lastCleaningDate”和“lastCleaningMapImageURL”）
@@ -109,14 +112,17 @@ sudo npm install canvas --unsafe-perm=true
 
 ## Changelog
 
-### 1.2.3 (alpha)
-* Using library version 0.6.2 (alpha)
+### 1.2.3
+
+* Using library version 0.6.6
 * Lots of code refactoring, optimizations and some fixes
 
 ### 1.2.2
+
 * Added function to load current map image (non 950 type models, e.g. OZMO 930, Deebot 901)
 
 ### 1.2.1
+
 * Some enhancements and fixes
 * (benep) Added state to play sound by id
 

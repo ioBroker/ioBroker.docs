@@ -3,46 +3,47 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sonos/README.md
 title: ioBroker.sonos
-hash: 6jEag0CWH8dCJXRGxsY8E66yJywGyTXx1xXfWnNc72A=
+hash: 6YlAtVA6sEFRSXrmRNQl0oO4V6bzV5QrMEQB9sLy6RI=
 ---
-![商标](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
+![标识](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
 
 ![安装数量](http://iobroker.live/badges/sonos-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.sonos.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.sonos.svg)
-![NPM](https://nodei.co/npm/iobroker.sonos.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.sonos.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.sonos.svg)
+![新产品管理](https://nodei.co/npm/iobroker.sonos.png?downloads=true)
 
-＃ioBroker.sonos
-使用ioBroker控制和监视SONOS设备。
+#ioBroker.sonos
+使用 ioBroker 控制和监控 SONOS 设备。
 
-##组的处理
-*处理SONOS组的状态：
-   * **“协调器” **：设置/获取协调器，因此SONOS设备是主机和协调组。它要求SONOS设备的IP地址（通道名称）为协调器，但下划线为“ _”而不是点“。”，因此对于IP地址“ 192.168.0.100”，请使用“ 192_168_0_100”。如果设备不属于任何组，则该值等于自己的通道名称（IP）。
-  * **group_volume`** 群组的数量
-  * **group_muted`** 群组的静音状态。
-  * **add_to_group`** 将某个SONOS设备添加到处于该状态的SONOS设备中。使用带下划线的IP地址（请参见上文）。
-  * **remove_from_group`** 从处于此状态的SONOS设备中删除某个SONOS设备。使用带下划线的IP地址（请参见上文）。
+## 处理组
+* 处理 SONOS 组的状态：
+   * **`coordinator`**：设置/获取协调器，因此SONOS设备是主设备并协调组。它需要 SONOS 设备的 IP 地址（通道名称）作为协调器，但使用下划线“_”而不是点“.”，因此使用例如“192_168_0_100”作为 IP 地址“192.168.0.100”。如果设备不属于任何组，则该值等于自己的通道名称 (IP)。
+   * **`group_volume`**：组的音量
+   * **`group_muted`**：群组静音状态。
+   * **`add_to_group`**：将某个SONOS设备添加到该状态所在的SONOS设备中。使用带下划线的 IP 地址（见上文）。
+   * **`remove_from_group`**：从该状态所在的SONOS设备中移除某个SONOS设备。使用带下划线的 IP 地址（见上文）。
 
-*）如果在SONOS应用中进行了更改，这些状态将被更新。
+*) 如果在 SONOS 应用程序中进行更改，这些状态将更新。
 
-##与sayIt适配器一起使用
-实例化并正在运行[使用此SONOS适配器的sayit适配器]（https://github.com/ioBroker/ioBroker.sayit），请确保[Web适配器](https://github.com/ioBroker/ioBroker.web)。需要Web适配器以允许SONOS适配器从sayit适配器读取生成的MP3文件。
+## 与 sayIt 适配器一起使用
+使用 [sayit 适配器](https://github.com/ioBroker/ioBroker.sayit) 使用此 SONOS 适配器，确保 [网络适配器](https://github.com/ioBroker/ioBroker.web) 也是实例化和运行的。 Web 适配器需要允许 SONOS 适配器从 sayit 适配器读取生成的 MP3 文件。
 
-###警告：与sayIt适配器结合使用时出现稳定性问题
-请注意：如果对sayIt适配器使用“文字转语音”，则此SONOS适配器存在稳定性问题。观察到的症状：
+### 警告：与 sayIt 适配器相结合的稳定性问题
+请注意：如果将“文本到语音”与 sayIt 适配器一起使用，则此 SONOS 适配器存在稳定性问题。观察到的症状：
 
-1.将音量任意更改为0或100％。
-2.随机数的文本到语音序列后无响应
+1. 将体积任意更改为 0 或 100 %。
+2. 随机数文本转语音序列后无响应
 
-文字转语音的解决方法是使用[SONOS HTTP API](https://github.com/jishi/node-sonos-http-api)。
+文本到语音的解决方法是使用 [SONOS HTTP API](https://github.com/jishi/node-sonos-http-api)。
 
 ＃＃ 去做
-*带封面显示队列
+* 显示带封面的队列
+* 用 https://github.com/svrooij/node-sonos-ts 重写
 
-##配置
--Web服务器-[可选]是否启用Web服务器
--端口-如果启用了Web服务器，则为此端口。默认值8083
--更新经过的时间（ms）-以毫秒为单位的间隔，在播放标题时更新经过的计时器的频率。 （默认为2000）
+＃＃ 配置
+- Web 服务器 - [可选] 如果启用或未启用 Web 服务器
+- 端口 - 如果启用了 Web 服务器，则为该端口。默认 8083
+- 更新已用时间（毫秒） - 播放标题时更新已用计时器的间隔（以毫秒为单位）。 （默认 2000）
 
 ## Changelog
 

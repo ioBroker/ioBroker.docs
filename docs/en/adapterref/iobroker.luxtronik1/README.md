@@ -34,6 +34,10 @@ Values in the 'control' - channel have to be set with ack=false to trigger an ac
 
 ## Changelog
 
+### 0.3.4
+
+-   control timer hot water added
+
 ### 0.3.3
 
 -   data exchange optimized
