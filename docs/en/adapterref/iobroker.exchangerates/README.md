@@ -1,13 +1,6 @@
 ![Logo](admin/exchangerates.png)
 # ioBroker.exchangerates
 
-![Number of Installations](http://iobroker.live/badges/exchangerates-installed.svg)
-![Number of Installations](http://iobroker.live/badges/exchangerates-stable.svg)
-[![NPM version](http://img.shields.io/npm/v/iobroker.exchangerates.svg)](https://www.npmjs.com/package/iobroker.exchangerates)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.exchangerates.svg)](https://www.npmjs.com/package/iobroker.exchangerates)
-[![Tests](https://github.com/instalator/iobroker.exchangerates/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.exchangerates/actions/)   
-[![NPM](https://nodei.co/npm/iobroker.exchangerates.png?downloads=true)](https://nodei.co/npm/iobroker.exchangerates/)
-
 [![Donate](https://img.shields.io/badge/Donate-YooMoney-green)](https://sobe.ru/na/instalator)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PFUALWTR2CTPY)
 

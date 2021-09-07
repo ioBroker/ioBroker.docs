@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: XOe8kkIiikVNnLMEviDD7ivNkxpGzrSUWCwjJtzxSTg=
+hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 ---
 ![Logo](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -138,7 +138,7 @@ Die kostenlosen integrierten Demo-Hintergründe stammen von www.pexels.com.
 ## Schriftarten
 * Sie können Ihre eigenen Schriftdateien im Bilder/Widgets-Tab in den Ordner /userfonts hochladen
 * Im Options-Tab haben Sie mehrere Stellen, an denen diese Schriftarten ausgewählt werden können
-* Es hängt von den MIME-Einstellungen Ihres Servers ab, ob die Schriftart dem Browser korrekt angezeigt wird - bei mir funktionierten am besten .ttf und .woff (getestet auf einem raspi 4b)
+* Es hängt von den MIME-Einstellungen Ihres Servers ab, ob die Schriftart im Browser korrekt dargestellt wird - bei mir funktionierten am besten .ttf und .woff (getestet auf einem raspi 4b)
     * Diese Mime-Einstellungen sollten funktionieren:
 * .otf: application/x-font-opentype
 * .ttf: application/x-font-ttf oder application/x-font-truetype
@@ -271,7 +271,8 @@ Die kostenlosen integrierten Demo-Hintergründe stammen von www.pexels.com.
 				role: "<role of state>",
 				type: "<string|number|boolean>",
 				name: "<name of datapoint>",
-				desc: "<description of datapoint>"
+				desc: "<description of datapoint>",
+				Date: <Date-object (only present, if value is regognized as a valid time or period)>
 			}
 			````
 
@@ -539,7 +540,7 @@ Die kostenlosen integrierten Demo-Hintergründe stammen von www.pexels.com.
 * ``dateAndTimeTileActiveConditions`` (Tile ist aktiv, wenn alle ausgewählten Elemente wahr sind) - nur gültig für die Rolle DateAndTime:
 * Mögliche Werte (Array): „activeIfStateActive“, „activeIfTimeNotZero“, „activeIfTimeInFuture“, „activeIfTimeInPast“
 * Standard: "activeIfStateActive,activeIfTimeInFuture"
-* ``dateAndTimeTileActiveWhenRinging`` (Tile ist immer aktiv, wenn RINGING aktiv ist) - nur gültig für Rolle DateAndTime:
+* ``dateAndTimeTileActiveWhenRinging`` (Tile ist immer aktiv wenn RINGING aktiv ist) - nur gültig für Rolle DateAndTime:
 * Standard: wahr
 * ``dateAndTimeShowInState`` (Show in state) - nur gültig für Rolle DateAndTime:
 * Mögliche Werte (Array): "showStateIfInactive", "showStateIfActive", "showSubjectIfActive", "showSubjectIfInactive", "showTimeIfInactiveAndInPast", "showTimeIfInactiveAndInFuture", "showTimeIfActiveAndInPast", "showTimeIfActiveAndInFuture", "showTimeDistanceIfInactiveAndTimeInPast", "showTimeDistanceIfInactiveAndTimeInPast", "showTimeDistanceIfInactiveAndTimeInPast", "showTimeDistanceIfInactiveAndTimeInPast", , "showTimeDistanceIfActiveAndInFuture"
@@ -790,7 +791,7 @@ Die kostenlosen integrierten Demo-Hintergründe stammen von www.pexels.com.
 * ``invertUnreach`` (UNREACH invertieren (verbunden statt unreach verwenden)):
 * Mögliche Werte: "true"|"false"
 * Standard: "falsch"
-* ``invertUnreach`` (Hide (bzw. ignorieren) UNREACH, wenn das Gerät inaktiv ist):
+* ``invertUnreach`` (Verbergen (bzw. ignorieren) UNREACH, wenn das Gerät inaktiv ist):
 * Mögliche Werte: "true"|"false"
 * Standard: "falsch"
 * FEHLER-Symbol:
@@ -1213,7 +1214,7 @@ Hier kannst du:
 ##Beschreibung von Rollen und zugehörigen Zuständen
 Jedes Gerät hat eine Rolle, die die Funktion des Geräts definiert. Jede Rolle generiert eine Menge von Zuständen, die mit einem entsprechenden iobroker-Zustand verknüpft werden können.
 Wenn Sie die Auto-Create-Funktion verwenden, können Sie ein vorhandenes Gerät aus dem iobroker-Objektbaum auswählen. Autocreate versucht, die Rolle herauszufinden und so viele Zustände wie möglich abzugleichen.
-Dies funktioniert nur bei bekannten Geräten. Für unbekannte Geräte und um Geräten erweiterte Funktionen zu geben, können Sie diese manuell über die (+)-Schaltfläche hinzufügen oder die durch Autocreate erstellten Geräte bearbeiten.
+Dies funktioniert nur bei bekannten Geräten. Für unbekannte Geräte und um Geräten erweiterte Funktionen zu geben, können Sie diese manuell über die (+)-Schaltfläche hinzufügen oder die Geräte bearbeiten, die durch Autocreate erstellt wurden.
 Um die Rolle und den Status eines Geräts zu bearbeiten, klicken Sie auf den Stift hinter dem Gerät. Nachfolgend finden Sie eine kurze Beschreibung der Rollen und der verwendeten Zustände:
 
 ### Allgemeines:
@@ -1237,7 +1238,7 @@ Fast alle Rollen haben einen **STATE**- und/oder einen **LEVEL**-Status. In den 
 * iQontrol zeigt unter folgenden Umständen eine definierte Werteliste als Dropdown-Feld im Dialog an:
 * wenn type 'numbers' ist und die valueList genau so viele Einträge hat, als Schritte zwischen min- und max des Datenpunkts oder
 * wenn type 'boolean' ist, aber Rolle nicht 'switch' ist oder
-* wenn der Typ 'String' ist oder
+* wenn Typ 'String' ist oder
 * wenn "Option zur Eingabe von Freitext hinzufügen" aktiviert ist
 * Ob die Gerätekachel als aktiv oder inaktiv angezeigt wird, wird auch aus dem STATE oder LEVEL-Datenpunkt bestimmt. Darüber hinaus können Sie das Verhalten im Optionsbereich 'Bedingungen für eine aktive Kachel' frei anpassen. Sie können sogar einen weiteren externen Datenpunkt setzen, der den Zustand der Kachel bestimmt
 
@@ -1309,7 +1310,7 @@ Optional können Sie folgende Zustände definieren:
 
     Wenn Ihr Gerät die Verwendung von HUE, SATURATION und COLOR_BRIGHTNESS (HSB/HSV-Farbraum) nicht unterstützt, können Sie verschiedene alternative Farbräume verwenden. In den Geräteoptionen können Sie einen der folgenden Farbräume auswählen:
 
-        * **RGB** / **#RGB**: anstelle von HUE, SATURATION und COLOR_BRIGHTNESS kann auch das RGB-Format (hex) verwendet werden, optional mit führendem '#'
+        * **RGB** / **#RGB**: statt HUE, SATURATION und COLOR_BRIGHTNESS kann man auch das RGB-Format (hex) verwenden, optional mit führendem '#'
         * **RGBW** / **#RGBW**: statt HUE, SATURATION, COLOR_BRIGHTNESS und WHITE_BRIGHTNESS kann auch das RGBW-Format (hex) verwendet werden, optional mit führendem '#'
         * **RGBWWCW** / **#RGBWWCW** / **RGBCWWW** / **#RGBCWWW**: statt HUE, SATURATION, COLOR_BRIGHTNESS, CT und WHITE_BRIGHTNESS können Sie das RGBWWCW- oder RGBCWWW-Format (hex , WW = warmweiß, CW = kaltweiß), optional mit führendem '#'
         * **RGB (nur Hue)** / **#RGB (nur Hue)**: Anstelle von HUE können Sie das RGB (nur Hue)-Format (hex) verwenden, optional mit führendem '#'. In diesem speziellen Fall akzeptiert das RGB-Format nur reine gesättigte Farben des Farbton-Farbkreises. Mischweiß ist nicht erlaubt
@@ -1520,7 +1521,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 </details>
 
 ###<img src="img/icons/value_on.png" width="32"> Wert:
-* **STATE**: *any* - jeder gültige Status, der angezeigt werden soll (siehe allgemeine Status-Sektion)
+* **STATE**: *any* - Jeder gültige Status, der angezeigt werden soll (siehe allgemeine Status-Sektion)
 * **STUFE**: *Zahl* - erzeugt einen Schieberegler im Dialog
 
 ###<img src="img/icons/play_on.png" width="32"> Programm:
@@ -1597,6 +1598,11 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
 ****
 
 ## Changelog
+
+### dev
+* (sbormann) Fixed collapsible not opening if initial closed.
+* (muuulle, sbormann) Enhanced Analog-Clock-Widget to be able to display the time of a datapoint.
+* (sbormann) Enhanced json-table-Widget to regognize parentNames of datapoints, transpose json-data and some styling-options.
 
 ### 1.9.8 (2021-09-03)
 * (sbormann) Fixed variables with special chars not working.

@@ -3,43 +3,36 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mercury/README.md
 title: ioBroker.mercury
-hash: Gczr0skfaOUe1ay5WuSgq6K6o+Rw7pWyI2Kgn+9LpO4=
+hash: B8aBskRWNbWqLE5g80MXlpxViTRGiSaL4UuK8MkhiHQ=
 ---
 ![标识](../../../en/adapterref/iobroker.mercury/admin/mercury.png)
 
-![安装数量](http://iobroker.live/badges/mercury-installed.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.mercury.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.mercury.svg)
-![稳定的](http://iobroker.live/badges/mercury-stable.svg)
-![NPM](https://nodei.co/npm/iobroker.mercury.png?downloads=true)
 ![捐](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-＃ioBroker.mercury
-[![测试]（https://github.com/instalator/iobroker.mercury/workflows/Test%20and%20Release/badge.svg）](https://github.com/instalator/ioBroker.mercury/actions/)
-
-##适用于ioBroker的Mercury适配器
-从电表Mercury接收数据。
-支持TCP / IP和串行连接。
+# IoBroker.mercury
+## IoBroker 的 Mercury 适配器
+从电表 Mercury 接收数据。
+支持 TCP/IP 和串行连接。
 
 支持以下电表：
 
-*水星200
-*水星201
-*水星206
-*水星203
-*水银203.2TD
-*水星204
-*水星208
-*水星230
-*水星231
-*水星233
-*水星234
-*水星236
-*水星238
+* 水星-200
+* 水星-201
+* 水星-206
+* 水星-203
+* Mercury-203.2TD
+* 水星-204
+* 水星-208
+* 水星-230
+* 水星-231
+* 水星-233
+* 水星-234
+* 水星-236
+* 水星-238
 
-##对象
-** RAW **-发送RAW命令并接收响应。
-命令不带地址和CRC，字节用空格分隔。示例：1个相位计数器-读取当月的能量
+## 对象
+**RAW** - 发送 RAW 命令并接收响应。
+命令不带地址和 CRC，字节以空格分隔。示例：对于 1 相计数器 - 读取当月能量
 
 ```
 32 0F
@@ -50,6 +43,9 @@ hash: Gczr0skfaOUe1ay5WuSgq6K6o+Rw7pWyI2Kgn+9LpO4=
 ```"{"type":"Buffer","data":[0,14,31,155,50,7,0,99,0,255,255,255,255,255,255,255,255,255,255,255,255,127,86]}"```
 
 ## Changelog
+
+### 0.1.5
+* (instalator) fixed a bug with polling multiple counters
 
 ### 0.1.4
 * (instalator) added frequency for 1 fase

@@ -3,182 +3,213 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.MieleCloudService
-hash: kkSktIrdhuN2rLvgkbAYfJcBEo8WMtlHoRqWRIw9uW0=
+hash: t28b0BGuLLobovAMatsIcE739MXbxHu8yZaI0ClJQlQ=
 ---
-![商标](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
+![标识](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
 ![安装数量](http://iobroker.live/badges/mielecloudservice-stable.svg)
-![NPM版本](https://img.shields.io/npm/v/iobroker.mielecloudservice.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.mielecloudservice.svg)
 ![已知漏洞](https://snyk.io/test/github/Grizzelbee/ioBroker.mielecloudservice/badge.svg?targetFile=package.json)
-![NPM](https://nodei.co/npm/iobroker.mielecloudservice.png?downloads=true)
+![新产品管理](https://nodei.co/npm/iobroker.mielecloudservice.png?downloads=true)
 ![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
-![资料下载](https://img.shields.io/npm/dm/iobroker.mielecloudservice.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.mielecloudservice.svg)
 
-＃ioBroker.MieleCloudService [![构建状态]（https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice.svg?branch=master）](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice)
+# IoBroker.MieleCloudService [![构建状态](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice.svg?branch=master)](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice)
 ＃＃ 描述
-该适配器用于从官方Miele 3rd-party API检索有关所有Miele @ Home设备的信息。
-无论它们是否通过Wi-Fi或XGW3000网关直接连接。它实现了** Miele 3rd Party API V1.0.4 **
+此适配器用于从 Miele 官方 3rd-party API 检索有关所有 Miele@Home 设备的信息。
+无论它们是通过 Wi-Fi 还是 XGW3000 网关直接连接。它实现了 **Miele 3rd Party API V1.0.5**
 
 ## Sentry.io
-该适配器使用sentry.io收集有关崩溃的详细信息，并自动将其报告给作者。使用[ioBroker.trytry](https://github.com/ioBroker/plugin-sentry)插件。如果您不希望支持作者，那么请参阅[插件首页](https://github.com/ioBroker/plugin-sentry)有关该插件的功能，收集的信息以及如何禁用它的详细信息，有关崩溃的信息。
+该适配器使用 sentry.io 收集有关崩溃的详细信息并自动向作者报告。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) 插件用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 有关插件功能、收集哪些信息以及如何禁用插件的详细信息，如果您不喜欢用您的崩溃信息支持作者。
 
-##先决条件
-* Miele @ Home用户（智能手机应用程序）
-* Miele @ Home密码（智能手机应用程序）
-* Miele Client_id（来自https://www.miele.com/developer/）
-* Miele Client_secret（来自https://www.miele.com/developer/）
+## 先决条件
+* Miele@Home 用户（智能手机应用程序）
+* Miele@Home 密码（智能手机应用程序）
+* Miele Client_id（来自 https://www.miele.com/developer/）
+* Miele Client_secret（来自 https://www.miele.com/developer/）
 
 ＃＃ 安装
 要安装，请执行以下操作：
 
-1.使用
- *稳定的回购-获得当前的稳定版本
- *最新的Repo-获取最新的测试版本（可能不稳定）
- *通过：https://github.com/Grizzelbee/ioBroker.mielecloudservice.git-获得最新的开发版本
-2.在Miele Smartphone应用程序中为Miele @ Home创建一个应用程序帐户
-3.在https://www.miele.com/f/com/zh-CN/register_api.aspx上创建一个开发人员帐户
-4.将您的Miele设备添加到应用程序（如果未自动添加）
-6.填写从Miele-developer团队收到的client_secret和client_id以及从应用程序获得的帐户ID和密码。
+1. 使用管理员通过管理员安装
+ * stable Repo - 获取当前的稳定版本
+ * 最新的 Repo - 获取最新的测试版本（可能不稳定）
+ * 通过：https://github.com/Grizzelbee/ioBroker.mielecloudservice.git - 获取最新的开发版本
+2. 在 Miele 智能手机应用程序中为 Miele@Home 创建一个应用程序帐户
+3. 在 https://www.miele.com/f/com/en/register_api.aspx 创建一个开发者账户
+4. 将您的 Miele 设备添加到应用程序（如果未自动添加）
+6. 填写从 Miele-developer Team 收到的 client_secret 和 client_id，以及从 App 收到的 account-id 和密码。
 
-##控制您的设备
-实现了所有设备当前所有受支持和记录的操作（API V1.0.4）。
->请记住，仅当您将设备置于适当的状态（例如，Mobile Control，powerOn等）时，“操作”才起作用。
-请参阅[Miele文档](#documentation)有关动作的更多信息。
+## 控制您的设备
+### 行动
+实现了所有设备的所有当前支持和记录的操作（API V1.0.5）。
+> 请记住，只有将设备置于适当的状态（例如移动控制、开机等）时，操作才会起作用。
+有关操作的更多信息，请参阅 [Miele 文档](#documentation)。
+
+### 程序（API V1.0.5 中引入）
+在 API V1.0.5 中，Miele 引入了一个名为“/programs”的新端点。
+对该端点的支持从适配器版本 4.5.0 开始。将创建一个新数据点 [device.Actions.Program]，列出 Miele 返回的所有支持的程序。
+**选择其中一个值将立即执行程序！** 目前仅支持简单程序。例如。烤箱需要一些额外的信息——这将在未来的版本中实现。
+
+在发布适配器时，Miele 记录了一些设备类别以支持此端点，并且只有（至少对我而言）其中的一个子集真正有效。对于我的咖啡系统、洗衣机和滚筒式烘干机，它仅适用于咖啡系统。
+但 Miele 正在为此努力，并定期提供支持。
+请参阅通用 Miele API 文档（如下）了解更多信息。
 
 ＃＃ 已知的问题
 * 没有任何
 
-##文档
-请主要参考Miele发布的主要API文档
+## 文档
+请主要参考 Miele 发布的主要 API 文档
 
-* [一般文档]（https://www.miele.com/developer/swagger-ui/index.html）
-* [在设备上执行操作的前提条件]（https://www.miele.com/developer/swagger-ui/put_additional_info.html）
+* [一般文档](https://www.miele.com/developer/swagger-ui/index.html)
+* [在设备上执行操作的前提条件](https://www.miele.com/developer/swagger-ui/put_additional_info.html)
 
-有2种可用的数据点。作为人类可读的文本和数字。
-这些属于文本字段的数字数据字段具有相同的名称，但附加了“ _raw”。
-下面列出了具有一般含义的字段。
-未列出的字段的含义因设备而异，并且未由Miele记录。
-如果需要在脚本中引用这些字段，请始终使用_raw值。
+有两种可用的数据点。作为人类可读的文本和数字。
+这些属于文本字段的数字数据字段具有相同的名称，但附加了“_raw”。
+下面列出了具有一般含义的那些字段。
+未列出的字段的含义因设备而异，且 Miele 未记录。
+如果您需要在脚本中引用这些字段，请始终使用 _raw 值。
 文本值将来可能会更改，并且还取决于语言。
-以下是这些原始值代表的列表：
+以下是这些原始值所代表的列表：
 
-###设备类型
- |原始值状态|
+### 设备类型
+ |原始值 |状态|
  |----------|-------|
- | 1 |洗衣机|
- | 2 |滚筒干燥机|
- | 7 |洗碗机|
- | 8 |洗碗机半专业|
- | 12 |烤箱|
- | 13 |微波炉|
- | 14 |重点介绍|
- | 15 |蒸汽烤箱|
- | 16 |微波|
- | 17 |咖啡系统|
- | 18 |头套|
- | 19 |电冰箱|
- | 20 |冷冻机|
- | 21 |冰箱/冰柜组合|
- | 23 |真空清洁器，自动机器人真空清洁器|
- | 24 |洗衣机烘干机|
- | 25 |盘温|
- | 27 |滚刀感应|
- | 28 |燃气|
- | 31 |蒸汽烤箱组合|
- | 32 |酒柜|
- | 33 |酒柜|
- | 34 |葡萄酒储存调节装置|
- | 39 |双烤箱|
- | 40 |双蒸炉|
- | 41 |双蒸汽烤箱组合|
- | 42 |双微波|
- | 43 |双微波炉|
- | 45 |蒸汽烤箱微波组合|
- | 48 |真空吸尘器|
- | 67 | DIALOGOVEN |
- | 68 |葡萄酒柜冷冻组合|
+ |1 |洗衣机|
+ |2 |滚筒式干衣机|
+ |7 |洗碗机|
+ |8 |洗碗机半专业|
+ |12 |烤箱|
+ |13 |微波炉|
+ |14 |灶具亮点|
+ |15 |蒸汽烤箱|
+ |16 |微波|
+ |17 |咖啡系统|
+ |18 |罩|
+ |19 |冰箱|
+ |20 |冰柜|
+ |21 |冰箱-/冰柜组合|
+ |23 |吸尘器、自动机器人吸尘器|
+ |24 |洗衣机烘干机|
+ |25 |暖碟机|
+ |27 |滚刀感应|
+ |28 |燃气灶|
+ |31 |蒸汽烤箱组合|
+ |32 |酒柜|
+ |33 |葡萄酒调理装置|
+ |34 |葡萄酒储存调节装置|
+ |39 |双炉|
+ |40 |双蒸烤箱|
+ |41 |双蒸烤箱组合|
+ |42 |双微波炉|
+ |43 |双微波炉|
+ |45 |蒸汽烤箱微波炉组合|
+ |48 |真空抽屉|
+ |67 | DIALOGOVEN|
+ |68 |酒柜冷冻组合|
 
-###状态/状态
- |原始值状态|
+### 状态/状态
+ |原始值 |状态|
  |----------|-------|
- | 1 |关闭|
- | 2 | STAND_BY |
- | 3 |已编程|
- | 4 | PROGRAMMED_WAITING_TO_START |
- | 5 |正在运行|
- | 6 |暂停|
- | 7 | END_PROGRAMMED |
- | 8 |失败|
- | 9 | PROGRAMME_INTERRUPTED |
- | 10 |空闲|
- | 11 | RINSE_HOLD |
- | 12 |服务|
- | 13 |超级冷冻|
- | 14 |超冷|
- | 15 |超热|
- | 144 |默认|
- | 145 |锁定|
- | 146 | SUPERCOOLING_SUPERFREEZING |
- | 255 |设备离线|
+ |1|关闭|
+ |2|待机|
+ |3|已编程|
+ |4| PROGRAMMED_WAITING_TO_START|
+ |5|正在运行|
+ |6|暂停|
+ |7| END_PROGRAMMED|
+ |8|失败|
+ |9|程序_中断|
+ |10|空闲|
+ |11| RINSE_HOLD|
+ |12|服务|
+ |13|超级冷冻|
+ |14|过冷|
+ |15|过热|
+ |144|默认|
+ |145|锁定|
+ |146| SUPERCOOLING_SUPERFREEZING|
+ |255|设备离线|
 
-### ProgramType / Programmart
-|原始值状态|
+### 程序类型/程序集市
+|原始值 |状态|
 |----------|-------|
-| 0 |正常运行模式 |
-| 1 |自己的程序|
-| 2 |自动程序|
-| 3 |清洁/保养程序|
+|0 |正常运行模式 |
+|1 |自己的程序|
+|2 |自动程序|
+|3 |清洁/保养程序 |
 
-### DryingStep / Trockenstufe
- |原始值状态|
+###dryingStep/Trockenstufe
+ |原始值 |状态|
  |----------|-------|
- | 0 |超干|
- | 1 |普通加号|
- | 2 |正常|
- | 3 |稍干|
- | 4 |手铁1级|
- | 5 |手动熨斗2级|
- | 6 |机铁|
+ |0 |超干|
+ |1 |普通加|
+ |2 |正常|
+ |3 |微干|
+ |4 |手铁1级|
+ |5 |手铁2级|
+ |6 |机铁|
 
-### Programmbezeichnung
-|原始值州|可用于|
+### 程序设计
+|原始值 |状态 |可用于|
 |-----------|-------------------------|-----------------|
-| 1 | “ Baumwolle” /“棉” |洗衣机|
-| 3 | “ Pflegeleicht” |洗衣机|
-| 4 | “Feinwäsche” |洗衣机|
-| 8 | “ Wolle” |洗衣机|
+| 1 | “Baumwolle”/“棉花”|洗衣机|
+| 3 | "Pflegeleicht" |洗衣机|
+| 4 | "Feinwäsche" |洗衣机|
+| 8 | “沃勒” |洗衣机|
 | 9 | “赛德” |洗衣机|
-| 21 | “泵/ Schleudern” |洗衣机|
-| 23 | “ Oberhemden” |洗衣机|
-| 27 | “Imprägnieren” |洗衣机|
-| 29 | “Sportwäsche” |洗衣机|
-| 31 | “自动加” |洗衣机|
-| 37 | “室外” |洗衣机|
-| 48 | “弗吕森·奥斯普兰” |洗衣机烘干机|
-| 50 | “ DunkleWäsche” |洗衣机烘干机|
-| 52 | “ NurSpülen/Stärken” |洗衣机|
-| 122 | “快递20” |洗衣机烘干机|
-| 123 | “ Dunkles / Jeans” |洗衣机|
+| 21 | “泵/施洛伊德” |洗衣机|
+| 23 | “奥伯海姆登” |洗衣机|
+| 27 | "Imprägnieren" |洗衣机|
+| 29 | "Sportwäsche" |洗衣机|
+| 31 | “自动加号”|洗衣机|
+| 37 | “户外” |洗衣机|
+| 48 | "Flusen ausspülen" |洗衣机烘干机|
+| 50 | "Dunkle Wäsche" |洗衣机烘干机|
+| 52 | "Nur Spülen/Stärken" |洗衣机|
+| 122 | 《快递20》|洗衣机烘干机|
+| 123 | "Dunkles/牛仔裤" |洗衣机|
 
-### ProgramPhase
-|原始值状态|可用于|
+### 程序阶段
+|原始值 |状态|可用于|
 |----------|-------|---------------|
-| 258 | “ Einweichen” |洗衣机|
-| 260 | “洗涤” /“洗涤” |洗衣机|
-| 261 | “Spülen” /“冲洗” |洗衣机|
-| 265 | “泵” |洗衣机|
-| 266 | “ Schleudern” /“ Spinning” |洗衣机|
-| 267 | “ Knitterschutz” /“” |洗衣机|
-| 268 | “结尾” /“结尾” |大多数设备|
-| 256 | “Vorbügeln” |洗衣机|
-| 514 | “ Trocknen” |洗衣机烘干机|
-| 519 | “Abkühlen” |洗衣机烘干机|
-| 532 | “弗吕森·奥斯普兰” |洗衣机烘干机|
+|258 | 《恩威臣》|洗衣机|
+|260 | "Waschen" / "洗涤" |洗衣机|
+|261 | “Spülen”/“冲洗” |洗衣机|
+|265 | “泵” |洗衣机|
+|266 | “施洛伊德”/“纺纱”|洗衣机|
+|267 | "Knitterschutz" / "" |洗衣机|
+|268 | "Ende" / "End" |洗衣机|
+|256 | "Vorbügeln" |洗衣机|
+|512 | "Ende" / "End" |滚筒式干衣机 |
+|514 | “Trocknen”/“干燥” |洗衣机烘干机|
+|519 | "Abkühlen" / "冷静下来" |洗衣机烘干机|
+|521 | “Trocknen”/“干燥” |滚筒式干衣机 |
+|522 | "Knitterschutz" / "" |滚筒式干衣机 |
+|532 | "Flusen ausspülen" |洗衣机烘干机|
 
 ##版权
-版权所有（c）2019，2021 grizzelbee <open.source@hingsen.de>
+版权所有 (c) 2019, 2021 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+
+### V4.5.0 (2021-09-05) (Invincible)
+* (grizzelbee) New: [164](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/164) fixed bug in SignalFailure and signalInfo when havin no value
+* (grizzelbee) New: [155](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/155) fixed >missing object< bug on arrays 
+* (grizzelbee) New: [154](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/154) Reintroduced TargetTemp to washer dryers
+* (grizzelbee) New: [140](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/140) Switched from data polling to server sent events (push data)
+* (grizzelbee) New: [71](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/71) If there is no internet connection on startup retry connecting until connection is established 
+* (grizzelbee) Fix: estimatedEndTime won't be shown anymore when device is off
+* (grizzelbee) Fix: Don't rethrowing errors in APISendRequest anymore
+* (grizzelbee) Fix: fixed a few minor bugs
+* (grizzelbee) Upd: Updated dependencies
+* (grizzelbee) New: Added some additional API languages newly supported by Miele
+* (grizzelbee) New: Added support for Miele API V1.0.5
+* (grizzelbee) New: Added correct tier of adapter to io-package
+* (grizzelbee) New: Added more program phases for tumble dryers to documentation
+
+### V4.2.0 (2021-05-17) (A new Dimension)
+* (grizzelbee) New: Adding Pause action to dish-washers
 
 ### V4.1.0 (2021-05-15) (Carry me over)
 * (grizzelbee) New: [149](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/149) Adding support (Start, Stop, Pause) for Miele Scout RX2 vacuum cleaner robots

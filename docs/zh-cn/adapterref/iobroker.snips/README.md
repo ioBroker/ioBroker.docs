@@ -2,54 +2,60 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.snips/README.md
-title: ioBroker.snips！[徽标]（admin / snips.png）
-hash: pBgUGZnR38d1Hr6geTtsYLu64muY5uJ4tnyK+ks8FWs=
+title: ioBroker.snips ![标志](admin/snips.png)
+hash: JpIjjtnNgvaIHPCyi4HJt1SJk61t2dSjkHx2qZsNGRA=
 ---
-![建立状态](https://travis-ci.org/unltdnetworx/ioBroker.snips.svg?branch=master)
+# IoBroker.snips ![标识](../../../en/adapterref/iobroker.snips/admin/snips.png)
+
 ![安装数量](http://iobroker.live/badges/snips-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.snips.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.snips.svg)
-![NPM](https://nodei.co/npm/iobroker.snips.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.snips.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.snips.svg)
+![新产品管理](https://nodei.co/npm/iobroker.snips.png?downloads=true)
 
-＃ioBroker.snips![商标](../../../en/adapterref/iobroker.snips/admin/snips.png)
-注意：由于Sonos购买了Snips，并且免费平台已于02/01/2020终止，因此不再开发或维护适配器。适配器和已安装的snips设备仍然可以使用。
+[![构建状态](https://app.travis-ci.com/unltdnetworx/ioBroker.snips.svg?branch=master)](https://travis-ci.org/unltdnetworx/ioBroker.snips)
 
-需要node.js 6.0或更高版本以及Admin v3！
+注意：适配器不再开发或维护，因为 Sonos 购买了 Snips，并且免费平台已于 2020 年 2 月 1 日停产。适配器和安装的 snips 设备仍然可以工作。
 
-适配器通过MQTT与Snips硬件进行通信。执行命令需要使用text2command适配器。
+需要 node.js 6.0 或更高版本和 Admin v3！
 
-Snips网址：<https://makers.snips.ai/>
+该适配器通过 MQTT 与 Snips 硬件通信。执行命令需要 text2command 适配器。
 
-##安装片段
-对于Debian Stretch（x86），Raspbian / Armbian Stretch（RPI3，Odroid）下的Snips，请安装以下软件包：
+Snips 网址：<https://makers.snips.ai/>
 
-lsb-release apt-transport-https ca证书systemd systemd-sysv libttspico-utils alsa-utils dirmngr mosquitto snips-asr snips-音频服务器snips-dialog snips-hotword snips-nlu snips-tts snips-injection
+## 安装截图
+对于 Debian Stretch (x86), Raspbian / Armbian Stretch (RPI3, Odroid) 下的 Snips，请安装以下软件包：
 
-根据您的硬件和Linux发行版，您可能已经安装了软件包。
+lsb-release apt-transport-https ca-certificates systemd systemd-sysv libttspico-utils alsa-utils dirmngr mosquitto snips-asr snips-audio-server snips-dialogue snips-hotword snips-nlu snips-tts snips-injection
 
-Raspian / Armbian的安装说明和配置：<https://snips.gitbook.io/documentation/installing-snips/on-a-raspberry-pi>
+根据您的硬件和 Linux 发行版，您可能已经安装了软件包。
 
-Debian的安装说明和配置：sudo nano /etc/apt/sources.list在每行中附加“ non-free”，否则您将无法安装软件包“ libttspico-utils”。
+Raspian / Armbian 的安装说明和配置：<https://snips.gitbook.io/documentation/installing-snips/on-a-raspberry-pi>
+
+Debian 安装说明和配置： sudo nano /etc/apt/sources.list 每行附加“non-free”，否则无法安装包“libttspico-utils”。
 <https://snips.gitbook.io/documentation/advanced-configuration/advanced-solutions>
 
-登录到<https://console.snips.ai>并添加一个新向导。
-在复选标记“仅显示带有操作的应用程序”上方添加一个应用程序，然后搜索iobroker![ioBroker snips-app徽标](https://console.snips.ai/images/bundles/bundle-home.svg)并选择。
-完成后，请按Deploy Assistant下载ZIP文件。
-压缩文件在“ / usr / share / snips”下的snips机器上解压缩，然后重新启动。
+登录到 <https://console.snips.ai> 并添加一个新向导。
+在复选标记“仅显示具有操作的应用程序”上方添加一个应用程序，然后搜索 iobroker ![ioBroker 剪下应用程序徽标](https://console.snips.ai/images/bundles/bundle-home.svg) 并选择。
+完成后，按 Deploy Assistant 下载 ZIP 文件。
+zip 文件在 snips 机器上的“/usr/share/snips”下解压，然后重启。
 
-在我们继续之前，应先进行剪断：
+在我们继续这里之前，Snips 应该可以工作：
 
-###配置Snips适配器
-网址：Snips-MQTT服务器的地址端口：Snips-MQTT服务器的端口Instanz：Text2Command-Instanz（例如0）过滤器：例如了解ClientID：ID（例如0）
+### 配置 Snips 适配器
+Url：Snips-MQTT-Servers 的地址 Port：Snips-MQTT-Servers 的端口 Instanz：Text2Command-Instanz（例如 0） 过滤器：例如了解 ClientID：ID（例如 0）
 
-###配置Text2Command适配器
-在ID snips.X.devices.all.send.say.text中的Answer（答案）下的Text2Command适配器的配置中插入。
+### 配置 Text2Command 适配器
+在 ID snips.X.devices.all.send.say.text 中的 Answer 下插入 Text2Command 适配器的配置。
 
-###注入（学习新单词）
-可以在snips.0.send.inject.room或设备下学习未知单词。
-注意：必须在设备/服务器上安装注入服务sudo apt-get install -y snips-injection
+### 注入（学习新单词）
+未知单词可以在 snips.0.send.inject.room 或 device 下学习。
+注意：注入服务必须安装在设备/服务器上 sudo apt-get install -y snips-injection
 
 ## Changelog
+
+### 1.5.1
+
+* (unltdnetworx) new adapter testing and security update
 
 ### 1.5.0
 

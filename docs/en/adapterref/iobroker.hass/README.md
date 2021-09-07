@@ -24,7 +24,7 @@ Please check it https://www.smarthomejetzt.de/mit-iobroker-auf-eine-home-assista
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 1.0.1 (2021-09-04)
 * IMPORTANT: js-controller 2.0 is needed st least!
 * (Apollon77) Fix start issue
 * (Apollon77/Garfonso) Fix issue where value could not be set in hass

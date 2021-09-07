@@ -3,25 +3,19 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.omnicomm-lls/README.md
 title: ioBroker.omnicomm-lls
-hash: vxOUb6Lg2KY+nJ7bfXOg9g3RByDkoIu6iYTd33c55CQ=
+hash: cEJR3qJPw3lDlOWu32auHKu/DdysiVyHJuolX4vq3X0=
 ---
 ![Logo](../../../en/adapterref/iobroker.omnicomm-lls/admin/logo_admin.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/omnicomm-lls-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.omnicomm-lls.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.omnicomm-lls.svg)
-![NPM](https://nodei.co/npm/iobroker.omnicomm-lls.png?downloads=true)
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-# IoBroker.omnicomm-lls
-[![Tests] (https://github.com/instalator/iobroker.omnicomm-lls/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.omnicomm-lls/actions/)
-
-## Omnicomm-lls Adapter für ioBroker
-Daten abrufen Omnicomm LLS Kraftstoffsensoren
+#ioBroker.omnicomm-lls
+## Omnicomm-lls-Adapter für ioBroker
+Daten abrufen Omnicomm LLS-Kraftstoffsensoren
 
 ## Changelog
 
-### 0.0.6
+### 0.0.7
 * (instalator) initial release
 
 ## License

@@ -129,6 +129,9 @@ zusätzlich werden für das Empfänger-Protokoll Version 2.2 folgende Datenpunkt
 
 
 ## Changelog
+### 1.1.1
+- Optimization for js-controller 3.3
+
 ### 1.1.0
 - Add TiNo Protocol V2.2 support
 - (Add Datapoints temperature 1 and Temperatur 2)

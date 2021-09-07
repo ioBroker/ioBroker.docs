@@ -3,20 +3,14 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.haier/README.md
 title: ioBroker Haier адаптер для кондиционирования воздуха
-hash: ROuNUa5/rOhtGEF6rozSiVNfEYVPA01f94d2z8ozq4U=
+hash: lElAdsQSqdcvWBnza70hSO0PKoEFIk/ZAopUAW9LUCw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.haier/admin/haier_admin.png)
 
-![Количество установок](http://iobroker.live/badges/haier-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.haier.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.haier.svg)
-![NPM](https://nodei.co/npm/iobroker.haier.png?downloads=true)
 ![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
 # IoBroker Адаптер для кондиционера Haier
 =================
-
-[![Тесты] (https://github.com/instalator/iobroker.haier/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.haier/actions/)
 
 Адаптер ioBroker Haier используется для управления вашим кондиционером Haier через UART в сочетании с TCP to Serial Gateway.
 Проверена работа на кондиционере серии «Лайттера».
@@ -24,8 +18,8 @@ hash: ROuNUa5/rOhtGEF6rozSiVNfEYVPA01f94d2z8ozq4U=
 ## Аппаратное обеспечение
 В качестве шлюза TCP-последовательный я использую этот [код] (https://github.com/instalator/ESP8266.TelnetToSerial) и это [устройство](https://blog.instalator.ru/archives/433).
 
-## С помощью
-### Мощность
+## С использованием
+### Власть
 Включение и выключение кондиционера. (правда / ложь)
 
 ### Темп
@@ -40,7 +34,7 @@ hash: ROuNUa5/rOhtGEF6rozSiVNfEYVPA01f94d2z8ozq4U=
 * **тепло** или **2** - Отопление помещения.
 * **fan** или **3** - Только вентилятор.
 * **сухой** или **4** - осушение воздуха.
-* **выкл.** или **5** - отключение переменного тока.
+* **выкл.** или **5** - отключение питания от сети переменного тока.
 
 ### Скорость вентилятора
 * **мин** или **2** - скорость вентилятора
@@ -55,16 +49,16 @@ hash: ROuNUa5/rOhtGEF6rozSiVNfEYVPA01f94d2z8ozq4U=
 * **false** или **0** или **off** - выключено.
 
 ### Здоровье
-(верно / неверно) Генератор водно-ионов в кондиционере может генерировать много анионов, эффективно балансируя количество положения и анионов в воздухе, а также убивая бактерии и ускоряя осаждение пыли в комнате и, наконец, очищая воздух в помещении. комната.
+(истина / ложь) Генератор водно-ионов в кондиционере может генерировать много анионов, эффективно балансируя количество положения и анионов в воздухе, а также убивая бактерии и ускоряя осаждение пыли в комнате и, наконец, очищая воздух в помещении. комната.
 
 ### Lockremote
-Заблокировать ИК-пульт (правда / ложь)
+Заблокировать ИК-пульт (истина / ложь)
 
 ### Компрессор
 Если компрессор включен
 
 ### Свежий
-(истина / ложь) Вытяните испорченный воздух из комнаты и вдохните свежий воздух.
+(истина / ложь) Выпустите испорченный воздух из комнаты и вдохните свежий воздух.
 (Эта функция недоступна на некоторых моделях.)
 
 ### Сырой

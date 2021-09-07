@@ -1,12 +1,6 @@
 ![Logo](admin/benq-logo.png)
 # ioBroker BenQ Projector adapter
 
-![Number of Installations](http://iobroker.live/badges/benq-installed.svg) ![Number of Installations](http://iobroker.live/badges/benq-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.benq.svg)](https://www.npmjs.com/package/iobroker.benq)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.benq.svg)](https://www.npmjs.com/package/iobroker.benq)
-[![Tests](https://github.com/instalator/iobroker.benq/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.benq/actions/)   
-
-[![NPM](https://nodei.co/npm/iobroker.benq.png?downloads=true)](https://nodei.co/npm/iobroker.benq/)
-
 [![Donate](https://img.shields.io/badge/Donate-YooMoney-green)](https://sobe.ru/na/instalator)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PFUALWTR2CTPY)
 

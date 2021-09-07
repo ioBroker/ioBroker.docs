@@ -3,53 +3,49 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mercury/README.md
 title: ioBroker.mercury
-hash: Gczr0skfaOUe1ay5WuSgq6K6o+Rw7pWyI2Kgn+9LpO4=
+hash: B8aBskRWNbWqLE5g80MXlpxViTRGiSaL4UuK8MkhiHQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.mercury/admin/mercury.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/mercury-installed.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.mercury.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.mercury.svg)
-![Stabil](http://iobroker.live/badges/mercury-stable.svg)
-![NPM](https://nodei.co/npm/iobroker.mercury.png?downloads=true)
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-# IoBroker.mercury
-[![Tests] (https://github.com/instalator/iobroker.mercury/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.mercury/actions/)
-
-## Mercury Adapter für ioBroker
-Empfangen von Daten von Stromzählern Quecksilber.
-Unterstützt TCP / IP- und serielle Verbindungen.
+#ioBroker.mercury
+## Mercury-Adapter für ioBroker
+Empfangen von Daten von Stromzählern Mercury.
+Unterstützt TCP / IP und serielle Verbindungen.
 
 Folgende Stromzähler werden unterstützt:
 
-* Mercury-200
-* Mercury-201
+* Quecksilber-200
+* Quecksilber-201
 * Quecksilber-206
 * Quecksilber-203
-* Mercury-203.2TD
+* Quecksilber-203.2TD
 * Quecksilber-204
-* Quecksilber-208
+* Merkur-208
 * Quecksilber-230
-* Quecksilber-231
-* Quecksilber-233
+* Merkur-231
+* Merkur-233
 * Quecksilber-234
 * Quecksilber-236
 * Quecksilber-238
 
-## Objekte
-** RAW ** - Senden eines RAW-Befehls und Empfangen einer Antwort.
-Befehl ohne Adresse und CRC, durch Leerzeichen getrennte Bytes. Beispiel: Für 1 Phasenzähler - Energie für den aktuellen Monat ablesen
+##Objekte
+**RAW** - Senden eines RAW-Befehls und Empfangen einer Antwort.
+Befehl ohne Adresse und CRC, Bytes durch Leerzeichen getrennt. Beispiel: Für 1-Phasen-Zähler - Ablesen der Energie für den aktuellen Monat
 
 ```
 32 0F
 ```
 
-Gibt einen Puffer als Zeichenfolge zurück
+Gibt einen Puffer als String zurück
 
 ```"{"type":"Buffer","data":[0,14,31,155,50,7,0,99,0,255,255,255,255,255,255,255,255,255,255,255,255,127,86]}"```
 
 ## Changelog
+
+### 0.1.5
+* (instalator) fixed a bug with polling multiple counters
 
 ### 0.1.4
 * (instalator) added frequency for 1 fase

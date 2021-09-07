@@ -3,144 +3,154 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.MieleCloudService
-hash: kkSktIrdhuN2rLvgkbAYfJcBEo8WMtlHoRqWRIw9uW0=
+hash: t28b0BGuLLobovAMatsIcE739MXbxHu8yZaI0ClJQlQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/mielecloudservice-stable.svg)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.mielecloudservice.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/Grizzelbee/ioBroker.mielecloudservice/badge.svg?targetFile=package.json)
+![Bekannte Schwachstellen](https://snyk.io/test/github/Grizzelbee/ioBroker.mielecloudservice/badge.svg?targetFile=package.json)
 ![NPM](https://nodei.co/npm/iobroker.mielecloudservice.png?downloads=true)
 ![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.mielecloudservice.svg)
 
-# IoBroker.MieleCloudService [![Build-Status] (https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice.svg?branch=master)](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice)
+# IoBroker.MieleCloudService [![Build-Status](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice.svg?branch=master)](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice)
 ## Beschreibung
-Mit diesem Adapter können Sie Informationen zu allen Ihren Miele @ Home-Geräten von der offiziellen Miele-API eines Drittanbieters abrufen.
-Unabhängig davon, ob sie direkt über Wi-Fi oder XGW3000 Gateway verbunden sind. Es implementiert die **Miele 3rd Party API V1.0.4**
+Dieser Adapter dient zum Abrufen von Informationen zu all Ihren Miele@Home-Geräten von der offiziellen Miele Drittanbieter-API.
+Egal ob direkt über WLAN oder XGW3000 Gateway verbunden. Es implementiert die **Miele 3rd Party API V1.0.5**
 
-## Sentry.io
-Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch dem Autor zu melden. Dafür wird das Plugin [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) verwendet. In den [Plugin Homepage](https://github.com/ioBroker/plugin-sentry) finden Sie detaillierte Informationen darüber, was das Plugin tut, welche Informationen gesammelt werden und wie Sie es deaktivieren können, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
+##sentry.io
+Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch an den Autor zu melden. Dafür wird das [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) Plugin verwendet. Bitte lesen Sie die [Plugin-Homepage](https://github.com/ioBroker/plugin-sentry) für detaillierte Informationen darüber, was das Plugin tut, welche Informationen gesammelt werden und wie Sie es deaktivieren können, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
 
-## Voraussetzungen
-* Miele @ Home User (Smartphone App)
-* Miele @ Home Passwort (Smartphone App)
+##Voraussetzungen
+* Miele@Home-Benutzer (Smartphone-App)
+* Miele@Home-Passwort (Smartphone-App)
 * Miele Client_id (von https://www.miele.com/developer/)
-* Miele Client_secret (von https://www.miele.com/developer/)
+* Miele Client_secret (von https://www.miele.com/developer/ )
 
 ## Installation
 Gehen Sie zur Installation wie folgt vor:
 
-1. Installieren Sie über Admin mit dem
+1. Installieren Sie über den Admin mit dem
  * Stable Repo - um die aktuelle stabile Version zu erhalten
- * aktuelles Repo - um die neueste Testversion zu erhalten (möglicherweise nicht stabil)
- * via: https://github.com/Grizzelbee/ioBroker.mielecloudservice.git - um die neueste Entwicklungsversion zu erhalten
-2. Erstellen Sie in der Miele Smartphone App ein App-Konto für Miele @ Home
+ * neuestes Repo - um die neueste Testversion zu erhalten (vielleicht nicht stabil)
+ * über: https://github.com/Grizzelbee/ioBroker.mielecloudservice.git - um die neueste Entwicklungsversion zu erhalten
+2. App-Account für Miele@Home in der Miele Smartphone App erstellen
 3. Erstellen Sie ein Entwicklerkonto unter https://www.miele.com/f/com/en/register_api.aspx
 4. Fügen Sie Ihre Miele-Geräte zur App hinzu (falls nicht automatisch hinzugefügt)
-6. Geben Sie client_secret und client_id ein, die Sie vom Miele-Entwicklerteam erhalten haben, sowie die Konto-ID und das Kennwort von der App.
+6. Geben Sie client_secret und client_id ein, die Sie vom Miele-Entwicklerteam erhalten haben, sowie Konto-ID und Passwort von der App.
 
-## Steuern Ihrer Geräte
-Alle derzeit unterstützten und dokumentierten Aktionen für alle Geräte sind implementiert (API V1.0.4).
+## Steuern Sie Ihre Geräte
+### Aktionen
+Alle derzeit unterstützten und dokumentierten Aktionen für alle Geräte sind implementiert (API V1.0.5).
 > Bitte denken Sie daran, dass Aktionen nur funktionieren, wenn Sie Ihr Gerät in den entsprechenden Zustand versetzen (z. B. Mobile Control, PowerOn, ...).
-Weitere Informationen zu Aktionen finden Sie in [Miele-Dokumentation](#documentation).
+Weitere Informationen zu Aktionen finden Sie unter [Miele-Dokumentation](#documentation).
+
+### Programme (Eingeführt in API V1.0.5)
+Mit API V1.0.5 hat Miele einen neuen Endpunkt namens "/programs" eingeführt.
+Die Unterstützung für diesen Endpunkt beginnt mit der Adapterversion 4.5.0. Es wird ein neuer Datenpunkt [device.Actions.Program] erstellt, der alle unterstützten Programme auflistet, die von Miele zurückgegeben werden.
+**Bei Auswahl eines der Werte wird das Programm sofort ausgeführt!** Derzeit werden nur einfache Programme unterstützt. Z.B. Öfen benötigen einige zusätzliche Informationen - dies wird in einer zukünftigen Version implementiert.
+
+Bei der Veröffentlichung des Adapters hat Miele ein paar Gerätekategorien dokumentiert, die diesen Endpunkt unterstützen und nur (zumindest für mich) eine Teilmenge davon wirklich funktioniert. Für mein Kaffeesystem, Waschmaschine und Trockner funktioniert es nur für das Kaffeesystem.
+Aber Miele arbeitet daran und erweitert den Support regelmäßig.
+Weitere Informationen finden Sie in der allgemeinen Miele API-Dokumentation (unten).
 
 ## Bekannte Probleme
 * keiner
 
 ## Dokumentation
-Bitte beziehen Sie sich hauptsächlich auf die von Miele veröffentlichte API-Hauptdokumentation
+Bitte beachten Sie hauptsächlich die von Miele veröffentlichte API-Hauptdokumentation
 
-* [Allgemeine Dokumentation] (https://www.miele.com/developer/swagger-ui/index.html)
-* [Voraussetzungen für die Ausführung einer Aktion auf einem Gerät] (https://www.miele.com/developer/swagger-ui/put_additional_info.html)
+* [Allgemeine Dokumentation](https://www.miele.com/developer/swagger-ui/index.html)
+* [Voraussetzungen zum Ausführen einer Aktion auf einem Gerät](https://www.miele.com/developer/swagger-ui/put_additional_info.html)
 
-Es gibt einige Datenpunkte in zwei Arten. Als lesbarer Text und als Zahl.
-Diese numerischen Datenfelder, die zu einem Textfeld gehören, haben denselben Namen, aber ein "_raw" wird angehängt.
+Es gibt einige Datenpunkte in 2 Arten. Als menschenlesbarer Text und als Zahl.
+Diese zu einem Textfeld gehörenden numerischen Datenfelder haben den gleichen Namen, aber ein "_raw" angehängt.
 Die Felder, die eine allgemeine Bedeutung haben, sind unten aufgeführt.
-Die Felder, die nicht aufgeführt sind, unterscheiden sich in ihrer Bedeutung von Gerät zu Gerät und werden von Miele nicht dokumentiert.
+Die nicht aufgeführten Felder unterscheiden sich in ihrer Bedeutung von Gerät zu Gerät und werden von Miele nicht dokumentiert.
 Wenn Sie in Skripten auf diese Felder verweisen müssen, verwenden Sie immer die _raw-Werte.
-Die Textwerte können sich in Zukunft ändern und hängen auch von der Sprache ab.
+Die Textwerte können sich in Zukunft ändern und sind auch von der Sprache abhängig.
 Hier ist eine Liste, wofür diese Rohwerte stehen:
 
-### Gerätetypen
- | Rohwert | Staat |
+###Gerätetypen
+ | Rohwert | Staat|
  |----------|-------|
- | 1 | WASCHMASCHINE |
- | 2 | TUMBLE DRYER |
- | 7 | SPÜLMASCHINE |
- | 8 | SPÜLMASCHINE SEMI-PROF |
- | 12 | OFEN |
- | 13 | OFEN MIKROWELLE |
- | 14 | HOB HIGHLIGHT |
- | 15 | DAMPFOFEN |
- | 16 | MIKROWELLE |
- | 17 | KAFFEESYSTEM |
- | 18 | HAUBE |
- | 19 | KÜHLSCHRANK |
- | 20 | Gefrierschrank |
- | 21 | KÜHL- / GEFRIERKOMBINATION |
- | 23 | VAKUUMREINIGER, AUTOMATISCHER ROBOTER VAKUUMREINIGER |
- | 24 | SCHEIBETROCKNER |
- | 25 | DISH WARMER |
- | 27 | HOB INDUKTION |
- | 28 | HOB GAS |
- | 31 | DAMPFOFENKOMBINATION |
- | 32 | WEINKABINETTE |
- | 33 | WEINKONDITIONIERUNGSEINHEIT |
- | 34 | WEINLAGERUNGSKONDITIONIERUNGSEINHEIT |
- | 39 | DOPPELTER OFEN |
- | 40 | DOPPELDAMPFOFEN |
- | 41 | DOPPELDAMPFOFENKOMBINATION |
- | 42 | DOPPELTE MIKROWELLE |
- | 43 | DOPPELTER MIKROWELLENOFEN |
- | 45 | DAMPFOFEN MIKROWELLENKOMBINATION |
- | 48 | VAKUUMSCHUBLADE |
- | 67 | DIALOGOVEN |
- | 68 | WEINKABINETTEN-GEFRIERKOMBINATION |
+ |1 | WASCHMASCHINE|
+ |2 | TROCKNER|
+ |7 | SPÜLMASCHINE|
+ |8 | GESCHIRRSPÜLMASCHINE SEMI-PROF|
+ |12 | OFEN|
+ |13 | OFEN MIKROWELLE|
+ |14 | KOCHFELD-HIGHLIGHT|
+ |15 | DAMPFBACKOFEN|
+ |16 | MIKROWELLE|
+ |17 | KAFFEESYSTEM|
+ |18 | HAUBE|
+ |19 | KÜHLSCHRANK|
+ |20 | GEFRIERSCHRANK|
+ |21 | KÜHL-/GEFRIERKOMBINATION|
+ |23 | STAUBSAUGER, AUTOMATISCHER ROBOTERSTAUBSAUGER|
+ |24 | WASCHTROCKNER|
+ |25 | GESCHIRRWÄRMER|
+ |27 | KOCHFELDINDUKTION|
+ |28 | KOCHFELD GAS|
+ |31 | DAMPFBACKOFENKOMBINATION|
+ |32 | WEINSCHRANK|
+ |33 | WEINKONDITIONIEREINHEIT|
+ |34 | WEINLAGERKONDITIONIERUNGSEINHEIT|
+ |39 | DOPPELBACKOFEN|
+ |40 | DOPPELDAMPFBACKOFEN|
+ |41 | DOPPEL-DAMPFBACKOFEN-KOMBINATION|
+ |42 | DOPPELTE MIKROWELLE|
+ |43 | DOPPELTE MIKROWELLE|
+ |45 | DAMPFBACKOFEN MIKROWELLEN-KOMBINATION|
+ |48 | VAKUUMSCHUBLADE|
+ |67 | DIALOGOFEN|
+ |68 | WEINSCHRANK-GEFRIERKOMBINATION|
 
-### Status / Status
- | Rohwert | Staat |
+### Status/Status
+ | Rohwert | Staat|
  |----------|-------|
- | 1 | AUS |
- | 2 | STAND_BY |
- | 3 | PROGRAMMIERT |
- | 4 | PROGRAMMED_WAITING_TO_START |
- | 5 | LAUFEN |
- | 6 | PAUSE |
- | 7 | END_PROGRAMMED |
- | 8 | FEHLER |
- | 9 | PROGRAMME_INTERRUPTED |
- | 10 | LEERLAUF |
- | 11 | RINSE_HOLD |
- | 12 | SERVICE |
- | 13 | SUPERFREEZING |
- | 14 | SUPERCOOLING |
- | 15 | ÜBERHITZUNG |
- | 144 | STANDARD |
- | 145 | GESPERRT |
- | 146 | SUPERCOOLING_SUPERFREEZING |
- | 255 | Gerät offline |
+ |1| AUS|
+ |2| STAND_BY|
+ |3| PROGRAMMIERT|
+ |4| PROGRAMMED_WAITING_TO_START|
+ |5| LAUFEN|
+ |6| PAUSE|
+ |7| END_PROGRAMMED|
+ |8| AUSFALL|
+ |9| PROGRAMME_INTERRUPTED|
+ |10| LEERLAUF|
+ |11| RINSE_HOLD|
+ |12| SERVICE|
+ |13| SUPERFREEZING|
+ |14| ÜBERKÜHLUNG|
+ |15| ÜBERHITZUNG|
+ |144| STANDARD|
+ |145| GESPERRT|
+ |146| SUPERCOOLING_SUPERFREEZING|
+ |255| Gerät offline|
 
-### ProgramType / Programmart
-| Rohwert | Staat |
+### Programmtyp/Programmart
+| Rohwert | Staat|
 |----------|-------|
-| 0 | Normaler Betriebsmodus |
-| 1 | Eigenes Programm |
-| 2 | Automatisches Programm |
-| 3 | Reinigungs- / Pflegeprogramm |
+|0 | Normalbetrieb |
+|1 | Eigenes Programm |
+|2 | Automatikprogramm |
+|3 | Reinigungs-/Pflegeprogramm |
 
-### TrocknenSchritt / Trockenstufe
- | Rohwert | Staat |
+### Trocknungsschritt/Trockenstufe
+ | Rohwert | Staat|
  |----------|-------|
- | 0 | Extra trocken |
- | 1 | Normal Plus |
- | 2 | Normal |
- | 3 | Leicht trocken |
- | 4 | Handeisen Stufe 1 |
- | 5 | Handeisen Stufe 2 |
- | 6 | Maschineneisen |
+ |0 | Extra trocken|
+ |1 | Normal Plus|
+ |2 | Normal|
+ |3 | Leicht trocken|
+ |4 | Handbügeleisen Stufe 1|
+ |5 | Handbügeleisen Stufe 2|
+ |6 | Bügeleisen|
 
-### Programmbezeichnung
+###Programmbezeichnung
 | Rohwert | Staat | verfügbar für |
 |-----------|-------------------------|-----------------|
 | 1 | "Baumwolle" / "Baumwolle" | Waschmaschine |
@@ -148,37 +158,58 @@ Hier ist eine Liste, wofür diese Rohwerte stehen:
 | 4 | "Feinwäsche" | Waschmaschine |
 | 8 | "Wolle" | Waschmaschine |
 | 9 | "Seide" | Waschmaschine |
-| 21 | "Pumpen / Schleudern" | Waschmaschine |
+| 21 | "Pumpen/Schleudern" | Waschmaschine |
 | 23 | "Oberhemden" | Waschmaschine |
 | 27 | "Imprägnieren" | Waschmaschine |
 | 29 | "Sportwäsche" | Waschmaschine |
 | 31 | "Automatisches Plus" | Waschmaschine |
-| 37 | "Outdoor" | Waschmaschine |
+| 37 | "Im Freien" | Waschmaschine |
 | 48 | "Flusen ausspülen" | Waschtrockner |
 | 50 | "Dunkle Wäsche" | Waschtrockner |
-| 52 | "Nur Spülen / Stärken" | Waschmaschine |
+| 52 | "Nur Spülen/Stärken" | Waschmaschine |
 | 122 | "Express 20" | Waschtrockner |
-| 123 | "Dunkles / Jeans" | Waschmaschine |
+| 123 | "Dunkles/Jeans" | Waschmaschine |
 
-### ProgramPhase
-| Rohwert | Staat | verfügbar für |
+###Programmphase
+| Rohwert | Staat| verfügbar für |
 |----------|-------|---------------|
-| 258 | "Einweichen" | Waschmaschine |
-| 260 | "Waschen" / "Waschen" | Waschmaschine |
-| 261 | "Spülen" / "Spülen" | Waschmaschine |
-| 265 | "Pumpen" | Waschmaschine |
-| 266 | "Schleudern" / "Spinnen" | Waschmaschine |
-| 267 | "Knitterschutz" / "" | Waschmaschine |
-| 268 | "Ende" / "Ende" | Die meisten Geräte |
-| 256 | "Vorbügeln" | Waschmaschine |
-| 514 | "Trocknen" | Waschtrockner |
-| 519 | "Abkühlen" | Waschtrockner |
-| 532 | "Flusen ausspülen" | Waschtrockner |
+|258 | "einweichen" | Waschmaschine |
+|260 | "Waschen" / "Waschen" | Waschmaschine |
+|261 | "Spülen" / "Spülen" | Waschmaschine |
+|265 | "Pumpen" | Waschmaschine |
+|266 | "Schleudern" / "Spinnen" | Waschmaschine |
+|267 | "Strickschutz" / "" | Waschmaschine |
+|268 | "Ende" / "Ende" | Waschmaschine |
+|256 | "Vorbügeln" | Waschmaschine |
+|512 | "Ende" / "Ende" | Wäschetrockner |
+|514 | "Trocknen" / "Trocknen" | Waschtrockner |
+|519 | "Abkühlen" / "Abkühlen" | Waschtrockner |
+|521 | "Trocknen" / "Trocknen" | Wäschetrockner |
+|522 | "Strickschutz" / "" | Wäschetrockner |
+|532 | "Flusen ausspülen" | Waschtrockner |
 
 ## Urheberrechte ©
 Copyright (c) 2019, 2021 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+
+### V4.5.0 (2021-09-05) (Invincible)
+* (grizzelbee) New: [164](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/164) fixed bug in SignalFailure and signalInfo when havin no value
+* (grizzelbee) New: [155](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/155) fixed >missing object< bug on arrays 
+* (grizzelbee) New: [154](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/154) Reintroduced TargetTemp to washer dryers
+* (grizzelbee) New: [140](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/140) Switched from data polling to server sent events (push data)
+* (grizzelbee) New: [71](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/71) If there is no internet connection on startup retry connecting until connection is established 
+* (grizzelbee) Fix: estimatedEndTime won't be shown anymore when device is off
+* (grizzelbee) Fix: Don't rethrowing errors in APISendRequest anymore
+* (grizzelbee) Fix: fixed a few minor bugs
+* (grizzelbee) Upd: Updated dependencies
+* (grizzelbee) New: Added some additional API languages newly supported by Miele
+* (grizzelbee) New: Added support for Miele API V1.0.5
+* (grizzelbee) New: Added correct tier of adapter to io-package
+* (grizzelbee) New: Added more program phases for tumble dryers to documentation
+
+### V4.2.0 (2021-05-17) (A new Dimension)
+* (grizzelbee) New: Adding Pause action to dish-washers
 
 ### V4.1.0 (2021-05-15) (Carry me over)
 * (grizzelbee) New: [149](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/149) Adding support (Start, Stop, Pause) for Miele Scout RX2 vacuum cleaner robots

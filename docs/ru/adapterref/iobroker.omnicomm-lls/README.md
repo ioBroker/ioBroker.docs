@@ -3,25 +3,19 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.omnicomm-lls/README.md
 title: ioBroker.omnicomm-lls
-hash: vxOUb6Lg2KY+nJ7bfXOg9g3RByDkoIu6iYTd33c55CQ=
+hash: cEJR3qJPw3lDlOWu32auHKu/DdysiVyHJuolX4vq3X0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.omnicomm-lls/admin/logo_admin.png)
 
-![Количество установок](http://iobroker.live/badges/omnicomm-lls-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.omnicomm-lls.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.omnicomm-lls.svg)
-![НПМ](https://nodei.co/npm/iobroker.omnicomm-lls.png?downloads=true)
 ![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
 # IoBroker.omnicomm-lls
-[![Тесты] (https://github.com/instalator/iobroker.omnicomm-lls/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.omnicomm-lls/actions/)
-
 ## Адаптер omnicomm-lls для ioBroker
 Получить данные датчики топлива Omnicomm LLS
 
 ## Changelog
 
-### 0.0.6
+### 0.0.7
 * (instalator) initial release
 
 ## License

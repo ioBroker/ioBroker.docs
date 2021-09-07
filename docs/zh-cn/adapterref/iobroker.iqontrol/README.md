@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: XOe8kkIiikVNnLMEviDD7ivNkxpGzrSUWCwjJtzxSTg=
+hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 ---
 ![标识](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -80,7 +80,7 @@ hash: XOe8kkIiikVNnLMEviDD7ivNkxpGzrSUWCwjJtzxSTg=
 访问 [iobroker论坛](https://forum.iobroker.net/topic/22039/neuer-adapter-visualisierung-iqontrol)。
 
 ＃＃ 如何使用
-**不要害怕您拥有的众多选项。** 大多数东西都是开箱即用的。您*可以*，但您不必使用 iQontrol 提供的所有配置可能性！就这样开始吧：
+**不要害怕您拥有的众多选择。** 大多数东西都是开箱即用的。您*可以*，但您不必使用 iQontrol 提供的所有配置可能性！就这样开始吧：
 
 * 开始创建视图。
 
@@ -91,7 +91,7 @@ hash: XOe8kkIiikVNnLMEviDD7ivNkxpGzrSUWCwjJtzxSTg=
 设备有一个角色，它决定了设备的功能，使用了哪些图标等等。
 根据该角色，您可以将多个状态链接到设备。这些将为设备提供其功能。
 如果您选择“链接到其他视图”作为角色，您可以创建到其他视图的链接。我建议皮肤链接到具有相同背景的其他视图，链接视图具有。
-您还可以尝试使用 Autocreate-Function 从 iobroker-object-tree 中选择现有设备。 Autocreate 尝试找出角色并匹配尽可能多的状态。
+您也可以尝试使用 Autocreate-Function 从 iobroker-object-tree 中选择现有设备。 Autocreate 尝试找出角色并匹配尽可能多的状态。
 
 * 之后您可以创建一个工具栏，显示为页脚。
 
@@ -110,7 +110,7 @@ hash: XOe8kkIiikVNnLMEviDD7ivNkxpGzrSUWCwjJtzxSTg=
 * 请记住，由于 ioBroker-univese 中存在大量不同的适配器和设备，因此自动控制功能无法 100% 正确维护所有设备。您可能需要手动重新设置一些设置以获得最佳结果。但是自动创建为您提供了一个很好的起点，可以在几秒钟内构建自己的可视化。
 
 ## URL 参数
-* 前端通过 ``http[s]://<iobroker 的 url 或 ip>:<web 适配器的端口>/iqontrol/index.html`` 调用
+* 前端通过``http[s]://<url or ip of iobroker>:<port of web adapter>/iqontrol/index.html``调用
     * ``<网络适配器的端口>`` 通常是 8082
 * 要打开指定的实例，您可以添加``namespace=iqontrol.<instance-number>`` 作为 URL 参数
 * 要打开指定的视图，您可以添加 ``renderView=<viewID>`` 作为 URL 参数。
@@ -137,19 +137,19 @@ hash: XOe8kkIiikVNnLMEviDD7ivNkxpGzrSUWCwjJtzxSTg=
 
 ## 字体
 * 您可以将自己的字体文件上传到 Images/Widgets-Tab 文件夹中的 /userfonts
-* 在选项选项卡中有几个地方可以选择这些字体
+* 在选项选项卡中，您有几个地方可以选择这些字体
 * 这取决于您的服务器 MIME 设置，如果字体正确呈现给浏览器 - 对我来说最好的 .ttf 和 .woff（在 raspi 4b 上测试）
     * 这些 mime 设置应该有效：
 * .otf: 应用程序/x-font-opentype
 * .ttf: application/x-font-ttf 或 application/x-font-truetype
 * .woff: 应用程序/font-woff
-* .woff2：应用程序/font-woff2
+* .woff2: 应用程序/font-woff2
 * .eot：应用程序/vnd.ms-fontobject
 * 您可以在 fontsquirrel.com 上的生成器下将字体转换为其他格式
 * 请记住 - webfonts 总是有点棘手，并不是每个服务器和每个浏览器的每种字体都可以使用
 
 ## 图标和背景图像
-*您可以使用内置图像或在图像选项卡或任何您喜欢的免费网址下上传的图像
+*您可以使用内置图像或在图像选项卡下上传的图像或您喜欢的任何免费网址
 * 您还可以在 image-url 中使用变量。这可能对例如天气预报很有用。使用这种模式：
     * ``path/to/firstloaded.png|anotherpath/to/{iobrokerstate|fallback}.png``
     * 示例：``./../iqontrol.meta/userimages/demo/bottle.jpg|./../iqontrol.meta/userimages/demo/{javascript.0.myimage|whitestone}.jpg``
@@ -175,7 +175,7 @@ hash: XOe8kkIiikVNnLMEviDD7ivNkxpGzrSUWCwjJtzxSTg=
 * 就像 image-urls 中的变量一样，您可以在 device-names 中使用变量。语法几乎相同：
     * ``加载时的文本|加载后的文本 {iobrokerstate|fallback}``
 * 另外可以将 iobrokerstate 放在方括号中，然后将使用不带单位的普通值：``加载时的文本|加载后的文本 {[iobrokerstate]|fallback}``
-    * 示例：``Weather is loading|Weather: {javascript.0.weather|No weather data found}``
+    * 示例：``天气正在加载|天气：{javascript.0.weather|未找到天气数据}``
 * 当您打开视图时，这会显示“天气正在加载”
 * 一旦从服务器获取 ``javascript.0.weather`` 的状态，文本将被替换为 ``Weather: XXX`` 其中 ``XXX`` 是 ``javascript.0 的值.天气``
 * 如果 ``javascript.0.weather`` 没有值，则将使用后备 ``No weather data found`` （使用后备是可选的）
@@ -271,7 +271,8 @@ hash: XOe8kkIiikVNnLMEviDD7ivNkxpGzrSUWCwjJtzxSTg=
 				role: "<role of state>",
 				type: "<string|number|boolean>",
 				name: "<name of datapoint>",
-				desc: "<description of datapoint>"
+				desc: "<description of datapoint>",
+				Date: <Date-object (only present, if value is regognized as a valid time or period)>
 			}
 			````
 
@@ -282,7 +283,7 @@ hash: XOe8kkIiikVNnLMEviDD7ivNkxpGzrSUWCwjJtzxSTg=
 * 语法是： `` <meta name="widget-datapoint" content="WidgetName.StateName|WidgetName.{instance}.StateName" data-type="string" data-role="text" /> ``
 * 如果变量 ``instance`` 被设置，那么 ``|`` 之后的部分将用作 widgetState-Name 并且 ``{instance}`` 将被替换为 ``instance`` 的值
 * 如果变量 ``instance`` 未设置，则 ``|`` 之前的部分将用作 wigetState-Name
-    * 相应的数据点才会被创建，如果widget-website 作为URL 或BACKGROUND_URL 添加到设备
+    * 相应的数据点才会被创建，如果widget-website作为URL或BACKGROUND_URL添加到设备
 * 相同的概念可用于 URL/HTML-State，用于在设备对话框内显示网站
 * 要为您的小部件创建图标，请将与小部件具有相同文件名的 .png 文件放入小部件目录中
 * 请参阅下面的示例小部件网站：
@@ -432,14 +433,14 @@ hash: XOe8kkIiikVNnLMEviDD7ivNkxpGzrSUWCwjJtzxSTg=
 </详情>
 
 ###小部件的进一步配置
-* 还有额外的元标签，您可以在小部件网站的头部部分中使用来配置小部件的行为：
+* 还有额外的元标记，您可以在小部件网站的头部部分中使用来配置小部件的行为：
 * '小部件描述'
 * 语法：`` <meta name="widget-description" content="Please see www.mywebsite.com for further informations. (C) by me"/> ``
 *将窗口小部件作为URL或Background_URL或AutoCreate窗口小部件将窗口小部件介绍时，将显示内容
 * 'widget-urlparameters'
 * 语法：`` <meta name="widget-urlparameters" content="parameter/default value/description/type;parameter2/default value2/description2/type2"/> ``
-*将窗口小部件作为URL或Background_URL或AutoCroCateS进行小部件时，将要求用户询问这些参数
-* ``type`` 是可选的，可能是 ``text`` （这是 dafault）、``number``、``checkbox``、``color``、``select``、``multipleSelect`` `、`combobox`、`historyInstance`、`datapoint`、`icon`、`section` 或`divider`
+* 将小部件选择为 URL 或背景_URL 或自动创建小部件时，将要求用户提供这些参数
+* ``type`` 是可选的，可能是 ``text`` （这是 dafault）、``number``、``checkbox``、``color``、``select``、``multipleSelect` `、`combobox`、`historyInstance`、`datapoint`、`icon`、`section` 或`divider`
 * 如果 type 是 ``select``, ``multipleSelect`` 或 ``combobox`` 那么你需要通过添加 ``/<selectOptions>`` 来指定可能的选项，其中 ``<selectOptions>`` 是一个``<value1>,<caption1>/<value2>,<caption2>/...`` 格式的字符串（组合框是一个可以输入自由文本的选择框）
 * 如果 type 是 ``number`` 则可以通过添加``/<numberOptions>`` 来指定最小、最大和步长，其中 ``<numberOptions>`` 是格式为 ``<min> 的字符串， <最大>,<步数>``
 * 所有这些参数都将通过 url-parameter-string（如 ``widget.html?parameter=value&parameter2=value2``）提供给小部件网站
@@ -520,7 +521,7 @@ hash: XOe8kkIiikVNnLMEviDD7ivNkxpGzrSUWCwjJtzxSTg=
 * 默认值：“最喜欢的位置”
 * ``stopCaption``（停止标题） - 仅对角色窗口有效：
 * 默认值：“停止”
-* ``downCaption`` (Caption for DOWN) - 只对角色窗口有效：
+* ``downCaption`` (Caption for DOWN) - 仅对角色窗口有效：
 * 默认值：“向下”
 * ``controlModeDisarmedValue``（“解除武装”的 CONTROL_MODE 值） - 仅对角色警报有效：
 * 默认值：“0”
@@ -547,7 +548,7 @@ hash: XOe8kkIiikVNnLMEviDD7ivNkxpGzrSUWCwjJtzxSTg=
 * ``coverImageReloadDelay``（延迟重新加载封面图像 [ms]） - 仅对角色 Media 有效：
 * 可能的值：从 0 到 5000 的数字
 * 默认： ””
-* ``statePlayValue``（“播放”的状态值）-仅对角色媒体有效：
+* ``statePlayValue``（'play' 的 STATE 值） - 仅对角色 Media 有效：
 * 默认值：“播放”
 * ``statePauseValue``（“暂停”的状态值）-仅对角色媒体有效：
 * 默认值：“暂停”
@@ -606,7 +607,7 @@ hash: XOe8kkIiikVNnLMEviDD7ivNkxpGzrSUWCwjJtzxSTg=
 * *已弃用* 因为此选项现在包含在 clickOnIconAction 中
 * 可能的值：“真”|“假”
 * 默认值：“假”
-* ``clickOnTileToggles``（点击平铺切换（而不是打开对话框））：
+* ``clickOnTileToggles``（点击磁贴切换（而不是打开对话框））：
 * *已弃用* 因为此选项现在包含在 clickOnTileAction 中
 * 可能的值：“真”|“假”
 * 默认值：“假”
@@ -798,7 +799,7 @@ hash: XOe8kkIiikVNnLMEviDD7ivNkxpGzrSUWCwjJtzxSTg=
 * 可能的值：“真”|“假”
 * 默认值：“假”
 * 背景视图/URL/HTML：
-* ``backgroundURLDynamicIframeZoom``（BACKGROUND_VIEW/URL/HTML 的动态缩放（这是所需的以 % 为单位的缩放级别，让内容适合单个 1x1 磁贴））：
+* ``backgroundURLDynamicIframeZoom``（BACKGROUND_VIEW/URL/HTML 的动态缩放（这是需要的以 % 为单位的缩放级别，让内容适合单个 1x1 磁贴））：
 * 可能的值：从 0.01 到 200 的数字
 * 默认： ””
 * ``backgroundURLPadding``（对 Background_VIEW/URL/HTML 应用填充）：
@@ -1323,7 +1324,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 
         * **HHSSBB for Tuya**：12 位长十六进制字符串，代表色相（HH = 0000-016d [0-365]）、饱和度（SS = 0000-03e8 [0-1000]）和色亮度（BB = 0000-03e8 [0-1000])
 
-请记住：转换到替代色彩空间是由前端完成的，因此它仅在 iQontrol 在某处打开时才处于活动状态。因此，您不能将其用作色彩空间的转换器。为了避免对话循环，建议使用原始色彩空间数据点（HUE、SATURATION、COLOR_BRIGHTNESS、CT、WHITE_BRIGHTNESS）*或*替代色彩空间数据点来*替换*这些数据点。
+请记住：转换到替代色彩空间是由前端完成的，因此只有在某处打开 iQontrol 时它才处于活动状态。因此，您不能将其用作色彩空间的转换器。为了避免对话循环，建议使用原始色彩空间数据点（HUE、SATURATION、COLOR_BRIGHTNESS、CT、WHITE_BRIGHTNESS）*或*替代色彩空间数据点来*替换*这些数据点。
 
 *效果模式：
   ***EFFECT**:* alue-list* - 要播放的效果
@@ -1418,7 +1419,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 * **VOLTAGE**: *number* - 右上角会以小字显示的电压
 
 ###<img src="img/icons/time_alarmclock_on.png" width="32">日期和时间：
-* **STATE**: *boolean* - 如果为 true，则图块将显示为活动状态
+* **STATE**: *boolean* - 如果为真，图块将显示为活动状态
 * **SUBJECT**: *string* - 设置描述
 * **RINGING**: *boolean* - 如果为真，则显示闹钟
 * 请记住：您可以通过 ADDITIONAL_CONTROLS 配置退出和暂停按钮
@@ -1461,7 +1462,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 | | | kk | 01 02 ... 23 24 | X | ---（转换为 HH） | ---（转换为 HH） |
 | |分钟 |米| 0 1 ... 58 59 | X | X | X |
 | | |毫米 | 00 01 ... 58 59 | X | X | X |
-| |第二 | | | 0 1 ... 58 59 | X | X | X |
+| |第二 | | 0 1 ... 58 59 | X | X | X |
 | | | ss | 00 01 ... 58 59 | X | X | X |
 | |小数秒 | | | 0 1 ... 8 9 | X | --- | --- |
 | | | SS | 00 01 ... 98 99 | X | --- | --- |
@@ -1476,7 +1477,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 |其他 |星期几（语言环境）|电子 | 0 1 ... 5 6 | X | --- | --- |
 | |星期几 (ISO) | E | 1 2 ... 6 7 | X | --- | --- |
 | |季度|问 | 1 2 3 4 | X | --- | --- |
-| | | Qo |一二三四| X | --- | --- |
+| | | Qo | 1 2 3 4 | X | --- | --- |
 | |一年中的一周 | | | 1 2 ... 52 53 | X | --- | --- |
 | | |我|第 2 次 ... 第 52 次 53 次 | X | --- | --- |
 | | | ww | 01 02 ... 52 53 | X | --- | --- |
@@ -1507,13 +1508,13 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 | | |下午 |分钟| X | --- | --- |
 | | | ps |秒周期 | X | --- | --- |
 | | |下午 |毫秒周期 | X | --- | --- |
-|旗帜 |将缺失的部分设置为开始 | tb |例如。如果只给出时间，则将日期设置为 1970-01-01 | X | --- | --- |
+|旗帜 |将缺失的部分设置为开始 | tb |例如。将日期设置为 1970-01-01，如果只给出一个时间 | X | --- | --- |
 | |将缺少的部分设置为现在 | tn |例如。将日期设置为现在，如果只给出一个时间 | X | --- | --- |
 | |保留旧的缺失部件 |到|例如。如果只给出一个时间，就和以前一样离开日期 | X | --- | --- |
 |自由文本 |在括号中标记自由文本 | [] | [这是一个例子，所有标记都被忽略] | X | X | --- |
 
 * 如果datapoint-timeformat 和display-timeformat 使用不同的配置，则使用以下转换规则。
-* 您可以使用数据点时间格式中的标志 ``tb``、``tn`` 和 ``to`` 来影响行为。
+* 您可以在数据点时间格式中使用标志 ``tb``、``tn`` 和 ``to`` 来影响行为。
 
     ![辉光](../../../en/adapterref/iobroker.iqontrol/img/dateandtime_conversionrules.png)
 
@@ -1590,13 +1591,18 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 * 切换到控制台窗口并重现错误
 * 在控制台窗口中查找消息
 * 出现错误时，会列出导致错误的行号
-* 请点击此行号并截图故障线路：
+* 请点击此行号并截取故障线路：
 
 ![故障排除控制台窗口](img/troubleshooting_consolewindow.png)![排除故障线路](../../../en/adapterref/iobroker.iqontrol/img/troubleshooting_faultyline.png)
 
 ****
 
 ## Changelog
+
+### dev
+* (sbormann) Fixed collapsible not opening if initial closed.
+* (muuulle, sbormann) Enhanced Analog-Clock-Widget to be able to display the time of a datapoint.
+* (sbormann) Enhanced json-table-Widget to regognize parentNames of datapoints, transpose json-data and some styling-options.
 
 ### 1.9.8 (2021-09-03)
 * (sbormann) Fixed variables with special chars not working.

@@ -41,21 +41,24 @@ The following additionals States are created per device when checked:
 
 ## Changelog
 
-### 0.1.x
-* 8 - (patrickbs96) Changes from the Review
-* 6 - (patrickbs96) Update dependencies
-* 5 - (patrickbs96) Prevent Crash Case at HTTP Error (Sentry IOBROKER-TWINKLY-3)
-* 4 - (patrickbs96) Temporary removing Reset as API path not exists
-* 1 - (patrickbs96) Prevent Crash Case at HTTP Error (Sentry IOBROKER-TWINKLY-3)
+### 0.1.10 (2021-09-04)
+* (patrickbs96) Update API values to Firmware 2.7.1
 
-### 0.0.x
-* 10 - (patrickbs96) Restructured CreateStates (dynamic)
-*  9 - (patrickbs96) Network-Status (read)
-*  8 - (patrickbs96) Transform JSON into states: Details, MQTT and Timer
-*  7 - (patrickbs96) Moved Twinkly Connection into own library
-*  6 - (patrickbs96) Implemented Ping to check if Twinkly is connected. `Connected State` is no longer needed.
-*  3 - (patrickbs96) finalized Admin and Coding
-*  1 - (patrickbs96) initial release
+### 0.1.8 (2021-02-06)
+* (patrickbs96) Changes from the Review
+
+### 0.1.6
+* (patrickbs96) Update dependencies
+
+### 0.1.5
+* (patrickbs96) Prevent Crash Case at HTTP Error (Sentry IOBROKER-TWINKLY-3)
+
+### 0.1.4
+* (patrickbs96) Temporary removing Reset as API path not exists
+
+### 0.1.1
+* (patrickbs96) Prevent Crash Case at HTTP Error (Sentry IOBROKER-TWINKLY-3)
+
 
 ## License
 MIT License

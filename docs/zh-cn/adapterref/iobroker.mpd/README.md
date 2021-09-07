@@ -2,22 +2,18 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mpd/README.md
-title: ioBroker.mpd适配器
-hash: BE5qE1VcmCJxAla75VRDboDJGzG0LhArx2PnaGfw5mQ=
+title: ioBroker.mpd 适配器
+hash: nICyiM828I14uglLlFHsHPTR/nhrqxON2tzU08H/1Yw=
 ---
 ![标识](../../../en/adapterref/iobroker.mpd/admin/mpd.png)
 
-![安装数量](http://iobroker.live/badges/mpd-stable.svg)
-![NPM版本](https://img.shields.io/npm/v/iobroker.mpd.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.mpd.svg)
-![NPM](https://nodei.co/npm/iobroker.mpd.png?downloads=true)
 ![捐](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-＃ioBroker.mpd适配器[![测试]（https://github.com/instalator/iobroker.mpd/workflows/Test%20and%20Release/badge.svg）](https://github.com/instalator/ioBroker.mpd/actions/)
-连接到[音乐播放器守护程序](http://musicpd.org)服务器，发送命令，发出事件。
+# IoBroker.mpd 适配器
+连接到 [音乐播放器守护进程](http://musicpd.org) 服务器，发送命令，发出事件。
 
-##文档
-另请参阅[MPD协议文档](http://www.musicpd.org/doc/protocol/)。
+## 文档
+另见[MPD 协议文档](http://www.musicpd.org/doc/protocol/)。
 
 ## Changelog
 

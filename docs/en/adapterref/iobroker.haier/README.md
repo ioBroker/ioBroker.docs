@@ -2,14 +2,6 @@
 # ioBroker Haier air conditioning adapter
 =================
 
-![Number of Installations](http://iobroker.live/badges/haier-installed.svg) 
-![Number of Installations](http://iobroker.live/badges/haier-stable.svg) 
-[![NPM version](http://img.shields.io/npm/v/iobroker.haier.svg)](https://www.npmjs.com/package/iobroker.haier)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.haier.svg)](https://www.npmjs.com/package/iobroker.haier)
-[![Tests](https://github.com/instalator/iobroker.haier/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.haier/actions/)  
- 
-[![NPM](https://nodei.co/npm/iobroker.haier.png?downloads=true)](https://nodei.co/npm/iobroker.haier/)
-
 [![Donate](https://img.shields.io/badge/Donate-YooMoney-green)](https://sobe.ru/na/instalator)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PFUALWTR2CTPY)
 

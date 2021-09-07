@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: gzY6cQPMHD2tTHAon36ZrFqnMfSkRfFG15h+3Ix/DnM=
+hash: VbVRQ2vMX9iYbPwVYUZB3eGJNzPhgVl8WQ2Vdb8kbk4=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -43,6 +43,12 @@ Falls Dir unsere Arbeit und Du uns unterstützen möchten, freuen wir uns über 
 [![Ausgaben](http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
+
+## 3.2.0
+- Textfarbe aktiv/inaktiv für Universal- & Multiwidget
+- Colorslider CIE Wert mit eckigen Klammern
+- Fehler behoben, dass Schattenfarbe bei Universal- & Multiwidget nicht aktualisiert
+- JSON Tabelle: Vorangestellter und angehänget Text
 
 ## 3.1.3
 - Fehlerbehebung

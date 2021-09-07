@@ -1,6 +1,6 @@
 # ioBroker.snips ![Logo](admin/snips.png)
 
-[![Build Status](https://travis-ci.org/unltdnetworx/ioBroker.snips.svg?branch=master)](https://travis-ci.org/unltdnetworx/ioBroker.snips)
+[![Build Status](https://app.travis-ci.com/unltdnetworx/ioBroker.snips.svg?branch=master)](https://travis-ci.org/unltdnetworx/ioBroker.snips)
 ![Number of Installations](http://iobroker.live/badges/snips-installed.svg) ![Number of Installations](http://iobroker.live/badges/snips-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.snips.svg)](https://www.npmjs.com/package/iobroker.snips)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.snips.svg)](https://www.npmjs.com/package/iobroker.snips)
 

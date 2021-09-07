@@ -2,24 +2,20 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.foobar2000/README.md
-title: Foobar2000 Adapter für iobroker
-hash: fbOZYCXQIBRpKL+vSNQAHr5EXJhUtwi/2rDWlKRDnEQ=
+title: Foobar2000-Adapter für iobroker
+hash: JPWqHBGbOgJ7rkGXOWyYl8DeWEZRRltoEGaAABIzxBU=
 ---
 ![Logo](../../../en/adapterref/iobroker.foobar2000/admin/foobar2000.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/foobar2000-stable.svg)
-![NPM-Version](https://img.shields.io/npm/v/iobroker.foobar2000.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.foobar2000.svg)
-![NPM](https://nodei.co/npm/iobroker.foobar2000.png?downloads=true)
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-# Foobar2000 Adapter für iobroker [![Tests] (https://github.com/instalator/iobroker.foobar2000/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.foobar2000/actions/)
+# Foobar2000-Adapter für iobroker
 ![Admin-Einstellungen.](../../../en/adapterref/iobroker.foobar2000/admin/admin.png)
 
 ## Verwenden
-§Писание [тут](http://blog.instalator.ru/archives/541).
-Для управления проигрывателем необходимо установить плагин [foo_httpcontrol](https://bitbucket.org/oblikoamorale/foo_httpcontrol/downloads/).
-Для отображения обложки как ссылка на файл, необходимо в файле ```c:\Users\{USER}\AppData\Roaming\foobar2000\foo_httpcontrol_data\foobar2000controller\config``` изменить параметр §§JJJ
+Beschreibung [тут](http://blog.instalator.ru/archives/541).
+Для управления роигрывателем необходимо установить лагин [foo_httpcontrol](https://bitbucket.org/oblikoamorale/foo_httpcontrol/downloads/).
+ля отображения обложки как ссылка на файл, необходимо в файле ```c:\Users\{USER}\AppData\Roaming\foobar2000\foo_httpcontrol_data\foobar2000controller\config``` изменить параметр ```albumart_prefer_embedded=0```
 
 Um den Player zu steuern, müssen Sie das Plugin [foo_httpcontrol](https://bitbucket.org/oblikoamorale/foo_httpcontrol/downloads/) installieren.
 Um das Cover als Link zu einer Datei anzuzeigen, ändern Sie in der Datei ```c:\Users\{USER}\AppData\Roaming\foobar2000\foo_httpcontrol_data\foobar2000controller\config``` den Parameter ```albumart_prefer_embedded = 0```

@@ -324,6 +324,9 @@ ioBroker的官方适配器数量已经相当可观。 当然，网上还有更�
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
 
+### 1.9.10 (2021-09-04)
+* (Speedbreaker12) Adjust some actions to prevent js-controller 3.3 warnings
+
 ### 1.9.9 (2021-09-02)
 * (Apollon77) update library to prevent some errors
 * (Apollon77) Adjust some actions to prevent js-controller 3.3 warnings

@@ -3,19 +3,13 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.exchangerates/README.md
 title: ioBroker.exchangerates
-hash: 68ZjMJ2Tv9VaoDm/OZklWZJ6NKbd6+Z1KK9AvVdQftg=
+hash: Pf9+hzWcDFsycrNHwbRFVAi7El76JEzOLNjw0IWd6Xg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.exchangerates/admin/exchangerates.png)
 
-![Количество установок](http://iobroker.live/badges/exchangerates-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.exchangerates.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.exchangerates.svg)
-![NPM](https://nodei.co/npm/iobroker.exchangerates.png?downloads=true)
 ![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
 # IoBroker.exchangerates
-[![Тесты] (https://github.com/instalator/iobroker.exchangerates/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.exchangerates/actions/)
-
 ## Адаптер обменных курсов для ioBroker
 Курсы валют Центральный банк России и Европейский центральный банк и многое другое ...
 

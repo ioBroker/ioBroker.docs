@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.MieleCloudService
-hash: kkSktIrdhuN2rLvgkbAYfJcBEo8WMtlHoRqWRIw9uW0=
+hash: t28b0BGuLLobovAMatsIcE739MXbxHu8yZaI0ClJQlQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
@@ -17,7 +17,7 @@ hash: kkSktIrdhuN2rLvgkbAYfJcBEo8WMtlHoRqWRIw9uW0=
 # IoBroker.MieleCloudService [![Статус сборки] (https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice.svg?branch=master)](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice)
 ## Описание
 Этот адаптер предназначен для получения информации обо всех ваших устройствах Miele @ Home из официального стороннего API Miele.
-Независимо от того, подключены ли они напрямую через Wi-Fi или шлюз XGW3000. В нем реализован **API сторонних разработчиков Miele V1.0.4**
+Независимо от того, подключены ли они напрямую через Wi-Fi или шлюз XGW3000. В нем реализован **API сторонних разработчиков Miele V1.0.5**
 
 ## Sentry.io
 Этот адаптер использует sentry.io для сбора сведений о сбоях и автоматического сообщения автору. Для этого используется плагин [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry). Пожалуйста, обратитесь к [домашняя страница плагина](https://github.com/ioBroker/plugin-sentry) для получения подробной информации о том, что делает плагин, какая информация собирается и как его отключить, если вы не хотите поддерживать автора своей информацией о сбоях.
@@ -28,7 +28,7 @@ hash: kkSktIrdhuN2rLvgkbAYfJcBEo8WMtlHoRqWRIw9uW0=
 * Miele Client_id (с https://www.miele.com/developer/)
 * Miele Client_secret (с https://www.miele.com/developer/)
 
-## Монтаж
+## Установка
 Для установки сделайте следующее:
 
 1. Установите через Admin с помощью
@@ -41,11 +41,21 @@ hash: kkSktIrdhuN2rLvgkbAYfJcBEo8WMtlHoRqWRIw9uW0=
 6. Введите client_secret и client_id, полученные от команды разработчиков Miele, а также идентификатор учетной записи и пароль из приложения.
 
 ## Управление вашими устройствами
-Реализованы все поддерживаемые и документированные в настоящее время Действия для всех устройств (API V1.0.4).
+### Действия
+Реализованы все поддерживаемые и документированные в настоящее время Действия для всех устройств (API V1.0.5).
 > Помните, что Действия будут работать только в том случае, если вы переведете свое устройство в соответствующее состояние (например, Mobile Control, powerOn, ...).
 Пожалуйста, обратитесь к [Miele-Документация](#documentation) для получения дополнительной информации о действиях.
 
-## Известные проблемы
+### Программы (введены в API V1.0.5)
+В API V1.0.5 Miele представила новую конечную точку под названием «/ programs».
+Поддержка этой конечной точки начинается с версии адаптера 4.5.0. Будет создана новая точка данных [device.Actions.Program] со списком всех поддерживаемых программ, возвращенных Miele.
+** Выбор одного из значений приведет к немедленному запуску программы! ** В настоящее время поддерживаются только простые программы. Например. Духовки нуждаются в дополнительной информации - это будет реализовано в будущей версии.
+
+При публикации адаптера Miele задокументировала несколько категорий устройств для поддержки этой конечной точки, и только (по крайней мере, для меня) действительно работает только часть из них. Моя кофеварка, стиральная машина и сушилка работает только с кофейной системой.
+Но Miele работает над этим и регулярно оказывает поддержку.
+Пожалуйста, обратитесь к общей документации Miele API (ниже) для получения дополнительной информации.
+
+## Известные вопросы
 * никто
 
 ## Документация
@@ -81,7 +91,7 @@ hash: kkSktIrdhuN2rLvgkbAYfJcBEo8WMtlHoRqWRIw9uW0=
  | 21 | КОМБИНАЦИЯ ХОЛОДИЛЬНИКА / МОРОЗИЛЬНИКА |
  | 23 | ПЫЛЕСОС, АВТОМАТИЧЕСКИЙ ПЫЛЕСОС |
  | 24 | СТИРАЛЬНАЯ МАШИНА |
- | 25 | ПОДОГРЕВАТЕЛЬ |
+ | 25 | ПОГРЕВАТЕЛЬ БЛЮДА |
  | 27 | ИНДУКЦИОННАЯ ПАНЕЛЬ |
  | 28 | ВАРОЧНЫЙ ГАЗ |
  | 31 | ПАРОВАЯ ПЕЧЬ КОМБИНАЦИЯ |
@@ -136,7 +146,7 @@ hash: kkSktIrdhuN2rLvgkbAYfJcBEo8WMtlHoRqWRIw9uW0=
  | 1 | Нормальный Плюс |
  | 2 | Нормальный |
  | 3 | Слегка сухая |
- | 4 | Подручный утюг 1-го уровня |
+ | 4 | Под утюг, уровень 1 |
  | 5 | Под утюг 2-го уровня |
  | 6 | Машинный утюг |
 
@@ -165,20 +175,41 @@ hash: kkSktIrdhuN2rLvgkbAYfJcBEo8WMtlHoRqWRIw9uW0=
 |----------|-------|---------------|
 | 258 | «Айнвейхен» | Стиральная машина |
 | 260 | «Вашен» / «Стирка» | Стиральная машина |
-| 261 | «Spülen» / «Полоскание» | Стиральная машина |
+| 261 | «Спюлен» / «Полоскание» | Стиральная машина |
 | 265 | «Помпа» | Стиральная машина |
 | 266 | «Шлейдерн» / «Прядение» | Стиральная машина |
 | 267 | "Knitterschutz" / "" | Стиральная машина |
-| 268 | «Энде» / «Конец» | Большинство устройств |
+| 268 | «Энде» / «Конец» | Стиральная машина |
 | 256 | "Vorbügeln" | Стиральная машина |
-| 514 | «Трокнен» | Стиральная машина с сушкой |
-| 519 | «Абкюлен» | Стиральная машина с сушкой |
+| 512 | «Энде» / «Конец» | Сушилки для белья |
+| 514 | «Трокнен» / «Сушка» | Стиральная машина с сушкой |
+| 519 | "Abkühlen" / "Остыть" | Стиральная машина с сушкой |
+| 521 | «Трокнен» / «Сушка» | Сушилка для белья |
+| 522 | "Knitterschutz" / "" | Сушилка для белья |
 | 532 | "Flusen ausspülen" | Стиральная машина с сушкой |
 
-## Авторские права
+## Авторское право
 Авторские права (c) 2019, 2021 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+
+### V4.5.0 (2021-09-05) (Invincible)
+* (grizzelbee) New: [164](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/164) fixed bug in SignalFailure and signalInfo when havin no value
+* (grizzelbee) New: [155](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/155) fixed >missing object< bug on arrays 
+* (grizzelbee) New: [154](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/154) Reintroduced TargetTemp to washer dryers
+* (grizzelbee) New: [140](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/140) Switched from data polling to server sent events (push data)
+* (grizzelbee) New: [71](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/71) If there is no internet connection on startup retry connecting until connection is established 
+* (grizzelbee) Fix: estimatedEndTime won't be shown anymore when device is off
+* (grizzelbee) Fix: Don't rethrowing errors in APISendRequest anymore
+* (grizzelbee) Fix: fixed a few minor bugs
+* (grizzelbee) Upd: Updated dependencies
+* (grizzelbee) New: Added some additional API languages newly supported by Miele
+* (grizzelbee) New: Added support for Miele API V1.0.5
+* (grizzelbee) New: Added correct tier of adapter to io-package
+* (grizzelbee) New: Added more program phases for tumble dryers to documentation
+
+### V4.2.0 (2021-05-17) (A new Dimension)
+* (grizzelbee) New: Adding Pause action to dish-washers
 
 ### V4.1.0 (2021-05-15) (Carry me over)
 * (grizzelbee) New: [149](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/149) Adding support (Start, Stop, Pause) for Miele Scout RX2 vacuum cleaner robots

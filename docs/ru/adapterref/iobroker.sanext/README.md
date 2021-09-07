@@ -3,19 +3,13 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sanext/README.md
 title: ioBroker.sanext
-hash: /1NQAs5hsEO5zROe69IA2MO23xH4YVyVzS9swD7JnWo=
+hash: tHtUp8Y15p4QD+O5fFFWv2CKalhg0suSobJpm7lQ3Z8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sanext/admin/sanext_l.png)
 
-![Количество установок](http://iobroker.live/badges/sanext-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.sanext.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.sanext.svg)
-![NPM](https://nodei.co/npm/iobroker.sanext.png?downloads=true)
 ![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
 # IoBroker.sanext
-[![Тесты] (https://github.com/instalator/iobroker.sanext/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.sanext/actions/)
-
 ## Адаптер Sanext для ioBroker
 Получение данных с теплосчетчиков Sanext
 

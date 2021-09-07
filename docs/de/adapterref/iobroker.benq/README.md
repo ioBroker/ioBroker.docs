@@ -3,34 +3,30 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.benq/README.md
 title: ioBroker BenQ Projektoradapter
-hash: YfmCWWyypsOuFfAS5vkeXbUOvtycDdAEiBM8nkinyGM=
+hash: LkqF9K34d1UeWB7DB6vf83rG2pjH2T/wKUk11feC7lM=
 ---
 ![Logo](../../../en/adapterref/iobroker.benq/admin/benq-logo.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/benq-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.benq.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.benq.svg)
-![NPM](https://nodei.co/npm/iobroker.benq.png?downloads=true)
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
 # IoBroker BenQ Projektoradapter
-[![Tests] (https://github.com/instalator/iobroker.benq/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.benq/actions/)
-
-Der ioBroker BenQ Projector-Adapter dient zur Steuerung Ihres BenQ-Projektors über RS232 in Verbindung mit dem Etnernet Gateway.
+Der ioBroker BenQ Projektoradapter wird verwendet, um Ihren BenQ Projektor über RS232 in Verbindung mit dem Etnernet Gateway zu steuern.
 Die Liste der Modelle und Befehle ist in der Datei `admin/commands.json` enthalten.
 
-## Hardware
-Mit dem Treiber können Sie über die [Adapter](http://blog.instalator.ru/archives/744) RS232 zu Ethernet eine Verbindung zu den Projektoren BenQ herstellen.
+##Hardware
+Der Treiber ermöglicht Ihnen die Verbindung zu den Projektoren BenQ über die [Adapter](http://blog.instalator.ru/archives/744) RS232 zu Ethernet.
 
 Als RS232-Gateway zu Ethernet wird jede Arduino-kompatible Karte verwendet, auf die Sie [dieser Code](https://github.com/stepansnigirev/ArduinoSerialToEthernet) herunterladen müssen.
-Sie benötigen außerdem einen Ethernet Shield W5100 oder W5500 und einen RS232-TTL-Konverter.
+Sie benötigen außerdem ein Ethernet Shield W5100 oder W5500 und einen RS232-zu-TTL-Konverter.
 
 ## Unterstützung
-Unterstützte Modelle: W1200, W1070, W1080 werden ...
+Unterstützte Modelle: W1200, W1070, W1080 werden...
 
 ## Changelog
 
-### 0.2.3
+### 0.2.7
+ * (instalator) fix error
+### 0.2.4
  * (instalator) change test
 
 ### 0.2.2
