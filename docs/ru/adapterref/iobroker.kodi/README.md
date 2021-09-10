@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kodi/README.md
-title: Адаптер Kodi для ioBroker (JSON-RPC API)
-hash: 0uKdz3zEnf9fcfqHeXAdWAnnKpfhDdB0AHr4OFRxmzs=
+title: Kodi для ioBroker (JSON-RPC API)
+hash: 6tz1xec3ctMhLSz0uWt7cA4TZKg4YmF4WsQ53Me+5n4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kodi/admin/kodi.png)
 
@@ -11,16 +11,14 @@ hash: 0uKdz3zEnf9fcfqHeXAdWAnnKpfhDdB0AHr4OFRxmzs=
 ![Количество установок](http://iobroker.live/badges/kodi-installed.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.kodi.svg)
 ![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-green.svg)
-![NPM](https://nodei.co/npm/iobroker.kodi.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.kodi.png?downloads=true)
 
+# Kodi для ioBroker (JSON-RPC API)
 [![Тесты] (https://github.com/instalator/iobroker.kodi/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.kodi/actions/)
 
 [Руководство на английском языке](https://github.com/instalator/ioBroker.kodi/wiki/en_EN)
 
-# Адаптер Kodi для ioBroker (JSON-RPC API)
 Вы можете найти официальную документацию KODI по API JSON-RCP [тут] (http://kodi.wiki/view/JSON-RPC_API) и полный список доступных команд (для протокола версии 6) [тут](http://kodi.wiki/view/JSON-RPC_API/v6).
-
-*** Примечание: Этот адаптер требует Nodejs 8.0 + ***
 
 ## Конфигурация KODI
 Включение удаленного управления и веб-сервера.
@@ -78,17 +76,17 @@ sendTo("kodi.0", {
 Для открытия видео с сайта youtube достаточно записать код видео в данный статус. Начиная с версии 0.1.5 и выше можно вставлять прямую ссылку на видео, а также код или полную ссылку на плейлист.
 Например: Для открытия этого [видео](https://www.youtube.com/watch?v=Bvmxr24D4TA), необходимо установить в статусе - Bvmxr24D4TA
 
-### Открыть:
+### Открытым:
 Сюда записывается ссылка на медиконтент в сети интернет либо путь до локального медиа файла.
 После записи значения начнется воспроизведение на проигрывателе KODI.
 
 ### Позиция:
 Текущая позиция в плейлисте, так же в этот статус можно записать специальную позицую и KODI тут же перейдет к воспроизведению позиции.
 
-### Искать:
+### Стремиться:
 Текущее значение позиции воспроизведения в процентах от 0 до 100.
 
-### Повторение:
+### Повторить:
 Повтор воспроизведения, принимает следующие значения:
 
 * off - повтор воспроизведения отключен
@@ -99,11 +97,11 @@ sendTo("kodi.0", {
 Перемешивание списка треков в плейлисте для случайного воспроизведения.
 Принимает значения true и false
 
-### Играть в:
+### Играть:
 Старт воспроизведения (true, false)
 
 ### Скорость:
-Скорость воспроизведения. Фиксированные значения (-32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32), а также «приращение» и «декремент»
+Скорость воспроизведения. Фиксированные значения (-32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32), а также 'приращение' и 'декремент'
 
 ### Каталог:
 Сюда записывается путь до папки или диска, в ответ в этот статус записывается список каталогов указанной папки или диска.
@@ -131,6 +129,16 @@ sendTo("kodi.0", {
  - Suspend - приостанавливает Kodi
 
 ## Changelog
+### 2.0.8
+* Important: js-controller >= 2.0.0 is required at least
+* (Apollon77) Update kode-ws dependency
+* (Apollon77) Prevent some js-controller 3.3. errors
+
+### 2.0.7
+* (instalator) fixed error subscribeNotification Player.OnResume [issues 49](https://github.com/instalator/ioBroker.kodi/issues/49)
+* (instalator) added user ratings [issues 57](https://github.com/instalator/ioBroker.kodi/issues/57)
+* (instalator) fix error [issues 58](https://github.com/instalator/ioBroker.kodi/issues/58)
+* (instalator) fixed error widgets
 
 #### 2.0.5
 * (instalator) changed css classes
@@ -236,7 +244,7 @@ sendTo("kodi.0", {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2020 instalator <vvvalt@mail.ru>
+Copyright (c) 2020-2021 instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

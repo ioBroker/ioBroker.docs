@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.linktap/README.md
 title: ioBroker.LinkTap
-hash: d5RG11d0uKQhcdN1RHFPIwYM2B1bG4bzhh5Za/u9oqQ=
+hash: 2yr7qegTAGfyyl8UeCEV+aUGEcxLjFojhTuzAXpEHM4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.linktap/admin/Logo_small.png)
 
@@ -11,7 +11,7 @@ hash: d5RG11d0uKQhcdN1RHFPIwYM2B1bG4bzhh5Za/u9oqQ=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.linktap.svg)
 ![Статус зависимости](https://img.shields.io/david/Smart-Gang/iobroker.linktap.svg)
 ![Тесты](https://img.shields.io/travis/Smart-Gang/ioBroker.linktap.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Smart-Gang/iobroker-linktap?branch=master&svg=true)
+![Статус сборки](https://ci.appveyor.com/api/projects/status/x1s8imx6x3ayfsu5/branch/master?svg=true)
 ![НПМ](https://nodei.co/npm/iobroker.linktap.png?downloads=true)
 
 # IoBroker.LinkTap

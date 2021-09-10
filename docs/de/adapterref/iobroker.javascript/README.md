@@ -65,6 +65,10 @@ Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätz
 ![Instanz Javascript Adapter wählen](img/screen.jpg)
 
 ## Changelog
+### 5.2.10 (2021-09-08)
+* (bluefox) Parse variables to floats for mathematical operations
+* (bluefox) Names with the dot at the end are not allowed anymore
+* (bluefox) The blockly sounds are disabled
 
 ### 5.2.9 (2021-09-02)
 * (Apollon77) Make sure day of weeks is an array (Sentry IOBROKER-JAVASCRIPT-7Y)
@@ -79,9 +83,6 @@ Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätz
 
 ### 5.2.6 (2021-07-16)
 * (bluefox) Added fallback for admin4
-
-### 5.2.3 (2021-07-08)
-* (agross) Fix imports like "rxjs/operators" for versioned npm modules
 
 ## License
 

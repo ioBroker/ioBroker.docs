@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wled/README.md
 title: ioBroker.wled
-hash: CciAZYMZtqyE/RIcKS7ZJeMC3ztO2j3JBJLO/tFr3k8=
+hash: pStvbquMEGwMuxEmQzOyowIP4eNECtJUsXFGkpvHiAA=
 ---
-![Logo](../../../en/adapterref/iobroker.wled/admin/wled_large.png)
+![Logo](../../../en/adapterref/iobroker.wled/admin/wled_logo_akemi.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.wled.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.wled.svg)
@@ -27,14 +27,11 @@ Eine schnelle und funktionsreiche Implementierung eines ESP8266/ESP32 Webservers
 
 ## Anweisungen
 Der Adapter versucht automatisch, WLED-Geräte in Ihrem Netzwerk mithilfe von Bonjour-Diensten zu finden.
-Bekannte Probleme: Netzwerke mit VLAN-Trennung leiten den Broadcast-Datenverkehr meistens nicht weiter, was bedeutet, dass die automatische Erkennung fehlschlägt.
+Bekannte Probleme: Netzwerke mit VLAN-Trennung leiten den Broadcast-Datenverkehr meist nicht weiter, was bedeutet, dass die automatische Erkennung fehlschlägt.
 
 Keine Sorge, in diesem Fall können Sie das Gerät manuell per IP-Adresse hinzufügen.
 
-1) Stellen Sie sicher, dass Ihr WLED-Gerät läuft und über das Netzwerk erreichbar ist 2) Installieren Sie den Adapter 3) Konfigurieren Sie die Intervallzeiten für die Datenabfrage und den automatischen Erkennungszyklus 4 - A) Starten Sie den Adapter, Geräte sollten automatisch erkannt werden 4 - B) Wenn A fehlschlägt , verwenden Sie die Schaltfläche Add-Device und geben Sie die IP-Adresse des Geräts ein 5) Adapter sendet Änderungen sofort und fragt alle x Sekunden Daten ab (konfigurierbar)
-
-## Machen
-* [ ] Polling auf Socket-Verbindungen umschalten, Implementierung bei WLED-Firmware ausstehend
+1) Stellen Sie sicher, dass Ihr WLED-Gerät läuft und über das Netzwerk erreichbar ist 2) Installieren Sie den Adapter 3) Konfigurieren Sie die Intervallzeiten für Datenabruf und automatische Erkennungszyklen 4 - A) Starten Sie den Adapter, Geräte sollten automatisch erkannt werden 4 - B) Wenn A fehlschlägt , verwenden Sie die Schaltfläche Gerät hinzufügen und geben Sie die IP-Adresse des Geräts an 5) Der Adapter sendet Änderungen sofort und fragt alle x Sekunden Daten ab (konfigurierbar)
 
 ## Unterstütze mich
 Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende zukommen lassen (dies ist ein persönlicher Spendenlink für DutchmanNL, kein Bezug zum ioBroker-Projekt!) [![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/main/admin/button.png)](http://paypal.me/DutchmanNL)
@@ -49,6 +46,20 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+
+### 0.6.3 (2021-09-08) - HotFixes
+* (DutchmanNL) Missing dropdown for ID of effects added
+* (DutchmanNL) HotFix: Missing axios dependency added
+
+### 0.6.1 (2021-09-08)
+* (DutchmanNL) Missing state definitions WLED FW 0.13.0-b12 added.
+
+### 0.6.0 (2021-08-31) - Support Websocket connections
+* (DutchmanNL) System load reduced
+* (DutchmanNL) All warnings related to JS-Controller 3.x checks solved
+* (DutchmanNL) Ensure legacy support of WLED FW < 0.12 (fallback to http-API instead of websocket)
+* (DutchmanNL) Communication by websocket implemented, this feature allows live data updates (instead of interval polling). Requires WLED firmware >= 12
+
 ### 0.5.9 (2021-08-11)
 * (DutchmanNL) added new state attributes reported by Sentry
 * (DutchmanNL) added min & max for brightness value to support iOT adapter
@@ -57,85 +68,6 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 * (DutchmanNL) added new state attributes reported by Sentry
 * (DutchmanNL) Bugfix Live override datapoint created as read-only #252
 * (DutchmanNL) excluded value "PIR" from data write due to current formatting
-
-### 0.5.7 (2021-08-10)
-* (foxriver76) we fixed some incorrect object types, fixes warnings with JS-Controller 3.3.x [#215](https://github.com/DrozmotiX/ioBroker.wled/issues/215) & [#209](https://github.com/DrozmotiX/ioBroker.wled/issues/209)
-* (DutchmanNL) add support for WLED 0.13.x (added types fps, ndc, ip, of)
-
-### 0.5.6 (2021-01-03)
-* (DutchmanNL) Bugfix : State type definition for time and pmt
-
-### 0.5.5 (2021-01-03)
-* (DutchmanNL) add development option to disable sentry
-* (DutchmanNL) split API calls, avoid not needed query's
-* (DutchmanNL) Bugfix : issue with boolean attributes #40
-* (DutchmanNL) add new state definition for WLED version 0.11
-* (DutchmanNL) Bugfix : You are assigning a string to the state "wled.0.xxxx.seg.0.col.0
-
-### 0.5.4 (2020-09-02)
-* (DutchmanNL) Support WLED 0.10.2, new state definitions implemented
-* (DutchmanNL) Update state definitions
-* (DutchmanNL) Remove log messages for missing states (Sentry report only)
-* (DutchmanNL) Bugfix : 0.5.3 decommissioned, update to 0.5.4 !
-
-### 0.5.2 (2020-08-29)
-* (DutchmanNL) Bugfix : Add missing Attributes with WLED 0.10.0
-
-### 0.5.1 (20-04-2020) Avoid writing objects unnecessarily, Sentry implemented
-* (DutchmanNL) Implement Sentry
-* (DutchmanNL) Bugfix : Devicename
-* (DutchmanNL) Bugfix : Warning with JS Controler 3.0.7
-* (DutchmanNL) Bugfix : Avoid writing objects unnecessarily
-
-### 0.5.0 Stable release
-* (DutchmanNL) Added translations
-* (DutchmanNL) Release to stable repository, beta testing finished
-
-### 0.3.0 Bugfix : Correct handling of polling timer
-* (DutchmanNL  & Jey-Cee) Bugfix : Polling timer not saved
-* (DutchmanNL) Bugfix : Correct handling of "online" state
-* (DutchmanNL) Bugfix : Polling timer (offline devices did not reconnect)
-
-### 0.2.6 Bugfix : Hex state value change
-* (DutchmanNL) Bugfix : Hex state value change
-
-### 0.2.5 Stable release candidate
-* (DutchmanNL) Code cleanup
-* (DutchmanNL) Improved logging information
-* (DutchmanNL) Make polling timer configurable
-* (DutchmanNL) Correct handling of device online state
-* (DutchmanNL) Show online state in instance configuration
-
-### 0.2.0 Possibility to add devices by IP-adress
-* (DutchmanNL) Bugfix io-package
-* (DutchmanNL) Improved logging at adapter start
-* (DutchmanNL) Possibility to add devices by IP-adress implemented. (Needed for situations were autoscan fails)
-* (DutchmanNL) Ensure known devices get connected immediatly after adapter start instead of waiting for network scan
-
-### 0.1.9 Code improvements
-* (DutchmanNL) Code cleanup and optimalisation
-* (DutchmanNL) FIX memory leak by proper handling of bonjour service
-
-### 0.1.8 Bugfix
-* (DutchmanNL) Solved incorrect formated API call at state changes causing warning message
-
-### 0.1.7 Bugfix
-* (DutchmanNL) Fixed error when API call fails (write warning to log and retry at intervall time)
-
-### 0.1.6 HEX color states implemented
-* (DutchmanNL) HEX color states implemented
-
-### 0.1.5 Stable Beta release
-
-### 0.1.2
-* (DutchmanNL) Implement drop down menu for effects
-
-### 0.1.1
-* (DutchmanNL) Implemented states hidden from JSON-API : tt / psave / nn / time
-* (DutchmanNL) Improve logging issue
-
-### 0.1.0
-* (DutchmanNL) initial release
 
 ## License
 MIT License

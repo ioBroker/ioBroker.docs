@@ -2,33 +2,31 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kodi/README.md
-title: АдаптерKodiдляioBroker（JSON-RPC API）
-hash: 0uKdz3zEnf9fcfqHeXAdWAnnKpfhDdB0AHr4OFRxmzs=
+title: Kodi for ioBroker（JSON-RPC API）
+hash: 6tz1xec3ctMhLSz0uWt7cA4TZKg4YmF4WsQ53Me+5n4=
 ---
 ![标识](../../../en/adapterref/iobroker.kodi/admin/kodi.png)
 
-![NPM版本](https://img.shields.io/npm/v/iobroker.kodi.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.kodi.svg)
 ![安装数量](http://iobroker.live/badges/kodi-installed.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.kodi.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.kodi.svg)
 ![捐](https://img.shields.io/badge/Donate-PayPal-green.svg)
-![NPM](https://nodei.co/npm/iobroker.kodi.png?downloads=true)
+![新产品管理](https://nodei.co/npm/iobroker.kodi.png?downloads=true)
 
-[![测试]（https://github.com/instalator/iobroker.kodi/workflows/Test%20and%20Release/badge.svg）](https://github.com/instalator/ioBroker.kodi/actions/)
+# Kodi for ioBroker（JSON-RPC API）
+[![测试]（https://github.com/instator/iobroker.kodi/workflows/Test%20and%20Release/badge.svg）](https://github.com/instalator/ioBroker.kodi/actions/)
 
 [英文手册](https://github.com/instalator/ioBroker.kodi/wiki/en_EN)
 
-＃АдаптерKodiдляioBroker（JSON-RPC API）
-API JSON-RCP[тут]（http://kodi.wiki/view/JSON-RPC_API）иполныйсписокдоступныхкоманд（дляпротоколаверсии6）[тут](http://kodi.wiki/view/JSON-RPC_API/v6)。
+Вы можете найти официальную документацию KODI по API JSON-RCP [тут](http://kodi.wiki/view/JSON-RPC_API) и полный список доступных команд (для протокола версии 6) [тут](http://kodi.wiki/view/JSON-RPC_API/v6).
 
-***Примечание：ЭтотадаптертребуетNodejs 8.0 + ***
-
-##КонфигурацияKODI
+## Конфигурация KODI
 Включение удаленного управления и веб-сервера.
-![启用远程控制。](../../../en/adapterref/iobroker.kodi/admin/remote.png)
+![遥控使能。](../../../en/adapterref/iobroker.kodi/admin/remote.png)
 
-JSON-RPC APIиспользует**поумолчаниюпорт9090 **，длятогочтобыегоизменитьнеобходимо点
+JSON-RPC API использует **по умолчанию порт 9090**, для того чтобы его изменить необходимо внести измевенеть
 
-_Примечание：Файлadvancedsettings.xmlнесуществуетпоумолчанию。 Выдолжнысначаласоздатьего！_
+_Примечание：Файл advancedsettings.xml не существует по умолчанию。 Вы должны сначала создать его!_
 
 ```xml
 <jsonrpc>
@@ -38,28 +36,28 @@ _Примечание：Файлadvancedsettings.xmlнесуществуетпо
 ```
 
 ## Конфигурация драйвера
-在JSON-RPC API（поумолчанию9090）和IP上创建IP协议。
+В настройках адаптера указывается IP адрес и порт для JSON-RPC API (по умолчанию 9090), и логин/парольбется
 
 ## Использование
-### ShowNotif：
+### 显示通知：
 Один важный момент, если используется заголовок сообщения, то он должен всегда находится перед самим текстом сообщения (Внимание;Протечка воды), расположение остальных параметров не критично.
 
-**图片：**Уровеньсообщения
+**图片：** Уровень сообщения
 
-  *'info'-0（默认），
-  *'警告'-1，
-  *'错误'-2。
+  * '信息' - 0（默认），
+  * '警告' - 1,
+  * '错误' - 2。
 
-**显示时间：**Времяотображениясообщениявмиллисекундах，минимум1500макс30000мс。
+**显示时间：** Время отображения сообщения в миллисекундах, минимум 1500 макс 30000 мс。
 
 **Пример:**
 
- * 1;Внимание;Протечкаводы; 15000
- *Внимание;Протечкаводы; 2; 10000
+ * 1;Внимание;Протечка воды;15000
+ * Внимание;Протечка воды;2;10000
  * Внимание;Протечка воды
  * Протечка воды
 
-Такжесообщенияможноотправлятьиздрайвераjavascript：
+Так же сообщения можно отправлять из драйвера javascript:
 
 ```js
 sendTo("kodi.0", {
@@ -71,51 +69,51 @@ sendTo("kodi.0", {
 ```
 
 ### SwitchPVR：
-ПереключениеPVR IPTV的视频。
-**Пример：**ТВканал-探索科学探索，发现，
+Переключение PVR IPTV каналов по названию канала в плейлисте。
+**Пример:** ТВ канал - Discovery Science найдет как по полному наименованию так и поdiscover,
 
 ＃＃＃ YouTube：
-Дляоткрытиявидеоссастаyoutubeдостаточнозаписатькодвидеовданныйстатус。 Начинаясверсии0.1.5иввышеможновставлятьпрямуюссылкунавидео，以及такжекодилиполнуиссылкуна。
-Например：Дляоткрытияэтого[видео](https://www.youtube.com/watch?v=Bvmxr24D4TA)，необходимоустановитьв-Bvmxr24D4TA
+Для открытия видео с сайта youtube достаточно записать код видео в данный статус。 Начиная с версии 0.1.5 и выше можно вставлять прямую ссылку на видео, а также код или полнасть
+Например: Для открытия этого [видео](https://www.youtube.com/watch?v=Bvmxr24D4TA), необходимо установить в статус - Bvmxr24D4TA
 
 ＃＃＃ 打开：
-Сюдазаписываетсяссылканамедиконтентвсетиинтернетлибопутьдолокальногомедиафайла。
-ПослезаписизначенияначнетсявоспроизведениенапроигрывателеKODI。
+Сюда записывается ссылка на медиконтент в сети интернет либо путь до локального медиа файла。
+После записи значения начнется воспроизведение на проигрывателе KODI。
 
 ＃＃＃ 位置：
-Текущаяпозициявплейлисте，такжевэтотстатусможнозаписатьнеобходимуюпозициюисетет
+Текущая позиция в плейлисте, так же в этот статус можно записать необходимую позицую позицую позицую позицую позицую и рнепрак
 
 ＃＃＃ 寻找：
-标记0到100时。
+Текущее значение позиции воспроизведения в процентах от 0 до 100。
 
 ＃＃＃ 重复：
 Повтор воспроизведения, принимает следующие значения:
 
-*关闭-повторвоспроизведенияотключен
-*开-повторвоспроизведениятекущеготрека
-*全部-повторвсегоплейлиста
+* 关闭 - повтор воспроизведения отключен
+* on - повтор воспроизведения текущего трека
+* 所有 - повтор всего плейлиста
 
-###随机播放：
-Перемешиваниеспискатрековвплейлистедляслучайноговоспроизведения。
-Принимаетзначенияtrue和false
+### 随机播放：
+Перемешивание списка треков в плейлисте для случайного воспроизведения。
+Принимает значения true и false
 
 ＃＃＃ 玩：
-Стартвоспроизведения（对，错）
+Старт воспроизведения（真，假）
 
 ＃＃＃ 速度：
-Скоростьвоспроизведения。 Фиксированныезначения（-32，-16，-8，-4，-2，-1，0，1，2，4，4，16，16，32），атакже'increment'и'decrement'
+Скорость воспроизведения。 Фиксированные значения (-32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32), атакже '增量' и '减量'
 
 ＃＃＃ 目录：
 Сюда записывается путь до папки или диска, в ответ в этот статус записывается список каталогов указанной папки или диска.
 
-### ActivateWindow：
+### 激活窗口：
 Активизирует в проигрывателе окно. Поддерживает следующий список:
 
 ```
 "home", "programs", "pictures", "filemanager", "files", "settings", "music", "video", "videos", "tv", "pvr", "pvrguideinfo", "pvrrecordinginfo", "pvrtimersetting", "pvrgroupmanager", "pvrchannelmanager", "pvrchannelmanager", "pvrguidesearch", "pvrchannelscan", "pvrupdateprogress", "pvrosdchannels", "pvrosdguide", "pvrosddirector", "pvrosdcutter", "pvrosdteletext", "systeminfo", "testpattern", "screencalibration", "guicalibration", "picturessettings", "programssettings", "weathersettings", "musicsettings", "systemsettings", "videossettings", "networksettings", "servicesettings", "appearancesettings", "pvrsettings", "tvsettings", "scripts", "videofiles", "videolibrary", "videoplaylist", "loginscreen", "profiles", "skinsettings", "addonbrowser", "yesnodialog", "progressdialog", "virtualkeyboard", "volumebar", "submenu", "favourites", "contextmenu", "infodialog", "numericinput", "gamepadinput", "shutdownmenu", "mutebug", "playercontrols", "seekbar", "musicosd", "addonsettings", "visualisationsettings", "visualisationpresetlist", "osdvideosettings", "osdaudiosettings", "videobookmarks", "filebrowser", "networksetup", "mediasource", "profilesettings", "locksettings", "contentsettings", "songinformation", "smartplaylisteditor", "smartplaylistrule", "busydialog", "pictureinfo", "accesspoints", "fullscreeninfo", "karaokeselector", "karaokelargeselector", "sliderdialog", "addoninformation", "musicplaylist", "musicfiles", "musiclibrary", "musicplaylisteditor", "teletext", "selectdialog", "musicinformation", "okdialog", "movieinformation", "textviewer", "fullscreenvideo", "fullscreenlivetv", "visualisation", "slideshow", "filestackingdialog", "karaoke", "weather", "screensaver", "videoosd", "videomenu", "videotimeseek", "musicoverlay", "videooverlay", "startwindow", "startup", "peripherals", "peripheralsettings", "extendedprogressdialog", "mediafilter".
 ```
 
-### ExecuteAction：
+### 执行操作：
 Можно выполнить одно из следующих действий:
 
 ```
@@ -124,13 +122,23 @@ sendTo("kodi.0", {
 ```
 
 ＃＃＃ 系统：
- -EjectOpticalDrive-Извлекаетилизакрываетдисководоптическихдисков（еслиимеется）
- -冬眠-включениеспящегорежима
- -重新启动-перезагрузкасистемы
- -关闭-выключаетсистему
- -暂挂-приостанавливаетKodi
+ - EjectOpticalDrive - Извлекает или закрывает дисковод оптических дисков (если имется)
+ - 休眠 - включение спящего режима
+ - 重新启动 - перезагрузка системы
+ - 关机 - выключает систему
+ - 暂停 - приостанавливает Kodi
 
 ## Changelog
+### 2.0.8
+* Important: js-controller >= 2.0.0 is required at least
+* (Apollon77) Update kode-ws dependency
+* (Apollon77) Prevent some js-controller 3.3. errors
+
+### 2.0.7
+* (instalator) fixed error subscribeNotification Player.OnResume [issues 49](https://github.com/instalator/ioBroker.kodi/issues/49)
+* (instalator) added user ratings [issues 57](https://github.com/instalator/ioBroker.kodi/issues/57)
+* (instalator) fix error [issues 58](https://github.com/instalator/ioBroker.kodi/issues/58)
+* (instalator) fixed error widgets
 
 #### 2.0.5
 * (instalator) changed css classes
@@ -236,7 +244,7 @@ sendTo("kodi.0", {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2020 instalator <vvvalt@mail.ru>
+Copyright (c) 2020-2021 instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
