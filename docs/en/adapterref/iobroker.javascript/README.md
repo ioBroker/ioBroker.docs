@@ -1579,6 +1579,9 @@ There is a possibility to enabled and disable scripts via states. For every scri
 Scripts can be activated and deactivated by controlling of this state with ack=false.
 
 ## Changelog
+### 5.2.12 (2021-09-12)
+* (bluefox) Fixed the font in the editor
+
 ### 5.2.10 (2021-09-08)
 * (bluefox) Parse variables to floats for mathematical operations
 * (bluefox) Names with the dot at the end are not allowed anymore
@@ -1594,9 +1597,6 @@ Scripts can be activated and deactivated by controlling of this state with ack=f
 
 ### 5.2.7 (2021-07-17)
 * (bluefox) Fixed error in rules
-
-### 5.2.6 (2021-07-16)
-* (bluefox) Added fallback for admin4
 
 ## License
 

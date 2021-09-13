@@ -65,6 +65,9 @@ Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätz
 ![Instanz Javascript Adapter wählen](img/screen.jpg)
 
 ## Changelog
+### 5.2.12 (2021-09-12)
+* (bluefox) Fixed the font in the editor
+
 ### 5.2.10 (2021-09-08)
 * (bluefox) Parse variables to floats for mathematical operations
 * (bluefox) Names with the dot at the end are not allowed anymore
@@ -80,9 +83,6 @@ Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätz
 
 ### 5.2.7 (2021-07-17)
 * (bluefox) Fixed error in rules
-
-### 5.2.6 (2021-07-16)
-* (bluefox) Added fallback for admin4
 
 ## License
 

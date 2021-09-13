@@ -26,7 +26,7 @@ Add username and password from your Sure Petcare® account on the adapter config
 
 ## Description
 
-The adapter provides information about the settings and status of your cat flap.
+The adapter provides information about the settings and status of your cat flap or feeder.
 
 It also shows the location of your pets.
 
@@ -36,8 +36,11 @@ The following states can be changed and will take effect on your device respecti
 
 | state | description | allowed values |
 |-------|-------------|----------------|
+| household_name.hub_name.control.led_mode | sets the brightness of the hub leds | **0** - off<br>**1** - high<br>**4** - dimmed |
 | household_name.hub_name.flap_name.control.curfew | enables or disables the configured curfew<br>(curfew must be configured via app) | **true** or **false** |
 | household_name.hub_name.flap_name.control.lockmode | sets the lockmode | **0** - open<br>**1** - lock in<br>**2** - lock out<br>**3** - closed (lock in and out) |
+| household_name.hub_name.flap_name.assigned_pets.pet_name.control.type | sets the pet type for the assigned pet and flap | **2** - outdoor pet<br>**3** - indoor pet |
+| household_name.hub_name.feeder_name.control.close_delay | sets the close delay of the feeder lid | **0** - fast<br>**4** - normal<br>**20** - slow |
 | household_name.pets.pet_name.inside | sets whether your pet is inside | **true** or **false** |
 
 ### Structure
@@ -47,8 +50,17 @@ The adapter creates the following hierarchical structure:
 adapter<br>
 ├ household_name<br>
 │ ├ hub_name<br>
-│ │ ├ led_mode<br>
 │ │ ├ online<br>
+│ │ ├ control<br>
+│ │ │ └ led_mode<br>
+│ │ ├ feeder_name<br>
+│ │ │ ├ battery<br>
+│ │ │ ├ battery_percentage<br>
+│ │ │ ├ online<br>
+│ │ │ ├ control<br>
+│ │ │ │ └ close_delay<br>
+│ │ │ └ assigned_pets<br>
+│ │ │ &nbsp;&nbsp;&nbsp; └ pet_name<br>
 │ │ └ flap_name<br>
 │ │ &nbsp;&nbsp;&nbsp; ├ battery<br>
 │ │ &nbsp;&nbsp;&nbsp; ├ battery_percentage<br>
@@ -62,11 +74,15 @@ adapter<br>
 │ │ &nbsp;&nbsp;&nbsp; │ &nbsp;&nbsp;&nbsp; ├ enabled<br>
 │ │ &nbsp;&nbsp;&nbsp; │ &nbsp;&nbsp;&nbsp; ├ lock_time<br>
 │ │ &nbsp;&nbsp;&nbsp; │ &nbsp;&nbsp;&nbsp; └unlock_time<br>
-│ │ &nbsp;&nbsp;&nbsp; └ last_curfew<br>
-│ │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ 0..i<br>
-│ │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ enabled<br>
-│ │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ lock_time<br>
-│ │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ unlock_time<br>
+│ │ &nbsp;&nbsp;&nbsp; ├ last_curfew<br>
+│ │ &nbsp;&nbsp;&nbsp; │ └ 0..i<br>
+│ │ &nbsp;&nbsp;&nbsp; │ &nbsp;&nbsp;&nbsp; ├ enabled<br>
+│ │ &nbsp;&nbsp;&nbsp; │ &nbsp;&nbsp;&nbsp; ├ lock_time<br>
+│ │ &nbsp;&nbsp;&nbsp; │ &nbsp;&nbsp;&nbsp; └ unlock_time<br>
+│ │ &nbsp;&nbsp;&nbsp; └ assigned_pets<br>
+│ │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ pet_name<br>
+│ │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ control<br>
+│ │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ type<br>
 │ └ pets<br>
 │ &nbsp;&nbsp;&nbsp; └ pet_name<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ name<br>
@@ -83,6 +99,13 @@ SureFlap® and Sure Petcare® are registered trademarks of [SureFlap Ltd.](https
 The picture of the cat flap, hub and smartphone app is provided free to use from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
+
+### 1.0.6 (2021-09-12)
+* (Sickboy78) added feeder support (closing delay of lid)
+* (Sickboy78) added led control for hub
+* (Sickboy78) added assigned pets for flap and feeder devices
+* (Sickboy78) added pet type control (indoor or outdoor) for assigned pets for flap devices
+* (Apollon77) update CI testing
 
 ### 1.0.5 (2021-04-25)
 * (Sickboy78) fixed bug in case pets didn't have a position (e.g. no flaps, only feeder in use)

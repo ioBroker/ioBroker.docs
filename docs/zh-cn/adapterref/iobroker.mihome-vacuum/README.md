@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker mihome 真空适配器
-hash: tMA0cL0xw9g6IZ947Gc7TFWXHoxaY1DaLO7pZgdsyvU=
+hash: LROz+cf/YZUzNW+t6QNc1jEw7pYze7gh5KQZx0aVLgo=
 ---
-![商标](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
+![标识](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
 ![贝宝捐赠](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![安装数量](http://iobroker.live/badges/mihome-vacuum-stable.svg)
@@ -74,7 +74,9 @@ hash: tMA0cL0xw9g6IZ947Gc7TFWXHoxaY1DaLO7pZgdsyvU=
 
 ＃＃ 配置
 目前，找到令牌是最大的问题。
-请按照链接中的说明进行操作：
+提取令牌的一种选择是使用此实用程序：https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor
+
+否则，请按照链接中的说明进行操作：
 
 [代币教程](https://www.smarthomeassistent.de/token-auslesen-roborock-s6-roborock-s5-xiaomi-mi-robot-xiaowa/).
 
@@ -191,7 +193,7 @@ xVal, yval
 带有最新家庭应用程序的较新的真空吸尘器支持房间的定义，请参阅[视频](https://www.youtube.com/watch?v=vEiUZzoXfPg)
 
 当前地图中的每个房间都有一个索引，然后从应用程序分配给该房间。从机器人我们只能得到一个带有房间号和索引的映射。适配器每次启动时都会查询这些房间，并为每个房间创建一个通道，然后知道当前的房间索引。使用按钮 loadRooms 手动也会发生同样的情况。然后可以将该通道分配给 ioBroker 房间。如果按下按钮 roomClean，则确定卡的索引并将其发送到机器人，以便它可以对该房间进行吸尘。在此之前，FAN 功率设置为单室抽吸。如果您还不能在应用程序中命名房间，也可以通过指定地图索引手动创建这样的频道。也可以添加区域坐标而不是 mapIndex。
-如果您想自发清洁多个房间，您可以通过 multiRoomClean 完成此操作，将 ioBroker 房间分配给该数据点，然后按下按钮。
+如果您想自发清洁多个房间，您可以通过 multiRoomClean 将 ioBroker 房间分配给该数据点，然后按下按钮来完成此操作。
 
 #### 计时器
 一旦真空吸尘器支持房间功能（见上文），也可以创建定时器，然后触发相应的房间通道或确定它们的 mapIndexes。
@@ -287,6 +289,13 @@ sendTo("mihome-vacuum.0",
 - 当时没有功能的小部件
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (MeisterTR) fix no rooms for S5
+* (MeisterTR) fix IOBROKER-MIHOME-VACUUM-4 DB closed
+
+### 3.2.2 (2021-07-16)
+* (bluefox) the communication is corrected
+* (bluefox) Added roles to be detected by type-detector
 
 ### 3.2.1 (2021-07-02)
 * (Apollon77) Adjust several crash cases (IOBROKER-MIHOME-VACUUM-K, IOBROKER-MIHOME-VACUUM-J, IOBROKER-MIHOME-VACUUM-F, IOBROKER-MIHOME-VACUUM-7, IOBROKER-MIHOME-VACUUM-A, IOBROKER-MIHOME-VACUUM-4, IOBROKER-MIHOME-VACUUM-G, IOBROKER-MIHOME-VACUUM-C, IOBROKER-MIHOME-VACUUM-B, IOBROKER-MIHOME-VACUUM-Q, IOBROKER-MIHOME-VACUUM-M)

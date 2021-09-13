@@ -41,6 +41,10 @@ The following additionals States are created per device when checked:
 
 ## Changelog
 
+### 0.1.11 (2021-09-11)
+* (patrickbs96) Added new Values from Response (Sentry IOBROKER-TWINKLY-7)
+* (patrickbs96) Prevent excessive Sentry Logging 
+
 ### 0.1.10 (2021-09-04)
 * (patrickbs96) Update API values to Firmware 2.7.1
 

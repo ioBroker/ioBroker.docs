@@ -2,53 +2,66 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sureflap/README.md
-title: ioBroker.sureflap
-hash: mdm2mZU9PL4s5vJkKXjVZUb+DjM1kXYMMi+ZG6+0Utk=
+title: ioBroker.surflap
+hash: G0RG7xwV7MOfDcMOxn127/rG80KO9WS6avYxFk5ippw=
 ---
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sureflap.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sureflap.svg)
 ![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/sureflap-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/sureflap-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/Sickboy78/iobroker.sureflap.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/Sickboy78/ioBroker.sureflap/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/Sickboy78/ioBroker.sureflap/badge.svg)
 ![Travis-CI](http://img.shields.io/travis/Sickboy78/ioBroker.sureflap/master.svg)
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Sickboy78/ioBroker.sureflap?branch=master&svg=true)
 ![NPM](https://nodei.co/npm/iobroker.sureflap.png?downloads=true)
 
 <p align="center"> <img src="admin/sureflap.png" /> </p>
 
-# IoBroker.sureflap
-## Adpater für SureFlap® Katzen- und Haustierklappen von Sure Petcare®
+# IoBroker.surflap
+## Adapter für SureFlap® Katzen- und Haustierklappen von Sure Petcare®
 <p align="center"> <img src="/admin/SureFlap_Pet_Door_Connect_Hub_Phone.png" /> </p>
 
 ## Aufbau
-Fügen Sie auf der Adapterkonfigurationsseite Benutzernamen und Passwort von Ihrem Sure Petcare®-Konto hinzu.
+Fügen Sie auf der Adapterkonfigurationsseite einen Benutzernamen und ein Passwort von Ihrem Sure Petcare®-Konto hinzu.
 
 ## Beschreibung
-Der Adapter informiert Sie über die Einstellungen und den Status Ihrer Katzenklappe.
+Der Adapter informiert über die Einstellungen und den Status Ihrer Katzenklappe oder Ihres Futterautomaten.
 
-Es zeigt auch den Standort Ihrer Haustiere.
+Es zeigt auch den Standort Ihrer Haustiere an.
 
-### Veränderbare Werte
-Die folgenden Zustände können geändert werden und wirken sich auf Ihr Gerät aus. Sie werden jeweils in Ihrer Sure Petcare®-App angezeigt.
+### Änderbare Werte
+Die folgenden Zustände können geändert werden und werden auf Ihrem Gerät wirksam bzw. werden in Ihrer Sure Petcare®-App angezeigt.
 
 | Zustand | Beschreibung | zulässige Werte |
 |-------|-------------|----------------|
-| haushaltsname.hubname.klappenname.control.curfew | Aktiviert oder deaktiviert die konfigurierte Ausgangssperre<br> (Ausgangssperre muss über App konfiguriert werden) | **wahr** oder **falsch** |
-| haushaltsname.hubname.klappenname.control.lockmode | setzt den Sperrmodus | **0** - offen<br> **1** - einrasten<br> **2** - sperren<br> **3** - geschlossen (ein- und ausschließen) |
-| haushaltsname.pets.pet_name.inside | legt fest, ob sich Ihr Haustier im Inneren befindet | **wahr** oder **falsch** |
+| haushaltsname.hub_name.control.led_mode | stellt die Helligkeit der Hub-LEDs ein | **0** - aus<br> **1** - hoch<br> **4** - gedimmt |
+| house_name.hub_name.flap_name.control.curfew | aktiviert oder deaktiviert die konfigurierte Ausgangssperre<br> (Ausgangssperre muss per App konfiguriert werden) | **wahr** oder **falsch** |
+| house_name.hub_name.flap_name.control.lockmode | setzt den Lockmode | **0** - geöffnet<br> **1** - einschließen<br> **2** - Aussperren<br> **3** - geschlossen (verriegeln und verriegeln) |
+| house_name.hub_name.flap_name.assigned_pets.pet_name.control.type | setzt den Haustiertyp für das zugewiesene Haustier und die Klappe | **2** - Haustier im Freien<br> **3** - Haustier im Haus |
+| house_name.hub_name.feeder_name.control.close_delay | stellt die Schließverzögerung des Zufuhrdeckels ein | **0** - schnell<br> **4** - normal<br> **20** - langsam |
+| haushaltsname.haustiere.haustiername.inside | legt fest, ob Ihr Haustier drinnen ist | **wahr** oder **falsch** |
 
 ### Struktur
 Der Adapter erstellt die folgende hierarchische Struktur:
 
-Adapter<br> ├ Haushaltsname<br> │ ├ Hubname<br> │ │ ├ led_mode<br> │ │ ├ online<br> │ │ └ Klappenname<br> │ │ ├ Batterie<br> │ │ ├ Batterieprozentsatz<br> │ │ ├ Ausgangssperre_aktiv<br> │ │ ├ online<br> │ │ ├ Kontrolle<br> Ausgangssperre<br> │ │ │ └ Sperrmodus<br> Ausgangssperre<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ lock_time<br> │ │ │ └unlock_time<br> │ │ └ last_curfew<br> │ │ └ 0..i<br> │ │ ├ aktiviert<br> │ │ ├ lock_time<br> │ │ └ entsperren_Zeit<br> │ └ Haustiere<br> │ └ pet_name<br> │ ├ Name<br> │ ├ innen<br> │ └ seit<br> └ info<br> ├ all_devices_online<br> └ Verbindung<br>
+Adapter<br> ├ haushaltsname<br> │ ├ hub_name<br> │ │ ├ online<br> │ │ ├ Kontrolle<br> │ │ │ └ led_mode<br> │ │ ├ feeder_name<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterie_Prozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ Kontrolle<br> │ │ │ └ close_delay<br> │ │ │ └ zugewiesene_Haustiere<br> │ │ │ └ pet_name<br> │ │ └ Klappenname<br> │ │ ├ Batterie<br> │ │ ├ Batterie_Prozentsatz<br> │ │ ├ curfew_active<br> │ │ ├ online<br> │ │ ├ Kontrolle<br> │ │ │ ├ Ausgangssperre<br> │ │ │ └ Sperrmodus<br> │ │ ├ Ausgangssperre<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ lock_time<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ lock_time<br> │ │ │ └ unlock_time<br> │ │ └ zugewiesene_Haustiere<br> │ │ └ pet_name<br> │ │ └ Kontrolle<br> │ │ └ Typ<br> │ └ Haustiere<br> │ └ pet_name<br> │ ├ Name<br> │ ├ innen<br> │ └ seit<br> info<br> ├ all_devices_online<br> └ Verbindung<br>
 
 ## Anmerkungen
 SureFlap® und Sure Petcare® sind eingetragene Marken von [SureFlap Ltd.](https://www.surepetcare.com/)
 
-Das Bild der Katzenklappe, des Hubs und der Smartphone-App kann ab [Sicher Petcare®](https://www.surepetcare.com/en-us/press) kostenlos zur Verfügung gestellt werden.
+Das Bild der Katzenklappe, des Hubs und der Smartphone-App wird von [Sure Petcare®](https://www.surepetcare.com/en-us/press) kostenlos zur Verfügung gestellt.
 
 ## Changelog
+
+### 1.0.6 (2021-09-12)
+* (Sickboy78) added feeder support (closing delay of lid)
+* (Sickboy78) added led control for hub
+* (Sickboy78) added assigned pets for flap and feeder devices
+* (Sickboy78) added pet type control (indoor or outdoor) for assigned pets for flap devices
+* (Apollon77) update CI testing
+
+### 1.0.5 (2021-04-25)
+* (Sickboy78) fixed bug in case pets didn't have a position (e.g. no flaps, only feeder in use)
 
 ### 1.0.4 (2021-03-07)
 * (Sickboy78) added state curfew_active for pet flap devices

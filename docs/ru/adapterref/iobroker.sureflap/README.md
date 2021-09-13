@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sureflap/README.md
 title: ioBroker.sureflap
-hash: mdm2mZU9PL4s5vJkKXjVZUb+DjM1kXYMMi+ZG6+0Utk=
+hash: G0RG7xwV7MOfDcMOxn127/rG80KO9WS6avYxFk5ippw=
 ---
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.sureflap.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sureflap.svg)
@@ -25,23 +25,26 @@ hash: mdm2mZU9PL4s5vJkKXjVZUb+DjM1kXYMMi+ZG6+0Utk=
 Добавьте имя пользователя и пароль из своей учетной записи Sure Petcare® на странице конфигурации адаптера.
 
 ## Описание
-Адаптер предоставляет информацию о настройках и состоянии вашей кошачьей откидной створки.
+Адаптер предоставляет информацию о настройках и состоянии вашей кормушки для кошек.
 
 Он также показывает местонахождение ваших питомцев.
 
 ### Изменяемые значения
-Следующие состояния могут быть изменены, и они вступят в силу на вашем устройстве, соответственно, они будут отражены в вашем приложении Sure Petcare®.
+Следующие состояния могут быть изменены, и они вступят в силу на вашем устройстве, соответственно, будут отражены в вашем приложении Sure Petcare®.
 
 | состояние | описание | допустимые значения |
 |-------|-------------|----------------|
+| имя_хозяйства.имя_концентратора.control.led_mode | устанавливает яркость светодиодов хаба | **0** - выключено<br> **1** - высокий<br> **4** - затемненный |
 | имя_хозяйства.имя_концентратора.имя_фланцы.control.curfew | включает или отключает настроенный комендантский час<br> (комендантский час настраивается через приложение) | **истина** или **ложь** |
 | имя_хозяйства.имя_концентратора.Название_ заслонки.control.lockmode | устанавливает режим блокировки | **0** - открыто<br> **1** - заблокировать<br> **2** - заблокировать<br> **3** - закрыто (закрывается и выключается) |
+| имя_хозяйства.имя_концентратора.Название_ заслонки.приписанные_петцы.имя_петницы.control.type | устанавливает тип питомца для назначенного питомца и лоскута | **2** - уличный питомец<br> **3** - домашнее животное |
+| имя_хозяйства.имя_концентратора.имя_фидера.control.close_delay | устанавливает задержку закрытия крышки кормушки | **0** - быстро<br> **4** - нормально<br> **20** - медленно |
 | имя_хозяйства.pets.pet_name.inside | определяет, находится ли ваш питомец внутри | **истина** или **ложь** |
 
-### Структура
+### Состав
 Адаптер создает следующую иерархическую структуру:
 
-адаптер<br> ├ имя_хозяйства<br> │ ├ имя_хаба<br> │ │ ├ led_mode<br> │ │ ├ онлайн<br> │ │ └ flap_name<br> │ │ ├ аккумулятор<br> │ │ ├ battery_percentage<br> │ │ ├ curfew_active<br> │ │ ├ онлайн<br> │ │ ├ контроль<br> │ │ │ ├ комендантский час<br> │ │ │ └ режим блокировки<br> │ │ ├ комендантский час<br> │ │ │ └ 0..i<br> │ │ │ ├ включен<br> │ │ │ ├ lock_time<br> │ │ │ └unlock_time<br> │ │ └ last_curfew<br> │ │ └ 0..i<br> │ │ ├ включен<br> │ │ ├ lock_time<br> │ │ └ unlock_time<br> │ └ домашние животные<br> │ └ pet_name<br> │ ├ имя<br> │ ├ внутри<br> │ └ так как<br> └ информация<br> ├ all_devices_online<br> └ подключение<br>
+адаптер<br> ├ имя_хозяйства<br> │ ├ имя_хаба<br> │ │ ├ онлайн<br> │ │ ├ контроль<br> │ │ │ └ led_mode<br> │ │ ├ имя_фидера<br> │ │ │ ├ аккумулятор<br> │ │ │ ├ battery_percentage<br> │ │ │ ├ онлайн<br> │ │ │ ├ контроль<br> │ │ │ │ └ close_delay<br> │ │ │ └ assign_pets<br> │ │ │ └ pet_name<br> │ │ └ flap_name<br> │ │ ├ аккумулятор<br> │ │ ├ battery_percentage<br> │ │ ├ curfew_active<br> │ │ ├ онлайн<br> │ │ ├ контроль<br> │ │ │ ├ комендантский час<br> │ │ │ └ режим блокировки<br> │ │ ├ комендантский час<br> │ │ │ └ 0..i<br> │ │ │ ├ включен<br> │ │ │ ├ lock_time<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ включен<br> │ │ │ ├ lock_time<br> │ │ │ └ unlock_time<br> │ │ └ assign_pets<br> │ │ └ pet_name<br> │ │ └ контроль<br> │ │ └ тип<br> │ └ домашние животные<br> │ └ pet_name<br> │ ├ имя<br> │ ├ внутри<br> │ └ так как<br> └ информация<br> ├ all_devices_online<br> └ соединение<br>
 
 ## Примечания
 SureFlap® и Sure Petcare® являются зарегистрированными товарными знаками [SureFlap Ltd.](https://www.surepetcare.com/).
@@ -49,6 +52,16 @@ SureFlap® и Sure Petcare® являются зарегистрированны
 Изображение откидной створки для кошек, концентратора и приложения для смартфона предоставляется бесплатно в [Конечно Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
+
+### 1.0.6 (2021-09-12)
+* (Sickboy78) added feeder support (closing delay of lid)
+* (Sickboy78) added led control for hub
+* (Sickboy78) added assigned pets for flap and feeder devices
+* (Sickboy78) added pet type control (indoor or outdoor) for assigned pets for flap devices
+* (Apollon77) update CI testing
+
+### 1.0.5 (2021-04-25)
+* (Sickboy78) fixed bug in case pets didn't have a position (e.g. no flaps, only feeder in use)
 
 ### 1.0.4 (2021-03-07)
 * (Sickboy78) added state curfew_active for pet flap devices

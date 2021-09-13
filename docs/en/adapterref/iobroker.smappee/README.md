@@ -71,6 +71,10 @@ Smappee allows you to remotly control smart plugs / smart switches. Either smapp
 
 ## Changelog
 
+### 0.2.6
+
+-   bugfix (type-error)
+
 ### 0.2.5
 
 -   bugfix (js-controller 3.3.x)

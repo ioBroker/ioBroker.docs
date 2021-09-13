@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker Mihome-Vakuumadapter
-hash: tMA0cL0xw9g6IZ947Gc7TFWXHoxaY1DaLO7pZgdsyvU=
+hash: LROz+cf/YZUzNW+t6QNc1jEw7pYze7gh5KQZx0aVLgo=
 ---
 ![Logo](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
@@ -74,7 +74,9 @@ Bitte öffnen Sie den Browser, gehen Sie zu Mihome und melden Sie sich an. Geben
 
 ## Aufbau
 Derzeit ist das Auffinden des Tokens das größte Problem.
-Bitte folgen Sie den Anweisungen im Link:
+Eine Option zum Extrahieren des Tokens ist die Verwendung dieses Dienstprogramms: https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor
+
+Ansonsten folgen Sie bitte den Anweisungen im Link:
 
 [Token-Tutorial](https://www.smarthomeassistent.de/token-auslesen-roborock-s6-roborock-s5-xiaomi-mi-robot-xiaowa/).
 
@@ -82,7 +84,7 @@ Bitte folgen Sie den Anweisungen im Link:
 - Bei IP-Adresse muss die IP-Adresse des Roboters im Format `192.168.178.XX` . eingegeben werden
 - Der Port des Roboters ist standardmäßig auf "54321" eingestellt, dieser sollte nicht geändert werden
 - Eigener Port, sollte nur mit zweitem Roboter geändert werden
-- Abfrageintervall Die Zeit in ms, in der die Statuswerte des Roboters abgerufen werden (darf nicht <10000 sein)
+- Abfrageintervall Die Zeit in ms, in der die Statuswerte des Roboters abgerufen werden (sollte nicht <10000 sein)
 
 #### Kontrolle über Alexa
 Für Alexa wird der spezielle Kontrollzustand `clean_home` erstellt.
@@ -287,6 +289,13 @@ Die unterstützten Befehle sind:
 - Widget zur Zeit ohne Funktion
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (MeisterTR) fix no rooms for S5
+* (MeisterTR) fix IOBROKER-MIHOME-VACUUM-4 DB closed
+
+### 3.2.2 (2021-07-16)
+* (bluefox) the communication is corrected
+* (bluefox) Added roles to be detected by type-detector
 
 ### 3.2.1 (2021-07-02)
 * (Apollon77) Adjust several crash cases (IOBROKER-MIHOME-VACUUM-K, IOBROKER-MIHOME-VACUUM-J, IOBROKER-MIHOME-VACUUM-F, IOBROKER-MIHOME-VACUUM-7, IOBROKER-MIHOME-VACUUM-A, IOBROKER-MIHOME-VACUUM-4, IOBROKER-MIHOME-VACUUM-G, IOBROKER-MIHOME-VACUUM-C, IOBROKER-MIHOME-VACUUM-B, IOBROKER-MIHOME-VACUUM-Q, IOBROKER-MIHOME-VACUUM-M)

@@ -809,6 +809,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.info/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.innogy-smarthome/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.intesishome/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.iogo/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.iogopro/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.iot/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.iqontrol/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.jarvis/README.md
@@ -1267,6 +1268,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.info/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.innogy-smarthome/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.intesishome/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.iogo/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.iogopro/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.iot/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.iqontrol/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.jarvis/README.md
@@ -1725,6 +1727,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.info/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.innogy-smarthome/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.intesishome/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.iogo/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.iogopro/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.iot/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.iqontrol/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.jarvis/README.md
@@ -2183,6 +2186,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.info/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.innogy-smarthome/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.intesishome/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.iogo/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.iogopro/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.iot/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.iqontrol/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.jarvis/README.md
