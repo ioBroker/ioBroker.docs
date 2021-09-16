@@ -134,7 +134,9 @@ hash: GmavLxm+klUaUCFI7o/yKJ8KJqOtoyN2RmgfJUQcojY=
 这些说明是根据我们的知识和信念创建的。
 
 ## Changelog
-
+### 1.3.8 (2021-09-13)
+* (VLGorskij) fixed the error messages for some states
+ 
 ### 1.3.7 (2021-01-22)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-MIHOME-A)
 
@@ -244,4 +246,4 @@ hash: GmavLxm+klUaUCFI7o/yKJ8KJqOtoyN2RmgfJUQcojY=
 ## License
 MIT
 
-Copyright (c) 2017-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2021 bluefox <dogafox@gmail.com>

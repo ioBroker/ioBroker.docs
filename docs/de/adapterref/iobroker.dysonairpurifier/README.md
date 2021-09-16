@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
+hash: aODxVtjZBwx8/hgmICMCnMa5QyB2HfMpDk0FHv0X8WY=
 ---
 # IoBroker.dysonAirPurifier
 ![Logo](admin/dyson_logo.svg)![Logo](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -26,10 +26,11 @@ Fan-Icon im Logo erstellt von [Freepik](https://www.flaticon.com/de/autoren/free
 ### Unterstützte Geräte
 * Dyson Pure Cool Link Tower (TP02, Produkttyp 475)
 * Dyson Pure Cool Tower, Modell 2018 (TP04, Produkttyp 438)
-* Dyson Pure Cool Tower, Modell 2018 (TP07, Produkttyp 438E)
+* Dyson Pure Cool Tower Formaldehyd, Modell 2018 (TP07, Produkttyp 438E)
 * Dyson Pure Cool Link Desk (DP01, Produkttyp 469)
 * Dyson Pure Cool Desk, Modell 2018 (DP04, Produkttyp 520)
 * Dyson Pure Hot+Cool Link (HP02, Produkttyp 455)
+* Dyson Pure Hot+Cool Link Neu (Produkttyp 455A)
 * Dyson Pure Hot+Cool, Modell 2018 (HP04, Produkttyp 527)
 * Dyson Pure Hot+Cool (HP07, Produkttyp 527E)
 * Dyson Pure Humidify+Cool (PH01, Produkttyp 358)
@@ -163,9 +164,9 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | automatisch | Automatischer Modus | EIN, AUS | |
 | nmdv | Nachtmodus Max. Lüftergeschwindigkeit? | 0004 | |
 | cflr | Status Kohlefilter | 0000 - 0100 | Prozent |
-| cflt | Kohlefilter | CARF | |
+| cflt | Kohlefilter | CARF, KEINE | |
 | hflr | Status HEPA-Filter | 0000 - 0100 | Prozent |
-| hflt | HEPA-Filter | GHEP | |
+| hflt | HEPA-Filter | GHEP, GCOM | |
 | sltm | Sleeptimer | EIN, AUS ||
 | hmod | Heizungsmodus [EIN/AUS] | HITZE | |
 | hmax | Solltemperatur zum Heizen | 0 .. 5000 | K |
@@ -175,17 +176,18 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | cdrr | CleanDurationRemaining| |
 | gerade | AutoBefeuchtungsziel| |
 | cltr | TimeRemainingToNextClean| |
-| wat | Wasserhärte| |
-| wacd | Warncode? | KEINE... |
+| wat | Wasserhärte| SOFT="2025", MEDIUM="1350",HARD="0675"|
+| wacd | Warncode | KEINE... |
 | rstf | Filterlebenszyklus zurücksetzen |
-| hell | | 0002 |
-| Korf | | EIN, AUS |
-| psta | [HP0x] Unbekannt | |
+| hell | unbekannt | 0002 |
+| Korf | unbekannt | EIN, AUS |
+| fqhp | unbekannt| |
+| clcr | [HP0x] Unbekannt | CLNO |
+| psta | [HP0x] Unbekannt | CLNG, INV |
 | hsta | [HP0x] Unbekannt | |
+| msta | [HP0x] Unbekannt | AUS |
 | Neigung | [HP0x] Unbekannt | |
 | Zifferblatt | [DP0x] Unbekannt | |
-| fqhp | fqhp||
-| msta | msta||
 
 |Fehlercodes| Bedeutung |
 | ----- | ----- |
@@ -206,15 +208,16 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | ------------- | ----- | ----- | ----- |
 | tat | Luftfeuchtigkeit (%) | 0000 - 0100 | Prozent |
 | Pakt | Staub | 0000 - 0009 | |
-| sltm | Sleeptimer | AUS... 9999 | Minuten |
+| sltm | Sleep-Timer | AUS... 9999 | Minuten |
 | Takt | Temperatur in Kelvin | 0000 - 5000 | K|
 | frei | flüchtige organische Verbindungen | 0001 - 0009 | |
-|pm25| PM2.5 |0018||
-|pm10| PM10 |0011||
-|va10| flüchtige organische Verbindungen|0004||
-|noxl| NO2 |0000 - 0014||
-|p25r| |0019||
-|p10r| |0018||
+| hcho | Formaldehyd||
+| pm25 | PM2.5 |0018||
+| pm10 | PM10 |0011||
+| va10 | flüchtige organische Verbindungen|0004||
+| noxl | NO2 |0000 - 0014||
+| p25r | |0019||
+| p10r | |0018||
 
 ###UMWELT-UND-NUTZUNGSDATEN
 Redundante Werte?
@@ -239,6 +242,20 @@ Redundante Werte?
 Dyson, pure cool, pure hot & cool und andere sind Marken oder eingetragene Marken von [Dyson Ltd.](https://www.dyson.com) Alle anderen Marken sind Eigentum ihrer jeweiligen Inhaber.
 
 ## Changelog
+
+### V1.1.0 (2021-09-15) (Coming home)
+* (grizzelbee) New: Added correct tier-level to io-package
+* (grizzelbee) New: improved logging of unknown data points
+* (grizzelbee) New: Added support for dyson Pure Hot+Cool Link (ProductType 455A) 
+* (grizzelbee) New: Added support for formaldehyde sensor
+* (grizzelbee) New: oscillation angles can be set
+* (grizzelbee) Upd: Improved OscillationAngle data point to display only the values supported by the current model  
+* (grizzelbee) Fix: removed info: undefined is not a valid state value for id "Hostaddress"
+
+### V1.0.0 (2021-08-26) (Dim the spotlight)
+* (grizzelbee) Fix: [#130](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/130) Fixed the newly introduced bug showing wrong values for temperatures
+* (grizzelbee) Upd: Pushed to version 1.0.0
+* (grizzelbee) Upd: Updated dependencies
 
 ### V0.9.5 (2021-08-23) (Marching on)
 * (grizzelbee) Doc: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Documented workaround for 2FA 401 Issue in ReadMe

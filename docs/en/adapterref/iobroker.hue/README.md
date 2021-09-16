@@ -60,6 +60,9 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 	### __WORK IN PROGRESS__
 -->
 
+### 3.5.25 (2021-09-15)
+* (foxriver76) if we cannot determine correct ct value, we won't set it (fixes #234)
+
 ### 3.5.23 (2021-08-26)
 * (Pmant) fix for third party devices delivering wrong ct values
 

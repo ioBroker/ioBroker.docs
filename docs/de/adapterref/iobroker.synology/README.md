@@ -3,10 +3,11 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.synology/README.md
 title: ioBroker Synology-Adapter
-hash: t5T/fzOgQKNpdGG0clmho59rs1eVvk6s5dKa7HwZgis=
+hash: OxUM3HRRXEpU5OvLjX1r2+WC1HwFQeeyV73RDtW+Fr8=
 ---
 ![Logo](../../../en/adapterref/iobroker.synology/admin/synology.png)
 
+![Spenden](https://img.shields.io/badge/Donate-PayPal-green.svg)
 ![Anzahl der Installationen](http://iobroker.live/badges/synology-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.synology.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.synology.svg)
@@ -19,7 +20,7 @@ hash: t5T/fzOgQKNpdGG0clmho59rs1eVvk6s5dKa7HwZgis=
 Mit dem Treiber können Sie Daten empfangen und Ihren Synology NAS-Server verwalten.
 
 ### 2FA-Einstellungen
-Wenn Sie 2FA verwenden, siehe Anweisungen [hier](docs/en/template.md)
+Wenn Sie 2FA verwenden, siehe Anweisungen [Hier](docs/en/template.md)
 
 ### SendMethod
 Sie können jeden Befehl (eine Methode) senden, indem Sie das sendMethod-Objekt setzen, zum Beispiel: Get the SurveillanceStation info ist eine getInfo-Methode ohne zusätzliche Parameter.
@@ -38,7 +39,7 @@ Sie können jeden Befehl (eine Methode) senden, indem Sie das sendMethod-Objekt 
 
 ***SurveillanceStation.HomeMode.status_on*** - Aktueller Status und Homemode aktivieren/deaktivieren
 
-***SurveillanceStation.getSnapshotCamera*** - Schnappschuss nach Kameranummer abrufen, die Datei wird in einem Verzeichnis ``...iobroker-data\synology_0\snapshotCam_2.jpg`` . gespeichert
+***SurveillanceStation.getSnapshotCamera*** - Schnappschuss nach Kameranummer abrufen, die Datei wird in einem Verzeichnis gespeichert ``...iobroker-data\synology_0\snapshotCam_2.jpg``
 
 ***AudioStation.player.{PLAYERID}***:
 
@@ -48,7 +49,7 @@ Sie können jeden Befehl (eine Methode) senden, indem Sie das sendMethod-Objekt 
 * Lautstärke - Lautstärke Remote-Player (0-100)
 * seek - Steuerung der Wiedergabesuche (0-100)
 * play_folder - Füge Tracks aus dem Ordner zur Playlist hinzu (ID-Ordner z.B. ``dir_5816``)
-* play_track - Titel nach seiner ID abspielen (z. B. ``music_120847``)
+* play_track - Titel anhand seiner ID abspielen (z. B. ``music_120847``)
 * current_play - Kontrolle und Status des aktuellen Tracks anhand seiner Nummer in der Playlist (z.B. ``14``)
 
 ***DownloadStation***:
@@ -69,13 +70,21 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ```
 
 ## Changelog
+### 2.0.0
+* (instalator) DSM7 support
+
+### 1.1.3 (2021-08-23)
+* (MeisterTR) Fixed 2FA
+
 ### 1.1.2 (2021-08-12)
 * (MeisterTR) Fixed datatypes
 * (MeisterTR) added new ConfigJson (if you use 2FA pleease retype in config)
 * (MeisterTR) Fixed snapshot again
+
 ### 1.1.1 (2021-08-09)
 * (MeisterTR) fix type of uptime
 * (MeisterTR) fix broken snapshot link
+
 ### 1.1.0 (2021-08-07)
 * (MeisterTR) fixes for DSM7
 * (MeisterTR) added release-script

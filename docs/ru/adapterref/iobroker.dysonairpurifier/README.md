@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
+hash: aODxVtjZBwx8/hgmICMCnMa5QyB2HfMpDk0FHv0X8WY=
 ---
 # IoBroker.dysonAirPurifier
 ![Логотип] (admin / dyson_logo.svg)! [Логотип](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -26,10 +26,11 @@ hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
 ### Поддерживаемые устройства
 * Башня Dyson Pure Cool Link (TP02, ProductType 475)
 * Dyson Pure Cool Tower, модель 2018 г. (TP04, ProductType 438)
-* Dyson Pure Cool Tower, модель 2018 г. (TP07, ProductType 438E)
+* Формальдегид Dyson Pure Cool Tower, модель 2018 г. (TP07, ProductType 438E)
 * Dyson Pure Cool Link Desk (DP01, ProductType 469)
 * Dyson Pure Cool Desk, модель 2018 г. (DP04, ProductType 520)
 * Dyson Pure Hot + Cool Link (HP02, ProductType 455)
+* Dyson Pure Hot + Cool Link New (ProductType 455A)
 * Dyson Pure Hot + Cool, модель 2018 г. (HP04, ProductType 527)
 * Dyson Pure Hot + Cool (HP07, ProductType 527E)
 * Dyson Pure Humidify + Cool (PH01, ProductType 358)
@@ -64,7 +65,7 @@ hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
 ### Необходимые данные конфигурации
 * Имя пользователя учетной записи Dyson
 * Пароль учетной записи Dyson (этот адаптер может обрабатывать пароли до 32 символов)
-* IP-адрес ваших вентиляторов / очистителей воздуха в вашей локальной сети.
+* IP-адрес вентиляторов / очистителей воздуха в вашей локальной сети.
 
 * Обратите внимание *: из-за ранней стадии разработки и несоответствия реализации mDNS компанией Dyson вам необходимо будет предоставить локальный IP-адрес устройства * после первого запуска *.
 
@@ -149,12 +150,12 @@ hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
 | fmod | Режим | ВЕНТИЛЯТОР, АВТО, ВЫКЛ | |
 | fpwr | Основная мощность | ВКЛ, ВЫКЛ | |
 | fnst | Статус вентилятора | ВКЛ, ВЫКЛ, ВЕНТИЛЯТОР | |
-| fnsp | Скорость вентилятора | 0001-0010, АВТО | |
+| fnsp | Скорость вентилятора | 0001 - 0010, АВТО | |
 | fdir | Fandirection aka. Струйный фокус / ВКЛ = спереди, ВЫКЛ = сзади | ВКЛ, ВЫКЛ | |
 | ffoc | JetFocus | ВКЛ, ВЫКЛ |
 | nmod | Ночной режим | ВКЛ, ВЫКЛ | |
 | осон | Колебание | ВКЛ, ВЫКЛ | |
-| осал | Угол колебания нижней границы | 0005 - 355 | ° (градусы) |
+| осал | OscillationAngle Нижняя граница | 0005 - 355 | ° (градусы) |
 | Osau | OscillationAngle Верхняя граница | 0005 - 355 | ° (градусы) |
 | осск | OscillationActive | ВКЛ, ВЫКЛ, ХОЛОСТОЙ ХОД | |
 | ancp | OscillationAngle | CUST, 0180 | ° (градусы) |
@@ -163,9 +164,9 @@ hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
 | авто | AutomaticMode | ВКЛ, ВЫКЛ | |
 | nmdv | NightMode Max Fanspeed? | 0004 | |
 | cflr | Статус Углеродный фильтр | 0000 - 0100 | Процент |
-| cflt | Угольный фильтр | CARF | |
+| cflt | Угольный фильтр | CARF, НЕТ | |
 | hflr | Статус HEPA-фильтр | 0000 - 0100 | Процент |
-| hflt | HEPA-фильтр | GHEP | |
+| hflt | HEPA-фильтр | GHEP, GCOM | |
 | sltm | Таймер сна | ВКЛ, ВЫКЛ ||
 | hmod | Режим нагревателя [ВКЛ / ВЫКЛ] | ТЕПЛО | |
 | hmax | Целевая температура для обогрева | 0 .. 5000 | K |
@@ -175,17 +176,18 @@ hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
 | cdrr | CleanDurationRemaining | |
 | прямоугольник | AutoHumidificationTarget | |
 | cltr | TimeRemainingToNextClean | |
-| wath | WaterHardness | |
-| wacd | WarningCode? | НЕТ ... |
+| wath | WaterHardness | МЯГКИЙ = "2025", СРЕДНИЙ = "1350", ЖЕСТКИЙ = "0675" |
+| wacd | WarningCode | НЕТ ... |
 | rstf | сбросить жизненный цикл фильтра |
-| брил | | 0002 |
-| корф | | ВКЛ, ВЫКЛ |
-| psta | [HP0x] Неизвестно | |
+| брил | неизвестно | 0002 |
+| корф | неизвестно | ВКЛ, ВЫКЛ |
+| fqhp | неизвестно | |
+| clcr | [HP0x] Неизвестно | CLNO |
+| psta | [HP0x] Неизвестно | CLNG, INV |
 | hsta | [HP0x] Неизвестно | |
+| мста | [HP0x] Неизвестно | ВЫКЛ |
 | наклон | [HP0x] Неизвестно | |
 | набрать | [DP0x] Неизвестно | |
-| fqhp | fqhp ||
-| мста | мста ||
 
 | Коды ошибок | Значение |
 | ----- | ----- |
@@ -209,6 +211,7 @@ hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
 | sltm | Таймер сна | ВЫКЛ ... 9999 | Минуты |
 | такт | Температура в Кельвине | 0000 - 5000 | K |
 | vact | летучие органические соединения | 0001 - 0009 | |
+| ччо | Формальдегид ||
 | pm25 | PM2.5 | 0018 ||
 | pm10 | PM10 | 0011 ||
 | va10 | летучие органические соединения | 0004 ||
@@ -239,6 +242,20 @@ hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
 Dyson, pure cool, pure hot & cool и другие являются товарными знаками или зарегистрированными товарными знаками [Dyson Ltd.](https://www.dyson.com). Все остальные товарные знаки являются собственностью соответствующих владельцев.
 
 ## Changelog
+
+### V1.1.0 (2021-09-15) (Coming home)
+* (grizzelbee) New: Added correct tier-level to io-package
+* (grizzelbee) New: improved logging of unknown data points
+* (grizzelbee) New: Added support for dyson Pure Hot+Cool Link (ProductType 455A) 
+* (grizzelbee) New: Added support for formaldehyde sensor
+* (grizzelbee) New: oscillation angles can be set
+* (grizzelbee) Upd: Improved OscillationAngle data point to display only the values supported by the current model  
+* (grizzelbee) Fix: removed info: undefined is not a valid state value for id "Hostaddress"
+
+### V1.0.0 (2021-08-26) (Dim the spotlight)
+* (grizzelbee) Fix: [#130](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/130) Fixed the newly introduced bug showing wrong values for temperatures
+* (grizzelbee) Upd: Pushed to version 1.0.0
+* (grizzelbee) Upd: Updated dependencies
 
 ### V0.9.5 (2021-08-23) (Marching on)
 * (grizzelbee) Doc: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Documented workaround for 2FA 401 Issue in ReadMe

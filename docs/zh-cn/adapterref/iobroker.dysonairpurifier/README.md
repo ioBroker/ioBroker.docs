@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
+hash: aODxVtjZBwx8/hgmICMCnMa5QyB2HfMpDk0FHv0X8WY=
 ---
 # IoBroker.dysonAirPurifier
 ![标志](admin/dyson_logo.svg)![标志](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -26,10 +26,11 @@ hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
 ### 支持的设备
 * Dyson Pure Cool Link Tower (TP02, ProductType 475)
 * Dyson Pure Cool Tower，2018 款（TP04，产品类型 438）
-* Dyson Pure Cool Tower，2018 款（TP07，产品型号 438E）
+* Dyson Pure Cool Tower 甲醛，2018 型号（TP07，产品类型 438E）
 * Dyson Pure Cool Link 办公桌（DP01，产品类型 469）
 * Dyson Pure Cool Desk，2018 款（DP04，产品类型 520）
 * Dyson Pure Hot+Cool Link（HP02，产品类型 455）
+* Dyson Pure Hot+Cool Link 新品（产品型号 455A）
 * Dyson Pure Hot+Cool，2018 款（HP04，产品类型 527）
 * Dyson Pure Hot+Cool (HP07, ProductType 527E)
 * Dyson Pure Humidify+Cool (PH01, ProductType 358)
@@ -38,12 +39,12 @@ hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
 将您的戴森风扇、暖风机、空气净化器和空气加湿器连接到 ioBroker。
 
 * 从设备和传感器读取值
-* 可以通过使您能够更改某些值（主功率、振荡、加热、风扇速度等）来控制设备
+* 可以通过让您更改某些值（主功率、振荡、加热、风扇速度等）来控制设备
 * 从戴森服务器读取设备列表
 
 ＃＃ 安装
 ### Sentry.io
-该适配器使用 sentry.io 收集有关崩溃的详细信息并自动将其报告给作者。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) 插件用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 有关插件功能、收集哪些信息以及如何禁用插件的详细信息，如果您不喜欢用您的崩溃信息支持作者。
+该适配器使用 sentry.io 收集有关崩溃的详细信息并自动向作者报告。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) 插件用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 有关插件功能、收集哪些信息以及如何禁用插件的详细信息，如果您不喜欢用您的崩溃信息支持作者。
 
 ### 先决条件
 * 此适配器需要 Node.js >= 版本 10
@@ -73,13 +74,13 @@ hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
 1. 您的局域网中有一台 DNS 服务器正在运行。无论是在您的路由器中（例如 FritzBoxes 有一个 DNS 运行）还是一个专用路由器。
 2. 您没有更改默认设备名称。
 
-> 在此适配器的第一次启动时，会为您的所有设备查询 Dyson API，并且所有支持的设备都将在设备树中创建——API 提供了它们的基本信息和一个附加字段“主机地址”。
-> > 所以请运行一次适配器，您的戴森设备将在设备树中创建，并带有其基本设置。
+> 在此适配器第一次启动时，系统会为您的所有设备查询 Dyson API，并且所有支持的设备都将在设备树中创建——API 提供了它们的基本信息和一个附加字段“主机地址”。
+> > 所以请运行一次适配器，您的 Dyson 设备将在设备树中创建，并带有它们的基本设置。
 > > 然后停止适配器，在主机地址字段中输入 IP 并重新启动适配器。之后，设备树中的 Dyson 设备应填充数据。
 
 ### 2 因素身份验证（自 V0.9.0 起）
 安装适配器后，它应该会自动启动 - 如果没有，请先启动它。
-更新后它也会自动重启。在这两种情况下，它都会保持“黄色”状态，并且可能会在日志中显示一些错误 - 现在很好。
+更新后它也会自动重启。在这两种情况下，它都将保持“黄色”状态，并且可能会在日志中显示一些错误 - 现在很好。
 
 * 打开适配器的配置对话框
 * 至少填写您的电子邮件地址、密码和国家代码 - 其余可选
@@ -91,7 +92,7 @@ hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
 * 完成设置后单击保存并关闭 - 适配器应重新启动并变为绿色。
 
 所有值都将被保存并进一步显示。
-> 通常您不需要按计划执行这 2 次 FA - 但您可以在需要时重复执行。
+> 通常您不需要按计划进行这 2 次 FA - 但您可以在需要时重复它。
 
 #### 如果您在 2-FA 期间遇到 401 问题。请尝试以下解决方法：
 1. 退出戴森智能手机应用程序
@@ -99,7 +100,7 @@ hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
 3. 将您的登录数据输入到适配器（如果尚未完成）并按照 2FA 程序进行到底。
 4. 适配器应启动并变为绿色。
 5. 等待一段时间（最多一个小时或更长时间，因为戴森在短时间内阻止了太多请求）
-6. 如果您想使用它，请重新登录戴森智能手机应用程序。
+6. 如果您喜欢使用戴森智能手机应用程序，请重新登录。
 
 ## 控制您的设备
 此适配器目前能够控制您设备的以下状态：
@@ -150,7 +151,7 @@ hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
 | fpwr |主电源 |开、关 | |
 |第一 |粉丝状态 |开、关、风扇 | |
 | fnsp |风扇转速 | 0001 - 0010, 自动 | |
-|目录 | Fandirection 又名。喷射焦点/ ON=正面，OFF=背面|开、关 | |
+|目录 | Fandirection 又名。喷射焦点/ ON=前，OFF=后 |开、关 | |
 |福克| JetFocus |开、关 |
 | nmod |夜间模式 |开、关 | |
 |奥森|振荡|开、关| |
@@ -163,9 +164,9 @@ hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
 |汽车 |自动模式 |开、关 | |
 |微电影|夜间模式最大风扇速度？ | 0004 | |
 | cflr |状态碳过滤器 | 0000 - 0100 |百分比 |
-| cflt |碳过滤器 | CARF | |
+| cflt |碳过滤器 |卡夫，无 | |
 | hflr |状态 HEPA 过滤器 | 0000 - 0100 |百分比 |
-|高频| HEPA-过滤器|全球环境规划署 | |
+|高频| HEPA-过滤器| GHEP, GCOM | |
 | sltm |睡眠定时器 |开，关 ||
 | hmod |加热器模式 [ON/OFF] |热 | |
 |最大|加热目标温度 | 0 .. 5000 |克|
@@ -175,17 +176,18 @@ hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
 | CDR | CleanDurationRemaining| |
 |矩形 |自动加湿目标| |
 | ctr | TimeRemainingToNextClean| |
-|什么|水硬度| |
-| wacd |警告码？ |无... |
+|什么|水硬度|软=“2025”，中=“1350”，硬=“0675”|
+| wacd |警告代码 |无... |
 | rstf |重置过滤器生命周期 |
-| bril | | 0002 |
-|科尔夫 | |开、关 |
-| psta | [HP0x] 未知 | |
+| bril |未知 | 0002 |
+|科尔夫 |未知 |开、关 |
+| fqhp |未知| |
+| CLCR | [HP0x] 未知 | CLNO |
+| psta | [HP0x] 未知 | CLNG、INV |
 | hsta | [HP0x] 未知 | |
+| msta | [HP0x] 未知 |关闭 |
 |倾斜| [HP0x] 未知 | |
 |拨号 | [DP0x] 未知 | |
-| fqhp | fqhp||
-| msta | msta||
 
 |错误代码|含义 |
 | ----- | ----- |
@@ -209,12 +211,13 @@ hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
 | sltm |睡眠定时器 |关闭... 9999 |分钟 |
 |机智|开尔文温度 | 0000 - 5000 | K|
 |真空|挥发性有机化合物| 0001 - 0009 | |
-|pm25| PM2.5 |0018||
-|下午10| PM10 |0011||
-|va10|挥发性有机化合物|0004||
-|noxl| NO2 |0000 - 0014||
-|p25r| |0019||
-|p10r| |0018||
+|呼|甲醛||
+|下午25 | PM2.5 |0018||
+|下午10 | PM10 |0011||
+| va10 |挥发性有机化合物|0004||
+| noxl | NO2 |0000 - 0014||
+| p25r | |0019||
+| p10r | |0018||
 
 ### 环境和使用数据
 冗余值？
@@ -239,6 +242,20 @@ hash: V0b90JJHAV++/4i4zp8ayBqOSW22yERJ6yHrQlIEKYE=
 Dyson、pure cool、pure hot &cool 等是[戴森有限公司](https://www.dyson.com) 的商标或注册商标。所有其他商标均为其各自所有者的财产。
 
 ## Changelog
+
+### V1.1.0 (2021-09-15) (Coming home)
+* (grizzelbee) New: Added correct tier-level to io-package
+* (grizzelbee) New: improved logging of unknown data points
+* (grizzelbee) New: Added support for dyson Pure Hot+Cool Link (ProductType 455A) 
+* (grizzelbee) New: Added support for formaldehyde sensor
+* (grizzelbee) New: oscillation angles can be set
+* (grizzelbee) Upd: Improved OscillationAngle data point to display only the values supported by the current model  
+* (grizzelbee) Fix: removed info: undefined is not a valid state value for id "Hostaddress"
+
+### V1.0.0 (2021-08-26) (Dim the spotlight)
+* (grizzelbee) Fix: [#130](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/130) Fixed the newly introduced bug showing wrong values for temperatures
+* (grizzelbee) Upd: Pushed to version 1.0.0
+* (grizzelbee) Upd: Updated dependencies
 
 ### V0.9.5 (2021-08-23) (Marching on)
 * (grizzelbee) Doc: [#124](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/124) Documented workaround for 2FA 401 Issue in ReadMe

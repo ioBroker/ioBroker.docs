@@ -41,7 +41,7 @@ The following additionals States are created per device when checked:
 
 ## Changelog
 
-### 0.1.11 (2021-09-11)
+### 0.1.12 (2021-09-13)
 * (patrickbs96) Added new Values from Response (Sentry IOBROKER-TWINKLY-7)
 * (patrickbs96) Prevent excessive Sentry Logging 
 

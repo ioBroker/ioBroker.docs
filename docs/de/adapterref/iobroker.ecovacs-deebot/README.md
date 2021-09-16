@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: 8UZTeng3PyIFUc7UmWcgdvOakq2fv9DYx+ryxrT2PbM=
+hash: azBsLnSsvcZDXWFI280ugHxTVmnJWHbuT+dys+vvYek=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -25,7 +25,7 @@ Einige bemerkenswerte Merkmale sind:
 * Senden Sie saubere Befehle (z. B. Auto, Spot-Bereich, benutzerdefinierter Bereich) und verschiedene andere Befehle (z. B. Sound abspielen, Verbrauchsmaterialien zurücksetzen)
 * Speichern Sie den zuletzt ausgeführten benutzerdefinierten Bereich und führen Sie die gespeicherten Bereiche erneut aus
 * Einstellung von Saugleistung (Reinigungsgeschwindigkeit) und Wasserstand
-* Abrufen von Informationen während des Reinigungsprozesses (z. B. aktuelle Position und Bereich)
+* Abrufen von Informationen während des Reinigungsvorgangs (z. B. aktuelle Position und Bereich)
 * Abrufen von Informationen der Karten inkl. Spotbereiche und virtuelle Grenzen
 * Löschen, speichern und neu erstellen einzelner virtueller Grenzen sowie eines vollständigen Satzes virtueller Grenzen *)
 * Funktion zum Laden des aktuellen Kartenbildes *)
@@ -68,7 +68,7 @@ Es besteht natürlich kein Anspruch auf volle Funktionalität.
 ## Installation
 Es wird empfohlen, Version 12.x oder 14.x von Node.js zu verwenden.
 
-Die erforderliche Mindestversion ist immer noch 10.x, **aber das kann sich bald ändern**.
+Die erforderliche Mindestversion ist weiterhin 10.x, **aber das wird sich bald ändern**.
 
 Dieser Adapter verwendet die [Knoten-Leinwand](https://www.npmjs.com/package/canvas) Bibliothek für einige kartenbezogene Funktionen, die die Installation einiger zusätzlicher Pakete erfordern können.
 
@@ -111,6 +111,11 @@ zu [einen Neustart planen](https://www.iobroker.net/#en/documentation/admin/inst
 Ich bin in keiner Weise mit ECOVACS verbunden.
 
 ## Changelog
+
+### 1.2.4 (alpha)
+
+* Using library version 0.6.7
+* Some optimizations
 
 ### 1.2.3
 

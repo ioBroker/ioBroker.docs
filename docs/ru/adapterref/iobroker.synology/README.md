@@ -2,11 +2,12 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.synology/README.md
-title: Адаптер ioBroker Synology
-hash: t5T/fzOgQKNpdGG0clmho59rs1eVvk6s5dKa7HwZgis=
+title: ioBroker адаптер Synology
+hash: OxUM3HRRXEpU5OvLjX1r2+WC1HwFQeeyV73RDtW+Fr8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.synology/admin/synology.png)
 
+![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-green.svg)
 ![Количество установок](http://iobroker.live/badges/synology-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.synology.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.synology.svg)
@@ -43,7 +44,7 @@ hash: t5T/fzOgQKNpdGG0clmho59rs1eVvk6s5dKa7HwZgis=
 *** AudioStation.players. {PLAYERID} ***:
 
 * play, pause, stop, next, prev - Управление воспроизведением (кнопка, только true)
-* repeat - Повтор управления (Выкл., Все, Один)
+* repeat - Повторить контроль (Выкл., Все, Один)
 * shuffle - управление перемешиванием (true / false)
 * volume - Громкость удаленного плеера (0-100)
 * seek - Управление поиском при воспроизведении (0-100)
@@ -69,13 +70,21 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ```
 
 ## Changelog
+### 2.0.0
+* (instalator) DSM7 support
+
+### 1.1.3 (2021-08-23)
+* (MeisterTR) Fixed 2FA
+
 ### 1.1.2 (2021-08-12)
 * (MeisterTR) Fixed datatypes
 * (MeisterTR) added new ConfigJson (if you use 2FA pleease retype in config)
 * (MeisterTR) Fixed snapshot again
+
 ### 1.1.1 (2021-08-09)
 * (MeisterTR) fix type of uptime
 * (MeisterTR) fix broken snapshot link
+
 ### 1.1.0 (2021-08-07)
 * (MeisterTR) fixes for DSM7
 * (MeisterTR) added release-script

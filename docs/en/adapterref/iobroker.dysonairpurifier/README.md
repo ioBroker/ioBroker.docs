@@ -24,14 +24,14 @@ Fan-Icon in Logo created by [Freepik](https://www.flaticon.com/de/autoren/freepi
 
 * Dyson Pure Cool Link Tower (TP02, ProductType 475)
 * Dyson Pure Cool Tower, 2018 model (TP04, ProductType 438)
-* Dyson Pure Cool Tower, 2018 model (TP07, ProductType 438E)
+* Dyson Pure Cool Tower Formaldehyde, 2018 model (TP07, ProductType 438E)
 * Dyson Pure Cool Link Desk (DP01, ProductType 469)
 * Dyson Pure Cool Desk, 2018 model (DP04, ProductType 520)
 * Dyson Pure Hot+Cool Link (HP02, ProductType 455)
+* Dyson Pure Hot+Cool Link New (ProductType 455A)
 * Dyson Pure Hot+Cool, 2018 model (HP04, ProductType 527)
 * Dyson Pure Hot+Cool (HP07, ProductType 527E)
 * Dyson Pure Humidify+Cool (PH01, ProductType 358)
-
 ## Features
 
 Connects your Dyson fans, fan heaters, air purifiers, and air humidifiers to ioBroker.
@@ -138,6 +138,15 @@ Which is what the dyson app does also.
 * No automatic IP detection of devices
 
 ## Changelog
+
+### V1.1.0 (2021-09-15) (Coming home)
+* (grizzelbee) New: Added correct tier-level to io-package
+* (grizzelbee) New: improved logging of unknown data points
+* (grizzelbee) New: Added support for dyson Pure Hot+Cool Link (ProductType 455A) 
+* (grizzelbee) New: Added support for formaldehyde sensor
+* (grizzelbee) New: oscillation angles can be set
+* (grizzelbee) Upd: Improved OscillationAngle data point to display only the values supported by the current model  
+* (grizzelbee) Fix: removed info: undefined is not a valid state value for id "Hostaddress"
 
 ### V1.0.0 (2021-08-26) (Dim the spotlight)
 * (grizzelbee) Fix: [#130](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/130) Fixed the newly introduced bug showing wrong values for temperatures
@@ -342,9 +351,9 @@ Information copied and extended from <https://github.com/shadowwa/Dyson-MQTT2RRD
 | auto | AutomaticMode | ON, OFF | |
 | nmdv | NightMode Max Fanspeed? | 0004 | |
 | cflr | Status Carbonfilter  | 0000 - 0100 | Percent |
-| cflt | Carbonfilter | CARF | |
+| cflt | Carbonfilter | CARF, NONE | |
 | hflr | Status HEPA-Filter | 0000 - 0100 | Percent |
-| hflt | HEPA-Filter | GHEP | |
+| hflt | HEPA-Filter | GHEP, GCOM | |
 | sltm | Sleeptimer | ON, OFF ||
 | hmod | Heater Mode [ON/OFF] | HEAT | |
 | hmax | Target temperature for heating | 0 .. 5000 | K |
@@ -354,17 +363,18 @@ Information copied and extended from <https://github.com/shadowwa/Dyson-MQTT2RRD
 | cdrr | CleanDurationRemaining| |  
 | rect | AutoHumidificationTarget| |
 | cltr | TimeRemainingToNextClean| |
-| wath | WaterHardness| |
-| wacd | WarningCode? | NONE... | 
+| wath | WaterHardness| SOFT="2025", MEDIUM="1350",HARD="0675"|
+| wacd | WarningCode  | NONE... | 
 | rstf | reset filter lifecycle | 
-| bril |  | 0002 |    
-| corf |  | ON, OFF | 
-| psta | [HP0x] Unknown |  | 
-| hsta | [HP0x] Unknown |  | 
-| tilt | [HP0x] Unknown |  | 
+| bril | unknown | 0002 |    
+| corf | unknown | ON, OFF |
+| fqhp | unknown| |
+| clcr | [HP0x] Unknown | CLNO |
+| psta | [HP0x] Unknown | CLNG, INV |
+| hsta | [HP0x] Unknown |  |
+| msta | [HP0x] Unknown | OFF |
+| tilt | [HP0x] Unknown |  |
 | dial | [DP0x] Unknown |  | 
-| fqhp | fqhp||
-| msta | msta||
 
 
 |Error-Codes| Meaning |
@@ -389,15 +399,16 @@ Information copied and extended from <https://github.com/shadowwa/Dyson-MQTT2RRD
 | ------------- | ----- | ----- | ----- |
 | hact | Humidity (%) | 0000 - 0100 | Percent |
 | pact | Dust | 0000 - 0009 | |
-| sltm | Sleeptimer | OFF... 9999 | Minutes |
+| sltm | Sleep timer | OFF... 9999 | Minutes |
 | tact | Temperature in Kelvin | 0000 - 5000 | K|
 | vact | volatile organic compounds | 0001 - 0009 | |
-|pm25|  PM2.5 |0018||
-|pm10|  PM10 |0011||
-|va10|  volatile organic compounds|0004||
-|noxl|  NO2 |0000 - 0014||
-|p25r|  |0019||
-|p10r|  |0018||
+| hcho | Formaldehyde||
+| pm25 |  PM2.5 |0018||
+| pm10 |  PM10 |0011||
+| va10 |  volatile organic compounds|0004||
+| noxl |  NO2 |0000 - 0014||
+| p25r |  |0019||
+| p10r |  |0018||
 
 ### ENVIRONMENTAL-AND-USAGE-DATA
 

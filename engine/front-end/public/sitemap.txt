@@ -957,6 +957,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.sanext/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.sayit/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.sbfspot/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.scenes/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.scheduler/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.schoolfree/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.schwoerer-ventcube/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.senec/README.md
@@ -1416,6 +1417,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.sanext/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.sayit/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.sbfspot/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.scenes/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.scheduler/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.schoolfree/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.schwoerer-ventcube/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.senec/README.md
@@ -1875,6 +1877,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.sanext/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.sayit/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.sbfspot/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.scenes/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.scheduler/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.schoolfree/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.schwoerer-ventcube/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.senec/README.md
@@ -2334,6 +2337,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sanext/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sayit/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sbfspot/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.scenes/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.scheduler/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.schoolfree/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.schwoerer-ventcube/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.senec/README.md

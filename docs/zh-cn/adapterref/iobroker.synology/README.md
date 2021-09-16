@@ -3,10 +3,11 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.synology/README.md
 title: ioBroker Synology 适配器
-hash: t5T/fzOgQKNpdGG0clmho59rs1eVvk6s5dKa7HwZgis=
+hash: OxUM3HRRXEpU5OvLjX1r2+WC1HwFQeeyV73RDtW+Fr8=
 ---
 ![标识](../../../en/adapterref/iobroker.synology/admin/synology.png)
 
+![捐](https://img.shields.io/badge/Donate-PayPal-green.svg)
 ![安装数量](http://iobroker.live/badges/synology-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.synology.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.synology.svg)
@@ -43,7 +44,7 @@ hash: t5T/fzOgQKNpdGG0clmho59rs1eVvk6s5dKa7HwZgis=
 ***AudioStation.players.{PLAYERID}***：
 
 * 播放、暂停、停止、下一首、上一首 - 控制播放（按钮，仅 true）
-* 重复 - 重复控制（关闭、全部、一）
+* 重复 - 重复控制（关、全部、一）
 * shuffle - 随机控制（真/假）
 * volume - 音量远程播放器（0-100）
 * seek - 控制播放搜索 (0-100)
@@ -69,13 +70,21 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ```
 
 ## Changelog
+### 2.0.0
+* (instalator) DSM7 support
+
+### 1.1.3 (2021-08-23)
+* (MeisterTR) Fixed 2FA
+
 ### 1.1.2 (2021-08-12)
 * (MeisterTR) Fixed datatypes
 * (MeisterTR) added new ConfigJson (if you use 2FA pleease retype in config)
 * (MeisterTR) Fixed snapshot again
+
 ### 1.1.1 (2021-08-09)
 * (MeisterTR) fix type of uptime
 * (MeisterTR) fix broken snapshot link
+
 ### 1.1.0 (2021-08-07)
 * (MeisterTR) fixes for DSM7
 * (MeisterTR) added release-script
