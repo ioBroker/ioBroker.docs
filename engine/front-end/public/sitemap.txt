@@ -1088,6 +1088,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.worx/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.x-touch/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.xbox/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.xs1/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.xterm/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.yahka/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.yamaha/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.yeelight-2/README.md
@@ -1548,6 +1549,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.worx/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.x-touch/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.xbox/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.xs1/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.xterm/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.yahka/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.yamaha/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.yeelight-2/README.md
@@ -2008,6 +2010,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.worx/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.x-touch/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.xbox/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.xs1/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.xterm/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.yahka/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.yamaha/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.yeelight-2/README.md
@@ -2468,6 +2471,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.worx/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.x-touch/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.xbox/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.xs1/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.xterm/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.yahka/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.yamaha/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.yeelight-2/README.md

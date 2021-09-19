@@ -46,7 +46,7 @@ Communicate with a Behringer X-Touch Control Surface (DAW Controller)
 ### 0.2.4
 * (Bannsaenger) fixed disabling of encoder display
 
-### 0.2.4
+### 0.2.5
 * (Bannsaenger) fixed send back of button and fader values. Now only the affected device group members will be updated
 
 ## License

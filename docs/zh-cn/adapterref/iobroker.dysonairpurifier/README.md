@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: aODxVtjZBwx8/hgmICMCnMa5QyB2HfMpDk0FHv0X8WY=
+hash: AqBIb3AJ3uB6qsPdLwslM4xr/M5Ueug9yWMkNEeEX9U=
 ---
 # IoBroker.dysonAirPurifier
 ![标志](admin/dyson_logo.svg)![标志](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -39,12 +39,12 @@ hash: aODxVtjZBwx8/hgmICMCnMa5QyB2HfMpDk0FHv0X8WY=
 将您的戴森风扇、暖风机、空气净化器和空气加湿器连接到 ioBroker。
 
 * 从设备和传感器读取值
-* 可以通过让您更改某些值（主功率、振荡、加热、风扇速度等）来控制设备
+* 可以通过使您能够更改某些值（主功率、振荡、加热、风扇速度等）来控制设备
 * 从戴森服务器读取设备列表
 
 ＃＃ 安装
 ### Sentry.io
-该适配器使用 sentry.io 收集有关崩溃的详细信息并自动向作者报告。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) 插件用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 有关插件功能、收集哪些信息以及如何禁用插件的详细信息，如果您不喜欢用您的崩溃信息支持作者。
+该适配器使用 sentry.io 收集有关崩溃的详细信息并自动将其报告给作者。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) 插件用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 有关插件功能、收集哪些信息以及如何禁用插件的详细信息，如果您不喜欢用您的崩溃信息支持作者。
 
 ### 先决条件
 * 此适配器需要 Node.js >= 版本 10
@@ -58,7 +58,7 @@ hash: aODxVtjZBwx8/hgmICMCnMa5QyB2HfMpDk0FHv0X8WY=
 在您的 ioBroker 安装上运行 ```npm install iobroker.dysonairpurifier``` 以从 npm 存储库中获取此适配器的最新版本。
 
 #### 替代方案：使用 GitHub URL
-通过将 ioBroker Admin UI 指向 GitHub 上最新的稳定版本来安装：<https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
+通过 ioBroker 管理 UI 将其指向 GitHub 上的最新稳定版本进行安装：<https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
 
 您还可以使用这些方法安装旧版本（通过指向版本标记，例如，在 URL 中使用 ```v0.6.0``` 而不是 ```master```），但通常首选最新版本。
 
@@ -74,8 +74,8 @@ hash: aODxVtjZBwx8/hgmICMCnMa5QyB2HfMpDk0FHv0X8WY=
 1. 您的局域网中有一台 DNS 服务器正在运行。无论是在您的路由器中（例如 FritzBoxes 有一个 DNS 运行）还是一个专用路由器。
 2. 您没有更改默认设备名称。
 
-> 在此适配器第一次启动时，系统会为您的所有设备查询 Dyson API，并且所有支持的设备都将在设备树中创建——API 提供了它们的基本信息和一个附加字段“主机地址”。
-> > 所以请运行一次适配器，您的 Dyson 设备将在设备树中创建，并带有它们的基本设置。
+> 在此适配器的第一次启动时，会为您的所有设备查询 Dyson API，并且所有支持的设备都将在设备树中创建——API 提供了它们的基本信息和一个附加字段“主机地址”。
+> > 所以请运行一次适配器，您的戴森设备将在设备树中创建，并带有其基本设置。
 > > 然后停止适配器，在主机地址字段中输入 IP 并重新启动适配器。之后，设备树中的 Dyson 设备应填充数据。
 
 ### 2 因素身份验证（自 V0.9.0 起）
@@ -92,7 +92,7 @@ hash: aODxVtjZBwx8/hgmICMCnMa5QyB2HfMpDk0FHv0X8WY=
 * 完成设置后单击保存并关闭 - 适配器应重新启动并变为绿色。
 
 所有值都将被保存并进一步显示。
-> 通常您不需要按计划进行这 2 次 FA - 但您可以在需要时重复它。
+> 通常您不需要按计划执行这 2 次 FA - 但您可以在需要时重复执行。
 
 #### 如果您在 2-FA 期间遇到 401 问题。请尝试以下解决方法：
 1. 退出戴森智能手机应用程序
@@ -183,9 +183,9 @@ hash: aODxVtjZBwx8/hgmICMCnMa5QyB2HfMpDk0FHv0X8WY=
 |科尔夫 |未知 |开、关 |
 | fqhp |未知| |
 | CLCR | [HP0x] 未知 | CLNO |
-| psta | [HP0x] 未知 | CLNG、INV |
+| psta | [HP0x] 未知 | INIT、CLNG、INV |
 | hsta | [HP0x] 未知 | |
-| msta | [HP0x] 未知 |关闭 |
+| msta | [HP0x] 未知 |关闭，HUMD |
 |倾斜| [HP0x] 未知 | |
 |拨号 | [DP0x] 未知 | |
 

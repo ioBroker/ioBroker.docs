@@ -43,6 +43,7 @@ The models listed are those that I have in use myself or which are technically i
 * Deebot Slim 2
 * Deebot N79 series
 * Deebot M88
+* Deebot 500
 * Deebot 600/601/605
 * Deebot 710/711/711s
 * Deebot OZMO 610
@@ -110,10 +111,11 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 
 ## Changelog
 
-### 1.2.4 (alpha)
+### 1.2.4
 
-* Using library version 0.6.7
+* Using library version 0.6.8
 * Some optimizations
+* Preparations for changing the minimum required Node.js version to 12.x
 
 ### 1.2.3
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecovacs-deebot/README.md
 title: Адаптер Ecovacs Deebot для ioBroker
-hash: azBsLnSsvcZDXWFI280ugHxTVmnJWHbuT+dys+vvYek=
+hash: dHZcCD7BUFMxDv4Kwwe+MTXvtKM35yOXUqDaCbXHO9I=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -46,6 +46,7 @@ hash: azBsLnSsvcZDXWFI280ugHxTVmnJWHbuT+dys+vvYek=
 * Deebot Slim 2
 * Deebot N79 серии
 * Deebot M88
+* Deebot 500
 * Deebot 600/601/605
 * Deebot 710/711/711s
 * Deebot OZMO 610
@@ -62,7 +63,7 @@ hash: azBsLnSsvcZDXWFI280ugHxTVmnJWHbuT+dys+vvYek=
 Перечисленные модели либо уже работают, либо технически аналогичны этим моделям.
 Тем не менее, функциональность может быть частично ограничена.
 
-Я стараюсь достичь широкого диапазона функциональных возможностей, но решаю этот вопрос в индивидуальном порядке, в зависимости от сложности и различных других критериев.
+Я стараюсь достичь широкого диапазона функциональных возможностей, но решаю этот вопрос индивидуально, в зависимости от сложности и различных других критериев.
 Претензий на полную функциональность конечно же нет.
 
 ## Установка
@@ -112,10 +113,11 @@ sudo npm install canvas --unsafe-perm=true
 
 ## Changelog
 
-### 1.2.4 (alpha)
+### 1.2.4
 
-* Using library version 0.6.7
+* Using library version 0.6.8
 * Some optimizations
+* Preparations for changing the minimum required Node.js version to 12.x
 
 ### 1.2.3
 

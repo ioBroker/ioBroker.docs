@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.MieleCloudService
-hash: t28b0BGuLLobovAMatsIcE739MXbxHu8yZaI0ClJQlQ=
+hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
 ---
 ![标识](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
@@ -20,7 +20,7 @@ hash: t28b0BGuLLobovAMatsIcE739MXbxHu8yZaI0ClJQlQ=
 无论它们是通过 Wi-Fi 还是 XGW3000 网关直接连接。它实现了 **Miele 3rd Party API V1.0.5**
 
 ## Sentry.io
-该适配器使用 sentry.io 收集有关崩溃的详细信息并自动向作者报告。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) 插件用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 有关插件功能、收集哪些信息以及如何禁用插件的详细信息，如果您不喜欢用您的崩溃信息支持作者。
+该适配器使用 sentry.io 收集有关崩溃的详细信息并自动将其报告给作者。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) 插件用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 有关插件功能、收集哪些信息以及如何禁用插件的详细信息，如果您不喜欢用您的崩溃信息支持作者。
 
 ## 先决条件
 * Miele@Home 用户（智能手机应用程序）
@@ -62,7 +62,7 @@ hash: t28b0BGuLLobovAMatsIcE739MXbxHu8yZaI0ClJQlQ=
 请主要参考 Miele 发布的主要 API 文档
 
 * [一般文档](https://www.miele.com/developer/swagger-ui/index.html)
-* [在设备上执行操作的前提条件](https://www.miele.com/developer/swagger-ui/put_additional_info.html)
+* [在设备上执行操作的先决条件](https://www.miele.com/developer/swagger-ui/put_additional_info.html)
 
 有两种可用的数据点。作为人类可读的文本和数字。
 这些属于文本字段的数字数据字段具有相同的名称，但附加了“_raw”。
@@ -89,7 +89,7 @@ hash: t28b0BGuLLobovAMatsIcE739MXbxHu8yZaI0ClJQlQ=
  |19 |冰箱|
  |20 |冰柜|
  |21 |冰箱-/冰柜组合|
- |23 |吸尘器、自动机器人吸尘器|
+ |23 |吸尘器，自动机器人吸尘器|
  |24 |洗衣机烘干机|
  |25 |暖碟机|
  |27 |滚刀感应|
@@ -181,11 +181,12 @@ hash: t28b0BGuLLobovAMatsIcE739MXbxHu8yZaI0ClJQlQ=
 |267 | "Knitterschutz" / "" |洗衣机|
 |268 | "Ende" / "End" |洗衣机|
 |256 | "Vorbügeln" |洗衣机|
-|512 | "Ende" / "End" |滚筒式干衣机 |
-|514 | “Trocknen”/“干燥” |洗衣机烘干机|
+|512 | “恩德”/“完成” |滚筒式干衣机 |
+|514 | “Trocknen”/“干燥” |洗衣机烘干机、滚筒烘干机 |
 |519 | "Abkühlen" / "冷静下来" |洗衣机烘干机|
-|521 | “Trocknen”/“干燥” |滚筒式干衣机 |
-|522 | "Knitterschutz" / "" |滚筒式干衣机 |
+|521 | "Knitterschutz" / "" |滚筒式干衣机 |
+|522 | “恩德”/“完成” |滚筒式干衣机 |
+|531 | "Komfortkühlen" |滚筒式干衣机 |
 |532 | "Flusen ausspülen" |洗衣机烘干机|
 
 ##版权

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: azBsLnSsvcZDXWFI280ugHxTVmnJWHbuT+dys+vvYek=
+hash: dHZcCD7BUFMxDv4Kwwe+MTXvtKM35yOXUqDaCbXHO9I=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -25,7 +25,7 @@ Einige bemerkenswerte Merkmale sind:
 * Senden Sie saubere Befehle (z. B. Auto, Spot-Bereich, benutzerdefinierter Bereich) und verschiedene andere Befehle (z. B. Sound abspielen, Verbrauchsmaterialien zurücksetzen)
 * Speichern Sie den zuletzt ausgeführten benutzerdefinierten Bereich und führen Sie die gespeicherten Bereiche erneut aus
 * Einstellung von Saugleistung (Reinigungsgeschwindigkeit) und Wasserstand
-* Abrufen von Informationen während des Reinigungsvorgangs (z. B. aktuelle Position und Bereich)
+* Abrufen von Informationen während des Reinigungsprozesses (z. B. aktuelle Position und Bereich)
 * Abrufen von Informationen der Karten inkl. Spotbereiche und virtuelle Grenzen
 * Löschen, speichern und neu erstellen einzelner virtueller Grenzen sowie eines vollständigen Satzes virtueller Grenzen *)
 * Funktion zum Laden des aktuellen Kartenbildes *)
@@ -46,6 +46,7 @@ Die aufgeführten Modelle sind diejenigen, die ich selbst im Einsatz habe oder d
 * Deebot Slim 2
 * Deebot N79-Serie
 * Deebot M88
+* Deebot 500
 * Deebot 600/601/605
 * Deebot 710/711/711s
 * Deebot OZMO 610
@@ -112,10 +113,11 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
 
 ## Changelog
 
-### 1.2.4 (alpha)
+### 1.2.4
 
-* Using library version 0.6.7
+* Using library version 0.6.8
 * Some optimizations
+* Preparations for changing the minimum required Node.js version to 12.x
 
 ### 1.2.3
 

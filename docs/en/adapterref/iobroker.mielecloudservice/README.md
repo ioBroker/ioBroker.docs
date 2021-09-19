@@ -188,11 +188,12 @@ Here is a list of what these raw values stand for:
 |267 | "Knitterschutz" / ""      | Washing Machine |
 |268 | "Ende" / "End"            | Washing Machine |
 |256 | "Vorbügeln"               | Washing Machine |
-|512 | "Ende" / "End"            | Tumble dryers   |
-|514 | "Trocknen" / "Drying"     | Washer Dryer |
+|512 | "Ende" / "Finished"       | Tumble dryers   |
+|514 | "Trocknen" / "Drying"     | Washer Dryer, Tumble dryers |
 |519 | "Abkühlen" / "Cool down"  | Washer Dryer |
-|521 | "Trocknen" / "Drying"     | Tumble dryer |
-|522 | "Knitterschutz" / ""      | Tumble dryer |
+|521 | "Knitterschutz" / ""      | Tumble dryer |
+|522 | "Ende" / "Finished"       | Tumble dryer |
+|531 | "Komfortkühlen"           | Tumble Dryer |
 |532 | "Flusen ausspülen"        | Washer Dryer |
 
 ## Changelog

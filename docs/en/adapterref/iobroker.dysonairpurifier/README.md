@@ -370,9 +370,9 @@ Information copied and extended from <https://github.com/shadowwa/Dyson-MQTT2RRD
 | corf | unknown | ON, OFF |
 | fqhp | unknown| |
 | clcr | [HP0x] Unknown | CLNO |
-| psta | [HP0x] Unknown | CLNG, INV |
+| psta | [HP0x] Unknown | INIT, CLNG, INV |
 | hsta | [HP0x] Unknown |  |
-| msta | [HP0x] Unknown | OFF |
+| msta | [HP0x] Unknown | OFF, HUMD |
 | tilt | [HP0x] Unknown |  |
 | dial | [DP0x] Unknown |  | 
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: aODxVtjZBwx8/hgmICMCnMa5QyB2HfMpDk0FHv0X8WY=
+hash: AqBIb3AJ3uB6qsPdLwslM4xr/M5Ueug9yWMkNEeEX9U=
 ---
 # IoBroker.dysonAirPurifier
 ![Logo](admin/dyson_logo.svg)![Logo](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -154,7 +154,7 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | fdir | Fandirektion aka. Jet-Fokus/ EIN=Vorne, AUS=Zurück | EIN, AUS | |
 | ffoc | JetFocus | EIN, AUS |
 | nmod | Nachtmodus | EIN , AUS | |
-| oson | Schwingung | EIN , AUS| |
+| oson | Schwingung | EIN, AUS| |
 | osal | Oszillationswinkel untere Grenze | 0005 - 355| ° (Grad)|
 | osau | Oszillationswinkel Obere Grenze | 0005 - 355 | ° (Grad)|
 | oscs | OszillationAktiv | EIN, AUS, LEERLAUF | |
@@ -183,9 +183,9 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | Korf | unbekannt | EIN, AUS |
 | fqhp | unbekannt| |
 | clcr | [HP0x] Unbekannt | CLNO |
-| psta | [HP0x] Unbekannt | CLNG, INV |
+| psta | [HP0x] Unbekannt | INIT, CLNG, INV |
 | hsta | [HP0x] Unbekannt | |
-| msta | [HP0x] Unbekannt | AUS |
+| msta | [HP0x] Unbekannt | AUS, HUMD |
 | Neigung | [HP0x] Unbekannt | |
 | Zifferblatt | [DP0x] Unbekannt | |
 

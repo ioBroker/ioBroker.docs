@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.MieleCloudService
-hash: t28b0BGuLLobovAMatsIcE739MXbxHu8yZaI0ClJQlQ=
+hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
 ---
 ![Logo](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
@@ -181,11 +181,12 @@ Hier ist eine Liste, wofür diese Rohwerte stehen:
 |267 | "Strickschutz" / "" | Waschmaschine |
 |268 | "Ende" / "Ende" | Waschmaschine |
 |256 | "Vorbügeln" | Waschmaschine |
-|512 | "Ende" / "Ende" | Wäschetrockner |
-|514 | "Trocknen" / "Trocknen" | Waschtrockner |
+|512 | "Ende" / "Fertig" | Wäschetrockner |
+|514 | "Trocknen" / "Trocknen" | Waschtrockner, Wäschetrockner |
 |519 | "Abkühlen" / "Abkühlen" | Waschtrockner |
-|521 | "Trocknen" / "Trocknen" | Wäschetrockner |
-|522 | "Strickschutz" / "" | Wäschetrockner |
+|521 | "Strickschutz" / "" | Wäschetrockner |
+|522 | "Ende" / "Fertig" | Wäschetrockner |
+|531 | "Komfortkühlen" | Wäschetrockner |
 |532 | "Flusen ausspülen" | Waschtrockner |
 
 ## Urheberrechte ©

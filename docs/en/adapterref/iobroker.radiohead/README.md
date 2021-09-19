@@ -293,6 +293,9 @@ If necessary, the counters of the messages can be reset to 0 by writing to the o
 
 ## Changelog
 
+### 1.2.0 (2021-09-17)
+* (crycode-de) Use stringified json for data.incoming state
+
 ### 1.1.1 (2021-01-09)
 * (crycode-de) Small fixes
 * (crycode-de) Updated dependencies

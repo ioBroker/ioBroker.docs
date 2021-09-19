@@ -209,6 +209,14 @@ If you want to copy only one room, use the button in a certain room.
 The CopyPeriods are available per day or Mon-Fri per room. This copies the periods to the next section. In the above example, the CopyPeriods copies all periods from Friday in the kitchen room to the periods on Saturday in the kitchen room.
 So you can e.g. in the profile "every day separately", copy the periods from Monday to Sunday ...
 
+## maintenance mode
+
+to do
+
+## fireplace mode
+
+to do
+
 ## Issues and Feature Requests
 * If you are faced with any bugs or have feature requests for this adapter, please create an issue within the GitHub issue section of the adapter at [github](https://github.com/rg-engineering/ioBroker.heatingcontrol/issues). Any feedback is appreciated and will help to improve this adapter.
 
@@ -226,6 +234,9 @@ If thermostat use information from window sensor then "thermostat handles window
 When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry.  All of this helps me to provide error free adapters that basically never crashs.
 
 ## Changelog
+
+### 2.6.0 (2021-09-17)
+* (René) maintenance mode added
 
 ### 2.5.1 (2021-08-20)
 * (René) see issue #255: bug fix fireplace mode

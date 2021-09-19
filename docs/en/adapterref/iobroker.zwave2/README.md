@@ -40,6 +40,21 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 2.0.0-alpha.0 (2021-09-17)
+Upgraded to `zwave-js` version `8.3.2`. Notable changes include:
+* **BREAKING:** Node.js `v12.22.2` is now the minimum
+* **BREAKING:** User codes are no longer queried during the interview. They need to be queried manually on demand (not implemented yet).
+* **BREAKING:** Reworked how endpoints and lifeline associations are handled. This solves reporting issues with many devices, but after a re-interview state IDs may change and some previously working devices may no longer report correctly. Please create an issue for every device that is affected by this.
+* The device management was moved from the adapter settings to an extra `Z-Wave` tab.
+* Some config parameters now correctly offer `0/1` as options instead of `0/-1`
+* Fixed a bug where the cache file could be corrupted during a shutdown
+* Support for Security S2
+* Support for devices which use `Supervision CC` to send commands
+* Support for factory resetting the controller
+* Support for changing the region/frequency of the controller
+* Support for replacing failed nodes while keeping the ID
+* Some fixes for firmware updates
+
 ### 1.10.4 (2021-08-07)
 * Fixed a bug where the daily config update check would cause a lot of internet traffic for an hour
 
@@ -72,17 +87,6 @@ Upgraded to `zwave-js` version `7.5.1`. Notable changes include:
 * Improved stability
 * Improved healing strategy
 * Several config file changes
-
-### 1.10.0 (2021-04-29)
-* The associations tab now shows the name of devices along with their node ID
-* Associations can now also be managed on the endpoints of a node
-* Experimental support for updating the embedded configuration files from the adapter configuration
-* Support firmware updates with `*.hec` files
-* Reduced traffic after controlling devices that report automatically
-* Fixed an issue where `Basic CC` values were not stored correctly
-* Added and updated many device configuration files
-* Stability improvements
-* Dependency updates
 
 ## License
 

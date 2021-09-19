@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
 title: 适用于 ioBroker 的 Ecovacs Deebot 适配器
-hash: azBsLnSsvcZDXWFI280ugHxTVmnJWHbuT+dys+vvYek=
+hash: dHZcCD7BUFMxDv4Kwwe+MTXvtKM35yOXUqDaCbXHO9I=
 ---
 ![标识](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -46,6 +46,7 @@ hash: azBsLnSsvcZDXWFI280ugHxTVmnJWHbuT+dys+vvYek=
 * Deebot Slim 2
 * Deebot N79 系列
 * Deebot M88
+* 地宝 500
 * Deebot 600/601/605
 * Deebot 710/711/711s
 * Deebot OZMO 610
@@ -112,10 +113,11 @@ sudo npm install canvas --unsafe-perm=true
 
 ## Changelog
 
-### 1.2.4 (alpha)
+### 1.2.4
 
-* Using library version 0.6.7
+* Using library version 0.6.8
 * Some optimizations
+* Preparations for changing the minimum required Node.js version to 12.x
 
 ### 1.2.3
 

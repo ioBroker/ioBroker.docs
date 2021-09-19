@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iot/README.md
 title: ioBroker 物联网适配器
-hash: p7+y58cPamys/HPMVn50ltJt7Mtgyizqs0PzeBOubhI=
+hash: LTaVi0x0KvCzZYYoc99tWZACJeGmuMSi7a5o+cljcqQ=
 ---
-![商标](../../../en/adapterref/iobroker.iot/admin/iot.png)
+![标识](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
 ![安装数量](http://iobroker.live/badges/iot-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.iot.svg)
@@ -25,6 +25,11 @@ hash: p7+y58cPamys/HPMVn50ltJt7Mtgyizqs0PzeBOubhI=
 [参考 google API 类型设置](https://developers.google.com/actions/smarthome/guides/)
 
 ![介绍](../../../en/adapterref/iobroker.iot/img/intro.png)
+
+### 限制
+一切都有限制，亚马逊 Alexa 也是如此。 Alexa 最多只能支持 300 台设备。
+
+应清除 Google Cloud 和 Alisa
 
 ＃＃＃ 语
 如果您选择“默认”语言，则不会翻译设备和枚举的智能名称。如果指定了某种语言，则所有已知名称都将被翻译成该语言。
@@ -91,7 +96,7 @@ Alexa, lock the "lock name"
 ## 如何生成名称
 适配器尝试生成用于智能家居控制的虚拟设备（例如 Amazon Alexa 或 Google Home）。
 
-这是两个重要的枚举：房间和功能。
+有两个重要的枚举：房间和功能。
 
 房间如：客厅、浴室、卧室。
 功能有：光、盲、加热。
@@ -103,9 +108,9 @@ Alexa, lock the "lock name"
 
 可能是通道在“功能”中，但状态本身不在。
 
-- 状态必须是可写的：common.write = true
-- 状态调光器必须将 common.type 设为“数字”
-- 状态加热必须将 common.unit 设为“°C”、“°F”或“°K”，common.type 设为“number”
+- 状态必须是可写的：`common.write` = true
+- 状态调光器必须将 `common.type` 作为 'number'
+- 州供暖必须将“common.unit”设为“°C”、“°F”或“°K”，将“common.type”设为“数字”
 
 如果状态仅在“功能”中而不在任何“房间”中，则将使用状态名称。
 
@@ -126,8 +131,8 @@ Alexa, lock the "lock name"
 要创建自己的组，用户可以安装“场景”适配器或在 Javascript 适配器中创建“脚本”。
 
 ### 替换
-您可以指定可以在设备名称中自动替换的字符串。例如如果您将替换设置为：`.STATE,.LEVEL`，那么所有“.STATE”和“.LEVEL”都将从名称中删除。小心空格。
-如果您将设置 `.STATE, .LEVEL`，那么“.STATE”和“.LEVEL”将被替换，而不是“.LEVEL”。
+您可以指定可以在设备名称中自动替换的字符串。例如。如果您将替换设置为：`.STATE,.LEVEL`，那么所有“.STATE”和“.LEVEL”都将从名称中删除。小心空格。
+如果您设置 `.STATE, .LEVEL`，那么“.STATE”和“.LEVEL”将被替换，而不是“.LEVEL”。
 
 ## 辅助状态
 - **smart.lastObjectID**：如果只有一台设备被家庭技能（alexa，google home）控制，则将设置此状态。
@@ -138,6 +143,12 @@ Alexa, lock the "lock name"
 
 ## IFTTT
 [指示](doc/ifttt.md)
+
+## 谷歌主页
+如果您在日志中看到以下错误消息：`[GHOME] Invalid URL Pro key. Status auto-update is disabled you can set states but receive states only manually`。
+所以你必须重新生成 URL-Key：
+
+![网址键](../../../en/adapterref/iobroker.iot/img/url_key.png)
 
 ＃＃ 服务
 有可能将消息发送到云适配器。
@@ -190,7 +201,7 @@ Alexa, lock the "lock name"
   * **intent** 包含查询的类型。当前可能的值是“askDevice”、“controlDevice”、“actionStart”、“actionEnd”、“askWhen”、“askWhere”、“askWho”
   * **deviceId** 包含一个 deviceId，用于标识请求发送到的设备，由亚马逊交付，如果未提供，将为空字符串
   * **sessionId** 包含技能会话的 sessionId，如果多个命令被说出来应该是相同的，由亚马逊交付，如果不提供则为空字符串
-  * **userId** 包含来自设备所有者（或者以后可能与该技能交互的用户）的 userId，由 Amazon 提供，如果未提供，将为空字符串
+  * **userId** 包含来自设备所有者（或者以后可能与该技能交互的用户）的用户 ID，由亚马逊提供，如果未提供，将为空字符串
 
  有关如何检测单词以及 Alexa 自定义技能区分的查询类型的更多详细信息，请查看 https://forum.iobroker.net/viewtopic.php?f=37&t=17452 。
 
@@ -257,7 +268,7 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 - `alexa` - 与 Amazon Alexa 或 Amazon Custom Skill 合作
 - `ghome` - 通过 Google Home 使用 Google Actions
 - `alisa` - 与 Yandex Алиса 合作
-- `ifttt` - 像 IFTTT 一样（实际上不是必需的，但用于测试目的）
+- `ifttt` - 像 IFTTT（实际上不是必需的，但用于测试目的）
 
 ## Yandex Алиса
 [指示](doc/alisa.md)
@@ -267,6 +278,9 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 ### __工作进行中__ -->
 
 ## Changelog
+### 1.8.23 (2021-09-18)
+* (bluefox) Fixed the response for the heating control
+
 ### 1.8.22 (2021-05-16)
 * (bluefox) Make it admin4 compatible
 
@@ -332,9 +346,6 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 
 ### 1.7.14 (2020-11-05)
 * (bluefox) Updated the select ID dialog.
-
-#### 1.7.13 (2020-10-30)
-* (foxriver76) add eraseOnUpload flag for js-controller 3.2+
 
 ### 1.7.12 (2020-09-25)
 * (bluefox) Updated the select ID dialog.

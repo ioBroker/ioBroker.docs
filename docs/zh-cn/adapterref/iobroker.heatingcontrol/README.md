@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.heatingcontrol/README.md
 title: ioBroker.HeatingControl
-hash: jObtYWc+aN5UAyxn3JtmTYgHHsyMn8LSHLVvBKNe08c=
+hash: wvj2OtAalvk/SnA4SDSHSbePIZGaafFpeR3Y6Ic0lIg=
 ---
 ![标识](../../../en/adapterref/iobroker.heatingcontrol/admin/heatingcontrol.png)
 
@@ -29,7 +29,7 @@ hash: jObtYWc+aN5UAyxn3JtmTYgHHsyMn8LSHLVvBKNe08c=
 特征：
 
 *根据时间表控制所有恒温器的设定点温度水平
-* 为每天和晚上配置多个加热时段
+* 为每个昼夜配置多个加热时段
 * 支持各种恒温器（前提：必须在ioBroker中可用）
 * Homematic设备自动检测
 * 支持多个配置文件
@@ -39,9 +39,9 @@ hash: jObtYWc+aN5UAyxn3JtmTYgHHsyMn8LSHLVvBKNe08c=
 * 每个房间都会自动检测恒温器、执行器和传感器。为此使用功能（例如“加热”）。
 * 如果房间包含恒温器但不应控制，则可以在管理界面中排除房间
 * 传感器用于降低目标温度（例如，如果窗户打开）；可选择使用 SensorDelay
-* 与 Feiertag-Adapter 或任何其他检测公共假期的接口。公共假期可以是正常的一天，也可以是周日。 （管理员设置）
+* 接口到 Feiertag-Adapter 或任何其他检测公共假期的接口。公共假期可以是正常的一天，也可以是周日。 （管理员设置）
 * 手动温度覆盖一定时间
-* 预定义的加热时间
+* 预定义加热时间
 * 接管恒温器的变化（可选）
 * 支持来自 [Pittini](https://github.com/Pittini/iobroker-heatingcontrol-vis) 的可视化。谢谢！
 
@@ -117,7 +117,7 @@ hash: jObtYWc+aN5UAyxn3JtmTYgHHsyMn8LSHLVvBKNe08c=
 
 使用此选项，您可以在供暖期未激活时为每个房间使用一个目标温度
 
-* 没有什么
+* 没有
 
 如果没有加热周期处于活动状态，则使用此选项将不会向恒温器发送任何内容。当加热期仍处于活动状态时，目标温度与上一个目标保持一致。
 在这种情况下，如果您使用适配器中的执行器，那么您可以定义执行器的设置方式（关闭、打开或保持原样）
@@ -125,12 +125,12 @@ hash: jObtYWc+aN5UAyxn3JtmTYgHHsyMn8LSHLVvBKNe08c=
 ＃＃ 其他
 * HolidayPresent / PublicHolidyToday
 
-如果您在 admin 中启用“像星期天一样的假日礼物”或“像星期日一样的公共假期”，则当适配器被告知今天是公共假期或您在家度假时，将使用星期日的配置文件。
+如果您在管理中启用“像星期天一样的假日礼物”或“像星期日一样的公共假期”，则当适配器被告知今天是公共假期或您在家度假时，将使用星期日的配置文件。
 
 ###窗口打开
 如果“使用传感器”处于活动状态并且已配置房间的传感器，则
 
-* 如果配置了相对降低，则通过 Profiles.0.room.WindowOpenDecrease 在窗口打开时降低当前配置文件温度（true）
+* 如果配置了相对降低，则通过 Profiles.0.room.WindowOpenDecrease 在窗口打开时降低当前配置文件温度 (true)
 * 将目标设置为 Profiles.0.room.absolute.WindowOpenDecrease 当窗口打开时 (true) 如果配置了绝对减少
 
 可以选择使用延迟。如果窗口只打开很短的时间，传感器延迟可以避免在很短的时间内减少并恢复正常。
@@ -139,7 +139,7 @@ hash: jObtYWc+aN5UAyxn3JtmTYgHHsyMn8LSHLVvBKNe08c=
 您可以使用日历或任何其他数据点来更改适配器中的数据点。
 只需在 admin 中配置来自 ical 或其他数据点的事件。支持的是
 
-|数据点 |描述|--------------------------------------|---------- -------------------------------------------------- ---------------- |heatingcontrol.0.Present |将其设置为 true（在布尔值的情况下）或高于限制的数字（在数字的情况下）|heatingcontrol.0.HolidayPresent |当您假期在家时将其设置为 true |heatingcontrol.0.VacationAbsent |当您假期不在家时将其设置为 true |heatingcontrol.0.GuestsPresent |将其设置为 true（在布尔值的情况下）或高于限制的数字（在数字的情况下）|heatingcontrol.0.PartyNow |将其设置为 true（在布尔值的情况下）或高于限制的数字（在数字的情况下）
+|数据点 |说明|-------------------------------------|---------- -------------------------------------------------- ---------------- |heatingcontrol.0.Present |将其设置为 true（在布尔值的情况下）或高于限制的数字（在数字的情况下）|heatingcontrol.0.HolidayPresent |假期在家时将其设置为 true |heatingcontrol.0.VacationAbsent |当您假期不在家时将其设置为 true |heatingcontrol.0.GuestsPresent |将其设置为 true（在布尔值的情况下）或高于限制的数字（在数字的情况下）|heatingcontrol.0.PartyNow |将其设置为 true（在布尔值的情况下）或高于限制的数字（在数字的情况下）
 
 提示：使用数字数据点，您可以计算房子里有多少人，然后决定，例如我们有足够的派对...
 
@@ -167,7 +167,7 @@ hash: jObtYWc+aN5UAyxn3JtmTYgHHsyMn8LSHLVvBKNe08c=
 一些恒温器可以自行处理“窗口打开”。在这些情况下，配置了窗户传感器和恒温器之间的直接连接，当窗户打开时，恒温器会自行降低目标温度。
 结合选项“使用恒温器的变化”/“直到下一个配置文件点”将导致意外的手动状态。在这种情况下，将使用降低的温度直到下一个轮廓点。
 但是适配器可以处理这种行为。您必须启用选项“Thermostat handles 'Window is Open'”，您也可以在适配器中配置窗口传感器。
-当窗口打开时，适配器等待最大值。来自恒温器的新目标温度需要 3 秒。如果它在那段时间内收到一个新的目标温度，它将被用作降低的绝对温度。状态将是“自动窗口打开”。窗口一关闭，状态就会恢复为自动，恒温器会设置回原始目标温度 **注意** 在这种情况下不要使用传感器打开延迟。如果使用它，则在从恒温器接收到目标温度后会出现 Window open 事件。这最终处于手动状态。
+当窗口打开时，适配器等待最大值。来自恒温器的新目标温度需要 3 秒。如果它在那段时间内收到一个新的目标温度，它将被用作降低的绝对温度。然后状态将是“自动窗口打开”。窗口一关闭，状态就会恢复为自动，恒温器会设置回原始目标温度 **注意** 在这种情况下不要使用传感器打开延迟。如果使用它，则在从恒温器接收到目标温度后会出现 Window open 事件。这最终处于手动状态。
 
 ##复制期间和复制配置文件
 ``加热控制.0.Profiles.1.CopyProfile加热控制.0.Profiles.1.Room.CopyProfile ``
@@ -182,6 +182,12 @@ CopyProfile 将按下按钮的配置文件的全部内容复制到下一个配�
 每个房间每天或周一至周五均可使用 CopyPeriods。这会将句点复制到下一部分。在上面的示例中， CopyPeriods 复制从厨房房间的星期五到星期六的厨房房间的所有时间段。
 所以你可以例如在“每天分开”的配置文件中，复制周一到周日的时间段......
 
+＃＃ 维护模式
+去做
+
+##壁炉模式
+去做
+
 ## 问题和功能请求
 * 如果您遇到任何错误或对此适配器有功能请求，请在 [github](https://github.com/rg-engineering/ioBroker.heatingcontrol/issues) 适配器的 GitHub 问题部分中创建问题）。感谢任何反馈，并将有助于改进此适配器。
 
@@ -195,12 +201,17 @@ HM 恒温器具有两种型号的开窗功能。一方面作为温降检测，�
 当窗口打开时，此功能使适配器切换到手动模式。理想情况下，应停用此功能，以免干扰适配器的功能。
 如果恒温器使用来自窗户传感器的信息，则应启用“恒温器处理窗户打开”选项。
 
-当适配器崩溃或发生其他代码错误时，此错误消息也会出现在 ioBroker 日志中，并提交给 Sentry。所有这些都帮助我提供了基本上从不崩溃的无错误适配器。
+当适配器崩溃或发生其他代码错误时，此错误消息也会出现在 ioBroker 日志中，并提交给 Sentry。所有这些都帮助我提供基本上从不崩溃的无错误适配器。
 
 ## Changelog
 
+### 2.6.0 (2021-09-17)
+* (René) maintenance mode added
 
-### 2.5.0 (2021-08-xx)
+### 2.5.1 (2021-08-20)
+* (René) see issue #255: bug fix fireplace mode
+
+### 2.5.0 (2021-08-20)
 * (René) fireplace mode added
 * (René) see issue #247: disable temp offset calculation when heating is off
 * (René) see issue #223: bug fix to find correct period

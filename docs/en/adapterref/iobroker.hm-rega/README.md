@@ -113,6 +113,9 @@ Finally, the variables created in the CCU are listed
 	### __WORK IN PROGRESS__
 -->
 
+### __WORK IN PROGRESS__
+* (foxriver76) Duty Cycle of LAN gateways can be -1 if they are disconnected (fixes #196)
+
 ### 3.0.31 (2021-08-12)
 * (foxriver76) we fixed some sentry issues (closes #182, closes #183)
 
