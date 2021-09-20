@@ -1133,5 +1133,38 @@
         "conditions": {
             "js-controller": "smaller(5.1.0)"
         }
+    },
+    {
+        "title": {
+            "en": "Attention: VW-connect Adapter needs urgent update",
+            "de": "Achtung: VW-connect Adapter benötigt dringend Update",
+            "ru": "Внимание: адаптер VW-connect нуждается в срочном обновлении.",
+            "pt": "Atenção: o adaptador VW-connect precisa de atualização urgente",
+            "nl": "Let op: VW-connect Adapter heeft een dringende update nodig",
+            "fr": "Attention : l'adaptateur VW-connect a besoin d'une mise à jour urgente",
+            "it": "Attenzione: l'adattatore VW-connect necessita di un aggiornamento urgente",
+            "es": "Atención: el adaptador VW-connect necesita una actualización urgente",
+            "pl": "Uwaga: adapter VW-connect wymaga pilnej aktualizacji!",
+            "zh-cn": "注意：VW-connect Adapter 需要紧急更新"
+          },
+        "content":{
+            "en": "Because of a problem in the VW login process the Adapter needs an update",
+            "de": "Aufgrund eines Problems im VW-Login-Prozess benötigt der Adapter ein Update",
+            "ru": "Из-за проблемы в процессе входа в систему VW адаптеру требуется обновление.",
+            "pt": "Devido a um problema no processo de login do VW, o adaptador precisa de uma atualização",
+            "nl": "Vanwege een probleem in het VW-inlogproces heeft de adapter een update nodig",
+            "fr": "En raison d'un problème dans le processus de connexion VW, l'adaptateur a besoin d'une mise à jour",
+            "it": "A causa di un problema nel processo di login VW, l'adattatore necessita di un aggiornamento",
+            "es": "Debido a un problema en el proceso de inicio de sesión de VW, el adaptador necesita una actualización",
+            "pl": "Z powodu problemu w procesie logowania VW Adapter wymaga aktualizacji",
+            "zh-cn": "由于大众登录过程中的问题，适配器需要更新"
+          },
+        "id": "vw-connect",
+        "created": "2021-09-20T14:00:00.000Z",
+        "class": "danger",
+        "fa-icon": "bolt",
+        "conditions": {
+            "vw-connect": "smaller(0.0.43)"
+        }
     }
 ]
