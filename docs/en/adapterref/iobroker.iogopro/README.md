@@ -69,6 +69,13 @@ sendTo('iogo', {
 	### **WORK IN PROGRESS**
 -->
 
+### 0.2.1 (2021-09-21)
+* (nis) bugfix blocked enums
+
+### 0.2.0 (2021-09-21)
+* (nis) sync states only when value has changed
+* (nis) added list of blocked enums to instance config
+
 ### 0.1.0 (2021-09-12)
 * (nis) migrate current state from ioBroker.iogo
 

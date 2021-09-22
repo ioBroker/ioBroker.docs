@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: AqBIb3AJ3uB6qsPdLwslM4xr/M5Ueug9yWMkNEeEX9U=
+hash: v76hNIn2LoBAOZQTgoW6seUHfpVmjyYZsND7B3ynfVo=
 ---
 # IoBroker.dysonAirPurifier
 ![标志](admin/dyson_logo.svg)![标志](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -13,10 +13,11 @@ hash: AqBIb3AJ3uB6qsPdLwslM4xr/M5Ueug9yWMkNEeEX9U=
 ![安装数量（稳定）](http://iobroker.live/badges/dysonairpurifier-stable.svg)
 ![依赖状态](https://img.shields.io/david/Grizzelbee/iobroker.dysonairpurifier.svg)
 ![已知漏洞](https://snyk.io/test/github/Grizzelbee/ioBroker.dysonairpurifier/badge.svg)
-![特拉维斯CI](https://travis-ci.org/Grizzelbee/iobroker.dysonairpurifier.svg?branch=master)
 ![新产品管理](https://nodei.co/npm/iobroker.dysonAirPurifier.svg?downloads=true)
 ![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![下载](https://img.shields.io/npm/dm/iobroker.dysonairpurifier.svg)
+
+[![测试和发布](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml)
 
 ## IoBroker 适配器，适用于戴森空气净化器和风扇
 该适配器将 ioBroker 连接到各种戴森空气净化器。
@@ -44,23 +45,23 @@ hash: AqBIb3AJ3uB6qsPdLwslM4xr/M5Ueug9yWMkNEeEX9U=
 
 ＃＃ 安装
 ### Sentry.io
-该适配器使用 sentry.io 收集有关崩溃的详细信息并自动将其报告给作者。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) 插件用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 有关插件功能、收集哪些信息以及如何禁用插件的详细信息，如果您不喜欢用您的崩溃信息支持作者。
+该适配器使用 sentry.io 收集有关崩溃的详细信息并将其自动报告给作者。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) 插件用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 以获取有关插件功能、收集哪些信息以及如何禁用插件的详细信息，如果您不喜欢使用有关崩溃的信息来支持作者。
 
 ### 先决条件
 * 此适配器需要 Node.js >= 版本 10
 * 至少需要 js-Controller 3.0.0
 * 至少需要 Admin 4.0.9
 * 要运行此适配器，您需要一个戴森帐户。
-* 确保将您的粉丝添加到您的帐户中。通过应用程序或在线。
+* 确保将您的粉丝添加到您的帐户。通过应用程序或在线。
 
 ### 适配器安装
 #### 使用 npm
-在您的 ioBroker 安装上运行 ```npm install iobroker.dysonairpurifier``` 以从 npm 存储库中获取此适配器的最新版本。
+在 ioBroker 安装上运行 ```npm install iobroker.dysonairpurifier``` 以从 npm 存储库中获取此适配器的最新版本。
 
 #### 替代方案：使用 GitHub URL
-通过 ioBroker 管理 UI 将其指向 GitHub 上的最新稳定版本进行安装：<https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
+通过 ioBroker Admin UI 安装，将其指向 GitHub 上的最新稳定版本：<https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
 
-您还可以使用这些方法安装旧版本（通过指向版本标记，例如，在 URL 中使用 ```v0.6.0``` 而不是 ```master```），但通常首选最新版本。
+您还可以使用这些方法安装旧版本（通过指向版本标签，例如，在 URL 中使用 ```v0.6.0``` 而不是 ```master```），但通常首选最新版本。
 
 ###需要配置数据
 * 戴森账户用户名
@@ -71,16 +72,16 @@ hash: AqBIb3AJ3uB6qsPdLwslM4xr/M5Ueug9yWMkNEeEX9U=
 
 *附加说明*：自版本 0.7.1 起，当未提供主机地址/IP 时，适配器会尝试通过其主机名（序列号）连接到设备。这将在两个先决条件下工作：
 
-1. 您的局域网中有一台 DNS 服务器正在运行。无论是在您的路由器中（例如 FritzBoxes 有一个 DNS 运行）还是一个专用路由器。
+1. 您的局域网中有一台 DNS 服务器正在运行。在您的路由器中（例如，FritzBoxes 运行 DNS）或专用路由器。
 2. 您没有更改默认设备名称。
 
-> 在此适配器的第一次启动时，会为您的所有设备查询 Dyson API，并且所有支持的设备都将在设备树中创建——API 提供了它们的基本信息和一个附加字段“主机地址”。
-> > 所以请运行一次适配器，您的戴森设备将在设备树中创建，并带有其基本设置。
+> 在此适配器的第一次启动时，系统会为您的所有设备查询 Dyson API，并且所有支持的设备都将在设备树中创建——API 提供了它们的基本信息和一个附加字段“主机地址”。
+> > 所以请运行一次适配器，您的 Dyson 设备将在设备树中创建，并带有它们的基本设置。
 > > 然后停止适配器，在主机地址字段中输入 IP 并重新启动适配器。之后，设备树中的 Dyson 设备应填充数据。
 
 ### 2 因素身份验证（自 V0.9.0 起）
 安装适配器后，它应该会自动启动 - 如果没有，请先启动它。
-更新后它也会自动重启。在这两种情况下，它都将保持“黄色”状态，并且可能会在日志中显示一些错误 - 现在很好。
+更新后它也会自动重启。在这两种情况下，它都会保持“黄色”状态，并且可能会在日志中显示一些错误 - 现在很好。
 
 * 打开适配器的配置对话框
 * 至少填写您的电子邮件地址、密码和国家代码 - 其余可选
@@ -100,7 +101,7 @@ hash: AqBIb3AJ3uB6qsPdLwslM4xr/M5Ueug9yWMkNEeEX9U=
 3. 将您的登录数据输入到适配器（如果尚未完成）并按照 2FA 程序进行到底。
 4. 适配器应启动并变为绿色。
 5. 等待一段时间（最多一个小时或更长时间，因为戴森在短时间内阻止了太多请求）
-6. 如果您喜欢使用戴森智能手机应用程序，请重新登录。
+6. 如果您想使用它，请重新登录戴森智能手机应用程序。
 
 ## 控制您的设备
 此适配器目前能够控制您设备的以下状态：
@@ -151,10 +152,10 @@ hash: AqBIb3AJ3uB6qsPdLwslM4xr/M5Ueug9yWMkNEeEX9U=
 | fpwr |主电源 |开、关 | |
 |第一 |粉丝状态 |开、关、风扇 | |
 | fnsp |风扇转速 | 0001 - 0010, 自动 | |
-|目录 | Fandirection 又名。喷射焦点/ ON=前，OFF=后 |开、关 | |
+|目录 | Fandirection 又名。喷射焦点/ ON=正面，OFF=背面|开、关 | |
 |福克| JetFocus |开、关 |
 | nmod |夜间模式 |开、关 | |
-|奥森|振荡|开、关| |
+|奥森|振荡|开，关| |
 |欧萨尔 |振荡角下边界 | 0005 - 355| °（度）|
 |奥绍|振荡角上边界 | 0005 - 355 | °（度）|
 |操作系统 |振荡活动 |开、关、空闲 | |
@@ -165,7 +166,7 @@ hash: AqBIb3AJ3uB6qsPdLwslM4xr/M5Ueug9yWMkNEeEX9U=
 |微电影|夜间模式最大风扇速度？ | 0004 | |
 | cflr |状态碳过滤器 | 0000 - 0100 |百分比 |
 | cflt |碳过滤器 |卡夫，无 | |
-| hflr |状态 HEPA 过滤器 | 0000 - 0100 |百分比 |
+| |状态 HEPA 过滤器 | 0000 - 0100 |百分比 |
 |高频| HEPA-过滤器| GHEP, GCOM | |
 | sltm |睡眠定时器 |开，关 ||
 | hmod |加热器模式 [ON/OFF] |热 | |
@@ -206,14 +207,14 @@ hash: AqBIb3AJ3uB6qsPdLwslM4xr/M5Ueug9yWMkNEeEX9U=
 ＃＃＃＃ 数据
 |姓名 |意思 |可能的值|单位 |
 | ------------- | ----- | ----- | ----- |
-|黑客 |湿度 (%) | 0000 - 0100 |百分比 |
+|黑客|湿度 (%) | 0000 - 0100 |百分比 |
 |契约|灰尘 | 0000 - 0009 | |
 | sltm |睡眠定时器 |关闭... 9999 |分钟 |
 |机智|开尔文温度 | 0000 - 5000 | K|
 |真空|挥发性有机化合物| 0001 - 0009 | |
 |呼|甲醛||
 |下午25 | PM2.5 |0018||
-|下午10 | PM10 |0011||
+|下午10点| PM10 |0011||
 | va10 |挥发性有机化合物|0004||
 | noxl | NO2 |0000 - 0014||
 | p25r | |0019||
@@ -231,9 +232,9 @@ hash: AqBIb3AJ3uB6qsPdLwslM4xr/M5Ueug9yWMkNEeEX9U=
 |卷 |似乎是 volX 的中值 | | |
 | aql0 - aql9 |在这种空气质量水平下的第二次花费数量| max (pal, vol)) 从小时开始 | 0000 - 3600 | |
 | aqlm |似乎是 aqlX 的中值 | | |
-| faf |似乎是在特定时间内花费的秒数 | 0000 - 3600 | |
+| fafs |似乎是在特定时间内花费的秒数 | 0000 - 3600 | |
 |粮农组织 |似乎是在特定时间内花费的秒数 | 0000 - 3600 | |
-|福斯|似乎是在特定时间内花费的秒数 | 0000 - 3600 | |
+| fofs |似乎是在特定时间内花费的秒数 | 0000 - 3600 | |
 |冯|似乎是在特定时间内花费的秒数 | 0000 - 3600 | |
 |哼|湿度 ？ (%) | 0000 - 0100 | |
 | tmp |开尔文温度 ? | 0000 - 5000 | |

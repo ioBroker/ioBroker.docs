@@ -71,7 +71,7 @@ Eine Suchfunktion ist im Tab Einstellungen integriert.
 
 | Einstellung                     | Beschreibung
 |---------------------------------|---
-| Anbieter                        |  Auswahl des zu verwendenden Anbieters, aktuell DB, ÖBB und SBB
+| Anbieter                        |  Auswahl des zu verwendenden Anbieters, aktuell DB und ÖBB
 | Aktualisierungsintervall        |  Intervall in dem die Route aktualisiert werden, Angabe in Minuten
 | Verspätet markieren ab          |  Verspätung in Minuten ab der die Verbindung als verspätet markiert wird. Standardmäßig werden nur Verspätungen ab zwei Minuten markiert
 | Farbe für Pünktlich             |  Farbwert für bestätigte Pünktlichkeit
@@ -152,7 +152,7 @@ Search function for theses IDs is integrated in Tab Settings.
 
 | Setting                     | Description
 |-----------------------------|---
-| Provider                    |  Selection of public transport provider, currently DB, ÖBB and SBB
+| Provider                    |  Selection of public transport provider, currently DB and ÖBB
 | Update interval             |  Interval for updates of the routes in minutes
 | Mark delayed after Delay in |  Define minutes after a delay should be marked as delay, per default a delay is marked when the delay is larger than one minute
 | Color for on time           |  Color for confirmed on time
@@ -225,8 +225,12 @@ With +-Button new entries can be added to the table.
 	### __WORK IN PROGRESS__
 -->
 
-### __WORK IN PROGRESS__
+### 1.2.0 (2021-09-19)
+* (Gaudes) Remove support for SBB, not using HAFAS anymore
 * (Gaudes) Fix Hafas error "Bad Gateway" with code 502 (Sentry #26)
+* (Gaudes) Fix unkown station in route (Sentry #7)
+* (Gaudes) Remove support for Node 10
+* (Gaudes) Update to newest Adapter creator for internal dependencies
 * (Gaudes) Include Dependabot updates
 
 ### 1.1.1 (2021-06-22)
@@ -247,10 +251,6 @@ With +-Button new entries can be added to the table.
 ### 1.0.6 (2021-03-16)
 * (Gaudes) Fix route selection in delay config
 * (Gaudes) Fix SBB product suburban-train (Sentry #21)
-* (Gaudes) Include Dependabot updates
-
-### 1.0.5 (2021-02-22)
-* (Gaudes) Quality fixing (lgtm.com)
 * (Gaudes) Include Dependabot updates
 
 ## License

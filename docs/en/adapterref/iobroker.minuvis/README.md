@@ -66,6 +66,8 @@ For more information visit https://minukodu.de/en or watch at youtube https://yo
 
 
 ## Changelog
+### 2.2.0 (2021-09-19)
+* updated app and builder to V2.2.0
 
 ### 2.1.0 (2021-07-31)
 * updated app and builder to V2.1.0
