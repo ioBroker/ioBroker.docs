@@ -3,21 +3,21 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.netatmo-crawler/README.md
 title: ioBroker.netatmo-crawler
-hash: pPbXHYl8EtQujC5VkbkrJRJ+fqthxmTa9bXWSMkRbdk=
+hash: oB8p/jhz6Le9bthZbypmyxDLjomElX9IjZQRjTISB0g=
 ---
 ![Logo](../../../en/adapterref/iobroker.netatmo-crawler/img/netatmo-logo.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.netatmo-crawler.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.netatmo-crawler.svg)
-![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/netatmo-crawler-installed.svg)
+![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/netatmo-crawler-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/netatmo-crawler-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/Bart1909/iobroker.netatmo-crawler.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/Bart1909/ioBroker.netatmo-crawler/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/Bart1909/ioBroker.netatmo-crawler/badge.svg)
 ![Build-Status](https://travis-ci.org/Bart1909/ioBroker.netatmo-crawler.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.netatmo-crawler.png?downloads=true)
 
-# IoBroker.netatmo-crawler
-Netatmo-Crawler-Adapter für ioBroker
+# IoBroker.netatmo-Crawler
+netatmo-Crawler-Adapter für ioBroker
 
 =================
 
@@ -27,26 +27,26 @@ Inhaltsverzeichnis
 
 =================
 
-* [Anweisung] (# Anweisung)
-* [Allgemeine Informationen] (# Allgemeine Informationen)
-* [Luftfeuchtigkeit] (# Luftfeuchtigkeit)
+* [Anleitung](#Anleitung)
+* [Allgemeine Informationen](#allgemeine-Informationen)
+* [Luftfeuchtigkeit](#Luftfeuchtigkeit)
 * [Regen regen)
-* [Druck] (# Druck)
-* [Temperatur] (# Temperatur)
-* [Wind] (# Wind)
-* [Information] (# Information)
-* [Credits] (# Credits)
-* [Changelog] (# changelog)
-* [Lizenz] (# Lizenz)
+* [Druck](#Druck)
+* [Temperatur](#temperatur)
+* [Wind](#Wind)
+* [Informationen](#Informationen)
+* [Credits](#Credits)
+* [Änderungsprotokoll](#Änderungsprotokoll)
+* [Lizenz](#Lizenz)
 
 Anweisung
 
 ===========
 
-Gehen Sie folgendermaßen vor, um die URL Ihrer bevorzugten Wetterstation zu ermitteln:
+Gehen Sie folgendermaßen vor, um die URL Ihrer bevorzugten Wetterstation zu finden:
 
-1. Öffnen Sie die [Netatmo Weathermap] (https://weathermap.netatmo.com)
-2. Suchen Sie Ihre Station und klicken Sie auf das Freigabesymbol
+1. Öffnen Sie die [Netatmo Wetterkarte](https://weathermap.netatmo.com)
+2. Suchen Sie Ihre Station und klicken Sie auf das Teilen-Symbol
 
    ![Bild teilen](../../../en/adapterref/iobroker.netatmo-crawler/img/share.jpg)
 
@@ -56,27 +56,27 @@ Gehen Sie folgendermaßen vor, um die URL Ihrer bevorzugten Wetterstation zu erm
 
 4. Fügen Sie den Link in die Instanzeinstellungen des Adapters ein
 
-   ![Einfügen](../../../en/adapterref/iobroker.netatmo-crawler/img/insert.jpg)
+   ![Einfügung](../../../en/adapterref/iobroker.netatmo-crawler/img/insert.png)
 
 Allgemeine Information
 
 ===================
 
-Der „Netatmo Crawler“ analysiert viele echte lokale Informationen in Ihrer Nähe. Was machen Sie mit all diesen Informationen? Hier einige allgemeine Fakten und Beispiele:
+Der „Netatmo Crawler“ analysiert viele echte lokale Informationen in Ihrer Nähe. Was machst du mit all diesen Informationen? Hier einige allgemeine Fakten und Beispiele:
 
-Luftfeuchtigkeit -------- Netatmo verwendet die relative Luftfeuchtigkeit. Dies ist das Verhältnis der aktuellen absoluten Luftfeuchtigkeit zur höchstmöglichen absoluten Luftfeuchtigkeit (abhängig von der aktuellen Lufttemperatur). Ein Wert von 100 Prozent relativer Luftfeuchtigkeit bedeutet, dass die Luft vollständig mit Wasserdampf gesättigt ist und nicht mehr halten kann, wodurch die Möglichkeit von Regen entsteht. Dies bedeutet nicht, dass die relative Luftfeuchtigkeit 100 Prozent betragen muss, damit es regnen kann - es muss 100 Prozent sein, wo sich die Wolken bilden, aber die relative Luftfeuchtigkeit in Bodennähe könnte viel geringer sein.
+Luftfeuchtigkeit -------- Netatmo verwendet die relative Luftfeuchtigkeit, dies ist das Verhältnis der aktuellen absoluten Luftfeuchtigkeit zur höchstmöglichen absoluten Luftfeuchtigkeit (die von der aktuellen Lufttemperatur abhängt). Ein Messwert von 100 Prozent relativer Luftfeuchtigkeit bedeutet, dass die Luft vollständig mit Wasserdampf gesättigt ist und nicht mehr aufnehmen kann, sodass Regen möglich ist. Dies bedeutet nicht, dass die relative Luftfeuchtigkeit 100 Prozent betragen muss, damit es regnen kann – sie muss 100 Prozent betragen, wo sich die Wolken bilden, aber die relative Luftfeuchtigkeit in Bodennähe könnte viel geringer sein.
 
-Regen ---- Verwendet die Millimetereinheit. Wenn Sie die Einheit Liter pro Meter Würfel wünschen, können Sie diese trotzdem verwenden. Sie können es zum Beispiel zum Gießen im Garten verwenden.
+Regen ---- Verwendet die Einheit Millimeter. Wenn Sie die Einheit Liter pro Meter Würfel wünschen, können Sie diese trotzdem verwenden. Sie können es beispielsweise zum Gießen im Garten verwenden.
 
 Druck -------- Die Luft um dich herum hat Gewicht und drückt gegen alles, was sie berührt. Dieser Druck wird Atmosphärendruck oder Luftdruck genannt.
-Was sollen Sie mit diesem Wert machen? So einfach es klingt: Wettervorhersage! Hoher Druck = gutes Wetter, niedriger Druck = schlechtes Wetter.
-Der normale Mittelwert liegt bei 1013 mBar.
-Für eine „echte“ Wettervorhersage sollten Sie einige Stunden lang einen Druckverlauf benötigen (ich verwende vier Stunden).
-Wenn es fällt, sollte es in Zukunft schlechtes Wetter sein, wenn es steigt, sollte es gutes Wetter sein.
-Ich habe ein [Skript zur Vorhersage hier](http://www.beteljuice.co.uk/zambretti/forecast.html) gefunden (es wird Zambretti-Methode für eine 90% -Prognose genannt).
+Was tun mit diesem Wert? So einfach es klingt: Wettervorhersage! Hochdruck = gutes Wetter, niedriger Druck = schlechtes Wetter.
+Der normale Mittelwert beträgt 1013 mBar.
+Für eine „echte“ Wettervorhersage sollten Sie die Druckhistorie für einige Stunden benötigen (ich verwende vier Stunden).
+Wenn es fällt, soll es in Zukunft schlechtes Wetter sein, wenn es steigt, soll es gutes Wetter sein.
+Ich habe eine [Skript für die Vorhersage hier](http://www.beteljuice.co.uk/zambretti/forecast.html) gefunden (sie heißt Zambretti-Methode für eine 90%-Prognose).
 Andere Einheiten: 1 mbar = 100 Pa = 1 hPa
 
-Temperatur ----------- Hier können Sie das Kühltemperaturniveau berechnen. Für niedrige Temperaturen kann der Windchill (10 °C oder niedriger, mit Wind rechnen) für hohe Temperaturen den Hitzeindex (25 ° C oder höher, mit Luftfeuchtigkeit berechnen) verwenden.
+Temperatur -------------- Hier können Sie die Kühltemperatur berechnen. Bei niedrigen Temperaturen den Windchill (10 °C oder niedriger, mit Wind rechnen) für hohe Temperaturen können Sie den Hitzeindex (25 °C oder höher, mit Luftfeuchtigkeit berechnen) verwenden.
 Beispielskript:
 
 ```
@@ -100,20 +100,35 @@ function heat(temperature, humidity) {
 }
 ```
 
-Wind ---- Windgeschwindigkeit ist ein Maß für Luft, die sich von hohem zu niedrigem Druck bewegt, normalerweise aufgrund von Temperaturänderungen.
+Wind ---- Die Windgeschwindigkeit ist ein Maß dafür, dass sich die Luft von hohem zu niedrigem Druck bewegt, normalerweise aufgrund von Temperaturänderungen.
 Die Böenstärke ist der höchste Windwert, gemessen in kurzer Zeit (etwa drei Sekunden).
 Sie sollten ein Skript für Ihre Markise oder für die Zambretti-Methode erstellen (siehe oben).
 
-Information ---- **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+Information ---- **Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 Credits
 
 =======
 
-Vielen Dank an [backfisch](https://github.com/backfisch88) für die erste Idee und Unterstützung!
+Vielen Dank an [Backfisch](https://github.com/backfisch88) für die erste Idee und Unterstützung!
 
 ## Changelog
 
+### 0.6.0
+* (Xenon-s) saves states with acknowledgement (#23 & #26)
+* (Bart19) updates dependencies and documentation (#25 & #27)
+### 0.5.1
+* (Bart19) updates dependencies
+### 0.5.0
+* (Bart19) adds measures for wind and gust with m/s (#22) and do not query rain_today in the first 15 minutes of a day (#21)
+### 0.4.1
+* (Bart19) changes exit code and introduces an exit message
+### 0.4.0
+* (Bart19) Rounds values to two decimals
+### 0.3.13
+* (Bart19) updates dependencies
+### 0.3.9
+* (Bart19) updates dependencies
 ### 0.3.8
 * (Bart19) small fix in error handling
 ### 0.3.7

@@ -2,22 +2,16 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mikrotik/README.md
-title: без названия
-hash: l03AVE0l5fMyhDH6nYJ7yt3FriBrXjW4y0qv1IlBneE=
+title: без заголовка
+hash: 5wkEfDIZsK7dzAgyhr+x4qsYKxaEOKdIRMBDIMhm/DA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mikrotik/admin/mikrotik_admin.png) ioBroker MikroTik Router адаптер
 
-![Количество установок](http://iobroker.live/badges/mikrotik-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.mikrotik.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.mikrotik.svg)
-![НПМ](https://nodei.co/npm/iobroker.mikrotik.png?downloads=true)
 ![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-=================
+================
 
-[![Тесты] (https://github.com/instalator/iobroker.mikrotik/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.mikrotik/actions/)
-
-## С помощью
+## С использованием
 ### Add_firewall
 Добавьте адрес в список брандмауэра и включите.
 например `name,127.0.0.1,comment`.

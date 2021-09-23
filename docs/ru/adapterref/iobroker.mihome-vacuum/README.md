@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker mihome-вакуумный адаптер
-hash: tMA0cL0xw9g6IZ947Gc7TFWXHoxaY1DaLO7pZgdsyvU=
+hash: LROz+cf/YZUzNW+t6QNc1jEw7pYze7gh5KQZx0aVLgo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
@@ -74,7 +74,9 @@ hash: tMA0cL0xw9g6IZ947Gc7TFWXHoxaY1DaLO7pZgdsyvU=
 
 ## Конфигурация
 На данный момент поиск токена - самая большая проблема.
-Пожалуйста, следуйте инструкциям в ссылке:
+Один из вариантов извлечения токена - использовать эту утилиту: https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor
+
+В противном случае следуйте инструкциям по ссылке:
 
 [Руководство по токенам](https://www.smarthomeassistent.de/token-auslesen-roborock-s6-roborock-s5-xiaomi-mi-robot-xiaowa/).
 
@@ -224,7 +226,7 @@ xVal, yval
 | app_rc_end | | Завершить дистанционное управление |
 | app_rc_move | `[{"seqnum":'0-1000',"velocity":VALUE1,"omega":VALUE2,"duration":VALUE3}]` | Двигаться. Порядковый номер должен быть непрерывным, VALUE1 (скорость) = -0,3-0,3, VALUE2 (вращение) = -3,1-3,1, VALUE3 (продолжительность) |
 
-дополнительные методы и параметры можно найти здесь ([Ссылка на сайт](https://github.com/MeisterTR/XiaomiRobotVacuumProtocol)).
+дополнительные методы и параметры можно найти здесь ([Ссылка](https://github.com/MeisterTR/XiaomiRobotVacuumProtocol)).
 
 ### Отправка пользовательских команд с помощью sendTo
 Вы также можете отправлять эти настраиваемые команды с других адаптеров с помощью `sendTo`. Использование с `method_id` и `params`, как определено выше:
@@ -269,10 +271,10 @@ sendTo("mihome-vacuum.0",
 | Получить таймер *не беспокоить* | `getDNDTimer` | - нет - | |
 | Установить новый таймер *не беспокоить* | `setDNDTimer` | `startHour`, `startMinute`, `endHour`, `endMinute` | |
 | Удалите таймер *не беспокоить* | `deleteDNDTimer` | - нет - | |
-| Получить текущую скорость вращения вентилятора | `getFanSpeed` | - нет - | |
+| Получить текущую скорость вентилятора | `getFanSpeed` | - нет - | |
 | Установите новую скорость вентилятора | `setFanSpeed` | `fanSpeed` | `fanSpeed` - это число от 1 до 100 |
 | Запуск функции дистанционного управления | `startRemoteControl` | - нет - | |
-| Выдать команду перемещения для дистанционного управления | `move` | `velocity`, `angularVelocity`, `duration`, `sequenceNumber` | Порядковый номер должен быть последовательным, Продолжительность в мс |
+| Выдать команду перемещения для дистанционного управления | `move` | `velocity`, `angularVelocity`, `duration`, `sequenceNumber` | Порядковый номер должен указываться последовательно, Продолжительность в мс |
 | Завершить функцию дистанционного управления | `stopRemoteControl` | - нет - | |
 | чистая комната / комнаты | `cleanRooms` | `rooms` | `rooms` - это строка, разделенная запятыми, с enum.rooms.XXX |
 | чистый сегмент | `cleanSegments` | `rooms` | `rooms` - это массив с mapIndex или строкой, разделенной запятыми с mapIndex |
@@ -287,6 +289,13 @@ sendTo("mihome-vacuum.0",
 - Виджет в то время без функции
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (MeisterTR) fix no rooms for S5
+* (MeisterTR) fix IOBROKER-MIHOME-VACUUM-4 DB closed
+
+### 3.2.2 (2021-07-16)
+* (bluefox) the communication is corrected
+* (bluefox) Added roles to be detected by type-detector
 
 ### 3.2.1 (2021-07-02)
 * (Apollon77) Adjust several crash cases (IOBROKER-MIHOME-VACUUM-K, IOBROKER-MIHOME-VACUUM-J, IOBROKER-MIHOME-VACUUM-F, IOBROKER-MIHOME-VACUUM-7, IOBROKER-MIHOME-VACUUM-A, IOBROKER-MIHOME-VACUUM-4, IOBROKER-MIHOME-VACUUM-G, IOBROKER-MIHOME-VACUUM-C, IOBROKER-MIHOME-VACUUM-B, IOBROKER-MIHOME-VACUUM-Q, IOBROKER-MIHOME-VACUUM-M)

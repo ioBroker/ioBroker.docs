@@ -330,6 +330,12 @@ Group CSS-Common / transform "scale(0.5)"
 ## Changelog
 
 
+### 0.7.6
+* add tests for wordclock * remove admin tab
+### 0.7.5
+* Remove comments in io-package
+### 0.7.4
+* fix spanish language pack
 ### 0.7.3
 * * add turkish language for wordclock
 ### 0.7.2

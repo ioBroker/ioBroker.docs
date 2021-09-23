@@ -2,22 +2,18 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mpd/README.md
-title: ioBroker.mpd Adapter
-hash: BE5qE1VcmCJxAla75VRDboDJGzG0LhArx2PnaGfw5mQ=
+title: ioBroker.mpd-Adapter
+hash: nICyiM828I14uglLlFHsHPTR/nhrqxON2tzU08H/1Yw=
 ---
 ![Logo](../../../en/adapterref/iobroker.mpd/admin/mpd.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/mpd-stable.svg)
-![NPM-Version](https://img.shields.io/npm/v/iobroker.mpd.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.mpd.svg)
-![NPM](https://nodei.co/npm/iobroker.mpd.png?downloads=true)
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-# IoBroker.mpd Adapter [![Tests] (https://github.com/instalator/iobroker.mpd/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.mpd/actions/)
-Stellen Sie eine Verbindung zu einem [Musik-Player-Daemon](http://musicpd.org) Server her, senden Sie Befehle, senden Sie Ereignisse aus.
+# IoBroker.mpd-Adapter
+Verbinde dich mit einem [Musik-Player-Daemon](http://musicpd.org) Server, sende Befehle, sende Events.
 
 ## Dokumentation
-Siehe auch die [MPD-Protokolldokumentation](http://www.musicpd.org/doc/protocol/).
+Siehe auch [Dokumentation zum MPD-Protokoll](http://www.musicpd.org/doc/protocol/).
 
 ## Changelog
 

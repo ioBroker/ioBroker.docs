@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis/README.md
 title: Визуализация
-hash: KHzz5K4cmU2+0wZDuIMwQ6k8XSX96vzulY7MCQdq4vo=
+hash: ryhb2CuqQrlCuXb8bunK8iY61NxkSPTTXOCc7qhEKeE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
@@ -53,7 +53,7 @@ WEB-визуализация для платформы ioBroker.
 - `pow` - степень двойки.
 - `пол` - Math.floor
 - `ceil` - Math.ceil
-- `random (R)` - Math.random () * R, или просто Math.random (), если нет аргумента
+- `random (R)` - Math.random () * R или просто Math.random (), если нет аргумента
 - `formatValue (decimals)` - форматировать значение в соответствии с настройками системы и использовать десятичные дроби
 - `дата (формат)` - форматировать значение как дату. Формат такой: «ГГГГ-ММ-ДД чч: мм: сс.ссс».
 - `momentDate (format, useTodayOrYesterday)` - форматировать значение как дату с помощью Moment.js. [Утвержденные форматы необходимо вводить в соответствии с библиотекой moment.js] (https://momentjs.com/docs/#/displaying/format/). При использовании `useTodayOrYesterday = true` формат momentjs` ddd` / `dddd` заменяется на сегодня / вчера.
@@ -140,7 +140,7 @@ Vis создает 3 переменные:
 
 Команды:
 
-* `alert` - показать окно с предупреждением в vis. "control.data" имеет следующий формат: "сообщение; заголовок; значок jquery". Заголовок и значок jquery необязательны. Названия значков можно найти [здесь] (http://jqueryui.com/themeroller/). Чтобы отобразить значок ui-icon-info, напишите `` Message ;; info``.
+* `alert` - показать окно с предупреждением в vis. «control.data» имеет следующий формат: «сообщение; заголовок; значок jquery». Заголовок и значок jquery необязательны. Названия значков можно найти [здесь] (http://jqueryui.com/themeroller/). Чтобы отобразить значок ui-icon-info, напишите `` Message ;; info``.
 * `changeView` - переключиться на желаемый вид. "control.data" должно иметь имя представления. Вы также можете указать название проекта как «проект / представление». Проект по умолчанию - "главный".
 * `refresh` - перезагрузить vis, например, после изменения проекта для перезагрузки во всех браузерах.
 * `reload` - то же, что и обновление.
@@ -207,7 +207,10 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 ### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
-### 1.4.1 (2021-07-03)
+### 1.4.4 (2021-08-31)
+* (jobe451) Allowed to have ":" in the binding object IDs
+ 
+### 1.4.3 (2021-07-11)
 * (bluefox) Added possibility to check license offline (only special once)
 
 ### 1.4.0 (2021-07-01)
@@ -503,6 +506,14 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 * (bluefox) add types icon to preview
 * (bluefox) support edit on iPad1
 * (bluefox) change security settings
+
+## License
+To use this adapter in ioBroker you need to accept the source code license of the adapter. The source code of this adapter is available under the CC BY-NC license.
+
+Additionally, you need a license to use the adapter. The following license editions are available on https://iobroker.net/www/pricing 
+* **Community-License: Free for private use!**: Get a free license by registering an account on https://iobroker.net . The license if checked online against the ioBroker license server when the vis adapter is started, so an online connection at this timepoint is required!
+* **Private use Offline-License**: For paying a small support fee you can get rid of the required online license check on adapter startup. **Only for Private use!**
+* **Commercial License**: When using Vis in a commercial environment or selling Vis as part of ioBroker packages to your customers this license is for you. License check is also not requiring an online connection.
 
 ## License
  Copyright (c) 2013-2021 bluefox, https://github.com/GermanBluefox <dogafox@gmail.com>,

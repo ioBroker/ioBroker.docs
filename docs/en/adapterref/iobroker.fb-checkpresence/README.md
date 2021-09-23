@@ -197,6 +197,12 @@ Here you will find information about the history of the current day.
     * Did some changes
     * Did some more changes
 -->
+### 1.1.8 (2021-09-01)
+* (afuerhoff) issue#61: units added
+* (afuerhoff) workaround for 7390 added (missing systemVersion in xml)
+* (afuerhoff) dependencies updated
+
+
 ### 1.1.7 (2021-06-23)
 * (afuerhoff) message handling optimized
 * (afuerhoff) dependencies updated
@@ -231,18 +237,6 @@ Here you will find information about the history of the current day.
 * (afuerhoff) SSL (https) workaround implemented
 * (afuerhoff) Connection check optimized
 * (afuerhoff) Mesh handling optimized 
-
-### 1.1.3 (2021-03-31)
-* (afuerhoff) family groups implemented
-* (afuerhoff) compatability mode implemented
-* (afuerhoff) dependencies updated
-* (afuerhoff) configuration options added
-* (afuerhoff) dialogboxes optimized
-* (afuerhoff) translations updated
-* (afuerhoff) general program structure optimized
-* (afuerhoff) filter for family members implemeted
-* (afuerhoff) password handling updated
-* (afuerhoff) documentation updated
 
 ## License
 MIT License

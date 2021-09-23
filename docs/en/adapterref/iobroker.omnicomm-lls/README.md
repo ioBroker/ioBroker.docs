@@ -1,14 +1,6 @@
 ![Logo](admin/logo_admin.png)
 # ioBroker.omnicomm-lls
 
-![Number of Installations](http://iobroker.live/badges/omnicomm-lls-installed.svg)
-![Number of Installations](http://iobroker.live/badges/omnicomm-lls-stable.svg)
-[![NPM version](http://img.shields.io/npm/v/iobroker.omnicomm-lls.svg)](https://www.npmjs.com/package/iobroker.omnicomm-lls)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.omnicomm-lls.svg)](https://www.npmjs.com/package/iobroker.omnicomm-lls)
-[![Tests](https://github.com/instalator/iobroker.omnicomm-lls/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.omnicomm-lls/actions/) 
-
-[![NPM](https://nodei.co/npm/iobroker.omnicomm-lls.png?downloads=true)](https://nodei.co/npm/iobroker.omnicomm-lls/)
-
 [![Donate](https://img.shields.io/badge/Donate-YooMoney-green)](https://sobe.ru/na/instalator)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PFUALWTR2CTPY)
 

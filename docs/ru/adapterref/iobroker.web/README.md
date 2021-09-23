@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: O/9g9KEHoarO9stxwgzMohQQNlrQowOwH4pnbPJLC+8=
+hash: eY2PM8p+KrILW1ThtTPX4W9dPfYLwdbQngSP2IPbHY4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.web/admin/web.png)
 
@@ -27,11 +27,16 @@ hash: O/9g9KEHoarO9stxwgzMohQQNlrQowOwH4pnbPJLC+8=
 Прочтите [здесь](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
 
 ## Расширения
-Веб-драйвер поддерживает расширения. Расширение - это обработчик URL-адресов, который будет вызываться при появлении такого URL-запроса.
+Веб-драйвер поддерживает расширения.
+Расширение - это обработчик URL-адресов, который будет вызываться при появлении такого URL-запроса.
 Расширения выглядят как обычный адаптер, но у них нет запущенного процесса, и они будут вызываться веб-сервером.
 
 Например. пользователь может активировать специальный прокси-адаптер и подключаться к другим устройствам (например, веб-камерам) на том же веб-сервере.
 Требуется, чтобы все сервисы были доступны на одном веб-сервере.
+
+Веб-расширение могло и должно поддерживать функцию `unload`, которая могла бы возвращать `promise`, если действие выгрузки займет некоторое время.
+
+Вы можете узнать больше о веб-расширениях [здесь](WEB-EXTENSIONS-HOWTO.md).
 
 ## Защита от перебора
 Если аутентификация включена и пользователь 5 раз вводит неверный пароль в течение одной минуты, он должен подождать не менее одной минуты до следующей попытки.
@@ -49,7 +54,7 @@ http://IP:8082/state/system.adapter.web.0.alive =>
 {"val":true,"ack":true,"ts":1606831924559,"q":0,"from":"system.adapter.web.0","lc":1606777539894}
 ```
 
-или же
+или
 
 ```
 http://IP:8082/state/javascript.picture.png =>
@@ -68,11 +73,28 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 Разрешает вход через базовую аутентификацию, отправляя `401` Неавторизованный с заголовком `WWW-Authenticate`.
 Это можно использовать для таких приложений, как *FullyBrowser* При однократном вводе неправильных учетных данных вы будете перенаправлены на страницу входа.
 
+## Расширенные опции
+### Перенаправление по умолчанию
+Если при открытии веб-порта в браузере не должно отображаться ни одно приложение, а какое-то конкретное приложение, путь может быть указан здесь (например, `/vis/`), чтобы этот путь открывался автоматически.
+
 <! - Заполнитель для следующей версии (в начале строки):
 
 ### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
+### 3.4.9 (2021-08-11)
+* (bluefox) Fixed error with access list
+* (bluefox) Added support of the unload function for web-extensions 
+* (bluefox) Added readme for the web-extensions development 
+ 
+### 3.4.8 (2021-08-10)
+* (bluefox) added the default redirect option
+ 
+### 3.4.7 (2021-07-31)
+* (bluefox) Corrected the small config GUI error
+ 
+### 3.4.5 (2021-07-20)
+* (Apollon77) fix admin dependency because since 3.4.2 Admin 5.1 is required
 
 ### 3.4.4 (2021-07-04)
 * (Apollon77) Fix missing www files

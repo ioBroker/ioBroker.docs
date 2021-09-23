@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iot/README.md
 title: ioBroker IoT-Adapter
-hash: p7+y58cPamys/HPMVn50ltJt7Mtgyizqs0PzeBOubhI=
+hash: LTaVi0x0KvCzZYYoc99tWZACJeGmuMSi7a5o+cljcqQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -19,12 +19,17 @@ Es ist nicht für den Fernzugriff auf Ihre ioBroker-Instanz gedacht. Verwenden S
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
-## Die Einstellungen
-Um den Cloud-Adapter zu verwenden, sollten Sie sich zuerst in der ioBroker Cloud registrieren [https://iobroker.pro](https://iobroker.pro)
+## Einstellungen
+Um den Cloud-Adapter zu verwenden, sollten Sie sich zuerst in der ioBroker-Cloud registrieren [https://iobroker.pro](https://iobroker.pro).
 
 [Verweis auf die Einstellungen des Google-API-Typs](https://developers.google.com/actions/smarthome/guides/)
 
 ![Einführung](../../../en/adapterref/iobroker.iot/img/intro.png)
+
+###Grenzen
+Alles hat Grenzen, so auch die Amazon Alexa. Alexa kann nur bis zu 300 Geräte unterstützen.
+
+Google Cloud und Alisa sollten gelöscht werden
 
 ### Sprache
 Wenn Sie die Sprache "Standard" auswählen, werden die intelligenten Namen von Geräten und Aufzählungen nicht übersetzt. Wenn eine Sprache angegeben ist, werden alle bekannten Namen in diese Sprache übersetzt.
@@ -42,7 +47,7 @@ Sie können das Wort definieren, das zwischen Funktion und Raum platziert wird. 
 Dies wird jedoch nicht empfohlen, da die Erkennungsmaschine ein weiteres Wort analysieren muss und es zu Missverständnissen kommen kann.
 
 ### AUS-Pegel für Schalter
-Einige Gruppen bestehen aus gemischten Geräten: Dimmer und Schalter. Sie dürfen mit "ON" und "OFF" Befehlen und mit Prozenten gesteuert werden.
+Einige Gruppen bestehen aus gemischten Geräten: Dimmer und Schalter. Es ist erlaubt sie mit "ON" und "OFF" Befehlen und mit Prozenten zu steuern.
 Wenn der Befehl `Set to 30%` und der `OFF level is 30%` lautet, werden die Schalter eingeschaltet. Mit dem Befehl "Set to 25%" werden alle Schalter ausgeschaltet.
 
 Wenn der Befehl außerdem "OFF" ist, merkt sich der Adapter den aktuellen Dimmerwert, wenn der tatsächliche Wert über oder gleich "30%" ist.
@@ -50,7 +55,7 @@ Später, wenn der neue "ON"-Befehl kommt, schaltet der Adapter den Dimmer nicht 
 
 Beispiel:
 
-- Nehmen Sie an, dass *OFF level* 30% beträgt.
+- Angenommen, der *OFF-Level* beträgt 30%.
 - Das virtuelle Gerät "Light" hat zwei physische Geräte: *Schalter* und *Dimmer*.
 - Befehl: "Stelle das Licht auf 40%". Der Adapter merkt sich diesen Wert für *Dimmer*, stellt ihn auf "Dimmer" ein und schaltet den *Schalter* EIN.
 - Befehl: "Licht ausschalten". Der Adapter setzt den *Dimmer* auf 0% und schaltet den *Schalter* aus.
@@ -65,7 +70,7 @@ Sie können das Verhalten des EIN-Befehls für den Nummernstatus auswählen. Der
 Für jeden Befehl wird die Textantwort generiert. Hier können Sie die Objekt-ID definieren, in die dieser Text geschrieben werden soll. Z.B. *sayit.0.tts.text*.
 
 ### Farben
-Zur Zeit unterstützt nur englisches Alexa die Farbsteuerung.
+Zur Zeit unterstützt nur das englische alexa die Farbsteuerung.
 Der Kanal muss 4 Zustände mit folgenden Rollen haben:
 
 - level.color.saturation (erforderlich für die Erkennung des Kanals),
@@ -101,11 +106,11 @@ Folgende Bedingungen müssen erfüllt sein, um den Status in der automatisch gen
 - Der Zustand muss sich in einer "Funktions"-Aufzählung befinden.
 - Der Zustand muss eine Rolle haben ("state", "switch" oder "level.*", z.B. level.dimmer), wenn er nicht direkt in "Funktionen" enthalten ist.
 
-Es kann sein, dass sich der Kanal in den "Funktionen" befindet, sich aber nicht angibt.
+Es kann sein, dass sich der Kanal in den "Funktionen" befindet, sich aber nicht selbst angibt.
 
-- der Zustand muss beschreibbar sein: common.write = true
-- der Zustandsdimmer muss als 'Nummer' common.type haben
-- der Zustand Heizung muss die gemeinsame.Einheit als '°C', '°F' oder '°K' und den gemeinsamen.Typ als 'Nummer' haben
+- der Zustand muss beschreibbar sein: `common.write` = true
+- der Zustandsdimmer muss `common.type` als 'Nummer' haben
+- der Zustand Heizung muss `common.unit` als `°C', '°F' oder '°K' und `common.type` als `number` haben
 
 Befindet sich der Zustand nur in "Funktionen" und nicht in einem "Raum", wird der Zustandsname verwendet.
 
@@ -127,7 +132,7 @@ Um eigene Gruppen zu erstellen, kann der Benutzer den "Szenen"-Adapter installie
 
 ### Ersetzt
 Sie können Strings angeben, die automatisch in den Gerätenamen ersetzt werden können. Z.B. wenn Sie Ersetzen auf: `.STATE,.LEVEL` setzen, werden alle ".STATE" und ".LEVEL" aus den Namen gelöscht. Seien Sie vorsichtig mit Leerzeichen.
-Wenn Sie `.STATE, .LEVEL` einstellen, werden ".STATE" und " .LEVEL" ersetzt und nicht ".LEVEL".
+Wenn Sie `.STATE, .LEVEL` einstellen, werden „.STATE“ und „.LEVEL“ ersetzt und nicht „.LEVEL“.
 
 ## Helferstatus
 - **smart.lastObjectID**: Dieser Zustand wird gesetzt, wenn nur ein Gerät vom Home-Skill (Alexa, Google Home) gesteuert wurde.
@@ -137,7 +142,13 @@ Wenn Sie `.STATE, .LEVEL` einstellen, werden ".STATE" und " .LEVEL" ersetzt und 
 - **smart.lastResponse**: Textantwort auf Befehl. Es kann an eine text2speech (sayit) Engine gesendet werden.
 
 ## IFTTT
-[Anleitung](doc/ifttt.md)
+[Anweisungen](doc/ifttt.md)
+
+## Google Home
+Wenn Sie im Protokoll folgende Fehlermeldung sehen: `[GHOME] Invalid URL Pro key. Status auto-update is disabled you can set states but receive states only manually`.
+Sie müssen also den URL-Key neu generieren:
+
+![URL-Schlüssel](../../../en/adapterref/iobroker.iot/img/url_key.png)
 
 ## Dienstleistungen
 Es besteht die Möglichkeit, Nachrichten an den Cloud-Adapter zu senden.
@@ -149,7 +160,7 @@ oder
 
 `[GET]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>&data=myString`
 
-Wenn Sie in den Einstellungen im Feld "Whitelist für Dienste" den Namen *custom_test* setzen und als Dienstnamen "custom_test" aufrufen, wird der Zustand **cloud.0.services.custom_test** auf *myStringStr gesetzt *.
+Wenn Sie in den Einstellungen im Feld "Whitelist für Dienste" den Namen *custom_test* setzen und als Dienstnamen "custom_test" aufrufen, wird der Zustand **cloud.0.services.custom_test** auf *myString . gesetzt *.
 
 Sie können "*" in die weiße Liste schreiben und alle Dienste werden zugelassen.
 
@@ -260,13 +271,16 @@ Folgende Typen werden unterstützt:
 - `ifttt` - Verhalten wie IFTTT (eigentlich nicht erforderlich, aber zu Testzwecken)
 
 ##Yandex лиса
-[Anleitung](doc/alisa.md)
+[Anweisungen](doc/alisa.md)
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
 ### __ARBEITEN IN PROGRESS__ -->
 
 ## Changelog
+### 1.8.23 (2021-09-18)
+* (bluefox) Fixed the response for the heating control
+
 ### 1.8.22 (2021-05-16)
 * (bluefox) Make it admin4 compatible
 
@@ -332,9 +346,6 @@ Folgende Typen werden unterstützt:
 
 ### 1.7.14 (2020-11-05)
 * (bluefox) Updated the select ID dialog.
-
-#### 1.7.13 (2020-10-30)
-* (foxriver76) add eraseOnUpload flag for js-controller 3.2+
 
 ### 1.7.12 (2020-09-25)
 * (bluefox) Updated the select ID dialog.

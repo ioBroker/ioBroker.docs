@@ -26,13 +26,13 @@ Objekte beschreiben zusätzlich:
 * Benutzer
 * Hierarchien von Zuständen (Kanäle und Geräte)
 
-Objekte und die aktuellen Statuswerte können im Admin-Adapter auf der Registerkarte "Objekte" untersucht werden.
+Objekte und die aktuellen Zustände können im Admin-Adapter auf der Registerkarte "Objekte" untersucht werden.
 
-Der Name des Objekts besteht aus verschiedenen Teilen. Jeder Teil wird durch "." von einander getrennt. Es gibt Systemobjekte (Name beginnt mit _ oder "system.") und Adapterobjekte (Name beginnt mit adapterName).
+Die ID des Objekts besteht aus verschiedenen Teilen. Jeder Teil wird durch "." von einander getrennt. Es gibt Systemobjekte (ID beginnt mit _ oder "system.") und Adapterobjekte (ID beginnt mit adaptername.instanznummer).
 
-?> Hinweis: Hier in der Beschreibung steht **adapterName** für den Namen des Adapters, den ein Entwickler erstellen möchte.
+?> Hinweis: Hier in der Beschreibung steht **Adaptername** für den Namen des Adapters, den ein Entwickler erstellen möchte.
 
-Zustände können in Kanälen und die Kanäle in Geräten gruppiert werden. Hier ist ein Beispiel für Homematic Gruppen und Kanäle:
+Objekte können in Kanälen und die Kanäle in Geräten gruppiert werden. Hier ist ein Beispiel für Homematic Geräte und Kanäle:
 
 ```
 * hm-rpc.0.IEQ1234567 - device
@@ -44,7 +44,7 @@ Zustände können in Kanälen und die Kanäle in Geräten gruppiert werden. Hier
     * hm-rpc.0.IEQ1234567.0.BATTERY - state
 ```
 
-Die Status-ID muss immer mit dem Kanalnamen und dem Kanalnamen mit dem Gerätenamen beginnen. Z.B. Im obigen Statusnamen hm-rpc.0.IEQ1234567.0.INFO ist der Teil hm-rpc.0.IEQ1234567.0 der Kanalname und hm-rpc.0.IEQ1234567 der Gerätename.
+Die Objekt-ID muss immer mit der Kanal-ID und die Kanal-ID mit der Geräte-ID beginnen. Z.B. Im obigen Statusnamen hm-rpc.0.IEQ1234567.0.INFO ist der Teil hm-rpc.0.IEQ1234567.0 die Kanal-ID und hm-rpc.0.IEQ1234567 die Geräte-ID.
 
 Dies wird genutzt, um die Koordination von Geräten, Kanälen und Zuständen in Hierarchien aufzubauen.
 
@@ -54,11 +54,11 @@ Dies wird genutzt, um die Koordination von Geräten, Kanälen und Zuständen in 
 
 **Instanz** ist eine Instanz des Adapters. Je nach Adaptertyp kann mehr als eine Instanz erstellt werden. Bei einigen Adaptern aber nur eine, wie z.B. Vis oder Rickshaw. Dieses Verhalten wird durch Flags in io-package.json gesteuert.
 
-Für jede Instanz befindet sich das Konfigurationsobjekt im Datenspeicher unter der ID "system.adapter.adapterName.X", wobei X die Adapterinstanznummer ist. Es enthält die Einstellungen für diese Instanz des Adapters. Normalerweise besteht es aus "allgemeinen" und "nativen" Einstellungen. Allgemeine Einstellungen sind:
+Für jede Instanz befindet sich das Konfigurationsobjekt im Datenspeicher unter der ID "system.adapter.adapterName.X", wobei X die Adapterinstanznummer ist. Es enthält die Einstellungen für diese Instanz des Adapters. Normalerweise besteht es aus "common" und "native" Einstellungen. Allgemeine Einstellungen sind:
 
 * `enabled`: true / false;
 * `host`: Hostname, auf dem diese Instanz ausgeführt werden muss;
-* `mode`: keine, daemon, abonnieren, planen, einmal;
+* `mode`: none, daemon, subscribe, schedule, once;
 
 Beschreibung ist [hier](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/objectsschema.md) zu finden.
 
@@ -66,25 +66,25 @@ Beschreibung ist [hier](https://github.com/ioBroker/ioBroker.docs/blob/master/do
 
 ?> Hinweis: Instanzen können auf verschiedenen Hosts (Multi-Host) ausgeführt werden, weiterhin können die Adapter auf den verschiedenen Hosts unterschiedliche Versionen haben.
 
-Alle Objekt-IDs der Adapterinstanz beginnen mit adapterName.X, wobei X die Nummer der Adapterinstanz ist.
+Alle Objekt-IDs der Adapterinstanz beginnen mit adaptername.X, wobei X die Nummer der Adapterinstanz ist.
 
 Objekte haben unterschiedliche Typen für unterschiedliche Zwecke.
 
 Für jeden Adapter (nicht die Instanz) werden automatisch die folgenden Objekte erstellt:
 
-* `system.adapter.adapterName`: Beschreibung des Adapters (wie Name, Versionsnummer, ...)
-* `adapterName`: Objekt, das aus HTML/JS/CSS-Dateien des "www" Verzeichnisses des Adapters besteht. Dieses Objekt wird nur erstellt, wenn das Verzeichnis "www" im Adapterpaket gefunden wird.
-* `adapterName.admin`: Objekt, das aus HTML/JS/CSS-Dateien aus dem "admin" Verzeichnis des Adapterpakets besteht.
+* `system.adapter.adaptername`: Beschreibung des Adapters (wie Name, Versionsnummer, ...)
+* `adaptername`: Objekt, das aus HTML/JS/CSS-Dateien des "www" Verzeichnisses des Adapters besteht. Dieses Objekt wird nur erstellt, wenn das Verzeichnis "www" im Adapterpaket gefunden wird.
+* `adaptername.admin`: Objekt, das aus HTML/JS/CSS-Dateien aus dem "admin" Verzeichnis des Adapterpakets besteht.
 
 Für jede Adapterinstanz 'X' werden automatisch die folgenden Objekte erstellt:
 
-* `system.adapter.adapterName.X`: Konfiguration der Adapterinstanz
-* `system.adapter.adapterName.X.alive`: Angabe, ob die Instanz aktiv ist (Nachrichten alle 30 Sekunden senden)
-* `system.adapter.adapterName.X.connected`: Angabe, ob die Instanz mit dem Datenspeicher verbunden ist. Sie kann verbunden sein, aber aufgrund eines Deadlocks keine alive  Nachricht senden kann.
-* `system.adapter.adapterName.X.memHeapTotal`: Speichernutzung Total
-* `system.adapter.adapterName.X.memHeapUsed`: Speichernutzung
-* `system.adapter.adapterName.X.memRss`: Speichernutzung
-* `system.adapter.adapterName.X.uptime`: Sekunden die der Adapter läuft.
+* `system.adapter.adaptername.X`: Konfiguration der Adapterinstanz
+* `system.adapter.adaptername.X.alive`: Angabe, ob die Instanz aktiv ist (Nachrichten alle 30 Sekunden senden)
+* `system.adapter.adaptername.X.connected`: Angabe, ob die Instanz mit dem Datenspeicher verbunden ist. Sie kann verbunden sein, aber aufgrund eines Deadlocks keine alive  Nachricht senden kann.
+* `system.adapter.adaptername.X.memHeapTotal`: Speichernutzung Total
+* `system.adapter.adaptername.X.memHeapUsed`: Speichernutzung
+* `system.adapter.adaptername.X.memRss`: Speichernutzung
+* `system.adapter.adaptername.X.uptime`: Sekunden die der Adapter läuft.
 
 Erläuterungen zu den Speicherzuständen sind [hier](http://stackoverflow.com/questions/12023359/what-do-the-return-values-of-node-js-process-memoryusage-stand-for) zu finden.
 
@@ -96,13 +96,13 @@ Das Adapterpaket muss einige obligatorische Verzeichnisse und Dateien enthalten:
 
 * `admin` (notwendiges Verzeichnis)
 * `index.html`
-* `xxx.png` - optional; besser: `adapterName.png` (alle Bildformate werden unterstützt: jpeg, jpg, svg, bmp, ...)
+* `xxx.png` - optional; besser: `adaptername.png` (alle Bildformate werden unterstützt: jpeg, jpg, svg, bmp, ...)
 * `www` - (notwendiges Verzeichnis)
 * `lib` - (notwendiges Verzeichnis wegen `utils.js`)
 * `utils.js`
 * `package.json` - notwendig
 * `io-package.json` - notwendig
-* `main.js` - notwendig (kann auch `adapterName.js` sein)
+* `main.js` - notwendig (kann auch `adaptername.js` sein)
 
 ?> Hinweis: lib/utils.js ist eine gemeinsame Datei für alle Adapter, mit der die Position des js-Controllers und der entsprechende Pfad zu iobroker.js-controller/lib/adapter.js ermittelt werden. Die meisten aktuellen utils.js können hier heruntergeladen werden. Diese Datei nicht ändern!
 
@@ -110,9 +110,9 @@ Das Adapterpaket muss einige obligatorische Verzeichnisse und Dateien enthalten:
 Um vom ioBroker-Controller akzeptiert und gestartet werden zu können muss der Adapter einer Namenskonvention entsprechen.
 
 * Auf github (oder woanders) muss es den Namen `io**B**roker.adapterName` (Großes B) haben.
-* Wenn der Adapter auf npm verfügbar sein soll, muss er den Namen iobroker.adapterName haben, da npm keine Großbuchstaben in Paketnamen zulässt. Es kann in package.json definiert werden
+* Wenn der Adapter auf npm verfügbar sein soll, muss er den Namen iobroker.adaptername haben, da npm keine Großbuchstaben in Paketnamen zulässt. Es kann in package.json definiert werden
 * Die GUI-HTML-Datei für die Konfiguration des Adapters muss den Namen admin/index.html haben. Es können mehr Dateien im Verzeichnis "admin" sein, aber index.html muss vorhanden sein.
-* Die Startdatei des Adapters muss den Namen main.js oder adapterName.js haben.
+* Die Startdatei des Adapters muss den Namen main.js oder adaptername.js haben.
 * Der Name des Adapters muss eindeutig sein, in Kleinbuchstaben, ohne Sonderzeichen und ohne Leerzeichen. "-", "_" sind im Namen des Adapters zulässig.
 
 ## Struktur von io-package.json
@@ -123,7 +123,7 @@ io-package.json wird von "admin" gelesen, um die Online-Version des Adapters her
 ### common Felder
 Die wichtigsten common Felder sind:
 
-* `name`: Notwendig. Name des Adapters ohne "ioBroker.", also "adapterName" und nicht "ioBroker.adapterName"
+* `name`: Notwendig. Name des Adapters ohne "ioBroker.", also "adaptername" und nicht "ioBroker.adaptername"
 * `version`: Notwendig. Muss mit package.json identisch sein.
 * `title`: Notwendig. Kurzname des Adapters, wie "Adaptername"
 * `desc`: Notwendig. Beschreibung des Adapters. Es kann eine Zeichenfolge wie "Dieser Adapter macht dies und das" oder ein Objekt wie:
@@ -138,10 +138,10 @@ Die wichtigsten common Felder sind:
 
 Wenn für die aktuelle Sprache kein Eintrag vorhanden ist, wird die Beschreibung in Englisch angezeigt.
 
-* `Plattform`: Notwendig. Aktuell wird nur `Javascript/Node.js` unterstützt.
+* `platform`: Notwendig. Aktuell wird nur `Javascript/Node.js` unterstützt.
 * `mode`: Notwendig. Der Modus, in dem der Adapter gestartet wird.
 * `enabled`: optional. Bei true wird die Instanz nach dem Hinzufügen aktiviert.
-* `Lizenz`: Lizenzname unter dem der Adapter lizenziert ist;
+* `license`: Lizenzname unter dem der Adapter lizenziert ist;
 * `loglevel`: anfängliche Protokollstufe, die nach der Erstellung der Instanz festgelegt wird. Kann "Debug", "Info", "Warnung" oder "Fehler" sein
 * `readme`: Link zur Readme-Seite im Internet. Wird vom Admin-Adapter verwendet, um den Link anzuzeigen, wenn "?" Schaltfläche geklickt.
 * `icon`: Symbolname (nicht der Pfad) des Adaptersymbols. Dieses Symbol muss sich im Administratorverzeichnis des Adapters befinden.
@@ -403,18 +403,11 @@ In dieser Objektinstanz werden folgende Attribute erstellt:
 * `name` - Name des Adapters, z. B.` adapterName`
 * `host` - Hostname, auf dem die Adapterinstanz ausgeführt wird
 * `instance` - Instanznummer dieser Adapterinstanz
-* `Namespace` - Namespace von Adapterobjekten, z. B.` adapterName.0`
+* `namespace` - Namespace von Adapterobjekten, z. B.` adapterName.0`
 * `config` - nativer Teil der Adaptereinstellungen
 * `common` - gemeinsamer Teil der Adaptereinstellungen
 * `systemConfig` - Inhalt von` iobroker-data / iobroker.json` (nur wenn` options.systemConfig = true`)
-* `adapterDir` - Pfad zum Adapterordner
-* `ioPack` - Inhalt von` io-package.json`
-* `pack` - Inhalt von` package.json`
 * `log` - Logger-Objekt
-* `version` - Adapterversion
-* `Staaten` - (nur Experten)
-* `Objekte` - (nur für Experten)
-* `verbunden` - wenn der Adapter mit dem Host verbunden ist
 
 #### Wichtigste Ereignisse
 ```
@@ -581,7 +574,7 @@ Zustände können als Befehle oder als Stati geschrieben werden. Dafür müssen 
 
 `adapter.setForeignState('otherAdapter.X.someState', 1);` // Andere Adapter steuern (es ist nicht erforderlich, den eigenen Status zu steuern, wir können dies direkt tun)
 
-`adapter.setState('myState', 1, true);` // neuen Status des eigenen Staates anzeigen
+`adapter.setState('myState', 1, true);` // neuen Status der eigenen Instanz setzen
 
 `adapter.setState('myState', {val: 1, ack: true});` // wie oben
 
@@ -599,8 +592,8 @@ adapter.setState('myState', 1, false);
 adapter.setState('myState', 1);
 ```
 
-#### State Struktur
-State ist ein Javascript-Objekt mit folgenden Attributen:
+#### Zustand Struktur
+Der Zustand ist ein Javascript-Objekt mit folgenden Attributen:
 
 * `val`: Wert des Zustands (gewünschter Wert oder tatsächlicher Wert)
 * `ack`: Richtungsflagge. false für den gewünschten Wert und true für den tatsächlichen Wert. Standard: false (Befehl)
@@ -617,8 +610,8 @@ Der Adapter kann in verschiedenen Modi ausgeführt werden. Der Modus für den Ad
 * `none` - Dieser Adapter wird nicht gestartet.
 * `daemon` - immer laufender Prozess (wird neu gestartet, wenn der Prozess beendet wird)
 * `subscribe` - wird gestartet, wenn der Status system.adapter ... lebendig auf true wechselt. Wird beendet, wenn .alive in false geändert wird, und setzt .alive auf false, wenn der Prozess beendet wird (wird beim Beenden des Prozesses nicht neu gestartet)
-* `Zeitplan` - wird nach dem in system.adapter ... common.schedule gefundenen Zeitplan gestartet - reagiert auf Änderungen des .schedule durch Neuplanung mit neuem Status
-* `einmal` - Dieser Adapter wird jedes Mal gestartet, wenn das Objekt system.adapter .. geändert wird. Es wird nach Beendigung nicht neu gestartet.
+* `schedule` - wird nach dem in system.adapter ... common.schedule gefundenen Zeitplan gestartet - reagiert auf Änderungen des .schedule durch Neuplanung mit neuem Status
+* `once` - Dieser Adapter wird jedes Mal gestartet, wenn das Objekt system.adapter .. geändert wird. Es wird nach Beendigung nicht neu gestartet.
 
 Normalerweise sollten Adapter den Modus-Daemon verwenden.
 
@@ -650,7 +643,7 @@ Siehe: getForeignObjects, findForeignObject, getForeignObject, getDevices, getCh
 #### Wie wird ein Objekt geschrieben?
 Zum Schreiben der Objekte können im Allgemeinen zwei Funktionen verwendet werden: `setObject, setForeignObject`. Es gibt jedoch viele Hilfefunktionen zum Ändern von Objekten:
 
-* `verlängernObject, verlängernForeignObject`
+* `extendObject, extendForeignObject`
 * `delObject, delForeignObject`
 * `setObjectNotExists, setForeignObjectNotExists`
 * `createDevice, deleteDevice`
@@ -658,7 +651,7 @@ Zum Schreiben der Objekte können im Allgemeinen zwei Funktionen verwendet werde
 * `createState, deleteState`
 * `addStateToEnum, deleteStateFromEnum`
 
-extensObject liest nur ein Objekt, verschmilzt mit einem bestimmten Objekt und schreibt ein Objekt zurück.
+extendObject liest nur ein Objekt, verschmilzt mit einem bestimmten Objekt und schreibt ein Objekt zurück.
 
 Der Unterschied zwischen `xxxObject` und `xxxForeignObject` besteht darin, dass `xxxObject` die Objekt-ID automatisch um `adapter.instance.` Text erweitert.
 
@@ -780,7 +773,7 @@ Vor der Veröffentlichung in npm: In ioBroker/node_modules kopieren, zu `admin` 
 * Instanz des Adapters deaktivieren
 * WebStorm starten
 * Konfiguration für Debug mit node.js erstellen
-* Flags für die Anwendung: `--force, Instanz, Protokollebene` (Sie können den Adapter als` Knoten xxx.js 1 Debug --force` starten, 1 ist Instanzindex (standardmäßig 0, Debug ist Protokollebene und `- -force` bedeutet, dass die Einstellungen "enabled: false" ignoriert werden.)
+* Flags für die Anwendung: `--force, instance, log level` (Sie können den Adapter als` node xxx.js 1 Debug --force` starten, 1 ist Instanzindex (standardmäßig 0, Debug ist Protokollebene und `--force` bedeutet, dass die Einstellungen "enabled: false" ignoriert werden.)
 
 ## Admin.html
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.scenes/README.md
 title: ioBroker Szenenadapter
-hash: rjPLw23kWM4giMXmlsiE83vZjEa6NJvzdOUuByzxe0Y=
+hash: 0DsSUdmPssFF9LGP26xHSDzqY0DSmyrZ0wAYSnvEHII=
 ---
 ![Logo](../../../en/adapterref/iobroker.scenes/admin/scenes.png)
 
@@ -27,7 +27,7 @@ Dieser Adapter kann drei Arten von Szenen erstellen:
 ## Szenen
 **Szenen** werden erstellt, wenn die Einstellung "set on false" nicht verwendet wird.
 Jede Szene kann individuell konfiguriert werden, sodass Sie **Szenen** und **Gruppen** in einer Adapterinstanz haben können.
-Die **Szene** ist nur eine Liste von Zustands-IDs und Werten, die diese Zustände bei Aktivierung der Szene haben müssen. Z.B. wir haben auf der Szene "_scene.allLightInBath_" erstellt:
+Die **Szene** ist nur eine Liste von Zustands-ID und Werten, die diese Zustände haben müssen, wenn die Szene aktiviert wird. Z.B. wir haben auf der Szene "_scene.allLightInBath_" erstellt:
 
 ```
   scene.allLightInBath
@@ -66,7 +66,7 @@ Außerdem können Sie diese **Szene** direkt mit einer anderen Szenen-ID verknü
 Und jedes Mal, wenn Sie die Tür in der Badewanne öffnen, werden alle Lichter mit Ventilator eingeschaltet.
 
 ## Gruppen
-**Gruppen** sind wie virtuelle Kanäle. Sie können mit Hilfe von **Gruppen** virtuelle Geräte aus mehreren Aktoren erstellen und diese gemeinsam wie ein Gerät steuern.
+**Gruppen** sind wie virtuelle Kanäle. Sie können mit Hilfe von **Gruppen** virtuelle Geräte aus mehreren Aktoren erstellen und diese gemeinsam wie ein Gerät ansteuern.
 Lassen Sie uns unser Beispiel mit den Lichtern des Bades modifizieren.
 
 ```
@@ -100,7 +100,18 @@ Verzögerungen können auch in der **Gruppe** verwendet werden, aber die Zustän
 
 ## Virtuelle Gruppen
 **Virtuelle Gruppen** sind wie virtuelle Kanäle und wie Gruppen, können aber beliebige Werte haben: Zahlen, Zeichenfolgen usw.
-Sie können eine virtuelle Gruppe erstellen, um alle Rollläden im Wohnzimmer zu steuern. Durch das Schreiben von 40% in die virtuelle Gruppe werden alle Rollläden auf 40% gesetzt.
+Sie können eine virtuelle Gruppe erstellen, um alle Rollläden im Wohnzimmer zu steuern.
+Durch das Schreiben von 40% in die virtuelle Gruppe werden alle Rollläden auf 40% gesetzt.
+
+Außerdem können Sie das Verhalten festlegen, für das der Wert der Gruppe verwendet werden soll, wenn nicht alle Zustände der Gruppe den gleichen Wert haben.
+
+Sie können folgende Aggregationen bereitstellen (nur im erweiterten Modus verfügbar):
+
+- `uncertain` - (Standard) - der Wert der Gruppe hat den Text `uncertain`.
+- `any` - erster Wert ungleich Null aller Zustände in der Gruppe.
+- `min` - Minimalwert aller Zustände in der Gruppe.
+- `max` - Maximalwert aller Zustände in der Gruppe.
+- `avg` - Durchschnittswert aller Zustände in der Gruppe.
 
 ## Aktuelle Zustände als Szene speichern
 Um aktuelle Zustände in einigen Szenen zu speichern, können Sie eine Nachricht an den Adapter senden:
@@ -124,9 +135,10 @@ Der Adapter liest alle aktuellen Werte für die in dieser Szene definierten IDs 
 ### __ARBEITEN IN PROGRESS__ -->
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 2.3.8 (2021-08-31)
 * (Apollon77) Handle case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
+* (TyrionWarMage) Added the aggregation mode for the virtual groups.
+* (bluefox) Sentry data will not be sent in front-end if the diagnostic or sentry is disabled
 
 ### 2.3.6 (2021-01-22)
 * (Apollon77) Check state id before getting value (Sentry IOBROKER-SCENES-F)
@@ -244,6 +256,7 @@ Der Adapter liest alle aktuellen Werte für die in dieser Szene definierten IDs 
 ### 0.0.1 (2015-07-29)
 * (bluefox) initial commit
 
+## License
 The MIT License (MIT)
 
 Copyright (c) 2015-2021, Bluefox (dogafox@gmail.com)

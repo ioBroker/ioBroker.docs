@@ -78,6 +78,12 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 3.2.0
+- Textfarbe aktiv/inaktiv für Universal- & Multiwidget
+- Colorslider CIE Wert mit eckigen Klammern
+- Fehler behoben, dass Schattenfarbe bei Universal- & Multiwidget nicht aktualisiert
+- JSON Tabelle: Vorangestellter und angehänget Text
+
 ## 3.1.3
 - Bugfix
 

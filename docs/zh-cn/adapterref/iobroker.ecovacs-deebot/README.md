@@ -3,18 +3,19 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
 title: 适用于 ioBroker 的 Ecovacs Deebot 适配器
-hash: IgMRNinhgcjP0SsX5OmbLg6ko+aTvbgJtvWmYixSeKs=
+hash: dHZcCD7BUFMxDv4Kwwe+MTXvtKM35yOXUqDaCbXHO9I=
 ---
 ![标识](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
 ![稳定版](http://iobroker.live/badges/ecovacs-deebot-stable.svg)
 ![最新版本](http://img.shields.io/npm/v/iobroker.ecovacs-deebot.svg)
 ![安装数量](http://iobroker.live/badges/ecovacs-deebot-installed.svg)
-![下载次数](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
-![新产品经理](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
-![特拉维斯CI](https://travis-ci.org/mrbungle64/ioBroker.ecovacs-deebot.svg?branch=master)
+![每月下载次数](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
+![下载次数](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
 
 # Ecovacs Deebot ioBroker 适配器
+[![github-workflow](https://github.com/mrbungle64/iobroker.ecovacs-deebot/actions/workflows/node.js.yml/badge.svg)](https://github.com/mrbungle64/iobroker.ecovacs-deebot)
+
 此适配器使用 [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js) 库。
 
 ＃＃ 特征
@@ -44,7 +45,8 @@ hash: IgMRNinhgcjP0SsX5OmbLg6ko+aTvbgJtvWmYixSeKs=
 ### 这些模型应该正常工作或至少部分工作
 * Deebot Slim 2
 * Deebot N79 系列
-* 地宝 M88
+* Deebot M88
+* 地宝 500
 * Deebot 600/601/605
 * Deebot 710/711/711s
 * Deebot OZMO 610
@@ -65,7 +67,9 @@ hash: IgMRNinhgcjP0SsX5OmbLg6ko+aTvbgJtvWmYixSeKs=
 当然，没有要求提供完整的功能。
 
 ＃＃ 安装
-建议使用 Node.js 的 12.x 或 14.x 版本。所需的最低版本仍然是 10.x，但可能很快就会改变。
+建议使用 Node.js 的 12.x 或 14.x 版本。
+
+所需的最低版本仍然是 10.x，**但很快就会改变**。
 
 此适配器使用 [节点画布](https://www.npmjs.com/package/canvas) 库来实现一些与地图相关的功能，这些功能可能需要安装一些附加包。
 
@@ -96,7 +100,10 @@ sudo npm install canvas --unsafe-perm=true
 * 常见问题可以在这里找到（https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ）
 
 ＃＃ 已知的问题
-* 对于某些型号（例如 Deebot OZMO 930），建议每天一次[安排重启](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content)因为有一些报告说大约在大约之后连接丢失了。 24小时
+* 对于某些型号（例如 Deebot OZMO 930），建议使用
+
+到 [安排重启](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) 每天一次，因为有一些报告说大约在大约 . 24小时
+
 * 某些清洁功能可能不适用于 Deebot 710/711/711s。请暂时使用 0.5.8 版本。
 * “边缘”功能不适用于 Deebot U2（改为启动自动清洁）
 * T9 系列上的一些“cleaninglog”状态为空（“last20Logs”、“lastCleaningDate”和“lastCleaningMapImageURL”）
@@ -106,10 +113,23 @@ sudo npm install canvas --unsafe-perm=true
 
 ## Changelog
 
+### 1.2.4
+
+* Using library version 0.6.8
+* Some optimizations
+* Preparations for changing the minimum required Node.js version to 12.x
+
+### 1.2.3
+
+* Using library version 0.6.6
+* Lots of code refactoring, optimizations and some fixes
+
 ### 1.2.2
+
 * Added function to load current map image (non 950 type models, e.g. OZMO 930, Deebot 901)
 
 ### 1.2.1
+
 * Some enhancements and fixes
 * (benep) Added state to play sound by id
 

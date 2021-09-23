@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fahrplan/README.md
 title: ioBroker.fahrplan
-hash: RpPf7SiUxswbPgOac7tF/PxNwnYeKzMbzOENkaYnjU8=
+hash: kTK6yHU2pWIjDYV9j1ZE4GdWcFpfNoNcfgBXZsuoeM8=
 ---
 ![Logo](../../../en/adapterref/iobroker.fahrplan/admin/fahrplan.png)
 
@@ -41,7 +41,7 @@ Hierbei werden die nächsten drei Abfahrten einer Station abgerufen und als Obje
 
 ### Englisch
 Dieser Adapter für ioBroker verwendet die mobile API von HAFAS. HAFAS ist ein ÖPNV-Managementsystem, das von ÖPNV-Anbietern in ganz Europa eingesetzt wird, z.B. Deutsche Bahn.
-[HAFAS-Client](https://github.com/public-transport/hafas-client) wird für den Zugriff auf HAFAS verwendet.
+[HAFAS-Client](https://github.com/public-transport/hafas-client) wird verwendet, um auf HAFAS zuzugreifen.
 
 Der Adapter bietet drei Funktionen:
 
@@ -68,7 +68,7 @@ Eine Suchfunktion ist im Tab Einstellungen integriert.
 #### Registerkarte Einstellungen
 ![](../../../en/adapterref/iobroker.fahrplan/docs/de/img/settings.png)
 
-| Einstellung | Beschreibung |--------------------------------|--- | Anbieter | Auswahl des zu verwendenden Anbieters, aktuell DB, ÖBB und SBB | Aktualisierungsintervall | Intervall in dem die Route aktualisiert werden, Angabe in Minuten | Verspätet markieren ab | Verspätung in Minuten ab der Verbindung als verspätet markiert wird. Standardmäßig werden nur Verspätungen ab zwei Minuten markiert | Farbe für Pünktlich | Farbwert für bestätigte Pünktlichkeit | Farbe für Verspätungen | Farbwert für Verspätungen | Überschriftenerstellung | HTML-Tabellen werden mit Überschriften erzeugt | HTML-Ansicht erzeugen für Route | Erzeugt pro Route eine konfigurierbare HTML-Tabelle in einem Objekt | HTML-Ansicht erzeugen pro Verbindung | Erzeugt pro einzelne Verbindung eine HTML-Tabelle in einem Objekt | Detailierte Objekte speichern| Konfiguration der auszugebenden Objekte | JSON-Elemente speichern | Die Rückgabe von HAFAS erfolgt als JSON, this sollte zur Fehlerbehebung gespeichert werden
+| Einstellung | Beschreibung |--------------------------------|--- | Anbieter | Auswahl des zu verwendenden Anbieters, aktuell DB und ÖBB | Aktualisierungsintervall | Intervall in dem die Route aktualisiert werden, Angabe in Minuten | Verspätet markieren ab | Verspätung in Minuten ab der Verbindung als verspätet markiert wird. Standardmäßig werden nur Verspätungen ab zwei Minuten markiert | Farbe für Pünktlich | Farbwert für bestätigte Pünktlichkeit | Farbe für Verspätungen | Farbwert für Verspätungen | Überschriftenerstellung | HTML-Tabellen werden mit Überschriften erzeugt | HTML-Ansicht erzeugen für Route | Erzeugt pro Route eine konfigurierbare HTML-Tabelle in einem Objekt | HTML-Ansicht erzeugen pro Verbindung | Erzeugt pro einzelne Verbindung eine HTML-Tabelle in einem Objekt | Detailierte Objekte speichern| Konfiguration der auszugebenden Objekte | JSON-Elemente speichern | Die Rückgabe von HAFAS erfolgt als JSON, this sollte zur Fehlerbehebung gespeichert werden
 
 Auf der rechten Seite ist die Suchfunktion integriert. Zuerst muss ein Anbieter ausgewählt werden.
 Danach kann über das Suchfeld und Drücken des Knopfs "Suche" nach einer Station gesucht werden.
@@ -108,14 +108,14 @@ Die Suchfunktion für diese IDs ist in den Tab-Einstellungen integriert.
 #### Registerkarte Einstellungen
 ![](../../../en/adapterref/iobroker.fahrplan/docs/en/img/settings.png)
 
-| Einstellung | Beschreibung |-----------------------------------------|--- | Anbieter | Auswahl des ÖPNV-Anbieters, aktuell DB, ÖBB und SBB | Aktualisierungsintervall | Intervall für Aktualisierungen der Routen in Minuten | Verspätet markieren nach Verzögerung in | Definieren Sie Minuten, nachdem eine Verspätung als Verspätung markiert werden soll, standardmäßig wird eine Verspätung markiert, wenn die Verspätung größer als eine Minute ist | Farbe für pünktliche | Farbe für rechtzeitig bestätigt | Farbe für Verzögerungen | Farbe für Verzögerungen | Erstellung von Schlagzeilen für HTML-Tabellen | Schlagzeilen für HTML-Tabellen erstellen | HTML-Ansicht für Route erstellen | Erstellt pro Route eine konfigurierbare HTML-Tabelle in einem Objekt | HTML-Ansicht pro Fahrt erstellen | Erstellt pro Fahrt eine HTML-Tabelle in einem Objekt | Detaillierte Objekte speichern | Konfiguration der Ausgangsobjekte | JSON-Elemente speichern | Rückgabe von HAFAS ist JSON, sollte zur Fehlerbehebung gespeichert werden
+| Einstellung | Beschreibung |-----------------------------------------|--- | Anbieter | Auswahl des ÖPNV-Anbieters, aktuell DB und ÖBB | Aktualisierungsintervall | Intervall für Aktualisierungen der Routen in Minuten | Verspätet markieren nach Verzögerung in | Definieren Sie Minuten, nachdem eine Verspätung als Verspätung markiert werden soll, standardmäßig wird eine Verspätung markiert, wenn die Verspätung größer als eine Minute ist | Farbe für pünktliche | Farbe für rechtzeitig bestätigt | Farbe für Verzögerungen | Farbe für Verzögerungen | Erstellung von Schlagzeilen für HTML-Tabellen | Schlagzeilen für HTML-Tabellen erstellen | HTML-Ansicht für Route erstellen | Erstellt pro Route eine konfigurierbare HTML-Tabelle in einem Objekt | HTML-Ansicht pro Fahrt erstellen | Erstellt pro Fahrt eine HTML-Tabelle in einem Objekt | Detaillierte Objekte speichern | Konfiguration der Ausgangsobjekte | JSON-Elemente speichern | Rückgabe von HAFAS ist JSON, sollte zur Fehlerbehebung gespeichert werden
 
 #### Registerkarte Routen
 ![](../../../en/adapterref/iobroker.fahrplan/docs/en/img/settings_routes.png)
 
 Mit der +-Taste können neue Einträge in die Tabelle eingefügt werden.
 
-| Einstellung | Beschreibung |-----------------------------------------|--- | Nr | Die Nummer entspricht dem Unterknoten in Objekten und wird automatisch vergeben | Aktiv | Verbindungsinformationen werden aktualisiert, wenn die Route aktiv ist | Von | Numerische ID der Startstation oder Starthaltestelle | Von (Benutzerdefinierter Name) | Benutzerdefinierter Name für Startstation oder Startstopp, verwendet in HTML- und Verzögerungsmeldungsausgabe | Nach | Numerische ID des Zielbahnhofs oder der Zielhaltestelle | Von (Benutzerdefinierter Name) | Benutzerdefinierter Name für Zielbahnhof oder Zielhaltestelle, verwendet in HTML- und Verspätungsmeldungsausgabe | Über | Fahrt über Sonderstation als numerische ID (optional, standardmäßig leer) | Fahrzeug | Fahrzeugauswahl, z.B. Bus, S-Bahn, etc. Standardmäßig sind alle Fahrzeuge ausgewählt | max. Überweisungen | Maximale Transfers auf der Strecke, 0 nur für Direktverbindungen | Abflüge | Anzahl der zu empfangenden Abfahrten | Fahrrad | Wählen Sie nur Verbindungen aus, bei denen Fahrräder erlaubt sind | Zeitversatz | Abfahrtszeit: 0 = jetzt, sonst n Minuten = jetzt plus n Minuten
+| Einstellung | Beschreibung |-----------------------------------------|--- | Nr | Die Nummer entspricht dem Unterknoten in Objekten und wird automatisch vergeben | Aktiv | Verbindungsinformationen werden aktualisiert, wenn die Route aktiv ist | Von | Numerische ID der Startstation oder Starthaltestelle | Von (Benutzerdefinierter Name) | Benutzerdefinierter Name für Startstation oder Startstopp, verwendet in HTML- und Verzögerungsmeldungsausgabe | Nach | Numerische ID des Zielbahnhofs oder der Zielhaltestelle | Von (Benutzerdefinierter Name) | Benutzerdefinierter Name für Zielbahnhof oder Zielhaltestelle, verwendet in HTML- und Verspätungsbenachrichtigungsausgabe | Über | Fahrt über Sonderstation als numerische ID (optional, standardmäßig leer) | Fahrzeug | Fahrzeugauswahl, z.B. Bus, S-Bahn, etc. Standardmäßig sind alle Fahrzeuge ausgewählt | max. Überweisungen | Maximale Transfers auf der Strecke, 0 nur für Direktverbindungen | Abflüge | Anzahl der zu empfangenden Abfahrten | Fahrrad | Wählen Sie nur Verbindungen, bei denen Fahrräder erlaubt sind | Zeitversatz | Abfahrtszeit: 0 = jetzt, sonst n Minuten = jetzt plus n Minuten
 
 #### Registerkarte Alarmverzögerung
 ![](../../../en/adapterref/iobroker.fahrplan/docs/en/img/settings_delaynotification.png)
@@ -140,6 +140,18 @@ Mit der +-Taste können neue Einträge in die Tabelle eingefügt werden.
 	### __WORK IN PROGRESS__
 -->
 
+### 1.2.0 (2021-09-19)
+* (Gaudes) Remove support for SBB, not using HAFAS anymore
+* (Gaudes) Fix Hafas error "Bad Gateway" with code 502 (Sentry #26)
+* (Gaudes) Fix unkown station in route (Sentry #7)
+* (Gaudes) Remove support for Node 10
+* (Gaudes) Update to newest Adapter creator for internal dependencies
+* (Gaudes) Include Dependabot updates
+
+### 1.1.1 (2021-06-22)
+* (Gaudes) Advanced error reporting for HAFAS errors
+* (Gaudes) Include Dependabot updates
+
 ### 1.1.0 (2021-06-04)
 * (Gaudes) Time offset for routes and departure tables (Git #88)
 * (Gaudes) Check if unloaded before writing/deleting objects (Sentry #7)
@@ -154,16 +166,6 @@ Mit der +-Taste können neue Einträge in die Tabelle eingefügt werden.
 ### 1.0.6 (2021-03-16)
 * (Gaudes) Fix route selection in delay config
 * (Gaudes) Fix SBB product suburban-train (Sentry #21)
-* (Gaudes) Include Dependabot updates
-
-### 1.0.5 (2021-02-22)
-* (Gaudes) Quality fixing (lgtm.com)
-* (Gaudes) Include Dependabot updates
-
-### 1.0.4 (2021-02-13)
-* (Gaudes) Add product selection to departure timetable
-* (Gaudes) Update HAFAS client to 5.15.1 (Fix error Clientversion with OEBB profile)
-* (Gaudes) Enhanced information reporting on error (Sentry Breadcrumbs)
 * (Gaudes) Include Dependabot updates
 
 ## License

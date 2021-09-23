@@ -3,80 +3,80 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.netatmo-crawler/README.md
 title: ioBroker.netatmo-crawler
-hash: pPbXHYl8EtQujC5VkbkrJRJ+fqthxmTa9bXWSMkRbdk=
+hash: oB8p/jhz6Le9bthZbypmyxDLjomElX9IjZQRjTISB0g=
 ---
-![商标](../../../en/adapterref/iobroker.netatmo-crawler/img/netatmo-logo.png)
+![标识](../../../en/adapterref/iobroker.netatmo-crawler/img/netatmo-logo.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.netatmo-crawler.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.netatmo-crawler.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.netatmo-crawler.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.netatmo-crawler.svg)
 ![安装数量（最新）](http://iobroker.live/badges/netatmo-crawler-installed.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/netatmo-crawler-stable.svg)
 ![依赖状态](https://img.shields.io/david/Bart1909/iobroker.netatmo-crawler.svg)
 ![已知漏洞](https://snyk.io/test/github/Bart1909/ioBroker.netatmo-crawler/badge.svg)
-![建立状态](https://travis-ci.org/Bart1909/ioBroker.netatmo-crawler.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.netatmo-crawler.png?downloads=true)
+![构建状态](https://travis-ci.org/Bart1909/ioBroker.netatmo-crawler.svg?branch=master)
+![新产品管理](https://nodei.co/npm/iobroker.netatmo-crawler.png?downloads=true)
 
-＃ioBroker.netatmo-crawler
-ioBroker的netatmo-crawler适配器
+# IoBroker.netatmo-crawler
+ioBroker 的 netatmo-crawler 适配器
 
 =================
 
-从Netatmo公用站检索信息
+从公共网络气象站抓取信息
 
 目录
 
 =================
 
-* [说明]（＃说明）
-* [一般信息]（＃一般信息）
-* [湿度]（＃湿度）
-* [雨]（＃rain）
-* [压力]（＃压力）
-* [温度]（＃temperature）
-* [Wind]（＃wind）
-* [信息]（＃信息）
-* [学分]（＃credits）
-* [变更日志]（＃changelog）
-* [许可证]（＃license）
+* [说明](#instruction)
+* [一般信息](#general-information)
+* [湿度](#湿度)
+* [雨](#rain)
+* [压力](#压力)
+* [温度](#温度)
+* [风](#wind)
+* [信息](#信息)
+* [积分](#积分)
+* [更新日志](#changelog)
+* [许可证](#license)
 
-指令
+操作说明
 
 ===========
 
-若要查找您的首选气象站的URL，请按照下列步骤操作：
+要查找首选气象站的 url，请按照下列步骤操作：
 
-1.打开[Netatmo天气图]（https://weathermap.netatmo.com）
-2.找到您的电台，然后单击共享图标
+1.打开【Netatmo气象图】(https://weathermap.netatmo.com)
+2. 找到您的电台并点击分享图标
 
    ![分享图像](../../../en/adapterref/iobroker.netatmo-crawler/img/share.jpg)
 
-3.点击*复制链接*
+3. 点击*复制链接*
 
    ![复制链接](../../../en/adapterref/iobroker.netatmo-crawler/img/copyLink.jpg)
 
-4.将链接插入适配器的实例设置
+4.在适配器的实例设置中插入链接
 
-   ![插](../../../en/adapterref/iobroker.netatmo-crawler/img/insert.jpg)
+   ![插入](../../../en/adapterref/iobroker.netatmo-crawler/img/insert.png)
 
 一般信息
 
 ===================
 
-“ Netatmo Crawler”会解析您附近的许多实际本地信息。您如何处理所有这些信息？以下是一些一般事实和示例：
+“Netatmo Crawler”会解析您附近的大量真实本地信息。你如何处理所有这些信息？以下是一些一般事实和示例：
 
-湿度-------- Netatmo使用相对湿度，这是当前绝对湿度与最高可能绝对湿度（取决于当前空气温度）的比率。相对湿度为100％的读数表示空气完全被水蒸气饱和，不能再容纳更多的水，从而可能下雨。这并不意味着要下雨就必须使相对湿度为100％-云正在形成的地方必须为100％，但是靠近地面的相对湿度可能要小得多。
+湿度-------- Netatmo 使用相对湿度，这是当前绝对湿度与可能的最高绝对湿度（取决于当前空气温度）的比率。读数为 100% 的相对湿度意味着空气中的水蒸气完全饱和，不能再保持，因此可能会下雨。这并不意味着相对湿度必须为 100% 才能下雨——云形成的地方必须为 100%，但靠近地面的相对湿度可能要低得多。
 
-雨----用单位毫米。如果您希望每米立方米的单位升，则仍然可以使用。您可以将其用于在花园中浇水（例如）。
+Rain ---- 使用单位毫米。如果您希望单位升每米立方体，您无论如何都可以使用它。您可以使用它在花园里浇水（例如）。
 
-压力--------周围的空气很重，它压着它碰到的所有东西。该压力称为大气压或气压。
-您应该用这个值做什么？听起来很简单：天气预报！高压=好天气，低压=坏天气。
-正常的中间值为1013 mBar。
-对于“真实的”天气预报，您应该需要几个小时的压力记录（我使用四个小时）。
-如果下降，则未来应该是恶劣的天气，如果上升，则应该是良好的天气。
-我找到了[预测脚本在这里](http://www.beteljuice.co.uk/zambretti/forecast.html)（称为zambretti方法，可预测90％）。
+压力 -------- 你周围的空气有重量，它压在它接触到的任何东西上。该压力称为大气压力或气压。
+你应该如何处理这个值？听起来很简单：天气预报！高压 = 好天气，低压 = 坏天气。
+正常的中间值为 1013 mBar。
+对于“真实”天气预报，您应该需要几个小时的压力历史记录（我使用四个小时）。
+如果它下降应该是未来的坏天气，如果它上升应该是好天气。
+我找到了一个 [预测脚本在这里](http://www.beteljuice.co.uk/zambretti/forecast.html)（它被称为 zambretti 方法，用于 90% 的预测）。
 其他单位：1 mbar = 100 Pa = 1 hPa
 
-温度-----------在这里您可以计算冷却温度水平。对于低温，风速（10°C或更低，用风计算）对于高温，可以使用热指数（25°C或更高，用湿度计算）。
+温度 ------------ 在这里您可以计算寒冷的温度水平。对于低温，windchill（10 °C 或更低，用风计算）对于高温，您可以使用热指数（25 °C 或更高，用湿度计算）。
 示例脚本：
 
 ```
@@ -100,20 +100,35 @@ function heat(temperature, humidity) {
 }
 ```
 
-风----风速是衡量空气从高压向低压移动的一种方法，通常是由于温度变化引起的。
-阵风强度是风的最高值，在短时间内（大约三秒钟）测量。
-您应该为遮阳篷或Zambretti方法（上图）做一个脚本。
+风----风速是空气从高压向低压移动的量度，通常是由于温度的变化。
+阵风强度是风的最高值，在短时间内（大约三秒）测量。
+您应该为您的遮阳篷或 Zambretti 方法（见上）编写脚本。
 
-信息---- **此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+信息 ---- **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
 
 学分
 
 =======
 
-非常感谢[反击](https://github.com/backfisch88)的最初想法和支持！
+非常感谢 [回鱼](https://github.com/backfisch88) 最初的想法和支持！
 
 ## Changelog
 
+### 0.6.0
+* (Xenon-s) saves states with acknowledgement (#23 & #26)
+* (Bart19) updates dependencies and documentation (#25 & #27)
+### 0.5.1
+* (Bart19) updates dependencies
+### 0.5.0
+* (Bart19) adds measures for wind and gust with m/s (#22) and do not query rain_today in the first 15 minutes of a day (#21)
+### 0.4.1
+* (Bart19) changes exit code and introduces an exit message
+### 0.4.0
+* (Bart19) Rounds values to two decimals
+### 0.3.13
+* (Bart19) updates dependencies
+### 0.3.9
+* (Bart19) updates dependencies
 ### 0.3.8
 * (Bart19) small fix in error handling
 ### 0.3.7

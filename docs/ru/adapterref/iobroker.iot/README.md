@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iot/README.md
-title: ioBroker IoT-адаптер
-hash: p7+y58cPamys/HPMVn50ltJt7Mtgyizqs0PzeBOubhI=
+title: IoT-адаптер ioBroker
+hash: LTaVi0x0KvCzZYYoc99tWZACJeGmuMSi7a5o+cljcqQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -25,6 +25,11 @@ hash: p7+y58cPamys/HPMVn50ltJt7Mtgyizqs0PzeBOubhI=
 [Ссылка на настройки типа Google API](https://developers.google.com/actions/smarthome/guides/)
 
 ![вступление](../../../en/adapterref/iobroker.iot/img/intro.png)
+
+### Пределы
+У всего есть пределы, поэтому у Amazon Alexa тоже есть свои ограничения. Alexa может поддерживать до 300 устройств.
+
+Google Cloud и Алиса должны быть очищены
 
 ### Язык
 Если вы выберете язык "по умолчанию", умные имена устройств и перечислений переводиться не будут. Если указан какой-либо язык, все известные имена будут переведены на этот язык.
@@ -93,7 +98,7 @@ Alexa, lock the "lock name"
 
 Для этого есть два важных перечисления: комнаты и функции.
 
-Комнаты похожи на: гостиную, с / у, спальню.
+Комнаты такие: гостиная, ванная, спальня.
 Функции такие: свет, жалюзи, обогрев.
 
 Чтобы состояние появилось в автоматически сгенерированном списке, должны быть выполнены следующие условия:
@@ -103,13 +108,13 @@ Alexa, lock the "lock name"
 
 Может быть, канал находится в «функциях», а само состояние нет.
 
-- состояние должно быть доступно для записи: common.write = true
-- государственный диммер должен иметь common.type как 'number'
-- состояние нагрева должно иметь общую единицу как «°C», «°F» или «° K» и общую. тип как «число».
+- состояние должно быть доступно для записи: `common.write` = true
+- у государственного диммера должно быть значение common.type как number
+- государственное отопление должно иметь «common.unit» как «°C», «°F» или «° K» и «common.type» как «number».
 
 Если состояние находится только в «функциях», а не в какой-либо «комнате», будет использоваться имя состояния.
 
-Имена состояний будут сгенерированы из функции и помещения. Например. все *огни* в *гостиной* будут собраны в виртуальном устройстве *свет в гостиной* Пользователь не может изменить это имя, потому что оно генерируется автоматически.
+Имена состояний будут генерироваться из функции и помещения. Например. все *огни* в *гостиной* будут собраны в виртуальном устройстве *свет в гостиной* Пользователь не может изменить это имя, потому что оно генерируется автоматически.
 Но если имя перечисления изменится, это имя тоже изменится. (например, функция «свет» изменена на «свет», поэтому *свет в гостиной* будет изменен на *свет в гостиной*
 
 Все правила будут проигнорированы, если в состоянии указано common.smartName. В этом случае будет использоваться только умное имя.
@@ -125,7 +130,7 @@ Alexa, lock the "lock name"
 Для создания собственных групп пользователь может установить адаптер «сцены» или создать «скрипт» в адаптере Javascript.
 
 ### Заменяет
-Вы можете указать строки, которые могут автоматически заменяться в именах устройств. E. g. если вы установите заменяет на: `.STATE,.LEVEL`, все ".STATE" и ".LEVEL" будут удалены из имен. Будьте осторожны с пробелами.
+Вы можете указать строки, которые могут автоматически заменяться в именах устройств. Например. если вы установите заменяет на: `.STATE,.LEVEL`, все ".STATE" и ".LEVEL" будут удалены из имен. Будьте осторожны с пробелами.
 Если вы установите `.STATE, .LEVEL`, то вместо «.LEVEL» будут заменены «.STATE» и «.LEVEL».
 
 ## Состояния помощника
@@ -138,13 +143,19 @@ Alexa, lock the "lock name"
 ## IFTTT
 [инструкции](doc/ifttt.md)
 
+## Главная страница Google
+Если вы видите в журнале следующее сообщение об ошибке: `[GHOME] Invalid URL Pro key. Status auto-update is disabled you can set states but receive states only manually`.
+Таким образом, вы должны сгенерировать URL-ключ заново:
+
+![URL-адрес](../../../en/adapterref/iobroker.iot/img/url_key.png)
+
 ## Услуги
 Есть возможность отправлять сообщения в облачный адаптер.
 Если вы вызываете `[POST]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>` и значение в качестве полезной нагрузки.
 
 `curl --data "myString" https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>`
 
-или же
+или
 
 `[GET]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>&data=myString`
 
@@ -266,6 +277,9 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 ### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
+### 1.8.23 (2021-09-18)
+* (bluefox) Fixed the response for the heating control
+
 ### 1.8.22 (2021-05-16)
 * (bluefox) Make it admin4 compatible
 
@@ -331,9 +345,6 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 
 ### 1.7.14 (2020-11-05)
 * (bluefox) Updated the select ID dialog.
-
-#### 1.7.13 (2020-10-30)
-* (foxriver76) add eraseOnUpload flag for js-controller 3.2+
 
 ### 1.7.12 (2020-09-25)
 * (bluefox) Updated the select ID dialog.

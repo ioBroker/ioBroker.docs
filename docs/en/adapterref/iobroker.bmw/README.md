@@ -20,6 +20,10 @@ Under remote you can control your car
 
 ## Changelog
 
+### 2.1.0
+
+-   Upgrade to statusV2 and remoteV2
+  
 ### 2.0.0
 
 -   (TA2k) initial release

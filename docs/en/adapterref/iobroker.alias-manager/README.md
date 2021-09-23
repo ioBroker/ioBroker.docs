@@ -89,6 +89,9 @@ Here you can:
 
 ## Changelog
 
+### 1.2.4 (2021-08-25)
+* (sbormann) Fixed autocreate not working after renaming destination id.
+
 ### 1.2.3 (2021-06-05)
 * (sbormann) Fixed autocreate not working after deleting or renaming alias.
 

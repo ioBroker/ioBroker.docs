@@ -3,28 +3,24 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.starline/README.md
 title: ioBroker.starline
-hash: 0e9pfVWdmL6s9gl8je6O9oS7gHaqB19EvFOA6VA+WHo=
+hash: tKAmCdJIRJxCv5NwsM66DKRRbnyp6LdQpxGVntHm3pM=
 ---
 ![Logo](../../../en/adapterref/iobroker.starline/admin/starline_git.jpg)
 
-![Anzahl der Installationen](http://iobroker.live/badges/starline-stable.svg)
-![NPM-Version](https://img.shields.io/npm/v/iobroker.starline.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.starline.svg)
-![NPM](https://nodei.co/npm/iobroker.starline.png?downloads=true)
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-# IoBroker.starline [![Tests] (https://github.com/instalator/iobroker.starline/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.starline/actions/)
-Для работы драйвера необходимо установленное и настроенное противоугонное устройство поддее
+#ioBroker.starline
+ля работы драйвера необходимо установленное und настроенное ротивоугонное устройство оддерживающес 2.0 Star Line сервиа
 
-Драйвер позволяет получать данные состояния автомобиля через сервис StarLine Телематика. https://starline-online.ru.
+райвер позволяет олучать данные состояния автомобиля ерез сервис StarLine елематика. https://starline-online.ru.
 
 ##### Управление основными режимами работы автосигнализации:
   - Постановка/снятие с охраны
-  - Hктивация функции AntiHiJack
+  - ктивация функции AntiHiJack
   - Автозапуск
-  - Valктивация сервисного режима (Valet)
+  - Активация сервисного режима (Diener)
   - Активация доп. каналов
-  - Включение / отключение подогревателя Webasto (При его наличии)
+  - ключение/отключение одогревателя Webasto (При его наличии)
   - Запрос координат автомобиля
   - Отключение датчиков удара и наклона
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis/README.md
 title: Visualisierung
-hash: KHzz5K4cmU2+0wZDuIMwQ6k8XSX96vzulY7MCQdq4vo=
+hash: ryhb2CuqQrlCuXb8bunK8iY61NxkSPTTXOCc7qhEKeE=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
@@ -26,7 +26,7 @@ Aber es gibt noch eine andere Option, um *beliebige* Attribute des Widgets an ei
 
 Schreiben Sie einfach in das Attribut ```{object.id}``` und es wird (nicht im Bearbeitungsmodus) an den Wert dieses Objekts gebunden.
 Wenn Sie das spezielle Format verwenden, können Sie damit sogar einige einfache Operationen durchführen, z. multiplizieren oder formatieren.
-Patten hat folgendes Format:
+Patten hat das folgende Format:
 
 ```
 {objectID;operation1;operation2;...}
@@ -40,8 +40,8 @@ Folgende Operationen werden unterstützt:
 - `/` - teilen. Argument muss in Klammern stehen, wie "/(0.5)". In diesem Beispiel teilen wir den Wert durch 0,5.
 - `%` - modulo. Argument muss in Klammern stehen, wie "%(5)". In diesem Beispiel nehmen wir Modulo von 5.
 - `round` - rundet den Wert.
-- `round(N)` - runden Sie den Wert mit N Stellen nach dem Punkt, z.B. 34.678;rund(1) => 34.7
-- `hex` - Wert in Hexadezimalwert konvertieren. Alle Buchstaben sind klein geschrieben.
+- `round(N)` - Runden Sie den Wert mit N Stellen nach dem Punkt, z.B. 34.678;rund(1) => 34.7
+- `hex` - Wert in hexadezimalen Wert umwandeln. Alle Buchstaben sind klein geschrieben.
 - `hex2` - Wert in hexadezimalen Wert umwandeln. Alle Buchstaben sind klein geschrieben. Bei einem Wert kleiner 16 wird die führende Null hinzugefügt.
 - `HEX` - wie hex, aber in Großbuchstaben.
 - `HEX2` - wie hex2, aber in Großbuchstaben.
@@ -54,7 +54,7 @@ Folgende Operationen werden unterstützt:
 - `floor` - Math.floor
 - `ceil` - Math.ceil
 - `random(R)` - Math.random() * R, oder nur Math.random() wenn kein Argument
-- `formatValue(decimals)` - Wert gemäß Systemeinstellungen formatieren und Dezimalstellen verwenden use
+- `formatValue(decimals)` - Wert entsprechend den Systemeinstellungen formatieren und Dezimalstellen verwenden
 - `date(format)` - Wert als Datum formatieren. Das Format ist wie: "YYYY-MM-DD hh:mm:ss.sss"
 - `momentDate(format, useTodayOrYesterday)` - Formatieren Sie den Wert als Datum mit Moment.js. [Genehmigte Formate müssen gemäß der Bibliothek moment.js eingegeben werden](https://momentjs.com/docs/#/displaying/format/). Mit `useTodayOrYesterday=true` werden die momentjs Formate `ddd`/`dddd` mit heute / gestern überschrieben
 - `array(element1,element2[,element3,element4])` - gibt das Indexelement zurück. z.B.: `{id.ack;array(ack ist falsch,ack ist wahr)}`
@@ -104,7 +104,7 @@ Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(Ma
 ###Sonderbindungen
 Es gibt eine Reihe verschiedener interner Bindungen, um zusätzliche Informationen in Ansichten bereitzustellen:
 
-* `Benutzername` - zeigt den angemeldeten Benutzer an
+* `Benutzername` - zeigt den eingeloggten Benutzer an
 * `view` - Name der aktuellen Ansicht
 * `wname` - Widget-Name
 * `Widget` - ist ein Objekt mit allen Daten des Widgets. Kann nur im JS-Teil verwendet werden, wie `{a:a;widget.data.name}`
@@ -149,7 +149,7 @@ Befehle:
     - `statisch - HTML - Dialog`,
     - `statisch - Symbol - Dialog`,
     - `Container - HTML - Ansicht im jqui-Dialog`,
-    - `container - ext cmd - im jqui-Dialog anzeigen`,
+    - `Container - ext cmd - Ansicht im jqui-Dialog`,
     - `Container - Icon - Ansicht im jqui-Dialog`,
     - `Container - Schaltfläche - Ansicht im jqui-Dialog`.
 
@@ -161,10 +161,10 @@ Befehle:
 
   Sie können Ihre eigene Datei in vis hochladen und abspielen lassen, wie zB `/vis.0/main/img/myFile.mp3`.
 
-Wenn der Benutzer die Ansicht ändert oder beim Start werden die Variablen von der vis mit gefüllt filled
+Wenn der Benutzer die Ansicht ändert oder beim Start werden die Variablen von der vis mit gefüllt
 
 - `control.instance`: Browserinstanz und `ack=true`
-- `control.data`: Projekt- und Ansichtsname im Formular `Projekt/Ansicht`, z. `main/view` (und `ack=true`)
+- `control.data`: Projekt- und Ansichtsname in der Form `Projekt/Ansicht`, z.B. `main/view` (und `ack=true`)
 - `control.command`: `changedView` und `ack=true`
 
 Sie können den JSON-String oder das Objekt in `control.command` als `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}` schreiben. In diesem Fall werden die Instanz und die Daten aus dem JSON-Objekt übernommen.
@@ -187,7 +187,7 @@ Z.B. Sie können zwei Ansichten "Landscape-Mobile" und "Portrait-Mobile" erstell
 
 Es gibt ein Hilfs-Widget "einfach - Bildschirmauflösung", das die aktuelle Bildschirmauflösung und die für diese Auflösung am besten geeignete Standardansicht anzeigt.
 
-## Die Einstellungen
+## Einstellungen
 ### Nachladen, wenn du länger schläfst als
 Es gibt eine Regel, dass nach einer gewissen Unterbrechungszeit die gesamte VIS-Seite neu geladen wird, um das Projekt zu synchronisieren.
 Sie können es im Menü "Einstellungen..." konfigurieren. Wenn Sie das Intervall auf "nie" setzen, wird die Seite nie neu geladen.
@@ -207,7 +207,10 @@ Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung gültig s
 ### __ARBEITEN IN PROGRESS__ -->
 
 ## Changelog
-### 1.4.1 (2021-07-03)
+### 1.4.4 (2021-08-31)
+* (jobe451) Allowed to have ":" in the binding object IDs
+ 
+### 1.4.3 (2021-07-11)
 * (bluefox) Added possibility to check license offline (only special once)
 
 ### 1.4.0 (2021-07-01)
@@ -503,6 +506,14 @@ Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung gültig s
 * (bluefox) add types icon to preview
 * (bluefox) support edit on iPad1
 * (bluefox) change security settings
+
+## License
+To use this adapter in ioBroker you need to accept the source code license of the adapter. The source code of this adapter is available under the CC BY-NC license.
+
+Additionally, you need a license to use the adapter. The following license editions are available on https://iobroker.net/www/pricing 
+* **Community-License: Free for private use!**: Get a free license by registering an account on https://iobroker.net . The license if checked online against the ioBroker license server when the vis adapter is started, so an online connection at this timepoint is required!
+* **Private use Offline-License**: For paying a small support fee you can get rid of the required online license check on adapter startup. **Only for Private use!**
+* **Commercial License**: When using Vis in a commercial environment or selling Vis as part of ioBroker packages to your customers this license is for you. License check is also not requiring an online connection.
 
 ## License
  Copyright (c) 2013-2021 bluefox, https://github.com/GermanBluefox <dogafox@gmail.com>,

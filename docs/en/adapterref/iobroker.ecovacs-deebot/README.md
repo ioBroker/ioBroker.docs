@@ -5,9 +5,9 @@
 ![Stable version](http://iobroker.live/badges/ecovacs-deebot-stable.svg)
 [![Latest version](http://img.shields.io/npm/v/iobroker.ecovacs-deebot.svg)](https://www.npmjs.com/package/iobroker.ecovacs-deebot)
 ![Number of Installations](http://iobroker.live/badges/ecovacs-deebot-installed.svg)
-[![Number of Downloads](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)](https://www.npmjs.com/package/iobroker.ecovacs-deebot)
-[![npm](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)](https://www.npmjs.com/package/iobroker.ecovacs-deebot)
-[![Travis-CI](https://travis-ci.org/mrbungle64/ioBroker.ecovacs-deebot.svg?branch=master)](https://travis-ci.org/mrbungle64/ioBroker.ecovacs-deebot)
+[![Number of monthly downloads](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)](https://www.npmjs.com/package/iobroker.ecovacs-deebot)
+[![Number of downloads](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)](https://www.npmjs.com/package/iobroker.ecovacs-deebot)
+[![github-workflow](https://github.com/mrbungle64/iobroker.ecovacs-deebot/actions/workflows/node.js.yml/badge.svg)](https://github.com/mrbungle64/iobroker.ecovacs-deebot)
 
 This adapter uses the [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js) library.
 
@@ -43,6 +43,7 @@ The models listed are those that I have in use myself or which are technically i
 * Deebot Slim 2
 * Deebot N79 series
 * Deebot M88
+* Deebot 500
 * Deebot 600/601/605
 * Deebot 710/711/711s
 * Deebot OZMO 610
@@ -64,11 +65,15 @@ There is of course no claim to full functionality.
 
 ## Installation
 
-It is recommended to use version 12.x or 14.x of Node.js. The minimum required version is still 10.x, but that may change soon.
+It is recommended to use version 12.x or 14.x of Node.js.
 
-This adapter uses the [node-canvas](https://www.npmjs.com/package/canvas) library for some map-related functionality which may require the installation of some additional packages.
+The minimum required version is still 10.x, **but that will change soon**.
 
-The installation of canvas is optional and not necessary for models without map functionality, but for full functional range please install the following packages.
+This adapter uses the [node-canvas](https://www.npmjs.com/package/canvas) library for some map-related functionality
+which may require the installation of some additional packages.
+
+The installation of canvas is optional and not necessary for models without map functionality, but for full functional
+range please install the following packages.
 
 For Debian-based Linux systems the following commands should be executed:
 ```bash
@@ -97,17 +102,32 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 
 ## Known issues
 
-* For some models (e.g. Deebot OZMO 930) it is recommended to [schedule a restart](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) once a day because there are some reports that the connection is lost after approx. 24 hours
+* For some models (e.g. Deebot OZMO 930) it is recommended
+  to [schedule a restart](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) once a day
+  because there are some reports that the connection is lost after approx. 24 hours
 * Some cleaning functions may not work with Deebot 710/711/711s. Please use version 0.5.8 for now.
 * The "edge" function does not work with Deebot U2 (starts auto clean instead)
 * Some "cleaninglog" states are empty on T9 series ("last20Logs", "lastCleaningDate" and "lastCleaningMapImageURL")
 
 ## Changelog
 
+### 1.2.4
+
+* Using library version 0.6.8
+* Some optimizations
+* Preparations for changing the minimum required Node.js version to 12.x
+
+### 1.2.3
+
+* Using library version 0.6.6
+* Lots of code refactoring, optimizations and some fixes
+
 ### 1.2.2
+
 * Added function to load current map image (non 950 type models, e.g. OZMO 930, Deebot 901)
 
 ### 1.2.1
+
 * Some enhancements and fixes
 * (benep) Added state to play sound by id
 

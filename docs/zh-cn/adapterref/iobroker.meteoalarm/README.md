@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: Ivc9JQq1WS4r3oaGmex9rQJhzXisBdA3bRtHq/dirUc=
+hash: IRGmxo7E7IvvmRP0uCSwzpzMeMcr4qCmO7IdkhiN6pU=
 ---
 ![标识](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -15,7 +15,7 @@ hash: Ivc9JQq1WS4r3oaGmex9rQJhzXisBdA3bRtHq/dirUc=
 # IoBroker.meteoalarm
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
 
-ioBroker 的meteoalarm 适配器---------------------------------------------- -------------------------------- 此适配器正在从 https://meteoalarm.org 拉天气警报，其中包括风、雪、雨、高低温等。此信息以当地语言提供，适用于详细地区。
+ioBroker的meteoalarm适配器---------------------------------------- -------------------------------- 此适配器从 https://meteoalarm.org 拉天气警报，其中包括风、雪、雨、高低温等。此信息以当地语言提供，适用于详细地区。
 
 免责声明：本网站与 www.meteoalarm.org 网站之间可能存在时间延迟，有关参与国家气象服务部门发布的有关警报级别的最新信息，请使用 https://www.meteoalarm.org。
 
@@ -52,6 +52,8 @@ ioBroker 的meteoalarm 适配器---------------------------------------------- -
 “图标”：定义 HTML 小部件中图标的大小
 
 “小部件中没有符号”：不要在 HTML 小部件中使用符号。您仍然可以在对象中访问它。如果您想与小部件分开显示图标，则这是有用的 - 例如在更大的尺寸。
+
+“今天而不是工作日” 在小部件的标题中显示而不是工作日“今天”、“明天”或“昨天”。
 
 ## 警报级别
 |报警级别|说明|
@@ -99,6 +101,19 @@ ioBroker 的meteoalarm 适配器---------------------------------------------- -
 * 瑞士（来自meteoalarm.org 的地理编码文件可能不正确）
 * 葡萄牙（来自meteoalarm.org 的地理编码文件可能不正确）
 * 保加利亚（来自meteoalarm.org 的地理编码文件可能不正确）
+
+## 2.0.5 (2021-08-15)
+* (jack-blackson) 用文字修正日期
+
+## 2.0.4 (2021-08-13)
+* (jack-blackson) 修正自述链接
+
+## 2.0.3 (2021-08-09)
+* (jack-blackson) 在 HTML 小部件中以文字显示日期而不是日期
+* (jack-blackson) 添加了比利时的语言代码
+
+## 2.0.2 (2021-07-15)
+*（杰克布莱克森）修正
 
 ## 2.0.1 (2021-07-08)
 * (jack-blackson) 将警报文件夹名称更改为 Alarm_X

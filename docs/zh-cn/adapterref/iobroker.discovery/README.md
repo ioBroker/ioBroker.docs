@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.discovery/README.md
 title: ioBroker 发现适配器
-hash: RdRGHBIkYaCIaGJ7onXI7yxUdEBVYhhNzPC8GMrMFtQ=
+hash: Rk3aBQW4Y6gRfsf0rrgnDYU2nyJaCR+JESF1iyG6hU4=
 ---
-![商标](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
+![标识](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
 ![安装数量](http://iobroker.live/badges/discovery-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.discovery.svg)
@@ -14,7 +14,7 @@ hash: RdRGHBIkYaCIaGJ7onXI7yxUdEBVYhhNzPC8GMrMFtQ=
 # IoBroker 发现适配器
 ![测试和发布](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) **使用所有已知方法检测设备。**
 
-这是特殊的适配器，它试图找到所有可能的设备，可以从主机访问。
+这是一个特殊的适配器，它试图找到所有可能的设备，可以从主机访问。
 刚才它可以通过ping，UPnP（串行计划）进行检测。
 
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
@@ -53,6 +53,7 @@ hash: RdRGHBIkYaCIaGJ7onXI7yxUdEBVYhhNzPC8GMrMFtQ=
 - 流入数据库
 - KLF-200
 - KNX（实际上已禁用）
+- Keba KeContact P30
 - 科迪
 - 安卓
 - LGTV
@@ -110,10 +111,11 @@ hash: RdRGHBIkYaCIaGJ7onXI7yxUdEBVYhhNzPC8GMrMFtQ=
 - 可见
 - 网络
 
-## 如果适配器找不到 IPs ...
+##如果适配器找不到IP...
 适配器 ping 当前主机 (x.y.z.1..255) 的 IP 的网络。此外，UPnP 和 mDNS 用于检测 IP。
 
-如果没有找到所有 IP，请检查 iobroker 用户是否可以执行 /bin/ping。执行 `sudo setcap cap_net_raw+p /bin/ping` 以添加缺少的功能/权限。
+如果未找到所有 IP，请检查 iobroker 用户是否可以执行 `/bin/ping`。
+您可以执行 `sudo setcap cap_net_raw+p /bin/ping` 以添加缺少的功能/权限。
 
 ＃＃ 去做
 - 艺术网？ (蓝狐)
@@ -134,11 +136,13 @@ hash: RdRGHBIkYaCIaGJ7onXI7yxUdEBVYhhNzPC8GMrMFtQ=
 - 狼（微笑杰克）
 - xs1（坦率的笑话）
 
-<!-- 下一个版本的占位符（在行首）：
+<!-- 下一版本的占位符（在行首）：
 
 ### __工作进行中__ -->
 
 ## Changelog
+### 2.7.2 (2021-08-31)
+* (Sneak-L8) support KeBa KeContact P30
 
 ### 2.7.0 (2021-07-01)
 * (hacki11) Add discovery for BSBLan and ValloxMV
@@ -218,7 +222,7 @@ hash: RdRGHBIkYaCIaGJ7onXI7yxUdEBVYhhNzPC8GMrMFtQ=
 * (oweitman) Add discovery for SqueezeboxRPC
 
 ### 2.1.0 (2020-01-21)
-* (foxriver76) no longer use adapter.objects
+* (foxriver76) no longer use `adapter.objects`
 * __js-controller > 2.0.0 required__
 
 ### 2.0.0 (2019-05-15)

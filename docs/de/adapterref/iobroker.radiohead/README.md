@@ -290,6 +290,9 @@ Die Zähler der Nachrichten können bei Bedarf durch ein Schreiben in das Objekt
 
 ## Changelog
 
+### 1.2.0 (2021-09-17)
+* (crycode-de) Use stringified json for data.incoming state
+
 ### 1.1.1 (2021-01-09)
 * (crycode-de) Small fixes
 * (crycode-de) Updated dependencies

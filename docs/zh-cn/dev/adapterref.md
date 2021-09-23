@@ -4,7 +4,7 @@ lastChanged: 05.05.2021
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterref.md
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
-hash: VNEYNjstH+I1+ngC4LIIX38UBV+wjpexBJICrd3D5SM=
+hash: wE0vp1lO4JVPuSv9cchA14CeWT9kWSPotrwA3Bg+ekA=
 ---
 # 适配器参考
 ## 数据结构 - 对象和状态
@@ -28,13 +28,13 @@ ioBroker 中的适配器是一个独立的进程，它在中央数据存储中�
 * 用户
 * 状态层次结构（通道和设备）
 
-可以在“对象”选项卡上的管理适配器中检查对象和当前状态值。
+可以在“对象”选项卡上的管理适配器中检查对象和当前状态。
 
-对象的名称由不同部分组成。每个部分用“.”表示。彼此分开。有系统对象（名称以 _ 或“系统”开头。）和适配器对象（名称以适配器名称开头）。
+对象的 ID 由不同的部分组成。每个部分用“.”表示。彼此分开。有系统对象（ID 以 _ 或“系统”开头。）和适配器对象（ID 以适配器名称.实例编号开头）。
 
-?> 注意：这里在描述中 **adapterName** 代表开发者想要创建的适配器的名称。
+?> 注意：在描述中，**适配器名称**代表开发人员尝试创建的适配器的名称。
 
-状态可以按通道分组，也可以按设备分组。以下是 Homematic 组和频道的示例：
+对象可以在通道中分组，通道可以在设备中分组。以下是 Homematic 设备和频道的示例：
 
 ```
 * hm-rpc.0.IEQ1234567 - device
@@ -46,7 +46,7 @@ ioBroker 中的适配器是一个独立的进程，它在中央数据存储中�
     * hm-rpc.0.IEQ1234567.0.BATTERY - state
 ```
 
-状态 ID 必须始终以通道名称开头，通道名称必须以设备名称开头。例如，在上面的状态名称 hm-rpc.0.IEQ1234567.0.INFO 中，hm-rpc.0.IEQ1234567.0 部分是通道名称，hm-rpc.0.IEQ1234567 是设备名称。
+对象 ID 必须始终以通道 ID 开头，通道 ID 必须以设备 ID 开头。例如，在上面的状态名称 hm-rpc.0.IEQ1234567.0.INFO 中，hm-rpc.0.IEQ1234567.0 部分是通道 ID，hm-rpc.0.IEQ1234567 是设备 ID。
 
 这用于在层次结构中设置设备、通道和状态的协调。
 
@@ -56,7 +56,7 @@ ioBroker 中的适配器是一个独立的进程，它在中央数据存储中�
 
 ** Instance ** 是适配器的一个实例。根据适配器类型，可以创建多个实例。某些适配器只有一个，例如 Vis 或 Rickshaw。此行为由 io-package.json 中的标志控制。
 
-每个实例的配置对象位于 ID“system.adapter.adapterName.X”下的数据存储中，其中 X 是适配器实例编号。它包含此适配器实例的设置。通常它由“常规”和“本机”设置组成。一般设置为：
+对于每个实例，配置对象位于 ID“system.adapter.adapterName.X”下的数据存储中，其中 X 是适配器实例编号。它包含此适配器实例的设置。通常它由“common”和“native”设置组成。一般设置为：
 
 *`启用`：真/假；
 * `host`：此实例必须在其上运行的主机名；
@@ -68,25 +68,25 @@ ioBroker 中的适配器是一个独立的进程，它在中央数据存储中�
 
 ?> 注意：实例可以运行在不同的主机上（多主机），而且不同主机上的适配器可以有不同的版本。
 
-适配器实例的所有对象 ID 都以 adapterName.X 开头，其中 X 是适配器实例的编号。
+适配器实例的所有对象 ID 都以适配器名称.X 开头，其中 X 是适配器实例的编号。
 
 对象有不同的类型用于不同的目的。
 
 对于每个适配器（不是实例），会自动创建以下对象：
 
-* `system.adapter.adapterName`：适配器的描述（如名称、版本号、...）
-* `adapterName`：由适配器的“www”目录中的 HTML/JS/CSS 文件组成的对象。只有在适配器包中找到 www 目录时才会创建此对象。
-* `adapterName.admin`：由适配器包的“admin”目录中的 HTML/JS/CSS 文件组成的对象。
+* `system.adapter.adaptername`：适配器的描述（如名称、版本号、...）
+* `适配器名称`：由适配器的“www”目录中的 HTML/JS/CSS 文件组成的对象。只有在适配器包中找到“www”目录时才会创建此对象。
+* `adaptername.admin`：由适配器包的“admin”目录中的 HTML/JS/CSS 文件组成的对象。
 
 为每个适配器实例“X”自动创建以下对象：
 
-* `system.adapter.adapterName.X`：适配器实例的配置
-* `system.adapter.adapterName.X.alive`：指示实例是否处于活动状态（每30秒发送一次消息）
-* `system.adapter.adapterName.X.connected`：指定实例是否连接到数据存储。它可能已连接，但由于死锁而无法发送活动消息。
-* `system.adapter.adapterName.X.memHeapTotal`：总内存使用量
-* `system.adapter.adapterName.X.memHeapUsed`：内存使用情况
-* `system.adapter.adapterName.X.memRss`：内存使用情况
-* `system.adapter.adapterName.X.uptime`：适配器运行的秒数。
+* `system.adapter.adaptername.X`：适配器实例的配置
+* `system.adapter.adaptername.X.alive`：指示实例是否处于活动状态（每30秒发送一次消息）
+* `system.adapter.adaptername.X.connected`：指定实例是否连接到数据存储。它可以连接，但由于死锁而无法发送活动消息。
+* `system.adapter.adaptername.X.memHeapTotal`：总内存使用量
+* `system.adapter.adaptername.X.memHeapUsed`：内存使用情况
+* `system.adapter.adaptername.X.memRss`：内存使用情况
+* `system.adapter.adaptername.X.uptime`：适配器运行的秒数。
 
 可以在 [这里](http://stackoverflow.com/questions/12023359/what-do-the-return-values-of-node-js-process-memoryusage-stand-for) 中找到内存状态的说明。
 
@@ -98,23 +98,23 @@ ioBroker 中的适配器是一个独立的进程，它在中央数据存储中�
 
 * `admin`（必需目录）
 * `index.html`
-* `xxx.png` - 可选；更好：`adapterName.png`（支持所有图像格式：jpeg、jpg、svg、bmp、...）
+* `xxx.png` - 可选；更好：`adaptername.png`（支持所有图像格式：jpeg、jpg、svg、bmp、...）
 * `www` - (需要的目录)
 * `lib` - （因为 `utils.js` 需要目录）
 * `utils.js`
 * `package.json` - 必需
 * `io-package.json` - 必需
-* `main.js` - 必需（也可以是`adapterName.js`）
+* `main.js` - 必需（也可以是 `adaptername.js`）
 
-?> 注：lib/utils.js是所有adapter的通用文件，通过它可以确定js控制器的位置和iobroker.js-controller/lib/adapter.js对应的路径。当前的大部分 utils.js 都可以在这里下载。不要更改此文件！
+?> 注：lib/utils.js 是所有适配器通用的文件，通过该文件可以确定js-controller 的位置和iobroker.js-controller/lib/adapter.js 对应的路径。当前的大部分 utils.js 都可以在这里下载。不要更改此文件！
 
 ## 文件名
 为了被 ioBroker 控制器接受和启动，适配器必须遵守命名约定。
 
 * 在 github（或其他地方）上，它必须命名为 `io **B** roker.adapterName`（大写 B）。
-* 如果适配器要在 npm 上可用，它必须具有名称 iobroker.adapterName，因为 npm 不允许在包名称中使用大写字母。可以在 package.json 中定义
+* 如果适配器要在 npm 上可用，它必须具有名称 iobroker.adaptername，因为 npm 不允许在包名称中使用大写字母。可以在 package.json 中定义
 * 用于配置适配器的 GUI HTML 文件必须命名为 admin/index.html。 admin 目录中可以有更多文件，但必须存在 index.html。
-* 适配器启动文件必须命名为 main.js 或 adapterName.js。
+* 适配器启动文件必须命名为 main.js 或 adaptername.js。
 * 适配器名称必须唯一，小写，无特殊字符，无空格。适配器名称中允许使用“-”、“_”。
 
 ## Io-package.json 的结构
@@ -125,7 +125,7 @@ io-package.json 由“admin”读取以找出适配器的在线版本。
 ###常用字段
 最重要的常见字段是：
 
-* `name`：必需。不带“ioBroker.”的适配器名称，即“adapterName”而不是“ioBroker.adapterName”
+* `name`：必需。不带“ioBroker.”的适配器名称，即“adaptername”而不是“ioBroker.adaptername”
 * `版本`：必需的。必须与 package.json 相同。
 * `title`：必填。适配器的简称，如“适配器名称”
 * `desc`：必要。适配器说明。它可以是像“这个适配器做这个和那个”这样的字符串或像这样的对象：
@@ -140,12 +140,12 @@ io-package.json 由“admin”读取以找出适配器的在线版本。
 
 如果没有当前语言的条目，则说明以英文显示。
 
-*`平台`：必要。目前只支持`Javascript / Node.js`。
-*`模式`：必要的。适配器启动的模式。
+* `平台`：必要。目前只支持`Javascript / Node.js`。
+* `mode`：必要。适配器启动的模式。
 * `已启用`：可选。如果为 true，则实例在添加后被激活。
-* `License`：许可适配器的许可名称；
+* `license`：许可适配器的许可名称；
 * `loglevel`：创建实例后设置的初始日志级别。可以是调试、信息、警告或错误
-* `readme`：链接到 Internet 上的自述文件页面。管理适配器用于在“？”时显示链接按钮被点击。
+* `readme`：链接到 Internet 上的自述页面。管理适配器用于在“？”时显示链接按钮被点击。
 * `icon`：适配器图标的图标名称（不是路径）。此图标必须位于适配器的管理员目录中。
 * `extIcon`：Internet 上的图标路径，用于在适配器尚未安装时显示适配器的图标。
 * `keywords`：关键字作为数组以在管理适配器中启用搜索。
@@ -214,9 +214,9 @@ adapter.objects.getObjectView('hm-rpc', 'listDevices',
 ### 实例对象字段
 一些特定的对象或具有类型状态的对象可以在 `io-package.json` 的 `instanceObjects` 中定义。
 
-对于每个创建的实例，将创建来自字段 `instanceObjects` 的所有条目。
+对于创建的每个实例，将创建 `instanceObjects` 字段中的所有条目。
 
-例如，适配器 `hm-rpc` 为每个实例创建状态 `updated` 以便向另一个适配器发出信号，表明某些新设备出现在数据存储中并且它们需要由 §§SSSSS_2 处理§§.
+例如，适配器 `hm-rpc` 为每个实例创建状态 `updated` 以便向另一个适配器发出信号，表明某些新设备出现在数据存储中并且需要由 §§SSSSS_2 进行处理§§.
 
 ```
 "instanceObjects": [
@@ -298,7 +298,7 @@ package.json 是 npm 包的标准描述文件。完整描述可以在 https://do
 npm install https://github.com/yourName/iobroker.adapterName/tarball/master/
 ```
 
-如果一切顺利，并且得到用户的积极反馈，则适配器可以在 npm 上发布。
+如果一切正常并且来自用户的积极反馈，则适配器可以在 npm 上发布。
 要是能提前在github上发表一下就好了。
 
 发布是通过以下命令完成的：
@@ -307,7 +307,7 @@ npm install https://github.com/yourName/iobroker.adapterName/tarball/master/
 npm publish
 ```
 
-这可以在适配器目录中调用。确保除所需文件外的所有其他文件都已删除（例如 `.idea`），或将 `.gitignore` 添加到文件中。
+这可以在适配器目录中调用。确保已删除除所需文件以外的所有其他文件（例如 `.idea`），或将 `.gitignore` 添加到文件中。
 
 当然，首先必须在 npm 上创建一个帐户。
 
@@ -316,7 +316,7 @@ npm publish
 在适配器经过测试并且其他用户发现它有用后，可以将其传输到共享存储库，以便可以使用 `admin` 适配器进行安装。
 
 ## 这就是您创建自己的适配器的方式
-在 https://github.com/ioBroker/ioBroker.template 您可以找到一些适用于您自己的适配器的模板。
+在 https://github.com/ioBroker/ioBroker.template 您可以找到一些模板用于您自己的适配器。
 
 如果要创建小部件或带有小部件的适配器，可以在 https://github.com/ioBroker/ioBroker.example/tree/master/VIS 找到这些。
 
@@ -405,18 +405,11 @@ var adapter = utils.adapter('adapterName');
 * `name` - 适配器的名称，例如B.`适配器名称`
 * `host` - 运行适配器实例的主机名
 * `instance` - 此适配器实例的实例编号
-* `Namespace` - 适配器对象的命名空间，例如B.`适配器名称.0`
+* `namespace` - 适配器对象的命名空间，例如B.`适配器名称.0`
 * `config` - 适配器设置的本机部分
 * `common` - 适配器设置的公共部分
 * `systemConfig` - `iobroker-data / iobroker.json` 的内容（仅当 `options.systemConfig = true` 时）
-* `adapterDir` - 适配器文件夹的路径
-* `ioPack` - `io-package.json` 的内容
-* `pack` - `package.json` 的内容
 * `log` - 记录器对象
-* `version` - 适配器版本
-* `States` -（仅限专家）
-* `Objects` -（仅适用于专家）
-* `connected` - 如果适配器连接到主机
 
 ####最重要的事件
 ```
@@ -578,12 +571,12 @@ Homematic Adapter 订阅了`hm-rpc.0` 的所有状态，并且当收到带有`ac
 
 此更改不是由 hm-rpc 适配器进行的，因为 ack 为真。这是来自物理设备的确认。
 
-####状态是怎么写的？
+#### 状态是怎么写的？
 状态可以写为命令或状态。为此，必须使用 `adapter.setState` 和 `adapter.setForeignState`：
 
 `adapter.setForeignState('otherAdapter.X.someState', 1);` // 控制其他适配器（不需要控制自己的状态，我们可以直接做）
 
-`adapter.setState('myState', 1, true);` // 显示你自己国家的新状态
+`adapter.setState('myState', 1, true);` // 设置自己实例的新状态
 
 `adapter.setState('myState', {val: 1, ack: true});` // 同上
 
@@ -602,11 +595,11 @@ adapter.setState('myState', 1);
 ```
 
 #### 状态结构
-State 是一个 Javascript 对象，具有以下属性：
+状态是一个 Javascript 对象，具有以下属性：
 
 * `val`：状态值（期望值或实际值）
 * `ack`：方向标志。 false 为所需值，true 为实际值。默认值：false（命令）
-* `ts`：时间戳是 1970 年 1 月 1 日午夜和指定日期之间的毫秒数。 Javascript 对象 Date 的 getTime() 方法的结果。默认值：当前时间。
+* `ts`：时间戳为 1970 年 1 月 1 日午夜和指定日期之间的毫秒数。 Javascript 对象 Date 的 getTime() 方法的结果。默认值：当前时间。
 * `lc`：上次更改的时间戳。与 ts 格式相同，但值的时间戳发生变化。该值可能会更新，但该值将保持不变。在这种情况下，lc 不会改变。
 * `from`：定义值的适配器实例的名称，例如“system.adapter.web.0”（带有可见性）
 * `expire`：（可选）可以设置以秒为单位的过期时间限制。在此之后，变量被设置为“零”。例如，通过适配器实例的“活动”状态。如果适配器实例在 30 秒内未触发“活动”状态，则将其标记为“关闭”。要设置过期状态，请使用以下代码 setState ('Variable', {val: true, expire: 30})
@@ -619,7 +612,7 @@ State 是一个 Javascript 对象，具有以下属性：
 * `none` - 此适配器不会启动。
 * `daemon` - 始终运行的进程（进程终止时重新启动）
 * `subscribe` - 当状态 system.adapter ... alive 变为 true 时启动。 .alive 更改为 false 时退出，进程退出时将 .alive 设置为 false（进程退出时不重新启动）
-* `Schedule` - 根据在 system.adapter 中找到的计划启动... common.schedule - 通过重新安排新状态来响应 .schedule 中的更改
+* `schedule` - 根据在 system.adapter 中找到的计划启动... common.schedule - 通过重新安排新状态来响应 .schedule 中的更改
 * `once` - 每次 system.adapter .. 对象更改时都会启动此适配器。完成后不会重新启动。
 
 通常，适配器应该使用模式守护进程。
@@ -660,7 +653,7 @@ adapter.getObject('myObject', function (err, obj) {
 * `创建状态，删除状态`
 * `addStateToEnum, deleteStateFromEnum`
 
-extensObject 只读取一个对象，与特定对象合并并写回一个对象。
+extendObject 只读取一个对象，与特定对象合并并写回一个对象。
 
 `xxxObject` 和 `xxxForeignObject` 之间的区别在于 `xxxObject` 会自动将 `adapter.instance.` 文本添加到对象 ID。
 
@@ -773,16 +766,16 @@ adapter.getForeignObject('otherAdapter.X.someState', function (err, obj) {
 * unload
 ```
 
-### 这就是实例的创建方式
+###这是一个实例的创建方式
 在 npm 中发布之前：复制到 ioBroker / node_modules，转到 `admin` 并添加一个实例。在 npm 中发布后：转到 `ioBroker/` 并写入 `npm install iobroker.xxx --production --no-optional --logevel=error`，转到 `admin` 并添加。
 
-## 这就是调试的方式
+##这就是调试的方式
 * 启动ioBroker
 * 添加一个适配器实例
 * 停用适配器实例
 * 启动 WebStorm
 * 创建用于使用 node.js 进行调试的配置。
-* 应用标志：`--force, instance, log level`（你可以启动适配器为` node xxx.js 1 Debug --force`，1是实例索引（默认为0，debug是日志级别和` - -force`意味着设置“启用：假”被忽略）。
+* 应用标志：`--force, instance, log level`（你可以启动适配器为` node xxx.js 1 Debug --force`，1是实例索引（默认0，Debug是日志级别和`- -force`意味着设置“启用：假”。将被忽略）
 
 ## 管理.html
 ```

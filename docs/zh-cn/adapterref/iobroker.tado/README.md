@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: mXMBDAoCTwgdhbzFlAc6GjyQ4cn8Ywh7uAyKl9acmGg=
+hash: OLUxMuMNdnihxXi8rb+UiZ7OaKyLtsjQfjnmAjL1CsI=
 ---
 ![安装数量](http://iobroker.live/badges/tado-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.tado.svg)
@@ -34,7 +34,7 @@ tado° 确保舒适健康的气候，同时节省高达 31% 的取暖费用。
 | tado.[x].[yyyyy].Rooms.[z].setting.temperature |tado.[x].[yyyyy].Rooms.[z].setting.temperature.celsius |
 | tado.[x].[yyyyy].Rooms.[z].overlay.clearZoneOverlay | tado.[x].[yyyyy].Rooms.[z].overlayClearZone |
 | tado.[x].[yyyyy].Rooms.[z].Actual_Temperature | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.insideTemperature.celsius |
-| tado.[x].[yyyyy].Rooms.[z].Actual_Humidity | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.humity.percentage |
+| tado.[x].[yyyyy].Rooms.[z].Actual_Humidity | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.湿度.percentage |
 | tado.[x].[yyyyy].Rooms.[z].heatingPower | tado.[x].[yyyyy].Rooms.[z]..activityDataPoints.heatingPower.percentage |
 | tado.[x].[yyyyy].Weather.solarIntensity | tado.[x].[yyyyy].Weather.solarIntensity.percentage |
 | tado.[x].[yyyyy].Weather.outsideTemperature | tado.[x].[yyyyy].Weather.outsideTemperature.celsius |
@@ -42,11 +42,56 @@ tado° 确保舒适健康的气候，同时节省高达 31% 的取暖费用。
 一般情况下，如果 API 发送 NULL 或什么都不发送，则值现在为 NULL。在 v0.2.x 中，有时会保留旧值，有时会替换为 0，有时会使用 NULL。
 **很高兴根据您的反馈添加其他主要更改！**
 
+## 你可以驾驭的东西
+|状态 |说明 |
+| ----- | ----------- |
+| tado.[x].[yyyyyy].Rooms.[z].setting.power |打开/关闭设备 |
+| tado.[x].[yyyyyy].Rooms.[z].setting.temperature.celsius |定义温度 |
+| tado.[x].[yyyyyy].Rooms.[z].overlayClearZone |切换到自动模式 |
+| tado.[x].[yyyyyy].Rooms.[z].overlay.termination.typeSkillBasedApp |设置时间表模式 |
+| tado.[x].[yyyyyy].Rooms.[z].overlay.termination.durationInSeconds |设置时间表模式适用的时间 |
+| tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].offset.offsetCelsius |温度偏移|
+| tado.[x].[yyyyyy].Rooms.[z].timeTables.tt_id |选择活动时间表 |
+|风扇速度 | Fanspeed（仅限交流设备）|
+|模式 | AC 模式（仅限 AC 设备）|
+
+**如果您有 AC 设备，请随意为最后两行提供具体的 AC 设备路径！**
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+
+### 0.3.7 (2021-08-24)
+* (HGlab01) ActiveTimeTable can be set (#337)
+* (HGlab01) Improve logs and change code structure a little bit
+* (HGlab01) manage min/max temperature for heating (5-25 celsius) and hotwater (30-80 celsius) to avoid API crashes (#341)
+
+### 0.3.6 (2021-08-16)
+* (HGlab01) support attribute 'orientation' (Sentry: IOBROKER-TADO-35)
+
+### 0.3.5 (2021-08-05)
+* (HGlab01) fix issue 'hot water cannot be switched on' (#309)
+* (HGlab01) change to new sentry dsn
+* (HGlab01) Bump iobroker-jsonexplorer to v0.1.2
+
+### 0.3.4 (2021-07-24)
+* (HGlab01) add attribute 'location' to blacklist (Sentry IOBROKER-TADO-2Y)
+* (HGlab01) support attribute 'swing' (Sentry: IOBROKER-TADO-2G)
+* (HGlab01) support attribute 'end' and 'commandTableUploadState' (Sentry: IOBROKER-TADO-1M)
+
+### 0.3.3 (2021-07-19)
+* (HGlab01) Add attributes title, ssid and code
+* (HGlab01) Improve sentry handling by bumping iobroker-jsonexplorer to v0.1.1
+
+### 0.3.2 (2021-07-15)
+* (HGlab01) Use password handling from JS-Controller framework
+
+### 0.3.1 (2021-07-15)
+* (HGlab01) Works with Node 12.x or higher (simple-oauth2 update dependency)
+* (HGlab01) Bump simple-oauth2 from 2.5.2 to 4.2.0
+* (HGlab01) Prepare for first stable version
 
 ### 0.3.0 (2021-06-26)
 * (HGlab01) Technical re-factoring of state management !BREAKING CHANGES! (see above)
@@ -95,84 +140,12 @@ tado° 确保舒适健康的气候，同时节省高达 31% 的取暖费用。
 * (LutzHelling) Bugfix : Add orientation
 * (LutzHelling) Bugfix : legacyHeatingInstallationsEnabled
 * (HGlab01) Bugfix : Add legacyHeatingInstallationsEnabled to DoHome
-* (HGlab01) Bugfix : Fix unhandled information found in DoReadDevices 
-
-### 0.1.9
-* (DutchmanNL) Implement Sentry
-* (DutchmanNL) Bugfix : Better error handling
-* (DutchmanNL) Bugfix : state creation with JS-controller 3.x
-
-### 0.1.8
-* (DutchmanNL) Correct countdown of "remainingtimeinseconds" implemented.
-
-### 0.1.7
-* (DutchmanNL) Fix Unhandable information found in DoZoneState : "openWindowDetected" 
-
-### 0.1.6
-* (DutchmanNL) fix geoTrackingEnabled & atHome
-* (DutchmanNL) fix error preventFromSubscribing
-
-### 0.1.5  
-* (DutchmanNL) Fix switching on/off heating & related auto mode
-* (DutchmanNL) Fix switching some incorrect logging
-
-### 0.1.4 Fixed Clear Overlay, Open Window & log error's
-* (DutchmanNL) Fixed Clear Overlay to Boolean
-* (DutchmanNL) Fixed datapoints for OpenWindow 
-* (DutchmanNL) Fixed setting overlay correctly for manuel temperature changes (use previous setting instead of always manual)
-* (DutchmanNL) Fixed error message Cannot read property 'percentage' of undefined"
-
-### 0.1.3 Several fixes for reported error's
-* (DutchmanNL) boilerId / onDemandLogRetrievalEnabled / openWindowDetected / onDemandLogRetrievalEnabled
-* (DutchmanNL) Open Window detection implemented, only by device not by room
-
-### 0.1.2 Bug fix
-* (DutchmanNL) Room temperature setting (overlay) fixed
-
-### 0.1.1 Write API information to states
-* (DutchmanNL) Write API information to states
-* (DutchmanNL) Keep temperature settings (do not reset to NULL)
-
-### 0.1.0 Release public Beta & Implement heating on / off
-* (DutchmanNL) Release public Beta
-* (DutchmanNL) Implement heating on / off
-
-### 0.0.9 Implemented room temperature settings
-* (DutchmanNL) Capability to change room temperature
-* (DutchmanNL) small code fixes
-
-### 0.0.8 Implement overlay clear states & control
-* (DutchmanNL) implement capability to reset running polling timer
-* (DutchmanNL) implement clear overlay
-* (DutchmanNL) execute polling after overlay clear
-* (DutchmanNL) reset states to NULL when polling time * 2 no data is received
-
-### 0.0.7 Improve overlay states
-* (DutchmanNL) improve overlay states  (https://github.com/DrozmotiX/ioBroker.tado/issues/1)
-
-### 0.0.6 Implemented away status
-* (DutchmanNL) Implemented away status
-* (DutchmanNL) fixed issue in state reading
-* (DutchmanNL) updated some attributes
-
-### 0.0.5 Public beta, released to latest repository
-* (DutchmanNL) add library to handle propper state and attribute creation
-* (DutchmanNL) beta release to latest repository
-* (DutchmanNL) released on NPM (installable by admin)
-
-### 0.0.3 
-* (DutchmanNL) implement all zone states & data refresh intervall
-
-### 0.0.2
-* (DutchmanNL) Alpha, read zones, their devices and related states
-
-### 0.0.1
-* (DutchmanNL) Alpha, read account and mobile device information
+* (HGlab01) Bugfix : Fix unhandled information found in DoReadDevices
 
 ## License
 MIT License
 
-Copyright (c) 2020 DutchmanNL <rdrozda@hotmail.com>
+Copyright (c) 2021 DutchmanNL <rdrozda@hotmail.com> & HGlab01
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

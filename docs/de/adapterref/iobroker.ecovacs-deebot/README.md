@@ -3,18 +3,19 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: IgMRNinhgcjP0SsX5OmbLg6ko+aTvbgJtvWmYixSeKs=
+hash: dHZcCD7BUFMxDv4Kwwe+MTXvtKM35yOXUqDaCbXHO9I=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
 ![stabile Version](http://iobroker.live/badges/ecovacs-deebot-stable.svg)
 ![Letzte Version](http://img.shields.io/npm/v/iobroker.ecovacs-deebot.svg)
 ![Anzahl der Installationen](http://iobroker.live/badges/ecovacs-deebot-installed.svg)
-![Anzahl der Downloads](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
-![npm](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
-![Travis-CI](https://travis-ci.org/mrbungle64/ioBroker.ecovacs-deebot.svg?branch=master)
+![Anzahl der monatlichen Downloads](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
+![Anzahl der Downloads](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
 
 # Ecovacs Deebot-Adapter für ioBroker
+[![github-workflow](https://github.com/mrbungle64/iobroker.ecovacs-deebot/actions/workflows/node.js.yml/badge.svg)](https://github.com/mrbungle64/iobroker.ecovacs-deebot)
+
 Dieser Adapter verwendet die [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js) Bibliothek.
 
 ## Merkmale
@@ -45,6 +46,7 @@ Die aufgeführten Modelle sind diejenigen, die ich selbst im Einsatz habe oder d
 * Deebot Slim 2
 * Deebot N79-Serie
 * Deebot M88
+* Deebot 500
 * Deebot 600/601/605
 * Deebot 710/711/711s
 * Deebot OZMO 610
@@ -65,7 +67,9 @@ Ich versuche eine breite Palette an Funktionalität zu erreichen, entscheide die
 Es besteht natürlich kein Anspruch auf volle Funktionalität.
 
 ## Installation
-Es wird empfohlen, Version 12.x oder 14.x von Node.js zu verwenden. Die erforderliche Mindestversion ist immer noch 10.x, aber das kann sich bald ändern.
+Es wird empfohlen, Version 12.x oder 14.x von Node.js zu verwenden.
+
+Die erforderliche Mindestversion ist weiterhin 10.x, **aber das wird sich bald ändern**.
 
 Dieser Adapter verwendet die [Knoten-Leinwand](https://www.npmjs.com/package/canvas) Bibliothek für einige kartenbezogene Funktionen, die die Installation einiger zusätzlicher Pakete erfordern können.
 
@@ -96,7 +100,10 @@ Anweisungen für andere Systeme finden Sie unter https://www.npmjs.com/package/c
 * Häufig gestellte Fragen finden Sie [hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
 
 ## Bekannte Probleme
-* Für einige Modelle (zB Deebot OZMO 930) wird empfohlen, einmal täglich einen [Neustart zu planen](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) weil es einige Meldungen gibt, dass die Verbindung nach ca. 24 Stunden
+* Für einige Modelle (z.B. Deebot OZMO 930) wird es empfohlen
+
+zu [einen Neustart planen](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) einmal täglich, da es einige Meldungen gibt, dass die Verbindung nach ca. 24 Stunden
+
 * Einige Reinigungsfunktionen funktionieren möglicherweise nicht mit Deebot 710/711/711s. Bitte verwenden Sie vorerst Version 0.5.8.
 * Die Funktion "edge" funktioniert nicht mit Deebot U2 (startet stattdessen die automatische Reinigung)
 * Einige "cleaninglog"-Zustände sind bei der T9-Serie leer ("last20Logs", "lastCleaningDate" und "lastCleaningMapImageURL")
@@ -106,10 +113,23 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
 
 ## Changelog
 
+### 1.2.4
+
+* Using library version 0.6.8
+* Some optimizations
+* Preparations for changing the minimum required Node.js version to 12.x
+
+### 1.2.3
+
+* Using library version 0.6.6
+* Lots of code refactoring, optimizations and some fixes
+
 ### 1.2.2
+
 * Added function to load current map image (non 950 type models, e.g. OZMO 930, Deebot 901)
 
 ### 1.2.1
+
 * Some enhancements and fixes
 * (benep) Added state to play sound by id
 

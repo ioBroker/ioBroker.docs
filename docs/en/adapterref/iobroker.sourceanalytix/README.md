@@ -246,6 +246,19 @@ When the adapter crashes or any other Code error happens, this error message tha
 -->
 ## Changelog
 
+### 0.4.12-1 (2021-08-26)
+* (DutchmanNL) Add logging to analyse error caught by sentry
+
+### 0.4.12-0 (2021-08-17) Add option to use alias
+* (DutchmanNL) Add possibility to use an alternative name (alias)
+
+### 0.4.11 (2021-08-16)
+* (DutchmanNL) Improve log/error messages at adapter start
+* (DutchmanNL) Bugfix : Cannot read property 'calcValues' of null & related issues found by Sentry
+
+### 0.4.10 (2021-08-10)
+* (DutchmanNL) Bugfix : Avoid adapter crash during night for incorrect configured states [#460](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/460)
+
 ### 0.4.9 (2021-05-31)
 * (DutchmanNL) Added support for Admin 5 (Requires Admin >= 5.1.2)
 * (Bluefox) Fix error in admin

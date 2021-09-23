@@ -134,7 +134,9 @@ The gateway and its taught-in devices are now displayed under *Objects*
 The instructions were created to the best of our knowledge and belief.
 
 ## Changelog
-
+### 1.3.8 (2021-09-13)
+* (VLGorskij) fixed the error messages for some states
+ 
 ### 1.3.7 (2021-01-22)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-MIHOME-A)
 
@@ -244,4 +246,4 @@ The instructions were created to the best of our knowledge and belief.
 ## License
 MIT
 
-Copyright (c) 2017-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2021 bluefox <dogafox@gmail.com>

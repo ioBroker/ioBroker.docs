@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.weatherflow_udp/README.md
 title: 天气流UDP
-hash: wkUB2trbJLMRRL9sQim4KwhGU6YZz1ig6Na+iqSqxlM=
+hash: yxgr2MEMcXFzQZVMqmC5+baOM6kYCy8UA0/+Jotrft4=
 ---
 ![标识](../../../en/adapterref/iobroker.weatherflow_udp/admin/weatherflow_udp.png)
 
@@ -21,20 +21,20 @@ hash: wkUB2trbJLMRRL9sQim4KwhGU6YZz1ig6Na+iqSqxlM=
 **测试：**
 
 ## IoBroker 的 weatherflow_udp 适配器
-Weatherflow UDP 接收器适配器接收和解析[UDP 消息](https://weatherflow.github.io/Tempest/api/udp/v143/) 来自 [Weatherflow](www.weatherflow.com) 智能气象站，如 [Weatherflow Tempest](https://weatherflow.com/tempest-weather-system/)。
-适配器也应该能够解析较旧的电台，如“Air”和“Sky”（但这未经测试）。
+Weatherflow UDP 接收器适配器接收和解析 [UDP 消息](https://weatherflow.github.io/Tempest/api/udp/v143/) 来自 [Weatherflow](www.weatherflow.com) 智能气象站，如 [Weatherflow Tempest](https://weatherflow.com/tempest-weather-system/)。
+适配器也应该能够解析诸如“Air”和“Sky”之类的旧电台（但这未经测试）。
 适配器监听的标准端口是 50222，但可以在设置中更改。
 
 ##设置
 该适配器提供了一组最少的设置选项。
 据我所知，可以更改侦听端口，这不应该是必需的，因为气象站集线器发送的端口无法更改。
 
-以米为单位的站点海拔高度用于从站点提供的本地压力计算减压。只需使用与应用程序中输入的高度相同的高度即可。根据所使用的公式，与应用程序中的减压相比可能存在细微差异。适配器使用德国气象服务 DWD 使用的公式（http://dk0te.ba-ravensburg.de/cgi-bin/navi?m=WX_BAROMETER；找到 [这里](https://www.symcon.de/forum/threads/6480-Relativen-Luftdruck-aus-absoluten-Luftdruck-errechnen)）。
+以米为单位的站点海拔高度用于从站点提供的本地压力计算减压。只需使用与应用程序中输入的高度相同的高度即可。根据所使用的公式，与应用程序中的减压相比可能存在细微差异。适配器使用德国气象服务 DWD 使用的公式 (http://dk0te.ba-ravensburg.de/cgi-bin/navi?m=WX_BAROMETER; nur noch [上级](https://www.symcon.de/forum/threads/6480-Relativen-Luftdruck-aus-absoluten-Luftdruck-errechnen))。
 
 勾选调试复选框后，适配器会在日志文件中创建大量输出。应该只用于调试。
 
 ## 天气流的数据和状态
-适配器提供通过 UDP 协议发送的所有参数。状态位于中心和站点 ID 下方的树中。<b>注意</b>：将数据发送到数据库以进行长期存档时，应使用状态的别名，以免在单元需要更换时丢失系列。 Tempest-App 提供的内容存在一些差异，因为该应用程序从 Weatherflow 服务器获取已处理的数据。如果电池电量充足，“device_status”和“obs_st”数据每分钟更新一次，“rapid_wind”每 3 秒更新一次。 “evt_precip”和“evt_strike”仅在它们发生时更新（和创建）。 “hub_status”每 10 秒更新一次。来自站和适配器的计算值（见下文）仅在接收或计算时创建。这意味着可能需要长达 24 小时才能看到所有内容，但开始下雨和雷击事件可能需要几天、几周、几个月的时间；-)
+适配器提供通过 UDP 协议发送的所有参数。状态位于中心和站点 ID 下方的树中。<b>注意</b>：将数据发送到数据库以进行长期存档时，如果单元需要更换，应使用状态的别名以免丢失系列。 Tempest-App 提供的内容存在一些差异，因为该应用程序从 Weatherflow 服务器获取已处理的数据。如果电池电量充足，“device_status”和“obs_st”数据每分钟更新一次，“rapid_wind”每 3 秒更新一次。 “evt_precip”和“evt_strike”仅在它们发生时更新（和创建）。 “hub_status”每 10 秒更新一次。来自站和适配器的计算值（见下文）仅在接收或计算时创建。这意味着可能需要长达 24 小时才能看到所有内容，但开始下雨和雷击事件可能需要几天、几周、几个月的时间；-)
 
 ## 适配器计算状态
 除了系统提供的数据外，适配器还会计算一些额外的数据，这些数据都有“适配器计算”作为名称后缀：
@@ -46,7 +46,7 @@ Weatherflow UDP 接收器适配器接收和解析[UDP 消息](https://weatherflo
 - 根据此比例提供降水强度：无（0）：0 毫米/小时；非常轻(1)：> 0, < 0.25 毫米/小时；光（2）：≥ 0.25，< 1.0 毫米/小时；中等(3)：≥ 1.0，< 4.0 毫米/小时；重型（4）：≥ 4.0，< 16.0 毫米/小时；非常重 (5)：≥ 16.0，< 50 毫米/小时；极端（6）：> 50.0 毫米/小时
 - 下雨也在 precip_evt 中显示为布尔状态（真、假）。如果接收到降水事件并且降水值 >0，它将被设置为 true。 3 分钟后，如果不再下雨则重置
 - 阳光也显示为布尔状态，如果 >= 120 W/m2，则为 true，如果小于，则为 false
-- 从以度为单位的风向计算的基数字母 (NSWE) 中的风向。
+- 从风向以度数计算的基数字母 (NSWE) 风向。
 
 此外，该适配器还为今天和昨天提供了一系列有用的参数最小值和最大值。
 
@@ -57,6 +57,8 @@ Weatherflow UDP 接收器适配器接收和解析[UDP 消息](https://weatherflo
 当没有检测到闪电时，协议发送一个闪电距离 0。值 0 被修改为 999 以避免雷击直接在头顶上的印象。
 
 ## Changelog
+### 0.1.1
+(womi) Fixed "invalid date" in timestamps 
 ### 0.1.0
 (womi) Compatibility with Admin 5; Stable version
 

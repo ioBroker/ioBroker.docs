@@ -57,20 +57,12 @@ Build on top of the following projects:
 * add retries: sometimes the Google Home fails to respond to a request
 * more testing
 
-## How to build
-
-1. Checkout from git
-2. Install grunt with `npm install -g gulp-cli`
-3. Install node.js dependencies: `npm install`
-4. Make changes and test them
-5. Change version in package.json
-6. Check changes with `gulp`
-7. Update [changelog](#changelog) and [news](io-package.json) with this [translator](http://iobroker.net:3000/)
-8. npm test
-9. git commit & push
-10. npm publish
 
 ## Changelog
+### 3.0.0 (2021-08-25)
+* (jey cee) Breaking change: Object IDs are now mac addresses instead names 
+
+
 ### 2.3.1 (2019-10-23)
 * (angelnu) Tested compact mode works in Linux and Windows
 
@@ -221,7 +213,7 @@ Build on top of the following projects:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2020 Vegetto <iobroker@angelnu.com>
+Copyright (c) 2015-2021 Vegetto <iobroker@angelnu.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

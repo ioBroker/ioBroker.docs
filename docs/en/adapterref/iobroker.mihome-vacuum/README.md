@@ -78,7 +78,9 @@ Please open Browser, go to Mihome and login. Enter the code you received via mai
 
 ## Configuration
 Currently, finding the token is the biggest problem.
-PLease follow the instruction in the Link:
+One option to extract the token is using this utility: https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor
+
+Otherwise please follow the instruction in the Link:
 
 [Token tutorial](https://www.smarthomeassistent.de/token-auslesen-roborock-s6-roborock-s5-xiaomi-mi-robot-xiaowa/).
 
@@ -280,6 +282,10 @@ The supported commands are:
 - Widget at the time without function
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (MeisterTR) fix no rooms for S5
+* (MeisterTR) fix IOBROKER-MIHOME-VACUUM-4 DB closed
+
 ### 3.2.2 (2021-07-16)
 * (bluefox) the communication is corrected
 * (bluefox) Added roles to be detected by type-detector

@@ -24,11 +24,17 @@ You can set option *Force Web-Sockets* to force using only web-sockets transport
 Read [here](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
 
 ## Extensions
-Web driver supports extensions. The extension is URL handler, that will be called if such URL request appears.
-The extensions look like the normal adapter, but they have no running process and will be called by web server.
+Web driver supports extensions. 
+The extension is URL handler, that will be called if such URL request appears.
+The extensions look like the normal adapter, but they have no running process 
+and will be called by web server.
 
 E.g. the user can activate special proxy adapter and reach other devices (like webcams) in the same web server.
 It is required to let all services be available under one web server.
+
+Web-extension could and should support `unload` function, that could return `promise` if the unload action will take some time. 
+
+You can read more about web-extensions [here](WEB-EXTENSIONS-HOWTO.md).
 
 ## Brute-force protection
 If authentication is enabled and the user enters 5 times invalid password during one minute, he must wait at least one minute till next attempt.
@@ -66,12 +72,25 @@ Allows Login via Basic Authentication by sending `401` Unauthorized with a `WWW-
 This can be used for applications like *FullyBrowser*. When entering the wrong credentials once, you will be redirected 
 to the Login Page. 
 
+## Advanced options
+### Default redirect
+If by opening of web port im browser no APP selection should be shown, but some specific application, 
+the path could be provided here (e.g. `/vis/`) so this path will be opened automatically.
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
 
 ## Changelog
+### 3.4.9 (2021-08-11)
+* (bluefox) Fixed error with access list
+* (bluefox) Added support of the unload function for web-extensions 
+* (bluefox) Added readme for the web-extensions development 
+ 
+### 3.4.8 (2021-08-10)
+* (bluefox) added the default redirect option
+ 
 ### 3.4.7 (2021-07-31)
 * (bluefox) Corrected the small config GUI error
  

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.chromecast/README.md
 title: ioBroker.chromecast
-hash: Ae1OlCHGy/tIEHalqMKQSUTdoon2Kz4ylbi3rPoOpyM=
+hash: d/Aq7vBZic6A+uuE8QF2I3SiZMupnLSB0tjyEXjn8Vs=
 ---
 ![Logo](../../../en/adapterref/iobroker.chromecast/admin/home.png)
 
@@ -13,67 +13,62 @@ hash: Ae1OlCHGy/tIEHalqMKQSUTdoon2Kz4ylbi3rPoOpyM=
 ![Build-Status](https://travis-ci.org/angelnu/ioBroker.chromecast.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.chromecast.png?downloads=true)
 
-# IoBroker.chromecast
+#ioBroker.chromecast
 ## Ein Google Home-Adapter für ioBroker
-Mit diesem Plugin können Sie Video- und / oder Audiogeräte von Google Home-Geräten erkennen. Für jedes erkannte Home-Gerät wird ein ioBroker-Gerät erstellt. Dieses Gerät zeigt den Status des Geräts an und ermöglicht das Senden einer neuen URL für die Umwandlung.
+Dieses Plugin ermöglicht die Erkennung von Video- und/oder Audio-Google Home-Geräten. Für jedes erkannte Home-Gerät wird ein ioBroker-Gerät erstellt. Dieses Gerät zeigt den Status des Geräts an und ermöglicht es, ihm eine neue URL zum Casten zu senden.
 
-Bauen Sie auf folgenden Projekten auf:
+Bauen Sie auf den folgenden Projekten auf:
 
-  * [ioBroker] (http://www.iobroker.net)
-  * [node-castv2-client] (https://github.com/thibauts/node-castv2-client) als Home-Client-Bibliothek.
+  * [ioBroker](http://www.iobroker.net)
+  * [node-castv2-client](https://github.com/thibauts/node-castv2-client) als Home-Client-Bibliothek.
 
 ## Anweisungen
-1. Installieren Sie den ioBroker
-   1. Gehen Sie zur Registerkarte "ioBroker-Adapter"
-   2. Wählen Sie den Google Home-Adapter aus und installieren Sie ihn
-2. Fügen Sie eine Instanz des Google-Home-Adapters hinzu
-   * es sollte automatisch ausgeführt werden, nachdem es installiert wurde
+1. In ioBroker installieren
+   1. Gehen Sie zu Ihrem ioBroker-Adapter-Tab
+   2. Wählen Sie den Google Home-Adapter aus und installieren Sie ihn
+2. Fügen Sie eine Instanz des Google Home-Adapters hinzu
+   * Es sollte nach der Installation automatisch ausgeführt werden
 3. (optional) Wenn Sie lokale Dateien streamen möchten, müssen Sie den Adapter konfigurieren
-   * Sie benötigen eine ioBroker-Webserverinstanz
-4. Überprüfen Sie Ihr Protokoll: Sie sollten Protokolle zu den erkannten Geräten anzeigen
-5. Schreiben Sie eine URL, wie z .net / ps-dieneue_rock / livestream_hi.mp3) an chromecast.0.` <Ihr Chromecast-Name> `.player.url2play
+   * Sie benötigen eine ioBroker-Webserver-Instanz
+4. Überprüfen Sie Ihr Protokoll: Sie sollten Protokolle über die erkannten Geräte sehen
+5. Schreiben Sie eine URL wie [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar .net/ps-dieneue_rock/livestream_hi.mp3) zum chromecast.0.`<Ihr Chromecast-Name>`.player.url2play
 6. Die URL sollte auf Ihrem Gerät abgespielt werden
 
-## Eigenschaften
+## Merkmale
 * Geräte mit Multicast-DNS erkennen
-  * Optional können Sie weitere manuell konfigurierte Geräte im Admin-Bereich hinzufügen
-* Erstellen Sie ioBroker-Objekte für jedes gefundene Gerät
+  * optional zusätzliche manuell konfigurierte Geräte im Admin-Panel hinzufügen
+* ioBroker-Objekte für jedes gefundene Gerät erstellen
 * Status-, Player-, Medien- und Metadatenkanäle
 * Steuerung des Google Home-Geräts über den Adapter
-  * Lautstärke einstellen
-  * stummschalten / stummschalten
-  * Stoppen Sie die Sendung
-  * Pause
-  * play url (chromecast.0.` <Ihr Google-Home-Name> `.player.url2play)
-    * getestet mit MP3
-      * Vollständige Liste der Formate [hier] (https://developers.google.com/cast/docs/media).
-    * Wenn die URL nicht mit http beginnt, gehen Sie davon aus, dass es sich um eine lokale Datei handelt
-      * Exportdatei über den ioBroker-Webserver
-    * Es spielt nur Faustdateien von Wiedergabelisten wie .m3u ab
+  * Lautstärke einstellen
+  * stumm/stumm schalten
+  * Sendung stoppen
+  * Pause
+  * Play-URL (chromecast.0.`<Ihr Google Home-Name>`.player.url2play)
+    * getestet mit MP3
+      * Vollständige Liste der Formate [hier](https://developers.google.com/cast/docs/media).
+    * Wenn die URL nicht mit http beginnt, dann nehmen Sie an, dass dies eine lokale Datei ist
+      * Datei über ioBroker Webserver exportieren
+    * Es spielt nur die erste Datei von Playlist-Dateien wie .m3u . ab
 * Vis-Widget
-  * HINWEIS: erfordert [gepatchten Vis-Adapter] (https://github.com/angelnu/ioBroker.vis).
-* Anfängliche Unterstützung für Chromecast-Audiogruppen
-  * Hinweis: Dies funktioniert nicht mit SSDP -> standardmäßig in den Adaptereinstellungen deaktivieren
-* Wiederholen Sie den zuletzt wiedergegebenen Stream: Setzen Sie _chromecast.0.` <Ihr Gerät> `.status.playing_ auf _true_.
+  * HINWEIS: erfordert [gepatchten Vis-Adapter] (https://github.com/angelnu/ioBroker.vis).
+* Erster Support für Chromecast-Audiogruppen
+  * Hinweis: dies funktioniert nicht mit SSDP -> standardmäßig in den Adaptereinstellungen deaktivieren
+* Zuletzt gespielten Stream erneut abspielen: _chromecast.0.`<Ihr Gerät>`.status.playing_ einfach auf _true_ setzen
 
 ## Was fehlt?
-* Zustandsmaschine hinzufügen, um Zustände zu verfolgen: erkannt -> verbunden -> Player Loader -> Abspielen
-* Wiederholungen hinzufügen: Manchmal reagiert Google Home nicht auf eine Anfrage
+* Zustandsmaschine zu Track-Zuständen hinzufügen: erkannt -> verbunden -> Player-Loader -> Abspielen
+* Wiederholungsversuche hinzufügen: Manchmal reagiert Google Home nicht auf eine Anfrage
 * mehr testen
 
-## Wie zu bauen
-1. Checkout von git
-2. Installieren Sie grunt mit `npm install -g gulp-cli`
-3. Installieren Sie node.js-Abhängigkeiten: `npm install`
-4. Nehmen Sie die Änderungen vor und testen Sie sie
-5. Ändern Sie die Version in package.json
-6. Überprüfen Sie die Änderungen mit "gulp"
-7. Aktualisieren Sie [changelog] (# changelog) und [news] (io-package.json) mit diesem [Übersetzer] (http://iobroker.net:3000/).
-8. npm test
-9. git begehen & drücken
-10. npm veröffentlichen
-
 ## Changelog
+### 3.0.0 (2021-08-25)
+* (jey cee) Breaking change: Object IDs are now mac addresses instead names 
+
+
+### 2.3.1 (2019-10-23)
+* (angelnu) Tested compact mode works in Linux and Windows
+
 ### 2.2.3 (2019-03-19)
 * news
 
@@ -221,7 +216,7 @@ Bauen Sie auf folgenden Projekten auf:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2019 Vegetto <iobroker@angelnu.com>
+Copyright (c) 2015-2021 Vegetto <iobroker@angelnu.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

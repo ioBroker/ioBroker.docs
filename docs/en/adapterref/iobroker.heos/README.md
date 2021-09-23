@@ -127,6 +127,10 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 
 
 ## Changelog
+### 1.9.1 (2021-08-17)
+* (withstu) fix type issues
+* (withstu) fix roles and repeat state
+
 ### 1.9.0 (2021-07-27)
 * (stephanritscher) add option to configure udp source port
 

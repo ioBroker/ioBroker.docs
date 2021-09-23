@@ -25,6 +25,10 @@ Der Adapter kann über das ISM8i maximal 4  von den nachfolgenden Heizgeräten a
   Ein Wohnraumlüftungsgerät der Baureihe CWL Excellent kann mit dem ISM8i ebenfalls ausgewertet und bedient werden.
 
 ## Changelog
+### 1.3.2 (2021-08-31)
+* (eifel-tech/tobias) Corrected error: DP 149 with correct Type (Issue #30)
+* (eifel-tech/tobias) Changes for js-controller 3.3
+
 ### 1.2.1 [2020.06.20]
 * (schweigel) Corrected error: DPT_Switch in boolean mode didn't work correct
 
@@ -94,7 +98,7 @@ Der Adapter kann über das ISM8i maximal 4  von den nachfolgenden Heizgeräten a
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2020 smiling_Jack
+Copyright (c) 2015-2021 smiling_Jack
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

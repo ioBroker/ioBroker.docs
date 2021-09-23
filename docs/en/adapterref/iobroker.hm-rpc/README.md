@@ -136,6 +136,9 @@ Here, measured values, control and status data are listed; depending on the func
 
 ## Changelog
 
+### 1.14.45 (2021-08-12)
+* (foxriver76) we fixed several sentry issues (closes #368, closes #370)
+
 ### 1.14.43 (2021-07-05)
 * (foxriver76) we now correctly map the role of smoke detectors (closes #354)
  

@@ -3,77 +3,72 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.chromecast/README.md
 title: ioBroker.chromecast
-hash: Ae1OlCHGy/tIEHalqMKQSUTdoon2Kz4ylbi3rPoOpyM=
+hash: d/Aq7vBZic6A+uuE8QF2I3SiZMupnLSB0tjyEXjn8Vs=
 ---
-![商标](../../../en/adapterref/iobroker.chromecast/admin/home.png)
+![标识](../../../en/adapterref/iobroker.chromecast/admin/home.png)
 
 ![安装数量](http://iobroker.live/badges/chromecast-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.chromecast.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.chromecast.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.chromecast.svg)
-![建立状态](https://travis-ci.org/angelnu/ioBroker.chromecast.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.chromecast.png?downloads=true)
+![构建状态](https://travis-ci.org/angelnu/ioBroker.chromecast.svg?branch=master)
+![新产品管理](https://nodei.co/npm/iobroker.chromecast.png?downloads=true)
 
-＃ioBroker.chromecast
-##适用于ioBroker的Google Home适配器
-此插件允许检测视频和/或音频Google Home设备。对于每个检测到的家庭设备，都会创建一个ioBroker设备。此设备显示设备的状态，并允许向其发送新的URL以进行强制转换。
+# IoBroker.chromecast
+## IoBroker 的 Google Home 适配器
+此插件允许检测视频和/或音频 Google Home 设备。对于每个检测到的 Home 设备，都会创建一个 ioBroker 设备。此设备显示设备的状态并允许向其发送新的 URL 以进行投射。
 
 建立在以下项目之上：
 
-  * [ioBroker]（http://www.iobroker.net）
-  * [node-castv2-client]（https://github.com/thibauts/node-castv2-client）作为Home客户端库。
+  * [ioBroker](http://www.iobroker.net)
+  * [node-castv2-client](https://github.com/thibauts/node-castv2-client) 作为家庭客户端库。
 
-##说明
+＃＃ 指示
 1.安装到ioBroker
-   1.转到“ioBroker适配器”选项卡
-   2.选择并安装Google Home适配器
-2.添加Google Home适配器的实例
-   *它应该在安装后自动运行
+   1. 转到您的 ioBroker 适配器选项卡
+   2.选择并安装Google Home适配器
+2. 添加 Google Home 适配器的实例
+   * 安装后应该会自动运行
 3.（可选）如果您计划流式传输本地文件，则需要配置适配器
-   *您需要拥有ioBroker Web服务器实例
-4.检查日志：您应该看到有关检测到的设备的日志
-5.写一个URL，如[http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar） .net / ps-dieneue_rock / livestream_hi.mp3）到chromecast.0。<你的chromecast名称>`.player.url2play
-6. URL应该开始在您的设备上播放
+   * 您需要有一个 ioBroker Web 服务器实例
+4. 检查您的日志：您应该看到有关检测到的设备的日志
+5. 写一个 URL 如 [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar .net/ps-dieneue_rock/livestream_hi.mp3) 到 chromecast.0.`<您的 chromecast 名称>`.player.url2play
+6. URL 应该开始在您的设备上播放
 
 ＃＃ 特征
-*检测具有multicast-dns的设备
-  *可选择在管理面板中添加其他手动配置的设备
-*为每个找到的设备创建ioBroker对象
-*状态，播放器，媒体和元数据频道
-*从适配器控制Google Home设备
-  *设定音量
-  *静音/取消静音
-  *停止广播
-  *停顿
-  *播放网址（chromecast.0。<您的Google主页名称>`.player.url2play）
-    *用MP3测试
-      *完整格式列表[此处]（https://developers.google.com/cast/docs/media）。
-    *当url不以http开头时，则假设这是一个本地文件
-      *通过ioBroker Web服务器导出文件
-    *它只播放播放列表文件中的第一个文件，例如.m3u
-* Vis小部件
-  *注意：需要[patched vis adapter]（https://github.com/angelnu/ioBroker.vis）。
-*对Chromecast音频组的初始支持
-  *注意：这不适用于SSDP  - >默认情况下在适配器设置中禁用
-*再次播放最后播放的流：只需设置_chromecast.0。<your device>`.status.playing_ to _true_
+* 使用多播 DNS 检测设备
+  * 可选择在管理面板中添加额外的手动配置设备
+* 为每个找到的设备创建 ioBroker 对象
+* 状态、播放器、媒体和元数据通道
+* 从适配器控制 Google Home 设备
+  * 设置音量
+  *静音/取消静音
+  * 停止广播
+  * 暂停
+  * 播放网址 (chromecast.0.`<你的 Google Home 名称>`.player.url2play)
+    * 用 MP3 测试
+      * 格式的完整列表 [此处](https://developers.google.com/cast/docs/media)。
+    * 当 url 不以 http 开头时，则假定这是一个本地文件
+      * 通过 ioBroker Web 服务器导出文件
+    * 它只播放播放列表文件中的第一个文件，例如 .m3u
+* 可见小部件
+  * 注意：需要 [patched vis adapter](https://github.com/angelnu/ioBroker.vis)。
+* 初步支持 Chromecast 音频组
+  * 注意：这不适用于 SSDP -> 在适配器设置中默认禁用
+* 再次播放上次播放的流：只需将 _chromecast.0.`<your device>`.status.playing_ 设置为 _true_
 
-＃＃ 缺什么？
-*添加状态机以跟踪状态：检测到 - >连接 - >播放器加载器 - >播放
-*添加重试：有时Google Home无法响应请求
-*更多测试
-
-##如何构建
-1.从git结帐
-2.使用`npm install -g gulp-cli`安装grunt
-3.安装node.js依赖项：`npm install`
-4.进行更改并测试它们
-5.更改package.json中的版本
-6.使用`gulp`检查更改
-7.用[翻译]（http://iobroker.net:3000/）更新[changelog]（#changelog）和[news]（io-package.json）
-8. npm测试
-9. git commit＆push
-10. npm发布
+＃＃ 有什么不见了？
+* 添加状态机来跟踪状态：检测到 -> 已连接 -> 播放器加载器 -> 正在播放
+* 添加重试：有时 Google Home 无法响应请求
+* 更多测试
 
 ## Changelog
+### 3.0.0 (2021-08-25)
+* (jey cee) Breaking change: Object IDs are now mac addresses instead names 
+
+
+### 2.3.1 (2019-10-23)
+* (angelnu) Tested compact mode works in Linux and Windows
+
 ### 2.2.3 (2019-03-19)
 * news
 
@@ -221,7 +216,7 @@ hash: Ae1OlCHGy/tIEHalqMKQSUTdoon2Kz4ylbi3rPoOpyM=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2019 Vegetto <iobroker@angelnu.com>
+Copyright (c) 2015-2021 Vegetto <iobroker@angelnu.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

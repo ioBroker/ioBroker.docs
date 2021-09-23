@@ -4,9 +4,12 @@
 [![NPM version](http://img.shields.io/npm/v/iobroker.linktap.svg)](https://www.npmjs.com/package/iobroker.linktap)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.linktap.svg)](https://www.npmjs.com/package/iobroker.linktap)
 [![Dependency Status](https://img.shields.io/david/Smart-Gang/iobroker.linktap.svg)](https://david-dm.org/Smart-Gang/iobroker.linktap)
-[![Tests](https://img.shields.io/travis/Smart-Gang/ioBroker.linktap.svg)](https://travis-ci.org/Smart-Gang/ioBroker.linktap)
+
+Linux / MAC: [![Tests](https://img.shields.io/travis/Smart-Gang/ioBroker.linktap.svg)](https://travis-ci.org/Smart-Gang/ioBroker.linktap)
+Windows: [![Build status](https://ci.appveyor.com/api/projects/status/x1s8imx6x3ayfsu5/branch/master?svg=true)](https://ci.appveyor.com/project/Smart-Gang/iobroker-linktap/branch/master)
 
 [![NPM](https://nodei.co/npm/iobroker.linktap.png?downloads=true)](https://nodei.co/npm/iobroker.linktap/)
+
 
 ## ioBroker.linktap
 
@@ -29,6 +32,12 @@ All irrigation functions provided by the API have been implemented.
 Important: The desired schedules must be set up in the app prior to use. These can then be enabled / disabled via the adapter. For this purpose the corresponding states of the role "Argument in" must be set additionally.
 
 ## Changelog
+
+### 0.2.1
+* (Smart-Gang) Updated CI testing & dependencies.
+
+### 0.2.0
+* (Smart-Gang) Changed types of state 'signal' to number and of button 'StartEcoInstantMode' to boolean.
 
 ### 0.1.9
 * (Smart-Gang) Community suggestion: The trigger data points (buttons) now have the status set to false by default.

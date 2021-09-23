@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.weatherflow_udp/README.md
 title: Weatherflow UDP
-hash: wkUB2trbJLMRRL9sQim4KwhGU6YZz1ig6Na+iqSqxlM=
+hash: yxgr2MEMcXFzQZVMqmC5+baOM6kYCy8UA0/+Jotrft4=
 ---
 ![Logo](../../../en/adapterref/iobroker.weatherflow_udp/admin/weatherflow_udp.png)
 
@@ -29,12 +29,12 @@ Der Standardport, auf dem der Adapter lauscht, ist 50222, kann aber im Setup ge�
 Der Adapter bietet ein Minimum an Setup-Optionen.
 Der Abhörport kann geändert werden, was nicht erforderlich sein sollte, da der Port, den der Wetterstations-Hub sendet, meines Wissens nicht geändert werden kann.
 
-Die Stationshöhe in Metern über dem Meeresspiegel wird verwendet, um den reduzierten Druck aus dem lokalen Druck zu berechnen, wie er von der Station bereitgestellt wird. Verwenden Sie einfach die gleiche Höhe wie in der App eingegeben. Je nach verwendeter Formel kann es zu kleinen Unterschieden zum reduzierten Druck in der App kommen. Der Adapter verwendet die Formel des Deutschen Wetterdienstes DWD (http://dk0te.ba-ravensburg.de/cgi-bin/navi?m=WX_BAROMETER; gefunden [hier](https://www.symcon.de/forum/threads/6480-Relativen-Luftdruck-aus-absoluten-Luftdruck-errechnen)).
+Die Stationshöhe in Metern über dem Meeresspiegel wird verwendet, um den reduzierten Druck aus dem lokalen Druck zu berechnen, wie er von der Station bereitgestellt wird. Verwenden Sie einfach die gleiche Höhe wie in der App eingegeben. Je nach verwendeter Formel kann es zu kleinen Unterschieden zum reduzierten Druck in der App kommen. Der Adapter verwendet die Formel des Deutschen Wetterdienstes DWD (http://dk0te.ba-ravensburg.de/cgi-bin/navi?m=WX_BAROMETER; nur noch [hier](https://www.symcon.de/forum/threads/6480-Relativen-Luftdruck-aus-absoluten-Luftdruck-errechnen)).
 
 Wenn das Kontrollkästchen Debug aktiviert ist, erstellt der Adapter viel Ausgabe in der Protokolldatei. Sollte nur zum Debuggen verwendet werden.
 
 ##Daten und Zustände von Weatherflow
-Der Adapter stellt alle Parameter bereit, die über das UDP-Protokoll gesendet werden. Die Zustände befinden sich in einer Baumstruktur unter der Hub- und Stations-ID. <b>Achtung</b> : Beim Senden von Daten an Datenbanken zur Langzeitarchivierung sollten Aliase für die Zustände verwendet werden, um die Serie nicht zu verlieren, wenn eine Einheit ersetzt werden muss. Es gibt einige Unterschiede zu dem, was die Tempest-App bietet, da die App die bereits verarbeiteten Daten von den Weatherflow-Servern zurückholt. Bei ausreichender Batterieleistung, &quot;device_status&quot;- und &quot;obs_st&quot;-Daten und wird jede Minute aktualisiert, &quot;rapid_wind&quot; wird alle 3 Sekunden aktualisiert. &quot;evt_precip&quot; und &quot;evt_strike&quot; werden nur aktualisiert (und erstellt), wenn sie passieren. &quot;hub_status&quot; wird alle 10 Sekunden aktualisiert. Von der Station und dem Adapter berechnete Werte (siehe unten) werden erst bei Empfang oder zur Berechnung erstellt. Das bedeutet, dass es bis zu 24 Stunden dauern kann, um alles zu sehen, außer Regenbeginn und Blitzschlagereignissen, die Tage, Wochen, Monate dauern können ;-)
+Der Adapter stellt alle Parameter bereit, die über das UDP-Protokoll gesendet werden. Zustände befinden sich in einer Baumstruktur unter der Hub- und Stations-ID. <b>Achtung</b> : Beim Senden von Daten an Datenbanken zur Langzeitarchivierung sollten Aliase für die Zustände verwendet werden, um die Serie nicht zu verlieren, wenn eine Einheit ersetzt werden muss. Es gibt einige Unterschiede zu dem, was die Tempest-App bietet, da die App die bereits verarbeiteten Daten von den Weatherflow-Servern zurückholt. Bei ausreichender Batterieleistung, &quot;device_status&quot;- und &quot;obs_st&quot;-Daten und wird jede Minute aktualisiert, &quot;rapid_wind&quot; wird alle 3 Sekunden aktualisiert. &quot;evt_precip&quot; und &quot;evt_strike&quot; werden nur aktualisiert (und erstellt), wenn sie passieren. &quot;hub_status&quot; wird alle 10 Sekunden aktualisiert. Von der Station und dem Adapter berechnete Werte (siehe unten) werden erst bei Empfang oder zur Berechnung erstellt. Das bedeutet, dass es bis zu 24 Stunden dauern kann, um alles zu sehen, außer Regenbeginn und Blitzschlagereignissen, die Tage, Wochen, Monate dauern können ;-)
 
 ## Adapter berechnete Zustände
 Zusätzlich zu den vom System bereitgestellten Daten berechnet der Adapter einige zusätzliche Daten, die alle als Namenszusatz „Adapter berechnet“ haben:
@@ -57,6 +57,8 @@ Außerdem bietet der Adapter eine Auswahl nützlicher Minimal- und Maximalwerte 
 Das Protokoll sendet eine Blitzdistanz von 0, wenn kein Blitz erkannt wurde. Werte von 0 werden auf 999 geändert, um den Eindruck zu vermeiden, dass Blitzeinschläge direkt über dem Kopf erfolgen.
 
 ## Changelog
+### 0.1.1
+(womi) Fixed "invalid date" in timestamps 
 ### 0.1.0
 (womi) Compatibility with Admin 5; Stable version
 

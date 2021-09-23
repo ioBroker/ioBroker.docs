@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.coronavirus-statistics/README.md
 title: ioBroker.coronavirus-статистика
-hash: gW9jg70uEEKlA3PAWaRnAxKZqrZMBnBFDoBGPkr9l9o=
+hash: TyH2PWbgdCBYOsKclBSNJh52wlOgfa3Nc07Oq3x/QY4=
 ---
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.coronavirus-statistics.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.coronavirus-statistics.svg)
@@ -16,7 +16,7 @@ hash: gW9jg70uEEKlA3PAWaRnAxKZqrZMBnBFDoBGPkr9l9o=
 <img src="./admin/coronavirus-statistics.png" width="50" height="50" alt="">
 
 # IoBroker.coronavirus-statistics
-![Тестирование и выпуск](https://github.com/c/ioBroker.coronavirus-statistics/workflows/Test%20and%20Release/badge.svg)
+![Тестирование и выпуск](https://github.com/DrozmotiX/ioBroker.coronavirus-statistics/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер живой статистики по коронавирусу для ioBroker
 Адаптер для отображения информации о глобальном коронавирусе и текущих отчетов
@@ -99,11 +99,34 @@ coronavirus-statistics.0	2020-03-21 09:05:31.328	warn	(22937) Timor-Leste not fo
 	* (DutchmanNL) 
 -->
 
-### 0.7.0-4 (2021-03-30)
+### 0.8.2 (2021-08-17)
+* (DutchmanNL & jlssmt) Small code improvements to prepare stable release 
+
+### 0.8.1 (2021-08-16)
+* (DutchmanNL) added definitions for total_boosters
+
+### 0.8.0 (2021-08-12)
+* (jlssmt) Added vaccination data for all countries
+* (DutchmanNL) added definitions for vaccination states
+* (DutchmanNL) Folder structure optimized with devices and channels
+* (DutchmanNL) Code improvement to handle state deletion more efficient
+* (DutchmanNL) Changeover to validated API for German vaccination data of Bundesländer
+* (DutchmanNL) Ensure (country) folder(s) including all states are removed if not selected
+
+### 0.7.2 (2021-06-30)
+* (jlssmt) New vaccination data source for German (our world in data)
+
+### 0.7.1 (2021-06-30)
+* (DutchmanNL) Bugfix: Vaccination data for Germany
+
+### 0.7.0 (2021-06-28)
 * (DutchmanNL) round Impfquote to 2 digits
-* (lembnau) Vaccination data for AstraZeneca Germany added
-* (DutchmanNL) Bugfix : Solve last_update is invalid warn message
-* (DutchmanNL) Bugfix : Solve cannot read property 'Erstimpfung' of undefined
+* (DutchmanNL) Bugfix: Solved last_update is invalid warn message
+* (DutchmanNL) Bugfix: State attribute definition missing for + undefined
+* (DutchmanNL) Bugfix: Solved cannot read property 'Erstimpfung' of undefined
+* (DutchmanNL) Bugfix: State value to set for "xxx.BL" has to be type "number" but received type "string", solves [#237](https://github.com/DrozmotiX/ioBroker.coronavirus-statistics/issues/237)
+* (DutchmanNL) Bugfix: State value to set for "xxx.Tests*" has to be type "string" but received type "number", solves [#237](https://github.com/DrozmotiX/ioBroker.coronavirus-statistics/issues/237)
+* (DutchmanNL/jlssmt) Bugfix: Vaccination data for Germany, several states missing in new API and will not be updated anymore !
 
 ### 0.6.9 (2021-03-22)
 

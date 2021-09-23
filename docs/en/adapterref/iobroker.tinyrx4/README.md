@@ -105,6 +105,11 @@ Bereits benutzte msg-Variablen:
 * v = Batteriespannung
 
 ## Changelog
+### 1.0.1
+- Optimization for js-controller 3.3
+- Fix for negative temperature values
+- Update travis.yml
+
 ### 1.0.0
 - Update dependencies
 - BREAKING CHANGE: Drop node 8 support, requires node 10 or above
@@ -143,7 +148,7 @@ Bereits benutzte msg-Variablen:
 ## License
 MIT License
 
-Copyright (c) 2020 bowao <cryolab@web.de>
+Copyright (c) 2021 bowao <cryolab@web.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

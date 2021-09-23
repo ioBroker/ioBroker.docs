@@ -1,14 +1,16 @@
 ![Logo](admin/synology.png)
 # ioBroker Synology adapter
 
+[![Donate](https://img.shields.io/badge/Donate-YooMoney-green)](https://sobe.ru/na/instalator)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PFUALWTR2CTPY)
+
+
 ![Number of Installations](http://iobroker.live/badges/synology-installed.svg) ![Number of Installations](http://iobroker.live/badges/synology-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.synology.svg)](https://www.npmjs.com/package/iobroker.synology)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.synology.svg)](https://www.npmjs.com/package/iobroker.synology)
-[![Tests](https://github.com/instalator/iobroker.synology/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.synology/actions/)
+[![Tests](https://github.com/iobroker-community-adapters/iobroker.synology/workflows/Test%20and%20Release/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.synology/actions/)
 
 [![NPM](https://nodei.co/npm/iobroker.synology.png?downloads=true)](https://nodei.co/npm/iobroker.synology/)
 
-[![Donate](https://img.shields.io/badge/Donate-YooMoney-green)](https://sobe.ru/na/instalator)
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PFUALWTR2CTPY)
 
 ## Description
 The driver allows you to receive data and manage your Synology NAS server.
@@ -64,6 +66,28 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ```
 
 ## Changelog
+### 2.0.1 (2021-09-17)
+* (MeisterTR) Workarround JSON config Password
+### 2.0.0
+* (instalator) DSM7 support
+
+### 1.1.3 (2021-08-23)
+* (MeisterTR) Fixed 2FA
+
+### 1.1.2 (2021-08-12)
+* (MeisterTR) Fixed datatypes
+* (MeisterTR) added new ConfigJson (if you use 2FA pleease retype in config)
+* (MeisterTR) Fixed snapshot again
+
+### 1.1.1 (2021-08-09)
+* (MeisterTR) fix type of uptime
+* (MeisterTR) fix broken snapshot link
+
+### 1.1.0 (2021-08-07)
+* (MeisterTR) fixes for DSM7
+* (MeisterTR) added release-script
+* (MeisterTR) change testing
+* (MeisterTR) change syno repo to default
 
 ### 1.0.1
 * (thost96) fix for wrong type number [issue 78](https://github.com/instalator/ioBroker.synology/issues/78)

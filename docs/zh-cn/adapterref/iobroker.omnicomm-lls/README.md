@@ -3,25 +3,19 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.omnicomm-lls/README.md
 title: ioBroker.omnicomm-lls
-hash: vxOUb6Lg2KY+nJ7bfXOg9g3RByDkoIu6iYTd33c55CQ=
+hash: cEJR3qJPw3lDlOWu32auHKu/DdysiVyHJuolX4vq3X0=
 ---
 ![标识](../../../en/adapterref/iobroker.omnicomm-lls/admin/logo_admin.png)
 
-![安装数量](http://iobroker.live/badges/omnicomm-lls-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.omnicomm-lls.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.omnicomm-lls.svg)
-![NPM](https://nodei.co/npm/iobroker.omnicomm-lls.png?downloads=true)
 ![捐](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-＃ioBroker.omnicomm-lls
-[![测试]（https://github.com/instalator/iobroker.omnicomm-lls/workflows/Test%20and%20Release/badge.svg）](https://github.com/instalator/ioBroker.omnicomm-lls/actions/)
-
-##用于ioBroker的omnicomm-lls适配器
-获取数据Omnicomm LLS燃油传感器
+# IoBroker.omnicomm-lls
+## IoBroker 的 omnicomm-lls 适配器
+获取数据 Omnicomm LLS 燃料传感器
 
 ## Changelog
 
-### 0.0.6
+### 0.0.7
 * (instalator) initial release
 
 ## License

@@ -28,7 +28,7 @@ Standard port the adpater listens on is 50222 but can be changed in setup.
 The adapter provides a minimum set of setup options.
 The listening port can be changed, which should not be required as the port the weatherstation hub is sending can not be changed, to my knowledge.
 
-The station height in meters above sea level is used to calculate the reduced pressure from local pressure as is provided by the station. Just use the same height as entered in the App. There may be small differences compared to the reduced pressure in the app depending on the formula used. The adapter uses the formula the german weather service DWD is using (http://dk0te.ba-ravensburg.de/cgi-bin/navi?m=WX_BAROMETER; found [here](https://www.symcon.de/forum/threads/6480-Relativen-Luftdruck-aus-absoluten-Luftdruck-errechnen)).
+The station height in meters above sea level is used to calculate the reduced pressure from local pressure as is provided by the station. Just use the same height as entered in the App. There may be small differences compared to the reduced pressure in the app depending on the formula used. The adapter uses the formula the german weather service DWD is using (http://dk0te.ba-ravensburg.de/cgi-bin/navi?m=WX_BAROMETER; nur noch [hier](https://www.symcon.de/forum/threads/6480-Relativen-Luftdruck-aus-absoluten-Luftdruck-errechnen)).
 
 When the debug checkbox is ticked, the adapter creates a lot of output in the log file. Should only be used for debugging.
 
@@ -59,6 +59,8 @@ Further, the adapter provides a selection of useful minimum and maximum values o
 The protocol sends a lightning distance of 0 when no lightning was detected. Values of 0 are modified to 999 to avoid the impression that lightning strikes are directly overhead.
 
 ## Changelog
+### 0.1.1
+(womi) Fixed "invalid date" in timestamps 
 ### 0.1.0
 (womi) Compatibility with Admin 5; Stable version 
 

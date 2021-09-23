@@ -81,6 +81,15 @@ To include a Google Calendar, you must go to the Google Calendar calendar settin
 #### OwnCloud Calendar
 To include a hardcooked calendar of an OwnCloud, you have to approve this calendar in the calendar view in OwnCloud as a hardcourt calendar and there the link.
 
+#### NextCloud Calendar
+To include a NextCloud calendar, the download link of the single desired calendar of a user must be copied in the calendar view in NextCloud.
+To do this, log in to NextCloud as a user and go to 'Calendar'. In the left column, click on the desired calendar by the circle with three dots.
+In the menu that appears hover with the mouse over 'Download' and right click to copy the link.
+Example: https://192.168.1.234/remote.php/dav/calendars/MYCALENDAR/personal/?export (it is important that the link contains "?export").
+
+Enter this URL into the ioBroker.ical adapter with username and password. This must be done individually for all desired calendars of all users.
+
+
 #### Baikal lightweight CalDAV+CardDAV Server
 The Baikal server offers the "ics-export" plugin that allows to export a calendar as a single ICal file. This export plugin is selected with the URL and allows seamless integration with this ioBroker adaptor. Please add the export filter to the URL of your calendar (`https://SERVER/baikal/cal.php/calendars/path/to/calendar?export&accept=ical`). If you encounter authentication issues, please change the `WebDAV authentication type` from `DIGEST` to `BASIC` in the admin settings of the WebUI of the Baikal server.
 
@@ -186,8 +195,16 @@ Whitelist: If you only want to include events of a specific location use regular
 
 ## Changelog
 <!--
-### 1.11.3 (2021-08-04)
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
 -->
+
+### 1.11.4 (2021-09-02)
+* (Apollon77) fix cases where already ended entries where still listed
+* (Apollon77) fix reported sentry crash cases (IOBROKER-ICAL-S, IOBROKER-ICAL-N)
+
+### 1.11.3 (2021-08-04)
+* (JensMaus) fixed timezone related handling
 
 ### 1.11.2 (2021-08-01)
 * (Apollon77) Change one logline to debug

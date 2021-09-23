@@ -19,7 +19,7 @@ This adapter uses the node-red server from https://github.com/node-red/node-red
 
 
 ## Settings
-- Safe mode - Flows will not be started and you can edit the flows to fix some overload problem.
+- Safe mode - Flows will not be started, and you can edit the flows to fix some overload problem.
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -27,6 +27,9 @@ This adapter uses the node-red server from https://github.com/node-red/node-red
 -->
 
 ## Changelog
+### 2.4.1 (2021-08-31)
+* (mickym2) Correct min7max for the object creation 
+* (bluefox) Node-red updated to 1.3.6
 
 ### 2.4.0 (2021-07-16)
 * (Apollon77) update to node-red 1.3.5
@@ -39,7 +42,7 @@ This adapter uses the node-red server from https://github.com/node-red/node-red
 * (Apollon77) Add done calls to OutNode
 
 ### 2.2.0 (2021-03-07)
-* (Apollon77/mickym2) Correct readonly flags. IMPORTANT: Notw Readonly works as it should be. If you worked around the issue before please adjust your nodes!
+* (Apollon77/mickym2) Correct readonly flags. IMPORTANT: Now Readonly works as it should be. If you worked around the issue before please adjust your nodes!
 * (Apollon77) Fix using wildcards inside the id
 * (Apollon77) Update value on out node trigger 
 * (Apollon77) Update to node-red 1.2.9
@@ -57,10 +60,10 @@ This adapter uses the node-red server from https://github.com/node-red/node-red
 * (Apollon77) make sure empty state values do not crash list node
 
 ### 2.0.2 (2020-12-07)
-* (jwiesel) Updated settings.js, node-red and dependencies to latest version.
+* (jwiesel) Updated settings.js, node-red and dependencies to the latest version.
 
 ### 2.0.1 (2020-08-08)
-* (jwiesel) Updated settings.js, node-red and dependencies to latest version.
+* (jwiesel) Updated settings.js, node-red and dependencies to the latest version.
 
 ### 2.0.0 (2020-06-20)
 * (Apollon77) check object and not state to detect if an object exists
@@ -77,7 +80,6 @@ This adapter uses the node-red server from https://github.com/node-red/node-red
 * (Apollon77) make sure adapter namespace is prepended in all situations and so correct objects are created
 * (Apollon77) fix crash cases
 * (Apollon77) make sure msg topic is not overwritten by null 
-
 
 ### 1.16.5 (2020-03-17)
 * (bluefox) Caught errors if state deleted
@@ -110,7 +112,7 @@ This adapter uses the node-red server from https://github.com/node-red/node-red
 * (WolfspiritM) Get Object node added
 
 ### 1.12.0 (2019-10-06)
-* (Apollon77) Allow to enable/diable the projects feature via Admin
+* (Apollon77) Allow to enable/disable the projects feature via Admin
 * (Apollon77) Upgrade to node.red 1.0.1 and also add all now extra npm packages to stay compatible
 
 ### 1.10.1 (2019-09-20)
@@ -228,7 +230,7 @@ This adapter uses the node-red server from https://github.com/node-red/node-red
 * (bluefox) fix readme link
 
 ### 0.2.0 (2015-05-16)
-* (bluefox) allow install of additional npm and node-red packets
+* (bluefox) allow the installation of additional npm and node-red packets
 
 ### 0.1.9 (2015-03-26)
 * (bluefox) fix first start
@@ -266,7 +268,7 @@ This adapter uses the node-red server from https://github.com/node-red/node-red
 
 ### 0.0.6 (2014-11-26)
 * (bluefox) use names like in mqtt: "adapter/instance/device/channel/state"
-* (bluefox) suport of "value" or "object" for input node
+* (bluefox) support of "value" or "object" for input node
 
 ### 0.0.5 (2014-11-22)
 * (bluefox) support of new naming concept

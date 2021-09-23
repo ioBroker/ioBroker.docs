@@ -873,8 +873,11 @@ The adapter is tested with an DENON AVR-X1200W and a Marantz SR5009.
 	### __WORK IN PROGRESS__
 -->
 
+### 1.11.2 (2021-08-08)
+* (foxriver76) we fixed missing conversion to db on equalizer treble state for additional zones (fixes #162)
+
 ### 1.11.1 (2021-06-29)
-* (foxriver76) fixes for silent reconnection - if ETIMEDOUT occurs repeately switch to debug, like for other errors (closes #149)
+* (foxriver76) fixes for silent reconnection - if ETIMEDOUT occurs repeatedly switch to debug, like for other errors (closes #149)
 
 ### 1.11.0 (2021-06-06)
 * (foxriver76) implemented dialog level adjustment for DTS content (closes #143)

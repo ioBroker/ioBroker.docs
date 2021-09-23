@@ -38,6 +38,12 @@ If you like my work, please feel free to provide a personal donation
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.0.2 (2021-08-30) - Optimize error message in case API limit is reached
+* (DutchmanNL) Optimize error message in case API limit is reached
+
+### 1.0.1 (2021-08-17)
+* (DutchmanNL) Add support for windrgr
+* (DutchmanNL) Minor fixes & dependency updates
 
 ### 1.0.0 (2020-09-15)
 * (DutchmanNL) Final version release

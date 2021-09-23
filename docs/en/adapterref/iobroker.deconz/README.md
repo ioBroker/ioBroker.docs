@@ -43,6 +43,9 @@ Examples:
 
 ## Changelog
 
+### 1.3.19 (2021-08-08)
+* fix for js-controller 3.3.x
+
 ### 1.3.17
 * fix crash [#248](https://github.com/iobroker-community-adapters/ioBroker.deconz/issues/248)
 

@@ -2,27 +2,23 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.foobar2000/README.md
-title: Foobar2000 iobroker适配器
-hash: fbOZYCXQIBRpKL+vSNQAHr5EXJhUtwi/2rDWlKRDnEQ=
+title: iobroker 的 Foobar2000 适配器
+hash: JPWqHBGbOgJ7rkGXOWyYl8DeWEZRRltoEGaAABIzxBU=
 ---
 ![标识](../../../en/adapterref/iobroker.foobar2000/admin/foobar2000.png)
 
-![安装数量](http://iobroker.live/badges/foobar2000-stable.svg)
-![NPM版本](https://img.shields.io/npm/v/iobroker.foobar2000.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.foobar2000.svg)
-![NPM](https://nodei.co/npm/iobroker.foobar2000.png?downloads=true)
 ![捐](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-＃iobroker的Foobar2000适配器[![测试]（https://github.com/instalator/iobroker.foobar2000/workflows/Test%20and%20Release/badge.svg）](https://github.com/instalator/ioBroker.foobar2000/actions/)]
+# Iobroker 的 Foobar2000 适配器
 ![管理员设置。](../../../en/adapterref/iobroker.foobar2000/admin/admin.png)
 
 ＃＃ 使用
-Описание[тут](http://blog.instalator.ru/archives/541)。
-Дляуправленияпроигрывателемнеобходимоустановитьплагин[foo_httpcontrol](https://bitbucket.org/oblikoamorale/foo_httpcontrol/downloads/)。
-§§JJJJJ_0_0§§изменитьпараметр§§JJ
+Описание [тут](http://blog.instalator.ru/archives/541).
+Для управления проигрывателем необходимо установить плагин [foo_httpcontrol](https://bitbucket.org/oblikoamorale/foo_httpcontrol/downloads/).
+Для отображения обложки как ссылка на файл, неободимо в файле ```c:\Users\{USER}\AppData\Roaming\foobar2000\foo_httpcontrol_data\foobar2000controller\config``` изменить параметJ_1
 
 要控制播放器，您必须安装插件[foo_httpcontrol](https://bitbucket.org/oblikoamorale/foo_httpcontrol/downloads/)。
-要将封面显示为文件的链接，请在文件```c:\Users\{USER}\AppData\Roaming\foobar2000\foo_httpcontrol_data\foobar2000controller\config```中更改参数§§JJJJJ_1_1§§
+要将封面显示为文件链接，请在文件 ```c:\Users\{USER}\AppData\Roaming\foobar2000\foo_httpcontrol_data\foobar2000controller\config``` 中更改参数 ```albumart_prefer_embedded = 0```
 
 ## Changelog
 

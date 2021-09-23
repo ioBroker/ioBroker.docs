@@ -3,18 +3,19 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecovacs-deebot/README.md
 title: Адаптер Ecovacs Deebot для ioBroker
-hash: IgMRNinhgcjP0SsX5OmbLg6ko+aTvbgJtvWmYixSeKs=
+hash: dHZcCD7BUFMxDv4Kwwe+MTXvtKM35yOXUqDaCbXHO9I=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
 ![Стабильная версия](http://iobroker.live/badges/ecovacs-deebot-stable.svg)
 ![Последняя версия](http://img.shields.io/npm/v/iobroker.ecovacs-deebot.svg)
 ![Количество установок](http://iobroker.live/badges/ecovacs-deebot-installed.svg)
-![Количество загрузок](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
-![npm](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
-![Трэвис-Си](https://travis-ci.org/mrbungle64/ioBroker.ecovacs-deebot.svg?branch=master)
+![Количество скачиваний в месяц](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
+![Количество скачиваний](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
 
 # Ecovacs Адаптер Deebot для ioBroker
+[![github-workflow] (https://github.com/mrbungle64/iobroker.ecovacs-deebot/actions/workflows/node.js.yml/badge.svg)](https://github.com/mrbungle64/iobroker.ecovacs-deebot)
+
 Этот адаптер использует библиотеку [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js).
 
 ## Функции
@@ -45,6 +46,7 @@ hash: IgMRNinhgcjP0SsX5OmbLg6ko+aTvbgJtvWmYixSeKs=
 * Deebot Slim 2
 * Deebot N79 серии
 * Deebot M88
+* Deebot 500
 * Deebot 600/601/605
 * Deebot 710/711/711s
 * Deebot OZMO 610
@@ -64,8 +66,10 @@ hash: IgMRNinhgcjP0SsX5OmbLg6ko+aTvbgJtvWmYixSeKs=
 Я стараюсь достичь широкого диапазона функциональных возможностей, но решаю этот вопрос индивидуально, в зависимости от сложности и различных других критериев.
 Претензий на полную функциональность конечно же нет.
 
-## Монтаж
-Рекомендуется использовать Node.js. версии 12.x или 14.x. Минимальная необходимая версия - все еще 10.x, но это может скоро измениться.
+## Установка
+Рекомендуется использовать Node.js. версии 12.x или 14.x.
+
+Минимальная необходимая версия - все еще 10.x, **но это скоро изменится**
 
 Этот адаптер использует библиотеку [узел-холст](https://www.npmjs.com/package/canvas) для некоторых функций, связанных с картой, которые могут потребовать установки некоторых дополнительных пакетов.
 
@@ -92,11 +96,14 @@ sudo npm install canvas --unsafe-perm=true
 ### Состояния
 * Информацию о состояниях можно найти [здесь] (https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29) (на английском языке) и [здесь] (https:// github .com / mrbungle64 / ioBroker.ecovacs-deebot / wiki / Datenpunkte-% 28DE% 29) (немецкий)
 
-## ВОПРОСЫ-ОТВЕТЫ
+## ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
 * Часто задаваемые вопросы можно найти [здесь] (https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
 
-## Известные проблемы
-* Для некоторых моделей (например, Deebot OZMO 930) рекомендуется [запланировать перезапуск] (https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) один раз в день. потому что есть некоторые сообщения о том, что соединение теряется через прибл. 24 часа
+## Известные вопросы
+* Для некоторых моделей (например, Deebot OZMO 930) рекомендуется
+
+на [запланировать перезапуск](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) один раз в день, потому что есть сообщения о том, что соединение теряется приблизительно через 24 часа
+
 * Некоторые функции очистки могут не работать с Deebot 710/711 / 711s. Пожалуйста, используйте пока версию 0.5.8.
 * Функция "edge" не работает с Deebot U2 (вместо этого запускает автоматическую очистку)
 * Некоторые состояния "журнала очистки" пусты на серии T9 ("last20Logs", "lastCleaningDate" и "lastCleaningMapImageURL")
@@ -106,10 +113,23 @@ sudo npm install canvas --unsafe-perm=true
 
 ## Changelog
 
+### 1.2.4
+
+* Using library version 0.6.8
+* Some optimizations
+* Preparations for changing the minimum required Node.js version to 12.x
+
+### 1.2.3
+
+* Using library version 0.6.6
+* Lots of code refactoring, optimizations and some fixes
+
 ### 1.2.2
+
 * Added function to load current map image (non 950 type models, e.g. OZMO 930, Deebot 901)
 
 ### 1.2.1
+
 * Some enhancements and fixes
 * (benep) Added state to play sound by id
 

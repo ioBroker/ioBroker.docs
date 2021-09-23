@@ -3,25 +3,19 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.exchangerates/README.md
 title: ioBroker.exchangerates
-hash: 68ZjMJ2Tv9VaoDm/OZklWZJ6NKbd6+Z1KK9AvVdQftg=
+hash: Pf9+hzWcDFsycrNHwbRFVAi7El76JEzOLNjw0IWd6Xg=
 ---
 ![Logo](../../../en/adapterref/iobroker.exchangerates/admin/exchangerates.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/exchangerates-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.exchangerates.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.exchangerates.svg)
-![NPM](https://nodei.co/npm/iobroker.exchangerates.png?downloads=true)
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
 # IoBroker.exchangerates
-[![Tests] (https://github.com/instalator/iobroker.exchangerates/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.exchangerates/actions/)
+## Wechselkursadapter für ioBroker
+Wechselkurse Zentralbank von Russland und Europäische Zentralbank und mehr...
 
-## Tauscht Adapter gegen ioBroker aus
-Wechselkurse Zentralbank von Russland und Europäische Zentralbank und mehr ...
+урсы валют ЦБ РФ, Европейского ЦБ и др. в ашем ioBroker.
 
-Курсы валют ЦБ РФ, Европейского ЦБ и др. ioBroker.
-
-[ONурсы ЦБ в в XML и JSON, API](https://www.cbr-xml-daily.ru)
+[урсы in XML und JSON, API](https://www.cbr-xml-daily.ru)
 
 ## Changelog
 

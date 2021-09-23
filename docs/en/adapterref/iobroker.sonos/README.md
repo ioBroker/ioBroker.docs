@@ -32,6 +32,7 @@ Workaround for text to speech is to use the [SONOS HTTP API](https://github.com/
 
 ## To Do
 * Show queue with covers
+* Rewrite with https://github.com/svrooij/node-sonos-ts
 
 ## Changelog
 
