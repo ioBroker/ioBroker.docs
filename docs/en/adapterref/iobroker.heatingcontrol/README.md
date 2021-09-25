@@ -235,6 +235,9 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
+### 2.6.1 (2021-09-25)
+* (René) see issue #258: bug fix fireplace mode and vis
+
 ### 2.6.0 (2021-09-17)
 * (René) maintenance mode added
 

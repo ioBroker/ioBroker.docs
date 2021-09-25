@@ -193,15 +193,23 @@ Here you will find information about the history of the current day.
 ## Changelog 
 <!--
     Placeholder for the next version (at the beginning of the line):
-    ## __WORK IN PROGRESS__
+    ### __WORK IN PROGRESS__
     * Did some changes
     * Did some more changes
 -->
+### 1.1.10 (2021-09-24)
+* (afuerhoff) dependencies updated
+
+### 1.1.9 (2021-09-24)
+* (afuerhoff) dependencies updated
+* (afuerhoff) issue #63: getExtIp logging solved
+* (afuerhoff) issue #65: wrong logging in instance > 0 solved  
+* (afuerhoff) qr-code WPA2 + WPA3 fixed
+
 ### 1.1.8 (2021-09-01)
 * (afuerhoff) issue#61: units added
 * (afuerhoff) workaround for 7390 added (missing systemVersion in xml)
 * (afuerhoff) dependencies updated
-
 
 ### 1.1.7 (2021-06-23)
 * (afuerhoff) message handling optimized
@@ -211,32 +219,6 @@ Here you will find information about the history of the current day.
 * (afuerhoff) html input pattern fixed for password and user
 * (afuerhoff) getActive function fixed
 * (afuerhoff) dependencies updated
-
-### 1.1.5 (2021-06-03)
-* (afuerhoff) dependencies updated
-* (afuerhoff) checkservice fixed
-
-### 1.1.4 (2021-05-11)
-* (afuerhoff) family groups implemented
-* (afuerhoff) compatability mode implemented
-* (afuerhoff) dependencies updated
-* (afuerhoff) configuration options added
-* (afuerhoff) dialogboxes optimized
-* (afuerhoff) translations updated
-* (afuerhoff) general program structure optimized
-* (afuerhoff) filter for family members implemeted
-* (afuerhoff) password handling updated
-* (afuerhoff) documentation updated
-* (afuerhoff) QR-Code implemented
-* (afuerhoff) setState presence only if changed
-* (afuerhoff) access rights implemented
-* (afuerhoff) use name for presence
-* (afuerhoff) active / inactive devices
-* (afuerhoff) interval 10s bug fixed
-* (afuerhoff) Bugfix dateformat pattern
-* (afuerhoff) SSL (https) workaround implemented
-* (afuerhoff) Connection check optimized
-* (afuerhoff) Mesh handling optimized 
 
 ## License
 MIT License

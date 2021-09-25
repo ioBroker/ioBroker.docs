@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vw-connect/README.md
 title: ioBroker.vw-connect
-hash: a7aLEDyebBQGHGHW6hC+9bxmAWl8nZ1D6/SZX1szrCo=
+hash: buFSPDnF3Hx8np5C51C9MPAgmFfEvejYUXLgaJTIrHU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vw-connect/admin/vw-connect.png)
 
@@ -18,11 +18,14 @@ hash: a7aLEDyebBQGHGHW6hC+9bxmAWl8nZ1D6/SZX1szrCo=
 ## Адаптер vw-connect для ioBroker
 Адаптер для VW We Connect, We Connect ID, We Charge, myAudi, Skoda Connect, Seat Connect и We Connect Go
 
-Пожалуйста, обновите вашу систему на узле 10.
+Обновите свою систему на узле 10.
 <https://forum.iobroker.net/topic/22867/how-to-node-js-f%C3%BCr-iobroker-richtig-updaten>
 
-## Применение
-Используйте состояние под дистанционным управлением для дистанционного управления автомобилем.
+## Использование
+Используйте состояние под дистанционным управлением для удаленного управления автомобилем.
+
+## Обсуждение и вопросы
+https://forum.iobroker.net/topic/26438/test-adapter-vw-connect-für-vw-id-audi-seat-skoda
 
 ## Поля статуса Пояснение
 Состояния дверей и окон:
@@ -112,6 +115,60 @@ hash: a7aLEDyebBQGHGHW6hC+9bxmAWl8nZ1D6/SZX1szrCo=
 
 ## Changelog
 
+### 0.0.43
+
+- increase refresh token timeouts
+  
+### 0.0.42
+
+- fix skoda login
+
+
+### 0.0.40
+
+- add climate v3 for newer cars. Add Powerpass and Seat Elli
+
+### 0.0.39
+
+- fix id login
+
+### 0.0.36
+
+- add Skoda Enyaq support
+  
+### 0.0.35
+
+- add nodeJS v10 compatibility 
+  
+
+### 0.0.34
+
+- add auto accept of new privacy consent
+  
+### 0.0.32
+
+- correct selection of last recent trips
+  
+### 0.0.32
+
+- correct selection of last recent trips
+  
+### 0.0.31
+
+- enable multiple selection of trip types
+  
+### 0.0.30
+
+- fix mutiple car problem, add VWv2 mode at the moment there is no different between VW and VWv2
+  
+### 0.0.29
+
+- fix skoda refreshToken, smaller improvements
+  
+### 0.0.26
+
+- bugfixes
+
 ### 0.0.25
 
 - add we charge 
@@ -156,39 +213,6 @@ hash: a7aLEDyebBQGHGHW6hC+9bxmAWl8nZ1D6/SZX1szrCo=
 
 - fix audi bug with multiple vehicles
 - hide status update error if feature is not available
-
-### 0.0.9
-
-- set default trip type to none
-
-### 0.0.7
-
-- add we connect go and remote standheizung and lock/unlock
-
-### 0.0.6
-
-- add audi
-
-### 0.0.5
-
-- add honk and flash, fix address format
-
-### 0.0.4
-
-- add Skoda support
-
-### 0.0.3
-
-- (ta2k) add more information
-- (ta2k) add remote controls
-
-### 0.0.2
-
-- (ta2k) add car status capturing
-
-### 0.0.1
-
-- (ta2k) initial release
 
 ## License
 

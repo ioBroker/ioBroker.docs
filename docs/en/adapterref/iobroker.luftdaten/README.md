@@ -62,7 +62,7 @@ Wait some minutes until the cronjob collects the data for the first time.
 
 ### 2.0.0
 
-* (klein0r) Updated admin interface to maintain multiple sensors in one instance
+* (klein0r) Updated admin interface to maintain multiple sensors in one instance (BREAKING CHANGE - RE-CONFIGURE YOUR SENSORS)
 
 ### 1.0.3
 

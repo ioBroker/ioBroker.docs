@@ -40,7 +40,17 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
-### 2.0.0-alpha.3 (2021-09-20)
+### 2.1.0 (2021-09-23)
+* Support broadcast commands
+* Support multicast commands and managing multicast groups
+
+### 2.0.1 (2021-09-22)
+* Fix: Don't display "no devices present" if they haven't been loaded yet
+* Fix: Eliminated loading time when switching between "Devices" and "Associations" in tab
+* Fix: Add missing german translation for "Set RF Region"
+* Fix: The Controller node was missing from the association target nodes
+
+### 2.0.0 (2021-09-22)
 * **BREAKING:** Node.js `v12.22.2` is now the minimum
 * **BREAKING:** Reworked how endpoints and lifeline associations are handled. This solves reporting issues with many devices, but after a re-interview state IDs may change and some previously working devices may no longer report correctly. Please create an issue for every device that is affected by this.
 * Upgraded to `zwave-js` version `8.3.2`
@@ -68,25 +78,6 @@ Upgraded to `zwave-js` version `7.12.0`. Notable changes include:
 * Fixed a bug where associatiations on endpoints had incorrect labels
 * Updated dependencies
 * Tons of new and improved config files
-
-### 1.10.2 (2021-06-10)
-Upgraded to `zwave-js` version `7.7.3`. Notable changes include:
-* Improved how dropped invalid messages are logged in the Z-Wave logfile
-* Improved handling of the legacy `alarmType` and `alarmLevel` values under some circumstances
-* Improved handling of notification values for devices that support `Notification CC` version 2
-* Improved how some devices with incorrect capability reports are queried
-* Endpoints of multi channel devices should now always be queried with the correct CC version
-* Throttled some automatic queries
-* Avoid a situation where multiple instances of the adapter try to access the same cache files, potentially corrupting them
-* Improved behavior of secure communication when transmission failures are involved
-* Several new and improved config files
-
-### 1.10.1 (2021-05-24)
-Removed some warnings about wrong state value types in JS-Controller 3.3
-Upgraded to `zwave-js` version `7.5.1`. Notable changes include:
-* Improved stability
-* Improved healing strategy
-* Several config file changes
 
 ## License
 

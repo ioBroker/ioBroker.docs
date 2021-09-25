@@ -3,28 +3,31 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vw-connect/README.md
 title: ioBroker.vw-connect
-hash: a7aLEDyebBQGHGHW6hC+9bxmAWl8nZ1D6/SZX1szrCo=
+hash: buFSPDnF3Hx8np5C51C9MPAgmFfEvejYUXLgaJTIrHU=
 ---
 ![Logo](../../../en/adapterref/iobroker.vw-connect/admin/vw-connect.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.vw-connect.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vw-connect.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/ta2k/iobroker.vw-connect.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/ta2k/ioBroker.vw-connect/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/ta2k/ioBroker.vw-connect/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.vw-connect.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/ta2k/ioBroker.vw-connect/master.svg)
 
-# IoBroker.vw-connect
-## Vw-connect Adapter für ioBroker
-Adapter für VW Wir verbinden, wir verbinden ID, wir laden auf, myAudi, Skoda Connect, Seat Connect und wir verbinden Go
+#ioBroker.vw-connect
+## Vw-connect-Adapter für ioBroker
+Adapter für VW We Connect, We Connect ID, We Charge, myAudi, Skoda Connect, Seat Connect und We Connect Go
 
-Bitte aktualisieren Sie Ihr System auf Knoten 10.
+Bitte aktualisieren Sie Ihr System auf Node 10.
 <https://forum.iobroker.net/topic/22867/how-to-node-js-f%C3%BCr-iobroker-richtig-updaten>
 
-## Verwendung
-Verwenden Sie den ferngesteuerten Status, um Ihr Auto fernzusteuern.
+## Verwendungszweck
+Verwenden Sie den Zustand unter Fernbedienung, um Ihr Auto aus der Ferne zu steuern.
 
-## Statusfelder Erläuterung
+## Diskussion und Fragen
+https://forum.iobroker.net/topic/26438/test-adapter-vw-connect-für-vw-id-audi-seat-skoda
+
+## Statusfelder Erklärung
 Tür- und Fensterzustände:
 
 - offen: 1
@@ -112,6 +115,60 @@ Tür- und Fensterzustände:
 
 ## Changelog
 
+### 0.0.43
+
+- increase refresh token timeouts
+  
+### 0.0.42
+
+- fix skoda login
+
+
+### 0.0.40
+
+- add climate v3 for newer cars. Add Powerpass and Seat Elli
+
+### 0.0.39
+
+- fix id login
+
+### 0.0.36
+
+- add Skoda Enyaq support
+  
+### 0.0.35
+
+- add nodeJS v10 compatibility 
+  
+
+### 0.0.34
+
+- add auto accept of new privacy consent
+  
+### 0.0.32
+
+- correct selection of last recent trips
+  
+### 0.0.32
+
+- correct selection of last recent trips
+  
+### 0.0.31
+
+- enable multiple selection of trip types
+  
+### 0.0.30
+
+- fix mutiple car problem, add VWv2 mode at the moment there is no different between VW and VWv2
+  
+### 0.0.29
+
+- fix skoda refreshToken, smaller improvements
+  
+### 0.0.26
+
+- bugfixes
+
 ### 0.0.25
 
 - add we charge 
@@ -156,39 +213,6 @@ Tür- und Fensterzustände:
 
 - fix audi bug with multiple vehicles
 - hide status update error if feature is not available
-
-### 0.0.9
-
-- set default trip type to none
-
-### 0.0.7
-
-- add we connect go and remote standheizung and lock/unlock
-
-### 0.0.6
-
-- add audi
-
-### 0.0.5
-
-- add honk and flash, fix address format
-
-### 0.0.4
-
-- add Skoda support
-
-### 0.0.3
-
-- (ta2k) add more information
-- (ta2k) add remote controls
-
-### 0.0.2
-
-- (ta2k) add car status capturing
-
-### 0.0.1
-
-- (ta2k) initial release
 
 ## License
 
