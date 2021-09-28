@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: v76hNIn2LoBAOZQTgoW6seUHfpVmjyYZsND7B3ynfVo=
+hash: OqX/FN0qfqhhMb2VOkQ7c3mcIRwO6rnLzNs7aJ0rpSA=
 ---
 # IoBroker.dysonAirPurifier
 ![Logo](admin/dyson_logo.svg)![Logo](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -45,7 +45,7 @@ Verbindet Ihre Dyson-Lüfter, Heizlüfter, Luftreiniger und Luftbefeuchter mit i
 
 ## Installation
 ### Sentry.io
-Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch an den Autor zu melden. Dafür wird das [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) Plugin verwendet. Bitte beachten Sie die [Plugin-Homepage](https://github.com/ioBroker/plugin-sentry) für detaillierte Informationen darüber, was das Plugin macht, welche Informationen gesammelt werden und wie Sie es deaktivieren können, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
+Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch an den Autor zu melden. Dafür wird das [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) Plugin verwendet. Bitte lesen Sie die [Plugin-Startseite](https://github.com/ioBroker/plugin-sentry) für detaillierte Informationen darüber, was das Plugin tut, welche Informationen gesammelt werden und wie Sie es deaktivieren können, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
 
 ###Voraussetzungen
 * Dieser Adapter benötigt Node.js >= Version 10
@@ -63,7 +63,7 @@ Installieren Sie über die ioBroker Admin-Benutzeroberfläche, indem Sie auf die
 
 Sie können mit diesen Methoden auch ältere Release-Versionen installieren (indem Sie auf ein Versions-Tag verweisen, z.
 
-### Konfigurationsdaten benötigt
+### Konfig-Daten benötigt
 * Dyson-Konto-Benutzername
 * Dyson-Kontopasswort (dieser Adapter kann Passwörter mit bis zu 32 Zeichen verarbeiten)
 * die IP-Adresse Ihrer Ventilatoren/Luftreiniger in Ihrem LAN.
@@ -85,7 +85,7 @@ Nach einem Update wird es auch automatisch neu gestartet. In beiden Fällen blei
 
 * Öffnen Sie den Konfigurationsdialog des Adapters
 * Geben Sie mindestens Ihre eMail-Adresse, das Passwort und den Ländercode ein - der Rest ist optional
-* Klicken Sie auf die 2FA-Code-E-Mail-Schaltfläche, um den Vorgang zu starten
+* Klicken Sie auf die Schaltfläche 2FA-Code E-Mail, um den Vorgang zu starten
 * Du erhältst automatisch eine "challengeId" im entsprechenden Feld, eine eMail und einen Dialog mit weiteren Anweisungen
 * geben Sie den 6-stelligen Code aus der eMail in das Feld "dyson one time password" ein
 * Klicken Sie auf die Schaltfläche "Fertig stellen"
@@ -100,7 +100,7 @@ Alle Werte werden gespeichert und weiterhin angezeigt.
 2. Warten Sie ein paar Minuten
 3. Geben Sie Ihre Zugangsdaten zum Adapter ein (falls noch nicht geschehen) und folgen Sie dem 2FA-Verfahren bis zum Ende.
 4. Der Adapter sollte starten und grün werden.
-5. Warten Sie eine Weile (bis zu einer Stunde oder vielleicht mehr, da Dyson einen Blocker für zu viele Anfragen in kurzer Zeit hat)
+5. Warten Sie eine Weile (bis zu einer Stunde oder vielleicht länger, da Dyson einen Blocker für zu viele Anfragen in kurzer Zeit hat)
 6. Melden Sie sich wieder bei Ihrer Dyson Smartphone-App an, wenn Sie diese verwenden möchten.
 
 ## Steuern Sie Ihr(e) Gerät(e)
@@ -130,7 +130,7 @@ Das macht auch die Dyson-App.
 ### Bekannte Probleme
 * Keine automatische IP-Erkennung von Geräten
 
-## Erklärung der Dyson API-Daten (Nachrichtennutzlast)
+## Erläuterung der Dyson API-Daten (Nachrichtennutzlast)
 Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md>
 
 ### AKTUELLEN ZUSTAND
@@ -169,7 +169,7 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | hflr | Status HEPA-Filter | 0000 - 0100 | Prozent |
 | hflt | HEPA-Filter | GHEP, GCOM | |
 | sltm | Sleeptimer | EIN, AUS ||
-| hmod | Heizungsmodus [EIN/AUS] | WÄRME | |
+| hmod | Heizungsmodus [EIN/AUS] | HITZE | |
 | hmax | Solltemperatur zum Heizen | 0 .. 5000 | K |
 | Humus | Befeuchtungsmodus | EIN, AUS, |
 | haut | Auto-Modus befeuchten| |
@@ -180,10 +180,10 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | wat | Wasserhärte| SOFT="2025", MEDIUM="1350",HARD="0675"|
 | wacd | Warncode | KEINE... |
 | rstf | Filterlebenszyklus zurücksetzen |
-| bril | unbekannt | 0002 |
+| hell | unbekannt | 0002 |
 | Korf | unbekannt | EIN, AUS |
 | fqhp | unbekannt| |
-| clcr | [HP0x] Unbekannt | CLNO |
+| clcr | DeepcleanCycle | CLNO=inaktiv, CLAC=Deep Clean im Gange, CLCM=Fertig |
 | psta | [HP0x] Unbekannt | INIT, CLNG, INV |
 | hsta | [HP0x] Unbekannt | |
 | msta | [HP0x] Unbekannt | AUS, HUMD |
@@ -232,10 +232,10 @@ Redundante Werte?
 | volm | scheint ein Medianwert von volX | . zu sein | |
 | aql0 - aql9 | Anzahl der Zweitausgaben in dieser Luftqualität | max (pal, vol)) seit Beginn der Stunde | 0000 - 3600 | |
 | aqlm | scheint ein Medianwert von aqlX | . zu sein | |
-| fafs | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht wird | 0000 - 3600 | |
-| faos | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht wird | 0000 - 3600 | |
-| fofs | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht wird | 0000 - 3600 | |
-| fons | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht wird | 0000 - 3600 | |
+| fafs | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden | 0000 - 3600 | |
+| faos | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden | 0000 - 3600 | |
+| fofs | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden | 0000 - 3600 | |
+| fons | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden | 0000 - 3600 | |
 | summen | Feuchtigkeit ? (%) | 0000 - 0100 | |
 | tmpm | Temperatur in Kelvin? | 0000 - 5000 | |
 
@@ -244,6 +244,15 @@ Dyson, pure cool, pure hot & cool und andere sind Marken oder eingetragene Marke
 
 ## Changelog
 
+
+### V2.0.0 (2021-09-26) (Lost in forever)
+* (grizzelbee) New: Added DeepCleanCycle to known data points
+* (grizzelbee) Fix: Switching water hardness now really works
+* (grizzelbee) BREAKING CHANGES: Please recreate your object tree and test your scripts!
+* (grizzelbee) Chg: All ON/OFF switches are now boolean types to be more compliant to ioBroker standards for VIS and other adapters. Please delete those data points and let them being recreated if necessary.
+* (grizzelbee) Chg: All angles are numbers now
+* (grizzelbee) Chg: All 2-way switches are boolean now
+* 
 ### V1.1.0 (2021-09-15) (Coming home)
 * (grizzelbee) New: Added correct tier-level to io-package
 * (grizzelbee) New: improved logging of unknown data points

@@ -7,9 +7,9 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sonnen/README.md
 title: 声纳适配器
-hash: ErqgSDbG/EFc2HU7jcVSTbfxu/0Mq0tfC1sN9jh+tiY=
+hash: u85r3VBR7vmZgnRf+usq6iRFt9S/PcrVNIiDqhSpuQQ=
 ---
-![商标](../../../de/adapterref/iobroker.sonnen/media/sonnen.png)
+![标识](../../../de/adapterref/iobroker.sonnen/media/sonnen.png)
 
 #sonnen 适配器
 Sonnen 适配器允许在ioBroker 中集成sonnenBatterie。
@@ -17,7 +17,7 @@ Sonnen 适配器允许在ioBroker 中集成sonnenBatterie。
 ＃＃ 概述
 ###sonnen电池
 有了sonnenBatterie，来自太阳系的自生能量可以储存起来供个人使用，并在需要时准确使用。这使得独立于匿名能源公司并成为自给自足的电力生产商成为可能。得益于集成能源管理器，智能高科技蓄电系统确保以最佳方式为家庭提供自有电力。
-这不仅便宜，而且环保！ SonnenBatterie 有多种灵活的存储模型可供选择。
+这不仅便宜而且环保！ SonnenBatterie 有多种灵活的存储模型可供选择。
 
 ###sonnen 适配器
 子网适配器可以监视和控制网络中的子电池。在发现适配器（TODO：链接）的帮助下，可以在网络中自动找到sonnenBatterien。<br/>适配器以对象的形式创建用于监视和控制sonnenBatterie 的状态。大多数状态仅用于监控电池，同时也可以通过描述一些状态来控制电池。
@@ -46,6 +46,10 @@ Sonnen 适配器允许在ioBroker 中集成sonnenBatterie。
 |领域 |说明 |
 |:-------------|:-------------|
 | 查询间隔 | 可以在此处设置以毫秒为单位的替代值。在此时间间隔中，sonnenBatterie 的状态被更新。 |
+
+|领域 |说明 |
+|:-------------|:-------------|
+| 查询在线状态 | 如果您想避免从电池向 Sonnen 服务器查询，您可以停用在线状态查询（仅与 8080 API 相关 - 例如 eco8 和更新版本） |
 
 完成配置后，配置对话框以 `SPEICHERN UND SCHLIEßEN` 退出。
 这会导致适配器重新启动。
@@ -90,7 +94,7 @@ Sonnen 适配器允许在ioBroker 中集成sonnenBatterie。
     |:---:|:---:|
     | 字符串 | R |
 
-   * 只有可读的 JSON 字符串，带有 sonnenBatterie 的配置信息。*
+   * 只有可读的JSON字符串，带有sonnenBatterie的配置信息。*
 
 * info.powerMeter
 
@@ -109,7 +113,7 @@ Sonnen 适配器允许在ioBroker 中集成sonnenBatterie。
    * 只有可读的 JSON 字符串，带有来自 SonnenBatterie 的逆变器信息。*
 
 #### 频道：状态
-* 状态.消费
+* status.consumption
 
     | 数据类型 | 授权 |
     |:---:|:---:|
@@ -132,7 +136,7 @@ Sonnen 适配器允许在ioBroker 中集成sonnenBatterie。
     | 数量 | R |
 
 * 可读数值，表示逆变器交流功率。
-如果该值大于 0，则电池放电，如果该值小于 0，则充电。*
+如果该值大于 0，则为电池放电，如果该值小于 0，则为充电。*
 
 * status.relativeSoc
 
@@ -164,7 +168,7 @@ Sonnen 适配器允许在ioBroker 中集成sonnenBatterie。
     |:---:|:---:|
     | 数量 | R |
 
-   * 可读数值，代表逆变器当前的AC（交流）电压。
+   * 仅可读数值，代表逆变器当前的AC（交流）电压。*
 
 * status.batteryVoltage
 
@@ -180,7 +184,7 @@ Sonnen 适配器允许在ioBroker 中集成sonnenBatterie。
     |:---:|:---:|
     | 日期 | R |
 
-   * 只有可读的 ISO 日期，代表电池的系统时间。*
+   * 只读 ISO 日期，代表电池的系统时间。*
 
 * status.systemInstalled
 
@@ -315,6 +319,12 @@ setState('sonnen.0.control.discharge', 1250); // Die Batterie wird maximal mit 1
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
+### 1.9.8 (2021-09-27)
+* (foxriver76) make requesting online status optional for 8080 api (closes #76)
+
+### 1.9.6 (2021-08-03)
+* (foxriver76) fix for horizontal flow animations in Safari (broken with 1.9.4)
 
 ### 1.9.4 (2021-07-17)
 * (foxriver76) widget: make the svg smaller by using a flexbox to center the svg correctly inside the div

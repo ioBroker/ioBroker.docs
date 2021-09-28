@@ -49,10 +49,11 @@ Additional to the adapter installation you have to add an instance of the adapte
 4. Now you can see the main settings of the adapter configuration page --> type in the ip-address of your sonnen battery.
 __It is also strongly recommended, to provide an API key, which can be found in the webinterface of your sonnen battery (Tab: Software Integration). Otherwise, the adapter uses the unofficial API.__
 ![Main Settings](/docs/en/media/mainSettings.png)
-5. If you want to thange the interval in which the states are polled, click on the tab "Advanced Settings"
+5. If you want to change the interval in which the states are polled, click on the tab "Advanced Settings"
 6. You can set the poll interval between 2000 ms (2 seconds) and 60000 ms (1 minute), the default value is 7 seconds
 ![Advanced Settings](/docs/en/media/advancedSettings.png)
-7. Click on Save & Close
+7. If you want to avoid requests from your battery to the sonnen server, you can deactivate the online status polling (only relevant for 8080 API - e.g. eco8 and newer)
+8. Click on Save & Close
 
 ## Usage
 Here you can find a description of the states and how to use them. The most states of this adapter are read-only states.
@@ -301,6 +302,9 @@ The channel consists of read-only states of type `number`, providing information
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
+### 1.9.8 (2021-09-27)
+* (foxriver76) make requesting online status optional for 8080 api (closes #76)
 
 ### 1.9.6 (2021-08-03)
 * (foxriver76) fix for horizontal flow animations in Safari (broken with 1.9.4)

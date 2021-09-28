@@ -29,32 +29,48 @@ The adapter can control the mower and you can change config params like mowtimes
 
 
 ## Changelog
+### 1.5.1 (2021-09-27)
+* (MeisterTR) fix error
+
+### 1.5.0 (2021-09-26)
+* (MeisterTR) many fixes
+* (MeisterTR) add torque control
+* (MeisterTR) fixed States
+
 ### 1.4.3 (2021-07-25)
 * (MeisterTR) fix Partymode detection
+
 ### 1.4.2 (2021-07-24)
 (MeisterTR) fix bug with OLMSwitch_Cutting
 (MeisterTR) fix bug with PartyMode
 (TA2k) fix error with wrong serialnumber (please delete all objects manually)
 (MeisterTR) fix bug in autolock function
+
 ### 1.4.1 (2021-07-06)
 * (MeisterTR) fix bug in sendCommand (please remove state manually)
+
 ### 1.4.0 (2021-07-05)
 * update testing
 * add gps coordinates
 * add new status states
 * add new Autolock states
 * add new OffLinits states
+
 ### 1.3.7 (03.06.2021)
 * (TA2k) type fixes
+
 ### 1.3.6 (27.05.2021)
 * (MeisterTR) bugfixes
 * (MeisterTR) better errorhandling
+
 ### 1.2.9 (02.12.2020)
 * (MeisterTR) add sentry
 * (MeisterTR) Bugfix (error type of sc... again) (IOBROKER-WORX-3)
+
 ### 1.2.4 (15.11.2020)
 * (MeisterTR) Bugfix (error type of sc...)
 * (MeisterTR) change Testing to git
+
 ### 1.2.3 (29.08.2020)
 * (MeisterTR) add option to crate a Json Obj to set mowtime with scripts 
 * (MeisterTR) add option to disable weather
@@ -62,9 +78,11 @@ The adapter can control the mower and you can change config params like mowtimes
 * (MeisterTR) fix setIntervall => setTimeout
 * (MeisterTR) fix error with Meter and Min. in Config
 * (MeisterTR) add Kress and Landxcape
+
 ### 1.0.0 (03.12.2019)
 * (MeisterTR) bump Version
 * (MeisterTR) transfer to community
+
 ### 0.4.0 (03.08.2019)
 * (MeisterTR) fix multimower
 * (MeisterTR) change loglevel
@@ -78,6 +96,7 @@ The adapter can control the mower and you can change config params like mowtimes
 * (MeisterTR) add border
 * (MeisterTR) fix small errors
 * (MeisterTR) code cleanup
+
 ### 0.0.1
 * (MeisterTR) initial release
 

@@ -40,6 +40,17 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 2.2.0 (2021-09-27)
+* The devices list now includes an activity indicator and statistics for each device
+* Improvements to `Scene Actuator Configuration CC` and `Scene Controller Configuration CC`
+* Some fixes for `Security S2` in combination with `Supervision CC`
+* Workaround for a bug in Z-Wave sticks with firmware 7.15 and higher that led to missing capabilities
+* Fix: The tab starts on "Devices" again instead of "Groups"
+* Fix: don't offer values from secure nodes under broadcast
+* Fix: display generic device class when specific device class is `"Unused"`
+* Fix: roles of existing states are now preserved
+* Many changed and new device configuration files, see [here](https://github.com/zwave-js/node-zwave-js/releases/tag/v8.4.0) and [here](https://github.com/zwave-js/node-zwave-js/releases/tag/v8.4.1)
+
 ### 2.1.0 (2021-09-23)
 * Support broadcast commands
 * Support multicast commands and managing multicast groups
@@ -67,17 +78,6 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 
 ### 1.10.4 (2021-08-07)
 * Fixed a bug where the daily config update check would cause a lot of internet traffic for an hour
-
-### 1.10.3 (2021-07-14)
-Upgraded to `zwave-js` version `7.12.0`. Notable changes include:
-* Further improved handling of the legacy `alarmType` and `alarmLevel` values under some circumstances
-* Improved support for Aeotec firmware updaters
-* Nodes are no longer sent to sleep while a value change is planned to be verified
-* Hardened the checks to prevent simultaneous write-accesses for the cache files
-* The adapter should now be restarted when the serial connection is disconnected
-* Fixed a bug where associatiations on endpoints had incorrect labels
-* Updated dependencies
-* Tons of new and improved config files
 
 ## License
 

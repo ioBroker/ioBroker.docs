@@ -58,6 +58,10 @@ Nach Abschluss der Installation einer Adapterinstanz öffnet sich automatisch ei
 |:-------------|:-------------|
 |Abfrageintervall|Hier kann ein alternativer Wert in Millisekunden gesetzt werden. In diesem Intervall werden die States der sonnenBatterie aktualisiert.|
 
+| Feld         | Beschreibung |                                                                       
+|:-------------|:-------------|
+|Online-Status abfragen|Wenn Sie Anfragen von Ihrer Batterie an den sonnen-Server vermeiden möchten, können Sie die Online-Statusabfrage deaktivieren (nur relevant für 8080 API - z.B. eco8 und neuer)|
+
 
 Nach Abschluss der Konfiguration wird der Konfigurationsdialog mit `SPEICHERN UND SCHLIEßEN` verlassen. 
 Dadurch efolgt im Anschluß ein Neustart des Adapters.
@@ -347,6 +351,9 @@ Der Kanal besteht aus schreibgeschützten Zuständen vom Typ `number`, die Infor
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
+### 1.9.8 (2021-09-27)
+* (foxriver76) make requesting online status optional for 8080 api (closes #76)
 
 ### 1.9.6 (2021-08-03)
 * (foxriver76) fix for horizontal flow animations in Safari (broken with 1.9.4)
