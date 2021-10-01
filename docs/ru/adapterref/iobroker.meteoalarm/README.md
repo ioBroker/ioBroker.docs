@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: IRGmxo7E7IvvmRP0uCSwzpzMeMcr4qCmO7IdkhiN6pU=
+hash: 3GWr5hzuqnMDa6ZlBsLSGWeOli7Qc23rQ7UsgqN+dJI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -93,7 +93,7 @@ hash: IRGmxo7E7IvvmRP0uCSwzpzMeMcr4qCmO7IdkhiN6pU=
 * Словения
 * Испания
 * Швеция
-* ВЕЛИКОБРИТАНИЯ
+* СОЕДИНЕННОЕ КОРОЛЕВСТВО
 
 Если вы не можете найти свою страну, создайте проблему на github, и я с радостью добавлю ее.
 
@@ -101,6 +101,10 @@ hash: IRGmxo7E7IvvmRP0uCSwzpzMeMcr4qCmO7IdkhiN6pU=
 * Швейцария (файл геокода с сайта meteoalarm.org, вероятно, неверен)
 * Португалия (файл геокода с сайта meteoalarm.org, вероятно, неверен)
 * Болгария (файл геокода с сайта meteoalarm.org, вероятно, неверен)
+
+## 2.0.6 (29.09.2021)
+* (jack-blackson) Добавлена Северная Македония
+* (jack-blackson) Исправление ошибки "result.feed.entry.forEach не является функцией"
 
 ## 2.0.5 (15.08.2021)
 * (jack-blackson) Дата исправления ошибки прописью
@@ -144,7 +148,7 @@ hash: IRGmxo7E7IvvmRP0uCSwzpzMeMcr4qCmO7IdkhiN6pU=
 * (jack-blackson) Обработка сообщения об ошибке ENOTFOUND, добавлено Sentry
 
 ## 1.1.3 (29.03.2021)
-* (jack-blackson) Исправлены ошибки адаптера проверки
+* (jack-blackson) Исправлены ошибки проверки адаптера
 
 ## 1.1.2 (29.03.2021)
 * (jack-blackson) Исправление неработающего обновления данных, убрана автогенерация ссылок из-за ошибок CORS

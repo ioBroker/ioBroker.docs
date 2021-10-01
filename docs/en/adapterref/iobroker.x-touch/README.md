@@ -49,6 +49,9 @@ Communicate with a Behringer X-Touch Control Surface (DAW Controller)
 ### 0.2.5
 * (Bannsaenger) fixed send back of button and fader values. Now only the affected device group members will be updated
 
+### 0.3.0
+* (Bannsaenger) added the timecode display
+
 ## License
 MIT License
 

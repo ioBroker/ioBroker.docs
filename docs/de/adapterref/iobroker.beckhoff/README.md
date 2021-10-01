@@ -71,6 +71,9 @@ Die *.tpy Datei aus dem SPS Projekt muss hochgeladen werden. -> Immer wenn am St
 3. Bei "Synchronisierung" bzw. "Einlesen" ist nicht der Werteaustausch der Variablen gemeint sondern die Synchronisierung der Variablen selbst und das anlegen bzw. löschen derselben im ioBroker
 
 ## Changelog
+### 1.5.0 (2021-09-28)
+
+-   (dkleber89) Process next state in list when register subscriptions not before the previous is finish processed in plc
 ### 1.4.1 (2021-06-13)
 
 -   (dkleber89) Some little Adapter maintenance
@@ -114,10 +117,6 @@ Die *.tpy Datei aus dem SPS Projekt muss hochgeladen werden. -> Immer wenn am St
 ### 1.0.4 (2019-08-01)
 
 -   (dkleber89) Increase depth of LOG details, Update dependency versions
-
-### 1.0.2 (2019-05-18)
-
--   (Appollon77) Update testing for Node.js v12 in Appveyor und Travis
 
 ## License
 

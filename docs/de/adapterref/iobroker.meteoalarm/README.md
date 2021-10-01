@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: IRGmxo7E7IvvmRP0uCSwzpzMeMcr4qCmO7IdkhiN6pU=
+hash: 3GWr5hzuqnMDa6ZlBsLSGWeOli7Qc23rQ7UsgqN+dJI=
 ---
 ![Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -42,7 +42,7 @@ Der einfachste Weg, es zu Ihrem Vis hinzuzufügen, ist die Verwendung des Widget
 |12|Hochwasser|
 |13|Regen-Flut|
 
-## Installieren
+## Aufstellen
 "Keine Hintergrundfarbe im HTML-Widget": Möglichkeit, das HTML-Widget ohne Hintergrundfarbe zu verwenden (z. B. wenn Sie das Farbobjekt verwenden möchten, um Ihr gesamtes Widget auszufüllen, nicht nur das HTML-Widget)
 
 "Warnfarben definieren": Möglichkeit, die Farben für die verschiedenen Alarmstufen im HEX-Code zu definieren. Wird für das HTML-Widget und auch für das Farbobjekt verwendet, um es manuell einem anderen Widget zuzuweisen
@@ -70,7 +70,7 @@ Der einfachste Weg, es zu Ihrem Vis hinzuzufügen, ist die Verwendung des Widget
 * BosnienHerzegowina
 * Kroatien
 * Zypern
-* Tschechische Republik
+* Tschechien
 * Dänemark
 * Estland
 * Finnland
@@ -101,6 +101,10 @@ Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf github, und 
 * Schweiz (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
 * Portugal (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
 * Bulgarien (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
+
+## 2.0.6 (2021-09-29)
+* (jack-blackson) Nordmazedonien hinzugefügt
+* (jack-blackson) Bugfix für "result.feed.entry.forEach is not a function" Fehler
 
 ## 2.0.5 (2021-08-15)
 * (jack-blackson) Bugfix-Datum in Worten
