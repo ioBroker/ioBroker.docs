@@ -241,6 +241,9 @@ Activate the Notifications tab. The communication settings are then made on the 
 	### **WORK IN PROGRESS**
 -->
 
+### 0.2.6 (03.10.2021)
+* (Dirk-Peter-md) inGreenhouse in Bewässerungsverfahren "Calculation" hinzugefügt
+
 ### 0.2.5 (18.08.2021)
 * (Dirk-Peter-md) Mehrfachverwendung von Bodenfeuchte-Sensoren
 * (Dirk-Peter-md) Objekte mit \"def\": ... überarbeitet

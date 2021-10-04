@@ -192,6 +192,8 @@ However, access to certain photo albums or folders can easily be implemented in 
 -->
 
 ### __WORK IN PROGRESS__
+* (Gaudes) Remove support for Node 10
+* (Gaudes) Update to newest Adapter creator for internal dependencies
 * (Gaudes) Include Dependabot updates
 
 ### 0.1.4 (2021-04-18)

@@ -8,7 +8,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.sprinklecontrol.png?downloads=true
 ---
 ![Logo](img/sprinklecontrol.png)
 # SprinkleControl
-### *Der Adapter zur individuellen automatischen Gartenbewässerung. << So wie es jeder mag >> :)*
+### *Der Adapter zur individuellen automatischen Gartenbewässerung. << So wie es jeder mag >> ;-)*
 
 
 ---
@@ -184,6 +184,7 @@ Diese Konfigurationsebene besteht aus zwei Reitern: [**Haupteinstellungen**](#42
         
     ![verdunstung.jpg](img/verdunstung.jpg)
 
+    + **Sensor im Gewächshaus** bei true (Auswahl) wird aktuelle Regenmenge und die Regenvorhersage nicht berücksichtigt
     + **Einschaltpunkt (Bodenfeuchte) der Bewässerungsventile in %** – Auslösetrigger: Wenn dieser Wert unterschritten wird, so beginnt zum Startzeitpunkt die Bewässerung.
     + **Bodenfeuchte = 100 % nach der Bewässerung** – bei Aktivierung, wird die Bodenfeuchte nach der Bewässerung auf 100 % gesetzt. Ansonsten bleibt sie knapp darunter Aufgrund der Verdunstung während der Bewässerung.
 
@@ -562,6 +563,9 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 0.2.6 (03.10.2021)
+* (Dirk-Peter-md) inGreenhouse in Bewässerungsverfahren "Calculation" hinzugefügt
 
 ### 0.2.5 (18.08.2021)
 * (Dirk-Peter-md) Mehrfachverwendung von Bodenfeuchte-Sensoren

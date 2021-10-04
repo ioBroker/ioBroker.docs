@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecovacs-deebot/README.md
 title: Адаптер Ecovacs Deebot для ioBroker
-hash: dHZcCD7BUFMxDv4Kwwe+MTXvtKM35yOXUqDaCbXHO9I=
+hash: +n3X/UQB2WrLNDu4hLUhZWEhxSahETPZ6sFBAaiYMug=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -67,9 +67,7 @@ hash: dHZcCD7BUFMxDv4Kwwe+MTXvtKM35yOXUqDaCbXHO9I=
 Претензий на полную функциональность конечно же нет.
 
 ## Установка
-Рекомендуется использовать Node.js. версии 12.x или 14.x.
-
-Минимальная необходимая версия - все еще 10.x, **но это скоро изменится**
+Рекомендуется использовать Node.js. версии 12.x или 14.x. Минимальная необходимая версия - 12.x
 
 Этот адаптер использует библиотеку [узел-холст](https://www.npmjs.com/package/canvas) для некоторых функций, связанных с картой, которые могут потребовать установки некоторых дополнительных пакетов.
 
@@ -112,6 +110,10 @@ sudo npm install canvas --unsafe-perm=true
 Я никоим образом не связан с ECOVACS.
 
 ## Changelog
+
+### 1.3.0 (alpha)
+
+* The minimum required version of Node.js is 12.x now
 
 ### 1.2.4
 

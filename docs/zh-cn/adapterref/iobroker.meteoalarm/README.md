@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: 3GWr5hzuqnMDa6ZlBsLSGWeOli7Qc23rQ7UsgqN+dJI=
+hash: 1N63HbUPmqJoYu1TN6xx/mK+8qJRVuhzAIbmCya1Wis=
 ---
 ![标识](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -59,7 +59,7 @@ ioBroker的meteoalarm适配器---------------------------------------- ---------
 |报警级别|说明|
 |:---:|:---:|
 |绿色|目前没有可用的警告。|
-|黄色|天气有潜在危险。预测的天气现象并不少见，但应更加注意暴露于气象风险的活动。随时了解预期的气象条件，不要冒任何可避免的风险。|
+|黄色|天气有潜在危险。预测的天气现象并不少见，但应更加关注面临气象风险的活动。随时了解预期的气象条件，不要冒任何可避免的风险。|
 |橙色|天气很危险。已经预测到不寻常的气象现象。可能会发生损坏和事故。要非常细心和小心，并及时了解预期的气象条件。 |
 |红色|天气非常危险。预测到异常强烈的气象现象。严重的破坏和事故，通常是大面积的，威胁着生命和财产。 |
 
@@ -102,12 +102,15 @@ ioBroker的meteoalarm适配器---------------------------------------- ---------
 * 葡萄牙（来自meteoalarm.org 的地理编码文件可能不正确）
 * 保加利亚（来自meteoalarm.org 的地理编码文件可能不正确）
 
+## 2.0.7 (2021-10-01)
+*（杰克布莱克森）修正
+
 ## 2.0.6 (2021-09-29)
 * (jack-blackson) 添加北马其顿
 * (jack-blackson) 修正“result.feed.entry.forEach is not a function”错误
 
 ## 2.0.5 (2021-08-15)
-* (jack-blackson) 用文字修正日期
+* (jack-blackson) 修正文字日期
 
 ## 2.0.4 (2021-08-13)
 * (jack-blackson) 修正自述链接

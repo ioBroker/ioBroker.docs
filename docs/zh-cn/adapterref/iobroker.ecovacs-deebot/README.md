@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
 title: 适用于 ioBroker 的 Ecovacs Deebot 适配器
-hash: dHZcCD7BUFMxDv4Kwwe+MTXvtKM35yOXUqDaCbXHO9I=
+hash: +n3X/UQB2WrLNDu4hLUhZWEhxSahETPZ6sFBAaiYMug=
 ---
 ![标识](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -67,9 +67,7 @@ hash: dHZcCD7BUFMxDv4Kwwe+MTXvtKM35yOXUqDaCbXHO9I=
 当然，没有要求提供完整的功能。
 
 ＃＃ 安装
-建议使用 Node.js 的 12.x 或 14.x 版本。
-
-所需的最低版本仍然是 10.x，**但很快就会改变**。
+建议使用 Node.js 的 12.x 或 14.x 版本。最低要求版本为 12.x
 
 此适配器使用 [节点画布](https://www.npmjs.com/package/canvas) 库来实现一些与地图相关的功能，这些功能可能需要安装一些附加包。
 
@@ -112,6 +110,10 @@ sudo npm install canvas --unsafe-perm=true
 我与 ECOVACS 没有任何关系。
 
 ## Changelog
+
+### 1.3.0 (alpha)
+
+* The minimum required version of Node.js is 12.x now
 
 ### 1.2.4
 

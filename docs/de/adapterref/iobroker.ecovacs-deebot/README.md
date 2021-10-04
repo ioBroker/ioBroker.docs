@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: dHZcCD7BUFMxDv4Kwwe+MTXvtKM35yOXUqDaCbXHO9I=
+hash: +n3X/UQB2WrLNDu4hLUhZWEhxSahETPZ6sFBAaiYMug=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -67,9 +67,7 @@ Ich versuche eine breite Palette an Funktionalität zu erreichen, entscheide die
 Es besteht natürlich kein Anspruch auf volle Funktionalität.
 
 ## Installation
-Es wird empfohlen, Version 12.x oder 14.x von Node.js zu verwenden.
-
-Die erforderliche Mindestversion ist weiterhin 10.x, **aber das wird sich bald ändern**.
+Es wird empfohlen, Version 12.x oder 14.x von Node.js zu verwenden. Die erforderliche Mindestversion ist 12.x
 
 Dieser Adapter verwendet die [Knoten-Leinwand](https://www.npmjs.com/package/canvas) Bibliothek für einige kartenbezogene Funktionen, die die Installation einiger zusätzlicher Pakete erfordern können.
 
@@ -112,6 +110,10 @@ zu [einen Neustart planen](https://www.iobroker.net/#en/documentation/admin/inst
 Ich bin in keiner Weise mit ECOVACS verbunden.
 
 ## Changelog
+
+### 1.3.0 (alpha)
+
+* The minimum required version of Node.js is 12.x now
 
 ### 1.2.4
 
