@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.x-touch/README.md
 title: ioBroker.x-touch
-hash: WIHz2zmoIFHGH8dlrg2iIAKeaishdLYIfWK2QOSAv7c=
+hash: texWQD4NDKZ038tIOr12wwqEYfOQW69jJmBAaJ88c7k=
 ---
-![商标](../../../en/adapterref/iobroker.x-touch/admin/x-touch.png)
+![标识](../../../en/adapterref/iobroker.x-touch/admin/x-touch.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.x-touch.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.x-touch.svg)
@@ -21,9 +21,15 @@ hash: WIHz2zmoIFHGH8dlrg2iIAKeaishdLYIfWK2QOSAv7c=
 
 ＃＃ 去做
 - 添加编码器及其 LED -> 完成，左边是 sync_global 并检查数据库更改
-- 添加时间码显示
+- 添加时间码显示 -> 完成
 - 添加库和推子通道开关的功能 -> 完成，需要额外测试
 - 添加同步全局功能
+
+## 消息框
+有两个接受的命令：
+
+* `export` 将存储在设备组状态中的实际值导出到用户数据文件夹 x-touch.0
+* `import` 从 userdata 文件夹中导入最年轻的文件。或者，您可以指定要恢复的“路径”、“文件”和/或“设备组”编号。如果未指定路径，则将使用 userdata 目录。
 
 ## Changelog
 
@@ -46,7 +52,19 @@ hash: WIHz2zmoIFHGH8dlrg2iIAKeaishdLYIfWK2QOSAv7c=
 * (Bannsaenger) fixed fader handling and data distribution to the device group
 
 ### 0.2.3
-* (Bannsaenger) fixed setting of diplay inverted
+* (Bannsaenger) fixed setting of display inverted
+
+### 0.2.4
+* (Bannsaenger) fixed disabling of encoder display
+
+### 0.2.5
+* (Bannsaenger) fixed send back of button and fader values. Now only the affected device group members will be updated
+
+### 0.3.0
+* (Bannsaenger) added the timecode display
+
+### 0.4.0
+* (Bannsaenger) added the ability to export the actual state values via a message and reimport the states again
 
 ## License
 MIT License

@@ -3,29 +3,39 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.openweathermap/README.md
 title: ioBroker.openweathermap
-hash: 74NQx8+WxJYJaGGwKBTAVQ2vkKH1Lhx91HzIgc2xGa4=
+hash: rSdWpYSlF75wNrmlQtHFGfZozUb9JJK9guKYSyn4Q6o=
 ---
-![логотип](../../../en/adapterref/iobroker.openweathermap/admin/openweathermap.png)
+![Логотип](../../../en/adapterref/iobroker.openweathermap/admin/openweathermap.png)
 
-![Количество установок](http://iobroker.live/badges/openweathermap-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.openweathermap.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.openweathermap.svg)
-![тесты](https://travis-ci.org/ioBroker/ioBroker.openweathermap.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.openweathermap.png?downloads=true)
+![Стабильный](http://iobroker.live/badges/openweathermap-stable.svg)
+![установлены](http://iobroker.live/badges/openweathermap-installed.svg)
+![Статус зависимости](https://img.shields.io/david/ioBroker/ioBroker.openweathermap.svg)
+![Известные уязвимости](https://snyk.io/test/github/ioBroker/ioBroker.openweathermap/badge.svg)
+![Тесты](https://travis-ci.org/ioBroker/ioBroker.openweathermap.svg?branch=master)
+![НПМ](https://nodei.co/npm/iobroker.openweathermap.png?downloads=true)
 
-# IoBroker.openweathermap ======================================
-Получает прогноз погоды на 5 дней от [openweathermap.org](openweathermap.org)
+# IoBroker.openweathermap
+Получает прогноз погоды на 5 дней из [https://openweathermap.org/](openweathermap.org)
 
-Вам нужен ключ API для доступа к данным. Ключ API вы можете получить бесплатно после регистрации [Вот](https://home.openweathermap.org/api_keys).
+Для доступа к данным вам нужен ключ api. Ключ api вы можете получить бесплатно после регистрации [здесь](https://home.openweathermap.org/api_keys).
 
 ## Changelog
-### 0.0.1
+
+### 0.2.0
+
+* (klein0r) updated everything
+
+### 0.1.0
+
 * (bluefox) first release
 
 ## License
+
 The MIT License (MIT)
 
-Copyright (c) 2018 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2021 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

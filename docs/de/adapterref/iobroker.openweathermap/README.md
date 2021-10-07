@@ -3,29 +3,39 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openweathermap/README.md
 title: ioBroker.openweathermap
-hash: 74NQx8+WxJYJaGGwKBTAVQ2vkKH1Lhx91HzIgc2xGa4=
+hash: rSdWpYSlF75wNrmlQtHFGfZozUb9JJK9guKYSyn4Q6o=
 ---
 ![Logo](../../../en/adapterref/iobroker.openweathermap/admin/openweathermap.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/openweathermap-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.openweathermap.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.openweathermap.svg)
+![Stabil](http://iobroker.live/badges/openweathermap-stable.svg)
+![Eingerichtet](http://iobroker.live/badges/openweathermap-installed.svg)
+![Abhängigkeitsstatus](https://img.shields.io/david/ioBroker/ioBroker.openweathermap.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/ioBroker/ioBroker.openweathermap/badge.svg)
 ![Tests](https://travis-ci.org/ioBroker/ioBroker.openweathermap.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.openweathermap.png?downloads=true)
 
-# IoBroker.openweathermap ==================================
-Holt 5 Tage Wettervorhersage von [openweathermap.org](openweathermap.org)
+# IoBroker.openweathermap
+Ruft 5 Tage Wettervorhersage von [https://openweathermap.org/](openweathermap.org) ab
 
-Sie benötigen einen API-Schlüssel, um auf die Daten zuzugreifen. Den api-Schlüssel erhalten Sie nach der Registrierung kostenlos. [Hier](https://home.openweathermap.org/api_keys).
+Sie benötigen einen API-Schlüssel, um auf die Daten zuzugreifen. Den API-Schlüssel erhalten Sie kostenlos nach der Registrierung [Hier](https://home.openweathermap.org/api_keys).
 
 ## Changelog
-### 0.0.1
+
+### 0.2.0
+
+* (klein0r) updated everything
+
+### 0.1.0
+
 * (bluefox) first release
 
 ## License
+
 The MIT License (MIT)
 
-Copyright (c) 2018 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2021 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

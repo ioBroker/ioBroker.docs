@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.x-touch/README.md
 title: ioBroker.x-touch
-hash: WIHz2zmoIFHGH8dlrg2iIAKeaishdLYIfWK2QOSAv7c=
+hash: texWQD4NDKZ038tIOr12wwqEYfOQW69jJmBAaJ88c7k=
 ---
 ![Logo](../../../en/adapterref/iobroker.x-touch/admin/x-touch.png)
 
@@ -21,9 +21,15 @@ Kommunizieren mit einer Behringer X-Touch-Bedienoberfläche (DAW-Controller)
 
 ## Machen
 - Encoder und deren LEDs hinzufügen -> fertig, links ist sync_global und prüft auf Datenbankänderungen
-- Fügen Sie die Timecode-Anzeige hinzu
+- Timecode-Anzeige hinzufügen -> fertig
 - Funktionalität von Bank- und Fader-Kanalschaltern hinzufügen -> fertig, benötigt zusätzliche Tests
 - Fügen Sie die syncGlobal-Funktionalität hinzu
+
+## Nachrichtenbox
+Es gibt zwei akzeptierte Befehle:
+
+* `export` exportiert die in den Zuständen der Gerätegruppen gespeicherten Istwerte in den Benutzerdatenordner x-touch.0
+* `import` importiert die jüngste Datei aus dem userdata-Ordner. Alternativ können Sie `Pfad`, `Datei` und/oder die `Gerätegruppe`-Nummer für die Wiederherstellung angeben. Wird kein Pfad angegeben, wird das userdata-Verzeichnis verwendet.
 
 ## Changelog
 
@@ -46,7 +52,19 @@ Kommunizieren mit einer Behringer X-Touch-Bedienoberfläche (DAW-Controller)
 * (Bannsaenger) fixed fader handling and data distribution to the device group
 
 ### 0.2.3
-* (Bannsaenger) fixed setting of diplay inverted
+* (Bannsaenger) fixed setting of display inverted
+
+### 0.2.4
+* (Bannsaenger) fixed disabling of encoder display
+
+### 0.2.5
+* (Bannsaenger) fixed send back of button and fader values. Now only the affected device group members will be updated
+
+### 0.3.0
+* (Bannsaenger) added the timecode display
+
+### 0.4.0
+* (Bannsaenger) added the ability to export the actual state values via a message and reimport the states again
 
 ## License
 MIT License

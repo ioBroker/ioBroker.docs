@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis/README.md
 title: 可视化
-hash: ryhb2CuqQrlCuXb8bunK8iY61NxkSPTTXOCc7qhEKeE=
+hash: dOpXnjgyzPk2WgxEkOSwwfcBQPAoE1gq5Ed+OhAedFk=
 ---
 ![标识](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
@@ -71,7 +71,7 @@ My calculations with {objectID1;operation1;operation2;...} are {objectID2;operat
 #{objectRed;/(100);*(255);HEX2}{objectGreen;HEX2}{objectBlue;HEX2}
 ```
 
-要在对象 id 的末尾显示对象写入 `.ts` 或 `.lc`（最后一次更改）的时间戳，例如：
+要在对象 id 末尾显示对象写入 `.ts` 或 `.lc`（用于最后更改）的时间戳，例如：
 
 ```
 Last change: {objectRed.lc;date(hh:mm)}
@@ -107,7 +107,7 @@ Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(Ma
 * `username` - 显示登录用户
 * `view` - 实际视图的名称
 * `wname` - 小部件名称
-* `widget` - 是一个包含所有小部件数据的对象。只能在JS部分使用，如`{a:a;widget.data.name}`
+* `widget` - 是一个包含所有小部件数据的对象。只能在 JS 部分使用，比如 `{a:a;widget.data.name}`
 * `wid` - 实际小部件的名称
 * `language` - 可以是 `de`、`en` 或 `ru`。
 * `instance` - 浏览器实例
@@ -129,7 +129,7 @@ Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(Ma
 ## 过滤器
 要在一个视图上显示整数个小部件，您可以使用过滤器来减少视图上同时显示的小部件数量。
 
-每个小部件都有一个字段 `filter`。如果您将其设置为某个值，例如`light`，因此您可以使用其他小部件 `(bars - filters, filter - dropdown)` 来控制哪个过滤器实际处于活动状态。
+每个小部件都有一个字段 `filter`。如果您将其设置为某个值，例如`light`，因此您可以使用其他小部件 `(bars - filters, filter - dropdown)` 来控制实际处于活动状态的过滤器。
 
 ##控制界面
 Vis 创建 3 个变量：
@@ -165,7 +165,7 @@ Vis 创建 3 个变量：
 
 - `control.instance`：浏览器实例和 `ack=true`
 - `control.data`：形式为`project/view`的项目和视图名称，例如`main/view`（和 `ack=true`）
-- `control.command`：`changedView` 和 `ack=true`
+- `control.command`: `changedView` 和 `ack=true`
 
 您可以将 JSON 字符串或对象写入 `control.command` 作为 `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`。在这种情况下，实例和数据将从 JSON 对象中获取。
 
@@ -202,9 +202,11 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 
 ![黑暗的](../../../en/adapterref/iobroker.vis/img/dark_screen.png)
 
-<!-- 下一版本的占位符（在行首）：
+<!-- 下一个版本的占位符（在行首）：
 
 ### __工作进行中__ -->
+＃＃＃ __工作正在进行中__
+* (jens-maus) 向 content-security-policy 标头添加了 frame-src 规范，修复了与框架相关的内容阻塞问题（例如，使用 KioskPro iOS 应用程序）。
 
 ## Changelog
 ### 1.4.4 (2021-08-31)

@@ -52,6 +52,10 @@ Wait some minutes until the cronjob collects the data for the first time.
 
 ## Changelog
 
+### 2.0.3
+
+* (klein0r) Fixed error logging
+
 ### 2.0.2
 
 * (klein0r) Added timeout option

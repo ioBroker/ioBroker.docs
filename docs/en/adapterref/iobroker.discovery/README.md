@@ -140,6 +140,9 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 2.7.3 (2021-10-05)
+* (Sneak-L8) updated kecontact detection
+
 ### 2.7.2 (2021-08-31)
 * (Sneak-L8) support KeBa KeContact P30
 
@@ -148,7 +151,7 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 * (Apollon77) Optimize for js-controller 3.3
 
 ### 2.6.3 (2021-05-03)
-* (bluefox) Added support of Admin5 
+* (bluefox) Added support of Admin5
 
 ### 2.6.2 (2021-04-13)
 * (Apollon77) Fix crash case in mihome discovery (Sentry IOBROKER-DISCOVERY-30)
@@ -178,7 +181,7 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 * (withstu) add heos
 
 ### 2.3.11 (2020-08-08)
-* (Grizzelbee) Added MieleCloudService 
+* (Grizzelbee) Added MieleCloudService
 
 ### 2.3.10 (2020-07-26)
 * (MiSchroe) Discovery Velux KLF-200 updated to new firmware

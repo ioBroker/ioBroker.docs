@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.anelhut/README.md
 title: ioBroker.anelhut
-hash: 9BXbOD8T3dXSYcwOListXM7vrun/M1umtWpwnZQItXg=
+hash: qHBX938Mot0bWfSeEQ4Kd+eulVmZYcY0xj3AYvIKCvg=
 ---
 ![Logo](../../../en/adapterref/iobroker.anelhut/admin/anelhut.png)
 
@@ -32,10 +32,7 @@ Hersteller: https://shop.anel.eu/
 
 ## Verwendungszweck
 - Adapter installieren
-    - Gehe zu "Adapter"
-    - Von benutzerdefinierter URL installieren
-    - Installieren oder aktualisieren Sie den Adapter von der URL (Benutzerdefiniert)
-    - URL einfügen: https://github.com/dan1-de/ioBroker.anelhut/tarball/main
+
 - Geräte konfigurieren
 
     - Aktivieren Sie die UDP-Kommunikation auf Ihrem Anel-Gerät
@@ -52,8 +49,12 @@ Wenn Sie nur ein Gerät verwenden, können Sie den Standardport 77 verwenden.
 Als Sendeport kann für alle Geräte der Standardport 75 verwendet werden.
 Sie können die Ports auf der Weboberfläche des Geräts ändern.
 
+- Docker
+    - Vergessen Sie nicht die Portweiterleitung, wenn Sie diesen Adapter mit einer Docker-Umgebung verwenden möchten:
+        - 77:77/udp #portweiterleitung erstes anel gerät
+        - 78:78/udp #Portweiterleitung zweites anel-Gerät
+
 ## Notiz
-Die Entwicklung dieses Adapters ist derzeit noch nicht abgeschlossen. In Zukunft möchte ich diesen Adapter in die offizielle Adapterliste aufnehmen.
 Dieser Adapter wurde mit allen Anel-Geräten getestet. Danke an den anel-Entwickler :).
 Bitte melden Sie alle Probleme.
 

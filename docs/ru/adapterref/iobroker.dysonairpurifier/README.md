@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: OqX/FN0qfqhhMb2VOkQ7c3mcIRwO6rnLzNs7aJ0rpSA=
+hash: qIIQ0NkL5r+D3EtW3RoniBBT+J5Udkjr1YROqFrhz3A=
 ---
 # IoBroker.dysonAirPurifier
 ![Логотип] (admin / dyson_logo.svg)! [Логотип](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -11,13 +11,12 @@ hash: OqX/FN0qfqhhMb2VOkQ7c3mcIRwO6rnLzNs7aJ0rpSA=
 ![Количество установок (последнее)](http://iobroker.live/badges/dysonairpurifier-installed.svg)
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.dysonairpurifier.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/dysonairpurifier-stable.svg)
-![Статус зависимости](https://img.shields.io/david/Grizzelbee/iobroker.dysonairpurifier.svg)
 ![Известные уязвимости](https://snyk.io/test/github/Grizzelbee/ioBroker.dysonairpurifier/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.dysonAirPurifier.svg?downloads=true)
 ![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.dysonairpurifier.svg)
 
-[![Тестирование и выпуск] (https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml)
+[![Статус зависимости] (https://david-dm.org/Grizzelbee/iobroker.dysonairpurifier.svg)](https://david-dm.org/Grizzelbee/iobroker.dysonairpurifier) [![Тестирование и выпуск] (https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml)
 
 ## IoBroker Адаптер для очистителей воздуха и вентиляторов Dyson
 Этот адаптер соединяет ioBroker с различными очистителями воздуха Dyson.
@@ -100,15 +99,19 @@ hash: OqX/FN0qfqhhMb2VOkQ7c3mcIRwO6rnLzNs7aJ0rpSA=
 2. Подождите несколько минут.
 3. Введите данные для входа в адаптер (если это еще не сделано) и выполните процедуру 2FA до конца.
 4. Адаптер должен запуститься и стать зеленым.
-5. подождите некоторое время (до часа или, может быть, больше, поскольку у Dyson есть блокировщик слишком большого количества запросов за короткий промежуток времени)
+5. подождите немного (до часа или, может быть, больше, поскольку у Dyson есть блокировщик слишком большого количества запросов за короткий промежуток времени)
 6. Войдите в свое приложение для смартфона dyson, если хотите его использовать.
 
 ## Управление вашим устройством (ами)
 В настоящее время этот адаптер может управлять следующими состояниями ваших устройств:
 
+* FanMode, режим устройства (ручной, автоматический, выключенный)
 * FanSpeed, текущая скорость вентилятора
 * Ночной режим, состояние ночного режима
-* Колебание, Колебание вентилятора.
+* Колебание, Колебание вентилятора (Вкл., Выкл.).
+* OscillationRight, OscillationAngle Upper Boundary
+* OscillationLeft, нижняя граница OscillationAngle
+* Угол колебания, Угол колебания
 * ContinuousMonitoring, непрерывный мониторинг датчиков окружающей среды, даже если устройство выключено.
 * MainPower, основная мощность вентилятора.
 * AutomaticMode, Вентилятор в автоматическом режиме.
@@ -121,10 +124,11 @@ hash: OqX/FN0qfqhhMb2VOkQ7c3mcIRwO6rnLzNs7aJ0rpSA=
 * HumidifyAutoMode, Авто / Выкл.
 * AutoHumidificationTarget, AutoHumidificationTarget
 * HumidificationTarget, Ручное HumidificationTarget
+* TemperatureUnit, Единица для отображения значений температуры в (Отображение вентилятора).
 * WaterHardness, мягкий, средний, жесткий
 
 Возможные значения для этих состояний, насколько известно, задокументированы ниже.
-Скорость вентилятора допускает значения только от 1 до 10 и Авто. Если вы хотите установить скорость вращения вентилятора на 0, вам необходимо отключить основное питание.
+Скорость вентилятора допускает только значения от 1 до 10 и Авто. Если вы хотите установить скорость вращения вентилятора на 0, вам необходимо отключить основное питание.
 То же самое и с приложением dyson.
 
 ### Известные вопросы
@@ -151,7 +155,7 @@ hash: OqX/FN0qfqhhMb2VOkQ7c3mcIRwO6rnLzNs7aJ0rpSA=
 | fmod | Режим | ВЕНТИЛЯТОР, АВТО, ВЫКЛ | |
 | fpwr | Основная мощность | ВКЛ, ВЫКЛ | |
 | fnst | Статус вентилятора | ВКЛ, ВЫКЛ, ВЕНТИЛЯТОР | |
-| fnsp | Скорость вентилятора | 0001-0010, АВТО | |
+| fnsp | Скорость вентилятора | 0001 - 0010, АВТО | |
 | fdir | Fandirection aka. Струйный фокус / ВКЛ = спереди, ВЫКЛ = сзади | ВКЛ, ВЫКЛ | |
 | ffoc | JetFocus | ВКЛ, ВЫКЛ |
 | nmod | Ночной режим | ВКЛ, ВЫКЛ | |
@@ -172,22 +176,24 @@ hash: OqX/FN0qfqhhMb2VOkQ7c3mcIRwO6rnLzNs7aJ0rpSA=
 | hmod | Режим нагревателя [ВКЛ / ВЫКЛ] | ТЕПЛО | |
 | hmax | Целевая температура для обогрева | 0 .. 5000 | K |
 | юм | HumidificationMode | ВКЛ, ВЫКЛ, |
-| haut | Автоматический режим увлажнения | |
-| Humt | Целевое увлажнение | |
-| cdrr | CleanDurationRemaining | |
-| прямоугольник | AutoHumidificationTarget | |
-| cltr | TimeRemainingToNextClean | |
+| haut | Автоматический режим увлажнения | HUMIDIFY_AUTO_MODE_ON, HUMIDIFY_AUTO_MODE_OFF |
+| Humt | Целевое увлажнение | HUMIDIFICATION_MODE_OFF, HUMIDIFICATION_MODE_THIRTY, HUMIDIFICATION_MODE_FORTY, HUMIDIFICATION_MODE_FIFTY, HUMIDIFICATION_MODE_SIXTY, HUMIDIFICATION_MODE_SEVENTY |
+| cdrr | CleanDurationRemaining | целое | минут |
+| прямоугольник | AutoHumidificationTarget | целое | % |
+| cltr | TimeRemainingToNextClean | целое | часы |
 | wath | WaterHardness | МЯГКИЙ = "2025", СРЕДНИЙ = "1350", ЖЕСТКИЙ = "0675" |
 | wacd | WarningCode | НЕТ ... |
-| rstf | сбросить жизненный цикл фильтра |
-| брил | неизвестно | 0002 |
-| корф | неизвестно | ВКЛ, ВЫКЛ |
-| fqhp | неизвестно | |
+
+| rstf | сбросить жизненный цикл фильтра | RESET_FILTER_LIFE_IGNORE, RESET_FILTER_LIFE_ACTION
+
+| корф | Температурный формат | ВКЛ = Цельсий, ВЫКЛ = Фаренгейт |
 | clcr | DeepcleanCycle | CLNO = неактивно, CLAC = Выполняется глубокая очистка, CLCM = Завершено |
-| psta | [HP0x] Неизвестно | INIT, CLNG, INV |
-| hsta | [HP0x] Неизвестно | |
-| мста | [HP0x] Неизвестно | ВЫКЛ, HUMD |
-| наклон | [HP0x] Неизвестно | |
+| hsta | Состояние нагрева | АКТИВНЫЙ / ПРОСТОЙ |
+| мста | Состояние увлажнения | Активный / Простой ВЫКЛ, HUMD |
+| psta | [HP0x] Неизвестно | INIT, CLNG, INV, OFF |
+| брил | неизвестно | 0002 | LEVEL_LOW, LEVEL_MEDIUM, LEVEL_HIGH |
+| fqhp | неизвестно | |
+| наклон | [HP0x] Неизвестно | строка |
 | набрать | [DP0x] Неизвестно | |
 
 | Коды ошибок | Значение |
@@ -244,6 +250,19 @@ Dyson, pure cool, pure hot & cool и другие являются товарн�
 
 ## Changelog
 
+### V2.1.1 (2021-10-05) (Running to the edge)
+* (grizzelbee) New: Added some more data points 
+* (grizzelbee) New: Added switch for temperature unit of the fan display
+* (grizzelbee) New: Improved logging of unknown data points
+* (germanBluefox) Fix: Fixed icon links
+* (grizzelbee) Fix: fixed dependencies badge
+* (grizzelbee) Fix: added missing dependency plugin-sentry
+* (grizzelbee) Fix: Setting HumidificationTarget now works
+
+### V2.0.1 (2021-10-04) (Lost in forever)
+* (grizzelbee) Fix: Turning on HeatingMode should work now
+* (grizzelbee) Fix: Sentry-error [2690134161](https://sentry.io/organizations/nocompany-6j/issues/2690134161/?project=5735771) -> Cannot read property '3' of undefined
+* (grizzelbee) Upd: Updated dependencies
 
 ### V2.0.0 (2021-09-26) (Lost in forever)
 * (grizzelbee) New: Added DeepCleanCycle to known data points

@@ -30,10 +30,7 @@ Manufacturer: https://shop.anel.eu/
 ## Usage
 
 -   Install adapter
-    -   Go to "adapters"
-    -   Install from custom URL
-    -   Install or update the adapter from URL (Custom)
-    -   Insert URL: https://github.com/dan1-de/ioBroker.anelhut/tarball/main
+
 -   Configure Devices
 
     -   Enable UDP Communication on your Anel device
@@ -50,9 +47,13 @@ Manufacturer: https://shop.anel.eu/
         For the send port the default port 75 can be used for all devices.
         You can change the ports on the webinterface of the device.
 
+-   Docker
+    -   Don't forget the port forwarding, if you like to use this adapter with a docker environment:
+        -   77:77/udp #port forwarding first anel device
+        -   78:78/udp #port forwarding second anel device
+
 ## Note
 
-The development of this adapter is currently not finished. In the future i want to integrate this adapter into the official adapter list.
 This adapter was tested with all Anel devices. Thanks to the anel developer :).
 Please report any issues.
 

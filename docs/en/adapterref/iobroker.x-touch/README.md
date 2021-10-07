@@ -16,9 +16,14 @@ Communicate with a Behringer X-Touch Control Surface (DAW Controller)
 
 ## ToDo
 - Add the encoders and their LEDs -> done, left is sync_global and checks on database changes
-- Add the timecode display
+- Add the timecode display -> done
 - Add the functionality of bank and fader channel switches -> done, needs additional testing
 - Add the syncGlobal functionality
+
+## Message Box
+There a two acepted commands:
+* `export` exports the actual values stored in the states of the devicegroups to the userdata folder x-touch.0
+* `import` imports the youngest file from the userdata folder. Alternitively you can specify `path`, `file` and/or the `devicegroup` number to restore. If no path is specified the userdata directory will be used.  
 
 ## Changelog
 
@@ -51,6 +56,9 @@ Communicate with a Behringer X-Touch Control Surface (DAW Controller)
 
 ### 0.3.0
 * (Bannsaenger) added the timecode display
+
+### 0.4.0
+* (Bannsaenger) added the ability to export the actual state values via a message and reimport the states again
 
 ## License
 MIT License

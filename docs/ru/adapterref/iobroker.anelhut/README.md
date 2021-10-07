@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.anelhut/README.md
 title: ioBroker.anelhut
-hash: 9BXbOD8T3dXSYcwOListXM7vrun/M1umtWpwnZQItXg=
+hash: qHBX938Mot0bWfSeEQ4Kd+eulVmZYcY0xj3AYvIKCvg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.anelhut/admin/anelhut.png)
 
@@ -27,15 +27,12 @@ hash: 9BXbOD8T3dXSYcwOListXM7vrun/M1umtWpwnZQItXg=
 - NET-PwrCtrl IO
 -   ДОМ
 - ПРО
--   МОЩНОСТЬ
+-   ВЛАСТЬ
 - ADV
 
 ## Использование
 - Установить адаптер
-    - Заходим в "переходники"
-    - Установить с пользовательского URL
-    - Установите или обновите адаптер с URL (Custom)
-    - Вставить URL: https://github.com/dan1-de/ioBroker.anelhut/tarball/main
+
 - Настроить устройства
 
     - Включите UDP-соединение на вашем устройстве Anel
@@ -52,8 +49,12 @@ hash: 9BXbOD8T3dXSYcwOListXM7vrun/M1umtWpwnZQItXg=
 Для порта отправки порт 75 по умолчанию может использоваться для всех устройств.
 Вы можете изменить порты на веб-интерфейсе устройства.
 
+- Докер
+    - Не забудьте про переадресацию портов, если вы хотите использовать этот адаптер со средой докеров:
+        - 77: 77 / udp # перенаправление порта первое устройство anel
+        - 78: 78 / udp # переадресация порта второго устройства anel
+
 ## Примечание
-Разработка этого адаптера в настоящее время не завершена. В будущем я хочу интегрировать этот адаптер в официальный список адаптеров.
 Этот адаптер был протестирован со всеми устройствами Anel. Спасибо разработчику анеля :).
 Пожалуйста, сообщайте о любых проблемах.
 

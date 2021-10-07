@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.anelhut/README.md
 title: ioBroker.anelhut
-hash: 9BXbOD8T3dXSYcwOListXM7vrun/M1umtWpwnZQItXg=
+hash: qHBX938Mot0bWfSeEQ4Kd+eulVmZYcY0xj3AYvIKCvg=
 ---
 ![标识](../../../en/adapterref/iobroker.anelhut/admin/anelhut.png)
 
@@ -32,10 +32,7 @@ hash: 9BXbOD8T3dXSYcwOListXM7vrun/M1umtWpwnZQItXg=
 
 ＃＃ 用法
 - 安装适配器
-    - 转到“适配器”
-    - 从自定义 URL 安装
-    - 从 URL 安装或更新适配器（自定义）
-    - 插入网址：https://github.com/dan1-de/ioBroker.anelhut/tarball/main
+
 - 配置设备
 
     - 在您的 Anel 设备上启用 UDP 通信
@@ -52,8 +49,12 @@ hash: 9BXbOD8T3dXSYcwOListXM7vrun/M1umtWpwnZQItXg=
 对于发送端口，默认端口 75 可用于所有设备。
 您可以更改设备 Web 界面上的端口。
 
+- 码头工人
+    - 不要忘记端口转发，如果你喜欢在 docker 环境中使用这个适配器：
+        - 77:77/udp #port 转发第一个 anel 设备
+        - 78:78/udp #port 转发第二个 anel 设备
+
 ＃＃ 笔记
-该适配器的开发目前尚未完成。将来我想将此适配器集成到官方适配器列表中。
 该适配器已在所有 Anel 设备上进行了测试。感谢 anel 开发人员:)。
 请报告任何问题。
 

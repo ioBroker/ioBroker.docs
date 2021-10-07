@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis/README.md
 title: Визуализация
-hash: ryhb2CuqQrlCuXb8bunK8iY61NxkSPTTXOCc7qhEKeE=
+hash: dOpXnjgyzPk2WgxEkOSwwfcBQPAoE1gq5Ed+OhAedFk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
@@ -105,7 +105,7 @@ Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(Ma
 Существует ряд различных внутренних привязок для предоставления дополнительной информации в представлениях:
 
 * `username` - показывает авторизованного пользователя
-* `view` - имя актуального вида
+* `view` - имя актуального просмотра
 * `wname` - имя виджета
 * `widget` - это объект со всеми данными виджета. Может использоваться только в части JS, например `{a: a; widget.data.name}`
 * `wid` - имя актуального виджета
@@ -205,6 +205,8 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 <! - Заполнитель для следующей версии (в начале строки):
 
 ### __РАБОТА В ПРОЦЕССЕ__ ->
+### __РАБОТА В ПРОЦЕССЕ__
+* (jens-maus) Добавлена спецификация frame-src в заголовок content-security-policy, исправляющая проблемы блокировки содержимого, связанные с кадрами (например, с помощью приложения KioskPro для iOS).
 
 ## Changelog
 ### 1.4.4 (2021-08-31)

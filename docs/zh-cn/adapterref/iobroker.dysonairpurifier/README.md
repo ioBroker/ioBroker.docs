@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: OqX/FN0qfqhhMb2VOkQ7c3mcIRwO6rnLzNs7aJ0rpSA=
+hash: qIIQ0NkL5r+D3EtW3RoniBBT+J5Udkjr1YROqFrhz3A=
 ---
 # IoBroker.dysonAirPurifier
 ![标志](admin/dyson_logo.svg)![标志](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -11,13 +11,12 @@ hash: OqX/FN0qfqhhMb2VOkQ7c3mcIRwO6rnLzNs7aJ0rpSA=
 ![安装数量（最新）](http://iobroker.live/badges/dysonairpurifier-installed.svg)
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.dysonairpurifier.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/dysonairpurifier-stable.svg)
-![依赖状态](https://img.shields.io/david/Grizzelbee/iobroker.dysonairpurifier.svg)
 ![已知漏洞](https://snyk.io/test/github/Grizzelbee/ioBroker.dysonairpurifier/badge.svg)
 ![新产品管理](https://nodei.co/npm/iobroker.dysonAirPurifier.svg?downloads=true)
 ![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![下载](https://img.shields.io/npm/dm/iobroker.dysonairpurifier.svg)
 
-[![测试和发布](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml)
+[![依赖状态](https://david-dm.org/Grizzelbee/iobroker.dysonairpurifier.svg)](https://david-dm.org/Grizzelbee/iobroker.dysonairpurifier) [![测试和发布](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml)
 
 ## IoBroker 适配器，适用于戴森空气净化器和风扇
 该适配器将 ioBroker 连接到各种戴森空气净化器。
@@ -45,7 +44,7 @@ hash: OqX/FN0qfqhhMb2VOkQ7c3mcIRwO6rnLzNs7aJ0rpSA=
 
 ＃＃ 安装
 ### Sentry.io
-该适配器使用 sentry.io 收集有关崩溃的详细信息并自动向作者报告。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) 插件用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 有关插件功能、收集哪些信息以及如何禁用插件的详细信息，如果您不喜欢用您的崩溃信息支持作者。
+该适配器使用 sentry.io 收集有关崩溃的详细信息并自动将其报告给作者。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) 插件用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 有关插件功能、收集哪些信息以及如何禁用插件的详细信息，如果您不喜欢用您的崩溃信息支持作者。
 
 ### 先决条件
 * 此适配器需要 Node.js >= 版本 10
@@ -59,7 +58,7 @@ hash: OqX/FN0qfqhhMb2VOkQ7c3mcIRwO6rnLzNs7aJ0rpSA=
 在您的 ioBroker 安装上运行 ```npm install iobroker.dysonairpurifier``` 以从 npm 存储库中获取此适配器的最新版本。
 
 #### 替代方案：使用 GitHub URL
-通过将 ioBroker Admin UI 指向 GitHub 上最新的稳定版本来安装：<https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
+通过 ioBroker 管理 UI 将其指向 GitHub 上的最新稳定版本进行安装：<https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
 
 您还可以使用这些方法安装旧版本（通过指向版本标记，例如，在 URL 中使用 ```v0.6.0``` 而不是 ```master```），但通常首选最新版本。
 
@@ -106,9 +105,13 @@ hash: OqX/FN0qfqhhMb2VOkQ7c3mcIRwO6rnLzNs7aJ0rpSA=
 ## 控制您的设备
 此适配器目前能够控制您设备的以下状态：
 
+* FanMode，设备模式（手动、自动、关闭）
 * FanSpeed , 当前风扇速度
 * 夜间模式，夜间模式状态
-*振荡，风扇的振荡。
+*振荡，风扇振荡（开，关）。
+* OscillationRight , OscillationAngle 上边界
+* OscillationLeft , OscillationAngle 下边界
+* 振荡角，振荡角
 * ContinuousMonitoring ，即使设备关闭也能持续监测环境传感器。
 * MainPower ，风扇的主电源。
 * AutomaticMode , 风扇处于自动模式。
@@ -121,6 +124,7 @@ hash: OqX/FN0qfqhhMb2VOkQ7c3mcIRwO6rnLzNs7aJ0rpSA=
 *加湿自动模式，自动/关闭
 * 自动加湿目标，自动加湿目标
 * 加湿目标，手动加湿目标
+* TemperatureUnit , 显示温度值的单位（风扇显示）。
 * 水硬度，软，中，硬
 
 据了解，这些状态的可能值记录如下。
@@ -152,7 +156,7 @@ hash: OqX/FN0qfqhhMb2VOkQ7c3mcIRwO6rnLzNs7aJ0rpSA=
 | fpwr |主电源 |开、关 | |
 |第一 |粉丝状态 |开、关、风扇 | |
 | fnsp |风扇转速 | 0001 - 0010, 自动 | |
-|目录 | Fandirection 又名。喷射焦点/ ON=前，OFF=后 |开、关 | |
+|目录 | Fandirection 又名。喷射焦点/ ON=正面，OFF=背面|开、关 | |
 |福克| JetFocus |开、关 |
 | nmod |夜间模式 |开、关 | |
 |奥森|振荡|开、关| |
@@ -172,22 +176,24 @@ hash: OqX/FN0qfqhhMb2VOkQ7c3mcIRwO6rnLzNs7aJ0rpSA=
 | hmod |加热器模式 [ON/OFF] |热 | |
 |最大|加热目标温度 | 0 .. 5000 |克|
 |休谟|加湿模式 |开、关、|
-|上|加湿自动模式| |
-|哼哼|加湿目标| |
-| CDR | CleanDurationRemaining| |
-|矩形 |自动加湿目标| |
-| ctr | TimeRemainingToNextClean| |
+|上|加湿自动模式| HUMIDIFY_AUTO_MODE_ON, HUMIDIFY_AUTO_MODE_OFF |
+|哼哼|加湿目标| HUMIDIFICATION_MODE_OFF、HUMIDIFICATION_MODE_THIRTY、HUMIDIFICATION_MODE_FORTY、HUMIDIFICATION_MODE_FIFTY、HUMIDIFICATION_MODE_SIXTY、HUMIDIFICATION_MODE_SEVENTY |
+| CDR | CleanDurationRemaining|整数 |分钟|
+|矩形 |自动加湿目标|整数 | % |
+| ctr | TimeRemainingToNextClean|整数|小时 |
 |什么|水硬度|软=“2025”，中=“1350”，硬=“0675”|
 | wacd |警告代码 |无... |
-| rstf |重置过滤器生命周期 |
-| bril |未知 | 0002 |
-|科尔夫 |未知 |开、关 |
-| fqhp |未知| |
+
+| rstf |重置过滤器生命周期 | RESET_FILTER_LIFE_IGNORE、RESET_FILTER_LIFE_ACTION
+
+|科尔夫 |温度格式 | ON=摄氏度，OFF=华氏度 |
 | CLCR |深度清洁循环 | CLNO=未激活，CLAC=正在进行深度清洁，CLCM=已完成 |
-| psta | [HP0x] 未知 | INIT、CLNG、INV |
-| hsta | [HP0x] 未知 | |
-| msta | [HP0x] 未知 |关闭，HUMD |
-|倾斜| [HP0x] 未知 | |
+| hsta |加热状态|活动/空闲 |
+| msta |加湿状态|活动/空闲关闭，HUMD |
+| psta | [HP0x] 未知 | INIT、CLNG、INV、OFF |
+| bril |未知 | 0002 | LEVEL_LOW, LEVEL_MEDIUM, LEVEL_HIGH |
+| fqhp |未知| |
+|倾斜| [HP0x] 未知 |字符串 |
 |拨号 | [DP0x] 未知 | |
 
 |错误代码|含义 |
@@ -244,6 +250,19 @@ Dyson、pure cool、pure hot &cool 等是[戴森有限公司](https://www.dyson.
 
 ## Changelog
 
+### V2.1.1 (2021-10-05) (Running to the edge)
+* (grizzelbee) New: Added some more data points 
+* (grizzelbee) New: Added switch for temperature unit of the fan display
+* (grizzelbee) New: Improved logging of unknown data points
+* (germanBluefox) Fix: Fixed icon links
+* (grizzelbee) Fix: fixed dependencies badge
+* (grizzelbee) Fix: added missing dependency plugin-sentry
+* (grizzelbee) Fix: Setting HumidificationTarget now works
+
+### V2.0.1 (2021-10-04) (Lost in forever)
+* (grizzelbee) Fix: Turning on HeatingMode should work now
+* (grizzelbee) Fix: Sentry-error [2690134161](https://sentry.io/organizations/nocompany-6j/issues/2690134161/?project=5735771) -> Cannot read property '3' of undefined
+* (grizzelbee) Upd: Updated dependencies
 
 ### V2.0.0 (2021-09-26) (Lost in forever)
 * (grizzelbee) New: Added DeepCleanCycle to known data points

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis/README.md
 title: Visualisierung
-hash: ryhb2CuqQrlCuXb8bunK8iY61NxkSPTTXOCc7qhEKeE=
+hash: dOpXnjgyzPk2WgxEkOSwwfcBQPAoE1gq5Ed+OhAedFk=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
@@ -40,7 +40,7 @@ Folgende Operationen werden unterstützt:
 - `/` - teilen. Argument muss in Klammern stehen, wie "/(0.5)". In diesem Beispiel teilen wir den Wert durch 0,5.
 - `%` - modulo. Argument muss in Klammern stehen, wie "%(5)". In diesem Beispiel nehmen wir Modulo von 5.
 - `round` - rundet den Wert.
-- `round(N)` - Runden Sie den Wert mit N Stellen nach dem Punkt, z.B. 34.678;rund(1) => 34.7
+- `round(N)` - runden Sie den Wert mit N Stellen nach dem Punkt, z.B. 34.678;rund(1) => 34.7
 - `hex` - Wert in hexadezimalen Wert umwandeln. Alle Buchstaben sind klein geschrieben.
 - `hex2` - Wert in hexadezimalen Wert umwandeln. Alle Buchstaben sind klein geschrieben. Bei einem Wert kleiner 16 wird die führende Null hinzugefügt.
 - `HEX` - wie hex, aber in Großbuchstaben.
@@ -54,7 +54,7 @@ Folgende Operationen werden unterstützt:
 - `floor` - Math.floor
 - `ceil` - Math.ceil
 - `random(R)` - Math.random() * R, oder nur Math.random() wenn kein Argument
-- `formatValue(decimals)` - Wert entsprechend den Systemeinstellungen formatieren und Dezimalstellen verwenden
+- `formatValue(decimals)` - Wert gemäß Systemeinstellungen formatieren und Dezimalstellen verwenden
 - `date(format)` - Wert als Datum formatieren. Das Format ist wie: "YYYY-MM-DD hh:mm:ss.sss"
 - `momentDate(format, useTodayOrYesterday)` - Formatieren Sie den Wert als Datum mit Moment.js. [Genehmigte Formate müssen gemäß der Bibliothek moment.js eingegeben werden](https://momentjs.com/docs/#/displaying/format/). Mit `useTodayOrYesterday=true` werden die momentjs Formate `ddd`/`dddd` mit heute / gestern überschrieben
 - `array(element1,element2[,element3,element4])` - gibt das Indexelement zurück. z.B.: `{id.ack;array(ack ist falsch,ack ist wahr)}`
@@ -112,7 +112,7 @@ Es gibt eine Reihe verschiedener interner Bindungen, um zusätzliche Information
 * `Sprache` - kann `de`, `en` oder `ru` sein.
 * `Instanz` - Browser-Instanz
 * `login` - ob eine Anmeldung erforderlich ist oder nicht (z.B. um den Logout-Button anzuzeigen/auszublenden)
-* `local_*` - Wenn der Statusname von `local_` gestartet wird, wird er nicht an ioBroker gemeldet, sondern aktualisiert alle Widgets, die von diesem Status abhängen. (Lokale Variable für aktuelle Browsersitzung)
+* `local_*` - Wenn der Statusname von `local_` gestartet wird, wird er nicht an ioBroker gemeldet, sondern alle Widgets aktualisiert, die von diesem Status abhängen. (Lokale Variable für aktuelle Browsersitzung)
 
 Hinweis: Um ":" in Berechnungen (z. B. in Zeichenfolgenformeln) zu verwenden, verwenden Sie stattdessen "::".
 
@@ -205,6 +205,8 @@ Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung gültig s
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
 ### __ARBEITEN IN PROGRESS__ -->
+### __IN ARBEIT__
+* (jens-maus) Frame-src-Spezifikation zum Content-Security-Policy-Header hinzugefügt, um Frame-bezogene Inhaltsblockierungsprobleme zu beheben (z. B. bei Verwendung der KioskPro iOS-App).
 
 ## Changelog
 ### 1.4.4 (2021-08-31)

@@ -58,8 +58,9 @@ In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x some
     ### __WORK IN PROGRESS__
 -->
 
-### __WORK IN PROGRESS__
+### 0.3.8 (2021-10-06)
 * (HGlab01) support attributes 'fanLevel', 'verticalSwing', 'horizontalSwing' (#352)
+* (HGlab01) catch 422 issue in poolApiCall()
 
 ### 0.3.7 (2021-08-24)
 * (HGlab01) ActiveTimeTable can be set (#337)

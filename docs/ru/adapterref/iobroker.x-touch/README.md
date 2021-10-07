@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.x-touch/README.md
 title: ioBroker.x-touch
-hash: WIHz2zmoIFHGH8dlrg2iIAKeaishdLYIfWK2QOSAv7c=
+hash: texWQD4NDKZ038tIOr12wwqEYfOQW69jJmBAaJ88c7k=
 ---
 ![Логотип](../../../en/adapterref/iobroker.x-touch/admin/x-touch.png)
 
@@ -21,9 +21,15 @@ hash: WIHz2zmoIFHGH8dlrg2iIAKeaishdLYIfWK2QOSAv7c=
 
 ## Делать
 - Добавьте кодировщики и их светодиоды -> готово, слева - sync_global и проверяет изменения в базе данных.
-- Добавить отображение временного кода
-- Добавить функциональность переключателей каналов банка и фейдера -> готово, требуется дополнительное тестирование
+- Добавить отображение тайм-кода -> готово
+- Добавлена функциональность переключателей каналов банка и фейдера -> готово, требуется дополнительное тестирование
 - Добавить функцию syncGlobal
+
+## Окно сообщения
+Есть две принятые команды:
+
+* `export` экспортирует фактические значения, хранящиеся в состояниях групп устройств, в папку пользовательских данных x-touch.
+* `import` импортирует самый молодой файл из папки userdata. Вы также можете указать путь, файл и / или номер группы устройств для восстановления. Если путь не указан, будет использоваться каталог пользовательских данных.
 
 ## Changelog
 
@@ -46,7 +52,19 @@ hash: WIHz2zmoIFHGH8dlrg2iIAKeaishdLYIfWK2QOSAv7c=
 * (Bannsaenger) fixed fader handling and data distribution to the device group
 
 ### 0.2.3
-* (Bannsaenger) fixed setting of diplay inverted
+* (Bannsaenger) fixed setting of display inverted
+
+### 0.2.4
+* (Bannsaenger) fixed disabling of encoder display
+
+### 0.2.5
+* (Bannsaenger) fixed send back of button and fader values. Now only the affected device group members will be updated
+
+### 0.3.0
+* (Bannsaenger) added the timecode display
+
+### 0.4.0
+* (Bannsaenger) added the ability to export the actual state values via a message and reimport the states again
 
 ## License
 MIT License

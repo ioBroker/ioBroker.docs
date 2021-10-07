@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: OqX/FN0qfqhhMb2VOkQ7c3mcIRwO6rnLzNs7aJ0rpSA=
+hash: qIIQ0NkL5r+D3EtW3RoniBBT+J5Udkjr1YROqFrhz3A=
 ---
 # IoBroker.dysonAirPurifier
 ![Logo](admin/dyson_logo.svg)![Logo](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -11,13 +11,12 @@ hash: OqX/FN0qfqhhMb2VOkQ7c3mcIRwO6rnLzNs7aJ0rpSA=
 ![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/dysonairpurifier-installed.svg)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.dysonairpurifier.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/dysonairpurifier-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/Grizzelbee/iobroker.dysonairpurifier.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/Grizzelbee/ioBroker.dysonairpurifier/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.dysonAirPurifier.svg?downloads=true)
 ![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.dysonairpurifier.svg)
 
-[![Test und Veröffentlichung](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml)
+[![Abhängigkeitsstatus](https://david-dm.org/Grizzelbee/iobroker.dysonairpurifier.svg)](https://david-dm.org/Grizzelbee/iobroker.dysonairpurifier) [![Test und Veröffentlichung](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml)
 
 ## IoBroker Adapter für Dyson Luftreiniger und Lüfter
 Dieser Adapter verbindet ioBroker mit verschiedenen Dyson Luftreinigern.
@@ -45,7 +44,7 @@ Verbindet Ihre Dyson-Lüfter, Heizlüfter, Luftreiniger und Luftbefeuchter mit i
 
 ## Installation
 ### Sentry.io
-Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch an den Autor zu melden. Dafür wird das [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) Plugin verwendet. Bitte lesen Sie die [Plugin-Startseite](https://github.com/ioBroker/plugin-sentry) für detaillierte Informationen darüber, was das Plugin tut, welche Informationen gesammelt werden und wie Sie es deaktivieren können, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
+Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch an den Autor zu melden. Dafür wird das [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) Plugin verwendet. Bitte lesen Sie die [Plugin-Homepage](https://github.com/ioBroker/plugin-sentry) für detaillierte Informationen darüber, was das Plugin tut, welche Informationen gesammelt werden und wie Sie es deaktivieren können, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
 
 ###Voraussetzungen
 * Dieser Adapter benötigt Node.js >= Version 10
@@ -106,9 +105,13 @@ Alle Werte werden gespeichert und weiterhin angezeigt.
 ## Steuern Sie Ihr(e) Gerät(e)
 Dieser Adapter kann derzeit die folgenden Zustände Ihrer Geräte steuern:
 
+* FanMode , Gerätemodus (Manuell, Auto, Aus)
 * FanSpeed, aktuelle Lüftergeschwindigkeit
 * Nachtmodus, Nachtmodusstatus
-* Schwingung, Schwingung des Ventilators.
+* Oszillation , Oszillation des Lüfters (Ein, Aus).
+* OscillationRight, OscillationAngle Upper Boundary
+* OscillationLeft , OscillationAngle Lower Boundary
+* Oszillationswinkel , Oszillationswinkel
 * ContinuousMonitoring, kontinuierliche Überwachung von Umgebungssensoren, auch wenn das Gerät ausgeschaltet ist.
 * MainPower , Hauptstrom des Lüfters.
 * AutomaticMode , Lüfter befindet sich im Automatikmodus.
@@ -121,6 +124,7 @@ Dieser Adapter kann derzeit die folgenden Zustände Ihrer Geräte steuern:
 * HumidifyAutoMode, Auto / Aus
 * AutoBefeuchtungsziel, Autobefeuchtungsziel
 * Befeuchtungsziel, Manuelles Befeuchtungsziel
+* TemperatureUnit , Einheit zur Anzeige von Temperaturwerten in (Lüfteranzeige).
 * Wasserhärte, weich, mittel, hart
 
 Mögliche Werte für diese Zustände sind, soweit bekannt, im Folgenden dokumentiert.
@@ -155,7 +159,7 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | fdir | Fandirektion aka. Jet-Fokus/ EIN=Vorne, AUS=Zurück | EIN, AUS | |
 | ffoc | JetFocus | EIN, AUS |
 | nmod | Nachtmodus | EIN , AUS | |
-| oson | Schwingung | EIN , AUS| |
+| oson | Schwingung | EIN, AUS| |
 | osal | Oszillationswinkel untere Grenze | 0005 - 355| ° (Grad)|
 | osau | Oszillationswinkel Obere Grenze | 0005 - 355 | ° (Grad)|
 | oscs | OszillationAktiv | EIN, AUS, LEERLAUF | |
@@ -169,25 +173,27 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | hflr | Status HEPA-Filter | 0000 - 0100 | Prozent |
 | hflt | HEPA-Filter | GHEP, GCOM | |
 | sltm | Sleeptimer | EIN, AUS ||
-| hmod | Heizungsmodus [EIN/AUS] | HITZE | |
+| hmod | Heizungsmodus [EIN/AUS] | WÄRME | |
 | hmax | Solltemperatur zum Heizen | 0 .. 5000 | K |
-| Humus | Befeuchtungsmodus | EIN, AUS, |
-| haut | Auto-Modus befeuchten| |
-| summe | Befeuchtungsziel| |
-| cdrr | CleanDurationRemaining| |
-| gerade | AutoBefeuchtungsziel| |
-| cltr | TimeRemainingToNextClean| |
-| wat | Wasserhärte| SOFT="2025", MEDIUM="1350",HARD="0675"|
+| Hume | Befeuchtungsmodus | EIN, AUS, |
+| haut | Auto-Modus befeuchten| HUMIDIFY_AUTO_MODE_ON, HUMIDIFY_AUTO_MODE_OFF |
+| summe | Befeuchtungsziel| HUMIDIFICATION_MODE_OFF, HUMIDIFICATION_MODE_THIRTY, HUMIDIFICATION_MODE_FORTY, HUMIDIFICATION_MODE_FIFTY, HUMIDIFICATION_MODE_SIXTY, HUMIDIFICATION_MODE_SEVENTY |
+| cdrr | CleanDurationRemaining| ganze Zahl | Minuten |
+| gerade | AutoBefeuchtungsziel| ganze Zahl | % |
+| cltr | TimeRemainingToNextClean| ganze Zahl| Stunden |
+| wat | Wasserhärte| WEICH="2025", MITTEL="1350", HARD="0675"|
 | wacd | Warncode | KEINE... |
-| rstf | Filterlebenszyklus zurücksetzen |
-| hell | unbekannt | 0002 |
-| Korf | unbekannt | EIN, AUS |
-| fqhp | unbekannt| |
+
+| rstf | Filterlebenszyklus zurücksetzen | RESET_FILTER_LIFE_IGNORE, RESET_FILTER_LIFE_ACTION
+
+| Korf | Temperaturformat | EIN=Celsius, AUS=Fahrenheit |
 | clcr | DeepcleanCycle | CLNO=inaktiv, CLAC=Deep Clean im Gange, CLCM=Fertig |
-| psta | [HP0x] Unbekannt | INIT, CLNG, INV |
-| hsta | [HP0x] Unbekannt | |
-| msta | [HP0x] Unbekannt | AUS, HUMD |
-| Neigung | [HP0x] Unbekannt | |
+| hsta | Heizzustand | AKTIV/LEERLAUF |
+| msta | Befeuchtungszustand | Aktiv/Leerlauf AUS, HUMD |
+| psta | [HP0x] Unbekannt | INIT, CLNG, INV, AUS |
+| hell | unbekannt | 0002 | LEVEL_LOW, LEVEL_MEDIUM, LEVEL_HIGH |
+| fqhp | unbekannt| |
+| Neigung | [HP0x] Unbekannt | Zeichenfolge |
 | Zifferblatt | [DP0x] Unbekannt | |
 
 |Fehlercodes| Bedeutung |
@@ -244,6 +250,19 @@ Dyson, pure cool, pure hot & cool und andere sind Marken oder eingetragene Marke
 
 ## Changelog
 
+### V2.1.1 (2021-10-05) (Running to the edge)
+* (grizzelbee) New: Added some more data points 
+* (grizzelbee) New: Added switch for temperature unit of the fan display
+* (grizzelbee) New: Improved logging of unknown data points
+* (germanBluefox) Fix: Fixed icon links
+* (grizzelbee) Fix: fixed dependencies badge
+* (grizzelbee) Fix: added missing dependency plugin-sentry
+* (grizzelbee) Fix: Setting HumidificationTarget now works
+
+### V2.0.1 (2021-10-04) (Lost in forever)
+* (grizzelbee) Fix: Turning on HeatingMode should work now
+* (grizzelbee) Fix: Sentry-error [2690134161](https://sentry.io/organizations/nocompany-6j/issues/2690134161/?project=5735771) -> Cannot read property '3' of undefined
+* (grizzelbee) Upd: Updated dependencies
 
 ### V2.0.0 (2021-09-26) (Lost in forever)
 * (grizzelbee) New: Added DeepCleanCycle to known data points

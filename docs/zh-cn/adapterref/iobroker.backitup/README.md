@@ -10,99 +10,110 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.backitup/README.md
 title: ioBroker.backitup
-hash: UXG+95brfMsGcN+LQGffJ8j65dII2FQSsYfWwkHNH4w=
+hash: t1B71AZabPHsx5hk9tlX7OR+cNPr8bHdgIHTlsv/fj4=
 ---
-![商标](../../../de/adapterref/iobroker.backitup/img/backitup.png)
+![标识](../../../de/adapterref/iobroker.backitup/img/backitup.png)
 
 ![安装数量](http://iobroker.live/badges/backitup-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.backitup.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.backitup.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.backitup.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.backitup.svg)
 ![依赖状态](https://img.shields.io/david/simatec/iobroker.backitup.svg)
 ![已知漏洞](https://snyk.io/test/github/simatec/ioBroker.backitup/badge.svg)
-![特拉维斯](http://img.shields.io/travis/simatec/ioBroker.backitup/master.svg)
-![NPM](https://nodei.co/npm/iobroker.backitup.png?downloads=true)
+![特拉维斯CI](http://img.shields.io/travis/simatec/ioBroker.backitup/master.svg)
+![新产品管理](https://nodei.co/npm/iobroker.backitup.png?downloads=true)
 
-＃ioBroker.backitup
+# IoBroker.backitup
+![测试和发布](https://github.com/simatec/ioBroker.backitup/workflows/Test%20and%20Release/badge.svg)
+
+**如果您喜欢Backitup，请考虑捐款：**
+
+[![paypal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+
+**************************************************************************************************************
+
 ＃ 内容
-* [基本]（＃基本）
-* [依赖关系]（＃个依赖关系）
-* [使用与操作]（＃使用与操作）
-* [备份类型]（＃个备份类型）
-* [ioBroker备份]（＃ioBroker备份）
-* [CCU备份（Homematic）]（＃CCU-Backup-（Homematic））
-* [Mysql-Backup]（＃Mysql-Backup）
-    * [Redis备份]（＃Redis备份）
-* [InfluxDB备份]（＃InfluxDB备份）
-    * [PostgreSQL备份]（＃PostgreSQL备份）
-    * [Javascript-Backup]（＃Javascript-Backup）
-    * [Jarvis备份]（＃Jarvis备份）
-    * [Zigbee备份]（＃Zigbee备份）
-    * [Grafana备份]（＃Grafana备份）
-* [存储选项]（＃个存储选项）
-    * [CIFS]（＃CIFS）
-    * [NFS]（＃NFS）
-    * [FTP]（＃FTP）
-    * [复制]（＃复制）
-    * [Dropbox]（＃Dropbox）
-    * [Google云端硬盘]（＃Google-Drive）
-    * [WebDAV]（＃WebDAV）
-* [用法]（＃用法）
-* [通知]（＃条通知）
-* [还原]（＃还原）
-* [故障排除]（＃故障排除）
-* [发生的错误/解决方案]（＃发生的错误/解决方案）
+* [基本] (#基本)
+* [依赖项] (# 依赖项)
+* [使用与操作] (#Use-and-Operation)
+* [备份类型]（#备份类型）
+* [ioBroker 备份] (#ioBroker 备份)
+* [CCU 备份 (Homematic)] (# CCU-Backup- (Homematic))
+* [Mysql-Backup] (#Mysql-Backup)
+    * [Redis 备份] (#Redis 备份)
+* [InfluxDB-Backup] (# InfluxDB-Backup)
+    * [PostgreSQL 备份] (#PostgreSQL 备份)
+    * [Javascript-Backup] (# Javascript-Backup)
+    * [Jarvis 备份] (#Jarvis 备份)
+    * [Zigbee 备份] (#Zigbee 备份)
+    * [Grafana 备份]（#Grafana 备份）
+    * [夜叉备份]（#夜叉备份）
+* [存储选项]（#存储选项）
+    * [CIFS] (# CIFS)
+    * [NFS] (#NFS)
+    * [FTP] (#FTP)
+    * [复制] (#复制)
+    * [Dropbox] (# Dropbox)
+    * [Google 云端硬盘] (# Google 云端硬盘)
+    * [WebDAV] (#WebDAV)
+* [多主机支持]（#多主机支持）
+* [Docker 支持] (#Docker 支持)
+* [用法]（#用法）
+* [通知]（# 个通知）
+* [恢复] (# 恢复)
+* [疑难解答] (#疑难解答)
+* [发生的错误/解决方案]（#发生的错误/解决方案）
 
 ---
 
 ＃ 基本
-Backitup是一种备份解决方案，可以对ioBroker安装和Homematic CCU进行周期性备份。
+Backitup 是一种备份解决方案，通过它可以对 ioBroker 安装和 Homematic CCU 进行循环备份。
 
-该适配器适用于多平台，除了Linux安装之外，还可以在Windows和Mac安装上使用。
+该适配器适用于多平台，除 Linux 安装外，还可用于 Windows 和 Mac 安装。
 
-### [背部](#Inhalt)
+### [返回](#Inhalt)
 ---
 
-＃依赖关系
-*必须安装Cifs-utils才能进行CIFS挂载。
-    -`sudo apt-get install cifs-utils`
+# 依赖
+* 必须为 CIFS 挂载安装 Cifs-utils。
+    - `sudo apt-get install cifs-utils`
 
-*必须安装Nfs-common才能进行NFS挂载。
+* 必须为 NFS 挂载安装 Nfs-common。
     -`sudo apt-get install nfs-common`
 
-*要使用MySql备份，必须在系统上安装mysqldump
-    -`sudo apt-get install mysql-client`或在Debian下sudo apt-get install default-mysql-client`
+* 使用MySql备份，系统必须安装mysqldump
+    - `sudo apt-get install mysql-client` 或在 Debian` sudo apt-get install default-mysql-client`
 
-*要使用PostgreSQL备份，必须在系统上安装mysqldump
-    -[PostgreSQL安装说明]（https://www.postgresql.org/download/linux/debian/）
+* 要使用 PostgreSQL 备份，必须在系统上安装 mysqldump
+    - [PostgreSQL 安装说明] (https://www.postgresql.org/download/linux/debian/)
 
-*要使用InfluxDB备份，必须安装influxd
-    -[InfluxDB安装说明]（https://docs.influxdata.com/influxdb/v1.8/introduction/install/）
+* 要使用 InfluxDB 备份，必须安装 influxd
+    - [InfluxDB 安装说明] (https://docs.influxdata.com/influxdb/v1.8/introduction/install/)
 
-### [背部](#Inhalt)
+### [返回](#Inhalt)
 ---
 
-＃使用和操作
-可以在适配器实例中配置Backitup。以下所有设置选项均可用。<br><br> “管理”选项卡中提供了一个选项卡，用于Backitup的日常工作和操作。<br>如果此标签在管理界面的标签菜单中处于活动状态，则可以通过iobroker左标签栏中的标签直接操作Backitup。<br><br>此处提供了有关备份的信息，可以进行备份，还可以还原备份。
+# 使用和操作
+可以在适配器实例中配置备份。以下所有设置选项都可用。<br><br>管理选项卡中有一个选项卡可用于 Backitup 的日常工作和操作。<br>如果该选项卡在管理界面的选项卡菜单中处于活动状态，则可以通过 iobroker 左侧选项卡栏中的选项卡直接操作 Backitup。<br><br>在那里可以获得有关所做备份的信息，可以进行备份并可以恢复备份。
 
-![管理员标签](img/adminTab.png)![adminTabRestore](img/adminTabRestore.png)![adminTabInfo](../../../de/adapterref/iobroker.backitup/img/adminTabInfo.png)
+![管理标签](img/adminTab.png)![管理标签恢复](img/adminTabRestore.png)![管理标签信息](../../../de/adapterref/iobroker.backitup/img/adminTabInfo.png)
 
-### [背部](#Inhalt)
+### [返回](#Inhalt)
 ---
 
-＃备份类型
-Backitup提供了很多可能性，可以循环执行或只需按一下按钮即可执行不同的备份类型。默认情况下，每个备份都存储在/ opt / iobroker / backups /目录中。 （可选）可以设置FTP上传，或者可以使用CIFS / NFS挂载。
+# 备份类型
+Backitup 提供了多种可能性，可以循环执行不同的备份类型或按一下按钮。默认情况下，每个备份都存储在 /opt/iobroker/backups/ 目录中。或者，可以设置 FTP 上传，或者，可以使用 CIFS / NFS 安装。
 
-## IoBroker备份
-此备份对应于ioBroker中包含的备份，可以通过调用`iobroker backup`在控制台中启动它。仅在此处，它是通过适配器配置或OneClick Backup小部件中的指定设置执行的，而不必使用控制台。
+## IoBroker 备份
+此备份对应于 ioBroker 中包含的备份，可以通过调用 `iobroker backup` 在控制台中启动该备份。仅在此处通过适配器配置或 OneClick Backup 小部件中指定的设置执行，而无需使用控制台。
 
-## CCU备份（本地）
-此备份可以保存Homematic安装的3种不同变体（CCU原始版/ pivCCU / Raspberrymatic）。也可以使用适配器配置或OneClick备份小部件中指定的设置来执行此备份。
+## CCU 备份 (Homematic)
+此备份提供了保存 Homematic 安装（CCU-Original / pivCCU / Raspberrymatic）的 3 种不同变体的可能性。也可以使用适配器配置或 OneClick Backup 小部件中指定的设置执行此备份。<br><br>如果您不想只保护一个 CCU，您可以激活“保护多个系统”选项，然后在表中定义您的 Homematic 中央单元。
 
-## Mysql备份
-如果激活，则此单独可调整的备份将与每个ioBroker备份一起创建，并且在指定的保留期限到期后也将被删除。如果已设置其他ioBroker备份类型，则FTP或CIFS对此备份也有效。<br><br>在这里重要的是，即使mysql服务器在远程系统上运行，mysqldump也必须在ioBroker系统上运行。<br>对于Linux系统，安装命令如下：`sudo apt-get install mysql-client`或在Debian之下`sudo apt-get install default-mysql-client`§
+## Mysql 备份
+如果激活，此可单独调整的备份会随每个 ioBroker 备份一起创建，并且也会在指定的保留期到期后删除。 FTP 或 CIFS 也适用于此备份，前提是设置了其他 ioBroker 备份类型。<br><br>重要的是，即使 mysql 服务器运行在远程系统上，mysqldump 也必须运行在 ioBroker 系统上。<br>对于 Linux 系统，安装命令如下：`sudo apt-get install mysql-client` 或在 Debian 下 `sudo apt-get install default-mysql-client`。<br><br>如果您不想只备份一个数据库，您可以激活“备份多个系统”选项，然后在表中定义您的数据库。
 
-## Redis备份
-如果激活，则此单独可调整的备份将与每个ioBroker备份一起创建，并且在指定的保留期限到期后也将被删除。如果已设置其他ioBroker备份类型，则FTP或CIFS对此备份也有效。<br>要将Redis与Backitup一起使用，应调整iobroker用户的权限：<br>
+##Redis备份
+如果激活，此可单独调整的备份会随每个 ioBroker 备份一起创建，并且也会在指定的保留期到期后删除。 FTP 或 CIFS 也适用于此备份，前提是设置了其他 ioBroker 备份类型。<br> Redis 与Backitup 一起使用，需要调整iobroker 用户的权限：<br>
 
 ```
 sudo usermod -a -G redis iobroker
@@ -110,10 +121,10 @@ sudo reboot
 ```
 
 ##历史数据备份
-如果激活，则此单独可调整的备份将与每个ioBroker备份一起创建，并且在指定的保留期限到期后也将被删除。如果已设置其他ioBroker备份类型，则FTP或CIFS对此备份也有效。
+如果激活，此可单独调整的备份会随每个 ioBroker 备份一起创建，并且也会在指定的保留期到期后删除。 FTP 或 CIFS 也适用于此备份，前提是设置了其他 ioBroker 备份类型。
 
-## InfluxDB备份
-如果激活，则此单独可调整的备份将与每个ioBroker备份一起创建，并且在指定的保留期限到期后也将被删除。如果已设置其他ioBroker备份类型，则FTP或CIFS对此备份也有效。<br><br> **为了能够执行InfluxDB备份，必须在iobroker系统上安装Influxd。<br> **数据库是在本地还是在其他服务器上管理都没有关系。<br><br>如果要从远程服务器备份InfluxDB，则必须在远程服务器上的influxdb.conf中调整RPC服务的远程权限。
+## InfluxDB 备份
+如果激活，此可单独调整的备份会随每个 ioBroker 备份一起创建，并且也会在指定的保留期到期后删除。 FTP 或 CIFS 也适用于此备份，前提是设置了其他 ioBroker 备份类型。<br><br> **为了能够执行 InfluxDB 备份，必须在 iobroker 系统上安装 Influxd。**<br>** 数据库是在本地还是在另一台服务器上管理都没有关系。**<br><br>如果要从远程服务器备份InfluxDB，则必须在远程服务器的influxdb.conf中调整RPC服务的远程权限。
 
 ```
 bind-address = "<InfluxDB-IP>:8088"
@@ -125,83 +136,112 @@ bind-address = "<InfluxDB-IP>:8088"
 bind-address = "0.0.0.0:8088"
 ```
 
-**更改配置后，必须重新启动InfluxDB服务。
+** 更改配置后，必须重启 InfluxDB 服务。**
 
-有关InfluxDB数据备份的更多信息，请参见[这里](https://docs.influxdata.com/influxdb/v1.8/administration/backup_and_restore/#online-backup-and-restore-for-influxdb-oss)。
+有关 InfluxDB 数据备份的更多信息，请参见 [这里](https://docs.influxdata.com/influxdb/v1.8/administration/backup_and_restore/#online-backup-and-restore-for-influxdb-oss)。<br><br>如果您不想只备份一个数据库，您可以激活“备份多个系统”选项，然后在表中定义您的数据库。
 
-## PostgreSQL备份
-如果激活，则此单独可调整的备份将与每个ioBroker备份一起创建，并且在指定的保留期限到期后也将被删除。如果已设置其他ioBroker备份类型，则FTP或CIFS对此备份也有效。<br><br>在此重要的是，即使PostgreSQL服务器在远程系统上运行，PostgreSQL也必须在ioBroker系统上运行。<br>对于Linux系统，有[这里](https://www.postgresql.org/download/linux/debian/)安装说明
+## PostgreSQL 备份
+如果激活，此可单独调整的备份会随每个 ioBroker 备份一起创建，并且也会在指定的保留期到期后删除。 FTP 或 CIFS 也适用于此备份，前提是设置了其他 ioBroker 备份类型。<br><br>这里很重要的是，即使 PostgreSQL 服务器运行在远程系统上，PostgreSQL 也必须运行在 ioBroker 系统上。<br>对于 Linux 系统，有 [这里](https://www.postgresql.org/download/linux/debian/) 安装说明。<br><br>如果您不想只备份一个数据库，您可以激活“备份多个系统”选项，然后在表中定义您的数据库。
 
-## Javascript备份
-如果激活，则此单独可调整的备份将与每个ioBroker备份一起创建，并且在指定的保留期限到期后也将被删除。如果已设置其他ioBroker备份类型，则FTP或CIFS对此备份也有效。<br><br>为了能够创建Javascript备份，必须在Javascript适配器配置中预先指定菜单项“文件路径中的镜像脚本”和“进行镜像的实例”。<br>然后，Backitup可以接管配置菜单中的设置
+## Javascript 备份
+如果激活，此可单独调整的备份会随每个 ioBroker 备份一起创建，并且也会在指定的保留期到期后删除。 FTP 或 CIFS 也适用于此备份，前提是设置了其他 ioBroker 备份类型。<br><br>从备份版本 2.2.0 开始，脚本直接从对象中保存。来自旧备份版本的 Javascript 备份与还原不兼容！！<br><br>为了能够使用 Backitup 版本 &lt;2.2.0 执行 JavaScript 备份，必须在 Javascript 适配器配置中预先指定菜单项“文件路径中的镜像脚本”和“进行镜像的实例”。<br>然后，Backitup 可以接管配置菜单中的设置。
 
-## Jarvis备份
-如果激活，则此单独可调整的备份将与每个ioBroker备份一起创建，并且在指定的保留期限到期后也将被删除。如果已设置其他ioBroker备份类型，则FTP或CIFS对此备份也有效。<br><br> ***可以从Jarvis 2.2.0-beta.7版本备份Jarvis配置。
+##贾维斯备份
+如果激活，此可单独调整的备份会随每个 ioBroker 备份一起创建，并且也会在指定的保留期到期后删除。 FTP 或 CIFS 也适用于此备份，前提是设置了其他 ioBroker 备份类型。<br><br> *** Jarvis 版本 2.2.0-beta.7 可以备份 Jarvis 配置。***
 
-## Zigbee备份
-如果激活，则此单独可调整的备份将与每个ioBroker备份一起创建，并且在指定的保留期限到期后也将被删除。如果已设置其他ioBroker备份类型，则FTP或CIFS对此备份也有效。
+## Zigbee 备份
+如果激活，此可单独调整的备份会随每个 ioBroker 备份一起创建，并且也会在指定的保留期到期后删除。 FTP 或 CIFS 也适用于此备份，前提是设置了其他 ioBroker 备份类型。
 
-## Grafana备份
-如果激活，则此单独可调整的备份将与每个ioBroker备份一起创建，并且在指定的保留期限到期后也将被删除。如果已设置其他ioBroker备份类型，则FTP或CIFS对此备份也有效。<br><br> **为了能够创建Grafana备份，需要Grafana用户名和密码。<br><br> **此外，必须在Grafana Web界面中生成API密钥才能访问仪表板。<br>可以在***“配置→API密钥” ***下创建API密钥。
+## Grafana 备份
+如果激活，此可单独调整的备份会随每个 ioBroker 备份一起创建，并且也会在指定的保留期到期后删除。 FTP 或 CIFS 也适用于此备份，前提是设置了其他 ioBroker 备份类型。<br><br> **为了能够创建 Grafana 备份，需要 Grafana 用户名和密码。**<br><br>** 此外，必须在 Grafana Web 界面中生成 API 密钥才能访问仪表板。**<br> API 密钥可以在***“配置→ API 密钥”*** 下创建。
 
-### [背部](#Inhalt)
+## Yahka 备份
+如果激活，此可单独调整的备份会随每个 ioBroker 备份一起创建，并且也会在指定的保留期到期后删除。 FTP 或 CIFS 也适用于此备份，前提是设置了其他 ioBroker 备份类型。<br><br>保存所有 Homkit 系统设置和设备设置。
+
+### [返回](#Inhalt)
 ---
 
-＃储存选项
+# 存储选项
 ## CIFS
-在Linux下，CIFS挂载没有问题。<br>请注意，已安装cifs-utils
+Linux下CIFS挂载不是问题。<br>需要注意的是安装了cifs-utils
 
-路径信息应如下所示（例如：“ /共享名称/路径信息”）<br>您可以选择启用/停用是否应从NAS删除备份
+路径信息应如下所示（例如：“/共享名称/路径信息”）<br>您可以选择激活/停用是否应从 NAS 中删除备份
 
   ## NFS
-在Linux下，NFS挂载没有问题。<br>应该注意的是，已经安装了nfs-common<br><br>路径规范应如下所示（示例：“ /共享名称/路径规范”）。<br>您可以选择启用/停用是否应从NAS删除备份
+Linux下挂载NFS没问题。<br>需要注意的是安装了nfs-common<br><br>路径规范应如下所示（例如：“/共享名称/路径规范”）。<br>您可以选择激活/停用是否应从 NAS 中删除备份
 
 ## FTP
-FTP可以在所有操作系统上使用，并且可以替代CIFS挂载<br>FTP下的路径规范必须始终以“ /”开头（例如：“ /路径规范”）<br>您可以选择启用/停用是否应从NAS删除备份
+FTP 可在所有操作系统上使用，并可作为 CIFS 挂载的替代方案<br>FTP下的路径规范必须始终以“/”开头（例如：“/路径规范”）<br>您可以选择激活/停用是否应从 NAS 中删除备份
 
 ＃＃ 复制
-如果无法进行CIFS挂载，则复制功能还有另一种可能性<br>在此，必须在要进行复制的CIFS设置中输入路径。<br>对于复制功能，IP地址的规范必须保留为空。
+如果无法进行 CIFS 挂载，则还有另一种可能的复制功能<br>此处，必须在要进行复制的 CIFS 设置中输入路径。<br>对于复制功能，IP 地址的规范必须保持为空。
 
-## Dropbox
-要在Dropbox中使用备份，必须在https://www.dropbox.com/developers/apps中创建访问令牌和APP。<br><br>
+## 保管箱
+要在 Dropbox 中使用备份，必须在 https://www.dropbox.com/developers/apps 创建访问令牌和应用程序<br><br>
 
-*步骤1：使用“创建应用”按钮
-*步骤2：选择“范围访问”
-*步骤3：选择“应用程序文件夹”
-*步骤4：输入“为您的应用命名”，然后选择“创建应用”按钮
-*步骤5：在“权限”标签中，在“文件和文件夹”区域中设置所有4个勾号
-*步骤6：在“设置”标签中，将“访问令牌过期”设置为“无过期”
-*第7步：按“生成的访问令牌”按钮（此生成的令牌已在“备份设置”中输入）<br><br>
+* 第 1 步：使用“创建应用程序”按钮
+* 第 2 步：选择“范围访问”
+* 第 3 步：选择“应用文件夹”
+* 第 4 步：输入“命名您的应用程序”并选择“创建应用程序”按钮
+* 第 5 步：在“权限”选项卡中，在“文件和文件夹”区域中设置所有 4 个勾号
+* 第六步：在“设置”选项卡中，将“访问令牌过期时间”设置为“无过期时间”
+* 第 7 步：按“生成的访问令牌”按钮（此生成的令牌在备份设置中输入）<br><br>
 
-在您的Dropbox中，现在有一个名为“ Apps”的新文件夹
+在您的 Dropbox 中，现在有一个名为“Apps”的新文件夹
 
-## Google云端硬碟
-为了在Google云端硬盘中使用备份，必须获取访问令牌。您可以在配置页面上执行此操作。<br> ioBroker仅攻击定义的区域。 oAuth的代码可以在[这里](https://github.com/simatec/ioBroker.backitup/blob/master/docs/oAuthService.js)中看到。<br><br>没有令牌或用户数据存储在云中。
+## 谷歌云端硬盘
+为了在 Google Drive 中使用备份，必须获得访问令牌。您可以在配置页面上执行此操作。<br> ioBroker 只攻击定义的区域。 oAuth 的代码可以在 [这里](https://github.com/simatec/ioBroker.backitup/blob/master/docs/oAuthService.js) 中看到。<br><br>没有令牌或用户数据存储在云中。
 
 ## WebDAV
-借助WebDAV，Backitup提供了解决多个云系统的可能性。<br>这里最著名的是NextCloud。为了建立WebDAV连接，需要云帐户的用户名和密码。<br>到云的连接是通过加密连接进行的。<br><br>为了能够建立连接，云的主机名必须符合所有安全证书。无法使用本地IP地址进行连接，因为它不包含任何Lets Encrypt证书。<br><br> &gt;示例网址：“ https://example.com/remote.php/dav/files/username/”
+通过 WebDAV，Backitup 提供了处理多个云系统的可能性。<br>这里最著名的是 NextCloud。为了建立 WebDAV 连接，需要云帐户的用户名和密码。<br>与云的连接是通过加密连接建立的。<br><br>为了能够建立连接，云的主机名必须满足所有安全证书。<br><br> &gt; 示例网址：“https://example.com/remote.php/dav/files/username/”<br><br>只有在禁用“仅允许签名证书”选项时，才能与本地 IP 地址建立连接。
 
-### [背部](#Inhalt)
+### [返回](#Inhalt)
+---
+
+# 多主机支持
+从备份版本 2.2.0 开始，支持多主机备份远程系统（例如 Zigbee 或远程数据库）。 Multihost for Backitup 可以与不同主机上的多个 Backitup 实例一起使用。<br>必须将 Backitup 的实例配置为 master 才能支持它。位于远程主机上的所有其他实例都配置为从属实例。<br><br>主服务器接管自动备份的管理。可以通过菜单在主站中选择所有从站实例。<br>可以为从属实例激活以下备份选项：<br>
+
+* Redis
+* Zigbee
+* 贾维斯
+* 历史
+* 流入数据库
+* 数据库
+* PostgreSQL
+*格拉法纳
+* 夜叉
+
+由于自动备份在从属实例中由主控控制，因此无法选择iobroker 备份、Javascript 备份和CCU 备份。<br><br>可以在每个从站上自由配置单个备份的存储位置。所以每个人都可以独立于主人设计他们的文件存储系统。<br><br>
+
+在 RAM 有限的系统中，backup master 可以自动启动从属实例进行备份过程，然后再次停止它们。<br>这个选项可以在菜单中配置。
+
+### [返回](#Inhalt)
+---
+
+# Docker 支持
+从 2.2.0 版本开始，官方 Docker 容器支持备份和恢复。<br><br>由于Docker中不应该安装任何数据库系统，因此不支持所有数据库的备份，并且在检测到Docker容器时无法选择。<br>从版本 v5.2.0-beta4 开始，官方 iobroker Docker Container 支持 Backitup。
+
+### [返回](#Inhalt)
 ---
 
 ＃ 用
-1.适配器创建一些数据点以在Vis中使用<br>
-* oneClick.ccu->用作CCU备份的触发器（可以在Vis中使用按钮设置为true）
-* oneClick.iobroker-&gt;用作标准备份的触发器（可以在Vis中使用按钮设置为true）<br><br>
-* history.html->用作历史记录，可通过CCS在Vis中的设计中进行修改。
-    * history.json->用作历史日志，可以通过CCS在Vis中的设计中进行修改。
-* history.ccuLastTime->保存上一次CCU备份的创建日期和时间
-* history.minimalLastTime->保存上一次标准备份的创建日期和时间
-    * history.ccuSuccess->如果备份成功，则显示状态“ true”
-    * history.minimalSuccess->如果备份成功，则显示状态“ true”
-    * history.iobrokerLastTime->显示最近的ioBroker备份
-    * history.ccuLastTime->显示最近的CCU备份
-    * info.ccuNextTime->显示CCU备份的下一次执行时间
-    * info.iobrokerNextTime->显示ioBroker备份的下一次执行时间
-    * info.latestBackup->将在开始时确定的最后一个备份显示为json
+1. 适配器创建一些数据点以供 Vis 使用<br>
+* oneClick.ccu -> 作为 CCU 备份的触发器（可以在 Vis 中使用按钮设置为 true）
+* oneClick.iobroker -&gt; 作为标准备份的触发器（可以在 Vis 中使用按钮设置为 true）<br><br>
+* history.html -> 作为历史日志，可以通过 CCS 从 Vis 中的设计中改编。
+    * history.json -> 作为历史日志，可以通过 CCS 从 Vis 中的设计中改编。
+* history.ccuLastTime -> 保存上次 CCU 备份的创建日期和时间
+* history.minimalLastTime -> 保存上次标准备份的创建日期和时间
+    * history.ccuSuccess -> 如果备份成功则显示状态“true”
+    * history.minimalSuccess -> 如果备份成功则显示状态“true”
+    * history.iobrokerLastTime -> 显示上次 ioBroker 备份
+    * history.ccuLastTime -> 显示最后一次 CCU 备份
+    * info.ccuNextTime -> 显示 CCU 备份的下一次执行时间
+    * info.iobrokerNextTime -> 显示 ioBroker 备份的下一次执行时间
+    * info.latestBackup -> 将开始时确定的最后一个备份显示为 json
 
-2.在Vis中显示历史记录日志
-   -可以在HTML小部件中显示历史记录日志，方法是在HTML中输入以下行：
+2.在Vis中显示历史日志
+   - 可以通过在 HTML 中输入以下行来显示历史日志，例如在 HTML 小部件中：
 
 ```
 {backitup.0.history.html}
@@ -231,85 +271,85 @@ FTP可以在所有操作系统上使用，并且可以替代CIFS挂载<br>FTP下
     }
    ```
 
-4.带有状态文本的OneClick按钮
-   -如果将OneClick数据点设置为true，则将启动对应的备份，并且在预定义的时间之后，该数据点将再次设置为false，因此可以创建一个带有状态的按钮，调整下一行并在Vis中输入按钮文字：
+4. 带有状态文本的 OneClick 按钮
+   - 如果 OneClick 数据点设置为 true，则相应的备份开始，并且在预定义的时间后该数据点再次设置为 false，因此可以创建带有状态的按钮，调整以下行并在 Vis 中输入按钮文本：
 
 ```
 {wert: backitup.0.oneClick.iobroker; wert === "true" || wert === true ? "Minimal Backup </br> wird erstellt" : "Minimal Backup </br> starten"}
 
 ```
 
-语法：{value：<BackitupInstanz> .oneClick。<触发触发器>;值===“ true” ||值===正确吗？ “备份创建期间的文本”：“标准文本”}
+语法：{value: <BackitupInstanz> .oneClick. <Trigger trigger>;值 === "真" ||值得===真的吗？ “备份创建期间的文本”：“标准文本”}
 
-### [背部](#Inhalt)
+### [返回](#Inhalt)
 ---
 
-＃通知
-成功备份后，Backitup支持以下Messenger进行通知。
+# 通知
+备份成功后，Backitup 支持以下消息发送通知。
 必须安装并设置相应的适配器才能使用。
 
-   *电报
-   *俯卧撑
+   * 电报
+   * 推倒
    * 电子邮件
-   * Whatsapp的
+   * WhatsApp
 
-### [背部](#Inhalt)
+### [返回](#Inhalt)
 ---
 
 ＃ 恢复
-使用Backitup，可以还原通过ioBroker中的配置菜单创建的所有备份类型。<br><br>可以从所有存储介质执行还原。<br><br> **但是，基本上，最安全的方法是在本地执行还原。<br><br>如果选择最安全的方法并希望在本地进行还原，则必须将备份文件存储在iobroker备份文件夹中。在Linux系统上，此文件夹位于以下路径下：`/opt/iobroker/backups`
+使用 Backitup，可以恢复通过 ioBroker 中的配置菜单创建的所有备份类型。<br><br>可以从所有存储介质执行恢复。<br><br> **不过，基本上最安全的方法是在本地进行恢复。**<br><br>如果您选择最安全的方式并希望在本地进行还原，则必须将备份文件存储在 iobroker 备份文件夹中。在 Linux 系统上，此文件夹位于以下路径下：`/opt/iobroker/backups`
 
-使用备份类型“ iobroker”和“ redis”时，iobroker在还原过程中将停止，然后自动重新启动。<br>停止iobroker后，将打开一个新的浏览器选项卡，可以在其中查看还原进度。<br><br> ***如果此选项卡未打开，则必须检查块弹出窗口的浏览器设置。<br><br>
+对于备份类型“iobroker”和“redis”，iobroker 在恢复期间停止，然后自动重新启动。<br>停止 iobroker 后，将打开一个新的浏览器选项卡，可以在其中查看还原进度。<br><br> *** 如果此选项卡未打开，则必须检查浏览器阻止弹出窗口设置。***<br><br>
 
-** iobroker不会与所有其他备份类型一起停止。在这里，只有受影响的适配器会短暂停止。<br><br>
+** iobroker 不会与所有其他备份类型一起停止。这里只有受影响的适配器会短时间停止。**<br><br>
 
-如果您希望手动还原备份，则应执行以下操作：
+如果您更喜欢手动恢复备份，您应该执行以下操作：
 
-***还原ioBroker备份：***
+*** 恢复 ioBroker 备份：***
 
-    -与往常一样，备份必须位于目录opt / iobroker / backups中
-    -可以使用以下命令通过控制台恢复该文件：iobroker restore <Backupfilename>。
-    -还原后，有必要将“ iobroker全部上传”
+    - 像往常一样，备份必须在目录 `opt/iobroker/backups` 中
+    - 可以通过控制台使用以下命令进行恢复：`iobroker restore <backup file name>`。
+    - 恢复后需要一个`iobroker upload all`
 
-可以在[这里](https://forum.iobroker.net/topic/27271/howto-iobroker-restore-unter-linux-durchf%C3%BChren)中找到有关使用备份还原以及手动还原的详细说明。
+在 [这里](https://forum.iobroker.net/topic/27271/howto-iobroker-restore-unter-linux-durchf%C3%BChren) 中可以找到使用备份恢复和手动恢复的详细说明。
 
-**必须仍然通过CCU的Web界面还原CCU备份。
+** 仍必须通过 CCU 的 Web 界面恢复 CCU 备份。**
 
-***恢复Raspberrymatic / CCU备份：***
+*** 恢复 Raspberrymatic / CCU 备份：***
 
-    -通过SCP将* .sbk文件复制到Raspberrymatic上的目录“ / usr / local / tmp目录”中
-    -通过控制台以root用户身份登录到Raspberrymatic
-    -在Raspberrymatic上执行命令：“ / bin / restoreBackup.sh / user / local / tmp / EuerBackupDateiname”。
-    -在Raspberrymatic上执行命令：“ reboot”以重新启动PI
-    -另外，当然也可以通过Web界面照常还原备份。
+    - 将*.sbk文件通过SCP复制到树莓派上的“/usr/local/tmp目录”目录下
+    - 通过控制台以root用户身份登录Raspberrymatic
+    - 在树莓派上执行命令：“/bin/restoreBackup.sh/user/local/tmp/EuerBackupDateiname”。
+    - 在树莓派上执行命令：“reboot”重启PI
+    - 或者，当然也可以通过 Web 界面照常恢复备份。
 
-### [背部](#Inhalt)
+### [返回](#Inhalt)
 ---
 
 ＃ 故障排除
-    为了记录错误，必须在“ ioBroker实例”选项卡中将“备份”设置为“调试”。
+    为了记录错误，必须在 ioBroker Instances 选项卡中将备份设置为“调试”。
 
-### [背部](#Inhalt)
+### [返回](#Inhalt)
 ---
 
-＃遇到的错误/解决方案：
-这是到目前为止已经发生的问题及其解决方案（如果有）的列表。
+# 遇到的错误/解决方法：
+以下是迄今为止发生的问题及其解决方案（如果有）的列表。
 
-1.Olifall（来自论坛）遇到的问题是还原后无法再访问ioBroker的Web界面，他可以通过在控制台上执行以下步骤来解决此问题：
-    -sudo iobroker身份
-    -消息=“未连接到状态127.0.0.0:6379[redis]”
-    -sudo apt-get install redis-server
+1.Olifall（来自论坛）有ioBroker的Web界面在恢复后无法访问的问题，他通过控制台通过以下步骤解决了这个问题：
+    - sudo iobroker 状态
+    - 消息 =“没有连接到状态 127.0.0.0:6379[redis]”
+    - sudo apt-get install redis-server
 
-2.如果无法通过IP地址安装CIFS，则应使用NAS的主机名
-3.如果您将带有特殊字符的密码用于cifs-mount，则用户会发现该密码必须然后用引号存储在config中。
-4.一些用户认为，cifs-mount无法处理非常长的密码。如果安装不起作用，请稍微缩短密码（12个字符对我有用）。
-5.如果无法安装适配器，请检查您的node和nodejs版本。适配器不支持版本<Node 8。
-6.如果您的iobroker系统是使用新的安装程序脚本安装的，则可能会发生您不具有新用户iobroker的所有权限的情况。
+2.如果不能用IP地址进行CIFS挂载，则应使用NAS的主机名
+3. 如果您使用带有特殊字符的密码用于 cifs-mount，用户会注意到密码必须存储在带引号的配置中。
+4. 一些用户认为，cifs-mount 不能处理很长的密码。如果挂载不起作用，请稍微缩短密码（12 个字符对我有用）。
+5.如果无法安装适配器，请检查您的node和nodejs版本。适配器不支持 <Node 8 的版本。
+6. 如果您的 iobroker 系统是使用新的安装程序脚本安装的，您可能没有新用户 iobroker 的所有权限。
 
-    不幸的是，这也适用于备份，因为备份使用了一些与系统相关的命令。
+    不幸的是，这也会影响 backitup，因为 backitup 使用一些与系统相关的命令。
 
-为了解决缺少权限的问题，现在提供了针对iobroker安装程序脚本的修复程序。
-请在控制台的Iobroker环境中执行以下命令：
+为了解决缺少权限的问题，现在对 iobroker 安装程序脚本进行了修复。
+请在您的 Iobroker 环境的控制台中执行以下命令：
 
 ```
 iobroker stop
@@ -317,23 +357,103 @@ iobroker fix
 sudo reboot
 ```
 
-7.如果在创建Redis数据库时收到错误消息，请检查您的用户iobroker是否具有权限以及他是否在Redis用户组中。
+7、如果在创建Redis数据库时报错，请检查你的用户iobroker是否有权限，是否在Redis用户组中。
 
-    如果不是这种情况，则可以在控制台中使用以下命令对其进行修复。
+    如果不是这种情况，您可以在控制台中使用以下命令修复它。
 
 ```
 sudo usermod -a -G redis iobroker
 sudo reboot
 ```
 
-    如果您尚未使用安装程序脚本设置Iobroker安装，并且您的用户使用其他名称，请在命令中用您的用户替换“ iobroker”。
+    如果您尚未使用安装程序脚本设置 Iobroker 安装并且您的用户具有不同的名称，请将命令中的“iobroker”替换为您的用户。
 
-8.如果将Fritzbox用作固件> = 7.21的NAS，则应在Backitup中将SMB设置设置为“ 3.1.1”，并应激活“ noserverino”选项。
+8. 如果将 Fritzbox 用作固件> = 7.21 的 NAS，则应在 Backitup 中将 SMB 设置设置为“3.1.1”，并应激活“noserverino”选项。
 
-### [背部](#Inhalt)
+### [返回](#Inhalt)
 ---
 
 ## Changelog
+
+### 2.2.0 (06.10.2021)
+* (simatec) multihost function for master/slave systems added
+* (simatec) Multi CCU Backup added
+* (simatec) Multi InfluxDB Backup added
+* (simatec) Multi MySql Backup added
+* (simatec) Multi PGSql Backup added
+* (simatec) Yahka backup added
+* (simatec) Yahka Restore added
+* (simatec) new Restore Interface added
+* (simatec) new Tab-Menu added
+* (simatec) Docker Support added
+* (simatec) delete option for temp-directory added
+* (simatec) breaking changes!! Javascript Backup from Objects added
+* (simatec) breaking changes!! Javascript Restore from Objects added
+* (simatec) WebDav option to use self-signed certificates
+
+### 2.1.17 (15.08.2021)
+* (simatec) dependencies updated
+* (simatec) Preparation for dark design by Admin 5
+
+### 2.1.16 (12.08.2021)
+* (simatec) dependencies updated
+* (simatec) https support for ccu backup
+* (simatec) sentry Bugfixes
+
+### 2.1.15 (05.08.2021)
+* (simatec) Bugfix Google Drive
+* (simatec) memory optimization
+* (simatec) fix Zigbee Restore
+* (simatec) Grafana Protocol selection added
+* (simatec) translations updated
+
+### 2.1.14 (04.08.2021)
+* (simatec) dependencies updated
+* (simatec) RAM memory optimization
+* (simatec) googleapis deleted
+* (simatec) @googleapis/drive added
+
+### 2.1.13 (14.06.2021)
+* (simatec) ready for Grafana 8.x
+* (simatec) BugFix PostgreSQL
+* (simatec) dependencies updated
+* (simatec) Name-Sufix for Messages added
+
+### 2.1.12 (01.06.2021)
+* (simatec) adminTab edited
+* (simatec) translation changed
+* (simatec) dependencies updated
+* (simatec) more debug for mount added
+* (simatec) Bugfix history json
+
+### 2.1.11 (19.05.2021)
+* (simatec) adminTab edited
+* (simatec) translation changed
+
+### 2.1.10 (16.05.2021)
+* (simatec) Bugfix adminTab
+
+### 2.1.9 (15.05.2021)
+* (simatec) adminTab for admin 5 changed
+
+### 2.1.8 (14.05.2021)
+* (simatec) adminTab for admin 5 changed
+
+### 2.1.7 (14.05.2021)
+* (simatec) Bugfix mysql Restore
+* (simatec) Bugfix pgsql Restore
+* (simatec) small Bugfix
+* (simatec) dependencies updated
+* (simatec) node 16 support added
+
+### 2.1.6 (01.05.2021)
+* (simatec) Bugfix for js-controller 3.3.x
+* (simatec) small Bugfix Dropbox Log
+* (simatec) small Bugfix for History Config reading
+
+### 2.1.5 (29.04.2021)
+* (simatec) Bugfix AdminTab
+* (simatec) small Bugfix
 
 ### 2.1.4 (26.04.2021)
 * (simatec) Redesign Restore GUI
