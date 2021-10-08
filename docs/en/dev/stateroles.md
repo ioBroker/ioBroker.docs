@@ -377,6 +377,9 @@ Special roles for media players
 * `info.mac`       - mac of device
 * `info.name`      - name of device
 * `info.address`   - some other address (e.g. KNX)
+* `info.serial`    - serial number
+* `info.firmware`  - firmware version
+* `info.hardware`  - hardware version
 * `info.port`      - tcp port
 * `info.standby`   - true if device in standby mode
 * `info.status`    - status of device
