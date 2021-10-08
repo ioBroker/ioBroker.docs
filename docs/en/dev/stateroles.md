@@ -85,6 +85,7 @@ Different Device templates used for the detecting with the required and optional
 * `value.gps`             - longitude and latitude together like '5.56;43.45'
 * `value.power`           - actual power (unit=W or KW)
 * `value.power.consumption` - energy consumption (unit=Wh or KWh)
+* `value.power.reactive`  - reactive power (unit=VAr)
 * `value.direction`       - (common.type=number ~~or string~~, indicates up/down, left/right, 4-way switches, wind-direction, ... )
 * `value.curtain`         - actual position of curtain
 * `value.blind`           - actual position of blind (max = fully open, min = fully closed)
