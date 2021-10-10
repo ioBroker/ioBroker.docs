@@ -143,6 +143,12 @@ Which is what the dyson app does also.
 
 ## Changelog
 
+### V2.1.2 (2021-10-07) (Running to the edge)
+* (grizzelbee) New: Removed NO2 from general AirQuality to be more compliant to dyson-app
+* (grizzelbee) Upd: Code cleanup
+* (grizzelbee) Upd: Removed delay between sending a command and new values getting displayed (max 30 Secs)
+
+
 ### V2.1.1 (2021-10-05) (Running to the edge)
 * (grizzelbee) New: Added some more data points 
 * (grizzelbee) New: Added switch for temperature unit of the fan display
@@ -391,7 +397,7 @@ Information copied and extended from <https://github.com/shadowwa/Dyson-MQTT2RRD
 | cltr | TimeRemainingToNextClean| integer| hours |
 | wath | WaterHardness| SOFT="2025", MEDIUM="1350", HARD="0675"|
 | wacd | WarningCode  | NONE... | 
-| rstf | reset filter lifecycle | RESET_FILTER_LIFE_IGNORE, RESET_FILTER_LIFE_ACTION
+| rstf | reset filter lifecycle | 'RSTF', 'STET',  RESET_FILTER_LIFE_IGNORE, RESET_FILTER_LIFE_ACTION
 | corf | Temperature format | ON=Celsius, OFF=Fahrenheit |
 | clcr | DeepcleanCycle | CLNO=inactive, CLAC=Deep clean in progress, CLCM=Finished |
 | hsta | Heating state | ACTIVE/IDLE |

@@ -30,9 +30,10 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
+### 1.1.12 (07.10.2021)
+* (GermanBlueFox) fixed icon link
+* (HombachC) bumped dependencies
 ### 1.1.10 (16.07.2021)
-* (HombachC) bumped dependencies; fixed vulnerability
-### 1.1.9 (13.06.2021)
 * (HombachC) bumped dependencies; fixed vulnerability
 ### 1.1.7 (09.05.2021)
 * (HombachC) added tests for node.js 16; fixed vulnerability

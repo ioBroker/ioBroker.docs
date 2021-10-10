@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: qIIQ0NkL5r+D3EtW3RoniBBT+J5Udkjr1YROqFrhz3A=
+hash: d0byrV+TcfFTPZM0f2MaLfYpLhY2iGajGomGk8u3HeA=
 ---
 # IoBroker.dysonAirPurifier
 ![Logo](admin/dyson_logo.svg)![Logo](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -44,7 +44,7 @@ Verbindet Ihre Dyson-Lüfter, Heizlüfter, Luftreiniger und Luftbefeuchter mit i
 
 ## Installation
 ### Sentry.io
-Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch an den Autor zu melden. Dafür wird das [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) Plugin verwendet. Bitte lesen Sie die [Plugin-Homepage](https://github.com/ioBroker/plugin-sentry) für detaillierte Informationen darüber, was das Plugin tut, welche Informationen gesammelt werden und wie Sie es deaktivieren können, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
+Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch an den Autor zu melden. Dafür wird das [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) Plugin verwendet. Bitte beachten Sie die [Plugin-Homepage](https://github.com/ioBroker/plugin-sentry) für detaillierte Informationen darüber, was das Plugin macht, welche Informationen gesammelt werden und wie Sie es deaktivieren können, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
 
 ###Voraussetzungen
 * Dieser Adapter benötigt Node.js >= Version 10
@@ -67,7 +67,7 @@ Sie können mit diesen Methoden auch ältere Release-Versionen installieren (ind
 * Dyson-Kontopasswort (dieser Adapter kann Passwörter mit bis zu 32 Zeichen verarbeiten)
 * die IP-Adresse Ihrer Ventilatoren/Luftreiniger in Ihrem LAN.
 
-*Bitte beachten*: Aufgrund des frühen Entwicklungsstandes und einer nicht konformen mDNS-Implementierung von Dyson müssen Sie *nach dem ersten Durchlauf* die lokale IP des Geräts angeben.
+*Bitte beachten*: Aufgrund des frühen Entwicklungsstandes und einer nicht konformen mDNS-Implementierung von Dyson müssen Sie *nach dem ersten Lauf* die lokale IP des Geräts angeben.
 
 *Zusätzlicher Hinweis*: Seit Version 0.7.1 versucht der Adapter, sich über seinen Hostnamen (Seriennummer) mit dem Gerät zu verbinden, wenn keine Hostadresse/IP angegeben ist. Dies funktioniert unter zwei Voraussetzungen:
 
@@ -84,7 +84,7 @@ Nach einem Update wird es auch automatisch neu gestartet. In beiden Fällen blei
 
 * Öffnen Sie den Konfigurationsdialog des Adapters
 * Geben Sie mindestens Ihre eMail-Adresse, das Passwort und den Ländercode ein - der Rest ist optional
-* Klicken Sie auf die Schaltfläche 2FA-Code E-Mail, um den Vorgang zu starten
+* Klicken Sie auf die 2FA-Code-E-Mail-Schaltfläche, um den Vorgang zu starten
 * Du erhältst automatisch eine "challengeId" im entsprechenden Feld, eine eMail und einen Dialog mit weiteren Anweisungen
 * geben Sie den 6-stelligen Code aus der eMail in das Feld "dyson one time password" ein
 * Klicken Sie auf die Schaltfläche "Fertig stellen"
@@ -99,7 +99,7 @@ Alle Werte werden gespeichert und weiterhin angezeigt.
 2. Warten Sie ein paar Minuten
 3. Geben Sie Ihre Zugangsdaten zum Adapter ein (falls noch nicht geschehen) und folgen Sie dem 2FA-Verfahren bis zum Ende.
 4. Der Adapter sollte starten und grün werden.
-5. Warten Sie eine Weile (bis zu einer Stunde oder vielleicht länger, da Dyson einen Blocker für zu viele Anfragen in kurzer Zeit hat)
+5. Warten Sie eine Weile (bis zu einer Stunde oder vielleicht mehr, da Dyson einen Blocker für zu viele Anfragen in kurzer Zeit hat)
 6. Melden Sie sich wieder bei Ihrer Dyson Smartphone-App an, wenn Sie diese verwenden möchten.
 
 ## Steuern Sie Ihr(e) Gerät(e)
@@ -134,7 +134,7 @@ Das macht auch die Dyson-App.
 ### Bekannte Probleme
 * Keine automatische IP-Erkennung von Geräten
 
-## Erläuterung der Dyson API-Daten (Nachrichtennutzlast)
+## Erklärung der Dyson API-Daten (Nachrichtennutzlast)
 Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md>
 
 ### AKTUELLEN ZUSTAND
@@ -175,7 +175,7 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | sltm | Sleeptimer | EIN, AUS ||
 | hmod | Heizungsmodus [EIN/AUS] | WÄRME | |
 | hmax | Solltemperatur zum Heizen | 0 .. 5000 | K |
-| Hume | Befeuchtungsmodus | EIN, AUS, |
+| Humus | Befeuchtungsmodus | EIN, AUS, |
 | haut | Auto-Modus befeuchten| HUMIDIFY_AUTO_MODE_ON, HUMIDIFY_AUTO_MODE_OFF |
 | summe | Befeuchtungsziel| HUMIDIFICATION_MODE_OFF, HUMIDIFICATION_MODE_THIRTY, HUMIDIFICATION_MODE_FORTY, HUMIDIFICATION_MODE_FIFTY, HUMIDIFICATION_MODE_SIXTY, HUMIDIFICATION_MODE_SEVENTY |
 | cdrr | CleanDurationRemaining| ganze Zahl | Minuten |
@@ -184,14 +184,14 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | wat | Wasserhärte| WEICH="2025", MITTEL="1350", HARD="0675"|
 | wacd | Warncode | KEINE... |
 
-| rstf | Filterlebenszyklus zurücksetzen | RESET_FILTER_LIFE_IGNORE, RESET_FILTER_LIFE_ACTION
+| rstf | Filterlebenszyklus zurücksetzen | 'RSTF', 'STET', RESET_FILTER_LIFE_IGNORE, RESET_FILTER_LIFE_ACTION
 
 | Korf | Temperaturformat | EIN=Celsius, AUS=Fahrenheit |
 | clcr | DeepcleanCycle | CLNO=inaktiv, CLAC=Deep Clean im Gange, CLCM=Fertig |
 | hsta | Heizzustand | AKTIV/LEERLAUF |
 | msta | Befeuchtungszustand | Aktiv/Leerlauf AUS, HUMD |
 | psta | [HP0x] Unbekannt | INIT, CLNG, INV, AUS |
-| hell | unbekannt | 0002 | LEVEL_LOW, LEVEL_MEDIUM, LEVEL_HIGH |
+| bril | unbekannt | 0002 | LEVEL_LOW, LEVEL_MEDIUM, LEVEL_HIGH |
 | fqhp | unbekannt| |
 | Neigung | [HP0x] Unbekannt | Zeichenfolge |
 | Zifferblatt | [DP0x] Unbekannt | |
@@ -238,10 +238,10 @@ Redundante Werte?
 | volm | scheint ein Medianwert von volX | . zu sein | |
 | aql0 - aql9 | Anzahl der Zweitausgaben in dieser Luftqualität | max (pal, vol)) seit Beginn der Stunde | 0000 - 3600 | |
 | aqlm | scheint ein Medianwert von aqlX | . zu sein | |
-| fafs | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden | 0000 - 3600 | |
-| faos | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden | 0000 - 3600 | |
-| fofs | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden | 0000 - 3600 | |
-| fons | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden | 0000 - 3600 | |
+| fafs | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht wird | 0000 - 3600 | |
+| faos | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht wird | 0000 - 3600 | |
+| fofs | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht wird | 0000 - 3600 | |
+| fons | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht wird | 0000 - 3600 | |
 | summen | Feuchtigkeit ? (%) | 0000 - 0100 | |
 | tmpm | Temperatur in Kelvin? | 0000 - 5000 | |
 
@@ -249,6 +249,12 @@ Redundante Werte?
 Dyson, pure cool, pure hot & cool und andere sind Marken oder eingetragene Marken von [Dyson Ltd.](https://www.dyson.com) Alle anderen Marken sind Eigentum ihrer jeweiligen Inhaber.
 
 ## Changelog
+
+### V2.1.2 (2021-10-07) (Running to the edge)
+* (grizzelbee) New: Removed NO2 from general AirQuality to be more compliant to dyson-app
+* (grizzelbee) Upd: Code cleanup
+* (grizzelbee) Upd: Removed delay between sending a command and new values getting displayed (max 30 Secs)
+
 
 ### V2.1.1 (2021-10-05) (Running to the edge)
 * (grizzelbee) New: Added some more data points 

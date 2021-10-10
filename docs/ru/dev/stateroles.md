@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/stateroles.md
 title: Государственные роли
-hash: RIoaLUKHMF+3b7Pjv2VrwWbHfSu0ld2jZl6DjjgW7kU=
+hash: RXjkw9SxtDcGP6kkWONjp1cWS1Ueeyl+UXT0faPyx/U=
 ---
 # Государственные роли
 Для объектов типа «State» необходимо, чтобы их свойству common.role была присвоена одна из ролей, указанных в списке ниже. Информация о ролях является очень важной информацией и позволяет адаптерам Visualization- и Smart-Assistant определять функцию объекта, а также то, как / если они связаны с другими объектами в том же канале, устройстве или папке.
@@ -91,6 +91,7 @@ hash: RIoaLUKHMF+3b7Pjv2VrwWbHfSu0ld2jZl6DjjgW7kU=
 * `value.gps` - долгота и широта вместе, например '5.56; 43.45'
 * `value.power` - фактическая мощность (единица измерения = Вт или кВт)
 * `value.power.consuming` - потребление энергии (единица измерения = Втч или кВтч)
+* `value.power.reactive` - реактивная мощность (единица = VAr)
 * `value.direction` - (common.type = number ~~ или строка ~~, указывает вверх / вниз, влево / вправо, 4-позиционные переключатели, направление ветра, ...)
 * `value.curtain` - фактическое положение занавеса
 * `value.blind` - фактическое положение жалюзи (max = полностью открыто, min = полностью закрыто)
@@ -104,7 +105,7 @@ hash: RIoaLUKHMF+3b7Pjv2VrwWbHfSu0ld2jZl6DjjgW7kU=
 * `value.warning` - некоторое предупреждение (можно указать состояния), чем выше, тем важнее
 * `value.sun.elevation` - высота солнца в °
 * `value.sun.azimuth` - азимут солнца в °
-* `value.voltage` - Напряжение в вольтах, единица = В
+* `value.voltage` - Напряжение в вольтах, единица измерения = В
 * `value.current` - ток в амперах, единица = A
 * `value.fill` - Уровень заполнения, единица = л, мл, м3,%
 * `value.blood.sugar` - значение сахара в крови, единица = ммоль, мгдл
@@ -384,8 +385,11 @@ TODO: подумайте об ионизации и колебаниях.
 * `info.mac` - mac устройства
 * `info.name` - имя устройства
 * `info.address` - какой-либо другой адрес (например, KNX)
+* `info.serial` - серийный номер
+* `info.firmware` - версия прошивки
+* `info.hardware` - версия оборудования
 * `info.port` - порт tcp
-* `info.standby` - true, если устройство в режиме ожидания
+* `info.standby` - истина, если устройство в режиме ожидания
 * `info.status` - статус устройства
 * `info.display` - информация, отображаемая на дисплее устройства
 * `date.start` - строка или число
