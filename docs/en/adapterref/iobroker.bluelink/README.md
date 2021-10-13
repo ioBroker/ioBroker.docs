@@ -18,6 +18,11 @@ Adapter to control Hyundai or Kia vehicle
 Discussion: https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo
 
 ## Changelog
+### 1.0.9
+* (Newan) + (dklinger) Bug fixes
+
+### 1.0.9
+* (Newan)Add charge start/stop option
 
 ### 1.0.7
 * (Newan)Fix for KIA Sorento (Diesel)

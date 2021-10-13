@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.x-touch/README.md
 title: ioBroker.x-touch
-hash: texWQD4NDKZ038tIOr12wwqEYfOQW69jJmBAaJ88c7k=
+hash: lCaENXpjc6hsJKr6MfO3ygR4GZ+ER8Ltf/cq9tv3Wzo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.x-touch/admin/x-touch.png)
 
@@ -21,15 +21,15 @@ hash: texWQD4NDKZ038tIOr12wwqEYfOQW69jJmBAaJ88c7k=
 
 ## Делать
 - Добавьте кодировщики и их светодиоды -> готово, слева - sync_global и проверяет изменения в базе данных.
-- Добавить отображение тайм-кода -> готово
-- Добавлена функциональность переключателей каналов банка и фейдера -> готово, требуется дополнительное тестирование
+- Добавить отображение временного кода -> готово
+- Добавить функциональность переключателей каналов банка и фейдера -> готово, требуется дополнительное тестирование
 - Добавить функцию syncGlobal
 
 ## Окно сообщения
 Есть две принятые команды:
 
 * `export` экспортирует фактические значения, хранящиеся в состояниях групп устройств, в папку пользовательских данных x-touch.
-* `import` импортирует самый молодой файл из папки userdata. Вы также можете указать путь, файл и / или номер группы устройств для восстановления. Если путь не указан, будет использоваться каталог пользовательских данных.
+* `import` импортирует самый молодой файл из папки userdata. Дополнительно вы можете указать файл и / или номер группы устройств для восстановления. Если указан путь, будет использоваться вся файловая система, а имя файла обязательно.
 
 ## Changelog
 
@@ -65,6 +65,9 @@ hash: texWQD4NDKZ038tIOr12wwqEYfOQW69jJmBAaJ88c7k=
 
 ### 0.4.0
 * (Bannsaenger) added the ability to export the actual state values via a message and reimport the states again
+
+### 0.4.1
+* (Bannsaenger) bug fixing in the export/import feature
 
 ## License
 MIT License

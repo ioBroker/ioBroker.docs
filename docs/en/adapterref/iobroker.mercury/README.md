@@ -36,6 +36,9 @@ Returns a buffer as a string
 
 ## Changelog
 
+### 100.0.0
+* (instalator) fixed preloader
+
 ### 0.1.5
 * (instalator) fixed a bug with polling multiple counters
 

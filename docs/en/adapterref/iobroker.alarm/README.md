@@ -36,7 +36,6 @@ Hier werden die Einstellungen wie die Zeiten der Nachtruhe, Sirenezeit, Stiller-
 - Alarmverzögerung -> Verzögerungszeit bis Einbruch ausgelöst wird (während dieser Zeit wird der Stille Alarm ausgelöst)  
 - Auslösezeit bei Warnungen/Sirene innen  -> Bei Auslösung des Benachrichtigungskreises oder scharf innen Kreises, wird der jeweils zugehörige Datenpunkt für die Zeit auf true gesetzt
 
-
 ----------------------------------------------------------------------------------------------------------------------
 
 ### Tab Benachrichtigungen
@@ -57,6 +56,8 @@ Der Alarmkreis hat die Priorität „hoch" und hat bei aktivierter Anlage (schar
 Sollte man einen Kontakt haben, der den Alarmkreis nicht sofort auslösen soll, kann man das Häkchen bei "stiller Alarm" aktivieren, dadurch wird nach Ablauf der eingestellten Zeit (Haupteinstellungen), der Alarm ausgelöst.
 
 Sollte es erforderlich sein die Einzelnen States nicht auf *true*, sondern auf *false* zu triggern (z.B. Drahtbruchsichere Sensoren), so kann man das Häkchen bei "negieren" setzen.
+
+Sollte man im Tab Haupteinstellungen die Option "verlassen" aktiviert haben, kann man unter dem entsprechenden Datenpunkt "verlassen" anwählen. Dies bewirkt, dass bei verzögerte Aktivierung, der Countdown nicht ablaufen muss, sondern es reicht z. B. die Tür zu schließen.
 
 
 Die Kreise werden folgendermaßen überwacht:
@@ -150,6 +151,9 @@ Beinhaltet die Informationen für die "anderen" Alarmkreise 1 + 2.
 
 
 ## Changelog
+
+#### 2.1.0 (11.10.2021)
+* (misanorot) extend list states and speech output, added leave option
 
 #### 2.0.2 (08.08.2021)
 * (misanorot) fixed password issues

@@ -40,6 +40,14 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 2.2.1 (2021-10-12)
+* Fixed a crash when removing a node that is included in a multicast group
+* Fix: writeonly `boolean` states are now set up as switches instead of buttons
+* Corrupted `Multilevel Sensor` and `Meter` reports are now filtered out
+* Fixes to auto-assigning lifeline associations
+* Small fixes to inclusion with security
+* New and updated configuration files, see [here](https://github.com/zwave-js/node-zwave-js/releases/tag/v8.5.0)
+
 ### 2.2.0 (2021-09-27)
 * The devices list now includes an activity indicator and statistics for each device
 * Improvements to `Scene Actuator Configuration CC` and `Scene Controller Configuration CC`
@@ -75,9 +83,6 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 * Support for changing the region/frequency of the controller
 * Support for replacing failed nodes while keeping the ID
 * Some fixes for firmware updates
-
-### 1.10.4 (2021-08-07)
-* Fixed a bug where the daily config update check would cause a lot of internet traffic for an hour
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.x-touch/README.md
 title: ioBroker.x-touch
-hash: texWQD4NDKZ038tIOr12wwqEYfOQW69jJmBAaJ88c7k=
+hash: lCaENXpjc6hsJKr6MfO3ygR4GZ+ER8Ltf/cq9tv3Wzo=
 ---
 ![标识](../../../en/adapterref/iobroker.x-touch/admin/x-touch.png)
 
@@ -29,7 +29,7 @@ hash: texWQD4NDKZ038tIOr12wwqEYfOQW69jJmBAaJ88c7k=
 有两个接受的命令：
 
 * `export` 将存储在设备组状态中的实际值导出到用户数据文件夹 x-touch.0
-* `import` 从 userdata 文件夹中导入最年轻的文件。或者，您可以指定要恢复的“路径”、“文件”和/或“设备组”编号。如果未指定路径，则将使用 userdata 目录。
+* `import` 从 userdata 文件夹中导入最年轻的文件。此外，您可以指定要恢复的“文件”和/或“设备组”编号。如果指定了`path`，则将使用整个文件系统，并且`file` 名称是必需的。
 
 ## Changelog
 
@@ -65,6 +65,9 @@ hash: texWQD4NDKZ038tIOr12wwqEYfOQW69jJmBAaJ88c7k=
 
 ### 0.4.0
 * (Bannsaenger) added the ability to export the actual state values via a message and reimport the states again
+
+### 0.4.1
+* (Bannsaenger) bug fixing in the export/import feature
 
 ## License
 MIT License

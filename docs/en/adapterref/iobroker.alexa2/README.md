@@ -291,9 +291,25 @@ When the adapter crashes or an other Code error happens, this error message that
 
 
 ## Changelog
+### 3.11.2 (2021-10-12)
+* (Apollon77) Fix crash case (Sentry IOBROKER-ALEXA2-AT)
+
+### 3.11.1 (2021-10-12)
+* (Apollon77) Prevent warnings with js-controller 3.3
+
+### 3.11.0 (2021-10-12)
+* (Apollon77) Add support for Multi Utterance Routines
+* (Apollon77) Fix object deletion for lists
+* (Apollon77) Fix Creation of new Lists and add deletion support
+* (Apollon77) Allow Commands for Stereo Pairs
+* (Apollon77) Optimize Push Connection and History retrieval
+
+### 3.10.4 (2021-10-11)
+* IMPORTANT: Node.js 10 support is dropped, supports LTS versions of Node.js starting with 12.x
+* (Apollon77) Update Push Connection
 
 ### 3.9.3 (2021-07-11)
-* (Apollon77) Try to fix setting targetTemperature for ThermostatCOntroller
+* (Apollon77) Try to fix setting targetTemperature for ThermostatController
 
 ### 3.9.2 (2021-07-05)
 * (Apollon77) Only ignore empty history entries if both, summary and alexaResponse is empty
@@ -371,7 +387,7 @@ When the adapter crashes or an other Code error happens, this error message that
 * (arteck) add echo studio
 
 ### 3.2.6 (2020-07-15)
-* (Apollon77) Work around Amazon Security changes and make proxy working again 
+* (Apollon77) Work around Amazon Security changes and make proxy working again
 
 ### 3.2.5 (2020-07-13)
 * (Apollon77) Work around Amazon Security changes and make proxy working again 
@@ -398,7 +414,7 @@ When the adapter crashes or an other Code error happens, this error message that
 * (Apollon77) make sure that Lists objects are deleted correctly when deleting
 * (Apollon77) Make compatible with nodejs 14
 * (Apollon77) Adjust to changes from Amazon so that initial Proxy process works again
-* (OberstVonGatow) Make sure that for Spotify Media data requests do not have negative effects and stop the playback  
+* (OberstVonGatow) Make sure that for Spotify Media data requests do not have negative effects and stop the playback
 
 ### 3.1.2 (2020-03-18)
 * (Gieskanne/Apollon77) Add Next Timer Date as state
@@ -436,7 +452,7 @@ When the adapter crashes or an other Code error happens, this error message that
 * (Apollon77) prevent some crashed after changes by Amazon
 * (Apollon77) fix Routine names after changes by Amazon
 * (Apollon77) add some devices and new images
-* (Apollon77) Add more situations to update player status because amazon send no info anymore on title changes 
+* (Apollon77) Add more situations to update player status because amazon send no info anymore on title changes
 
 ### 2.6.4 (2019-07-25)
 * (Apollon77) add some error handling for contacts
@@ -474,7 +490,7 @@ When the adapter crashes or an other Code error happens, this error message that
 * (Apollon77) optimize Admin display of Status/Link
 * (Apollon77) add Link to https://alexa.amazon.com to Admin instance overview
 * (Apollon77) Remove Admin2 support
-* (Apollon77) Optimize Handling from DNS errors (hopefully) to prevent stopped Adapters on Internet/DNS problems 
+* (Apollon77) Optimize Handling from DNS errors (hopefully) to prevent stopped Adapters on Internet/DNS problems
 
 ### 2.3.3 (2019-06-21/22)
 * (Apollon77) adjust to current Amazon changes
@@ -492,7 +508,7 @@ When the adapter crashes or an other Code error happens, this error message that
 ### 2.1.0 (2019-01-13) [unpublished]
 * (Apollon77) cookie handling completely rewritten, no email/password anymore, only Proxy (still only from log)
 * (Apollon77) fixes routine triggering that triggered on wrong device sometimes
-* (Apollon77) added new commands "deviceStop", "announcement", "notification", and "ssml" (see documentation above) 
+* (Apollon77) added new commands "deviceStop", "announcement", "notification", and "ssml" (see documentation above)
 
 ### 1.1.3 (2018-11-17)
 * (Apollon77) optimize cookie handling again
@@ -576,7 +592,6 @@ When the adapter crashes or an other Code error happens, this error message that
 * (Apollon77) New "Music-Provider" states depending on available music providers with possibility to enter a text to play something (same as you would speak it)
 * (Apollon77) Volume is send different now, so that it also works when Device player get's inactive
 
-
 ### 0.2.4 (2018-07-22)
 * (pix) materialize settings window
 * (Apollon77) WOn IP is set automatically with IP from first network interface
@@ -609,16 +624,6 @@ When the adapter crashes or an other Code error happens, this error message that
 * (Apollon77) 0.2.0: Automatically use different user-agents for Win32, MacOS and Linux based systems
 * (Apollon77) 0.2.0: Also support entering TuneIn-Station IDs ("s" plus 4-6 digits) to play that station
 
-### 0.1.x (Github only as iobroker.alexa)
-* (Apollon77) 0.1.5: Adapter disables itself on error (no cookie/no csrf in cookie/captcha needed)
-* (Apollon77) 0.1.5: Reorganized some states (delete object again please), add playerinfo section for later usage, hopefully fixed unplanned device renaming and other things
-* (Apollon77) 0.1.5: Added adapter config options to overwrite used amazon-page, user-agent and accept-language for cookie determination and
-* (Apollon77) 0.1.4: State changes are logged and only considered when ack=false!
-* (Apollon77) 0.1.3: Corrected all roles, delete objects and start again!
-* (Apollon77) 0.1.3: bluetooth connection status filled correctly initially
-* (Apollon77) 0.1.2: Library fixes and updates
-* (Apollon77) 0.1.1: Library fixes and updates
-
 ### 0.1.0 (2018-07-10)
 * (Apollon77) get Adapter working again, especially getting cookie and optimize refresh
 
@@ -629,7 +634,7 @@ When the adapter crashes or an other Code error happens, this error message that
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2018 soef <soef@gmx.net>, 2018-2021 Ingo Fischer <iobroker@fischer-ka.de>
+Copyright (c) 2018-2021 Ingo Fischer <iobroker@fischer-ka.de>, 2017-2018 soef <soef@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

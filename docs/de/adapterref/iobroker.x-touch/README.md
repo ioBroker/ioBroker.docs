@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.x-touch/README.md
 title: ioBroker.x-touch
-hash: texWQD4NDKZ038tIOr12wwqEYfOQW69jJmBAaJ88c7k=
+hash: lCaENXpjc6hsJKr6MfO3ygR4GZ+ER8Ltf/cq9tv3Wzo=
 ---
 ![Logo](../../../en/adapterref/iobroker.x-touch/admin/x-touch.png)
 
@@ -29,7 +29,7 @@ Kommunizieren mit einer Behringer X-Touch-Bedienoberfläche (DAW-Controller)
 Es gibt zwei akzeptierte Befehle:
 
 * `export` exportiert die in den Zuständen der Gerätegruppen gespeicherten Istwerte in den Benutzerdatenordner x-touch.0
-* `import` importiert die jüngste Datei aus dem userdata-Ordner. Alternativ können Sie `Pfad`, `Datei` und/oder die `Gerätegruppe`-Nummer für die Wiederherstellung angeben. Wird kein Pfad angegeben, wird das userdata-Verzeichnis verwendet.
+* `import` importiert die jüngste Datei aus dem userdata-Ordner. Zusätzlich können Sie `file` und/oder die `devicegroup`-Nummer für die Wiederherstellung angeben. Wenn `Pfad` angegeben wird, wird das gesamte Dateisystem verwendet und ein `Datei`-Name ist obligatorisch.
 
 ## Changelog
 
@@ -65,6 +65,9 @@ Es gibt zwei akzeptierte Befehle:
 
 ### 0.4.0
 * (Bannsaenger) added the ability to export the actual state values via a message and reimport the states again
+
+### 0.4.1
+* (Bannsaenger) bug fixing in the export/import feature
 
 ## License
 MIT License

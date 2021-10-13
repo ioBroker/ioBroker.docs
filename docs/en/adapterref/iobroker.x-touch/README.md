@@ -23,7 +23,7 @@ Communicate with a Behringer X-Touch Control Surface (DAW Controller)
 ## Message Box
 There a two acepted commands:
 * `export` exports the actual values stored in the states of the devicegroups to the userdata folder x-touch.0
-* `import` imports the youngest file from the userdata folder. Alternitively you can specify `path`, `file` and/or the `devicegroup` number to restore. If no path is specified the userdata directory will be used.  
+* `import` imports the youngest file from the userdata folder. Additionally you can specify `file` and/or the `devicegroup` number to restore. If `path` is specified the entire filesystem will be used and a `file` name is mandatory.  
 
 ## Changelog
 
@@ -59,6 +59,9 @@ There a two acepted commands:
 
 ### 0.4.0
 * (Bannsaenger) added the ability to export the actual state values via a message and reimport the states again
+
+### 0.4.1
+* (Bannsaenger) bug fixing in the export/import feature
 
 ## License
 MIT License

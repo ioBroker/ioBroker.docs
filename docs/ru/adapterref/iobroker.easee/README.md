@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.easee/README.md
 title: ioBroker.easee
-hash: DsQVFcal6+Lkf7vH1JggZmFZ/u2vqgERW+Weiib9R/A=
+hash: hGjDWYqWQrWPgaQGtPV2tZMVZTYEgOLPjF6ljaLvbn8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.easee/admin/easee.png)
 
@@ -21,32 +21,26 @@ hash: DsQVFcal6+Lkf7vH1JggZmFZ/u2vqgERW+Weiib9R/A=
 ## Простой адаптер для ioBroker
 Адаптер для подключения Easee Wallbox
 
+## Помощь
+ChargerOpMode = Offline: 0, Disconnected: 1, AwaitingStart: 2, Charging: 3, Completed: 4, Error: 5, ReadyToCharge: 6
+
+dynamicCircuitCurrentPX -> Все фазы должны быть установлены в пределах 500 мс (сценарий), иначе фаза будет установлена на 0.
+
 ## Пожертвование
 [![] (https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
+### 1.0.4
+* (Newan) dynamicCircuitCurrentPX writeable (set all Phases in 500ms) to limit ampere 
 
-### 0.0.1
-* (Newan) initial release
-### 0.0.2
-* (Newan) add config values
-### 0.0.3
-* (Newan) add config writeable
-### 0.0.4
-* (Newan) fixed config writeable
-* (Newan) reboot charger
-### 0.0.5
-* (Newan) add energy used values
-### 0.1.0
-* (Newan) Preparation for the first stable version
-### 0.1.1
-* (Newan) Password encrypt + bugfix for the stable version
-### 0.1.2
-* (Newan) Object reconstruction
-### 0.1.3
-* (Newan) Add #2 max Ampere changeable
-### 0.1.4
-* (Newan) Add new objects
+### 1.0.3
+* (Newan) Adapter crash fixed an other bugfixes
+
+### 1.0.1
+* (Newan) Add circuitMaxCurrentPX to limit current ampere
+
+### 1.0.0
+* (Newan) Stable Version with SignalR
 
 ## License
 MIT License

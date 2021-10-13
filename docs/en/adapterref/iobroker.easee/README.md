@@ -16,7 +16,23 @@
 
 Adapter to connect Easee Wallbox
 
+## Help
+
+chargerOpMode =
+    Offline: 0,
+    Disconnected: 1,
+    AwaitingStart: 2,
+    Charging: 3,
+    Completed: 4,
+    Error: 5,
+    ReadyToCharge: 6
+
+dynamicCircuitCurrentPX -> All phases must be set within 500ms (script) otherwise the phase will be set to 0.    
+
 ## Changelog
+### 1.0.4
+* (Newan) dynamicCircuitCurrentPX writeable (set all Phases in 500ms) to limit ampere 
+
 ### 1.0.3
 * (Newan) Adapter crash fixed an other bugfixes
 
