@@ -83,6 +83,8 @@ Different Device templates used for the detecting with the required and optional
 * `value.gps.latitude`    - gps latitude
 * `value.gps.elevation`   - gps elevation
 * `value.gps`             - longitude and latitude together like '5.56;43.45'
+* `value.gps.accuracy`    - accuracy of current gps measurement
+* `value.gps.radius`      - radius of current gps measurement
 * `value.power`           - actual power (unit=W or KW)
 * `value.power.consumption` - energy consumption (unit=Wh or KWh)
 * `value.power.reactive`  - reactive power (unit=VAr)
