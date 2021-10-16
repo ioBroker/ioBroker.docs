@@ -3,21 +3,28 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.trashschedule/README.md
 title: ioBroker.trashschedule
-hash: QCYelfjzjTR0AhzJk9+BvOHy7OqUhYR9G9nnRFQTMYI=
+hash: 7x79IBp8S8Ne7ZChiytjuOW2/6GfKiKE19h/cQ1bCOk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.trashschedule/admin/trashschedule.png)
 
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.trashschedule.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.trashschedule.svg)
 ![Стабильный](http://iobroker.live/badges/trashschedule-stable.svg)
-![установлен](http://iobroker.live/badges/trashschedule-installed.svg)
+![установлены](http://iobroker.live/badges/trashschedule-installed.svg)
 ![Статус зависимости](https://img.shields.io/david/klein0r/iobroker.trashschedule.svg)
 ![Известные уязвимости](https://snyk.io/test/github/klein0r/ioBroker.trashschedule/badge.svg)
 ![Статус сборки](http://img.shields.io/travis/klein0r/ioBroker.trashschedule.svg)
-![NPM](https://nodei.co/npm/iobroker.trashschedule.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.trashschedule.png?downloads=true)
 
 # IoBroker.trashschedule
 Сканирует календарь для подсчета дней, оставшихся до следующего вывоза мусора
+
+## Установка
+Используйте «список адаптеров» в ioBroker, чтобы установить стабильную версию этого адаптера. Вы также можете использовать интерфейс командной строки для установки этого адаптера:
+
+```
+iobroker add trashschedule
+```
 
 ## Предварительные условия
 1. Создайте **фактический экземпляр**
@@ -200,9 +207,23 @@ hash: QCYelfjzjTR0AhzJk9+BvOHy7OqUhYR9G9nnRFQTMYI=
 
 ## Changelog
 
+### 1.2.0
+
+* (klein0r) Added compatibility with iCal 1.10.0
+* (klein0r) Added color of type to channel object
+
+### 1.1.3
+
+* (klein0r) Fixed weekday state type (string -> number)
+
+### 1.1.2
+
+* (klein0r) Nodejs 12 required
+
 ### 1.1.1
 
-* (klein0r) ...
+* (klein0r) Ignore trash types with empty match pattern
+* (klein0r) Added log message if the match pattern contains leading or trailing whitespaces
 
 ### 1.1.0
 

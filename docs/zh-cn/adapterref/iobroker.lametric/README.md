@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: B8jOLP7FaNUbsP2j03ZQAzejHOezL11HtuI7N+7I6RM=
+hash: QhiCVAOG8VbdijiNfR19QeE2LCYlcmBoxpRy2D1y8/E=
 ---
 ![标识](../../../en/adapterref/iobroker.lametric/admin/lametric.png)
 
@@ -19,6 +19,13 @@ hash: B8jOLP7FaNUbsP2j03ZQAzejHOezL11HtuI7N+7I6RM=
 # IoBroker.lametric
 此适配器允许您获取有关 [LaMetric 时间](https://haus-auto.com/p/amz/LaMetricTime) *(附属链接)* 的状态信息并向其发送通知。
 您只需要设备的 IP 地址和 api 开发人员密钥。
+
+＃＃ 安装
+请使用 ioBroker 中的“适配器列表”来安装此适配器的稳定版本。您还可以使用 CLI 安装此适配器：
+
+```
+iobroker add lametric
+```
 
 ＃＃ 配置
 使用 LaMetric 固件 *2.2.1* 测试（推荐）
@@ -187,6 +194,10 @@ show();
 ```
 
 ## Changelog
+
+### 1.3.2
+
+* (klein0r) Updated dependencies
 
 ### 1.3.1
 

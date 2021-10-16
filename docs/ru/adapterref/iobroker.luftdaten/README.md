@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.luftdaten/README.md
 title: ioBroker.luftdaten
-hash: xVdeyCQIZ18NQX8QFGf5y8NLoKX1+aLSr0BZIvU3WR0=
+hash: Two5lRgxKC4WrA6dvGFNUHKtX0Yu2TKtLC7cAErlsrE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.luftdaten/admin/luftdaten.png)
 
@@ -19,6 +19,13 @@ hash: xVdeyCQIZ18NQX8QFGf5y8NLoKX1+aLSr0BZIvU3WR0=
 # IoBroker.luftdaten
 Этот адаптер добавляет данные датчика luftdaten.info в вашу установку ioBroker.
 Вы можете решить, хотите ли вы добавить локальный датчик по ip или просто использовать API lufdaten.info для получения данных другого датчика.
+
+## Установка
+Используйте «список адаптеров» в ioBroker, чтобы установить стабильную версию этого адаптера. Вы также можете использовать интерфейс командной строки для установки этого адаптера:
+
+```
+iobroker add luftdaten
+```
 
 ## Конфигурация
 ### Местный
@@ -52,6 +59,22 @@ hash: xVdeyCQIZ18NQX8QFGf5y8NLoKX1+aLSr0BZIvU3WR0=
 - Доминик-Лиенеманн
 
 ## Changelog
+
+### 2.0.3
+
+* (klein0r) Fixed error logging
+
+### 2.0.2
+
+* (klein0r) Added timeout option
+
+### 2.0.1
+
+* (klein0r) Minor bug fixes
+
+### 2.0.0
+
+* (klein0r) Updated admin interface to maintain multiple sensors in one instance (BREAKING CHANGE - RE-CONFIGURE YOUR SENSORS)
 
 ### 1.0.3
 

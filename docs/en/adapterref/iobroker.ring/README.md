@@ -67,6 +67,9 @@ on({id: "ring.0.doorbell_4711.kind"/*Kind*/},  (obj) => {
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 1.2.8 (2021-10-14)
+* (theimo1221) Update packages
+
 ### 1.2.6 (2021-09-05)
 * (theimo1221) Update packages
 * (theimo1221) Stop adapter on unhandled Error
@@ -97,10 +100,8 @@ on({id: "ring.0.doorbell_4711.kind"/*Kind*/},  (obj) => {
 * (theimo1221) Fix typo preventing Livestream recordings after motion detection
 * (theimo1221) Reduce Levels of Log Messages, to not spam iobroker Log
 
-
-
 ### 1.1.6-2 (2021-03-29)
-* (theimo1221) Fixing some Issues while saving snapshots and place Snapshots within 'iobroker-data' Folder. 
+* (theimo1221) Fixing some Issues while saving snapshots and place Snapshots within 'iobroker-data' Folder.
 
 ### 1.1.6-1 (2021-03-26)
 * (theimo1221) Support for Floodlight V2
@@ -110,16 +111,16 @@ on({id: "ring.0.doorbell_4711.kind"/*Kind*/},  (obj) => {
 * (Stübi) Add floodlight
 
 ### 1.1.4 (23.05.2020)
-* (Stübi) Add new libraries  
+* (Stübi) Add new libraries
 
 ### 1.1.3 (06.05.2020)
-* (Stübi) Fixed error of missing objects 
+* (Stübi) Fixed error of missing objects
 
 ### 1.1.2 (02.05.2020)
 * (Stübi) Fixed health info like missing battery status (Issue #22, Issue #25) 
 * (Stübi) Change error handling
 * (Stübi) Providing Stick Up Cam (BETA)
-* (Stübi) Using variables in the filename of the livestream or snapshot 
+* (Stübi) Using variables in the filename of the livestream or snapshot
 
 ### 1.1.1 (02.05.2020)
 * (Stübi) Bugfixing
@@ -140,7 +141,7 @@ on({id: "ring.0.doorbell_4711.kind"/*Kind*/},  (obj) => {
 
 ### 1.0.6 (20.12.2019)
 * (Stübi) Bugfixing: Login with username and password changed
-* (Stübi) New feature (BETA): Now you can make snapshots in jpg and a livestream in mp4 format. Unfortunately the snapshot / livestream does not work always! 
+* (Stübi) New feature (BETA): Now you can make snapshots in jpg and a livestream in mp4 format. Unfortunately the snapshot / livestream does not work always!
 
 ### 1.0.5 (18.04.2019)
 * (Stübi) Bugfixing 
@@ -148,18 +149,17 @@ on({id: "ring.0.doorbell_4711.kind"/*Kind*/},  (obj) => {
 * (Stübi) Fixed an error with js-controller 2.0. You need at least this version with js-controller 2.0
 * (Stübi) two face authentication
 
-
 ### 1.0.4 (17.04.2019)
-* (Stübi) Bugfixing for Ring Pro 
+* (Stübi) Bugfixing for Ring Pro
 
 ### 1.0.3 (09.03.2019)
-* (Stübi) Major change! I had to change the used ring.com API to an other API. The old one did not work anymore. For this reason, a lot has to be redesigned.  
+* (Stübi) Major change! I had to change the used ring.com API to an other API. The old one did not work anymore. For this reason, a lot has to be redesigned.
 
 ### 1.0.2 (01.02.2019)
-* (Stübi) More debug information 
+* (Stübi) More debug information
 
 ### 1.0.1 (05.01.2019)
-* (Stübi) Support js-controller compact mode 
+* (Stübi) Support js-controller compact mode
 
 ### 1.0.0 (04.01.2018)
 * (Stübi) Add camera device. For this reason, the device name changed from doorbot to doorbell.
@@ -175,7 +175,6 @@ on({id: "ring.0.doorbell_4711.kind"/*Kind*/},  (obj) => {
 
 ### 0.1.0 (14.12.2018)
 * (Stübi) First Version
-
 
 ## License
 The MIT License (MIT)

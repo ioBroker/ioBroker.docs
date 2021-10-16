@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: BrgQr0FQ/Wwz8Owf81J4OqXqvh5PzGMXJifra53T91Q=
+hash: rscpkzDVDZrsb3luDxbDTTsvRX7xgyHtH0fJMIesPvw=
 ---
 ![Logo](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
 
@@ -12,7 +12,7 @@ hash: BrgQr0FQ/Wwz8Owf81J4OqXqvh5PzGMXJifra53T91Q=
 ![Stabil](http://iobroker.live/badges/octoprint-stable.svg)
 ![Eingerichtet](http://iobroker.live/badges/octoprint-installed.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/klein0r/iobroker.octoprint.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/klein0r/ioBroker.octoprint/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/klein0r/ioBroker.octoprint/badge.svg)
 ![Build-Status](http://img.shields.io/travis/klein0r/ioBroker.octoprint.svg)
 ![NPM](https://nodei.co/npm/iobroker.octoprint.png?downloads=true)
 
@@ -21,28 +21,35 @@ Adapter zum Verbinden von OctoPrint mit ioBroker
 
 Getestet mit OctoPrint 1.6.0
 
-## Eigenschaften
+## Installation
+Bitte verwenden Sie die "Adapterliste" in ioBroker, um eine stabile Version dieses Adapters zu installieren. Sie können diesen Adapter auch über die CLI installieren:
+
+```
+iobroker add octoprint
+```
+
+## Merkmale
 ### Information
 - Versionsinformationen abrufen
 - Druckerinformationen abrufen
 - Aktuelle Druckauftragsinformationen abrufen
-- Informationen zur Dateiliste abrufen
+- Holen Sie sich Dateilisteninformationen
 
-### Temperaturen
+###Temperaturen
 - Werkzeugtemperatur einstellen
 - Betttemperatur einstellen
 
-### Befehle
+###Befehle
 - Drucker: Verbinden, trennen und nach Hause
 - Job: Starten, Abbrechen, Neustart
 - SD-Karte: Init, Refresh, Release
 - Benutzerdefinierte Druckerbefehle
 - Systembefehle
-- Joggen Sie die X-, Y- und Z-Achse
+- Jog X-, Y- und Z-Achse
 - Wählen Sie eine Datei aus oder drucken Sie sie aus
 
 ## Wichtig!
-Starten Sie die Octoprint-Instanz (oder eine andere Instanz) NICHT mit folgendem Code neu:
+Starten Sie die Octoprint-Instanz (oder eine andere Instanz) NICHT mit Code wie diesem neu:
 
 ```javascript
 var obj = getObject('system.adapter.octoprint.0');
@@ -50,15 +57,23 @@ obj.common.enabled = false;
 setObject('system.adapter.octoprint.0', obj);
 ```
 
-Da der API-Schlüssel seit Version 1.1.0 ein geschütztes Attribut ist, wird der konfigurierte API-Schlüssel entfernt. Der Grund ist, dass `getObject` keine geschützten Informationen zurückgibt (daher ist der API-Schlüssel nicht im zurückgegebenen Objekt enthalten). Wenn Sie das Objekt speichern, speichern Sie ein Objekt ohne Schlüssel.
+Da der API-Schlüssel seit Version 1.1.0 ein geschütztes Attribut ist, wird dadurch der konfigurierte API-Schlüssel entfernt. Der Grund ist, dass `getObject` keine geschützten Informationen zurückgibt (also der API-Schlüssel nicht im zurückgegebenen Objekt enthalten ist). Wenn Sie das Objekt speichern, speichern Sie ein Objekt ohne den Schlüssel.
 
-Bitte verwenden Sie den Status `system.adapter.octoprint.0.alive`, um die Instanz zu stoppen / zu starten.
+Bitte verwenden Sie den Zustand `system.adapter.octoprint.0.alive`, um die Instanz zu stoppen/zu starten.
 
 ## Changelog
 
+### 1.1.2
+
+* (klein0r) Updated file refresh handling
+
+### 1.1.1
+
+* (klein0r) Minor fixes
+
 ### 1.1.0
 
-* (klein0r) Encrypt sensitive information
+* (klein0r) Encrypt sensitive information **(BREAKING CHANGE - RE-ENTER YOUR API KEY)**
 
 ### 1.0.10
 

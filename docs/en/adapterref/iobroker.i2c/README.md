@@ -265,6 +265,10 @@ Keep in mind that the RPC server is completely unsecured, so this should only be
 	### __WORK IN PROGRESS__
 -->
 
+### 1.2.1 (2021-10-13)
+
+-   (UncleSamSwiss) Reading multiple values from I2C into states is now faster. This should increase the polling frequency for most devices.
+
 ### 1.2.0 (2021-03-02)
 
 -   (UncleSamSwiss) Added support for MCP342x family (#44).

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: BrgQr0FQ/Wwz8Owf81J4OqXqvh5PzGMXJifra53T91Q=
+hash: rscpkzDVDZrsb3luDxbDTTsvRX7xgyHtH0fJMIesPvw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
 
@@ -20,6 +20,13 @@ hash: BrgQr0FQ/Wwz8Owf81J4OqXqvh5PzGMXJifra53T91Q=
 Адаптер для подключения OctoPrint к ioBroker
 
 Протестировано с OctoPrint 1.6.0
+
+## Установка
+Используйте «список адаптеров» в ioBroker, чтобы установить стабильную версию этого адаптера. Вы также можете использовать интерфейс командной строки для установки этого адаптера:
+
+```
+iobroker add octoprint
+```
 
 ## Функции
 ### Информация
@@ -56,9 +63,17 @@ setObject('system.adapter.octoprint.0', obj);
 
 ## Changelog
 
+### 1.1.2
+
+* (klein0r) Updated file refresh handling
+
+### 1.1.1
+
+* (klein0r) Minor fixes
+
 ### 1.1.0
 
-* (klein0r) Encrypt sensitive information
+* (klein0r) Encrypt sensitive information **(BREAKING CHANGE - RE-ENTER YOUR API KEY)**
 
 ### 1.0.10
 

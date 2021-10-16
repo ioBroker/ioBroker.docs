@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: B8jOLP7FaNUbsP2j03ZQAzejHOezL11HtuI7N+7I6RM=
+hash: QhiCVAOG8VbdijiNfR19QeE2LCYlcmBoxpRy2D1y8/E=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lametric/admin/lametric.png)
 
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.lametric.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.lametric.svg)
 ![Стабильный](http://iobroker.live/badges/lametric-stable.svg)
-![установлен](http://iobroker.live/badges/lametric-installed.svg)
+![установлены](http://iobroker.live/badges/lametric-installed.svg)
 ![Статус зависимости](https://img.shields.io/david/klein0r/iobroker.lametric.svg)
 ![Известные уязвимости](https://snyk.io/test/github/klein0r/ioBroker.lametric/badge.svg)
 ![Статус сборки](http://img.shields.io/travis/klein0r/ioBroker.lametric.svg)
@@ -19,6 +19,13 @@ hash: B8jOLP7FaNUbsP2j03ZQAzejHOezL11HtuI7N+7I6RM=
 # IoBroker.lametric
 Этот адаптер позволяет получать информацию о статусе вашего [LaMetric Time](https://haus-auto.com/p/amz/LaMetricTime) *(Партнерская ссылка)* и отправлять на него уведомления.
 Все, что вам нужно, это IP-адрес вашего устройства и ключ разработчика API.
+
+## Установка
+Используйте «список адаптеров» в ioBroker, чтобы установить стабильную версию этого адаптера. Вы также можете использовать интерфейс командной строки для установки этого адаптера:
+
+```
+iobroker add lametric
+```
 
 ## Конфигурация
 Протестировано с прошивкой LaMetric *2.2.1* (рекомендуется)
@@ -40,7 +47,7 @@ hash: B8jOLP7FaNUbsP2j03ZQAzejHOezL11HtuI7N+7I6RM=
 Возможности ограничены [официальные функции API](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html).
 
 ## Примеры блоков
-Вы можете использовать простую строку в качестве сообщения, которое будет отображаться в виде одного кадра
+Вы можете использовать простую строку в качестве сообщения, которое будет отображаться в виде одного кадра.
 
 ![одиночный кадр](../../../en/adapterref/iobroker.lametric/docs/blockly1.png)
 
@@ -162,7 +169,7 @@ sendTo(
 );
 ```
 
-Пример показа некоторой информации циклически:
+Пример для отображения некоторой информации циклически:
 
 ```JavaScript
 let i = 0;
@@ -187,6 +194,10 @@ show();
 ```
 
 ## Changelog
+
+### 1.3.2
+
+* (klein0r) Updated dependencies
 
 ### 1.3.1
 

@@ -3,46 +3,53 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: BrgQr0FQ/Wwz8Owf81J4OqXqvh5PzGMXJifra53T91Q=
+hash: rscpkzDVDZrsb3luDxbDTTsvRX7xgyHtH0fJMIesPvw=
 ---
-![商标](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
+![标识](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.octoprint.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.octoprint.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.octoprint.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.octoprint.svg)
 ![稳定的](http://iobroker.live/badges/octoprint-stable.svg)
 ![已安装](http://iobroker.live/badges/octoprint-installed.svg)
 ![依赖状态](https://img.shields.io/david/klein0r/iobroker.octoprint.svg)
 ![已知漏洞](https://snyk.io/test/github/klein0r/ioBroker.octoprint/badge.svg)
-![建置状态](http://img.shields.io/travis/klein0r/ioBroker.octoprint.svg)
-![NPM](https://nodei.co/npm/iobroker.octoprint.png?downloads=true)
+![构建状态](http://img.shields.io/travis/klein0r/ioBroker.octoprint.svg)
+![新产品管理](https://nodei.co/npm/iobroker.octoprint.png?downloads=true)
 
-＃ioBroker.octoprint
-将OctoPrint连接到ioBroker的适配器
+# IoBroker.octoprint
+将 OctoPrint 连接到 ioBroker 的适配器
 
-经过OctoPrint 1.6.0测试
+使用 OctoPrint 1.6.0 测试
+
+＃＃ 安装
+请使用 ioBroker 中的“适配器列表”来安装此适配器的稳定版本。您还可以使用 CLI 安装此适配器：
+
+```
+iobroker add octoprint
+```
 
 ＃＃ 特征
 ＃＃＃ 信息
--获取版本信息
--获取打印机信息
--获取当前的打印作业信息
--获取文件列表信息
+- 获取版本信息
+- 获取打印机信息
+- 获取当前打印作业信息
+- 获取文件列表信息
 
-###温度
--设定工具温度
--设定床温
+### 温度
+- 设置工具温度
+- 设置床温
 
-###命令
--打印机：连接，断开连接并返回家中
--作业：开始，取消，重新启动
--SD卡：初始化，刷新，释放
--自定义打印机命令
--系统命令
--点动X，Y和Z轴
--选择一个文件或打印它
+### 命令
+- 打印机：连接、断开和回家
+- 作业：开始、取消、重新启动
+- SD 卡：初始化、刷新、释放
+- 自定义打印机命令
+- 系统命令
+- 点动 X、Y 和 Z 轴
+- 选择一个文件或打印它
 
 ＃＃ 重要的！
-不要使用以下代码重新启动octoprint实例（或任何其他实例）：
+请勿使用以下代码重新启动 octoprint 实例（或任何其他实例）：
 
 ```javascript
 var obj = getObject('system.adapter.octoprint.0');
@@ -50,15 +57,23 @@ obj.common.enabled = false;
 setObject('system.adapter.octoprint.0', obj);
 ```
 
-由于API密钥从1.1.0版开始是受保护的属性，因此将删除已配置的API密钥。原因是`getObject`不返回受保护的信息（因此api密钥不包含在返回的对象中）。保存对象时，将保存不带键的对象。
+由于 API 密钥是自 1.1.0 版以来的受保护属性，因此这将删除配置的 API 密钥。原因是 `getObject` 不返回受保护的信息（因此 api 密钥不包含在返回的对象中）。当您保存对象时，您将保存一个没有密钥的对象。
 
-请使用状态`system.adapter.octoprint.0.alive`停止/启动实例。
+请使用状态 `system.adapter.octoprint.0.alive` 来停止/启动实例。
 
 ## Changelog
 
+### 1.1.2
+
+* (klein0r) Updated file refresh handling
+
+### 1.1.1
+
+* (klein0r) Minor fixes
+
 ### 1.1.0
 
-* (klein0r) Encrypt sensitive information
+* (klein0r) Encrypt sensitive information **(BREAKING CHANGE - RE-ENTER YOUR API KEY)**
 
 ### 1.0.10
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.luftdaten/README.md
 title: ioBroker.luftdaten
-hash: xVdeyCQIZ18NQX8QFGf5y8NLoKX1+aLSr0BZIvU3WR0=
+hash: Two5lRgxKC4WrA6dvGFNUHKtX0Yu2TKtLC7cAErlsrE=
 ---
 ![Logo](../../../en/adapterref/iobroker.luftdaten/admin/luftdaten.png)
 
@@ -12,46 +12,69 @@ hash: xVdeyCQIZ18NQX8QFGf5y8NLoKX1+aLSr0BZIvU3WR0=
 ![Stabil](http://iobroker.live/badges/luftdaten-stable.svg)
 ![Eingerichtet](http://iobroker.live/badges/luftdaten-installed.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/klein0r/iobroker.luftdaten.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/klein0r/ioBroker.luftdaten/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/klein0r/ioBroker.luftdaten/badge.svg)
 ![Build-Status](http://img.shields.io/travis/klein0r/ioBroker.luftdaten.svg)
 ![NPM](https://nodei.co/npm/iobroker.luftdaten.png?downloads=true)
 
-# IoBroker.luftdaten
-Dieser Adapter fügt Ihrer ioBroker-Installation Sensordaten "luftdaten.info" hinzu.
-Sie können entscheiden, ob Sie einen lokalen Sensor per IP hinzufügen möchten oder ob Sie nur die API von lufdaten.info verwenden möchten, um die Daten eines anderen Sensors abzurufen.
+#ioBroker.luftdaten
+Dieser Adapter fügt Ihrer ioBroker-Installation Sensordaten von „luftdaten.info“ hinzu.
+Sie können entscheiden, ob Sie einen lokalen Sensor per IP hinzufügen oder nur die API von lufdaten.info verwenden möchten, um die Daten eines anderen Sensors zu erhalten.
+
+## Installation
+Bitte verwenden Sie die "Adapterliste" in ioBroker, um eine stabile Version dieses Adapters zu installieren. Sie können diesen Adapter auch über die CLI installieren:
+
+```
+iobroker add luftdaten
+```
 
 ## Aufbau
 ### Lokal
-1. Erstellen Sie Ihren eigenen Adapter und fügen Sie ihn Ihrem lokalen WLAN-Netzwerk hinzu
+1. Bauen Sie Ihren eigenen Adapter und fügen Sie ihn Ihrem lokalen WLAN-Netzwerk hinzu
 2. Erstellen Sie eine neue Instanz des Adapters
-3. Wählen Sie als Typ "Lokal"
-4. Geben Sie die IP oder den Hostnamen des Sensors in den zweiten Eingang ein
+3. Wählen Sie "Lokal" als Typ
+4. Geben Sie die IP oder den Hostnamen des Sensors in die zweite Eingabe ein
 5. Wählen Sie einen Namen und speichern Sie die Einstellungen
 
 Warten Sie einige Minuten, bis der Cronjob die Daten zum ersten Mal sammelt.
 
-*Sie können die Zeitplaneinstellungen auf der Registerkarte "Instanzen" ändern (Standard ist alle 15 Minuten).*
+*Ändern Sie die Zeitplaneinstellungen auf der Registerkarte Instanzen (standardmäßig alle 15 Minuten).*
 
 ### Fernbedienung
-1. Wählen Sie einen der Sensoren auf der Online-Karte: [deutschland.maps.luftdaten.info] (https://deutschland.maps.luftdaten.info/)
-2. Klicken Sie auf den Sensor und kopieren Sie die ID (#XXXXX).
+1. Wählen Sie einen der Sensoren auf der Online-Karte: [deutschland.maps.luftdaten.info](https://deutschland.maps.luftdaten.info/)
+2. Klicken Sie auf den Sensor und kopieren Sie die ID (#XXXXX)
 3. Erstellen Sie eine neue Instanz des Adapters
-4. Wählen Sie als Typ "Remote"
-5. Geben Sie die ID des Sensors in den zweiten Eingang ein (ohne #).
+4. Wählen Sie "Remote" als Typ
+5. Geben Sie die ID des Sensors in den zweiten Eingang ein (ohne #)
 6. Wählen Sie einen Namen und speichern Sie die Einstellungen
 
 Warten Sie einige Minuten, bis der Cronjob die Daten zum ersten Mal sammelt.
 
-*Sie können die Zeitplaneinstellungen auf der Registerkarte "Instanzen" ändern (Standard ist alle 15 Minuten).*
+*Ändern Sie die Zeitplaneinstellungen auf der Registerkarte Instanzen (standardmäßig alle 15 Minuten).*
 
 ## Mitwirkende
 - klein0r
 - pix
-- GermanBluefox
+- DeutschBluefox
 - Apollon77
-- Dominik-Lienemann
+- dominik-lienemann
 
 ## Changelog
+
+### 2.0.3
+
+* (klein0r) Fixed error logging
+
+### 2.0.2
+
+* (klein0r) Added timeout option
+
+### 2.0.1
+
+* (klein0r) Minor bug fixes
+
+### 2.0.0
+
+* (klein0r) Updated admin interface to maintain multiple sensors in one instance (BREAKING CHANGE - RE-CONFIGURE YOUR SENSORS)
 
 ### 1.0.3
 

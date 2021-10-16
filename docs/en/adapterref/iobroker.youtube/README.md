@@ -14,6 +14,14 @@
 
 Statistics like views, subscribers and videos
 
+## Installation
+
+Please use the "adapter list" in ioBroker to install a stable version of this adapter. You can also use the CLI to install this adapter:
+
+```
+iobroker add youtube
+```
+
 ## Configuration
 
 To get an API-Key you have to go to [console.developers.google.com](https://console.developers.google.com/apis/dashboard).

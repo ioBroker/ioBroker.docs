@@ -14,6 +14,14 @@
 
 Scans an ical calendar to calculate the days left until next trash pickup
 
+## Installation
+
+Please use the "adapter list" in ioBroker to install a stable version of this adapter. You can also use the CLI to install this adapter:
+
+```
+iobroker add trashschedule
+```
+
 ## Preconditions
 
 1. Create an **ical instance**

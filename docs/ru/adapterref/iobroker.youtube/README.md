@@ -3,32 +3,104 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.youtube/README.md
 title: ioBroker.youtube
-hash: QL9xwJEIHA84RRA4rZtDhZx8Y4ryEgqLMXfkycUX77A=
+hash: 9qsQQJOK944IIgJkWNtGJhxiuD6W0dH26yUEoXKQBxA=
 ---
-![логотип](../../../en/adapterref/iobroker.youtube/admin/youtube.png)
+![Логотип](../../../en/adapterref/iobroker.youtube/admin/youtube.png)
 
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.youtube.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.youtube.svg)
-![стабильный](http://iobroker.live/badges/youtube-stable.svg)
+![Стабильный](http://iobroker.live/badges/youtube-stable.svg)
 ![установлены](http://iobroker.live/badges/youtube-installed.svg)
 ![Статус зависимости](https://img.shields.io/david/klein0r/iobroker.youtube.svg)
 ![Известные уязвимости](https://snyk.io/test/github/klein0r/ioBroker.youtube/badge.svg)
 ![Статус сборки](http://img.shields.io/travis/klein0r/ioBroker.youtube.svg)
-![NPM](https://nodei.co/npm/iobroker.youtube.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.youtube.png?downloads=true)
 
 # IoBroker.youtube
-Статистика как просмотры, подписчики и видео
+Статистика, такая как просмотры, подписчики и видео
+
+## Установка
+Используйте «список адаптеров» в ioBroker, чтобы установить стабильную версию этого адаптера. Вы также можете использовать интерфейс командной строки для установки этого адаптера:
+
+```
+iobroker add youtube
+```
 
 ## Конфигурация
-Чтобы получить API-ключ, вы должны перейти к [console.developers.google.com](https://console.developers.google.com/apis/dashboard).
+Чтобы получить API-ключ, вам нужно перейти к [console.developers.google.com](https://console.developers.google.com/apis/dashboard).
 
-1. Создайте новый проект
-2. Создайте новый ключ API
-3. Добавить «API данных YouTube v3» из библиотеки
-4. Используйте этот API-ключ на панели параметров
-5. Добавьте несколько каналов на вкладке каналов, используя идентификатор и пользовательское имя
+1. Создайте новый проект.
+2. Создайте новый ключ API.
+3. Добавьте в библиотеку "YouTube Data API v3".
+4. Используйте этот ключ API на панели параметров.
+5. Добавьте несколько каналов на вкладке каналов, используя идентификатор и собственное имя.
 
 ## Changelog
+
+### 1.1.1
+
+* (klein0r) Updated dependencies
+
+### 1.1.0
+
+* (klein0r) Encrypt sensitive information **(BREAKING CHANGE - RE-ENTER YOUR API KEY)**
+
+### 1.0.3
+
+* (klein0r) Remove forbidden chars from state
+* (klein0r) Fixed async object creation
+
+### 1.0.2
+
+* (klein0r) Delete unsed states
+
+### 1.0.1
+
+* (klein0r) Fixed trailing dot in channel error message
+
+### 1.0.0
+
+* (klein0r) First stable release
+
+### 0.0.13
+
+* (klein0r) Changed to new library
+
+### 0.0.12
+
+* (klein0r) Added json summary
+
+### 0.0.11
+
+* (klein0r) setTimeout found in main.js, but no clearTimeout detected
+
+### 0.0.10
+
+* (klein0r) Added missing translations
+
+### 0.0.9
+
+* (klein0r) Updated depencencies
+
+### 0.0.8
+
+* (klein0r) Removed link from overview
+
+### 0.0.7
+
+* (klein0r) Added VIS widget
+
+### 0.0.6
+
+* (klein0r) Collect YouTube information after configuration changes
+
+### 0.0.5
+
+* (klein0r) Bugfix
+
+### 0.0.4
+
+* (klein0r) Added more options
 
 ### 0.0.3
 
@@ -46,7 +118,7 @@ hash: QL9xwJEIHA84RRA4rZtDhZx8Y4ryEgqLMXfkycUX77A=
 
 The MIT License (MIT)
 
-Copyright (c) 2019 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2021 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

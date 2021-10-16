@@ -112,9 +112,9 @@ CCU 和 info 文件夹包含网关的基本信息，包括。
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-
-### __WORK IN PROGRESS__
+### 3.0.32 (2021-10-14)
 * (foxriver76) Duty Cycle of LAN gateways can be -1 if they are disconnected (fixes #196)
+* (foxriver76) we now only scale on UNIT "100%" as hm-rpc does (fixes #207)
 
 ### 3.0.31 (2021-08-12)
 * (foxriver76) we fixed some sentry issues (closes #182, closes #183)
@@ -365,7 +365,7 @@ or non existent if no rpc instance existed
 
 ### 2.0.1 (2019-01-01)
 * (foxriver76) fix error that prevented setting umlauts to system variables in ioBroker
-* (foxriver76) usage and application of eslint 
+* (foxriver76) usage and application of eslint
 
 ### 2.0.0 (2018-11-28)
 * (foxriver76) Https checkbox added

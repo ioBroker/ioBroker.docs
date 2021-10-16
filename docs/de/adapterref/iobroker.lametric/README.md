@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: B8jOLP7FaNUbsP2j03ZQAzejHOezL11HtuI7N+7I6RM=
+hash: QhiCVAOG8VbdijiNfR19QeE2LCYlcmBoxpRy2D1y8/E=
 ---
 ![Logo](../../../en/adapterref/iobroker.lametric/admin/lametric.png)
 
@@ -20,10 +20,17 @@ hash: B8jOLP7FaNUbsP2j03ZQAzejHOezL11HtuI7N+7I6RM=
 Mit diesem Adapter können Sie Statusinformationen zu Ihrem [LaMetric-Zeit](https://haus-auto.com/p/amz/LaMetricTime) *(Affiliate Link)* abrufen und Benachrichtigungen an diesen senden.
 Sie benötigen lediglich die IP-Adresse Ihres Geräts und den API-Entwicklerschlüssel.
 
+## Installation
+Bitte verwenden Sie die "Adapterliste" in ioBroker, um eine stabile Version dieses Adapters zu installieren. Sie können diesen Adapter auch über die CLI installieren:
+
+```
+iobroker add lametric
+```
+
 ## Aufbau
 Getestet mit LaMetric-Firmware *2.2.1* (empfohlen)
 
-Ihren persönlichen Schlüssel erhalten Sie [hier](https://developer.lametric.com/).
+Ihren persönlichen Schlüssel erhalten Sie [Hier](https://developer.lametric.com/).
 
 ![API-Schlüssel](../../../en/adapterref/iobroker.lametric/docs/apiKey.png)
 
@@ -33,7 +40,7 @@ Ihren persönlichen Schlüssel erhalten Sie [hier](https://developer.lametric.co
 - Bildschirmschoner konfigurieren (aktivieren/deaktivieren, zeitbasiert, bei Dunkelheit)
 - Bluetooth aktivieren/deaktivieren und Bluetooth-Namen ändern
 - Wechseln Sie zwischen Apps (nächste, vorherige, gehen Sie zu einer bestimmten App)
-- Senden Sie Benachrichtigungen mit Block (mit konfigurierbarer Priorität, Ton, Symbolen, Text, ...)
+- Senden Sie Benachrichtigungen mit Blockly (mit konfigurierbarer Priorität, Ton, Symbolen, Text, ...)
 - Steuern Sie spezielle Apps wie Uhr, Radio, Stoppuhr oder Wetter
 - Verwenden Sie *My Data (DIY)* LaMetric App, um dauerhafte Informationen anzuzeigen
 
@@ -187,6 +194,10 @@ show();
 ```
 
 ## Changelog
+
+### 1.3.2
+
+* (klein0r) Updated dependencies
 
 ### 1.3.1
 

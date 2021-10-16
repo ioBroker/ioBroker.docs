@@ -66,6 +66,11 @@ You can manually update the data of the whole adaptor, if you set general.contro
 
 ## Changelog
 
+### 0.1.22 (2021.10.14)
+* (felixganzer) add communication delay time to config, set default value to 200 ms
+* (felixganzer) add Version test for HyperioHDR
+
+
 ### 0.1.21 (2021.07.27)
 * (felixganzer) bugfix setColor with duration 0 used false JSON
 * (felixganzer) bugfix setEffect with duration 0 used false JSON

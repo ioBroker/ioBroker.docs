@@ -61,6 +61,10 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+### 0.82.0
+
+• Neue Icons hinzugefügt (Elektricity)
+
 ### 0.81.0
 
 • Neue Icons hinzugefügt (Animated/Fan & Navigation)
