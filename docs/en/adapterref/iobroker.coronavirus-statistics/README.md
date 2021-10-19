@@ -96,7 +96,8 @@ As first value, the name from the warning message must be taken from the log. Th
 -->
 
 ### __WORK IN PROGRESS__
-* (jlssmt) Added hospital data for germany 
+* (DutchmanNL) Bugfix: New DNS entry for COVID api
+* (jlssmt) Hospital data for Germany added
 
 ### 0.8.3 (2021-08-20)
 * (jlssmt) Code refactoring

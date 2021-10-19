@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: FmAmCAzA5c8YiloNbWXupZAd2u4J+5hi5FFYnho9VRY=
+hash: XahQPtXfSPQaNzSElWO2bWqie/qqcc5aABBArdantnU=
 ---
 ![Logo](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
@@ -34,10 +34,30 @@ Eine weitere Funktion besteht darin, einen beliebigen Befehl an ebusd zu senden 
 
 aktuell unterstützte ebusd-Version: 21.2
 
+## Wie man Befehle an ebusd sendet
+1. Schreiben Sie einen einzelnen Befehl oder eine Befehlsliste auf den Datenpunkt ebus.0.cmd
+
+Wenn Sie mehr als einen Befehl verwenden möchten, verwenden Sie , um einzelne Befehle zu trennen.
+Beispiel: read -f YieldTotal,read LegioProtectionEnabled,read -f -c Broadcast außerhalbtemp
+
+2. Wenn der Befehl ausgeführt wird, erhalten Sie Ergebnisse pro Befehl im Datenpunkt ebus.0.cmdResult
+
+Das Ergebnis ist auch durch Kommas getrennt Beispiel: 2000, ERR: Element not found, 10.5
+
+Achtung: Befehl im Datenpunkt ebus.0.cmd wird nach Ausführung des Befehls gelöscht!
+
 ## Bekannte Probleme
 * Bitte erstellen Sie Probleme unter [github](https://github.com/rg-engineering/ioBroker.ebus/issues), wenn Sie Fehler finden oder neue Funktionen wünschen
 
-## 2.3.0 (2021-09-02)
+## 2.4.1 (2021-10-18)
+* (René) siehe Ausgabe #55: Fehlerkorrektur
+
+## 2.4.0 (2021-10-17)
+* (René) Überarbeitung von gelesenen Datenpunkten und historischen Datenpunkten, Schaltung optional hinzugefügt
+* (René) Befehl kann jetzt mehr als einen Befehl enthalten, nur Befehle mit ',' trennen
+* (René) siehe Ausgabe #55: Warnungen in Debug-Meldungen geändert
+
+## 2.3.2 (2021-09-02)
 * (René) siehe Ausgabe #49: Unterstützung für ebusd 21.2
 * (René) siehe Problem #40: Option, Boolean statt String für Werte mit on/off zu verwenden
 * (René) Abhängigkeiten aktualisiert

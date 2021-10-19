@@ -27,6 +27,11 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
     ### __WORK IN PROGRESS__
 -->
 
+### 0.2.7 (2021-10-16)
+* (HGlab01) Bump iobroker-jsonexplorer to v0.1.2
+* (HGlab01) don't report getaddrinfo issue on Sentry (IOBROKER-FUELPRICEMONITOR-2)
+* (HGlab01) add attribute 'uuid' (IOBROKER-FUELPRICEMONITOR-1B)
+
 ### 0.2.6 (2021-07-24)
 * (HGlab01) Bump iobroker-jsonexplorer to v0.1.1
 * (HGlab01) Check internet connection on startup

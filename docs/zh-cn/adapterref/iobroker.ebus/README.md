@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: FmAmCAzA5c8YiloNbWXupZAd2u4J+5hi5FFYnho9VRY=
+hash: XahQPtXfSPQaNzSElWO2bWqie/qqcc5aABBArdantnU=
 ---
 ![标识](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
@@ -34,10 +34,30 @@ hash: FmAmCAzA5c8YiloNbWXupZAd2u4J+5hi5FFYnho9VRY=
 
 当前支持的 ebusd 版本：21.2
 
+##如何向ebusd发送命令
+1. 在数据点 ebus.0.cmd 上写入单个命令或命令列表
+
+如果要使用多个命令，请使用 , 分隔单个命令。
+示例：读取 -f YieldTotal，读取 LegioProtectionEnabled，读取 -f -c 广播外部临时
+
+2. 执行命令时，您将在数据点 ebus.0.cmdResult 中收到每个命令的结果
+
+结果也是逗号分隔的例子：2000, ERR: element not found, 10.5
+
+注意：命令执行后数据点ebus.0.cmd中的命令被删除！
+
 ＃＃ 已知的问题
 * 如果您发现错误或想要新功能，请在 [github](https://github.com/rg-engineering/ioBroker.ebus/issues) 创建问题
 
-## 2.3.0 (2021-09-02)
+## 2.4.1 (2021-10-18)
+* (René) 参见问题 #55：错误修复
+
+## 2.4.0 (2021-10-17)
+* (René) 对读取数据点和历史数据点的过度处理，可选添加电路
+* (René) 命令现在可以包含多个命令，只需用“,”分隔命令
+* (René) 参见问题 #55：警告更改为调试消息
+
+## 2.3.2 (2021-09-02)
 * (René) 见问题 #49：支持 ebusd 21.2
 * (René) 参见问题 #40：使用布尔值代替字符串的选项，用于打开/关闭的值
 * (René) 依赖更新

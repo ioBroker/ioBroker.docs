@@ -68,8 +68,12 @@ sendTo('iogo', {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 0.2.4 (2021-10-18)
+* (nis) simplify admin ui for blocked enums
+
 ### 0.2.2 (2021-10-04)
-* (nis) chage sync of enum member changes
+* (nis) change sync of enum member changes
 
 ### 0.2.1 (2021-09-21)
 * (nis) bugfix blocked enums

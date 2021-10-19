@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.eufy-security/README.md
 title: ioBroker.eufy-security
-hash: 2WKAVRMqrjXSAZJn/593lunMwtMyzZOm9gjSnUTitEc=
+hash: dmZsV3vxaOf9Le7Vw2zv2REJW6WcQml+2k63J16eXvQ=
 ---
 ![标识](../../../en/adapterref/iobroker.eufy-security/admin/eufy-security.png)
 
@@ -39,105 +39,105 @@ hash: 2WKAVRMqrjXSAZJn/593lunMwtMyzZOm9gjSnUTitEc=
 * 收到推送通知时下载事件视频（异步）
 * 获取直播或下载视频的 jpeg 缩略图
 * 基站：
-    * 状态：
-        * 配置保护模式
-        * 当前保护模式
-        * 名称
-        * 模型
-        * 序列号
-        * 软件版本
-        * 硬件版本
-        * MAC地址
-        * 局域网IP地址
-    * 行动：
-        * 改变守卫模式
-        * 触发警报声
-        * 重置闹钟声音
-        * 重启站
-    * 事件：
-        * 报警模式改变
+  * 状态：
+    * 配置保护模式
+    * 当前保护模式
+    * 姓名
+    * 模型
+    * 序列号
+    * 软件版本
+    * 硬件版本
+    * MAC地址
+    * 局域网IP地址
+  * 行动：
+    * 改变守卫模式
+    * 触发警报声
+    * 重置闹钟声音
+    * 重启站
+  * 事件：
+    * 报警模式改变
 * 相机：
-    * 状态：
-        *在线/离线等。
-        * 电池 ％
-        * 电池温度
-        * 名称
-        * 模型
-        * 序列号
-        * 软件版本
-        * 硬件版本
-        * MAC地址
-        *无线RSSI
-        * 自上次充电以来过滤了错误事件
-        * 自上次充电以来保存/记录的事件
-        * 自上次充电以来的总事件数
-        * 自上次充电后使用的天数
-        * 还有更多...
-    * 行动：
-        * 开始直播（hls；也支持本地直播）
-        *停止直播（hls）
-        * 启用/禁用设备
-        *启用/禁用自动夜视
-        * 启用/禁用 LED（仅限摄像头 2 产品、室内摄像头、泛光灯摄像头、独奏摄像头和门铃）
-        * 启用/禁用防盗检测（仅限相机 2 产品）
-        *启用/禁用运动检测
-        * 启用/禁用宠物检测（仅限室内摄像头）
-        * 启用/禁用声音检测（仅限室内摄像机）
-        * 启用/禁用 RTSP 流（仅限camera2 产品、室内摄像机和单独摄像机）
-        * 更改视频水印设置
-        * 还有更多...
-    * 事件：
-        * 检测到运动
-        * 检测到人
-        * 响铃（仅限门铃）
-        * 检测到哭泣（仅限室内摄像机）
-        *检测到声音（仅限室内摄像机）
-        *检测到宠物（仅限室内摄像机）
+  * 状态：
+    *在线/离线等。
+    * 电池 ％
+    * 电池温度
+    * 姓名
+    * 模型
+    * 序列号
+    * 软件版本
+    * 硬件版本
+    * MAC地址
+    *无线RSSI
+    * 自上次充电以来过滤了错误事件
+    * 自上次充电以来保存/记录的事件
+    * 自上次充电以来的总事件数
+    * 自上次充电后使用的天数
+    * 还有更多...
+  * 行动：
+    * 开始直播（hls；也支持本地直播）
+    *停止直播（hls）
+    * 启用/禁用设备
+    *启用/禁用自动夜视
+    * 启用/禁用 LED（仅限摄像头 2 产品、室内摄像头、泛光灯摄像头、独奏摄像头和门铃）
+    * 启用/禁用防盗检测（仅限相机 2 产品）
+    *启用/禁用运动检测
+    * 启用/禁用宠物检测（仅限室内摄像头）
+    * 启用/禁用声音检测（仅限室内摄像机）
+    * 启用/禁用 RTSP 流（仅限camera2 产品、室内摄像机和单独摄像机）
+    * 更改视频水印设置
+    * 还有更多...
+  * 事件：
+    * 检测到运动
+    * 检测到人
+    * 响铃（仅限门铃）
+    * 检测到哭泣（仅限室内摄像机）
+    *检测到声音（仅限室内摄像机）
+    *检测到宠物（仅限室内摄像机）
 * 传感器：
-    * 入口传感器：
-        * 状态：
-            *在线/离线等。
-            * 低电量
-            * 名称
-            * 模型
-            * 序列号
-            * 软件版本
-            * 硬件版本
-        * 事件：
-            * 打开关闭
-    * 运动传感器：
-        * 状态：
-            *在线/离线等。
-            * 低电量
-            * 名称
-            * 模型
-            * 序列号
-            * 软件版本
-            * 硬件版本
-        * 事件：
-            * 检测到运动
+  * 入口传感器：
+    * 状态：
+      *在线/离线等。
+      * 低电量
+      * 姓名
+      * 模型
+      * 序列号
+      * 软件版本
+      * 硬件版本
+    * 事件：
+      * 打开关闭
+  * 运动传感器：
+    * 状态：
+      *在线/离线等。
+      * 低电量
+      * 姓名
+      * 模型
+      * 序列号
+      * 软件版本
+      * 硬件版本
+    * 事件：
+      * 检测到运动
 * 键盘：
-    * 状态：
-        *在线/离线等。
-        * 低电量
-        * 名称
-        * 模型
-        * 序列号
-        * 软件版本
-        * 硬件版本
+  * 状态：
+    *在线/离线等。
+    * 低电量
+    * 姓名
+    * 模型
+    * 序列号
+    * 软件版本
+    * 硬件版本
 * 锁：
-    * 状态：
-        *在线/离线等。
-        * 电池 ％
-        * 锁定状态
-        * 名称
-        * 模型
-        * 序列号
-        * 软件版本
-        * 硬件版本
-        *无线RSSI
-    * 行动：
-        * 锁定/解锁
+  * 状态：
+    *在线/离线等。
+    * 电池 ％
+    * 锁定状态
+    * 姓名
+    * 模型
+    * 序列号
+    * 软件版本
+    * 硬件版本
+    *无线RSSI
+  * 行动：
+    * 锁定/解锁
 * 还有更多……
 
 ＃＃ 配置
@@ -145,7 +145,7 @@ hash: 2WKAVRMqrjXSAZJn/593lunMwtMyzZOm9gjSnUTitEc=
 
 ## 已知的工作设备
 * 家庭基地 (T8001)
-* 家庭基地 E (T8002)
+* HomeBase E (T8002)
 * 家庭基地 2 (T8010)
 * 智能锁 Wi-Fi 桥接器 (T8021)
 * eufyCam (T8111)
@@ -154,7 +154,9 @@ hash: 2WKAVRMqrjXSAZJn/593lunMwtMyzZOm9gjSnUTitEc=
 * eufyCam 2C (T8113)
 * eufyCam 2 Pro (T8140)
 * eufyCam 2C Pro (T8141)
+* SoloCam E40 (T8131)
 * 泛光灯 (T8420)
+* 泛光灯 (T8422)
 * 有线门铃 2k (T8200)
 * 有线门铃 1080p (T8201)
 * 电池门铃 2K (T8210)
@@ -166,6 +168,7 @@ hash: 2WKAVRMqrjXSAZJn/593lunMwtMyzZOm9gjSnUTitEc=
 * 室内凸轮平移和倾斜 1080p (T8411)
 * 室内凸轮 1080p (T8401)
 * 智能锁前门 (T8500)
+* 键盘（T8960）
 
 如果更多设备工作（或不工作），请通过打开 GitHub 问题报告它们。
 
@@ -175,6 +178,28 @@ hash: 2WKAVRMqrjXSAZJn/593lunMwtMyzZOm9gjSnUTitEc=
 最好将适配器设置为调试日志模式（实例 -> 专家模式 -> 列日志级别或参见 [这里](https://github.com/bropat/ioBroker.eufy-security/wiki/Howto-enable-debug)）。然后请从磁盘获取日志文件（ioBroker 安装目录中的子目录“log”，而不是从 Admin 获取，因为 Admin 截断了行）。
 
 ## Changelog
+
+### 0.7.0 (2021-10-17)
+
+* (bropat) Added support for Floodlight T8422
+* (bropat) Added support for SoloCam E40 (T8131)
+* (bropat) Added new properties for solo cameras: battery, batteryTemperature, wifiSignalLevel, state, chargingStatus, lastChargingDays, lastChargingRecordedEvents, lastChargingTotalEvents, batteryUsageLastWeek
+* (bropat) Fixed issue #169
+* (bropat) Fixed issue #167
+* (bropat) Fixed issue #151
+* (bropat) Fixed push notifications for solo cameras (motion and person detection)
+* (bropat) Updated version of the package eufy-security-client (1.2.0)
+* (bropat) Updated versions of the package dependencies
+* (bropat) Further details can be found in the changelog of eufy-security-client (1.2.0)
+
+### 0.6.2 (2021-08-19)
+
+* (bropat) Updated version of the package eufy-security-client (1.1.2)
+
+### 0.6.1 (2021-08-19)
+
+* (bropat) Fixed issue in the function responsible for the version upgrade (non-updatable states; issue #159)
+* (bropat) Tried to fix issue #157 and issue #140
 
 ### 0.6.0 (2021-08-13)
 
@@ -376,7 +401,7 @@ hash: 2WKAVRMqrjXSAZJn/593lunMwtMyzZOm9gjSnUTitEc=
 * (bropat) Last livestream is always saved and is still available later
 * (bropat) Implemented device and station parameter refresh over P2P
 * (bropat) Revised push notification implementation
-* (bropat) Fixed issue [#71](https://github.com/bropat/ioBroker.eufy-security/issues/71) by implementing retry mechanism on HTTP error 404 (max. 5 retries with increasing delay) 
+* (bropat) Fixed issue [#71](https://github.com/bropat/ioBroker.eufy-security/issues/71) by implementing retry mechanism on HTTP error 404 (max. 5 retries with increasing delay)
 * (bropat) Fixed issue [#12](https://github.com/bropat/ioBroker.eufy-security/issues/12)
 * (bropat) Eufy client library extracted as standalone library and adapters ported to new shared library: [eufy-security-client](https://www.npmjs.com/package/eufy-security-client)
 * (bropat) Removed following states: last_captured_pic_url, last_captured_pic_html

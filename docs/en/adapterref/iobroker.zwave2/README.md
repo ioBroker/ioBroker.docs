@@ -40,6 +40,9 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 2.2.2 (2021-10-17)
+* Fix: Config from different instances no longer override each other
+
 ### 2.2.1 (2021-10-12)
 * Fixed a crash when removing a node that is included in a multicast group
 * Fix: writeonly `boolean` states are now set up as switches instead of buttons
@@ -68,21 +71,6 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 * Fix: Eliminated loading time when switching between "Devices" and "Associations" in tab
 * Fix: Add missing german translation for "Set RF Region"
 * Fix: The Controller node was missing from the association target nodes
-
-### 2.0.0 (2021-09-22)
-* **BREAKING:** Node.js `v12.22.2` is now the minimum
-* **BREAKING:** Reworked how endpoints and lifeline associations are handled. This solves reporting issues with many devices, but after a re-interview state IDs may change and some previously working devices may no longer report correctly. Please create an issue for every device that is affected by this.
-* Upgraded to `zwave-js` version `8.3.2`
-* The device management was moved from the adapter settings to an extra `Z-Wave` tab.
-* Added a viewer for Z-Wave logs
-* Some config parameters now correctly offer `0/1` as options instead of `0/-1`
-* Fixed a bug where the cache file could be corrupted during a shutdown
-* Support for Security S2
-* Support for devices which use `Supervision CC` to send commands
-* Support for factory resetting the controller
-* Support for changing the region/frequency of the controller
-* Support for replacing failed nodes while keeping the ID
-* Some fixes for firmware updates
 
 ## License
 

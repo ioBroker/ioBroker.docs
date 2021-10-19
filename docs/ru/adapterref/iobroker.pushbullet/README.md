@@ -2,39 +2,19 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.pushbullet/README.md
-title: без названия
-hash: kJ0zgTEjLANl9bgHFl4Jz+xj3LlmAK61u53V7xo7Sjo=
+title: Адаптер pushbullet ioBroker
+hash: lKZlQ2FROoQEQYkZ3dCKppma/Rp5CZ4XAxcZYj/jCMM=
 ---
-![логотип](../../../en/adapterref/iobroker.pushbullet/admin/pushbullet.png) ioBroker pushbullet Adapter ==============
+![Логотип](../../../en/adapterref/iobroker.pushbullet/admin/pushbullet.png)
 
-Отправка pushbullet уведомлений от ioBroker.
-Этот адаптер в основном основан на Pushover Adapter для ioBroker.
+![Количество установок](http://iobroker.live/badges/pushbullet-stable.svg)
 
-### 0.0.11 (2015-10-11)
-* (Jens1809) Человек канн монахиня Пушнахричен в лучшем виде.
-* sendTo ("pushbullet", {
+# IoBroker pushbullet Адаптер
+Отправляйте pushbullet-уведомления от ioBroker.
+Этот адаптер в основном основан на адаптере Pushover от bluefox для ioBroker.
 
-message: "body message", // Сообщение, которое вы хотите отправить title: "title", // Заголовок вашего типа сообщения: "note", // Тип Получатель заметки: "ID hier einsetzen" // GeräteID}) ;
-
-### 0.0.8 (2015-09-26)
-* (Jens1809) Адаптер empfängt nun Push Nachrichten и schreibt die Daten der Nachricht в объекте:
-* - pushbullet.0.push.type
-  - pushbullet.0.push.title
-  - pushbullet.0.push.message
-  - pushbullet.0.push.payload
-
-### 0.0.7 (2015-09-24)
-* (Jens1809) Möglichkeit ausgewählte Geräte zu senden ohne and den kompletten Account zu senden.
-
-### 0.0.6 (2015-07-25)
-* (Jens1809) Опубликовать на NPM
-
-## Установить
-```npm install https://github.com/Jens1809/iobroker.pushbullet/tarball/master/```
-
-## Конфигурация
 ## Использование
-Чтобы отправить уведомление от ScriptEngine, просто напишите:
+Чтобы отправить уведомление из ScriptEngine, просто напишите:
 
 ```javascript
 // send note
@@ -62,14 +42,43 @@ sendTo("pushbullet", {
     title: "Title",         //The Title of your file
     type: "file"            //Type file
 });
-
 ```
+
+<! - Заполнитель для следующей версии (в начале строки):
+
+### __РАБОТА В ПРОЦЕССЕ__ ->
+
+## Changelog
+### 0.1.0 (2021-10-15)
+* (bluefox) Refactoring
+
+### 0.0.11 (2015-10-11)
+* (Jens1809) Man kann nun Pushnachrichten an bestimmte Geräte schicken indem man die GeräteID mit angibt.
+* sendTo("pushbullet", {
+  message: "message body",    //The Message you want to send
+  title: "title",             //The Title of your message
+  type: "note",                //Type Note
+  receiver: "ID hier einsetzen" //GeräteID
+  });
+
+### 0.0.8 (2015-09-26)
+* (Jens1809) Adapter empfängt nun Push Nachrichten und schreibt die Daten der Nachricht in die Objekte:
+* - pushbullet.0.push.type
+- pushbullet.0.push.title
+- pushbullet.0.push.message
+- pushbullet.0.push.payload
+
+### 0.0.7 (2015-09-24)
+* (Jens1809) Möglichkeit an ausgewählte Geräte zu senden ohne an den kompletten Account zu senden.
+
+### 0.0.6 (2015-07-25)
+* (Jens1809) Publish on NPM
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Jens1809
+Copyright (c) 2015-2021 Jens1809
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

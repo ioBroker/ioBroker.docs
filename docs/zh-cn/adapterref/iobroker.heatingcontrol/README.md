@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.heatingcontrol/README.md
 title: ioBroker.HeatingControl
-hash: wvj2OtAalvk/SnA4SDSHSbePIZGaafFpeR3Y6Ic0lIg=
+hash: 3bc38scuu7QLCNZPtCjriV7Iu75XDV5rAG4AeKVVKX0=
 ---
 ![标识](../../../en/adapterref/iobroker.heatingcontrol/admin/heatingcontrol.png)
 
@@ -164,9 +164,9 @@ hash: wvj2OtAalvk/SnA4SDSHSbePIZGaafFpeR3Y6Ic0lIg=
 这是一个新功能。在这里，我们可以使用温度覆盖直到下一个轮廓点。持续时间将被忽略，但必须非零！
 
 ## 恒温器处理“窗口已打开”
-一些恒温器可以自行处理“窗口打开”。在这些情况下，配置了窗户传感器和恒温器之间的直接连接，当窗户打开时，恒温器会自行降低目标温度。
+一些恒温器可以自行处理“窗口打开”。在这些情况下，配置了窗户传感器和恒温器之间的直接连接，当窗户打开时恒温器会自行降低目标温度。
 结合选项“使用恒温器的变化”/“直到下一个配置文件点”将导致意外的手动状态。在这种情况下，将使用降低的温度直到下一个轮廓点。
-但是适配器可以处理这种行为。您必须启用选项“Thermostat handles 'Window is Open'”，您也可以在适配器中配置窗口传感器。
+但是适配器可以处理这种行为。您必须启用选项“恒温器处理‘窗口打开’”，并且您还可以在适配器中配置窗口传感器。
 当窗口打开时，适配器等待最大值。来自恒温器的新目标温度需要 3 秒。如果它在那段时间内收到一个新的目标温度，它将被用作降低的绝对温度。然后状态将是“自动窗口打开”。窗口一关闭，状态就会恢复为自动，恒温器会设置回原始目标温度 **注意** 在这种情况下不要使用传感器打开延迟。如果使用它，则在从恒温器接收到目标温度后会出现 Window open 事件。这最终处于手动状态。
 
 ##复制期间和复制配置文件
@@ -198,12 +198,23 @@ CopyProfile 将按下按钮的配置文件的全部内容复制到下一个配�
 
 ### HM恒温器的开窗功能
 HM 恒温器具有两种型号的开窗功能。一方面作为温降检测，另一方面与窗户接触有关。
-当窗口打开时，此功能使适配器切换到手动模式。理想情况下，应停用此功能，以免干扰适配器的功能。
+此功能使适配器在窗口打开时切换到手动模式。理想情况下，应停用此功能，以免干扰适配器的功能。
 如果恒温器使用来自窗户传感器的信息，则应启用“恒温器处理窗户打开”选项。
 
 当适配器崩溃或发生其他代码错误时，此错误消息也会出现在 ioBroker 日志中，并提交给 Sentry。所有这些都帮助我提供基本上从不崩溃的无错误适配器。
 
 ## Changelog
+
+### 2.7.0 (in progress)
+* (René) see issue #259: limit for temperature offset added
+* (René) see issue #227: maximum time difference between standard sensor and external sensor added
+* (René) see issue #264: some changes for Pittini-vis
+
+### 2.6.2 (2021-09-29)
+* (René) see issue #260: bug fix isActive not ignored
+
+### 2.6.1 (2021-09-25)
+* (René) see issue #258: bug fix fireplace mode and vis
 
 ### 2.6.0 (2021-09-17)
 * (René) maintenance mode added

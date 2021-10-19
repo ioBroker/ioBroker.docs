@@ -1,38 +1,10 @@
 ![Logo](admin/pushbullet.png)
-ioBroker pushbullet Adapter
-==============
+# ioBroker pushbullet Adapter
+
+![Number of Installations](http://iobroker.live/badges/pushbullet-installed.svg) ![Number of Installations](http://iobroker.live/badges/pushbullet-stable.svg)
 
 Send pushbullet notifications from ioBroker. 
 This Adapter is mostly based on bluefox's Pushover Adapter for ioBroker.
-
-### 0.0.11 (2015-10-11)
-* (Jens1809) Man kann nun Pushnachrichten an bestimmte Geräte schicken indem man die GeräteID mit angibt.
-* sendTo("pushbullet", {
-    message: "message body",    //The Message you want to send
-    title: "title",             //The Title of your message
-    type: "note",                //Type Note
-	receiver: "ID hier einsetzen" //GeräteID
-});
-
-### 0.0.8 (2015-09-26)
-* (Jens1809) Adapter empfängt nun Push Nachrichten und schreibt die Daten der Nachricht in die Objekte:
-* - pushbullet.0.push.type
-  - pushbullet.0.push.title
-  - pushbullet.0.push.message
-  - pushbullet.0.push.payload
-
-### 0.0.7 (2015-09-24)
-* (Jens1809) Möglichkeit an ausgewählte Geräte zu senden ohne an den kompletten Account zu senden.
-
-### 0.0.6 (2015-07-25)
-* (Jens1809) Publish on NPM
-
-## Install
-
-```npm install https://github.com/Jens1809/iobroker.pushbullet/tarball/master/```
-
-## Configuration
-
 
 ## Usage
 
@@ -64,14 +36,43 @@ sendTo("pushbullet", {
     title: "Title",         //The Title of your file
     type: "file"            //Type file
 });
-
 ```
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+## Changelog
+### 0.1.0 (2021-10-15)
+* (bluefox) Refactoring
+
+### 0.0.11 (2015-10-11)
+* (Jens1809) Man kann nun Pushnachrichten an bestimmte Geräte schicken indem man die GeräteID mit angibt.
+* sendTo("pushbullet", {
+  message: "message body",    //The Message you want to send
+  title: "title",             //The Title of your message
+  type: "note",                //Type Note
+  receiver: "ID hier einsetzen" //GeräteID
+  });
+
+### 0.0.8 (2015-09-26)
+* (Jens1809) Adapter empfängt nun Push Nachrichten und schreibt die Daten der Nachricht in die Objekte:
+* - pushbullet.0.push.type
+- pushbullet.0.push.title
+- pushbullet.0.push.message
+- pushbullet.0.push.payload
+
+### 0.0.7 (2015-09-24)
+* (Jens1809) Möglichkeit an ausgewählte Geräte zu senden ohne an den kompletten Account zu senden.
+
+### 0.0.6 (2015-07-25)
+* (Jens1809) Publish on NPM
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Jens1809
+Copyright (c) 2015-2021 Jens1809
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -90,4 +91,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-

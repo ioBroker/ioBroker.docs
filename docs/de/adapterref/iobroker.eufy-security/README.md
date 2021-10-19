@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.eufy-security/README.md
 title: ioBroker.eufy-sicherheit
-hash: 2WKAVRMqrjXSAZJn/593lunMwtMyzZOm9gjSnUTitEc=
+hash: dmZsV3vxaOf9Le7Vw2zv2REJW6WcQml+2k63J16eXvQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.eufy-security/admin/eufy-security.png)
 
@@ -39,109 +39,109 @@ Eine Adapter-Instanz zeigt alle Geräte eines Eufy Cloud-Kontos an und ermöglic
 * Lädt das Ereignisvideo herunter, wenn eine Push-Benachrichtigung empfangen wird (asynchron)
 * Nimmt JPEG-Miniaturansichten des Livestreams oder heruntergeladenen Videos auf
 * Basisstation:
-    * Zustände:
-        * Konfigurierter Guard-Modus
-        * Aktueller Wachmodus
-        * Name
-        * Modell
-        * Seriennummer
-        * Softwareversion
-        * Hardware Version
-        * MAC-Adresse
-        * LAN-IP-Adresse
-    * Aktionen:
-        * Wachmodus ändern
-        * Alarmton auslösen
-        * Alarmton zurücksetzen
-        * Station neu starten
-    * Veranstaltungen:
-        * Änderung des Alarmmodus
+  * Zustände:
+    * Konfigurierter Guard-Modus
+    * Aktueller Wachmodus
+    * Name
+    * Modell
+    * Seriennummer
+    * Softwareversion
+    * Hardware Version
+    * MAC-Adresse
+    * LAN-IP-Adresse
+  * Aktionen:
+    * Wachmodus ändern
+    * Alarmton auslösen
+    * Alarmton zurücksetzen
+    * Station neu starten
+  * Veranstaltungen:
+    * Änderung des Alarmmodus
 * Kamera:
-    * Zustände:
-        * Online / Offline usw.
-        * Batterie %
-        * Batterietemperatur
-        * Name
-        * Modell
-        * Seriennummer
-        * Softwareversion
-        * Hardware Version
-        * MAC-Adresse
-        * WLAN-RSSI
-        * Falsche Ereignisse seit der letzten Aufladung gefiltert
-        * Gespeicherte/aufgezeichnete Ereignisse seit der letzten Aufladung
-        * Gesamtzahl der Ereignisse seit der letzten Aufladung
-        * Gebrauchte Tage seit der letzten Aufladung
-        * Und vieles mehr...
-    * Aktionen:
-        * Livestream starten (hls; unterstützt auch lokalen Livestream)
-        * Livestream stoppen (hls)
-        * Gerät aktivieren/deaktivieren
-        * Automatische Nachtsicht aktivieren/deaktivieren
-        * LED aktivieren/deaktivieren (nur Kamera-2-Produkte, Innenkameras, Flutlichtkamera, Solo-Kameras und Türklingeln)
-        * Anti-Diebstahl-Erkennung aktivieren/deaktivieren (nur Kamera 2-Produkte)
-        * Bewegungserkennung aktivieren/deaktivieren
-        * Haustiererkennung aktivieren/deaktivieren (nur Innenkameras)
-        * Tonerkennung aktivieren/deaktivieren (nur Innenkameras)
-        * RTSP-Stream aktivieren/deaktivieren (nur Kamera2-Produkte, Innenkameras und Solo-Kameras)
-        * Video-Wasserzeichen-Einstellung ändern
-        * Und vieles mehr...
-    * Veranstaltungen:
-        * Bewegung erkannt
-        * Person erkannt
-        * Klingeln (nur Türklingel)
-        * Weinen erkannt (nur Innenkameras)
-        * Ton erkannt (nur Innenkameras)
-        * Haustier erkannt (nur Innenkameras)
+  * Zustände:
+    * Online / Offline usw.
+    * Batterie %
+    * Batterietemperatur
+    * Name
+    * Modell
+    * Seriennummer
+    * Softwareversion
+    * Hardware Version
+    * MAC-Adresse
+    * WLAN-RSSI
+    * Falsche Ereignisse seit der letzten Aufladung gefiltert
+    * Gespeicherte/aufgezeichnete Ereignisse seit der letzten Aufladung
+    * Gesamtzahl der Ereignisse seit der letzten Aufladung
+    * Gebrauchte Tage seit der letzten Aufladung
+    * Und vieles mehr...
+  * Aktionen:
+    * Livestream starten (hls; unterstützt auch lokalen Livestream)
+    * Livestream stoppen (hls)
+    * Gerät aktivieren/deaktivieren
+    * Automatische Nachtsicht aktivieren/deaktivieren
+    * LED aktivieren/deaktivieren (nur Kamera-2-Produkte, Innenkameras, Flutlichtkamera, Solo-Kameras und Türklingeln)
+    * Anti-Diebstahl-Erkennung aktivieren/deaktivieren (nur Kamera 2-Produkte)
+    * Bewegungserkennung aktivieren/deaktivieren
+    * Haustiererkennung aktivieren/deaktivieren (nur Innenkameras)
+    * Tonerkennung aktivieren/deaktivieren (nur Innenkameras)
+    * RTSP-Stream aktivieren/deaktivieren (nur Kamera2-Produkte, Innenkameras und Solo-Kameras)
+    * Video-Wasserzeichen-Einstellung ändern
+    * Und vieles mehr...
+  * Veranstaltungen:
+    * Bewegung erkannt
+    * Person erkannt
+    * Klingeln (nur Türklingel)
+    * Weinen erkannt (nur Innenkameras)
+    * Ton erkannt (nur Innenkameras)
+    * Haustier erkannt (nur Innenkameras)
 * Sensor:
-    * Eintrittssensor:
-        * Zustände:
-            * Online / Offline usw.
-            * Niedriger Batteriestatus
-            * Name
-            * Modell
-            * Seriennummer
-            * Softwareversion
-            * Hardware Version
-        * Veranstaltungen:
-            * Offen geschlossen
-    * Bewegungssensor:
-        * Zustände:
-            * Online / Offline usw.
-            * Niedriger Batteriestatus
-            * Name
-            * Modell
-            * Seriennummer
-            * Softwareversion
-            * Hardware Version
-        * Veranstaltungen:
-            * Bewegung erkannt
+  * Eintrittssensor:
+    * Zustände:
+      * Online / Offline usw.
+      * Niedriger Batteriestatus
+      * Name
+      * Modell
+      * Seriennummer
+      * Softwareversion
+      * Hardware Version
+    * Veranstaltungen:
+      * Offen geschlossen
+  * Bewegungssensor:
+    * Zustände:
+      * Online / Offline usw.
+      * Niedriger Batteriestatus
+      * Name
+      * Modell
+      * Seriennummer
+      * Softwareversion
+      * Hardware Version
+    * Veranstaltungen:
+      * Bewegung erkannt
 * Tastatur:
-    * Zustände:
-        * Online / Offline usw.
-        * Niedriger Batteriestatus
-        * Name
-        * Modell
-        * Seriennummer
-        * Softwareversion
-        * Hardware Version
+  * Zustände:
+    * Online / Offline usw.
+    * Niedriger Batteriestatus
+    * Name
+    * Modell
+    * Seriennummer
+    * Softwareversion
+    * Hardware Version
 * Sperren:
-    * Zustände:
-        * Online / Offline usw.
-        * Batterie %
-        * Sperrstatus
-        * Name
-        * Modell
-        * Seriennummer
-        * Softwareversion
-        * Hardware Version
-        * WLAN-RSSI
-    * Aktionen:
-        * Verriegeln Entriegeln
+  * Zustände:
+    * Online / Offline usw.
+    * Batterie %
+    * Sperrstatus
+    * Name
+    * Modell
+    * Seriennummer
+    * Softwareversion
+    * Hardware Version
+    * WLAN-RSSI
+  * Aktionen:
+    * Verriegeln Entriegeln
 * da kommt noch mehr...
 
 ## Aufbau
-Siehe [hier](./docs/en/README.md)
+Siehe [Hier](./docs/en/README.md)
 
 ## Bekannte Arbeitsgeräte
 * HomeBase (T8001)
@@ -154,7 +154,9 @@ Siehe [hier](./docs/en/README.md)
 * eufyCam 2C (T8113)
 * eufyCam 2 Pro (T8140)
 * eufyCam 2C Pro (T8141)
+* SoloCam E40 (T8131)
 * Flutlicht (T8420)
+* Flutlicht (T8422)
 * Kabelgebundene Türklingel 2k (T8200)
 * Kabelgebundene Türklingel 1080p (T8201)
 * Akku-Türklingel 2K (T8210)
@@ -166,15 +168,38 @@ Siehe [hier](./docs/en/README.md)
 * Indoor Cam Pan&Tilt 1080p (T8411)
 * Innenkamera 1080p (T8401)
 * Smart Lock-Vordertür (T8500)
+* Tastatur (T8960)
 
 Wenn mehr Geräte funktionieren (oder auch nicht), melden Sie diese bitte, indem Sie ein GitHub-Problem öffnen.
 
 ## So melden Sie Probleme und Funktionsanfragen
 Bitte verwenden Sie dafür GitHub-Probleme.
 
-Am besten setzen Sie den Adapter in den Debug-Log-Modus (Instanzen -> Expertenmodus -> Spalten-Log-Ebene oder siehe [hier](https://github.com/bropat/ioBroker.eufy-security/wiki/Howto-enable-debug)). Dann holen Sie sich bitte die Logdatei von der Festplatte (Unterverzeichnis "log" im ioBroker-Installationsverzeichnis und nicht vom Admin, da der Admin die Zeilen abschneidet).
+Am besten setzen Sie den Adapter in den Debug-Log-Modus (Instanzen -> Expertenmodus -> Spalten-Log-Ebene oder siehe [Hier](https://github.com/bropat/ioBroker.eufy-security/wiki/Howto-enable-debug)). Dann holen Sie sich bitte die Logdatei von der Festplatte (Unterverzeichnis "log" im ioBroker-Installationsverzeichnis und nicht vom Admin, da der Admin die Zeilen abschneidet).
 
 ## Changelog
+
+### 0.7.0 (2021-10-17)
+
+* (bropat) Added support for Floodlight T8422
+* (bropat) Added support for SoloCam E40 (T8131)
+* (bropat) Added new properties for solo cameras: battery, batteryTemperature, wifiSignalLevel, state, chargingStatus, lastChargingDays, lastChargingRecordedEvents, lastChargingTotalEvents, batteryUsageLastWeek
+* (bropat) Fixed issue #169
+* (bropat) Fixed issue #167
+* (bropat) Fixed issue #151
+* (bropat) Fixed push notifications for solo cameras (motion and person detection)
+* (bropat) Updated version of the package eufy-security-client (1.2.0)
+* (bropat) Updated versions of the package dependencies
+* (bropat) Further details can be found in the changelog of eufy-security-client (1.2.0)
+
+### 0.6.2 (2021-08-19)
+
+* (bropat) Updated version of the package eufy-security-client (1.1.2)
+
+### 0.6.1 (2021-08-19)
+
+* (bropat) Fixed issue in the function responsible for the version upgrade (non-updatable states; issue #159)
+* (bropat) Tried to fix issue #157 and issue #140
 
 ### 0.6.0 (2021-08-13)
 
@@ -376,7 +401,7 @@ Am besten setzen Sie den Adapter in den Debug-Log-Modus (Instanzen -> Expertenmo
 * (bropat) Last livestream is always saved and is still available later
 * (bropat) Implemented device and station parameter refresh over P2P
 * (bropat) Revised push notification implementation
-* (bropat) Fixed issue [#71](https://github.com/bropat/ioBroker.eufy-security/issues/71) by implementing retry mechanism on HTTP error 404 (max. 5 retries with increasing delay) 
+* (bropat) Fixed issue [#71](https://github.com/bropat/ioBroker.eufy-security/issues/71) by implementing retry mechanism on HTTP error 404 (max. 5 retries with increasing delay)
 * (bropat) Fixed issue [#12](https://github.com/bropat/ioBroker.eufy-security/issues/12)
 * (bropat) Eufy client library extracted as standalone library and adapters ported to new shared library: [eufy-security-client](https://www.npmjs.com/package/eufy-security-client)
 * (bropat) Removed following states: last_captured_pic_url, last_captured_pic_html

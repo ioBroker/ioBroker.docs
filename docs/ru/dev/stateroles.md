@@ -3,10 +3,10 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/stateroles.md
 title: Государственные роли
-hash: RXjkw9SxtDcGP6kkWONjp1cWS1Ueeyl+UXT0faPyx/U=
+hash: 71DTnoytEhjFJCy1qLzhuS7Jyx4m4YzvyVXWQtwp2uQ=
 ---
 # Государственные роли
-Для объектов типа «State» необходимо, чтобы их свойству common.role была присвоена одна из ролей, указанных в списке ниже. Информация о ролях является очень важной информацией и позволяет адаптерам Visualization- и Smart-Assistant определять функцию объекта, а также то, как / если они связаны с другими объектами в том же канале, устройстве или папке.
+Для объектов типа «State» необходимо, чтобы их свойству common.role была присвоена одна из ролей, указанных в списке ниже. Информация о роли является очень важной информацией и позволяет адаптерам Visualization- и Smart-Assistant определять функцию объекта, а также то, как / если они связаны с другими объектами в том же канале, устройстве или папке.
 
 Пример: Лампа RGB может иметь следующие три объекта (или более) с разными ролями, которые принадлежат друг другу:
 
@@ -18,7 +18,7 @@ hash: RXjkw9SxtDcGP6kkWONjp1cWS1Ueeyl+UXT0faPyx/U=
 
 ## Общий
 * `состояние` - очень распространенная цель. Если вы не знаете, какую роль играет государство, используйте эту.
-* `текст`` common.type = string`
+* `текст`` common.type = строка`
 * `text.url`` common.type = string` state val содержит URL-адрес для использования в привязке, iframe или img
 * `html`` common.type = string`
 * `json`` common.type = string`
@@ -85,14 +85,16 @@ hash: RXjkw9SxtDcGP6kkWONjp1cWS1Ueeyl+UXT0faPyx/U=
 * `value.interval` (common.unit = 'sec') - Интервал в секундах (может быть 0,1 или меньше)
 * ~~ value.date (common.type = string) - Дата в форме 2015.01.01 (без времени) ~~
 * ~~ value.datetime (common.type = string) - Дата и время в системном формате ~~
-* `value.gps.longitude` - координаты долготы gps
+* `value.gps.longitude` - координаты долготы GPS
 * `value.gps.latitude` - широта GPS
 * `value.gps.elevation` - высота по GPS
 * `value.gps` - долгота и широта вместе, например '5.56; 43.45'
+* `value.gps.accuracy` - точность измерения текущего gps
+* `value.gps.radius` - радиус текущего измерения GPS
 * `value.power` - фактическая мощность (единица измерения = Вт или кВт)
 * `value.power.consuming` - потребление энергии (единица измерения = Втч или кВтч)
 * `value.power.reactive` - реактивная мощность (единица = VAr)
-* `value.direction` - (common.type = number ~~ или строка ~~, указывает вверх / вниз, влево / вправо, 4-позиционные переключатели, направление ветра, ...)
+* `value.direction` - (common.type = number ~~ или string ~~, указывает вверх / вниз, влево / вправо, 4-позиционные переключатели, направление ветра, ...)
 * `value.curtain` - фактическое положение занавеса
 * `value.blind` - фактическое положение жалюзи (max = полностью открыто, min = полностью закрыто)
 * `value.tilt` - фактическое положение наклона (max = полностью открыто, min = полностью закрыто)
@@ -101,11 +103,11 @@ hash: RXjkw9SxtDcGP6kkWONjp1cWS1Ueeyl+UXT0faPyx/U=
 * `value.pressure` - (единица измерения: мбар)
 * `value.distance`
 * `value.distance.visibility`
-* `value.severity` - некоторая степень серьезности (можно указать состояния), чем выше, тем важнее
+* `value.severity` - некоторая серьезность (можно указать состояния), чем выше, тем важнее
 * `value.warning` - некоторое предупреждение (можно указать состояния), чем выше, тем важнее
 * `value.sun.elevation` - высота солнца в °
 * `value.sun.azimuth` - азимут солнца в °
-* `value.voltage` - Напряжение в вольтах, единица измерения = В
+* `value.voltage` - Напряжение в Вольтах, единица = В
 * `value.current` - ток в амперах, единица = A
 * `value.fill` - Уровень заполнения, единица = л, мл, м3,%
 * `value.blood.sugar` - значение сахара в крови, единица = ммоль, мгдл
@@ -120,7 +122,7 @@ hash: RXjkw9SxtDcGP6kkWONjp1cWS1Ueeyl+UXT0faPyx/U=
 * `indicator.working` - указывает, что целевые системы что-то выполняют, например, жалюзи или открывание замка.
 * `indicator.reachable` - если устройство в сети
 * `indicator.connected` - используется только для экземпляров. Используйте indicator.reachable для устройств
-* `indicator.main maintenance` - указывает системные предупреждения / ошибки, сигналы тревоги, служебные сообщения, разряд батареи и тому подобное.
+* `indicator.main maintenance` - указывает системные предупреждения / ошибки, аварийные сигналы, служебные сообщения, разряд батареи и тому подобное.
 * `indicator.main maintenance.lowbat`
 * `indicator.main maintenance.unreach`
 * `indicator.main maintenance.alarm`
@@ -148,16 +150,16 @@ hash: RXjkw9SxtDcGP6kkWONjp1cWS1Ueeyl+UXT0faPyx/U=
 * `level.color.white` - rgbW
 * `level.color.hue` - цвет в ° 0-360; 0 = красный, 120 = зеленый, 240 = синий, 360 = красный (циклический)
 * `level.color.saturation`
-* `level.color.rgb` - шестнадцатеричный цвет вроде '#rrggbb'
+* `level.color.rgb` - шестнадцатеричный цвет как '#rrggbb'
 * `level.color.luminance`
-* `level.color.temperature` - цветовая температура в K ° 2200 теплый-белый, 6500 ° холодный белый
+* `level.color.temperature` - цветовая температура в К ° 2200 теплый-белый, 6500 ° холодный белый
 * `level.timer`
 * `level.timer.sleep` - таймер сна. 0 - выкл или через минуты
 * ...
 * `level.volume` - (min = 0, max = 100) - громкость звука, но min, max могут отличаться. мин <макс
 * `level.volume.group` - (min = 0, max = 100) - громкость звука, для группы устройств
 * `level.curtain` - установить положение шторки
-* `level.tilt` - установить положение наклона жалюзи (max = полностью открыты, min = полностью закрыты)
+* `level.tilt` - установить положение наклона жалюзи (max = полностью открыт, min = полностью закрыт)
 
 ## Переключатели (логические, чтение-запись)
 Переключатель управляет логическим устройством (true = ON, false = OFF)
@@ -197,7 +199,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `level.mode.cleanup` - Перечисление` AUTO, ECO, EXPRESS, NORMAL, QUIET`. Требуются только «АВТО» и «НОРМАЛЬНЫЙ».
 * `level.mode.work` - Перечисление` AUTO, FAST, MEDIUM, SLOW, TURBO`. Необязательное состояние.
 * `value.water` - уровень воды 0-100%.
-* `value.waste` - уровень мусора 0-100%. (0% - пусто, 100% - полно)
+* `value.waste` - уровень мусорного бака 0-100%. (0% - пустой, 100% - полный)
 * `indicator.main maintenance.waste` - мусорное ведро дурацкое.
 * `value.state` -` HOME, CLEANING, PAUSE` и так далее.
 
@@ -228,7 +230,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `media.seek` - (common.type = number)%
 * `media.mode.shuffle` - (common.type = number) 0 - нет, 1 - все, 2 - один
 * `media.mode.repeat` - (common.type = boolean)
-* `media.state` - ['play', 'stop', 'pause'] или [0 - пауза, 1 - воспроизведение, 2 - стоп] или [true - воспроизведение / false - пауза]
+* `media.state` - ['play', 'stop', 'pause'] или [0 - пауза, 1 - воспроизведение, 2 - остановка] или [true - воспроизведение / false - пауза]
 * `media.artist`
 * `media.album`
 * `media.title`
@@ -389,7 +391,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `info.firmware` - версия прошивки
 * `info.hardware` - версия оборудования
 * `info.port` - порт tcp
-* `info.standby` - истина, если устройство в режиме ожидания
+* `info.standby` - true, если устройство в режиме ожидания
 * `info.status` - статус устройства
 * `info.display` - информация, отображаемая на дисплее устройства
 * `date.start` - строка или число

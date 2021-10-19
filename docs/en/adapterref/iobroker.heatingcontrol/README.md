@@ -24,7 +24,7 @@ For more details and for information how to disable the error reporting see [Sen
 
 ## Documentation
 
-**I'm looking for support in creating / updating the user documentation and the FAQ's. If anyone is interested, please contact me...**
+**I'm looking for support in creating / updating the user documentation and the FAQ's. If someone is interested, please contact me...**
 
 
 
@@ -234,6 +234,11 @@ If thermostat use information from window sensor then "thermostat handles window
 When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry.  All of this helps me to provide error free adapters that basically never crashs.
 
 ## Changelog
+
+### 2.7.0 (in progress)
+* (René) see issue #259: limit for temperature offset added
+* (René) see issue #227: maximum time difference between standard sensor and external sensor added
+* (René) see issue #264: some changes for Pittini-vis
 
 ### 2.6.2 (2021-09-29)
 * (René) see issue #260: bug fix isActive not ignored

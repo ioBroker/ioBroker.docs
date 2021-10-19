@@ -30,6 +30,8 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
+### 1.1.13 (16.10.2021)
+* (HombachC) bumped dependencies; fixed vulnerability
 ### 1.1.12 (07.10.2021)
 * (GermanBlueFox) fixed icon link
 * (HombachC) bumped dependencies
@@ -38,7 +40,7 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ### 1.1.7 (09.05.2021)
 * (HombachC) added tests for node.js 16; fixed vulnerability
 ### 1.1.6 (02.03.2021)
-* (HombachC) bumped dependencies; changes for new year 2021
+* (HombachC) changes for new year 2021
 ### 1.1.3 (23.11.2020)
 * (HombachC) added battery.Voltage; added additional error handler; bumped dependencies
 ### 1.1.1 (09.10.2020) stable

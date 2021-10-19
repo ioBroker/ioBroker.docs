@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.heatingcontrol/README.md
 title: ioBroker.HeatingControl
-hash: wvj2OtAalvk/SnA4SDSHSbePIZGaafFpeR3Y6Ic0lIg=
+hash: 3bc38scuu7QLCNZPtCjriV7Iu75XDV5rAG4AeKVVKX0=
 ---
 ![Logo](../../../en/adapterref/iobroker.heatingcontrol/admin/heatingcontrol.png)
 
@@ -125,7 +125,7 @@ In diesem Fall und wenn Sie Aktoren aus dem Adapter verwenden, haben Sie die Mö
 ## Andere
 * HolidayPresent / PublicHolidyToday
 
-Wenn Sie im Admin "Feriengeschenk wie Sonntag" oder "Feiertag wie Sonntag" aktivieren, wird das Profil für Sonntag verwendet, wenn dem Adapter mitgeteilt wird, dass heute ein Feiertag ist oder Sie im Urlaub zu Hause sind.
+Wenn Sie im Admin "Feriengeschenk wie Sonntag" oder "Feiertag wie Sonntag" aktivieren, wird das Profil für Sonntag verwendet, wenn der Adapter informiert wird, dass heute ein Feiertag ist oder Sie im Urlaub zu Hause sind.
 
 ### Fenster geöffnet
 wenn "Sensoren verwenden" aktiv ist und Sensor(en) für einen Raum konfiguriert ist/sind dann
@@ -164,7 +164,7 @@ Dies ist die bekannte Funktion, die eine Temperatur und eine Dauer verwendet. Di
 Dies ist eine neue Funktion. Hier können wir einen Temperatur-Override bis zum nächsten Profilpunkt verwenden. Die Dauer wird ignoriert, muss aber ungleich Null sein!
 
 ## Thermostatgriffe "Fenster ist offen"
-Einige Thermostate können selbst mit "Fenster ist offen" umgehen. In diesen Fällen wird eine direkte Verbindung zwischen Fensterfühler und Thermostat konfiguriert und der Thermostat reduziert beim Öffnen eines Fensters selbstständig die Solltemperatur.
+Einige Thermostate können "Fenster ist offen" selbst handhaben. In diesen Fällen wird eine direkte Verbindung zwischen Fensterfühler und Thermostat konfiguriert und der Thermostat reduziert beim Öffnen eines Fensters selbstständig die Solltemperatur.
 In Kombination mit der Option "Änderungen vom Thermostat verwenden" / "bis zum nächsten Profilpunkt" führt dies zu einem unerwarteten manuellen Zustand. In dieser Situation würde die reduzierte Temperatur bis zum nächsten Profilpunkt verwendet.
 Aber der Adapter kann dieses Verhalten handhaben. Sie müssen die Option "Thermostat behandelt 'Fenster ist geöffnet'" aktivieren und Sie können Fenstersensoren auch im Adapter konfigurieren.
 Beim Öffnen des Fensters wartet der Adapter max. 3 Sekunden für neue Solltemperatur vom Thermostat. Erhält sie in dieser Zeit eine neue Solltemperatur, wird sie als reduzierte absolute Temperatur verwendet. Der Status lautet dann "automatisches Fenster öffnen". Sobald das Fenster geschlossen wird, geht der Status zurück auf Auto und der Thermostat setzt die ursprüngliche Solltemperatur zurück **Achtung** verwenden Sie in diesem Fall keine Sensoröffnungsverzögerung. Wenn Sie es verwenden, wird das Ereignis Fenster geöffnet angezeigt, nachdem die Zieltemperatur vom Thermostat empfangen wurde. Dies endet im manuellen Zustand.
@@ -179,7 +179,7 @@ und
 CopyProfile kopiert den gesamten Inhalt des Profils, in dem die Schaltfläche gedrückt wird, in das nächste Profil. Im obigen Beispiel befindet sich die Schaltfläche in Profil 1. Die Schaltfläche kopiert alles von Profil 1 nach Profil 2.
 Wenn Sie nur einen Raum kopieren möchten, verwenden Sie die Schaltfläche in einem bestimmten Raum.
 
-Die CopyPeriods sind pro Tag oder Mo-Fr pro Zimmer verfügbar. Dadurch werden die Perioden in den nächsten Abschnitt kopiert. Im obigen Beispiel kopiert die CopyPeriods alle Stunden von Freitag im Küchenraum auf die Stunden am Samstag im Küchenraum.
+Die CopyPeriods sind pro Tag oder Mo-Fr pro Zimmer verfügbar. Dadurch werden die Perioden in den nächsten Abschnitt kopiert. Im obigen Beispiel kopiert CopyPeriods alle Stunden von Freitag im Küchenraum auf die Stunden am Samstag im Küchenraum.
 So können Sie z.B. im Profil "jeden Tag separat" die Zeiträume von Montag bis Sonntag kopieren ...
 
 ## Wartungsmodus
@@ -204,6 +204,17 @@ Wenn der Thermostat Informationen vom Fenstersensor verwendet, sollte die Option
 Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll angezeigt wird, an Sentry gesendet. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
 
 ## Changelog
+
+### 2.7.0 (in progress)
+* (René) see issue #259: limit for temperature offset added
+* (René) see issue #227: maximum time difference between standard sensor and external sensor added
+* (René) see issue #264: some changes for Pittini-vis
+
+### 2.6.2 (2021-09-29)
+* (René) see issue #260: bug fix isActive not ignored
+
+### 2.6.1 (2021-09-25)
+* (René) see issue #258: bug fix fireplace mode and vis
 
 ### 2.6.0 (2021-09-17)
 * (René) maintenance mode added
