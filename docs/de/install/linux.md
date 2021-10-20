@@ -128,8 +128,7 @@ Versionsnummer zurückgeben.
     
 ---    
 
-
-    Sind die Versionen unterschiedlich, bitte nochmals den Abschnitt 
+Sind die Versionen unterschiedlich, bitte nochmals den Abschnitt 
 [Installation Node.js](#installation-nodejs) abarbeiten
 
     Als letzte Überprüfung bitte noch die Version von npm mittels ``npm -v`` überprüfen.
