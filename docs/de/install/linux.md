@@ -131,9 +131,9 @@ Versionsnummer zurückgeben.
 Sind die Versionen unterschiedlich, bitte nochmals den Abschnitt 
 [Installation Node.js](#installation-nodejs) abarbeiten
 
-    Als letzte Überprüfung bitte noch die Version von npm mittels ``npm -v`` überprüfen.
+Als letzte Überprüfung bitte noch die Version von npm mittels ``npm -v`` überprüfen.
 
-    Ergibt dies eine Version < 6, bitte noch mit ``sudo -H npm install -g npm@6`` ein 
+Ergibt dies eine Version < 6, bitte noch mit ``sudo -H npm install -g npm@6`` ein 
 npm-Update durchführen
 
 ---
