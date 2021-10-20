@@ -122,10 +122,12 @@ Versionsnummer zurückgeben.
     ``sudo ln -s /usr/local/bin/nodejs /usr/bin/node`` an der Konsole ausführen.
     
     
-In neueren Installationen kann es sein, dass der Befehl ``nodejs -v`` eine Fehlermeldung wie “nicht gefunden” erzeugt. 
-Dies ist prinzipiell unbedenklich, da der Befehl ``nodejs`` schon länger nicht mehr verwendet wird, kann aber über einen Symlink "repariert" werden:
+    In neueren Installationen kann es sein, dass der Befehl ``nodejs -v`` eine Fehlermeldung wie “nicht gefunden” erzeugt. 
+    Dies ist prinzipiell unbedenklich, da der Befehl ``nodejs`` schon länger nicht mehr verwendet wird, kann aber über einen Symlink "repariert" werden:
 
-``sudo ln -s /usr/bin/node /usr/bin/nodejs``
+    ``sudo ln -s /usr/bin/node /usr/bin/nodejs``
+    
+---    
 
 
     Sind die Versionen unterschiedlich, bitte nochmals den Abschnitt 
