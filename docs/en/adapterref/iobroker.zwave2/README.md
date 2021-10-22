@@ -40,6 +40,9 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 2.2.3 (2021-10-21)
+* Admin UI: Improve support for older browsers
+
 ### 2.2.2 (2021-10-17)
 * Fix: Config from different instances no longer override each other
 
@@ -65,12 +68,6 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 ### 2.1.0 (2021-09-23)
 * Support broadcast commands
 * Support multicast commands and managing multicast groups
-
-### 2.0.1 (2021-09-22)
-* Fix: Don't display "no devices present" if they haven't been loaded yet
-* Fix: Eliminated loading time when switching between "Devices" and "Associations" in tab
-* Fix: Add missing german translation for "Set RF Region"
-* Fix: The Controller node was missing from the association target nodes
 
 ## License
 

@@ -4,7 +4,7 @@ lastChanged: 05.12.2020
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/linux.md
-hash: 0RSomjzprx5ZN1ThmqOllojkXxchwdAmnMTCBbjJ9OQ=
+hash: PK5UMbikLloEInPXeSNLqKXsZwkXi1dDURcZ8mTYljc=
 ---
 # IoBroker 在 Linux 上的安装
 !> 这些说明不适用于网站的成品图片！但是，手动安装比图像更可取。
@@ -25,9 +25,9 @@ ioBroker 然后在这个用户下运行。
 
 我们不建议使用 Pi 1 作为主机。它只是不够强大（500MB RAM 等）。由于硬件不同，这些说明无论如何都不适合 Pi 1。
 
-即使是 Pi 2 或 Pi 3 也最多只有 1 GB RAM。对于 15 个适配器实例，这应该仍然足够，但除此之外可能会很紧张。每个适配器实例需要大约 40 MB（有时为 200 MB 甚至更多）的 RAM。因此，在激活更多适配器实例之前，您应该始终关注 RAM 使用情况 - 1 GB RAM 是有限的。
+即使是 Pi 2 或 Pi 3 也最多只有 1 GB RAM。对于 15 个适配器实例，这应该仍然足够，但除此之外可能会很紧张。每个适配器实例需要大约 40 MB（有时为 200 MB 甚至更多）的 RAM。因此，在激活其他适配器实例之前，您应该始终关注 RAM 使用情况 - 1 GB 的 RAM 是有限的。
 
-因此，推荐使用 Raspberry 系列 4 个更好的 8 GB RAM 的 Raspberry4。
+因此，建议使用 Raspberry 系列中具有 4 个更好的 8 GB RAM 的 Raspberry4。
 
 ＃＃＃ 电源适配器
 拥有良好的电源很重要。电源弱的情况下会出现稳定性问题
@@ -78,7 +78,7 @@ ioBroker 然后在这个用户下运行。
 
     ``npm -v``
 
-仅当 **ALL** 这些命令不产生结果（即不再显示版本号）时，继续本节的第 4 步，否则，或者如果版本不符合所需，请事先执行以下操作：
+仅当 **ALL** 这些命令没有产生结果（即不再显示版本号）时，继续本节的第 4 步，否则，或者如果版本与您想要的版本不对应，请事先执行以下操作：
 
 3.卸载已有的node&node.js版本
 
@@ -104,9 +104,14 @@ ioBroker 然后在这个用户下运行。
 
     在控制台上执行 ``sudo ln -s /usr/local/bin/nodejs /usr/bin/node``。
 
+在较新的安装中，命令 ``nodejs -v`` 可能会生成类似“未找到”的错误消息。
+原则上，这是无害的，因为命令 ``nodejs`` 已经很久没有使用了，但是可以通过带有命令 ``sudo ln -s /usr/bin/node /usr/bin/nodejs`` 的符号链接来“修复”。
+
+---
+
 如果版本不同，请再次阅读[安装 Node.js](#installation-nodejs)部分
 
-    作为最后的检查，请使用 ``npm -v`` 检查 npm 的版本。
+作为最后的检查，请使用 ``npm -v`` 检查 npm 的版本。
 
 如果这导致版本 <6，请使用 ``sudo -H npm install -g npm@6`` 执行 npm 更新
 

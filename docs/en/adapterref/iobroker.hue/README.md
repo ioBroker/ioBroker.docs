@@ -60,6 +60,10 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 	### __WORK IN PROGRESS__
 -->
 
+### 3.5.26 (2021-10-20)
+* (foxriver76) fixed an issue with the username set in Hue API (fixes 249)
+* (klein0r) fixed translation of search popup (fixes #247)
+
 ### 3.5.25 (2021-09-15)
 * (foxriver76) if we cannot determine correct ct value, we won't set it (fixes #234)
 

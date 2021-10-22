@@ -235,7 +235,10 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
-### 2.7.0 (in progress)
+### 2.7.1 (2021-10-20)
+* (René) see issue #268: change of override in manual mode is mssing
+
+### 2.7.0 (2021-10-18)
 * (René) see issue #259: limit for temperature offset added
 * (René) see issue #227: maximum time difference between standard sensor and external sensor added
 * (René) see issue #264: some changes for Pittini-vis
