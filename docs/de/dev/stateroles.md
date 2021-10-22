@@ -1,18 +1,20 @@
 ---
+translatedFrom: en
+translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/stateroles.md
 title: Rollen von Datenpunkten
 hash: syC9htxAnnv0AgMriyuXpe6GqkUOZNtl226RMjG91Io=
 ---
 # Rollen (roles) von Datenpunkten
 ## Allgemein
-* state - sehr allgemeiner Zweck. Zu verwenden, wenn unbekannt ist, welche Rolle der Datenpukt hat.
-* text (common.type = string)
-* text.url (common.type = string) state val enthält eine URL zur Verwendung in einem Anker, Iframe oder img
-* html (common.type = string)
-* json (common.type = string)
-* list (common.type = array)
-* date (common.type = string - kann mit der Zeichenfolge "new Date (ddd)" analysiert werden)
-* date (common.type = number - Sekunden * 1000)
+* `state` - sehr allgemeiner Zweck. Zu verwenden, wenn unbekannt ist, welche Rolle der Datenpukt hat.
+* `text` (common.type = string)
+* `text.url` (common.type = string) state val enthält eine URL zur Verwendung in einem Anker, Iframe oder img
+* `html` (common.type = string)
+* `json` (common.type = string)
+* `list` (common.type = array)
+* `date` (common.type = string - kann mit der Zeichenfolge "new Date (ddd)" analysiert werden)
+* `date` (common.type = number - Sekunden * 1000)
 
 ## Sensor (Boolescher Wert, schreibgeschützt)
 *common.type = boolean, common.write = false*
