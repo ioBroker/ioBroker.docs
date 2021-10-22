@@ -851,14 +851,13 @@
           },
           "content": "dev/objectsschema.md"
         },
-        "State roles": {
+        "[State roles](dev/stateroles)": {
           "title": {
-            "en": "State roles",
-            "de": "Staatliche Rollen",
-            "ru": "Государственные роли",
-            "zh-cn": "状态角色"
-          },
-          "content": "dev/stateroles.md"
+            "en": "[State roles](dev/stateroles)",
+            "de": "[Zustandsrollen](dev/stateroles)",
+            "ru": "[Роли состояний](dev/stateroles)",
+            "zh-cn": "zh-cn![State roles](dev/stateroles)"
+          }
         },
         "Aliases": {
           "title": {
