@@ -4,13 +4,13 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/adapterref/iobroker.hm-rega/README.md
 title: HomeMatic ReGaHSS
-hash: 5nzOtddjd6p/3BVJJkfR7yHWPQUqVm2mcbdsP7tvrkM=
+hash: G+XgC3bx73W0XgVhW1GkYuvI38TcQQgIsp3P1ggWznM=
 ---
 ![logo](../../../de/adapterref/iobroker.hm-rega/media/homematic.png)
 
 # HomeMatic ReGaHSS
 ## Homematic
-> Homematic is the Smart Home System from eQ-3, which enables the comprehensive control of a wide variety of functions using scenarios (from simple to complex) in the house or apartment.
+> Homematic is the smart home system from eQ-3, which enables the comprehensive control of a wide variety of functions using scenarios (from simple to complex) in the house or apartment.
 
 > The devices include products for light, roller shutter and heating control, hazard detectors, safety sensors and products for measuring weather data. The radio communication simplifies retrofitting. Wire bus components can be used in new buildings.
 
@@ -61,7 +61,7 @@ The required services are then activated and linked to the appropriate HM-RPC in
 
 Polling
 
-If activated, the RegaHSS data is regularly queried by the CCU, based on the seconds set in the Intervals field. The interval should not be set too low, since too frequent polling can lead to a crash of the CCU.
+If activated, the RegaHSS data is regularly queried by the CCU, based on the seconds set in the Intervals field. The interval should not be set too low, as too frequent polling can lead to a crash of the CCU.
 
 Trigger
 
@@ -69,7 +69,7 @@ In order to minimize the active queries from ioBroker to the RegaHSS, a trigger 
 A virtual button on the CCU can be used for this, which is triggered in a CCU program. By default, this is the BidCosRF.50.PRESS_SHORT key (see sample program).
 
 ### Synchronize area
-Here the user can specify which information is to be transferred from the CCU to ioBroker. The corresponding objects and data points are then created in ioBroker.
+Here the user can specify which information is transferred from the CCU to ioBroker. The corresponding objects and data points are then created in ioBroker.
 
 - DutyCycle: Activates the indication of the duty cycle (in%)
 - Variables: Activates the transfer of the system variables from the CCU

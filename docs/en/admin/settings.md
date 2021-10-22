@@ -4,10 +4,10 @@ lastChanged: 27.03.2019
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/settings.md
-hash: SrsCuiAVjFnWErHKd5ROEqrjxmi3MqUS+1fK8aALD34=
+hash: EWCPIroHVv8aZWVTS96ljn+F7vclaiYghLknECzG9Fw=
 ---
 # The system settings
-The system settings can be reached from every menu point of the administrator via the wrench icon in the title bar of the screen.
+The system settings can be accessed from every menu point of the administrator via the wrench icon in the title bar of the screen.
 
 ![The system settings](../../de/admin/media/ADMIN_Settings_main.png)
 
@@ -24,7 +24,7 @@ so you can choose between different system languages. It is possible that not al
 
 ** temperature unit **
 
-this value is used by some adapters. It can be °C or °F.
+this value is used by some adapters. °C or °F is possible.
 
 **Currency**
 
@@ -42,11 +42,11 @@ Comma or point for float values
 
 In this instance the data is logged by default and used in the charts of flot and rickshaw.
 
-If only one history adapter (SQL / History / InfluxDB) is installed, it is used; if there are several, you can select one.
+If only one history adapter (SQL / History / InfluxDB) is installed, it is used, if several are available, one can be selected.
 
 ** Active depository **
 
-The desired repository from which the adapter version is to be installed is selected via the pull-down menu. The repositories listed on the “Storage locations” sub-page are available in the pull-down menu
+The desired repository from which the adapter version is to be installed is selected via the pull-down menu. The repositories listed on the “Storage locations” subpage are available in the pull-down menu
 
 ## Storage locations
 ![The repositories](../../de/admin/media/ADMIN_Settings_repos.png)
@@ -69,7 +69,7 @@ Certificates can either be specified as a path or uploaded completely using drag
 --- title: System settings lastChanged: 27.03.2019 ---
 
 # The system settings
-The system settings can be reached from every menu point of the administrator via the wrench icon in the title bar of the screen.
+The system settings can be accessed from every menu point of the administrator via the wrench icon in the title bar of the screen.
 
 ![The system settings](../../de/admin/media/ADMIN_Settings_main.png)
 
@@ -86,7 +86,7 @@ so you can choose between different system languages. It is possible that not al
 
 ** temperature unit **
 
-this value is used by some adapters. It can be °C or °F.
+this value is used by some adapters. °C or °F is possible.
 
 **Currency**
 
@@ -104,11 +104,11 @@ Comma or point for float values
 
 In this instance the data is logged by default and used in the charts of flot and rickshaw.
 
-If only one history adapter (SQL / History / InfluxDB) is installed, it is used; if there are several, you can select one.
+If only one history adapter (SQL / History / InfluxDB) is installed, it is used, if several are available, one can be selected.
 
 ** Active depository **
 
-The desired repository from which the adapter version is to be installed is selected via the pull-down menu. The repositories listed on the “Storage locations” sub-page are available in the pull-down menu
+The desired repository from which the adapter version is to be installed is selected via the pull-down menu. The repositories listed on the “Storage locations” subpage are available in the pull-down menu
 
 ## Storage locations
 ![The repositories](../../de/admin/media/ADMIN_Settings_repos.png)
@@ -138,7 +138,7 @@ If the rights are wrong, an error message appears like:
 
 ``web.0 (24704) Cannot create webserver: Error: error:0909006C:PEM routines:get_name:no start line``
 
-You can check access by logging in to the server as user root, then switching to the iobroker user and listing the certificate file:
+You can check the access if you log in to the server as user root, then switch to the iobroker user and list the certificate file:
 
 ``su iobroker``
 
@@ -197,13 +197,13 @@ When the small web server is started, the request for the certificates for the s
 
 The Let's Encrypt server sends a challenge phrase back in response to the request and after a while tries to read this challenge phrase at the address “http:// yourdomain: 80 / .well-known / acme-challenge /”.
 
-When the server receives this challenge phrase back from us, the Let's Encrypt server sends the certificates. These are saved in the directory that is entered in the system settings.
+When the server receives this challenge phrase back from our side, the Let's Encrypt server sends the certificates. These are saved in the directory that is entered in the system settings.
 
 This sounds complex, but all you have to do is activate a few checkboxes and enter the email address and web address in the system settings.
 
 The certificates received are valid for about 90 days. After these certificates have been issued for the first time, another task is started which automatically extends the validity.
 
-This topic is quite complex and thousands of things can go wrong. If this does not work, it is recommended to use the IoT adapter for access while on the move.
+This topic is quite complex and thousands of things can go wrong. If this does not work, it is recommended to use the IoT adapter for access while on the go.
 
 Let's Encrypt only works with a node.js version> = 4.5
 
@@ -257,13 +257,13 @@ When the small web server is started, the request for the certificates for the s
 
 The Let's Encrypt server sends a challenge phrase back in response to the request and after a while tries to read this challenge phrase at the address “http:// yourdomain: 80 / .well-known / acme-challenge /”.
 
-When the server receives this challenge phrase back from us, the Let's Encrypt server sends the certificates. These are saved in the directory that is entered in the system settings.
+When the server receives this challenge phrase back from our side, the Let's Encrypt server sends the certificates. These are saved in the directory that is entered in the system settings.
 
 This sounds complex, but all you have to do is activate a few checkboxes and enter the email address and web address in the system settings.
 
 The certificates received are valid for about 90 days. After these certificates have been issued for the first time, another task is started which automatically extends the validity.
 
-This topic is quite complex and thousands of things can go wrong. If this does not work, it is recommended to use the IoT adapter for access while on the move.
+This topic is quite complex and thousands of things can go wrong. If this does not work, it is recommended to use the IoT adapter for access while on the go.
 
 Let's Encrypt only works with a node.js version> = 4.5
 

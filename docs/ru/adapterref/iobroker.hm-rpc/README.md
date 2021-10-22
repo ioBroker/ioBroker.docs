@@ -138,6 +138,7 @@ CCU / Homematic поддерживает различные типы устро�
 
 ### __WORK IN PROGRESS__
 * (foxriver76) added image of HmIP-eTRV-E
+* (foxriver76) added image of HmIPW-WRC6
 
 ### 1.14.45 (2021-08-12)
 * (foxriver76) we fixed several sentry issues (closes #368, closes #370)

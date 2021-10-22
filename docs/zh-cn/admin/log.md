@@ -4,21 +4,21 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/admin/log.md
-hash: 66gpVVstVxHlQUyyBYv8juocwLyP/pXvD9q5MXSJDlE=
+hash: SF9PSkEVT8mItnrGcqW4liNccrJ/ZhU4DElrk63Agz4=
 ---
 系统的消息不断地输出在这里。最新消息在顶部。
 
 ![日志页面](../../de/admin/media/ADMIN_Log_numbers.png)
 
 ##标题行
-在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需在图标上按住鼠标一会儿。
+在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需在图标上按住鼠标一段时间即可。
 
 ### 1 - 更新日志
 此按钮更新列表。
 
 ### 2 - 停止更新
 如果单击此按钮，将停止列表的不断更新。
-现在显示的是新的未显示消息的数量，而不是暂停图标。
+现在显示的是未显示的新消息的数量，而不是暂停图标。
 
 ### 3 - 删除列表
 单击此图标只会删除屏幕上的列表
@@ -27,13 +27,13 @@ hash: 66gpVVstVxHlQUyyBYv8juocwLyP/pXvD9q5MXSJDlE=
 单击此图标，将永久删除主机上的整个日志。
 
 ### 5 - 下载日志
-使用此按钮，您可以从目录 /opt/iobroker/logs 下载最近几天的完整每日日志：
+使用此按钮，您可以从目录 /opt/iobroker/logs 下载过去几天的完整每日日志：
 
 ![日志下载](../../de/admin/media/ADMIN_Log_download.png)
 
 您会看到以下屏幕：![完整的日志](../../de/admin/media/ADMIN_Log_download02.png)
 
-由于日志窗口的列表中的行经常被截断，因此检查这里是否有更多信息很重要。
+由于日志窗口中的列表中的行经常被截断，因此检查这里是否有更多信息很重要。
 
 ### 6 - 主机列表
 日志中仅显示来自此处设置的主机的消息。在多主机环境中，您可以在此处设置要记录的主机。

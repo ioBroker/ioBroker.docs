@@ -40,6 +40,11 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 2.2.4 (2021-10-22)
+* Fix: Most unsupporting devices should no longer use `Supervision` by default
+* Minor fixes and stability improvements
+* New and updated configuration files, see [here](https://github.com/zwave-js/node-zwave-js/releases/tag/v8.5.1)
+
 ### 2.2.3 (2021-10-21)
 * Admin UI: Improve support for older browsers
 
@@ -64,10 +69,6 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 * Fix: display generic device class when specific device class is `"Unused"`
 * Fix: roles of existing states are now preserved
 * Many changed and new device configuration files, see [here](https://github.com/zwave-js/node-zwave-js/releases/tag/v8.4.0) and [here](https://github.com/zwave-js/node-zwave-js/releases/tag/v8.4.1)
-
-### 2.1.0 (2021-09-23)
-* Support broadcast commands
-* Support multicast commands and managing multicast groups
 
 ## License
 

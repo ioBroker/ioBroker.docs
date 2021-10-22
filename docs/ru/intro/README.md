@@ -4,7 +4,7 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/intro/README.md
-hash: 1pcQ4cJSUZw7qUIgvAoPS5dTCF9w4xA9paAs8EKiD7w=
+hash: idk0gZfgjRkBsHrpF2r3lK1a0goTdH4DOHijnHKP5zE=
 ---
 ** Эта документация является основным справочником для всех пользователей ioBroker: **
 
@@ -28,7 +28,7 @@ hash: 1pcQ4cJSUZw7qUIgvAoPS5dTCF9w4xA9paAs8EKiD7w=
 
 ![Меню страниц](../../de/intro/media/Hauptmenu.png)
 
-После щелчка по пункту меню меню автоматически закрывается, чтобы освободить больше места для содержимого.
+После щелчка по пункту меню меню автоматически закрывается, чтобы освободить место для содержимого.
 
 ---
 
@@ -41,8 +41,8 @@ hash: 1pcQ4cJSUZw7qUIgvAoPS5dTCF9w4xA9paAs8EKiD7w=
 
 ---
 
-#### 3 - тематическое меню
-В этом меню отображаются основные темы выбранной статьи, чтобы можно было быстрее перейти к нужной точке.
+#### 3 - Тематическое меню
+В этом меню отображаются основные темы выбранной статьи, чтобы вы могли быстрее перейти к нужной точке.
 
 ![Тематическое меню](../../de/intro/media/Themenmenu.png)
 

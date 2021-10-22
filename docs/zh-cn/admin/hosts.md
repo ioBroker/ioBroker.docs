@@ -4,7 +4,7 @@ lastChanged: 07.05.2021
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/admin/hosts.md
-hash: vui0+3EZSKz2XJdrrGwCONv3my8EhEnFlpgcAu982o0=
+hash: b/cl0uw+yfoPT0T/XNqIz/AUhBq050Wlkmzg4UG42hI=
 ---
 此处显示可用主机。
 
@@ -13,7 +13,7 @@ hash: vui0+3EZSKz2XJdrrGwCONv3my8EhEnFlpgcAu982o0=
 在标准系统中，只有一台主机。在多主机系统的情况下，有几个。
 
 ##标题行
-在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需在图标上按住鼠标一会儿。
+在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需在图标上按住鼠标一段时间即可。
 
 详细图标：
 
@@ -37,10 +37,10 @@ hash: vui0+3EZSKz2XJdrrGwCONv3my8EhEnFlpgcAu982o0=
 可以在此处更改主机名。此名称必须是唯一的。
 
 ### 5 - 重启主机
-可以通过此按钮重新启动相应的主机。单击它对应于重新启动命令。
+使用此按钮可以重新启动相应的主机。单击它对应于重新启动命令。
 
 ### 6 - 删除主机
-此按钮仅适用于从站。如果从多主机环境中删除了从属设备，则也可以删除属于该主机的所有对象。
+此按钮仅适用于从站。如果从多主机环境中删除了一个从属设备，则属于该主机的所有对象也可以随它一起删除。
 
 ### 7 - 控制器更新
 如果设置存储库的 js 控制器有更新，则会出现另一个图标：

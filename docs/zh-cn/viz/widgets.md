@@ -4,7 +4,7 @@ lastChanged: 11.08.2019
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/viz/widgets.md
-hash: TxhNPmBC2abg80GhW8v2M7m6PomjfeOCj2SJAYiI5/g=
+hash: beLY0bKf2v2bHfNEpPQQjde4CBBS7s9c5jyaH3r9Z2o=
 ---
 # 小部件
 ＃＃ 作为基本规则
@@ -34,11 +34,11 @@ ioBroker 中有不同的小部件集可用于使用 vis 进行可视化。
 |----|----|
 
 | `Object ID` | 这里输入数据点的ID，用于控制选中widget的可见性。可以使用按钮搜索数据点。
-|条件 | 如果在此处为上述数据点输入条件，则小部件可见...
+|条件 | 如果在此处为上述数据点输入条件，则小部件变为可见...
 |条件 | ... 的值对应于此处输入的值。
 
 ＃＃＃＃ **一般来说**
-![](../../de/viz/media/vis_widgets_003_Widget_Allgemein.jpg)“常规”部分特定于每个小部件，并针对每个小部件进行了更详细的描述。
+![](../../de/viz/media/vis_widgets_003_Widget_Allgemein.jpg)“常规”部分特定于每个小部件，并针对各个小部件进行了更详细的描述。
 在此部分中，所需的数据点被分配给对象 ID 字段中的小部件。
 
 *** 小部件的 **CSS 设置** 可在以下菜单项中找到，并可根据您自己的要求进行调整：
@@ -96,7 +96,7 @@ ioBroker 中有不同的小部件集可用于使用 vis 进行可视化。
 | `padding-right` | 右侧偏移 |
 | `padding-bottom` | 下侧偏移 |
 | `box-shadow` | 小部件框阴影的颜色 |
-| `margin-top` | 小部件周围的上边距（auto、%、px、pt、cm）|
+| `margin-top` | 小部件周围的上边距 (auto,%, px, pt, cm) |
 | `margin-right` | 小部件周围的右边框 |
 | `margin-bottom` | 小部件周围的下边框 |
 | `margin-left` | 小部件周围的左边距 |
@@ -105,4 +105,4 @@ ioBroker 中有不同的小部件集可用于使用 vis 进行可视化。
 |属性 | 描述 |
 |-----|----|
 
-| `padding` | 小部件框边缘的偏移量 | `padding-left` | 左侧偏移 | `padding-top` | 上侧偏移 | `padding-right` | 右侧偏移 | `padding-bottom` | 下侧偏移 | `box-shadow` | 小部件框阴影的颜色 | `margin-top` | 小部件周围的上边距（auto、%、px、pt、cm）| `margin-right` | 小部件周围的右边框 | `margin-bottom` | 小部件周围的下边框 | `margin-left` | 小部件周围的左边距
+| `padding` | 小部件框边缘的偏移量 | `padding-left` | 左侧偏移 | `padding-top` | 顶部偏移 | `padding-right` | 右侧偏移 | `padding-bottom` | 下侧偏移 | `box-shadow` | 小部件框阴影的颜色 | `margin-top` | 小部件周围的上边距（自动、%、px、pt、cm）| `margin-right` | 小部件周围的右边框 | `margin-bottom` | 小部件周围的下边框 | `margin-left` | 小部件周围的左边距

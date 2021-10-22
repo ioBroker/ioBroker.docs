@@ -78,6 +78,14 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 3.2.1
+- Problem mit aktiver Textfarbe behoben (#302)
+- Problem mit Multi-Widget und unterschiedlichem Prüftyp behoben (#303)
+- Problem beim Schließen mit View im PopUp behoben (#254)
+- Navigationseffekte aus der Basisnavigation hinzugefügt (#304)
+- Neu hinzugefügt Widget-Typ 'HTTP' für Universal- und Multi-Widget (#249)
+- Sichtbare Schritte für einfachen Slider hinzugefügt
+
 ## 3.2.0
 - Textfarbe aktiv/inaktiv für Universal- & Multiwidget
 - Colorslider CIE Wert mit eckigen Klammern

@@ -4,10 +4,10 @@ lastChanged: 23.04.2021
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/community/docmarkdown.md
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
-hash: 9qginu+6BT6Cm5JzwTYlJJ+LmFCjpyS0LVuttJtXxqc=
+hash: mjGgkxRz/ltg4/3OhZi5c/N+GKM1nmTaj+xCAMTAblo=
 ---
 # Markdown: 语法
-?> 为了使ioBroker 的文档快速且易于阅读，我们选择了Markdown 作为简化的标记语言。以下指南将帮助您学习 Markdown 的语法和功能，并将它们翻译成优秀的文档。
+?> 为了使ioBroker 的文档快速且易于阅读，Markdown 被选为简化的标记语言。以下指南将帮助您学习 Markdown 的语法和功能，并将它们翻译成优秀的文档。
 
 从技术上讲，文档系统仅支持以下功能：
 
@@ -31,12 +31,12 @@ Markdown 的设计考虑了基本思想，即尽可能易于阅读和编写。
 ### 内联 HTML
 Markdown 的语法有一个目的：用于*为网络编写*。
 
-Markdown 不能替代 HTML，甚至不能替代。语法的范围非常小，只对应于所有 HTML 标签的一小部分。 Markdown 并不打算让 HTML 标记更容易。 HTML 已经足够简单了。 Markdown 背后的想法是使文本尽可能易于阅读、编写和编辑。 HTML是*发布格式*； Markdown 是一种*书写格式*。因此，其语法仅考虑可以使用纯文本传达的内容。
+Markdown 不是 HTML 的替代品，即使是远程的。语法的范围非常小，只对应于所有 HTML 标签的一小部分。 Markdown 并不打算让 HTML 标记更容易。 HTML 已经足够简单了。 Markdown 背后的想法是使文本尽可能易于阅读、编写和编辑。 HTML是*发布格式*； Markdown 是一种*书写格式*。因此，它的语法只考虑了可以用纯文本传达的内容。
 
-任何 Markdown 不可行的格式都可以简单地使用 HTML。无需标记 HTML 以将其与其他部分分开。
+任何 Markdown 不可行的格式都可以简单地使用 HTML。无需突出显示 HTML 以将其与其他部分分开。
 它只是写在文本中。
 
-唯一的限制是块元素，例如 `<div>`、`<table>`、`<pre>`、`<p>` 等。它们必须通过空行与周围的内容分开，并且开始和结束标签不应使用空格或制表符缩进。 Markdown 足够智能，不会在 HTML 块周围设置任何额外的（不需要的）`<p>` 标签。
+唯一的限制是块元素，例如 `<div>`、`<table>`、`<pre>`、`<p>` 等。它们必须用空行与周围的内容分开，并且开始和结束标签不应使用空格或制表符缩进。 Markdown 足够智能，不会在 HTML 块周围设置任何额外的（不需要的）`<p>` 标签。
 
 例如，要在 Markdown 文章中包含一个 HTML 表格：
 
@@ -81,7 +81,7 @@ Markdown 允许这些字符正常使用。它规定了编码本身，如果实�
 
 `AT&amp;T`
 
-做。由于 Markdown 支持内联 HTML，因此在适当的情况下将尖括号视为 HTML。只是从诸如
+做。由于 Markdown 支持内联 HTML，因此在适当的情况下，尖括号被视为 HTML。只是为了像
 
 `4 < 5`
 
@@ -89,7 +89,7 @@ Markdown 允许这些字符正常使用。它规定了编码本身，如果实�
 
 `4 &lt; 5`
 
-做。但是，尖括号和与号 *总是* 编码在代码或跨度块中。这简化了在 Markdown 中编写 HTML（与原始 HTML 不同，原始 HTML 对每个 `<` 和 `&` 进行编码几乎是一场噩梦）。
+做。在代码或跨度块中，尖括号和与号 *总是* 编码。这简化了在 Markdown 中编写 HTML（与原始 HTML 不同，原始 HTML 对每个 `<` 和 `&` 进行编码几乎是一场噩梦）。
 
 ##块元素
 ### 段落和换行符
@@ -108,8 +108,8 @@ Markdown 的类似电子邮件的多段 [引用] (#quotes) 和 [列表条目](#l
 [l]:  #list
 
 ### 标题
-这里的 Markdown 只支持一种类型的标题格式：atx。
-类似 Atx 的标题在行首使用 1-6 个哈希符号，对应于 1-6 级。例如：
+这里的 Markdown 只支持一种头部格式：atx。
+类似 Atx 的标头在行的开头使用 1-6 个哈希符号，对应于 1-6 级。例如：
 
 `# Dies ist ein H1`
 
@@ -128,7 +128,7 @@ Markdown 还允许你偷懒，只在硬断的段落的第一行使用 `>`：
 
 `> Donec sit amet nisl. Aliquam semper ipsum sit amet velit.` `Suspendisse id sem consectetuer libero luctus adipiscing.`
 
-通过使用更多 `>` 可以嵌套引用（即引用中的引用）：
+通过使用更多的 `>` 可以嵌套引用（即引用中的引用）：
 
 `    > Dies ist die erste Zitat-Ebene.``    >``    > > Dies ist ein verschachteltes Zitat.``    >``    > Zurück auf der ersten Ebene.`
 
@@ -137,7 +137,7 @@ Markdown 还允许你偷懒，只在硬断的段落的第一行使用 `>`：
 > ## 这是一个标题。
 >> 1. 这是列表中的第一项。
 > 2. 这是列表中的第二项。
->> 下面是一些示例代码：>> return shell_exec ("echo $ input | $ Markdown_script");
+>> 下面是一些示例代码：>> return shell_exec("echo $ input | $ Markdown_script");
 
 任何合理的文本编辑器都应该使电子邮件式引用变得容易。例如，在 BBEdit 中，您可以进行选择并从菜单 `Text` 中选择 `Increase Quote Level`。
 
@@ -146,9 +146,9 @@ Markdown 支持排序（编号）和未排序列表（项目符号列表）。
 
 未排序列表使用星号、加号和连字符 - 可互换 - 作为列表标记：
 
-    * 红色的
-    * 绿色的
-    * 蓝色的
+    *   红色的
+    *   绿
+    *   蓝色
 
 等于：
 
@@ -156,9 +156,9 @@ Markdown 支持排序（编号）和未排序列表（项目符号列表）。
 
 和：
 
-    - 红色的
-    - 绿色
-    - 蓝色的
+    -   红色的
+    -   绿
+    -   蓝色
 
 排序列表使用数字后跟一个句点：
 
@@ -182,7 +182,7 @@ Markdown 支持排序（编号）和未排序列表（项目符号列表）。
     第一只猫
     8. 鼠标
 
-每次都会出现相同的列表。如果需要，您可以手动正确编号列表。但如果你想偷懒，你总是可以使用相同的数字。
+每次都会出现相同的列表。如果需要，您可以手动正确编号列表。但是如果你想偷懒，你总是可以使用相同的数字。
 
 但是，即使这样，您也应该以数字 1 开始列表。将来，Markdown 可能希望为列表中的第一个条目设置一个起始编号。
 
@@ -193,7 +193,7 @@ Markdown 支持排序（编号）和未排序列表（项目符号列表）。
 
     * Lorem ipsum dolor 坐 amet，consectetuer adipiscing 精英。
 
-Aliquam hendrerit mi posuere lectus。 Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus。
+Aliquam hendrerit mi posuere lectus。 Vestibulum enim wisi、viverra nec、fringilla in、laoreet vitae、risus。
 
     * Donec 坐在 amet nisl。 Aliquam semper ipsum 坐 amet velit。
 
@@ -203,7 +203,7 @@ Aliquam hendrerit mi posuere lectus。 Vestibulum enim wisi, viverra nec, fringi
 
     * Lorem ipsum dolor 坐 amet，consectetuer adipiscing 精英。
 
-Aliquam hendrerit mi posuere lectus。 Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus。
+Aliquam hendrerit mi posuere lectus。 Vestibulum enim wisi、viverra nec、fringilla in、laoreet vitae、risus。
 
     * Donec 坐在 amet nisl。 Aliquam semper ipsum 坐 amet velit。
 
@@ -214,21 +214,21 @@ Aliquam hendrerit mi posuere lectus。 Vestibulum enim wisi, viverra nec, fringi
 例如，这将是：
 
     * 沃斯坦纳
-    * 国王
+    * 王
 
-至
+到
 
-<ul><li>瓦尔施泰纳</li><li>国王</li></ul>
+<ul><li>瓦尔施泰纳</li><li>王</li></ul>
 
 但是这个：
 
     * 沃斯坦纳
 
-    * 国王
+    * 王
 
 变成
 
-<ul><li><p>瓦尔施泰纳</p></li><li><p>国王</p></li></ul>
+<ul><li><p>瓦尔施泰纳</p></li><li><p>王</p></li></ul>
 
 列表项可以由多个段落组成。列表项中的每个以下段落必须缩进至少 4 个空格或一个制表符：
 
@@ -236,7 +236,7 @@ Aliquam hendrerit mi posuere lectus。 Vestibulum enim wisi, viverra nec, fringi
 
 坐下来，consectetuer adipiscing 精英。 Aliquam hendrerit mi posuere lectus。
 
-Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus。 Donec 坐在 amet nisl。 Aliquam semper ipsum 坐 amet velit。
+Vestibulum enim wisi、viverra nec、fringilla in、laoreet vitae、risus。 Donec 坐在 amet nisl。 Aliquam semper ipsum 坐 amet velit。
 
     2. Suspendisse id sem consectetuer libero luctus adipiscing。
 
@@ -308,12 +308,12 @@ Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus。 Donec �
 
 <pre><code>&lt;div class="footer"&gt; &amp;copy; 2004 Foo Corporation &lt;/div&gt; </code></pre>
 
-正常的 Markdown 语法不在代码块中处理。 IE。
+代码块中不处理正常的 Markdown 语法。 IE。
 星号只是代码块中的星号，并不是突出显示文本的信号。结果是在 Markdown 中很容易谈论 *关于* Markdown。
 
 <a id="hr"></a>
 
-### 水平线 水平线的标记 (`<hr />`) 可以通过在一行上单独写入 3 个或更多连字符或星号来生成。字符之间也允许有空格。以下所有示例都会生成一条水平线：
+### 水平线 水平线的日期 (`<hr />`) 可以通过在一行上单独写入 3 个或更多连字符或星号来生成。字符之间也允许有空格。以下所有示例都会生成一条水平线：
     * * *
 
     ***
@@ -354,19 +354,19 @@ Markdown 支持两种类型的链接：* 内联 * 和 * 引用 *。
 
 参考链接使用第二组方括号，其中写入链接的任何标识符：
 
-    这是参考链接的[示例] [id]。
+    这是参考链接的 [示例] [id]。
 
 如果您愿意，还可以在括号之间插入一个空格：
 
-    这是参考链接的[示例] [id]。
+    这是参考链接的 [示例] [id]。
 
-然后，在文档中的某处，链接在其自己的行上定义如下：
+然后，在文档的某处，链接在其自己的行上定义如下：
 
 [id]: http://example.com/  "Optionalen Titel hier eintragen"
 
 所以：
 
-* 包含链接标识符的方括号（可选带有
+* 包含链接标识符的方括号（可选
 
     最多缩进三个空格）；
 
@@ -421,7 +421,7 @@ title 属性也可以放在下一行并用更多空格或制表符缩进。这�
 
 [Daring Fireball]: http://daringfireball.net/
 
-链接定义可以在 Markdown 文档中的任何位置进行。通常，最好在使用它们的段落之后执行它们。但是，就像脚注一样，它们都可以一起列在文档末尾。
+链接定义可以在 Markdown 文档中的任何位置进行。通常，最好在使用它们的段落之后执行它们。但是，就像脚注一样，它们都可以一起列在文档的末尾。
 
 一个小例子：
 
@@ -451,13 +451,13 @@ title 属性也可以放在下一行并用更多空格或制表符缩进。这�
 
 我从 [谷歌](http://google.com/ "Google") 获得的流量是来自 [雅虎](http://search.yahoo.com/ "Yahoo Search") 或 [MSN](http://search.msn.com/ "MSN Search") 的流量的十倍。
 
-参考链接背后的想法并不是它们更容易编写。这个想法是它们使文档更具可读性。示例段落的参考链接长度仅为 80 个字符，参考链接的长度为 181 个字符； 239 个字符作为 HTML，标记多于内容。
+参考链接背后的想法并不是它们更容易编写。这个想法是它们使文档更具可读性。示例段落只有 80 个字符长，有参考链接，181 个字符长有参考链接； 239 个字符作为 HTML，标记多于内容。
 
-使用 Markdown 的参考链接，源文档看起来更像是浏览器中显示的最终输出格式。由于能够从段落中提取标记元数据，链接可以集成到文本中，而不会减慢文本的流动速度。
+使用 Markdown 的参考链接，源文档看起来更像是浏览器中显示的最终输出格式。由于能够从段落中提取用于标记的元数据，链接可以集成到文本中，而不会减慢文本的流动速度。
 
 <a id="em"></a>
 
-### 强调 Markdown 将星号 (`*`) 和下划线 (`_`) 视为强调的指标。文字装入个人`*`或`_`内附HTML标签`<em>`，双`*`或`_`都标有标签`<strong>`。下面的文字，例如：
+### 强调 Markdown 将星号 (`*`) 和下划线 (`_`) 视为强调指示符。装在个人`*`或`_`文本括与HTML标签`<em>`，双`*`或`_`都标有标签`<strong>`。下面的文字，例如：
     *单星号*
 
     _单下划线_
@@ -476,7 +476,7 @@ title 属性也可以放在下一行并用更多空格或制表符缩进。这�
 
 <strong>双下划线</strong>
 
-样式可以任意选择。唯一的限制是必须使用相同的符号来打开和关闭应力区域。
+样式可以任意选择。唯一的限制是必须使用相同的符号来打开和关闭重点区域。
 
 Stress 可以用在单词中间：
 
@@ -490,7 +490,7 @@ Stress 可以用在单词中间：
 
 <a id="code"></a>
 
-### 代码 为了标记一个代码区域，它用反引号字符括起来（`` ` ` ''）。与代码块相反，代码区在普通段落中格式化代码：
+### 代码 为了标记一个代码区域，它用反引号字符括起来（`` ` ` ''）。与代码块相比，代码区在普通段落中格式化代码：
     使用函数 `printf()` 输出文本。
 
 变成：
@@ -536,7 +536,7 @@ Stress 可以用在单词中间：
 <a id="img"></a>
 
 ### 图形 诚然，很难找到将图形包含在文本中的“自然”语法。
-Markdown 使用设计为类似于链接样式的语法来做到这一点。这允许两种类型：内联和引用。
+Markdown 使用一种应该类似于链接样式的语法来执行此操作。这允许两种类型：内联和引用。
 
 内联语法如下所示：
 
@@ -551,7 +551,7 @@ Markdown 使用设计为类似于链接样式的语法来做到这一点。这�
 
     包含图形的 `alt` 属性；
 
-* 后跟圆括号表示 URL 或图形的路径
+* 后跟圆括号表示 URL 或图形路径
 
 以及可选的 `title` 属性的值，用引号括起来。
 
@@ -563,7 +563,7 @@ Markdown 使用设计为类似于链接样式的语法来做到这一点。这�
 
 [id]: url/zur/grafik  "Optionales title-Attribut"
 
-目前，Markdown 没有用于指定图形大小的语法。如果有必要，可以使用普通的 HTML 标签 `<img>`。
+目前，Markdown 没有用于指定图形大小的语法。如果有必要，您可以简单地使用普通的 HTML 标签 `<img>`。
 
 * * *
 
@@ -586,7 +586,7 @@ Markdown 为以下字符提供此选项：
 
 _下划线{}大括号[]方括号()圆括号
 
-# 哈希 + 加号
+#哈希+加号
     - 减号（连字符）
 
 .观点 ！感叹号
@@ -600,7 +600,7 @@ _下划线{}大括号[]方括号()圆括号
 
 [by-sa]: http://creativecommons.org/licenses/by-sa/4.0/deed.de
 
-?> 这是 [John Grubers] [jg] [Markdown] [md] 对 [原始语法文档] [osd] 的翻译。本翻译参考2013年12月15日的状态（Markdown Version 1.0.1）。不保证翻译的正确性。如果翻译有错误，请发短信至<lasar@liepins.net>。
+?> 这是 [John Grubers] [jg] [Markdown] [md] 对 [原始语法文档] [osd] 的翻译。此翻译参考了 2013 年 12 月 15 日的状态（Markdown Version 1.0.1）。不保证翻译的正确性。如果翻译有错误，请发短信至<lasar@liepins.net>。
 也欢迎任何其他类型的反馈。*
 
 [jg]: http://daringfireball.net/

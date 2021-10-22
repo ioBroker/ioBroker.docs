@@ -4,7 +4,7 @@ lastChanged: 14.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/README.md
-hash: 4nSU2ciROiZWPofjIMQZOXpmkahrbQBmUU3WwJDFExw=
+hash: cEgurBTKHvIBRyuTiU1oG92EA/xzc85JUd1ChW5iwa4=
 ---
 ioBroker is a pure software solution to connect different IoT systems to one overall system. Accordingly, a control center (gateway / interface) is still required for each system in order to be able to integrate its devices.
 
@@ -29,7 +29,7 @@ An ioBroker server can be installed on almost any hardware. The only condition i
 
 !> As of May 2021, nodejs 12.x is still recommended for ioBroker.
 
-For a larger installation, a working memory (RAM) of at least 2GB is recommended. A Raspberry Pi 2/3 with 1GB RAM is sufficient for testing; as a slave for individual adapters in a multihost environment, even smaller microcomputers are sometimes sufficient.
+For a larger installation, a working memory (RAM) of at least 2GB is also recommended. A Raspberry Pi 2/3 with 1GB RAM is sufficient for testing; as a slave for individual adapters in a multihost environment, even smaller microcomputers are sometimes sufficient.
 
 ### Software
 ioBroker manages the data in a database. The structure of the data is organized accordingly.

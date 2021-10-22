@@ -4,7 +4,7 @@ lastChanged: 13.09.2018
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/basics/architecture.md
-hash: tRt6MnfQ7NhW3HVZYiIHrRBTqLWlqKrd6ES9IOnC1ic=
+hash: TTswbQgdwOLTR0BcyqS/DxHorju+Hjp+KNRykl+NNVs=
 ---
 # 系统结构
 ?> *** 这是一个占位符***。<br><br>帮助 ioBroker 并扩展这篇文章。请注意 [ioBroker 风格指南](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) 以便可以更轻松地采用更改。
@@ -18,6 +18,6 @@ ioBroker 是模块化的，即由许多单独的组件组成。每个模块都�
 
 适配器、js 控制器、数据库和 Web 前端之间的通信通过多个 TCP/IP 连接进行。数据交换以纯文本或加密形式进行，具体取决于所选设置。
 
-ioBroker 和适配器主要是用 JavaScript 编程语言编写的。运行 JavaScript 需要合适的运行时环境。因此，ioBroker 基于 `Node.js`。此运行时环境可用于各种软件平台，例如 Linux、Windows 和 macOS。 JavaScript 包管理器 `npm` 用于安装 ioBroker 和适配器。
+ioBroker 和适配器主要是用 JavaScript 编程语言编写的。运行 JavaScript 需要适当的运行时环境。因此，ioBroker 基于 `Node.js`。此运行时环境可用于各种软件平台，例如 Linux、Windows 和 macOS。 JavaScript 包管理器 `npm` 用于安装 ioBroker 和适配器。
 
 @@@ 用架构层解释漂亮的图片@@@ @@@ JS 控制器和过渡到适配器和实例@@@

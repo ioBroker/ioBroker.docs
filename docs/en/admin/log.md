@@ -4,14 +4,14 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/log.md
-hash: 66gpVVstVxHlQUyyBYv8juocwLyP/pXvD9q5MXSJDlE=
+hash: SF9PSkEVT8mItnrGcqW4liNccrJ/ZhU4DElrk63Agz4=
 ---
 The system's messages are continuously output here. The latest message is at the top.
 
 ![The log page](../../de/admin/media/ADMIN_Log_numbers.png)
 
 ## The title line
-in the title line there are icons for the most important processes. There is context help for each icon. Simply stay on the icon with the mouse for a while.
+in the title line there are icons for the most important processes. There is context help for each icon. To do this, simply hold the mouse on the icon for a while.
 
 ### 1 - update log
 This button updates the list.

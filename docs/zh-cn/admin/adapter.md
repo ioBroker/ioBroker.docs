@@ -4,13 +4,13 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/admin/adapter.md
-hash: WMGHnDlc1DVIkuuUYX/rzRRpv7TElDq4iQ86l+lUBCo=
+hash: svGv1TgKOa2pP8zn85C5t9Xd7FgJNy5dfaEK2af4S84=
 ---
 # 适配器选项卡
 可用和已安装的适配器在此处显示和管理。
 
 ##标题行
-在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需在图标上按住鼠标一会儿。
+在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需在图标上按住鼠标一段时间即可。
 
 ![管理选项卡](../../de/admin/media/ADMIN_Adapter_Kachel_numbers.png)
 
@@ -24,7 +24,7 @@ hash: WMGHnDlc1DVIkuuUYX/rzRRpv7TElDq4iQ86l+lUBCo=
 选择此图标时，仅显示已安装实例的适配器（切换功能）
 
 ### 4 - 显示带有更新的适配器
-选择此图标时，仅显示可用更新的适配器（切换功能）。可更新适配器的磁贴有一个绿色标题。如果适配器没有更新，则会出现相应的消息。
+选择此图标时，仅显示可用更新的适配器（切换功能）。可更新适配器的图块具有绿色标题。如果适配器没有更新，则会出现相应的消息。
 
 标题栏中还会出现另一个图标：
 
@@ -33,7 +33,7 @@ hash: WMGHnDlc1DVIkuuUYX/rzRRpv7TElDq4iQ86l+lUBCo=
 单击此图标 (8) 更新所有可用的适配器。
 
 ### 5 - 从它自己的 URL 安装适配器
-!> ** 注意：使用此选项可能会导致 ioBroker 安装出现问题。** 来自 GitHub 的适配器可能仍在开发中，因此无法正常工作！这些只能在生产系统中谨慎使用。建议等待稳定版本！
+!> ** 注意：使用此选项可能会导致 ioBroker 安装出现问题。** 来自 GitHub 的适配器可能仍在开发中，因此无法正常工作！这些只能在生产系统中谨慎使用。建议等待稳定版！
 
 使用 Octocat 图标，可以从自己的路径（URL 或文件路径）或 GitHub 的预发布版本安装适配器。
 

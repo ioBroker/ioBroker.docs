@@ -4,9 +4,9 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hm-rega/README.md
 title: HomeMatic ReGaHSS
-hash: 5nzOtddjd6p/3BVJJkfR7yHWPQUqVm2mcbdsP7tvrkM=
+hash: G+XgC3bx73W0XgVhW1GkYuvI38TcQQgIsp3P1ggWznM=
 ---
-![商标](../../../de/adapterref/iobroker.hm-rega/media/homematic.png)
+![标识](../../../de/adapterref/iobroker.hm-rega/media/homematic.png)
 
 # HomeMatic ReGaHSS
 ##家庭式
@@ -24,7 +24,7 @@ hash: 5nzOtddjd6p/3BVJJkfR7yHWPQUqVm2mcbdsP7tvrkM=
 
 安装 ReGaHSS 时，也会安装一个“hm-rpc”适配器实例，需要提前配置并激活。
 
-该适配器的一个实例最多可以管理 5 个不同的 Homematic RPC 适配器实例，它们提供不同的服务（每个服务都需要自己的 RPC 实例）：
+此适配器的一个实例最多可以管理 5 个不同的 Homematic RPC 适配器实例，它们提供不同的服务（每个服务都需要自己的 RPC 实例）：
 
 - rfd（标准组件的 CCU 无线电服务）
 - hs485d（有线）（用于有线总线组件）
@@ -33,7 +33,7 @@ hash: 5nzOtddjd6p/3BVJJkfR7yHWPQUqVm2mcbdsP7tvrkM=
 - 虚拟设备
 
 ###安装前的要求
-- Homematic 网关 (CCU / CCU2 / CCU3…) *或*
+- Homematic 网关 (CCU / CCU2 / CCU3...) *或*
 - 带有合适软件的无线电模块（piVCCU (* x) *、RaspberryMatic 或类似软件）
 
 ＃＃ 安装
@@ -65,8 +65,8 @@ CCU的IP地址可以在下拉菜单中选择；重连间隔（标准 30 秒）�
 
 扳机
 
-为了最大限度地减少从 ioBroker 到 RegaHSS 的主动查询，触发器还可以在进行更改时将数据推送到程序内的 CCU 上。
-在 CCU 程序中触发的 CCU 上的虚拟按钮可用于此目的。默认情况下，这是 BidCosRF.50.PRESS_SHORT 键（参见示例程序）。
+为了最大限度地减少从 ioBroker 到 RegaHSS 的活动查询，触发器还可以在进行更改时将数据推送到程序内的 CCU 上。
+为此可以使用 CCU 上的虚拟按钮，该按钮在 CCU 程序中触发。默认情况下，这是 BidCosRF.50.PRESS_SHORT 键（参见示例程序）。
 
 ###同步区域
 用户可以在此处指定哪些信息将从 CCU 传输到 ioBroker。然后在 ioBroker 中创建相应的对象和数据点。
@@ -76,7 +76,7 @@ CCU的IP地址可以在下拉菜单中选择；重连间隔（标准 30 秒）�
 - 程序：激活从 CCU 传输程序名称
 - 名称：激活从 CCU 传输数据点的纯文本名称
 - 收藏夹：激活收藏夹的传输和列表
-- 房间：激活房间的采用和它们的列表
+- 房间：激活房间的接管和房间列表
 - 交易：激活交易转移和交易清单
 
 ### 附加设置区域

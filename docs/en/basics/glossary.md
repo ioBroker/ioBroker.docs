@@ -5,7 +5,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/glossary.md
 title: no title
-hash: pNXghnzEUIUGnqswpze2CJ8dmBmPOIWjCZiDbzPOvVA=
+hash: YHltgX7oCBrfgffqJry+MOvUzBLV28rn4SoXbROJAMc=
 ---
 To make it easy to get started and to make further help easier to understand, the most important terms that appear in and around the ioBroker are explained here.
 
@@ -17,7 +17,7 @@ A module or driver for a device, service or to provide data. Thanks to the very 
 
 The admin adapter provides the web interface for configuring ioBroker. This includes installing adapters, creating instances, creating and checking objects, states, editing scripts and much more.
 
-* **List**
+* **Count**
 
     English term: enum (eration)
 
@@ -40,7 +40,7 @@ Homematic devices are available in radio and wired versions (wired bus).
 
 * **CSS**
 
-Cascading style sheets. The presentation of websites can be described independently of the content using CSS. As a supplement to the page structure defined in HTML, CSS defines how the page is displayed.
+Cascading style sheets. Using CSS, the presentation of websites can be described independently of the content. As a supplement to the page structure defined in HTML, CSS defines how the page is displayed.
 
 * **Cubietruck / Cubieboard 3**
 
@@ -64,7 +64,7 @@ In multihost mode there are several hosts, one of which is the master and the ot
 
 * **HTML**
 
-Hypertext Markup Language. A page description language (based on the WWW) that is used to display content (text, links, graphics, videos, etc.) in web browsers.
+Hypertext Markup Language. A page description language (basis of the WWW), which is used to display content (text, links, graphics, videos, etc.) in web browsers.
 
 * **Instance**
 
@@ -90,7 +90,7 @@ A channel groups thematically related states and is usually located under a devi
 
 * **Master**
 
-The master is the host, which is centrally responsible for the administration of all instances (including the instances of the slaves!). When the master is terminated, the slave instances are also terminated. The master provides the central object and status databases for all slaves, to which all slaves connect.
+The master is the host, which is responsible for the administration of all instances (including the instances of the slaves!). When the master is terminated, the slave instances are also terminated. The master provides the central object and status databases for all slaves, to which all slaves connect.
 
 * **Multihost mode**
 
@@ -98,7 +98,7 @@ The multihost mode of ioBroker can be used to distribute the control tasks to se
 
 * **Node-Red**
 
-Graphic programming surface in which finished modules (nodes) can be linked to complex programs by simple chaining (flow)
+Graphic programming surface in which finished modules (nodes) can be linked to complex programs by simple chaining (flow).
 
 * **Objects and states**
 
@@ -108,7 +108,7 @@ Graphic programming surface in which finished modules (nodes) can be linked to c
 
 Objects describe a state in more detail and provide meta information, configuration and description of this. An object has a type, e.g. host, adapter, instance, enumeration, device, channel or data point ...
 
-The metadata also define the data type of the state, e.g. number, boolean, string and also how the state should be displayed in visualization interfaces.
+The metadata also define the data type of the state, e.g. number, boolean, string and also how the state should be displayed in the visualization interfaces.
 
 * **Odroid**
 
@@ -117,7 +117,7 @@ Single-board computer similar to a Raspberry PI. There are several versions with
 * **Parser adapter**
 
 An adapter that is made up of texts regardless of their origin by specifying so-called.
-Regular expressions, cuts out parts that can then be written into states. These values can then be used in scripts and the like. are further processed.
+Regular expressions, cuts out parts that can then be written into states. These values can then be used in scripts and the like. further processed.
 
 * **Raspberry PI**
 
@@ -125,7 +125,7 @@ Credit card-sized single-board computer (developed by the Raspberry PI Foundatio
 
 * **Redis**
 
-A no-SQL database that holds your data in memory and can be used in ioBroker to store status data. Is used optionally to increase the performance, since no access to a hard drive, SSD or SD card is necessary for write and read actions. To use a Redis DB with ioBroker, this must be specified in the js-controller basic configuration.
+A no-SQL database that holds your data in memory and can be used in ioBroker to store status data. Is optionally used to increase the performance, since no access to a hard drive, SSD or SD card is necessary for write and read actions. To use a Redis DB with ioBroker, this must be specified in the js-controller basic configuration.
 
 * **State**
 
@@ -133,7 +133,7 @@ A no-SQL database that holds your data in memory and can be used in ioBroker to 
 
 * **vis**
 
-The VIS adapter allows you to create your own operating and visualization interfaces for ioBroker and to display them on various devices. The surfaces are composed of customizable widgets and your own HTML code and their appearance can be changed using CSS.
+The VIS adapter allows you to create your own operating and visualization interfaces for ioBroker and to display them on various devices. The surfaces are put together from customizable widgets and their own HTML code and their appearance can be changed using CSS.
 
 * **Widget**
 

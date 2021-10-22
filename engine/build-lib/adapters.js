@@ -3,10 +3,10 @@
 // 1. Collect all possible adapters in docs/LN/adapterreff and do not collect yet local files marked as "local: true"
 // 2. Cross translate adapters in master/front-end/public/LN/adapterreff. start from english
 
-const request = require('request');
-const fs = require('fs');
-const path = require('path');
-const utils = require('./utils');
+const axios  = require('axios');
+const fs     = require('fs');
+const path   = require('path');
+const utils  = require('./utils');
 const consts = require('./consts');
 
 const ADAPTERS_DIR = path.normalize(__dirname + '/../../docs/LANG/adapterref/').replace(/\\/g, '/');
@@ -52,11 +52,11 @@ function downloadImagesForReadme(lang, repo, data) {
                     } else {
                         relative = link;
                     }
-                    request(relative + link, {encoding: null}, (err, status, body) => {
-                        err && console.error('Cannot _download ' + relative + link + ': ' + err);
-                        body && utils.writeSafe(localDirName + link, body);
-                        resolve1();
-                    });
+
+                    axios(relative + link, {responseType: 'arraybuffer'})
+                        .then(result => result && result.data && utils.writeSafe(localDirName + link, result.data))
+                        .catch(err => err && console.error(`Cannot _download ${relative}${link}: ${err}`))
+                        .then(() => resolve1());
                 } else {
                     resolve1();
                 }
@@ -220,15 +220,12 @@ function getUrl(url, binary) {
     }
     urlsCache[url] = new Promise(resolve => {
         console.log('Requested ' + url);
-        request(url, {encoding: null}, (err, state, file) => {
-            err && console.error('Cannot download ' + url + ': ' + err);
-            if (!state || state.statusCode !== 200) {
-                !err && console.error('Cannot download ' + url + ': ' + (state && state.statusCode));
-                resolve();
-            } else {
-                resolve(binary ? file : file.toString());
-            }
-        });
+        axios(url, {responseType: 'arraybuffer', validateStatus: status => status === 200})
+            .then(result => {
+                resolve(binary ? result.data : result.data.toString());
+            })
+            .catch(err => console.error(`Cannot download ${url}: ${err}`))
+            .then(() => resolve());
     });
     return urlsCache[url];
 }
@@ -520,20 +517,22 @@ function processAdapter(adapter, repo, content) {
 let repoPromise;
 function downloadRepo() {
     repoPromise = repoPromise || new Promise(resolve => {
-        request('http://iobroker.live/repo/sources-dist.json', (err, state, body) => {
-            const stable = JSON.parse(body);
-            request('http://iobroker.live/repo/sources-dist-latest.json', (err, state, body) => {
-                const latest = JSON.parse(body);
-                // get stable versions
-                Object.keys(latest).forEach(adapter => {
-                    latest[adapter].latestVersion = latest[adapter].version;
-                    latest[adapter].version = stable[adapter] ? stable[adapter].version : '-.-.-';
-                });
+        return axios('http://iobroker.live/repo/sources-dist.json')
+            .then(result => {
+                const stable = result.data;
+                return axios('http://iobroker.live/repo/sources-dist-latest.json')
+                    .then(result => {
+                        const latest = result.data;
+                        // get stable versions
+                        Object.keys(latest).forEach(adapter => {
+                            latest[adapter].latestVersion = latest[adapter].version;
+                            latest[adapter].version = stable[adapter] ? stable[adapter].version : '-.-.-';
+                        });
 
-                resolve(latest);
+                        resolve(latest);
+                    });
             });
         });
-    });
 
     return repoPromise;
 }
@@ -541,10 +540,11 @@ function downloadRepo() {
 let statisticsPromise;
 function downloadStatistics() {
     statisticsPromise = statisticsPromise || new Promise(resolve => {
-        request('http://iobroker.live/statistics.json', (err, state, body) => {
-            const stat = JSON.parse(body);
-            resolve(stat);
-        });
+        axios('http://iobroker.live/statistics.json')
+            .then(result => {
+                const stat = result.data && typeof result.data !== 'object' ? JSON.parse(result.data) : result.data;
+                resolve(stat);
+            });
     });
 
     return statisticsPromise;

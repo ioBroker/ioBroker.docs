@@ -1,6 +1,6 @@
 'use strict';
 
-const request = require('request');
+const axios = require('axios');
 const fs = require('fs');
 let lastRequest = null;
 const {Translate} = require('@google-cloud/translate').v2;
@@ -41,24 +41,19 @@ async function translateYandex(text, targetLang, yandex) {
     }
     try {
         const url = `https://translate.yandex.net/api/v1.5/tr.json/translate?key=${yandex}&text=${encodeURIComponent(text)}&lang=en-${targetLang}`;
-        return new Promise((resolve, reject) => {
-            request(url, (err, state, body) => {
-                if (err || !state || state.statusCode !== 200) {
-                    reject(err || state.statusCode);
-                } else {
-                    try {
-                        const json = JSON.parse(body);
-                        if (json && json.text && json.text[0]) {
-                            resolve(json.text[0]);
-                        } else {
-                            reject('Invalid answer: ' + body);
-                        }
-                    } catch (e) {
-                        reject('Cannot parse answer: ' + body);
+        return axios(url, {validateStatus: status => status === 200})
+            .then(result => {
+                try {
+                    const json = result.data;
+                    if (json && json.text && json.text[0]) {
+                        return json.text[0];
+                    } else {
+                        throw new Error('Invalid answer: ' + json);
                     }
+                } catch (e) {
+                    throw new Error('Cannot parse answer: ' + json);
                 }
             });
-        });
     } catch (e) {
         throw new Error(`Could not translate to '${targetLang}': ${e}`);
     }
@@ -103,27 +98,27 @@ function translateGoogleSync(text, targetLang, sourceLang, cb) {
 
         console.log(`Translate ${sourceLang} => ${targetLang} : ${text}`);
 
-        request(url, (err, state, body) => {
-            if (err || !state || state.statusCode !== 200) {
-                if (state.statusCode === 429) {
-                    cb(null, 'TR: ' + text);
-                } else {
-                    cb(err || state.statusCode);
-                }
-            } else {
+        axios(url, {validateStatus: status => status === 200})
+            .then(result => {
                 try {
-                    const json = JSON.parse(body);
+                    const json = result.data;
                     if (json instanceof Array) {
                         // we got a valid response
                         cb(null, json[0][0][0]);
                     } else {
-                        cb('Invalid answer: ' + body);
+                        cb('Invalid answer: ' + result.data);
                     }
                 } catch (e) {
-                    cb('Cannot parse answer: ' + body);
+                    cb('Cannot parse answer: ' + result.data);
                 }
-            }
-        });
+            })
+            .catch(error => {
+                if (error.response.status === 429) {
+                    cb(null, 'TR: ' + text);
+                } else {
+                    cb(error.response.data || error.response.status);
+                }
+            });
     }
 }
 

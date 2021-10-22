@@ -4,10 +4,10 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/states.md
 title: States and data points
-hash: OUheU+wHUm8+dmMTruV37xytEJKhWqBC2U5RwekU/9g=
+hash: MOsvNxcXWYjRz8dmEGJh+aRa220Vu/VeRkYJYlt2zFQ=
 ---
 # States and data points
-A **data point** consists of a static object of the type "state" and a dynamic state (state).
+A **data point** consists of a static object of the "state" type and a dynamic state (state).
 
 Are properties of a state
 
@@ -19,6 +19,6 @@ Are properties of a state
  * from - (optional) source (adapter instance) of the last update
  * user - (optional) user name, who was the last to write the value.
  * c - (optional) comment
- * expire - (optional) time in seconds, when the value is reset to `null`.
+ * expire - (optional) time in seconds when the value is reset to `null`.
 
-?> ***This is a placeholder*** .<br><br> Help with ioBroker and expand this article. Please note [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.
+?> ***This is a placeholder*** .<br><br> Help with ioBroker and expand this article. Please note the [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.

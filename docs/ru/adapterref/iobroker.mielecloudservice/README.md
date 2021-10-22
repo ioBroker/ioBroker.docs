@@ -3,18 +3,17 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.MieleCloudService
-hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
+hash: ZVdUfq88fa+kNbx1+bcNP73Eln01GWDDrUDLrsJ1Qhk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
 ![Количество установок](http://iobroker.live/badges/mielecloudservice-stable.svg)
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.mielecloudservice.svg)
 ![Известные уязвимости](https://snyk.io/test/github/Grizzelbee/ioBroker.mielecloudservice/badge.svg?targetFile=package.json)
-![НПМ](https://nodei.co/npm/iobroker.mielecloudservice.png?downloads=true)
 ![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.mielecloudservice.svg)
 
-# IoBroker.MieleCloudService [![Статус сборки] (https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice.svg?branch=master)](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice)
+# IoBroker.MieleCloudService [![Тестирование и выпуск] (https://github.com/Grizzelbee/ioBroker.mielecloudservice/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.mielecloudservice/actions/workflows/test-and-release.yml)
 ## Описание
 Этот адаптер предназначен для получения информации обо всех ваших устройствах Miele @ Home из официального стороннего API Miele.
 Независимо от того, подключены ли они напрямую через Wi-Fi или шлюз XGW3000. В нем реализован **API сторонних разработчиков Miele V1.0.5**
@@ -85,18 +84,18 @@ hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
  | 15 | ПАРОВАЯ ПЕЧЬ |
  | 16 | СВЧ |
  | 17 | КОФЕЙНАЯ СИСТЕМА |
- | 18 | ВЫТЯЖКА |
+ | 18 | КАПОТ |
  | 19 | ХОЛОДИЛЬНИК |
  | 20 | МОРОЗИЛЬНИК |
  | 21 | КОМБИНАЦИЯ ХОЛОДИЛЬНИКА / МОРОЗИЛЬНИКА |
- | 23 | ПЫЛЕСОС, АВТОМАТИЧЕСКИЙ ПЫЛЕСОС |
+ | 23 | ВАКУУМНЫЙ ПЫЛЕСОС, АВТОМАТИЧЕСКИЙ РОБОТ-ПЫЛЕСОС |
  | 24 | СТИРАЛЬНАЯ МАШИНА |
- | 25 | ПОГРЕВАТЕЛЬ БЛЮДА |
+ | 25 | ПОДОГРЕВАТЕЛЬ |
  | 27 | ИНДУКЦИОННАЯ ПАНЕЛЬ |
  | 28 | ВАРОЧНЫЙ ГАЗ |
  | 31 | ПАРОВАЯ ПЕЧЬ КОМБИНАЦИЯ |
  | 32 | ВИННЫЙ ШКАФ |
- | 33 | КОНДИЦИОНЕР ДЛЯ ВИНА |
+ | 33 | КОНДИЦИОНЕР ВИНА |
  | 34 | КОНДИЦИОНЕР ДЛЯ ХРАНЕНИЯ ВИНА |
  | 39 | ДВОЙНАЯ ПЕЧЬ |
  | 40 | ДВОЙНАЯ ПАРОВАЯ ПЕЧЬ |
@@ -106,7 +105,7 @@ hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
  | 45 | ПАРОВАЯ ПЕЧЬ СВЧ-КОМБИНАЦИЯ |
  | 48 | ВАКУУМНЫЙ ЯЩИК |
  | 67 | ДИАЛОГОВЕН |
- | 68 | ВИННЫЙ ШКАФ КОМБИНАЦИЯ МОРОЗИЛЬНЫХ КАБЕЛЕЙ |
+ | 68 | ВИННЫЙ ШКАФ КОМБИНАЦИЯ МОРОЗИЛЬНИКОВ |
 
 ### Состояние / Статус
  | Исходное значение | Государство |
@@ -115,7 +114,7 @@ hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
  | 2 | STAND_BY |
  | 3 | ПРОГРАММИРОВАННАЯ |
  | 4 | PROGRAMMED_WAITING_TO_START |
- | 5 | РАБОТАЕТ |
+ | 5 | БЕГ |
  | 6 | ПАУЗА |
  | 7 | END_PROGRAMMED |
  | 8 | ОТКАЗ |
@@ -146,7 +145,7 @@ hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
  | 1 | Нормальный Плюс |
  | 2 | Нормальный |
  | 3 | Слегка сухая |
- | 4 | Под утюг, уровень 1 |
+ | 4 | Подручный утюг, уровень 1 |
  | 5 | Под утюг 2-го уровня |
  | 6 | Машинный утюг |
 
@@ -157,7 +156,7 @@ hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
 | 3 | "Pflegeleicht" | Стиральная машина |
 | 4 | "Feinwäsche" | Стиральная машина |
 | 8 | "Волле" | Стиральная машина |
-| 9 | «Сеиде» | Стиральная машина |
+| 9 | «Сайд» | Стиральная машина |
 | 21 | "Pumpen / Schleudern" | Стиральная машина |
 | 23 | «Оберхемден» | Стиральная машина |
 | 27 | "Imprägnieren" | Стиральная машина |
@@ -166,7 +165,7 @@ hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
 | 37 | «На открытом воздухе» | Стиральная машина |
 | 48 | "Flusen ausspülen" | Стиральная машина с сушкой |
 | 50 | "Dunkle Wäsche" | Стиральная машина с сушкой |
-| 52 | «Нур Спюлен / Стэркен» | Стиральная машина |
+| 52 | "Нур Спюлен / Стэркен" | Стиральная машина |
 | 122 | «Экспресс 20» | Стиральная машина с сушкой |
 | 123 | «Дунклс / Джинсы» | Стиральная машина |
 
@@ -194,7 +193,8 @@ hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
 
 ## Changelog
 
-### V4.5.0 (2021-09-05) (Invincible)
+### V5.0.0 (2021-09-05) (Invincible)
+* (grizzelbee) Chg: BREAKING CHANGE: Removed useless grouping folders for device types - check your VIS and scripts
 * (grizzelbee) New: [164](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/164) fixed bug in SignalFailure and signalInfo when havin no value
 * (grizzelbee) New: [155](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/155) fixed >missing object< bug on arrays 
 * (grizzelbee) New: [154](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/154) Reintroduced TargetTemp to washer dryers
@@ -208,6 +208,8 @@ hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
 * (grizzelbee) New: Added support for Miele API V1.0.5
 * (grizzelbee) New: Added correct tier of adapter to io-package
 * (grizzelbee) New: Added more program phases for tumble dryers to documentation
+* (grizzelbee) Fix: Switched type of Power-Switch from string to boolean for being compliant with ioBroker expectation (e.g. for Text2Command adapter) - maybe more to follow. Please delete the data point let it create newly.
+* (germanBluefox) Fix: Fixed icon link
 
 ### V4.2.0 (2021-05-17) (A new Dimension)
 * (grizzelbee) New: Adding Pause action to dish-washers

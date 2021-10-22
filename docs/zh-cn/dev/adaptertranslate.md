@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adaptertranslate.md
 title: 适配器的翻译
-hash: 8XvB1Gq0qo9gVlIP2+QfpMZ3OQTE+OfKgPD94WrJdcQ=
+hash: L2W7WsInFLrJZUsGZg0wORin1/ZdGZR0Zd1zpbnKDjo=
 ---
 # 适配器的翻译
 ＃＃ 介绍
@@ -50,4 +50,4 @@ https://weblate.iobroker.net/
 
 要将您的适配器添加到 Weblate，请遵循 [这些指南](https://github.com/ioBrokerTranslator/doc/blob/master/README.md)。
 
-Weblate 目前仅在管理员用户界面中管理字符串。它不会改变 `io-package.json` 或对您的文档做任何事情。
+Weblate 目前仅在管理用户界面中管理字符串。它不会改变 `io-package.json` 或对您的文档做任何事情。

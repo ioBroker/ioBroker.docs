@@ -1,8 +1,8 @@
 {
   "pages": {
-    "welcome": {
+    "Welcome": {
       "title": {
-        "en": "welcome",
+        "en": "Welcome",
         "de": "Willkommen",
         "ru": "Добро пожаловать",
         "zh-cn": "欢迎"
@@ -186,11 +186,11 @@
             "installation": {
               "title": {
                 "en": "installation",
-                "de": "Windows",
+                "de": "Installation",
                 "ru": "установка",
                 "zh-cn": "安装"
               },
-              "content": "install/windows.md"
+              "content": "install/nodejs.md"
             },
             "Linux": {
               "title": {
@@ -200,6 +200,15 @@
                 "zh-cn": "Linux"
               },
               "content": "install/linux.md"
+            },
+            "Windows": {
+              "title": {
+                "en": "Windows",
+                "de": "Windows",
+                "ru": "Окна",
+                "zh-cn": "视窗"
+              },
+              "content": "install/windows.md"
             },
             "OS X": {
               "title": {
@@ -269,11 +278,11 @@
           },
           "content": "admin/settings.md"
         },
-        "Overview": {
+        "overview": {
           "title": {
-            "en": "Overview",
+            "en": "overview",
             "de": "Übersicht",
-            "ru": "Обзор",
+            "ru": "обзор",
             "zh-cn": "概述"
           },
           "content": "admin/overview.md"
@@ -323,12 +332,12 @@
           },
           "content": "admin/log.md"
         },
-        "Events": {
+        "events": {
           "title": {
-            "en": "Events",
+            "en": "events",
             "de": "Ereignisse",
             "ru": "События",
-            "zh-cn": "活动"
+            "zh-cn": "事件"
           },
           "content": "admin/events.md"
         },
@@ -616,7 +625,7 @@
           "title": {
             "en": "Troubleshooting",
             "de": "Fehlersuche",
-            "ru": "Поиск проблемы",
+            "ru": "Исправление проблем",
             "zh-cn": "故障排除"
           },
           "content": "trouble/search.md"
@@ -845,7 +854,7 @@
         "State roles": {
           "title": {
             "en": "State roles",
-            "de": "Rollen von Datenpunkten",
+            "de": "Staatliche Rollen",
             "ru": "Государственные роли",
             "zh-cn": "状态角色"
           },

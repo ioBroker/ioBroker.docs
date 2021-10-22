@@ -1,7 +1,5 @@
 'use strict';
 
-const request = require('request');
-
 /**
  * Tests whether the given variable is a real object and not an Array
  * @param {any} it The variable to test

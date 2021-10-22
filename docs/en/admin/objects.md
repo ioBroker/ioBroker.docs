@@ -4,22 +4,22 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/objects.md
-hash: h2W27+wNG9J4NAF0r8ajYsHYxjCj462PmXNxMN8AJCo=
+hash: nrgsR+t5T1y8xfMjA6VUTr0FxR1LbtTJ/uuWyowBAJg=
 ---
-All managed objects are located under this tab. A folder is created for each instance in which the data points created by it are located in a hierarchical structure. Objects can also be created and deleted manually here. Entire object structures can be uploaded or downloaded. Another button enables the expert view to be displayed.
+All managed objects are located under this tab. For each instance, a folder is created in which the data points created by it are located in a hierarchical structure. Objects can also be created and deleted manually here. Entire object structures can be uploaded or downloaded. Another button enables the expert view to be displayed.
 
 ## The title line
-In the title line there are icons for the most important processes. There is context help for each icon. Simply stay on the icon with the mouse for a while.
+In the title line there are icons for the most important processes. There is context help for each icon. To do this, simply hold the mouse on the icon for a while.
 
 ![The icons of the objects tab](../../de/admin/media/ADMIN_Objekte_numbers.png)
 
 ### 1 - Refresh the view
-If objects that have just been created are not visible, clicking this icon helps to bring the status of the page up to date.
+If objects that have just been created are not visible, clicking this icon will help bring the status of the page up to date.
 
 ### 2 - change display
 This button changes the display of the objects on this page.
 
-When the button is active, all objects are listed alphabetically by ID, one below the other. If this button is not active, the objects are displayed hierarchically alphabetically according to instances as a tree structure.
+When the button is active, all objects are sorted alphabetically by ID and listed one below the other. If this button is not active, the objects are displayed hierarchically alphabetically according to instances as a tree structure.
 
 In both cases, self-created namespaces are shown at the top.
 
@@ -78,7 +78,7 @@ New objects tab opens.
 The next levels can then be created there.
 
 ### 9 - upload
-With this button a complete object structure is uploaded to the ioBroker server as a json file
+With this button, a complete object structure is uploaded to the ioBroker server as a json file
 
 ### 10 - download
 With this button the selected object structure is downloaded as a json file from the ioBroker server and can be saved.
@@ -88,7 +88,7 @@ With this button the selected object structure is downloaded as a json file from
 
 The existing objects are displayed in a table on the page.
 
-The table consists of the following columns (the fields under column headers 1 and 2 and the pull-down menus of the other columns serve as filter criteria) The table in the picture is arranged according to hierarchy and some sub-items (nodes) have been opened:
+The table consists of the following columns (the fields under column headers 1 and 2 as well as the pull-down menus of the other columns serve as filter criteria). The table in the picture is arranged according to hierarchy and some sub-items (nodes) have been opened:
 
 ### 1 - ID
 These are the top levels of the object hierarchy. Here, the name of the instance, for example, and the respective structure of the data are created as the top level.
@@ -114,22 +114,22 @@ This also serves, among other things, for filtering when searching for objects.
 
 ![Room allocations](../../de/admin/media/ADMIN_Objekte_rooms.png)
 
-The values in this column can be edited. In this way, the objects can still be assigned to rooms later. If you click on the field, a popup opens with the rooms that have been created so far.
+The values in this column can be edited. In this way, the objects can still be assigned to rooms at a later date. If you click on the field, a popup opens with the rooms that have been created so far.
 
 ### 6 - function
 This column contains the trade to which the corresponding object is assigned.
 
 ![Trades](../../de/admin/media/ADMIN_Objekte_functions.png)
 
-The values in this column can be edited. In this way, the objects can be assigned to trades at a later date. If you click on the field, a popup opens with the trades created so far.
+The values in this column can be edited. In this way, the objects can still be assigned to trades at a later date. If you click on the field, a popup opens with the trades created so far.
 
 ### 7 - value
 If the object is a data point, the current value of this data point is displayed here.
 
 ### 8 - settings
-![Settings](../../de/admin/media/ADMIN_Objekte_numbers03.png)
+![settings](../../de/admin/media/ADMIN_Objekte_numbers03.png)
 
-1.) Clicking on the pencil icon opens a window with the properties of this object. It is the same window that appeared above when creating a new object. Properties of the object can be changed here. This function should be used with extreme caution and only if you know exactly what you are doing with it.
+1.) Clicking on the pencil icon opens a window with the properties of this object. It is the same window that appeared above when creating a new object. Properties of the object can be changed here. This function must be used with extreme caution and only if you know exactly what you are doing with it.
 
 2.) Clicking on the trash can icon deletes this object and all objects below it in the hierarchy. To be on the safe side, a window appears in which the deletion has to be confirmed again.
 

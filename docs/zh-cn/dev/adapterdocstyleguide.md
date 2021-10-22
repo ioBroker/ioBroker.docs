@@ -4,7 +4,7 @@ lastChanged: 06.05.2021
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterdocstyleguide.md
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
-hash: gVPviuMsPHyCd+k12PaNgL3hB9dKVQ9VYcYm4GfPQkg=
+hash: amdkGGbA28UH+A3DZkX3kwJ7W9Z1znae5k5zXk7cVMU=
 ---
 # 创建适配器文档的风格指南
 * 文档是使用“Markdown”语言创建的。
@@ -15,7 +15,7 @@ hash: gVPviuMsPHyCd+k12PaNgL3hB9dKVQ9VYcYm4GfPQkg=
 
   * 如果文档是德语，它将在子文件夹中
 
-`de` 已保存。当前支持的语言和文件夹名称是：`en, de, ru, pt, nl, fr, it, es, pl`。
+`de` 已保存。当前支持的语言，因此文件夹名称为：`en, de, ru, pt, nl, fr, it, es, pl`。
 
   * 实际的适配器文档在文件 `README.md` 中，
 
@@ -40,7 +40,7 @@ hash: gVPviuMsPHyCd+k12PaNgL3hB9dKVQ9VYcYm4GfPQkg=
 
 * 对于德语文本，需要遵守新的德语拼写
 
-  喜欢。
+  首选。
 
 * 在参考文档中，人称代词的使用（例如
 
@@ -64,12 +64,12 @@ hash: gVPviuMsPHyCd+k12PaNgL3hB9dKVQ9VYcYm4GfPQkg=
 
     包含。
 
-* 文档总是以 H1 级的标题开头。
+* 文档总是以 H1 层的标题开头。
 * 链接不是内嵌的（例如使用`[a link] (http://example.com)`），
 
-但在内嵌 `[a link][]` 和 `[a link]: https://a.link/to/know` 的帮助下放置在文档的末尾。
+但是在文档末尾的内联 `[a link][]` 和 `[a link]: https://a.link/to/know` 的帮助下。
 
-* 如果使用破折号，请使用短符号
+* 使用破折号时，使用短符号
 
   在 OSX 中使用减号而不是“-”或 `Option+Shift+"-"`。
 
@@ -80,14 +80,14 @@ hash: gVPviuMsPHyCd+k12PaNgL3hB9dKVQ9VYcYm4GfPQkg=
 
   * 媒体包含在一般文件的文本中
 
-通过 `§§LLLLL_0§§` 和图像通过 `![媒体术语](../../de/dev/media/{dateiname})`。
+使用 `§§LLLLL_0§§` 和使用 `![媒体术语](../../de/dev/media/{dateiname})` 的图像。
 
   * 图像最好以 SVG 格式存储。当 SVG
 
 不可能，然后作为PNG文件。请注意文件大小。
 
   * 短视频可以嵌入为 GIF 文件。
-  * 每张图片下方都有对内容的简短说明，以斜体显示
+  * 每张图片下方都有斜体字对内容的简短说明
 
     来指定。
 

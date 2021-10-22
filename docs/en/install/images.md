@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/images.md
 title: Working with Images
-hash: +7btQz2YwNxQ7cvAm6lflniM5CCWalHSRI06eUPOpmQ=
+hash: Rd0zm6eZ+Bir4OYRlqu5jeUQpCtIZuqIekiMBNLut0Y=
 ---
 --- title: Working with Images lastChanged: 07/31/2019 ---
 

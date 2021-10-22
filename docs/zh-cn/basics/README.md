@@ -4,7 +4,7 @@ lastChanged: 14.05.2021
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/basics/README.md
-hash: 4nSU2ciROiZWPofjIMQZOXpmkahrbQBmUU3WwJDFExw=
+hash: cEgurBTKHvIBRyuTiU1oG92EA/xzc85JUd1ChW5iwa4=
 ---
 ioBroker 是一种纯软件解决方案，可将不同的物联网系统连接到一个整体系统。因此，每个系统仍然需要一个控制中心（网关/接口），以便能够集成其设备。
 
@@ -22,7 +22,7 @@ ioBroker 具有模块化结构。这些模块在 ioBroker 中称为 ***适配器
 
 ＃＃ 建筑学
 ＃＃＃ 服务器
-ioBroker 的一个特殊功能是任务可以分布在多个服务器上**。在这种情况下，人们谈论的是 ***多主机系统*** 。划分的原因可能是空间或权力分布。
+ioBroker 的一个特殊功能是任务可以分布在多个服务器上**。在这种情况下，我们会谈到 ***多主机系统*** 。划分的原因可能是空间或权力分布。
 
 ### 硬件要求
 ioBroker 服务器几乎可以安装在任何硬件上。唯一的条件是对应操作系统有当前版本的[节点](https://nodejs.org/en/download/)。
@@ -34,7 +34,7 @@ ioBroker 服务器几乎可以安装在任何硬件上。唯一的条件是对�
 ＃＃＃ 软件
 ioBroker 管理数据库中的数据。相应地组织数据的结构。
 
-每个适配器都有一个所谓的命名空间，其中包含适配器实例上的所有数据。因此，命名空间的名称是例如：*** AdapterName.0 ***
+对于每个适配器，都有一个所谓的命名空间，其中包含有关适配器实例的所有数据。因此，命名空间的名称是例如：*** AdapterName.0 ***
 
 在这个区域内，ioBroker 创建设备、它们的通道以及它们的数据点及其值（状态）。
 

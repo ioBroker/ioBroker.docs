@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventorywo
-hash: VbVRQ2vMX9iYbPwVYUZB3eGJNzPhgVl8WQ2Vdb8kbk4=
+hash: qNhJaULkcMxm+QJ2R7RCe5knOwhc+mmLkADiFOZfymo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -43,6 +43,14 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 [![Sdency] (http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
+
+## 3.2.1
+- Проблема с активацией Textfarbe behoben (# 302)
+- Проблема с несколькими виджетами и unterschiedlichem Prüftyp behoben (# 303)
+- Проблема beim Schließen mit View im PopUp behoben (# 254)
+- Navigationseffekte aus der Basisnavigation hinzugefügt (# 304)
+- Neu hinzugefügt Widget-Typ 'HTTP' für Universal- und Multi-Widget (# 249)
+- Sichtbare Schritte für einfachen Slider hinzugefügt
 
 ## 3.2.0
 - Textfarbe aktiv / inaktiv für Universal- & Multiwidget
@@ -105,8 +113,8 @@ nicht zu sehen, sind aber nicht weg! Damit diese wieder zu sehen sind müssen
 die Widgets einmal EINZELN im Editor angeklickt werden.
 ```
 
-- Beim Universal- und Multiwidget kann der Inhaltstyp geändert werden.
-    - Тип текста: Bild (стандартный), Analoge Uhr, Digitale Uhr и HTML / Text
+- Beim Universal- и Multiwidget kann der Inhaltstyp geändert werden.
+    - Тип текста: Bild (стандартный), Analoge Uhr, Digitale Uhr и HTML / текст
     - Analoge und digitale Uhr: Farbe des Ziffernblatts под руководством Zeiger kann frei gewählt werden, Zeitzone kann geändert werden
     - Statt dem Icon kann ein eigener Text oder ein Datenpunktwert per Binding angezeigt werden
 - Vergleichsoperatoren Größer-Gelich und Kleiner-Gleich
@@ -327,7 +335,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 ### 1.3.6
 - Добавлена опция установки состояния для навигации.
-- Исправлена проблема с датапоинтами без конфига.
+- Исправлена проблема с точками данных без конфигурации.
 
 ### 1.3.5
 - Добавлена частота обновления таблицы
@@ -363,7 +371,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 ### 1.2.0
 - Добавлен виджет изображений
-- Добавлен ползунок для изменения радиуса границы для всех 4 углов (если эта версия является обновлением для вас, вам нужно щелкнуть каждую кнопку в редакторе vis, чтобы вернуть углы по умолчанию)
+- Добавлен ползунок для изменения радиуса границы для всех 4 углов (если эта версия является обновлением для вас, вам нужно нажимать каждую кнопку в редакторе vis, чтобы вернуть углы по умолчанию)
 - Добавлены новые иконки
 
 ### 1.1.1
@@ -376,7 +384,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Изменены виджеты кнопок для использования шрифта и текста по умолчанию.
 
 ### 1.0.0
-- Фон виджета и прозрачность содержимого, переключатель можно изменить с логического на значение, значки изменены с белого на черный, добавлены бесшовные фоны
+- Фон виджета и непрозрачность содержимого, переключатель можно изменить с логического на значение, значки изменены с белого на черный, добавлены бесшовные фоны
 
 ### 0.1.2
 - Исправление ошибок

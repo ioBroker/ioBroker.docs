@@ -4,13 +4,13 @@ lastChanged: 14.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/README.md
-hash: 8QIadDWLLIIZKQI36XihWSBAgZURM6srhXzxg/rnSH0=
+hash: 5er2O4sYaQKEffMa00REXFvb4Dq6YvMu/Fh8S9B1Ln0=
 ---
 # The admin interface
 !> **Due to the scope of the documentation, this is only an overview; detailed information is provided on the pages that are linked to the tabs via the headings of the sections. Please click on the headings.**
 
 The Adapter Admin is used to operate the entire ioBroker installation.
-He provides a web interface. This is called up under ``<IP-Adresse des Servers>:8081``.
+He provides a web interface. This is called up under the ``<IP-Adresse des Servers>:8081``.
 
 This adapter is created directly when ioBroker is installed - manual installation is not necessary
 
@@ -53,7 +53,7 @@ The main window shows the content belonging to the selected menu item.
 
 Detailed information on this content is available on the pages linked via the headings.
 
-[Overview](https://www.iobroker.net/#de/documentation/admin/overview.md) All pages with their own web interface and information about the hosts are displayed here.
+[overview](https://www.iobroker.net/#de/documentation/admin/overview.md) All pages with their own web interface and information about the hosts are displayed here.
 
 [adapter](https://www.iobroker.net/#de/documentation/admin/adapter.md) The available and installed adapters are displayed and managed here.
 
@@ -67,9 +67,9 @@ If values are displayed in red, they have not yet been confirmed by the recipien
 
 [log](https://www.iobroker.net/#de/documentation/admin/log.md) The log is displayed here
 
-The log level to be logged can be set for the individual instances in the Instances tab. The minimum log level to be displayed is selected in the selection menu. If an error occurs, the label on the tab appears in red.
+In the Instances tab, the log level to be logged can be set for the individual instances. The minimum log level to be displayed is selected in the selection menu. If an error occurs, the label on the tab appears in red.
 
-[Events](https://www.iobroker.net/#de/documentation/admin/events.md) A list of the current status updates.
+[events](https://www.iobroker.net/#de/documentation/admin/events.md) A list of the current status updates.
 
 [user](https://www.iobroker.net/#de/documentation/admin/users.md) Here users can be created and added to the existing groups.
 

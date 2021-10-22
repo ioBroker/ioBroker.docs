@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: VbVRQ2vMX9iYbPwVYUZB3eGJNzPhgVl8WQ2Vdb8kbk4=
+hash: qNhJaULkcMxm+QJ2R7RCe5knOwhc+mmLkADiFOZfymo=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -36,13 +36,21 @@ Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit 
 ---
 
 ##Unterstützung
-Falls Dir unsere Arbeit und Du uns unterstützen möchten, freuen wir uns über jede Spende.
+Falls Dir unsere Arbeit und Du uns unterstützen möchtest, freuen wir uns über jede Ausgabe.
 
 (Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker)
 
 [![Ausgaben](http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
+
+##3.2.1
+- Problem mit aktiver Textfarbe behoben (#302)
+- Problem mit Multi-Widget und unterschiedlichem Prüftyp behoben (#303)
+- Problem beim Schließen mit View im PopUp behoben (#254)
+- Navigationseffekte aus der Basisnavigation hinzugefügt (#304)
+- Neu hinzugefügter Widget-Typ 'HTTP' für Universal- und Multi-Widget (#249)
+- Sichtbare Schritte für einfachen Slider hinzugefügt
 
 ## 3.2.0
 - Textfarbe aktiv/inaktiv für Universal- & Multiwidget
@@ -373,10 +381,10 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Slider-Widget hinzugefügt
 - Option zum Spiegeln des Bildes hinzugefügt
 - Neue Symbole hinzugefügt
-- Schaltflächen-Widgets geändert, um Standardschrift- und Textoptionen zu verwenden
+- Schaltflächen-Widgets geändert, um die Standard-Schriftart- und Textoptionen zu verwenden
 
 ### 1.0.0
-- Widget-Hintergrund und Inhalts-Deckkraft, Schalter kann von Boolean auf Wert geändert werden, Symbole von weiß auf schwarz geändert, nahtlose Hintergründe hinzugefügt
+- Widget-Hintergrund und Inhalts-Deckkraft, Schalter kann von Boolean auf Wert geändert werden, Icons von Weiß auf Schwarz geändert, nahtlose Hintergründe hinzugefügt
 
 ### 0.1.2
 - Fehlerbehebung
