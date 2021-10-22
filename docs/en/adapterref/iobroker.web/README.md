@@ -83,17 +83,20 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 -->
 
 ## Changelog
+### 3.4.10 (2021-10-22)
+* (bluefox) Added warning, that the white list works only with the integrated socket-io interface
+
 ### 3.4.9 (2021-08-11)
 * (bluefox) Fixed error with access list
 * (bluefox) Added support of the unload function for web-extensions 
-* (bluefox) Added readme for the web-extensions development 
- 
+* (bluefox) Added readme for the web-extensions development
+
 ### 3.4.8 (2021-08-10)
 * (bluefox) added the default redirect option
- 
+
 ### 3.4.7 (2021-07-31)
 * (bluefox) Corrected the small config GUI error
- 
+
 ### 3.4.5 (2021-07-20)
 * (Apollon77) fix admin dependency because since 3.4.2 Admin 5.1 is required
 
@@ -115,7 +118,7 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 * (Apollon77) automatically decrypt secrets for web-extensions
 
 ### 3.3.0 (2021-02-01)
-* (bluefox) The admin GUI was rewritten with reactJS 
+* (bluefox) The admin GUI was rewritten with reactJS
 
 ### 3.2.3 (2021-01-12)
 * (Apollon77) If no port is provided use default 8082 (Sentry IOBROKER-WEB-2S)
@@ -136,7 +139,7 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 * (bluefox) Added the support of multi-language names for the welcome screen.
 
 ### 3.0.12 (2020-08-22)
-* (bluefox) Updated used npm libraries 
+* (bluefox) Updated used npm libraries
 
 ### 3.0.10 (2020-07-28)
 * (Apollon77) socketio pingTimeout and pinInterval increased to prevent too fast re-connections and bigger visualizations
@@ -146,7 +149,7 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 * (Apollon77) Optimize error handling for web-server initialization again
 
 ### 3.0.8 (2020-05-04)
-* (Apollon77) web-server initialization optimized again to prevent errors with invalid certificates 
+* (Apollon77) web-server initialization optimized again to prevent errors with invalid certificates
 
 ### 3.0.7 (2020-04-30)
 * (Apollon77) errors on web-server initialization are handled properly
@@ -356,6 +359,7 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 ### 1.1.1 (2015-11-01)
 * (bluefox) some files were missed on npm
 *
+
 ### 1.1.0 (2015-11-01)
 * (bluefox) update jquery UI libs
 

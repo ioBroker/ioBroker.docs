@@ -132,7 +132,7 @@
     * [VS Code](dev/vscode)
   * [Adapter reference](dev/adapterref)
   * [Object schema](dev/objectsschema)
-  * en:[State roles](dev/stateroles);de:[Zustandsrollen](dev/stateroles);ru:[Роли состояний](dev/stateroles)
+  * [en:State roles;de:Zustandsrollen;ru:Роли состояний;zh-cn:国家角色](dev/stateroles)
   * [Aliases](dev/aliases)
   * [Template](dev/adaptertemplate)
   * [Adapter tests](dev/adaptertesting)
