@@ -4,7 +4,7 @@ lastChanged: 26.03.2019
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/admin/overview.md
-hash: 57tkWtP+p2vy23nOuvzdc8RKNy6mvlsMyXS1SmpIBkY=
+hash: L3woSgQsM+65FZxL45MseZX1u5AmjMk69mxD0H7RrGI=
 ---
 # 概览选项卡
 此处显示有关具有自己的 Web 界面和主机的所有适配器的信息。

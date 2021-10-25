@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.swiss-weather-api/README.md
 title: ioBroker.swiss-weather-api
-hash: HYG0OdhgkGIFINebBTOs2nCEmZ6h+pfG/kcPNiHzdvU=
+hash: MN9ch329u8qQbmvZYV1HlOsYj1Z3mzxqcxvybkf0kYc=
 ---
 ![标识](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
 
@@ -17,9 +17,13 @@ hash: HYG0OdhgkGIFINebBTOs2nCEmZ6h+pfG/kcPNiHzdvU=
 ![特拉维斯CI](http://img.shields.io/travis/baerengraben/ioBroker.swiss-weather-api/master.svg)
 
 # IoBroker.swiss-weather-api
+**将程序版本 1.0.1 更新为 1.0.x**
+
+- 只需在 ioBroker 中更新。无需特殊的额外步骤
+
 **将程序版本 1.0.0 更新为 1.0.1**
 
-- 使用 1.0.1 版，我正在修复问题 https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/57
+- 使用 1.0.1 版我正在修复问题 https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/57
 - 基于 [this](https://forum.iobroker.net/topic/46975/vis-widgethintergrund-farbe-durch-objektdatenpunkt-steuern) 的讨论，ID 中不允许使用冒号。因此，我删除了用于小时的冒号，没有替换，也省略了秒。例如旧 01:00:00 => 新 0100)
 
 此更改使得必须重新生成 ID。因此，要安装 1.0.1 版，必须完全删除当前运行的适配器实例并替换为新实例。
@@ -70,6 +74,10 @@ predict.current_hour 中的对象将在第一次启动后 30 秒创建，并通�
 ![药片](../../../en/adapterref/iobroker.swiss-weather-api/doc/Wettervorhersage_visu_anim.gif)
 
 ## Changelog
+
+### 1.0.2
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/51
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/53
 
 ### 1.0.1
 * (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/57

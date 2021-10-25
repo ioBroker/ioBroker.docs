@@ -4,10 +4,10 @@ lastChanged: 23.04.2021
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/community/docmarkdown.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: mjGgkxRz/ltg4/3OhZi5c/N+GKM1nmTaj+xCAMTAblo=
+hash: 9qginu+6BT6Cm5JzwTYlJJ+LmFCjpyS0LVuttJtXxqc=
 ---
 # Markdown: syntax
-?> Markdown was chosen as the simplified markup language so that ioBroker's documentation can be created quickly and easily read. The following guide will help you get to know the syntax and capabilities of Markdown and translate them into great documents.
+?> To make ioBroker's documentation quick and easy to read, Markdown was chosen as the simplified markup language. The following guide will help you learn the syntax and capabilities of Markdown and translate them into great documents.
 
 Technically, the documentation system only supports the following features:
 
@@ -31,7 +31,7 @@ Accordingly, Markdown's syntax consists only of characters carefully chosen to m
 ### Inline HTML
 Markdown's syntax has one purpose: to be used to *write* for the web.
 
-Markdown is not a substitute for HTML, even remotely. The scope of the syntax is very small and corresponds to only a small part of all HTML tags. Markdown does not intend to make HTML tagging easier. HTML is simple enough as it is. The idea behind Markdown is to make text as easy to read, write, and edit as possible. HTML is a *publication format* Markdown is a *writing format* Therefore, its syntax only takes into account content that can be conveyed with pure text.
+Markdown is not a substitute for HTML, even remotely. The scope of the syntax is very small and corresponds to only a small part of all HTML tags. Markdown does not intend to make HTML tagging easier. HTML is simple enough as it is. The idea behind Markdown is to make text as easy to read, write, and edit as possible. HTML is a *publication format* Markdown is a *writing format* Therefore, its syntax only takes into account content that can be conveyed using pure text.
 
 Any formatting that is not feasible with Markdown can simply be used HTML. There is no need to highlight HTML to separate it from the rest.
 It is simply written in the text.
@@ -49,7 +49,7 @@ For example, to include an HTML table in a Markdown article:
 It should be noted that Markdown's syntax is not interpreted within HTML blocks. For example, *emphasis* cannot be used within HTML blocks.
 
 Inline HTML tags such as `<span>`, `<cite>`, or `<del>` can be used anywhere in a markdown paragraph, list item or header.
-HTML tags can even be used in place of the appropriate Markdown formatting. It is no problem to simply use `<a>` or `<img>` instead of Markdow's syntax for links or graphics.
+HTML tags can even be used in place of the appropriate Markdown formatting. It is not a problem to simply use `<a>` or `<img>` instead of Markdow's syntax for links or graphics.
 
 In contrast to block tags, the Markdown syntax is interpreted within inline tags.
 
@@ -81,7 +81,7 @@ becomes markdown
 
 `AT&amp;T`
 
-do. Since Markdown supports inline HTML, angle brackets are treated as HTML in the appropriate case. Just for things like
+do. Since Markdown supports Inline HTML, angle brackets are treated as HTML in the appropriate case. Just from things like
 
 `4 < 5`
 
@@ -93,7 +93,7 @@ do. However, angle brackets and the ampersand are *always* coded in code or span
 
 ## Block elements
 ### Paragraphs and line breaks
-A paragraph is simply one or more lines of text separated by one or more blank lines. (A blank line is any line that *looks* like a blank line - a line that contains nothing but spaces and tabs are treated as blank.) Normal paragraphs should not be indented with spaces or tabs.
+A paragraph is simply one or more lines of text separated by one or more blank lines. (A blank line is any line that *looks* like a blank line - a line that contains nothing but spaces and tabs is treated as blank.) Normal paragraphs should not be indented with spaces or tabs.
 
 The "one or more line" rule implies one thing: Markdown supports "hard break" paragraphs. This is very different from most other text-to-HTML formatters (including Movable Type's "Convert Line Breaks" option), which format every line break in a paragraph as `<br />`.
 
@@ -109,7 +109,7 @@ Markdown's email-like, multi-paragraph [Quotations] (#quotes) and [list entries]
 
 ### Headers
 Markdown here only supports one type of header formatting: atx.
-Atx-like headers use 1-6 diamond characters at the beginning of the line, corresponding to levels 1-6. For example:
+Atx-like headers use 1-6 hash signs at the beginning of the line, corresponding to levels 1-6. For example:
 
 `# Dies ist ein H1`
 
@@ -211,7 +211,7 @@ Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringill
 
 If list entries are separated by blank lines, Markdown will wrap the list entries with `<p>` and `</p>`.
 
-For example, this will be:
+For example this will be:
 
     * Warsteiner
     * King
@@ -232,7 +232,7 @@ becomes
 
 List items can consist of several paragraphs. Each following paragraph in a list item must be indented with at least 4 spaces or a tab:
 
-    1. This is a bullet point with two paragraphs. Lorem ipsum dolor
+    1. This is a list item with two paragraphs. Lorem ipsum dolor
 
 sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
 
@@ -240,7 +240,7 @@ Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus. Donec sit
 
     2. Suspendisse id sem consectetuer libero luctus adipiscing.
 
-It looks fine with every line of the following paragraph indented, but again Markdown allows the lazy to indent only the first line:
+It looks fine with every line of the following paragraph indented, but again, Markdown allows the lazy to indent only the first line:
 
     * This is a list item with two paragraphs
 
@@ -457,7 +457,7 @@ With Markdown's reference links, the source document looks more like the final o
 
 <a id="em"></a>
 
-### Emphasis Markdown treats asterisks (`*`) and underscores (`_`) as indicators of emphasis. Text packed in individual `*` or `_` is enclosed with the HTML tag `<em>`, double `*` or `_` are marked with the tag `<strong>` . The following text, for example:
+### Emphasis Markdown treats asterisks (`*`) and underscores (`_`) as indicators of emphasis. Text packed into individual `*` or `_` is enclosed with the HTML tag `<em>`, double `*` or `_` are marked with the tag `<strong>` . The following text, for example:
     *Single asterisk*
 
     _Single underscores_
@@ -476,7 +476,7 @@ Will output the following:
 
 <strong>Double underscores</strong>
 
-The style can be chosen arbitrarily. The only limitation is that the same symbol must be used to open and close an emphasis area.
+The style can be chosen arbitrarily. The only limitation is that the same symbol must be used to open and close a stress area.
 
 Stress can be used in the middle of a word:
 
@@ -505,7 +505,7 @@ This becomes:
 
 <p><code>irgendwo hier (`) ist ein Backtick versteckt.</code></p>
 
-The backtick separators around a code area can contain spaces - one after the opening backtick, one before the closing backtick. This enables backticks to be used within the code area, even at the beginning or the end:
+The backtick separators around a code area can contain spaces - one after the opening backtick, one before the closing backtick. This enables backticks to be used within the code area, even at the beginning or end:
 
 A single backtick in a code area: `` ` ` ''
 
@@ -563,7 +563,7 @@ Reference-style image references look like this:
 
 [id]: url/zur/grafik  "Optionales title-Attribut"
 
-At this time, Markdown has no syntax for specifying the size of a graphic. If this is necessary, you can simply use the normal HTML tag `<img>`.
+At this time, Markdown has no syntax for specifying the size of a graphic. If this is necessary, the normal HTML tag `<img>` can be used.
 
 * * *
 
@@ -601,7 +601,7 @@ This work is licensed under a [Creative Commons Attribution - Share Alike (BY-SA
 [by-sa]: http://creativecommons.org/licenses/by-sa/4.0/deed.de
 
 ?> This is a translation of the [original syntax documentation] [osd] by [John Grubers] [jg] [Markdown] [md]. This translation refers to the status of December 15, 2013 (Markdown Version 1.0.1). No guarantee is given for the correctness of the translation. If there are errors in the translation, please send a short message to <lasar@liepins.net>.
-Any other type of feedback is also welcome. *
+Any other kind of feedback is also welcome. *
 
 [jg]: http://daringfireball.net/
 

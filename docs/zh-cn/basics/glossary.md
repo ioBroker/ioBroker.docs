@@ -5,9 +5,9 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/basics/glossary.md
 title: 无题
-hash: YHltgX7oCBrfgffqJry+MOvUzBLV28rn4SoXbROJAMc=
+hash: pNXghnzEUIUGnqswpze2CJ8dmBmPOIWjCZiDbzPOvVA=
 ---
-为便于入门并使进一步的帮助更易于理解，此处解释了 ioBroker 及其周围出现的最重要术语。
+为便于入门并使进一步的帮助更易于理解，此处解释了 ioBroker 中和周围出现的最重要术语。
 
 * **适配器**
 
@@ -35,7 +35,7 @@ hash: YHltgX7oCBrfgffqJry+MOvUzBLV28rn4SoXbROJAMc=
 
     CCU 代表中央控制单元
 
-所有 Homematic 和 HomematicIP 设备都可以通过 CCU2 和 CCU3 进行控制。 CCU1 只能处理 Homematic 设备。
+使用 CCU2 和 CCU3，可以控制所有 Homematic 和 HomematicIP 设备。 CCU1 只能处理 Homematic 设备。
 Homematic 设备有无线电和有线版本（有线总线）。
 
 * **CSS**
@@ -77,7 +77,7 @@ Homematic 是由 eQ-3 制造、elv 分销的智能家居系统。另见 CCU。
 
 * **Javascript**
 
-ioBroker 使用的所有编程语言以及自己的脚本编程语言。
+ioBroker 使用的编程语言，所有东西都可以用它来编程，也可以编写自己的脚本。
 
 * **js 控制器**
 
@@ -90,15 +90,15 @@ js-controller 是 ioBroker 的主要进程，并为所有其他模块提供必�
 
 * **掌握**
 
-master 是 host，负责管理所有实例（包括 slave 的实例！）。当 master 被终止时，slave 实例也被终止。主站为所有从站提供中央对象和状态数据库，所有从站都连接到这些数据库。
+master 是 host，它集中负责所有实例的管理（包括 slave 的实例！）。当 master 被终止时，slave 实例也被终止。主站为所有从站提供中央对象和状态数据库，所有从站都连接到这些数据库。
 
 * **多主机模式**
 
-如果需要特殊接口（例如读取地下室的电表），ioBroker 的多主机模式可用于将控制任务分配给多台计算机。此外，可以使用多个主机以平均分配负载或内存消耗。在多主机模式下，一台主机被定义为主机；所有其他人都是奴隶。 master 控制所有 slave 以及实例到 slave 的分发。
+如果需要特殊接口（例如读取地下室的电表），ioBroker 的多主机模式可用于将控制任务分配给多台计算机。此外，可以使用多个主机以平均分配负载或内存消耗。在多主机模式下，一台主机被定义为主机；所有其他人都是奴隶。 master 控制所有 slaves，也控制实例向 slaves 的分发。
 
 * **节点红色**
 
-图形编程接口，其中完成的模块（节点）可以通过简单的链接（流程）链接到复杂的程序。
+图形编程表面，其中完成的模块（节点）可以通过简单的链接（流程）链接到复杂的程序。
 
 * **对象和状态**
 
@@ -108,20 +108,20 @@ master 是 host，负责管理所有实例（包括 slave 的实例！）。当 
 
 对象更详细地描述状态并提供元信息、配置和描述。对象具有类型，例如主机、适配器、实例、枚举、设备、通道或数据点......
 
-元数据还定义了状态的数据类型，例如数字、布尔值、字符串以及状态在可视化界面中的显示方式。
+元数据还定义了状态的数据类型，例如数字、布尔值、字符串以及状态应如何在可视化界面中显示。
 
 * **Odroid**
 
-类似于 Raspberry PI 的单板计算机。有几个版本，硬件设备不同。
+类似于 Raspberry PI 的单板计算机。有多个版本，硬件设备不同。
 
 * **解析器适配器**
 
-通过指定所谓的文本而不管其来源的文本组成的适配器。
-正则表达式，剪切掉可以写入状态的部分。然后可以在脚本等中使用这些值。进一步处理。
+通过指定所谓的文本而不管它们的来源由文本组成的适配器。
+正则表达式，剪切掉可以写入状态的部分。然后可以在脚本等中使用这些值。被进一步处理。
 
 * **树莓派**
 
-信用卡大小的单板计算机（由 Raspberry PI Foundation 开发）。操作计算机所需的所有组件都位于电路板上（CPU、GPU、RAM 等）。与传统计算机相比，其优势在于功耗和尺寸最小。缺点：无法更换或升级CPU、RAM等。
+信用卡大小的单板计算机（由 Raspberry PI Foundation 开发）。运行计算机所需的所有组件都位于电路板上（CPU、GPU、RAM 等）。与传统计算机相比的优势是功耗和尺寸最小。缺点：无法更换或升级CPU、RAM等。
 
 * **Redis**
 
@@ -133,7 +133,7 @@ master 是 host，负责管理所有实例（包括 slave 的实例！）。当 
 
 * **对**
 
-VIS 适配器允许您为 ioBroker 创建自己的操作和可视化界面，并在各种设备上显示它们。这些表面由可定制的小部件和它们自己的 HTML 代码组合在一起，它们的外观可以使用 CSS 进行更改。
+VIS 适配器允许您为 ioBroker 创建自己的操作和可视化界面，并在各种设备上显示它们。这些表面由可定制的小部件和您自己的 HTML 代码组成，它们的外观可以使用 CSS 进行更改。
 
 * **小部件**
 

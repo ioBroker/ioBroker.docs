@@ -4,7 +4,7 @@ lastChanged: 14.09.2018
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/trouble/README.md
-hash: NAHfCKNrau6ZZZiSXWF0k0KN7z/OGtn4WhfS7IzATmk=
+hash: zyX2YdM6CIiREEqfh+LxO6fCXcvENhSZ8SXnod+1Dh8=
 ---
 ＃ 故障排除
 ?> *** 这是一个占位符***。<br><br>帮助 ioBroker 并扩展这篇文章。请注意 [ioBroker 风格指南](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) 以便可以更轻松地采用更改。
@@ -18,7 +18,7 @@ hash: NAHfCKNrau6ZZZiSXWF0k0KN7z/OGtn4WhfS7IzATmk=
 ## 急救清单“我的 ioBroker 已停止工作” - 我应该首先检查什么并始终在论坛中发帖？
 重要信息始终是以下版本信息：
 
-* `node -v`：ioBroker 支持 nodejs 的“LTS 版本”（偶数版本号）。新安装必须至少使用 nodejs 8.12。 **注意：** 官方不支持nodejs的开发版本（版本号不均匀）！在您从论坛收到信息之前，请不要使用全新的 LTS 版本。我们推荐 nodejs 8.15 或更高版本。
+* `node -v`：ioBroker 支持 nodejs 的“LTS 版本”（偶数版本号）。新安装必须至少使用 nodejs 8.12。 **注意：** 官方不支持nodejs的开发版本（版本号不均匀）！也请在通知论坛后使用全新的 LTS 版本。我们推荐 nodejs 8.15 或更高版本。
 * `npm -v`: ioBroker 支持版本 3 和 > 5.7.1 中的 npm，推荐 6.4.1 或更高版本
 * `iobroker -v`
 * 有关适配器的版本号
@@ -55,14 +55,14 @@ ioBroker 继续将所有日志写入日志文件。它位于“log”子目录�
 ## 适配器/ioBroker 不再以错误“错误的节点版本本机数据包。废话”开始？ （npm 重建等）
 ## 我的电脑上有几个不同的 nodejs 版本？
 ## 突然 ioBroker / Adapter 不再处理消息“意外语法错误/无效令牌或类似”。 （文件损坏，SD 卡...）
-## 在适配器启动错误 7 / 重新连接到数据库（原因...解决方案）
+## 在适配器启动时出现错误 7/重新连接到数据库（原因...解决方案）
 ## IoBroker 突然无法访问了，但是我的电脑还在？ （系统日志 oom 什么的）
-##整个主机在运行过程中突然死机（交换top ...）
+##整个主机在运行过程中突然死机（swapping top ...）
 ## 整个主机在适配器更新期间冻结（例如 sql 安装）
-## 如何手动重新安装 js-controller，什么时候应该做这样的事情？我需要考虑什么？
+## 如何手动重新安装 js-controller 以及何时应该执行此类操作？我需要考虑什么？
 ## 如何手动重新安装适配器，何时应该重新安装？我需要考虑什么？
-## 安装适配器时，会出现一个窗口，显示“index.html not found”？ （安装 Admin3）
-## 我所有的适配器都不见了吗？
+## 安装适配器时，出现“index.html not found”窗口？ （安装 Admin3）
+## 我所有的适配器都没有了吗？
 ...
 
 ## Iobroker 的数据在哪里？

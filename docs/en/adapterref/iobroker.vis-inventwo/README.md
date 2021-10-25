@@ -78,6 +78,12 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 3.2.3
+- Bugfix
+
+## 3.2.2
+- Bugfix
+
 ## 3.2.1
 - Problem mit aktiver Textfarbe behoben (#302)
 - Problem mit Multi-Widget und unterschiedlichem Prüftyp behoben (#303)

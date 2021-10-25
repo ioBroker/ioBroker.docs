@@ -3,11 +3,11 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/stateroles.md
 title: Staatliche Rollen
-hash: SIikCbc4ELzi/lBSxrFLEOcdaJV8wfHaoP0UXEQ3sWM=
+hash: iQ0sPeHMl+oZq/pHTJCX2n465zmSPwYKbJHVgPyMB1w=
 ---
 # Staatsrollen
 Bei Objekten vom Typ `state` muss die Eigenschaft `common.role` auf eine der in der Liste unten definierten Rollen gesetzt werden.
-Die Rolleninformationen sind sehr wichtige Informationen und ermöglichen es Visualisierungs- und Smart-Assistant-Adaptern, die Funktion des Objekts zu erkennen und auch, wie/ob sie mit anderen Objekten im selben Kanal, Gerät oder Ordner in Beziehung stehen.
+Die Rolleninformationen sind sehr wichtige Informationen und ermöglichen es Visualisierungs- und Smart-Assistant-Adaptern, die Funktion des Objekts zu erkennen und auch, wie/ob sie sich auf andere Objekte im selben Kanal, Gerät oder Ordner beziehen.
 
 Beispiel: Eine RGB-Lampe kann folgende drei Objekte (oder mehr) mit unterschiedlichen Rollen haben, die zusammengehören:
 
@@ -24,7 +24,7 @@ Verschiedene Gerätevorlagen, die für die Erkennung mit den erforderlichen und 
 * `html` `common.type = string`
 * `json` `common.type = string`
 * `list` `common.type = array`
-* `date` `common.type = string` - parsbar durch `new Date(ddd)` string
+* `date` `common.type = string` - analysierbar durch `new Date(ddd)` string
 * `Datum` `common.type = Zahl` - `Epochensekunden * 1000`
 
 ## Sensor (Boolean, schreibgeschützt)
@@ -35,7 +35,7 @@ Verschiedene Gerätevorlagen, die für die Erkennung mit den erforderlichen und 
 * `sensor.alarm` - einige allgemeine Alarme
 * `sensor.alarm.flood` - Wasseraustritt
 * `sensor.alarm.fire` - Feuersensor
-* `sensor.alarm.secure` - Tür geöffnet, Fenster geöffnet oder während des Alarms erkannte Bewegung ist EIN.
+* `sensor.alarm.secure` - Tür geöffnet, Fenster geöffnet oder Bewegung während des Alarms erkannt ist EIN.
 * `sensor.alarm.power` - Kein Strom (`Spannung = 0`)
 * `sensor.light` - Rückmeldung der Lampe, dass sie eingeschaltet ist
 * `sensor.lock` - aktuelle Position des Schlosses
@@ -50,10 +50,10 @@ Verschiedene Gerätevorlagen, die für die Erkennung mit den erforderlichen und 
 * `Taste.lang`
 * `button.stop` - z.B. rollo halt,
 * `Taste.Stop.Tilt`
-* `Taste.Start`
+* `button.start`
 * `Knopf.öffnen.Tür`
 * `Schaltfläche.Fenster.öffnen`
-* `knopf.öffnen.blind`
+* `Knopf.öffnen.Blind`
 * `Knopf.öffnen.kippen`
 * `button.close.blind`
 * `button.close.tilt`
@@ -113,11 +113,11 @@ Verschiedene Gerätevorlagen, die für die Erkennung mit den erforderlichen und 
 * `value.fill` - Füllstand, `unit=l,ml,m3,%`
 * `value.blood.sugar` - Blutzuckerwert, `unit=mmol,mgdl`
 
-## Indikatoren (boolesch, schreibgeschützt)
+## Indikatoren (boolean, schreibgeschützt)
 `common.type=boolean, common.write=false`
 
 Der Unterschied zwischen *Indikatoren* und *Sensoren* besteht darin, dass Indikatoren als kleines Symbol angezeigt werden. Sensoren als echter Wert.
-Der Indikator darf sich also nicht allein im Kanal befinden. Es muss sich um einen anderen Hauptstatus innerhalb des Kanals handeln.
+Der Indikator darf also nicht allein im Kanal sein. Es muss sich um einen anderen Hauptstatus innerhalb des Kanals handeln.
 
 * `Anzeige`
 * `indicator.working` - zeigt an, dass das Zielsystem etwas ausführt, wie zum Beispiel Jalousien oder das Öffnen von Schlössern.
@@ -160,7 +160,7 @@ Mit **Stufen** können Sie einen Zahlenwert steuern oder einstellen.
 * `level.volume` - (`min=0, max=100`) - Lautstärke, aber min, max können abweichen. min < max
 * `level.volume.group` - (`min=0, max=100`) - Lautstärke, für die Gerätegruppe
 * `level.curtain` - Stellen Sie die Vorhangposition ein
-* `level.tilt` - Einstellen der Neigungsposition der Jalousien (max = vollständig geöffnet, min = vollständig geschlossen)
+* `level.tilt` - Stellen Sie die Neigungsposition der Jalousien ein (max = vollständig geöffnet, min = vollständig geschlossen)
 
 ## Schalter (Boolean, Read-Write)
 Schalter steuert boolesches Gerät (`true = ON, false = OFF`)
@@ -168,7 +168,7 @@ Schalter steuert boolesches Gerät (`true = ON, false = OFF`)
 `common.type=boolean, common.write=true`
 
 * `Schalter`
-* `switch.lock` - sperren (`true - Schloss öffnen, false - Schloss schließen`)
+* `switch.lock` - lock (`true - Lock öffnen, false - Lock schließen`)
 * `switch.lock.door` - Türschloss
 * `switch.lock.window` - Fenstersperre
 * `switch.mode.boost` - Start/Stopp-Boost-Modus des Thermostats
@@ -183,8 +183,8 @@ Schalter steuert boolesches Gerät (`true = ON, false = OFF`)
 * `switch.mode.manual` - manueller Modus ein/aus
 * `switch.mode.silent` - Silent-Modus ein/aus
 * `switch.mode.moonlight` - Mondlichtmodus ein/aus
-* `switch.mode.color` - Farbmodus ein/aus
-* `switch.gate` - schließt (falsch) oder öffnet (wahr) das Tor
+* `switch.mode.color` - Farbmodus an/aus
+* `switch.gate` - schließt(false) oder öffnet(true) das Tor
 
 ## Klimaanlage oder Thermostat
 * `level.mode.fan` - `AUTO, HIGH, LOW, MEDIUM, QUIET, TURBO`
@@ -192,7 +192,7 @@ Schalter steuert boolesches Gerät (`true = ON, false = OFF`)
 * `level.mode.airconditioner` - Klimaanlage: `AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`, Heizungsthermostat: `AUTO, MANUAL, VACATION`,
 * `level.mode.thermostat` - Thermostat: `AUTO, MANUAL, VACATION`,
 
- Zusätzlich zu diesen Zuständen sind normalerweise die `level.temperature` und `switch.power` erforderlich, um die Klimaanlage zuzuordnen.
+ Zusätzlich zu diesen Zuständen sind normalerweise die `level.temperature` und `switch.power` erforderlich, um die Klimaanlage abzubilden.
 
 TODO: Denken Sie an Ionisation und Oszillation.
 
@@ -218,7 +218,7 @@ Sonderrollen für Mediaplayer
 
 * `Taste.Stopp`
 * `button.play`
-* `Taste.Weiter`
+* `button.weiter`
 * `button.prev`
 * `Taste.Pause`
 * `Schalt.Pause`
@@ -245,7 +245,7 @@ Sonderrollen für Mediaplayer
 * `media.elapsed` - (`common.type=number`) Sekunden
 * `media.broadcastDate` - (`common.type=string`) Sendedatum
 * `media.mute` - (`common.type=boolean`) true ist stumm
-* `media.season` - (`common.type=string`) Saisonnummer (wichtig der Typ ist wirklich "string", um das Fehlen der Saison mit "" anzeigen zu können)
+* `media.season` - (`common.type=string`) Staffelnummer (wichtig der Typ ist wirklich "string", um das Fehlen der Staffel mit "" anzeigen zu können)
 * `media.episode` - (`common.type=string`) Episodennummer (wichtig der Typ ist wirklich "string", um das Fehlen der Episode mit "" anzeigen zu können)
 * `media.mute.group` - (`common.type=boolean`) Stummschaltung der Gerätegruppe
 * `media.tts` - Text-to-Speech
@@ -367,7 +367,7 @@ Sonderrollen für Mediaplayer
 * `value.temperature.min.forecast.0` - Min. Temperaturvorhersage für heute
 * `value.temperature.max.forecast.0` - Max. Temperaturvorhersage für heute
 * `value.precipitation.forecast.0` - (`type: number, unit: %`) Vorhersage der Niederschlagswahrscheinlichkeit für heute
-* `value.precipitation.forecast.0` - (`Typ: Zahl, Einheit: mm`) Vorhersage des Niederschlagsniveaus für heute
+* `value.prepitation.forecast.0` - (`Typ: Zahl, Einheit: mm`) Vorhersage des Niederschlagsniveaus für heute
 * `weather.title.forecast.0` - Sehr kurze Beschreibung für morgen
 * `value.precipitation.day.forecast.0` - Niederschlagsvorhersage für den Tag
 * `value.precipitation.night.forecast.0` - Vorhersage des Niederschlags für die Nacht
@@ -378,9 +378,9 @@ Sonderrollen für Mediaplayer
 * `Wert.Temperatur.Min.Prognose.1`
 * `Wert.Temperatur.max.Vorhersage.1`
 * `value.prepitation.forecast.1` - (`type: number, unit: %`) Vorhersage der Niederschlagswahrscheinlichkeit für morgen
-* `value.precipitation.forecast.1` - (`Typ: Zahl, Einheit: mm`) Vorhersage des Niederschlagsniveaus für morgen
+* `value.prepitation.forecast.1` - (`Typ: Zahl, Einheit: mm`) Vorhersage des Niederschlagsniveaus für morgen
 * `value.direction.wind.forecast.1`
-* `value.speed.wind.forecast.1`
+* `Wert.Geschwindigkeit.Windvorhersage.1`
 * `Wert.Druck.Vorhersage.1`
 
 ## Die Info
@@ -418,4 +418,4 @@ Sonderrollen für Mediaplayer
 * `text.phone` - Telefonnummer
 
 * `adapter.messagebox` (`common.type=object, common.write=true`) zum Senden von Nachrichten an E-Mail, Pushover und andere Adapter
-* `adapter.wakeup` (`common.type=boolean, common.write=true`) reaktiviert den Adapter aus dem Suspend-Modus
+* `adapter.wakeup` (`common.type=boolean, common.write=true`) weckt den Adapter aus dem Suspend-Modus

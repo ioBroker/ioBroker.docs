@@ -4,7 +4,7 @@ lastChanged: 18.07.2019
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/windows.md
-hash: px8Pj5WdRIRET04sAvbr8e4683UA6b4G1aExlrwjJgs=
+hash: XFdcrokNPGtTri8RFE+c4m/7TgKEDdKqtTLfO7BRt1s=
 ---
 # 在 Windows 上安装 ioBroker
 ?> *** 本文正在扩充中***。<br><br>帮助 ioBroker。请注意 [ioBroker 风格指南](community/styleguidedoc) 以便可以更轻松地采用更改。
@@ -60,7 +60,7 @@ Node.js 是根据 [本手册的](install/nodejs) 安装的。
 ?> ioBroker 可以安装在本地硬盘驱动器上您选择的文件夹中。如果安装路径包含空格，则所有命令的完整路径必须用引号引起来。
 示例命令：`dir "C:\ioBroker Testsystem"`。
 
-?> ioBroker 的默认安装文件夹是`C:\iobroker`。
+?> ioBroker 的默认安装文件夹是 `C:\iobroker`。
 
 1. 以管理员身份打开命令行窗口。为此，请使用组合键
 
@@ -72,13 +72,13 @@ cmd
 
    输入。
 
-由于命令行窗口必须以管理员身份打开，请使用 `OK` 填写**而不是**，而是使用组合键 `Strg` + `Umschalt` + `Eingabetaste` .有一个安全问题，必须通过 `Ja` 或输入管理员密码来确认。
+由于命令行窗口必须以管理员身份打开，请使用 `OK` 填写 **而不是** 而是使用组合键 `Strg` + `Umschalt` + `Eingabetaste` .必须使用 `Ja` 或输入管理员密码来确认安全问题。
 
 !> 现在打开的黑色命令行窗口中的标题行必须以单词 `Administrator:` 开头。
 
 ?> 一些ioBroker 适配器包含必须为Windows 编译的组件。因此，在安装ioBroker之前，安装了所谓的`windows-build-tools`。有关 `windows-build-tools` 的更多信息可以在 [在这里找到](https://github.com/felixrieseberg/windows-build-tools) 中找到。
 
-1. 使用以下命令安装`windows-build-tools`：
+1.使用以下命令安装`windows-build-tools`：
 
 ```
 npm install --global windows-build-tools

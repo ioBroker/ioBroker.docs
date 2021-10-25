@@ -4,7 +4,7 @@ lastChanged: 11.08.2019
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/viz/widgets.md
-hash: beLY0bKf2v2bHfNEpPQQjde4CBBS7s9c5jyaH3r9Z2o=
+hash: TxhNPmBC2abg80GhW8v2M7m6PomjfeOCj2SJAYiI5/g=
 ---
 # Widgets
 ## As a general rule
@@ -34,7 +34,7 @@ The visibility of a widget can be made dependent on the status of a data point.
 |----|----|
 
 | `Object ID` | The ID of the data point is entered here, which is to control the visibility of the selected widget. The data point can be searched for using the button.
-| Condition | The widget becomes visible if the condition entered here for the above data point ...
+| Condition | The widget is visible if the condition entered here for the above data point ...
 | The value for the condition | ... corresponds to the value entered here.
 
 #### **Generally**
@@ -105,4 +105,4 @@ In this section, the desired data point is assigned to the widget in the Object 
 | Attribute | Description |
 |-----|----|
 
-| `padding` | Offset from the edge of the widget box | `padding-left` | offset on the left | `padding-top` | Offset on the upper side | `padding-right` | Offset on the right side | `padding-bottom` | Offset on the lower side | `box-shadow` | Color of the shadow of the widget box | `margin-top` | Upper margin around the widget (auto,%, px, pt, cm) | `margin-right` | Right border around the widget | `margin-bottom` | Lower border around the widget | `margin-left` | Left margin around the widget
+| `padding` | Offset from the edge of the widget box | `padding-left` | Offset on the left side | `padding-top` | Offset on the upper side | `padding-right` | Offset on the right side | `padding-bottom` | Offset on the lower side | `box-shadow` | Color of the shadow of the widget box | `margin-top` | Upper margin around the widget (auto,%, px, pt, cm) | `margin-right` | Right border around the widget | `margin-bottom` | Lower border around the widget | `margin-left` | Left margin around the widget

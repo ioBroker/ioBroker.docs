@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: qNhJaULkcMxm+QJ2R7RCe5knOwhc+mmLkADiFOZfymo=
+hash: /0U6xNsr3tgSMuIgQiyawitVnmVywJ7ZtcPPfXMy2+M=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -44,6 +44,12 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ---
 
+## 3.2.3
+- 错误修正
+
+## 3.2.2
+- 错误修正
+
 ## 3.2.1
 - 问题 mit aktiver Textfarbe behoben (#302)
 - 问题 mit Multi-Widget und unterschiedlichem Prüftyp behoben (#303)
@@ -68,7 +74,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 - 错误修正
 
 ## 3.1.0
-- Neues 小工具：Basisschalter
+- 新小工具：Basisschalter
 - Neues 小工具：复选框/单选按钮
 - Bug修复
 
@@ -115,7 +121,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 - Beim Universal- 和 Multiwidget kann der Inhaltstyp geändert werden。
     - Inhaltstypen：图片（标准）、Analoge Uhr、Digitale Uhr 和 HTML/Text
-    - Analoge und digitale Uhr：Zeiger kann frei gewählt werden 下的 Farbe des Ziffernblatts，Zeitzone kann geändert werden
+    - Analoge und digitale Uhr：Zeiger kann frei gewählt werden、Zeitzone kann geändert werden 下的 Farbe des Ziffernblatts
     - Statt dem Icon kann ein eigener Text oder ein Datenpunktwert per Binding angezeigt werden
 - Vergleichsoperatoren Größer-Gelich und Kleiner-Gleich
 - PopUp kann per Datenpunk geöffnet werden
@@ -138,7 +144,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 ## 2.9.3
 - Fehler mit PopUp behoben: Klick zum schließen wurde direkt nach Öffnen registriert und Klick löste Buttonshinter dem PopUp aus
-- Zustände wurden bei 在弹出窗口中查看视图 nicht richtig angezeigt
+- Zustände wurden bei 弹出窗口中的视图 nicht richtig angezeigt
 
 ## 2.9.2
 - 问题 mit Datenpunkt zum Schließen des Popups behoben。啊！ Der Datenpunkt muss erneut ausgewählt werden
@@ -223,7 +229,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 ## 2.6.0
 - Universal- & Multi-Widget Vergleichsoperatoren gleich, größer, kleiner und nicht hinzugefügt
 - 滑块最小/最大逆变器
-- Slider Wert erst beim loslassen setzen
+- 滑块 Wert erst beim loslassen setzen
 - Widget um Wert zu erhöhen oder zu senken
 - JSON Tabelle Fehler mit Datum behoben
 

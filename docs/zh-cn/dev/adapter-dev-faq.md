@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapter-dev-faq.md
 title: 常见的适配器开发问题
-hash: eYLJSbvcCz8wYyj3Pa+wrDSZhMY78b6yn9YUWmOxv0E=
+hash: xBifYSMkiSeEcOHVKuK3c1SR01Qr030mxrhtOv9htBA=
 ---
 # 常见的适配器开发问题
 ＃＃ 介绍
@@ -42,7 +42,7 @@ hash: eYLJSbvcCz8wYyj3Pa+wrDSZhMY78b6yn9YUWmOxv0E=
 
 请注意，需要使用 [语义版本控制](https://semver.org/)，见[版本控制](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md#versioning)。<br> （2020 年 11 月 25 日）
 
-**问题：** 我的适配器位于最新的存储库中。我在 Github 上更新了适配器并在 NPM 上发布。用户何时会在 Admin 中看到新版本？
+**问题：** 我的适配器在最新的存储库中。我在 Github 上更新了适配器并在 NPM 上发布。用户何时会在 Admin 中看到新版本？
 
 **答案：** ioBroker 每天两次扫描任何版本更改。<br> （2020 年 11 月 25 日）
 
@@ -63,13 +63,13 @@ hash: eYLJSbvcCz8wYyj3Pa+wrDSZhMY78b6yn9YUWmOxv0E=
 
 ### 适配器配置 UI (admin/index_m.html)
 #### 输入验证
-**问题：** 我想通过使用核心适配器方法以及 node.js 适配器代码的类/方法来验证适配器配置的字段。一旦用户在适配器配置中点击“保存”，就会进行验证，然后调用 `admin/index_m.html` 的 `save()`。
+**问题：** 我想通过使用核心适配器方法以及 node.js 适配器代码的类/方法来验证适配器配置的字段。一旦用户在适配器配置中点击“保存”，就会进行验证，然后将调用 `admin/index_m.html` 的 `save()`。
 
 **答案：** 您可以使用 `sendTo()` 方法将变量 `obj` 从 `admin/index_m.html` 发送到适配器代码，验证那里的内容，然后通过回调将结果提供回`sendTo()` 的 `admin/index_m.html`。<br>示例：这是在适配器 [法尔计划](https://github.com/gaudes/ioBroker.fahrplan) 中实现的。<br>注意：您可能需要更改您的 `io-package.json`，参见例如 [ioBroker-Forum: sendTo() funktioniert nicht](https://forum.iobroker.net/topic/5205/gel%C3%B6st-sendto-in-eigenem-adapter-funktioniert-nicht/)<br> （2020 年 11 月 24 日）
 
 ### 适配器功能
 ####写入文件
-**问题：** 适配器应该使用 axios 下载一个文件并能够将其写入 iobroker-data/files/<adapter>
+**问题：** Adapter 应该使用 axios 下载一个文件并且能够将其写入 iobroker-data/files/<adapter>
 
 **答案：** 下面是此操作的一小段代码：
 

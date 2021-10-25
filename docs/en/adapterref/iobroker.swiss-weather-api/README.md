@@ -12,6 +12,9 @@
 
 **Tests:**: [![Travis-CI](http://img.shields.io/travis/baerengraben/ioBroker.swiss-weather-api/master.svg)](https://travis-ci.org/baerengraben/ioBroker.swiss-weather-api)
 
+**Update procedure Version 1.0.1 to 1.0.x**
+- Just update in ioBroker. No special additional steps necessary 
+
 **Update procedure Version 1.0.0 to 1.0.1**
 - With Version 1.0.1 I'm fixing Issue https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/57
 - Based on [this](https://forum.iobroker.net/topic/46975/vis-widgethintergrund-farbe-durch-objektdatenpunkt-steuern) discussion, colons are not allowed in IDs. I have therefore removed the colons, which were used for the hours, without replacement and also omitted the seconds. e.g. old 01:00:00 => new 0100)

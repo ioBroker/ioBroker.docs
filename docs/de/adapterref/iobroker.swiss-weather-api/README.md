@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.swiss-weather-api/README.md
 title: ioBroker.swiss-weather-api
-hash: HYG0OdhgkGIFINebBTOs2nCEmZ6h+pfG/kcPNiHzdvU=
+hash: MN9ch329u8qQbmvZYV1HlOsYj1Z3mzxqcxvybkf0kYc=
 ---
 ![Logo](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
 
@@ -17,6 +17,10 @@ hash: HYG0OdhgkGIFINebBTOs2nCEmZ6h+pfG/kcPNiHzdvU=
 ![Travis-CI](http://img.shields.io/travis/baerengraben/ioBroker.swiss-weather-api/master.svg)
 
 # IoBroker.swiss-weather-api
+**Aktualisierungsverfahren Version 1.0.1 auf 1.0.x**
+
+- Einfach in ioBroker aktualisieren. Keine besonderen zusätzlichen Schritte notwendig
+
 **Aktualisierungsverfahren Version 1.0.0 auf 1.0.1**
 
 - Mit Version 1.0.1 behebe ich das Problem https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/57
@@ -70,6 +74,10 @@ Die Objekte in Forecast.current_hour werden 30s nach dem ersten Start erstellt u
 ![Tablette](../../../en/adapterref/iobroker.swiss-weather-api/doc/Wettervorhersage_visu_anim.gif)
 
 ## Changelog
+
+### 1.0.2
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/51
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/53
 
 ### 1.0.1
 * (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/57

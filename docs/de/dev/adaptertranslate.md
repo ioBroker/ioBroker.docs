@@ -3,13 +3,13 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adaptertranslate.md
 title: Übersetzung von Adapter
-hash: L2W7WsInFLrJZUsGZg0wORin1/ZdGZR0Zd1zpbnKDjo=
+hash: 8XvB1Gq0qo9gVlIP2+QfpMZ3OQTE+OfKgPD94WrJdcQ=
 ---
 # Übersetzung von Adaptern
 ## Einführung
 ioBroker wird international in [viele verschiedene Sprachen](https://www.iobroker.net/#en/statistics) verwendet, daher sind Übersetzungen sehr wichtig.
 
-Adapter haben mehrere Teile, die übersetzt werden müssen:
+Adapter bestehen aus mehreren Teilen, die übersetzt werden müssen:
 
 1. Strings in der Admin-Benutzeroberfläche
 1. Titel und Beschreibung in `io-package.json`

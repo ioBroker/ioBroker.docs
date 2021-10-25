@@ -4,14 +4,14 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tr-064/README.md
 title: ioBroker.tr-064
-hash: rN4KkHkTgQi739/0GZDQZ274L23nvqhd+4OxJHA44Ww=
+hash: D59HzSVYkdStJaSDx6e91FA6u2/6TTOD7QeUisJd0X0=
 ---
 ![Logo](../../../en/adapterref/iobroker.tr-064/media/tr-064.png)
 
 #ioBroker.tr-064
 ### Die Info
 Dieser Adapter liest die wichtigsten Informationen der AVM Fritz!Box, wie Anrufliste oder Anzahl der Nachrichten auf dem Anrufbeantworter.
-Auf dieser Grundlage [AVM-Dokumentationen](https://avm.de/service/schnittstellen/)
+Auf dieser Grundlage [AVM Dokumentationen](https://avm.de/service/schnittstellen/)
 
 ### Einfache Zustände und Funktionen
 - WLAN für 2,4 GHz und 5 GHz ein-/ausschalten,
@@ -44,7 +44,7 @@ Kann durch mDNS ausgelöst werden. Bei Verwendung von MDNS ist kein Polling erfo
 Kann ein-/ausgeschaltet werden.
 Der Zustand cbIndex kann auf die Adresse # des Anrufbeantworters gesetzt werden.
 
-### Anrufmonitor
+### Anrufüberwachung
 Der Callmonitor erstellt Echtzeitstatus für jeden eingehenden und ausgehenden Anruf.
 Wenn das Telefonbuch aktiviert ist (Standard), werden Nummern in Namen aufgelöst. Es gibt auch einen Status, der auf ein klingelndes Telefon hinweist.
 
@@ -52,7 +52,7 @@ Wenn das Telefonbuch aktiviert ist (Standard), werden Nummern in Namen aufgelös
 - Das Telefonbuch, falls aktiviert, wird verwendet, um den Namen der Telefonnummer des Anrufers abzurufen.
 - Weiterhin gibt es drei Zustände um eine Nummer oder einen Namen aufzulösen. Falls vorhanden, erhalten Sie auch die Bild-URL des Kontakts.
 
-  Bsp.: Wenn Sie den Status Telefonbuch.Nummer setzen, werden alle 3 Staaten, Name, Nummer und Bild auf den gefundenen Kontakt gesetzt. Beachten Sie, dass bei der Suche nach Namen zuerst der vollständige Name verglichen wird, wenn er nicht gefunden wird, wird ein Teil davon verwendet.
+  Bsp.: Wenn Sie den Status Telefonbuch.Nummer setzen, werden alle 3 Staaten, Name, Nummer und Bild auf den gefundenen Kontakt gesetzt. Beachten Sie, dass die Suche nach Namen zuerst den vollständigen Namen vergleicht, wenn er nicht gefunden wird, wird ein Teil davon verwendet.
 
 ### Anruflisten
 Ausgabeformate:

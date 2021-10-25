@@ -4,7 +4,7 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/events.md
-hash: 5xQhxMr82Fyb7tKpihP3Sp/Vj7as6+yQvCM9e0k1ZGI=
+hash: +KFMmCj/chMyEZB/QW+TFWarAfGD1U+w6FxSkTJrUbw=
 ---
 The current states of all data points are displayed in this tab.
 The values cannot be changed here.
@@ -44,7 +44,7 @@ Here you can filter for complete IDs, but also for parts of them, e.g. for all T
 This is the current value of the respective data point.
 
 ### 4 - Confirmed
-If this value has been changed and this has been adopted by the system, the value is true, otherwise false.
+If this value was changed and this was adopted by the system, the value is true, otherwise false.
 
 These are also the filter options
 

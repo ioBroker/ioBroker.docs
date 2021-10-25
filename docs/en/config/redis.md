@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/config/redis.md
 title: The Redis database for ioBroker
-hash: OO6QwcVxnlNy+qafCZFqQ7pZKK33y+Ddy6McX56JFDM=
+hash: SoqEQqV0IZ/uxETDM3MSFvy9Bkrk4fp/cwvrsetbZjQ=
 ---
 # The Redis database for ioBroker
 Redis is an open source in-memory database.
@@ -13,7 +13,7 @@ The big advantage of Redis:
 
 Compared to the internal ioBroker databases, Redis offers advantages in the areas of data access speed, IO management in the file system and better use of CPU resources.
 The js controller is relieved. A previously sluggish system can become faster again.
-However, it is important that enough RAM is available, as Redis keeps all data in RAM. Depending on what exactly is stored in Redis, the RAM requirement is a few MB (e.g. if only states are in Redis) up to over 200 MB (if, for example, objects and files are also stored there).
+However, it is important that enough RAM is available, as Redis keeps all data in RAM. Depending on what exactly is stored in the Redis, the RAM requirement is a few MB (e.g. if only states are in Redis) up to over 200 MB (if, for example, objects and files are also stored there).
 
 ## Redis FAQ
 1. Do I need Redis for my ioBroker or not?
@@ -27,11 +27,11 @@ Since ioBroker's own databases also use the Redis protocol for communication, it
 A call to `iobroker status` shows which database type is used for the states and objects databases.
 "file" means that ioBroker's own databases are used. "redis" means that a Redis is in use.
 
-A detailed explanation of the topic Redis with further information can be found in [Forum](https://forum.iobroker.net/topic/26327/redis-in-iobroker-%C3%BCberblick)
+A detailed explanation on the topic of Redis with further information can be found in [Forum](https://forum.iobroker.net/topic/26327/redis-in-iobroker-%C3%BCberblick)
 
 ## Redis persistence
-Usually Redis is an "in-memory database". So the data is stored in RAM. When Redis is closed, these are gone.
-In order to enable an update, Redis supports two types of data storage on hard drive.
+Typically, Redis is an "in-memory database". So the data is stored in RAM. When Redis is closed, these are gone.
+In order to enable an update, Redis supports two types of data storage on hard disk.
 The RDB and AOF persistence.
 
 ** RDB ** is active by default, this method saves the entire content in an RDB file. The storage interval can be configured and should be adapted to your own needs! To configure this, a mixture of data security (how much data can you cope with losing in a crash) and write load for the storage medium, since the entire content is always written (if objects are also in Redis, this may be several hundred MB!).
@@ -41,13 +41,13 @@ For this purpose, a so-called AOF file is continuously written, where all change
 As mentioned above, this means that more ram is required. If this RAM is not available, everything continues - depending on the settings - without any problems.
 A backup of the data is then not created! Corresponding messages are only available in the log file.
 
-More details on persistence are available at https://redis.io/topics/persistence
+More details on persistence can be found at https://redis.io/topics/persistence
 
 ** Redis Slaves **, i.e. a second Redis server, is another way of always having current data as a backup.
 If the computer with the master Redis is defective, the data still exists on the slave in almost real time.
 You can use this to create a dump to set up the master again, or as a quick solution you can make the slave the master and change the database IPs in the ioBroker and you are almost up to date again online. This can also be found in more detail in [Forum](https://forum.iobroker.net/topic/26327/redis-in-iobroker-%C3%BCberblick) or at https://raw.githubusercontent.com/antirez/redis/5.0/redis.conf
 
-** However, a slave does not protect against accidental deletion of data, as this is deleted on the slave immediately afterwards. Only backups help here. **
+** However, a slave does not protect against accidental deletion of data, as these are deleted on the slave immediately afterwards. Only backups help here. **
 
 ## Installation of Redis
 Redis must be installed and configured as a separate service and the data should also be taken into account during the backup.
@@ -99,7 +99,7 @@ iobroker setup custom
 ```
 
 For the "Objects" confirm the current settings ("file" as type, IP, port 9001) and for "States" now as type "redis", the IP of the Redis host server (or 127.0.01 if on the same host ) and set 6379 as port.
-So that you do not lose all state data, it is advisable to migrate the data, which the next questions in the configuration ask.
+So that you do not lose all state data, it is advisable to migrate the data, which is what the next questions in the configuration ask.
 After the migration, ioBroker can be restarted with **iobroker start** If slave systems are also used, the same settings must be made everywhere via **iobroker setup custom** However, the question about migration must be answered in the negative!
 
 If you also want to change "Objects", proceed exactly and select the type "redis", enter the IP and port of the Redis host and migrate the data if necessary, which, depending on the size, can take a while.

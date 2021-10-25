@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/logging.md
 title: kein Titel
-hash: FAhDtnxOJ7Fyo4YK2D/r3ZcDQdByr87vZusjjQx1iH0=
+hash: lqS7I0eLZt6tvBnm62QI2XrnTsl3mo5xbcJoPKJRbG8=
 ---
 ## Holztransporter
 Wenn Sie bestimmte oder alle Protokolle von ioBroker-Adaptern abonnieren möchten, können Sie **logTransporter** verwenden. Um in Ihrem Adapter zu aktivieren, fügen Sie `"logTransporter": true` zur gemeinsamen Struktur Ihres `io-package.json` hinzu.<br><br> In Ihrem Adaptercode (wie in der `main.js` Datei) müssen Sie dann zur Aktivierung `requireLog(true)` aufrufen. Sobald requireLog() auf true gesetzt ist, können Sie `on('log', callback)` verwenden, um alle neuen Protokolle zu abonnieren, die von Adaptern eingehen. Die Callback-Funktion gibt alle Logs mit folgendem Objekt zurück (Beispiel):

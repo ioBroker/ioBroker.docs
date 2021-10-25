@@ -4,7 +4,7 @@ lastChanged: 10.05.02021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/instances.md
-hash: ryoo5q50Xq8cxSezNgJU212bACYAHiFSrZdXotHE6us=
+hash: UoGLmTCoECn4hXH3ZdHdTGnXR2yC6U/6IeuOooI7o5A=
 ---
 The instances already installed on the Adapter tab are listed here and can be configured accordingly.
 
@@ -15,10 +15,10 @@ in the title line there are icons for the most important processes. There is con
 
 The icons in detail:
 
-### 1 - Refresh the view
-If instances that have just been created are not visible, clicking this icon helps to bring the status of the page up to date.
+### 1 - update view
+If instances that have just been created are not visible, clicking this icon will help bring the status of the page up to date.
 
-### 2 - Turn on administrator mode
+### 2 - Switch on administrator mode
 When you select this icon, additional columns for configuring the instances are displayed (toggle function). Information on this in the section on page content.
 
 ### 3 - Show only instances of the selected host
@@ -44,9 +44,9 @@ The installed instances of the adapters are shown in a table on the page.
 The table consists of the following columns:
 
 ### 1 - state
-The state of the instance is shown here by a traffic light. Further information can be obtained by holding the mouse on the signal.
+The status of the instance is shown here by a traffic light. Further information can be obtained by holding the mouse on the signal.
 
-Not all instances have this traffic light. But don't panic. These are either time-controlled instances that only briefly connect to the controller and then switch off again immediately or continue to run in the background, for example.
+Not all instances have this traffic light. But don't panic. These are either time-controlled instances that only briefly connect to the controller and then switch off again immediately or continue to run in the background, e.g. vis.
 
 ### 2 - Icon
 The icon that is used throughout ioBroker for this adapter is displayed here
@@ -57,7 +57,7 @@ The name of the instance is in this column. it is made up of the name of the ada
 0. This designation is the basis for the designation of the data points in ioBroker.
 
 ### 4 - activated
-The instance is started or stopped here. The green pause symbol shows that the adapter is running and can be paused by clicking on it, the red play symbol shows a stopped instance that can be started with one click.
+The instance is started or stopped here. The green pause symbol indicates that the adapter is running and can be paused by clicking on it, the red play symbol indicates a stopped instance that can be started with one click.
 
 ### 5 - configuration
 Clicking this icon opens an adapter-specific configuration menu. The corresponding menus are described for the associated adapters.
@@ -78,12 +78,12 @@ The name of the instance is specified here. You can change this name according t
 In the case of adapters that are started time-controlled, the time when this adapter should start is entered here. This scheduling is in the format of a cron job. To change, click on the button with the three dots. An input window opens with a lot of additional information and help.
 
 ### 11 - restart
-The clock icon can also be used to create a schedule when this instance should be restarted.
+Using the clock icon, a schedule can also be created here when this instance is to be restarted.
 
 This column is only visible in expert mode!
 
 ### 12 - Log level
-The respective log level for the instance can be adjusted in this column. Debug, info, warn and error are available. By default, this value is set to info. If you have the impression that something is not running smoothly, you can set it to debug. then debug information is output for this instance in the log tab, which can help to find an error. Conversely, you can set this value higher so that the log is not so extensive.
+The respective log level for the instance can be adjusted in this column. Debug, info, warn and error are available. By default, this value is set to info. If you have the impression that something is not running smoothly, you can set it to debug. then debug information is also output for this instance in the log tab, which can help to find an error. Conversely, you can set this value higher so that the log is not so extensive.
 This column is only visible in expert mode!
 
 ### 13 - RAM limit

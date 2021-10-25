@@ -4,13 +4,13 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hm-rega/README.md
 title: HomeMatic ReGaHSS
-hash: G+XgC3bx73W0XgVhW1GkYuvI38TcQQgIsp3P1ggWznM=
+hash: 5nzOtddjd6p/3BVJJkfR7yHWPQUqVm2mcbdsP7tvrkM=
 ---
 ![标识](../../../de/adapterref/iobroker.hm-rega/media/homematic.png)
 
 # HomeMatic ReGaHSS
 ##家庭式
-> Homematic 是 eQ-3 的智能家居系统，它可以使用房屋或公寓中的场景（从简单到复杂）全面控制各种功能。
+> Homematic 是来自 eQ-3 的智能家居系统，它可以使用房屋或公寓中的场景（从简单到复杂）全面控制各种功能。
 
 > 这些设备包括用于光、卷帘和加热控制的产品、危险探测器、安全传感器和用于测量天气数据的产品。无线电通信简化了改装。导线母线组件可用于新建筑。
 
@@ -24,7 +24,7 @@ hash: G+XgC3bx73W0XgVhW1GkYuvI38TcQQgIsp3P1ggWznM=
 
 安装 ReGaHSS 时，也会安装一个“hm-rpc”适配器实例，需要提前配置并激活。
 
-此适配器的一个实例最多可以管理 5 个不同的 Homematic RPC 适配器实例，它们提供不同的服务（每个服务都需要自己的 RPC 实例）：
+该适配器的一个实例最多可以管理 5 个不同的 Homematic RPC 适配器实例，它们提供不同的服务（每个服务都需要自己的 RPC 实例）：
 
 - rfd（标准组件的 CCU 无线电服务）
 - hs485d（有线）（用于有线总线组件）
@@ -65,7 +65,7 @@ CCU的IP地址可以在下拉菜单中选择；重连间隔（标准 30 秒）�
 
 扳机
 
-为了最大限度地减少从 ioBroker 到 RegaHSS 的活动查询，触发器还可以在进行更改时将数据推送到程序内的 CCU 上。
+为了最大限度地减少从 ioBroker 到 RegaHSS 的主动查询，触发器还可以在进行更改时将数据推送到程序内的 CCU 上。
 为此可以使用 CCU 上的虚拟按钮，该按钮在 CCU 程序中触发。默认情况下，这是 BidCosRF.50.PRESS_SHORT 键（参见示例程序）。
 
 ###同步区域

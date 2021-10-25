@@ -41,8 +41,13 @@ The following additionals States are created per device when checked:
 
 ## Changelog
 
+### 0.1.14 (2021-10-23)
+* (patrickbs96) Add new Value `network.station.status` from API-Response (Sentry IOBROKER-TWINKLY-A, IOBROKER-TWINKLY-B)
+* (patrickbs96) Add new Value `network.details.rssi` from API-Response (Sentry IOBROKER-TWINKLY-D)
+* (patrickbs96) Add new Value `mode.color_config` from API-Response (Sentry IOBROKER-TWINKLY-7)
+
 ### 0.1.13 (2021-10-13)
-* (patrickbs96) Handling rssi (Sentry IOBROKER-TWINKLY-8)
+* (patrickbs96) Add new Value `network.station.rssi` from API-Response (Sentry IOBROKER-TWINKLY-8)
 
 ### 0.1.12 (2021-09-13)
 * (patrickbs96) Added new Values from Response (Sentry IOBROKER-TWINKLY-7)

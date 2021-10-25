@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.swiss-weather-api/README.md
 title: ioBroker.swiss-weather-api
-hash: HYG0OdhgkGIFINebBTOs2nCEmZ6h+pfG/kcPNiHzdvU=
+hash: MN9ch329u8qQbmvZYV1HlOsYj1Z3mzxqcxvybkf0kYc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
 
@@ -17,6 +17,10 @@ hash: HYG0OdhgkGIFINebBTOs2nCEmZ6h+pfG/kcPNiHzdvU=
 ![Трэвис-Си](http://img.shields.io/travis/baerengraben/ioBroker.swiss-weather-api/master.svg)
 
 # IoBroker.swiss-weather-api
+** Процедура обновления с версии 1.0.1 до 1.0.x **
+
+- Просто обновите в ioBroker. Никаких специальных дополнительных действий не требуется
+
 ** Процедура обновления с версии 1.0.0 до 1.0.1 **
 
 - В версии 1.0.1 я исправляю проблему https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/57
@@ -70,6 +74,10 @@ API-интерфейс SRF Weather REST позволяет получать пр
 ![Планшет](../../../en/adapterref/iobroker.swiss-weather-api/doc/Wettervorhersage_visu_anim.gif)
 
 ## Changelog
+
+### 1.0.2
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/51
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/53
 
 ### 1.0.1
 * (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/57

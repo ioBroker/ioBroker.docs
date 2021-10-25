@@ -3,10 +3,10 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/stateroles.md
 title: Государственные роли
-hash: SIikCbc4ELzi/lBSxrFLEOcdaJV8wfHaoP0UXEQ3sWM=
+hash: iQ0sPeHMl+oZq/pHTJCX2n465zmSPwYKbJHVgPyMB1w=
 ---
 # Государственные роли
-Для объектов типа `state` необходимо, чтобы для их свойства `common.role` была установлена одна из ролей, определенных в списке ниже.
+Для объектов типа `state` необходимо, чтобы их свойство `common.role` было установлено на одну из ролей, определенных в списке ниже.
 Информация о роли является очень важной информацией и позволяет адаптерам Visualization- и Smart-Assistant определять функцию объекта, а также то, как / если они связаны с другими объектами в том же канале, устройстве или папке.
 
 Пример: Лампа RGB может иметь следующие три объекта (или более) с разными ролями, которые принадлежат друг другу:
@@ -19,7 +19,7 @@ hash: SIikCbc4ELzi/lBSxrFLEOcdaJV8wfHaoP0UXEQ3sWM=
 
 ## Общий
 * `состояние` - очень распространенная цель. Если вы не знаете, какую роль играет государство, используйте эту.
-* `текст`` common.type = string`
+* `текст`` common.type = строка`
 * `text.url`` common.type = string` state val содержит URL-адрес для использования в привязке, iframe или img
 * `html`` common.type = string`
 * `json`` common.type = string`
@@ -95,7 +95,7 @@ hash: SIikCbc4ELzi/lBSxrFLEOcdaJV8wfHaoP0UXEQ3sWM=
 * `value.power` - фактическая мощность (единица измерения = Вт или кВт)
 * `value.power.consuming` - потребление энергии (единица измерения = Втч или кВтч)
 * `value.power.reactive` - реактивная мощность (единица = VAr)
-* `value.direction` - (common.type = number ~~ или строка ~~, указывает вверх / вниз, влево / вправо, 4-позиционные переключатели, направление ветра, ...)
+* `value.direction` - (common.type = number ~~ или string ~~, указывает вверх / вниз, влево / вправо, 4-позиционные переключатели, направление ветра, ...)
 * `value.curtain` - фактическое положение занавеса
 * `value.blind` - фактическое положение жалюзи (` max = полностью открыто, min = полностью закрыто`)
 * `value.tilt` - фактическое положение наклона (` max = полностью открыто, min = полностью закрыто`)
@@ -104,7 +104,7 @@ hash: SIikCbc4ELzi/lBSxrFLEOcdaJV8wfHaoP0UXEQ3sWM=
 * `value.pressure` - (единица измерения: мбар)
 * `value.distance`
 * `value.distance.visibility`
-* `value.severity` - некоторая степень серьезности (можно указать состояния), чем выше, тем важнее
+* `value.severity` - некоторая серьезность (можно указать состояния), чем выше, тем важнее
 * `value.warning` - некоторое предупреждение (можно указать состояния), чем выше, тем важнее
 * `value.sun.elevation` - высота солнца в °
 * `value.sun.azimuth` - азимут солнца в °
@@ -123,7 +123,7 @@ hash: SIikCbc4ELzi/lBSxrFLEOcdaJV8wfHaoP0UXEQ3sWM=
 * `indicator.working` - указывает, что целевые системы что-то выполняют, например, жалюзи или открывание замка.
 * `indicator.reachable` - если устройство в сети
 * `indicator.connected` - используется только для экземпляров. Используйте `indicator.reachable` для устройств
-* `indicator.main maintenance` - указывает системные предупреждения / ошибки, сигналы тревоги, служебные сообщения, разряд батареи и тому подобное.
+* `indicator.main maintenance` - указывает системные предупреждения / ошибки, аварийные сигналы, служебные сообщения, разряд батареи и тому подобное.
 * `indicator.main maintenance.lowbat`
 * `indicator.main maintenance.unreach`
 * `indicator.main maintenance.alarm`
@@ -160,7 +160,7 @@ hash: SIikCbc4ELzi/lBSxrFLEOcdaJV8wfHaoP0UXEQ3sWM=
 * `level.volume` - (` min = 0, max = 100`) - громкость звука, но min, max могут отличаться. мин <макс
 * `level.volume.group` - (` min = 0, max = 100`) - громкость звука, для группы устройств
 * `level.curtain` - установить положение шторки
-* `level.tilt` - установить положение наклона жалюзи (max = полностью открыт, min = полностью закрыт)
+* `level.tilt` - установить наклон жалюзи (max = полностью открыт, min = полностью закрыт)
 
 ## Переключатели (логические, чтение-запись)
 Переключатель управляет логическим устройством (`true = ON, false = OFF`)
@@ -204,7 +204,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `indicator.main maintenance.waste` - мусорное ведро дурацкое.
 * `value.state` -` HOME, CLEANING, PAUSE` и так далее.
 
-Вдобавок к этим состояниям обычно требуются `switch.power`, необходимые для сопоставления пылесоса. `switch.power` в этом случае работает как: `true` - очистить, `false` - вернуться домой.
+Кроме того, для этих состояний обычно требуются `switch.power`, необходимые для сопоставления пылесоса. `switch.power` в этом случае работает как: `true` - очистить, `false` - вернуться домой.
 Необязательно `value.battery` и
 
 ## Ворота
@@ -231,7 +231,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `media.seek` - (` common.type = number`)%
 * `media.mode.shuffle` - (` common.type = number`) 0 - нет, 1 - все, 2 - один
 * `media.mode.repeat` - (` common.type = boolean`)
-* `media.state` - ['play', 'stop', 'pause'] или [0 - пауза, 1 - воспроизведение, 2 - стоп] или [true - воспроизведение / false - пауза]
+* `media.state` - ['play', 'stop', 'pause'] или [0 - пауза, 1 - воспроизведение, 2 - остановка] или [true - воспроизведение / false - пауза]
 * `media.artist`
 * `media.album`
 * `media.title`
@@ -240,7 +240,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `media.cover.big` - большая ссылка на обложку
 * `media.cover.small` - крошечный URL обложки
 * `media.duration.text` - например," 2:35 "
-* `media.duration` - (` common.type = number`) секунды
+* `media.duration` - (` common.type = number`) секунд
 * `media.elapsed.text` - например," 1:30 "
 * `media.elapsed` - (` common.type = number`) секунды
 * `media.broadcastDate` - (` common.type = string`) Дата трансляции
@@ -284,7 +284,7 @@ TODO: подумайте об ионизации и колебаниях.
 ]
 ```
 
-* `media.browser` - массив json типа" files "
+* `media.browser` - массив json типа" файлы "
 
 ```
 [
@@ -392,7 +392,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `info.firmware` - версия прошивки
 * `info.hardware` - версия оборудования
 * `info.port` - порт tcp
-* `info.standby` - истина, если устройство в режиме ожидания
+* `info.standby` - true, если устройство в режиме ожидания
 * `info.status` - статус устройства
 * `info.display` - информация, отображаемая на дисплее устройства
 * `date.start` - строка или число

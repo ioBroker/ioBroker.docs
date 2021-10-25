@@ -4,7 +4,7 @@ lastChanged: 07.05.2021
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/admin/hosts.md
-hash: b/cl0uw+yfoPT0T/XNqIz/AUhBq050Wlkmzg4UG42hI=
+hash: vui0+3EZSKz2XJdrrGwCONv3my8EhEnFlpgcAu982o0=
 ---
 此处显示可用主机。
 
@@ -37,7 +37,7 @@ hash: b/cl0uw+yfoPT0T/XNqIz/AUhBq050Wlkmzg4UG42hI=
 可以在此处更改主机名。此名称必须是唯一的。
 
 ### 5 - 重启主机
-使用此按钮可以重新启动相应的主机。单击它对应于重新启动命令。
+可以通过此按钮重新启动相应的主机。单击它对应于重新启动命令。
 
 ### 6 - 删除主机
 此按钮仅适用于从站。如果从多主机环境中删除了一个从属设备，则属于该主机的所有对象也可以随它一起删除。

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adaptertranslate.md
 title: Перевод адаптеров
-hash: L2W7WsInFLrJZUsGZg0wORin1/ZdGZR0Zd1zpbnKDjo=
+hash: 8XvB1Gq0qo9gVlIP2+QfpMZ3OQTE+OfKgPD94WrJdcQ=
 ---
 # Перевод адаптеров
 ## Вступление
@@ -21,7 +21,7 @@ ioBroker используется во всем мире в [много разн
 - английский (en)
 - немецкий (de)
 
-Их **также следует** перевести на следующие дополнительные языки:
+Их **следует** также перевести на следующие дополнительные языки:
 
 - Russion (ru)
 - португальский (pt)

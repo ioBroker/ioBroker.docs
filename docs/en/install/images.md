@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/images.md
 title: Working with Images
-hash: Rd0zm6eZ+Bir4OYRlqu5jeUQpCtIZuqIekiMBNLut0Y=
+hash: +7btQz2YwNxQ7cvAm6lflniM5CCWalHSRI06eUPOpmQ=
 ---
 --- title: Working with Images lastChanged: 07/31/2019 ---
 
@@ -11,7 +11,7 @@ hash: Rd0zm6eZ+Bir4OYRlqu5jeUQpCtIZuqIekiMBNLut0Y=
 After images have been downloaded from the download page, they are written to the SD card using an image tool (e.g. Balena-Etcher).
 
 The further procedure for each individual image can be different.
-This is why there is a **Info** button under each image on the download page.
+This is why the **Info** button is located on the download page under each image.
 
 If you click on this, the ReadMe belonging to this image appears.
 

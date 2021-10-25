@@ -4,17 +4,17 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/objects.md
-hash: nrgsR+t5T1y8xfMjA6VUTr0FxR1LbtTJ/uuWyowBAJg=
+hash: h2W27+wNG9J4NAF0r8ajYsHYxjCj462PmXNxMN8AJCo=
 ---
-All managed objects are located under this tab. For each instance, a folder is created in which the data points created by it are located in a hierarchical structure. Objects can also be created and deleted manually here. Entire object structures can be uploaded or downloaded. Another button enables the expert view to be displayed.
+All managed objects are located under this tab. A folder is created for each instance in which the data points created by it are located in a hierarchical structure. Objects can also be created and deleted manually here. Entire object structures can be uploaded or downloaded. Another button enables the expert view to be displayed.
 
 ## The title line
 In the title line there are icons for the most important processes. There is context help for each icon. To do this, simply hold the mouse on the icon for a while.
 
 ![The icons of the objects tab](../../de/admin/media/ADMIN_Objekte_numbers.png)
 
-### 1 - Refresh the view
-If objects that have just been created are not visible, clicking this icon will help bring the status of the page up to date.
+### 1 - update view
+If objects that have just been created are not visible, clicking this icon helps to bring the status of the page up to date.
 
 ### 2 - change display
 This button changes the display of the objects on this page.
@@ -44,7 +44,7 @@ Here with the menu bar folded up
 ### 6 - Administrator mode
 If you select this icon, further objects are displayed (toggle function).
 
-These objects (and their directories) are system objects and should not be used for normal use, as a change / update by the admin can lead to a structural change and thus to a loss of personal data.
+These objects (and their directories) are system objects and should not be used for normal use, since a change / update by the admin can lead to a structural change and thus to a loss of personal data.
 
 ### 7 - Sort alphabetically
 This is used to sort within the folder either by ID or name.
@@ -110,7 +110,7 @@ The values in this column can be edited. Clicking on the field brings up a pull-
 
 ### 5 - room
 If this object has already been assigned to a room, this is displayed here.
-This also serves, among other things, for filtering when searching for objects.
+This is also used, among other things, to filter when searching for objects.
 
 ![Room allocations](../../de/admin/media/ADMIN_Objekte_rooms.png)
 
@@ -134,7 +134,7 @@ If the object is a data point, the current value of this data point is displayed
 2.) Clicking on the trash can icon deletes this object and all objects below it in the hierarchy. To be on the safe side, a window appears in which the deletion has to be confirmed again.
 
 3.) The wrench icon only appears if at least one history instance is installed (History, InfluxDB or SQL). The data point for logging the historical data can be configured here.
-Further information can be found in the description of the history adapter.
+More information can be found in the description of the history adapter.
 
 This action can be carried out simultaneously for all data points that meet the current filter criteria using the wrench in the title bar. It is therefore important to check carefully whether the filter criteria on this page are selected in such a way that only the desired data points are included.
 

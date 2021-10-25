@@ -4,10 +4,10 @@ lastChanged: 18.07.2019
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/windows.md
-hash: px8Pj5WdRIRET04sAvbr8e4683UA6b4G1aExlrwjJgs=
+hash: XFdcrokNPGtTri8RFE+c4m/7TgKEDdKqtTLfO7BRt1s=
 ---
 # Installation of ioBroker on Windows
-?> ***This article is currently being expanded*** .<br><br> Help with ioBroker. Please note the [ioBroker Style Guide](community/styleguidedoc) so that the changes can be adopted more easily.
+?> ***This article is currently being expanded*** .<br><br> Help with ioBroker. Please note [ioBroker Style Guide](community/styleguidedoc) so that the changes can be adopted more easily.
 
 The following instructions guide you through the installation step by step. Please do not skip any steps, as some commands build on each other.
 
@@ -72,7 +72,7 @@ cmd
 
    input.
 
-Since the command line window has to be opened as an administrator, please complete the entry **not** with `OK` but with the key combination `Strg` + `Umschalt` + `Eingabetaste`. There is a security question, which must be confirmed with `Ja` or the entry of the administrator password.
+Since the command line window has to be opened as an administrator, please complete the entry **not** with `OK` but with the key combination `Strg` + `Umschalt` + `Eingabetaste`. There is a security question that must be confirmed with `Ja` or the entry of the administrator password.
 
 !> The title line in the black command line window that has now opened must begin with the word `Administrator:`.
 
@@ -130,7 +130,7 @@ cd /d C:\iobroker
 npm install --production --no-optional --logevel=error
 ```
 
-The installation process can take a while. When running npm, red error messages (gyp! ERR) may appear in connection with the module `unix-dgram`. These error messages can be ignored.
+The installation process may take a while. When running npm, red error messages (gyp! ERR) may appear in connection with the module `unix-dgram`. These error messages can be ignored.
 
    The last lines of the installation should end something like this:
 

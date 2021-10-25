@@ -4,13 +4,13 @@ lastChanged: 13.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/config/multihost.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: 7p04RSBKSqzT7tsDxGIcpCudxD5hddp6qX54ZYOCAEE=
+hash: gH4zuuZ+a67CUc09gI901hft2T4V48aHFUypPcHeiak=
 ---
 # The multihost operation
 ioBroker is able to have the tasks done by several servers. This allows the processing load to be distributed across multiple hosts.
 However, you can also use system-specific extensions of a single-board computer (GPIO from a RaspberryPi, although the "main computer" is a more powerful Intel NUC).
 
-After creating a multihost system, all configurations are carried out centrally via the admin of the master. The admin of the slave (s) can no longer be reached via their web interface (s).
+After creating a multihost system, all configurations are carried out centrally via the master's admin. The admin of the slave (s) can no longer be reached via their web interface (s).
 
 It therefore makes sense to use a host with a minimal installation for a slave, i.e. only the js-controller and the admin.
 
@@ -24,7 +24,7 @@ please call via the console:
 
 1. `iobroker setup custom`
 
-Fill in the menu that now appears as follows
+Complete the menu that now appears as follows
 
 ```
 Type of objects DB [(f)ile, (c)ouch, (r)edis], default [file]: f
@@ -50,7 +50,7 @@ Please enter via the console on the slave
 
 1. `iobroker setup custom`
 
-Fill in the menu that now appears as follows
+Complete the menu that now appears as follows
 
 ```
 Type of objects DB [(f)ile, (c)ouch, (r)edis], default [file]: f
@@ -130,13 +130,13 @@ sudo service redis-server restart
 ```
 
 ## Distribute tasks
-There are two ways to distribute the tasks among the hosts.
+There are two ways of distributing the tasks among the hosts.
 
-* If it is a new installation, select the host on which the instance of the adapter is to be installed in the Adapter tab from the pulldown menu above the adapter list.
+* If it is a new installation, select the host on which the instance of the adapter is to be installed in the Adapter tab from the pull-down menu above the adapter list.
 
 Then add the instance there by clicking on the (+) in the right column.
 
-* If you have already installed a large number of adapters on a host, you can change the assignment of the instances that have already been installed in the Instances tab.
+* If you have already installed many adapters on a host, you can change the assignment of the installed instances in the Instances tab.
 
 ## Delete host
 To delete a host, activate the expert mode in the objects admin tab of the master and activate the host selection in the Type column. Then delete the desired host.

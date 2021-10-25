@@ -4,7 +4,7 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/log.md
-hash: SF9PSkEVT8mItnrGcqW4liNccrJ/ZhU4DElrk63Agz4=
+hash: 66gpVVstVxHlQUyyBYv8juocwLyP/pXvD9q5MXSJDlE=
 ---
 The system's messages are continuously output here. The latest message is at the top.
 
@@ -24,7 +24,7 @@ Instead of the pause icon, the number of new, non-displayed messages now appears
 Clicking on this icon only deletes the list on the screen
 
 ### 4 - Clear the log on the host
-By clicking on this icon, the entire log on the host is permanently deleted.
+When you click on this icon, the entire log on the host is permanently deleted.
 
 ### 5 - Download log
 With this button you can download a complete daily log of the last few days from the directory / opt / iobroker / logs:

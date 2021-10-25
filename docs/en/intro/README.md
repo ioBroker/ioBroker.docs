@@ -4,19 +4,19 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/intro/README.md
-hash: idk0gZfgjRkBsHrpF2r3lK1a0goTdH4DOHijnHKP5zE=
+hash: 1pcQ4cJSUZw7qUIgvAoPS5dTCF9w4xA9paAs8EKiD7w=
 ---
 ** This documentation is the central reference for all ioBroker users: **
 
 ## Page structure
 This page was created in a ***responsive design*** . This means that it is displayed differently depending on the resolution of the display of the reader (PC / tablet / mobile phone) for optimal readability.
 
-With low (effective) resolutions, operating elements are partially hidden to make space for the main window.
+With low (effective) resolutions, operating elements are partially hidden in order to make space for the main window.
 
 It is therefore possible that the current display differs from the screenshots.
 
 ### Different menus
-To get the best possible overview, there are a total of three different menus:
+In order to get the greatest possible overview, there are a total of three different menus:
 
 ![Side menus](../../de/intro/media/Seite_numbers.png)
 
@@ -41,8 +41,8 @@ The menu can be hidden again using the icon with the arrow to make more space fo
 
 ---
 
-#### 3 - Topic menu
-In this menu, the main topics of the selected article are displayed in order to be able to navigate more quickly to the point you are looking for.
+#### 3 - subject menu
+In this menu the main topics of the selected article are displayed in order to be able to navigate more quickly to a desired point.
 
 ![Themed menu](../../de/intro/media/Themenmenu.png)
 
@@ -50,7 +50,7 @@ The menu can be hidden again using the icon with the **X**
 
 ### More controls
 #### 4 - language selection
-The website is multilingual. Little by little, more languages will be added. Some are generated automatically first, native speakers are invited to improve the texts.
+The website is multilingual. More languages will gradually be added. Some are generated automatically first, native speakers are invited to improve the texts.
 
 The desired language can be selected at the globe icon.
 
