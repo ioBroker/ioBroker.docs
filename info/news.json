@@ -1166,5 +1166,38 @@
         "conditions": {
             "vw-connect": "smaller(0.0.43)"
         }
+    },
+    {
+        "title": {
+            "en": "Z-Wave 2: Troubleshooting for version 2.3 or higher",
+            "de": "Z-Wave 2: Problembehebung für Version 2.3 oder höher",
+            "ru": "Z-Wave 2: Устранение неполадок для версии 2.3 или выше",
+            "pt": "Z-Wave 2: Solução de problemas para a versão 2.3 ou superior",
+            "nl": "Z-Wave 2: Problemen oplossen voor versie 2.3 of hoger",
+            "fr": "Z-Wave 2 : Dépannage pour la version 2.3 ou supérieure",
+            "it": "Z-Wave 2: risoluzione dei problemi per la versione 2.3 o successiva",
+            "es": "Z-Wave 2: Solución de problemas para la versión 2.3 o superior",
+            "pl": "Z-Wave 2: Rozwiązywanie problemów w wersji 2.3 lub wyższej",
+            "zh-cn": "Z-Wave 2：2.3 或更高版本的故障排除"
+        },
+        "content": {
+            "en": "As of version 2.3, the Z-Wave controller is restarted on adapter startup and after some management operations.This can cause USB sticks to reconnect and get a different address, so that the adapter can not start.\n\nPlease read and follow https://github.com/AlCalzone/ioBroker.zwave2/blob/master/docs/en/troubleshooting.md#the-adapter-does-not-start-after-updating-to-version-23-or-higher. If nothing helps, this function can also be disabled.",
+            "de": "Ab Version 2.3 wird der Z-Wave Controller beim Adapterstart und bei manchen Verwaltungs-Operationen neu gestartet. Dies kann dafür sorgen, dass USB-Sticks neu verbinden und eine andere Adresse bekommen, sodass der Adapter nicht starten kann.\n\nBitte unbedingt https://github.com/AlCalzone/ioBroker.zwave2/blob/master/docs/de/bei-problemen.md#der-adapter-startet-nach-update-auf-version-23-oder-h%C3%B6her-nicht lesen und befolgen. Falls nichts hilft, kann diese Funktion auch deaktiviert werden.",
+            "ru": "Начиная с версии 2.3, контроллер Z-Wave перезапускается при запуске адаптера и после некоторых операций управления. Это может привести к повторному подключению USB-накопителей и получению другого адреса, так что адаптер не может запуститься.\n\nПожалуйста, прочтите и следуйте https: //github.com/AlCalzone/ioBroker.zwave2/blob/master/docs/en/troubleshooting.md#the-adapter-does-not-start-after-updating-to-version-23-or-higher. Если ничего не помогает, эту функцию также можно отключить.",
+            "pt": "A partir da versão 2.3, o controlador Z-Wave é reiniciado na inicialização do adaptador e após algumas operações de gerenciamento. Isso pode fazer com que os dispositivos USB sejam reconectados e obtenham um endereço diferente, de modo que o adaptador não pode iniciar.\n\nPor favor, leia e siga https: //github.com/AlCalzone/ioBroker.zwave2/blob/master/docs/en/trou troubleshooting.md#the-adapter-does-not-start-after-updating-to-version-23-or-higher. Se nada ajudar, esta função também pode ser desativada.",
+            "nl": "Vanaf versie 2.3 wordt de Z-Wave-controller opnieuw opgestart bij het opstarten van de adapter en na enkele beheerbewerkingen. Dit kan ertoe leiden dat USB-sticks opnieuw worden aangesloten en een ander adres krijgen, zodat de adapter niet kan starten.\n\nLees en volg https://github.com/AlCalzone/ioBroker.zwave2/blob/master/docs/en/troubleshooting.md#the-adapter-does-not-start-after-updating-to-versie-23-of-hoger. Als niets helpt, kan deze functie ook worden uitgeschakeld.",
+            "fr": "A partir de la version 2.3, le contrôleur Z-Wave est redémarré au démarrage de l'adaptateur et après certaines opérations de gestion. Cela peut entraîner la reconnexion des clés USB et obtenir une adresse différente, de sorte que l'adaptateur ne peut pas démarrer.\n\nVeuillez lire et suivre https://github.com/AlCalzone/ioBroker.zwave2/blob/master/docs/en/troubleshooting.md#the-adapter-does-not-start-after-updating-to-version-23-or-higher. Si rien n'y fait, cette fonction peut également être désactivée.",
+            "it": "A partire dalla versione 2.3, il controller Z-Wave viene riavviato all'avvio dell'adattatore e dopo alcune operazioni di gestione. Ciò può causare la riconnessione delle chiavette USB e l'ottenimento di un indirizzo diverso, in modo che l'adattatore non possa avviarsi.\n\nLeggere e seguire https://github.com/AlCalzone/ioBroker.zwave2/blob/master/docs/en/troubleshooting.md#the-adapter-does-not-start-after-updating-to-version-23-or-higher. Se nulla aiuta, questa funzione può anche essere disabilitata.",
+            "es": "A partir de la versión 2.3, el controlador Z-Wave se reinicia al iniciar el adaptador y después de algunas operaciones de administración. Esto puede hacer que las memorias USB se vuelvan a conectar y obtengan una dirección diferente, por lo que el adaptador no puede iniciarse.\n\nPor favor, lea y siga https://github.com/AlCalzone/ioBroker.zwave2/blob/master/docs/en/troubleshooting.md#the-adapter-does-not-start-after-updating-to-version-23-or-higher. Si nada ayuda, esta función también se puede desactivar.",
+            "pl": "Od wersji 2.3 kontroler Z-Wave jest ponownie uruchamiany po uruchomieniu adaptera i po wykonaniu pewnych operacji zarządzania. Może to spowodować ponowne połączenie pamięci USB i uzyskanie innego adresu, przez co adapter nie będzie mógł się uruchomić.\n\nProszę przeczytać i postępować zgodnie z https://github.com/AlCalzone/ioBroker.zwave2/blob/master/docs/en/troubleshooting.md#the-adapter-does-not-start-after-updating-to-version-23-lub-wyższy. Jeśli nic nie pomaga, tę funkcję można również wyłączyć.",
+            "zh-cn": "从版本 2.3 开始，Z-Wave 控制器会在适配器启动时和一些管理操作后重新启动。这可能会导致 U 盘重新连接并获得不同的地址，从而导致适配器无法启动。\n\n请阅读并遵循 https://github.com/AlCalzone/ioBroker.zwave2/blob/master/docs/en/troubleshooting.md#the-adapter-does-not-start-after-updating-to-version-23-or-higher。如果没有任何帮助，也可以禁用此功能。"
+        },
+        "id": "zwave2-v2.3-softreset",
+        "class": "info",
+        "fa-icon": "usb",
+        "created": "2021-10-26T01:00:00.000Z",
+        "conditions": {
+            "zwave2": "between(2.3.0,2.3.2)"
+        }
     }
 ]
