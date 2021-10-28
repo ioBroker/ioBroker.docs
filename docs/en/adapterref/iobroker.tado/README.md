@@ -57,8 +57,7 @@ In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x some
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-
-### __WORK IN PROGRESS__
+### 0.3.10-alpha.0 (2021-10-27)
 * (HGlab01) request to set values are sent at intervals of 3 seconds
 * (HGlab01) unhandled errors are now handled
 * (HGlab01) Internet connection is checked before requests are placed
@@ -127,7 +126,7 @@ In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x some
 * (HGlab01) add childLockEnabled
 
 ### 0.2.4 (2020-11-19)
-* (HGlab01) Improve overlay modes + solve merge issue of version 0.2.3 
+* (HGlab01) Improve overlay modes + solve merge issue of version 0.2.3
 
 ### 0.2.3 (2020-11-18)
 * (HGlab01) add overlay methods 'timer'
@@ -148,7 +147,7 @@ In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x some
 * (LutzHelling) Bugfix : Add orientation
 * (LutzHelling) Bugfix : legacyHeatingInstallationsEnabled
 * (HGlab01) Bugfix : Add legacyHeatingInstallationsEnabled to DoHome
-* (HGlab01) Bugfix : Fix unhandled information found in DoReadDevices 
+* (HGlab01) Bugfix : Fix unhandled information found in DoReadDevices
 
 ## License
 MIT License

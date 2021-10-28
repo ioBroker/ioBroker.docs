@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.x-touch/README.md
 title: ioBroker.x-touch
-hash: lCaENXpjc6hsJKr6MfO3ygR4GZ+ER8Ltf/cq9tv3Wzo=
+hash: vZUjz6IKTGCMypAhyjRvgKvaS2wX8gPXdaSA9yKq1tw=
 ---
 ![Logo](../../../en/adapterref/iobroker.x-touch/admin/x-touch.png)
 
@@ -16,6 +16,8 @@ hash: lCaENXpjc6hsJKr6MfO3ygR4GZ+ER8Ltf/cq9tv3Wzo=
 ![NPM](https://nodei.co/npm/iobroker.x-touch.png?downloads=true)
 
 #ioBroker.x-touch
+![Testen und freigeben](https://github.com/bannsaenger/iobroker.x-touch/workflows/Test%20and%20Release/badge.svg)
+
 ## X-touch-Adapter für ioBroker
 Kommunizieren mit einer Behringer X-Touch-Bedienoberfläche (DAW-Controller)
 
@@ -32,42 +34,44 @@ Es gibt zwei akzeptierte Befehle:
 * `import` importiert die jüngste Datei aus dem userdata-Ordner. Zusätzlich können Sie `file` und/oder die `devicegroup`-Nummer für die Wiederherstellung angeben. Wenn `Pfad` angegeben wird, wird das gesamte Dateisystem verwendet und ein `Datei`-Name ist obligatorisch.
 
 ## Changelog
+### 0.4.2
+* (Bannsaenger) changed sort order in changelog
 
-### 0.0.1
-* (Bannsaenger) initial release
-
-### 0.0.2
-* (Bannsaenger) prepared for checkin to iobroker.latest
-
-### 0.1.0
-* (Bannsaenger) introduced channel and page switching
-
-### 0.2.0
-* (Bannsaenger) introduced encoders
-
-### 0.2.1
-* (Bannsaenger) changed the way to send data. Added sendDelay
-
-### 0.2.2
-* (Bannsaenger) fixed fader handling and data distribution to the device group
-
-### 0.2.3
-* (Bannsaenger) fixed setting of display inverted
-
-### 0.2.4
-* (Bannsaenger) fixed disabling of encoder display
-
-### 0.2.5
-* (Bannsaenger) fixed send back of button and fader values. Now only the affected device group members will be updated
-
-### 0.3.0
-* (Bannsaenger) added the timecode display
+### 0.4.1
+* (Bannsaenger) bug fixing in the export/import feature
 
 ### 0.4.0
 * (Bannsaenger) added the ability to export the actual state values via a message and reimport the states again
 
-### 0.4.1
-* (Bannsaenger) bug fixing in the export/import feature
+### 0.3.0
+* (Bannsaenger) added the timecode display
+
+### 0.2.5
+* (Bannsaenger) fixed send back of button and fader values. Now only the affected device group members will be updated
+
+### 0.2.4
+* (Bannsaenger) fixed disabling of encoder display
+
+### 0.2.3
+* (Bannsaenger) fixed setting of display inverted
+
+### 0.2.2
+* (Bannsaenger) fixed fader handling and data distribution to the device group
+
+### 0.2.1
+* (Bannsaenger) changed the way to send data. Added sendDelay
+
+### 0.2.0
+* (Bannsaenger) introduced encoders
+
+### 0.1.0
+* (Bannsaenger) introduced channel and page switching
+
+### 0.0.2
+* (Bannsaenger) prepared for checkin to iobroker.latest
+
+### 0.0.1
+* (Bannsaenger) initial release
 
 ## License
 MIT License

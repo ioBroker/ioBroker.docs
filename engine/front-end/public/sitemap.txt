@@ -784,6 +784,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.hmip/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.hombot/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.homeconnect/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.homee/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.homekit-controller/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.homepilot/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.hp-ilo/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.hs100/README.md
@@ -1245,6 +1246,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.hmip/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.hombot/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.homeconnect/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.homee/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.homekit-controller/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.homepilot/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.hp-ilo/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.hs100/README.md
@@ -1706,6 +1708,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.hmip/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.hombot/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.homeconnect/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.homee/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.homekit-controller/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.homepilot/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.hp-ilo/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.hs100/README.md
@@ -2167,6 +2170,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hmip/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hombot/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.homeconnect/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.homee/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.homekit-controller/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.homepilot/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hp-ilo/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hs100/README.md

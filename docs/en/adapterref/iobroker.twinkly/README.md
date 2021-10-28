@@ -41,8 +41,12 @@ The following additionals States are created per device when checked:
 
 ## Changelog
 
+### 0.1.15 (2021-10-26)
+* (patrickbs96) Add new Value `network.accesspoint.password_changed` from API-Response (Sentry IOBROKER-TWINKLY-A)
+
 ### 0.1.14 (2021-10-23)
 * (patrickbs96) Add new Value `network.station.status` from API-Response (Sentry IOBROKER-TWINKLY-A, IOBROKER-TWINKLY-B)
+* (patrickbs96) Add new Value `network.details.product_version` from API-Response (Sentry IOBROKER-TWINKLY-E)
 * (patrickbs96) Add new Value `network.details.rssi` from API-Response (Sentry IOBROKER-TWINKLY-D)
 * (patrickbs96) Add new Value `mode.color_config` from API-Response (Sentry IOBROKER-TWINKLY-7)
 

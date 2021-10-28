@@ -83,6 +83,9 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 -->
 
 ## Changelog
+### 3.4.13 (2021-10-25)
+* (bluefox) Fixed the connection indication
+
 ### 3.4.12 (2021-10-23)
 * (bluefox) Fixed the warning about non existing object
 
