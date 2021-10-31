@@ -78,6 +78,12 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 3.2.5
+- Bugfix
+
+## 3.2.4
+- Bugfix
+
 ## 3.2.3
 - Bugfix
 

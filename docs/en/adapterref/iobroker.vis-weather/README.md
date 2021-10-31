@@ -37,6 +37,7 @@ You might need to enable "NextDaysDetailed".
 
 ### 2.5.4 (in progress)
 * (René) see issue #37: avoid endless loop
+* (René) update flot to 4.2.2
 
 ### 2.5.3 (2021-03-21)
 * (René) dependencies updated

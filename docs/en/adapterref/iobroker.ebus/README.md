@@ -52,6 +52,11 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
    
 ## Changelog
 
+### 2.4.4 (in progress)
+* (René) see issue #59: avoid endless loop
+* (René) update flot to 4.2.2
+* (René) bug fix missing space in command when using circuit name
+
 ## 2.4.3 (2021-10-21)
 * (René) see issue #58: bug fix for Warn: ignoring history value 1 (invalid)" when no history values set
 

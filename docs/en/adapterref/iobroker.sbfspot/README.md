@@ -51,6 +51,10 @@ sometimes npm intall must be called more then one time to successfully install a
 
 ## Changelog
 
+### 4.0.7 (in progress)
+* (René) see issue #62: avoid endless loop
+* (René) update flot to 4.2.2
+
 ### 4.0.6 (2021-07-09)
 * (René) bug fix data types
 

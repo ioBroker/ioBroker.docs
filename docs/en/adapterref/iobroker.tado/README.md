@@ -57,17 +57,21 @@ In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x some
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.10-alpha.0 (2021-10-27)
-* (HGlab01) request to set values are sent at intervals of 3 seconds
+### 0.3.10 (2021-10-29)
+* (HGlab01) API calls (except read) are queued and send at intervals of 3 seconds
 * (HGlab01) unhandled errors are now handled
 * (HGlab01) Internet connection is checked before requests are placed
+* (HGlab01) support attribute 'fanLevel' (Sentry: IOBROKER-TADO-35)
+* (HGlab01) support structure element "folder", so now it is folder-->device-->channel
+* (HGlab01) add home-states presence and presenceLock
+* (HGlab01) Bump iobroker-jsonexplorer to 0.1.5
 
 ### 0.3.9 (2021-10-16)
 * (DutchmanNL) force correct NodeJS dependency with error at install
 * (HGlab01) implement queuing for API requests (avoids some status code 422 issues)
 
 ### 0.3.8 (2021-10-06)
-* (HGlab01) support attributes 'fanLevel', 'verticalSwing', 'horizontalSwing' (#352)
+* (HGlab01) support attributes 'orientfanLevelation', 'verticalSwing', 'horizontalSwing' (#352)
 * (HGlab01) catch 422 issue in poolApiCall()
 
 ### 0.3.7 (2021-08-24)
