@@ -235,6 +235,9 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
+### 2.7.2 (in progress)
+* (René) bug fix load / save profiles: check fireplace mode added
+
 ### 2.7.1 (2021-10-20)
 * (René) see issue #268: change of override in manual mode is mssing
 
