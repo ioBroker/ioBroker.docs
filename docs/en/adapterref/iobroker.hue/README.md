@@ -59,6 +59,8 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.5.27 (2021-11-01)
+* (foxriver76) we fixed missing object type of some scenes (closes #255)
 
 ### 3.5.26 (2021-10-20)
 * (foxriver76) fixed an issue with the username set in Hue API (fixes 249)
@@ -93,7 +95,7 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 
 ### 3.5.14 (2021-05-04)
 * (foxriver76) protect the user token from access by foreign adapters
-* (foxriver76) fixed types of default values on groups 
+* (foxriver76) fixed types of default values on groups
 
 ### 3.5.13 (2021-05-03)
 * (foxriver76) we fixed some more types
@@ -125,7 +127,7 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 * (foxriver76) fix crashes if wrong data type or invalid value passed for ct and hue, now logging an error
 * (foxriver76) fix crashes if rgb where outside allowed range or wrong type
 * (foxriver76) fix potential crashes on bridge discovery, due to unnecessary stringify/parse logic
-* (foxriver76) fix graphical issue with the label of bridge user when newly created, due to missing call of updateTextFields 
+* (foxriver76) fix graphical issue with the label of bridge user when newly created, due to missing call of updateTextFields
 
 ### 3.5.1 (2021-02-20)
 * (foxriver76) avoid crash cases on invalid xy, setting state for non-existing device and on failing user creation
@@ -157,7 +159,7 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 * (foxriver76) fixed issue on frontend validation of polling intervals starting with 1
 
 ### 3.3.4 (2020-06-02)
-* (foxriver76) implemented fix for problems with switches and handling id conflicts 
+* (foxriver76) implemented fix for problems with switches and handling id conflicts
 
 ### 3.3.3 (2020-05-31)
 * (foxriver76) we now handle potential id conflicts, when adding devices from different type with same name over time
@@ -419,6 +421,3 @@ Apache 2.0
 
 Copyright (c) 2017-2021 Bluefox <dogafox@gmail.com>
 Copyright (c) 2014-2016 hobbyquaker
-
-
-

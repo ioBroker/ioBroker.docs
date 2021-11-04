@@ -40,6 +40,16 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 2.4.1 (2021-11-03)
+* Fix: Correctly update UI when canceling an inclusion process
+* Fix: Check for SmartStart support before using it
+* Fix: Add missing translations
+* Fixed the automatic lifeline association for some devices
+* New and updated configuration files, see [here](https://github.com/zwave-js/node-zwave-js/releases/tag/v8.7.3)
+
+### 2.4.0 (2021-11-02)
+* Add support for SmartStart and inclusion of nodes with QR codes
+
 ### 2.3.2 (2021-10-26)
 * Try to detect sticks (like UZB and UZB1) that are incompatible with soft-reset and automatically disable it
 
@@ -49,14 +59,6 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 ### 2.3.0 (2021-10-25)
 * Add soft reset (restart) function for the controller
 * New and updated configuration files, see [here](https://github.com/zwave-js/node-zwave-js/releases/tag/v8.6.0)
-
-### 2.2.4 (2021-10-22)
-* Fix: Most unsupporting devices should no longer use `Supervision` by default
-* Minor fixes and stability improvements
-* New and updated configuration files, see [here](https://github.com/zwave-js/node-zwave-js/releases/tag/v8.5.1)
-
-### 2.2.3 (2021-10-21)
-* Admin UI: Improve support for older browsers
 
 ## License
 

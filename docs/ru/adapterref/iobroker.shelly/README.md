@@ -3,18 +3,17 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/README.md
 title: ioBroker.shelly
-hash: aUx4LgA4Rh+9FvJOkaNIVlYNJve3nA6el/g/iebpyEw=
+hash: WhRV6Z6TeujpEfbRi9fT6/25t0aLwJUAheS8NKnttlk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.shelly/admin/shelly.png)
 
-![Статус сборки](https://travis-ci.org/schmupu/ioBroker.shelly.svg?branch=master)
-![Статус сборки AppVeyor](https://ci.appveyor.com/api/projects/status/github/schmupu/ioBroker.shelly?branch=master&svg=true)
 ![Количество установок](http://iobroker.live/badges/shelly-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.shelly.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.shelly.svg)
-![НПМ](https://nodei.co/npm/iobroker.shelly.png?downloads=true)
 
 # IoBroker.shelly
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.shelly/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/homekit-controller/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 Требуется node.js 8.0 или выше и Admin v3!
 
 Адаптер взаимодействует с устройствами Shelly через REST api и протокол CoAP или MQTT.
@@ -24,7 +23,7 @@ hash: aUx4LgA4Rh+9FvJOkaNIVlYNJve3nA6el/g/iebpyEw=
 
 Внимание, новые версии прошивки выше 1.9.4 вам необходимо ввести CoIoT-сервер для CoAP. Вам необходимо ввести IP-адрес вашего сервера ioBroker, а затем порт 5683 на вашем устройстве Shelly. Например, ioBroker работает с IP-адресом 192.168.1.2. Теперь вам нужно ввести 192.168.1.2:5683 и активировать CoIoT.
 
-** Этот адаптер использует библиотеки Sentry, чтобы автоматически сообщать мне как разработчику об исключениях и ошибках кода. ** Подробнее см. Ниже!
+** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
 ## Установка
 Вы можете найти подробную документацию по установке здесь: [Документация по установке](./docs/EN/INSTALL.md)
@@ -65,19 +64,24 @@ hash: aUx4LgA4Rh+9FvJOkaNIVlYNJve3nA6el/g/iebpyEw=
 | Shelly Button (SHBTN-2) | поддерживается с v4.0.5 | поддерживается с v4.0.5 |
 | Shelly Motion (SHMOS-01) | поддерживается с v4.0.6 | поддерживается с v4.0.6 |
 
-## Что такое Sentry и что передается на серверы?
-Sentry.io - это способ для разработчиков получить обзор ошибок в своих приложениях. Именно это и реализовано в этом адаптере.
-
-Когда адаптер выходит из строя или возникает другая ошибка кода, это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется на наш собственный сервер Sentry, расположенный в Германии. Когда вы разрешили ioBroker GmbH собирать диагностические данные, включается также ваш установочный идентификатор (это просто уникальный идентификатор **без** дополнительной информации о вас, адрес электронной почты, имя и т. Д.). Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуты такой ошибкой. Все это помогает мне предоставлять безошибочные адаптеры, которые практически никогда не дают сбоев.
-
 ## Changelog
 
+### __WORK IN PROGRESS__
+* (HGlab) several fixes and adjustments
+* (turbolift) fix temperature maximum warning
+* (Apollon77) Destroy Coap and MQTT server on unload
 
-### 4.0.7-beta-3 (2021-02-07)
+### 4.0.8 (2021-05-06)
+* (Stübi) - Online Status (beta, does not work correct)
+* (Stübi) - Temperature greater min/max - Issue #370
+
+### 4.0.7 (2021-02-07)
 * (Stübi) - fixing the wrong identifier name from green to blue - Issue #334
 * (Stübi) - renamed Shelly Motion MQTT name 
 * (Stübi) - Because polling for battery devices is only permieted every 60 sec., the online state will not supported anymore. 
 * (Stübi) - Polling for all battery devices changed to 60 sec. This can not be changed to any other value, still if you a power supply.
+* (Stübi) - Add state for led light control for Shelly Plug S - Issue #344
+* (quedrum) - Shelly1 Garage with ADDon and reed switch - Issue #276
 
 ### 4.0.6 (2021-02-02)
 * (Stübi) - add min, max to state transiton for Shelly RGBW2 
@@ -289,7 +293,7 @@ Sentry.io - это способ для разработчиков получит
 * (Stübi) - Bugfixing and longpush and input states for Shelly 1, 2, 1pm, 2.5 and Shelly RGBWW2 added. Add state temperature to Shelly 1pm, 2.5 and Plug S.  
 
 ### 3.0.1 (21.05.2019)
-* (Stübi) - Redesign of the adapter. You can choose now between CoAP and MQTT protocol. The Shellys use this protocolls to send there state changes to ioBroker in realtime. Out of the Box the Shelly works with the CoAP protocol. You do not have to configure anything. The Shelly will be found by the Shelly Adapter itself. If you want to use MQTT, you have configure all your Shelly devices. You find a detailed installing documentation here: [Installation Documentation](./docs/EN/INSTALL.md). If you have problems with the version 3.0.1 please change back to 2.2.0 and leave an Issue (bug report) here: [GitHub Issues](https://github.com/schmupu/ioBroker.shelly/issues). 
+* (Stübi) - Redesign of the adapter. You can choose now between CoAP and MQTT protocol. The Shellys use this protocolls to send there state changes to ioBroker in realtime. Out of the Box the Shelly works with the CoAP protocol. You do not have to configure anything. The Shelly will be found by the Shelly Adapter itself. If you want to use MQTT, you have configure all your Shelly devices. You find a detailed installing documentation here: [Installation Documentation](./docs/EN/INSTALL.md). If you have problems with the version 3.0.1 please change back to 2.2.0 and leave an Issue (bug report) here: [GitHub Issues](https://github.com/iobroker-community-adapters/ioBroker.shelly/issues). 
 
 ### 2.2.0 (13.04.2019)
 * Add devices Shelly 2.5 and Shelly 1 PM 

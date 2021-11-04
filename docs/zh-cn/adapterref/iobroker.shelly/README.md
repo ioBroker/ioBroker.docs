@@ -3,81 +3,85 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/README.md
 title: ioBroker.shelly
-hash: aUx4LgA4Rh+9FvJOkaNIVlYNJve3nA6el/g/iebpyEw=
+hash: WhRV6Z6TeujpEfbRi9fT6/25t0aLwJUAheS8NKnttlk=
 ---
 ![标识](../../../en/adapterref/iobroker.shelly/admin/shelly.png)
 
-![建置状态](https://travis-ci.org/schmupu/ioBroker.shelly.svg?branch=master)
-![AppVeyor构建状态](https://ci.appveyor.com/api/projects/status/github/schmupu/ioBroker.shelly?branch=master&svg=true)
 ![安装数量](http://iobroker.live/badges/shelly-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.shelly.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.shelly.svg)
-![NPM](https://nodei.co/npm/iobroker.shelly.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.shelly.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.shelly.svg)
 
-＃ioBroker.shelly
-需要node.js 8.0或更高版本以及Admin v3！
+# IoBroker.shelly
+![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.shelly/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/homekit-controller/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-适配器通过REST api和CoAP或MQTT协议与Shelly设备通信。
-默认情况下为Shelly固件（无需刷新固件！）。您可以在这里找到有关该设备的更多详细信息：[雪莉](https://shelly.cloud/)
+需要 node.js 8.0 或更高版本和 Admin v3！
 
-如果您使用CoAP协议，则带固件1.8.0或更高版本的Shelly设备仅适用于Shelly Adapter 4.0.0或更高版本。如果您使用固件低于1.8.0的设备（Shelly 4Pro除外），则必须使用Shelly Adapter 3.3.6或更低版本。在这种情况下，Shelly Adapter 4.0.0或更高版本将无法工作！
+适配器通过 REST api 和 CoAP 或 MQTT 协议与 Shelly 设备通信。
+默认情况下 Shelly 固件（不需要刷新固件！）。您将在此处找到有关该设备的更多详细信息：[雪莉](https://shelly.cloud/)
 
-请注意，高于1.9.4的新固件版本必须输入CoAP的CoIoT服务器。您必须输入ioBroker服务器的IP地址，然后输入Shelly设备上的端口5683。例如，ioBroker在IP地址192.168.1.2上运行。现在，您必须输入192.168.1.2:5683并激活CoIoT。
+如果您使用 CoAP 协议，固件 1.8.0 或更高版本的 Shelly 设备仅适用于 Shelly Adapter 4.0.0 或更高版本。如果您使用固件低于 1.8.0 的设备，但 Shelly 4Pro 除外，您必须使用 Shelly Adapter 3.3.6 或更低版本。在这种情况下，Shelly Adapter 4.0.0 或更高版本将不起作用！
 
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**更多详细信息，请参见下文！
+注意，1.9.4 以上的新固件版本你必须进入 CoAP 的 CoIoT 服务器。您必须输入 ioBroker 服务器的 IP 地址，然后是 Shelly 设备上的端口 5683。例如，ioBroker 在 IP 地址 192.168.1.2 上运行。现在您必须输入 192.168.1.2:5683 并激活 CoIoT。
+
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
 
 ＃＃ 安装
-您可以在此处找到详细的安装文档：[安装文件](./docs/EN/INSTALL.md)
+您可以在此处找到详细的安装文档：[安装文档](./docs/EN/INSTALL.md)
 
-##支持的设备
-| Shelly设备| CoAP | MQTT |
+## 支持的设备
+|Shelly 设备|CoAP|MQTT|
 |-------------|--------------|----|
-| Shelly1（SHSW-1）|自v3.3.0起受支持|自v3.3.0起受支持|
-| Shelly2（SHSW-21 / SHSW-22）|自v3.3.0起受支持|自v3.3.0起受支持|
-| ShellyBulb（SHBLB）|自v3.3.0起受支持|自v3.3.0起受支持|
-| Shelly H＆T（SHHT-1）|自v3.3.0起受支持|自v3.3.0起受支持|
-| Shelly Smoke（SHSM-01）|自v3.3.0起受支持|自v3.3.0起受支持|
-| Shelly 1 1PM（SHSW-PM）|自v3.3.0起受支持|自v3.3.0起受支持|
-| Shelly 2.5（SHSW-25）|自v3.3.0起受支持|自v3.3.0起受支持|
-| ShellyRGBW（SHRGBWW-01）|自v3.4.0起不受支持|自v3.4.0起不受支持|
-| ShellyRGBW2（SHRGBW2）|自v3.3.0起受支持|自v3.3.0起受支持|
-| Shelly2LED（SH2LED）|自v3.3.0起受支持|自v3.3.0起受支持|
-| ShellyPlug（SHPLG-1）|自v3.3.0起受支持|自v3.3.0起受支持|
-| ShellyPlug S（SHPLG-1）|自v3.3.0起受支持|自v3.3.0起受支持|
-| ShellyPlug 2（SHPLG-2）|自v3.3.0起受支持|自v3.3.0起受支持|
-| ShellySense（SHSEN-1）|自v3.3.0起受支持|自v3.3.0起受支持|
-| Shelly4Pro（SHSW-44）|自v3.3.5起受支持|自v3.3.5起受支持|
-| Shelly EM（SHEM）|自v3.3.0起受支持|自v3.3.0起受支持|
-| Shelly Flood（SHWT-1）|自v3.3.0起受支持|自v3.3.0起受支持|
-| Shelly Dimmer（SHDM-1）|自v3.3.0起受支持|自v3.3.0起受支持|
-| Shelly门窗传感器（SHDW-1）|自v3.3.0起受支持|自v3.3.0起受支持|
-| Shelly Bulb Duo（SHBDUO-1）|自v3.3.0起受支持|自v3.3.0起受支持|
-| Shelly 3EM（SHEM |自v3.3.0起受支持|自v3.3.0起受支持|
-| Shelly Vintage（SHVIN-1）|自v3.3.0起受支持|自v3.3.0起受支持|
-| Shelly I3（SHIX3-1）|自v3.3.0起受支持|自v3.3.0起受支持|
-| Shelly Button（SHBTN-1）|自v3.3.3起受支持|自v3.3.3起受支持|
-| Shelly Gas（SHGS-1）|自v3.3.3起受支持|自v3.3.3起受支持|
-| Shelly Dimmer 2（SHDM-2）|自v3.3.4起受支持|自v3.3.4起受支持|
-| Shelly门窗传感器2（SHDW-2）|自v3.3.5起受支持|自v3.3.5起受支持|
-| Shelly Uni（SHUNI-1）|自v4.0.4起受支持|自v4.0.4起受支持|
-| Shelly 1L（SHSW-L）|自v4.0.5起受支持|自v4.0.5起受支持|
-| Shelly彩色灯泡（SHCB-1）|自v4.0.5起受支持|自v4.0.5起受支持|
-| Shelly Button（SHBTN-2）|自v4.0.5起受支持|自v4.0.5起受支持|
-| Shelly Motion（SHMOS-01）|自v4.0.6起受支持|自v4.0.6起受支持|
-
-##什么是Sentry，什么报告给服务器？
-Sentry.io是开发人员从其应用程序中获得有关错误概述的一种方式。确切地说，这是在此适配器中实现的。
-
-当适配器崩溃或发生其他代码错误时，此错误消息（也出现在ioBroker日志中）将提交给我们在德国托管的Sentry服务器。当您允许ioBroker GmbH收集诊断数据时，还将包括您的安装ID（这是唯一ID，**没有**有关您，电子邮件，姓名等的任何其他信息）。这使Sentry可以对错误进行分组，并显示有多少唯一用户受此错误影响。所有这些都帮助我提供了基本上不会崩溃的无错误适配器。
+|Shelly1 (SHSW-1)|自 v3.3.0 起支持|自 v3.3.0 起支持|
+|Shelly2 (SHSW-21/SHSW-22)|自 v3.3.0 起支持|自 v3.3.0 起支持|
+|ShellyBulb (SHBLB)|自 v3.3.0 起支持|自 v3.3.0 起支持|
+|Shelly H&T (SHHT-1)|自 v3.3.0 起支持|自 v3.3.0 起支持|
+|Shelly Smoke (SHSM-01)|自 v3.3.0 起支持|自 v3.3.0 起支持|
+|Shelly 1 1PM (SHSW-PM)|自 v3.3.0 起支持|自 v3.3.0 起支持|
+|Shelly 2.5 (SHSW-25)|自 v3.3.0 起支持|自 v3.3.0 起支持|
+|ShellyRGBW (SHRGBWW-01)|自 v3.4.0 起不支持|自 v3.4.0 起不支持|
+|ShellyRGBW2 (SHRGBW2)|自 v3.3.0 起支持|自 v3.3.0 起支持|
+|Shelly2LED (SH2LED)|自 v3.3.0 起支持|自 v3.3.0 起支持|
+|ShellyPlug (SHPLG-1)|自 v3.3.0 起支持|自 v3.3.0 起支持|
+|ShellyPlug S (SHPLG-1)|自 v3.3.0 起支持|自 v3.3.0 起支持|
+|ShellyPlug 2 (SHPLG-2)|自 v3.3.0 起支持|自 v3.3.0 起支持|
+|ShellySense (SHSEN-1)|自 v3.3.0 起支持|自 v3.3.0 起支持|
+|Shelly4Pro (SHSW-44)|自 v3.3.5 起支持|自 v3.3.5 起支持|
+|Shelly EM (SHEM)|自 v3.3.0 起支持|自 v3.3.0 起支持|
+|Shelly Flood (SHWT-1)|自 v3.3.0 起支持|自 v3.3.0 起支持|
+|Shelly Dimmer (SHDM-1)|自 v3.3.0 起支持|自 v3.3.0 起支持|
+|Shelly 门窗传感器 (SHDW-1)|自 v3.3.0 起支持|自 v3.3.0 起支持|
+|Shelly Bulb Duo (SHBDUO-1)|自 v3.3.0 起支持|自 v3.3.0 起支持|
+|Shelly 3EM（SHEM|自 v3.3.0 起支持|自 v3.3.0 起支持|
+|Shelly Vintage (SHVIN-1)|自 v3.3.0 起支持|自 v3.3.0 起支持|
+|Shelly I3 (SHIX3-1)|自 v3.3.0 起支持|自 v3.3.0 起支持|
+|Shelly Button (SHBTN-1)|自 v3.3.3 起支持|自 v3.3.3 起支持|
+|Shelly Gas (SHGS-1)|自 v3.3.3 起支持|自 v3.3.3 起支持|
+|Shelly Dimmer 2 (SHDM-2)|自 v3.3.4 起支持|自 v3.3.4 起支持|
+|Shelly 门窗传感器 2 (SHDW-2)|自 v3.3.5 起支持|自 v3.3.5 起支持|
+|Shelly Uni (SHUNI-1)|自 v4.0.4 起支持|自 v4.0.4 起支持|
+|Shelly 1L (SHSW-L)|自 v4.0.5 起支持|自 v4.0.5 起支持|
+|Shelly 彩色灯泡 (SHCB-1)|自 v4.0.5 起支持|自 v4.0.5 起支持|
+|Shelly Button (SHBTN-2)|自 v4.0.5 起支持|自 v4.0.5 起支持|
+|Shelly Motion (SHMOS-01)|自 v4.0.6 起支持|自 v4.0.6 起支持|
 
 ## Changelog
 
+### __WORK IN PROGRESS__
+* (HGlab) several fixes and adjustments
+* (turbolift) fix temperature maximum warning
+* (Apollon77) Destroy Coap and MQTT server on unload
 
-### 4.0.7-beta-3 (2021-02-07)
+### 4.0.8 (2021-05-06)
+* (Stübi) - Online Status (beta, does not work correct)
+* (Stübi) - Temperature greater min/max - Issue #370
+
+### 4.0.7 (2021-02-07)
 * (Stübi) - fixing the wrong identifier name from green to blue - Issue #334
 * (Stübi) - renamed Shelly Motion MQTT name 
 * (Stübi) - Because polling for battery devices is only permieted every 60 sec., the online state will not supported anymore. 
 * (Stübi) - Polling for all battery devices changed to 60 sec. This can not be changed to any other value, still if you a power supply.
+* (Stübi) - Add state for led light control for Shelly Plug S - Issue #344
+* (quedrum) - Shelly1 Garage with ADDon and reed switch - Issue #276
 
 ### 4.0.6 (2021-02-02)
 * (Stübi) - add min, max to state transiton for Shelly RGBW2 
@@ -289,7 +293,7 @@ Sentry.io是开发人员从其应用程序中获得有关错误概述的一种�
 * (Stübi) - Bugfixing and longpush and input states for Shelly 1, 2, 1pm, 2.5 and Shelly RGBWW2 added. Add state temperature to Shelly 1pm, 2.5 and Plug S.  
 
 ### 3.0.1 (21.05.2019)
-* (Stübi) - Redesign of the adapter. You can choose now between CoAP and MQTT protocol. The Shellys use this protocolls to send there state changes to ioBroker in realtime. Out of the Box the Shelly works with the CoAP protocol. You do not have to configure anything. The Shelly will be found by the Shelly Adapter itself. If you want to use MQTT, you have configure all your Shelly devices. You find a detailed installing documentation here: [Installation Documentation](./docs/EN/INSTALL.md). If you have problems with the version 3.0.1 please change back to 2.2.0 and leave an Issue (bug report) here: [GitHub Issues](https://github.com/schmupu/ioBroker.shelly/issues). 
+* (Stübi) - Redesign of the adapter. You can choose now between CoAP and MQTT protocol. The Shellys use this protocolls to send there state changes to ioBroker in realtime. Out of the Box the Shelly works with the CoAP protocol. You do not have to configure anything. The Shelly will be found by the Shelly Adapter itself. If you want to use MQTT, you have configure all your Shelly devices. You find a detailed installing documentation here: [Installation Documentation](./docs/EN/INSTALL.md). If you have problems with the version 3.0.1 please change back to 2.2.0 and leave an Issue (bug report) here: [GitHub Issues](https://github.com/iobroker-community-adapters/ioBroker.shelly/issues). 
 
 ### 2.2.0 (13.04.2019)
 * Add devices Shelly 2.5 and Shelly 1 PM 

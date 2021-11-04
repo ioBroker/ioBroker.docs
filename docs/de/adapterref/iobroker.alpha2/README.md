@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alpha2/README.md
 title: ioBroker.alpha2
-hash: s+MSHp+45KY+zq2sC5OI4+Ed4K/7PvZ2HcLVGQsK0YI=
+hash: EQcdPK8Xi7xiAGe4tLPcIjwUhP3XNmtD4AgfK8zLFSU=
 ---
 ![Logo](../../../en/adapterref/iobroker.alpha2/admin/mh-logo-schrift.png)
 
@@ -14,63 +14,82 @@ hash: s+MSHp+45KY+zq2sC5OI4+Ed4K/7PvZ2HcLVGQsK0YI=
 ![NPM](https://nodei.co/npm/iobroker.alpha2.png?downloads=true)
 
 # IoBroker.alpha2
-Mit diesem Adapter können Sie Werte des Heizungsreglers von Mühlenhoff Alpha2 abrufen und einstellen.
+Mit diesem Adapter können Sie Werte des Moehlenhoff Alpha2 Heizungsreglers abrufen und einstellen.
 Der Adapter verwendet die XML-API des Alpha2. Wenn Sie mehr als einen Alpha2-Controller verwenden, müssen Sie eine zweite Instanz des Adapters installieren.
 
-## Installation
+##Installation
 - Installieren Sie den Adapter
 - Geben Sie Ihre IP-Adresse oder den Hostnamen des Alpha2-Controllers ein
-- Füllen Sie das Abrufintervall aus, um Zustände zu erhalten
+- Füllen Sie das Polling-Intervall aus, um Zustände zu erhalten
 
 ## Verwendungszweck
 Sie können die folgenden Objekte ändern in:
 
-- Für jede HEATAREA (max. 8 Bereiche)
+- Für jeden HEIZBEREICH (max. 8 Bereiche)
 
 | Beschreibung | Objekt | Werte |
 |---------------------|-----------------|---------------------------|
-| Zieltemperatur | T_TARGET | Temp. in Grad Celsius |
-| Zieltemp. Tag | T_HEAT_DAY | Temp. in Grad Celsius |
-| Zieltemp. Nacht | T_HEAT_NIGHT | Temp. in Grad Celsius |
-| Modus von HeatArea | HEATAREA_MODE | 0 = Auto, 1 = Tag, 2 = Nacht |
-| Programm Wochentage | PROGRAM_WEEK | Programm Nr. 0-3 |
-| Programmwochenende | PROGRAM_WEEKEND | Programm Nr. 0-3 |
+| Zieltemperatur | T_ZIEL | Temperatur in Grad Celsius |
+| Zieltemp. Tag | T_HEAT_DAY | Temperatur in Grad Celsius |
+| Zieltemp. Nacht | T_HEAT_NIGHT | Temperatur in Grad Celsius |
+| Modus von HeatArea | HEATAREA_MODE | 0=Auto, 1=Tag, 2=Nacht |
+| Programm Wochentage | PROGRAM_WEEK | Programm-Nr. 0-3 |
+| Programm Wochenende | PROGRAM_WEEKEND | Programm-Nr. 0-3 |
 
 - Für jedes PROGRAMM mit max. 4 Schichten für jedes Programm.
-- Die Schritte der Minuten sind 15. Nur zulässig 00,15,30,45
+- Minutenschritte sind 15. Nur erlaubt 00,15,30,45
 - Stunden im 24 Stil
 
 | Beschreibung | Objekt | Werte |
 |---------------------|-----------------|-------------------------------|
-| Startzeit | START | Uhrzeit des Programmstarts [hh: mm] |
-| Endzeit | ENDE | Zeitpunkt des Programmendes [hh: mm] |
+| Startzeit | START | Uhrzeit des Programmstarts [hh:mm] |
+| Endzeit | ENDE | Uhrzeit Programmende [hh:mm] |
 
 - Für die Ferien
 
 | Beschreibung | Objekt | Werte |
 |-----------------------|---------------------|--------------------------|
-| Urlaub beginnen | VACATION.START_DATE | [JJJJ-MM-TT] |
-| Ende des Urlaubs | VACATION.END_DATE | [JJJJ-MM-TT] |
-| Temp. während des Urlaubs | T_HEAT_VACATION | Temp. in Grad Celsius |
+| Urlaubsbeginn | URLAUB.START_DATE | [JJJJ-MM-TT] |
+| Ende des Urlaubs | URLAUB.END_DATE | [JJJJ-MM-TT] |
+| Temperatur im Urlaub | T_HEAT_VACATION | Temperatur in Grad Celsius |
 
 - Alle anderen Objekte sind schreibgeschützt
 
 ## Beispiele
-### Stellen Sie die Temperatur von Raum1 ein
-Um die Zieltemperatur einzustellen (gilt nur für den nächsten Programmstart oder -ende), setzen Sie das Objekt T_TARGET im entsprechenden Heatarea.
-Der Adapter verwendet die XML-API, um den Wert im Wärmebereich festzulegen.
+### Stellen Sie die Temperatur von Room1 . ein
+Um die Solltemperatur einzustellen (gilt nur bis zum nächsten Programmstart oder -ende), setzen Sie das Objekt T_TARGET im entsprechenden Heatarea.
+Der Adapter verwendet die XML-API, um den Wert in der Heatarea zu setzen.
 
-Urlaub einstellen
-Achten Sie beim Festlegen des Urlaubs darauf, dass Sie die Urlaubszielzeit mit dem Objekt T_HEAT_VACATION definiert haben. Sie finden dieses Objekt in GERÄT.
-Danach legen Sie die beiden Objekte VACATION.START_DATE und VACATION.END_DATE fest. Wenn Sie die Urlaubseinstellungen deaktivieren, setzen Sie beide Objekte mit Datumsangaben vor heute.
-Sie können das Objekt VACATION.STATE überprüfen, um den Status zu überprüfen. Wenn der Status wahr ist, ist der Urlaub aktiv.
+### Urlaub einstellen
+Um Urlaub zu setzen, achten Sie darauf, dass Sie die Urlaubssolltemperatur mit dem Objekt T_HEAT_VACATION definiert haben. Sie finden dieses Objekt in DEVICE.
+Setzen Sie danach die beiden Objekte VACATION.START_DATE und VACATION.END_DATE. Wenn Sie die Urlaubseinstellungen deaktivieren möchten, setzen Sie beide Objekte mit Datum vor heute.
+Sie können das Objekt VACATION.STATE überprüfen, um den Status zu überprüfen. Wenn der Status true anzeigt, ist der Urlaub aktiv.
 
 ## Bekannte Einschränkungen
 - keine virtuellen Räume
-- max. 8 Wärmebereiche (es gibt Alpha2-Basisstationen mit 12 Wärmebereichen)
-- keine Verriegelung der Raumregler (Kindermodus)
 
 ## Changelog
+
+### 1.0.3
+. (Eisbaeeer)
+Fixed error messages in log
+
+### 1.0.2
+- (oHa510)
+Fixed an issue if you don't use all 4/8/12 heataras then heatareas could get assigned to wrong heatarea object in iobroker
+Expanded Heatareas and Heatctrl to the maxiumum of 12
+Changed Heatarea and Heatctrl indexing to 1-12 (old 0-11 was very confusing)
+Added support for locking controllers (kids mode)
+Added support for locking set temperature (hotel mode)
+Added some new objects and infos like IODEVICEs etc.
+
+### 1.0.1
+- (Eisbaeeer)
+Fixed issues
+
+### 1.0.0
+- (Eisbaeeer)
+Fixed issue #6 (HEATAREA_NAME)
 
 ### 0.0.4
 - (Eisbaeeer)   
@@ -89,3 +108,4 @@ fixed issues #1
 
 ## License
 The MIT License (MIT)
+Copyright (c) 2021 Eisbaeeer eisbaeeer@gmail.com
