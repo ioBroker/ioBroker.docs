@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: rscpkzDVDZrsb3luDxbDTTsvRX7xgyHtH0fJMIesPvw=
+hash: UIQzTj/niqykyk4X6zYZI+AH+i3/X5WYH27JP8BFhxI=
 ---
 ![标识](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
 
@@ -49,7 +49,7 @@ iobroker add octoprint
 - 选择一个文件或打印它
 
 ＃＃ 重要的！
-请勿使用以下代码重新启动 octoprint 实例（或任何其他实例）：
+请勿使用以下代码重新启动 OctoPrint 实例（或任何其他实例）：
 
 ```javascript
 var obj = getObject('system.adapter.octoprint.0');
@@ -57,11 +57,19 @@ obj.common.enabled = false;
 setObject('system.adapter.octoprint.0', obj);
 ```
 
-由于 API 密钥是自 1.1.0 版以来的受保护属性，因此这将删除配置的 API 密钥。原因是 `getObject` 不返回受保护的信息（因此 api 密钥不包含在返回的对象中）。当您保存对象时，您将保存一个没有密钥的对象。
+由于 `API key` 是自 1.1.0 版以来的受保护属性，因此这将删除配置的 API 密钥。原因是 `getObject` 不返回受保护的信息（因此 api 密钥不包含在返回的对象中）。当您保存对象时，您将保存一个没有密钥的对象。
 
 请使用状态 `system.adapter.octoprint.0.alive` 来停止/启动实例。
 
 ## Changelog
+
+### 2.0.1
+
+* (klein0r) Fixed missing translations
+
+### 2.0.0
+
+* (klein0r) Admin 5 Support
 
 ### 1.1.2
 

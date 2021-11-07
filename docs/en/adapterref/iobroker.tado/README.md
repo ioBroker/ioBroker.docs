@@ -47,6 +47,7 @@ In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x some
 | tado.[x].[yyyyyy].Rooms.[z].overlay.termination.durationInSeconds | Set how long the time table mode shall apply |
 | tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].offset.offsetCelsius | Temperature offset |
 | tado.[x].[yyyyyy].Rooms.[z].timeTables.tt_id | Select active time table |
+| tado.[x].[yyyyyy].Home.state.presence | Set HOME or AWAY mode |
 | fanspeed | Fanspeed (only AC devices) |
 | mode | AC mode (only AC devices) |
 
@@ -57,8 +58,14 @@ In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x some
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.3.11-alpha.0 (2021-11-05)
+* (HGlab01) support attributes 'showSwitchToAutoGeofencingButton', 'showHomePresenceSwitchButton' and 'additionalConsents'
+* (HGlab01) Enhance error messages if API-call fails
+* (HGlab01) next time block fails (one reason for 422 error) if time blocks are not defined - fixed now
+* (HGlab01) Set HOME/AWAY is now suported by using state tado.x.yyyyyy.Home.state.presence
+
 ### 0.3.10 (2021-10-29)
-* (HGlab01) API calls (except read) are queued and send at intervals of 3 seconds
+* (HGlab01) API calls (except read) are queued and send one after the other
 * (HGlab01) unhandled errors are now handled
 * (HGlab01) Internet connection is checked before requests are placed
 * (HGlab01) support attribute 'fanLevel' (Sentry: IOBROKER-TADO-35)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vw-connect/README.md
 title: ioBroker.vw-connect
-hash: buFSPDnF3Hx8np5C51C9MPAgmFfEvejYUXLgaJTIrHU=
+hash: 9nuytOPO0ulr/PpLRAj7KpkU7vLFS/1VknuBSEXG/hU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vw-connect/admin/vw-connect.png)
 
@@ -25,7 +25,7 @@ hash: buFSPDnF3Hx8np5C51C9MPAgmFfEvejYUXLgaJTIrHU=
 Используйте состояние под дистанционным управлением для удаленного управления автомобилем.
 
 ## Обсуждение и вопросы
-https://forum.iobroker.net/topic/26438/test-adapter-vw-connect-für-vw-id-audi-seat-skoda
+<https://forum.iobroker.net/topic/26438/test-adapter-vw-connect-für-vw-id-audi-seat-skoda>
 
 ## Поля статуса Пояснение
 Состояния дверей и окон:
@@ -123,7 +123,6 @@ https://forum.iobroker.net/topic/26438/test-adapter-vw-connect-für-vw-id-audi-s
 
 - fix skoda login
 
-
 ### 0.0.40
 
 - add climate v3 for newer cars. Add Powerpass and Seat Elli
@@ -138,9 +137,8 @@ https://forum.iobroker.net/topic/26438/test-adapter-vw-connect-für-vw-id-audi-s
   
 ### 0.0.35
 
-- add nodeJS v10 compatibility 
+- add nodeJS v10 compatibility
   
-
 ### 0.0.34
 
 - add auto accept of new privacy consent
@@ -148,11 +146,7 @@ https://forum.iobroker.net/topic/26438/test-adapter-vw-connect-für-vw-id-audi-s
 ### 0.0.32
 
 - correct selection of last recent trips
-  
-### 0.0.32
 
-- correct selection of last recent trips
-  
 ### 0.0.31
 
 - enable multiple selection of trip types
@@ -171,7 +165,7 @@ https://forum.iobroker.net/topic/26438/test-adapter-vw-connect-für-vw-id-audi-s
 
 ### 0.0.25
 
-- add we charge 
+- add we charge
 
 ### 0.0.24
 

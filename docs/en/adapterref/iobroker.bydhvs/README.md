@@ -53,6 +53,10 @@ Zu den Batterie-Größen: Der Adapter funktioniert auch für Zelltemperaturen un
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.3.0 (2021-11-06)
+* updated even more dependencies
+* official release with new state SOH
+
 ### 1.2.4-0 (2021-11-02)
 * Added state: SOH
 * updated dependencies as suggested from bot
@@ -66,10 +70,6 @@ Zu den Batterie-Größen: Der Adapter funktioniert auch für Zelltemperaturen un
 ### 1.2.2-0 (2021-05-30)
 * Create States for Diagnose-Data only if necessary
 * changes according review of the adapter
-
-### 1.2.1 (2021-05-20)
-* Power is now fixed with 2 number after the decimal point
-* bug removed, cell voltage for cell 64 works now
 
 ###
 

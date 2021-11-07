@@ -30,6 +30,9 @@ chargerOpMode =
 dynamicCircuitCurrentPX -> All phases must be set within 500ms (script) otherwise the phase will be set to 0.    
 
 ## Changelog
+### 1.0.6
+* (Newan) Changed that smart charging is editable
+
 ### 1.0.5
 * (marwin79) More Features supported and convert values to expected datatypes
 

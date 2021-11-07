@@ -679,6 +679,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.awattar/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.b-control-em/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.backitup/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.beckhoff/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.benchmark/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.benq/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.binance/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.ble/README.md
@@ -751,6 +752,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.fitbit-api/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.flot/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.followthesun/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.foobar2000/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.ford/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.fritzbox/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.fritzdect/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.fronius/README.md
@@ -1141,6 +1143,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.awattar/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.b-control-em/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.backitup/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.beckhoff/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.benchmark/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.benq/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.binance/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.ble/README.md
@@ -1213,6 +1216,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.fitbit-api/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.flot/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.followthesun/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.foobar2000/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.ford/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.fritzbox/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.fritzdect/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.fronius/README.md
@@ -1603,6 +1607,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.awattar/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.b-control-em/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.backitup/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.beckhoff/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.benchmark/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.benq/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.binance/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.ble/README.md
@@ -1675,6 +1680,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.fitbit-api/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.flot/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.followthesun/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.foobar2000/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.ford/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.fritzbox/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.fritzdect/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.fronius/README.md
@@ -2065,6 +2071,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.awattar/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.b-control-em/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.backitup/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.beckhoff/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.benchmark/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.benq/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.binance/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ble/README.md
@@ -2137,6 +2144,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fitbit-api/README.m
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.flot/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.followthesun/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.foobar2000/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ford/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fritzbox/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fritzdect/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fronius/README.md

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: OLUxMuMNdnihxXi8rb+UiZ7OaKyLtsjQfjnmAjL1CsI=
+hash: f6i4qy7fGtKHrq76VWWMIi/QNx+YA6XzHbZsWpOrR1Y=
 ---
 ![安装数量](http://iobroker.live/badges/tado-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.tado.svg)
@@ -34,7 +34,7 @@ tado° 确保舒适健康的气候，同时节省高达 31% 的取暖费用。
 | tado.[x].[yyyyy].Rooms.[z].setting.temperature |tado.[x].[yyyyy].Rooms.[z].setting.temperature.celsius |
 | tado.[x].[yyyyy].Rooms.[z].overlay.clearZoneOverlay | tado.[x].[yyyyy].Rooms.[z].overlayClearZone |
 | tado.[x].[yyyyy].Rooms.[z].Actual_Temperature | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.insideTemperature.celsius |
-| tado.[x].[yyyyy].Rooms.[z].Actual_Humidity | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.湿度.percentage |
+| tado.[x].[yyyyy].Rooms.[z].Actual_Humidity | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.humity.percentage |
 | tado.[x].[yyyyy].Rooms.[z].heatingPower | tado.[x].[yyyyy].Rooms.[z]..activityDataPoints.heatingPower.percentage |
 | tado.[x].[yyyyy].Weather.solarIntensity | tado.[x].[yyyyy].Weather.solarIntensity.percentage |
 | tado.[x].[yyyyy].Weather.outsideTemperature | tado.[x].[yyyyy].Weather.outsideTemperature.celsius |
@@ -49,10 +49,11 @@ tado° 确保舒适健康的气候，同时节省高达 31% 的取暖费用。
 | tado.[x].[yyyyyy].Rooms.[z].setting.temperature.celsius |定义温度 |
 | tado.[x].[yyyyyy].Rooms.[z].overlayClearZone |切换到自动模式 |
 | tado.[x].[yyyyyy].Rooms.[z].overlay.termination.typeSkillBasedApp |设置时间表模式 |
-| tado.[x].[yyyyyy].Rooms.[z].overlay.termination.durationInSeconds |设置时间表模式适用的时间 |
+| tado.[x].[yyyyyy].Rooms.[z].overlay.termination.durationInSeconds |设置时间表模式应用多长时间 |
 | tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].offset.offsetCelsius |温度偏移|
 | tado.[x].[yyyyyy].Rooms.[z].timeTables.tt_id |选择活动时间表 |
-|风扇速度 | Fanspeed（仅限交流设备）|
+| tado.[x].[yyyyyy].Home.state.presence |设置 HOME 或 AWAY 模式 |
+|风扇速度| Fanspeed（仅限交流设备）|
 |模式 | AC 模式（仅限 AC 设备）|
 
 **如果您有 AC 设备，请随意为最后两行提供具体的 AC 设备路径！**
@@ -62,6 +63,28 @@ tado° 确保舒适健康的气候，同时节省高达 31% 的取暖费用。
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.3.11-alpha.0 (2021-11-05)
+* (HGlab01) support attributes 'showSwitchToAutoGeofencingButton', 'showHomePresenceSwitchButton' and 'additionalConsents'
+* (HGlab01) Enhance error messages if API-call fails
+* (HGlab01) next time block fails (one reason for 422 error) if time blocks are not defined - fixed now
+* (HGlab01) Set HOME/AWAY is now suported by using state tado.x.yyyyyy.Home.state.presence
+
+### 0.3.10 (2021-10-29)
+* (HGlab01) API calls (except read) are queued and send one after the other
+* (HGlab01) unhandled errors are now handled
+* (HGlab01) Internet connection is checked before requests are placed
+* (HGlab01) support attribute 'fanLevel' (Sentry: IOBROKER-TADO-35)
+* (HGlab01) support structure element "folder", so now it is folder-->device-->channel
+* (HGlab01) add home-states presence and presenceLock
+* (HGlab01) Bump iobroker-jsonexplorer to 0.1.5
+
+### 0.3.9 (2021-10-16)
+* (DutchmanNL) force correct NodeJS dependency with error at install
+* (HGlab01) implement queuing for API requests (avoids some status code 422 issues)
+
+### 0.3.8 (2021-10-06)
+* (HGlab01) support attributes 'orientfanLevelation', 'verticalSwing', 'horizontalSwing' (#352)
+* (HGlab01) catch 422 issue in poolApiCall()
 
 ### 0.3.7 (2021-08-24)
 * (HGlab01) ActiveTimeTable can be set (#337)
@@ -119,7 +142,7 @@ tado° 确保舒适健康的气候，同时节省高达 31% 的取暖费用。
 * (HGlab01) add childLockEnabled
 
 ### 0.2.4 (2020-11-19)
-* (HGlab01) Improve overlay modes + solve merge issue of version 0.2.3 
+* (HGlab01) Improve overlay modes + solve merge issue of version 0.2.3
 
 ### 0.2.3 (2020-11-18)
 * (HGlab01) add overlay methods 'timer'

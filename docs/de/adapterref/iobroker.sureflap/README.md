@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sureflap/README.md
 title: ioBroker.surflap
-hash: G0RG7xwV7MOfDcMOxn127/rG80KO9WS6avYxFk5ippw=
+hash: KwU43CHiHy3A05RRzUVb2PSjKfzS52o9uZau067+Ah8=
 ---
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sureflap.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sureflap.svg)
@@ -36,15 +36,15 @@ Die folgenden Zustände können geändert werden und werden auf Ihrem Gerät wir
 |-------|-------------|----------------|
 | haushaltsname.hub_name.control.led_mode | stellt die Helligkeit der Hub-LEDs ein | **0** - aus<br> **1** - hoch<br> **4** - gedimmt |
 | house_name.hub_name.flap_name.control.curfew | aktiviert oder deaktiviert die konfigurierte Ausgangssperre<br> (Ausgangssperre muss per App konfiguriert werden) | **wahr** oder **falsch** |
-| house_name.hub_name.flap_name.control.lockmode | setzt den Lockmode | **0** - geöffnet<br> **1** - einschließen<br> **2** - Aussperren<br> **3** - geschlossen (verriegeln und verriegeln) |
-| house_name.hub_name.flap_name.assigned_pets.pet_name.control.type | setzt den Haustiertyp für das zugewiesene Haustier und die Klappe | **2** - Haustier im Freien<br> **3** - Haustier im Haus |
+| house_name.hub_name.flap_name.control.lockmode | setzt den Lockmode | **0** - geöffnet<br> **1** - einschließen<br> **2** - Aussperren<br> **3** - geschlossen (ein- und aussperren) |
+| house_name.hub_name.flap_name.assigned_pets.pet_name.control.type | legt den Haustiertyp für das zugewiesene Haustier und die Klappe fest | **2** - Haustier im Freien<br> **3** - Haustier im Haus |
 | house_name.hub_name.feeder_name.control.close_delay | stellt die Schließverzögerung des Zufuhrdeckels ein | **0** - schnell<br> **4** - normal<br> **20** - langsam |
 | haushaltsname.haustiere.haustiername.inside | legt fest, ob Ihr Haustier drinnen ist | **wahr** oder **falsch** |
 
 ### Struktur
 Der Adapter erstellt die folgende hierarchische Struktur:
 
-Adapter<br> ├ haushaltsname<br> │ ├ hub_name<br> │ │ ├ online<br> │ │ ├ Kontrolle<br> │ │ │ └ led_mode<br> │ │ ├ feeder_name<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterie_Prozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ Kontrolle<br> │ │ │ └ close_delay<br> │ │ │ └ zugewiesene_Haustiere<br> │ │ │ └ pet_name<br> │ │ └ Klappenname<br> │ │ ├ Batterie<br> │ │ ├ Batterie_Prozentsatz<br> │ │ ├ curfew_active<br> │ │ ├ online<br> │ │ ├ Kontrolle<br> │ │ │ ├ Ausgangssperre<br> │ │ │ └ Sperrmodus<br> │ │ ├ Ausgangssperre<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ lock_time<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ lock_time<br> │ │ │ └ unlock_time<br> │ │ └ zugewiesene_Haustiere<br> │ │ └ pet_name<br> │ │ └ Kontrolle<br> │ │ └ Typ<br> │ └ Haustiere<br> │ └ pet_name<br> │ ├ Name<br> │ ├ innen<br> │ └ seit<br> info<br> ├ all_devices_online<br> └ Verbindung<br>
+Adapter<br> ├ haushaltsname<br> │ ├ hub_name<br> │ │ ├ online<br> │ │ ├ Kontrolle<br> │ │ │ └ led_mode<br> │ │ ├ feeder_name<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterie_Prozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ Kontrolle<br> │ │ │ └ close_delay<br> │ │ │ └ zugewiesene_Haustiere<br> │ │ │ └ pet_name<br> │ │ └ Klappenname<br> │ │ ├ Batterie<br> │ │ ├ Batterie_Prozentsatz<br> │ │ ├ curfew_active<br> │ │ ├ online<br> │ │ ├ Kontrolle<br> │ │ │ ├ Ausgangssperre<br> │ │ │ └ Sperrmodus<br> │ │ ├ Ausgangssperre<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ lock_time<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ lock_time<br> │ │ │ └ unlock_time<br> │ │ └ zugewiesene_Haustiere<br> │ │ └ pet_name<br> │ │ └ Kontrolle<br> │ │ └ Typ<br> │ ├ Geschichte<br> │ └ 0..24<br> │ │ └ ...<br> │ └ Haustiere<br> │ └ pet_name<br> │ ├ Name<br> │ ├ innen<br> │ └ seit<br> info<br> ├ all_devices_online<br> ├ Verbindung<br> └ letztes_update<br>
 
 ## Anmerkungen
 SureFlap® und Sure Petcare® sind eingetragene Marken von [SureFlap Ltd.](https://www.surepetcare.com/)
@@ -52,6 +52,10 @@ SureFlap® und Sure Petcare® sind eingetragene Marken von [SureFlap Ltd.](https
 Das Bild der Katzenklappe, des Hubs und der Smartphone-App wird von [Sure Petcare®](https://www.surepetcare.com/en-us/press) kostenlos zur Verfügung gestellt.
 
 ## Changelog
+
+### 1.0.7 (2021-11-02)
+* (Sickboy78) added history
+* (Sickboy78) added last update time
 
 ### 1.0.6 (2021-09-12)
 * (Sickboy78) added feeder support (closing delay of lid)

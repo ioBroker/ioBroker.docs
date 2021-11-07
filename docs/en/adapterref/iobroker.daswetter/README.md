@@ -56,6 +56,9 @@ Now we have implemented a "auto-repair" which changes to structure to documented
 * please create issues at [github](https://github.com/rg-engineering/ioBroker.daswetter/issues) if you find bugs or whish new features
 
 ## Changelog
+### 3.0.9 (in progress)
+* (René) dependencies updated
+* (René) see issue #114: "connectionType" and "dataSource" fixed
 
 ### 3.0.8 (2021-09-22)
 * (DutchmanNL) Warn messages for channels solved

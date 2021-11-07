@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alexa2/README.md
 title: ioBroker.alexa2
-hash: hIgfNRM8mI+AD4Vh929r4j7dHFzbcmZU/Q3a1cuctuw=
+hash: 0tkrZY32K/97TQpOQ+IVlSzPZ7AfaQ5i4iO5NNUUD+A=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alexa2/admin/alexa.png)
 
@@ -14,7 +14,7 @@ hash: hIgfNRM8mI+AD4Vh929r4j7dHFzbcmZU/Q3a1cuctuw=
 # IoBroker.alexa2
 ![Тестирование и выпуск](https://github.com/Apollon77/iobroker.alexa2/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/alexa2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-** Этот адаптер использует службу [Sentry.io](https://sentry.io) для автоматического сообщения мне как разработчику об исключениях, ошибках кода и новых схемах устройств. ** Подробнее см. Ниже!
+** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
 Этот адаптер позволяет удаленно управлять устройствами Alexa (Amazon Echo).
 
@@ -28,7 +28,7 @@ hash: hIgfNRM8mI+AD4Vh929r4j7dHFzbcmZU/Q3a1cuctuw=
 | - | - |
 | эхо-устройства. * | Состояния на устройство Echo, см. Ниже |
 | история. * | Информацию об истории команд см. Ниже |
-| умные домашние устройства. * | Состояния на устройство умного дома и в целом см. Ниже |
+| умные домашние устройства. * | Состояния по умному домашнему устройству и в целом см. Ниже |
 | информация. * | Общая информация о состоянии адаптера |
 | requestResult | Информация об ошибках при запросах устройств TuneIn и умного дома |
 
@@ -51,6 +51,7 @@ hash: hIgfNRM8mI+AD4Vh929r4j7dHFzbcmZU/Q3a1cuctuw=
 | включен | Показывает состояние тревоги и позволяет изменить его: Активировать тревогу с истинным - Отключить тревогу с ложью | истина / ложь |
 | время | Время для тревоги. Перезаписать время для существующего будильника, чтобы установить новое время для этого будильника. Если у вас уже есть будильник, вы можете изменить время здесь, просто перезаписав время в формате чч: мм: сс, секунды устанавливать не нужно | Ввод времени |
 | срабатывает | истина, если тревога достигнута и сработала. Часы должны быть синхронизированы с Amazon и iobroker. Используйте это, чтобы запускать другие действия по достижении времени будильника | истина / ложь |
+| recurringPattern | Показывает повторяющийся образец сигнала тревоги | 0 = один раз, без повторения<br> P1D = ежедневно<br> XXXX-WD = в будние дни<br> XXXX-WE = по выходным<br> XXXX-WXX-1 = каждый понедельник<br> XXXX-WXX-2 = каждый вторник<br> XXXX-WXX-3 = каждую среду<br> XXXX-WXX-4 = каждый четверг<br> XXXX-WXX-5 = каждую пятницу<br> XXXX-WXX-6 = каждую субботу<br> XXXX-WXX-7 = каждое воскресенье |
 | новый | время для нового будильника для этого устройства. Если вы укажете здесь значение, будет создан новый сигнал тревоги | Ввод времени (чч: мм: сс, секунды не нужны) |
 
 ### Alexa2.0.Echo-Devices.Serialnumber.Bluetooth. *
@@ -72,7 +73,7 @@ hash: hIgfNRM8mI+AD4Vh929r4j7dHFzbcmZU/Q3a1cuctuw=
 | забавный факт | Интересный факт от Алексы ... (На данный момент только США) | Кнопка |
 | шутка | Шутка от Алексы ... | Кнопка |
 | очистка | Воспроизводит "гонг" как для начала / конца режима прослушивания ... | Кнопка |
-| curatedtts | Случайное предложение из выбранной области от Alexa ... | Текст (разрешены: «до свидания», «подтверждения», «доброе утро», «комплименты», «день рождения», «спокойной ночи», «iamhome») |
+| curatedtts | Случайное предложение из области, выбранной в Alexa ... | Текст (разрешены: «до свидания», «подтверждения», «доброе утро», «комплименты», «день рождения», «спокойной ночи», «iamhome») |
 | Singasong | Алекса поет песню ... | Кнопка |
 | говорить | Алекса говорит, что вы здесь вводите ... | Ввод текста |
 | SpeakVolume | Отрегулируйте громкость речи Alexa, эта громкость устанавливается перед разговором и сбрасывается после | 0-100 |
@@ -86,7 +87,7 @@ hash: hIgfNRM8mI+AD4Vh929r4j7dHFzbcmZU/Q3a1cuctuw=
 | текстовая команда | Отправьте текстовую команду в Alexa, пока только в США! | Текст |
 
 Подробная информация Говорите и объявляйте: введите здесь то, что вы хотите, чтобы Алекса сказала. Вы также можете настроить громкость Alexa, указав процент перед текстом.
-Пример: 10; Alexa говорит, что Alexa имеет объем 10%, а 100; Alexa - 100% громкости.
+Пример: 10; Alexa говорит, что Alexa имеет объем 10%, а 100; Alexa - объем 100%.
 Обычно вы можете отправить только 250 символов за одну команду произнесения. Используя точку с запятой, можно писать сколько угодно, при условии, что вы разделите 250 символов точкой с запятой.
 Затем Alexa будет произносить текст друг за другом с небольшим перерывом. Вы также можете использовать громкость вместе с более 255 блоками, написав #Volume; # Block1; # Block2, a.s.o. Установленная здесь громкость будет использоваться поверх определенной громкости речи.
 
@@ -172,12 +173,14 @@ hash: hIgfNRM8mI+AD4Vh929r4j7dHFzbcmZU/Q3a1cuctuw=
 | Серийное или внутреннее имя процедуры | название процедуры | Кнопка
 
 ### Alexa2.0.Echo-Devices.Serialnumber.Timer. *
-На каждом устройстве Alexa можно запустить один или несколько таймеров. Из-за очень динамичной природы таймеров больше не будет создаваться объектов, таких как Alarm или Reminders, но есть способ получить срабатывающую информацию.
+У вас может быть один или несколько таймеров, запущенных на каждом устройстве Alexa. Из-за очень динамичной природы таймеров больше не будет создаваться объектов, таких как Alarm или Reminders, но есть способ получить срабатывающую информацию.
 
 | Государственное название | значение | значение |
 | - | - | - |
 
 | срабатывает | Сработал таймер | Информация
+
+** Обратите внимание, что важно, чтобы часовой пояс хоста ipbroker был установлен в соответствии с вашим местным часовым поясом, иначе сработавшее определение времени может быть неправильным! **
 
 ### Alexa2.0.Echo-Devices.Serialnumber.online
 Это устройство Alexa подключено к сети и подключено к облаку Amazon?
@@ -248,14 +251,14 @@ hash: hIgfNRM8mI+AD4Vh929r4j7dHFzbcmZU/Q3a1cuctuw=
 * добавить поля для отображения игровой информации, такой как версия JS
 * самодеактивация, если cookie / csrf недействительны
 
-## Монтаж
+## Установка
 Как обычно, используйте стабильный репозиторий, последний репозиторий или используйте опцию «Установить» ioBroker с GitHub
 
-## Поиск проблемы
+## Исправление проблем
 ### Проблемы с определением файлов cookie по электронной почте / паролю
 Иногда Amazon использует специальные проверки при обнаружении неожиданного трафика при входе в систему.
 Это может привести к проблеме, заключающейся в том, что для входа в систему необходимо ответить на капчу.
-Чаще всего на эту капчу нужно ответить один раз, и после этого вход в систему будет работать без нее.
+Чаще всего на эту капчу нужно ответить один раз, и после этого вход в систему работает без капчи.
 
 Когда вам нужно ответить на такую капчу, попробуйте сделать следующее:
 
@@ -278,19 +281,45 @@ hash: hIgfNRM8mI+AD4Vh929r4j7dHFzbcmZU/Q3a1cuctuw=
 Вы можете переопределить все эти параметры в конфигурации адаптера.
 
 ### Как самостоятельно определить Cookie?
-Если автоматическое определение файлов cookie не работает или вы не доверяете Адаптеру предоставлять адрес электронной почты / пароль, вы можете определить файл cookie самостоятельно. В Интернете есть несколько информации о том, как это сделать. Вот несколько ссылок:
+Если автоматическое определение файлов cookie не работает или вы не доверяете Адаптеру предоставлять адрес электронной почты / пароль, вы можете определить файл cookie самостоятельно. В сети есть несколько информации о том, как это сделать. Вот несколько ссылок:
 
 * https://www.gehrig.info/alexa/Alexa.html
 * или используйте сценарий оболочки из https://blog.loetzimmer.de/2017/10/amazon-alexa-hort-auf-die-shell-echo.html, чтобы получить его в оболочке ...
 
 Но имейте в виду: время ожидания Cookie истечет через несколько раз, а затем адаптер перестанет работать и отключится. Затем вам нужно вручную получить новый файл cookie!
 
-## Что такое Sentry.io и что передается на серверы этой компании?
-Sentry.io - это сервис, позволяющий разработчикам получать информацию об ошибках в своих приложениях. Именно это и реализовано в данном адаптере.
-
-Когда адаптер выходит из строя или возникает другая ошибка кода, это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется в Sentry. Когда вы разрешили iobroker GmbH собирать диагностические данные, включается также ваш установочный идентификатор (это просто уникальный идентификатор **без** дополнительной информации о вас, адрес электронной почты, имя и т. Д.). Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуты такой ошибкой. Все это помогает мне предоставлять безошибочные адаптеры, которые практически никогда не дают сбоев.
-
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Fix crash case
+* (ammawel) Add recurringPattern for Notifications (see Readme)
+* (Apollon77) Make sure states are not set too early before objects are created
+
+### 3.11.2 (2021-10-12)
+* (Apollon77) Fix crash case (Sentry IOBROKER-ALEXA2-AT)
+
+### 3.11.1 (2021-10-12)
+* (Apollon77) Prevent warnings with js-controller 3.3
+
+### 3.11.0 (2021-10-12)
+* (Apollon77) Add support for Multi Utterance Routines
+* (Apollon77) Fix object deletion for lists
+* (Apollon77) Fix Creation of new Lists and add deletion support
+* (Apollon77) Allow Commands for Stereo Pairs
+* (Apollon77) Optimize Push Connection and History retrieval
+
+### 3.10.4 (2021-10-11)
+* IMPORTANT: Node.js 10 support is dropped, supports LTS versions of Node.js starting with 12.x
+* (Apollon77) Update Push Connection
+
+### 3.9.3 (2021-07-11)
+* (Apollon77) Try to fix setting targetTemperature for ThermostatController
+
+### 3.9.2 (2021-07-05)
+* (Apollon77) Only ignore empty history entries if both, summary and alexaResponse is empty
+
+### 3.9.1 (2021-06-04)
+* (Apollon77) Fix cookie exchange and cookie validation checks
 
 ### 3.9.0 (2021-05-11)
 * (Apollon77) Add some new devices
@@ -362,7 +391,7 @@ Sentry.io - это сервис, позволяющий разработчика
 * (arteck) add echo studio
 
 ### 3.2.6 (2020-07-15)
-* (Apollon77) Work around Amazon Security changes and make proxy working again 
+* (Apollon77) Work around Amazon Security changes and make proxy working again
 
 ### 3.2.5 (2020-07-13)
 * (Apollon77) Work around Amazon Security changes and make proxy working again 
@@ -389,7 +418,7 @@ Sentry.io - это сервис, позволяющий разработчика
 * (Apollon77) make sure that Lists objects are deleted correctly when deleting
 * (Apollon77) Make compatible with nodejs 14
 * (Apollon77) Adjust to changes from Amazon so that initial Proxy process works again
-* (OberstVonGatow) Make sure that for Spotify Media data requests do not have negative effects and stop the playback  
+* (OberstVonGatow) Make sure that for Spotify Media data requests do not have negative effects and stop the playback
 
 ### 3.1.2 (2020-03-18)
 * (Gieskanne/Apollon77) Add Next Timer Date as state
@@ -427,7 +456,7 @@ Sentry.io - это сервис, позволяющий разработчика
 * (Apollon77) prevent some crashed after changes by Amazon
 * (Apollon77) fix Routine names after changes by Amazon
 * (Apollon77) add some devices and new images
-* (Apollon77) Add more situations to update player status because amazon send no info anymore on title changes 
+* (Apollon77) Add more situations to update player status because amazon send no info anymore on title changes
 
 ### 2.6.4 (2019-07-25)
 * (Apollon77) add some error handling for contacts
@@ -465,7 +494,7 @@ Sentry.io - это сервис, позволяющий разработчика
 * (Apollon77) optimize Admin display of Status/Link
 * (Apollon77) add Link to https://alexa.amazon.com to Admin instance overview
 * (Apollon77) Remove Admin2 support
-* (Apollon77) Optimize Handling from DNS errors (hopefully) to prevent stopped Adapters on Internet/DNS problems 
+* (Apollon77) Optimize Handling from DNS errors (hopefully) to prevent stopped Adapters on Internet/DNS problems
 
 ### 2.3.3 (2019-06-21/22)
 * (Apollon77) adjust to current Amazon changes
@@ -483,7 +512,7 @@ Sentry.io - это сервис, позволяющий разработчика
 ### 2.1.0 (2019-01-13) [unpublished]
 * (Apollon77) cookie handling completely rewritten, no email/password anymore, only Proxy (still only from log)
 * (Apollon77) fixes routine triggering that triggered on wrong device sometimes
-* (Apollon77) added new commands "deviceStop", "announcement", "notification", and "ssml" (see documentation above) 
+* (Apollon77) added new commands "deviceStop", "announcement", "notification", and "ssml" (see documentation above)
 
 ### 1.1.3 (2018-11-17)
 * (Apollon77) optimize cookie handling again
@@ -567,7 +596,6 @@ Sentry.io - это сервис, позволяющий разработчика
 * (Apollon77) New "Music-Provider" states depending on available music providers with possibility to enter a text to play something (same as you would speak it)
 * (Apollon77) Volume is send different now, so that it also works when Device player get's inactive
 
-
 ### 0.2.4 (2018-07-22)
 * (pix) materialize settings window
 * (Apollon77) WOn IP is set automatically with IP from first network interface
@@ -600,16 +628,6 @@ Sentry.io - это сервис, позволяющий разработчика
 * (Apollon77) 0.2.0: Automatically use different user-agents for Win32, MacOS and Linux based systems
 * (Apollon77) 0.2.0: Also support entering TuneIn-Station IDs ("s" plus 4-6 digits) to play that station
 
-### 0.1.x (Github only as iobroker.alexa)
-* (Apollon77) 0.1.5: Adapter disables itself on error (no cookie/no csrf in cookie/captcha needed)
-* (Apollon77) 0.1.5: Reorganized some states (delete object again please), add playerinfo section for later usage, hopefully fixed unplanned device renaming and other things
-* (Apollon77) 0.1.5: Added adapter config options to overwrite used amazon-page, user-agent and accept-language for cookie determination and
-* (Apollon77) 0.1.4: State changes are logged and only considered when ack=false!
-* (Apollon77) 0.1.3: Corrected all roles, delete objects and start again!
-* (Apollon77) 0.1.3: bluetooth connection status filled correctly initially
-* (Apollon77) 0.1.2: Library fixes and updates
-* (Apollon77) 0.1.1: Library fixes and updates
-
 ### 0.1.0 (2018-07-10)
 * (Apollon77) get Adapter working again, especially getting cookie and optimize refresh
 
@@ -620,7 +638,7 @@ Sentry.io - это сервис, позволяющий разработчика
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2018 soef <soef@gmx.net>, 2018-2021 Ingo Fischer <iobroker@fischer-ka.de>
+Copyright (c) 2018-2021 Ingo Fischer <iobroker@fischer-ka.de>, 2017-2018 soef <soef@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

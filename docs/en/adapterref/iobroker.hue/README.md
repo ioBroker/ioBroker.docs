@@ -59,6 +59,9 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.5.28 (2021-11-04)
+* (foxriver76) another fix for ivnalid ct values (fixes #234)
+
 ### 3.5.27 (2021-11-01)
 * (foxriver76) we fixed missing object type of some scenes (closes #255)
 

@@ -50,7 +50,7 @@ iobroker add octoprint
 
 ## Important!
 
-DO NOT restart the octoprint instance (or any other instance) with code like this:
+DO NOT restart your OctoPrint instance (or any other instance) with code like this:
 
 ```javascript
 var obj = getObject('system.adapter.octoprint.0');
@@ -58,11 +58,19 @@ obj.common.enabled = false;
 setObject('system.adapter.octoprint.0', obj);
 ```
 
-Since the API key is a protected attribute since version 1.1.0, this will remove the configured API key. The reason is, that `getObject` doesn't return protected information (so the api key is not included in the returned object). When you save the object, you will save an object without the key.
+Since the `API key` is a protected attribute since version 1.1.0, this will remove the configured API key. The reason is, that `getObject` doesn't return protected information (so the api key is not included in the returned object). When you save the object, you will save an object without the key.
 
 Please use state `system.adapter.octoprint.0.alive` to stop/start the instance.
 
 ## Changelog
+
+### 2.0.1
+
+* (klein0r) Fixed missing translations
+
+### 2.0.0
+
+* (klein0r) Admin 5 Support
 
 ### 1.1.2
 
