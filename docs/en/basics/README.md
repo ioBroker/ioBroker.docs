@@ -29,7 +29,7 @@ An ioBroker server can be installed on almost any hardware. The only condition i
 
 !> As of May 2021, nodejs 12.x is still recommended for ioBroker.
 
-For a larger installation, a working memory (RAM) of at least 2GB is recommended. A Raspberry Pi 2/3 with 1GB RAM is sufficient for testing; as a slave for individual adapters in a multihost environment, even smaller microcomputers are sometimes sufficient.
+For a larger installation, a working memory (RAM) of at least 2GB is also recommended. A Raspberry Pi 2/3 with 1GB RAM is sufficient for testing; as a slave for individual adapters in a multihost environment, even smaller microcomputers are sometimes sufficient.
 
 ### Software
 ioBroker manages the data in a database. The structure of the data is organized accordingly.

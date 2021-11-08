@@ -9,7 +9,10 @@ const path = require('path');
 const fs = require('fs');
 const port = normalizePort(process.env.PORT || config.port || 443);
 const ExpressBrute = require('express-brute');
-const x509 = require('x509');
+let x509;
+if (process.platform !== 'win32') {
+    x509 = require('x509');
+}
 const cors = require ('cors');
 
 const bruteforce = new ExpressBrute(new ExpressBrute.MemoryStore(), {freeRetries: 5});

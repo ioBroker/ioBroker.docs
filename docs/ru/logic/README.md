@@ -14,4 +14,4 @@ hash: en4Q+oQcaZAtaUbJq6fwE6UMbIHK5h8e0COUJmjF+w4=
 Вспомогательные диалоговые окна и подробные сведения должны относиться к справочнику адаптера для соответствующего адаптера.
 @@@
 
-Нажмите здесь, чтобы увидеть [Документация по функциям на английском языке](https://github.com/ioBroker/ioBroker.javascript/blob/master/docs/en/javascript.md)
+Щелкните здесь, чтобы перейти к [Документация по функциям на английском языке](https://github.com/ioBroker/ioBroker.javascript/blob/master/docs/en/javascript.md)

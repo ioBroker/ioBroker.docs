@@ -4,7 +4,7 @@ lastChanged: 05.12.2020
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/linux.md
-hash: 0RSomjzprx5ZN1ThmqOllojkXxchwdAmnMTCBbjJ9OQ=
+hash: PK5UMbikLloEInPXeSNLqKXsZwkXi1dDURcZ8mTYljc=
 ---
 # IoBroker installation on Linux
 !> These instructions do NOT apply to finished images of the website! However, manual installation is preferable to an image.
@@ -78,7 +78,7 @@ Depending on the OS used, the update can also be carried out using ``sudo apt up
 
     ``npm -v``
 
-only if **ALL** these commands do not produce a result (i.e. no longer display the version number) continue with step 4 of this section, otherwise, or if the version does not correspond to the desired, do the following beforehand:
+only if **ALL** these commands do not produce a result (i.e. no longer display the version number) continue with step 4 of this section, otherwise, or if the version does not correspond to the one you want, do the following beforehand:
 
 3. Uninstall the existing node & node.js versions
 
@@ -104,9 +104,14 @@ After the installation, the commands “node -v” and “nodejs -v” must retu
 
     Execute ``sudo ln -s /usr/local/bin/nodejs /usr/bin/node`` on the console.
 
+In newer installations it can happen that the command ``nodejs -v`` generates an error message like" not found ".
+In principle, this is harmless, since the command ``nodejs`` has not been used for a long time, but can be" repaired "via a symlink with the command` `sudo ln -s /usr/bin/node /usr/bin/nodejs``.
+
+---
+
 If the versions are different, please go through section [Installation Node.js](#installation-nodejs) again
 
-    As a final check, please check the version of npm using ``npm -v``.
+As a final check, please check the version of npm using ``npm -v``.
 
 If this results in a version <6, please perform an npm update with ``sudo -H npm install -g npm@6``
 
@@ -115,7 +120,7 @@ If this results in a version <6, please perform an npm update with ``sudo -H npm
 ### Installation ioBroker
 The installation can be carried out with the user pi but also with the user root.
 
-Execute on the console:
+Run on the console:
 
 ``curl -sLf https://iobroker.net/install.sh | bash -``
 
@@ -150,7 +155,7 @@ The commands worked with the installation routine from early to mid-January:
 * iobroker restart
 * iobroker status
 
-no more. This is a feature of Linux - not ioBroker!
+no longer. This is a feature of Linux - not ioBroker!
 
 instead must
 

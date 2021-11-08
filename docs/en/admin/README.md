@@ -53,13 +53,13 @@ The main window shows the content belonging to the selected menu item.
 
 Detailed information on this content is available on the pages linked via the headings.
 
-[Overview](https://www.iobroker.net/#de/documentation/admin/overview.md) All pages with their own web interface and information about the hosts are displayed here.
+[overview](https://www.iobroker.net/#de/documentation/admin/overview.md) All pages with their own web interface and information about the hosts are displayed here.
 
 [adapter](https://www.iobroker.net/#de/documentation/admin/adapter.md) The available and installed adapters are displayed and managed here.
 
 [Instances](https://www.iobroker.net/#de/documentation/admin/instances.md) The instances already installed on the Adapter tab are listed here and can be configured accordingly.
 
-[Objects](https://www.iobroker.net/#de/documentation/admin/objects.md) The managed objects structures and data points of the devices that are integrated via adapters. Objects can be created and deleted here. Entire object structures can be uploaded or downloaded using the "arrow up" and "arrow down" buttons.
+[Objects](https://www.iobroker.net/#de/documentation/admin/objects.md) The managed objects, structures and data points of the devices that are integrated via adapters. Objects can be created and deleted here. Entire object structures can be uploaded or downloaded using the "arrow up" and "arrow down" buttons.
 
 If values are displayed in red, they have not yet been confirmed by the recipient (ack = false).
 
@@ -69,7 +69,7 @@ If values are displayed in red, they have not yet been confirmed by the recipien
 
 The log level to be logged can be set for the individual instances in the Instances tab. The minimum log level to be displayed is selected in the selection menu. If an error occurs, the label on the tab appears in red.
 
-[Events](https://www.iobroker.net/#de/documentation/admin/events.md) A list of the current status updates.
+[events](https://www.iobroker.net/#de/documentation/admin/events.md) A list of the current status updates.
 
 [user](https://www.iobroker.net/#de/documentation/admin/users.md) Here users can be created and added to the existing groups.
 

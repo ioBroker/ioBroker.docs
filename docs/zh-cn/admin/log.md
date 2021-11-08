@@ -11,7 +11,7 @@ hash: 66gpVVstVxHlQUyyBYv8juocwLyP/pXvD9q5MXSJDlE=
 ![日志页面](../../de/admin/media/ADMIN_Log_numbers.png)
 
 ##标题行
-在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需在图标上按住鼠标一会儿。
+在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需在图标上按住鼠标一段时间即可。
 
 ### 1 - 更新日志
 此按钮更新列表。
@@ -27,13 +27,13 @@ hash: 66gpVVstVxHlQUyyBYv8juocwLyP/pXvD9q5MXSJDlE=
 单击此图标，将永久删除主机上的整个日志。
 
 ### 5 - 下载日志
-使用此按钮，您可以从目录 /opt/iobroker/logs 下载最近几天的完整每日日志：
+使用此按钮，您可以从目录 /opt/iobroker/logs 下载过去几天的完整每日日志：
 
 ![日志下载](../../de/admin/media/ADMIN_Log_download.png)
 
 您会看到以下屏幕：![完整的日志](../../de/admin/media/ADMIN_Log_download02.png)
 
-由于日志窗口的列表中的行经常被截断，因此检查这里是否有更多信息很重要。
+由于日志窗口中的列表中的行经常被截断，因此在这里检查是否有更多信息很重要。
 
 ### 6 - 主机列表
 日志中仅显示来自此处设置的主机的消息。在多主机环境中，您可以在此处设置要记录的主机。

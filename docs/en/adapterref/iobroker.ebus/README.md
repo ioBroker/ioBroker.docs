@@ -52,7 +52,18 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
    
 ## Changelog
 
-## 2.4.1 (2021-10-18)
+### 2.4.5 (in progress)
+* (René) bug fix color of labels in widget
+
+### 2.4.4 (2021-10-30)
+* (René) see issue #59: avoid endless loop
+* (René) update flot to 4.2.2
+* (René) bug fix missing space in command when using circuit name
+
+## 2.4.3 (2021-10-21)
+* (René) see issue #58: bug fix for Warn: ignoring history value 1 (invalid)" when no history values set
+
+## 2.4.2 (2021-10-19)
 * (René) see issue #55: bug fix
 
 ## 2.4.0 (2021-10-17)

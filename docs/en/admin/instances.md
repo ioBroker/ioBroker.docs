@@ -9,13 +9,13 @@ hash: UoGLmTCoECn4hXH3ZdHdTGnXR2yC6U/6IeuOooI7o5A=
 The instances already installed on the Adapter tab are listed here and can be configured accordingly.
 
 ## The title line
-in the title line there are icons for the most important processes. There is context help for each icon. Simply stay on the icon with the mouse for a while. There is also information about the load on the server.
+in the title line there are icons for the most important processes. There is context help for each icon. To do this, simply hold the mouse on the icon for a while. There is also information about the load on the server.
 
 ![The icons in the title bar](../../de/admin/media/ADMIN_Instanzen_numbers.png)
 
 The icons in detail:
 
-### 1 - Refresh the view
+### 1 - update view
 If instances that have just been created are not visible, clicking this icon will help bring the status of the page up to date.
 
 ### 2 - Switch on administrator mode
@@ -44,7 +44,7 @@ The installed instances of the adapters are shown in a table on the page.
 The table consists of the following columns:
 
 ### 1 - state
-The state of the instance is shown here by a traffic light. Further information can be obtained by holding the mouse on the signal.
+The status of the instance is shown here by a traffic light. Further information can be obtained by holding the mouse on the signal.
 
 Not all instances have this traffic light. But don't panic. These are either time-controlled instances that only briefly connect to the controller and then switch off again immediately or continue to run in the background, e.g. vis.
 
@@ -75,7 +75,7 @@ Behind this icon there is a link to the website of this instance. Either because
 The name of the instance is specified here. You can change this name according to your own wishes or needs. This is particularly useful if there are several instances of an adapter (otherwise with the same name). This would be the case with hm-rpc, for example, if there is one instance each for RF, Wired and CuxD.
 
 ### 10.) Timing
-For adapters that are started time-controlled, the time when this adapter should start is entered here. This scheduling is in the format of a cron job. To change, click on the button with the three dots. An input window opens with a lot of additional information and help.
+In the case of adapters that are started time-controlled, the time when this adapter should start is entered here. This scheduling is in the format of a cron job. To change, click on the button with the three dots. An input window opens with a lot of additional information and help.
 
 ### 11 - restart
 Using the clock icon, a schedule can also be created here when this instance is to be restarted.
@@ -83,7 +83,7 @@ Using the clock icon, a schedule can also be created here when this instance is 
 This column is only visible in expert mode!
 
 ### 12 - Log level
-The respective log level for the instance can be adjusted in this column. Debug, info, warn and error are available. By default, this value is set to info. If you have the impression that something is not running smoothly, you can set it to debug. debug information is then also output for this instance in the log tab, which can help to find an error. Conversely, you can set this value higher so that the log is not so extensive.
+The respective log level for the instance can be adjusted in this column. Debug, info, warn and error are available. By default, this value is set to info. If you have the impression that something is not running smoothly, you can set it to debug. then debug information is also output for this instance in the log tab, which can help to find an error. Conversely, you can set this value higher so that the log is not so extensive.
 This column is only visible in expert mode!
 
 ### 13 - RAM limit

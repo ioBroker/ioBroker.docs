@@ -34,6 +34,12 @@ You might need to enable "NextDaysDetailed".
 * please create issues at [github](https://github.com/rg-engineering/ioBroker.vis-weather/issues) if you find bugs or whish new features
 
 ## Changelog
+### 2.5.5 (in progress)
+* (René) bug fix color of labels in widget
+
+### 2.5.4 (2021-10-30)
+* (René) see issue #37: avoid endless loop
+* (René) update flot to 4.2.2
 
 ### 2.5.3 (2021-03-21)
 * (René) dependencies updated

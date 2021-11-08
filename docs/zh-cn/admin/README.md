@@ -53,7 +53,7 @@ Adapter Admin 用于操作整个 ioBroker 安装。
 
 有关此内容的详细信息可在通过标题链接的页面上找到。
 
-[概述](https://www.iobroker.net/#de/documentation/admin/overview.md) 此处显示所有具有自己的 Web 界面和主机信息的页面。
+[概述](https://www.iobroker.net/#de/documentation/admin/overview.md) 此处显示所有带有自己的 Web 界面和主机信息的页面。
 
 [适配器](https://www.iobroker.net/#de/documentation/admin/adapter.md) 可用和已安装的适配器在此处显示和管理。
 
@@ -67,9 +67,9 @@ Adapter Admin 用于操作整个 ioBroker 安装。
 
 [日志](https://www.iobroker.net/#de/documentation/admin/log.md) 日志显示在这里
 
-可以在“实例”选项卡中为各个实例设置要记录的日志级别。在选择菜单中选择要显示的最低日志级别。如果发生错误，选项卡上的标签显示为红色。
+在实例选项卡中，可以为单个实例设置要记录的日志级别。在选择菜单中选择要显示的最低日志级别。如果发生错误，选项卡上的标签显示为红色。
 
-[活动](https://www.iobroker.net/#de/documentation/admin/events.md) 当前状态更新列表。
+[事件](https://www.iobroker.net/#de/documentation/admin/events.md) 当前状态更新列表。
 
 [用户](https://www.iobroker.net/#de/documentation/admin/users.md) 在这里可以创建用户并将其添加到现有组中。
 

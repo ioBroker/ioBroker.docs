@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: XahQPtXfSPQaNzSElWO2bWqie/qqcc5aABBArdantnU=
+hash: 1ahOGAFjQ9aWMdBggyYXYcPi2WGo/G0LX9Dkdl2fsfc=
 ---
 ![Logo](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
@@ -49,7 +49,10 @@ Achtung: Befehl im Datenpunkt ebus.0.cmd wird nach Ausführung des Befehls gelö
 ## Bekannte Probleme
 * Bitte erstellen Sie Probleme unter [github](https://github.com/rg-engineering/ioBroker.ebus/issues), wenn Sie Fehler finden oder neue Funktionen wünschen
 
-## 2.4.1 (2021-10-18)
+## 2.4.3 (2021-10-21)
+* (René) siehe Problem #58: Bugfix für Warn: Ignorieren des Verlaufswerts 1 (ungültig)", wenn keine Verlaufswerte gesetzt sind
+
+## 2.4.2 (2021-10-19)
 * (René) siehe Ausgabe #55: Fehlerkorrektur
 
 ## 2.4.0 (2021-10-17)

@@ -1,5 +1,5 @@
 ---
-title: 活动
+title: 事件
 lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
@@ -12,7 +12,7 @@ hash: +KFMmCj/chMyEZB/QW+TFWarAfGD1U+w6FxSkTJrUbw=
 ![活动页面](../../de/admin/media/ADMIN_Ereignisse_numbers.png)
 
 ##标题行
-在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需在图标上按住鼠标一会儿。
+在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需在图标上按住鼠标一段时间即可。
 
 ### 详细图标：
 ### 1 - 暂停视图
@@ -33,7 +33,7 @@ hash: +KFMmCj/chMyEZB/QW+TFWarAfGD1U+w6FxSkTJrUbw=
 通过单击列标题，您可以根据特定条件进行过滤。
 
 ### 1 - 类型
-这里要么 ***stateChange*** 是值的更新，要么 ***objectChange*** 这些也是两个过滤器选项。
+这里要么 ***stateChange*** 是一个值的更新，要么 ***objectChange*** 这些也是两个过滤器选项。
 
 ### 2 - 身份证
 这是对应数据点的唯一名称，根据由适配器名称、实例编号、设备名称、通道名称、数据点名称组成的结构。
@@ -51,7 +51,7 @@ hash: +KFMmCj/chMyEZB/QW+TFWarAfGD1U+w6FxSkTJrUbw=
 ### 5 - 来源
 这表明哪个实例对数据点进行了最后一次更改。
 
-您可以在此列中过滤这些内容。
+您可以在此列中根据此进行过滤。
 
 ### 6 - 时间
 这是上次更新数据点的时间戳。

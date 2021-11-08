@@ -11,7 +11,7 @@ hash: +7btQz2YwNxQ7cvAm6lflniM5CCWalHSRI06eUPOpmQ=
 After images have been downloaded from the download page, they are written to the SD card using an image tool (e.g. Balena-Etcher).
 
 The further procedure for each individual image can be different.
-This is why there is a **Info** button under each image on the download page.
+This is why the **Info** button is located on the download page under each image.
 
 If you click on this, the ReadMe belonging to this image appears.
 

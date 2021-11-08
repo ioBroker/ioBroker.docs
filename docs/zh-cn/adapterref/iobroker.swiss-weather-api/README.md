@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.swiss-weather-api/README.md
 title: ioBroker.swiss-weather-api
-hash: vnDfTZn2qAakTnrpH7PNW+q/yfQg9T8TudfRJ/INW5Y=
+hash: MN9ch329u8qQbmvZYV1HlOsYj1Z3mzxqcxvybkf0kYc=
 ---
-![商标](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
+![标识](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.swiss-weather-api.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.swiss-weather-api.svg)
@@ -17,12 +17,21 @@ hash: vnDfTZn2qAakTnrpH7PNW+q/yfQg9T8TudfRJ/INW5Y=
 ![特拉维斯CI](http://img.shields.io/travis/baerengraben/ioBroker.swiss-weather-api/master.svg)
 
 # IoBroker.swiss-weather-api
-＃注意力！！！
-**SRG 已完全重建其 API。不再支持旧 API（<= 适配器版本 0.3.2）。从适配器版本 0.9.x 开始，使用 SRG 的新 API。这就是为什么必须创建一个新的 SRG APP（例如产品“免费增值”）（https://developer.srgssr.ch/apis/srf-weather）。另请参阅自述文件，“入门”一章（下文）。另请注意，新 API 还将创建全新的对象。**
+**将程序版本 1.0.1 更新为 1.0.x**
 
-**好消息是新的 API 还提供了更多数据。 ;)**
+- 只需在 ioBroker 中更新。无需特殊的额外步骤
 
-**更新程序**
+**将程序版本 1.0.0 更新为 1.0.1**
+
+- 使用 1.0.1 版我正在修复问题 https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/57
+- 基于 [this](https://forum.iobroker.net/topic/46975/vis-widgethintergrund-farbe-durch-objektdatenpunkt-steuern) 的讨论，ID 中不允许使用冒号。因此，我删除了用于小时的冒号，没有替换，也省略了秒。例如旧 01:00:00 => 新 0100)
+
+此更改使得必须重新生成 ID。因此，要安装 1.0.1 版，必须完全删除当前运行的适配器实例并替换为新实例。
+
+- 因为 ID 随版本 1.0.1 发生变化，所以视觉视图也必须进行调整。您可以在 [此处](https://github.com/baerengraben/ioBroker.swiss-weather-api/tree/master/views) 获取更新的视图并将它们导入 ioBroker-Visu。
+
+**更新程序版本 0.3.2 至 0.9.x** SRG 已完全重建其 API。不再支持旧 API（<= 适配器版本 0.3.2）。从适配器版本 0.9.x 开始，使用 SRG 的新 API。这就是为什么必须创建一个新的 SRG APP（例如产品“免费增值”）（https://developer.srgssr.ch/apis/srf-weather）。另请参阅自述文件，“入门”一章（下文）。另请注意，新 API 还将创建全新的对象。
+好消息是新的 API 还提供了更多数据。 ;)**
 
 所以我对从 0.3.2 更新到 0.9.x 的建议是：
 
@@ -37,7 +46,7 @@ hash: vnDfTZn2qAakTnrpH7PNW+q/yfQg9T8TudfRJ/INW5Y=
 SRF Weather REST API 允许您从瑞士各地的 25.000 多个地点获取天气预报和报告。 “免费增值”订阅允许您每天获得 50 个请求。
 
 ##**图标**
-从 0.1.8 版开始，SRG-SSR 提供了自己的图标。因此，每个数据点都提供了一个指向相应天气情况（颜色、深色和浅色图标）的 URL。
+从 0.1.8 版开始，SRG-SSR 提供了自己的图标。因此，每个数据点都提供了一个指向相应天气情况的 URL（颜色、深色和浅色图标）。
 
 ##**请注意，此适配器仅支持瑞士境内的位置。**
 ＃＃＃ 入门
@@ -53,18 +62,41 @@ SRF Weather REST API 允许您从瑞士各地的 25.000 多个地点获取天气
    1. 以分钟为单位的轮询间隔（默认为 30 分钟 - 50 个请求/天）
 
 第一个查询是在适配器启动后 10 秒进行的。第一次启动后，会根据配置参数（Poll Interval in Minutes）定时执行查询。
-predict.current_hour 中的对象将在第一次启动后 30 秒创建，并通过复制 forecast.60 分钟中的相应值每小时更新一次。
+predict.current_hour 中的对象将在第一次启动后 30 秒创建，并通过复制 forecast.60minutes 中的相应值每小时更新一次。
 
 ### 可视化示例
 ###### 先决条件：
 * Adapter [Material Design Widgets](https://github.com/Scrounger/ioBroker.vis-materialdesign) >= 0.5.7
 * 适配器 [Vis](https://github.com/iobroker/iobroker.vis/blob/master/README.md)
-* [将视图导入 Vis](https://github.com/baerengraben/ioBroker.swiss-weather-api/tree/master/views)
+* [导入视图到 Vis](https://github.com/baerengraben/ioBroker.swiss-weather-api/tree/master/views)
 
 ＃＃＃＃＃＃ 例子
 ![药片](../../../en/adapterref/iobroker.swiss-weather-api/doc/Wettervorhersage_visu_anim.gif)
 
 ## Changelog
+
+### 1.0.2
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/51
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/53
+
+### 1.0.1
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/57
+This change makes it necessary to regenerate IDs. So, to install version 1.0.1, the currently running adapter instance must be completely removed and replaced with a new instance.
+
+### 1.0.0
+* (baerengraben) Bugfix https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/64  
+
+### 0.9.9
+* (baerengraben) Workaround for SRG Certificate Problem: https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/63  
+
+### 0.9.8
+* (jobe451)  Bugfix: JsonChart is missing 15h and 16h as x-labels
+
+### 0.9.7
+* (baerengraben)  Bugfix - RC2 for stable release.
+
+### 0.9.6
+* (baerengraben)  Bugfix - RC for stable release.
 
 ### 0.9.5
 * (baerengraben)  Some small improvements

@@ -46,7 +46,7 @@ Der Zustand cbIndex kann auf die Adresse # des Anrufbeantworters gesetzt werden.
 
 ### Anrufüberwachung
 Der Callmonitor erstellt Echtzeitstatus für jeden eingehenden und ausgehenden Anruf.
-Wenn das Telefonbuch aktiviert ist (Standard), werden Nummern in Namen aufgelöst. Es gibt auch einen Status, der ein klingelndes Telefon anzeigt.
+Wenn das Telefonbuch aktiviert ist (Standard), werden Nummern in Namen aufgelöst. Es gibt auch einen Status, der auf ein klingelndes Telefon hinweist.
 
 ### Telefonbuch
 - Das Telefonbuch, falls aktiviert, wird verwendet, um den Namen der Telefonnummer des Anrufers abzurufen.
@@ -63,7 +63,7 @@ Ausgabeformate:
 Anruflisten sind:
 
 - alle Anrufe
-- Anrufe in Abwesenheit
+- verpasste Anrufe
 - eingehende Anrufe
 - ausgehende Anrufe
 
@@ -86,7 +86,7 @@ command = {
 };
 ```
 
-Der Befehlsstatus sollte auf einen JSON der obigen Zeilen gesetzt werden. Also { ... } (ohne Befehl = und Zeilenumbrüche) Der Rückruf des Aufrufs setzt den Befehlsergebniszustand.
+Der Befehlsstatus sollte auf einen JSON der obigen Zeilen gesetzt werden. Also { ... } (ohne Befehl = und Zeilenumbrüche) Der Rückruf des Aufrufs setzt den Befehlsergebnis-Zustand.
 
 ### Anrufüberwachung aktivieren
 Um die Anrufüberwachung nutzen zu können, muss diese zunächst in der AVM Fritz!Box aktiviert werden.

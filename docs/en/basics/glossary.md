@@ -17,7 +17,7 @@ A module or driver for a device, service or to provide data. Thanks to the very 
 
 The admin adapter provides the web interface for configuring ioBroker. This includes installing adapters, creating instances, creating and checking objects, states, editing scripts and much more.
 
-* **List**
+* **Count**
 
     English term: enum (eration)
 
@@ -40,7 +40,7 @@ Homematic devices are available in radio and wired versions (wired bus).
 
 * **CSS**
 
-Cascading style sheets. The presentation of websites can be described independently of the content using CSS. As a supplement to the page structure defined in HTML, CSS defines how the page is displayed.
+Cascading style sheets. Using CSS, the presentation of websites can be described independently of the content. As a supplement to the page structure defined in HTML, CSS defines how the page is displayed.
 
 * **Cubietruck / Cubieboard 3**
 
@@ -64,7 +64,7 @@ In multihost mode there are several hosts, one of which is the master and the ot
 
 * **HTML**
 
-Hypertext Markup Language. A page description language (based on the WWW) that is used to display content (text, links, graphics, videos, etc.) in web browsers.
+Hypertext Markup Language. A page description language (basis of the WWW), which is used to display content (text, links, graphics, videos, etc.) in web browsers.
 
 * **Instance**
 
@@ -98,7 +98,7 @@ The multihost mode of ioBroker can be used to distribute the control tasks to se
 
 * **Node-Red**
 
-Graphic programming surface in which finished modules (nodes) can be linked to complex programs by simple chaining (flow)
+Graphic programming surface in which finished modules (nodes) can be linked to complex programs by simple chaining (flow).
 
 * **Objects and states**
 
@@ -108,7 +108,7 @@ Graphic programming surface in which finished modules (nodes) can be linked to c
 
 Objects describe a state in more detail and provide meta information, configuration and description of this. An object has a type, e.g. host, adapter, instance, enumeration, device, channel or data point ...
 
-The metadata also define the data type of the state, e.g. number, boolean, string and also how the state should be displayed in visualization interfaces.
+The metadata also define the data type of the state, e.g. number, boolean, string and also how the state should be displayed in the visualization interfaces.
 
 * **Odroid**
 

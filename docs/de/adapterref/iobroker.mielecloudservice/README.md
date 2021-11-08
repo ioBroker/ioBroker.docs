@@ -3,24 +3,23 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.MieleCloudService
-hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
+hash: ZVdUfq88fa+kNbx1+bcNP73Eln01GWDDrUDLrsJ1Qhk=
 ---
 ![Logo](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/mielecloudservice-stable.svg)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.mielecloudservice.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/Grizzelbee/ioBroker.mielecloudservice/badge.svg?targetFile=package.json)
-![NPM](https://nodei.co/npm/iobroker.mielecloudservice.png?downloads=true)
 ![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.mielecloudservice.svg)
 
-# IoBroker.MieleCloudService [![Build-Status](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice.svg?branch=master)](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice)
+# IoBroker.MieleCloudService [![Test und Release](https://github.com/Grizzelbee/ioBroker.mielecloudservice/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.mielecloudservice/actions/workflows/test-and-release.yml)
 ## Beschreibung
 Dieser Adapter dient zum Abrufen von Informationen zu all Ihren Miele@Home-Geräten von der offiziellen Miele Drittanbieter-API.
 Egal ob direkt über WLAN oder XGW3000 Gateway verbunden. Es implementiert die **Miele 3rd Party API V1.0.5**
 
 ##sentry.io
-Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch an den Autor zu melden. Dafür wird das [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) Plugin verwendet. Bitte lesen Sie die [Plugin-Homepage](https://github.com/ioBroker/plugin-sentry) für detaillierte Informationen darüber, was das Plugin tut, welche Informationen gesammelt werden und wie Sie es deaktivieren können, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
+Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch an den Autor zu melden. Dafür wird das [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) Plugin verwendet. Bitte beachten Sie die [Plugin-Homepage](https://github.com/ioBroker/plugin-sentry) für detaillierte Informationen darüber, was das Plugin macht, welche Informationen gesammelt werden und wie Sie es deaktivieren können, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
 
 ##Voraussetzungen
 * Miele@Home-Benutzer (Smartphone-App)
@@ -28,7 +27,7 @@ Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und dies
 * Miele Client_id (von https://www.miele.com/developer/)
 * Miele Client_secret (von https://www.miele.com/developer/ )
 
-## Installation
+##Installation
 Gehen Sie zur Installation wie folgt vor:
 
 1. Installieren Sie über den Admin mit dem
@@ -89,7 +88,7 @@ Hier ist eine Liste, wofür diese Rohwerte stehen:
  |19 | KÜHLSCHRANK|
  |20 | GEFRIERSCHRANK|
  |21 | KÜHL-/GEFRIERKOMBINATION|
- |23 | STAUBSAUGER, AUTOMATISCHER ROBOTERSTAUBSAUGER|
+ |23 | STAUBSAUGER, AUTOMATISCHER ROBOTER STAUBSAUGER|
  |24 | WASCHTROCKNER|
  |25 | GESCHIRRWÄRMER|
  |27 | KOCHFELDINDUKTION|
@@ -194,7 +193,8 @@ Copyright (c) 2019, 2021 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
 
-### V4.5.0 (2021-09-05) (Invincible)
+### V5.0.0 (2021-09-05) (Invincible)
+* (grizzelbee) Chg: BREAKING CHANGE: Removed useless grouping folders for device types - check your VIS and scripts
 * (grizzelbee) New: [164](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/164) fixed bug in SignalFailure and signalInfo when havin no value
 * (grizzelbee) New: [155](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/155) fixed >missing object< bug on arrays 
 * (grizzelbee) New: [154](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/154) Reintroduced TargetTemp to washer dryers
@@ -208,6 +208,8 @@ Copyright (c) 2019, 2021 grizzelbee <open.source@hingsen.de>
 * (grizzelbee) New: Added support for Miele API V1.0.5
 * (grizzelbee) New: Added correct tier of adapter to io-package
 * (grizzelbee) New: Added more program phases for tumble dryers to documentation
+* (grizzelbee) Fix: Switched type of Power-Switch from string to boolean for being compliant with ioBroker expectation (e.g. for Text2Command adapter) - maybe more to follow. Please delete the data point let it create newly.
+* (germanBluefox) Fix: Fixed icon link
 
 ### V4.2.0 (2021-05-17) (A new Dimension)
 * (grizzelbee) New: Adding Pause action to dish-washers

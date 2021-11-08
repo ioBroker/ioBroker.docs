@@ -313,8 +313,9 @@ You can set option *Force Web-Sockets* to force using only web-sockets transport
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 3.1.5 (2021-10-22)
 * (foxriver76) make error logging on failed authentication more specific
+* (foxriver76) "request" was repalced by "axios" 
 
 ### 3.1.4 (2021-01-13)
 * (Apollon77) Define instanceObject "connected" to prevent warning with js-controller 3.2
@@ -539,4 +540,4 @@ You can set option *Force Web-Sockets* to force using only web-sockets transport
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>

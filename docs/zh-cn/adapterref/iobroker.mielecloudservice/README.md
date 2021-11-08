@@ -3,24 +3,23 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.MieleCloudService
-hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
+hash: ZVdUfq88fa+kNbx1+bcNP73Eln01GWDDrUDLrsJ1Qhk=
 ---
 ![标识](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
 ![安装数量](http://iobroker.live/badges/mielecloudservice-stable.svg)
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.mielecloudservice.svg)
 ![已知漏洞](https://snyk.io/test/github/Grizzelbee/ioBroker.mielecloudservice/badge.svg?targetFile=package.json)
-![新产品管理](https://nodei.co/npm/iobroker.mielecloudservice.png?downloads=true)
 ![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![下载](https://img.shields.io/npm/dm/iobroker.mielecloudservice.svg)
 
-# IoBroker.MieleCloudService [![构建状态](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice.svg?branch=master)](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice)
+# IoBroker.MieleCloudService [![测试和发布](https://github.com/Grizzelbee/ioBroker.mielecloudservice/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.mielecloudservice/actions/workflows/test-and-release.yml)
 ＃＃ 描述
 此适配器用于从 Miele 官方 3rd-party API 检索有关所有 Miele@Home 设备的信息。
 无论它们是通过 Wi-Fi 还是 XGW3000 网关直接连接。它实现了 **Miele 3rd Party API V1.0.5**
 
 ## Sentry.io
-该适配器使用 sentry.io 收集有关崩溃的详细信息并自动将其报告给作者。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) 插件用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 有关插件功能、收集哪些信息以及如何禁用插件的详细信息，如果您不喜欢用您的崩溃信息支持作者。
+该适配器使用 sentry.io 收集有关崩溃的详细信息并将其自动报告给作者。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) 插件用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 以获取有关插件功能、收集哪些信息以及如何禁用插件的详细信息，如果您不喜欢使用有关崩溃的信息来支持作者。
 
 ## 先决条件
 * Miele@Home 用户（智能手机应用程序）
@@ -48,12 +47,12 @@ hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
 
 ### 程序（API V1.0.5 中引入）
 在 API V1.0.5 中，Miele 引入了一个名为“/programs”的新端点。
-对该端点的支持从适配器版本 4.5.0 开始。将创建一个新数据点 [device.Actions.Program]，列出 Miele 返回的所有支持的程序。
+对该端点的支持从适配器版本 4.5.0 开始。将创建一个新的数据点 [device.Actions.Program]，列出 Miele 返回的所有支持的程序。
 **选择其中一个值将立即执行程序！** 目前仅支持简单程序。例如。烤箱需要一些额外的信息——这将在未来的版本中实现。
 
 在发布适配器时，Miele 记录了一些设备类别以支持此端点，并且只有（至少对我而言）其中的一个子集真正有效。对于我的咖啡系统、洗衣机和滚筒式烘干机，它仅适用于咖啡系统。
 但 Miele 正在为此努力，并定期提供支持。
-请参阅通用 Miele API 文档（如下）了解更多信息。
+有关更多信息，请参阅 Miele API 通用文档（如下）。
 
 ＃＃ 已知的问题
 * 没有任何
@@ -62,7 +61,7 @@ hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
 请主要参考 Miele 发布的主要 API 文档
 
 * [一般文档](https://www.miele.com/developer/swagger-ui/index.html)
-* [在设备上执行操作的先决条件](https://www.miele.com/developer/swagger-ui/put_additional_info.html)
+* [在设备上执行操作的前提条件](https://www.miele.com/developer/swagger-ui/put_additional_info.html)
 
 有两种可用的数据点。作为人类可读的文本和数字。
 这些属于文本字段的数字数据字段具有相同的名称，但附加了“_raw”。
@@ -70,7 +69,7 @@ hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
 未列出的字段的含义因设备而异，且 Miele 未记录。
 如果您需要在脚本中引用这些字段，请始终使用 _raw 值。
 文本值将来可能会更改，并且还取决于语言。
-以下是这些原始值所代表的列表：
+以下是这些原始值代表的列表：
 
 ### 设备类型
  |原始值 |状态|
@@ -115,7 +114,7 @@ hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
  |2|待机|
  |3|已编程|
  |4| PROGRAMMED_WAITING_TO_START|
- |5|正在运行|
+ |5|跑步|
  |6|暂停|
  |7| END_PROGRAMMED|
  |8|失败|
@@ -137,7 +136,7 @@ hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
 |0 |正常运行模式 |
 |1 |自己的程序|
 |2 |自动程序|
-|3 |清洁/保养程序 |
+|3 |清洁/护理程序 |
 
 ###dryingStep/Trockenstufe
  |原始值 |状态|
@@ -151,7 +150,7 @@ hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
  |6 |机铁|
 
 ### 程序设计
-|原始值 |状态 |可用于|
+|原始值 |状态 |可用于 |
 |-----------|-------------------------|-----------------|
 | 1 | “Baumwolle”/“棉花”|洗衣机|
 | 3 | "Pflegeleicht" |洗衣机|
@@ -159,7 +158,7 @@ hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
 | 8 | “沃勒” |洗衣机|
 | 9 | “赛德” |洗衣机|
 | 21 | “泵/施洛伊德” |洗衣机|
-| 23 | “奥伯海姆登” |洗衣机|
+| 23 | “奥伯海登” |洗衣机|
 | 27 | "Imprägnieren" |洗衣机|
 | 29 | "Sportwäsche" |洗衣机|
 | 31 | “自动加号”|洗衣机|
@@ -171,13 +170,13 @@ hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
 | 123 | "Dunkles/牛仔裤" |洗衣机|
 
 ### 程序阶段
-|原始值 |状态|可用于|
+|原始值 |状态|可用于 |
 |----------|-------|---------------|
 |258 | 《恩威臣》|洗衣机|
 |260 | "Waschen" / "洗涤" |洗衣机|
 |261 | “Spülen”/“冲洗” |洗衣机|
 |265 | “泵” |洗衣机|
-|266 | “施洛伊德”/“纺纱”|洗衣机|
+|266 | “施洛伊德”/“纺纱” |洗衣机|
 |267 | "Knitterschutz" / "" |洗衣机|
 |268 | "Ende" / "End" |洗衣机|
 |256 | "Vorbügeln" |洗衣机|
@@ -189,12 +188,13 @@ hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
 |531 | "Komfortkühlen" |滚筒式干衣机 |
 |532 | "Flusen ausspülen" |洗衣机烘干机|
 
-##版权
+## 版权
 版权所有 (c) 2019, 2021 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
 
-### V4.5.0 (2021-09-05) (Invincible)
+### V5.0.0 (2021-09-05) (Invincible)
+* (grizzelbee) Chg: BREAKING CHANGE: Removed useless grouping folders for device types - check your VIS and scripts
 * (grizzelbee) New: [164](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/164) fixed bug in SignalFailure and signalInfo when havin no value
 * (grizzelbee) New: [155](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/155) fixed >missing object< bug on arrays 
 * (grizzelbee) New: [154](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/154) Reintroduced TargetTemp to washer dryers
@@ -208,6 +208,8 @@ hash: pxyqft6dlCHb2foiKkAC5Zx9+wuSpLGUHa0DXCUB9go=
 * (grizzelbee) New: Added support for Miele API V1.0.5
 * (grizzelbee) New: Added correct tier of adapter to io-package
 * (grizzelbee) New: Added more program phases for tumble dryers to documentation
+* (grizzelbee) Fix: Switched type of Power-Switch from string to boolean for being compliant with ioBroker expectation (e.g. for Text2Command adapter) - maybe more to follow. Please delete the data point let it create newly.
+* (germanBluefox) Fix: Fixed icon link
 
 ### V4.2.0 (2021-05-17) (A new Dimension)
 * (grizzelbee) New: Adding Pause action to dish-washers

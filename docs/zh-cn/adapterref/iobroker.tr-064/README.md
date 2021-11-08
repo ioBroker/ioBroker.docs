@@ -6,7 +6,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.tr-064
 hash: D59HzSVYkdStJaSDx6e91FA6u2/6TTOD7QeUisJd0X0=
 ---
-![商标](../../../en/adapterref/iobroker.tr-064/media/tr-064.png)
+![标识](../../../en/adapterref/iobroker.tr-064/media/tr-064.png)
 
 # IoBroker.tr-064
 ### 信息
@@ -26,7 +26,7 @@ hash: D59HzSVYkdStJaSDx6e91FA6u2/6TTOD7QeUisJd0X0=
 
 例如：**610[,超时]
 
-- 使用外线号码时，振铃状态会将您连接到外线号码。
+- 使用外部号码时，振铃状态会将您连接到外部号码。
 
 当被叫电话被拿起时，FritzBox 将呼叫外部号码，您的默认电话将响铃。
 默认电话可以在 FritsBox 下配置：Telefonie/Anrufe/[Tab]Wahlhilfe/Wählhilfe verwenden

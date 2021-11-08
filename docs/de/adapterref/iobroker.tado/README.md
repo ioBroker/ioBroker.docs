@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: OLUxMuMNdnihxXi8rb+UiZ7OaKyLtsjQfjnmAjL1CsI=
+hash: f6i4qy7fGtKHrq76VWWMIi/QNx+YA6XzHbZsWpOrR1Y=
 ---
 ![Anzahl der Installationen](http://iobroker.live/badges/tado-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.tado.svg)
@@ -35,9 +35,9 @@ Upgrade von 0.2.x auf v0.3.x beinhaltet ein technisches Re-Factoring mit Breakin
 | tado.[x].[yyyyy].Rooms.[z].overlay.clearZoneOverlay | tado.[x].[yyyyy].Rooms.[z].overlayClearZone |
 | tado.[x].[yyyyy].Rooms.[z].Ist_Temperatur | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.insideTemperature.celsius |
 | tado.[x].[yyyyy].Rooms.[z].Actual_Humidity | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.humidity.percentage |
-| tado.[x].[yyyyy].Zimmer.[z].heatingPower | tado.[x].[yyyyy].Rooms.[z]..activityDataPoints.heatingPower.percentage |
+| tado.[x].[yyyyy].Rooms.[z].heatingPower | tado.[x].[yyyyy].Rooms.[z]..activityDataPoints.heatingPower.percentage |
 | tado.[x].[yyyyy].Weather.solarIntensity | tado.[x].[yyyyy].Wetter.solarIntensity.Prozent |
-| tado.[x].[yyyyy].Wetter.outsideTemperature | tado.[x].[yyyyy].Wetter.outsideTemperature.celsius |
+| tado.[x].[yyyyy].Weather.outsideTemperature | tado.[x].[yyyyy].Weather.outsideTemperature.celsius |
 
 Im Allgemeinen sind Werte jetzt NULL, wenn die API NULL oder einfach nichts sendet. In v0.2.x wurde manchmal der alte Wert beibehalten, manchmal durch 0 ersetzt, manchmal wurde NULL verwendet.
 ** Gerne weitere wichtige Änderungen basierend auf Ihrem Feedback!**
@@ -50,8 +50,9 @@ Im Allgemeinen sind Werte jetzt NULL, wenn die API NULL oder einfach nichts send
 | tado.[x].[yyyyyy].Rooms.[z].overlayClearZone | In den Automatikmodus wechseln |
 | tado.[x].[yyyyyy].Rooms.[z].overlay.termination.typeSkillBasedApp | Fahrplanmodus einstellen |
 | tado.[x].[yyyyyy].Rooms.[z].overlay.termination.durationInSeconds | Legen Sie fest, wie lange der Fahrplanmodus gelten soll |
-| tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].offset.offsetCelsius | Temperatur-Offset |
+| tado.[x].[yyyyyy].Räume.[z].Geräte.[RUaaaaaaaaaa].offset.offsetCelsius | Temperatur-Offset |
 | tado.[x].[yyyyyy].Rooms.[z].timeTables.tt_id | Aktiven Fahrplan auswählen |
+| tado.[x].[yyyyyy].Heimatstaat.Präsenz | HAUPT- oder AWE-Modus einstellen |
 | Lüftergeschwindigkeit | Lüftergeschwindigkeit (nur AC-Geräte) |
 | Modus | AC-Modus (nur AC-Geräte) |
 
@@ -62,6 +63,28 @@ Im Allgemeinen sind Werte jetzt NULL, wenn die API NULL oder einfach nichts send
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.3.11-alpha.0 (2021-11-05)
+* (HGlab01) support attributes 'showSwitchToAutoGeofencingButton', 'showHomePresenceSwitchButton' and 'additionalConsents'
+* (HGlab01) Enhance error messages if API-call fails
+* (HGlab01) next time block fails (one reason for 422 error) if time blocks are not defined - fixed now
+* (HGlab01) Set HOME/AWAY is now suported by using state tado.x.yyyyyy.Home.state.presence
+
+### 0.3.10 (2021-10-29)
+* (HGlab01) API calls (except read) are queued and send one after the other
+* (HGlab01) unhandled errors are now handled
+* (HGlab01) Internet connection is checked before requests are placed
+* (HGlab01) support attribute 'fanLevel' (Sentry: IOBROKER-TADO-35)
+* (HGlab01) support structure element "folder", so now it is folder-->device-->channel
+* (HGlab01) add home-states presence and presenceLock
+* (HGlab01) Bump iobroker-jsonexplorer to 0.1.5
+
+### 0.3.9 (2021-10-16)
+* (DutchmanNL) force correct NodeJS dependency with error at install
+* (HGlab01) implement queuing for API requests (avoids some status code 422 issues)
+
+### 0.3.8 (2021-10-06)
+* (HGlab01) support attributes 'orientfanLevelation', 'verticalSwing', 'horizontalSwing' (#352)
+* (HGlab01) catch 422 issue in poolApiCall()
 
 ### 0.3.7 (2021-08-24)
 * (HGlab01) ActiveTimeTable can be set (#337)
@@ -119,7 +142,7 @@ Im Allgemeinen sind Werte jetzt NULL, wenn die API NULL oder einfach nichts send
 * (HGlab01) add childLockEnabled
 
 ### 0.2.4 (2020-11-19)
-* (HGlab01) Improve overlay modes + solve merge issue of version 0.2.3 
+* (HGlab01) Improve overlay modes + solve merge issue of version 0.2.3
 
 ### 0.2.3 (2020-11-18)
 * (HGlab01) add overlay methods 'timer'

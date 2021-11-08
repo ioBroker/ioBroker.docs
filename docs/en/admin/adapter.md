@@ -10,7 +10,7 @@ hash: WMGHnDlc1DVIkuuUYX/rzRRpv7TElDq4iQ86l+lUBCo=
 The available and installed adapters are displayed and managed here.
 
 ## The title line
-in the title line there are icons for the most important processes. There is context help for each icon. Simply stay on the icon with the mouse for a while.
+in the title line there are icons for the most important processes. There is context help for each icon. To do this, simply hold the mouse on the icon for a while.
 
 ![The Admin tab](../../de/admin/media/ADMIN_Adapter_Kachel_numbers.png)
 

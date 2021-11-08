@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sureflap/README.md
 title: ioBroker.sureflap
-hash: G0RG7xwV7MOfDcMOxn127/rG80KO9WS6avYxFk5ippw=
+hash: KwU43CHiHy3A05RRzUVb2PSjKfzS52o9uZau067+Ah8=
 ---
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.sureflap.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.sureflap.svg)
@@ -44,7 +44,7 @@ hash: G0RG7xwV7MOfDcMOxn127/rG80KO9WS6avYxFk5ippw=
 ＃＃＃ 结构
 适配器创建以下层次结构：
 
-适配器<br>├ 户名<br>│ ├ hub_name<br> │ │ ├ 在线<br>│ │ ├ 控制<br>│ │ │ └ led_mode<br> │ │ ├ feeder_name<br> │ │ │ ├ 电池<br>│ │ │ ├ 电池百分比<br>│ │ │ ├ 在线<br>│ │ │ ├ 控制<br>│ │ │ │ └ close_delay<br> │ │ │ └assigned_pets<br> │ │ │ └ pet_name<br> │ │ └ 襟翼名称<br>│ │ ├ 电池<br>│ │ ├ 电池百分比<br>│ │ ├ curfew_active<br> │ │ ├ 在线<br>│ │ ├ 控制<br>│ │ │ ├ 宵禁<br>│ │ │ └ 锁模<br>│ │ ├ 宵禁<br>│ │ │ └ 0..i<br> │ │ │ ├ 启用<br>│ │ │ ├ 锁时间<br>│ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ 启用<br>│ │ │ ├ 锁时间<br>│ │ │ └ 解锁时间<br>│ │ └assigned_pets<br> │ │ └ 宠物名称<br>│ │ └ 控制<br>│ │ └ 型<br>│ └ 宠物<br>│ └ 宠物名称<br>│ ├ 姓名<br>│ ├ 里面<br>│ └ 自从<br>└ 信息<br>├ all_devices_online<br> └ 连接<br>
+适配器<br>├ 户名<br>│ ├ hub_name<br> │ │ ├ 在线<br>│ │ ├ 控制<br>│ │ │ └ led_mode<br> │ │ ├ feeder_name<br> │ │ │ ├ 电池<br>│ │ │ ├ 电池百分比<br>│ │ │ ├ 在线<br>│ │ │ ├ 控制<br>│ │ │ │ └ close_delay<br> │ │ │ └assigned_pets<br> │ │ │ └ pet_name<br> │ │ └ 襟翼名称<br>│ │ ├ 电池<br>│ │ ├ 电池百分比<br>│ │ ├ curfew_active<br> │ │ ├ 在线<br>│ │ ├ 控制<br>│ │ │ ├ 宵禁<br>│ │ │ └ 锁模<br>│ │ ├ 宵禁<br>│ │ │ └ 0..i<br> │ │ │ ├ 启用<br>│ │ │ ├ 锁时间<br>│ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ 启用<br>│ │ │ ├ 锁时间<br>│ │ │ └ 解锁时间<br>│ │ └assigned_pets<br> │ │ └ 宠物名称<br>│ │ └ 控制<br>│ │ └ 型<br>│ ├ 历史<br>│ │ └ 0..24<br> │ │ └ ...<br> │ └ 宠物<br>│ └ 宠物名称<br>│ ├ 姓名<br>│ ├ 里面<br>│ └ 自从<br>└ 信息<br>├ all_devices_online<br> ├ 连接<br>└ last_update<br>
 
 ## 注释
 SureFlap® 和 Sure Petcare® 是 [SureFlap 有限公司](https://www.surepetcare.com/) 的注册商标
@@ -52,6 +52,10 @@ SureFlap® 和 Sure Petcare® 是 [SureFlap 有限公司](https://www.surepetcar
 猫瓣、集线器和智能手机应用程序的图片可从 [Sure Petcare®](https://www.surepetcare.com/en-us/press) 免费使用。
 
 ## Changelog
+
+### 1.0.7 (2021-11-02)
+* (Sickboy78) added history
+* (Sickboy78) added last update time
 
 ### 1.0.6 (2021-09-12)
 * (Sickboy78) added feeder support (closing delay of lid)

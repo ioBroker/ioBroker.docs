@@ -120,13 +120,20 @@ Versionsnummer zurückgeben.
     Falls ``node -v`` eine Fehlermeldung wie “nicht gefunden” erzeugt, dann bitte ein 
 
     ``sudo ln -s /usr/local/bin/nodejs /usr/bin/node`` an der Konsole ausführen.
+    
+    
+    In neueren Installationen kann es sein, dass der Befehl ``nodejs -v`` eine Fehlermeldung wie “nicht gefunden” erzeugt. 
+    Dies ist prinzipiell unbedenklich, da der Befehl ``nodejs`` schon länger nicht mehr verwendet wird, kann aber über einen Symlink mit dem 
+    Befehl ``sudo ln -s /usr/bin/node /usr/bin/nodejs`` "repariert" werden.
+    
+---    
 
-    Sind die Versionen unterschiedlich, bitte nochmals den Abschnitt 
+Sind die Versionen unterschiedlich, bitte nochmals den Abschnitt 
 [Installation Node.js](#installation-nodejs) abarbeiten
 
-    Als letzte Überprüfung bitte noch die Version von npm mittels ``npm -v`` überprüfen.
+Als letzte Überprüfung bitte noch die Version von npm mittels ``npm -v`` überprüfen.
 
-    Ergibt dies eine Version < 6, bitte noch mit ``sudo -H npm install -g npm@6`` ein 
+Ergibt dies eine Version < 6, bitte noch mit ``sudo -H npm install -g npm@6`` ein 
 npm-Update durchführen
 
 ---

@@ -6,5 +6,5 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/f
 title: Functions
 hash: tFfvbk1YwrqoU7OABhY7Osf03qlXe0RP1Bx7kJiDg9I=
 ---
-# Functions
+# Features
 ?> ***This is a placeholder*** .<br><br> Help with ioBroker and expand this article. Please note [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.

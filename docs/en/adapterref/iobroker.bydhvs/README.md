@@ -53,8 +53,16 @@ Zu den Batterie-Größen: Der Adapter funktioniert auch für Zelltemperaturen un
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.3.0 (2021-11-06)
+* updated even more dependencies
+* official release with new state SOH
+
+### 1.2.4-0 (2021-11-02)
+* Added state: SOH
+* updated dependencies as suggested from bot
+
 ### 1.2.3 (2021-06-18)
-*changed ratio of logo
+* changed ratio of logo
 
 ### 1.2.2 (2021-06-14)
 * bump to new patch-level (to get rid of the "-0")
@@ -62,23 +70,6 @@ Zu den Batterie-Größen: Der Adapter funktioniert auch für Zelltemperaturen un
 ### 1.2.2-0 (2021-05-30)
 * Create States for Diagnose-Data only if necessary
 * changes according review of the adapter
-
-### 1.2.1 (2021-05-20)
-* Power is now fixed with 2 number after the decimal point
-* bug removed, cell voltage for cell 64 works now
-
-### 1.2.0 (2021-05-15)
-* preparation for being listed in official repository
-* English part in readme.md
-* removed State.ErrorNum totally in code, datapoint has to be deleted manually - I did not found a way to do it with JS
-* hopefully works with HVM and HVS and possibly with HVL (only American market)
-* redesign and more robust detection: number of cells for voltage and temperature
-* New: inverter type
-* New: type of battery 
-* compatibility with new js-controller 3.3
-* compatibility with nodejs 15
-* compatibility with admin UI 5
-
 
 ###
 

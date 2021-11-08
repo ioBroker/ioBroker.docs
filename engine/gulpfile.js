@@ -9,7 +9,7 @@
 const gulp          = require('gulp');
 const path          = require('path');
 const fs            = require('fs');
-const request       = require('request');
+const axios         = require('axios');
 const documentation = require('./build-lib/documentaion');
 const faq           = require('./build-lib/faq');
 const adapters      = require('./build-lib/adapters');
@@ -401,18 +401,21 @@ gulp.task('2.downloadAdapters', () =>
             console.log(JSON.stringify(content))));
 
 gulp.task('3.downloadVisCordova', done => {
-    request('https://raw.githubusercontent.com/ioBroker/ioBroker.vis.cordova/master/README.md', (err, state, body) => {
-        fs.writeFileSync(path.join(consts.SRC_DOC_DIR, 'en/viz/app.md'),
-            body.replace('[по русски](README.ru.md)', '').replace('[auf Deutsch](README.de.md)', '').replace('[auf Deutsch](README.de.md)', '').replace('# ioBroker.vis.cordova', '# vis App')
-        );
-        request('https://raw.githubusercontent.com/ioBroker/ioBroker.vis.cordova/master/README.ru.md', (err, state, body) => {
-            fs.writeFileSync(path.join(consts.SRC_DOC_DIR, 'ru/viz/app.md'), body.replace('# ioBroker.vis.cordova', '# vis App'));
-            request('https://raw.githubusercontent.com/ioBroker/ioBroker.vis.cordova/master/README.de.md', (err, state, body) => {
-                fs.writeFileSync(path.join(consts.SRC_DOC_DIR, 'de/viz/app.md'), body.replace('# ioBroker.vis.cordova', '# vis App'));
-                done && done();
-            });
+    axios('https://raw.githubusercontent.com/ioBroker/ioBroker.vis.cordova/master/README.md')
+        .then(result => {
+            fs.writeFileSync(path.join(consts.SRC_DOC_DIR, 'en/viz/app.md'),
+                result.data.replace('[по русски](README.ru.md)', '').replace('[auf Deutsch](README.de.md)', '').replace('[auf Deutsch](README.de.md)', '').replace('# ioBroker.vis.cordova', '# vis App')
+            );
+            return axios('https://raw.githubusercontent.com/ioBroker/ioBroker.vis.cordova/master/README.ru.md')
+                .then(result => {
+                    fs.writeFileSync(path.join(consts.SRC_DOC_DIR, 'ru/viz/app.md'), result.data.replace('# ioBroker.vis.cordova', '# vis App'));
+                    return axios('https://raw.githubusercontent.com/ioBroker/ioBroker.vis.cordova/master/README.de.md')
+                        .then(result => {
+                            fs.writeFileSync(path.join(consts.SRC_DOC_DIR, 'de/viz/app.md'), result.data.replace('# ioBroker.vis.cordova', '# vis App'));
+                            done && done();
+                        });
+                });
         });
-    });
 });
 
 // translate all documents: adapters and docu

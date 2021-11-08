@@ -50,6 +50,9 @@ Better if every device belongs to both categories. Because every device has the 
 -->
 
 ## Changelog
+### 1.0.6 (2021-10-29)
+* (bluefox) Added support of iobroker.material app
+
 ### 1.0.4 (2021-07-30)
 * (bluefox) Corrected the size of icons
 
@@ -86,6 +89,7 @@ Better if every device belongs to both categories. Because every device has the 
 
 ### 0.10.1 (2018.09.02)
 * (bluefox) GUI corrections
+
 ### 0.10.0 (2018.08.30)
 * (bluefox) RGB was corrected
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sureflap/README.md
 title: ioBroker.sureflap
-hash: G0RG7xwV7MOfDcMOxn127/rG80KO9WS6avYxFk5ippw=
+hash: KwU43CHiHy3A05RRzUVb2PSjKfzS52o9uZau067+Ah8=
 ---
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.sureflap.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sureflap.svg)
@@ -30,7 +30,7 @@ hash: G0RG7xwV7MOfDcMOxn127/rG80KO9WS6avYxFk5ippw=
 Он также показывает местонахождение ваших питомцев.
 
 ### Изменяемые значения
-Следующие состояния могут быть изменены, и они вступят в силу на вашем устройстве, соответственно, будут отражены в вашем приложении Sure Petcare®.
+Следующие состояния могут быть изменены, и они вступят в силу на вашем устройстве, соответственно, они будут отражены в вашем приложении Sure Petcare®.
 
 | состояние | описание | допустимые значения |
 |-------|-------------|----------------|
@@ -44,7 +44,7 @@ hash: G0RG7xwV7MOfDcMOxn127/rG80KO9WS6avYxFk5ippw=
 ### Состав
 Адаптер создает следующую иерархическую структуру:
 
-адаптер<br> ├ имя_хозяйства<br> │ ├ имя_хаба<br> │ │ ├ онлайн<br> │ │ ├ контроль<br> │ │ │ └ led_mode<br> │ │ ├ имя_фидера<br> │ │ │ ├ аккумулятор<br> │ │ │ ├ battery_percentage<br> │ │ │ ├ онлайн<br> │ │ │ ├ контроль<br> │ │ │ │ └ close_delay<br> │ │ │ └ assign_pets<br> │ │ │ └ pet_name<br> │ │ └ flap_name<br> │ │ ├ аккумулятор<br> │ │ ├ battery_percentage<br> │ │ ├ curfew_active<br> │ │ ├ онлайн<br> │ │ ├ контроль<br> │ │ │ ├ комендантский час<br> │ │ │ └ режим блокировки<br> │ │ ├ комендантский час<br> │ │ │ └ 0..i<br> │ │ │ ├ включен<br> │ │ │ ├ lock_time<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ включен<br> │ │ │ ├ lock_time<br> │ │ │ └ unlock_time<br> │ │ └ assign_pets<br> │ │ └ pet_name<br> │ │ └ контроль<br> │ │ └ тип<br> │ └ домашние животные<br> │ └ pet_name<br> │ ├ имя<br> │ ├ внутри<br> │ └ так как<br> └ информация<br> ├ all_devices_online<br> └ соединение<br>
+адаптер<br> ├ имя_хозяйства<br> │ ├ имя_хаба<br> │ │ ├ онлайн<br> │ │ ├ контроль<br> │ │ │ └ led_mode<br> │ │ ├ имя_фидера<br> │ │ │ ├ аккумулятор<br> │ │ │ ├ battery_percentage<br> │ │ │ ├ онлайн<br> │ │ │ ├ контроль<br> │ │ │ │ └ close_delay<br> │ │ │ └ assign_pets<br> │ │ │ └ pet_name<br> │ │ └ flap_name<br> │ │ ├ аккумулятор<br> │ │ ├ battery_percentage<br> │ │ ├ curfew_active<br> │ │ ├ онлайн<br> │ │ ├ контроль<br> │ │ │ ├ комендантский час<br> │ │ │ └ режим блокировки<br> │ │ ├ комендантский час<br> │ │ │ └ 0..i<br> │ │ │ ├ включен<br> │ │ │ ├ lock_time<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ включен<br> │ │ │ ├ lock_time<br> │ │ │ └ unlock_time<br> │ │ └ assign_pets<br> │ │ └ pet_name<br> │ │ └ контроль<br> │ │ └ тип<br> │ ├ история<br> │ │ └ 0..24<br> │ │ └ ...<br> │ └ домашние животные<br> │ └ pet_name<br> │ ├ имя<br> │ ├ внутри<br> │ └ так как<br> └ информация<br> ├ all_devices_online<br> ├ соединение<br> └ last_update<br>
 
 ## Примечания
 SureFlap® и Sure Petcare® являются зарегистрированными товарными знаками [SureFlap Ltd.](https://www.surepetcare.com/).
@@ -52,6 +52,10 @@ SureFlap® и Sure Petcare® являются зарегистрированны
 Изображение откидной створки для кошек, концентратора и приложения для смартфона предоставляется бесплатно в [Конечно Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
+
+### 1.0.7 (2021-11-02)
+* (Sickboy78) added history
+* (Sickboy78) added last update time
 
 ### 1.0.6 (2021-09-12)
 * (Sickboy78) added feeder support (closing delay of lid)

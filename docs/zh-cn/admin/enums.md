@@ -16,7 +16,7 @@ hash: YnndBRm2DXksgY6BJgZQ8FZZrKWnc5B4a4TWESq/mWk=
 ![列表视图中的列表](../../de/admin/media/ADMIN_Aufzaehlungen_liste_numbers.png)
 
 ##标题行
-在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需在图标上按住鼠标一会儿。
+在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需在图标上按住鼠标一段时间即可。
 
 ### 1 - 切换视图
 此按钮可用于在平铺视图和列表视图之间切换（切换功能）
@@ -36,7 +36,7 @@ hash: YnndBRm2DXksgY6BJgZQ8FZZrKWnc5B4a4TWESq/mWk=
 
 在现有列表的编辑模式（见下文）中，可以在不更改 ID 的情况下更改名称。
 
-**预习**
+**预览**
 
 枚举的完整 ID 显示在此处。
 

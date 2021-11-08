@@ -18,6 +18,9 @@ http://anthonyterrien.com/knob/ or https://github.com/aterrien/jQuery-Knob
 -->
 
 ## Changelog
+### 1.1.9 (2021-10-20)
+* (bluefox) Added the valve values from 0 to 1 
+
 ### 1.1.7 (2020-10-31)
 * (bluefox) Corrected the after comma digits for the valve
 
@@ -135,5 +138,5 @@ http://anthonyterrien.com/knob/ or https://github.com/aterrien/jQuery-Knob
 - (bluefox) initial checkin
 
 ## License
- Copyright (c) 2013-2018 bluefox https://github.com/GermanBluefox
+ Copyright (c) 2013-2021 bluefox <dogafox@gmail.com>
  MIT

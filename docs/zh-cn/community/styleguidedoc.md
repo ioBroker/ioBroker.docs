@@ -23,7 +23,7 @@ hash: mfCPW6sFRTOA8DZNqHydfib2TK+qdfZMNwiFfig9vtw=
 
 * 对于德语文本，需要遵守新的德语拼写
 
-  喜欢。
+  首选。
 
 * 在参考文档中，人称代词的使用（例如
 
@@ -48,7 +48,7 @@ hash: mfCPW6sFRTOA8DZNqHydfib2TK+qdfZMNwiFfig9vtw=
 
     包含。
 
-* 文档总是以 H1 级的标题开头。
+* 文档总是以 H1 层的标题开头。
 * 链接不是内嵌的（例如使用`[a link] (http://example.com)`），
 
 但在内嵌 `[a link][]` 和 `[a link]: https://a.link/to/know` 的帮助下放置在文档的末尾。
@@ -77,7 +77,7 @@ hash: mfCPW6sFRTOA8DZNqHydfib2TK+qdfZMNwiFfig9vtw=
 
       * 源文本可以但不必是完整的。源代码块
 
-举例说明刚才描述的观点。因此不需要提供完全可执行的程序。但是，如果要提供完全可执行的程序，则可以将其作为文件夹 `media/{code_beispieldatei}` 中的媒体文件并在文档中提供相应链接。
+用例子来阐明刚才描述的观点。所以不需要提供完全可执行的程序。但是，如果要提供完全可执行的程序，则可以将其作为文件夹 `media/{code_beispieldatei}` 中的媒体文件并在文档中提供相应链接。
 
 * 如果使用下划线、引号、星号或反斜杠
 

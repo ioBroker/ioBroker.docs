@@ -10,7 +10,7 @@ hash: gH4zuuZ+a67CUc09gI901hft2T4V48aHFUypPcHeiak=
 ioBroker is able to have the tasks done by several servers. This allows the processing load to be distributed across multiple hosts.
 However, you can also use system-specific extensions of a single-board computer (GPIO from a RaspberryPi, although the "main computer" is a more powerful Intel NUC).
 
-After creating a multihost system, all configurations are carried out centrally via the admin of the master. The admin of the slave (s) can no longer be reached via their web interface (s).
+After creating a multihost system, all configurations are carried out centrally via the master's admin. The admin of the slave (s) can no longer be reached via their web interface (s).
 
 It therefore makes sense to use a host with a minimal installation for a slave, i.e. only the js-controller and the admin.
 
@@ -130,7 +130,7 @@ sudo service redis-server restart
 ```
 
 ## Distribute tasks
-There are two ways to distribute the tasks among the hosts.
+There are two ways of distributing the tasks among the hosts.
 
 * If it is a new installation, select the host on which the instance of the adapter is to be installed in the Adapter tab from the pull-down menu above the adapter list.
 
@@ -150,4 +150,4 @@ Then please edit the file in which this occurs with the nano Editor. Right at th
 
 ```> IP Address of the host is 127.0.0.1. It accepts no connections. Please change.```
 
-if you did not do ``` setup custom ``` on the master system
+if you haven't done ``` setup custom ``` on the master system

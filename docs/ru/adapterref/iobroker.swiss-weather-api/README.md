@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.swiss-weather-api/README.md
 title: ioBroker.swiss-weather-api
-hash: vnDfTZn2qAakTnrpH7PNW+q/yfQg9T8TudfRJ/INW5Y=
+hash: MN9ch329u8qQbmvZYV1HlOsYj1Z3mzxqcxvybkf0kYc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
 
@@ -17,19 +17,28 @@ hash: vnDfTZn2qAakTnrpH7PNW+q/yfQg9T8TudfRJ/INW5Y=
 ![Трэвис-Си](http://img.shields.io/travis/baerengraben/ioBroker.swiss-weather-api/master.svg)
 
 # IoBroker.swiss-weather-api
-#Внимание!!!
-** SRG полностью перестроила свой API. Старый API (<= версия адаптера 0.3.2) больше НЕ поддерживается. Начиная с версии адаптера 0.9.x используется новый API SRG. Вот почему необходимо создать новое приложение SRG (например, продукт «Freemium») (https://developer.srgssr.ch/apis/srf-weather). См. Также Readme, раздел «Начало работы» (ниже). Также обратите внимание, что новый API также будет создавать совершенно новые объекты. **
+** Процедура обновления с версии 1.0.1 до 1.0.x **
 
-** Хорошая новость заключается в том, что новый API также предоставляет больше данных. ;) **
+- Просто обновите в ioBroker. Никаких специальных дополнительных действий не требуется
 
-** Процедура обновления **
+** Процедура обновления с версии 1.0.0 до 1.0.1 **
+
+- В версии 1.0.1 я исправляю проблему https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/57
+- На основании обсуждения [этого] (https://forum.iobroker.net/topic/46975/vis-widgethintergrund-farbe-durch-objektdatenpunkt-steuern) в идентификаторах нельзя использовать двоеточия. Поэтому я удалил двоеточия, которые использовались для часов, без замены, а также опустил секунды. например старый 01:00:00 => новый 0100)
+
+Это изменение требует повторного создания идентификаторов. Итак, чтобы установить версию 1.0.1, текущий работающий экземпляр адаптера должен быть полностью удален и заменен новым экземпляром.
+
+- Поскольку идентификаторы изменились с версией 1.0.1, визуальные представления также пришлось адаптировать. Вы можете получить обновленные представления [здесь] (https://github.com/baerengraben/ioBroker.swiss-weather-api/tree/master/views) и импортировать их в ioBroker-Visu.
+
+** Процедура обновления версии 0.3.2 до 0.9.x **SRG полностью перестроила свой API. Старый API (<= версия адаптера 0.3.2) больше НЕ поддерживается. Начиная с версии адаптера 0.9.x используется новый API SRG. Вот почему необходимо создать новое приложение SRG (например, продукт «Freemium») (https://developer.srgssr.ch/apis/srf-weather). См. Также Readme, раздел «Начало работы» (ниже). Также обратите внимание, что новый API также будет создавать совершенно новые объекты.
+Хорошая новость заключается в том, что новый API также предоставляет больше данных. ;)**
 
 Итак, моя рекомендация по обновлению с 0.3.2 до 0.9.x:
 
 - удалите старый адаптер перед установкой версии 0.9.x.
    - обратите внимание, что объекты данных также будут удалены соответственно.
 - создать новое бесплатное приложение на портале разработчика srg (https://developer.srgssr.ch/apis/srf-weather)
-- установить новую версию 0.9.x и настроить конфигурацию с помощью новых ключей consumerkey и consumersecret
+- установите новую версию 0.9.x и настройте конфигурацию с помощью новых ключей consumerkey и consumersecret
   - при запуске новый адаптер создаст новые, разные объекты данных.
 
 ## Swiss-weather-api адаптер для ioBroker
@@ -43,7 +52,7 @@ API-интерфейс SRF Weather REST позволяет получать пр
 ### Начиная
 1. Получите бесплатный аккаунт на https://developer.srgssr.ch/.
 1. Перейдите в «Мои приложения» и создайте новое приложение. Здесь вы можете выбрать товар. «Freemium» - это их бесплатный продукт. Если вы хотите выполнять только 50 запросов в день (каждые 30 минут) или / и не хотите платить за большее количество запросов в день, вы хотите выбрать «Freemium». Теперь это создаст определенные ConsumerKey и ConsumerSecret.
-1. Узнайте долготу / широту (в десятичных градусах) выбранного местоположения, для которого требуется прогноз. Эта информация не является обязательной, если вы указали свое местоположение в настройках ioBroker (основные настройки) (через карту). В этом случае вы можете оставить поля широты и долготы пустыми. Затем адаптер принимает настройки ioBroker. Широта и долгота, введенные в конфигурации адаптера, имеют приоритет над настройками ioBroker.
+1. Узнайте долготу / широту (в десятичных градусах) выбранного места, для которого требуется прогноз. Эта информация не является обязательной, если вы указали свое местоположение в настройках ioBroker (основные настройки) (через карту). В этом случае вы можете оставить поля широты и долготы пустыми. Затем адаптер принимает настройки ioBroker. Широта и долгота, введенные в конфигурации адаптера, имеют приоритет над настройками ioBroker.
 1. Установите этот адаптер на ioBroker => Это может занять несколько минут (~ 7 минут на Raspberry Pi 3).
 1. В разделе «Конфигурация адаптера» введите
    1. Название приложения
@@ -59,12 +68,35 @@ API-интерфейс SRF Weather REST позволяет получать пр
 ###### Предпосылка:
 * Адаптер [Виджеты материального дизайна] (https://github.com/Scrounger/ioBroker.vis-materialdesign)> = 0.5.7
 * Адаптер [Vis] (https://github.com/iobroker/iobroker.vis/blob/master/README.md)
-* [Улучшение просмотров Vis] (https://github.com/baerengraben/ioBroker.swiss-weather-api/tree/master/views)
+* [Импортировать просмотры в Vis] (https://github.com/baerengraben/ioBroker.swiss-weather-api/tree/master/views)
 
 ###### Пример
 ![Планшет](../../../en/adapterref/iobroker.swiss-weather-api/doc/Wettervorhersage_visu_anim.gif)
 
 ## Changelog
+
+### 1.0.2
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/51
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/53
+
+### 1.0.1
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/57
+This change makes it necessary to regenerate IDs. So, to install version 1.0.1, the currently running adapter instance must be completely removed and replaced with a new instance.
+
+### 1.0.0
+* (baerengraben) Bugfix https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/64  
+
+### 0.9.9
+* (baerengraben) Workaround for SRG Certificate Problem: https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/63  
+
+### 0.9.8
+* (jobe451)  Bugfix: JsonChart is missing 15h and 16h as x-labels
+
+### 0.9.7
+* (baerengraben)  Bugfix - RC2 for stable release.
+
+### 0.9.6
+* (baerengraben)  Bugfix - RC for stable release.
 
 ### 0.9.5
 * (baerengraben)  Some small improvements

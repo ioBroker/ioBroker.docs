@@ -11,12 +11,12 @@ hash: 1pcQ4cJSUZw7qUIgvAoPS5dTCF9w4xA9paAs8EKiD7w=
 ## Page structure
 This page was created in a ***responsive design*** . This means that it is displayed differently depending on the resolution of the display of the reader (PC / tablet / mobile phone) for optimal readability.
 
-With low (effective) resolutions, operating elements are sometimes hidden to make space for the main window.
+With low (effective) resolutions, operating elements are partially hidden in order to make space for the main window.
 
 It is therefore possible that the current display differs from the screenshots.
 
 ### Different menus
-To get the best possible overview, there are three different menus:
+In order to get the greatest possible overview, there are a total of three different menus:
 
 ![Side menus](../../de/intro/media/Seite_numbers.png)
 
@@ -50,7 +50,7 @@ The menu can be hidden again using the icon with the **X**
 
 ### More controls
 #### 4 - language selection
-The website is multilingual. Little by little, more languages will be added. Some are generated automatically first, native speakers are invited to improve the texts.
+The website is multilingual. More languages will gradually be added. Some are generated automatically first, native speakers are invited to improve the texts.
 
 The desired language can be selected at the globe icon.
 
@@ -71,7 +71,7 @@ More on this in the chapter [Basics] [].
 
 Detailed installation instructions for some hardware platforms are also available there.
 
-* Information on all adapters can be found in the central [Adapter Reference] [].
+* Information on all adapters can be found in the central [adapter reference] [].
 * The creation of control rules is described in section [Logic & Automation] [].
 
 We are grateful for every helping hand. If you would like to contribute to the further development of ioBroker, you will find information in the [Developer area] [].

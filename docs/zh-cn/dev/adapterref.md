@@ -32,7 +32,7 @@ ioBroker 中的适配器是一个独立的进程，它在中央数据存储中�
 
 对象的 ID 由不同的部分组成。每个部分用“.”表示。彼此分开。有系统对象（ID 以 _ 或“系统”开头。）和适配器对象（ID 以适配器名称.实例编号开头）。
 
-?> 注意：在描述中，**适配器名称**代表开发人员尝试创建的适配器的名称。
+?> 注意：在说明中，** 适配器名称** 代表开发人员尝试创建的适配器的名称。
 
 对象可以在通道中分组，通道可以在设备中分组。以下是 Homematic 设备和频道的示例：
 
@@ -104,9 +104,9 @@ ioBroker 中的适配器是一个独立的进程，它在中央数据存储中�
 * `utils.js`
 * `package.json` - 必需
 * `io-package.json` - 必需
-* `main.js` - 必需（也可以是 `adaptername.js`）
+* `main.js` - 必需（也可以是`adaptername.js`）
 
-?> 注：lib/utils.js 是所有适配器通用的文件，通过该文件可以确定js-controller 的位置和iobroker.js-controller/lib/adapter.js 对应的路径。当前的大部分 utils.js 都可以在这里下载。不要更改此文件！
+?> 注：lib/utils.js 是所有适配器通用的文件，通过它可以确定js-controller 的位置和iobroker.js-controller/lib/adapter.js 对应的路径。当前的大部分 utils.js 都可以在这里下载。不要更改此文件！
 
 ## 文件名
 为了被 ioBroker 控制器接受和启动，适配器必须遵守命名约定。
@@ -155,7 +155,7 @@ io-package.json 由“admin”读取以找出适配器的在线版本。
 
 ?> 注意：localLink 可以有用真实值替换的特殊键。
 
-* `% ip%`: 将被第一个“web”实例中定义的 IP 地址替换。
+* `% ip%`：将被第一个“web”实例中定义的 IP 地址替换。
 * `% field%`，其中 field 是来自适配器实例配置的 `native` 部分的属性。
 
 例如，`http://%ip%:%port%` 显示为“http://192.168.0.1:8080”，其中“192.168.0.1”是“web”适配器的 IP 地址，8080 是 `system.adapter.adapterName.X => native.port` 的值。
@@ -214,7 +214,7 @@ adapter.objects.getObjectView('hm-rpc', 'listDevices',
 ### 实例对象字段
 一些特定的对象或具有类型状态的对象可以在 `io-package.json` 的 `instanceObjects` 中定义。
 
-对于创建的每个实例，将创建 `instanceObjects` 字段中的所有条目。
+对于每个创建的实例，将创建来自字段 `instanceObjects` 的所有条目。
 
 例如，适配器 `hm-rpc` 为每个实例创建状态 `updated` 以便向另一个适配器发出信号，表明某些新设备出现在数据存储中并且需要由 §§SSSSS_2 进行处理§§.
 
@@ -298,7 +298,7 @@ package.json 是 npm 包的标准描述文件。完整描述可以在 https://do
 npm install https://github.com/yourName/iobroker.adapterName/tarball/master/
 ```
 
-如果一切正常并且来自用户的积极反馈，则适配器可以在 npm 上发布。
+如果一切顺利，并且得到用户的积极反馈，则适配器可以在 npm 上发布。
 要是能提前在github上发表一下就好了。
 
 发布是通过以下命令完成的：
@@ -601,7 +601,7 @@ adapter.setState('myState', 1);
 * `ack`：方向标志。 false 为所需值，true 为实际值。默认值：false（命令）
 * `ts`：时间戳为 1970 年 1 月 1 日午夜和指定日期之间的毫秒数。 Javascript 对象 Date 的 getTime() 方法的结果。默认值：当前时间。
 * `lc`：上次更改的时间戳。与 ts 格式相同，但值的时间戳发生变化。该值可能会更新，但该值将保持不变。在这种情况下，lc 不会改变。
-* `from`：定义值的适配器实例的名称，例如“system.adapter.web.0”（带有可见性）
+* `from`：定义值的适配器实例的名称，例如“system.adapter.web.0”（带可见）
 * `expire`：（可选）可以设置以秒为单位的过期时间限制。在此之后，变量被设置为“零”。例如，通过适配器实例的“活动”状态。如果适配器实例在 30 秒内未触发“活动”状态，则将其标记为“关闭”。要设置过期状态，请使用以下代码 setState ('Variable', {val: true, expire: 30})
 * `q`：（可选）质量。请参阅此处的说明
 
@@ -766,7 +766,7 @@ adapter.getForeignObject('otherAdapter.X.someState', function (err, obj) {
 * unload
 ```
 
-###这是一个实例的创建方式
+### 这就是实例的创建方式
 在 npm 中发布之前：复制到 ioBroker / node_modules，转到 `admin` 并添加一个实例。在 npm 中发布后：转到 `ioBroker/` 并写入 `npm install iobroker.xxx --production --no-optional --logevel=error`，转到 `admin` 并添加。
 
 ##这就是调试的方式

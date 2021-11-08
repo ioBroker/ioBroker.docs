@@ -13,7 +13,7 @@ The available hosts are displayed here.
 In a standard system there is only one host. In the case of a multihost system, several.
 
 ## The title line
-in the title line there are icons for the most important processes. There is context help for each icon. Simply stay on the icon with the mouse for a while.
+in the title line there are icons for the most important processes. There is context help for each icon. To do this, simply hold the mouse on the icon for a while.
 
 The icons in detail:
 

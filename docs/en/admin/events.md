@@ -1,5 +1,5 @@
 ---
-title: Events
+title: events
 lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
@@ -12,7 +12,7 @@ The values cannot be changed here.
 ![The events page](../../de/admin/media/ADMIN_Ereignisse_numbers.png)
 
 ## The title line
-in the title line there are icons for the most important processes. There is context help for each icon. Simply stay on the icon with the mouse for a while.
+in the title line there are icons for the most important processes. There is context help for each icon. To do this, simply hold the mouse on the icon for a while.
 
 ### The icons in detail:
 ### 1 - pause view
@@ -44,7 +44,7 @@ Here you can filter for complete IDs, but also for parts of them, e.g. for all T
 This is the current value of the respective data point.
 
 ### 4 - Confirmed
-If this value has been changed and it has been adopted by the system, the value is true, otherwise false.
+If this value was changed and this was adopted by the system, the value is true, otherwise false.
 
 These are also the filter options
 

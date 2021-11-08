@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: OLUxMuMNdnihxXi8rb+UiZ7OaKyLtsjQfjnmAjL1CsI=
+hash: f6i4qy7fGtKHrq76VWWMIi/QNx+YA6XzHbZsWpOrR1Y=
 ---
 # IoBroker.tado
 
@@ -24,7 +24,7 @@ hash: OLUxMuMNdnihxXi8rb+UiZ7OaKyLtsjQfjnmAjL1CsI=
 tado ° обеспечивает комфортный и здоровый климат, экономя до 31% на счетах за отопление.
 
 ## Поддержите меня
-Если вам нравится моя работа, пожалуйста, сделайте личное пожертвование (это личная ссылка для пожертвования для DutchmanNL, не имеющая отношения к проекту ioBroker! [![Пожертвовать] (https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
+Если вам нравятся мои работы, пожалуйста, сделайте личное пожертвование (это личная ссылка для пожертвования для DutchmanNL, не имеющая отношения к проекту ioBroker! [![Пожертвовать] (https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Критические изменения в v0.3.x
 Рекомендация: Если возможно, сначала удалите старую установку адаптера или удалите все состояния, чтобы в установке не осталось неподдерживаемых состояний.
@@ -52,8 +52,9 @@ tado ° обеспечивает комфортный и здоровый кли
 | tado. [x]. [yyyyyy] .Rooms. [z] .overlay.termination.typeSkillBasedApp | Установить режим расписания |
 | tado. [x]. [yyyyyy] .Rooms. [z] .overlay.termination.durationInSeconds | Установите, как долго будет действовать режим расписания |
 | tado. [x]. [yyyyyy] .Rooms. [z] .devices. [RUaaaaaaaaaa] .offset.offsetCelsius | Температурное смещение |
-| тадо. [x]. [yyyyyy] .Rooms. [z] .timeTables.tt_id | Выбрать активное расписание |
-| фанспид | Fanspeed (только для устройств переменного тока) |
+| тадо. [x]. [yyyyyy] .Rooms. [z] .timeTables.tt_id | Выберите активное расписание |
+| тадо. [x]. [yyyyyy] .Home.state.presence | Установите режим ДОМАШНИЙ или ВНЕЗАПНО |
+| fanpeed | Fanspeed (только для устройств переменного тока) |
 | режим | Режим переменного тока (только устройства переменного тока) |
 
 ** Не стесняйтесь предоставить конкретные схемы устройств переменного тока для последних двух строк, если у вас есть устройство переменного тока! **
@@ -63,6 +64,28 @@ tado ° обеспечивает комфортный и здоровый кли
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.3.11-alpha.0 (2021-11-05)
+* (HGlab01) support attributes 'showSwitchToAutoGeofencingButton', 'showHomePresenceSwitchButton' and 'additionalConsents'
+* (HGlab01) Enhance error messages if API-call fails
+* (HGlab01) next time block fails (one reason for 422 error) if time blocks are not defined - fixed now
+* (HGlab01) Set HOME/AWAY is now suported by using state tado.x.yyyyyy.Home.state.presence
+
+### 0.3.10 (2021-10-29)
+* (HGlab01) API calls (except read) are queued and send one after the other
+* (HGlab01) unhandled errors are now handled
+* (HGlab01) Internet connection is checked before requests are placed
+* (HGlab01) support attribute 'fanLevel' (Sentry: IOBROKER-TADO-35)
+* (HGlab01) support structure element "folder", so now it is folder-->device-->channel
+* (HGlab01) add home-states presence and presenceLock
+* (HGlab01) Bump iobroker-jsonexplorer to 0.1.5
+
+### 0.3.9 (2021-10-16)
+* (DutchmanNL) force correct NodeJS dependency with error at install
+* (HGlab01) implement queuing for API requests (avoids some status code 422 issues)
+
+### 0.3.8 (2021-10-06)
+* (HGlab01) support attributes 'orientfanLevelation', 'verticalSwing', 'horizontalSwing' (#352)
+* (HGlab01) catch 422 issue in poolApiCall()
 
 ### 0.3.7 (2021-08-24)
 * (HGlab01) ActiveTimeTable can be set (#337)
@@ -120,7 +143,7 @@ tado ° обеспечивает комфортный и здоровый кли
 * (HGlab01) add childLockEnabled
 
 ### 0.2.4 (2020-11-19)
-* (HGlab01) Improve overlay modes + solve merge issue of version 0.2.3 
+* (HGlab01) Improve overlay modes + solve merge issue of version 0.2.3
 
 ### 0.2.3 (2020-11-18)
 * (HGlab01) add overlay methods 'timer'

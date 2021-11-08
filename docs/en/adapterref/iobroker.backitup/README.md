@@ -413,6 +413,12 @@ Here is a list of the problems that have occurred so far and their solutions, if
 
 ## Changelog
 
+### 2.2.2 (06.11.2021)
+* (simatec) Fix CCU option to use self-signed certificates
+* (simatec) Fix Config Menu
+* (simatec) dependabot added
+* (simatec) small Bugfixes
+
 ### 2.2.1 (08.10.2021)
 * (simatec) CCU option to use self-signed certificates
 * (simatec) small fix for Javascript Message

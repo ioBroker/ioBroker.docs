@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: VbVRQ2vMX9iYbPwVYUZB3eGJNzPhgVl8WQ2Vdb8kbk4=
+hash: l1tKeyaPNJTtKc0cAocDn/W4oA6qiIO78iQbdbXfkMY=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -43,6 +43,26 @@ Falls Dir unsere Arbeit und Du uns unterstützen möchten, freuen wir uns über 
 [![Ausgaben](http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
+
+## 3.2.5
+- Fehlerbehebung
+
+## 3.2.4
+- Fehlerbehebung
+
+## 3.2.3
+- Fehlerbehebung
+
+##3.2.2
+- Fehlerbehebung
+
+##3.2.1
+- Problem mit aktiver Textfarbe behoben (#302)
+- Problem mit Multi-Widget und unterschiedlichem Prüftyp behoben (#303)
+- Problem beim Schließen mit View im PopUp behoben (#254)
+- Navigationseffekte aus der Basisnavigation hinzugefügt (#304)
+- Neu hinzugefügter Widget-Typ 'HTTP' für Universal- und Multi-Widget (#249)
+- Sichtbare Schritte für einfachen Slider hinzugefügt
 
 ## 3.2.0
 - Textfarbe aktiv/inaktiv für Universal- & Multiwidget

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventorywo
-hash: VbVRQ2vMX9iYbPwVYUZB3eGJNzPhgVl8WQ2Vdb8kbk4=
+hash: l1tKeyaPNJTtKc0cAocDn/W4oA6qiIO78iQbdbXfkMY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -43,6 +43,26 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 [![Sdency] (http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
+
+## 3.2.5
+- Исправлена ошибка
+
+## 3.2.4
+- Исправлена ошибка
+
+## 3.2.3
+- Исправлена ошибка
+
+## 3.2.2
+- Исправлена ошибка
+
+## 3.2.1
+- Проблема с активацией Textfarbe behoben (# 302)
+- Проблема с Multi-Widget und unterschiedlichem Prüftyp behoben (# 303)
+- Проблема beim Schließen mit View im PopUp behoben (# 254)
+- Navigationseffekte aus der Basisnavigation hinzugefügt (# 304)
+- Neu hinzugefügt Widget-Typ 'HTTP' für Universal- und Multi-Widget (# 249)
+- Sichtbare Schritte für einfachen Slider hinzugefügt
 
 ## 3.2.0
 - Textfarbe aktiv / inaktiv für Universal- & Multiwidget
@@ -312,7 +332,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Виджет-Untertitel behoben
 
 ## 2.0.0
-- Переключатель, кнопка, навигация и фоновый виджет (sowie die kleinen Ausführungen) zu einem einzigen Widget zussammengeführt -> dem Universal Widget
+- Переключатель, кнопка, навигация и виджет фона (sowie die kleinen Ausführungen) zu einem einzigen Widget zussammengeführt -> dem Universal Widget
 - Multi Widget -> wie das Universal, nur dass hier auf mehrere Datenpunkte und Werte geprüft werden kann (Ähnlich der Signalbild Funktion)
 - Виджет изображения kann nun auf Datenpunkt prüfen
 - Радиокнопки hinzugefügt
@@ -327,7 +347,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 ### 1.3.6
 - Добавлена опция установки состояния для навигации.
-- Исправлена проблема с датапоинтами без конфига.
+- Исправлена проблема с точками данных без конфигурации.
 
 ### 1.3.5
 - Добавлена частота обновления таблицы

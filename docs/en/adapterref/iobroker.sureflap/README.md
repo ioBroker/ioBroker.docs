@@ -83,6 +83,9 @@ adapter<br>
 │ │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ pet_name<br>
 │ │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ control<br>
 │ │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ type<br>
+│ ├ history<br>
+│ │ └ 0..24<br>
+│ │ &nbsp;&nbsp;&nbsp; └ ...<br>
 │ └ pets<br>
 │ &nbsp;&nbsp;&nbsp; └ pet_name<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ name<br>
@@ -90,7 +93,8 @@ adapter<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ since<br>
 └ info<br>
 &nbsp;&nbsp;&nbsp; ├ all_devices_online<br>
-&nbsp;&nbsp;&nbsp; └ connection<br>
+&nbsp;&nbsp;&nbsp; ├ connection<br>
+&nbsp;&nbsp;&nbsp; └ last_update<br>
 
 ## Notes
 
@@ -99,6 +103,10 @@ SureFlap® and Sure Petcare® are registered trademarks of [SureFlap Ltd.](https
 The picture of the cat flap, hub and smartphone app is provided free to use from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
+
+### 1.0.7 (2021-11-02)
+* (Sickboy78) added history
+* (Sickboy78) added last update time
 
 ### 1.0.6 (2021-09-12)
 * (Sickboy78) added feeder support (closing delay of lid)

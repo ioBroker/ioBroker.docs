@@ -5,6 +5,7 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.x-touch.svg)](https://www.npmjs.com/package/iobroker.x-touch)
 ![Number of Installations (latest)](http://iobroker.live/badges/x-touch-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/x-touch-stable.svg)
+![Test and Release](https://github.com/bannsaenger/iobroker.x-touch/workflows/Test%20and%20Release/badge.svg)
 [![Dependency Status](https://img.shields.io/david/Bannsaenger/iobroker.x-touch.svg)](https://david-dm.org/Bannsaenger/iobroker.x-touch)
 [![Known Vulnerabilities](https://snyk.io/test/github/Bannsaenger/ioBroker.x-touch/badge.svg)](https://snyk.io/test/github/Bannsaenger/ioBroker.x-touch)
 
@@ -26,42 +27,44 @@ There a two acepted commands:
 * `import` imports the youngest file from the userdata folder. Additionally you can specify `file` and/or the `devicegroup` number to restore. If `path` is specified the entire filesystem will be used and a `file` name is mandatory.  
 
 ## Changelog
+### 0.4.2
+* (Bannsaenger) changed sort order in changelog
 
-### 0.0.1
-* (Bannsaenger) initial release
-
-### 0.0.2
-* (Bannsaenger) prepared for checkin to iobroker.latest
-
-### 0.1.0
-* (Bannsaenger) introduced channel and page switching
-
-### 0.2.0
-* (Bannsaenger) introduced encoders
-
-### 0.2.1
-* (Bannsaenger) changed the way to send data. Added sendDelay
-
-### 0.2.2
-* (Bannsaenger) fixed fader handling and data distribution to the device group
-
-### 0.2.3
-* (Bannsaenger) fixed setting of display inverted
-
-### 0.2.4
-* (Bannsaenger) fixed disabling of encoder display
-
-### 0.2.5
-* (Bannsaenger) fixed send back of button and fader values. Now only the affected device group members will be updated
-
-### 0.3.0
-* (Bannsaenger) added the timecode display
+### 0.4.1
+* (Bannsaenger) bug fixing in the export/import feature
 
 ### 0.4.0
 * (Bannsaenger) added the ability to export the actual state values via a message and reimport the states again
 
-### 0.4.1
-* (Bannsaenger) bug fixing in the export/import feature
+### 0.3.0
+* (Bannsaenger) added the timecode display
+
+### 0.2.5
+* (Bannsaenger) fixed send back of button and fader values. Now only the affected device group members will be updated
+
+### 0.2.4
+* (Bannsaenger) fixed disabling of encoder display
+
+### 0.2.3
+* (Bannsaenger) fixed setting of display inverted
+
+### 0.2.2
+* (Bannsaenger) fixed fader handling and data distribution to the device group
+
+### 0.2.1
+* (Bannsaenger) changed the way to send data. Added sendDelay
+
+### 0.2.0
+* (Bannsaenger) introduced encoders
+
+### 0.1.0
+* (Bannsaenger) introduced channel and page switching
+
+### 0.0.2
+* (Bannsaenger) prepared for checkin to iobroker.latest
+
+### 0.0.1
+* (Bannsaenger) initial release
 
 ## License
 MIT License

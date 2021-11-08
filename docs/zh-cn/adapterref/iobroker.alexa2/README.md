@@ -3,294 +3,323 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.alexa2/README.md
 title: ioBroker.alexa2
-hash: hIgfNRM8mI+AD4Vh929r4j7dHFzbcmZU/Q3a1cuctuw=
+hash: 0tkrZY32K/97TQpOQ+IVlSzPZ7AfaQ5i4iO5NNUUD+A=
 ---
-![商标](../../../en/adapterref/iobroker.alexa2/admin/alexa.png)
+![标识](../../../en/adapterref/iobroker.alexa2/admin/alexa.png)
 
 ![安装数量](http://iobroker.live/badges/alexa2-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.alexa2.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.alexa2.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.alexa2.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.alexa2.svg)
 
-＃ioBroker.alexa2
-![测试与发布](https://github.com/Apollon77/iobroker.alexa2/workflows/Test%20and%20Release/badge.svg)[![翻译状态]（https://weblate.iobroker.net/widgets/adapters/-/alexa2/svg-badge.svg）](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker.alexa2
+![测试和发布](https://github.com/Apollon77/iobroker.alexa2/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/alexa2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用服务[哨兵](https://sentry.io)向开发人员自动向我报告异常和代码错误以及新设备架构。**更多详细信息，请参见下文！
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
 
-此适配器使您可以远程控制Alexa（Amazon Echo）设备。
+此适配器可让您远程控制 Alexa (Amazon Echo) 设备。
 
-非常感谢soef提供该适配器的版本1，并感谢Hauke和ruhr70提供了来自ioBroker-Forum的脚本中的想法（尤其是媒体进度更新）！还要感谢meicker对所有这些文档的支持以及ioBroker论坛的许多用户的测试支持！
+非常感谢 soef 提供适配器的第 1 版，感谢 Hauke 和 ruhr70 在他们来自 ioBroker-Forum 的脚本中的想法（尤其是媒体进度更新）！也非常感谢 meicker 支持记录所有这些以及来自 ioBroker 论坛的众多用户的测试支持！
 
-##状态及其含义：
-在适配器名称空间（例如alexa2.0）中，创建了一些通道
+## 状态及其含义：
+在适配器命名空间（例如 alexa2.0）中创建了一些通道
 
 ### Alexa2.0
-|州名|意思|
+|州名 |意思 |
 | - | - |
-|回声设备。每个Echo设备的状态，请参见下文|
-|历史记录。* |有关命令历史记录的信息，请参见下文|
-|智能家居设备。* |每个智能家居设备的状态，以及一般情况，请参见下文|
-|信息* |有关适配器状态的常规信息|
-| requestResult | TuneIn和智能家居设备请求的错误信息|
+|回声设备。* |每个 Echo 设备的状态，见下文 |
+|历史。* |命令历史信息，见下文 |
+|智能家居设备。* |每个智能家居设备的状态和一般情况，见下文 |
+|信息。*|有关适配器状态的一般信息 |
+|请求结果 | TuneIn 和智能家居设备请求的错误信息 |
 
-### Alexa2.0.Contacts.ContactId。*
-可用于向其发送文本消息的所有Alexa联系人，包括他本人。自己的联系人在其姓名后得到一个特殊的“（（自我）”）。
+### Alexa2.0.Contacts.ContactId.*
+所有可用于发送文本消息的 Alexa 联系人，包括他自己。自己的联系人在他的名字后有一个特殊的“（自我）”。
 
-|州名|意思|
+|州名 |意思 |
 | - | - |
-| #clearOwnMessages |仅存在于自己的联系人中，触发器将删除发送给自己的所有消息（还包括通过App或设备发送给自己的消息！） |
-| textMessage |将此文本作为消息发送给用户。此用户的所有设备上均显示“黄色环”。 |
+| #clearOwnMessages |只存在于自己的联系人中，触发器会删除发送给自己的所有消息（还包括通过应用程序或设备发送给自己的消息！） |
+|短信 |将此文本作为消息发送给用户。它显示在该用户的所有设备上，带有“黄色环” |
 
-### Alexa2.0.Echo-Devices.Serialnumber。*
-在“回声设备”下，列出了每个亚马逊回声设备及其序列号。并非每个设备都显示所有状态。每个设备都有自己的状态，如下所述：
+### Alexa2.0.Echo-Devices.Serialnumber.*
+在“回声设备”下，每个亚马逊回声设备都列出了它的序列号。并非每个设备都显示所有状态。每个设备都有自己的状态，如下所述：
 
-### Alexa2.0.Echo-Devices.Serialnumber.Alarm。*
-每个设备的警报（Wecker）设置（如果有）。
+### Alexa2.0.Echo-Devices.Serialnumber.Alarm.*
+每个设备的警报 (Wecker) 设置（如果可用）。
 
-|州名|意思|值|
+|州名 |意思 |价值 |
 | - | - | - |
-|启用|显示警报状态并允许对其进行更改：启用为true的警报-禁用为false的警报|正确/错误|
-|时间|警报时间。覆盖现有警报的时间以为此警报设置新时间。如果您已有警报，可以在此处通过简单地以hh：mm：ss格式覆盖时间来更改时间，而无需设置秒。时间输入|
-|触发如果达到并触发警报，则为true。时钟必须与Amazon和iobroker保持同步，一旦达到闹钟时间，就可以使用此时钟来触发其他操作|正确/错误|
-|新品|该设备发出新警报的时间。如果在此处输入值，将创建一个新警报。时间输入（hh：mm：ss，不需要秒） |
+|启用 |显示警报状态并允许更改它： 用真激活警报 - 用假停用警报 |真/假|
+|时间 |是时候报警了。覆盖现有闹钟的时间以为此闹钟设置新时间。如果您有一个现有的闹钟，您可以通过简单地以 hh:mm:ss 格式覆盖时间来更改时间，不需要设置秒 |时间输入 |
+|触发|如果达到并触发警报，则为 true。时钟必须与 Amazon 和 iobroker 同步，一旦到达闹钟时间，使用它来触发其他操作 |真/假|
+| recurringPattern |显示警报的重复模式 | 0 = 一次，不重复<br>P1D = 每天<br>XXXX-WD = 工作日<br>XXXX-WE = 周末<br>XXXX-WXX-1 = 每个星期一<br>XXXX-WXX-2 = 每个星期二<br>XXXX-WXX-3 = 每个星期三<br>XXXX-WXX-4 = 每周四<br>XXXX-WXX-5 = 每周五<br>XXXX-WXX-6 = 每个星期六<br>XXXX-WXX-7 = 每个星期日 |
+|新 |该设备的新警报时间。如果您在此处输入值，则会创建一个新警报 |时间输入（hh:mm:ss，不需要秒）|
 
-### Alexa2.0.Echo-Devices.Serialnumber.Bluetooth。*
-在这里，您可以找到具有MAC地址的所有已连接或已知的蓝牙设备。每个设备的状态：
+### Alexa2.0.Echo-Devices.Serialnumber.Bluetooth.*
+在这里您可以找到所有已连接或已知的具有 MAC 地址的蓝牙设备。每个设备的状态：
 
-|州名|意思|
+|州名 |意思 |
 | - | - |
-|已连接|显示当前的连接状态，并允许连接（设置为true）或断开连接（设置为false） |
-|不成对|取消此设备与echo设备的配对的按钮。 |
+|已连接 |显示当前连接状态并允许连接（设置为 true）或断开连接（设置为 false） |
+|取消配对 |取消此设备与回声设备配对的按钮 |
 
-### Alexa2.0.Echo-Devices.Serialnumber.Commands。*
-使用命令，您可以在Alexa设备上触发一些操作。如果您在多房间设备上使用它们，那么它们将独立执行，并且*将不会*在单个设备上同步运行！
+### Alexa2.0.Echo-Devices.Serialnumber.Commands.*
+使用命令，您可以在 Alexa 设备上触发一些操作。如果您在多房间设备上使用这些，那么它们将独立执行并且*不会*在单个设备上同步运行！
 
-|州名|意思|值|
+|州名 |意思 |价值 |
 | - | - | - |
-| doNotDisturb |打开/关闭请勿打扰此设备|是/否|
-|简报|在100秒内进行简报-新闻等。纽扣 |
-|早安|来自Alexa的早上好... |纽扣 |
-|功能|来自Alexa的有趣事实...（目前仅美国）|纽扣 |
-|笑话来自Alexa的笑话... |纽扣 |
-|清理|像播放聆听模式的开始/结束一样播放“锣”音... |纽扣 |
-|策展人|来自Alexa所选区域的随机句子... |文本（允许使用：“再见”，“确认”，“早安”，“赞美”，“生日”，“晚安”，“ iamhome”）|
-| singasong | Alexa唱了一首歌... |纽扣 |
-|讲| Alexa说您在此处输入的内容... |文字输入|
-|音量|调整Alexa的语音音量，该音量会在语音通话之前设置好，然后再重新设置| 0-100 |
-|讲故事| Alexa讲故事|纽扣 |
-|交通|交通新闻|纽扣 |
-|天气天气新闻纽扣 |
-| deviceStop |停止设备上的所有操作|纽扣 |
-|通知|发送文本通知给设备的客户|文字|
-|公告|播放公告（例如讲话，但在文本前加上Bing）|文字|
-| ssml |说出SSML XML字符串|文字|
-| textcommand |将文字指令发送到Alexa，目前仅在美国！ |文字|
+|请勿打扰 |打开/关闭此设备的“请勿打扰”|真/假|
+|简报| 100秒简报-新闻等.pp|按钮 |
+|早安|早上好，来自 Alexa ...|按钮 |
+|事实|来自 Alexa 的有趣事实......（目前仅限美国）|按钮 |
+|笑话|来自 Alexa 的笑话...|按钮 |
+|清理 |播放类似于开始/结束聆听模式的“锣”音...|按钮 |
+|策展人 |来自 Alexa 所选区域的随机句子...|文本（允许：“再见”、“确认”、“早安”、“赞美”、“生日”、“晚安”、“iamhome”）|
+|唱歌 | Alexa 唱了一首歌...|按钮 |
+|说话| Alexa 会说出您在此处输入的内容...|文本输入 |
+|说话音量 |调整Alexa的说话音量，这个音量在说话前设置，然后重置| 0-100 |
+|讲故事| Alexa 讲故事 |按钮 |
+|交通|交通新闻 |按钮 |
+|天气 |天气新闻 |按钮 |
+|设备停止 |停止设备上的所有操作 |按钮 |
+|通知 |向设备客户发送文本通知 |文字 |
+|公告|播放公告（如在文本前使用 Bing 说话） |文字 |
+| ssml |说 SSML XML 字符串 |文字 |
+|文本命令 |向 Alexa 发送文本命令，目前仅限美国！ |文字 |
 
-详细信息发言和公告：在此处输入您想让Alexa说的内容。您还可以通过在文本前输入一个百分比来调整Alexa的音量。
-例如：10; Alexa说Alexa的音量为10％，而100; Alexa的音量为100％。
-通常，每个语音命令只能发送250个字符。通过使用分号，只要用分号分隔250个字符，就可以编写任意数量的文字。
-然后，Alexa将稍稍休息一下，然后彼此说出文字。您还可以通过编写#Volume;＃Block1;＃Block2，a.s.o将音量与255个以上的块一起使用，此处设置的音量将用于定义的语音音量。
+详细信息 发言和通知：在此处输入您希望 Alexa 说的话。您还可以通过在文本前给出一个百分比来调整 Alexa 的音量。
+示例：10;Alexa 说 Alexa 的音量为 10%，而 100;Alexa 的音量为 100%。
+通常每个说话命令只能发送 250 个字符。通过使用分号，您可以随心所欲地书写，只要您用分号分隔 250 个字符即可。
+然后，Alexa 会在短暂的休息后依次朗读文本。您还可以通过编写 #Volume;#Block1;#Block2，a.s.o 将音量与更多 255 个块一起使用，a.s.o 此处设置的音量将用于定义的说话音量。
 
-从https://developer.amazon.com/zh-CN/docs/alexa/custom-skills/ask-soundlibrary.html工作中也可以听到部分声音。在语音或ssml中指定为`<audio src="soundbank://soundlibrary/animals/amzn_sfx_bear_groan_roar_01"/>`。有关详细信息和讨论，请访问https://forum.iobroker.net/topic/27509/ssml-audio
+部分声音也来自 https://developer.amazon.com/en-US/docs/alexa/custom-skills/ask-soundlibrary.html 工作。在 speak 或 ssml 中指定为 `<audio src="soundbank://soundlibrary/animals/amzn_sfx_bear_groan_roar_01"/>`。详情和讨论请访问 https://forum.iobroker.net/topic/27509/ssml-audio
 
-### Alexa2.0.Echo-Devices.Serialnumber.Info。*
-有关Alexa设备的信息
+### Alexa2.0.Echo-Devices.Serialnumber.Info.*
+有关 Alexa 设备的信息
 
-|州名|意思|值|
+|州名 |意思 |价值 |
 | - | - | - |
-|能力| alexa设备提供的功能|信息|
-| deviceType |亚马逊提供的设备类型|信息|
-| deviceTypeString |设备类型为字符串信息|
-| isMultiroomDevice |是多房间设备-多房间是虚拟设备组|信息，对/错|
-| isMultiroomMember |是Multiroom成员-如果为true，则该设备属于Multiroom设备组|信息，对/错|
-|多人家长|如果此设备是多房间设备组的一部分，则此状态将显示父组设备|。信息|
-|名称| Alexa设备的名称|信息|
-|序列号| Alexa设备的序列号|
+|能力|功能如果alexa设备|信息 |
+|设备类型 |来自亚马逊的设备类型 |信息 |
+|设备类型字符串 |设备类型为字符串 |信息 |
+| isMultiroomDevice |是多房间设备 - 多房间是虚拟设备组 |信息，真/假|
+| isMultiroomMember |是多房间成员 - 如果为 true，则设备是多房间设备组的一部分 |信息，真/假|
+| MultiroomParents |如果此设备是多房间设备组的一部分，则此状态显示父组设备 |信息 |
+|姓名 | Alexa 设备名称 |信息 |
+|序列号 | Alexa 设备序列号 |
 
-### Alexa2.0.Echo-Devices.Serialnumber.Music-Provider。*
-直接告诉Alexa播放音乐或受支持的音乐提供商的播放列表。实际支持的是：我的图书馆，亚马逊音乐，调入。您还可以在短语中加入一个多房间设备组名称，以便在该组中播放（例如“ SWR3 auf Erdgeschoss”）
+### Alexa2.0.Echo-Devices.Serialnumber.Music-Provider.*
+直接告诉 Alexa 播放来自受支持音乐提供商的音乐或播放列表。实际支持的有：My Library、Amazon Music、Tune In。您还可以在短语中包含多房间设备组名称以在该组上播放（例如“SWR3 auf Erdgeschoss”）
 
-|州名|意思|值|
+|州名 |意思 |价值 |
 | - | - | - |
-|亚马逊音乐|玩Amazon Music的短语|文字输入|
-|亚马逊音乐播放列表|播放列表可与Amazon Music一起播放|文字输入|
-|我的图书馆|玩“我的书架”的短语文字输入|
-|我的图书馆播放列表|可与“我的媒体库”一起播放的播放列表|文字输入|
-|调入|播放“ Tune In”的短语文字输入|
-|播放中音调|播放列表可与Tune In一起播放|文字输入|
+|亚马逊音乐 |短语与亚马逊音乐一起玩 |文字输入 |
+|亚马逊音乐播放列表 |与亚马逊音乐一起播放的播放列表 |文字输入 |
+|我的图书馆 |与我的图书馆一起玩的短语 |文字输入 |
+|我的图书馆播放列表 |播放列表与我的图书馆一起播放 |文字输入 |
+|收听 |与 Tune In 一起演奏的乐句 |文字输入 |
+|收听播放列表 |使用 Tune In 播放的播放列表 |文字输入 |
 
-### Alexa2.0.Echo-Devices.Serialnumber.Player。*
+### Alexa2.0.Echo-Devices.Serialnumber.Player.*
 控制设备播放并查看当前状态和媒体信息的状态
 
-|州名|意思|值|
+|州名 |意思 |价值 |
 | - | - | - |
-| TuneIn-Station |输入要在该设备上播放此电台的电台名称的文本字段。也可以输入站号（s123456 ...），显示/播客ID（p1234567 ...）或主题ID（t123456789 ...）|文字输入|
-| ContentType |文本字段以放置所需的内容以在此设备上播放|信息|
-| controlForward |触发播放器“前进”命令的按钮（30秒）|纽扣 |
-|控制下一个|按钮触发播放器的“下一个”命令纽扣 |
-| controlPause |按钮触发播放器“暂停”命令纽扣 |
-| controlPlay |按钮触发播放器“播放”命令纽扣 |
-| controlPrevious |按钮触发播放器的“上一个”命令纽扣 |
-| controlRepeat |按钮触发播放器“重复”命令正确/错误|
-| controlRewind |触发播放器“倒带”命令的按钮（30秒）|纽扣 |
-| controlShuffle |切换为播放器启用或禁用随机播放模式|正确/错误|
-| currentAlbum |当前正在播放专辑信息|
-| currentArtist |当前正在演奏的艺术家|信息|
-| currentState |如果播放-> true，则为false |正确/错误|
-| currentTitle |当前正在播放的标题|信息|
-| imageURL |相册图像的URL |信息|
-| mainArtURL |当前主要艺术作品的网址|信息|
-| mediaLength |当前标题的长度|信息|
-| mediaLengthStr |有效媒体长度为（HH：）MM：SS |信息|
-| mainProgress |主动媒体经过时间|信息|
-| mainProgressPercent |有效媒体耗用时间（以百分比为单位）|信息|
-| mediaProgressStr |活动媒体进度为（HH：）MM：SS |信息|
-| miniArtUrl |艺术品网址（迷你）|信息|
-|静音| “ MUTE”的状态|信息，对/错，音量= 0被认为是静音|
-| providerID |当前音乐提供商的ID |信息|
-| providerName |当前音乐提供商的名称|信息|
-| radioStationId | TuneIn广播电台的ID |信息|
-|服务|当前音乐服务的名称|信息|
-|数量播放音量。您可以输入0-100％|输入量|
+| TuneIn-Station |文本字段输入电台名称以在此设备上播放此电台。也可以输入电台编号 (s123456...)、节目/播客 ID (p1234567...) 或主题 ID (t123456789...) |文字输入 |
+|内容类型 |文本字段放入所需内容以在此设备上播放 |信息 |
+|控制前进 |触发玩家“前进”命令的按钮（30 秒）|按钮 |
+|控制下一页 |按钮触发玩家“下一步”命令|按钮 |
+|控制暂停|按钮触发玩家“暂停”命令|按钮 |
+|控制播放 |按钮触发播放器“播放”命令|按钮 |
+| controlPrevious |按钮触发玩家“上一个”命令|按钮 |
+|控制重复 |按钮触发玩家“重复”命令|真/假|
+|控制倒带 |触发播放器“倒带”命令的按钮（30 秒）|按钮 |
+| controlShuffle |切换为播放器启用或禁用随机播放模式 |真/假|
+|当前专辑 |当前专辑实际播放|信息 |
+|当前艺术家 |当前艺术家实际演奏|信息 |
+|当前状态 |如果播放 -> true ，否则 false|真/假|
+|当前标题|当前标题实际播放|信息 |
+|图片网址 |相册图片的 URL |信息 |
+| mainArtURL |当前主要艺术的 URL |信息 |
+|媒体长度 |当前标题的长度 |信息 |
+| mediaLengthStr |活动媒体长度为 (HH:)MM:SS |信息 |
+| mainProgress |活动媒体已用时间 |信息 |
+| mainProgressPercent |活动媒体已用时间百分比 |信息 |
+| mediaProgressStr |活动媒体进度为 (HH:)MM:SS |信息 |
+| miniArtUrl |艺术网址（迷你）|信息 |
+|静音 | '静音' 状态 | Information, true / false, volume = 0 被认为是静音 |
+|提供者 ID |当前音乐提供商的 ID |信息 |
+|供应商名称 |当前音乐提供商的名称 |信息 |
+|电台 ID | TuneIn 电台的 ID |信息 |
+|服务 |当前音乐服务的名称 |信息 |
+|音量 |播放音量。您可以输入 0-100% 之间的值 |输入量 |
 
-### Alexa2.0.Echo-Devices.Serialnumber.Reminder。*
-每个设备的提醒（Erinnerungen）设置（如果有）。
+### Alexa2.0.Echo-Devices.Serialnumber.Reminder.*
+每个设备的提醒 (Erinnerungen) 设置（如果有）。
 
-|州名|意思|值|
+|州名 |意思 |价值 |
 | - | - | - |
-|启用|显示提醒状态并允许对其进行更改：使用true激活提醒-使用false禁用提醒，禁用后将在一段时间后自动删除。正确/错误|
-|时间|提醒时间。覆盖现有提醒的时间以设置新时间|时间输入|如果您已有提醒，则可以在此处更改时间，只需以hh：mm：ss格式覆盖时间即可，无需设置秒。 |
-|触发如果达到并触发了提醒，则为true。时钟必须与Amazon和iobroker保持同步，一旦达到提醒时间，可使用此时钟来触发其他操作|正确/错误|
+|启用 |显示提醒状态并允许更改它： 使用真激活提醒 - 使用假停用提醒，禁用时将在一段时间后自动删除 |真/假|
+|时间|提醒时间。覆盖现有提醒的时间以设置新时间 |时间输入 |如果您有现有的提醒，您可以通过简单地以 hh:mm:ss 格式覆盖时间来更改时间，不需要设置秒 |
+|触发|如果达到并触发提醒，则为 true。时钟必须与亚马逊和iobroker同步，一旦到了提醒时间，使用它来触发其他动作|真/假|
 
-|新品|以以下格式添加新的提醒<br>时间（hh：mm），文字<br>|文字输入<br>12:00，提醒我
+|新 |在格式中添加新的提醒<br>时间（时：分），文本<br>|文本输入<br>12:00，提醒我
 
-### Alexa2.0.Echo-Devices.Serialnumber.Routines。*
-在Alexa App中设置的例程概述。自行创建的例程具有序列号，Amazon显示为“ preconfigured：...”（预配置：...），每个例程都可以通过按钮触发一次，以运行一次。
+### Alexa2.0.Echo-Devices.Serialnumber.Routines.*
+Alexa 应用程序中设置的例程概述。自创建的例程有一个序列号，亚马逊显示为“预配置：...”每个例程都可以通过一个按钮触发运行一次。
 
-|州名|意思|值|
-| - | - | - |
-
-|例程的序列号或内部名称|例程名称|按钮
-
-### Alexa2.0.Echo-Devices.Serialnumber.Timer。*
-您可以在每台Alexa设备上运行一个或多个计时器。由于计时器具有非常动态的特性，因此不会再创建像“警报”或“提醒”这样的其他对象，但是存在一种获取触发信息的方法。
-
-|州名|意思|值|
+|州名 |意思 |价值 |
 | - | - | - |
 
-|触发计时器被触发|信息
+|例程的序列或内部名称 |例程名称 |按钮
+
+### Alexa2.0.Echo-Devices.Serialnumber.Timer.*
+您可以在每台 Alexa 设备上运行一个或多个计时器。由于计时器的动态特性，不会像使用警报或提醒那样创建更多对象，但是存在一种获取触发信息的方法。
+
+|州名 |意思 |价值 |
+| - | - | - |
+
+|触发|定时器被触发 |信息
+
+**请注意ipbroker主机的时区设置与您当地的时区相匹配很重要，否则触发的时间检测可能是错误的！**
 
 ### Alexa2.0.Echo-Devices.Serialnumber.online
-此Alexa设备是否在线且已连接到Amazon云？
+这个 Alexa 设备是否在线并连接到亚马逊云？
 
-|州名|意思|值|
+|州名 |意思 |价值 |
 | - | - | - |
 
-|在线|设备在线吗？ |真假
+|在线 |设备是否在线？ |真假
 
-### Alexa2.0。历史
-|州名|意思|值|
+### Alexa2.0.History
+|州名 |意思 |价值 |
 | - | - | - |
-| #trigger |按钮以获取新的历史记录（更多的当前时间，然后是creationTime中的时间戳），仅在不使用推式连接时才需要|纽扣 |
-| cardContent |其他信息，如Alexa-App / Echo Show中所示。信息|
-| cardJson |如JSON格式所示，其他信息如Alexa-App / Echo中所示。信息|
-| creationTime |此历史记录条目的日期，仅当此时间戳记|稍后才考虑新的历史记录条目。信息|
-| domainApplicationId |其他信息，例如Skill-ID或类似信息，可选|信息|
-| domainApplicationName |其他信息，例如技能名称或类似信息，可选|信息|
-| json |最后命令数据的Json能够处理所有信息，例如用自己的JavaScript | JSON |
-|名称|上次请求的设备的名称|信息|
-| serialNumber |得到最后一个请求的设备的序列号|信息|
-|状态|对Alexa的最后命令状态|成功/故障/ DISCARDED_NON_DEVICE_DIRECTED_INTENT;当说出唤醒字来激活设备时，或者当设备将输入丢弃为“不适合我”时，将生成最后一个。 |
-|总结设备收到的文本/摘要/操作|信息|
+| #触发器 |获取新历史记录的按钮（比创建时间中的时间戳更当前），仅在不使用推送连接时才需要 |按钮 |
+|卡片内容 | Alexa-App/Echo Show | 中显示的附加信息信息 |
+| cardJson |附加信息如 Alexa-App/Echo Show 中以 JSON 格式显示 |信息 |
+|创作时间 |此历史条目的日期，只有在以后作为此时间戳时才考虑新的历史条目 |信息 |
+|域应用程序 ID |附加信息，如技能 ID 等，可选 |信息 |
+|域应用名称 |附加信息，如技能名称等，可选 |信息 |
+| json |最后一个命令数据的 Json 能够处理所有信息，例如在自己的 JavaScript 中| JSON |
+|姓名 |获得最后一个请求的设备名称 |信息 |
+|序列号 |获得最后一个请求的设备的序列号 |信息 |
+|状态 |对 Alexa 的最后一条命令的状态 |成功 / 故障 / DISCARDED_NON_DEVICE_DIRECTED_INTENT;最后一个是在通过说出唤醒词激活设备时生成的，或者当设备将输入丢弃为“不适合我”时生成 |
+|摘要 |设备收到的文本/摘要/操作 |信息 |
 
-### Alexa.0。智能家居设备
-包括Alexa从您的技能中了解的所有智能家居设备。所有已知设备的状态如下：
+### Alexa.0.Smart-Home-Devices
+包括 Alexa 从您的技能中知道的所有智能家居设备。对于所有已知设备，状态如下：
 
-|州名|意思|值|
-| - | - | - |
-
-| deleteAll |与Alexa应用程序中的按钮相同，从Alexa删除所有智能家居设备。纽扣discoverDevices |查找新的智能家居设备，与Alexa App中的按钮相同|纽扣queryAll |查询所有设备，仅当至少一台设备能够检索信息时才可见|按钮
-
-### Alexa.0.Smart-Home-Devices.SerialNumber。*
-|州名|意思|值|
+|州名 |意思 |价值 |
 | - | - | - |
 
-| #delete |从Alexa删除智能家居设备|纽扣#enabled |智能家居设备是否处于活动状态？ |信息
+|全部删除 |从 Alexa 中删除所有智能家居设备，与 Alexa 应用程序中的按钮相同 |按钮 |发现设备 |查找新的智能家居设备，与 Alexa 应用程序中的按钮相同 |按钮 |查询全部 |查询所有设备，只有在至少一台设备能够检索信息时才可见|按钮
 
-| #query |查询此设备的数据，仅当智能家居设备/技能支持检索信息时才可见|纽扣 |
-|活跃当场景可以被激活/关闭时显示正确/错误|
-| powerState |开启/关闭电源|多变，对/错|
-| ... |根据智能家居设备的类型，还有更多可能的状态。信息或可变的:-) |
-
-**->彩色/灯光设备的特殊状态**
-
-|州名|意思|值|
+### Alexa.0.Smart-Home-Devices.SerialNumber.*
+|州名 |意思 |价值 |
 | - | - | - |
-|亮度| HUE灯的亮度|可变0-100％|
-|色彩亮度|色彩清晰度的亮度（以及色相和饱和度，HSV）|信息，0-1％|
-|色相|颜色的色相值（以及亮度和饱和度，HSV）|信息，0-360°|
-|颜色饱和度|颜色的饱和度（以及亮度和色相，HSV）|信息0-1 |
-| colorRGB |实际颜色的RGB代码是根据color- *值构建的|信息，＃rrggbb |
-| colorName |由Alexa定义的颜色名称-固定值|可变以设置颜色，0-144 |
-| colorTemperarureInKelvin |开尔文色温|信息，1000-10000K |
-| colorTemperatureName | Alexa定义的色温名称-固定值|可变设置，0-18 |
 
-使用#brightness，您可以调整灯光的亮度，＃colorName是选择一种预定义的颜色（0-144）。对于HUE环境光，您可以在#colorTemperatureName中的0-18值之间选择19个值。可以使用#powerState打开和关闭所有指示灯。
+| #删除|从 Alexa 中删除智能家居设备 |按钮 | #启用 |智能家居设备是否处于活动状态？ |信息
 
-### Alexa2.0.Info。*
-|州名|意思|值|
+| #查询 |查询此设备的数据，仅当智能家居设备/技能支持检索信息时可见 |按钮 |
+|活跃 |当场景可以激活/停用时显示|真/假|
+|电源状态|打开/关闭电源 |多变，真/假|
+| ... |更多可能的状态取决于智能家居设备的类型|信息或可变:-) |
+
+**-> 颜色/灯光设备的特殊状态**
+
+|州名 |意思 |价值 |
 | - | - | - |
-|连接|如果与Alexa的连接正常|信息->正确/错误|
-| Cookie | Alexa cookie，与几个也要访问Alexa API的外部脚本一起使用|信息|
-| csrf | Alexa CSRF，与几个也要访问Alexa API的外部脚本一起使用|信息|
+|亮度| HUE灯的亮度|可变 0-100% |
+|颜色-亮度|颜色定义的亮度（连同色调和饱和度，HSV）|信息，0-1% |
+|色调|颜色的色调值（连同亮度和饱和度，HSV）|信息，0-360° |
+|色彩饱和度|颜色的饱和度（连同亮度和色调，HSV）|信息, 0-1 |
+|颜色RGB |实际颜色的 RGB 代码由 color-* 值构成 |信息，#rrggbb |
+|颜色名称 | Alexa 定义的颜色名称 - 固定值 |可更改设置颜色，0-144 |
+| colorTemperarureInKelvin |开尔文色温 |信息，1000-10000K |
+|颜色温度名称 | Alexa 定义的色温名称 - 固定值 |可更改设置，0-18 |
 
-##缺少功能
-*如何更新音量，随机播放或重复播放和doNotDisturb的初始状态？还是不需要？
-*添加字段以显示播放信息，例如JS版本
-*如果cookie / csrf无效，则自动停用
+使用#brightness 可以调整灯光的亮度，#colorName 是选择一种预定义的颜色（0-144）。对于 HUE 环境光，您可以在 #colorTemperatureName 中从 0-18 的 19 个值之间进行选择。所有的灯都可以用#powerState 打开和关闭。
+
+### Alexa2.0.Info.*
+|州名 |意思 |价值 |
+| - | - | - |
+|连接 |如果与 Alexa 的连接正常 |信息 -> 真/假 |
+|饼干 | Alexa cookie，与多个也想访问 Alexa API 的外部脚本一起使用 |信息 |
+| csrf | Alexa CSRF，与多个也想访问 Alexa API 的外部脚本一起使用 |信息 |
+
+## 缺少功能
+* 如何更新音量、随机播放或重复播放和请勿打扰的初始状态？！还是不需要的？
+* 添加字段以显示播放信息，如 JS 版本
+* 如果 cookie/csrf 无效，则自行停用
 
 ＃＃ 安装
-像往常一样，使用稳定的存储库，最新的存储库或使用GitHub的ioBroker“安装”选项
+像往常一样使用稳定存储库、最新存储库或使用 ioBroker 来自 GitHub 的“安装”选项
 
 ＃＃ 故障排除
-###通过电子邮件/密码确定Cookie的问题
-有时，当Amazon在登录时检测到意外流量时，就会对其进行怪异的检查。
-这可能会导致需要输入验证码才能登录的问题。
-通常，此验证码需要回答一次，此后无需使用验证码即可登录。
+### 通过电子邮件/密码确定 Cookie 的问题
+有时，当 Amazon 在登录时检测到意外流量时，他们会进行适当的检查。
+这可能会导致需要回答验证码才能登录的问题。
+大多数情况下，此验证码需要回答一次，此后无需验证码即可登录。
 
 当您需要回答这样的验证码时，请尝试执行以下操作：
 
-*使用常见的浏览器（例如Chrome）
-*禁用Javascript！
-*清除Amazon可能存在的所有cookie或使用浏览器的Proivate / Incognito模式
-*致电https://alexa.amazon.de
-*您应该获得一个登录表单（通常显示在较旧的移动浏览器中）
-*使用您在其中注册了Echo / Alexa的Amazon凭证登录那里
-*您可能需要登录两次或解决验证码
-*最后，您应该看到“ https://alexa.amazon.de/spa/index.html”作为URL，但没有任何实际内容（因为仍然禁用了JS），但这完全可以！！！
-*现在尝试再次获取cookie
-*如果仍然无法正常运行，请再次执行该操作，然后从浏览器中检查User-Agent和accept-Language并在下一次尝试中使用适配器中的内容
+* 使用通用浏览器（例如 Chrome）
+* 禁用Javascript！
+* 清除亚马逊可能存在的所有 cookie 或使用浏览器的 Proivate/Incognito 模式
+* 致电 https://alexa.amazon.de
+* 你应该得到一个登录表单（通常在旧的移动浏览器中显示）
+* 使用您注册 Echo/Alexa 的亚马逊凭证登录那里
+* 您可能需要登录两次或解决验证码
+* 最后你应该看到“https://alexa.amazon.de/spa/index.html”作为 URL 但没有任何实际内容（因为 JS 仍然被禁用），但这完全没问题！！！！
+* 现在尝试再次获取 cookie
+* 如果它仍然不起作用，请再次尝试并从浏览器中检查 User-Agent 和 accept-Language 并在下次尝试时使用适配器中的那些
 
-另外，Accept-Language-Header（接受语言标头）（默认为“ de-DE”）需要与您的语言/浏览器语言/登录的亚马逊页面的语言匹配。
+此外，Accept-Language-Header（默认为“de-DE”）需要与您的语言/浏览器语言/您登录的亚马逊页面的语言相匹配。
 
-您也可以尝试使用User-Agent并使用一种与您使用的系统类型更多匹配项的代理。
-例如，当ioBroker在Linux系统上运行时，使用User-Agent的示例使用“ Mozilla / 5.0（X11; Linux x86_64）AppleWebKit / 537.36（KHTML，例如Gecko）Chrome / 51.0.2704.103 Safari / 537.36”可以更好地工作。
+您还可以尝试使用 User-Agent 并使用与您使用的系统类型更匹配的一种。
+例如，使用“Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36”作为用户代理被报告为当 ioBroker 在 linux 系统上运行时工作得更好。
 
-您可以在适配器配置中覆盖所有这些参数。
+您可以覆盖适配器配置中的所有这些参数。
 
-###如何自行确定Cookie？
-如果无法自动确定Cookie，或者您不信任适配器提供电子邮件/密码，那么您可以自己确定Cookie。网络上有几个信息。这里有一些链接：
+### 如何自己确定Cookie？
+如果自动 Cookie 确定不起作用，或者您不相信适配器会提供电子邮件/密码，那么您可以自行确定 cookie。网上有几个信息如何做到这一点。这里有一些链接：
 
 * https://www.gehrig.info/alexa/Alexa.html
-*或使用https://blog.loetzimmer.de/2017/10/amazon-alexa-hort-auf-die-shell-echo.html中的shellscript在外壳上获取它...
+* 或使用 https://blog.loetzimmer.de/2017/10/amazon-alexa-hort-auf-die-shell-echo.html 中的 shellscript 将其放在 shell 上...
 
-但是请注意：Cookie会在若干时间后超时，然后适配器将停止工作并自行禁用。然后，您需要手动获取一个新的cookie！
-
-##什么是Sentry.io，什么报告给该公司的服务器？
-Sentry.io是一项服务，供开发人员从其应用程序中获取有关错误的概述。确切地说，这是在此适配器中实现的。
-
-当适配器崩溃或发生其他代码错误时，此错误消息（也出现在ioBroker日志中）将提交给Sentry。当您允许iobroker GmbH收集诊断数据时，还将包括您的安装ID（这是唯一ID，**没有**关于您，电子邮件，姓名等的任何其他信息）。这使Sentry可以对错误进行分组，并显示有多少唯一用户受此错误影响。所有这些都帮助我提供了基本上不会崩溃的无错误适配器。
+但请注意：Cookie 将在一段时间后超时，然后适配器将停止工作并自行禁用。然后您需要手动获取一个新的 cookie！
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Fix crash case
+* (ammawel) Add recurringPattern for Notifications (see Readme)
+* (Apollon77) Make sure states are not set too early before objects are created
+
+### 3.11.2 (2021-10-12)
+* (Apollon77) Fix crash case (Sentry IOBROKER-ALEXA2-AT)
+
+### 3.11.1 (2021-10-12)
+* (Apollon77) Prevent warnings with js-controller 3.3
+
+### 3.11.0 (2021-10-12)
+* (Apollon77) Add support for Multi Utterance Routines
+* (Apollon77) Fix object deletion for lists
+* (Apollon77) Fix Creation of new Lists and add deletion support
+* (Apollon77) Allow Commands for Stereo Pairs
+* (Apollon77) Optimize Push Connection and History retrieval
+
+### 3.10.4 (2021-10-11)
+* IMPORTANT: Node.js 10 support is dropped, supports LTS versions of Node.js starting with 12.x
+* (Apollon77) Update Push Connection
+
+### 3.9.3 (2021-07-11)
+* (Apollon77) Try to fix setting targetTemperature for ThermostatController
+
+### 3.9.2 (2021-07-05)
+* (Apollon77) Only ignore empty history entries if both, summary and alexaResponse is empty
+
+### 3.9.1 (2021-06-04)
+* (Apollon77) Fix cookie exchange and cookie validation checks
 
 ### 3.9.0 (2021-05-11)
 * (Apollon77) Add some new devices
@@ -362,7 +391,7 @@ Sentry.io是一项服务，供开发人员从其应用程序中获取有关错�
 * (arteck) add echo studio
 
 ### 3.2.6 (2020-07-15)
-* (Apollon77) Work around Amazon Security changes and make proxy working again 
+* (Apollon77) Work around Amazon Security changes and make proxy working again
 
 ### 3.2.5 (2020-07-13)
 * (Apollon77) Work around Amazon Security changes and make proxy working again 
@@ -389,7 +418,7 @@ Sentry.io是一项服务，供开发人员从其应用程序中获取有关错�
 * (Apollon77) make sure that Lists objects are deleted correctly when deleting
 * (Apollon77) Make compatible with nodejs 14
 * (Apollon77) Adjust to changes from Amazon so that initial Proxy process works again
-* (OberstVonGatow) Make sure that for Spotify Media data requests do not have negative effects and stop the playback  
+* (OberstVonGatow) Make sure that for Spotify Media data requests do not have negative effects and stop the playback
 
 ### 3.1.2 (2020-03-18)
 * (Gieskanne/Apollon77) Add Next Timer Date as state
@@ -427,7 +456,7 @@ Sentry.io是一项服务，供开发人员从其应用程序中获取有关错�
 * (Apollon77) prevent some crashed after changes by Amazon
 * (Apollon77) fix Routine names after changes by Amazon
 * (Apollon77) add some devices and new images
-* (Apollon77) Add more situations to update player status because amazon send no info anymore on title changes 
+* (Apollon77) Add more situations to update player status because amazon send no info anymore on title changes
 
 ### 2.6.4 (2019-07-25)
 * (Apollon77) add some error handling for contacts
@@ -465,7 +494,7 @@ Sentry.io是一项服务，供开发人员从其应用程序中获取有关错�
 * (Apollon77) optimize Admin display of Status/Link
 * (Apollon77) add Link to https://alexa.amazon.com to Admin instance overview
 * (Apollon77) Remove Admin2 support
-* (Apollon77) Optimize Handling from DNS errors (hopefully) to prevent stopped Adapters on Internet/DNS problems 
+* (Apollon77) Optimize Handling from DNS errors (hopefully) to prevent stopped Adapters on Internet/DNS problems
 
 ### 2.3.3 (2019-06-21/22)
 * (Apollon77) adjust to current Amazon changes
@@ -483,7 +512,7 @@ Sentry.io是一项服务，供开发人员从其应用程序中获取有关错�
 ### 2.1.0 (2019-01-13) [unpublished]
 * (Apollon77) cookie handling completely rewritten, no email/password anymore, only Proxy (still only from log)
 * (Apollon77) fixes routine triggering that triggered on wrong device sometimes
-* (Apollon77) added new commands "deviceStop", "announcement", "notification", and "ssml" (see documentation above) 
+* (Apollon77) added new commands "deviceStop", "announcement", "notification", and "ssml" (see documentation above)
 
 ### 1.1.3 (2018-11-17)
 * (Apollon77) optimize cookie handling again
@@ -567,7 +596,6 @@ Sentry.io是一项服务，供开发人员从其应用程序中获取有关错�
 * (Apollon77) New "Music-Provider" states depending on available music providers with possibility to enter a text to play something (same as you would speak it)
 * (Apollon77) Volume is send different now, so that it also works when Device player get's inactive
 
-
 ### 0.2.4 (2018-07-22)
 * (pix) materialize settings window
 * (Apollon77) WOn IP is set automatically with IP from first network interface
@@ -600,16 +628,6 @@ Sentry.io是一项服务，供开发人员从其应用程序中获取有关错�
 * (Apollon77) 0.2.0: Automatically use different user-agents for Win32, MacOS and Linux based systems
 * (Apollon77) 0.2.0: Also support entering TuneIn-Station IDs ("s" plus 4-6 digits) to play that station
 
-### 0.1.x (Github only as iobroker.alexa)
-* (Apollon77) 0.1.5: Adapter disables itself on error (no cookie/no csrf in cookie/captcha needed)
-* (Apollon77) 0.1.5: Reorganized some states (delete object again please), add playerinfo section for later usage, hopefully fixed unplanned device renaming and other things
-* (Apollon77) 0.1.5: Added adapter config options to overwrite used amazon-page, user-agent and accept-language for cookie determination and
-* (Apollon77) 0.1.4: State changes are logged and only considered when ack=false!
-* (Apollon77) 0.1.3: Corrected all roles, delete objects and start again!
-* (Apollon77) 0.1.3: bluetooth connection status filled correctly initially
-* (Apollon77) 0.1.2: Library fixes and updates
-* (Apollon77) 0.1.1: Library fixes and updates
-
 ### 0.1.0 (2018-07-10)
 * (Apollon77) get Adapter working again, especially getting cookie and optimize refresh
 
@@ -620,7 +638,7 @@ Sentry.io是一项服务，供开发人员从其应用程序中获取有关错�
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2018 soef <soef@gmx.net>, 2018-2021 Ingo Fischer <iobroker@fischer-ka.de>
+Copyright (c) 2018-2021 Ingo Fischer <iobroker@fischer-ka.de>, 2017-2018 soef <soef@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

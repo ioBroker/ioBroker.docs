@@ -9,7 +9,7 @@
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/alexa2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.alexa2.svg)](https://www.npmjs.com/package/iobroker.alexa2)
 
-**This adapter uses the service [Sentry.io](https://sentry.io) to automatically report exceptions and code errors and new device schemas to me as the developer.** More details see below!
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 This adapter allows you to remote control your Alexa (Amazon Echo) devices.
 
@@ -49,6 +49,7 @@ Alarm (Wecker) settings for each device, if available.
 | enabled | Shows status of alarm and allows to change it: Activate alarm with true - Deactivate alarm with false | true / false |
 | time | Time for alarm. Overwrite the time for existing alarm to set a new time for this alarm. In case you have an existing alarm you can change the time here by simply overwrite the time in format hh:mm:ss, seconds are not needed to set | Time Input |
 | triggered | true if alarm is reached and triggered. Clock must be in sync with Amazon and iobroker, Use this to trigger other action as soon as the alarm time is reached | true / false |
+| recurringPattern | Shows the recurring pattern of alarm | 0 = one time, no recurring <br> P1D = daily <br> XXXX-WD = on weekdays <br> XXXX-WE = on weekends <br> XXXX-WXX-1 = every monday <br> XXXX-WXX-2 = every tuesday <br> XXXX-WXX-3 = every wednesday <br> XXXX-WXX-4 = every thursday <br> XXXX-WXX-5 = every friday <br> XXXX-WXX-6 = every saturday <br> XXXX-WXX-7 = every sunday |
 | new | time for new alarm for this device. If you put a value here a new alarm will be created | Time Input (hh:mm:ss, seconds are not needed) |
 
 ### alexa2.0.Echo-Devices.Serialnumber.Bluetooth.*
@@ -175,6 +176,7 @@ You can have one or more timer running on each Alexa device. Because of the very
 | - | - | - |
 | triggered | A timer got triggered | Information
 
+**Please note that it is important that the timezone of the ipbroker host is set to match your local timezone, else the triggered time detection might be wrong!**
 
 ### alexa2.0.Echo-Devices.Serialnumber.online
 Is this Alexa device online and connected to the Amazon cloud ?
@@ -284,13 +286,14 @@ If the automatic Cookie determination don't work or you do not trust the Adapter
 
 But be aware: The Cookie will time out after several time and then the adapter will stop working and disable itself. You then need to manually get a new cookie!
 
-## What is Sentry.io and what is reported to the servers of that company?
-Sentry.io is a service for developers to get an overview about errors from their applications. And exactly this is implemented in this adapter.
-
-When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry. When you allowed iobroker GmbH to collect diagnostic data then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of this helps me to provide error free adapters that basically never crashs.  
-
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Fix crash case
+* (ammawel) Add recurringPattern for Notifications (see Readme)
+* (Apollon77) Make sure states are not set too early before objects are created
+
 ### 3.11.2 (2021-10-12)
 * (Apollon77) Fix crash case (Sentry IOBROKER-ALEXA2-AT)
 

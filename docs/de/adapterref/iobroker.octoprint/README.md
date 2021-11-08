@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: rscpkzDVDZrsb3luDxbDTTsvRX7xgyHtH0fJMIesPvw=
+hash: UIQzTj/niqykyk4X6zYZI+AH+i3/X5WYH27JP8BFhxI=
 ---
 ![Logo](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
 
@@ -49,7 +49,7 @@ iobroker add octoprint
 - Wählen Sie eine Datei aus oder drucken Sie sie aus
 
 ## Wichtig!
-Starten Sie die Octoprint-Instanz (oder eine andere Instanz) NICHT mit Code wie diesem neu:
+Starten Sie Ihre OctoPrint-Instanz (oder eine andere Instanz) NICHT mit Code wie diesem neu:
 
 ```javascript
 var obj = getObject('system.adapter.octoprint.0');
@@ -57,11 +57,19 @@ obj.common.enabled = false;
 setObject('system.adapter.octoprint.0', obj);
 ```
 
-Da der API-Schlüssel seit Version 1.1.0 ein geschütztes Attribut ist, wird dadurch der konfigurierte API-Schlüssel entfernt. Der Grund ist, dass `getObject` keine geschützten Informationen zurückgibt (also der API-Schlüssel nicht im zurückgegebenen Objekt enthalten ist). Wenn Sie das Objekt speichern, speichern Sie ein Objekt ohne den Schlüssel.
+Da `API key` seit Version 1.1.0 ein geschütztes Attribut ist, wird dadurch der konfigurierte API-Schlüssel entfernt. Der Grund ist, dass `getObject` keine geschützten Informationen zurückgibt (also der API-Schlüssel nicht im zurückgegebenen Objekt enthalten ist). Wenn Sie das Objekt speichern, speichern Sie ein Objekt ohne den Schlüssel.
 
 Bitte verwenden Sie den Zustand `system.adapter.octoprint.0.alive`, um die Instanz zu stoppen/zu starten.
 
 ## Changelog
+
+### 2.0.1
+
+* (klein0r) Fixed missing translations
+
+### 2.0.0
+
+* (klein0r) Admin 5 Support
 
 ### 1.1.2
 

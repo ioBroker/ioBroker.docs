@@ -19,13 +19,14 @@ async function translateTitle(title, inFolder) {
         const m = title.match(/\[(.+)]\((.*)\)/);
         title = m[1];
         words.link = m[2].trim();
-        if (words.link.indexOf('.') === -1) {
+        if (!words.link.includes('.')) {
             words.link += '.md';
         }
         /*if (!words.link.startsWith('/')) {
             words.link = '/' + words.link;
         }*/
     }
+
     const langs = title.split(';');
     langs.forEach(lang => {
         const parts = lang.split(':');
@@ -35,6 +36,7 @@ async function translateTitle(title, inFolder) {
             words.en = lang.trim();
         }
     });
+
     consts.LANGUAGES.forEach(lang => {
         if (!words[lang]) {
             words[lang] = (words.en || words.de);
@@ -50,7 +52,7 @@ async function translateTitle(title, inFolder) {
             if (fs.existsSync(name)) {
                 const data = fs.readFileSync(name).toString('utf-8');
                 const title = utils.getTitle(data);
-                if (title) {
+                if ((!words[lang] || words[lang].includes('!')) && title) {
                     words[lang] = title;
                 }
             }
@@ -95,7 +97,7 @@ async function processContent(filePath) {
                     const files = fs.readdirSync(path.join(consts.SRC_DOC_DIR, 'de', 'faq')).filter(name => name.match(/^_\d/)).sort();
                     return Promise.all(files.map(async file => {
                         if (fs.existsSync(path.join(consts.SRC_DOC_DIR, 'de', 'faq', file, 'README.md'))) {
-                            const words = await translateTitle('[' + file + '](faq/' + file.replace(/\.md$/, '') + ')', consts.FRONT_END_DIR);
+                            const words = await translateTitle(`[${file}](faq/${file.replace(/\.md$/, '')})`, consts.FRONT_END_DIR);
                             const link = words.link;
                             if (link) {
                                 delete words.link;

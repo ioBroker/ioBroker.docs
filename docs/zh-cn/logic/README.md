@@ -14,4 +14,4 @@ hash: en4Q+oQcaZAtaUbJq6fwE6UMbIHK5h8e0COUJmjF+w4=
 子对话框和详细信息应参考相应适配器的适配器参考。
 @@@
 
-单击此处查看 [英文函数文档](https://github.com/ioBroker/ioBroker.javascript/blob/master/docs/en/javascript.md)
+单击此处转到 [英文函数文档](https://github.com/ioBroker/ioBroker.javascript/blob/master/docs/en/javascript.md)

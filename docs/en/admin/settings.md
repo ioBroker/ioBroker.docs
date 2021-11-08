@@ -16,7 +16,7 @@ The system settings are distributed over several sub-pages:
 ## Main settings
 In the main settings, basic parameters for ioBroker are set, which are also used by the adapters in ioBroker.
 
-Some parameters are already taken from the host's settings.
+Some parameters are already taken from the host settings.
 
 ** System language **
 
@@ -42,7 +42,7 @@ Comma or point for float values
 
 In this instance the data is logged by default and used in the charts of flot and rickshaw.
 
-If only one history adapter (SQL / History / InfluxDB) is installed, it is used; if there are several, you can select one.
+If only one history adapter (SQL / History / InfluxDB) is installed, it is used; if there are several, one can be selected.
 
 ** Active depository **
 
@@ -78,7 +78,7 @@ The system settings are distributed over several sub-pages:
 ## Main settings
 In the main settings, basic parameters for ioBroker are set, which are also used by the adapters in ioBroker.
 
-Some parameters are already taken from the host's settings.
+Some parameters are already taken from the host settings.
 
 ** System language **
 
@@ -104,7 +104,7 @@ Comma or point for float values
 
 In this instance the data is logged by default and used in the charts of flot and rickshaw.
 
-If only one history adapter (SQL / History / InfluxDB) is installed, it is used; if there are several, you can select one.
+If only one history adapter (SQL / History / InfluxDB) is installed, it is used; if there are several, one can be selected.
 
 ** Active depository **
 
@@ -195,7 +195,7 @@ If port 80 is already being used by another service, point 4 applies - i.e. assi
 
 When the small web server is started, the request for the certificates for the specified addresses in the system settings is sent to the Let's encrypt server.
 
-The Let's Encrypt server sends a challenge phrase back in response to the request and after a while tries to read this challenge phrase at the address “http:// yourdomain: 80 / .well-known / acme-challenge /”.
+The Let's Encrypt server sends back a challenge phrase in response to the request and after a while tries to read this challenge phrase at the address “http:// yourdomain: 80 / .well-known / acme-challenge /”.
 
 When the server receives this challenge phrase back from us, the Let's Encrypt server sends the certificates. These are saved in the directory that is entered in the system settings.
 
@@ -255,7 +255,7 @@ If port 80 is already being used by another service, point 4 applies - i.e. assi
 
 When the small web server is started, the request for the certificates for the specified addresses in the system settings is sent to the Let's encrypt server.
 
-The Let's Encrypt server sends a challenge phrase back in response to the request and after a while tries to read this challenge phrase at the address “http:// yourdomain: 80 / .well-known / acme-challenge /”.
+The Let's Encrypt server sends back a challenge phrase in response to the request and after a while tries to read this challenge phrase at the address “http:// yourdomain: 80 / .well-known / acme-challenge /”.
 
 When the server receives this challenge phrase back from us, the Let's Encrypt server sends the certificates. These are saved in the directory that is entered in the system settings.
 

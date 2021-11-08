@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: d0byrV+TcfFTPZM0f2MaLfYpLhY2iGajGomGk8u3HeA=
+hash: IyzKsqjYYwcp+gOAO8D/+LbEVPHuHh9m80wJjRmaNVA=
 ---
 # IoBroker.dysonAirPurifier
 ![Logo](admin/dyson_logo.svg)![Logo](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -16,7 +16,7 @@ hash: d0byrV+TcfFTPZM0f2MaLfYpLhY2iGajGomGk8u3HeA=
 ![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.dysonairpurifier.svg)
 
-[![Abhängigkeitsstatus](https://david-dm.org/Grizzelbee/iobroker.dysonairpurifier.svg)](https://david-dm.org/Grizzelbee/iobroker.dysonairpurifier) [![Test und Veröffentlichung](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml)
+[![Test und Veröffentlichung](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml)
 
 ## IoBroker Adapter für Dyson Luftreiniger und Lüfter
 Dieser Adapter verbindet ioBroker mit verschiedenen Dyson Luftreinigern.
@@ -42,9 +42,9 @@ Verbindet Ihre Dyson-Lüfter, Heizlüfter, Luftreiniger und Luftbefeuchter mit i
 * Kann Geräte steuern, indem Sie einige Werte ändern können (Hauptleistung, Oszillation, Heizung, Lüftergeschwindigkeit, ...)
 * Liest Geräteliste von Dyson-Servern
 
-## Installation
+##Installation
 ### Sentry.io
-Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch an den Autor zu melden. Dafür wird das [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) Plugin verwendet. Bitte beachten Sie die [Plugin-Homepage](https://github.com/ioBroker/plugin-sentry) für detaillierte Informationen darüber, was das Plugin macht, welche Informationen gesammelt werden und wie Sie es deaktivieren können, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
+Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch an den Autor zu melden. Dafür wird das [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) Plugin verwendet. Bitte lesen Sie die [Plugin-Homepage](https://github.com/ioBroker/plugin-sentry) für detaillierte Informationen darüber, was das Plugin tut, welche Informationen gesammelt werden und wie Sie es deaktivieren können, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
 
 ###Voraussetzungen
 * Dieser Adapter benötigt Node.js >= Version 10
@@ -67,7 +67,7 @@ Sie können mit diesen Methoden auch ältere Release-Versionen installieren (ind
 * Dyson-Kontopasswort (dieser Adapter kann Passwörter mit bis zu 32 Zeichen verarbeiten)
 * die IP-Adresse Ihrer Ventilatoren/Luftreiniger in Ihrem LAN.
 
-*Bitte beachten*: Aufgrund des frühen Entwicklungsstandes und einer nicht konformen mDNS-Implementierung von Dyson müssen Sie *nach dem ersten Lauf* die lokale IP des Geräts angeben.
+*Bitte beachten*: Aufgrund des frühen Entwicklungsstandes und einer nicht konformen mDNS-Implementierung von Dyson müssen Sie *nach dem ersten Durchlauf* die lokale IP des Geräts angeben.
 
 *Zusätzlicher Hinweis*: Seit Version 0.7.1 versucht der Adapter, sich über seinen Hostnamen (Seriennummer) mit dem Gerät zu verbinden, wenn keine Hostadresse/IP angegeben ist. Dies funktioniert unter zwei Voraussetzungen:
 
@@ -84,7 +84,7 @@ Nach einem Update wird es auch automatisch neu gestartet. In beiden Fällen blei
 
 * Öffnen Sie den Konfigurationsdialog des Adapters
 * Geben Sie mindestens Ihre eMail-Adresse, das Passwort und den Ländercode ein - der Rest ist optional
-* Klicken Sie auf die 2FA-Code-E-Mail-Schaltfläche, um den Vorgang zu starten
+* Klicken Sie auf die Schaltfläche 2FA-Code E-Mail, um den Vorgang zu starten
 * Du erhältst automatisch eine "challengeId" im entsprechenden Feld, eine eMail und einen Dialog mit weiteren Anweisungen
 * geben Sie den 6-stelligen Code aus der eMail in das Feld "dyson one time password" ein
 * Klicken Sie auf die Schaltfläche "Fertig stellen"
@@ -99,7 +99,7 @@ Alle Werte werden gespeichert und weiterhin angezeigt.
 2. Warten Sie ein paar Minuten
 3. Geben Sie Ihre Zugangsdaten zum Adapter ein (falls noch nicht geschehen) und folgen Sie dem 2FA-Verfahren bis zum Ende.
 4. Der Adapter sollte starten und grün werden.
-5. Warten Sie eine Weile (bis zu einer Stunde oder vielleicht mehr, da Dyson einen Blocker für zu viele Anfragen in kurzer Zeit hat)
+5. Warten Sie eine Weile (bis zu einer Stunde oder vielleicht länger, da Dyson einen Blocker für zu viele Anfragen in kurzer Zeit hat)
 6. Melden Sie sich wieder bei Ihrer Dyson Smartphone-App an, wenn Sie diese verwenden möchten.
 
 ## Steuern Sie Ihr(e) Gerät(e)
@@ -134,7 +134,7 @@ Das macht auch die Dyson-App.
 ### Bekannte Probleme
 * Keine automatische IP-Erkennung von Geräten
 
-## Erklärung der Dyson API-Daten (Nachrichtennutzlast)
+## Erläuterung der Dyson API-Daten (Nachrichtennutzlast)
 Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md>
 
 ### AKTUELLEN ZUSTAND
@@ -159,7 +159,7 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | fdir | Fandirektion aka. Jet-Fokus/ EIN=Vorne, AUS=Zurück | EIN, AUS | |
 | ffoc | JetFocus | EIN, AUS |
 | nmod | Nachtmodus | EIN , AUS | |
-| oson | Schwingung | EIN, AUS| |
+| oson | Schwingung | EIN , AUS| |
 | osal | Oszillationswinkel untere Grenze | 0005 - 355| ° (Grad)|
 | osau | Oszillationswinkel Obere Grenze | 0005 - 355 | ° (Grad)|
 | oscs | OszillationAktiv | EIN, AUS, LEERLAUF | |
@@ -191,7 +191,7 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | hsta | Heizzustand | AKTIV/LEERLAUF |
 | msta | Befeuchtungszustand | Aktiv/Leerlauf AUS, HUMD |
 | psta | [HP0x] Unbekannt | INIT, CLNG, INV, AUS |
-| bril | unbekannt | 0002 | LEVEL_LOW, LEVEL_MEDIUM, LEVEL_HIGH |
+| hell | unbekannt | 0002 | LEVEL_LOW, LEVEL_MEDIUM, LEVEL_HIGH |
 | fqhp | unbekannt| |
 | Neigung | [HP0x] Unbekannt | Zeichenfolge |
 | Zifferblatt | [DP0x] Unbekannt | |
@@ -238,10 +238,10 @@ Redundante Werte?
 | volm | scheint ein Medianwert von volX | . zu sein | |
 | aql0 - aql9 | Anzahl der Zweitausgaben in dieser Luftqualität | max (pal, vol)) seit Beginn der Stunde | 0000 - 3600 | |
 | aqlm | scheint ein Medianwert von aqlX | . zu sein | |
-| fafs | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht wird | 0000 - 3600 | |
-| faos | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht wird | 0000 - 3600 | |
-| fofs | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht wird | 0000 - 3600 | |
-| fons | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht wird | 0000 - 3600 | |
+| fafs | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden | 0000 - 3600 | |
+| faos | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden | 0000 - 3600 | |
+| fofs | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden | 0000 - 3600 | |
+| fons | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden | 0000 - 3600 | |
 | summen | Feuchtigkeit ? (%) | 0000 - 0100 | |
 | tmpm | Temperatur in Kelvin? | 0000 - 5000 | |
 
@@ -249,6 +249,14 @@ Redundante Werte?
 Dyson, pure cool, pure hot & cool und andere sind Marken oder eingetragene Marken von [Dyson Ltd.](https://www.dyson.com) Alle anderen Marken sind Eigentum ihrer jeweiligen Inhaber.
 
 ## Changelog
+
+### V2.1.4 (2021-10-20) (Running to the edge)
+* (grizzelbee) New: [#152](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/152) Added token-indicator to config page in admin to show whether a token has already been received and saved or not.
+
+### V2.1.3 (2021-10-17) (Running to the edge)
+* (grizzelbee) Fix: [#148](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/148) Hostaddress is used properly when given.
+* (grizzelbee) Fix: [#149](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/149) OscillationAngle "Breeze" is working now 
+* (grizzelbee) Fix: [#150](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/150) Strange delay and jumping of boolean switches is fixed 
 
 ### V2.1.2 (2021-10-07) (Running to the edge)
 * (grizzelbee) New: Removed NO2 from general AirQuality to be more compliant to dyson-app
@@ -267,7 +275,7 @@ Dyson, pure cool, pure hot & cool und andere sind Marken oder eingetragene Marke
 
 ### V2.0.1 (2021-10-04) (Lost in forever)
 * (grizzelbee) Fix: Turning on HeatingMode should work now
-* (grizzelbee) Fix: Sentry-error [2690134161](https://sentry.io/organizations/nocompany-6j/issues/2690134161/?project=5735771) -> Cannot read property '3' of undefined
+* (grizzelbee) Fix: Sentry-error [DYSONAIRPURIFIER-7](https://sentry.io/organizations/nocompany-6j/issues/2690134161/?project=5735771) -> Cannot read property '3' of undefined
 * (grizzelbee) Upd: Updated dependencies
 
 ### V2.0.0 (2021-09-26) (Lost in forever)

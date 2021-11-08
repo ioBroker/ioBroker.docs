@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: XahQPtXfSPQaNzSElWO2bWqie/qqcc5aABBArdantnU=
+hash: 1ahOGAFjQ9aWMdBggyYXYcPi2WGo/G0LX9Dkdl2fsfc=
 ---
 ![标识](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
@@ -49,7 +49,10 @@ hash: XahQPtXfSPQaNzSElWO2bWqie/qqcc5aABBArdantnU=
 ＃＃ 已知的问题
 * 如果您发现错误或想要新功能，请在 [github](https://github.com/rg-engineering/ioBroker.ebus/issues) 创建问题
 
-## 2.4.1 (2021-10-18)
+## 2.4.3 (2021-10-21)
+* (René) 参见问题 #58：错误修复警告：在没有设置历史值时忽略历史值 1（无效）”
+
+## 2.4.2 (2021-10-19)
 * (René) 参见问题 #55：错误修复
 
 ## 2.4.0 (2021-10-17)

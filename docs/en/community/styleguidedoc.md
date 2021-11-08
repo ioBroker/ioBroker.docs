@@ -23,7 +23,7 @@ The characters `a-z`, `0-9`, the underscore `_` and the decimal point `.` are al
 
 * For German texts, compliance with the new German spelling is required
 
-  prefers.
+  preferred.
 
 * In reference documentation, the use of personal pronouns (e.g.
 
@@ -51,7 +51,7 @@ The characters `a-z`, `0-9`, the underscore `_` and the decimal point `.` are al
 * Documents always begin with a heading on level H1.
 * Links are not placed inline (e.g. with `[a link] (http://example.com)`),
 
-but with the help of inline `[a link][]` and `[a link]: https://a.link/to/know` at the end of the document.
+but placed at the end of the document with the help of inline `[a link][]` and `[a link]: https://a.link/to/know`.
 
 * If dashes are used, use the short notation
 
@@ -83,7 +83,7 @@ represent examples to clarify the point of view just described. So there is no n
 
 the correct escape characters have to be used: `\_`, `\*`, `\\` and ``\`` ` anstelle von `_`, ` * §§ SSSSS_6§§ \ ` und `` ` ``.
 
-* To emphasize a note, the following guidelines are
+* To make a note stand out, the following guidelines are
 
   to note:
 

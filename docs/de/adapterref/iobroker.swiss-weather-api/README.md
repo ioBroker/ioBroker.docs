@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.swiss-weather-api/README.md
 title: ioBroker.swiss-weather-api
-hash: vnDfTZn2qAakTnrpH7PNW+q/yfQg9T8TudfRJ/INW5Y=
+hash: MN9ch329u8qQbmvZYV1HlOsYj1Z3mzxqcxvybkf0kYc=
 ---
 ![Logo](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
 
@@ -17,12 +17,21 @@ hash: vnDfTZn2qAakTnrpH7PNW+q/yfQg9T8TudfRJ/INW5Y=
 ![Travis-CI](http://img.shields.io/travis/baerengraben/ioBroker.swiss-weather-api/master.svg)
 
 # IoBroker.swiss-weather-api
-#Beachtung!!!
-**SRG hat seine API komplett neu aufgebaut. Die alte API (<= Adapterversion 0.3.2) wird NICHT mehr unterstützt. Ab Adapterversion 0.9.x wird die neue API der SRG verwendet. Deshalb muss eine neue SRG APP (zB Produkt "Freemium") erstellt werden (https://developer.srgssr.ch/apis/srf-weather). Siehe auch Readme, Kapitel "Erste Schritte" (unten). Bitte beachten Sie auch, dass die neue API auch komplett neue Objekte erstellt.**
+**Aktualisierungsverfahren Version 1.0.1 auf 1.0.x**
 
-**Die gute Nachricht ist, dass die neue API auch mehr Daten bereitstellt. ;)**
+- Einfach in ioBroker aktualisieren. Keine besonderen zusätzlichen Schritte notwendig
 
-**Aktualisierungsverfahren**
+**Aktualisierungsverfahren Version 1.0.0 auf 1.0.1**
+
+- Mit Version 1.0.1 behebe ich das Problem https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/57
+- Basierend auf [dieser](https://forum.iobroker.net/topic/46975/vis-widgethintergrund-farbe-durch-objektdatenpunkt-steuern) Diskussion sind Doppelpunkte in IDs nicht erlaubt. Ich habe daher die Doppelpunkte, die für die Stunden verwendet wurden, ersatzlos entfernt und auch die Sekunden weggelassen. z.B. alt 01:00:00 => neu 0100)
+
+Diese Änderung macht es erforderlich, IDs neu zu generieren. Um Version 1.0.1 zu installieren, muss die derzeit laufende Adapterinstanz vollständig entfernt und durch eine neue Instanz ersetzt werden.
+
+- Da sich mit Version 1.0.1 die IDs geändert haben, mussten auch die Visu-Views angepasst werden. Sie können die aktualisierten Ansichten [hier](https://github.com/baerengraben/ioBroker.swiss-weather-api/tree/master/views) abrufen und in ioBroker-Visu importieren.
+
+**Update-Prozedur Version 0.3.2 auf 0.9.x** Die SRG hat ihre API komplett neu aufgebaut. Die alte API (<= Adapterversion 0.3.2) wird NICHT mehr unterstützt. Ab Adapterversion 0.9.x wird die neue API der SRG verwendet. Deshalb muss eine neue SRG APP (zB Produkt "Freemium") erstellt werden (https://developer.srgssr.ch/apis/srf-weather). Siehe auch Readme, Kapitel "Erste Schritte" (unten). Bitte beachten Sie auch, dass durch die neue API auch komplett neue Objekte erstellt werden.
+Die gute Nachricht ist, dass die neue API auch mehr Daten bereitstellt. ;)**
 
 Meine Empfehlung für das Update von 0.3.2 auf 0.9.x lautet also:
 
@@ -53,18 +62,41 @@ Seit Version 0.1.8 bietet SRG-SSR eigene Icons. Jeder Datenpunkt liefert also ei
    1. Abfrageintervall in Minuten (Standardmäßig 30 Minuten - 50 Anfragen/Tag)
 
 Die erste Abfrage erfolgt 10s nach dem Start des Adapters. Nach dem ersten Start wird die Abfrage regelmäßig entsprechend dem Konifugationsparameter (Poll-Intervall in Minuten) ausgeführt.
-Die Objekte in outlook.current_hour werden 30s nach dem ersten Start erstellt und stündlich aktualisiert, indem die entsprechenden Werte aus Forecast.60minutes kopiert werden.
+Die Objekte in Forecast.current_hour werden 30s nach dem ersten Start erstellt und stündlich aktualisiert, indem die entsprechenden Werte aus Forecast.60minutes kopiert werden.
 
 ### Visualisierungsbeispiel
 ###### Voraussetzung:
 * Adapter [Material Design Widgets](https://github.com/Scrounger/ioBroker.vis-materialdesign) >= 0.5.7
 * Adapter [Vis](https://github.com/iobroker/iobroker.vis/blob/master/README.md)
-* [Improt Views to Vis](https://github.com/baerengraben/ioBroker.swiss-weather-api/tree/master/views)
+* [Ansichten nach Vis importieren](https://github.com/baerengraben/ioBroker.swiss-weather-api/tree/master/views)
 
 ###### Beispiel
 ![Tablette](../../../en/adapterref/iobroker.swiss-weather-api/doc/Wettervorhersage_visu_anim.gif)
 
 ## Changelog
+
+### 1.0.2
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/51
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/53
+
+### 1.0.1
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/57
+This change makes it necessary to regenerate IDs. So, to install version 1.0.1, the currently running adapter instance must be completely removed and replaced with a new instance.
+
+### 1.0.0
+* (baerengraben) Bugfix https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/64  
+
+### 0.9.9
+* (baerengraben) Workaround for SRG Certificate Problem: https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/63  
+
+### 0.9.8
+* (jobe451)  Bugfix: JsonChart is missing 15h and 16h as x-labels
+
+### 0.9.7
+* (baerengraben)  Bugfix - RC2 for stable release.
+
+### 0.9.6
+* (baerengraben)  Bugfix - RC for stable release.
 
 ### 0.9.5
 * (baerengraben)  Some small improvements

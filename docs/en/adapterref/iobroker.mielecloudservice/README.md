@@ -4,9 +4,7 @@
 ![Number of Installations](http://iobroker.live/badges/mielecloudservice-stable.svg)
 [![NPM version](https://img.shields.io/npm/v/iobroker.mielecloudservice.svg)](https://www.npmjs.com/package/iobroker.mielecloudservice)
 [![Known Vulnerabilities](https://snyk.io/test/github/Grizzelbee/ioBroker.mielecloudservice/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Grizzelbee/ioBroker.mielecloudservice?targetFile=package.json)
-[![Build Status](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice.svg?branch=master)](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice)
-[![NPM](https://nodei.co/npm/iobroker.mielecloudservice.png?downloads=true)](https://nodei.co/npm/iobroker.mielecloudservice/)
-
+[![Test and Release](https://github.com/Grizzelbee/ioBroker.mielecloudservice/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.mielecloudservice/actions/workflows/test-and-release.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/grizzelbee/iobroker.mielecloudservice/blob/master/LICENSE) 
 [![Downloads](https://img.shields.io/npm/dm/iobroker.mielecloudservice.svg)](https://www.npmjs.com/package/iobroker.mielecloudservice)
 
@@ -197,8 +195,19 @@ Here is a list of what these raw values stand for:
 |532 | "Flusen ausspülen"        | Washer Dryer |
 
 ## Changelog
+### V5.0.2 (2021-10-27) (Invincible)
+* (grizzelbee) Upd: Added listener to error events
+* (grizzelbee) Upd: Trying to reconnect if connection has been lost
+ 
+### V5.0.1 (2021-10-25) (Invincible)
+* (grizzelbee) Fix: [178](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/178) Removed: info Received ACTIONS message by SSE.
+* (grizzelbee) Fix: [179](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/179) Removed: info Received DEVICES message by SSE.
+* (grizzelbee) Fix: [180](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/180) Fixed: Info: State value to set for "mielecloudservice.0.xxx.ACTIONS.Power" has to be type "boolean" but received type "string"
+* (grizzelbee) Fix: [181](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/181) Fixed: Programbuttons should be fixed and work as soon as Miele fixes the API (as of today it has bugs).
+* (grizzelbee) Upd: Removed many debug log output
 
-### V4.5.0 (2021-09-05) (Invincible)
+### V5.0.0 (2021-10-21) (Invincible)
+* (grizzelbee) Chg: BREAKING CHANGE: Removed useless grouping folders for device types - check your VIS and scripts
 * (grizzelbee) New: [164](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/164) fixed bug in SignalFailure and signalInfo when havin no value
 * (grizzelbee) New: [155](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/155) fixed >missing object< bug on arrays 
 * (grizzelbee) New: [154](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/154) Reintroduced TargetTemp to washer dryers
@@ -212,6 +221,8 @@ Here is a list of what these raw values stand for:
 * (grizzelbee) New: Added support for Miele API V1.0.5
 * (grizzelbee) New: Added correct tier of adapter to io-package
 * (grizzelbee) New: Added more program phases for tumble dryers to documentation
+* (grizzelbee) Fix: Switched type of Power-Switch from string to boolean for being compliant with ioBroker expectation (e.g. for Text2Command adapter) - maybe more to follow. Please delete the data point let it create newly.
+* (germanBluefox) Fix: Fixed icon link
 
 ### V4.2.0 (2021-05-17) (A new Dimension)
 * (grizzelbee) New: Adding Pause action to dish-washers

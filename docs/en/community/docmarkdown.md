@@ -7,7 +7,7 @@ translatedWarning: If you want to edit this document please delete "translatedFr
 hash: 9qginu+6BT6Cm5JzwTYlJJ+LmFCjpyS0LVuttJtXxqc=
 ---
 # Markdown: syntax
-?> Markdown was chosen as the simplified markup language so that ioBroker's documentation can be created quickly and easily read. The following guide will help you learn the syntax and capabilities of Markdown and translate them into great documents.
+?> To make ioBroker's documentation quick and easy to read, Markdown was chosen as the simplified markup language. The following guide will help you learn the syntax and capabilities of Markdown and translate them into great documents.
 
 Technically, the documentation system only supports the following features:
 
@@ -26,12 +26,12 @@ Markdown was designed with the basic idea in mind to be as easy to read and writ
 
 Readability is the top priority here. A Markdown-formatted document should be able to be published in its basic form without appearing to be tagged or formatted (as is the case with HTML).
 
-Accordingly, Markdown's syntax consists only of characters carefully chosen to match their meaning. For example, asterisks around a word actually look like an \ *accent \* Lists in Markdown look like lists. Even quotation blocks look like quoted text passages, as you know them from emails.
+Accordingly, Markdown's syntax consists only of characters carefully chosen to match their meaning. For example, asterisks around a word actually look like an \ *stress \* Lists in Markdown look like lists. Even quotation blocks look like quoted text passages, as you know them from emails.
 
 ### Inline HTML
 Markdown's syntax has one purpose: to be used to *write* for the web.
 
-Markdown is not a substitute for HTML, not even close. The scope of the syntax is very small and corresponds to only a small part of all HTML tags. Markdown does not intend to make HTML tagging easier. HTML is simple enough as it is. The idea behind Markdown is to make text as easy to read, write, and edit as possible. HTML is a *publication format* Markdown is a *writing format* Therefore, its syntax only takes into account content that can be conveyed using pure text.
+Markdown is not a substitute for HTML, even remotely. The scope of the syntax is very small and corresponds to only a small part of all HTML tags. Markdown does not intend to make HTML tagging easier. HTML is simple enough as it is. The idea behind Markdown is to make text as easy to read, write, and edit as possible. HTML is a *publication format* Markdown is a *writing format* Therefore, its syntax only takes into account content that can be conveyed using pure text.
 
 Any formatting that is not feasible with Markdown can simply be used HTML. There is no need to highlight HTML to separate it from the rest.
 It is simply written in the text.
@@ -49,7 +49,7 @@ For example, to include an HTML table in a Markdown article:
 It should be noted that Markdown's syntax is not interpreted within HTML blocks. For example, *emphasis* cannot be used within HTML blocks.
 
 Inline HTML tags such as `<span>`, `<cite>`, or `<del>` can be used anywhere in a markdown paragraph, list item or header.
-HTML tags can even be used in place of the appropriate Markdown formatting. It is no problem to simply use `<a>` or `<img>` instead of Markdow's syntax for links or graphics.
+HTML tags can even be used in place of the appropriate Markdown formatting. It is not a problem to simply use `<a>` or `<img>` instead of Markdow's syntax for links or graphics.
 
 In contrast to block tags, the Markdown syntax is interpreted within inline tags.
 
@@ -118,7 +118,7 @@ Atx-like headers use 1-6 hash signs at the beginning of the line, corresponding 
 `###### Dies ist ein H6`
 
 ### Quotes
-Like e-mails, Markdown uses the character `>` for quote blocks. If you have experience with quotes in email, you will also know how to create quotes in Markdown. It looks best if you wrap the text per line and put a `>` in front of each line:
+Markdown uses - like e-mails - the character `>` for quote blocks. If you have experience with quotes in email, you will also know how to create quotes in Markdown. It looks best if you wrap the text per line and put a `>` in front of each line:
 
 `> Dies ist ein Zitat mit zwei Absätzen. Lorem ipsum dolor sit amet,` `> consectetuer adipiscing elit. Aliquam hendrerit mi posuere` `> lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet` `> vitae, risus.` `>` `> Donec sit amet nisl. Aliquam semper ipsum sit amet velit.` `> Suspendisse id sem consectetuer libero luctus adipiscing.`
 
@@ -146,9 +146,9 @@ Markdown supports sorted (numbered) and unsorted lists (bulleted lists).
 
 Unsorted lists use asterisks, pluses and hyphens - interchangeably - as list markers:
 
-    * Red
-    * Green
-    * Blue
+    *   Red
+    *   Green
+    *   Blue
 
 is equal to:
 
@@ -156,9 +156,9 @@ is equal to:
 
 And:
 
-    - red
-    - green
-    - blue
+    -   Red
+    -   Green
+    -   Blue
 
 Sorted lists use numbers followed by a period:
 
@@ -232,7 +232,7 @@ becomes
 
 List items can consist of several paragraphs. Each following paragraph in a list item must be indented with at least 4 spaces or a tab:
 
-    1. This is a bullet point with two paragraphs. Lorem ipsum dolor
+    1. This is a list item with two paragraphs. Lorem ipsum dolor
 
 sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
 
@@ -421,7 +421,7 @@ Then the link is defined:
 
 [Daring Fireball]: http://daringfireball.net/
 
-Link definitions can be made anywhere in the Markdown document. In general, it is a good idea to do them after the paragraph in which they are used. However, like footnotes, they can all be listed at the end of the document.
+Link definitions can be made anywhere in the Markdown document. In general, it is a good idea to do them after the paragraph in which they are used. However, like footnotes, they can all be listed together at the end of the document.
 
 A small example:
 
@@ -447,7 +447,7 @@ Both examples would result in the following HTML code:
 
 <p>I get ten times more traffic from <a href="http://google.com/" title="Google">Google</a> than from <a href="http://search.yahoo.com/" title="Yahoo Search">Yahoo</a> or <a href="http://search.msn.com/" title="MSN Search">MSN</a> .</p>
 
-For comparison, the same paragraph follows, using Markdown's inline links:
+For comparison, the same paragraph follows using Markdown's inline links:
 
 I get ten times more traffic from [Google](http://google.com/ "Google") than from [Yahoo](http://search.yahoo.com/ "Yahoo Search") or [MSN](http://search.msn.com/ "MSN Search").
 
@@ -536,7 +536,7 @@ This is going to
 <a id="img"></a>
 
 ### Graphics Admittedly, it is quite difficult to find a "natural" syntax for including graphics in text.
-Markdown does this using a syntax designed to be similar to the style of links. This allows two types: inline and reference.
+Markdown uses a syntax to do this that is supposed to be similar to the style of links. This allows two types: inline and reference.
 
 The inline syntax looks like this:
 
@@ -563,7 +563,7 @@ Reference-style image references look like this:
 
 [id]: url/zur/grafik  "Optionales title-Attribut"
 
-At this time, Markdown has no syntax for specifying the size of a graphic. If this is necessary, you can simply use the normal HTML tag `<img>`.
+At this time, Markdown has no syntax for specifying the size of a graphic. If this is necessary, the normal HTML tag `<img>` can be used.
 
 * * *
 

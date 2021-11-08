@@ -6,7 +6,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker 小米家庭适配器
 hash: GmavLxm+klUaUCFI7o/yKJ8KJqOtoyN2RmgfJUQcojY=
 ---
-![商标](../../../de/adapterref/iobroker.mihome/media/mihome.png)
+![标识](../../../de/adapterref/iobroker.mihome/media/mihome.png)
 
 # IoBroker Mi Home Adapter 使用Mi Home Adapter，Mi Control Hub（网关）集成到ioBroker 系统中，从而使各种小米传感器、开关等能够与ioBroker 通信。
 通过 ioBroker，例如可以控制网关的照明和扬声器。
@@ -24,10 +24,10 @@ hash: GmavLxm+klUaUCFI7o/yKJ8KJqOtoyN2RmgfJUQcojY=
 
 *选择*中国大陆*作为国家
 * 通过 *登录* 创建一个帐户
-* 注册成功后，通过`+`添加设备
+* 登录成功后，使用`+`添加设备
 * 在 *家庭安全* 下选择“MI Control Hub”并按照说明进行操作
 
-结果
+跟随
 
 * 成功集成网关后，屏幕右上角的3个点
 
@@ -39,7 +39,7 @@ hash: GmavLxm+klUaUCFI7o/yKJ8KJqOtoyN2RmgfJUQcojY=
 出现另外 2 个菜单项 > 如果没有，请重试
 
 * 选择菜单项`无线通信协议`
-* 打开顶部的滑动开关，记下密码并按“OK”确认。
+* 打开顶部的滑动开关，记下密码并点击“OK”确认。
 
 > 稍后在 ioBroker 安装过程中将需要密码。
 
@@ -52,10 +52,10 @@ hash: GmavLxm+klUaUCFI7o/yKJ8KJqOtoyN2RmgfJUQcojY=
 
 * 通过配置文件/设置/国家设置选择国家 *大陆*
 * 通过 *登录* 创建一个帐户
-* 注册成功后，通过`+`添加设备
+* 登录成功后，使用`+`添加设备
 * 在 *家庭安全* 下选择“MI Control Hub”并按照说明进行操作
 
-结果
+跟随
 
 * 成功集成网关后，屏幕右上角的3个点
 
@@ -67,7 +67,7 @@ hash: GmavLxm+klUaUCFI7o/yKJ8KJqOtoyN2RmgfJUQcojY=
 更多菜单项出现> 如果它没有立即工作，重复这些步骤
 
 * 选择第四个菜单项
-* 打开顶部的滑动开关，记下密码并按“OK”确认。
+* 打开顶部的滑动开关，记下密码并点击“OK”确认。
 
 > 稍后在 ioBroker 安装过程中将需要密码。
 
@@ -117,19 +117,19 @@ hash: GmavLxm+klUaUCFI7o/yKJ8KJqOtoyN2RmgfJUQcojY=
 进一步的设置只能通过 ioBroker 管理界面进行。
 在区域 *Adapter* 中搜索适配器并使用 `+` 符号进行安装。
 
-![商标](../../../de/adapterref/iobroker.mihome/media/Adapter.png)
+![标识](../../../de/adapterref/iobroker.mihome/media/Adapter.png)
 
 然后会打开以下配置窗口：
 
-![商标](../../../de/adapterref/iobroker.mihome/media/Adapterconfig1.PNG)
+![标识](../../../de/adapterref/iobroker.mihome/media/Adapterconfig1.PNG)
 
-在 `Default Gateway Key` 下输入上面确定的密码，然后使用 * save * * 和 close * 关闭窗口。正在运行的适配器应该在 * Instances * 下显示为绿色：
+在 `Default Gateway Key` 下输入上面确定的密码，然后使用 * save * * 关闭窗口并关闭 *。正在运行的适配器应该在 * Instances * 下显示为绿色：
 
-![商标](../../../de/adapterref/iobroker.mihome/media/Instanz.PNG)
+![标识](../../../de/adapterref/iobroker.mihome/media/Instanz.PNG)
 
 网关及其示教设备现在显示在 *对象* 下：
 
-![商标](../../../de/adapterref/iobroker.mihome/media/Objekte.PNG)
+![标识](../../../de/adapterref/iobroker.mihome/media/Objekte.PNG)
 
 这些说明是根据我们的知识和信念创建的。
 

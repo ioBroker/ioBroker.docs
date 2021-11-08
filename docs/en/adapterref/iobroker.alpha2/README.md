@@ -57,10 +57,25 @@ You can check the object VACATION.STATE to check the status. If the status showi
 
 ## Known limitations
 - no virtual rooms
-- max 8 heatareas (there are Alpha2 base stations with 12 heatareas)
-- no lock of room controllers (kids mode)
 
 ## Changelog
+
+### 1.0.3
+. (Eisbaeeer)
+Fixed error messages in log
+
+### 1.0.2
+- (oHa510)
+Fixed an issue if you don't use all 4/8/12 heataras then heatareas could get assigned to wrong heatarea object in iobroker
+Expanded Heatareas and Heatctrl to the maxiumum of 12
+Changed Heatarea and Heatctrl indexing to 1-12 (old 0-11 was very confusing)
+Added support for locking controllers (kids mode)
+Added support for locking set temperature (hotel mode)
+Added some new objects and infos like IODEVICEs etc.
+
+### 1.0.1
+- (Eisbaeeer)
+Fixed issues
 
 ### 1.0.0
 - (Eisbaeeer)
@@ -83,4 +98,4 @@ fixed issues #1
 
 ## License
 The MIT License (MIT)
-Copyright (c) 2019 Eisbaeeer <eisbaeeer@gmail.com> 
+Copyright (c) 2021 Eisbaeeer eisbaeeer@gmail.com

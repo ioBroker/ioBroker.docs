@@ -10,7 +10,7 @@ hash: 6M6JLNd7LLD21j0ulNOqyghHCguiQLMi21AkSJnTYyY=
 如何在 Linux 系统上正确执行 ioBroker 安装的还原？
 
 ＃＃＃ 前言：
-由于一些用户发现恢复非常困难，崩溃后、硬件更改、系统更改或其他操作后的逐步恢复说明应该会有所帮助。
+由于某些用户发现恢复非常困难，因此在崩溃后或在硬件更改、系统更改或其他事情之后进行恢复的分步说明应该会有所帮助。
 
 基本上，人们可以提前说一件事：如果执行正确，可以在几分钟内完成恢复，没有人需要害怕。
 
@@ -20,10 +20,10 @@ hash: 6M6JLNd7LLD21j0ulNOqyghHCguiQLMi21AkSJnTYyY=
 一个可执行的 ioBroker 安装对于准备工作是必不可少的。
 
 有两种方法可以做到这一点。
-从 [下载区](https://www.iobroker.net/#de/download) 获取完成的映像，设置您自己的 Linux 操作系统并根据此 [手动的](https://www.iobroker.net/#de/documentation/install/linux.md) 安装 ioBroker。
+从 [下载区](https://www.iobroker.net/#de/download) 获取完成的映像，设置您自己的 Linux 操作系统并根据此 [指示](https://www.iobroker.net/#de/documentation/install/linux.md) 安装 ioBroker。
 
 ＃＃＃ 下一步
-如果旧系统在Redis中保存了状态和/或对象，则新系统必须首先配备Redis服务器。
+如果旧系统将状态和/或对象保存在Redis中，则新系统必须首先配备Redis服务器。
 
 如果您不确定是否使用了Redis并且仍然可以访问旧系统，请使用命令`iobroker status`获取所需信息。“使用Redis时，输出如下所示：
 
@@ -100,7 +100,7 @@ Backitup 也可以从 NAS、Dropbox 或 Google Drive 执行还原，但本地变
 
 ![备份选择](../../de/tutorial/media/restore/1575301146928-restoreliste.jpg)
 
-选择后有提示iobroker会停止恢复然后重启。
+选择后会出现一条消息，iobroker 将停止恢复，然后重新启动。
 
 ![开始恢复](../../de/tutorial/media/restore/1575301175231-restorestart.jpg)
 
@@ -139,7 +139,7 @@ iobroker start
 
 恭喜，新安装的系统现已完成所有设置、脚本、可视化等。
 
-有了Backitup，现在可以恢复更多数据，前提是这些数据也提前备份到了旧系统上。
+有了备份，现在可以恢复更多数据，前提是这些数据也提前在旧系统上进行了备份。
 您可以使用与上述相同的步骤恢复 Redis 数据库、Zigbee 数据库、mySql 数据库和您的历史数据。
 
 在示例中，检索到的备份列表将如下所示。
@@ -157,8 +157,8 @@ iobroker start
 sudo mkdir /opt/iobroker/backups
 ```
 
-在这里，在旧系统上创建的备份以及必要时的 Redis 备份、zigbee 备份等也是使用 sftp 程序（例如 FileZilla 或 WinSCP）执行的。
-放在文件夹/opt/iobroker/backups。
+这里也是在旧系统上创建的备份，如有必要，还有 Redis 备份、zigbee 备份等。
+放在文件夹/opt/iobroker/backups 中。
 
 如果状态和对象保存在 Redis DB 中，则应首先在此处恢复保存的 Redis 数据库。
 如果只有状态在 Redis 下运行，则不一定必须提前。
@@ -185,7 +185,7 @@ iobroker restore <Dateiname eures Backups>
 !> **使用此方法只能恢复一个 ioBroker 备份非常重要。
 Redis 备份、Zigbee 备份、mySql 备份或历史数据无法使用此命令创建**
 
-为此需要 Backitup，因为这些是用 Backitup 专门创建的。
+为此需要 Backitup，因为它们是用 Backitup 专门创建的。
 
 这现在可能需要几分钟，具体取决于您的系统。进度显示在终端中。
 恢复完成后，使用以下命令重新启动 ioBroker：
@@ -194,7 +194,7 @@ Redis 备份、Zigbee 备份、mySql 备份或历史数据无法使用此命令�
 iobroker start
 ```
 
-在这里，所有适配器现在也由 ioBroker 通过 npm 单独重新安装。
+在这里，ioBroker 现在也通过 npm 单独重新安装所有适配器。
 这可能需要一段时间，具体取决于您的安装大小、互联网速度和系统性能。
 可以在“日志”选项卡中跟踪当前状态。
 

@@ -1,5 +1,5 @@
 ---
-title: welcome
+title: Welcome
 lastChanged: 02.05.2020
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
@@ -25,7 +25,7 @@ Anyone who deals with home automation will sooner or later find that individual 
 ioBroker IS at home on almost all platforms. ioBroker can be installed on Windows, Linux, OSX or as a Docker image.
 Preconfigured installation images relieve the user of the installation work.
 
-Remote management on a locally installed ioBroker system is possible 24/7 for the user or for system integrators via optional cloud-based access. Access control can be freely configured by the user using users and groups.
+Remote management on a locally installed ioBroker system is possible 24/7 for the user or for system integrators via optional cloud-based access. The access control can be freely configured by the user by means of users and groups.
 
 ## Scalable
 If further smart home systems are to be connected over time, these can be implemented by the user at any time using additional adapters during operation.
@@ -38,7 +38,7 @@ Optional programming is done with JavaScript, a script language that has been co
 For beginners in programming, the 'Blockly' variant is available, which enables you to quickly get results yourself without extensive programming knowledge using 'drag and drop'.
 
 ## Visualization
-With `VIS` ioBroker provides a powerful tool for creating an individual visualization. Current values from sensors can be graphically presented in the same way as historical processes. Live images from surveillance cameras, the implementation of an alarm system, heating systems and air conditioning - almost everything that is imaginable can also be implemented.
+With `VIS` ioBroker provides a powerful tool for creating an individual visualization. Current values from sensors can be presented graphically as well as historical processes. Live images from surveillance cameras, the implementation of an alarm system, heating systems and air conditioning - almost everything that is imaginable can also be implemented.
 
 * Example of a self-created VIS user interface * ![VIS](../de/media/vis2.png)
 

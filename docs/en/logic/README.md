@@ -9,7 +9,7 @@ hash: en4Q+oQcaZAtaUbJq6fwE6UMbIHK5h8e0COUJmjF+w4=
 # Logics
 ?> ***This is a placeholder*** .<br><br> Help with ioBroker and expand this article. Please note [ioBroker Style Guide](community/styleguidedoc) so that the changes can be adopted more easily.
 
-@@@ The aim here is a "high level" description of the most important screens of the script adapter interfaces. Perhaps a picture for each screen with explanations of the important areas and possibilities.
+@@@ The aim here is a "high level" description of the most important screens of the script adapter surfaces. Perhaps a picture per screen with explanations of the important areas and possibilities.
 
 Sub-dialogs and details should refer to the adapter reference for the corresponding adapter.
 @@@

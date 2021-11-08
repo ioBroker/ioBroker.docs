@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: VbVRQ2vMX9iYbPwVYUZB3eGJNzPhgVl8WQ2Vdb8kbk4=
+hash: l1tKeyaPNJTtKc0cAocDn/W4oA6qiIO78iQbdbXfkMY=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -43,6 +43,26 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 [![Spende](http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
+
+## 3.2.5
+- 错误修正
+
+## 3.2.4
+- 错误修正
+
+## 3.2.3
+- 错误修正
+
+## 3.2.2
+- 错误修正
+
+## 3.2.1
+- 问题 mit aktiver Textfarbe behoben (#302)
+- 问题 mit Multi-Widget und unterschiedlichem Prüftyp behoben (#303)
+- 问题 beim Schließen mit View im PopUp behoben (#254)
+- Navigationseffekte aus der Basisnavigation hinzugefügt (#304)
+- Neu hinzugefügt Widget-Typ'HTTP' für Universal- 和 Multi-Widget (#249)
+- Sichtbare Schritte für einfachen Slider hinzugefügt
 
 ## 3.2.0
 - Textfarbe aktiv/inaktiv für Universal- & Multiwidget
@@ -107,7 +127,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 - Beim Universal- 和 Multiwidget kann der Inhaltstyp geändert werden。
     - Inhaltstypen：图片（标准）、Analoge Uhr、Digitale Uhr 和 HTML/Text
-    - Analoge und digitale Uhr：Zeiger kann frei gewählt werden、Zeitzone kann geändert werden 下的 Farbe des Ziffernblatts
+    - Analoge und digitale Uhr：Zeiger kann frei gewählt werden 下的 Farbe des Ziffernblatts，Zeitzone kann geändert werden
     - Statt dem Icon kann ein eigener Text oder ein Datenpunktwert per Binding angezeigt werden
 - Vergleichsoperatoren Größer-Gelich und Kleiner-Gleich
 - PopUp kann per Datenpunk geöffnet werden
@@ -130,7 +150,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 ## 2.9.3
 - Fehler mit PopUp behoben: Klick zum schließen wurde direkt nach Öffnen registriert und Klick löste Buttonshinter dem PopUp aus
-- Zustände wurden bei 弹出窗口中的视图 nicht richtig angezeigt
+- Zustände wurden bei 在弹出窗口中查看视图 nicht richtig angezeigt
 
 ## 2.9.2
 - 问题 mit Datenpunkt zum Schließen des Popups behoben。啊！ Der Datenpunkt muss erneut ausgewählt werden

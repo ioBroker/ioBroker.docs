@@ -11,7 +11,7 @@ The system's messages are continuously output here. The latest message is at the
 ![The log page](../../de/admin/media/ADMIN_Log_numbers.png)
 
 ## The title line
-in the title line there are icons for the most important processes. There is context help for each icon. Simply stay on the icon with the mouse for a while.
+in the title line there are icons for the most important processes. There is context help for each icon. To do this, simply hold the mouse on the icon for a while.
 
 ### 1 - update log
 This button updates the list.
@@ -24,7 +24,7 @@ Instead of the pause icon, the number of new, non-displayed messages now appears
 Clicking on this icon only deletes the list on the screen
 
 ### 4 - Clear the log on the host
-By clicking on this icon, the entire log on the host is permanently deleted.
+When you click on this icon, the entire log on the host is permanently deleted.
 
 ### 5 - Download log
 With this button you can download a complete daily log of the last few days from the directory / opt / iobroker / logs:

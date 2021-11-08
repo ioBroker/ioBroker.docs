@@ -94,10 +94,14 @@ As first value, the name from the warning message must be taken from the log. Th
 	### __WORK IN PROGRESS__
 	* (DutchmanNL) 
 -->
+### 0.8.5 (2021-10-29)
+* (jlssmt) Error handling for bundesländer api implemented 
 
-### __WORK IN PROGRESS__
+### 0.8.4 (2021-10-26)
 * (DutchmanNL) Bugfix: New DNS entry for COVID api
 * (jlssmt) Hospital data for Germany added
+* (jlssmt) fix umlauts in hospital service
+* (jlssmt) extend api timer to fix 502 errors
 
 ### 0.8.3 (2021-08-20)
 * (jlssmt) Code refactoring

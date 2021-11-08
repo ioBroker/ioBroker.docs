@@ -50,4 +50,4 @@ https://weblate.iobroker.net/
 
 要将您的适配器添加到 Weblate，请遵循 [这些指南](https://github.com/ioBrokerTranslator/doc/blob/master/README.md)。
 
-Weblate 目前仅在管理员用户界面中管理字符串。它不会改变 `io-package.json` 或对您的文档做任何事情。
+Weblate 目前仅在管理用户界面中管理字符串。它不会改变 `io-package.json` 或对您的文档做任何事情。

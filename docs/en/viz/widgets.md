@@ -23,7 +23,7 @@ There are different widget sets for visualization in ioBroker with vis.
 | Attribute | Description |
 |-----|----|
 
-| Name | A unique name for this widget can be entered here | Comment | A short description can be entered here | CSS class |: construction: | Filter word |: construction: | Show in views | Here you can select whether this widget should appear in the current view or in several.
+| Name | A unique name for this widget can be entered here | Comment | A short description can be entered here | CSS class |: construction: | Filter word |: construction: | Show in views | Here you can select whether this widget should only appear in the current view or in several.
 | Inactive (locked) |: construction:
 
 #### **Visibility**
@@ -33,7 +33,7 @@ The visibility of a widget can be made dependent on the status of a data point.
 | Attribute | Description |
 |----|----|
 
-| `Object ID` | Enter the ID of the data point that is to control the visibility of the selected widget. The data point can be searched for using the button.
+| `Object ID` | The ID of the data point is entered here, which is to control the visibility of the selected widget. The data point can be searched for using the button.
 | Condition | The widget is visible if the condition entered here for the above data point ...
 | The value for the condition | ... corresponds to the value entered here.
 
