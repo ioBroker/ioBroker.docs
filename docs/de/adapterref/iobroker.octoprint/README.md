@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: UIQzTj/niqykyk4X6zYZI+AH+i3/X5WYH27JP8BFhxI=
+hash: /VI0Cf5Xa/y4E/hw4ovDqKQjPI5ZjOGdikq9MAGDCfM=
 ---
 ![Logo](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
 
@@ -19,7 +19,7 @@ hash: UIQzTj/niqykyk4X6zYZI+AH+i3/X5WYH27JP8BFhxI=
 # IoBroker.octoprint
 Adapter zum Verbinden von OctoPrint mit ioBroker
 
-Getestet mit OctoPrint 1.6.0
+**Getestet mit [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.7.2**
 
 ## Installation
 Bitte verwenden Sie die "Adapterliste" in ioBroker, um eine stabile Version dieses Adapters zu installieren. Sie können diesen Adapter auch über die CLI installieren:
@@ -35,9 +35,10 @@ iobroker add octoprint
 - Aktuelle Druckauftragsinformationen abrufen
 - Holen Sie sich Dateilisteninformationen
 
-###Temperaturen
+### Werkzeuge
 - Werkzeugtemperatur einstellen
 - Betttemperatur einstellen
+- Extrudieren / Zurückziehen
 
 ###Befehle
 - Drucker: Verbinden, trennen und nach Hause
@@ -63,13 +64,17 @@ Bitte verwenden Sie den Zustand `system.adapter.octoprint.0.alive`, um die Insta
 
 ## Changelog
 
+### 2.0.2
+
+* (klein0r) Extrude commands
+
 ### 2.0.1
 
 * (klein0r) Fixed missing translations
 
 ### 2.0.0
 
-* (klein0r) Admin 5 Support
+* (klein0r) Admin 5 Support **(BREAKING CHANGE - RENAMED TEMPERATURE NAMESPACE)**
 
 ### 1.1.2
 

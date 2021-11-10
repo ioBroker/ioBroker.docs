@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.homekit-controller/README.md
 title: ioBroker.homekit-контроллер
-hash: 6IptBGhOqH4i2YF7j4HpvXlLr1MXmh0RxUqoddQJQcU=
+hash: dxxbEvQmOG3+ID91q8935b2l3QqtFA9z/bIkibRDfVY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.homekit-controller/admin/homekit-controller.png)
 
@@ -22,6 +22,8 @@ hash: 6IptBGhOqH4i2YF7j4HpvXlLr1MXmh0RxUqoddQJQcU=
 
 ### Адаптера нет ...
 ... предлагая устройства или состояния ioBroker для управления приложением / системой Apple Home. Если вам нужно это направление, используйте адаптер [yahka](https://github.com/jensweigele/ioBroker.yahka).
+
+... поддержка устройств на основе потоков. Спецификации Homekit Thread пока не являются общедоступными.
 
 ### Как пользоваться адаптером
 Адаптер прослушивает доступные устройства в вашей сети.

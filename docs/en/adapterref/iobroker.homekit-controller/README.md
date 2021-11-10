@@ -18,6 +18,8 @@ This adapter allows you to pair and directly control devices with the "works wit
 ### The adapter is not ...
 ... offering ioBroker devices or states to be controlled by an Apple Home app/system. If you want this direction please use the [yahka](https://github.com/jensweigele/ioBroker.yahka) adapter.
 
+... supporting Thread based devices. The Homekit Thread specifications are not yet publicly available.
+
 ### How to use the adapter
 
 The adapter listens for available devices in your network.

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.homekit-controller/README.md
 title: ioBroker.homekit 控制器
-hash: 6IptBGhOqH4i2YF7j4HpvXlLr1MXmh0RxUqoddQJQcU=
+hash: dxxbEvQmOG3+ID91q8935b2l3QqtFA9z/bIkibRDfVY=
 ---
 ![标识](../../../en/adapterref/iobroker.homekit-controller/admin/homekit-controller.png)
 
@@ -23,6 +23,8 @@ hash: 6IptBGhOqH4i2YF7j4HpvXlLr1MXmh0RxUqoddQJQcU=
 ### 适配器不是...
 ... 提供由 Apple Home 应用程序/系统控制的 ioBroker 设备或状态。如果您想要这个方向，请使用 [夜叉](https://github.com/jensweigele/ioBroker.yahka) 适配器。
 
+...支持基于线程的设备。 Homekit Thread 规范尚未公开。
+
 ###如何使用适配器
 适配器侦听网络中的可用设备。
 
@@ -32,7 +34,7 @@ hash: 6IptBGhOqH4i2YF7j4HpvXlLr1MXmh0RxUqoddQJQcU=
 * **与此实例配对** 设备可以被完全控制，将使用订阅（仅限 IP 设备）和数据轮询间隔“实时”更新状态值。该设备也可以从此实例“取消配对”（请参阅下面的部分）。
 * **与其他人配对** 设备是已发现但已与其他控制器配对的设备。这些记录在调试模式下，但没有为它们创建状态。如果您想将它们与 ioBroker 一起使用，您首先需要将它们与当前控制器取消配对（有时只能通过硬重置等方式实现 - 请参阅手册），然后它们应显示为“未配对设备”。
 
-配对后，从设备中读出支持的状态并创建对象和状态。 HomeKit 标准中定义的所有已知数据点都应以人类可读的方式命名。如果您看到 UUID 作为名称，则设备制造商添加了自定义数据。如果知道它们提供了什么，则可以将其添加到适配器（例如，为 Elgato 设备添加的那些）以在下一版本中显示为命名。
+配对后，从设备中读出支持的状态，并创建对象和状态。 HomeKit 标准中定义的所有已知数据点都应以人类可读的方式命名。如果您看到 UUID 作为名称，则设备制造商添加了自定义数据。如果知道它们提供了什么，则可以将其添加到适配器（例如，为 Elgato 设备添加的那些）以在下一版本中显示为命名。
 
 数据点是用正确的状态创建的，如果可用，还有正确的角色。使用其他通用角色。
 
@@ -40,7 +42,7 @@ hash: 6IptBGhOqH4i2YF7j4HpvXlLr1MXmh0RxUqoddQJQcU=
 未与任何控制器配对的设备具有 admin.identify 状态，可以用“true”触发。在这种情况下，相关设备应识别自身（例如，灯应闪烁等，以便可以识别）。此功能仅在设备未与控制器配对时可用。
 
 ####配对信息
-要将设备与此适配器实例配对，您需要提供设备上显示的引脚或标签等。 PIN 码是 QR 码旁边的 8 个数字。数字需要以 123-45-678 格式输入（当破折号未打印在标签上或显示在屏幕上时也是如此！）
+要将设备与此适配器实例配对，您需要提供设备上显示的引脚或标签等。 PIN 码是 QR 码旁边的 8 个数字。数字需要以 123-45-678 的格式输入（当破折号未打印在标签上或显示在屏幕上时也是如此！）
 
 现在需要将 PIN 输入到 admin.pairWithPin 状态 - 管理 UI 将很快出现。
 
@@ -53,9 +55,9 @@ hash: 6IptBGhOqH4i2YF7j4HpvXlLr1MXmh0RxUqoddQJQcU=
 
 ####使用IP设备的特别注意事项
 IP 设备是使用 UDP 包发现的，因此您的主机需要与设备位于同一网络中。目前没有真正的解决方法，因为使用的 MDNS 记录包含配对过程的重要信息。
-特别是在使用 Docker 时，您需要找到查看 UDP 包的方法（主机模式、macvlan 等）。
+尤其是在使用 Docker 时，您需要找到查看 UDP 包的方法（主机模式、macvlan 等）。
 
-没有控件或屏幕的基于 WLAN 的 IP 设备的主要挑战是让它们进入您的 WLAN 网络。很可能有特定于制造商的移动应用程序最初将设备添加到您的网络。如果此初始过程还将设备与 Apple Home 配对，您可能需要在之后取消配对（例如 https://www.macrumors.com/how-to/delete-homekit-device/）。在此之后，它应该在您的 WLAN 中并且可以与此适配器配对。
+没有控件或屏幕的基于 WLAN 的 IP 设备的主要挑战是让它们进入您的 WLAN 网络。很可能有特定于制造商的移动应用程序最初将设备添加到您的网络。如果此初始过程也将设备与 Apple Home 配对，您可能需要在之后取消配对（例如 https://www.macrumors.com/how-to/delete-homekit-device/）。在此之后，它应该在您的 WLAN 中并且可以与此适配器配对。
 
 一旦 IP 设备配对并且 IP 保持不变，适配器就会在启动时直接连接到设备。所以最好在你的路由器中固定 IP。如果 IP 已更改，则应在下一次发现时建立连接，并应更新 IP。
 

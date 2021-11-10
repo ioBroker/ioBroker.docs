@@ -197,13 +197,16 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.11.5 (2021-11-09)
+* (jens-maus) updated node-ical to latest 0.14.1
+* (jens-maus) fix another issue where an already ended event is still listed
 
 ### 1.11.4 (2021-09-02)
 * (Apollon77) fix cases where already ended entries where still listed
 * (Apollon77) fix reported sentry crash cases (IOBROKER-ICAL-S, IOBROKER-ICAL-N)
 
 ### 1.11.3 (2021-08-04)
-* (JensMaus) fixed timezone related handling
+* (jens-maus) fixed timezone related handling
 
 ### 1.11.2 (2021-08-01)
 * (Apollon77) Change one logline to debug
@@ -239,7 +242,7 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 * (jens-maus) updated dependencies
 
 ### 1.9.3 (2021-04-01)
-* (Apollon77) Better handling of some ical cases 
+* (Apollon77) Better handling of some ical cases
 
 ### 1.9.2 (2021-03-07)
 * (Apollon77) Prevent crash case when summary is not provided (Sentry IOBROKER-ICAL-K)
@@ -274,7 +277,7 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 
 ### 1.7.5 (2020-11-08)
 * (Apollon77) Only handle events with a start date (Sentry IOBROKER-ICAL-1, IOBROKER-ICAL-2, IOBROKER-ICAL-4)
-* (JensMaus) Update dependencies, fix some more issues
+* (jens-maus) Update dependencies, fix some more issues
 
 ### 1.7.4 (2020-08-26)
 * (Apollon77) Fix multiple parsing

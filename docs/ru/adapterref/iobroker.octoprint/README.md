@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: UIQzTj/niqykyk4X6zYZI+AH+i3/X5WYH27JP8BFhxI=
+hash: /VI0Cf5Xa/y4E/hw4ovDqKQjPI5ZjOGdikq9MAGDCfM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
 
@@ -19,7 +19,7 @@ hash: UIQzTj/niqykyk4X6zYZI+AH+i3/X5WYH27JP8BFhxI=
 # IoBroker.octoprint
 Адаптер для подключения OctoPrint к ioBroker
 
-Протестировано с OctoPrint 1.6.0
+** Протестировано с [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.7.2 **
 
 ## Установка
 Используйте «список адаптеров» в ioBroker, чтобы установить стабильную версию этого адаптера. Вы также можете использовать интерфейс командной строки для установки этого адаптера:
@@ -35,9 +35,10 @@ iobroker add octoprint
 - Получить информацию о текущем задании печати
 - Получить информацию о списке файлов
 
-### Температуры
+### Инструменты
 - Установить температуру инструмента
 - Установить температуру кровати
+- Выдавливание / втягивание
 
 ### Команды
 - Принтер: подключите, отключите и вернитесь домой
@@ -63,13 +64,17 @@ setObject('system.adapter.octoprint.0', obj);
 
 ## Changelog
 
+### 2.0.2
+
+* (klein0r) Extrude commands
+
 ### 2.0.1
 
 * (klein0r) Fixed missing translations
 
 ### 2.0.0
 
-* (klein0r) Admin 5 Support
+* (klein0r) Admin 5 Support **(BREAKING CHANGE - RENAMED TEMPERATURE NAMESPACE)**
 
 ### 1.1.2
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/objectsschema.md
 title: 核心理念
-hash: YfRXWdtxJFmwAMKvznTTUYaquRzf01yxHFzhHI2GFKg=
+hash: Q2THTK6k9JASAaTUU7igwi6tN3LRWYgdBVXM7LjCO1o=
 ---
 # 核心概念
 ioBroker 中有两种根本不同的数据类型。所谓的**状态**（`states`）和**对象**。
@@ -19,9 +19,7 @@ ioBroker 中有两种根本不同的数据类型。所谓的**状态**（`states
 ## ID
 ID 是一个最大长度为 240 字节的字符串，具有层次结构，级别由点分隔。
 
-禁止在 ID 中使用以下字符：`[]*,;'"&#96;<>\\?`。
-
-不建议也使用 `^$()/`。
+禁止在 ID 中使用以下字符：`._\\-/ :!#$%&()+=@^{}|~`。
 
 ID有不同的级别。每个级别由点决定。示例：`system.adapter.admin.0`
 
@@ -159,7 +157,7 @@ getState/stateChange/setState 对象的属性：
   0x84 - 10000100 - sensor reports error
 ```
 
-每个 *state* 必须由包含状态元数据的 state 类型的对象表示。见下文。
+每个 *state* 必须由包含状态元数据的 state 类型对象表示。见下文。
 
 ## 对象
 ### 强制属性
@@ -174,10 +172,10 @@ getState/stateChange/setState 对象的属性：
 * `common.name` - 对象的名称（可选但严格建议填写）
 
 ###树结构
-树结构是按名称自动组装的。例如。 ```system.adapter.0.admin``` 是 `system.adapter.0.admin.uptime` 的父级。将此命名约定与点“.”一起用作级别的分隔符。
+树结构是按名称自动组装的。例如。 ```system.adapter.0.admin``` 是 `system.adapter.0.admin.uptime` 的父项。将此命名约定与点“.”一起用作级别的分隔符。
 
 ### 对象类型
-* `state` - parent 应该是 channel、device、instance 或 host 类型
+* `state` - 父级应该是通道、设备、实例或主机类型
 * `channel` - 对一个或多个状态进行分组的对象。父母应该是设备。
 * `device` - 对一个或多个通道或状态进行分组的对象。除了适配器实例命名空间之外，应该没有父级。
 * `enum` - 在 common.members 中保存指向状态、通道、设备或文件的数组的对象。枚举可以有一个父枚举（树结构可能）
@@ -196,7 +194,7 @@ getState/stateChange/setState 对象的属性：
 ＃＃＃＃＃ 状态
 属性：
 
-* `common.type`（可选 - （默认是混合==任何类型）（可能的值：数字、字符串、布尔值、数组、对象、混合、文件）。作为例外，类型为 `meta` 的对象可能有 `common .type=meta.user` 或 `meta.folder`。需要注意的是数组、对象、混合和文件必须使用 JSON.stringify() 进行序列化。
+* `common.type`（可选 - （默认是混合==任意类型）（可能的值：数字、字符串、布尔值、数组、对象、混合、文件）。作为例外，类型为 `meta` 的对象可能有 `common .type=meta.user` 或 `meta.folder`。需要注意的是数组、对象、混合和文件必须使用 JSON.stringify() 进行序列化。
 * `common.min`（可选）
 * `common.max`（可选）
 * `common.step` (可选) - 增加/减少间隔。例如。 0.5 用于恒温器
@@ -207,8 +205,8 @@ getState/stateChange/setState 对象的属性：
 * `common.read` (boolean, 强制) - 如果状态可读则为真
 * `common.write` (boolean, 强制) - 如果状态可写则为真
 * `common.role`（字符串，强制） - 状态的角色（在用户界面中用于指示选择哪个小部件，见下文）
-* `common.states`（可选）类型为可能状态对象的属性 `{'value': 'valueName', 'value2': 'valueName2', 0: 'OFF', 1: 'ON'}`或（从 admin5 支持）一个状态数组，如 `['Start', 'Flight', 'Land']`
-* `common.workingID`（字符串，可选） - 如果此状态具有辅助状态 WORKING。如果前几部分与实际相同，则此处必须写全名或只写最后一部分。用于 HM.LEVEL 并且通常具有值“WORKING”
+* `common.states`（可选）类型为可能状态对象的属性 `{'value': 'valueName', 'value2': 'valueName2', 0: 'OFF', 1: 'ON'}`或（从 admin5 支持）一个状态数组，如`['Start', 'Flight', 'Land']`
+* `common.workingID`（字符串，可选） - 如果此状态具有辅助状态 WORKING。如果前几部分与实际相同，这里必须写全名或只写最后一部分。用于 HM.LEVEL 并且通常具有值“WORKING”
 * `common.custom`（可选）- 具有特定适配器的自定义设置的结构。像 `{"influxdb.0": {"enabled": true, "alias": "name"}}`。 `enabled` 属性是必需的，如果它不是 true，则整个属性将被删除。
 
 ##### 状态 `common.history`
@@ -284,7 +282,7 @@ History 函数需要 history 适配器或任何其他类型为 history 的存储
 * ...
 
 #### 频道说明
-~~属性的名称可以由适配器自由定义，除了用**bold**字体写的。~~
+~~属性的名称可以由适配器自由定义，除了**粗体**字体。~~
 
 "W" - common.write=true
 
@@ -360,7 +358,7 @@ History 函数需要 history 适配器或任何其他类型为 history 的存储
 ```
 
 ##### `light.switch` - 属性描述
-| **姓名** | **common.role** | **米** | **W** | **common.type** | **说明** | ------------- |:-------------------------|:-----:| :-----:|-----------------|---
+| **姓名** | **common.role** | **米** | **W** | **common.type** | **说明** | ------------- |:----------------------------------------|:-----:| :-----:|-----------------|---
 
 |状态 |开关| X | X |布尔值 |
 |说明 |文字说明| | | |
@@ -476,7 +474,7 @@ History 函数需要 history 适配器或任何其他类型为 history 的存储
 
 ＃＃＃＃ 设备
 #### 枚举
-* `common.members` - （可选）枚举成员 ID 数组
+* `common.members` -（可选）枚举成员 ID 数组
 
 ####元
 ID
@@ -500,7 +498,7 @@ ID `system.adapter.<adapter.name>`
 * `common.availableModes` - `common.mode` 的值，如果可能有多种模式
 * `common.blockly` - [true/false] 如果适配器具有用于 blockly 的自定义块。 （需要 admin/blockly.js）
 * `common.connectionType` - 与设备的连接类型：`local/cloud`。参见`common.dataSource`。
-* `common.compact` - 告诉控制器，如果需要，可以在同一进程中启动此适配器
+* `common.compact` - 告诉控制器如果需要，这个适配器可以在同一进程中启动
 * `common.config.height` - 配置对话框的默认高度（不推荐使用 - 仅对 admin2 有效）
 * `common.config.minHeight` - 配置对话框的最小高度（不推荐使用 - 仅对 admin2 有效）
 * `common.config.minWidth` - 配置对话框的最小宽度（不推荐使用 - 仅对 admin2 有效）
@@ -530,9 +528,9 @@ ID `system.adapter.<adapter.name>`
 * `common.main` - **已弃用** 在 package.json 中使用 main。
 * `common.materializeTab` - 如果适配器支持 > admin3 选项卡（实体化样式）
 * `common.materialize` - 如果适配器支持 > admin3 (materialize style)
-* `common.messagebox` - 如果支持消息框，则为真。如果是，将创建对象 system.adapter.&lt;adapter.name&gt&lt;adapter.instance&gt.messagebox 以将消息发送到适配器（用于电子邮件、pushover...；
-* `common.mode` - **mandatory** 可能的值见下文
-* `common.name` - **强制性** 不带“ioBroker”的适配器名称。
+* `common.messagebox` - 如果支持消息框，则为真。如果是，将创建对象 system.adapter.&lt;adapter.name&gt&lt;adapter.instance&gt.messagebox 以将消息发送到适配器（用于电子邮件，pushover，...；
+* `common.mode` - **强制性** 可能的值见下文
+* `common.name` - **强制性** 适配器名称，不带“ioBroker”。
 * `common.noConfig` - [true/false] 例如不显示配置对话框
 * `common.noIntro` - 永远不会在管理员的介绍/概览屏幕上显示此适配器的实例（如图标、小部件）
 * `common.noRepository` - [true/false] 如果适配器随初始安装交付或有自己的存储库
@@ -551,7 +549,7 @@ ID `system.adapter.<adapter.name>`
 * `common.restartAdapters` - 安装此适配器后必须重新启动的适配器名称数组，例如[“可见”]
 * `common.restartSchedule` - CRON 计划重启模式`daemon` 适配器
 * `common.schedule` - 如果适配器以 `schedule` 模式运行，则 CRON 计划。
-* `common.serviceStates` - [true/false or path] 如果适配器可以提供额外的状态。如果是，将调用路径适配器/lib/states.js 并提供以下参数函数（对象、状态、实例、配置、回调）。该函数必须提供具有如下值的点数组： function (err, result) { result = [{id: 'id1', val: 1}, {id: 'id2', val: 2}]}
+* `common.serviceStates` - [true/false or path] 如果适配器可以提供额外的状态。如果是，路径adapter/lib/states.js 将被调用并给出以下参数函数（对象、状态、实例、配置、回调）。该函数必须提供具有如下值的点数组： function (err, result) { result = [{id: 'id1', val: 1}, {id: 'id2', val: 2}]}
 * `common.singletonHost` - 适配器只能在一台主机上安装一次
 * `common.singleton` - 适配器在整个系统中只能安装一次
 * `common.stopBeforeUpdate` - [true/false] 如果适配器必须在更新前停止
@@ -561,18 +559,18 @@ ID `system.adapter.<adapter.name>`
 * `common.supportCustoms` - [true/false] 如果适配器支持每个状态的设置。它必须在管理员中有 custom.html 文件。示例可以在 ioBroker.history 中找到
 * `common.supportStopInstance`- [true/false] 如果适配器支持信号 stopInstance（**messagebox** 需要）。信号将在停止前发送到适配器。 （在 SIGTERM 出现问题时使用）
 * `common.titleLang` - **强制性** 在所有支持的语言中的更长的适配器名称，例如 {en: 'Adapter', de: 'adapter', ru: 'Драйвер'}
-* `common.title` -（已弃用）要在管理员中显示的更长的适配器名称
+* `common.title` -（不推荐使用）在管理员中显示的更长的适配器名称
 * `common.type` - 适配器类型。见[类型](adapterpublish.md)
 * `common.unchanged` - （系统）请不要使用这个标志。这是一个通知系统的标志，必须在管理员中显示配置对话框。
 * `common.unsafePerm` - [true/false] 如果必须使用 `npm --unsafe-perm` 参数安装包
 * `common.version` - **强制**可用版本
 * `common.wakeup` - 如果将一些值写入 `system.adapter.NAME.x.wakeup`，适配器将启动。通常适配器应该在处理完事件后停止。
 * `common.webByVersion` - 在网络适配器中显示版本作为前缀（通常 - ip:port/material，webByVersion - ip:port/1.2.3/material）
-* `common.webExtendable` - [true/false] 如果此适配器中的 Web 服务器可以使用插件/扩展程序进行扩展，例如代理、简单 API
+* `common.webExtendable` - [true/false] 如果此适配器中的 Web 服务器可以使用插件/扩展（如代理、简单 API）进行扩展
 * `common.webExtension` - 连接网络扩展的相关文件名。例如。在相对于适配器根目录的 `simple-api` `lib/simpleapi.js` 中。此外，`native.webInstance` 需要说明此扩展将包含在何处。 Empty 表示它必须作为自己的 Web 服务运行。 “*”表示每个 Web 服务器都必须包含它。
 * `common.webPreSettings` - webServer 适配器必须包含在 info.js 中的参数列表。 （示例材料）
 * `common.webservers` - 应该提供来自适配器的 www 文件夹的内容的 Web 服务器实例数组
-* `common.welcomeScreen` - 页面数组，应该显示在“web”index.html 页面上。 ["vis/edit.html", "vis/index.html"] 或 [{"link": "vis/edit.html", "name": "Vis editor", "img": "vis/img/ edit.png", "color": "blue"}, "vis/index.html"]
+* `common.welcomeScreen` - 页面数组，应该显示在“web” index.html 页面上。 ["vis/edit.html", "vis/index.html"] 或 [{"link": "vis/edit.html", "name": "Vis editor", "img": "vis/img/ edit.png", "color": "blue"}, "vis/index.html"]
 * `common.welcomeScreen.order` - 待办事项
 * `common.welcomeScreenPro` - 与 `common.welcomeScreen` 相同，但只能通过 ioBroker.cloud 访问使用。
 * `common.wwwDontUpload` - 不要将 www 目录上传到数据库中。仅用于管理员。您可以将目录命名为其他名称，然后确定。
@@ -583,7 +581,7 @@ ID `system.adapter.<adapter.name>`
 ＃＃＃＃ 实例
 id *system.adapter.<adapter.name>.<instance-number>*
 
-* `common.host` -（强制）主机，适配器应该在其中启动 - object *system.host.&lt;host&gt;* 必须存在
+* `common.host` - 适配器应该在其中启动的（强制性）主机 - 对象 *system.host.&lt;host&gt;* 必须存在
 * `common.enabled` - （强制）
 * `common.mode` -（强制）可能的值见下文
 
@@ -611,7 +609,7 @@ ID `system.host.<host>`
 * `common.platform` -（强制）可能的值 `Javascript/Node.js`（更多）
 * `common.enabled` -（强制）脚本是否激活
 * `common.source` -（强制）脚本源
-* `common.engine` - （可选）*脚本引擎* 应该运行这个脚本的实例（例如'javascript.0'） - 如果省略引擎被自动选择
+* `common.engine` -（可选）*脚本引擎* 应该运行这个脚本的实例（例如'javascript.0'） - 如果省略引擎被自动选择
 
 #### 用户
 * `common.name` -（强制）用户名（区分大小写）

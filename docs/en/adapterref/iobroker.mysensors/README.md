@@ -8,14 +8,14 @@
 [![NPM](https://nodei.co/npm/iobroker.mysensors.png?downloads=true)](https://nodei.co/npm/iobroker.mysensors/)
 
 This adapter communicates with [mysensors](http://www.mysensors.org) serial or ethernet gateway (TCP or UDP).
-It ethernet gateway selected in this case ioBroker is server, that expects connections.
+If ethernet gateway selected in this case ioBroker is server, that expects connections.
 
 ## TCP Client
 This option works only together with TCP&lt;=&gt;Serial bridge, like [esp-link](https://github.com/jeelabs/esp-link).
 
 ## Pre requires
 To use serial port on Windows it is VS required to build the binary.
-To use serial port on linux it is build-essential an python2.7 required. To install them just write:
+To use serial port on linux it is build-essential and python2.7 required. To install them just write:
 
 ```
 sudo apt-get update
@@ -23,7 +23,15 @@ sudo apt-get install build-essential
 sudo apt-get install python2.7
 ```
 
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
 ## Changelog
+### 2.0.2 (2021-11-08)
+* (sergeyksv) Added the support of deep sleep
+
 ### 2.0.1 (2020-06-01)
 * (jangatzke) compare integer values
 
@@ -114,7 +122,7 @@ sudo apt-get install python2.7
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2020, Bluefox<dogafox@gmail.com>
+Copyright (c) 2016-2021, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -133,4 +141,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.discovery/README.md
 title: ioBroker 发现适配器
-hash: Rk3aBQW4Y6gRfsf0rrgnDYU2nyJaCR+JESF1iyG6hU4=
+hash: WSxh2vB/89J2wIGBvg02ZcDCRwhLMB1RkMUg9R4NfCc=
 ---
 ![标识](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
@@ -105,13 +105,13 @@ hash: Rk3aBQW4Y6gRfsf0rrgnDYU2nyJaCR+JESF1iyG6hU4=
 - 云
 - 历史（如果没有找到 SQL 或 InfluxDB）
 - 物联网
-- 浮动（当存在历史适配器时提供）
+- 电子图表（当存在历史适配器时提供）
 - JavaScript
 - 信息
 - 可见
 - 网络
 
-##如果适配器找不到IP...
+## 如果适配器找不到 IPs ...
 适配器 ping 当前主机 (x.y.z.1..255) 的 IP 的网络。此外，UPnP 和 mDNS 用于检测 IP。
 
 如果未找到所有 IP，请检查 iobroker 用户是否可以执行 `/bin/ping`。
@@ -136,11 +136,21 @@ hash: Rk3aBQW4Y6gRfsf0rrgnDYU2nyJaCR+JESF1iyG6hU4=
 - 狼（微笑杰克）
 - xs1（坦率的笑话）
 
-<!-- 下一版本的占位符（在行首）：
+<!-- 下一个版本的占位符（在行首）：
 
 ### __工作进行中__ -->
 
 ## Changelog
+### 2.7.5 (2021-11-09)
+* (Apollon77) Fix kecontact detection (Sentry IOBROKER-DISCOVERY-3P)
+
+### 2.7.4 (2021-11-09)
+* (bluefox) Replaced flot with eCharts
+* (bluefox) info Adapter removed
+
+### 2.7.3 (2021-10-05)
+* (Sneak-L8) updated kecontact detection
+
 ### 2.7.2 (2021-08-31)
 * (Sneak-L8) support KeBa KeContact P30
 
@@ -149,7 +159,7 @@ hash: Rk3aBQW4Y6gRfsf0rrgnDYU2nyJaCR+JESF1iyG6hU4=
 * (Apollon77) Optimize for js-controller 3.3
 
 ### 2.6.3 (2021-05-03)
-* (bluefox) Added support of Admin5 
+* (bluefox) Added support of Admin5
 
 ### 2.6.2 (2021-04-13)
 * (Apollon77) Fix crash case in mihome discovery (Sentry IOBROKER-DISCOVERY-30)
@@ -179,7 +189,7 @@ hash: Rk3aBQW4Y6gRfsf0rrgnDYU2nyJaCR+JESF1iyG6hU4=
 * (withstu) add heos
 
 ### 2.3.11 (2020-08-08)
-* (Grizzelbee) Added MieleCloudService 
+* (Grizzelbee) Added MieleCloudService
 
 ### 2.3.10 (2020-07-26)
 * (MiSchroe) Discovery Velux KLF-200 updated to new firmware

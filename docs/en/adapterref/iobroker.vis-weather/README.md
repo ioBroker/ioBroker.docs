@@ -34,7 +34,7 @@ You might need to enable "NextDaysDetailed".
 * please create issues at [github](https://github.com/rg-engineering/ioBroker.vis-weather/issues) if you find bugs or whish new features
 
 ## Changelog
-### 2.5.5 (in progress)
+### 2.5.5 (2021-11-07)
 * (René) bug fix color of labels in widget
 
 ### 2.5.4 (2021-10-30)

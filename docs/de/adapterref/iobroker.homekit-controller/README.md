@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.homekit-controller/README.md
 title: ioBroker.homekit-controller
-hash: 6IptBGhOqH4i2YF7j4HpvXlLr1MXmh0RxUqoddQJQcU=
+hash: dxxbEvQmOG3+ID91q8935b2l3QqtFA9z/bIkibRDfVY=
 ---
 ![Logo](../../../en/adapterref/iobroker.homekit-controller/admin/homekit-controller.png)
 
@@ -23,6 +23,8 @@ Mit diesem Adapter können Sie Geräte mit dem "works with HomeKit"-Logo koppeln
 ### Der Adapter ist nicht ...
 ... bietet ioBroker-Geräte oder -Zustände an, die von einer Apple Home-App/einem Apple-Home-System gesteuert werden. Wenn Sie diese Richtung wünschen, verwenden Sie bitte den [yahka](https://github.com/jensweigele/ioBroker.yahka) Adapter.
 
+... unterstützt Thread-basierte Geräte. Die Spezifikationen des Homekit-Threads sind noch nicht öffentlich verfügbar.
+
 ### So verwenden Sie den Adapter
 Der Adapter lauscht auf verfügbare Geräte in Ihrem Netzwerk.
 
@@ -37,14 +39,14 @@ Nach dem Pairing werden die unterstützten Zustände aus dem Gerät ausgelesen u
 Die Datenpunkte werden mit den richtigen Zuständen und, falls vorhanden, auch mit den richtigen Rollen erstellt. Ansonsten werden generische Rollen verwendet.
 
 ### Informationen identifizieren
-Geräte, die mit keinem Controller gekoppelt sind, haben einen admin.identify-Status, der mit "true" ausgelöst werden kann. In diesem Fall sollte sich das betreffende Gerät identifizieren (z. B. sollte eine Lampe blinken oder ähnliches, damit es identifiziert werden kann). Diese Funktion ist nur verfügbar, solange das Gerät nicht mit einem Controller gekoppelt ist.
+Geräte, die mit keinem Controller gekoppelt sind, haben einen admin.identify-Status, der mit "true" ausgelöst werden kann. In diesem Fall sollte sich das entsprechende Gerät identifizieren (z. B. sollte eine Lampe blinken oder ähnliches, damit es identifiziert werden kann). Diese Funktion ist nur verfügbar, solange das Gerät nicht mit einem Controller gekoppelt ist.
 
 #### Pairing-Informationen
 Um das Gerät mit dieser Adapterinstanz zu koppeln, müssen Sie den auf dem Gerät angezeigten Pin oder ein Etikett oder ähnliches angeben. Die PIN besteht aus 8 Ziffern neben einem QR-Code. Die Zahlen müssen im Format 123-45-678 eingegeben werden (auch wenn die Striche nicht auf dem Etikett gedruckt oder auf dem Bildschirm angezeigt werden!)
 
 Im Moment muss die PIN in den Zustand admin.pairWithPin eingegeben werden – eine Admin-Benutzeroberfläche wird in Kürze folgen.
 
-Nach dem Pairing des Geräts mit dieser Instanz ist es NICHT möglich, das Gerät parallel auch zur Apple Home App oder ähnlichem hinzuzufügen.
+Nach dem Pairing des Geräts mit dieser Instanz ist es NICHT möglich, das Gerät auch parallel zur Apple Home App oder ähnlichem hinzuzufügen.
 
 Es kann Fälle geben, in denen das Pairing immer noch problematisch ist, da ich nur mit sehr wenigen Geräten testen konnte. Melden Sie daher bitte Probleme und ich werde Sie mit Anweisungen unterstützen, um die erforderlichen Debugging-Daten zu erhalten.
 

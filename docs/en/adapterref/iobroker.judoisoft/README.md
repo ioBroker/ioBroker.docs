@@ -23,6 +23,9 @@ Settings available:
 <b>NodeJs >> 8.x.x </b>
 
 ## Changelog
+### 1.0.11  (2021-11-07)
+* (arteck) performance corr
+
 ### 1.0.7  (2021-04-14)
 * (arteck) corr psw save method
 

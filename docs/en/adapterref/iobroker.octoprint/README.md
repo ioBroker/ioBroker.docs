@@ -14,7 +14,7 @@
 
 Adapter to connect OctoPrint to ioBroker
 
-Tested with OctoPrint 1.6.0
+**Tested with [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.7.2**
 
 ## Installation
 
@@ -33,10 +33,11 @@ iobroker add octoprint
 - Get current print job information
 - Get file list information
 
-### Temperatures
+### Tools
 
 - Set tool temperature
 - Set bed temperature
+- Extrude / Retract
 
 ### Commands
 
@@ -64,13 +65,17 @@ Please use state `system.adapter.octoprint.0.alive` to stop/start the instance.
 
 ## Changelog
 
+### 2.0.2
+
+* (klein0r) Extrude commands
+
 ### 2.0.1
 
 * (klein0r) Fixed missing translations
 
 ### 2.0.0
 
-* (klein0r) Admin 5 Support
+* (klein0r) Admin 5 Support **(BREAKING CHANGE - RENAMED TEMPERATURE NAMESPACE)**
 
 ### 1.1.2
 

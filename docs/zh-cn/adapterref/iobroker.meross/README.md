@@ -3,39 +3,51 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.meross/README.md
 title: ioBroker.meross
-hash: 5iNCBlSzyWs/t91v7Ie04Ag2rsNq8nXT9tXBisGyGr0=
+hash: ycVwOhJYFRlqUHHqOuuO0OFy5Dx2wEtuAs5lKT/7VjE=
 ---
-![商标](../../../en/adapterref/iobroker.meross/admin/meross-logo.png)
+![标识](../../../en/adapterref/iobroker.meross/admin/meross-logo.png)
 
 ![安装数量](http://iobroker.live/badges/meross-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.meross.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.meross.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.meross.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.meross.svg)
 
-＃ioBroker.meross
-![测试与发布](https://github.com/Apollon77/iobroker.meross/workflows/Test%20and%20Release/badge.svg)[![翻译状态]（https://weblate.iobroker.net/widgets/adapters/-/meross/svg-badge.svg）](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker.meross
+![测试和发布](https://github.com/Apollon77/iobroker.meross/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/meross/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
 
 ＃＃ 描述
-该适配器允许通过连接到Meross云服务器来控制Meross设备。
+该适配器允许通过连接到 Meross 云服务器来控制 Meross 设备。
 
-您需要提供您的Cloud登录凭据。适配器连接到您的云帐户，并通过MQTT订阅所有设备数据。因此，设备需要连接到其云。当前，尚无本地控制设备的方法。
+您需要提供您的云登录凭据。适配器连接到您的云帐户并通过 MQTT 订阅所有设备数据。因此，设备需要连接到他们的云。目前还没有办法在本地控制设备。
 
-一个适配器实例将显示一个Meross Cloud帐户中的所有设备，并允许对其进行控制。
+一个 Adapter 实例将显示来自一个 Meross Cloud 帐户的所有设备并允许控制它们。
 
-##已知的工作设备
+## 已知的工作设备
 * mss425e
 * mss310
-* MSS620欧盟/英国
+* MSS620 欧盟/英国
+* MTS100、MTS100v3、MTS150
+* MRS100
 
-如果有更多设备可用（或不能运行），请通过打开GitHub问题进行报告。
+如果更多设备工作（或不工作），请通过打开 GitHub 问题报告它们。
 
-##如何报告问题和功能请求
-请为此使用GitHub问题。
+## 如何报告问题和功能请求
+请为此使用 GitHub 问题。
 
-最好是将适配器设置为“调试日志”模式（“实例”->“专家模式”->“列日志级别”）。然后，请从磁盘中获取日志文件（ioBroker安装目录中的子目录“ log”，而不是Admin，因为Admin会删掉行）。如果您不喜欢在GitHub问题中提供它，也可以通过电子邮件（iobroker@fischer-ka.de）将其发送给我。请添加对相关GitHub问题的引用，并描述我什么时候在日志中看到的内容。
+最好是将适配器设置为调试日志模式（实例 -> 专家模式 -> 列日志级别）。然后请从磁盘获取日志文件（ioBroker 安装目录中的子目录“log”，而不是从 Admin 获取，因为 Admin 截断了行）。如果您不喜欢在 GitHub 问题中提供它，您也可以通过电子邮件 (iobroker@fischer-ka.de) 将其发送给我。请添加对相关 GitHub 问题的引用，并描述我当时在日志中看到的内容。
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Add support for MTS150 Thermostats
+* (Apollon77) Add support for MRS100 RollerShutter devices
+
+### 1.6.3 (2021-06-04)
+* (Apollon77) Update translations
+
+### 1.6.2 (2021-05-07)
+* (Apollon77) optimize for js-controller 3.3
 
 ### 1.6.1 (2021-04-23)
 * (Apollon77) prevent crash case (Sentry IOBROKER-MEROSS-Z)
@@ -117,7 +129,7 @@ hash: 5iNCBlSzyWs/t91v7Ie04Ag2rsNq8nXT9tXBisGyGr0=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2021 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

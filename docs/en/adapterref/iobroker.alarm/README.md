@@ -152,6 +152,9 @@ Beinhaltet die Informationen für die "anderen" Alarmkreise 1 + 2.
 
 ## Changelog
 
+#### 2.1.1 (07.11.2021)
+* (misanorot) added countdown state for silent alarm
+
 #### 2.1.0 (11.10.2021)
 * (misanorot) extend list states and speech output, added leave option
 

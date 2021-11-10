@@ -44,6 +44,9 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
+### 1.3.3 (2021-11-07)
+* (simatec) Bugfix trigger Tilted
+
 ### 1.3.2 (2021-11-05)
 * (simatec) Bugfix BrightnessSensor
 * (simatec) lastAutoAction in array added

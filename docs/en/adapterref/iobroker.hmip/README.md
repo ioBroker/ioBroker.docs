@@ -54,6 +54,10 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
+### 1.14.0 (2021-11-07)
+* (Apollon77) Lower loglevel for state change logs to debug
+* (Apollon77) Add verification when reading some data to prevent crashes
+* (Apollon77) Removed some generic (error/info) states that only exists on chosen devices to re-add later in a generic way
 
 ### 1.13.2 (2021-08-25)
 * (Apollon77) Fix warning on js-controller 3.3 with two datapoints
@@ -193,7 +197,7 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 * (jogibear9988) more devices, bugfixes. thanks to TobiasF1986, steckenpferd and Ma-ster77
 
 ### 0.0.3
-* (jogibear9988) bugfixes and more devices 
+* (jogibear9988) bugfixes and more devices
 
 ### 0.0.2
 * (jogibear9988) bugfixes, more devices and initial support of groups

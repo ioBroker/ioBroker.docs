@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.discovery/README.md
 title: Адаптер ioBroker Discover
-hash: Rk3aBQW4Y6gRfsf0rrgnDYU2nyJaCR+JESF1iyG6hU4=
+hash: WSxh2vB/89J2wIGBvg02ZcDCRwhLMB1RkMUg9R4NfCc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
@@ -105,7 +105,7 @@ hash: Rk3aBQW4Y6gRfsf0rrgnDYU2nyJaCR+JESF1iyG6hU4=
 - Облако
 - История (если SQL или InfluxDB не найдены)
 - Интернет вещей
-- flot (предлагается при наличии History-Adapter)
+- eCharts (предлагается при наличии адаптера истории)
 - JavaScript
 - Информация
 - Vis
@@ -130,17 +130,27 @@ hash: Rk3aBQW4Y6gRfsf0rrgnDYU2nyJaCR+JESF1iyG6hU4=
 - owfs (Bluefox)
 - rpi2 (если ioBroker работает на Raspberry)
 - rwe-smarthome (PArns)
-- s7 (Bluefox)
+- S7 (Bluefox)
 - смартметр (Apollon77)
 - унифи (jens-maus)
 - волк (улыбается-валет)
-- xs1 (откровенный шуток)
+- xs1 (откровенный шутник)
 
 <! - Заполнитель для следующей версии (в начале строки):
 
 ### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
+### 2.7.5 (2021-11-09)
+* (Apollon77) Fix kecontact detection (Sentry IOBROKER-DISCOVERY-3P)
+
+### 2.7.4 (2021-11-09)
+* (bluefox) Replaced flot with eCharts
+* (bluefox) info Adapter removed
+
+### 2.7.3 (2021-10-05)
+* (Sneak-L8) updated kecontact detection
+
 ### 2.7.2 (2021-08-31)
 * (Sneak-L8) support KeBa KeContact P30
 
@@ -149,7 +159,7 @@ hash: Rk3aBQW4Y6gRfsf0rrgnDYU2nyJaCR+JESF1iyG6hU4=
 * (Apollon77) Optimize for js-controller 3.3
 
 ### 2.6.3 (2021-05-03)
-* (bluefox) Added support of Admin5 
+* (bluefox) Added support of Admin5
 
 ### 2.6.2 (2021-04-13)
 * (Apollon77) Fix crash case in mihome discovery (Sentry IOBROKER-DISCOVERY-30)
@@ -179,7 +189,7 @@ hash: Rk3aBQW4Y6gRfsf0rrgnDYU2nyJaCR+JESF1iyG6hU4=
 * (withstu) add heos
 
 ### 2.3.11 (2020-08-08)
-* (Grizzelbee) Added MieleCloudService 
+* (Grizzelbee) Added MieleCloudService
 
 ### 2.3.10 (2020-07-26)
 * (MiSchroe) Discovery Velux KLF-200 updated to new firmware

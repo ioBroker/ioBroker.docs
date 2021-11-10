@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: UIQzTj/niqykyk4X6zYZI+AH+i3/X5WYH27JP8BFhxI=
+hash: /VI0Cf5Xa/y4E/hw4ovDqKQjPI5ZjOGdikq9MAGDCfM=
 ---
 ![标识](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
 
@@ -19,7 +19,7 @@ hash: UIQzTj/niqykyk4X6zYZI+AH+i3/X5WYH27JP8BFhxI=
 # IoBroker.octoprint
 将 OctoPrint 连接到 ioBroker 的适配器
 
-使用 OctoPrint 1.6.0 测试
+**使用 [八印](https://github.com/OctoPrint/OctoPrint/releases) 1.7.2 测试**
 
 ＃＃ 安装
 请使用 ioBroker 中的“适配器列表”来安装此适配器的稳定版本。您还可以使用 CLI 安装此适配器：
@@ -35,9 +35,10 @@ iobroker add octoprint
 - 获取当前打印作业信息
 - 获取文件列表信息
 
-### 温度
+＃＃＃ 工具
 - 设置工具温度
 - 设置床温
+- 挤压/收缩
 
 ### 命令
 - 打印机：连接、断开和回家
@@ -63,13 +64,17 @@ setObject('system.adapter.octoprint.0', obj);
 
 ## Changelog
 
+### 2.0.2
+
+* (klein0r) Extrude commands
+
 ### 2.0.1
 
 * (klein0r) Fixed missing translations
 
 ### 2.0.0
 
-* (klein0r) Admin 5 Support
+* (klein0r) Admin 5 Support **(BREAKING CHANGE - RENAMED TEMPERATURE NAMESPACE)**
 
 ### 1.1.2
 

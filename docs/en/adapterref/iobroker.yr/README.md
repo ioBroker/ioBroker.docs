@@ -36,6 +36,9 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 -->
 
 ## Changelog
+### 5.0.0 (2021-11-08)
+* (klein0r) Fixed translations
+* (klein0r) Update dates data type
 
 ### 3.0.5 (2021-07-26)
 * (Apollon77) prevent calls and other errors to Yr when no location is defined
@@ -56,7 +59,7 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 ### 3.0.0 [2021-06-06]
 * (withstu) Switch to new JSON API and change data Structure (breaking)
 * (withstu) Update project dependencies
-* (arteck) Type of state was corrected  
+* (arteck) Type of state was corrected
 
 ### 2.0.3 [2018-10-10]
 * (bluefox) add translations
@@ -70,9 +73,6 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 
 ### 1.0.5 [2016-10-10]
 * (bluefox) move weather widgets to this adapter
-
-## 1.0.4 [2016-07-06]
-* (bluefox) fix link to readme
 
 ### 1.0.3 [2016-05-17]
 * (bluefox) change readme path
@@ -129,6 +129,7 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 
 ### 0.0.2
 * (hobbyquaker) fixes
+
 ### 0.0.1
 * (hobbyquaker) first release
 
@@ -138,7 +139,7 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>, Bluefox
+Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -157,4 +158,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-

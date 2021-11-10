@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meross/README.md
 title: ioBroker.meross
-hash: 5iNCBlSzyWs/t91v7Ie04Ag2rsNq8nXT9tXBisGyGr0=
+hash: ycVwOhJYFRlqUHHqOuuO0OFy5Dx2wEtuAs5lKT/7VjE=
 ---
 ![Logo](../../../en/adapterref/iobroker.meross/admin/meross-logo.png)
 
@@ -11,31 +11,43 @@ hash: 5iNCBlSzyWs/t91v7Ie04Ag2rsNq8nXT9tXBisGyGr0=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.meross.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.meross.svg)
 
-# IoBroker.meross
-![Testen und freigeben](https://github.com/Apollon77/iobroker.meross/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus] (https://weblate.iobroker.net/widgets/adapters/-/meross/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+#ioBroker.meross
+![Testen und freigeben](https://github.com/Apollon77/iobroker.meross/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/meross/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Beschreibung
-Mit diesem Adapter können Sie Meross-Geräte steuern, indem Sie eine Verbindung zu den Meross-Cloud-Servern herstellen.
+Dieser Adapter ermöglicht die Steuerung von Meross-Geräten durch Verbindung mit den Meross-Cloud-Servern.
 
-Sie müssen Ihre Cloud-Anmeldeinformationen angeben. Der Adapter stellt eine Verbindung zu Ihrem Cloud-Konto her und abonniert alle Gerätedaten über MQTT. Aus diesem Grund müssen die Geräte mit ihrer Cloud verbunden sein. Derzeit ist keine Möglichkeit bekannt, die Geräte lokal zu steuern.
+Sie müssen Ihre Cloud-Anmeldedaten angeben. Der Adapter verbindet sich mit Ihrem Cloud-Konto und abonniert alle Gerätedaten über MQTT. Aus diesem Grund müssen die Geräte mit ihrer Cloud verbunden sein. Derzeit ist keine Möglichkeit bekannt, die Geräte lokal zu steuern.
 
-Eine Adapterinstanz zeigt alle Geräte eines Meross Cloud-Kontos an und ermöglicht deren Steuerung.
+Eine Adapter-Instanz zeigt alle Geräte eines Meross Cloud-Kontos an und ermöglicht deren Steuerung.
 
 ## Bekannte Arbeitsgeräte
 * mss425e
 * mss310
-* MSS620 EU / UK
+* MSS620 EU/UK
+* MTS100, MTS100v3, MTS150
+* MRS100
 
 Wenn mehr Geräte funktionieren (oder auch nicht), melden Sie diese bitte, indem Sie ein GitHub-Problem öffnen.
 
-## So melden Sie Probleme und Funktionsanforderungen
-Bitte verwenden Sie dazu GitHub-Probleme.
+## So melden Sie Probleme und Funktionsanfragen
+Bitte verwenden Sie dafür GitHub-Probleme.
 
-Am besten stellen Sie den Adapter auf den Debug-Protokollmodus (Instanzen -> Expertenmodus -> Spaltenprotokollstufe). Dann holen Sie sich bitte die Protokolldatei von der Festplatte (Unterverzeichnis "log" im ioBroker-Installationsverzeichnis und nicht von Admin, da Admin die Zeilen abschneidet). Wenn Sie es nicht gerne in der GitHub-Ausgabe bereitstellen, können Sie es mir auch per E-Mail senden (iobroker@fischer-ka.de). Bitte fügen Sie einen Verweis auf das relevante GitHub-Problem hinzu UND beschreiben Sie auch, was ich zu welchem Zeitpunkt im Protokoll sehe.
+Am besten setzen Sie den Adapter in den Debug-Log-Modus (Instanzen -> Expertenmodus -> Spaltenprotokoll-Ebene). Dann holen Sie sich bitte die Logdatei von der Festplatte (Unterverzeichnis "log" im ioBroker-Installationsverzeichnis und nicht vom Admin, da der Admin die Zeilen abschneidet). Wenn Sie es nicht in der GitHub-Ausgabe bereitstellen möchten, können Sie es mir auch per E-Mail (iobroker@fischer-ka.de) zusenden. Bitte fügen Sie einen Verweis auf das relevante GitHub-Problem hinzu UND beschreiben Sie auch, was ich zu welchem Zeitpunkt im Protokoll sehe.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Add support for MTS150 Thermostats
+* (Apollon77) Add support for MRS100 RollerShutter devices
+
+### 1.6.3 (2021-06-04)
+* (Apollon77) Update translations
+
+### 1.6.2 (2021-05-07)
+* (Apollon77) optimize for js-controller 3.3
 
 ### 1.6.1 (2021-04-23)
 * (Apollon77) prevent crash case (Sentry IOBROKER-MEROSS-Z)
@@ -117,7 +129,7 @@ Am besten stellen Sie den Adapter auf den Debug-Protokollmodus (Instanzen -> Exp
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2021 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -36,6 +36,13 @@ Sie können für S7TIME 4 Zeitversatzmodi verwenden:
 S5 dekodiert wie hier beschrieben: http://www.plccenter.cn/Siemens_Step7/Format_des_Datentyps_S5TIME_Zeitdauer.htm
 
 ## Changelog
+### 1.3.9 (2021-11-09)
+* (Apollon77) make sure strings work correctly
+* (Apollon77) Fix several crash cases (IOBROKER-S7-17, IOBROKER-S7-19, IOBROKER-S7-1C, IOBROKER-S7-18)
+
+### 1.3.7 (2021-11-08)
+* (bluefox) Corrected type of "write" attribute
+
 ### 1.3.6 (2021-07-31)
 * (bluefox) Corrected import of last line
 
@@ -52,7 +59,7 @@ S5 dekodiert wie hier beschrieben: http://www.plccenter.cn/Siemens_Step7/Format_
 * (bluefox) Corrected the type of states
 
 ### 1.3.0 (2021-06-17)
-* (bluefox) New configuration page on react 
+* (bluefox) New configuration page on react
 
 ### 1.2.5 (2021-04-17)
 * (Apollon77) Fix pot crash case (Sentry IOBROKER-S7-16)

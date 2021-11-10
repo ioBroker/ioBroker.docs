@@ -52,7 +52,7 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
    
 ## Changelog
 
-### 2.4.5 (in progress)
+### 2.4.5 (2021-11-07)
 * (René) bug fix color of labels in widget
 
 ### 2.4.4 (2021-10-30)

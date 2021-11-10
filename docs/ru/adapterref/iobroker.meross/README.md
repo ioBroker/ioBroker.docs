@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.meross/README.md
 title: ioBroker.meross
-hash: 5iNCBlSzyWs/t91v7Ie04Ag2rsNq8nXT9tXBisGyGr0=
+hash: ycVwOhJYFRlqUHHqOuuO0OFy5Dx2wEtuAs5lKT/7VjE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.meross/admin/meross-logo.png)
 
@@ -27,6 +27,8 @@ hash: 5iNCBlSzyWs/t91v7Ie04Ag2rsNq8nXT9tXBisGyGr0=
 * mss425e
 * mss310
 * MSS620 ЕС / Великобритания
+* МТС100, МТС100v3, МТС150
+* MRS100
 
 Если работают другие устройства (или нет), сообщите о них, открыв проблему на GitHub.
 
@@ -36,6 +38,16 @@ hash: 5iNCBlSzyWs/t91v7Ie04Ag2rsNq8nXT9tXBisGyGr0=
 Лучше всего установить адаптер в режим журнала отладки (Экземпляры -> Экспертный режим -> Уровень журнала столбцов). Затем получите файл журнала с диска (подкаталог "log" в установочном каталоге ioBroker, а не из Admin, потому что Admin сокращает строки). Если вам не нравится предоставлять его в выпуске GitHub, вы также можете отправить его мне по электронной почте (iobroker@fischer-ka.de). Добавьте ссылку на соответствующую проблему GitHub И также опишите, что я вижу в журнале и в какое время.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Add support for MTS150 Thermostats
+* (Apollon77) Add support for MRS100 RollerShutter devices
+
+### 1.6.3 (2021-06-04)
+* (Apollon77) Update translations
+
+### 1.6.2 (2021-05-07)
+* (Apollon77) optimize for js-controller 3.3
 
 ### 1.6.1 (2021-04-23)
 * (Apollon77) prevent crash case (Sentry IOBROKER-MEROSS-Z)
@@ -117,7 +129,7 @@ hash: 5iNCBlSzyWs/t91v7Ie04Ag2rsNq8nXT9tXBisGyGr0=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2021 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

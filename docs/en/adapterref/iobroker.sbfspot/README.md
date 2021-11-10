@@ -51,7 +51,7 @@ sometimes npm intall must be called more then one time to successfully install a
 
 ## Changelog
 
-### 4.0.8 (in progress)
+### 4.0.8 (2021-07-11)
 * (René) bug fix color of labels in widget
 
 ### 4.0.7 (2021-10-30)

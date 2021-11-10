@@ -275,6 +275,10 @@ There are some programs in folder *test' to test the TCP communication:
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 3.4.15 (2021-11-09)
+* (Apollon77) Catch errors in tasks processing to prevent crashes
+* (Apollon77) make sure generated IDs do not end with "."
+
 ### 3.4.14 (2021-08-31)
 * (nkleber78) Fixed issue with sorting
 * (bluefox) Corrected the calculations with scaling factor
@@ -282,7 +286,7 @@ There are some programs in folder *test' to test the TCP communication:
 
 ### 3.4.11 (2021-07-31)
 * (bluefox) Corrected import of last line
- 
+
 ### 3.4.10 (2021-07-30)
 * (Apollon77) Make sure that slave reconnections at least wait 1000ms to allow old connectio to close properly
 * (bluefox) Corrected the error with write single registers
@@ -312,7 +316,7 @@ There are some programs in folder *test' to test the TCP communication:
 * (bluefox) Add new option: Use only Write multiple registers, read interval
 
 ### 3.3.1 (2021-05-10)
-* (bluefox) fixed the configuration dialog for "input registers" in slave mode 
+* (bluefox) fixed the configuration dialog for "input registers" in slave mode
 
 ### 3.3.0 (2021-04-16)
 * (Apollon77) Allow usage of write-only (no poll) states
@@ -349,7 +353,7 @@ There are some programs in folder *test' to test the TCP communication:
 * (nkleber78) Corrected: the exported data cannot be imported without modification
 
 ### 3.1.9 (2020-09-17)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-MODBUS-1C)  
+* (Apollon77) Prevent crash case (Sentry IOBROKER-MODBUS-1C)
 
 ### 3.1.7 (2020-07-23)
 * (Apollon77) Fix some Sentry crash reports (IOBROKER-MODBUS-N)

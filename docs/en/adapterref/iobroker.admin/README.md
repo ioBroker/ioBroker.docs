@@ -76,9 +76,13 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
+### 5.1.26 (2021-11-09)
+* (bluefox) Fixed discovery function
+* (bluefox) Fixed some GUI bugs
+
 ### 5.1.25 (2021-08-15)
 * (bluefox) Corrected some errors reported via sentry and the github issues
- 
+
 ### 5.1.23 (2021-08-05)
 * (bluefox) Corrected some errors reported via sentry
 
@@ -87,9 +91,6 @@ lettering of the log appears in red.
 
 ### 5.1.17 (2021-07-30)
 * (bluefox) Corrected the error on the adapter's tab
-
-### 5.1.16 (2021-07-30)
-* (bluefox) Make the appearance of buttons configurable
 
 ## License
 The MIT License (MIT)

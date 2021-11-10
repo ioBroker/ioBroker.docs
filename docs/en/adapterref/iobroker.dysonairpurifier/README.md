@@ -142,6 +142,10 @@ Which is what the dyson app does also.
 
 ## Changelog
 
+### V2.2.0 (2021-11-07) (Welcome to my wasteland)
+* (grizzelbee) New: [#154](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/154) Added support for dyson Humidify+Cool PH03/358E.
+
+
 ### V2.1.4 (2021-10-20) (Running to the edge)
 * (grizzelbee) New: [#152](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/152) Added token-indicator to config page in admin to show whether a token has already been received and saved or not.
 
