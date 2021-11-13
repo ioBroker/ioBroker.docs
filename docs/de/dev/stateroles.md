@@ -1,31 +1,29 @@
 ---
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/stateroles.md
-title: Staatliche Rollen
+title: Rollen von Datenpunkten
 hash: iQ0sPeHMl+oZq/pHTJCX2n465zmSPwYKbJHVgPyMB1w=
 ---
-# Staatsrollen
+# Rollen von Datenpunkten
 Bei Objekten vom Typ `state` muss die Eigenschaft `common.role` auf eine der in der Liste unten definierten Rollen gesetzt werden.
 Die Rolleninformationen sind sehr wichtige Informationen und ermöglichen es Visualisierungs- und Smart-Assistant-Adaptern, die Funktion des Objekts zu erkennen und auch, wie/ob sie sich auf andere Objekte im selben Kanal, Gerät oder Ordner beziehen.
 
 Beispiel: Eine RGB-Lampe kann folgende drei Objekte (oder mehr) mit unterschiedlichen Rollen haben, die zusammengehören:
 
-* `Schalter` - (Ein/Aus)
+* `switch` - (Ein/Aus)
 * `level.color.rgb` mit #RRGGBB Farbcode der Lampe
 * `level.brightness` mit dem Helligkeitswert
 
 Verschiedene Gerätevorlagen, die für die Erkennung mit den erforderlichen und optionalen Objekten und deren Rollen verwendet werden, finden Sie in den [Typ-Detektor-Repository](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md).
 
-## Verbreitet
-* `Staat` - sehr allgemeiner Zweck. Wenn Sie nicht wissen, welche Rolle der Staat hat, verwenden Sie diese.
+## Allgenmein
+* `state` - sehr allgemeiner Zweck, zu verwenden, wenn nicht bekannt ist, welche Rolle der Datenpunkt hat.
 * `text` `common.type = string`
-* `text.url` `common.type = string` state val enthält eine URL zur Verwendung in einem Anker, iframe oder img
+* `text.url` `common.type = string` val enthält eine URL zur Verwendung in einem Anker, iframe oder img
 * `html` `common.type = string`
 * `json` `common.type = string`
 * `list` `common.type = array`
 * `date` `common.type = string` - analysierbar durch `new Date(ddd)` string
-* `Datum` `common.type = Zahl` - `Epochensekunden * 1000`
+* `date` `common.type = Zahl` - `Epochensekunden * 1000`
 
 ## Sensor (Boolean, schreibgeschützt)
 `common.type=boolean, common.write=false`
@@ -41,44 +39,44 @@ Verschiedene Gerätevorlagen, die für die Erkennung mit den erforderlichen und 
 * `sensor.lock` - aktuelle Position des Schlosses
 * `sensor.motion` - Bewegungssensor
 * `sensor.rain` - Regen erkannt
-* `sensor.noise` - Rauschen erkannt
+* `sensor.noise` - Geräusch erkannt
 
-## Schaltflächen (Boolean, nur schreiben)
+## Tasten (Boolean, nur schreiben)
 `common.type=boolean, common.write=true, common.read=false`
 
-* `Taste`
-* `Taste.lang`
+* `button`
+* `button.long`
 * `button.stop` - z.B. rollo halt,
-* `Taste.Stop.Tilt`
+* `button.stop.tilt`
 * `button.start`
-* `Knopf.öffnen.Tür`
-* `Schaltfläche.Fenster.öffnen`
-* `Knopf.öffnen.Blind`
-* `Knopf.öffnen.kippen`
+* `button.open.door`
+* `button.window.open`
+* `button.open.blind`
+* `button.open.tilt`
 * `button.close.blind`
 * `button.close.tilt`
-* `Tastenmodus.`*
+* `button.mode`*
 * `button.mode.auto`
-* `Tastenmodus.manuell`
-* `Knopf.Modus.Silent`
+* `button.mode.manual`
+* `button.mode.silent`
 
 ## Tasten als Sensor
 `common.type=boolean, common.write=false, common.read=true`
 
-* `button` - der Unterschied, dass `common.write=false`. Bitte vermeiden Sie diese Rolle und verwenden Sie `button.press` oder `button.long`.
-* `Taste.lang`
-* `Taste.drücken`
+* `button` - der Unterschied, dass `common.write=false`. Diese Rolle bitte vermeiden und `button.press` oder `button.long` verwenden.
+* `button.long`
+* `button.press`
 
 ## Werte (Zahlen, schreibgeschützt)
 `common.type=number, common.write=false`
 
-* `Wert`
+* `value`
 * `value.window` (`common.states={"0": "CLOSED", "1": "TILTED", "2": "OPEN"}`) Es ist wichtig, (`CLOSED/TILTED/ GEÖFFNET"). Werte können abweichen.
 * `value.temperature` (`common.unit='°C' oder '°F' oder 'K'')
-* `Wert.Feuchtigkeit`
+* `value.humidity`
 * `value.brightness` - Leuchtdichte (Einheit: Lux, )
-* `Wert.min`
-* `Wert.max`
+* `value.min`
+* `value.max`
 * `value.default`
 * `value.battery` - Batteriestand
 * `value.valve` - Ventilniveau
@@ -101,9 +99,9 @@ Verschiedene Gerätevorlagen, die für die Erkennung mit den erforderlichen und 
 * `value.tilt` - aktuelle Neigungsposition (`max = vollständig geöffnet, min = vollständig geschlossen`)
 * `value.lock` - aktuelle Position der Sperre
 * `value.speed` - Windgeschwindigkeit
-* `Wert.Druck` - (Einheit: mbar)
-* `Wert.Entfernung`
-* `Wert.Entfernung.Sichtbarkeit`
+* `value.pressure`        - (Einheit: mbar)
+* `value.distance`
+* `value.distance.visibility`
 * `value.severity` - ein gewisser Schweregrad (Zustände können angegeben werden), Höher ist wichtiger
 * `value.warning` - einige Warnungen (Zustände können angegeben werden), Höher ist wichtiger
 * `value.sun.elevation` - Sonnenstand in °
@@ -119,27 +117,27 @@ Verschiedene Gerätevorlagen, die für die Erkennung mit den erforderlichen und 
 Der Unterschied zwischen *Indikatoren* und *Sensoren* besteht darin, dass Indikatoren als kleines Symbol angezeigt werden. Sensoren als echter Wert.
 Der Indikator darf also nicht allein im Kanal sein. Es muss sich um einen anderen Hauptstatus innerhalb des Kanals handeln.
 
-* `Anzeige`
+* `indicator`
 * `indicator.working` - zeigt an, dass das Zielsystem etwas ausführt, wie zum Beispiel Jalousien oder das Öffnen von Schlössern.
 * `indicator.reachable` - Wenn das Gerät online ist
 * `indicator.connected` - wird nur für Instanzen verwendet. Verwenden Sie `indicator.reachable` für Geräte
 * `indicator.maintenance` - zeigt Systemwarnungen/Fehler, Alarme, Servicemeldungen, Batterie leer oder ähnliches an
-* `Anzeige.Wartung.lowbat`
-* `Anzeige.Wartung.Unerreichbarkeit`
-* `Anzeige.Wartung.Alarm`
+* `indicator.maintenance.lowbat`
+* `indicator.maintenance.unreach`
+* `indicator.maintenance.alarm`
 * `indicator.lowbat` - wahr, wenn die Batterie schwach ist
-* `Anzeige.Alarm` - wie Anzeige.Wartung.Alarm
-* `Indikator.alarm.fire` - Feuer erkannt
+* `indicator.alarm` - wie Anzeige.Wartung.Alarm
+* `indicator.alarm.fire` - Feuer erkannt
 * `indicator.alarm.flood` - Hochwasser erkannt
 * `indicator.alarm.secure` - Tür oder Fenster ist geöffnet
-* `Indikator.Alarm.Health` - Gesundheitsproblem
+* `indicator.alarm.health` - Gesundheitsproblem
 
-## Ebenen (Zahlen, Lesen-Schreiben)
+## Pegel / Niveau (Zahlen, Lesen-Schreiben)
 Mit **Stufen** können Sie einen Zahlenwert steuern oder einstellen.
 
 `common.type=number, common.write=true`
 
-* `Ebene`
+* `level`
 * `level.co2` - 0-100% Luftqualität
 * `level.dimmer` - Helligkeit ist auch dunkler
 * `level.blind` - Jalousieposition einstellen (max = vollständig geöffnet, min = vollständig geschlossen)
@@ -167,18 +165,18 @@ Schalter steuert boolesches Gerät (`true = ON, false = OFF`)
 
 `common.type=boolean, common.write=true`
 
-* `Schalter`
+* `switch`
 * `switch.lock` - lock (`true - Lock öffnen, false - Lock schließen`)
 * `switch.lock.door` - Türschloss
 * `switch.lock.window` - Fenstersperre
 * `switch.mode.boost` - Start/Stopp-Boost-Modus des Thermostats
 * `switch.mode.party` - Party-Modus des Thermostats starten/stoppen
 * `switch.power` - Ein/Aus-Thermostat oder Klimaanlage
-* `Schalter.Licht`
+* `switch.light`
 * `switch.comfort` - Komfortmodus
 * `switch.enable`
 * `switch.power` - Ein-/Ausschalten
-* `Schaltmodus.`*
+* `switch.mode`*
 * `switch.mode.auto` - Auto-Modus ein/aus
 * `switch.mode.manual` - manueller Modus ein/aus
 * `switch.mode.silent` - Silent-Modus ein/aus
@@ -216,23 +214,23 @@ Optional `value.battery` und
 ## Medien
 Sonderrollen für Mediaplayer
 
-* `Taste.Stopp`
+* `button.stop`
 * `button.play`
-* `button.weiter`
+* `button.next`
 * `button.prev`
-* `Taste.Pause`
-* `Schalt.Pause`
-* `Taste.Vorwärts`
+* `button.pause`
+* `switch.pause`
+* `button.forward`
 * `button.reverse`
-* `Taste.schnellvorlauf`
-* `Taste.schneller Rücklauf`
-* `Taste.Lautstärke.up`
-* `Taste.Lautstärke.leiser`
+* `button.fastforward`
+* `button.fastreverse`
+* `button.volume.up`
+* `button.volume.down`
 * `media.seek` - (`common.type=number`) %
 * `media.mode.shuffle` - (`common.type=number`) 0 - keiner, 1 - alle, 2 - eins
 * `media.mode.repeat` - (`common.type=boolean`)
 * `media.state` - ['play','stop','pause'] oder [0 - pause, 1 - play, 2 - stop] oder [true - play/false - pause]
-* `medien.künstler`
+* `medien.artist`
 * `media.album`
 * `media.titel`
 * `media.title.next`
@@ -337,7 +335,7 @@ Sonderrollen für Mediaplayer
 * `weather.icon.wind` - Aktueller Wind-Icon-URL für den Moment
 * `weather.icon.name` - Aktueller Name des Statussymbols
 * `weather.state` - Aktuelle Wetterbeschreibung
-* `value.precipitation` - (`type: number, unit: mm`) Niederschlag der letzten 24 Stunden Regen/Schnee (Niederschlag heute für Schnee oder Regen / осадки сегодня снега или дождя)
+* `value.precipitation` - (`type: number, unit: mm`) Niederschlag der letzten 24 Stunden Regen/Schnee (Niederschlag heute für Schnee oder Regen)
 * `value.precipitation.hour` - Tatsächlicher Niederschlag in der letzten Stunde
 * `value.precipitation.today` - Aktuelle Niederschlagsmenge für heute (bis 0:00)
 * `value.precipitation.chance` - Tatsächliche Niederschlagswahrscheinlichkeit für heute
@@ -355,7 +353,7 @@ Sonderrollen für Mediaplayer
 * `weather.chart.url` - URL zum Diagramm für den Wetterverlauf
 * `weather.chart.url.forecast` - URL zum Diagramm für die Wettervorhersage
 * `weather.html` - HTML-Objekt mit Wetterbeschreibung
-* `Wetter.Titel` - Sehr kurze Beschreibung
+* `waether.title` - Sehr kurze Beschreibung
 * `weather.title.short` - Sehr, sehr kurze Beschreibung (Ein Wort)
 * `weather.type` - Art der Wetterinformationen
 * `weather.json` - JSON-Objekt mit spezifischen Daten
@@ -375,13 +373,13 @@ Sonderrollen für Mediaplayer
 * `date.forecast.1` - morgen Datum
 * `weather.icon.forecast.1` - Symbol für morgen
 * `weather.state.forecast.1` - Wetterzustand von morgen
-* `Wert.Temperatur.Min.Prognose.1`
-* `Wert.Temperatur.max.Vorhersage.1`
+* `value.temperature.min.forecast.1`
+* `value.temperature.min.forecast.1`
 * `value.prepitation.forecast.1` - (`type: number, unit: %`) Vorhersage der Niederschlagswahrscheinlichkeit für morgen
 * `value.prepitation.forecast.1` - (`Typ: Zahl, Einheit: mm`) Vorhersage des Niederschlagsniveaus für morgen
 * `value.direction.wind.forecast.1`
-* `Wert.Geschwindigkeit.Windvorhersage.1`
-* `Wert.Druck.Vorhersage.1`
+* `value.speed.wind.forecast.1`
+* `value.pressure.forecast.1`
 
 ## Die Info
 * `info.ip` - IP des Geräts
@@ -409,7 +407,7 @@ Sonderrollen für Mediaplayer
 * `value.health.bpm` - Herzschläge pro Minute
 
 ## Andere
-* `URL`
+* `url`
 * `url.icon` - Symbol (zusätzlich kann jedes Objekt `common.icon` haben)
 * `url.cam` - Webkamera-URL
 * `url.blank` - URL in neuem Fenster öffnen
