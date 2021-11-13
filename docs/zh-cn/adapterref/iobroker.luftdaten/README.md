@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.luftdaten/README.md
 title: ioBroker.luftdaten
-hash: Two5lRgxKC4WrA6dvGFNUHKtX0Yu2TKtLC7cAErlsrE=
+hash: grIafPsdvDbr0zN+1tYCWkjLfB6VtWFAv9JlSqZHXuI=
 ---
 ![标识](../../../en/adapterref/iobroker.luftdaten/admin/luftdaten.png)
 
@@ -45,20 +45,29 @@ iobroker add luftdaten
 3. 创建一个新的适配器实例
 4. 选择“远程”作为类型
 5.在第二个输入中填写传感器的ID（不带#）
-6. 选择一个名称并保存设置
+6. 选择名称并保存设置
 
 等待几分钟，直到 cronjob 首次收集数据。
 
 *随意更改实例选项卡中的计划设置（默认为每 15 分钟一次）。*
 
-## 贡献者
-- 克莱因0r
-- 像素
-- 德国蓝狐
-- 阿波罗77
-- 多米尼克-列内曼
+##哨兵
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
 
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### 2.1.1
+
+* (klein0r) Fixed missing translations
+
+### 2.1.0
+
+* (klein0r) Admin 5 Support
 
 ### 2.0.3
 

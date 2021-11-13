@@ -29,7 +29,7 @@ sudo apt-get install python2.7
 -->
 
 ## Changelog
-### 2.0.2 (2021-11-08)
+### 2.0.3 (2021-11-10)
 * (sergeyksv) Added the support of deep sleep
 
 ### 2.0.1 (2020-06-01)

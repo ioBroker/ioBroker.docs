@@ -48,6 +48,7 @@ In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x some
 | tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].offset.offsetCelsius | Temperature offset |
 | tado.[x].[yyyyyy].Rooms.[z].timeTables.tt_id | Select active time table |
 | tado.[x].[yyyyyy].Home.state.presence | Set HOME or AWAY mode |
+| tado.[x].[yyyyyy].Home.masterswitch | Turn all devices on/off |
 | fanspeed | Fanspeed (only AC devices) |
 | mode | AC mode (only AC devices) |
 
@@ -58,12 +59,13 @@ In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x some
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.11-alpha.3 (2021-11-08)
+### 0.3.11-alpha.4 (2021-11-11)
 * (HGlab01) support attributes 'showSwitchToAutoGeofencingButton', 'showHomePresenceSwitchButton' and 'additionalConsents'
-* (HGlab01) Enhance error messages if API-call fails
+* (HGlab01) enhance error messages if API-call fails
 * (HGlab01) next time block fails (one reason for 422 error) if time blocks are not defined - fixed now
-* (HGlab01) Set HOME/AWAY is now suported by using state tado.x.yyyyyy.Home.state.presence
-* (HGlab01) Offset range -10/+10 defined
+* (HGlab01) set HOME/AWAY is now suported by using state tado.x.yyyyyy.Home.state.presence
+* (HGlab01) offset range -9.99/+10 validated
+* (HGlab01) add masterswitch for power on/off
 
 ### 0.3.10 (2021-10-29)
 * (HGlab01) API calls (except read) are queued and send one after the other

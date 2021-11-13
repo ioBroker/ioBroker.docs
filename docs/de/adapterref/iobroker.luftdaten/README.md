@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.luftdaten/README.md
 title: ioBroker.luftdaten
-hash: Two5lRgxKC4WrA6dvGFNUHKtX0Yu2TKtLC7cAErlsrE=
+hash: grIafPsdvDbr0zN+1tYCWkjLfB6VtWFAv9JlSqZHXuI=
 ---
 ![Logo](../../../en/adapterref/iobroker.luftdaten/admin/luftdaten.png)
 
@@ -18,7 +18,7 @@ hash: Two5lRgxKC4WrA6dvGFNUHKtX0Yu2TKtLC7cAErlsrE=
 
 #ioBroker.luftdaten
 Dieser Adapter fügt Ihrer ioBroker-Installation Sensordaten von „luftdaten.info“ hinzu.
-Sie können entscheiden, ob Sie einen lokalen Sensor per IP hinzufügen oder nur die API von lufdaten.info verwenden möchten, um die Daten eines anderen Sensors zu erhalten.
+Sie können entscheiden, ob Sie einen lokalen Sensor per IP hinzufügen möchten oder nur die API von lufdaten.info verwenden möchten, um die Daten eines anderen Sensors zu erhalten.
 
 ## Installation
 Bitte verwenden Sie die "Adapterliste" in ioBroker, um eine stabile Version dieses Adapters zu installieren. Sie können diesen Adapter auch über die CLI installieren:
@@ -37,7 +37,7 @@ iobroker add luftdaten
 
 Warten Sie einige Minuten, bis der Cronjob die Daten zum ersten Mal sammelt.
 
-*Ändern Sie die Zeitplaneinstellungen auf der Registerkarte Instanzen (standardmäßig alle 15 Minuten).*
+*Ändern Sie die Zeitplaneinstellungen im Instanzen-Tab (Standard ist alle 15 Minuten).*
 
 ### Fernbedienung
 1. Wählen Sie einen der Sensoren auf der Online-Karte: [deutschland.maps.luftdaten.info](https://deutschland.maps.luftdaten.info/)
@@ -49,16 +49,25 @@ Warten Sie einige Minuten, bis der Cronjob die Daten zum ersten Mal sammelt.
 
 Warten Sie einige Minuten, bis der Cronjob die Daten zum ersten Mal sammelt.
 
-*Ändern Sie die Zeitplaneinstellungen auf der Registerkarte Instanzen (standardmäßig alle 15 Minuten).*
+*Ändern Sie die Zeitplaneinstellungen im Instanzen-Tab (Standard ist alle 15 Minuten).*
 
-## Mitwirkende
-- klein0r
-- pix
-- DeutschBluefox
-- Apollon77
-- dominik-lienemann
+## Wache
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### 2.1.1
+
+* (klein0r) Fixed missing translations
+
+### 2.1.0
+
+* (klein0r) Admin 5 Support
 
 ### 2.0.3
 

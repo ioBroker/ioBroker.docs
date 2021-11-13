@@ -313,8 +313,7 @@ Forumeinträge werde ohne Probleme angezeigt, wenn man auf ioBroker per IP oder 
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-
-### __WORK IN PROGRESS__
+### 1.9.15 (2021-11-10)
 * (simatec) Design fix for react-dark theme
 
 ### 1.9.10 (2021-09-04)
@@ -328,7 +327,7 @@ Forumeinträge werde ohne Probleme angezeigt, wenn man auf ioBroker per IP oder 
 * Adjust object types to prevent js-controller 3.3 warnings
 
 ### 1.9.7 (2021-07-27)
-* (bluefox) updated the clock background 
+* (bluefox) updated the clock background
 
 ### 1.9.6 (2021-07-26)
 * (simatec) Design fix
@@ -395,7 +394,7 @@ Forumeinträge werde ohne Probleme angezeigt, wenn man auf ioBroker per IP oder 
 ### 1.7.2 (2020-05-07)
 * (ldittmar) Update systeminformation library
 * (ldittmar) Messages can be hidden
-* (ldittmar) Show subnet mask for ip4 and ip6 
+* (ldittmar) Show subnet mask for ip4 and ip6
 
 ### 1.7.1 (2020-04-29)
 * (ldittmar) Update systeminformation library
@@ -437,7 +436,7 @@ Forumeinträge werde ohne Probleme angezeigt, wenn man auf ioBroker per IP oder 
 * (ldittmar) change systeminformation call interval
 * (ThomasBahn) News problem fixed
 * (ldittmar) Update systeminformation library
-* (badenbaden) Fixed russian spelling 
+* (badenbaden) Fixed russian spelling
 
 ### 1.4.1 (2019-08-01)
 * (bluefox) Removed default socket.io

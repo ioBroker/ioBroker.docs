@@ -14,11 +14,12 @@ This is RESTFul interface to read the objects and states from ioBroker and to wr
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Usage
-Call in browser ```http://ipaddress:8087/help``` to get the help about API. The result is:
+Call in browser `http://ipaddress:8087/help` to get the help about API. The result is:
 
 ```
 {
   "getPlainValue": "http://ipaddress:8087/getPlainValue/stateID",
+  "getPlainValue": "http://ipaddress:8087/getPlainValue/stateID?json",
   "get": "http://ipaddress:8087/get/stateID/?prettyPrint",
   "getBulk": "http://ipaddress:8087/getBulk/stateID1,stateID2/?prettyPrint",
   "set": "http://ipaddress:8087/set/stateID?value=1&prettyPrint",
@@ -37,27 +38,51 @@ Call in browser ```http://ipaddress:8087/help``` to get the help about API. The 
 
 ### getPlainValue
 Call e.g.:
-```
-http://ipaddress:8087/getPlainValue/system.adapter.admin.0.alive
-```
+
+`http://ipaddress:8087/getPlainValue/system.adapter.admin.0.alive`
+
 Result:
-```
-true
-```
+
+`true`
+
+Additionally, you can use query key `json` to force the parsing of the stored value:
+
+`http://ipaddress:8087/getPlainValue/javascript.0.value?json`
+
+Result:
+
+`{"a":1}`
+
+And without `json` flag the result would be 
+
+`"{\"a\": 1}"`
+
+One more useful flag could be used too, `noStringify`:
+
+`http://ipaddress:8087/getPlainValue/javascript.0.stringValue?noStringify`
+
+Result:
+
+`VALUETEXT`
+
+And without `noStringify` flag the result would be
+
+`"VALUETEXT"`
 
 ### get
 Call e.g.:
-```
-http://ipaddress:8087/get/system.adapter.admin.0.alive
-```
+`http://ipaddress:8087/get/system.adapter.admin.0.alive`
+
 Result:
 ```
 {"val":true,"ack":true,"ts":1442432193,"from":"system.adapter.admin.0","lc":1442431190,"expire":23437,"_id":"system.adapter.admin.0.alive","type":"state","common":{"name":"admin.0.alive","type":"boolean","role":"indicator.state"},"native":{}}
 ```
+
 or call e.g.:
 ```
 http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 ```
+
 Result:
 ```
 {
@@ -79,7 +104,7 @@ Result:
 ```
 
 ### getBulk
-    get many states with one request, returned as array of objects in order of list in request and id/val/ts as subobject
+Get many states with one request, returned as array of objects in order of list in request and id/val/ts as sub-object
 
 ### set
 Call e.g.:
@@ -101,9 +126,9 @@ Result:
   "value": 1
 }
 ```
-Of course the data point *javascript.0.test* must exist.
+Of course the data point `javascript.0.test` must exist.
 
-Additionally the type of value could be defined:
+Additionally, the type of value could be defined:
 
 ```
 http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&type=string
@@ -115,32 +140,31 @@ and ack flag could be defined too:
 http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 ```
 
-
-
 ### toggle
-    toggles value:
+Toggles value:
+
 - boolean: true => false, false => true
 - number without limits: x => 100-x
 - number with limits: x => max - (x - min)
 
 ### setBulk
-    Set many states with one request. This request supports POST method too, for POST data should be in body and not URL.
+Set many states with one request. This request supports POST method too, for POST data should be in body and not URL.
 
 ### setValueFromBody
-    Allows to set the value of a given State be set by the POST body content.
+Allows to set the value of a given State be set by the POST body content.
 
 ### objects
 
 ### states
 
 ### search
-    Is a data source (History, SQL) in the configuration is set, then only the data points known to the data source are listed.
-    If the option 'List all data points' has been activated or no data source has been specified, all data points will be listed.
-    This command is needed for the Grafana JSON / SimpleJSON Plugin.
+Is a data source (History, SQL) in the configuration is set, then only the data points known to the data source are listed.
+If the option 'List all data points' has been activated or no data source has been specified, all data points will be listed.
+This command is needed for the Grafana JSON / SimpleJSON Plugin.
 
 ### query
-    If a data source (History, SQL) has been specified, the data from the specified data points are read out for the specified period, otherwise only the current value is read out.
-    This command is needed for the Grafana JSON / SimpleJSON Plugin.
+If a data source (History, SQL) has been specified, the data from the specified data points are read out for the specified period, otherwise only the current value is read out.
+This command is needed for the Grafana JSON / SimpleJSON Plugin.
 
 ### help
 Gives [this](#usage) output back
@@ -155,32 +179,32 @@ Assume, we have no security and the server runs on default port 8087.
 
 For all queries the name or id of the state can be specified.
 
-For every requiest that returns JSON you can set parameter *prettyPrint* to get the output in human readable form.
+For every request that returns JSON you can set parameter `prettyPrint` to get the output in human-readable form.
 
-If authentication is enabled, two other fields are mandatory: <pre>?user=admin&pass=iobroker</pre>
+If authentication is enabled, two other fields are mandatory: `?user=admin&pass=iobroker`
 
 ### getPlainValue
 Read state value as text. You can specify more ids divided by semicolon
 
-<pre>http://ip:8087/getPlainValue/admin.0.memHeapTotal</pre>
+```http://ip:8087/getPlainValue/admin.0.memHeapTotal```
 
-<pre>
+```
   31.19
-</pre>
+```
 
-<pre>http://ip:8087/getPlainValue/admin.0.memHeapTotal, admin.0.memHeapUsed</pre>
-<pre>
+```http://ip:8087/getPlainValue/admin.0.memHeapTotal, admin.0.memHeapUsed```
+```
   31.19
   17.52
-</pre>
+```
 
 ### get
 Read state and object data of state as json. You can specify more ids divided by semicolon.
 If more than one ID requested, the JSON array will be returned.
 
-<pre>http://localhost:8087/get/admin.0.memHeapTotal/?prettyPrint</pre>
+```http://localhost:8087/get/admin.0.memHeapTotal/?prettyPrint```
 
-<pre>
+```
   {
     "val": 31.19,
     "ack": true,
@@ -205,10 +229,10 @@ If more than one ID requested, the JSON array will be returned.
     },
     "native": {}
   }
-</pre>
+```
 
-<pre>http://ip:8087/get/admin.0.memHeapTotal,admin.0.memHeapUsed/?prettyPrint</pre>
-<pre>
+```http://ip:8087/get/admin.0.memHeapTotal,admin.0.memHeapUsed/?prettyPrint```
+```
   [
     {
       "val": 31.19,
@@ -259,15 +283,15 @@ If more than one ID requested, the JSON array will be returned.
       "native": {}
     }
   ]
-</pre>
+```
 
 ### getBulk
 Read the states of more IDs with timestamp. You can specify more ids divided by semicolon.
-Always the JSON array will be returned.
+The JSON array will be returned always.
 
-<pre>http://ip:8087/getBulk/admin.0.memHeapTotal,admin.0.memHeapUsed/?prettyPrint</pre>
+```http://ip:8087/getBulk/admin.0.memHeapTotal,admin.0.memHeapUsed/?prettyPrint```
 
-<pre>
+```
   {
       "admin.0.memHeapTotal": {
           "val": 31.19,
@@ -278,36 +302,36 @@ Always the JSON array will be returned.
           "ts": 1423154754
       }
   }
-</pre>
+```
 
 ### set
-Write the states with specified IDs. You can specifiy *wait* option in milliseconds to wait for answer from driver.
+Write the states with specified IDs. You can specify *wait* option in milliseconds to wait for answer from driver.
 
-<pre>http://ip:8087/set/hm-rpc.0.IEQ12345.LEVEL?value=1&prettyPrint</pre>
-<pre>{
+```http://ip:8087/set/hm-rpc.0.IEQ12345.LEVEL?value=1&prettyPrint```
+```{
        "id": "hm-rpc.0.IEQ12345.LEVEL",
        "value": 1
      }
-</pre>
+```
 
-<pre>http://ip:8087/set/hm-rpc.0.IEQ12345.LEVEL?value=1&wait=5000&prettyPrint</pre>
-<pre>{
+```http://ip:8087/set/hm-rpc.0.IEQ12345.LEVEL?value=1&wait=5000&prettyPrint```
+```{
        "val": 1,
        "ack": true,
        "ts": 1423155399,
        "from": "hm-rpc.0.IEQ12345.LEVEL",
        "lc": 1423155399
      }
-</pre>
+```
 
-If no answer will be recieved in specified time, the *null* value will be returned.
-In the first case the answer will be returned immediately and *ack* is false. In the second case *ack* is true. That means it was response from driver.
+If no answer will be received in specified time, the `null` value will be returned.
+In the first case the answer will be returned immediately and `ack` is false. In the second case `ack` is true. That means it was response from driver.
 
 ### setBulk
 - write bulk of IDs in one request.
 
-<pre>http://ip:8087/setBulk?hm-rpc.0.FEQ1234567:1.LEVEL=0.7&Anwesenheit=0&prettyPrint</pre>
-<pre>
+```http://ip:8087/setBulk?hm-rpc.0.FEQ1234567:1.LEVEL=0.7&Anwesenheit=0&prettyPrint```
+```
   [
     {
       "id": "hm-rpc.0.FEQ1234567:1.LEVEL",
@@ -317,14 +341,14 @@ In the first case the answer will be returned immediately and *ack* is false. In
       "error": "error: datapoint \"Anwesenheit\" not found"
     }
   ]
-</pre>
+```
 You can send this request as POST too.
 
 ### objects
 Get the list of all objects for pattern. If no pattern specified  all objects as JSON array will be returned.
 
-<pre>http://ip:8087/objects?prettyPrint</pre>
-<pre>
+```http://ip:8087/objects?prettyPrint```
+```
   {
   "system.adapter.admin.0.uptime": {
     "_id": "system.adapter.admin.0.uptime",
@@ -358,11 +382,11 @@ Get the list of all objects for pattern. If no pattern specified  all objects as
     "native": {}
   },
   ...
-</pre>
+```
 
-  Get all control objects of adapter system.adapter.admin.0:
-<pre>http://ip:8087/objects?pattern=system.adapter.admin.0*&prettyPrint</pre>
-<pre>
+Get all control objects of adapter system.adapter.admin.0:
+```http://ip:8087/objects?pattern=system.adapter.admin.0*&prettyPrint```
+```
     {
     "system.adapter.admin.0.uptime": {
       "_id": "system.adapter.admin.0.uptime",
@@ -377,13 +401,13 @@ Get the list of all objects for pattern. If no pattern specified  all objects as
     },
     ...
 
-</pre>
+```
 
 ### states
 Get the list of all states for pattern. If no pattern specified all states as JSON array will be returned.
 
-<pre>http://ip:8087/states?prettyPrint</pre>
-<pre>
+```http://ip:8087/states?prettyPrint```
+```
   {
     "system.adapter.admin.0.uptime": {
       "val": 32176,
@@ -407,12 +431,12 @@ Get the list of all states for pattern. If no pattern specified all states as JS
       "lc": 1423155084
     },
   ...
-</pre>
+```
 
- Get all control objects of adapter system.adapter.admin.0:
+Get all control objects of adapter system.adapter.admin.0:
 
- <pre>http://ip:8087/states?pattern=system.adapter.admin.0*&prettyPrint</pre>
-<pre>
+ ```http://ip:8087/states?pattern=system.adapter.admin.0*&prettyPrint```
+```
     {
       "system.adapter.admin.0.uptime": {
         "val": 32161,
@@ -459,14 +483,16 @@ Get the list of all states for pattern. If no pattern specified all states as JS
         "expire": 28115
       }
     }
-</pre>
+```
 
 ### search
 Is a data source (History, SQL) in the configuration is set, then only the data points known to the data source are listed.
 If the option 'List all data points' has been activated or no data source has been specified, all data points will be listed.
 
-<pre>http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint</pre>
-<pre>
+```
+http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
+```
+```
   {
     "system.adapter.admin.0.outputCount",
     "system.adapter.admin.0.inputCount",
@@ -479,13 +505,13 @@ If the option 'List all data points' has been activated or no data source has be
     "system.adapter.admin.0.connected",
     "system.adapter.admin.0.alive"
   }
-</pre>
+```
 
 ### query
 If a data source (History, SQL) has been specified, the data from the specified data points are read out for the specified period.
 
-<pre>http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&dateFrom=2019-06-08T01:00:00.000Z&dateTo=2019-06-08T01:00:10.000Z</pre>
-<pre>
+```http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&dateFrom=2019-06-08T01:00:00.000Z&dateTo=2019-06-08T01:00:10.000Z```
+```
   [
     {
       "target": "system.host.iobroker-dev.load",
@@ -522,12 +548,12 @@ If a data source (History, SQL) has been specified, the data from the specified 
       ]
     }
   ]
-</pre>
+```
 
 If no data source was specified or the noHistory parameter is passed, then only the current value of the data point is read out.
 
-<pre>http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&noHistory=true</pre>
-<pre>
+```http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&noHistory=true```
+```
   [
     {
       "target": "system.host.iobroker-dev.load",
@@ -548,12 +574,14 @@ If no data source was specified or the noHistory parameter is passed, then only 
       ]
     }
   ]
-</pre>
+```
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 2.6.2 (2021-11-12)
+* (bluefox) Support of new flags for `getPlainValue`: `json` and `noStringify`
 
 ### 2.6.1 (2021-05-13)
 * (Apollon77) Catch error in request parsing when malformed (Sentry IOBROKER-SIMPLE-API-16)
@@ -578,7 +606,7 @@ If no data source was specified or the noHistory parameter is passed, then only 
 * (Apollon77) Make sure adapter is showing correct error when webserver can not be initialized (Sentry IOBROKER-SIMPLE-API-7)
 
 ### 2.4.5 (2020-05-04)
-* (Apollon77) webserver initialization optimized again to prevent errors with imvalid certificates 
+* (Apollon77) webserver initialization optimized again to prevent errors with imvalid certificates
 
 ### 2.4.4 (2020-05-02)
 * (Apollon77) Make sure Permission errors do not crash adapter (Sentry IOBROKER-SIMPLE-API-3)
@@ -709,4 +737,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-

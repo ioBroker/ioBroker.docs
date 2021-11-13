@@ -8,7 +8,7 @@
 
 ## Requirements
 * Linux (e.g. Raspberry Pi) / OSX / Windows
-* NodeJS >= 6.x
+* NodeJS >= 12.x
 * Trådfri gateway
 
 ## Installation

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: QhiCVAOG8VbdijiNfR19QeE2LCYlcmBoxpRy2D1y8/E=
+hash: 3NNc0r2vnlWPSglr387+Yz2ijSAI0bnK3D2C5Ty5LZg=
 ---
 ![标识](../../../en/adapterref/iobroker.lametric/admin/lametric.png)
 
@@ -28,9 +28,9 @@ iobroker add lametric
 ```
 
 ＃＃ 配置
-使用 LaMetric 固件 *2.2.1* 测试（推荐）
+使用 LaMetric 固件 *2.2.2* 测试（推荐）
 
-您可以获得您的个人密钥[这里](https://developer.lametric.com/)。
+您可以通过 [这里](https://developer.lametric.com/) 获取您的个人密钥。
 
 ![api-key](../../../en/adapterref/iobroker.lametric/docs/apiKey.png)
 
@@ -40,7 +40,7 @@ iobroker add lametric
 - 配置屏幕保护程序（启用/禁用、基于时间、黑暗时）
 - 激活/停用蓝牙并更改蓝牙名称
 - 在应用程序之间切换（下一个，上一个，转到特定的应用程序）
-- 使用块发送通知（具有可配置的优先级、声音、图标、文本等）
+- 使用块发送通知（具有可配置的优先级、声音、图标、文本……）
 - 控制时钟、收音机、秒表或天气等特殊应用程序
 - 使用 *My Data (DIY)* LaMetric App 显示持久信息
 
@@ -74,8 +74,11 @@ LaMetric 提供了一个应用程序（在集成应用程序市场上）来轮�
 6. 转到适配器配置并使用您的自定义信息（图标和文本）配置框架
 
 ```
-http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?&user=lametric&pass=HhX7dZl3Fe
+http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json
+http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json&user=lametric&pass=HhX7dZl3Fe
 ```
+
+**重要：使用 SimpleAPI Adapter 的 json 标志（自 2.6.2 起可用）**
 
 **如有必要，请确保更新 URL 中的 IP、端口、用户和密码！**
 
@@ -92,7 +95,7 @@ http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/
 **如有必要，请确保更新 URL 中的 IP 和端口！**
 
 ### 框架配置 *（版本 > 1.1.0）*
-- 使用加号图标添加任意数量的框架
+- 使用加号图标添加任意数量的帧
 - 图标：从[官网](https://developer.lametric.com/icons)中选择一个图标，并将ID放入配置字段。 **重要提示：添加 i（对于静态图标）或 a（对于动画图标）作为该 ID 的前缀。 （例如：`i3389`）
 - 文本：只需键入框架的文本信息。您可以在花括号中使用状态。这些信息将替换为相应的状态值。 （例如：`{youtube.0.channels.HausAutomatisierungCom.statistics.subscriberCount} 订阅者`）
 
@@ -193,7 +196,28 @@ setInterval(show, 10000);
 show();
 ```
 
+##哨兵
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
+
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### 1.5.0
+
+* (klein0r) Fixed myData DIY data type **(BREAKING CHANGE - requires SimpleAPI 2.6.2 or later to use json parameter)**
+* (klein0r) Added version check
+
+### 1.4.1
+
+* (klein0r) Fixed missing translations
+
+### 1.4.0
+
+* (klein0r) Admin 5 Support
 
 ### 1.3.2
 

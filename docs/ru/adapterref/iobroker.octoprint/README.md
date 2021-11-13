@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: /VI0Cf5Xa/y4E/hw4ovDqKQjPI5ZjOGdikq9MAGDCfM=
+hash: 5hWj09BbOQnNdfVTiZd+/h7nyggW4qeq9MqaHhtTEgE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
 
@@ -62,7 +62,15 @@ setObject('system.adapter.octoprint.0', obj);
 
 Пожалуйста, используйте состояние `system.adapter.octoprint.0.alive`, чтобы остановить / запустить экземпляр.
 
+## Часовой
+** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
 
 ### 2.0.2
 

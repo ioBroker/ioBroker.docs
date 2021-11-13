@@ -16,11 +16,26 @@
 
 Adapter for BMW
 
-Under remote you can control your car
+**Aktueller Status**
+
+bmw.0.VIN.properties
+
+**Remote Befehle sind möglich unter** 
+
+bmw.0.VIN.remotev2
+
 
 ## Changelog
 
-### 2.1.0
+### 2.4.0
+
+-   Add support for MINI and force refresh remote
+  
+### 2.3.0
+
+-   Disable v1 Endpoints
+  
+### 2.1.1
 
 -   Upgrade to statusV2 and remoteV2
   

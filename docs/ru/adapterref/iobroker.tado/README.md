@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: f6i4qy7fGtKHrq76VWWMIi/QNx+YA6XzHbZsWpOrR1Y=
+hash: Z7CxzGNDPG5NM+CfvhcM9fc9SbEmmlJ2tK70SWV3ShM=
 ---
 # IoBroker.tado
 
@@ -54,6 +54,7 @@ tado ° обеспечивает комфортный и здоровый кли
 | tado. [x]. [yyyyyy] .Rooms. [z] .devices. [RUaaaaaaaaaa] .offset.offsetCelsius | Температурное смещение |
 | тадо. [x]. [yyyyyy] .Rooms. [z] .timeTables.tt_id | Выберите активное расписание |
 | тадо. [x]. [yyyyyy] .Home.state.presence | Установите режим ДОМАШНИЙ или ВНЕЗАПНО |
+| тадо. [x]. [yyyyyy] .Home.masterswitch | Включение / выключение всех устройств |
 | fanpeed | Fanspeed (только для устройств переменного тока) |
 | режим | Режим переменного тока (только устройства переменного тока) |
 
@@ -64,11 +65,13 @@ tado ° обеспечивает комфортный и здоровый кли
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.11-alpha.0 (2021-11-05)
+### 0.3.11-alpha.4 (2021-11-11)
 * (HGlab01) support attributes 'showSwitchToAutoGeofencingButton', 'showHomePresenceSwitchButton' and 'additionalConsents'
-* (HGlab01) Enhance error messages if API-call fails
+* (HGlab01) enhance error messages if API-call fails
 * (HGlab01) next time block fails (one reason for 422 error) if time blocks are not defined - fixed now
-* (HGlab01) Set HOME/AWAY is now suported by using state tado.x.yyyyyy.Home.state.presence
+* (HGlab01) set HOME/AWAY is now suported by using state tado.x.yyyyyy.Home.state.presence
+* (HGlab01) offset range -9.99/+10 validated
+* (HGlab01) add masterswitch for power on/off
 
 ### 0.3.10 (2021-10-29)
 * (HGlab01) API calls (except read) are queued and send one after the other

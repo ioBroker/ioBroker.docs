@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bmw/README.md
 title: ioBroker.bmw
-hash: yumIcpdvL9yncewLcRrRSh9JT6Wuhy0UulGdIA6ckDY=
+hash: hptX3x8JdKhnV2Dxw6QaMgY0RJ7J9oAOP6Q4DBoqHA4=
 ---
 ![Logo](../../../en/adapterref/iobroker.bmw/admin/bmw.png)
 
@@ -20,10 +20,28 @@ hash: yumIcpdvL9yncewLcRrRSh9JT6Wuhy0UulGdIA6ckDY=
 ## Bmw-adapter für ioBroker
 Adapter für BMW
 
-Unter der Fernbedienung können Sie Ihr Auto steuern
+**Aktueller-Status**
+
+bmw.0.VIN.Eigenschaften
+
+**Fernbefehle sind möglich unter**
+
+bmw.0.VIN.remotev2
 
 ## Changelog
 
+### 2.4.0
+
+-   Add support for MINI and force refresh remote
+  
+### 2.3.0
+
+-   Disable v1 Endpoints
+  
+### 2.1.1
+
+-   Upgrade to statusV2 and remoteV2
+  
 ### 2.0.0
 
 -   (TA2k) initial release

@@ -3,44 +3,44 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tradfri/README.md
 title: ioBroker.tradfri
-hash: waY56Oxf+bx+srdcpDHrwGSMihR7UNSfR/l/TSCILIE=
+hash: k8sHWSFxjkHG5AwW44+dA1VLdNbTB1SeOtcWfsagl7U=
 ---
-![商标](../../../en/adapterref/iobroker.tradfri/admin/tradfri.png)
+![标识](../../../en/adapterref/iobroker.tradfri/admin/tradfri.png)
 
 ![警报总数](https://img.shields.io/lgtm/alerts/g/AlCalzone/ioBroker.tradfri.svg?logo=lgtm&logoWidth=18)
 ![安装数量](http://iobroker.live/badges/tradfri-stable.svg)
 
-＃ioBroker.tradfri
-![建立状态](https://action-badges.now.sh/AlCalzone/ioBroker.tradfri)
+# IoBroker.tradfri
+![构建状态](https://action-badges.now.sh/AlCalzone/ioBroker.tradfri)
 
 ＃＃ 要求
-* Linux（例如Raspberry Pi）/ OSX / Windows
-* NodeJS> = 6.x
-*Trådfri网关
+* Linux（例如树莓派）/OSX/Windows
+* NodeJS >= 12.x
+* Trådfri 网关
 
-##安装
-1.通过iobroker管理员GUI或通过`npm install iobroker.tradfri --production`安装此适配器。
-1.在ioBroker GUI中，添加适配器实例。
-1.通过输入网关的IP /主机名以及可在底部标签上找到的安全代码来配置实例。
+＃＃ 安装
+1. 通过 iobroker 管理 GUI 或通过 `npm install iobroker.tradfri --production` 安装此适配器
+1. 在 ioBroker GUI 中，添加一个适配器实例。
+1. 通过输入网关的 IP/主机名和底部标签上的安全代码来配置实例。
 
-###解决安装问题：
-#### Linux / OSX：
-确保安装最新发行的版本。如果有编译错误，则可能必须安装build-essential：
+### 对安装问题进行故障排除：
+#### Linux/OSX：
+确保安装最新发布的版本。如果出现编译错误，您可能需要安装 build-essential：
 
 ```
 apt-get -y install build-essential
 ```
 
-#### Windows：
-如果您在较低版本的NodeJS（<10）上运行，则安装可能会失败，并在日志中的某处出现以下错误：
+#### 窗口：
+如果您在较旧的 NodeJS 版本（< 10）上运行，安装可能会失败，并在日志中的某处显示以下错误：
 
 ```
 Can't find Python executable "python", you can set the PYTHON env variable.
 ```
 
-要解决此问题，请打开管理外壳程序：
+要解决它，请打开一个管理 shell：
 
-1.按<kbd>⊞Windows</kbd>键
+1. 按<kbd>⊞ Windows</kbd>键
 2.输入`cmd`，按<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>
 3.确认UAC提示
 
@@ -50,10 +50,10 @@ Can't find Python executable "python", you can set the PYTHON env variable.
 npm install --add-python-to-path --global windows-build-tools
 ```
 
-这可能需要一些时间...之后安装应该成功。
+这可能需要一段时间......之后安装应该会成功。
 
-##发送自定义CoAP数据包
-您可以使用`sendTo`从其他适配器发送自定义CoAP数据包。 JavaScript中的示例：
+## 发送自定义 CoAP 数据包
+您可以使用 `sendTo` 从其他适配器发送自定义 CoAP 数据包。来自 JavaScript 的示例：
 
 ```js
 sendTo("tradfri.0", "request", options, (ret) => {
@@ -61,7 +61,7 @@ sendTo("tradfri.0", "request", options, (ret) => {
 });
 ```
 
-`options`对象如下所示：
+`options` 对象如下所示：
 
 ```js
 {
@@ -71,7 +71,7 @@ sendTo("tradfri.0", "request", options, (ret) => {
 }
 ```
 
-结果对象`ret`如下所示：
+结果对象 `ret` 如下所示：
 
 ```js
 {
@@ -88,6 +88,28 @@ sendTo("tradfri.0", "request", options, (ret) => {
 	Placeholder for next release:
 	### __WORK IN PROGRESS__
 -->
+### 3.0.1 (2021-06-30)
+* Workaround for a bug in IKEA gateway firmware `v1.15.x`
+
+### 3.0.0 (2021-06-19)
+* Update dependencies, require Node.js 12+
+
+### 2.7.3 (2021-05-14)
+* Fix remaining JS-Controller 3.3 warnings
+
+### 2.7.2 (2021-04-30)
+* Avoid warning about `undefined` states in JS-Controller 3.3+
+
+### 2.7.1 (2021-03-12)
+* Dependency updates
+* Fixed issues in `io-package.json` and README found by the adapter checker
+
+### 2.7.0 (2021-02-24)
+* Compatibility with gateway firmware v1.13.21
+* Added `whenPowerRestored` setting to configure what bulbs do after a power loss
+
+### 2.6.5 (2020-11-29)
+* Bugfix: Loading all scenes no longer stalls when a group has no scenes
 
 ### 2.6.4 (2020-11-29)
 * Fix: Updated `node-tradfri-client` to suppress warnings about unknown property `9109`
@@ -324,7 +346,7 @@ sendTo("tradfri.0", "request", options, (ret) => {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2020 AlCalzone <d.griesel@gmx.net>
+Copyright (c) 2017-2021 AlCalzone <d.griesel@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

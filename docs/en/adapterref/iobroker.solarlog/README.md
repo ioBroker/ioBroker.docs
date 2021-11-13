@@ -40,10 +40,13 @@ SolarLog 50: There is no open JSON-Interface @ SolarLog 50 devices. So certain v
 
 ## Changelog
 
+### 2.1.5
+
+-   bugfix (variable type).
+
 ### 2.1.4
 
-- history-/selfconsumption-data for SL500 added.
-
+-   history-/selfconsumption-data for SL500 added.
 
 ### 2.1.3
 

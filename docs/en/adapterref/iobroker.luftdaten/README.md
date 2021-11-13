@@ -50,15 +50,16 @@ Wait some minutes until the cronjob collects the data for the first time.
 
 *Feel free to change the schedule settings in the instances tab (default is every 15 minutes).*
 
-## Contributors
+## Sentry
 
-- klein0r
-- pix
-- GermanBluefox
-- Apollon77
-- dominik-lienemann
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
 
 ### 2.1.1
 

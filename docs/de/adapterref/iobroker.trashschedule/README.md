@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.trashschedule/README.md
 title: ioBroker.trashschedule
-hash: 7x79IBp8S8Ne7ZChiytjuOW2/6GfKiKE19h/cQ1bCOk=
+hash: 1Ogd/oD3by66G3+Nqg8/39CiaAHDnrcaBNIysFmHXSc=
 ---
 ![Logo](../../../en/adapterref/iobroker.trashschedule/admin/trashschedule.png)
 
@@ -31,7 +31,7 @@ iobroker add trashschedule
 2. Konfigurieren Sie die URL Ihres Kalenders (z. B. Google-Kalender)
 3. Stellen Sie "Vorschautage" auf einen Bereich ein, der jede Müllart mindestens zweimal umfasst (z. B. 30 Tage)
 4. Wählen Sie die Option "Start-Ende von Ereignissen ausblenden"
-5. Wenn Sie die Registerkarte "Ereignisse" verwenden, aktivieren Sie die Checkbox "Anzeigen" für jeden Ereignistyp, der auch in Ihrem Papierkorbplan verwendet werden soll (sonst wird das Ereignis von der ical-Instanz ausgeblendet)
+5. Wenn Sie die Registerkarte "Ereignisse" verwenden, stellen Sie sicher, dass das Kontrollkästchen "Anzeige" für jeden Ereignistyp aktiviert ist, der auch in Ihrem Papierkorbplan verwendet werden soll (sonst wird das Ereignis von der ical-Instanz ausgeblendet)
 
 ## Aufbau
 1. Erstellen Sie eine Papierkorb-Zeitplaninstanz und wählen Sie die ical-Instanz als Quelle
@@ -205,7 +205,27 @@ iobroker add trashschedule
 ## Beispiel 1
 ![Offset-Beispiel](../../../en/adapterref/iobroker.trashschedule/images/offsetExample2.jpg)
 
+## Wache
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### 1.3.2
+
+* (klein0r) Fixed missing VIS widget
+
+### 1.3.1
+
+* (klein0r) Fixed missing translations
+
+### 1.3.0
+
+* (klein0r) Admin 5 Support
 
 ### 1.2.0
 

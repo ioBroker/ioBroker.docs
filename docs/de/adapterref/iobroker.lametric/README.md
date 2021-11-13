@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: QhiCVAOG8VbdijiNfR19QeE2LCYlcmBoxpRy2D1y8/E=
+hash: 3NNc0r2vnlWPSglr387+Yz2ijSAI0bnK3D2C5Ty5LZg=
 ---
 ![Logo](../../../en/adapterref/iobroker.lametric/admin/lametric.png)
 
@@ -28,7 +28,7 @@ iobroker add lametric
 ```
 
 ## Aufbau
-Getestet mit LaMetric-Firmware *2.2.1* (empfohlen)
+Getestet mit LaMetric-Firmware *2.2.2* (empfohlen)
 
 Ihren persönlichen Schlüssel erhalten Sie [Hier](https://developer.lametric.com/).
 
@@ -74,10 +74,13 @@ Sie können den Simple API Adapter verwenden, um die Daten an die LaMetric Time 
 6. Gehen Sie zur Adapterkonfiguration und konfigurieren Sie die Frames mit Ihren benutzerdefinierten Informationen (Symbol und Text).
 
 ```
-http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?&user=lametric&pass=HhX7dZl3Fe
+http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json
+http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json&user=lametric&pass=HhX7dZl3Fe
 ```
 
-**Achten Sie darauf, bei Bedarf IP, Port, Benutzer und Passwort in der URL zu aktualisieren!**
+**Wichtig: Verwenden Sie das json-Flag des SimpleAPI-Adapters (verfügbar seit 2.6.2)**
+
+**Achten Sie darauf, IP, Port, Benutzer und Passwort ggf. in der URL zu aktualisieren!**
 
 ### Konfiguration (ohne Authentifizierung)
 1. Installieren Sie den [Simple API ioBroker Adapter](https://github.com/ioBroker/ioBroker.simple-api)
@@ -89,7 +92,7 @@ http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?&user=lametric&
 http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/
 ```
 
-**Achten Sie darauf, bei Bedarf IP und Port in der URL zu aktualisieren!**
+**Achten Sie darauf, IP und Port bei Bedarf in der URL zu aktualisieren!**
 
 ### Rahmenkonfiguration *(Version > 1.1.0)*
 - Verwenden Sie das Plus-Symbol, um so viele Rahmen hinzuzufügen, wie Sie möchten
@@ -151,7 +154,7 @@ sendTo(
 );
 ```
 
-Beispiel für mehrere Frames:
+Beispiel mehrere Frames:
 
 ```JavaScript
 sendTo(
@@ -193,7 +196,28 @@ setInterval(show, 10000);
 show();
 ```
 
+## Wache
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### 1.5.0
+
+* (klein0r) Fixed myData DIY data type **(BREAKING CHANGE - requires SimpleAPI 2.6.2 or later to use json parameter)**
+* (klein0r) Added version check
+
+### 1.4.1
+
+* (klein0r) Fixed missing translations
+
+### 1.4.0
+
+* (klein0r) Admin 5 Support
 
 ### 1.3.2
 

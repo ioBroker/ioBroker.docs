@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tradfri/README.md
 title: ioBroker.tradfri
-hash: waY56Oxf+bx+srdcpDHrwGSMihR7UNSfR/l/TSCILIE=
+hash: k8sHWSFxjkHG5AwW44+dA1VLdNbTB1SeOtcWfsagl7U=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tradfri/admin/tradfri.png)
 
@@ -15,13 +15,13 @@ hash: waY56Oxf+bx+srdcpDHrwGSMihR7UNSfR/l/TSCILIE=
 
 ## Требования
 * Linux (например, Raspberry Pi) / OSX / Windows
-* NodeJS> = 6.x
+* NodeJS> = 12.x
 * Trådfri шлюз
 
 ## Установка
 1. Установите этот адаптер через графический интерфейс администратора iobroker или через `npm install iobroker.tradfri --production`
 1. В графическом интерфейсе пользователя ioBroker добавьте экземпляр адаптера.
-1. Сконфигурируйте экземпляр, введя IP / имя хоста вашего шлюза и код безопасности, который можно найти на этикетке внизу.
+1. Настройте экземпляр, введя IP / имя хоста вашего шлюза и код безопасности, который можно найти на этикетке внизу.
 
 ### Устранение неполадок при установке:
 #### Linux / OSX:
@@ -32,7 +32,7 @@ apt-get -y install build-essential
 ```
 
 #### Windows:
-Если вы используете старые версии NodeJS (<10), установка может завершиться ошибкой со следующей ошибкой где-нибудь в журнале:
+Если вы используете более старые версии NodeJS (<10), установка может завершиться ошибкой со следующей ошибкой где-нибудь в журнале:
 
 ```
 Can't find Python executable "python", you can set the PYTHON env variable.
@@ -53,7 +53,7 @@ npm install --add-python-to-path --global windows-build-tools
 Это может занять некоторое время ... после этого установка должна завершиться успешно.
 
 ## Отправка пользовательских пакетов CoAP
-Вы можете отправлять пользовательские пакеты CoAP с других адаптеров с помощью `sendTo`. Пример из JavaScript:
+Вы можете отправлять настраиваемые пакеты CoAP с других адаптеров с помощью `sendTo`. Пример из JavaScript:
 
 ```js
 sendTo("tradfri.0", "request", options, (ret) => {
@@ -88,6 +88,28 @@ sendTo("tradfri.0", "request", options, (ret) => {
 	Placeholder for next release:
 	### __WORK IN PROGRESS__
 -->
+### 3.0.1 (2021-06-30)
+* Workaround for a bug in IKEA gateway firmware `v1.15.x`
+
+### 3.0.0 (2021-06-19)
+* Update dependencies, require Node.js 12+
+
+### 2.7.3 (2021-05-14)
+* Fix remaining JS-Controller 3.3 warnings
+
+### 2.7.2 (2021-04-30)
+* Avoid warning about `undefined` states in JS-Controller 3.3+
+
+### 2.7.1 (2021-03-12)
+* Dependency updates
+* Fixed issues in `io-package.json` and README found by the adapter checker
+
+### 2.7.0 (2021-02-24)
+* Compatibility with gateway firmware v1.13.21
+* Added `whenPowerRestored` setting to configure what bulbs do after a power loss
+
+### 2.6.5 (2020-11-29)
+* Bugfix: Loading all scenes no longer stalls when a group has no scenes
 
 ### 2.6.4 (2020-11-29)
 * Fix: Updated `node-tradfri-client` to suppress warnings about unknown property `9109`
@@ -324,7 +346,7 @@ sendTo("tradfri.0", "request", options, (ret) => {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2020 AlCalzone <d.griesel@gmx.net>
+Copyright (c) 2017-2021 AlCalzone <d.griesel@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.trashschedule/README.md
 title: ioBroker.trashschedule
-hash: 7x79IBp8S8Ne7ZChiytjuOW2/6GfKiKE19h/cQ1bCOk=
+hash: 1Ogd/oD3by66G3+Nqg8/39CiaAHDnrcaBNIysFmHXSc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.trashschedule/admin/trashschedule.png)
 
@@ -205,7 +205,27 @@ iobroker add trashschedule
 ## Пример -1
 ![Пример смещения](../../../en/adapterref/iobroker.trashschedule/images/offsetExample2.jpg)
 
+## Часовой
+** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### 1.3.2
+
+* (klein0r) Fixed missing VIS widget
+
+### 1.3.1
+
+* (klein0r) Fixed missing translations
+
+### 1.3.0
+
+* (klein0r) Admin 5 Support
 
 ### 1.2.0
 

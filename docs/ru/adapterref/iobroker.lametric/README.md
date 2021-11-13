@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: QhiCVAOG8VbdijiNfR19QeE2LCYlcmBoxpRy2D1y8/E=
+hash: 3NNc0r2vnlWPSglr387+Yz2ijSAI0bnK3D2C5Ty5LZg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lametric/admin/lametric.png)
 
@@ -17,7 +17,7 @@ hash: QhiCVAOG8VbdijiNfR19QeE2LCYlcmBoxpRy2D1y8/E=
 ![НПМ](https://nodei.co/npm/iobroker.lametric.png?downloads=true)
 
 # IoBroker.lametric
-Этот адаптер позволяет получать информацию о статусе вашего [LaMetric Time](https://haus-auto.com/p/amz/LaMetricTime) *(Партнерская ссылка)* и отправлять на него уведомления.
+Этот адаптер позволяет вам получать информацию о статусе вашего [LaMetric Time](https://haus-auto.com/p/amz/LaMetricTime) *(Партнерская ссылка)* и отправлять на него уведомления.
 Все, что вам нужно, это IP-адрес вашего устройства и ключ разработчика API.
 
 ## Установка
@@ -28,7 +28,7 @@ iobroker add lametric
 ```
 
 ## Конфигурация
-Протестировано с прошивкой LaMetric *2.2.1* (рекомендуется)
+Протестировано с прошивкой LaMetric *2.2.2* (рекомендуется)
 
 Вы можете получить личный ключ [здесь](https://developer.lametric.com/).
 
@@ -47,11 +47,11 @@ iobroker add lametric
 Возможности ограничены [официальные функции API](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html).
 
 ## Примеры блоков
-Вы можете использовать простую строку в качестве сообщения, которое будет отображаться в виде одного кадра.
+Вы можете использовать простую строку в качестве сообщения, которое будет отображаться в виде одного кадра
 
 ![одиночный кадр](../../../en/adapterref/iobroker.lametric/docs/blockly1.png)
 
-Чтобы показать несколько кадров, вы также можете предоставить массив в виде сообщения
+Чтобы показать несколько кадров, вы также можете предоставить массив как сообщение
 
 ![несколько кадров](../../../en/adapterref/iobroker.lametric/docs/blockly2.png)
 
@@ -74,8 +74,11 @@ LaMetric предлагает приложение (на рынке интегр
 6. Перейдите в конфигурацию адаптера и настройте фреймы с вашей пользовательской информацией (значок и текст).
 
 ```
-http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?&user=lametric&pass=HhX7dZl3Fe
+http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json
+http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json&user=lametric&pass=HhX7dZl3Fe
 ```
+
+** Важно: используйте json-флаг адаптера SimpleAPI (доступен с версии 2.6.2) **
 
 ** При необходимости обновите IP-адрес, порт, пользователя и пароль в URL-адресе! **
 
@@ -106,7 +109,7 @@ http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/
 ### Clock.clockface
 Допустимые значения:
 
-- одно из `weather`,` page_a_day`, `custom` или` none`
+- один из вариантов `weather`,` page_a_day`, `custom` или` none`
 - данные пользовательского значка в формате `data: image / png; base64, <двоичный png в кодировке base64>` или `data: image / gif; base64, <двоичный gif в кодировке base64>`
 
 Пример: `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAOklEQVQYlWNUVFBgwAeYcEncv//gP04FMEmsCmCSiooKjHAFMEF0SRQTsEnCFcAE0SUZGBgYGAl5EwA+6RhuHb9bggAAAABJRU5ErkJggg==`
@@ -169,7 +172,7 @@ sendTo(
 );
 ```
 
-Пример для отображения некоторой информации циклически:
+Пример отображения некоторой информации циклически:
 
 ```JavaScript
 let i = 0;
@@ -193,7 +196,28 @@ setInterval(show, 10000);
 show();
 ```
 
+## Часовой
+** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### 1.5.0
+
+* (klein0r) Fixed myData DIY data type **(BREAKING CHANGE - requires SimpleAPI 2.6.2 or later to use json parameter)**
+* (klein0r) Added version check
+
+### 1.4.1
+
+* (klein0r) Fixed missing translations
+
+### 1.4.0
+
+* (klein0r) Admin 5 Support
 
 ### 1.3.2
 

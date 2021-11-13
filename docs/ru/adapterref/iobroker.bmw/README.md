@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bmw/README.md
 title: ioBroker.bmw
-hash: yumIcpdvL9yncewLcRrRSh9JT6Wuhy0UulGdIA6ckDY=
+hash: hptX3x8JdKhnV2Dxw6QaMgY0RJ7J9oAOP6Q4DBoqHA4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bmw/admin/bmw.png)
 
@@ -20,10 +20,28 @@ hash: yumIcpdvL9yncewLcRrRSh9JT6Wuhy0UulGdIA6ckDY=
 ## Адаптер bmw для ioBroker
 Адаптер для BMW
 
-Под пультом вы можете управлять своей машиной
+** Статус Aktueller **
+
+bmw.0.VIN.properties
+
+** Удаленный Befehle sind möglich unter **
+
+bmw.0.VIN.remotev2
 
 ## Changelog
 
+### 2.4.0
+
+-   Add support for MINI and force refresh remote
+  
+### 2.3.0
+
+-   Disable v1 Endpoints
+  
+### 2.1.1
+
+-   Upgrade to statusV2 and remoteV2
+  
 ### 2.0.0
 
 -   (TA2k) initial release

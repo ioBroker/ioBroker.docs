@@ -35,6 +35,9 @@ To do that press the pair button just before inserting the battery and the devic
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 2.0.2 (2021-11-10)
+* (bluefox) Fixed error by deleting of object
+
 ### 2.0.1 (2021-06-29)
 * (peterbaumert) update packages
 * (bluefox) Breaking change: no linux with 32 bit support
@@ -69,4 +72,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-

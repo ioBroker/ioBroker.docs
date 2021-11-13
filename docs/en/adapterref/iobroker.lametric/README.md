@@ -25,7 +25,7 @@ iobroker add lametric
 
 ## Configuration
 
-Tested with LaMetric firmware *2.2.1* (recommended)
+Tested with LaMetric firmware *2.2.2* (recommended)
 
 You can get your personal key [here](https://developer.lametric.com/).
 
@@ -75,8 +75,11 @@ You can use the Simple API Adapter to transfer the data to the LaMetric Time.
 6. Go to the adapter configuration and configure the frames with your custom information (icon and text)
 
 ```
-http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?&user=lametric&pass=HhX7dZl3Fe
+http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json
+http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json&user=lametric&pass=HhX7dZl3Fe
 ```
+
+**Important: use json flag of SimpleAPI Adapter (available since 2.6.2)**
 
 **Ensure to update IP, port, user and password in the URL if necessary!**
 
@@ -200,7 +203,21 @@ setInterval(show, 10000);
 show();
 ```
 
+## Sentry
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### 1.5.0
+
+* (klein0r) Fixed myData DIY data type **(BREAKING CHANGE - requires SimpleAPI 2.6.2 or later to use json parameter)**
+* (klein0r) Added version check
 
 ### 1.4.1
 

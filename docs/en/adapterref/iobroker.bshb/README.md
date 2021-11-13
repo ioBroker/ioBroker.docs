@@ -35,6 +35,18 @@ If you want to support the work I would appreciate a small donation. This is 100
 
 ## Changelog
 
+### 0.1.16
+* (holomekc) when scenarioTriggered received the adapter will shortly update the scenario state to true and after 1s back to false. This allows to directly listen to triggered scenarios even when not triggered from iobroker.
+  Behavior if triggered from iobroker:
+  - state: true, ack: false
+  - state: true, ack: true
+  - state: false, ack: true
+  
+  Behavior if triggered from somewhere else:
+  - state: true, ack: true
+  - state: false, ack: true
+* (holomekc) all updates received from controller are send to a new iobroker state "updates". This provides more flexibility and allow more complex logics. Each update is handled one by one even when a list of multiple update from controller received.
+
 ### 0.1.15
 * (holomekc) Restore cache also possible without controller connection to internet. Device services endpoint fails in this case. These failures during detection are ignored now with a warning that e.g. detection of new devices is not possible in this case. Nevertheless, controlling Bosch devices will still work.
 * (holomekc) Fix tests and add "simple" integration test

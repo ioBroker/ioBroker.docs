@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.trashschedule/README.md
 title: ioBroker.trashschedule
-hash: 7x79IBp8S8Ne7ZChiytjuOW2/6GfKiKE19h/cQ1bCOk=
+hash: 1Ogd/oD3by66G3+Nqg8/39CiaAHDnrcaBNIysFmHXSc=
 ---
 ![标识](../../../en/adapterref/iobroker.trashschedule/admin/trashschedule.png)
 
@@ -31,7 +31,7 @@ iobroker add trashschedule
 2. 配置日历的网址（例如谷歌日历）
 3. 将“预览天数”设置为包含每种垃圾类型至少两次的范围（例如 30 天）
 4. 选择“隐藏事件的开始-结束”选项
-5. 如果您使用“事件”选项卡，请确保为每个事件类型启用“显示”复选框，该复选框也应该在您的垃圾桶计划中使用（否则事件将被 ical 实例隐藏）
+5. 如果您使用“事件”选项卡，请确保为每个事件类型启用“显示”复选框，这些事件也应该在您的垃圾桶计划中使用（否则事件将被 ical 实例隐藏）
 
 ＃＃ 配置
 1.创建一个垃圾调度实例并选择ical实例作为源
@@ -205,7 +205,27 @@ iobroker add trashschedule
 ##示例-1
 ![偏移示例](../../../en/adapterref/iobroker.trashschedule/images/offsetExample2.jpg)
 
+##哨兵
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
+
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### 1.3.2
+
+* (klein0r) Fixed missing VIS widget
+
+### 1.3.1
+
+* (klein0r) Fixed missing translations
+
+### 1.3.0
+
+* (klein0r) Admin 5 Support
 
 ### 1.2.0
 

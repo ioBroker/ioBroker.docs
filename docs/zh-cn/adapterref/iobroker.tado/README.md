@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: f6i4qy7fGtKHrq76VWWMIi/QNx+YA6XzHbZsWpOrR1Y=
+hash: Z7CxzGNDPG5NM+CfvhcM9fc9SbEmmlJ2tK70SWV3ShM=
 ---
 ![安装数量](http://iobroker.live/badges/tado-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.tado.svg)
@@ -53,6 +53,7 @@ tado° 确保舒适健康的气候，同时节省高达 31% 的取暖费用。
 | tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].offset.offsetCelsius |温度偏移|
 | tado.[x].[yyyyyy].Rooms.[z].timeTables.tt_id |选择活动时间表 |
 | tado.[x].[yyyyyy].Home.state.presence |设置 HOME 或 AWAY 模式 |
+| tado.[x].[yyyyyy].Home.masterswitch |打开/关闭所有设备 |
 |风扇速度| Fanspeed（仅限交流设备）|
 |模式 | AC 模式（仅限 AC 设备）|
 
@@ -63,11 +64,13 @@ tado° 确保舒适健康的气候，同时节省高达 31% 的取暖费用。
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.11-alpha.0 (2021-11-05)
+### 0.3.11-alpha.4 (2021-11-11)
 * (HGlab01) support attributes 'showSwitchToAutoGeofencingButton', 'showHomePresenceSwitchButton' and 'additionalConsents'
-* (HGlab01) Enhance error messages if API-call fails
+* (HGlab01) enhance error messages if API-call fails
 * (HGlab01) next time block fails (one reason for 422 error) if time blocks are not defined - fixed now
-* (HGlab01) Set HOME/AWAY is now suported by using state tado.x.yyyyyy.Home.state.presence
+* (HGlab01) set HOME/AWAY is now suported by using state tado.x.yyyyyy.Home.state.presence
+* (HGlab01) offset range -9.99/+10 validated
+* (HGlab01) add masterswitch for power on/off
 
 ### 0.3.10 (2021-10-29)
 * (HGlab01) API calls (except read) are queued and send one after the other

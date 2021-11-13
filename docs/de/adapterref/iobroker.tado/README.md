@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: f6i4qy7fGtKHrq76VWWMIi/QNx+YA6XzHbZsWpOrR1Y=
+hash: Z7CxzGNDPG5NM+CfvhcM9fc9SbEmmlJ2tK70SWV3ShM=
 ---
 ![Anzahl der Installationen](http://iobroker.live/badges/tado-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.tado.svg)
@@ -53,6 +53,7 @@ Im Allgemeinen sind Werte jetzt NULL, wenn die API NULL oder einfach nichts send
 | tado.[x].[yyyyyy].Räume.[z].Geräte.[RUaaaaaaaaaa].offset.offsetCelsius | Temperatur-Offset |
 | tado.[x].[yyyyyy].Rooms.[z].timeTables.tt_id | Aktiven Fahrplan auswählen |
 | tado.[x].[yyyyyy].Heimatstaat.Präsenz | HAUPT- oder AWE-Modus einstellen |
+| tado.[x].[yyyyyy].Home.masterswitch | Alle Geräte ein-/ausschalten |
 | Lüftergeschwindigkeit | Lüftergeschwindigkeit (nur AC-Geräte) |
 | Modus | AC-Modus (nur AC-Geräte) |
 
@@ -63,11 +64,13 @@ Im Allgemeinen sind Werte jetzt NULL, wenn die API NULL oder einfach nichts send
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.11-alpha.0 (2021-11-05)
+### 0.3.11-alpha.4 (2021-11-11)
 * (HGlab01) support attributes 'showSwitchToAutoGeofencingButton', 'showHomePresenceSwitchButton' and 'additionalConsents'
-* (HGlab01) Enhance error messages if API-call fails
+* (HGlab01) enhance error messages if API-call fails
 * (HGlab01) next time block fails (one reason for 422 error) if time blocks are not defined - fixed now
-* (HGlab01) Set HOME/AWAY is now suported by using state tado.x.yyyyyy.Home.state.presence
+* (HGlab01) set HOME/AWAY is now suported by using state tado.x.yyyyyy.Home.state.presence
+* (HGlab01) offset range -9.99/+10 validated
+* (HGlab01) add masterswitch for power on/off
 
 ### 0.3.10 (2021-10-29)
 * (HGlab01) API calls (except read) are queued and send one after the other

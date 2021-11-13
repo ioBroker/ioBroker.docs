@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bmw/README.md
 title: ioBroker.bmw
-hash: yumIcpdvL9yncewLcRrRSh9JT6Wuhy0UulGdIA6ckDY=
+hash: hptX3x8JdKhnV2Dxw6QaMgY0RJ7J9oAOP6Q4DBoqHA4=
 ---
 ![标识](../../../en/adapterref/iobroker.bmw/admin/bmw.png)
 
@@ -20,10 +20,28 @@ hash: yumIcpdvL9yncewLcRrRSh9JT6Wuhy0UulGdIA6ckDY=
 ## IoBroker 的宝马适配器
 宝马适配器
 
-在遥控器下你可以控制你的车
+**Aktueller 状态**
+
+宝马.0.VIN.properties
+
+**Remote Befehle sind möglich unter**
+
+宝马.0.VIN.remotev2
 
 ## Changelog
 
+### 2.4.0
+
+-   Add support for MINI and force refresh remote
+  
+### 2.3.0
+
+-   Disable v1 Endpoints
+  
+### 2.1.1
+
+-   Upgrade to statusV2 and remoteV2
+  
 ### 2.0.0
 
 -   (TA2k) initial release
