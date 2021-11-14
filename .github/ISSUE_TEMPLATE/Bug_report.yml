@@ -1,5 +1,5 @@
 name: Bug Report
-description: File a bug report
+description: Report a bug on our website
 title: "[Bug]: "
 labels: [bug, website]
 body:
