@@ -1,7 +1,7 @@
 name: Bug Report
 description: Report a bug on our website
 title: "[Bug]: "
-labels: [bug, website]
+labels: [Bug, Website]
 body:
   - type: markdown
     attributes:
