@@ -1,0 +1,31 @@
+name: Missing developer documentation
+description: NO Adapter Specific things!!! Please report adapter things at the adapter repository.
+labels: [Developer, Documentation]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this form!
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What do you miss?
+      description: Tell us as much as possible.
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link
+      description: Share the link to the site where you miss the documentation.
+      placeholder: https://www.iobroker.net/#de/blog
+    validations:
+      required: true
