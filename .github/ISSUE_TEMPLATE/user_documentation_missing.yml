@@ -1,5 +1,5 @@
 name: Missing user documentation
-description: NO Adapter Specific things!!!
+description: NO Adapter Specific things!!! Please report adapter things at the adapter repository.
 title: "[Bug]: "
 labels: [User, Documentation]
 body:
