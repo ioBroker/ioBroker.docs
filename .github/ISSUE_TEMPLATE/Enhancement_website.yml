@@ -1,6 +1,5 @@
 name: Suggestion for improving the website
 description: Is there a technical thing that we can improve for a better user experience?
-title: ""
 labels: [Enhancement, Website]
 body:
   - type: markdown
