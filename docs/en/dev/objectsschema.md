@@ -1,5 +1,4 @@
 # Core Concept
-
 There are two fundamentally different data-types in ioBroker. So called **states**(`states`) and **objects**.
 
 Objects represent rarely changing and larger data, like meta-data of your systems devices, configurations and additional
@@ -52,7 +51,6 @@ Or other example `hm-rpc.1.ABC110022.2.VALUE`:
 * `scripts.py.`         - python Script Engine Scripts (future)
 
 ### Namespace system.config.
-
 ```
 {
     _id:   id,
@@ -73,7 +71,6 @@ Or other example `hm-rpc.1.ABC110022.2.VALUE`:
 ```
 
 ### Namespace system.host.&lt;hostname&gt;
-
 ```
 {
     _id:   id,
@@ -116,14 +113,12 @@ Or other example `hm-rpc.1.ABC110022.2.VALUE`:
 
 <a id="states"></a>
 ## States
-
-getState method and stateChange event delivers an object with all attributes except expire
-
+`getState` method and `stateChange` event delivers an object with all attributes except expire
 for `setState` method everything except `val` is optional, `from` is set automatically by the `setState` method. `ack` defaults to false, `ts` and `lc` are set as expected
 
 It is important to note that the value a state of type array, object, mixed or file must be serialized using `JSON.stringify()`.
 
-attributes for getState/stateChange/setState object:
+Attributes for `getState/stateChange/setState` object:
 
 * `val`    - the actual value - can be any type that is JSON-"encodable"
 * `ack`    - a boolean flag indicating if the target system has acknowledged the value
@@ -132,7 +127,7 @@ attributes for getState/stateChange/setState object:
 * `from`   - adapter instance that did the `setState`
 * `user`   - the username, that set the value
 * `expire` - an integer value that can be used to set states that expire after a given number of seconds. Can be used ony with `setValue`. After the value expires, it disappears from redisDB.
-* `c`      - comment for this state change. 
+* `c`      - comment for this state change.
 * `q`      - quality. Number with following states:
 
 ```
@@ -157,12 +152,10 @@ attributes for getState/stateChange/setState object:
   0x84 - 10000100 - sensor reports error
 ```
 
-Every *state* has to be represented by an object of the type state containing Meta-Data for the state. See below.
+Every *state* has to be represented by an object of the type `state` containing Meta-Data for the state. See below.
 
 ## Objects
-
 ### Mandatory attributes
-
 Following attributes have to exist in every object:
 
 * `_id`
@@ -171,15 +164,12 @@ Following attributes have to exist in every object:
 * `native`      - an object containing congruent properties of the target system
 
 ### Optional attributes
-
 * `common.name` - the name of the object (optional but strictly suggested to fill it)
 
 ### Tree structure
-
 The tree structure is assembled automatically by names. E.g. ```system.adapter.0.admin``` is the parent for `system.adapter.0.admin.uptime`. Use this name convention with point ".", as divider of levels.
 
 ### Object types
-
 * `state`    - parent should be of type channel, device, instance or host
 * `channel`  - object to group one or more states. Parent should be device.
 * `device`   - object to group one or more channels or state. Should have no parent except adapter instance namespace.
@@ -194,13 +184,10 @@ The tree structure is assembled automatically by names. E.g. ```system.adapter.0
 * `group`    - groups
 * `chart`    - charts
 * `folder`   - a bunch of devices or may be other things.
- 
 
 #### Attributes for specific object types
-
 ##### State
-
-attributes:
+Attributes:
 
 * `common.type`   (optional - (default is mixed==any type) (possible values: number, string, boolean, array, object, mixed, file). As exception the objects with type `meta` could have `common.type=meta.user` or `meta.folder`. It is important to note that array, object, mixed and file must be serialized using `JSON.stringify()`.
 * `common.min`    (optional)
@@ -214,13 +201,11 @@ attributes:
 * `common.write`  (boolean, mandatory) - true if state is writable
 * `common.role`   (string,  mandatory) - role of the state (used in user interfaces to indicate which widget to choose, see below)
 * `common.states` (optional) attribute of type number with the object of possible states `{'value': 'valueName', 'value2': 'valueName2', 0: 'OFF', 1: 'ON'}` or (supported up from admin5) an states array, like `['Start', 'Flight', 'Land']`
-* `common.workingID` (string, optional) - if this state has helper state WORKING. Here must be written the full name or just the last part if the first parts are the same with actual. Used for HM.LEVEL and normally has value "WORKING"
+* `common.workingID` (string, optional) - if this state has helper state WORKING. Here must be written the full name or just the last part if the first parts are the same with actual. Used for `HM.LEVEL` and normally has value `WORKING`
 * `common.custom` (optional) - the structure with custom settings for specific adapters. Like `{"influxdb.0": {"enabled": true, "alias": "name"}}`. `enabled` attribute is required and if it is not true, the whole attribute will be deleted.
 
-
-##### State `common.history`
-
-History function needs the history adapter or any other storage adapter of type history
+##### Attribut `common.history`
+Die Verlaufsfunktion benötigt den Verlaufsadapter oder einen anderen Speicheradapter vom Typ Verlauf
 
 fifo length is reduced to min when max is hit. set to null or leave undefined to use defaults
 
@@ -230,16 +215,13 @@ for a list of transports see history adapter README
 * `common.history.<HISTORY-INSTANCE>.changesOnly` (optional, boolean, if true only value changes are logged)
 * `common.history.<HISTORY-INSTANCE>.enabled` (boolean)
 
-
 ##### State `common.role`
 * `common.role` (indicates how this state should be represented in user interfaces)
 
 [possible values](stateroles.md)
 
 #### Channel
-
 ##### Channel `common.role` (optional)
-
 suggestion: the channel-objects common.role should/could imply a set of mandatory and/or optional state-child-objects
 
 possible values:
@@ -292,7 +274,6 @@ possible values:
 * `meta.config`       - configuration from device
 * ...
 
-
 #### Channel descriptions
 ~~The names of the attributes can be free defined by the adapter, except ones written with **bold** font.~~
 
@@ -301,7 +282,6 @@ possible values:
 "M" - Mandatory
 
 ##### Optional states for every channel/device
-
 ```javascript
 // state-working (optional)
 {
@@ -445,7 +425,6 @@ possible values:
 
 ```
 
-
 ##### `blind` - Attributes description
 ```
 // BLIND CHANNEL
@@ -478,7 +457,6 @@ possible values:
 }
 ```
 
-
 ##### `phone` - Attributes description
 | **Name**         | **common.role**          | **M** | **W** | **common.type** | **Description**
 | ---------------- |:-------------------------|:-----:|:-----:|-----------------|---
@@ -490,31 +468,29 @@ possible values:
 #### Device
 
 #### Enum
-
 * `common.members` - (optional) array of enum member IDs
 
-
 #### Meta
-id
+ID
 
- * `*&lt;adapter-name&gt;.&lt;instance-number&gt;.meta.&lt;meta-name&gt;*`
- * `*&lt;adapter-name&gt;.meta.&lt;meta-name&gt;*`
- * `system.*meta.&lt;meta-name&gt;*`
+* `*&lt;adapter-name&gt;.&lt;instance-number&gt;.meta.&lt;meta-name&gt;*`
+* `*&lt;adapter-name&gt;.meta.&lt;meta-name&gt;*`
+* `system.*meta.&lt;meta-name&gt;*`
 
 #### Adapter
-id `system.adapter.<adapter.name>`
+ID: `system.adapter.<adapter.name>`
 
 *Notice:* all flags are optional except special marked as **mandatory**.
 
 * `common.adminColumns`       - Custom attributes, that must be shown in the admin in the object browser. Like: `[{"name": {"en": "KNX address"}, "path": "native.address", "width": 100, "align": "left"}, {"name": "DPT", "path": "native.dpt", "width": 100, "align": "right", "type": "number", "edit": true, "objTypes": ["state", "channel"]}]`. `type` is a type of the attribute (e.g. string, number, boolean) and only needed if edit is enabled. `objTypes` is a list of the object types, that could have such attribute. Used only in edit mode too.
-* `common.adminTab.fa-icon`   - Font-Awesome icon name for TAB.
+* `common.adminTab.fa-icon`   - (deprecated) Font-Awesome icon name for TAB.
 * `common.adminTab.ignoreConfigUpdate` - do not update config TAB if configuration changed (to enable configure settings in TAB)
-* `common.adminTab.link`      - link for iframe in the TAB. You can use parameters replacement like this: `http://%ip%:%port%`. IP will be replaced with host IP. A "port" will be extracted from native.port.
+* `common.adminTab.link`      - link for iframe in the TAB. You can use parameters replacement like this: `http://%ip%:%port%`. IP will be replaced with host IP. A `port` will be extracted from `native.port`.
 * `common.adminTab.name`      - name of TAB in admin
 * `common.adminTab.singleton` - [true/false] if adapter has a TAB for the admin. Only one TAB for all instances will be shown.
 * `common.allowInit`          - [true/false] allow for "scheduled" adapter to be called "not in the time schedule", if settings changed or adapter started. Or allow scheduled adapter start once after configuration changed and then by schedule.
 * `common.availableModes`     - values for `common.mode` if more than one mode is possible
-* `common.blockly`            - [true/false] if adapter has custom blocks for blockly. (admin/blockly.js required)
+* `common.blockly`            - [true/false] if adapter has custom blocks for blockly. (`admin/blockly.js` required)
 * `common.connectionType`     - Connection type with the device: `local/cloud`. See `common.dataSource` too.
 * `common.compact`            - says to controller that this adapter can be started in the same process if desired
 * `common.config.height`      - default height for configuration dialog (deprecated - valid only for admin2)
@@ -522,12 +498,12 @@ id `system.adapter.<adapter.name>`
 * `common.config.minWidth`    - minimal width for configuration dialog (deprecated - valid only for admin2)
 * `common.config.width`       - default width for configuration dialog (deprecated - valid only for admin2)
 * `common.dataFolder`         - folder relative to iobroker-data where the adapter stores the data. This folder will be backed up and restored automatically. You can use variable `%INSTANCE%` in it.
-* `common.dataSource`         - How the data will be received from device:  `poll/push/assumption`. It is important together with `connectionType`.
+* `common.dataSource`         - How the data will be received from device: `poll/push/assumption`. It is important together with `connectionType`.
 * `common.disableDataReporting` - Do not report errors via the `sentry` for this instance
 * `common.dependencies`       - Array like `[{"js-controller": ">=2.0.0"}]` that describes which ioBroker modules are required for this adapter on the same host.
 * `common.docs`               - The structure like `{"en": "docs/en/README.md", "de": ["docs/de/README.md", "docs/de/README1.md"]}` that describes the documentation if not in `README.md`
 * `common.enabled`            - **mandatory** [true/false] value should be false so new instances are disabled by default
-* `common.engineTypes`        - deprecated. Use engine in package.json 
+* `common.engineTypes`        - deprecated. Use engine in package.json
 * `common.eraseOnUpload`      - erase all previous data in the directory before upload
 * `common.expert`             - show this object only in the expert mode in admin
 * `common.extIcon`            - link to external icon for uninstalled adapters. Normally on github.
@@ -538,7 +514,7 @@ id `system.adapter.<adapter.name>`
 * `common.ignoreVersion`      - Do not show the update icon for this adapter for this specific version
 * `common.jsonConfig`         - This adapter supports admin5 and provides admin/jsonConfig.json with description of configuration dialog layout
 * `common.jsonCustom`         - This adapter supports admin5 and provides admin/jsonCustom.json with description of custom settings layout
-* `common.keywords`           - Similar to keywords in package.json, but can be defined in many languages. Just an array. 
+* `common.keywords`           - Similar to keywords in package.json, but can be defined in many languages. Just an array.
 * `common.localLinks`         - link to the web service of this adapter. E.g. to http://localhost:5984/_utils for the futon from admin
 * `common.localLink`          - deprecated. Use `common.localLinks`.
 * `common.loglevel`           - debug, info, warn or error
@@ -547,6 +523,7 @@ id `system.adapter.<adapter.name>`
 * `common.materializeTab`     - if adapter supports > admin3 for the tab (materialize style)
 * `common.materialize`        - if adapter supports > admin3 (materialize style)
 * `common.messagebox`         - true if message box supported. If yes, the object system.adapter.&lt;adapter.name&gt&lt;adapter.instance&gt.messagebox will be created to send messges to adapter (used for email, pushover,...;
+* `common.messages`           - Conditional messages by update. See [Conditional messages](#conditional-messages) for details.
 * `common.mode`               - **mandatory** possible values see below
 * `common.name`               - **mandatory** name of adapter without "ioBroker."
 * `common.noConfig`           - [true/false] do not show configuration dialog for instance
@@ -559,15 +536,15 @@ id `system.adapter.<adapter.name>`
 * `common.osDependencies.darwin` - array of OSX packages, that required for this adapter
 * `common.osDependencies.linux` - array of debian/centos packages, that required for this adapter (of course only OS with apt, apt-get, yum as package managers)
 * `common.osDependencies.win32` - not used, because win32 has no package manager
-* `common.os`                 - string or array of the supported operation systems, e.g. ["linux", "darwin"]
+* `common.os`                 - string or array of the supported operation systems, e.g. `["linux", "darwin"]`
 * `common.platform`           - **mandatory** possible values: Javascript/Node.js, more coming
 * `common.pugins.sentry`      - structure with the configuration data for the `sentry` plugin
-* `common.preserveSettings`   - string (or array) with names of attributes in common of instance, which will not be deleted. E.g. "history", so by setState('system.adapter.mqtt.0", {..}) the field common.history will not be deleted even if new object does not have this field. To delete the attribute it must be explicitly done with ```common:{history: null}```.
+* `common.preserveSettings`   - string (or array) with names of attributes in common of instance, which will not be deleted. E.g. "history", so by setState('system.adapter.mqtt.0", {..}) the field common.history will not be deleted even if new object does not have this field. To delete the attribute it must be explicitly done with `common: {history: null}`.
 * `common.readme`             - URL of the ReadMe file
 * `common.restartAdapters`    - array with names of adapter that must be restarted after this adapter is installed, e.g. ["vis"]
 * `common.restartSchedule`    - CRON schedule to restart mode `daemon` adapters
 * `common.schedule`           - CRON schedule if adapter runs in mode `schedule`.
-* `common.serviceStates`      - [true/false or path] if adapter can deliver additional states. If yes, the path adapter/lib/states.js will be called and it give following parameters function (objects, states, instance, config, callback). The function must deliver the array of points with values like function (err, result) { result = [{id: 'id1', val: 1}, {id: 'id2', val: 2}]}
+* `common.serviceStates`      - [true/false or path] if adapter can deliver additional states. If yes, the path `adapter/lib/states.js` will be called and it give following parameters function (objects, states, instance, config, callback). The function must deliver the array of points with values like `function (err, result) { result = [{id: 'id1', val: 1}, {id: 'id2', val: 2}]}`
 * `common.singletonHost`      - adapter can be installed only once on one host
 * `common.singleton`          - adapter can be installed only once in whole system
 * `common.stopBeforeUpdate`   - [true/false] if adapter must be stopped before update
@@ -578,7 +555,7 @@ id `system.adapter.<adapter.name>`
 * `common.supportStopInstance`- [true/false] if adapter supports signal stopInstance (**messagebox** required). The signal will be sent before stop to the adapter. (used if the problems occured with SIGTERM)
 * `common.titleLang`          - **mandatory** longer name of adapter in all supported languages like {en: 'Adapter', de: 'adapter', ru: 'Драйвер'}
 * `common.title`              - (deprecated) longer name of adapter to show in admin
-* `common.type`               - Adapter type. See [Types](adapterpublish.md) 
+* `common.type`               - Adapter type. See [Types](adapterpublish.md)
 * `common.unchanged`          - (system) please do not use this flag. It is a flag to inform the system, that configuration dialog must be shown in the admin.
 * `common.unsafePerm`         - [true/false] if the package must be installed with `npm --unsafe-perm` parameter
 * `common.version`            - **mandatory** available version
@@ -588,31 +565,59 @@ id `system.adapter.<adapter.name>`
 * `common.webExtension`       - relative filename to connect the web extension. E.g. in `simple-api` `lib/simpleapi.js` relative to the adapter root directory. Additionally, `native.webInstance` is required to say where this extension will be included. Empty means, it must run as own web service. "*" means every web server must include it.
 * `common.webPreSettings`     - list of parameters that must be included into info.js by webServer adapter. (Example material)
 * `common.webservers`         - array of web server's instances that should serve content from the adapter`s www folder
-* `common.welcomeScreen`      - array of pages, that should be shown on the "web" index.html page. ["vis/edit.html", "vis/index.html"] or [{"link": "vis/edit.html", "name": "Vis editor", "img": "vis/img/edit.png", "color": "blue"}, "vis/index.html"]
+* `common.welcomeScreen`      - array of pages, that should be shown on the "web" index.html page. `["vis/edit.html", "vis/index.html"]` or `[{"link": "vis/edit.html", "name": "Vis editor", "img": "vis/img/edit.png", "color": "blue"}, "vis/index.html"]`
 * `common.welcomeScreen.order` - todo
-* `common.welcomeScreenPro`   - Same as `common.welcomeScreen` but used only by access from ioBroker.cloud. 
+* `common.welcomeScreenPro`   - Same as `common.welcomeScreen` but used only by access from ioBroker.cloud.
 * `common.wwwDontUpload`      - Do not upload into the database the www directory. Used only for the admin. You can just name you directory something else and OK.
 * `protectedNative`    - array of config attributes which will only be accessible by the own adapter, e.g. `["password"]`
 * `encryptedNative`    - array of config attributes which will be automatically encrypted when stored via Admin configuration page and automatically decrypted at adapter runtime, e.g. `["password", "token"]`
 * `native`                    - predefined attributes which are accessible in `index_m.html` and at runtime via `adapter.config.<attribute>`, e.g. `{"port": 1234, "password": "secret"}`
 
-#### instance
-id *system.adapter.&lt;adapter.name&gt;.&lt;instance-number&gt;*
+#### Conditional messages
+If you want that by update from some specific version to new specific version the message must be shown, you can define `common.messages`.
 
-* `common.host`       - (mandatory) host where the adapter should be started at - object *system.host.&lt;host&gt;* must exist
+Example: 
+```
+"messages": {
+    "condition": {
+        "operand": "and", // "and" or "or"
+        "rules": [
+            "oldVersion<=1.0.44", // currently only oldVersion and newVersion are supported
+            "newVersion>=1.0.45"  // possible comparators: <, >, >=, <=, !=, ==
+        ]
+    },
+    "title": {
+        "en": "Important notice",
+    },
+    "text": {
+        "en": "Main text",
+    },
+    "link": "https://iobroker.net/www/pricing",
+    "buttons": ["agree", "cancel", "ok], // optional. If no buttons defined the info will be shown only in the change log dialog
+    "linkText" {
+         "en": "More info",
+    },
+    "level": "warn" // info, warn, error
+}
+```
+
+#### instance
+ID: `system.adapter.&lt;adapter.name&gt;.&lt;instance-number&gt;`
+
+* `common.host`       - (mandatory) host where the adapter should be started at - object `system.host.&lt;host&gt;` must exist
 * `common.enabled`    - (mandatory)
 * `common.mode`       - (mandatory) possible values see below
 
 ##### adapter/instance common.mode
 * `none`        - this adapter doesn't start a process
 * `daemon`      - always running process (will be restarted if process exits)
-* `subscribe`   - is started when state *system.adapter.&lt;adapter-name&gt;.&lt;instance-number&gt;.alive* changes to *true*. Is killed when *.alive* changes to *false* and sets *.alive* to *false* if process exits (will **not** be restarted when process exits)
-* `schedule`    - is started by schedule found in *system.adapter.&lt;adapter-name&gt;.&lt;instance-number&gt;.schedule* - reacts on changes of *.schedule* by rescheduling with new state
-* `once`        - this adapter will be started every time the system.adapter.yyy.x object changed. It will not be restarted after termination.
-* `extension`   - this adapter will be not started by `js-controller`, but it will be started by web instance. Web instance can be defined in `native.webInstance` as '*' (if in every web) or as `web.x` for specific web instance. (Examples: `cameras, proxy`). Additionally in `common.webExtension` the path to plugin file must be provided.
+* `subscribe`   - is started when state `system.adapter.&lt;adapter-name&gt;.&lt;instance-number&gt;.alive` changes to `true`. Is killed when `.alive` changes to `false` and sets `.alive` to `false` if process exits (will **not** be restarted when process exits)
+* `schedule`    - is started by schedule found in `system.adapter.&lt;adapter-name&gt;.&lt;instance-number&gt;.schedule` - reacts on changes of `.schedule` by rescheduling with new state
+* `once`        - this adapter will be started every time the `system.adapter.yyy.x` object changed. It will not be restarted after termination.
+* `extension`   - this adapter will be not started by `js-controller`, but it will be started by web instance. Web instance can be defined in `native.webInstance` as '*' (if in every web) or as `web.x` for specific web instance. (Examples: `cameras, proxy`). Additionally, in `common.webExtension` the path to plugin file must be provided.
 
 #### host
-id `system.host.<host>`
+ID: `system.host.<host>`
 
 * `common.name`       - f.e. `system.host.banana`
 * `common.process`
