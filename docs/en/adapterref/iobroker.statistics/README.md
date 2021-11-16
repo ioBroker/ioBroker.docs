@@ -47,13 +47,16 @@ A german HowTo doc is available here: [howto_de](./doc/howto_de.md)
 -->
 
 ## Changelog
+### 1.0.10 (2021-11-14)
+* (Apollon77) prevent some crash cases
+
 ### 1.0.9 (2021-07-29)
 * (bluefox) Removed the warnings for js-controller 3.x
 
 ### 1.0.6 (2021-05-27)
 * (Apollon77) prepare for js-controller 3.3
 * (Apollon77) make sure all tasks are processed to prevent missing objects
-* (bluefox) added the support of Admin5 
+* (bluefox) added the support of Admin5
 
 ### 1.0.4
 * (foxthefox) changed the state change to BOTH positive and negative edges, hence it causes a lot of log entries
@@ -112,7 +115,7 @@ A german HowTo doc is available here: [howto_de](./doc/howto_de.md)
 * setup running
 
 ### 0.0.1
-* initial release 
+* initial release
 
 ## License
 

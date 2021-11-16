@@ -1,6 +1,5 @@
 ![Logo](admin/hue.jpeg)
 # ioBroker Philips Hue Bridge Adapter
-==============
 
 ![Number of Installations](http://iobroker.live/badges/hue-installed.svg)
 ![Number of Installations](http://iobroker.live/badges/hue-stable.svg)
@@ -25,7 +24,7 @@ This adapter connects your Philips Hue Bridges with ioBroker to control Philips 
 Once you have installed this adapter within ioBroker, create an adapter instance accordingly. Next, you need to connect your Hue bridge with ioBroker within the adapter settings:
 1. If you are using another bridge than v2, configure port to 80 (non-https), else 443 (https) should be the way to go.
 2. Click on "Find Bridge" button to get the IP address of your bridge. This will search for all bridges in your environment. Then select the bridge to which you want to connect. The field "Bridge Address" will be populated with the IP address of your chosen Hue bridge.
-3. Next, click on "Create User" button in the settings and then walk to your Hue bridge device, so your hardware, to push its round button. You'll gonna have 30 seconds to proceed. Once you pushed the button, the field "Bridge User" should be populated with a generated string.
+3. Next, click on "Create User" button in the settings and then walk to your Hue bridge device, so your hardware, to push its round button. You'll be going to have 30 seconds to proceed. Once you pushed the button, the field "Bridge User" should be populated with a generated string.
 4. Modify any other options in the adapter settings and then select "save and close".
 5. Finally, you should be all set: The adapter will generate all objects to control your Hue devices accordingly.
 
@@ -36,11 +35,11 @@ Please note: Adapter settings button "Find Bridge" will be inactive if field "Br
 |---|---|
 |__Bridge address__|IP address of your Hue bridge, you can try to detect it by pressing `Find Bridge` button.|
 |__Port__|Port of your Hue bridge, normally 443 (SSL) and 80 (non-SSL).|
-|__SSL__|If checked, connecton is secured via SSL, port will automatically change to 443 (it is strongly recommended to use SSL).|
+|__SSL__|If checked, connection is secured via SSL, port will automatically change to 443 (it is strongly recommended to use SSL).|
 |__User__|Username of your bridge user. You can create it, by pressing `Create User` button and following the screen instructions.|
 |__Ignore scenes__|If checked, scenes will not be shown/controlled by the adapter.|
 |__Ignore groups__|If checked, groups will not be shown/controlled by the adapter.|
-|__"Legacy" structure__|To support backwards compatibility, it is possible to hold an old object structure in ioBroker. This old structure is `hue.<instance_number>.<brdige_name_channel>.<light_or_group_channel>.<state>`. The new structure removes `<brdige_name_channel>` and thus makes it necessary to adapt old scripts, etc. If an existing old strcuture is detected by the adapter, the structure will be used without checking the checkbox. However, if migration from old to new structure is desired, delete the whole `hue.<instance_number>` namespace once.
+|__"Legacy" structure__|To support backwards compatibility, it is possible to hold an old object structure in ioBroker. This old structure is `hue.<instance_number>.<bridge_name_channel>.<light_or_group_channel>.<state>`. The new structure removes `<bridge_name_channel>` and thus makes it necessary to adapt old scripts, etc. If an existing old structure is detected by the adapter, the structure will be used without checking the checkbox. However, if migration from old to new structure is desired, delete the whole `hue.<instance_number>` namespace once.
 |__Native turn off/on behaviour__|If checked, the adapter will turn on/off lights in the same fashion as the native Hue app does. Otherwise, lamps will be set to a level of 100 % when switched on. Additionally when a group is already turned on, setting the brightness level will affect only the already turned on lamps and will not turn the lamps on, which are currently turned off.|
 |__Sync software sensors__|Also sync software sensors. These are virtual sensors, e.g. created by Hue Labs scenes. By controlling the `status` datapoint of such a sensor you can start/stop scenes which follow this logic. In most cases `0` turns scene off and `1` turns it on.|
 |__Polling__|If checked, the adapter will poll state changes, otherwise it can only be used to control lamps, not to show their status.|
@@ -52,15 +51,21 @@ when controlled. In some cases, it may be desirable to have a controllable `anyO
 
 ## Deutsch :de:
 Bindet Philips Hue / LivingColors / LivingWhites Lampen ein. 
-In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfiguriert werden. Um einen User zu aktivieren einmal auf create user drücken und dann innerhalb von 30 Sekunden den Button an der Hue bridge drücken. Dann wird automatisch der User übergeben. 
+In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfiguriert werden. Um einen User zu aktivieren, einmal auf create user drücken und dann innerhalb von 30 Sekunden den Button an der Hue bridge drücken. Dann wird automatisch der User übergeben. 
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.5.30 (2021-11-14)
+* (foxriver76) we fixed Sentry IOBROKER-HUE-1K, IOBROKER-HUE-A, IOBROKER-HUE-1J
+
+### 3.5.29 (2021-11-14)
+* (bluefox) Caught SENTRY error.
+
 ### 3.5.28 (2021-11-04)
-* (foxriver76) another fix for ivnalid ct values (fixes #234)
+* (foxriver76) another fix for invalid ct values (fixes #234)
 
 ### 3.5.27 (2021-11-01)
 * (foxriver76) we fixed missing object type of some scenes (closes #255)

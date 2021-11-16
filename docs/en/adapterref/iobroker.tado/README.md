@@ -59,13 +59,15 @@ In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x some
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.11-alpha.4 (2021-11-11)
+### 0.3.11-alpha.5 (2021-11-15)
 * (HGlab01) support attributes 'showSwitchToAutoGeofencingButton', 'showHomePresenceSwitchButton' and 'additionalConsents'
 * (HGlab01) enhance error messages if API-call fails
 * (HGlab01) next time block fails (one reason for 422 error) if time blocks are not defined - fixed now
 * (HGlab01) set HOME/AWAY is now suported by using state tado.x.yyyyyy.Home.state.presence
 * (HGlab01) offset range -9.99/+10 validated
 * (HGlab01) add masterswitch for power on/off
+* (HGlab01) reduce logs in info-mode
+* (HGlab01) AC temperature range fixed
 
 ### 0.3.10 (2021-10-29)
 * (HGlab01) API calls (except read) are queued and send one after the other

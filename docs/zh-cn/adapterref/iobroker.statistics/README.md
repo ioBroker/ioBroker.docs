@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.statistics/README.md
 title: ioBroker.statistics
-hash: fiNJphnoUsmKpxwF5jGT/eEOdyBHMdwDQyzzI1eQtBM=
+hash: 50F3oa1dUN0ZXS5QMiPgTULKjXr2Y6gjxR/q4zvXj1k=
 ---
 ![标识](../../../en/adapterref/iobroker.statistics/admin/statistics.png)
 
@@ -44,21 +44,24 @@ hash: fiNJphnoUsmKpxwF5jGT/eEOdyBHMdwDQyzzI1eQtBM=
 德语 HowTo 文档可在此处获得：[howto_de](./doc/howto_de.md)
 
 ##设置
-* 在实例配置页面指定相关组（admin => instances => statistics config）
+* 在实例配置页面指定相关组（admin =>instance => statistics config）
 * 在状态设置中指定配置（admin => objects）
 
 <!-- 下一个版本的占位符（在行首）：
 
-### __工作进行中__ -->
+### __工作正在进行中__ -->
 
 ## Changelog
-### 1.0.8 (2021-07-27)
+### 1.0.10 (2021-11-14)
+* (Apollon77) prevent some crash cases
+
+### 1.0.9 (2021-07-29)
 * (bluefox) Removed the warnings for js-controller 3.x
 
 ### 1.0.6 (2021-05-27)
 * (Apollon77) prepare for js-controller 3.3
 * (Apollon77) make sure all tasks are processed to prevent missing objects
-* (bluefox) added the support of Admin5 
+* (bluefox) added the support of Admin5
 
 ### 1.0.4
 * (foxthefox) changed the state change to BOTH positive and negative edges, hence it causes a lot of log entries

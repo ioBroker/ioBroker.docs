@@ -288,10 +288,10 @@ But be aware: The Cookie will time out after several time and then the adapter w
 
 
 ## Changelog
-
-### __WORK IN PROGRESS__
-* (Apollon77) Fix crash case
+### 3.12.0 (2021-11-13)
+* (Apollon77) SequenceNodes created for a device are now bound to the "deviceOwnCustomer" - should help in mixed owner groups
 * (ammawel) Add recurringPattern for Notifications (see Readme)
+* (Apollon77) Fix crash case
 * (Apollon77) Make sure states are not set too early before objects are created
 
 ### 3.11.2 (2021-10-12)

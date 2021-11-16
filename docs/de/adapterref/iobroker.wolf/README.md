@@ -25,6 +25,9 @@ Der Adapter kann über das ISM8i maximal 4  von den nachfolgenden Heizgeräten a
   Ein Wohnraumlüftungsgerät der Baureihe CWL Excellent kann mit dem ISM8i ebenfalls ausgewertet und bedient werden.
 
 ## Changelog
+### 1.3.4 (2021-11-14)
+* (eifel-tech) Min value of outside temperature corrected
+
 ### 1.3.2 (2021-08-31)
 * (eifel-tech/tobias) Corrected error: DP 149 with correct Type (Issue #30)
 * (eifel-tech/tobias) Changes for js-controller 3.3
@@ -39,13 +42,13 @@ Der Adapter kann über das ISM8i maximal 4  von den nachfolgenden Heizgeräten a
 ### 1.1.1 [2019.12.02]
 * (schweigel) Fixed: DPT_Date is wrong
 * (schweigel) Fixed: CWL - DPT_TimeOfDay - error
- 
+
 ### 1.1.0 [2019.09.13]
 * (RustyThePropellerHead) ISM8i Firmware v1.50 Update to be able to use the new DataPoints (FW Released in 2016)
-                          * As a side note the GLT °C boiler setpoint is defined and read as a 1°C resolution, but you can send the boiler setpoint commands with 0.1°C resolution
-* (RustyThePropellerHead) DHW minimum value reduced from 20°C to 0°C to allow for deactivation                          
+                          * As a side note the GLT °C boiler set point is defined and read as a 1 °C resolution, but you can send the boiler set point commands with 0.1 °C resolution
+* (RustyThePropellerHead) DHW minimum value reduced from 20 °C to 0 °C to allow for deactivation                          
 * (RustyThePropellerHead) Reorganisation of the hg0 to have its own area on the adapter configuration webpage.
-* (RustyThePropellerHead) Scalling DPT_FlowRate_m3/h corrected
+* (RustyThePropellerHead) Scaling DPT_FlowRate_m3/h corrected
 * (RustyThePropellerHead) Lookup "Programmwahl CWL" corrected
 
 ### 1.0.0 [2017.11.21]
@@ -54,7 +57,7 @@ Der Adapter kann über das ISM8i maximal 4  von den nachfolgenden Heizgeräten a
 ### 0.9.1 [2016.12.19]
 * (smiling_Jack) Add Bool option
 * (smiling_Jack) Add Bar option
-* (smiling_Jack) Bugfix Type 5.001 Scaling 
+* (smiling_Jack) Bugfix Type 5.001 Scaling
 
 ### 0.1.0 [2015.12.01]
 * (smiling_Jack) Add writing to ism8

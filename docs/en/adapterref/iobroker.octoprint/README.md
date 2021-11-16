@@ -74,6 +74,10 @@ Please use state `system.adapter.octoprint.0.alive` to stop/start the instance.
   ### **WORK IN PROGRESS**
 -->
 
+### 2.0.3
+
+* (klein0r) Translated all objects
+
 ### 2.0.2
 
 * (klein0r) Extrude commands

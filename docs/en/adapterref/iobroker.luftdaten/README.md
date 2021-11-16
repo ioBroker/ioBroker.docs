@@ -61,6 +61,10 @@ Wait some minutes until the cronjob collects the data for the first time.
   ### **WORK IN PROGRESS**
 -->
 
+### 2.1.2
+
+* (klein0r) Translated admin tab table headers
+
 ### 2.1.1
 
 * (klein0r) Fixed missing translations

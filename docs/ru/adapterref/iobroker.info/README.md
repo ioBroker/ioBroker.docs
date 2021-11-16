@@ -315,6 +315,10 @@ $ sudo apt-get install smartmontools
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 1.9.16 (2021-11-13)
+* (Apollon77) Update dependencies
+* (Apollon77) Fix translations
+
 ### 1.9.15 (2021-11-10)
 * (simatec) Design fix for react-dark theme
 

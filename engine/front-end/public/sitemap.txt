@@ -908,6 +908,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.omnicomm-lls/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.omron-fins/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.onkyo/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.onvif/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.opcua/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.openhab/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.openligadb/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.opentherm/README.md
@@ -1372,6 +1373,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.omnicomm-lls/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.omron-fins/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.onkyo/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.onvif/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.opcua/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.openhab/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.openligadb/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.opentherm/README.md
@@ -1836,6 +1838,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.omnicomm-lls/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.omron-fins/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.onkyo/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.onvif/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.opcua/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.openhab/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.openligadb/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.opentherm/README.md
@@ -2300,6 +2303,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.omnicomm-lls/README
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.omron-fins/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.onkyo/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.onvif/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.opcua/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.openhab/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.openligadb/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.opentherm/README.md

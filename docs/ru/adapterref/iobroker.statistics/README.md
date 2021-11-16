@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.statistics/README.md
 title: ioBroker.statistics
-hash: fiNJphnoUsmKpxwF5jGT/eEOdyBHMdwDQyzzI1eQtBM=
+hash: 50F3oa1dUN0ZXS5QMiPgTULKjXr2Y6gjxR/q4zvXj1k=
 ---
 ![Логотип](../../../en/adapterref/iobroker.statistics/admin/statistics.png)
 
@@ -52,13 +52,16 @@ hash: fiNJphnoUsmKpxwF5jGT/eEOdyBHMdwDQyzzI1eQtBM=
 ### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
-### 1.0.8 (2021-07-27)
+### 1.0.10 (2021-11-14)
+* (Apollon77) prevent some crash cases
+
+### 1.0.9 (2021-07-29)
 * (bluefox) Removed the warnings for js-controller 3.x
 
 ### 1.0.6 (2021-05-27)
 * (Apollon77) prepare for js-controller 3.3
 * (Apollon77) make sure all tasks are processed to prevent missing objects
-* (bluefox) added the support of Admin5 
+* (bluefox) added the support of Admin5
 
 ### 1.0.4
 * (foxthefox) changed the state change to BOTH positive and negative edges, hence it causes a lot of log entries

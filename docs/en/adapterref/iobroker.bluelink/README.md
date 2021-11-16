@@ -18,6 +18,10 @@ Adapter to control Hyundai or Kia vehicle
 Discussion: https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo
 
 ## Changelog
+### 2.2.0
+
+* (TA2k, Newan) Adding refresh stop if 12V battery is under 50%.
+  
 ### 2.1.2
 * (TA2k, Newan) Update lib bluelinky
 

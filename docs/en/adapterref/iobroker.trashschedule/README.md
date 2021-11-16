@@ -42,6 +42,10 @@ iobroker add trashschedule
 
 ![VIS widget](images/vis.png)
 
+**Credits**
+
+- SVG: https://pixabay.com/de/vectors/behälter-kann-deckel-offen-grün-310937/
+
 ## Blockly example
 
 ![Blockly example](images/exampleBlockly.png)
@@ -219,6 +223,18 @@ iobroker add trashschedule
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### 1.3.5
+
+* (klein0r) Added checks for calendar description
+
+### 1.3.4
+
+* (klein0r) Translated all objects
+
+### 1.3.3
+
+* (klein0r) Translated admin table headers
 
 ### 1.3.2
 

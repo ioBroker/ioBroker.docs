@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.trashschedule/README.md
 title: ioBroker.trashschedule
-hash: 1Ogd/oD3by66G3+Nqg8/39CiaAHDnrcaBNIysFmHXSc=
+hash: hYUC2jX24+fjF3zGM82/ZcvzK4wwa3goUXnMIU6zheo=
 ---
 ![标识](../../../en/adapterref/iobroker.trashschedule/admin/trashschedule.png)
 
@@ -42,6 +42,10 @@ iobroker add trashschedule
 
 ## VIS 小工具
 ![VIS 小部件](../../../en/adapterref/iobroker.trashschedule/images/vis.png)
+
+**学分**
+
+- SVG：https://pixabay.com/de/vectors/behälter-kann-deckel-offen-grün-310937/
 
 ##块状示例
 ![块状示例](../../../en/adapterref/iobroker.trashschedule/images/exampleBlockly.png)
@@ -214,6 +218,18 @@ iobroker add trashschedule
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### 1.3.5
+
+* (klein0r) Added checks for calendar description
+
+### 1.3.4
+
+* (klein0r) Translated all objects
+
+### 1.3.3
+
+* (klein0r) Translated admin table headers
 
 ### 1.3.2
 

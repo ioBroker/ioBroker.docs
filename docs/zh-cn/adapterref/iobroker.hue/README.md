@@ -3,36 +3,34 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hue/README.md
 title: ioBroker 飞利浦 Hue 桥接适配器
-hash: bv59gOesE6PinHZZAYDDXUrgWagSmbu3Z58g6MAowAU=
+hash: RzmmhruScods1M5q1oQ8K6pN/x8tLY4fpBuSK1inT0w=
 ---
-![商标](../../../en/adapterref/iobroker.hue/admin/hue.jpeg)
+![标识](../../../en/adapterref/iobroker.hue/admin/hue.jpeg)
 
 ![安装数量](http://iobroker.live/badges/hue-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.hue.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.hue.svg)
 
 # IoBroker 飞利浦 Hue 桥接适配器
-==============
-
 ![测试和发布](https://github.com/iobroker-community-adapters/iobroker.hue/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/hue/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **此适配器使用服务 [Sentry.io](https://sentry.io) 自动向作为开发人员的我报告异常和代码错误以及新设备架构。** 更多详细信息见下文！
 
-## 什么是 Sentry.io 以及向该公司的服务器报告什么？
+## 什么是 Sentry.io 以及向该公司的服务器报告了什么？
 Sentry.io 是一项服务，供开发人员从他们的应用程序中获取有关错误的概述。正是在此适配器中实现了这一点。
 
-当适配器崩溃或发生其他代码错误时，此错误消息也会出现在 ioBroker 日志中，并提交给 Sentry。
-当您允许 ioBroker GmbH 收集诊断数据时，您的安装 ID（这只是一个唯一 ID **没有**关于您的任何其他信息、电子邮件、姓名等）也包括在内。这允许 Sentry 对错误进行分组并显示受此类错误影响的唯一用户数量。所有这些都帮助我提供基本上从不崩溃的无错误适配器。
+当适配器崩溃或发生另一个代码错误时，这个同样出现在 ioBroker 日志中的错误信息被提交给 Sentry。
+当您允许 ioBroker GmbH 收集诊断数据时，您的安装 ID（这只是一个唯一 ID **没有**关于您的任何其他信息、电子邮件、姓名等）也包括在内。这允许 Sentry 对错误进行分组并显示有多少唯一用户受到此类错误的影响。所有这些都帮助我提供基本上从不崩溃的无错误适配器。
 
 ## 英语:gb:
-该适配器将您的飞利浦 Hue 桥接器与 ioBroker 连接起来，以控制飞利浦 Hue LED 灯泡、Hue 之友 LED 灯、条纹、插头（如欧司朗）以及其他支持 SmartLink 的设备（如 LivingWhites 和一些 LivingColors）。
+该适配器将您的飞利浦 Hue 桥接器与 ioBroker 连接起来，以控制飞利浦 Hue LED 灯泡、Hue of Hue LED 灯、条纹、插头（如欧司朗）和其他支持 SmartLink 的设备（如 LivingWhites 和一些 LivingColors）。
 
 ＃＃＃ 设置
-在 ioBroker 中安装此适配器后，请相应地创建一个适配器实例。接下来，您需要在适配器设置中将您的 Hue 桥接器与 ioBroker 连接起来：
+在 ioBroker 中安装此适配器后，相应地创建一个适配器实例。接下来，您需要在适配器设置中将您的 Hue 桥接器与 ioBroker 连接起来：
 
 1. 如果您使用的是 v2 以外的其他网桥，请将端口配置为 80（非 https），否则 443（https）应该是可行的方法。
-2. 单击“查找网桥”按钮以获取网桥的 IP 地址。这将搜索您环境中的所有网桥。然后选择要连接的网桥。 “网桥地址”字段将填充您选择的 Hue 网桥的 IP 地址。
-3.接下来，点击设置中的“创建用户”按钮，然后走到你的Hue桥设备，也就是你的硬件，按下它的圆形按钮。您将有 30 秒的时间继续。按下按钮后，应使用生成的字符串填充“桥接用户”字段。
+2. 点击“查找网桥”按钮，获取网桥的 IP 地址。这将搜索您环境中的所有网桥。然后选择要连接的网桥。 “网桥地址”字段将填充您选择的 Hue 网桥的 IP 地址。
+3.接下来，点击设置中的“创建用户”按钮，然后走到你的Hue桥设备，也就是你的硬件，按下它的圆形按钮。您将有 30 秒的时间继续。按下按钮后，应使用生成的字符串填充“Bridge User”字段。
 4. 修改适配器设置中的任何其他选项，然后选择“保存并关闭”。
 5. 最后，您应该已准备就绪：适配器将生成所有对象以相应地控制您的 Hue 设备。
 
@@ -46,8 +44,8 @@ Sentry.io 是一项服务，供开发人员从他们的应用程序中获取有�
 |__用户__|您的网桥用户的用户名。您可以通过按 `Create User` 按钮并按照屏幕说明进行创建。|
 |__用户__|您的网桥用户的用户名。您可以通过按“创建用户”按钮并按照屏幕说明进行创建。|
 |__忽略场景__|如果选中，则适配器不会显示/控制场景。|
-|__忽略组__|如果选中，则适配器不会显示/控制组。|
-|__“传统”结构__|为了支持向后兼容，可以在 ioBroker 中保存旧的对象结构。这个旧结构是`hue.<instance_number>.<brdige_name_channel>.<light_or_group_channel>.<state>`。新结构删除了 `<brdige_name_channel>`，因此有必要适应旧脚本等。如果适配器检测到现有的旧结构，则无需选中复选框即可使用该结构。但是，如果需要从旧结构迁移到新结构，请删除整个 `hue.<instance_number>` 命名空间一次。 |
+|__忽略组__|如果选中，适配器将不会显示/控制组。|
+|__“传统”结构__|为了支持向后兼容，可以在 ioBroker 中保存旧的对象结构。这个旧结构是`hue.<instance_number>.<bridge_name_channel>.<light_or_group_channel>.<state>`。新结构删除了 `<bridge_name_channel>`，因此需要适应旧脚本等。如果适配器检测到现有的旧结构，则无需选中复选框即可使用该结构。但是，如果需要从旧结构迁移到新结构，请删除整个 `hue.<instance_number>` 命名空间一次。 |
 |__同步软件传感器__|也同步软件传感器。这些是虚拟传感器，例如由 Hue Labs 场景创建。通过控制此类传感器的 `status` 数据点，您可以启动/停止遵循此逻辑的场景。在大多数情况下，`0` 关闭场景，`1` 将其打开。|
 |__同步软件传感器__|也同步软件传感器。这些是虚拟传感器，例如由 Hue Labs 场景创建。通过控制此类传感器的“状态”数据点，您可以启动/停止遵循此逻辑的场景。在大多数情况下，`0` 关闭场景，`1` 打开。|
 |__轮询__|如果勾选，适配器会轮询状态变化，否则只能用于控制灯，不能显示灯的状态。|
@@ -58,7 +56,7 @@ Sentry.io 是一项服务，供开发人员从他们的应用程序中获取有�
 
 ## 德语 :de:
 Binet Philips Hue / LivingColors / LivingWhites Lampen ein。
-在 den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfiguriert werden。 Um einen 用户 zu aktivieren einmal auf 创建用户 drücken und dann innerhalb von 30 Sekunden den Button an der Hue bridge drücken。 Dann wird automatisch der User übergeben。
+在 den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfiguriert werden。 Um einen User zu aktivieren, einmal auf create user drücken und dann innerhalb von 30 Sekunden den Button an der Hue bridge drücken。 Dann wird automatisch der User übergeben。
 
 ##路线图/待办事项
 * 自动网桥发现
@@ -69,8 +67,33 @@ Binet Philips Hue / LivingColors / LivingWhites Lampen ein。
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
-* (Apollon77) Add tier for js-controller 3.3
+### 3.5.30 (2021-11-14)
+* (foxriver76) we fixed Sentry IOBROKER-HUE-1K, IOBROKER-HUE-A, IOBROKER-HUE-1J
+
+### 3.5.29 (2021-11-14)
+* (bluefox) Caught SENTRY error.
+
+### 3.5.28 (2021-11-04)
+* (foxriver76) another fix for invalid ct values (fixes #234)
+
+### 3.5.27 (2021-11-01)
+* (foxriver76) we fixed missing object type of some scenes (closes #255)
+
+### 3.5.26 (2021-10-20)
+* (foxriver76) fixed an issue with the username set in Hue API (fixes 249)
+* (klein0r) fixed translation of search popup (fixes #247)
+
+### 3.5.25 (2021-09-15)
+* (foxriver76) if we cannot determine correct ct value, we won't set it (fixes #234)
+
+### 3.5.23 (2021-08-26)
+* (Pmant) fix for third party devices delivering wrong ct values
+
+### 3.5.22 (2021-08-12)
+* (foxriver76) fixed several sentry issues (closes #217, closes #218, closes #219, closes #220)
+
+### 3.5.20 (2021-08-10)
+* (foxriver76) we now define minimum ct of groups to 2000 instead of 2179 (fixes #216)
 
 ### 3.5.19 (2021-06-02)
 * (foxriver76) fix crash case if we cannot get min/max ct values
@@ -89,7 +112,7 @@ Binet Philips Hue / LivingColors / LivingWhites Lampen ein。
 
 ### 3.5.14 (2021-05-04)
 * (foxriver76) protect the user token from access by foreign adapters
-* (foxriver76) fixed types of default values on groups 
+* (foxriver76) fixed types of default values on groups
 
 ### 3.5.13 (2021-05-03)
 * (foxriver76) we fixed some more types
@@ -121,7 +144,7 @@ Binet Philips Hue / LivingColors / LivingWhites Lampen ein。
 * (foxriver76) fix crashes if wrong data type or invalid value passed for ct and hue, now logging an error
 * (foxriver76) fix crashes if rgb where outside allowed range or wrong type
 * (foxriver76) fix potential crashes on bridge discovery, due to unnecessary stringify/parse logic
-* (foxriver76) fix graphical issue with the label of bridge user when newly created, due to missing call of updateTextFields 
+* (foxriver76) fix graphical issue with the label of bridge user when newly created, due to missing call of updateTextFields
 
 ### 3.5.1 (2021-02-20)
 * (foxriver76) avoid crash cases on invalid xy, setting state for non-existing device and on failing user creation
@@ -153,7 +176,7 @@ Binet Philips Hue / LivingColors / LivingWhites Lampen ein。
 * (foxriver76) fixed issue on frontend validation of polling intervals starting with 1
 
 ### 3.3.4 (2020-06-02)
-* (foxriver76) implemented fix for problems with switches and handling id conflicts 
+* (foxriver76) implemented fix for problems with switches and handling id conflicts
 
 ### 3.3.3 (2020-05-31)
 * (foxriver76) we now handle potential id conflicts, when adding devices from different type with same name over time

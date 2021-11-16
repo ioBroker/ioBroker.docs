@@ -214,6 +214,11 @@ show();
   ### **WORK IN PROGRESS**
 -->
 
+### 1.5.1
+
+* (klein0r) Translated all objects
+* (klein0r) Fixed HTTPS option
+
 ### 1.5.0
 
 * (klein0r) Fixed myData DIY data type **(BREAKING CHANGE - requires SimpleAPI 2.6.2 or later to use json parameter)**

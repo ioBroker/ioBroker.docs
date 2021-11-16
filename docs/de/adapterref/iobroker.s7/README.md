@@ -36,6 +36,9 @@ Sie können für S7TIME 4 Zeitversatzmodi verwenden:
 S5 dekodiert wie hier beschrieben: http://www.plccenter.cn/Siemens_Step7/Format_des_Datentyps_S5TIME_Zeitdauer.htm
 
 ## Changelog
+### 1.3.10 (2021-11-13)
+* (Apollon77) Better handle invalid entries with empty Address
+
 ### 1.3.9 (2021-11-09)
 * (Apollon77) make sure strings work correctly
 * (Apollon77) Fix several crash cases (IOBROKER-S7-17, IOBROKER-S7-19, IOBROKER-S7-1C, IOBROKER-S7-18)

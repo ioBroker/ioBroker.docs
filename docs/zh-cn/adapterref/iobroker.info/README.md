@@ -323,6 +323,10 @@ ioBroker的官方适配器数量已经相当可观。 当然，网上还有更�
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 1.9.16 (2021-11-13)
+* (Apollon77) Update dependencies
+* (Apollon77) Fix translations
+
 ### 1.9.15 (2021-11-10)
 * (simatec) Design fix for react-dark theme
 

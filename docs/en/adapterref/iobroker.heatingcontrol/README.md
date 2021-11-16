@@ -235,8 +235,10 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
-### 2.7.2 (in progress)
+### 2.7.2 (2021-11-14)
 * (René) bug fix load / save profiles: check fireplace mode added
+* (René) reset offset if disabled or no sensor (see issue #274)
+* (René) bug fix for override in case of "use changes from thermostat as override": reset and window open handling
 
 ### 2.7.1 (2021-10-20)
 * (René) see issue #268: change of override in manual mode is mssing

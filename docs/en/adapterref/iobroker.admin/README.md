@@ -1,9 +1,7 @@
 ---
+BADGE-Number of Installations: http://iobroker.live/badges/admin-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.admin.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
-BADGE-Stable: http://iobroker.live/badges/admin-stable.svg
-BADGE-installed: http://iobroker.live/badges/admin-installed.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.admin.png?downloads=true
 ---
 # Admin
 
@@ -76,6 +74,10 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Fix crash cases reported via sentry
+
 ### 5.1.28 (2021-11-10)
 * (bluefox) Fixed discovery function
 * (bluefox) Fixed some GUI bugs
