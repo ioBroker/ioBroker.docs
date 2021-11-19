@@ -4,13 +4,12 @@
 [![NPM version](http://img.shields.io/npm/v/iobroker.uv-protect.svg)](https://www.npmjs.com/package/iobroker.uv-protect)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.uv-protect.svg)](https://www.npmjs.com/package/iobroker.uv-protect)
 ![Number of Installations (latest)](http://iobroker.live/badges/uv-protect-installed.svg)
-[![Dependency Status](https://img.shields.io/david/simatec/iobroker.uv-protect.svg)](https://david-dm.org/simatec/iobroker.uv-protect)
+![Number of Installations (stable)](http://iobroker.live/badges/uv-protect-stable.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/simatec/ioBroker.uv-protect/badge.svg)](https://snyk.io/test/github/simatec/ioBroker.uv-protect)
 ![Test and Release](https://github.com/simatec/ioBroker.uv-protect/workflows/Test%20and%20Release/badge.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.uv-protect.png?downloads=true)](https://nodei.co/npm/iobroker.uv-protect/)
 
-<!--![Number of Installations (stable)](http://iobroker.live/badges/uv-protect-stable.svg)-->
 
 ## uv-protect adapter for ioBroker
 
@@ -33,6 +32,9 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 0.3.4 (2021-11-17)
+* (simatec) Dependencies updated
+* (simatec) test and release updated
 
 ### 0.3.3 (31.07.2021)
 * (simatec) Bugfix async/await function

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.luftdaten/README.md
 title: ioBroker.luftdaten
-hash: grIafPsdvDbr0zN+1tYCWkjLfB6VtWFAv9JlSqZHXuI=
+hash: PVCm4CImMpuuYkBh/0mlFJZIQYm+jmMfYdkGXMr5QC8=
 ---
 ![Logo](../../../en/adapterref/iobroker.luftdaten/admin/luftdaten.png)
 
@@ -13,12 +13,16 @@ hash: grIafPsdvDbr0zN+1tYCWkjLfB6VtWFAv9JlSqZHXuI=
 ![Eingerichtet](http://iobroker.live/badges/luftdaten-installed.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/klein0r/iobroker.luftdaten.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/klein0r/ioBroker.luftdaten/badge.svg)
-![Build-Status](http://img.shields.io/travis/klein0r/ioBroker.luftdaten.svg)
 ![NPM](https://nodei.co/npm/iobroker.luftdaten.png?downloads=true)
 
 #ioBroker.luftdaten
+![Testen und freigeben](https://github.com/klein0r/ioBroker.luftdaten/workflows/Test%20and%20Release/badge.svg)
+
 Dieser Adapter fügt Ihrer ioBroker-Installation Sensordaten von „luftdaten.info“ hinzu.
 Sie können entscheiden, ob Sie einen lokalen Sensor per IP hinzufügen möchten oder nur die API von lufdaten.info verwenden möchten, um die Daten eines anderen Sensors zu erhalten.
+
+## Gefördert durch
+[![ioBroker Master Kurs](https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-luftdaten)
 
 ## Installation
 Bitte verwenden Sie die "Adapterliste" in ioBroker, um eine stabile Version dieses Adapters zu installieren. Sie können diesen Adapter auch über die CLI installieren:
@@ -60,6 +64,10 @@ Warten Sie einige Minuten, bis der Cronjob die Daten zum ersten Mal sammelt.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### 2.1.2
+
+* (klein0r) Translated admin tab table headers
 
 ### 2.1.1
 

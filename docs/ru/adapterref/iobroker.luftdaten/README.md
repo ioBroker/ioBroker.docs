@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.luftdaten/README.md
 title: ioBroker.luftdaten
-hash: grIafPsdvDbr0zN+1tYCWkjLfB6VtWFAv9JlSqZHXuI=
+hash: PVCm4CImMpuuYkBh/0mlFJZIQYm+jmMfYdkGXMr5QC8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.luftdaten/admin/luftdaten.png)
 
@@ -13,12 +13,16 @@ hash: grIafPsdvDbr0zN+1tYCWkjLfB6VtWFAv9JlSqZHXuI=
 ![установлены](http://iobroker.live/badges/luftdaten-installed.svg)
 ![Статус зависимости](https://img.shields.io/david/klein0r/iobroker.luftdaten.svg)
 ![Известные уязвимости](https://snyk.io/test/github/klein0r/ioBroker.luftdaten/badge.svg)
-![Статус сборки](http://img.shields.io/travis/klein0r/ioBroker.luftdaten.svg)
 ![НПМ](https://nodei.co/npm/iobroker.luftdaten.png?downloads=true)
 
 # IoBroker.luftdaten
+![Тестирование и выпуск](https://github.com/klein0r/ioBroker.luftdaten/workflows/Test%20and%20Release/badge.svg)
+
 Этот адаптер добавляет данные датчика luftdaten.info в вашу установку ioBroker.
 Вы можете решить, хотите ли вы добавить локальный датчик по ip или просто использовать API lufdaten.info для получения данных другого датчика.
+
+## При финансовой поддержке
+[![ioBroker Master Kurs] (https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-luftdaten)
 
 ## Установка
 Используйте «список адаптеров» в ioBroker, чтобы установить стабильную версию этого адаптера. Вы также можете использовать интерфейс командной строки для установки этого адаптера:
@@ -60,6 +64,10 @@ iobroker add luftdaten
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### 2.1.2
+
+* (klein0r) Translated admin tab table headers
 
 ### 2.1.1
 

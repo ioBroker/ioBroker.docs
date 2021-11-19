@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: 3NNc0r2vnlWPSglr387+Yz2ijSAI0bnK3D2C5Ty5LZg=
+hash: osaRy6DdwdwViQp0c08Km2os1cI858VwCoEBOBUahi4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lametric/admin/lametric.png)
 
@@ -13,12 +13,16 @@ hash: 3NNc0r2vnlWPSglr387+Yz2ijSAI0bnK3D2C5Ty5LZg=
 ![установлены](http://iobroker.live/badges/lametric-installed.svg)
 ![Статус зависимости](https://img.shields.io/david/klein0r/iobroker.lametric.svg)
 ![Известные уязвимости](https://snyk.io/test/github/klein0r/ioBroker.lametric/badge.svg)
-![Статус сборки](http://img.shields.io/travis/klein0r/ioBroker.lametric.svg)
 ![НПМ](https://nodei.co/npm/iobroker.lametric.png?downloads=true)
 
 # IoBroker.lametric
+![Тестирование и выпуск](https://github.com/klein0r/ioBroker.lametric/workflows/Test%20and%20Release/badge.svg)
+
 Этот адаптер позволяет вам получать информацию о статусе вашего [LaMetric Time](https://haus-auto.com/p/amz/LaMetricTime) *(Партнерская ссылка)* и отправлять на него уведомления.
 Все, что вам нужно, это IP-адрес вашего устройства и ключ разработчика API.
+
+## При финансовой поддержке
+[![ioBroker Master Kurs] (https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-lametric)
 
 ## Установка
 Используйте «список адаптеров» в ioBroker, чтобы установить стабильную версию этого адаптера. Вы также можете использовать интерфейс командной строки для установки этого адаптера:
@@ -172,7 +176,7 @@ sendTo(
 );
 ```
 
-Пример отображения некоторой информации циклически:
+Пример показа некоторой информации циклически:
 
 ```JavaScript
 let i = 0;
@@ -205,6 +209,11 @@ show();
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### 1.5.1
+
+* (klein0r) Translated all objects
+* (klein0r) Fixed HTTPS option
 
 ### 1.5.0
 

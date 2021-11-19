@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: 5hWj09BbOQnNdfVTiZd+/h7nyggW4qeq9MqaHhtTEgE=
+hash: zRPLT4eM5yZIwiSFmOn9aCgS5xYjspvYTyyz2FEDjnM=
 ---
 ![标识](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
 
@@ -13,10 +13,11 @@ hash: 5hWj09BbOQnNdfVTiZd+/h7nyggW4qeq9MqaHhtTEgE=
 ![已安装](http://iobroker.live/badges/octoprint-installed.svg)
 ![依赖状态](https://img.shields.io/david/klein0r/iobroker.octoprint.svg)
 ![已知漏洞](https://snyk.io/test/github/klein0r/ioBroker.octoprint/badge.svg)
-![构建状态](http://img.shields.io/travis/klein0r/ioBroker.octoprint.svg)
 ![新产品管理](https://nodei.co/npm/iobroker.octoprint.png?downloads=true)
 
 # IoBroker.octoprint
+![测试和发布](https://github.com/klein0r/ioBroker.octoprint/workflows/Test%20and%20Release/badge.svg)
+
 将 OctoPrint 连接到 ioBroker 的适配器
 
 **使用 [八印](https://github.com/OctoPrint/OctoPrint/releases) 1.7.2 测试**
@@ -71,6 +72,18 @@ setObject('system.adapter.octoprint.0', obj);
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.0.5 (2021-11-18)
+
+* (klein0r) Require new version for translated instance objects
+* (klein0r) Fixed timeout issues
+
+### 2.0.4
+
+* (klein0r) Improved API request handling
+
+### 2.0.3
+
+* (klein0r) Translated all objects
 
 ### 2.0.2
 

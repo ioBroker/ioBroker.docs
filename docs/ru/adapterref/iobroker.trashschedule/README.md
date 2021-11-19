@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.trashschedule/README.md
 title: ioBroker.trashschedule
-hash: hYUC2jX24+fjF3zGM82/ZcvzK4wwa3goUXnMIU6zheo=
+hash: 2F2O72OrzzaAFfm9YsYIHXpSxe1vxRaraA8YdYZ7lAs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.trashschedule/admin/trashschedule.png)
 
@@ -13,11 +13,15 @@ hash: hYUC2jX24+fjF3zGM82/ZcvzK4wwa3goUXnMIU6zheo=
 ![установлены](http://iobroker.live/badges/trashschedule-installed.svg)
 ![Статус зависимости](https://img.shields.io/david/klein0r/iobroker.trashschedule.svg)
 ![Известные уязвимости](https://snyk.io/test/github/klein0r/ioBroker.trashschedule/badge.svg)
-![Статус сборки](http://img.shields.io/travis/klein0r/ioBroker.trashschedule.svg)
 ![НПМ](https://nodei.co/npm/iobroker.trashschedule.png?downloads=true)
 
 # IoBroker.trashschedule
+![Тестирование и выпуск](https://github.com/klein0r/ioBroker.trashschedule/workflows/Test%20and%20Release/badge.svg)
+
 Сканирует календарь для подсчета дней, оставшихся до следующего вывоза мусора
+
+## При финансовой поддержке
+[![ioBroker Master Kurs] (https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-trashschedule)
 
 ## Установка
 Используйте «список адаптеров» в ioBroker, чтобы установить стабильную версию этого адаптера. Вы также можете использовать интерфейс командной строки для установки этого адаптера:

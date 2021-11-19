@@ -14,8 +14,7 @@
 Adapter to request and show RSS Feeds of different standands (Atom, RSS, RDF).
 You can customize the output of the feed with a template system. In the templates you can include HTML, CSS and Javascript.
 
-## Installation
-The adapter available in the latest repository.
+Important: Only the english translation is valid due to bugs in automatic translations into other languages made by iobroker
 
 ## Add an Instance
 After Installation the adapter should then be displayed in the adapter section in the iobroker.
@@ -246,7 +245,7 @@ Z7: Without output. This line closed the javascript loop . Everything that was d
 ## License
 MIT License
 
-Copyright (c) 2020 oweitman <oweitman@gmx.de>
+Copyright (c) 2021 oweitman <oweitman@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.youtube/README.md
 title: ioBroker.youtube
-hash: 9qsQQJOK944IIgJkWNtGJhxiuD6W0dH26yUEoXKQBxA=
+hash: cR9gnGZYyuEmo9ikWHbKgC9ImOrMKQEQAirK5Ah/LUk=
 ---
 ![标识](../../../en/adapterref/iobroker.youtube/admin/youtube.png)
 
@@ -13,11 +13,15 @@ hash: 9qsQQJOK944IIgJkWNtGJhxiuD6W0dH26yUEoXKQBxA=
 ![已安装](http://iobroker.live/badges/youtube-installed.svg)
 ![依赖状态](https://img.shields.io/david/klein0r/iobroker.youtube.svg)
 ![已知漏洞](https://snyk.io/test/github/klein0r/ioBroker.youtube/badge.svg)
-![构建状态](http://img.shields.io/travis/klein0r/ioBroker.youtube.svg)
 ![新产品管理](https://nodei.co/npm/iobroker.youtube.png?downloads=true)
 
 # IoBroker.youtube
-观看次数、订阅者和视频等统计数据
+![测试和发布](https://github.com/klein0r/ioBroker.youtube/workflows/Test%20and%20Release/badge.svg)
+
+统计数据，如观看次数、订阅者和视频
+
+＃＃ 由...赞助
+[![ioBroker Master Kurs](https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-youtube)
 
 ＃＃ 安装
 请使用 ioBroker 中的“适配器列表”来安装此适配器的稳定版本。您还可以使用 CLI 安装此适配器：
@@ -36,6 +40,23 @@ iobroker add youtube
 5.通过使用id和自定义名称在频道选项卡中添加多个频道
 
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### 2.0.3
+
+* (klein0r) Fixed missing VIS widget
+
+### 2.0.1
+
+* (klein0r) Fixed missing translations
+
+### 2.0.0
+
+* (klein0r) Admin 5 Support
 
 ### 1.1.1
 

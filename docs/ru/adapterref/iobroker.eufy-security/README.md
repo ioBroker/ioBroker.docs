@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.eufy-security/README.md
 title: ioBroker.eufy-security
-hash: dmZsV3vxaOf9Le7Vw2zv2REJW6WcQml+2k63J16eXvQ=
+hash: kmJW/ABgb0pRlkuV45rkdHjSOwqmhS6nsTN1xZAhg6Y=
 ---
 ![Логотип](../../../en/adapterref/iobroker.eufy-security/admin/eufy-security.png)
 
@@ -20,7 +20,7 @@ hash: dmZsV3vxaOf9Le7Vw2zv2REJW6WcQml+2k63J16eXvQ=
 # IoBroker.eufy-security
 Этот адаптер использует библиотеку [eufy-security-client](https://github.com/bropat/eufy-security-client) для связи с устройствами Eufy.
 
-Если вы цените мою работу и прогресс и хотите меня поддержать, вы можете сделать это здесь:
+Если вы цените мою работу и прогресс и хотите поддержать меня, вы можете сделать это здесь:
 
 [![ko-fi] (https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/E1E332Q6Z)
 
@@ -36,7 +36,7 @@ hash: dmZsV3vxaOf9Le7Vw2zv2REJW6WcQml+2k63J16eXvQ=
 * Двухфакторная аутентификация
 * Прямая трансляция как поток HLS (поддерживает все платформы, но с задержкой)
 * Последний прямой эфир HLS всегда сохраняется для последующего просмотра
-* Загружает видео о событии при получении push-уведомления (асинхронно)
+* Загружает видео события при получении push-уведомления (асинхронно)
 * Делает миниатюру в формате jpeg прямой трансляции или загруженного видео
 * Базовая станция:
   * Состояния:
@@ -51,7 +51,7 @@ hash: dmZsV3vxaOf9Le7Vw2zv2REJW6WcQml+2k63J16eXvQ=
     * IP-адрес LAN
   * Действия:
     * Изменить режим охраны
-    * Звук срабатывания сигнализации
+    * Звук срабатывания будильника
     * Сброс звука будильника
     * Перезагрузка станции
   * События:
@@ -70,7 +70,7 @@ hash: dmZsV3vxaOf9Le7Vw2zv2REJW6WcQml+2k63J16eXvQ=
     * Wi-Fi RSSI
     * Отфильтрованные ложные события с момента последней зарядки
     * Сохраненные / записанные события с момента последней зарядки
-    * Всего событий с момента последней зарядки
+    * Общее количество событий с момента последней зарядки
     * Количество дней использования с момента последней зарядки
     * И многое другое ...
   * Действия:
@@ -147,7 +147,7 @@ hash: dmZsV3vxaOf9Le7Vw2zv2REJW6WcQml+2k63J16eXvQ=
 * HomeBase (T8001)
 * HomeBase E (T8002)
 * HomeBase 2 (T8010)
-* Мост Wi-Fi Smart Lock (T8021)
+* Мост Smart Lock Wi-Fi (T8021)
 * eufyCam (T8111)
 * eufyCam E (T8112)
 * eufyCam 2 (T8114)
@@ -155,8 +155,9 @@ hash: dmZsV3vxaOf9Le7Vw2zv2REJW6WcQml+2k63J16eXvQ=
 * eufyCam 2 Pro (T8140)
 * eufyCam 2C Pro (T8141)
 * SoloCam E40 (T8131)
-* Прожектор (T8420)
-* Прожектор (T8422)
+* Прожекторная камера (T8420)
+* Камера прожектора (T8422)
+* Камера прожектора 2 (T8424)
 * Проводной дверной звонок 2к (T8200)
 * Проводной дверной звонок 1080p (T8201)
 * Батарейный дверной звонок 2К (T8210)
@@ -175,9 +176,21 @@ hash: dmZsV3vxaOf9Le7Vw2zv2REJW6WcQml+2k63J16eXvQ=
 ## Как сообщить о проблемах и запросах функций
 Пожалуйста, используйте для этого проблемы GitHub.
 
-Лучше всего установить адаптер в режим журнала отладки (Экземпляры -> Экспертный режим -> Уровень журнала столбцов или см. [здесь](https://github.com/bropat/ioBroker.eufy-security/wiki/Howto-enable-debug)). Затем получите файл журнала с диска (подкаталог "log" в установочном каталоге ioBroker, а не из Admin, потому что Admin сокращает строки).
+Лучше всего установить адаптер в режим журнала отладки (Экземпляры -> Экспертный режим -> Уровень журнала столбцов или см. [здесь](https://github.com/bropat/ioBroker.eufy-security/wiki/Howto-enable-debug)). Затем, пожалуйста, получите файл журнала с диска (подкаталог «log» в каталоге установки ioBroker, а не из Admin, потому что Admin сокращает строки).
 
 ## Changelog
+
+### 0.7.2 (2021-11-16)
+
+* (bropat) Updated version of the package eufy-security-client (1.2.3)
+* (bropat) Further details can be found in the changelog of eufy-security-client (1.2.3)
+* (bropat) Changed ioBroker.admin dependency to ">=4.0.10"
+* (bropat) Updated versions of the package dependencies
+
+### 0.7.1 (2021-10-23)
+
+* (bropat) Updated version of the package eufy-security-client (1.2.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (1.2.1)
 
 ### 0.7.0 (2021-10-17)
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: 5hWj09BbOQnNdfVTiZd+/h7nyggW4qeq9MqaHhtTEgE=
+hash: zRPLT4eM5yZIwiSFmOn9aCgS5xYjspvYTyyz2FEDjnM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
 
@@ -13,10 +13,11 @@ hash: 5hWj09BbOQnNdfVTiZd+/h7nyggW4qeq9MqaHhtTEgE=
 ![установлены](http://iobroker.live/badges/octoprint-installed.svg)
 ![Статус зависимости](https://img.shields.io/david/klein0r/iobroker.octoprint.svg)
 ![Известные уязвимости](https://snyk.io/test/github/klein0r/ioBroker.octoprint/badge.svg)
-![Статус сборки](http://img.shields.io/travis/klein0r/ioBroker.octoprint.svg)
 ![НПМ](https://nodei.co/npm/iobroker.octoprint.png?downloads=true)
 
 # IoBroker.octoprint
+![Тестирование и выпуск](https://github.com/klein0r/ioBroker.octoprint/workflows/Test%20and%20Release/badge.svg)
+
 Адаптер для подключения OctoPrint к ioBroker
 
 ** Протестировано с [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.7.2 **
@@ -71,6 +72,18 @@ setObject('system.adapter.octoprint.0', obj);
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.0.5 (2021-11-18)
+
+* (klein0r) Require new version for translated instance objects
+* (klein0r) Fixed timeout issues
+
+### 2.0.4
+
+* (klein0r) Improved API request handling
+
+### 2.0.3
+
+* (klein0r) Translated all objects
 
 ### 2.0.2
 

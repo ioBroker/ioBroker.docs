@@ -3,37 +3,40 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tinker/README.md
 title: ioBroker.tinker
-hash: JEPSSK8ggpw+2f3PKk6ehT+Aenx/6AA5+dciOw/uXoI=
+hash: keeAn15kWOL11iVfAuzbRm8qeiPupoUlwH36ne0B0oQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.tinker/admin/tinker.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/tinker-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.tinker.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.tinker.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/simatec/ioBroker.tinker/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.tinker.png?downloads=true)
 
-# IoBroker.tinker
+#ioBroker.tinker
 ===================
 
-Der Tinker Board Monitor Adapter ist eine modifizierte Version des Raspberry PI Monitor Adapters und des OrangePi Monitor Adapters für ioBroker
+![Testen und freigeben](https://github.com/simatec/ioBroker.uv-protect/workflows/Test%20and%20Release/badge.svg)
 
-** Wenn es dir gefällt, erwäge bitte eine Spende: **
+Tinker Board Monitor Adapter ist eine modifizierte Version des Raspberry PI Monitor Adapters und des OrangePi Monitor Adapters für ioBroker
 
-[![paypal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+**Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
+
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
 
 ### Wichtige Informationen
 getestete Hardware: Asus Tinker Board
 
-### Folgende Objekte sind nach Auswahl verfügbar:
+### Folgende Objekte stehen nach Auswahl zur Verfügung:
 ## *ZENTRALPROZESSOR*
 - CPU_Frequenz
-- load1
-- load5
-- load15
+- laden1
+- laden5
+- Last15
 
-## *Erinnerung*
-- memory_available
-- Speicher_frei
+## *Speicher*
+- Speicher_verfügbar
+- memory_free
 - memory_total
 
 ## *Netzwerk (eth0)*
@@ -45,13 +48,13 @@ getestete Hardware: Asus Tinker Board
 - sdcard_root_used
 
 ## *Wechsel*
-- Swap_Total
+- swap_total
 - swap_used
 
 ## *Temperatur*
 - soc_temp
 
-## *Uptime*
+## *Verfügbarkeit*
 - Betriebszeit
 
 ## *WLAN*
@@ -62,15 +65,27 @@ getestete Hardware: Asus Tinker Board
 Auf der Konfigurationsseite können Sie folgende Module auswählen:
 
 - ZENTRALPROZESSOR
-- Erinnerung
+- Speicher
 - Netzwerk
 - SD-Karte
 - Wechsel
 - Temperatur
-- Uptime
+- Betriebszeit
 - WLAN
 
 ## Changelog
+<!-- ### __WORK IN PROGRESS__ -->
+### 1.1.1 (2021-11-18)
+* (simatec) Dependencies updated
+* (simatec) test and release updated
+
+### 1.1.0 (2020-04-08)
+* (simatec) delete sync-exec
+* (simatec) Rewritten code on child_process
+* (simatec) code cleaned
+
+### 1.0.0 (2020-04-07)
+* (simatec) Release 1.0.0
 
 ### 0.1.3 (2019-03-14)
 * (simatec) Ready for latest
@@ -88,7 +103,7 @@ Auf der Konfigurationsseite können Sie folgende Module auswählen:
 
 The MIT License (MIT)
 
-Copyright (c) 2019 simatec <nais@gmx.net>
+Copyright (c) 2018 - 2021 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

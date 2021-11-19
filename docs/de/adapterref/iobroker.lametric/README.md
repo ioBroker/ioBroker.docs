@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: 3NNc0r2vnlWPSglr387+Yz2ijSAI0bnK3D2C5Ty5LZg=
+hash: osaRy6DdwdwViQp0c08Km2os1cI858VwCoEBOBUahi4=
 ---
 ![Logo](../../../en/adapterref/iobroker.lametric/admin/lametric.png)
 
@@ -13,12 +13,16 @@ hash: 3NNc0r2vnlWPSglr387+Yz2ijSAI0bnK3D2C5Ty5LZg=
 ![Eingerichtet](http://iobroker.live/badges/lametric-installed.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/klein0r/iobroker.lametric.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/klein0r/ioBroker.lametric/badge.svg)
-![Build-Status](http://img.shields.io/travis/klein0r/ioBroker.lametric.svg)
 ![NPM](https://nodei.co/npm/iobroker.lametric.png?downloads=true)
 
 # IoBroker.lametric
+![Testen und freigeben](https://github.com/klein0r/ioBroker.lametric/workflows/Test%20and%20Release/badge.svg)
+
 Mit diesem Adapter können Sie Statusinformationen zu Ihrem [LaMetric-Zeit](https://haus-auto.com/p/amz/LaMetricTime) *(Affiliate Link)* abrufen und Benachrichtigungen an diesen senden.
 Sie benötigen lediglich die IP-Adresse Ihres Geräts und den API-Entwicklerschlüssel.
+
+## Gefördert durch
+[![ioBroker Master Kurs](https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-lametric)
 
 ## Installation
 Bitte verwenden Sie die "Adapterliste" in ioBroker, um eine stabile Version dieses Adapters zu installieren. Sie können diesen Adapter auch über die CLI installieren:
@@ -205,6 +209,11 @@ show();
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### 1.5.1
+
+* (klein0r) Translated all objects
+* (klein0r) Fixed HTTPS option
 
 ### 1.5.0
 

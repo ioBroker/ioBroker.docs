@@ -59,7 +59,7 @@ In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x some
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.11-alpha.5 (2021-11-15)
+### 0.3.11-alpha.6 (2021-11-16)
 * (HGlab01) support attributes 'showSwitchToAutoGeofencingButton', 'showHomePresenceSwitchButton' and 'additionalConsents'
 * (HGlab01) enhance error messages if API-call fails
 * (HGlab01) next time block fails (one reason for 422 error) if time blocks are not defined - fixed now
@@ -68,6 +68,7 @@ In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x some
 * (HGlab01) add masterswitch for power on/off
 * (HGlab01) reduce logs in info-mode
 * (HGlab01) AC temperature range fixed
+* (HGlab01) Bump iobroker-jsonexplorer to 0.1.7
 
 ### 0.3.10 (2021-10-29)
 * (HGlab01) API calls (except read) are queued and send one after the other

@@ -69,6 +69,9 @@ Vergleichbar für den Soll-/Istverlaufs ist demnach atualtemp und targettemp.
 Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig Information ist der debug modus über die Experteneinstellung der Instanz vorzuwählen.
 
 ## Changelog
+### 2.1.16 WIP
+* temperature range in sockets 0..32°C -> -60..60°C
+
 ### 2.1.15 (npm)
 * correction in timestamp as date/string
 * several version bumps

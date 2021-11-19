@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.trashschedule/README.md
 title: ioBroker.trashschedule
-hash: hYUC2jX24+fjF3zGM82/ZcvzK4wwa3goUXnMIU6zheo=
+hash: 2F2O72OrzzaAFfm9YsYIHXpSxe1vxRaraA8YdYZ7lAs=
 ---
 ![标识](../../../en/adapterref/iobroker.trashschedule/admin/trashschedule.png)
 
@@ -13,11 +13,15 @@ hash: hYUC2jX24+fjF3zGM82/ZcvzK4wwa3goUXnMIU6zheo=
 ![已安装](http://iobroker.live/badges/trashschedule-installed.svg)
 ![依赖状态](https://img.shields.io/david/klein0r/iobroker.trashschedule.svg)
 ![已知漏洞](https://snyk.io/test/github/klein0r/ioBroker.trashschedule/badge.svg)
-![构建状态](http://img.shields.io/travis/klein0r/ioBroker.trashschedule.svg)
 ![新产品管理](https://nodei.co/npm/iobroker.trashschedule.png?downloads=true)
 
 # IoBroker.trashschedule
+![测试和发布](https://github.com/klein0r/ioBroker.trashschedule/workflows/Test%20and%20Release/badge.svg)
+
 扫描日历以计算距离下一次垃圾回收的剩余天数
+
+＃＃ 由...赞助
+[![ioBroker Master Kurs](https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-trashschedule)
 
 ＃＃ 安装
 请使用 ioBroker 中的“适配器列表”来安装此适配器的稳定版本。您还可以使用 CLI 安装此适配器：
@@ -31,7 +35,7 @@ iobroker add trashschedule
 2. 配置日历的网址（例如谷歌日历）
 3. 将“预览天数”设置为包含每种垃圾类型至少两次的范围（例如 30 天）
 4. 选择“隐藏事件的开始-结束”选项
-5. 如果您使用“事件”选项卡，请确保为每个事件类型启用“显示”复选框，这些事件也应该在您的垃圾桶计划中使用（否则事件将被 ical 实例隐藏）
+5. 如果您使用“事件”选项卡，请确保为每个事件类型启用“显示”复选框，这些类型也应该在您的垃圾桶计划中使用（否则事件将被 ical 实例隐藏）
 
 ＃＃ 配置
 1.创建一个垃圾调度实例并选择ical实例作为源

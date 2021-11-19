@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.eufy-security/README.md
 title: ioBroker.eufy-sicherheit
-hash: dmZsV3vxaOf9Le7Vw2zv2REJW6WcQml+2k63J16eXvQ=
+hash: kmJW/ABgb0pRlkuV45rkdHjSOwqmhS6nsTN1xZAhg6Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.eufy-security/admin/eufy-security.png)
 
@@ -155,12 +155,13 @@ Siehe [Hier](./docs/en/README.md)
 * eufyCam 2 Pro (T8140)
 * eufyCam 2C Pro (T8141)
 * SoloCam E40 (T8131)
-* Flutlicht (T8420)
-* Flutlicht (T8422)
+* Flutlichtkamera (T8420)
+* Flutlichtkamera (T8422)
+* Flutlichtkamera 2 (T8424)
 * Kabelgebundene Türklingel 2k (T8200)
 * Kabelgebundene Türklingel 1080p (T8201)
 * Akku-Türklingel 2K (T8210)
-* Akku-Türklingel 1080p (T8222)
+* Batterie-Türklingel 1080p (T8222)
 * Eintrittssensor (T8900)
 * Bewegungssensor (T8910)
 * Indoor Cam Pan&Tilt 2K (T8410)
@@ -178,6 +179,18 @@ Bitte verwenden Sie dafür GitHub-Probleme.
 Am besten setzen Sie den Adapter in den Debug-Log-Modus (Instanzen -> Expertenmodus -> Spalten-Log-Ebene oder siehe [Hier](https://github.com/bropat/ioBroker.eufy-security/wiki/Howto-enable-debug)). Dann holen Sie sich bitte die Logdatei von der Festplatte (Unterverzeichnis "log" im ioBroker-Installationsverzeichnis und nicht vom Admin, da der Admin die Zeilen abschneidet).
 
 ## Changelog
+
+### 0.7.2 (2021-11-16)
+
+* (bropat) Updated version of the package eufy-security-client (1.2.3)
+* (bropat) Further details can be found in the changelog of eufy-security-client (1.2.3)
+* (bropat) Changed ioBroker.admin dependency to ">=4.0.10"
+* (bropat) Updated versions of the package dependencies
+
+### 0.7.1 (2021-10-23)
+
+* (bropat) Updated version of the package eufy-security-client (1.2.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (1.2.1)
 
 ### 0.7.0 (2021-10-17)
 

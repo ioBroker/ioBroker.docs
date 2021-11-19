@@ -2636,9 +2636,18 @@ return 'your result';
 Вы можете использовать этот блок как обычные блоки в своих скриптах.
 
 ## Changelog
+### 5.2.15 (2021-11-18)
+* (agross) Added the monitoring of symlinks my mirroring
+* (Apollon77) Fix two crash cases reported by Sentry
+
+### 5.2.14 (2021-11-17)
+* (AlCalzone) Typings improvement
+* (winnyschuster) added "Solar noon" to astro-list
+* (agross) Allow to define different states for reading and writing alias values
+
 ### 5.2.13 (2021-09-13)
-* (AlCalzone) Fixed the loading of Node.js typings 
- 
+* (AlCalzone) Fixed the loading of Node.js typings
+
 ### 5.2.12 (2021-09-12)
 * (bluefox) Fixed the font in the editor
 
@@ -2646,14 +2655,6 @@ return 'your result';
 * (bluefox) Parse variables to floats for mathematical operations
 * (bluefox) Names with the dot at the end are not allowed anymore
 * (bluefox) The blockly sounds are disabled
-
-### 5.2.9 (2021-09-02)
-* (Apollon77) Make sure day of weeks is an array (Sentry IOBROKER-JAVASCRIPT-7Y)
-* (bluefox) Report to sentry is disabled in GUI if sentry is deactivated
-* (bluefox) Fixed many GitHub issues
-
-### 5.2.8 (2021-07-22)
-* (bluefox) Fixed the debug of scripts
 
 ## License
 

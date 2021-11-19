@@ -4,12 +4,11 @@
 [![NPM version](http://img.shields.io/npm/v/iobroker.pegelalarm.svg)](https://www.npmjs.com/package/iobroker.pegelalarm)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.pegelalarm.svg)](https://www.npmjs.com/package/iobroker.pegelalarm)
 ![Number of Installations (latest)](http://iobroker.live/badges/pegelalarm-installed.svg)
-[![Dependency Status](https://img.shields.io/david/simatec/iobroker.pegelalarm.svg)](https://david-dm.org/simatec/iobroker.pegelalarm)
+![Number of Installations (stable)](http://iobroker.live/badges/pegelalarm-stable.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/simatec/ioBroker.pegelalarm/badge.svg)](https://snyk.io/test/github/simatec/ioBroker.pegelalarm)
 ![Test and Release](https://github.com/simatec/ioBroker.pegelalarm/workflows/Test%20and%20Release/badge.svg)
-[![Travis-CI](http://img.shields.io/travis/simatec/ioBroker.pegelalarm/master.svg)](https://travis-ci.org/simatec/ioBroker.pegelalarm)
 
-<!--![Number of Installations (stable)](http://iobroker.live/badges/pegelalarm-stable.svg)-->
+
 [![NPM](https://nodei.co/npm/iobroker.pegelalarm.png?downloads=true)](https://nodei.co/npm/iobroker.pegelalarm/)
 
 
@@ -35,6 +34,10 @@ When the adapter crashes or an other Code error happens, this error message that
 **************************************************************************************************************
 
 ## Changelog
+<!--### __WORK IN PROGRESS__-->
+### 1.2.4 (2021-11-17)
+* (simatec) Dependencies updated
+* (simatec) test and release updated
 
 ### 1.2.3 (2021-09-02)
 * (simatec) Bugfix States

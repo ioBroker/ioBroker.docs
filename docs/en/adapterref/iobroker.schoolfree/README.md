@@ -79,6 +79,10 @@ When the adapter crashes or an other Code error happens, this error message that
 *************************************************************************************************************************************
 
 ## Changelog
+<!--### __WORK IN PROGRESS__-->
+### 1.0.1 (2021-11-18)
+(simatec) Dependencies updated
+(simatec) test and release updated
 
 ### 1.0.0 (06.05.2021)
 * (simatec) GUI revised
@@ -154,7 +158,6 @@ When the adapter crashes or an other Code error happens, this error message that
 * (simatec) initial release
 
 *************************************************************************************************************************************
-
 
 ## License
 MIT License

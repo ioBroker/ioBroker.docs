@@ -8,12 +8,16 @@
 [![installed](http://iobroker.live/badges/lametric-installed.svg)](http://iobroker.live/badges/lametric-installed.svg)
 [![Dependency Status](https://img.shields.io/david/klein0r/iobroker.lametric.svg)](https://david-dm.org/klein0r/iobroker.lametric)
 [![Known Vulnerabilities](https://snyk.io/test/github/klein0r/ioBroker.lametric/badge.svg)](https://snyk.io/test/github/klein0r/ioBroker.lametric)
-[![Build Status](http://img.shields.io/travis/klein0r/ioBroker.lametric.svg)](https://travis-ci.com/klein0r/ioBroker.lametric)
+![Test and Release](https://github.com/klein0r/ioBroker.lametric/workflows/Test%20and%20Release/badge.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.lametric.png?downloads=true)](https://nodei.co/npm/iobroker.lametric/)
 
 This adapter allows you to get status information about your [LaMetric Time](https://haus-auto.com/p/amz/LaMetricTime) *(Affiliate Link)* and to send notifications to it.
 All you need is the IP address of your device and the api developer key.
+
+## Sponsored by
+
+[![ioBroker Master Kurs](https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-lametric)
 
 ## Installation
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.luftdaten/README.md
 title: ioBroker.luftdaten
-hash: grIafPsdvDbr0zN+1tYCWkjLfB6VtWFAv9JlSqZHXuI=
+hash: PVCm4CImMpuuYkBh/0mlFJZIQYm+jmMfYdkGXMr5QC8=
 ---
 ![标识](../../../en/adapterref/iobroker.luftdaten/admin/luftdaten.png)
 
@@ -13,12 +13,16 @@ hash: grIafPsdvDbr0zN+1tYCWkjLfB6VtWFAv9JlSqZHXuI=
 ![已安装](http://iobroker.live/badges/luftdaten-installed.svg)
 ![依赖状态](https://img.shields.io/david/klein0r/iobroker.luftdaten.svg)
 ![已知漏洞](https://snyk.io/test/github/klein0r/ioBroker.luftdaten/badge.svg)
-![构建状态](http://img.shields.io/travis/klein0r/ioBroker.luftdaten.svg)
 ![新产品管理](https://nodei.co/npm/iobroker.luftdaten.png?downloads=true)
 
 # IoBroker.luftdaten
+![测试和发布](https://github.com/klein0r/ioBroker.luftdaten/workflows/Test%20and%20Release/badge.svg)
+
 此适配器将“luftdaten.info”传感器数据添加到您的 ioBroker 安装中。
 您可以决定是要通过ip添加本地传感器还是只想使用lufdaten.info的API来获取另一个传感器的数据。
+
+＃＃ 由...赞助
+[![ioBroker Master Kurs](https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-luftdaten)
 
 ＃＃ 安装
 请使用 ioBroker 中的“适配器列表”来安装此适配器的稳定版本。您还可以使用 CLI 安装此适配器：
@@ -33,7 +37,7 @@ iobroker add luftdaten
 2. 创建一个新的适配器实例
 3. 选择“本地”作为类型
 4.在第二个输入中填写传感器的IP或主机名
-5. 选择一个名称并保存设置
+5. 选择名称并保存设置
 
 等待几分钟，直到 cronjob 首次收集数据。
 
@@ -60,6 +64,10 @@ iobroker add luftdaten
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### 2.1.2
+
+* (klein0r) Translated admin tab table headers
 
 ### 2.1.1
 

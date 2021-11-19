@@ -4,18 +4,18 @@ lastChanged: 05.12.2020
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/linux.md
-hash: PK5UMbikLloEInPXeSNLqKXsZwkXi1dDURcZ8mTYljc=
+hash: lZH9lVLQx9UEgKn5jJoU+CR4FWS1r6YPz0qDc7pFEeo=
 ---
 # IoBroker 在 Linux 上的安装
 !> 这些说明不适用于网站的成品图片！但是，手动安装比图像更可取。
 
-安装是使用脚本执行的，该脚本执行所需的安装步骤并重新加载可能需要的任何软件包。
+安装通过脚本进行，该脚本执行所需的安装步骤并重新加载可能需要的任何软件包。
 在安装过程中，系统中会创建一个新用户“iobroker”和一个关联的主目录（/home/iobroker）。
 ioBroker 然后在这个用户下运行。
 
 如果重新加载脚本对您来说太危险，您可以在 [这个链接](https://raw.githubusercontent.com/ioBroker/ioBroker/stable-installer/installer.sh) 下预先检查脚本。
 
-这些 ioBroker 安装说明使用带有 Raspberry OS 'Buster' 的 Raspberry Pi 示例显示了在 Linux 上的安装。
+ioBroker 的这些安装说明使用带有 Raspberry OS 'Buster' 的 Raspberry Pi 示例显示了在 Linux 上的安装。
 
 由于对其他软件包或附加安装的依赖性，在安装过程中可能会一次又一次地出现特殊功能。
 
@@ -25,7 +25,7 @@ ioBroker 然后在这个用户下运行。
 
 我们不建议使用 Pi 1 作为主机。它只是不够强大（500MB RAM 等）。由于硬件不同，这些说明无论如何都不适合 Pi 1。
 
-即使是 Pi 2 或 Pi 3 也最多只有 1 GB RAM。对于 15 个适配器实例，这应该仍然足够，但除此之外可能会很紧张。每个适配器实例需要大约 40 MB（有时为 200 MB 甚至更多）的 RAM。因此，在激活其他适配器实例之前，您应该始终关注 RAM 使用情况 - 1 GB 的 RAM 是有限的。
+即使是 Pi 2 或 Pi 3 也最多只有 1 GB RAM。对于 15 个适配器实例，这应该足够了，但除此之外可能会很紧张。每个适配器实例需要大约 40 MB（有时为 200 MB 甚至更多）的 RAM。因此，在激活更多适配器实例之前，您应该始终关注 RAM 使用情况 - 1 GB 的 RAM 是有限的。
 
 因此，推荐使用 Raspberry 系列 4 个更好的 8 GB RAM 的 Raspberry4。
 
@@ -35,7 +35,7 @@ ioBroker 然后在这个用户下运行。
 ＃＃＃ 存储卡
 或 SSD、U 盘等（取决于所使用的硬件）
 
-##需要/重要的链接
+## 必需/重要链接
 * 下载图片：https://www.raspberrypi.org/software/operating-systems/
 * Win32DiskImager: https://sourceforge.net/projects/win32diskimager/ **或**
 * Balena Etcher：https://www.balena.io/etcher/
@@ -43,7 +43,7 @@ ioBroker 然后在这个用户下运行。
 
 ＃＃ 安装指南
 ###安装操作系统
-* 安装所需的基本操作系统（Raspian Stretch、Ubuntu、Debian 等） - 取决于所使用的硬件。
+* 安装所需的基本操作系统（Raspberry OS Bullseye、Ubuntu、Debian 等） - 取决于所使用的硬件。
 
 各个版本的帮助和说明可在相应的支持页面、YouTube 等上找到。
 
@@ -51,16 +51,16 @@ ioBroker 然后在这个用户下运行。
 
 可以激活 SSH 的根访问权限。
 
-对于众所周知的安全方面，我们建议不要这样做。对于 ioBroker 的安装，使用命令 sudo 并为相应命令添加前缀就足够了。
+对于众所周知的安全方面，我们建议不要这样做。对于 ioBroker 的安装，使用命令 sudo 并为相应的命令添加前缀就足够了。
 
 ### 安装 Node.js
-!> 使用当前的 ioBroker 安装程序（见下文）** 在没有 node.js 的系统上 ** 当前推荐的 node.js 版本会自动安装！ ** 不再需要预先单独安装 node.js **。
+!> 使用 ioBroker 的当前安装程序（见下文）** 在没有 node.js 的系统上 ** 当前推荐的 node.js 版本会自动安装！ ** 不再需要 ** 预先单独安装 node.js。
 
 降级时也应使用以下说明。
 
-目前推荐的版本是node 12.x；对于步骤 4.1 中的其他所需版本。用 Y.x 替换“12.x”。
+目前推荐的版本是node 14.x；对于步骤 4.1 中的其他所需版本。用 Y.x 替换“14.x”。
 
-!> Debian Buster 至少需要 node.js v10.x ！！
+!> Node.js <12.x 不再支持
 
 <span style="color:red">通常不推荐使用奇数的 nodejs 版本，因为它们是开发者版本。</span>
 
@@ -70,7 +70,7 @@ ioBroker 然后在这个用户下运行。
 
 根据所使用的操作系统，也可以使用 ``sudo apt update && sudo apt upgrade`` 执行更新。
 
-2. 测试现有版本的 nodejs 和 npm。
+2. 测试现有版本的nodejs 和npm。
 
     ``node -v``
 
@@ -78,7 +78,7 @@ ioBroker 然后在这个用户下运行。
 
     ``npm -v``
 
-仅当 **ALL** 这些命令不产生结果（即不再显示版本号）继续本节的第 4 步，否则，或者如果版本与您想要的版本不对应，请事先执行以下操作：
+仅当 **ALL** 这些命令没有产生结果（即不再显示版本号）时，继续本节的第 4 步，否则，或者如果版本与您想要的版本不对应，请预先执行以下操作：
 
 3.卸载已有的node&node.js版本
 
@@ -92,7 +92,7 @@ ioBroker 然后在这个用户下运行。
 
 4. 为 Linux 和 Raspberry 2/3 重新安装 Node.js
 
-    ``curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -``
+    ``curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -``
 
     ``sudo apt install -y nodejs``
 
@@ -120,13 +120,13 @@ ioBroker 然后在这个用户下运行。
 ### 安装ioBroker
 安装可以使用 pi 用户进行，也可以使用 root 用户进行。
 
-在控制台执行：
+在控制台上运行：
 
 ``curl -sLf https://iobroker.net/install.sh | bash -``
 
 ---
 
-安装分 4 个步骤进行：
+安装分4步进行：
 
 ``Installing prerequisites (1/4)``
 
@@ -148,26 +148,13 @@ ioBroker 然后在这个用户下运行。
 
 **笔记：**
 
-从 1 月初到中旬，这些命令与安装例程一起使用：
-
-* iobroker 停止
-* iobroker 启动
-* iobroker 重启
-* iobroker 状态
-
-不再。这是 Linux 的一个特性——不是 ioBroker！
-
-相反必须
-
-* 须藤 systemctl 停止 iobroker
-
-或者可以使用其他等价物
-
-此外，可能存在权利问题。
+安装更改后可能会出现权限问题。
 
 在这种情况下，请使用安装固定器：
 
 ``curl -sL https://iobroker.net/fix.sh | bash -``
+
+或简单地`iobroker fix`
 
 论坛中的更多信息：
 

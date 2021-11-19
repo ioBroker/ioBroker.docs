@@ -95,6 +95,10 @@ As first value, the name from the warning message must be taken from the log. Th
 	* (DutchmanNL) 
 -->
 
+### 0.8.7 (2021-11-17)
+* (DutchmanNL) Bugfix: Added missing definitions
+* (jlssmt) Error handling for missing state attribute definitions Optimized
+
 ### 0.8.6 (2021-11-15)
 * (Simatec) Design Fix for Admin >=5.1.28 Dark/Blue Theme
 
@@ -110,9 +114,6 @@ As first value, the name from the warning message must be taken from the log. Th
 ### 0.8.3 (2021-08-20)
 * (jlssmt) Code refactoring
 * (DutchmanNL) Bugfix: Unwanted deletion of data points for Germany solved 
-
-### 0.8.2 (2021-08-17)
-* (DutchmanNL & jlssmt) Small code improvements to prepare stable release 
 
 ## License
 MIT License

@@ -187,6 +187,9 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 * improvement of thermostat mode to text representation (auto, off, boost, comfort, night), comfort and night are also auto mode, but preset to the parametrized value
 
 ## Changelog
+### 2.1.16 WIP
+* temperature range in sockets 0..32°C -> -60..60°C
+
 ### 2.1.15 (npm)
 * correction in timestamp as date/string
 * several version bumps

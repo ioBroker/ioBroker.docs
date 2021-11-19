@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.eufy-security/README.md
 title: ioBroker.eufy-security
-hash: dmZsV3vxaOf9Le7Vw2zv2REJW6WcQml+2k63J16eXvQ=
+hash: kmJW/ABgb0pRlkuV45rkdHjSOwqmhS6nsTN1xZAhg6Y=
 ---
 ![标识](../../../en/adapterref/iobroker.eufy-security/admin/eufy-security.png)
 
@@ -40,7 +40,7 @@ hash: dmZsV3vxaOf9Le7Vw2zv2REJW6WcQml+2k63J16eXvQ=
 * 获取直播或下载视频的 jpeg 缩略图
 * 基站：
   * 状态：
-    * 配置保护模式
+    * 配置的保护模式
     * 当前保护模式
     * 姓名
     * 模型
@@ -68,7 +68,7 @@ hash: dmZsV3vxaOf9Le7Vw2zv2REJW6WcQml+2k63J16eXvQ=
     * 硬件版本
     * MAC地址
     *无线RSSI
-    * 自上次充电以来过滤了错误事件
+    * 自上次充电以来过滤的错误事件
     * 自上次充电以来保存/记录的事件
     * 自上次充电以来的总事件数
     * 自上次充电后使用的天数
@@ -138,7 +138,7 @@ hash: dmZsV3vxaOf9Le7Vw2zv2REJW6WcQml+2k63J16eXvQ=
     *无线RSSI
   * 行动：
     * 锁定/解锁
-* 还有更多……
+* 更多……
 
 ＃＃ 配置
 见[这里](./docs/en/README.md)
@@ -155,8 +155,9 @@ hash: dmZsV3vxaOf9Le7Vw2zv2REJW6WcQml+2k63J16eXvQ=
 * eufyCam 2 Pro (T8140)
 * eufyCam 2C Pro (T8141)
 * SoloCam E40 (T8131)
-* 泛光灯 (T8420)
-* 泛光灯 (T8422)
+* 泛光灯相机 (T8420)
+* 泛光灯凸轮 (T8422)
+* 泛光灯凸轮 2 (T8424)
 * 有线门铃 2k (T8200)
 * 有线门铃 1080p (T8201)
 * 电池门铃 2K (T8210)
@@ -175,9 +176,21 @@ hash: dmZsV3vxaOf9Le7Vw2zv2REJW6WcQml+2k63J16eXvQ=
 ## 如何报告问题和功能请求
 请为此使用 GitHub 问题。
 
-最好将适配器设置为调试日志模式（实例 -> 专家模式 -> 列日志级别或参见 [这里](https://github.com/bropat/ioBroker.eufy-security/wiki/Howto-enable-debug)）。然后请从磁盘获取日志文件（ioBroker 安装目录中的子目录“log”，而不是从 Admin 获取，因为 Admin 截断了行）。
+最好是将适配器设置为调试日志模式（实例 -> 专家模式 -> 列日志级别或参见 [这里](https://github.com/bropat/ioBroker.eufy-security/wiki/Howto-enable-debug)）。然后请从磁盘获取日志文件（ioBroker 安装目录中的子目录“log”，而不是从 Admin 获取，因为 Admin 截断了行）。
 
 ## Changelog
+
+### 0.7.2 (2021-11-16)
+
+* (bropat) Updated version of the package eufy-security-client (1.2.3)
+* (bropat) Further details can be found in the changelog of eufy-security-client (1.2.3)
+* (bropat) Changed ioBroker.admin dependency to ">=4.0.10"
+* (bropat) Updated versions of the package dependencies
+
+### 0.7.1 (2021-10-23)
+
+* (bropat) Updated version of the package eufy-security-client (1.2.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (1.2.1)
 
 ### 0.7.0 (2021-10-17)
 

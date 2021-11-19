@@ -112,6 +112,9 @@ IP-адрес CCU можно выбрать в раскрывающемся ме
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.0.33 (2021-11-18)
+* (foxriver76) if function or room names on CCU include dots, we replace them (fixes Sentry IOBROKER-HM-REGA-3H)
+
 ### 3.0.32 (2021-10-14)
 * (foxriver76) Duty Cycle of LAN gateways can be -1 if they are disconnected (fixes #196)
 * (foxriver76) we now only scale on UNIT "100%" as hm-rpc does (fixes #207)

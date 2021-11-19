@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.youtube/README.md
 title: ioBroker.youtube
-hash: 9qsQQJOK944IIgJkWNtGJhxiuD6W0dH26yUEoXKQBxA=
+hash: cR9gnGZYyuEmo9ikWHbKgC9ImOrMKQEQAirK5Ah/LUk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.youtube/admin/youtube.png)
 
@@ -13,11 +13,15 @@ hash: 9qsQQJOK944IIgJkWNtGJhxiuD6W0dH26yUEoXKQBxA=
 ![установлены](http://iobroker.live/badges/youtube-installed.svg)
 ![Статус зависимости](https://img.shields.io/david/klein0r/iobroker.youtube.svg)
 ![Известные уязвимости](https://snyk.io/test/github/klein0r/ioBroker.youtube/badge.svg)
-![Статус сборки](http://img.shields.io/travis/klein0r/ioBroker.youtube.svg)
 ![НПМ](https://nodei.co/npm/iobroker.youtube.png?downloads=true)
 
 # IoBroker.youtube
+![Тестирование и выпуск](https://github.com/klein0r/ioBroker.youtube/workflows/Test%20and%20Release/badge.svg)
+
 Статистика, такая как просмотры, подписчики и видео
+
+## При финансовой поддержке
+[![ioBroker Master Kurs] (https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-youtube)
 
 ## Установка
 Используйте «список адаптеров» в ioBroker, чтобы установить стабильную версию этого адаптера. Вы также можете использовать интерфейс командной строки для установки этого адаптера:
@@ -36,6 +40,23 @@ iobroker add youtube
 5. Добавьте несколько каналов на вкладке каналов, используя идентификатор и собственное имя.
 
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### 2.0.3
+
+* (klein0r) Fixed missing VIS widget
+
+### 2.0.1
+
+* (klein0r) Fixed missing translations
+
+### 2.0.0
+
+* (klein0r) Admin 5 Support
 
 ### 1.1.1
 

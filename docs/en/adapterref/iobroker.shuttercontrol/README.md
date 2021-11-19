@@ -43,6 +43,15 @@ When the adapter crashes or an other Code error happens, this error message that
 
 
 ## Changelog
+<!-- ### __WORK IN PROGRESS__ -->
+### 1.3.6 (2021-11-17)
+* (simatec) small Bugfixes
+
+### 1.3.5 (2021-11-16)
+* (simatec) Bugfix BrightnessSensor
+* (simatec) Fix Delay with value 0
+* (simatec) DEPENDENCIES updated
+* (simatec) Dev-DEPENDENCIES updated
 
 ### 1.3.3 (2021-11-07)
 * (simatec) Bugfix trigger Tilted
@@ -241,7 +250,6 @@ When the adapter crashes or an other Code error happens, this error message that
 * (simatec) Bugfix compactmode
 * (5G7K) Added debug log with more Informations
 
-
 ### 0.4.3 (29.12.2019)
 * (simatec) Bugfix update process
 
@@ -307,7 +315,7 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ### 0.2.9 (17.06.2019)
 * (simatec) Bugfix PopUp
-* (simatec) Fix TriggerID 
+* (simatec) Fix TriggerID
 
 ### 0.2.8 (17.06.2019)
 * (simatec) Menu completely revised
@@ -356,8 +364,6 @@ When the adapter crashes or an other Code error happens, this error message that
 
 
 *************************************************************************************************************************************
-
-
 
 ## License
 MIT License

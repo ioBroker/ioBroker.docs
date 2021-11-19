@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.trashschedule/README.md
 title: ioBroker.trashschedule
-hash: hYUC2jX24+fjF3zGM82/ZcvzK4wwa3goUXnMIU6zheo=
+hash: 2F2O72OrzzaAFfm9YsYIHXpSxe1vxRaraA8YdYZ7lAs=
 ---
 ![Logo](../../../en/adapterref/iobroker.trashschedule/admin/trashschedule.png)
 
@@ -13,11 +13,15 @@ hash: hYUC2jX24+fjF3zGM82/ZcvzK4wwa3goUXnMIU6zheo=
 ![Eingerichtet](http://iobroker.live/badges/trashschedule-installed.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/klein0r/iobroker.trashschedule.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/klein0r/ioBroker.trashschedule/badge.svg)
-![Build-Status](http://img.shields.io/travis/klein0r/ioBroker.trashschedule.svg)
 ![NPM](https://nodei.co/npm/iobroker.trashschedule.png?downloads=true)
 
 # IoBroker.trashschedule
+![Testen und freigeben](https://github.com/klein0r/ioBroker.trashschedule/workflows/Test%20and%20Release/badge.svg)
+
 Scannt einen Kalender, um die verbleibenden Tage bis zur nächsten Müllabfuhr zu berechnen
+
+## Gefördert durch
+[![ioBroker Master Kurs](https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-trashschedule)
 
 ## Installation
 Bitte verwenden Sie die "Adapterliste" in ioBroker, um eine stabile Version dieses Adapters zu installieren. Sie können diesen Adapter auch über die CLI installieren:

@@ -3,43 +3,59 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.pegelalarm/README.md
 title: ioBroker.pegelalarm
-hash: FJDsZxir1lY+5t/VwRvPy//SWoJXltMwoOYRqdlU5lE=
+hash: D0DljyOYDo/BWTrdUdJBOAEI9e7D7+h3IW7YbuZJZyI=
 ---
-![商标](../../../en/adapterref/iobroker.pegelalarm/admin/pegelalarm.png)
+![标识](../../../en/adapterref/iobroker.pegelalarm/admin/pegelalarm.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.pegelalarm.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.pegelalarm.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.pegelalarm.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.pegelalarm.svg)
 ![安装数量（最新）](http://iobroker.live/badges/pegelalarm-installed.svg)
-![依赖状态](https://img.shields.io/david/simatec/iobroker.pegelalarm.svg)
-![已知漏洞](https://snyk.io/test/github/simatec/ioBroker.pegelalarm/badge.svg)
-![特拉维斯](http://img.shields.io/travis/simatec/ioBroker.pegelalarm/master.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/pegelalarm-stable.svg)
-![NPM](https://nodei.co/npm/iobroker.pegelalarm.png?downloads=true)
+![已知漏洞](https://snyk.io/test/github/simatec/ioBroker.pegelalarm/badge.svg)
+![新产品管理](https://nodei.co/npm/iobroker.pegelalarm.png?downloads=true)
 
-＃ioBroker.pegelalarm
-![测试与发布](https://github.com/simatec/ioBroker.pegelalarm/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.pegelalarm
+![测试和发布](https://github.com/simatec/ioBroker.pegelalarm/workflows/Test%20and%20Release/badge.svg)
 
-##用于ioBroker的Pegelalarm适配器
-提供来自Pegelalarm-API（v1.0）的数据
+## IoBroker 的 Pegelalarm 适配器
+提供来自 Pegelalarm-API (v1.0) 的数据
 
-可以在这里找到API 1.1的API文档https://github.com/SOBOS-GmbH/pegelalarm_public_pas_doc/wiki/Download-current-water-data
-
-**************************************************************************************************************
-
-###什么是Sentry.io，什么报告给该公司的服务器？
-Sentry.io是一项服务，供开发人员从其应用程序中获取有关错误的概述。确切地说，这是在此适配器中实现的。
-
-当适配器崩溃或发生其他代码错误时，此错误消息（也出现在ioBroker日志中）将提交给Sentry。当您允许iobroker GmbH收集诊断数据时，还包括您的安装ID（这是唯一的ID，**没有**有关您的任何其他信息，电子邮件，姓名等）。这使Sentry可以对错误进行分组，并显示有多少唯一用户受此错误影响。所有这些都帮助我提供了基本上不会崩溃的无错误适配器。
+API 1.1 的 API 文档可以在这里找到 https://github.com/SOBOS-GmbH/pegelalarm_public_pas_doc/wiki/Download-current-water-data
 
 **************************************************************************************************************
 
-**如果您愿意，请考虑捐赠：**
+### 什么是 Sentry.io 以及向该公司的服务器报告什么？
+Sentry.io 是一项服务，供开发人员从他们的应用程序中获取有关错误的概述。而这正是在这个适配器中实现的。
 
-[![贝宝（https://www.paypalobjects.com/zh_CN/DK/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+当适配器崩溃或发生其他代码错误时，ioBroker 日志中也出现的此错误消息将提交给 Sentry。当您允许 iobroker GmbH 收集诊断数据时，您的安装 ID（这只是一个唯一 ID **没有**关于您的任何其他信息、电子邮件、姓名等）也包括在内。这允许 Sentry 对错误进行分组并显示有多少唯一用户受到此类错误的影响。所有这些都帮助我提供基本上从不崩溃的无错误适配器。
+
+**************************************************************************************************************
+
+**如果您喜欢，请考虑捐赠：**
+
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
 
 **************************************************************************************************************
 
 ## Changelog
+<!--### __WORK IN PROGRESS__-->
+### 1.2.4 (2021-11-17)
+* (simatec) Dependencies updated
+* (simatec) test and release updated
+
+### 1.2.3 (2021-09-02)
+* (simatec) Bugfix States
+
+### 1.2.2 (2021-09-02)
+* (simatec) Bugfix States
+
+### 1.2.1 (2021-09-02)
+* (simatec) Bugfix API-Request
+* (simatec) dependencies updated
+* (simatec) small Bugfixes
+
+### 1.2.0 (2021-04-29)
+* (simatec) Redesign Gui
 
 ### 1.1.7 (2021-04-10)
 * (simatec) Bugfix Adapter stop

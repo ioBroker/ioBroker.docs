@@ -48,6 +48,9 @@ When the adapter crashes or an other Code error happens, this error message that
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 0.3.7 (2021-11-17)
+* (simatec) Dependencies updated
+* (simatec) test and release updated
 
 ### 0.3.6 (2021-08-04)
 * (simatec) deps fixed

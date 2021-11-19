@@ -4,12 +4,12 @@ lastChanged: 05.12.2020
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/linux.md
-hash: PK5UMbikLloEInPXeSNLqKXsZwkXi1dDURcZ8mTYljc=
+hash: lZH9lVLQx9UEgKn5jJoU+CR4FWS1r6YPz0qDc7pFEeo=
 ---
 # IoBroker installation on Linux
 !> These instructions do NOT apply to finished images of the website! However, manual installation is preferable to an image.
 
-The installation is carried out using a script that carries out the required installation steps and reloads any software packages that may be required.
+The installation takes place via a script, which carries out the required installation steps and reloads any software packages that may be required.
 During the installation, a new user “iobroker” and an associated home directory (/ home / iobroker) are created in the system.
 The ioBroker then runs under this user.
 
@@ -25,7 +25,7 @@ or any other hardware with a common Linux. However, Debian, Ubuntu or one of the
 
 We do not recommend using a Pi 1 as a master. It's just not powerful enough (500MB RAM, etc.). Due to the different hardware, these instructions do not fit a Pi 1 anyway.
 
-Even a Pi 2 or Pi 3 only has a maximum of 1 GB RAM. With 15 adapter instances this should still be sufficient, but beyond that it can be tight. Each adapter instance requires around 40 MB (and sometimes 200MB and more) of RAM. You should therefore always keep an eye on the RAM usage before activating additional adapter instances - 1 GB of RAM is finite.
+Even a Pi 2 or Pi 3 only has a maximum of 1 GB RAM. With 15 adapter instances this should be sufficient, but beyond that it can be tight. Each adapter instance requires around 40 MB (and sometimes 200MB and more) of RAM. You should therefore always keep an eye on the RAM usage before activating further adapter instances - 1 GB of RAM is finite.
 
 Therefore the Raspberry4 with 4, better 8 GB RAM is recommended from the Raspberry series.
 
@@ -35,7 +35,7 @@ it is important to have a good power supply. Stability problems are to be expect
 ### Memory card
 or SSD, USB stick, etc. (depending on the hardware used)
 
-## Needed / important links
+## Required / important links
 * Download Image: https://www.raspberrypi.org/software/operating-systems/
 * Win32DiskImager: https://sourceforge.net/projects/win32diskimager/ **or**
 * Balena Etcher: https://www.balena.io/etcher/
@@ -43,7 +43,7 @@ or SSD, USB stick, etc. (depending on the hardware used)
 
 ## Installation Guide
 ### Installation of the operating system
-* Install the desired basic operating system (Raspian Stretch, Ubuntu, Debian, etc.) - depending on the hardware used.
+* Install the desired basic operating system (Raspberry OS Bullseye, Ubuntu, Debian, etc.) - depending on the hardware used.
 
 Help and instructions for the respective versions are available on the corresponding support pages, YouTube, etc.
 
@@ -54,13 +54,13 @@ Root access for SSH can be activated.
 For the well-known safety aspects, we advise against it. For the installation of ioBroker it is sufficient to use the command sudo and prefix the respective command.
 
 ### Installation Node.js
-!> with the current ioBroker installer (see below) **on a system without node.js** the currently recommended version of node.js is automatically installed! A separate installation of node.js beforehand is **no longer necessary**
+!> with the current installer from ioBroker (see below) **on a system without node.js** the currently recommended version of node.js is automatically installed! A separate installation of node.js beforehand is **not** necessary any more.
 
 The following instructions should also be used when downgrading.
 
-The currently recommended version is node 12.x; for other desired versions in step 4.1. replace the “12.x” with Y.x ”.
+The currently recommended version is node 14.x; for other desired versions in step 4.1. replace the “14.x” with Y.x ”.
 
-!> Debian Buster requires at least node.js v10.x !!
+!> Node.js <12.x is no longer supported
 
 <span style="color:red">odd nodejs versions are generally not recommended because they are developer versions.</span>
 
@@ -92,7 +92,7 @@ only if **ALL** these commands do not produce a result (i.e. no longer display t
 
 4. Reinstall Node.js for Linux and Raspberry 2/3
 
-    ``curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -``
+    ``curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -``
 
     ``sudo apt install -y nodejs``
 
@@ -105,7 +105,7 @@ After the installation, the commands “node -v” and “nodejs -v” must retu
     Execute ``sudo ln -s /usr/local/bin/nodejs /usr/bin/node`` on the console.
 
 In newer installations it can happen that the command ``nodejs -v`` generates an error message like" not found ".
-In principle, this is harmless, since the command ``nodejs`` has not been used for a long time, but can be" repaired "via a symlink with the command` `sudo ln -s /usr/bin/node /usr/bin/nodejs``.
+In principle, this is harmless, since the command ``nodejs`` has not been used for a long time, but it can be" repaired "via a symlink with the command` `sudo ln -s /usr/bin/node /usr/bin/nodejs``.
 
 ---
 
@@ -148,26 +148,13 @@ Now call ioBroker via the specified IP in the web browser: ``http://<IP-Adresse>
 
 **Note:**
 
-The commands worked with the installation routine from early to mid-January:
-
-* iobroker stop
-* iobroker start
-* iobroker restart
-* iobroker status
-
-no longer. This is a feature of Linux - not ioBroker!
-
-instead must
-
-* sudo systemctl stop iobroker
-
-or the other equivalents can be used
-
-In addition, there could be rights problems.
+Permissions problems may arise after installation changes.
 
 In this case, please use the installation fixer:
 
 ``curl -sL https://iobroker.net/fix.sh | bash -``
+
+or briefly `iobroker fix`
 
 more information in the forum:
 

@@ -3,37 +3,40 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tinker/README.md
 title: ioBroker.tinker
-hash: JEPSSK8ggpw+2f3PKk6ehT+Aenx/6AA5+dciOw/uXoI=
+hash: keeAn15kWOL11iVfAuzbRm8qeiPupoUlwH36ne0B0oQ=
 ---
-![логотип](../../../en/adapterref/iobroker.tinker/admin/tinker.png)
+![Логотип](../../../en/adapterref/iobroker.tinker/admin/tinker.png)
 
 ![Количество установок](http://iobroker.live/badges/tinker-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.tinker.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.tinker.svg)
-![NPM](https://nodei.co/npm/iobroker.tinker.png?downloads=true)
+![Известные уязвимости](https://snyk.io/test/github/simatec/ioBroker.tinker/badge.svg)
+![НПМ](https://nodei.co/npm/iobroker.tinker.png?downloads=true)
 
 # IoBroker.tinker
 ===================
 
-Адаптер Tinker Board Monitor является модифицированной версией адаптера Raspberry PI Monitor и адаптера OrangePi Monitor для ioBroker
+![Тестирование и выпуск](https://github.com/simatec/ioBroker.uv-protect/workflows/Test%20and%20Release/badge.svg)
 
-** Если вам это нравится, пожалуйста, рассмотрите пожертвование: **
+Адаптер Tinker Board Monitor - это модифицированная версия адаптера Raspberry PI Monitor и адаптера OrangePi Monitor для ioBroker
+
+** Если вам это нравится, рассмотрите возможность пожертвования: **
 
 [![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
 
 ### Важная информация
 протестированное оборудование: Asus Tinker Board
 
-### Следующие объекты доступны после выбора:
-## *ЦПУ*
+### После выбора доступны следующие объекты:
+## *ПРОЦЕССОР*
 - cpu_frequency
 - load1
-- нагрузка5
-- нагрузка15
+- load5
+- load15
 
-## *Память*
-- память доступна
-- память_свободная
+## *Объем памяти*
+- memory_available
+- memory_free
 - memory_total
 
 ## *Сеть (eth0)*
@@ -52,7 +55,7 @@ hash: JEPSSK8ggpw+2f3PKk6ehT+Aenx/6AA5+dciOw/uXoI=
 - soc_temp
 
 ## *Время работы*
-- время работы
+- время безотказной работы
 
 ## *WLAN*
 - wifi_received
@@ -61,16 +64,28 @@ hash: JEPSSK8ggpw+2f3PKk6ehT+Aenx/6AA5+dciOw/uXoI=
 ## Конфигурация
 На странице конфигурации вы можете выбрать следующие модули:
 
-- ЦПУ
-- Память
-- сеть
+- ПРОЦЕССОР
+- Объем памяти
+- Сеть
 - SD Card
 - Поменять местами
 - температура
-- время работы
+- Время безотказной работы
 - WLAN
 
 ## Changelog
+<!-- ### __WORK IN PROGRESS__ -->
+### 1.1.1 (2021-11-18)
+* (simatec) Dependencies updated
+* (simatec) test and release updated
+
+### 1.1.0 (2020-04-08)
+* (simatec) delete sync-exec
+* (simatec) Rewritten code on child_process
+* (simatec) code cleaned
+
+### 1.0.0 (2020-04-07)
+* (simatec) Release 1.0.0
 
 ### 0.1.3 (2019-03-14)
 * (simatec) Ready for latest
@@ -88,7 +103,7 @@ hash: JEPSSK8ggpw+2f3PKk6ehT+Aenx/6AA5+dciOw/uXoI=
 
 The MIT License (MIT)
 
-Copyright (c) 2019 simatec <nais@gmx.net>
+Copyright (c) 2018 - 2021 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

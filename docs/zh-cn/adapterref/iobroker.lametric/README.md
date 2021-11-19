@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: 3NNc0r2vnlWPSglr387+Yz2ijSAI0bnK3D2C5Ty5LZg=
+hash: osaRy6DdwdwViQp0c08Km2os1cI858VwCoEBOBUahi4=
 ---
 ![标识](../../../en/adapterref/iobroker.lametric/admin/lametric.png)
 
@@ -13,12 +13,16 @@ hash: 3NNc0r2vnlWPSglr387+Yz2ijSAI0bnK3D2C5Ty5LZg=
 ![已安装](http://iobroker.live/badges/lametric-installed.svg)
 ![依赖状态](https://img.shields.io/david/klein0r/iobroker.lametric.svg)
 ![已知漏洞](https://snyk.io/test/github/klein0r/ioBroker.lametric/badge.svg)
-![构建状态](http://img.shields.io/travis/klein0r/ioBroker.lametric.svg)
 ![新产品管理](https://nodei.co/npm/iobroker.lametric.png?downloads=true)
 
 # IoBroker.lametric
+![测试和发布](https://github.com/klein0r/ioBroker.lametric/workflows/Test%20and%20Release/badge.svg)
+
 此适配器允许您获取有关 [LaMetric 时间](https://haus-auto.com/p/amz/LaMetricTime) *(附属链接)* 的状态信息并向其发送通知。
 您只需要设备的 IP 地址和 api 开发人员密钥。
+
+＃＃ 由...赞助
+[![ioBroker Master Kurs](https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-lametric)
 
 ＃＃ 安装
 请使用 ioBroker 中的“适配器列表”来安装此适配器的稳定版本。您还可以使用 CLI 安装此适配器：
@@ -30,7 +34,7 @@ iobroker add lametric
 ＃＃ 配置
 使用 LaMetric 固件 *2.2.2* 测试（推荐）
 
-您可以通过 [这里](https://developer.lametric.com/) 获取您的个人密钥。
+您可以获得您的个人密钥[这里](https://developer.lametric.com/)。
 
 ![api-key](../../../en/adapterref/iobroker.lametric/docs/apiKey.png)
 
@@ -51,7 +55,7 @@ iobroker add lametric
 
 ![单帧](../../../en/adapterref/iobroker.lametric/docs/blockly1.png)
 
-要显示多个帧，您还可以提供一个数组作为消息
+要显示多个框架，您还可以提供一个数组作为消息
 
 ![多帧](../../../en/adapterref/iobroker.lametric/docs/blockly2.png)
 
@@ -95,8 +99,8 @@ http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/
 **如有必要，请确保更新 URL 中的 IP 和端口！**
 
 ### 框架配置 *（版本 > 1.1.0）*
-- 使用加号图标添加任意数量的帧
-- 图标：从[官网](https://developer.lametric.com/icons)中选择一个图标，并将ID放入配置字段。 **重要提示：添加 i（对于静态图标）或 a（对于动画图标）作为该 ID 的前缀。 （例如：`i3389`）
+- 使用加号图标添加任意数量的框架
+- 图标：从【官网】(https://developer.lametric.com/icons)中选择一个图标，并将ID放入配置字段。 **重要提示：添加 i（对于静态图标）或 a（对于动画图标）作为该 ID 的前缀。 （例如：`i3389`）
 - 文本：只需键入框架的文本信息。您可以在花括号中使用状态。这些信息将替换为相应的状态值。 （例如：`{youtube.0.channels.HausAutomatisierungCom.statistics.subscriberCount} 订阅者`）
 
 2 帧的示例配置：
@@ -205,6 +209,11 @@ show();
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### 1.5.1
+
+* (klein0r) Translated all objects
+* (klein0r) Fixed HTTPS option
 
 ### 1.5.0
 
