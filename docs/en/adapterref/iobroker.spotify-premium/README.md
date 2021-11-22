@@ -86,6 +86,9 @@ Click for widget source.
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 1.1.9 (2021-11-21)
+* (bluefox) Tried to catch 403 error
+
 ### 1.1.8 (2021-11-18)
 * (ohle64) Fixed the shuffle behaviour 
 * (bluefox) Allowed to set the default shuffle value

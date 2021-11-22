@@ -87,7 +87,7 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 ## Changelog
 
 ### 1.3.2 (2021-11-09)
-* (Sneak-L8) firmware check for x-series no longer supported due to changes on website of Keba
+* (Sneak-L8) firmware check for x-series no longer supported due to changes on website of Keba 
 
 ### 1.3.1 (2021-11-01)
 * (Sneak-L8) fix wrong type of timeQ in charging reports

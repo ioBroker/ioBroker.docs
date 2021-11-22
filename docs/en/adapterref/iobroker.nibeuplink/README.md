@@ -35,6 +35,9 @@ If you (later) get a "400 bad request" error in the log, you must get a new Auth
 
 ## Changelog
 
+### 0.5.3 - 2021-11-21
+* Bump dependencies
+
 ### 0.5.2 - 2021-07-04
 * Change default callback URL to own GitHub Pages
 * Bump dependencies

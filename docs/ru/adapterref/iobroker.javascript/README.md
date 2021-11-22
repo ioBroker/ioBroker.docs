@@ -2636,6 +2636,9 @@ return 'your result';
 Вы можете использовать этот блок как обычные блоки в своих скриптах.
 
 ## Changelog
+### 5.2.16 (2021-11-19)
+* (bluefox) Fixed the font in the editor
+
 ### 5.2.15 (2021-11-18)
 * (agross) Added the monitoring of symlinks my mirroring
 * (Apollon77) Fix two crash cases reported by Sentry

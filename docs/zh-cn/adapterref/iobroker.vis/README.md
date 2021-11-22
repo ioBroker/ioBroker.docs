@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis/README.md
 title: 可视化
-hash: VCCbc3IpfXz30tkfzq6yRoDI/sZdelGrN1l7tBhblcc=
+hash: kZvMm0nxMRyvPu/c82Yj+LYf+ikbthYZ/GRRZUdVZQY=
 ---
 ![标识](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
@@ -24,7 +24,7 @@ ioBroker 平台的 WEB 可视化。
 通常，大多数小部件都有 ObjectID 属性，该属性可以与某个对象 ID 值绑定。
 但是还有另一种选择如何将小部件的 *any* 属性绑定到某个 ObjectID。
 
-只需写入属性 ```{object.id}``` ，它就会被绑定（不是在编辑模式下）到这个对象的值。
+只需写入属性 ```{object.id}``` ，它就会被绑定（不在编辑模式下）到这个对象的值。
 如果你使用特殊格式，你甚至可以用它做一些简单的操作，例如乘法或格式化。
 模式具有以下格式：
 
@@ -35,9 +35,9 @@ ioBroker 平台的 WEB 可视化。
 支持以下操作：
 
 - `\*` - 乘法。参数必须在方括号中，如“*(4)”。在此示例中，我们将 value 乘以 4。
-- `\+` - 添加。参数必须在方括号中，如“+(4.5)”。在此示例中，我们添加到值 4.5。
+- `\+` - 添加。参数必须在方括号中，例如“+(4.5)”。在此示例中，我们添加到值 4.5。
 - `\-` - 减去。参数必须在方括号中，例如“-(-674.5)”。在此示例中，我们从值 -674.5 中减去。
-- `/` - 分割。参数必须在方括号中，例如“/(0.5)”。在此示例中，我们将值除以 0.5。
+- `/` - 分割。参数必须在方括号中，如“/(0.5)”。在此示例中，我们将值除以 0.5。
 - `%` - 取模。参数必须在方括号中，例如“%(5)”。在此示例中，我们取模 5。
 - `round` - 舍入值。
 - `round(N)` - 在点之后用 N 个位置舍入值，例如34.678；轮（1）=> 34.7
@@ -71,7 +71,7 @@ My calculations with {objectID1;operation1;operation2;...} are {objectID2;operat
 #{objectRed;/(100);*(255);HEX2}{objectGreen;HEX2}{objectBlue;HEX2}
 ```
 
-要在对象 id 末尾显示对象写入 `.ts` 或 `.lc`（用于最后更改）的时间戳，例如：
+要在对象 ID 的末尾显示对象写入 `.ts` 或 `.lc`（用于最后一次更改）的时间戳，例如：
 
 ```
 Last change: {objectRed.lc;date(hh:mm)}
@@ -107,12 +107,12 @@ Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(Ma
 * `username` - 显示登录用户
 * `view` - 实际视图的名称
 * `wname` - 小部件名称
-* `widget` - 是一个包含所有小部件数据的对象。只能在 JS 部分使用，如 `{a:a;widget.data.name}`
+* `widget` - 是一个包含所有小部件数据的对象。只能在JS部分使用，比如`{a:a;widget.data.name}`
 * `wid` - 实际小部件的名称
 * `language` - 可以是 `de`、`en` 或 `ru`。
 * `instance` - 浏览器实例
 * `login` - 是否需要登录（例如显示/隐藏注销按钮）
-* `local_*` - 如果状态名称从 `local_` 开始，它不会被报告给 ioBroker，但会更新所有依赖于这个状态的小部件。 （当前浏览器会话的局部变量）
+* `local_*` - 如果状态名称从 `local_` 开始，它不会报告给 ioBroker，但会更新所有小部件，这取决于此状态。 （当前浏览器会话的局部变量）
 
 注意：要在计算中使用“:”（例如在字符串公式中），请改用“::”。
 
@@ -127,12 +127,12 @@ Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(Ma
 为了那个原因。
 
 ## 过滤器
-要在一个视图上显示整数个小部件，您可以使用过滤器来减少视图上同时显示的小部件数量。
+要在一个视图上可视化所有小部件，您可以使用过滤器来减少视图上同时显示的小部件数量。
 
 每个小部件都有一个字段 `filter`。如果您将其设置为某个值，例如`light`，因此您可以使用其他小部件 `(bars - filters, filter - dropdown)` 来控制实际处于活动状态的过滤器。
 
 ##控制界面
-Vis 创建 3 个变量：
+Vis 创建了 3 个变量：
 
 - `control.instance` - 如果每个浏览器都必须被控制，这里应该写浏览器实例或者`FFFFFFFF`。
 - `control.data` - 命令参数。见具体命令说明。
@@ -165,7 +165,7 @@ Vis 创建 3 个变量：
 
 - `control.instance`：浏览器实例和 `ack=true`
 - `control.data`：形式为`project/view`的项目和视图名称，例如`main/view`（和 `ack=true`）
-- `control.command`：`changedView` 和 `ack=true`
+- `control.command`: `changedView` 和 `ack=true`
 
 您可以将 JSON 字符串或对象写入 `control.command` 作为 `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`。在这种情况下，实例和数据将从 JSON 对象中获取。
 
@@ -188,23 +188,26 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 有一个帮助小部件“基本 - 屏幕分辨率”，可显示实际屏幕分辨率和最适合该分辨率的默认视图。
 
 ##设置
-### 如果睡眠时间超过，则重新加载
+### 如果睡眠时间超过
 有一个规则，在断开连接一段时间后，整个 VIS 页面将重新加载以同步项目。
 您可以在菜单“设置...”中对其进行配置。如果您将时间间隔设置为“从不”，则永远不会重新加载页面。
 
 ###重新连接间隔
 如果断开连接，设置连接尝试之间的间隔。如果设置为 2 秒，它将每 2 秒尝试建立一次连接。
 
-### 黑暗重新连接屏幕
+### 黑暗的重新连接屏幕
 有时（在夜间）需要有黑暗的加载屏幕。使用此选项，您可以设置它。
 
 请注意，这些设置仅对重新连接有效，对第一次连接无效。
 
 ![黑暗的](../../../en/adapterref/iobroker.vis/img/dark_screen.png)
 
-<!-- 下一个版本的占位符（在行首）：
+<!-- 下一版本的占位符（在行首）：
 
-### __工作正在进行中__ -->
+### __工作进行中__ -->
+### 1.4.6 (2021-11-20)
+* (bluefox) 即使没有互联网也添加了许可证检查
+
 ### 1.4.5 (2021-10-08)
 * (jens-maus) 向 content-security-policy 标头添加了 frame-src 规范，修复了与框架相关的内容阻塞问题（例如，使用 KioskPro iOS 应用程序）。
 * (bluefox) 通过许可证检查显示扩展错误消息
@@ -214,10 +217,10 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 * (jobe451) 允许在绑定对象 ID 中有“:”
 
 ### 1.4.3 (2021-07-11)
-* (bluefox) 增加了离线检查许可证的可能性（仅特殊一次）
+* (bluefox) 添加了离线检查许可证的可能性（仅特殊一次）
 
 ### 1.4.0 (2021-07-01)
-* (bluefox) 更改证书检查路径
+* (bluefox) 更改了证书检查的路径
 * (thost96) 修复了适配器检查器发现的问题
 
 ### 1.3.10 (2021-05-25)
@@ -269,7 +272,7 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 * (gsicilia82/fceller) JSON 字符串将在 VIS 绑定中解析
 
 ### 1.2.9 (2020-08-22)
-* (bluefox) 现在支持图表
+* (bluefox) 图表现在支持
 
 ### 1.2.6 (2020-03-22)
 * (bluefox) 如果无法解析许可证，则添加了更好的错误消息
@@ -278,7 +281,7 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 * (bluefox) 表格小部件使用选定的对象 ID 进行了扩展。
 
 ### 1.2.3 (2019-12-14)
-* (bluefox) 在许可证处理方面做了一些小改动
+* (bluefox) 对许可证处理进行了小幅更改
 
 ### 1.2.2 (2019-10-27)
 * (bluefox) js-controller 2.0 的准备工作。检查未定义和空值。
@@ -313,7 +316,7 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 * (bluefox) 修复绑定
 * (Apollon77) 修复测试
 * (bluefox) 修复了 iobroker.pro 和外部 socket.io 设置
-* (bluefox) 在绑定中添加了一个用户变量。
+* (bluefox) 一个用户变量被添加到绑定中。
 * (bluefox) 固定小部件选项卡
 
 ### 1.1.4 (2018-04-23)
@@ -390,7 +393,7 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 * (bluefox) 修复安装错误
 
 ### 0.14.1 (2017-04-27)
-* (bluefox) 将测试版移至主版
+* (bluefox) 将 beta 移至 main
 * (bluefox) 修复选择过滤器
 * (bluefox) 如果某些视图不存在，则修复错误
 * (bluefox) 修复绑定问题，例如“a:-45?0”也被检测为变量。
@@ -464,7 +467,7 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 
 ### 0.10.7 (2016-07-09)
 * (bluefox) 添加设置以重新加载 vis
-* (bluefox) 添加深色重载屏幕
+* (bluefox) 添加黑暗的重新加载屏幕
 * (bluefox) 修复重新加载间隔
 * (bluefox) 导出/导入
 * (bluefox) 添加全局脚本

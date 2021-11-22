@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis/README.md
 title: Visualisierung
-hash: VCCbc3IpfXz30tkfzq6yRoDI/sZdelGrN1l7tBhblcc=
+hash: kZvMm0nxMRyvPu/c82Yj+LYf+ikbthYZ/GRRZUdVZQY=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
@@ -40,7 +40,7 @@ Folgende Operationen werden unterstützt:
 - `/` - teilen. Argument muss in Klammern stehen, wie "/(0.5)". In diesem Beispiel teilen wir den Wert durch 0,5.
 - `%` - modulo. Argument muss in Klammern stehen, wie "%(5)". In diesem Beispiel nehmen wir Modulo von 5.
 - `round` - rundet den Wert.
-- `round(N)` - Runden Sie den Wert mit N Stellen nach dem Punkt, z.B. 34.678;rund(1) => 34.7
+- `round(N)` - runden Sie den Wert mit N Stellen nach dem Punkt, z.B. 34.678;rund(1) => 34.7
 - `hex` - Wert in hexadezimalen Wert umwandeln. Alle Buchstaben sind klein geschrieben.
 - `hex2` - Wert in hexadezimalen Wert umwandeln. Alle Buchstaben sind klein geschrieben. Bei einem Wert kleiner 16 wird die führende Null hinzugefügt.
 - `HEX` - wie hex, aber in Großbuchstaben.
@@ -54,8 +54,8 @@ Folgende Operationen werden unterstützt:
 - `floor` - Math.floor
 - `ceil` - Math.ceil
 - `random(R)` - Math.random() * R, oder nur Math.random() wenn kein Argument
-- `formatValue(decimals)` - Wert gemäß Systemeinstellungen formatieren und Dezimalstellen verwenden
-- `date(format)` - Wert als Datum formatieren. Format ist wie: "YYYY-MM-DD hh:mm:ss.sss"
+- `formatValue(decimals)` - Wert entsprechend den Systemeinstellungen formatieren und Dezimalstellen verwenden
+- `date(format)` - Wert als Datum formatieren. Das Format ist wie: "YYYY-MM-DD hh:mm:ss.sss"
 - `momentDate(format, useTodayOrYesterday)` - Formatieren Sie den Wert als Datum mit Moment.js. [Genehmigte Formate müssen gemäß der Bibliothek moment.js eingegeben werden](https://momentjs.com/docs/#/displaying/format/). Mit `useTodayOrYesterday=true` werden die momentjs Formate `ddd`/`dddd` mit heute / gestern überschrieben
 - `array(element1,element2[,element3,element4])` - gibt das Indexelement zurück. z.B.: `{id.ack;array(ack ist falsch,ack ist wahr)}`
 
@@ -112,7 +112,7 @@ Es gibt eine Reihe verschiedener interner Bindungen, um zusätzliche Information
 * `Sprache` - kann `de`, `en` oder `ru` sein.
 * `Instanz` - Browserinstanz
 * `login` - ob eine Anmeldung erforderlich ist oder nicht (z.B. um den Logout-Button anzuzeigen/auszublenden)
-* `local_*` - Wenn der Statusname von `local_` gestartet wird, wird er nicht an ioBroker gemeldet, sondern alle Widgets aktualisiert, die von diesem Status abhängen. (Lokale Variable für aktuelle Browsersitzung)
+* `local_*` - Wenn der Statusname von `local_` gestartet wird, wird er nicht an ioBroker gemeldet, sondern aktualisiert alle Widgets, die von diesem Status abhängen. (Lokale Variable für aktuelle Browsersitzung)
 
 Hinweis: Um ":" in Berechnungen (z. B. in Zeichenfolgenformeln) zu verwenden, verwenden Sie stattdessen "::".
 
@@ -159,7 +159,7 @@ Befehle:
 * `popup` - öffnet ein neues Browserfenster. Link muss in `control.data` angegeben werden, z.B. http://google.com
 * `playSound` - Sounddatei abspielen. Der Link zur Datei wird in `control.data` angegeben, z.B. http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3.
 
-  Sie können Ihre eigene Datei in vis hochladen und abspielen lassen wie zB `/vis.0/main/img/myFile.mp3`.
+  Sie können Ihre eigene Datei in vis hochladen und abspielen lassen, wie zB `/vis.0/main/img/myFile.mp3`.
 
 Wenn der Benutzer die Ansicht ändert oder beim Start werden die Variablen von der vis mit gefüllt
 
@@ -185,7 +185,7 @@ Wenn nur eine Ansicht das Flag *"Standard"* hat, wird diese Ansicht unabhängig 
 
 Z.B. Sie können zwei Ansichten "Landscape-Mobile" und "Portrait-Mobile" erstellen und diese beiden Ansichten werden automatisch umgeschaltet, wenn Sie die Ausrichtung oder Bildschirmgröße ändern.
 
-Es gibt ein Helfer-Widget "einfach - Bildschirmauflösung", das die aktuelle Bildschirmauflösung und die für diese Auflösung am besten geeignete Standardansicht anzeigt.
+Es gibt ein Hilfs-Widget "einfach - Bildschirmauflösung", das die aktuelle Bildschirmauflösung und die für diese Auflösung am besten geeignete Standardansicht anzeigt.
 
 ## Einstellungen
 ### Nachladen, wenn du länger schläfst als
@@ -205,8 +205,11 @@ Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung gültig s
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
 ### __ARBEITEN IN PROGRESS__ -->
+### 1.4.6 (2021-11-20)
+* (bluefox) Lizenzprüfung auch ohne Internet hinzugefügt
+
 ### 1.4.5 (2021-10-08)
-* (jens-maus) Frame-src-Spezifikation zum Content-Security-Policy-Header hinzugefügt, um Probleme beim Blockieren von Frame-bezogenen Inhalten zu beheben (z. B. bei Verwendung der KioskPro iOS-App).
+* (jens-maus) Frame-src-Spezifikation zum Content-Security-Policy-Header hinzugefügt, um Frame-bezogene Inhaltsblockierungsprobleme zu beheben (z. B. bei Verwendung der KioskPro iOS-App).
 * (bluefox) Zeigte die erweiterten Fehlermeldungen bei der Lizenzprüfung an
 * (Scrounger) Patch-Sichtbarkeit oid Bindung
 
@@ -341,7 +344,7 @@ Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung gültig s
 
 ### 1.0.4 (2017-10-22)
 * (bluefox) Autovervollständigung für CSS-Optionen hinzufügen
-* (bluefox) Änderung der CSS-Hintergrundoptionen für die Ansicht ändern
+* (bluefox) Bearbeiten der CSS-Hintergrundoptionen der Ansicht ändern
 
 ### 1.0.3 (2017-10-20)
 * (bluefox) Fehler beim Parsen ungültiger Bindungen behoben
@@ -352,7 +355,7 @@ Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung gültig s
 * (bluefox) Schriftarten korrigieren
 
 ### 0.15.7 (2017-10-01)
-* (bluefox) ermöglichen das Aktualisieren von Bildern ohne zusätzliche Abfrage (funktioniert jedoch nur in einigen ganz bestimmten Fällen)
+* (bluefox) ermöglichen das Aktualisieren von Bildern ohne zusätzliche Abfrage (funktioniert jedoch nur in ganz bestimmten Fällen)
 * (bluefox) Zoom von iframes
 
 ### 0.15.5 (2017-07-24)
@@ -374,7 +377,7 @@ Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung gültig s
 
 ### 0.15.0 (2017-05-25)
 * (bluefox) Kopie von gruppierten Widgets reparieren
-* (bluefox) Fix abonnieren wenn leere Zustände
+* (bluefox) fix abonnieren wenn leere Zustände
 
 ### 0.14.7 (2017-05-19)
 * (bluefox) Vorlagen hinzufügen
@@ -391,7 +394,7 @@ Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung gültig s
 
 ### 0.14.1 (2017-04-27)
 * (bluefox) Beta in Main verschieben
-* (bluefox) Fix Filter auswählen
+* (bluefox) fix wählen Filter
 * (bluefox) Fehler behoben, wenn einige Ansichten nicht vorhanden sind
 * (bluefox) Bindungsproblem beheben, z.B. Als Variable wurde auch "a:-45?0" erkannt.
 * (bluefox) einige Schriftgrößen korrigieren
@@ -460,19 +463,19 @@ Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung gültig s
 * (bluefox) Unterstützung von Web-Sockets force
 * (bluefox) vernichten ungenutzte Ansichten nach 30 Sekunden
 * (bluefox) zeigen keine mittleren Führungslinien, wenn oben und unten angezeigt werden
-* (bluefox) Zeitstempel und Last-Änderung lassen, um die Zeit als Intervall anzuzeigen
+* (bluefox) lassen Sie Zeitstempel und letzte Änderung, um die Zeit als Intervall anzuzeigen
 
 ### 0.10.7 (2016-07-09)
 * (bluefox) füge Einstellungen hinzu, um Vis neu zu laden
 * (bluefox) dunklen Reload-Bildschirm hinzufügen
-* (bluefox) festes Nachladeintervall
+* (bluefox) Nachladeintervall korrigiert
 * (bluefox) exportieren/importieren
 * (bluefox) globales Skript hinzufügen
 * (bluefox) füge 'nicht vorhanden'/'nicht bestehen'/'existieren' zu Signal und Sichtbarkeit hinzu
 * (bluefox) OIDs im Editor korrigieren
 
 ### 0.10.5 (2016-06-15)
-* (bluefox) ID-Auswahldialog korrigieren
+* (bluefox) Fix ID-Auswahldialog
 * (bluefox) füge Hilfslinien zum Ausrichten hinzu
 * (bluefox) Daten niemals im Nicht-Bearbeitungsmodus speichern
 

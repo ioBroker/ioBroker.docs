@@ -32,6 +32,16 @@ always needs to be run with instance number `0`.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.2.0 (2021-11-20)
+* (foxriver76) we added a parallel `setState` test for multicore performance evaluation (closes #5)
+
+### 0.1.15 (2021-11-19)
+* (foxriver76) internal simplification
+
+### 0.1.14 (2021-11-19)
+* (foxriver76) make cooldown dependent on test time (closes #4)
+* (foxriver76) on last iteration of last test we do not need to cooldown
+
 ### 0.1.13 (2021-10-25)
 * (foxriver76) fix iob executable to also work on Windows systems (closes #3)
 

@@ -58,6 +58,9 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.5.31 (2021-11-20)
+* (foxriver76) ct value fix of #234 ported for 0 (All) group
+
 ### 3.5.30 (2021-11-14)
 * (foxriver76) we fixed Sentry IOBROKER-HUE-1K, IOBROKER-HUE-A, IOBROKER-HUE-1J
 
