@@ -40,6 +40,10 @@ SolarLog 50: There is no open JSON-Interface @ SolarLog 50 devices. So certain v
 
 ## Changelog
 
+### 2.2.0
+
+-   replaced 'request' by 'got'.
+
 ### 2.1.5
 
 -   bugfix (variable type).

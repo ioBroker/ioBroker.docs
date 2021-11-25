@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.benchmark/README.md
 title: ioBroker.benchmark
-hash: v83y2upxVHdLiGirS5AzXEJuH+yNp8w8fAA0z/3zk/k=
+hash: rUUVjscVITKtSuwB4lU6fnF6HH/VHoidSaVqBT9yIds=
 ---
 ![Логотип](../../../en/adapterref/iobroker.benchmark/admin/benchmark.png)
 
@@ -30,11 +30,89 @@ hash: v83y2upxVHdLiGirS5AzXEJuH+yNp8w8fAA0z/3zk/k=
 3. Добавьте свой тест в src / lib / allTests.ts.
 4. Добавьте кнопку и перевод для вашего теста в admin / jsonConfig.json.
 
+## Описание теста
+### GetStates
+Выполняет `iterations` раз `getState`.
+
+### GetStateAlias
+Выполняет `iterations` раз `getState` на псевдониме.
+
+### GetStateAliasRead
+Выполняет `iterations` раз `getState` на псевдониме. Псевдоним имеет простую функцию чтения.
+
+### Праздный
+Просто ждет `iterations` мс.
+
+### Сообщения
+Создает вторичный эталонный экземпляр. Затем экземпляр контроллера отправит вторичному экземпляру сообщения `iterations`.
+Если все сообщения получены, проверка завершена.
+
+### ObjectsCreation
+Создает объекты `iterations` через `setObject`.
+
+### ObjectsDeletion
+Удаляет объекты `iterations` через `delObject`.
+
+### ObjectViewEqual
+Создает 10 000 объектов, при этом 50% из них актуальны для просмотра объектов. Затем он выполняет просмотр объектов `iterations`.
+
+### ObjectViewLarge
+Создает 10 000 объектов, при этом 98% из них актуальны для просмотра объектов. Затем он выполняет просмотр объектов `iterations`.
+
+### ObjectViewSmall
+Создает 10 000 объектов, при этом только 2% из них актуальны для просмотра объектов. Затем он выполняет просмотр объектов `iterations`.
+
+### SetStates
+Устанавливает состояния `iterations` через `setState`
+
+### SetStatesNonStrict
+Устанавливает состояния `iterations` с помощью `setState`, но `strictObjectChecks` отключены.
+
+### SetStatesParallel
+Добавляет 30 вторичных экземпляров, каждый экземпляр будет устанавливать состояния `iterations`. На системном уровне экземпляры устанавливают эти состояния параллельно, но на уровне экземпляра предыдущие `setState` необходимо завершить до тех пор, пока не будет установлен следующий.
+Этот тест направлен на тестирование многоядерных систем.
+
+### StatesDeletion
+Удаляет состояния `iterations` через `delState`.
+
+### StatesSubscription
+Экземпляр контроллера подписывается на определенное пространство имен. 4 вторичных узла, каждый из которых устанавливает состояния `iterations / 4`. Как только контроллер получит все публикации `iterations`, проверка будет завершена.
+
+### StatesSubscriptionAlias
+Экземпляр контроллера подписывается на пространство имен псевдонима. Каждый из 4 вторичных устройств устанавливает псевдонимы `iterations / 4`. Как только контроллер получит все публикации `iterations`, проверка будет завершена.
+
+### StatesSubscriptionAliasWrite
+Экземпляр контроллера подписывается на пространство имен псевдонима. Каждый из 4 вторичных устройств устанавливает псевдонимы `iterations / 4`. Как только контроллер получит все публикации `iterations`, проверка будет завершена.
+Псевдоним содержит простую функцию записи.
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.0 (2021-11-24)
+* (foxriver76) we introduced some categories in the user interface
+* (foxriver76) we switched to checkboxes to allow to execute a subset of all tests
+
+### 0.3.2 (2021-11-23)
+* (foxriver76) we now also remove secondary instances on clean up
+
+### 0.3.1 (2021-11-23)
+* (foxriver76) we now prettify the summary file
+
+### 0.3.0 (2021-11-22)
+* (foxriver76) we added three `getObjectView` tests
+
+### 0.2.0 (2021-11-20)
+* (foxriver76) we added a parallel `setState` test for multicore performance evaluation (closes #5)
+
+### 0.1.15 (2021-11-19)
+* (foxriver76) internal simplification
+
+### 0.1.14 (2021-11-19)
+* (foxriver76) make cooldown dependent on test time (closes #4)
+* (foxriver76) on last iteration of last test we do not need to cooldown
+
 ### 0.1.13 (2021-10-25)
 * (foxriver76) fix iob executable to also work on Windows systems (closes #3)
 

@@ -27,11 +27,79 @@ always needs to be run with instance number `0`.
 3. Add your test to src/lib/allTests.ts
 4. Add a button and translation for your test to admin/jsonConfig.json
 
+## Test description
+### getStates
+Executes `iterations` times `getState`.
+
+### getStateAlias
+Executes `iterations` times `getState` on an alias.
+
+### getStateAliasRead
+Executes `iterations` times `getState` on an alias. The alias has a simple read function.
+
+### idle
+Just waits `iterations` ms.
+
+### messages
+Creates a secondary benchmark instance. The controller instance will then send `iterations` messages to the secondary instance. 
+If all messages are recevied, the test is finished.
+
+### objectsCreation
+Creates `iterations` objects via `setObject`.
+
+### objectsDeletion
+Deletes `iterations` objects via `delObject`.
+
+### objectViewEqual
+Creates 10,000 objects while 50 % of them are relevant for the object view. Then it executes `iterations` object views.
+
+### objectViewLarge
+Creates 10,000 objects while 98 % of them are relevant for the object view. Then it executes `iterations` object views.
+
+### objectViewSmall
+Creates 10,000 objects while only 2 % of them are relevant for the object view. Then it executes `iterations` object views.
+
+### setStates
+Sets `iterations` states via `setState`
+
+### setStatesNonStrict
+Sets `iterations` states via `setState`, but `strictObjectChecks` are disabled.
+
+### setStatesParallel
+Adds 30 secondary instances, every instance will set `iterations` states. On system level, the instances are setting these states in parallel, but on instance level, the previous `setState` needs to be finished until the next one is set.
+This test aims to benchmark multicore systems.
+
+### statesDeletion
+Deletes `iterations` states via `delState`.
+
+### statesSubscription
+The controller instance subscribes on a specific namespace. 4 secondaries each set `iterations / 4` states. As soon as the controller received all `iterations` publishes, the test is finished.
+
+### statesSubscriptionAlias
+The controller instance subscribes on an alias namespace. 4 secondaries each set `iterations / 4` alias states. As soon as the controller received all `iterations` publishes, the test is finished.
+
+### statesSubscriptionAliasWrite
+The controller instance subscribes on an alias namespace. 4 secondaries each set `iterations / 4` alias states. As soon as the controller received all `iterations` publishes, the test is finished.
+The alias contains a simple write function.
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.0 (2021-11-24)
+* (foxriver76) we introduced some categories in the user interface
+* (foxriver76) we switched to checkboxes to allow to execute a subset of all tests
+
+### 0.3.2 (2021-11-23)
+* (foxriver76) we now also remove secondary instances on clean up
+
+### 0.3.1 (2021-11-23)
+* (foxriver76) we now prettify the summary file
+
+### 0.3.0 (2021-11-22)
+* (foxriver76) we added three `getObjectView` tests
+
 ### 0.2.0 (2021-11-20)
 * (foxriver76) we added a parallel `setState` test for multicore performance evaluation (closes #5)
 

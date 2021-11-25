@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.benchmark/README.md
 title: ioBroker.benchmark
-hash: v83y2upxVHdLiGirS5AzXEJuH+yNp8w8fAA0z/3zk/k=
+hash: rUUVjscVITKtSuwB4lU6fnF6HH/VHoidSaVqBT9yIds=
 ---
 ![Logo](../../../en/adapterref/iobroker.benchmark/admin/benchmark.png)
 
@@ -30,11 +30,89 @@ Die Benchmark-Tests können sehr lange dauern und Ihr System stark belasten. Bea
 3. Fügen Sie Ihren Test zu src/lib/allTests.ts hinzu
 4. Fügen Sie eine Schaltfläche und eine Übersetzung für Ihren Test zu admin/jsonConfig.json hinzu
 
+## Testbeschreibung
+### GetStates
+Führt `iterations` mal `getState` aus.
+
+### GetStateAlias
+Führt `iterations` mal `getState` auf einem Alias aus.
+
+### GetStateAliasRead
+Führt `iterations` mal `getState` auf einem Alias aus. Der Alias hat eine einfache Lesefunktion.
+
+### Leerlauf
+Wartet nur `iterations` ms.
+
+### Mitteilungen
+Erstellt eine sekundäre Benchmark-Instanz. Die Controller-Instanz sendet dann `iterations` Nachrichten an die sekundäre Instanz.
+Wenn alle Nachrichten empfangen wurden, ist der Test beendet.
+
+###ObjekteErstellung
+Erstellt `iterations` Objekte über `setObject`.
+
+###ObjekteLöschen
+Löscht `iterations` Objekte über `delObject`.
+
+### ObjectViewEqual
+Erzeugt 10.000 Objekte, von denen 50 % für die Objektansicht relevant sind. Dann führt es `iterations` Objektansichten aus.
+
+### ObjectViewLarge
+Erzeugt 10.000 Objekte, von denen 98% für die Objektansicht relevant sind. Dann führt es `iterations` Objektansichten aus.
+
+### ObjectViewSmall
+Erzeugt 10.000 Objekte, von denen nur 2 % für die Objektansicht relevant sind. Dann führt es `iterations` Objektansichten aus.
+
+### SetStates
+Setzt `iterations` Zustände über `setState`
+
+### SetStatesNonStrict
+Setzt `iterations` Zustände über `setState`, aber `strictObjectChecks` sind deaktiviert.
+
+### SetStatesParallel
+Fügt 30 sekundäre Instanzen hinzu, jede Instanz setzt `iterations`-Zustände. Auf Systemebene setzen die Instanzen diese Zustände parallel, aber auf Instanzebene müssen die vorherigen `setState` beendet werden, bis der nächste gesetzt wird.
+Dieser Test zielt darauf ab, Multicore-Systeme zu vergleichen.
+
+### StaatenLöschung
+Löscht `iterations` Staaten über `delState`.
+
+### StaatenAbonnement
+Die Controller-Instanz abonniert einen bestimmten Namespace. 4 Secondaries setzen jeweils `iterations / 4` Zustände. Sobald der Controller alle `iterations` Veröffentlichungen erhalten hat, ist der Test beendet.
+
+### StatesSubscriptionAlias
+Die Controller-Instanz abonniert einen Alias-Namespace. 4 Secondaries setzen jeweils `iterations / 4` Alias-Zustände. Sobald der Controller alle `iterations` Veröffentlichungen erhalten hat, ist der Test beendet.
+
+### StaatenSubscriptionAliasWrite
+Die Controller-Instanz abonniert einen Alias-Namespace. 4 Secondaries setzen jeweils `iterations / 4` Alias-Zustände. Sobald der Controller alle `iterations` Veröffentlichungen erhalten hat, ist der Test beendet.
+Der Alias enthält eine einfache Schreibfunktion.
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.0 (2021-11-24)
+* (foxriver76) we introduced some categories in the user interface
+* (foxriver76) we switched to checkboxes to allow to execute a subset of all tests
+
+### 0.3.2 (2021-11-23)
+* (foxriver76) we now also remove secondary instances on clean up
+
+### 0.3.1 (2021-11-23)
+* (foxriver76) we now prettify the summary file
+
+### 0.3.0 (2021-11-22)
+* (foxriver76) we added three `getObjectView` tests
+
+### 0.2.0 (2021-11-20)
+* (foxriver76) we added a parallel `setState` test for multicore performance evaluation (closes #5)
+
+### 0.1.15 (2021-11-19)
+* (foxriver76) internal simplification
+
+### 0.1.14 (2021-11-19)
+* (foxriver76) make cooldown dependent on test time (closes #4)
+* (foxriver76) on last iteration of last test we do not need to cooldown
+
 ### 0.1.13 (2021-10-25)
 * (foxriver76) fix iob executable to also work on Windows systems (closes #3)
 

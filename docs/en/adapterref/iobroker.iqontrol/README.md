@@ -1583,6 +1583,17 @@ This device has some special predefined size- and display-settings to show a tex
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.9.17 (2021-11-24)
+* (sbormann) Fixed ALTERNATIVE_COLORSPACE.
+
+### 1.9.16 (2021-11-23)
+* (sbormann) Enhanced viewport height scaling for collapsibles.
+
+### 1.9.15 (2021-11-23)
+* (sbormann) Updated dependencies.
+* (sbormann) Updated type-detector.
+* (sbormann) Some minor code adjustments.
+
 ### 1.9.14 (2021-11-21)
 * (sbormann) Added option to set colors for JSON-Table-Widget.
 * (sbormann) Fix for periods with role value.time.

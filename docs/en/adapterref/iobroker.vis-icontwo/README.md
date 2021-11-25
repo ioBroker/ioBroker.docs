@@ -63,6 +63,10 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ### 0.83.0
 
+• Neue Icons hinzugefügt (Devices)
+
+### 0.83.0
+
 • Neue Icons hinzugefügt (Animals)
 
 ### 0.82.0

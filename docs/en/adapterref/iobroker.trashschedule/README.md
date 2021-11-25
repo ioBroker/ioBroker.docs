@@ -227,8 +227,7 @@ iobroker add trashschedule
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.3.6 (2021-11-24)
 
 * (klein0r) Require new version for translated instance objects
 * (klein0r) Fixed timeout issues
