@@ -128,8 +128,10 @@ sudo chmod u+s `which ping`
 
 ## Changelog
 
-### 1.3.6-beta1 (01.06.2021)
+### 1.3.6-beta3 (01.06.2021)
 * (Stübi) Bugfixing
+* (Stübi) Fixed Issue #41 (Datenpunkte für Temperatur gehen nur bis 0)
+* (Stübi) Fixed Issue #34 (cpu load 4-5% higher with 1.3.5 compared to older versions)
 
 ### 1.3.5 (24.04.2021)
 * (Stübi) Add device keypad outdoor v2

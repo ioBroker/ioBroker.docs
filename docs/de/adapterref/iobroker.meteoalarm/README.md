@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: 1N63HbUPmqJoYu1TN6xx/mK+8qJRVuhzAIbmCya1Wis=
+hash: myzxzx2IbBbhqCzDcLoiykd93ttSwgxqzzWuo2qhjZw=
 ---
 ![Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -102,6 +102,11 @@ Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf github, und 
 * Portugal (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
 * Bulgarien (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
 
+## 2.0.8 (2021-11-26)
+* (jack-blackson) Neuer Datenpunkt "Anzahl aktiver Alarme" hinzugefügt
+* (jack-blackson) Paketinformationen angepasst
+* (jack-blackson) Bugfix Datumsdarstellung im HTML Widget für Warnungen 2 Tage im Voraus
+
 ## 2.0.7 (2021-10-01)
 * (jack-blackson) Bugfix
 
@@ -185,9 +190,9 @@ Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf github, und 
 * (jack-blackson) Kleine Bugfixes, Änderung vom Typ "Deamon" zu "Schedule"
 
 ## 1.0.2 (2019-08-25)
-* (jack-blackson) Infos zur Veröffentlichung nachbestellt
+* (jack-blackson) Nachbestellte Release-Infos
 
-### 1.0.1 (2019-08-18)
+### 1.0.1 (18.08.2019)
 * (jack-blackson) Bugfix kein Alarmsymbol
 
 ### 1.0.0 (2019-08-12)

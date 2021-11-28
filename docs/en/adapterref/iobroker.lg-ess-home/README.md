@@ -36,6 +36,8 @@ you can use any REST Client to get the password:
 This should give you the password and a status in return.
 
 ## Changelog
+### 0.1.0 (2021-11-27)
+* (Morluktom) Read chart data and data from the installer settings
 
 ### 0.0.10 (2021-05-04)
 * (Morluktom) Bugfix boolean value

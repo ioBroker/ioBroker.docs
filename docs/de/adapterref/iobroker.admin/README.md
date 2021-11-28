@@ -121,25 +121,22 @@ Auch die Repositorien und Sicherheitseinstellungen können hier eingestellt werd
 Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitts zu erreichen.
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 5.2.0 (2021-11-26)
 * (Apollon77) Fix crash cases reported via sentry
+* (bluefox) Added support for multi-repositories
 
 ### 5.1.28 (2021-11-10)
 * (bluefox) Fixed discovery function
 * (bluefox) Fixed some GUI bugs
 
 ### 5.1.25 (2021-08-15)
-* (bluefox) Corrected some errors reported via sentry and the github issues
+* (bluefox) Corrected some errors reported via sentry and the GitHub issues
 
 ### 5.1.23 (2021-08-05)
 * (bluefox) Corrected some errors reported via sentry
 
 ### 5.1.19 (2021-07-31)
 * (bluefox) Corrected some GUI errors
-
-### 5.1.17 (2021-07-30)
-* (bluefox) Corrected the error on the adapter's tab
 
 ## License
 The MIT License (MIT)

@@ -107,6 +107,11 @@ If you don't find your country, please create an issue on github, and I will be 
 
 ## Changelog
 
+## 2.0.8 (2021-11-26)
+* (jack-blackson) Added new datapoint "No. of active alarms"
+* (jack-blackson) Adjusted package information
+* (jack-blackson) Bugfix date-presentation in HTML Widget for warnings 2 days in advance
+
 ## 2.0.7 (2021-10-01)
 * (jack-blackson) Bugfix
 

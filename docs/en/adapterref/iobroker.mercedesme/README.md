@@ -19,6 +19,10 @@ Remote sind vorgefertige Remote Befehle
 
 ## Changelog
 
+### 0.0.55
+
+- fix refresh login
+  
 ### 0.0.54
 
 - fix login
