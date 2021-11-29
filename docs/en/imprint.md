@@ -4,7 +4,7 @@ lastChanged: 14.09.2018
 ---
 # Imprint
 ## According to § 5 TMG:
-**Firma:** ioBroker GmbH
+**Firma:** ioBroker Services GmbH
 
 **Address:** Lorenzstr. 16 76135 Karlsruhe,
 
@@ -12,7 +12,7 @@ lastChanged: 14.09.2018
 
 **VAT identification number acc. Section 27a UStG:** DE 312299367
 
-**Managing Director:** Khaeva Veronika
+**Managing Director:** Haeva Veronika
 
 ## Contact
 **E-Mail:** info@iobroker.net

@@ -8,7 +8,7 @@ hash: oHLSsCYZKEmJ1nCwPhNIbFt8WgjZL9+lo1C7AXkp7ic=
 ---
 # Выходные данные
 ## Информация в соответствии с § 5 TMG:
-** Компания: ** ioBroker GmbH
+** Компания: ** ioBroker Services GmbH
 
 ** Адрес: ** Лоренцстр. 16, 76135 Карлсруэ, Германия
 

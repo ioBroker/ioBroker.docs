@@ -8,7 +8,7 @@ hash: oHLSsCYZKEmJ1nCwPhNIbFt8WgjZL9+lo1C7AXkp7ic=
 ---
 ＃版本说明
 ##根据§5 TMG的信息：
-**公司：** ioBroker GmbH
+**公司：** ioBroker Services GmbH
 
 **地址：** Lorenzstr。 16，76135卡尔斯鲁厄，德国
 
@@ -16,7 +16,7 @@ hash: oHLSsCYZKEmJ1nCwPhNIbFt8WgjZL9+lo1C7AXkp7ic=
 
 **增值税识别号UStG第27a条：** DE 312299367
 
-**授权董事总经理：** Khaeva Veronika
+**授权董事总经理：** Haeva Veronika
 
 ##联系人
 **电子邮件：** info@iobroker.net
