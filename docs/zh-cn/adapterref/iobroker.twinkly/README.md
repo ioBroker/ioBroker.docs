@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.twinkly/README.md
 title: ioBroker.twinkly
-hash: /lG0DQSc6EvjJOdXRtxZRURjSWcr9Iiujz1V4IHVEOE=
+hash: CjzuLuu5QFvRShj9UOvdUm6DGT75u/KAHJ+zcP1sz4A=
 ---
-![商标](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
+![标识](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
 ![安装数量（最新）](http://iobroker.live/badges/twinkly-installed.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/twinkly-stable.svg)
@@ -30,7 +30,7 @@ hash: /lG0DQSc6EvjJOdXRtxZRURjSWcr9Iiujz1V4IHVEOE=
 在表格中，您可以添加所有要控制的 Twinkly 灯。
 
 |专栏 |说明 |
-| ------------ | ---------------------------------- |
+|--------------|------------------------------------|
 | `Enabled` |是否可以访问此连接？ |
 | `IP Address` |闪烁灯的 IP 地址 |
 | `IP 地址` |闪烁灯的 IP 地址 |
@@ -38,28 +38,76 @@ hash: /lG0DQSc6EvjJOdXRtxZRURjSWcr9Iiujz1V4IHVEOE=
 选中时，将为每个设备创建以下附加状态：
 
 * 设备信息（读取）
+* 附加配置信息（读取）
 * 网络状态（读取）
 * MQTT（读/写）
 
-[私有 API 信息](https://xled-docs.readthedocs.io/en/latest/) 由 [Pavol Babinčák]](https://github.com/scrool)
+以下状态可用：
+
+|状态 |可写 |说明 |
+|-------------------------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `activePlaylistMovie` | :x: |活动播放列表电影 |
+| `bri` | :heavy_check_mark: |亮度 |
+| `color` | :heavy_check_mark: | HSV/RGB/十六进制 |
+| `connected` | :x: |设备已连接 |
+| `firmware` | :x: |固件 |
+| `mode` | :heavy_check_mark: |模式：开、播放列表、颜色、关、实时（尚不支持）、演示、效果 |
+| `movie` | :heavy_check_mark: |活动电影，如果在播放列表功能中添加了多个电影，则可以在此处选择它们。仅适用于模式 `On`。 |
+| `mqtt` | :heavy_check_mark: | MQTT-连接|
+| `name` | :heavy_check_mark: |姓名 |
+| `network` | :x: |网络信息|
+| `on` | :heavy_check_mark: |开/关开关 |
+| `paused` | :heavy_check_mark: |暂停与 Twinkly 的连接，以便您可以在应用程序中进行更改。否则，您可能会在应用程序中工作时断开连接 |
+| `reloadMovies` | :heavy_check_mark: |重新加载电影（播放列表）|
+| `sat` | :heavy_check_mark: |饱和度|
+| `timer` | :heavy_check_mark: |更新计时器 |
+| `定时器` | :heavy_check_mark: |更新计时器 |
+
+[私有 API 信息](https://xled-docs.readthedocs.io/en/latest/) 作者 [Pavol Babinčák]](https://github.com/scrool)
 
 ## Changelog
 
-### 0.1.x
-* 8 - (patrickbs96) Changes from the Review
-* 6 - (patrickbs96) Update dependencies
-* 5 - (patrickbs96) Prevent Crash Case at HTTP Error (Sentry IOBROKER-TWINKLY-3)
-* 4 - (patrickbs96) Temporary removing Reset as API path not exists
-* 1 - (patrickbs96) Prevent Crash Case at HTTP Error (Sentry IOBROKER-TWINKLY-3)
+### 0.2.2 (2021-11-30)
+* (patrickbs96) Add Feature to change Color
 
-### 0.0.x
-* 10 - (patrickbs96) Restructured CreateStates (dynamic)
-*  9 - (patrickbs96) Network-Status (read)
-*  8 - (patrickbs96) Transform JSON into states: Details, MQTT and Timer
-*  7 - (patrickbs96) Moved Twinkly Connection into own library
-*  6 - (patrickbs96) Implemented Ping to check if Twinkly is connected. `Connected State` is no longer needed.
-*  3 - (patrickbs96) finalized Admin and Coding
-*  1 - (patrickbs96) initial release
+### 0.2.0 (2021-11-28)
+* (patrickbs96) Add new Value `color` from API-Response (Sentry IOBROKER-TWINKLY-J, IOBROKER-TWINKLY-K, IOBROKER-TWINKLY-M, IOBROKER-TWINKLY-N, IOBROKER-TWINKLY-P)
+* (patrickbs96) Add Pause-Feature, to work with app. (Twinkly only allows one active connection...)
+* (patrickbs96) Add Feature, activate uploaded Movies (Playlist) 
+
+### 0.1.15 (2021-10-26)
+* (patrickbs96) Add new Value `network.accesspoint.password_changed` from API-Response (Sentry IOBROKER-TWINKLY-A)
+
+### 0.1.14 (2021-10-23)
+* (patrickbs96) Add new Value `network.station.status` from API-Response (Sentry IOBROKER-TWINKLY-A, IOBROKER-TWINKLY-B)
+* (patrickbs96) Add new Value `network.details.product_version` from API-Response (Sentry IOBROKER-TWINKLY-E)
+* (patrickbs96) Add new Value `network.details.rssi` from API-Response (Sentry IOBROKER-TWINKLY-D)
+* (patrickbs96) Add new Value `color` from API-Response (Sentry IOBROKER-TWINKLY-7)
+
+### 0.1.13 (2021-10-13)
+* (patrickbs96) Add new Value `network.station.rssi` from API-Response (Sentry IOBROKER-TWINKLY-8)
+
+### 0.1.12 (2021-09-13)
+* (patrickbs96) Added new Values from Response (Sentry IOBROKER-TWINKLY-7)
+* (patrickbs96) Prevent excessive Sentry Logging 
+
+### 0.1.10 (2021-09-04)
+* (patrickbs96) Update API values to Firmware 2.7.1
+
+### 0.1.8 (2021-02-06)
+* (patrickbs96) Changes from the Review
+
+### 0.1.6
+* (patrickbs96) Update dependencies
+
+### 0.1.5
+* (patrickbs96) Prevent Crash Case at HTTP Error (Sentry IOBROKER-TWINKLY-3)
+
+### 0.1.4
+* (patrickbs96) Temporary removing Reset as API path not exists
+
+### 0.1.1
+* (patrickbs96) Prevent Crash Case at HTTP Error (Sentry IOBROKER-TWINKLY-3)
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fuelpricemonitor/README.md
 title: ioBroker.fuelpricemonitor
-hash: VveHgPApeFx1VhAc2EheNXz5kXX0ErbqiB6pBQmc9RI=
+hash: AeUcBDN0wVJmq8uwtmuZR/T6AhF+GYoA3TIyNJEZvjQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.fuelpricemonitor/admin/fuelpricemonitor.png)
 
@@ -24,13 +24,43 @@ hash: VveHgPApeFx1VhAc2EheNXz5kXX0ErbqiB6pBQmc9RI=
 
 ** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
-** РАБОТАЕТ С ВЕРСИЕЙ JSCONTROLER 3.2.16 ИЛИ ПОЗЖЕ! **
-
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.2.9 (2021-11-29)
+* (HGlab01) Bump iobroker-jsonexplorer to v0.1.8
+* (HGlab01) Replace ping-based internet-check with isOnline library
+
+### 0.2.8 (2021-11-16)
+* (HGlab01) Bump iobroker-jsonexplorer to v0.1.7
+* (HGlab01) Improve error handling
+
+### 0.2.7 (2021-10-16)
+* (HGlab01) Bump iobroker-jsonexplorer to v0.1.2
+* (HGlab01) don't report getaddrinfo issue on Sentry (IOBROKER-FUELPRICEMONITOR-2)
+* (HGlab01) add attribute 'uuid' (IOBROKER-FUELPRICEMONITOR-1B)
+
+### 0.2.6 (2021-07-24)
+* (HGlab01) Bump iobroker-jsonexplorer to v0.1.1
+* (HGlab01) Check internet connection on startup
+
+### 0.2.5 (2021-04-30)
+* (HGlab01) improve for js-controller v3.3.1
+* (HGlab01) Bump iobroker-jsonexplorer to v0.0.0-19
+
+### 0.2.4 (2021-04-21)
+* (HGlab01) add feature (experimental!) to sort by ID instead of price (helps to monitor one specific gas station)
+* (HGlab01) add attributes 'from', 'to', 'day' and 'orders'
+* (HGlab01) Bump iobroker-jsonexplorer to v0.0.0-18
+
+### 0.2.3 (2021-03-26)
+* (HGlab01) switch library from deprecated "request" to "axios"
+
+### 0.2.2 (2021-03-13)
+* (HGlab01) improve error handling and debug log
+
 ### 0.2.1 (2021-03-08)
 * (HGlab01) Bump js-controller to 3.2.16 for proper device/channel/state deletion
 * (HGlab01) use function deleteEverything from json-Explorer@0.0.13
@@ -53,13 +83,10 @@ hash: VveHgPApeFx1VhAc2EheNXz5kXX0ErbqiB6pBQmc9RI=
 ### 0.1.2 (2021-02-17)
 * (HGlab01) first beta version
 
-### 0.0.1-3 (2021-01-07)
-* (HGlab01) first alpha version
-
 ## License
 MIT License
 
-Copyright (c) 2021 HGlab01 <iobroker.fuelpricemonitor@gmail.com>
+Copyright (c) 2021 HGlab01 <iobroker.followthesun@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

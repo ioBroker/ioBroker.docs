@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: zRPLT4eM5yZIwiSFmOn9aCgS5xYjspvYTyyz2FEDjnM=
+hash: F00xH70gAyof0yLDWSd7FOTi5eeNQdkUMW3SushJrYM=
 ---
 ![标识](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
 
@@ -43,7 +43,7 @@ iobroker add octoprint
 
 ### 命令
 - 打印机：连接、断开和回家
-- 作业：开始、取消、重新启动
+- 作业：开始、暂停、恢复、取消、重启
 - SD 卡：初始化、刷新、释放
 - 自定义打印机命令
 - 系统命令
@@ -59,7 +59,7 @@ obj.common.enabled = false;
 setObject('system.adapter.octoprint.0', obj);
 ```
 
-由于 `API key` 是自 1.1.0 版以来的受保护属性，因此这将删除配置的 API 密钥。原因是 `getObject` 不返回受保护的信息（因此 api 密钥不包含在返回的对象中）。当您保存对象时，您将保存一个没有密钥的对象。
+由于 `API key` 是自 1.1.0 版以来的受保护属性，因此这将删除配置的 API 密钥。原因是， `getObject` 不返回受保护的信息（因此 api 密钥不包含在返回的对象中）。当您保存对象时，您将保存一个没有密钥的对象。
 
 请使用状态 `system.adapter.octoprint.0.alive` 来停止/启动实例。
 
@@ -72,6 +72,11 @@ setObject('system.adapter.octoprint.0', obj);
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+* (klein0r) Allow to pause/resume printjob
+
 ### 2.0.5 (2021-11-18)
 
 * (klein0r) Require new version for translated instance objects

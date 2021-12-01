@@ -19,13 +19,15 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!  
 
-**WORKS WITH JSCONTROLER VERSION 3.2.16 OR LATER!**
-
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.2.9 (2021-11-29)
+* (HGlab01) Bump iobroker-jsonexplorer to v0.1.8
+* (HGlab01) Replace ping-based internet-check with isOnline library
+
 ### 0.2.8 (2021-11-16)
 * (HGlab01) Bump iobroker-jsonexplorer to v0.1.7
 * (HGlab01) Improve error handling

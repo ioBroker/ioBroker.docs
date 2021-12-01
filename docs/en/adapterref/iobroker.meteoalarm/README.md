@@ -107,6 +107,9 @@ If you don't find your country, please create an issue on github, and I will be 
 
 ## Changelog
 
+## 2.0.9 (2021-11-27)
+* (jack-blackson) Calculate date in words correctly - this time for real :)
+
 ## 2.0.8 (2021-11-26)
 * (jack-blackson) Added new datapoint "No. of active alarms"
 * (jack-blackson) Adjusted package information

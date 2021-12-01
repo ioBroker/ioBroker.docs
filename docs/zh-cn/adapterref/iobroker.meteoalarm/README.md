@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: myzxzx2IbBbhqCzDcLoiykd93ttSwgxqzzWuo2qhjZw=
+hash: wEB5tSyq3+CQ1EsgcxXp5ZXHWgy8bt+gMyPh5KpkZaM=
 ---
 ![标识](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -102,10 +102,13 @@ ioBroker的meteoalarm适配器---------------------------------------------- ---
 * 葡萄牙（来自meteoalarm.org 的地理编码文件可能不正确）
 * 保加利亚（来自meteoalarm.org 的地理编码文件可能不正确）
 
+## 2.0.9 (2021-11-27)
+* (jack-blackson) 正确计算日期——这次是真的:)
+
 ## 2.0.8 (2021-11-26)
 * (jack-blackson) 添加了新的数据点“活动警报数”
 * (jack-blackson) 调整包信息
-* (jack-blackson) 修正 HTML Widget 中的日期显示以提前 2 天发出警告
+* (jack-blackson) 修正 HTML Widget 中的日期显示提前 2 天发出警告
 
 ## 2.0.7 (2021-10-01)
 *（杰克布莱克森）修正
@@ -115,7 +118,7 @@ ioBroker的meteoalarm适配器---------------------------------------------- ---
 * (jack-blackson) 修正“result.feed.entry.forEach is not a function”错误
 
 ## 2.0.5 (2021-08-15)
-* (jack-blackson) 修正文字日期
+* (jack-blackson) 用文字修正日期
 
 ## 2.0.4 (2021-08-13)
 * (jack-blackson) 修正自述链接

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.twinkly/README.md
 title: ioBroker.twinkly
-hash: /lG0DQSc6EvjJOdXRtxZRURjSWcr9Iiujz1V4IHVEOE=
+hash: CjzuLuu5QFvRShj9UOvdUm6DGT75u/KAHJ+zcP1sz4A=
 ---
 ![Логотип](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
@@ -30,7 +30,7 @@ hash: /lG0DQSc6EvjJOdXRtxZRURjSWcr9Iiujz1V4IHVEOE=
 В таблицу вы можете добавить все мерцающие огни, которыми хотите управлять.
 
 | Колонка | Описание |
-| ------------ | ---------------------------------- |
+|--------------|------------------------------------|
 | `Enabled` | Будет ли это соединение доступно |
 | `IP Address` | IP-адрес для мерцающих огней |
 | `IP-адрес` | IP-адрес для мерцающих огней |
@@ -38,28 +38,76 @@ hash: /lG0DQSc6EvjJOdXRtxZRURjSWcr9Iiujz1V4IHVEOE=
 При установке флажка для каждого устройства создаются следующие дополнительные состояния:
 
 * Информация об устройстве (читать)
+* Дополнительная информация о конфигурации (читать)
 * Состояние сети (читать)
 * MQTT (чтение / запись)
+
+Доступны следующие состояния:
+
+| Государство | Возможность записи | Описание |
+|-------------------------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `activePlaylistMovie` | : x: | Активный плейлист фильма |
+| `bri` | : heavy_check_mark: | Яркость |
+| `color` | : heavy_check_mark: | HSV / RGB / HEX |
+| `connected` | : x: | Устройство подключено |
+| `firmware` | : x: | Прошивка |
+| `mode` | : heavy_check_mark: | Mode: On, Playlist, Color, Off, RealTime (пока не поддерживается), Demo, Effect |
+| `movie` | : heavy_check_mark: | Активный фильм, если в функцию списка воспроизведения добавлено несколько фильмов, их можно выбрать здесь. Работает только в режиме `On`. |
+| `mqtt` | : heavy_check_mark: | MQTT-соединение |
+| `name` | : heavy_check_mark: | Имя |
+| `network` | : x: | Сетевая информация |
+| `on` | : heavy_check_mark: | Переключатель Вкл. / Выкл. |
+| `paused` | : heavy_check_mark: | Приостановите подключение к Twinkly, чтобы вы могли вносить изменения в приложение. В противном случае вы можете потерять соединение при работе в приложении |
+| `reloadMovies` | : heavy_check_mark: | Перезагрузить фильмы (плейлист) |
+| `sat` | : heavy_check_mark: | Насыщенность |
+| `timer` | : heavy_check_mark: | Обновите таймер |
+| `таймер` | : heavy_check_mark: | Обновите таймер |
 
 [Информация о частном API] (https://xled-docs.readthedocs.io/en/latest/) [Павол Бабинчак](https://github.com/scrool)
 
 ## Changelog
 
-### 0.1.x
-* 8 - (patrickbs96) Changes from the Review
-* 6 - (patrickbs96) Update dependencies
-* 5 - (patrickbs96) Prevent Crash Case at HTTP Error (Sentry IOBROKER-TWINKLY-3)
-* 4 - (patrickbs96) Temporary removing Reset as API path not exists
-* 1 - (patrickbs96) Prevent Crash Case at HTTP Error (Sentry IOBROKER-TWINKLY-3)
+### 0.2.2 (2021-11-30)
+* (patrickbs96) Add Feature to change Color
 
-### 0.0.x
-* 10 - (patrickbs96) Restructured CreateStates (dynamic)
-*  9 - (patrickbs96) Network-Status (read)
-*  8 - (patrickbs96) Transform JSON into states: Details, MQTT and Timer
-*  7 - (patrickbs96) Moved Twinkly Connection into own library
-*  6 - (patrickbs96) Implemented Ping to check if Twinkly is connected. `Connected State` is no longer needed.
-*  3 - (patrickbs96) finalized Admin and Coding
-*  1 - (patrickbs96) initial release
+### 0.2.0 (2021-11-28)
+* (patrickbs96) Add new Value `color` from API-Response (Sentry IOBROKER-TWINKLY-J, IOBROKER-TWINKLY-K, IOBROKER-TWINKLY-M, IOBROKER-TWINKLY-N, IOBROKER-TWINKLY-P)
+* (patrickbs96) Add Pause-Feature, to work with app. (Twinkly only allows one active connection...)
+* (patrickbs96) Add Feature, activate uploaded Movies (Playlist) 
+
+### 0.1.15 (2021-10-26)
+* (patrickbs96) Add new Value `network.accesspoint.password_changed` from API-Response (Sentry IOBROKER-TWINKLY-A)
+
+### 0.1.14 (2021-10-23)
+* (patrickbs96) Add new Value `network.station.status` from API-Response (Sentry IOBROKER-TWINKLY-A, IOBROKER-TWINKLY-B)
+* (patrickbs96) Add new Value `network.details.product_version` from API-Response (Sentry IOBROKER-TWINKLY-E)
+* (patrickbs96) Add new Value `network.details.rssi` from API-Response (Sentry IOBROKER-TWINKLY-D)
+* (patrickbs96) Add new Value `color` from API-Response (Sentry IOBROKER-TWINKLY-7)
+
+### 0.1.13 (2021-10-13)
+* (patrickbs96) Add new Value `network.station.rssi` from API-Response (Sentry IOBROKER-TWINKLY-8)
+
+### 0.1.12 (2021-09-13)
+* (patrickbs96) Added new Values from Response (Sentry IOBROKER-TWINKLY-7)
+* (patrickbs96) Prevent excessive Sentry Logging 
+
+### 0.1.10 (2021-09-04)
+* (patrickbs96) Update API values to Firmware 2.7.1
+
+### 0.1.8 (2021-02-06)
+* (patrickbs96) Changes from the Review
+
+### 0.1.6
+* (patrickbs96) Update dependencies
+
+### 0.1.5
+* (patrickbs96) Prevent Crash Case at HTTP Error (Sentry IOBROKER-TWINKLY-3)
+
+### 0.1.4
+* (patrickbs96) Temporary removing Reset as API path not exists
+
+### 0.1.1
+* (patrickbs96) Prevent Crash Case at HTTP Error (Sentry IOBROKER-TWINKLY-3)
 
 ## License
 MIT License

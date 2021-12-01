@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: zRPLT4eM5yZIwiSFmOn9aCgS5xYjspvYTyyz2FEDjnM=
+hash: F00xH70gAyof0yLDWSd7FOTi5eeNQdkUMW3SushJrYM=
 ---
 ![Logo](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
 
@@ -22,7 +22,7 @@ Adapter zum Verbinden von OctoPrint mit ioBroker
 
 **Getestet mit [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.7.2**
 
-## Installation
+##Installation
 Bitte verwenden Sie die "Adapterliste" in ioBroker, um eine stabile Version dieses Adapters zu installieren. Sie können diesen Adapter auch über die CLI installieren:
 
 ```
@@ -43,7 +43,7 @@ iobroker add octoprint
 
 ###Befehle
 - Drucker: Verbinden, trennen und nach Hause
-- Job: Starten, Abbrechen, Neustart
+- Job: Start, Pause, Fortsetzen, Abbrechen, Neustart
 - SD-Karte: Init, Refresh, Release
 - Benutzerdefinierte Druckerbefehle
 - Systembefehle
@@ -72,6 +72,11 @@ Bitte verwenden Sie den Zustand `system.adapter.octoprint.0.alive`, um die Insta
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+* (klein0r) Allow to pause/resume printjob
+
 ### 2.0.5 (2021-11-18)
 
 * (klein0r) Require new version for translated instance objects

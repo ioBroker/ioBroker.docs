@@ -74,6 +74,9 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
+### 5.2.1 (2021-11-28)
+* (bluefox) Allow in expert mode the creation of states and channels in mqtt branch
+
 ### 5.2.0 (2021-11-26)
 * (Apollon77) Fix crash cases reported via sentry
 * (bluefox) Added support for multi-repositories
@@ -87,9 +90,6 @@ lettering of the log appears in red.
 
 ### 5.1.23 (2021-08-05)
 * (bluefox) Corrected some errors reported via sentry
-
-### 5.1.19 (2021-07-31)
-* (bluefox) Corrected some GUI errors
 
 ## License
 The MIT License (MIT)

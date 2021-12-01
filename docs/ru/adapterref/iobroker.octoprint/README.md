@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: zRPLT4eM5yZIwiSFmOn9aCgS5xYjspvYTyyz2FEDjnM=
+hash: F00xH70gAyof0yLDWSd7FOTi5eeNQdkUMW3SushJrYM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
 
@@ -43,7 +43,7 @@ iobroker add octoprint
 
 ### Команды
 - Принтер: подключите, отключите и вернитесь домой
-- Задание: запуск, отмена, перезапуск
+- Задание: запуск, пауза, возобновление, отмена, перезапуск
 - SD-карта: инициализация, обновление, выпуск
 - Пользовательские команды принтера
 - Системные команды
@@ -72,6 +72,11 @@ setObject('system.adapter.octoprint.0', obj);
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+* (klein0r) Allow to pause/resume printjob
+
 ### 2.0.5 (2021-11-18)
 
 * (klein0r) Require new version for translated instance objects

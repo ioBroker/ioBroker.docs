@@ -52,6 +52,13 @@ You can use the nanoleaf vis demo project found in the /vis subfolder on github.
 
 ## Changelog
 
+### 1.3.0 (2021-11-28)
+* (daniel_2k) new: nanoleaf Lines supported
+* (daniel_2k) new: nanoleaf Elements supported
+* (daniel_2k) new: added state for writing custom effects and reading effects
+* (daniel_2k) changed: due to firmware errors in canvas and shapes, IP address from packet header is used instead of location (because it's empty) for SSDP MSEARCH and NOTIFY
+* (daniel_2k) fixed: devices were not deleted completely on device identification change
+
 ### 1.2.1 (2021-06-20)
 * (daniel_2k) fixed: get a new authorization token is not possible when the current token is already invalid
 * (daniel_2k) fixed: device search in admin settings fixed

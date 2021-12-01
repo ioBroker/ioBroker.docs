@@ -59,6 +59,9 @@ In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x some
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.3.13-alpha.0 (2021-11-29)
+* (HGlab01) Optimize internet-check by using isOnline-library
+
 ### 0.3.12 (2021-11-25)
 * (HGlab01) support attribute 'showScheduleSetup'
 * (HGlab01) fix HOT_WATER device issue with temperature
