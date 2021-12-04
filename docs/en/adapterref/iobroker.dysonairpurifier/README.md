@@ -30,8 +30,9 @@ Fan-Icon in Logo created by [Freepik](https://www.flaticon.com/de/autoren/freepi
 * Dyson Pure Hot+Cool, 2018 model (HP04, ProductType 527)
 * Dyson Pure Hot+Cool (HP07, ProductType 527E)
 * Dyson Pure Humidify+Cool (PH01, ProductType 358)
-## Features
+* Dyson Pure Humidify+Cool (PH03, ProductType 358E)
 
+## Features
 Connects your Dyson fans, fan heaters, air purifiers, and air humidifiers to ioBroker.
 
 * Reads values from devices and sensors
@@ -142,9 +143,14 @@ Which is what the dyson app does also.
 
 ## Changelog
 
+### V2.3.0 (2021-12-02) (Fairytale of doom)
+* (grizzelbee) New: Added some GUI elements for air quality in folder icons
+* (grizzelbee) New: Added support for HEPA PTFE filters
+* (grizzelbee) New: Added support for Combined PTFE filters
+* (grizzelbee) Chg: Fanspeed is now a number (not string anymore) to work properly with IoT-Adapter. Please delete this data point and let get recreated. 
+
 ### V2.2.0 (2021-11-07) (Welcome to my wasteland)
 * (grizzelbee) New: [#154](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/154) Added support for dyson Humidify+Cool PH03/358E.
-
 
 ### V2.1.4 (2021-10-20) (Running to the edge)
 * (grizzelbee) New: [#152](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/152) Added token-indicator to config page in admin to show whether a token has already been received and saved or not.
@@ -314,7 +320,7 @@ Which is what the dyson app does also.
 * (grizzelbee) Fix: Added missing clearTimeout
 
 ### V0.5.0 (2020-10-27) (Heart of the hurricane)
-* (grizzelbee) New: Editable data fields have now appropiate value lists
+* (grizzelbee) New: Editable data fields have now appropriate value lists
 * (grizzelbee) New: Added more country codes
 * (grizzelbee) New: Target temperature of heater can now be set - **in the configured unit!**
 * (grizzelbee) Fix: [#13](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/13) - Filter life value is now displayed in percent not in hours
@@ -362,96 +368,95 @@ Information copied and extended from <https://github.com/shadowwa/Dyson-MQTT2RRD
 
 ### CURRENT-STATE
 
-| name | meaning | possible values | Unit |
-| ------------- | ----- | ----- | ----- |
-| mode-reason | Current Mode has been set by RemoteControl, App, Scheduler | PRC, LAPP, LSCH, PUI | |
-| state-reason | | MODE | |  
-| rssi | WIFI Strength| -100 - 0| dBm|
-| channel| WIFI Channel| 52 | |
-| fqhp | | 96704 | |
-| fghp | | 70480 | |
+| name         | meaning                                                    | possible values      | Unit |
+|--------------|------------------------------------------------------------|----------------------|------|
+| mode-reason  | Current Mode has been set by RemoteControl, App, Scheduler | PRC, LAPP, LSCH, PUI |      |
+| state-reason |                                                            | MODE                 |      |  
+| rssi         | WIFI Strength                                              | -100 - 0             | dBm  |
+| channel      | WIFI Channel                                               | 52                   |      |
+| fqhp         |                                                            | 96704                |      |
+| fghp         |                                                            | 70480                |      |
 
 #### product-state
 
-| name | meaning | possible values | Unit |
-| ------------- | ----- | ----- | ----- |
-| ercd | Last Error Code | NONE , or some hexa values |  |
-| filf | remaining Filter life | 0000 - 4300 | hours|
-| fmod | Mode | FAN , AUTO, OFF | |
-| fpwr | Main Power | ON, OFF | |
-| fnst | Fan Status | ON , OFF, FAN | |
-| fnsp | Fan speed | 0001 - 0010, AUTO | |
-| fdir | Fandirection aka. Jet focus/ ON=Front, OFF=Back | ON, OFF | |
-| ffoc | JetFocus | ON, OFF |
-| nmod | Night mode | ON , OFF | |
-| oson | Oscillation | ON , OFF| |
-| osal | OscillationAngle Lower Boundary | 0005 - 355| °  (degrees)|
-| osau | OscillationAngle Upper Boundary | 0005 - 355 | °  (degrees)|
-| oscs | OscillationActive | ON, OFF, IDLE | |
-| ancp | OscillationAngle  | CUST, 0180 |° (degrees)|
-| qtar | Air Quality target | 0001=Good, 0002=Normal, 0003=Bad, 0004=Very bad | |
-| rhtm | Continuous Monitoring | ON, OFF | |
-| auto | AutomaticMode | ON, OFF | |
-| nmdv | NightMode Max Fanspeed? | 0004 | |
-| cflr | Status Carbonfilter  | 0000 - 0100 | Percent |
-| cflt | Carbonfilter | CARF, NONE | |
-| hflr | Status HEPA-Filter | 0000 - 0100 | Percent |
-| hflt | HEPA-Filter | GHEP, GCOM | |
-| sltm | Sleeptimer | ON, OFF ||
-| hmod | Heater Mode [ON/OFF] | HEAT | |
-| hmax | Target temperature for heating | 0 .. 5000 | K |
-| hume | HumidificationMode     | ON, OFF, |
-| haut | Humidify Auto Mode|         HUMIDIFY_AUTO_MODE_ON, HUMIDIFY_AUTO_MODE_OFF |
-| humt | Humidification Target| HUMIDIFICATION_MODE_OFF, HUMIDIFICATION_MODE_THIRTY, HUMIDIFICATION_MODE_FORTY, HUMIDIFICATION_MODE_FIFTY, HUMIDIFICATION_MODE_SIXTY, HUMIDIFICATION_MODE_SEVENTY |
-| cdrr | CleanDurationRemaining| integer |  minutes |
-| rect | AutoHumidificationTarget| integer | % |
-| cltr | TimeRemainingToNextClean| integer| hours |
-| wath | WaterHardness| SOFT="2025", MEDIUM="1350", HARD="0675"|
-| wacd | WarningCode  | NONE... | 
-| rstf | reset filter lifecycle | 'RSTF', 'STET',  RESET_FILTER_LIFE_IGNORE, RESET_FILTER_LIFE_ACTION
-| corf | Temperature format | ON=Celsius, OFF=Fahrenheit |
-| clcr | DeepcleanCycle | CLNO=inactive, CLAC=Deep clean in progress, CLCM=Finished |
-| hsta | Heating state | ACTIVE/IDLE |
-| msta | Humidification state | Active/Idle   OFF, HUMD |
-| psta | [HP0x] Unknown | INIT, CLNG, INV, OFF |
-| bril | unknown | 0002 | LEVEL_LOW, LEVEL_MEDIUM, LEVEL_HIGH |    
-| fqhp | unknown| |
-| tilt | [HP0x] Unknown | string |
-| dial | [DP0x] Unknown |  | 
+| name | meaning                                         | possible values                                                                                                                                                   | Unit                                |
+|------|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
+| ercd | Last Error Code                                 | NONE , or some hexa values                                                                                                                                        |                                     |
+| filf | remaining Filter life                           | 0000 - 4300                                                                                                                                                       | hours                               |
+| fmod | Mode                                            | FAN , AUTO, OFF                                                                                                                                                   |                                     |
+| fpwr | Main Power                                      | ON, OFF                                                                                                                                                           |                                     |
+| fnst | Fan Status                                      | ON , OFF, FAN                                                                                                                                                     |                                     |
+| fnsp | Fan speed                                       | 0001 - 0010, AUTO                                                                                                                                                 |                                     |
+| fdir | Fandirection aka. Jet focus/ ON=Front, OFF=Back | ON, OFF                                                                                                                                                           |                                     |
+| ffoc | JetFocus                                        | ON, OFF                                                                                                                                                           |                                     |
+| nmod | Night mode                                      | ON , OFF                                                                                                                                                          |                                     |
+| oson | Oscillation                                     | ON , OFF                                                                                                                                                          |                                     |
+| osal | OscillationAngle Lower Boundary                 | 0005 - 355                                                                                                                                                        | °  (degrees)                        |
+| osau | OscillationAngle Upper Boundary                 | 0005 - 355                                                                                                                                                        | °  (degrees)                        |
+| oscs | OscillationActive                               | ON, OFF, IDLE                                                                                                                                                     |                                     |
+| ancp | OscillationAngle                                | CUST, 0180                                                                                                                                                        | ° (degrees)                         |
+| qtar | Air Quality target                              | 0001=Good, 0002=Normal, 0003=Bad, 0004=Very bad                                                                                                                   |                                     |
+| rhtm | Continuous Monitoring                           | ON, OFF                                                                                                                                                           |                                     |
+| auto | AutomaticMode                                   | ON, OFF                                                                                                                                                           |                                     |
+| nmdv | NightMode Max Fanspeed?                         | 0004                                                                                                                                                              |                                     |
+| cflr | Status Carbonfilter                             | 0000 - 0100                                                                                                                                                       | Percent                             |
+| cflt | Carbonfilter                                    | CARF, NONE                                                                                                                                                        |                                     |
+| hflr | Status HEPA-Filter                              | 0000 - 0100                                                                                                                                                       | Percent                             |
+| hflt | HEPA-Filter                                     | GHEP, GCOM                                                                                                                                                        |                                     |
+| sltm | Sleeptimer                                      | ON, OFF                                                                                                                                                           ||     |
+| hmod | Heater Mode [ON/OFF]                            | HEAT                                                                                                                                                              |                                     |
+| hmax | Target temperature for heating                  | 0 .. 5000                                                                                                                                                         | K                                   |
+| hume | HumidificationMode                              | ON, OFF,                                                                                                                                                          |                                     |
+| haut | Humidify Auto Mode                              | HUMIDIFY_AUTO_MODE_ON, HUMIDIFY_AUTO_MODE_OFF                                                                                                                     |                                     |
+| humt | Humidification Target                           | HUMIDIFICATION_MODE_OFF, HUMIDIFICATION_MODE_THIRTY, HUMIDIFICATION_MODE_FORTY, HUMIDIFICATION_MODE_FIFTY, HUMIDIFICATION_MODE_SIXTY, HUMIDIFICATION_MODE_SEVENTY |                                     |
+| cdrr | CleanDurationRemaining                          | integer                                                                                                                                                           | minutes                             |
+| rect | AutoHumidificationTarget                        | integer                                                                                                                                                           | %                                   |
+| cltr | TimeRemainingToNextClean                        | integer                                                                                                                                                           | hours                               |
+| wath | WaterHardness                                   | SOFT="2025", MEDIUM="1350", HARD="0675"                                                                                                                           |                                     |
+| wacd | WarningCode                                     | NONE...                                                                                                                                                           |                                     |
+| rstf | reset filter lifecycle                          | 'RSTF', 'STET',  RESET_FILTER_LIFE_IGNORE, RESET_FILTER_LIFE_ACTION                                                                                               |                                     |
+| corf | Temperature format                              | ON=Celsius, OFF=Fahrenheit                                                                                                                                        |                                     |
+| clcr | DeepcleanCycle                                  | CLNO=inactive, CLAC=Deep clean in progress, CLCM=Finished                                                                                                         |                                     |
+| hsta | Heating state                                   | ACTIVE/IDLE                                                                                                                                                       |                                     |
+| msta | Humidification state                            | Active/Idle   OFF, HUMD                                                                                                                                           |                                     |
+| psta | [HP0x] Unknown                                  | INIT, CLNG, INV, OFF                                                                                                                                              |                                     |
+| bril | unknown                                         | 0002                                                                                                                                                              | LEVEL_LOW, LEVEL_MEDIUM, LEVEL_HIGH |    
+| fqhp | unknown                                         |                                                                                                                                                                   |                                     |
+| tilt | [HP0x] Unknown                                  | string                                                                                                                                                            |                                     |
+| dial | [DP0x] Unknown                                  |                                                                                                                                                                   |                                     |
 
-
-|Error-Codes| Meaning |
-| ----- | ----- |
-| NONE | There is no error active |
-|57C2| unknown |
-|11E1| Oscillation has been disabled. Please press Button "Oscillation" on your remote to continue.|
+| Error-Codes | Meaning                                                                                      |
+|-------------|----------------------------------------------------------------------------------------------|
+| NONE        | There is no error active                                                                     |
+| 57C2        | unknown                                                                                      |
+| 11E1        | Oscillation has been disabled. Please press Button "Oscillation" on your remote to continue. |
 
 #### scheduler
 
-| name | meaning | possible values | Unit |
-| ------------- | ----- | ----- | ----- |
-| dstv | daylightSavingTime | 0001... | |
-| srsc | ? | 7c68... | |
-| tzid | timezone? | 0001... | |
+| name | meaning            | possible values | Unit |
+|------|--------------------|-----------------|------|
+| dstv | daylightSavingTime | 0001...         |      |
+| srsc | ?                  | 7c68...         |      |
+| tzid | timezone?          | 0001...         |      |
 
 ### ENVIRONMENTAL-CURRENT-SENSOR-DATA
 
 #### data
 
-| name | meaning | possible values | Unit |
-| ------------- | ----- | ----- | ----- |
-| hact | Humidity (%) | 0000 - 0100 | Percent |
-| pact | Dust | 0000 - 0009 | |
-| sltm | Sleep timer | OFF... 9999 | Minutes |
-| tact | Temperature in Kelvin | 0000 - 5000 | K|
-| vact | volatile organic compounds | 0001 - 0009 | |
-| hcho | Formaldehyde||
-| pm25 |  PM2.5 |0018||
-| pm10 |  PM10 |0011||
-| va10 |  volatile organic compounds|0004||
-| noxl |  NO2 |0000 - 0014||
-| p25r |  |0019||
-| p10r |  |0018||
+| name | meaning                    | possible values | Unit    |
+|------|----------------------------|-----------------|---------|
+| hact | Humidity (%)               | 0000 - 0100     | Percent |
+| pact | Dust                       | 0000 - 0009     |         |
+| sltm | Sleep timer                | OFF... 9999     | Minutes |
+| tact | Temperature in Kelvin      | 0000 - 5000     | K       |
+| vact | volatile organic compounds | 0001 - 0009     |         |
+| hcho | Formaldehyde               ||
+| pm25 | PM2.5                      | 0018            ||
+| pm10 | PM10                       | 0011            ||
+| va10 | volatile organic compounds | 0004            ||
+| noxl | NO2                        | 0000 - 0014     ||
+| p25r |                            | 0019            ||
+| p10r |                            | 0018            ||
 
 ### ENVIRONMENTAL-AND-USAGE-DATA
 
@@ -459,20 +464,20 @@ Redundant values?
 
 #### data
 
-| name | meaning | possible values | Unit |
-| ------------- | ----- | ----- | ----- |
-| pal0 - pal9 | number of second spend in this level of dust since the beginning of hour | 0000 - 3600 | |
-| palm | seems to be a median value of palX |  | |
-| vol0 - vol9 | number of second spend in this level of voc since the beginning of hour | 0000 - 3600 | |
-| volm | seems to be a median value of volX |  | |
-| aql0 - aql9 | number of second spend in this level of air quality | max (pal, vol)) since the beginning of hour | 0000 - 3600 | |
-| aqlm | seems to be a median value of aqlX |  | |
-| fafs | seems to be a number of seconds spend in a specific time | 0000 - 3600 | |
-| faos | seems to be a number of seconds spend in a specific time | 0000 - 3600 | |
-| fofs | seems to be a number of seconds spend in a specific time | 0000 - 3600 | |
-| fons | seems to be a number of seconds spend in a specific time | 0000 - 3600 | |
-| humm | humidity ? (%) | 0000 - 0100 | |
-| tmpm | temperature in kelvin ? | 0000 - 5000 | |
+| name        | meaning                                                                  | possible values                             | Unit        |
+|-------------|--------------------------------------------------------------------------|---------------------------------------------|-------------|
+| pal0 - pal9 | number of second spend in this level of dust since the beginning of hour | 0000 - 3600                                 |             |
+| palm        | seems to be a median value of palX                                       |                                             |             |
+| vol0 - vol9 | number of second spend in this level of voc since the beginning of hour  | 0000 - 3600                                 |             |
+| volm        | seems to be a median value of volX                                       |                                             |             |
+| aql0 - aql9 | number of second spend in this level of air quality                      | max (pal, vol)) since the beginning of hour | 0000 - 3600 | |
+| aqlm        | seems to be a median value of aqlX                                       |                                             |             |
+| fafs        | seems to be a number of seconds spend in a specific time                 | 0000 - 3600                                 |             |
+| faos        | seems to be a number of seconds spend in a specific time                 | 0000 - 3600                                 |             |
+| fofs        | seems to be a number of seconds spend in a specific time                 | 0000 - 3600                                 |             |
+| fons        | seems to be a number of seconds spend in a specific time                 | 0000 - 3600                                 |             |
+| humm        | humidity ? (%)                                                           | 0000 - 0100                                 |             |
+| tmpm        | temperature in kelvin ?                                                  | 0000 - 5000                                 |             |
 
 ## Legal Notices
 

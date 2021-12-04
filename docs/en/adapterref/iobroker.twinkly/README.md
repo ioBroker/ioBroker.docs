@@ -33,31 +33,31 @@ In the table you can add all the Twinkly lights you want to control.
 | `IP Address` | IP-Address to the Twinkly Lights   |
 
 The following additionals States are created per device when checked:
-* Device Info (read)
-* Additional Config Information (read)
-* Network Status (read)
-* MQTT (read/write)
+* Device Info
+* Network Status
+* MQTT
 
 
 The following States are available:
 
 | State                         | Writable           | Description                                                                                                                     |
 |-------------------------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `activePlaylistMovie`         | :x:                | Active Playlist Movie                                                                                                           |
-| `activePlaylistMovieDuration` | :x:                | Active Playlist Movie Duration                                                                                                  |
-| `bri`                         | :heavy_check_mark: | Brightness                                                                                                                      |
-| `color`                       | :heavy_check_mark: | HSV/RGB/HEX                                                                                                                     |
+| `activePlaylistMovie`         | :x:                | Active Playlist Movie  (Mode `Playlist`)                                                                                        |
+| `activePlaylistMovieDuration` | :x:                | Active Playlist Movie Duration  (Mode `Playlist`)                                                                               |
+| `bri`                         | :heavy_check_mark: | Brightness (deactivate control by setting -1)                                                                                   |
+| `color`                       | :heavy_check_mark: | HSV/RGB(W)/HEX                                                                                                                  |
 | `connected`                   | :x:                | Device Connected                                                                                                                |
+| `effect`                      | :heavy_check_mark: | Effects (Mode `Effect`)                                                                                                         |
 | `firmware`                    | :x:                | Firmware                                                                                                                        |
 | `mode`                        | :heavy_check_mark: | Mode: On, Playlist, Color, Off, RealTime (not yet supported), Demo, Effect                                                      |
-| `movie`                       | :heavy_check_mark: | Active Movie, If multiple Movies are added in the Playlist feature then they can be selected here. Works only in Mode `On`.     |
+| `movie`                       | :heavy_check_mark: | Active Movie, If multiple Movies are added in the Playlist feature then they can be selected here.  (Mode `On`)                 |
 | `mqtt`                        | :heavy_check_mark: | MQTT-Connection                                                                                                                 |
 | `name`                        | :heavy_check_mark: | Name                                                                                                                            |
 | `network`                     | :x:                | Network-Information                                                                                                             |
 | `on`                          | :heavy_check_mark: | On/Off Switch                                                                                                                   |
 | `paused`                      | :heavy_check_mark: | Pause Connection to Twinkly so you can do changes in the App. Otherwise you might loose the connection while working in the App |
-| `reloadMovies`                | :heavy_check_mark: | Reload the Movies (Playlist)                                                                                                    |
-| `sat`                         | :heavy_check_mark: | Saturation                                                                                                                      |
+| `reloadMovies`                | :heavy_check_mark: | Reload the available Movies                                                                                                     |
+| `sat`                         | :heavy_check_mark: | Saturation 0-100 (deactivate control by setting -1)                                                                             |
 | `timer`                       | :heavy_check_mark: | Update the Timer                                                                                                                |
 
 
@@ -65,6 +65,10 @@ The following States are available:
 [Private API information](https://xled-docs.readthedocs.io/en/latest/) by [Pavol Babinčák](https://github.com/scrool)
 
 ## Changelog
+
+### 0.2.4 (2021-12-03)
+* (patrickbs96) Handle wrong input so it does not cause exceptions
+* (patrickbs96) Add Feature to change Effect
 
 ### 0.2.2 (2021-11-30)
 * (patrickbs96) Add Feature to change Color

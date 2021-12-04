@@ -57,10 +57,15 @@ adapter<br>
 │ │ │ ├ battery<br>
 │ │ │ ├ battery_percentage<br>
 │ │ │ ├ online<br>
-│ │ │ ├ control<br>
-│ │ │ │ └ close_delay<br>
-│ │ │ └ assigned_pets<br>
-│ │ │ &nbsp;&nbsp;&nbsp; └ pet_name<br>
+│ │ │ ├ assigned_pets<br>
+│ │ │ │ └ pet_name<br>
+│ │ │ ├ bowls<br>
+│ │ │ │ └ 0..1<br>
+│ │ │ │ &nbsp;&nbsp;&nbsp; ├ food_type<br>
+│ │ │ │ &nbsp;&nbsp;&nbsp; ├ target<br>
+│ │ │ │ &nbsp;&nbsp;&nbsp; └ weight<br>
+│ │ │ └ control<br>
+│ │ │ &nbsp;&nbsp;&nbsp; └ close_delay<br>
 │ │ └ flap_name<br>
 │ │ &nbsp;&nbsp;&nbsp; ├ battery<br>
 │ │ &nbsp;&nbsp;&nbsp; ├ battery_percentage<br>
@@ -88,9 +93,15 @@ adapter<br>
 │ │ &nbsp;&nbsp;&nbsp; └ ...<br>
 │ └ pets<br>
 │ &nbsp;&nbsp;&nbsp; └ pet_name<br>
-│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ name<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ inside<br>
-│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ since<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ name<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ since<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ food<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ last_time_eaten<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ time_spent<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ times_eaten<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ dry..wet<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ weight<br>
 └ info<br>
 &nbsp;&nbsp;&nbsp; ├ all_devices_online<br>
 &nbsp;&nbsp;&nbsp; ├ connection<br>
@@ -103,6 +114,10 @@ SureFlap® and Sure Petcare® are registered trademarks of [SureFlap Ltd.](https
 The picture of the cat flap, hub and smartphone app is provided free to use from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
+
+### 1.0.8 (2021-11-22)
+* (Sickboy78) added food type, target weight and remaining food in feeder
+* (Sickboy78) added todays pet food consumption, times eaten and time spent
 
 ### 1.0.7 (2021-11-02)
 * (Sickboy78) added history

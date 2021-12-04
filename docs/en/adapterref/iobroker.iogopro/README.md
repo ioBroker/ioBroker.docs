@@ -19,6 +19,10 @@ Please visit www.iogo.app for more information on getting started.
 ## Configuration
 You need a valid api-secret for this adapter, which you could generate in the ioGO-PRO App.
 
+## States
+All states are based on the role and the current value shown with a intuitive icon.
+A list of all available mapped icons is available here: [icons.png](https://github.com/nisiode/ioBroker.iogopro/blob/342d92454401fdf93f6ebae0e6a12ccef68ee1b5/img/icons.png)
+
 ## Usage
 You can send message to all authenticated users over messageBox `sendTo('iogo', 'New message')`
 or to specific user `sendTo('iogo', {user: 'Username', text: 'Test message'})`.

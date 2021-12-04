@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iogopro/README.md
 title: ioBroker.iogopro
-hash: pxsiahW6vh1LSCEmsEbx/36LN69+X4Hg641BmzaThkE=
+hash: PLPDqGY4SCLSFRMMIZKWZJwVEk3Fx86a5KTvwek6Arg=
 ---
 ![标识](../../../en/adapterref/iobroker.iogopro/admin/iogopro.png)
 
@@ -19,10 +19,14 @@ hash: pxsiahW6vh1LSCEmsEbx/36LN69+X4Hg641BmzaThkE=
 
 ## Iogopro ioBroker 适配器
 此适配器将 ioBroker 连接到移动应用 ioGo PRO https://play.google.com/store/apps/details?id=de.nisnagel.iogopro。
-请访问 www.iogo.app 以获取有关入门的更多信息。
+请访问 www.iogo.app 了解更多关于入门的信息。
 
 ＃＃ 配置
-您需要为这个适配器提供一个有效的 api-secret，您可以在 ioGO-PRO 应用程序中生成它。
+您需要此适配器的有效 api-secret，您可以在 ioGO-PRO 应用程序中生成该信息。
+
+＃＃ 状态
+所有状态都基于角色和通过直观图标显示的当前值。
+此处提供了所有可用映射图标的列表：[图标.png](https://github.com/nisiode/ioBroker.iogopro/blob/342d92454401fdf93f6ebae0e6a12ccef68ee1b5/img/icons.png)
 
 ＃＃ 用法
 您可以通过 messageBox `sendTo('iogo', 'New message')` 或特定用户 `sendTo('iogo', {user: 'Username', text: 'Test message'})` 向所有经过身份验证的用户发送消息。
@@ -52,7 +56,7 @@ sendTo('iogo', {title: 'News', text: 'New message'}, function (res) {
 });
 ```
 
-只需发送图像的路径而不是文本或使用 url 属性 `sendTo('iogo.0', 'absolute/path/file.png')`
+只需将路径发送到您的图像而不是文本或使用 url 属性 `sendTo('iogo.0', 'absolute/path/file.png')`
 
 ```
 sendTo('iogo', {
@@ -76,6 +80,22 @@ sendTo('iogo', {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 0.2.5 (2021-10-27)
+* (nis) Automatisches Löschen von Locations
+
+### 0.2.4 (2021-10-18)
+* (nis) simplify admin ui for blocked enums
+
+### 0.2.2 (2021-10-04)
+* (nis) change sync of enum member changes
+
+### 0.2.1 (2021-09-21)
+* (nis) bugfix blocked enums
+
+### 0.2.0 (2021-09-21)
+* (nis) sync states only when value has changed
+* (nis) added list of blocked enums to instance config
 
 ### 0.1.0 (2021-09-12)
 * (nis) migrate current state from ioBroker.iogo

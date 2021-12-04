@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iogopro/README.md
 title: ioBroker.iogopro
-hash: pxsiahW6vh1LSCEmsEbx/36LN69+X4Hg641BmzaThkE=
+hash: PLPDqGY4SCLSFRMMIZKWZJwVEk3Fx86a5KTvwek6Arg=
 ---
 ![Logo](../../../en/adapterref/iobroker.iogopro/admin/iogopro.png)
 
@@ -19,10 +19,14 @@ hash: pxsiahW6vh1LSCEmsEbx/36LN69+X4Hg641BmzaThkE=
 
 ## Iogopro-Adapter für ioBroker
 Dieser Adapter verbindet ioBroker mit der mobilen App ioGo PRO https://play.google.com/store/apps/details?id=de.nisnagel.iogopro.
-Bitte besuchen Sie www.iogo.app für weitere Informationen zu den ersten Schritten.
+Weitere Informationen zu den ersten Schritten finden Sie unter www.iogo.app.
 
 ## Aufbau
 Für diesen Adapter benötigen Sie ein gültiges API-Geheimnis, welches Sie in der ioGO-PRO App generieren können.
+
+## Zustände
+Alle Zustände basieren auf der Rolle und dem aktuellen Wert, der mit einem intuitiven Symbol angezeigt wird.
+Eine Liste aller verfügbaren gemappten Icons finden Sie hier: [icon.png](https://github.com/nisiode/ioBroker.iogopro/blob/342d92454401fdf93f6ebae0e6a12ccef68ee1b5/img/icons.png)
 
 ## Verwendungszweck
 Sie können Nachrichten an alle authentifizierten Benutzer über die MessageBox `sendTo('iogo', 'New message')` oder an bestimmte Benutzer `sendTo('iogo', {user: 'Username', text: 'Test message'})` senden.
@@ -76,6 +80,22 @@ sendTo('iogo', {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 0.2.5 (2021-10-27)
+* (nis) Automatisches Löschen von Locations
+
+### 0.2.4 (2021-10-18)
+* (nis) simplify admin ui for blocked enums
+
+### 0.2.2 (2021-10-04)
+* (nis) change sync of enum member changes
+
+### 0.2.1 (2021-09-21)
+* (nis) bugfix blocked enums
+
+### 0.2.0 (2021-09-21)
+* (nis) sync states only when value has changed
+* (nis) added list of blocked enums to instance config
 
 ### 0.1.0 (2021-09-12)
 * (nis) migrate current state from ioBroker.iogo

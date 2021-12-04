@@ -195,6 +195,10 @@ If there are more GA's to change properties, use multiselect. This feature works
 -->
 
 ## Changelog
+### 2.0.1
+
+* fixed problem with license acceptance
+
 ### 2.0.0 (2021-11-15) **Major release**
 
 * Breaking change! => new license is neccessary V1 Licenses will not work => V1 business Licenses can changed to V2

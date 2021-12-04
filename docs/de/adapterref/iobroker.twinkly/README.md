@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.twinkly/README.md
 title: ioBroker.twinkly
-hash: CjzuLuu5QFvRShj9UOvdUm6DGT75u/KAHJ+zcP1sz4A=
+hash: g+uZEvhJdPzbmG2b4LIhXUgwTew2pTN7Ldc+JQm3rc8=
 ---
 ![Logo](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
@@ -37,35 +37,39 @@ In der Tabelle können Sie alle Twinkly-Leuchten hinzufügen, die Sie steuern m�
 
 Die folgenden zusätzlichen Status werden pro Gerät erstellt, wenn sie aktiviert sind:
 
-* Geräteinfo (lesen)
-* Zusätzliche Konfigurationsinformationen (lesen)
-* Netzwerkstatus (gelesen)
-* MQTT (lesen/schreiben)
+* Geräteinformationen
+* Netzwerkstatus
+* MQTT
 
 Folgende Staaten stehen zur Verfügung:
 
 | Staat | Beschreibbar | Beschreibung |
 |-------------------------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `activePlaylistMovie` | :x: | Aktiver Playlist-Film |
-| `bri` | :heavy_check_mark: | Helligkeit |
-| `color` | :heavy_check_mark: | HSV/RGB/HEX |
+| `activePlaylistMovie` | :x: | Aktiver Playlist-Film (Modus `Playlist`) |
+| `bri` | :heavy_check_mark: | Helligkeit (Steuerung deaktivieren durch Einstellung -1) |
+| `color` | :heavy_check_mark: | HSV/RGB(W)/HEX |
 | `connected` | :x: | Gerät verbunden |
+| `effect` | :heavy_check_mark: | Effekte (Modus `Effect`) |
 | `firmware` | :x: | Firmware |
 | `mode` | :heavy_check_mark: | Modus: Ein, Playlist, Farbe, Aus, RealTime (noch nicht unterstützt), Demo, Effekt |
-| `movie` | :heavy_check_mark: | Aktiver Film, Wenn mehrere Filme in der Playlist-Funktion hinzugefügt wurden, können sie hier ausgewählt werden. Funktioniert nur im Modus `On`. |
+| `movie` | :heavy_check_mark: | Aktiver Film, Wenn mehrere Filme in der Playlist-Funktion hinzugefügt wurden, können sie hier ausgewählt werden. (Modus `On`) |
 | `mqtt` | :heavy_check_mark: | MQTT-Verbindung |
 | `name` | :heavy_check_mark: | Name |
 | `network` | :x: | Netzwerk-Informationen |
 | `on` | :heavy_check_mark: | Ein/Aus-Schalter |
 | `paused` | :heavy_check_mark: | Unterbrechen Sie die Verbindung zu Twinkly, damit Sie Änderungen in der App vornehmen können. Andernfalls könnten Sie die Verbindung während der Arbeit in der App verlieren |
-| `reloadMovies` | :heavy_check_mark: | Filme neu laden (Playlist) |
-| `sat` | :heavy_check_mark: | Sättigung |
+| `reloadMovies` | :heavy_check_mark: | Laden Sie die verfügbaren Filme neu |
+| `sat` | :heavy_check_mark: | Sättigung 0-100 (Steuerung deaktivieren durch Einstellung -1) |
 | `timer` | :heavy_check_mark: | Aktualisieren Sie den Timer |
-| `Zeitschaltuhr` | :heavy_check_mark: | Aktualisieren Sie den Timer |
+| `Timer` | :heavy_check_mark: | Aktualisieren Sie den Timer |
 
 [Private API-Informationen](https://xled-docs.readthedocs.io/en/latest/) von [Pavol Babinčák](https://github.com/scrool)
 
 ## Changelog
+
+### 0.2.4 (2021-12-03)
+* (patrickbs96) Handle wrong input so it does not cause exceptions
+* (patrickbs96) Add Feature to change Effect
 
 ### 0.2.2 (2021-11-30)
 * (patrickbs96) Add Feature to change Color

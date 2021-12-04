@@ -44,6 +44,17 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 1.4.2 (2021-12-02)
+* (simatec) Bugfix Alarm settings
+* (simatec) Bugfix move shutter after closing window
+* (simatec) better translation for all languages
+* (simatec) small Bugfixes
+
+### 1.4.1 (2021-12-01)
+* (simatec) Code cleaning
+* (simatec) Bugfix Alarm States
+* (simatec) try & catch added
+
 ### 1.4.0 (2021-11-30)
 * (simatec) Source code completely redesigned
 * (simatec) Much of the source code was converted to async

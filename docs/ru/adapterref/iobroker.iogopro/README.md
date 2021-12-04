@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iogopro/README.md
 title: ioBroker.iogopro
-hash: pxsiahW6vh1LSCEmsEbx/36LN69+X4Hg641BmzaThkE=
+hash: PLPDqGY4SCLSFRMMIZKWZJwVEk3Fx86a5KTvwek6Arg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.iogopro/admin/iogopro.png)
 
@@ -15,14 +15,18 @@ hash: pxsiahW6vh1LSCEmsEbx/36LN69+X4Hg641BmzaThkE=
 ![НПМ](https://nodei.co/npm/iobroker.iogopro.png?downloads=true)
 
 # IoBroker.iogopro
-** Тесты: ** ![Тестирование и выпуск](https://github.com/nisiode/ioBroker.iogopro/workflows/Test%20and%20Release/badge.svg)
+** Испытания: ** ![Тестирование и выпуск](https://github.com/nisiode/ioBroker.iogopro/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер iogopro для ioBroker
 Этот адаптер подключает ioBroker к мобильному приложению ioGo PRO https://play.google.com/store/apps/details?id=de.nisnagel.iogopro.
 Посетите www.iogo.app для получения дополнительной информации о том, как начать работу.
 
 ## Конфигурация
-Для этого адаптера необходим действующий секрет API, который вы можете создать в приложении ioGO-PRO.
+Для этого адаптера вам понадобится действующий api-secret, который вы можете сгенерировать в приложении ioGO-PRO.
+
+## Состояния
+Все состояния основаны на роли и текущем значении, отображаемом интуитивно понятным значком.
+Список всех доступных отображенных значков доступен здесь: [icons.png](https://github.com/nisiode/ioBroker.iogopro/blob/342d92454401fdf93f6ebae0e6a12ccef68ee1b5/img/icons.png)
 
 ## Использование
 Вы можете отправить сообщение всем авторизованным пользователям через messageBox `sendTo('iogo', 'New message')` или конкретному пользователю `sendTo('iogo', {user: 'Username', text: 'Test message'})`.
@@ -76,6 +80,22 @@ sendTo('iogo', {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 0.2.5 (2021-10-27)
+* (nis) Automatisches Löschen von Locations
+
+### 0.2.4 (2021-10-18)
+* (nis) simplify admin ui for blocked enums
+
+### 0.2.2 (2021-10-04)
+* (nis) change sync of enum member changes
+
+### 0.2.1 (2021-09-21)
+* (nis) bugfix blocked enums
+
+### 0.2.0 (2021-09-21)
+* (nis) sync states only when value has changed
+* (nis) added list of blocked enums to instance config
 
 ### 0.1.0 (2021-09-12)
 * (nis) migrate current state from ioBroker.iogo

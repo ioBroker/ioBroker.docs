@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.twinkly/README.md
 title: ioBroker.twinkly
-hash: CjzuLuu5QFvRShj9UOvdUm6DGT75u/KAHJ+zcP1sz4A=
+hash: g+uZEvhJdPzbmG2b4LIhXUgwTew2pTN7Ldc+JQm3rc8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
@@ -37,35 +37,39 @@ hash: CjzuLuu5QFvRShj9UOvdUm6DGT75u/KAHJ+zcP1sz4A=
 
 При установке флажка для каждого устройства создаются следующие дополнительные состояния:
 
-* Информация об устройстве (читать)
-* Дополнительная информация о конфигурации (читать)
-* Состояние сети (читать)
-* MQTT (чтение / запись)
+* Информация об устройстве
+* Состояние сети
+* MQTT
 
 Доступны следующие состояния:
 
 | Государство | Возможность записи | Описание |
 |-------------------------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `activePlaylistMovie` | : x: | Активный плейлист фильма |
-| `bri` | : heavy_check_mark: | Яркость |
-| `color` | : heavy_check_mark: | HSV / RGB / HEX |
+| `activePlaylistMovie` | : x: | Активный список воспроизведения фильма (режим `Playlist`) |
+| `bri` | : heavy_check_mark: | Яркость (отключите управление установкой -1) |
+| `color` | : heavy_check_mark: | HSV / RGB (Ш) / HEX |
 | `connected` | : x: | Устройство подключено |
+| `effect` | : heavy_check_mark: | Эффекты (Режим `Effect`) |
 | `firmware` | : x: | Прошивка |
 | `mode` | : heavy_check_mark: | Mode: On, Playlist, Color, Off, RealTime (пока не поддерживается), Demo, Effect |
-| `movie` | : heavy_check_mark: | Активный фильм, если в функцию списка воспроизведения добавлено несколько фильмов, их можно выбрать здесь. Работает только в режиме `On`. |
+| `movie` | : heavy_check_mark: | Активный фильм. Если в список воспроизведения добавлено несколько фильмов, их можно выбрать здесь. (Режим `On`) |
 | `mqtt` | : heavy_check_mark: | MQTT-соединение |
 | `name` | : heavy_check_mark: | Имя |
 | `network` | : x: | Сетевая информация |
 | `on` | : heavy_check_mark: | Переключатель Вкл. / Выкл. |
 | `paused` | : heavy_check_mark: | Приостановите подключение к Twinkly, чтобы вы могли вносить изменения в приложение. В противном случае вы можете потерять соединение при работе в приложении |
-| `reloadMovies` | : heavy_check_mark: | Перезагрузить фильмы (плейлист) |
-| `sat` | : heavy_check_mark: | Насыщенность |
+| `reloadMovies` | : heavy_check_mark: | Перезагрузить доступные фильмы |
+| `sat` | : heavy_check_mark: | Насыщенность 0-100 (отключите управление установкой -1) |
 | `timer` | : heavy_check_mark: | Обновите таймер |
 | `таймер` | : heavy_check_mark: | Обновите таймер |
 
 [Информация о частном API] (https://xled-docs.readthedocs.io/en/latest/) [Павол Бабинчак](https://github.com/scrool)
 
 ## Changelog
+
+### 0.2.4 (2021-12-03)
+* (patrickbs96) Handle wrong input so it does not cause exceptions
+* (patrickbs96) Add Feature to change Effect
 
 ### 0.2.2 (2021-11-30)
 * (patrickbs96) Add Feature to change Color

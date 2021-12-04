@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.twinkly/README.md
 title: ioBroker.twinkly
-hash: CjzuLuu5QFvRShj9UOvdUm6DGT75u/KAHJ+zcP1sz4A=
+hash: g+uZEvhJdPzbmG2b4LIhXUgwTew2pTN7Ldc+JQm3rc8=
 ---
 ![标识](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
@@ -16,7 +16,7 @@ hash: CjzuLuu5QFvRShj9UOvdUm6DGT75u/KAHJ+zcP1sz4A=
 ![新产品管理](https://nodei.co/npm/iobroker.twinkly.png?downloads=true)
 ![应用程序](https://ci.appveyor.com/api/projects/status/github/patrickbs96/ioBroker.twinkly?branch=master&svg=true)
 
-# IoBroker.twinkly
+#ioBroker.twinkly
 **测试：** Linux/Mac：[![Travis-CI](https://travis-ci.com/patrickbs96/ioBroker.twinkly.svg)](https://travis-ci.com/github/patrickbs96/ioBroker.twinkly)
 
 ##用于ioBroker的twinkly适配器
@@ -37,35 +37,39 @@ hash: CjzuLuu5QFvRShj9UOvdUm6DGT75u/KAHJ+zcP1sz4A=
 
 选中时，将为每个设备创建以下附加状态：
 
-* 设备信息（读取）
-* 附加配置信息（读取）
-* 网络状态（读取）
-* MQTT（读/写）
+* 设备信息
+* 网络状态
+* MQTT
 
 以下状态可用：
 
 |状态 |可写 |说明 |
 |-------------------------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `activePlaylistMovie` | :x: |活动播放列表电影 |
-| `bri` | :heavy_check_mark: |亮度 |
-| `color` | :heavy_check_mark: | HSV/RGB/十六进制 |
+| `activePlaylistMovie` | :x: |活动播放列表电影（模式 `Playlist`）|
+| `bri` | :heavy_check_mark: |亮度（通过设置 -1 停用控制）|
+| `color` | :heavy_check_mark: | HSV/RGB(宽)/HEX |
 | `connected` | :x: |设备已连接 |
+| `effect` | :heavy_check_mark: |效果（模式`Effect`）|
 | `firmware` | :x: |固件 |
 | `mode` | :heavy_check_mark: |模式：开、播放列表、颜色、关、实时（尚不支持）、演示、效果 |
-| `movie` | :heavy_check_mark: |活动电影，如果在播放列表功能中添加了多个电影，则可以在此处选择它们。仅适用于模式 `On`。 |
+| `movie` | :heavy_check_mark: |活动电影，如果在播放列表功能中添加了多个电影，则可以在此处选择它们。 （模式`On`）|
 | `mqtt` | :heavy_check_mark: | MQTT-连接|
 | `name` | :heavy_check_mark: |姓名 |
 | `network` | :x: |网络信息|
 | `on` | :heavy_check_mark: |开/关开关 |
 | `paused` | :heavy_check_mark: |暂停与 Twinkly 的连接，以便您可以在应用程序中进行更改。否则，您可能会在应用程序中工作时断开连接 |
-| `reloadMovies` | :heavy_check_mark: |重新加载电影（播放列表）|
-| `sat` | :heavy_check_mark: |饱和度|
+| `reloadMovies` | :heavy_check_mark: |重新加载可用电影 |
+| `sat` | :heavy_check_mark: |饱和度 0-100（通过设置 -1 停用控制）|
 | `timer` | :heavy_check_mark: |更新计时器 |
 | `定时器` | :heavy_check_mark: |更新计时器 |
 
-[私有 API 信息](https://xled-docs.readthedocs.io/en/latest/) 作者 [Pavol Babinčák]](https://github.com/scrool)
+[私有 API 信息](https://xled-docs.readthedocs.io/en/latest/) 由 [Pavol Babinčák]](https://github.com/scrool)
 
 ## Changelog
+
+### 0.2.4 (2021-12-03)
+* (patrickbs96) Handle wrong input so it does not cause exceptions
+* (patrickbs96) Add Feature to change Effect
 
 ### 0.2.2 (2021-11-30)
 * (patrickbs96) Add Feature to change Color
