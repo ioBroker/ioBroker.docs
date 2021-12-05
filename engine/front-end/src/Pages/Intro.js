@@ -168,7 +168,7 @@ class Intro extends Component {
         }
 
         const d = new Date();
-        this.action = (d.getMonth() === 11 && d.getDate() >= 8) || (d.getMonth() === 0 && d.getDate() <= 10);
+        this.action = (d.getMonth() === 11 && d.getDate() >= 8) || (d.getMonth() === 0 && d.getDate() <= 9);
 
         setTimeout(() => this.setState({loading: false}), 500);
     }
@@ -322,7 +322,6 @@ class Intro extends Component {
             <div className={ this.props.classes.serverButtonText }>{I18n.t('Video course from our partner')}</div>
         </div>;
     }
-
 
     // What differs ioBroker from other open source automation platforms?
     //
