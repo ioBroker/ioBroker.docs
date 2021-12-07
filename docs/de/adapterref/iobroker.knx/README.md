@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: 9YD2baUOD11omshItH+K8W0nq3ICkd7bsl2WFmlpq/M=
+hash: ab3J7i/+T7H10UtD2h+bb8q65v57RI+lUB9J+pWSZuY=
 ---
 ![Logo](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
@@ -21,7 +21,7 @@ hash: 9YD2baUOD11omshItH+K8W0nq3ICkd7bsl2WFmlpq/M=
     * [Objekte](#Objekte)
     * [Verwendung](#Verwendung)
     * [Datenpunkttypen (DPT)](#data-point-types-dpt)
-    * [So funktioniert der Import](#wie-der-Import funktioniert)
+    * [Wie der Import funktioniert](#wie-der-Import funktioniert)
     * [Problemvermeidung](#Problemvermeidung)
 * [GA-Tool](#ga-Tool)
 * [Geplante Funktionen](#geplante-Funktionen)
@@ -34,16 +34,16 @@ ru: [Установка и базовая настройка адаптера](d
 
 Es verbindet sich mit Standard-KNX/LAN-Gateways.
 
-**Achtung: Mit dem Wechsel auf KNX-Adapter Version 2.x wurde die Lizenzierung geändert. Eine neue Lizenz erhalten Sie bei [https://iobroker.net](https://iobroker.net/)**
+**Achtung: Mit dem Wechsel auf KNX-Adapter Version 2.x hat sich die Lizenzierung geändert. Eine neue Lizenz erhalten Sie bei [https://iobroker.net](https://iobroker.net/)**
 
 **Sie sollten auch iobroker js-controller UND admin auf die neueste Version aktualisieren.**
 
-Vor Beginn: Jeder DPT von com.Objects sollte in Ihrem ETS-Projekt gesetzt sein. Jedes Gerät sollte in Ihre Anlagenstruktur einsortiert werden.
+Bevor Sie beginnen: Jeder DPT von com.Objects sollte in Ihrem ETS-Projekt gesetzt sein. Jedes Gerät sollte in Ihre Anlagenstruktur einsortiert werden.
 
-## Merkmale:
+## Merkmale
 * `knxproj`-Datei importieren
 * Generieren einer ETS-ähnlichen Objektstruktur
-* Finden und Kombinieren von Act-Channel und State-Channel (Heuristik)
+* Act-Channel und State-Channel finden und kombinieren (Heuristik)
 * Aktualisierung aller Zustände beim Start
 * Ausgeben eines READ auf den KNX-Bus, während auf das Zustandsobjekt geschrieben wird
 * GA-Objekte mit GA-Tools bearbeiten und modifizieren
@@ -52,7 +52,7 @@ Vor Beginn: Jeder DPT von com.Objects sollte in Ihrem ETS-Projekt gesetzt sein. 
 ##Adapterkonfiguration
 Öffnen Sie nach der Installation dieses Adapters die Adapterkonfiguration.
 
-###Installieren Sie die Lizenz
+###Lizenz installieren
 Der erste Schritt besteht darin, die Lizenz zu beantragen. Wenn Sie keine Lizenz installiert haben, werden 500 Datenpunkte angewendet.
 
 * (1) zeigt Ihre System-ID an, Sie benötigen diese, um eine Lizenz zu erhalten
@@ -60,7 +60,7 @@ Der erste Schritt besteht darin, die Lizenz zu beantragen. Wenn Sie keine Lizenz
 
 ![knxV2-first-start-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-first-start-mod.jpg)
 
-Wenn Sie bereits eine neue Lizenz unter [https://iobroker.net](https://iobroker.net/) angelegt haben, können Sie diese in (2) einfügen ODER direkt online durch Klick auf (1) erwerben.
+Wenn Sie bereits eine neue Lizenz unter [https://iobroker.net](https://iobroker.net/) erstellt haben, können Sie diese in (2) einfügen ODER direkt online durch Klick auf (1) erwerben.
 
 ![knxV2-2-1-Install-License-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-1-Install-License-mod.jpg)
 
@@ -70,7 +70,7 @@ Wenn Sie auf (1) geklickt haben, geben Sie Ihr iobroker.net-Konto-Login ein.
 
 Wenn Ihre Daten korrekt waren, sehen Sie alle Ihre Lizenzen, die Sie erhalten haben. Wählen Sie diejenige aus, die Sie verwenden möchten.
 
-![knxV2-2-3 Installieren-Lizenz-online-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-3-Install-License-online-mod.jpg)
+![knxV2-2-3Install-License-online-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-3-Install-License-online-mod.jpg)
 
 Wenn dies erfolgreich war, speichern Sie es.
 
@@ -104,10 +104,10 @@ Hier befindet sich unter knx.0 der Gruppenadressbaum wie in Ihrem ETS-Projekt. V
 Wenn der Adapter erfolgreich startet, stehen Ihre Datenpunkte für alles zur Verfügung, was Sie tun möchten.
 
 ### Datenpunkttypen (DPT)
-Es stehen alle DPTs gemäß "System Specifications, Interworking, Datapointtypes" der KNX Association zur Verfügung. Das bedeutet, dass Sie 2 Arten von Informationen erhalten können: 1) einen Wert oder eine Zeichenfolge 2) durch Kommas getrennte Werte oder ein Array von Werten (im Moment weiß ich nicht, wie ich besser damit umgehen soll)
+Es stehen alle DPTs gemäß "System Specifications, Interworking, Datapointtypes" der KNX Association zur Verfügung. Das bedeutet, dass Sie 2 Arten von Informationen erhalten können: 1) einen Wert oder eine Zeichenfolge 2) durch Kommas getrennte Werte oder ein Array von Werten (im Moment weiß ich nicht, wie ich damit besser umgehen soll)
 
-Zum Beispiel wird ein DPT5.001 als unsigned Integer mit 8-Bit codiert. Dies ergibt einen einzelnen Wert. Das DPT3.007 (Control Dimming) ist als 1Bit(Boolean)+3Bit(unsigned Int) codiert.
-Dies ergibt z.B. in einem Wert wie "0,5", wobei "0" "verringern" und "5" die Anzahl der Intervalle bedeutet.
+Beispielsweise wird ein DPT5.001 als unsigned Integer mit 8-Bit codiert. Dies ergibt einen einzelnen Wert. Das DPT3.007 (Control Dimming) ist als 1Bit(Boolean)+3Bit(unsigned Int) codiert.
+Dies ergibt z.B. in einem Wert wie "0,5", wobei "0" "verringern" bedeutet und "5" die Anzahl der Intervalle bedeutet.
 
 ### So funktioniert der Import
 1. Lesen aller Kommunikationsobjektreferenzen (COR):
@@ -116,11 +116,11 @@ Dies ergibt z.B. in einem Wert wie "0,5", wobei "0" "verringern" und "5" die Anz
 
 2. Generierung der Gruppenadressenstruktur (GAS):
 
-    Generieren des GAS basierend auf GAR IDs und Einstellen von DPT (falls noch nicht erfolgt)
+    Generieren des GAS basierend auf GAR-IDs und Einstellen von DPT (falls noch nicht erfolgt)
 
 3. Finding State a Act-Adressen:
 
-in ets-exports gibt es keine Informationen über Zustands- und Aktadressen. Der Adapter analysiert alle GAs von "status" oder "state". Wenn es 2 GAs mit einer Ähnlichkeit von mehr als 90% gibt, dann wird eine Adresse gehandelt und die andere der Zustand. Es wird auch geprüft, ob die DPTs ähnlich sind. Deshalb ist es nicht einfach, einen Peer zu finden, wenn die GA-Namensgebung nicht konsistent ist.
+in ets-exports gibt es keine Informationen über Zustands- und Aktadressen. Der Adapter analysiert alle GAs von "status" oder "state". Wenn es 2 GAs mit einer Ähnlichkeit von mehr als 90% gibt, dann wird eine Adresse gehandelt und die andere der Staat. Es wird auch geprüft, ob die DPTs ähnlich sind. Deshalb ist es nicht einfach, einen Peer zu finden, wenn die GA-Namensgebung nicht konsistent ist.
 
 4. Flag-Check in der Gerätekonfiguration:
 
@@ -142,15 +142,15 @@ Wenn DPT in einem GA fehlt, weil es nicht gefunden werden konnte, wird das DPP n
 
 7. beim Adapterstart:
 
-alle mit "Read" Flag markierten GA's werden beim Start geprüft. Dies kann sich auf einen höheren Busverkehr auswirken. Am Ende sind alle Staaten auf dem neuesten Stand.
+alle mit "Read" Flag markierten GA's werden beim Start geprüft. Dies kann sich auf einen höheren Busverkehr auswirken. Am Ende sind alle Zustände auf dem neuesten Stand.
 
 ###Vermeidung von Problemen
-* saubere ETS-Programmierung und vor allem saubere ETS-Programmierung und vor allem saubere ETS-Programmierung
+* saubere ETS-Programmierung und noch wichtiger saubere ETS-Programmierung und vor allem saubere ETS-Programmierung
 * Weisen Sie die DPTs zu!!
 * einheitliche Kennzeichnung der GA-Namen (z.B. „EG Wohnen Decke Licht schalten“ und „EG Wohnen Decke Licht schalten Status“)
 * Vermeidung von Sonderzeichen ",./;&%$§[]" (kann zu Problemen bei der Gaserzeugung führen)
 * Prüfen Sie, ob das KNX/LAN GW erreichbar ist. Ist dies nicht der Fall, versucht der Adapter kontinuierlich eine Verbindung herzustellen.
-* Physikalische Adresse richtig wählen (wichtig bei Verwendung von Linienkopplern). !!! ACHTUNG: die hier eingetragene physikalische Adresse ist NICHT die Adresse des LAN Gateways und darf nicht auf 0 enden!!!
+* Physikalische Adresse richtig wählen (wichtig bei Verwendung von Linienkopplern). !!! ACHTUNG: Die hier eingetragene physikalische Adresse ist NICHT die Adresse des LAN Gateways und darf nicht auf 0 enden!!!
 * Der Port der LAN-Schnittstelle ist normalerweise 3671
 * Aufgrund der Möglichkeit der Statusabfrage ist eines zu beachten: Es muss sichergestellt sein, dass vom ioBroker nicht mehr als 40 Anfragen pro Sekunde generiert werden, da diese dann physikalisch generiert werden können
 
@@ -162,7 +162,7 @@ Das GA-Tool macht es einfach, die Eigenschaften von GAs zu ändern.
 ![knxV2-3-6-GATools-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-6-GATools-mod.jpg)
 
 1. zeigt den GA-Baum und das ausgewählte GA
-2. im Property-Bereich den Namen des ausgewählten GA
+2. im Eigenschaftsbereich den Namen des ausgewählten GA
 3. Iobroker-Flags setzen
 4. GA DPT einstellen
 5. anerkannte Handlung GA
@@ -170,7 +170,7 @@ Das GA-Tool macht es einfach, die Eigenschaften von GAs zu ändern.
 
 ![knxV2-3-2 GATools-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-2-GATools-mod.jpg)
 
-1. Zeigen Sie die Zustand-Akt-Beziehung
+1. Zeigen Sie die Staat-Akt-Beziehung
 2. Wenn eine Beziehung existiert, kann sie entfernt werden
 
 Wenn keine Beziehung vorhanden ist, kann eine neue erstellt werden, indem Sie auf (2) für den ausgewählten GA (1) klicken.
@@ -195,6 +195,16 @@ Wenn mehr GAs zum Ändern der Eigenschaften vorhanden sind, verwenden Sie die Me
 ### __ARBEITEN IN PROGRESS__ -->
 
 ## Changelog
+
+### 2.0.3 (2021-12-04)
+
+* fixed counting 1st Datapoint
+* automaticly remove old V1 license", preventing confusion after upgrade from V1 to V2
+
+### 2.0.1
+
+* fixed problem with license acceptance
+
 ### 2.0.0 (2021-11-15) **Major release**
 
 * Breaking change! => new license is neccessary V1 Licenses will not work => V1 business Licenses can changed to V2
@@ -451,7 +461,7 @@ Wenn mehr GAs zum Ändern der Eigenschaften vorhanden sind, verwenden Sie die Me
 ## License
 To use this adapter in ioBroker you need to accept the source code license of the adapter. The source code of this adapter is available under the CC-NC-BY license.
 
-Additionally you need a license to use the adapter. The license editions are available on https://iobroker.net/www/pricing
+Additionally you need a license to use the adapter. The license editions are available on [https://iobroker.net/www/pricing](https://iobroker.net/www/pricing)
 
 
 ## License

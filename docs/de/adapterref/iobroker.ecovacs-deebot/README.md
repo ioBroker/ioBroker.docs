@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: +n3X/UQB2WrLNDu4hLUhZWEhxSahETPZ6sFBAaiYMug=
+hash: e2AlGkypQ/RBxghvtcGiFaB/CVfUMnY6vwh2J3aktVk=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -21,11 +21,11 @@ Dieser Adapter verwendet die [ecovacs-deebot.js](https://github.com/mrbungle64/e
 ## Merkmale
 Einige bemerkenswerte Merkmale sind:
 
-* Abrufen von Informationen (z. B. Akku, Reinigungsprotokoll, Verbrauchsmaterial, Reinigungs- und Ladestatus)
+* Informationen abrufen (z. B. Akku, Reinigungsprotokoll, Verbrauchsmaterial, Reinigungs- und Ladestatus)
 * Senden Sie saubere Befehle (z. B. Auto, Spot-Bereich, benutzerdefinierter Bereich) und verschiedene andere Befehle (z. B. Sound abspielen, Verbrauchsmaterialien zurücksetzen)
 * Speichern Sie den zuletzt ausgeführten benutzerdefinierten Bereich und führen Sie die gespeicherten Bereiche erneut aus
 * Einstellung von Saugleistung (Reinigungsgeschwindigkeit) und Wasserstand
-* Abrufen von Informationen während des Reinigungsprozesses (z. B. aktuelle Position und Bereich)
+* Abrufen von Informationen während des Reinigungsvorgangs (z. B. aktuelle Position und Bereich)
 * Abrufen von Informationen der Karten inkl. Spotbereiche und virtuelle Grenzen
 * Löschen, speichern und neu erstellen einzelner virtueller Grenzen sowie eines vollständigen Satzes virtueller Grenzen *)
 * Funktion zum Laden des aktuellen Kartenbildes *)
@@ -60,10 +60,10 @@ Die aufgeführten Modelle sind diejenigen, die ich selbst im Einsatz habe oder d
 * Deebot T8-Serie
 * Deebot T9-Serie
 
-Die aufgeführten Modelle sind entweder bereits bekannt oder technisch ähnlich zu diesen Modellen.
+Die aufgeführten Modelle sind entweder bereits bekannt oder ähneln technisch diesen Modellen.
 Dennoch kann die Funktionalität teilweise eingeschränkt sein.
 
-Ich versuche eine breite Palette an Funktionalität zu erreichen, entscheide dies aber von Fall zu Fall je nach Komplexität und diversen anderen Kriterien.
+Ich versuche eine breite Funktionalität zu erreichen, entscheide dies aber von Fall zu Fall je nach Komplexität und diversen anderen Kriterien.
 Es besteht natürlich kein Anspruch auf volle Funktionalität.
 
 ## Installation
@@ -102,7 +102,6 @@ Anweisungen für andere Systeme finden Sie unter https://www.npmjs.com/package/c
 
 zu [einen Neustart planen](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) einmal täglich, da es einige Meldungen gibt, dass die Verbindung nach ca. 24 Stunden
 
-* Einige Reinigungsfunktionen funktionieren möglicherweise nicht mit Deebot 710/711/711s. Bitte verwenden Sie vorerst Version 0.5.8.
 * Die Funktion "edge" funktioniert nicht mit Deebot U2 (startet stattdessen die automatische Reinigung)
 * Einige "cleaninglog"-Zustände sind bei der T9-Serie leer ("last20Logs", "lastCleaningDate" und "lastCleaningMapImageURL")
 
@@ -111,9 +110,13 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
 
 ## Changelog
 
-### 1.3.0 (alpha)
+### 1.3.0
 
-* The minimum required version of Node.js is 12.x now
+* Using library version 0.7.0 (beta)
+* The minimum required version of Node.js is now 12.x
+* Fix the cleaning functions for the Deebot 710 series
+* Some improvements for newer models (e.g. T9 series)
+* Some other improvements and fixes
 
 ### 1.2.4
 

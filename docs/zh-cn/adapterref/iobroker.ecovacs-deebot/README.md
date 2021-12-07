@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
 title: 适用于 ioBroker 的 Ecovacs Deebot 适配器
-hash: +n3X/UQB2WrLNDu4hLUhZWEhxSahETPZ6sFBAaiYMug=
+hash: e2AlGkypQ/RBxghvtcGiFaB/CVfUMnY6vwh2J3aktVk=
 ---
 ![标识](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -26,7 +26,7 @@ hash: +n3X/UQB2WrLNDu4hLUhZWEhxSahETPZ6sFBAaiYMug=
 * 保存上次运行的自定义区域并重新运行保存的区域
 * 真空功率（清洁速度）和水位的调节
 * 在清洁过程中检索信息（例如当前位置和区域）
-*检索地图信息，包括。点区域和虚拟边界
+*检索地图的信息，包括。点区域和虚拟边界
 * 删除、保存和重新创建单个虚拟边界以及全套虚拟边界 *)
 * 加载当前地图图像的函数 *)
 
@@ -53,7 +53,7 @@ hash: +n3X/UQB2WrLNDu4hLUhZWEhxSahETPZ6sFBAaiYMug=
 * Deebot OZMO 900/905
 * Deebot OZMO Slim 10/11
 * Deebot OZMO T5
-* Deebot U2 系列
+* Deebot U2系列
 * Deebot N3 MAX
 * 地宝 N7
 * Deebot N8 系列
@@ -64,12 +64,12 @@ hash: +n3X/UQB2WrLNDu4hLUhZWEhxSahETPZ6sFBAaiYMug=
 然而，功能可能会受到部分限制。
 
 我尝试实现广泛的功能，但根据复杂性和其他各种标准逐案决定。
-当然，没有要求提供完整的功能。
+当然，我们不能声称拥有完整的功能。
 
 ＃＃ 安装
 建议使用 Node.js 的 12.x 或 14.x 版本。最低要求版本为 12.x
 
-此适配器使用 [节点画布](https://www.npmjs.com/package/canvas) 库来实现一些与地图相关的功能，这些功能可能需要安装一些附加包。
+此适配器使用 [节点画布](https://www.npmjs.com/package/canvas) 库来实现某些与地图相关的功能，这些功能可能需要安装一些附加包。
 
 对于没有地图功能的模型，画布的安装是可选的，不是必需的，但对于完整的功能范围，请安装以下软件包。
 
@@ -102,7 +102,6 @@ sudo npm install canvas --unsafe-perm=true
 
 到 [安排重启](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) 每天一次，因为有一些报告说大约在大约 . 24小时
 
-* 某些清洁功能可能不适用于 Deebot 710/711/711s。请暂时使用 0.5.8 版本。
 * “边缘”功能不适用于 Deebot U2（改为启动自动清洁）
 * T9 系列上的一些“cleaninglog”状态为空（“last20Logs”、“lastCleaningDate”和“lastCleaningMapImageURL”）
 
@@ -111,9 +110,13 @@ sudo npm install canvas --unsafe-perm=true
 
 ## Changelog
 
-### 1.3.0 (alpha)
+### 1.3.0
 
-* The minimum required version of Node.js is 12.x now
+* Using library version 0.7.0 (beta)
+* The minimum required version of Node.js is now 12.x
+* Fix the cleaning functions for the Deebot 710 series
+* Some improvements for newer models (e.g. T9 series)
+* Some other improvements and fixes
 
 ### 1.2.4
 

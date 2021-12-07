@@ -52,6 +52,11 @@ You can use the nanoleaf vis demo project found in the /vis subfolder on github.
 
 ## Changelog
 
+### 1.3.1 (2021-12-05)
+* (daniel_2k) changed: write acknowledge to states directly after receiving success state from API
+* (daniel_2k) changed: ip address workaround also for device search to detect nanoleaf devices with missing host info through firmware bug
+* (daniel_2k) changed: optimized device detection and device keep alive detection
+
 ### 1.3.0 (2021-11-28)
 * (daniel_2k) new: nanoleaf Lines supported
 * (daniel_2k) new: nanoleaf Elements supported

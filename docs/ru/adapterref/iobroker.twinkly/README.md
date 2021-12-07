@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.twinkly/README.md
 title: ioBroker.twinkly
-hash: g+uZEvhJdPzbmG2b4LIhXUgwTew2pTN7Ldc+JQm3rc8=
+hash: xOjK+FPdzwvt6A0M5a0D4ZKER/5EImoSbVmT2M5HAME=
 ---
 ![Логотип](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
@@ -44,22 +44,23 @@ hash: g+uZEvhJdPzbmG2b4LIhXUgwTew2pTN7Ldc+JQm3rc8=
 Доступны следующие состояния:
 
 | Государство | Возможность записи | Описание |
-|-------------------------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `activePlaylistMovie` | : x: | Активный список воспроизведения фильма (режим `Playlist`) |
-| `bri` | : heavy_check_mark: | Яркость (отключите управление установкой -1) |
-| `color` | : heavy_check_mark: | HSV / RGB (Ш) / HEX |
+|---------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | `connected` | : x: | Устройство подключено |
-| `effect` | : heavy_check_mark: | Эффекты (Режим `Effect`) |
-| `firmware` | : x: | Прошивка |
-| `mode` | : heavy_check_mark: | Mode: On, Playlist, Color, Off, RealTime (пока не поддерживается), Demo, Effect |
-| `movie` | : heavy_check_mark: | Активный фильм. Если в список воспроизведения добавлено несколько фильмов, их можно выбрать здесь. (Режим `On`) |
+| `firmware` | : x: | Версия прошивки |
+| `ledBri` | : heavy_check_mark: | Яркость (отключите управление с помощью -1) |
+| `ledColor` | : heavy_check_mark: | Цвет светодиодов, HSV / RGB (W) / HEX |
+| `ledConfig` | : heavy_check_mark: | Конфигурация светодиодов |
+| `ledEffect` | : heavy_check_mark: | Эффекты (`Effect`) |
+| `ledLayout` | : heavy_check_mark: | Схема расположения светодиодов |
+| `ledMode` | : heavy_check_mark: | Mode: On, Color, Effect, Playlist, Off, RealTime (пока не поддерживается), Demo |
+| `ledMovie` | : heavy_check_mark: | Активный фильм. Если в список воспроизведения добавлено несколько фильмов, их можно выбрать здесь. (`On`) |
+| `ledPlaylist` | : heavy_check_mark: | Активная запись в плейлист, переключение между фильмами. (`Playlist`) |
+| `ledSat` | : heavy_check_mark: | Насыщенность 0-100 (отключите управление с помощью -1) |
 | `mqtt` | : heavy_check_mark: | MQTT-соединение |
 | `name` | : heavy_check_mark: | Имя |
 | `network` | : x: | Сетевая информация |
 | `on` | : heavy_check_mark: | Переключатель Вкл. / Выкл. |
-| `paused` | : heavy_check_mark: | Приостановите подключение к Twinkly, чтобы вы могли вносить изменения в приложение. В противном случае вы можете потерять соединение при работе в приложении |
-| `reloadMovies` | : heavy_check_mark: | Перезагрузить доступные фильмы |
-| `sat` | : heavy_check_mark: | Насыщенность 0-100 (отключите управление установкой -1) |
+| `paused` | : heavy_check_mark: | Приостановите подключение к Twinkly, чтобы вы могли вносить изменения в приложение. В противном случае вы можете потерять соединение во время работы в приложении |
 | `timer` | : heavy_check_mark: | Обновите таймер |
 | `таймер` | : heavy_check_mark: | Обновите таймер |
 
@@ -67,12 +68,16 @@ hash: g+uZEvhJdPzbmG2b4LIhXUgwTew2pTN7Ldc+JQm3rc8=
 
 ## Changelog
 
+### 0.2.5 (2021-12-06)
+* (patrickbs96) Renamed States with led control. Now starting with "led".
+* (patrickbs96) Add new State `ledLayout`/`ledPlaylist`
+
 ### 0.2.4 (2021-12-03)
 * (patrickbs96) Handle wrong input so it does not cause exceptions
-* (patrickbs96) Add Feature to change Effect
+* (patrickbs96) Add new State `ledEffect`
 
 ### 0.2.2 (2021-11-30)
-* (patrickbs96) Add Feature to change Color
+* (patrickbs96) Add new State `ledColor`
 
 ### 0.2.0 (2021-11-28)
 * (patrickbs96) Add new Value `color` from API-Response (Sentry IOBROKER-TWINKLY-J, IOBROKER-TWINKLY-K, IOBROKER-TWINKLY-M, IOBROKER-TWINKLY-N, IOBROKER-TWINKLY-P)

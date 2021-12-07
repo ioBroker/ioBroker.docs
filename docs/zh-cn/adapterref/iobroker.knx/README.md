@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: 9YD2baUOD11omshItH+K8W0nq3ICkd7bsl2WFmlpq/M=
+hash: ab3J7i/+T7H10UtD2h+bb8q65v57RI+lUB9J+pWSZuY=
 ---
 ![标识](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
@@ -40,7 +40,7 @@ en: 此适配器允许从 ETS 导入 knxproj 文件。它生成 KNX-group 地址
 
 开始之前： com.Objects 的每个 DPT 都应该在您的 ETS 项目中设置。每个设备都应分类到您的设施结构中。
 
-＃＃ 特征：
+＃＃ 特征
 * 导入 `knxproj` 文件
 * 生成类似 ETS 的对象结构
 * 寻找并结合行为通道和状态通道（启发式）
@@ -84,9 +84,9 @@ en: 此适配器允许从 ETS 导入 knxproj 文件。它生成 KNX-group 地址
 1. KNX-Gateway IP：KNX-LAN网关的IPv4。
 2. KNX-Gateway 端口：默认为 3671 端口。
 3.物理地址：iobroker knx实例的物理地址**！重要：这不是物理。 LAN 网关的地址 !** 并且不能以 0 结尾
-4. KNX 每秒包裹数：这限制了包裹速率。如果 KNX Lan 网关重新连接很多或暂时无法访问，则降低此速率。
+4.每秒KNX包：这限制了包速率。如果 KNX Lan 网关重新连接很多或暂时无法访问，则降低此速率。
 5.本地iobroker IP：选择适配器将绑定的IP/接口
-6. loglevel：通常为“Info”级别，用于调试增加级别。
+6. loglevel：通常为“Info”级别，调试时调高级别。
 7. 只导入新的数据点：这是默认启用的。在禁用新 GA 的情况下，将生成并重新创建现有的 GA。
 8. 按钮上传文件：拖放可用在这里或单击文件选择器对话框。您可以在此处以“knxproj”格式上传 ETS 导出。
 
@@ -120,7 +120,7 @@ en: 此适配器允许从 ETS 导入 knxproj 文件。它生成 KNX-group 地址
 
 3. 查找状态 一个行为地址：
 
-在 ets-exports 中没有关于状态和行为地址的信息。适配器解析所有“状态”或“状态”的 GA。如果有 2 个相似度超过 90% 的 GA，则一个地址是行为，另一个是状态。还会检查 DPT 是否相似。这就是为什么如果 GA 命名不一致，就不容易找到对等点。
+在 ets-exports 中没有关于状态和行为地址的信息。适配器解析所有“状态”或“状态”的 GA。如果有 2 个 GA 的相似度超过 90%，则一个地址是行为，另一个是状态。还会检查 DPT 是否相似。这就是为什么如果 GA 命名不一致，就不容易找到对等点。
 
 4.设备配置中的标志检查：
 
@@ -190,11 +190,21 @@ GA-Tool 可以轻松更改 GA 的属性。
 * esf 导入
 * GA-Mon 总线监控工具
 
-<!-- 下一个版本的占位符（在行首）：
+<!-- 下一版本的占位符（在行首）：
 
-### __工作进行中__ -->
+### __工作正在进行中__ -->
 
 ## Changelog
+
+### 2.0.3 (2021-12-04)
+
+* fixed counting 1st Datapoint
+* automaticly remove old V1 license", preventing confusion after upgrade from V1 to V2
+
+### 2.0.1
+
+* fixed problem with license acceptance
+
 ### 2.0.0 (2021-11-15) **Major release**
 
 * Breaking change! => new license is neccessary V1 Licenses will not work => V1 business Licenses can changed to V2
@@ -451,7 +461,7 @@ GA-Tool 可以轻松更改 GA 的属性。
 ## License
 To use this adapter in ioBroker you need to accept the source code license of the adapter. The source code of this adapter is available under the CC-NC-BY license.
 
-Additionally you need a license to use the adapter. The license editions are available on https://iobroker.net/www/pricing
+Additionally you need a license to use the adapter. The license editions are available on [https://iobroker.net/www/pricing](https://iobroker.net/www/pricing)
 
 
 ## License

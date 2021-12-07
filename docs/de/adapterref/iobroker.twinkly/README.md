@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.twinkly/README.md
 title: ioBroker.twinkly
-hash: g+uZEvhJdPzbmG2b4LIhXUgwTew2pTN7Ldc+JQm3rc8=
+hash: xOjK+FPdzwvt6A0M5a0D4ZKER/5EImoSbVmT2M5HAME=
 ---
 ![Logo](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
@@ -44,22 +44,23 @@ Die folgenden zusätzlichen Status werden pro Gerät erstellt, wenn sie aktivier
 Folgende Staaten stehen zur Verfügung:
 
 | Staat | Beschreibbar | Beschreibung |
-|-------------------------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `activePlaylistMovie` | :x: | Aktiver Playlist-Film (Modus `Playlist`) |
-| `bri` | :heavy_check_mark: | Helligkeit (Steuerung deaktivieren durch Einstellung -1) |
-| `color` | :heavy_check_mark: | HSV/RGB(W)/HEX |
+|---------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | `connected` | :x: | Gerät verbunden |
-| `effect` | :heavy_check_mark: | Effekte (Modus `Effect`) |
-| `firmware` | :x: | Firmware |
-| `mode` | :heavy_check_mark: | Modus: Ein, Playlist, Farbe, Aus, RealTime (noch nicht unterstützt), Demo, Effekt |
-| `movie` | :heavy_check_mark: | Aktiver Film, Wenn mehrere Filme in der Playlist-Funktion hinzugefügt wurden, können sie hier ausgewählt werden. (Modus `On`) |
+| `firmware` | :x: | Firmware-Version |
+| `ledBri` | :heavy_check_mark: | Helligkeit (Steuerung mit -1 deaktivieren) |
+| `ledColor` | :heavy_check_mark: | Farbe der LEDs, HSV/RGB(W)/HEX |
+| `ledConfig` | :heavy_check_mark: | Konfiguration der LEDs |
+| `ledEffect` | :heavy_check_mark: | Effekte (`Effect`) |
+| `ledLayout` | :heavy_check_mark: | Anordnung der LEDs |
+| `ledMode` | :heavy_check_mark: | Modus: Ein, Farbe, Effekt, Playlist, Aus, RealTime (noch nicht unterstützt), Demo |
+| `ledMovie` | :heavy_check_mark: | Aktiver Film, Wenn mehrere Filme in der Playlist-Funktion hinzugefügt wurden, können sie hier ausgewählt werden. (`On`) |
+| `ledPlaylist` | :heavy_check_mark: | Aktiver Playlist-Eintrag, Wechsel zwischen Filmen. (`Playlist`) |
+| `ledSat` | :heavy_check_mark: | Sättigung 0-100 (Steuerung mit -1 deaktivieren) |
 | `mqtt` | :heavy_check_mark: | MQTT-Verbindung |
 | `name` | :heavy_check_mark: | Name |
 | `network` | :x: | Netzwerk-Informationen |
 | `on` | :heavy_check_mark: | Ein/Aus-Schalter |
 | `paused` | :heavy_check_mark: | Unterbrechen Sie die Verbindung zu Twinkly, damit Sie Änderungen in der App vornehmen können. Andernfalls könnten Sie die Verbindung während der Arbeit in der App verlieren |
-| `reloadMovies` | :heavy_check_mark: | Laden Sie die verfügbaren Filme neu |
-| `sat` | :heavy_check_mark: | Sättigung 0-100 (Steuerung deaktivieren durch Einstellung -1) |
 | `timer` | :heavy_check_mark: | Aktualisieren Sie den Timer |
 | `Timer` | :heavy_check_mark: | Aktualisieren Sie den Timer |
 
@@ -67,12 +68,16 @@ Folgende Staaten stehen zur Verfügung:
 
 ## Changelog
 
+### 0.2.5 (2021-12-06)
+* (patrickbs96) Renamed States with led control. Now starting with "led".
+* (patrickbs96) Add new State `ledLayout`/`ledPlaylist`
+
 ### 0.2.4 (2021-12-03)
 * (patrickbs96) Handle wrong input so it does not cause exceptions
-* (patrickbs96) Add Feature to change Effect
+* (patrickbs96) Add new State `ledEffect`
 
 ### 0.2.2 (2021-11-30)
-* (patrickbs96) Add Feature to change Color
+* (patrickbs96) Add new State `ledColor`
 
 ### 0.2.0 (2021-11-28)
 * (patrickbs96) Add new Value `color` from API-Response (Sentry IOBROKER-TWINKLY-J, IOBROKER-TWINKLY-K, IOBROKER-TWINKLY-M, IOBROKER-TWINKLY-N, IOBROKER-TWINKLY-P)

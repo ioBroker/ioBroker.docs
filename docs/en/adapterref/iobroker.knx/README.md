@@ -40,10 +40,10 @@ Before beginning: Every DPT of com.Objects should be set in your ETS project. Ev
 ## License requirements
 To use this adapter in ioBroker you need to accept the source code license of the adapter. The source code of this adapter is available under the CC-NC-BY license.
 
-Additionally you need a license to use the adapter. The license editions are available on https://iobroker.net/www/pricing
+Additionally you need a license to use the adapter. The license editions are available on [https://iobroker.net/www/pricing](https://iobroker.net/www/pricing)
 
 
-## Features:
+## Features
 
 * importing `knxproj` file
 * generating ETS-like object structure
@@ -115,6 +115,7 @@ For example a DPT5.001 is encoded as unsigned Integer with 8-Bit. This gives a s
 This results e.g. in a value like "0,5", where "0" means "decrease" and "5" means number of intervals.
 
 ### How the import works
+
 1. reading of all communicationobjectreferences (COR):
     combining of groupadressreference ID'd with DPT of corresponding COR (if exists).
 2. generation of groupaddress structure(GAS):
@@ -144,6 +145,7 @@ This results e.g. in a value like "0,5", where "0" means "decrease" and "5" mean
     are all states up to date.
 
 ###Avoidance of problems
+
 * clean ETS programming and more important clean ETS programming and most important clean ETS programming
 * Assign the DPTs!!
 * uniform labeling of the GA names (e.B "EG Wohnen Decke Licht schalten" and "EG Wohnen Decke Licht schalten status" )
@@ -195,6 +197,12 @@ If there are more GA's to change properties, use multiselect. This feature works
 -->
 
 ## Changelog
+
+### 2.0.3 (2021-12-04)
+
+* fixed counting 1st Datapoint
+* automaticly remove old V1 license", preventing confusion after upgrade from V1 to V2
+
 ### 2.0.1
 
 * fixed problem with license acceptance

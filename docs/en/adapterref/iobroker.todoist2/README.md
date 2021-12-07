@@ -166,6 +166,10 @@ Example for any image you like:
 ```
 
 ## Changelog
+### 0.8.10
+* (rde-master) Bugfix for Filter Lists are not all displays 
+* (rde-master) Update axios to 21.2
+
 ### 0.8.9
 * (rde-master) Bugfix for no labels ar defined
 

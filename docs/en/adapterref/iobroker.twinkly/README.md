@@ -40,25 +40,26 @@ The following additionals States are created per device when checked:
 
 The following States are available:
 
-| State                         | Writable           | Description                                                                                                                     |
-|-------------------------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `activePlaylistMovie`         | :x:                | Active Playlist Movie  (Mode `Playlist`)                                                                                        |
-| `activePlaylistMovieDuration` | :x:                | Active Playlist Movie Duration  (Mode `Playlist`)                                                                               |
-| `bri`                         | :heavy_check_mark: | Brightness (deactivate control by setting -1)                                                                                   |
-| `color`                       | :heavy_check_mark: | HSV/RGB(W)/HEX                                                                                                                  |
-| `connected`                   | :x:                | Device Connected                                                                                                                |
-| `effect`                      | :heavy_check_mark: | Effects (Mode `Effect`)                                                                                                         |
-| `firmware`                    | :x:                | Firmware                                                                                                                        |
-| `mode`                        | :heavy_check_mark: | Mode: On, Playlist, Color, Off, RealTime (not yet supported), Demo, Effect                                                      |
-| `movie`                       | :heavy_check_mark: | Active Movie, If multiple Movies are added in the Playlist feature then they can be selected here.  (Mode `On`)                 |
-| `mqtt`                        | :heavy_check_mark: | MQTT-Connection                                                                                                                 |
-| `name`                        | :heavy_check_mark: | Name                                                                                                                            |
-| `network`                     | :x:                | Network-Information                                                                                                             |
-| `on`                          | :heavy_check_mark: | On/Off Switch                                                                                                                   |
-| `paused`                      | :heavy_check_mark: | Pause Connection to Twinkly so you can do changes in the App. Otherwise you might loose the connection while working in the App |
-| `reloadMovies`                | :heavy_check_mark: | Reload the available Movies                                                                                                     |
-| `sat`                         | :heavy_check_mark: | Saturation 0-100 (deactivate control by setting -1)                                                                             |
-| `timer`                       | :heavy_check_mark: | Update the Timer                                                                                                                |
+| State         | Writable           | Description                                                                                                                     |
+|---------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `connected`   | :x:                | Device Connected                                                                                                                |
+| `details`     | :x:                | Device Details                                                                                                                  |
+| `firmware`    | :x:                | Firmware Version                                                                                                                |
+| `ledBri`      | :heavy_check_mark: | Brightness (deactivate control with -1)                                                                                         |
+| `ledColor`    | :heavy_check_mark: | Color of LEDs, HSV/RGB(W)/HEX                                                                                                   |
+| `ledConfig`   | :heavy_check_mark: | Configuration of LEDs                                                                                                           |
+| `ledEffect`   | :heavy_check_mark: | Effects (`Effect`)                                                                                                              |
+| `ledLayout`   | :heavy_check_mark: | Layout of LEDs                                                                                                                  |
+| `ledMode`     | :heavy_check_mark: | Mode: On, Color, Effect, Playlist, Off, RealTime (not yet supported), Demo                                                      |
+| `ledMovie`    | :heavy_check_mark: | Active Movie, If multiple Movies are added in the Playlist feature then they can be selected here. (`On`)                       |
+| `ledPlaylist` | :heavy_check_mark: | Active Playlist Entry, Switch between Movies. (`Playlist`)                                                                      |
+| `ledSat`      | :heavy_check_mark: | Saturation 0-100 (deactivate control with -1)                                                                                   |
+| `mqtt`        | :heavy_check_mark: | MQTT-Connection                                                                                                                 |
+| `name`        | :heavy_check_mark: | Name                                                                                                                            |
+| `network`     | :x:                | Network-Information                                                                                                             |
+| `on`          | :heavy_check_mark: | On/Off Switch                                                                                                                   |
+| `paused`      | :heavy_check_mark: | Pause Connection to Twinkly so you can do changes in the App. Otherwise you might loose the connection while working in the App |
+| `timer`       | :heavy_check_mark: | Update the Timer                                                                                                                |
 
 
 
@@ -66,12 +67,16 @@ The following States are available:
 
 ## Changelog
 
+### 0.2.5 (2021-12-06)
+* (patrickbs96) Renamed States with led control. Now starting with "led".
+* (patrickbs96) Add new State `ledLayout`/`ledPlaylist`
+
 ### 0.2.4 (2021-12-03)
 * (patrickbs96) Handle wrong input so it does not cause exceptions
-* (patrickbs96) Add Feature to change Effect
+* (patrickbs96) Add new State `ledEffect`
 
 ### 0.2.2 (2021-11-30)
-* (patrickbs96) Add Feature to change Color
+* (patrickbs96) Add new State `ledColor`
 
 ### 0.2.0 (2021-11-28)
 * (patrickbs96) Add new Value `color` from API-Response (Sentry IOBROKER-TWINKLY-J, IOBROKER-TWINKLY-K, IOBROKER-TWINKLY-M, IOBROKER-TWINKLY-N, IOBROKER-TWINKLY-P)

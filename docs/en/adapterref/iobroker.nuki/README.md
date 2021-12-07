@@ -85,12 +85,18 @@ When updating from 1.0.x to 1.1.0 or higher it is recommended to delete all inst
 
 ## Changelog
 
+### 1.6.0
+* (smaragdschlange) improvement: support for Nuki Smart Door and Nuki Smart Lock 3.0 (Pro)
+
 ### 1.5.0
 * (smaragdschlange) bug fix: compatibility with jscontroller 3.3.13
+
 ### 1.4.4
 * (smaragdschlange) update: changes to comply with admin 5.x.x requirements
+
 ### 1.4.3
 * (smaragdschlange) update: dependency axios to >=0.21.1
+
 ### 1.4.2
 * (smaragdschlange) bug fix: common.dataSource type had an invalid type
 
