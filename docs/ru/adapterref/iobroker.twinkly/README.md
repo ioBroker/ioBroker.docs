@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.twinkly/README.md
 title: ioBroker.twinkly
-hash: xOjK+FPdzwvt6A0M5a0D4ZKER/5EImoSbVmT2M5HAME=
+hash: yWnaLcmYkeNB3V78Pvx6VtGhEiNZFZeMc94BIhC2NRE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
@@ -51,7 +51,7 @@ hash: xOjK+FPdzwvt6A0M5a0D4ZKER/5EImoSbVmT2M5HAME=
 | `ledColor` | : heavy_check_mark: | Цвет светодиодов, HSV / RGB (W) / HEX |
 | `ledConfig` | : heavy_check_mark: | Конфигурация светодиодов |
 | `ledEffect` | : heavy_check_mark: | Эффекты (`Effect`) |
-| `ledLayout` | : heavy_check_mark: | Схема расположения светодиодов |
+| `ledLayout` | : heavy_check_mark: | Расположение светодиодов (отключено для дальнейшего тестирования) |
 | `ledMode` | : heavy_check_mark: | Mode: On, Color, Effect, Playlist, Off, RealTime (пока не поддерживается), Demo |
 | `ledMovie` | : heavy_check_mark: | Активный фильм. Если в список воспроизведения добавлено несколько фильмов, их можно выбрать здесь. (`On`) |
 | `ledPlaylist` | : heavy_check_mark: | Активная запись в плейлист, переключение между фильмами. (`Playlist`) |
@@ -68,7 +68,7 @@ hash: xOjK+FPdzwvt6A0M5a0D4ZKER/5EImoSbVmT2M5HAME=
 
 ## Changelog
 
-### 0.2.5 (2021-12-06)
+### 0.2.6 (2021-12-09)
 * (patrickbs96) Renamed States with led control. Now starting with "led".
 * (patrickbs96) Add new State `ledLayout`/`ledPlaylist`
 

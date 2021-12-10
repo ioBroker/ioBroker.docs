@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: ab3J7i/+T7H10UtD2h+bb8q65v57RI+lUB9J+pWSZuY=
+hash: 9DvpHKCTIHIMwhDwzpDcMpqDPywwi/RPchy/iVWToTw=
 ---
 ![标识](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
@@ -14,6 +14,7 @@ hash: ab3J7i/+T7H10UtD2h+bb8q65v57RI+lUB9J+pWSZuY=
 # IoBroker.knx
 ＃＃＃＃ 表中的内容
 * [说明](#description)
+* [要求](#requirements)
 * [功能](#features)
 * [适配器配置](#adapter-configuration)
     * [安装许可证](#install-the-license)
@@ -39,6 +40,13 @@ en: 此适配器允许从 ETS 导入 knxproj 文件。它生成 KNX-group 地址
 **您还应该将 iobroker js-controller 和 admin 更新到最新版本。**
 
 开始之前： com.Objects 的每个 DPT 都应该在您的 ETS 项目中设置。每个设备都应分类到您的设施结构中。
+
+＃＃ 要求
+* 节点版本 >= 14.15.4
+* 管理员版本 >= 5.2.0
+* js-控制器版本>=3.3.20
+
+如果没有此要求，适配器将无法安装或无法正常工作。
 
 ＃＃ 特征
 * 导入 `knxproj` 文件
@@ -84,11 +92,11 @@ en: 此适配器允许从 ETS 导入 knxproj 文件。它生成 KNX-group 地址
 1. KNX-Gateway IP：KNX-LAN网关的IPv4。
 2. KNX-Gateway 端口：默认为 3671 端口。
 3.物理地址：iobroker knx实例的物理地址**！重要：这不是物理。 LAN 网关的地址 !** 并且不能以 0 结尾
-4.每秒KNX包：这限制了包速率。如果 KNX Lan 网关重新连接很多或暂时无法访问，则降低此速率。
+4.每秒KNX包：这限制了包速率。如果 KNX Lan 网关重新连接到很多或暂时无法访问，则降低此速率。
 5.本地iobroker IP：选择适配器将绑定的IP/接口
-6. loglevel：通常为“Info”级别，调试时调高级别。
+6. loglevel：通常为“Info”级别，用于调试增加级别。
 7. 只导入新的数据点：这是默认启用的。在禁用新 GA 的情况下，将生成并重新创建现有的 GA。
-8. 按钮上传文件：拖放可用在这里或单击文件选择器对话框。您可以在此处以“knxproj”格式上传 ETS 导出。
+8. 按钮上传文件：拖放在这里或单击文件选择器对话框可用。您可以在此处以“knxproj”格式上传您的 ETS 导出。
 
 成功导入后，会出现一个对话框，显示导入对象的数量。现在按“保存并关闭”，适配器应该会启动。
 在启动时，适配器读取带有 read-Flag 和 write-Flag 的所有组地址。这可能需要一段时间，并且会在您的 KNX 总线上产生高负载。但是您的 vis 中的值会在启动后更新。
@@ -106,7 +114,7 @@ en: 此适配器允许从 ETS 导入 knxproj 文件。它生成 KNX-group 地址
 ### 数据点类型（DPT）
 所有符合 KNX 协会“系统规范、互通、数据点类型”的 DPT 均可用。这意味着您可以获得两种类型的信息：1) 值或字符串 2) 逗号分隔值或值数组（目前我不知道什么是更好的处理方式）
 
-例如，DPT5.001 被编码为 8 位无符号整数。这给出了一个单一的价值。 DPT3.007（控制调光）编码为 1Bit(Boolean)+3Bit(unsigned Int)。
+例如，DPT5.001 被编码为 8 位无符号整数。这给出了一个单一的值。 DPT3.007（控制调光）编码为 1Bit(Boolean)+3Bit(unsigned Int)。
 这导致例如在像“0,5”这样的值中，其中“0”表示“减少”，“5”表示间隔数。
 
 ### 导入的工作原理
@@ -120,7 +128,7 @@ en: 此适配器允许从 ETS 导入 knxproj 文件。它生成 KNX-group 地址
 
 3. 查找状态 一个行为地址：
 
-在 ets-exports 中没有关于状态和行为地址的信息。适配器解析所有“状态”或“状态”的 GA。如果有 2 个 GA 的相似度超过 90%，则一个地址是行为，另一个是状态。还会检查 DPT 是否相似。这就是为什么如果 GA 命名不一致，就不容易找到对等点。
+在 ets-exports 中没有关于状态和行为地址的信息。适配器解析所有“状态”或“状态”的 GA。如果有 2 个相似度超过 90% 的 GA，则一个地址是行为，另一个是状态。还会检查 DPT 是否相似。这就是为什么如果 GA 命名不一致，就不容易找到对等点。
 
 4.设备配置中的标志检查：
 
@@ -190,11 +198,28 @@ GA-Tool 可以轻松更改 GA 的属性。
 * esf 导入
 * GA-Mon 总线监控工具
 
-<!-- 下一版本的占位符（在行首）：
+<!-- 下一个版本的占位符（在行首）：
 
 ### __工作正在进行中__ -->
+## 异常和错误
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
+
+开发人员无法获得有关系统/配置/用户/环境的任何进一步特殊信息。如果未找到许可证，还会报告适配器版本和主机 ID。
 
 ## Changelog
+
+### 2.0.5
+
+* fixed problem on ETSv4 import
+* corrected some messages
+* corrected DPT14.x min and max range
+
+### 2.0.4
+
+* fixed DPT9.xxx calculation
+* implemented date-and-time DPT19.00x
+* fixed confusing "no license error"
+* small bugfixes
 
 ### 2.0.3 (2021-12-04)
 

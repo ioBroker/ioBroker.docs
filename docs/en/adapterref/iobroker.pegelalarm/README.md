@@ -35,6 +35,11 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!--### __WORK IN PROGRESS__-->
+### 1.2.5 (2021-12-08)
+* (simatec) Bugfix Adapter stop after request error
+* (simatec) Dependencies updated
+* (simatec) test and release updated
+
 ### 1.2.4 (2021-11-17)
 * (simatec) Dependencies updated
 * (simatec) test and release updated

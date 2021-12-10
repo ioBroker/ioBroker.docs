@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.twinkly/README.md
 title: ioBroker.twinkly
-hash: xOjK+FPdzwvt6A0M5a0D4ZKER/5EImoSbVmT2M5HAME=
+hash: yWnaLcmYkeNB3V78Pvx6VtGhEiNZFZeMc94BIhC2NRE=
 ---
 ![Logo](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
@@ -51,7 +51,7 @@ Folgende Staaten stehen zur Verfügung:
 | `ledColor` | :heavy_check_mark: | Farbe der LEDs, HSV/RGB(W)/HEX |
 | `ledConfig` | :heavy_check_mark: | Konfiguration der LEDs |
 | `ledEffect` | :heavy_check_mark: | Effekte (`Effect`) |
-| `ledLayout` | :heavy_check_mark: | Anordnung der LEDs |
+| `ledLayout` | :heavy_check_mark: | Anordnung der LEDs (für weitere Tests deaktiviert) |
 | `ledMode` | :heavy_check_mark: | Modus: Ein, Farbe, Effekt, Playlist, Aus, RealTime (noch nicht unterstützt), Demo |
 | `ledMovie` | :heavy_check_mark: | Aktiver Film, Wenn mehrere Filme in der Playlist-Funktion hinzugefügt wurden, können sie hier ausgewählt werden. (`On`) |
 | `ledPlaylist` | :heavy_check_mark: | Aktiver Playlist-Eintrag, Wechsel zwischen Filmen. (`Playlist`) |
@@ -68,7 +68,7 @@ Folgende Staaten stehen zur Verfügung:
 
 ## Changelog
 
-### 0.2.5 (2021-12-06)
+### 0.2.6 (2021-12-09)
 * (patrickbs96) Renamed States with led control. Now starting with "led".
 * (patrickbs96) Add new State `ledLayout`/`ledPlaylist`
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: Z7CxzGNDPG5NM+CfvhcM9fc9SbEmmlJ2tK70SWV3ShM=
+hash: Jz+axwoiVjZLSp1Vg3p37kgfRXnqhQm+0bFsDJF6LME=
 ---
 ![安装数量](http://iobroker.live/badges/tado-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.tado.svg)
@@ -34,13 +34,12 @@ tado° 确保舒适健康的气候，同时节省高达 31% 的取暖费用。
 | tado.[x].[yyyyy].Rooms.[z].setting.temperature |tado.[x].[yyyyy].Rooms.[z].setting.temperature.celsius |
 | tado.[x].[yyyyy].Rooms.[z].overlay.clearZoneOverlay | tado.[x].[yyyyy].Rooms.[z].overlayClearZone |
 | tado.[x].[yyyyy].Rooms.[z].Actual_Temperature | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.insideTemperature.celsius |
-| tado.[x].[yyyyy].Rooms.[z].Actual_Humidity | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.humity.percentage |
+| tado.[x].[yyyyy].Rooms.[z].Actual_Humidity | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.湿度.百分比|
 | tado.[x].[yyyyy].Rooms.[z].heatingPower | tado.[x].[yyyyy].Rooms.[z]..activityDataPoints.heatingPower.percentage |
 | tado.[x].[yyyyy].Weather.solarIntensity | tado.[x].[yyyyy].Weather.solarIntensity.percentage |
 | tado.[x].[yyyyy].Weather.outsideTemperature | tado.[x].[yyyyy].Weather.outsideTemperature.celsius |
 
 一般情况下，如果 API 发送 NULL 或什么都不发送，则值现在为 NULL。在 v0.2.x 中，有时会保留旧值，有时会替换为 0，有时会使用 NULL。
-**很高兴根据您的反馈添加其他主要更改！**
 
 ## 你可以驾驭的东西
 |状态 |说明 |
@@ -54,23 +53,36 @@ tado° 确保舒适健康的气候，同时节省高达 31% 的取暖费用。
 | tado.[x].[yyyyyy].Rooms.[z].timeTables.tt_id |选择活动时间表 |
 | tado.[x].[yyyyyy].Home.state.presence |设置 HOME 或 AWAY 模式 |
 | tado.[x].[yyyyyy].Home.masterswitch |打开/关闭所有设备 |
-|风扇速度| Fanspeed（仅限交流设备）|
-|模式 | AC 模式（仅限 AC 设备）|
-
-**如果您有 AC 设备，请随意为最后两行提供具体的 AC 设备路径！**
+| tado.[x].[yyyyyy].Rooms.[z].setting.mode |交流模式（仅限交流设备）|
+| tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | Fanspeed（仅限带有**旧**版本的交流设备）|
+| tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | Fanlebel（仅限带有**新**版本的交流设备）|
+| tado.[x].[yyyyyy].Rooms.[z].setting.verticalSwing |垂直摆动（仅限带有**新**版本的交流设备）|
+| tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing |水平摆动（仅限带有**新**版本的交流设备）|
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.11-alpha.4 (2021-11-11)
-* (HGlab01) support attributes 'showSwitchToAutoGeofencingButton', 'showHomePresenceSwitchButton' and 'additionalConsents'
+### 0.3.13-alpha.3 (2021-12-07)
+* (HGlab01) Optimize internet-check by using isOnline-library
+* (HGlab01) Support Smart AC Control V3+ (issue #403)
+
+### 0.3.12 (2021-11-25)
+* (HGlab01) support attribute 'showScheduleSetup'
+* (HGlab01) fix HOT_WATER device issue with temperature
+* (HGlab01) Bump iobroker-jsonexplorer to 0.1.8 (avoids re-sending same missing-attribeute info to Sentry after restart)
+
+### 0.3.11 (2021-11-19)
+* (HGlab01) support attributes 'showSwitchToAutoGeofencingButton', 'showHomePresenceSwitchButton', 'scheduleIsDefault' and 'additionalConsents'
 * (HGlab01) enhance error messages if API-call fails
 * (HGlab01) next time block fails (one reason for 422 error) if time blocks are not defined - fixed now
 * (HGlab01) set HOME/AWAY is now suported by using state tado.x.yyyyyy.Home.state.presence
 * (HGlab01) offset range -9.99/+10 validated
-* (HGlab01) add masterswitch for power on/off
+* (HGlab01) add masterswitch for power on/off (tado.[x].[yyyyyy].Home.masterswitch)
+* (HGlab01) reduce logs in info-mode
+* (HGlab01) AC temperature range fixed
+* (HGlab01) Bump iobroker-jsonexplorer to 0.1.7
 
 ### 0.3.10 (2021-10-29)
 * (HGlab01) API calls (except read) are queued and send one after the other

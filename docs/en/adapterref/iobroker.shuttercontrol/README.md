@@ -44,6 +44,14 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 1.4.4 (2021-12-08)
+* (simatec) Bugfix Trigger after shutter close
+* (simatec) Bugfix XMas Level by frost
+* (simatec) XMas Level for Elevation added
+* (simatec) Summertime for Elevation added
+* (simatec) small Bugfixes
+* (simatec) shutter Config check added
+
 ### 1.4.3 (2021-12-05)
 * (simatec) Bugfix Trigger after shutter close
 * (simatec) Bugfix XMas Level by frost

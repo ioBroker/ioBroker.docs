@@ -102,6 +102,8 @@ iobroker upload tr-064
 ```
 
 ## Changelog
+### 4.2.15 (2021-12-08)
+* (bluefox) fix crash case (Sentry IOBROKER-TR-064-35)
 
 ### 4.2.14 (2021-07-21)
 * (Apollon77) Further optimizations for js-controller 3.3
@@ -110,7 +112,7 @@ iobroker upload tr-064
 * (Apollon77) Optimize for js-controller 3.3 and prevent warnings (you pot. need to delete datapoints if you still see errors, they will be recreated)
 
 ### 4.2.12 (2021-04-16)
-* (Apollon77) prevent html template for calllists to be overwritten by default one
+* (Apollon77) prevent html template for call lists to be overwritten by default one
 * (Apollon77) fix crash case (Sentry IOBROKER-TR-064-2M)
 
 ### 4.2.11 (2021-03-12)
@@ -183,7 +185,7 @@ iobroker upload tr-064
 
 ### 4.0.3 (2020-05-11)
 * (Apollon77) Make sure adapter do not crash of no calls were returned (Sentry IOBROKER-TR-064-7)
-* (Apollon77) Make sure adapter do not crash when providing a non string to "ring" state (Sentry IOBROKER-TR-064-8) 
+* (Apollon77) Make sure adapter do not crash when providing a non string to "ring" state (Sentry IOBROKER-TR-064-8)
 
 ### 4.0.1 (2020-04-23)
 * (Apollon77) handle case where no Phone deflections are available (Sentry IOBROKER-TR-064-1/2)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/README.md
 title: ioBroker.shelly
-hash: WhRV6Z6TeujpEfbRi9fT6/25t0aLwJUAheS8NKnttlk=
+hash: V6P3E5f6yH44twyQHuQH5JFxERiA+sChohkx7J85Zl0=
 ---
 ![标识](../../../en/adapterref/iobroker.shelly/admin/shelly.png)
 
@@ -14,10 +14,9 @@ hash: WhRV6Z6TeujpEfbRi9fT6/25t0aLwJUAheS8NKnttlk=
 # IoBroker.shelly
 ![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.shelly/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/homekit-controller/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-需要 node.js 8.0 或更高版本和 Admin v3！
-
 适配器通过 REST api 和 CoAP 或 MQTT 协议与 Shelly 设备通信。
-默认情况下 Shelly 固件（不需要刷新固件！）。您将在此处找到有关该设备的更多详细信息：[雪莉](https://shelly.cloud/)
+
+使用默认的 Shelly 固件（不需要刷新固件！）。您将在此处找到有关该设备的更多详细信息：[雪莉](https://shelly.cloud/)
 
 如果您使用 CoAP 协议，固件 1.8.0 或更高版本的 Shelly 设备仅适用于 Shelly Adapter 4.0.0 或更高版本。如果您使用固件低于 1.8.0 的设备，但 Shelly 4Pro 除外，您必须使用 Shelly Adapter 3.3.6 或更低版本。在这种情况下，Shelly Adapter 4.0.0 或更高版本将不起作用！
 
@@ -28,7 +27,7 @@ hash: WhRV6Z6TeujpEfbRi9fT6/25t0aLwJUAheS8NKnttlk=
 ＃＃ 安装
 您可以在此处找到详细的安装文档：[安装文档](./docs/EN/INSTALL.md)
 
-## 支持的设备
+## 支持的设备（第 1 代）
 |Shelly 设备|CoAP|MQTT|
 |-------------|--------------|----|
 |Shelly1 (SHSW-1)|自 v3.3.0 起支持|自 v3.3.0 起支持|
@@ -64,9 +63,35 @@ hash: WhRV6Z6TeujpEfbRi9fT6/25t0aLwJUAheS8NKnttlk=
 |Shelly Button (SHBTN-2)|自 v4.0.5 起支持|自 v4.0.5 起支持|
 |Shelly Motion (SHMOS-01)|自 v4.0.6 起支持|自 v4.0.6 起支持|
 
+## 支持的设备（第 2 代）
+|Shelly 设备|CoAP|MQTT|
+|-------------|--------------|----|
+|Shelly Plus 1|---|从 v5.0.0 开始支持|
+|Shelly Plus 1 PM|---|从 v5.0.0 开始支持|
+|Shelly Pro 4 PM|---|从 v5.0.0 开始支持|
+
 ## Changelog
 
-### __WORK IN PROGRESS__
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 5.0.0 (2021-12-08)
+Important: The adapter now requires at least Node.js 12.x, js-controller 3.3+ and Admin 5.1.25+
+* (klein0r) Shelly Plus Support (1, 1 PM)
+* (klein0r) Shelly Pro Support (4 PM)
+* (klein0r) Updated logo
+* (klein0r) Use class definition instead
+* (klein0r) Use internal encryption methods
+* (klein0r) Admin 5 config
+
+### 4.1.2 (2021-11-14)
+* (sbormann) Fix the online checks to stay online
+
+### 4.1.1 (2021-11-13)
+* (Apollon77) Try to prevent State changes after adapter is stopped
+
+### 4.1.0 (2021-11-06)
 * (HGlab) several fixes and adjustments
 * (turbolift) fix temperature maximum warning
 * (Apollon77) Destroy Coap and MQTT server on unload
@@ -87,8 +112,7 @@ hash: WhRV6Z6TeujpEfbRi9fT6/25t0aLwJUAheS8NKnttlk=
 * (Stübi) - add min, max to state transiton for Shelly RGBW2 
 * (Stübi) - if a property in the returned json for a http request does not exist, it will not shown as an error anymore
 * (Stübi) - Bugfixing Shelly 1L
-* (klein0r) - Added shelly motion (SHMOS-01) 
-
+* (klein0r) - Added shelly motion (SHMOS-01)
 
 ### 4.0.5 (2021-02-01)
 * (Matze2010) - Add Support for Shelly Uni (SHSW-L)
@@ -109,7 +133,7 @@ hash: WhRV6Z6TeujpEfbRi9fT6/25t0aLwJUAheS8NKnttlk=
 * (Stübi) - Allow setting of customer MQTT prefix (Issue #244)
 * (harrym67) - Add Support for Shelly Uni (SHUNI-1)
 * (harrym67) - Bugfix EM3 (Issue #256)
-* (foxriver76) - Bugfix MQTT password check (Issue #264) 
+* (foxriver76) - Bugfix MQTT password check (Issue #264)
 
 ### 4.0.3 (2020-08-19)
 * (Stübi) - Add a checkbox, to optionally enable updates of objects even if they have not changed (Issue #209)
@@ -174,7 +198,7 @@ hash: WhRV6Z6TeujpEfbRi9fT6/25t0aLwJUAheS8NKnttlk=
 
 ### 3.3.3 (18.06.2020)
 * (Stübi) - Add Shelly Button
-* (Stübi) - Add Shelly Gas 
+* (Stübi) - Add Shelly Gas
 
 ### 3.3.2 (13.06.2020)
 * (Stübi) - Bugfixing Shelly RGBW2
@@ -223,7 +247,7 @@ hash: WhRV6Z6TeujpEfbRi9fT6/25t0aLwJUAheS8NKnttlk=
 * (Stübi) - Bugfixing, if Shelly sends a string instead of number and boolean (issue #131)
 
 ### 3.2.1 (02.03.2020)
-* (Stübi) - Bugfixing Shelly 3EMfor MQTT support 
+* (Stübi) - Bugfixing Shelly 3EMfor MQTT support
 
 ### 3.2.0 (13.02.2020)
 * (Simon W.) - Add device Shelly 3EM
@@ -234,7 +258,7 @@ hash: WhRV6Z6TeujpEfbRi9fT6/25t0aLwJUAheS8NKnttlk=
 * (Stübi) - Bugfixing, auto update new firmware
 
 ### 3.1.7 (08.01.2020)
-* (Stübi) - Add state energy to Shelly dimmer 
+* (Stübi) - Add state energy to Shelly dimmer
 
 ### 3.1.6 (30.12.2019)
 * (Stübi) - Add device Shelly Door/Windows sensor 
@@ -268,7 +292,7 @@ hash: WhRV6Z6TeujpEfbRi9fT6/25t0aLwJUAheS8NKnttlk=
 * (Stübi) - Add state energy for Shelly Plug S, Shelly PM and Shelly 2.5 in CoAP mode 
 * (Stübi) - Add state temperature for Shelly Plug S, Shelly PM and Shelly 2.5 in CoAP mode
 * (Stübi) - Add state overtemperature for Shelly Plug S, Shelly PM and Shelly 2.5 in CoAP and MQTT mode
-* (Stübi) - Bugfixing, the Shelly HT sends by CoAP the humidity multiply with 2. The fix divides the value by 2. 
+* (Stübi) - Bugfixing, the Shelly HT sends by CoAP the humidity multiply with 2. The fix divides the value by 2.
 
 ### 3.0.7 (03.07.2019)
 * (Stübi) - correct spelling error 
@@ -277,26 +301,26 @@ hash: WhRV6Z6TeujpEfbRi9fT6/25t0aLwJUAheS8NKnttlk=
 * (Stübi) - Fixed Buffer() is deprecated due to security and usability issues for Node >= 10
 
 ### 3.0.6 (29.06.2019)
-* (Stübi) - State reboot and uptime added 
+* (Stübi) - State reboot and uptime added
 
 ### 3.0.5 (16.06.2019)
 * (Stübi) - Bugfixing 
 * (Stübi) - Add Blacklist
 
 ### 3.0.4 (04.06.2019)
-* (Stübi) - Bugfixing (Issue #60) 
+* (Stübi) - Bugfixing (Issue #60)
 
 ### 3.0.3 (02.06.2019)
-* (Stübi) - Support of MQTT QoS 1 and 2. Add auto firmware update to the menu 
+* (Stübi) - Support of MQTT QoS 1 and 2. Add auto firmware update to the menu
 
 ### 3.0.2 (25.05.2019)
-* (Stübi) - Bugfixing and longpush and input states for Shelly 1, 2, 1pm, 2.5 and Shelly RGBWW2 added. Add state temperature to Shelly 1pm, 2.5 and Plug S.  
+* (Stübi) - Bugfixing and longpush and input states for Shelly 1, 2, 1pm, 2.5 and Shelly RGBWW2 added. Add state temperature to Shelly 1pm, 2.5 and Plug S.
 
 ### 3.0.1 (21.05.2019)
-* (Stübi) - Redesign of the adapter. You can choose now between CoAP and MQTT protocol. The Shellys use this protocolls to send there state changes to ioBroker in realtime. Out of the Box the Shelly works with the CoAP protocol. You do not have to configure anything. The Shelly will be found by the Shelly Adapter itself. If you want to use MQTT, you have configure all your Shelly devices. You find a detailed installing documentation here: [Installation Documentation](./docs/EN/INSTALL.md). If you have problems with the version 3.0.1 please change back to 2.2.0 and leave an Issue (bug report) here: [GitHub Issues](https://github.com/iobroker-community-adapters/ioBroker.shelly/issues). 
+* (Stübi) - Redesign of the adapter. You can choose now between CoAP and MQTT protocol. The Shellys use this protocolls to send there state changes to ioBroker in realtime. Out of the Box the Shelly works with the CoAP protocol. You do not have to configure anything. The Shelly will be found by the Shelly Adapter itself. If you want to use MQTT, you have configure all your Shelly devices. You find a detailed installing documentation here: [Installation Documentation](./docs/EN/INSTALL.md). If you have problems with the version 3.0.1 please change back to 2.2.0 and leave an Issue (bug report) here: [GitHub Issues](https://github.com/iobroker-community-adapters/ioBroker.shelly/issues).
 
 ### 2.2.0 (13.04.2019)
-* Add devices Shelly 2.5 and Shelly 1 PM 
+* Add devices Shelly 2.5 and Shelly 1 PM
 
 ### 2.1.9 (31.03.2019)
 * Add status 'firmware update' for Shelly RGBW, RGBW2 and Bulb
@@ -316,16 +340,16 @@ hash: WhRV6Z6TeujpEfbRi9fT6/25t0aLwJUAheS8NKnttlk=
 * Shelly Smoke Support
 
 ### 2.1.4 (20.02.2019)
-* Bugfixing of Shelly RGBW2 Support. If you have installed version 2.1.3, please delete all RGBW2 objects first, because the objects will be renamed from lights to color and white in version 2.1.4.   
+* Bugfixing of Shelly RGBW2 Support. If you have installed version 2.1.3, please delete all RGBW2 objects first, because the objects will be renamed from lights to color and white in version 2.1.4.
 
 ### 2.1.3 (16.02.2019)
 * Support of Shelly RGBW2
 
 ### 2.1.0 (09.02.2019)
-* New Status 'new firmware available' for Shely1, Shelly2, Shelly4Pro and ShellyPlug 
+* New Status 'new firmware available' for Shely1, Shelly2, Shelly4Pro and ShellyPlug
 
 ### 2.0.8 (31.01.2019)
-* Bugfixing, polling new Shelly status must be at least 1 sec ago 
+* Bugfixing, polling new Shelly status must be at least 1 sec ago
 
 ### 2.0.7 (21.01.2019)
 * Bugfixing for objects AutoTimerOn and AutoTimeroff
@@ -345,7 +369,7 @@ hash: WhRV6Z6TeujpEfbRi9fT6/25t0aLwJUAheS8NKnttlk=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Thorsten Stueben <thorsten@stueben.de>, Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2021 Thorsten Stueben <thorsten@stueben.de>, Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

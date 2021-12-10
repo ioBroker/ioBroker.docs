@@ -49,7 +49,7 @@ The following States are available:
 | `ledColor`    | :heavy_check_mark: | Color of LEDs, HSV/RGB(W)/HEX                                                                                                   |
 | `ledConfig`   | :heavy_check_mark: | Configuration of LEDs                                                                                                           |
 | `ledEffect`   | :heavy_check_mark: | Effects (`Effect`)                                                                                                              |
-| `ledLayout`   | :heavy_check_mark: | Layout of LEDs                                                                                                                  |
+| `ledLayout`   | :heavy_check_mark: | Layout of LEDs (disabled for further testing)                                                                                   |
 | `ledMode`     | :heavy_check_mark: | Mode: On, Color, Effect, Playlist, Off, RealTime (not yet supported), Demo                                                      |
 | `ledMovie`    | :heavy_check_mark: | Active Movie, If multiple Movies are added in the Playlist feature then they can be selected here. (`On`)                       |
 | `ledPlaylist` | :heavy_check_mark: | Active Playlist Entry, Switch between Movies. (`Playlist`)                                                                      |
@@ -67,7 +67,7 @@ The following States are available:
 
 ## Changelog
 
-### 0.2.5 (2021-12-06)
+### 0.2.6 (2021-12-09)
 * (patrickbs96) Renamed States with led control. Now starting with "led".
 * (patrickbs96) Add new State `ledLayout`/`ledPlaylist`
 

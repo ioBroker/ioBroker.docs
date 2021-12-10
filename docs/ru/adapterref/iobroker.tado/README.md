@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: Z7CxzGNDPG5NM+CfvhcM9fc9SbEmmlJ2tK70SWV3ShM=
+hash: Jz+axwoiVjZLSp1Vg3p37kgfRXnqhQm+0bFsDJF6LME=
 ---
 # IoBroker.tado
 
@@ -24,7 +24,7 @@ hash: Z7CxzGNDPG5NM+CfvhcM9fc9SbEmmlJ2tK70SWV3ShM=
 tado ° обеспечивает комфортный и здоровый климат, экономя до 31% на счетах за отопление.
 
 ## Поддержите меня
-Если вам нравятся мои работы, пожалуйста, сделайте личное пожертвование (это личная ссылка для пожертвования для DutchmanNL, не имеющая отношения к проекту ioBroker! [![Пожертвовать] (https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
+Если вам нравятся мои работы, пожалуйста, сделайте личное пожертвование (это личная ссылка для пожертвований для DutchmanNL, не имеющая отношения к проекту ioBroker! [![Пожертвовать] (https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Критические изменения в v0.3.x
 Рекомендация: Если возможно, сначала удалите старую установку адаптера или удалите все состояния, чтобы в установке не осталось неподдерживаемых состояний.
@@ -41,7 +41,6 @@ tado ° обеспечивает комфортный и здоровый кли
 | tado. [x]. [yyyyy] .Weather.outsideTemperature | tado. [x]. [yyyyy] .Weather.outsideTemperature.celsius |
 
 В общем, vaules теперь NULL, если API отправляет NULL или просто ничего. В v0.2.x иногда сохранялось старое значение, иногда заменялось на 0, иногда использовалось NULL.
-** Мы рады добавить дополнительные важные изменения на основе ваших отзывов! **
 
 ## Вещи, которыми можно управлять
 | Государство | Описание |
@@ -52,26 +51,39 @@ tado ° обеспечивает комфортный и здоровый кли
 | tado. [x]. [yyyyyy] .Rooms. [z] .overlay.termination.typeSkillBasedApp | Установить режим расписания |
 | tado. [x]. [yyyyyy] .Rooms. [z] .overlay.termination.durationInSeconds | Установите, как долго будет действовать режим расписания |
 | tado. [x]. [yyyyyy] .Rooms. [z] .devices. [RUaaaaaaaaaa] .offset.offsetCelsius | Температурное смещение |
-| тадо. [x]. [yyyyyy] .Rooms. [z] .timeTables.tt_id | Выберите активное расписание |
+| тадо. [x]. [yyyyyy] .Rooms. [z] .timeTables.tt_id | Выбрать активное расписание |
 | тадо. [x]. [yyyyyy] .Home.state.presence | Установите режим ДОМАШНИЙ или ВНЕЗАПНО |
 | тадо. [x]. [yyyyyy] .Home.masterswitch | Включение / выключение всех устройств |
-| fanpeed | Fanspeed (только для устройств переменного тока) |
-| режим | Режим переменного тока (только устройства переменного тока) |
-
-** Не стесняйтесь предоставить конкретные схемы устройств переменного тока для последних двух строк, если у вас есть устройство переменного тока! **
+| тадо. [x]. [yyyyyy] .Rooms. [z] .setting.mode | Режим переменного тока (только устройства переменного тока) |
+| тадо. [x]. [yyyyyy] .Rooms. [z] .setting.fanspeed | Fanspeed (только устройства переменного тока со **старой** версией) |
+| тадо. [x]. [yyyyyy] .Rooms. [z] .setting.fanLebel | Fanlebel (только устройства переменного тока с **новой** версией) |
+| тадо. [x]. [yyyyyy] .Rooms. [z] .setting.verticalSwing | Вертикальный поворот (только устройства переменного тока с **новой** версией) |
+| tado. [x]. [yyyyyy] .Rooms. [z] .setting.horizontalSwing | Горизонтальный поворот (только устройства переменного тока с **новой** версией) |
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.11-alpha.4 (2021-11-11)
-* (HGlab01) support attributes 'showSwitchToAutoGeofencingButton', 'showHomePresenceSwitchButton' and 'additionalConsents'
+### 0.3.13-alpha.3 (2021-12-07)
+* (HGlab01) Optimize internet-check by using isOnline-library
+* (HGlab01) Support Smart AC Control V3+ (issue #403)
+
+### 0.3.12 (2021-11-25)
+* (HGlab01) support attribute 'showScheduleSetup'
+* (HGlab01) fix HOT_WATER device issue with temperature
+* (HGlab01) Bump iobroker-jsonexplorer to 0.1.8 (avoids re-sending same missing-attribeute info to Sentry after restart)
+
+### 0.3.11 (2021-11-19)
+* (HGlab01) support attributes 'showSwitchToAutoGeofencingButton', 'showHomePresenceSwitchButton', 'scheduleIsDefault' and 'additionalConsents'
 * (HGlab01) enhance error messages if API-call fails
 * (HGlab01) next time block fails (one reason for 422 error) if time blocks are not defined - fixed now
 * (HGlab01) set HOME/AWAY is now suported by using state tado.x.yyyyyy.Home.state.presence
 * (HGlab01) offset range -9.99/+10 validated
-* (HGlab01) add masterswitch for power on/off
+* (HGlab01) add masterswitch for power on/off (tado.[x].[yyyyyy].Home.masterswitch)
+* (HGlab01) reduce logs in info-mode
+* (HGlab01) AC temperature range fixed
+* (HGlab01) Bump iobroker-jsonexplorer to 0.1.7
 
 ### 0.3.10 (2021-10-29)
 * (HGlab01) API calls (except read) are queued and send one after the other

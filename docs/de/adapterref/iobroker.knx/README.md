@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: ab3J7i/+T7H10UtD2h+bb8q65v57RI+lUB9J+pWSZuY=
+hash: 9DvpHKCTIHIMwhDwzpDcMpqDPywwi/RPchy/iVWToTw=
 ---
 ![Logo](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
@@ -14,6 +14,7 @@ hash: ab3J7i/+T7H10UtD2h+bb8q65v57RI+lUB9J+pWSZuY=
 #ioBroker.knx
 #### Inhaltsverzeichnis
 * [Beschreibung](#Beschreibung)
+* [Anforderungen](#Anforderungen)
 * [Funktionen](#Funktionen)
 * [Adapterkonfiguration](#adapter-konfiguration)
     * [Lizenz installieren](#install-the-license)
@@ -39,6 +40,13 @@ Es verbindet sich mit Standard-KNX/LAN-Gateways.
 **Sie sollten auch iobroker js-controller UND admin auf die neueste Version aktualisieren.**
 
 Bevor Sie beginnen: Jeder DPT von com.Objects sollte in Ihrem ETS-Projekt gesetzt sein. Jedes Gerät sollte in Ihre Anlagenstruktur einsortiert werden.
+
+## Anforderungen
+* Knotenversion >= 14.15.4
+* Admin-Version >= 5.2.0
+* js-Controller-Version >=3.3.20
+
+Ohne diese Anforderungen ist der Adapter nicht installierbar oder funktioniert nicht richtig.
 
 ## Merkmale
 * `knxproj`-Datei importieren
@@ -85,7 +93,7 @@ Das ist alles. Klicken Sie auf die Schaltfläche zum Speichern unten auf dieser 
 2. KNX-Gateway-Port: Standard ist Port 3671.
 3. Physikalische Adresse: Physikalische Adresse der iobroker knx-Instanz **! Wichtig: das ist nicht die phys. Adresse des LAN-Gateways !** und darf nicht auf 0 enden
 4. KNX-Pakete pro Sekunde: Dies begrenzt die Paketrate. Wenn sich das KNX Lan Gateway zu oft neu verbindet oder vorübergehend nicht erreichbar ist, reduzieren Sie diese Rate.
-5. lokale iobroker IP: Wählen Sie die IP / Schnittstelle aus, an die der Adapter gebunden werden soll
+5. lokale iobroker IP: Wählen Sie die IP / Schnittstelle aus, an die der Adapter gebunden wird
 6. loglevel: normalerweise ist das Level "Info", zum Debuggen das Level erhöhen.
 7. nur neue Datenpunkte importieren: dies ist standardmäßig aktiviert. Bei Deaktivierung werden neue GAs generiert UND bestehende GAs neu erstellt.
 8. Schaltfläche Datei hochladen: Drag'n Drop ist hier verfügbar oder klicken Sie auf den Dateiauswahldialog. Hier können Sie Ihren ETS-Export im `knxproj`-Format hochladen.
@@ -100,13 +108,13 @@ Das Hochladen einer passwortgeschützten Datei ist noch nicht möglich.
 ###Objekte
 Hier befindet sich unter knx.0 der Gruppenadressbaum wie in Ihrem ETS-Projekt. Verwenden Sie zum Ändern der Eigenschaften das GA-Tool.
 
-### Verwendungszweck
+### Verwendung
 Wenn der Adapter erfolgreich startet, stehen Ihre Datenpunkte für alles zur Verfügung, was Sie tun möchten.
 
 ### Datenpunkttypen (DPT)
 Es stehen alle DPTs gemäß "System Specifications, Interworking, Datapointtypes" der KNX Association zur Verfügung. Das bedeutet, dass Sie 2 Arten von Informationen erhalten können: 1) einen Wert oder eine Zeichenfolge 2) durch Kommas getrennte Werte oder ein Array von Werten (im Moment weiß ich nicht, wie ich damit besser umgehen soll)
 
-Beispielsweise wird ein DPT5.001 als unsigned Integer mit 8-Bit codiert. Dies ergibt einen einzelnen Wert. Das DPT3.007 (Control Dimming) ist als 1Bit(Boolean)+3Bit(unsigned Int) codiert.
+Zum Beispiel wird ein DPT5.001 als unsigned Integer mit 8-Bit codiert. Dies ergibt einen einzelnen Wert. Das DPT3.007 (Control Dimming) ist als 1Bit(Boolean)+3Bit(unsigned Int) codiert.
 Dies ergibt z.B. in einem Wert wie "0,5", wobei "0" "verringern" bedeutet und "5" die Anzahl der Intervalle bedeutet.
 
 ### So funktioniert der Import
@@ -193,8 +201,25 @@ Wenn mehr GAs zum Ändern der Eigenschaften vorhanden sind, verwenden Sie die Me
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
 ### __ARBEITEN IN PROGRESS__ -->
+##Ausnahmen und Fehler
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+
+Der Entwickler ist nicht in der Lage, weitere spezielle Informationen über das System/die Konfiguration/Benutzer/die Umgebung zu erhalten. Falls keine Lizenz gefunden wird, wird auch die Adapterversion und die Host-ID gemeldet.
 
 ## Changelog
+
+### 2.0.5
+
+* fixed problem on ETSv4 import
+* corrected some messages
+* corrected DPT14.x min and max range
+
+### 2.0.4
+
+* fixed DPT9.xxx calculation
+* implemented date-and-time DPT19.00x
+* fixed confusing "no license error"
+* small bugfixes
 
 ### 2.0.3 (2021-12-04)
 

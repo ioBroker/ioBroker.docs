@@ -208,6 +208,8 @@ Für jede Einkaufsliste wird ein Channel mit den folgenden Objekten angelegt:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.7.9 (2021-12-07)
+* (foxriver76) we fixed default value of `count` state beeing an empty string
 
 ### 1.7.8 (2021-08-04)
 * (foxriver76) widget: fix blue border on input text field in Safari when focussing
@@ -292,10 +294,10 @@ Für jede Einkaufsliste wird ein Channel mit den folgenden Objekten angelegt:
 
 ### 1.0.0
 * (foxriver76) stable release
-   
+
 ### 0.0.10
 * (foxriver76) set info.connection state to false, when cannot get data
-   
+
 ### 0.0.9
 * (foxriver76) also update no head states on normal polling
 * (foxriver76) fix bug where polling could grow exponentially
@@ -304,7 +306,7 @@ Für jede Einkaufsliste wird ein Channel mit den folgenden Objekten angelegt:
 ### 0.0.8
 * (foxriver76) add html states w/o header
 * (foxriver76) minor fixes
-   
+
 ### 0.0.7
 * (foxriver76) fixed a potential memory leak by setTimeout functions
 

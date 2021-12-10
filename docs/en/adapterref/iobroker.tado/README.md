@@ -34,8 +34,7 @@ Upgrade from 0.2.x to v0.3.x includes a technical re-factioring with breaking ch
 | tado.[x].[yyyyy].Weather.solarIntensity | tado.[x].[yyyyy].Weather.solarIntensity.percentage |
 | tado.[x].[yyyyy].Weather.outsideTemperature | tado.[x].[yyyyy].Weather.outsideTemperature.celsius |
 
-In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x sometimes the old value was kept, sometimes replaced with 0 sometimes NULL was used.  
-**Happy to add additonal major changes based on your feedback!**
+In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x sometimes the old value was kept, sometimes replaced with 0 sometimes NULL was used.
 
 ## Things you can steer
 | State | Description |
@@ -49,18 +48,20 @@ In general vaules are now NULL if API sends NULL or just nothing. In v0.2.x some
 | tado.[x].[yyyyyy].Rooms.[z].timeTables.tt_id | Select active time table |
 | tado.[x].[yyyyyy].Home.state.presence | Set HOME or AWAY mode |
 | tado.[x].[yyyyyy].Home.masterswitch | Turn all devices on/off |
-| fanspeed | Fanspeed (only AC devices) |
-| mode | AC mode (only AC devices) |
-
-**Feel free to provide concrete AC device pathes for the last two lines if you have an AC device!**
+| tado.[x].[yyyyyy].Rooms.[z].setting.mode | AC mode (only AC devices) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | Fanspeed (only AC devices with **old** version) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | Fanlebel (only AC devices with **new** version) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.verticalSwing | Vertical swing (only AC devices with **new** version) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | Horizontal swing (only AC devices with **new** version) |
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.13-alpha.0 (2021-11-29)
+### 0.3.13-alpha.3 (2021-12-07)
 * (HGlab01) Optimize internet-check by using isOnline-library
+* (HGlab01) Support Smart AC Control V3+ (issue #403)
 
 ### 0.3.12 (2021-11-25)
 * (HGlab01) support attribute 'showScheduleSetup'

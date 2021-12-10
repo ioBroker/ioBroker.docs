@@ -9,6 +9,7 @@
 #### Table of content
 
 * [Description](#description)
+* [Requirements](#requirements)
 * [Features](#features)
 * [Adapter configuration](#adapter-configuration)
     * [Install the License](#install-the-license)
@@ -36,6 +37,13 @@ It connects to standard KNX/LAN Gateways.
 
 Before beginning: Every DPT of com.Objects should be set in your ETS project. Every device should be sorted into your facility structure.
 
+## Requirements
+
+* node Version >= 14.15.4
+* admin Version >= 5.2.0
+* js-controller Version >=3.3.20
+
+Without this requirements, the adapter is not installable or will work not properly.
 
 ## License requirements
 To use this adapter in ioBroker you need to accept the source code license of the adapter. The source code of this adapter is available under the CC-NC-BY license.
@@ -197,6 +205,19 @@ If there are more GA's to change properties, use multiselect. This feature works
 -->
 
 ## Changelog
+
+### 2.0.5
+
+* fixed problem on ETSv4 import
+* corrected some messages
+* corrected DPT14.x min and max range
+
+### 2.0.4
+
+* fixed DPT9.xxx calculation
+* implemented date-and-time DPT19.00x
+* fixed confusing "no license error"
+* small bugfixes
 
 ### 2.0.3 (2021-12-04)
 
@@ -459,6 +480,16 @@ If there are more GA's to change properties, use multiselect. This feature works
 #### 0.2.0
 
 * (bluefox) initial release
+
+## Exceptions and errors
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**  
+For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!  
+Sentry reporting is used starting with js-controller 3.0.
+
+The developer is not able to get any further special informations about the system/config/user/enviroment. In case no license is found the
+adapter version and host id is also reported.
+
 
 ## License
 The CC-NC-BY License (CC-NC-BY)

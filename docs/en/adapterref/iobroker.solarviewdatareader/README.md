@@ -5,7 +5,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.solarviewdatareader.svg)](https://www.npmjs.com/package/iobroker.solarviewdatareader)
 ![Number of Installations (latest)](https://iobroker.live/badges/solarviewdatareader-installed.svg)
 ![Number of Installations (stable)](https://iobroker.live/badges/solarviewdatareader-stable.svg)
-[![Dependency Status](https://img.shields.io/david/afuerhoff/iobroker.solarviewdatareader.svg)](https://david-dm.org/afuerhoff/iobroker.solarviewdatareader)
 [![Known Vulnerabilities](https://snyk.io/test/github/afuerhoff/ioBroker.solarviewdatareader/badge.svg)](https://snyk.io/test/github/afuerhoff/ioBroker.solarviewdatareader)
 
 [![NPM](https://nodei.co/npm/iobroker.solarviewdatareader.png?downloads=true)](https://nodei.co/npm/iobroker.solarviewdatareader/)
@@ -65,6 +64,9 @@ TKK= Temperature inverter
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.0.3 (2021-12-08)
+* (afuerhoff) dependencies updated
+
 ### 1.0.2 (2021-05-07)
 * (afuerhoff) node.js 14 and 16 compatibilty
 * (afuerhoff) dependencies updated
@@ -80,8 +82,7 @@ TKK= Temperature inverter
 
 ### 0.2.1
 * (afuerhoff) self consumption meter optimized
-### 0.2.0
-* (afuerhoff) Error handling optimized, self consumption meter implemented
+
 ## License
 MIT License
 

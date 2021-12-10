@@ -3,8 +3,10 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: Z7CxzGNDPG5NM+CfvhcM9fc9SbEmmlJ2tK70SWV3ShM=
+hash: Jz+axwoiVjZLSp1Vg3p37kgfRXnqhQm+0bFsDJF6LME=
 ---
+# IoBroker.tado
+
 ![Anzahl der Installationen](http://iobroker.live/badges/tado-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.tado.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.tado.svg)
@@ -12,7 +14,6 @@ hash: Z7CxzGNDPG5NM+CfvhcM9fc9SbEmmlJ2tK70SWV3ShM=
 ![Bekannte Schwachstellen](https://snyk.io/test/github/DrozmotiX/ioBroker.tado/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.tado.png?downloads=true)
 
-#ioBroker.tado
 <img src="./admin/tado.png" width="50" height="50">
 
 [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
@@ -27,20 +28,19 @@ Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende zuk
 
 ## Wichtige Änderungen in v0.3.x
 Empfehlung: Löschen Sie nach Möglichkeit zuerst die alte Adapterinstallation oder löschen Sie alle Zustände, damit keine nicht unterstützten Zustände in der Installation verbleiben.
-Upgrade von 0.2.x auf v0.3.x beinhaltet ein technisches Re-Factoring mit Breaking Changes. Einige Staaten haben ihren Namen/Pfad geändert, z.B.
+Upgrade von 0.2.x auf v0.3.x beinhaltet ein technisches Refactoring mit Breaking Changes. Einige Staaten haben ihren Namen/Pfad geändert, z.B.
 
 | v0.2.x | v0.3.x |
 | ------ | ------ |
 | tado.[x].[yyyyy].Rooms.[z].setting.temperature |tado.[x].[yyyyy].Rooms.[z].setting.temperature.celsius |
 | tado.[x].[yyyyy].Rooms.[z].overlay.clearZoneOverlay | tado.[x].[yyyyy].Rooms.[z].overlayClearZone |
-| tado.[x].[yyyyy].Rooms.[z].Ist_Temperatur | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.insideTemperature.celsius |
+| tado.[x].[yyyyy].Rooms.[z].Actual_Temperature | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.insideTemperature.celsius |
 | tado.[x].[yyyyy].Rooms.[z].Actual_Humidity | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.humidity.percentage |
 | tado.[x].[yyyyy].Rooms.[z].heatingPower | tado.[x].[yyyyy].Rooms.[z]..activityDataPoints.heatingPower.percentage |
-| tado.[x].[yyyyy].Weather.solarIntensity | tado.[x].[yyyyy].Wetter.solarIntensity.Prozent |
+| tado.[x].[yyyyy].Weather.solarIntensity | tado.[x].[yyyyy].Wetter.solarIntensity.percentage |
 | tado.[x].[yyyyy].Weather.outsideTemperature | tado.[x].[yyyyy].Weather.outsideTemperature.celsius |
 
 Im Allgemeinen sind Werte jetzt NULL, wenn die API NULL oder einfach nichts sendet. In v0.2.x wurde manchmal der alte Wert beibehalten, manchmal durch 0 ersetzt, manchmal wurde NULL verwendet.
-** Gerne weitere wichtige Änderungen basierend auf Ihrem Feedback!**
 
 ## Dinge, die du steuern kannst
 | Staat | Beschreibung |
@@ -50,27 +50,40 @@ Im Allgemeinen sind Werte jetzt NULL, wenn die API NULL oder einfach nichts send
 | tado.[x].[yyyyyy].Rooms.[z].overlayClearZone | In den Automatikmodus wechseln |
 | tado.[x].[yyyyyy].Rooms.[z].overlay.termination.typeSkillBasedApp | Fahrplanmodus einstellen |
 | tado.[x].[yyyyyy].Rooms.[z].overlay.termination.durationInSeconds | Legen Sie fest, wie lange der Fahrplanmodus gelten soll |
-| tado.[x].[yyyyyy].Räume.[z].Geräte.[RUaaaaaaaaaa].offset.offsetCelsius | Temperatur-Offset |
+| tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].offset.offsetCelsius | Temperatur-Offset |
 | tado.[x].[yyyyyy].Rooms.[z].timeTables.tt_id | Aktiven Fahrplan auswählen |
-| tado.[x].[yyyyyy].Heimatstaat.Präsenz | HAUPT- oder AWE-Modus einstellen |
+| tado.[x].[yyyyyy].Heimatstaat.Präsenz | HOME- oder AWAY-Modus einstellen |
 | tado.[x].[yyyyyy].Home.masterswitch | Alle Geräte ein-/ausschalten |
-| Lüftergeschwindigkeit | Lüftergeschwindigkeit (nur AC-Geräte) |
-| Modus | AC-Modus (nur AC-Geräte) |
-
-**Bitte geben Sie für die letzten beiden Leitungen konkrete AC-Gerätepfade an, wenn Sie ein AC-Gerät haben!**
+| tado.[x].[yyyyyy].Rooms.[z].setting.mode | AC-Modus (nur AC-Geräte) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | Lüftergeschwindigkeit (nur AC-Geräte mit **alter** Version) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | Fanlebel (nur AC-Geräte mit **neuer** Version) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.verticalSwing | Vertikalschaukel (nur AC-Geräte mit **neuer** Version) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | Horizontalschaukel (nur AC-Geräte mit **neuer** Version) |
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.11-alpha.4 (2021-11-11)
-* (HGlab01) support attributes 'showSwitchToAutoGeofencingButton', 'showHomePresenceSwitchButton' and 'additionalConsents'
+### 0.3.13-alpha.3 (2021-12-07)
+* (HGlab01) Optimize internet-check by using isOnline-library
+* (HGlab01) Support Smart AC Control V3+ (issue #403)
+
+### 0.3.12 (2021-11-25)
+* (HGlab01) support attribute 'showScheduleSetup'
+* (HGlab01) fix HOT_WATER device issue with temperature
+* (HGlab01) Bump iobroker-jsonexplorer to 0.1.8 (avoids re-sending same missing-attribeute info to Sentry after restart)
+
+### 0.3.11 (2021-11-19)
+* (HGlab01) support attributes 'showSwitchToAutoGeofencingButton', 'showHomePresenceSwitchButton', 'scheduleIsDefault' and 'additionalConsents'
 * (HGlab01) enhance error messages if API-call fails
 * (HGlab01) next time block fails (one reason for 422 error) if time blocks are not defined - fixed now
 * (HGlab01) set HOME/AWAY is now suported by using state tado.x.yyyyyy.Home.state.presence
 * (HGlab01) offset range -9.99/+10 validated
-* (HGlab01) add masterswitch for power on/off
+* (HGlab01) add masterswitch for power on/off (tado.[x].[yyyyyy].Home.masterswitch)
+* (HGlab01) reduce logs in info-mode
+* (HGlab01) AC temperature range fixed
+* (HGlab01) Bump iobroker-jsonexplorer to 0.1.7
 
 ### 0.3.10 (2021-10-29)
 * (HGlab01) API calls (except read) are queued and send one after the other

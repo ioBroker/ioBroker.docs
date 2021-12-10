@@ -35,6 +35,10 @@ A small excerpt just of the command options:
 
 ## Changelog
 
+
+### 2.0.10 (2021-12-07)
+* (xXBJXx)  Problem with special characters in psw
+
 ### 2.0.9 (2021-05-30)
 * (arteck)  lastInfoUpdate is now correct
 
