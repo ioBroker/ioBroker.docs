@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: wEB5tSyq3+CQ1EsgcxXp5ZXHWgy8bt+gMyPh5KpkZaM=
+hash: mnjlBsGfHl+K+yH3iW+qEuDK3LLuvlpqiPPSbODE098=
 ---
 ![标识](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -53,7 +53,7 @@ ioBroker的meteoalarm适配器---------------------------------------------- ---
 
 “小部件中没有符号”：不要在 HTML 小部件中使用符号。您仍然可以在对象中访问它。如果您想与小部件分开显示图标，则这是有用的 - 例如在更大的尺寸。
 
-“今天而不是工作日” 显示在小部件的标题中，而不是工作日“今天”、“明天”或“昨天”。
+“今天而不是工作日” 在小部件的标题中显示而不是工作日“今天”、“明天”或“昨天”。
 
 ## 警报级别
 |报警级别|说明|
@@ -102,13 +102,18 @@ ioBroker的meteoalarm适配器---------------------------------------------- ---
 * 葡萄牙（来自meteoalarm.org 的地理编码文件可能不正确）
 * 保加利亚（来自meteoalarm.org 的地理编码文件可能不正确）
 
+## 2.0.10 (2021-12-10)
+* (jack-blackson) 修正哨兵 IOBROKER-METEOALARM-2K
+* (jack-blackson) 爱尔兰的BUgfix
+
 ## 2.0.9 (2021-11-27)
 * (jack-blackson) 正确计算日期——这次是真的:)
+* (jack-blackson) 修正哨兵 IOBROKER-METEOALARM-2N
 
 ## 2.0.8 (2021-11-26)
 * (jack-blackson) 添加了新的数据点“活动警报数”
 * (jack-blackson) 调整包信息
-* (jack-blackson) 修正 HTML Widget 中的日期显示提前 2 天发出警告
+* (jack-blackson) 修正 HTML Widget 中的日期显示以提前 2 天发出警告
 
 ## 2.0.7 (2021-10-01)
 *（杰克布莱克森）修正

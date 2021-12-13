@@ -5,7 +5,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.fritzdect.svg)](https://www.npmjs.com/package/iobroker.fritzdect)
 ![Number of Installations (latest)](http://iobroker.live/badges/fritzdect-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/fritzdect-stable.svg)
-[![Dependency Status](https://img.shields.io/david/foxthefox/iobroker.fritzdect.svg)](https://david-dm.org/foxthefox/iobroker.fritzdect)
 [![Known Vulnerabilities](https://snyk.io/test/github/foxthefox/ioBroker.fritzdect/badge.svg)](https://snyk.io/test/github/foxthefox/ioBroker.fritzdect)
 
 [![NPM](https://nodei.co/npm/iobroker.fritzdect.png?downloads=true)](https://nodei.co/npm/iobroker.fritzdect/)
@@ -189,6 +188,7 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 ## Changelog
 ### 2.1.16 WIP
 * temperature range in sockets 0..32°C -> -60..60°C
+* fast hack for OFF/ON feedback via temperature 254/255*0,5 -> upper range tchange, absenk, komfort = 128
 
 ### 2.1.15 (npm)
 * correction in timestamp as date/string

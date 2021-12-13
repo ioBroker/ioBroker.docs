@@ -222,6 +222,16 @@ Instructions how to set up the client are includes in the adapter configuration.
 
 ## Changelog
 
+### 1.5.1 (2021-12-12)
+* (crycode-de) Fix crash on undefined obj.native,
+* (crycode-de) Updated remote-client-setup info in admin if https is used
+
+### 1.5.0 (2021-12-11)
+* (crycode-de) Add setting to disable specific sensors
+
+### 1.4.2 (2021-11-22)
+* (crycode-de) Added some instructions for installing remote client in admin
+
 ### 1.4.1 (2021-04-20)
 * (crycode-de) Fixed bug if multiple remote sensors are used
 

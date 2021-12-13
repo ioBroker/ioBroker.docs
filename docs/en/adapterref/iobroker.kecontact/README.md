@@ -86,6 +86,10 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 
 ## Changelog
 
+### 1.3.3 (2021-12-11)
+* (Sneak-L8) fix error when message to display is empty (sentry IOBROKER-KECONTACT-Q) 
+* (Sneak-L8) new option whether power of wallbox is included in surplus/regard
+
 ### 1.3.2 (2021-11-09)
 * (Sneak-L8) firmware check for x-series no longer supported due to changes on website of Keba 
 

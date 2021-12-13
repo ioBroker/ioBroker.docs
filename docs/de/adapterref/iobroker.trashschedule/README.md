@@ -1,58 +1,45 @@
 ---
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.trashschedule/README.md
-title: ioBroker.trashschedule
-hash: 2F2O72OrzzaAFfm9YsYIHXpSxe1vxRaraA8YdYZ7lAs=
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.trashschedule.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.trashschedule.svg
+BADGE-Stable: http://iobroker.live/badges/trashschedule-stable.svg
+BADGE-installed: http://iobroker.live/badges/trashschedule-installed.svg
+BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.trashschedule.svg
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.trashschedule/badge.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.trashschedule.png?downloads=true
 ---
-![Logo](../../../en/adapterref/iobroker.trashschedule/admin/trashschedule.png)
+![Logo](../../admin/trashschedule.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.trashschedule.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.trashschedule.svg)
-![Stabil](http://iobroker.live/badges/trashschedule-stable.svg)
-![Eingerichtet](http://iobroker.live/badges/trashschedule-installed.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/klein0r/iobroker.trashschedule.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/klein0r/ioBroker.trashschedule/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.trashschedule.png?downloads=true)
+# ioBroker.trashschedule
 
-# IoBroker.trashschedule
-![Testen und freigeben](https://github.com/klein0r/ioBroker.trashschedule/workflows/Test%20and%20Release/badge.svg)
+## Voraussetzungen
 
-Scannt einen Kalender, um die verbleibenden Tage bis zur nächsten Müllabfuhr zu berechnen
+1. Erstelle eine neue Instanz des **ical Adapters**
+2. Konfiguriere die URL zu deinem Müllkalender (zum Beispiel ein Google Kalender)
+3. Setze die "Tagesvorschau" auf einen Wert, welcher möglichst jeden Abfalltyp mindestens zweimal enthält (z.B. 30 Tage)
+4. Falls Du die "Ereignisse" verwendest, stelle sicher, dass bei jedem Ereignis "anzeigen" ausgewählt wurde, welches für den Müllkalender ebenfalls relevant ist (andernfalls werden die Termine vom iCal Adapter ausgeblendet)
 
-## Gefördert durch
-[![ioBroker Master Kurs](https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-trashschedule)
+![ical](./ical.png)
 
-## Installation
-Bitte verwenden Sie die "Adapterliste" in ioBroker, um eine stabile Version dieses Adapters zu installieren. Sie können diesen Adapter auch über die CLI installieren:
+## Konfiguration
 
-```
-iobroker add trashschedule
-```
+1. Erstelle eine ```trashschedule``` Instanz und wähle die ical-Instanz aus, welche den Müllkalender enthält
+2. Wechsle in das Tab "Abfalltypen" und füge so viele Zeilen ein, wie Du Abfalltypen hast
+3. Vergib einen Namen für jeden Abfalltyp und lege fest, welche Termine im Kalender für diesen Typ relevant sind
+4. Starte die Instanz
 
-##Voraussetzungen
-1. Erstellen Sie eine **ische Instanz**
-2. Konfigurieren Sie die URL Ihres Kalenders (z. B. Google-Kalender)
-3. Stellen Sie "Vorschautage" auf einen Bereich ein, der jede Müllart mindestens zweimal umfasst (z. B. 30 Tage)
-4. Wählen Sie die Option "Start-Ende von Ereignissen ausblenden"
-5. Wenn Sie die Registerkarte "Ereignisse" verwenden, stellen Sie sicher, dass das Kontrollkästchen "Anzeige" für jeden Ereignistyp aktiviert ist, der auch in Ihrem Papierkorbplan verwendet werden soll (sonst wird das Ereignis von der ical-Instanz ausgeblendet)
+**Fragen?** Schaue in die [FAQ](./faq.md)
 
-## Aufbau
-1. Erstellen Sie eine Papierkorb-Zeitplaninstanz und wählen Sie die ical-Instanz als Quelle
-2. Gehen Sie zur Registerkarte Papierkorbtypen und fügen Sie Typnamen und Ereignisübereinstimmungen hinzu
-3. Instanz starten
+![trashschedule](./trashschedule.png)
 
-**Fragen?** Überprüfen Sie die FAQ: [Deutsch](https://github.com/klein0r/ioBroker.trashschedule/blob/master/faq_de.md)
+![trashschedule_types](./trashschedule_types.png)
 
-##VIS-Widget
-![VIS-Widget](../../../en/adapterref/iobroker.trashschedule/images/vis.png)
+## VIS Widget
 
-**Guthaben**
-
-- SVG: https://pixabay.com/de/vectors/behälter-kann-deckel-offen-grün-310937/
+![VIS widget](../vis.png)
 
 ## Blockly-Beispiel
-![Blockiges Beispiel](../../../en/adapterref/iobroker.trashschedule/images/exampleBlockly.png)
+
+![Blockly example](../exampleBlockly.png)
 
 ```xml
 <xml xmlns="https://developers.google.com/blockly/xml">
@@ -203,18 +190,21 @@ iobroker add trashschedule
 </xml>
 ```
 
-## Offset-Konfiguration
-## Standard 0
-![Offset-Beispiel](../../../en/adapterref/iobroker.trashschedule/images/offsetExample.jpg)
+## Offset konfiguration
 
-## Beispiel 1
-![Offset-Beispiel](../../../en/adapterref/iobroker.trashschedule/images/offsetExample1.jpg)
+Der Offset kann alle Abholtermine im Kalender in die Zukunft oder in die Vergangenheit schieben.
 
-## Beispiel 1
-![Offset-Beispiel](../../../en/adapterref/iobroker.trashschedule/images/offsetExample2.jpg)
+## Standard: 0
 
-## Wache
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+![Offset example](../offsetExample.jpg)
+
+## Beispiel: 1
+
+![Offset example](../offsetExample1.jpg)
+
+## Beispiel: -1
+
+![Offset example](../offsetExample2.jpg)
 
 ## Changelog
 
@@ -222,129 +212,139 @@ iobroker add trashschedule
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.4.0 (2021-12-10)
 
-### 1.3.5
+* (klein0r) Allow to hide "not found" warnings for single trash types (like christmas tree pickup)
+* (klein0r) Added limit option for VIS widget
+* (klein0r) Added option for VIS widget to hide the name
+
+### 1.3.6 (2021-11-24)
+
+* (klein0r) Require new version for translated instance objects
+* (klein0r) Fixed timeout issues
+
+### 1.3.5 (2021-11-15)
 
 * (klein0r) Added checks for calendar description
 
-### 1.3.4
+### 1.3.4 (2021-11-14)
 
 * (klein0r) Translated all objects
 
-### 1.3.3
+### 1.3.3 (2021-11-13)
 
 * (klein0r) Translated admin table headers
 
-### 1.3.2
+### 1.3.2 (2021-11-07)
 
 * (klein0r) Fixed missing VIS widget
 
-### 1.3.1
+### 1.3.1 (2021-11-06)
 
 * (klein0r) Fixed missing translations
 
-### 1.3.0
+### 1.3.0 (2021-11-05)
 
 * (klein0r) Admin 5 Support
 
-### 1.2.0
+### 1.2.0 (2021-07-16)
 
 * (klein0r) Added compatibility with iCal 1.10.0
 * (klein0r) Added color of type to channel object
 
-### 1.1.3
+### 1.1.3 (2021-05-02)
 
 * (klein0r) Fixed weekday state type (string -> number)
 
-### 1.1.2
+### 1.1.2 (2021-03-15)
 
 * (klein0r) Nodejs 12 required
 
-### 1.1.1
+### 1.1.1 (2021-02-24)
 
 * (klein0r) Ignore trash types with empty match pattern
 * (klein0r) Added log message if the match pattern contains leading or trailing whitespaces
 
-### 1.1.0
+### 1.1.0 (2021-01-25)
 
 * (klein0r) Just allow clean trash type names **(BREAKING CHANGE - CHECK YOUR SCRIPTS AND VIS)**
 
-### 1.0.6
+### 1.0.6 (2021-01-24)
 
 * (klein0r) Fixed async object creation
 
-### 1.0.5
+### 1.0.5 (2021-01-24)
 
 * (klein0r) Added automatic refresh every full hour
 
-### 1.0.4
+### 1.0.4 (2021-01-22)
 
 * (klein0r) Delete unsed states
 
-### 1.0.3
+### 1.0.3 (2020-11-10)
 
 * (klein0r) Improved VIS widget options
 
-### 1.0.2
+### 1.0.2 (2020-11-10)
 
 * (klein0r) Added color picker
 * (klein0r) Fixed null reference exception
 
-### 1.0.1
+### 1.0.1 (2020-11-07)
 
 * (klein0r) Fixed date calculation issue in VIS
 
-### 1.0.0
+### 1.0.0 (2020-11-06)
 
 * (klein0r) Renamed data types **(BREAKING CHANGE - CHECK YOUR SCRIPTS AND VIS)**
 * (klein0r) First **stable** release
 * (klein0r) Added iobroker sentry
 
-### 0.0.11
+### 0.0.11 (2020-08-11)
 
 * (klein0r) Better error reporting
 
-### 0.0.10
+### 0.0.10 (2020-07-22)
 
 * (klein0r) Added CSS classes for easier customization
 * (klein0r) Added optional glow on due date for vis widget
 
-### 0.0.9
+### 0.0.9 (2020-05-23)
 
 * (klein0r) Fixed color correction calculation issue
 
-### 0.0.8
+### 0.0.8 (2020-05-15)
 
 * (klein0r) Fixed missing VIS translations
 
-### 0.0.7
+### 0.0.7 (2020-05-13)
 
 * (klein0r) Improved logging
 * (klein0r) Several fixes, improved admin and vis (automatic color correction, resizeable widget)
 * (ivosch68) Reset of states if no event matches
 
-### 0.0.6
+### 0.0.6 (2020-05-13)
 
 * (klein0r) updated dependencies
 
-### 0.0.5
+### 0.0.5 (2020-03-07)
 
 * (klein0r) added pickup dates after next date
 
-### 0.0.4
+### 0.0.4 (2020-03-07)
 
 * (klein0r) added VIS templates
 
-### 0.0.3
+### 0.0.3 (2020-02-26)
 
 * (klein0r) fixed issue with events after time change date
 
-### 0.0.2
+### 0.0.2 (2019-11-26)
 
 * (klein0r) added global offset in days
 * (klein0r) added exact match for types
 
-### 0.0.1
+### 0.0.1 (2019-11-24)
 
 * (klein0r) initial release
 

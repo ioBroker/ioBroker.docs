@@ -1,74 +1,151 @@
 ---
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.shelly/README.md
-title: ioBroker.shelly
-hash: V6P3E5f6yH44twyQHuQH5JFxERiA+sChohkx7J85Zl0=
+BADGE-Number of Installations: http://iobroker.live/badges/shelly-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.shelly.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.shelly.svg
 ---
-![Logo](../../../en/adapterref/iobroker.shelly/admin/shelly.png)
+![Logo](../../admin/shelly.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/shelly-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.shelly.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.shelly.svg)
+# ioBroker.shelly
 
-#ioBroker.shelly
-![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.shelly/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/homekit-controller/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+## Anforderungen
 
-Der Adapter kommuniziert mit Shelly-Geräten über die REST-API und das CoAP- oder MQTT-Protokoll.
+1. nodejs 12.0 (oder neuer)
+2. js-controller 3.3.0 (oder neuer)
+4. Admin Adapter 5.1.25 (oder neuer)
 
-Verwendet die Standard-Shelly-Firmware (kein Flashen der Firmware erforderlich!). Weitere und detaillierte Informationen zum Gerät finden Sie hier: [Shelly](https://shelly.cloud/)
+## Geräte-Generationen
 
-Wenn Sie das CoAP-Protokoll verwenden, funktionieren Shelly-Geräte mit Firmware 1.8.0 oder höher nur mit dem Shelly-Adapter 4.0.0 oder höher. Wenn Sie Geräte mit Firmware unter 1.8.0 verwenden, außer Shelly 4Pro, müssen Sie Shelly Adapter 3.3.6 oder niedriger verwenden. Der Shelly Adapter 4.0.0 oder höher würde in diesem Fall nicht funktionieren!
+Für mehr Informationen, siehe *supported devices*.
 
-Achtung, bei neuen Firmware-Versionen über 1.9.4 müssen Sie einen CoIoT-Server für CoAP eintragen. Sie müssen die IP-Adresse Ihres ioBroker-Servers gefolgt vom Port 5683 auf Ihrem Shelly-Gerät eingeben. ioBroker läuft beispielsweise auf der IP-Adresse 192.168.1.2. Nun müssen Sie 192.168.1.2:5683 eingeben und CoIoT aktivieren.
+- Gen1: ESP8266 Geräte, CoAP oder MQTT
+- Gen2: ESP32 Geräte, RCP oder MQTT
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+## General
 
-## Installation
-Eine ausführliche Installationsdokumentation finden Sie hier: [Installationsdokumentation](./docs/EN/INSTALL.md)
+Der Adapter kann über CoAP oder MQTT mit den Geräten kommunizieren. Der Standard ist CoAP - in diesem Fall muss nichts weiter konfiguriert werden. **Falls Gen2-Geräte integriert werden sollen, muss MQTT konfiguriert werden!**
 
-## Unterstützte Geräte (Gen 1)
-|Shelly-Gerät|CoAP|MQTT|
-|-------------|--------------|----|
-|Shelly1 (SHSW-1)|unterstützt seit v3.3.0|unterstützt seit v3.3.0|
-|Shelly2 (SHSW-21/SHSW-22)|unterstützt seit v3.3.0|unterstützt seit v3.3.0|
-|ShellyBulb (SHBLB)|unterstützt seit v3.3.0|unterstützt seit v3.3.0|
-|Shelly H&T (SHHT-1)|unterstützt seit v3.3.0|unterstützt seit v3.3.0|
-|Shelly Smoke (SHSM-01)|unterstützt seit v3.3.0|unterstützt seit v3.3.0|
-|Shelly 1 1PM (SHSW-PM)|unterstützt seit v3.3.0|unterstützt seit v3.3.0|
-|Shelly 2.5 (SHSW-25)|unterstützt seit v3.3.0|unterstützt seit v3.3.0|
-|ShellyRGBW (SHRGBWW-01)|nicht unterstützt seit v3.4.0|nicht unterstützt seit v3.4.0|
-|ShellyRGBW2 (SHRGBW2)|unterstützt seit v3.3.0|unterstützt seit v3.3.0|
-|Shelly2LED (SH2LED)|unterstützt seit v3.3.0|unterstützt seit v3.3.0|
-|ShellyPlug (SHPLG-1)|unterstützt seit v3.3.0|unterstützt seit v3.3.0|
-|ShellyPlug S (SHPLG-1)|unterstützt seit v3.3.0|unterstützt seit v3.3.0|
-|ShellyPlug 2 (SHPLG-2)|unterstützt seit v3.3.0|unterstützt seit v3.3.0|
-|ShellySense (SHSEN-1)|unterstützt seit v3.3.0|unterstützt seit v3.3.0|
-|Shelly4Pro (SHSW-44)|unterstützt seit v3.3.5|unterstützt seit v3.3.5|
-|Shelly EM (SHEM)|unterstützt seit v3.3.0|unterstützt seit v3.3.0|
-|Shelly Flood (SHWT-1)|unterstützt seit v3.3.0|unterstützt seit v3.3.0|
-|Shelly Dimmer (SHDM-1)|unterstützt seit v3.3.0|unterstützt seit v3.3.0|
-|Shelly Tür-/Fenstersensor (SHDW-1)|unterstützt seit v3.3.0|unterstützt seit v3.3.0|
-|Shelly Bulb Duo (SHBDUO-1)|unterstützt seit v3.3.0|unterstützt seit v3.3.0|
-|Shelly 3EM (SHEM|unterstützt seit v3.3.0|unterstützt seit v3.3.0|
-|Shelly Vintage (SHVIN-1)|unterstützt seit v3.3.0|unterstützt seit v3.3.0|
-|Shelly I3 (SHIX3-1)|unterstützt seit v3.3.0|unterstützt seit v3.3.0|
-|Shelly Button (SHBTN-1)|unterstützt seit v3.3.3|unterstützt seit v3.3.3|
-|Shelly Gas (SHGS-1)|unterstützt seit v3.3.3|unterstützt seit v3.3.3|
-|Shelly Dimmer 2 (SHDM-2)|unterstützt seit v3.3.4|unterstützt seit v3.3.4|
-|Shelly Door/Window Sensor 2 (SHDW-2)|unterstützt seit v3.3.5|unterstützt seit v3.3.5|
-|Shelly Uni (SHUNI-1)|unterstützt seit v4.0.4|unterstützt seit v4.0.4|
-|Shelly 1L (SHSW-L)|unterstützt seit v4.0.5|unterstützt seit v4.0.5|
-|Shelly Color Bulb (SHCB-1)|unterstützt seit v4.0.5|unterstützt seit v4.0.5|
-|Shelly Button (SHBTN-2)|unterstützt seit v4.0.5|unterstützt seit v4.0.5|
-|Shelly Motion (SHMOS-01)|unterstützt seit v4.0.6|unterstützt seit v4.0.6|
+![iobroker_general](../iobroker_general.png)
 
-## Unterstützte Geräte (Gen 2)
-|Shelly-Gerät|CoAP|MQTT|
-|-------------|--------------|----|
-|Shelly Plus 1|---|unterstützt seit v5.0.0|
-|Shelly Plus 13:00|---|unterstützt seit v5.0.0|
-|Shelly Pro 4 PM|---|unterstützt seit v5.0.0|
+## Konfiguration
+
+### Geschützter Login
+
+Um die Shelly-Geräte vor unbefugtem Zugriff zu schützen, setze in der ioBroker Konfiguration einen beliebigen Benutzernamen und Passwort im Tab *Allgemeine Einstellungen*.
+
+![iobroker_general_restrict_login](../iobroker_general_restrict_login.png)
+
+Aktiviere den geschützten Zugriff auf allen Shelly-Gerätem:
+
+1. Öffne die Shelly-Webkonfiguration in einem Browser (nicht in der Shelly App!)
+2. Gehe zu ```Internet & Security settings -> Restricted Login```
+3. Setze den Haken für den gesicherten Zugriff und gib die gerade konfigurierten Zugangsdaten ein
+4. Speichere die Konfiguration - der Shelly startet automatisch neu
+5. Stelle sicher, dass auf allen Shelly-Geräten die identischen Zugangsdaten konfiguriert werden
+
+![shelly_restrict_login](../shelly_restrict_login.png)
+
+### Zustandsänderungen
+
+Im Standard wird ein Zustand nur aktualisiert, wenn sich der Wert ändert. In diesem Fall ist *Objekte aktualisieren, auch wenn keine Wertänderung vorliegt* deaktiviert.
+
+Beispiel:
+
+* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'S' (Zeitpunkt letzte Änderung: 01.02.2020 10:20:00)
+* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'S' (Zeitpunkt letzte Änderung: 01.02.2020 **10:20:00**) - es erfolgt keine Aktualisierung des Zustandes im ioBroker
+* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'L' (Zeitpunkt letzte Änderung: 01.02.2020 10:22:00)
+
+Falls Du *Objekte aktualisieren, auch wenn keine Wertänderung vorliegt* aktivierst, werden alle Zustände ständig aktualisiert, selbst wenn keine Wertänderung stattfindet. Es ändert sich also nur der Zeitpunkt der letzten Aktualisierung.
+
+Beispiel:
+
+* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'S' (Zeitpunkt letzte Änderung: 01.02.2020 10:20:00)
+* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'S' (Zeitpunkt letzte Änderung: 01.02.2020 **10:21:00**) - der Zeitpunkt wird aktualisiert, obwohl es keine Wertänderung gab
+* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'L' (Zeitpunkt letzte Änderung: 01.02.2020 10:22:00)
+
+### CoAP
+
+Im Standard wird das CoAP-Protokoll verwendet.
+
+Falls Du einen Shelly mit einer Firmware kleiner oder gleich 1.9.4 verwendest, ist keine weitere Konfiguration notwendig. Deine Geräte werden automatisch vom Adapter gefunden.
+
+**Falls Du eine Version größer als 1.9.4 verwendest, musst Du einen CoIoT-Server für CoAP auf den Shelly-Geräten konfigurieren.** Trag als CoIoT-Server die IP-Adresse von deinem ioBroker Server ein - gefolgt von Port 5683. Wenn dein ioBroker beispielsweise unter der Adresse ```192.168.1.2``` erreichbar ist, trage dort ```192.168.1.2:5683``` ein und aktiviere CoIoT.
+
+**Wichtig: Da CoAP Multicast UDP Pakete verwendet, müssen deine Shelly-Geräte im gleichen Subnetz wie dein ioBroker Server sein.**
+
+Falls Du ioBroker in einem Docker-Container laufen hast, muss der Container im Netzwerkmodus ```host``` oder ```macvlan``` konfiguriert sein. Sollte der Docker-Container im Netzwerkmodus ```bridge``` laufen, werden keine Shelly-Geräte gefunden.
+
+![iobroker_restrict_login](../iobroker_general_coap.png)
+
+CoAP fügt alle Geräte in deinem Netzwerk hinzu. Falls Du einzelne Geräte ausschließen möchtest, kannst Du diese in der Blacklist konfigurieren. Füge dafür die Seriennummern in die Tabelle ein:
+
+![iobroker_coap](../iobroker_coap.png)
+
+#### Fehlersuche
+
+In manchen Fällen kann es vorkommen, dass der Shelly-Adapter nicht alle Geräte im CoAP-Modus findet. Versuche dann folgendes:
+
+1. Stoppe deine Instanz des Shelly-Adapters. **Es ist nicht nötig, den Adapter zu deinstallieren!**
+2. Öffne ein Terminal-Fenster und führe die folgenden Befehle auf dem ioBroker-Server aus:
+
+```
+cd /opt/iobroker/node_modules/iobroker.shelly/
+node coaptest.js 
+```
+
+Alternativ kann ```tcpdump``` verwendet werden:
+
+```
+# Install tcpdump if it is not installed
+sudo apt-get update
+sudo apt-get install tcpdump
+
+# tcpdump with IP address of Shelly device on network device eth1
+sudo tcpdump -i eth1 src <IP-OF-SHELLY> and port 5683 -A   
+
+# tcpdump with IP address of Shelly device 
+sudo tcpdump src <IP-OF-SHELLY> and port 5683 -A
+
+# tcpdump of all Shelly devices on network device eth1
+sudo tcpdump  -i eth1 port 5683 -A
+
+ # tcpdump of all Shelly devices
+sudo tcpdump port 5683 -A
+```
+
+Nun solltest Du alle CoAP-Nachrichten von den Shelly-Geräten sehen. Solltest Du keine Nachrichten sehen, hast Du ein Netzwerkproblem mit UDP oder Multicast-Nachrichten.
+
+CoAP-Nachrichten sehen wie folgt aus:
+
+``` 
+UDP Server listening on 0.0.0.0:5683
+2020-08-19T19:33:29.484Z - 192.168.20.233:5683 - P-B3citsml	SHBTN-1#AXXXXXXXXXX#2RC{"G":[[0,9103,0],[0,2102,"S"],[0,2103,1],[0,3115,0],[0,3112,0],[0,3111,100],[0,9102,["button"]]]}
+2020-08-19T19:33:29.827Z - 192.168.20.233:5683 - P-C3citsml	SHBTN-1#AXXXXXXXXXX#2RC{"G":[[0,9103,0],[0,2102,"S"],[0,2103,1],[0,3115,0],[0,3112,0],[0,3111,100],[0,9102,["button"]]]}
+2020-08-19T19:33:33.942Z - 192.168.20.233:5683 - P-D3citsml	SHBTN-1#AXXXXXXXXXX#2RC{"G":[[0,9103,0],[0,2102,"S"],[0,2103,1],[0,3115,0],[0,3112,0],[0,3111,100],[0,9102,["button"]]]}
+``` 
+
+### MQTT
+
+1. Öffne die Shelly-Adapter Konfiguration im ioBroker
+2. Wähle ```MQTT und HTTP``` als *Protokoll* in den *Allgemeinen Einstellungen*
+3. Öffne das Tab **MQTT Einstellungen**
+4. Wähle einen Benutzernamen und ein sicheres Passwort (Du musst diese Informationen auf den Shelly-Geräten hinterlegen)
+
+![iobroker_general](../iobroker_general_mqtt.png)
+
+![iobroker_mqtt](../iobroker_mqtt.png)
+
+Aktiviere MQTT auf deinen Shelly-Geräten:
+
+1. Öffne die Shelly-Webkonfiguration in einem Browser (nicht in der Shelly App!)
+2. Gehe zu ```Internet & Security settings -> Advanced - Developer settings```
+3. Aktiviere MQTT und gib die gerade konfigurierten Benutzerdaten und die IP-Adresse deiner ioBroker-Installation ein - gefolgt von Port 1882 (beispielsweise ```192.168.20.242:1882```)
+4. Speichere die Konfiguration - der Shelly startet automatisch neu
+
+- Bei Gen1-Geräten: Ändere nicht den ```custom MQTT prefix``` (der Adapter wird nicht funktionieren, wenn Du diesen Wert anpasst)
+
+![shelly_mqtt1](../shelly_mqtt1.png)
+
+![shelly_mqtt2](../shelly_mqtt2.png)
 
 ## Changelog
 
@@ -76,6 +153,11 @@ Eine ausführliche Installationsdokumentation finden Sie hier: [Installationsdok
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (klein0r) Code refactoring
+* (klein0r) Updated documentation
+
 ### 5.0.0 (2021-12-08)
 Important: The adapter now requires at least Node.js 12.x, js-controller 3.3+ and Admin 5.1.25+
 * (klein0r) Shelly Plus Support (1, 1 PM)

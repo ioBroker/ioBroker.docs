@@ -50,6 +50,10 @@ iobroker add octoprint
 - Jog X, Y and Z axis
 - Select a file or print it
 
+### Supported Plugins
+
+- [Display Layer Progress](https://github.com/OllisGit/OctoPrint-DisplayLayerProgress) - tested with version 1.27.2
+
 ## Important!
 
 DO NOT restart your OctoPrint instance (or any other instance) with code like this:
@@ -74,6 +78,11 @@ Please use state `system.adapter.octoprint.0.alive` to stop/start the instance.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+* (klein0r) Added plugin support: Display Layer Progress
+
 ### 2.0.6 (2021-12-01)
 
 * (klein0r) Allow to pause/resume printjob
