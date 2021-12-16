@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: oEWcD86Zl16Rwdt2O7SMXDsuMPZ/8TseYeiFYaoESl0=
+hash: sE0SbohHB3w5Yws3vEHqSW5PRy+rz8aJmckpSznWTWg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
@@ -12,7 +12,6 @@ hash: oEWcD86Zl16Rwdt2O7SMXDsuMPZ/8TseYeiFYaoESl0=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sql.svg)
 ![Тесты](https://travis-ci.org/ioBroker/ioBroker.sql.svg?branch=master)
 ![НПМ](https://nodei.co/npm/iobroker.sql.png?downloads=true)
-![Значок Greenkeeper](https://badges.greenkeeper.io/ioBroker/ioBroker.sql.svg)
 
 # IoBroker.sql
 Этот адаптер сохраняет историю состояний в базе данных SQL.
@@ -69,14 +68,14 @@ FLUSH PRIVILEGES;
 
 На "windows" его легко установить через установщик: https://dev.mysql.com/downloads/installer/.
 
-Обратите внимание на метод аутентификации. Новый алгоритм шифрования в MySQL 8.0 пока не поддерживается `node.js`, и вы должны выбрать устаревший метод аутентификации.
+Обратите внимание на метод аутентификации. Новый алгоритм шифрования в MySQL 8.0 еще не поддерживается `node.js`, и вы должны выбрать устаревший метод аутентификации.
 
 ![Окна](../../../en/adapterref/iobroker.sql/img/WindowsMySQLinstaller.png)
 
 ## Структура БД
 Имя базы данных по умолчанию - «iobroker», но его можно изменить в конфигурации.
 
-### Источники Эта таблица представляет собой список экземпляров адаптера, которые записали записи. (состояние из)
+### Источники Эта таблица представляет собой список экземпляров адаптера, написавших записи. (состояние из)
 | DB | Имя в запросе |
 |------------|----------------------|
 | MS-SQL | iobroker.dbo.sources |
@@ -84,7 +83,7 @@ FLUSH PRIVILEGES;
 | PostgreSQL | источники |
 | SQLite | источники |
 
-Состав:
+Структура:
 
 | Поле | Тип | Описание |
 |-------|--------------------------------------------|-------------------------------------------|
@@ -103,7 +102,7 @@ FLUSH PRIVILEGES;
 | PostgreSQL | точки данных |
 | SQLite | точки данных |
 
-Состав:
+Структура:
 
 | Поле | Тип | Описание |
 |-------|--------------------------------------------|-------------------------------------------------|
@@ -123,7 +122,7 @@ FLUSH PRIVILEGES;
 | PostgreSQL | ts_number |
 | SQLite | ts_number |
 
-Состав:
+Структура:
 
 | Поле | Тип | Описание |
 |--------|--------------------------------------------|-------------------------------------------------|
@@ -136,7 +135,7 @@ FLUSH PRIVILEGES;
 
 * Примечание: * MS-SQL использует BIT, а другие используют BOOLEAN. SQLite использует для ts INTEGER и всех остальных BIGINT.
 
-Пользователь может определить дополнительные к типу `number` функции «счетчиков». Для этого создается следующая таблица:
+Пользователь может определить дополнительные к типу `number` функционал «счетчиков». Для этого создается следующая таблица:
 
 | DB | Имя в запросе |
 |------------|-------------------------|
@@ -145,7 +144,7 @@ FLUSH PRIVILEGES;
 | PostgreSQL | ts_counter |
 | SQLite | ts_counter |
 
-Состав:
+Структура:
 
 | Поле | Тип | Описание |
 |--------|--------------------------------------------|-------------------------------------------------|
@@ -165,7 +164,7 @@ FLUSH PRIVILEGES;
 | PostgreSQL | ts_string |
 | SQLite | ts_string |
 
-Состав:
+Структура:
 
 | Поле | Тип | Описание |
 |--------|--------------------------------------------|-------------------------------------------------|
@@ -188,7 +187,7 @@ FLUSH PRIVILEGES;
 | PostgreSQL | ts_bool |
 | SQLite | ts_bool |
 
-Состав:
+Структура:
 
 | Поле | Тип | Описание |
 |--------|--------------------------------------------|-------------------------------------------------|
@@ -247,7 +246,7 @@ sendTo('sql.0', 'query', 'SELECT id FROM datapoints WHERE name="system.adapter.a
 ## StoreState
 Если вы хотите записать другие данные в InfluxDB / SQL, вы можете использовать встроенную системную функцию **storeState** Эту функцию также можно использовать для преобразования данных из других адаптеров истории, таких как History или SQL.
 
-Указанные идентификаторы не проверяются в базе данных ioBroker, и их не нужно настраивать там, но к ним можно получить только прямой доступ.
+Указанные идентификаторы не проверяются в базе данных ioBroker, и их не нужно там настраивать, но к ним можно получить только прямой доступ.
 
 Сообщение может иметь один из следующих трех форматов:
 
@@ -255,7 +254,7 @@ sendTo('sql.0', 'query', 'SELECT id FROM datapoints WHERE name="system.adapter.a
 * один идентификатор и массив объектов состояния: `{id: 'adapter.0.device.counter', state: [{val: 1, ts: 10239499}, {val: 2, ts: 10239599}, {val: 3 , ts: 10239699}]} `
 * массив из нескольких идентификаторов с объектами состояния `[{id: 'adapter.0.device.counter1', state: {val: 1, ts: 10239499}, {id: 'adapter.0.device.counter2', state: {val: 2, ts: 10239599}] `
 
-Кроме того, вы можете добавить атрибут `rules: true` для активации всех правил, таких как `counter`, `changesOnly`, `de-bounce` и так далее: `{id: 'adapter.0.device.counter', rules: true, state: [{val: 1, ts: 10239499}, {val: 2, ts: 10239599}, {val: 3, ts: 10239699}]}`
+Кроме того, вы можете добавить атрибут `rules: true`, чтобы активировать все правила, такие как `counter`, `changesOnly`, `de-bounce` и так далее: `{id: 'adapter.0.device.counter', rules: true, state: [{val: 1, ts: 10239499}, {val: 2, ts: 10239599}, {val: 3, ts: 10239699}]}`
 
 ## Удалить состояние
 Если вы хотите удалить запись из базы данных, вы можете использовать встроенную системную функцию **delete**
@@ -323,7 +322,7 @@ sendTo('sql.0', 'getHistory', {
 ```
 
 ## Получить счетчик
-Пользователь может запросить значение какого-либо счетчика (type = number, counter = true) за определенный период.
+Пользователь может запросить значение некоторого счетчика (type = number, counter = true) за определенный период.
 
 ```
 var now = Date.now();
@@ -339,9 +338,9 @@ sendTo('sql.0', 'getCounter', {
 });
 ```
 
-Если счетчик будет заменен, он тоже будет рассчитан.
+Если будет заменено счетное устройство, оно тоже будет рассчитано.
 
-## Управление журналом истории через Javascript
+## Управление ведением журнала через Javascript
 Адаптер поддерживает включение и отключение ведения журнала через JavaScript, а также получение списка включенных точек данных с их настройками.
 
 ### Включить
@@ -379,7 +378,7 @@ sendTo('sql.0', 'disableHistory', {
         console.log(result.error);
     }
     if (result.success) {
-        //successfull enabled
+        // successful enabled
     }
 });
 ```
@@ -430,6 +429,16 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
+### 1.16.0 (2021-12-14)
+* (bluefox) Support only `js.controller` >= 3.3.x
+* (bluefox) Used system/custom view for collecting the objects
+* (bluefox) Implemented option to ignore zero- or/and below zero- values
+
+### 1.15.7 (2021-04-28)
+* (bluefox) fixed the support of Admin5
+
+### 1.15.6 (2021-04-19)
+* (bluefox) added support of Admin5
 
 ### 1.15.5 (2021-01-22)
 * (Apollon77) make sure message query is a string (Sentry)
@@ -439,7 +448,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 
 ### 1.15.3 (2020-08-29)
 * (bluefox) Added the option "Do not create database". E.g. if DB was created and it does not required to do that, because the user does not have enough rights.
- 
+
 ### 1.15.2 (2020-07-26)
 * (Apollon77) prevent wrong errors that realId is missing
 
@@ -458,15 +467,15 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 
 ### 1.14.0 (2020-05-20)
 * (bluefox) added the range deletion and the delete all operations
- 
+
 ### 1.13.1 (2020-05-20)
 * (bluefox) added changed and delete operations
- 
+
 ### 1.12.6 (2020-05-08)
 * (bluefox) set default history if not yet set
- 
+
 ### 1.12.5 (2020-05-05)
-* (Apollon77) Crash prevented for invalid objects (Sentry IOBROKER-SQL-X) 
+* (Apollon77) Crash prevented for invalid objects (Sentry IOBROKER-SQL-X)
 
 ### 1.12.4 (2020-05-04)
 * (Apollon77) Potential crash fixed when disabling data points too fast (Sentry IOBROKER-SQL-W) 
@@ -479,7 +488,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 * (Apollon77) MSSQL works again
 
 ### 1.12.1 (2020-04-26)
-* (Apollon77) Fix potential crash (Sentry) 
+* (Apollon77) Fix potential crash (Sentry)
 
 ### 1.12.0 (2020-04-23)
 * (Apollon77) Implement max Connections setting and respect it, now allows to control how many concurrent connections to database are used (default 100) and others wait up to 10s for a free connection before failing)
@@ -678,7 +687,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2020 bluefox <dogafox@gmail.com>, Apollon77
+Copyright (c) 2015-2021 bluefox <dogafox@gmail.com>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

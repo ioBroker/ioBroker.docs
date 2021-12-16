@@ -32,6 +32,10 @@ Help or hints are welcome.
 
 ## Changelog
 
+### 1.3.4
+
+* (unltdnetworx) disabled "getQueryTypes" for creating lots of spam entries
+
 ### 1.3.2
 
 * (unltdnetworx) ready for Admin 5 and NodeJS 16

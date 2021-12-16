@@ -305,6 +305,11 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 2.3.0 (2021-12-14)
+* (bluefox) Support only `js.controller` >= 3.3.x
+* (bluefox) Used system/custom view for collecting the objects
+* (bluefox) Implemented option to ignore zero- or/and below zero- values
+
 ### 2.2.0 (2021-08-25)
 * (Excodibur) Added option to store metadata (q, ack, from) as tags instead of fields for Influx 2.x - see README!
 * (Excodibur) Failure to update/set retention policy will now cause warning instead of error/restart, to support more restrictive DB setups
@@ -353,7 +358,7 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 * (Apollon77) make sure disabling of datapoints do not crash adapter (Sentry IOBROKER-INFLUXDB-4)
 
 ### 1.8.3 (2020-04-29)
-* (Apollon77) Fix pot crash case when deleting objects while saving values (Sentry) 
+* (Apollon77) Fix pot crash case when deleting objects while saving values (Sentry)
 
 ### 1.8.2 (2020-04-19)
 * __Requires js-controller >= 2.0.0__
@@ -361,40 +366,6 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 * (Apollon77) check if objects have changed and ignore unchanged
 * (Apollon77) Add Sentry for Error Reporting with js-controller 3.0
 * (Apollon77) Make sure value undefined is ignored
-
-## 1.7.0 (2019-12-23)
-* (bluefox) Support of compact mode
-
-## 1.6.0 (2018-06-19)
-* (Apollon77) Add option to log datapoints as other ID (alias) to easier migrate devices and such
-
-## 1.5.2 (2018-01-31)
-* (Bluefox) Admin3 Fixes
-
-## 1.5.1 (2018-01-28)
-* (Apollon77) Admin3 Fixes
-
-## 1.5.0 (2018-01-14)
-* (bluefox) Ready for Admin3
-
-## 1.4.8 (2017-10-04)
-* (Apollon77) fix relog value feature and enhance type conflict resolving
-
-## 1.4.7 (2017-09-11)
-* (Apollon77) fixes to save last value
-* (Apollon77) add better support when no start date is set for getHistory (used by Admin)
-
-## 1.4.6 (2017-08-12)
-* (bluefox) add "save last value"
-
-## 1.4.5 (2017-08-03)
-* (Apollon77) fix behaviour of log interval to always log the current value
-
-## 1.4.4 (2017-06-29)
-* fix connected datapoint
-
-## 1.4.3 (2017-04-07)
-* fix in datatype conversions
 
 ### 1.4.2 (2017-03-02)
 * (Apollon77) Add option to define storage datatype per datapoint inclusing converting the value if needed

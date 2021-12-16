@@ -368,7 +368,7 @@ sendTo('sql.0', 'disableHistory', {
         console.log(result.error);
     }
     if (result.success) {
-        //successfull enabled
+        // successful enabled
     }
 });
 ```
@@ -400,7 +400,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 - **Host**: IP address or host name with SQL Server
 - **Port**: Port of SQL Server (leave blank if not sure)
 - **Database name**: Database name. Default iobroker
-- **User**: User name for SQL. Must exist in the DB.
+- **User**: Username for SQL. Must exist in the DB.
 - **Password**: Password for SQL.
 - **Password confirm**: Just repeat password here.
 - **Encrypt**: Some DBs support encryption.
@@ -420,11 +420,16 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
+### 1.16.0 (2021-12-14)
+* (bluefox) Support only `js.controller` >= 3.3.x
+* (bluefox) Used system/custom view for collecting the objects
+* (bluefox) Implemented option to ignore zero- or/and below zero- values
+
 ### 1.15.7 (2021-04-28)
 * (bluefox) fixed the support of Admin5
 
 ### 1.15.6 (2021-04-19)
-* (bluefox) added support of Admin5 
+* (bluefox) added support of Admin5
 
 ### 1.15.5 (2021-01-22)
 * (Apollon77) make sure message query is a string (Sentry)
@@ -434,7 +439,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 
 ### 1.15.3 (2020-08-29)
 * (bluefox) Added the option "Do not create database". E.g. if DB was created and it does not required to do that, because the user does not have enough rights.
- 
+
 ### 1.15.2 (2020-07-26)
 * (Apollon77) prevent wrong errors that realId is missing
 
@@ -453,15 +458,15 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 
 ### 1.14.0 (2020-05-20)
 * (bluefox) added the range deletion and the delete all operations
- 
+
 ### 1.13.1 (2020-05-20)
 * (bluefox) added changed and delete operations
- 
+
 ### 1.12.6 (2020-05-08)
 * (bluefox) set default history if not yet set
- 
+
 ### 1.12.5 (2020-05-05)
-* (Apollon77) Crash prevented for invalid objects (Sentry IOBROKER-SQL-X) 
+* (Apollon77) Crash prevented for invalid objects (Sentry IOBROKER-SQL-X)
 
 ### 1.12.4 (2020-05-04)
 * (Apollon77) Potential crash fixed when disabling data points too fast (Sentry IOBROKER-SQL-W) 
@@ -474,7 +479,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 * (Apollon77) MSSQL works again
 
 ### 1.12.1 (2020-04-26)
-* (Apollon77) Fix potential crash (Sentry) 
+* (Apollon77) Fix potential crash (Sentry)
 
 ### 1.12.0 (2020-04-23)
 * (Apollon77) Implement max Connections setting and respect it, now allows to control how many concurrent connections to database are used (default 100) and others wait up to 10s for a free connection before failing)

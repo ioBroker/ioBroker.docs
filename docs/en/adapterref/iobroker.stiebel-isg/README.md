@@ -36,6 +36,10 @@ Kaffee spendieren/serve a coffee
 
 ## Changelog
 
+### 1.7.4
+
+* security enhancements
+
 ### 1.7.3
 
 * bugfix
@@ -71,14 +75,6 @@ Kaffee spendieren/serve a coffee
 ### 1.5.1
 
 * new adapter testing and security update
-
-### 1.5.0
-
-* support for cooling values and startpage graphs
-
-### 1.4.11
-
-* support for further heatingtyp WPL25A
 
 ## License
 MIT License
