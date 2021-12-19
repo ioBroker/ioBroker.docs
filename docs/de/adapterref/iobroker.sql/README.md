@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: sE0SbohHB3w5Yws3vEHqSW5PRy+rz8aJmckpSznWTWg=
+hash: yO9ZDtp6FL+u1N1OWFf7H/Z0PPR1+Qd0sC6ecQqS3kE=
 ---
 ![Logo](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
@@ -262,8 +262,8 @@ Wenn Sie einen Eintrag aus der Datenbank löschen möchten, können Sie die eing
 
 ```
 sendTo('sql.0', 'delete', [
-    {id: 'mbus.0.counter.xxx, state: {ts: 1589458809352},
-    {id: 'mbus.0.counter.yyy, state: {ts: 1589458809353}
+    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352},
+    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353}
 ], result => console.log('deleted'));
 ```
 
@@ -271,8 +271,8 @@ Um ALLE Verlaufsdaten für einige Datenpunkte zu löschen, führen Sie Folgendes
 
 ```
 sendTo('sql.0', 'deleteAll', [
-    {id: 'mbus.0.counter.xxx}
-    {id: 'mbus.0.counter.yyy}
+    {id: 'mbus.0.counter.xxx'}
+    {id: 'mbus.0.counter.yyy'}
 ], result => console.log('deleted'));
 ```
 
@@ -280,12 +280,12 @@ Um die Verlaufsdaten für einige Datenpunkte und für einige Bereiche zu lösche
 
 ```
 sendTo('sql.0', 'deleteRange', [
-    {id: 'mbus.0.counter.xxx, start: '2019-01-01T00:00:00.000Z', end: '2019-12-31T23:59:59.999'},
-    {id: 'mbus.0.counter.yyy, start: 1589458809352, end: 1589458809353}
+    {id: 'mbus.0.counter.xxx', start: '2019-01-01T00:00:00.000Z', end: '2019-12-31T23:59:59.999'},
+    {id: 'mbus.0.counter.yyy', start: 1589458809352, end: 1589458809353}
 ], result => console.log('deleted'));
 ```
 
-Die Zeit könnte ms seit Epoche sein oder ein ans-String, der durch das Javascript-Datumsobjekt konvertiert werden könnte.
+Die Zeit kann ms seit Epoche oder ein ans-String sein, der durch das Javascript-Datumsobjekt konvertiert werden könnte.
 
 Werte werden einschließlich definierter Grenzen gelöscht. `ts >= start AND ts <= end`
 
@@ -294,8 +294,8 @@ Wenn Sie den Wert, die Qualität oder das Bestätigungskennzeichen eines Eintrag
 
 ```
 sendTo('sql.0', 'update', [
-    {id: 'mbus.0.counter.xxx, state: {ts: 1589458809352, val: 15, ack: true, q: 0},
-    {id: 'mbus.0.counter.xxx, state: {ts: 1589458809353, val: 16, ack: true, q: 0}
+    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352, val: 15, ack: true, q: 0},
+    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353, val: 16, ack: true, q: 0}
 ], result => console.log('deleted'));
 ```
 
@@ -430,6 +430,10 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### __ARBEITEN IN PROGRESS__ -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (Excodibur) Hide settings not relevant when "log changes only" is not used
+* (Apollon77) Allow all number values for debounce again
+
 ### 1.16.0 (2021-12-14)
 * (bluefox) Support only `js.controller` >= 3.3.x
 * (bluefox) Used system/custom view for collecting the objects

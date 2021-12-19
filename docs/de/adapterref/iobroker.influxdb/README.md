@@ -104,6 +104,11 @@ Wählt man in der Titelzeile unter Historie "mit" oder "influxdb.0" aus, werden
 Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (Excodibur) Added expert settings to deactivate health checks for Influx 2 db (There are no health checks for Influx 1)
+* (Excodibur) Hide settings not relevant when "log changes only" is not used
+* (Apollon77) Allow all number values for debounce again
+
 ### 2.3.0 (2021-12-14)
 * (bluefox) Support only `js.controller` >= 3.3.x
 * (bluefox) Used system/custom view for collecting the objects

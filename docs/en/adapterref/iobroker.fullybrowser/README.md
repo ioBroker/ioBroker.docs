@@ -15,7 +15,7 @@ fullyBrowser Adapter for ioBroker
 This adapter manages your [Fully Kiosk Browser](https://www.fully-kiosk.com) (a Plus License is required). It provides you with a bunch of possibilites to control your tablet through ioBroker, like turning the display on/off, launch any tablet app, launch the screensaver etc. Also, it provides various information in states, like battery level of your tablet, etc. which you can use e.g. for Visualization.
 A small excerpt just of the command options:
 
-![möglichkeiten](https://github.com/arteck/iobroker.fullyBrowser/blob/master/doku/auszug.png)
+![möglichkeiten](https://github.com/arteck/iobroker.fullyBrowser/blob/master/doku/auszug1.png)
 
 <b>NodeJs >> 8.x.x </b>
 
@@ -34,7 +34,11 @@ A small excerpt just of the command options:
 
 
 ## Changelog
+### 2.0.12 (2021-12-18)
+* (arteck) screenBrightness direct command
 
+### 2.0.11 (2021-12-17)
+* (arteck)   Problem with data object for Sony Tabs
 
 ### 2.0.10 (2021-12-07)
 * (xXBJXx)  Problem with special characters in psw

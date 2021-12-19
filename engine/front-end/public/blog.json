@@ -1,5 +1,23 @@
 {
   "pages": {
+    "2021_12_15": {
+      "date": "2021.12.15",
+      "title": {
+        "de": "Dev Community Meeting Dezember",
+        "en": "Dev Community Meeting December",
+        "ru": "Встреча сообщества разработчиков, декабрь",
+        "zh-cn": "开发社区会议 12 月"
+      },
+      "logo": "de/blog/images/2021_12_15.png",
+      "type": "news",
+      "originalName": "2021_12_15.md",
+      "desc": {
+        "de": "### Liebe ioBroker Nutzer:innen,",
+        "en": "### Dear ioBroker users: inside,",
+        "ru": "### Уважаемые пользователи ioBroker!",
+        "zh-cn": "### 亲爱的ioBroker 用户，"
+      }
+    },
     "2020_12_06": {
       "date": "2020.12.06",
       "title": {

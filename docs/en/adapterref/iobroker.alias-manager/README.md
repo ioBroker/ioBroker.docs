@@ -89,6 +89,9 @@ Here you can:
 
 ## Changelog
 
+### Work in Progress
+* (sbormann) Added All and None Buttons to select Datapoint while autocreating alias.
+
 ### 1.2.4 (2021-08-25)
 * (sbormann) Fixed autocreate not working after renaming destination id.
 

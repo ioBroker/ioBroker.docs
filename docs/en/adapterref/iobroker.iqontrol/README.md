@@ -1583,10 +1583,12 @@ This device has some special predefined size- and display-settings to show a tex
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.11.0 (2021-12-18)
 * (sbormann) Added the ability to globally change the default icons.
 * (sbormann) Introducing iconsets and fluent icons.
+* (sbormann) Added option to change badge font and color.
+* (sbormann) Fixed setting of font family.
+* (sbormann) Fixed LayoutViewDeviceInactiveHoverOpacity.
 
 ### 1.10.0 (2021-12-03)
 * (sbormann) Fixed ALTERNATIVE_COLORSPACE.

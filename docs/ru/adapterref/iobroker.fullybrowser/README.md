@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fullybrowser/README.md
 title: ioBroker.fullybrowser
-hash: 2cFA35vdi607lxQObwglRF4srrXVeogOzJ1RLJopqMQ=
+hash: BwPm/I4eKklyL1A08qzAib0VHbhCt5stjhFO4A7Njls=
 ---
 ![Логотип](../../../en/adapterref/iobroker.fullybrowser/admin/fully.png)
 
@@ -17,20 +17,28 @@ hash: 2cFA35vdi607lxQObwglRF4srrXVeogOzJ1RLJopqMQ=
 
 fullBrowser адаптер для ioBroker ---------------------------------------------- --------------------------------
 
-Этот адаптер управляет вашим [Полностью киоск-браузер](https://www.fully-kiosk.com) (требуется лицензия Plus). Он предоставляет вам множество возможностей для управления вашим планшетом через ioBroker, таких как включение / выключение дисплея, запуск любого приложения для планшета, запуск заставки и т. Д. Кроме того, он предоставляет различную информацию о состояниях, например уровень заряда батареи вашего планшета и т. Д. . которые вы можете использовать, например для визуализации.
+Этот адаптер управляет вашим [Полностью киоск-браузер](https://www.fully-kiosk.com) (требуется лицензия Plus). Он предоставляет вам множество возможностей для управления вашим планшетом через ioBroker, таких как включение / выключение дисплея, запуск любого приложения для планшета, запуск заставки и т. Д. Кроме того, он предоставляет различную информацию о состояниях, например, уровень заряда батареи вашего планшета и т. Д. . которые вы можете использовать, например для визуализации.
 Небольшая выдержка только из опций команды:
 
-![Möglichkeiten](https://github.com/arteck/iobroker.fullyBrowser/blob/master/doku/auszug.png)
+![Möglichkeiten](https://github.com/arteck/iobroker.fullyBrowser/blob/master/doku/auszug1.png)
 
 <b>NodeJs &gt;&gt; 8.xx</b>
 
 <! - Заполнитель для следующей версии (в начале строки):
 
-https://github.com/AlCalzone/release-script#usage npm run release minor - --all 0.9.8 -> 0.10.0 npm run release patch - --all 0.9.8 -> 0.9.9 npm запустить предварительную бета-версию выпуска - --all v0.2.1 -> v0.2.2-beta.0 Заполнитель для следующей версии (в начале строки):
+https://github.com/AlCalzone/release-script#usage npm run release minor - --all 0.9.8 -> 0.10.0 npm run release patch - --all 0.9.8 -> 0.9.9 npm запустить предварительную бета-версию релиза - --all v0.2.1 -> v0.2.2-beta.0 Заполнитель для следующей версии (в начале строки):
 
 ### **РАБОТА В ПРОЦЕССЕ** ->
 
 ## Changelog
+### 2.0.12 (2021-12-18)
+* (arteck) screenBrightness direct command
+
+### 2.0.11 (2021-12-17)
+* (arteck)   Problem with data object for Sony Tabs
+
+### 2.0.10 (2021-12-07)
+* (xXBJXx)  Problem with special characters in psw
 
 ### 2.0.9 (2021-05-30)
 * (arteck)  lastInfoUpdate is now correct

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.fullybrowser/README.md
 title: ioBroker.fullybrowser
-hash: 2cFA35vdi607lxQObwglRF4srrXVeogOzJ1RLJopqMQ=
+hash: BwPm/I4eKklyL1A08qzAib0VHbhCt5stjhFO4A7Njls=
 ---
 ![标识](../../../en/adapterref/iobroker.fullybrowser/admin/fully.png)
 
@@ -20,17 +20,25 @@ ioBroker 的全浏览器适配器 ----------------------------------------------
 此适配器管理您的 [完全自助服务终端浏览器](https://www.fully-kiosk.com)（需要 Plus 许可证）。它为您提供了许多通过 ioBroker 控制平板电脑的可能性，例如打开/关闭显示器、启动任何平板电脑应用程序、启动屏幕保护程序等。此外，它还提供各种状态信息，例如平板电脑的电池电量等. 你可以使用例如用于可视化。
 命令选项的一小部分摘录：
 
-![莫格利希凯滕](https://github.com/arteck/iobroker.fullyBrowser/blob/master/doku/auszug.png)
+![莫格利希凯滕](https://github.com/arteck/iobroker.fullyBrowser/blob/master/doku/auszug1.png)
 
 <b>NodeJs &gt;&gt; 8.xx</b>
 
-<!-- 下一个版本的占位符（在行首）：
+<!-- 下一版本的占位符（在行首）：
 
 https://github.com/AlCalzone/release-script#usage npm run release minor -- --all 0.9.8 -> 0.10.0 npm run release patch -- --all 0.9.8 -> 0.9.9 npm运行 release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0 下一版本的占位符（在行的开头）：
 
 ### **工作正在进行中** -->
 
 ## Changelog
+### 2.0.12 (2021-12-18)
+* (arteck) screenBrightness direct command
+
+### 2.0.11 (2021-12-17)
+* (arteck)   Problem with data object for Sony Tabs
+
+### 2.0.10 (2021-12-07)
+* (xXBJXx)  Problem with special characters in psw
 
 ### 2.0.9 (2021-05-30)
 * (arteck)  lastInfoUpdate is now correct

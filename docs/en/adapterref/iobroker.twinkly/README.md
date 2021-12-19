@@ -67,6 +67,9 @@ The following States are available:
 
 ## Changelog
 
+### 0.2.7 (2021-12-19)
+* (patrickbs96) Hex without Hash. Option to not use ping for reachability.
+
 ### 0.2.6 (2021-12-09)
 * (patrickbs96) Renamed States with led control. Now starting with "led".
 * (patrickbs96) Add new State `ledLayout`/`ledPlaylist`

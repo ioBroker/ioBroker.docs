@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sonos/README.md
 title: ioBroker.sonos
-hash: 6YlAtVA6sEFRSXrmRNQl0oO4V6bzV5QrMEQB9sLy6RI=
+hash: x3tMX2tReBIAjdwFd0t0N0YXCvG8rKrM72yJ6ndgiH8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
 
@@ -26,7 +26,7 @@ hash: 6YlAtVA6sEFRSXrmRNQl0oO4V6bzV5QrMEQB9sLy6RI=
 *) Эти состояния будут обновлены, если в приложении SONOS будут внесены изменения.
 
 ## Использование с адаптером sayIt
-Для использования [sayit adapter] (https://github.com/ioBroker/ioBroker.sayit) с этим адаптером SONOS, убедитесь, что [веб-адаптер](https://github.com/ioBroker/ioBroker.web) также создан и запущен. Веб-адаптер необходим для того, чтобы адаптер SONOS мог читать сгенерированный файл MP3 из адаптера sayit.
+Для использования [sayit adapter] (https://github.com/ioBroker/ioBroker.sayit) с этим адаптером SONOS, убедитесь, что [веб-адаптер](https://github.com/ioBroker/ioBroker.web) также создан и запущен. Веб-адаптер необходим, чтобы адаптер SONOS мог читать сгенерированный файл MP3 из адаптера Sayit.
 
 ### Предупреждение: проблемы со стабильностью в сочетании с адаптером sayIt
 Обратите внимание: этот адаптер SONOS имеет проблемы со стабильностью при использовании преобразования текста в речь с адаптером sayIt. Наблюдаемые симптомы:
@@ -36,7 +36,7 @@ hash: 6YlAtVA6sEFRSXrmRNQl0oO4V6bzV5QrMEQB9sLy6RI=
 
 Обходной путь для преобразования текста в речь - использовать [SONOS HTTP API](https://github.com/jishi/node-sonos-http-api).
 
-## Делать
+## Сделать
 * Показать очередь с обложками
 * Перепишите с https://github.com/svrooij/node-sonos-ts
 
@@ -45,7 +45,13 @@ hash: 6YlAtVA6sEFRSXrmRNQl0oO4V6bzV5QrMEQB9sLy6RI=
 - Порт - если веб-сервер включен, значит, порт для этого. По умолчанию 8083
 - Обновление истекшего времени (мс) - Интервал в мс, как часто обновлять истекший таймер при воспроизведении заголовка. (По умолчанию 2000)
 
+<! - Заполнитель для следующей версии (в начале строки):
+
+### __РАБОТА В ПРОЦЕССЕ__ ->
+
 ## Changelog
+### 2.1.4 (2021-12-17)
+* (bluefox) Catch possible errors by the start and unload
 
 ### 2.1.1 (2020-11-08)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-JS-CONTROLLER-S7, #78)
@@ -171,7 +177,6 @@ hash: 6YlAtVA6sEFRSXrmRNQl0oO4V6bzV5QrMEQB9sLy6RI=
 ### 0.0.5 (2014-11-24)
 * (bluefox) support of new naming concept
 
-
 ### 0.0.4 (2014-11-22)
 * (bluefox) support of text to speech
 
@@ -185,7 +190,7 @@ hash: 6YlAtVA6sEFRSXrmRNQl0oO4V6bzV5QrMEQB9sLy6RI=
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2021, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

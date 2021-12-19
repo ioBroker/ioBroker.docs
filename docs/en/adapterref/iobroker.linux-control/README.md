@@ -102,6 +102,9 @@ It is important that the retrieved data is transmitted in the correct type! The 
     ### __WORK IN PROGRESS__
 -->
 
+### 1.1.4 (2021-12-18)
+* (Scrounger) always create my command datapoint
+
 ### 1.1.3 (2021-10-04)
 * (Scrounger) show warn message if permission denied
 * (xCruziX) preformance improvment

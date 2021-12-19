@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: sE0SbohHB3w5Yws3vEHqSW5PRy+rz8aJmckpSznWTWg=
+hash: yO9ZDtp6FL+u1N1OWFf7H/Z0PPR1+Qd0sC6ecQqS3kE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
@@ -246,7 +246,7 @@ sendTo('sql.0', 'query', 'SELECT id FROM datapoints WHERE name="system.adapter.a
 ## StoreState
 Если вы хотите записать другие данные в InfluxDB / SQL, вы можете использовать встроенную системную функцию **storeState** Эту функцию также можно использовать для преобразования данных из других адаптеров истории, таких как History или SQL.
 
-Указанные идентификаторы не проверяются в базе данных ioBroker, и их не нужно там настраивать, но к ним можно получить только прямой доступ.
+Указанные идентификаторы не проверяются в базе данных ioBroker, и их не нужно настраивать там, но к ним можно получить только прямой доступ.
 
 Сообщение может иметь один из следующих трех форматов:
 
@@ -261,8 +261,8 @@ sendTo('sql.0', 'query', 'SELECT id FROM datapoints WHERE name="system.adapter.a
 
 ```
 sendTo('sql.0', 'delete', [
-    {id: 'mbus.0.counter.xxx, state: {ts: 1589458809352},
-    {id: 'mbus.0.counter.yyy, state: {ts: 1589458809353}
+    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352},
+    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353}
 ], result => console.log('deleted'));
 ```
 
@@ -270,8 +270,8 @@ sendTo('sql.0', 'delete', [
 
 ```
 sendTo('sql.0', 'deleteAll', [
-    {id: 'mbus.0.counter.xxx}
-    {id: 'mbus.0.counter.yyy}
+    {id: 'mbus.0.counter.xxx'}
+    {id: 'mbus.0.counter.yyy'}
 ], result => console.log('deleted'));
 ```
 
@@ -279,8 +279,8 @@ sendTo('sql.0', 'deleteAll', [
 
 ```
 sendTo('sql.0', 'deleteRange', [
-    {id: 'mbus.0.counter.xxx, start: '2019-01-01T00:00:00.000Z', end: '2019-12-31T23:59:59.999'},
-    {id: 'mbus.0.counter.yyy, start: 1589458809352, end: 1589458809353}
+    {id: 'mbus.0.counter.xxx', start: '2019-01-01T00:00:00.000Z', end: '2019-12-31T23:59:59.999'},
+    {id: 'mbus.0.counter.yyy', start: 1589458809352, end: 1589458809353}
 ], result => console.log('deleted'));
 ```
 
@@ -293,8 +293,8 @@ sendTo('sql.0', 'deleteRange', [
 
 ```
 sendTo('sql.0', 'update', [
-    {id: 'mbus.0.counter.xxx, state: {ts: 1589458809352, val: 15, ack: true, q: 0},
-    {id: 'mbus.0.counter.xxx, state: {ts: 1589458809353, val: 16, ack: true, q: 0}
+    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352, val: 15, ack: true, q: 0},
+    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353, val: 16, ack: true, q: 0}
 ], result => console.log('deleted'));
 ```
 
@@ -344,7 +344,7 @@ sendTo('sql.0', 'getCounter', {
 Адаптер поддерживает включение и отключение ведения журнала через JavaScript, а также получение списка включенных точек данных с их настройками.
 
 ### Включить
-Сообщение требует наличия «идентификатора» точки данных. Кроме того, дополнительные «параметры» для определения конкретных настроек точки данных:
+Сообщение требует наличия «идентификатора» точки данных. Кроме того, необязательные «параметры» для определения конкретных настроек точки данных:
 
 ```
 sendTo('sql.0', 'enableHistory', {
@@ -429,6 +429,10 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (Excodibur) Hide settings not relevant when "log changes only" is not used
+* (Apollon77) Allow all number values for debounce again
+
 ### 1.16.0 (2021-12-14)
 * (bluefox) Support only `js.controller` >= 3.3.x
 * (bluefox) Used system/custom view for collecting the objects

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sonos/README.md
 title: ioBroker.sonos
-hash: 6YlAtVA6sEFRSXrmRNQl0oO4V6bzV5QrMEQB9sLy6RI=
+hash: x3tMX2tReBIAjdwFd0t0N0YXCvG8rKrM72yJ6ndgiH8=
 ---
 ![标识](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
 
@@ -12,7 +12,7 @@ hash: 6YlAtVA6sEFRSXrmRNQl0oO4V6bzV5QrMEQB9sLy6RI=
 ![下载](https://img.shields.io/npm/dm/iobroker.sonos.svg)
 ![新产品管理](https://nodei.co/npm/iobroker.sonos.png?downloads=true)
 
-#ioBroker.sonos
+# IoBroker.sonos
 使用 ioBroker 控制和监控 SONOS 设备。
 
 ## 处理组
@@ -45,7 +45,13 @@ hash: 6YlAtVA6sEFRSXrmRNQl0oO4V6bzV5QrMEQB9sLy6RI=
 - 端口 - 如果启用了 Web 服务器，则为该端口。默认 8083
 - 更新已用时间（毫秒） - 播放标题时更新已用计时器的间隔（以毫秒为单位）。 （默认 2000）
 
+<!-- 下一版本的占位符（在行首）：
+
+### __工作正在进行中__ -->
+
 ## Changelog
+### 2.1.4 (2021-12-17)
+* (bluefox) Catch possible errors by the start and unload
 
 ### 2.1.1 (2020-11-08)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-JS-CONTROLLER-S7, #78)
@@ -171,7 +177,6 @@ hash: 6YlAtVA6sEFRSXrmRNQl0oO4V6bzV5QrMEQB9sLy6RI=
 ### 0.0.5 (2014-11-24)
 * (bluefox) support of new naming concept
 
-
 ### 0.0.4 (2014-11-22)
 * (bluefox) support of text to speech
 
@@ -185,7 +190,7 @@ hash: 6YlAtVA6sEFRSXrmRNQl0oO4V6bzV5QrMEQB9sLy6RI=
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2021, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
