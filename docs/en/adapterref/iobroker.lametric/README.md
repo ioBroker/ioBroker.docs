@@ -1,37 +1,23 @@
-![Logo](admin/lametric.png)
+---
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.lametric.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.lametric.svg
+BADGE-Stable: http://iobroker.live/badges/lametric-stable.svg
+BADGE-installed: http://iobroker.live/badges/lametric-installed.svg
+BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.lametric.svg
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.lametric/badge.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.lametric.png?downloads=true
+---
+![Logo](../../admin/lametric.png)
 
 # ioBroker.lametric
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.lametric.svg)](https://www.npmjs.com/package/iobroker.lametric)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.lametric.svg)](https://www.npmjs.com/package/iobroker.lametric)
-[![Stable](http://iobroker.live/badges/lametric-stable.svg)](http://iobroker.live/badges/lametric-stable.svg)
-[![installed](http://iobroker.live/badges/lametric-installed.svg)](http://iobroker.live/badges/lametric-installed.svg)
-[![Dependency Status](https://img.shields.io/david/klein0r/iobroker.lametric.svg)](https://david-dm.org/klein0r/iobroker.lametric)
-[![Known Vulnerabilities](https://snyk.io/test/github/klein0r/ioBroker.lametric/badge.svg)](https://snyk.io/test/github/klein0r/ioBroker.lametric)
-![Test and Release](https://github.com/klein0r/ioBroker.lametric/workflows/Test%20and%20Release/badge.svg)
+## Requirements
 
-[![NPM](https://nodei.co/npm/iobroker.lametric.png?downloads=true)](https://nodei.co/npm/iobroker.lametric/)
-
-This adapter allows you to get status information about your [LaMetric Time](https://haus-auto.com/p/amz/LaMetricTime) *(Affiliate Link)* and to send notifications to it.
-All you need is the IP address of your device and the api developer key.
-
-## Sponsored by
-
-[![ioBroker Master Kurs](https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-lametric)
-
-## Installation
-
-Please use the "adapter list" in ioBroker to install a stable version of this adapter. You can also use the CLI to install this adapter:
-
-```
-iobroker add lametric
-```
+- *LaMetric Time* with firmware *2.2.2* (or later)
 
 ## Configuration
 
-Tested with LaMetric firmware *2.2.2* (recommended)
-
-You can get your personal key [here](https://developer.lametric.com/).
+You can get your device API key [here](https://developer.lametric.com/user/devices).
 
 ![api-key](docs/apiKey.png)
 
@@ -43,7 +29,7 @@ You can get your personal key [here](https://developer.lametric.com/).
 - Activate/Deactivate bluetooth and change bluetooth name
 - Switch between apps (next, previous, go to specific app)
 - Send notifications with blockly (with configurable priority, sound, icons, text, ...)
-- Control special apps like clock, radio, stopwatch or weather
+- Control special apps like ``clock``, ``radio``, ``stopwatch`` or ``weather``
 - Use *My Data (DIY)* LaMetric App to display persistent information
 
 Features are limited by the [official API features](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html).
@@ -64,7 +50,7 @@ If you want to use chart frames, you have to specify an array of numbers as a fr
 
 ## My Data (DIY) *(version > 1.1.0)*
 
-LaMetric offers an app (on the integrated app market) to poll custom data. This app is called [My Data DIY](https://apps.lametric.com/apps/my_data__diy_/8942). This adapter creates a new state in the required format.
+*LaMetric* offers an app (on the integrated app market) to poll custom data. This app is called [My Data DIY](https://apps.lametric.com/apps/my_data__diy_/8942). This adapter creates a new state in the required format.
 You can use the Simple API Adapter to transfer the data to the LaMetric Time.
 
 ```ioBroker LaMetric Adapter -> State with Frame information <- Simple API Adapter <- My Data DIY App <- LaMetric```
@@ -72,18 +58,17 @@ You can use the Simple API Adapter to transfer the data to the LaMetric Time.
 ### Configuration (with authentication)
 
 1. Install the [Simple API ioBroker Adapter](https://github.com/ioBroker/ioBroker.simple-api)
-2. Create a new ioBroker user called "lametric" with a custom password (e.g. HhX7dZl3Fe)
-3. Add the "lametric" user to the group "users"
-4. Install this *My Data DIY* App on your LaMetric Time (use Market)
+2. Create a new ioBroker user called ``lametric`` with a custom password (e.g. ``HhX7dZl3Fe``)
+3. Add the ``lametric`` user to the default group ``users``
+4. Install this *My Data DIY* App on your *LaMetric Time* (use Market)
 5. Open the *My Data (DIY)* app settings and configure the simple api url (see below)
-6. Go to the adapter configuration and configure the frames with your custom information (icon and text)
+6. Go to the adapter configuration and configure the frames with your custom information (see next chapter)
 
 ```
-http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json
 http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json&user=lametric&pass=HhX7dZl3Fe
 ```
 
-**Important: use json flag of SimpleAPI Adapter (available since 2.6.2)**
+**Important: use json flag of SimpleAPI Adapter (available since version 2.6.2)**
 
 **Ensure to update IP, port, user and password in the URL if necessary!**
 
@@ -92,10 +77,10 @@ http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json&user=lamet
 1. Install the [Simple API ioBroker Adapter](https://github.com/ioBroker/ioBroker.simple-api)
 2. Install this *My Data DIY* App on your LaMetric Time (use Market)
 3. Open the *My Data (DIY)* app settings and configure the simple api url (see below)
-4. Go to the adapter configuration and configure the frames with your custom information (icon and text)
+4. Go to the adapter configuration and configure the frames with your custom information (see next chapter)
 
 ```
-http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/
+http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json
 ```
 
 **Ensure to update IP and port in the URL if necessary!**
@@ -103,16 +88,16 @@ http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/
 ### Frame Configuration *(version > 1.1.0)*
 
 - Use the plus icon to add as many frames as you want
-- Icon: Choose an icon from the [official website](https://developer.lametric.com/icons) and put the ID in the configuration field. **Important: Add an i (for static icons) or an a (for animated icons) as a prefix for that ID. (Example: `i3389`)
+- Icon: Choose an icon from the [official website](https://developer.lametric.com/icons) and put the ID in the configuration field. **Important: Add an i (for static icons) or an a (for animated icons) as a prefix for that ID. (Example: `i3389`)**
 - Text: Just type the text information for the frame. You can use states in curly braces. These information will be replaced with the corresponding value of the state. (Example: `{youtube.0.channels.HausAutomatisierungCom.statistics.subscriberCount} Subscribers`)
 
-Example configuration of 2 frames:
+Example configuration of 3 frames:
 
 ![example frame config](docs/myDataDIYConfig.png)
 
 ## Special Apps / Widgets *(version > 1.1.2)*
 
-You can control some apps with custom information
+You can control some apps with custom information.
 
 ### clock.clockface
 
@@ -129,7 +114,7 @@ Allowed value: Time in seconds
 
 ## Scripts
 
-To show the message on your la metric just send a message to this instance with script adapter:
+To show messages/notifications on your *LaMetric Time*, send a message to this instance with the JavaScript adapter (or any other):
 
 ```JavaScript
 sendTo(
@@ -207,16 +192,16 @@ setInterval(show, 10000);
 show();
 ```
 
-## Sentry
-
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
-
 ## Changelog
 
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+* (klein0r) Updated documentation
 
 ### 1.5.1
 

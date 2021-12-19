@@ -253,8 +253,8 @@ If you want to delete entry from the Database you can use the build in system fu
 
 ```
 sendTo('sql.0', 'delete', [
-    {id: 'mbus.0.counter.xxx, state: {ts: 1589458809352}, 
-    {id: 'mbus.0.counter.yyy, state: {ts: 1589458809353}
+    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352}, 
+    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353}
 ], result => console.log('deleted'));
 ```
 
@@ -262,8 +262,8 @@ To delete ALL history data for some data point execute:
 
 ```
 sendTo('sql.0', 'deleteAll', [
-    {id: 'mbus.0.counter.xxx} 
-    {id: 'mbus.0.counter.yyy}
+    {id: 'mbus.0.counter.xxx'} 
+    {id: 'mbus.0.counter.yyy'}
 ], result => console.log('deleted'));
 ``` 
 
@@ -271,8 +271,8 @@ To delete history data for some data point and for some range execute:
 
 ```
 sendTo('sql.0', 'deleteRange', [
-    {id: 'mbus.0.counter.xxx, start: '2019-01-01T00:00:00.000Z', end: '2019-12-31T23:59:59.999'}, 
-    {id: 'mbus.0.counter.yyy, start: 1589458809352, end: 1589458809353}
+    {id: 'mbus.0.counter.xxx', start: '2019-01-01T00:00:00.000Z', end: '2019-12-31T23:59:59.999'}, 
+    {id: 'mbus.0.counter.yyy', start: 1589458809352, end: 1589458809353}
 ], result => console.log('deleted'));
 ``` 
 
@@ -285,8 +285,8 @@ If you want to change entry's value, quality or acknowledge flag in the database
 
 ```
 sendTo('sql.0', 'update', [
-    {id: 'mbus.0.counter.xxx, state: {ts: 1589458809352, val: 15, ack: true, q: 0}, 
-    {id: 'mbus.0.counter.xxx, state: {ts: 1589458809353, val: 16, ack: true, q: 0}
+    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352, val: 15, ack: true, q: 0}, 
+    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353, val: 16, ack: true, q: 0}
 ], result => console.log('deleted'));
 ```
 
@@ -420,6 +420,10 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (Excodibur) Hide settings not relevant when "log changes only" is not used
+* (Apollon77) Allow all number values for debounce again
+
 ### 1.16.0 (2021-12-14)
 * (bluefox) Support only `js.controller` >= 3.3.x
 * (bluefox) Used system/custom view for collecting the objects

@@ -35,6 +35,7 @@ https://doc.iobroker.net/#de/blog/2019_06_12
 https://doc.iobroker.net/#de/blog/2019_10_14
 https://doc.iobroker.net/#de/blog/2020_05_12
 https://doc.iobroker.net/#de/blog/2020_12_06
+https://doc.iobroker.net/#de/blog/2021_12_15
 https://doc.iobroker.net/#en/blog/2018_03_17
 https://doc.iobroker.net/#en/blog/2019_02_22
 https://doc.iobroker.net/#en/blog/2019_02_25
@@ -44,6 +45,7 @@ https://doc.iobroker.net/#en/blog/2019_06_12
 https://doc.iobroker.net/#en/blog/2019_10_14
 https://doc.iobroker.net/#en/blog/2020_05_12
 https://doc.iobroker.net/#en/blog/2020_12_06
+https://doc.iobroker.net/#en/blog/2021_12_15
 https://doc.iobroker.net/#ru/blog/2018_03_17
 https://doc.iobroker.net/#ru/blog/2019_02_22
 https://doc.iobroker.net/#ru/blog/2019_02_25
@@ -53,6 +55,7 @@ https://doc.iobroker.net/#ru/blog/2019_06_12
 https://doc.iobroker.net/#ru/blog/2019_10_14
 https://doc.iobroker.net/#ru/blog/2020_05_12
 https://doc.iobroker.net/#ru/blog/2020_12_06
+https://doc.iobroker.net/#ru/blog/2021_12_15
 https://doc.iobroker.net/#zh-cn/blog/2018_03_17
 https://doc.iobroker.net/#zh-cn/blog/2019_02_22
 https://doc.iobroker.net/#zh-cn/blog/2019_02_25
@@ -62,6 +65,7 @@ https://doc.iobroker.net/#zh-cn/blog/2019_06_12
 https://doc.iobroker.net/#zh-cn/blog/2019_10_14
 https://doc.iobroker.net/#zh-cn/blog/2020_05_12
 https://doc.iobroker.net/#zh-cn/blog/2020_12_06
+https://doc.iobroker.net/#zh-cn/blog/2021_12_15
 https://doc.iobroker.net/#de/documentation/README.md
 https://doc.iobroker.net/#de/documentation/admin/README.md
 https://doc.iobroker.net/#de/documentation/admin/adapter.md

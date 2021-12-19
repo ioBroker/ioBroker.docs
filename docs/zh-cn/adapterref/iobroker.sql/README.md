@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: sE0SbohHB3w5Yws3vEHqSW5PRy+rz8aJmckpSznWTWg=
+hash: yO9ZDtp6FL+u1N1OWFf7H/Z0PPR1+Qd0sC6ecQqS3kE=
 ---
 ![标识](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
@@ -14,7 +14,7 @@ hash: sE0SbohHB3w5Yws3vEHqSW5PRy+rz8aJmckpSznWTWg=
 ![新产品管理](https://nodei.co/npm/iobroker.sql.png?downloads=true)
 
 # IoBroker.sql
-该适配器将状态历史保存到 SQL DB 中。
+此适配器将状态历史记录保存到 SQL DB 中。
 
 支持 PostgreSQL、mysql、Microsoft SQL Server 和 sqlite。
 如果需要默认端口，您可以保留端口 0。
@@ -64,7 +64,7 @@ FLUSH PRIVILEGES;
 
 如果需要，编辑 */etc/mysql/my.cnf* 以设置绑定到远程连接的 IP 地址。
 
-**警告**：iobroker 用户是“admin”。如果需要，为 iobroker 用户提供有限的权限。
+**警告**：iobroker 用户是“admin”。如果需要，向 iobroker 用户授予有限的权限。
 
 在“windows”上，它可以通过安装程序轻松安装：https://dev.mysql.com/downloads/installer/。
 
@@ -73,7 +73,7 @@ FLUSH PRIVILEGES;
 ![视窗](../../../en/adapterref/iobroker.sql/img/WindowsMySQLinstaller.png)
 
 ## 数据库的结构
-默认数据库名称是“iobroker”，但可以在配置中更改。
+默认数据库名称为“iobroker”，但可以在配置中更改。
 
 ### Sources 此表是写入条目的适配器实例列表。 (state.from)
 |数据库 |查询中的名称 |
@@ -262,8 +262,8 @@ sendTo('sql.0', 'query', 'SELECT id FROM datapoints WHERE name="system.adapter.a
 
 ```
 sendTo('sql.0', 'delete', [
-    {id: 'mbus.0.counter.xxx, state: {ts: 1589458809352},
-    {id: 'mbus.0.counter.yyy, state: {ts: 1589458809353}
+    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352},
+    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353}
 ], result => console.log('deleted'));
 ```
 
@@ -271,8 +271,8 @@ sendTo('sql.0', 'delete', [
 
 ```
 sendTo('sql.0', 'deleteAll', [
-    {id: 'mbus.0.counter.xxx}
-    {id: 'mbus.0.counter.yyy}
+    {id: 'mbus.0.counter.xxx'}
+    {id: 'mbus.0.counter.yyy'}
 ], result => console.log('deleted'));
 ```
 
@@ -280,8 +280,8 @@ sendTo('sql.0', 'deleteAll', [
 
 ```
 sendTo('sql.0', 'deleteRange', [
-    {id: 'mbus.0.counter.xxx, start: '2019-01-01T00:00:00.000Z', end: '2019-12-31T23:59:59.999'},
-    {id: 'mbus.0.counter.yyy, start: 1589458809352, end: 1589458809353}
+    {id: 'mbus.0.counter.xxx', start: '2019-01-01T00:00:00.000Z', end: '2019-12-31T23:59:59.999'},
+    {id: 'mbus.0.counter.yyy', start: 1589458809352, end: 1589458809353}
 ], result => console.log('deleted'));
 ```
 
@@ -294,8 +294,8 @@ sendTo('sql.0', 'deleteRange', [
 
 ```
 sendTo('sql.0', 'update', [
-    {id: 'mbus.0.counter.xxx, state: {ts: 1589458809352, val: 15, ack: true, q: 0},
-    {id: 'mbus.0.counter.xxx, state: {ts: 1589458809353, val: 16, ack: true, q: 0}
+    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352, val: 15, ack: true, q: 0},
+    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353, val: 16, ack: true, q: 0}
 ], result => console.log('deleted'));
 ```
 
@@ -420,7 +420,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 - **不创建数据库**：如果数据库已经创建（例如由管理员创建）并且 ioBroker 用户没有足够的权限来创建数据库，则激活此选项。
 
 ＃＃ 默认设置
-- **去抖动间隔**：不要存储比这个间隔更频繁的值。
+- **去抖动间隔**：不要存储比此间隔更频繁的值。
 - **记录任何未更改的值**：每 X 秒额外写入一次值。
 - **从最后一个值到日志的最小差异**：两个值之间的最小间隔。
 - **存储保留**：值将在数据库中存储多长时间。
@@ -430,6 +430,10 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### __工作正在进行中__ -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (Excodibur) Hide settings not relevant when "log changes only" is not used
+* (Apollon77) Allow all number values for debounce again
+
 ### 1.16.0 (2021-12-14)
 * (bluefox) Support only `js.controller` >= 3.3.x
 * (bluefox) Used system/custom view for collecting the objects

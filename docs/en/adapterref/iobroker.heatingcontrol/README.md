@@ -217,6 +217,17 @@ to do
 
 to do
 
+## actuator handling
+
+to do
+
+switch between linear and linear with hysteresis
+
+describe two new datapoints 
+heatingcontrol.0.Rooms.TestRaum.Regulator.HysteresisOffOffset
+and
+heatingcontrol.0.Rooms.TestRaum.Regulator.HysteresisOnOffset
+
 ## Issues and Feature Requests
 * If you are faced with any bugs or have feature requests for this adapter, please create an issue within the GitHub issue section of the adapter at [github](https://github.com/rg-engineering/ioBroker.heatingcontrol/issues). Any feedback is appreciated and will help to improve this adapter.
 
@@ -234,6 +245,10 @@ If thermostat use information from window sensor then "thermostat handles window
 When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry.  All of this helps me to provide error free adapters that basically never crashs.
 
 ## Changelog
+
+
+### 2.8.0 (2021-12-18)
+* (René) see issue #266: differrent regulators for actor handling added (linear and linear with hysteresis)
 
 ### 2.7.2 (2021-11-14)
 * (René) bug fix load / save profiles: check fireplace mode added

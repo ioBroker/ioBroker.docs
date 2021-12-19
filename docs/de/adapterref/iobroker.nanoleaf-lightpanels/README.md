@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.nanoleaf-lightpanels/README.md
 title: ioBroker.nanoleaf-lightpanels Adapter
-hash: EYavG70Hk24uclNC64ybkY58+MhOFmOsttwlvkDW74Q=
+hash: lnhd9PuNqXO+UaujBzVUdFx9BDcYk6Zu8tfKVpx4p90=
 ---
 ![Logo](../../../en/adapterref/iobroker.nanoleaf-lightpanels/admin/nanoleaf-lightpanels.png)
 
@@ -16,30 +16,37 @@ hash: EYavG70Hk24uclNC64ybkY58+MhOFmOsttwlvkDW74Q=
 
 [![Test und Release](https://github.com/daniel-2k/ioBroker.nanoleaf-lightpanels/actions/workflows/test-and-release.yml/badge.svg?branch=master)](https://github.com/daniel-2k/ioBroker.nanoleaf-lightpanels/actions/workflows/test-and-release.yml)
 
-Dies ist ein ioBroker-Adapter zur Steuerung der nanoleaf Light Panels (ehemals nanoleaf Aurora) oder nanoleaf Canvas und Shapes über die nanoleaf OpenAPI.
+Dies ist ein ioBroker-Adapter zur Steuerung von Nanoleaf-Geräten, die OpenAPI unterstützen.
 
-## Verbindung zu den nanoleaf Light Panels/Canvas Controller:
-1. In den Adaptereinstellungen müssen Sie die IP-Adresse oder den Hostnamen und den Port des nanoleaf Controllers einstellen. Sie können die Suchfunktion verwenden, um alle Nanoleaf-Geräte in Ihrem Netzwerk zu finden.
+## Unterstützte Modelle
+* Lichtpaneele
+* Segeltuch
+* Formen
+* Elemente
+* Linien
+
+## Verbindung zum Nanoleaf-Controller:
+1. In den Adaptereinstellungen müssen Sie die IP-Adresse oder den Hostnamen und den Port des Nanoleaf-Controllers einstellen. Über die Suchfunktion können Sie alle unterstützten Nanoleaf-Geräte in Ihrem Netzwerk finden.
 2. Die Nanoleaf-OpenAPI benötigt ein Autorisierungstoken, um Zugriff auf die OpenAPI zu gewähren. Wenn Sie bereits einen besitzen, können Sie den Token hier eingeben und den nächsten Schritt überspringen.
 3. Wenn Sie kein Autorisierungstoken haben, müssen Sie es von der nanoleaf OpenAPI anfordern.
 
-Versetzen Sie dazu den nanoleaf Controller in den Pairing-Modus, indem Sie den Power-Button am Gerät 5-7 Sekunden lang gedrückt halten, bis die LEDs abwechselnd blinken.
-Klicken Sie dann innerhalb von 30 Sekunden auf den Button 'Autorisierungstoken beziehen' (der Pairing-Modus stoppt nach 30 Sekunden). Der Adapter muss laufen! Wenn es erfolgreich war, sollte das Autorisierungstoken im Feld 'Authentifizierungstoken' zu sehen sein. Wenn ein Fehler aufgetreten ist, erhalten Sie ein Popup mit der Fehlermeldung (Details können Sie dem Protokoll entnehmen).
+Versetzen Sie dazu den nanoleaf Controller in den Pairing-Modus, indem Sie den Power-Button am Gerät für 5-7 Sekunden gedrückt halten, bis die LEDs abwechselnd blinken.
+Klicken Sie dann innerhalb von 30 Sekunden auf die Schaltfläche 'Autorisierungstoken beziehen' (Pairing-Modus stoppt nach 30 Sekunden). Der Adapter muss laufen! Wenn es erfolgreich war, sollte das Autorisierungstoken im Feld 'Authentifizierungstoken' angezeigt werden. Wenn ein Fehler aufgetreten ist, erhalten Sie ein Popup mit der Fehlermeldung (Details können Sie dem Protokoll entnehmen).
 
 4. Speichern Sie die Einstellungen.
 5. Viel Spaß!
 
 ### Direkte Statusaktualisierung über Server Sent Events (SSE)
-Seit Light Panels Firmware-Version > 3.1.0 und Canvas-Firmware-Version > 1.1.0 können Server Sent Events (SSE) für direkte Status-Updates verwendet werden. Für Canvas- und Shapes-Geräte werden Touch-Ereignisse unterstützt.
+Seit Light Panels Firmware-Version > 3.1.0 und Canvas-Firmware-Version > 1.1.0 können Server Sent Events (SSE) für direkte Status-Updates verwendet werden. Für Canvas-, Shapes- und Element-Geräte werden Touch-Ereignisse unterstützt.
 
-_Bitte beachten:_ Um zu erkennen, ob das Nanoleaf-Gerät noch am Leben ist, wurden alle 60 Sekunden SSDP-Benachrichtigungen vom Nanoleaf-Gerät gesendet. Bitte stellen Sie sicher, dass Sie UDP-Multicast-Nachrichten auf Port 1900 empfangen können (überprüfen Sie Firewall und Routing). Andernfalls erhalten Sie im Adapter Fehlermeldungen, dass die Verbindung unterbrochen wurde. Wenn Sie Probleme mit Keep Alive haben, stellen Sie bitte die richtige Adapterschnittstelle in den Admin-Einstellungen für den Nanoleaf-Adapter ein.
+_Bitte beachten:_ Um zu erkennen, ob ein Nanoleaf-Gerät noch am Leben ist, wurden alle 60 Sekunden SSDP-Benachrichtigungsnachrichten vom Nanoleaf-Gerät gesendet. Bitte stellen Sie sicher, dass Sie UDP-Multicast-Nachrichten auf Port 1900 empfangen können (Check Firewall und Routing). Andernfalls erhalten Sie im Adapter Fehlermeldungen, dass die Verbindung unterbrochen wurde. Wenn Sie Probleme mit Keep Alive haben, stellen Sie bitte die richtige Adapterschnittstelle in den Admin-Einstellungen für den Nanoleaf-Adapter ein.
 Stellen Sie bei der Suche nach Geräten sicher, dass Sie Datenverkehr auf UDP-Port 5000 empfangen können.
-Mir ist aufgefallen, dass einige Nanoleaf-Geräte plötzlich aufhören, die SSDP-Benachrichtigungsnachrichten zu senden, sodass die Verbindung nicht mehr erkannt wird. Dies ist ein Problem mit dem Nanoleaf-Gerät selbst. Personen, die dieses Problem haben, können die Verwendung des Keep-Alive-Abrufmechanismus anstelle von SSDP-Benachrichtigungsnachrichten in den zusätzlichen Adaptereinstellungen aktivieren.
+Mir ist aufgefallen, dass einige Nanoleaf-Geräte plötzlich aufhören, die SSDP-Benachrichtigungsnachrichten zu senden, sodass die Verbindung nicht mehr erkannt wird. Dies ist ein Problem mit dem Nanoleaf-Gerät selbst. Personen mit diesem Problem können die Verwendung des Keep-Alive-Abrufmechanismus anstelle von SSDP-Benachrichtigungsnachrichten in den zusätzlichen Adaptereinstellungen aktivieren.
 
-Die Einstellung des Abfrageintervalls für Statusupdates betrifft nur Geräte mit niedrigeren Firmware-Versionen, bei denen Polling für Statusupdates verwendet wird oder wenn die SSE-Funktion in den zusätzlichen Adaptereinstellungen deaktiviert ist.
+Die Einstellung des Polling-Intervalls für Statusupdates betrifft nur Geräte mit niedrigeren Firmware-Versionen, bei denen Polling für Statusupdates verwendet wird oder wenn die SSE-Funktion in den zusätzlichen Adaptereinstellungen deaktiviert ist.
 
 ## Alexa
-Sie können die nanoleaf Light Panels/Canvas mit Alexa über ioBroker (Cloud-Adapter) steuern.
+Sie können die nanoleaf-Geräte mit Alexa über ioBroker (Cloud-Adapter) steuern.
 Ein-/Ausschalten, Helligkeit, Farbe und Farbtemperatur werden unterstützt.
 Sie müssen die Datenpunkte einrichten
 
@@ -52,15 +59,27 @@ Sie müssen die Datenpunkte einrichten
 im Cloud-Adapter unter demselben Smartnamen.
 
 ## IoBroker-Visualisierung
-Die Nanoleaf Light Panels/Canvas können in ioBroker Visualization gesteuert werden, indem grundlegende Widgets wie "Radiobuttons on/off" oder Schieberegler zur Steuerung des Energiestatus, der Helligkeit, des Farbtons, der Sättigung und der Farbtemperatur verwendet werden.
+Die Nanoleaf-Geräte können in der ioBroker-Visualisierung gesteuert werden, indem grundlegende Widgets wie "Radiobuttons on/off" oder Schieberegler zur Steuerung des Energiestatus, der Helligkeit, des Farbtons, der Sättigung und der Farbtemperatur verwendet werden.
 
-Für Effekte können Sie das Widget "Select ValueList" verwenden, um es als Dropdown-Liste zu verwenden, und dann den effectList-Status der value- und text-Eigenschaft des Widgets zuordnen (Typ: "{nanoleaf-lightpanels.0.LightPanels.effectsList}" -> die geschweiften Klammern sind wichtig!)
+Für Effekte können Sie das Widget "Select ValueList" verwenden, um es als Dropdown-Liste zu verwenden, und dann den Status der effectsList der value- und text-Eigenschaft des Widgets zuordnen (Typ: "{nanoleaf-lightpanels.0.LightPanels.effectsList}" -> die geschweiften Klammern sind wichtig!)
 
-Um die Farbe zu steuern und zu visualisieren, müssen Sie die Widgets im Farbauswahlstil installieren. Sie können die RGB-ID dem colorRGB-Zustand zuordnen oder auch die drei HSV-Zustände verwenden.
+Um die Farbe zu steuern und zu visualisieren, müssen Sie die Widgets im Stil der Farbauswahl installieren. Sie können die RGB-ID dem colorRGB-Zustand zuordnen oder auch die drei HSV-Zustände verwenden.
 
-Sie können das nanoleaf vis-Demoprojekt verwenden, das sich im Unterordner /vis auf github befindet.
+Sie können das nanoleaf vis-Demoprojekt verwenden, das sich im /vis-Unterordner auf github befindet.
 
 ## Changelog
+
+### 1.3.1 (2021-12-05)
+* (daniel_2k) changed: write acknowledge to states directly after receiving success state from API
+* (daniel_2k) changed: ip address workaround also for device search to detect nanoleaf devices with missing host info through firmware bug
+* (daniel_2k) changed: optimized device detection and device keep alive detection
+
+### 1.3.0 (2021-11-28)
+* (daniel_2k) new: nanoleaf Lines supported
+* (daniel_2k) new: nanoleaf Elements supported
+* (daniel_2k) new: added state for writing custom effects and reading effects
+* (daniel_2k) changed: due to firmware errors in canvas and shapes, IP address from packet header is used instead of location (because it's empty) for SSDP MSEARCH and NOTIFY
+* (daniel_2k) fixed: devices were not deleted completely on device identification change
 
 ### 1.2.1 (2021-06-20)
 * (daniel_2k) fixed: get a new authorization token is not possible when the current token is already invalid
@@ -176,4 +195,4 @@ Sie können das nanoleaf vis-Demoprojekt verwenden, das sich im Unterordner /vis
 
 ## License
 The MIT License (MIT)
-Copyright (c) 2020 daniel_2k <daniel_2k@outlook.com>
+Copyright (c) 2021 daniel_2k <daniel_2k@outlook.com>

@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fullybrowser/README.md
-title: ioBroker.vollbrowser
-hash: 2cFA35vdi607lxQObwglRF4srrXVeogOzJ1RLJopqMQ=
+title: ioBroker.fullybrowser
+hash: BwPm/I4eKklyL1A08qzAib0VHbhCt5stjhFO4A7Njls=
 ---
 ![Logo](../../../en/adapterref/iobroker.fullybrowser/admin/fully.png)
 
@@ -20,17 +20,25 @@ fullBrowser Adapter für ioBroker ----------------------------------------------
 Dieser Adapter verwaltet Ihre [Vollständiger Kiosk-Browser](https://www.fully-kiosk.com) (eine Plus-Lizenz ist erforderlich). Es bietet Ihnen eine Reihe von Möglichkeiten, Ihr Tablet über ioBroker zu steuern, wie das Ein- und Ausschalten des Displays, das Starten einer Tablet-App, das Starten des Bildschirmschoners usw. Außerdem bietet es verschiedene Informationen zum Status, wie zum Beispiel den Akkustand Ihres Tablets usw. . die Sie zB verwenden können zur Visualisierung.
 Ein kleiner Auszug nur der Befehlsoptionen:
 
-![Möglichkeiten](https://github.com/arteck/iobroker.fullyBrowser/blob/master/doku/auszug.png)
+![Möglichkeiten](https://github.com/arteck/iobroker.fullyBrowser/blob/master/doku/auszug1.png)
 
 <b>NodeJs &gt;&gt; 8.xx</b>
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-https://github.com/AlCalzone/release-script#usage npm run release minor -- --all 0.9.8 -> 0.10.0 npm run release patch -- --all 0.9.8 -> 0.9.9 npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0 Platzhalter für die nächste Version (am Zeilenanfang):
+https://github.com/AlCalzone/release-script#usage npm run release minor -- --all 0.9.8 -> 0.10.0 npm run release patch -- --all 0.9.8 -> 0.9.9 npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0 Platzhalter für die nächste Version (am Anfang der Zeile):
 
 ### **ARBEITEN LÄUFT** -->
 
 ## Changelog
+### 2.0.12 (2021-12-18)
+* (arteck) screenBrightness direct command
+
+### 2.0.11 (2021-12-17)
+* (arteck)   Problem with data object for Sony Tabs
+
+### 2.0.10 (2021-12-07)
+* (xXBJXx)  Problem with special characters in psw
 
 ### 2.0.9 (2021-05-30)
 * (arteck)  lastInfoUpdate is now correct
