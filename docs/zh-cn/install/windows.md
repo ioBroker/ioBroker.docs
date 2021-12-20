@@ -4,7 +4,7 @@ lastChanged: 18.07.2019
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/windows.md
-hash: XFdcrokNPGtTri8RFE+c4m/7TgKEDdKqtTLfO7BRt1s=
+hash: px8Pj5WdRIRET04sAvbr8e4683UA6b4G1aExlrwjJgs=
 ---
 # 在 Windows 上安装 ioBroker
 ?> *** 本文正在扩充中***。<br><br>帮助 ioBroker。请注意 [ioBroker 风格指南](community/styleguidedoc) 以便可以更轻松地采用更改。
@@ -40,7 +40,7 @@ cmd.exe /C node -v & pause
 * Node.js 8.x LTS 版本[下载并安装]（安装/nodejs）。
 * 以管理员身份打开命令行`cmd.exe`，依次执行以下命令
 
-  执行：
+  跑步：
 
 ```
 npm install --global windows-build-tools
@@ -60,7 +60,7 @@ Node.js 是根据 [本手册的](install/nodejs) 安装的。
 ?> ioBroker 可以安装在本地硬盘驱动器上您选择的文件夹中。如果安装路径包含空格，则所有命令的完整路径必须用引号引起来。
 示例命令：`dir "C:\ioBroker Testsystem"`。
 
-?> ioBroker 的默认安装文件夹是 `C:\iobroker`。
+?> ioBroker 的默认安装文件夹是`C:\iobroker`。
 
 1. 以管理员身份打开命令行窗口。为此，请使用组合键
 
@@ -72,7 +72,7 @@ cmd
 
    输入。
 
-由于命令行窗口必须以管理员身份打开，请使用 `OK` 填写 **而不是** 而是使用组合键 `Strg` + `Umschalt` + `Eingabetaste` .必须使用 `Ja` 或输入管理员密码来确认安全问题。
+由于必须以管理员身份打开命令行窗口，请使用 `OK` 填写 **而不是** 而是使用组合键 `Strg` + `Umschalt` + `Eingabetaste` .有一个安全问题，必须通过 `Ja` 或输入管理员密码来确认。
 
 !> 现在打开的黑色命令行窗口中的标题行必须以单词 `Administrator:` 开头。
 
@@ -84,9 +84,9 @@ cmd
 npm install --global windows-build-tools
 ```
 
-1.然后在命令行窗口执行创建安装文件夹的命令
+1.然后在命令行窗口中创建安装文件夹的命令
 
-   执行：
+   跑步：
 
 ```
 md C:\iobroker
@@ -195,7 +195,7 @@ exit
 
    关闭。
 
-?> 在 `Admin` 适配器的帮助下进行进一步的配置。使用网络浏览器和地址 [http://本地主机：8081](http://localhost:8081) 调用它。通过网络 ioBroker 的配置在【配置】一章有详细介绍。
+?> 进一步的配置是在 `Admin` 适配器的帮助下进行的。使用网络浏览器和地址 [http://本地主机：8081](http://localhost:8081) 调用它。通过网络ioBroker的配置在【配置】一章有详细介绍。
 
 ?> 现在建议初学者运行【教程】()。这里逐步介绍管理界面，并进行必要的基本设置。
 

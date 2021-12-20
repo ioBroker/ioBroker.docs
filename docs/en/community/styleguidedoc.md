@@ -4,7 +4,7 @@ lastChanged: 13.06.2019
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/community/styleguidedoc.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: mfCPW6sFRTOA8DZNqHydfib2TK+qdfZMNwiFfig9vtw=
+hash: Zmgjn4ZXZEX/lmxZOYDoitahdM5B6U5aczZS5gjD+Sk=
 ---
 # Style guide documentation
 * The documentation is created using the [Markdown] [] language.
@@ -32,7 +32,7 @@ The characters `a-z`, `0-9`, the underscore `_` and the decimal point `.` are al
 * Use gender-neutral pronouns and multiple nouns.
     * OK: "they (several)", "their (property)", "persons",
 
-      "People", "developers"
+      "People", "Developers"
 
     * Not okay: "his", "her", "he", "she (woman)", "boys", "girls"
 
@@ -51,7 +51,7 @@ The characters `a-z`, `0-9`, the underscore `_` and the decimal point `.` are al
 * Documents always begin with a heading on level H1.
 * Links are not placed inline (e.g. with `[a link] (http://example.com)`),
 
-but placed at the end of the document with the help of inline `[a link][]` and `[a link]: https://a.link/to/know`.
+but with the help of inline `[a link][]` and `[a link]: https://a.link/to/know` at the end of the document.
 
 * If dashes are used, use the short notation
 
@@ -79,7 +79,7 @@ is not possible, then as a jpg or png file. Please keep an eye on the file size.
 
 represent examples to clarify the point of view just described. So there is no need to deliver completely executable programs. However, if a fully executable program is to be provided, this is done as a media file in the folder `media/{code_beispieldatei}` with a corresponding link in the documentation.
 
-* If underscores, inverted commas, asterisks or backslashes are used
+* If underscores, quotation marks, asterisks or backslashes are used
 
 the correct escape characters have to be used: `\_`, `\*`, `\\` and ``\`` ` anstelle von `_`, ` * §§ SSSSS_6§§ \ ` und `` ` ``.
 

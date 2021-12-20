@@ -4,19 +4,19 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/intro/README.md
-hash: 1pcQ4cJSUZw7qUIgvAoPS5dTCF9w4xA9paAs8EKiD7w=
+hash: idk0gZfgjRkBsHrpF2r3lK1a0goTdH4DOHijnHKP5zE=
 ---
 ** 本文档是所有 ioBroker 用户的核心参考：**
 
 ##页面结构
-此页面是在 ***响应式设计*** 中创建的。这意味着它会根据阅读器（PC/平板电脑/手机）显示器的分辨率以不同的方式显示，以实现最佳可读性。
+此页面是在 ***响应式设计*** 中创建的。这意味着它会根据阅读器（PC/平板电脑/手机）显示器的分辨率以不同方式显示，以实现最佳可读性。
 
-在低（有效）分辨率下，操作元素会部分隐藏，以便为主窗口腾出空间。
+在低（有效）分辨率的情况下，有时会隐藏操作元素，以便为主窗口腾出空间。
 
 因此，当前显示可能与屏幕截图不同。
 
 ### 不同的菜单
-为了获得最佳概览，共有三个不同的菜单：
+为了获得尽可能大的概览，共有三个不同的菜单：
 
 ![侧边菜单](../../de/intro/media/Seite_numbers.png)
 
@@ -42,7 +42,7 @@ hash: 1pcQ4cJSUZw7qUIgvAoPS5dTCF9w4xA9paAs8EKiD7w=
 ---
 
 #### 3 - 主题菜单
-在此菜单中，将显示所选文章的主要主题，以便能够更快地导航到所需的点。
+在此菜单中，将显示所选文章的主要主题，以便能够更快地导航到您要查找的点。
 
 ![主题菜单](../../de/intro/media/Themenmenu.png)
 
@@ -59,7 +59,7 @@ hash: 1pcQ4cJSUZw7qUIgvAoPS5dTCF9w4xA9paAs8EKiD7w=
 如有必要，将扩展此语言列表。
 
 #### 5 - 搜索
-该字段不需要任何解释。请广泛使用！
+这个字段不需要解释。请广泛使用！
 
 ---
 
@@ -67,11 +67,11 @@ hash: 1pcQ4cJSUZw7qUIgvAoPS5dTCF9w4xA9paAs8EKiD7w=
 
 在 [基础] [] 一章中详细介绍了这一点。
 
-* [下载] [] 页面上有针对不同系统准备的图像。
+* [下载] [] 页面上有为不同系统准备的图像。
 
 那里还提供了一些硬件平台的详细安装说明。
 
-* 关于所有适配器的信息可以在中央 [适配器参考] [] 中找到。
+* 关于所有适配器的信息可以在中央[适配器参考][]中找到。
 * 控制规则的创建在[逻辑与自动化][]部分进行了描述。
 
 我们感谢每一个帮助之手。如果您想为 ioBroker 的进一步开发做出贡献，您可以在 [开发人员专区] [] 中找到相关信息。

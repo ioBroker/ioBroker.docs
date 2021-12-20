@@ -4,14 +4,14 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/log.md
-hash: 66gpVVstVxHlQUyyBYv8juocwLyP/pXvD9q5MXSJDlE=
+hash: SF9PSkEVT8mItnrGcqW4liNccrJ/ZhU4DElrk63Agz4=
 ---
 The system's messages are continuously output here. The latest message is at the top.
 
 ![The log page](../../de/admin/media/ADMIN_Log_numbers.png)
 
 ## The title line
-in the title line there are icons for the most important processes. There is context help for each icon. To do this, simply hold the mouse on the icon for a while.
+in the title line there are icons for the most important processes. There is context help for each icon. To do this, simply stay on the icon with the mouse for a while.
 
 ### 1 - update log
 This button updates the list.
@@ -24,7 +24,7 @@ Instead of the pause icon, the number of new, non-displayed messages now appears
 Clicking on this icon only deletes the list on the screen
 
 ### 4 - Clear the log on the host
-When you click on this icon, the entire log on the host is permanently deleted.
+By clicking on this icon, the entire log on the host is permanently deleted.
 
 ### 5 - Download log
 With this button you can download a complete daily log of the last few days from the directory / opt / iobroker / logs:
@@ -57,7 +57,7 @@ The timestamp of the message is listed here. This column cannot be filtered.
 This menu can be used to set the severity of the message to be displayed. However, this is only a filter of the existing list.
 In order to set the logging in a certain level for an instance, this must be set on the instance page.
 
-Errors are shown in red font:
+Errors are shown in red:
 
 ![Error](../../de/admin/media/ADMIN_Log02_error.png)
 
@@ -66,4 +66,4 @@ If there is an error on any host, the label ***Log*** also appears in red in the
 ### 4 - message
 The respective message is displayed in this column, provided it fits into the column.
 The rest will be cut off. With mouse-over you can still see the whole message.
-To post in the forum, please download the log and copy the message out there.
+To post in the forum, please download the log and copy the message out of there.

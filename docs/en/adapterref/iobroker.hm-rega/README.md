@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/adapterref/iobroker.hm-rega/README.md
 title: HomeMatic ReGaHSS
-hash: 5nzOtddjd6p/3BVJJkfR7yHWPQUqVm2mcbdsP7tvrkM=
+hash: G+XgC3bx73W0XgVhW1GkYuvI38TcQQgIsp3P1ggWznM=
 ---
 ![logo](../../../de/adapterref/iobroker.hm-rega/media/homematic.png)
 
@@ -61,12 +61,12 @@ The required services are then activated and linked to the appropriate HM-RPC in
 
 Polling
 
-If activated, the RegaHSS data is regularly queried by the CCU, based on the seconds set in the Intervals field. The interval should not be set too low, since too frequent polling can lead to a crash of the CCU.
+If activated, the RegaHSS data is regularly queried by the CCU, based on the seconds set in the Intervals field. The interval should not be set too low, as too frequent polling can lead to a crash of the CCU.
 
 Trigger
 
 In order to minimize the active queries from ioBroker to the RegaHSS, a trigger can also push the data on the CCU within a program when changes are made.
-A virtual button on the CCU can be used for this, which is triggered in a CCU program. By default, this is the BidCosRF.50.PRESS_SHORT key (see sample program).
+A virtual button on the CCU, which is triggered in a CCU program, can be used for this. By default, this is the BidCosRF.50.PRESS_SHORT button (see sample program).
 
 ### Synchronize area
 Here the user can specify which information is to be transferred from the CCU to ioBroker. The corresponding objects and data points are then created in ioBroker.
@@ -77,7 +77,7 @@ Here the user can specify which information is to be transferred from the CCU to
 - Names: Activates the transfer of the plain text names of the data points from the CCU
 - Favorites: Activates the transfer and listing of favorites
 - Rooms: Activates the takeover of the rooms and a listing of them
-- Trades: Activates the transfer of trades and a list of them
+- Trades: Activates the transfer of trades and a listing of them
 
 ### Additional settings area
 Here the user can decide whether https (encrypted and tap-proof connection) should be used. If activated, the username and password must be entered

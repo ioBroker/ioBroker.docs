@@ -1,10 +1,10 @@
 ---
-title: 介绍
+title: 引发
 lastChanged: 14.09.2018
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/trouble/README.md
-hash: zyX2YdM6CIiREEqfh+LxO6fCXcvENhSZ8SXnod+1Dh8=
+hash: NAHfCKNrau6ZZZiSXWF0k0KN7z/OGtn4WhfS7IzATmk=
 ---
 ＃ 故障排除
 ?> *** 这是一个占位符***。<br><br>帮助 ioBroker 并扩展这篇文章。请注意 [ioBroker 风格指南](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) 以便可以更轻松地采用更改。
@@ -18,7 +18,7 @@ hash: zyX2YdM6CIiREEqfh+LxO6fCXcvENhSZ8SXnod+1Dh8=
 ## 急救清单“我的 ioBroker 已停止工作” - 我应该首先检查什么并始终在论坛中发帖？
 重要信息始终是以下版本信息：
 
-* `node -v`：ioBroker 支持 nodejs 的“LTS 版本”（偶数版本号）。新安装必须至少使用 nodejs 8.12。 **注意：** 官方不支持nodejs的开发版本（版本号不均匀）！也请在通知论坛后使用全新的 LTS 版本。我们推荐 nodejs 8.15 或更高版本。
+* `node -v`：ioBroker 支持 nodejs 的“LTS 版本”（偶数版本号）。新安装必须至少使用 nodejs 8.12。 **注意：** 官方不支持nodejs的开发版本（版本号不一致）！也请在通知论坛后使用全新的 LTS 版本。我们推荐 nodejs 8.15 或更高版本。
 * `npm -v`: ioBroker 支持版本 3 和 > 5.7.1 中的 npm，推荐 6.4.1 或更高版本
 * `iobroker -v`
 * 有关适配器的版本号
@@ -27,7 +27,7 @@ hash: zyX2YdM6CIiREEqfh+LxO6fCXcvENhSZ8SXnod+1Dh8=
 
 最好直接在线程中提供此信息。
 
-此外，请检查此故障排除页面和常见问题解答 --LINK-- 在论坛请求之前是否已包含该主题。如果您已经尝试过这些文档中的操作，请同时将它们写下来。
+此外，在论坛请求之前，请检查此故障排除页面和常见问题解答 --LINK-- 该主题是否已包含在那里。如果您已经尝试过这些文档中的操作，请同时将它们写下来。
 
 请检查日志以查看在出现问题时是否有来自相关适配器的任何有用条目。始终将日志和脚本或类似内容放入剧透中。
 
@@ -44,24 +44,24 @@ ioBroker 继续将所有日志写入日志文件。它位于“log”子目录�
 * **警告** 记录错误和警告
 * **info** 记录信息、警告和错误，标准
 * **debug** 除了信息、警告和错误之外，还会记录适配器开发人员认为对故障排除有用的附加信息。
-* **傻** 最详细的日志级别，来自 js 控制器的消息也被记录在其中，仅在明确请求时使用。
+* ** 傻**：最详细的日志级别，来自 js 控制器的消息也被记录在其中，仅在明确请求时使用。
 
 可以在 Admin WebUI 中设置实例的日志级别。为此，请在“实例”下激活专家模式，并在实例的同名列中设置日志级别。
 更改日志级别后，实例会自动重启。
 
-** 注意： ** 根据日志级别（尤其是调试和傻），磁盘上的日志文件可能非常大。注意可用的存储空间。
+** 注意： ** 根据日志级别（尤其是调试和傻），磁盘上的日志文件可能会很大。注意可用的存储空间。
 
 ## 操作系统更新后，ioBroker 不再工作（检查节点版本等）
 ## 适配器/ioBroker 不再以错误“错误的节点版本本机数据包。废话”开始？ （npm 重建等）
 ## 我的电脑上有几个不同的 nodejs 版本？
 ## 突然 ioBroker / Adapter 不再处理消息“意外语法错误/无效令牌或类似”。 （文件损坏，SD 卡...）
-## 在适配器启动时出现错误 7/重新连接到数据库（原因...解决方案）
-## IoBroker 突然无法访问了，但是我的电脑还在？ （系统日志 oom 什么的）
-##整个主机在运行过程中突然死机（swapping top ...）
+## 在适配器启动错误 7 / 重新连接到数据库（原因...解决方案）
+## IoBroker 突然不可用了，但我的电脑还在？ （系统日志 oom 什么的）
+##整个主机在运行过程中突然死机（交换top ...）
 ## 整个主机在适配器更新期间冻结（例如 sql 安装）
-## 如何手动重新安装 js-controller 以及何时应该执行此类操作？我需要考虑什么？
+## 如何手动重新安装 js 控制器，什么时候应该做这样的事情？我需要考虑什么？
 ## 如何手动重新安装适配器，何时应该重新安装？我需要考虑什么？
-## 安装适配器时，出现“index.html not found”窗口？ （安装 Admin3）
+## 安装适配器时，会出现一个窗口，显示“index.html not found”？ （安装 Admin3）
 ## 我所有的适配器都没有了吗？
 ...
 

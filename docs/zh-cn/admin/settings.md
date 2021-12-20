@@ -4,7 +4,7 @@ lastChanged: 27.03.2019
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/admin/settings.md
-hash: SrsCuiAVjFnWErHKd5ROEqrjxmi3MqUS+1fK8aALD34=
+hash: EWCPIroHVv8aZWVTS96ljn+F7vclaiYghLknECzG9Fw=
 ---
 #系统设置
 通过屏幕标题栏中的扳手图标，可以从管理员的每个菜单点访问系统设置。
@@ -34,13 +34,13 @@ hash: SrsCuiAVjFnWErHKd5ROEqrjxmi3MqUS+1fK8aALD34=
 
 选择日期在 admin 和 vis 中的显示方式。
 
-** 小数点分隔符 **
+** 小数分隔符 **
 
 浮点值的逗号或点
 
 ** 标准历史实例 **
 
-在这种情况下，默认情况下会记录数据，并在 flot 和 rickshaw 图表中使用。
+在这种情况下，默认情况下会记录数据并用于船队和人力车的图表中。
 
 如果只安装了一个历史适配器（SQL/History/InfluxDB），则使用它；如果有多个，则可以选择一个。
 
@@ -56,7 +56,7 @@ ioBroker 可以从不同来源获取适配器列表。在安装过程中输入�
 * 默认（= 稳定）：http://download.iobroker.net/sources-dist.json
 * 最新（= 测试版）：http://download.iobroker.net/sources-dist-latest.json
 
-如果在此处输入来自较旧安装的其他存储库，则应将其删除，因为它们不再维护。
+如果从较旧的安装在此处输入其他存储库，则应将其删除，因为它们不再维护。
 
 ##证书
 ![证书](../../de/admin/media/ADMIN_Settings_certificates.png)
@@ -64,7 +64,7 @@ ioBroker 可以从不同来源获取适配器列表。在安装过程中输入�
 这是用于 SSL/HTTPS 通信的证书的中心点。这些证书由 admin、web、simple-api、socketio 使用。默认情况下安装标准证书。你不能用它验证任何东西。它们仅用于 SSL 通信。由于证书是开放的，您应该使用自己的（自签名）证书，购买真实证书或切换到 Let's Encrypt。与默认证书的通信是不安全的，如果有人想读取流量，可以这样做。请务必安装您自己的证书。
 例如。在linux下。
 
-证书可以指定为路径，也可以使用拖放方式完全上传
+证书既可以指定为路径，也可以使用拖放方式完全上传
 
 --- 标题：系统设置 lastChanged：27.03.2019 ---
 
@@ -96,13 +96,13 @@ ioBroker 可以从不同来源获取适配器列表。在安装过程中输入�
 
 选择日期在 admin 和 vis 中的显示方式。
 
-** 小数点分隔符 **
+** 小数分隔符 **
 
 浮点值的逗号或点
 
 ** 标准历史实例 **
 
-在这种情况下，默认情况下会记录数据，并在 flot 和 rickshaw 图表中使用。
+在这种情况下，默认情况下会记录数据并用于船队和人力车的图表。
 
 如果只安装了一个历史适配器（SQL/History/InfluxDB），则使用它；如果有多个，则可以选择一个。
 
@@ -118,7 +118,7 @@ ioBroker 可以从不同来源获取适配器列表。在安装过程中输入�
 * 默认（= 稳定）：http://download.iobroker.net/sources-dist.json
 * 最新（= 测试版）：http://download.iobroker.net/sources-dist-latest.json
 
-如果在此处输入来自较旧安装的其他存储库，则应将其删除，因为它们不再维护。
+如果从较旧的安装在此处输入其他存储库，则应将其删除，因为它们不再维护。
 
 ##证书
 ![证书](../../de/admin/media/ADMIN_Settings_certificates.png)
@@ -126,29 +126,29 @@ ioBroker 可以从不同来源获取适配器列表。在安装过程中输入�
 这是用于 SSL/HTTPS 通信的证书的中心点。这些证书由 admin、web、simple-api、socketio 使用。默认情况下安装标准证书。你不能用它验证任何东西。它们仅用于 SSL 通信。由于证书是开放的，您应该使用自己的（自签名）证书，购买真实证书或切换到 Let's Encrypt。与默认证书的通信是不安全的，如果有人想读取流量，可以这样做。请务必安装您自己的证书。
 例如。在linux下。
 
-证书可以指定为路径，也可以使用拖放方式完全上传
+证书既可以指定为路径，也可以使用拖放方式完全上传
 
 <span style="color:red">使用网络适配器而不是直接使用管理适配器测试新证书通常是一个好主意，这样您就不会将自己锁定在系统之外。</span>
 
-指定路径时，iobroker 用户的正确权限必须可用。
+指定路径时，必须为 iobroker 用户提供正确的权限。
 
 对于文件本身 644，对于更高级别的目录 755。
 
-如果权限错误，则会出现如下错误消息：
+如果权限错误，则会显示如下错误消息：
 
 ``web.0 (24704) Cannot create webserver: Error: error:0909006C:PEM routines:get_name:no start line``
 
-您可以通过以 root 用户身份登录服务器，然后切换到 iobroker 用户并列出证书文件来检查访问：
+如果以root用户登录服务器，可以查看访问权限，然后切换到iobroker用户，列出证书文件：
 
 ``su iobroker``
 
 ``ls -l /Pfad/zum/Zertifikat``
 
-它应该在行首显示 **- rw-r - r -** 。
+它应该在行首显示 **- rw-r - r -**
 
 如果链接了实际证书，则必须检查链接目标的权限。
 
-这是一条消息，如
+这里有一条消息，如
 
 ``ls: Zugriff auf '/Pfad/zum/Zertifikat' nicht möglich: Keine Berechtigung``
 
@@ -179,7 +179,7 @@ Let's Encrypt 是独立互联网安全研究小组 (ISRG) 的免费、自动化�
 
 首次调用相关地址时，将首次请求证书。即，如果您配置例如“sub.domain.com”作为地址，然后调用 https://sub.domain.com，则会首次请求证书，这可能需要一段时间才能得到答案。
 
-证书的颁发是一个复杂的过程，但如果您按照下面的说明进行操作，应该很容易获得免费证书。
+证书的颁发是一个复杂的过程，但是如果您按照下面的说明进行操作，应该很容易获得免费证书。
 
 **方法：**
 
@@ -197,7 +197,7 @@ Let's encrypt 总是使用端口 80 来检查地址。
 
 Let's Encrypt 服务器发送回一个质询短语以响应请求，并在一段时间后尝试在地址“http:// yourdomain: 80 / .well-known / acme-challenge /”处读取此质询短语。
 
-当服务器从我们这边得到这个挑战短语时，Let's Encrypt 服务器发送证书。这些保存在系统设置中输入的目录中。
+当服务器从我们这边收到这个挑战短语时，Let's Encrypt 服务器发送证书。这些保存在系统设置中输入的目录中。
 
 这听起来很复杂，但您所要做的就是激活几个复选框并在系统设置中输入电子邮件地址和网址。
 
@@ -215,7 +215,7 @@ Let's Encrypt 仅适用于 node.js 版本> = 4.5
 ＃＃ 统计数据
 ![统计数据](../../de/admin/media/ADMIN_Settings_statistics.png)
 
-为了让我们对安装（使用的适配器）和地理分布有一些概述，如果我们收到这些信息，我们会非常高兴。
+因此，我们对安装（使用的适配器）和地理分布有一些概述，如果我们收到此信息，我们会非常高兴。
 
 您可以发送不同数量的信息。可以在左侧选择此范围。
 
@@ -239,7 +239,7 @@ Let's Encrypt 是独立互联网安全研究小组 (ISRG) 的免费、自动化�
 
 首次调用相关地址时，将首次请求证书。即，如果您配置例如“sub.domain.com”作为地址，然后调用 https://sub.domain.com，则会首次请求证书，这可能需要一段时间才能得到答案。
 
-证书的颁发是一个复杂的过程，但如果您按照下面的说明进行操作，应该很容易获得免费证书。
+证书的颁发是一个复杂的过程，但是如果您按照下面的说明进行操作，应该很容易获得免费证书。
 
 **方法：**
 
@@ -257,7 +257,7 @@ Let's encrypt 总是使用端口 80 来检查地址。
 
 Let's Encrypt 服务器发送回一个质询短语以响应请求，并在一段时间后尝试在地址“http:// yourdomain: 80 / .well-known / acme-challenge /”处读取此质询短语。
 
-当服务器从我们这边得到这个挑战短语时，Let's Encrypt 服务器发送证书。这些保存在系统设置中输入的目录中。
+当服务器从我们这边收到这个挑战短语时，Let's Encrypt 服务器发送证书。这些保存在系统设置中输入的目录中。
 
 这听起来很复杂，但您所要做的就是激活几个复选框并在系统设置中输入电子邮件地址和网址。
 
@@ -275,7 +275,7 @@ Let's Encrypt 仅适用于 node.js 版本> = 4.5
 ＃＃ 统计数据
 ![统计数据](../../de/admin/media/ADMIN_Settings_statistics.png)
 
-为了让我们对安装（使用的适配器）和地理分布有一些概述，如果我们收到这些信息，我们会非常高兴。
+因此，我们对安装（使用的适配器）和地理分布有一些概述，如果我们收到此信息，我们会非常高兴。
 
 您可以发送不同数量的信息。可以在左侧选择此范围。
 

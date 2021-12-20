@@ -4,7 +4,7 @@ lastChanged: 26.03.2019
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/overview.md
-hash: L3woSgQsM+65FZxL45MseZX1u5AmjMk69mxD0H7RrGI=
+hash: 57tkWtP+p2vy23nOuvzdc8RKNy6mvlsMyXS1SmpIBkY=
 ---
 # The overview tab
 Information on all adapters with their own web interface and on the hosts is displayed here.

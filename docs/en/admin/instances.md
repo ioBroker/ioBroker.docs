@@ -4,12 +4,12 @@ lastChanged: 10.05.02021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/instances.md
-hash: UoGLmTCoECn4hXH3ZdHdTGnXR2yC6U/6IeuOooI7o5A=
+hash: ryoo5q50Xq8cxSezNgJU212bACYAHiFSrZdXotHE6us=
 ---
 The instances already installed on the Adapter tab are listed here and can be configured accordingly.
 
 ## The title line
-in the title line there are icons for the most important processes. There is context help for each icon. To do this, simply hold the mouse on the icon for a while. There is also information about the load on the server.
+in the title line there are icons for the most important processes. There is context help for each icon. To do this, simply stay on the icon with the mouse for a while. There is also information about the load on the server.
 
 ![The icons in the title bar](../../de/admin/media/ADMIN_Instanzen_numbers.png)
 
@@ -19,7 +19,7 @@ The icons in detail:
 If instances that have just been created are not visible, clicking this icon will help bring the status of the page up to date.
 
 ### 2 - Switch on administrator mode
-When you select this icon, additional columns for configuring the instances are displayed (toggle function). Information on this in the section on page content.
+When you select this icon, additional columns for the configuration of the instances are displayed (toggle function). Information on this in the section on page content.
 
 ### 3 - Show only instances of the selected host
 ![The available hosts](../../de/admin/media/ADMIN_Instanzen_hosts.png)
@@ -57,7 +57,7 @@ The name of the instance is in this column. it is made up of the name of the ada
 0. This designation is the basis for the designation of the data points in ioBroker.
 
 ### 4 - activated
-The instance is started or stopped here. The green pause symbol indicates that the adapter is running and can be paused by clicking on it, the red play symbol indicates a stopped instance that can be started with one click.
+The instance is started or stopped here. The green pause symbol shows that the adapter is running and can be paused by clicking on it, the red play symbol shows a stopped instance that can be started with one click.
 
 ### 5 - configuration
 Clicking this icon opens an adapter-specific configuration menu. The corresponding menus are described for the associated adapters.
@@ -87,9 +87,9 @@ The respective log level for the instance can be adjusted in this column. Debug,
 This column is only visible in expert mode!
 
 ### 13 - RAM limit
-Here you can specify how much main memory of the instance should be made available as a precaution. This amount of memory is then no longer available for other tasks and should not be selected too high, especially in systems with little memory. If the instance needs more memory temporarily, this will of course be allocated to it by the system, but will then be immediately released for the system. During the time in which an instance requires more memory than it was reserved, the required memory is shown in red.
+Here you can specify how much main memory should be made available for the instance as a precaution. This amount of memory is then no longer available for other tasks and should not be selected too high, especially in systems with little memory. If the instance needs more memory temporarily, this will of course be allocated to it by the system, but will then be immediately released for the system. During the time in which an instance requires more memory than it was reserved, the required memory is shown in red.
 
 This column is only visible in expert mode!
 
 ### 14 - RAM usage
-The actual memory used by the instance is displayed here. These values are updated regularly. After the update, these values appear briefly in green.
+The actual memory used by the instance is displayed here. These values are updated regularly. After the update, these values appear briefly in green font.

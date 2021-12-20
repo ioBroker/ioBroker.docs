@@ -4,12 +4,12 @@ lastChanged: 02.05.2020
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/README.md
-hash: PS4D5UUlRmJsPrBnUf7CtMvZwKlYs5hf2dEcGV1WPxQ=
+hash: T5WBscaYGP2+E18tzG1I3cMiPHRyCI/rh9CK5VPejFU=
 ---
 # Welcome to ioBroker
-!> **Note for beginners** If too many unknown terms have been used while reading these first words, they will be explained in detail again on the page [Basics](https://www.iobroker.net/#de/documentation/basics/README.md).
+!> **Note for beginners** If too many unknown terms have been used while reading these first words, these will be explained in detail on the page [Basics](https://www.iobroker.net/#de/documentation/basics/README.md).
 
-ioBroker is a software solution for integrating various smart home systems, which would remain standalone solutions without ioBroker, in one overall system.
+ioBroker is a software solution to integrate various smart home systems, which would remain standalone solutions without ioBroker, into one overall system.
 
 ioBroker is therefore **the** integration platform for the Internet of Things.
 
@@ -35,10 +35,10 @@ For systems with the highest performance requirements, Redis, a particularly fas
 ## Programmable
 Optional programming is done with JavaScript, a script language that has been continuously developed since 1995. This is easy to learn so that new requirements can be implemented quickly. This makes it possible for everyone to contribute to ioBroker and also for individual requirements to be implemented.
 
-For beginners in programming, the 'Blockly' variant is available, which enables you to quickly get results yourself without extensive programming knowledge using 'drag and drop'.
+For beginners in programming, there is the 'Blockly' variant, which enables you to quickly get results yourself without extensive programming knowledge using 'drag and drop'.
 
 ## Visualization
-With `VIS` ioBroker provides a powerful tool for creating an individual visualization. Current values from sensors can be presented graphically as well as historical processes. Live images from surveillance cameras, the implementation of an alarm system, heating systems and air conditioning - almost everything that is imaginable can also be implemented.
+With `VIS` ioBroker provides a powerful tool for creating an individual visualization. Current values from sensors can be graphically presented in the same way as historical processes. Live images from surveillance cameras, the implementation of an alarm system, heating systems and air conditioning - almost everything that is imaginable can also be implemented.
 
 * Example of a self-created VIS user interface * ![VIS](../de/media/vis2.png)
 
@@ -47,7 +47,7 @@ The user has maximum freedom of design. Prefabricated modules for easy use help 
 Simple, prefabricated user interfaces can be implemented quickly with the material or HabPanel adapter.
 
 ## Community
-Since 2014, ioBroker has secured broad support from thousands of users and developers due to its many advantages. In the specially set up [Forum](https://forum.iobroker.net) users and developers meet and exchange their experiences and suggestions. Since ioBroker is open source software, all source texts are freely available on the [GitHub](https://github.com/ioBroker) platform.
+Since 2014, ioBroker has secured broad support from thousands of users and developers due to its many advantages. In the specially set up [Forum](https://forum.iobroker.net), users and developers meet and exchange their experiences and suggestions with one another. Since ioBroker is open source software, all source texts are freely available on the [GitHub](https://github.com/ioBroker) platform.
 
 ?> What ioBroker is not: ioBroker is not commercial software. ioBroker is developed and maintained by volunteers. Therefore, the use of the software is at your own liability, with the exception of willful damage.
 There is no contractually stipulated support!

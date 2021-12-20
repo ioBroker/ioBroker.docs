@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adaptertranslate.md
 title: Übersetzung von Adapter
-hash: 8XvB1Gq0qo9gVlIP2+QfpMZ3OQTE+OfKgPD94WrJdcQ=
+hash: L2W7WsInFLrJZUsGZg0wORin1/ZdGZR0Zd1zpbnKDjo=
 ---
 # Übersetzung von Adaptern
 ## Einführung
@@ -50,4 +50,4 @@ In Weblate können Mitglieder der Community problemlos Übersetzungen in eine be
 
 Um Ihren Adapter zu Weblate hinzuzufügen, folgen Sie bitte [diese Richtlinien](https://github.com/ioBrokerTranslator/doc/blob/master/README.md).
 
-Weblate verwaltet derzeit nur Strings in der Admin-Benutzeroberfläche. Es ändert weder `io-package.json` noch Ihre Dokumentation.
+Weblate verwaltet derzeit nur Strings in der Admin-Benutzeroberfläche. Es ändert weder `io-package.json` noch ändert es Ihre Dokumentation.

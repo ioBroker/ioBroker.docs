@@ -4,7 +4,7 @@ lastChanged: 18.07.2019
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/windows.md
-hash: XFdcrokNPGtTri8RFE+c4m/7TgKEDdKqtTLfO7BRt1s=
+hash: px8Pj5WdRIRET04sAvbr8e4683UA6b4G1aExlrwjJgs=
 ---
 # Installation of ioBroker on Windows
 ?> ***This article is currently being expanded*** .<br><br> Help with ioBroker. Please note [ioBroker Style Guide](community/styleguidedoc) so that the changes can be adopted more easily.
@@ -40,7 +40,7 @@ Beginners should follow [detailed instructions](#nodeinst).
 * Node.js 8.x LTS version [download and install] (install / nodejs).
 * Open the command line `cmd.exe` as administrator and the following commands one after the other
 
-  carry out:
+  To run:
 
 ```
 npm install --global windows-build-tools
@@ -72,7 +72,7 @@ cmd
 
    input.
 
-Since the command line window has to be opened as an administrator, please complete the entry **not** with `OK` but with the key combination `Strg` + `Umschalt` + `Eingabetaste`. There is a security question that must be confirmed with `Ja` or the entry of the administrator password.
+Since the command line window has to be opened as an administrator, please complete the entry **not** with `OK` but with the key combination `Strg` + `Umschalt` + `Eingabetaste`. There is a security question, which must be confirmed with `Ja` or the entry of the administrator password.
 
 !> The title line in the black command line window that has now opened must begin with the word `Administrator:`.
 
@@ -86,7 +86,7 @@ npm install --global windows-build-tools
 
 1. Then in the command line window the command to create the installation folder
 
-   carry out:
+   To run:
 
 ```
 md C:\iobroker

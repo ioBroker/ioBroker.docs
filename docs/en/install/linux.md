@@ -4,12 +4,12 @@ lastChanged: 05.12.2020
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/linux.md
-hash: lZH9lVLQx9UEgKn5jJoU+CR4FWS1r6YPz0qDc7pFEeo=
+hash: IfM8p2R5hk9FlFrPpHyIakS8bpY9abMKtH1lxmBoo8w=
 ---
 # IoBroker installation on Linux
 !> These instructions do NOT apply to finished images of the website! However, manual installation is preferable to an image.
 
-The installation takes place via a script, which carries out the required installation steps and reloads any software packages that may be required.
+The installation is carried out using a script which carries out the required installation steps and reloads any software packages that may be required.
 During the installation, a new user “iobroker” and an associated home directory (/ home / iobroker) are created in the system.
 The ioBroker then runs under this user.
 
@@ -25,7 +25,7 @@ or any other hardware with a common Linux. However, Debian, Ubuntu or one of the
 
 We do not recommend using a Pi 1 as a master. It's just not powerful enough (500MB RAM, etc.). Due to the different hardware, these instructions do not fit a Pi 1 anyway.
 
-Even a Pi 2 or Pi 3 only has a maximum of 1 GB RAM. With 15 adapter instances this should be sufficient, but beyond that it can be tight. Each adapter instance requires around 40 MB (and sometimes 200MB and more) of RAM. You should therefore always keep an eye on the RAM usage before activating further adapter instances - 1 GB of RAM is finite.
+Even a Pi 2 or Pi 3 only has a maximum of 1 GB RAM. With 15 adapter instances this should be sufficient, but beyond that it can be tight. Each adapter instance requires around 40 MB (and sometimes 200MB and more) of RAM. You should therefore always keep an eye on the RAM usage before activating additional adapter instances - 1 GB of RAM is finite.
 
 Therefore the Raspberry4 with 4, better 8 GB RAM is recommended from the Raspberry series.
 
@@ -51,10 +51,10 @@ Help and instructions for the respective versions are available on the correspon
 
 Root access for SSH can be activated.
 
-For the well-known safety aspects, we advise against it. For the installation of ioBroker it is sufficient to use the command sudo and prefix the respective command.
+For the well-known safety aspects, we advise against it. To install ioBroker, it is sufficient to use the sudo command and precede the respective command.
 
 ### Installation Node.js
-!> with the current installer from ioBroker (see below) **on a system without node.js** the currently recommended version of node.js is automatically installed! A separate installation of node.js beforehand is **not** necessary any more.
+!> with the current installer from ioBroker (see below) **on a system without node.js** the currently recommended version of node.js is automatically installed! A separate installation of node.js beforehand is **no longer necessary**
 
 The following instructions should also be used when downgrading.
 
@@ -78,7 +78,7 @@ Depending on the OS used, the update can also be carried out using ``sudo apt up
 
     ``npm -v``
 
-only if **ALL** these commands do not produce a result (i.e. no longer display the version number) continue with step 4 of this section, otherwise, or if the version does not correspond to the one you want, do the following beforehand:
+only if **ALL** these commands do not produce a result (i.e. no longer display the version number) continue with step 4 of this section, otherwise, or if the version does not correspond to the desired one, do the following beforehand:
 
 3. Uninstall the existing node & node.js versions
 
@@ -120,7 +120,7 @@ If this results in a version <6, please perform an npm update with ``sudo -H npm
 ### Installation ioBroker
 The installation can be carried out with the user pi but also with the user root.
 
-Run on the console:
+Execute on the console:
 
 ``curl -sLf https://iobroker.net/install.sh | bash -``
 
@@ -146,9 +146,9 @@ At the end there is the message
 
 Now call ioBroker via the specified IP in the web browser: ``http://<IP-Adresse>:8081``
 
-**Note:**
+**Notice:**
 
-Permissions problems may arise after installation changes.
+Rights problems can arise after installation changes.
 
 In this case, please use the installation fixer:
 

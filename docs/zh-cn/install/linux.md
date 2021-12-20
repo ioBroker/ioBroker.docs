@@ -4,7 +4,7 @@ lastChanged: 05.12.2020
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/linux.md
-hash: lZH9lVLQx9UEgKn5jJoU+CR4FWS1r6YPz0qDc7pFEeo=
+hash: IfM8p2R5hk9FlFrPpHyIakS8bpY9abMKtH1lxmBoo8w=
 ---
 # IoBroker 在 Linux 上的安装
 !> 这些说明不适用于网站的成品图片！但是，手动安装比图像更可取。
@@ -25,7 +25,7 @@ ioBroker 的这些安装说明使用带有 Raspberry OS 'Buster' 的 Raspberry P
 
 我们不建议使用 Pi 1 作为主机。它只是不够强大（500MB RAM 等）。由于硬件不同，这些说明无论如何都不适合 Pi 1。
 
-即使是 Pi 2 或 Pi 3 也最多只有 1 GB RAM。对于 15 个适配器实例，这应该足够了，但除此之外可能会很紧张。每个适配器实例需要大约 40 MB（有时为 200 MB 甚至更多）的 RAM。因此，在激活更多适配器实例之前，您应该始终关注 RAM 使用情况 - 1 GB 的 RAM 是有限的。
+即使是 Pi 2 或 Pi 3 也最多只有 1 GB RAM。对于 15 个适配器实例，这应该足够了，但除此之外可能会很紧张。每个适配器实例需要大约 40 MB（有时为 200 MB 甚至更多）的 RAM。因此，在激活其他适配器实例之前，您应该始终关注 RAM 使用情况 - 1 GB 的 RAM 是有限的。
 
 因此，推荐使用 Raspberry 系列 4 个更好的 8 GB RAM 的 Raspberry4。
 
@@ -51,10 +51,10 @@ ioBroker 的这些安装说明使用带有 Raspberry OS 'Buster' 的 Raspberry P
 
 可以激活 SSH 的根访问权限。
 
-对于众所周知的安全方面，我们建议不要这样做。对于 ioBroker 的安装，使用命令 sudo 并为相应的命令添加前缀就足够了。
+对于众所周知的安全方面，我们建议不要这样做。要安装 ioBroker，使用 sudo 命令并在相应命令之前就足够了。
 
 ### 安装 Node.js
-!> 使用 ioBroker 的当前安装程序（见下文）** 在没有 node.js 的系统上 ** 当前推荐的 node.js 版本会自动安装！ ** 不再需要 ** 预先单独安装 node.js。
+!> 使用 ioBroker 的当前安装程序（见下文）** 在没有 node.js 的系统上 ** 当前推荐的 node.js 版本会自动安装！ ** 不再需要预先单独安装 node.js **。
 
 降级时也应使用以下说明。
 
@@ -78,7 +78,7 @@ ioBroker 的这些安装说明使用带有 Raspberry OS 'Buster' 的 Raspberry P
 
     ``npm -v``
 
-仅当 **ALL** 这些命令没有产生结果（即不再显示版本号）时，继续本节的第 4 步，否则，或者如果版本与您想要的版本不对应，请预先执行以下操作：
+仅当 **ALL** 这些命令没有产生结果（即不再显示版本号）时，继续本节的第 4 步，否则，或者如果版本与所需的版本不对应，请事先执行以下操作：
 
 3.卸载已有的node&node.js版本
 
@@ -120,13 +120,13 @@ ioBroker 的这些安装说明使用带有 Raspberry OS 'Buster' 的 Raspberry P
 ### 安装ioBroker
 安装可以使用 pi 用户进行，也可以使用 root 用户进行。
 
-在控制台上运行：
+在控制台执行：
 
 ``curl -sLf https://iobroker.net/install.sh | bash -``
 
 ---
 
-安装分4步进行：
+安装分 4 个步骤进行：
 
 ``Installing prerequisites (1/4)``
 
@@ -146,7 +146,7 @@ ioBroker 的这些安装说明使用带有 Raspberry OS 'Buster' 的 Raspberry P
 
 现在通过 Web 浏览器中的指定 IP 调用 ioBroker：``http://<IP-Adresse>:8081``
 
-**笔记：**
+**注意：**
 
 安装更改后可能会出现权限问题。
 

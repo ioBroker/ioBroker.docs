@@ -4,12 +4,12 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/objects.md
-hash: h2W27+wNG9J4NAF0r8ajYsHYxjCj462PmXNxMN8AJCo=
+hash: nrgsR+t5T1y8xfMjA6VUTr0FxR1LbtTJ/uuWyowBAJg=
 ---
 All managed objects are located under this tab. A folder is created for each instance in which the data points created by it are located in a hierarchical structure. Objects can also be created and deleted manually here. Entire object structures can be uploaded or downloaded. Another button enables the expert view to be displayed.
 
 ## The title line
-In the title line there are icons for the most important processes. There is context help for each icon. To do this, simply hold the mouse on the icon for a while.
+In the title line there are icons for the most important processes. There is context help for each icon. To do this, simply stay on the icon with the mouse for a while.
 
 ![The icons of the objects tab](../../de/admin/media/ADMIN_Objekte_numbers.png)
 
@@ -127,9 +127,9 @@ The values in this column can be edited. In this way, the objects can still be a
 If the object is a data point, the current value of this data point is displayed here.
 
 ### 8 - settings
-![settings](../../de/admin/media/ADMIN_Objekte_numbers03.png)
+![ideas](../../de/admin/media/ADMIN_Objekte_numbers03.png)
 
-1.) Clicking on the pencil icon opens a window with the properties of this object. It is the same window that appeared above when creating a new object. Properties of the object can be changed here. This function must be used with extreme caution and only if you know exactly what you are doing with it.
+1.) Clicking on the pencil icon opens a window with the properties of this object. It is the same window that appeared above when creating a new object. Properties of the object can be changed here. This function should be used with extreme caution and only if you know exactly what you are doing with it.
 
 2.) Clicking on the trash can icon deletes this object and all objects below it in the hierarchy. To be on the safe side, a window appears in which the deletion has to be confirmed again.
 

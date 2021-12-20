@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tr-064/README.md
 title: ioBroker.tr-064
-hash: D59HzSVYkdStJaSDx6e91FA6u2/6TTOD7QeUisJd0X0=
+hash: rN4KkHkTgQi739/0GZDQZ274L23nvqhd+4OxJHA44Ww=
 ---
 ![标识](../../../en/adapterref/iobroker.tr-064/media/tr-064.png)
 
@@ -34,7 +34,7 @@ hash: D59HzSVYkdStJaSDx6e91FA6u2/6TTOD7QeUisJd0X0=
 ### ToPauseState
 - 值：环、连接、结束
 - 可用于在来电（振铃）或拿起电话（连接）时暂停视频播放器。
-- 恢复可以在最终值上完成。
+- 可以在最终值上完成恢复。
 
 ＃＃＃ 在场
 您可以配置要收听的设备列表。
@@ -42,7 +42,7 @@ hash: D59HzSVYkdStJaSDx6e91FA6u2/6TTOD7QeUisJd0X0=
 
 ### AB - Anrufbeanworter（答录机）
 可以开/关。
-状态 cbIndex 可以设置为地址 # 应答机。
+可以将状态 cbIndex 设置为应答机的地址 #。
 
 ###呼叫监视器
 callmonitor 将为每个入站和出站呼叫创建实时状态。
@@ -69,7 +69,7 @@ callmonitor 将为每个入站和出站呼叫创建实时状态。
 
 通话次数：通话次数可设置为0，下次通话加1。
 
-html输出可以通过模板配置
+可以通过模板配置 html 输出
 
 ### 命令和命令结果状态
 使用命令状态，您可以从此 [文件](https://avm.de/service/schnittstellen/) 调用每个 tr-064 命令。
@@ -90,7 +90,7 @@ command = {
 
 ### 启用呼叫监控
 要使用呼叫监控功能，必须首先在 AVM Fritz!Box 中启用它。
-要启用呼叫监控，请拨 ```#96*5*``` 并且 TCP/IP 端口 1012 将被打开。要关闭端口拨号 ```#96*4*```。
+要启用呼叫监控拨 ```#96*5*``` 并且 TCP/IP 端口 1012 将被打开。要关闭端口拨号 ```#96*4*```。
 
 ### 预发布版本
 预发布版本在 npm 上可用，标签为 dev。

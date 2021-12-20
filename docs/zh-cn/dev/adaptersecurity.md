@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adaptersecurity.md
 title: 适配器开发人员的安全相关功能
-hash: X2HcDsT5TE/W4x20hMFpAqHF23iMYbOPyEK6TXNkyG4=
+hash: /NdARX0dTYJRe5UAHsq6Xdl6DY1zMplYgcLpB1LOemU=
 ---
 # 适配器开发人员的安全相关功能
 ## 防止其他适配器访问敏感数据
@@ -34,7 +34,7 @@ __例子__：
 __当前使用的加密算法__
 
 - js-controller >= 3.0: `default`
-- js-控制器>= 3.2：`aes-192-cbc`
+- js-控制器>= 3.2:`aes-192-cbc`
 
 请注意，此功能至少需要 js-controller 3.0.0。
 
@@ -52,7 +52,7 @@ __例子__：
 ```
 
 ## 手动加密和解密敏感数据
-我们还提供适配器方法来手动加密代码中的数据。
+我们还提供适配器方法来在您的代码中手动加密数据。
 为此，您可以使用 `adapter.encrypt` 和 `adapter.decrypt` 方法。用于加密和解密的密钥是用户安装的系统范围的唯一秘密。如果您想使用自己的密钥（192 位十六进制）进行加密，您可以通过将第二个参数传递给 `encrypt` 和 `decrypt` 方法来实现。
 
 __例子__：

@@ -4,7 +4,7 @@ lastChanged: 14.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/README.md
-hash: 4nSU2ciROiZWPofjIMQZOXpmkahrbQBmUU3WwJDFExw=
+hash: cEgurBTKHvIBRyuTiU1oG92EA/xzc85JUd1ChW5iwa4=
 ---
 ioBroker is a pure software solution to connect different IoT systems to one overall system. Accordingly, a control center (gateway / interface) is still required for each system in order to be able to integrate its devices.
 
@@ -22,7 +22,7 @@ The corresponding configuration takes place in these instances.
 
 ## Architecture
 ### Server
-A special feature of ioBroker is that the tasks can be distributed over several servers **. In such a case one speaks of a ***multihost system*** . Reasons for the division can be spatial or a power distribution.
+A special feature of ioBroker is that the tasks can be distributed **over several servers** In such a case one speaks of a ***multihost system*** . Reasons for the division can be spatial or a power distribution.
 
 ### Hardware requirements
 An ioBroker server can be installed on almost any hardware. The only condition is that there is a current version of [nodejs](https://nodejs.org/en/download/) for the corresponding operating system.
@@ -34,7 +34,7 @@ For a larger installation, a working memory (RAM) of at least 2GB is also recomm
 ### Software
 ioBroker manages the data in a database. The structure of the data is organized accordingly.
 
-Each adapter has a so-called namespace that contains all the data on an instance of the adapter. Accordingly, the name of the namespace is e.g .: ***AdapterName.0***
+For each adapter there is a so-called namespace that contains all data on an instance of the adapter. Accordingly, the name of the namespace is e.g .: ***AdapterName.0***
 
 Within this area, ioBroker creates the devices, their channels and, in turn, their data points with their values (states).
 

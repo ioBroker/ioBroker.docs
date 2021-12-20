@@ -4,10 +4,10 @@ lastChanged: 14.05.2021
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/admin/README.md
-hash: 8QIadDWLLIIZKQI36XihWSBAgZURM6srhXzxg/rnSH0=
+hash: 5er2O4sYaQKEffMa00REXFvb4Dq6YvMu/Fh8S9B1Ln0=
 ---
 # 管理界面
-!> ** 由于文档的范围，这只是一个概述；详细信息在通过章节标题链接到选项卡的页面上提供。请点击标题。**
+!> ** 由于文档的范围，这只是一个概述；通过各部分的标题链接到选项卡的页面上提供了详细信息。请点击标题。**
 
 Adapter Admin 用于操作整个 ioBroker 安装。
 他提供了一个网络界面。这在``<IP-Adresse des Servers>:8081``下调用。
@@ -59,15 +59,15 @@ Adapter Admin 用于操作整个 ioBroker 安装。
 
 [实例](https://www.iobroker.net/#de/documentation/admin/instances.md) 此处列出了已安装在“适配器”选项卡上的实例，并且可以进行相应的配置。
 
-[对象](https://www.iobroker.net/#de/documentation/admin/objects.md) 通过适配器集成的设备的管理对象、结构和数据点。可以在此处创建和删除对象。可以使用“向上箭头”和“向下箭头”按钮上传或下载整个对象结构。
+[对象](https://www.iobroker.net/#de/documentation/admin/objects.md) 通过适配器集成的设备的管理对象结构和数据点。可以在此处创建和删除对象。可以使用“向上箭头”和“向下箭头”按钮上传或下载整个对象结构。
 
-如果值显示为红色，则它们尚未被接收者确认（ack = false）。
+如果值显示为红色，则尚未被接收方确认（ack = false）。
 
 [枚举](https://www.iobroker.net/#de/documentation/admin/enums.md) 此处列出了 Homematic-CCU 的收藏夹、交易和房间。
 
 [日志](https://www.iobroker.net/#de/documentation/admin/log.md) 日志显示在这里
 
-在实例选项卡中，可以为单个实例设置要记录的日志级别。在选择菜单中选择要显示的最低日志级别。如果发生错误，选项卡上的标签显示为红色。
+可以在“实例”选项卡中为各个实例设置要记录的日志级别。在选择菜单中选择要显示的最低日志级别。如果发生错误，选项卡上的标签显示为红色。
 
 [事件](https://www.iobroker.net/#de/documentation/admin/events.md) 当前状态更新列表。
 
@@ -78,7 +78,7 @@ Adapter Admin 用于操作整个 ioBroker 安装。
 [主机](https://www.iobroker.net/#de/documentation/admin/hosts.md) 有关安装 ioBroker 的计算机的信息。如果有新版本可用，菜单栏中的此条目中会显示一条消息。
 
 ＃＃ 系统设置
-在此处打开的菜单中，进行了诸如语言、时间和日期格式以及其他系统范围的设置的[系统设置](https://www.iobroker.net/#de/documentation/admin/settings.md)。
+在此处打开的菜单中，进行了[系统设置](https://www.iobroker.net/#de/documentation/admin/settings.md) 诸如语言、时间和日期格式以及其他系统范围的设置。
 
 也可以在此处设置存储库和安全设置。
 

@@ -4,13 +4,13 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tr-064/README.md
 title: ioBroker.tr-064
-hash: D59HzSVYkdStJaSDx6e91FA6u2/6TTOD7QeUisJd0X0=
+hash: rN4KkHkTgQi739/0GZDQZ274L23nvqhd+4OxJHA44Ww=
 ---
 ![Logo](../../../en/adapterref/iobroker.tr-064/media/tr-064.png)
 
 #ioBroker.tr-064
 ### Die Info
-Dieser Adapter liest die wichtigsten Informationen der AVM Fritz!Box, wie Anrufliste oder Anzahl der Nachrichten auf dem Anrufbeantworter.
+Dieser Adapter liest die wichtigsten Informationen von AVM Fritz!Box, wie Anrufliste oder Anzahl der Nachrichten auf dem Anrufbeantworter.
 Auf dieser Grundlage [AVM Dokumentationen](https://avm.de/service/schnittstellen/)
 
 ### Einfache Zustände und Funktionen
@@ -24,7 +24,7 @@ Auf dieser Grundlage [AVM Dokumentationen](https://avm.de/service/schnittstellen
 ### Klingeln (wählen Sie eine Nummer)
 - Wenn Sie eine interne Nummer (wie **610) verwenden, lässt der Rufstatus das interne Telefon klingeln.
 
-z.B.: **610[,Zeitüberschreitung]
+Bsp.: **610[,Zeitüberschreitung]
 
 - Bei Verwendung einer externen Nummer verbindet Sie der Ruftonstatus mit der externen Nummer.
 
@@ -38,7 +38,7 @@ Das Standardtelefon kann in der FritsBox konfiguriert werden unter: Telefonie/An
 
 ### Präsenz
 Sie können eine Liste der zu hörenden Geräte konfigurieren.
-Kann durch mDNS ausgelöst werden. Bei Verwendung von MDNS ist kein Polling erforderlich und es ist schneller
+Kann durch mDNS getriggert werden. Bei Verwendung von MDNS ist kein Polling erforderlich und es ist schneller
 
 ### AB - Anrufbeantworter (Anrufbeantworter)
 Kann ein-/ausgeschaltet werden.
@@ -63,7 +63,7 @@ Ausgabeformate:
 Anruflisten sind:
 
 - alle Anrufe
-- verpasste Anrufe
+- Anrufe in Abwesenheit
 - eingehende Anrufe
 - ausgehende Anrufe
 

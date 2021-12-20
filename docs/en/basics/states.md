@@ -4,10 +4,10 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/states.md
 title: States and data points
-hash: OUheU+wHUm8+dmMTruV37xytEJKhWqBC2U5RwekU/9g=
+hash: MOsvNxcXWYjRz8dmEGJh+aRa220Vu/VeRkYJYlt2zFQ=
 ---
 # States and data points
-A **data point** consists of a static object of the type "state" and a dynamic state (state).
+A **data point** consists of a static object of the "state" type and a dynamic state.
 
 Are properties of a state
 

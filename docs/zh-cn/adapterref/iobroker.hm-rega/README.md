@@ -4,13 +4,13 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hm-rega/README.md
 title: HomeMatic ReGaHSS
-hash: 5nzOtddjd6p/3BVJJkfR7yHWPQUqVm2mcbdsP7tvrkM=
+hash: G+XgC3bx73W0XgVhW1GkYuvI38TcQQgIsp3P1ggWznM=
 ---
 ![标识](../../../de/adapterref/iobroker.hm-rega/media/homematic.png)
 
 # HomeMatic ReGaHSS
 ##家庭式
-> Homematic 是来自 eQ-3 的智能家居系统，它可以使用房屋或公寓中的场景（从简单到复杂）全面控制各种功能。
+> Homematic 是 eQ-3 的智能家居系统，它可以使用房屋或公寓中的场景（从简单到复杂）全面控制各种功能。
 
 > 这些设备包括用于光、卷帘和加热控制的产品、危险探测器、安全传感器和用于测量天气数据的产品。无线电通信简化了改装。导线母线组件可用于新建筑。
 
@@ -66,7 +66,7 @@ CCU的IP地址可以在下拉菜单中选择；重连间隔（标准 30 秒）�
 扳机
 
 为了最大限度地减少从 ioBroker 到 RegaHSS 的主动查询，触发器还可以在进行更改时将数据推送到程序内的 CCU 上。
-为此可以使用 CCU 上的虚拟按钮，该按钮在 CCU 程序中触发。默认情况下，这是 BidCosRF.50.PRESS_SHORT 键（参见示例程序）。
+在 CCU 程序中触发的 CCU 上的虚拟按钮可用于此目的。默认情况下，这是 BidCosRF.50.PRESS_SHORT 按钮（参见示例程序）。
 
 ###同步区域
 用户可以在此处指定哪些信息将从 CCU 传输到 ioBroker。然后在 ioBroker 中创建相应的对象和数据点。
@@ -77,7 +77,7 @@ CCU的IP地址可以在下拉菜单中选择；重连间隔（标准 30 秒）�
 - 名称：激活从 CCU 传输数据点的纯文本名称
 - 收藏夹：激活收藏夹的传输和列表
 - 房间：激活房间的接管和房间列表
-- 交易：激活交易转移和交易清单
+- 交易：激活交易的转移和列表
 
 ### 附加设置区域
 用户可以在此处决定是否应使用 https（加密和防窃听连接）。如果激活，必须输入用户名和密码
@@ -89,7 +89,7 @@ CCU的IP地址可以在下拉菜单中选择；重连间隔（标准 30 秒）�
 
 创建的实例现在可以在 ioBroker 的 *nstances* 区域中找到。左侧的交通灯系统显示适配器是否已激活或已连接到 CCU。
 
-如果将鼠标指针放在符号上，您将获得详细信息。
+如果您将鼠标指针放在一个符号上，您将获得详细信息。
 
 ### 适配器的对象
 在 Objects 区域中，适配器从 CCU 传输的所有值和信息都以树状结构显示。

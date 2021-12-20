@@ -3,11 +3,11 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/stateroles.md
 title: Государственные роли
-hash: iQ0sPeHMl+oZq/pHTJCX2n465zmSPwYKbJHVgPyMB1w=
+hash: SIikCbc4ELzi/lBSxrFLEOcdaJV8wfHaoP0UXEQ3sWM=
 ---
 # Государственные роли
 Для объектов типа `state` необходимо, чтобы их свойство `common.role` было установлено на одну из ролей, определенных в списке ниже.
-Информация о роли является очень важной информацией и позволяет адаптерам Visualization- и Smart-Assistant определять функцию объекта, а также то, как / если они связаны с другими объектами в том же канале, устройстве или папке.
+Информация о ролях является очень важной информацией и позволяет адаптерам Visualization- и Smart-Assistant определять функцию объекта, а также то, как / если они связаны с другими объектами в том же канале, устройстве или папке.
 
 Пример: Лампа RGB может иметь следующие три объекта (или более) с разными ролями, которые принадлежат друг другу:
 
@@ -76,7 +76,7 @@ hash: iQ0sPeHMl+oZq/pHTJCX2n465zmSPwYKbJHVgPyMB1w=
 * `value.window` (` common.states = {"0": "CLOSED", "1": "TILTED", "2": "OPEN"} `) Важно иметь (` CLOSED / TILTED / ОТКРЫТЬ). Значения могут отличаться.
 * `значение.температура` (` common.unit = '°C', '°F' или 'K')
 * `value.humidity`
-* `value.brightness` - уровень яркости (единица: люкс,)
+* `value.brightness` - уровень яркости (единицы: люкс,)
 * `value.min`
 * `value.max`
 * `value.default`
@@ -86,7 +86,7 @@ hash: iQ0sPeHMl+oZq/pHTJCX2n465zmSPwYKbJHVgPyMB1w=
 * `value.interval` (common.unit = 'sec') - Интервал в секундах (может быть 0,1 или меньше)
 * ~~ value.date (common.type = string) - Дата в форме 2015.01.01 (без времени) ~~
 * ~~ value.datetime (common.type = string) - Дата и время в системном формате ~~
-* `value.gps.longitude` - координаты долготы GPS
+* `value.gps.longitude` - координаты долготы gps
 * `value.gps.latitude` - широта GPS
 * `value.gps.elevation` - высота по GPS
 * `value.gps` - долгота и широта вместе, например '5.56; 43.45'
@@ -99,13 +99,13 @@ hash: iQ0sPeHMl+oZq/pHTJCX2n465zmSPwYKbJHVgPyMB1w=
 * `value.curtain` - фактическое положение занавеса
 * `value.blind` - фактическое положение жалюзи (` max = полностью открыто, min = полностью закрыто`)
 * `value.tilt` - фактическое положение наклона (` max = полностью открыто, min = полностью закрыто`)
-* `value.lock` - фактическое положение замка
+* `value.lock` - актуальное положение замка
 * `value.speed` - скорость ветра
 * `value.pressure` - (единица измерения: мбар)
 * `value.distance`
 * `value.distance.visibility`
-* `value.severity` - некоторая серьезность (можно указать состояния), чем выше, тем важнее
-* `value.warning` - некоторое предупреждение (можно указать состояния), чем выше, тем важнее
+* `value.severity` - некоторая степень серьезности (можно указать состояния), чем выше, тем важнее
+* `value.warning` - какое-то предупреждение (можно указать состояния), чем выше, тем важнее
 * `value.sun.elevation` - высота солнца в °
 * `value.sun.azimuth` - азимут солнца в °
 * `value.voltage` - Напряжение в вольтах,` unit = V`
@@ -116,21 +116,21 @@ hash: iQ0sPeHMl+oZq/pHTJCX2n465zmSPwYKbJHVgPyMB1w=
 ## Индикаторы (логические, только для чтения)
 `common.type=boolean, common.write=false`
 
-Отличие *индикаторов* от *датчиков* в том, что индикаторы отображаются в виде небольшого значка. Датчики как реальная ценность.
+Отличие *индикаторов* от *датчиков* заключается в том, что индикаторы отображаются в виде небольшого значка. Датчики как реальная ценность.
 Так что индикатор может быть не один в канале. Это должно быть какое-то другое главное состояние внутри канала.
 
 * `индикатор`
 * `indicator.working` - указывает, что целевые системы что-то выполняют, например, жалюзи или открывание замка.
 * `indicator.reachable` - если устройство в сети
 * `indicator.connected` - используется только для экземпляров. Используйте `indicator.reachable` для устройств
-* `indicator.main maintenance` - указывает системные предупреждения / ошибки, аварийные сигналы, служебные сообщения, разряд батареи и тому подобное.
+* `indicator.main maintenance` - указывает системные предупреждения / ошибки, сигналы тревоги, служебные сообщения, разряд батареи и тому подобное.
 * `indicator.main maintenance.lowbat`
 * `indicator.main maintenance.unreach`
 * `indicator.main maintenance.alarm`
-* `indicator.lowbat` - истина при низком заряде батареи
+* `indicator.lowbat` - истина при разряде батареи
 * `indicator.alarm` - то же, что и indicator.main maintenance.alarm
 * `indicator.alarm.fire` - обнаружен пожар
-* `indicator.alarm.flood` - обнаружено наводнение
+* `indicator.alarm.flood` - обнаружен флуд
 * `indicator.alarm.secure` - дверь или окно открыто
 * `indicator.alarm.health` - проблема со здоровьем
 
@@ -160,7 +160,7 @@ hash: iQ0sPeHMl+oZq/pHTJCX2n465zmSPwYKbJHVgPyMB1w=
 * `level.volume` - (` min = 0, max = 100`) - громкость звука, но min, max могут отличаться. мин <макс
 * `level.volume.group` - (` min = 0, max = 100`) - громкость звука, для группы устройств
 * `level.curtain` - установить положение шторки
-* `level.tilt` - установить наклон жалюзи (max = полностью открыт, min = полностью закрыт)
+* `level.tilt` - установить положение наклона жалюзи (max = полностью открыты, min = полностью закрыты)
 
 ## Переключатели (логические, чтение-запись)
 Переключатель управляет логическим устройством (`true = ON, false = OFF`)
@@ -187,7 +187,7 @@ hash: iQ0sPeHMl+oZq/pHTJCX2n465zmSPwYKbJHVgPyMB1w=
 * `switch.gate` - закрывает (false) или открывает (true) ворота
 
 ## Кондиционер или термостат
-* `level.mode.fan` -` АВТО, ВЫСОКИЙ, НИЗКИЙ, СРЕДНИЙ, ТИХОЙ, ТУРБО`
+* `level.mode.fan` -` АВТО, ВЫСОКИЙ, НИЗКИЙ, СРЕДНИЙ, ТИХИЙ, ТУРБО`
 * `level.mode.swing` -` АВТО, ГОРИЗОНТАЛЬНО, СТАЦИОНАРНЫЙ, ВЕРТИКАЛЬНЫЙ`
 * `level.mode.airconditioner` - кондиционер:` AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`, термостат отопления: `AUTO, MANUAL, VACATION`,
 * `level.mode.thermostat` - термостат:` AUTO, MANUAL, VACATION`,
@@ -199,12 +199,12 @@ TODO: подумайте об ионизации и колебаниях.
 ## Пылесос
 * `level.mode.cleanup` - Перечисление` AUTO, ECO, EXPRESS, NORMAL, QUIET`. Требуются только «АВТО» и «НОРМАЛЬНЫЙ».
 * `level.mode.work` - Перечисление` AUTO, FAST, MEDIUM, SLOW, TURBO`. Необязательное состояние.
-* `value.water` - уровень воды 0-100%.
-* `value.waste` - уровень мусора 0-100%. (0% - пустой, 100% - полный)
+* `value.water` - уровень воды от 0 до 100%.
+* `value.waste` - уровень мусорного бака 0-100%. (0% - пусто, 100% - полно)
 * `indicator.main maintenance.waste` - мусорное ведро дурацкое.
 * `value.state` -` HOME, CLEANING, PAUSE` и так далее.
 
-Кроме того, для этих состояний обычно требуются `switch.power`, необходимые для сопоставления пылесоса. `switch.power` в этом случае работает как: `true` - очистить, `false` - вернуться домой.
+Вдобавок к этим состояниям обычно требуются `switch.power`, необходимые для сопоставления пылесоса. `switch.power` в этом случае работает как: `true` - очистить, `false` - вернуться домой.
 Необязательно `value.battery` и
 
 ## Ворота
@@ -213,7 +213,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `value.gate` - то же, что` value.position`
 * `button.stop` - остановить движение ворот
 
-## СМИ
+## Средства массовой информации
 Специальные роли для медиаплееров
 
 * `button.stop`
@@ -259,7 +259,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `media.playlist` - массив json вроде
 * `media.url` - url для воспроизведения или текущий url
 * `media.url.announcement` - URL для воспроизведения объявления
-* `media.jump` - количество элементов для перехода в плейлист (может быть отрицательным)
+* `media.jump` - количество элементов для перехода в плейлисте (может быть отрицательным)
 * `media.content` - Тип воспроизводимого мультимедиа, например аудио / mp3.
 * `media.link` - Состояние с текущим файлом
 * `media.input` - номер или строка входа (AUX, AV, TV, SAT, ...)
@@ -284,7 +284,7 @@ TODO: подумайте об ионизации и колебаниях.
 ]
 ```
 
-* `media.browser` - массив json типа" файлы "
+* `media.browser` - массив json типа" files "
 
 ```
 [

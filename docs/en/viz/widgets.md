@@ -4,10 +4,10 @@ lastChanged: 11.08.2019
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/viz/widgets.md
-hash: TxhNPmBC2abg80GhW8v2M7m6PomjfeOCj2SJAYiI5/g=
+hash: beLY0bKf2v2bHfNEpPQQjde4CBBS7s9c5jyaH3r9Z2o=
 ---
 # Widgets
-## As a general rule
+## Generally
 In this context, widgets ('device, thing') are display elements that display numbers, text, images or diagrams in various ways and offer opportunities for interaction.
 
 ## IoBroker.vis widgets
@@ -17,7 +17,7 @@ There are different widget sets for visualization in ioBroker with vis.
 -------------------------------------------------------------------------------
 
 ### The basic settings of widgets
-#### As a general rule
+#### Generally
 ![001_Widget_General](../../de/viz/media/vis_widgets_001_Widget_Generell.jpg)
 
 | Attribute | Description |
@@ -37,7 +37,7 @@ The visibility of a widget can be made dependent on the status of a data point.
 | Condition | The widget is visible if the condition entered here for the above data point ...
 | The value for the condition | ... corresponds to the value entered here.
 
-#### **Generally**
+#### **General**
 ![](../../de/viz/media/vis_widgets_003_Widget_Allgemein.jpg) The 'General' section is specific to each widget and is described in more detail for the individual widgets.
 In this section, the desired data point is assigned to the widget in the Object ID field.
 
@@ -105,4 +105,4 @@ In this section, the desired data point is assigned to the widget in the Object 
 | Attribute | Description |
 |-----|----|
 
-| `padding` | Offset from the edge of the widget box | `padding-left` | Offset on the left side | `padding-top` | Offset on the upper side | `padding-right` | Offset on the right side | `padding-bottom` | Offset on the lower side | `box-shadow` | Color of the shadow of the widget box | `margin-top` | Upper margin around the widget (auto,%, px, pt, cm) | `margin-right` | Right border around the widget | `margin-bottom` | Lower border around the widget | `margin-left` | Left margin around the widget
+| `padding` | Offset from the edge of the widget box | `padding-left` | offset on the left | `padding-top` | Offset on the upper side | `padding-right` | Offset on the right side | `padding-bottom` | Offset on the lower side | `box-shadow` | Color of the shadow of the widget box | `margin-top` | Upper margin around the widget (auto,%, px, pt, cm) | `margin-right` | Right border around the widget | `margin-bottom` | Lower border around the widget | `margin-left` | Left margin around the widget

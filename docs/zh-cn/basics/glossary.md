@@ -5,9 +5,9 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/basics/glossary.md
 title: 无题
-hash: pNXghnzEUIUGnqswpze2CJ8dmBmPOIWjCZiDbzPOvVA=
+hash: YHltgX7oCBrfgffqJry+MOvUzBLV28rn4SoXbROJAMc=
 ---
-为便于入门并使进一步的帮助更易于理解，此处解释了 ioBroker 中和周围出现的最重要术语。
+为便于入门并使进一步的帮助更易于理解，此处解释了 ioBroker 及其周围出现的最重要术语。
 
 * **适配器**
 
@@ -27,11 +27,11 @@ hash: pNXghnzEUIUGnqswpze2CJ8dmBmPOIWjCZiDbzPOvVA=
 
 在可链接的功能块的帮助下，Blockly 允许以图形方式组装简单的控件和脚本。不需要编程知识。
 
-保存 Blockly 脚本后，会生成 JavaScript 代码，然后执行该代码。
+保存 Blockly 脚本时，会生成 JavaScript 代码，然后执行该代码。
 
 * **CCU**
 
-是来自制造商 eQ-3 的 Homematic Smarthome Central。有2个版本，较旧的CCU1和较新的型号CCU2，以及全新的CCU3。
+是制造商 eQ-3 的 Homematic Smarthome Central。有2个版本，较旧的CCU1和较新的型号CCU2，以及全新的CCU3。
 
     CCU 代表中央控制单元
 
@@ -54,7 +54,7 @@ Homematic 设备有无线电和有线版本（有线总线）。
 
 * **家庭式**
 
-Homematic 是由 eQ-3 制造、elv 分销的智能家居系统。另见 CCU。
+Homematic是由eQ-3制造、elv分销的智能家居系统。另见 CCU。
 
 * **主持人**
 
@@ -64,20 +64,20 @@ Homematic 是由 eQ-3 制造、elv 分销的智能家居系统。另见 CCU。
 
 * **HTML**
 
-超文本标记语言。一种页面描述语言（WWW 的基础），用于在 Web 浏览器中显示内容（文本、链接、图形、视频等）。
+超文本标记语言。一种页面描述语言（基于 WWW），用于在 Web 浏览器中显示内容（文本、链接、图形、视频等）。
 
 * **实例**
 
 每个适配器至少有一个实例（但也可以有多个）。
-使用多个实例有不同的原因。
+使用多个实例的原因各不相同。
 例如，您可以使用 JavaScript 适配器的第二个实例进行测试，而没有重要脚本失败的风险，因为在发生错误时只会影响测试实例。
 
-大多数适配器可以启动多个实例，以便能够对多个相同类型或具有相同协议的设备进行寻址。一个实例对应主机上一个正在运行的进程。
-示例：将 2 个 Hue 桥集成到 ioBroker。由于每个适配器只能配置一个网桥，因此只需创建 Hue 适配器的第一个和第二个实例，并在相应的适配器实例中配置每个网桥。实例化还可以轻松区分数据点，因为对象结构前面是实例名称（例如，hue.0 和hue.1）。
+大多数适配器可以启动多个实例，以便能够对多个相同类型或具有相同协议的设备进行寻址。一个实例对应于主机上的一个正在运行的进程。
+示例：将 2 个 Hue 桥集成到 ioBroker 中。由于每个适配器只能配置一个网桥，因此只需创建 Hue 适配器的第一个和第二个实例，并在相应的适配器实例中配置每个网桥。实例化还可以轻松区分数据点，因为对象结构前面是实例名称（例如，hue.0 和hue.1）。
 
 * **Javascript**
 
-ioBroker 使用的编程语言，所有东西都可以用它来编程，也可以编写自己的脚本。
+ioBroker 使用的所有编程语言以及自己的脚本编程语言。
 
 * **js 控制器**
 
@@ -94,7 +94,7 @@ master 是 host，它集中负责所有实例的管理（包括 slave 的实例�
 
 * **多主机模式**
 
-如果需要特殊接口（例如读取地下室的电表），ioBroker 的多主机模式可用于将控制任务分配给多台计算机。此外，可以使用多个主机以平均分配负载或内存消耗。在多主机模式下，一台主机被定义为主机；所有其他人都是奴隶。 master 控制所有 slaves，也控制实例向 slaves 的分发。
+如果需要特殊接口（例如读取地下室的电表），ioBroker 的多主机模式可用于将控制任务分配给多台计算机。此外，可以使用多个主机以平均分配负载或内存消耗。在多主机模式下，一台主机被定义为主机；所有其他人都是奴隶。 master 控制所有 slave 以及实例到 slave 的分发。
 
 * **节点红色**
 
@@ -112,16 +112,16 @@ master 是 host，它集中负责所有实例的管理（包括 slave 的实例�
 
 * **Odroid**
 
-类似于 Raspberry PI 的单板计算机。有多个版本，硬件设备不同。
+类似于 Raspberry PI 的单板计算机。有几个版本，硬件设备不同。
 
 * **解析器适配器**
 
-通过指定所谓的文本而不管它们的来源由文本组成的适配器。
+通过指定所谓的文本而不管其来源的文本组成的适配器。
 正则表达式，剪切掉可以写入状态的部分。然后可以在脚本等中使用这些值。被进一步处理。
 
 * **树莓派**
 
-信用卡大小的单板计算机（由 Raspberry PI Foundation 开发）。运行计算机所需的所有组件都位于电路板上（CPU、GPU、RAM 等）。与传统计算机相比的优势是功耗和尺寸最小。缺点：无法更换或升级CPU、RAM等。
+信用卡大小的单板计算机（由 Raspberry PI Foundation 开发）。操作计算机所需的所有组件都位于电路板上（CPU、GPU、RAM 等）。与传统计算机相比的优势是功耗和尺寸最小。缺点：CPU、RAM等无法更换或升级。
 
 * **Redis**
 
@@ -144,6 +144,6 @@ Vis 中的控件。小部件用于显示或控制状态；例如，使用根据�
 状态包含 ioBroker 中数据点的当前值。
 此外，它还描述了时间戳、上次更改的时间以及发件人或收件人的确认。
 
-    状态可以保存在 JSON 文件或 Redis 数据库中。
+    状态可以保存在 JSON 文件或 Redis DB 中。
 
 [hier]: https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/objectsschema.md

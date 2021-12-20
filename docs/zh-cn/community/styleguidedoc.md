@@ -4,7 +4,7 @@ lastChanged: 13.06.2019
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/community/styleguidedoc.md
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
-hash: mfCPW6sFRTOA8DZNqHydfib2TK+qdfZMNwiFfig9vtw=
+hash: Zmgjn4ZXZEX/lmxZOYDoitahdM5B6U5aczZS5gjD+Sk=
 ---
 # 风格指南文档
 * 文档是使用 [Markdown] [] 语言创建的。
@@ -13,7 +13,7 @@ hash: mfCPW6sFRTOA8DZNqHydfib2TK+qdfZMNwiFfig9vtw=
 允许使用字符 `a-z`、`0-9`、下划线 `_` 和小数点 `.`。
 
 * 文件应有 80 个字符的换行符。
-* 最好像在文件 `.editorconfig` 中那样完成文本格式化
+* 最好像在文件`.editorconfig` 中那样完成文本格式化
 
   描述。
 
@@ -48,10 +48,10 @@ hash: mfCPW6sFRTOA8DZNqHydfib2TK+qdfZMNwiFfig9vtw=
 
     包含。
 
-* 文档总是以 H1 层的标题开头。
+* 文档总是以 H1 级的标题开头。
 * 链接不是内嵌的（例如使用`[a link] (http://example.com)`），
 
-但在内嵌 `[a link][]` 和 `[a link]: https://a.link/to/know` 的帮助下放置在文档的末尾。
+但借助文档末尾的内联 `[a link][]` 和 `[a link]: https://a.link/to/know`。
 
 * 如果使用破折号，请使用短符号
 
@@ -77,7 +77,7 @@ hash: mfCPW6sFRTOA8DZNqHydfib2TK+qdfZMNwiFfig9vtw=
 
       * 源文本可以但不必是完整的。源代码块
 
-用例子来阐明刚才描述的观点。所以不需要提供完全可执行的程序。但是，如果要提供完全可执行的程序，则可以将其作为文件夹 `media/{code_beispieldatei}` 中的媒体文件并在文档中提供相应链接。
+举例说明刚才描述的观点。因此不需要提供完全可执行的程序。但是，如果要提供完全可执行的程序，则可以将其作为文件夹 `media/{code_beispieldatei}` 中的媒体文件并在文档中提供相应链接。
 
 * 如果使用下划线、引号、星号或反斜杠
 

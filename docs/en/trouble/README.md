@@ -1,10 +1,10 @@
 ---
-title: introduction
+title: initiation
 lastChanged: 14.09.2018
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/trouble/README.md
-hash: zyX2YdM6CIiREEqfh+LxO6fCXcvENhSZ8SXnod+1Dh8=
+hash: NAHfCKNrau6ZZZiSXWF0k0KN7z/OGtn4WhfS7IzATmk=
 ---
 # Troubleshooting
 ?> ***This is a placeholder*** .<br><br> Help with ioBroker and expand this article. Please note [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.
@@ -12,7 +12,7 @@ hash: zyX2YdM6CIiREEqfh+LxO6fCXcvENhSZ8SXnod+1Dh8=
 @@@ Overarching procedures. Refer to individual help with the specific adapter, installation method and platform.
 @@@
 
-On this page you will find information about problems and their solutions or approaches for solutions.
+On this page you will find information on problems and their solutions or approaches for solutions.
 Please look through the topics to see whether your problem is already included here or on the sub-pages and thus the solution, if applicable.
 
 ## First aid checklist "My ioBroker has stopped working" - What should I check first and always post in the forum?
@@ -35,10 +35,10 @@ Please check the logs to see whether there are any helpful entries from the rele
 In the simplest case, logs can be found in the admin UI in the web browser. Please note, however, that in the admin the log lines are cut off after approx. 200 characters. As a result, important information may be lost or incomplete.
 Furthermore, the logs in the admin are only available for the current browser session.
 
-ioBroker continues to write all logs to a log file. This is located in the ioBroker directory in the "log" subdirectory and is normally available there for 7 days. Simply open it with a text editor and send excerpts if necessary.
+ioBroker continues to write all logs to a log file. This is located in the ioBroker directory in the "log" subdirectory and is usually available there for 7 days. Simply open it with a text editor and send excerpts if necessary.
 
 ## How do I change the log level of an adapter instance?
-By default, the js-controller and the adapters run in the "info" log level. This means that information that the adapter developer considered useful is output in the log. In total there are the following log levels:
+By default, the js-controller and the adapter run in the "info" log level. This means that information that the adapter developer has considered useful is output in the log. In total there are the following log levels:
 
 * **error** Only errors are logged
 * **warn** Errors and warnings are logged
@@ -51,12 +51,12 @@ After changing the log level, the instance is automatically restarted.
 
 ** Attention: ** Depending on the log level (especially debug and silly) the log file on the disk can be quite large. Pay attention to the available storage space.
 
-## After operating system updates, ioBroker no longer works (check node versions and something like that)
-## An adapter / ioBroker no longer starts with the error "wrong node version native packet. Blah"? (npm rebuild and such)
+## After operating system updates, ioBroker no longer works (check node versions and something)
+## An adapter / ioBroker no longer starts with the error "wrong node version native packet. Blah"? (npm rebuild and so on)
 ## I have several different nodejs versions on my computer?
 ## Suddenly ioBroker / Adapter no longer works with the message "Syntax Error Unexpected / Invalid Token or similar." (File corrupt, SD card ...)
 ## At adapter start Error 7 / Reconnect to DB (reasons ... solutions)
-## The ioBroker can suddenly no longer be reached, but my computer is still? (syslog oom or something)
+## The ioBroker is suddenly no longer available, but my computer is still? (syslog oom or something)
 ## The whole host suddenly freezes during operation (swapping top ...)
 ## The whole host freezes during adapter updates (e.g. sql installation)
 ## How can I manually reinstall the js controller and when should I do something like that? What do I have to consider?

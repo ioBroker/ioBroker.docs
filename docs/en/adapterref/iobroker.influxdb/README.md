@@ -305,10 +305,11 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
-### __WORK IN PROGRESS__
+### 2.4.0 (2021-12-19)
 * (Excodibur) Added expert settings to deactivate health checks for Influx 2 db (There are no health checks for Influx 1)
 * (Excodibur) Hide settings not relevant when "log changes only" is not used
 * (Apollon77) Allow all number values for debounce again
+* (Apollon77) InfluxDB also do not like Infinite values, so ignore them too
 
 ### 2.3.0 (2021-12-14)
 * (bluefox) Support only `js.controller` >= 3.3.x

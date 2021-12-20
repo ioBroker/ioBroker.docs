@@ -4,10 +4,10 @@ lastChanged: 23.04.2021
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/community/docmarkdown.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: 9qginu+6BT6Cm5JzwTYlJJ+LmFCjpyS0LVuttJtXxqc=
+hash: mjGgkxRz/ltg4/3OhZi5c/N+GKM1nmTaj+xCAMTAblo=
 ---
 # Markdown: syntax
-?> To make ioBroker's documentation quick and easy to read, Markdown was chosen as the simplified markup language. The following guide will help you learn the syntax and capabilities of Markdown and translate them into great documents.
+?> So that ioBroker's documentation can be created quickly and easily read, Markdown was chosen as the simplified markup language. The following guide will help you learn the syntax and capabilities of Markdown and translate them into great documents.
 
 Technically, the documentation system only supports the following features:
 
@@ -31,7 +31,7 @@ Accordingly, Markdown's syntax consists only of characters carefully chosen to m
 ### Inline HTML
 Markdown's syntax has one purpose: to be used to *write* for the web.
 
-Markdown is not a substitute for HTML, even remotely. The scope of the syntax is very small and corresponds to only a small part of all HTML tags. Markdown does not intend to make HTML tagging easier. HTML is simple enough as it is. The idea behind Markdown is to make text as easy to read, write, and edit as possible. HTML is a *publication format* Markdown is a *writing format* Therefore, its syntax only takes into account content that can be conveyed using pure text.
+Markdown is not a substitute for HTML, even remotely. The scope of the syntax is very small and corresponds to only a small part of all HTML tags. Markdown does not intend to make HTML tagging easier. HTML is simple enough as it is. The idea behind Markdown is to make text as easy to read, write, and edit as possible. HTML is a *publication format* Markdown is a *writing format* Therefore, its syntax only takes into account content that can be conveyed with pure text.
 
 Any formatting that is not feasible with Markdown can simply be used HTML. There is no need to highlight HTML to separate it from the rest.
 It is simply written in the text.
@@ -81,7 +81,7 @@ becomes markdown
 
 `AT&amp;T`
 
-do. Since Markdown supports Inline HTML, angle brackets are treated as HTML in the appropriate case. Just from things like
+do. Since Markdown supports inline HTML, angle brackets are treated as HTML in the appropriate case. Just for things like
 
 `4 < 5`
 
@@ -89,7 +89,7 @@ becomes markdown
 
 `4 &lt; 5`
 
-do. However, angle brackets and the ampersand are *always* coded in code or span blocks. This simplifies writing over HTML in Markdown (as opposed to raw HTML, where it is mostly a nightmare to encode every `<` and `&`).
+do. However, angle brackets and the ampersand are *always* coded in code or span blocks. This simplifies writing over HTML in Markdown (as opposed to raw HTML where it is mostly a nightmare to encode every `<` and `&`).
 
 ## Block elements
 ### Paragraphs and line breaks
@@ -240,9 +240,9 @@ Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus. Donec sit
 
     2. Suspendisse id sem consectetuer libero luctus adipiscing.
 
-It looks fine with every line of the following paragraph indented, but again, Markdown allows the lazy to indent only the first line:
+It looks fine with every line of the following paragraph indented, but again Markdown allows the lazy to indent only the first line:
 
-    * This is a list item with two paragraphs
+    * This is a two-paragraph list item
 
 This is the second paragraph in this list item. Only the first line needs to be indented. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 
@@ -254,7 +254,7 @@ To use a quote in a list item, the quote must be indented:
 
 > This is a quote> In a list.
 
-To use a code block in a list item, it must be indented *twice* - 8 spaces or two tabs:
+To use a code block in a list item, it has to be indented *twice* - 8 spaces or two tabs:
 
     * A list item with a code example:
 
@@ -421,7 +421,7 @@ Then the link is defined:
 
 [Daring Fireball]: http://daringfireball.net/
 
-Link definitions can be made anywhere in the Markdown document. In general, it is a good idea to do them after the paragraph in which they are used. However, like footnotes, they can all be listed together at the end of the document.
+Link definitions can be made anywhere in the Markdown document. In general, it is a good idea to follow the paragraph where they are used. However, like footnotes, they can all be listed together at the end of the document.
 
 A small example:
 
@@ -457,7 +457,7 @@ With Markdown's reference links, the source document looks more like the final o
 
 <a id="em"></a>
 
-### Emphasis Markdown treats asterisks (`*`) and underscores (`_`) as indicators of emphasis. Text packed into individual `*` or `_` is enclosed with the HTML tag `<em>`, double `*` or `_` are marked with the tag `<strong>` . The following text, for example:
+### Emphasis Markdown treats asterisks (`*`) and underscores (`_`) as indicators of emphasis. Text packed in individual `*` or `_` is enclosed with the HTML tag `<em>`, double `*` or `_` are marked with the tag `<strong>` . The following text, for example:
     *Single asterisk*
 
     _Single underscores_
@@ -476,7 +476,7 @@ Will output the following:
 
 <strong>Double underscores</strong>
 
-The style can be chosen arbitrarily. The only limitation is that the same symbol must be used to open and close a stress area.
+The style can be chosen arbitrarily. The only limitation is that the same character must be used to open and close a stress area.
 
 Stress can be used in the middle of a word:
 
@@ -505,7 +505,7 @@ This becomes:
 
 <p><code>irgendwo hier (`) ist ein Backtick versteckt.</code></p>
 
-The backtick separators around a code area can contain spaces - one after the opening backtick, one before the closing backtick. This enables backticks to be used within the code area, even at the beginning or end:
+The backtick separator around a code area can contain spaces - one after the opening backtick, one before the closing backtick. This enables backticks to be used within the code area, even at the beginning or end:
 
 A single backtick in a code area: `` ` ` ''
 
@@ -536,7 +536,7 @@ This is going to
 <a id="img"></a>
 
 ### Graphics Admittedly, it is quite difficult to find a "natural" syntax for including graphics in text.
-Markdown uses a syntax to do this that is supposed to be similar to the style of links. This allows two types: inline and reference.
+Markdown does this using a syntax designed to be similar to the style of links. This allows two types: inline and reference.
 
 The inline syntax looks like this:
 
@@ -563,7 +563,7 @@ Reference-style image references look like this:
 
 [id]: url/zur/grafik  "Optionales title-Attribut"
 
-At this time, Markdown has no syntax for specifying the size of a graphic. If this is necessary, the normal HTML tag `<img>` can be used.
+At this time, Markdown has no syntax for specifying the size of a graphic. If this is necessary, you can simply use the normal HTML tag `<img>`.
 
 * * *
 

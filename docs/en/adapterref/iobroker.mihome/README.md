@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/adapterref/iobroker.mihome/README.md
 title: ioBroker Mi Home Adapter
-hash: GmavLxm+klUaUCFI7o/yKJ8KJqOtoyN2RmgfJUQcojY=
+hash: WTtTH9oAY5k1YGKpdvBfJjyVwoMz83DTlTi2N0T3h24=
 ---
 ![logo](../../../de/adapterref/iobroker.mihome/media/mihome.png)
 
@@ -24,10 +24,10 @@ agree to the terms and conditions.
 
 * Select *Mainland China* as the country
 *Create an account via * Login*
-* After successfully logging in, add a device using `+`
+* After successfully logging in, add a device using the `` + '' button
 * Under *Household Security* select the `MI Control Hub` and follow the instructions
 
-follow
+Follow
 
 * After successfully integrating the gateway, the 3 dots on the top right screen
 
@@ -46,16 +46,16 @@ and then press *About*
 Now further devices can be taught in using the `+` sign.
 
 #### IOS
-* [iOS App] (https://itunes.apple.com/de/app/mi-home-xiaomi-smarthome/id957323480?mt=8) download, install, open and the
+* [iOS App] (https://itunes.apple.com/de/app/mi-home-xiaomi-smarthome/id957323480?mt=8) on an iOS device, download, install, open and the
 
 I agree to the privacy policy
 
 * Select the country *Mainland* via Profile / Settings / Country Settings.
 *Create an account via * Login*
-* After successfully logging in, add a device using `+`
+* After successfully logging in, add a device using the `` + '' button
 * Under *Household Security* select the `MI Control Hub` and follow the instructions
 
-follow
+Follow
 
 * After successfully integrating the gateway, the 3 dots on the top right screen
 
@@ -64,7 +64,7 @@ press and press *About*
 * Tap repeatedly in the empty area below
 * Now the developer mode is switched on and it should after a certain time
 
-Further menu items appear> If it does not work immediately, repeat the steps
+further menu items appear> If it does not work immediately, repeat the steps
 
 * Select the 4th menu item
 * Switch on the slide switch at the top, note the password and confirm with `OK`.
@@ -80,7 +80,7 @@ If you no longer want to operate the taught-in devices via the app, the Internet
 ### Supported devices
 The following list does not claim to be complete:
 
-- gateway - Xiaomi RGB Gateway
+- gateway - Xiaomi RGB gateway
 - sensor_ht - Xiaomi Temperature / Humidity
 - weather.v1 - Xiaomi Temperature / Humidity / Pressure
 - switch - Xiaomi Wireless Switch

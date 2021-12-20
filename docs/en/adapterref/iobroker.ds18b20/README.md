@@ -222,6 +222,10 @@ Instructions how to set up the client are includes in the adapter configuration.
 
 ## Changelog
 
+### 1.5.2 (2021-12-19)
+* (ghecker1) Fix remote client reconnect after multiple failed attempts
+  * **Reinstall of remote client needed to apply this fix!**
+
 ### 1.5.1 (2021-12-12)
 * (crycode-de) Fix crash on undefined obj.native,
 * (crycode-de) Updated remote-client-setup info in admin if https is used

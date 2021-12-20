@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/config/redis.md
 title: The Redis database for ioBroker
-hash: SoqEQqV0IZ/uxETDM3MSFvy9Bkrk4fp/cwvrsetbZjQ=
+hash: OO6QwcVxnlNy+qafCZFqQ7pZKK33y+Ddy6McX56JFDM=
 ---
 # The Redis database for ioBroker
 Redis is an open source in-memory database.
@@ -13,12 +13,12 @@ The big advantage of Redis:
 
 Compared to the internal ioBroker databases, Redis offers advantages in the areas of data access speed, IO management in the file system and better use of CPU resources.
 The js controller is relieved. A previously sluggish system can become faster again.
-However, it is important that enough RAM is available, as Redis keeps all data in RAM. Depending on what exactly is stored in the Redis, the RAM requirement is a few MB (e.g. if only states are in Redis) up to over 200 MB (if, for example, objects and files are also stored there).
+However, it is important that enough RAM is available, as Redis keeps all data in RAM. Depending on what exactly is stored in Redis, the RAM requirement is a few MB (e.g. if only states are in Redis) up to over 200 MB (if, for example, objects and files are also stored there).
 
 ## Redis FAQ
 1. Do I need Redis for my ioBroker or not?
 
-For all common installations, ioBroker's own databases are usually sufficient! Only when the js-controller permanently needs 50-70% or more CPU and the system feels sluggish at the same time, it can make sense to deal with the topic of Redis.
+For all common installations, ioBroker's own databases are usually sufficient! Only when the js-controller constantly needs 50-70% or more CPU and the system feels sluggish at the same time, it can make sense to deal with the topic of Redis.
 Alternatively, it becomes necessary if you are aiming for a highly available ioBroker system, but a few more things are necessary.
 
 2. How do I find out whether I am using Redis or not?
@@ -27,21 +27,21 @@ Since ioBroker's own databases also use the Redis protocol for communication, it
 A call to `iobroker status` shows which database type is used for the states and objects databases.
 "file" means that ioBroker's own databases are used. "redis" means that a Redis is in use.
 
-A detailed explanation on the topic of Redis with further information can be found in [Forum](https://forum.iobroker.net/topic/26327/redis-in-iobroker-%C3%BCberblick)
+A detailed explanation of the topic Redis with further information can be found in [Forum](https://forum.iobroker.net/topic/26327/redis-in-iobroker-%C3%BCberblick)
 
 ## Redis persistence
-Typically, Redis is an "in-memory database". So the data is stored in RAM. When Redis is closed, these are gone.
-In order to enable an update, Redis supports two types of data storage on hard disk.
+Usually Redis is an "in-memory database". So the data is stored in RAM. When Redis is closed, these are gone.
+In order to enable an update, Redis supports two types of data storage on hard drive.
 The RDB and AOF persistence.
 
 ** RDB ** is active by default, this method saves the entire content in an RDB file. The storage interval can be configured and should be adapted to your own needs! To configure this, a mixture of data security (how much data can you cope with losing in a crash) and write load for the storage medium, since the entire content is always written (if objects are also in Redis, this may be several hundred MB!).
 
 However, **AOF** ensures that the data is completely up-to-date.
-For this purpose, a so-called AOF file is continuously written, where all changes are always appended. This file is then consolidated at regular intervals and thus reduced in size again. How the final write load is exactly, and whether the whole thing is good for SD cards or not, depends on which data is saved. If objects and files are also in Redis, appending and consolidating infrequently is significantly more "economical" than regularly storing large amounts of data.
+For this purpose, a so-called AOF file is continuously written, where all changes are always appended. This file is then consolidated at regular intervals and thus reduced in size again. How the final write load is exactly, and whether the whole thing is good for SD cards or not, depends on which data is saved. If objects and files are also in Redis, appending and consolidating rarely is significantly more "economical" than regularly saving large amounts of data.
 As mentioned above, this means that more ram is required. If this RAM is not available, everything continues - depending on the settings - without any problems.
 A backup of the data is then not created! Corresponding messages are only available in the log file.
 
-More details on persistence can be found at https://redis.io/topics/persistence
+More details on persistence are available at https://redis.io/topics/persistence
 
 ** Redis Slaves **, i.e. a second Redis server, is another way of always having current data as a backup.
 If the computer with the master Redis is defective, the data still exists on the slave in almost real time.
@@ -75,7 +75,7 @@ sudo apt-get install redis-server
 You can check with `sudo systemctl status redis-server`.
 If it does not restart automatically after a reboot, a `sudo systemctl enable redis-server` helps.
 Redis uses port 6379 by default and also has a command line tool for accessing the database: `redis-cli` opens a shell.
-The command `info` shows some information about the system, memory usage and the stored data ("keyspace"), which of course is currently empty.
+The command `info` shows some information about the system, memory usage and the saved data ("keyspace"), which is of course still empty.
 
 If you operate a single host system or ioBroker runs on the same host, then that's about it.
 
@@ -87,11 +87,11 @@ Then `sudo systemctl restart redis-server` restarts the server with the updated 
 For more details see [Multihost](https://www.iobroker.net/#de/documentation/config/multihost.md)
 
 ## Convert ioBroker database to Redis
-Most changes and data queries are made with the States database. All data changes arrive here and are then distributed again to adapters when they have registered for certain data.
+Most changes and data queries take place with the states database. All data changes arrive here and are then distributed again to adapters when they have registered for certain data.
 Switching the states to Redis has by far the greatest and most noticeable performance effect.
-If you only convert the States database, you should ideally install the Redis server on the same host as the ioBroker master.
+If you only convert the states database, you should ideally install the Redis server on the same host as the ioBroker master.
 
-The changeover of the "States" then takes place via:
+The "States" are then changed over:
 
 ```sh
 iobroker stop
@@ -99,10 +99,10 @@ iobroker setup custom
 ```
 
 For the "Objects" confirm the current settings ("file" as type, IP, port 9001) and for "States" now as type "redis", the IP of the Redis host server (or 127.0.01 if on the same host ) and set 6379 as port.
-So that you do not lose all state data, it is advisable to migrate the data, which is what the next questions in the configuration ask.
+So that you do not lose all state data, it is advisable to migrate the data, which is what the next questions ask when configuring.
 After the migration, ioBroker can be restarted with **iobroker start** If slave systems are also used, the same settings must be made everywhere via **iobroker setup custom** However, the question about migration must be answered in the negative!
 
-If you also want to change "Objects", proceed exactly and select the type "redis", enter the IP and port of the Redis host and migrate the data if necessary, which, depending on the size, can take a while.
+If you also want to change "Objects", proceed exactly and select the "redis" type, enter the IP and port of the Redis host and migrate the data if necessary, which, depending on the size, can take a while.
 
 ** States and objects in the same or separate Redis processes? **
 
