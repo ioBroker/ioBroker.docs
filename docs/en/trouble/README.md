@@ -4,15 +4,15 @@ lastChanged: 14.09.2018
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/trouble/README.md
-hash: NAHfCKNrau6ZZZiSXWF0k0KN7z/OGtn4WhfS7IzATmk=
+hash: zyX2YdM6CIiREEqfh+LxO6fCXcvENhSZ8SXnod+1Dh8=
 ---
 # Troubleshooting
-?> ***This is a placeholder*** .<br><br> Help with ioBroker and expand this article. Please note [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.
+?> ***This is a placeholder*** .<br><br> Help with ioBroker and expand this article. Please note the [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.
 
 @@@ Overarching procedures. Refer to individual help with the specific adapter, installation method and platform.
 @@@
 
-On this page you will find information on problems and their solutions or approaches for solutions.
+On this page you will find information about problems and their solutions or approaches for solutions.
 Please look through the topics to see whether your problem is already included here or on the sub-pages and thus the solution, if applicable.
 
 ## First aid checklist "My ioBroker has stopped working" - What should I check first and always post in the forum?
@@ -56,10 +56,10 @@ After changing the log level, the instance is automatically restarted.
 ## I have several different nodejs versions on my computer?
 ## Suddenly ioBroker / Adapter no longer works with the message "Syntax Error Unexpected / Invalid Token or similar." (File corrupt, SD card ...)
 ## At adapter start Error 7 / Reconnect to DB (reasons ... solutions)
-## The ioBroker is suddenly no longer available, but my computer is still? (syslog oom or something)
+## The ioBroker can suddenly no longer be reached, but my computer is still? (syslog oom or something)
 ## The whole host suddenly freezes during operation (swapping top ...)
 ## The whole host freezes during adapter updates (e.g. sql installation)
-## How can I manually reinstall the js controller and when should I do something like that? What do I have to consider?
+## How can I manually reinstall the js-controller and when should I do something like that? What do I have to consider?
 ## How can I manually reinstall an adapter and when should I do this? What do I have to consider?
 ## When installing an adapter, a window appears with "index.html not found"? (Install Admin3)
 ## Are all my adapters gone?

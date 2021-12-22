@@ -4,16 +4,16 @@ lastChanged: 07.05.2021
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/admin/hosts.md
-hash: b/cl0uw+yfoPT0T/XNqIz/AUhBq050Wlkmzg4UG42hI=
+hash: vui0+3EZSKz2XJdrrGwCONv3my8EhEnFlpgcAu982o0=
 ---
 此处显示可用主机。
 
 ![主机页面](../../de/admin/media/ADMIN_Hosts_numbers.png)
 
-在标准系统中，只有一台主机。在多主机系统的情况下，相应地有几个。
+在标准系统中，只有一台主机。在多主机系统的情况下，有几个。
 
 ##标题行
-在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需用鼠标在图标上停留一会儿。
+在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需在图标上按住鼠标一会儿。
 
 详细图标：
 
@@ -29,7 +29,7 @@ hash: b/cl0uw+yfoPT0T/XNqIz/AUhBq050Wlkmzg4UG42hI=
 ##页面内容
 现有主机列在页面上。
 
-对于每个主机，都有一个磁贴（列表视图中的一行），其中显示了相应主机的数据。
+每个主机都有一个磁贴（列表视图中的一行），其中显示了相应主机的数据。
 
 以下图标用于管理主机：
 

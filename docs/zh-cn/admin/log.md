@@ -4,14 +4,14 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/admin/log.md
-hash: SF9PSkEVT8mItnrGcqW4liNccrJ/ZhU4DElrk63Agz4=
+hash: 66gpVVstVxHlQUyyBYv8juocwLyP/pXvD9q5MXSJDlE=
 ---
 系统的消息不断地输出在这里。最新消息在顶部。
 
 ![日志页面](../../de/admin/media/ADMIN_Log_numbers.png)
 
 ##标题行
-在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需在图标上按住鼠标一段时间即可。
+在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需在图标上按住鼠标一会儿。
 
 ### 1 - 更新日志
 此按钮更新列表。
@@ -27,7 +27,7 @@ hash: SF9PSkEVT8mItnrGcqW4liNccrJ/ZhU4DElrk63Agz4=
 单击此图标，将永久删除主机上的整个日志。
 
 ### 5 - 下载日志
-使用此按钮，您可以从目录 /opt/iobroker/logs 下载过去几天的完整每日日志：
+使用此按钮，您可以从目录 /opt/iobroker/logs 下载最近几天的完整每日日志：
 
 ![日志下载](../../de/admin/media/ADMIN_Log_download.png)
 
@@ -55,7 +55,7 @@ hash: SF9PSkEVT8mItnrGcqW4liNccrJ/ZhU4DElrk63Agz4=
 
 ### 3 - 显示的日志级别
 此菜单可用于设置要显示的消息的严重性。但是，这只是现有列表的过滤器。
-为了在某个级别为实例设置日志记录，必须在实例页面上进行设置。
+为了将某个实例的日志记录设置为某个级别，必须在实例页面上进行设置。
 
 错误显示为红色：
 

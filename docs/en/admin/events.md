@@ -4,7 +4,7 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/events.md
-hash: 5xQhxMr82Fyb7tKpihP3Sp/Vj7as6+yQvCM9e0k1ZGI=
+hash: +KFMmCj/chMyEZB/QW+TFWarAfGD1U+w6FxSkTJrUbw=
 ---
 The current states of all data points are displayed in this tab.
 The values cannot be changed here.
@@ -12,7 +12,7 @@ The values cannot be changed here.
 ![The events page](../../de/admin/media/ADMIN_Ereignisse_numbers.png)
 
 ## The title line
-in the title line there are icons for the most important processes. There is context help for each icon. To do this, simply stay on the icon with the mouse for a while.
+in the title line there are icons for the most important processes. There is context help for each icon. To do this, simply hold the mouse on the icon for a while.
 
 ### The icons in detail:
 ### 1 - pause view

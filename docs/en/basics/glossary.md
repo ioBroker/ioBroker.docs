@@ -5,13 +5,13 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/glossary.md
 title: no title
-hash: YHltgX7oCBrfgffqJry+MOvUzBLV28rn4SoXbROJAMc=
+hash: pNXghnzEUIUGnqswpze2CJ8dmBmPOIWjCZiDbzPOvVA=
 ---
-To make it easy to get started and to make further help easier to understand, the most important terms that appear in and around the ioBroker are explained here.
+To make it easy to get started and to make further help more understandable, the most important terms that appear in and around the ioBroker are explained here.
 
 * **Adapter**
 
-A module or driver for a device, service or to provide data. Thanks to the very modular structure of ioBroker, everything is practically an adapter: admin interface, visualization, scripting, ...
+A module or driver for a device, service or to provide data. Thanks to the very modular structure of ioBroker, almost everything is an adapter: admin interface, visualization, scripting, ...
 
 * **Admin**
 
@@ -27,7 +27,7 @@ An enumeration is a list of specific objects that have been grouped together.
 
 With the help of linkable function blocks, Blockly allows simple controls and scripts to be graphically assembled. Programming knowledge is not necessary.
 
-When a Blockly script is saved, JavaScript code is generated, which is then executed.
+When a Blockly script is saved, JavaScript code is generated which is then executed.
 
 * **CCU**
 
@@ -90,7 +90,7 @@ A channel groups thematically related states and is usually located under a devi
 
 * **Master**
 
-The master is the host, which is centrally responsible for the administration of all instances (including the instances of the slaves!). When the master is terminated, the slave instances are also terminated. The master provides the central object and status databases for all slaves, to which all slaves connect.
+The master is the host, which is responsible for the administration of all instances (including the instances of the slaves!). When the master is terminated, the slave instances are also terminated. The master provides the central object and status databases for all slaves, to which all slaves connect.
 
 * **Multihost mode**
 
@@ -112,7 +112,7 @@ The metadata also define the data type of the state, e.g. number, boolean, strin
 
 * **Odroid**
 
-Single board computer similar to a Raspberry PI. There are several versions with different hardware equipment.
+Single-board computer similar to a Raspberry PI. There are several versions with different hardware equipment.
 
 * **Parser adapter**
 
@@ -125,7 +125,7 @@ Credit card-sized single-board computer (developed by the Raspberry PI Foundatio
 
 * **Redis**
 
-A no-SQL database that holds your data in memory and can be used in ioBroker to store status data. Is optionally used to increase the performance, since no access to a hard drive, SSD or SD card is necessary for write and read actions. To use a Redis DB with ioBroker, this must be specified in the js-controller basic configuration.
+A no-SQL database that holds your data in memory and can be used in ioBroker to store status data. Is used optionally to increase the performance, since no access to a hard drive, SSD or SD card is necessary for write and read actions. To use a Redis DB with ioBroker, this must be specified in the js-controller basic configuration.
 
 * **State**
 

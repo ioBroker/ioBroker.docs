@@ -4,10 +4,10 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/basics/states.md
 title: 状态和数据点
-hash: MOsvNxcXWYjRz8dmEGJh+aRa220Vu/VeRkYJYlt2zFQ=
+hash: OUheU+wHUm8+dmMTruV37xytEJKhWqBC2U5RwekU/9g=
 ---
 # 状态和数据点
-** 数据点** 由“状态”类型的静态对象和动态状态组成。
+** 数据点** 由“状态”类型的静态对象和动态状态（状态）组成。
 
 是状态的属性
 

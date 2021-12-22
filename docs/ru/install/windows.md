@@ -4,7 +4,7 @@ lastChanged: 18.07.2019
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/install/windows.md
-hash: px8Pj5WdRIRET04sAvbr8e4683UA6b4G1aExlrwjJgs=
+hash: XFdcrokNPGtTri8RFE+c4m/7TgKEDdKqtTLfO7BRt1s=
 ---
 # Установка ioBroker на Windows
 ?> ***Эта статья в настоящее время расширяется*** .<br><br> Помогите с ioBroker. Обратите внимание на [Руководство по стилю ioBroker](community/styleguidedoc), чтобы изменения можно было легко применить.
@@ -185,7 +185,7 @@ iobroker is running
 
    звенеть.
 
-?> В будущем ioBroker будет запускаться автоматически в фоновом режиме при каждом перезапуске системы.
+?> В дальнейшем ioBroker будет запускаться автоматически в фоновом режиме при каждом перезапуске системы.
 
 1. Наконец, окно командной строки можно открыть, выполнив команду
 

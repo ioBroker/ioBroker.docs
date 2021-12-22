@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/config/redis.md
 title: The Redis database for ioBroker
-hash: OO6QwcVxnlNy+qafCZFqQ7pZKK33y+Ddy6McX56JFDM=
+hash: SoqEQqV0IZ/uxETDM3MSFvy9Bkrk4fp/cwvrsetbZjQ=
 ---
 # The Redis database for ioBroker
 Redis is an open source in-memory database.
@@ -30,11 +30,11 @@ A call to `iobroker status` shows which database type is used for the states and
 A detailed explanation of the topic Redis with further information can be found in [Forum](https://forum.iobroker.net/topic/26327/redis-in-iobroker-%C3%BCberblick)
 
 ## Redis persistence
-Usually Redis is an "in-memory database". So the data is stored in RAM. When Redis is closed, these are gone.
+Usually Redis is an "in-memory database". So the data is stored in RAM. When Redis quits, these are gone.
 In order to enable an update, Redis supports two types of data storage on hard drive.
 The RDB and AOF persistence.
 
-** RDB ** is active by default, this method saves the entire content in an RDB file. The storage interval can be configured and should be adapted to your own needs! To configure this, a mixture of data security (how much data can you cope with losing in a crash) and write load for the storage medium, since the entire content is always written (if objects are also in Redis, this may be several hundred MB!).
+** RDB ** is active by default, this method saves the entire content in an RDB file. The storage interval can be configured and should be adapted to your own needs! To configure this, a mixture of data security (how much data can you cope with to lose in a crash) and write load for the storage medium, since the entire content is always written (if objects are also in Redis, this may be several hundred MB!).
 
 However, **AOF** ensures that the data is completely up-to-date.
 For this purpose, a so-called AOF file is continuously written, where all changes are always appended. This file is then consolidated at regular intervals and thus reduced in size again. How the final write load is exactly, and whether the whole thing is good for SD cards or not, depends on which data is saved. If objects and files are also in Redis, appending and consolidating rarely is significantly more "economical" than regularly saving large amounts of data.
@@ -87,11 +87,11 @@ Then `sudo systemctl restart redis-server` restarts the server with the updated 
 For more details see [Multihost](https://www.iobroker.net/#de/documentation/config/multihost.md)
 
 ## Convert ioBroker database to Redis
-Most changes and data queries take place with the states database. All data changes arrive here and are then distributed again to adapters when they have registered for certain data.
+Most changes and data queries are made with the States database. All data changes arrive here and are then distributed again to adapters when they have registered for certain data.
 Switching the states to Redis has by far the greatest and most noticeable performance effect.
 If you only convert the states database, you should ideally install the Redis server on the same host as the ioBroker master.
 
-The "States" are then changed over:
+The "States" can then be changed over:
 
 ```sh
 iobroker stop
@@ -99,7 +99,7 @@ iobroker setup custom
 ```
 
 For the "Objects" confirm the current settings ("file" as type, IP, port 9001) and for "States" now as type "redis", the IP of the Redis host server (or 127.0.01 if on the same host ) and set 6379 as port.
-So that you do not lose all state data, it is advisable to migrate the data, which is what the next questions ask when configuring.
+So that you do not lose all state data, it is advisable to migrate the data, which is what the next questions in the configuration ask.
 After the migration, ioBroker can be restarted with **iobroker start** If slave systems are also used, the same settings must be made everywhere via **iobroker setup custom** However, the question about migration must be answered in the negative!
 
 If you also want to change "Objects", proceed exactly and select the "redis" type, enter the IP and port of the Redis host and migrate the data if necessary, which, depending on the size, can take a while.

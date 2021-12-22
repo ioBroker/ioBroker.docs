@@ -5,7 +5,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.benchmark.svg)](https://www.npmjs.com/package/iobroker.benchmark)
 ![Number of Installations](https://iobroker.live/badges/benchmark-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/benchmark-stable.svg)
-[![Dependency Status](https://img.shields.io/david/foxriver76/iobroker.benchmark.svg)](https://david-dm.org/foxriver76/iobroker.benchmark)
 
 [![NPM](https://nodei.co/npm/iobroker.benchmark.png?downloads=true)](https://nodei.co/npm/iobroker.benchmark/)
 

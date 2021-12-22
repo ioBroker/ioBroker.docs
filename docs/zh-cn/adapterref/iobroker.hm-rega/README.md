@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hm-rega/README.md
 title: HomeMatic ReGaHSS
-hash: G+XgC3bx73W0XgVhW1GkYuvI38TcQQgIsp3P1ggWznM=
+hash: 5nzOtddjd6p/3BVJJkfR7yHWPQUqVm2mcbdsP7tvrkM=
 ---
 ![标识](../../../de/adapterref/iobroker.hm-rega/media/homematic.png)
 
@@ -20,7 +20,7 @@ hash: G+XgC3bx73W0XgVhW1GkYuvI38TcQQgIsp3P1ggWznM=
 该适配器建立到 Homematic 逻辑层“ReGaHSS”（** Re ** sidential ** Ga ** teway）的连接。
 它在 Homematic 和 ioBroker 之间同步真实姓名、系统变量、房间、交易和程序。
 
-如果要将多个中央单元集成到 ioBroker 中，则必须为每个中央单元安装和配置单独的实例。
+如果要在 ioBroker 中集成多个中央单元，则必须为每个中央单元安装和配置单独的实例。
 
 安装 ReGaHSS 时，也会安装一个“hm-rpc”适配器实例，需要提前配置并激活。
 
@@ -65,13 +65,13 @@ CCU的IP地址可以在下拉菜单中选择；重连间隔（标准 30 秒）�
 
 扳机
 
-为了最大限度地减少从 ioBroker 到 RegaHSS 的主动查询，触发器还可以在进行更改时将数据推送到程序内的 CCU 上。
-在 CCU 程序中触发的 CCU 上的虚拟按钮可用于此目的。默认情况下，这是 BidCosRF.50.PRESS_SHORT 按钮（参见示例程序）。
+为了最大限度地减少从 ioBroker 到 RegaHSS 的主动查询，触发器还可以在发生更改时将数据推送到程序内的 CCU 上。
+在 CCU 程序中触发的 CCU 上的虚拟按钮可用于此目的。默认情况下，这是 BidCosRF.50.PRESS_SHORT 键（参见示例程序）。
 
 ###同步区域
 用户可以在此处指定哪些信息将从 CCU 传输到 ioBroker。然后在 ioBroker 中创建相应的对象和数据点。
 
-- DutyCycle：激活占空比的指示（以％为单位）
+- DutyCycle：激活占空比的规范（以％为单位）
 - 变量：激活从 CCU 传输系统变量
 - 程序：激活从 CCU 传输程序名称
 - 名称：激活从 CCU 传输数据点的纯文本名称

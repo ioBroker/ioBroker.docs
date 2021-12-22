@@ -4,7 +4,7 @@ lastChanged: 26.03.2019
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/admin/overview.md
-hash: 57tkWtP+p2vy23nOuvzdc8RKNy6mvlsMyXS1SmpIBkY=
+hash: L3woSgQsM+65FZxL45MseZX1u5AmjMk69mxD0H7RrGI=
 ---
 # Вкладка обзора
 Здесь отображается информация обо всех адаптерах с собственным веб-интерфейсом и о хостах.

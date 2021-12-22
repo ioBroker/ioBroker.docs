@@ -4,10 +4,10 @@ lastChanged: 18.07.2019
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/windows.md
-hash: px8Pj5WdRIRET04sAvbr8e4683UA6b4G1aExlrwjJgs=
+hash: XFdcrokNPGtTri8RFE+c4m/7TgKEDdKqtTLfO7BRt1s=
 ---
 # Installation of ioBroker on Windows
-?> ***This article is currently being expanded*** .<br><br> Help with ioBroker. Please note [ioBroker Style Guide](community/styleguidedoc) so that the changes can be adopted more easily.
+?> ***This article is currently being expanded*** .<br><br> Help with ioBroker. Please note the [ioBroker Style Guide](community/styleguidedoc) so that the changes can be adopted more easily.
 
 The following instructions guide you through the installation step by step. Please do not skip any steps, as some commands build on each other.
 
@@ -185,7 +185,7 @@ iobroker is running
 
    ring.
 
-?> In the future, ioBroker will be started automatically in the background every time the system is restarted.
+?> In future, ioBroker will be started automatically in the background every time the system is restarted.
 
 1. Finally, the command line window can be opened by executing the command
 

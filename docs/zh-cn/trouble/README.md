@@ -4,7 +4,7 @@ lastChanged: 14.09.2018
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/trouble/README.md
-hash: NAHfCKNrau6ZZZiSXWF0k0KN7z/OGtn4WhfS7IzATmk=
+hash: zyX2YdM6CIiREEqfh+LxO6fCXcvENhSZ8SXnod+1Dh8=
 ---
 ＃ 故障排除
 ?> *** 这是一个占位符***。<br><br>帮助 ioBroker 并扩展这篇文章。请注意 [ioBroker 风格指南](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) 以便可以更轻松地采用更改。
@@ -27,7 +27,7 @@ hash: NAHfCKNrau6ZZZiSXWF0k0KN7z/OGtn4WhfS7IzATmk=
 
 最好直接在线程中提供此信息。
 
-此外，在论坛请求之前，请检查此故障排除页面和常见问题解答 --LINK-- 该主题是否已包含在那里。如果您已经尝试过这些文档中的操作，请同时将它们写下来。
+此外，请检查此故障排除页面和常见问题解答 --LINK-- 在论坛请求之前是否已包含该主题。如果您已经尝试过这些文档中的操作，请同时将它们写下来。
 
 请检查日志以查看在出现问题时是否有来自相关适配器的任何有用条目。始终将日志和脚本或类似内容放入剧透中。
 
@@ -35,7 +35,7 @@ hash: NAHfCKNrau6ZZZiSXWF0k0KN7z/OGtn4WhfS7IzATmk=
 在最简单的情况下，可以在 Web 浏览器的管理 UI 中找到日志。但是请注意，在管理员中，日志行在大约 200 个字符后被截断。因此，重要信息可能会丢失或不完整。
 此外，管理员中的日志仅适用于当前浏览器会话。
 
-ioBroker 继续将所有日志写入日志文件。它位于“log”子目录中的 ioBroker 目录中，通常可以在那里使用 7 天。只需使用文本编辑器打开它，并在必要时发送摘录。
+ioBroker 继续将所有日志写入日志文件。它位于“log”子目录中的 ioBroker 目录中，通常在那里可用 7 天。只需使用文本编辑器打开它，并在必要时发送摘录。
 
 ## 如何更改适配器实例的日志级别？
 默认情况下，js 控制器和适配器在“信息”日志级别运行。这意味着适配器开发人员认为有用的信息会输出到日志中。总共有以下日志级别：
@@ -56,12 +56,12 @@ ioBroker 继续将所有日志写入日志文件。它位于“log”子目录�
 ## 我的电脑上有几个不同的 nodejs 版本？
 ## 突然 ioBroker / Adapter 不再处理消息“意外语法错误/无效令牌或类似”。 （文件损坏，SD 卡...）
 ## 在适配器启动错误 7 / 重新连接到数据库（原因...解决方案）
-## IoBroker 突然不可用了，但我的电脑还在？ （系统日志 oom 什么的）
+## IoBroker 突然无法访问了，但是我的电脑还在？ （系统日志 oom 什么的）
 ##整个主机在运行过程中突然死机（交换top ...）
 ## 整个主机在适配器更新期间冻结（例如 sql 安装）
-## 如何手动重新安装 js 控制器，什么时候应该做这样的事情？我需要考虑什么？
+## 如何手动重新安装 js-controller，我应该什么时候做这样的事情？我需要考虑什么？
 ## 如何手动重新安装适配器，何时应该重新安装？我需要考虑什么？
-## 安装适配器时，会出现一个窗口，显示“index.html not found”？ （安装 Admin3）
+## 安装适配器时，出现一个窗口，显示“index.html not found”？ （安装 Admin3）
 ## 我所有的适配器都没有了吗？
 ...
 

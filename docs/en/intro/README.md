@@ -4,14 +4,14 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/intro/README.md
-hash: idk0gZfgjRkBsHrpF2r3lK1a0goTdH4DOHijnHKP5zE=
+hash: 1pcQ4cJSUZw7qUIgvAoPS5dTCF9w4xA9paAs8EKiD7w=
 ---
 ** This documentation is the central reference for all ioBroker users: **
 
 ## Page structure
 This page was created in a ***responsive design*** . This means that it is displayed differently depending on the resolution of the display of the reader (PC / tablet / mobile phone) for optimal readability.
 
-In the case of low (effective) resolutions, operating elements are sometimes hidden in order to make space for the main window.
+With low (effective) resolutions, operating elements are sometimes hidden to make space for the main window.
 
 It is therefore possible that the current display differs from the screenshots.
 
@@ -50,7 +50,7 @@ The menu can be hidden again using the icon with the **X**
 
 ### More controls
 #### 4 - Language selection
-The website is multilingual. Little by little, more languages will be added. Some are generated automatically first, native speakers are invited to improve the texts.
+The website is multilingual. More languages will gradually be added. Some are generated automatically first, native speakers are invited to improve the texts.
 
 The desired language can be selected on the globe icon.
 
@@ -59,7 +59,7 @@ The desired language can be selected on the globe icon.
 This language list will be expanded if necessary.
 
 #### 5 - search
-This field does not need to be explained. Please use extensively!
+This field does not need any explanation. Please use extensively!
 
 ---
 

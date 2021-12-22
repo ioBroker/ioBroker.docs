@@ -4,7 +4,7 @@ lastChanged: 23.04.2021
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/community/docmarkdown.md
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
-hash: mjGgkxRz/ltg4/3OhZi5c/N+GKM1nmTaj+xCAMTAblo=
+hash: 9qginu+6BT6Cm5JzwTYlJJ+LmFCjpyS0LVuttJtXxqc=
 ---
 # Markdown: 语法
 ?> 为了能够快速轻松地创建 ioBroker 的文档，我们选择了 Markdown 作为简化的标记语言。以下指南将帮助您学习 Markdown 的语法和功能，并将它们翻译成优秀的文档。
@@ -26,17 +26,17 @@ Markdown 的设计理念是尽可能地易于阅读和编写。
 
 可读性是这里的重中之重。 Markdown 格式的文档应该能够以其基本形式发布而不会出现标记或格式（就像 HTML 的情况）。
 
-因此，Markdown 的语法仅由精心选择以匹配其含义的字符组成。例如，单词周围的星号实际上看起来像\ *重音\* Markdown 中的列表看起来像列表。甚至引用块看起来也像引用的文本段落，正如您从电子邮件中知道的那样。
+因此，Markdown 的语法仅由精心选择以匹配其含义的字符组成。例如，单词周围的星号实际上看起来像 \ *重音 \* Markdown 中的列表看起来像列表。甚至引用块看起来也像引用的文本段落，正如您从电子邮件中知道的那样。
 
 ### 内联 HTML
 Markdown 的语法有一个目的：用于*为网络编写*。
 
-Markdown 不是 HTML 的替代品，即使是远程的。语法的范围非常小，只对应于所有 HTML 标签的一小部分。 Markdown 并不打算让 HTML 标记更容易。 HTML 已经足够简单了。 Markdown 背后的想法是使文本尽可能易于阅读、编写和编辑。 HTML是*发布格式*； Markdown 是一种*书写格式*。因此，它的语法只考虑了可以用纯文本传达的内容。
+Markdown 不是 HTML 的替代品，即使是远程的。语法的范围非常小，只对应于所有 HTML 标签的一小部分。 Markdown 并不打算让 HTML 标记更容易。 HTML 已经足够简单了。 Markdown 背后的想法是使文本尽可能易于阅读、编写和编辑。 HTML是*发布格式*； Markdown 是一种*书写格式*。因此，其语法仅考虑可以使用纯文本传达的内容。
 
 任何 Markdown 不可行的格式都可以简单地使用 HTML。无需突出显示 HTML 以将其与其他部分分开。
 它只是写在文本中。
 
-唯一的限制是块元素，例如 `<div>`、`<table>`、`<pre>`、`<p>` 等。它们必须用空行与周围的内容分开，并且开始和结束标签不应使用空格或制表符缩进。 Markdown 足够智能，不会在 HTML 块周围设置任何额外的（不需要的）`<p>` 标签。
+唯一的限制是块元素，例如 `<div>`、`<table>`、`<pre>`、`<p>` 等。它们必须通过空行与周围的内容分开，并且开始和结束标签不应使用空格或制表符缩进。 Markdown 足够智能，不会在 HTML 块周围设置任何额外的（不需要的）`<p>` 标签。
 
 例如，要在 Markdown 文章中包含一个 HTML 表格：
 
@@ -81,7 +81,7 @@ Markdown 允许这些字符正常使用。它规定了编码本身，如果实�
 
 `AT&amp;T`
 
-做。由于 Markdown 支持内联 HTML，因此在适当的情况下将尖括号视为 HTML。只是为了像
+做。由于 Markdown 支持内联 HTML，因此在适当的情况下，尖括号被视为 HTML。只是为了像
 
 `4 < 5`
 
@@ -89,7 +89,7 @@ Markdown 允许这些字符正常使用。它规定了编码本身，如果实�
 
 `4 &lt; 5`
 
-做。在代码或跨度块中，尖括号和与号 *总是* 编码。这简化了在 Markdown 中编写 HTML（与原始 HTML 不同，原始 HTML 对每个 `<` 和 `&` 进行编码几乎是一场噩梦）。
+做。但是，尖括号和与号 *总是* 编码在代码或跨度块中。这简化了在 Markdown 中编写 HTML（与原始 HTML 不同，原始 HTML 对每个 `<` 和 `&` 进行编码几乎是一场噩梦）。
 
 ##块元素
 ### 段落和换行符
@@ -97,7 +97,7 @@ Markdown 允许这些字符正常使用。它规定了编码本身，如果实�
 
 “一行或多行”规则意味着一件事：Markdown 支持“硬中断”段落。这与大多数其他文本到 HTML 格式器（包括 Movable Type 的“转换换行符”选项）非常不同，后者将段落中的每个换行符格式化为 `<br />`。
 
-如果你 *希望* 有一个 `<br />` 作为中断，你可以简单地用两个或多个空格结束该行。
+如果您 *希望* 有一个 `<br />` 作为中断，您可以简单地以两个或多个空格结束该行。
 
 这是生成 `<br />` 的一些额外工作，但简单的“每个换行符都是 `<br />`”规则在 Markdown 中不起作用。
 
@@ -109,7 +109,7 @@ Markdown 的类似电子邮件的多段 [引用] (#quotes) 和 [列表条目](#l
 
 ### 标题
 这里的 Markdown 只支持一种头部格式：atx。
-Atx 类标题在行的开头使用 1-6 个哈希符号，对应于 1-6 级。例如：
+类 Atx 标题在行首使用 1-6 个菱形字符，对应于 1-6 级。例如：
 
 `# Dies ist ein H1`
 
@@ -193,7 +193,7 @@ Markdown 支持排序（编号）和未排序列表（项目符号列表）。
 
     * Lorem ipsum dolor 坐 amet，consectetuer adipiscing 精英。
 
-Aliquam hendrerit mi posuere lectus。 Vestibulum enim wisi、viverra nec、fringilla in、laoreet vitae、risus。
+Aliquam hendrerit mi posuere lectus。 Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus。
 
     * Donec 坐在 amet nisl。 Aliquam semper ipsum 坐 amet velit。
 
@@ -232,7 +232,7 @@ Aliquam hendrerit mi posuere lectus。 Vestibulum enim wisi, viverra nec, fringi
 
 列表项可以由多个段落组成。列表项中的每个以下段落必须缩进至少 4 个空格或一个制表符：
 
-    1. 这是一个包含两个段落的列表项。 Lorem ipsum dolor
+    1. 这是一个包含两段的要点。 Lorem ipsum dolor
 
 坐在 amet，consectetuer adipiscing 精英。 Aliquam hendrerit mi posuere lectus。
 
@@ -240,7 +240,7 @@ Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus。 Donec �
 
     2. Suspendisse id sem consectetuer libero luctus adipiscing。
 
-下一段的每一行都缩进看起来很好，但同样，Markdown 允许懒人只缩进第一行：
+下一段的每一行都缩进看起来很好，但是 Markdown 再次允许懒惰的人只缩进第一行：
 
     * 这是一个两段式的列表项
 
@@ -271,7 +271,7 @@ Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus。 Donec �
 
 <h3 id="precode">代码块</h3>
 
-预先格式化的代码块用于覆盖程序或标记源代码。代码块中的行被解释为找到，而不是形成正常的段落。 Markdown 包含带有标签 `<pre>` 和 `<code>` 的代码块。
+预格式化的代码块用于覆盖程序或标记源代码。代码块中的行被解释为找到，而不是形成正常的段落。 Markdown 包含带有标签 `<pre>` 和 `<code>` 的代码块。
 
 要在 Markdown 中创建代码块，只需将代码块的每一行缩进至少 4 个空格或一个制表符。从以下输入...
 
@@ -348,7 +348,7 @@ Markdown 支持两种类型的链接：* 内联 * 和 * 引用 *。
 
 <p><a href="http://example.net/">此链接</a>没有标题属性。</p>
 
-如果要引用同一服务器上的内容，可以使用相对路径：
+如果要引用同一台服务器上的内容，可以使用相对路径：
 
     在页面 [关于我](/about/) 上有更多信息。
 
@@ -415,7 +415,7 @@ title 属性也可以放在下一行并用更多空格或制表符缩进。这�
 
 由于链接标识符可以包含空格，这个缩写甚至适用于链接文本中的几个词：
 
-访问 [大胆的火球] [] 了解更多信息。
+访问 [Daring Fireball] [] 了解更多信息。
 
 然后定义链接：
 
@@ -447,17 +447,17 @@ title 属性也可以放在下一行并用更多空格或制表符缩进。这�
 
 <p><a href="http://google.com/" title="谷歌">我从 Google</a>获得的流量是从<a href="http://search.yahoo.com/" title="雅虎搜索">Yahoo</a>或<a href="http://search.msn.com/" title="MSN 搜索">MSN</a>获得的流量的十倍。</p>
 
-为了比较，相同的段落使用 Markdown 的内联链接：
+为了比较，同样的段落如下，使用 Markdown 的内联链接：
 
 我从 [谷歌](http://google.com/ "Google") 获得的流量是来自 [雅虎](http://search.yahoo.com/ "Yahoo Search") 或 [MSN](http://search.msn.com/ "MSN Search") 的流量的十倍。
 
 参考链接背后的想法并不是它们更容易编写。这个想法是它们使文档更具可读性。示例段落只有 80 个字符长，有参考链接，181 个字符有参考链接； 239 个字符作为 HTML，标记多于内容。
 
-使用 Markdown 的参考链接，源文档看起来更像是浏览器中显示的最终输出格式。凭借从段落中提取标记元数据的能力，链接可以集成到文本中，而不会减慢文本的流动速度。
+使用 Markdown 的参考链接，源文档看起来更像是浏览器中显示的最终输出格式。由于能够从段落中提取标记元数据，链接可以集成到文本中，而不会减慢文本的流动速度。
 
 <a id="em"></a>
 
-### 强调 Markdown 将星号 (`*`) 和下划线 (`_`) 视为强调的指标。装在个人`*`或`_`文本括与HTML标签`<em>`，双`*`或`_`都标有标签`<strong>`。下面的文字，例如：
+### 强调 Markdown 将星号 (`*`) 和下划线 (`_`) 视为强调指示符。装在个人`*`或`_`文本括与HTML标签`<em>`，双`*`或`_`都标有标签`<strong>`。下面的文字，例如：
     *单星号*
 
     _单下划线_
@@ -574,9 +574,9 @@ Markdown 使用设计为类似于链接样式的语法来做到这一点。这�
 
 ###反斜杠屏蔽
 Markdown 允许使用反斜杠屏蔽来编写在 Markdown 语法中具有特定含义的字符。
-例如，如果你想用星号包围一个单词（而不是 HTML 标签 `<em>`），你可以在星号前加上反斜杠：
+例如，如果你想用星号包围一个单词（而不是 HTML 标签 `<em>`），你可以在星号前面加上反斜杠：
 
-  \ *周围有星号 \*
+  \ *被星号包围 \*
 
 Markdown 为以下字符提供此选项：
 

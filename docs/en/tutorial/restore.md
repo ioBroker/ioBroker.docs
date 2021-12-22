@@ -4,7 +4,7 @@ lastChanged: 03.12.2019
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/tutorial/restore.md
-hash: 9SyQw5gWCDpvFS0ksEa7NULgmuancyWYV7tkASkVhpg=
+hash: 6M6JLNd7LLD21j0ulNOqyghHCguiQLMi21AkSJnTYyY=
 ---
 # Basics
 How is a restore of the ioBroker installation correctly carried out on a Linux system?
@@ -12,7 +12,7 @@ How is a restore of the ioBroker installation correctly carried out on a Linux s
 ### Preface:
 Since some users find it very difficult to restore, step-by-step instructions for restoring after a crash, or after a hardware change, system change or something else should help.
 
-Basically, however, you can say one thing in advance: a restore can be done in a few minutes if executed correctly and nobody needs to be afraid of it.
+Basically you can say one thing in advance: a restore can be done in a few minutes if executed correctly and nobody needs to be afraid of it.
 
 In the end, all data is available again and a new system has been set up.
 
@@ -95,20 +95,20 @@ If the backup is to be restored on a different host, this option should not be u
 
 After saving, the existing backups on the local path can be called up using the "Retrieve backups" button.
 
-The backup just copied via FTP should appear in the list under “iobroker”.
+The backup just copied via FTP should appear in the list under "iobroker".
 Select this now.
 
 ![Selection of backups](../../de/tutorial/media/restore/1575301146928-restoreliste.jpg)
 
-After the selection there is a message that iobroker will be stopped for the restore and then restarted.
+After the selection there is a message that iobroker will be stopped for the restore and will then be restarted.
 
 ![Start restore](../../de/tutorial/media/restore/1575301175231-restorestart.jpg)
 
-Here you started the actual restore process.
+This is where you started the actual restore process.
 
 ![Restore is in progress](../../de/tutorial/media/restore/1575301208033-restore.jpg)
 
-Another tab will now open in your browser, in which you can follow the recovery process in the Backitup WebUI, just like on the console.
+Another tab will now open in your browser in which you can follow the recovery process in the Backitup WebUI, just like on the console.
 
 ![restoreWebUI.JPG](../../de/tutorial/media/restore/restoreWebUI.JPG)
 
@@ -139,7 +139,7 @@ Depending on the size of the installation and the speed of your computer and the
 
 Congratulations, the newly installed system is now complete with all settings, scripts, visualizations, etc.
 
-With Backitup there is now the possibility of restoring further data, if this was also backed up on the old system in advance.
+With Backitup there is now the possibility of restoring further data if this was also backed up on the old system in advance.
 You can restore the Redis database, the Zigbee database, the mySql database and your history data with the same steps as described above.
 
 The list of retrieved backups would then look like this in the example.
@@ -187,7 +187,7 @@ A Redis backup, Zigbee backup, mySql backup, or the history data cannot be creat
 
 Backitup is required for this, as these were specially created with Backitup.
 
-This can now take a few minutes, depending on your system. The progress is displayed in the terminal.
+Depending on your system, this can now take a few minutes. The progress is displayed in the terminal.
 When the restore is complete, restart ioBroker with the following command:
 
 ```
@@ -198,7 +198,7 @@ Here, too, all adapters are now reinstalled individually by ioBroker via npm.
 This may take a while depending on the size of your installation, the internet speed, and the performance of the system.
 The current status can be tracked in the "Log" tab.
 
-Now it is done and the system is reinstalled and all settings, scripts, visualizations, etc. restored.
+It is now done and the system is reinstalled and all settings, scripts, visualizations, etc. restored.
 
 ### Conclusion:
 Basically, both variants lead to the same result.

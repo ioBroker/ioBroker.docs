@@ -4,7 +4,7 @@ lastChanged: 06.05.2021
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterdocstyleguide.md
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
-hash: amdkGGbA28UH+A3DZkX3kwJ7W9Z1znae5k5zXk7cVMU=
+hash: gVPviuMsPHyCd+k12PaNgL3hB9dKVQ9VYcYm4GfPQkg=
 ---
 # 创建适配器文档的风格指南
 * 文档是使用“Markdown”语言创建的。
@@ -69,7 +69,7 @@ hash: amdkGGbA28UH+A3DZkX3kwJ7W9Z1znae5k5zXk7cVMU=
 
 但借助文档末尾的内联 `[a link][]` 和 `[a link]: https://a.link/to/know`。
 
-* 如果使用破折号，请使用短符号
+* 使用破折号时，使用短符号
 
   在 OSX 中使用减号而不是“-”或 `Option+Shift+"-"`。
 
@@ -94,7 +94,7 @@ hash: amdkGGbA28UH+A3DZkX3kwJ7W9Z1znae5k5zXk7cVMU=
 * 以下适用于源代码部分：
   * 根据源代码语言，必须选择相应的标记。到
 
-    JavaScript 示例 `\` \ `\``。
+    JavaScript 的示例 `\` \ `\``。
 
   * 源文本可以但不必是完整的。源代码块
 
@@ -104,7 +104,7 @@ hash: amdkGGbA28UH+A3DZkX3kwJ7W9Z1znae5k5zXk7cVMU=
 
 正确的转义字符必须使用：`\_`，`\*`，`\\`和``\``` anstelle von `_`, `*§§SSSSS_6§ § \ ` und `` ` ``。
 
-* 为了使笔记脱颖而出，以下准则是
+* 为了使笔记脱颖而出，以下是指导方针
 
   要注意：
 

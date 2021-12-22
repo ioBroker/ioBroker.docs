@@ -4,7 +4,7 @@ lastChanged: 03.12.2019
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/tutorial/restore.md
-hash: 9SyQw5gWCDpvFS0ksEa7NULgmuancyWYV7tkASkVhpg=
+hash: 6M6JLNd7LLD21j0ulNOqyghHCguiQLMi21AkSJnTYyY=
 ---
 ＃ 基本
 如何在 Linux 系统上正确执行 ioBroker 安装的还原？
@@ -12,7 +12,7 @@ hash: 9SyQw5gWCDpvFS0ksEa7NULgmuancyWYV7tkASkVhpg=
 ＃＃＃ 前言：
 由于一些用户发现恢复非常困难，崩溃后、硬件更改、系统更改或其他操作后的逐步恢复说明应该会有所帮助。
 
-但是，基本上，您可以提前说一件事：如果执行正确，可以在几分钟内完成恢复，无需任何人担心。
+基本上你可以提前说一件事：如果正确执行，恢复可以在几分钟内完成，没有人需要害怕它。
 
 最后，所有数据都再次可用，并建立了一个新系统。
 
@@ -23,7 +23,7 @@ hash: 9SyQw5gWCDpvFS0ksEa7NULgmuancyWYV7tkASkVhpg=
 从 [下载区](https://www.iobroker.net/#de/download) 获取完成的映像，设置您自己的 Linux 操作系统并根据此 [手动的](https://www.iobroker.net/#de/documentation/install/linux.md) 安装 ioBroker。
 
 ＃＃＃ 下一步
-如果旧系统将状态和/或对象保存在Redis中，则新系统必须首先配备Redis服务器。
+如果旧系统在Redis中保存了状态和/或对象，则新系统必须首先配备Redis服务器。
 
 如果您不确定是否使用了Redis并且仍然可以访问旧系统，请使用命令`iobroker status`获取所需信息。“使用Redis时，输出如下所示：
 
@@ -100,11 +100,11 @@ Backitup 也可以从 NAS、Dropbox 或 Google Drive 执行还原，但本地变
 
 ![备份的选择](../../de/tutorial/media/restore/1575301146928-restoreliste.jpg)
 
-选择后会出现一条消息，iobroker 将停止进行恢复，然后重新启动。
+选择后会出现一条消息，iobroker 将停止进行恢复，然后将重新启动。
 
 ![开始恢复](../../de/tutorial/media/restore/1575301175231-restorestart.jpg)
 
-在这里，您开始了实际的恢复过程。
+这是您开始实际恢复过程的地方。
 
 ![正在恢复中](../../de/tutorial/media/restore/1575301208033-restore.jpg)
 
@@ -133,13 +133,13 @@ iobroker start
 在这里你必须要有耐心，让 iobroker 来做。
 在实例中，您可以看到逐步安装了哪些适配器。
 仍在安装或保留的所有适配器在实例中还没有图标。
-请不要重新启动 ioBroker，最多不时使用 F5 更新视图，直到所有实例都提供了一个图标。
+请不要重新启动 ioBroker，最多不时使用 F5 更新视图，直到所有实例都提供一个图标。
 
 根据安装的大小以及您的计算机和 Internet 连接的速度，这可能需要 2-3 个小时。
 
 恭喜，新安装的系统现已完成所有设置、脚本、可视化等。
 
-有了备份，现在可以恢复更多数据，前提是这些数据也提前在旧系统上进行了备份。
+有了Backitup，现在可以恢复更多数据，前提是这些数据也提前备份到了旧系统上。
 您可以使用与上述相同的步骤恢复 Redis 数据库、Zigbee 数据库、mySql 数据库和您的历史数据。
 
 在示例中，检索到的备份列表将如下所示。
@@ -185,9 +185,9 @@ iobroker restore <Dateiname eures Backups>
 !> **使用此方法只能恢复一个 ioBroker 备份非常重要。
 Redis 备份、Zigbee 备份、mySql 备份或历史数据无法使用此命令创建**
 
-为此需要Backitup，因为这些是专门用Backitup 创建的。
+为此需要 Backitup，因为它们是用 Backitup 专门创建的。
 
-根据您的系统，这现在可能需要几分钟。进度显示在终端中。
+现在，这可能需要几分钟时间，具体取决于您的系统。进度显示在终端中。
 恢复完成后，使用以下命令重新启动 ioBroker：
 
 ```
@@ -198,7 +198,7 @@ iobroker start
 这可能需要一段时间，具体取决于您的安装大小、互联网速度和系统性能。
 可以在“日志”选项卡中跟踪当前状态。
 
-现在大功告成，系统重新安装，所有设置、脚本、可视化等都恢复了。
+现在已完成并重新安装系统并恢复所有设置、脚本、可视化等。
 
 ＃＃＃ 结论：
 基本上，两种变体都会导致相同的结果。

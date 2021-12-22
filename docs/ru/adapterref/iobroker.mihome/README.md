@@ -4,11 +4,11 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mihome/README.md
 title: Домашний адаптер ioBroker Mi
-hash: WTtTH9oAY5k1YGKpdvBfJjyVwoMz83DTlTi2N0T3h24=
+hash: GmavLxm+klUaUCFI7o/yKJ8KJqOtoyN2RmgfJUQcojY=
 ---
 ![логотип](../../../de/adapterref/iobroker.mihome/media/mihome.png)
 
-# IoBroker Mi Home Adapter С помощью Mi Home Adapter Mi Control Hub (шлюз) интегрирован в систему ioBroker и, таким образом, позволяет различным датчикам, переключателям и т. д. Xiaomi взаимодействовать с ioBroker.
+# IoBroker Mi Home Adapter С помощью Mi Home Adapter Mi Control Hub (шлюз) интегрирован в систему ioBroker и, таким образом, позволяет различным датчикам, переключателям и т. д. Xiaomi обмениваться данными с ioBroker.
 С помощью ioBroker, например, можно управлять освещением и громкоговорителем шлюза.
 
 ## Требования
@@ -64,7 +64,7 @@ hash: WTtTH9oAY5k1YGKpdvBfJjyVwoMz83DTlTi2N0T3h24=
 * Нажмите несколько раз в пустой области ниже
 * Теперь режим разработчика включен и должен через определенное время
 
-появляются дальнейшие пункты меню> Если сразу не работает, повторите шаги
+Появятся дополнительные пункты меню> Если сразу не работает, повторите шаги
 
 * Выберите 4-й пункт меню
 * Включите ползунковый переключатель вверху, запомните пароль и подтвердите, нажав «OK».
@@ -127,11 +127,11 @@ hash: WTtTH9oAY5k1YGKpdvBfJjyVwoMz83DTlTi2N0T3h24=
 
 ![логотип](../../../de/adapterref/iobroker.mihome/media/Instanz.PNG)
 
-Шлюз и его обученные устройства теперь отображаются в разделе *Объекты*
+Шлюз и его запрограммированные устройства теперь отображаются в разделе *Объекты*
 
 ![логотип](../../../de/adapterref/iobroker.mihome/media/Objekte.PNG)
 
-Инструкции были составлены на основе наших знаний и убеждений.
+Инструкции были созданы на основе наших знаний и убеждений.
 
 ## Changelog
 ### 1.3.8 (2021-09-13)

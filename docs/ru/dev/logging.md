@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/logging.md
 title: без названия
-hash: FAhDtnxOJ7Fyo4YK2D/r3ZcDQdByr87vZusjjQx1iH0=
+hash: lqS7I0eLZt6tvBnm62QI2XrnTsl3mo5xbcJoPKJRbG8=
 ---
 ## Транспортер бревен
 Если вы хотите подписаться на определенные или все журналы адаптеров ioBroker, вы можете использовать **logTransporter** Для активации в вашем адаптере добавьте `"logTransporter": true` к общей структуре вашего `io-package.json`.<br><br> В коде вашего адаптера (например, в файле `main.js`) вам нужно будет вызвать `requireLog(true)` для активации. Как только для requireLog () установлено значение true, вы можете использовать `on('log', callback)` для подписки на все новые журналы, поступающие от адаптеров. Функция обратного вызова возвращает все журналы со следующим объектом (пример):
@@ -37,7 +37,7 @@ hash: FAhDtnxOJ7Fyo4YK2D/r3ZcDQdByr87vZusjjQx1iH0=
 Другие адаптеры отслеживают все переменные «* .logging» и записывают в соответствующие списки сообщения журнала.
 Список ограничен 1000 сообщениями (по умолчанию).
 
-Экземпляр logTransport получает событие «журнал» с сообщением.
+Экземпляр logTransport получает событие "журнал" с сообщением.
 
 Для управления состоянием «system.adapter.adapterName.X.logging» адаптер должен использовать функцию *requireLog* Например. ```adapter.requireLog(true);```, чтобы разрешить получение журналов.
 
@@ -45,4 +45,4 @@ hash: FAhDtnxOJ7Fyo4YK2D/r3ZcDQdByr87vZusjjQx1iH0=
 
 Функциональность реализована в *adapter.js* и разработчик должен просто установить общий флаг *logTransporter* и вызвать *requireLog ()*
 
-Функциональность адаптеров, отличных от logTransport, реализована в *adapter.js* и разработчику это не нужно.
+Функциональность для адаптеров, отличных от logTransport, реализована в *adapter.js* и разработчику это не нужно.

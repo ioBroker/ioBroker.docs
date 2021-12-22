@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/images.md
 title: 处理图像
-hash: Rd0zm6eZ+Bir4OYRlqu5jeUQpCtIZuqIekiMBNLut0Y=
+hash: +7btQz2YwNxQ7cvAm6lflniM5CCWalHSRI06eUPOpmQ=
 ---
 --- 标题：处理图像 lastChanged：07/31/2019 ---
 

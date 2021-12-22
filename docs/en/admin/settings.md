@@ -4,10 +4,10 @@ lastChanged: 27.03.2019
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/settings.md
-hash: EWCPIroHVv8aZWVTS96ljn+F7vclaiYghLknECzG9Fw=
+hash: SrsCuiAVjFnWErHKd5ROEqrjxmi3MqUS+1fK8aALD34=
 ---
 # The system settings
-The system settings can be accessed from every menu item of the administrator via the wrench icon in the title bar of the screen.
+The system settings can be reached from every menu point of the admin via the wrench icon in the title bar of the screen.
 
 ![The system settings](../../de/admin/media/ADMIN_Settings_main.png)
 
@@ -46,7 +46,7 @@ If only one history adapter (SQL / History / InfluxDB) is installed, it is used,
 
 ** Active depository **
 
-The required repository from which the adapter version is to be installed is selected via the pull-down menu. The repositories listed on the “Storage locations” subpage are available in the pull-down menu
+The desired repository from which the adapter version is to be installed is selected via the pull-down menu. The repositories listed on the “Storage locations” subpage are available in the pull-down menu
 
 ## Storage locations
 ![The repositories](../../de/admin/media/ADMIN_Settings_repos.png)
@@ -61,7 +61,7 @@ If other repositories from an older installation are entered here, they should b
 ## Certificates
 ![Certificates](../../de/admin/media/ADMIN_Settings_certificates.png)
 
-This is the central point for the certificates that are used for SSL / HTTPS communication. The certificates are used by admin, web, simple-api, socketio. Standard certificates are installed by default. You can't verify anything with it. They are only used for SSL communication. Because the certificates are open, you should use your own (self-signed) certificates, buy real certificates or switch to Let's Encrypt. Communication with default certificates is not secure and if someone wants to read the traffic, this could be done. Be sure to install your own certificates.
+This is the central point for the certificates that are used for SSL / HTTPS communication. The certificates are used by admin, web, simple-api, socketio. Standard certificates are installed by default. You can't verify anything with it. They are only used for SSL communication. Because the certificates are open, you should use your own (self-signed) certificates, buy real certificates or switch to Let's Encrypt. Communication with default certificates is not secure and if someone wants to read the traffic, this could be done. It is essential to install your own certificates.
 E.g. under linux.
 
 Certificates can either be specified as a path or uploaded completely using drag and drop
@@ -69,7 +69,7 @@ Certificates can either be specified as a path or uploaded completely using drag
 --- title: System settings lastChanged: 27.03.2019 ---
 
 # The system settings
-The system settings can be accessed from every menu item of the administrator via the wrench icon in the title bar of the screen.
+The system settings can be reached from every menu point of the admin via the wrench icon in the title bar of the screen.
 
 ![The system settings](../../de/admin/media/ADMIN_Settings_main.png)
 
@@ -108,7 +108,7 @@ If only one history adapter (SQL / History / InfluxDB) is installed, it is used,
 
 ** Active depository **
 
-The required repository from which the adapter version is to be installed is selected via the pull-down menu. The repositories listed on the “Storage locations” subpage are available in the pull-down menu
+The desired repository from which the adapter version is to be installed is selected via the pull-down menu. The repositories listed on the “Storage locations” subpage are available in the pull-down menu
 
 ## Storage locations
 ![The repositories](../../de/admin/media/ADMIN_Settings_repos.png)
@@ -123,7 +123,7 @@ If other repositories from an older installation are entered here, they should b
 ## Certificates
 ![Certificates](../../de/admin/media/ADMIN_Settings_certificates.png)
 
-This is the central point for the certificates that are used for SSL / HTTPS communication. The certificates are used by admin, web, simple-api, socketio. Standard certificates are installed by default. You can't verify anything with it. They are only used for SSL communication. Because the certificates are open, you should use your own (self-signed) certificates, buy real certificates or switch to Let's Encrypt. Communication with default certificates is not secure and if someone wants to read the traffic, this could be done. Be sure to install your own certificates.
+This is the central point for the certificates that are used for SSL / HTTPS communication. The certificates are used by admin, web, simple-api, socketio. Standard certificates are installed by default. You can't verify anything with it. They are only used for SSL communication. Because the certificates are open, you should use your own (self-signed) certificates, buy real certificates or switch to Let's Encrypt. Communication with default certificates is not secure and if someone wants to read the traffic, this could be done. It is essential to install your own certificates.
 E.g. under linux.
 
 Certificates can either be specified as a path or uploaded completely using drag and drop
@@ -138,7 +138,7 @@ If the rights are wrong an error message appears like:
 
 ``web.0 (24704) Cannot create webserver: Error: error:0909006C:PEM routines:get_name:no start line``
 
-You can check access by logging in to the server as user root, then switching to the iobroker user and listing the certificate file:
+You can check the access if you log in to the server as user root, then switch to the iobroker user and list the certificate file:
 
 ``su iobroker``
 
@@ -210,7 +210,7 @@ Let's Encrypt only works with a node.js version> = 4.5
 ## Access rights
 ![Access rights](../../de/admin/media/ADMIN_Settings_zugriffsrechte.png)
 
-In this sub-page, the access rights for different areas can be defined for all users / groups
+In this subpage, the access rights for different areas can be defined for all users / groups
 
 ## Statistics
 ![statistics](../../de/admin/media/ADMIN_Settings_statistics.png)
@@ -270,7 +270,7 @@ Let's Encrypt only works with a node.js version> = 4.5
 ## Access rights
 ![Access rights](../../de/admin/media/ADMIN_Settings_zugriffsrechte.png)
 
-In this sub-page, the access rights for different areas can be defined for all users / groups
+In this subpage, the access rights for different areas can be defined for all users / groups
 
 ## Statistics
 ![statistics](../../de/admin/media/ADMIN_Settings_statistics.png)

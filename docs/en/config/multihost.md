@@ -4,7 +4,7 @@ lastChanged: 13.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/config/multihost.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: 7p04RSBKSqzT7tsDxGIcpCudxD5hddp6qX54ZYOCAEE=
+hash: gH4zuuZ+a67CUc09gI901hft2T4V48aHFUypPcHeiak=
 ---
 # The multihost operation
 ioBroker is able to have the tasks done by several servers. This allows the processing load to be distributed across multiple hosts.
@@ -24,7 +24,7 @@ please call via the console:
 
 1. `iobroker setup custom`
 
-Complete the menu that now appears as follows
+Fill in the menu that now appears as follows
 
 ```
 Type of objects DB [(f)ile, (c)ouch, (r)edis], default [file]: f
@@ -50,7 +50,7 @@ Please enter via the console on the slave
 
 1. `iobroker setup custom`
 
-Complete the menu that now appears as follows
+Fill in the menu that now appears as follows
 
 ```
 Type of objects DB [(f)ile, (c)ouch, (r)edis], default [file]: f
@@ -97,7 +97,7 @@ Example:**
 ... the multihost automatic (“sudo iobroker multihost enable” and “sudo iobroker multihost browse“) does not work, but only the old way (`iobroker setup custom`) see above
 
 ## Multihost with redis
-If a multihost environment is to be installed in which the states are saved in redis, there are still a few things to consider.
+If a multihost environment is to be installed in which the states are saved in redis, a number of things must be taken into account.
 
 The redis.conf file on the host on which the states are saved must be changed as follows.
 

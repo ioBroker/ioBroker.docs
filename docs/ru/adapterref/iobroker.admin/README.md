@@ -168,6 +168,10 @@ IP-адрес с которого доступен драйвер (поддер�
 ![ioBroker.admin - system settings](img/admin_SystemSettings.jpg)
 
 ## Changelog
+### 5.2.2 (2021-12-21)
+* (bluefox) Changed the minimal required js-controller version to 3.3.21 
+* (bluefox) Used web-socket library 8 (no node 10 support anymore)
+
 ### 5.2.1 (2021-11-28)
 * (bluefox) Allow in expert mode the creation of states and channels in mqtt branch
 
@@ -181,9 +185,6 @@ IP-адрес с которого доступен драйвер (поддер�
 
 ### 5.1.25 (2021-08-15)
 * (bluefox) Corrected some errors reported via sentry and the GitHub issues
-
-### 5.1.23 (2021-08-05)
-* (bluefox) Corrected some errors reported via sentry
 
 ## License
 The MIT License (MIT)

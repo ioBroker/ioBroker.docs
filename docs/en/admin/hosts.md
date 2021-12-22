@@ -4,20 +4,20 @@ lastChanged: 07.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/hosts.md
-hash: b/cl0uw+yfoPT0T/XNqIz/AUhBq050Wlkmzg4UG42hI=
+hash: vui0+3EZSKz2XJdrrGwCONv3my8EhEnFlpgcAu982o0=
 ---
 The available hosts are displayed here.
 
 ![The Hosts page](../../de/admin/media/ADMIN_Hosts_numbers.png)
 
-In a standard system there is only one host. In the case of a multihost system, several accordingly.
+In a standard system there is only one host. In the case of a multihost system, several.
 
 ## The title line
-in the title line there are icons for the most important processes. There is context help for each icon. To do this, simply stay on the icon with the mouse for a while.
+in the title line there are icons for the most important processes. There is context help for each icon. To do this, simply hold the mouse on the icon for a while.
 
 The icons in detail:
 
-### 1 - Toggle view
+### 1 - toggle view
 With this button you can switch between the tile and the list view (toggle function)
 
 ### 2 - get updates

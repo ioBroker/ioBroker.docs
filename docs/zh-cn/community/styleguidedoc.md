@@ -4,7 +4,7 @@ lastChanged: 13.06.2019
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/community/styleguidedoc.md
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
-hash: Zmgjn4ZXZEX/lmxZOYDoitahdM5B6U5aczZS5gjD+Sk=
+hash: mfCPW6sFRTOA8DZNqHydfib2TK+qdfZMNwiFfig9vtw=
 ---
 # 风格指南文档
 * 文档是使用 [Markdown] [] 语言创建的。
@@ -53,7 +53,7 @@ hash: Zmgjn4ZXZEX/lmxZOYDoitahdM5B6U5aczZS5gjD+Sk=
 
 但借助文档末尾的内联 `[a link][]` 和 `[a link]: https://a.link/to/know`。
 
-* 如果使用破折号，请使用短符号
+* 使用破折号时，使用短符号
 
   在 OSX 中使用减号而不是“-”或 `Option+Shift+"-"`。
 
@@ -83,7 +83,7 @@ hash: Zmgjn4ZXZEX/lmxZOYDoitahdM5B6U5aczZS5gjD+Sk=
 
 正确的转义字符必须使用：`\_`，`\*`，`\\`和``\``` anstelle von `_`, `*§§SSSSS_6§ § \ ` und `` ` ``。
 
-* 为了使笔记脱颖而出，以下准则是
+* 为了使笔记脱颖而出，以下是指导方针
 
   要注意：
 

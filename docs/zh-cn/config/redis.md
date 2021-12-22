@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/config/redis.md
 title: ioBroker 的 Redis 数据库
-hash: OO6QwcVxnlNy+qafCZFqQ7pZKK33y+Ddy6McX56JFDM=
+hash: SoqEQqV0IZ/uxETDM3MSFvy9Bkrk4fp/cwvrsetbZjQ=
 ---
 # IoBroker 的 Redis 数据库
 Redis 是一个开源的内存数据库。
@@ -13,7 +13,7 @@ Redis的一大优势：
 
 与内部ioBroker 数据库相比，Redis 在数据访问速度、文件系统中的IO 管理以及更好地利用CPU 资源等方面具有优势。
 js控制器松了一口气。以前缓慢的系统可以再次变得更快。
-但是，重要的是要有足够的 RAM 可用，因为 Redis 将所有数据保存在 RAM 中。根据 Redis 中存储的确切内容，RAM 要求是几 MB（例如，如果只有状态在 Redis 中）到超过 200 MB（例如，如果对象和文件也存储在那里）。
+但是，足够的 RAM 可用很重要，因为 Redis 将所有数据保存在 RAM 中。根据 Redis 中存储的确切内容，RAM 要求是几 MB（例如，如果只有状态在 Redis 中）到超过 200 MB（例如，如果对象和文件也存储在那里）。
 
 ## Redis 常见问题
 1.我的ioBroker是否需要Redis？
@@ -30,11 +30,11 @@ js控制器松了一口气。以前缓慢的系统可以再次变得更快。
 可以在 [论坛](https://forum.iobroker.net/topic/26327/redis-in-iobroker-%C3%BCberblick) 中找到有关 Redis 主题的详细说明以及更多信息
 
 ##Redis持久化
-通常Redis是一个“内存数据库”。所以数据存储在RAM中。当Redis关闭时，这些都消失了。
+通常Redis是一个“内存数据库”。所以数据存储在RAM中。当Redis退出时，这些都消失了。
 为了启用更新，Redis 支持两种类型的硬盘数据存储。
 RDB 和 AOF 持久化。
 
-** RDB ** 默认情况下处于活动状态，此方法将整个内容保存在一个 RDB 文件中。可以配置存储间隔，并应根据您自己的需要进行调整！为了配置这个，混合了数据安全性（你可以应对在崩溃中丢失多少数据）和存储介质的写入负载，因为整个内容总是被写入（如果对象也在 Redis 中，这可能是几个百兆！）。
+** RDB ** 默认情况下处于活动状态，此方法将整个内容保存在一个 RDB 文件中。可以配置存储间隔，并应根据您自己的需要进行调整！为了配置这个，混合了数据安全性（你可以应对在崩溃中丢失多少数据）和存储介质的写入负载，因为整个内容总是被写入（如果对象也在 Redis 中，这可能是几百个） MB！）。
 
 但是，** AOF ** 确保数据是完全最新的。
 为此，一个所谓的 AOF 文件被连续写入，其中所有更改始终附加。然后，此文件会定期合并，从而再次减小大小。最终的写入负载究竟如何，以及整个事情是否对 SD 卡有利，取决于保存的数据。如果对象和文件也在 Redis 中，那么很少追加和合并比定期存储大量数据要“经济”得多。
@@ -87,11 +87,11 @@ Redis 默认使用 6379 端口，并且还有一个用于访问数据库的命�
 有关更多详细信息，请参阅 [多主机](https://www.iobroker.net/#de/documentation/config/multihost.md)
 
 ## 将ioBroker 数据库转换为Redis
-大多数更改和数据查询发生在状态数据库中。所有数据更改都到达这里，然后在适配器注册某些数据后再次分发给它们。
+大多数更改和数据查询都是使用 States 数据库进行的。所有数据更改都到达这里，然后在适配器注册某些数据后再次分发给它们。
 到目前为止，将状态切换到 Redis 具有最大和最显着的性能影响。
-如果只转换状态数据库，理想情况下应该将 Redis 服务器与 ioBroker master 安装在同一主机上。
+如果只转换状态数据库，理想情况下应该将Redis服务器与ioBroker master安装在同一台主机上。
 
-然后通过以下方式进行“状态”的转换：
+然后通过以下方式更改“状态”：
 
 ```sh
 iobroker stop
@@ -119,4 +119,4 @@ iobroker setup custom
 对于状态，建议使用 RDB 持久性，然后根据更改次数每 5-15 分钟备份一次数据。对于对象/文件，AOF 持久化更适合最小化写负载。
 
 ##备份
-Redis 通常将其文件保存在/var/lib/redis 中。可以保存位于那里的 dump.rdb 或 appendonly.aof（取决于选择的持久性）。您还可以使用 `redis-cli BGSAVE` 在备份之前直接生成一个 dump.rdb，然后将其保存。
+Redis 通常将其文件保存在/var/lib/redis 中。可以保存位于那里的 dump.rdb 或 appendonly.aof（取决于所选的持久性）。您还可以使用 `redis-cli BGSAVE` 在备份之前直接生成一个 dump.rdb，然后将其保存。

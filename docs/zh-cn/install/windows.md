@@ -4,7 +4,7 @@ lastChanged: 18.07.2019
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/windows.md
-hash: px8Pj5WdRIRET04sAvbr8e4683UA6b4G1aExlrwjJgs=
+hash: XFdcrokNPGtTri8RFE+c4m/7TgKEDdKqtTLfO7BRt1s=
 ---
 # 在 Windows 上安装 ioBroker
 ?> *** 本文正在扩充中***。<br><br>帮助 ioBroker。请注意 [ioBroker 风格指南](community/styleguidedoc) 以便可以更轻松地采用更改。
@@ -30,7 +30,7 @@ cmd.exe /C node -v & pause
 
 如果输出的是Node.js版本号，首先要检查是否还满足【安装要求】()。
 
-如果错误信息为 `Der Befehl "node" ist entweder falsch geschrieben oder konnte nicht gefunden werden.`，则表示未安装 node.js，安装为 [可以马上开始](#nodeinst)。
+如果错误信息是 `Der Befehl "node" ist entweder falsch geschrieben oder konnte nicht gefunden werden.`，那么 node.js 没有安装，安装是 [可以马上开始](#nodeinst)。
 
 ＃＃ 快速开始
 ?> 此安装步骤摘要适用于已多次安装 ioBroker 的有经验的 ioBroker 用户。
@@ -72,7 +72,7 @@ cmd
 
    输入。
 
-由于必须以管理员身份打开命令行窗口，请使用 `OK` 填写 **而不是** 而是使用组合键 `Strg` + `Umschalt` + `Eingabetaste` .有一个安全问题，必须通过 `Ja` 或输入管理员密码来确认。
+由于命令行窗口必须以管理员身份打开，请使用 `OK` 填写 **而不是** 而是使用组合键 `Strg` + `Umschalt` + `Eingabetaste` .有一个安全问题，必须通过 `Ja` 或输入管理员密码来确认。
 
 !> 现在打开的黑色命令行窗口中的标题行必须以单词 `Administrator:` 开头。
 
@@ -84,7 +84,7 @@ cmd
 npm install --global windows-build-tools
 ```
 
-1.然后在命令行窗口中创建安装文件夹的命令
+1.然后在命令行窗口执行创建安装文件夹的命令
 
    跑步：
 

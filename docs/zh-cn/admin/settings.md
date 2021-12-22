@@ -4,72 +4,10 @@ lastChanged: 27.03.2019
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/admin/settings.md
-hash: EWCPIroHVv8aZWVTS96ljn+F7vclaiYghLknECzG9Fw=
+hash: SrsCuiAVjFnWErHKd5ROEqrjxmi3MqUS+1fK8aALD34=
 ---
 #系统设置
-通过屏幕标题栏中的扳手图标，可以从管理员的每个菜单点访问系统设置。
-
-![系统设置](../../de/admin/media/ADMIN_Settings_main.png)
-
-系统设置分布在几个子页面上：
-
-##主要设置
-在主设置中，设置了ioBroker 的基本参数，ioBroker 中的适配器也使用这些参数。
-
-一些参数已经从主机设置中获取。
-
-** 系统语言 **
-
-因此您可以在不同的系统语言之间进行选择。可能并非所有语言都得到完全支持。
-
-** 温度单位 **
-
-某些适配器使用此值。它可以是°C或°F。
-
-**货币**
-
-目前它不使用适配器
-
-** 日期格式 **
-
-选择日期在 admin 和 vis 中的显示方式。
-
-** 小数分隔符 **
-
-浮点值的逗号或点
-
-** 标准历史实例 **
-
-在这种情况下，默认情况下会记录数据并用于船队和人力车的图表中。
-
-如果只安装了一个历史适配器（SQL/History/InfluxDB），则使用它；如果有多个，则可以选择一个。
-
-** 活跃的托管 **
-
-通过下拉菜单选择要从中安装适配器版本的所需存储库。 “存储位置”子页面上列出的存储库可在下拉菜单中找到
-
-## 存储位置
-![存储库](../../de/admin/media/ADMIN_Settings_repos.png)
-
-ioBroker 可以从不同来源获取适配器列表。在安装过程中输入以下源：
-
-* 默认（= 稳定）：http://download.iobroker.net/sources-dist.json
-* 最新（= 测试版）：http://download.iobroker.net/sources-dist-latest.json
-
-如果从较旧的安装在此处输入其他存储库，则应将其删除，因为它们不再维护。
-
-##证书
-![证书](../../de/admin/media/ADMIN_Settings_certificates.png)
-
-这是用于 SSL/HTTPS 通信的证书的中心点。这些证书由 admin、web、simple-api、socketio 使用。默认情况下安装标准证书。你不能用它验证任何东西。它们仅用于 SSL 通信。由于证书是开放的，您应该使用自己的（自签名）证书，购买真实证书或切换到 Let's Encrypt。与默认证书的通信是不安全的，如果有人想读取流量，可以这样做。请务必安装您自己的证书。
-例如。在linux下。
-
-证书既可以指定为路径，也可以使用拖放方式完全上传
-
---- 标题：系统设置 lastChanged：27.03.2019 ---
-
-#系统设置
-通过屏幕标题栏中的扳手图标，可以从管理员的每个菜单点访问系统设置。
+可以通过屏幕标题栏中的扳手图标从管理员的每个菜单项访问系统设置。
 
 ![系统设置](../../de/admin/media/ADMIN_Settings_main.png)
 
@@ -104,7 +42,7 @@ ioBroker 可以从不同来源获取适配器列表。在安装过程中输入�
 
 在这种情况下，默认情况下会记录数据并用于船队和人力车的图表。
 
-如果只安装了一个历史适配器（SQL/History/InfluxDB），则使用它；如果有多个，则可以选择一个。
+如果只安装了一个历史适配器（SQL/History/InfluxDB），则使用它，如果有多个，则可以选择一个。
 
 ** 活跃的托管 **
 
@@ -118,19 +56,81 @@ ioBroker 可以从不同来源获取适配器列表。在安装过程中输入�
 * 默认（= 稳定）：http://download.iobroker.net/sources-dist.json
 * 最新（= 测试版）：http://download.iobroker.net/sources-dist-latest.json
 
-如果从较旧的安装在此处输入其他存储库，则应将其删除，因为它们不再维护。
+如果在此处输入来自较旧安装的其他存储库，则应将其删除，因为它们不再维护。
 
 ##证书
 ![证书](../../de/admin/media/ADMIN_Settings_certificates.png)
 
-这是用于 SSL/HTTPS 通信的证书的中心点。这些证书由 admin、web、simple-api、socketio 使用。默认情况下安装标准证书。你不能用它验证任何东西。它们仅用于 SSL 通信。由于证书是开放的，您应该使用自己的（自签名）证书，购买真实证书或切换到 Let's Encrypt。与默认证书的通信是不安全的，如果有人想读取流量，可以这样做。请务必安装您自己的证书。
+这是用于 SSL/HTTPS 通信的证书的中心点。这些证书由 admin、web、simple-api、socketio 使用。默认情况下安装标准证书。你不能用它验证任何东西。它们仅用于 SSL 通信。由于证书是开放的，您应该使用自己的（自签名）证书，购买真实证书或切换到 Let's Encrypt。与默认证书的通信是不安全的，如果有人想读取流量，可以这样做。必须安装自己的证书。
 例如。在linux下。
 
-证书既可以指定为路径，也可以使用拖放方式完全上传
+证书可以指定为路径，也可以使用拖放方式完全上传
+
+--- 标题：系统设置 lastChanged：27.03.2019 ---
+
+#系统设置
+可以通过屏幕标题栏中的扳手图标从管理员的每个菜单项访问系统设置。
+
+![系统设置](../../de/admin/media/ADMIN_Settings_main.png)
+
+系统设置分布在几个子页面上：
+
+##主要设置
+在主设置中，设置了ioBroker 的基本参数，ioBroker 中的适配器也使用这些参数。
+
+一些参数已经从主机设置中获取。
+
+** 系统语言 **
+
+因此您可以在不同的系统语言之间进行选择。可能并非所有语言都得到完全支持。
+
+** 温度单位 **
+
+某些适配器使用此值。它可以是°C或°F。
+
+**货币**
+
+目前它不使用适配器
+
+** 日期格式 **
+
+选择日期在 admin 和 vis 中的显示方式。
+
+** 小数分隔符 **
+
+浮点值的逗号或点
+
+** 标准历史实例 **
+
+在这种情况下，默认情况下会记录数据并用于船队和人力车的图表。
+
+如果只安装了一个历史适配器（SQL/History/InfluxDB），则使用它，如果有多个，则可以选择一个。
+
+** 活跃的托管 **
+
+通过下拉菜单选择要从中安装适配器版本的所需存储库。 “存储位置”子页面上列出的存储库可在下拉菜单中找到
+
+## 存储位置
+![存储库](../../de/admin/media/ADMIN_Settings_repos.png)
+
+ioBroker 可以从不同来源获取适配器列表。在安装过程中输入以下源：
+
+* 默认（= 稳定）：http://download.iobroker.net/sources-dist.json
+* 最新（= 测试版）：http://download.iobroker.net/sources-dist-latest.json
+
+如果在此处输入来自较旧安装的其他存储库，则应将其删除，因为它们不再维护。
+
+##证书
+![证书](../../de/admin/media/ADMIN_Settings_certificates.png)
+
+这是用于 SSL/HTTPS 通信的证书的中心点。这些证书由 admin、web、simple-api、socketio 使用。默认情况下安装标准证书。你不能用它验证任何东西。它们仅用于 SSL 通信。由于证书是开放的，您应该使用自己的（自签名）证书，购买真实证书或切换到 Let's Encrypt。与默认证书的通信是不安全的，如果有人想读取流量，可以这样做。必须安装自己的证书。
+例如。在linux下。
+
+证书可以指定为路径，也可以使用拖放方式完全上传
 
 <span style="color:red">使用网络适配器而不是直接使用管理适配器测试新证书通常是一个好主意，这样您就不会将自己锁定在系统之外。</span>
 
-指定路径时，必须为 iobroker 用户提供正确的权限。
+指定路径时，iobroker 用户的正确权限必须可用。
 
 对于文件本身 644，对于更高级别的目录 755。
 
@@ -144,7 +144,7 @@ ioBroker 可以从不同来源获取适配器列表。在安装过程中输入�
 
 ``ls -l /Pfad/zum/Zertifikat``
 
-它应该在行首显示 **- rw-r - r -**
+它应该在行的开头显示 **- rw-r - r -**
 
 如果链接了实际证书，则必须检查链接目标的权限。
 
@@ -195,7 +195,7 @@ Let's encrypt 总是使用端口 80 来检查地址。
 
 当小型 Web 服务器启动时，系统设置中指定地址的证书请求将发送到 Let's encrypt 服务器。
 
-Let's Encrypt 服务器发送回一个质询短语以响应请求，并在一段时间后尝试在地址“http:// yourdomain: 80 / .well-known / acme-challenge /”处读取此质询短语。
+Let's Encrypt 服务器响应请求发送回挑战短语，并在一段时间后尝试读取地址“http:// yourdomain: 80 / .well-known / acme-challenge /”上的挑战短语。
 
 当服务器从我们这边收到这个挑战短语时，Let's Encrypt 服务器发送证书。这些保存在系统设置中输入的目录中。
 
@@ -255,7 +255,7 @@ Let's encrypt 总是使用端口 80 来检查地址。
 
 当小型 Web 服务器启动时，系统设置中指定地址的证书请求将发送到 Let's encrypt 服务器。
 
-Let's Encrypt 服务器发送回一个质询短语以响应请求，并在一段时间后尝试在地址“http:// yourdomain: 80 / .well-known / acme-challenge /”处读取此质询短语。
+Let's Encrypt 服务器响应请求发送回挑战短语，并在一段时间后尝试读取地址“http:// yourdomain: 80 / .well-known / acme-challenge /”上的挑战短语。
 
 当服务器从我们这边收到这个挑战短语时，Let's Encrypt 服务器发送证书。这些保存在系统设置中输入的目录中。
 

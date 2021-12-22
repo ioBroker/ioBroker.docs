@@ -4,7 +4,7 @@ lastChanged: 13.06.2019
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/community/styleguidedoc.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: Zmgjn4ZXZEX/lmxZOYDoitahdM5B6U5aczZS5gjD+Sk=
+hash: mfCPW6sFRTOA8DZNqHydfib2TK+qdfZMNwiFfig9vtw=
 ---
 # Style guide documentation
 * The documentation is created using the [Markdown] [] language.
@@ -19,7 +19,7 @@ The characters `a-z`, `0-9`, the underscore `_` and the decimal point `.` are al
 
       * A [plugin] [] to automatically apply these rules is for
 
-        different editors available.
+        various editors available.
 
 * For German texts, compliance with the new German spelling is required
 
@@ -32,7 +32,7 @@ The characters `a-z`, `0-9`, the underscore `_` and the decimal point `.` are al
 * Use gender-neutral pronouns and multiple nouns.
     * OK: "they (several)", "their (property)", "persons",
 
-      "People", "Developers"
+      "People", "developers"
 
     * Not okay: "his", "her", "he", "she (woman)", "boys", "girls"
 
@@ -53,7 +53,7 @@ The characters `a-z`, `0-9`, the underscore `_` and the decimal point `.` are al
 
 but with the help of inline `[a link][]` and `[a link]: https://a.link/to/know` at the end of the document.
 
-* If dashes are used, use the short notation
+* When dashes are used, the short notation is used
 
   with the minus sign and not "-" or `Option+Shift+"-"` in OSX.
 
@@ -83,7 +83,7 @@ represent examples to clarify the point of view just described. So there is no n
 
 the correct escape characters have to be used: `\_`, `\*`, `\\` and ``\`` ` anstelle von `_`, ` * §§ SSSSS_6§§ \ ` und `` ` ``.
 
-* To make a note stand out, the following guidelines are
+* To make a note stand out, the following are guidelines
 
   to note:
 

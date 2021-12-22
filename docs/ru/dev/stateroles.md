@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/stateroles.md
 title: Государственные роли
-hash: SIikCbc4ELzi/lBSxrFLEOcdaJV8wfHaoP0UXEQ3sWM=
+hash: iQ0sPeHMl+oZq/pHTJCX2n465zmSPwYKbJHVgPyMB1w=
 ---
 # Государственные роли
 Для объектов типа `state` необходимо, чтобы их свойство `common.role` было установлено на одну из ролей, определенных в списке ниже.
@@ -19,7 +19,7 @@ hash: SIikCbc4ELzi/lBSxrFLEOcdaJV8wfHaoP0UXEQ3sWM=
 
 ## Общий
 * `состояние` - очень распространенная цель. Если вы не знаете, какую роль играет государство, используйте эту.
-* `текст`` common.type = строка`
+* `текст`` common.type = string`
 * `text.url`` common.type = string` state val содержит URL-адрес для использования в привязке, iframe или img
 * `html`` common.type = string`
 * `json`` common.type = string`
@@ -46,7 +46,7 @@ hash: SIikCbc4ELzi/lBSxrFLEOcdaJV8wfHaoP0UXEQ3sWM=
 ## Кнопки (логические, только для записи)
 `common.type=boolean, common.write=true, common.read=false`
 
-* `button`
+* `кнопка`
 * `button.long`
 * `button.stop` - например, ролло-стоп,
 * `button.stop.tilt`
@@ -76,7 +76,7 @@ hash: SIikCbc4ELzi/lBSxrFLEOcdaJV8wfHaoP0UXEQ3sWM=
 * `value.window` (` common.states = {"0": "CLOSED", "1": "TILTED", "2": "OPEN"} `) Важно иметь (` CLOSED / TILTED / ОТКРЫТЬ). Значения могут отличаться.
 * `значение.температура` (` common.unit = '°C', '°F' или 'K')
 * `value.humidity`
-* `value.brightness` - уровень яркости (единицы: люкс,)
+* `value.brightness` - уровень яркости (единица: люкс,)
 * `value.min`
 * `value.max`
 * `value.default`
@@ -96,10 +96,10 @@ hash: SIikCbc4ELzi/lBSxrFLEOcdaJV8wfHaoP0UXEQ3sWM=
 * `value.power.consuming` - потребление энергии (единица измерения = Втч или кВтч)
 * `value.power.reactive` - реактивная мощность (единица = VAr)
 * `value.direction` - (common.type = number ~~ или string ~~, указывает вверх / вниз, влево / вправо, 4-позиционные переключатели, направление ветра, ...)
-* `value.curtain` - фактическое положение занавеса
+* `value.curtain` - фактическое положение занавески
 * `value.blind` - фактическое положение жалюзи (` max = полностью открыто, min = полностью закрыто`)
 * `value.tilt` - фактическое положение наклона (` max = полностью открыто, min = полностью закрыто`)
-* `value.lock` - актуальное положение замка
+* `value.lock` - фактическое положение замка
 * `value.speed` - скорость ветра
 * `value.pressure` - (единица измерения: мбар)
 * `value.distance`
@@ -116,7 +116,7 @@ hash: SIikCbc4ELzi/lBSxrFLEOcdaJV8wfHaoP0UXEQ3sWM=
 ## Индикаторы (логические, только для чтения)
 `common.type=boolean, common.write=false`
 
-Отличие *индикаторов* от *датчиков* заключается в том, что индикаторы отображаются в виде небольшого значка. Датчики как реальная ценность.
+Отличие *индикаторов* от *датчиков* в том, что индикаторы отображаются в виде небольшого значка. Датчики как реальная ценность.
 Так что индикатор может быть не один в канале. Это должно быть какое-то другое главное состояние внутри канала.
 
 * `индикатор`
@@ -127,7 +127,7 @@ hash: SIikCbc4ELzi/lBSxrFLEOcdaJV8wfHaoP0UXEQ3sWM=
 * `indicator.main maintenance.lowbat`
 * `indicator.main maintenance.unreach`
 * `indicator.main maintenance.alarm`
-* `indicator.lowbat` - истина при разряде батареи
+* `indicator.lowbat` - истина при низком заряде батареи
 * `indicator.alarm` - то же, что и indicator.main maintenance.alarm
 * `indicator.alarm.fire` - обнаружен пожар
 * `indicator.alarm.flood` - обнаружен флуд
@@ -160,7 +160,7 @@ hash: SIikCbc4ELzi/lBSxrFLEOcdaJV8wfHaoP0UXEQ3sWM=
 * `level.volume` - (` min = 0, max = 100`) - громкость звука, но min, max могут отличаться. мин <макс
 * `level.volume.group` - (` min = 0, max = 100`) - громкость звука, для группы устройств
 * `level.curtain` - установить положение шторки
-* `level.tilt` - установить положение наклона жалюзи (max = полностью открыты, min = полностью закрыты)
+* `level.tilt` - установить наклон жалюзи (max = полностью открыт, min = полностью закрыт)
 
 ## Переключатели (логические, чтение-запись)
 Переключатель управляет логическим устройством (`true = ON, false = OFF`)
@@ -199,7 +199,7 @@ TODO: подумайте об ионизации и колебаниях.
 ## Пылесос
 * `level.mode.cleanup` - Перечисление` AUTO, ECO, EXPRESS, NORMAL, QUIET`. Требуются только «АВТО» и «НОРМАЛЬНЫЙ».
 * `level.mode.work` - Перечисление` AUTO, FAST, MEDIUM, SLOW, TURBO`. Необязательное состояние.
-* `value.water` - уровень воды от 0 до 100%.
+* `value.water` - уровень воды 0-100%.
 * `value.waste` - уровень мусорного бака 0-100%. (0% - пусто, 100% - полно)
 * `indicator.main maintenance.waste` - мусорное ведро дурацкое.
 * `value.state` -` HOME, CLEANING, PAUSE` и так далее.
@@ -231,7 +231,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `media.seek` - (` common.type = number`)%
 * `media.mode.shuffle` - (` common.type = number`) 0 - нет, 1 - все, 2 - один
 * `media.mode.repeat` - (` common.type = boolean`)
-* `media.state` - ['play', 'stop', 'pause'] или [0 - пауза, 1 - воспроизведение, 2 - остановка] или [true - воспроизведение / false - пауза]
+* `media.state` - ['play', 'stop', 'pause'] или [0 - пауза, 1 - воспроизведение, 2 - стоп] или [true - воспроизведение / false - пауза]
 * `media.artist`
 * `media.album`
 * `media.title`
@@ -259,7 +259,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `media.playlist` - массив json вроде
 * `media.url` - url для воспроизведения или текущий url
 * `media.url.announcement` - URL для воспроизведения объявления
-* `media.jump` - количество элементов для перехода в плейлисте (может быть отрицательным)
+* `media.jump` - количество элементов для перехода в плейлист (может быть отрицательным)
 * `media.content` - Тип воспроизводимого мультимедиа, например аудио / mp3.
 * `media.link` - Состояние с текущим файлом
 * `media.input` - номер или строка входа (AUX, AV, TV, SAT, ...)
@@ -356,7 +356,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `weather.chart.url.forecast` - URL-адрес диаграммы для прогноза погоды
 * `weather.html` - HTML-объект с описанием погоды
 * `weather.title` - Очень краткое описание
-* `weather.title.short` - очень, очень краткое описание (одно слово)
+* `weather.title.short` - Очень, очень краткое описание (Одно слово)
 * `weather.type` - Тип информации о погоде
 * `weather.json` - объект JSON с конкретными данными
 * `value.speed.wind.forecast.0` - прогноз скорости ветра на сегодня
@@ -392,7 +392,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `info.firmware` - версия прошивки
 * `info.hardware` - версия оборудования
 * `info.port` - порт tcp
-* `info.standby` - true, если устройство в режиме ожидания
+* `info.standby` - истина, если устройство в режиме ожидания
 * `info.status` - статус устройства
 * `info.display` - информация, отображаемая на дисплее устройства
 * `date.start` - строка или число

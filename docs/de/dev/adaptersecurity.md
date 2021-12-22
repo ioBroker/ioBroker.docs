@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adaptersecurity.md
 title: Sicherheitsbezogene Funktionen für Adapterentwickler
-hash: /NdARX0dTYJRe5UAHsq6Xdl6DY1zMplYgcLpB1LOemU=
+hash: X2HcDsT5TE/W4x20hMFpAqHF23iMYbOPyEK6TXNkyG4=
 ---
 # Sicherheitsbezogene Funktionen für Adapterentwickler
 ## Zugriff von anderen Adaptern auf sensible Daten verhindern
@@ -33,7 +33,7 @@ Immer wenn der aktuell verwendete Verschlüsselungsalgorithmus unsicher wird, wi
 
 __Aktuell verwendeter Verschlüsselungsalgorithmus__
 
-- js-controller >= 3.0: `default`
+- js-controller >= 3.0: `Standard`
 - js-controller >= 3.2: `aes-192-cbc`
 
 Beachten Sie, dass diese Funktion mindestens js-controller 3.0.0 erfordert.

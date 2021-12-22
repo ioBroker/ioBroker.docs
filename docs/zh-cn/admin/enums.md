@@ -4,7 +4,7 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/admin/enums.md
-hash: 5LCK8RCA84PxnY0TduRY5974VRbvoURNcBCWsXe4xEc=
+hash: YnndBRm2DXksgY6BJgZQ8FZZrKWnc5B4a4TWESq/mWk=
 ---
 此处列出了收藏夹、交易和房间。如果有 HomeMatic 安装，则采用其中包含的列表。
 例如，您还可以创建自己的列表，然后可以在脚本中使用这些列表。
@@ -16,7 +16,7 @@ hash: 5LCK8RCA84PxnY0TduRY5974VRbvoURNcBCWsXe4xEc=
 ![列表视图中的列表](../../de/admin/media/ADMIN_Aufzaehlungen_liste_numbers.png)
 
 ##标题行
-在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需用鼠标在图标上停留一会儿。
+在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需在图标上按住鼠标一会儿。
 
 ### 1 - 切换视图
 此按钮可用于在平铺视图和列表视图之间切换（切换功能）

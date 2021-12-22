@@ -3,23 +3,23 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapter-dev-faq.md
 title: Häufig gestellte Fragen zur Adapterentwicklung
-hash: eYLJSbvcCz8wYyj3Pa+wrDSZhMY78b6yn9YUWmOxv0E=
+hash: xBifYSMkiSeEcOHVKuK3c1SR01Qr030mxrhtOv9htBA=
 ---
 # Häufig gestellte Fragen zur Adapterentwicklung
 ## Einführung
 Die Idee dieser Seite ist es, häufig gestellte Fragen zur Entwicklung von ioBroker-Adaptern zu sammeln.
 Diese Idee hat Ralf im ioBroker #adapter Discord Channel am 24. November 2020 bei einer Diskussion mit einer Frage von Mic.
 
-## Bitte tragen Sie dazu bei (es ist ganz einfach!)
+## Bitte tragen Sie bei (es ist ganz einfach!)
 Fühlen Sie sich frei, Fragen und entsprechende Antworten auf dieser Seite hinzuzufügen. Die einzige Einschränkung ist: Stellen Sie sicher, dass Sie der Antwort ein Datum hinzufügen. Perfektionismus ist nicht nötig, posten Sie einfach, was Ihnen bei der Adapterentwicklung geholfen hat. Links zu Adaptern, in denen die Fragestellung implementiert ist, sind ebenfalls sehr willkommen. Wir Entwickler lieben es, Implementierungsbeispiele zu sehen :-)
 
 *Hinweis:* Dies ist keine offizielle Dokumentation. Alle Hinweise, Workarounds, Links zu noch älteren Forenbeiträgen usw. sind willkommen. Die Absicht ist, Entwickler bei häufig gestellten Entwicklungsfragen schnell zu unterstützen und zu unterstützen. Wenn Sie hier Probleme mit dem Schreiben in Englisch haben, verwenden Sie bitte Ihre lokale Sprache wie Deutsch, Russisch usw., wir helfen Ihnen gerne weiter und übersetzen später.
 
-Zur Aktualisierung des Inhaltsverzeichnisses können Sie einen TOC-Generator verwenden, z. [luciopaiva.com/markdown-toc](https://luciopaiva.com/markdown-toc/)
+Zum Aktualisieren des Inhaltsverzeichnisses können Sie einen TOC-Generator verwenden, z. [luciopaiva.com/markdown-toc](https://luciopaiva.com/markdown-toc/)
 
 # Inhaltsverzeichnis
 - [Adapter-Updates](#adapter-updates)
-  - [Veröffentlichen von Adapter-Updates](#publishing-adapter-updates)
+  - [Adapter-Updates veröffentlichen](#publishing-adapter-updates)
 - [Adaptertest und Fehlerberichterstattung](#adapter-testing-and-error-reporting)
   - [Kompaktmodus](#Kompaktmodus)
   - [Wachposten](#Wachposten)

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tr-064/README.md
 title: ioBroker.tr-064
-hash: rN4KkHkTgQi739/0GZDQZ274L23nvqhd+4OxJHA44Ww=
+hash: D59HzSVYkdStJaSDx6e91FA6u2/6TTOD7QeUisJd0X0=
 ---
 ![Logo](../../../en/adapterref/iobroker.tr-064/media/tr-064.png)
 
@@ -38,13 +38,13 @@ Das Standardtelefon kann in der FritsBox konfiguriert werden unter: Telefonie/An
 
 ### Präsenz
 Sie können eine Liste der zu hörenden Geräte konfigurieren.
-Kann durch mDNS getriggert werden. Bei Verwendung von MDNS ist kein Polling erforderlich und es ist schneller
+Kann per mDNS getriggert werden. Bei Verwendung von MDNS ist kein Polling erforderlich und es ist schneller
 
 ### AB - Anrufbeantworter (Anrufbeantworter)
 Kann ein-/ausgeschaltet werden.
 Der Zustand cbIndex kann auf die Adresse # des Anrufbeantworters gesetzt werden.
 
-### Anrufüberwachung
+### Anrufmonitor
 Der Callmonitor erstellt Echtzeitstatus für jeden eingehenden und ausgehenden Anruf.
 Wenn das Telefonbuch aktiviert ist (Standard), werden Nummern in Namen aufgelöst. Es gibt auch einen Status, der auf ein klingelndes Telefon hinweist.
 

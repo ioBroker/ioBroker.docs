@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/adapterref/iobroker.hm-rega/README.md
 title: HomeMatic ReGaHSS
-hash: G+XgC3bx73W0XgVhW1GkYuvI38TcQQgIsp3P1ggWznM=
+hash: 5nzOtddjd6p/3BVJJkfR7yHWPQUqVm2mcbdsP7tvrkM=
 ---
 ![logo](../../../de/adapterref/iobroker.hm-rega/media/homematic.png)
 
@@ -61,17 +61,17 @@ The required services are then activated and linked to the appropriate HM-RPC in
 
 Polling
 
-If activated, the RegaHSS data is regularly queried by the CCU, based on the seconds set in the Intervals field. The interval should not be set too low, as too frequent polling can lead to a crash of the CCU.
+If activated, the RegaHSS data is regularly queried by the CCU, based on the seconds set in the Intervals field. The interval should not be set too low, since too frequent polling can lead to a crash of the CCU.
 
 Trigger
 
 In order to minimize the active queries from ioBroker to the RegaHSS, a trigger can also push the data on the CCU within a program when changes are made.
-A virtual button on the CCU, which is triggered in a CCU program, can be used for this. By default, this is the BidCosRF.50.PRESS_SHORT button (see sample program).
+A virtual button on the CCU, which is triggered in a CCU program, can be used for this. By default, this is the BidCosRF.50.PRESS_SHORT key (see sample program).
 
 ### Synchronize area
 Here the user can specify which information is to be transferred from the CCU to ioBroker. The corresponding objects and data points are then created in ioBroker.
 
-- DutyCycle: Activates the indication of the duty cycle (in%)
+- DutyCycle: Activates the specification of the duty cycle (in%)
 - Variables: Activates the transfer of the system variables from the CCU
 - Programs: Activates the transfer of the program names from the CCU
 - Names: Activates the transfer of the plain text names of the data points from the CCU

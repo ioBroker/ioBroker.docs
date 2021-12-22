@@ -4,7 +4,7 @@ lastChanged: 11.08.2019
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/viz/widgets.md
-hash: beLY0bKf2v2bHfNEpPQQjde4CBBS7s9c5jyaH3r9Z2o=
+hash: TxhNPmBC2abg80GhW8v2M7m6PomjfeOCj2SJAYiI5/g=
 ---
 # 小部件
 ＃＃ 一般来说
@@ -60,7 +60,7 @@ ioBroker 中有不同的小部件集可用于使用 vis 进行可视化。
 |属性 | 描述 |
 |-----|----|
 
-| `color` | 字体颜色（通过选择对话框或通过颜色代码）| `text-align` | 文本对齐（左、右、居中）| `text-shadow` | 文字阴影的颜色 | `font-family` | 字体 | `font-style` | 字符集类型（正常、斜体、斜体、首字母、继承）| `font-variant` | 字符集变体（普通、小型大写字母、...）| `font-weight` | 字符集强度 | `font-size` | 字体大小 | `line-height` | 行距 | `letter-spacing` | 字符间距 | `word-spacing` | 字间距
+| `color` | 字体颜色（通过选择对话框或通过颜色代码）| `text-align` | 文本对齐（左、右、居中）| `text-shadow` | 文字阴影的颜色 | `font-family` | 字体 | `font-style` | 字符集类型（正常、斜体、斜体、首字母、继承）| `font-variant` | 字符集变体（正常、小型大写字母、...）| `font-weight` | 字符集强度 | `font-size` | 字体大小 | `line-height` | 行距 | `letter-spacing` | 字符间距 | `word-spacing` | 字间距
 
 #### **CSS 背景**
 ![006_CSS_背景](../../de/viz/media/vis_widgets_006_CSS_Hintergrund.jpg)

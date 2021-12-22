@@ -4,13 +4,13 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/admin/adapter.md
-hash: svGv1TgKOa2pP8zn85C5t9Xd7FgJNy5dfaEK2af4S84=
+hash: WMGHnDlc1DVIkuuUYX/rzRRpv7TElDq4iQ86l+lUBCo=
 ---
 # 适配器选项卡
 可用和已安装的适配器在此处显示和管理。
 
 ##标题行
-在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需在图标上按住鼠标一段时间即可。
+在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需在图标上按住鼠标一会儿。
 
 ![管理选项卡](../../de/admin/media/ADMIN_Adapter_Kachel_numbers.png)
 
@@ -41,7 +41,7 @@ hash: svGv1TgKOa2pP8zn85C5t9Xd7FgJNy5dfaEK2af4S84=
 
 ![安装 GitHub](../../de/admin/media/ADMIN_Adapter_GitHub.png)
 
-在 ***FROM GITHUB*** 标签下，只需在下拉菜单中选择所需的适配器，即可安装最新的初步版本。
+在 ***FROM GITHUB*** 选项卡下，只需在下拉菜单中选择所需的适配器，即可安装最新的初步版本。
 
 选择 ***ANY*** 选项卡时，可以在字段中输入任何文件路径或 URL（例如外部适配器开发人员的 URL）并安装相应的适配器。
 
@@ -51,4 +51,4 @@ hash: svGv1TgKOa2pP8zn85C5t9Xd7FgJNy5dfaEK2af4S84=
 ![安装其他版本](../../de/admin/media/ADMIN_Adapter_Kachel_versions.png)
 
 ### 7 - 过滤器
-可以使用过滤器术语搜索特定适配器。
+您可以在此处使用过滤器术语搜索特定适配器。
