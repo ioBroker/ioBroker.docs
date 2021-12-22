@@ -14,10 +14,9 @@
 请在SSH Shell（控制台）中执行以下命令：
 * `iobroker stop`
 * `iobroker update`
+* `iobroker fix` 或者如果这不起作用，请使用 `curl -sL https://iobroker.net/fix.sh | bash -`
 * `iobroker upgrade self`
 * `iobroker start`或重新启动服务器，然后ioBroker应该重新启动，并且您可以确保所有旧进程都已完成。
-
-如果升级命令显示访问权限错误，则请使用安装修复程序（`curl -sL https://iobroker.net/fix.sh | bash-`）来修复这些问题并升级命令再次运行。
 
 ## Linux/macOS（手动安装）
 
