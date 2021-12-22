@@ -21,7 +21,7 @@ This is the recommended variant for updating the js-controller if ioBroker was i
 Please execute the following commands in an SSH shell (console):
 * `iobroker stop`
 * `iobroker update`
-* `iobroker fix`
+* `iobroker fix` or if this do not work use: `curl -sL https://iobroker.net/fix.sh | bash -`
 * `iobroker upgrade self`
 * `iobroker start` or reboot server, then ioBroker should restart and you can be sure that all old processes were finished.
 
