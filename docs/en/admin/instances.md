@@ -15,8 +15,8 @@ in the title line there are icons for the most important processes. There is con
 
 The icons in detail:
 
-### 1 - update view
-If instances that have just been created are not visible, clicking this icon will help bring the status of the page up to date.
+### 1 - Refresh the view
+If instances that have just been created are not visible, clicking this icon helps to bring the status of the page up to date.
 
 ### 2 - Switch on administrator mode
 When you select this icon, additional columns for configuring the instances are displayed (toggle function). Information on this in the section on page content.
@@ -34,7 +34,7 @@ If a host is selected in the header, this button can only be used to display the
 A term for filtering or searching for instances can be entered in this field
 
 ## More information in the Instances window
-The first numbers indicate the memory used by the instances so far and the remaining free memory in MB. Behind it the free memory in%. The name of the ioBroker server and the number of running processes are in the square brackets.
+The first numbers indicate the memory used by the instances so far and the remaining free memory in MB. Behind the free memory in%. The name of the ioBroker server and the number of running processes are in the square brackets.
 
 ## The page content
 ![The available hosts](../../de/admin/media/ADMIN_Instanzen_numbers02.png)
@@ -57,7 +57,7 @@ The name of the instance is in this column. it is made up of the name of the ada
 0. This designation is the basis for the designation of the data points in ioBroker.
 
 ### 4 - activated
-The instance is started or stopped here. The green pause symbol indicates that the adapter is running and can be paused by clicking on it, the red play symbol indicates a stopped instance that can be started with one click.
+The instance is started or stopped here. The green pause symbol shows that the adapter is running and can be paused by clicking on it, the red play symbol shows a stopped instance that can be started with one click.
 
 ### 5 - configuration
 Clicking this icon opens an adapter-specific configuration menu. The corresponding menus are described for the associated adapters.
@@ -87,9 +87,9 @@ The respective log level for the instance can be adjusted in this column. Debug,
 This column is only visible in expert mode!
 
 ### 13 - RAM limit
-Here you can specify how much main memory of the instance should be made available as a precaution. This amount of memory is then no longer available for other tasks and should not be selected too high, especially in systems with little memory. If the instance needs more memory temporarily, this will of course be allocated to it by the system, but will then be immediately released for the system. During the time in which an instance requires more memory than it was reserved, the required memory is shown in red.
+Here you can specify how much main memory the instance should be provided as a precaution. This amount of memory is then no longer available for other tasks and should not be selected too high, especially in systems with little memory. If the instance needs more memory temporarily, it will of course be allocated by the system but then immediately released for the system. During the time in which an instance requires more memory than it was reserved, the required memory is shown in red.
 
 This column is only visible in expert mode!
 
 ### 14 - RAM usage
-The actual memory used by the instance is displayed here. These values are updated regularly. After the update, these values appear briefly in green.
+The actual memory used by the instance is displayed here. These values are updated regularly. After the update, these values appear briefly in green font.

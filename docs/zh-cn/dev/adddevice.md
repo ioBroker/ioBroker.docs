@@ -36,7 +36,7 @@ Yandex 拥有各州的最全貌，因此将其作为基础是合理的。
 所有其他状态（功率、设定温度）都存在。
 
 ## 类型检测器
-添加所有必需的角色后，必须扩展类型检测器。
+添加完所有必需的角色后，必须扩展类型检测器。
 将新的设备类型添加到全局列表：https://github.com/ioBroker/ioBroker.type-detector/blob/master/index.js#L29 以一些设备为基础并将其复制到 `patterns` 的`ChannelDetector` 类。
 类型检测器必须以某种方式区分设备，因此您的设备必须具有唯一的角色集。
 我们将 `level.temperature` 和 `level.mode.thermostat` 作为空调的特定模式，并将这两个状态标记为 `required`。

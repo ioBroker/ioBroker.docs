@@ -14,10 +14,10 @@ in the title line there are icons for the most important processes. There is con
 
 ![The Admin tab](../../de/admin/media/ADMIN_Adapter_Kachel_numbers.png)
 
-### 1 - Toggle view
+### 1 - toggle view
 This button can be used to switch between the tile view and the table view (toggle function)
 
-### 2 - update the display
+### 2 - update display
 Updates are automatically checked for each restart. This button can be used to start the search manually or to refresh the page.
 
 ### 3 - show only installed adapters

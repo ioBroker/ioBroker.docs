@@ -66,18 +66,18 @@ If activated, the RegaHSS data is regularly queried by the CCU, based on the sec
 Trigger
 
 In order to minimize the active queries from ioBroker to the RegaHSS, a trigger can also push the data on the CCU within a program when changes are made.
-A virtual button on the CCU can be used for this, which is triggered in a CCU program. By default, this is the BidCosRF.50.PRESS_SHORT key (see sample program).
+A virtual button on the CCU, which is triggered in a CCU program, can be used for this. By default, this is the BidCosRF.50.PRESS_SHORT key (see sample program).
 
 ### Synchronize area
 Here the user can specify which information is to be transferred from the CCU to ioBroker. The corresponding objects and data points are then created in ioBroker.
 
-- DutyCycle: Activates the indication of the duty cycle (in%)
+- DutyCycle: Activates the specification of the duty cycle (in%)
 - Variables: Activates the transfer of the system variables from the CCU
 - Programs: Activates the transfer of the program names from the CCU
 - Names: Activates the transfer of the plain text names of the data points from the CCU
 - Favorites: Activates the transfer and listing of favorites
 - Rooms: Activates the takeover of the rooms and a listing of them
-- Trades: Activates the transfer of trades and a list of them
+- Trades: Activates the transfer of trades and a listing of them
 
 ### Additional settings area
 Here the user can decide whether https (encrypted and tap-proof connection) should be used. If activated, the username and password must be entered

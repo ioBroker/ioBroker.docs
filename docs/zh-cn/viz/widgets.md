@@ -7,7 +7,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/viz/w
 hash: TxhNPmBC2abg80GhW8v2M7m6PomjfeOCj2SJAYiI5/g=
 ---
 # 小部件
-＃＃ 作为基本规则
+＃＃ 一般来说
 在这种情况下，小部件（“设备、事物”）是以各种方式显示数字、文本、图像或图表并提供交互机会的显示元素。
 
 ## IoBroker.vis 小部件
@@ -17,7 +17,7 @@ ioBroker 中有不同的小部件集可用于使用 vis 进行可视化。
 -------------------------------------------------------------------------------
 
 ###小部件的基本设置
-＃＃＃＃ 作为基本规则
+＃＃＃＃ 一般来说
 ![001_Widget_General](../../de/viz/media/vis_widgets_001_Widget_Generell.jpg)
 
 |属性 | 描述 |
@@ -37,7 +37,7 @@ ioBroker 中有不同的小部件集可用于使用 vis 进行可视化。
 |条件 | 如果在此处为上述数据点输入条件，则小部件可见...
 |条件 | ... 的值对应于此处输入的值。
 
-＃＃＃＃ **一般来说**
+＃＃＃＃ **一般的**
 ![](../../de/viz/media/vis_widgets_003_Widget_Allgemein.jpg)“常规”部分特定于每个小部件，并针对各个小部件进行了更详细的描述。
 在此部分中，所需的数据点被分配给对象 ID 字段中的小部件。
 

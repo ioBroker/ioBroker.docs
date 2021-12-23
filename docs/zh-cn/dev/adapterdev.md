@@ -18,9 +18,9 @@ hash: UhfOMulwOAHg2rGPgAX3Mn3ocEdya0XZ0k+ARuLINps=
 ＃＃＃ 工具
 [Adapter Creator（网络表单）](https://adapter-creator.iobroker.in/)：这允许使用 Web 表单快速创建适配器模板。
 
-[适配器创建器（命令行）](https://forum.iobroker.net/topic/17200/aufruf-iobroker-adapter-creator-testen)：这允许您通过命令行快速创建适配器模板。
+[适配器创建器（命令行）](https://forum.iobroker.net/topic/17200/aufruf-iobroker-adapter-creator-testen)：这允许通过命令行快速创建适配器模板。
 
-[翻译](https://translator.iobroker.in/)：ioBroker 翻译器，将英文文本翻译成所需的语言，并将其输出为 'words.js' 文件的 JSON。
+[译者](https://translator.iobroker.in/)：ioBroker 翻译器，将英文文本翻译成所需的语言，并将其输出为 'words.js' 文件的 JSON。
 
 [适配器工作室](https://github.com/Jey-Cee/ioBroker.adapter-studio)：一个适配器，其目的是轻松、快速和以标准化的方式创建新的适配器。
 

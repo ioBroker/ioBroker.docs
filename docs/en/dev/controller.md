@@ -7,4 +7,4 @@ translatedWarning: If you want to edit this document please delete "translatedFr
 hash: 5WAb2QMI/PN0QYdbThbF+JuqUy9q9p47086JIvdKtzI=
 ---
 # IoBroker backend development
-?> ***This is a placeholder*** .<br><br> Help with ioBroker and expand this article. Please note [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.
+?> ***This is a placeholder*** .<br><br> Help with ioBroker and expand this article. Please note the [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.

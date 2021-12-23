@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.twinkly/README.md
 title: ioBroker.twinkly
-hash: yWnaLcmYkeNB3V78Pvx6VtGhEiNZFZeMc94BIhC2NRE=
+hash: 8WLgtLIavDN5rEQxNMS7s+61/GA86fr/OsdTLsXzkWQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
@@ -52,8 +52,8 @@ Folgende Staaten stehen zur Verfügung:
 | `ledConfig` | :heavy_check_mark: | Konfiguration der LEDs |
 | `ledEffect` | :heavy_check_mark: | Effekte (`Effect`) |
 | `ledLayout` | :heavy_check_mark: | Anordnung der LEDs (für weitere Tests deaktiviert) |
-| `ledMode` | :heavy_check_mark: | Modus: Ein, Farbe, Effekt, Playlist, Aus, RealTime (noch nicht unterstützt), Demo |
-| `ledMovie` | :heavy_check_mark: | Aktiver Film, Wenn mehrere Filme in der Playlist-Funktion hinzugefügt wurden, können sie hier ausgewählt werden. (`On`) |
+| `ledMode` | :heavy_check_mark: | Modus: Film, Farbe, Effekt, Playlist, Aus, RealTime (noch nicht unterstützt), Demo |
+| `ledMovie` | :heavy_check_mark: | Aktiver Film, Wenn mehrere Filme in der Playlist-Funktion hinzugefügt wurden, können sie hier ausgewählt werden. (`Movie`) |
 | `ledPlaylist` | :heavy_check_mark: | Aktiver Playlist-Eintrag, Wechsel zwischen Filmen. (`Playlist`) |
 | `ledSat` | :heavy_check_mark: | Sättigung 0-100 (Steuerung mit -1 deaktivieren) |
 | `mqtt` | :heavy_check_mark: | MQTT-Verbindung |
@@ -62,11 +62,20 @@ Folgende Staaten stehen zur Verfügung:
 | `on` | :heavy_check_mark: | Ein/Aus-Schalter |
 | `paused` | :heavy_check_mark: | Unterbrechen Sie die Verbindung zu Twinkly, damit Sie Änderungen in der App vornehmen können. Andernfalls könnten Sie die Verbindung während der Arbeit in der App verlieren |
 | `timer` | :heavy_check_mark: | Aktualisieren Sie den Timer |
-| `Timer` | :heavy_check_mark: | Aktualisieren Sie den Timer |
+| `Zeitschaltuhr` | :heavy_check_mark: | Aktualisieren Sie den Timer |
 
 [Private API-Informationen](https://xled-docs.readthedocs.io/en/latest/) von [Pavol Babinčák](https://github.com/scrool)
 
+## Bekannte Probleme
+* Die maximale Länge für den Filmnamen beträgt 15 Zeichen
+
 ## Changelog
+
+### 0.2.8 (2021-12-20)
+* (patrickbs96) Rename mode On to movie as it's a better representation
+
+### 0.2.7 (2021-12-19)
+* (patrickbs96) Hex without Hash. Option to not use ping for reachability.
 
 ### 0.2.6 (2021-12-09)
 * (patrickbs96) Renamed States with led control. Now starting with "led".

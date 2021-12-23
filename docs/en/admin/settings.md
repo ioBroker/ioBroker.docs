@@ -7,7 +7,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/se
 hash: SrsCuiAVjFnWErHKd5ROEqrjxmi3MqUS+1fK8aALD34=
 ---
 # The system settings
-The system settings can be reached from every menu point of the administrator via the wrench icon in the title bar of the screen.
+The system settings can be reached from every menu point of the admin via the wrench icon in the title bar of the screen.
 
 ![The system settings](../../de/admin/media/ADMIN_Settings_main.png)
 
@@ -42,11 +42,11 @@ Comma or point for float values
 
 In this instance the data is logged by default and used in the charts of flot and rickshaw.
 
-If only one history adapter (SQL / History / InfluxDB) is installed, it is used; if there are several, one can be selected.
+If only one history adapter (SQL / History / InfluxDB) is installed, it is used, if there are several, one can be selected.
 
 ** Active depository **
 
-The desired repository from which the adapter version is to be installed is selected via the pull-down menu. The repositories listed on the “Storage locations” sub-page are available in the pull-down menu
+The desired repository from which the adapter version is to be installed is selected via the pull-down menu. The repositories listed on the “Storage locations” subpage are available in the pull-down menu
 
 ## Storage locations
 ![The repositories](../../de/admin/media/ADMIN_Settings_repos.png)
@@ -61,7 +61,7 @@ If other repositories from an older installation are entered here, they should b
 ## Certificates
 ![Certificates](../../de/admin/media/ADMIN_Settings_certificates.png)
 
-This is the central point for the certificates that are used for SSL / HTTPS communication. The certificates are used by admin, web, simple-api, socketio. Standard certificates are installed by default. You can't verify anything with it. They are only used for SSL communication. Because the certificates are open, you should use your own (self-signed) certificates, buy real certificates or switch to Let's Encrypt. Communication with default certificates is not secure and if someone wants to read the traffic, this could be done. Be sure to install your own certificates.
+This is the central point for the certificates that are used for SSL / HTTPS communication. The certificates are used by admin, web, simple-api, socketio. Standard certificates are installed by default. You can't verify anything with it. They are only used for SSL communication. Because the certificates are open, you should use your own (self-signed) certificates, buy real certificates or switch to Let's Encrypt. Communication with default certificates is not secure and if someone wants to read the traffic, this could be done. It is essential to install your own certificates.
 E.g. under linux.
 
 Certificates can either be specified as a path or uploaded completely using drag and drop
@@ -69,7 +69,7 @@ Certificates can either be specified as a path or uploaded completely using drag
 --- title: System settings lastChanged: 27.03.2019 ---
 
 # The system settings
-The system settings can be reached from every menu point of the administrator via the wrench icon in the title bar of the screen.
+The system settings can be reached from every menu point of the admin via the wrench icon in the title bar of the screen.
 
 ![The system settings](../../de/admin/media/ADMIN_Settings_main.png)
 
@@ -104,11 +104,11 @@ Comma or point for float values
 
 In this instance the data is logged by default and used in the charts of flot and rickshaw.
 
-If only one history adapter (SQL / History / InfluxDB) is installed, it is used; if there are several, one can be selected.
+If only one history adapter (SQL / History / InfluxDB) is installed, it is used, if there are several, one can be selected.
 
 ** Active depository **
 
-The desired repository from which the adapter version is to be installed is selected via the pull-down menu. The repositories listed on the “Storage locations” sub-page are available in the pull-down menu
+The desired repository from which the adapter version is to be installed is selected via the pull-down menu. The repositories listed on the “Storage locations” subpage are available in the pull-down menu
 
 ## Storage locations
 ![The repositories](../../de/admin/media/ADMIN_Settings_repos.png)
@@ -123,7 +123,7 @@ If other repositories from an older installation are entered here, they should b
 ## Certificates
 ![Certificates](../../de/admin/media/ADMIN_Settings_certificates.png)
 
-This is the central point for the certificates that are used for SSL / HTTPS communication. The certificates are used by admin, web, simple-api, socketio. Standard certificates are installed by default. You can't verify anything with it. They are only used for SSL communication. Because the certificates are open, you should use your own (self-signed) certificates, buy real certificates or switch to Let's Encrypt. Communication with default certificates is not secure and if someone wants to read the traffic, this could be done. Be sure to install your own certificates.
+This is the central point for the certificates that are used for SSL / HTTPS communication. The certificates are used by admin, web, simple-api, socketio. Standard certificates are installed by default. You can't verify anything with it. They are only used for SSL communication. Because the certificates are open, you should use your own (self-signed) certificates, buy real certificates or switch to Let's Encrypt. Communication with default certificates is not secure and if someone wants to read the traffic, this could be done. It is essential to install your own certificates.
 E.g. under linux.
 
 Certificates can either be specified as a path or uploaded completely using drag and drop
@@ -134,11 +134,11 @@ When specifying a path, the correct permissions for the iobroker user must be av
 
 For the file itself 644, for the higher-level directories 755.
 
-If the rights are wrong, an error message appears like:
+If the rights are wrong an error message appears like:
 
 ``web.0 (24704) Cannot create webserver: Error: error:0909006C:PEM routines:get_name:no start line``
 
-You can check access by logging in to the server as user root, then switching to the iobroker user and listing the certificate file:
+You can check the access if you log in to the server as user root, then switch to the iobroker user and list the certificate file:
 
 ``su iobroker``
 
@@ -177,7 +177,7 @@ If you activate the option to use certificates, but not the automatic update, th
 
 If the automatic updates are activated, the instance tries to request certificates from Let's Encrypt and updates them automatically.
 
-The certificates are requested for the first time when the relevant address is called up for the first time. I.e. if you configure e.g. “sub.domain.com” as the address and then call up https://sub.domain.com, the certificates are requested for the first time, which can take a while before the answer comes.
+The certificates are requested for the first time when the relevant address is called up for the first time. I.e. if you configure e.g. “sub.domain.com” as the address and then call https://sub.domain.com, the certificates are requested for the first time, which can take a while before the answer comes.
 
 The issuing of the certificates is a complex procedure, but if you follow the explanation below it should be easy to obtain the free certificates.
 
@@ -195,9 +195,9 @@ If port 80 is already being used by another service, point 4 applies - i.e. assi
 
 When the small web server is started, the request for the certificates for the specified addresses in the system settings is sent to the Let's encrypt server.
 
-The Let's Encrypt server sends back a challenge phrase in response to the request and after a while tries to read this challenge phrase at the address “http:// yourdomain: 80 / .well-known / acme-challenge /”.
+The Let's Encrypt server sends a challenge phrase back in response to the request and after a while tries to read this challenge phrase at the address “http:// yourdomain: 80 / .well-known / acme-challenge /”.
 
-When the server receives this challenge phrase back from us, the Let's Encrypt server sends the certificates. These are saved in the directory that is entered in the system settings.
+When the server receives this challenge phrase back from our side, the Let's Encrypt server sends the certificates. These are saved in the directory that is entered in the system settings.
 
 This sounds complex, but all you have to do is activate a few checkboxes and enter the email address and web address in the system settings.
 
@@ -237,7 +237,7 @@ If you activate the option to use certificates, but not the automatic update, th
 
 If the automatic updates are activated, the instance tries to request certificates from Let's Encrypt and updates them automatically.
 
-The certificates are requested for the first time when the relevant address is called up for the first time. I.e. if you configure e.g. “sub.domain.com” as the address and then call up https://sub.domain.com, the certificates are requested for the first time, which can take a while before the answer comes.
+The certificates are requested for the first time when the relevant address is called up for the first time. I.e. if you configure e.g. “sub.domain.com” as the address and then call https://sub.domain.com, the certificates are requested for the first time, which can take a while before the answer comes.
 
 The issuing of the certificates is a complex procedure, but if you follow the explanation below it should be easy to obtain the free certificates.
 
@@ -255,9 +255,9 @@ If port 80 is already being used by another service, point 4 applies - i.e. assi
 
 When the small web server is started, the request for the certificates for the specified addresses in the system settings is sent to the Let's encrypt server.
 
-The Let's Encrypt server sends back a challenge phrase in response to the request and after a while tries to read this challenge phrase at the address “http:// yourdomain: 80 / .well-known / acme-challenge /”.
+The Let's Encrypt server sends a challenge phrase back in response to the request and after a while tries to read this challenge phrase at the address “http:// yourdomain: 80 / .well-known / acme-challenge /”.
 
-When the server receives this challenge phrase back from us, the Let's Encrypt server sends the certificates. These are saved in the directory that is entered in the system settings.
+When the server receives this challenge phrase back from our side, the Let's Encrypt server sends the certificates. These are saved in the directory that is entered in the system settings.
 
 This sounds complex, but all you have to do is activate a few checkboxes and enter the email address and web address in the system settings.
 

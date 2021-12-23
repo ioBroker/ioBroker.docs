@@ -10,9 +10,9 @@ hash: 6M6JLNd7LLD21j0ulNOqyghHCguiQLMi21AkSJnTYyY=
 How is a restore of the ioBroker installation correctly carried out on a Linux system?
 
 ### Preface:
-Since some users find it very difficult to restore, step-by-step instructions for restoring after a crash, or after a hardware change, system change, or something else should help.
+Since some users find it very difficult to restore, step-by-step instructions for restoring after a crash, or after a hardware change, system change or something else should help.
 
-Basically, however, you can say one thing in advance: a restore can be done in a few minutes if executed correctly and nobody needs to be afraid of it.
+Basically you can say one thing in advance: a restore can be done in a few minutes if executed correctly and nobody needs to be afraid of it.
 
 In the end, all data is available again and a new system has been set up.
 
@@ -20,7 +20,7 @@ In the end, all data is available again and a new system has been set up.
 An executable ioBroker installation is essential for the preparation.
 
 There are 2 ways to do this.
-Either take a finished image from [Download area](https://www.iobroker.net/#de/download), set up your own Linux OS and install ioBroker according to this [instructions](https://www.iobroker.net/#de/documentation/install/linux.md).
+Either take a finished image from [Download area](https://www.iobroker.net/#de/download), set up your own Linux OS and install ioBroker according to this [manual](https://www.iobroker.net/#de/documentation/install/linux.md).
 
 ### Next Step
 If the old system saved the states and / or objects in Redis, the new system must first be equipped with the Redis server.
@@ -95,16 +95,16 @@ If the backup is to be restored on a different host, this option should not be u
 
 After saving, the existing backups on the local path can be called up using the "Retrieve backups" button.
 
-The backup just copied via FTP should appear in the list under “iobroker”.
+The backup just copied via FTP should appear in the list under "iobroker".
 Select this now.
 
 ![Selection of backups](../../de/tutorial/media/restore/1575301146928-restoreliste.jpg)
 
-After the selection there is a message that iobroker will be stopped for the restore and then restarted.
+After the selection there is a message that iobroker will be stopped for the restore and will then be restarted.
 
 ![Start restore](../../de/tutorial/media/restore/1575301175231-restorestart.jpg)
 
-Here you started the actual restore process.
+This is where you started the actual restore process.
 
 ![Restore is in progress](../../de/tutorial/media/restore/1575301208033-restore.jpg)
 
@@ -163,7 +163,7 @@ placed in the folder / opt / iobroker / backups.
 If states and objects were saved in the Redis DB, the saved Redis database should be restored here first.
 If only the states were running under Redis, this does not necessarily have to be in advance.
 
-If this is done, you stop your ioBroker as follows:
+Once this is done, you stop your ioBroker as follows:
 
 ```
 iobroker stop
@@ -187,7 +187,7 @@ A Redis backup, Zigbee backup, mySql backup, or the history data cannot be creat
 
 Backitup is required for this, as these were specially created with Backitup.
 
-This can now take a few minutes, depending on your system. The progress is displayed in the terminal.
+Depending on your system, this can now take a few minutes. The progress is displayed in the terminal.
 When the restore is complete, restart ioBroker with the following command:
 
 ```
@@ -195,7 +195,7 @@ iobroker start
 ```
 
 Here, too, all adapters are now reinstalled individually by ioBroker via npm.
-This may take a while, depending on the size of your installation, internet speed, and system performance.
+This may take a while depending on the size of your installation, the internet speed, and the performance of the system.
 The current status can be tracked in the "Log" tab.
 
 It is now done and the system is reinstalled and all settings, scripts, visualizations, etc. restored.

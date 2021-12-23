@@ -7,7 +7,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/g
 title: no title
 hash: pNXghnzEUIUGnqswpze2CJ8dmBmPOIWjCZiDbzPOvVA=
 ---
-To make it easy to get started and to make further help easier to understand, the most important terms that appear in and around the ioBroker are explained here.
+To make it easy to get started and to make further help more understandable, the most important terms that appear in and around the ioBroker are explained here.
 
 * **Adapter**
 
@@ -64,7 +64,7 @@ In multihost mode there are several hosts, one of which is the master and the ot
 
 * **HTML**
 
-Hypertext Markup Language. A page description language (basis of the WWW), which is used to display content (text, links, graphics, videos, etc.) in web browsers.
+Hypertext Markup Language. A page description language (based on the WWW) that is used to display content (text, links, graphics, videos, etc.) in web browsers.
 
 * **Instance**
 
@@ -77,7 +77,7 @@ Example: 2 Hue bridges are to be integrated into ioBroker. Since only one bridge
 
 * **Javascript**
 
-Programming language with which everything is programmed at ioBroker and also own scripts are programmed.
+Programming language with which everything is programmed at ioBroker and also with which own scripts are programmed.
 
 * **js controller**
 
@@ -90,7 +90,7 @@ A channel groups thematically related states and is usually located under a devi
 
 * **Master**
 
-The master is the host, which is centrally responsible for the administration of all instances (including the instances of the slaves!). When the master is terminated, the slave instances are also terminated. The master provides the central object and status databases for all slaves, to which all slaves connect.
+The master is the host, which is responsible for the administration of all instances (including the instances of the slaves!). When the master is terminated, the slave instances are also terminated. The master provides the central object and status databases for all slaves, to which all slaves connect.
 
 * **Multihost mode**
 
@@ -98,7 +98,7 @@ The multihost mode of ioBroker can be used to distribute the control tasks to se
 
 * **Node-Red**
 
-Graphic programming surface in which finished modules (nodes) can be linked to complex programs by simple chaining (flow).
+Graphic programming surface in which finished modules (nodes) can be linked to complex programs through simple chaining (flow).
 
 * **Objects and states**
 

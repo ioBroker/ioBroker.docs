@@ -3,8 +3,6 @@ https://airzonecloud.com/
 
 Control and monitor airzone devices with ioBroker.
 
-*NOTE: This version of the iobroker adapter no longer works with the current API of AirzoneCloud. A further development of this adapter is planned...*
-
 [![NPM version](http://img.shields.io/npm/v/iobroker.airzone.svg)](https://www.npmjs.com/package/iobroker.airzone)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.airzone.svg)](https://www.npmjs.com/package/iobroker.airzone)
 [![Stable](http://iobroker.live/badges/airzone-stable.svg)](http://iobroker.live/badges/airzone-stable.svg)
@@ -18,6 +16,9 @@ Control and monitor airzone devices with ioBroker.
 **Tests:** 
 
 ## Changelog
+### 2.0.0
+* (SilentPhoenix11) Using the local API instead of cloud web service.
+
 ### 1.0.4
 * (SilentPhoenix11) Small fixes
 

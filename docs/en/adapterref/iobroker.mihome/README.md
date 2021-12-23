@@ -24,10 +24,10 @@ agree to the terms and conditions.
 
 * Select *Mainland China* as the country
 *Create an account via * Login*
-* After successfully logging in, add a device using `+`
+* After successfully logging in, add a device using the `` + '' button
 * Under *Household Security* select the `MI Control Hub` and follow the instructions
 
-follow
+Follow
 
 * After successfully integrating the gateway, the 3 dots on the top right screen
 
@@ -46,16 +46,16 @@ and then press *About*
 Now further devices can be taught in using the `+` sign.
 
 #### IOS
-* [iOS App] (https://itunes.apple.com/de/app/mi-home-xiaomi-smarthome/id957323480?mt=8) download, install, open and the
+* [iOS App] (https://itunes.apple.com/de/app/mi-home-xiaomi-smarthome/id957323480?mt=8) on an iOS device, download, install, open and the
 
 I agree to the privacy policy
 
 * Select the country *Mainland* via Profile / Settings / Country Settings.
 *Create an account via * Login*
-* After successfully logging in, add a device using `+`
+* After successfully logging in, add a device using the `` + '' button
 * Under *Household Security* select the `MI Control Hub` and follow the instructions
 
-follow
+Follow
 
 * After successfully integrating the gateway, the 3 dots on the top right screen
 
@@ -74,7 +74,7 @@ Further menu items appear> If it does not work immediately, repeat the steps
 Now further devices can be taught in using the `+` sign.
 
 ### Setting on the router
-Under About / Hub info, the IP address of the gateway used by the gateway can be determined in the text after _localip_. In the router used, this IP should be permanently assigned to the gateway.
+The IP address of the gateway used by the gateway can be determined in the text after _localip_ under About / Hub info. In the router used, this IP should be permanently assigned to the gateway.
 If you no longer want to operate the taught-in devices via the app, the Internet access of the gateway can also be switched off after all devices have been taught-in in the router.
 
 ### Supported devices
@@ -131,7 +131,7 @@ The gateway and its taught-in devices are now displayed under *Objects*
 
 ![logo](../../../de/adapterref/iobroker.mihome/media/Objekte.PNG)
 
-The instructions were created to the best of our knowledge and belief.
+The instructions have been created to the best of our knowledge and belief.
 
 ## Changelog
 ### 1.3.8 (2021-09-13)

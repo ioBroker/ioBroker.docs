@@ -146,9 +146,9 @@ At the end there is the message
 
 Now call ioBroker via the specified IP in the web browser: ``http://<IP-Adresse>:8081``
 
-**Note:**
+**Notice:**
 
-Permissions problems may arise after installation changes.
+Rights problems can arise after installation changes.
 
 In this case, please use the installation fixer:
 

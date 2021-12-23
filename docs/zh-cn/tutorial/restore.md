@@ -10,9 +10,9 @@ hash: 6M6JLNd7LLD21j0ulNOqyghHCguiQLMi21AkSJnTYyY=
 如何在 Linux 系统上正确执行 ioBroker 安装的还原？
 
 ＃＃＃ 前言：
-由于某些用户发现恢复非常困难，因此在崩溃后或在硬件更改、系统更改或其他事情之后进行恢复的分步说明应该会有所帮助。
+由于一些用户发现恢复非常困难，崩溃后、硬件更改、系统更改或其他操作后的逐步恢复说明应该会有所帮助。
 
-基本上，人们可以提前说一件事：如果执行正确，可以在几分钟内完成恢复，没有人需要害怕。
+基本上你可以提前说一件事：如果正确执行，恢复可以在几分钟内完成，没有人需要害怕它。
 
 最后，所有数据都再次可用，并建立了一个新系统。
 
@@ -20,10 +20,10 @@ hash: 6M6JLNd7LLD21j0ulNOqyghHCguiQLMi21AkSJnTYyY=
 一个可执行的 ioBroker 安装对于准备工作是必不可少的。
 
 有两种方法可以做到这一点。
-从 [下载区](https://www.iobroker.net/#de/download) 获取完成的映像，设置您自己的 Linux 操作系统并根据此 [指示](https://www.iobroker.net/#de/documentation/install/linux.md) 安装 ioBroker。
+从 [下载区](https://www.iobroker.net/#de/download) 获取完成的映像，设置您自己的 Linux 操作系统并根据此 [手动的](https://www.iobroker.net/#de/documentation/install/linux.md) 安装 ioBroker。
 
 ＃＃＃ 下一步
-如果旧系统将状态和/或对象保存在Redis中，则新系统必须首先配备Redis服务器。
+如果旧系统在Redis中保存了状态和/或对象，则新系统必须首先配备Redis服务器。
 
 如果您不确定是否使用了Redis并且仍然可以访问旧系统，请使用命令`iobroker status`获取所需信息。“使用Redis时，输出如下所示：
 
@@ -59,7 +59,7 @@ curl -sL https://iobroker.net/fix.sh | bash –
 ```
 
 使用小工具“htop”，您可以很好地查看所有正在运行的进程，这不仅对恢复很有趣，而且在一般情况下也非常有用。
-这是安装如下：
+安装如下：
 
 在控制台中运行以下命令：
 
@@ -98,17 +98,17 @@ Backitup 也可以从 NAS、Dropbox 或 Google Drive 执行还原，但本地变
 刚刚通过 FTP 复制的备份应该出现在“iobroker”下的列表中。
 现在选择这个。
 
-![备份选择](../../de/tutorial/media/restore/1575301146928-restoreliste.jpg)
+![备份的选择](../../de/tutorial/media/restore/1575301146928-restoreliste.jpg)
 
-选择后会出现一条消息，iobroker 将停止恢复，然后重新启动。
+选择后会出现一条消息，iobroker 将停止进行恢复，然后将重新启动。
 
 ![开始恢复](../../de/tutorial/media/restore/1575301175231-restorestart.jpg)
 
-在这里，您开始了实际的恢复过程。
+这是您开始实际恢复过程的地方。
 
 ![正在恢复中](../../de/tutorial/media/restore/1575301208033-restore.jpg)
 
-另一个选项卡现在将在您的浏览器中打开，您可以在其中按照备份 WebUI 中的恢复过程进行操作，就像在控制台上一样。
+现在将在您的浏览器中打开另一个选项卡，您可以在其中按照备份 WebUI 中的恢复过程进行操作，就像在控制台上一样。
 
 ![恢复网页界面.JPG](../../de/tutorial/media/restore/restoreWebUI.JPG)
 
@@ -139,7 +139,7 @@ iobroker start
 
 恭喜，新安装的系统现已完成所有设置、脚本、可视化等。
 
-有了备份，现在可以恢复更多数据，前提是这些数据也提前在旧系统上进行了备份。
+有了Backitup，现在可以恢复更多数据，前提是这些数据也提前备份到了旧系统上。
 您可以使用与上述相同的步骤恢复 Redis 数据库、Zigbee 数据库、mySql 数据库和您的历史数据。
 
 在示例中，检索到的备份列表将如下所示。
@@ -187,7 +187,7 @@ Redis 备份、Zigbee 备份、mySql 备份或历史数据无法使用此命令�
 
 为此需要 Backitup，因为它们是用 Backitup 专门创建的。
 
-这现在可能需要几分钟，具体取决于您的系统。进度显示在终端中。
+现在，这可能需要几分钟时间，具体取决于您的系统。进度显示在终端中。
 恢复完成后，使用以下命令重新启动 ioBroker：
 
 ```
@@ -204,4 +204,4 @@ iobroker start
 基本上，两种变体都会导致相同的结果。
 如果您对终端命令的经验很少并且感到不安全，那么使用 Backitup 是安全的。
 
-但是，如果您想确切地查看系统上发生的情况，您应该通过控制台选择手动变体。在这里，您可以在终端中详细查看每个进程。
+但是，如果您想确切地查看系统上发生的情况，您应该通过控制台选择手动版本。在这里，您可以在终端中详细查看每个进程。

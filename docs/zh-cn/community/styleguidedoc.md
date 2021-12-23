@@ -13,7 +13,7 @@ hash: mfCPW6sFRTOA8DZNqHydfib2TK+qdfZMNwiFfig9vtw=
 允许使用字符 `a-z`、`0-9`、下划线 `_` 和小数点 `.`。
 
 * 文件应有 80 个字符的换行符。
-* 最好像在文件 `.editorconfig` 中那样完成文本格式化
+* 最好像在文件`.editorconfig` 中那样完成文本格式化
 
   描述。
 
@@ -48,12 +48,12 @@ hash: mfCPW6sFRTOA8DZNqHydfib2TK+qdfZMNwiFfig9vtw=
 
     包含。
 
-* 文档总是以 H1 层的标题开头。
+* 文档总是以 H1 级的标题开头。
 * 链接不是内嵌的（例如使用`[a link] (http://example.com)`），
 
-但在内嵌 `[a link][]` 和 `[a link]: https://a.link/to/know` 的帮助下放置在文档的末尾。
+但借助文档末尾的内联 `[a link][]` 和 `[a link]: https://a.link/to/know`。
 
-* 如果使用破折号，请使用短符号
+* 使用破折号时，使用短符号
 
   在 OSX 中使用减号而不是“-”或 `Option+Shift+"-"`。
 
@@ -77,13 +77,13 @@ hash: mfCPW6sFRTOA8DZNqHydfib2TK+qdfZMNwiFfig9vtw=
 
       * 源文本可以但不必是完整的。源代码块
 
-用例子来阐明刚才描述的观点。所以不需要提供完全可执行的程序。但是，如果要提供完全可执行的程序，则可以将其作为文件夹 `media/{code_beispieldatei}` 中的媒体文件并在文档中提供相应链接。
+举例说明刚才描述的观点。因此不需要提供完全可执行的程序。但是，如果要提供完全可执行的程序，则可以将其作为文件夹 `media/{code_beispieldatei}` 中的媒体文件并在文档中提供相应链接。
 
 * 如果使用下划线、引号、星号或反斜杠
 
 正确的转义字符必须使用：`\_`，`\*`，`\\`和``\``` anstelle von `_`, `*§§SSSSS_6§ § \ ` und `` ` ``。
 
-* 为了使笔记脱颖而出，以下准则是
+* 为了使笔记脱颖而出，以下是指导方针
 
   要注意：
 

@@ -7,7 +7,7 @@ translatedWarning: If you want to edit this document please delete "translatedFr
 hash: 9qginu+6BT6Cm5JzwTYlJJ+LmFCjpyS0LVuttJtXxqc=
 ---
 # Markdown: syntax
-?> To make ioBroker's documentation quick and easy to read, Markdown was chosen as the simplified markup language. The following guide will help you learn the syntax and capabilities of Markdown and translate them into great documents.
+?> So that ioBroker's documentation can be created quickly and easily read, Markdown was chosen as the simplified markup language. The following guide will help you learn the syntax and capabilities of Markdown and translate them into great documents.
 
 Technically, the documentation system only supports the following features:
 
@@ -57,7 +57,7 @@ In contrast to block tags, the Markdown syntax is interpreted within inline tags
 There are two characters in HTML that require special treatment: `<` and `&`.
 The left angle bracket is used to open HTML tags, the ampersand is used to describe named characters (entities). If these characters are to be used as "themselves" in HTML documents, they must be masked as entities, i.e. as `&lt;` and `&amp;`.
 
-The ampersand is particularly impractical for web developers. If you want to write about "AT&T", you have to write "`AT&amp;T`". The ampersand even has to be masked in URLs. In a link to the page
+The ampersand is especially impractical for web developers. If you want to write about "AT&T", you have to write "`AT&amp;T`". The ampersand even has to be masked in URLs. In a link to the page
 
 `http://images.google.com/images?num=30&q=larry+bird`
 
@@ -81,7 +81,7 @@ becomes markdown
 
 `AT&amp;T`
 
-do. Since Markdown supports Inline HTML, angle brackets are treated as HTML in the appropriate case. Just from things like
+do. Since Markdown supports inline HTML, angle brackets are treated as HTML in the appropriate case. Just for things like
 
 `4 < 5`
 
@@ -89,7 +89,7 @@ becomes markdown
 
 `4 &lt; 5`
 
-do. However, angle brackets and the ampersand are *always* coded in code or span blocks. This simplifies writing over HTML in Markdown (as opposed to raw HTML, where it is mostly a nightmare to encode every `<` and `&`).
+do. However, angle brackets and the ampersand are *always* coded in code or span blocks. This simplifies writing over HTML in Markdown (as opposed to raw HTML where it is mostly a nightmare to encode every `<` and `&`).
 
 ## Block elements
 ### Paragraphs and line breaks
@@ -109,7 +109,7 @@ Markdown's email-like, multi-paragraph [Quotations] (#quotes) and [list entries]
 
 ### Headers
 Markdown here only supports one type of header formatting: atx.
-Atx-like headers use 1-6 hash signs at the beginning of the line, corresponding to levels 1-6. For example:
+Atx-like headers use 1-6 diamond characters at the beginning of the line, corresponding to levels 1-6. For example:
 
 `# Dies ist ein H1`
 
@@ -137,7 +137,7 @@ Quotes can contain other Markdown elements, including headers, lists, and blocks
 > ## This is a heading.
 >> 1. This is the first item in the list.
 > 2. This is the second item in the list.
->> Here is some sample code:>> return shell_exec ("echo $ input | $ Markdown_script");
+>> Here is some sample code: >> return shell_exec ("echo $ input | $ Markdown_script");
 
 Any reasonable text editor should make e-mail-style quoting easy. In BBEdit, for example, you can make a selection and choose `Increase Quote Level` from the menu `Text`.
 
@@ -211,7 +211,7 @@ Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringill
 
 If list entries are separated by blank lines, Markdown will wrap the list entries with `<p>` and `</p>`.
 
-For example this will be:
+For example, this will be:
 
     * Warsteiner
     * King
@@ -232,7 +232,7 @@ becomes
 
 List items can consist of several paragraphs. Each following paragraph in a list item must be indented with at least 4 spaces or a tab:
 
-    1. This is a list item with two paragraphs. Lorem ipsum dolor
+    1. This is a bullet point with two paragraphs. Lorem ipsum dolor
 
 sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
 
@@ -242,7 +242,7 @@ Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus. Donec sit
 
 It looks fine with every line of the following paragraph indented, but again, Markdown allows the lazy to indent only the first line:
 
-    * This is a list item with two paragraphs
+    * This is a two-paragraph list item
 
 This is the second paragraph in this list item. Only the first line needs to be indented. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 
@@ -421,7 +421,7 @@ Then the link is defined:
 
 [Daring Fireball]: http://daringfireball.net/
 
-Link definitions can be made anywhere in the Markdown document. In general, it is a good idea to do them after the paragraph in which they are used. However, like footnotes, they can all be listed together at the end of the document.
+Link definitions can be made anywhere in the Markdown document. In general, it is a good idea to follow the paragraph in which they are used. However, like footnotes, they can all be listed together at the end of the document.
 
 A small example:
 
@@ -447,7 +447,7 @@ Both examples would result in the following HTML code:
 
 <p>I get ten times more traffic from <a href="http://google.com/" title="Google">Google</a> than from <a href="http://search.yahoo.com/" title="Yahoo Search">Yahoo</a> or <a href="http://search.msn.com/" title="MSN Search">MSN</a> .</p>
 
-For comparison, the same paragraph follows using Markdown's inline links:
+For comparison, the same paragraph follows, using Markdown's inline links:
 
 I get ten times more traffic from [Google](http://google.com/ "Google") than from [Yahoo](http://search.yahoo.com/ "Yahoo Search") or [MSN](http://search.msn.com/ "MSN Search").
 
@@ -457,7 +457,7 @@ With Markdown's reference links, the source document looks more like the final o
 
 <a id="em"></a>
 
-### Emphasis Markdown treats asterisks (`*`) and underscores (`_`) as indicators of emphasis. Text packed into individual `*` or `_` is enclosed with the HTML tag `<em>`, double `*` or `_` are marked with the tag `<strong>` . The following text, for example:
+### Emphasis Markdown treats asterisks (`*`) and underscores (`_`) as indicators of emphasis. Text packed in individual `*` or `_` is enclosed with the HTML tag `<em>`, double `*` or `_` are marked with the tag `<strong>` . The following text, for example:
     *Single asterisk*
 
     _Single underscores_
@@ -476,7 +476,7 @@ Will output the following:
 
 <strong>Double underscores</strong>
 
-The style can be chosen arbitrarily. The only limitation is that the same symbol must be used to open and close a stress area.
+The style can be chosen arbitrarily. The only limitation is that the same character must be used to open and close a stress area.
 
 Stress can be used in the middle of a word:
 
@@ -536,7 +536,7 @@ This is going to
 <a id="img"></a>
 
 ### Graphics Admittedly, it is quite difficult to find a "natural" syntax for including graphics in text.
-Markdown uses a syntax to do this that is supposed to be similar to the style of links. This allows two types: inline and reference.
+Markdown does this using a syntax designed to be similar to the style of links. This allows two types: inline and reference.
 
 The inline syntax looks like this:
 

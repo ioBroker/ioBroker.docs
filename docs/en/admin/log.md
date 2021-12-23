@@ -18,16 +18,16 @@ This button updates the list.
 
 ### 2 - Stop updating
 If you click on this button, the constant updating of the list is stopped.
-Instead of the pause icon, the number of new, non-displayed messages now appears.
+Instead of the pause icon, the number of new, not displayed messages appears.
 
 ### 3 - delete list
 Clicking on this icon only deletes the list on the screen
 
 ### 4 - Clear the log on the host
-When you click on this icon, the entire log on the host is permanently deleted.
+By clicking on this icon, the entire log on the host is permanently deleted.
 
 ### 5 - Download log
-With this button you can download a complete daily log of the last few days from the directory / opt / iobroker / logs:
+With this button you can download a complete daily log of the last days from the directory / opt / iobroker / logs:
 
 ![Log download](../../de/admin/media/ADMIN_Log_download.png)
 
@@ -57,7 +57,7 @@ The timestamp of the message is listed here. This column cannot be filtered.
 This menu can be used to set the severity of the message to be displayed. However, this is only a filter of the existing list.
 In order to set the logging in a certain level for an instance, this must be set on the instance page.
 
-Errors are shown in red font:
+Errors are shown in red:
 
 ![Error](../../de/admin/media/ADMIN_Log02_error.png)
 
@@ -66,4 +66,4 @@ If there is an error on any host, the label ***Log*** also appears in red in the
 ### 4 - message
 The respective message is displayed in this column, provided it fits into the column.
 The rest will be cut off. With mouse-over you can still see the whole message.
-To post in the forum, please download the log and copy the message out there.
+To post in the forum, please download the log and copy the message out of there.

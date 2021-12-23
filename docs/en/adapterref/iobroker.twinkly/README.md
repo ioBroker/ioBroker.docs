@@ -50,8 +50,8 @@ The following States are available:
 | `ledConfig`   | :heavy_check_mark: | Configuration of LEDs                                                                                                           |
 | `ledEffect`   | :heavy_check_mark: | Effects (`Effect`)                                                                                                              |
 | `ledLayout`   | :heavy_check_mark: | Layout of LEDs (disabled for further testing)                                                                                   |
-| `ledMode`     | :heavy_check_mark: | Mode: On, Color, Effect, Playlist, Off, RealTime (not yet supported), Demo                                                      |
-| `ledMovie`    | :heavy_check_mark: | Active Movie, If multiple Movies are added in the Playlist feature then they can be selected here. (`On`)                       |
+| `ledMode`     | :heavy_check_mark: | Mode: Movie, Color, Effect, Playlist, Off, RealTime (not yet supported), Demo                                                   |
+| `ledMovie`    | :heavy_check_mark: | Active Movie, If multiple Movies are added in the Playlist feature then they can be selected here. (`Movie`)                    |
 | `ledPlaylist` | :heavy_check_mark: | Active Playlist Entry, Switch between Movies. (`Playlist`)                                                                      |
 | `ledSat`      | :heavy_check_mark: | Saturation 0-100 (deactivate control with -1)                                                                                   |
 | `mqtt`        | :heavy_check_mark: | MQTT-Connection                                                                                                                 |
@@ -65,7 +65,15 @@ The following States are available:
 
 [Private API information](https://xled-docs.readthedocs.io/en/latest/) by [Pavol Babinčák](https://github.com/scrool)
 
+
+## Known Issues
+* The maximum length for the movie name is 15 characters
+
+
 ## Changelog
+
+### 0.2.8 (2021-12-20)
+* (patrickbs96) Rename mode On to movie as it's a better representation
 
 ### 0.2.7 (2021-12-19)
 * (patrickbs96) Hex without Hash. Option to not use ping for reachability.

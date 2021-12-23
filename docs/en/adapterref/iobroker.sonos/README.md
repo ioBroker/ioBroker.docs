@@ -44,6 +44,9 @@ Workaround for text to speech is to use the [SONOS HTTP API](https://github.com/
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 2.1.7 (2021-12-20)
+* (bluefox) Corrected error with "SONOS not found"
+
 ### 2.1.4 (2021-12-17)
 * (bluefox) Catch possible errors by the start and unload
 

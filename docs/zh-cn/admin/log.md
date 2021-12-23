@@ -11,7 +11,7 @@ hash: 66gpVVstVxHlQUyyBYv8juocwLyP/pXvD9q5MXSJDlE=
 ![日志页面](../../de/admin/media/ADMIN_Log_numbers.png)
 
 ##标题行
-在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需在图标上按住鼠标一段时间即可。
+在标题行中有最重要流程的图标。每个图标都有上下文帮助。为此，只需在图标上按住鼠标一会儿。
 
 ### 1 - 更新日志
 此按钮更新列表。
@@ -27,7 +27,7 @@ hash: 66gpVVstVxHlQUyyBYv8juocwLyP/pXvD9q5MXSJDlE=
 单击此图标，将永久删除主机上的整个日志。
 
 ### 5 - 下载日志
-使用此按钮，您可以从目录 /opt/iobroker/logs 下载过去几天的完整每日日志：
+使用此按钮，您可以从目录 /opt/iobroker/logs 下载最近几天的完整每日日志：
 
 ![日志下载](../../de/admin/media/ADMIN_Log_download.png)
 
@@ -55,9 +55,9 @@ hash: 66gpVVstVxHlQUyyBYv8juocwLyP/pXvD9q5MXSJDlE=
 
 ### 3 - 显示的日志级别
 此菜单可用于设置要显示的消息的严重性。但是，这只是现有列表的过滤器。
-为了在某个级别为实例设置日志记录，必须在实例页面上进行设置。
+为了将某个实例的日志记录设置为某个级别，必须在实例页面上进行设置。
 
-错误以红色字体显示：
+错误显示为红色：
 
 ![错误](../../de/admin/media/ADMIN_Log02_error.png)
 

@@ -44,14 +44,14 @@ Here you can filter for complete IDs, but also for parts of them, e.g. for all T
 This is the current value of the respective data point.
 
 ### 4 - Confirmed
-If this value was changed and this was adopted by the system, the value is true, otherwise false.
+If this value has been changed and this has been adopted by the system, the value is true, otherwise false.
 
 These are also the filter options
 
 ### 5 - source
 This indicates which instance made the last change to the data point.
 
-You can filter for these in this column.
+You can filter according to this in this column.
 
 ### 6 - time
 This is the time stamp at which the data point was last updated.

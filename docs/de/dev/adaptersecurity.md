@@ -7,7 +7,7 @@ hash: X2HcDsT5TE/W4x20hMFpAqHF23iMYbOPyEK6TXNkyG4=
 ---
 # Sicherheitsbezogene Funktionen für Adapterentwickler
 ## Zugriff von anderen Adaptern auf sensible Daten verhindern
-Wenn Sie ein Benutzerkennwort oder ein Token speichern müssen, das Benutzern den Zugriff auf den von Ihnen bereitgestellten Dienst ermöglicht, kann es im Interesse des Benutzers sein, dass fremde Adapter nicht auf diese Informationen zugreifen können.
+Wenn Sie ein Benutzerkennwort oder einen Token speichern müssen, der Benutzern den Zugriff auf den von Ihnen bereitgestellten Dienst ermöglicht, kann es im Interesse des Benutzers sein, dass fremde Adapter nicht auf diese Informationen zugreifen können.
 Dazu können Sie Ihrer `io-package.json` Datei ein Feld `protectedNative` hinzufügen. Dieses Feld muss ein Array aller Attribute enthalten, die im Attribut `native` des zu schützenden Adapters gespeichert sind.
 
 Beachten Sie, dass der Admin-Adapter immer Zugriff auf geschützte Attribute hat, um Benutzern die Möglichkeit zu geben, Attribute auf der eigenen Konfigurationsseite des Adapters zu lesen und geschützte Felder in `system.adapter.<namepsace>.<instance>` manuell zu bearbeiten.
@@ -26,7 +26,7 @@ __Beispiel__:
 ```
 
 ## Sensible Daten automatisch ver- und entschlüsseln
-Wenn Sie ein Benutzerpasswort oder einen Token speichern müssen, der Benutzern den Zugriff auf die von Ihnen bereitgestellten Dienste ermöglicht, kann es im Interesse des Benutzers sein, dass diese sensiblen Informationen nicht im Klartext gespeichert werden.
+Wenn Sie ein Benutzerpasswort oder einen Token speichern müssen, der Benutzern den Zugriff auf den von Ihnen bereitgestellten Dienst ermöglicht, kann es im Interesse des Benutzers sein, dass diese sensiblen Informationen nicht im Klartext gespeichert werden.
 Dazu können Sie Ihrer `io-package.json` Datei ein Feld `encryptedNative` hinzufügen. Dieses Feld muss ein Array aller Attribute enthalten, die im Attribut `native` des Adapters gespeichert sind, die verschlüsselt gespeichert und zur Laufzeit des Adapters automatisch entschlüsselt werden.
 
 Immer wenn der aktuell verwendete Verschlüsselungsalgorithmus unsicher wird, wird er im js-Controller geändert.
@@ -53,7 +53,7 @@ __Beispiel__:
 
 ## Sensible Daten manuell ver- und entschlüsseln
 Wir bieten auch Adaptermethoden zum manuellen Verschlüsseln von Daten in Ihrem Code.
-Dazu können Sie die Methoden `adapter.encrypt` und `adapter.decrypt` verwenden. Der für die Verschlüsselung und Entschlüsselung verwendete Schlüssel ist das systemweit eindeutige Geheimnis der Benutzerinstallation. Wenn Sie Ihren eigenen Schlüssel (192 Bit Hex) zur Verschlüsselung verwenden möchten, können Sie dies tun, indem Sie ein zweites Argument an die Methoden `encrypt` und `decrypt` übergeben.
+Dazu können Sie die Methoden `adapter.encrypt` und `adapter.decrypt` verwenden. Der für die Verschlüsselung und Entschlüsselung verwendete Schlüssel ist das systemweit eindeutige Geheimnis der Benutzerinstallation. Wenn Sie Ihren eigenen Schlüssel (192 Bit Hex) zur Verschlüsselung verwenden möchten, können Sie dies tun, indem Sie den Methoden `encrypt` und `decrypt` ein zweites Argument übergeben.
 
 __Beispiel__:
 

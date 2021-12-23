@@ -7,7 +7,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/admin
 hash: 8QIadDWLLIIZKQI36XihWSBAgZURM6srhXzxg/rnSH0=
 ---
 # 管理界面
-!> ** 由于文档的范围，这只是一个概述；详细信息在通过章节标题链接到选项卡的页面上提供。请点击标题。**
+!> ** 由于文档的范围，这只是一个概述；通过各部分的标题链接到选项卡的页面上提供了详细信息。请点击标题。**
 
 Adapter Admin 用于操作整个 ioBroker 安装。
 他提供了一个网络界面。这在``<IP-Adresse des Servers>:8081``下调用。
@@ -53,15 +53,15 @@ Adapter Admin 用于操作整个 ioBroker 安装。
 
 有关此内容的详细信息可在通过标题链接的页面上找到。
 
-[概述](https://www.iobroker.net/#de/documentation/admin/overview.md) 此处显示所有带有自己的 Web 界面和主机信息的页面。
+[概述](https://www.iobroker.net/#de/documentation/admin/overview.md) 此处显示所有具有自己的 Web 界面和主机信息的页面。
 
 [适配器](https://www.iobroker.net/#de/documentation/admin/adapter.md) 可用和已安装的适配器在此处显示和管理。
 
 [实例](https://www.iobroker.net/#de/documentation/admin/instances.md) 此处列出了已安装在“适配器”选项卡上的实例，并且可以进行相应的配置。
 
-[对象](https://www.iobroker.net/#de/documentation/admin/objects.md) 通过适配器集成的设备的管理对象、结构和数据点。可以在此处创建和删除对象。可以使用“向上箭头”和“向下箭头”按钮上传或下载整个对象结构。
+[对象](https://www.iobroker.net/#de/documentation/admin/objects.md) 通过适配器集成的设备的管理对象结构和数据点。可以在此处创建和删除对象。可以使用“向上箭头”和“向下箭头”按钮上传或下载整个对象结构。
 
-如果值显示为红色，则它们尚未被接收者确认（ack = false）。
+如果值显示为红色，则尚未被接收方确认（ack = false）。
 
 [枚举](https://www.iobroker.net/#de/documentation/admin/enums.md) 此处列出了 Homematic-CCU 的收藏夹、交易和房间。
 
@@ -78,7 +78,7 @@ Adapter Admin 用于操作整个 ioBroker 安装。
 [主机](https://www.iobroker.net/#de/documentation/admin/hosts.md) 有关安装 ioBroker 的计算机的信息。如果有新版本可用，菜单栏中的此条目中会显示一条消息。
 
 ＃＃ 系统设置
-在此处打开的菜单中，进行了诸如语言、时间和日期格式以及其他系统范围的设置的[系统设置](https://www.iobroker.net/#de/documentation/admin/settings.md)。
+在此处打开的菜单中，进行了[系统设置](https://www.iobroker.net/#de/documentation/admin/settings.md) 诸如语言、时间和日期格式以及其他系统范围的设置。
 
 也可以在此处设置存储库和安全设置。
 

@@ -50,4 +50,4 @@ In Weblate können Mitglieder der Community problemlos Übersetzungen in eine be
 
 Um Ihren Adapter zu Weblate hinzuzufügen, folgen Sie bitte [diese Richtlinien](https://github.com/ioBrokerTranslator/doc/blob/master/README.md).
 
-Weblate verwaltet derzeit nur Strings in der Admin-Benutzeroberfläche. Es ändert weder `io-package.json` noch Ihre Dokumentation.
+Weblate verwaltet derzeit nur Strings in der Admin-Benutzeroberfläche. Es ändert weder `io-package.json` noch ändert es Ihre Dokumentation.

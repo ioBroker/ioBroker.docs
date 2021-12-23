@@ -15,7 +15,7 @@ hash: gVPviuMsPHyCd+k12PaNgL3hB9dKVQ9VYcYm4GfPQkg=
 
   * 如果文档是德语，它将在子文件夹中
 
-`de` 已保存。当前支持的语言，因此文件夹名称为：`en, de, ru, pt, nl, fr, it, es, pl`。
+`de` 已保存。当前支持的语言和文件夹名称是：`en, de, ru, pt, nl, fr, it, es, pl`。
 
   * 实际的适配器文档在文件 `README.md` 中，
 
@@ -30,7 +30,7 @@ hash: gVPviuMsPHyCd+k12PaNgL3hB9dKVQ9VYcYm4GfPQkg=
 允许使用字符 `a-z`、`0-9`、下划线 `_` 和小数点 `.`。
 
 * 文件应有 80 个字符的换行符。
-* 最好像在文件 `.editorconfig` 中那样完成文本格式化
+* 最好像在文件`.editorconfig` 中那样完成文本格式化
 
   描述。
 
@@ -64,12 +64,12 @@ hash: gVPviuMsPHyCd+k12PaNgL3hB9dKVQ9VYcYm4GfPQkg=
 
     包含。
 
-* 文档总是以 H1 层的标题开头。
+* 文档总是以 H1 级的标题开头。
 * 链接不是内嵌的（例如使用`[a link] (http://example.com)`），
 
-但在内嵌 `[a link][]` 和 `[a link]: https://a.link/to/know` 的帮助下放置在文档的末尾。
+但借助文档末尾的内联 `[a link][]` 和 `[a link]: https://a.link/to/know`。
 
-* 如果使用破折号，请使用短符号
+* 使用破折号时，使用短符号
 
   在 OSX 中使用减号而不是“-”或 `Option+Shift+"-"`。
 
@@ -84,27 +84,27 @@ hash: gVPviuMsPHyCd+k12PaNgL3hB9dKVQ9VYcYm4GfPQkg=
 
   * 图像最好以 SVG 格式存储。当 SVG
 
-不可能，然后作为PNG文件。请注意文件大小。
+不可能，然后作为 PNG 文件。请注意文件大小。
 
   * 短视频可以嵌入为 GIF 文件。
-  * 每张图片下方都有对内容的简短说明，以斜体显示
+  * 每张图片下方都有斜体字对内容的简短说明
 
-    指定。
+    来指定。
 
 * 以下适用于源代码部分：
   * 根据源代码语言，必须选择相应的标记。到
 
-    示例 `\` \ `\`` 用于 JavaScript。
+    JavaScript 的示例 `\` \ `\``。
 
   * 源文本可以但不必是完整的。源代码块
 
-用例子来阐明刚才描述的观点。所以不需要提供完全可执行的程序。但是，如果要提供完全可执行的程序，则可以将其作为文件夹 `media/{code_beispieldatei}` 中的媒体文件并在文档中提供相应链接。
+举例说明刚才描述的观点。因此不需要提供完全可执行的程序。但是，如果要提供完全可执行的程序，则可以将其作为文件夹 `media/{code_beispieldatei}` 中的媒体文件并在文档中提供相应链接。
 
 * 如果使用下划线、引号、星号或反斜杠
 
 正确的转义字符必须使用：`\_`，`\*`，`\\`和``\``` anstelle von `_`, `*§§SSSSS_6§ § \ ` und `` ` ``。
 
-* 为了使笔记脱颖而出，以下准则是
+* 为了使笔记脱颖而出，以下是指导方针
 
   要注意：
 

@@ -41,7 +41,7 @@
           "title": {
             "en": "Architecture",
             "de": "Architektur",
-            "ru": "Архитектура",
+            "ru": "архитектура",
             "zh-cn": "建筑学"
           },
           "content": "basics/architecture.md"
@@ -114,7 +114,7 @@
           "title": {
             "en": "Introduction",
             "de": "Introduction",
-            "ru": "Вступление",
+            "ru": "Введение",
             "zh-cn": "介绍"
           },
           "content": "install/README.md"
@@ -363,7 +363,7 @@
           "title": {
             "en": "Events",
             "de": "Ereignisse",
-            "ru": "События",
+            "ru": "Мероприятия",
             "zh-cn": "事件"
           },
           "content": "admin/events.md"
@@ -759,8 +759,8 @@
           "title": {
             "en": "Introduction",
             "de": "Einleitung",
-            "ru": "вступление",
-            "zh-cn": "介绍"
+            "ru": "инициация",
+            "zh-cn": "引发"
           },
           "content": "config/README.md"
         },
@@ -841,8 +841,8 @@
           "title": {
             "en": "Introduction",
             "de": "Einleitung",
-            "ru": "вступление",
-            "zh-cn": "介绍"
+            "ru": "инициация",
+            "zh-cn": "引发"
           },
           "content": "trouble/README.md"
         },

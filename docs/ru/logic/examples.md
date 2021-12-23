@@ -9,4 +9,4 @@ hash: sb2IMITQZ2NNFkXvmjmOIUw4y6GckljtoiT4jy8rRoE=
 # Примеры
 ?> ***Это заполнитель*** .<br><br> Помогите с ioBroker и расширьте эту статью. Обратите внимание на [Руководство по стилю ioBroker](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md), чтобы изменения можно было легко применить.
 
-Примеры программирования логики можно найти в [Библиотека решений](lib/README).
+Примеры программирования логик можно найти в [Библиотека решений](lib/README).

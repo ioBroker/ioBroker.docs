@@ -1,5 +1,5 @@
 ---
-title: 介绍
+title: 引发
 lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/config/README.md
 translatedFrom: de

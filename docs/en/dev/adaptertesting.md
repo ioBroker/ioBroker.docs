@@ -7,4 +7,4 @@ translatedWarning: If you want to edit this document please delete "translatedFr
 hash: cpIgI71XqxlQ4BXhBh3dShptzkSJ+31gX0ddU2J6h5g=
 ---
 # Javascript template as a basis for your own adapter
-?> ***This is a placeholder*** .<br><br> Help with ioBroker and expand this article. Please note [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.
+?> ***This is a placeholder*** .<br><br> Help with ioBroker and expand this article. Please note the [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.

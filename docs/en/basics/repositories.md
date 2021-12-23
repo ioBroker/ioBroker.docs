@@ -7,4 +7,4 @@ title: Repositories
 hash: XLd8+MOH2fFrsne/7fMHXRkzVyFjnrA/Pu1ZrIDy9As=
 ---
 # Repositories
-?> ***This is a placeholder*** .<br><br> Help with ioBroker and expand this article. Please note [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.
+?> ***This is a placeholder*** .<br><br> Help with ioBroker and expand this article. Please note the [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.

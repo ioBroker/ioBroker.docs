@@ -16,7 +16,7 @@ hash: UhfOMulwOAHg2rGPgAX3Mn3ocEdya0XZ0k+ARuLINps=
 [Отличный старт для новичков](https://forum.iobroker.net/topic/12663/adapter-entwicklung-kick-start-f%C3%BCr-neulinge): Полезный файл PDF для начала разработки адаптера (в первом сообщении связанной темы).
 
 ### Инструменты
-[Создатель адаптера (веб-форма)](https://adapter-creator.iobroker.in/): позволяет быстро создать шаблон адаптера с помощью веб-формы.
+[Создатель адаптера (веб-форма)](https://adapter-creator.iobroker.in/): это позволяет быстро создать шаблон адаптера с помощью веб-формы.
 
 [Создатель адаптера (командная строка)](https://forum.iobroker.net/topic/17200/aufruf-iobroker-adapter-creator-testen): это позволяет быстро создать шаблон адаптера через командную строку.
 
@@ -25,4 +25,4 @@ hash: UhfOMulwOAHg2rGPgAX3Mn3ocEdya0XZ0k+ARuLINps=
 [Адаптер Студия](https://github.com/Jey-Cee/ioBroker.adapter-studio): Адаптер, предназначенный для простого, быстрого и стандартизованного создания новых адаптеров.
 
 ### Другое
-[Запросы адаптера](https://github.com/ioBroker/AdapterRequests/issues?page=1&q=is%3Aissue+is%3Aopen): пользователи ioBroker могут отправлять запросы адаптера на этой странице github. Полезно для разработчиков адаптеров, чтобы узнать, чего хочет сообщество и над чем, возможно, уже работает другой разработчик.
+[Запросы адаптера](https://github.com/ioBroker/AdapterRequests/issues?page=1&q=is%3Aissue+is%3Aopen): пользователи ioBroker могут отправлять запросы адаптеров на этой странице github. Полезно для разработчиков адаптеров, чтобы узнать, чего хочет сообщество и над чем, возможно, уже работает другой разработчик.

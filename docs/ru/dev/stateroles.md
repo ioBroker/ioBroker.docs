@@ -7,7 +7,7 @@ hash: iQ0sPeHMl+oZq/pHTJCX2n465zmSPwYKbJHVgPyMB1w=
 ---
 # Государственные роли
 Для объектов типа `state` необходимо, чтобы их свойство `common.role` было установлено на одну из ролей, определенных в списке ниже.
-Информация о роли является очень важной информацией и позволяет адаптерам Visualization- и Smart-Assistant определять функцию объекта, а также то, как / если они связаны с другими объектами в том же канале, устройстве или папке.
+Информация о ролях является очень важной информацией и позволяет адаптерам Visualization- и Smart-Assistant определять функцию объекта, а также то, как / если они связаны с другими объектами в том же канале, устройстве или папке.
 
 Пример: Лампа RGB может иметь следующие три объекта (или более) с разными ролями, которые принадлежат друг другу:
 
@@ -19,7 +19,7 @@ hash: iQ0sPeHMl+oZq/pHTJCX2n465zmSPwYKbJHVgPyMB1w=
 
 ## Общий
 * `состояние` - очень распространенная цель. Если вы не знаете, какую роль играет государство, используйте эту.
-* `текст`` common.type = строка`
+* `текст`` common.type = string`
 * `text.url`` common.type = string` state val содержит URL-адрес для использования в привязке, iframe или img
 * `html`` common.type = string`
 * `json`` common.type = string`
@@ -46,7 +46,7 @@ hash: iQ0sPeHMl+oZq/pHTJCX2n465zmSPwYKbJHVgPyMB1w=
 ## Кнопки (логические, только для записи)
 `common.type=boolean, common.write=true, common.read=false`
 
-* `button`
+* `кнопка`
 * `button.long`
 * `button.stop` - например, ролло-стоп,
 * `button.stop.tilt`
@@ -86,7 +86,7 @@ hash: iQ0sPeHMl+oZq/pHTJCX2n465zmSPwYKbJHVgPyMB1w=
 * `value.interval` (common.unit = 'sec') - Интервал в секундах (может быть 0,1 или меньше)
 * ~~ value.date (common.type = string) - Дата в форме 2015.01.01 (без времени) ~~
 * ~~ value.datetime (common.type = string) - Дата и время в системном формате ~~
-* `value.gps.longitude` - координаты долготы GPS
+* `value.gps.longitude` - координаты долготы gps
 * `value.gps.latitude` - широта GPS
 * `value.gps.elevation` - высота по GPS
 * `value.gps` - долгота и широта вместе, например '5.56; 43.45'
@@ -96,7 +96,7 @@ hash: iQ0sPeHMl+oZq/pHTJCX2n465zmSPwYKbJHVgPyMB1w=
 * `value.power.consuming` - потребление энергии (единица измерения = Втч или кВтч)
 * `value.power.reactive` - реактивная мощность (единица = VAr)
 * `value.direction` - (common.type = number ~~ или string ~~, указывает вверх / вниз, влево / вправо, 4-позиционные переключатели, направление ветра, ...)
-* `value.curtain` - фактическое положение занавеса
+* `value.curtain` - фактическое положение занавески
 * `value.blind` - фактическое положение жалюзи (` max = полностью открыто, min = полностью закрыто`)
 * `value.tilt` - фактическое положение наклона (` max = полностью открыто, min = полностью закрыто`)
 * `value.lock` - фактическое положение замка
@@ -104,8 +104,8 @@ hash: iQ0sPeHMl+oZq/pHTJCX2n465zmSPwYKbJHVgPyMB1w=
 * `value.pressure` - (единица измерения: мбар)
 * `value.distance`
 * `value.distance.visibility`
-* `value.severity` - некоторая серьезность (можно указать состояния), чем выше, тем важнее
-* `value.warning` - некоторое предупреждение (можно указать состояния), чем выше, тем важнее
+* `value.severity` - некоторая степень серьезности (можно указать состояния), чем выше, тем важнее
+* `value.warning` - какое-то предупреждение (можно указать состояния), чем выше, тем важнее
 * `value.sun.elevation` - высота солнца в °
 * `value.sun.azimuth` - азимут солнца в °
 * `value.voltage` - Напряжение в вольтах,` unit = V`
@@ -123,14 +123,14 @@ hash: iQ0sPeHMl+oZq/pHTJCX2n465zmSPwYKbJHVgPyMB1w=
 * `indicator.working` - указывает, что целевые системы что-то выполняют, например, жалюзи или открывание замка.
 * `indicator.reachable` - если устройство в сети
 * `indicator.connected` - используется только для экземпляров. Используйте `indicator.reachable` для устройств
-* `indicator.main maintenance` - указывает системные предупреждения / ошибки, аварийные сигналы, служебные сообщения, разряд батареи и тому подобное.
+* `indicator.main maintenance` - указывает системные предупреждения / ошибки, сигналы тревоги, служебные сообщения, разряд батареи и тому подобное.
 * `indicator.main maintenance.lowbat`
 * `indicator.main maintenance.unreach`
 * `indicator.main maintenance.alarm`
 * `indicator.lowbat` - истина при низком заряде батареи
 * `indicator.alarm` - то же, что и indicator.main maintenance.alarm
 * `indicator.alarm.fire` - обнаружен пожар
-* `indicator.alarm.flood` - обнаружено наводнение
+* `indicator.alarm.flood` - обнаружен флуд
 * `indicator.alarm.secure` - дверь или окно открыто
 * `indicator.alarm.health` - проблема со здоровьем
 
@@ -187,7 +187,7 @@ hash: iQ0sPeHMl+oZq/pHTJCX2n465zmSPwYKbJHVgPyMB1w=
 * `switch.gate` - закрывает (false) или открывает (true) ворота
 
 ## Кондиционер или термостат
-* `level.mode.fan` -` АВТО, ВЫСОКИЙ, НИЗКИЙ, СРЕДНИЙ, ТИХОЙ, ТУРБО`
+* `level.mode.fan` -` АВТО, ВЫСОКИЙ, НИЗКИЙ, СРЕДНИЙ, ТИХИЙ, ТУРБО`
 * `level.mode.swing` -` АВТО, ГОРИЗОНТАЛЬНО, СТАЦИОНАРНЫЙ, ВЕРТИКАЛЬНЫЙ`
 * `level.mode.airconditioner` - кондиционер:` AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`, термостат отопления: `AUTO, MANUAL, VACATION`,
 * `level.mode.thermostat` - термостат:` AUTO, MANUAL, VACATION`,
@@ -200,11 +200,11 @@ TODO: подумайте об ионизации и колебаниях.
 * `level.mode.cleanup` - Перечисление` AUTO, ECO, EXPRESS, NORMAL, QUIET`. Требуются только «АВТО» и «НОРМАЛЬНЫЙ».
 * `level.mode.work` - Перечисление` AUTO, FAST, MEDIUM, SLOW, TURBO`. Необязательное состояние.
 * `value.water` - уровень воды 0-100%.
-* `value.waste` - уровень мусора 0-100%. (0% - пустой, 100% - полный)
+* `value.waste` - уровень мусорного бака 0-100%. (0% - пусто, 100% - полно)
 * `indicator.main maintenance.waste` - мусорное ведро дурацкое.
 * `value.state` -` HOME, CLEANING, PAUSE` и так далее.
 
-Кроме того, для этих состояний обычно требуются `switch.power`, необходимые для сопоставления пылесоса. `switch.power` в этом случае работает как: `true` - очистить, `false` - вернуться домой.
+Вдобавок к этим состояниям обычно требуются `switch.power`, необходимые для сопоставления пылесоса. `switch.power` в этом случае работает как: `true` - очистить, `false` - вернуться домой.
 Необязательно `value.battery` и
 
 ## Ворота
@@ -213,7 +213,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `value.gate` - то же, что` value.position`
 * `button.stop` - остановить движение ворот
 
-## СМИ
+## Средства массовой информации
 Специальные роли для медиаплееров
 
 * `button.stop`
@@ -231,7 +231,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `media.seek` - (` common.type = number`)%
 * `media.mode.shuffle` - (` common.type = number`) 0 - нет, 1 - все, 2 - один
 * `media.mode.repeat` - (` common.type = boolean`)
-* `media.state` - ['play', 'stop', 'pause'] или [0 - пауза, 1 - воспроизведение, 2 - остановка] или [true - воспроизведение / false - пауза]
+* `media.state` - ['play', 'stop', 'pause'] или [0 - пауза, 1 - воспроизведение, 2 - стоп] или [true - воспроизведение / false - пауза]
 * `media.artist`
 * `media.album`
 * `media.title`
@@ -284,7 +284,7 @@ TODO: подумайте об ионизации и колебаниях.
 ]
 ```
 
-* `media.browser` - массив json типа" файлы "
+* `media.browser` - массив json типа" files "
 
 ```
 [
@@ -356,7 +356,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `weather.chart.url.forecast` - URL-адрес диаграммы для прогноза погоды
 * `weather.html` - HTML-объект с описанием погоды
 * `weather.title` - Очень краткое описание
-* `weather.title.short` - очень, очень краткое описание (одно слово)
+* `weather.title.short` - Очень, очень краткое описание (Одно слово)
 * `weather.type` - Тип информации о погоде
 * `weather.json` - объект JSON с конкретными данными
 * `value.speed.wind.forecast.0` - прогноз скорости ветра на сегодня
@@ -392,7 +392,7 @@ TODO: подумайте об ионизации и колебаниях.
 * `info.firmware` - версия прошивки
 * `info.hardware` - версия оборудования
 * `info.port` - порт tcp
-* `info.standby` - true, если устройство в режиме ожидания
+* `info.standby` - истина, если устройство в режиме ожидания
 * `info.status` - статус устройства
 * `info.display` - информация, отображаемая на дисплее устройства
 * `date.start` - строка или число

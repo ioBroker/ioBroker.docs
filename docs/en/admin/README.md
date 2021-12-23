@@ -59,7 +59,7 @@ Detailed information on this content is available on the pages linked via the he
 
 [Instances](https://www.iobroker.net/#de/documentation/admin/instances.md) The instances already installed on the Adapter tab are listed here and can be configured accordingly.
 
-[Objects](https://www.iobroker.net/#de/documentation/admin/objects.md) The managed objects, structures and data points of the devices that are integrated via adapters. Objects can be created and deleted here. Entire object structures can be uploaded or downloaded using the "arrow up" and "arrow down" buttons.
+[Objects](https://www.iobroker.net/#de/documentation/admin/objects.md) The managed objects structures and data points of the devices that are integrated via adapters. Objects can be created and deleted here. Entire object structures can be uploaded or downloaded using the "arrow up" and "arrow down" buttons.
 
 If values are displayed in red, they have not yet been confirmed by the recipient (ack = false).
 

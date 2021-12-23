@@ -7,6 +7,6 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/
 hash: eohsyZSTJWUcUnxeOCLvsX1tPZnyeJIJaoSb/5mP5Eg=
 ---
 # Hardware
-?> ***This is a placeholder*** .<br><br> Help with ioBroker and expand this article. Please note [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.
+?> ***This is a placeholder*** .<br><br> Help with ioBroker and expand this article. Please note the [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.
 
 @@@ Which hardware is recommended for ioBroker, what has been tested, what is experimental? No hardware for adapters here. @@@

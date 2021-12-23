@@ -51,7 +51,7 @@ ioBroker 的这些安装说明使用带有 Raspberry OS 'Buster' 的 Raspberry P
 
 可以激活 SSH 的根访问权限。
 
-对于众所周知的安全方面，我们建议不要这样做。对于 ioBroker 的安装，使用命令 sudo 并为相应的命令添加前缀就足够了。
+对于众所周知的安全方面，我们建议不要这样做。对于 ioBroker 的安装，使用命令 sudo 并为相应命令添加前缀就足够了。
 
 ### 安装 Node.js
 !> 使用 ioBroker 的当前安装程序（见下文）** 在没有 node.js 的系统上 ** 当前推荐的 node.js 版本会自动安装！ ** 不再需要 ** 预先单独安装 node.js。
@@ -78,7 +78,7 @@ ioBroker 的这些安装说明使用带有 Raspberry OS 'Buster' 的 Raspberry P
 
     ``npm -v``
 
-仅当 **ALL** 这些命令没有产生结果（即不再显示版本号）时，继续本节的第 4 步，否则，或者如果版本与您想要的版本不对应，请预先执行以下操作：
+仅当 **ALL** 这些命令不产生结果（即不再显示版本号）继续本节的第 4 步，否则，或者如果版本与您想要的版本不对应，请预先执行以下操作：
 
 3.卸载已有的node&node.js版本
 
@@ -120,7 +120,7 @@ ioBroker 的这些安装说明使用带有 Raspberry OS 'Buster' 的 Raspberry P
 ### 安装ioBroker
 安装可以使用 pi 用户进行，也可以使用 root 用户进行。
 
-在控制台上运行：
+在控制台执行：
 
 ``curl -sLf https://iobroker.net/install.sh | bash -``
 
@@ -146,7 +146,7 @@ ioBroker 的这些安装说明使用带有 Raspberry OS 'Buster' 的 Raspberry P
 
 现在通过 Web 浏览器中的指定 IP 调用 ioBroker：``http://<IP-Adresse>:8081``
 
-**笔记：**
+**注意：**
 
 安装更改后可能会出现权限问题。
 

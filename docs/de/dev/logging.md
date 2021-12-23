@@ -25,7 +25,7 @@ Vollständiges Beispiel aus einem `main.js`:
 
 ## Hintergrundinformation
 Es gibt eine spezielle Art von Adaptern, die Protokolle verbrauchen. Normalerweise schreiben alle Adapter ihre Meldungen mit logger in die Logdatei.
-Aber manche Adapter müssen Logs anzeigen oder anders speichern.
+Aber manche Adapter müssen Logs anzeigen oder sie anders speichern.
 
 Um einen solchen Adaptertyp zu erstellen, muss er das Flag **logTransporter** in der gemeinsamen Struktur haben.
 

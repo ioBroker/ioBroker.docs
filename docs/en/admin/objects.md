@@ -13,7 +13,7 @@ In the title line there are icons for the most important processes. There is con
 
 ![The icons of the objects tab](../../de/admin/media/ADMIN_Objekte_numbers.png)
 
-### 1 - update view
+### 1 - Refresh the view
 If objects that have just been created are not visible, clicking this icon helps to bring the status of the page up to date.
 
 ### 2 - change display
@@ -57,7 +57,7 @@ If a folder is selected, it is adopted as the parent in the object structure. A 
 
 ![New object](../../de/admin/media/ADMIN_Objekte_new_01.png)
 
-The name for the new object must now be selected here, whereby a device, a channel or a data point is available as the type according to the hierarchical structure. Logic value, switch, character string, number, value list, field, object and mixed are available as data point types.
+The name for the new object must now be selected here, whereby a device, a channel or a data point is available as a type according to the hierarchical structure. Logic value, switch, character string, number, value list, field, object and mixed are available as data point types.
 
 As soon as you confirm the input window with ok, another window opens:
 
@@ -127,15 +127,15 @@ The values in this column can be edited. In this way, the objects can still be a
 If the object is a data point, the current value of this data point is displayed here.
 
 ### 8 - settings
-![settings](../../de/admin/media/ADMIN_Objekte_numbers03.png)
+![ideas](../../de/admin/media/ADMIN_Objekte_numbers03.png)
 
-1.) Clicking on the pencil icon opens a window with the properties of this object. It is the same window that appeared above when creating a new object. Properties of the object can be changed here. This function must be used with extreme caution and only if you know exactly what you are doing with it.
+1.) Clicking on the pencil icon opens a window with the properties of this object. It is the same window that appeared above when a new object was created. Properties of the object can be changed here. This function must be used with extreme caution and only if you know exactly what you are doing with it.
 
 2.) Clicking on the trash can icon deletes this object and all objects below it in the hierarchy. To be on the safe side, a window appears in which the deletion has to be confirmed again.
 
 3.) The wrench icon only appears if at least one history instance is installed (History, InfluxDB or SQL). The data point for logging the historical data can be configured here.
-More information can be found in the description of the history adapter.
+Further information can be found in the description of the history adapter.
 
 This action can be carried out simultaneously for all data points that meet the current filter criteria using the wrench in the title bar. It is therefore important to check carefully whether the filter criteria on this page are selected in such a way that only the desired data points are included.
 
-The pull-down menu for filtering this column refers to data points with logged data. With, without and all as well as the installed history instances are available here.
+The pull-down menu for filtering this column relates to data points with logged data. With, without and all as well as the installed history instances are available here.

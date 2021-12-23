@@ -11,7 +11,7 @@ hash: D59HzSVYkdStJaSDx6e91FA6u2/6TTOD7QeUisJd0X0=
 # IoBroker.tr-064
 ### 信息
 该适配器从 AVM Fritz!Box 读取主要信息，如电话列表或应答机上的消息数量。
-基于此[AVM 文档](https://avm.de/service/schnittstellen/)
+基于此 [AVM 文档](https://avm.de/service/schnittstellen/)
 
 ### 简单的状态和函数
 - 打开/关闭 2.4GHz 和 5GHz 的 wifi，
@@ -34,7 +34,7 @@ hash: D59HzSVYkdStJaSDx6e91FA6u2/6TTOD7QeUisJd0X0=
 ### ToPauseState
 - 值：环、连接、结束
 - 可用于在来电（振铃）或拿起电话（连接）时暂停视频播放器。
-- 恢复可以在最终值上完成。
+- 可以在最终值上完成恢复。
 
 ＃＃＃ 在场
 您可以配置要收听的设备列表。
@@ -42,7 +42,7 @@ hash: D59HzSVYkdStJaSDx6e91FA6u2/6TTOD7QeUisJd0X0=
 
 ### AB - Anrufbeanworter（答录机）
 可以开/关。
-状态 cbIndex 可以设置为地址 # 应答机。
+可以将状态 cbIndex 设置为应答机的地址 #。
 
 ###呼叫监视器
 callmonitor 将为每个入站和出站呼叫创建实时状态。
@@ -69,7 +69,7 @@ callmonitor 将为每个入站和出站呼叫创建实时状态。
 
 通话次数：通话次数可设置为0，下次通话加1。
 
-html输出可以通过模板配置
+可以通过模板配置 html 输出
 
 ### 命令和命令结果状态
 使用命令状态，您可以从此 [文件](https://avm.de/service/schnittstellen/) 调用每个 tr-064 命令。

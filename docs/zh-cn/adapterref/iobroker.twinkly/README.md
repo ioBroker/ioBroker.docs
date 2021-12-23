@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.twinkly/README.md
 title: ioBroker.twinkly
-hash: yWnaLcmYkeNB3V78Pvx6VtGhEiNZFZeMc94BIhC2NRE=
+hash: 8WLgtLIavDN5rEQxNMS7s+61/GA86fr/OsdTLsXzkWQ=
 ---
 ![标识](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
@@ -51,9 +51,9 @@ hash: yWnaLcmYkeNB3V78Pvx6VtGhEiNZFZeMc94BIhC2NRE=
 | `ledColor` | :heavy_check_mark: | LED 颜色，HSV/RGB(W)/HEX |
 | `ledConfig` | :heavy_check_mark: | LED 的配置 |
 | `ledEffect` | :heavy_check_mark: |效果 (`Effect`) |
-| `ledLayout` | :heavy_check_mark: | LED 布局（禁用以供进一步测试）|
-| `ledMode` | :heavy_check_mark: |模式：开、颜色、效果、播放列表、关、实时（尚不支持）、演示 |
-| `ledMovie` | :heavy_check_mark: |活动电影，如果在播放列表功能中添加了多个电影，则可以在此处选择它们。 (`On`) |
+| `ledLayout` | :heavy_check_mark: | LED 布局（禁用以进行进一步测试）|
+| `ledMode` | :heavy_check_mark: |模式：电影、色彩、效果、播放列表、关闭、实时（尚不支持）、演示 |
+| `ledMovie` | :heavy_check_mark: |活动电影，如果在播放列表功能中添加了多个电影，则可以在此处选择它们。 (`Movie`) |
 | `ledPlaylist` | :heavy_check_mark: |活动播放列表条目，在电影之间切换。 (`Playlist`) |
 | `ledSat` | :heavy_check_mark: |饱和度 0-100（使用 -1 停用控制）|
 | `mqtt` | :heavy_check_mark: | MQTT-连接|
@@ -66,7 +66,16 @@ hash: yWnaLcmYkeNB3V78Pvx6VtGhEiNZFZeMc94BIhC2NRE=
 
 [私有 API 信息](https://xled-docs.readthedocs.io/en/latest/) 作者 [Pavol Babinčák]](https://github.com/scrool)
 
+＃＃ 已知的问题
+* 电影名称的最大长度为 15 个字符
+
 ## Changelog
+
+### 0.2.8 (2021-12-20)
+* (patrickbs96) Rename mode On to movie as it's a better representation
+
+### 0.2.7 (2021-12-19)
+* (patrickbs96) Hex without Hash. Option to not use ping for reachability.
 
 ### 0.2.6 (2021-12-09)
 * (patrickbs96) Renamed States with led control. Now starting with "led".

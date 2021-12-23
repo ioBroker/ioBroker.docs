@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.twinkly/README.md
 title: ioBroker.twinkly
-hash: yWnaLcmYkeNB3V78Pvx6VtGhEiNZFZeMc94BIhC2NRE=
+hash: 8WLgtLIavDN5rEQxNMS7s+61/GA86fr/OsdTLsXzkWQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
@@ -52,21 +52,30 @@ hash: yWnaLcmYkeNB3V78Pvx6VtGhEiNZFZeMc94BIhC2NRE=
 | `ledConfig` | : heavy_check_mark: | Конфигурация светодиодов |
 | `ledEffect` | : heavy_check_mark: | Эффекты (`Effect`) |
 | `ledLayout` | : heavy_check_mark: | Расположение светодиодов (отключено для дальнейшего тестирования) |
-| `ledMode` | : heavy_check_mark: | Mode: On, Color, Effect, Playlist, Off, RealTime (пока не поддерживается), Demo |
-| `ledMovie` | : heavy_check_mark: | Активный фильм. Если в список воспроизведения добавлено несколько фильмов, их можно выбрать здесь. (`On`) |
+| `ledMode` | : heavy_check_mark: | Mode: Movie, Color, Effect, Playlist, Off, RealTime (пока не поддерживается), Demo |
+| `ledMovie` | : heavy_check_mark: | Активный фильм, если в функцию списка воспроизведения добавлено несколько фильмов, их можно выбрать здесь. (`Movie`) |
 | `ledPlaylist` | : heavy_check_mark: | Активная запись в плейлист, переключение между фильмами. (`Playlist`) |
 | `ledSat` | : heavy_check_mark: | Насыщенность 0-100 (отключите управление с помощью -1) |
 | `mqtt` | : heavy_check_mark: | MQTT-соединение |
 | `name` | : heavy_check_mark: | Имя |
 | `network` | : x: | Сетевая информация |
 | `on` | : heavy_check_mark: | Переключатель Вкл. / Выкл. |
-| `paused` | : heavy_check_mark: | Приостановите подключение к Twinkly, чтобы вы могли вносить изменения в приложение. В противном случае вы можете потерять соединение во время работы в приложении |
+| `paused` | : heavy_check_mark: | Приостановите подключение к Twinkly, чтобы вы могли вносить изменения в приложение. В противном случае вы можете потерять соединение при работе в приложении |
 | `timer` | : heavy_check_mark: | Обновите таймер |
 | `таймер` | : heavy_check_mark: | Обновите таймер |
 
 [Информация о частном API] (https://xled-docs.readthedocs.io/en/latest/) [Павол Бабинчак](https://github.com/scrool)
 
+## Известные проблемы
+* Максимальная длина названия фильма - 15 символов.
+
 ## Changelog
+
+### 0.2.8 (2021-12-20)
+* (patrickbs96) Rename mode On to movie as it's a better representation
+
+### 0.2.7 (2021-12-19)
+* (patrickbs96) Hex without Hash. Option to not use ping for reachability.
 
 ### 0.2.6 (2021-12-09)
 * (patrickbs96) Renamed States with led control. Now starting with "led".

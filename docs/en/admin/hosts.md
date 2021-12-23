@@ -17,7 +17,7 @@ in the title line there are icons for the most important processes. There is con
 
 The icons in detail:
 
-### 1 - Toggle view
+### 1 - toggle view
 With this button you can switch between the tile and the list view (toggle function)
 
 ### 2 - get updates
@@ -37,7 +37,7 @@ The following icons are used to manage the hosts:
 The name of the host can be changed here. This name must be unique.
 
 ### 5 - Restart host
-The corresponding host can be restarted with this button. Clicking on it corresponds to the reboot command.
+With this button the corresponding host can be restarted. Clicking on it corresponds to the reboot command.
 
 ### 6 - Remove host
 This button is only available for slaves. If a slave has been removed from the multihost environment, all objects belonging to this host can also be removed with it.

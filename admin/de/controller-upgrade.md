@@ -21,10 +21,9 @@ Dies ist die empfohlene Variante zur Aktualisierung des js-controller, wenn ioBr
 Bitte in einer SSH-Shell (Konsole) folgende Befehle ausführen:
 * `iobroker stop`
 * `iobroker update`
+* `iobroker fix` oder wenn das nicht funktioniert: `curl -sL https://iobroker.net/fix.sh | bash -`
 * `iobroker upgrade self`
 * `iobroker start` oder Server rebooten, danach sollte ioBroker neu starten und man kann sicher sein das alle alten Prozesse beendet waren.
-
-Falls beim Upgrade-Befehl Fehler wegen Zugriffsrechten/Permissions angezeigt werden, dann bitte den Installation-Fixer nutzen (`curl -sL https://iobroker.net/fix.sh | bash -`) um diese Probleme zu beheben und Upgrade-Befehl erneut ausführen.
 
 ## Linux/macOS (manuell installiert)
 

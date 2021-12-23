@@ -15,13 +15,13 @@ Fühlen Sie sich frei, Fragen und entsprechende Antworten auf dieser Seite hinzu
 
 *Hinweis:* Dies ist keine offizielle Dokumentation. Alle Hinweise, Workarounds, Links zu noch älteren Forenbeiträgen usw. sind willkommen. Die Absicht ist, Entwickler bei häufig gestellten Entwicklungsfragen schnell zu unterstützen und zu unterstützen. Wenn Sie hier Probleme mit dem Schreiben in Englisch haben, verwenden Sie bitte Ihre lokale Sprache wie Deutsch, Russisch usw., wir helfen Ihnen gerne weiter und übersetzen später.
 
-Zur Aktualisierung des Inhaltsverzeichnisses können Sie einen TOC-Generator verwenden, z.B. [luciopaiva.com/markdown-toc](https://luciopaiva.com/markdown-toc/)
+Zum Aktualisieren des Inhaltsverzeichnisses können Sie einen TOC-Generator verwenden, z. [luciopaiva.com/markdown-toc](https://luciopaiva.com/markdown-toc/)
 
 # Inhaltsverzeichnis
 - [Adapter-Updates](#adapter-updates)
-  - [Veröffentlichen von Adapter-Updates](#publishing-adapter-updates)
+  - [Adapter-Updates veröffentlichen](#publishing-adapter-updates)
 - [Adaptertest und Fehlerberichterstattung](#adapter-testing-and-error-reporting)
-  - [Kompakt-Modus](#Kompakt-Modus)
+  - [Kompaktmodus](#Kompaktmodus)
   - [Wachposten](#Wachposten)
 - [Adapterkonfigurations-UI (admin/index_m.html)](#adapter-configuration-ui-adminindexmhtml)
   - [Eingabevalidierung](#eingabe-validierung)
@@ -50,22 +50,22 @@ Bitte beachten Sie, dass die Verwendung von [Semantische Versionierung](https://
 
 **Antwort:** Siehe [Fügen Sie dem neuesten Repository einen neuen Adapter hinzu](https://github.com/ioBroker/ioBroker.repositories#add-a-new-adapter-to-the-latest-repository)<br> (25. November 2020)
 
-### Adaptertest und Fehlerberichte
+### Adaptertest und Fehlerberichterstattung
 #### Kompaktmodus
 **Frage:** Wie kann ich den Kompaktmodus testen?
 
 **Antwort:** Siehe [Kompaktmodus testen](https://forum.iobroker.net/topic/32789/anleitung-f%C3%BCr-adapter-entwickler-compact-mode-testen)<br> (25. November 2020)
 
-#### Wachposten
+#### Wache
 **Frage:** Wie kann ich Sentry zu meinem Adapter hinzufügen?
 
 **Antwort:** Siehe [Sentry Read.me](https://github.com/ioBroker/plugin-sentry#readme)<br> (25. November 2020)
 
 ### Adapterkonfigurations-UI (admin/index_m.html)
 #### Eingabevalidierung
-**Frage:** Ich möchte Felder der Adapterkonfiguration validieren, indem ich Core-Adaptermethoden sowie Klassen/Methoden des node.js-Adaptercodes verwende. Die Validierung sollte erfolgen, sobald ein Benutzer in der Adapterkonfiguration auf "Speichern" klickt, die dann `save()` von `admin/index_m.html` aufruft.
+**Frage:** Ich möchte Felder der Adapterkonfiguration validieren, indem ich Kernadaptermethoden sowie Klassen/Methoden des node.js-Adaptercodes verwende. Die Validierung sollte erfolgen, sobald ein Benutzer in der Adapterkonfiguration auf "Speichern" klickt, die dann `save()` von `admin/index_m.html` aufruft.
 
-**Antwort:** Sie können die Methode `sendTo()` verwenden, um die Variable `obj` von `admin/index_m.html` an den Adaptercode zu senden, dort den Inhalt zu validieren und dann das Ergebnis per Rückruf an . zur Verfügung zu stellen `sendTo()` von `admin/index_m.html`.<br> Beispiel: Dies ist im Adapter [Fahrplan](https://github.com/gaudes/ioBroker.fahrplan) implementiert.<br> HINWEIS: Möglicherweise müssen Sie Ihre `io-package.json` ändern, siehe zB [ioBroker-Forum: sendTo() funktioniert nicht](https://forum.iobroker.net/topic/5205/gel%C3%B6st-sendto-in-eigenem-adapter-funktioniert-nicht/)<br> (24. November 2020)
+**Antwort:** Sie können mit der Methode `sendTo()` die Variable `obj` aus `admin/index_m.html` an den Adaptercode senden, dort den Inhalt validieren und dann das Ergebnis per Rückruf an . weitergeben `sendTo()` von `admin/index_m.html`.<br> Beispiel: Dies ist im Adapter [Fahrplan](https://github.com/gaudes/ioBroker.fahrplan) implementiert.<br> HINWEIS: Möglicherweise müssen Sie Ihre `io-package.json` ändern, siehe zB [ioBroker-Forum: sendTo() funktioniert nicht](https://forum.iobroker.net/topic/5205/gel%C3%B6st-sendto-in-eigenem-adapter-funktioniert-nicht/)<br> (24. November 2020)
 
 ### Adapterfunktionen
 #### Dateien schreiben
