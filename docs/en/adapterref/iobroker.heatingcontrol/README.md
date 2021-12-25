@@ -246,6 +246,12 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
+### 2.8.1 (in progress)
+* (René) see issue #283: show internal and external temperature sensors in room status
+* (René) see issue #272: extend override only if different temperature was sent
+* (René) see issue #278: reset remaining override time to 0 when override is canceled
+* (René) offset not to be used when room is in reduced mode (e.g. window open)
+* (René) see issue #271: set ack flag for changed DP after 2 seconds, to give a chance to other adpaters to react on un-acked DP's
 
 ### 2.8.0 (2021-12-18)
 * (René) see issue #266: differrent regulators for actor handling added (linear and linear with hysteresis)

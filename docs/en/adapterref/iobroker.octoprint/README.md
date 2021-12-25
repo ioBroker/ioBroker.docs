@@ -81,6 +81,10 @@ Please use state `system.adapter.octoprint.0.alive` to stop/start the instance.
 
 ### **WORK IN PROGRESS**
 
+* (klein0r) Fixed Display Layer Progress integration
+
+### 2.0.7 (2021-12-23)
+
 * (klein0r) Added plugin support: Display Layer Progress
 
 ### 2.0.6 (2021-12-01)

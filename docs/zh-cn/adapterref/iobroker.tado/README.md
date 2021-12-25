@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: Jz+axwoiVjZLSp1Vg3p37kgfRXnqhQm+0bFsDJF6LME=
+hash: 1mq5/OTYWIpPvTUkw0K4ZfYdjEUKY8D2kk9sCQcSzYA=
 ---
 ![安装数量](http://iobroker.live/badges/tado-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.tado.svg)
@@ -25,22 +25,6 @@ tado° 确保舒适健康的气候，同时节省高达 31% 的取暖费用。
 ＃＃ 支持我
 如果您喜欢我的作品，请随时提供个人捐赠（这是 DutchmanNL 的个人捐赠链接，与 ioBroker 项目无关！[![捐赠](https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
-## V0.3.x 中的重大更改
-建议：如果可能，首先删除旧的适配器安装或删除所有状态，以便安装中不会保留不受支持的状态。
-从 0.2.x 升级到 v0.3.x 包括具有重大更改的技术重构。某些州更改了名称/路径，例如
-
-| v0.2.x | v0.3.x |
-| ------ | ------ |
-| tado.[x].[yyyyy].Rooms.[z].setting.temperature |tado.[x].[yyyyy].Rooms.[z].setting.temperature.celsius |
-| tado.[x].[yyyyy].Rooms.[z].overlay.clearZoneOverlay | tado.[x].[yyyyy].Rooms.[z].overlayClearZone |
-| tado.[x].[yyyyy].Rooms.[z].Actual_Temperature | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.insideTemperature.celsius |
-| tado.[x].[yyyyy].Rooms.[z].Actual_Humidity | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.湿度.百分比|
-| tado.[x].[yyyyy].Rooms.[z].heatingPower | tado.[x].[yyyyy].Rooms.[z]..activityDataPoints.heatingPower.percentage |
-| tado.[x].[yyyyy].Weather.solarIntensity | tado.[x].[yyyyy].Weather.solarIntensity.percentage |
-| tado.[x].[yyyyy].Weather.outsideTemperature | tado.[x].[yyyyy].Weather.outsideTemperature.celsius |
-
-一般情况下，如果 API 发送 NULL 或什么都不发送，则值现在为 NULL。在 v0.2.x 中，有时会保留旧值，有时会替换为 0，有时会使用 NULL。
-
 ## 你可以驾驭的东西
 |状态 |说明 |
 | ----- | ----------- |
@@ -53,20 +37,23 @@ tado° 确保舒适健康的气候，同时节省高达 31% 的取暖费用。
 | tado.[x].[yyyyyy].Rooms.[z].timeTables.tt_id |选择活动时间表 |
 | tado.[x].[yyyyyy].Home.state.presence |设置 HOME 或 AWAY 模式 |
 | tado.[x].[yyyyyy].Home.masterswitch |打开/关闭所有设备 |
-| tado.[x].[yyyyyy].Rooms.[z].setting.mode |交流模式（仅限交流设备）|
-| tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | Fanspeed（仅限带有**旧**版本的交流设备）|
-| tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | Fanlebel（仅限带有**新**版本的交流设备）|
-| tado.[x].[yyyyyy].Rooms.[z].setting.verticalSwing |垂直摆动（仅限带有**新**版本的交流设备）|
-| tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing |水平摆动（仅限带有**新**版本的交流设备）|
+| tado.[x].[yyyyyy].Rooms.[z].setting.mode | AC 模式（仅限 AC 设备）|
+| tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | Fanspeed（仅限 V3 及更早版本的 AC 设备）|
+| tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | Fanlebel（仅限 V3+ 版本的 AC 设备）|
+| tado.[x].[yyyyyy].Rooms.[z].setting.verticalSwing |垂直摆动（仅限 V3+ 版本的 AC 设备）|
+| tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing |水平摆动（仅限 V3 和旧版本的 AC 设备）|
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.13-alpha.3 (2021-12-07)
+### 0.3.13-alpha.9 (2021-12-24)
 * (HGlab01) Optimize internet-check by using isOnline-library
 * (HGlab01) Support Smart AC Control V3+ (issue #403)
+* (HGlab01) Fix issue 'fan level not allowed in mode DRY'
+* (HGlab01) Fix issue 'mode not in supported modes [COOL, HEAT, DRY, FAN, AUTO]'
+* (HGlab01) Fix issue 'temperature required for mode AUTO'
 
 ### 0.3.12 (2021-11-25)
 * (HGlab01) support attribute 'showScheduleSetup'

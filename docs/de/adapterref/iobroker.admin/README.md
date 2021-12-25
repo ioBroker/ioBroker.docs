@@ -121,8 +121,12 @@ Auch die Repositorien und Sicherheitseinstellungen können hier eingestellt werd
 Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitts zu erreichen.
 
 ## Changelog
+### 5.2.3 (2021-12-24)
+* (bluefox) Fixed error in `AutocompleteSendTo`
+* (bluefox) Fixed error in charts
+
 ### 5.2.2 (2021-12-21)
-* (bluefox) Changed the minimal required js-controller version to 3.3.21 
+* (bluefox) Changed the minimal required js-controller version to 3.3.22 
 * (bluefox) Used web-socket library 8 (no node 10 support anymore)
 
 ### 5.2.1 (2021-11-28)
@@ -135,9 +139,6 @@ Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitt
 ### 5.1.28 (2021-11-10)
 * (bluefox) Fixed discovery function
 * (bluefox) Fixed some GUI bugs
-
-### 5.1.25 (2021-08-15)
-* (bluefox) Corrected some errors reported via sentry and the GitHub issues
 
 ## License
 The MIT License (MIT)

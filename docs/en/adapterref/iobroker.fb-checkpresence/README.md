@@ -197,6 +197,10 @@ Here you will find information about the history of the current day.
     * Did some changes
     * Did some more changes
 -->
+### 1.1.11 (2021-12-22)
+* (afuerhoff) depenencies updated
+* (afuerhoff) bugfix blacklist
+
 ### 1.1.10 (2021-09-24)
 * (afuerhoff) dependencies updated
 
@@ -213,11 +217,6 @@ Here you will find information about the history of the current day.
 
 ### 1.1.7 (2021-06-23)
 * (afuerhoff) message handling optimized
-* (afuerhoff) dependencies updated
-
-### 1.1.6 (2021-06-20)
-* (afuerhoff) html input pattern fixed for password and user
-* (afuerhoff) getActive function fixed
 * (afuerhoff) dependencies updated
 
 ## License
