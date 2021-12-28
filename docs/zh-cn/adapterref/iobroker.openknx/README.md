@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: 3ca6cOt+oAaorePukj1ZpIVUKu94p+vM7xamJIb9EwM=
+hash: u5O79IaLVw+GEZ2i/E3jjcIumlOpezZZ+UXNfzq7eYM=
 ---
 ![标识](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -22,7 +22,7 @@ Der Adapter ermöglicht die automatische Generierung der ioBroker Datenobjekte d
 Alle generierten Kommunikationsobjekte sind zunächst lesbar und schreibbar konfiguriert, Werte werden beim Neustart des Adapters vom knx-Bus geholt。
 
 ＃ 安装
-Der Adapter 是最新的/测试版 Repository verfügbar。 Wenn 死于 ioBroker Systemeinstellung ausgewählt ist kann der Adapter in der Adapterliste unter "openknx" gesucht und installiert werden。 Eine Alternative ist im Expertenmodus das installieren über das Github Symbol möglich in dem man "von Github" auswählt und nach openknx sucht。
+Der Adapter 是最新的/测试版存储库 verfügbar。 Wenn 死于 ioBroker Systemeinstellung ausgewählt ist kann der Adapter in der Adapterliste unter "openknx" gesucht und installiert werden。 Eine Alternative ist im Expertenmodus das installieren über das Github Symbol möglich in dem man "von Github" auswählt und nach openknx sucht。
 
 # 适配器配置
 在 den Instanzeinstellung muss mindestens die Gateway IP eingetragen werden。 Dann kann man ein ETS-Export XML Datei importiert werden。 Die XML kann über ETS dem Fenster Gruppenadressen mit Rechtsklick auf den oberen Ebene der Gruppenadresse exportiert werden。 GA die keinem DPT zugeordnet sind werden nicht importiert。 Es handelt sich dabei um GA die keinem Kommunikationsobjekt in ETS zugeordnet sind。
@@ -40,7 +40,7 @@ https://forum.iobroker.net/topic/50352/test-adapter-openknx-0-1-x
 - im Texteditor knx.0 ersetzen mit openknx.0
 - 菜单 auf der rechten Seite, Import auswählen
 - Geänderte Datei auswählen
-- im Dialog Flows auswählen（子流程，配置节点 nur wenn sie betroffen sind）-> neue Tabs werden hinzugefügt
+- im Dialog Flows auswählen（子流，配置节点 nur wenn sie betroffen sind）-> neue Tabs werden hinzugefügt
 - alte Flows manuell löschen
 
 ## VIS migrieren
@@ -96,11 +96,18 @@ https://forum.iobroker.net/topic/50352/test-adapter-openknx-0-1-x
 如果选中，导入将跳过覆盖现有通信对象。
 
 #### GA XML 导入
-1. 在 ETS 中转到 Group Addresses，选择导出组地址并选择最新格式版本的 XML 导出
+![ETS 出口](../../../en/adapterref/iobroker.openknx/docs/pictures/exportGA.png)
+
+1. 在 ETS 中转到 Group Addresses，选择导出组地址并选择最新格式版本的 XML 导出。
+
+不支持 ETS4 格式，它不包含 DPT 信息。
+
 2. 通过 GA XML-Import 对话框在适配器中上传您的 ETS 导出 XML
 3. 选择文件后会立即开始导入，并在完成后给出状态报告。
 
 成功导入后，一条消息会显示已识别的对象数量。更详细的信息可以在日志中找到。
+
+ETS 配置提示：如果 GA 和使用此 GA 的通信对象有不同的 DPT 子类型，那么 ETS 似乎使用编号最低的 DPT 类型。在这种情况下，手动确保所有字段都使用相同的数据类型。
 
 #### 每秒帧数
 此设置通过将数据帧限制为特定速率来保护 KNX 总线免受数据泛滥。未发送的帧被放入 fifo 缓冲区。
@@ -138,7 +145,7 @@ https://forum.iobroker.net/topic/50352/test-adapter-openknx-0-1-x
 ## 迁移 Grafana
 - 浏览所有仪表板并选择共享 - 导出 - 保存到文件
 - 在文本编辑器中替换 knx.0。使用 openknx.0。
-- 要导入仪表板，请单击侧边菜单中的 + 图标，然后单击导入。
+- 要导入仪表板，请单击侧面菜单中的 + 图标，然后单击导入。
 - 从这里您可以上传仪表板 JSON 文件
 - 选择导入（覆盖）
 
@@ -156,7 +163,8 @@ msg.payload = {"priority":1,"data":0};回消息；
 启用专家模式以启用不同日志级别之间的切换。默认日志级别是信息。
 ![日志级别](../../../en/adapterref/iobroker.openknx/docs/pictures/loglevel.png)
 
-# IObroker 通信对象描述
+# IOBroker 通信对象描述
+ioBroker 定义对象来保存通信接口设置。
 GA 导入生成遵循 ga 主组/中组方案的通信对象文件夹结构。每个组地址都是一个对象，具有以下自动生成的数据。
 
 ioBroker 状态角色（https://github.com/ioBroker/ioBroker/blob/master/doc/STATE_ROLES.md）默认值为“state”。一些更细粒度的值源自 DPT，例如日期或开关。
@@ -170,48 +178,53 @@ Handeled DPTs 是： 1-21,232,237,238 Unhandeled DPTs 被写入原始缓冲区�
 在使用数字数据类型的地方请注意接口值可以缩放。
 
 #### API 调用
+ioBroker 将状态定义为通信接口。
 setState( id: string, // 对象路径 state: State | StateValue | SettableState, ack: false, // 必须按照约定设置为 false c: 'GroupValue_Read' //可选注释，设置此值以触发总线读取到这个对象，给定的 StateValue 被忽略 ): void;
 
 #### 所有 DPT 的描述
-| KNX DPT | javascript 数据类型 |特殊价值 |取值范围 |
-| --------- | ---------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------- |
-| DPT-1 |布尔值 | |假，真|
-| DPT-2 |对象 | {“优先级”：1 位，“数据”：1 位} | - |
-| DPT-3 |对象 | {“decr_incr”：1 位，“数据”：2 位} | - |
-| DPT-18 |对象 | {"save_recall":0,"scenenumber":0} |
-| DPT-21 |对象 | {"outofservice":0,"fault":0,"overridden":0,"inalarm":0,"alarmunack":0} | - |
-| DPT-232 |对象 | {红色：0..255，绿色：0.255，蓝色：0.255} - |
-| DPT-237 |对象 | {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | - |
-| DPT-4 |字符串 | |一个字符作为 8 位字符发送 |
-| DPT-16 |字符串 | |一个字符作为 16 个字符的字符串发送 |
-| DPT-5 |数量 | | 8 位无符号值 |
-| DPT-5.001 |数量 | | 0..100 [%] 缩放到 1 字节 |
-| DPT-5.003 |数量 | | 0..360 [°] 缩放到 1 字节 |
-| DPT-6 |数量 | | 8 位有符号 -128..127 |
-| DPT-7 |数量 | | 16 位无符号值 |
-| DPT-8 |数量 | | 2 字节有符号值 | -32768..32767 |
-| DPT-9 |数量 | | 2 字节浮点值 |
-| DPT-14 |数量 | | 4 字节浮点值 |
-| DPT-12 |数量 | | 4 字节无符号值 |
-| DPT-13 |数量 | | 4 字节有符号值 |
-| DPT-15 |数量 | | 4 字节 |
-| DPT-17 |数量 | | 1 字节 |
-| DPT-20 |数量 | | 1 字节 |
-| DPT-238 |数量 | | 1 字节 |
-| DPT-10 |日期对象的编号 | | - |
-| DPT-11 |日期对象的编号 | | - |
-| DPT-19 |日期对象的编号 | | - |
-|休息|字符串 | 00010203.. | - |
+| KNX DPT | javascript 数据类型 |特殊价值 |取值范围|备注|
+| --------- | ---------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------- ||
+| DPT-1 |布尔值 | |假，真||
+| DPT-2 |对象 | {“优先级”：1 位，“数据”：1 位} | - ||
+| DPT-3 |对象 | {“decr_incr”：1 位，“数据”：2 位} | - ||
+| DPT-18 |对象 | {"save_recall":0,"scenenumber":0} | - |从自动读取中删除了数据点类型 DPT_SceneControl|
+| DPT-21 |对象 | {"outofservice":0,"fault":0,"overridden":0,"inalarm":0,"alarmunack":0} | - ||
+| DPT-232 |对象 | {红色：0..255，绿色：0.255，蓝色：0.255} | - ||
+| DPT-237 |对象 | {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | - ||
+| DPT-4 |字符串 | |一个字符作为 8 位字符发送 ||
+| DPT-16 |字符串 | |一个字符作为 16 个字符的字符串发送 ||
+| DPT-5 |数量 | | 8 位无符号值 ||
+| DPT-5.001 |数量 | | 0..100 [%] 缩放到 1 字节 ||
+| DPT-5.003 |数量 | | 0..360 [°] 缩放到 1 字节 ||
+| DPT-6 |数量 | | 8 位有符号 -128..127 ||
+| DPT-7 |数量 | | 16 位无符号值 ||
+| DPT-8 |数量 | | 2 字节有符号值 -32768..32767 ||
+| DPT-9 |数量 | | 2 字节浮点值 ||
+| DPT-14 |数量 | | 4 字节浮点值 ||
+| DPT-12 |数量 | | 4 字节无符号值 ||
+| DPT-13 |数量 | | 4 字节有符号值 ||
+| DPT-15 |数量 | | 4 字节 ||
+| DPT-17 |数量 | | 1 字节 |DPT_SceneNumber 从自动读取中删除|
+| DPT-20 |数量 | | 1 字节 ||
+| DPT-238 |数量 | | 1 字节 ||
+| DPT-10 |日期对象的编号 | | - ||
+| DPT-11 |日期对象的编号 | | - ||
+| DPT-19 |日期对象的编号 | | - ||
+| DPT-26 |字符串 |例如00010203.. | - |从自动读取中删除了数据点类型 DPT_SceneInfo|
+| DPT-238 |字符串 |例如00010203.. | - |从自动读取中删除了 DPT_SceneConfig|
+|休息|字符串 |例如00010203.. | - ||
 
 只有时间和日期信息与基于 KNX 时间的数据类型交换，例如DPT-19 具有不受支持的信号质量字段。
 
 对象发送和接收值的类型为布尔型 DPT1)、数字（缩放或未缩放）、字符串。
 DPT 2 'expects a object {"priority":0,"data":1}' receive 提供了一个相同类型的 strinified 对象。
 其他联合 DPT 具有类似的对象符号。
-DPT19 需要来自日期对象的数字，Iobroker 无法处理对象，无法从时间戳派生的 KNX ko 字段未实现，例如。质量标志
+DPT19 需要来自日期对象的数字，Iobroker 无法处理对象，无法从时间戳派生的 KNX ko 字段未实现，例如。质量标志。
 
 日期和时间 DPT（DPT10、DPT11） 请记住，Javascript 和 KNX 具有非常不同的时间和日期基本类型。
 DPT10 是时间 (hh:mm:ss) 加上“星期几”。这个概念在 JS 中不可用，因此您将获取/设置常规 Date Js 对象，但请记住您需要忽略日期、月份和年份。转换为“Mon, Jul 1st 12:34:56”的完全相同的数据报将在一周后评估为“Mon, Jul 8th 12:34:56”的完全不同的JS Date。被警告！ DPT11 是日期 (dd/mm/yyyy)：同样适用于 DPT11，您需要忽略时间部分。
+
+（DPT 的 KNX 规范 https://www.knx.org/wAssets/docs/downloads/Certification/Interworking-Datapoint-types/03_07_02-Datapoint-Types-v02.02.01-AS.pdf）
 
 ####组值写入
 通过写入通信对象触发发送。
@@ -219,11 +232,10 @@ DPT10 是时间 (hh:mm:ss) 加上“星期几”。这个概念在 JS 中不可�
 
 #### 组值读取
 发送可以通过编写带有注释的通信对象来触发。
-接收，如果配置将触发实际 c.o. 的组值响应（限制：此时组值写入）。价值，见下
+接收，如果配置将触发实际 c.o. 的组值响应（限制：此时组值写入）。值，见下文。
 
 #### 组值响应
-尚未完全支持发送 GroupValue_Response。如果设置了响应设置，则模拟，然后适配器写入组值写入。
-接收会更新iobroker 对象在read 中的值设置为true。
+如果 answer_groupValueResponse 设置为 true，则适配器将使用 GroupValue_response 回复先前收到的 GroupValue_read 请求。
 
 ＃ 特征
 * 以 XML 格式快速导入组地址
@@ -235,15 +247,20 @@ DPT10 是时间 (hh:mm:ss) 加上“星期几”。这个概念在 JS 中不可�
 * 免费开源
 
 # 已知问题
-- 在 GroupValue_Read 上发送 write 而不是 GroupValue_Response
+-
 
 # 限制
 - 仅支持三级组地址
+- 不支持 ETS 4 导出文件格式
 
 ## Changelog
-### 0.1.10 (2021-12-23)
+### 0.1.11 (2021-12-..)
+* feature: remove more scene DPTs from default autoread
+* feature: sends GroupValue_Response on GroupValue_Read if configured
+* feature: admin dialog with option to generate aliases (beta)
+
+### 0.1.10 (2021-12-24)
 * fix: interface to write objects corrected
-* 
 
 ### 0.1.9 (2021-12-22)
 * fix: algorith to generate the iob objects improved
@@ -289,7 +306,6 @@ DPT10 是时间 (hh:mm:ss) 加上“星期几”。这个概念在 JS 中不可�
 * (boellner) feature: import ga xml
 
 ## License
-
 					GNU GENERAL PUBLIC LICENSE
 ==========================
 Copyright (c) 2021 boellner

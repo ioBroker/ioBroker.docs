@@ -36,6 +36,10 @@ Kaffee spendieren/serve a coffee
 
 ## Changelog
 
+### 1.7.5
+
+* security enhancements
+
 ### 1.7.4
 
 * security enhancements

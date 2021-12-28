@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: 3ca6cOt+oAaorePukj1ZpIVUKu94p+vM7xamJIb9EwM=
+hash: u5O79IaLVw+GEZ2i/E3jjcIumlOpezZZ+UXNfzq7eYM=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -96,11 +96,18 @@ Geben Sie die physikalische Adresse des Gateways im Format 1/1/1 ein.
 Wenn aktiviert, überspringt der Import das Überschreiben vorhandener Kommunikationsobjekte.
 
 #### GA-XML-Import
-1. Gehen Sie in der ETS zu Gruppenadressen, wählen Sie Gruppenadresse exportieren und wählen Sie XML-Export in der neuesten Formatversion
+![ETS-Export](../../../en/adapterref/iobroker.openknx/docs/pictures/exportGA.png)
+
+1. Gehen Sie in der ETS zu Gruppenadressen, wählen Sie Gruppenadresse exportieren und wählen Sie XML-Export in der neuesten Formatversion.
+
+Das ETS4-Format wird nicht unterstützt, es enthält keine DPT-Informationen.
+
 2. Laden Sie Ihre ETS Export XML in den Adapter über den GA XML-Import Dialog
 3. Der Import startet sofort nach der Dateiauswahl und gibt nach Abschluss einen Statusbericht aus.
 
 Nach erfolgreichem Import zeigt eine Meldung an, wie viele Objekte erkannt wurden. Genauere Informationen sind im Log zu finden.
+
+Hinweis zur ETS-Konfiguration: Wenn Sie unterschiedliche DPT-Subtypen für den GA und in den Kommunikationsobjekten haben, die diesen GA verwenden, dann scheint die ETS den DPT-Typ mit der niedrigsten Nummer zu verwenden. Stellen Sie in diesem Fall manuell sicher, dass alle Felder denselben Datentyp verwenden.
 
 #### Bilder pro Sekunde
 Diese Einstellung schützt den KNX-Bus vor Datenfluten, indem die Datenframes auf eine bestimmte Rate begrenzt werden. Nicht gesendete Frames werden in einen Fifo-Puffer gelegt.
@@ -148,15 +155,16 @@ Die Anwendung soll kein Ack-Flag setzen, die Anwendung wird von diesem Adapter d
 KNX Stack setzt beim Empfang einer Gruppenadresse das Ack-Flag des verknüpften ioBroker-Objekts.
 Gesendete Frames auf KNX führen nicht zu einer Bestätigung des Schreibobjektes.
 
-## Beispiel für einen komplexen Datentyp von Node Red
+## Beispiel für einen komplexen Datentyp in Node Red
 Erstellen Sie einen Funktionsknoten, der sich mit einem ioBroker-Ausgangsknoten verbindet, der sich mit einem KNX-Objekt von DPT2 verbindet.
 msg.payload = {"Priorität":1 ,"Daten":0}; Nachricht zurück;
 
 # Log-Level
-Aktivieren Sie den Expertenmodus, um das Umschalten zwischen verschiedenen Protokollebenen zu ermöglichen. Der Standard-Loglevel ist info.
+Aktivieren Sie den Expertenmodus, um das Umschalten zwischen verschiedenen Protokollebenen zu ermöglichen. Standard-Loglevel ist info.
 ![Loglevel](../../../en/adapterref/iobroker.openknx/docs/pictures/loglevel.png)
 
 # IOBroker Kommunikationsobjektbeschreibung
+ioBroker definiert Objekte zum Speichern von Kommunikationsschnittstelleneinstellungen.
 Der GA-Import erzeugt eine Kommunikationsobjekt-Ordnerstruktur nach dem ga-Hauptgruppen-/Mittelgruppen-Schema. Jede Gruppenadresse ist ein Objekt mit folgenden automatisch generierten Daten.
 
 ioBroker-Statusrollen (https://github.com/ioBroker/ioBroker/blob/master/doc/STATE_ROLES.md) haben standardmäßig den Wert 'state'. Einige detailliertere Werte werden aus dem DPT abgeleitet, zum Beispiel Date oder Switch.
@@ -170,48 +178,53 @@ Gehandelte DPTs sind: 1-21,232,237,238 Unhandelte DPTs werden als Rohpuffer gesc
 Wenn der Datentyp Zahl verwendet wird, beachten Sie bitte, dass Schnittstellenwerte skaliert werden können.
 
 #### API-Aufruf
+ioBroker definiert Zustände als Kommunikationsschnittstelle.
 setState( id: string, // Objektpfadstatus: State | StateValue | SettableState, ack: false, //muss laut Konvention auf false gesetzt werden c: 'GroupValue_Read' //optionaler Kommentar, setze diesen Wert um einen Bus-Read auszulösen für dieses Objekt wird der angegebene StateValue ignoriert ): void;
 
 #### Beschreibung aller DPTs
-| KNX DPT | Javascript-Datentyp | Sonderwerte | Wertebereich |
-| --------- | ---------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------- |
-| DPT-1 | boolesch | | falsch, wahr |
-| DPT-2 | Objekt | {"Priorität":1 Bit,"Daten":1 Bit} | - |
-| DPT-3 | Objekt | {"decr_incr":1 bit,"data":2 bit} | - |
-| DPT-18 | Objekt | {"save_recall":0,"Szenennummer":0} |
-| DPT-21 | Objekt | {"outofservice":0,"fault":0,"overridden":0,"inalarm":0,"alarmunack":0} | - |
-| DPT-232 | Objekt | {Rot:0..255, Grün:0,255, Blau:0,255} - |
-| DPT-237 | Objekt | {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | - |
-| DPT-4 | Zeichenfolge | | ein Zeichen als 8-Bit-Zeichen gesendet |
-| DPT-16 | Zeichenfolge | | ein Zeichen als 16-stelliger String gesendet |
-| DPT-5 | Nummer | | 8-Bit-Wert ohne Vorzeichen |
-| DPT-5.001 | Nummer | | 0..100 [%] skaliert auf 1-Byte |
-| DPT-5.003 | Nummer | | 0..360 [°] skaliert auf 1-Byte |
-| DPT-6 | Nummer | | 8-Bit mit Vorzeichen -128..127 |
-| DPT-7 | Nummer | | 16-Bit-Wert ohne Vorzeichen |
-| DPT-8 | Nummer | | 2-Byte-Wert mit Vorzeichen | -32768..32767 |
-| DPT-9 | Nummer | | 2-Byte-Gleitkommawert |
-| DPT-14 | Nummer | | 4-Byte-Gleitkommawert |
-| DPT-12 | Nummer | | 4-Byte-Wert ohne Vorzeichen |
-| DPT-13 | Nummer | | 4-Byte-Wert mit Vorzeichen |
-| DPT-15 | Nummer | | 4-Byte |
-| DPT-17 | Nummer | | 1-Byte |
-| DPT-20 | Nummer | | 1-Byte |
-| DPT-238 | Nummer | | 1-Byte |
-| DPT-10 | Nummer für Datumsobjekt | | - |
-| DPT-11 | Nummer für Datumsobjekt | | - |
-| DPT-19 | Nummer für Datumsobjekt | | - |
-| ausruhen | Zeichenfolge | 00010203.. | - |
+| KNX DPT | Javascript-Datentyp | Sonderwerte | Wertebereich |Bemerkung|
+| --------- | ---------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------- ||
+| DPT-1 | boolesch | | falsch, wahr ||
+| DPT-2 | Objekt | {"Priorität":1 Bit,"Daten":1 Bit} | - ||
+| DPT-3 | Objekt | {"decr_incr":1 bit,"data":2 bit} | - ||
+| DPT-18 | Objekt | {"save_recall":0,"Szenennummer":0} | - |Datenpunkttyp DPT_SceneControl aus Autoread entfernt|
+| DPT-21 | Objekt | {"outofservice":0,"fault":0,"overridden":0,"inalarm":0,"alarmunack":0} | - ||
+| DPT-232 | Objekt | {Rot:0..255, Grün:0,255, Blau:0,255} | - ||
+| DPT-237 | Objekt | {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | - ||
+| DPT-4 | Zeichenfolge | | ein Zeichen als 8-Bit-Zeichen gesendet ||
+| DPT-16 | Zeichenfolge | | ein Zeichen als 16-stelliger String gesendet ||
+| DPT-5 | Nummer | | 8-Bit-Wert ohne Vorzeichen ||
+| DPT-5.001 | Nummer | | 0..100 [%] skaliert auf 1-Byte ||
+| DPT-5.003 | Nummer | | 0..360 [°] skaliert auf 1-Byte ||
+| DPT-6 | Nummer | | 8-Bit mit Vorzeichen -128..127 ||
+| DPT-7 | Nummer | | 16-Bit-Wert ohne Vorzeichen ||
+| DPT-8 | Nummer | | 2-Byte-Wert mit Vorzeichen -32768..32767 ||
+| DPT-9 | Nummer | | 2-Byte-Gleitkommawert ||
+| DPT-14 | Nummer | | 4-Byte-Gleitkommawert ||
+| DPT-12 | Nummer | | 4-Byte-Wert ohne Vorzeichen ||
+| DPT-13 | Nummer | | 4-Byte-Wert mit Vorzeichen ||
+| DPT-15 | Nummer | | 4-Byte ||
+| DPT-17 | Nummer | | 1-Byte |DPT_SceneNumber aus Autoread entfernt|
+| DPT-20 | Nummer | | 1-Byte ||
+| DPT-238 | Nummer | | 1-Byte ||
+| DPT-10 | Nummer für Datumsobjekt | | - ||
+| DPT-11 | Nummer für Datumsobjekt | | - ||
+| DPT-19 | Nummer für Datumsobjekt | | - ||
+| DPT-26 | Zeichenfolge | z.B. 00010203.. | - |Datenpunkttyp DPT_SceneInfo aus Autoread entfernt|
+| DPT-238 | Zeichenfolge | z.B. 00010203.. | - |DPT_SceneConfig aus autread entfernt|
+| ausruhen | Zeichenfolge | z.B. 00010203.. | - ||
 
 Nur Zeit- und Datumsinformationen werden mit zeitbasierten KNX-Datentypen ausgetauscht, z. DPT-19 hat nicht unterstützte Felder für die Signalqualität.
 
 Objekt-Sende- und -Empfangswerte sind vom Typ Boolean DPT1), Zahl (skaliert oder unskaliert), Zeichenfolge.
 DPT 2 'erwartet ein Objekt {"priority":0,"data":1}' Receive liefert ein trinifiziertes Objekt des gleichen Typs.
 Andere gemeinsame DPTs haben eine ähnliche Objektnotation.
-DPT19 erwartet eine Zahl von einem Datumsobjekt, Iobroker kann keine Objekte verarbeiten, Felder von KNX ko, die nicht vom Zeitstempel abgeleitet werden können, sind nicht implementiert z. Qualitätsflaggen
+DPT19 erwartet eine Zahl von einem Datumsobjekt, Iobroker kann keine Objekte verarbeiten, Felder von KNX ko, die nicht vom Zeitstempel abgeleitet werden können, sind nicht implementiert z. Qualitätsflaggen.
 
 Datum und Uhrzeit DPTs (DPT10, DPT11) Bitte beachten Sie, dass Javascript und KNX sehr unterschiedliche Basistypen für Uhrzeit und Datum haben.
 DPT10 ist Zeit (hh:mm:ss) plus "Wochentag". Dieses Konzept ist in JS nicht verfügbar, daher erhalten/setzen Sie ein reguläres Date Js-Objekt, aber denken Sie daran, dass Sie Datum, Monat und Jahr ignorieren müssen. Das exakt gleiche Datagramm, das in "Mo, 1. Juli 12:34:56" konvertiert wird, wird eine Woche später zu einem völlig anderen JS-Datum von "Mo, 8. Juli 12:34:56" ausgewertet. Sei gewarnt! DPT11 ist das Datum (TT/MM/JJJJ): Das gleiche gilt für DPT11, Sie müssen den Zeitteil ignorieren.
+
+(KNX-Spezifikation von DPTs https://www.knx.org/wAssets/docs/downloads/Certification/Interworking-Datapoint-types/03_07_02-Datapoint-Types-v02.02.01-AS.pdf)
 
 #### Gruppenwert schreiben
 Das Senden wird durch das Schreiben eines Kommunikationsobjektes ausgelöst.
@@ -219,11 +232,10 @@ Kommunikationsobjekt wird ausgelöst, wenn ein Schreibtelegramm auf dem Bus empf
 
 #### Gruppenwert gelesen
 Das Senden kann durch Schreiben eines Kommunikationsobjekts mit Kommentar ausgelöst werden.
-Empfangen, falls konfiguriert, löst eine Sammelwertantwort (Einschränkung: Sammelwert im Moment schreiben) des aktuellen c.o. Wert, siehe unten
+Empfangen, falls konfiguriert, löst eine Sammelwertantwort (Einschränkung: Sammelwert im Moment schreiben) des aktuellen c.o. Wert, siehe unten.
 
 #### Gruppenwertantwort
-Das Senden einer GroupValue_Response wird noch nicht vollständig unterstützt. Emuliert, wenn die Antworteinstellung festgelegt ist, dann schreibt der Adapter einen Gruppenwert-Schreibvorgang.
-Beim Empfangen wird der Wert des iobroker-Objekts aktualisiert, wenn read auf true gesetzt ist.
+Wenn answer_groupValueResponse auf true gesetzt ist, antwortet der Adapter mit einer GroupValue_response auf eine zuvor empfangene GroupValue_read-Anforderung.
 
 # Merkmale
 * schneller Import von Gruppenadressen im XML-Format
@@ -235,15 +247,20 @@ Beim Empfangen wird der Wert des iobroker-Objekts aktualisiert, wenn read auf tr
 * kostenlos Open Source
 
 # Bekannte Probleme
-- sendet bei GroupValue_Read schreiben statt GroupValue_Response
+-
 
 # Einschränkungen
 - Es werden nur dreistufige Gruppenadressen unterstützt
+- ETS 4 Exportdateiformat wird nicht unterstützt
 
 ## Changelog
-### 0.1.10 (2021-12-23)
+### 0.1.11 (2021-12-..)
+* feature: remove more scene DPTs from default autoread
+* feature: sends GroupValue_Response on GroupValue_Read if configured
+* feature: admin dialog with option to generate aliases (beta)
+
+### 0.1.10 (2021-12-24)
 * fix: interface to write objects corrected
-* 
 
 ### 0.1.9 (2021-12-22)
 * fix: algorith to generate the iob objects improved
@@ -289,7 +306,6 @@ Beim Empfangen wird der Wert des iobroker-Objekts aktualisiert, wenn read auf tr
 * (boellner) feature: import ga xml
 
 ## License
-
 					GNU GENERAL PUBLIC LICENSE
 ==========================
 Copyright (c) 2021 boellner
