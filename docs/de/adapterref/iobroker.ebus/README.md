@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: 1ahOGAFjQ9aWMdBggyYXYcPi2WGo/G0LX9Dkdl2fsfc=
+hash: nnXsKz3juS39hcO+utnX+rMe1wxQo2NkyGEEbvN2u9E=
 ---
 ![Logo](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
@@ -26,19 +26,19 @@ Dieser Adapter liest
 
 - Daten von ebusd mit html
 
-In diesem Fall muss ebusd laufen und Daten an z.B. explorer über http://IP:port/data (http://192.168.0.123:8889/data) Aktuelle Version von ebusd inkl. Konfigurationsdateien können von https://github.com/john30/ebusd kopiert werden Alle Felder mit Daten, Lastup und aus dem globalen Abschnitt werden geparst. Alle anderen werden im Moment ignoriert.
+In diesem Fall muss ebusd laufen und Daten an z.B. Explorer über http://IP:port/data (http://192.168.0.123:8889/data) Aktuelle Version von ebusd inkl. Konfigurationsdateien können von https://github.com/john30/ebusd kopiert werden Alle Felder mit Daten, Lastup und aus dem globalen Abschnitt werden geparst. Alle anderen werden im Moment ignoriert.
 
 Es besteht die Möglichkeit Daten abzufragen, die nicht direkt von ebusd abgefragt werden. Der Befehl 'read -f' wird verwendet, um das Lesen über ebus zu erzwingen.
 
 Eine weitere Funktion besteht darin, einen beliebigen Befehl an ebusd zu senden und eine Antwort zu erhalten, um z. Skripte.
 
-aktuell unterstützte ebusd-Version: 21.2
+aktuell unterstützte ebusd-Version: 21.3
 
 ## Wie man Befehle an ebusd sendet
 1. Schreiben Sie einen einzelnen Befehl oder eine Befehlsliste auf den Datenpunkt ebus.0.cmd
 
 Wenn Sie mehr als einen Befehl verwenden möchten, verwenden Sie , um einzelne Befehle zu trennen.
-Beispiel: read -f YieldTotal,read LegioProtectionEnabled,read -f -c Broadcast außerhalbtemp
+Beispiel: read -f YieldTotal,read LegioProtectionEnabled,read -f -c Broadcast außentemp
 
 2. Wenn der Befehl ausgeführt wird, erhalten Sie Ergebnisse pro Befehl im Datenpunkt ebus.0.cmdResult
 
@@ -89,7 +89,7 @@ Achtung: Befehl im Datenpunkt ebus.0.cmd wird nach Ausführung des Befehls gelö
 * (René) Refactoring: 'async/await' verwendet
 
 ## 2.0.0 (26.04.2020)
-* (René) "Anfrage" ersetzt durch "gebogen"
+* (René) "bitte" ersetzt durch "gebogen"
 
 ## 1.0.0 (2019-12-15)
 * (René) Update auf meinen eigenen Flot 3.0
@@ -141,8 +141,8 @@ Achtung: Befehl im Datenpunkt ebus.0.cmd wird nach Ausführung des Befehls gelö
 * (René) admin3-Unterstützung
 
 ### 0.2.0
-* (René) füge Verlauf als JSON für vis hinzu
-* (René) Flot-basiertes Widget hinzufügen, um Temperatur-, Status- und Leistungsdiagramm anzuzeigen
+* (René) Geschichte als JSON für vis hinzufügen
+* (René) füge ein Flot-basiertes Widget hinzu, um Temperatur-, Status- und Leistungsdiagramme anzuzeigen
 
 ### 0.1.0
 * (René) geplanter Adapter statt Dämon
@@ -154,6 +154,20 @@ Achtung: Befehl im Datenpunkt ebus.0.cmd wird nach Ausführung des Befehls gelö
 * (René) Erstveröffentlichung
 
 ## Changelog
+
+### 2.5.1 (2021-12-29)
+* (René) adjustable retries to send data if arbitration error appeared
+
+### 2.5.0 (2021-12-28)
+* (René) see issue #62: support ebusd 21.3
+
+### 2.4.5 (2021-11-07)
+* (René) bug fix color of labels in widget
+
+### 2.4.4 (2021-10-30)
+* (René) see issue #59: avoid endless loop
+* (René) update flot to 4.2.2
+* (René) bug fix missing space in command when using circuit name
 
 ## License
 Copyright (C) <2017 - 2021>  <info@rg-engineering.eu>

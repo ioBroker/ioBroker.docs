@@ -222,6 +222,9 @@ Instructions how to set up the client are includes in the adapter configuration.
 
 ## Changelog
 
+### 1.5.3 (2021-12-28)
+* (crycode-de) Increased remote client protocol version to inform users that they should update their remote clients
+
 ### 1.5.2 (2021-12-19)
 * (ghecker1) Fix remote client reconnect after multiple failed attempts
   * **Reinstall of remote client needed to apply this fix!**

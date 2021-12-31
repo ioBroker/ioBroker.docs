@@ -78,9 +78,9 @@ Please use state `system.adapter.octoprint.0.alive` to stop/start the instance.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.1.0 (2021-12-28)
 
-### **WORK IN PROGRESS**
-
+* (klein0r) Added HTTPS option
 * (klein0r) Fixed Display Layer Progress integration
 
 ### 2.0.7 (2021-12-23)

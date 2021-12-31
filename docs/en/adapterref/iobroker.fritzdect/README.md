@@ -41,18 +41,16 @@ The widget requires that also vis-metro and vis-jqui-mfd are installed
 
   1. Fritzbox returned '00000000' no login possible. possible reasons:
 
-        The fritzbox allows only a limited number of logins in a timeframe. So very fast polling (update) attempts may lead to blocking of logins.
+        The fritzbox allows only a limited number of logins in a timeframe.
         There are no appropriate user rights set in the fritzbox.
         There is a time elapsing in the fritzbox blocking the logins.
         A german doc is available here: [troubleshooting](./docs/de/troubleshooting.md)
 
- 2. no login to the FritzBox, when using https
-
-      Log messages if the form of:
+ 2. using https would result in:
 
           { error: { [Error: self signed certificate] code: 'DEPTH_ZERO_SELF_SIGNED_CERT' }
 
-      indicate that there are SSL security problems (certificate). Use the `"strictSSL": false` option (no tick in checkbox) in the admin page of adapter to disable the respective check (experimental). 
+      to overcome this, the option "rejectUnauthorized: false" is used in the https.request. 
 
 ## Thermostat
 ### Fritzbox AHA API
@@ -60,7 +58,7 @@ The API of fritzbox has the following access:
 * sethkrtsoll
     * 8-28°C for automatic control
     * greater 28°C (254=ON)
-    * greater 28°C (255=OFF)
+    * greater 28°C (253=OFF)
 
 These settings are covered by the hkrmode and the 3 buttons. The activation lasts as long there is no other command or programmed sequence.
 
@@ -69,6 +67,13 @@ Additionally there is the access to:
 * boostactive
 
 These are indications as well as commands (sethkrwindowopen,sethkrboost) and when commanded they act with the provided time limit (max. 24h).
+For activation of boost/windowopen the following sequence applies:
+* set the activetime to the desired value in minutes
+* activate the activ (from false -> true)
+* the acteendtime changes to the target
+For deactivation of boost/windowopen the following sequence applies:
+* deactivate the activ (from true -> false)
+* the acteendtime changes to unixtime=0
 
 ### fritzdect implementation
 From the above API possibilities the thermostat has different modes in point of view of iobroker.adapter:
@@ -168,7 +173,6 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 
 
 ## API limitations
-* too many login attempts to FB are refused by providing '00000000' as response
 * Boost and WindowOpen can only be set for the next 24h. time=0 is cancelling the command
 * updates to the thermostat are within a 15min range, depending on the previous communication of thermostat with fritzbox the next cycle is sooner or later, but definitely not imediately after an ioBroker intervention
 * if a windowopenactiv is set on a thermostat, which is part of a group, then the whole group and its thermostats is set to windowopenactiv (function inside the FB)
@@ -178,7 +182,6 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 
 ## Known Adapter Limitations:
 * Not all FW-versions of fritz.box support all objects.
-* https (DEPTH_ZERO_SELF_SIGNED_CERT -> strictSSL: false necessary) see above
 
 ## TODO:
 * map of data input from user to valid predefined colors (nearest match)
@@ -186,9 +189,20 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 * improvement of thermostat mode to text representation (auto, off, boost, comfort, night), comfort and night are also auto mode, but preset to the parametrized value
 
 ## Changelog
-### 2.1.16 WIP
-* temperature range in sockets 0..32°C -> -60..60°C
-* fast hack for OFF/ON feedback via temperature 254/255*0,5 -> upper range tchange, absenk, komfort = 128
+### 2.2.0 (npm)
+* refactoring of API to FB, single instance with relogin after experied session
+* refactoring main.js
+* using http.request instead of deprecated @root/request
+* log the user permissions
+* remove fasthack for OFF/ON, upper range tchange, absenk, komfort = 32
+* limitation of boost/windowopen activation to 24h
+* correction of "present" (issue #224) 
+
+### 2.1.16
+* temperature range in sockets 0..32°C -> -20..50°C
+* fast hack for OFF/ON feedback via temperature 253/254*0,5 -> upper range tchange, absenk, komfort = 128
+* fast mod for fwversion for HAN-FUN
+* present message correction
 
 ### 2.1.15 (npm)
 * correction in timestamp as date/string

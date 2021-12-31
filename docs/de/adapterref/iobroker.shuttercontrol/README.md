@@ -3,29 +3,30 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.shuttercontrol/README.md
 title: ioBroker.shuttercontrol
-hash: sTiQ6F824iVt6KOfi7vdk/mhnWHCfuilSlxUzWd1QUE=
+hash: zCCXlYpOu1Vjof2/ggnUlkRtioVA0mbKW7AWTypdWxk=
 ---
 ![Logo](../../../en/adapterref/iobroker.shuttercontrol/admin/shuttercontrol.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/shuttercontrol-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.shuttercontrol.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.shuttercontrol.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/simatec/iobroker.shuttercontrol.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/simatec/ioBroker.shuttercontrol/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/simatec/ioBroker.shuttercontrol/badge.svg)
 ![Travis-CI](http://img.shields.io/travis/simatec/ioBroker.shuttercontrol/master.svg)
+![Lizenz](https://img.shields.io/github/license/simatec/ioBroker.shuttercontrol?style=flat)
+![Spenden](https://img.shields.io/badge/donate-paypal-blue?style=flat)
 ![NPM](https://nodei.co/npm/iobroker.shuttercontrol.png?downloads=true)
 
 # IoBroker.shuttercontrol
 ![Testen und freigeben](https://github.com/simatec/ioBroker.shuttercontrol/workflows/Test%20and%20Release/badge.svg)
 
-Dieser Adapter verwendet den Dienst Sentry.io, um Ausnahmen und Codefehler sowie neue Geräteschemata automatisch an mich als Entwickler zu melden. Weitere Details siehe unten!
+Dieser Adapter nutzt den Dienst Sentry.io, um mir als Entwickler automatisch Ausnahmen und Codefehler sowie neue Geräteschemata zu melden. Weitere Details siehe unten!
 
-** Wenn es Ihnen gefällt, ziehen Sie bitte eine Spende in Betracht: **
+**Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
-[![paypal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
 
-## Shuttercontrol Adapter für ioBroker
-bestimmte Rollladensteuerung
+## Shuttercontrol-Adapter für ioBroker
+automatische Rollladensteuerung
 
 [Deutsche Beschreibung hier](docs/de/shuttercontrol.md)
 
@@ -33,14 +34,128 @@ automatische Steuerung für Rollläden
 
 [Englische Beschreibung hier](docs/en/shuttercontrol.md)
 
-### Was ist Sentry.io und was wird den Servern dieses Unternehmens gemeldet?
-Sentry.io ist ein Dienst für Entwickler, um einen Überblick über Fehler in ihren Anwendungen zu erhalten. Und genau das ist in diesem Adapter implementiert.
+### Was ist Sentry.io und was wird an die Server dieses Unternehmens gemeldet?
+Sentry.io ist ein Dienst für Entwickler, um sich einen Überblick über Fehler ihrer Anwendungen zu verschaffen. Und genau das ist in diesem Adapter implementiert.
 
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll angezeigt wird, an Sentry gesendet. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder dergleichen) enthalten. Auf diese Weise kann Sentry Fehler gruppieren und anzeigen, wie viele eindeutige Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
+Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll angezeigt wird, an Sentry gesendet. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, dann ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder dergleichen) enthalten. Auf diese Weise kann Sentry Fehler gruppieren und anzeigen, wie viele eindeutige Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
 
 *************************************************************************************************************************************
 
 ## Changelog
+<!-- ### __WORK IN PROGRESS__ -->
+### 1.4.9 (2021-12-29)
+* (simatec) error handling for trigger added
+* (simatec) Bugfix Trigger delay
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+
+### 1.4.8 (2021-12-25)
+* (simatec) error handling for trigger added
+* (simatec) Bugfix Trigger delay
+
+### 1.4.7 (2021-12-21)
+* (simatec) complete error handling for states added
+* (simatec) Bugfix Down Late Option
+* (simatec) small Bugfixes
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+
+### 1.4.6 (2021-12-15)
+* (simatec) Bugfixes shuttersettings
+* (simatec) Bugfix shutter created
+
+### 1.4.5 (2021-12-14)
+* (simatec) small Bugfixes
+* (simatec) Code cleaning
+* (simatec) try & catch added
+* (simatec) source code was converted to async
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+
+### 1.4.4 (2021-12-08)
+* (simatec) Bugfix Trigger after shutter close
+* (simatec) Bugfix XMas Level by frost
+* (simatec) XMas Level for Elevation added
+* (simatec) Summertime for Elevation added
+* (simatec) small Bugfixes
+* (simatec) shutter Config check added
+
+### 1.4.3 (2021-12-05)
+* (simatec) Bugfix Trigger after shutter close
+* (simatec) Bugfix XMas Level by frost
+* (simatec) XMas Level for GoldenHour added
+* (simatec) Summertime for Goldenhour added
+* (simatec) small Bugfixes
+
+### 1.4.2 (2021-12-02)
+* (simatec) Bugfix Alarm settings
+* (simatec) Bugfix move shutter after closing window
+* (simatec) better translation for all languages
+* (simatec) small Bugfixes
+
+### 1.4.1 (2021-12-01)
+* (simatec) Code cleaning
+* (simatec) Bugfix Alarm States
+* (simatec) try & catch added
+
+### 1.4.0 (2021-11-30)
+* (simatec) Source code completely redesigned
+* (simatec) Much of the source code was converted to async
+* (simatec) many small Bugfixes
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+
+### 1.3.9 (2021-11-25)
+* (simatec) Bugfix between Level
+* (simatec) many small Bugfixes
+* (simatec) docu updated
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+
+### 1.3.8 (2021-11-20)
+* (simatec) Bugfix XMas-Level
+* (simatec) Bugfix Down Complete
+
+### 1.3.7 (2021-11-19)
+* (simatec) brightness down State added
+* (simatec) BrightnessSensor fix
+
+### 1.3.6 (2021-11-17)
+* (simatec) small Bugfixes
+
+### 1.3.5 (2021-11-16)
+* (simatec) Bugfix BrightnessSensor
+* (simatec) Fix Delay with value 0
+* (simatec) DEPENDENCIES updated
+* (simatec) Dev-DEPENDENCIES updated
+
+### 1.3.3 (2021-11-07)
+* (simatec) Bugfix trigger Tilted
+
+### 1.3.2 (2021-11-05)
+* (simatec) Bugfix BrightnessSensor
+* (simatec) lastAutoAction in array added
+* (simatec) Bugfix Log for alarm
+
+### 1.3.1 (2021-11-04)
+* (simatec) Bugfix BrightnessSensor
+* (simatec) Object-ID for school holidays added
+
+### 1.3.0 (2021-11-03)
+* (FoxRo) alarm function added
+* (simatec) Trigger Tilted Window / Door added
+* (FoxRo) new Feature Sunprotect end Delay added
+* (FoxRo) Bugfix in window trigger
+* (FoxRo/simatec) new Features in Docu added
+* (simatec) many small BugFix
+* (simatec) DEPENDENCIES updated
+* (simatec) Dev-DEPENDENCIES updated
+
+### 1.2.1 (2021-06-22)
+* (simatec) auto-mode button added
+* (simatec) many small BugFix
+* (simatec) DEPENDENCIES updated
+* (simatec) Dev-DEPENDENCIES updated
 
 ### 1.2.0 (2021-05-04)
 * (simatec) new Feature shutterSettings added
@@ -211,7 +326,6 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 * (simatec) Bugfix compactmode
 * (5G7K) Added debug log with more Informations
 
-
 ### 0.4.3 (29.12.2019)
 * (simatec) Bugfix update process
 
@@ -277,7 +391,7 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 
 ### 0.2.9 (17.06.2019)
 * (simatec) Bugfix PopUp
-* (simatec) Fix TriggerID 
+* (simatec) Fix TriggerID
 
 ### 0.2.8 (17.06.2019)
 * (simatec) Menu completely revised

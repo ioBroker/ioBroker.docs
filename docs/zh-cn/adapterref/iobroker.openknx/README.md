@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: u5O79IaLVw+GEZ2i/E3jjcIumlOpezZZ+UXNfzq7eYM=
+hash: btFxNjfvWNxgYcwgKtcUP7MKyf9D0tnVhPKSBNkO/UU=
 ---
 ![标识](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -22,7 +22,7 @@ Der Adapter ermöglicht die automatische Generierung der ioBroker Datenobjekte d
 Alle generierten Kommunikationsobjekte sind zunächst lesbar und schreibbar konfiguriert, Werte werden beim Neustart des Adapters vom knx-Bus geholt。
 
 ＃ 安装
-Der Adapter 是最新的/测试版存储库 verfügbar。 Wenn 死于 ioBroker Systemeinstellung ausgewählt ist kann der Adapter in der Adapterliste unter "openknx" gesucht und installiert werden。 Eine Alternative ist im Expertenmodus das installieren über das Github Symbol möglich in dem man "von Github" auswählt und nach openknx sucht。
+Der Adapter 是最新的/测试版 Repository verfügbar。 Wenn 死于 ioBroker Systemeinstellung ausgewählt ist kann der Adapter in der Adapterliste unter "openknx" gesucht und installiert werden。 Eine Alternative ist im Expertenmodus das installieren über das Github Symbol möglich in dem man "von Github" auswählt und nach openknx sucht。
 
 # 适配器配置
 在 den Instanzeinstellung muss mindestens die Gateway IP eingetragen werden。 Dann kann man ein ETS-Export XML Datei importiert werden。 Die XML kann über ETS dem Fenster Gruppenadressen mit Rechtsklick auf den oberen Ebene der Gruppenadresse exportiert werden。 GA die keinem DPT zugeordnet sind werden nicht importiert。 Es handelt sich dabei um GA die keinem Kommunikationsobjekt in ETS zugeordnet sind。
@@ -38,9 +38,9 @@ https://forum.iobroker.net/topic/50352/test-adapter-openknx-0-1-x
 - Wählen Sie im Menü auf der rechten Seite Exportieren
 - Alle Flows auswählen, herunterladen
 - im Texteditor knx.0 ersetzen mit openknx.0
-- 菜单 auf der rechten Seite, Import auswählen
+- 菜单 auf der rechten Seite, 进口 auswählen
 - Geänderte Datei auswählen
-- im Dialog Flows auswählen（子流，配置节点 nur wenn sie betroffen sind）-> neue Tabs werden hinzugefügt
+- im Dialog Flows auswählen（子流程，配置节点 nur wenn sie betroffen sind）-> neue Tabs werden hinzugefügt
 - alte Flows manuell löschen
 
 ## VIS migrieren
@@ -85,17 +85,17 @@ https://forum.iobroker.net/topic/50352/test-adapter-openknx-0-1-x
 自动读取是在适配器启动或重启后与 knx 总线的第一次连接上完成的，而不是在每次 knx 重新连接时完成。
 适配器安装后，打开适配器配置。填写：
 
-#### KNX IP 网关的 KNX 网关 IP IP。
-＃＃＃＃＃ 港口
+### KNX IP 网关的 KNX 网关 IP IP。
+＃＃＃ 港口
 这通常是 KNX IP 网关的端口 3671。
 
-##### 物理。欧洲投资银行地址
+###物理。欧洲投资银行地址
 填写网关的物理地址，格式为1/1/1。
 
-##### 只添加新对象
+### 只添加新对象
 如果选中，导入将跳过覆盖现有通信对象。
 
-#### GA XML 导入
+### GA XML 导入
 ![ETS 出口](../../../en/adapterref/iobroker.openknx/docs/pictures/exportGA.png)
 
 1. 在 ETS 中转到 Group Addresses，选择导出组地址并选择最新格式版本的 XML 导出。
@@ -109,8 +109,11 @@ https://forum.iobroker.net/topic/50352/test-adapter-openknx-0-1-x
 
 ETS 配置提示：如果 GA 和使用此 GA 的通信对象有不同的 DPT 子类型，那么 ETS 似乎使用编号最低的 DPT 类型。在这种情况下，手动确保所有字段都使用相同的数据类型。
 
-#### 每秒帧数
+### 每秒帧数
 此设置通过将数据帧限制为特定速率来保护 KNX 总线免受数据泛滥。未发送的帧被放入 fifo 缓冲区。
+
+### 别名
+KNX 设备可以具有属于命令 ga 的状态反馈的 ga。某些应用程序（如某些 VIS 小部件）需要组合状态和驱动对象。您可以通过使用单独的别名 id 写入和读取另一个别名，将这些状态组合为一个别名。该菜单有助于根据给定过滤规则的命名约定创建匹配对。
 
 # 适配器迁移
 ## 迁移节点红色
@@ -150,20 +153,20 @@ ETS 配置提示：如果 GA 和使用此 GA 的通信对象有不同的 DPT 子
 - 选择导入（覆盖）
 
 # 如何使用适配器和基本概念
-## ACK 标志
+### ACK 标志
 应用程序不应设置 ack 标志，如果数据更新，应用程序将通过 ack 标志从该适配器通知。
 KNX Stack 在收到组地址时设置链接的 ioBroker 对象的 ack 标志。
 在 KNX 上发送的帧不会导致写入对象的确认。
 
-## Node Red 复杂数据类型示例
-创建一个连接到 ioBroker 输出节点的函数节点，该节点与 DPT2 的 KNX 对象连接。
+### Node Red 复杂数据类型示例
+创建一个函数节点，该节点连接到与 DPT2 的 KNX 对象连接的 ioBroker 输出节点。
 msg.payload = {"priority":1,"data":0};回消息；
 
 # 日志级别
 启用专家模式以启用不同日志级别之间的切换。默认日志级别是信息。
 ![日志级别](../../../en/adapterref/iobroker.openknx/docs/pictures/loglevel.png)
 
-# IOBroker 通信对象描述
+# IObroker 通信对象描述
 ioBroker 定义对象来保存通信接口设置。
 GA 导入生成遵循 ga 主组/中组方案的通信对象文件夹结构。每个组地址都是一个对象，具有以下自动生成的数据。
 
@@ -171,19 +174,20 @@ ioBroker 状态角色（https://github.com/ioBroker/ioBroker/blob/master/doc/STA
 
 如果从 DPT 清楚这是一个触发信号，则 Autoread 设置为 false。这适用于场景编号。
 
-{ "_id": "path.and.name.to.object", //派生自 KNX 结构 "type": "state", "common": { //这里的值可以被 iobroker "desc" 解释： "Basetype: 1-bit value, Subtype: switch", //informative, from dpt "name": "Aussen Melder Licht schalten", //informative description from ets export "read": true, //default set, if false传入的总线值不更新对象 "role": state, //default state, 派生自 DPT "type": "boolean", //boolean, number, string, object, 派生自 dpt "unit": "", //派生自 dpt "write": true //默认为 true，如果对象上的设置更改正在触发 knx 写入，则成功。 write set then ack flag to true }, "native": { //这里的值可以被openknx适配器解释 "address": "0/1/2", //knx group address "answer_groupValueResponse": false, //default false, 如果设置为 true 适配器响应 GroupValue_Read 上的值 "autoread": true, //非触发信号默认为 true，适配器在开始时发送 GroupValue_read 以同步其状态 "bitlength": 1, //size ob knx 数据，派生自 dpt "dpt": "DPT1.001", //DPT "encoding": { //informative "0": "Off", "1": "On" }, "force_encoding": "", //信息 "signedness": "", //informative "valuetype": "basic" //composite 意味着通过特定的 javascript 对象设置 }, "from": "system.adap ter.openknx.0", "user": "system.user.admin", "ts": 1638913951639 }
+{ "_id": "path.and.name.to.object", //派生自 KNX 结构 "type": "state", "common": { //这里的值可以被 iobroker "desc" 解释： "Basetype: 1-bit value, Subtype: switch", //informative, from dpt "name": "Aussen Melder Licht schalten", //informative description from ets export "read": true, //default set, if false传入的总线值不更新对象 "role": state, //default state, 派生自 DPT "type": "boolean", //boolean, number, string, object, 派生自 dpt "unit": "", //派生自 dpt "write": true //默认为 true，如果对象上的设置更改触发 knx 写入，则成功。 write set then ack flag to true }, "native": { //这里的值可以被openknx适配器解释 "address": "0/1/2", //knx group address "answer_groupValueResponse": false, //default false, 如果设置为 true 适配器响应 GroupValue_Read 上的值 "autoread": true, //非触发信号默认为 true，适配器在开始时发送 GroupValue_read 以同步其状态 "bitlength": 1, //size ob knx 数据，派生自 dpt "dpt": "DPT1.001", //DPT "encoding": { //informative "0": "Off", "1": "On" }, "force_encoding": "", //信息 "signedness": "", //informative "valuetype": "basic" //composite 意味着通过特定的 javascript 对象设置 }, "from": "system.adap ter.openknx.0", "user": "system.user.admin", "ts": 1638913951639 }
 
 # 适配器通讯接口说明
 Handeled DPTs 是： 1-21,232,237,238 Unhandeled DPTs 被写入原始缓冲区，接口是一个十六进制数字的序列字符串。例如，写入“0102feff”以在总线上发送值 0x01 0x02 0xfe 0xff。
 在使用数字数据类型的地方请注意接口值可以缩放。
 
-#### API 调用
+### API 调用
 ioBroker 将状态定义为通信接口。
+
 setState( id: string, // 对象路径 state: State | StateValue | SettableState, ack: false, // 必须按照约定设置为 false c: 'GroupValue_Read' //可选注释，设置此值以触发总线读取到这个对象，给定的 StateValue 被忽略 ): void;
 
-#### 所有 DPT 的描述
-| KNX DPT | javascript 数据类型 |特殊价值 |取值范围|备注|
-| --------- | ---------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------- ||
+### 所有 DPT 的描述
+| KNX DPT | javascript 数据类型 |特殊价值 |取值范围 |备注 |
+| --------- | ---------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------- | --------------------------------------------------- |
 | DPT-1 |布尔值 | |假，真||
 | DPT-2 |对象 | {“优先级”：1 位，“数据”：1 位} | - ||
 | DPT-3 |对象 | {“decr_incr”：1 位，“数据”：2 位} | - ||
@@ -204,14 +208,14 @@ setState( id: string, // 对象路径 state: State | StateValue | SettableState,
 | DPT-12 |数量 | | 4 字节无符号值 ||
 | DPT-13 |数量 | | 4 字节有符号值 ||
 | DPT-15 |数量 | | 4 字节 ||
-| DPT-17 |数量 | | 1 字节 |DPT_SceneNumber 从自动读取中删除|
+| DPT-17 |数量 | | 1 字节 |从自动读取中删除 DPT_SceneNumber|
 | DPT-20 |数量 | | 1 字节 ||
 | DPT-238 |数量 | | 1 字节 ||
 | DPT-10 |日期对象的编号 | | - ||
 | DPT-11 |日期对象的编号 | | - ||
 | DPT-19 |日期对象的编号 | | - ||
-| DPT-26 |字符串 |例如00010203.. | - |从自动读取中删除了数据点类型 DPT_SceneInfo|
-| DPT-238 |字符串 |例如00010203.. | - |从自动读取中删除了 DPT_SceneConfig|
+| DPT-26 |字符串 |例如00010203.. | - |数据点类型 DPT_SceneInfo 未由 autread 读取|
+| DPT-238 |字符串 |例如00010203.. | - | DPT_SceneConfig 没有被 autread 读取|
 |休息|字符串 |例如00010203.. | - ||
 
 只有时间和日期信息与基于 KNX 时间的数据类型交换，例如DPT-19 具有不受支持的信号质量字段。
@@ -226,38 +230,72 @@ DPT10 是时间 (hh:mm:ss) 加上“星期几”。这个概念在 JS 中不可�
 
 （DPT 的 KNX 规范 https://www.knx.org/wAssets/docs/downloads/Certification/Interworking-Datapoint-types/03_07_02-Datapoint-Types-v02.02.01-AS.pdf）
 
-####组值写入
+###组值写入
 通过写入通信对象触发发送。
 当总线上接收到写帧时触发通信对象。
 
-#### 组值读取
+###组值读取
 发送可以通过编写带有注释的通信对象来触发。
 接收，如果配置将触发实际 c.o. 的组值响应（限制：此时组值写入）。值，见下文。
 
-#### 组值响应
+###组值响应
 如果 answer_groupValueResponse 设置为 true，则适配器将使用 GroupValue_response 回复先前收到的 GroupValue_read 请求。
 
+### 映射到 KNX 标志
+KNX 对象标志定义了它们所代表的对象的总线行为。
+定义了 6 个不同的对象标志。
+
+|旗帜 |旗德 |适配器使用 ||
+| ------------------------- | ------------------------ | ------------------------------------------------- | --------------------------------------------- |
+|C：通信标志 | K: Kommunikations-Flag |总是设置 ||
+|R：读取标志 | L: Lese-Flag |对象 native.answer_groupValueResponse ||
+|T：传输标志 | Ü: Übertragen-Flag |对象 common.write ||
+|W：写标志 | S: Schreiben-Flag |对象 common.read |总线可以修改对象|
+|U: 更新标志 | A: Aktualisieren-Flag |对象 common.read |在传入的 GroupValueResponses 上更新对象 |
+|I: 初始化标志 | I: Initialisierungs-Flag |对象 native.autoread | |
+
+L-Flag: Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert (Lesbar)。 Nur ein KO je GA sollte das gesetzt haben, Idealerweise derjenige, der den echten Zustand am besten kennt, üblicherweise der Aktor！
+
 ＃ 特征
-* 以 XML 格式快速导入组地址
-* 稳定的 knx 堆栈
-* 很多 DPT 的解释
-* 不受支持的 DPT 的原始读写
-* 支持组值读取和组值写入，组值写入作为对组值请求的响应
-* 自动阅读
+* 稳定可靠的 knx 堆栈
+* 简单的界面可以对许多 DPT 的地址进行分组，为其他 DPT 进行原始读取和写入
+* 支持KNX群值读取和群值写入和群值响应
 * 免费开源
+* 不依赖云服务，无需互联网访问即可运行
+* 启动时自动读取
+* 快速导入 XML 格式的群组地址
+* 创建对状态输入做出反应的联合别名对象
 
 # 已知问题
--
+- 没有任何
 
 # 限制
 - 仅支持三级组地址
 - 不支持 ETS 4 导出文件格式
 
 ## Changelog
-### 0.1.11 (2021-12-..)
+### 0.1.13 (2021-12-30)
+* bugfix: state.value of of type object must be serialized
+* bugfix: alias algorithm error handling, takover more info to alias
+
+### 0.1.12 (2021-12-30)
+* feature: improve alias status search algorithm, add units
+* feature: notify user after import if no dpt subtype is set
+* fix: library did not allow to write possible 0 values to certain dpts
+* fix: admin dialog ui fixes, better presentation of some warnings
+
+
+### 0.1.11 (2021-12-28)
 * feature: remove more scene DPTs from default autoread
 * feature: sends GroupValue_Response on GroupValue_Read if configured
 * feature: admin dialog with option to generate aliases (beta)
+* feature: admin dialog reactivates after adapter reset
+* feature: add support for DPT 7.600
+* feature: show logs of knx library
+* fix: filter out logs with device address bus interactions
+* fix: filter ga names that are forbidden in IOB
+* fix: reply with groupvalueresponse on request, not with groupvaluewrite
+* fix: remove more scene dpts from autoread
 
 ### 0.1.10 (2021-12-24)
 * fix: interface to write objects corrected

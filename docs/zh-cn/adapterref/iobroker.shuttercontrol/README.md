@@ -3,44 +3,159 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shuttercontrol/README.md
 title: ioBroker.shuttercontrol
-hash: sTiQ6F824iVt6KOfi7vdk/mhnWHCfuilSlxUzWd1QUE=
+hash: zCCXlYpOu1Vjof2/ggnUlkRtioVA0mbKW7AWTypdWxk=
 ---
-![商标](../../../en/adapterref/iobroker.shuttercontrol/admin/shuttercontrol.png)
+![标识](../../../en/adapterref/iobroker.shuttercontrol/admin/shuttercontrol.png)
 
 ![安装数量](http://iobroker.live/badges/shuttercontrol-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.shuttercontrol.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.shuttercontrol.svg)
-![依赖状态](https://img.shields.io/david/simatec/iobroker.shuttercontrol.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.shuttercontrol.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.shuttercontrol.svg)
 ![已知漏洞](https://snyk.io/test/github/simatec/ioBroker.shuttercontrol/badge.svg)
-![特拉维斯](http://img.shields.io/travis/simatec/ioBroker.shuttercontrol/master.svg)
-![NPM](https://nodei.co/npm/iobroker.shuttercontrol.png?downloads=true)
+![特拉维斯CI](http://img.shields.io/travis/simatec/ioBroker.shuttercontrol/master.svg)
+![执照](https://img.shields.io/github/license/simatec/ioBroker.shuttercontrol?style=flat)
+![捐](https://img.shields.io/badge/donate-paypal-blue?style=flat)
+![新产品管理](https://nodei.co/npm/iobroker.shuttercontrol.png?downloads=true)
 
-＃ioBroker.shuttercontrol
-![测试与发布](https://github.com/simatec/ioBroker.shuttercontrol/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.shuttercontrol
+![测试和发布](https://github.com/simatec/ioBroker.shuttercontrol/workflows/Test%20and%20Release/badge.svg)
 
-该适配器使用服务Sentry.io向开发人员自动向我报告异常和代码错误以及新设备架构。更多详细信息请参见下文！
+该适配器使用 Sentry.io 服务自动向作为开发人员的我报告异常和代码错误以及新的设备模式。更多详情请看下文！
 
-**如果您愿意，请考虑捐赠：**
+**如果您喜欢，请考虑捐赠：**
 
-[![贝宝（https://www.paypalobjects.com/zh_CN/DK/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
 
-## IoBroker的快门控制适配器
-自动轧制
+## IoBroker 的快门控制适配器
+自动翻车
 
-[德意志银行](docs/de/shuttercontrol.md)
+[Deutsche Beschreibung hier](docs/de/shuttercontrol.md)
 
 百叶窗自动控制
 
 [英文说明在这里](docs/en/shuttercontrol.md)
 
-###什么是Sentry.io，什么报告给该公司的服务器？
-Sentry.io是一项服务，供开发人员从其应用程序中获取有关错误的概述。确切地说，这是在此适配器中实现的。
+### 什么是 Sentry.io 以及向该公司的服务器报告什么？
+Sentry.io 是一项服务，供开发人员从他们的应用程序中获取有关错误的概述。而这正是在这个适配器中实现的。
 
-当适配器崩溃或发生其他代码错误时，此错误消息（也出现在ioBroker日志中）将提交给Sentry。当您允许iobroker GmbH收集诊断数据时，还将包括您的安装ID（这是唯一的ID，**没有**有关您的任何其他信息，电子邮件，姓名等）。这使Sentry可以对错误进行分组，并显示有多少唯一用户受此错误影响。所有这些都帮助我提供了基本上不会崩溃的无错误适配器。
+当适配器崩溃或发生其他代码错误时，ioBroker 日志中也出现的此错误消息将提交给 Sentry。当您允许 iobroker GmbH 收集诊断数据时，您的安装 ID（这只是一个唯一 ID **没有**关于您的任何其他信息、电子邮件、姓名等）也包括在内。这允许 Sentry 对错误进行分组并显示有多少唯一用户受到此类错误的影响。所有这些都帮助我提供基本上从不崩溃的无错误适配器。
 
 *************************************************************************************************************************************
 
 ## Changelog
+<!-- ### __WORK IN PROGRESS__ -->
+### 1.4.9 (2021-12-29)
+* (simatec) error handling for trigger added
+* (simatec) Bugfix Trigger delay
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+
+### 1.4.8 (2021-12-25)
+* (simatec) error handling for trigger added
+* (simatec) Bugfix Trigger delay
+
+### 1.4.7 (2021-12-21)
+* (simatec) complete error handling for states added
+* (simatec) Bugfix Down Late Option
+* (simatec) small Bugfixes
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+
+### 1.4.6 (2021-12-15)
+* (simatec) Bugfixes shuttersettings
+* (simatec) Bugfix shutter created
+
+### 1.4.5 (2021-12-14)
+* (simatec) small Bugfixes
+* (simatec) Code cleaning
+* (simatec) try & catch added
+* (simatec) source code was converted to async
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+
+### 1.4.4 (2021-12-08)
+* (simatec) Bugfix Trigger after shutter close
+* (simatec) Bugfix XMas Level by frost
+* (simatec) XMas Level for Elevation added
+* (simatec) Summertime for Elevation added
+* (simatec) small Bugfixes
+* (simatec) shutter Config check added
+
+### 1.4.3 (2021-12-05)
+* (simatec) Bugfix Trigger after shutter close
+* (simatec) Bugfix XMas Level by frost
+* (simatec) XMas Level for GoldenHour added
+* (simatec) Summertime for Goldenhour added
+* (simatec) small Bugfixes
+
+### 1.4.2 (2021-12-02)
+* (simatec) Bugfix Alarm settings
+* (simatec) Bugfix move shutter after closing window
+* (simatec) better translation for all languages
+* (simatec) small Bugfixes
+
+### 1.4.1 (2021-12-01)
+* (simatec) Code cleaning
+* (simatec) Bugfix Alarm States
+* (simatec) try & catch added
+
+### 1.4.0 (2021-11-30)
+* (simatec) Source code completely redesigned
+* (simatec) Much of the source code was converted to async
+* (simatec) many small Bugfixes
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+
+### 1.3.9 (2021-11-25)
+* (simatec) Bugfix between Level
+* (simatec) many small Bugfixes
+* (simatec) docu updated
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+
+### 1.3.8 (2021-11-20)
+* (simatec) Bugfix XMas-Level
+* (simatec) Bugfix Down Complete
+
+### 1.3.7 (2021-11-19)
+* (simatec) brightness down State added
+* (simatec) BrightnessSensor fix
+
+### 1.3.6 (2021-11-17)
+* (simatec) small Bugfixes
+
+### 1.3.5 (2021-11-16)
+* (simatec) Bugfix BrightnessSensor
+* (simatec) Fix Delay with value 0
+* (simatec) DEPENDENCIES updated
+* (simatec) Dev-DEPENDENCIES updated
+
+### 1.3.3 (2021-11-07)
+* (simatec) Bugfix trigger Tilted
+
+### 1.3.2 (2021-11-05)
+* (simatec) Bugfix BrightnessSensor
+* (simatec) lastAutoAction in array added
+* (simatec) Bugfix Log for alarm
+
+### 1.3.1 (2021-11-04)
+* (simatec) Bugfix BrightnessSensor
+* (simatec) Object-ID for school holidays added
+
+### 1.3.0 (2021-11-03)
+* (FoxRo) alarm function added
+* (simatec) Trigger Tilted Window / Door added
+* (FoxRo) new Feature Sunprotect end Delay added
+* (FoxRo) Bugfix in window trigger
+* (FoxRo/simatec) new Features in Docu added
+* (simatec) many small BugFix
+* (simatec) DEPENDENCIES updated
+* (simatec) Dev-DEPENDENCIES updated
+
+### 1.2.1 (2021-06-22)
+* (simatec) auto-mode button added
+* (simatec) many small BugFix
+* (simatec) DEPENDENCIES updated
+* (simatec) Dev-DEPENDENCIES updated
 
 ### 1.2.0 (2021-05-04)
 * (simatec) new Feature shutterSettings added
@@ -211,7 +326,6 @@ Sentry.io是一项服务，供开发人员从其应用程序中获取有关错�
 * (simatec) Bugfix compactmode
 * (5G7K) Added debug log with more Informations
 
-
 ### 0.4.3 (29.12.2019)
 * (simatec) Bugfix update process
 
@@ -277,7 +391,7 @@ Sentry.io是一项服务，供开发人员从其应用程序中获取有关错�
 
 ### 0.2.9 (17.06.2019)
 * (simatec) Bugfix PopUp
-* (simatec) Fix TriggerID 
+* (simatec) Fix TriggerID
 
 ### 0.2.8 (17.06.2019)
 * (simatec) Menu completely revised

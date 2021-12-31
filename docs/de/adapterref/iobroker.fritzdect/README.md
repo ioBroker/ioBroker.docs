@@ -68,9 +68,20 @@ Vergleichbar für den Soll-/Istverlaufs ist demnach atualtemp und targettemp.
 Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig Information ist der debug modus über die Experteneinstellung der Instanz vorzuwählen.
 
 ## Changelog
-### 2.1.16 WIP
-* temperature range in sockets 0..32°C -> -60..60°C
-* fast hack for OFF/ON feedback via temperature 254/255*0,5 -> upper range tchange, absenk, komfort = 128
+### 2.2.0 (npm)
+* refactoring of API to FB, single instance with relogin after experied session
+* refactoring main.js
+* using http.request instead of deprecated @root/request
+* log the user permissions
+* remove fasthack for OFF/ON, upper range tchange, absenk, komfort = 32
+* limitation of boost/windowopen activation to 24h
+* correction of "present" (issue #224) 
+
+### 2.1.16
+* temperature range in sockets 0..32°C -> -20..50°C
+* fast hack for OFF/ON feedback via temperature 253/254*0,5 -> upper range tchange, absenk, komfort = 128
+* fast mod for fwversion for HAN-FUN
+* present message correction
 
 ### 2.1.15 (npm)
 * correction in timestamp as date/string

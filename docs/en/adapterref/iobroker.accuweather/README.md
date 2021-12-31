@@ -41,6 +41,9 @@ For better view a custom lovelace card is created - see https://github.com/algar
 -->
 
 ## Changelog
+### 1.2.2 (2021-12-29)
+* (algar42) HoursOfSun Parameter added to the Daily forecast
+
 ### 1.2.1 (2021-07-22)
 * (bluefox) Updated logo
 

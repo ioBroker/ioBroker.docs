@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: u5O79IaLVw+GEZ2i/E3jjcIumlOpezZZ+UXNfzq7eYM=
+hash: btFxNjfvWNxgYcwgKtcUP7MKyf9D0tnVhPKSBNkO/UU=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -85,17 +85,17 @@ Dies kann eine Weile dauern und zu einer höheren Belastung Ihres KNX-Busses fü
 Autoread wird bei der ersten Verbindung mit dem knx-Bus nach einem Adapterstart oder Neustart durchgeführt, nicht bei jeder erneuten knx-Verbindung.
 Öffnen Sie nach der Adapterinstallation die Adapterkonfiguration. Ergänze:
 
-#### KNX Gateway IP IP Ihres KNX IP Gateways.
-##### Hafen
+### KNX Gateway IP IP Ihres KNX IP Gateways.
+### Hafen
 dies ist normalerweise Port 3671 des KNX IP Gateways.
 
-##### Phys. EIB-Adresse
+### Phys. EIB-Adresse
 Geben Sie die physikalische Adresse des Gateways im Format 1/1/1 ein.
 
-##### Nur neue Objekte hinzufügen
+### Nur neue Objekte hinzufügen
 Wenn aktiviert, überspringt der Import das Überschreiben vorhandener Kommunikationsobjekte.
 
-#### GA-XML-Import
+### GA-XML-Import
 ![ETS-Export](../../../en/adapterref/iobroker.openknx/docs/pictures/exportGA.png)
 
 1. Gehen Sie in der ETS zu Gruppenadressen, wählen Sie Gruppenadresse exportieren und wählen Sie XML-Export in der neuesten Formatversion.
@@ -109,8 +109,11 @@ Nach erfolgreichem Import zeigt eine Meldung an, wie viele Objekte erkannt wurde
 
 Hinweis zur ETS-Konfiguration: Wenn Sie unterschiedliche DPT-Subtypen für den GA und in den Kommunikationsobjekten haben, die diesen GA verwenden, dann scheint die ETS den DPT-Typ mit der niedrigsten Nummer zu verwenden. Stellen Sie in diesem Fall manuell sicher, dass alle Felder denselben Datentyp verwenden.
 
-#### Bilder pro Sekunde
+### Bilder pro Sekunde
 Diese Einstellung schützt den KNX-Bus vor Datenfluten, indem die Datenframes auf eine bestimmte Rate begrenzt werden. Nicht gesendete Frames werden in einen Fifo-Puffer gelegt.
+
+### Alias
+KNX-Geräte können GAs für Statusrückmeldungen haben, die zu einem befehlsgebenden GA gehören. Einige Anwendungen wie bestimmte VIS-Widgets erwarten ein kombiniertes Status- und Betätigungsobjekt. Sie können diese Zustände in einem Alias kombinieren, indem Sie eine separate Alias-ID zum Schreiben und eine andere zum Lesen verwenden. Das Menü hilft dabei, ein passendes Paar gemäß der Namenskonvention mit der angegebenen Filterregel zu erstellen.
 
 # Adaptermigration
 ## Node Red migrieren
@@ -150,12 +153,12 @@ Diese Einstellung schützt den KNX-Bus vor Datenfluten, indem die Datenframes au
 - Wählen Sie Importieren (Überschreiben)
 
 # Anleitung zur Verwendung des Adapters & Grundkonzept
-## ACK-Flags
+### ACK-Flags
 Die Anwendung soll kein Ack-Flag setzen, die Anwendung wird von diesem Adapter durch das Ack-Flag benachrichtigt, wenn Daten aktualisiert werden.
 KNX Stack setzt beim Empfang einer Gruppenadresse das Ack-Flag des verknüpften ioBroker-Objekts.
 Gesendete Frames auf KNX führen nicht zu einer Bestätigung des Schreibobjektes.
 
-## Beispiel für einen komplexen Datentyp in Node Red
+### Beispiel für einen komplexen Datentyp von Node Red
 Erstellen Sie einen Funktionsknoten, der sich mit einem ioBroker-Ausgangsknoten verbindet, der sich mit einem KNX-Objekt von DPT2 verbindet.
 msg.payload = {"Priorität":1 ,"Daten":0}; Nachricht zurück;
 
@@ -177,13 +180,14 @@ Autoread wird auf false gesetzt, wenn aus dem DPT klar hervorgeht, dass dies ein
 Gehandelte DPTs sind: 1-21,232,237,238 Unhandelte DPTs werden als Rohpuffer geschrieben, die Schnittstelle ist eine sequentielle Folge von hexadezimalen Zahlen. Schreiben Sie zum Beispiel '0102feff', um die Werte 0x01 0x02 0xfe 0xff auf den Bus zu senden.
 Wenn der Datentyp Zahl verwendet wird, beachten Sie bitte, dass Schnittstellenwerte skaliert werden können.
 
-#### API-Aufruf
+### API-Aufruf
 ioBroker definiert Zustände als Kommunikationsschnittstelle.
+
 setState( id: string, // Objektpfadstatus: State | StateValue | SettableState, ack: false, //muss laut Konvention auf false gesetzt werden c: 'GroupValue_Read' //optionaler Kommentar, setze diesen Wert um einen Bus-Read auszulösen für dieses Objekt wird der angegebene StateValue ignoriert ): void;
 
-#### Beschreibung aller DPTs
-| KNX DPT | Javascript-Datentyp | Sonderwerte | Wertebereich |Bemerkung|
-| --------- | ---------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------- ||
+### Beschreibung aller DPTs
+| KNX DPT | Javascript-Datentyp | Sonderwerte | Wertebereich | Bemerkung |
+| --------- | ---------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------- | --------------------------------------------------- |
 | DPT-1 | boolesch | | falsch, wahr ||
 | DPT-2 | Objekt | {"Priorität":1 Bit,"Daten":1 Bit} | - ||
 | DPT-3 | Objekt | {"decr_incr":1 bit,"data":2 bit} | - ||
@@ -204,14 +208,14 @@ setState( id: string, // Objektpfadstatus: State | StateValue | SettableState, a
 | DPT-12 | Nummer | | 4-Byte-Wert ohne Vorzeichen ||
 | DPT-13 | Nummer | | 4-Byte-Wert mit Vorzeichen ||
 | DPT-15 | Nummer | | 4-Byte ||
-| DPT-17 | Nummer | | 1-Byte |DPT_SceneNumber aus Autoread entfernt|
+| DPT-17 | Nummer | | 1-Byte | DPT_SceneNumber aus Autoread entfernt|
 | DPT-20 | Nummer | | 1-Byte ||
 | DPT-238 | Nummer | | 1-Byte ||
 | DPT-10 | Nummer für Datumsobjekt | | - ||
 | DPT-11 | Nummer für Datumsobjekt | | - ||
 | DPT-19 | Nummer für Datumsobjekt | | - ||
-| DPT-26 | Zeichenfolge | z.B. 00010203.. | - |Datenpunkttyp DPT_SceneInfo aus Autoread entfernt|
-| DPT-238 | Zeichenfolge | z.B. 00010203.. | - |DPT_SceneConfig aus autread entfernt|
+| DPT-26 | Zeichenfolge | z.B. 00010203.. | - | Datenpunkttyp DPT_SceneInfo nicht von autread gelesen|
+| DPT-238 | Zeichenfolge | z.B. 00010203.. | - | DPT_SceneConfig nicht gelesen von autread|
 | ausruhen | Zeichenfolge | z.B. 00010203.. | - ||
 
 Nur Zeit- und Datumsinformationen werden mit zeitbasierten KNX-Datentypen ausgetauscht, z. DPT-19 hat nicht unterstützte Felder für die Signalqualität.
@@ -226,38 +230,72 @@ DPT10 ist Zeit (hh:mm:ss) plus "Wochentag". Dieses Konzept ist in JS nicht verf�
 
 (KNX-Spezifikation von DPTs https://www.knx.org/wAssets/docs/downloads/Certification/Interworking-Datapoint-types/03_07_02-Datapoint-Types-v02.02.01-AS.pdf)
 
-#### Gruppenwert schreiben
+### Gruppenwert schreiben
 Das Senden wird durch das Schreiben eines Kommunikationsobjektes ausgelöst.
 Kommunikationsobjekt wird ausgelöst, wenn ein Schreibtelegramm auf dem Bus empfangen wird.
 
-#### Gruppenwert gelesen
+### Gruppenwert gelesen
 Das Senden kann durch Schreiben eines Kommunikationsobjekts mit Kommentar ausgelöst werden.
 Empfangen, falls konfiguriert, löst eine Sammelwertantwort (Einschränkung: Sammelwert im Moment schreiben) des aktuellen c.o. Wert, siehe unten.
 
-#### Gruppenwertantwort
+### Gruppenwertantwort
 Wenn answer_groupValueResponse auf true gesetzt ist, antwortet der Adapter mit einer GroupValue_response auf eine zuvor empfangene GroupValue_read-Anforderung.
 
+### Zuordnung zu KNX-Flags
+Die KNX-Objekt-Flags definieren das Busverhalten des von ihnen repräsentierten Objekts.
+Es sind 6 verschiedene Objektflags definiert.
+
+| Flagge | Flagge de | Adapterverwendung ||
+| ------------------------- | ------------------------ | ------------------------------------------------- | --------------------------------------------- |
+|C: das Kommunikations-Flag | K: Kommunikations-Flag | immer gesetzt ||
+|R: das Read-Flag | L: Lese-Flag | Objekt native.answer_groupValueResponse ||
+|T: das Sende-Flag | Ü: Übertragen-Flag | Objekt common.write ||
+|W: das Write-Flag | S: Schreiben-Flag | Objekt common.read | Bus kann das Objekt ändern |
+|U: das Update-Flag | A: Aktualisieren-Flag | Objekt common.read | Objekt bei eingehenden GroupValueResponses aktualisieren |
+|I: das Initialisierungsflag | I: Initialisierungs-Flag | Objekt native.autoread | |
+
+L-Flag: Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert (Lesbar). Nur ein KO je GA sollte das gesetzt haben, idealerweise derjenige, der den echten Zustand am besten kennt, üblich der Aktor!
+
 # Merkmale
-* schneller Import von Gruppenadressen im XML-Format
-* stabiler knx-Stack
-* Interpretation vieler DPTs
-* Rohes Lesen und Schreiben von nicht unterstützten DPTs
-* Unterstützung von Gruppenwert-Lesen und Gruppenwert-Schreiben, Gruppenwert-Schreiben als Antwort auf Gruppenwert-Anfrage
-* Automatisch lesen
+* stabiler und zuverlässiger knx-Stack
+* einfache Schnittstelle zum Gruppieren von Adressen vieler DPTs, Rohlese- und Schreibzugriff für andere DPTs
+* Unterstützung von KNX Gruppenwert lesen und Gruppenwert schreiben und Gruppenwert Antwort
 * kostenlos Open Source
+* keine Abhängigkeiten von Cloud-Diensten, läuft ohne Internetzugang
+* Autoread beim Start
+* schneller Import von Gruppenadressen im XML-Format
+* gemeinsame Alias-Objekte erstellen, die auf Statuseingaben reagieren
 
 # Bekannte Probleme
--
+- keiner
 
 # Einschränkungen
 - Es werden nur dreistufige Gruppenadressen unterstützt
 - ETS 4 Exportdateiformat wird nicht unterstützt
 
 ## Changelog
-### 0.1.11 (2021-12-..)
+### 0.1.13 (2021-12-30)
+* bugfix: state.value of of type object must be serialized
+* bugfix: alias algorithm error handling, takover more info to alias
+
+### 0.1.12 (2021-12-30)
+* feature: improve alias status search algorithm, add units
+* feature: notify user after import if no dpt subtype is set
+* fix: library did not allow to write possible 0 values to certain dpts
+* fix: admin dialog ui fixes, better presentation of some warnings
+
+
+### 0.1.11 (2021-12-28)
 * feature: remove more scene DPTs from default autoread
 * feature: sends GroupValue_Response on GroupValue_Read if configured
 * feature: admin dialog with option to generate aliases (beta)
+* feature: admin dialog reactivates after adapter reset
+* feature: add support for DPT 7.600
+* feature: show logs of knx library
+* fix: filter out logs with device address bus interactions
+* fix: filter ga names that are forbidden in IOB
+* fix: reply with groupvalueresponse on request, not with groupvaluewrite
+* fix: remove more scene dpts from autoread
 
 ### 0.1.10 (2021-12-24)
 * fix: interface to write objects corrected

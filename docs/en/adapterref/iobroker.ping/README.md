@@ -16,9 +16,16 @@ Pings specified IP addresses in defined interval and monitors the results.
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Known Issues
-* if its not possible to ping your linux client, check if `iputils-ping` is correct installed on client
+* if it is not possible to ping your linux client, check if `iputils-ping` is correct installed on client
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
 
 ## Changelog
+### 1.5.1 (2021-12-28)
+* (basti4557) Number of retries can be defined if a ping request failed. This should minimize wrong offline detection.
 
 ### 1.5.0 (2021-07-14)
 * js-controller 2.0 required at least
@@ -44,7 +51,7 @@ Pings specified IP addresses in defined interval and monitors the results.
 * (Apollon77) Fixed potential crash case (Sentry)
 
 ### 1.4.4 (2020-04-17)
-* (bluefox) Added support of Admin3 
+* (bluefox) Added support of Admin3
 
 ### 1.4.3 (2020-04-17)
 * (Apollon77) Add Sentry for js-controller 3.0
@@ -109,7 +116,7 @@ Pings specified IP addresses in defined interval and monitors the results.
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2021, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
