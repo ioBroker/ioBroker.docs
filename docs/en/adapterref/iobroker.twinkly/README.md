@@ -72,6 +72,9 @@ The following States are available:
 
 ## Changelog
 
+### 0.2.10 (2021-12-31)
+* (patrickbs96) Add setting to enable automatically switching of Mode after State change (color, effect, movie, playlist)
+
 ### 0.2.8 (2021-12-20)
 * (patrickbs96) Rename mode On to movie as it's a better representation
 

@@ -33,7 +33,22 @@ This ioBroker adapter receives data from a Nibe heat pump from Nibe Uplink.
 
 If you (later) get a "400 bad request" error in the log, you must get a new Auth Code - so do numbers 13 until 15 and 18.
 
+## Manage/Write Support
+
+It seems you can only change the parameters listet on the following web page:
+
+https://api.nibeuplink.com/docs/v1/Parameters (Settings section)
+
+The parameter "hot_water_boost" is parameter ID 48132.
+
+You can read other values but I think you can't write other values. Other values are here listed:
+
+https://github.com/sebilm/ioBroker.nibeuplink/blob/master/nibe-fetcher.js#L41
+
 ## Changelog
+
+### 1.0.1 - 2021-12-31
+* Fix write support #6
 
 ### 1.0.0 - 2021-12-30
 * Support to manage Nibe heat pump (write support #6)

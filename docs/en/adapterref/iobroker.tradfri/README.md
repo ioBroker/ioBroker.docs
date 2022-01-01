@@ -71,6 +71,9 @@ The result object `ret` looks as follows:
 	Placeholder for next release:
 	### __WORK IN PROGRESS__
 -->
+### 3.1.2 (2021-12-31)
+* Fixed a typo preventing the adapter from controlling air purifiers
+
 ### 3.1.1 (2021-12-21)
 * Fix: actually create states for STARKVIND Air Purifier
 
@@ -83,9 +86,6 @@ The result object `ret` looks as follows:
 
 ### 3.0.1 (2021-06-30)
 * Workaround for a bug in IKEA gateway firmware `v1.15.x`
-
-### 3.0.0 (2021-06-19)
-* Update dependencies, require Node.js 12+
 
 ## License
 The MIT License (MIT)
