@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.twinkly/README.md
 title: ioBroker.twinkly
-hash: 8WLgtLIavDN5rEQxNMS7s+61/GA86fr/OsdTLsXzkWQ=
+hash: 2AkzmgVU11hLrQ0iNNizIIa/Kkg91b7iLSv0X1jkkBQ=
 ---
 ![标识](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
@@ -30,10 +30,11 @@ hash: 8WLgtLIavDN5rEQxNMS7s+61/GA86fr/OsdTLsXzkWQ=
 在表格中，您可以添加所有要控制的 Twinkly 灯。
 
 |专栏 |说明 |
-|--------------|------------------------------------|
+|--------------|----------------------------------------------------------------|
 | `Enabled` |是否可以访问此连接？ |
 | `IP Address` |闪烁灯的 IP 地址 |
-| `IP 地址` |闪烁灯的 IP 地址 |
+| `State On` |启用状态 `on` 时应激活哪个 `ledMode` |
+| `状态打开` |启用状态`on`时应该激活哪个`ledMode` |
 
 选中时，将为每个设备创建以下附加状态：
 
@@ -48,10 +49,10 @@ hash: 8WLgtLIavDN5rEQxNMS7s+61/GA86fr/OsdTLsXzkWQ=
 | `connected` | :x: |设备已连接 |
 | `firmware` | :x: |固件版本 |
 | `ledBri` | :heavy_check_mark: |亮度（使用 -1 停用控制）|
-| `ledColor` | :heavy_check_mark: | LED 颜色，HSV/RGB(W)/HEX |
+| `ledColor` | :heavy_check_mark: | LED 颜色，HSV/RGB(W)/HEX (`Color`) |
 | `ledConfig` | :heavy_check_mark: | LED 的配置 |
 | `ledEffect` | :heavy_check_mark: |效果 (`Effect`) |
-| `ledLayout` | :heavy_check_mark: | LED 布局（禁用以进行进一步测试）|
+| `ledLayout` | :heavy_check_mark: | LED 布局（禁用以供进一步测试）|
 | `ledMode` | :heavy_check_mark: |模式：电影、色彩、效果、播放列表、关闭、实时（尚不支持）、演示 |
 | `ledMovie` | :heavy_check_mark: |活动电影，如果在播放列表功能中添加了多个电影，则可以在此处选择它们。 (`Movie`) |
 | `ledPlaylist` | :heavy_check_mark: |活动播放列表条目，在电影之间切换。 (`Playlist`) |
@@ -70,6 +71,12 @@ hash: 8WLgtLIavDN5rEQxNMS7s+61/GA86fr/OsdTLsXzkWQ=
 * 电影名称的最大长度为 15 个字符
 
 ## Changelog
+
+### 0.2.11 (2022-01-02)
+* (patrickbs96) Add setting to select which ledMode should be activated
+
+### 0.2.10 (2021-12-31)
+* (patrickbs96) Add setting to enable automatically switching of Mode after State change (color, effect, movie, playlist)
 
 ### 0.2.8 (2021-12-20)
 * (patrickbs96) Rename mode On to movie as it's a better representation
@@ -130,7 +137,7 @@ hash: 8WLgtLIavDN5rEQxNMS7s+61/GA86fr/OsdTLsXzkWQ=
 ## License
 MIT License
 
-Copyright (c) 2021 patrickbs96 <patrickbsimon96@gmail.com>
+Copyright (c) 2022 patrickbs96 <patrickbsimon96@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

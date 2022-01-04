@@ -93,7 +93,7 @@ IP of your KNX IP gateway.
 this is normally port 3671 of the KNX IP gateway.
 
 ### phys. EIB Adress
-Fill in physical address of the gateway in the format 1/1/1.
+Fill in physical address of the KNX IP gateway in the format 1/1/1.
 
 ### Add only new Objects
 If checked, the import will skip overwriting existing communication objects.
@@ -111,7 +111,7 @@ Hint on ETS configuration:
 If you have different DPT Subtypes for the GA and in the communication objets that use this GA, then the ETS seems to use the DPT Type with the lowest number. In this case manually ensure that all fields are using the same datatype.
 
 ### Frames per sec
-This settings protects the KNX bus from data flooding by limiting data frames to a certain rate. Not sent frames are put into a fifo buffer.
+This settings protects the KNX bus from data flooding by limiting data frames to a certain rate. Not sent frames are put into a fifo buffer. If you experience disconnects from your KNX IP Gateway then increase this number.
 
 ### Alias
 KNX devices can have ga's for state feedback that belong to a commanding ga. Some applications like certain VIS widgets expect a combined status and actuation object. You can combine these states into one alias by using a separate alias id to write to and another to read from. The menu helps to create a matching pair according to the naming convention with the given filtering rule.
@@ -299,7 +299,7 @@ L-Flag: Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert 
 
 # Features
 * stable and reliable knx stack
-* easy interface to group adresses of many DPTs, raw read and write for other DPTs
+* Automatic encoding/deconding of KNX datagrams for most importants DPTs, raw read and write for other DPTs
 * support of KNX group value read and group value write and group value response
 * free open source
 * no dependencies to cloud services, runs without internet access
@@ -313,6 +313,7 @@ L-Flag: Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert 
 # Limitations
 - only three level group addresses are supported
 - ETS 4 export file format is not supported
+- KNX secure is not supported
 
 ## Changelog
 ### 0.1.13 (2021-12-30)
@@ -384,10 +385,14 @@ L-Flag: Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert 
 ### 0.0.14
 * (boellner) feature: import ga xml
 
+### initial version
+* initial version inspired by https://www.npmjs.com/package/iobroker.knx/v/0.8.3
+
 ## License
 					GNU GENERAL PUBLIC LICENSE
-==========================
-Copyright (c) 2021 boellner
+==========================  
+Copyright Contributors to the ioBroker.openknx project  
+
 					   Version 3, 29 June 2007
 
  Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>

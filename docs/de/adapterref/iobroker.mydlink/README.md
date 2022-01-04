@@ -74,6 +74,9 @@ Gerät, die er braucht.
 	### **WORK IN PROGRESS**
 	npm install @alcalzone/release-script
 -->
+### **WORK IN PROGRESS**
+* Update translations & dependencies
+
 ### 1.1.12 (2021-07-21)
 * Update translations
 

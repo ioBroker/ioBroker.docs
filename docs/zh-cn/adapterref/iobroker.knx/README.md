@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: 9DvpHKCTIHIMwhDwzpDcMpqDPywwi/RPchy/iVWToTw=
+hash: bl3CznWkrEh+2Q7Rhomezf1lH07US0VXcWE8S5D5Hhw=
 ---
 ![标识](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
@@ -25,6 +25,7 @@ hash: 9DvpHKCTIHIMwhDwzpDcMpqDPywwi/RPchy/iVWToTw=
     * [导入的工作原理](#how-the-import-works)
     * [问题的避免](#avoidance-of-problems)
 * [GA-工具](#ga-tool)
+    * [Direct Link non-KNX state to KNX Vice-verse](#direct-link-non-knx-state-to-knx-vice-verse)
 * [计划功能](#planned-features)
 * [更新日志](#changelog)
 
@@ -53,9 +54,11 @@ en: 此适配器允许从 ETS 导入 knxproj 文件。它生成 KNX-group 地址
 * 生成类似 ETS 的对象结构
 * 寻找并结合行为通道和状态通道（启发式）
 * 在开始时更新所有状态
+* 无需云或互联网
 * 向 KNX-Bus 发出 READ，同时写入状态对象
 * 使用 GA-Tools 编辑和修改 GA 对象
 * 使用 GA-Tools 编辑和修改状态-行为关系
+* 新：允许非 KNX 状态直接链接（反之亦然）
 
 ##适配器配置
 安装此适配器后，打开适配器配置。
@@ -92,11 +95,11 @@ en: 此适配器允许从 ETS 导入 knxproj 文件。它生成 KNX-group 地址
 1. KNX-Gateway IP：KNX-LAN网关的IPv4。
 2. KNX-Gateway 端口：默认为 3671 端口。
 3.物理地址：iobroker knx实例的物理地址**！重要：这不是物理。 LAN 网关的地址 !** 并且不能以 0 结尾
-4.每秒KNX包：这限制了包速率。如果 KNX Lan 网关重新连接到很多或暂时无法访问，则降低此速率。
+4.每秒KNX包：这限制了包速率。如果 KNX Lan 网关重新连接很多或暂时无法访问，则降低此速率。
 5.本地iobroker IP：选择适配器将绑定的IP/接口
 6. loglevel：通常为“Info”级别，用于调试增加级别。
 7. 只导入新的数据点：这是默认启用的。在禁用新 GA 的情况下，将生成并重新创建现有的 GA。
-8. 按钮上传文件：拖放在这里或单击文件选择器对话框可用。您可以在此处以“knxproj”格式上传您的 ETS 导出。
+8. 按钮上传文件：拖放可用在这里或单击文件选择器对话框。您可以在此处以“knxproj”格式上传 ETS 导出。
 
 成功导入后，会出现一个对话框，显示导入对象的数量。现在按“保存并关闭”，适配器应该会启动。
 在启动时，适配器读取带有 read-Flag 和 write-Flag 的所有组地址。这可能需要一段时间，并且会在您的 KNX 总线上产生高负载。但是您的 vis 中的值会在启动后更新。
@@ -114,7 +117,7 @@ en: 此适配器允许从 ETS 导入 knxproj 文件。它生成 KNX-group 地址
 ### 数据点类型（DPT）
 所有符合 KNX 协会“系统规范、互通、数据点类型”的 DPT 均可用。这意味着您可以获得两种类型的信息：1) 值或字符串 2) 逗号分隔值或值数组（目前我不知道什么是更好的处理方式）
 
-例如，DPT5.001 被编码为 8 位无符号整数。这给出了一个单一的值。 DPT3.007（控制调光）编码为 1Bit(Boolean)+3Bit(unsigned Int)。
+例如，DPT5.001 被编码为 8 位无符号整数。这给出了一个单一的价值。 DPT3.007（控制调光）编码为 1Bit(Boolean)+3Bit(unsigned Int)。
 这导致例如在像“0,5”这样的值中，其中“0”表示“减少”，“5”表示间隔数。
 
 ### 导入的工作原理
@@ -194,19 +197,51 @@ GA-Tool 可以轻松更改 GA 的属性。
 2.属性改变
 3. 没有改变的可能
 
+### 将非 KNX 状态直接链接到 KNX，反之亦然
+从适配器版本 2.0.6 开始，可以将非 KNX ioBroker 状态直接链接到 GA。这可用于将时间、日期、任何状态或信息应用于 KNX。 （一个小提示：您可以将任何 IOT 组件直接链接到 KNX 中的 GA（例如，将 Homematic 按钮链接到 KNX GA 或将 KNX 按钮传感器链接到您的声纳播放器））。可以使用 GroupValueRead 读取状态，如果状态发生变化，它将在 KNX 上自动更新。此外，如果您在 KNX 上进行更改，它将更新链接的非 KNX 物联网设备。
+
+![knxV2-3-7-GATools-Directlink-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-7-GATools-DirectLink-mod.jpg)
+
+1. 选择要连接的 GA
+2.显示选中的GA
+3.这个GA必须有**write**属性
+4.选择一个有效的数据点类型（如果它们不匹配，它将不起作用）
+5. 不允许有行为-状态关系
+6. 选择要链接的非 KNX 对象的按钮
+
+![knxV2-3-8-GATools-Directlink-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-8-GATools-DirectLink-mod.jpg)
+
+1.选择要链接的非KNX对象
+2.点击确定，如果你完成了
+
+![knxV2-3-9-GATools-Directlink-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-9-GATools-DirectLink-mod.jpg)
+
+现在是 KNX-GA **(1)** 与非 KNX iobroker **(2)** 直接链接。使用 **(3)** 你可以删除这个关系。
+
 ## 计划功能
 * esf 导入
 * GA-Mon 总线监控工具
 
 <!-- 下一个版本的占位符（在行首）：
 
-### __工作正在进行中__ -->
+### __工作进行中__ -->
 ## 异常和错误
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
 
 开发人员无法获得有关系统/配置/用户/环境的任何进一步特殊信息。如果未找到许可证，还会报告适配器版本和主机 ID。
 
 ## Changelog
+### 2.0.8
+* fixed bug with unackn write
+* fixed bug in linkedState
+
+### 2.0.7
+* fixed bug with unable to write on KNX
+
+### 2.0.6
+* fixed problem on ETSv6 import
+* many small bugfixes
+* implemented GA-Tools directLink feature
 
 ### 2.0.5
 
@@ -484,6 +519,10 @@ GA-Tool 可以轻松更改 GA 的属性。
 * (bluefox) initial release
 
 ## License
+
+For <500 datapoints there is no need of registration or adding a license key. If you have more then 500 datapoints you need a license. You can choose  
+between yearly and permanent licence.
+
 To use this adapter in ioBroker you need to accept the source code license of the adapter. The source code of this adapter is available under the CC-NC-BY license.
 
 Additionally you need a license to use the adapter. The license editions are available on [https://iobroker.net/www/pricing](https://iobroker.net/www/pricing)

@@ -3,14 +3,13 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tahoma/README.md
 title: ioBroker.tahoma
-hash: rvkM68eo+sAHuB+Ix4e454/xTBej0K9Cv6XYzR4jUZE=
+hash: 4RvjgcKT8BpJS82hcxtsqN+anPTF/TTwFeBUdNhdkOE=
 ---
 ![标识](../../../en/adapterref/iobroker.tahoma/admin/tahoma.png)
 
 ![新产品管理](https://nodei.co/npm/iobroker.tahoma.png?downloads=true)
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.tahoma.svg)
 ![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
-![依赖状态](https://img.shields.io/david/Excodibur/iobroker.schwoerer-ventcube.svg)
 ![安装数量（最新）](http://iobroker.live/badges/tahoma-installed.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/tahoma-stable.svg)
 ![语言等级：JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Excodibur/ioBroker.tahoma.svg?logo=lgtm&logoWidth=18)
@@ -23,11 +22,11 @@ hash: rvkM68eo+sAHuB+Ix4e454/xTBej0K9Cv6XYzR4jUZE=
 用于尚飞 Tahoma 的 ioBroker 适配器。该项目与尚飞没有任何关系。最初基于取自 https://forum.iobroker.net/post/336001 并从 https://github.com/StrathCole/ioBroker.tahoma 分叉的脚本。
 
 该适配器连接到 Tahomalink 最终用户 API 并控制通过 Tahoma Box（最有可能是 Connexoon）设置的设备。
-该适配器的功能还不是很完整，但它应该支持大多数用于控制百叶窗和百叶窗等的操作。
+该适配器的功能还不完善，但它应该支持大多数用于控制百叶窗和百叶窗等的操作。
 
 如果出现问题，请先阅读 [常问问题](https://github.com/Excodibur/ioBroker.tahoma/blob/master/FAQ.md)。
 
-## 目前测试的设备
+## 当前测试的设备
 一般来说，这个适配器应该支持所有可以通过 __tahomalink.com__ 访问的设备，但是对于适配器开发者来说很难保证这一点。主要是因为所使用的尚飞 API 的文档（至少公开）不存在，开发人员只能测试他自己拥有的尚飞设备，或者能够在自愿参与者的支持下进行测试。
 
 以下尚飞设备经验证可与此适配器配合使用：
@@ -46,7 +45,7 @@ hash: rvkM68eo+sAHuB+Ix4e454/xTBej0K9Cv6XYzR4jUZE=
 |用户名 | _`<your Tahomalink user>`_ |需要验证您的 Tahoma 帐户。 |
 |密码 | _`<Your Tahomalink password>`_ |需要验证您的 Tahoma 帐户。 |
 |轮询间隔 | `20000` |适配器将尝试从 Tahomalink 获取新数据的时间（以毫秒为单位）。 |
-|登录尝试<sup>1</sup> <sup>2</sup> | `3` |登录失败后再次尝试登录的次数。 |
+|登录尝试<sup>1</sup> <sup>2</sup> | `3` |登录失败后再次登录的尝试次数。 |
 |登录尝试之间的延迟<sup>1</sup> <sup>2</sup> | `30` |在登录尝试之间等待的时间（以秒为单位）。 |
 |登录失败后延迟<sup>1</sup> <sup>2</sup> | `120` |在所有连续登录尝试失败后等待的时间（以秒为单位）。 |
 | applyqueue 重试前的延迟<sup>1</sup> <sup>2</sup> | `1500` |在第二次尝试将更改从内部应用队列发送到 Tahoma 之前等待的时间（以毫秒为单位），以防丢失。 |

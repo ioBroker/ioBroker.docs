@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.benchmark/README.md
 title: ioBroker.benchmark
-hash: rUUVjscVITKtSuwB4lU6fnF6HH/VHoidSaVqBT9yIds=
+hash: LU96JGHKXloPMFqc3GQppX/Dbx2Oh014A6g0xNHAq6A=
 ---
 ![Logo](../../../en/adapterref/iobroker.benchmark/admin/benchmark.png)
 
@@ -11,7 +11,6 @@ hash: rUUVjscVITKtSuwB4lU6fnF6HH/VHoidSaVqBT9yIds=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.benchmark.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/benchmark-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/benchmark-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/foxriver76/iobroker.benchmark.svg)
 ![NPM](https://nodei.co/npm/iobroker.benchmark.png?downloads=true)
 
 # IoBroker.benchmark
@@ -27,8 +26,30 @@ Die Benchmark-Tests können sehr lange dauern und Ihr System stark belasten. Bea
 ## Wie füge ich einen neuen Test hinzu?
 1. Erstellen Sie eine neue TypeScript-Datei in src/lib/activeTests mit einer Klasse, die von TestUtils erbt
 2. Definieren Sie die drei (fünf) Schritte Ihres Tests (die Ausführung wird automatisch gemessen)
-3. Fügen Sie Ihren Test zu src/lib/allTests.ts hinzu
-4. Fügen Sie eine Schaltfläche und eine Übersetzung für Ihren Test zu admin/jsonConfig.json hinzu
+3. Optional: Wenn Ihr Test einige Anforderungen hat, z.B. Controller muss `>=3.0.0` sein, bitte übergeben Sie die Anforderungen an
+
+der Elternkonstruktor
+
+4. Fügen Sie Ihren Test zu src/lib/allTests.ts hinzu
+5. Fügen Sie eine Schaltfläche und eine Übersetzung für Ihren Test zu admin/jsonConfig.json hinzu
+
+### Testanforderungen
+Einige Tests können Anforderungen haben. Wenn das System die Anforderungen nicht erfüllt, wird der Test übersprungen.
+Im Konstruktor sollten Sie die Anforderungen an die übergeordnete Klasse übergeben, z
+
+```typescript
+public constructor(adapter: AdapterInstance) {
+    super(adapter, {freeMemory: 2000});
+}
+```
+
+Derzeit werden die folgenden Anforderungen unterstützt:
+
+- `controllerVersion` - wenn Methoden getestet werden, die mit einer bestimmten Controller-Version eingeführt wurden, der Benchmark
+
+Adapter sollte nicht versuchen, diese Tests auf einem nicht unterstützenden Controller auszuführen
+
+- `freeMemory` - Definieren Sie den benötigten Speicher des Tests, dies ist nur notwendig, wenn Sie z.B. viele Instanzen hinzufügen
 
 ## Testbeschreibung
 ### GetStates
@@ -72,7 +93,9 @@ Setzt `iterations` Zustände über `setState`, aber `strictObjectChecks` sind de
 Fügt 30 sekundäre Instanzen hinzu, jede Instanz setzt `iterations`-Zustände. Auf Systemebene setzen die Instanzen diese Zustände parallel, aber auf Instanzebene müssen die vorherigen `setState` beendet werden, bis der nächste gesetzt wird.
 Dieser Test zielt darauf ab, Multicore-Systeme zu vergleichen.
 
-### StaatenLöschung
+__Voraussetzungen__: 2 GB freier Speicher
+
+### StaatenLöschen
 Löscht `iterations` Staaten über `delState`.
 
 ### StaatenAbonnement
@@ -81,7 +104,7 @@ Die Controller-Instanz abonniert einen bestimmten Namespace. 4 Secondaries setze
 ### StatesSubscriptionAlias
 Die Controller-Instanz abonniert einen Alias-Namespace. 4 Secondaries setzen jeweils `iterations / 4` Alias-Zustände. Sobald der Controller alle `iterations` Veröffentlichungen erhalten hat, ist der Test beendet.
 
-### StaatenSubscriptionAliasWrite
+### StaatenAbonnementAliasWrite
 Die Controller-Instanz abonniert einen Alias-Namespace. 4 Secondaries setzen jeweils `iterations / 4` Alias-Zustände. Sobald der Controller alle `iterations` Veröffentlichungen erhalten hat, ist der Test beendet.
 Der Alias enthält eine einfache Schreibfunktion.
 
@@ -90,6 +113,9 @@ Der Alias enthält eine einfache Schreibfunktion.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.0 (2022-01-01)
+* (foxriver76) we introduced `TestRequirements` which can define required memory, controller and node version
+
 ### 0.4.0 (2021-11-24)
 * (foxriver76) we introduced some categories in the user interface
 * (foxriver76) we switched to checkboxes to allow to execute a subset of all tests
@@ -164,7 +190,7 @@ Der Alias enthält eine einfache Schreibfunktion.
 ## License
 MIT License
 
-Copyright (c) 2021 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2022 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

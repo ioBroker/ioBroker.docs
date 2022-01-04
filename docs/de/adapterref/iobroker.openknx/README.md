@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: btFxNjfvWNxgYcwgKtcUP7MKyf9D0tnVhPKSBNkO/UU=
+hash: j6yGYstrFB/ab7szDFsa7sdaCu7egL50KOSk35duz4c=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -90,7 +90,7 @@ Autoread wird bei der ersten Verbindung mit dem knx-Bus nach einem Adapterstart 
 dies ist normalerweise Port 3671 des KNX IP Gateways.
 
 ### Phys. EIB-Adresse
-Geben Sie die physikalische Adresse des Gateways im Format 1/1/1 ein.
+Geben Sie die physikalische Adresse des KNX IP-Gateways im Format 1/1/1 ein.
 
 ### Nur neue Objekte hinzufügen
 Wenn aktiviert, überspringt der Import das Überschreiben vorhandener Kommunikationsobjekte.
@@ -110,7 +110,7 @@ Nach erfolgreichem Import zeigt eine Meldung an, wie viele Objekte erkannt wurde
 Hinweis zur ETS-Konfiguration: Wenn Sie unterschiedliche DPT-Subtypen für den GA und in den Kommunikationsobjekten haben, die diesen GA verwenden, dann scheint die ETS den DPT-Typ mit der niedrigsten Nummer zu verwenden. Stellen Sie in diesem Fall manuell sicher, dass alle Felder denselben Datentyp verwenden.
 
 ### Bilder pro Sekunde
-Diese Einstellung schützt den KNX-Bus vor Datenfluten, indem die Datenframes auf eine bestimmte Rate begrenzt werden. Nicht gesendete Frames werden in einen Fifo-Puffer gelegt.
+Diese Einstellung schützt den KNX-Bus vor Datenfluten, indem die Datenframes auf eine bestimmte Rate begrenzt werden. Nicht gesendete Frames werden in einen Fifo-Puffer gelegt. Wenn es zu Verbindungsabbrüchen von Ihrem KNX IP Gateway kommt, erhöhen Sie diese Zahl.
 
 ### Alias
 KNX-Geräte können GAs für Statusrückmeldungen haben, die zu einem befehlsgebenden GA gehören. Einige Anwendungen wie bestimmte VIS-Widgets erwarten ein kombiniertes Status- und Betätigungsobjekt. Sie können diese Zustände in einem Alias kombinieren, indem Sie eine separate Alias-ID zum Schreiben und eine andere zum Lesen verwenden. Das Menü hilft dabei, ein passendes Paar gemäß der Namenskonvention mit der angegebenen Filterregel zu erstellen.
@@ -258,7 +258,7 @@ L-Flag: Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert 
 
 # Merkmale
 * stabiler und zuverlässiger knx-Stack
-* einfache Schnittstelle zum Gruppieren von Adressen vieler DPTs, Rohlese- und Schreibzugriff für andere DPTs
+* Automatisches Kodieren/Dekodieren von KNX-Datagrammen für die wichtigsten DPTs, rohes Lesen und Schreiben für andere DPTs
 * Unterstützung von KNX Gruppenwert lesen und Gruppenwert schreiben und Gruppenwert Antwort
 * kostenlos Open Source
 * keine Abhängigkeiten von Cloud-Diensten, läuft ohne Internetzugang
@@ -272,6 +272,7 @@ L-Flag: Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert 
 # Einschränkungen
 - Es werden nur dreistufige Gruppenadressen unterstützt
 - ETS 4 Exportdateiformat wird nicht unterstützt
+- KNX Secure wird nicht unterstützt
 
 ## Changelog
 ### 0.1.13 (2021-12-30)
@@ -343,10 +344,14 @@ L-Flag: Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert 
 ### 0.0.14
 * (boellner) feature: import ga xml
 
+### initial version
+* initial version inspired by https://www.npmjs.com/package/iobroker.knx/v/0.8.3
+
 ## License
 					GNU GENERAL PUBLIC LICENSE
-==========================
-Copyright (c) 2021 boellner
+==========================  
+Copyright Contributors to the ioBroker.openknx project  
+
 					   Version 3, 29 June 2007
 
  Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>

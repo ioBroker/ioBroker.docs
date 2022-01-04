@@ -217,6 +217,12 @@ It is NOT required to use the ical option. You can also define all birthday date
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.1.8 (2022-01-03)
+
+* (klein0r) Birthdays on 29th of February create NaN objects
+* (klein0r) Added check for empty names
+* (klein0r) Added date checks
+
 ### 0.1.7 (2021-12-23)
 
 * (klein0r) Added defaults for birthdays table
@@ -271,7 +277,7 @@ It is NOT required to use the ical option. You can also define all birthday date
 
 The MIT License (MIT)
 
-Copyright (c) 2021 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

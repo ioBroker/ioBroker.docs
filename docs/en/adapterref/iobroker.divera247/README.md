@@ -14,25 +14,26 @@
 
 ## divera247 adapter for ioBroker
 
-Adapter for the alerting service "Divera 24/7"
+Adapter for the alerting service ["Divera 24/7"](https://www.divera247.com/)
 
 ## Requirements
 For full usability of this adapter your organisation has to subscribe the "Alarm" plan of Divera 24/7 services
 
 ## Configuartion of this adapter
-You have to enter the "Divera 24/7" API key from your organisation to this adapter.
-To find out the API key, go to the official [Divera 24 / 7 website](https://www.divera247.com/) and navigate to administration -> settings -> interfaces -> API. Here you can find the token in the "authorisation" area.
+You have to enter your "Divera 24/7" login crendentials to this adapter.
 
 Furthermore you can restrict the alarms on specific users or alarm groups.
 For this you have to enter the Divera user IDs or alarm group number into the admin page of this adapter. Several user IDs and / or alarm group numbers can be specifyed seperated by comma (,).
-This adapter checks first the userIDs befor it checks the groups. The first hit will trigger the alarm and update all states. A combination of userID and alarm group is currently not possible. 
-To find out the own user ID, go to the official [Divera 24 / 7 website](https://www.divera247.com/) and navigate to user profile -> settings -> debug -> "Aktuelle ID".
+This adapter checks first the userIDs befor it checks the groups. The first hit will trigger the alarm and update all states. A combination of userID and alarm group is currently not possible.
 
 To subscribe **all alarms**, just leave the relevant field empty.
 
 Furthermore please choose an updating interval for calling the API server. 30 seconds are recommended. The minimum is 10 seconds.
 
 ## Changelog
+
+### 0.1.3
+* (TKnpl) general revision of the adapter
 
 ### 0.1.2
 * (TKnpl) added alarmed vehicles datapoint

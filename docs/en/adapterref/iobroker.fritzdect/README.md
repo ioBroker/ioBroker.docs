@@ -189,6 +189,14 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 * improvement of thermostat mode to text representation (auto, off, boost, comfort, night), comfort and night are also auto mode, but preset to the parametrized value
 
 ## Changelog
+### 2.2.2 (npm)
+* license update
+* corrected doc/de
+
+### 2.2.1
+* correction of "My colors" FB is not answering with valid xml
+* added test script (fritz.js) for login check in doc/de
+
 ### 2.2.0 (npm)
 * refactoring of API to FB, single instance with relogin after experied session
 * refactoring main.js
@@ -437,4 +445,4 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2021 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2018 - 2022 foxthefox <foxthefox@wysiwis.net>

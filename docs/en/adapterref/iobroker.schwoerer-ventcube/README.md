@@ -3,7 +3,6 @@
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.schwoerer-ventcube.svg)](https://www.npmjs.com/package/iobroker.schwoerer-ventcube)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.schwoerer-ventcube.svg)](https://www.npmjs.com/package/iobroker.schwoerer-ventcube)
-[![Dependency Status](https://img.shields.io/david/Excodibur/iobroker.schwoerer-ventcube.svg)](https://david-dm.org/Excodibur/iobroker.schwoerer-ventcube)
 
 ![Number of Installations (latest)](http://iobroker.live/badges/schwoerer-ventcube-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/schwoerer-ventcube-stable.svg)

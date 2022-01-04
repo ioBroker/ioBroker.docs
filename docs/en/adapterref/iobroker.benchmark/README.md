@@ -23,8 +23,26 @@ always needs to be run with instance number `0`.
 ## How to add a new test?
 1. Create a new TypeScript file in src/lib/activeTests, with a class which inherits from TestUtils
 2. Define the three (five) steps of your test (execute is automatically measured)
-3. Add your test to src/lib/allTests.ts
-4. Add a button and translation for your test to admin/jsonConfig.json
+3. Ooptional: If your test has some requierments, e.g. controller needs to be `>=3.0.0`, please pass the requirements to
+the parent constructor
+4. Add your test to src/lib/allTests.ts
+5. Add a button and translation for your test to admin/jsonConfig.json
+
+### Test requirements
+Some tests may have requirements. If the system does not fulfill the requirements, the test will be skipped.
+In the constructor you should pass the requirements to the parent class, like
+
+```typescript
+public constructor(adapter: AdapterInstance) {
+    super(adapter, {freeMemory: 2000});
+}
+```
+
+Currently, the following requirements are supported:
+
+- `controllerVersion` - if methods are tested which were introduced with a specific controller version, the benchmark 
+adapter should not try to run these tests on a non-supporting controller
+- `freeMemory` - define the required memory of the test, this is only necessary if you e.g. add a lot of instances
 
 ## Test description
 ### getStates
@@ -68,6 +86,8 @@ Sets `iterations` states via `setState`, but `strictObjectChecks` are disabled.
 Adds 30 secondary instances, every instance will set `iterations` states. On system level, the instances are setting these states in parallel, but on instance level, the previous `setState` needs to be finished until the next one is set.
 This test aims to benchmark multicore systems.
 
+__Requirements__: 2 GB of free memory
+
 ### statesDeletion
 Deletes `iterations` states via `delState`.
 
@@ -86,6 +106,9 @@ The alias contains a simple write function.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.0 (2022-01-01)
+* (foxriver76) we introduced `TestRequirements` which can define required memory, controller and node version
+
 ### 0.4.0 (2021-11-24)
 * (foxriver76) we introduced some categories in the user interface
 * (foxriver76) we switched to checkboxes to allow to execute a subset of all tests
@@ -160,7 +183,7 @@ The alias contains a simple write function.
 ## License
 MIT License
 
-Copyright (c) 2021 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2022 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

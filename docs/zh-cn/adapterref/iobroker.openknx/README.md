@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: btFxNjfvWNxgYcwgKtcUP7MKyf9D0tnVhPKSBNkO/UU=
+hash: j6yGYstrFB/ab7szDFsa7sdaCu7egL50KOSk35duz4c=
 ---
 ![标识](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -90,7 +90,7 @@ https://forum.iobroker.net/topic/50352/test-adapter-openknx-0-1-x
 这通常是 KNX IP 网关的端口 3671。
 
 ###物理。欧洲投资银行地址
-填写网关的物理地址，格式为1/1/1。
+以1/1/1的格式填写KNX IP网关的物理地址。
 
 ### 只添加新对象
 如果选中，导入将跳过覆盖现有通信对象。
@@ -110,7 +110,7 @@ https://forum.iobroker.net/topic/50352/test-adapter-openknx-0-1-x
 ETS 配置提示：如果 GA 和使用此 GA 的通信对象有不同的 DPT 子类型，那么 ETS 似乎使用编号最低的 DPT 类型。在这种情况下，手动确保所有字段都使用相同的数据类型。
 
 ### 每秒帧数
-此设置通过将数据帧限制为特定速率来保护 KNX 总线免受数据泛滥。未发送的帧被放入 fifo 缓冲区。
+此设置通过将数据帧限制为特定速率来保护 KNX 总线免受数据泛滥。未发送的帧被放入 fifo 缓冲区。如果您遇到与 KNX IP 网关断开连接的情况，请增加此数字。
 
 ### 别名
 KNX 设备可以具有属于命令 ga 的状态反馈的 ga。某些应用程序（如某些 VIS 小部件）需要组合状态和驱动对象。您可以通过使用单独的别名 id 写入和读取另一个别名，将这些状态组合为一个别名。该菜单有助于根据给定过滤规则的命名约定创建匹配对。
@@ -174,7 +174,7 @@ ioBroker 状态角色（https://github.com/ioBroker/ioBroker/blob/master/doc/STA
 
 如果从 DPT 清楚这是一个触发信号，则 Autoread 设置为 false。这适用于场景编号。
 
-{ "_id": "path.and.name.to.object", //派生自 KNX 结构 "type": "state", "common": { //这里的值可以被 iobroker "desc" 解释： "Basetype: 1-bit value, Subtype: switch", //informative, from dpt "name": "Aussen Melder Licht schalten", //informative description from ets export "read": true, //default set, if false传入的总线值不更新对象 "role": state, //default state, 派生自 DPT "type": "boolean", //boolean, number, string, object, 派生自 dpt "unit": "", //派生自 dpt "write": true //默认为 true，如果对象上的设置更改触发 knx 写入，则成功。 write set then ack flag to true }, "native": { //这里的值可以被openknx适配器解释 "address": "0/1/2", //knx group address "answer_groupValueResponse": false, //default false, 如果设置为 true 适配器响应 GroupValue_Read 上的值 "autoread": true, //非触发信号默认为 true，适配器在开始时发送 GroupValue_read 以同步其状态 "bitlength": 1, //size ob knx 数据，派生自 dpt "dpt": "DPT1.001", //DPT "encoding": { //informative "0": "Off", "1": "On" }, "force_encoding": "", //信息 "signedness": "", //informative "valuetype": "basic" //composite 意味着通过特定的 javascript 对象设置 }, "from": "system.adap ter.openknx.0", "user": "system.user.admin", "ts": 1638913951639 }
+{ "_id": "path.and.name.to.object", //派生自 KNX 结构 "type": "state", "common": { //这里的值可以被 iobroker "desc" 解释： "Basetype: 1-bit value, Subtype: switch", //informative, from dpt "name": "Aussen Melder Licht schalten", //informative description from ets export "read": true, //default set, if false传入的总线值不更新对象 "role": state, //default state, 派生自 DPT "type": "boolean", //boolean, number, string, object, 派生自 dpt "unit": "", //派生自 dpt "write": true //默认为 true，如果对象上的设置更改正在触发 knx 写入，则成功。 write set then ack flag to true }, "native": { //这里的值可以被openknx适配器解释 "address": "0/1/2", //knx group address "answer_groupValueResponse": false, //default false, 如果设置为 true 适配器响应 GroupValue_Read 上的值 "autoread": true, //非触发信号默认为 true，适配器在开始时发送 GroupValue_read 以同步其状态 "bitlength": 1, //size ob knx 数据，派生自 dpt "dpt": "DPT1.001", //DPT "encoding": { //informative "0": "Off", "1": "On" }, "force_encoding": "", //信息 "signedness": "", //informative "valuetype": "basic" //composite 意味着通过特定的 javascript 对象设置 }, "from": "system.adap ter.openknx.0", "user": "system.user.admin", "ts": 1638913951639 }
 
 # 适配器通讯接口说明
 Handeled DPTs 是： 1-21,232,237,238 Unhandeled DPTs 被写入原始缓冲区，接口是一个十六进制数字的序列字符串。例如，写入“0102feff”以在总线上发送值 0x01 0x02 0xfe 0xff。
@@ -258,7 +258,7 @@ L-Flag: Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert 
 
 ＃ 特征
 * 稳定可靠的 knx 堆栈
-* 简单的界面可以对许多 DPT 的地址进行分组，为其他 DPT 进行原始读取和写入
+* 为最重要的 DPT 自动编码/解码 KNX 数据报，为其他 DPT 进行原始读取和写入
 * 支持KNX群值读取和群值写入和群值响应
 * 免费开源
 * 不依赖云服务，无需互联网访问即可运行
@@ -272,6 +272,7 @@ L-Flag: Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert 
 # 限制
 - 仅支持三级组地址
 - 不支持 ETS 4 导出文件格式
+- 不支持 KNX 安全
 
 ## Changelog
 ### 0.1.13 (2021-12-30)
@@ -343,10 +344,14 @@ L-Flag: Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert 
 ### 0.0.14
 * (boellner) feature: import ga xml
 
+### initial version
+* initial version inspired by https://www.npmjs.com/package/iobroker.knx/v/0.8.3
+
 ## License
 					GNU GENERAL PUBLIC LICENSE
-==========================
-Copyright (c) 2021 boellner
+==========================  
+Copyright Contributors to the ioBroker.openknx project  
+
 					   Version 3, 29 June 2007
 
  Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>

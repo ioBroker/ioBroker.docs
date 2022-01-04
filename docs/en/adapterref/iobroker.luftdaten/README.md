@@ -68,47 +68,47 @@ Wait some minutes until the cronjob collects the data for the first time.
 
 * (klein0r) Updated dependencies
 
-### 2.1.2
+### 2.1.2 (2021-11-14)
 
 * (klein0r) Translated admin tab table headers
 
-### 2.1.1
+### 2.1.1 (2021-11-06)
 
 * (klein0r) Fixed missing translations
 
-### 2.1.0
+### 2.1.0 (2021-11-04)
 
 * (klein0r) Admin 5 Support
 
-### 2.0.3
+### 2.0.3 (2021-10-04)
 
 * (klein0r) Fixed error logging
 
-### 2.0.2
+### 2.0.2 (2021-08-18)
 
 * (klein0r) Added timeout option
 
-### 2.0.1
+### 2.0.1 (2021-08-17)
 
 * (klein0r) Minor bug fixes
 
-### 2.0.0
+### 2.0.0 (2021-08-17)
 
-* (klein0r) Updated admin interface to maintain multiple sensors in one instance (BREAKING CHANGE - RE-CONFIGURE YOUR SENSORS)
+* (klein0r) Updated admin interface to maintain multiple sensors in one instance **(BREAKING CHANGE - RE-CONFIGURE YOUR SENSORS)**
 
-### 1.0.3
+### 1.0.3 (2021-03-21)
 
 * (klein0r) Remove non-numeric characters from sensor id
 
-### 1.0.2
+### 1.0.2 (2021-01-25)
 
 * (klein0r) Fixed async object creation
 
-### 1.0.1
+### 1.0.1 (2020-11-10)
 
 * (klein0r) Added iobroker sentry
 
-### 1.0.0
+### 1.0.0 (2020-08-27)
 
 * (klein0r) First stable release
 

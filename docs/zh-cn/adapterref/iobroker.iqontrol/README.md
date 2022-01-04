@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
+hash: u6v5/vII34msyJoLiIgmj/0jxzaOACVq93/kCeWP82k=
 ---
 ![标识](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -52,7 +52,7 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 ![截屏](../../../en/adapterref/iobroker.iqontrol/img/screenshot_dslraser.jpg "＆复制;由 dslraser")
 
 \
-![截屏](../../../en/adapterref/iobroker.iqontrol/img/screenshot_muuulle.jpg "＆复制;穆勒")
+![截屏](../../../en/adapterref/iobroker.iqontrol/img/screenshot_muuulle.jpg "＆复制;通过穆勒")
 
 \
 ![截屏](../../../en/adapterref/iobroker.iqontrol/img/screenshot_peks-67.jpg "＆复制;由 peks-67")
@@ -91,12 +91,12 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 设备有一个角色，它决定了设备的功能，使用了哪些图标等等。
 根据该角色，您可以将多个状态链接到设备。这些将为设备提供其功能。
 如果您选择“链接到其他视图”作为角色，您可以创建到其他视图的链接。我建议皮肤链接到具有相同背景的其他视图，链接视图具有。
-您也可以尝试使用 Autocreate-Function 从 iobroker-object-tree 中选择现有设备。 Autocreate 尝试找出角色并匹配尽可能多的状态。
+您还可以尝试使用 Autocreate-Function 从 iobroker-object-tree 中选择现有设备。 Autocreate 尝试找出角色并匹配尽可能多的状态。
 
 * 之后您可以创建一个工具栏，显示为页脚。
 
 工具栏条目是视图的链接。
-第一个 Toolbar-Entry 将是您的“Home-View”，将在开始时加载。
+第一个工具栏条目将是您的“主页-视图”，将在开始时加载。
 
 * 为了给所有东西一个花哨的风格，你可以上传你自己的图片。
 
@@ -107,10 +107,10 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 ### 使用自动创建
 *您会在“视图”-选项卡中找到一个“自动创建视图”-按钮
 * 如果您有维护良好的 ioBroker 枚举（如 Room 或 Functions），您可以使用此函数自动构建包含此枚举中列出的设备的视图
-* 请记住，由于 ioBroker-univese 中存在大量不同的适配器和设备，因此自动控制功能无法 100% 正确维护所有设备。您可能需要手动重新设置一些设置以获得最佳结果。但是自动创建为您提供了一个很好的起点，可以在几秒钟内构建自己的可视化。
+* 请记住，由于 ioBroker-univese 内部有大量不同的适配器和设备，因此自动控制功能无法 100% 正确维护所有设备。您可能需要手动重新设置一些设置以获得最佳结果。但是自动创建为您提供了一个很好的起点，可以在几秒钟内构建自己的可视化。
 
 ## URL 参数
-* 前端通过``http[s]://<url or ip of iobroker>:<port of web adapter>/iqontrol/index.html``调用
+* 前端通过 ``http[s]://<iobroker 的 url 或 ip>:<web 适配器的端口>/iqontrol/index.html`` 调用
     * ``<网络适配器的端口>`` 通常是 8082
 * 要打开指定的实例，您可以添加``namespace=iqontrol.<instance-number>`` 作为 URL 参数
 * 要打开指定的视图，您可以添加 ``renderView=<viewID>`` 作为 URL 参数。
@@ -128,7 +128,7 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 * 这些选项很有用，如果您从壁挂式平板电脑调用 iQontrol，使用后应自动返回主页视图
 * 要加载没有工具栏的页面，您可以添加``noToolbar=true``
 * 要加载没有面板的页面，您可以添加``noPanel=true``
-*要加载没有工具栏和面板的页面，禁用滑动，没有加载微调器和透明加载屏幕，您可以添加“isBackgroundView=true”
+* 要加载没有工具栏和面板的页面，禁用滑动，没有加载微调器和透明加载屏幕，您可以添加“isBackgroundView=true”
 
 **例子：**
 
@@ -137,29 +137,29 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 
 ## 字体
 * 您可以将自己的字体文件上传到 Images/Widgets-Tab 文件夹中的 /userfonts
-* 在选项选项卡中，您有几个地方可以选择这些字体
+* 在选项选项卡中有几个地方可以选择这些字体
 * 这取决于您的服务器 MIME 设置，如果字体正确呈现给浏览器 - 对我来说最好的 .ttf 和 .woff（在 raspi 4b 上测试）
     * 这些 mime 设置应该有效：
 * .otf: 应用程序/x-font-opentype
 * .ttf: application/x-font-ttf 或 application/x-font-truetype
 * .woff: 应用程序/font-woff
 * .woff2: 应用程序/font-woff2
-* .eot：应用程序/vnd.ms-fontobject
+* .eot: 应用程序/vnd.ms-fontobject
 * 您可以在 fontsquirrel.com 上的生成器下将字体转换为其他格式
 * 请记住 - webfonts 总是有点棘手，并不是每个服务器和每个浏览器的每种字体都可以使用
 
 ## 图标和背景图像
 *您可以使用内置图像或在图像选项卡下上传的图像或您喜欢的任何免费网址
-* 您还可以在 image-url 中使用变量。这可能对例如天气预报很有用。使用这种模式：
+* 您还可以在 image-url 中使用变量。这可能对例如天气预报很有用。使用这个模式：
     * ``path/to/firstloaded.png|anotherpath/to/{iobrokerstate|fallback}.png``
     * 示例：``./../iqontrol.meta/userimages/demo/bottle.jpg|./../iqontrol.meta/userimages/demo/{javascript.0.myimage|whitestone}.jpg``
 * 这会在您打开视图时加载``./../iqontrol.meta/userimages/demo/bottle.jpg``
-* 一旦从服务器获取 ``javascript.0.myimage`` 的状态，图像将被替换为 ``./../iqontrol.meta/userimages/demo/XXX.jpg`` 其中 ` `XXX` 是 ``javascript.0.myimage`` 的值
+* 一旦从服务器获取 ``javascript.0.myimage`` 的状态，图像将被替换为 ``./../iqontrol.meta/userimages/demo/XXX.jpg`` 其中` `XXX` 是 ``javascript.0.myimage`` 的值
 * 如果 ``javascript.0.myimage`` 没有值，将使用后备 ``whitestone`` （使用后备是可选的）
 
 ### 进度条
 * 可以将 SVG 定义与变量而不是图像文件结合使用来显示进度条
-* 集成了一个 vew 模板可供选择，但您也可以创建自己的 SVG
+* 有集成的 vew 模板可供选择，但您也可以创建自己的 SVG
 
 ![进度条方块](img/progressbar_square.png)![进度条圆圈](../../../en/adapterref/iobroker.iqontrol/img/progressbar_circle.png)
 
@@ -172,13 +172,13 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 ![图表](../../../en/adapterref/iobroker.iqontrol/img/widget_flotchart.png)
 
 ## 设备名称
-* 就像 image-urls 中的变量一样，您可以在 device-names 中使用变量。语法几乎相同：
+* 就像图像 url 中的变量一样，您可以在设备名称中使用变量。语法几乎相同：
     * ``加载时的文本|加载后的文本 {iobrokerstate|fallback}``
 * 另外可以将 iobrokerstate 放在方括号中，然后将使用不带单位的普通值：``加载时的文本|加载后的文本 {[iobrokerstate]|fallback}``
     * 示例：``天气正在加载|天气：{javascript.0.weather|未找到天气数据}``
 * 当您打开视图时，这会显示“天气正在加载”
 * 一旦从服务器获取 ``javascript.0.weather`` 的状态，文本将被替换为 ``Weather: XXX`` 其中 ``XXX`` 是 ``javascript.0 的值.天气``
-* 如果 ``javascript.0.weather`` 没有值，则将使用后备 ``No weather data found`` （使用后备是可选的）
+* 如果 ``javascript.0.weather`` 没有值，则将使用后备“未找到天气数据”（使用后备是可选的）
 
 ## 弹出消息
 * 每个实例都会创建状态 ``iqontrol.x.Popup.Message``
@@ -189,32 +189,32 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
     * ``ClickedValue`` 和 ``ClickedDestinationState``：如果用户点击了弹出窗口，来自 ``ClickedValue`` 的值将被发送到 ``iqontrol.x.Popup.POPUP_CLICKED`` 并且，如果指定，额外的到“ClickedDestinationState”中的数据点
         * 如果没有指定值，则使用``true``
     * ``ButtonNames``：在这里你可以指定一个逗号分隔的按钮列表，它将显示在弹出窗口的底部（例如“OK,Abort”）
-        * ``ButtonValues`` 和 ``ButtonDestinationStates``：这些是将被发送到 ``iqontrol.x.Popup.BUTTON_CLICKED`` 的逗号分隔值列表，如果指定，附加到 ``ButtonDestinationStates` 中的数据点`，如果用户点击了相应的按钮
+        * ``ButtonValues`` 和 ``ButtonDestinationStates``：这些是将发送到 ``iqontrol.x.Popup.BUTTON_CLICKED`` 的逗号分隔值列表，如果指定，附加到 ``ButtonDestinationStates` 中的数据点`，如果用户点击了相应的按钮
 * 您可以使用命令 ``COMMAND:renderView`` 和 ``COMMAND:openDialog`` 作为 ButtonDestinationState 来渲染视图或打开对话框，而不是数据点
-* ButtonValue 然后指定视图 resp。对话框并且需要采用“iqontrol.<instance-number>.Views.<view-name>”格式。 ``iqontrol.<instance-number>.Views.<view-name>.devices.<device-number>`` 其中``<device-number>`` 从 0 开始（因此视图上的第一个设备是 device数字 0)
+* ButtonValue 然后指定视图 resp。对话框并且需要采用``iqontrol.<instance-number>.Views.<view-name>`` 格式。 ``iqontrol.<instance-number>.Views.<view-name>.devices.<device-number>`` 其中``<device-number>`` 从 0 开始（因此视图上的第一个设备是 device数字 0)
 * 如果你只使用一个值（而不是逗号分隔的列表），这个值将用于所有按钮
 * 如果您将 ButtonValues 留空，将使用按钮的名称
 * 如果你只使用一个目标状态（而不是逗号分隔的列表），这个状态将用于所有按钮
         * ``ButtonClose``：这是一个以逗号分隔的布尔值列表（``true``/``false``），指定是否应关闭弹出窗口，当按下相应的按钮时
-* 或者，您可以通过 sendTo 命令使用参数``PopupMessage``、``PopupDuration``、``PopupClickedValue`` 等来设置这些值
+* 或者，您可以通过 sendTo-command 使用参数``PopupMessage``、``PopupDuration``、``PopupClickedValue`` 等来设置这些值
     * 示例：``sendTo("iqontrol", "send", {PopupMessage: 'This is my message', PopupDuration: 2500, PopupClickedValue: 'messageConfirmed'});``
 * 您也可以使用blockly 向iQontrol 发送消息
 
-![弹出截图](img/popup_screenshot.png)![弹出块状](../../../en/adapterref/iobroker.iqontrol/img/popup_blockly.png)
+![弹出截图](img/popup_screenshot.png)![弹出块](../../../en/adapterref/iobroker.iqontrol/img/popup_blockly.png)
 
 ##小部件
-* 每个图块都有一个 BACKGROUND_URL 和一个 BACKGROUND_HTML 数据点
+* 每个 tile 都有一个 BACKGROUND_URL 和一个 BACKGROUND_HTML 数据点
 * 在这里你可以定义一个链接（通过BACKGROUND_URL）到一个网站或放置直接的HTML代码（通过BACKGROUND_HTML），这将显示为磁贴的背景
 * 这使您可以在磁贴内放置（交互式）内容（如时钟、FLOT 图表、表格、天气预报等）
 * 默认情况下，鼠标事件将定向到此内容（因此您不能再单击磁贴本身），但您可以使用选项“将鼠标事件定向到磁贴而不是BACKGROUND_VIEW/URL/HTML 的内容”来禁用此功能”
-* iQontrol 提供了一个设备角色“小工具”，它有一些预定义的选项集，主要用于将网站显示为小工具。但是您可以通过正确修改设备选项来使用任何其他角色获得相同的结果。
+* iQontrol 提供了一个设备角色“小工具”，其中包含一些预定义的选项集，主要用于将网站显示为小工具。但是您可以通过正确修改设备选项来获得与任何其他角色相同的结果。
 
 ![弹出截图](../../../en/adapterref/iobroker.iqontrol/img/widget_screenshot.png)
 
-<details><summary>小部件开发（仅限专家）：（<ins>点击打开</ins>)</summary>
+<details><summary>小工具开发（仅限专家）：（<ins>点击打开</ins>)</summary>
 
 ### PostMessage-通信
-* 从技术上讲，BACKGROUND_VIEW/URL/HTML 的内容被放置在称为 iframe 的 HTML 元素中，这是一个网站中的网站
+* 从技术上讲，BACKGROUND_VIEW/URL/HTML 的内容被放置在一个名为 iframe 的 HTML 元素中，这是一个网站中的网站
 * 通过启用选项“Allow postMessage-Communication for Background_VIEW/URL/HTML”，您可以启用此 iframe 内的网站和 iQontrol 本身之间的 postMessage-Communication
 * 要向 iQontrol 发送命令，您可以使用以下 javascript 命令：``window.parent.postMessage(message, "*");``
     * ``message`` 是一个格式为``{ command: command, stateId: stateId, value: value }`` 的javascript对象
@@ -226,16 +226,16 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
         * ``{ 命令：“getWidgetStateSubscribed”，stateId：<widgetStateId> }``
 * 这将导致 iQontrol 现在和每次其值更改时发送 ioBroker 状态 ``iqontrol.<instance>.Widgets.<widgetStateId>`` 的值（见下文如何接收应答消息）
         * ``{ command: "setWidgetDeviceState", stateId: <widgetDeviceState>, value: <value> }``
-* 这会将分配给设备 STATE ``<widgetDeviceState>``（例如分配给 LEVEL 的数据点）的 ioBroker 数据点设置为值 ``<value>`` (``<value>` ` 可以是字符串、数字或布尔值或像 ``{ val: <value>, ack: true|false }`` 之类的对象
+* 这会将分配给设备状态的 ioBroker 数据点 ``<widgetDeviceState>``（例如分配给 LEVEL 的数据点）设置为值 ``<value>`` (``<value>` ` 可以是字符串、数字或布尔值或像 ``{ val: <value>, ack: true|false }`` 之类的对象
         * ``{ command: "getWidgetDeviceState", stateId: <widgetDeviceState> }``
 * 这将导致 iQontrol 发送 ioBroker 数据点的值，即分配给设备 STATE ``<widgetDeviceState>``（例如，分配给 LEVEL 的数据点；见下文如何接收应答消息）
         * ``{ command: "getWidgetDeviceStateSubscribed", stateId: <widgetDeviceState> }``
-* 这将导致 iQontrol 发送 ioBroker 数据点的值，该值分配给设备 STATE ``<widgetDeviceState>``（例如，分配给 LEVEL 的数据点）现在和每次其值更改时（见下文如何接收应答消息）
+* 这将导致 iQontrol 发送 ioBroker 数据点的值，该值分配给设备 STATE ``<widgetDeviceState>``（例如，分配给 LEVEL 的数据点）现在和每次其值更改时（见下文）如何接收应答消息）
         * ``{ command: "setState", stateId: <stateId>, value: <value> }``
-* 这会将 ioBroker 状态 ``<stateId>`` 设置为值 ``<value>`` （``<value>`` 可以是字符串、数字或布尔值或类似 ``{ val: < value>, ack: true|false }``)
+* 这会将 ioBroker 状态 ``<stateId>`` 设置为值 ``<value>`` （``<value>`` 可以是字符串、数字或布尔值或像 ``{ val: < value>, ack: true|false }``)
         * ``{ command: "getState", stateId: <stateId> }``
 * 这将导致 iQontrol 发送 ioBroker 状态的值``<stateId>``（见下文如何接收应答消息）
-        * ``{ command: "getStateSubscribed", stateId: <stateId> }``
+        * ``{ 命令：“getStateSubscribed”，stateId：<stateId> }``
 * 这将导致 iQontrol 现在和每次其值更改时发送 ioBroker 状态 ``<stateId>`` 的值（见下文如何接收应答消息）
         * ``{ 命令：“getOptions”}``
 * 这将导致 iQontrol 发送用户已配置为对象的用户选项
@@ -243,7 +243,7 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 * 这将指示 iQontrol 渲染视图，其中 ``<viewID>`` 需要格式化为 ``iqontrol.<instance-number>.Views.<view-name>`` （区分大小写）
         * ``{ 命令：“openDialog”，值：<deviceID> }``
 * 这将指示 iQontrol 打开一个对话框，其中 ``<deviceID>`` 需要格式化为 ``iqontrol.<instance-number>.Views.<view-name>.devices.<device-number>``其中 ``<device-number>`` 从 0 开始（所以视图上的第一个设备是设备号 0）
-* 要从 iQontrol 接收消息，您需要使用 javascript 命令 ``window.addEventListener("message", receivePostMessage, false);`` 将事件侦听器注册到“消息”事件
+* 要从 iQontrol 接收消息，您需要使用 javascript 命令 ``window.addEventListener("message", receivePostMessage, false);`` 向“消息”事件注册一个事件监听器
     * 函数 ``receivePostMessage`` 接收对象 ``event``
 * ``event.data`` 包含来自 iqontrol 的消息，它将是一个对象，如：
 * event.data = ``{ command: "getState", stateId: <stateId>, value: <stateObject> }`` - 这将是 getState-command 或 getStateSubsribed-command 的答案，并为您提供实际的` `<value>``-ioBroker 状态的对象``<stateId>``
@@ -278,21 +278,21 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 
 * 要指示 iQontrol 在 ``iqontrol.<instance>.Widgets`` 下生成小部件状态，您可以在小部件网站的头部部分中使用元标记：
 * 语法：``<meta name="widget-datapoint" content="WidgetName.StateName" data-type="string" data-role="text" /> ``
-* 您可以使用数据类型（可以设置为字符串、数字或布尔值）、数据角色、数据名称、数据最小值、数据最大值、数据定义和数据单元属性进一步配置数据点
+* 您可以通过使用数据类型（可以设置为字符串、数字或布尔值）、数据角色、数据名称、数据最小值、数据最大值、数据定义和数据单元属性来进一步配置数据点
 * 您还可以使用 url 参数（见下文）作为变量，例如使用自己的数据点创建不同的小部件实例。
 * 语法是： `` <meta name="widget-datapoint" content="WidgetName.StateName|WidgetName.{instance}.StateName" data-type="string" data-role="text" /> ``
 * 如果变量 ``instance`` 被设置，那么 ``|`` 之后的部分将用作 widgetState-Name 并且 ``{instance}`` 将被替换为 ``instance`` 的值
 * 如果变量 ``instance`` 未设置，则 ``|`` 之前的部分将用作 wigetState-Name
-    * 相应的数据点才会被创建，如果widget-website作为URL或BACKGROUND_URL添加到设备
-* 相同的概念可用于 URL/HTML-State，用于在设备对话框内显示网站
+    * 相应的数据点才会被创建，如果widget-website 作为URL 或BACKGROUND_URL 添加到设备
+* 相同的概念可用于 URL/HTML-State，用于在设备的对话框内显示网站
 * 要为您的小部件创建图标，请将与小部件具有相同文件名的 .png 文件放入小部件目录中
 * 请参阅下面的示例小部件网站：
 
 <details><summary>显示示例小部件网站以显示为具有 postMessage-communication 的小部件：（<ins>点击打开</ins>)</summary>
 
 * 您可以使用以下 HTML 代码并将其复制到小部件的 Background_HTML-State（然后需要将其配置为“Constant”）
-* 作为替代，您可以将此代码作为 html 文件上传到 /userwidgets 子目录并将其引用到 Background_URL-State（然后还需要将其配置为“Constant”）
-*激活选项“允许后台_视图/URL/HTML的postMessage-Communication”
+* 作为替代，您可以将此代码作为 html 文件上传到 /userwidgets 子目录并将其引用到 Background_URL-State（然后还需要将其配置为“常量”）
+* 激活选项“允许用于背景视图/URL/HTML 的 postMessage-Communication”
 * 它将演示如何在网站和 iQontrol 之间进行双向通信
 
 ````html
@@ -436,7 +436,7 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 * 还有额外的元标记，您可以在小部件网站的头部部分中使用来配置小部件的行为：
 * '小部件描述'
 * 语法：`` <meta name="widget-description" content="Please see www.mywebsite.com for further informations. (C) by me"/> ``
-*将窗口小部件作为URL或Background_URL或AutoCreate窗口小部件将窗口小部件介绍时，将显示内容
+*将窗口小部件作为URL或Background_URL或AutoCreate窗口小部件切选时，将显示内容
 * 'widget-urlparameters'
 * 语法：`` <meta name="widget-urlparameters" content="parameter/default value/description/type;parameter2/default value2/description2/type2"/> ``
 * 将小部件选择为 URL 或背景_URL 或自动创建小部件时，将要求用户提供这些参数
@@ -466,6 +466,11 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 * 语法：``<meta name="widget-options" content="{'noZoomOnHover': 'true', 'hideDeviceName': 'true'}"/> ``
 * 有关此元标记可以配置的可能选项，请参阅下面的可扩展部分
 
+* 'widget-replaceurl'
+* 语法：`` <meta name="widget-replaceurl" content="<url>" data-absolute="<true|false>"/> ``
+* 这会为此小部件重新配置使用的 URL/BACKGROUND_URL（通过这种方式您可以定义小部件预设，用于为用户提供特殊或简化的配置。但是在调用小部件时，iQontrol 使用给定的“<url>” ` 而不是原始网址。
+* 默认情况下，仅替换文件名（带扩展名）。当设置 ``data-absolute="true"`` 时，整个 url 将被替换。
+
 <details><summary>显示可以由元标记“widget-options”配置的可能选项：（<ins>点击打开</ins>)</summary>
 
 * 图标：
@@ -477,9 +482,12 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 * ``showState``（显示状态）-仅对角色按钮和程序有效：
 * 可能的值：“真”|“假”
 * 默认值：“假”
+* ``showPowerAsState: `` (Show POWER as state) - 仅对角色开关、灯和风扇有效：
+* 可能的值：“真”|“假”
+* 默认值：“假”
 * ``buttonCaption``（按钮标题） - 仅对角色按钮有效：
 * 默认： ””
-* ``returnToOffSetValueAfter``（[ms] 后返回到 'OFF_SET_VALUE'） - 仅对角色 Button 有效：
+* ``returnToOffSetValueAfter``（在 [ms] 后返回到 'OFF_SET_VALUE'） - 仅对角色按钮有效：
 * 可能的值：从 10 到 60000 的数字
 * 默认： ””
 * ``alwaysSendTrue``（始终发送“true”（不切换））-仅对角色场景有效：
@@ -488,7 +496,7 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 * ``closeDialogAfterExecution``（执行后关闭对话框）-仅对角色按钮、程序和场景有效：
 * 可能的值：“真”|“假”
 * 默认值：“假”
-* ``invertCt``（反转 CT（使用 Kelvin 而不是 Mired）） - 仅对角色 Light 有效：
+* ``invertCt``（反转 CT（使用 Kelvin 而不是 Mired））-仅对角色 Light 有效：
 * 可能的值：“真”|“假”
 * 默认值：“假”
 * ``alternativeColorspace``（ALTERNATIVE_COLORSPACE_VALUE 的颜色空间） - 仅对角色 Light 有效：
@@ -511,24 +519,24 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 * ``invertActuatorLevel`` (Invert LEVEL (0 = open)) - 只对盲人角色有效：
 * 可能的值：“真”|“假”
 * 默认值：“假”
-* ``directionOpeningValue``（'opening'的DIRECTION的值）-仅对角色窗口有效：
+* ``directionOpeningValue``（'opening' 的 DIRECTION 值） - 仅对角色窗口有效：
 * 默认值：“1”
-* ``directionOpeningValue``（'opening'的DIRECTION的值）-仅对角色窗口有效：
+* ``directionOpeningValue``（'opening' 的 DIRECTION 值） - 仅对角色窗口有效：
 * 默认值：“2”
-* ``directionUncertainValue``（“不确定”的方向值） - 仅对角色窗口有效：
+* ``directionUncertainValue``（“不确定”的方向值）-仅对角色窗口有效：
 * 默认值：“3”
 * ``favoritePositionCaption``（FAVORITE_POSITION的标题）-仅对角色窗口有效：
 * 默认值：“最喜欢的位置”
 * ``stopCaption``（停止标题） - 仅对角色窗口有效：
 * 默认值：“停止”
-* ``downCaption`` (Caption for DOWN) - 仅对角色窗口有效：
+* ``downCaption`` (Caption for DOWN) - 只对角色窗口有效：
 * 默认值：“向下”
 * ``controlModeDisarmedValue``（“解除武装”的 CONTROL_MODE 值） - 仅对角色警报有效：
 * 默认值：“0”
 * ``showStateAndLevelSeparatelyInTile``（在 tile 中分别显示 STATE 和 LEVEL） - 仅对角色值有效：
 * 可能的值：""|"devidedByComma"|"devidedByComma preceedCaptions"|"devidedBySemicolon"|"devidedBySemicolon preceedCaptions"|"devidedByHyphen"|"devidedByHyphen preceedCaptions"
 * 默认： ””
-* ``timeCaption``（时间标题）-仅对角色 DateAndTime 有效：
+* ``timeCaption`` (Caption for TIME) - 只对角色 DateAndTime 有效：
 * 默认： ””
 * ``timeFormat``（时间格式（存储在数据点中，请参阅自述文件））-仅对角色 DateAndTime 有效：
 * 默认值：“x”
@@ -543,21 +551,24 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 * ``dateAndTimeTileActiveWhenRinging``（当 RINGING 处于活动状态时，Tile 始终处于活动状态）-仅对角色 DateAndTime 有效：
 * 默认值：真
 * ``dateAndTimeShowInState``（以状态显示）-仅对角色 DateAndTime 有效：
-* 可能的值（数组）："showStateIfInactive"、"showStateIfActive"、"showSubjectIfActive"、"showSubjectIfInactive"、"showTimeIfInactiveAndInPast"、"showTimeIfInactiveAndInFuture"、"showTimeIfActiveAndInPast"、"showTimeIfActiveAndInFuture"、"showTimeDistanceIfInactive"、"showTimeDistanceIfInactive"、"ShowTimeIfInactiveAndInPast"、 , "showTimeDistanceIfActiveAndInFuture"
+* 可能的值（数组）：“showStateIfInactive”、“showStateIfActive”、“showSubjectIfActive”、“showSubjectIfInactive”、“showTimeIfInactiveAndInPast”、“showTimeIfInactiveAndInFuture”、“showTimeIfActiveAndInPast”、“showTimeIfActiveAndInFuture”、“showTimeDistanceShowIfInactive”、“ShowTimeIfInactiveAndInPast”、“showTimeDistanceIfInactive”、 , "showTimeDistanceIfActiveAndInFuture"
 * 默认值：“showStateIfInactive，showSubjectIfActive，showTimeDistanceIfActiveAndInFuture”
 * ``coverImageReloadDelay``（延迟重新加载封面图像 [ms]） - 仅对角色 Media 有效：
 * 可能的值：从 0 到 5000 的数字
 * 默认： ””
-* ``statePlayValue``（'play' 的 STATE 值） - 仅对角色 Media 有效：
+* ``coverImageNoReloadOnTitleChange: ``（更改标题时不会强制重新加载封面图像）-仅对角色媒体有效：
+* 可能的值：“真”|“假”
+* 默认值：“假”
+* ``statePlayValue``（“播放”的状态值）-仅对角色媒体有效：
 * 默认值：“播放”
 * ``statePauseValue``（“暂停”的状态值）-仅对角色媒体有效：
 * 默认值：“暂停”
-* ``stateStopValue``（'stop' 的 STATE 值） - 仅对角色 Media 有效：
+* ``stateStopValue``（“停止”的状态值）-仅对角色媒体有效：
 * 默认值：“停止”
 * ``hidePlayOverlay``（隐藏播放图标）-仅对角色媒体有效：
 * 可能的值：“真”|“假”
 * 默认值：“假”
-* ``hidePauseAndStopOverlay``（隐藏暂停和停止图标） - 仅对角色 Media 有效：
+* ``hidePauseAndStopOverlay``（隐藏暂停和停止图标）-仅对角色媒体有效：
 * 可能的值：“真”|“假”
 * 默认值：“假”
 * ``repeatOffValue``（“关闭”的 REPEAT 值） - 仅对角色 Media 有效：
@@ -572,7 +583,7 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 * ``remoteSectionsStartOpened``（从最初打开的这些部分开始） - 仅对角色 Media 有效：
 * 可能的值：包含“REMOTE_PAD”、“REMOTE_CONTROL”、“REMOTE_ADDITIONAL_BUTTONS”、“REMOTE_CHANNELS”、“REMOTE_NUMBERS”和/或“REMOTE_COLORS”的数组
 * 默认值：“假”
-* ``remoteShowDirectionsInsidePad``（在Pad内显示音量和Ch +/-）-仅对角色媒体有效：
+* ``remoteShowDirectionsInsidePad``（在Pad内显示音量和通道+/-）-仅对角色媒体有效：
 * 可能的值：“真”|“假”
 * 默认值：“假”
 * ``remoteChannelsCaption``（“频道”部分的标题）-仅对角色媒体有效：
@@ -596,7 +607,7 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 * ``renderLinkedViewInParentInstanceClosesPanel``（在父实例中打开链接视图后，关闭面板（如果它是可关闭的））：
 * 可能的值：“真”|“假”
 * 默认值：“假”
-* 瓷砖行为（一般）：
+* Tile-Behaviour（一般）：
 * ``clickOnIconAction``（点击图标操作）：
 * 可能的值："toggle"|"openDialog"|"enlarge"|"openLinkToOtherView"|"openURLExternal"|"false"
 * 默认值：“切换”
@@ -634,7 +645,7 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 * 默认： ””
 * 如果设备处于非活动状态，则平铺行为：
 * ``sizeInactive``（磁贴的大小，如果设备处于非活动状态）：
-* 可能的值：""|"narrowIfInactive shortIfInactive"|"narrowIfInactive"|"narrowIfInactive highIfInactive"|"narrowIfInactive xhighIfInactive"|"shortIfInactive"|"shortIfInactive wideIfInactive"|"shortIfInactive xwideIfInactive"|"wideIfInactive"|"xwideIfInactive"| "|"xhighIfInactive"|"wideIfInactive highIfInactive"|"xwideIfInactive highIfInactive"|"wideIfInactive xhighIfInactive"|"xwideIfInactive xhighIfInactive"|"fullWidthIfInactive aspect-1-1IfInactive"|"fullWidthIfInactive aspect-4-3IfInactive"|"fullWidthIfInactive" 2IfInactive"|"fullWidthIfInactive aspect-16-9IfInactive"|"fullWidthIfInactive aspect-21-9IfInactive"|"fullWidthIfInactive fullHeightIfInactive"|"
+* 可能的值：""|"narrowIfInactive shortIfInactive"|"narrowIfInactive"|"narrowIfInactive highIfInactive"|"narrowIfInactive xhighIfInactive"|"shortIfInactive"|"shortIfInactive wideIfInactive"|"shortIfInactive xwideIfInactive"|"wideIfInactive"|"xwideIfInactive"| "|"xhighIfInactive"|"wideIfInactive highIfInactive"|"xwideIfInactive highIfInactive"|"wideIfInactive xhighIfInactive"|"xwideIfInactive xhighIfInactive"|"fullWidthIfInactive aspect-1-1IfInactive"|"fullWidthIfInactive aspect-4-3IfInactive"|"fullWidthIfInactive 2IfInactive"|"fullWidthIfInactive aspect-16-9IfInactive"|"fullWidthIfInactive aspect-21-9IfInactive"|"fullWidthIfInactive fullHeightIfInactive"|"
 * 默认值：“xwideIfInactive highIfInactive”
 * ``stateHeightAdaptsContentInactive``（如果设备处于非活动状态，则根据其内容调整状态的高度（如果需要，这会覆盖图块大小）：
 * 可能的值：“真”|“假”
@@ -669,6 +680,9 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 * ``hideInfoBIfInactive``（隐藏 INFO_B，如果设备处于非活动状态）：
 * 可能的值：“真”|“假”
 * 默认值：“假”
+* ``hideIndicatorIfInactive``（隐藏指示器图标（错误、未到达、电池），如果设备处于非活动状态）：
+* 可能的值：“真”|“假”
+* 默认值：“假”
 * ``hideStateIfInactive``（隐藏状态，如果设备处于非活动状态）：
 * 可能的值：“真”|“假”
 * 默认值：“假”
@@ -684,7 +698,7 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 * ``stateFillsDeviceActive``（状态的大小填充整个设备（如果设备处于非活动状态，这可能会干扰其他内容）：
 * 可能的值：“真”|“假”
 * 默认值：“假”
-* ``stateBigFontActive``（如果设备处于活动状态，则对状态使用大字体）：
+* ``stateBigFontActive``（对状态使用大字体，如果设备处于活动状态）：
 * 可能的值：“真”|“假”
 * 默认值：“假”
 * ``bigIconActive``（显示大图标，如果设备处于活动状态）：
@@ -711,6 +725,9 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 * ``hideInfoBIfActive``（隐藏 INFO_B，如果设备处于活动状态）：
 * 可能的值：“真”|“假”
 * 默认值：“假”
+* ``hideIndicatorIfActive``（隐藏指示器图标（错误、未到达、电池），如果设备处于活动状态）：
+* 可能的值：“真”|“假”
+* 默认值：“假”
 * ``hideStateIfActive``（隐藏状态，如果设备处于活动状态）：
 * 可能的值：“真”|“假”
 * 默认值：“假”
@@ -719,7 +736,7 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 * 默认值：“假”
 * 如果设备放大，则平铺行为：
 * ``sizeEnlarged``（图块的大小，如果设备被放大）：
-* 可能的值：""|"narrowIfEnlarged shortIfEnlarged"|"narrowIfEnlarged"|"narrowIfEnlarged highIfEnlarged"|"narrowIfEnlarged xhighIfEnlarged"|"shortIfEnlarged"|"shortIfEnlarged wideIfEnlarged"|"shortIfEnlarged xwideIfEnlarged"|"widedIfEnlarged"|"widedIfEnlargedIf "|"xhighIfEnlarged"|"wideIfEnlarged highIfEnlarged"|"xwideIfEnlarged highIfEnlarged"|"wideIfEnlarged xhighIfEnlarged"|"xwideIfEnlarged xhighIfEnlarged"|"fullWidthIfEnlarged aspect-1-1IfEnlarged"|"fullWidthIfEnlarged aspect-4"3largeIfEnlarged aspect-4-3larged 2IfEnlarged"|"fullWidthIfEnlarged aspect-16-9IfEnlarged"|"fullWidthIfEnlarged aspect-21-9IfEnlarged"|"fullWidthIfEnlarged fullHeightIfEnlarged"|"
+* 可能的值：""|"narrowIfEnlarged shortIfEnlarged"|"narrowIfEnlarged"|"narrowIfEnlarged highIfEnlarged"|"narrowIfEnlarged xhighIfEnlarged"|"shortIfEnlarged"|"shortIfEnlarged wideIfEnlarged"|"shortIfEnlarged xwideIfEnlarged"|"widedIfEnlarged"|"widedIfEnlargedIf "|"xhighIfEnlarged"|"wideIfEnlarged highIfEnlarged"|"xwideIfEnlarged highIfEnlarged"|"wideIfEnlarged xhighIfEnlarged"|"xwideIfEnlarged xhighIfEnlarged"|"fullWidthIfEnlarged aspect-1-1IfEnlarged"|"fullWidthIfEnlarged aspect-4"3IfEnlarged aspect-4-3-larged 2IfEnlarged"|"fullWidthIfEnlarged aspect-16-9IfEnlarged"|"fullWidthIfEnlarged aspect-21-9IfEnlarged"|"fullWidthIfEnlarged fullHeightIfEnlarged"|"
 * ``stateHeightAdaptsContentEnlarged``（如果设备处于非活动状态，则根据其内容调整状态的高度（如果需要，这会覆盖图块大小）：
 * 可能的值：“真”|“假”
 * 默认值：“假”
@@ -768,6 +785,9 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 * ``hideInfoBIfEnlarged``（隐藏 INFO_B，如果设备被放大）：
 * 可能的值：“真”|“假”
 * 默认值：“假”
+* ``hideIndicatorIfEnlarged``（隐藏指示器图标（错误、未到达、电池），如果设备被放大）：
+* 可能的值：“真”|“假”
+* 默认值：“假”
 * ``hideStateIfEnlarged``（隐藏状态，如果设备被放大）：
 * 可能的值：“真”|“假”
 * 默认值：“假”
@@ -787,8 +807,8 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 * 默认： ””
 * ``batteryActiveConditionValue``（条件值）：
 * 默认： ””
-* UNREACH图标：
-* ``invertUnreach``（反转 UNREACH（使用 connected 而不是 unreach））：
+* UNREACH 图标：
+* ``invertUnreach``（反转UNREACH（使用connected而不是unreach））：
 * 可能的值：“真”|“假”
 * 默认值：“假”
 * ``invertUnreach``（隐藏（忽略）UNREACH，如果设备处于非活动状态）：
@@ -799,19 +819,22 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 * 可能的值：“真”|“假”
 * 默认值：“假”
 * 背景视图/URL/HTML：
+* ``adjustHeightToBackgroundView: ``（将设备磁贴的高度调整为背景视图的大小）：
+* 可能的值：“真”|“假”
+* 默认值：“假”
 * ``backgroundURLDynamicIframeZoom``（BACKGROUND_VIEW/URL/HTML 的动态缩放（这是需要的以 % 为单位的缩放级别，让内容适合单个 1x1 磁贴））：
 * 可能的值：从 0.01 到 200 的数字
 * 默认： ””
-* ``backgroundURLPadding``（对 Background_VIEW/URL/HTML 应用填充）：
+* ``backgroundURLPadding``（对背景视图/URL/HTML 应用填充）：
 * 可能的值：从 0 到 50 [像素] 的数字
 * 默认： ””
 * ``backgroundURLAllowPostMessage``（允许用于背景视图/URL/HTML 的 postMessage 通信）：
 * 可能的值：“真”|“假”
 * 默认值：“假”
-* ``backgroundURLNoPointerEvents``（将鼠标事件定向到磁贴而不是 Background_VIEW/URL/HTML 的内容）：
+* ``backgroundURLNoPointerEvents``（将鼠标事件指向磁贴而不是指向 Background_VIEW/URL/HTML 的内容）：
 * 可能的值：“真”|“假”
 * 默认值：“假”
-* ``overlayAboveBackgroundURL``（背景视图/URL/HTML 上方的位置叠加）：
+* ``overlayAboveBackgroundURL``（在背景视图/URL/HTML 之上的位置叠加）：
 * 可能的值：“真”|“假”
 * 默认值：“假”
 * 徽章：
@@ -837,12 +860,12 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 * 可能的值：“真”|“假”
 * 默认值：“假”
 * ADDITIONAL_CONTROLS：
-*``additionalControlsSectionType``（ADDITIONAL_CONTROLS 的外观）：
+* ``additionalControlsSectionType``（ADDITIONAL_CONTROLS 的外观）：
 * 可能的值：“无”|“可折叠”|“可折叠打开”
 * 默认值：“可折叠”
 * ``additionalControlsCaption``（ADDITIONAL_CONTROLS 的标题）：
 * 默认值：“附加控件”
-*``additionalControlsHeadingType``（ADDITIONAL_CONTROLS 标题的外观）：
+* ``additionalControlsHeadingType``（ADDITIONAL_CONTROLS 标题的外观）：
 * 可能的值：“无”|“可折叠”|“可折叠打开”
 * 默认值：“可折叠”
 * 附加信息：
@@ -859,7 +882,7 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 * 您可以将以下 HTML 代码作为 html-file 上传到 /userwidgets 子目录中，并将其引用到 Background_URL-State（然后需要将其配置为“Constant”）
 * 添加小部件时会显示说明
 * 然后会询问您是否要应用包含的选项
-* 创建三个数据点来控制地图的位置：iqontrol.x.Widgets.Map.Posision.latitude、.altitude 和.zoom
+* 创建了三个数据点来控制地图的位置：iqontrol.x.Widgets.Map.Posision.latitude、.altitude 和.zoom
 
 ````html
 <!doctype html>
@@ -1194,9 +1217,9 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 * 设置反转标志
 * 设置确认标志（强制用户在将更改写入数据点之前进行确认）
 * 设置 PIN 码（强制用户在将更改写入数据点之前输入此 PIN 码 - 但请注意：这只是低安全性，因为在前端检查了 PIN！使用数字显示全屏-pin-pad 如果要求提供代码）
-* 修改数据点单位，零、单、复数分开
+* 修改数据点的单位，零、单、复数分开
 * 修改数据点的最小值和最大值
-* 设置水平滑块增加/减少时采取的步骤
+* 设置水平滑块增加/减少时的步长
 * 修改数据点类型
 * 修改数据点的角色
 * 设置一个target-value-id，它是一个datapoint id，写入目标值（如果你的实际值和目标值有不同的数据点）
@@ -1221,7 +1244,7 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 #### 状态和级别
 几乎所有角色都有 **STATE**- 和/或 **LEVEL**- 状态。在大多数情况下，这代表设备的主要功能。您可以为其分配以下类型的 iobroker-states：
 
-* *boolean* - 如果可能，它将被翻译成有意义的文本，如“开/关”、“打开/关闭”或类似内容。如果您单击图块的图标，它会尝试切换布尔值（例如打开或关闭灯）。如果它不是只读的，它将在对话框中生成一个翻转开关
+* *boolean* - 如果可能，它将被翻译成有意义的文本，例如“开/关”、“打开/关闭”或类似内容。如果您单击图块的图标，它会尝试切换布尔值（例如打开或关闭灯）。如果它不是只读的，它将在对话框中生成一个翻转开关
 * *number* - 将与其对应的单位一起显示并在对话框中生成一个滑块
 * *string* - 要显示的文本
 * *value-list* - 将显示选定的值。如果它没有写保护，它将在对话框中生成一个下拉菜单
@@ -1234,8 +1257,8 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 }
 ````
 
-    * 您可以通过修改数据点来创建您自己的值列表（新 react-ui 中的扳手图标，或者更确切地说是齿轮图标，位于 iobroker 的对象选项卡中的数据点后面，见上文）
-* 在以下情况下，iQontrol 将在对话框中显示已定义的 valueList 作为下拉字段：
+    * 您可以通过修改数据点来创建您自己的值列表（新 react-ui 中的扳手图标，或者更确切地说是齿轮图标，在 iobroker 的对象选项卡中的数据点后面，见上文）
+* 在以下情况下，iQontrol 将在对话框中显示一个已定义的 valueList 作为下拉字段：
 * 如果 type 是 'numbers' 并且 valueList 的条目数与数据点的最小值和最大值之间的步长完全相同，或者
 * 如果类型是“布尔值”，但角色不是“开关”或
 * 如果类型是“字符串”或
@@ -1249,31 +1272,31 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 
     ![INFO_A 和 INFO_B](../../../en/adapterref/iobroker.iqontrol/img/info_a_info_b.png)
 
-* **ADDITIONAL_CONTROLS**：*array* - 数据点数组，定义将在信息对话框中显示的附加控制元素。您可以在名称和标题中使用变量（使用与普通设备名称相同的语法）
+* **ADDITIONAL_CONTROLS**: *array* - 数据点数组，定义将在信息对话框中显示的附加控制元素。您可以在名称和标题中使用变量（使用与普通设备名称相同的语法）
 * **ADDITIONAL_INFO**: *array* - 数据点数组，将显示在信息对话框的底部
 * **URL**: CONSTANT 或 DATAPOINT *string* - 此 url 将在对话框内作为 iframe 打开
-* **HTML**: CONSTANT or DATAPOINT *string* - 如果未指定 URL-Datapoint，此标记将显示在 iframe 内
-* **BACKGROUND_URL**: CONSTANT 或 DATAPOINT *string* - 此 URL 将显示为设备图块的背景。它位于背景图像上方，但您可以将其配置为隐藏，如果磁贴处于活动状态或非活动状态。请进一步查看本手册的小部件部分
+* **HTML**: CONSTANT 或 DATAPOINT *string* - 如果未指定 URL-Datapoint，此标记将显示在 iframe 内
+* **BACKGROUND_URL**: CONSTANT 或 DATAPOINT *string* - 此 URL 将显示为设备图块的背景。它位于背景图像上方，但您可以将其配置为隐藏，如果图块处于活动状态或非活动状态。请进一步查看本手册的小部件部分
 * **BACKGROUND_HTML**: CONSTANT 或 DATAPOINT *string* - 如果未指定 Background_URL，此标记将显示为设备图块的背景
 * **BATTERY**: *boolean* - 当为 true 或 *number* - 当低于 10% 时，会显示一个小电池空图标
     *您可以在选项部分“电池空图标”中进一步自定义电池图标的行为
 * **ERROR**: *boolean* - 当为真时，会显示一个小感叹号图标
 * **UNREACH**: *boolean* - 当为真时，会显示一个小无线图标
     * 可以在选项的“常规”部分反转行为（使用已连接而不是未到达）
-* **ENLARGE_TILE**: *boolean* - 当为真时，图块将被设置为放大。您可以通过单击放大/缩小按钮来覆盖它。但是每次 ENLARGE_TILE 的状态发生变化时，它都会再次接管对瓷砖放大状态的控制。如果ENLARGE_TILE的作用是*button*，那么每次状态改变都会切换放大状态
+* **ENLARGE_TILE**: *boolean* - 如果为真，图块将被设置为放大。您可以通过单击放大/缩小按钮来覆盖它。但是每次 ENLARGE_TILE 的状态发生变化时，它都会再次接管对瓷砖放大状态的控制。如果ENLARGE_TILE的作用是*button*，那么每次状态改变都会切换放大状态
 * **BADGE**：*number* 或 *string* - 如果存在除零/假以外的值，则左上角的徽章将显示为该值
   ***BADGE_COLOR**:* tring* - 任何有效的 html-color-string（如 'green'、'#00FF00'、'rgba(0,255,0,0.5)' 等），代表徽章的颜色.如果不存在或无效的红色，将使用 20% 透明度。
 
     ![徽章](../../../en/adapterref/iobroker.iqontrol/img/badge.png)
 
-* **OVERLAY_INACTIVE_COLOR** 和 **OVERLAY_ACTIVE_COLOR**: *string* - 任何有效的 html-color-string（如 'green'、'#00FF00'、'rgba(0,255,0,0.5)' 等等）表示图块叠加层的颜色（取决于图块是活动还是非活动）。如果没有给出有效的颜色字符串，则使用标准叠加颜色（可以在 iQontrol-Options 中配置）。请记住，iQontrol 选项中有一个选项可以定义叠加层的透明度，这将影响设置的叠加层颜色的外观。
+* **OVERLAY_INACTIVE_COLOR** 和 **OVERLAY_ACTIVE_COLOR**：*string* - 任何有效的 html-color-string（如 'green'、'#00FF00'、'rgba(0,255,0,0.5)' 等等）表示图块叠加层的颜色（取决于图块是活动还是非活动）。如果没有给出有效的颜色字符串，则使用标准覆盖颜色（可以在 iQontrol-Options 中配置）。请记住，在 iQontrol 选项中有一个选项可以定义叠加层的透明度，这会影响设置的叠加层颜色的外观。
 * 对于灯光，您还可以使用“使用灯的颜色作为 OVERLAY_ACTIVE_COLOR”选项，该选项可在设备特定选项中找到。
 
     ![叠加颜色](../../../en/adapterref/iobroker.iqontrol/img/overlay_color.png)
 
 * **GLOW_INACTIVE_COLOR** 和 **GLOW_ACTIVE_COLOR**: *string* - 任何有效的 html-color-string（如 'green'、'#00FF00'、'rgba(0,255,0,0.5)' 等等）代表瓷砖周围发光效果的颜色（取决于瓷砖是活动还是非活动）。如果没有给出有效的颜色字符串，则禁用发光效果。
 * **GLOW_HIDE**: *boolean* - 如果为 true，则隐藏发光效果（可以在选项的“常规”部分反转）
-* 对于灯，您还可以使用“使用灯的颜色作为 GLOW_ACTIVE_COLOR”选项，该选项可在设备特定选项中找到。
+* 对于灯，您还可以使用选项“使用灯的颜色作为 GLOW_ACTIVE_COLOR”，该选项可在设备特定选项中找到。
 
     ![辉光](../../../en/adapterref/iobroker.iqontrol/img/glow.png)
 
@@ -1291,7 +1314,7 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
 * **OFF_SET_VALUE**: CONSTANT *string* - 这是一个常量（不是链接的 iobroker 状态！）。如果定义，STATE 将在选项定义的时间或 100 毫秒后重置为此值
 
 ###<img src="img/icons/light_on.png" width="32">光：
-每盏灯都可能有以下一种或两种状态：
+每盏灯可能有以下一种或两种状态：
 
 * **STATE**: *boolean* - 显示和设置开/关状态
 * **LEVEL**: *number* - 显示和设置灯光的级别
@@ -1304,16 +1327,16 @@ hash: 58t2WehrhYmxGQjs08zI8sCl4/9XyyYr9/+odWbcAjc=
   ***COLOR_BRIGHTNESS**:* umber* - 彩色 LED 的亮度（如果您有 LEVEL-State 而没有白色 LED，则忽略此值，因为亮度完全由 LEVEL 控制）
 * 对于白光 LED：
   ***CT**:* umber* - 光的色温，如果它有两种白色阴影
-  ***WHITE_BRIGHTNESS**:* umber* - 白色 LED 的亮度（如果您有 LEVEL-State 而没有彩色 LED，则忽略此值，因为亮度完全由 LEVEL 控制）
+  ***WHITE_BRIGHTNESS**:* umber* - 白色 LED 的亮度（如果您有 LEVEL-State 且没有彩色 LED，则忽略此值，因为亮度完全由 LEVEL 控制）
 * 替代色彩空间：
   ***ALTERNATIVE_COLORSPACE_VALUE**：*string* 或* umber*（取决于所选颜色空间）- 替代颜色空间的值
 
-    如果您的设备不支持使用 HUE、SATURATION 和 COLOR_BRIGHTNESS（HSB/HSV 色彩空间），您可以使用多种替代色彩空间。在设备选项中，您可以选择以下颜色空间之一：
+    如果您的设备不支持使用 HUE、SATURATION 和 COLOR_BRIGHTNESS（HSB/HSV 色彩空间），您可以使用多种替代色彩空间。在设备选项中，您可以选择以下色彩空间之一：
 
         * **RGB** / **#RGB**：您可以使用 RGB 格式（十六进制）代替 HUE、SATURATION 和 COLOR_BRIGHTNESS，可选带前导“#”
         * **RGBW** / **#RGBW**：您可以使用 RGBW 格式（十六进制），而不是使用 HUE、SATURATION、COLOR_BRIGHTNESS 和 WHITE_BRIGHTNESS，可选带前导“#”
         * **RGBWWCW** / **#RGBWWCW** / **RGBCWWW** / **#RGBCWWW**：您可以使用 RGBWWCW- 或 RGBCWWW 格式（十六进制）代替 HUE、SATURATION、COLOR_BRIGHTNESS、CT 和 WHITE_BRIGHTNESS , WW = 暖白，CW = 冷白），可选带前导“#”
-        * **RGB（仅色调）** / **#RGB（仅色调）**：您可以使用 RGB（仅色调）-格式（十六进制）代替使用色调，可选带前导“#”。在这种特殊情况下，RGB 格式将只接受色调颜色圈的纯饱和颜色。不允许混合白色
+        * **RGB（仅色调）** / **#RGB（仅色调）**：您可以使用 RGB（仅色调）-格式（十六进制）代替使用色调，可选带前导“#”。在这种特殊情况下，RGB 格式将只接受色调颜色圆圈的纯饱和颜色。不允许混合白色
     * **Milight 的 Hue** 这是 Milight-Devices (v5) 的 Hue-Value，在色相颜色圈中使用另一个起点：
 
 ````
@@ -1322,7 +1345,7 @@ modulo(-3.60 * (MilightHue/2.55 - 66), 360);
 on modulo(n, m){ return ((n % m) + m) %m; }
 ````
 
-        * **HHSSBB for Tuya**：12 位长十六进制字符串，代表色相（HH = 0000-016d [0-365]）、饱和度（SS = 0000-03e8 [0-1000]）和色亮度（BB = 0000-03e8 [0-1000])
+        * **HHSSBB for Tuya**：12 位长十六进制字符串，代表色调（HH = 0000-016d [0-365]）、饱和度（SS = 0000-03e8 [0-1000]）和色亮度（BB = 0000-03e8 [0-1000])
 
 请记住：转换到替代色彩空间是由前端完成的，因此只有在某处打开 iQontrol 时它才处于活动状态。因此，您不能将其用作色彩空间的转换器。为了避免对话循环，建议使用原始色彩空间数据点（HUE、SATURATION、COLOR_BRIGHTNESS、CT、WHITE_BRIGHTNESS）*或*替代色彩空间数据点来*替换*这些数据点。
 
@@ -1375,7 +1398,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 
 ###<img src="img/icons/garagedoor_closed.png" width="32">车库门：
 * **STATE**: *boolean* - 显示门是打开还是关闭
-  *或者，您可以分配一个* alue-list*，以显示其他状态，如“倾斜”
+    * 或者，您可以分配一个*值列表*，以显示其他状态，如“倾斜”
   *您还可以指定一个* tring* 来显示任何文本，例如“3 扇门打开”或“全部关闭”
 * **TOGGLE**: *boolean* - 显示“切换”按钮并设置为 true，如果按下
 
@@ -1389,9 +1412,9 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 * **LEVEL**: *number* - 盲人高度百分比
 * **DIRECTION**: *value-list* - 可以是停止、向上和向下。可以配置代表 Stop、Up、Down 和 Unknown 的值
 * **STOP**: *boolean* - 如果按下停止按钮，则设置为 true。此外，您可以通过 **STOP_SET_VALUE** 数据点定义一个值。如果已定义，则在按下停止按钮时将发送此值而不是 true
-* **UP** / **DOWN**：*boolean* - 如果按下向上/向下按钮，则设置为 true（对于使用 UP 和 DOWN 数据点而不是 LEVEL 或除 LEVEL 之外的数据点的设备）。此外，您可以通过 **UP_SET_VALUE** / **DOWN_SET_VALUE** 数据点定义一个值。如果已定义，当按下向上/向下按钮时，将发送此值而不是真值
-* **FAVORITE_POSITION**: *boolean* - 可用于调用最喜欢的位置。如果按下“收藏夹”按钮（可以在设备设置中配置按钮标题），则 true 将发送到此数据点。此外，您可以通过 **FAVORITE_POSITION_SET_VALUE** 数据点定义一个值。如果已定义，则在按下收藏夹按钮时将发送此值而不是 true
-* **SLATS_LEVEL**: *number* - 板条位置百分比
+* **UP** / **DOWN**：*boolean* - 如果按下向上/向下按钮，则设置为 true（对于使用 UP 和 DOWN 数据点代替 LEVEL 或除 LEVEL 之外的设备）。此外，您可以通过 **UP_SET_VALUE** / **DOWN_SET_VALUE** 数据点定义一个值。如果已定义，当按下向上/向下按钮时，将发送此值而不是真值
+* **FAVORITE_POSITION**：*boolean* - 可用于调用最喜欢的位置。如果按下“收藏夹”按钮（可以在设备设置中配置按钮标题），则 true 将发送到此数据点。此外，您可以通过 **FAVORITE_POSITION_SET_VALUE** 数据点定义一个值。如果已定义，则在按下收藏夹按钮时将发送此值而不是 true
+* **SLATS_LEVEL**: *number* - 板条的位置百分比
 
 ###<img src="img/icons/fire_on.png" width="32">火灾传感器：
 * **STATE**: *boolean* - 如果为真，传感器将显示为已触发
@@ -1416,10 +1439,10 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 * **STATE**：*number* - 电池电量百分比
 * **CHARGING**: *boolean* - 如果为真，则显示充电图标
 * **POWER**: *number* - 右上角会以小号显示的功耗
-* **VOLTAGE**: *number* - 右上角会以小字显示的电压
+* **VOLTAGE**: *number* - 右上角会以小号显示的电压
 
 ###<img src="img/icons/time_alarmclock_on.png" width="32">日期和时间：
-* **STATE**: *boolean* - 如果为真，图块将显示为活动状态
+* **STATE**: *boolean* - 如果为 true，则图块将显示为活动状态
 * **SUBJECT**: *string* - 设置描述
 * **RINGING**: *boolean* - 如果为真，则显示闹钟
 * 请记住：您可以通过 ADDITIONAL_CONTROLS 配置退出和暂停按钮
@@ -1445,7 +1468,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 | | |做 | 1 日 2 日 ... 30 日 31 日 | X | ---（转换为 D） | ---（转换为 D） |
 | |月 |男 | 1 2 ... 11 12 | X | X | X |
 | | | MM | 01 02 ... 11 12 | X | X | X |
-| | | MMM |一月二月 ... 十一月十二月 | X | X | X |
+| | |毫米波 |一月二月 ... 十一月十二月 | X | X | X |
 | | | MMMM |一月 二月 ... 十一月 十二月 | X | X | X |
 | | |莫| 1 日 2 日 ... 11 日 12 日 | X | ---（转换为 M） | ---（转换为 M） |
 | |年 |是 | 1970 1971 ... 9999 +10000 +10001 | X | X | X |
@@ -1453,14 +1476,14 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 | | | YYYY | 1970 1971 ... 2029 2030 | X | X | X |
 | | | YYYYYY | -001970 -001971 ... +001907 +001971 | X | ---（转换为YYYY）| ---（转换为YYYY）|
 |时间 |上午/下午 |一个 |上午下午 | X | X | X |
-| | | |下午 | X | X | X |
+| | |一个|下午 | X | X | X |
 | |小时 | H | 0 1 ... 22 23 | X | X | X |
 | | |哈 | 00 01 ... 22 23 | X | X | X |
 | | |小时 | 1 2 ... 11 12 | X | X | X |
 | | |哈| 01 02 ... 11 12 | X | X | X |
 | | | k | 1 2 ... 23 24 | X | ---（转换为H）| ---（转换为H）|
 | | | kk | 01 02 ... 23 24 | X | ---（转换为 HH） | ---（转换为 HH） |
-| |分钟 |米| 0 1 ... 58 59 | X | X | X |
+| |分钟 |米 | 0 1 ... 58 59 | X | X | X |
 | | |毫米 | 00 01 ... 58 59 | X | X | X |
 | |第二 | | 0 1 ... 58 59 | X | X | X |
 | | | ss | 00 01 ... 58 59 | X | X | X |
@@ -1477,7 +1500,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 |其他 |星期几（语言环境）|电子 | 0 1 ... 5 6 | X | --- | --- |
 | |星期几 (ISO) | E | 1 2 ... 6 7 | X | --- | --- |
 | |季度|问 | 1 2 3 4 | X | --- | --- |
-| | | Qo | 1 2 3 4 | X | --- | --- |
+| | | Qo |一二三四| X | --- | --- |
 | |一年中的一周 | | | 1 2 ... 52 53 | X | --- | --- |
 | | |我|第 2 次 ... 第 52 次 53 次 | X | --- | --- |
 | | | ww | 01 02 ... 52 53 | X | --- | --- |
@@ -1511,7 +1534,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 |旗帜 |将缺失的部分设置为开始 | tb |例如。将日期设置为 1970-01-01，如果只给出一个时间 | X | --- | --- |
 | |将缺少的部分设置为现在 | tn |例如。将日期设置为现在，如果只给出一个时间 | X | --- | --- |
 | |保留旧的缺失部件 |到|例如。如果只给出一个时间，就和以前一样离开日期 | X | --- | --- |
-|自由文本 |在括号中标记自由文本 | [] | [这是一个例子，所有标记都被忽略] | X | X | --- |
+|自由文本 |在括号中标记自由文本 | [] | [这是一个例子，所有的token都被忽略了] | X | X | --- |
 
 * 如果datapoint-timeformat 和display-timeformat 使用不同的配置，则使用以下转换规则。
 * 您可以在数据点时间格式中使用标志 ``tb``、``tn`` 和 ``to`` 来影响行为。
@@ -1528,14 +1551,14 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 * **STATE**: *boolean* - 如果设置为 true，程序将启动
 
 ###<img src="img/icons/play.png" width="32">场景：
-* **STATE**: *boolean* - 如果场景处于活动状态，则显示。根据场景的配置（虚拟组，设置为 false 启用或禁用的值），切换命令将发送 true、false、min、0、max 或 100。有一个选项可以始终发送 true（禁用切换） .
+* **STATE**: *boolean* - 如果场景处于活动状态，则显示。根据场景的配置（虚拟组，设置 false 启用或禁用的值），切换命令将发送 true、false、min、0、max 或 100。有一个选项始终发送 true（禁用切换） .
 
 ###<img src="img/icons/media_on.png" width="32">媒体播放器/遥控器：
-* **STATE**: *string* - "play", "pause" or "stop" or *boolean* - true for play, false for stop
+* **STATE**: *string* - "play", "pause" or "stop" or *boolean* - true 表示播放，false 表示停止
     * 在设备选项中，您可以定义代表播放、暂停和停止的值
 * **COVER_URL**: *string* - 封面图片的 url
 * **艺术家、专辑、标题**：*字符串* - 自我解释
-* **TRACK_NUMBER**: *number* - 自我解释
+* **TRACK_NUMBER**：*number* - 自我解释
 * **PREV, REWIND, PLAY, PAUSE, STOP, FORWARD, NEXT**: *boolean* - 将被设置为真，如果相应的按钮被按下
 * **SHUFFLE, MUTE, PLAY_EVERYWHERE, EJECT, POWER_SWITCH**: *boolean* - 对应函数的状态
 * **REPEAT**: *boolean* - 重复功能的状态或 *string* - 3 个状态可以通过相应的选项定义：关闭、重复所有和重复一个的值
@@ -1545,10 +1568,10 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 
 ##### 要显示*通用遥控器*，您可以定义以下状态：
 * **REMOTE_NUMBER**: *string* - 显示一个数字键盘并返回相应的数字，如果一个数字被点击
-* **REMOTE_VOLUME_UP、REMOTE_VOLUME_UP、REMOTE_CH_UP、REMOTE_CH_DOWN**：*string* - 显示音量增大/减小和频道增大/减小的按钮，并返回“volumeUp”、“volumeDown”、“chUp”或“chDown”，如果相应按钮被按下
+* **REMOTE_VOLUME_UP、REMOTE_VOLUME_UP、REMOTE_CH_UP、REMOTE_CH_DOWN**：*string* - 显示音量增大/减小和频道增大/减小的按钮，如果对应，则返回“volumeUp”、“volumeDown”、“chUp”或“chDown”按钮被按下
 * **REMOTE_PAD_DIRECTION、REMOTE_PAD_BACK、REMOTE_PAD_HOME、REMOTE_PAD_MENU**：*string* - 显示用于导航和返回的触控板
     * 'ok' 如果点击垫的中间，
-* 'left', 'right', 'up' 或 'down', 如果点击垫的边缘或在相应的方向滑动垫或
+* 'left', 'right', 'up' 或 'down', 如果点击pad的边缘或向相应方向滑动pad或
 * 'back'、'home' 或 'menu*，如果相应的按钮被点击
 * 请记住：您可以使用目标值列表（可通过每个数据点的扳手图标或齿轮图标访问）从一个数据点链接到多个数据点，具体取决于返回值（请参阅上面的修改数据点部分）
 * **REMOTE_COLOR**: *string* - 显示彩色按钮并返回相应的颜色（“红色”、“绿色”、“黄色”或“蓝色”），如果点击颜色
@@ -1564,7 +1587,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 * **URL**: CONSTANT *string* - 这个 url 将被打开
 
 ###<img src="img/icons/widget_on.png" width="32">小部件：
-该设备有一些特殊的预定义大小和显示设置来显示网站，可以通过 **BACKGROUND_URL** 定义为小部件。使用默认选项时，右上角会显示一个小的放大按钮。
+该设备有一些特殊的预定义大小和显示设置来显示网站，可以通过 **BACKGROUND_URL** 定义为小部件。使用默认选项，右上角会显示一个小的放大按钮。
 
 * **STATE**：*any* - SPECIAL：如果为空，将创建一个虚拟数据点，因此您可以单击图标以激活并因此最大化小部件的大小
 
@@ -1591,18 +1614,74 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 * 切换到控制台窗口并重现错误
 * 在控制台窗口中查找消息
 * 出现错误时，会列出导致错误的行号
-* 请点击此行号并截取故障线路：
+* 请点击此行号，将故障线路截图：
 
 ![故障排除控制台窗口](img/troubleshooting_consolewindow.png)![排除故障线路](../../../en/adapterref/iobroker.iqontrol/img/troubleshooting_faultyline.png)
 
 ****
 
 ## Changelog
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
 
-### dev
+### **WORK IN PROGRESS**
+* (sbormann) Added option to show POWER as state.
+* (sbormann) Added preview of tile appeareance when setting tile colors.
+* (sbormann) Added scrollbar-settings for firefox.
+* (sbormann) Added option to adjust height of tile to the size of BACKGROUND_VIEW.
+* (sbormann) Added option to change and invert INFO_A/B-Symbols.
+* (sbormann) Added import and export function to device options.
+* (sbormann) Added option to hide indicator icons if inactive, active or enlarged.
+* (sbormann) Added column-sorting to JSON-Table-Widget.
+* (sbormann) Added widget-replaceurl to widgets, which allows creation of simplified widget-presets, as preparation for further development.
+* (sbormann) Added option to media-player to disable forced reload of cover-image on TITLE-change.
+* (sbormann) Small adjustmets for ALTERNATIVE_COLORSPACE.
+
+### 1.11.0 (2021-12-18)
+* (sbormann) Added the ability to globally change the default icons.
+* (sbormann) Introducing iconsets and fluent icons.
+* (sbormann) Added option to change badge font and color.
+* (sbormann) Fixed setting of font family.
+* (sbormann) Fixed LayoutViewDeviceInactiveHoverOpacity.
+
+### 1.10.0 (2021-12-03)
+* (sbormann) Fixed ALTERNATIVE_COLORSPACE.
+* (sbormann) Added option to change the icons for BATTERY, UNREACH and ERROR.
+
+### 1.9.16 (2021-11-23)
+* (sbormann) Enhanced viewport height scaling for collapsibles.
+
+### 1.9.15 (2021-11-23)
+* (sbormann) Updated dependencies.
+* (sbormann) Updated type-detector.
+* (sbormann) Some minor code adjustments.
+
+### 1.9.14 (2021-11-21)
+* (sbormann) Added option to set colors for JSON-Table-Widget.
+* (sbormann) Fix for periods with role value.time.
+* (sbormann) Enhanced reconnection process when reopening the web app.
+* (sbormann) Prevent endless loop for Party-Mode if objects do not exist.
+
+### 1.9.13 (2021-10-02)
+* (sbormann) Minor design adjustments for dark-mode.
+
+### 1.9.12 (2021-09-28)
+* (sbormann) Fix for ADDITIONAL_CONTROLS rendering only once.
+
+### 1.9.11 (2021-09-27)
+* (sbormann) Added release-script by AlCalzone.
+* (sbormann) Set setState for postMessage to forced send.
+
+### 1.9.10 (2021-09-26)
+* (sbormann) Enhanced handling of states set by widgets.
+
+### 1.9.9 (2021-09-09)
 * (sbormann) Fixed collapsible not opening if initial closed.
 * (muuulle, sbormann) Enhanced Analog-Clock-Widget to be able to display the time of a datapoint.
-* (sbormann) Enhanced json-table-Widget to regognize parentNames of datapoints, transpose json-data and some styling-options.
+* (sbormann) Enhanced json-table-Widget to regognize parentNames of datapoints, transpose and convert json-data and some styling-options.
+* (sbormann) Enhanced styling of ADDITIONAL_INFO.
 
 ### 1.9.8 (2021-09-03)
 * (sbormann) Fixed variables with special chars not working.
@@ -2198,7 +2277,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 
 ### 0.2.2 (2019-09-14)
 * (sbormann) Enhanced handling of control-mode for homematic-thermostat for more compatibility.
-* (sbormann) Reduced rate of sending when moving slider for blinds and thermostats. 
+* (sbormann) Reduced rate of sending when moving slider for blinds and thermostats.
 
 ### 0.2.1 (2019-09-07)
 * (sbormann) Fixed crash of Backend (interchanged index_m.html and custom_m.html).
@@ -2233,7 +2312,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 * (sbormann) Fixed crash when using thermostat with setpoint an non homematic-devices.
 * (sbormann) Added min and max to custom dialog.
 * (sbormann) Now you can set none as a devices background image for active devices (formerly this was copied from inactive devices for backward-compatibility-reasons).
- 
+
 ### 0.1.10 (2019-08-20)
 * (sbormann) You can now define different units if value is zero or if value is one in custom dialog.
 * (sbormann) When changing an image via the new drop-down, save button will be activated now.
@@ -2473,9 +2552,6 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 ### 0.0.15
 * (sbormann) Improved check for value type of states.
 * (sbormann) Improved slider-tooltip to lower font-size at large numbers.
-
-### 0.0 14
-* (sbormann) If role of state is not further specified, then check for role of parent object.
 
 ### 0.0.13
 * (sbormann) Doors and Windows now force true/false to be translated to opened/closed.
