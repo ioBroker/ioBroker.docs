@@ -1200,7 +1200,6 @@
             "zwave2": "between(2.3.0,2.3.2)"
         }
     },
-    ,
     {
         "title": {
             "en": "The Squeezebox adapter will be discontinued and will be replaced.",
@@ -1233,7 +1232,7 @@
         "conditions": {
             "squeezebox": "installed"
         }
-    }
+    },
     {
         "title": {
             "en": "Cloud / Vis offline Christmas offer 2021",
