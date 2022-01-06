@@ -166,6 +166,9 @@ Example for any image you like:
 ```
 
 ## Changelog
+### 0.8.11
+* (rde-master) Bugfix Naming JSON are not working
+
 ### 0.8.10
 * (rde-master) Bugfix for Filter Lists are not all displays 
 * (rde-master) Update axios to 21.2

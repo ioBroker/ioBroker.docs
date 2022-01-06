@@ -40,9 +40,9 @@ SolarLog 50: There is no open JSON-Interface @ SolarLog 50 devices. So certain v
 
 ## Changelog
 
-### 2.2.0
+### 2.2.1
 
--   replaced 'request' by 'got'.
+-   replaced 'request' by 'got', node.js >= 12.
 
 ### 2.1.5
 
@@ -204,7 +204,7 @@ Planned Objects:
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 forelleblau marceladam@gmx.ch
+Copyright (c) 2018-2022 forelleblau marceladam@gmx.ch
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

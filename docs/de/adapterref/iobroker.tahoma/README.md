@@ -3,14 +3,13 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tahoma/README.md
 title: ioBroker.tahoma
-hash: rvkM68eo+sAHuB+Ix4e454/xTBej0K9Cv6XYzR4jUZE=
+hash: 4RvjgcKT8BpJS82hcxtsqN+anPTF/TTwFeBUdNhdkOE=
 ---
 ![Logo](../../../en/adapterref/iobroker.tahoma/admin/tahoma.png)
 
 ![NPM](https://nodei.co/npm/iobroker.tahoma.png?downloads=true)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.tahoma.svg)
 ![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
-![Abhängigkeitsstatus](https://img.shields.io/david/Excodibur/iobroker.schwoerer-ventcube.svg)
 ![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/tahoma-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/tahoma-stable.svg)
 ![Sprachnote: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Excodibur/ioBroker.tahoma.svg?logo=lgtm&logoWidth=18)
@@ -22,7 +21,7 @@ hash: rvkM68eo+sAHuB+Ix4e454/xTBej0K9Cv6XYzR4jUZE=
 #ioBroker.tahoma
 Ein ioBroker-Adapter für Somfy Tahoma. Dieses Projekt hat keine Verbindung zu Somfy. Ursprünglich basierend auf dem Skript von https://forum.iobroker.net/post/336001 und gegabelt von https://github.com/StrathCole/ioBroker.tahoma.
 
-Der Adapter stellt eine Verbindung mit der Tahomalink-Endbenutzer-API her und steuert die über die Tahoma Box (und höchstwahrscheinlich Connexoon) eingerichteten Geräte.
+Der Adapter verbindet sich mit der Tahomalink-Endbenutzer-API und steuert die Geräte, die über die Tahoma Box (und höchstwahrscheinlich Connexoon) eingerichtet werden.
 Der Adapter ist noch nicht mit allen Funktionen ausgestattet, sollte aber die meisten Aktionen zur Steuerung von Jalousien und Rollläden usw. unterstützen.
 
 Bitte lesen Sie bei Problemen auch zuerst die [FAQ](https://github.com/Excodibur/ioBroker.tahoma/blob/master/FAQ.md).
@@ -54,7 +53,7 @@ Die folgenden Konfigurationsparameter werden vom Adapter unterstützt.
 
 <sup>1</sup> Diese Konfigurationswerte sind nur in Admin 5 (neue GUI) oder höher sichtbar und konfigurierbar.
 
-<sup>2</sup> Alle Werte beziehen sich auf die Anmeldung bei Tahomalink, die aus Entwicklungssicht meist eine Blackbox ist. Wenn Sie die Nummern hier zu niedrig konfigurieren, besteht erfahrungsgemäß eine gute Chance, dass Somfy Ihren Account vorübergehend sperrt, daher sollten Sie hier die Standardwerte vorsichtig senken!
+<sup>2</sup> Alle Werte beziehen sich auf die Anmeldung bei Tahomalink, die aus Sicht der Entwicklung meist eine Blackbox ist. Wenn Sie die Nummern hier zu niedrig konfigurieren, besteht erfahrungsgemäß eine gute Chance, dass Somfy Ihr Konto vorübergehend sperrt, daher sollten Sie hier die Standardwerte vorsichtig senken!
 
 ## Zustände
 ### Tahoma.X.Standort
@@ -65,15 +64,15 @@ Dieser Status enthält die Geräte-URL, die von Tahoma verwendet wird, um das Ge
 
 ### Tahoma.X.devices.*.commands
 Diese Zustände enthalten Tastenbefehle zur Steuerung der Geräte. Die meisten Geräte unterstützen Befehle wie `close` und `open` aber auch einige mehr.
-Einige der Befehle haben am Ende ein `:slow`, sofern dies vom Gerät unterstützt wird. Wenn Sie diese verwenden, wird eine niedrige Geschwindigkeit oder der sogenannte Silent-Modus aktiviert.
+Einige der Befehle haben am Ende ein `:slow`, wenn sie vom Gerät unterstützt werden. Wenn Sie diese verwenden, wird eine niedrige Geschwindigkeit oder der sogenannte Silent-Modus aktiviert.
 
 ### Tahoma.X.devices.*.states
-Diese Zustände enthalten den aktuellen Status der Geräte wie folgt. Einige der Zustände haben am Ende ein `:slow`, wenn sie vom Gerät unterstützt werden. Wenn Sie diese einstellen, wird eine niedrige Geschwindigkeit oder der sogenannte Silent-Modus aktiviert.
+Diese Zustände enthalten den aktuellen Status der Geräte wie folgt. Einige der Zustände haben ein `:slow` am Ende, wenn sie vom Gerät unterstützt werden. Wenn Sie diese einstellen, wird eine niedrige Geschwindigkeit oder der sogenannte Silent-Modus aktiviert.
 
-| Gerätezustand | Bearbeitbar | Zweck/Beschreibung |
+| Gerätestatus | Bearbeitbar | Zweck/Beschreibung |
 |-------------------------------------------------------------|----------|---------------------|
-| _tahoma.X.devices.*.states.core:DeploymentState_ | &#10003; | Stellt Informationen über und steuert den Status der aktuellen Bereitstellung. 100 bedeutet vollständig bereitgestellt, 0 ist nicht bereitgestellt. Nicht alle Geräte haben diesen Wert, manche haben stattdessen `ClosureState`. |
-| _tahoma.X.devices.*.states.coreClosureState_ | &#10003; | Stellt Informationen über und steuert den Status der aktuellen Schließung. 100 bedeutet vollständig geschlossen, 0 ist offen. Nicht alle Geräte haben diesen Wert, manche haben stattdessen `DeploymentState`. |
+| _tahoma.X.devices.*.states.core:DeploymentState_ | &#10003; | Stellt Informationen über und steuert den Status der aktuellen Bereitstellung. 100 bedeutet vollständig bereitgestellt, 0 ist nicht bereitgestellt. Nicht alle Geräte haben diesen Wert, einige haben stattdessen `ClosureState`. |
+| _tahoma.X.devices.*.states.coreClosureState_ | &#10003; | Bietet Informationen über und steuert den Status der aktuellen Schließung. 100 bedeutet vollständig geschlossen, 0 ist offen. Nicht alle Geräte haben diesen Wert, einige haben stattdessen `DeploymentState`. |
 | _tahoma.X.devices.*.states.core:TargetClosureState_ | &#10003; | Siehe `tahoma.X.devices.*.states.core:ClosureState` |
 | _tahoma.X.devices.*.states.core:TargetClosureState_ | &#10003; | Siehe `tahoma.X.devices.*.states.core:ClosureState` |
 | _tahoma.X.devices.*.states.core:TargetOrientationState_ | &#10003; | Siehe `tahoma.X.devices.*.states.core:OrientationState` |

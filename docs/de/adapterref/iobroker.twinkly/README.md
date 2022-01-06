@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.twinkly/README.md
 title: ioBroker.twinkly
-hash: 8WLgtLIavDN5rEQxNMS7s+61/GA86fr/OsdTLsXzkWQ=
+hash: 2AkzmgVU11hLrQ0iNNizIIa/Kkg91b7iLSv0X1jkkBQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
@@ -30,10 +30,11 @@ Folgende Einstellungen stehen zur Verfügung: ![admin.png](../../../en/adapterre
 In der Tabelle können Sie alle Twinkly-Leuchten hinzufügen, die Sie steuern möchten.
 
 | Spalte | Beschreibung |
-|--------------|------------------------------------|
+|--------------|----------------------------------------------------------------|
 | `Enabled` | Soll auf diese Verbindung zugegriffen werden |
 | `IP Address` | IP-Adresse zu den Twinkly Lights |
-| `IP-Adresse` | IP-Adresse zu den Twinkly Lights |
+| `State On` | Welche `ledMode` sollen aktiviert werden, wenn der Zustand `on` aktiviert ist |
+| `Zustand ein` | Welcher `ledMode` soll aktiviert werden, wenn der Status `on` aktiviert ist |
 
 Die folgenden zusätzlichen Status werden pro Gerät erstellt, wenn sie aktiviert sind:
 
@@ -48,7 +49,7 @@ Folgende Staaten stehen zur Verfügung:
 | `connected` | :x: | Gerät verbunden |
 | `firmware` | :x: | Firmware-Version |
 | `ledBri` | :heavy_check_mark: | Helligkeit (Steuerung mit -1 deaktivieren) |
-| `ledColor` | :heavy_check_mark: | Farbe der LEDs, HSV/RGB(W)/HEX |
+| `ledColor` | :heavy_check_mark: | Farbe der LEDs, HSV/RGB(W)/HEX (`Color`) |
 | `ledConfig` | :heavy_check_mark: | Konfiguration der LEDs |
 | `ledEffect` | :heavy_check_mark: | Effekte (`Effect`) |
 | `ledLayout` | :heavy_check_mark: | Anordnung der LEDs (für weitere Tests deaktiviert) |
@@ -62,14 +63,20 @@ Folgende Staaten stehen zur Verfügung:
 | `on` | :heavy_check_mark: | Ein/Aus-Schalter |
 | `paused` | :heavy_check_mark: | Unterbrechen Sie die Verbindung zu Twinkly, damit Sie Änderungen in der App vornehmen können. Andernfalls könnten Sie die Verbindung während der Arbeit in der App verlieren |
 | `timer` | :heavy_check_mark: | Aktualisieren Sie den Timer |
-| `Zeitschaltuhr` | :heavy_check_mark: | Aktualisieren Sie den Timer |
+| `Timer` | :heavy_check_mark: | Aktualisieren Sie den Timer |
 
 [Private API-Informationen](https://xled-docs.readthedocs.io/en/latest/) von [Pavol Babinčák](https://github.com/scrool)
 
 ## Bekannte Probleme
-* Die maximale Länge für den Filmnamen beträgt 15 Zeichen
+* Die maximale Länge des Filmnamens beträgt 15 Zeichen
 
 ## Changelog
+
+### 0.2.11 (2022-01-02)
+* (patrickbs96) Add setting to select which ledMode should be activated
+
+### 0.2.10 (2021-12-31)
+* (patrickbs96) Add setting to enable automatically switching of Mode after State change (color, effect, movie, playlist)
 
 ### 0.2.8 (2021-12-20)
 * (patrickbs96) Rename mode On to movie as it's a better representation
@@ -130,7 +137,7 @@ Folgende Staaten stehen zur Verfügung:
 ## License
 MIT License
 
-Copyright (c) 2021 patrickbs96 <patrickbsimon96@gmail.com>
+Copyright (c) 2022 patrickbs96 <patrickbsimon96@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

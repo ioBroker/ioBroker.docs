@@ -30,7 +30,7 @@ There is a possibillity to poll data which are not polled by ebusd directly. Com
 
 Another feature is to send any command to ebusd and receive answer to work with e.g. scripts.
 
-current supported ebusd-version: 21.2
+current supported ebusd-version: 21.3
 
 
 ## how to send commands to ebusd
@@ -51,6 +51,12 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
 * please create issues at [github](https://github.com/rg-engineering/ioBroker.ebus/issues) if you find bugs or whish new features
    
 ## Changelog
+
+### 2.5.1 (2021-12-29)
+* (René) adjustable retries to send data if arbitration error appeared
+
+### 2.5.0 (2021-12-28)
+* (René) see issue #62: support ebusd 21.3
 
 ### 2.4.5 (2021-11-07)
 * (René) bug fix color of labels in widget

@@ -45,6 +45,21 @@ Please note: Adapter settings button "Find Bridge" will be inactive if field "Br
 |__Polling__|If checked, the adapter will poll state changes, otherwise it can only be used to control lamps, not to show their status.|
 |__Polling interval__|Defines how often the states will be polled, and thus updated in ioBroker. Low polling intervals can cause performance issues in some settings. Hence, the minimum allowed polling interval is 2 seconds. If polling interval is set to less than 2 seconds it will be set to 2 seconds during runtime.|
 
+### Commands
+Command states (e.g. `hue.0.All.command`) can be used to set multiple commands to the bridge. 
+This allows to set a group or a light to a specific state using e.g. a transiton time.
+
+```javascript
+setState('hue.0.All.command', { "bri": 50, "transitiontime": 30 }, false);
+```
+
+For groups which contain scenes, like `hue.0.Wohnzimmer.scene_hell` the scenes can also be activated with a transitiontime.
+To do this, pass the scene argument to the corresponding command.
+
+```javascript
+setState('hue.0.All.Wohnzimmer', { "scene": "hell", "transitiontime": 30 }, false);
+```
+
 ### Additional information
 With version 3.3.0 the group states `anyOn` and `allOn` became controllable, note that they will just act like the `on` state,
 when controlled. In some cases, it may be desirable to have a controllable `anyOn` state in your visualization.
@@ -58,6 +73,9 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.6.0 (2021-12-30)
+* (foxriver76) allow to trigger scenes via `command` state, this allows to start a scene with `transitiontime`
+
 ### 3.5.31 (2021-11-20)
 * (foxriver76) ct value fix of #234 ported for 0 (All) group
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis/README.md
 title: Visualisierung
-hash: kZvMm0nxMRyvPu/c82Yj+LYf+ikbthYZ/GRRZUdVZQY=
+hash: ryhb2CuqQrlCuXb8bunK8iY61NxkSPTTXOCc7qhEKeE=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
@@ -21,7 +21,7 @@ WEB-Visualisierung für die ioBroker-Plattform.
 [Online-Demos](https://iobroker.click/)
 
 ## Bindungen von Objekten
-Normalerweise haben die meisten Widgets das Attribut ObjectID, und dieses Attribut kann mit einem Wert der Objekt-ID verbunden werden.
+Normalerweise haben die meisten Widgets das Attribut ObjectID und dieses Attribut kann mit einem Wert der Objekt-ID verbunden werden.
 Aber es gibt noch eine andere Option, um *beliebige* Attribute des Widgets an eine ObjectID zu binden.
 
 Schreiben Sie einfach in das Attribut ```{object.id}``` und es wird (nicht im Bearbeitungsmodus) an den Wert dieses Objekts gebunden.
@@ -39,10 +39,10 @@ Folgende Operationen werden unterstützt:
 - `\-` - subtrahieren. Argument muss in Klammern stehen, wie "-(-674.5)". In diesem Beispiel subtrahieren wir vom Wert -674,5.
 - `/` - teilen. Argument muss in Klammern stehen, wie "/(0.5)". In diesem Beispiel teilen wir den Wert durch 0,5.
 - `%` - modulo. Argument muss in Klammern stehen, wie "%(5)". In diesem Beispiel nehmen wir Modulo von 5.
-- `round` - rundet den Wert.
+- `round` - runden den Wert.
 - `round(N)` - runden Sie den Wert mit N Stellen nach dem Punkt, z.B. 34.678;rund(1) => 34.7
-- `hex` - Wert in hexadezimalen Wert umwandeln. Alle Buchstaben sind klein geschrieben.
-- `hex2` - Wert in hexadezimalen Wert umwandeln. Alle Buchstaben sind klein geschrieben. Bei einem Wert kleiner 16 wird die führende Null hinzugefügt.
+- `hex` - Wert in hexadezimalen Wert umwandeln. Alle Buchstaben sind Kleinbuchstaben.
+- `hex2` - Wert in hexadezimalen Wert umwandeln. Alle Buchstaben sind Kleinbuchstaben. Bei einem Wert kleiner 16 wird die führende Null hinzugefügt.
 - `HEX` - wie hex, aber in Großbuchstaben.
 - `HEX2` - wie hex2, aber in Großbuchstaben.
 - `date` - Formatieren Sie das Datum gemäß dem angegebenen Format. Das Format ist das gleiche wie in [iobroker.javascript](https://github.com/iobroker/iobroker.javascript/blob/master/README.md#formatdate)
@@ -57,7 +57,7 @@ Folgende Operationen werden unterstützt:
 - `formatValue(decimals)` - Wert entsprechend den Systemeinstellungen formatieren und Dezimalstellen verwenden
 - `date(format)` - Wert als Datum formatieren. Das Format ist wie: "YYYY-MM-DD hh:mm:ss.sss"
 - `momentDate(format, useTodayOrYesterday)` - Formatieren Sie den Wert als Datum mit Moment.js. [Genehmigte Formate müssen gemäß der Bibliothek moment.js eingegeben werden](https://momentjs.com/docs/#/displaying/format/). Mit `useTodayOrYesterday=true` werden die momentjs Formate `ddd`/`dddd` mit heute / gestern überschrieben
-- `array(element1,element2[,element3,element4])` - gibt das Indexelement zurück. z.B.: `{id.ack;array(ack ist falsch,ack ist wahr)}`
+- `array(element1,element2[,element3,element4])` - gibt das Indexelement zurück. Beispiel: `{id.ack;array(ack ist falsch, ack ist wahr)}`
 
 Sie können dieses Muster in jedem Text verwenden, z
 
@@ -71,7 +71,7 @@ oder Farbberechnungen:
 #{objectRed;/(100);*(255);HEX2}{objectGreen;HEX2}{objectBlue;HEX2}
 ```
 
-Um den Zeitstempel des Objekts anzuzeigen, schreiben Sie `.ts` oder `.lc` (für die letzte Änderung) an das Ende der Objekt-ID, z.B.:
+Um den Zeitstempel des Objekts anzuzeigen, schreiben Sie `.ts` oder `.lc` (für die letzte Änderung) an das Ende der Objekt-ID, z. B.:
 
 ```
 Last change: {objectRed.lc;date(hh:mm)}
@@ -111,8 +111,8 @@ Es gibt eine Reihe verschiedener interner Bindungen, um zusätzliche Information
 * `wid` - Name des aktuellen Widgets
 * `Sprache` - kann `de`, `en` oder `ru` sein.
 * `Instanz` - Browserinstanz
-* `login` - ob eine Anmeldung erforderlich ist oder nicht (z.B. um den Logout-Button anzuzeigen/auszublenden)
-* `local_*` - Wenn der Statusname von `local_` gestartet wird, wird er nicht an ioBroker gemeldet, sondern aktualisiert alle Widgets, die von diesem Status abhängen. (Lokale Variable für aktuelle Browsersitzung)
+* `login` - ob eine Anmeldung erforderlich ist oder nicht (z. B. um den Logout-Button anzuzeigen/auszublenden)
+* `local_*` - Wenn der Statusname von `local_` beginnt, wird er nicht an ioBroker gemeldet, sondern aktualisiert alle Widgets, die von diesem Status abhängen. (Lokale Variable für aktuelle Browsersitzung)
 
 Hinweis: Um ":" in Berechnungen (z. B. in Zeichenfolgenformeln) zu verwenden, verwenden Sie stattdessen "::".
 
@@ -149,7 +149,7 @@ Befehle:
     - `statisch - HTML - Dialog`,
     - `statisch - Symbol - Dialog`,
     - `Container - HTML - Ansicht im jqui-Dialog`,
-    - `Container - ext cmd - Ansicht im jqui-Dialog`,
+    - `container - ext cmd - view in jqui Dialog`,
     - `Container - Icon - Ansicht im jqui-Dialog`,
     - `Container - Schaltfläche - Ansicht im jqui-Dialog`.
 
@@ -159,7 +159,7 @@ Befehle:
 * `popup` - öffnet ein neues Browserfenster. Link muss in `control.data` angegeben werden, z.B. http://google.com
 * `playSound` - Sounddatei abspielen. Der Link zur Datei wird in `control.data` angegeben, z.B. http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3.
 
-  Sie können Ihre eigene Datei in vis hochladen und abspielen lassen, wie zB `/vis.0/main/img/myFile.mp3`.
+  Sie können Ihre eigene Datei in vis hochladen und abspielen lassen wie zB `/vis.0/main/img/myFile.mp3`.
 
 Wenn der Benutzer die Ansicht ändert oder beim Start werden die Variablen von der vis mit gefüllt
 
@@ -178,14 +178,14 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 ## Standardansicht
 Sie können für jede Ansicht die gewünschte Auflösung definieren (Menü=>Extras=>Auflösung). Dies ist nur der visuelle Rahmen im Bearbeitungsmodus, um Ihnen die Bildschirmgröße auf einem bestimmten Gerät anzuzeigen. Im Echtzeitmodus ist es nicht sichtbar und alle Widgets außerhalb des Rahmens sind sichtbar.
 
-Außerdem können Sie festlegen, ob diese Ansicht als Standard für diese Auflösung verwendet werden soll.
+Außerdem können Sie festlegen, ob diese Ansicht standardmäßig für diese Auflösung verwendet werden soll.
 
 So wird bei jedem Aufruf der `index.html` (ohne `#viewName`) die für diese Auflösung am besten geeignete Ansicht geöffnet.
 Wenn nur eine Ansicht das Flag *"Standard"* hat, wird diese Ansicht unabhängig von Bildschirmauflösung oder Ausrichtung geöffnet.
 
 Z.B. Sie können zwei Ansichten "Landscape-Mobile" und "Portrait-Mobile" erstellen und diese beiden Ansichten werden automatisch umgeschaltet, wenn Sie die Ausrichtung oder Bildschirmgröße ändern.
 
-Es gibt ein Hilfs-Widget "einfach - Bildschirmauflösung", das die aktuelle Bildschirmauflösung und die für diese Auflösung am besten geeignete Standardansicht anzeigt.
+Es gibt ein Helfer-Widget "einfach - Bildschirmauflösung", das die aktuelle Bildschirmauflösung und die für diese Auflösung am besten geeignete Standardansicht anzeigt.
 
 ## Einstellungen
 ### Nachladen, wenn du länger schläfst als
@@ -198,320 +198,326 @@ Legen Sie das Intervall zwischen den Verbindungsversuchen fest, wenn die Verbind
 ### Dunkler Bildschirm zum Wiederverbinden
 Manchmal (in der Nacht) ist ein dunkler Ladebildschirm erforderlich. Mit dieser Option können Sie es einstellen.
 
-Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung gültig sind und nicht für die erste Verbindung.
+Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung und nicht für die erste Verbindung gültig sind.
 
 ![Dunkel](../../../en/adapterref/iobroker.vis/img/dark_screen.png)
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
 ### __ARBEITEN IN PROGRESS__ -->
+
+## Changelog
+### 1.4.7 (2021-12-28)
+* (mswiege) Fixed subscribeOidAtRuntime if called with invalid IDs
+* (bluefox) Added support of license manager
+
 ### 1.4.6 (2021-11-20)
-* (bluefox) Lizenzprüfung auch ohne Internet hinzugefügt
+* (bluefox) Added the license check even without internet
 
 ### 1.4.5 (2021-10-08)
-* (jens-maus) Frame-src-Spezifikation zum Content-Security-Policy-Header hinzugefügt, um Frame-bezogene Inhaltsblockierungsprobleme zu beheben (z. B. bei Verwendung der KioskPro iOS-App).
-* (bluefox) Zeigte die erweiterten Fehlermeldungen bei der Lizenzprüfung an
-* (Scrounger) Patch-Sichtbarkeit oid Bindung
+* (jens-maus) Added frame-src spec to content-security-policy header fixing frame related content blocking issues (e.g. using KioskPro iOS app).
+* (bluefox) Showed the extended error messages by license check
+* (Scrounger) Patch visibility oid binding
 
 ### 1.4.4 (2021-08-31)
-* (jobe451) Darf ":" in den Bindungsobjekt-IDs enthalten
+* (jobe451) Allowed to have ":" in the binding object IDs
 
 ### 1.4.3 (2021-07-11)
-* (bluefox) Möglichkeit zur Offline-Lizenzprüfung hinzugefügt (nur einmalig)
+* (bluefox) Added possibility to check license offline (only special once)
 
 ### 1.4.0 (2021-07-01)
-* (bluefox) Pfad zur Zertifikatsprüfung geändert
-* (thost96) behebt Probleme, die vom Adapter-Checker gefunden wurden
+* (bluefox) Changed path for check of certificates 
+* (thost96) fixes for issues found by adapter-checker
 
 ### 1.3.10 (2021-05-25)
-* (bluefox) Die Unterstützung von admin5 wurde behoben
+* (bluefox) Fixed the support of admin5
 
 ### 1.3.9 (2021-04-29)
-* (agav99) Unterstützung für lokale Browservariablen hinzugefügt
-* (Scrounger) Bugfix für Null- und NaN-Werte in Breite und Höhe
-* (bluefox) Unterstützung für admin hinzugefügt5
+* (agav99) Added support of local browser variables
+* (Scrounger) Bug fix for null & NaN values in width and height
+* (bluefox) Added support for admin5
 
 ### 1.3.8 (2021-03-03)
-* (bluefox) Spielsounds auf iOS Safari und Android korrigiert
-* (Scrounger) visEditInspect: Formatdimension hinzugefügt
-* (foxriver76) Ersetze travis und appveyor durch die GitHub-Aktionen
-* (Excodibur) Erlaube das Laden von Ressourcen als Blob
-* (Excodibur) Erlaube das Laden von Ressourcen als Blob
+* (bluefox) fix play sounds on iOS Safari an android
+* (Scrounger) visEditInspect: format dimension added
+* (foxriver76) Replace travis and appveyor by the GitHub actions
+* (Excodibur) Allow resources to be loaded as blob
+* (Excodibur ) Allow resources to be loaded as blob
 
 ### 1.3.7 (2021-01-20)
-* (Scrounger) Fehler behoben - Bindung im JSON-String
+* (Scrounger) Bug Fixed - Binding in JSON string
 
-### 1.3.6 (13.12.2020)
-* (twonky4) Korrigiert: altes Browserproblem
-* (rbaranga) Korrigiert: Sounds auf iOS Safari abspielen
-* (Scrounger) Optionale Argumente hinzugefügt, um Material Design Widgets zu unterstützen
+### 1.3.6 (2020-12-13)
+* (twonky4) Corrected: old browser issue
+* (rbaranga) Corrected: play sounds on iOS Safari
+* (Scrounger) Added the optional arguments to support Material Design Widgets
 
 ### 1.3.4 (2020-10-04)
-* (foxriver76) Fehler bei älteren Geräten behoben
+* (foxriver76) Corrected the error on older devices
 
 ### 1.3.3 (2020-09-21)
-* (bluefox) De-Bounce-Einstellungen zurückgeben
-* (bluefox) Fehler mit {username}-Bindung behoben
-* (bluefox) Option "Letzte Änderung anzeigen" behoben
+* (bluefox) Return de-bounce settings back
+* (bluefox) Corrected error with {username} binding
+* (bluefox) Fixed "show last change" option
 
 ### 1.3.1 (2020-09-18)
-* (bluefox) Autofokus-Option zu den Eingabe-Widgets hinzugefügt
+* (bluefox) Added the auto-focus option to the input widgets
 
 ### 1.3.0 (2020-09-17)
-* (foxriver76) bei ausstehenden getStates, versuchen Sie es erneut, anstatt zu fallen
-* (foxriver76) Fehler im Dateimanager behoben
-* (Scrounger) MomentDate für die Bindungen hinzugefügt
+* (foxriver76) on pending getStates, try again instead of drop
+* (foxriver76) fixed the file manager typos
+* (Scrounger) Added momentDate for the bindings
 
 ### 1.2.12 (2020-09-08)
-* (foxriver76) analysiert nur Arrays und Json-Objekte, keine Booleschen, normalen Strings usw
+* (foxriver76) only parse arrays and json objects, not booleans, normal strings etc
 
 ### 1.2.11 (2020-08-25)
-* (bluefox) Die Fehlermeldung über die nicht gefundene Kartenansicht wurde behoben.
+* (bluefox) The error message about the non-found chart view was fixed.
 
 ### 1.2.10 (2020-08-23)
-* (gsicilia82/fceller) JSON-Strings werden in VIS-Bindungen geparst
+* (gsicilia82/fceller) JSON strings will be parsed in VIS bindings
 
 ### 1.2.9 (2020-08-22)
-* (bluefox) Charts werden jetzt unterstützt
+* (bluefox) Charts are now supported
 
 ### 1.2.6 (2020-03-22)
-* (bluefox) Bessere Fehlermeldung hinzugefügt, wenn die Lizenz nicht geparst werden konnte
+* (bluefox) Added the better error message if license could not be parsed
 
 ### 1.2.4 (2020-02-11)
-* (bluefox) Tabellen-Widget wurde um die ausgewählte Objekt-ID erweitert.
+* (bluefox) Table widget was extended with the selected object ID.
 
 ### 1.2.3 (2019-12-14)
-* (bluefox) Kleine Änderungen im Umgang mit Lizenzen wurden vorgenommen
+* (bluefox) Small changes in license handling were made
 
-### 1.2.2 (27.10.2019)
-* (bluefox) Vorbereitungen für js-controller 2.0. Überprüfen Sie undefined adn null.
+### 1.2.2 (2019-10-27)
+* (bluefox) Preparations for js-controller 2.0. Check undefined adn null.
 
 ### 1.2.1 (2019-09-10)
-* (bluefox) Upload von Dateien behoben
+* (bluefox) fixed upload of files
 
 ### 1.2.0 (2019-05-07)
-* (bluefox) Übersetzungen hinzufügen
+* (bluefox) add translations
 
 ### 1.1.11 (2019-02-07)
-* (bluefox) Bool HTML verbessern
+* (bluefox) improve Bool HTML
 
 ### 1.1.10 (2019-01-30)
-* Chinesische Unterstützung hinzufügen
+* Add Chinese support
 
 ### 1.1.8 (2018-10-29)
-* (bluefox) Dateidialog wurde korrigiert
+* (bluefox) File dialog was corrected
 
 ### 1.1.7 (2018-07-24)
-* (bluefox) view8 korrigiert
+* (bluefox) view8 corrected
 
 ### 1.1.6 (2018-07-18)
-* (bluefox) Unterstützung neuer Variablen (siehe [Special Bindings](#special-bindings) )
-* (bluefox) Fehler behoben, wenn sich die schnelle Ansicht ändert
-* (bluefox) Fix "jqui - ctrl - IconState / val - Icon Bool"
+* (bluefox) support of new variables (see [Special bindings](#special-bindings) )
+* (bluefox) fix error if fast view changes
+* (bluefox) fix "jqui - ctrl - IconState / val - Icon Bool"
 
 ### 1.1.5 (2018-06-10)
-* (bluefox) weitere Informationen anzeigen, wenn das Widget nicht gerendert werden kann
-* (bluefox) Speichern von Widgets behoben, wenn sie Bindungen haben
-* (bluefox) Fehlerstack anzeigen
-* (bluefox) feste Bindung
-* (Apollon77) Fix-Tests
-* (bluefox) Fix für iobroker.pro und externe socket.io Einstellungen
-* (bluefox) Eine Benutzervariable wurde zu Bindings hinzugefügt.
-* (bluefox) Widget-Tabs behoben
+* (bluefox) show more information if widget cannot be rendered
+* (bluefox) fix saving of widgets if they have bindings
+* (bluefox) show error stack
+* (bluefox) fix binding
+* (Apollon77) fix testing
+* (bluefox) fix for iobroker.pro and external socket.io settings
+* (bluefox) A user variable was added into bindings.
+* (bluefox) Fixed widget tabs
 
 ### 1.1.4 (2018-04-23)
 * (bluefox) fix bool SVG
 
 ### 1.1.3 (2018-04-12)
-* (bluefox) Ignoriere Klick durch Scrollen auf Touch-Geräten
-* (bluefox) falschen Status entfernen vis.0.command
-* (bluefox) Fehler mit jPlot beheben
-* (bluefox) besseres Widget-Verhalten im Bearbeitungsmodus (basic, jqui)
-* Konfigurationsdialog reparieren
+* (bluefox) ignore click by scrolling on touch devices
+* (bluefox) remove wrong state vis.0.command
+* (bluefox) fix error with jPlot
+* (bluefox) better widget behaviour in edit Mode (basic, jqui)
+* Fix config dialog
 
 ### 1.1.2 (2018-02-02)
-* (bluefox) Behebung des Speicherns des Projekts
-* (bluefox) Korrektur der Hintergrundauswahl
-* (bluefox) Behebung des Nullzeigerproblems
-* (bluefox) Korrektur des Auswahlhelfers
-* Übersetzungen aktualisieren
+* (bluefox) Fixing the saving of project
+* (bluefox) Fixing the background selector
+* (bluefox) Fixing the null pointer problem
+* (bluefox) Fixing the selection helper
+* Update translations
 
 ### 1.1.1 (2018-01-07)
-* (bluefox) Das Problem mit dem Ansichtswechsel auf den Touch-Geräten behoben
+* (bluefox) The problem with view change on the touch devices fixed
 
 ### 1.0.5 (2017-11-19)
-* (bluefox) zeigt die Anzahl der Datenpunkte in jedem Projekt an
+* (bluefox) show number of data points in every project
 
 ### 1.0.4 (2017-10-22)
-* (bluefox) Autovervollständigung für CSS-Optionen hinzufügen
-* (bluefox) Bearbeiten der CSS-Hintergrundoptionen der Ansicht ändern
+* (bluefox) Add autocomplete for view CSS options
+* (bluefox) change edit of view CSS background options
 
 ### 1.0.3 (2017-10-20)
-* (bluefox) Fehler beim Parsen ungültiger Bindungen behoben
-* (bluefox) moment.js hinzufügen
+* (bluefox) Fix parse of invalid bindings
+* (bluefox) add moment.js
 
-### 1.0.0 Release Candidate (2017-10-13)
-* (bluefox) iframe und Bild-Updates behoben
-* (bluefox) Schriftarten korrigieren
+### 1.0.0 release candidate (2017-10-13)
+* (bluefox) fix iframe and image updates
+* (bluefox) fix fonts
 
 ### 0.15.7 (2017-10-01)
-* (bluefox) ermöglichen das Aktualisieren von Bildern ohne zusätzliche Abfrage (funktioniert jedoch nur in ganz bestimmten Fällen)
-* (bluefox) Zoom von iframes
+* (bluefox) allow update of images without additional query (but it works only in some very specific cases)
+* (bluefox) zoom of iframes
 
 ### 0.15.5 (2017-07-24)
-* (bluefox) Widget-Upload korrigieren
+* (bluefox) Fix widgets upload
 
 ### 0.15.4 (2017-07-19)
-* (bluefox) Streichen hinzufügen
+* (bluefox) Add swipe
 
 ### 0.15.3 (2017-07-12)
-* (bluefox) Vollbild-Widget hinzufügen
-* (bluefox) Zeitstempel-Widget reparieren
+* (bluefox) Add full screen widget
+* (bluefox) Fix timestamp widget
 
 ### 0.15.2 (2017-07-07)
-* (bluefox) Fix Binding wenn es "-" in der OID hat
+* (bluefox) Fix binding if it has "-" in the OID
 
 ### 0.15.1 (2017-06-30)
-* (bluefox) Fehler mit Kontextmenü beheben
-* (bluefox) Hinzufügen von Klassen zur Ansicht zulassen
+* (bluefox) Fix error with context menu
+* (bluefox) Allow adding of class to view
 
 ### 0.15.0 (2017-05-25)
-* (bluefox) Kopie von gruppierten Widgets reparieren
-* (bluefox) fix abonnieren wenn leere Zustände
+* (bluefox) fix copy of grouped widgets
+* (bluefox) fix subscribe if empty states
 
 ### 0.14.7 (2017-05-19)
-* (bluefox) Vorlagen hinzufügen
+* (bluefox) add templates
 
 ### 0.14.6 (2017-05-16)
-* (bluefox) Fehler durch Gruppenauswahl behoben
-* (apollon77) jqui-dialog für automatisches Öffnen korrigiert
+* (bluefox) Fix error by groups selection
+* (apollon77) fix jqui-dialog for auto-open
 
 ### 0.14.3 (2017-05-11)
-* (bluefox) Export/Import von gruppierten Widgets korrigiert
+* (bluefox) fix export/import of grouped widgets
 
 ### 0.14.2 (2017-04-29)
-* (bluefox) Installationsfehler beheben
+* (bluefox) Fix install error
 
 ### 0.14.1 (2017-04-27)
-* (bluefox) Beta in Main verschieben
-* (bluefox) fix wählen Filter
-* (bluefox) Fehler behoben, wenn einige Ansichten nicht vorhanden sind
-* (bluefox) Bindungsproblem beheben, z.B. Als Variable wurde auch "a:-45?0" erkannt.
-* (bluefox) einige Schriftgrößen korrigieren
-* (bluefox) beheben rückgängig machen
-* (bluefox) Themenänderung beheben
-* (bluefox) optimiert das Laden von Seiten
-* (bluefox) Lizenz prüfen
-* (bluefox) Grundansichten korrigieren 8
-* (bluefox) feste Zeitauswahl, wenn im Dialog geöffnet
+* (bluefox) move beta to main
+* (bluefox) fix choose filter
+* (bluefox) fix error if some views do not exist
+* (bluefox) fix binding problem, e.g. "a:-45?0" was detected as variable too.
+* (bluefox) fix some font sizes
+* (bluefox) fix undo
+* (bluefox) fix themes change
+* (bluefox) optimize load of pages
+* (bluefox) check license
+* (bluefox) fix basic views 8
+* (bluefox) fix time picker if opened in dialog
 
 ### 0.14.0 (2017-04-10)
-* (bluefox) obligatorische Lizenzeingabe hinzufügen
+* (bluefox) add mandatory license input
 
 ### 0.12.7 (2017-02-09)
-* (bluefox) Beta vorbereiten
+* (bluefox) prepare beta
 
 ### 0.12.6 (2017-01-29)
-* (pmant) Ansichtskopie korrigieren
-* (pmant) Verbesserungen am Kontextmenü
-* (pmant) Usability-Verbesserungen für beide Ansichts-Dropdowns
-* (bluefox) kleiner Fehler beim Ziehen
+* (pmant) fix view copy
+* (pmant) Improvements to context menu
+* (pmant) usability improvements for both view dropdowns
+* (bluefox) small fix of dragging
 
 ### 0.12.6 (2017-01-29)
-* (pmant) Dropdown-Menü zur Ansichtsleiste hinzufügen
-* (pmant) Widgets Widget-Selektor nach Namen sortieren
-* (bluefox) fix groupAttr in Signalen und Sichtbarkeit
+* (pmant) add dropdown menu to views bar
+* (pmant) sort widgets widget selector by name
+* (bluefox) fix groupAttr in signals and visibility
 
 ### 0.12.2 (2016-12-04)
-* (bluefox) Fehler bei der Gruppierung beheben
+* (bluefox) fix errors with grouping
 
 ### 0.12.1 (2016-11-30)
-* (bluefox) Fehler mit Containern beheben
+* (bluefox) fix errors with containers
 
 ### 0.12.0 (2016-11-24)
-* (bluefox) Abonnementmodus für schnelleres Laden des Status
-* (bluefox) Gruppierung hinzufügen
+* (bluefox) subscribe mode for faster state loading
+* (bluefox) add grouping
 
 ### 0.10.15 (2016-11-06)
-* (bluefox) wetter-adapter.html entfernen
-* (bluefox) config.js bereinigen
-* (bluefox) alte Widgets entfernen
-* (bluefox) verbessert die Authentifizierung in der App
-* (bluefox) ermöglicht das Erstellen von Instanzen aus dem Helfer-Widget
+* (bluefox) remove weather-adapter.html
+* (bluefox) clean config.js
+* (bluefox) remove old widgets
+* (bluefox) improve authentication in app
+* (bluefox) allow creation of instance from helper widget
 
 ### 0.10.14 (2016-10-09)
-* (bluefox) Rendering von Widgets korrigiert
-* (bluefox) arbeitet an relativen Positionen.
-* (bluefox) Widgets zerstören, bevor Ansichten gelöscht werden
+* (bluefox) fix rendering of widgets
+* (bluefox) working on relative positions.
+* (bluefox) destroy widgets before views deletion
 
 ### 0.10.13 (2016-09-23)
-* (bluefox) Fehler für iPad 1 behoben
-* (bluefox) beginnen mit der Arbeit an relativen Positionen
+* (bluefox) fixed errors for iPad 1
+* (bluefox) start working on relative positions
 
 ### 0.10.12 (2016-09-16)
-* (bluefox) Gruppenspezifische Sichtbarkeit von Widgets und Ansichten
+* (bluefox) group specific visibility of widgets and views
 
 ### 0.10.11 (2016-09-15)
-* (bluefox) Fix für iOS 10
-* (bluefox) ermöglichen das Deaktivieren von Gruppen für die Leistung
+* (bluefox) fix for iOS 10
+* (bluefox) allow disabling of groups for performance
 
 ### 0.10.10 (2016-09-14)
-* (bluefox) text2speech-Widget hinzufügen
-* (bluefox) versuchen, das Problem mit iOS 10 zu beheben
+* (bluefox) add text2speech widget
+* (bluefox) try to fix problem with iOS 10
 
 ### 0.10.9 (2016-09-04)
-* (bluefox) Unterstützung von Web-Sockets force
-* (bluefox) vernichten ungenutzte Ansichten nach 30 Sekunden
-* (bluefox) zeigen keine mittleren Führungslinien, wenn oben und unten angezeigt werden
-* (bluefox) lassen Sie Zeitstempel und letzte Änderung, um die Zeit als Intervall anzuzeigen
+* (bluefox) support of web-sockets force
+* (bluefox) destroy unused views after 30 seconds
+* (bluefox) do not show middle leading lines if top and bottom are shown
+* (bluefox) let timestamp and last-change to show time as interval
 
 ### 0.10.7 (2016-07-09)
-* (bluefox) füge Einstellungen hinzu, um Vis neu zu laden
-* (bluefox) dunklen Reload-Bildschirm hinzufügen
-* (bluefox) Nachladeintervall korrigiert
-* (bluefox) exportieren/importieren
-* (bluefox) globales Skript hinzufügen
-* (bluefox) füge 'nicht vorhanden'/'nicht bestehen'/'existieren' zu Signal und Sichtbarkeit hinzu
-* (bluefox) OIDs im Editor korrigieren
+* (bluefox) add settings to reload vis
+* (bluefox) add dark reload screen
+* (bluefox) fix reload interval
+* (bluefox) export/import
+* (bluefox) add global script
+* (bluefox) add 'not exist'/'not consist'/'exist' to signal and visibility
+* (bluefox) fix OIDs in editor
 
 ### 0.10.5 (2016-06-15)
-* (bluefox) Fix ID-Auswahldialog
-* (bluefox) füge Hilfslinien zum Ausrichten hinzu
-* (bluefox) Daten niemals im Nicht-Bearbeitungsmodus speichern
+* (bluefox) fix select ID dialog
+* (bluefox) add align help lines
+* (bluefox) never store data in non-edit mode
 
 ### 0.10.4 (2016-06-14)
-* (bluefox) Drag & Resize korrigiert
-* (Patrick) QuoJS reparieren
-* (bluefox) Unterstützung von Millisekunden in formatDate
-* (bluefox) Unterstützung von getHistory
-* (bluefox) Unterstützung von Show-History-Instanzen
-* (bluefox) Gitter
-* (bluefox) Vorschauen hinzufügen
+* (bluefox) fix drag and resize
+* (Patrick) fix QuoJS
+* (bluefox) support of milliseconds in formatDate
+* (bluefox) support of getHistory
+* (bluefox) support of show history instances
+* (bluefox) grid
+* (bluefox) add previews
 
 ### 0.10.3 (2016-05-30)
-* (bluefox) canJS aktualisieren
-* (pmant) behebt Fehler mit Dialogen auf Touchscreens
-* (bluefox) speedUP zeigt Attribute bei 300ms
-* (bluefox) Klick auf Widget behoben, wenn Signal aktiv ist
+* (bluefox) update canJS
+* (pmant) fixes bugs with dialogs on touchscreens
+* (bluefox) speedUP show attributes at 300ms
+* (bluefox) fix click on widget if signal is active
 
 ### 0.10.2 (2016-05-24)
-* (bluefox) Widgets mit Zeitstempeln reparieren
+* (bluefox) fix widgets with timestamps
 
 ### 0.10.1 (2016-05-23)
-* (bluefox) Version ändern
+* (bluefox) change version
 
 ### 0.10.0 (2016-05-23)
-* (bluefox) übersetzt
-* (bluefox) Fix 'keine Widgets ausgewählt'
-* (bluefox) Widget-Symbole ändern
-* (bluefox) Signale hinzufügen
-* (bluefox) app.css für Cordova hinzufügen
-* (bluefox) Vorschau der Symbole ändern
-* (bluefox) Eigenschaften des Widgets als Symbol anzeigen
-* (bluefox) Fehler mit externen Befehlen beheben
-* (bluefox) Typensymbol zur Vorschau hinzufügen
-* (bluefox) unterstützt die Bearbeitung auf dem iPad1
-* (bluefox) Sicherheitseinstellungen ändern
+* (bluefox) translates
+* (bluefox) fix 'no widgets selected'
+* (bluefox) change widget icons
+* (bluefox) add signals
+* (bluefox) add app.css for cordova
+* (bluefox) change icons preview
+* (bluefox) show properties of widget as icon
+* (bluefox) fix error with external commands
+* (bluefox) add types icon to preview
+* (bluefox) support edit on iPad1
+* (bluefox) change security settings
 
 ## License
 To use this adapter in ioBroker you need to accept the source code license of the adapter. The source code of this adapter is available under the CC BY-NC license.

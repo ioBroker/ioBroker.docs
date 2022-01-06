@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: 1ahOGAFjQ9aWMdBggyYXYcPi2WGo/G0LX9Dkdl2fsfc=
+hash: nnXsKz3juS39hcO+utnX+rMe1wxQo2NkyGEEbvN2u9E=
 ---
 ![标识](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
@@ -32,7 +32,7 @@ hash: 1ahOGAFjQ9aWMdBggyYXYcPi2WGo/G0LX9Dkdl2fsfc=
 
 另一个功能是向 ebusd 发送任何命令并接收答案以使用例如脚本。
 
-当前支持的 ebusd 版本：21.2
+当前支持的 ebusd 版本：21.3
 
 ##如何向ebusd发送命令
 1. 在数据点 ebus.0.cmd 上写入单个命令或命令列表
@@ -44,7 +44,7 @@ hash: 1ahOGAFjQ9aWMdBggyYXYcPi2WGo/G0LX9Dkdl2fsfc=
 
 结果也是逗号分隔的例子：2000, ERR: element not found, 10.5
 
-注意：命令执行后数据点ebus.0.cmd中的命令被删除！
+注意：datapoint ebus.0.cmd 中的命令在命令执行后被删除！
 
 ＃＃ 已知的问题
 * 如果您发现错误或想要新功能，请在 [github](https://github.com/rg-engineering/ioBroker.ebus/issues) 创建问题
@@ -56,7 +56,7 @@ hash: 1ahOGAFjQ9aWMdBggyYXYcPi2WGo/G0LX9Dkdl2fsfc=
 * (René) 参见问题 #55：错误修复
 
 ## 2.4.0 (2021-10-17)
-* (René) 对读取数据点和历史数据点的过度处理，可选添加电路
+* (René) 读取数据点和历史数据点的过度处理，可选添加电路
 * (René) 命令现在可以包含多个命令，只需用“,”分隔命令
 * (René) 参见问题 #55：警告更改为调试消息
 
@@ -154,6 +154,20 @@ hash: 1ahOGAFjQ9aWMdBggyYXYcPi2WGo/G0LX9Dkdl2fsfc=
 * (René) 初始版本
 
 ## Changelog
+
+### 2.5.1 (2021-12-29)
+* (René) adjustable retries to send data if arbitration error appeared
+
+### 2.5.0 (2021-12-28)
+* (René) see issue #62: support ebusd 21.3
+
+### 2.4.5 (2021-11-07)
+* (René) bug fix color of labels in widget
+
+### 2.4.4 (2021-10-30)
+* (René) see issue #59: avoid endless loop
+* (René) update flot to 4.2.2
+* (René) bug fix missing space in command when using circuit name
 
 ## License
 Copyright (C) <2017 - 2021>  <info@rg-engineering.eu>

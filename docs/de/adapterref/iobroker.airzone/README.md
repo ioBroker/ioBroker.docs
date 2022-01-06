@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.airzone/README.md
 title: kein Titel
-hash: yZDbaH/uK+xigaCMr6To8q2Ea7LpCHjYeNmpJLdPP1s=
+hash: XwG96QW3meP0EEQkf8Aa8h9uD9yOVYyR/PJdmFPZhJ0=
 ---
 ![Logo](../../../en/adapterref/iobroker.airzone/admin/Airzone.png)<br> https://airzonecloud.com/
 
@@ -11,17 +11,22 @@ hash: yZDbaH/uK+xigaCMr6To8q2Ea7LpCHjYeNmpJLdPP1s=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.airzone.svg)
 ![Stabil](http://iobroker.live/badges/airzone-stable.svg)
 ![Eingerichtet](http://iobroker.live/badges/airzone-installed.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/SilentPhoenix11/iobroker.airzone.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/SilentPhoenix11/ioBroker.airzone/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.airzone.png?downloads=true)
 
 Steuern und überwachen Sie airzone-Geräte mit ioBroker.
 
 [![Build-Status](https://travis-ci.com/SilentPhoenix11/ioBroker.airzone.svg?branch=master)](https://travis-ci.com/github/SilentPhoenix11/ioBroker.airzone)
 
-**Tests:**
-
 ## Changelog
+### 2.0.3
+* (SilentPhoenix11) Small fixes
+
+### 2.0.2
+* (SilentPhoenix11) Small fixes
+
+### 2.0.1
+* (SilentPhoenix11) Small fixes
+
 ### 2.0.0
 * (SilentPhoenix11) Using the local API instead of cloud web service.
 

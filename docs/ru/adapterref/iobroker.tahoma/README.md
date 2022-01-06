@@ -3,14 +3,13 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tahoma/README.md
 title: ioBroker.tahoma
-hash: rvkM68eo+sAHuB+Ix4e454/xTBej0K9Cv6XYzR4jUZE=
+hash: 4RvjgcKT8BpJS82hcxtsqN+anPTF/TTwFeBUdNhdkOE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tahoma/admin/tahoma.png)
 
 ![НПМ](https://nodei.co/npm/iobroker.tahoma.png?downloads=true)
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.tahoma.svg)
 ![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
-![Статус зависимости](https://img.shields.io/david/Excodibur/iobroker.schwoerer-ventcube.svg)
 ![Количество установок (последнее)](http://iobroker.live/badges/tahoma-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/tahoma-stable.svg)
 ![Уровень языка: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Excodibur/ioBroker.tahoma.svg?logo=lgtm&logoWidth=18)
@@ -25,12 +24,12 @@ hash: rvkM68eo+sAHuB+Ix4e454/xTBej0K9Cv6XYzR4jUZE=
 Адаптер подключается к API конечного пользователя Tahomalink и управляет устройствами, настроенными через Tahoma Box (и, скорее всего, Connexoon).
 Адаптер еще не является полнофункциональным, но он должен поддерживать большинство действий по управлению жалюзи, ставнями и т. Д.
 
-Пожалуйста, также сначала прочтите [часто задаваемые вопросы](https://github.com/Excodibur/ioBroker.tahoma/blob/master/FAQ.md) в случае возникновения проблем.
+Пожалуйста, также сначала прочтите [Вопросы-Ответы](https://github.com/Excodibur/ioBroker.tahoma/blob/master/FAQ.md) в случае возникновения проблем.
 
 ## Протестированные в настоящее время устройства
 Как правило, этот адаптер должен поддерживать все устройства, к которым можно получить доступ через __tahomalink.com__, но для разработчика адаптера это сложно гарантировать. В основном потому, что документация по используемому Somfy-API (по крайней мере, публично) не существует, и разработчик может тестировать только устройства Somfy, которые ему принадлежат, или может тестировать при поддержке желающих участников.
 
-Следующие устройства Somfy были проверены для работы с этим адаптером:
+Следующие устройства Somfy были проверены на совместимость с этим адаптером:
 
 - S&SO RS100 io
 - Oximo io
@@ -49,7 +48,7 @@ hash: rvkM68eo+sAHuB+Ix4e454/xTBej0K9Cv6XYzR4jUZE=
 | Попытки входа в систему <sup>1</sup> <sup>2</sup> | `3` | Количество попыток повторного входа в систему после неудачной попытки входа. |
 | Задержка между попытками входа в систему <sup>1</sup> <sup>2</sup> | `30` | Время (в секундах) ожидания между попытками входа в систему. |
 | Задержка после неудачного входа в систему <sup>1</sup> <sup>2</sup> | `120` | Время (в секундах) ожидания после неудачных попыток входа в систему. |
-| Задержка перед повторной попыткой применения очереди <sup>1</sup> <sup>2</sup> | `1500` | Время (в миллисекундах) ожидания, прежде чем будет сделана вторая попытка отправить изменения из внутренней очереди применения в Tahoma в случае, если они были потеряны. |
+| Задержка перед повторной попыткой applyqueue <sup>1</sup> <sup>2</sup> | `1500` | Время (в миллисекундах) ожидания, прежде чем будет сделана вторая попытка отправить изменения из внутренней очереди применения в Tahoma в случае, если они были потеряны. |
 | Задержка перед повторной попыткой применения очереди <sup>1</sup> <sup>2</sup> | `1500` | Время (в миллисекундах) ожидания, прежде чем будет сделана вторая попытка отправить изменения из внутренней очереди применения в Tahoma в случае, если они были потеряны. |
 
 <sup>1</sup> Эти значения конфигурации видны и настраиваются только в Admin 5 (новый графический интерфейс) или более поздней версии.
@@ -72,7 +71,7 @@ hash: rvkM68eo+sAHuB+Ix4e454/xTBej0K9Cv6XYzR4jUZE=
 
 | Состояние устройства | Редактируемый | Назначение / Описание |
 |-------------------------------------------------------------|----------|---------------------|
-| _tahoma.X.devices. *. states.core: DeploymentState_ | & # 10003; | Предоставляет информацию и контролирует состояние текущего развертывания. 100 означает, что развернут полностью, 0 - развернут. Не все устройства имеют это значение, у некоторых вместо него есть `ClosureState`. |
+| _tahoma.X.devices. *. states.core: DeploymentState_ | & # 10003; | Предоставляет информацию и контролирует состояние текущего развертывания. 100 означает полностью развернутый, 0 - развернутый. Не все устройства имеют это значение, у некоторых вместо него есть `ClosureState`. |
 | _tahoma.X.devices. *. states.coreClosureState_ | & # 10003; | Предоставляет информацию и контролирует состояние текущего закрытия. 100 означает полностью закрыто, 0 открыто. Не все устройства имеют это значение, у некоторых вместо него есть `DeploymentState`. |
 | _tahoma.X.devices. *. states.core: TargetClosureState_ | & # 10003; | См. `tahoma.X.devices.*.states.core:ClosureState` |
 | _tahoma.X.devices. *. states.core: TargetClosureState_ | & # 10003; | См. `Tahoma.X.devices. *. States.core: ClosureState` |
@@ -80,7 +79,7 @@ hash: rvkM68eo+sAHuB+Ix4e454/xTBej0K9Cv6XYzR4jUZE=
 | _tahoma.X.devices. *. states.core: TargetOrientationState_ | & # 10003; | См. `Tahoma.X.devices. *. States.core: OrientationState` |
 | _tahoma.X.devices. *. states.core: OpenClosedState_ | | Содержит `closed`, если устройство закрыто на 100% или 0% развернуто, и `open` в противном случае. |
 | _tahoma.X.devices. *. states.core: OpenClosedState_ | | Содержит «закрыто», если устройство закрыто на 100% или развернуто на 0%, и «открыто» в противном случае. |
-| _tahoma.X.devices. *. states.core: PriorityLockTimerState_ | | Если датчик заблокировал устройство, это указано здесь, например. грамм. датчик ветра, блокирующий тент. |
+| _tahoma.X.devices. *. states.core: PriorityLockTimerState_ | | Если датчик заблокировал устройство, это указано здесь, например. г. датчик ветра, блокирующий тент. |
 | _tahoma.X.devices. *. states.core: StatusState_ | | `available`, если устройство в данный момент доступно. |
 | _tahoma.X.devices. *. states.io:PriorityLockLevelState_ | | См. `tahoma.X.devices.*.states.core:PriorityLockTimerState` |
 | _tahoma.X.devices. *. states.io:PriorityLockOriginatorState_ | | См. `tahoma.X.devices.*.states.core:PriorityLockTimerState` |

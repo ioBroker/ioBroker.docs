@@ -30,6 +30,10 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
+### 1.3.0 (01.01.2022)
+* (HombachC) added optional support for analog inputs
+### 1.2.1 (24.12.2021)
+* (HombachC) introduced rounding of battery temp
 ### 1.2.0 (16.12.2021)
 * (HombachC) dropped node.js 10 support; bumped dependencies; fixed vulnerability
 ### 1.1.13 (16.10.2021)
@@ -41,8 +45,6 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 * (HombachC) bumped dependencies; fixed vulnerability
 ### 1.1.7 (09.05.2021)
 * (HombachC) added tests for node.js 16; fixed vulnerability
-### 1.1.6 (02.03.2021)
-* (HombachC) changes for new year 2021
 ### 1.1.3 (23.11.2020)
 * (HombachC) added battery.Voltage; added additional error handler; bumped dependencies
 ### 1.1.1 (09.10.2020) stable
@@ -67,7 +69,7 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ## License
 MIT License
 
-Copyright (c) 2020 - 2021 HombachC
+Copyright (c) 2020 - 2022 HombachC
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

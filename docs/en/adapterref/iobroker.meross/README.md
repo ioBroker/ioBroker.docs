@@ -34,6 +34,10 @@ Please use GitHub issues for this.
 Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Add support for MTS200 Wifi Thermostat
+
 ### 1.7.1 (2021-11-13)
 * (Apollon77) Allow to enter passwords with more than 15 characters
 
@@ -127,7 +131,7 @@ Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2022 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

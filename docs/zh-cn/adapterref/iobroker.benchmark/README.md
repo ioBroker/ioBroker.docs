@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.benchmark/README.md
 title: ioBroker.benchmark
-hash: rUUVjscVITKtSuwB4lU6fnF6HH/VHoidSaVqBT9yIds=
+hash: LU96JGHKXloPMFqc3GQppX/Dbx2Oh014A6g0xNHAq6A=
 ---
 ![标识](../../../en/adapterref/iobroker.benchmark/admin/benchmark.png)
 
@@ -11,7 +11,6 @@ hash: rUUVjscVITKtSuwB4lU6fnF6HH/VHoidSaVqBT9yIds=
 ![下载](https://img.shields.io/npm/dm/iobroker.benchmark.svg)
 ![安装数量](https://iobroker.live/badges/benchmark-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/benchmark-stable.svg)
-![依赖状态](https://img.shields.io/david/foxriver76/iobroker.benchmark.svg)
 ![新产品管理](https://nodei.co/npm/iobroker.benchmark.png?downloads=true)
 
 # IoBroker.benchmark
@@ -26,9 +25,31 @@ hash: rUUVjscVITKtSuwB4lU6fnF6HH/VHoidSaVqBT9yIds=
 
 ## 如何添加一个新的测试？
 1. 在 src/lib/activeTests 新建一个 TypeScript 文件，类继承自 TestUtils
-2. 定义测试的三（五）步（执行是自动测量的）
-3. 将你的测试添加到 src/lib/allTests.ts
-4. 为您的测试添加一个按钮和翻译到 admin/jsonConfig.json
+2. 定义测试的三（五）个步骤（执行是自动测量的）
+3. O可选：如果您的测试有一些要求，例如控制器需要`>=3.0.0`，请把要求传给
+
+父构造函数
+
+4. 将你的测试添加到 src/lib/allTests.ts
+5. 为您的测试添加一个按钮和翻译到 admin/jsonConfig.json
+
+### 测试要求
+有些测试可能有要求。如果系统不满足要求，测试将被跳过。
+在构造函数中，您应该将要求传递给父类，例如
+
+```typescript
+public constructor(adapter: AdapterInstance) {
+    super(adapter, {freeMemory: 2000});
+}
+```
+
+目前，支持以下要求：
+
+- `controllerVersion` - 如果测试了特定控制器版本引入的方法，则基准
+
+适配器不应尝试在不支持的控制器上运行这些测试
+
+- `freeMemory` - 定义测试所需的内存，这仅在您例如添加大量实例
 
 ## 测试说明
 ### 获取状态
@@ -72,6 +93,8 @@ hash: rUUVjscVITKtSuwB4lU6fnF6HH/VHoidSaVqBT9yIds=
 添加 30 个辅助实例，每个实例将设置 `iterations` 状态。在系统级别，实例并行设置这些状态，但在实例级别，前一个 `setState` 需要完成，直到设置下一个。
 该测试旨在对多核系统进行基准测试。
 
+__要求__：2 GB 可用内存
+
 ###状态删除
 通过 `delState` 删除 `iterations` 状态。
 
@@ -90,6 +113,9 @@ hash: rUUVjscVITKtSuwB4lU6fnF6HH/VHoidSaVqBT9yIds=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.0 (2022-01-01)
+* (foxriver76) we introduced `TestRequirements` which can define required memory, controller and node version
+
 ### 0.4.0 (2021-11-24)
 * (foxriver76) we introduced some categories in the user interface
 * (foxriver76) we switched to checkboxes to allow to execute a subset of all tests
@@ -164,7 +190,7 @@ hash: rUUVjscVITKtSuwB4lU6fnF6HH/VHoidSaVqBT9yIds=
 ## License
 MIT License
 
-Copyright (c) 2021 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2022 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

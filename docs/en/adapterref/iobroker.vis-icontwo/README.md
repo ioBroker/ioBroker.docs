@@ -61,7 +61,11 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
-### 0.83.0
+### 0.85.0
+
+• Neue Icons hinzugefügt (Wetter-Warnung & Navigation & Automobil)
+
+### 0.84.0
 
 • Neue Icons hinzugefügt (Devices)
 

@@ -5,8 +5,6 @@
 [![NPM version](https://img.shields.io/npm/v/iobroker.tahoma.svg)](https://www.npmjs.com/package/iobroker.tahoma)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/Excodibur/iobroker.tahoma/blob/master/LICENSE)
 
-[![Dependency Status](https://img.shields.io/david/Excodibur/iobroker.schwoerer-ventcube.svg)](https://david-dm.org/Excodibur/iobroker.tahoma)
-
 ![Number of Installations (latest)](http://iobroker.live/badges/tahoma-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/tahoma-stable.svg)
 

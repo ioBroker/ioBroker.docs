@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis/README.md
 title: 可视化
-hash: kZvMm0nxMRyvPu/c82Yj+LYf+ikbthYZ/GRRZUdVZQY=
+hash: ryhb2CuqQrlCuXb8bunK8iY61NxkSPTTXOCc7qhEKeE=
 ---
 ![标识](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
@@ -21,7 +21,7 @@ ioBroker 平台的 WEB 可视化。
 [在线演示](https://iobroker.click/)
 
 ## 对象绑定
-通常，大多数小部件都有 ObjectID 属性，该属性可以与某个对象 ID 值绑定。
+通常，大多数小部件都有 ObjectID 属性，该属性可以与对象 ID 的某个值绑定。
 但是还有另一种选择如何将小部件的 *any* 属性绑定到某个 ObjectID。
 
 只需写入属性 ```{object.id}``` ，它就会被绑定（不在编辑模式下）到这个对象的值。
@@ -112,7 +112,7 @@ Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(Ma
 * `language` - 可以是 `de`、`en` 或 `ru`。
 * `instance` - 浏览器实例
 * `login` - 是否需要登录（例如显示/隐藏注销按钮）
-* `local_*` - 如果状态名称从 `local_` 开始，它不会报告给 ioBroker，但会更新所有小部件，这取决于此状态。 （当前浏览器会话的局部变量）
+* `local_*` - 如果状态名称是从 `local_` 开始的，它不会报告给 ioBroker，但会更新所有小部件，这取决于这个状态。 （当前浏览器会话的局部变量）
 
 注意：要在计算中使用“:”（例如在字符串公式中），请改用“::”。
 
@@ -193,7 +193,7 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 您可以在菜单“设置...”中对其进行配置。如果您将时间间隔设置为“从不”，则永远不会重新加载页面。
 
 ###重新连接间隔
-如果断开连接，设置连接尝试之间的间隔。如果设置为 2 秒，它将每 2 秒尝试建立一次连接。
+如果断开连接，则设置连接尝试之间的间隔。如果设置为 2 秒，它将每 2 秒尝试建立一次连接。
 
 ### 黑暗的重新连接屏幕
 有时（在夜间）需要有黑暗的加载屏幕。使用此选项，您可以设置它。
@@ -205,313 +205,319 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 <!-- 下一版本的占位符（在行首）：
 
 ### __工作进行中__ -->
+
+## Changelog
+### 1.4.7 (2021-12-28)
+* (mswiege) Fixed subscribeOidAtRuntime if called with invalid IDs
+* (bluefox) Added support of license manager
+
 ### 1.4.6 (2021-11-20)
-* (bluefox) 即使没有互联网也添加了许可证检查
+* (bluefox) Added the license check even without internet
 
 ### 1.4.5 (2021-10-08)
-* (jens-maus) 向 content-security-policy 标头添加了 frame-src 规范，修复了与框架相关的内容阻塞问题（例如，使用 KioskPro iOS 应用程序）。
-* (bluefox) 通过许可证检查显示扩展错误消息
-* (Scrounger) 补丁可见性 oid 绑定
+* (jens-maus) Added frame-src spec to content-security-policy header fixing frame related content blocking issues (e.g. using KioskPro iOS app).
+* (bluefox) Showed the extended error messages by license check
+* (Scrounger) Patch visibility oid binding
 
 ### 1.4.4 (2021-08-31)
-* (jobe451) 允许在绑定对象 ID 中有“:”
+* (jobe451) Allowed to have ":" in the binding object IDs
 
 ### 1.4.3 (2021-07-11)
-* (bluefox) 添加了离线检查许可证的可能性（仅特殊一次）
+* (bluefox) Added possibility to check license offline (only special once)
 
 ### 1.4.0 (2021-07-01)
-* (bluefox) 更改了证书检查的路径
-* (thost96) 修复了适配器检查器发现的问题
+* (bluefox) Changed path for check of certificates 
+* (thost96) fixes for issues found by adapter-checker
 
 ### 1.3.10 (2021-05-25)
-* (bluefox) 修复了对 admin5 的支持
+* (bluefox) Fixed the support of admin5
 
 ### 1.3.9 (2021-04-29)
-* (agav99) 添加了对本地浏览器变量的支持
-* (Scrounger) 修复了宽度和高度中的 null 和 NaN 值的错误
-* (bluefox) 添加了对 admin5 的支持
+* (agav99) Added support of local browser variables
+* (Scrounger) Bug fix for null & NaN values in width and height
+* (bluefox) Added support for admin5
 
 ### 1.3.8 (2021-03-03)
-* (bluefox) 修复了 iOS Safari 和 android 上的播放声音
-* (Scrounger) visEditInspect: 添加格式维度
-* (foxriver76) 用 GitHub 操作替换 travis 和 appveyor
-* (Excodibur) 允许资源作为 blob 加载
-* (Excodibur ) 允许资源作为 blob 加载
+* (bluefox) fix play sounds on iOS Safari an android
+* (Scrounger) visEditInspect: format dimension added
+* (foxriver76) Replace travis and appveyor by the GitHub actions
+* (Excodibur) Allow resources to be loaded as blob
+* (Excodibur ) Allow resources to be loaded as blob
 
 ### 1.3.7 (2021-01-20)
-* (Scrounger) 错误修正 - 在 JSON 字符串中绑定
+* (Scrounger) Bug Fixed - Binding in JSON string
 
 ### 1.3.6 (2020-12-13)
-* (twonky4) 更正：旧浏览器问题
-* (rbaranga) 更正：在 iOS Safari 上播放声音
-* (Scrounger) 添加了可选参数以支持 Material Design Widgets
+* (twonky4) Corrected: old browser issue
+* (rbaranga) Corrected: play sounds on iOS Safari
+* (Scrounger) Added the optional arguments to support Material Design Widgets
 
 ### 1.3.4 (2020-10-04)
-* (foxriver76) 更正了旧设备上的错误
+* (foxriver76) Corrected the error on older devices
 
 ### 1.3.3 (2020-09-21)
-* (bluefox) 返回去抖动设置
-* (bluefox) 更正了 {username} 绑定的错误
-* (bluefox) 修复了“显示上次更改”选项
+* (bluefox) Return de-bounce settings back
+* (bluefox) Corrected error with {username} binding
+* (bluefox) Fixed "show last change" option
 
 ### 1.3.1 (2020-09-18)
-* (bluefox) 为输入小部件添加了自动对焦选项
+* (bluefox) Added the auto-focus option to the input widgets
 
 ### 1.3.0 (2020-09-17)
-* (foxriver76) 在挂起的 getStates 上，重试而不是丢弃
-* (foxriver76) 修复了文件管理器的拼写错误
-* (Scrounger) 为绑定添加了 momentDate
+* (foxriver76) on pending getStates, try again instead of drop
+* (foxriver76) fixed the file manager typos
+* (Scrounger) Added momentDate for the bindings
 
 ### 1.2.12 (2020-09-08)
-* (foxriver76) 只解析数组和 json 对象，不解析布尔值、普通字符串等
+* (foxriver76) only parse arrays and json objects, not booleans, normal strings etc
 
 ### 1.2.11 (2020-08-25)
-* (bluefox) 关于未找到图表视图的错误消息已修复。
+* (bluefox) The error message about the non-found chart view was fixed.
 
 ### 1.2.10 (2020-08-23)
-* (gsicilia82/fceller) JSON 字符串将在 VIS 绑定中解析
+* (gsicilia82/fceller) JSON strings will be parsed in VIS bindings
 
 ### 1.2.9 (2020-08-22)
-* (bluefox) 图表现在支持
+* (bluefox) Charts are now supported
 
 ### 1.2.6 (2020-03-22)
-* (bluefox) 如果无法解析许可证，则添加了更好的错误消息
+* (bluefox) Added the better error message if license could not be parsed
 
 ### 1.2.4 (2020-02-11)
-* (bluefox) 表格小部件使用选定的对象 ID 进行了扩展。
+* (bluefox) Table widget was extended with the selected object ID.
 
 ### 1.2.3 (2019-12-14)
-* (bluefox) 对许可证处理进行了小幅更改
+* (bluefox) Small changes in license handling were made
 
 ### 1.2.2 (2019-10-27)
-* (bluefox) js-controller 2.0 的准备工作。检查未定义和空值。
+* (bluefox) Preparations for js-controller 2.0. Check undefined adn null.
 
 ### 1.2.1 (2019-09-10)
-* (bluefox) 固定上传文件
+* (bluefox) fixed upload of files
 
 ### 1.2.0 (2019-05-07)
-* (bluefox) 添加翻译
+* (bluefox) add translations
 
 ### 1.1.11 (2019-02-07)
-* (bluefox) 改进 Bool HTML
+* (bluefox) improve Bool HTML
 
 ### 1.1.10 (2019-01-30)
-* 添加中文支持
+* Add Chinese support
 
 ### 1.1.8 (2018-10-29)
-* (bluefox) 文件对话框已更正
+* (bluefox) File dialog was corrected
 
 ### 1.1.7 (2018-07-24)
-* (bluefox) view8 更正
+* (bluefox) view8 corrected
 
 ### 1.1.6 (2018-07-18)
-* (bluefox) 支持新变量（见 [特殊绑定](#special-bindings) ）
-* (bluefox) 修复快速视图更改时的错误
-* (bluefox) 修复“jqui - ctrl - IconState / val - Icon Bool”
+* (bluefox) support of new variables (see [Special bindings](#special-bindings) )
+* (bluefox) fix error if fast view changes
+* (bluefox) fix "jqui - ctrl - IconState / val - Icon Bool"
 
 ### 1.1.5 (2018-06-10)
-* (bluefox) 如果无法呈现小部件，则显示更多信息
-* (bluefox) 修复小部件的保存（如果它们有绑定）
-* (bluefox) 显示错误堆栈
-* (bluefox) 修复绑定
-* (Apollon77) 修复测试
-* (bluefox) 修复了 iobroker.pro 和外部 socket.io 设置
-* (bluefox) 一个用户变量被添加到绑定中。
-* (bluefox) 固定小部件选项卡
+* (bluefox) show more information if widget cannot be rendered
+* (bluefox) fix saving of widgets if they have bindings
+* (bluefox) show error stack
+* (bluefox) fix binding
+* (Apollon77) fix testing
+* (bluefox) fix for iobroker.pro and external socket.io settings
+* (bluefox) A user variable was added into bindings.
+* (bluefox) Fixed widget tabs
 
 ### 1.1.4 (2018-04-23)
-* (bluefox) 修复 bool SVG
+* (bluefox) fix bool SVG
 
 ### 1.1.3 (2018-04-12)
-* (bluefox) 通过在触摸设备上滚动来忽略点击
-* (bluefox) 移除错误状态 vis.0.command
-* (bluefox) 使用 jPlot 修复错误
-* (bluefox) 在编辑模式下更好的小部件行为（基本，jqui）
-* 修复配置对话框
+* (bluefox) ignore click by scrolling on touch devices
+* (bluefox) remove wrong state vis.0.command
+* (bluefox) fix error with jPlot
+* (bluefox) better widget behaviour in edit Mode (basic, jqui)
+* Fix config dialog
 
 ### 1.1.2 (2018-02-02)
-* (bluefox) 修复项目保存问题
-* (bluefox) 修复背景选择器
-* (bluefox) 修复空指针问题
-* (bluefox) 修复选择助手
-* 更新翻译
+* (bluefox) Fixing the saving of project
+* (bluefox) Fixing the background selector
+* (bluefox) Fixing the null pointer problem
+* (bluefox) Fixing the selection helper
+* Update translations
 
 ### 1.1.1 (2018-01-07)
-* (bluefox) 修复了触摸设备上视图变化的问题
+* (bluefox) The problem with view change on the touch devices fixed
 
 ### 1.0.5 (2017-11-19)
-* (bluefox) 显示每个项目中的数据点数
+* (bluefox) show number of data points in every project
 
 ### 1.0.4 (2017-10-22)
-* (bluefox) 为视图 CSS 选项添加自动完成功能
-* (bluefox) 更改视图 CSS 背景选项的编辑
+* (bluefox) Add autocomplete for view CSS options
+* (bluefox) change edit of view CSS background options
 
 ### 1.0.3 (2017-10-20)
-* (bluefox) 修复无效绑定的解析
-* (bluefox) 添加moment.js
+* (bluefox) Fix parse of invalid bindings
+* (bluefox) add moment.js
 
-### 1.0.0 候选版本 (2017-10-13)
-* (bluefox) 修复 iframe 和图像更新
-* (bluefox) 修复字体
+### 1.0.0 release candidate (2017-10-13)
+* (bluefox) fix iframe and image updates
+* (bluefox) fix fonts
 
 ### 0.15.7 (2017-10-01)
-* (bluefox) 允许在没有额外查询的情况下更新图像（但它仅适用于某些非常特定的情况）
-* (bluefox) iframe 的缩放
+* (bluefox) allow update of images without additional query (but it works only in some very specific cases)
+* (bluefox) zoom of iframes
 
 ### 0.15.5 (2017-07-24)
-* (bluefox) 修复小部件上传
+* (bluefox) Fix widgets upload
 
 ### 0.15.4 (2017-07-19)
-* (bluefox) 添加滑动
+* (bluefox) Add swipe
 
 ### 0.15.3 (2017-07-12)
-* (bluefox) 添加全屏小部件
-* (bluefox) 修复时间戳小部件
+* (bluefox) Add full screen widget
+* (bluefox) Fix timestamp widget
 
 ### 0.15.2 (2017-07-07)
-* (bluefox) 如果 OID 中有“-”，则修复绑定
+* (bluefox) Fix binding if it has "-" in the OID
 
 ### 0.15.1 (2017-06-30)
-* (bluefox) 修复上下文菜单错误
-* (bluefox) 允许添加类查看
+* (bluefox) Fix error with context menu
+* (bluefox) Allow adding of class to view
 
 ### 0.15.0 (2017-05-25)
-* (bluefox) 修复分组小部件的副本
-* (bluefox) 修复订阅如果为空状态
+* (bluefox) fix copy of grouped widgets
+* (bluefox) fix subscribe if empty states
 
 ### 0.14.7 (2017-05-19)
-* (bluefox) 添加模板
+* (bluefox) add templates
 
 ### 0.14.6 (2017-05-16)
-* (bluefox) 按组选择修复错误
-* (apollon77) 修复 jqui-dialog 以自动打开
+* (bluefox) Fix error by groups selection
+* (apollon77) fix jqui-dialog for auto-open
 
 ### 0.14.3 (2017-05-11)
-* (bluefox) 修复分组小部件的导出/导入
+* (bluefox) fix export/import of grouped widgets
 
 ### 0.14.2 (2017-04-29)
-* (bluefox) 修复安装错误
+* (bluefox) Fix install error
 
 ### 0.14.1 (2017-04-27)
-* (bluefox) 将 beta 移至 main
-* (bluefox) 修复选择过滤器
-* (bluefox) 如果某些视图不存在，则修复错误
-* (bluefox) 修复绑定问题，例如“a:-45?0”也被检测为变量。
-* (bluefox) 修复一些字体大小
-* (bluefox) 修复撤销
-* (bluefox) 修复主题更改
-* (bluefox) 优化页面加载
-* (bluefox) 检查许可证
-* (bluefox) 修复基本视图 8
-* (bluefox) 在对话框中打开时修复时间选择器
+* (bluefox) move beta to main
+* (bluefox) fix choose filter
+* (bluefox) fix error if some views do not exist
+* (bluefox) fix binding problem, e.g. "a:-45?0" was detected as variable too.
+* (bluefox) fix some font sizes
+* (bluefox) fix undo
+* (bluefox) fix themes change
+* (bluefox) optimize load of pages
+* (bluefox) check license
+* (bluefox) fix basic views 8
+* (bluefox) fix time picker if opened in dialog
 
 ### 0.14.0 (2017-04-10)
-* (bluefox) 添加强制许可输入
+* (bluefox) add mandatory license input
 
 ### 0.12.7 (2017-02-09)
-* (bluefox) 准备测试版
+* (bluefox) prepare beta
 
 ### 0.12.6 (2017-01-29)
-* (pmant) 修复视图副本
-* (pmant) 上下文菜单的改进
-* (pmant) 两个视图下拉菜单的可用性改进
-* (bluefox) 拖动的小修复
+* (pmant) fix view copy
+* (pmant) Improvements to context menu
+* (pmant) usability improvements for both view dropdowns
+* (bluefox) small fix of dragging
 
 ### 0.12.6 (2017-01-29)
-* (pmant) 向视图栏添加下拉菜单
-* (pmant) 按名称排序小部件小部件选择器
-* (bluefox) 修复信号和可见性中的 groupAttr
+* (pmant) add dropdown menu to views bar
+* (pmant) sort widgets widget selector by name
+* (bluefox) fix groupAttr in signals and visibility
 
 ### 0.12.2 (2016-12-04)
-* (bluefox) 修复分组错误
+* (bluefox) fix errors with grouping
 
 ### 0.12.1 (2016-11-30)
-* (bluefox) 修复容器错误
+* (bluefox) fix errors with containers
 
 ### 0.12.0 (2016-11-24)
-* (bluefox) 订阅模式以加快状态加载
-* (bluefox) 添加分组
+* (bluefox) subscribe mode for faster state loading
+* (bluefox) add grouping
 
 ### 0.10.15 (2016-11-06)
-* (bluefox) 移除 weather-adapter.html
-* (bluefox) 清理 config.js
-* (bluefox) 删除旧的小部件
-* (bluefox) 改进应用程序中的身份验证
-* (bluefox) 允许从助手小部件创建实例
+* (bluefox) remove weather-adapter.html
+* (bluefox) clean config.js
+* (bluefox) remove old widgets
+* (bluefox) improve authentication in app
+* (bluefox) allow creation of instance from helper widget
 
 ### 0.10.14 (2016-10-09)
-* (bluefox) 修复小部件的渲染
-* (bluefox) 处理相对位置。
-* (bluefox) 在删除视图之前销毁小部件
+* (bluefox) fix rendering of widgets
+* (bluefox) working on relative positions.
+* (bluefox) destroy widgets before views deletion
 
 ### 0.10.13 (2016-09-23)
-* (bluefox) 修复了 iPad 1 的错误
-* (bluefox) 开始处理相对位置
+* (bluefox) fixed errors for iPad 1
+* (bluefox) start working on relative positions
 
 ### 0.10.12 (2016-09-16)
-* (bluefox) 对小部件和视图的特定可见性进行分组
+* (bluefox) group specific visibility of widgets and views
 
 ### 0.10.11 (2016-09-15)
-* (bluefox) 修复了 iOS 10
-* (bluefox) 允许禁用组以提高性能
+* (bluefox) fix for iOS 10
+* (bluefox) allow disabling of groups for performance
 
 ### 0.10.10 (2016-09-14)
-* (bluefox) 添加 text2speech 小部件
-* (bluefox) 尝试修复 iOS 10 的问题
+* (bluefox) add text2speech widget
+* (bluefox) try to fix problem with iOS 10
 
 ### 0.10.9 (2016-09-04)
-* (bluefox) 支持 web-sockets force
-* (bluefox) 在 30 秒后销毁未使用的视图
-* (bluefox) 如果显示顶部和底部，则不显示中间引导线
-* (bluefox) 让时间戳和上次更改将时间显示为间隔
+* (bluefox) support of web-sockets force
+* (bluefox) destroy unused views after 30 seconds
+* (bluefox) do not show middle leading lines if top and bottom are shown
+* (bluefox) let timestamp and last-change to show time as interval
 
 ### 0.10.7 (2016-07-09)
-* (bluefox) 添加设置以重新加载 vis
-* (bluefox) 添加黑暗的重新加载屏幕
-* (bluefox) 修复重新加载间隔
-* (bluefox) 导出/导入
-* (bluefox) 添加全局脚本
-* (bluefox) 添加“不存在”/“不包含”/“存在”以显示信号和可见性
-* (bluefox) 在编辑器中修复 OID
+* (bluefox) add settings to reload vis
+* (bluefox) add dark reload screen
+* (bluefox) fix reload interval
+* (bluefox) export/import
+* (bluefox) add global script
+* (bluefox) add 'not exist'/'not consist'/'exist' to signal and visibility
+* (bluefox) fix OIDs in editor
 
 ### 0.10.5 (2016-06-15)
-* (bluefox) 修复选择 ID 对话框
-* (bluefox) 添加对齐帮助行
-* (bluefox) 从不以非编辑模式存储数据
+* (bluefox) fix select ID dialog
+* (bluefox) add align help lines
+* (bluefox) never store data in non-edit mode
 
 ### 0.10.4 (2016-06-14)
-* (bluefox) 修复拖动和调整大小
-* (Patrick) 修复 QuoJS
-* (bluefox) 在 formatDate 中支持毫秒
-* (bluefox) 支持 getHistory
-* (bluefox) 支持显示历史实例
-*（蓝狐）网格
-* (bluefox) 添加预览
+* (bluefox) fix drag and resize
+* (Patrick) fix QuoJS
+* (bluefox) support of milliseconds in formatDate
+* (bluefox) support of getHistory
+* (bluefox) support of show history instances
+* (bluefox) grid
+* (bluefox) add previews
 
 ### 0.10.3 (2016-05-30)
-* (bluefox) 更新 canJS
-* (pmant) 修复了触摸屏上的对话框错误
-* (bluefox) speedUP 在 300ms 显示属性
-* (bluefox) 如果信号处于活动状态，则修复点击小部件
+* (bluefox) update canJS
+* (pmant) fixes bugs with dialogs on touchscreens
+* (bluefox) speedUP show attributes at 300ms
+* (bluefox) fix click on widget if signal is active
 
 ### 0.10.2 (2016-05-24)
-* (bluefox) 修复带有时间戳的小部件
+* (bluefox) fix widgets with timestamps
 
 ### 0.10.1 (2016-05-23)
-* (bluefox) 更改版本
+* (bluefox) change version
 
 ### 0.10.0 (2016-05-23)
-* (bluefox) 翻译
-* (bluefox) 修复“未选择小部件”
-* (bluefox) 更改小部件图标
-* (bluefox) 添加信号
-* (bluefox) 为cordova 添加app.css
-* (bluefox) 更改图标预览
-* (bluefox) 将小部件的属性显示为图标
-* (bluefox) 使用外部命令修复错误
-* (bluefox) 添加类型图标来预览
-* (bluefox) 支持在 iPad1 上编辑
-* (bluefox) 更改安全设置
+* (bluefox) translates
+* (bluefox) fix 'no widgets selected'
+* (bluefox) change widget icons
+* (bluefox) add signals
+* (bluefox) add app.css for cordova
+* (bluefox) change icons preview
+* (bluefox) show properties of widget as icon
+* (bluefox) fix error with external commands
+* (bluefox) add types icon to preview
+* (bluefox) support edit on iPad1
+* (bluefox) change security settings
 
 ## License
 To use this adapter in ioBroker you need to accept the source code license of the adapter. The source code of this adapter is available under the CC BY-NC license.

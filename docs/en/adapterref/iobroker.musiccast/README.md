@@ -199,6 +199,13 @@ The following objects are currently implemented:
 * dialog level
 
 ## Changelog
+#### 0.2.2
+* musiccast API 0.0.14
+
+#### 0.2.1
+* license 2022
+* dependency correction
+
 #### 0.2.0
 * refactoring with "create adaptor"
 * async/await
@@ -273,4 +280,4 @@ The following objects are currently implemented:
 
 The MIT License (MIT)
 
-Copyright (c) 2017 - 2021 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2017 - 2022 foxthefox <foxthefox@wysiwis.net>

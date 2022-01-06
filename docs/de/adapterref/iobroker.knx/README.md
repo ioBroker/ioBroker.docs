@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: 9DvpHKCTIHIMwhDwzpDcMpqDPywwi/RPchy/iVWToTw=
+hash: bl3CznWkrEh+2Q7Rhomezf1lH07US0VXcWE8S5D5Hhw=
 ---
 ![Logo](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
@@ -25,6 +25,7 @@ hash: 9DvpHKCTIHIMwhDwzpDcMpqDPywwi/RPchy/iVWToTw=
     * [Wie der Import funktioniert](#wie-der-Import funktioniert)
     * [Problemvermeidung](#Problemvermeidung)
 * [GA-Tool](#ga-Tool)
+    * [Direct Link non-KNX State to KNX vice-verse](#direct-link-non-knx-state-to-knx-vice-verse)
 * [Geplante Funktionen](#geplante-Funktionen)
 * [Änderungsprotokoll](#Änderungsprotokoll)
 
@@ -53,9 +54,11 @@ Ohne diese Anforderungen ist der Adapter nicht installierbar oder funktioniert n
 * Generieren einer ETS-ähnlichen Objektstruktur
 * Act-Channel und State-Channel finden und kombinieren (Heuristik)
 * Aktualisierung aller Zustände beim Start
+* keine Cloud oder Internet erforderlich
 * Ausgeben eines READ auf den KNX-Bus, während auf das Zustandsobjekt geschrieben wird
 * GA-Objekte mit GA-Tools bearbeiten und modifizieren
 * Bearbeiten und Modifizieren von State-Act-Beziehungen mit GA-Tools
+* NEU: Direktlink Nicht-KNX State zulassen (umgekehrt)
 
 ##Adapterkonfiguration
 Öffnen Sie nach der Installation dieses Adapters die Adapterkonfiguration.
@@ -114,7 +117,7 @@ Wenn der Adapter erfolgreich startet, stehen Ihre Datenpunkte für alles zur Ver
 ### Datenpunkttypen (DPT)
 Es stehen alle DPTs gemäß "System Specifications, Interworking, Datapointtypes" der KNX Association zur Verfügung. Das bedeutet, dass Sie 2 Arten von Informationen erhalten können: 1) einen Wert oder eine Zeichenfolge 2) durch Kommas getrennte Werte oder ein Array von Werten (im Moment weiß ich nicht, wie ich damit besser umgehen soll)
 
-Zum Beispiel wird ein DPT5.001 als unsigned Integer mit 8-Bit codiert. Dies ergibt einen einzelnen Wert. Das DPT3.007 (Control Dimming) ist als 1Bit(Boolean)+3Bit(unsigned Int) codiert.
+Beispielsweise wird ein DPT5.001 als unsigned Integer mit 8-Bit codiert. Dies ergibt einen einzelnen Wert. Das DPT3.007 (Control Dimming) ist als 1Bit(Boolean)+3Bit(unsigned Int) codiert.
 Dies ergibt z.B. in einem Wert wie "0,5", wobei "0" "verringern" bedeutet und "5" die Anzahl der Intervalle bedeutet.
 
 ### So funktioniert der Import
@@ -194,6 +197,27 @@ Wenn mehr GAs zum Ändern der Eigenschaften vorhanden sind, verwenden Sie die Me
 2. Eigenschaften zum Ändern
 3. es ist keine Änderung möglich
 
+### Direct Link Nicht-KNX-Zustand zu KNX umgekehrt
+Seit Adapter Version 2.0.6 ist es möglich einen Nicht-KNX ioBroker Zustand direkt mit einem GA zu verknüpfen. Damit können Uhrzeit, Datum, beliebige Zustände oder Infos auf KNX übernommen werden. (ein kleiner Hinweis: Sie können jede Ihrer IOT-Komponenten direkt mit einem GA in KNX verknüpfen (z. B. einen Homematic-Taster mit einem KNX-GA oder einen KNX-Tastensensor mit Ihrem sonosplayer verknüpfen)). Die Zustände können mit einem GroupValueRead gelesen werden und werden bei Zustandsänderungen automatisch auf KNX aktualisiert. Auch wenn Sie auf KNX ändern, wird das verknüpfte Nicht-KNX-IOT-Gerät aktualisiert.
+
+![knxV2-3-7-GATools-Directlink-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-7-GATools-DirectLink-mod.jpg)
+
+1. Wählen Sie das GA aus, mit dem Sie eine Verbindung herstellen möchten
+2. zeige das ausgewählte GA
+3. Dieses GA muss das Attribut **write** haben
+4. Wählen Sie einen gültigen Datenpunkttyp (wenn sie nicht übereinstimmen, funktioniert es nicht)
+5. Es ist nicht erlaubt, eine Akt-Zustand-Beziehung zu haben
+6. Schaltfläche zum Auswählen eines Nicht-KNX-Objekts zum Verknüpfen
+
+![knxV2-3-8-GATools-Directlink-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-8-GATools-DirectLink-mod.jpg)
+
+1. Wählen Sie das Nicht-KNX-Objekt aus, das Sie verknüpfen möchten
+2. drück ok, wenn du fertig bist
+
+![knxV2-3-9-GATools-Directlink-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-9-GATools-DirectLink-mod.jpg)
+
+Jetzt ist KNX-GA **(1)** direkt mit dem Nicht-KNX-Iobroker **(2)** verbunden. Mit **(3)** können Sie diese Relation löschen.
+
 ## Geplante Funktionen
 * esf-Import
 * GA-Mon-Busüberwachungstool
@@ -207,6 +231,17 @@ Wenn mehr GAs zum Ändern der Eigenschaften vorhanden sind, verwenden Sie die Me
 Der Entwickler ist nicht in der Lage, weitere spezielle Informationen über das System/die Konfiguration/Benutzer/die Umgebung zu erhalten. Falls keine Lizenz gefunden wird, wird auch die Adapterversion und die Host-ID gemeldet.
 
 ## Changelog
+### 2.0.8
+* fixed bug with unackn write
+* fixed bug in linkedState
+
+### 2.0.7
+* fixed bug with unable to write on KNX
+
+### 2.0.6
+* fixed problem on ETSv6 import
+* many small bugfixes
+* implemented GA-Tools directLink feature
 
 ### 2.0.5
 
@@ -484,6 +519,10 @@ Der Entwickler ist nicht in der Lage, weitere spezielle Informationen über das 
 * (bluefox) initial release
 
 ## License
+
+For <500 datapoints there is no need of registration or adding a license key. If you have more then 500 datapoints you need a license. You can choose  
+between yearly and permanent licence.
+
 To use this adapter in ioBroker you need to accept the source code license of the adapter. The source code of this adapter is available under the CC-NC-BY license.
 
 Additionally you need a license to use the adapter. The license editions are available on [https://iobroker.net/www/pricing](https://iobroker.net/www/pricing)

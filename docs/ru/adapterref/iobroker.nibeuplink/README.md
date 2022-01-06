@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nibeuplink/README.md
 title: ioBroker.nibeuplink
-hash: cjjGm0FdVBXbp+xpl9i/RT7FphwFcBG+CCKacpPdkgQ=
+hash: a3twA+2BPt/B3GFjCJUFHP/wN3Pl+BTVqpc9VlDEAio=
 ---
 # IoBroker.nibeuplink
 
@@ -30,20 +30,42 @@ hash: cjjGm0FdVBXbp+xpl9i/RT7FphwFcBG+CCKacpPdkgQ=
 9. Примите Соглашение об услугах NIBE Uplink API и нажмите «Создать приложение».
 10. Тогда вы получите Идентификатор и Секрет - они нам нужны.
 11. Установите этот адаптер в ioBroker.
-12. На странице настроек адаптера заполните Идентификатор и Секрет.
+12. На странице настроек адаптера укажите Идентификатор и Секрет.
 13. Щелкните ссылку «Щелкните здесь, чтобы сгенерировать код аутентификации на NIBE Uplink».
-14. Следуйте инструкциям. В конце вы получите свой код сборщика nibe
+14. Следуйте инструкциям. В конце вы получите код сборщика nibe
 15. Скопируйте этот код и вставьте его в настройки адаптера в «Auth Code».
 16. Введите свой системный идентификатор из URL-адреса восходящей ссылки Nibe.
 17. Выберите свой язык.
 18. Нажмите "Сохранить и закрыть".
 
-Если вы (позже) получите в журнале ошибку «400 неверных запросов», вы должны получить новый код авторизации - так же поступайте с номерами с 13 по 15 и 18.
+Если вы (позже) получите в журнале ошибку «400 неверных запросов», вы должны получить новый код авторизации - также как и номера с 13 по 15 и 18.
+
+## Поддержка управления / записи
+Кажется, вы можете изменить список параметров только на следующей веб-странице:
+
+https://api.nibeuplink.com/docs/v1/Parameters (раздел настроек)
+
+Параметр hot_water_boost - это идентификатор параметра 48132.
+
+Вы можете читать другие значения, но я думаю, что вы не можете записать другие значения. Здесь перечислены другие значения:
+
+https://github.com/sebilm/ioBroker.nibeuplink/blob/master/nibe-fetcher.js#L41
 
 ## Changelog
 
-### 0.5.2
-* Change Callback URL to own GitHub Pages
+### 1.0.1 - 2021-12-31
+* Fix write support #6
+
+### 1.0.0 - 2021-12-30
+* Support to manage Nibe heat pump (write support #6)
+  - You need to run the new version 30 minutes and then get a new AuthCode in the settings to use it!
+
+### 0.5.3 - 2021-11-21
+* Bump dependencies
+
+### 0.5.2 - 2021-07-04
+* Change default callback URL to own GitHub Pages
+* Bump dependencies
 
 ### 0.5.1 - 2021-05-14
 * Store 'no current connection error' as empty string, not null

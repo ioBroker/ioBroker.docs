@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: 1ahOGAFjQ9aWMdBggyYXYcPi2WGo/G0LX9Dkdl2fsfc=
+hash: nnXsKz3juS39hcO+utnX+rMe1wxQo2NkyGEEbvN2u9E=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
@@ -32,13 +32,13 @@ hash: 1ahOGAFjQ9aWMdBggyYXYcPi2WGo/G0LX9Dkdl2fsfc=
 
 Еще одна функция - отправить любую команду в ebusd и получить ответ для работы, например. скрипты.
 
-текущая поддерживаемая версия ebusd: 21.2
+текущая поддерживаемая версия ebusd: 21.3
 
 ## Как отправлять команды в ebusd
 1. напишите одну команду или список команд в datapoint ebus.0.cmd
 
 Если вы хотите использовать более одной команды, используйте, для разделения отдельных команд.
-пример: чтение -f YieldTotal, чтение LegioProtectionEnabled, чтение -f -c broadcast outsidetemp
+пример: читать -f YieldTotal, читать LegioProtectionEnabled, читать -f -c broadcast outsidetemp
 
 2. при выполнении команды вы получите результаты каждой команды в точке данных ebus.0.cmdResult
 
@@ -46,7 +46,7 @@ hash: 1ahOGAFjQ9aWMdBggyYXYcPi2WGo/G0LX9Dkdl2fsfc=
 
 Внимание: команда в datapoint ebus.0.cmd удаляется после выполнения команды!
 
-## Известные вопросы
+## Известные проблемы
 * пожалуйста, создавайте проблемы на [github] (https://github.com/rg-engineering/ioBroker.ebus/issues), если вы обнаружите ошибки или захотите новые функции
 
 ## 2.4.3 (2021-10-21)
@@ -58,7 +58,7 @@ hash: 1ahOGAFjQ9aWMdBggyYXYcPi2WGo/G0LX9Dkdl2fsfc=
 ## 2.4.0 (2021-10-17)
 * (René) чрезмерная работа с точками чтения и историческими данными, схема добавлена опционально
 * Команда (René) теперь может включать более одной команды, просто разделяя команды с помощью ','
-* (Рене) см. Проблему # 55: предупреждения заменены отладочными сообщениями.
+* (Рене) см. Проблему # 55: предупреждения заменены сообщениями отладки.
 
 ## 2.3.2 (02.09.2021)
 * (Рене) см. Выпуск # 49: поддержка ebusd 21.2
@@ -73,7 +73,7 @@ hash: 1ahOGAFjQ9aWMdBggyYXYcPi2WGo/G0LX9Dkdl2fsfc=
 * (René) зависимости обновлены
 
 ## 2.2.4 (17.02.2021)
-* (Рене) см. Проблему # 42: Uncaught ReferenceError: oView не определен в виджете, решена
+* (Рене) см. Проблему # 42: Неперехваченная ошибка ссылки: oView не определен в виджете, решена
 
 ## 2.2.3 (2020-10-24)
 * (Рене) создать историю DP, если она недоступна
@@ -83,7 +83,7 @@ hash: 1ahOGAFjQ9aWMdBggyYXYcPi2WGo/G0LX9Dkdl2fsfc=
 * (René) обновить зависимости
 
 ## 2.1.1 (27.06.2020)
-* (Рене) проблема № 26: исправление ошибки: "cmd not found" - это только сообщение об отладке, а не ошибка
+* (Рене) проблема № 26: исправление ошибки: «cmd не найден» - это только отладочное сообщение, а не ошибка
 
 ## 2.1.0 (17.06.2020)
 * (René) рефакторинг: используется async / await
@@ -122,7 +122,7 @@ hash: 1ahOGAFjQ9aWMdBggyYXYcPi2WGo/G0LX9Dkdl2fsfc=
 * (René) исправление ошибки: в vis 1.x некоторые значения не сохраняются
 
 ### 0.5.1
-* (René) исправление ошибки: если нечего опрашивать, пропустите telnet-соединение
+* (René) исправление ошибки: если нечего опрашивать, пропустите соединение telnet
 
 ### 0.5.0
 * (Рене) записывает дату по TCP в ebusd
@@ -138,11 +138,11 @@ hash: 1ahOGAFjQ9aWMdBggyYXYcPi2WGo/G0LX9Dkdl2fsfc=
 
 ### 0.3.0
 * (René) поддержка ebusd
-* (René) поддержка admin3
+* (René) admin3 поддержка
 
 ### 0.2.0
 * (Рене) добавить историю как JSON для vis
-* (René) добавить виджет на основе плавающего режима для отображения графика температуры, состояния и мощности
+* (René) добавить виджет на основе плавающего режима для отображения графика температуры, статуса и мощности
 
 ### 0.1.0
 * (René) запланированный адаптер вместо deamon
@@ -151,9 +151,23 @@ hash: 1ahOGAFjQ9aWMdBggyYXYcPi2WGo/G0LX9Dkdl2fsfc=
 * (Рене) Кодировка UTF8
 
 ### 0.0.2
-* (Рене) первый выпуск
+* (Рене) первоначальный выпуск
 
 ## Changelog
+
+### 2.5.1 (2021-12-29)
+* (René) adjustable retries to send data if arbitration error appeared
+
+### 2.5.0 (2021-12-28)
+* (René) see issue #62: support ebusd 21.3
+
+### 2.4.5 (2021-11-07)
+* (René) bug fix color of labels in widget
+
+### 2.4.4 (2021-10-30)
+* (René) see issue #59: avoid endless loop
+* (René) update flot to 4.2.2
+* (René) bug fix missing space in command when using circuit name
 
 ## License
 Copyright (C) <2017 - 2021>  <info@rg-engineering.eu>

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.twinkly/README.md
 title: ioBroker.twinkly
-hash: 8WLgtLIavDN5rEQxNMS7s+61/GA86fr/OsdTLsXzkWQ=
+hash: 2AkzmgVU11hLrQ0iNNizIIa/Kkg91b7iLSv0X1jkkBQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
@@ -30,10 +30,11 @@ hash: 8WLgtLIavDN5rEQxNMS7s+61/GA86fr/OsdTLsXzkWQ=
 В таблицу вы можете добавить все мерцающие огни, которыми хотите управлять.
 
 | Колонка | Описание |
-|--------------|------------------------------------|
+|--------------|----------------------------------------------------------------|
 | `Enabled` | Будет ли это соединение доступно |
 | `IP Address` | IP-адрес для мерцающих огней |
-| `IP-адрес` | IP-адрес для мерцающих огней |
+| `State On` | Какие `ledMode` должны быть активированы, когда состояние `on` включено |
+| `State On` | Какой `ledMode` должен быть активирован при включенном состоянии` on` |
 
 При установке флажка для каждого устройства создаются следующие дополнительные состояния:
 
@@ -48,19 +49,19 @@ hash: 8WLgtLIavDN5rEQxNMS7s+61/GA86fr/OsdTLsXzkWQ=
 | `connected` | : x: | Устройство подключено |
 | `firmware` | : x: | Версия прошивки |
 | `ledBri` | : heavy_check_mark: | Яркость (отключите управление с помощью -1) |
-| `ledColor` | : heavy_check_mark: | Цвет светодиодов, HSV / RGB (W) / HEX |
+| `ledColor` | : heavy_check_mark: | Цвет светодиодов, HSV / RGB (W) / HEX (`Color`) |
 | `ledConfig` | : heavy_check_mark: | Конфигурация светодиодов |
 | `ledEffect` | : heavy_check_mark: | Эффекты (`Effect`) |
 | `ledLayout` | : heavy_check_mark: | Расположение светодиодов (отключено для дальнейшего тестирования) |
 | `ledMode` | : heavy_check_mark: | Mode: Movie, Color, Effect, Playlist, Off, RealTime (пока не поддерживается), Demo |
-| `ledMovie` | : heavy_check_mark: | Активный фильм, если в функцию списка воспроизведения добавлено несколько фильмов, их можно выбрать здесь. (`Movie`) |
-| `ledPlaylist` | : heavy_check_mark: | Активная запись в плейлист, переключение между фильмами. (`Playlist`) |
+| `ledMovie` | : heavy_check_mark: | Активный фильм. Если в список воспроизведения добавлено несколько фильмов, их можно выбрать здесь. (`Movie`) |
+| `ledPlaylist` | : heavy_check_mark: | Активная запись в плейлисте, переключение между фильмами. (`Playlist`) |
 | `ledSat` | : heavy_check_mark: | Насыщенность 0-100 (отключите управление с помощью -1) |
 | `mqtt` | : heavy_check_mark: | MQTT-соединение |
 | `name` | : heavy_check_mark: | Имя |
 | `network` | : x: | Сетевая информация |
 | `on` | : heavy_check_mark: | Переключатель Вкл. / Выкл. |
-| `paused` | : heavy_check_mark: | Приостановите подключение к Twinkly, чтобы вы могли вносить изменения в приложение. В противном случае вы можете потерять соединение при работе в приложении |
+| `paused` | : heavy_check_mark: | Приостановите подключение к Twinkly, чтобы вы могли вносить изменения в приложение. В противном случае вы можете потерять соединение во время работы в приложении |
 | `timer` | : heavy_check_mark: | Обновите таймер |
 | `таймер` | : heavy_check_mark: | Обновите таймер |
 
@@ -70,6 +71,12 @@ hash: 8WLgtLIavDN5rEQxNMS7s+61/GA86fr/OsdTLsXzkWQ=
 * Максимальная длина названия фильма - 15 символов.
 
 ## Changelog
+
+### 0.2.11 (2022-01-02)
+* (patrickbs96) Add setting to select which ledMode should be activated
+
+### 0.2.10 (2021-12-31)
+* (patrickbs96) Add setting to enable automatically switching of Mode after State change (color, effect, movie, playlist)
 
 ### 0.2.8 (2021-12-20)
 * (patrickbs96) Rename mode On to movie as it's a better representation
@@ -130,7 +137,7 @@ hash: 8WLgtLIavDN5rEQxNMS7s+61/GA86fr/OsdTLsXzkWQ=
 ## License
 MIT License
 
-Copyright (c) 2021 patrickbs96 <patrickbsimon96@gmail.com>
+Copyright (c) 2022 patrickbs96 <patrickbsimon96@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

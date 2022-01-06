@@ -3,10 +3,8 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: Jz+axwoiVjZLSp1Vg3p37kgfRXnqhQm+0bFsDJF6LME=
+hash: 1mq5/OTYWIpPvTUkw0K4ZfYdjEUKY8D2kk9sCQcSzYA=
 ---
-# IoBroker.tado
-
 ![Anzahl der Installationen](http://iobroker.live/badges/tado-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.tado.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.tado.svg)
@@ -14,6 +12,7 @@ hash: Jz+axwoiVjZLSp1Vg3p37kgfRXnqhQm+0bFsDJF6LME=
 ![Bekannte Schwachstellen](https://snyk.io/test/github/DrozmotiX/ioBroker.tado/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.tado.png?downloads=true)
 
+#ioBroker.tado
 <img src="./admin/tado.png" width="50" height="50">
 
 [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
@@ -25,22 +24,6 @@ tado° sorgt für ein angenehmes und gesundes Klima und spart bis zu 31% Heizkos
 
 ## Unterstütze mich
 Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende zukommen lassen (dies ist ein persönlicher Spendenlink für DutchmanNL, kein Bezug zum ioBroker-Projekt ! [![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
-
-## Wichtige Änderungen in v0.3.x
-Empfehlung: Löschen Sie nach Möglichkeit zuerst die alte Adapterinstallation oder löschen Sie alle Zustände, damit keine nicht unterstützten Zustände in der Installation verbleiben.
-Upgrade von 0.2.x auf v0.3.x beinhaltet ein technisches Refactoring mit Breaking Changes. Einige Staaten haben ihren Namen/Pfad geändert, z.B.
-
-| v0.2.x | v0.3.x |
-| ------ | ------ |
-| tado.[x].[yyyyy].Rooms.[z].setting.temperature |tado.[x].[yyyyy].Rooms.[z].setting.temperature.celsius |
-| tado.[x].[yyyyy].Rooms.[z].overlay.clearZoneOverlay | tado.[x].[yyyyy].Rooms.[z].overlayClearZone |
-| tado.[x].[yyyyy].Rooms.[z].Actual_Temperature | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.insideTemperature.celsius |
-| tado.[x].[yyyyy].Rooms.[z].Actual_Humidity | tado.[x].[yyyyy].Rooms.[z].sensorDataPoints.humidity.percentage |
-| tado.[x].[yyyyy].Rooms.[z].heatingPower | tado.[x].[yyyyy].Rooms.[z]..activityDataPoints.heatingPower.percentage |
-| tado.[x].[yyyyy].Weather.solarIntensity | tado.[x].[yyyyy].Wetter.solarIntensity.percentage |
-| tado.[x].[yyyyy].Weather.outsideTemperature | tado.[x].[yyyyy].Weather.outsideTemperature.celsius |
-
-Im Allgemeinen sind Werte jetzt NULL, wenn die API NULL oder einfach nichts sendet. In v0.2.x wurde manchmal der alte Wert beibehalten, manchmal durch 0 ersetzt, manchmal wurde NULL verwendet.
 
 ## Dinge, die du steuern kannst
 | Staat | Beschreibung |
@@ -55,19 +38,22 @@ Im Allgemeinen sind Werte jetzt NULL, wenn die API NULL oder einfach nichts send
 | tado.[x].[yyyyyy].Heimatstaat.Präsenz | HOME- oder AWAY-Modus einstellen |
 | tado.[x].[yyyyyy].Home.masterswitch | Alle Geräte ein-/ausschalten |
 | tado.[x].[yyyyyy].Rooms.[z].setting.mode | AC-Modus (nur AC-Geräte) |
-| tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | Lüftergeschwindigkeit (nur AC-Geräte mit **alter** Version) |
-| tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | Fanlebel (nur AC-Geräte mit **neuer** Version) |
-| tado.[x].[yyyyyy].Rooms.[z].setting.verticalSwing | Vertikalschaukel (nur AC-Geräte mit **neuer** Version) |
-| tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | Horizontalschaukel (nur AC-Geräte mit **neuer** Version) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | Lüftergeschwindigkeit (nur AC-Geräte mit V3 und älteren Versionen) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | Fanlebel (nur AC-Geräte mit V3+ Version) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.verticalSwing | Vertikalschaukel (nur AC-Geräte mit Version V3+) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | Horizontale Schaukel (nur AC-Geräte mit V3 und älteren Versionen) |
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.13-alpha.3 (2021-12-07)
+### 0.3.13-alpha.9 (2021-12-24)
 * (HGlab01) Optimize internet-check by using isOnline-library
 * (HGlab01) Support Smart AC Control V3+ (issue #403)
+* (HGlab01) Fix issue 'fan level not allowed in mode DRY'
+* (HGlab01) Fix issue 'mode not in supported modes [COOL, HEAT, DRY, FAN, AUTO]'
+* (HGlab01) Fix issue 'temperature required for mode AUTO'
 
 ### 0.3.12 (2021-11-25)
 * (HGlab01) support attribute 'showScheduleSetup'

@@ -212,6 +212,10 @@ Der Offset kann alle Abholtermine im Kalender in die Zukunft oder in die Vergang
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.4.1 (2021-12-23)
+
+* (klein0r) Updated dependencies
+
 ### 1.4.0 (2021-12-10)
 
 * (klein0r) Allow to hide "not found" warnings for single trash types (like christmas tree pickup)

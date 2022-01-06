@@ -50,11 +50,14 @@ Better if every device belongs to both categories. Because every device has the 
 -->
 
 ## Changelog
+### 1.1.2 (2021-12-28)
+* (bluefox) Fixed double sending in the switch control
+
 ### 1.1.0 (2021-12-21)
 * (bluefox) Changed the light style to be looks like old style
 
 ### 1.0.6 (2021-10-29)
-* (bluefox) Added support of iobroker.material app
+* (bluefox) Added support of `iobroker.material` app
 
 ### 1.0.4 (2021-07-30)
 * (bluefox) Corrected the size of icons

@@ -20,6 +20,7 @@
     * [How the import works](#how-the-import-works)
     * [Avoidance of problems](#avoidance-of-problems)
 * [GA-Tool](#ga-tool)
+    * [Direct Link non-KNX state to KNX vice-verse](#direct-link-non-knx-state-to-knx-vice-verse)
 * [Planned features](#planned-features)
 * [Changelog](#changelog)
 
@@ -46,6 +47,10 @@ Before beginning: Every DPT of com.Objects should be set in your ETS project. Ev
 Without this requirements, the adapter is not installable or will work not properly.
 
 ## License requirements
+
+For <500 datapoints there is no need of registration or adding a license key. If you have more then 500 datapoints you need a license. You can choose  
+between yearly and permanent licence.
+
 To use this adapter in ioBroker you need to accept the source code license of the adapter. The source code of this adapter is available under the CC-NC-BY license.
 
 Additionally you need a license to use the adapter. The license editions are available on [https://iobroker.net/www/pricing](https://iobroker.net/www/pricing)
@@ -57,9 +62,11 @@ Additionally you need a license to use the adapter. The license editions are ava
 * generating ETS-like object structure
 * finding and combining act-channel and state-channel (heuristic)
 * updating all states on start
+* no cloud or internet needed
 * emitting a READ to the KNX-Bus, while writing on state-object
 * edit and modify GA objects with GA-Tools
 * edit and modify state-act relations with GA-Tools
+* NEW: allow non-KNX State direct link (vice-verse)
 
 ##Adapter configuration
 After installing this adapter, open the adapter configuration.
@@ -194,6 +201,32 @@ If there are more GA's to change properties, use multiselect. This feature works
 2. properties to change
 3. there is no change possible
 
+### Direct Link non-KNX state to KNX vice-verse
+Since Adapter Version 2.0.6 it is possible to link a non KNX ioBroker state directly to a GA. This
+can be used to apply time, date, any states or infos to KNX. (a small hint: you can link any of your
+IOT components directly to a GA in KNX (f.e. link a homematic button to a KNX GA or link a KNX buttonsensor to  
+your sonosplayer)). The states can be read with a GroupValueRead and if the states changes it will be
+automaticly updated on KNX. Also if you change on KNX it will update the linked non KNX iot device.
+
+![knxV2-3-7-GATools-Directlink-mod](/docs/pictures/knxV2-3-7-GATools-DirectLink-mod.jpg)
+
+1. select the GA to connect to
+2. show the selected GA
+3. this GA must have **write** attribute
+4. choose a valid datapointtype (if they don't match, it will not work)
+5. it is not allowed to have a act-state relation
+6. button to select a non KNX object to link with
+
+![knxV2-3-8-GATools-Directlink-mod](/docs/pictures/knxV2-3-8-GATools-DirectLink-mod.jpg)
+
+1. select the non-KNX object you want to link
+2. hit ok, if you're done
+
+![knxV2-3-9-GATools-Directlink-mod](/docs/pictures/knxV2-3-9-GATools-DirectLink-mod.jpg)
+
+Now is KNX-GA **(1)** directly linked with non-KNX iobroker **(2)**. With **(3)** you can delete this
+relation.
+
 ## Planned features
 
 * esf-import
@@ -205,6 +238,17 @@ If there are more GA's to change properties, use multiselect. This feature works
 -->
 
 ## Changelog
+### 2.0.8
+* fixed bug with unackn write
+* fixed bug in linkedState
+
+### 2.0.7
+* fixed bug with unable to write on KNX
+
+### 2.0.6
+* fixed problem on ETSv6 import
+* many small bugfixes
+* implemented GA-Tools directLink feature
 
 ### 2.0.5
 

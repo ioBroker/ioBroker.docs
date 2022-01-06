@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: Jz+axwoiVjZLSp1Vg3p37kgfRXnqhQm+0bFsDJF6LME=
+hash: 1mq5/OTYWIpPvTUkw0K4ZfYdjEUKY8D2kk9sCQcSzYA=
 ---
 # IoBroker.tado
 
@@ -26,22 +26,6 @@ tado ° обеспечивает комфортный и здоровый кли
 ## Поддержите меня
 Если вам нравятся мои работы, пожалуйста, сделайте личное пожертвование (это личная ссылка для пожертвований для DutchmanNL, не имеющая отношения к проекту ioBroker! [![Пожертвовать] (https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
-## Критические изменения в v0.3.x
-Рекомендация: Если возможно, сначала удалите старую установку адаптера или удалите все состояния, чтобы в установке не осталось неподдерживаемых состояний.
-Обновление с 0.2.x до v0.3.x включает техническое переоснащение с критическими изменениями. Некоторые состояния изменили там имя / путь, например.
-
-| v0.2.x | v0.3.x |
-| ------ | ------ |
-| tado. [x]. [yyyyy] .Rooms. [z] .setting.temperature | tado. [x]. [yyyyy] .Rooms. [z] .setting.temperature.celsius |
-| тадо. [x]. [yyyyy] .Rooms. [z] .overlay.clearZoneOverlay | тадо. [x]. [yyyyy] .Rooms. [z] .overlayClearZone |
-| tado. [x]. [yyyyy] .Rooms. [z] .Actual_Temperature | tado. [x]. [yyyyy] .Rooms. [z] .sensorDataPoints.insideTemperature.celsius |
-| тадо. [x]. [yyyyy] .Rooms. [z] .Actual_Humidity | tado. [x]. [yyyyy] .Rooms. [z] .sensorDataPoints.humidity.percentage |
-| тадо. [x]. [yyyyy] .Rooms. [z] .heatingPower | tado. [x]. [yyyyy] .Rooms. [z] .. activityDataPoints.heatingPower.percentage |
-| тадо. [x]. [yyyyy] .Weather.solarIntensity | тадо. [x]. [yyyyy] .Weather.solarIntensity.percentage |
-| tado. [x]. [yyyyy] .Weather.outsideTemperature | tado. [x]. [yyyyy] .Weather.outsideTemperature.celsius |
-
-В общем, vaules теперь NULL, если API отправляет NULL или просто ничего. В v0.2.x иногда сохранялось старое значение, иногда заменялось на 0, иногда использовалось NULL.
-
 ## Вещи, которыми можно управлять
 | Государство | Описание |
 | ----- | ----------- |
@@ -55,19 +39,22 @@ tado ° обеспечивает комфортный и здоровый кли
 | тадо. [x]. [yyyyyy] .Home.state.presence | Установите режим ДОМАШНИЙ или ВНЕЗАПНО |
 | тадо. [x]. [yyyyyy] .Home.masterswitch | Включение / выключение всех устройств |
 | тадо. [x]. [yyyyyy] .Rooms. [z] .setting.mode | Режим переменного тока (только устройства переменного тока) |
-| тадо. [x]. [yyyyyy] .Rooms. [z] .setting.fanspeed | Fanspeed (только устройства переменного тока со **старой** версией) |
-| тадо. [x]. [yyyyyy] .Rooms. [z] .setting.fanLebel | Fanlebel (только устройства переменного тока с **новой** версией) |
-| тадо. [x]. [yyyyyy] .Rooms. [z] .setting.verticalSwing | Вертикальный поворот (только устройства переменного тока с **новой** версией) |
-| tado. [x]. [yyyyyy] .Rooms. [z] .setting.horizontalSwing | Горизонтальный поворот (только устройства переменного тока с **новой** версией) |
+| тадо. [x]. [yyyyyy] .Rooms. [z] .setting.fanspeed | Fanspeed (только устройства переменного тока с версиями V3 и более ранними) |
+| тадо. [x]. [yyyyyy] .Rooms. [z] .setting.fanLebel | Fanlebel (только устройства переменного тока с версией V3 +) |
+| тадо. [x]. [yyyyyy] .Rooms. [z] .setting.verticalSwing | Вертикальный поворот (только устройства переменного тока с версией V3 +) |
+| tado. [x]. [yyyyyy] .Rooms. [z] .setting.horizontalSwing | Горизонтальный поворот (только устройства переменного тока с версиями V3 и более ранними) |
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.13-alpha.3 (2021-12-07)
+### 0.3.13-alpha.9 (2021-12-24)
 * (HGlab01) Optimize internet-check by using isOnline-library
 * (HGlab01) Support Smart AC Control V3+ (issue #403)
+* (HGlab01) Fix issue 'fan level not allowed in mode DRY'
+* (HGlab01) Fix issue 'mode not in supported modes [COOL, HEAT, DRY, FAN, AUTO]'
+* (HGlab01) Fix issue 'temperature required for mode AUTO'
 
 ### 0.3.12 (2021-11-25)
 * (HGlab01) support attribute 'showScheduleSetup'

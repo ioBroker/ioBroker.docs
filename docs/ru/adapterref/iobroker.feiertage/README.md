@@ -29,6 +29,10 @@ Only selected holidays count in the process.
 The adapter starts daily at midnight. Due to the nature of the subject, no higher frequency is required.
 
 ## Changelog
+### 1.1.0 (2021-12-26)
+* (bluefox) Formatting
+* (bluefox) fixed error with the events in the next year
+
 ### 1.0.23 (2021-05-27)
 * (pix, crycode-de) Code improved (timer)
 
