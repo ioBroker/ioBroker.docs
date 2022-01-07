@@ -115,6 +115,10 @@ The picture of the cat flap, hub and smartphone app is provided free to use from
 
 ## Changelog
 
+### 1.0.9 (2022-01-05)
+* (Sickboy78) removed old encrypt/decrypt from index_m
+* (Sickboy78) added adapter unloaded guard in case unload happens during data requests
+
 ### 1.0.8 (2021-11-22)
 * (Sickboy78) added food type, target weight and remaining food in feeder
 * (Sickboy78) added todays pet food consumption, times eaten and time spent
@@ -152,7 +156,7 @@ The picture of the cat flap, hub and smartphone app is provided free to use from
 
 MIT License
 
-Copyright (c) 2021 Sickboy78 <asmoday_666@gmx.de>
+Copyright (c) 2022 Sickboy78 <asmoday_666@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

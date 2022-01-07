@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: u6v5/vII34msyJoLiIgmj/0jxzaOACVq93/kCeWP82k=
+hash: ozQb7c15Y9oa27Ypg11kQh+LJ+ogAAT3yXOu3bH+dEI=
 ---
 ![Logo](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -34,28 +34,7 @@ hash: u6v5/vII34msyJoLiIgmj/0jxzaOACVq93/kCeWP82k=
 ## Iqontrol-Adapter für ioBroker
 Schnelle Web-App zur Visualisierung.
 
-![Bildschirmfoto](../../../en/adapterref/iobroker.iqontrol/img/screenshot_kueche.png)
-
-\
-![Bildschirmfoto](../../../en/adapterref/iobroker.iqontrol/img/screenshot_licht.png)
-
-\
-![Bildschirmfoto](../../../en/adapterref/iobroker.iqontrol/img/screenshot_heizung.png)
-
-\
-![Bildschirmfoto](../../../en/adapterref/iobroker.iqontrol/img/screenshot_rauchmelder.png)
-
-\
-![Bildschirmfoto](../../../en/adapterref/iobroker.iqontrol/img/screenshot_flot.png)
-
-\
-![Bildschirmfoto](../../../en/adapterref/iobroker.iqontrol/img/screenshot_dslraser.jpg "&Kopieren; von dslraser")
-
-\
-![Bildschirmfoto](../../../en/adapterref/iobroker.iqontrol/img/screenshot_muuulle.jpg "&Kopieren; von muuulle")
-
-\
-![Bildschirmfoto](../../../en/adapterref/iobroker.iqontrol/img/screenshot_peks-67.jpg "&Kopieren; von peks-67")
+<img src="img/screenshot_kueche.png" width="200"><img src="img/screenshot_licht.png" width="200"><img src="img/screenshot_heizung.png" width="200"><img src="img/screenshot_rauchmelder.png" width="200"><img src="img/screenshot_flot.png" width="200"><img src="img/screenshot_dslraser.jpg" width="200" alt="© von dslraser"> © von dslraser<img src="img/screenshot_muuulle.jpg" width="200" alt="© von muuulle"> © von muuulle<img src="img/screenshot_peks-67.jpg" width="200" alt="© von peks-67"> © von peks-64
 
 Läuft in jedem Browser.
 Einfach einzurichten, obwohl es vollständig anpassbar und reaktionsschnell ist.
@@ -440,9 +419,10 @@ Die kostenlosen integrierten Demo-Hintergründe sind von www.pexels.com.
 * 'Widget-URL-Parameter'
 * Syntax: `` <meta name="widget-urlparameters" content="parameter/default value/description/type;parameter2/default value2/description2/type2"/> ``
 * Der Benutzer wird nach diesen Parametern gefragt, wenn er das Widget als URL oder HINTERGRUND_URL auswählt oder ein Widget automatisch erstellt
-* ``type`` ist optional und kann ``text`` sein (dies ist falsch), ``number``, ``checkbox``, ``color``, ``select``, ``multipleSelect` `, ``combobox``, ``historyInstance``, ``datapoint``, ``icon``, ``section`` oder ``divider``
+* ``type`` ist optional und kann ``text`` sein (dies ist falsch), ``number``, ``checkbox``, ``color``, ``select``, ``multipleSelect` `, ``combobox``, ``historyInstance``, ``datapoint``, ``listJsonDatapoint``, ``icon``, ``section``, ``divider`` oder ``hidden``
 * Wenn der Typ ``select``, ``multipleSelect`` oder ``combobox`` ist, müssen Sie die möglichen Optionen angeben, indem Sie ``/<selectOptions>`` hinzufügen, wobei ``<selectOptions>`` a . ist String im Format ``<value1>,<caption1>/<value2>,<caption2>/...`` (Combobox ist eine Auswahlbox mit der Möglichkeit Freitext einzugeben)
 * Wenn type ``number`` ist, dann können min, max und step-width durch Hinzufügen von ``/<numberOptions>`` angegeben werden, wobei ``<numberOptions>`` ein String im Format ``<min> ist, <max>,<Schritt>``
+* Typ ``hidden`` wird an das Widget übergeben, aber es wird kein Konfigurationsdialog angezeigt
 * Alle diese Parameter werden der Widget-Website über einen URL-Parameter-String übergeben (wie ``widget.html?parameter=value&parameter2=value2``)
 * Sie können diese Einstellungen innerhalb Ihrer Widget-Website verwenden, indem Sie die URL-Parameter mit einer Funktion wie dieser anfordern:
 
@@ -1206,6 +1186,54 @@ Die kostenlosen integrierten Demo-Hintergründe sind von www.pexels.com.
 
 </details> </details>
 
+## Listen und Zähler
+iQontrol bietet ein leistungsstarkes Tool zum Erstellen dynamischer Listen und Zähler von Geräten und Zuständen.
+
+So können beispielsweise alle geöffneten Fenster automatisch gezählt und auch in einer Liste visualisiert werden. Ein weiteres Beispiel wären die aktuell im Haus eingeschalteten Lampen.
+
+Auch Servicemeldungen können so erstellt werden, beispielsweise durch Zählen der nicht erreichbaren Geräte oder der Geräte mit leerem Akku. iQontrol aktualisiert die Listen dann automatisch.
+
+Um die gezählten Geräte zu visualisieren, können Sie das Device-Counter-Widget verwenden, das eine einfache, aber dennoch hochgradig anpassbare Oberfläche bietet. Experten könnten auch das JSON-Table-Widget verwenden, das noch mehr Konfigurationsmöglichkeiten bietet (das Device-Counter-Widget ist eine vereinfachte Version des JSON-Table-Widget).
+
+### Erstelle eine Liste
+* Gehen Sie zur Registerkarte LISTEN/ZÄHLER, erstellen Sie eine Liste und geben Sie ihr einen eindeutigen Namen. Klicken Sie auf **Bearbeiten**
+* Im oberen Teil müssen Sie die **Selektoren** definieren:
+* Diese Liste wird von oben nach unten abgearbeitet.
+* An jeder Position können Sie Elemente hinzufügen oder entfernen, indem Sie Bedingungen definieren. Dadurch wird Ihre **TOTAL_LIST** generiert.
+* Bedingungen bestehen aus folgenden Teilen:
+* Modifikator: Elemente zur Liste hinzufügen oder entfernen
+* Typ: Wählen Sie aus, was der Liste hinzugefügt oder entfernt werden soll. Typ könnte sein:
+* **Alle** - selbsterklärend
+* **Aufzählung** - Nach Aufzählung filtern. Sie können Aufzählungen wie 'Räume', 'Funktionen' oder 'Fenster Obergeschoss' im ioBroker-Admin-Adapter definieren
+* **Aufzählung mit Childs** - Aufzählungen enthalten oft nur das Gerät ohne seinen Datenpunkt. Daher werden Sie meistens Enumeration with Childs verwenden, die automatisch auch die Datenpunkte einschließt
+* **ID** - Filtern Sie nach der ID von Datenpunkten, z. B. entfernen Sie IDs, die nicht mit '.color' oder '.saturation' enden
+* **Objekttyp** - Filter nach Objekttyp, der Gerät, Kanal, Zustand oder Aufzählung sein kann
+* **Typ** - Filtert nach dem allgemeinen.Typ des Datenpunkts, zum Beispiel string, number, boolean
+* **Rolle** - Filtert nach der gemeinsamen.Rolle des Datenpunkts. Dies ist einer der wichtigsten Filter, da jeder Datenpunkt eine gemeinsame.Rolle haben sollte, die beschreibt, wofür er steht, zum Beispiel switch, Indicator.unreach oder level.color.rgb. Es gibt viele gängige Rollen in ioBroker, schau dir einfach deine Datenpunkte an, der Admin-Adapter bietet eine Liste mit allen
+* Vergleichsoperatoren: Einige Typen können mit einem Wert verglichen werden. Der Operator steht für den durchgeführten Vergleich, wie 'ist größer als', 'ist kleiner als' oder für Strings 'beginnt mit' oder 'enthält':
+* Sie arbeiten nicht zwischen Groß- und Kleinschreibung (also 'Text' ist dasselbe wie 'Text')
+* Sie können auch mit mehreren Werten gleichzeitig vergleichen, wenn Sie eine durch Kommas getrennte Liste von Argumenten angeben
+* Beispiel: ``|remove|ID|does't end with|.error,.overheat|`` entfernt alle IDs, die nicht mit '.error' ODER mit '.overheat' enden
+* Wert: Der Wert, mit dem der Vergleichsoperator vergleicht
+* Sie können auch **nach Aliasnamen filtern**: Dies ist nützlich, wenn Sie beispielsweise eine Liste erstellen, die Geräte mit schwacher Batterie zählt. Aber Sie möchten nicht, dass sowohl das ursprüngliche Gerät als auch sein Alias gezählt werden. Filteralias sorgt also dafür, dass Datenpunkte, die einen Alias in der Liste haben, entfernt werden
+* Im unteren Teil können Sie **Zähler** definieren:
+* Sie können in Ihrer TOTAL_LIST mehrere Zähler definieren, die für bestimmte Bedingungen zählen. Nehmen wir an, Sie haben eine Liste mit all Ihren LOW-BATTERY-Datenpunkten erstellt. Nun wollen Sie zählen, wie viele davon gerade aktiv sind, also den Status 'true' haben. Das macht ein Zähler
+* Sie müssen jedem Zähler einen Namen zuweisen
+* Wenn Sie in den folgenden Zeilen das Namensfeld leer lassen, gehören alle Bedingungen zum obigen Zähler und müssen alle erfüllt sein
+* Die Zähler aktualisieren sich jedes Mal, wenn sich ein Datenpunkt in Ihrer TOTAL_LIST ändert
+* Zusätzlich können Sie ein bestimmtes **Zeitintervall** einstellen, in dem der Zähler aktualisiert wird (z. B. wenn Sie zählen, wie viele Geräte Sie mit einem Zeitstempel älter als 5 Minuten haben - dies erfordert eine regelmäßige Überprüfung)
+* Die Ergebnisse der Listen und Zähler werden in Datenpunkten gespeichert, die Sie unter iqontrol.x.Lists . finden
+
+### Beispiele
+* Dieses Beispiel zeigt, wie man eine UNREACH-Liste erstellt:
+
+	![Liste bearbeiten Unerreichbarkeit](../../../en/adapterref/iobroker.iqontrol/img/list_edit_unreach.png)
+
+* Die Selektoren fügen zuerst alle Datenpunkte mit der gemeinsamen Rolle 'indicator.unreach' hinzu
+* Es entfernt dann aber alle Datenpunkte mit 'STICKY_' in seiner ID (homematic liefert den STICKY_UNREACH-Indikator, den wir nicht zählen wollen)
+* Es filtert Duplikate nach Aliasen heraus
+* Zu guter Letzt werden alle Datenpunkte mit dem Wert 'true' gezählt, die diesen Zustand für mindestens 15 Sekunden haben
+
 ## Datenpunktkonfiguration ändern
 Sie können die Konfiguration von Datenpunkten über das Schraubenschlüssel-Symbol (oder besser das Zahnrad-Symbol in der neuen Reaktions-UI) hinter einem Datenpunkt im Geräte-Konfigurationsdialog oder im Objekt-Tab von iobroker ändern.
 
@@ -1323,7 +1351,7 @@ Optional können Sie folgende Zustände definieren:
 
 * Für farbige LEDs (HSB-Farbraum):
   ***HUE**:* ahl* - Lichtfarbe von 0-360° (Farbtonformat)
-  ***SATURATION**:* ahl* - Sättigung des Lichts (von weiß zu reiner Farbe)
+  ***SATURATION**:* nzahl* - Sättigung des Lichts (von weiß zu reiner Farbe)
   ***COLOR_BRIGHTNESS**:* nzahl* - die Helligkeit der farbigen LEDs (wenn Sie einen LEVEL-State haben und keine weißen LEDs, wird dies ignoriert, da die Helligkeit vollständig von LEVEL gesteuert wird)
 * Für weiße LEDs:
   ***CT**:* ahl* - Farbtemperatur des Lichts, wenn es zwei Weißtöne hat
@@ -1533,7 +1561,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 | | | Pms | Zeitraum von Millisekunden | X | --- | --- |
 | Flaggen | Fehlende Teile auf Anfang setzen | tb | Z.B. Datum auf 1970-01-01 setzen, wenn nur eine Uhrzeit angegeben wird | X | --- | --- |
 | | Fehlende Teile auf jetzt setzen | tn | Z.B. Datum auf jetzt setzen, wenn nur eine Uhrzeit angegeben wird | X | --- | --- |
-| | Alte fehlende Teile aufbewahren | zu | Z.B. Austrittsdatum wie bisher, wenn nur eine Uhrzeit angegeben wird | X | --- | --- |
+| | Alte fehlende Teile aufbewahren | nach | Z.B. Austrittsdatum wie bisher, wenn nur eine Uhrzeit angegeben wird | X | --- | --- |
 | Freitext | Freitext in Klammern markieren | [] | [dies ist ein Beispiel, alle Token werden ignoriert] | X | X | --- |
 
 * Wenn Sie unterschiedliche Konfigurationen für Datenpunkt-Zeitformat und Anzeige-Zeitformat verwenden, werden die folgenden Konvertierungsregeln verwendet.
@@ -1612,7 +1640,7 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
 ### Bei weiteren Problemen stellen Sie bitte das Log aus der Debugging-Konsole Ihres Browsers und Screenshots der fehlerhaften Zeile bereit:
 * Starten Sie iQonrol mit geöffneter Debugging-Konsole Ihres Browsers (meistens müssen Sie <kbd>F12</kbd> drücken, um sie zu öffnen)
 * Wechseln Sie in das Konsolenfenster und reproduzieren Sie den Fehler
-* Suchen Sie nach Nachrichten im Konsolenfenster
+* Suchen Sie im Konsolenfenster nach Nachrichten
 * Wenn Fehler auftreten, wird die Nummer der Zeile aufgelistet, die den Fehler verursacht hat
 * Bitte klicken Sie auf diese Zeilennummer und machen Sie einen Screenshot der fehlerhaften Zeile:
 
@@ -1635,9 +1663,13 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
 * (sbormann) Added import and export function to device options.
 * (sbormann) Added option to hide indicator icons if inactive, active or enlarged.
 * (sbormann) Added column-sorting to JSON-Table-Widget.
+* (sbormann) The JSON-Table-Widget accepts now simple lists (for example an array of datapoints).
 * (sbormann) Added widget-replaceurl to widgets, which allows creation of simplified widget-presets, as preparation for further development.
 * (sbormann) Added option to media-player to disable forced reload of cover-image on TITLE-change.
 * (sbormann) Small adjustmets for ALTERNATIVE_COLORSPACE.
+* (sbormann) Added widget-replaceurl as a widget configuration parameter.
+* (sbormann) Introducing a powerful new feature: Lists and Counters.
+* (sbormann) Added Device-Counter-Widget.
 
 ### 1.11.0 (2021-12-18)
 * (sbormann) Added the ability to globally change the default icons.

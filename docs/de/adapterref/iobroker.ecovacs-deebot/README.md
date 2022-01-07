@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: e2AlGkypQ/RBxghvtcGiFaB/CVfUMnY6vwh2J3aktVk=
+hash: 8NZ1eiNmphw0lfJjopIRN/qfZWJbmF6ZV/JqtlXNVh0=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -48,7 +48,7 @@ Die aufgeführten Modelle sind diejenigen, die ich selbst im Einsatz habe oder d
 * Deebot M88
 * Deebot 500
 * Deebot 600/601/605
-* Deebot 710/711/711s
+* Deebot 710/711
 * Deebot OZMO 610
 * Deebot OZMO 900/905
 * Deebot OZMO Slim 10/11
@@ -88,7 +88,7 @@ sudo npm install canvas --unsafe-perm=true
 
 Anweisungen für andere Systeme finden Sie unter https://www.npmjs.com/package/canvas#compiling
 
-## Verwendungszweck
+## Verwendung
 * Informationen zur Verwendung dieses Adapters finden Sie [hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
 
 ### Zustände
@@ -110,11 +110,18 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
 
 ## Changelog
 
+### 1.3.2 (alpha)
+
+* Recent updates
+
+### 1.3.1
+
+* Fix the cleaning functions for the Deebot 710 series
+
 ### 1.3.0
 
 * Using library version 0.7.0 (beta)
 * The minimum required version of Node.js is now 12.x
-* Fix the cleaning functions for the Deebot 710 series
 * Some improvements for newer models (e.g. T9 series)
 * Some other improvements and fixes
 

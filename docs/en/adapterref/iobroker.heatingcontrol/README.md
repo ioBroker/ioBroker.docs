@@ -246,8 +246,12 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
-### 2.8.2 (2021-12-30)
+### 2.8.3 (2022-01-06)
+* (René) see issue #286: Loading the configuration fixed
+
+### 2.8.2 (2022-01-04)
 * (René) see issue #285: absent and VacationAbsent exchanged to check reduced mode
+* (René) see issue #271: ack flag set only if it's in own namespace, external DP'S acks are not set anymore
 
 ### 2.8.1 (2021-12-29)
 * (René) see issue #283: show internal and external temperature sensors in room status

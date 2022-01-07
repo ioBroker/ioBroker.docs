@@ -217,6 +217,10 @@ It is NOT required to use the ical option. You can also define all birthday date
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.2.0 (2022-01-06)
+
+* (klein0r) Added option to ignore certificate errors
+
 ### 0.1.8 (2022-01-03)
 
 * (klein0r) Birthdays on 29th of February create NaN objects

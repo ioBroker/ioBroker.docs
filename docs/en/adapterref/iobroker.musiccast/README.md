@@ -199,6 +199,13 @@ The following objects are currently implemented:
 * dialog level
 
 ## Changelog
+## 1.0.0 BREAKING CHANGES
+* the deviceId was previously the systemId, which is not unique. Now the deviceId is used, this is changing the object tree
+* musiccast API 2.0.0
+* device search can now returns more than 1 device
+* new output for developer in the the admin panel
+* more async/await
+
 #### 0.2.2
 * musiccast API 0.0.14
 

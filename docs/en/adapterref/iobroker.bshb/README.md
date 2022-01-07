@@ -35,6 +35,10 @@ If you want to support the work I would appreciate a small donation. This is 100
 
 ## Changelog
 
+### 0.1.17
+* (holomekc) add yale values for door lock
+* (holomekc) update states on startup
+
 ### 0.1.16
 * (holomekc) when scenarioTriggered received the adapter will shortly update the scenario state to true and after 1s back to false. This allows to directly listen to triggered scenarios even when not triggered from iobroker.
   Behavior if triggered from iobroker:

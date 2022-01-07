@@ -45,7 +45,7 @@ The models listed are those that I have in use myself or which are technically i
 * Deebot M88
 * Deebot 500
 * Deebot 600/601/605
-* Deebot 710/711/711s
+* Deebot 710/711
 * Deebot OZMO 610
 * Deebot OZMO 900/905
 * Deebot OZMO Slim 10/11
@@ -107,6 +107,10 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 * Some "cleaninglog" states are empty on T9 series ("last20Logs", "lastCleaningDate" and "lastCleaningMapImageURL")
 
 ## Changelog
+
+### 1.3.2 (alpha)
+
+* Recent updates
 
 ### 1.3.1
 
