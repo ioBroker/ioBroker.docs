@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meross/README.md
 title: ioBroker.meross
-hash: ycVwOhJYFRlqUHHqOuuO0OFy5Dx2wEtuAs5lKT/7VjE=
+hash: C8mfqCpHbJp+lHIzqw+XNTb9He6Zko83hjyeUHzB+NI=
 ---
 ![Logo](../../../en/adapterref/iobroker.meross/admin/meross-logo.png)
 
@@ -21,25 +21,42 @@ Dieser Adapter ermöglicht die Steuerung von Meross-Geräten durch Verbindung mi
 
 Sie müssen Ihre Cloud-Anmeldedaten angeben. Der Adapter verbindet sich mit Ihrem Cloud-Konto und abonniert alle Gerätedaten über MQTT. Aus diesem Grund müssen die Geräte mit ihrer Cloud verbunden sein. Derzeit ist keine Möglichkeit bekannt, die Geräte lokal zu steuern.
 
-Eine Adapter-Instanz zeigt alle Geräte eines Meross Cloud-Kontos an und ermöglicht deren Steuerung.
+Eine Adapterinstanz zeigt alle Geräte eines Meross Cloud-Kontos und ermöglicht deren Steuerung.
 
 ## Bekannte Arbeitsgeräte
+Alle Geräte sollten nach meinem derzeitigen Kenntnisstand funktionieren. Aber bitte überprüfen Sie die Protokolle oder melden Sie alle Funktionen oder neuen Gerätetypen, die keine Zustände erstellen (neue Gerätetypen müssen von mir manuell hinzugefügt werden, daher ist ein Problem wichtig).
+
+Gemeldete Arbeiten sind mindestens:
+
 * mss425e
 * mss310
 * MSS620 EU/UK
-* MTS100, MTS100v3, MTS150
+* MTS100, MTS100v3, MTS150, MTS200
 * MRS100
-
-Wenn mehr Geräte funktionieren (oder auch nicht), melden Sie diese bitte, indem Sie ein GitHub-Problem öffnen.
+* ... und mehr, die noch nicht aufgelistet sind :-) Sagen Sie mir einfach, wenn ein Gerät funktioniert, das nicht über ein GitHub-Problem aufgelistet ist.
 
 ## So melden Sie Probleme und Funktionsanfragen
 Bitte verwenden Sie dafür GitHub-Probleme.
 
-Am besten setzen Sie den Adapter in den Debug-Log-Modus (Instanzen -> Expertenmodus -> Spaltenprotokoll-Ebene). Dann holen Sie sich bitte die Logdatei von der Festplatte (Unterverzeichnis "log" im ioBroker-Installationsverzeichnis und nicht vom Admin, da der Admin die Zeilen abschneidet). Wenn Sie es nicht in der GitHub-Ausgabe bereitstellen möchten, können Sie es mir auch per E-Mail (iobroker@fischer-ka.de) zusenden. Bitte fügen Sie einen Verweis auf das relevante GitHub-Problem hinzu UND beschreiben Sie auch, was ich zu welchem Zeitpunkt im Protokoll sehe.
+Am besten setzen Sie den Adapter in den Debug-Log-Modus (Instanzen -> Expertenmodus -> Spaltenprotokollebene). Dann holen Sie sich bitte die Logdatei von der Festplatte (Unterverzeichnis "log" im ioBroker-Installationsverzeichnis und nicht vom Admin, da der Admin die Zeilen abschneidet). Wenn Sie es nicht in der GitHub-Ausgabe bereitstellen möchten, können Sie es mir auch per E-Mail (iobroker@fischer-ka.de) zusenden. Bitte fügen Sie einen Verweis auf das relevante GitHub-Problem hinzu UND beschreiben Sie auch, was ich zu welchem Zeitpunkt im Protokoll sehe.
 
 ## Changelog
-
 ### __WORK IN PROGRESS__
+* (Apollon77) Optimize Meross Communication to first try to communicate with the device locally before sending data to MQTT - enabled by default, you can disable it in settings!
+* (Apollon77) Optimize Meross Communication by using only one MQTT connection instead of one per device when cloud is used
+* (Apollon77) Add new state "disabled" to ignore connection error of a device; reconnections are still tried, but no error are logged if not successful
+* (Apollon77) Add support for Online status reports from MTS100 hub devices
+* (Apollon77) Automatically logout from meross cloud on adapter end; next start will do a new Login
+* (Apollon77) Automatically delete old devices if no longer existing (when js-controller >=2.2)
+* (Apollon77) Optimize MTS200 handling
+
+### 1.8.0 (2022-01-05)
+* (Apollon77) Add support for MTS200 Wifi Thermostat
+
+### 1.7.1 (2021-11-13)
+* (Apollon77) Allow to enter passwords with more than 15 characters
+
+### 1.7.0 (2021-11-13)
 * (Apollon77) Add support for MTS150 Thermostats
 * (Apollon77) Add support for MRS100 RollerShutter devices
 
@@ -129,7 +146,7 @@ Am besten setzen Sie den Adapter in den Debug-Log-Modus (Instanzen -> Expertenmo
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2022 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

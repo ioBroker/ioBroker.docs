@@ -189,6 +189,11 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 * improvement of thermostat mode to text representation (auto, off, boost, comfort, night), comfort and night are also auto mode, but preset to the parametrized value
 
 ## Changelog
+### 2.2.3
+* buttons setmodeon/off/auto have now initial value false, and when triggered with true get false again (for next trigger)
+* boostactivetime and windowopenactivetime can now be set to a default value in the adapter config
+
+
 ### 2.2.2 (npm)
 * license update
 * corrected doc/de

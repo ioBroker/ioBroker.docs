@@ -73,8 +73,14 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.6.3 (2022-01-09)
+* (foxriver76) added `info.connection` state (closes #268)
+
+### 3.6.1 (2022-01-09)
+* (foxriver76) ct values of groups can be even lower due to third party lights
+
 ### 3.6.0 (2021-12-30)
-* (foxriver76) allow to trigger scenes via `command` state, this allows to start a scene with `transitiontime`
+* (foxriver76) allow triggering scenes via `command` state, this allows to start a scene with `transitiontime`
 
 ### 3.5.31 (2021-11-20)
 * (foxriver76) ct value fix of #234 ported for 0 (All) group
@@ -448,5 +454,5 @@ __ATTENTION: Remove all objects once, ids have changed__
 
 Apache 2.0
 
-Copyright (c) 2017-2021 Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2022 Bluefox <dogafox@gmail.com>
 Copyright (c) 2014-2016 hobbyquaker

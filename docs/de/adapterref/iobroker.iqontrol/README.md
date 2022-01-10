@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: ozQb7c15Y9oa27Ypg11kQh+LJ+ogAAT3yXOu3bH+dEI=
+hash: 6+/bP1EhPGniXJ/uFjnBlGvK5FPjUk2uXQl87Pq+kjA=
 ---
 ![Logo](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -101,7 +101,7 @@ Die kostenlosen integrierten Demo-Hintergründe sind von www.pexels.com.
 * Um einen bestimmten Dialog beim Laden der Seite zu öffnen, können Sie ``openDialog=<deviceID>`` als URL-Parameter hinzufügen
     * ``<Geräte-ID>`` muss formatiert sein wie ``iqontrol.<Instanznummer>.Views.<Ansichtsname>.devices.<Gerätenummer>`` wobei ``<Gerätenummer>`` beginnt bei 0 (das erste Gerät in einer Ansicht ist also die Gerätenummer 0)
 * Hinweis: Groß- und Kleinschreibung beachten!
-* Um die Rückkehr nach Zeiteinstellungen festzulegen oder zu überschreiben, verwenden Sie die folgenden Parameter:
+* Um die Rückkehr nach Zeiteinstellungen einzustellen oder zu überschreiben, verwenden Sie die folgenden Parameter:
 * ``returnAfterTimeTreshold=<time in seconds> `` zum Einstellen der Zeit, nach der die Zielansicht aufgerufen wird. Verwenden Sie ``0``, um die Rückkehr nach Zeitfunktion zu deaktivieren.
 * ``returnAfterTimeDestiationView=<viewID>`` um die Ansicht zu setzen, die nach dem Schwellwert aufgerufen wird. Wenn nicht angegeben, wird die Home-Ansicht verwendet.
 * Diese Optionen sind hilfreich, wenn Sie iQontrol von einem an der Wand montierten Tablet aus aufrufen, das nach der Verwendung automatisch zur Home-Ansicht zurückkehren sollte
@@ -1211,18 +1211,31 @@ Um die gezählten Geräte zu visualisieren, können Sie das Device-Counter-Widge
 * **Typ** - Filtert nach dem allgemeinen.Typ des Datenpunkts, zum Beispiel string, number, boolean
 * **Rolle** - Filtert nach der gemeinsamen.Rolle des Datenpunkts. Dies ist einer der wichtigsten Filter, da jeder Datenpunkt eine gemeinsame.Rolle haben sollte, die beschreibt, wofür er steht, zum Beispiel switch, Indicator.unreach oder level.color.rgb. Es gibt viele gängige Rollen in ioBroker, schau dir einfach deine Datenpunkte an, der Admin-Adapter bietet eine Liste mit allen
 * Vergleichsoperatoren: Einige Typen können mit einem Wert verglichen werden. Der Operator steht für den durchgeführten Vergleich, wie 'ist größer als', 'ist kleiner als' oder für Strings 'beginnt mit' oder 'enthält':
-* Sie arbeiten nicht zwischen Groß- und Kleinschreibung (also 'Text' ist dasselbe wie 'Text')
+* Sie arbeiten ohne Berücksichtigung der Groß-/Kleinschreibung (also 'Text' ist dasselbe wie 'Text')
 * Sie können auch mit mehreren Werten gleichzeitig vergleichen, wenn Sie eine durch Kommas getrennte Liste von Argumenten angeben
-* Beispiel: ``|remove|ID|does't end with|.error,.overheat|`` entfernt alle IDs, die nicht mit '.error' ODER mit '.overheat' enden
+* Beispiel: ``|remove|ID|endet nicht mit|.error,.overheat|`` entfernt alle IDs, die nicht mit '.error' ODER mit '.overheat' enden
 * Wert: Der Wert, mit dem der Vergleichsoperator vergleicht
 * Sie können auch **nach Aliasnamen filtern**: Dies ist nützlich, wenn Sie beispielsweise eine Liste erstellen, die Geräte mit schwacher Batterie zählt. Aber Sie möchten nicht, dass sowohl das ursprüngliche Gerät als auch sein Alias gezählt werden. Filteralias sorgt also dafür, dass Datenpunkte, die einen Alias in der Liste haben, entfernt werden
-* Im unteren Teil können Sie **Zähler** definieren:
+* Als nächstes können Sie **Zähler** definieren:
 * Sie können in Ihrer TOTAL_LIST mehrere Zähler definieren, die für bestimmte Bedingungen zählen. Nehmen wir an, Sie haben eine Liste mit all Ihren LOW-BATTERY-Datenpunkten erstellt. Nun wollen Sie zählen, wie viele davon gerade aktiv sind, also den Status 'true' haben. Das macht ein Zähler
 * Sie müssen jedem Zähler einen Namen zuweisen
-* Wenn Sie in den folgenden Zeilen das Namensfeld leer lassen, gehören alle Bedingungen zum obigen Zähler und müssen alle erfüllt sein
+* Du kannst jedem Spielstein eine Einheit zuweisen
+* Sie müssen für jeden Zähler mindestens eine Bedingung definieren. Klicken Sie dazu auf das Bearbeiten-Icon:
+* Fügen Sie so viele Bedingungen hinzu, wie Sie möchten
+* Die Bedingungen werden von oben nach unten bearbeitet
+* Die Bedingungen können mit UND- oder mit ODER-Operatoren verknüpft werden, sodass Sie komplexe Bedingungen für Ihren Zähler erstellen können
 * Die Zähler aktualisieren sich jedes Mal, wenn sich ein Datenpunkt in Ihrer TOTAL_LIST ändert
 * Zusätzlich können Sie ein bestimmtes **Zeitintervall** einstellen, in dem der Zähler aktualisiert wird (z. B. wenn Sie zählen, wie viele Geräte Sie mit einem Zeitstempel älter als 5 Minuten haben - dies erfordert eine regelmäßige Überprüfung)
-* Die Ergebnisse der Listen und Zähler werden in Datenpunkten gespeichert, die Sie unter iqontrol.x.Lists . finden
+* Als nächstes können Sie **Berechnungen** definieren:
+* Berechnungen können verwendet werden, um numerische Datenpunkte zu kombinieren und beispielsweise die Summe verschiedener Zähler zu berechnen.
+* Sie können auch Objekte wie Arrays (Listen) durch Addition oder Subtraktion kombinieren.
+* Zumindest können Sie **Kombinationen** definieren:
+* Kombinationen können verwendet werden, um verschiedene Datenpunkte mit Text zu kombinieren.
+* Das 'Pefix' wird vor, das 'Postfix' nach dem Wert der angegebenen ID platziert.
+* Im 'Only If'-Bereich können Sie eine Bedingung definieren, ob die Zeile platziert werden soll oder nicht.
+* Durch Aktivieren von 'Just Prefix' wird nur das Präfix (nicht der Wert oder das Postfix) gesetzt, wenn die Bedingung zutrifft.
+* Sie können auch einen 'Else'-Text angeben, der platziert wird, wenn die Bedingung nicht zutrifft.
+* Das Ergebnis der Listen mit Zählern, Berechnungen und Kombinationen werden in Datenpunkten gespeichert, die Sie unter iqontrol.x.Lists . finden
 
 ### Beispiele
 * Dieses Beispiel zeigt, wie man eine UNREACH-Liste erstellt:
@@ -1232,6 +1245,9 @@ Um die gezählten Geräte zu visualisieren, können Sie das Device-Counter-Widge
 * Die Selektoren fügen zuerst alle Datenpunkte mit der gemeinsamen Rolle 'indicator.unreach' hinzu
 * Es entfernt dann aber alle Datenpunkte mit 'STICKY_' in seiner ID (homematic liefert den STICKY_UNREACH-Indikator, den wir nicht zählen wollen)
 * Es filtert Duplikate nach Aliasen heraus
+
+	![Liste bearbeiten Unerreichbarkeit](../../../en/adapterref/iobroker.iqontrol/img/list_edit_unreach_counter.png)
+
 * Zu guter Letzt werden alle Datenpunkte mit dem Wert 'true' gezählt, die diesen Zustand für mindestens 15 Sekunden haben
 
 ## Datenpunktkonfiguration ändern
@@ -1387,11 +1403,11 @@ Beachten Sie: Die Konvertierung in den alternativen Farbraum erfolgt per Fronten
 ###<img src="img/icons/fan_on.png" width="32"> Fan:
 * **STATE**: *boolean* - Anzeige und Ein-/Ausschalten des Status
 * **LEVEL**: *Zahl* oder *Werte-Liste* - die Lüftergeschwindigkeit
-* **LEISTUNG**: *Zahl* - Stromverbrauch, der in der oberen rechten Ecke klein angezeigt wird
+* **LEISTUNG**: *Zahl* - Stromverbrauch, der oben rechts klein angezeigt wird
 
 ###<img src="img/icons/radiator.png" width="32"> Thermostat:
 * **SET_TEMPERATURE**: *Zahl* - Zieltemperatur
-* **TEMPERATUR**: *Zahl* - Ist-Temperatur, die oben rechts klein angezeigt wird
+* **TEMPERATUR**: *Zahl* - Ist-Temperatur wird klein in der oberen rechten Ecke angezeigt
 * **FEUCHTIGKEIT**: *Zahl* - tatsächliche Luftfeuchtigkeit wird klein in der oberen rechten Ecke angezeigt
 * **CONTROL_MODE**: *Werteliste* - Anzeige und Einstellung des Thermostatmodus
 * **WINDOW_OPENING_REPORTING**: *boolean* - wenn wahr, wird ein kleines geöffnetes Fenster angezeigt
@@ -1405,7 +1421,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 
 ###<img src="img/icons/temperature.png" width="32"> Temperatursensor,<img src="img/icons/humidity.png" width="32"> Feuchtigkeitssensor,<img src="img/icons/pressure.png" width="32"> Drucksensor:
 * **STATE**: *Zahl* - Temperatur oder Luftfeuchtigkeit, die im unteren Teil des Geräts angezeigt wird
-* **TEMPERATUR**: *Zahl* - Temperatur, die klein in der oberen rechten Ecke angezeigt wird
+* **TEMPERATUR**: *Zahl* - Temperatur, die oben rechts klein angezeigt wird
 * **FEUCHTIGKEIT**: *Zahl* - Feuchtigkeit, die in der oberen rechten Ecke klein angezeigt wird
 * Die **linked-view-property** wird direkt geöffnet
 
@@ -1466,7 +1482,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 ###<img src="img/icons/battery_full.png" width="32"> Batterie:
 * **STATE**: *Zahl* - Batteriestand in Prozent
 * **CHARGING**: *boolean* - wenn wahr, wird ein Ladesymbol angezeigt
-* **LEISTUNG**: *Zahl* - Stromverbrauch, der oben rechts klein angezeigt wird
+* **LEISTUNG**: *Zahl* - Stromverbrauch, der in der oberen rechten Ecke klein angezeigt wird
 * **SPANNUNG**: *Zahl* - Spannung, die in der oberen rechten Ecke klein angezeigt wird
 
 ###<img src="img/icons/time_alarmclock_on.png" width="32"> Datum (und Uhrzeit:
@@ -1561,7 +1577,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 | | | Pms | Zeitraum von Millisekunden | X | --- | --- |
 | Flaggen | Fehlende Teile auf Anfang setzen | tb | Z.B. Datum auf 1970-01-01 setzen, wenn nur eine Uhrzeit angegeben wird | X | --- | --- |
 | | Fehlende Teile auf jetzt setzen | tn | Z.B. Datum auf jetzt setzen, wenn nur eine Uhrzeit angegeben wird | X | --- | --- |
-| | Alte fehlende Teile aufbewahren | nach | Z.B. Austrittsdatum wie bisher, wenn nur eine Uhrzeit angegeben wird | X | --- | --- |
+| | Alte fehlende Teile aufbewahren | zu | Z.B. Austrittsdatum wie bisher, wenn nur eine Uhrzeit angegeben wird | X | --- | --- |
 | Freitext | Freitext in Klammern markieren | [] | [dies ist ein Beispiel, alle Token werden ignoriert] | X | X | --- |
 
 * Wenn Sie unterschiedliche Konfigurationen für Datenpunkt-Zeitformat und Anzeige-Zeitformat verwenden, werden die folgenden Konvertierungsregeln verwendet.
@@ -1640,7 +1656,7 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
 ### Bei weiteren Problemen stellen Sie bitte das Log aus der Debugging-Konsole Ihres Browsers und Screenshots der fehlerhaften Zeile bereit:
 * Starten Sie iQonrol mit geöffneter Debugging-Konsole Ihres Browsers (meistens müssen Sie <kbd>F12</kbd> drücken, um sie zu öffnen)
 * Wechseln Sie in das Konsolenfenster und reproduzieren Sie den Fehler
-* Suchen Sie im Konsolenfenster nach Nachrichten
+* Suchen Sie nach Nachrichten im Konsolenfenster
 * Wenn Fehler auftreten, wird die Nummer der Zeile aufgelistet, die den Fehler verursacht hat
 * Bitte klicken Sie auf diese Zeilennummer und machen Sie einen Screenshot der fehlerhaften Zeile:
 
@@ -1670,6 +1686,7 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
 * (sbormann) Added widget-replaceurl as a widget configuration parameter.
 * (sbormann) Introducing a powerful new feature: Lists and Counters.
 * (sbormann) Added Device-Counter-Widget.
+* (sbormann) Added heading and border-color-option to JSON-table widget
 
 ### 1.11.0 (2021-12-18)
 * (sbormann) Added the ability to globally change the default icons.

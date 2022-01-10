@@ -72,86 +72,86 @@ Here is a list of what these raw values stand for:
 
 ### DeviceTypes
 
- | Raw value | State|
- |----------|-------|
- |1 | WASHING MACHINE|
- |2 | TUMBLE DRYER|
- |7 | DISHWASHER|
- |8 | DISHWASHER SEMI-PROF|
- |12 | OVEN|
- |13 | OVEN MICROWAVE|
- |14 | HOB HIGHLIGHT|
- |15 | STEAM OVEN|
- |16 | MICROWAVE|
- |17 | COFFEE SYSTEM|
- |18 | HOOD|
- |19 | FRIDGE|
- |20 | FREEZER|
- |21 | FRIDGE-/FREEZER COMBINATION|
- |23 | VACUUM CLEANER, AUTOMATIC ROBOTIC VACUUM CLEANER|
- |24 | WASHER DRYER|
- |25 | DISH WARMER|
- |27 | HOB INDUCTION|
- |28 | HOB GAS|
- |31 | STEAM OVEN COMBINATION|
- |32 | WINE CABINET|
- |33 | WINE CONDITIONING UNIT|
- |34 | WINE STORAGE CONDITIONING UNIT|
- |39 | DOUBLE OVEN|
- |40 | DOUBLE STEAM OVEN|
- |41 | DOUBLE STEAM OVEN COMBINATION|
- |42 | DOUBLE MICROWAVE|
- |43 | DOUBLE MICROWAVE OVEN|
- |45 | STEAM OVEN MICROWAVE COMBINATION|
- |48 | VACUUM DRAWER|
- |67 | DIALOGOVEN|
- |68 | WINE CABINET FREEZER COMBINATION| 
+| Raw value | State                                            |
+|-----------|--------------------------------------------------|
+| 1         | WASHING MACHINE                                  |
+| 2         | TUMBLE DRYER                                     |
+| 7         | DISHWASHER                                       |
+| 8         | DISHWASHER SEMI-PROF                             |
+| 12        | OVEN                                             |
+| 13        | OVEN MICROWAVE                                   |
+| 14        | HOB HIGHLIGHT                                    |
+| 15        | STEAM OVEN                                       |
+| 16        | MICROWAVE                                        |
+| 17        | COFFEE SYSTEM                                    |
+| 18        | HOOD                                             |
+| 19        | FRIDGE                                           |
+| 20        | FREEZER                                          |
+| 21        | FRIDGE-/FREEZER COMBINATION                      |
+| 23        | VACUUM CLEANER, AUTOMATIC ROBOTIC VACUUM CLEANER |
+| 24        | WASHER DRYER                                     |
+| 25        | DISH WARMER                                      |
+| 27        | HOB INDUCTION                                    |
+| 28        | HOB GAS                                          |
+| 31        | STEAM OVEN COMBINATION                           |
+| 32        | WINE CABINET                                     |
+| 33        | WINE CONDITIONING UNIT                           |
+| 34        | WINE STORAGE CONDITIONING UNIT                   |
+| 39        | DOUBLE OVEN                                      |
+| 40        | DOUBLE STEAM OVEN                                |
+| 41        | DOUBLE STEAM OVEN COMBINATION                    |
+| 42        | DOUBLE MICROWAVE                                 |
+| 43        | DOUBLE MICROWAVE OVEN                            |
+| 45        | STEAM OVEN MICROWAVE COMBINATION                 |
+| 48        | VACUUM DRAWER                                    |
+| 67        | DIALOGOVEN                                       |
+| 68        | WINE CABINET FREEZER COMBINATION                 | 
 
 
 ### State/Status
 
- | Raw value | State|
- |----------|-------|
- |1|   OFF|
- |2|   STAND_BY|
- |3|   PROGRAMMED|
- |4|   PROGRAMMED_WAITING_TO_START|
- |5|   RUNNING|
- |6|   PAUSE|
- |7|   END_PROGRAMMED|
- |8|   FAILURE|
- |9|   PROGRAMME_INTERRUPTED|
- |10|  IDLE|
- |11|  RINSE_HOLD|
- |12|  SERVICE|
- |13|  SUPERFREEZING|
- |14|  SUPERCOOLING|
- |15|  SUPERHEATING|
- |144| DEFAULT|
- |145| LOCKED|
- |146| SUPERCOOLING_SUPERFREEZING|
- |255| Device offline|
+| Raw value | State                       |
+|-----------|-----------------------------|
+| 1         | OFF                         |
+| 2         | STAND_BY                    |
+| 3         | PROGRAMMED                  |
+| 4         | PROGRAMMED_WAITING_TO_START |
+| 5         | RUNNING                     |
+| 6         | PAUSE                       |
+| 7         | END_PROGRAMMED              |
+| 8         | FAILURE                     |
+| 9         | PROGRAMME_INTERRUPTED       |
+| 10        | IDLE                        |
+| 11        | RINSE_HOLD                  |
+| 12        | SERVICE                     |
+| 13        | SUPERFREEZING               |
+| 14        | SUPERCOOLING                |
+| 15        | SUPERHEATING                |
+| 144       | DEFAULT                     |
+| 145       | LOCKED                      |
+| 146       | SUPERCOOLING_SUPERFREEZING  |
+| 255       | Device offline              |
 
 ### ProgramType/Programmart
 
-| Raw value | State|
-|----------|-------|
-|0 | Normal operation mode  |
-|1 | Own program            |
-|2 | Automatic program      |
-|3 | Cleaning-/Care program |
+| Raw value | State                  |
+|-----------|------------------------|
+| 0         | Normal operation mode  |
+| 1         | Own program            |
+| 2         | Automatic program      |
+| 3         | Cleaning-/Care program |
 
 ### dryingStep/Trockenstufe
 
- | Raw value | State|
- |----------|-------|
- |0 |   Extra dry|
- |1 |   Normal Plus|
- |2 |   Normal|
- |3 |   Slightly Dry|
- |4 |   Hand iron level 1|
- |5 |   Hand iron level 2|
- |6 |   Machine iron|
+| Raw value | State             |
+|-----------|-------------------|
+| 0         | Extra dry         |
+| 1         | Normal Plus       |
+| 2         | Normal            |
+| 3         | Slightly Dry      |
+| 4         | Hand iron level 1 |
+| 5         | Hand iron level 2 |
+| 6         | Machine iron      |
 
 ### Programmbezeichnung
 
@@ -176,33 +176,35 @@ Here is a list of what these raw values stand for:
 
 ### ProgramPhase
 
-| Raw value | State| available for |
-|----------|-------|---------------|
-|258 | "Einweichen"              | Washing Machine | 
-|260 | "Waschen" / "Washing"     | Washing Machine |
-|261 | "Spülen"  / "Rinse"       | Washing Machine |
-|265 | "Pumpen"                  | Washing Machine |
-|266 | "Schleudern" / "Spinning" | Washing Machine |
-|267 | "Knitterschutz" / ""      | Washing Machine |
-|268 | "Ende" / "End"            | Washing Machine |
-|256 | "Vorbügeln"               | Washing Machine |
-|512 | "Ende" / "Finished"       | Tumble dryers   |
-|514 | "Trocknen" / "Drying"     | Washer Dryer, Tumble dryers |
-|519 | "Abkühlen" / "Cool down"  | Washer Dryer |
-|521 | "Knitterschutz" / ""      | Tumble dryer |
-|522 | "Ende" / "Finished"       | Tumble dryer |
-|531 | "Komfortkühlen"           | Tumble Dryer |
-|532 | "Flusen ausspülen"        | Washer Dryer |
+| Raw value | State                     | available for               |
+|-----------|---------------------------|-----------------------------|
+| 258       | "Einweichen"              | Washing Machine             | 
+| 260       | "Waschen" / "Washing"     | Washing Machine             |
+| 261       | "Spülen"  / "Rinse"       | Washing Machine             |
+| 265       | "Pumpen"                  | Washing Machine             |
+| 266       | "Schleudern" / "Spinning" | Washing Machine             |
+| 267       | "Knitterschutz" / ""      | Washing Machine             |
+| 268       | "Ende" / "End"            | Washing Machine             |
+| 256       | "Vorbügeln"               | Washing Machine             |
+| 512       | "Ende" / "Finished"       | Tumble dryers               |
+| 514       | "Trocknen" / "Drying"     | Washer Dryer, Tumble dryers |
+| 519       | "Abkühlen" / "Cool down"  | Washer Dryer                |
+| 521       | "Knitterschutz" / ""      | Tumble dryer                |
+| 522       | "Ende" / "Finished"       | Tumble dryer                |
+| 531       | "Komfortkühlen"           | Tumble Dryer                |
+| 532       | "Flusen ausspülen"        | Washer Dryer                |
 
 ## Changelog
+### V5.0.4 (2022-01-07) (Invincible)
+* (grizzelbee) Fix: [MIELECLOUDSERVICE-7](https://sentry.io/organizations/nocompany-6j/issues/2379624775/?project=5735758) handling if there is no auth token for a request 
+* (grizzelbee) Fix: [MIELECLOUDSERVICE-2J](https://sentry.io/organizations/nocompany-6j/issues/2885488082/?project=5735758) handling if there is no auth token for a request
+* (grizzelbee) Fix: [MIELECLOUDSERVICE-2K](https://sentry.io/organizations/nocompany-6j/issues/2886827789/?project=5735758) handling if there is no auth token for a request
+* (grizzelbee) Fix: [MIELECLOUDSERVICE-28](https://sentry.io/organizations/nocompany-6j/issues/2787208315/?project=5735758) handling if the device is unknown
+
 ### V5.0.3 (2021-12-31) (Invincible)
 * (grizzelbee) Fix: [MIELECLOUDSERVICE-8](https://sentry.io/organizations/nocompany-6j/issues/2380318199/?project=5735758) fixed stringifying circular structure
 * (grizzelbee) Fix: undefined is not a valid state value for id "xxx.signalDoor"
 * (grizzelbee) Fix: undefined is not a valid state value for id "xxx.ACTIONS.programId"
-
-### V5.0.2 (2021-10-27) (Invincible)
-* (grizzelbee) Upd: Added listener to error events
-* (grizzelbee) Upd: Trying to reconnect if connection has been lost
 
 ### V5.0.2 (2021-10-27) (Invincible)
 * (grizzelbee) Upd: Added listener to error events
@@ -520,4 +522,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 ## Copyright
-Copyright (c) 2019, 2021 grizzelbee <open.source@hingsen.de>
+Copyright (c) 2019 - 2022 grizzelbee <open.source@hingsen.de>

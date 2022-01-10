@@ -77,7 +77,7 @@ The adapter allows to generate the iobroker communication objects automatically 
 All generated communication objects are initially configured readable and writeable, values are fetched from the knx bus on adapter restart.
 
 # Installation
-The adapter is available in the latest / beta repository. If this is selected in the ioBroker system settings, the adapter can be searched in the adapter list under "openknx" and installed by clicking the + Symbol. An alternative is to install in expert mode via the Github symbol by selecting "from Github" and searching for openknx.
+The adapter is available in the latest / beta repository. If this is selected in the ioBroker system settings as standard repository, the adapter can be searched in the adapter list under "openknx" and installed by clicking the + Symbol. An alternative is to install in expert mode via the Github symbol by selecting "from Github" and searching for openknx.
 
 # Adapter configuration
 ![settings](docs/pictures/setting.png)
@@ -108,13 +108,15 @@ ETS4 Format is not supported, it does not contain DPTs information.
 After the successful import a message shows how much objects where recognized. More detailed information could be found in the log.
 
 Hint on ETS configuration:  
-If you have different DPT Subtypes for the GA and in the communication objets that use this GA, then the ETS seems to use the DPT Type with the lowest number. In this case manually ensure that all fields are using the same datatype.
+If you have different DPT Subtypes for the GA and in the communication objets that use this GA, then the ETS seems to use the DPT Type with the lowest number. In this case manually ensure that all elements are using the same desired datatype.  
+A GA without DPT basetype cannot be imported with this adapter. ETS4 projects must be converted into ETS5 or later and the DPT must be set to the GA.
 
-### Frames per sec
+### Frames delay [ms]
 This settings protects the KNX bus from data flooding by limiting data frames to a certain rate. Not sent frames are put into a fifo buffer. If you experience disconnects from your KNX IP Gateway then increase this number.
 
 ### Alias
 KNX devices can have ga's for state feedback that belong to a commanding ga. Some applications like certain VIS widgets expect a combined status and actuation object. You can combine these states into one alias by using a separate alias id to write to and another to read from. The menu helps to create a matching pair according to the naming convention with the given filtering rule.
+Find more information here https://www.iobroker.net/#en/documentation/dev/aliases.md
 
 # adapter migration
 ## migrate Node Red
@@ -316,6 +318,14 @@ L-Flag: Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert 
 - KNX secure is not supported
 
 ## Changelog
+### 0.1.14 (2022-01-08)
+* feature: autodetect the KNX IP interface parameters
+* feature: create warning if DPT of alias pair does not match
+* feature: create warning in log in case of possible data loss if gateway disconnects
+* feature: better gui for import status, newline per warning, count number of succeeding ga's
+* fix: local ip interface in admin was not taken
+* fix: default regexp for status ga's corrected to match common nomenclature
+
 ### 0.1.13 (2021-12-30)
 * bugfix: state.value of of type object must be serialized
 * bugfix: alias algorithm error handling, takover more info to alias

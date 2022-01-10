@@ -29,6 +29,9 @@ When the adapter crashes or an other Code error happens, this error message that
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.0.10 (2022-01-07)
+* Fix version numbers
+
 ### 0.0.9 (2022-01-03)
 * Fix to work with new Vodafone Endpoint
 

@@ -68,6 +68,11 @@ Vergleichbar für den Soll-/Istverlaufs ist demnach atualtemp und targettemp.
 Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig Information ist der debug modus über die Experteneinstellung der Instanz vorzuwählen.
 
 ## Changelog
+### 2.2.3
+* buttons setmodeon/off/auto have now initial value false, and when triggered with true get false again (for next trigger)
+* boostactivetime and windowopenactivetime can now be set to a default value in the adapter config
+
+
 ### 2.2.2 (npm)
 * license update
 * corrected doc/de

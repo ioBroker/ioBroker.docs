@@ -44,7 +44,7 @@ Since Version 0.1.8 SRG-SSR provides their own icons. So each Datapoint provides
 
 ### Getting started
 1. Get a free accout on https://developer.srgssr.ch/ 
-1. Go to "My Apps" and create a new App. Here you can choose a Product. "Freemium" is their free product. If you only want to do 50 request per day (every 30min) or/and don't want to pay for more request per day, "Freemium" is what you want to choose. Now, this will create a specific ConsumerKey and ConsumerSecret
+1. Go to "My Apps" and create a new App. Here you can choose a Product. "Freemium" is their free product. If you only want a forecast for one location and get only 50 request per day (every 30min) or/and don't want to pay for more request per day, "Freemium" is what you want to choose. Now, this will create a specific ConsumerKey and ConsumerSecret
 1. Find out Longitude / Latitude (decimal degrees) of the chosen location for which forecast is needed. This information is optional if you have set your location in the ioBroker settings (main settings) (via the map). In this case you could leave the latitude and longitude fields empty. The adapter then takes over the settings of the ioBroker. Latitude and longitude entered in the adapter configuration override the ioBroker settings.
 1. Install this Adapter on ioBroker => This can take several minutes (~7min on a Raspberry Pi 3)
 1. On Adapter Configuration fill in
@@ -177,8 +177,6 @@ This change makes it necessary to regenerate IDs. So, to install version 1.0.1, 
 ## License
 MIT License
 
-Copyright (c) 2021 baerengraben <baerengraben@intelli.ch>
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -196,3 +194,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Copyright (c) 2022 baerengraben <baerengraben@intelli.ch>

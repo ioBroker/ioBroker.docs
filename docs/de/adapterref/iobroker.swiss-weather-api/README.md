@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.swiss-weather-api/README.md
 title: ioBroker.swiss-weather-api
-hash: MN9ch329u8qQbmvZYV1HlOsYj1Z3mzxqcxvybkf0kYc=
+hash: 8Z+4WWulLeq6uAcMvcnPFD0L5xt/tLWcX8ufWvvOXk0=
 ---
 ![Logo](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
 
@@ -33,7 +33,7 @@ Diese Änderung macht es erforderlich, IDs neu zu generieren. Um Version 1.0.1 z
 **Update-Prozedur Version 0.3.2 auf 0.9.x** Die SRG hat ihre API komplett neu aufgebaut. Die alte API (<= Adapterversion 0.3.2) wird NICHT mehr unterstützt. Ab Adapterversion 0.9.x wird die neue API der SRG verwendet. Deshalb muss eine neue SRG APP (zB Produkt "Freemium") erstellt werden (https://developer.srgssr.ch/apis/srf-weather). Siehe auch Readme, Kapitel "Erste Schritte" (unten). Bitte beachten Sie auch, dass durch die neue API auch komplett neue Objekte erstellt werden.
 Die gute Nachricht ist, dass die neue API auch mehr Daten bereitstellt. ;)**
 
-Meine Empfehlung für das Update von 0.3.2 auf 0.9.x lautet also:
+Meine Empfehlung für das Update von 0.3.2 auf 0.9.x lautet daher:
 
 - Entfernen Sie den alten Adapter, bevor Sie Version 0.9.x installieren.
    - Bitte beachten Sie, dass auch die Datenobjekte entsprechend entfernt werden.
@@ -41,24 +41,24 @@ Meine Empfehlung für das Update von 0.3.2 auf 0.9.x lautet also:
 - neue Version 0.9.x installieren und Konfiguration mit neuem Consumerkey und Consumersecret einstellen
   - Beim Start erstellt der neue Adapter neue, andere Datenobjekte.
 
-## Swiss-Wetter-Api-Adapter für ioBroker
+## Swiss-Weather-Api-Adapter für ioBroker
 Verbindet sich mit der großartigen SRF-Wetter-API (https://developer.srgssr.ch/apis/srf-weather).
-Mit der SRF Weather REST API können Sie Wettervorhersagen und Berichte von mehr als 25.000 Orten in der ganzen Schweiz abrufen. Ein "Freemium"-Abonnement ermöglicht es Ihnen, 50 Anfragen/Tag zu erhalten.
+Mit der SRF Weather REST API können Sie Wettervorhersagen und -berichte von mehr als 25.000 Orten in der ganzen Schweiz abrufen. Ein "Freemium"-Abonnement ermöglicht es Ihnen, 50 Anfragen/Tag zu erhalten.
 
 #****Symbole**
-Seit Version 0.1.8 bietet SRG-SSR eigene Icons. Jeder Datenpunkt liefert also eine URL zur entsprechenden Wetterlage (Color, Dark und Light Icons).
+Seit Version 0.1.8 bietet SRG-SSR eigene Icons. Jeder Datenpunkt liefert also eine URL zur entsprechenden Wetterlage (Farb-, Dunkel- und Lichtsymbole).
 
 #***Bitte beachten Sie, dass dieser Adapter nur Standorte innerhalb der Schweiz unterstützt.**
 ### Einstieg
 1. Holen Sie sich einen kostenlosen Account auf https://developer.srgssr.ch/
-1. Gehen Sie zu „Meine Apps“ und erstellen Sie eine neue App. Hier können Sie ein Produkt auswählen. "Freemium" ist ihr kostenloses Produkt. Wenn Sie nur 50 Anfragen pro Tag (alle 30 Minuten) machen möchten oder/und nicht für mehr Anfragen pro Tag bezahlen möchten, ist "Freemium" die richtige Wahl. Dadurch wird nun ein spezifischer ConsumerKey und ConsumerSecret erstellt
+1. Gehen Sie zu „Meine Apps“ und erstellen Sie eine neue App. Hier können Sie ein Produkt auswählen. "Freemium" ist ihr kostenloses Produkt. Wenn Sie nur eine Vorhersage für einen Standort wünschen und nur 50 Anfragen pro Tag (alle 30 Minuten) erhalten oder/und nicht für mehr Anfragen pro Tag bezahlen möchten, ist "Freemium" die richtige Wahl. Dadurch wird nun ein spezifischer ConsumerKey und ConsumerSecret erstellt
 1. Ermitteln Sie den Längengrad / Breitengrad (Dezimalgrad) des ausgewählten Standorts, für den eine Vorhersage benötigt wird. Diese Angaben sind optional, wenn Sie Ihren Standort in den ioBroker-Einstellungen (Haupteinstellungen) (über die Karte) festgelegt haben. In diesem Fall können Sie die Felder Breiten- und Längengrad leer lassen. Der Adapter übernimmt dann die Einstellungen des ioBrokers. Breiten- und Längengrad, die in der Adapterkonfiguration eingegeben wurden, überschreiben die ioBroker-Einstellungen.
 1. Installieren Sie diesen Adapter auf ioBroker => Dies kann einige Minuten dauern (~7 Minuten auf einem Raspberry Pi 3)
 1. Füllen Sie in der Adapterkonfiguration
    1. Name der App
    1. ConsumerKey der App
    1. Verbrauchergeheimnis der App
-   1. Längengrad / Breitengrad des gewählten Schweizer Standorts, für den eine Vorhersage benötigt wird. => Bitte Dezimalgrad verwenden (zum Beispiel Zürich: 47.36667 / 8.5)
+   1. Längengrad / Breitengrad des ausgewählten Schweizer Standorts, für den eine Vorhersage benötigt wird. => Bitte Dezimalgrad verwenden (zum Beispiel Zürich: 47.36667 / 8.5)
    1. Abfrageintervall in Minuten (Standardmäßig 30 Minuten - 50 Anfragen/Tag)
 
 Die erste Abfrage erfolgt 10s nach dem Start des Adapters. Nach dem ersten Start wird die Abfrage regelmäßig entsprechend dem Konifugationsparameter (Poll-Intervall in Minuten) ausgeführt.
@@ -182,8 +182,6 @@ This change makes it necessary to regenerate IDs. So, to install version 1.0.1, 
 ## License
 MIT License
 
-Copyright (c) 2021 baerengraben <baerengraben@intelli.ch>
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -201,3 +199,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Copyright (c) 2022 baerengraben <baerengraben@intelli.ch>

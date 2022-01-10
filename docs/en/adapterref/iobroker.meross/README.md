@@ -19,13 +19,17 @@ You need to provide your Cloud login credentials. The adapter connects to your c
 One Adapter instance will show all devices from one Meross Cloud account and allows to control them.
 
 ## Known working devices
+
+All devices should work from my current knowledge. But please check the logs or report any feature or new devices types that are not creating states (new device types needs to be added manually by me, so an isue is important).
+
+Reported working are at least:
+
 * mss425e
 * mss310
 * MSS620 EU/UK
-* MTS100, MTS100v3, MTS150
+* MTS100, MTS100v3, MTS150, MTS200
 * MRS100
-
-If more devices work (or also not) please report them by opening a GitHub issue.
+* ... and more that are not yet listed :-) Just tell me when a device works which is not listed via a GitHub issue.
 
 ## How to report issues and feature requests
 
@@ -34,6 +38,15 @@ Please use GitHub issues for this.
 Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (Apollon77) Optimize Meross Communication to first try to communicate with the device locally before sending data to MQTT - enabled by default, you can disable it in settings!
+* (Apollon77) Optimize Meross Communication by using only one MQTT connection instead of one per device when cloud is used
+* (Apollon77) Add new state "disabled" to ignore connection error of a device; reconnections are still tried, but no error are logged if not successful
+* (Apollon77) Add support for Online status reports from MTS100 hub devices
+* (Apollon77) Automatically logout from meross cloud on adapter end; next start will do a new Login
+* (Apollon77) Automatically delete old devices if no longer existing (when js-controller >=2.2)
+* (Apollon77) Optimize MTS200 handling
+
 ### 1.8.0 (2022-01-05)
 * (Apollon77) Add support for MTS200 Wifi Thermostat
 

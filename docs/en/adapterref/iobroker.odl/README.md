@@ -6,7 +6,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.odl.svg)](https://www.npmjs.com/package/iobroker.odl)
 ![Number of Installations (latest)](https://iobroker.live/badges/odl-installed.svg)
 ![Number of Installations (stable)](https://iobroker.live/badges/odl-stable.svg)
-[![Dependency Status](https://img.shields.io/david/crycode-de/iobroker.odl.svg)](https://david-dm.org/crycode-de/iobroker.odl)
 
 [![NPM](https://nodei.co/npm/iobroker.odl.png?downloads=true)](https://nodei.co/npm/iobroker.odl/)
 

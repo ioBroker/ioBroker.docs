@@ -1,9 +1,3 @@
----
-BADGE-Number of Installations: http://iobroker.live/badges/sonnen-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.sonnen.svg
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.sonnen.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.sonnen.png?downloads=true
----
 ![Logo](admin/sonnen.png)
 # ioBroker.sonnen
 ===========================

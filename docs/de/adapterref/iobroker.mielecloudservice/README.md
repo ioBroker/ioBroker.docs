@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.MieleCloudService
-hash: ZVdUfq88fa+kNbx1+bcNP73Eln01GWDDrUDLrsJ1Qhk=
+hash: dyitqM1ppDZHJO2rxUuf34lxYTzkCJdUwnoUW66XdPU=
 ---
 ![Logo](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
@@ -19,7 +19,7 @@ Dieser Adapter dient zum Abrufen von Informationen zu all Ihren Miele@Home-Gerä
 Egal ob direkt über WLAN oder XGW3000 Gateway verbunden. Es implementiert die **Miele 3rd Party API V1.0.5**
 
 ##sentry.io
-Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch an den Autor zu melden. Dafür wird das [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) Plugin verwendet. Bitte beachten Sie die [Plugin-Homepage](https://github.com/ioBroker/plugin-sentry) für detaillierte Informationen darüber, was das Plugin macht, welche Informationen gesammelt werden und wie Sie es deaktivieren können, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
+Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch an den Autor zu melden. Dafür wird das [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) Plugin verwendet. Bitte beachten Sie die [Plugin-Startseite](https://github.com/ioBroker/plugin-sentry) für detaillierte Informationen darüber, was das Plugin tut, welche Informationen gesammelt werden und wie Sie es deaktivieren können, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
 
 ##Voraussetzungen
 * Miele@Home-Benutzer (Smartphone-App)
@@ -27,7 +27,7 @@ Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und dies
 * Miele Client_id (von https://www.miele.com/developer/)
 * Miele Client_secret (von https://www.miele.com/developer/ )
 
-##Installation
+## Installation
 Gehen Sie zur Installation wie folgt vor:
 
 1. Installieren Sie über den Admin mit dem
@@ -50,7 +50,7 @@ Mit API V1.0.5 hat Miele einen neuen Endpunkt namens "/programs" eingeführt.
 Die Unterstützung für diesen Endpunkt beginnt mit der Adapterversion 4.5.0. Es wird ein neuer Datenpunkt [device.Actions.Program] erstellt, der alle unterstützten Programme auflistet, die von Miele zurückgegeben werden.
 **Bei Auswahl eines der Werte wird das Programm sofort ausgeführt!** Derzeit werden nur einfache Programme unterstützt. Z.B. Öfen benötigen einige zusätzliche Informationen - dies wird in einer zukünftigen Version implementiert.
 
-Bei der Veröffentlichung des Adapters hat Miele ein paar Gerätekategorien dokumentiert, die diesen Endpunkt unterstützen und nur (zumindest für mich) eine Teilmenge davon wirklich funktioniert. Für mein Kaffeesystem, Waschmaschine und Trockner funktioniert es nur für das Kaffeesystem.
+Bei der Veröffentlichung des Adapters hat Miele ein paar Gerätekategorien dokumentiert, um diesen Endpunkt zu unterstützen und nur (zumindest für mich) eine Teilmenge davon funktioniert wirklich. Für mein Kaffeesystem, Waschmaschine und Trockner funktioniert es nur für das Kaffeesystem.
 Aber Miele arbeitet daran und erweitert den Support regelmäßig.
 Weitere Informationen finden Sie in der allgemeinen Miele API-Dokumentation (unten).
 
@@ -72,82 +72,82 @@ Die Textwerte können sich in Zukunft ändern und sind auch von der Sprache abh�
 Hier ist eine Liste, wofür diese Rohwerte stehen:
 
 ###Gerätetypen
- | Rohwert | Staat|
- |----------|-------|
- |1 | WASCHMASCHINE|
- |2 | TROCKNER|
- |7 | SPÜLMASCHINE|
- |8 | GESCHIRRSPÜLMASCHINE SEMI-PROF|
- |12 | OFEN|
- |13 | OFEN MIKROWELLE|
- |14 | KOCHFELD-HIGHLIGHT|
- |15 | DAMPFBACKOFEN|
- |16 | MIKROWELLE|
- |17 | KAFFEESYSTEM|
- |18 | HAUBE|
- |19 | KÜHLSCHRANK|
- |20 | GEFRIERSCHRANK|
- |21 | KÜHL-/GEFRIERKOMBINATION|
- |23 | STAUBSAUGER, AUTOMATISCHER ROBOTER STAUBSAUGER|
- |24 | WASCHTROCKNER|
- |25 | GESCHIRRWÄRMER|
- |27 | KOCHFELDINDUKTION|
- |28 | KOCHFELD GAS|
- |31 | DAMPFBACKOFENKOMBINATION|
- |32 | WEINSCHRANK|
- |33 | WEINKONDITIONIEREINHEIT|
- |34 | WEINLAGERKONDITIONIERUNGSEINHEIT|
- |39 | DOPPELBACKOFEN|
- |40 | DOPPELDAMPFBACKOFEN|
- |41 | DOPPEL-DAMPFBACKOFEN-KOMBINATION|
- |42 | DOPPELTE MIKROWELLE|
- |43 | DOPPELTE MIKROWELLE|
- |45 | DAMPFBACKOFEN MIKROWELLEN-KOMBINATION|
- |48 | VAKUUMSCHUBLADE|
- |67 | DIALOGOFEN|
- |68 | WEINSCHRANK-GEFRIERKOMBINATION|
+| Rohwert | Staat |
+|-----------|--------------------------------------------------|
+| 1 | WASCHMASCHINE |
+| 2 | TROCKNER |
+| 7 | GESCHIRRSPÜLMASCHINE |
+| 8 | GESCHIRRSPÜLMASCHINE HALBPROF |
+| 12 | OFEN |
+| 13 | OFEN MIKROWELLE |
+| 14 | KOCHFELD-HIGHLIGHT |
+| 15 | DAMPFBACKOFEN |
+| 16 | MIKROWELLE |
+| 17 | KAFFEESYSTEM |
+| 18 | HAUBE |
+| 19 | KÜHLSCHRANK |
+| 20 | Gefrierschrank |
+| 21 | KÜHL-/GEFRIERKOMBINATION |
+| 23 | STAUBSAUGER, AUTOMATISCHER ROBOTER STAUBSAUGER |
+| 24 | WASCHTROCKNER |
+| 25 | GESCHIRRWÄRMER |
+| 27 | KOCHFELD-INDUKTION |
+| 28 | KOCHFELD GAS |
+| 31 | DAMPFBACKOFENKOMBINATION |
+| 32 | WEINSCHRANK |
+| 33 | WEINKONDITIONIEREINHEIT |
+| 34 | WEINLAGERKONDITIONIEREINHEIT |
+| 39 | DOPPELBACKOFEN |
+| 40 | DOPPELDAMPFBACKOFEN |
+| 41 | DOPPEL-DAMPFBACKOFEN-KOMBINATION |
+| 42 | DOPPELTE MIKROWELLE |
+| 43 | DOPPELTE MIKROWELLE |
+| 45 | DAMPFBACKOFEN MIKROWELLENKOMBINATION |
+| 48 | VAKUUMSCHUBLADE |
+| 67 | DIALOGOFEN |
+| 68 | WEINSCHRANK-GEFRIERKOMBINATION |
 
 ### Status/Status
- | Rohwert | Staat|
- |----------|-------|
- |1| AUS|
- |2| STAND_BY|
- |3| PROGRAMMIERT|
- |4| PROGRAMMED_WAITING_TO_START|
- |5| LAUFEN|
- |6| PAUSE|
- |7| END_PROGRAMMED|
- |8| AUSFALL|
- |9| PROGRAMME_INTERRUPTED|
- |10| LEERLAUF|
- |11| RINSE_HOLD|
- |12| SERVICE|
- |13| SUPERFREEZING|
- |14| ÜBERKÜHLUNG|
- |15| ÜBERHITZUNG|
- |144| STANDARD|
- |145| GESPERRT|
- |146| SUPERCOOLING_SUPERFREEZING|
- |255| Gerät offline|
+| Rohwert | Staat |
+|-----------|-----------------------------|
+| 1 | AUS |
+| 2 | STAND_BY |
+| 3 | PROGRAMMIERT |
+| 4 | PROGRAMMED_WAITING_TO_START |
+| 5 | LAUFEN |
+| 6 | PAUSE |
+| 7 | END_PROGRAMMED |
+| 8 | AUSFALL |
+| 9 | PROGRAMME_INTERRUPTED |
+| 10 | LEERLAUF |
+| 11 | RINSE_HOLD |
+| 12 | SERVICE |
+| 13 | SUPERFRIEREN |
+| 14 | ÜBERKÜHLUNG |
+| 15 | ÜBERHITZUNG |
+| 144 | STANDARD |
+| 145 | GESPERRT |
+| 146 | SUPERCOOLING_SUPERFREEZING |
+| 255 | Gerät offline |
 
 ### Programmtyp/Programmart
-| Rohwert | Staat|
-|----------|-------|
-|0 | Normalbetrieb |
-|1 | Eigenes Programm |
-|2 | Automatikprogramm |
-|3 | Reinigungs-/Pflegeprogramm |
+| Rohwert | Staat |
+|-----------|------------------------|
+| 0 | Normalbetrieb |
+| 1 | Eigenes Programm |
+| 2 | Automatikprogramm |
+| 3 | Reinigungs-/Pflegeprogramm |
 
 ### Trocknungsschritt/Trockenstufe
- | Rohwert | Staat|
- |----------|-------|
- |0 | Extra trocken|
- |1 | Normal Plus|
- |2 | Normal|
- |3 | Leicht trocken|
- |4 | Handbügeleisen Stufe 1|
- |5 | Handbügeleisen Stufe 2|
- |6 | Bügeleisen|
+| Rohwert | Staat |
+|-----------|-------------------|
+| 0 | Extra trocken |
+| 1 | Normal Plus |
+| 2 | Normal |
+| 3 | Leicht trocken |
+| 4 | Handbügeleisen Stufe 1 |
+| 5 | Handbügeleisen Stufe 2 |
+| 6 | Bügeleisen |
 
 ###Programmbezeichnung
 | Rohwert | Staat | verfügbar für |
@@ -170,30 +170,51 @@ Hier ist eine Liste, wofür diese Rohwerte stehen:
 | 123 | "Dunkles/Jeans" | Waschmaschine |
 
 ###Programmphase
-| Rohwert | Staat| verfügbar für |
-|----------|-------|---------------|
-|258 | "einweichen" | Waschmaschine |
-|260 | "Waschen" / "Waschen" | Waschmaschine |
-|261 | "Spülen" / "Spülen" | Waschmaschine |
-|265 | "Pumpen" | Waschmaschine |
-|266 | "Schleudern" / "Spinnen" | Waschmaschine |
-|267 | "Strickschutz" / "" | Waschmaschine |
-|268 | "Ende" / "Ende" | Waschmaschine |
-|256 | "Vorbügeln" | Waschmaschine |
-|512 | "Ende" / "Fertig" | Wäschetrockner |
-|514 | "Trocknen" / "Trocknen" | Waschtrockner, Wäschetrockner |
-|519 | "Abkühlen" / "Abkühlen" | Waschtrockner |
-|521 | "Strickschutz" / "" | Wäschetrockner |
-|522 | "Ende" / "Fertig" | Wäschetrockner |
-|531 | "Komfortkühlen" | Wäschetrockner |
-|532 | "Flusen ausspülen" | Waschtrockner |
+| Rohwert | Staat | verfügbar für |
+|-----------|---------------------------|-----------------------------|
+| 258 | "einweichen" | Waschmaschine |
+| 260 | "Waschen" / "Waschen" | Waschmaschine |
+| 261 | "Spülen" / "Spülen" | Waschmaschine |
+| 265 | "Pumpen" | Waschmaschine |
+| 266 | "Schleudern" / "Spinnen" | Waschmaschine |
+| 267 | "Knitterschutz" / "" | Waschmaschine |
+| 268 | "Ende" / "Ende" | Waschmaschine |
+| 256 | "Vorbügeln" | Waschmaschine |
+| 512 | "Ende" / "Fertig" | Wäschetrockner |
+| 514 | "Trocknen" / "Trocknen" | Waschtrockner, Wäschetrockner |
+| 519 | "Abkühlen" / "Abkühlen" | Waschtrockner |
+| 521 | "Strickschutz" / "" | Wäschetrockner |
+| 522 | "Ende" / "Fertig" | Wäschetrockner |
+| 531 | "Komfortkühlen" | Wäschetrockner |
+| 532 | "Flusen ausspülen" | Waschtrockner |
 
 ## Urheberrechte ©
-Copyright (c) 2019, 2021 grizzelbee <open.source@hingsen.de>
+Copyright (c) 2019 - 2022 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+### V5.0.4 (2022-01-07) (Invincible)
+* (grizzelbee) Fix: [MIELECLOUDSERVICE-7](https://sentry.io/organizations/nocompany-6j/issues/2379624775/?project=5735758) handling if there is no auth token for a request 
+* (grizzelbee) Fix: [MIELECLOUDSERVICE-2J](https://sentry.io/organizations/nocompany-6j/issues/2885488082/?project=5735758) handling if there is no auth token for a request
+* (grizzelbee) Fix: [MIELECLOUDSERVICE-2K](https://sentry.io/organizations/nocompany-6j/issues/2886827789/?project=5735758) handling if there is no auth token for a request
+* (grizzelbee) Fix: [MIELECLOUDSERVICE-28](https://sentry.io/organizations/nocompany-6j/issues/2787208315/?project=5735758) handling if the device is unknown
 
-### V5.0.0 (2021-09-05) (Invincible)
+### V5.0.3 (2021-12-31) (Invincible)
+* (grizzelbee) Fix: [MIELECLOUDSERVICE-8](https://sentry.io/organizations/nocompany-6j/issues/2380318199/?project=5735758) fixed stringifying circular structure
+* (grizzelbee) Fix: undefined is not a valid state value for id "xxx.signalDoor"
+* (grizzelbee) Fix: undefined is not a valid state value for id "xxx.ACTIONS.programId"
+
+### V5.0.2 (2021-10-27) (Invincible)
+* (grizzelbee) Upd: Added listener to error events
+* (grizzelbee) Upd: Trying to reconnect if connection has been lost
+ 
+### V5.0.1 (2021-10-25) (Invincible)
+* (grizzelbee) Fix: [178](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/178) Removed: info Received ACTIONS message by SSE.
+* (grizzelbee) Fix: [179](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/179) Removed: info Received DEVICES message by SSE.
+* (grizzelbee) Fix: [180](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/180) Fixed: Info: State value to set for "mielecloudservice.0.xxx.ACTIONS.Power" has to be type "boolean" but received type "string"
+* (grizzelbee) Fix: [181](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/181) Fixed: Programbuttons should be fixed and work as soon as Miele fixes the API (as of today it has bugs).
+* (grizzelbee) Upd: Removed many debug log output
+
+### V5.0.0 (2021-10-21) (Invincible)
 * (grizzelbee) Chg: BREAKING CHANGE: Removed useless grouping folders for device types - check your VIS and scripts
 * (grizzelbee) New: [164](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/164) fixed bug in SignalFailure and signalInfo when havin no value
 * (grizzelbee) New: [155](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/155) fixed >missing object< bug on arrays 
