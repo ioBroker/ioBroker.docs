@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.MieleCloudService
-hash: ZVdUfq88fa+kNbx1+bcNP73Eln01GWDDrUDLrsJ1Qhk=
+hash: dyitqM1ppDZHJO2rxUuf34lxYTzkCJdUwnoUW66XdPU=
 ---
 ![标识](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
@@ -15,44 +15,44 @@ hash: ZVdUfq88fa+kNbx1+bcNP73Eln01GWDDrUDLrsJ1Qhk=
 
 # IoBroker.MieleCloudService [![测试和发布](https://github.com/Grizzelbee/ioBroker.mielecloudservice/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.mielecloudservice/actions/workflows/test-and-release.yml)
 ＃＃ 描述
-此适配器用于从 Miele 官方 3rd-party API 检索有关所有 Miele@Home 设备的信息。
+此适配器用于从官方 Miele 3rd-party API 检索有关您所有 Miele@Home 设备的信息。
 无论它们是通过 Wi-Fi 还是 XGW3000 网关直接连接。它实现了 **Miele 3rd Party API V1.0.5**
 
-## Sentry.io
-该适配器使用 sentry.io 收集有关崩溃的详细信息并将其自动报告给作者。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) 插件用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 以获取有关插件功能、收集哪些信息以及如何禁用插件的详细信息，如果您不喜欢使用有关崩溃的信息来支持作者。
+##哨兵.io
+该适配器使用 sentry.io 收集有关崩溃的详细信息并将其自动报告给作者。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry)插件用于它。请参阅[插件主页](https://github.com/ioBroker/plugin-sentry)以获取有关插件功能、收集哪些信息以及如何禁用它的详细信息，如果您不喜欢用您的崩溃信息来支持作者。
 
 ## 先决条件
 * Miele@Home 用户（智能手机应用程序）
 * Miele@Home 密码（智能手机应用程序）
 * Miele Client_id（来自 https://www.miele.com/developer/）
-* Miele Client_secret（来自 https://www.miele.com/developer/）
+* Miele Client_secret（来自 https://www.miele.com/developer/ ）
 
 ＃＃ 安装
 要安装，请执行以下操作：
 
-1. 使用管理员通过管理员安装
+1.通过管理员安装使用
  * stable Repo - 获取当前的稳定版本
- * 最新的 Repo - 获取最新的测试版本（可能不稳定）
+ * latest Repo - 获取最新的测试版本（可能不稳定）
  * 通过：https://github.com/Grizzelbee/ioBroker.mielecloudservice.git - 获取最新的开发版本
-2. 在 Miele 智能手机应用程序中为 Miele@Home 创建一个应用程序帐户
-3. 在 https://www.miele.com/f/com/en/register_api.aspx 创建一个开发者账户
+2. 在 Miele 智能手机 App 中为 Miele@Home 创建 App-Account
+3. 在 https://www.miele.com/f/com/en/register_api.aspx 创建一个开发者帐户
 4. 将您的 Miele 设备添加到应用程序（如果未自动添加）
-6. 填写从 Miele-developer Team 收到的 client_secret 和 client_id，以及从 App 收到的 account-id 和密码。
+6. 填写从 Miele-developer Team 收到的 client_secret 和 client_id 以及来自 App 的 account-id 和密码。
 
-## 控制您的设备
+## 控制你的设备
 ### 行动
-实现了所有设备的所有当前支持和记录的操作（API V1.0.5）。
-> 请记住，只有将设备置于适当的状态（例如移动控制、开机等）时，操作才会起作用。
-有关操作的更多信息，请参阅 [Miele 文档](#documentation)。
+实现了所有设备的所有当前支持和记录的操作 (API V1.0.5)。
+> 请记住，只有当您将设备置于适当的状态（例如 Mobile Control、powerOn、...）时，Actions 才会起作用。
+有关操作的更多信息，请参阅[Miele-文档](#documentation)。
 
-### 程序（API V1.0.5 中引入）
-在 API V1.0.5 中，Miele 引入了一个名为“/programs”的新端点。
+### 程序（在 API V1.0.5 中引入）
+在 API V1.0.5 中，德国美诺 Miele 引入了一个名为“/programs”的新端点。
 对该端点的支持从适配器版本 4.5.0 开始。将创建一个新的数据点 [device.Actions.Program]，列出 Miele 返回的所有支持的程序。
 **选择其中一个值将立即执行程序！** 目前仅支持简单程序。例如。烤箱需要一些额外的信息——这将在未来的版本中实现。
 
-在发布适配器时，Miele 记录了一些设备类别以支持此端点，并且只有（至少对我而言）其中的一个子集真正有效。对于我的咖啡系统、洗衣机和滚筒式烘干机，它仅适用于咖啡系统。
-但 Miele 正在为此努力，并定期提供支持。
-有关更多信息，请参阅 Miele API 通用文档（如下）。
+在发布适配器时，德国美诺 Miele 记录了一些支持此端点的设备类别，并且只有（至少对我而言）其中的一部分真正起作用。对于我的咖啡系统、洗衣机和滚筒式烘干机，它只适用于咖啡系统。
+但德国美诺 Miele 正在努力并定期提供支持。
+有关更多信息，请参阅通用 Miele API 文档（如下）。
 
 ＃＃ 已知的问题
 * 没有任何
@@ -63,137 +63,158 @@ hash: ZVdUfq88fa+kNbx1+bcNP73Eln01GWDDrUDLrsJ1Qhk=
 * [一般文档](https://www.miele.com/developer/swagger-ui/index.html)
 * [在设备上执行操作的前提条件](https://www.miele.com/developer/swagger-ui/put_additional_info.html)
 
-有两种可用的数据点。作为人类可读的文本和数字。
+有一些数据点有 2 种。作为人类可读的文本和数字。
 这些属于文本字段的数字数据字段具有相同的名称，但附加了“_raw”。
-下面列出了具有一般含义的那些字段。
-未列出的字段的含义因设备而异，且 Miele 未记录。
+下面列出了具有一般含义的字段。
+未列出的字段的含义因设备而异，并且 Miele 未记录。
 如果您需要在脚本中引用这些字段，请始终使用 _raw 值。
-文本值将来可能会更改，并且还取决于语言。
-以下是这些原始值代表的列表：
+文本值将来可能会发生变化，并且还取决于语言。
+以下是这些原始值所代表的列表：
 
 ### 设备类型
- |原始值 |状态|
- |----------|-------|
- |1 |洗衣机|
- |2 |滚筒式干衣机|
- |7 |洗碗机|
- |8 |洗碗机半专业|
- |12 |烤箱|
- |13 |微波炉|
- |14 |灶具亮点|
- |15 |蒸汽烤箱|
- |16 |微波|
- |17 |咖啡系统|
- |18 |罩|
- |19 |冰箱|
- |20 |冰柜|
- |21 |冰箱-/冰柜组合|
- |23 |吸尘器，自动机器人吸尘器|
- |24 |洗衣机烘干机|
- |25 |暖碟机|
- |27 |滚刀感应|
- |28 |燃气灶|
- |31 |蒸汽烤箱组合|
- |32 |酒柜|
- |33 |葡萄酒调理装置|
- |34 |葡萄酒储存调节装置|
- |39 |双炉|
- |40 |双蒸烤箱|
- |41 |双蒸烤箱组合|
- |42 |双微波炉|
- |43 |双微波炉|
- |45 |蒸汽烤箱微波炉组合|
- |48 |真空抽屉|
- |67 | DIALOGOVEN|
- |68 |酒柜冷冻组合|
+|原始值 |状态 |
+|-----------|--------------------------------------------------|
+| 1 |洗衣机 |
+| 2 |滚筒式烘干机 |
+| 7 |洗碗机 |
+| 8 |洗碗机半专业 |
+| 12 |烤箱 |
+| 13 |微波炉 |
+| 14 |滚刀亮点 |
+| 15 |蒸烤箱 |
+| 16 |微波 |
+| 17 |咖啡系统 |
+| 18 |引擎盖 |
+| 19 |冰箱 |
+| 20 |冷冻机 |
+| 21 |冰箱-/冷冻机组合 |
+| 23 |吸尘器，自动机器人吸尘器 |
+| 24 |洗衣机烘干机 |
+| 25 |餐具加热器 |
+| 27 |滚刀感应 |
+| 28 |燃气灶 |
+| 31 |蒸烤箱组合 |
+| 32 |酒柜 |
+| 33 |葡萄酒调节装置 |
+| 34 |葡萄酒储存调节装置 |
+| 39 |双烤箱 |
+| 40 |双蒸炉 |
+| 41 |双蒸烤箱组合 |
+| 42 |双微波 |
+| 43 |双微波炉 |
+| 45 |蒸汽烤箱微波炉组合 |
+| 48 |真空抽屉 |
+| 67 | DIALOGOVEN |
+| 68 |酒柜冰柜组合 |
 
 ### 状态/状态
- |原始值 |状态|
- |----------|-------|
- |1|关闭|
- |2|待机|
- |3|已编程|
- |4| PROGRAMMED_WAITING_TO_START|
- |5|跑步|
- |6|暂停|
- |7| END_PROGRAMMED|
- |8|失败|
- |9|程序_中断|
- |10|空闲|
- |11| RINSE_HOLD|
- |12|服务|
- |13|超级冷冻|
- |14|过冷|
- |15|过热|
- |144|默认|
- |145|锁定|
- |146| SUPERCOOLING_SUPERFREEZING|
- |255|设备离线|
+|原始值 |状态 |
+|-----------|-----------------------------|
+| 1 |关闭 |
+| 2 |待机 |
+| 3 |编程 |
+| 4 | PROGRAMMED_WAITING_TO_START |
+| 5 |运行 |
+| 6 |暂停 |
+| 7 | END_PROGRAMMED |
+| 8 |失败 |
+| 9 | PROGRAMME_INTERRUPTED |
+| 10 |空闲 |
+| 11 |冲洗保持 |
+| 12 |服务 |
+| 13 |超冷冻 |
+| 14 |过冷 |
+| 15 |过热 |
+| 144 |默认 |
+| 145 |锁定 |
+| 146 | SUPERCOOLING_SUPERFREEZING |
+| 255 |设备离线 |
 
-### 程序类型/程序集市
-|原始值 |状态|
-|----------|-------|
-|0 |正常运行模式 |
-|1 |自己的程序|
-|2 |自动程序|
-|3 |清洁/护理程序 |
+### 程序类型/程序集
+|原始值 |状态 |
+|-----------|------------------------|
+| 0 |正常运行模式 |
+| 1 |自己的程序 |
+| 2 |自动程序 |
+| 3 |清洁/护理计划 |
 
-###dryingStep/Trockenstufe
- |原始值 |状态|
- |----------|-------|
- |0 |超干|
- |1 |普通加|
- |2 |正常|
- |3 |微干|
- |4 |手铁1级|
- |5 |手铁2级|
- |6 |机铁|
+### 干燥步骤/Trockenstufe
+|原始值 |状态 |
+|-----------|-------------------|
+| 0 |超干 |
+| 1 |普通加 |
+| 2 |正常 |
+| 3 |微干 |
+| 4 |手熨斗 1 级 |
+| 5 |手熨斗 2 级 |
+| 6 |机铁 |
 
 ### 程序设计
 |原始值 |状态 |可用于 |
 |-----------|-------------------------|-----------------|
-| 1 | “Baumwolle”/“棉花”|洗衣机|
-| 3 | "Pflegeleicht" |洗衣机|
-| 4 | "Feinwäsche" |洗衣机|
-| 8 | “沃勒” |洗衣机|
-| 9 | “赛德” |洗衣机|
-| 21 | “泵/施洛伊德” |洗衣机|
-| 23 | “奥伯海登” |洗衣机|
-| 27 | "Imprägnieren" |洗衣机|
-| 29 | "Sportwäsche" |洗衣机|
-| 31 | “自动加号”|洗衣机|
-| 37 | “户外” |洗衣机|
-| 48 | "Flusen ausspülen" |洗衣机烘干机|
-| 50 | "Dunkle Wäsche" |洗衣机烘干机|
-| 52 | "Nur Spülen/Stärken" |洗衣机|
-| 122 | 《快递20》|洗衣机烘干机|
-| 123 | "Dunkles/牛仔裤" |洗衣机|
+| 1 | “鲍姆沃勒”/“棉花” |洗衣机 |
+| 3 | “Pflegeleicht” |洗衣机 |
+| 4 | “范瓦舍” |洗衣机 |
+| 8 | “沃勒” |洗衣机 |
+| 9 | 《赛德》 |洗衣机 |
+| 21 | “Pumpen/Schleudern” |洗衣机 |
+| 23 | “奥伯黑登” |洗衣机 |
+| 27 | “印章” |洗衣机 |
+| 29 | “运动” |洗衣机 |
+| 31 | 《自动加号》 |洗衣机 |
+| 37 | 《户外》 |洗衣机 |
+| 48 | "Flusen ausspülen" |洗衣机烘干机 |
+| 50 | “邓克尔瓦舍” |洗衣机烘干机 |
+| 52 | “Nur Spülen/Stärken” |洗衣机 |
+| 122 | 《快20》 |洗衣机烘干机 |
+| 123 | “Dunkles/牛仔裤” |洗衣机 |
 
 ### 程序阶段
-|原始值 |状态|可用于 |
-|----------|-------|---------------|
-|258 | 《恩威臣》|洗衣机|
-|260 | "Waschen" / "洗涤" |洗衣机|
-|261 | “Spülen”/“冲洗” |洗衣机|
-|265 | “泵” |洗衣机|
-|266 | “施洛伊德”/“纺纱” |洗衣机|
-|267 | "Knitterschutz" / "" |洗衣机|
-|268 | "Ende" / "End" |洗衣机|
-|256 | "Vorbügeln" |洗衣机|
-|512 | “恩德”/“完成” |滚筒式干衣机 |
-|514 | “Trocknen”/“干燥” |洗衣机烘干机、滚筒烘干机 |
-|519 | "Abkühlen" / "冷静下来" |洗衣机烘干机|
-|521 | "Knitterschutz" / "" |滚筒式干衣机 |
-|522 | “恩德”/“完成” |滚筒式干衣机 |
-|531 | "Komfortkühlen" |滚筒式干衣机 |
-|532 | "Flusen ausspülen" |洗衣机烘干机|
+|原始值 |状态 |可用于 |
+|-----------|---------------------------|-----------------------------|
+| 258 | 《恩薇臣》 |洗衣机 |
+| 260 | “Waschen”/“洗涤” |洗衣机 |
+| 261 | “Spülen”/“冲洗”|洗衣机 |
+| 265 | “泵” |洗衣机 |
+| 266 | “Schleudern”/“纺纱” |洗衣机 |
+| 267 | “针织”/“”|洗衣机 |
+| 268 | “结束” / “结束” |洗衣机 |
+| 256 | “沃尔比根” |洗衣机 |
+| 512 | “结束”/“完成” |滚筒式干衣机 |
+| 514 | “Trocknen”/“干燥”|洗衣机烘干机，滚筒式烘干机 |
+| 519 | “Abkühlen” / “冷静下来” |洗衣机烘干机 |
+| 521 | “针织”/“”|滚筒式干衣机 |
+|第522章“结束”/“完成” |滚筒式干衣机 |
+|第531章“康福特库伦” |滚筒式干衣机 |
+|第532章"Flusen ausspülen" |洗衣机烘干机 |
 
-## 版权
-版权所有 (c) 2019, 2021 grizzelbee <open.source@hingsen.de>
+##版权
+版权所有 (c) 2019 - 2022 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+### V5.0.4 (2022-01-07) (Invincible)
+* (grizzelbee) Fix: [MIELECLOUDSERVICE-7](https://sentry.io/organizations/nocompany-6j/issues/2379624775/?project=5735758) handling if there is no auth token for a request 
+* (grizzelbee) Fix: [MIELECLOUDSERVICE-2J](https://sentry.io/organizations/nocompany-6j/issues/2885488082/?project=5735758) handling if there is no auth token for a request
+* (grizzelbee) Fix: [MIELECLOUDSERVICE-2K](https://sentry.io/organizations/nocompany-6j/issues/2886827789/?project=5735758) handling if there is no auth token for a request
+* (grizzelbee) Fix: [MIELECLOUDSERVICE-28](https://sentry.io/organizations/nocompany-6j/issues/2787208315/?project=5735758) handling if the device is unknown
 
-### V5.0.0 (2021-09-05) (Invincible)
+### V5.0.3 (2021-12-31) (Invincible)
+* (grizzelbee) Fix: [MIELECLOUDSERVICE-8](https://sentry.io/organizations/nocompany-6j/issues/2380318199/?project=5735758) fixed stringifying circular structure
+* (grizzelbee) Fix: undefined is not a valid state value for id "xxx.signalDoor"
+* (grizzelbee) Fix: undefined is not a valid state value for id "xxx.ACTIONS.programId"
+
+### V5.0.2 (2021-10-27) (Invincible)
+* (grizzelbee) Upd: Added listener to error events
+* (grizzelbee) Upd: Trying to reconnect if connection has been lost
+ 
+### V5.0.1 (2021-10-25) (Invincible)
+* (grizzelbee) Fix: [178](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/178) Removed: info Received ACTIONS message by SSE.
+* (grizzelbee) Fix: [179](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/179) Removed: info Received DEVICES message by SSE.
+* (grizzelbee) Fix: [180](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/180) Fixed: Info: State value to set for "mielecloudservice.0.xxx.ACTIONS.Power" has to be type "boolean" but received type "string"
+* (grizzelbee) Fix: [181](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/181) Fixed: Programbuttons should be fixed and work as soon as Miele fixes the API (as of today it has bugs).
+* (grizzelbee) Upd: Removed many debug log output
+
+### V5.0.0 (2021-10-21) (Invincible)
 * (grizzelbee) Chg: BREAKING CHANGE: Removed useless grouping folders for device types - check your VIS and scripts
 * (grizzelbee) New: [164](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/164) fixed bug in SignalFailure and signalInfo when havin no value
 * (grizzelbee) New: [155](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/155) fixed >missing object< bug on arrays 

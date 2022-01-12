@@ -1230,5 +1230,38 @@
         "fa-icon": "usb",
         "created": "2021-12-08T11:00:00.000Z",
         "date-end": "2022-01-10T00:00:00.000Z"
+    },
+    {
+        "title": {
+            "en": "WM-Bus adapter is deprecated",
+            "de": "WM-Bus-Adapter ist veraltet",
+            "ru": "Адаптер WM-Bus устарел",
+            "pt": "O adaptador WM-Bus está obsoleto",
+            "nl": "WM-Bus-adapter is verouderd",
+            "fr": "L'adaptateur WM-Bus est obsolète",
+            "it": "L'adattatore WM-Bus è deprecato",
+            "es": "El adaptador WM-Bus está obsoleto",
+            "pl": "Adapter WM-Bus jest przestarzały",
+            "zh-cn": "WM-Bus 适配器已弃用"
+        },
+        "content": {
+            "en": "The WM-Bus adapter was replaced by Wireless-MBus adapter and is now removed from the official repositories. You can still use the WM-Bus adapter, as long it is working. But there will be no more support for this adapter.",
+            "de": "Der WM-Bus-Adapter wurde durch den Wireless-MBus-Adapter ersetzt und ist nun aus den offiziellen Repositories entfernt. Sie können den WM-Bus-Adapter weiterhin verwenden, solange er funktioniert. Dieser Adapter wird jedoch nicht mehr unterstützt.",
+            "ru": "Адаптер WM-Bus был заменен адаптером Wireless-MBus и теперь удален из официальных репозиториев. Вы все еще можете использовать адаптер WM-Bus, пока он работает. Но поддержки этого адаптера больше не будет.",
+            "pt": "O adaptador WM-Bus foi substituído pelo adaptador Wireless-MBus e agora foi removido dos repositórios oficiais. Você ainda pode usar o adaptador WM-Bus, desde que esteja funcionando. Mas não haverá mais suporte para este adaptador.",
+            "nl": "De WM-Bus-adapter is vervangen door een Wireless-MBus-adapter en is nu verwijderd uit de officiële repositories. U kunt de WM-Bus-adapter nog steeds gebruiken, zolang deze werkt. Maar er zal geen ondersteuning meer zijn voor deze adapter.",
+            "fr": "L'adaptateur WM-Bus a été remplacé par l'adaptateur Wireless-MBus et est désormais supprimé des référentiels officiels. Vous pouvez toujours utiliser l'adaptateur WM-Bus, tant qu'il fonctionne. Mais il n'y aura plus de support pour cet adaptateur.",
+            "it": "L'adattatore WM-Bus è stato sostituito dall'adattatore Wireless-MBus e ora è stato rimosso dai repository ufficiali. È ancora possibile utilizzare l'adattatore WM-Bus, purché funzioni. Ma non ci sarà più supporto per questo adattatore.",
+            "es": "El adaptador WM-Bus fue reemplazado por el adaptador Wireless-MBus y ahora se eliminó de los repositorios oficiales. Puede seguir utilizando el adaptador WM-Bus, siempre que esté funcionando. Pero no habrá más soporte para este adaptador.",
+            "pl": "Adapter WM-Bus został zastąpiony przez adapter Wireless-MBus i został usunięty z oficjalnych repozytoriów. Nadal możesz używać adaptera WM-Bus, dopóki działa. Ale nie będzie już obsługi tego adaptera.",
+            "zh-cn": "WM-Bus 适配器已被 Wireless-MBus 适配器取代，现在已从官方存储库中删除。只要 WM-Bus 适配器工作正常，您仍然可以使用它。但是将不再支持此适配器。"
+        },
+        "id": "wmBusAdapter",
+        "class": "info",
+        "fa-icon": "exclamation-circle",
+        "created": "2022-01-07T16:30:00.000Z",
+        "conditions": {
+            "wm-bus": "installed"
+        }
     }
 ]

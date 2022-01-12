@@ -60,6 +60,9 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
+### 1.15.2 (2022-01-04)
+* (Apollon77) Wait 10s until no new "unknown state update" was received before updating the whole system
+
 ### 1.15.0 (2022-01-02)
 * Node.js 10.x is now minimum required version for this adapter
 * (Apollon77) Optimize WebSocket reconnection Logic

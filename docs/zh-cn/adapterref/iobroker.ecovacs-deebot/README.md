@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
-title: 适用于 ioBroker 的 Ecovacs Deebot 适配器
-hash: e2AlGkypQ/RBxghvtcGiFaB/CVfUMnY6vwh2J3aktVk=
+title: 用于 ioBroker 的 Ecovacs Deebot 适配器
+hash: 8NZ1eiNmphw0lfJjopIRN/qfZWJbmF6ZV/JqtlXNVh0=
 ---
 ![标识](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -13,65 +13,65 @@ hash: e2AlGkypQ/RBxghvtcGiFaB/CVfUMnY6vwh2J3aktVk=
 ![每月下载次数](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
 ![下载次数](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
 
-# Ecovacs Deebot ioBroker 适配器
+# 用于 ioBroker 的 Ecovacs Deebot 适配器
 [![github-workflow](https://github.com/mrbungle64/iobroker.ecovacs-deebot/actions/workflows/node.js.yml/badge.svg)](https://github.com/mrbungle64/iobroker.ecovacs-deebot)
 
 此适配器使用 [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js) 库。
 
 ＃＃ 特征
-一些值得注意的功能是：
+一些值得注意的特点是：
 
 * 检索信息（例如电池、清洁日志、耗材、清洁和充电状态）
-* 发送清洁命令（例如自动、点区域、自定义区域）和各种其他命令（例如播放声音、重置耗材）
+* 发送清理命令（例如自动、点区域、自定义区域）和各种其他命令（例如播放声音、重置消耗品）
 * 保存上次运行的自定义区域并重新运行保存的区域
-* 真空功率（清洁速度）和水位的调节
+* 真空功率（清洁速度）和水位的调整
 * 在清洁过程中检索信息（例如当前位置和区域）
-*检索地图的信息，包括。点区域和虚拟边界
-* 删除、保存和重新创建单个虚拟边界以及全套虚拟边界 *)
+*检索地图信息，包括。点区域和虚拟边界
+* 删除、保存和重新创建单个虚拟边界以及一整套虚拟边界 *)
 * 加载当前地图图像的函数 *)
 
-*) 实验性的
+*) 实验性
 
 请注意：某些功能仅适用于某些型号
 
 ＃＃ 楷模
-### 支持的模型
-* Deebot 900/901
-* Deebot OZMO 930
-* Deebot OZMO 920/950
+### 支持的机型
+* 地宝 900/901
+* 地宝 OZMO 930
+* 地宝 OZMO 920/950
 
-列出的型号是我自己使用的型号，或者在技术上与这些型号相同。
+列出的模型是我自己使用的或在技术上与这些模型相同的模型。
 
 ### 这些模型应该正常工作或至少部分工作
-* Deebot Slim 2
-* Deebot N79 系列
-* Deebot M88
+* 地宝超薄 2
+* 地宝 N79 系列
+* 地宝 M88
 * 地宝 500
-* Deebot 600/601/605
-* Deebot 710/711/711s
-* Deebot OZMO 610
-* Deebot OZMO 900/905
+* 地宝 600/601/605
+* 地宝 710/711
+* 地宝 OZMO 610
+* 地宝 OZMO 900/905
 * Deebot OZMO Slim 10/11
-* Deebot OZMO T5
-* Deebot U2系列
-* Deebot N3 MAX
+* 地宝 OZMO T5
+* 地宝 U2 系列
+* 地宝 N3 MAX
 * 地宝 N7
-* Deebot N8 系列
-* Deebot T8系列
-* Deebot T9系列
+* 地宝 N8 系列
+* 地宝 T8 系列
+* 地宝 T9 系列
 
-列出的模型要么是已知的，要么在技术上与这些模型相似。
+列出的模型要么已知可以工作，要么在技术上与这些模型相似。
 然而，功能可能会受到部分限制。
 
-我尝试实现广泛的功能，但根据复杂性和其他各种标准逐案决定。
-当然，我们不能声称拥有完整的功能。
+我尝试实现广泛的功能，但根据复杂性和各种其他标准逐案决定。
+当然，没有人声称拥有完整的功能。
 
 ＃＃ 安装
 建议使用 Node.js 的 12.x 或 14.x 版本。最低要求版本为 12.x
 
-此适配器使用 [节点画布](https://www.npmjs.com/package/canvas) 库来实现某些与地图相关的功能，这些功能可能需要安装一些附加包。
+此适配器使用 [节点画布](https://www.npmjs.com/package/canvas) 库来实现一些与地图相关的功能，这些功能可能需要安装一些额外的包。
 
-对于没有地图功能的模型，画布的安装是可选的，不是必需的，但对于完整的功能范围，请安装以下软件包。
+canvas 的安装是可选的，对于没有地图功能的模型不是必需的，但要获得完整的功能范围，请安装以下软件包。
 
 对于基于 Debian 的 Linux 系统，应执行以下命令：
 
@@ -92,15 +92,15 @@ sudo npm install canvas --unsafe-perm=true
 * 有关如何使用此适配器的信息，请参见 [此处](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
 
 ＃＃＃ 状态
-*有关各州的信息可以在[这里](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29)(英文)和[这里](https://github .com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Datenpunkte-%28DE%29)（德语）
+* 可以在 [这里](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29)（英文）和 [这里](https://github) 找到有关各州的信息.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Datenpunkte-%28DE%29)（德语）
 
 ＃＃ 常问问题
-* 常见问题可以在这里找到（https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ）
+* 常见问题可以在 [这里](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ) 找到
 
 ＃＃ 已知的问题
 * 对于某些型号（例如 Deebot OZMO 930），建议使用
 
-到 [安排重启](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) 每天一次，因为有一些报告说大约在大约 . 24小时
+[安排重启](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) 每天一次，因为有一些报告称连接在大约 10 分钟后丢失。 24小时
 
 * “边缘”功能不适用于 Deebot U2（改为启动自动清洁）
 * T9 系列上的一些“cleaninglog”状态为空（“last20Logs”、“lastCleaningDate”和“lastCleaningMapImageURL”）
@@ -110,11 +110,18 @@ sudo npm install canvas --unsafe-perm=true
 
 ## Changelog
 
+### 1.3.2 (alpha)
+
+* Recent updates
+
+### 1.3.1
+
+* Fix the cleaning functions for the Deebot 710 series
+
 ### 1.3.0
 
 * Using library version 0.7.0 (beta)
 * The minimum required version of Node.js is now 12.x
-* Fix the cleaning functions for the Deebot 710 series
 * Some improvements for newer models (e.g. T9 series)
 * Some other improvements and fixes
 

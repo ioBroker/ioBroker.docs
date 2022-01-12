@@ -3,43 +3,60 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.meross/README.md
 title: ioBroker.meross
-hash: ycVwOhJYFRlqUHHqOuuO0OFy5Dx2wEtuAs5lKT/7VjE=
+hash: C8mfqCpHbJp+lHIzqw+XNTb9He6Zko83hjyeUHzB+NI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.meross/admin/meross-logo.png)
 
 ![Количество установок](http://iobroker.live/badges/meross-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.meross.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.meross.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.meross.svg)
 
 # IoBroker.meross
-![Тестирование и выпуск](https://github.com/Apollon77/iobroker.meross/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/meross/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Тестируйте и выпускайте](https://github.com/Apollon77/iobroker.meross/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/meross/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Описание
 Этот адаптер позволяет управлять устройствами Meross, подключаясь к облачным серверам Meross.
 
-Вам необходимо предоставить свои учетные данные для входа в Cloud. Адаптер подключается к вашей облачной учетной записи и подписывается на все данные устройства через MQTT. Из-за этого устройства должны быть подключены к их облаку. В настоящее время не известно ни о каком способе локального управления устройствами.
+Вам необходимо предоставить свои учетные данные для входа в облако. Адаптер подключается к вашей облачной учетной записи и подписывается на все данные устройства через MQTT. Из-за этого устройства должны быть подключены к своему облаку. В настоящее время не известно, как управлять устройствами локально.
 
 Один экземпляр адаптера покажет все устройства из одной учетной записи Meross Cloud и позволит управлять ими.
 
 ## Известные рабочие устройства
-* mss425e
-* mss310
-* MSS620 ЕС / Великобритания
-* МТС100, МТС100v3, МТС150
-* MRS100
+Все устройства должны работать, исходя из моих текущих знаний. Но, пожалуйста, проверьте журналы или сообщите о любых функциях или новых типах устройств, которые не создают состояния (новые типы устройств должны быть добавлены мной вручную, поэтому проблема важна).
 
-Если работают другие устройства (или нет), сообщите о них, открыв проблему на GitHub.
+Сообщается, что работают как минимум:
 
-## Как сообщить о проблемах и запросах функций
-Пожалуйста, используйте для этого проблемы GitHub.
+* мсс425е
+* мсс310
+* MSS620 ЕС/Великобритания
+* МТС100, МТС100в3, МТС150, МТС200
+* МРС100
+* ... и многое другое, чего еще нет в списке :-) Просто сообщите мне, когда работает устройство, которого нет в списке, через проблему GitHub.
 
-Лучше всего установить адаптер в режим журнала отладки (Экземпляры -> Экспертный режим -> Уровень журнала столбцов). Затем получите файл журнала с диска (подкаталог "log" в установочном каталоге ioBroker, а не из Admin, потому что Admin сокращает строки). Если вам не нравится предоставлять его в выпуске GitHub, вы также можете отправить его мне по электронной почте (iobroker@fischer-ka.de). Добавьте ссылку на соответствующую проблему GitHub И также опишите, что я вижу в журнале и в какое время.
+## Как сообщать о проблемах и запросах функций
+Пожалуйста, используйте для этого задачи GitHub.
+
+Лучше всего установить адаптер в режим журнала отладки (Экземпляры -> Режим эксперта -> Уровень журнала столбцов). Затем получите файл журнала с диска (подкаталог «log» в каталоге установки ioBroker, а не от администратора, потому что администратор обрезает строки). Если вам не нравится предоставлять его в выпуске GitHub, вы также можете отправить его мне по электронной почте (iobroker@fischer-ka.de). Пожалуйста, добавьте ссылку на соответствующую проблему GitHub И также опишите, что я вижу в журнале и в какое время.
 
 ## Changelog
-
 ### __WORK IN PROGRESS__
+* (Apollon77) Optimize Meross Communication to first try to communicate with the device locally before sending data to MQTT - enabled by default, you can disable it in settings!
+* (Apollon77) Optimize Meross Communication by using only one MQTT connection instead of one per device when cloud is used
+* (Apollon77) Add new state "disabled" to ignore connection error of a device; reconnections are still tried, but no error are logged if not successful
+* (Apollon77) Add support for Online status reports from MTS100 hub devices
+* (Apollon77) Automatically logout from meross cloud on adapter end; next start will do a new Login
+* (Apollon77) Automatically delete old devices if no longer existing (when js-controller >=2.2)
+* (Apollon77) Optimize MTS200 handling
+
+### 1.8.0 (2022-01-05)
+* (Apollon77) Add support for MTS200 Wifi Thermostat
+
+### 1.7.1 (2021-11-13)
+* (Apollon77) Allow to enter passwords with more than 15 characters
+
+### 1.7.0 (2021-11-13)
 * (Apollon77) Add support for MTS150 Thermostats
 * (Apollon77) Add support for MRS100 RollerShutter devices
 
@@ -129,7 +146,7 @@ hash: ycVwOhJYFRlqUHHqOuuO0OFy5Dx2wEtuAs5lKT/7VjE=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2022 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

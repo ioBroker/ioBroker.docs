@@ -3,7 +3,6 @@ BADGE-NPM version: https://img.shields.io/npm/v/iobroker.ds18b20.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.ds18b20.svg
 BADGE-Number of Installations (latest): https://iobroker.live/badges/ds18b20-installed.svg
 BADGE-Number of Installations (stable): https://iobroker.live/badges/ds18b20-stable.svg
-BADGE-Dependency Status: https://img.shields.io/david/crycode-de/iobroker.ds18b20.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.ds18b20.png?downloads=true
 ---
 ![Logo](../../admin/ds18b20.png)
@@ -222,6 +221,9 @@ Anweisungen zur Einrichtung sind in der Adapterkonfiguration zu finden.
 
 ## Changelog
 
+### 1.5.4 (2022-01-06)
+* (crycode-de) Catch errors while sending request to remote client (IOBROKER-DS18B20-C)
+
 ### 1.5.3 (2021-12-28)
 * (crycode-de) Increased remote client protocol version to inform users that they should update their remote clients
 
@@ -230,7 +232,7 @@ Anweisungen zur Einrichtung sind in der Adapterkonfiguration zu finden.
   * **Reinstall of remote client needed to apply this fix!**
 
 ### 1.5.1 (2021-12-12)
-* (crycode-de) Fix crash on undefined obj.native,
+* (crycode-de) Fix crash on undefined obj.native
 * (crycode-de) Updated remote-client-setup info in admin if https is used
 
 ### 1.5.0 (2021-12-11)
@@ -299,7 +301,7 @@ Anweisungen zur Einrichtung sind in der Adapterkonfiguration zu finden.
 
 ## License
 
-Copyright (c) 2019-2021 Peter Müller <peter@crycode.de>
+Copyright (c) 2019-2022 Peter Müller <peter@crycode.de>
 
 ### MIT License
 

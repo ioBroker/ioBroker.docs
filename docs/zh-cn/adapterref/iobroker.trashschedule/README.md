@@ -1,206 +1,45 @@
 ---
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.trashschedule.svg
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.trashschedule.svg
-BADGE-Stable: http://iobroker.live/badges/trashschedule-stable.svg
-BADGE-installed: http://iobroker.live/badges/trashschedule-installed.svg
-BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.trashschedule.svg
-BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.trashschedule/badge.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.trashschedule.png?downloads=true
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.trashschedule/README.md
 title: ioBroker.trashschedule
-hash: UV3HqVZZtcoUaaOnkXYcvc9qyq3KiXymFFmX/tF7MkI=
+hash: HzReN+JOVPEEh3wnCJAo+P8x/PtOIm9cg/0hlBgLAl8=
 ---
-![标识](../../../en/adapterref/iobroker.trashschedule/../../admin/trashschedule.png)
+![标识](../../../en/adapterref/iobroker.trashschedule/admin/trashschedule.png)
+
+![NPM 版本](http://img.shields.io/npm/v/iobroker.trashschedule.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.trashschedule.svg)
+![稳定的](http://iobroker.live/badges/trashschedule-stable.svg)
+![已安装](http://iobroker.live/badges/trashschedule-installed.svg)
+![依赖状态](https://img.shields.io/david/klein0r/iobroker.trashschedule.svg)
+![已知漏洞](https://snyk.io/test/github/klein0r/ioBroker.trashschedule/badge.svg)
+![新PM](https://nodei.co/npm/iobroker.trashschedule.png?downloads=true)
 
 # IoBroker.trashschedule
-##先决条件
-1. 创建一个新的 **ical 适配器**实例
-2. 配置日历的网址（例如谷歌日历）
-3. 将“预览天数”设置为包含每种垃圾类型至少两次的范围（例如 30 天）
-4. 如果您使用“事件”选项卡，请确保为每个事件类型启用“显示”复选框，这些类型也应该在您的垃圾桶计划中使用（否则事件将被 ical 实例隐藏）
+![测试和发布](https://github.com/klein0r/ioBroker.trashschedule/workflows/Test%20and%20Release/badge.svg)
 
-![卡尔](../../../en/adapterref/iobroker.trashschedule/./ical.png)
+扫描日历以计算距离下一次垃圾回收的剩余天数
 
-＃＃ 配置
-1. 创建一个 ```trashschedule``` 实例并选择 ical 实例作为源
-2. 转到垃圾类型选项卡并添加任意数量的垃圾类型
-3.为每个新垃圾类型定义一个名称并配置匹配的事件
-4. 启动实例
+＃＃ 由...赞助
+[![ioBroker Master Kurs](https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-trashschedule)
 
-**问题？** 检查 [常问问题](./faq.md)
+＃＃ 安装
+请使用 ioBroker 中的“适配器列表”安装此适配器的稳定版本。您还可以使用 CLI 安装此适配器：
 
-![垃圾时间表](../../../en/adapterref/iobroker.trashschedule/./trashschedule.png)
-
-![垃圾调度_类型](../../../en/adapterref/iobroker.trashschedule/./trashschedule_types.png)
-
-## VIS 小工具
-![VIS 小部件](../../../en/adapterref/iobroker.trashschedule/../vis.png)
-
-##块状示例
-![块状示例](../../../en/adapterref/iobroker.trashschedule/../exampleBlockly.png)
-
-```xml
-<xml xmlns="https://developers.google.com/blockly/xml">
-  <block type="comment" id="@ObjS.SGnDWy?:*J=bee" x="37" y="188">
-    <field name="COMMENT">Um 18:00 Uhr am Vortag (verbleibende Tage = 1) erinnern, dass Abholung bevorsteht</field>
-    <next>
-      <block type="schedule" id=";J}3hpr7:d~*N?CrR==A">
-        <field name="SCHEDULE">0 18 * * *</field>
-        <statement name="STATEMENT">
-          <block type="controls_if" id="EjaN~}B1gMA9ySf2%9kr">
-            <value name="IF0">
-              <block type="logic_operation" id="+hQc|po$a[W}HKd]slrE" inline="false">
-                <field name="OP">AND</field>
-                <value name="A">
-                  <block type="get_value" id="Q;BN3$0J3q5$0sumfBYC">
-                    <field name="ATTR">val</field>
-                    <field name="OID">trashschedule.0.next.dateFound</field>
-                  </block>
-                </value>
-                <value name="B">
-                  <block type="logic_compare" id=")Z1Ml4oq9UCnquPo!giX">
-                    <field name="OP">EQ</field>
-                    <value name="A">
-                      <block type="get_value" id="k@gpt[%7O[i`*b;SWlu4">
-                        <field name="ATTR">val</field>
-                        <field name="OID">trashschedule.0.next.daysLeft</field>
-                      </block>
-                    </value>
-                    <value name="B">
-                      <block type="math_number" id="([hVlm^PW0,gm`C/xp?a">
-                        <field name="NUM">1</field>
-                      </block>
-                    </value>
-                  </block>
-                </value>
-              </block>
-            </value>
-            <statement name="DO0">
-              <block type="pushover" id="vqjP6Z6|7M.^)lx4]GiG">
-                <field name="INSTANCE"></field>
-                <field name="SOUND">gamelan</field>
-                <field name="PRIORITY">0</field>
-                <field name="LOG"></field>
-                <value name="MESSAGE">
-                  <shadow type="text" id="yt8+Z!a;[|CJy`,K(B.3">
-                    <field name="TEXT">text</field>
-                  </shadow>
-                  <block type="text_join" id="pm:dwF91X!Oj82P^4Oz8">
-                    <mutation items="2"></mutation>
-                    <value name="ADD0">
-                      <block type="text" id="%|}mW_iCoyweL$jy9wHq">
-                        <field name="TEXT">Morgen wird der Müll abgeholt: </field>
-                      </block>
-                    </value>
-                    <value name="ADD1">
-                      <block type="get_value" id="~TDqVlE(:gEW7snO2_]s">
-                        <field name="ATTR">val</field>
-                        <field name="OID">trashschedule.0.next.typesText</field>
-                      </block>
-                    </value>
-                  </block>
-                </value>
-                <value name="TITLE">
-                  <block type="text" id="t*+0*zY(|S3fI3WBX[2g">
-                    <field name="TEXT">Müllabfuhr</field>
-                  </block>
-                </value>
-              </block>
-            </statement>
-          </block>
-        </statement>
-        <next>
-          <block type="comment" id="~rf)Dy*vQ]9g?yVIWVsP">
-            <field name="COMMENT">Um 07:00 Uhr am Abholtag (verbleibende Tage = 0) erinnern, dass Abholung bevorsteht</field>
-            <next>
-              <block type="schedule" id="O%4=ke4-(?vnjhtIDnt3">
-                <field name="SCHEDULE">0 7 * * *</field>
-                <statement name="STATEMENT">
-                  <block type="controls_if" id="kyfB;W(WcA(/-ZWG2j6(">
-                    <value name="IF0">
-                      <block type="logic_operation" id=".wZBS3T):whb7WB!a-c_" inline="false">
-                        <field name="OP">AND</field>
-                        <value name="A">
-                          <block type="get_value" id=",jhL[do$G_Q6TNBH,D]o">
-                            <field name="ATTR">val</field>
-                            <field name="OID">trashschedule.0.next.dateFound</field>
-                          </block>
-                        </value>
-                        <value name="B">
-                          <block type="logic_compare" id="Rlwt:Jv/rTfO.E:ZmYak">
-                            <field name="OP">EQ</field>
-                            <value name="A">
-                              <block type="get_value" id="WdL)rds~)z*-)1k),cX(">
-                                <field name="ATTR">val</field>
-                                <field name="OID">trashschedule.0.next.daysLeft</field>
-                              </block>
-                            </value>
-                            <value name="B">
-                              <block type="math_number" id="w%5y6PluO}wjq]lDY+Gd">
-                                <field name="NUM">0</field>
-                              </block>
-                            </value>
-                          </block>
-                        </value>
-                      </block>
-                    </value>
-                    <statement name="DO0">
-                      <block type="pushover" id="L,TLF/L9|B6bF4)|gj?F">
-                        <field name="INSTANCE"></field>
-                        <field name="SOUND">gamelan</field>
-                        <field name="PRIORITY">0</field>
-                        <field name="LOG"></field>
-                        <value name="MESSAGE">
-                          <shadow type="text">
-                            <field name="TEXT">text</field>
-                          </shadow>
-                          <block type="text_join" id="Cw#u;:L537u`7Dz2:Kll">
-                            <mutation items="2"></mutation>
-                            <value name="ADD0">
-                              <block type="text" id=".zD)ZQXz7Esr0%?Z1Y(|">
-                                <field name="TEXT">Heute wird der Müll abgeholt: </field>
-                              </block>
-                            </value>
-                            <value name="ADD1">
-                              <block type="get_value" id="9m]6=cBQH_B(%ZOH*j-4">
-                                <field name="ATTR">val</field>
-                                <field name="OID">trashschedule.0.next.typesText</field>
-                              </block>
-                            </value>
-                          </block>
-                        </value>
-                        <value name="TITLE">
-                          <block type="text" id="ki`]5O+.IzI%2Gfw5VT-">
-                            <field name="TEXT">Müllabfuhr</field>
-                          </block>
-                        </value>
-                      </block>
-                    </statement>
-                  </block>
-                </statement>
-              </block>
-            </next>
-          </block>
-        </next>
-      </block>
-    </next>
-  </block>
-</xml>
+```
+iobroker add trashschedule
 ```
 
-##偏移配置
-偏移量可以将日历中的所有取件事件移动到未来或过去。
+## 文档
+[🇺🇸 文档](./docs/en/basics.md)
 
-## 默认值：0
-![偏移示例](../../../en/adapterref/iobroker.trashschedule/../offsetExample.jpg)
+[🇩🇪 文档](./docs/de/basics.md)
 
-## 示例：1
-![偏移示例](../../../en/adapterref/iobroker.trashschedule/../offsetExample1.jpg)
+## 学分
+- SVG：https://pixabay.com/de/vectors/behälter-kann-deckel-offen-grün-310937/
 
-## 示例：-1
-![偏移示例](../../../en/adapterref/iobroker.trashschedule/../offsetExample2.jpg)
+##哨兵
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ## Changelog
 
@@ -208,6 +47,10 @@ hash: UV3HqVZZtcoUaaOnkXYcvc9qyq3KiXymFFmX/tF7MkI=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.4.1 (2021-12-23)
+
+* (klein0r) Updated dependencies
+
 ### 1.4.0 (2021-12-10)
 
 * (klein0r) Allow to hide "not found" warnings for single trash types (like christmas tree pickup)

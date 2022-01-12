@@ -1,48 +1,52 @@
 ---
-BADGE-Number of Installations: http://iobroker.live/badges/wolf-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.wolf.svg
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.wolf.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.wolf.png?downloads=true
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wolf/README.md
-title: iobroker.wolf
-hash: pDtMB9foXkJXjjQ5/dxzpSFjGTXi8W15I1kZGV8qa3E=
+title: ioBroker.wolf
+hash: p12II4ka6iqIZ9zUMCoRRjGz8r+tXQLbRpOheMcLH8I=
 ---
-＃iobroker.wolf
-##应用领域：供暖/太阳能/家庭通风
-通过ISM8i，适配器最多可以评估以下4个加热器：
+![标识](../../../en/adapterref/iobroker.wolf/admin/wolf.png)
 
-   *气体冷凝单元：CGB-2（包括：CGW-2，CGS-2，CSZ-2），MGK-2
-   *冷凝油锅炉：TOB
-   *分体式热泵：BWL-1-S
-   *客厅通风CWL优秀
+![安装数量](http://iobroker.live/badges/wolf-stable.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.wolf.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.wolf.svg)
+![新PM](https://nodei.co/npm/iobroker.wolf.png?downloads=true)
 
-始终需要系统控制模块BM-2或显示模块AM。
-此外，在eBus系统中可能存在其他组件，例如混合器模块MM，级联模块KM，太阳能模块SM1或SM2。
+# IoBroker.wolf
+连接到 WOLF 设备。
+阅读[英语](docs/en/README.md)。
 
-单个模块的最大数量：
+Lese auf [德语](docs/de/README.md)。
 
-   *最高4个加热器汞（1）-汞（4）
-   *最高3个搅拌器mm（1）-mm（3）
-   *最高4个操作员面板（BM-2）bm（1）-bm（4）
-   *最高1级联模块km（1）
-   *最高1个太阳能模块（SM1或SM2）sm（1）
-   *最高1分体式空气/水热泵（BWL-1-S）汞（0）
+<!-- 下一个版本的占位符（在行首）：
 
-   也可以使用ISM8i对CWL Excellent系列的住宅通风装置进行评估和操作。
+### __工作进行中__ -->
 
 ## Changelog
+### 1.3.4 (2021-11-14)
+* (eifel-tech) Min value of outside temperature corrected
+
+### 1.3.2 (2021-08-31)
+* (eifel-tech/tobias) Corrected error: DP 149 with correct Type (Issue #30)
+* (eifel-tech/tobias) Changes for js-controller 3.3
+
+### 1.2.1 [2020.06.20]
+* (schweigel) Corrected error: DPT_Switch in boolean mode didn't work correct
+
+### 1.2.0 [2020.03.20]
+* (LHBL2003) Added for all variables "write" as Bool value
+* (bluefox) Admin3 compatibility
+
 ### 1.1.1 [2019.12.02]
 * (schweigel) Fixed: DPT_Date is wrong
 * (schweigel) Fixed: CWL - DPT_TimeOfDay - error
- 
+
 ### 1.1.0 [2019.09.13]
 * (RustyThePropellerHead) ISM8i Firmware v1.50 Update to be able to use the new DataPoints (FW Released in 2016)
-                          * As a side note the GLT °C boiler setpoint is defined and read as a 1°C resolution, but you can send the boiler setpoint commands with 0.1°C resolution
-* (RustyThePropellerHead) DHW minimum value reduced from 20°C to 0°C to allow for deactivation                          
+                          * As a side note the GLT °C boiler set point is defined and read as a 1 °C resolution, but you can send the boiler set point commands with 0.1 °C resolution
+* (RustyThePropellerHead) DHW minimum value reduced from 20 °C to 0 °C to allow for deactivation                          
 * (RustyThePropellerHead) Reorganisation of the hg0 to have its own area on the adapter configuration webpage.
-* (RustyThePropellerHead) Scalling DPT_FlowRate_m3/h corrected
+* (RustyThePropellerHead) Scaling DPT_FlowRate_m3/h corrected
 * (RustyThePropellerHead) Lookup "Programmwahl CWL" corrected
 
 ### 1.0.0 [2017.11.21]
@@ -51,7 +55,7 @@ hash: pDtMB9foXkJXjjQ5/dxzpSFjGTXi8W15I1kZGV8qa3E=
 ### 0.9.1 [2016.12.19]
 * (smiling_Jack) Add Bool option
 * (smiling_Jack) Add Bar option
-* (smiling_Jack) Bugfix Type 5.001 Scaling 
+* (smiling_Jack) Bugfix Type 5.001 Scaling
 
 ### 0.1.0 [2015.12.01]
 * (smiling_Jack) Add writing to ism8
@@ -95,7 +99,7 @@ hash: pDtMB9foXkJXjjQ5/dxzpSFjGTXi8W15I1kZGV8qa3E=
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2019 smiling_Jack
+Copyright (c) 2015-2021 smiling_Jack
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

@@ -1,15 +1,13 @@
 ![Logo](admin/lovelace.png)
 # ioBroker.lovelace
 
+![Number of Installations](http://iobroker.live/badges/lovelace-installed.svg)
+![Number of Installations](http://iobroker.live/badges/lovelace-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.lovelace.svg)](https://www.npmjs.com/package/iobroker.lovelace)
+
+![Test and Release](https://github.com/ioBroker/iobroker.lovelace/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/lovelace/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.lovelace.svg)](https://www.npmjs.com/package/iobroker.lovelace)
-[![Dependency Status](https://img.shields.io/david/ioBroker/iobroker.lovelace.svg)](https://david-dm.org/ioBroker/iobroker.lovelace)
-[![Known Vulnerabilities](https://snyk.io/test/github/ioBroker/ioBroker.lovelace/badge.svg)](https://snyk.io/test/github/ioBroker/ioBroker.lovelace)
-
-[![NPM](https://nodei.co/npm/iobroker.lovelace.png?downloads=true)](https://nodei.co/npm/iobroker.lovelace/)
-
-**Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.lovelace/master.svg)](https://travis-ci.org/ioBroker/ioBroker.lovelace)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/ioBroker/ioBroker.lovelace?branch=master&svg=true)](https://ci.appveyor.com/project/ioBroker/ioBroker-lovelace/)
 
 ## lovelace adapter for ioBroker
 
@@ -457,7 +455,7 @@ After that checkout modified version in `./build` folder. Then.
 2. `git clone https://github.com/GermanBluefox/home-assistant-polymer.git` it is a fork of https://github.com/home-assistant/frontend.git, but some things are modified (see the file list earlier).
 3. `cd home-assistant-polymer`
 4. `git checkout master`
-5. `npm install`
+5. `yarn install`
 6. `gulp build-app` for release or `gulp develop-iob` for the debugging version. To build web after changes you can call `webpack-dev-app` for faster build, but you need to call `build-app` anyway after the version is ready for use.
 7. copy all files from `./build/home-assistant-polymer/hass_frontend` into `./hass_frontend` in this repo
 8. Start `gulp rename` task.
@@ -468,31 +466,25 @@ After that checkout modified version in `./build` folder. Then.
 	PLACEHOLDER for next version:
 	### **WORK IN PROGRESS**
 -->
-### 2.0.6 (2021-08-31)
-* (Garfonso) Add manual entity support for geo_location (inofficial currently)
-* (Garfonso) Fix binding for other things than val (like ts or lc).
-* (algar42) Add additional field for accuweather weather (and custom card)
-* (algar42) translate russian characters to allowed charset in ids
-* (Garfonso) Add workaround for custom card upload issue with admin 5.
-* (Garfonso) fix history attribues with state and multiple attributes
+### 2.1.4 (2022-01-09)
+* (Garfonso) Dependency update
 
-### 2.0.4 (2021-07-23)
-* (Garfonso) Add support for fan entity (makes fan card working).
-* (Garfonso) fix backwards compatibility for input_datetime attributes.
-* (Garfonso) fix airconditioner with power mode on mode update
+### 2.1.3 (2022-01-07)
+* (Garfonso) Fixed: remove backup of old frontend (sorry)
 
-### 2.0.3 (2021-07-04)
-* (Garfonso) fix typo.
+### 2.1.2 (2022-01-06)
+* (Garfonso) Fixed: Menu was broken in frontend.
 
-### 2.0.2 (2021-07-04)
-* (Garfonso) fixed: Date shift for weather forecast without date state.
+### 2.1.1 (2022-01-06)
+* (Garfonso) Fixed: Entity update in some cases.
 
-### 2.0.1 (2021-07-01)
-* (Garfonso) fixed: Zigbee lights (issue 222).
+### 2.1.0 (2022-01-06)
+* (Garfonso) Added: support for new things in frontend (like arm_vacation state, currency, ...).
+* (Garfonso) Change: Updated frontent to 20211229.0 (needs update of browser_mod, card_mod)
 
 ## License
 
-Copyright 2019-2021, bluefox <dogafox@gmail.com>
+Copyright 2019-2022, bluefox <dogafox@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

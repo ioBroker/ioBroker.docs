@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: j6yGYstrFB/ab7szDFsa7sdaCu7egL50KOSk35duz4c=
+hash: HfFA7Bf43Ip6gXwsnRl+9VS/3SO+/wiuI0pz0TFGhwY=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -76,7 +76,7 @@ Der Adapter ermöglicht die automatische Generierung der iobroker-Kommunikations
 Alle generierten Kommunikationsobjekte sind zunächst lesbar und schreibbar konfiguriert, Werte werden beim Neustart des Adapters vom knx-Bus geholt.
 
 # Installation
-Der Adapter ist im neuesten / Beta-Repository verfügbar. Ist dies in den ioBroker Systemeinstellungen ausgewählt, kann der Adapter in der Adapterliste unter „openknx“ gesucht und durch Anklicken des + Symbols installiert werden. Eine Alternative ist die Installation im Expertenmodus über das Github-Symbol, indem man "von Github" auswählt und nach openknx sucht.
+Der Adapter ist im neuesten / Beta-Repository verfügbar. Ist dieser in den ioBroker Systemeinstellungen als Standard-Repository ausgewählt, kann der Adapter in der Adapterliste unter „openknx“ gesucht und durch Anklicken des + Symbols installiert werden. Eine Alternative ist die Installation im Expertenmodus über das Github-Symbol, indem man "von Github" auswählt und nach openknx sucht.
 
 # Adapterkonfiguration
 ![die Einstellungen](../../../en/adapterref/iobroker.openknx/docs/pictures/setting.png) Drücken Sie „Speichern & Schließen“ oder „Speichern“, um den Adapter neu zu starten und die Änderungen zu übernehmen.
@@ -107,13 +107,15 @@ Das ETS4-Format wird nicht unterstützt, es enthält keine DPT-Informationen.
 
 Nach erfolgreichem Import zeigt eine Meldung an, wie viele Objekte erkannt wurden. Genauere Informationen sind im Log zu finden.
 
-Hinweis zur ETS-Konfiguration: Wenn Sie unterschiedliche DPT-Subtypen für den GA und in den Kommunikationsobjekten haben, die diesen GA verwenden, dann scheint die ETS den DPT-Typ mit der niedrigsten Nummer zu verwenden. Stellen Sie in diesem Fall manuell sicher, dass alle Felder denselben Datentyp verwenden.
+Hinweis zur ETS-Konfiguration: Wenn Sie unterschiedliche DPT-Subtypen für den GA und in den Kommunikationsobjekten haben, die diesen GA verwenden, dann scheint die ETS den DPT-Typ mit der niedrigsten Nummer zu verwenden. Stellen Sie in diesem Fall manuell sicher, dass alle Elemente denselben gewünschten Datentyp verwenden.
+Ein GA ohne DPT-Basistyp kann mit diesem Adapter nicht importiert werden. ETS4-Projekte müssen in ETS5 oder höher konvertiert werden und der DPT muss auf den GA eingestellt werden.
 
-### Bilder pro Sekunde
+### Frameverzögerung [ms]
 Diese Einstellung schützt den KNX-Bus vor Datenfluten, indem die Datenframes auf eine bestimmte Rate begrenzt werden. Nicht gesendete Frames werden in einen Fifo-Puffer gelegt. Wenn es zu Verbindungsabbrüchen von Ihrem KNX IP Gateway kommt, erhöhen Sie diese Zahl.
 
 ### Alias
 KNX-Geräte können GAs für Statusrückmeldungen haben, die zu einem befehlsgebenden GA gehören. Einige Anwendungen wie bestimmte VIS-Widgets erwarten ein kombiniertes Status- und Betätigungsobjekt. Sie können diese Zustände in einem Alias kombinieren, indem Sie eine separate Alias-ID zum Schreiben und eine andere zum Lesen verwenden. Das Menü hilft dabei, ein passendes Paar gemäß der Namenskonvention mit der angegebenen Filterregel zu erstellen.
+Weitere Informationen finden Sie hier https://www.iobroker.net/#en/documentation/dev/aliases.md
 
 # Adaptermigration
 ## Node Red migrieren
@@ -275,6 +277,14 @@ L-Flag: Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert 
 - KNX Secure wird nicht unterstützt
 
 ## Changelog
+### 0.1.14 (2022-01-08)
+* feature: autodetect the KNX IP interface parameters
+* feature: create warning if DPT of alias pair does not match
+* feature: create warning in log in case of possible data loss if gateway disconnects
+* feature: better gui for import status, newline per warning, count number of succeeding ga's
+* fix: local ip interface in admin was not taken
+* fix: default regexp for status ga's corrected to match common nomenclature
+
 ### 0.1.13 (2021-12-30)
 * bugfix: state.value of of type object must be serialized
 * bugfix: alias algorithm error handling, takover more info to alias
