@@ -3,17 +3,13 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.starline/README.md
 title: ioBroker.starline
-hash: 0e9pfVWdmL6s9gl8je6O9oS7gHaqB19EvFOA6VA+WHo=
+hash: tKAmCdJIRJxCv5NwsM66DKRRbnyp6LdQpxGVntHm3pM=
 ---
 ![标识](../../../en/adapterref/iobroker.starline/admin/starline_git.jpg)
 
-![安装数量](http://iobroker.live/badges/starline-stable.svg)
-![NPM 版本](https://img.shields.io/npm/v/iobroker.starline.svg)
-![下载](https://img.shields.io/npm/dm/iobroker.starline.svg)
-![新PM](https://nodei.co/npm/iobroker.starline.png?downloads=true)
 ![捐](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-# IoBroker.starline [![测试](https://github.com/instalator/iobroker.starline/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.starline/actions/)
+# IoBroker.starline
 Для работы драйвера необходимо установленное и настроенное противоугонное устройство поддерживающее сервис StarLine телематика 2.
 
 Драйвер позволяет получать данные состояния автомобиля через сервис StarLine Телематика。 https://starline-online.ru。

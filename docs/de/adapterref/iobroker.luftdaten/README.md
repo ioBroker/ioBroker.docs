@@ -1,62 +1,48 @@
 ---
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.luftdaten/README.md
-title: ioBroker.luftdaten
-hash: PVCm4CImMpuuYkBh/0mlFJZIQYm+jmMfYdkGXMr5QC8=
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.luftdaten.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.luftdaten.svg
+BADGE-Stable: http://iobroker.live/badges/luftdaten-stable.svg
+BADGE-installed: http://iobroker.live/badges/luftdaten-installed.svg
+BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.luftdaten.svg
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.luftdaten/badge.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.luftdaten.png?downloads=true
 ---
-![Logo](../../../en/adapterref/iobroker.luftdaten/admin/luftdaten.png)
+![Logo](../../admin/luftdaten.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.luftdaten.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.luftdaten.svg)
-![Stabil](http://iobroker.live/badges/luftdaten-stable.svg)
-![Eingerichtet](http://iobroker.live/badges/luftdaten-installed.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/klein0r/iobroker.luftdaten.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/klein0r/ioBroker.luftdaten/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.luftdaten.png?downloads=true)
+# ioBroker.luftdaten
 
-#ioBroker.luftdaten
-![Testen und freigeben](https://github.com/klein0r/ioBroker.luftdaten/workflows/Test%20and%20Release/badge.svg)
+## Konfiguration
 
-Dieser Adapter fügt Ihrer ioBroker-Installation Sensordaten von „luftdaten.info“ hinzu.
-Sie können entscheiden, ob Sie einen lokalen Sensor per IP hinzufügen möchten oder nur die API von lufdaten.info verwenden möchten, um die Daten eines anderen Sensors zu erhalten.
-
-## Gefördert durch
-[![ioBroker Master Kurs](https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-luftdaten)
-
-## Installation
-Bitte verwenden Sie die "Adapterliste" in ioBroker, um eine stabile Version dieses Adapters zu installieren. Sie können diesen Adapter auch über die CLI installieren:
-
-```
-iobroker add luftdaten
-```
-
-## Aufbau
 ### Lokal
-1. Bauen Sie Ihren eigenen Adapter und fügen Sie ihn Ihrem lokalen WLAN-Netzwerk hinzu
-2. Erstellen Sie eine neue Instanz des Adapters
-3. Wählen Sie "Lokal" als Typ
-4. Geben Sie die IP oder den Hostnamen des Sensors in die zweite Eingabe ein
-5. Wählen Sie einen Namen und speichern Sie die Einstellungen
 
-Warten Sie einige Minuten, bis der Cronjob die Daten zum ersten Mal sammelt.
+1. Baue einen eigenen Sensor und füge ihn zu Deinem lokalen Netzwerk hinzu
+2. Erstelle eine neue Instanz des Adapters
+3. Wähle einen beliebigen Sensornamen und füge ihn in die erste Spalte ein
+4. Wähle "Lokal" als Typ in der zweiten Spalte
+5. Füge die IP-Adresse oder den Hostnamen des Sensors in die dritte Spalte ein
+6. Speichere die Einstellungen
 
-*Ändern Sie die Zeitplaneinstellungen im Instanzen-Tab (Standard ist alle 15 Minuten).*
+Warte einige Sekunden, bis die Daten das erste Mal vom Sensor abgeholt werden.
 
-### Fernbedienung
-1. Wählen Sie einen der Sensoren auf der Online-Karte: [deutschland.maps.luftdaten.info](https://deutschland.maps.luftdaten.info/)
-2. Klicken Sie auf den Sensor und kopieren Sie die ID (#XXXXX)
-3. Erstellen Sie eine neue Instanz des Adapters
-4. Wählen Sie "Remote" als Typ
-5. Geben Sie die ID des Sensors in den zweiten Eingang ein (ohne #)
-6. Wählen Sie einen Namen und speichern Sie die Einstellungen
+*Bei Bedarf kann der Abfrage-Interval im Tab "Instanzen" angepasst werden (Standard: alle 30 Minuten).*
 
-Warten Sie einige Minuten, bis der Cronjob die Daten zum ersten Mal sammelt.
+### Remote
 
-*Ändern Sie die Zeitplaneinstellungen im Instanzen-Tab (Standard ist alle 15 Minuten).*
+1. Wähle einen Sensor von der offiziellen Karte: [sensor.community](https://sensor.community/en/)
+2. Klicke auf den Sensor und kopiere die ID (#XXXXX)
+3. Erstelle eine neue Instanz des Adapters
+4. Wähle einen beliebigen Sensornamen und füge ihn in die erste Spalte ein
+5. Wähle "Remote" als Typ in der zweiten Spalte
+6. Füge die ID des Sensors in die dritte Spalte ein (ohne die ``#``)
+7. Speichere die Einstellungen
 
-## Wache
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+Warte einige Sekunden, bis die Daten das erste Mal vom Sensor abgeholt werden.
+
+*Bei Bedarf kann der Abfrage-Interval im Tab "Instanzen" angepasst werden (Standard: alle 30 Minuten).*
+
+### Beispiel
+
+![Konfigurationsbeispiel](./exampleConfiguration.png)
 
 ## Changelog
 
@@ -65,47 +51,56 @@ Warten Sie einige Minuten, bis der Cronjob die Daten zum ersten Mal sammelt.
   ### **WORK IN PROGRESS**
 -->
 
-### 2.1.2
+### **WORK IN PROGRESS**
+
+* (klein0r) Added local link to sensor map
+* (klein0r) Added documentation
+
+### 2.1.3 (2021-12-23)
+
+* (klein0r) Updated dependencies
+
+### 2.1.2 (2021-11-14)
 
 * (klein0r) Translated admin tab table headers
 
-### 2.1.1
+### 2.1.1 (2021-11-06)
 
 * (klein0r) Fixed missing translations
 
-### 2.1.0
+### 2.1.0 (2021-11-04)
 
 * (klein0r) Admin 5 Support
 
-### 2.0.3
+### 2.0.3 (2021-10-04)
 
 * (klein0r) Fixed error logging
 
-### 2.0.2
+### 2.0.2 (2021-08-18)
 
 * (klein0r) Added timeout option
 
-### 2.0.1
+### 2.0.1 (2021-08-17)
 
 * (klein0r) Minor bug fixes
 
-### 2.0.0
+### 2.0.0 (2021-08-17)
 
-* (klein0r) Updated admin interface to maintain multiple sensors in one instance (BREAKING CHANGE - RE-CONFIGURE YOUR SENSORS)
+* (klein0r) Updated admin interface to maintain multiple sensors in one instance **(BREAKING CHANGE - RE-CONFIGURE YOUR SENSORS)**
 
-### 1.0.3
+### 1.0.3 (2021-03-21)
 
 * (klein0r) Remove non-numeric characters from sensor id
 
-### 1.0.2
+### 1.0.2 (2021-01-25)
 
 * (klein0r) Fixed async object creation
 
-### 1.0.1
+### 1.0.1 (2020-11-10)
 
 * (klein0r) Added iobroker sentry
 
-### 1.0.0
+### 1.0.0 (2020-08-27)
 
 * (klein0r) First stable release
 

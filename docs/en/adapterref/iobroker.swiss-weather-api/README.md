@@ -5,7 +5,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.swiss-weather-api.svg)](https://www.npmjs.com/package/iobroker.swiss-weather-api)
 ![Number of Installations (latest)](http://iobroker.live/badges/swiss-weather-api-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/swiss-weather-api-stable.svg)
-[![Dependency Status](https://img.shields.io/david/baerengraben/iobroker.swiss-weather-api.svg)](https://david-dm.org/baerengraben/iobroker.swiss-weather-api)
 [![Known Vulnerabilities](https://snyk.io/test/github/baerengraben/ioBroker.swiss-weather-api/badge.svg)](https://snyk.io/test/github/baerengraben/ioBroker.swiss-weather-api)
 
 [![NPM](https://nodei.co/npm/iobroker.swiss-weather-api.png?downloads=true)](https://nodei.co/npm/iobroker.swiss-weather-api/)
@@ -68,6 +67,11 @@ The Objects in forecast.current_hour will be createt 30s after frist startup and
 ![Tablet](doc/Wettervorhersage_visu_anim.gif)
 
 ## Changelog
+
+### 1.0.3
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/67
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/66
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/52
 
 ### 1.0.2
 * (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/51

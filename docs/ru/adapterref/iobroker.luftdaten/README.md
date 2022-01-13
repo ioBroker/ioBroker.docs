@@ -1,62 +1,48 @@
 ---
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.luftdaten.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.luftdaten.svg
+BADGE-Stable: http://iobroker.live/badges/luftdaten-stable.svg
+BADGE-installed: http://iobroker.live/badges/luftdaten-installed.svg
+BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.luftdaten.svg
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.luftdaten/badge.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.luftdaten.png?downloads=true
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.luftdaten/README.md
 title: ioBroker.luftdaten
-hash: PVCm4CImMpuuYkBh/0mlFJZIQYm+jmMfYdkGXMr5QC8=
+hash: MvIcuk/eHSWW1ebwVL2sU+6AQ0nkZn4HG7oqBGKl7kw=
 ---
-![Логотип](../../../en/adapterref/iobroker.luftdaten/admin/luftdaten.png)
-
-![Версия NPM](http://img.shields.io/npm/v/iobroker.luftdaten.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.luftdaten.svg)
-![Стабильный](http://iobroker.live/badges/luftdaten-stable.svg)
-![установлены](http://iobroker.live/badges/luftdaten-installed.svg)
-![Статус зависимости](https://img.shields.io/david/klein0r/iobroker.luftdaten.svg)
-![Известные уязвимости](https://snyk.io/test/github/klein0r/ioBroker.luftdaten/badge.svg)
-![НПМ](https://nodei.co/npm/iobroker.luftdaten.png?downloads=true)
+![Логотип](../../../en/adapterref/iobroker.luftdaten/../../admin/luftdaten.png)
 
 # IoBroker.luftdaten
-![Тестирование и выпуск](https://github.com/klein0r/ioBroker.luftdaten/workflows/Test%20and%20Release/badge.svg)
-
-Этот адаптер добавляет данные датчика luftdaten.info в вашу установку ioBroker.
-Вы можете решить, хотите ли вы добавить локальный датчик по ip или просто использовать API lufdaten.info для получения данных другого датчика.
-
-## При финансовой поддержке
-[![ioBroker Master Kurs] (https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-luftdaten)
-
-## Установка
-Используйте «список адаптеров» в ioBroker, чтобы установить стабильную версию этого адаптера. Вы также можете использовать интерфейс командной строки для установки этого адаптера:
-
-```
-iobroker add luftdaten
-```
-
 ## Конфигурация
 ### Местный
-1. Создайте собственный адаптер и добавьте его в локальную сеть Wi-Fi.
-2. Создайте новый экземпляр адаптера.
-3. Выберите "Местный" в качестве типа.
-4. Введите IP или имя хоста датчика во второй вход.
-5. Выберите имя и сохраните настройки.
+1. Создайте свой собственный датчик и добавьте его в локальную сеть.
+2. Создайте новый экземпляр адаптера
+3. Введите произвольное имя в первый столбец таблицы.
+4. Выберите «Локальный» в качестве типа (второй столбец)
+5. Заполните IP-адрес или имя хоста датчика в третьем столбце.
+6. Сохраните настройки
 
-Подождите несколько минут, пока cronjob соберет данные в первый раз.
+Подождите несколько секунд, пока cronjob соберет данные в первый раз.
 
-*Не стесняйтесь изменять настройки расписания на вкладке экземпляров (по умолчанию каждые 15 минут).*
+*Не стесняйтесь изменять настройки расписания на вкладке экземпляров (по умолчанию: каждые 30 минут).*
 
-### Удаленный
-1. Выберите один из датчиков на онлайн-карте: [deutschland.maps.luftdaten.info] (https://deutschland.maps.luftdaten.info/)
-2. Щелкните датчик и скопируйте идентификатор (#XXXXX).
-3. Создайте новый экземпляр адаптера.
-4. Выберите «Удаленный» в качестве типа.
-5. Заполните ID датчика во втором входе (без #)
-6. Выберите имя и сохраните настройки.
+### Дистанционный пульт
+1. Выберите один из датчиков на официальной карте: [sensor.community](https://sensor.community/ru/)
+2. Нажмите на датчик и скопируйте ID (#XXXXX)
+3. Создайте новый экземпляр адаптера
+4. Введите произвольное имя в первый столбец таблицы.
+5. Выберите «Удаленный» в качестве типа (второй столбец)
+6. Заполните идентификатор датчика в третьем столбце (без #)
+7. Сохраните настройки
 
-Подождите несколько минут, пока cronjob соберет данные в первый раз.
+Подождите несколько секунд, пока cronjob соберет данные в первый раз.
 
-*Не стесняйтесь изменять настройки расписания на вкладке экземпляров (по умолчанию каждые 15 минут).*
+*Не стесняйтесь изменять настройки расписания на вкладке экземпляров (по умолчанию: каждые 30 минут).*
 
-## Часовой
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+### Пример
+![Пример конфигурации](../../../en/adapterref/iobroker.luftdaten/./exampleConfiguration.png)
 
 ## Changelog
 
@@ -65,47 +51,56 @@ iobroker add luftdaten
   ### **WORK IN PROGRESS**
 -->
 
-### 2.1.2
+### **WORK IN PROGRESS**
+
+* (klein0r) Added local link to sensor map
+* (klein0r) Added documentation
+
+### 2.1.3 (2021-12-23)
+
+* (klein0r) Updated dependencies
+
+### 2.1.2 (2021-11-14)
 
 * (klein0r) Translated admin tab table headers
 
-### 2.1.1
+### 2.1.1 (2021-11-06)
 
 * (klein0r) Fixed missing translations
 
-### 2.1.0
+### 2.1.0 (2021-11-04)
 
 * (klein0r) Admin 5 Support
 
-### 2.0.3
+### 2.0.3 (2021-10-04)
 
 * (klein0r) Fixed error logging
 
-### 2.0.2
+### 2.0.2 (2021-08-18)
 
 * (klein0r) Added timeout option
 
-### 2.0.1
+### 2.0.1 (2021-08-17)
 
 * (klein0r) Minor bug fixes
 
-### 2.0.0
+### 2.0.0 (2021-08-17)
 
-* (klein0r) Updated admin interface to maintain multiple sensors in one instance (BREAKING CHANGE - RE-CONFIGURE YOUR SENSORS)
+* (klein0r) Updated admin interface to maintain multiple sensors in one instance **(BREAKING CHANGE - RE-CONFIGURE YOUR SENSORS)**
 
-### 1.0.3
+### 1.0.3 (2021-03-21)
 
 * (klein0r) Remove non-numeric characters from sensor id
 
-### 1.0.2
+### 1.0.2 (2021-01-25)
 
 * (klein0r) Fixed async object creation
 
-### 1.0.1
+### 1.0.1 (2020-11-10)
 
 * (klein0r) Added iobroker sentry
 
-### 1.0.0
+### 1.0.0 (2020-08-27)
 
 * (klein0r) First stable release
 

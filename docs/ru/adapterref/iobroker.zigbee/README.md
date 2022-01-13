@@ -33,6 +33,11 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.zigbee.svg
 
 ## Changelog
 
+### 1.6.12 (2022-01)
+* (asgothian) Groups were newly revised (read [here](https://github.com/ioBroker/ioBroker.zigbee/pull/1327) )
+   -  object device.groups is obsolet..the old one is no longer up to date
+
+
 ### 1.6.9 (2021-12)
 * (simatec) fix admin Dark-Mode
 * (asgothian) Expose Access Handling

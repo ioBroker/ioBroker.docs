@@ -1,26 +1,36 @@
 ---
+BADGE-Number of Installations: http://iobroker.live/badges/wolf-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.wolf.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.wolf.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.wolf.png?downloads=true
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wolf/README.md
-title: ioBroker.wolf
-hash: p12II4ka6iqIZ9zUMCoRRjGz8r+tXQLbRpOheMcLH8I=
+title: iobroker.wolf
+hash: pDtMB9foXkJXjjQ5/dxzpSFjGTXi8W15I1kZGV8qa3E=
 ---
-![标识](../../../en/adapterref/iobroker.wolf/admin/wolf.png)
+#iobroker.wolf
+## 应用领域：供暖/太阳能/家用通风
+适配器可以通过 ISM8i 评估最多 4 个以下加热器：
 
-![安装数量](http://iobroker.live/badges/wolf-stable.svg)
-![NPM 版本](http://img.shields.io/npm/v/iobroker.wolf.svg)
-![下载](https://img.shields.io/npm/dm/iobroker.wolf.svg)
-![新PM](https://nodei.co/npm/iobroker.wolf.png?downloads=true)
+   * 气体冷凝机组：CGB-2（包括：CGW-2、CGS-2、CSZ-2）、MGK-2
+   * 油冷凝锅炉：TOB
+   * 分体式热泵：BWL-1-S
+   *客厅通风CWL优秀
 
-# IoBroker.wolf
-连接到 WOLF 设备。
-阅读[英语](docs/en/README.md)。
+始终需要系统控制模块 BM-2 或显示模块 AM。
+此外，eBus 系统中可能存在其他组件，例如混合器模块 MM、级联模块 KM、太阳能模块 SM1 或 SM2。
 
-Lese auf [德语](docs/de/README.md)。
+单个模块的最大数量：
 
-<!-- 下一个版本的占位符（在行首）：
+   * 最大限度。 4 加热器 hg (1) -hg (4)
+   * 最大限度。 3 个混合器 mm (1) - mm (3)
+   * 最大限度。 4 个操作面板 (BM-2) bm (1) -bm (4)
+   * 最大限度。 1 级联模块公里 (1)
+   * 最大限度。 1 个太阳能模块（SM1 或 SM2）sm (1)
+   * 最大限度。 1 分体式空气/水热泵 (BWL-1-S) hg (0)
 
-### __工作进行中__ -->
+   CWL Excellence 系列的住宅通风装置也可以使用 ISM8i 进行评估和操作。
 
 ## Changelog
 ### 1.3.4 (2021-11-14)

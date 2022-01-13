@@ -1,26 +1,36 @@
 ---
+BADGE-Number of Installations: http://iobroker.live/badges/wolf-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.wolf.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.wolf.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.wolf.png?downloads=true
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wolf/README.md
-title: ioBroker.wolf
-hash: p12II4ka6iqIZ9zUMCoRRjGz8r+tXQLbRpOheMcLH8I=
+title: iobroker.wolf
+hash: pDtMB9foXkJXjjQ5/dxzpSFjGTXi8W15I1kZGV8qa3E=
 ---
-![Логотип](../../../en/adapterref/iobroker.wolf/admin/wolf.png)
+# Iobroker.wolf
+## Области применения: отопление / солнечная энергия / домашняя вентиляция
+Адаптер может оценивать максимум 4 из следующих обогревателей через ISM8i:
 
-![Количество установок](http://iobroker.live/badges/wolf-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.wolf.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.wolf.svg)
-![НПМ](https://nodei.co/npm/iobroker.wolf.png?downloads=true)
+   *Газоконденсаторная установка: ЦГВ-2 (включает: ЦГВ-2, ЦГС-2, ЦСЗ-2), МГК-2
+   * Конденсационный котел на жидком топливе: TOB
+   * Раздельный тепловой насос: BWL-1-S
+   * Вентиляция гостиной CWL Отлично
 
-# IoBroker.wolf
-Подключайтесь к устройствам WOLF.
-Читайте в [английский](docs/en/README.md).
+Всегда требуется модуль управления системой BM-2 или дисплейный модуль AM.
+Кроме того, в системе eBus могут присутствовать дополнительные компоненты, такие как смесительный модуль MM, каскадный модуль KM, солнечный модуль SM1 или SM2.
 
-Lese auf [немецкий](docs/de/README.md).
+Максимальное количество отдельных модулей:
 
-<!-- Заполнитель для следующей версии (в начале строки):
+   * Макс. 4 нагревателя hg (1) -hg (4)
+   * Макс. 3 смесителя мм (1) - мм (3)
+   * Макс. 4 пульта оператора (БМ-2) бм(1)-бм(4)
+   * Макс. 1 каскадный модуль км (1)
+   * Макс. 1 солнечный модуль (SM1 или SM2) см (1)
+   * Макс. 1 Сплит-тепловой насос воздух/вода (BWL-1-S) hg (0)
 
-### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
+   Бытовая вентиляционная установка серии CWL Excellent также может оцениваться и эксплуатироваться с помощью ISM8i.
 
 ## Changelog
 ### 1.3.4 (2021-11-14)
