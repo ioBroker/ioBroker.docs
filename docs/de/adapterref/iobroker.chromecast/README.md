@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.chromecast/README.md
 title: ioBroker.chromecast
-hash: d/Aq7vBZic6A+uuE8QF2I3SiZMupnLSB0tjyEXjn8Vs=
+hash: pSv3Lla3imfS3AO09CMLFYLbdrz+DRyvp58baq12Ykc=
 ---
 ![Logo](../../../en/adapterref/iobroker.chromecast/admin/home.png)
 
@@ -13,52 +13,58 @@ hash: d/Aq7vBZic6A+uuE8QF2I3SiZMupnLSB0tjyEXjn8Vs=
 ![Build-Status](https://travis-ci.org/angelnu/ioBroker.chromecast.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.chromecast.png?downloads=true)
 
-#ioBroker.chromecast
+# IoBroker.chromecast
 ## Ein Google Home-Adapter für ioBroker
-Dieses Plugin ermöglicht die Erkennung von Video- und/oder Audio-Google Home-Geräten. Für jedes erkannte Home-Gerät wird ein ioBroker-Gerät erstellt. Dieses Gerät zeigt den Status des Geräts an und ermöglicht es, ihm eine neue URL zum Casten zu senden.
+Dieses Plugin ermöglicht die Erkennung von Video- und/oder Audio-Google Home-Geräten. Für jedes erkannte Home-Gerät wird ein ioBroker-Gerät erstellt. Dieses Gerät zeigt den Status des Geräts an und ermöglicht es, ihm eine neue URL zum Casting zu senden.
 
 Bauen Sie auf den folgenden Projekten auf:
 
   * [ioBroker](http://www.iobroker.net)
   * [node-castv2-client](https://github.com/thibauts/node-castv2-client) als Home-Client-Bibliothek.
 
+## Tritt dem Discord-Server bei, um alles über die ioBroker-Integration zu diskutieren!
+<a href="https://discord.gg/4EBGwBE"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
+
+## [Sponsoren](./SPONSORS.md)
+Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende machen (dies ist ein persönlicher Spendenlink für Jey Cee, keine Verbindung zum ioBroker-Projekt!) [![Spenden](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)
+
 ## Anweisungen
 1. In ioBroker installieren
    1. Gehen Sie zu Ihrem ioBroker-Adapter-Tab
-   2. Wählen Sie den Google Home-Adapter aus und installieren Sie ihn
+   2. Google Home-Adapter auswählen und installieren
 2. Fügen Sie eine Instanz des Google Home-Adapters hinzu
    * Es sollte nach der Installation automatisch ausgeführt werden
 3. (optional) Wenn Sie lokale Dateien streamen möchten, müssen Sie den Adapter konfigurieren
-   * Sie benötigen eine ioBroker-Webserver-Instanz
-4. Überprüfen Sie Ihr Protokoll: Sie sollten Protokolle über die erkannten Geräte sehen
-5. Schreiben Sie eine URL wie [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar .net/ps-dieneue_rock/livestream_hi.mp3) zum chromecast.0.`<Ihr Chromecast-Name>`.player.url2play
+   * Sie benötigen eine ioBroker-Webserverinstanz
+4. Überprüfen Sie Ihr Protokoll: Sie sollten Protokolle zu den erkannten Geräten sehen
+5. Schreiben Sie eine URL wie [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar .net/ps-dieneue_rock/livestream_hi.mp3) zu chromecast.0.`<Ihr Chromecast-Name>`.player.url2play
 6. Die URL sollte auf Ihrem Gerät abgespielt werden
 
 ## Merkmale
 * Geräte mit Multicast-DNS erkennen
   * optional zusätzliche manuell konfigurierte Geräte im Admin-Panel hinzufügen
-* ioBroker-Objekte für jedes gefundene Gerät erstellen
+* Erstellen Sie ioBroker-Objekte für jedes gefundene Gerät
 * Status-, Player-, Medien- und Metadatenkanäle
-* Steuerung des Google Home-Geräts über den Adapter
+* Steuern Sie das Google Home-Gerät über den Adapter
   * Lautstärke einstellen
-  * stumm/stumm schalten
+  * Stumm/Stumm aufheben
   * Sendung stoppen
   * Pause
-  * Play-URL (chromecast.0.`<Ihr Google Home-Name>`.player.url2play)
-    * getestet mit MP3
+  * Wiedergabe-URL (chromecast.0.`<Ihr Google Home-Name>`.player.url2play)
+    * mit MP3 getestet
       * Vollständige Liste der Formate [hier](https://developers.google.com/cast/docs/media).
-    * Wenn die URL nicht mit http beginnt, dann nehmen Sie an, dass dies eine lokale Datei ist
-      * Datei über ioBroker Webserver exportieren
-    * Es spielt nur die erste Datei von Playlist-Dateien wie .m3u . ab
+    * Wenn die URL nicht mit http beginnt, gehen Sie davon aus, dass es sich um eine lokale Datei handelt
+      * Datei über ioBroker-Webserver exportieren
+    * Es spielt nur die erste Datei von Playlist-Dateien wie .m3u ab
 * Vis-Widget
   * HINWEIS: erfordert [gepatchten Vis-Adapter] (https://github.com/angelnu/ioBroker.vis).
-* Erster Support für Chromecast-Audiogruppen
-  * Hinweis: dies funktioniert nicht mit SSDP -> standardmäßig in den Adaptereinstellungen deaktivieren
-* Zuletzt gespielten Stream erneut abspielen: _chromecast.0.`<Ihr Gerät>`.status.playing_ einfach auf _true_ setzen
+* Anfängliche Unterstützung für Chromecast-Audiogruppen
+  * Hinweis: Dies funktioniert nicht mit SSDP -> standardmäßig in den Adaptereinstellungen deaktivieren
+* Letzten abgespielten Stream erneut abspielen: einfach _chromecast.0.`<dein Gerät>`.status.playing_ auf _true_ setzen
 
 ## Was fehlt?
-* Zustandsmaschine zu Track-Zuständen hinzufügen: erkannt -> verbunden -> Player-Loader -> Abspielen
-* Wiederholungsversuche hinzufügen: Manchmal reagiert Google Home nicht auf eine Anfrage
+* Zustandsmaschine hinzufügen, um Zustände zu verfolgen: erkannt -> verbunden -> Player-Ladeprogramm -> Spielen
+* Wiederholungen hinzufügen: Manchmal antwortet Google Home nicht auf eine Anfrage
 * mehr testen
 
 ## Changelog

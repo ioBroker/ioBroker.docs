@@ -10,68 +10,6 @@
 
 **Tests:** ![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.openknx/workflows/Test%20and%20Release/badge.svg)
 
-# Deutsch
-Dieser Adapter dient als Kommunikationsschnittstelle zwischen ioBroker und einem KNX IP Gateway.
-Der Adapter ermöglicht die automatische Generierung der ioBroker Datenobjekte durch den Import eines ETS-Gruppenadressen-XML-Exports.
-Alle generierten Kommunikationsobjekte sind zunächst lesbar und schreibbar konfiguriert, Werte werden beim Neustart des Adapters vom knx-Bus geholt.
-
-# Installation
-Der Adapter ist im latest/beta Repository verfügbar. Wenn dieses in den ioBroker Systemeinstellung ausgewählt ist kann der Adapter in der Adapterliste unter "openknx" gesucht und installiert werden. Eine Alternative ist im Expertenmodus das installieren über das Github Symbol möglich in dem man "von Github" auswählt und nach openknx sucht.
-
-# Adapterkonfiguration
-In den Instanzeinstellung muss mindestens die Gateway IP eingetragen werden. Dann kann man ein ETS-Export XML Datei importiert werden. Die XML kann über ETS dem Fenster Gruppenadressen mit Rechtsklick auf den oberen Ebene der Gruppenadresse exportiert werden. GA die keinem DPT zugeordnet sind werden nicht importiert. Es handelt sich dabei um GA die keinem Kommunikationsobjekt in ETS zugeordnet sind. 
-
-# Nutzung
-ioBroker Datenpunkte können einfach mit ACK false/Nicht Bestätigt gesetzt werden. Komplexe Datenpunkt müssen im korrekt format wie zb: {"priority":0,"data":1} gesetzt werden
-
-# Fragen und Diskussion
-https://forum.iobroker.net/topic/50352/test-adapter-openknx-0-1-x
-
-# Adaptermigration
-
-## Node Red migrieren
-- Wählen Sie im Menü auf der rechten Seite Exportieren
-- Alle Flows auswählen, herunterladen
-- im Texteditor knx.0 ersetzen mit openknx.0
-- Menü auf der rechten Seite, Import auswählen
-- Geänderte Datei auswählen
-- im Dialog Flows auswählen (Subflows, Configuration-Nodes nur wenn sie betroffen sind) -> neue Tabs werden hinzugefügt
-- alte Flows manuell löschen
-
-
-## VIS migrieren
-
-- Vis-Editor öffnen
-- Setup -> Projekt-Export/Import -> Normal exportieren
-- Entpacken der Zip-Datei und vis-views.json in einem Editor öffnen
-- Suche Ersetzen knx.0 mit openknx.0
-- Komprimieren Sie vis-views.json und vis-user.css in einer Zip-Datei
-- Setup -> Projekt-Export/Import -> Import
-- Zip-Datei in Drop-Bereich verschieben
-- Projektname = main
-- Projekt importieren
-
-## Skripte migrieren
-
-- Skripte öffnen
-- 3 Punkte -> Alle Skripte exportieren
-- Zip-Datei öffnen und den Ordner in einem Editor öffnen
-- Suche knx.0 durch openknx.0 ersetzen
-- alle geänderten Dateien in eine Zip-Datei komprimieren
-- 3 Punkte -> Skripte importieren
-- Zip-Datei in Drop-Bereich verschieben
-
-
-## Grafana migrieren
-
-- Alle Dashboards durchgehen und Share/Teilen -> Exportieren -> In Datei speichern
-- im Texteditor knx.0 ersetzen. mit openknx.0
-- Um ein Dashboard zu importieren, klicken Sie im Seitenmenü auf das Symbol + und dann auf Importieren.
-- Von hier aus können Sie eine Dashboard-JSON-Datei hochladen
-- Wählen Sie Importieren (Überschreiben)
-  
-
-# English
 This adapter serves as communication interface between Iobroker and your KNX IP Gateway.
 The adapter allows to generate the iobroker communication objects automatically by importing an ETS group address xml export.  
 All generated communication objects are initially configured readable and writeable, values are fetched from the knx bus on adapter restart.
@@ -92,33 +30,37 @@ IP of your KNX IP gateway.
 ### Port
 this is normally port 3671 of the KNX IP gateway.
 
-### phys. EIB Adress
+### phys. KNX Adress
 Fill in physical address of the KNX IP gateway in the format 1/1/1.
+Two level group addresses can be transformed manually if needed.
+
+### Local IPv4 network interface
+The interface that is connected to the KNX IP gateway.
+
+### Frames delay [ms]
+This settings protects the KNX bus from data flooding by limiting data frames to a certain rate. Not sent frames are put into a fifo buffer. If you experience disconnects from your KNX IP Gateway  in the log then increase this number.
 
 ### Add only new Objects
 If checked, the import will skip overwriting existing communication objects.
 
-### GA XML import
+### Import XML from ETS
 ![ETS export](docs/pictures/exportGA.png)
 1. In ETS go to Group Addresses, select export group address and select XML export in latest format version.
-ETS4 Format is not supported, it does not contain DPTs information.
-
+ETS4 Format is not supported, it does not contain DPT information.
 2. upload your ETS Export XML in the adapter via the GA XML-Import dialog
 3. Import will immediatelly start after file selection and give a status report after completion.  
 After the successful import a message shows how much objects where recognized. More detailed information could be found in the log.
 
 Hint on ETS configuration:  
-If you have different DPT Subtypes for the GA and in the communication objets that use this GA, then the ETS seems to use the DPT Type with the lowest number. In this case manually ensure that all elements are using the same desired datatype.  
+If you have different DPT Subtypes for the GA and in the communication objets that use this GA, then the ETS seems to use the DPT Type with the lowest number.
+In this case manually ensure that all elements are using the same desired datatype.  
 A GA without DPT basetype cannot be imported with this adapter. ETS4 projects must be converted into ETS5 or later and the DPT must be set to the GA.
-
-### Frames delay [ms]
-This settings protects the KNX bus from data flooding by limiting data frames to a certain rate. Not sent frames are put into a fifo buffer. If you experience disconnects from your KNX IP Gateway then increase this number.
 
 ### Alias
 KNX devices can have ga's for state feedback that belong to a commanding ga. Some applications like certain VIS widgets expect a combined status and actuation object. You can combine these states into one alias by using a separate alias id to write to and another to read from. The menu helps to create a matching pair according to the naming convention with the given filtering rule.
 Find more information here https://www.iobroker.net/#en/documentation/dev/aliases.md
 
-# adapter migration
+# Adapter migration hints
 ## migrate Node Red
 - in right side menu, select Export
 - select All Flows, Download
@@ -148,7 +90,6 @@ Find more information here https://www.iobroker.net/#en/documentation/dev/aliase
 - 3 dots ->Import scripts
 - Move zip file in Drop Area
 
-
 ## migrate Grafana
 - go through all dashboards and select share - export - save to file
 - in text editor replace knx.0. with openknx.0.
@@ -159,7 +100,7 @@ Find more information here https://www.iobroker.net/#en/documentation/dev/aliase
 # howto use the adapter & basic concept
 
 ### ACK flags
-Application shall not set ack flag, application is notified from this adapter by the ack flag if data is updated.
+Applications shall not set ack flags, application is notified from this adapter by the ack flag if data is updated.
 KNX Stack sets the ack flag of the linked IoBroker object on receiption of a group address.
 Sent frames on KNX do not result into a ack of the writing object.
 
@@ -220,11 +161,17 @@ Where number datatype is used please note that interface values can be scaled.
 IoBroker defines States as communication interface.
 
     setState(
-        id: string,                                     // object path
-        state: State | StateValue | SettableState,
-        ack: false,                                     //has to be set to false by convention
+        id: string,                                     //object path
+        state: State | StateValue | SettableState,      //set this to a plausible value, to omit warning in case of GroupValue_Read command
+        ack: false,                                     //must be false by convention
         c: 'GroupValue_Read'                            //optional comment, set this value to trigger a bus read to this object, given StateValue is ignored
     ): void;
+
+  example:
+  setState(myState, {val: false, ack: false, c:'GroupValue_Read'});
+  setState(myState, null); 
+
+GroupValue_Read comment does not work for javascript adapter. Use null value instead.
 
 ### Description of all DPTs
 | KNX DPT   | javascript datatype    | special values                                                                                       | value range                               | remark                                              |
@@ -282,22 +229,21 @@ Sending can be triggered by writing a communicaton object with comment.
 Receiving, if configured will trigger a group value response (limitation: group value write at the moment) of the actual c.o. value, see below.
 
 ### group value response
-If answer_groupValueResponse is set to true, then the adapter will reply with a GroupValue_response to a previously received GroupValue_read request.
+If answer_groupValueResponse is set to true, then the adapter will reply with a GroupValue_Response to a previously received GroupValue_Read request.
+This is the KNX Read flag. Only one KO on the bus or the IOBroker Object should have this flag set, ideally the one that knows the state best.
 
 ### mapping to KNX Flags
 The KNX object flags define the bus behavior of the object they represent.
 6 different object flags are defined.
 
 | Flag                      | Flag de                  | Adapter usage                                     ||
-| ------------------------- | ------------------------ | ------------------------------------------------- | --------------------------------------------- |
+| ------------------------- | ------------------------ | ------------------------------------------------- | ---------------------------------------------- |
 |C: the Communication flag  | K: Kommunikations-Flag   | always set                                        ||
 |R: the Read flag           | L: Lese-Flag             | object native.answer_groupValueResponse           ||
 |T: the Transmit flag       | Ü: Übertragen-Flag       | object common.write                               ||
-|W: the Write flag          | S: Schreiben-Flag        | object common.read                                | bus can modify the object                     |
-|U: the Update flag         | A: Aktualisieren-Flag    | object common.read                                | update object on incoming GroupValueResponses |
-|I: the Initialization flag | I: Initialisierungs-Flag | object native.autoread                            |                                               |
-
-L-Flag: Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert (Lesbar). Nur ein KO je GA sollte das gesetzt haben, idealerweise derjenige, der den echten Zustand am besten kennt, üblicherweise der Aktor!
+|W: the Write flag          | S: Schreiben-Flag        | object common.read                                | bus can modify the object                      |
+|U: the Update flag         | A: Aktualisieren-Flag    | object common.read                                | update object on incoming GroupValue_Responses |
+|I: the Initialization flag | I: Initialisierungs-Flag | object native.autoread                            |                                                |
 
 # Features
 * stable and reliable knx stack
@@ -313,11 +259,17 @@ L-Flag: Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert 
 - none
 
 # Limitations
-- only three level group addresses are supported
 - ETS 4 export file format is not supported
 - KNX secure is not supported
+- only IPv4 supported
 
 ## Changelog
+### 0.1.15 ()
+ * fix: added null value to trigger GroupValue_Read, comments are overwritten in javascript adapter
+ * fix: remove unused reference to sentry
+ * feature: more sanity checks for gui
+ * feature: add openknx to discovery adapter
+ 
 ### 0.1.14 (2022-01-08)
 * feature: autodetect the KNX IP interface parameters
 * feature: create warning if DPT of alias pair does not match
@@ -346,7 +298,7 @@ L-Flag: Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert 
 * feature: show logs of knx library
 * fix: filter out logs with device address bus interactions
 * fix: filter ga names that are forbidden in IOB
-* fix: reply with groupvalueresponse on request, not with groupvaluewrite
+* fix: reply with GroupValue_Response on request, not with GroupValue_Write
 * fix: remove more scene dpts from autoread
 
 ### 0.1.10 (2021-12-24)

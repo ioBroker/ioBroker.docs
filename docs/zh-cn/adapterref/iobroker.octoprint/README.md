@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: oUIOSL+anf5i8plvoDpdXchwEL/vDWwLpumgWwcdSoU=
+hash: dD+bUWRriLBqzTd1a4v+YeMwmng9ECO5yufCPWoQO5g=
 ---
 ![标识](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
 
@@ -13,17 +13,17 @@ hash: oUIOSL+anf5i8plvoDpdXchwEL/vDWwLpumgWwcdSoU=
 ![已安装](http://iobroker.live/badges/octoprint-installed.svg)
 ![依赖状态](https://img.shields.io/david/klein0r/iobroker.octoprint.svg)
 ![已知漏洞](https://snyk.io/test/github/klein0r/ioBroker.octoprint/badge.svg)
-![新产品管理](https://nodei.co/npm/iobroker.octoprint.png?downloads=true)
+![新PM](https://nodei.co/npm/iobroker.octoprint.png?downloads=true)
 
 # IoBroker.octoprint
 ![测试和发布](https://github.com/klein0r/ioBroker.octoprint/workflows/Test%20and%20Release/badge.svg)
 
 将 OctoPrint 连接到 ioBroker 的适配器
 
-**使用 [八印](https://github.com/OctoPrint/OctoPrint/releases) 1.7.2 测试**
+**通过[OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.7.2 测试**
 
 ＃＃ 安装
-请使用 ioBroker 中的“适配器列表”来安装此适配器的稳定版本。您还可以使用 CLI 安装此适配器：
+请使用 ioBroker 中的“适配器列表”安装此适配器的稳定版本。您还可以使用 CLI 安装此适配器：
 
 ```
 iobroker add octoprint
@@ -39,22 +39,23 @@ iobroker add octoprint
 ＃＃＃ 工具
 - 设置工具温度
 - 设置床温
-- 挤压/收缩
+- 挤出/缩回
 
 ### 命令
-- 打印机：连接、断开和回家
-- 作业：开始、暂停、恢复、取消、重启
-- SD 卡：初始化、刷新、释放
+- 打印机：连接、断开连接和回家
+- 工作：开始、暂停、继续、取消、重新开始
+- SD卡：初始化、刷新、释放
 - 自定义打印机命令
 - 系统命令
 - 点动 X、Y 和 Z 轴
 - 选择一个文件或打印它
 
 ### 支持的插件
-- [显示层进度](https://github.com/OllisGit/OctoPrint-DisplayLayerProgress) - 1.27.2 版本测试
+- [显示层进度](https://github.com/OllisGit/OctoPrint-DisplayLayerProgress) - 使用版本 1.27.2 测试（需要 **适配器版本 2.1.0** 或更高版本）
+- [切片器缩略图](https://github.com/jneilliii/OctoPrint-PrusaSlicerThumbnails) - 使用 1.0.0 版测试（需要 **适配器 2.2.0 版或更高版本）
 
 ＃＃ 重要的！
-请勿使用以下代码重新启动 OctoPrint 实例（或任何其他实例）：
+不要使用如下代码重新启动您的 OctoPrint 实例（或任何其他实例）：
 
 ```javascript
 var obj = getObject('system.adapter.octoprint.0');
@@ -62,12 +63,12 @@ obj.common.enabled = false;
 setObject('system.adapter.octoprint.0', obj);
 ```
 
-由于 `API key` 是自 1.1.0 版以来的受保护属性，因此这将删除配置的 API 密钥。原因是 `getObject` 不返回受保护的信息（因此 api 密钥不包含在返回的对象中）。当您保存对象时，您将保存一个没有密钥的对象。
+由于 `API key` 自 1.1.0 版以来是受保护的属性，这将删除配置的 API 密钥。原因是 `getObject` 不返回受保护的信息（因此 api 密钥不包含在返回的对象中）。保存对象时，您将保存没有密钥的对象。
 
-请使用状态 `system.adapter.octoprint.0.alive` 来停止/启动实例。
+请使用状态 `system.adapter.octoprint.0.alive` 停止/启动实例。
 
 ##哨兵
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ## Changelog
 
@@ -75,8 +76,21 @@ setObject('system.adapter.octoprint.0', obj);
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.2.0 (2022-01-15)
 
-### **WORK IN PROGRESS**
+* (klein0r) Added plugin support: Slicer Thumbnails
+
+### 2.1.1 (2022-01-14)
+
+* (klein0r) Added: Request timeout in seconds
+* (klein0r) Logging improvements
+
+### 2.1.0 (2021-12-28)
+
+* (klein0r) Added HTTPS option
+* (klein0r) Fixed Display Layer Progress integration
+
+### 2.0.7 (2021-12-23)
 
 * (klein0r) Added plugin support: Display Layer Progress
 
@@ -196,7 +210,7 @@ setObject('system.adapter.octoprint.0', obj);
 
 The MIT License (MIT)
 
-Copyright (c) 2021 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
