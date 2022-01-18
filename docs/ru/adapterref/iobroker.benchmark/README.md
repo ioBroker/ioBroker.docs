@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.benchmark/README.md
 title: ioBroker.benchmark
-hash: rUUVjscVITKtSuwB4lU6fnF6HH/VHoidSaVqBT9yIds=
+hash: LU96JGHKXloPMFqc3GQppX/Dbx2Oh014A6g0xNHAq6A=
 ---
 ![Логотип](../../../en/adapterref/iobroker.benchmark/admin/benchmark.png)
 
@@ -11,11 +11,10 @@ hash: rUUVjscVITKtSuwB4lU6fnF6HH/VHoidSaVqBT9yIds=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.benchmark.svg)
 ![Количество установок](https://iobroker.live/badges/benchmark-installed.svg)
 ![Текущая версия в стабильном репозитории](https://iobroker.live/badges/benchmark-stable.svg)
-![Статус зависимости](https://img.shields.io/david/foxriver76/iobroker.benchmark.svg)
 ![НПМ](https://nodei.co/npm/iobroker.benchmark.png?downloads=true)
 
 # IoBroker.benchmark
-** Тесты: ** ![Тестирование и выпуск](https://github.com/foxriver76/ioBroker.benchmark/workflows/Test%20and%20Release/badge.svg)
+** Испытания: ** ![Тестирование и выпуск](https://github.com/foxriver76/ioBroker.benchmark/workflows/Test%20and%20Release/badge.svg)
 
 ## Тестовый адаптер для ioBroker
 Проведите сравнительный анализ вашей системы.
@@ -27,8 +26,30 @@ hash: rUUVjscVITKtSuwB4lU6fnF6HH/VHoidSaVqBT9yIds=
 ## Как добавить новый тест?
 1. Создайте новый файл TypeScript в src / lib / activeTests с классом, унаследованным от TestUtils.
 2. Определите три (пять) шагов вашего теста (выполнение измеряется автоматически).
-3. Добавьте свой тест в src / lib / allTests.ts.
-4. Добавьте кнопку и перевод для вашего теста в admin / jsonConfig.json.
+3. Необязательно: если к вашему тесту предъявляются некоторые требования, например контроллер должен быть `> = 3.0.0`, пожалуйста, передайте требования к
+
+родительский конструктор
+
+4. Добавьте свой тест в src / lib / allTests.ts.
+5. Добавьте кнопку и перевод для вашего теста в admin / jsonConfig.json.
+
+### Требования к тестам
+Некоторые тесты могут иметь требования. Если система не соответствует требованиям, тест будет пропущен.
+В конструкторе вы должны передать требования родительскому классу, например
+
+```typescript
+public constructor(adapter: AdapterInstance) {
+    super(adapter, {freeMemory: 2000});
+}
+```
+
+В настоящее время поддерживаются следующие требования:
+
+- `controllerVersion` - если тестируются методы, которые были представлены с определенной версией контроллера, эталонный тест
+
+адаптер не должен пытаться запустить эти тесты на неподдерживаемом контроллере
+
+- `freeMemory` - укажите необходимую память для теста, это необходимо, только если вы, например, добавить много экземпляров
 
 ## Описание теста
 ### GetStates
@@ -48,7 +69,7 @@ hash: rUUVjscVITKtSuwB4lU6fnF6HH/VHoidSaVqBT9yIds=
 Если все сообщения получены, проверка завершена.
 
 ### ObjectsCreation
-Создает объекты `iterations` через `setObject`.
+Создает объекты `iterations` с помощью `setObject`.
 
 ### ObjectsDeletion
 Удаляет объекты `iterations` через `delObject`.
@@ -63,7 +84,7 @@ hash: rUUVjscVITKtSuwB4lU6fnF6HH/VHoidSaVqBT9yIds=
 Создает 10 000 объектов, при этом только 2% из них актуальны для просмотра объектов. Затем он выполняет просмотр объектов `iterations`.
 
 ### SetStates
-Устанавливает состояния `iterations` через `setState`
+Устанавливает состояния `iterations` с помощью `setState`
 
 ### SetStatesNonStrict
 Устанавливает состояния `iterations` с помощью `setState`, но `strictObjectChecks` отключены.
@@ -72,17 +93,19 @@ hash: rUUVjscVITKtSuwB4lU6fnF6HH/VHoidSaVqBT9yIds=
 Добавляет 30 вторичных экземпляров, каждый экземпляр будет устанавливать состояния `iterations`. На системном уровне экземпляры устанавливают эти состояния параллельно, но на уровне экземпляра предыдущие `setState` необходимо завершить до тех пор, пока не будет установлен следующий.
 Этот тест направлен на тестирование многоядерных систем.
 
+__Требования__: 2 ГБ свободной памяти
+
 ### StatesDeletion
 Удаляет состояния `iterations` через `delState`.
 
 ### StatesSubscription
-Экземпляр контроллера подписывается на определенное пространство имен. 4 вторичных узла, каждый из которых устанавливает состояния `iterations / 4`. Как только контроллер получит все публикации `iterations`, проверка будет завершена.
+Экземпляр контроллера подписывается на определенное пространство имен. 4 вторичных элемента, каждый из которых устанавливает состояния `iterations / 4`. Как только контроллер получит все публикации `iterations`, проверка будет завершена.
 
 ### StatesSubscriptionAlias
-Экземпляр контроллера подписывается на пространство имен псевдонима. Каждый из 4 вторичных устройств устанавливает псевдонимы `iterations / 4`. Как только контроллер получит все публикации `iterations`, проверка будет завершена.
+Экземпляр контроллера подписывается на пространство имен псевдонима. 4 вторичных абонента устанавливают состояния псевдонима `iterations / 4`. Как только контроллер получит все публикации `iterations`, проверка будет завершена.
 
 ### StatesSubscriptionAliasWrite
-Экземпляр контроллера подписывается на пространство имен псевдонима. Каждый из 4 вторичных устройств устанавливает псевдонимы `iterations / 4`. Как только контроллер получит все публикации `iterations`, проверка будет завершена.
+Экземпляр контроллера подписывается на пространство имен псевдонима. 4 вторичных абонента устанавливают состояния псевдонима `iterations / 4`. Как только контроллер получит все публикации `iterations`, проверка будет завершена.
 Псевдоним содержит простую функцию записи.
 
 ## Changelog
@@ -90,6 +113,9 @@ hash: rUUVjscVITKtSuwB4lU6fnF6HH/VHoidSaVqBT9yIds=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.0 (2022-01-01)
+* (foxriver76) we introduced `TestRequirements` which can define required memory, controller and node version
+
 ### 0.4.0 (2021-11-24)
 * (foxriver76) we introduced some categories in the user interface
 * (foxriver76) we switched to checkboxes to allow to execute a subset of all tests
@@ -164,7 +190,7 @@ hash: rUUVjscVITKtSuwB4lU6fnF6HH/VHoidSaVqBT9yIds=
 ## License
 MIT License
 
-Copyright (c) 2021 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2022 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

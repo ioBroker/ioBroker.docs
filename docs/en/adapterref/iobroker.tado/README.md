@@ -43,12 +43,10 @@ If you like my work, please feel free to provide a personal donation
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.13-alpha.9 (2021-12-24)
+### 0.3.13 (2022-01-03)
 * (HGlab01) Optimize internet-check by using isOnline-library
 * (HGlab01) Support Smart AC Control V3+ (issue #403)
-* (HGlab01) Fix issue 'fan level not allowed in mode DRY'
-* (HGlab01) Fix issue 'mode not in supported modes [COOL, HEAT, DRY, FAN, AUTO]'
-* (HGlab01) Fix issue 'temperature required for mode AUTO'
+* (HGlab01) Offset temperature rounding to max. 2 digits
 
 ### 0.3.12 (2021-11-25)
 * (HGlab01) support attribute 'showScheduleSetup'

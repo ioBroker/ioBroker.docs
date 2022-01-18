@@ -212,6 +212,16 @@ Der Adapter erstellt die folgenden Buttons:
 
    *Simuliert den "Info"-Knopf der Fernbedienung.*
 
+### Channel: tuner
+
+* tuner.frequencyUp
+
+  *Erhöht die Tuner Frequenz.*
+
+* tuner.frequencyDown
+
+  *Senkt die Tuner Frequenz.*
+
 ### States
 Die folgenden States werden vom Adapter angelegt:
 
@@ -421,7 +431,31 @@ Die folgenden States werden vom Adapter angelegt:
    
    *Number wert welcher die derzeitige Kanallautstärke der Box darstellt. Jede Box hat einen separaten State. Die
    Einstellungen sind für den derzeitigen Select Input Modus wirksam und können von -12 dB bis + 12 dB justiert werden.*
-   
+
+#### Channel: tuner
+
+* tuner.stationName
+
+  |Datentyp|Berechtigung|                                                                       
+  |:---:|:---:|
+  |string|R|
+
+  *Nur lesbarer string welcher den Namen der aktuellen Station beinhaltet, falls diese verfügbar ist.*
+
+* tuner.frequency
+
+  |Datentyp|Berechtigung|                                                                       
+  |:---:|:---:|
+  |number|R/W|
+
+  *Number Wert welcher die aktuelle Frequenz darstellt. Mit diesem State kann die Frequenz verändert werden.
+  Werte unter 500 sind auf FM Frequenz und über 500 auf AM Frequenz.*
+
+
+   ```javascript
+   setState('denon.0.tuner.frequency', 106.9); // Set frequency to 106.9 MHz (FM)
+   ```
+
 #### Channel: display
 
 * display.displayContent
@@ -922,6 +956,12 @@ und info.connection. Zusätzlich werden die folgenden States für jede Zone 2-12
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.12.1 (2022-01-03)
+* (foxriver76) fixed missing digits in `tuner.stationName`
+
+### 1.12.0 (2022-01-02)
+* (foxriver76) we introduce tuner states
+* (foxriver76) performance optimizations
 
 ### 1.11.2 (2021-08-08)
 * (foxriver76) we fixed missing conversion to db on equalizer treble state for additional zones (fixes #162)

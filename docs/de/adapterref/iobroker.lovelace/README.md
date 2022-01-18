@@ -3,19 +3,17 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: Vsarg6AJFBh+tqIfiMJeA5EbUjdOYQHNNYLyi3W0cW8=
+hash: W0fmYpVw3g+J7EmmUo9mCAdjbGAHGZhMXls7g27bYcQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
+![Anzahl der Installationen](http://iobroker.live/badges/lovelace-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.lovelace.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.lovelace.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/ioBroker/iobroker.lovelace.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/ioBroker/ioBroker.lovelace/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.lovelace.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.lovelace/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/ioBroker/ioBroker.lovelace?branch=master&svg=true)
 
 #ioBroker.lovelace
+![Testen und freigeben](https://github.com/ioBroker/iobroker.lovelace/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/lovelace/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 ## Lovelace-Adapter für ioBroker
 Mit diesem Adapter können Sie eine Visualisierung für ioBroker mit Home Assistant Lovelace UI erstellen.
 
@@ -75,12 +73,12 @@ createState(
 );
 ```
 
-oder Sie verwenden einfach `lovelace.X.control.alarm (entity_id = alarm_control_panel.defaultAlarm)` dafür.
+oder du verwendest einfach `lovelace.X.control.alarm (entity_id = alarm_control_panel.defaultAlarm)` dafür.
 
 ### Zahleneingabe
 Dies kann manuell erfolgen, wenn der Entitätstyp input_number im benutzerdefinierten Dialogfeld ausgewählt ist.
 Für diesen Typ können erforderliche `min` und `max` Werte in `common` und optional `step` hinzugefügt werden.
-Wenn Sie die Aufwärts- und Abwärtspfeile sehen möchten, sollten Sie in den benutzerdefinierten `mode` auf 'Nummer' setzen:
+Wenn Sie die Auf- und Abwärtspfeile sehen möchten, sollten Sie in benutzerdefinierten `mode` auf 'Nummer' setzen:
 
 ```
 common: {
@@ -202,14 +200,14 @@ createState(
 );
 ```
 
-###Wetter
+### Wetter
 Getestet mit yr und daswetter. Bei einem oder mehreren der folgenden Objekte müssen `Function=Weather` und `Room=Any` in der Konfiguration verfügbar sein:
 
 - daswetter.0.NextDays.Location_1
-- Jahr.0.Vorhersage
+- yr.0.Prognose
 
 Getestet mit AccuWeather-Treiber v1.1.0 https://github.com/iobroker-community-adapters/ioBroker.accuweather.
-Benutzerdefinierte Lovelace-Karte zur Unterstützung der Accuweather-Vorhersage - https://github.com/algar42/IoB.lovelace.accuweather-card
+Benutzerdefinierte Lovelace-Karte, die zur Unterstützung der Accuweather-Vorhersage erstellt wurde - https://github.com/algar42/IoB.lovelace.accuweather-card
 
 ### Einkaufsliste
 Einkaufsliste schreibt die Werte in Form:
@@ -280,7 +278,7 @@ Z.B.:
 oder einfach manuell den Entitätstyp auf `camera` setzen und URL hineinschreiben.
 
 ### Werkzeugleiste verstecken
-Um die Symbolleiste auszublenden, können Sie das Kontrollkästchen im ioBroker-Konfigurationsdialog auf der Registerkarte Themen aktivieren.
+Um die Symbolleiste auszublenden, können Sie das Kontrollkästchen im ioBroker-Konfigurationsdialog auf der Registerkarte Themen setzen.
 Um es anzuzeigen, können Sie es im Dialog wieder deaktivieren oder einfach die URL mit `?toolbar=true` Parameter aufrufen.
 
 ### Abschlag
@@ -289,12 +287,12 @@ Sie können Bindungen im Markdown wie in [iobroker.vis](https://github.com/ioBro
 Z.B. Text `Admin adapter is {a:system.adapter.admin.0.alive;a === true || a === 'true' ? ' ' : 'not '} *alive*.` erzeugt Text `Admin adapter is alive` im Markdown-Panel.
 
 ## Benutzerdefinierte Karten
-###Hochladen von benutzerdefinierten Karten
+### Hochladen von benutzerdefinierten Karten
 Um die benutzerdefinierte Karte hochzuladen, schreiben Sie Folgendes:
 
 ```iobroker file write PATH_TO_FILE\bignumber-card.js /lovelace.0/cards/```
 
-Nach dem Neustart des Lovelace-Adapters werden automatisch alle Dateien aus dem `cards` Verzeichnis übernommen.
+Nach dem Neustart des Lovelace-Adapters werden automatisch alle Dateien aus dem `cards`-Verzeichnis übernommen.
 
 Folgende benutzerdefinierte Karten konnten erfolgreich getestet werden:
 
@@ -393,11 +391,11 @@ midnight:
 
 entnommen aus [Hier](https://community.home-assistant.io/t/midnight-theme/28598/2).
 
-##Symbole
-Verwenden Sie Symbole in der Form `mdi:NAME`, wie 'mdi:play-network'. Namen können hier entnommen werden: https://materialdesignicons.com/
+## Symbole
+Verwenden Sie Icons in der Form `mdi:NAME`, wie 'mdi:play-network'. Namen können hier entnommen werden: https://materialdesignicons.com/
 
 ## Benachrichtigungen
-Sie können Benachrichtigungen über die `sendTo`-Funktionalität hinzufügen oder indem Sie den Status in `lovelace.X.notifications.add` schreiben:
+Du kannst Benachrichtigungen über die `sendTo`-Funktionalität hinzufügen oder indem du den Status in `lovelace.X.notifications.add` schreibst:
 
 ```
 sendTo('lovelace.0', 'send', {message: 'Message text', title: 'Title'}); // full version
@@ -439,10 +437,10 @@ Die Sicherheit muss vom aktuellen Benutzer übernommen werden und nicht von defa
 
 ## Entwicklung
 ### Ausführung
-Verwendete Version von home-assistant-frontend@20201021.4
+Gebrauchte Version von home-assistant-frontend@20201021.4
 
 ### So erstellen Sie die neue Lovelace-Version
-Zunächst muss das eigentliche https://github.com/home-assistant/frontend (dev branch) **manuell** in https://github.com/GermanBluefox/home-assistant-polymer.git (* **iob***-Zweig!).
+Zuerst muss das eigentliche https://github.com/home-assistant/frontend (dev branch) **manuell** in https://github.com/GermanBluefox/home-assistant-polymer.git (* **iob***-Zweig!).
 
 Alle Änderungen für ioBroker sind mit dem Kommentar `// IoB` gekennzeichnet.
 Für den Moment (20201021.4) wurden folgende Dateien geändert:
@@ -452,9 +450,9 @@ Für den Moment (20201021.4) wurden folgende Dateien geändert:
 - `src/data/lovelace.ts` - Option zum Ausblenden der Symbolleiste hinzufügen
 - `src/data/weather.ts` - Unterstützung für die Anzeige des Wettersymbols von der URL hinzufügen.
 - `src/dialogs/more-info/ha-more-info-dialog.ts` - Schaltfläche für Entitätseinstellungen entfernen und Wetterstatus und -verlauf entfernen
-- `src/dialogs/more-info/controls/more-info-climate.ts` - Druckmodusname für nicht unterstützte Modi
+- `src/dialogs/more-info/controls/more-info-climate.ts` - Druckmodusnamen für nicht unterstützte Modi
 - `src/dialogs/more-info/controls/more-info-weather.ts` - Unterstützung für die Anzeige des Wettersymbols von der URL hinzufügen.
-- `src/entrypoints/core.ts` - geänderter Authentifizierungsprozess
+- `src/entrypoints/core.ts` - modifizierter Authentifizierungsprozess
 - `src/layouts/home-assistant-main.ts` - App-Sidebar entfernen
 - `src/panels/lovelace/cards/hui-weather-forecast-card.ts` - Unterstützung für die Anzeige des Wettersymbols von der URL hinzufügen.
 - `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` - Unterstützung für die Anzeige des Wettersymbols von der URL mit auth.
@@ -469,7 +467,7 @@ Danach die geänderte Version im `./build` Ordner auschecken. Dann.
 2. `git clone https://github.com/GermanBluefox/home-assistant-polymer.git` Es ist ein Fork von https://github.com/home-assistant/frontend.git, aber einige Dinge wurden geändert ( siehe Dateiliste weiter oben).
 3. `cd heimassistent-polymer`
 4. `git checkout master`
-5. `npm installieren`
+5. `Garn installieren`
 6. `gulp build-app` für die Veröffentlichung oder `gulp developer-iob` für die Debugging-Version. Um das Web nach Änderungen zu erstellen, können Sie `webpack-dev-app` für einen schnelleren Build aufrufen, aber Sie müssen `build-app` trotzdem aufrufen, nachdem die Version einsatzbereit ist.
 7. kopiere alle Dateien von `./build/home-assistant-polymer/hass_frontend` nach `./hass_frontend` in diesem Repo
 8. Starten Sie die Aufgabe `gulp rename`.
@@ -480,45 +478,25 @@ Danach die geänderte Version im `./build` Ordner auschecken. Dann.
 	PLACEHOLDER for next version:
 	### **WORK IN PROGRESS**
 -->
-### 2.0.0 (2021-06-17)
-* (Garfonso) Changed: !Breaking! Battery warning is now binary_sensor instead of sensor (now ui sets icon and  translates ok)
-* (Garfonso) Fixed:   !Breaking! entity_id conflict for low_bat / humidity when part of another device
-* (Garfonso) Updated frontend to 20210603.0 (changed light entity to not convert color anymore)
-* (Garfonso) Changed: increased file size limit to 5 MB during upload in config.
-* (Garfonso) Added: Support for input_datetime
-* (Garfonso) Added: Support for manual complex light entities
-* (Garfonso) Added: Support for images from base64 data in iobroker states 
-* (Garfonso) Added: Support for additional alarm states.
-* (Garfonso) Added: Parameter to only enter code when disarming alarm
-* (Garfonso) Added: Support for admin 5 (jsonCustom)
-* (Garfonso) Added: Support for airCondition / rework thermostat
-* (Garfonso) Added: manual entities can be more complex now (needs documentation)
-* (Garfonso) Added: darkMode control
+### 2.1.4 (2022-01-09)
+* (Garfonso) Dependency update
 
-### 1.5.0 (2021-02-15)
-* (Garfonso) Changed: defaultTheme and control.theme were in conflict. Now control.theme is set when selecting a new default theme.
-* (Garfonso) Added: control.themeDark to control devices in dark mode, too.
-* (Garfonso) Fixed: Device Icons with authentication now work
-* (Garfonso) Changed: previously only admin user could change the UI. Now also the owner of the configuration object and members of the owner group are allowed to change the UI.
-* (Garfonso) Internal code cleanup / breaking dependency update.
-* (Garfonso) Added: Support for pure humidity sensors.
-* (Garfonso) Added: Support for URL as entity_image
-* (Garfonso) Fixed: Adjust user-name/user-id handling to changes in js-controller 3.2.*
-* (Garfonso) Fixed: default themes do not show as selected
-* (Garfonso) Fixed: Loading themes / custom cards / image-proxy
+### 2.1.3 (2022-01-07)
+* (Garfonso) Fixed: remove backup of old frontend (sorry)
 
-### 1.4.3 (2021-02-01)
-* (bluefox) Support of lovelace via ioBroker.pro
+### 2.1.2 (2022-01-06)
+* (Garfonso) Fixed: Menu was broken in frontend.
 
-### 1.4.2 (2021-01-08)
-* (thost96) Fixed: set Theme state type to string instead of text
+### 2.1.1 (2022-01-06)
+* (Garfonso) Fixed: Entity update in some cases.
 
-### 1.4.1 (2021-01-08)
-* (bluefox) Support of new Let's Encrypt (only with js-controller 3.2.x)
+### 2.1.0 (2022-01-06)
+* (Garfonso) Added: support for new things in frontend (like arm_vacation state, currency, ...).
+* (Garfonso) Change: Updated frontent to 20211229.0 (needs update of browser_mod, card_mod)
 
 ## License
 
-Copyright 2019-2021, bluefox <dogafox@gmail.com>
+Copyright 2019-2022, bluefox <dogafox@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

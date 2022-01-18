@@ -16,30 +16,30 @@ hash: UV3HqVZZtcoUaaOnkXYcvc9qyq3KiXymFFmX/tF7MkI=
 
 # IoBroker.trashschedule
 ## Предварительные условия
-1. Создайте новый экземпляр **физического адаптера**
-2. Настройте URL-адрес вашего календаря (например, календарь Google).
-3. Установите для параметра "Дни предварительного просмотра" диапазон, включающий каждый тип корзины как минимум дважды (например, 30 дней).
-4. Если вы используете вкладку «События», убедитесь, что для каждого типа события установлен флажок «Отображать», который также должен использоваться в вашем расписании корзины (в противном случае событие будет скрыто экземпляром ical).
+1. Создайте новый экземпляр **ical адаптера**.
+2. Настройте URL-адрес вашего календаря (например, календарь Google)
+3. Установите «Дни предварительного просмотра» на диапазон, который включает каждый тип корзины как минимум дважды (например, 30 дней).
+4. Если вы используете вкладку «события», обязательно установите флажок «отображать» для каждого типа события, которое также должно использоваться в вашем расписании корзины (в противном случае событие будет скрыто экземпляром ical)
 
-![ical](../../../en/adapterref/iobroker.trashschedule/./ical.png)
+![классический](../../../en/adapterref/iobroker.trashschedule/./ical.png)
 
 ## Конфигурация
-1. Создайте экземпляр trashschedule и выберите его в качестве источника.
-2. Перейдите на вкладку "Типы мусора" и добавьте столько типов, сколько у вас есть.
-3. Задайте имя для каждого нового типа корзины и настройте соответствующие события.
-4. Запустите экземпляр.
+1. Создайте экземпляр ```trashschedule``` и выберите ical экземпляр в качестве источника.
+2. Перейдите на вкладку «Типы мусора» и добавьте столько типов, сколько у вас есть типов мусора.
+3. Определите имя для каждого нового типа корзины и настройте соответствующие события.
+4. Запустите экземпляр
 
-** Вопросы? ** Проверьте [Вопросы-Ответы](./faq.md)
+**Вопросы?** Проверьте [Вопросы-Ответы](./faq.md)
 
-![мусор](../../../en/adapterref/iobroker.trashschedule/./trashschedule.png)
+![расписание мусора](../../../en/adapterref/iobroker.trashschedule/./trashschedule.png)
 
-![trashschedule_types](../../../en/adapterref/iobroker.trashschedule/./trashschedule_types.png)
+![мусорное расписание_типы](../../../en/adapterref/iobroker.trashschedule/./trashschedule_types.png)
 
 ## Виджет VIS
 ![Виджет VIS](../../../en/adapterref/iobroker.trashschedule/../vis.png)
 
-## Пример блока
-![Пример блока](../../../en/adapterref/iobroker.trashschedule/../exampleBlockly.png)
+## Блочный пример
+![Блочный пример](../../../en/adapterref/iobroker.trashschedule/../exampleBlockly.png)
 
 ```xml
 <xml xmlns="https://developers.google.com/blockly/xml">
@@ -191,7 +191,7 @@ hash: UV3HqVZZtcoUaaOnkXYcvc9qyq3KiXymFFmX/tF7MkI=
 ```
 
 ## Конфигурация смещения
-Смещение может переместить все события сбора в вашем календаре в будущее или в прошлое.
+Смещение может переместить все события пикапа в вашем календаре в будущее или в прошлое.
 
 ## По умолчанию: 0
 ![Пример смещения](../../../en/adapterref/iobroker.trashschedule/../offsetExample.jpg)
@@ -208,6 +208,10 @@ hash: UV3HqVZZtcoUaaOnkXYcvc9qyq3KiXymFFmX/tF7MkI=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.4.1 (2021-12-23)
+
+* (klein0r) Updated dependencies
+
 ### 1.4.0 (2021-12-10)
 
 * (klein0r) Allow to hide "not found" warnings for single trash types (like christmas tree pickup)

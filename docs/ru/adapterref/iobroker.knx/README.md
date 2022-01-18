@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: 9DvpHKCTIHIMwhDwzpDcMpqDPywwi/RPchy/iVWToTw=
+hash: bl3CznWkrEh+2Q7Rhomezf1lH07US0VXcWE8S5D5Hhw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
@@ -23,8 +23,9 @@ hash: 9DvpHKCTIHIMwhDwzpDcMpqDPywwi/RPchy/iVWToTw=
     * [Использование] (# использование)
     * [Типы точек данных (DPT)] (# data-point-types-dpt)
     * [Как работает импорт] (# how-the-import-works)
-    * [Избегание проблем] (# избегание проблем)
+    * [Избегание проблем] (# предотвращение проблем)
 * [GA-Tool] (# ga-tool)
+    * [Прямая ссылка на состояние, не являющееся KNX, с KNX наоборот] (# direct-link-non-knx-state-to-knx-наоборот)
 * [Планируемые функции] (# запланированных функций)
 * [Список изменений] (# список изменений)
 
@@ -53,9 +54,11 @@ ru: [Установка и базовая настройка адаптера](d
 * создание ETS-подобной объектной структуры
 * поиск и объединение act-channel и state-channel (эвристика)
 * обновление всех состояний при запуске
+* не требуется облако или интернет
 * отправка READ на шину KNX при записи состояния-объекта
 * редактировать и изменять объекты GA с помощью GA-Tools
 * редактировать и изменять отношения состояние-действие с помощью GA-Tools
+* НОВИНКА: разрешить прямую ссылку не в KNX State (наоборот)
 
 ## Конфигурация адаптера
 После установки этого адаптера откройте конфигурацию адаптера.
@@ -64,7 +67,7 @@ ru: [Установка и базовая настройка адаптера](d
 Первый шаг - применить лицензию. Если вы не установили лицензию, применяется 500 точек данных.
 
 * (1) показывает ваш системный идентификатор, он нужен вам для получения лицензии
-* (2) нажмите здесь, чтобы применить вашу лицензию
+* (2) нажмите здесь, чтобы применить лицензию
 
 ![knxV2-first-start-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-first-start-mod.jpg)
 
@@ -141,16 +144,16 @@ ru: [Установка и базовая настройка адаптера](d
     | х | - | - | х | х | отправка любого значения в этом состоянии вызывает GroupValueRead |
     | - | х | - | - | х | записать значение в KNX с помощью GroupValueWrite |
     | - | - | х | х | - | значение состояния будет обновлено GroupValueResponse |
-    | х | - | х | х | х | отправка любого значения в этом состоянии вызывает GroupValueRead |
+    | х | - | х | х | х | отправка любого значения в этом состоянии запускает GroupValueRead |
 
-6. Создание пиров точек данных (DPP):
+6. Создание одноранговых точек данных (DPP):
 
 DPP будет создан, если действительны GA, GAR и DPT. Это DPP, с которым работает адаптер.
 Если DPT отсутствует в GA, потому что он не может быть найден, DPP не будет создан. Это можно сделать с помощью GA-Tool.
 
 7. при запуске адаптера:
 
-все ГА, отмеченные флажком «Чтение», проверяются при запуске. Это может повлиять на более интенсивный автобусный трафик. В конце концов, все состояния обновлены.
+все ГА, отмеченные флажком «Чтение», проверяются при запуске. Это может повлиять на более высокий автобусный трафик. В конце концов, все состояния обновлены.
 
 ### Избежание проблем
 * чистое программирование ETS и, что более важно, чистое программирование ETS и, самое главное, чистое программирование ETS
@@ -194,6 +197,27 @@ GA-Tool позволяет легко изменять свойства GA.
 2. свойства для изменения
 3. изменение невозможно
 
+### Прямая ссылка на состояние, отличное от KNX, на KNX наоборот
+Начиная с версии адаптера 2.0.6, можно напрямую связать состояние ioBroker, отличное от KNX, с GA. Это можно использовать для применения времени, даты, любых состояний или информации к KNX. (небольшая подсказка: вы можете связать любой из своих компонентов IOT непосредственно с GA в KNX (например, привязать домашнюю кнопку к KNX GA или связать датчик кнопок KNX с вашим звуковым проигрывателем)). Состояния можно прочитать с помощью GroupValueRead, и если состояния изменятся, они будут автоматически обновлены в KNX. Также, если вы измените KNX, это обновит связанное устройство iot, отличное от KNX.
+
+![knxV2-3-7-GATools-Directlink-мод](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-7-GATools-DirectLink-mod.jpg)
+
+1. выберите GA для подключения
+2. показать выбранный GA
+3. Этот GA должен иметь атрибут **write**
+4. выберите допустимый тип точки данных (если они не совпадают, это не сработает)
+5. не допускается отношения акт-государство
+6. кнопка для выбора объекта, отличного от KNX, для связи с ним.
+
+![knxV2-3-8-GATools-Directlink-мод](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-8-GATools-DirectLink-mod.jpg)
+
+1. выберите объект, не относящийся к KNX, который вы хотите связать
+2. нажмите ОК, если вы закончили
+
+![knxV2-3-9-GATools-Directlink-мод](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-9-GATools-DirectLink-mod.jpg)
+
+Теперь KNX-GA **(1)** напрямую связан с не-KNX iobroker **(2)** С помощью **(3)** вы можете удалить это отношение.
+
 ## Планируемые функции
 * esf-import
 * Инструмент мониторинга шины GA-Mon
@@ -207,6 +231,17 @@ GA-Tool позволяет легко изменять свойства GA.
 Разработчик не может получить дополнительную специальную информацию о системе / config / user / enviroment. Если лицензия не найдена, также сообщается версия адаптера и идентификатор хоста.
 
 ## Changelog
+### 2.0.8
+* fixed bug with unackn write
+* fixed bug in linkedState
+
+### 2.0.7
+* fixed bug with unable to write on KNX
+
+### 2.0.6
+* fixed problem on ETSv6 import
+* many small bugfixes
+* implemented GA-Tools directLink feature
 
 ### 2.0.5
 
@@ -484,6 +519,10 @@ GA-Tool позволяет легко изменять свойства GA.
 * (bluefox) initial release
 
 ## License
+
+For <500 datapoints there is no need of registration or adding a license key. If you have more then 500 datapoints you need a license. You can choose  
+between yearly and permanent licence.
+
 To use this adapter in ioBroker you need to accept the source code license of the adapter. The source code of this adapter is available under the CC-NC-BY license.
 
 Additionally you need a license to use the adapter. The license editions are available on [https://iobroker.net/www/pricing](https://iobroker.net/www/pricing)

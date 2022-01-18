@@ -26,11 +26,12 @@ The following Settings are available:
 
 In the table you can add all the Twinkly lights you want to control. 
 
-| Column       | Description                        |
-|--------------|------------------------------------|
-| `Enabled`    | Shall this connection be accessed  |
-| `Name`       | Name of the connection in ioBroker |
-| `IP Address` | IP-Address to the Twinkly Lights   |
+| Column       | Description                                                    |
+|--------------|----------------------------------------------------------------|
+| `Enabled`    | Shall this connection be accessed                              |
+| `Name`       | Name of the connection in ioBroker                             |
+| `IP Address` | IP-Address to the Twinkly Lights                               |
+| `State On`   | Which `ledMode` should be activated when state `on` is enabled |
 
 The following additionals States are created per device when checked:
 * Device Info
@@ -46,7 +47,7 @@ The following States are available:
 | `details`     | :x:                | Device Details                                                                                                                  |
 | `firmware`    | :x:                | Firmware Version                                                                                                                |
 | `ledBri`      | :heavy_check_mark: | Brightness (deactivate control with -1)                                                                                         |
-| `ledColor`    | :heavy_check_mark: | Color of LEDs, HSV/RGB(W)/HEX                                                                                                   |
+| `ledColor`    | :heavy_check_mark: | Color of LEDs, HSV/RGB(W)/HEX (`Color`)                                                                                         |
 | `ledConfig`   | :heavy_check_mark: | Configuration of LEDs                                                                                                           |
 | `ledEffect`   | :heavy_check_mark: | Effects (`Effect`)                                                                                                              |
 | `ledLayout`   | :heavy_check_mark: | Layout of LEDs (disabled for further testing)                                                                                   |
@@ -71,6 +72,9 @@ The following States are available:
 
 
 ## Changelog
+
+### 0.2.11 (2022-01-02)
+* (patrickbs96) Add setting to select which ledMode should be activated
 
 ### 0.2.10 (2021-12-31)
 * (patrickbs96) Add setting to enable automatically switching of Mode after State change (color, effect, movie, playlist)
@@ -135,7 +139,7 @@ The following States are available:
 ## License
 MIT License
 
-Copyright (c) 2021 patrickbs96 <patrickbsimon96@gmail.com>
+Copyright (c) 2022 patrickbs96 <patrickbsimon96@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

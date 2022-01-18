@@ -210,6 +210,10 @@ The following devices are defined:
 	### __WORK IN PROGRESS__
 -->
 <!-- prettier-ignore -->
+### __WORK IN PROGRESS__
+
+-   (Michael Schroeder) Upgrade dependencies, switch to Typescript 4.5
+
 ### 1.0.1 (2020-07-20)
 
 -   (Michael Schroeder) Fix [#49](https://github.com/MiSchroe/ioBroker.klf200/issues/49) Set multiple states at once, e.g. in Blockly
@@ -238,7 +242,7 @@ The following devices are defined:
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Michael Schroeder <klf200@gmx.de>
+Copyright (c) 2018-2022 Michael Schroeder <klf200@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

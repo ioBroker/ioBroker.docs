@@ -45,7 +45,7 @@ The models listed are those that I have in use myself or which are technically i
 * Deebot M88
 * Deebot 500
 * Deebot 600/601/605
-* Deebot 710/711/711s
+* Deebot 710/711
 * Deebot OZMO 610
 * Deebot OZMO 900/905
 * Deebot OZMO Slim 10/11
@@ -107,6 +107,14 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 * Some "cleaninglog" states are empty on T9 series ("last20Logs", "lastCleaningDate" and "lastCleaningMapImageURL")
 
 ## Changelog
+
+### 1.3.3
+* Bumped ecovacs-deebot.js to 0.7.1 (incl. fix for CVE-2022-0155)
+
+### 1.3.2
+
+* Bumped follow-redirects to 1.14.7 (fix for CVE-2022-0155) and some other dependencies
+* Added N8 PRO+
 
 ### 1.3.1
 
@@ -253,7 +261,7 @@ I am in no way affiliated with ECOVACS.
 
 MIT License
 
-Copyright (c) 2021 Sascha Hölzel <mrb1232@posteo.de>
+Copyright (c) 2022 Sascha Hölzel <mrb1232@posteo.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

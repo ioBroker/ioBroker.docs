@@ -180,6 +180,16 @@ The adapter creates the following buttons:
 
    *Simulates the info button of your remote control*
 
+### Channel: tuner
+
+* tuner.frequencyUp
+
+    *Increases tuner frequency.*
+
+* tuner.frequencyDown
+
+  *Decreases tuner frequency.*
+
 ### States
 Following states will be created by the adapter:
 
@@ -381,7 +391,31 @@ Following states will be created by the adapter:
    
    *Number value which represents the current channel volume for each speaker. Each speaker has a separate state. The 
    settings affect the current Select Input Mode. The state can be adjusted from -12 dB to +12 dB.*
-   
+
+#### Channel: tuner
+
+* tuner.stationName
+
+  |Data type|Permission|                                                                       
+  |:---:|:---:|
+  |string|R|
+
+  *Read-only string which contains the current station name if available.*
+
+* tuner.frequency
+
+  |Data type|Permission|                                                                       
+  |:---:|:---:|
+  |number|R/W|
+
+  *Number value which represents the current frequency. You can also set a frequency with this state. 
+  Values below 500 are on FM frequency and above 500 on AM frequency.*
+
+
+   ```javascript
+   setState('denon.0.tuner.frequency', 106.9); // Set frequency to 106.9 MHz (FM)
+   ```
+
 #### Channel: display
 
 * display.displayContent
@@ -872,6 +906,12 @@ The adapter is tested with an DENON AVR-X1200W and a Marantz SR5009.
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.12.1 (2022-01-03)
+* (foxriver76) fixed missing digits in `tuner.stationName`
+
+### 1.12.0 (2022-01-02)
+* (foxriver76) we introduce tuner states
+* (foxriver76) performance optimizations
 
 ### 1.11.2 (2021-08-08)
 * (foxriver76) we fixed missing conversion to db on equalizer treble state for additional zones (fixes #162)

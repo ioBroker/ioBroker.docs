@@ -7,9 +7,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.denon/README.md
 title: ioBroker.denon
-hash: Lgps1TGVssycmZzRnz9NYrW48iy3XCnv0nz7IaZVV+M=
+hash: NXzLkWw2R6xwJOSJ3VdqQr7qOTIyBUNRn1e0HbX4zjo=
 ---
-![商标](../../../en/adapterref/iobroker.denon/admin/denon.png)
+![标识](../../../en/adapterref/iobroker.denon/admin/denon.png)
 
 ![安装数量](http://iobroker.live/badges/denon-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.denon.svg)
@@ -55,7 +55,7 @@ npm i iobroker.denon
 
 4. 现在您可以看到适配器配置页面 --> 输入您的 DENON AVR 的 ip 地址或单击搜索
 
-图标以在您的网络中查找 AVR（通过 UPnP）![适配器配置](../../../en/adapterref/iobroker.denon/docs/en/media/fillInIp.png)
+用于在您的网络中查找 AVR 的图标（通过 UPnP）![适配器配置](../../../en/adapterref/iobroker.denon/docs/en/media/fillInIp.png)
 
 5. 如果您还想调整请求/轮询间隔，请确保单击“高级设置”选项卡。
 
@@ -90,7 +90,7 @@ npm i iobroker.denon
 6. 将此参数设置为“始终开启”。
 
 ＃＃ 用法
-请注意，AVR 只能管理单个 telnet 连接。如果您有一个活动的 telnet 连接 e. G。使用 javascript 适配器，AVR 将拒绝此适配器的连接。
+请注意，AVR 只能管理一个 telnet 连接。如果您有一个活动的 telnet 连接 e. G。使用 javascript 适配器，AVR 将拒绝此适配器的连接。
 在这里您可以找到状态的描述以及如何使用它们。
 
 ＃＃＃ 纽扣
@@ -133,25 +133,25 @@ npm i iobroker.denon
 
    *增加区域低音水平的按钮。*
 
-   *当 Dyn EQ 设置为 OFF 并且音调控制打开时，可以调整低音和高音设置*
+   *当 Dyn EQ 设置为关闭且音调控制打开时，可以调整低音和高音设置*
 
 * zoneMain.equalizerBassDown / zone2.equalizerBassDown / zone3.equalizerBassDown
 
    *降低区域低音电平的按钮。*
 
-   *当 Dyn EQ 设置为 OFF 并且音调控制打开时，可以调整低音和高音设置*
+   *当 Dyn EQ 设置为关闭且音调控制打开时，可以调整低音和高音设置*
 
 * zoneMain.equalizerTrebleUp / zone2.equalizerTrebleUp / zone3.equalizerTrebleUp
 
    *增加区域高音水平的按钮。*
 
-   *当 Dyn EQ 设置为 OFF 并且音调控制打开时，可以调整低音和高音设置*
+   *当 Dyn EQ 设置为关闭且音调控制打开时，可以调整低音和高音设置*
 
 * zoneMain.equalizerTrebleDown / zone2.equalizerTrebleDown / zone3.equalizerTrebleDown
 
    *降低区域高音电平的按钮。*
 
-   *当 Dyn EQ 设置为 OFF 并且音调控制打开时，可以调整低音和高音设置*
+   *当 Dyn EQ 设置为关闭且音调控制打开时，可以调整低音和高音设置*
 
 #### 频道：设置
 * settings.subwooferLevelDown / settings.subwooferTwoLevelDown
@@ -190,6 +190,15 @@ npm i iobroker.denon
 
    *模拟遥控器的信息按钮*
 
+### 频道：调谐器
+* tuner.frequencyUp
+
+    *增加调谐器频率。*
+
+* tuner.frequencyDown
+
+  *降低调谐器频率。*
+
 ＃＃＃ 状态
 适配器将创建以下状态：
 
@@ -216,7 +225,7 @@ npm i iobroker.denon
     |:---:|:---:|
     |字符串|R|
 
-*JSON 数组格式的字符串，通过 id 和频道表示当前保存的收藏夹。
+*JSON 数组格式的字符串，通过 id 和频道代表当前保存的收藏夹。
 每个通道的名称限制为 20 位数字。您可以通过设置 settings.savePreset 将当前频道保存到一个 id 并通过将 settings.loadPreset 设置为相关 id 来加载一个。*
 
 #### 频道：zoneMain / zone2 / zone3
@@ -265,7 +274,7 @@ setState('denon.0.zoneMain.muteIndicator', true); // Mutes the Main Zone of your
     |:---:|:---:|
     |布尔值|读/写|
 
-   *布尔值，如果Zone打开则为真，否则为假。您可以在此状态下打开和关闭 AVR/Zone。*
+   *布尔值，如果Zone 开启则为真，否则为假。您可以在此状态下打开和关闭 AVR/Zone。*
 
 * zoneMain.selectInput / zone2.selectInput / zone3.selectInput
 
@@ -323,7 +332,7 @@ setState('denon.0.zoneMain.muteIndicator', true); // Mutes the Main Zone of your
 
    *23：USB*
 
-*请注意，并非每个 AVR 型号都提供所有输入源。如果您的 AVR 有其他输入，一旦检测到它们，它们将被附加到列表中。*
+*请注意，并非所有输入源都适用于每个 AVR 型号。如果您的 AVR 有其他输入，一旦检测到它们，它们将被附加到列表中。*
 
    *例子：*
 
@@ -365,7 +374,7 @@ setState('denon.0.zoneMain.muteIndicator', true); // Mutes the Main Zone of your
 
    *代表区域低音电平的数值。值范围为 -6 至 +6 dB。*
 
-   *当 Dyn EQ 设置为 OFF 并且音调控制打开时，可以调整低音和高音设置*
+   *当 Dyn EQ 设置为关闭且音调控制打开时，可以调整低音和高音设置*
 
 * zoneMain.equalizerTreble / zone2.equalizerTreble / zone3.equalizerTreble
 
@@ -375,7 +384,7 @@ setState('denon.0.zoneMain.muteIndicator', true); // Mutes the Main Zone of your
 
    *代表区域高音级别的数字值。值范围为 -6 至 +6 dB。*
 
-   *当 Dyn EQ 设置为 OFF 并且音调控制打开时，可以调整低音和高音设置*
+   *当 Dyn EQ 设置为关闭且音调控制打开时，可以调整低音和高音设置*
 
 * zoneMain.channelVolumeFrontLeft / zone2.channelVolumeFrontLeft / zone3.channelVolumeFrontLeft / ...
 
@@ -384,6 +393,28 @@ setState('denon.0.zoneMain.muteIndicator', true); // Mutes the Main Zone of your
    |编号|读/写|
 
 *代表每个扬声器当前声道音量的数值。每个扬声器都有一个单独的状态。这些设置会影响当前的选择输入模式。状态可在 -12 dB 至 +12 dB 之间调整。*
+
+#### 频道：调谐器
+* tuner.stationName
+
+  |数据类型|权限|
+  |:---:|:---:|
+  |字符串|R|
+
+  *包含当前电台名称的只读字符串（如果可用）。*
+
+* 调谐器.频率
+
+  |数据类型|权限|
+  |:---:|:---:|
+  |编号|读/写|
+
+*代表当前频率的数值。您还可以在此状态下设置频率。
+低于 500 的值为 FM 频率，高于 500 的值为 AM 频率。*
+
+```javascript
+setState('denon.0.tuner.frequency', 106.9); // Set frequency to 106.9 MHz (FM)
+```
 
 #### 频道：显示
 * display.displayContent
@@ -404,7 +435,7 @@ setState('denon.0.zoneMain.muteIndicator', true); // Mutes the Main Zone of your
 
    *代表显示亮度的字符串值。该值还可以通过以下编码设置显示亮度：*
 
-   *0：关闭 --> 关闭显示*
+   *0: 关闭 --> 关闭显示*
 
    *1: 暗 --> 显示暗*
 
@@ -636,7 +667,7 @@ setState('denon.0.settings.videoProcessingMode', '2'); // Sets Video Processing 
     |布尔值|读/写|
 
 *布尔值，包含并能够控制 Audyssey 低频遏制状态（开/关）。
-只有在您的 AVR 支持的情况下才会创建状态。*
+仅当您的 AVR 支持该状态时，才会创建该状态。*
 
 * settings.containmentAmount
 
@@ -644,7 +675,7 @@ setState('denon.0.settings.videoProcessingMode', '2'); // Sets Video Processing 
     |:---:|:---:|
     |编号|读/写|
 
-*用于设置低频抑制量的数值。该值可以在 1 到 7 之间。只有在您的 AVR 支持时才会创建状态。*
+*用于设置低频包含量的数值。该值可以在 1 到 7 之间。只有在您的 AVR 支持时才会创建状态。*
 
 * settings.multEq
 
@@ -750,7 +781,7 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
     |:---:|:---:|
     |布尔值|读/写|
 
-   *布尔指示器，指示设置菜单当前是打开还是关闭。您可以在此状态下打开和关闭它。 *
+   *布尔指示器，指示设置菜单当前是打开还是关闭。您可以在此状态下打开和关闭它。*
 
 * settings.savePreset
 
@@ -758,7 +789,7 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
     |:---:|:---:|
     |编号|读/写|
 
-*数字值，可以设置为 info.onlinePresets 的值。然后当前频道将保存为给定编号的预设。
+*数字值，可以设置为info.onlinePresets的值。然后当前频道将保存为给定编号的预设。
 只能使用 info.onlinePresets 中包含的数字。无论命令是否成功，状态都不会得到确认。您可以检查 info.onlinePresets 以检查该命令是否按方面运行。*
 
 * settings.loadPreset
@@ -767,7 +798,7 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
     |:---:|:---:|
     |编号|读/写|
 
-*数字值，可以设置为 info.onlinePresets 的值。这将加载相关频道。
+*数字值，可以设置为info.onlinePresets的值。这将加载相关频道。
 无论命令是否成功，此状态都不会得到确认。 *
 
 ### 其他州
@@ -780,7 +811,7 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
     |:---:|:---:|
     |编号|读/写|
 
-*数值，代表AVR扬声器的音量。如果 operationMode 设置为“BRIDGED”，则扬声器无法独立控制，一个的控制也会控制另一个的音量。 *
+*数值，代表AVR扬声器的音量。如果 operationMode 设置为“BRIDGED”，则扬声器无法独立控制，一个的控制也会控制另一个的音量。*
 
 * zoneX.selectInputOne / zoneX.selectInputTwo
 
@@ -806,7 +837,7 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
     |:---:|:---:|
     |字符串|读/写|
 
-*键值对，代表AVR的操作模式。如果 operationMode 设置为“BRIDGED”，则扬声器无法独立控制，控制扬声器一也控制扬声器二。 *
+*键值对，代表AVR的操作模式。如果 operationMode 设置为“BRIDGED”，则扬声器无法独立控制，控制扬声器一也控制扬声器二。*
 
     *以下值是可能的：*
 
@@ -832,7 +863,7 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
 
     *以下值是可能的：*
 
-    *'0'：'常数'*
+    *'0': '常数'*
 
     *'1': '触发'*
 
@@ -866,6 +897,18 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.12.1 (2022-01-03)
+* (foxriver76) fixed missing digits in `tuner.stationName`
+
+### 1.12.0 (2022-01-02)
+* (foxriver76) we introduce tuner states
+* (foxriver76) performance optimizations
+
+### 1.11.2 (2021-08-08)
+* (foxriver76) we fixed missing conversion to db on equalizer treble state for additional zones (fixes #162)
+
+### 1.11.1 (2021-06-29)
+* (foxriver76) fixes for silent reconnection - if ETIMEDOUT occurs repeatedly switch to debug, like for other errors (closes #149)
 
 ### 1.11.0 (2021-06-06)
 * (foxriver76) implemented dialog level adjustment for DTS content (closes #143)

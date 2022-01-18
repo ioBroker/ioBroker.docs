@@ -199,6 +199,20 @@ The following objects are currently implemented:
 * dialog level
 
 ## Changelog
+## 1.0.0 BREAKING CHANGES
+* the deviceId was previously the systemId, which is not unique. Now the deviceId is used, this is changing the object tree
+* musiccast API 2.0.0
+* device search can now returns more than 1 device
+* new output for developer in the the admin panel
+* more async/await
+
+#### 0.2.2
+* musiccast API 0.0.14
+
+#### 0.2.1
+* license 2022
+* dependency correction
+
 #### 0.2.0
 * refactoring with "create adaptor"
 * async/await
@@ -273,4 +287,4 @@ The following objects are currently implemented:
 
 The MIT License (MIT)
 
-Copyright (c) 2017 - 2021 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2017 - 2022 foxthefox <foxthefox@wysiwis.net>

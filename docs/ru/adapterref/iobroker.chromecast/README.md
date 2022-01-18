@@ -3,24 +3,30 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.chromecast/README.md
 title: ioBroker.chromecast
-hash: d/Aq7vBZic6A+uuE8QF2I3SiZMupnLSB0tjyEXjn8Vs=
+hash: pSv3Lla3imfS3AO09CMLFYLbdrz+DRyvp58baq12Ykc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.chromecast/admin/home.png)
 
 ![Количество установок](http://iobroker.live/badges/chromecast-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.chromecast.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.chromecast.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.chromecast.svg)
 ![Статус сборки](https://travis-ci.org/angelnu/ioBroker.chromecast.svg?branch=master)
 ![НПМ](https://nodei.co/npm/iobroker.chromecast.png?downloads=true)
 
 # IoBroker.chromecast
 ## Адаптер Google Home для ioBroker
-Этот плагин позволяет обнаруживать видео и / или аудио устройства Google Home. Для каждого обнаруженного домашнего устройства создается устройство ioBroker. Это устройство отображает состояние устройства и позволяет отправить ему новый URL-адрес для трансляции.
+Этот плагин позволяет обнаруживать видео и/или аудио устройства Google Home. Для каждого обнаруженного домашнего устройства создается устройство ioBroker. Это устройство отображает состояние устройства и позволяет отправить ему новый URL-адрес для приведения.
 
-Создавайте на основе следующих проектов:
+Стройте поверх следующих проектов:
 
-  * [ioBroker] (http://www.iobroker.net)
-  * [node-castv2-client] (https://github.com/thibauts/node-castv2-client) в качестве домашней клиентской библиотеки.
+  * [ioBroker](http://www.iobroker.net)
+  * [node-castv2-client](https://github.com/thibauts/node-castv2-client) в качестве домашней клиентской библиотеки.
+
+## Присоединяйтесь к серверу Discord, чтобы обсудить все об интеграции с ioBroker!
+<a href="https://discord.gg/4EBGwBE"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
+
+## [Спонсоры](./SPONSORS.md)
+Если вам нравится моя работа, пожалуйста, сделайте личное пожертвование (это личная ссылка для пожертвований для Jey Cee, не имеющая отношения к проекту ioBroker!) [![Пожертвовать](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)
 
 ## Инструкции
 1. Установить в ioBroker
@@ -28,38 +34,38 @@ hash: d/Aq7vBZic6A+uuE8QF2I3SiZMupnLSB0tjyEXjn8Vs=
    2. Выберите и установите адаптер Google Home.
 2. Добавьте экземпляр адаптера Google Home.
    * он должен автоматически запускаться после установки
-3. (необязательно) Если вы планируете транслировать локальные файлы, вам необходимо настроить адаптер.
-   * у вас должен быть экземпляр веб-сервера ioBroker
-4. Проверьте журнал: вы должны увидеть журналы об обнаруженных устройствах.
-5. Напишите URL-адрес, например [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3 ](http://edge.live.mp3.mdn.newmedia.nacamar .net / ps-dieneue_rock / livestream_hi.mp3) в chromecast.0. `<ваше имя chromecast>` .player.url2play
+3. (необязательно) Если вы планируете транслировать локальные файлы, вам необходимо настроить адаптер
+   * вам необходимо иметь экземпляр веб-сервера ioBroker
+4. Проверьте свой журнал: вы должны увидеть журналы об обнаруженных устройствах.
+5. Напишите URL-адрес, например [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar .net/ps-dieneue_rock/livestream_hi.mp3) на chromecast.0.`<ваше имя chromecast>`.player.url2play
 6. URL-адрес должен начать воспроизводиться на вашем устройстве.
 
 ## Функции
-* обнаружение устройств с multicast-dns
-  * при желании добавить дополнительные настраиваемые вручную устройства в панели администратора
+* обнаруживать устройства с multicast-dns
+  * опционально добавить дополнительные настроенные вручную устройства в панель администратора
 * создавать объекты ioBroker для каждого найденного устройства
-* статус, проигрыватель, медиа и каналы метаданных
-* управление устройством Google Home от адаптера
+* статус, проигрыватель, каналы мультимедиа и метаданных
+* управлять устройством Google Home с адаптера
   * установить громкость
-  * выключить / включить
-  * прекратить трансляцию
+  * отключить/включить звук
+  * остановить трансляцию
   * Пауза
-  * URL воспроизведения (chromecast.0.` <ваше имя Google Home> `.player.url2play)
-    * протестировано с MP3
-      * Полный список форматов [здесь] (https://developers.google.com/cast/docs/media).
-    * если URL-адрес не начинается с http, предполагайте, что это локальный файл
-      * экспорт файла через веб-сервер ioBroker
+  * URL-адрес воспроизведения (chromecast.0.`<ваше имя Google Home>`.player.url2play)
+    * проверено с MP3
+      * Полный список форматов [здесь](https://developers.google.com/cast/docs/media).
+    * если URL-адрес не начинается с http, предположим, что это локальный файл
+      * экспортировать файл через веб-сервер ioBroker
     * он воспроизводит только первый файл из файлов списка воспроизведения, таких как .m3u
-* Виджет Vis
-  * ПРИМЕЧАНИЕ: требуется [исправленный адаптер Vis] (https://github.com/angelnu/ioBroker.vis).
-* Первоначальная поддержка аудиогрупп Chromecast
-  * Примечание: это не работает с SSDP -> отключить по умолчанию в настройках адаптера.
-* Воспроизвести снова последний воспроизведенный поток: просто установите _chromecast.0.` <ваше устройство> `.status.playing_ на _true_
+* Виджет виджета
+  * ПРИМЕЧАНИЕ: требуется [исправленный адаптер vis] (https://github.com/angelnu/ioBroker.vis).
+* Первоначальная поддержка аудиогрупп Chromecast.
+  * Примечание: это не работает с SSDP -> отключить по умолчанию в настройках адаптера
+* Воспроизведите последний воспроизведенный поток: просто установите для _chromecast.0.`<your device>`.status.playing_ значение _true_
 
 ## Чего не хватает?
-* добавить конечный автомат для отслеживания состояний: обнаружено -> подключено -> загрузчик игрока -> играет
-* добавить повторные попытки: иногда Google Home не отвечает на запрос
-* больше тестирования
+* добавлен конечный автомат для отслеживания состояний: обнаружен -> подключен -> загрузчик плеера -> играет
+* добавить повторы: иногда Google Home не отвечает на запрос
+* больше испытаний
 
 ## Changelog
 ### 3.0.0 (2021-08-25)

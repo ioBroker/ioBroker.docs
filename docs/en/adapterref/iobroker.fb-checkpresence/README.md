@@ -197,8 +197,12 @@ Here you will find information about the history of the current day.
     * Did some changes
     * Did some more changes
 -->
+### 1.1.12 (2022-01-13)
+* (afuerhoff) issue #74: bugfix
+* (afuerhoff) dependencies updated
+
 ### 1.1.11 (2021-12-22)
-* (afuerhoff) depenencies updated
+* (afuerhoff) dependencies updated
 * (afuerhoff) bugfix blacklist
 
 ### 1.1.10 (2021-09-24)
@@ -215,14 +219,10 @@ Here you will find information about the history of the current day.
 * (afuerhoff) workaround for 7390 added (missing systemVersion in xml)
 * (afuerhoff) dependencies updated
 
-### 1.1.7 (2021-06-23)
-* (afuerhoff) message handling optimized
-* (afuerhoff) dependencies updated
-
 ## License
 MIT License
 
-Copyright (c) 2019-2021 Achim Fürhoff <achim.fuerhoff@outlook.de>
+Copyright (c) 2019-2022 Achim Fürhoff <achim.fuerhoff@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

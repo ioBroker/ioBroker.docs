@@ -15,30 +15,30 @@ hash: UV3HqVZZtcoUaaOnkXYcvc9qyq3KiXymFFmX/tF7MkI=
 ![标识](../../../en/adapterref/iobroker.trashschedule/../../admin/trashschedule.png)
 
 # IoBroker.trashschedule
-##先决条件
-1. 创建一个新的 **ical 适配器**实例
-2. 配置日历的网址（例如谷歌日历）
+## 前提条件
+1. 创建 **ical 适配器** 的新实例
+2.配置你的日历的网址（例如谷歌日历）
 3. 将“预览天数”设置为包含每种垃圾类型至少两次的范围（例如 30 天）
-4. 如果您使用“事件”选项卡，请确保为每个事件类型启用“显示”复选框，这些类型也应该在您的垃圾桶计划中使用（否则事件将被 ical 实例隐藏）
+4. 如果您使用“事件”选项卡，请确保启用每个事件类型的“显示”复选框，这也应该在您的垃圾计划中使用（否则该事件将被 ical 实例隐藏）
 
-![卡尔](../../../en/adapterref/iobroker.trashschedule/./ical.png)
+![标准的](../../../en/adapterref/iobroker.trashschedule/./ical.png)
 
 ＃＃ 配置
-1. 创建一个 ```trashschedule``` 实例并选择 ical 实例作为源
-2. 转到垃圾类型选项卡并添加任意数量的垃圾类型
-3.为每个新垃圾类型定义一个名称并配置匹配的事件
-4. 启动实例
+1.创建一个```trashschedule```实例并选择ical实例作为源
+2. 转到垃圾类型选项卡并添加与垃圾类型一样多的类型
+3. 为每个新的垃圾类型定义一个名称并配置匹配的事件
+4.启动实例
 
-**问题？** 检查 [常问问题](./faq.md)
+**问题？**检查[常问问题](./faq.md)
 
 ![垃圾时间表](../../../en/adapterref/iobroker.trashschedule/./trashschedule.png)
 
-![垃圾调度_类型](../../../en/adapterref/iobroker.trashschedule/./trashschedule_types.png)
+![垃圾计划类型](../../../en/adapterref/iobroker.trashschedule/./trashschedule_types.png)
 
-## VIS 小工具
-![VIS 小部件](../../../en/adapterref/iobroker.trashschedule/../vis.png)
+## 可见小部件
+![可见小部件](../../../en/adapterref/iobroker.trashschedule/../vis.png)
 
-##块状示例
+## 块状示例
 ![块状示例](../../../en/adapterref/iobroker.trashschedule/../exampleBlockly.png)
 
 ```xml
@@ -190,8 +190,8 @@ hash: UV3HqVZZtcoUaaOnkXYcvc9qyq3KiXymFFmX/tF7MkI=
 </xml>
 ```
 
-##偏移配置
-偏移量可以将日历中的所有取件事件移动到未来或过去。
+## 偏移配置
+偏移量可以将您日历中的所有取件事件移至未来或过去。
 
 ## 默认值：0
 ![偏移示例](../../../en/adapterref/iobroker.trashschedule/../offsetExample.jpg)
@@ -208,6 +208,10 @@ hash: UV3HqVZZtcoUaaOnkXYcvc9qyq3KiXymFFmX/tF7MkI=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.4.1 (2021-12-23)
+
+* (klein0r) Updated dependencies
+
 ### 1.4.0 (2021-12-10)
 
 * (klein0r) Allow to hide "not found" warnings for single trash types (like christmas tree pickup)

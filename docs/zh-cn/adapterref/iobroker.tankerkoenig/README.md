@@ -12,70 +12,70 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.tankerkoenig
 hash: prGhaNtsE2EchhnmVj2lhDlALqJtEe8yqbEtmyg/jjU=
 ---
-![商标](../../../en/adapterref/iobroker.tankerkoenig/../../admin/tankerkoenig.png)
+![标识](../../../en/adapterref/iobroker.tankerkoenig/../../admin/tankerkoenig.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.tankerkoenig.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.tankerkoenig.svg)
-![NPM](https://nodei.co/npm/iobroker.tankerkoenig.png?downloads=true)
-![特拉维斯](http://img.shields.io/travis/Pix---/ioBroker.tankerkoenig/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/ioBroker.tankerkoenig?branch=master&svg=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.tankerkoenig.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.tankerkoenig.svg)
+![新PM](https://nodei.co/npm/iobroker.tankerkoenig.png?downloads=true)
+![Travis-CI](http://img.shields.io/travis/Pix---/ioBroker.tankerkoenig/master.svg)
+![应用程序](https://ci.appveyor.com/api/projects/status/github/Pix---/ioBroker.tankerkoenig?branch=master&svg=true)
 
-＃ioBroker.tankerkoenig
-##说明
-该适配器通过Web服务[tankerkoenig.de]（https://creativecommons.tankerkoenig.de/#about）。所有数据都存储在要使用的对象中，并显示在[ioBroker.vis中](https://github.com/ioBroker/ioBroker.vis)的JSON提要返回多达十个不同站点的燃油价格。
-与list.php和detail.php（批量）相比，适配器使用网站prices.php减少了更新时要传输的数据量。适配器为出售最便宜的E5，E10和柴油的工作站创建数据点。
+# IoBroker.tankerkoenig
+＃＃ 描述
+此适配器通过 Web 服务[tankerkoenig.de](https://creativecommons.tankerkoenig.de/#about)。所有数据都存储在要使用和显示的对象中 [ioBroker.vis](https://github.com/ioBroker/ioBroker.vis) 的 JSON 提要返回多达 10 个不同站点的燃料价格。
+与 list.php 和 detail.php (bulk) 相比，适配器使用的网站 prices.php 减少了更新时要传输的数据量。适配器为销售最便宜的 E5、E10 和柴油的加油站创建数据点。
 
-##配置
-### API密钥
-可以在[网站Tankerkönig](https://creativecommons.tankerkoenig.de/#about)获得API密钥。这是一个36位代码，必须在此字段中输入。
+＃＃ 配置
+### API 密钥
+API 密钥可在 [Tankerkönig 网站](https://creativecommons.tankerkoenig.de/#about) 处获取。这是一个 36 位的代码，必须在此字段中输入。
 
-###站
-最多可以定义十个不同的站。因此，可以在tankerkoenig.de上获得特定的工作站ID。它也有36位数字。该ID必须在列表中输入。相应的名称是可选的。
-![替代文字](../../../en/adapterref/iobroker.tankerkoenig/img/tankerkoenigSettingsScreenshot.jpg "屏幕截图设置")
+### 站
+最多可以定义十个不同的站点。因此，可以在 tankerkoenig.de 上获得具体的站点 ID。它也有36位数字。必须在列表中输入此 ID。相应的名称是可选的。
+![替代文字](../../../en/adapterref/iobroker.tankerkoenig/img/tankerkoenigSettingsScreenshot.jpg "截图设置")
 
-###写空
-如果断开连接，此选项将阻止适配器存储旧值。它有助于生成更平滑的历史记录图表。
+### 写空
+在断开连接的情况下，此选项可防止适配器存储旧值。它有助于生成更平滑的历史图表。
 
-###最小化日志
-为了减少日志写入（例如在SD卡上），可以选择此选项。
+### 最小化日志
+为了减少日志写入（例如在 SD 卡上），可以选择此选项。
 
-##激活
-适配器作为守护程序运行（不在计划模式下），每五分钟定期启动。源提要的数据仅由Tankerkoenig.de上的服务器每4分钟更新一次，因此更频繁地查询数据是没有意义的，只会造成多余的数据流量并浪费资源。可以随时设置较大的间隔。
+## 激活
+适配器作为守护程序运行（不是在计划模式下），并且每五分钟定期启动。 tankerkoenig.de 上的服务器仅每 4 分钟更新一次源源的数据，因此更频繁地查询数据是没有意义的，只会导致多余的数据流量和资源成本。可以随时设置更大的间隔。
 
 ＃＃  数据点
-十个站中的每个站都有一个通道，用于每种燃料类型（E5，E10和柴油），此外，每个站还有另外四个数据点。
+十个站点中的每个站点都有一个用于每种燃料类型（E5、E10 和柴油）的通道，而且每个站点都有另外四个数据点。
 
-*`feed`（三位数的价格；类型编号）
-*`short`（带有两位小数的价格；键入字符串）
-*`3rd`（在VIS中不能将小数点后第三位写为上标）
-*`combined`（准备使用HTML格式的价格，带上标的小数点后三位数和信息，是否打开了站[[closed] /“ not found”）以显示在VIS HTML Widget中）
+* `feed`（三位小数的价格；类型编号）
+* `short`（两位小数的价格；输入字符串）
+* `3rd`（在 VIS 中第三个小数不能写为上标）
+* `combined`（准备使用带有上标第三位小数和信息的 HTML 格式价格，无论站点是否打开 [“关闭”/“未找到”] 都将显示在 VIS HTML 小部件中）
 
 ![替代文字](../../../en/adapterref/iobroker.tankerkoenig/img/tankerkoenigDP.jpg "数据点")
 
 存储了另外三个数据点
 
-*`status`（状态打开/关闭）
-*`name`（用户给定的站名）
-*`station_id`（该站的TankerkönigID）
+* `status`（站打开/关闭）
+* `name`（用户给定的电台名称）
+* `station_id` （该站的Tankerkönig ID）
 
-此外，还存储了每种富勒类型的最便宜的站点
+此外，还存储了每种 fule 类型的最便宜的电台
 
-*最便宜的E5
-*最便宜的E10
-*`cheapest.diesel`
+*`最便宜的.E5`
+*`chepest.E10`
+*`最便宜的柴油`
 
-在这些通道中，存储了每种燃料类型价格最低的站点。如果多个工作站提供相同的最低价格，则工作站将按照配置中使用的顺序进行排序。
+在这些频道中，存储了每种完整类型价格最低的电台。如果多个站点提供相同的最低价格，站点将按照配置中使用的顺序进行排序。
 
-已创建181个数据点。
+创建了 181 个数据点。
 
-## VIS
-可以在此VIS小部件中轻松显示“组合”数据点
+##可见
+数据点“组合”可以轻松显示在此 VIS 小部件中
 
 ```
 [{"tpl":"tplHtml","data":{"visibility-cond":"==","visibility-val":1,"refreshInterval":"0","gestures-offsetX":0,"gestures-offsetY":0,"signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"html":"<span style=\"font-size: 80%; padding: 0 20px 0 5px;\">Diesel</span>{tankerkoenig.0.stations.0.diesel.combined}"},"style":{"left":"634px","top":"745px","z-index":"20","width":"228px","height":"36px","background-color":"","color":"rgba(225,225,225,1)","font-size":"30px","text-align":"center","background":"rgba(250,0,0,0.1)"},"widgetSet":"basic"}]
 ```
 
-数据点`combined`的值传递一个css类。这些类是`station_open`，`station_closed`和`station_notfound`。通过VIS中CSS编辑器中的CSS定义，现在可以实现出色的设计（如封闭工作站的红色字体）。
+数据点 `combined` 的值提供了一个 css 类。这些类是`station_open`、`station_closed`和`station_notfound`。通过在 VIS 中的 CSS 编辑器中定义 CSS，现在可以实现区分设计（如封闭站的红色字体颜色）。
 
 ```
 .station_open {
@@ -95,10 +95,26 @@ hash: prGhaNtsE2EchhnmVj2lhDlALqJtEe8yqbEtmyg/jjU=
 }
 ```
 
-##紧凑模式
-该适配器可用于iobroker的紧凑模式。
+## 紧凑模式
+此适配器已准备好用于 iobroker 的紧凑模式。
 
 ## Changelog
+### 2.2.0 (2021-11-14)
+* (simatec) Design Fix for Admin Dark/Blue Theme
+
+### 2.1.1 (2021-06-22)
+* (pix) New adapter category "vehicle" [#67](https://github.com/Pix---/ioBroker.tankerkoenig/issues/67)
+* (pix) Testing for Nodejs 16
+
+### 2.0.12 (2021-05-05)
+* (pix) connectionType and dataSource added
+
+### 2.0.11 (2021-05-02)
+* (anwa) "wrong type" and "ack flag" issues fixed (upcoming in js-controller > 3.3)
+
+### 2.0.10 (2021-02-01)
+* (wendy) "has no existing object" issue fixed
+
 ### 2.0.9 (2020-04-21)
 * (pix) NodeJS 10 or higher required
 
@@ -199,7 +215,7 @@ hash: prGhaNtsE2EchhnmVj2lhDlALqJtEe8yqbEtmyg/jjU=
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2020 pix
+Copyright (c) 2016-2021 pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

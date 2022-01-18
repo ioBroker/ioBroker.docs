@@ -10,7 +10,7 @@ hash: tKAmCdJIRJxCv5NwsM66DKRRbnyp6LdQpxGVntHm3pM=
 ![捐](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
 # IoBroker.starline
-Для работы драйвера необходимо установленное и настроенное противоугоное устройство поддержирево Star
+Для работы драйвера необходимо установленное и настроенное противоугонное устройство поддерживающее сервис StarLine телематика 2.
 
 Драйвер позволяет получать данные состояния автомобиля через сервис StarLine Телематика。 https://starline-online.ru。
 

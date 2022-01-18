@@ -166,6 +166,18 @@ Example for any image you like:
 ```
 
 ## Changelog
+### 0.9.1
+* (rde-master) Bugfix description
+* (rde-master) Bugfix Translation
+
+
+### 0.9.0
+Major Changes:
+* (rde-master) New API Funktions are implemented (Dates, Creator,...)
+* (rde-master) code Cleanup
+* (rde-master) Added Funktion to write Names instead of id's
+* (rde-master) Added Funktion to write the RAW Data from the API of States
+
 ### 0.8.11
 * (rde-master) Bugfix Naming JSON are not working
 

@@ -66,6 +66,9 @@ You can manually update the data of the whole adaptor, if you set general.contro
 
 ## Changelog
 
+### 0.1.23 (2022.01.09)
+* (felixganzer) bugfix read out and control components
+
 ### 0.1.22 (2021.10.14)
 * (felixganzer) add communication delay time to config, set default value to 200 ms
 * (felixganzer) add Version test for HyperioHDR

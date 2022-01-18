@@ -72,19 +72,25 @@ You can also install older release versions using these methods (by pointing to 
 
 * Dyson account username
 * Dyson account password (this adapter can handle passwords up to 32 characters)
-* your fans/air purifiers IP address in your LAN.
+* your fans/air purifiers IP address in your LAN (not in all cases).
 
-*Please note*: Due to early development state and a non conform mDNS implementation by Dyson you'll need to provide the local IP of the device *after the first run*.
+The dyson username and password are general config data which need to be entered in the config page of the adapter. 
+In difference the IP is entered into the field `Hostname` in the device tree on the `devices` tab page. 
 
-*Additional Note*: Since Version 0.7.1 the adapter tries to connect to the device by its hostname (serial number) when no host address/IP ist given. This will work under two prerequisites:
-1. There is a DNS Server running in your LAN. Either in your router (e.g. FritzBoxes have a DNS running) or a dedicated one.
-2. You haven't changed the default device name.
-
-> On the first start of this adapter the Dyson API is queried for all your devices and all supported devices will be created in the devicetree -- with their basic information provided by the API and an additional field "Hostaddress".
+#### How to config the adapter
+> On the first regular start of this adapter the Dyson API is queried for all your devices and all supported devices will be created in the device tree -- with their basic information provided by the API and an additional field `Hostaddress`.
 >
 > So please run the adapter once, and your Dyson devices will be created in the device tree with their basic settings.
 >
-> Then stop the adapter, enter the IP(s) into the Hostaddress field(s) and restart the adapter. After that your Dyson devices in the device tree should be populated with data.
+> Then stop the adapter, enter the IP(s) into the `Hostaddress` field(s) in the device tree and restart the adapter. After that your Dyson devices in the device tree should be populated with data.
+
+*Please note*: Due to a non conform mDNS implementation by Dyson you'll need to provide the local IP of the device *after the first run*.
+
+*Additional Note*: Since Version 0.7.1 the adapter tries to connect to the device by its hostname (serial number) as long as no host address/IP is given. This will work under two prerequisites:
+1. There is a DNS Server running in your LAN. Either in your router (e.g. FritzBoxes have a DNS running) or a dedicated one.
+2. You haven't changed the default device name.
+3. The device name is properly mapped to its IP (in case you manage your DNS manually).
+
 
 ### 2-factor Authentication (since V0.9.0)
 After installation of the adapter it should be started automatically - if not please start it first. 
@@ -142,6 +148,10 @@ Which is what the dyson app does also.
 * No automatic IP detection of devices
 
 ## Changelog
+
+### V2.3.1 (2022-01-14) (Fairytale of doom)
+* (grizzelbee) Upd: Updated dependencies
+* (grizzelbee) Upd: Updated documentation
 
 ### V2.3.0 (2021-12-02) (Fairytale of doom)
 * (grizzelbee) New: Added some GUI elements for air quality in folder icons
@@ -506,4 +516,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2021 Hanjo Hingsen <open-source@hingsen.de>
+Copyright (c) 2020 .. 2022 Hanjo Hingsen <open-source@hingsen.de>

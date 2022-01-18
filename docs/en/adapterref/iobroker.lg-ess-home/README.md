@@ -36,6 +36,9 @@ you can use any REST Client to get the password:
 This should give you the password and a status in return.
 
 ## Changelog
+### 0.1.1 (2022-01-07)
+* (Morluktom) replaced deprecated library and login as installer only when needed
+
 ### 0.1.0 (2021-11-27)
 * (Morluktom) Read chart data and data from the installer settings
 
@@ -73,7 +76,7 @@ This should give you the password and a status in return.
 ## License
 MIT License
 
-Copyright (c) 2021 Morluktom <strassertom@gmx.de>
+Copyright (c) 2020 - 2022 Morluktom <strassertom@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

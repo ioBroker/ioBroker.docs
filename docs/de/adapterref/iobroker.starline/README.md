@@ -10,7 +10,7 @@ hash: tKAmCdJIRJxCv5NwsM66DKRRbnyp6LdQpxGVntHm3pM=
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
 #ioBroker.starline
-ля работы драйвера необходимо установленное und настроенное ротивоугонное устройство оддерживающес 2.0 Star Line сервиа
+ля работы драйвера необходимо установленное und настроенное ротивоугонное устройство оддерживающес 2.0 Star Line сетервиа
 
 райвер позволяет олучать данные состояния автомобиля ерез сервис StarLine елематика. https://starline-online.ru.
 

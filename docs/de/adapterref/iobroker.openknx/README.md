@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: btFxNjfvWNxgYcwgKtcUP7MKyf9D0tnVhPKSBNkO/UU=
+hash: nlvtqxYhetje0rCRC1/MmNhz1QfymoGcvAHmq8S46us=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -16,264 +16,234 @@ hash: btFxNjfvWNxgYcwgKtcUP7MKyf9D0tnVhPKSBNkO/UU=
 # IoBroker.openknx
 **Tests:** ![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.openknx/workflows/Test%20and%20Release/badge.svg)
 
-# Deutsch
-Dieser Adapter dient als Kommunikationsschnittstelle zwischen ioBroker und einem KNX IP Gateway.
-Der Adapter ermöglicht die automatische Generierung der ioBroker Datenobjekte durch den Import eines ETS-Gruppenadressen-XML-Exports.
-Alle generierten Kommunikationsobjekte sind zunächst lesbar und schreibbar konfiguriert, Werte Werden beim Neustart des Adapters vom knx-Bus geholt.
-
-# Installation
-Der Adapter ist im neuesten/beta Repository verfügbar. If of the ioBroker Systemeinstellung selected is can the Adapter in the Adapterlist under "openknx" gesucht und installiert werden. Eine Alternative ist im Expertenmodus das installieren über das Github Symbol möglich in dem Mann "von Github" auswählt und nach openknx sucht.
-
-# Adapterkonfiguration
-In den Instanzeinstellung muss mindestens die Gateway IP eingetragen werden. Dann kann man ETS-Export XML Datei ein importiert werden. Die XML kann über ETS dem Fenster Gruppenadressen mit Rechtsklick auf den oberen Ebene der Gruppenadresse vertrieben werden. GA die keinem DPT zugeordnet sind Werden nicht importiert. Es handelt sich dabei um GA sterben Kein Kommunikationsobjekt in ETS zugeordnet Sind.
-
-# Nutzung
-ioBroker Datenpunkte can einfach mit ACK false/Nicht Bestätigt gesetzt werden. Komplexer Datenpunkt & im korrekten Format wie zb: {"priority":0,"data":1} gesetzt werden
-
-# Fragen und Diskussion
-https://forum.iobroker.net/topic/50352/test-adapter-openknx-0-1-x
-
-# Adaptermigration
-##Knoten Rot migrieren
-- Wählen Sie im Menü auf der rechten Seite Exportieren
-- Alle Flows auswählen, herunterladen
-- im Texteditor knx.0 ersetzen mit openknx.0
-- Menü auf der rechten Seite, Import auswählen
-- Geänderte Datei auswählen
-- im Dialog Flows auswählen (Subflows, Configuration-Nodes nur wenn sie betroffen sind) -> neue Tabs werden hinzugefügt
-- alte Flows manuell löschen
-
-## VIS migrieren
-- Vis-Editor öffnen
-- Setup -> Projekt-Export/Import -> Normal exportieren
-- Entpacken der Zip-Datei und vis-views.json in einem Editor öffnen
-- Suche Ersetzen knx.0 mit openknx.0
-- Komprimieren Sie vis-views.json und vis-user.css in einer Zip-Datei
-- Setup -> Projekt-Export/Import -> Import
-- Zip-Datei im Drop-Bereich verschieben
-- Projektname = main
-- Projekt importieren
-
-## Skripte migrieren
-- Skripte öffnen
-- 3 Punkte -> Alle Skripte exportieren
-- Zip-Datei öffnen und den Ordner in einem Editor öffnen
-- Suche knx.0 durch openknx.0 ersetzen
-- alle geänderten Dateien in einer Zip-Datei komprimieren
-- 3 Punkte -> Skripte importieren
-- Zip-Datei im Drop-Bereich verschieben
-
-## Grafana migrieren
-- Alle Dashboards durchgehen und Share/Teilen -> Exportieren -> In Datei speichern
-- im Texteditor knx.0 ersetzen. mit openknx.0
-- Um ein Dashboard zu importieren, klicken Sie im Seitenmenü auf das Symbol + und dann auf Importieren.
-- Von hier aus can SIE Eine Dashboard-JSON-Datei hochladen
-- Wählen Sie Importieren (Überschreiben)
-
-# Englisch
 Dieser Adapter dient als Kommunikationsschnittstelle zwischen Iobroker und Ihrem KNX IP Gateway.
 Der Adapter ermöglicht die automatische Generierung der iobroker-Kommunikationsobjekte durch den Import eines ETS-Gruppenadressen-XML-Exports.
-Alle generierten Kommunikationsobjekte sind zunächst lesbar und schreibbar konfiguriert, Werte werden beim Neustart des Adapters vom knx-Bus geholt.
+Alle generierten Kommunikationsobjekte sind initial lesbar und schreibbar konfiguriert, Werte werden beim Neustart des Adapters vom KNX-Bus geholt.
 
 # Installation
-Der Adapter ist im neuesten / Beta-Repository verfügbar. Ist dies in den ioBroker Systemeinstellungen ausgewählt, kann der Adapter in der Adapterliste unter „openknx“ gesucht und durch Anklicken des + Symbols installiert werden. Eine Alternative ist die Installation im Expertenmodus über das Github-Symbol, indem man "von Github" auswählt und nach openknx sucht.
+Der Adapter ist im neuesten / Beta-Repository verfügbar. Ist dieser in den ioBroker Systemeinstellungen als Standard-Repository ausgewählt, kann der Adapter in der Adapterliste unter „openknx“ gesucht und durch Klick auf das + Symbol installiert werden. Eine Alternative ist die Installation im Expertenmodus über das Github-Symbol, indem Sie „from Github“ auswählen und nach openknx suchen.
 
 # Adapterkonfiguration
-![die Einstellungen](../../../en/adapterref/iobroker.openknx/docs/pictures/setting.png) Drücken Sie „Speichern & Schließen“ oder „Speichern“, um den Adapter neu zu starten und die Änderungen zu übernehmen.
-Beim Start versucht der Adapter, alle GroupAdressen zu lesen, die das Autoread-Flag haben (Standardeinstellung).
-Dies kann eine Weile dauern und zu einer höheren Belastung Ihres KNX-Busses führen. Dadurch wird sichergestellt, dass der Adapter von Anfang an mit aktuellen Werten arbeitet.
-Autoread wird bei der ersten Verbindung mit dem knx-Bus nach einem Adapterstart oder Neustart durchgeführt, nicht bei jeder erneuten knx-Verbindung.
+![die Einstellungen](../../../en/adapterref/iobroker.openknx/docs/pictures/setting.png) Drücken Sie "Speichern & Schließen" oder "Speichern", um den Adapter neu zu starten und die Änderungen zu übernehmen.
+Beim Start versucht der Adapter alle GroupAdressen zu lesen, die das Autoread-Flag haben (Standardeinstellung).
+Dies kann eine Weile dauern und Ihren KNX-Bus stärker belasten. Dadurch wird sichergestellt, dass der Adapter von Anfang an mit aktuellen Werten arbeitet.
+Autoread wird bei der ersten Verbindung mit dem KNX-Bus nach einem Adapterstart oder -neustart durchgeführt, nicht bei jeder erneuten Verbindung mit dem KNX.
 Öffnen Sie nach der Adapterinstallation die Adapterkonfiguration. Ergänze:
 
 ### KNX Gateway IP IP Ihres KNX IP Gateways.
 ### Hafen
 dies ist normalerweise Port 3671 des KNX IP Gateways.
 
-### Phys. EIB-Adresse
-Geben Sie die physikalische Adresse des Gateways im Format 1/1/1 ein.
+### Phys. KNX-Adresse
+Geben Sie die physikalische Adresse des KNX IP-Gateways im Format 1/1/1 ein.
+Zweistufige Gruppenadressen können bei Bedarf manuell transformiert werden.
+
+### Lokale IPv4-Netzwerkschnittstelle
+Die Schnittstelle, die mit dem KNX IP Gateway verbunden ist.
+
+### Frame-Verzögerung [ms]
+Diese Einstellung schützt den KNX-Bus vor einer Datenflut, indem Datenframes auf eine bestimmte Rate begrenzt werden. Nicht gesendete Frames werden in einen Fifo-Puffer gelegt. Wenn Sie im Protokoll Verbindungsabbrüche von Ihrem KNX IP Gateway feststellen, erhöhen Sie diese Zahl.
 
 ### Nur neue Objekte hinzufügen
-Wenn aktiviert, überspringt der Import das Überschreiben vorhandener Kommunikationsobjekte.
+Wenn diese Option aktiviert ist, überspringt der Import das Überschreiben vorhandener Kommunikationsobjekte.
 
-### GA-XML-Import
+### XML aus ETS importieren
 ![ETS-Export](../../../en/adapterref/iobroker.openknx/docs/pictures/exportGA.png)
 
-1. Gehen Sie in der ETS zu Gruppenadressen, wählen Sie Gruppenadresse exportieren und wählen Sie XML-Export in der neuesten Formatversion.
+1. Gehen Sie in ETS zu Gruppenadressen, wählen Sie Gruppenadresse exportieren und wählen Sie XML-Export in der neuesten Formatversion.
 
 Das ETS4-Format wird nicht unterstützt, es enthält keine DPT-Informationen.
 
-2. Laden Sie Ihre ETS Export XML in den Adapter über den GA XML-Import Dialog
+2. Laden Sie Ihre ETS-Export-XML über den GA-XML-Import-Dialog in den Adapter hoch
 3. Der Import startet sofort nach der Dateiauswahl und gibt nach Abschluss einen Statusbericht aus.
 
-Nach erfolgreichem Import zeigt eine Meldung an, wie viele Objekte erkannt wurden. Genauere Informationen sind im Log zu finden.
+Nach dem erfolgreichen Import zeigt eine Meldung an, wie viele Objekte erkannt wurden. Genauere Informationen finden Sie im Protokoll.
 
-Hinweis zur ETS-Konfiguration: Wenn Sie unterschiedliche DPT-Subtypen für den GA und in den Kommunikationsobjekten haben, die diesen GA verwenden, dann scheint die ETS den DPT-Typ mit der niedrigsten Nummer zu verwenden. Stellen Sie in diesem Fall manuell sicher, dass alle Felder denselben Datentyp verwenden.
-
-### Bilder pro Sekunde
-Diese Einstellung schützt den KNX-Bus vor Datenfluten, indem die Datenframes auf eine bestimmte Rate begrenzt werden. Nicht gesendete Frames werden in einen Fifo-Puffer gelegt.
+Hinweis zur ETS-Konfiguration: Wenn Sie unterschiedliche DPT-Subtypen für den GA und in den Kommunikationsobjekten haben, die diesen GA verwenden, dann scheint die ETS den DPT-Typ mit der niedrigsten Nummer zu verwenden.
+Stellen Sie in diesem Fall manuell sicher, dass alle Elemente denselben gewünschten Datentyp verwenden.
+Ein GA ohne DPT-Basistyp kann mit diesem Adapter nicht importiert werden. ETS4-Projekte müssen in ETS5 oder höher konvertiert werden und der DPT muss auf GA eingestellt werden.
 
 ### Alias
-KNX-Geräte können GAs für Statusrückmeldungen haben, die zu einem befehlsgebenden GA gehören. Einige Anwendungen wie bestimmte VIS-Widgets erwarten ein kombiniertes Status- und Betätigungsobjekt. Sie können diese Zustände in einem Alias kombinieren, indem Sie eine separate Alias-ID zum Schreiben und eine andere zum Lesen verwenden. Das Menü hilft dabei, ein passendes Paar gemäß der Namenskonvention mit der angegebenen Filterregel zu erstellen.
+KNX-Geräte können GAs für Statusrückmeldungen haben, die zu einem kommandierenden GA gehören. Einige Anwendungen wie bestimmte VIS-Widgets erwarten ein kombiniertes Status- und Betätigungsobjekt. Sie können diese Status in einem Alias kombinieren, indem Sie eine separate Alias-ID zum Schreiben und eine andere zum Lesen verwenden. Das Menü hilft, ein passendes Paar gemäß der Namenskonvention mit der angegebenen Filterregel zu erstellen.
+Weitere Informationen finden Sie hier https://www.iobroker.net/#en/documentation/dev/aliases.md
 
-# Adaptermigration
+# Hinweise zur Adaptermigration
 ## Node Red migrieren
-- Wählen Sie im Menü auf der rechten Seite Exportieren
-- Alle Flows auswählen, herunterladen
-- im Texteditor knx.0 ersetzen. mit openknx.0.
+- Wählen Sie im Menü auf der rechten Seite Exportieren aus
+- Wählen Sie Alle Flows, Herunterladen
+- Ersetzen Sie im Texteditor knx.0. mit openknx.0.
 - Menü auf der rechten Seite, Import auswählen
 - Geänderte Datei auswählen
 - im Dialog Flows auswählen (Subflows, Configuration-Nodes nur wenn sie betroffen sind) -> neue Tabs werden hinzugefügt
-- alte Flows manuell löschen
+- Alte Flows manuell löschen
 
 ## VIS migrieren
-- Vis-Editor öffnen
+- Öffnen Sie den Vis-Editor
 - Setup -> Projekt-Export/Import -> Normal exportieren
-- Öffnen Sie die Zip-Datei und vis-views.json in einem Editor
-- Suche Ersetzen knx.0. mit openknx.0.
-- Komprimieren Sie vis-views.json und vis-user.css in einer Zip-Datei
+- Zip-Datei und vis-views.json in einem Editor öffnen
+- Suchen Ersetzen Sie knx.0. mit openknx.0.
+- Komprimieren Sie vis-views.json und vis-user.css in einer ZIP-Datei
 - Setup -> Projekt-Export/Import -> Import
-- Zip-Datei in Drop-Bereich verschieben
+- ZIP-Datei in den Drop-Bereich verschieben
 - Projektname = main
 - Projekt importieren
 
 ## Skripte migrieren
-- Skripte öffnen
+- Öffnen Sie Skripte
 - 3 Punkte -> Alle Skripte exportieren
-- Zip-Datei öffnen und den Ordner in einem Editor öffnen
-- Suche knx.0 durch openknx.0 ersetzen
+- Öffnen Sie die Zip-Datei und öffnen Sie den Ordner in einem Editor
+- Suchen Ersetzen Sie knx.0 durch openknx.0
 - alle geänderten Dateien in eine Zip-Datei komprimieren
 - 3 Punkte -> Skripte importieren
-- Zip-Datei in Drop-Bereich verschieben
+- ZIP-Datei in den Drop-Bereich verschieben
 
 ## Grafana migrieren
-- Alle Dashboards durchgehen und Teilen auswählen - Exportieren - In Datei speichern
-- im Texteditor knx.0 ersetzen. mit openknx.0.
+- Gehen Sie durch alle Dashboards und wählen Sie Teilen - Exportieren - In Datei speichern
+- Ersetzen Sie im Texteditor knx.0. mit openknx.0.
 - Um ein Dashboard zu importieren, klicken Sie im Seitenmenü auf das Symbol + und dann auf Importieren.
 - Von hier aus können Sie eine Dashboard-JSON-Datei hochladen
 - Wählen Sie Importieren (Überschreiben)
 
-# Anleitung zur Verwendung des Adapters & Grundkonzept
+# Verwendung des Adapters & Grundkonzept
 ### ACK-Flags
-Die Anwendung soll kein Ack-Flag setzen, die Anwendung wird von diesem Adapter durch das Ack-Flag benachrichtigt, wenn Daten aktualisiert werden.
-KNX Stack setzt beim Empfang einer Gruppenadresse das Ack-Flag des verknüpften ioBroker-Objekts.
-Gesendete Frames auf KNX führen nicht zu einer Bestätigung des Schreibobjektes.
+Anwendungen sollen keine ack-Flags setzen, die Anwendung wird von diesem Adapter durch das ack-Flag benachrichtigt, wenn Daten aktualisiert werden.
+KNX Stack setzt das ack-Flag des verknüpften ioBroker-Objekts beim Empfang einer Gruppenadresse.
+Gesendete Frames auf KNX führen nicht zu einer Bestätigung des schreibenden Objekts.
 
-### Beispiel für einen komplexen Datentyp von Node Red
-Erstellen Sie einen Funktionsknoten, der sich mit einem ioBroker-Ausgangsknoten verbindet, der sich mit einem KNX-Objekt von DPT2 verbindet.
-msg.payload = {"Priorität":1 ,"Daten":0}; Nachricht zurück;
+### Beispiel für den komplexen Datentyp Node Red
+Erstellen Sie einen Funktionsknoten, der eine Verbindung zu einem ioBroker-Ausgangsknoten herstellt, der eine Verbindung zu einem KNX-Objekt von DPT2 herstellt.
+msg.payload = {"Priorität":1 ,"Daten":0}; Nachricht zurückgeben;
 
-# Log-Level
-Aktivieren Sie den Expertenmodus, um das Umschalten zwischen verschiedenen Protokollebenen zu ermöglichen. Standard-Loglevel ist info.
-![Loglevel](../../../en/adapterref/iobroker.openknx/docs/pictures/loglevel.png)
+# Protokollebene
+Aktivieren Sie den Expertenmodus, um das Umschalten zwischen verschiedenen Protokollebenen zu ermöglichen. Der Standard-Loglevel ist info.
+![Protokollebene](../../../en/adapterref/iobroker.openknx/docs/pictures/loglevel.png)
 
-# IOBroker Kommunikationsobjektbeschreibung
+# Beschreibung des IOBroker-Kommunikationsobjekts
 ioBroker definiert Objekte zum Speichern von Kommunikationsschnittstelleneinstellungen.
-Der GA-Import erzeugt eine Kommunikationsobjekt-Ordnerstruktur nach dem ga-Hauptgruppen-/Mittelgruppen-Schema. Jede Gruppenadresse ist ein Objekt mit folgenden automatisch generierten Daten.
+Der GA-Import erzeugt eine Kommunikationsobjekt-Ordnerstruktur nach dem GA-Schema Hauptgruppe/Mittelgruppe. Jede Gruppenadresse ist ein Objekt mit folgenden automatisch generierten Daten.
 
-ioBroker-Statusrollen (https://github.com/ioBroker/ioBroker/blob/master/doc/STATE_ROLES.md) haben standardmäßig den Wert 'state'. Einige detailliertere Werte werden aus dem DPT abgeleitet, zum Beispiel Date oder Switch.
+ioBroker-Zustandsrollen (https://github.com/ioBroker/ioBroker/blob/master/doc/STATE_ROLES.md) haben standardmäßig den Wert „state“. Einige granularere Werte werden vom DPT abgeleitet, zum Beispiel Date oder Switch.
 
-Autoread wird auf false gesetzt, wenn aus dem DPT klar hervorgeht, dass dies ein Triggersignal ist. Dies gilt für Szenennummern.
+Autoread wird auf falsch gesetzt, wenn aus dem DPT klar ist, dass dies ein Triggersignal ist. Dies gilt für Szenennummern.
 
-{ "_id": "path.and.name.to.object", //abgeleitet von der KNX-Struktur "type": "state", "common": { //Werte hier können von iobroker interpretiert werden "desc": "Basetype: 1-bit value, Subtype: switch", //informativ, from dpt "name": "Aussen Melder Licht schalten", //informative Description from ets export "read": true, //default set, if false ankommende Buswerte aktualisieren das Objekt nicht "role": state, //default state, abgeleitet von DPT "type": "boolean", //boolean, number, string, object, abgeleitet von dpt "unit": "", //abgeleitet von dpt "write": true //default true, wenn die Satzänderung am Objekt knx write auslöst, succ. write setzt dann ack-Flag auf true }, "native": { //Werte hier können vom openknx-Adapter interpretiert werden "address": "0/1/2", //knx-Gruppenadresse "answer_groupValueResponse": false, //default false, wenn auf true gesetzt antwortet Adapter mit Wert auf GroupValue_Read "autoread": true, //Standard true für Nicht-Trigger-Signale, Adapter sendet einen GroupValue_read beim Start, um seine Zustände zu synchronisieren "bitlength": 1, //size ob knx data, abgeleitet von dpt "dpt": "DPT1.001", //DPT "encoding": { //informativ "0": "Off", "1": "On" }, "force_encoding": "", // informativ "signedness": "", //informativ "valuetype": "basic" //composite bedeutet gesetzt über ein bestimmtes Javascript-Objekt }, "from": "system.adap ter.openknx.0", "user": "system.user.admin", "ts": 1638913951639 }
+{ "_id": "path.and.name.to.object", //abgeleitet von der KNX-Struktur "type": "state", "common": { //Werte hier können von iobroker interpretiert werden "desc": "Basetype: 1-bit value, Subtype: switch", //informativ, aus dpt "name": "Aussen Melder Licht schalten", //informative Beschreibung aus ets export "read": true, //default set, if false Eingehende Buswerte aktualisieren das Objekt "Rolle" nicht: Zustand, //Standardzustand, abgeleitet von DPT "Typ": "boolean", //Boolean, Zahl, Zeichenfolge, Objekt, abgeleitet von DPT "Einheit": "", //abgeleitet von dpt "write": true //default true, wenn Satzänderung am Objekt knx write auslöst, succ. write setzt dann ack flag auf true }, "native": { //Werte hier können vom openknx-Adapter interpretiert werden "address": "0/1/2", //knx-Gruppenadresse "answer_groupValueResponse": false, //default false, wenn auf true gesetzt, antwortet der Adapter mit Wert auf GroupValue_Read "autoread": true, //Standardwert true für Nicht-Trigger-Signale, Adapter sendet beim Start ein GroupValue_read, um seine Zustände zu synchronisieren "bitlength": 1, //Größe der Knx-Daten, abgeleitet von dpt "dpt": "DPT1.001", //DPT "encoding": { //informativ "0": "Off", "1": "On" }, "force_encoding": "", // informativ "signedness": "", //informativ "valuetype": "basic" //composite bedeutet über ein bestimmtes Javascript-Objekt gesetzt }, "from": "system.adap ter.openknx.0", "user": "system.user.admin", "ts": 1638913951639 }
 
-# Adapterkommunikation Schnittstellenbeschreibung
-Gehandelte DPTs sind: 1-21,232,237,238 Unhandelte DPTs werden als Rohpuffer geschrieben, die Schnittstelle ist eine sequentielle Folge von hexadezimalen Zahlen. Schreiben Sie zum Beispiel '0102feff', um die Werte 0x01 0x02 0xfe 0xff auf den Bus zu senden.
-Wenn der Datentyp Zahl verwendet wird, beachten Sie bitte, dass Schnittstellenwerte skaliert werden können.
+# Beschreibung der Adapter-Kommunikationsschnittstelle
+Gehandelte DPTs sind: 1-21.232.237.238 Ungehandelte DPTs werden als Rohpuffer geschrieben, die Schnittstelle ist eine sequentielle Folge von Hexadezimalzahlen. Schreiben Sie zum Beispiel „0102feff“, um die Werte 0x01 0x02 0xfe 0xff auf den Bus zu senden.
+Beachten Sie bei Verwendung des Zahlendatentyps, dass Schnittstellenwerte skaliert werden können.
 
 ### API-Aufruf
-ioBroker definiert Zustände als Kommunikationsschnittstelle.
+ioBroker definiert States als Kommunikationsschnittstelle.
 
-setState( id: string, // Objektpfadstatus: State | StateValue | SettableState, ack: false, //muss laut Konvention auf false gesetzt werden c: 'GroupValue_Read' //optionaler Kommentar, setze diesen Wert um einen Bus-Read auszulösen für dieses Objekt wird der angegebene StateValue ignoriert ): void;
+setState( id: string, //Objektpfadstatus: State | StateValue | SettableState, //Setze dies auf einen plausiblen Wert, um die Warnung im Falle des GroupValue_Read-Befehls auszulassen ack: false, //muss per Konvention falsch sein c: 'GroupValue_Read ' //optionaler Kommentar, setzen Sie diesen Wert, um einen Bus-Lesevorgang zu diesem Objekt auszulösen, gegebener StateValue wird ignoriert): void;
+
+Beispiel: setState(myState, {val: false, ack: false, c:'GroupValue_Read'}); setState(myState, null);
+
+GroupValue_Read-Kommentar funktioniert nicht für Javascript-Adapter. Verwenden Sie stattdessen einen Nullwert.
 
 ### Beschreibung aller DPTs
-| KNX DPT | Javascript-Datentyp | Sonderwerte | Wertebereich | Bemerkung |
+| KNX-DPT | Javascript-Datentyp | besondere Werte | Wertebereich | Bemerkung |
 | --------- | ---------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------- | --------------------------------------------------- |
 | DPT-1 | boolesch | | falsch, wahr ||
-| DPT-2 | Objekt | {"Priorität":1 Bit,"Daten":1 Bit} | - ||
-| DPT-3 | Objekt | {"decr_incr":1 bit,"data":2 bit} | - ||
-| DPT-18 | Objekt | {"save_recall":0,"Szenennummer":0} | - |Datenpunkttyp DPT_SceneControl aus Autoread entfernt|
+| DPT-2 | Objekt | {"Priorität": 1 Bit, "Daten": 1 Bit} | - ||
+| DPT-3 | Objekt | {"decr_incr":1 Bit,"data":2 Bit} | - ||
+| DPT-18 | Objekt | {"save_recall":0,"scenenumber":0} | - |Datenpunkttyp DPT_SceneControl aus Autoread entfernt|
 | DPT-21 | Objekt | {"outofservice":0,"fault":0,"overridden":0,"inalarm":0,"alarmunack":0} | - ||
-| DPT-232 | Objekt | {Rot:0..255, Grün:0,255, Blau:0,255} | - ||
+| DPT-232 | Objekt | {rot:0..255, grün:0,255, blau:0,255} | - ||
 | DPT-237 | Objekt | {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | - ||
-| DPT-4 | Zeichenfolge | | ein Zeichen als 8-Bit-Zeichen gesendet ||
-| DPT-16 | Zeichenfolge | | ein Zeichen als 16-stelliger String gesendet ||
-| DPT-5 | Nummer | | 8-Bit-Wert ohne Vorzeichen ||
-| DPT-5.001 | Nummer | | 0..100 [%] skaliert auf 1-Byte ||
-| DPT-5.003 | Nummer | | 0..360 [°] skaliert auf 1-Byte ||
-| DPT-6 | Nummer | | 8-Bit mit Vorzeichen -128..127 ||
-| DPT-7 | Nummer | | 16-Bit-Wert ohne Vorzeichen ||
-| DPT-8 | Nummer | | 2-Byte-Wert mit Vorzeichen -32768..32767 ||
+| DPT-4 | Zeichenfolge | | ein als 8-Bit-Zeichen gesendetes Zeichen ||
+| DPT-16 | Zeichenfolge | | ein Zeichen als 16-Zeichen-String gesendet ||
+| DPT-5 | Zahl | | 8-Bit-Wert ohne Vorzeichen ||
+| DPT-5.001 | Zahl | | 0..100 [%] skaliert auf 1 Byte ||
+| DPT-5.003 | Zahl | | 0..360 [°] skaliert auf 1 Byte ||
+| DPT-6 | Zahl | | 8-Bit vorzeichenbehaftet -128..127 ||
+| DPT-7 | Zahl | | 16-Bit-Wert ohne Vorzeichen ||
+| DPT-8 | Zahl | | 2-Byte-Wert mit Vorzeichen -32768..32767 ||
 | DPT-9 | Nummer | | 2-Byte-Gleitkommawert ||
-| DPT-14 | Nummer | | 4-Byte-Gleitkommawert ||
-| DPT-12 | Nummer | | 4-Byte-Wert ohne Vorzeichen ||
-| DPT-13 | Nummer | | 4-Byte-Wert mit Vorzeichen ||
-| DPT-15 | Nummer | | 4-Byte ||
-| DPT-17 | Nummer | | 1-Byte | DPT_SceneNumber aus Autoread entfernt|
-| DPT-20 | Nummer | | 1-Byte ||
-| DPT-238 | Nummer | | 1-Byte ||
-| DPT-10 | Nummer für Datumsobjekt | | - ||
-| DPT-11 | Nummer für Datumsobjekt | | - ||
-| DPT-19 | Nummer für Datumsobjekt | | - ||
-| DPT-26 | Zeichenfolge | z.B. 00010203.. | - | Datenpunkttyp DPT_SceneInfo nicht von autread gelesen|
-| DPT-238 | Zeichenfolge | z.B. 00010203.. | - | DPT_SceneConfig nicht gelesen von autread|
+| DPT-14 | Zahl | | 4-Byte-Gleitkommawert ||
+| DPT-12 | Zahl | | 4-Byte-Wert ohne Vorzeichen ||
+| DPT-13 | Zahl | | 4-Byte-Wert mit Vorzeichen ||
+| DPT-15 | Nummer | | 4 Byte ||
+| DPT-17 | Zahl | | 1 Byte | DPT_SceneNumber aus Autoread entfernt|
+| DPT-20 | Zahl | | 1 Byte ||
+| DPT-238 | Nummer | | 1 Byte ||
+| DPT-10 | Zahl für Datumsobjekt | | - ||
+| DPT-11 | Zahl für Datumsobjekt | | - ||
+| DPT-19 | Zahl für Datumsobjekt | | - ||
+| DPT-26 | Zeichenfolge | z.B. 00010203.. | - | Datenpunkttyp DPT_SceneInfo nicht von autread| gelesen |
+| DPT-238 | Zeichenfolge | z.B. 00010203.. | - | DPT_SceneConfig nicht von autread| gelesen |
 | ausruhen | Zeichenfolge | z.B. 00010203.. | - ||
 
-Nur Zeit- und Datumsinformationen werden mit zeitbasierten KNX-Datentypen ausgetauscht, z. DPT-19 hat nicht unterstützte Felder für die Signalqualität.
+Nur Zeit- und Datumsinformationen werden mit zeitbasierten Datentypen von KNX ausgetauscht, z. DPT-19 hat nicht unterstützte Felder für die Signalqualität.
 
-Objekt-Sende- und -Empfangswerte sind vom Typ Boolean DPT1), Zahl (skaliert oder unskaliert), Zeichenfolge.
-DPT 2 'erwartet ein Objekt {"priority":0,"data":1}' Receive liefert ein trinifiziertes Objekt des gleichen Typs.
+Objekt-Sende- und -Empfangswerte sind vom Typ boolean DPT1), Zahl (skaliert oder unskaliert), Zeichenfolge.
+DPT 2 'erwartet ein Objekt {"priority":0,"data":1}' und empfängt ein strinifiziertes Objekt des gleichen Typs.
 Andere gemeinsame DPTs haben eine ähnliche Objektnotation.
-DPT19 erwartet eine Zahl von einem Datumsobjekt, Iobroker kann keine Objekte verarbeiten, Felder von KNX ko, die nicht vom Zeitstempel abgeleitet werden können, sind nicht implementiert z. Qualitätsflaggen.
+DPT19 erwartet eine Zahl von einem Datumsobjekt, Iobroker kann keine Objekte verarbeiten, Felder von KNX ko, die nicht vom Zeitstempel abgeleitet werden können, sind nicht implementiert, z. Qualitätsfahnen.
 
-Datum und Uhrzeit DPTs (DPT10, DPT11) Bitte beachten Sie, dass Javascript und KNX sehr unterschiedliche Basistypen für Uhrzeit und Datum haben.
-DPT10 ist Zeit (hh:mm:ss) plus "Wochentag". Dieses Konzept ist in JS nicht verfügbar, daher erhalten/setzen Sie ein reguläres Date Js-Objekt, aber denken Sie daran, dass Sie Datum, Monat und Jahr ignorieren müssen. Das exakt gleiche Datagramm, das in "Mo, 1. Juli 12:34:56" konvertiert wird, wird eine Woche später zu einem völlig anderen JS-Datum von "Mo, 8. Juli 12:34:56" ausgewertet. Sei gewarnt! DPT11 ist das Datum (TT/MM/JJJJ): Das gleiche gilt für DPT11, Sie müssen den Zeitteil ignorieren.
+Datums- und Zeit-DPTs (DPT10, DPT11) Bitte beachten Sie, dass Javascript und KNX sehr unterschiedliche Basistypen für Zeit und Datum haben.
+DPT10 ist Zeit (hh:mm:ss) plus "Wochentag". Dieses Konzept ist in JS nicht verfügbar, daher erhalten/setzen Sie ein reguläres Date Js-Objekt, aber bitte denken Sie daran, dass Sie das Datum, den Monat und das Jahr ignorieren müssen. Das exakt gleiche Datagramm, das in „Mon, 1. Juli 12:34:56“ konvertiert wird, wird eine Woche später zu einem völlig anderen JS-Datum von „Mon, 8. Juli 12:34:56“ ausgewertet. Sei gewarnt! DPT11 ist das Datum (TT/MM/JJJJ): Dasselbe gilt für DPT11, Sie müssen den Zeitteil ignorieren.
 
 (KNX-Spezifikation von DPTs https://www.knx.org/wAssets/docs/downloads/Certification/Interworking-Datapoint-types/03_07_02-Datapoint-Types-v02.02.01-AS.pdf)
 
 ### Gruppenwert schreiben
-Das Senden wird durch das Schreiben eines Kommunikationsobjektes ausgelöst.
+Das Senden wird durch das Beschreiben eines Kommunikationsobjekts ausgelöst.
 Kommunikationsobjekt wird ausgelöst, wenn ein Schreibtelegramm auf dem Bus empfangen wird.
 
 ### Gruppenwert gelesen
 Das Senden kann durch Schreiben eines Kommunikationsobjekts mit Kommentar ausgelöst werden.
-Empfangen, falls konfiguriert, löst eine Sammelwertantwort (Einschränkung: Sammelwert im Moment schreiben) des aktuellen c.o. Wert, siehe unten.
+Empfangen löst, falls konfiguriert, eine Sammelwertantwort aus (Einschränkung: Sammelwert schreiben im Moment) des aktuellen c.o. Wert, siehe unten.
 
 ### Gruppenwertantwort
-Wenn answer_groupValueResponse auf true gesetzt ist, antwortet der Adapter mit einer GroupValue_response auf eine zuvor empfangene GroupValue_read-Anforderung.
+Wenn answer_groupValueResponse auf true gesetzt ist, antwortet der Adapter mit einer GroupValue_Response auf eine zuvor empfangene GroupValue_Read-Anfrage.
+Dies ist das KNX Read-Flag. Nur ein KO auf dem Bus oder dem IOBroker-Objekt sollte dieses Flag gesetzt haben, idealerweise dasjenige, das den Zustand am besten kennt.
 
 ### Zuordnung zu KNX-Flags
-Die KNX-Objekt-Flags definieren das Busverhalten des von ihnen repräsentierten Objekts.
+Die KNX-Objekt-Flags definieren das Busverhalten des Objekts, das sie repräsentieren.
 Es sind 6 verschiedene Objektflags definiert.
 
-| Flagge | Flagge de | Adapterverwendung ||
-| ------------------------- | ------------------------ | ------------------------------------------------- | --------------------------------------------- |
-|C: das Kommunikations-Flag | K: Kommunikations-Flag | immer gesetzt ||
-|R: das Read-Flag | L: Lese-Flag | Objekt native.answer_groupValueResponse ||
-|T: das Sende-Flag | Ü: Übertragen-Flag | Objekt common.write ||
-|W: das Write-Flag | S: Schreiben-Flag | Objekt common.read | Bus kann das Objekt ändern |
-|U: das Update-Flag | A: Aktualisieren-Flag | Objekt common.read | Objekt bei eingehenden GroupValueResponses aktualisieren |
+| Flagge | Flagge de | Adapternutzung ||
+| ------------------------- | ------------------------ | ------------------------------------------------- | ---------------------------------------------- |
+|C: das Kommunikationsflag | K: Kommunikations-Flag | immer gesetzt ||
+|R: das Lese-Flag | L: Lese-Flag | Objekt native.answer_groupValueResponse ||
+|T: das Sendeflag | Ü: Übertragen-Flagge | Objekt common.write ||
+|W: das Schreiben-Flag | S: Schreiben-Flag | Objekt common.read | Bus kann das Objekt ändern |
+|U: das Update-Flag | A: Aktualisieren-Flag | Objekt common.read | Objekt bei eingehenden GroupValue_Responses aktualisieren |
 |I: das Initialisierungsflag | I: Initialisierungs-Flag | Objekt native.autoread | |
 
-L-Flag: Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert (Lesbar). Nur ein KO je GA sollte das gesetzt haben, idealerweise derjenige, der den echten Zustand am besten kennt, üblich der Aktor!
-
 # Merkmale
-* stabiler und zuverlässiger knx-Stack
-* einfache Schnittstelle zum Gruppieren von Adressen vieler DPTs, Rohlese- und Schreibzugriff für andere DPTs
-* Unterstützung von KNX Gruppenwert lesen und Gruppenwert schreiben und Gruppenwert Antwort
-* kostenlos Open Source
-* keine Abhängigkeiten von Cloud-Diensten, läuft ohne Internetzugang
+* Stabiler und zuverlässiger Knx-Stack
+* Automatisches Codieren/Decodieren von KNX-Datagrammen für die wichtigsten DPTs, Raw-Lesen und -Schreiben für andere DPTs
+* Unterstützung von KNX-Gruppenwertlesen und Gruppenwertschreiben und Gruppenwertantwort
+* kostenlose Open-Source
+* keine Abhängigkeiten zu Cloud-Diensten, läuft ohne Internetzugang
 * Autoread beim Start
 * schneller Import von Gruppenadressen im XML-Format
-* gemeinsame Alias-Objekte erstellen, die auf Statuseingaben reagieren
+* Erstellen Sie gemeinsame Alias-Objekte, die auf Statuseingaben reagieren
 
 # Bekannte Probleme
 - keiner
 
 # Einschränkungen
-- Es werden nur dreistufige Gruppenadressen unterstützt
-- ETS 4 Exportdateiformat wird nicht unterstützt
+- ETS 4-Exportdateiformat wird nicht unterstützt
+- KNX Secure wird nicht unterstützt
+- nur IPv4 unterstützt
 
 ## Changelog
+### 0.1.15 ()
+ * fix: added null value to trigger GroupValue_Read, comments are overwritten in javascript adapter
+ * fix: remove unused reference to sentry
+ * feature: more sanity checks for gui
+ * feature: add openknx to discovery adapter
+ 
+### 0.1.14 (2022-01-08)
+* feature: autodetect the KNX IP interface parameters
+* feature: create warning if DPT of alias pair does not match
+* feature: create warning in log in case of possible data loss if gateway disconnects
+* feature: better gui for import status, newline per warning, count number of succeeding ga's
+* fix: local ip interface in admin was not taken
+* fix: default regexp for status ga's corrected to match common nomenclature
+
 ### 0.1.13 (2021-12-30)
 * bugfix: state.value of of type object must be serialized
 * bugfix: alias algorithm error handling, takover more info to alias
@@ -294,7 +264,7 @@ L-Flag: Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert 
 * feature: show logs of knx library
 * fix: filter out logs with device address bus interactions
 * fix: filter ga names that are forbidden in IOB
-* fix: reply with groupvalueresponse on request, not with groupvaluewrite
+* fix: reply with GroupValue_Response on request, not with GroupValue_Write
 * fix: remove more scene dpts from autoread
 
 ### 0.1.10 (2021-12-24)
@@ -343,10 +313,14 @@ L-Flag: Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert 
 ### 0.0.14
 * (boellner) feature: import ga xml
 
+### initial version
+* initial version inspired by https://www.npmjs.com/package/iobroker.knx/v/0.8.3
+
 ## License
 					GNU GENERAL PUBLIC LICENSE
-==========================
-Copyright (c) 2021 boellner
+==========================  
+Copyright Contributors to the ioBroker.openknx project  
+
 					   Version 3, 29 June 2007
 
  Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>

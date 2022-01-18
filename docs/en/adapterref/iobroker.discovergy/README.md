@@ -38,6 +38,9 @@ If you like my work, please feel free to provide a personal donation
     ### __WORK IN PROGRESS__
 -->
 
+### 0.5.9-0 (2021-08-17) Beta version 
+* (DutchmanNL) Timestamp of last value update added
+
 ### 0.5.8 (2021-08-17)
 * (DutchmanNL) Minor dependency & configuration updates, stable release candidate
 

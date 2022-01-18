@@ -3,18 +3,18 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecovacs-deebot/README.md
 title: Адаптер Ecovacs Deebot для ioBroker
-hash: e2AlGkypQ/RBxghvtcGiFaB/CVfUMnY6vwh2J3aktVk=
+hash: 8NZ1eiNmphw0lfJjopIRN/qfZWJbmF6ZV/JqtlXNVh0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
 ![Стабильная версия](http://iobroker.live/badges/ecovacs-deebot-stable.svg)
 ![Последняя версия](http://img.shields.io/npm/v/iobroker.ecovacs-deebot.svg)
 ![Количество установок](http://iobroker.live/badges/ecovacs-deebot-installed.svg)
-![Количество скачиваний в месяц](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
-![Количество скачиваний](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
+![Количество загрузок в месяц](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
+![Количество загрузок](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
 
-# Ecovacs Адаптер Deebot для ioBroker
-[![github-workflow] (https://github.com/mrbungle64/iobroker.ecovacs-deebot/actions/workflows/node.js.yml/badge.svg)](https://github.com/mrbungle64/iobroker.ecovacs-deebot)
+# Адаптер Ecovacs Deebot для ioBroker
+[![рабочий процесс github] (https://github.com/mrbungle64/iobroker.ecovacs-deebot/actions/workflows/node.js.yml/badge.svg)](https://github.com/mrbungle64/iobroker.ecovacs-deebot)
 
 Этот адаптер использует библиотеку [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js).
 
@@ -22,12 +22,12 @@ hash: e2AlGkypQ/RBxghvtcGiFaB/CVfUMnY6vwh2J3aktVk=
 Некоторые примечательные особенности:
 
 * Получить информацию (например, аккумулятор, журнал очистки, расходные материалы, состояние очистки и зарядки)
-* Отправляйте чистые команды (например, авто, точечная область, настраиваемая область) и различные другие команды (например, воспроизведение звука, сброс расходных материалов)
-* Сохраните пользовательскую область последнего запуска и повторно запустите сохраненные области
-* Регулировка мощности вакуума (чистая скорость) и уровня воды
+* Отправка чистых команд (например, авто, точечная область, пользовательская область) и различных других команд (например, воспроизведение звука, сброс расходных материалов)
+* Сохраните последнюю пользовательскую область запуска и перезапустите сохраненные области
+* Регулировка мощности вакуума (скорости уборки) и уровня воды
 * Получить информацию во время процесса очистки (например, текущее положение и площадь)
-* Получить информацию о картах, вкл. точечные области и виртуальные границы
-* Удалять, сохранять и воссоздавать отдельные виртуальные границы, а также полный набор виртуальных границ *)
+* Получить информацию о картах вкл. точечные области и виртуальные границы
+* Удаление, сохранение и воссоздание отдельных виртуальных границ, а также полного набора виртуальных границ *)
 * Функция загрузки текущего изображения карты *)
 
 *) Экспериментальный
@@ -36,26 +36,26 @@ hash: e2AlGkypQ/RBxghvtcGiFaB/CVfUMnY6vwh2J3aktVk=
 
 ## Модели
 ### Поддерживаемые модели
-* Deebot 900/901
-* Deebot OZMO 930
-* Deebot OZMO 920/950
+* Дибот 900/901
+* Дибот ОЗМО 930
+* Дибот ОЗМО 920/950
 
-Перечисленные модели - это те, которые я использую сам или которые технически идентичны им.
+Перечисленные модели - это те, которые я использую сам или которые технически идентичны этим.
 
-### Эти модели должны работать исправно или хотя бы частично
-* Deebot Slim 2
-* Deebot N79 серии
-* Deebot M88
-* Deebot 500
-* Deebot 600/601/605
-* Deebot 710/711/711s
-* Deebot OZMO 610
-* Deebot OZMO 900/905
-* Deebot OZMO Slim 10/11
-* Deebot OZMO T5
+### Эти модели должны работать корректно или хотя бы частично
+* Дибот Слим 2
+* Серия Deebot N79
+* Дибот М88
+* Дибот 500
+* Дибот 600/601/605
+* Дибот 710/711
+* Дибот ОЗМО 610
+* Дибот ОЗМО 900/905
+* Дибот ОЗМО тонкий 10/11
+* Дибот ОЗМО Т5
 * Серия Deebot U2
-* Deebot N3 MAX
-* Deebot N7
+* Дибот N3 МАКС
+* Дибот N7
 * Серия Deebot N8
 * Серия Deebot T8
 * Серия Deebot T9
@@ -63,17 +63,17 @@ hash: e2AlGkypQ/RBxghvtcGiFaB/CVfUMnY6vwh2J3aktVk=
 Перечисленные модели либо уже работают, либо технически аналогичны этим моделям.
 Тем не менее, функциональность может быть частично ограничена.
 
-Я стараюсь достичь широкого диапазона функциональных возможностей, но решаю этот вопрос индивидуально, в зависимости от сложности и различных других критериев.
-Претензий на полную функциональность конечно же нет.
+Я стараюсь достичь широкого спектра функциональности, но решаю это в каждом конкретном случае в зависимости от сложности и различных других критериев.
+Претензий к полной функциональности конечно нет.
 
 ## Установка
-Рекомендуется использовать Node.js. версии 12.x или 14.x. Минимальная необходимая версия - 12.x
+Рекомендуется использовать Node.js версии 12.x или 14.x. Минимальная требуемая версия — 12.x.
 
 Этот адаптер использует библиотеку [узел-холст](https://www.npmjs.com/package/canvas) для некоторых функций, связанных с картой, которые могут потребовать установки некоторых дополнительных пакетов.
 
-Установка Canvas необязательна и не требуется для моделей без функции карты, но для полного функционального диапазона установите следующие пакеты.
+Установка холста необязательна и необязательна для моделей без функции карты, но для полной функциональности установите следующие пакеты.
 
-Для систем Linux на базе Debian необходимо выполнить следующие команды:
+Для систем Linux на основе Debian необходимо выполнить следующие команды:
 
 ```bash
 sudo apt-get update
@@ -86,35 +86,42 @@ sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev l
 sudo npm install canvas --unsafe-perm=true
 ```
 
-Для получения инструкций для других систем посетите https://www.npmjs.com/package/canvas#compiling.
+Инструкции для других систем см. на странице https://www.npmjs.com/package/canvas#compiling.
 
 ## Использование
-* Информацию о том, как использовать этот адаптер, можно найти [здесь] (https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
+* Информацию о том, как использовать этот адаптер, можно найти [здесь](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
 
 ### Состояния
-* Информацию о состояниях можно найти [здесь] (https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29) (на английском языке) и [здесь] (https:// github .com / mrbungle64 / ioBroker.ecovacs-deebot / wiki / Datenpunkte-% 28DE% 29) (немецкий)
+* Информацию о штатах можно найти [здесь](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29) (английский) и [здесь](https://github .com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Datenpunkte-%28DE%29) (немецкий)
 
-## ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
-* Часто задаваемые вопросы можно найти [здесь] (https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
+## ВОПРОСЫ-ОТВЕТЫ
+* Часто задаваемые вопросы можно найти [здесь](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
 
-## Известные вопросы
+## Известные проблемы
 * Для некоторых моделей (например, Deebot OZMO 930) рекомендуется
 
-на [запланировать перезапуск](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) один раз в день, потому что есть сообщения о потере соединения примерно через 24 часа
+на [запланировать перезапуск](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) один раз в день, так как есть сообщения о том, что соединение теряется прибл. 24 часа
 
-* Функция "edge" не работает с Deebot U2 (вместо этого запускает автоматическую очистку)
-* Некоторые состояния "журнала очистки" пусты на серии T9 ("last20Logs", "lastCleaningDate" и "lastCleaningMapImageURL")
+* Функция «край» не работает с Deebot U2 (вместо этого запускается автоматическая очистка)
+* Некоторые состояния журнала очистки в серии T9 пусты ("last20Logs", "lastCleaningDate" и "lastCleaningMapImageURL").
 
-## Заявление об ограничении ответственности
+## Отказ от ответственности
 Я никоим образом не связан с ECOVACS.
 
 ## Changelog
+
+### 1.3.2 (alpha)
+
+* Recent updates
+
+### 1.3.1
+
+* Fix the cleaning functions for the Deebot 710 series
 
 ### 1.3.0
 
 * Using library version 0.7.0 (beta)
 * The minimum required version of Node.js is now 12.x
-* Fix the cleaning functions for the Deebot 710 series
 * Some improvements for newer models (e.g. T9 series)
 * Some other improvements and fixes
 

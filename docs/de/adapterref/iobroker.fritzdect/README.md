@@ -4,7 +4,6 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.fritzdect.svg
 BADGE-Number of Installations (latest): http://iobroker.live/badges/fritzdect-installed.svg
 BADGE-Number of Installations (stable): http://iobroker.live/badges/fritzdect-stable.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/foxthefox/ioBroker.fritzdect/badge.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.fritzdect.png?downloads=true
 ---
 ![Logo](../../admin/fritzdect_logo.png)
 # Installationshinweise
@@ -68,6 +67,21 @@ Vergleichbar für den Soll-/Istverlaufs ist demnach atualtemp und targettemp.
 Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig Information ist der debug modus über die Experteneinstellung der Instanz vorzuwählen.
 
 ## Changelog
+### 2.2.3 (npm)
+* buttons setmodeon/off/auto have now initial value false, and when triggered with true get false again (for next trigger)
+* buttons blindsclose/stop/open have now initial value false, and when triggered with true get false again (for next trigger)
+* boostactivetime and windowopenactivetime can now be set to a default value in the adapter config
+* new default temperature target in admin config (used if tsoll is not available e.g. object tree deleted and thermostat off/on)
+* corrections for handling the initial value for tsoll/lasttarget when thermostat is off/on
+
+### 2.2.2 (npm)
+* license update
+* corrected doc/de
+
+### 2.2.1
+* correction of "My colors" FB is not answering with valid xml
+* added test script (fritz.js) for login check in doc/de
+
 ### 2.2.0 (npm)
 * refactoring of API to FB, single instance with relogin after experied session
 * refactoring main.js
@@ -316,4 +330,4 @@ Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig In
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2021 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2018 - 2022 foxthefox <foxthefox@wysiwis.net>

@@ -1583,6 +1583,9 @@ Scripts can be activated and deactivated by controlling of this state with ack=f
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 5.2.19 (2022-01-10)
+* (AlCalzone) Fix broken dependency
+
 ### 5.2.18 (2021-12-14)
 * (klein0r) Fixed some german translations
 * (winnyschuster) Fixed astro schedules
@@ -1599,12 +1602,9 @@ Scripts can be activated and deactivated by controlling of this state with ack=f
 * (winnyschuster) added "Solar noon" to astro-list
 * (agross) Allow to define different states for reading and writing alias values
 
-### 5.2.13 (2021-09-13)
-* (AlCalzone) Fixed the loading of Node.js typings
-
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>,
+Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>,
 
 Copyright (c) 2014      hobbyquaker

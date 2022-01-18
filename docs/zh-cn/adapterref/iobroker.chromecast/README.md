@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.chromecast/README.md
 title: ioBroker.chromecast
-hash: d/Aq7vBZic6A+uuE8QF2I3SiZMupnLSB0tjyEXjn8Vs=
+hash: pSv3Lla3imfS3AO09CMLFYLbdrz+DRyvp58baq12Ykc=
 ---
 ![标识](../../../en/adapterref/iobroker.chromecast/admin/home.png)
 
@@ -11,7 +11,7 @@ hash: d/Aq7vBZic6A+uuE8QF2I3SiZMupnLSB0tjyEXjn8Vs=
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.chromecast.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.chromecast.svg)
 ![构建状态](https://travis-ci.org/angelnu/ioBroker.chromecast.svg?branch=master)
-![新产品管理](https://nodei.co/npm/iobroker.chromecast.png?downloads=true)
+![新PM](https://nodei.co/npm/iobroker.chromecast.png?downloads=true)
 
 # IoBroker.chromecast
 ## IoBroker 的 Google Home 适配器
@@ -19,45 +19,51 @@ hash: d/Aq7vBZic6A+uuE8QF2I3SiZMupnLSB0tjyEXjn8Vs=
 
 建立在以下项目之上：
 
-  * [ioBroker](http://www.iobroker.net)
-  * [node-castv2-client](https://github.com/thibauts/node-castv2-client) 作为家庭客户端库。
+  * [iobroker](http://www.iobroker.net)
+  * [node-castv2-client](https://github.com/thibauts/node-castv2-client) 作为 Home 客户端库。
+
+## 加入 Discord 服务器，讨论有关 ioBroker 集成的一切！
+<a href="https://discord.gg/4EBGwBE"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
+
+## [赞助商](./SPONSORS.md)
+如果您喜欢我的工作，请随时提供个人捐赠（这是 Jey Cee 的个人捐赠链接，与 ioBroker 项目无关！）[![捐赠](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)
 
 ＃＃ 指示
 1.安装到ioBroker
    1. 转到您的 ioBroker 适配器选项卡
-   2.选择并安装Google Home适配器
+   2. 选择并安装 Google Home 适配器
 2. 添加 Google Home 适配器的实例
-   * 安装后应该会自动运行
-3.（可选）如果您计划流式传输本地文件，则需要配置适配器
+   * 它应该在安装后自动运行
+3.（可选）如果您打算流式传输本地文件，则需要配置适配器
    * 您需要有一个 ioBroker Web 服务器实例
-4. 检查您的日志：您应该看到有关检测到的设备的日志
-5. 写一个 URL 如 [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar .net/ps-dieneue_rock/livestream_hi.mp3) 到 chromecast.0.`<您的 chromecast 名称>`.player.url2play
+4. 检查您的日志：您应该会看到有关检测到的设备的日志
+5.写一个URL如[http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar .net/ps-dieneue_rock/livestream_hi.mp3) 到 chromecast.0。`<您的 chromecast 名称>`.player.url2play
 6. URL 应该开始在您的设备上播放
 
 ＃＃ 特征
-* 使用多播 DNS 检测设备
+* 使用多播-dns 检测设备
   * 可选择在管理面板中添加额外的手动配置设备
 * 为每个找到的设备创建 ioBroker 对象
 * 状态、播放器、媒体和元数据通道
-* 从适配器控制 Google Home 设备
+* 通过适配器控制 Google Home 设备
   * 设置音量
   *静音/取消静音
   * 停止广播
   * 暂停
-  * 播放网址 (chromecast.0.`<你的 Google Home 名称>`.player.url2play)
+  * 播放网址（chromecast.0.`<您的 Google Home 名称>`.player.url2play）
     * 用 MP3 测试
       * 格式的完整列表 [此处](https://developers.google.com/cast/docs/media)。
-    * 当 url 不以 http 开头时，则假定这是一个本地文件
+    * 当 url 不以 http 开头时，假设这是一个本地文件
       * 通过 ioBroker Web 服务器导出文件
-    * 它只播放播放列表文件中的第一个文件，例如 .m3u
+    * 它只播放来自播放列表文件的第一个文件，例如 .m3u
 * 可见小部件
-  * 注意：需要 [patched vis adapter](https://github.com/angelnu/ioBroker.vis)。
+  * 注意：需要 [修补 vis 适配器](https://github.com/angelnu/ioBroker.vis)。
 * 初步支持 Chromecast 音频组
   * 注意：这不适用于 SSDP -> 在适配器设置中默认禁用
 * 再次播放上次播放的流：只需将 _chromecast.0.`<your device>`.status.playing_ 设置为 _true_
 
-＃＃ 有什么不见了？
-* 添加状态机来跟踪状态：检测到 -> 已连接 -> 播放器加载器 -> 正在播放
+＃＃ 缺什么？
+* 添加状态机来跟踪状态：检测到 -> 连接 -> 播放器加载器 -> 播放
 * 添加重试：有时 Google Home 无法响应请求
 * 更多测试
 

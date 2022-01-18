@@ -32,28 +32,14 @@
 
 Fast Web-App for Visualization. 
 
-![Screenshot](img/screenshot_kueche.png)
-
-\
-![Screenshot](img/screenshot_licht.png)
-
-\
-![Screenshot](img/screenshot_heizung.png)
-
-\
-![Screenshot](img/screenshot_rauchmelder.png)
-
-\
-![Screenshot](img/screenshot_flot.png)
-
-\
-![Screenshot](img/screenshot_dslraser.jpg "&copy; by dslraser")
-
-\
-![Screenshot](img/screenshot_muuulle.jpg "&copy; by muuulle")
-
-\
-![Screenshot](img/screenshot_peks-67.jpg "&copy; by peks-67")
+<img src="img/screenshot_kueche.png" width="200">
+<img src="img/screenshot_licht.png" width="200">
+<img src="img/screenshot_heizung.png" width="200">
+<img src="img/screenshot_rauchmelder.png" width="200">
+<img src="img/screenshot_flot.png" width="200">
+<img src="img/screenshot_dslraser.jpg" width="200" alt="&copy; by dslraser"> &copy; by dslraser
+<img src="img/screenshot_muuulle.jpg" width="200" alt="&copy; by muuulle"> &copy; by muuulle
+<img src="img/screenshot_peks-67.jpg" width="200" alt="&copy; by peks-67"> &copy; by peks-64
 
 Runs in any Browser. 
 Easy to setup, allthough it's fully customizable and responsive.
@@ -440,9 +426,10 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* 'widget-urlparameters'
 		* syntax: ``<meta name="widget-urlparameters" content="parameter/default value/description/type;parameter2/default value2/description2/type2"/>``
 		* The user will be asked for these parameters when chosing the widget as URL or BACKGROUND_URL or autocreates a widget
-		* ``type`` is optional and may be ``text`` (this is dafault), ``number``, ``checkbox``, ``color``, ``select``, ``multipleSelect``, ``combobox``, ``historyInstance``, ``datapoint``, ``icon``, ``section`` or ``divider``
+		* ``type`` is optional and may be ``text`` (this is dafault), ``number``, ``checkbox``, ``color``, ``select``, ``multipleSelect``, ``combobox``, ``historyInstance``, ``datapoint``, ``listJsonDatapoint``, ``icon``, ``section``, ``divider`` or ``hidden``
 		    * If type is ``select``, ``multipleSelect`` or ``combobox`` then you need to specify the possible options by adding ``/<selectOptions>``, where ``<selectOptions>`` is a string of the format ``<value1>,<caption1>/<value2>,<caption2>/...`` (combobox is a selectbox with the possibility to enter free text)
 		    * If type is ``number`` then can specify min, max and step-width by adding ``/<numberOptions>``, where ``<numberOptions>`` is a string of the format ``<min>,<max>,<step>``
+		    * Type ``hidden`` will be passed to the widget, but no configuration dialog is shown
 		* All these parameters will be given to the widget-website via an url-parameter-string (like ``widget.html?parameter=value&parameter2=value2``)
 		* You can use these settings inside your widget-website by requesting the url-parameters with a function like this:
 			````javascript
@@ -463,6 +450,12 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* syntax: ``<meta name="widget-options" content="{'noZoomOnHover': 'true', 'hideDeviceName': 'true'}"/>``
 		* See the expandable section below for the possible options that can be configured by this meta-tag
 
+	* 'widget-replaceurl'
+		* syntax: ``<meta name="widget-replaceurl" content="<url>" data-absolute="<true|false>"/>``
+		* This reconfigures the used URL/BACKGROUND_URL for this widget (this way you could define widget-presets, that are used to give special or simplified configurations to the user. But when calling the widget, iQontrol uses the given ``<url>`` instead of the original url.
+		* By default only the filename (with extention) is replaced. When setting ``data-absolute="true"`` then the whole url is replaced.
+
+
 <details>
 <summary>Show possible options that can be configured by the meta-tag 'widget-options': (<ins>klick to open</ins>)</summary>
 
@@ -473,6 +466,9 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* Default: ""
 * Device Specific Options:
 	* ``showState`` (Show State) - only valid for role Button and Program:
+		* Possible values: "true"|"false"
+		* Default: "false" 
+	* ``showPowerAsState: `` (Show POWER as state) - only valid for role Switch, Light and Fan:
 		* Possible values: "true"|"false"
 		* Default: "false" 
 	* ``buttonCaption`` (Caption for button) - only valid for role Button:
@@ -546,6 +542,9 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* ``coverImageReloadDelay`` (Delay reload of cover-image [ms]) - only valid for role Media:
 		* Possible values: number from 0 to 5000
 		* Default: "" 
+	* ``coverImageNoReloadOnTitleChange: `` (No forced reload of cover-image on change of TITLE) - only valid for role Media:
+		* Possible values: "true"|"false"
+		* Default: "false" 
 	* ``statePlayValue`` (Value of STATE for 'play') - only valid for role Media:
 		* Default: "play" 
 	* ``statePauseValue`` (Value of STATE for 'pause') - only valid for role Media:
@@ -667,6 +666,9 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* ``hideInfoBIfInactive`` (Hide INFO_B, if the device is inactive):
 		* Possible values: "true"|"false"
 		* Default: "false"
+	* ``hideIndicatorIfInactive`` (Hide Indicator Icons (ERROR, UNREACH, BATTERY), if the device is inactive):
+		* Possible values: "true"|"false"
+		* Default: "false"
 	* ``hideStateIfInactive`` (Hide state, if the device is inactive):
 		* Possible values: "true"|"false"
 		* Default: "false"
@@ -707,6 +709,9 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* Possible values: "true"|"false"
 		* Default: "false"
 	* ``hideInfoBIfActive`` (Hide INFO_B, if the device is active):
+		* Possible values: "true"|"false"
+		* Default: "false"
+	* ``hideIndicatorIfActive`` (Hide Indicator Icons (ERROR, UNREACH, BATTERY), if the device is active):
 		* Possible values: "true"|"false"
 		* Default: "false"
 	* ``hideStateIfActive`` (Hide state, if the device is active):
@@ -766,6 +771,9 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* ``hideInfoBIfEnlarged`` (Hide INFO_B, if the device is enlarged):
 		* Possible values: "true"|"false"
 		* Default: "false"
+	* ``hideIndicatorIfEnlarged`` (Hide Indicator Icons (ERROR, UNREACH, BATTERY), if the device is enlarged):
+		* Possible values: "true"|"false"
+		* Default: "false"
 	* ``hideStateIfEnlarged`` (Hide state, if the device is enlarged):
 		* Possible values: "true"|"false"
 		* Default: "false"
@@ -797,6 +805,9 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* Possible values: "true"|"false"
 		* Default: "false" 
 * BACKGROUND_VIEW/URL/HTML:
+	* ``adjustHeightToBackgroundView: `` (Adjust height of device tile to the size of BACKGROUND_VIEW):
+		* Possible values: "true"|"false"
+		* Default: "false"
 	* ``backgroundURLDynamicIframeZoom`` (Dynamic zoom for BACKGROUND_VIEW/URL/HTML (this is the zoom-level in % that would be needed, to let the content fit into a single 1x1 tile)):
 		* Possible values: number from 0.01 to 200
 		* Default: ""
@@ -1178,6 +1189,67 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 ````
 </details>
 </details>
+
+## Lists and Counters
+iQontrol provides a powerful tool to create dynamic lists and counters of devices and states. 
+
+Thus, for example, all open windows can be automatically counted and also visualized in a list. Another example would be the lamps currently switched on in the house. 
+
+Service messages can also be created that way, for example by counting the devices that cannot be reached or the devices with an empty battery. iQontrol updates the lists then automatically.
+
+To visualize the counted devices, you can use the Device-Counter-Widget, which provides an easy but yet highly customizable interface. Experts could also use the JSON-Table-Widget, which provides even more configuration-possibilities (the Device-Counter-Widget is a simplified Version of the JSON-Table-Widget).
+
+### Create a List
+* Go to the LISTS/COUNTERS tab, create a list and give it a uniqe name. Click on **edit**
+* In the upper part you have to define the **selectors**: 
+	* This list will be processed from top to bottom. 
+	* At any position you can add or remove items by defining conditions. This will generate your **TOTAL_LIST**.
+	* Conditions consist of the following parts:
+		* Modifier: Add or Remove items to the list
+		* Type: Chose what to add or remove to or from the list. Type could be:
+			* **All** - selfexplaining
+			* **Enumeration** - filter by enumeration. You can define enumerations, like 'rooms', 'functions' or 'windows upper floor' in ioBroker admin adapter
+			* **Enumeration with Childs** - enumerations contain often only the device without it's datapoint. Therefore you will mostly use Enumeration with Childs, which automatically includes the datapoints as well
+			* **ID** - filter by the ID of datapoints, for example remove IDs that don't end with '.color' or '.saturation'
+			* **Object-Type** - filter by Object-Type, which can be device, channel, state or enumeration
+			* **Type** - filter by the common.type of the datapoint, for example string, number, boolean
+			* **Role** - filter by the common.role of the datapoint. This is one of the most important filters, as every datapoint schould have a common.role that describes, what it stands for, for example switch, indicator.unreach or level.color.rgb. There are a plenty of common roles inside ioBroker, just have a look at your datapoints, the admin-adapter provides a list with all of them
+		* Compare operators: Some Types can be compared with a value. The operator stands for the comparation that is done, like 'is greater than', 'is lower than' or, for strings, 'begins with' or 'contains':
+			* They work case insensitive (so 'Text' is the same as 'text')
+			* You can also compare with multiple values at one time if you provide comma-separated list of arguments
+				* Example: ``|remove|ID|doesn't end with|.error,.overheat|`` will remove all IDs that don't end with '.error' OR with '.overheat'
+		* Value: The value the compare operator compares to
+	* You can also **filter for Aliases**: This is useful if you for example create a list that counts devices with low batteries. But you don't want it to count both, the original device, and its alias. So filter alias ensures, that datapoints, that have an alias in the list, will be removed
+* Next you can define **counters**:
+	* You can define several counters that count for given conditions in your TOTAL_LIST. Lets say, you have created a list with all your LOW-BATTERY-Datapoints. Now you want to count, how many of them are active at the moment, i.e. have the status 'true'. That is done by a counter
+	* You have to assign a name to every counter
+	* You can assign a unit to every counter
+	* You need to define at least one condition for every counter. To do so, click on the edit-icon:
+		* Add as many conditions, as you like
+		* The conditions are processed from top to bottom
+		* The conditions can be linked with AND or with OR operators, so you can build complex conditions for your counter
+	* The counters update everytime a datapoint in your TOTAL_LIST is changes
+	* Additionally, you can set a specific **time interval** at which the counter will be updated (for example if you count, how many devices you have with a timestamp older than 5 minutes - this requires a periodically checking)
+* Next you can define **calculations**:
+	* Calculations can be used to combine numeric datapoints and calculate for example the sum of different counters.
+	* You can also combine objects like arrays (lists) by addition or subtraction.
+* At least you can define **combinations**:
+	* Combinations can be used to combine different datapoints with text.
+	* The 'Pefix' will be placed before, the 'Postfix' after the value of the given ID.
+	* In the 'Only If'-Section you can define a condition, if the line schould be placed or not.
+		* By activating 'Just Prefix' just the prefix is placed (not the value nor the postfix), if the condition matches.
+		* You can also specify a 'Else' text, that will be placed, if the condition doesn't match.
+* The result of the lists with counters, calculations and combinations are saved in datapoints, which you will find under iqontrol.x.Lists
+
+### Examples
+* This example shows, how to create an UNREACH-List:
+	![List Edit Unreach](img/list_edit_unreach.png)
+	* The selectors first add all Datapoints with the common role 'indicator.unreach'
+	* But it then removes all Datapoints with 'STICKY_' in it's ID (homematic provides the STICKY_UNREACH-Indicator, which we don't want to count)
+	* It filters duplicates by aliases out
+	![List Edit Unreach](img/list_edit_unreach_counter.png)
+	* And lastly, it count all datapoints with the value 'true', that have that state for at least 15 seconds
+
 
 ## Modifying Datapoint Configuration
 You can modify the configuration of datapoints via the wrench-icon (or rather gear-icon in new react-ui) behind a datapoint in the device-configuration dialog or in objects-tab of iobroker. 
@@ -1591,6 +1663,18 @@ This device has some special predefined size- and display-settings to show a tex
 * (sbormann) Added option to adjust height of tile to the size of BACKGROUND_VIEW.
 * (sbormann) Added option to change and invert INFO_A/B-Symbols.
 * (sbormann) Added import and export function to device options.
+* (sbormann) Added option to hide indicator icons if inactive, active or enlarged.
+* (sbormann) Added column-sorting to JSON-Table-Widget.
+* (sbormann) The JSON-Table-Widget accepts now simple lists (for example an array of datapoints).
+* (sbormann) Added widget-replaceurl to widgets, which allows creation of simplified widget-presets, as preparation for further development.
+* (sbormann) Added option to media-player to disable forced reload of cover-image on TITLE-change.
+* (sbormann) Small adjustmets for ALTERNATIVE_COLORSPACE.
+* (sbormann) Added widget-replaceurl as a widget configuration parameter.
+* (sbormann) Introducing a powerful new feature: Lists and Counters.
+* (sbormann) Added Device-Counter-Widget.
+* (sbormann) Added heading and border-color-option to JSON-table widget.
+* (sbormann) Changed behaviour of min/max/ignore-min-max-settings of FLOT-Chart-Widget.
+* (sbormann) Added option to invert color of INFO_A/B icons for dark-mode.
 
 ### 1.11.0 (2021-12-18)
 * (sbormann) Added the ability to globally change the default icons.
