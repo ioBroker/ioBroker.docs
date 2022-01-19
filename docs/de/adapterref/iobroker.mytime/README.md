@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mytime/README.md
 title: ioBroker.mytime
-hash: AIanR7D4MkMVi+1aVctXl3fS6CJleCBBuN/BRuRYvLQ=
+hash: 9JZi11AH9jR17dcl6rBgkzPmtTuSEO/L8qNYDeDgmBY=
 ---
 ![Logo](../../../en/adapterref/iobroker.mytime/admin/mytime.png)
 
@@ -16,6 +16,9 @@ hash: AIanR7D4MkMVi+1aVctXl3fS6CJleCBBuN/BRuRYvLQ=
 ![Travis-CI](http://img.shields.io/travis/oweitman/ioBroker.mytime/master.svg)
 
 #ioBroker.mytime
+## WICHTIG
+Nur die englische Dokumentation ist gültig, da die automatische Übersetzung Bereiche übersetzt, die nicht übersetzt werden sollen.
+
 ## Mytime-Adapter für ioBroker
 Dieser Adapter verarbeitet Zeit (zB: Countdown, etc.).
 Die Countdown-Funktionalität stellt Datenpunkte bereit, mit denen Sie einen Countdown (z. B. in einem Skript) verwalten können. Der Adapter enthält auch mehrere Widgets, um diese Countdowns zu visualisieren.
@@ -26,18 +29,18 @@ Mit Zeitreihen können komplexe Zeitreihen erstellt werden, bei denen die Datenp
 Im Konfigurationsdialog Reiter "Countdown" können Sie einen neuen Countdown zB 'Test' erstellen, Timer auf 10 Sekunden setzen und folgende Widgets importieren.
 Datenpunkte sind für einen Countdown namens Test vorkonfiguriert.
 
-##### Verhaltenstimer stoppen
+##### Stoppverhaltens-Timer
 Nachdem der Countdown das Signal Stopp erhält, wird der Countdown auf die vom Timer eingestellte Zeit zurückgesetzt.
 
-##### Stoppverhalten Null Nachdem der Countdown das Signal Stopp erhält, bleibt der Countdown auf 0.
+##### Stoppverhalten Null Nachdem der Countdown das Signal Stopp erhält, bleibt der Countdown bei 0.
 #### Zeitfolgen
 Im Konfigurationsdialog Reiter "Zeitreihen" können Sie eine neue Zeitreihe mit einer oder mehreren Zeitreihen erstellen. Für jede Timerule können Sie verschiedene Parameter definieren. Jede Timeserie erzeugt einen separaten Datenpunkt, der bei den berechneten Zeitereignissen getriggert wird.
 Die Zeitereignisse werden in Echtzeit berechnet. Allerdings ist die verwendete Regelbibliothek noch nicht in allen Parameterkombinationen perfekt.
-Dies zeigt, dass bei einigen Kombinationen die Seite in eine Endlosschleife geht.
+Dies zeigt, dass die Seite bei einigen Kombinationen in eine Endlosschleife übergeht.
 Für Experimente kann auch die Demoseite http://jakubroztocil.github.io/rrule/ genutzt werden.
 Zusätzlich zum Hinzufügen einer Timerule können Sie eine Timerule hinzufügen, um Zeitereignisse auszuschließen, einzelne Zeitereignisse hinzuzufügen und auch einzelne Zeitereignisse auszuschließen.
 
-### Verwendungszweck
+### Verwendung
 #### Zeitfolgen
 ##### Verfügbare Datenpunkte
 Nach der Konfiguration einer neuen Zeitreihe erstellt der Adapter folgende Datenpunkte:
@@ -135,7 +138,7 @@ Alle folgenden Beispiele mit Countdown-Timer 1:2:3:4
 | HH\h mm\m | 26h 03m | nur Stunden und Minuten |
 
 ###Widgets
-#### Widget-Countdown-Ebene
+#### Widget Countdown schlicht
 Ein Countdown-Widget für eine reine Textausgabe
 
 ##### Widget-Eigenschaften
@@ -171,10 +174,10 @@ Ein Countdown-Widget im Ring-/Kreis-Design.
 ###### Kappeneinstellung für die Enden des Rings/Kreises: rund oder gerade
 ###### Hintergrund Hintergrundfarbe des Rings/Kreises
 ###### Vordergrund Vordergrundfarbe des Rings/Kreises
-###### Showsec Zeigt den Sekundenring an
-###### Showmin Zeigt den Minutenring an
+###### Showsec Zeigt den Sekundenring
+###### Showmin Zeigen Sie den Minutenring an
 ###### Showhrs Zeigt den Minutenring an
-###### Showday Zeige den Ring der Tage
+###### Showday Zeig den Ring der Tage
 ##### Der aktuelle Aktionszustand (cdstop,cdrun,cdpause,cdend) des Countdowns steht als CSS-Klassenselektor zur Verfügung.
 ```
 #w00000 .timer.cdend {
@@ -224,7 +227,7 @@ Der Timer-Datenpunkt eines Countdown-Datenpunkts.
 ###### Countdown_color_active Farbe des Countdowntimers
 ###### Countdown_color_inactive Farbe der inaktiven Ziffern
 ###### Countdown_opacity_inactive Deckkraft der Farbe der inaktiven Ziffern
-###### Countdown_glowcolor Farbe des Leuchtens um die Nixie-Ziffern
+###### Countdown_glowcolor Farbe des Leuchtens um diese Nixie-Ziffern
 #### Widget Wordclock
 Ein Widget zum Anzeigen einer Wordclock mit vielen Optionen
 
@@ -233,7 +236,7 @@ Ein Widget zum Anzeigen einer Wordclock mit vielen Optionen
 Einige verschiedene Sprachen für die Wordclock sind verfügbar
 
 ###### LetterActivated Farbe für die hervorgehobenen Wörter
-###### LetterDeaktiviert Farbe für die normalen Buchstaben
+###### LetterDeactivated Farbe für die normalen Buchstaben
 ###### WordclockMargin Margin zwischen der Wordclock und den LEDs
 ###### WithMinutes Zeigt die Minuten-LEDs in der Ecke der Wordclock
 ###### MinuteSize Größe in Pixel der Minute LEDs
@@ -241,6 +244,7 @@ Einige verschiedene Sprachen für die Wordclock sind verfügbar
 ###### WithSeconds Zeigt die Sekunden-LEDs der Wordclock
 ###### SecondSize Größe in Pixel der Sekunden LEDs
 ###### SekundeFarbe der Sekunden-LED
+###### Zeitzone Die Uhrzeit der ausgewählten Zeitzone wird angezeigt
 ##### Tipps
 Wenn Sie die Größe der Countdown-Nixieclock anpassen möchten, können Sie unter CSS-Einstellungen in vis für halbe Größe eingeben: Group CSS-Common / transform "scale(0.5)"
 
@@ -259,11 +263,12 @@ Wenn Sie die Größe der Countdown-Nixieclock anpassen möchten, können Sie unt
 * rollierende Zahlen
 * anpassbare Schriftarten
 * ts: Timerules zum Ausschluss (Zeitraum, einzelne Daten)
+* ~~Zeitzone für Wordclock hinzufügen~~
 * ~~Wordclock-Timer~~
-* ~~zeitgesteuerter Planer: Plane einzelnes Datum/Uhrzeit und wiederkehrende Ereignisse wie Outlook~~
+* ~~zeitgesteuerter Planer: Plane einzelnes Datum/Zeit und wiederkehrende Ereignisse wie Outlook~~
 * ~~Nixie-Stil~~
 * ~~Flipboard-Anzeige (Flughafen-Anzeige)~~
-* ~~neuer Befehl, um nur die Zielzeit ohne Datum einzustellen~~
+* ~~neuer Befehl um nur die Zielzeit ohne Datum einzustellen~~
 * ~~Countdown-Kreis-Widget mit Option zum Deaktivieren des Countdown-Textes
 * ~~Gruppentrenner '.' im Namen~~
 * ~~Polaruhr~~
@@ -273,8 +278,18 @@ Wenn Sie die Größe der Countdown-Nixieclock anpassen möchten, können Sie unt
 ## Changelog
 
 
+### 0.7.7
+* add timezone for wordclock
+### 0.7.6
+* add tests for wordclock * remove admin tab
+### 0.7.5
+* Remove comments in io-package
+### 0.7.4
+* fix spanish language pack
+### 0.7.3
+* * add turkish language for wordclock
 ### 0.7.2
-* * add russian and espaniol for wordclock
+* * add russian and espaniol language for wordclock
 ### 0.7.1
 * add margin property for wordclock * add italiano and francais for wordclock * wordclock remove border
 ### 0.7.0

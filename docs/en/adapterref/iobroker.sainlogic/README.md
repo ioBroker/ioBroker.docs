@@ -75,6 +75,8 @@ The schheduler will start and connect to the weather station after the first int
 
 Latest version
 
+#### 0.8.0 Added time stamps for daily min and max values
+
 #### 0.7.3 Dependency updates and Travis testing updates
 
 #### 0.7.2 Dependency updates for security vulnerabilities 

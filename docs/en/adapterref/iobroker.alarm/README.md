@@ -3,7 +3,6 @@
 
 ![Number of Installations](http://iobroker.live/badges/alarm-installed.svg) ![Number of Installations](http://iobroker.live/badges/alarm-stable.svg)[![NPM version](http://img.shields.io/npm/v/iobroker.alarm.svg)](https://www.npmjs.com/package/iobroker.alarm)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.alarm.svg)](https://www.npmjs.com/package/iobroker.alarm)
-[![Dependency Status](https://img.shields.io/david/misanorot/iobroker.alarm.svg)](https://david-dm.org/misanorot/iobroker.alarm)
 [![Known Vulnerabilities](https://snyk.io/test/github/misanorot/ioBroker.alarm/badge.svg)](https://snyk.io/test/github/misanorot/ioBroker.alarm)
 
 [![NPM](https://nodei.co/npm/iobroker.alarm.png?downloads=true)](https://nodei.co/npm/iobroker.alarm/)
@@ -42,6 +41,8 @@ Hier werden die Einstellungen wie die Zeiten der Nachtruhe, Sirenezeit, Stiller-
 
 Benachrichtigungen über Andere Adapter wie z. B. Telegramm, Email oder andere.
 [Probleme](#Probleme)
+
+Bei Benachrichtigungen an den Telegram Adapter, ist es möglich User- oder Chat IDs zu benutzen.
 
 ----------------------------------------------------------------------------------------------------------------------
 
@@ -152,6 +153,10 @@ Beinhaltet die Informationen für die "anderen" Alarmkreise 1 + 2.
 
 ## Changelog
 
+
+#### 2.2.0 (16.01.2022)
+* (misanorot) added telegram special parameters
+
 #### 2.1.1 (07.11.2021)
 * (misanorot) added countdown state for silent alarm
 
@@ -245,4 +250,4 @@ Beinhaltet die Informationen für die "anderen" Alarmkreise 1 + 2.
 ## License
 MIT License
 
-Copyright (c) 2019-2021 misanorot <audi16v@gmx.de>
+Copyright (c) 2019-2022 misanorot <audi16v@gmx.de>

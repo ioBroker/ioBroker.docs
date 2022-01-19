@@ -108,9 +108,13 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 
 ## Changelog
 
-### 1.3.2 (alpha)
+### 1.3.3
+* Bumped ecovacs-deebot.js to 0.7.1 (incl. fix for CVE-2022-0155)
 
-* Recent updates
+### 1.3.2
+
+* Bumped follow-redirects to 1.14.7 (fix for CVE-2022-0155) and some other dependencies
+* Added N8 PRO+
 
 ### 1.3.1
 
@@ -257,7 +261,7 @@ I am in no way affiliated with ECOVACS.
 
 MIT License
 
-Copyright (c) 2021 Sascha Hölzel <mrb1232@posteo.de>
+Copyright (c) 2022 Sascha Hölzel <mrb1232@posteo.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

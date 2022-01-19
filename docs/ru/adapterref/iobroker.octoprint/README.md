@@ -3,11 +3,11 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: oUIOSL+anf5i8plvoDpdXchwEL/vDWwLpumgWwcdSoU=
+hash: dD+bUWRriLBqzTd1a4v+YeMwmng9ECO5yufCPWoQO5g=
 ---
 ![Логотип](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.octoprint.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.octoprint.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.octoprint.svg)
 ![Стабильный](http://iobroker.live/badges/octoprint-stable.svg)
 ![установлен](http://iobroker.live/badges/octoprint-installed.svg)
@@ -16,14 +16,14 @@ hash: oUIOSL+anf5i8plvoDpdXchwEL/vDWwLpumgWwcdSoU=
 ![НПМ](https://nodei.co/npm/iobroker.octoprint.png?downloads=true)
 
 # IoBroker.octoprint
-![Тестирование и выпуск](https://github.com/klein0r/ioBroker.octoprint/workflows/Test%20and%20Release/badge.svg)
+![Тестируйте и выпускайте](https://github.com/klein0r/ioBroker.octoprint/workflows/Test%20and%20Release/badge.svg)
 
 Адаптер для подключения OctoPrint к ioBroker
 
-** Протестировано с [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.7.2 **
+**Протестировано с [Октопринт](https://github.com/OctoPrint/OctoPrint/releases) 1.7.2**
 
 ## Установка
-Используйте «список адаптеров» в ioBroker, чтобы установить стабильную версию этого адаптера. Вы также можете использовать интерфейс командной строки для установки этого адаптера:
+Пожалуйста, используйте «список адаптеров» в ioBroker, чтобы установить стабильную версию этого адаптера. Вы также можете использовать CLI для установки этого адаптера:
 
 ```
 iobroker add octoprint
@@ -33,7 +33,7 @@ iobroker add octoprint
 ### Информация
 - Получить информацию о версии
 - Получить информацию о принтере
-- Получить информацию о текущем задании печати
+- Получить текущую информацию о задании на печать
 - Получить информацию о списке файлов
 
 ### Инструменты
@@ -42,8 +42,8 @@ iobroker add octoprint
 - Выдавливание / втягивание
 
 ### Команды
-- Принтер: подключите, отключите и вернитесь домой
-- Задание: запуск, пауза, возобновление, отмена, перезапуск
+- Принтер: подключить, отключить и домой
+- Работа: запуск, пауза, возобновление, отмена, перезапуск
 - SD-карта: инициализация, обновление, выпуск
 - Пользовательские команды принтера
 - Системные команды
@@ -51,10 +51,11 @@ iobroker add octoprint
 - Выберите файл или распечатайте его
 
 ### Поддерживаемые плагины
-- [Display Layer Progress] (https://github.com/OllisGit/OctoPrint-DisplayLayerProgress) - протестировано с версией 1.27.2
+- [Отображение хода выполнения слоя] (https://github.com/OllisGit/OctoPrint-DisplayLayerProgress) - протестировано с версией 1.27.2 (требуется **адаптер версии 2.1.0** или новее)
+- [Slicer Thumbnails] (https://github.com/jneilliii/OctoPrint-PrusaSlicerThumbnails) - протестировано с версией 1.0.0 (требуется **адаптер версии 2.2.0** или выше)
 
 ## Важный!
-НЕ перезапускайте экземпляр OctoPrint (или любой другой экземпляр) с таким кодом:
+НЕ перезапускайте свой экземпляр OctoPrint (или любой другой экземпляр) с помощью такого кода:
 
 ```javascript
 var obj = getObject('system.adapter.octoprint.0');
@@ -62,12 +63,12 @@ obj.common.enabled = false;
 setObject('system.adapter.octoprint.0', obj);
 ```
 
-Поскольку `API key` является защищенным атрибутом, начиная с версии 1.1.0, это приведет к удалению настроенного ключа API. Причина в том, что `getObject` не возвращает защищенную информацию (поэтому ключ api не включается в возвращаемый объект). При сохранении объекта вы сохраните объект без ключа.
+Поскольку `API key` является защищенным атрибутом, начиная с версии 1.1.0, настроенный ключ API будет удален. Причина в том, что `getObject` не возвращает защищенную информацию (поэтому ключ API не включается в возвращаемый объект). Когда вы сохраняете объект, вы сохраняете объект без ключа.
 
-Пожалуйста, используйте состояние `system.adapter.octoprint.0.alive`, чтобы остановить / запустить экземпляр.
+Используйте состояние `system.adapter.octoprint.0.alive`, чтобы остановить или запустить экземпляр.
 
 ## Часовой
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Changelog
 
@@ -75,8 +76,21 @@ setObject('system.adapter.octoprint.0', obj);
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.2.0 (2022-01-15)
 
-### **WORK IN PROGRESS**
+* (klein0r) Added plugin support: Slicer Thumbnails
+
+### 2.1.1 (2022-01-14)
+
+* (klein0r) Added: Request timeout in seconds
+* (klein0r) Logging improvements
+
+### 2.1.0 (2021-12-28)
+
+* (klein0r) Added HTTPS option
+* (klein0r) Fixed Display Layer Progress integration
+
+### 2.0.7 (2021-12-23)
 
 * (klein0r) Added plugin support: Display Layer Progress
 
@@ -196,7 +210,7 @@ setObject('system.adapter.octoprint.0', obj);
 
 The MIT License (MIT)
 
-Copyright (c) 2021 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

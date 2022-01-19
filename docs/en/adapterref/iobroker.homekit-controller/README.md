@@ -63,9 +63,31 @@ Because of the limitations of Bluetooth devices no "real-time updates" of state 
 
 After a restart of the adapter bluetooth devices can not be connected directly - the system needs to receive at least one discovery package from the device to get the needed connection details. This mean BLE devices might be available a bit delayed.
 
+### Troubleshooting
+
+Pairing mModus bringen
+PIN mit bindestrichen eingeben
+
+BLE:
+iobroker fix
+
+https://github.com/noble/noble#running-on-linux
+
+    Adapterinstanz stoppen im Admin
+    mach eine Shell auf auf den rechner
+    DEBUG=hap* node /opt/iobroker/node_modules/iobroker.homekit-controller/build/main.js 0 --debug --logs
+    Dann im Admin in de Adapter Konfig gehen (adapter nicht dort nochmal starten ... der läuft schon auf der Kommendozeile) und einmal pairen und warten bis wieder fehler kommt und so
+    Dann Log von der Shell bitte posten. Da sollte mehr drin sein. gern als File hier anhängen
+    Zusätzlich bitte im Admin unter Objekte mal das Device Objekt siuchen von dem Gerät und da rechts auf den Stift klicken und auch das JSON posten was da angezeigt wird unter "Raw" oder so
+
+pair-setup characteristic not found
+
+
+https://forum.iobroker.net/post/726590
+
+
 ### Resources and Links
 * Resource that tries to decode Elgato special states: https://gist.github.com/simont77/3f4d4330fa55b83f8ca96388d9004e7d
-* 
 
 ### TODO
 * check how the adapter works with buttons (they do not have a state, and I do not own such a device. need support for this)
@@ -78,6 +100,8 @@ After a restart of the adapter bluetooth devices can not be connected directly -
 ### __WORK IN PROGRESS__
 * (Apollon77) Only use one queue for all BLE devices
 * (Apollon77) Store pairing data directly after pair
+* (Apollon77) Optimize handing concurrent requests
+* (Apollon77) Optimize value update handling and better detect stale data to force an update on next polling
 
 ### 0.3.3 (2021-10-26)
 * (bluefox) Fix the Discovery checkboxes

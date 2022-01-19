@@ -29,7 +29,7 @@ Die neuen Datenpunkte (besonders die Gruppen) könnten super mit valuetrackerove
 
 ## Instance Settings
 
-<img src="admin/InstanceSettings.PNG" />
+![InstanceSettings](admin/InstanceSettings.PNG)
 
 hier kan der Default-Name für das Power und Energy_Total definiert werden.
 
@@ -38,7 +38,7 @@ Die Einstellung default setting: Datapoint Destination bestimmt die default Eins
 
 
 ## Custom Settings 
-<img src="admin/DatapointSample.PNG" />
+![Example](admin/DatapointSample.PNG)
 Die aktivierung eines Custom-Settings aktiviert 2 Datenpunkte. Power -> Watt, Energy(_Total) -> Wh
 Der Speicherort setzt sich aus dem Datapoint Destination + Datapointname zusammen.
 
@@ -54,55 +54,81 @@ Beispiel:
 
 
 Beispiel mit valuetrackerovertime:
-<img src="MeinBeispiel2.jpg" />
+![Example](MeinBeispiel2.jpg)
 
-
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
 ## Changelog
+### 1.4.3 (2021-05-27)
+* (bluefox) added support for admin5
+
 ### 1.4.1 (2021-02-13)
 * (Omega236) on unit '%' interpret common.max as 100 if common.max not set
+
 ### 1.4.0 (2021-02-12)
 * (Omega236) adding OptionalSwitch for Dimmer with On/Off State
+
 ### 1.3.2 (2021-01-27)
 * (Omega236) group total is now its own counter
 * (Omega236) improved precision
+
 ### 1.3.1 (2021-01-25)
 * (Omega236) reduce initializations and optimize group handling
+
 ### 1.3.0 (2021-01-15)
 * (scrounger) default ids for power and energie configurable through adapter settings
 * (scrounger) custom: autocomplete for group input added
 * (scrounger) option added -> group energy values can only increase 
 * (Omega236) Check duplicate Destination DP
 * (Omega236) allows to Set Destination of DP
+
 ### 1.2.2 (2020-12-26
 * (Omega236) Group Calculations only after InitialFinished
+
 ### 1.2.1 (2020-04-15)
 * (Omega236) translation
+
 ### 1.2.0 (2020-04-15)
 * (Omega236) js-controller 3.x support
+
 ### 1.1.1 (2020-04-07)
 * (Omega236) bugfix translation
+
 ### 1.1.0 (2020-04-05)
 * (Omega236) inverted added
+
 ### 1.0.1
 * (Omega236) SecurityUpdates
+
 ### 1.0.0
 * (Omega236) Final Release
+
 ### 0.2.8
 * (Omega236) Bug found on travis unsubscribeStatesAsync
+
 ### 0.2.6
 * (Omega236) texts adapted
+
 ### 0.2.5
 * (Omega236) awaits missing
+
 ### 0.2.4
 * (Omega236) var remove and SettingPage Info and dic in class and .bind(this) (Template 1.10)
+
 ### 0.2.3
 * (Omega236) CodeOptimierung nach eslint
+
 ### 0.2.1
 * (Omega236) CodeOptimierung und bild
+
 ### 0.2.0
 * (Omega236) Alle Funktionen implementiert, code noch nicht überprüft/optimiert/getestet
+
 ### 0.1.0
 * (Omega236) Erste Version mit Grundfunktionalität
+
 ### 0.0.1
 * (Omega236) initial release
 

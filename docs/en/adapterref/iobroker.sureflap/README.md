@@ -115,6 +115,9 @@ The picture of the cat flap, hub and smartphone app is provided free to use from
 
 ## Changelog
 
+### 1.1.0 (2022-01-17)
+* (Sickboy78) bugfix and security updates
+
 ### 1.0.9 (2022-01-05)
 * (Sickboy78) removed old encrypt/decrypt from index_m
 * (Sickboy78) added adapter unloaded guard in case unload happens during data requests

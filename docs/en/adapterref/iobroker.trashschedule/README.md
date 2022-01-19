@@ -1,44 +1,210 @@
-![Logo](admin/trashschedule.png)
+---
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.trashschedule.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.trashschedule.svg
+BADGE-Stable: http://iobroker.live/badges/trashschedule-stable.svg
+BADGE-installed: http://iobroker.live/badges/trashschedule-installed.svg
+BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.trashschedule.svg
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.trashschedule/badge.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.trashschedule.png?downloads=true
+---
+![Logo](../../admin/trashschedule.png)
 
 # ioBroker.trashschedule
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.trashschedule.svg)](https://www.npmjs.com/package/iobroker.trashschedule)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.trashschedule.svg)](https://www.npmjs.com/package/iobroker.trashschedule)
-[![Stable](http://iobroker.live/badges/trashschedule-stable.svg)](http://iobroker.live/badges/trashschedule-stable.svg)
-[![installed](http://iobroker.live/badges/trashschedule-installed.svg)](http://iobroker.live/badges/trashschedule-installed.svg)
-[![Dependency Status](https://img.shields.io/david/klein0r/iobroker.trashschedule.svg)](https://david-dm.org/klein0r/iobroker.trashschedule)
-[![Known Vulnerabilities](https://snyk.io/test/github/klein0r/ioBroker.trashschedule/badge.svg)](https://snyk.io/test/github/klein0r/ioBroker.trashschedule)
-![Test and Release](https://github.com/klein0r/ioBroker.trashschedule/workflows/Test%20and%20Release/badge.svg)
+## Preconditions
 
-[![NPM](https://nodei.co/npm/iobroker.trashschedule.png?downloads=true)](https://nodei.co/npm/iobroker.trashschedule/)
+1. Create a new instance of the **ical adapter**
+2. Configure url of your calendar (e.g. google calendar)
+3. Set "Preview days" to a range which includes every trash type at least twice (e.g. 30 days)
+4. If you use the "events" tab, ensure to enable the "display" checkbox for each event type which should also be used in your trash schedule (otherwise the event will be hidden by the ical instance)
 
-Scans an ical calendar to calculate the days left until next trash pickup
+![ical](./ical.png)
 
-## Sponsored by
+## Configuration
 
-[![ioBroker Master Kurs](https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-trashschedule)
+1. Create a ```trashschedule``` instance and choose the ical instance as source
+2. Go to the trash types tab and add as many types as you have trash types
+3. Define a name for each new trash type and configure the matching events
+4. Start the instance
 
-## Installation
+**Questions?** Check the [FAQ](./faq.md)
 
-Please use the "adapter list" in ioBroker to install a stable version of this adapter. You can also use the CLI to install this adapter:
+![trashschedule](./trashschedule.png)
 
+![trashschedule_types](./trashschedule_types.png)
+
+## VIS Widget
+
+![VIS widget](../vis.png)
+
+## Blockly example
+
+![Blockly example](../exampleBlockly.png)
+
+```xml
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="comment" id="@ObjS.SGnDWy?:*J=bee" x="37" y="188">
+    <field name="COMMENT">Um 18:00 Uhr am Vortag (verbleibende Tage = 1) erinnern, dass Abholung bevorsteht</field>
+    <next>
+      <block type="schedule" id=";J}3hpr7:d~*N?CrR==A">
+        <field name="SCHEDULE">0 18 * * *</field>
+        <statement name="STATEMENT">
+          <block type="controls_if" id="EjaN~}B1gMA9ySf2%9kr">
+            <value name="IF0">
+              <block type="logic_operation" id="+hQc|po$a[W}HKd]slrE" inline="false">
+                <field name="OP">AND</field>
+                <value name="A">
+                  <block type="get_value" id="Q;BN3$0J3q5$0sumfBYC">
+                    <field name="ATTR">val</field>
+                    <field name="OID">trashschedule.0.next.dateFound</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="logic_compare" id=")Z1Ml4oq9UCnquPo!giX">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="get_value" id="k@gpt[%7O[i`*b;SWlu4">
+                        <field name="ATTR">val</field>
+                        <field name="OID">trashschedule.0.next.daysLeft</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="([hVlm^PW0,gm`C/xp?a">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="pushover" id="vqjP6Z6|7M.^)lx4]GiG">
+                <field name="INSTANCE"></field>
+                <field name="SOUND">gamelan</field>
+                <field name="PRIORITY">0</field>
+                <field name="LOG"></field>
+                <value name="MESSAGE">
+                  <shadow type="text" id="yt8+Z!a;[|CJy`,K(B.3">
+                    <field name="TEXT">text</field>
+                  </shadow>
+                  <block type="text_join" id="pm:dwF91X!Oj82P^4Oz8">
+                    <mutation items="2"></mutation>
+                    <value name="ADD0">
+                      <block type="text" id="%|}mW_iCoyweL$jy9wHq">
+                        <field name="TEXT">Morgen wird der Müll abgeholt: </field>
+                      </block>
+                    </value>
+                    <value name="ADD1">
+                      <block type="get_value" id="~TDqVlE(:gEW7snO2_]s">
+                        <field name="ATTR">val</field>
+                        <field name="OID">trashschedule.0.next.typesText</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="TITLE">
+                  <block type="text" id="t*+0*zY(|S3fI3WBX[2g">
+                    <field name="TEXT">Müllabfuhr</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </statement>
+        <next>
+          <block type="comment" id="~rf)Dy*vQ]9g?yVIWVsP">
+            <field name="COMMENT">Um 07:00 Uhr am Abholtag (verbleibende Tage = 0) erinnern, dass Abholung bevorsteht</field>
+            <next>
+              <block type="schedule" id="O%4=ke4-(?vnjhtIDnt3">
+                <field name="SCHEDULE">0 7 * * *</field>
+                <statement name="STATEMENT">
+                  <block type="controls_if" id="kyfB;W(WcA(/-ZWG2j6(">
+                    <value name="IF0">
+                      <block type="logic_operation" id=".wZBS3T):whb7WB!a-c_" inline="false">
+                        <field name="OP">AND</field>
+                        <value name="A">
+                          <block type="get_value" id=",jhL[do$G_Q6TNBH,D]o">
+                            <field name="ATTR">val</field>
+                            <field name="OID">trashschedule.0.next.dateFound</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="logic_compare" id="Rlwt:Jv/rTfO.E:ZmYak">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="get_value" id="WdL)rds~)z*-)1k),cX(">
+                                <field name="ATTR">val</field>
+                                <field name="OID">trashschedule.0.next.daysLeft</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="w%5y6PluO}wjq]lDY+Gd">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="pushover" id="L,TLF/L9|B6bF4)|gj?F">
+                        <field name="INSTANCE"></field>
+                        <field name="SOUND">gamelan</field>
+                        <field name="PRIORITY">0</field>
+                        <field name="LOG"></field>
+                        <value name="MESSAGE">
+                          <shadow type="text">
+                            <field name="TEXT">text</field>
+                          </shadow>
+                          <block type="text_join" id="Cw#u;:L537u`7Dz2:Kll">
+                            <mutation items="2"></mutation>
+                            <value name="ADD0">
+                              <block type="text" id=".zD)ZQXz7Esr0%?Z1Y(|">
+                                <field name="TEXT">Heute wird der Müll abgeholt: </field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="get_value" id="9m]6=cBQH_B(%ZOH*j-4">
+                                <field name="ATTR">val</field>
+                                <field name="OID">trashschedule.0.next.typesText</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="TITLE">
+                          <block type="text" id="ki`]5O+.IzI%2Gfw5VT-">
+                            <field name="TEXT">Müllabfuhr</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
 ```
-iobroker add trashschedule
-```
 
-## Documentation
+## Offset configuration
 
-[🇺🇸 Documentation](./docs/en/basics.md)
+The offset can move all pickup events in your calendar to the future or to the past.
 
-[🇩🇪 Dokumentation](./docs/de/basics.md)
+## Default: 0
 
-## Credits
+![Offset example](../offsetExample.jpg)
 
-- SVG: https://pixabay.com/de/vectors/behälter-kann-deckel-offen-grün-310937/
+## Example: 1
 
-## Sentry
+![Offset example](../offsetExample1.jpg)
 
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+## Example: -1
+
+![Offset example](../offsetExample2.jpg)
 
 ## Changelog
 
@@ -190,7 +356,7 @@ iobroker add trashschedule
 
 MIT License
 
-Copyright (c) 2021 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: HfFA7Bf43Ip6gXwsnRl+9VS/3SO+/wiuI0pz0TFGhwY=
+hash: rm79DnWiRATsNXZxQWrvVDq6/txbsmTRZ/N49dnPGgI=
 ---
 ![标识](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -16,61 +16,6 @@ hash: HfFA7Bf43Ip6gXwsnRl+9VS/3SO+/wiuI0pz0TFGhwY=
 # IoBroker.openknx
 **测试：** ![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.openknx/workflows/Test%20and%20Release/badge.svg)
 
-# 德语
-Dieser 适配器作为 Kommunikationsschnittstelle zwischen ioBroker und einem KNX IP Gateway。
-Der Adapter ermöglicht die automatische Generierung der ioBroker Datenobjekte durch den Import eines ETS-Gruppenadressen-XML-Exports。
-Allegenerierten Kommunikationsobjekte sind zunächst lesbar und schreibbar konfiguriert, Werte werden beim Neustart des Adapters vom knx-Bus geholt。
-
-＃ 安装
-Der Adapter ist im latest/beta Repository verfügbar。 Wenn 死在 den ioBroker Systemeinstellung ausgewählt ist kann der Adapter in der Adapterliste unter "openknx" gesucht und installiert werden。 Eine Alternative ist im Expertenmodus das installieren über das Github Symbol möglich in dem man "von Github" auswählt und nach openknx sucht。
-
-# 适配器配置
-在 den Instanzeinstellung muss mindestens die Gateway IP eingetragen werden。 Dann kann man ein ETS-Export XML Datei importiert werden。 Die XML kann über ETS dem Fenster Gruppenadressen mit Rechtsklick auf den oberen Ebene der Gruppenadresse exportiert werden。 GA die keinem DPT zugeordnet sind werden nicht importiert。 Es handelt sich dabei um GA die keinem Kommunikationsobjekt in ETS zugeordnet sind.
-
-# Nutzung
-ioBroker Datenpunkte können einfach mit ACK false/Nicht Bestätigt gesetzt werden。 Komplexe Datenpunkt müssen im korrekt format wie zb: {"priority":0,"data":1} gesetzt werden
-
-# Fragen 和讨论
-https://forum.iobroker.net/topic/50352/test-adapter-openknx-0-1-x
-
-# 适配器迁移
-## 节点红迁移
-- Wählen Sie im Menü auf der rechten Seite Exportieren
-- Alle Flows auswählen, herunterladen
-- im Texteditor knx.0 ersetzen mit openknx.0
-- Menü auf der rechten Seite，进口 auswählen
-- Geänderte Datei auswählen
-- im Dialog Flows auswählen (Subflows, Configuration-Nodes nur wenn sie betroffen sind) -> neue Tabs werden hinzugefügt
-- alte Flows manuell löschen
-
-## VIS 移民
-- 视觉编辑 öffnen
-- 设置 -> Projekt-Export/Import -> Normal exportieren
-- Entpacken der Zip-Datei und vis-views.json 在 einem Editor öffnen
-- 苏切 Ersetzen knx.0 mit openknx.0
-- Komprimieren Sie vis-views.json und vis-user.css in einer Zip-Datei
-- 设置 -> Projekt 导出/导入 -> 导入
-- Drop-Bereich verschieben 中的 Zip-Datei
-- 项目名称 = 主要
-- 项目进口商
-
-## Skripte migrieren
-- Skripte öffnen
-- 3 Punkte -> Alle Skripte exportieren
-- Zip-Datei öffnen und den Ordner 在 einem Editor öffnen
-- 苏切 knx.0 durch openknx.0 ersetzen
-- alle geänderten Dateien in eine Zip-Datei komprimieren
-- 3 Punkte -> Skripte importieren
-- Drop-Bereich verschieben 中的 Zip-Datei
-
-## Grafana migrieren
-- Alle Dashboards durchgehen und Share/Teilen -> Exportieren -> 在 Datei speichern
-- 我是文本编辑器 knx.0 ersetzen。 MIT openknx.0
-- Um ein Dashboard zu importieren, klicken Sie im Seitenmenü auf das Symbol + und dann auf Importieren。
-- Von hier aus können Sie eine Dashboard-JSON-Datei hochladen
-- Wählen Sie Importieren (Überschreiben)
-
-＃ 英语
 该适配器用作 Iobroker 和您的 KNX IP 网关之间的通信接口。
 适配器允许通过导入 ETS 组地址 xml 导出来自动生成 iobroker 通信对象。
 所有生成的通信对象最初都配置为可读和可写，在适配器重新启动时从 knx 总线获取值。
@@ -85,17 +30,29 @@ https://forum.iobroker.net/topic/50352/test-adapter-openknx-0-1-x
 自动读取是在适配器启动或重新启动后与 knx 总线的第一次连接时完成的，而不是在每次 knx 重新连接时完成的。
 适配器安装后，打开适配器配置。填写：
 
-### KNX 网关 IP 您的 KNX IP 网关的 IP。
+### KNX 网关 IP
+KNX IP 网关的 IP。
+
 ＃＃＃ 港口
 这通常是 KNX IP 网关的端口 3671。
 
-###物理。 EIB 地址
+###物理。 KNX 地址
 以 1/1/1 格式填写 KNX IP 网关的物理地址。
+如果需要，可以手动转换两级组地址。
+
+### 本地 IPv4 网络接口
+连接到 KNX IP 网关的接口。
+
+＃＃＃ 探测
+通过标准化协议搜索给定网络接口上所有可用的 KNX IP 网关。
+
+### 帧延迟 [ms]
+此设置通过将数据帧限制为特定速率来保护 KNX 总线免受数据泛滥。未发送的帧被放入 fifo 缓冲区。如果您在日志中遇到与 KNX IP 网关断开连接的情况，请增加此数字。
 
 ### 仅添加新对象
 如果选中，导入将跳过覆盖现有通信对象。
 
-### GA XML 导入
+### 从 ETS 导入 XML
 ![ETS 出口](../../../en/adapterref/iobroker.openknx/docs/pictures/exportGA.png)
 
 1. 在 ETS 中的 Group Addresses 中，选择 export group address 并选择 XML export in latest format version。
@@ -105,19 +62,31 @@ https://forum.iobroker.net/topic/50352/test-adapter-openknx-0-1-x
 2. 通过 GA XML-Import 对话框将您的 ETS Export XML 上传到适配器中
 3.文件选择后立即开始导入，完成后给出状态报告。
 
-成功导入后，一条消息会显示识别出的对象数量。更详细的信息可以在日志中找到。
+成功导入后，一条消息会显示识别出的对象数量。
+错误对话框将在导入过程中发现问题，并提示如何清理 ets 数据库。
+可以在日志中找到其他信息。
 
-ETS 配置提示：如果 GA 和使用此 GA 的通信对象中有不同的 DPT 子类型，则 ETS 似乎使用编号最小的 DPT 类型。在这种情况下，手动确保所有元素都使用相同的所需数据类型。
+ETS 配置提示：如果 GA 和使用此 GA 的通信对象中有不同的 DPT 子类型，则 ETS 似乎使用编号最小的 DPT 类型。
+在这种情况下，手动确保所有元素都使用相同的所需数据类型。
 没有 DPT 基本类型的 GA 无法使用此适配器导入。 ETS4 项目必须转换为 ETS5 或更高版本，并且 DPT 必须设置为 GA。
-
-### 帧延迟 [ms]
-此设置通过将数据帧限制为特定速率来保护 KNX 总线免受数据泛滥。未发送的帧被放入 fifo 缓冲区。如果您遇到与 KNX IP 网关断开连接的情况，请增加此数字。
 
 ### 别名
 KNX 设备可以具有属于命令 ga 的状态反馈的 ga。某些应用程序（例如某些 VIS 小部件）需要组合状态和驱动对象。您可以将这些状态组合成一个别名，方法是使用一个单独的别名 id 写入，另一个别名 id 读取。该菜单有助于根据命名约定和给定的过滤规则创建匹配对。
 在此处查找更多信息 https://www.iobroker.net/#en/documentation/dev/aliases.md
 
-# 适配器迁移
+### 正则表达式
+过滤规则。
+
+### 最小相似度
+定义匹配算法过滤相似条目的严格程度。
+
+### 别名路径
+生成别名的对象文件夹。
+
+### 在搜索中包含组范围
+包括路径在内的整个名称用于检查相似性。
+
+# 适配器迁移提示
 ## 迁移节点红色
 - 在右侧菜单中，选择导出
 - 选择所有流程，下载
@@ -161,7 +130,7 @@ KNX 堆栈在收到组地址时设置链接的 ioBroker 对象的确认标志。
 KNX 上发送的帧不会导致写入对象的确认。
 
 ### Node Red 复杂数据类型示例
-创建连接到 ioBroker out 节点的函数节点，该节点与 DPT2 的 KNX 对象连接。
+创建一个连接到 ioBroker out 节点的函数节点，该节点与 DPT2 的 KNX 对象连接。
 msg.payload = {“优先级”：1，“数据”：0}；返回味精；
 
 # 日志级别
@@ -185,7 +154,11 @@ Handeled DPTs 是： 1-21,232,237,238 Unhandeled DPTs 被写为原始缓冲区�
 ### API 调用
 ioBroker 将状态定义为通信接口。
 
-setState( id: string, // 对象路径 state: State | StateValue | SettableState, ack: false, //必须按照约定设置为 false c: 'GroupValue_Read' //可选注释，设置此值以触发总线读取对于这个对象，给定的 StateValue 被忽略 ): void;
+setState( id: string, //对象路径状态：State | StateValue | SettableState, //将此设置为合理的值，以在 GroupValue_Read 命令的情况下省略警告 ack: false, //按照约定必须为 false c: 'GroupValue_Read ' //可选注释，设置此值以触发对该对象的总线读取，给定 StateValue 被忽略 ): void;
+
+示例：setState(myState, {val: false, ack: false, c:'GroupValue_Read'});设置状态（我的状态，空）；
+
+GroupValue_Read 注释不适用于 javascript 适配器。请改用空值。
 
 ### 所有 DPT 的描述
 | KNX DPT | javascript 数据类型 |特殊价值 |取值范围 |备注 |
@@ -241,27 +214,26 @@ DPT10 是时间 (hh:mm:ss) 加上“星期几”。此概念在 JS 中不可用�
 接收，如果配置将触发实际c.o的组值响应（限制：此时组值写入）。值，见下文。
 
 ### 组值响应
-如果 answer_groupValueResponse 设置为 true，则适配器将以 GroupValue_response 回复先前收到的 GroupValue_read 请求。
+如果 answer_groupValueResponse 设置为 true，则适配器将以 GroupValue_Response 回复先前收到的 GroupValue_Read 请求。
+这是 KNX 读取标志。只有总线上的一个 KO 或 IOBroker 对象应该设置此标志，理想情况下是最了解状态的那个。
 
 ### 映射到 KNX 标志
 KNX 对象标志定义了它们所代表的对象的总线行为。
 定义了 6 个不同的对象标志。
 
 |旗帜 |国旗 |适配器使用 ||
-| ------------------------- | ------------------------ | ------------------------------------------------- | --------------------------------------------- |
+| ------------------------- | ------------------------ | ------------------------------------------------- | ---------------------------------------------- |
 |C: 通讯标志 | K：通讯标志 |总是设置 ||
 |R：读取标志 | L: Les-Flag |对象 native.answer_groupValueResponse ||
 |T：传输标志 | Ü: Übertragen 标志 |对象 common.write ||
 |W：写标志 | S: Schreiben-Flag |对象 common.read |总线可以修改对象|
-|U：更新标志 | A: Aktualisieren-Flag |对象 common.read |在传入的 GroupValueResponses 上更新对象 |
+|U：更新标志 | A: Aktualisieren-Flag |对象 common.read |在传入的 GroupValue_Responses 上更新对象 |
 |I：初始化标志 | I: Initialisierungs-Flag |对象 native.autoread | |
-
-L-Flag：Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert (Lesbar)。 Nur ein KO je GA sollte das gesetzt haben, Idealerweise derjenige, der den echten Zustan am besten kennt, üblicherweise der Aktor！
 
 ＃ 特征
 * 稳定可靠的knx堆栈
 * 对最重要的 DPT 的 KNX 数据报进行自动编码/解码，对其他 DPT 进行原始读写
-* 支持KNX组值读取和组值写入和组值响应
+* 支持KNX组值读取、组值写入和组值响应
 * 免费开源
 * 不依赖云服务，无需互联网访问即可运行
 * 开始时自动读取
@@ -272,11 +244,18 @@ L-Flag：Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert
 - 没有任何
 
 # 限制
-- 仅支持三级组地址
 - 不支持 ETS 4 导出文件格式
 - 不支持 KNX 安全
+- 仅支持 IPv4
 
 ## Changelog
+### 0.1.15 ()
+ * feature: more sanity checks for gui
+ * feature: issue #84, add openknx to discovery adapter
+ * feature: issue #82, warnings on import of duplicate ga addresses, also check iob object for duplicates
+ * fix: issue #87, added null value to trigger GroupValue_Read, comments are overwritten in javascript adapter
+ * fix: remove unused reference to sentry
+ 
 ### 0.1.14 (2022-01-08)
 * feature: autodetect the KNX IP interface parameters
 * feature: create warning if DPT of alias pair does not match
@@ -295,7 +274,6 @@ L-Flag：Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert
 * fix: library did not allow to write possible 0 values to certain dpts
 * fix: admin dialog ui fixes, better presentation of some warnings
 
-
 ### 0.1.11 (2021-12-28)
 * feature: remove more scene DPTs from default autoread
 * feature: sends GroupValue_Response on GroupValue_Read if configured
@@ -305,7 +283,7 @@ L-Flag：Objekt antwortet auf GroupValueRead mit GroupValueResponse mit dem Wert
 * feature: show logs of knx library
 * fix: filter out logs with device address bus interactions
 * fix: filter ga names that are forbidden in IOB
-* fix: reply with groupvalueresponse on request, not with groupvaluewrite
+* fix: reply with GroupValue_Response on request, not with GroupValue_Write
 * fix: remove more scene dpts from autoread
 
 ### 0.1.10 (2021-12-24)

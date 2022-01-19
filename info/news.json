@@ -1202,6 +1202,39 @@
     },
     {
         "title": {
+            "en": "The Squeezebox adapter will be discontinued and will be replaced.",
+            "de": "Der Squeezebox Adapter wird nicht weiterentwickelt und ersetzt.",
+            "ru": "Адаптер Squeezebox будет снят с производства и будет заменен.",
+            "pt": "O adaptador Squeezebox será descontinuado e substituído.",
+            "nl": "De Squeezebox-adapter wordt stopgezet en vervangen.",
+            "fr": "L'adaptateur Squeezebox sera abandonné et remplacé.",
+            "it": "L'adattatore Squeezebox verrà interrotto e verrà sostituito.",
+            "es": "El adaptador Squeezebox se descontinuará y será reemplazado.",
+            "pl": "Adapter Squeezebox zostanie wycofany z produkcji i zostanie wymieniony.",
+            "zh-cn": "Squeezebox 适配器将停产并更换。"
+        },
+        "content": {
+            "en": "The squeezebox adapter will not be further developed, please switch to the better successor SqueezeboxRPC.",
+            "de": "Der Squeezebox-Adapter wird nicht weiterentwickelt, bitte wechseln Sie auf den besseren Nachfolger SqueezeboxRPC.",
+            "ru": "Адаптер squeezebox не будет дорабатываться, пожалуйста, перейдите на более совершенный SqueezeboxRPC.",
+            "pt": "O adaptador da squeezebox não será mais desenvolvido, mude para o melhor sucessor SqueezeboxRPC.",
+            "nl": "De squeezebox adapter zal niet verder ontwikkeld worden, gelieve over te stappen naar de betere opvolger SqueezeboxRPC.",
+            "fr": "L'adaptateur squeezebox ne sera pas développé davantage, veuillez passer au meilleur successeur SqueezeboxRPC.",
+            "it": "L'adattatore squeezebox non sarà ulteriormente sviluppato, passare al successore migliore SqueezeboxRPC.",
+            "es": "El adaptador Squeezebox no se desarrollará más, cambie al mejor sucesor SqueezeboxRPC.",
+            "pl": "Adapter squeezebox nie będzie dalej rozwijany, proszę przejść na lepszego następcę SqueezeboxRPC.",
+            "zh-cn": "不会进一步开发squeezebox适配器，请切换到更好的后继者SqueezeboxRPC。"
+        },
+        "id": "squeezebox",
+        "class": "warning",
+        "fa-icon": "exclamation-circle",
+        "created": "2022-01-06T13:00:00.000Z",
+        "conditions": {
+            "squeezebox": "installed"
+        }
+    },
+    {
+        "title": {
             "en": "Cloud / Vis offline Christmas offer 2021",
             "de": "Cloud / Vis Offline Weihnachtsangebot 2021",
             "ru": "Новогоднее предложение Cloud / Vis offline 2021",
@@ -1230,6 +1263,39 @@
         "fa-icon": "usb",
         "created": "2021-12-08T11:00:00.000Z",
         "date-end": "2022-01-10T00:00:00.000Z"
+    },
+    {
+        "title": {
+            "en": "The iogo adapter has been retired",
+            "de": "Der iogo-Adapter wurde eingestellt",
+            "ru": "Адаптер iogo удален",
+            "pt": "O adaptador iogo foi retirado",
+            "nl": "De iogo-adapter is met pensioen",
+            "fr": "L'adaptateur iogo a été retiré",
+            "it": "L'adattatore iogo è stato ritirato",
+            "es": "El adaptador iogo se ha retirado",
+            "pl": "Adapter iogo został wycofany",
+            "zh-cn": "iogo 适配器已停用"
+        },
+        "content": {
+            "en": "The iogo adapter will not be further developed, please switch to the successor iogopro.",
+            "de": "Der iogo Adapter wird nicht weiterentwickelt, bitte wechseln Sie auf den Nachfolger iogopro.",
+            "ru": "Адаптер iogo не будет развиваться, перейдите на преемника iogopro.",
+            "pt": "O adaptador iogo não será mais desenvolvido, mude para o sucessor iogopro.",
+            "nl": "De iogo adapter zal niet verder ontwikkeld worden, gelieve over te stappen naar de opvolger iogopro.",
+            "fr": "L'adaptateur iogo ne sera pas développé davantage, veuillez passer au successeur iogopro.",
+            "it": "L'adattatore iogo non sarà ulteriormente sviluppato, passare al successivo iogopro.",
+            "es": "El adaptador iogo no se desarrollará más, cambie al sucesor iogopro.",
+            "pl": "Adapter iogo nie będzie dalej rozwijany, przejdź na następcę iogopro.",
+            "zh-cn": "iogo适配器不会再开发了，请切换到后续iogopro。"
+        },
+        "id": "iogo-deleted",
+        "class": "warning",
+        "fa-icon": "exclamation-circle",
+        "created": "2021-01-03T19:00:00.000Z",
+        "conditions": {
+            "iogo": "installed"
+        }
     },
     {
         "title": {

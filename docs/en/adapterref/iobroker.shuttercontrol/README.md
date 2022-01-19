@@ -48,6 +48,12 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 1.4.10 (2022-01-16)
+* (simatec) Bugfix xmas time
+* (simatec) Bugfix Shutter delay
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+
 ### 1.4.9 (2021-12-29)
 * (simatec) error handling for trigger added
 * (simatec) Bugfix Trigger delay
@@ -449,7 +455,7 @@ When the adapter crashes or an other Code error happens, this error message that
 ## License
 MIT License
 
-Copyright (c) 2019 - 2021 simatec
+Copyright (c) 2019 - 2022 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

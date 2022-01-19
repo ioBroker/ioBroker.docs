@@ -1,55 +1,102 @@
 ---
+BADGE-Number of Installations: http://iobroker.live/badges/tankerkoenig-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.tankerkoenig.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.tankerkoenig.svg
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/Pix---/ioBroker.tankerkoenig/badge.svg?targetFile=package.json
+BADGE-NPM: https://nodei.co/npm/iobroker.tankerkoenig.png?downloads=true
+BADGE-Travis-CI: http://img.shields.io/travis/Pix---/ioBroker.tankerkoenig/master.svg
+BADGE-AppVeyor: https://ci.appveyor.com/api/projects/status/github/Pix---/ioBroker.tankerkoenig?branch=master&svg=true
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tankerkoenig/README.md
 title: ioBroker.tankerkoenig
-hash: l1TQlwQoNOKwk2KsVf4XMAo+oV/acLWxlkcMxmh3z+s=
+hash: prGhaNtsE2EchhnmVj2lhDlALqJtEe8yqbEtmyg/jjU=
 ---
-![标识](../../../en/adapterref/iobroker.tankerkoenig/admin/tankerkoenig.png)
+![标识](../../../en/adapterref/iobroker.tankerkoenig/../../admin/tankerkoenig.png)
 
-![安装数量](http://iobroker.live/badges/tankerkoenig-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.tankerkoenig.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.tankerkoenig.svg)
-![已知漏洞](https://snyk.io/test/github/Pix---/ioBroker.tankerkoenig/badge.svg?targetFile=package.json)
 ![新PM](https://nodei.co/npm/iobroker.tankerkoenig.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/Pix---/ioBroker.tankerkoenig/master.svg)
 ![应用程序](https://ci.appveyor.com/api/projects/status/github/Pix---/ioBroker.tankerkoenig?branch=master&svg=true)
 
 # IoBroker.tankerkoenig
-**测试：**
+＃＃ 描述
+此适配器通过 Web 服务[tankerkoenig.de](https://creativecommons.tankerkoenig.de/#about)。所有数据都存储在要使用和显示的对象中 [ioBroker.vis](https://github.com/ioBroker/ioBroker.vis) 的 JSON 提要返回多达 10 个不同站点的燃料价格。
+与 list.php 和 detail.php (bulk) 相比，适配器使用的网站 prices.php 减少了更新时要传输的数据量。适配器为销售最便宜的 E5、E10 和柴油的加油站创建数据点。
 
-NodeJS v10 oder höher wird vorausgesetzt。
+＃＃ 配置
+### API 密钥
+API 密钥可在 [Tankerkönig 网站](https://creativecommons.tankerkoenig.de/#about) 处获取。这是一个 36 位的代码，必须在此字段中输入。
 
-## 文档
-:de: [文档](/docs/de/doc_tankerkoenig_de.md)
+### 站
+最多可以定义十个不同的站点。因此，可以在 tankerkoenig.de 上获得具体的站点 ID。它也有36位数字。必须在列表中输入此 ID。相应的名称是可选的。
+![替代文字](../../../en/adapterref/iobroker.tankerkoenig/img/tankerkoenigSettingsScreenshot.jpg "截图设置")
 
-:uk: [文档](/docs/en/doc_tankerkoenig_en.md)
+### 写空
+在断开连接的情况下，此选项可防止适配器存储旧值。它有助于生成更平滑的历史图表。
 
-:ru: [Документация](/docs/en/doc_tankerkoenig_en.md)
+### 最小化日志
+为了减少日志写入（例如在 SD 卡上），可以选择此选项。
 
-：葡萄牙：[文献展](/docs/en/doc_tankerkoenig_en.md)
+## 激活
+适配器作为守护程序运行（不是在计划模式下），并且每五分钟定期启动。 tankerkoenig.de 上的服务器仅每 4 分钟更新一次源源的数据，因此更频繁地查询数据是没有意义的，只会导致多余的数据流量和资源成本。可以随时设置更大的间隔。
 
-：荷兰：[文献资料](/docs/en/doc_tankerkoenig_en.md)
+＃＃  数据点
+十个站点中的每个站点都有一个用于每种燃料类型（E5、E10 和柴油）的通道，而且每个站点都有另外四个数据点。
 
-:fr: [文档](/docs/en/doc_tankerkoenig_en.md)
+* `feed`（三位小数的价格；类型编号）
+* `short`（两位小数的价格；输入字符串）
+* `3rd`（在 VIS 中第三个小数不能写为上标）
+* `combined`（准备使用带有上标第三位小数和信息的 HTML 格式价格，无论站点是否打开 [“关闭”/“未找到”] 都将显示在 VIS HTML 小部件中）
 
-:it: [文献杂志](/docs/en/doc_tankerkoenig_en.md)
+![替代文字](../../../en/adapterref/iobroker.tankerkoenig/img/tankerkoenigDP.jpg "数据点")
 
-:es: [文献](/docs/en/doc_tankerkoenig_en.md)
+存储了另外三个数据点
 
-：波兰：[多库门塔查](/docs/en/doc_tankerkoenig_en.md)
+* `status`（站打开/关闭）
+* `name`（用户给定的电台名称）
+* `station_id` （该站的Tankerkönig ID）
 
-:cn: [文档](/docs/en/doc_tankerkoenig_en.md)
+此外，还存储了每种 fule 类型的最便宜的电台
 
-## 路线图
-* 未输入间隔时无法保存设置
-* 状态 HTML 表
-* VIS JSON 表小部件的状态 JSON 表
-* 通过 CSS 类可选的价格趋势
-* 捕获并显示 tankerkoenig 速率限制 _error 503_
-* 应在适配器重新启动后创建每个站的数据点，而不仅仅是在安装后
-* 手动启动获取价格 [#53](https://github.com/Pix---/ioBroker.tankerkoenig/issues/53)
-* 包括折扣 [#50](https://github.com/Pix---/ioBroker.tankerkoenig/issues/50)
+*`最便宜的.E5`
+*`chepest.E10`
+*`最便宜的柴油`
+
+在这些频道中，存储了每种完整类型价格最低的电台。如果多个站点提供相同的最低价格，站点将按照配置中使用的顺序进行排序。
+
+创建了 181 个数据点。
+
+##可见
+数据点“组合”可以轻松显示在此 VIS 小部件中
+
+```
+[{"tpl":"tplHtml","data":{"visibility-cond":"==","visibility-val":1,"refreshInterval":"0","gestures-offsetX":0,"gestures-offsetY":0,"signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"html":"<span style=\"font-size: 80%; padding: 0 20px 0 5px;\">Diesel</span>{tankerkoenig.0.stations.0.diesel.combined}"},"style":{"left":"634px","top":"745px","z-index":"20","width":"228px","height":"36px","background-color":"","color":"rgba(225,225,225,1)","font-size":"30px","text-align":"center","background":"rgba(250,0,0,0.1)"},"widgetSet":"basic"}]
+```
+
+数据点 `combined` 的值提供了一个 css 类。这些类是`station_open`、`station_closed`和`station_notfound`。通过在 VIS 中的 CSS 编辑器中定义 CSS，现在可以实现区分设计（如封闭站的红色字体颜色）。
+
+```
+.station_open {
+    color: blue;
+}
+.station_closed {
+    color: red !important; /* !important kann ggf. weggelassen werden */
+}
+.station_notfound {
+    color: yellow !important; /* !important kann ggf. weggelassen werden */
+}
+
+/* € sign */
+.station_combined_euro {
+    font-family: Times;
+    font-size: 80%;
+}
+```
+
+## 紧凑模式
+此适配器已准备好用于 iobroker 的紧凑模式。
 
 ## Changelog
 ### 2.2.0 (2021-11-14)

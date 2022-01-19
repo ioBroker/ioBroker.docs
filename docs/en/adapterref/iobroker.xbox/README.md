@@ -1,3 +1,9 @@
+---
+BADGE-Number of Installations: http://iobroker.live/badges/xbox-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.xbox.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.xbox.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.xbox.png?downloads=true
+---
 ![Logo](admin/xbox.png)
 # ioBroker.xbox
 ===========================
@@ -325,7 +331,7 @@ In this section you can find a description of every state of the adapter.
 * media.view
 
    *View button for media content.*
-   
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):

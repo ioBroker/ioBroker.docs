@@ -52,7 +52,8 @@ iobroker add octoprint
 
 ### Supported Plugins
 
-- [Display Layer Progress](https://github.com/OllisGit/OctoPrint-DisplayLayerProgress) - tested with version 1.27.2
+- [Display Layer Progress](https://github.com/OllisGit/OctoPrint-DisplayLayerProgress) - tested with version 1.27.2 (requires **adapter version 2.1.0** or later)
+- [Slicer Thumbnails](https://github.com/jneilliii/OctoPrint-PrusaSlicerThumbnails) - tested with version 1.0.0 (requires **adapter version 2.2.0** or later)
 
 ## Important!
 
@@ -78,6 +79,15 @@ Please use state `system.adapter.octoprint.0.alive` to stop/start the instance.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.2.0 (2022-01-15)
+
+* (klein0r) Added plugin support: Slicer Thumbnails
+
+### 2.1.1 (2022-01-14)
+
+* (klein0r) Added: Request timeout in seconds
+* (klein0r) Logging improvements
+
 ### 2.1.0 (2021-12-28)
 
 * (klein0r) Added HTTPS option
@@ -203,7 +213,7 @@ Please use state `system.adapter.octoprint.0.alive` to stop/start the instance.
 
 The MIT License (MIT)
 
-Copyright (c) 2021 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

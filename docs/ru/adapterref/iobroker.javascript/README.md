@@ -2640,6 +2640,12 @@ return 'your result';
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 5.2.21 (2022-01-16)
+* (bluefox) Fixed build process
+
+### 5.2.19 (2022-01-10)
+* (AlCalzone) Fixed broken dependency
+
 ### 5.2.18 (2021-12-14)
 * (klein0r) Fixed some german translations
 * (winnyschuster) Fixed astro schedules
@@ -2651,17 +2657,9 @@ return 'your result';
 * (agross) Added the monitoring of symlinks my mirroring
 * (Apollon77) Fix two crash cases reported by Sentry
 
-### 5.2.14 (2021-11-17)
-* (AlCalzone) Typings improvement
-* (winnyschuster) added "Solar noon" to astro-list
-* (agross) Allow to define different states for reading and writing alias values
-
-### 5.2.13 (2021-09-13)
-* (AlCalzone) Fixed the loading of Node.js typings
-
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>,
+Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>,
 
 Copyright (c) 2014      hobbyquaker

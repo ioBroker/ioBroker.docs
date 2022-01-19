@@ -19,6 +19,13 @@ Remote sind vorgefertige Remote Befehle
 
 ## Changelog
 
+### 0.0.56
+
+- fix vehicle list while login
+  
+### 0.0.55
+
+- fix refresh login
 ### 0.0.55
 
 - fix refresh login
