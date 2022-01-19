@@ -24,6 +24,7 @@ When starting, the adapter tries to read all GroupAdresses with have the autorea
 This could take a while and can produce a higher load on your KNX-bus. This ensures that the adapter operates with up-to-date values from the start.
 Autoread is done on the first connection with the knx bus after an adapter start or restart, not on every knx reconnection.  
 After adapter installation, open the adapter configuration. Fill in:
+
 ### KNX Gateway IP
 IP of your KNX IP gateway.
 
@@ -37,6 +38,9 @@ Two level group addresses can be transformed manually if needed.
 ### Local IPv4 network interface
 The interface that is connected to the KNX IP gateway.
 
+### Detect
+Searches via a standardized protocol all available KNX IP Gateways on the given network interface.
+
 ### Frames delay [ms]
 This settings protects the KNX bus from data flooding by limiting data frames to a certain rate. Not sent frames are put into a fifo buffer. If you experience disconnects from your KNX IP Gateway  in the log then increase this number.
 
@@ -49,7 +53,9 @@ If checked, the import will skip overwriting existing communication objects.
 ETS4 Format is not supported, it does not contain DPT information.
 2. upload your ETS Export XML in the adapter via the GA XML-Import dialog
 3. Import will immediatelly start after file selection and give a status report after completion.  
-After the successful import a message shows how much objects where recognized. More detailed information could be found in the log.
+After the successful import a message shows how much objects where recognized.
+An error dialog will shop problems during import and gives hints how to clean up the ets database.
+Additional information could be found in the log.
 
 Hint on ETS configuration:  
 If you have different DPT Subtypes for the GA and in the communication objets that use this GA, then the ETS seems to use the DPT Type with the lowest number.
@@ -59,6 +65,18 @@ A GA without DPT basetype cannot be imported with this adapter. ETS4 projects mu
 ### Alias
 KNX devices can have ga's for state feedback that belong to a commanding ga. Some applications like certain VIS widgets expect a combined status and actuation object. You can combine these states into one alias by using a separate alias id to write to and another to read from. The menu helps to create a matching pair according to the naming convention with the given filtering rule.
 Find more information here https://www.iobroker.net/#en/documentation/dev/aliases.md
+
+### Regex
+Filtering rule.
+
+### Minimum similarity
+Defines how strict the matching algorithm filters out similar entries.
+
+### Alias path
+The object folder where the aliases get generated.
+
+### inculde group range in search
+The whole name including path is used to check for similarity.
 
 # Adapter migration hints
 ## migrate Node Red
@@ -265,10 +283,11 @@ The KNX object flags define the bus behavior of the object they represent.
 
 ## Changelog
 ### 0.1.15 ()
- * fix: added null value to trigger GroupValue_Read, comments are overwritten in javascript adapter
- * fix: remove unused reference to sentry
  * feature: more sanity checks for gui
- * feature: add openknx to discovery adapter
+ * feature: issue #84, add openknx to discovery adapter
+ * feature: issue #82, warnings on import of duplicate ga addresses, also check iob object for duplicates
+ * fix: issue #87, added null value to trigger GroupValue_Read, comments are overwritten in javascript adapter
+ * fix: remove unused reference to sentry
  
 ### 0.1.14 (2022-01-08)
 * feature: autodetect the KNX IP interface parameters
@@ -287,7 +306,6 @@ The KNX object flags define the bus behavior of the object they represent.
 * feature: notify user after import if no dpt subtype is set
 * fix: library did not allow to write possible 0 values to certain dpts
 * fix: admin dialog ui fixes, better presentation of some warnings
-
 
 ### 0.1.11 (2021-12-28)
 * feature: remove more scene DPTs from default autoread

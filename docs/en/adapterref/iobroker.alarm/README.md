@@ -42,6 +42,8 @@ Hier werden die Einstellungen wie die Zeiten der Nachtruhe, Sirenezeit, Stiller-
 Benachrichtigungen über Andere Adapter wie z. B. Telegramm, Email oder andere.
 [Probleme](#Probleme)
 
+Bei Benachrichtigungen an den Telegram Adapter, ist es möglich User- oder Chat IDs zu benutzen.
+
 ----------------------------------------------------------------------------------------------------------------------
 
 ### Tab Überwachung
@@ -151,6 +153,10 @@ Beinhaltet die Informationen für die "anderen" Alarmkreise 1 + 2.
 
 ## Changelog
 
+
+#### 2.2.0 (16.01.2022)
+* (misanorot) added telegram special parameters
+
 #### 2.1.1 (07.11.2021)
 * (misanorot) added countdown state for silent alarm
 
@@ -244,4 +250,4 @@ Beinhaltet die Informationen für die "anderen" Alarmkreise 1 + 2.
 ## License
 MIT License
 
-Copyright (c) 2019-2021 misanorot <audi16v@gmx.de>
+Copyright (c) 2019-2022 misanorot <audi16v@gmx.de>

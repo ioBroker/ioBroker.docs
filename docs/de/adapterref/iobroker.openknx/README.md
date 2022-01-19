@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: nlvtqxYhetje0rCRC1/MmNhz1QfymoGcvAHmq8S46us=
+hash: rm79DnWiRATsNXZxQWrvVDq6/txbsmTRZ/N49dnPGgI=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -30,7 +30,9 @@ Dies kann eine Weile dauern und Ihren KNX-Bus stärker belasten. Dadurch wird si
 Autoread wird bei der ersten Verbindung mit dem KNX-Bus nach einem Adapterstart oder -neustart durchgeführt, nicht bei jeder erneuten Verbindung mit dem KNX.
 Öffnen Sie nach der Adapterinstallation die Adapterkonfiguration. Ergänze:
 
-### KNX Gateway IP IP Ihres KNX IP Gateways.
+### KNX-Gateway-IP
+IP Ihres KNX IP Gateways.
+
 ### Hafen
 dies ist normalerweise Port 3671 des KNX IP Gateways.
 
@@ -40,6 +42,9 @@ Zweistufige Gruppenadressen können bei Bedarf manuell transformiert werden.
 
 ### Lokale IPv4-Netzwerkschnittstelle
 Die Schnittstelle, die mit dem KNX IP Gateway verbunden ist.
+
+### Erkennen
+Sucht über ein standardisiertes Protokoll alle verfügbaren KNX IP Gateways auf der angegebenen Netzwerkschnittstelle.
 
 ### Frame-Verzögerung [ms]
 Diese Einstellung schützt den KNX-Bus vor einer Datenflut, indem Datenframes auf eine bestimmte Rate begrenzt werden. Nicht gesendete Frames werden in einen Fifo-Puffer gelegt. Wenn Sie im Protokoll Verbindungsabbrüche von Ihrem KNX IP Gateway feststellen, erhöhen Sie diese Zahl.
@@ -57,7 +62,9 @@ Das ETS4-Format wird nicht unterstützt, es enthält keine DPT-Informationen.
 2. Laden Sie Ihre ETS-Export-XML über den GA-XML-Import-Dialog in den Adapter hoch
 3. Der Import startet sofort nach der Dateiauswahl und gibt nach Abschluss einen Statusbericht aus.
 
-Nach dem erfolgreichen Import zeigt eine Meldung an, wie viele Objekte erkannt wurden. Genauere Informationen finden Sie im Protokoll.
+Nach dem erfolgreichen Import zeigt eine Meldung an, wie viele Objekte erkannt wurden.
+Ein Fehlerdialog weist auf Probleme beim Import hin und gibt Hinweise zur Bereinigung der ETS-Datenbank.
+Weitere Informationen finden Sie im Protokoll.
 
 Hinweis zur ETS-Konfiguration: Wenn Sie unterschiedliche DPT-Subtypen für den GA und in den Kommunikationsobjekten haben, die diesen GA verwenden, dann scheint die ETS den DPT-Typ mit der niedrigsten Nummer zu verwenden.
 Stellen Sie in diesem Fall manuell sicher, dass alle Elemente denselben gewünschten Datentyp verwenden.
@@ -66,6 +73,18 @@ Ein GA ohne DPT-Basistyp kann mit diesem Adapter nicht importiert werden. ETS4-P
 ### Alias
 KNX-Geräte können GAs für Statusrückmeldungen haben, die zu einem kommandierenden GA gehören. Einige Anwendungen wie bestimmte VIS-Widgets erwarten ein kombiniertes Status- und Betätigungsobjekt. Sie können diese Status in einem Alias kombinieren, indem Sie eine separate Alias-ID zum Schreiben und eine andere zum Lesen verwenden. Das Menü hilft, ein passendes Paar gemäß der Namenskonvention mit der angegebenen Filterregel zu erstellen.
 Weitere Informationen finden Sie hier https://www.iobroker.net/#en/documentation/dev/aliases.md
+
+###Regex
+Filterregel.
+
+### Minimale Ähnlichkeit
+Legt fest, wie streng der Matching-Algorithmus ähnliche Einträge herausfiltert.
+
+### Alias-Pfad
+Der Objektordner, in dem die Aliase generiert werden.
+
+### Gruppenbereich in Suche einbeziehen
+Der vollständige Name einschließlich Pfad wird verwendet, um auf Ähnlichkeit zu prüfen.
 
 # Hinweise zur Adaptermigration
 ## Node Red migrieren
@@ -124,7 +143,7 @@ Der GA-Import erzeugt eine Kommunikationsobjekt-Ordnerstruktur nach dem GA-Schem
 
 ioBroker-Zustandsrollen (https://github.com/ioBroker/ioBroker/blob/master/doc/STATE_ROLES.md) haben standardmäßig den Wert „state“. Einige granularere Werte werden vom DPT abgeleitet, zum Beispiel Date oder Switch.
 
-Autoread wird auf falsch gesetzt, wenn aus dem DPT klar ist, dass dies ein Triggersignal ist. Dies gilt für Szenennummern.
+Autoread wird auf „false“ gesetzt, wenn aus dem DPT klar hervorgeht, dass dies ein Triggersignal ist. Dies gilt für Szenennummern.
 
 { "_id": "path.and.name.to.object", //abgeleitet von der KNX-Struktur "type": "state", "common": { //Werte hier können von iobroker interpretiert werden "desc": "Basetype: 1-bit value, Subtype: switch", //informativ, aus dpt "name": "Aussen Melder Licht schalten", //informative Beschreibung aus ets export "read": true, //default set, if false Eingehende Buswerte aktualisieren das Objekt "Rolle" nicht: Zustand, //Standardzustand, abgeleitet von DPT "Typ": "boolean", //Boolean, Zahl, Zeichenfolge, Objekt, abgeleitet von DPT "Einheit": "", //abgeleitet von dpt "write": true //default true, wenn Satzänderung am Objekt knx write auslöst, succ. write setzt dann ack flag auf true }, "native": { //Werte hier können vom openknx-Adapter interpretiert werden "address": "0/1/2", //knx-Gruppenadresse "answer_groupValueResponse": false, //default false, wenn auf true gesetzt, antwortet der Adapter mit Wert auf GroupValue_Read "autoread": true, //Standardwert true für Nicht-Trigger-Signale, Adapter sendet beim Start ein GroupValue_read, um seine Zustände zu synchronisieren "bitlength": 1, //Größe der Knx-Daten, abgeleitet von dpt "dpt": "DPT1.001", //DPT "encoding": { //informativ "0": "Off", "1": "On" }, "force_encoding": "", // informativ "signedness": "", //informativ "valuetype": "basic" //composite bedeutet über ein bestimmtes Javascript-Objekt gesetzt }, "from": "system.adap ter.openknx.0", "user": "system.user.admin", "ts": 1638913951639 }
 
@@ -137,7 +156,7 @@ ioBroker definiert States als Kommunikationsschnittstelle.
 
 setState( id: string, //Objektpfadstatus: State | StateValue | SettableState, //Setze dies auf einen plausiblen Wert, um die Warnung im Falle des GroupValue_Read-Befehls auszulassen ack: false, //muss per Konvention falsch sein c: 'GroupValue_Read ' //optionaler Kommentar, setzen Sie diesen Wert, um einen Bus-Lesevorgang zu diesem Objekt auszulösen, gegebener StateValue wird ignoriert): void;
 
-Beispiel: setState(myState, {val: false, ack: false, c:'GroupValue_Read'}); setState(myState, null);
+Beispiel: setState(myState, {val: false, ack: false, c:'GroupValue_Read'}); setState (myState, null);
 
 GroupValue_Read-Kommentar funktioniert nicht für Javascript-Adapter. Verwenden Sie stattdessen einen Nullwert.
 
@@ -149,21 +168,21 @@ GroupValue_Read-Kommentar funktioniert nicht für Javascript-Adapter. Verwenden 
 | DPT-3 | Objekt | {"decr_incr":1 Bit,"data":2 Bit} | - ||
 | DPT-18 | Objekt | {"save_recall":0,"scenenumber":0} | - |Datenpunkttyp DPT_SceneControl aus Autoread entfernt|
 | DPT-21 | Objekt | {"outofservice":0,"fault":0,"overridden":0,"inalarm":0,"alarmunack":0} | - ||
-| DPT-232 | Objekt | {rot:0..255, grün:0,255, blau:0,255} | - ||
+| DPT-232 | Objekt | {Rot:0..255, Grün:0,255, Blau:0,255} | - ||
 | DPT-237 | Objekt | {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | - ||
 | DPT-4 | Zeichenfolge | | ein als 8-Bit-Zeichen gesendetes Zeichen ||
 | DPT-16 | Zeichenfolge | | ein Zeichen als 16-Zeichen-String gesendet ||
 | DPT-5 | Zahl | | 8-Bit-Wert ohne Vorzeichen ||
-| DPT-5.001 | Zahl | | 0..100 [%] skaliert auf 1 Byte ||
+| DPT-5.001 | Nummer | | 0..100 [%] skaliert auf 1 Byte ||
 | DPT-5.003 | Zahl | | 0..360 [°] skaliert auf 1 Byte ||
 | DPT-6 | Zahl | | 8-Bit vorzeichenbehaftet -128..127 ||
 | DPT-7 | Zahl | | 16-Bit-Wert ohne Vorzeichen ||
 | DPT-8 | Zahl | | 2-Byte-Wert mit Vorzeichen -32768..32767 ||
-| DPT-9 | Nummer | | 2-Byte-Gleitkommawert ||
+| DPT-9 | Zahl | | 2-Byte-Gleitkommawert ||
 | DPT-14 | Zahl | | 4-Byte-Gleitkommawert ||
 | DPT-12 | Zahl | | 4-Byte-Wert ohne Vorzeichen ||
 | DPT-13 | Zahl | | 4-Byte-Wert mit Vorzeichen ||
-| DPT-15 | Nummer | | 4 Byte ||
+| DPT-15 | Zahl | | 4 Byte ||
 | DPT-17 | Zahl | | 1 Byte | DPT_SceneNumber aus Autoread entfernt|
 | DPT-20 | Zahl | | 1 Byte ||
 | DPT-238 | Nummer | | 1 Byte ||
@@ -231,10 +250,11 @@ Es sind 6 verschiedene Objektflags definiert.
 
 ## Changelog
 ### 0.1.15 ()
- * fix: added null value to trigger GroupValue_Read, comments are overwritten in javascript adapter
- * fix: remove unused reference to sentry
  * feature: more sanity checks for gui
- * feature: add openknx to discovery adapter
+ * feature: issue #84, add openknx to discovery adapter
+ * feature: issue #82, warnings on import of duplicate ga addresses, also check iob object for duplicates
+ * fix: issue #87, added null value to trigger GroupValue_Read, comments are overwritten in javascript adapter
+ * fix: remove unused reference to sentry
  
 ### 0.1.14 (2022-01-08)
 * feature: autodetect the KNX IP interface parameters
@@ -253,7 +273,6 @@ Es sind 6 verschiedene Objektflags definiert.
 * feature: notify user after import if no dpt subtype is set
 * fix: library did not allow to write possible 0 values to certain dpts
 * fix: admin dialog ui fixes, better presentation of some warnings
-
 
 ### 0.1.11 (2021-12-28)
 * feature: remove more scene DPTs from default autoread

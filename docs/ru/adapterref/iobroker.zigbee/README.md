@@ -32,6 +32,9 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.zigbee.svg
 Поэтому, если какие-либо улучшения или поддержка новых zigbee-устройств происходит в проекте Zigbee2MQTT, то можно перенести и добавить этот же функционал в этот драйвер. Если заметили это, то напиши issue - перенесем.
 
 ## Changelog
+### 1.6.13 (2022-01)
+
+* (kirovilya) update to Zigbee-Herdsman 0.14
 
 ### 1.6.12 (2022-01)
 * (asgothian) Groups were newly revised (read [here](https://github.com/ioBroker/ioBroker.zigbee/pull/1327) )

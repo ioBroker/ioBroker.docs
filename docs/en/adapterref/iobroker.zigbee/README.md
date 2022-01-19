@@ -34,6 +34,9 @@ There are knowledge bases that can be useful for working with Zigbee-devices and
 * in Russian https://github.com/kirovilya/ioBroker.zigbee/wiki
 
 ## Changelog
+### 1.6.13 (2022-01)
+
+* (kirovilya) update to Zigbee-Herdsman 0.14
 
 ### 1.6.12 (2022-01)
 * (asgothian) Groups were newly revised (read [here](https://github.com/ioBroker/ioBroker.zigbee/pull/1327) )

@@ -3,18 +3,17 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alarm/README.md
 title: ioBroker.alarm
-hash: XlZMcUxxTRqFBI9uuC02NVMS0VGhEE1NEm/7i1cLpYg=
+hash: NwTEm+ngKMovQngTpclJO2as7MIXFvMIZAFX3TYdyAs=
 ---
 ![Logo](../../../en/adapterref/iobroker.alarm/admin/alarm.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/alarm-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.alarm.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.alarm.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/misanorot/iobroker.alarm.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/misanorot/ioBroker.alarm/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.alarm.png?downloads=true)
 
-#ioBroker.alarm
+# IoBroker.alarm
 **Github-Aktionen**:
 
 ![GitHub-Aktionen](https://github.com/misanorot/ioBroker.alarm/workflows/Test%20and%20Release/badge.svg)
@@ -25,7 +24,7 @@ hash: XlZMcUxxTRqFBI9uuC02NVMS0VGhEE1NEm/7i1cLpYg=
 
 ## IoBroker-Alarm
 Dies ist ein Adapter, mit dem sich eine kleine Alarmanlage ohne große programmiertechnische Vorkenntnisse realisieren lässt.
-Er bietet die Möglichkeit 3 Sicherheitskreise zu konfigurieren und diese z. B. bei Nachtruhe oder De- und Aktivierung zu überwachen. Des Weiteren ist eine direkte Verknüpfung der jeweiligen Instanz "states", auf andere "states" möglich. Diese Verknüpfungen werden im Reiter Verknüpfungen angelegt.
+Er bietet die Möglichkeit 3 Sicherheitskreise zu konfigurieren und diese z. B. bei Nachtruhe oder De- und Aktivierung zu überwachen. Des Weiteren ist eine direkte Verknüpfung der jeweiligen Instanz „states“, auf andere „states“ möglich. Diese Verknüpfungen werden im Reiter Verknüpfungen angelegt.
 
 ----------------------------------------------------------------------------------------------------------------------
 
@@ -34,14 +33,16 @@ Hier werden die Einstellungen wie die Zeiten der Nachtruhe, Sirenezeit, Stiller-
 
 - Aktivierzeit -> Zeitverzögerung bis zu Aktivierung wenn man einen delay Datenpunkt benutzt
 - Sirenenzeit bei Einbruch -> Bei Einbruch wird der Datenpunkt alarm.0.status.siren für die Zeit auf true gesetzt
-- Alarmverzögerung -> Verzögerungszeit bis Einbruch ausgelöst WIRD (während dieser Zeit wird der Stille Alarm ausgelöst)
-- Auslösezeit bei Warnungen/Sirene innen -> Bei Auslösung des Benachrichtigungskreises oder scharf innen Kreises, wird der jeweils zugehörige Datenpunkt für die Zeit auf true gesetzt
+- Alarmverzögerung -> Verzögerungszeit bis Einbruch ausgelöst wird (während dieser Zeit wird der Stille Alarm ausgelöst)
+- Auslösezeit bei Warnungen/Sirene innen -> Bei Auslösung des Benachrichtigungskreises oder scharf innen Kreises, wird der jeweilige Datenpunkt für die Zeit auf true gesetzt
 
 ----------------------------------------------------------------------------------------------------------------------
 
-###Tab Benachrichtigungen
-Benachrichtigungen über Andere Adapter wie z. B. Telegramm, E-Mail oder andere.
+### Tab Benachrichtigungen
+Benachrichtigungen über Andere Adapter wie z. B. Telegramm, Email oder andere.
 [Probleme](#Probleme)
+
+Bei Benachrichtigungen an den Telegram Adapter, ist es möglich User- oder Chat-IDs zu benutzen.
 
 ----------------------------------------------------------------------------------------------------------------------
 
@@ -49,21 +50,21 @@ Benachrichtigungen über Andere Adapter wie z. B. Telegramm, E-Mail oder andere.
 Hier werden die Kreise der Anlage konfiguriert.
 *die Namen der Staaten lassen sich ändern*
 
-Der Alarmkreis hat die Priorität „hoch“ und hat bei aktivierter Anlage (scharf) Vorrang vor allen anderen Kreisen. Er dient zur eigentlichen Überwachung der Anlage. Dies entspricht den Vollschutz Einer Alarmanlage. Der scharfe interne Kreis wird überwacht, wenn sterben Anlage sich im Zustand Der Meldekreis dient nur zur Meldung während der Zustände scharf, scharf intern und bei der Nachtruhe.
-*Es ist durchaus möglich, dass man für einen Staat, den Haken bei allen drei Kreisen macht.*
+Der Alarmkreis hat die Priorität „hoch" und hat bei aktivierter Anlage (scharf) Vorrang vor allen anderen Kreisen. Er dient zur eigentlichen Überwachung der Anlage. Dies entspricht den Vollschutz einer Alarmanlage. Der scharf intern Kreis wird überwacht, wenn die Anlage sich im Zustand scharf intern befindet, dies entspricht einem Außenhautschutz einer Alarmanlage.
+*Es ist wahrscheinlich möglich, dass man für einen Staat, den Haken bei allen drei Kreisen macht.*
 
-Sollte man einen Kontakt haben, der den Alarmkreis nicht sofort auslösen soll, kann man das Häkchen bei "stiller Alarm" aktivieren, dadurch wird nach Ablauf der eingestellten Zeit (Haupteinstellungen), der Alarm ausgelöst.
+Sollte man einen Kontakt Haben, der den Alarmkreis nicht sofort auslösen soll, kann man das Häkchen bei "stiller Alarm" aktivieren, dadurch wird nach Ablauf der eingestellten Zeit (Haupteinstellungen), der Alarm ausgelöst.
 
-Sollte es erforderlich sein, sterben Einzelstaaten nicht auf *wahr*, sondern auf *false* auszulösen (z.B. Drahtbruchsichere Sensoren), so kann man das Häkchen bei "negieren" setzen.
+Sollte es erforderlich sein die einzelnen Zustände nicht auf *true*, sondern auf *false* zu triggern (z.B. Drahtbruchsichere Sensoren), so kann man das Häkchen bei "negieren" setzen.
 
-Sollte man im Tab Haupteinstellungen die Option "verlassen" aktiviert haben, kann man unter dem entsprechenden Datenpunkt "verlassen" anwählen. Stirbt bewirkt, dass bei verzögerte Aktivierung, der Countdown nicht ablaufen muss, sondern es reicht z. B. die Tür zu schließen.
+Sollte man im Tab Haupteinstellungen die Option "verlassen" aktiviert haben, kann man unter dem entsprechenden Datenpunkt "verlassen" anwählen. Dies bewirkt, dass bei verzögerter Aktivierung, der Countdown nicht ablaufen muss, sondern es reicht z. B. die Tür zu schließen.
 
 Die Kreise werden wie folgt überwacht:
 
 #### Alarmkreis:
-Alarmanlage sich nicht aktivieren (scharf schalten), wenn ein konfigurierter Zustand aktiv ist. Bei aktivierter Alarmanlage Führt Eine Veränderung sofort zur Auslösung der Anlage.
+Alarmanlage lässt sich nicht aktivieren (scharf schalten), wenn ein konfigurierter Zustand aktiv ist. Bei aktivierter Alarmanlage führt eine Veränderung sofort zur Auslösung der Anlage.
 
-#### Scharf interner Kreis:
+#### Scharf Praktikant Kreis:
 Alle hier konfigurierten Zustände werden beim Zustand scharf intern überwacht und unter anderem den internen Alarm aus gelöst.
 
 #### Meldekreis:
@@ -71,38 +72,38 @@ Der überwacht die konfigurierten Zustände auf Veränderungen und meldet dies.
 
 ----------------------------------------------------------------------------------------------------------------------
 
-### Registerkarte Sprachausgabe
+### Reiter Sprachausgabe
 Ist eine gewünschte Sprachausgabe z. B. bei Änderung des Zustandes gewünscht, lässt sich das hier mit den gewünschten Sätzen konfigurieren.
-*Man muss sich sicher sein, das der ausgewählte Datenpunkt, mit einem Text beschrieben werden kann! ZUM BEISPIEL. "sayit.0.tts"*
+* Man muss sich sicher sein, das der ausgewählte Datenpunkt, mit einem Text beschrieben werden kann! ZUM BEISPIEL. "sayit.0.tts"*
 
 Möchte man sich sterben Ausgabe von Namen mit Ansagen lassen, kann man diese Option anwählen.
 
 ----------------------------------------------------------------------------------------------------------------------
 
-###Tab-Verknüpfung
-Hier ist es möglich Adapter interne Staaten direkt mit externen Staaten zu verknüpfen. Somit ist ein Skript oder ähnlicher Weg nicht erforderlich.
-Es lässt sich somit z. B. bei Beginn der Nachtruhe, eine Verriegelung des Türschlosses realisiert.
+### Tab Verknüpfungen
+Hier ist es möglich Adapter interne Staaten direkt mit externen Staaten zu verknüpfen. Somit ist ein Umweg über ein Skript oder ähnliches nicht erforderlich.
+Es lässt sich somit z. B. bei Beginn der Nachtruhe, eine Verriegelung des Türschlosses.
 ![Logo](../../../en/adapterref/iobroker.alarm/admin/img/short.png)
 
 #### Eingabeverknüpfungen
-Trigger --> any = es wird bei jeder Änderung getriggert ne = es wird nur getriggert, if der Wert sich geändert
+Trigger--> any = es wird bei jeder Änderung getriggert ne = es wird nur getriggert, wenn der Wert sich geändert hat
 
 Auslösewert--> Ist der Wert, auf welchen getriggert werden soll
 
 ----------------------------------------------------------------------------------------------------------------------
 
-###Tab Andere Alarme
-Es stehen eineninen zwei frei konfigurierbaren Kreise zur Verfügung, this Werden Überwachen Bei Benutzung Unabhängig Dem Zustand Der Alarmanlage Ständig überwacht! Als Voreinstellung sind this as Feuer- und Wasseralarm beschriftet. In der ganzen Konfiguration sind this as Kreise 1 und 2 beschriftet und an den Nummern zu erkennen.
+### Tab Andere Alarme
+Es stehen zwei frei konfigurierbare Überwachungskreise zur Verfügung, this Werden bei unabhängiger Benutzung dem Zustand der Alarmanlage ständig überwacht! Als Voreinstellung sind diese als Feuer- und Wasseralarm beschriftet. In der ganzen Konfiguration sind this als Kreise 1 und 2 beschriftet und an den Nummern zu erkennen.
 
-Sollte es erforderlich sein, sterben Einzelstaaten nicht auf *wahr*, sondern auf *false* auszulösen (z.B. Drahtbruchsichere Sensoren), so kann man das Häkchen bei "negieren" setzen.
+Sollte es erforderlich sein die einzelnen Zustände nicht auf *true*, sondern auf *false* zu triggern (z.B. Drahtbruchsichere Sensoren), so kann man das Häkchen bei "negieren" setzen.
 
 ####Es ist darauf zu achten, dass keine Staaten aus dem eigentlichen Hauptüberwachungskreisen benutzt werden!
 ----------------------------------------------------------------------------------------------------------------------
 
-Der Adapter liefert eine ganze Anzahl an Staaten:
+Der Adapter liefert eine ganze Anzahl an besagt:
 
-#### "alarm.x.benutzen.....".
-Das sind die eigentlichen Zustände um die Alarmanlage zu beherrschen.
+#### "alarm.x.use.....".
+Das sind die eigentlichen Zustände um die Alarmanlage zu bedienen.
 
 - use.activate_nightrest -> Aktivierung der Nachtruhe
 - use.activate_sharp_inside_circuit -> Aktivierung der Überwachung des Warnkreises (intern scharf)
@@ -110,32 +111,39 @@ Das sind die eigentlichen Zustände um die Alarmanlage zu beherrschen.
 - use.enable -> Aktivierung der Anlage (Alarmkreis)
 - use.enable_with_delay -> Aktivierung der Anlage (Alarmkreis) mit Verzögerungszeit
 - use.list -> Deaktivierung/Aktivierung/Warnkreis/Aktivierung mit Verzögerungszeit
-- use.quit_changes -> Rücksetzen der Zustände *info.notification_circuit_changes, info.sharp_inside_siren, status.activation_failed, other_alarms.one_changes, other_alarms.two_changes*
+- use.quit_changes -> Zurücksetzen der Zustände *info.notification_circuit_changes, info.sharp_inside_siren, status.activation_failed, other_alarms.one_changes, other_alarms.two_changes*
 - use.toggle_password -> Deaktivierung/Aktivierung der Anlage (Alarmkreis) mit Passwort
 - use.toggle_with_delay -> Deaktivierung/Aktivierung der Anlage (Alarmkreis) mit Verzögerungszeit
 - use.toggle_with_delay_and_password -> Deaktivierung/Aktivierung der Anlage (Alarmkreis) mit Passwort und Verzögerungszeit
 - use.panic -> Händische Auslösung der Alarmanlage(Einbruch), auch wenn diese deaktiviert ist
 
-#### "alarm.x.status...."
-Hier lässte sich der Zustand der Anlage ablesen.
+#### "alarm.x.status..."
+Hier lässt sich der Zustand der Anlage ablesen.
 
-- status.sleep -> Signalisiert den Zustand der sicheren Nachtruhe
+- status.sleep -> Signalisiert den Zustand der automatischen Nachtruhe
 
-#### "alarm.x.info...."
-Liefert zusätzliche Informationen wie z.B. Welche "Türen offen sind" oder einen Log-Status.
-Der log_today state wird um Mitternacht geleert.
+#### "alarm.x.info..."
+Liefert zusätzliche Informationen wie z.B. welche "Türen offen sind" oder einen Log-Zustand.
+Der log_today-Status wird um Mitternacht geleert.
 
-#### "alarm.x.andere_alarme...."
+#### "alarm.x.andere_alarme..."
 Beinhaltet die Informationen für die "anderen" Alarmkreise 1 + 2.
 
 ----------------------------------------------------------------------------------------------------------------------
 
-##Probleme
-- if man ein Telegramm oder ähnliches über das + hinzufügt, can man nur ein state der Instanz auswählen und man muss bis auf *telegram.0* alles löschen.
+## Probleme
+- if man eine Telegram oder ähnliches über das + hinzufügt, can man nur ein state der Instanz auswählen und man muss bis auf *telegram.0* alles löschen.
 
-#### Wichtig, die Benutzung dieses Adapters geschieht auf eigene Gefahr, für Sonderfehlfunktionen wird keine Haftung übernommen!
+#### Wichtig, die Benutzung dieses Adapters geschieht auf eigene Gefahr, für eventuelle Fehlfunktionen wird keine Haftung übernommen!
 
 ## Changelog
+
+
+#### 2.2.0 (16.01.2022)
+* (misanorot) added telegram special parameters
+
+#### 2.1.1 (07.11.2021)
+* (misanorot) added countdown state for silent alarm
 
 #### 2.1.0 (11.10.2021)
 * (misanorot) extend list states and speech output, added leave option
@@ -227,4 +235,4 @@ Beinhaltet die Informationen für die "anderen" Alarmkreise 1 + 2.
 ## License
 MIT License
 
-Copyright (c) 2019-2021 misanorot <audi16v@gmx.de>
+Copyright (c) 2019-2022 misanorot <audi16v@gmx.de>

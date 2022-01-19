@@ -197,6 +197,9 @@ Here you will find information about the history of the current day.
     * Did some changes
     * Did some more changes
 -->
+### 1.1.13 (2022-01-18)
+* (afuerhoff) issue #73: bugfix
+
 ### 1.1.12 (2022-01-13)
 * (afuerhoff) issue #74: bugfix
 * (afuerhoff) dependencies updated
@@ -213,11 +216,6 @@ Here you will find information about the history of the current day.
 * (afuerhoff) issue #63: getExtIp logging solved
 * (afuerhoff) issue #65: wrong logging in instance > 0 solved  
 * (afuerhoff) qr-code WPA2 + WPA3 fixed
-
-### 1.1.8 (2021-09-01)
-* (afuerhoff) issue#61: units added
-* (afuerhoff) workaround for 7390 added (missing systemVersion in xml)
-* (afuerhoff) dependencies updated
 
 ## License
 MIT License

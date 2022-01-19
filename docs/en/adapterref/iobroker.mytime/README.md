@@ -338,6 +338,8 @@ Group CSS-Common / transform "scale(0.5)"
 ## Changelog
 
 
+### 0.7.8
+* add timezone for wordclock
 ### 0.7.7
 * add timezone for wordclock
 ### 0.7.6

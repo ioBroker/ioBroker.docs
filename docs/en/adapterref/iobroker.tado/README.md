@@ -3,7 +3,6 @@
 
 ![Number of Installations](http://iobroker.live/badges/tado-installed.svg) ![Number of Installations](http://iobroker.live/badges/tado-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.tado.svg)](https://www.npmjs.com/package/iobroker.tado)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.tado.svg)](https://www.npmjs.com/package/iobroker.tado)
-[![Dependency Status](https://img.shields.io/david/DrozmotiX/iobroker.tado.svg)](https://david-dm.org/DrozmotiX/iobroker.tado)
 [![Known Vulnerabilities](https://snyk.io/test/github/DrozmotiX/ioBroker.tado/badge.svg)](https://snyk.io/test/github/DrozmotiX/ioBroker.tado)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
@@ -43,6 +42,10 @@ If you like my work, please feel free to provide a personal donation
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.3.14-alpha.5 (2022-01-14)
+* (HGlab01) Hotwater and AC v3 devices: asking device-owners for help
+* (HGlab01) support swing ON/OFF for AC v3 devices
+
 ### 0.3.13 (2022-01-03)
 * (HGlab01) Optimize internet-check by using isOnline-library
 * (HGlab01) Support Smart AC Control V3+ (issue #403)
@@ -163,7 +166,7 @@ If you like my work, please feel free to provide a personal donation
 ## License
 MIT License
 
-Copyright (c) 2021 DutchmanNL <rdrozda@hotmail.com> & HGlab01
+Copyright (c) 2022 DutchmanNL <rdrozda@hotmail.com> & HGlab01
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
