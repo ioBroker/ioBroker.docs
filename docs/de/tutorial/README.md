@@ -35,7 +35,7 @@ verweisen.
 
 
 <details>
-<summary>Heading</summary>
+<summary>weitergehende Informationen</summary>
  
 + markdown list 1
     + nested list 1
