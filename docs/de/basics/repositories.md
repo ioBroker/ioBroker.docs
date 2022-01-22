@@ -9,13 +9,19 @@ Standardmäßig stehen in ioBroker zwei Repositories zur Verfügung:
 
 
 # Auswahl des Repository
-In den Basiseinstellungen von ioBroker kann das gewünschte Repository eingestellt werden
+In den Basiseinstellungen von ioBroker kann das gewünschte Repository wie folgt eingestellt werden:
 ![grafik](https://user-images.githubusercontent.com/25422320/150613721-2e8d2309-a4b4-4701-a3a2-4d282a729303.png)
 ![grafik](https://user-images.githubusercontent.com/25422320/150613853-56ffbcef-6ef4-4a37-856a-773f0962ea46.png)
 
 Wurde das Beta Repositroy ausgewählt, so erfolgt in der Adapterübersicht eine entsprechende Warnung
 ![grafik](https://user-images.githubusercontent.com/25422320/150614064-e2e7891e-7b7d-46a1-9146-835de8315e9a.png)
 
+
+# Standardpfad Repository
+![grafik](https://user-images.githubusercontent.com/25422320/150617968-4160b669-c484-4207-bdd2-d56494fcfe57.png)
+
+stable Link: http://download.iobroker.net/sources-dist.json
+beta link: http://download.iobroker.net/sources-dist-latest.json
 
 
 # Stable vs Beta Repository
