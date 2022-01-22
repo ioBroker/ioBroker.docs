@@ -32,9 +32,21 @@ Zigbee-Geräte die nicht in der Liste aufgeführt sind, können zwar gepairt wer
 Es gibt noch ein [Freundschaftprojekt](https://github.com/koenkk/zigbee2mqtt) mit gleichen Funktionen und gleicher Technologie, welcher mit denselben Geräten über ein MQTT Protokoll kommuniziert. Wenn irgendwelche Verbesserungen oder neu unterstütze Geräte im Projekt Zigbee2MQTT eingefügt werden, können jene auch in dieses Projekt hinzugefügt werden. Solltet Ihr unterschiede merken, schreibt bitte ein Issue, wir kümmern uns darum
 
 ## Changelog
+### 1.6.14 (2022-01)
+* (asgothian) Group rework part 2:
+  - state device.groups will now be deleted with state Cleanup
+  - state info.groups is now obsolete and will be deleted at adapter start (after transferring data to
+    the new storage)
+* (asgothian) Device name persistance.
+  - Changes to device names made within the zigbee adapter are stored in the file dev_names.json. This file
+    is not deleted when the adapter is removed, and will be referenced when a device is added to the zigbee adapter. Deleting and reinstalling the adapter will no longer remove custom device names, nor will deleting and adding the device anew.
+* (asgothian) Readme edit to reflect the current information on zigbee coordinator hardware.
+* (arteck) Zigbee-Herdsman 0.14.4, Zigbee-Herdsman-Converters 14.0.394
+
 ### 1.6.13 (2022-01)
 
 * (kirovilya) update to Zigbee-Herdsman 0.14
+
 
 ### 1.6.12 (2022-01)
 * (asgothian) Groups were newly revised (read [here](https://github.com/ioBroker/ioBroker.zigbee/pull/1327) )

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: j1EwtkUpY6F0C55D0dq9qipiz2cF/C7w25T0i3CXga8=
+hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 ---
 # IoBroker.dysonAirPurifier
 ![Logo](admin/dyson_logo.svg)![Logo](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -42,6 +42,17 @@ Verbindet Ihre Dyson Ventilatoren, Heizlüfter, Luftreiniger und Luftbefeuchter 
 * Liest Werte von Geräten und Sensoren
 * Kann Geräte steuern, indem es Ihnen die Möglichkeit gibt, einige Werte zu ändern (Hauptleistung, Oszillation, Heizung, Lüftergeschwindigkeit, ...)
 * Liest die Geräteliste von Dyson-Servern
+* Behandelt eine *unbegrenzte* Anzahl von Fans (sicherlich begrenzen die Ressourcen Ihres ioBroker-Hosts die Anzahl).
+
+## Wie es funktioniert
+Beim Start wird die Dyson Cloud nach allen bekannten Geräten, die mit Ihrem Konto verbunden sind, und ihren MQTT-Passwörtern abgefragt. Mit dieser Liste in Händen verbindet sich der Adapter lokal mit allen Geräten und interagiert mit ihnen.
+
+* Die Verbindung zur Dyson Cloud wird nur benötigt, um die Liste der an Ihr Konto gebundenen Geräte und deren MQTT-Passwörter abzurufen.
+* Daher werden neue Geräte nur beim Start des Adapters erkannt.
+* Die Dyson Cloud wird nur einmal während des Adapterstarts abgefragt.
+* Dyson-Fans fungieren als MQTT-Server und der Adapter fungiert als Client.
+* Die gesamte Kommunikation zwischen Geräten und dem Adapter findet nur lokal statt.
+* Alle Verbindungsinformationen im Adapter werden gelöscht und beim Neustart neu aufgebaut.
 
 ## Installation
 ### Sentry.io
@@ -139,6 +150,7 @@ Das macht auch die Dyson-App.
 
 ### Bekannte Probleme
 * Keine automatische IP-Erkennung von Geräten
+* Manchmal verliert der Adapter die MQTT-Verbindung zu einem Lüfter und kann sich nicht wieder verbinden. In meinem Fall reicht es aus, den Lüfter für ca. 10 Sekunden vom Netz zu nehmen, um ihn zurückzusetzen und wieder einzustecken. Versuche es.
 
 ## Erklärung der Dyson API-Daten (Nachrichtennutzlast)
 Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md>
@@ -185,7 +197,7 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | hoch | Auto-Modus befeuchten | HUMIDIFY_AUTO_MODE_ON, HUMIDIFY_AUTO_MODE_OFF | |
 | summen | Befeuchtungsziel | HUMIDIFICATION_MODE_OFF, HUMIDIFICATION_MODE_THIRTY, HUMIDIFICATION_MODE_FORTY, HUMIDIFICATION_MODE_FIFTY, HUMIDIFICATION_MODE_SIXTY, HUMIDIFICATION_MODE_SEVENTY | |
 | cdr | CleanDurationRemaining | Ganzzahl | Minuten |
-| Rechteck | AutoHumidificationTarget | Ganzzahl | % |
+| rechteck | AutoHumidificationTarget | Ganzzahl | % |
 | cltr | TimeRemainingToNextClean | Ganzzahl | Stunden |
 | was | Wasserhärte | SOFT="2025", MEDIUM="1350", HARD="0675" | |
 | wacd | Warncode | KEINE...                                                                                                                                                           | |

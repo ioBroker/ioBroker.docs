@@ -38,6 +38,18 @@ Connects your Dyson fans, fan heaters, air purifiers, and air humidifiers to ioB
 * Reads values from devices and sensors
 * Can control devices by giving you the ability to change some values (main power, oscillation, heating, fan speed, ...)
 * Reads device list from Dyson servers
+* Handles an *unlimited* number of fans (for sure in fact the resources of your ioBroker host limit the number).
+
+## How it works
+On startup the dyson cloud gets queried for all known devices bound to your account and their MQTT passwords. With that list in hands the adapter 
+connects to all devices locally and interacts with them. 
+
+* The connection to the dyson cloud is only needed to get the list of devices bound to your account and their MQTT passwords.
+* Therefor new devices are only recognized on adapter startup. 
+* The dyson cloud only gets queried once during adapter startup.
+* dyson fans act as a MQTT server and the adapter acts as client. 
+* All the communication between devices and the adapter happens locally only.
+* All connection information in the adapter gets dropped and build anew during restart.
 
 ## Installation
 
@@ -146,6 +158,7 @@ Which is what the dyson app does also.
 
 ### Known issues
 * No automatic IP detection of devices
+* Sometimes the adapter loses the MQTT connection to a fan and isn't able to reconnect. In my case it's sufficient to unplug the fan for approximately 10 seconds to reset it and plug it in again. Give it a try.
 
 ## Changelog
 

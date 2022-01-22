@@ -154,6 +154,9 @@ Beinhaltet die Informationen für die "anderen" Alarmkreise 1 + 2.
 ## Changelog
 
 
+#### 2.2.1 (20.01.2022)
+* (misanorot) added notification when warnings at beginning night rest
+
 #### 2.2.0 (16.01.2022)
 * (misanorot) added telegram special parameters
 

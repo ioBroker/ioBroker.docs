@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.node-red/README.md
-title: ioBroker Knoten-roter Adapter
-hash: Hepdf/NZ/L9whqqNKIiOn4KWFfh63yiXgLpbfS1rFzg=
+title: ioBroker node-red Adapter
+hash: ma/a3NNG2WCpcPI/UD71yZRFacjQFvR/qv73KSDlN80=
 ---
 ![Logo](../../../en/adapterref/iobroker.node-red/admin/node-red.png)
 
@@ -11,25 +11,28 @@ hash: Hepdf/NZ/L9whqqNKIiOn4KWFfh63yiXgLpbfS1rFzg=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.node-red.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.node-red.svg)
 
-# IoBroker-Knoten-roter Adapter
+# IoBroker node-red Adapter
 ![Testen und freigeben](https://github.com/ioBroker/ioBroker.node-red/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/node-red/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Startet die knotenrote Instanz und kommuniziert mit ihr.
+Startet die Node-Red-Instanz und kommuniziert mit ihr.
 
-Dieser Adapter verwendet den node-red Server von https://github.com/node-red/node-red
+Dieser Adapter verwendet den Node-Red-Server von https://github.com/node-red/node-red
 
-**Hinweis:** Wenn Sie im Dialog zur Auswahl der ID des ioBroker-Knotens eine Variable nicht finden können, starten Sie die Knoten-rote Instanz neu. Durch einen Neustart wird die neue Objektliste erstellt.
-
-**Upgrade auf 1.17.2:** Falls Sie bereits Node-Red-Authentifizierung verwendet haben: Bitte setzen Sie Ihr Passwort in den Node-Red-Instanzeinstellungen in ioBroker nach dem Upgrade erneut! Andernfalls können Sie sich nach dem Upgrade nicht mehr bei Node-Red anmelden.
+**Hinweis:** Wenn Sie im Dialogfeld „ID auswählen“ des ioBroker-Knotens keine Variable finden können, starten Sie die Knoten-rote Instanz neu. Durch einen Neustart wird die neue Objektliste erstellt.
 
 ## Einstellungen
-- Abgesicherter Modus - Flows werden nicht gestartet und Sie können die Flows bearbeiten, um Überlastungsprobleme zu beheben.
+- Abgesicherter Modus - Flows werden nicht gestartet, und Sie können die Flows bearbeiten, um ein Überlastungsproblem zu beheben.
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __ARBEITEN IN PROGRESS__ -->
+### __LAUFENDE ARBEIT__ -->
 
 ## Changelog
+### 2.5.0 (2022-xx-xx)
+* (jwiesel) Changed default setting to "convert data from ioBroker nodes into Strings" to false. Setting will not be changed automatically in instances already running.
+* (jwiesel) "Tail" node has been removed from the default palette in Node-RED 2.0. You can reinstall it from node-red-node-tail.
+* (jwiesel) Node-RED updated to 2.1.4 (incl. restructuring of settings.js)
+
 ### 2.4.1 (2021-08-31)
 * (mickym2) Correct min7max for the object creation 
 * (bluefox) Node-red updated to 1.3.6

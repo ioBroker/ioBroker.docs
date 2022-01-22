@@ -1,21 +1,39 @@
 {
   "pages": {
+    "2022_01_19": {
+      "date": "2022.01.19",
+      "title": {
+        "de": "Dev Community Meeting Januar",
+        "en": "Dev Community Meeting January",
+        "ru": "Встреча сообщества разработчиков, январь",
+        "zh-cn": "开发者社区会议 1 月"
+      },
+      "logo": "de/blog/images/2022_01_19.jpg",
+      "type": "news",
+      "originalName": "2022_01_19.md",
+      "desc": {
+        "de": "Das neue Jahr hat gerade begonnen und unser erstes Meeting des Jahres fand bereits statt. Wir vom ioBroker Team wünschen alle ein frohes Neues und dass 2022 ein tolles Jahr für die Hausautomatisierung wird.",
+        "en": "The new year has just started and our first meeting of the year already took place. We from the ioBroker team wish everyone a happy new year and that 2022 will be a great year for home automation.",
+        "ru": "Новый год только начался, а наша первая встреча в этом году уже состоялась. Мы из команды ioBroker желаем всем счастливого нового года и желаем, чтобы 2022 год был отличным годом для домашней автоматизации.",
+        "zh-cn": "新的一年刚刚开始，我们今年的第一次会议已经召开。 ioBroker 团队祝大家新年快乐，2022 年将是家庭自动化的丰收年。"
+      }
+    },
     "2021_12_15": {
       "date": "2021.12.15",
       "title": {
         "de": "Dev Community Meeting Dezember",
         "en": "Dev Community Meeting December",
         "ru": "Встреча сообщества разработчиков, декабрь",
-        "zh-cn": "开发社区会议 12 月"
+        "zh-cn": "开发者社区会议 12 月"
       },
       "logo": "de/blog/images/2021_12_15.jpg",
       "type": "news",
       "originalName": "2021_12_15.md",
       "desc": {
-        "de": "### Liebe ioBroker Nutzer:innen,",
-        "en": "### Dear ioBroker users,",
-        "ru": "### Уважаемые пользователи ioBroker!",
-        "zh-cn": "### 亲爱的ioBroker 用户，"
+        "de": "Liebe ioBroker Nutzer:innen, auf vielfachen Wunsch haben wir beschlossen die Ergebnisse unseres Entwickler-Meetings hier im Blog publik zu machen. Künftig werden wir jedem Monat mindestens einen neuen Eintrag erstellen. ",
+        "en": "Dear ioBroker users, by popular request we have decided to publish the results of our developer meeting here on the blog. In the future we will create at least one new entry every month.",
+        "ru": "Уважаемые пользователи ioBroker, по многочисленным просьбам мы решили опубликовать результаты нашей встречи разработчиков здесь, в блоге. С этого момента мы будем создавать как минимум одну новую запись каждый месяц.",
+        "zh-cn": "尊敬的 ioBroker 用户，应广大用户的要求，我们决定在博客上发布我们开发者会议的结果。将来，我们将每月至少创建一个新条目。"
       }
     },
     "2020_12_06": {

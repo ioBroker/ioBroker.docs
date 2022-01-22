@@ -167,7 +167,7 @@
             "Proxmox": {
               "title": {
                 "en": "Proxmox",
-                "de": "Proxmox",
+                "de": "Installation",
                 "ru": "установка",
                 "zh-cn": "安装"
               },
@@ -176,7 +176,7 @@
             "VirtualBox": {
               "title": {
                 "en": "VirtualBox",
-                "de": "VirtualBox",
+                "de": "Installation",
                 "ru": "установка",
                 "zh-cn": "安装"
               },
@@ -185,7 +185,7 @@
             "Docker": {
               "title": {
                 "en": "Docker",
-                "de": "Docker",
+                "de": "Installation",
                 "ru": "установка",
                 "zh-cn": "安装"
               },
@@ -204,7 +204,7 @@
             "Node.js": {
               "title": {
                 "en": "Node.js",
-                "de": "Node.js",
+                "de": "Installation",
                 "ru": "установка",
                 "zh-cn": "安装"
               },
@@ -250,7 +250,7 @@
             "General": {
               "title": {
                 "en": "General",
-                "de": "Allgemeines",
+                "de": "Installation",
                 "ru": "установка",
                 "zh-cn": "安装"
               },
@@ -259,7 +259,7 @@
             "ioBroker": {
               "title": {
                 "en": "ioBroker",
-                "de": "ioBroker",
+                "de": "Installation",
                 "ru": "установка",
                 "zh-cn": "安装"
               },
@@ -399,8 +399,8 @@
         "Introduction": {
           "title": {
             "en": "Introduction",
-            "de": "Einleitung",
-            "ru": "учебник",
+            "de": "Tutorial",
+            "ru": "Руководство",
             "zh-cn": "教程"
           },
           "content": "tutorial/README.md"
@@ -408,7 +408,7 @@
         "First setup": {
           "title": {
             "en": "First setup",
-            "de": "Grundeinstellungen",
+            "de": "Tutorial",
             "ru": "учебник",
             "zh-cn": "教程"
           },
@@ -435,7 +435,7 @@
         "Simple logic": {
           "title": {
             "en": "Simple logic",
-            "de": "einfache Logik",
+            "de": "Tutorial",
             "ru": "учебник",
             "zh-cn": "教程"
           },
@@ -444,7 +444,7 @@
         "Visualisation": {
           "title": {
             "en": "Visualisation",
-            "de": "Visualisierung",
+            "de": "Tutorial",
             "ru": "учебник",
             "zh-cn": "教程"
           },
@@ -453,7 +453,7 @@
         "Data logging": {
           "title": {
             "en": "Data logging",
-            "de": "Datenlogging",
+            "de": "Tutorial",
             "ru": "учебник",
             "zh-cn": "教程"
           },
@@ -462,7 +462,7 @@
         "Charts": {
           "title": {
             "en": "Charts",
-            "de": "Charts",
+            "de": "Tutorial",
             "ru": "учебник",
             "zh-cn": "教程"
           },
@@ -471,7 +471,7 @@
         "Updates": {
           "title": {
             "en": "Updates",
-            "de": "Updates",
+            "de": "Tutorial",
             "ru": "Руководство",
             "zh-cn": "教程"
           },

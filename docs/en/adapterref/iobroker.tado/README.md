@@ -42,9 +42,10 @@ If you like my work, please feel free to provide a personal donation
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.14-alpha.5 (2022-01-14)
-* (HGlab01) Hotwater and AC v3 devices: asking device-owners for help
-* (HGlab01) support swing ON/OFF for AC v3 devices
+### 0.3.14 (2022-01-21)
+* (HGlab01) Improve hotwater handling
+* (HGlab01) Improve AC Control v3 devices 
+* (HGlab01) Support swing ON/OFF for AC v3 devices
 
 ### 0.3.13 (2022-01-03)
 * (HGlab01) Optimize internet-check by using isOnline-library

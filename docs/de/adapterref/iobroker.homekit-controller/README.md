@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.homekit-controller/README.md
 title: ioBroker.homekit-controller
-hash: NQucAtiQUOyd1k9Pgl1FFdssx3fMn5PPmENuplDEnWQ=
+hash: X9TntE4sGhJfsdGvmSEz4g3uIyTIhMxUjApyU9Gw4Ww=
 ---
 ![Logo](../../../en/adapterref/iobroker.homekit-controller/admin/homekit-controller.png)
 
@@ -69,17 +69,34 @@ Aufgrund der Einschränkungen von Bluetooth-Geräten sind keine "Echtzeit-Update
 Nach einem Neustart des Adapters können Bluetooth-Geräte nicht direkt verbunden werden - das System muss mindestens ein Erkennungspaket vom Gerät erhalten, um die erforderlichen Verbindungsdetails zu erhalten. Dies bedeutet, dass BLE-Geräte möglicherweise etwas verzögert verfügbar sind.
 
 ### Fehlerbehebung
-Pairing mModus bringen PIN mit Bindestrichen eingeben
+#### Bekannte inkompatible Geräte
+Wenn Sie Probleme haben, das Gerät mit diesem Adapter zu koppeln, versuchen Sie bitte, es mit der normalen iOS Apple Home App zu koppeln. Wenn dies nicht funktioniert, dann ist etwas komisch mit dem Gerät und dann kann auch dieser Adapter nicht helfen. Versuchen Sie einen Reset, aber sonst gibt es keine Chance.
 
-BLE: iobroker-Fix
+Dies ist derzeit beispielsweise bei einigen Tado-Türschlössern so. Sie müssen mit der Tado-App gekoppelt werden, die das Gerät irgendwie in Apple Home registriert, aber nicht über einen offiziellen Kopplungsprozess.
 
-https://github.com/noble/noble#running-on-linux
+#### Andere potenzielle Probleme, die Sie vor dem Öffnen eines Tickets überprüfen sollten
+##### Für BLE-Geräte
+* Wenn Sie Probleme haben, dass die BLE-Verbindung nicht funktioniert oder Sie Fehler erhalten, wenn der Adapter versucht, die BluetoothLE-Verbindung zu initialisieren, führen Sie bitte zuerst „iobroker fix“ aus, um sicherzustellen, dass alle Berechtigungen und erforderlichen Funktionen richtig eingestellt sind.
+* Wenn dies nicht hilft, überprüfen Sie bitte https://github.com/noble/noble#running-on-linux
+* Bitte stellen Sie sicher, dass Ihr System auf dem neuesten Stand ist, einschließlich Kernel `apt update && apt dist-upgrade`
+* Versuchen Sie, das entsprechende BLE-Gerät mit z. `sudo hciconfig hci0 zurücksetzen`
+* Geben Sie bei Problemen auch die Ausgabe von `uname -a` und `lsusb` an
+* Low-Level-BLE-Geräteprotokoll kann mit `sudo hcidump -t -x >log.txt` abgerufen werden (in einer zweiten Shell zusätzlich zum Ausführen des Adapters)
 
-Adapterinstanz stoppen im Admin mach eine Shell auf den Rechner DEBUG=hap* node /opt/iobroker/node_modules/iobroker.homekit-controller/build/main.js 0 --debug --logs Dann im Admin in de Adapter Konfig gehen ( adapter nicht dort nochmal starten ... der läuft schon auf der Kommendozeile) und einmal pairen und warten bis wieder fehler kommt und so Dann Log von der Shell bitte posten. Da sollte mehr drin sein. gerne als Datei hier anhängen Zusätzlich bitte im Admin unter Objekte mal das Device Objekt sichten von dem Gerät und da rechts auf den Stift klicken und auch das JSON posten was da angezeigt wird unter "Raw" oder so
+##### Allgemeine Hinweise
+* Verfügt das Gerät über einen Kopplungsmodus oder einen solchen, der zuerst aktiviert werden muss? Aber lesen Sie auch das Handbuch sorgfältig durch, vielleicht ist der Pairing-Modus für ein anderes Legacy-Protokoll oder eine Bridge, aber nicht für Apple Home.
+* Wenn beim Pairing-Versuch der Fehler „Pair-Setup-Charakteristik nicht gefunden“ auftritt, unterstützt das Gerät im Grunde genommen das Pairing über Homekit in seinem aktuellen Zustand nicht. Da kann der Adapter nichts machen!
+* Bitte achten Sie darauf, die PIN mit Bindestrichen in der Form „XXX-XX-XXX“ einzugeben. Andere Formate sollten von der Bibliothek bereits mit einem Fehler abgelehnt werden, aber nur um sicherzugehen
 
-Pair-Setup-Merkmal nicht gefunden
+## Debugging
+Wenn Sie Probleme haben und ein Problem melden möchten (siehe unten), ist das erweiterte Debug-Protokoll immer hilfreich.
 
-https://forum.iobroker.net/post/726590
+* Bitte stoppen Sie die Adapterinstanz im iobBroker Admin
+* Öffnen Sie eine Shell auf dem entsprechenden Server
+* Starten Sie den Adapter manuell mit `DEBUG=hap* node /opt/iobroker/node_modules/iobroker.homekit-controller/build/main.js 0 --debug --logs`
+* Tun Sie dann, was auch immer den Fehler verursacht, und holen Sie sich das Protokoll von der Shell und posten Sie es mit dem Problem.
+* Poste auch das Konsolenprotokoll in der Ausgabe. Dadurch wird ein Protokoll auf Protokollebene generiert.
+* Suchen Sie zusätzlich das relevante Objekt auf der Admin-Registerkarte "Objekte", klicken Sie rechts auf den Bleistift und geben Sie den JSON des Objekts an.
 
 ### Ressourcen und Links
 * Ressource, die versucht, Elgato-Sonderzustände zu dekodieren: https://gist.github.com/simont77/3f4d4330fa55b83f8ca96388d9004e7d
@@ -87,15 +104,17 @@ https://forum.iobroker.net/post/726590
 ### MACHEN
 * Überprüfen Sie, wie der Adapter mit Tasten funktioniert (sie haben keinen Status, und ich besitze kein solches Gerät. Benötige Unterstützung dafür)
 * Suchen Sie nach unterstützenden Videogeräten
-* Sehen Sie sich Support-Geräte an, die Bilder anbieten
-* Überprüfen Sie alle Fälle, in denen sich Polling-Updates überschneiden könnten - Feedback erforderlich, wenn es Probleme gibt
+* Schauen Sie sich Support-Geräte an, die Bilder anbieten (Methode ist da, aber nie in Aktion gesehen)
 
 ## Changelog
+### 0.4.1 (2022-01-21)
+* (Apollon77) Optimize close of connections on adapter stop
 
-### __WORK IN PROGRESS__
+### 0.4.0 (2022-01-21)
+* (Apollon77) performance increase by using persistent connections to IP devices and many more optimizations
 * (Apollon77) Only use one queue for all BLE devices
 * (Apollon77) Store pairing data directly after pair
-* (Apollon77) Optimize handing concurrent requests
+* (Apollon77) Optimize handing of concurrent requests
 * (Apollon77) Optimize value update handling and better detect stale data to force an update on next polling
 
 ### 0.3.3 (2021-10-26)
@@ -127,7 +146,7 @@ https://forum.iobroker.net/post/726590
 ## License
 MIT License
 
-Copyright (c) 2021 Ingo Fischer <github@fischer-ka.de>
+Copyright (c) 2021-2022 Ingo Fischer <github@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

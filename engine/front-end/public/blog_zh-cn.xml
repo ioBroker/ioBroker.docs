@@ -3,12 +3,22 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[有关ioBroker的新闻，公告和想法]]></description>
         <link>https://www.iobroker.net/#zh-cn/blog</link>
-        <lastBuildDate>Wed, 15 Dec 2021 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 19 Jan 2022 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
         <item>
-            <title><![CDATA[开发社区会议 12 月]]></title>
+            <title><![CDATA[开发者社区会议 1 月]]></title>
             <description><![CDATA[
-                <p>### 亲爱的ioBroker 用户，</p>
+                <p>新的一年刚刚开始，我们今年的第一次会议已经召开。 ioBroker 团队祝大家新年快乐，2022 年将是家庭自动化的丰收年。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2022_01_19</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2022_01_19</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 19 Jan 2022 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[开发者社区会议 12 月]]></title>
+            <description><![CDATA[
+                <p>尊敬的 ioBroker 用户，应广大用户的要求，我们决定在博客上发布我们开发者会议的结果。将来，我们将每月至少创建一个新条目。</p>
             ]]></description>
             <link>https://www.iobroker.net/#zh-cn/blog/2021_12_15</link>
             <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2021_12_15</guid>

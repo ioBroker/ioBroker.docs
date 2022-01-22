@@ -186,6 +186,9 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 * blind alert state -> decode bit array
 
 ## Changelog
+### 2.2.4
+* correction: number format from admin page for times and tsoll
+
 ### 2.2.3 (npm)
 * buttons setmodeon/off/auto have now initial value false, and when triggered with true get false again (for next trigger)
 * buttons blindsclose/stop/open have now initial value false, and when triggered with true get false again (for next trigger)

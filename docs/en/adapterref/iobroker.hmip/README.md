@@ -60,6 +60,12 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Add windowOpen indicator to two more places
+* (Apollon77) Optimize reconnection handling
+* (Apollon77) Optimize automatic initialization of unknown devices and channels
+
 ### 1.15.2 (2022-01-04)
 * (Apollon77) Wait 10s until no new "unknown state update" was received before updating the whole system
 
@@ -68,7 +74,7 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 * (Apollon77) Optimize WebSocket reconnection Logic
 * (Apollon77) Optimize current value handling and re-set value if a state change is not processed because of an unchanged value
 * (Apollon77) Implement startImpulse call for ImpulseOutputChannels for e.g. HM-WGC
-* (Apollon77) Implement experimental support for HMIP-DLD to set the lock state and also an option PIN if needed (see notes above)
+* (Apollon77) Implement support for HMIP-DLD to set the lock state and also an option PIN if needed (see notes above)
 * (Apollon77) Detect new and unknown devices and channels and reinitialize the structure to add the new objects on the fly
 * (Apollon77) Implement DOOR_LOCK_SENSOR_CHANNEL
 * (Apollon77) Ignore HEAT_DEMAND_CHANNEL, DEHUMIDIFIER_DEMAND_CHANNEL, FLOOR_TERMINAL_BLOCK_CHANNEL and CHANGE_OVER_CHANNEL because no data to prevent logs

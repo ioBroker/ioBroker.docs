@@ -3,12 +3,22 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Neuigkeiten, Ankündigungen und Ideen zu ioBroker]]></description>
         <link>https://www.iobroker.net/#de/blog</link>
-        <lastBuildDate>Wed, 15 Dec 2021 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 19 Jan 2022 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[Dev Community Meeting Januar]]></title>
+            <description><![CDATA[
+                <p>Das neue Jahr hat gerade begonnen und unser erstes Meeting des Jahres fand bereits statt. Wir vom ioBroker Team wünschen alle ein frohes Neues und dass 2022 ein tolles Jahr für die Hausautomatisierung wird.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2022_01_19</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2022_01_19</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 19 Jan 2022 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Dev Community Meeting Dezember]]></title>
             <description><![CDATA[
-                <p>### Liebe ioBroker Nutzer:innen,</p>
+                <p>Liebe ioBroker Nutzer:innen, auf vielfachen Wunsch haben wir beschlossen die Ergebnisse unseres Entwickler-Meetings hier im Blog publik zu machen. Künftig werden wir jedem Monat mindestens einen neuen Eintrag erstellen. </p>
             ]]></description>
             <link>https://www.iobroker.net/#de/blog/2021_12_15</link>
             <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2021_12_15</guid>

@@ -337,7 +337,9 @@ Group CSS-Common / transform "scale(0.5)"
 
 ## Changelog
 
-
+### 0.7.9
+* add more wordclock tests
+* fix wordclock matrix swiss
 ### 0.7.8
 * add timezone for wordclock
 ### 0.7.7

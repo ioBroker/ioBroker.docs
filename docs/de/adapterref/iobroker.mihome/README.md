@@ -124,9 +124,12 @@ Unter *Objekte* wird nun das Gateway und seine angelernten Geräte angezeigt:
 Die Anleitung wurde nach besten Wissen und Gewissen erstellt.
 
 ## Changelog
+### 1.3.9 (2022-01-19)
+* (drtsb) Added two new aqara devices and some missing icons
+
 ### 1.3.8 (2021-09-13)
 * (VLGorskij) fixed the error messages for some states
- 
+
 ### 1.3.7 (2021-01-22)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-MIHOME-A)
 
@@ -137,7 +140,7 @@ Die Anleitung wurde nach besten Wissen und Gewissen erstellt.
 * (Apollon77) Fix crash cases (Sentry IOBROKER-MIHOME-1..4)
 
 ### 1.3.4 (2020-08-31)
-* (Alan) Fixed the crash for non existing attributes 
+* (Alan) Fixed the crash for non existing attributes
 
 ### 1.3.3 (2020-08-26)
 * (bluefox) Sentry is activated
@@ -236,4 +239,4 @@ Die Anleitung wurde nach besten Wissen und Gewissen erstellt.
 ## License
 MIT
 
-Copyright (c) 2017-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2022 bluefox <dogafox@gmail.com>
