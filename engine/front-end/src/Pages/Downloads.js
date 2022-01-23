@@ -301,21 +301,8 @@ class Downloads extends Router {
 
     renderInfoAboutInstall() {
         return <Paper key="instruction" className={this.props.classes.instructionDiv}>
-            {I18n.t('instruction1')}<br/>
+            {I18n.t('instruction1')}<br/><br/>
             {I18n.t('instruction2')}<br/><br/>
-            <b>1. </b>{I18n.t('instruction3')}
-            <pre className={this.props.classes.instructionCode}>
-                curl -sLf https://deb.nodesource.com/setup_12.x | sudo -E bash -<br/>
-                sudo apt-get install -y nodejs<br/>
-                <IconButton
-                    className={this.props.classes.instructionCopy}
-                    title={I18n.t( 'copy to clipboard')}
-                    onClick={e => {
-                        Utils.onCopy(e, 'curl -sLf https://deb.nodesource.com/setup_12.x | sudo -E bash -\nsudo apt-get install -y nodejs');
-                        this.setState({tooltip: I18n.t('Copied')});
-                    }}><IconCopy fontSize="small"/></IconButton>
-            </pre>
-            <b>2. </b>{I18n.t('instruction4')}
             <pre className={this.props.classes.instructionCode}>
                 curl -sLf https://iobroker.net/install.sh | bash -<br/>
                 <IconButton
@@ -326,6 +313,7 @@ class Downloads extends Router {
                         this.setState({tooltip: I18n.t('Copied')});
                     }}><IconCopy fontSize="small"/></IconButton>
             </pre>
+            {I18n.t('instruction3')}
         </Paper>;
     }
 

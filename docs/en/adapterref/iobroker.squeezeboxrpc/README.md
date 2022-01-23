@@ -183,6 +183,9 @@ https://github.com/elParaguayo/LMS-CLI-Documentation/blob/master/LMS-CLI.md
 
 ## Changelog
 
+### 1.3.9
+* fix error with deleting favorites
+* fix wrong type for datapoint
 ### 1.3.8
 * fix forward button widget
 ### 1.3.7

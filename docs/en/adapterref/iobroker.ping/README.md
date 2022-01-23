@@ -24,7 +24,7 @@ Pings specified IP addresses in defined interval and monitors the results.
 -->
 
 ## Changelog
-### 1.5.1 (2021-12-28)
+### 1.5.2 (2022-01-20)
 * (basti4557) Number of retries can be defined if a ping request failed. This should minimize wrong offline detection.
 
 ### 1.5.0 (2021-07-14)
@@ -116,7 +116,7 @@ Pings specified IP addresses in defined interval and monitors the results.
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2021, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -2,34 +2,37 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.node-red/README.md
-title: Адаптер ioBroker node-red
-hash: Hepdf/NZ/L9whqqNKIiOn4KWFfh63yiXgLpbfS1rFzg=
+title: ioBroker узел-красный адаптер
+hash: ma/a3NNG2WCpcPI/UD71yZRFacjQFvR/qv73KSDlN80=
 ---
 ![Логотип](../../../en/adapterref/iobroker.node-red/admin/node-red.png)
 
 ![Количество установок](http://iobroker.live/badges/node-red-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.node-red.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.node-red.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.node-red.svg)
 
-# IoBroker node-red Адаптер
-![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.node-red/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/node-red/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker узел-красный адаптер
+![Тестируйте и выпускайте](https://github.com/ioBroker/ioBroker.node-red/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/node-red/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Запускает экземпляр node-red и связывается с ним.
+Запускает экземпляр node-red и взаимодействует с ним.
 
-Этот адаптер использует сервер node-red из https://github.com/node-red/node-red
+Этот адаптер использует сервер node-red из https://github.com/node-red/node-red.
 
-** Примечание: ** Если в диалоговом окне выбора идентификатора узла ioBroker вы не можете найти какую-либо переменную, перезапустите экземпляр node-red. При перезапуске будет создан новый список объектов.
-
-** Обновление до 1.17.2: ** Если вы уже использовали аутентификацию Node-Red: снова установите пароль в настройках экземпляра Node-Red в ioBroker после обновления! В противном случае вы больше не сможете войти в Node-Red после обновления.
+**Примечание:** Если в диалоговом окне выбора идентификатора узла ioBroker вы не можете найти какую-либо переменную, перезапустите экземпляр node-red. При перезапуске будет создан новый список объектов.
 
 ## Настройки
-- Безопасный режим - потоки не запускаются, и вы можете редактировать потоки, чтобы исправить некоторые проблемы с перегрузкой.
+- Безопасный режим - потоки не будут запущены, и вы можете редактировать потоки, чтобы устранить проблему с перегрузкой.
 
-<! - Заполнитель для следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
 
 ## Changelog
+### 2.5.0 (2022-xx-xx)
+* (jwiesel) Changed default setting to "convert data from ioBroker nodes into Strings" to false. Setting will not be changed automatically in instances already running.
+* (jwiesel) "Tail" node has been removed from the default palette in Node-RED 2.0. You can reinstall it from node-red-node-tail.
+* (jwiesel) Node-RED updated to 2.1.4 (incl. restructuring of settings.js)
+
 ### 2.4.1 (2021-08-31)
 * (mickym2) Correct min7max for the object creation 
 * (bluefox) Node-red updated to 1.3.6

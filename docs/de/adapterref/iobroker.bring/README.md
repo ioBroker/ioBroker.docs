@@ -208,6 +208,9 @@ Für jede Einkaufsliste wird ein Channel mit den folgenden Objekten angelegt:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.7.11 (2022-01-21)
+* (foxriver76) fixed telegram user selection
+
 ### 1.7.9 (2021-12-07)
 * (foxriver76) we fixed default value of `count` state beeing an empty string
 

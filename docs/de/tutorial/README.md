@@ -32,3 +32,14 @@ Diagrammdarstellung umfasst.
 Immer wieder auf das Kapitel "Konfiguation" für mehr Details
 verweisen.   
 @@@
+
+
+<details>
+<summary>weitergehende Informationen</summary>
+ 
++ markdown list 1
+    + nested list 1
+    + nested list 2
++ markdown list 2
+ 
+</details>

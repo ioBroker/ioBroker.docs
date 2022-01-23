@@ -67,6 +67,9 @@ Vergleichbar für den Soll-/Istverlaufs ist demnach atualtemp und targettemp.
 Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig Information ist der debug modus über die Experteneinstellung der Instanz vorzuwählen.
 
 ## Changelog
+### 2.2.4
+* correction: number format from admin page for times and tsoll
+
 ### 2.2.3 (npm)
 * buttons setmodeon/off/auto have now initial value false, and when triggered with true get false again (for next trigger)
 * buttons blindsclose/stop/open have now initial value false, and when triggered with true get false again (for next trigger)

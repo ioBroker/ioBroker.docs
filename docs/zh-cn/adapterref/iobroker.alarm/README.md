@@ -3,23 +3,22 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.alarm/README.md
 title: ioBroker.alarm
-hash: XlZMcUxxTRqFBI9uuC02NVMS0VGhEE1NEm/7i1cLpYg=
+hash: NwTEm+ngKMovQngTpclJO2as7MIXFvMIZAFX3TYdyAs=
 ---
 ![标识](../../../en/adapterref/iobroker.alarm/admin/alarm.png)
 
 ![安装数量](http://iobroker.live/badges/alarm-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.alarm.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.alarm.svg)
-![依赖状态](https://img.shields.io/david/misanorot/iobroker.alarm.svg)
 ![已知漏洞](https://snyk.io/test/github/misanorot/ioBroker.alarm/badge.svg)
-![新产品管理](https://nodei.co/npm/iobroker.alarm.png?downloads=true)
+![新PM](https://nodei.co/npm/iobroker.alarm.png?downloads=true)
 
 # IoBroker.alarm
 **Github 操作**：
 
 ![GitHub 操作](https://github.com/misanorot/ioBroker.alarm/workflows/Test%20and%20Release/badge.svg)
 
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYHW84XXF5REJ&source=url)
+[![贝宝](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYHW84XXF5REJ&source=url)
 
 **[英文说明](https://github.com/misanorot/ioBroker.alarm/blob/master/lib/Readme_en.md)**
 
@@ -30,7 +29,7 @@ Er bietet die Möglichkeit 3 Sicherheitskreise zu konfigurieren und diese z. B. 
 ----------------------------------------------------------------------------------------------------------------------
 
 ### Tab Haupteinstellungen
-Hier werden die Einstellungen wie die Zeiten der Nachtruhe, Sirenezeit, Stiller-Alarm 和 Passwort vorgenommen。
+Hier werden die Einstellungen wie die Zeiten der Nachtruhe, Sirenezeit, Stiller-Alarm und Passwort vorgenommen。
 
 - Aktivierzeit -> Zeitverzögerung bis zu Aktivierung wenn man einen delay Datenpunkt benutzt
 - Sirenenzeit bei Einbruch -> Bei Einbruch wird der Datenpunkt alarm.0.status.siren für die Zeit auf true gesetzt
@@ -39,73 +38,75 @@ Hier werden die Einstellungen wie die Zeiten der Nachtruhe, Sirenezeit, Stiller-
 
 ----------------------------------------------------------------------------------------------------------------------
 
-### 标签 Benachrichtigungen
-Benachrichtigungen über Andere Adapter wie z. B. Telegramm，Email oder andere。
+### Tab Benachrichtigungen
+Benachrichtigungen über Andere Adapter wie z。 B. Telegramm，电子邮件或其他。
 [问题](#Probleme)
+
+Bei Benachrichtigungen an den Telegram Adapter, ist es möglich User- oder Chat IDs zu benutzen。
 
 ----------------------------------------------------------------------------------------------------------------------
 
-### 标签 Überwachung
+### Tab Überwachung
 Hier werden die Kreise der Anlage konfiguriert。
-*die Namen der states lassen sich ändern*
+*死 Namen der states lassen sich ändern*
 
-Der Alarmkreis hat die Priorität „hoch” und hat bei aktivierter Anlage (scharf) Vorrang vor allen anderen Kreisen scharf intern befindet, dies entspricht einem Außenhautschutz einer Alarmanlage. Der Meldekreis dient nur zur Meldung während der Zustände scharf, scharf intern und bei der Nachtruhe。
-* Es ist durchaus möglich, dass man für einem state, den Haken bei allen drei Kreisen macht。*
+Der Alarmkreis hat die Priorität „hoch" und hat bei aktivierter Anlage (scharf) Vorrang vor allen anderen Kreisen. Er dient zur eigentlichen Überwachung der Anlage. Dies entspricht den Vollschutz einer Alarmanlage. Der scharf intern Kreis wird überwacht, wenn die Anlage sich im Zustand scharf intern befindet, dies entspricht einem Außenhautschutz einer Alarmanlage. Der Meldekreis dient nur zur Meldung während der Zustände scharf, scharf intern und bei der Nachtruhe。
+*Es ist durchaus möglich, dass man für einem state, den Haken bei allen drei Kreisen macht。*
 
-Sollte man einen Kontakt haben, der den Alarmkreis nicht sofort auslösen soll, kann man das Häkchen bei "stiller Alarm" aktivieren, dadurch wird nach Ablauf der eingestellten Zeit (Haupteinstellungen), der Alarm ausgelst
+Sollte man einen Kontakt haben, der den Alarmkreis nicht sofort auslösen soll, kann man das Häkchen bei "stiller Alarm" aktivieren, dadurch wird nach Ablauf der eingestellten Zeit (Haupteinstellungen), der Alarm ausgelöst。
 
-Sollte es erforderlich sein die Einzelnen States nicht auf *true*，sondern auf *false* zu triggern (z.B. Drahtbruchsichere Sensoren)，所以 kann man das Häkchen bei "negieren" setzen。
+Sollte es erforderlich sein die Einzelnen States nicht auf *true*, sondern auf *false* zu triggern (z.B. Drahtbruchsichere Sensoren), so kann man das Häkchen bei "negieren" setzen。
 
 Sollte man im Tab Haupteinstellungen die Option "verlassen" aktiviert haben, kann man unter dem entsprechenden Datenpunkt "verlassen" anwählen。 Dies bewirkt, dass bei verzögerte Aktivierung, der Countdown nicht ablaufen muss, sondern es reicht z. B. die Tür zu schließen。
 
 Die Kreise werden folgendermaßen überwacht：
 
 #### 警报器：
-Alarmanlage lässt sich nicht aktivieren (scharf schalten) wenn ein konfigurierter state aktiv ist。 Be aktivierter Alarmanlage führt eine Veränderung sofort zur Auslösung der Anlage。
+Alarmanlage lässt sich nicht aktivieren (scharf schalten) wenn ein konfigurierter state aktivist。 Bei aktivierter Alarmanlage führt eine Veränderung sofort zur Auslösung der Anlage。
 
 #### Scharf 实习生 Kreis：
-Alle hier konfigurierten 状态 werden beim Zustand scharf intern überwacht und lösen unter anderem den internen Alarm aus.
+Alle hier konfigurierten states werden beim Zusstand scharf intern überwacht und lösen unter anderem den internen Alarm aus。
 
-####梅尔德克莱斯：
-Der überwacht die konfigurierten 声明 auf Veränderungen 和 meldet 死亡。
+#### Meldekreis：
+Der überwacht die konfigurierten states auf Veränderungen und meldet 死了。
 
 ----------------------------------------------------------------------------------------------------------------------
 
-### 标签 Sprachausgabe
-Ist eine gewünschte Sprachausgabe z. B. bei Änderung des Zustandes gewünscht, lässt sich das hier mit den gewünschten Sätzen konfigurieren。
-*Man muss sich sicher sein, das der ausgewählte Datenpunkt, mit einem Text beschrieben werden kann！ Z.B. "sayit.0.tts"*
+### Tab Sprachausgabe
+Ist eine gewünschte Sprachausgabe z。 B. bei Änderung des Zusstandes gewünscht, lässt sich das hier mit den gewünschten Sätzen konfigurieren。
+*Man muss sich sicher sein, das der ausgewählte Datenpunkt, mit einem Text beschrieben werden kann！ Z.B. “sayit.0.tts”*
 
 Möchte man sich die Ausgabe von Namen mit Ansagen lassen, kann man diese Option anwählen。
 
 ----------------------------------------------------------------------------------------------------------------------
 
 ### Tab Verknüpfungen
-Hierist es möglich Adapter interne states direkt mit externen states zu verknüpfen。 Somit ist ein Umweg über ein Skript oder ähnlichen nicht erforderlich。
+Hier ist es möglich Adapter interne states direkt mit externen states zu verknüpfen。 Somit ist ein Umweg über ein Skript oder ähnlichen nicht erforderlich。
 Es lässt sich somit z。 B. bei Beginn der Nachtruhe, eine Verriegelung des Türschlosses realisieren。
 ![标识](../../../en/adapterref/iobroker.alarm/admin/img/short.png)
 
 #### Eingabeverknüpfungen
-触发器--> any = es wird bei jeder Änderung getriggert ne = es wird nur getriggert, wenn der Wert sich geändert
+Trigger--> any = es wird bei jeder Änderung getriggert ne = es wird nur getriggert, wenn der Wert sich geändert
 
 Auslösewert--> Ist der Wert, auf welchen getriggert werden soll
 
 ----------------------------------------------------------------------------------------------------------------------
 
-### 标签安德雷·阿勒姆
-Es stehen einen zwei frei konfigurierbare Überwachungskreise zu Verfügung, diese werden bei Benutzung unabhängig dem Zustand der Alarmanlage ständig überwacht！ Als Voreinstellung sind diese als Feuer- und Wasseralarm beschriftet。 In der ganzen Konfiguration sind diese als Kreise 1 und 2 beschriftet und an den Nummern zu erkennen。
+### Tab Andere Alarme
+Es stehen einen zwei frei konfigurierbare Überwachungskreise zu Verfügung, diese werden bei Benutzung unabhängig dem Zusand der Alarmanlage ständig überwacht！ Als Voreinstellung sind diese als Feuer- und Wasseralarm beschriftet。 In der ganzen Konfiguration sind diese als Kreise 1 und 2 beschriftet und an den Nummern zu erkennen。
 
-Sollte es erforderlich sein die Einzelnen States nicht auf *true*，sondern auf *false* zu triggern (z.B. Drahtbruchsichere Sensoren)，所以 kann man das Häkchen bei "negieren" setzen。
+Sollte es erforderlich sein die Einzelnen States nicht auf *true*, sondern auf *false* zu triggern (z.B. Drahtbruchsichere Sensoren), so kann man das Häkchen bei "negieren" setzen。
 
 ####Es ist darauf zu achten, dass keine States aus dem eigentlichen Hauptüberwachungskreisen benutzt werden！
 ----------------------------------------------------------------------------------------------------------------------
 
-Der Adapterliefert eine ganze Anzahl an 指出：
+Der Adapter liefert eine ganze Anzahl an 状态：
 
-####“警报.x.使用.....”。
-Das sind die eigentlichen 状态 um die Alarmanlage zu bedenen。
+#### “alarm.x.use.....”。
+Das sind die eigentlichen states um die Alarmanlage zu bedienen。
 
 - use.activate_nightrest -> Aktivierung der Nachtruhe
-- use.activate_sharp_inside_circuit -> Aktivierung der Überwachung des Warnkreises（实习生）
+- use.activate_sharp_inside_circuit -> Aktivierung der Überwachung des Warnkreises（实习生 scharf）
 - use.disable -> Deaktivierung der Anlage (Alarmkreis)
 - use.enable -> Aktivierung der Anlage (Alarmkreis)
 - use.enable_with_delay -> Aktivierung der Anlage (Alarmkreis) mit Verzögerungszeit
@@ -114,18 +115,18 @@ Das sind die eigentlichen 状态 um die Alarmanlage zu bedenen。
 - use.toggle_password -> Deaktivierung/Aktivierung der Anlage (Alarmkreis) mit Passwort
 - use.toggle_with_delay -> Deaktivierung/Aktivierung der Anlage (Alarmkreis) mit Verzögerungszeit
 - use.toggle_with_delay_and_password -> Deaktivierung/Aktivierung der Anlage (Alarmkreis) mit Passwort und Verzögerungszeit
-- use.panic -> Händische Auslösung der Alarmanlage(Einbruch), auch wenn diese deaktiviertist
+- use.panic -> Händische Auslösung der Alarmanlage(Einbruch), auch wenn diese deaktiviert ist
 
-####“警报.x.状态....”
-Hier lässte sich der Zustand der Anlageablesen。
+#### "alarm.x.status...."
+Hier lässte sich der Zusand der Anlageablesen。
 
-- status.sleep -> Signalisiert den Zustand der automatischen Nachtruhe
+- status.sleep -> Signalisiert den Zusand der automatischen Nachtruhe
 
 #### "alarm.x.info...."
-Liefert zusätzliche Informationen wie z.B. welche "Türen off sind" oder einen 日志状态。
+Liefert zusätzliche Informationen wie z.B. welche "Türen offen sind" oder einen Log 状态。
 Der log_today state wird um Mitternacht geleert。
 
-#### "alarm.x.other_alarms ...."
+#### “alarm.x.other_alarms....”
 Beinhaltet die Informationen für die "anderen" Alarmkreise 1 + 2。
 
 ----------------------------------------------------------------------------------------------------------------------
@@ -136,6 +137,13 @@ Beinhaltet die Informationen für die "anderen" Alarmkreise 1 + 2。
 #### Wichtig, die Benutzung dieses Adapters geschieht auf eigene Gefahr, für etwaige Fehlfunktionen wird keine Haftung übernommen！
 
 ## Changelog
+
+
+#### 2.2.0 (16.01.2022)
+* (misanorot) added telegram special parameters
+
+#### 2.1.1 (07.11.2021)
+* (misanorot) added countdown state for silent alarm
 
 #### 2.1.0 (11.10.2021)
 * (misanorot) extend list states and speech output, added leave option
@@ -227,4 +235,4 @@ Beinhaltet die Informationen für die "anderen" Alarmkreise 1 + 2。
 ## License
 MIT License
 
-Copyright (c) 2019-2021 misanorot <audi16v@gmx.de>
+Copyright (c) 2019-2022 misanorot <audi16v@gmx.de>

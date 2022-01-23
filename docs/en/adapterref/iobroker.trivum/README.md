@@ -62,7 +62,7 @@ Then the respective control elements under the individual zones:
 ## License
 MIT License
 
-Copyright (c) 2021 TheBam <elektrobam@gmx.de>
+Copyright (c) 2022 TheBam <elektrobam@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

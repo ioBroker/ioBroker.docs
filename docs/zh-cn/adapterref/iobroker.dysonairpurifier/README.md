@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.dysonairpurifier/README.md
-title: ioBroker.dysonAirPurifier
-hash: j1EwtkUpY6F0C55D0dq9qipiz2cF/C7w25T0i3CXga8=
+title: ioBroker.dyson空气净化器
+hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 ---
 # IoBroker.dysonAirPurifier
 ![标志](admin/dyson_logo.svg)![标志](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -42,6 +42,17 @@ hash: j1EwtkUpY6F0C55D0dq9qipiz2cF/C7w25T0i3CXga8=
 * 从设备和传感器读取值
 * 可以通过让您更改某些值（主功率、振荡、加热、风扇速度……）来控制设备
 * 从 Dyson 服务器读取设备列表
+* 处理*无限*数量的粉丝（当然，事实上您的 ioBroker 主机的资源限制了数量）。
+
+＃＃ 怎么运行的
+启动时，dyson 云会查询绑定到您帐户的所有已知设备及其 MQTT 密码。有了这个列表，适配器就可以本地连接到所有设备并与它们交互。
+
+* 连接戴森云只需要获取绑定到您账户的设备列表和他们的MQTT密码。
+* 因此，只有在适配器启动时才能识别新设备。
+* 适配器启动期间仅查询一次戴森云。
+* 戴森风扇充当 MQTT 服务器，适配器充当客户端。
+* 设备和适配器之间的所有通信仅在本地进行。
+* 适配器中的所有连接信息都会在重新启动期间被删除并重新构建。
 
 ＃＃ 安装
 ### Sentry.io
@@ -71,7 +82,7 @@ hash: j1EwtkUpY6F0C55D0dq9qipiz2cF/C7w25T0i3CXga8=
 戴森用户名和密码是通用配置数据，需要在适配器的配置页面中输入。
 不同的是，IP 被输入到 `devices` 选项卡页面上设备树中的字段 `Hostname`。
 
-#### 如何配置适配器
+####如何配置适配器
 > 在此适配器的第一次常规启动时，将为您的所有设备查询 Dyson API，并将在设备树中创建所有受支持的设备——API 提供的基本信息和附加字段 `Hostaddress`。
 > > 所以请运行适配器一次，您的戴森设备将在设备树中创建，并带有它们的基本设置。
 > > 然后停止适配器，在设备树的`Hostaddress` 字段中输入 IP，然后重新启动适配器。之后，设备树中的 Dyson 设备应填充数据。
@@ -90,11 +101,11 @@ hash: j1EwtkUpY6F0C55D0dq9qipiz2cF/C7w25T0i3CXga8=
 
 * 打开适配器的配置对话框
 * 至少填写您的电子邮件地址、密码和国家代码 - 其余为可选
-* 单击 2FA-Code 电子邮件按钮以启动该过程
+* 单击 2FA 代码电子邮件按钮以启动该过程
 * 您将在相应字段中自动收到“challengeId”、一封电子邮件和一个包含进一步说明的对话框
 * 将电子邮件中的 6 位代码输入“戴森一次性密码”字段
 * 点击“完成”按钮
-* 之后您应该已经收到了来自戴森的令牌（出于安全目的不可见）
+* 之后你应该已经收到了来自戴森的令牌（出于安全目的不可见）
 * 完成设置后单击保存并关闭 - 适配器应重新启动并变为绿色。
 
 所有值将被保存并进一步显示。
@@ -118,9 +129,9 @@ hash: j1EwtkUpY6F0C55D0dq9qipiz2cF/C7w25T0i3CXga8=
 * OscillationRight , OscillationAngle 上边界
 * OscillationLeft , OscillationAngle 下边界
 * 振荡角，振荡角
-* ContinuousMonitoring，即使设备关闭也能持续监控环境传感器。
+* ContinuousMonitoring ，即使设备关闭也能持续监控环境传感器。
 * MainPower ，风扇的主电源。
-* AutomaticMode ，风扇处于自动模式。
+* AutomaticMode , 风扇处于自动模式。
 * Flowdirection ，风扇吹向的方向。开=前；关闭=返回（又名 Jet 焦点）
 * Jetfocus，风扇吹向的方向。开=前；关闭=返回（又名 Jet 焦点）
 *加热模式，加热模式[开/关]
@@ -139,6 +150,7 @@ hash: j1EwtkUpY6F0C55D0dq9qipiz2cF/C7w25T0i3CXga8=
 
 ＃＃＃ 已知的问题
 *没有设备的自动IP检测
+* 有时适配器会丢失与风扇的 MQTT 连接并且无法重新连接。在我的情况下，拔下风扇大约 10 秒钟就足以重置它并重新插入。试一试。
 
 ## Dyson API 数据说明（消息负载）
 从 <https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md> 复制和扩展的信息
@@ -164,7 +176,7 @@ hash: j1EwtkUpY6F0C55D0dq9qipiz2cF/C7w25T0i3CXga8=
 | fnsp |风扇转速 | 0001 - 0010，自动 | |
 |目录 |粉丝方向又名。 Jet 对焦/ ON=前，OFF=后 |开、关 | |
 | foc |喷气焦点 |开、关 | |
-|模组 |夜间模式 |开、关 | |
+|修改 |夜间模式 |开、关 | |
 |奥森 |振荡 |开、关 | |
 |奥斯 | OscillationAngle 下边界 | 0005 - 355 | °（度）|
 |奥绍| OscillationAngle 上边界 | 0005 - 355 | °（度）|
@@ -191,7 +203,7 @@ hash: j1EwtkUpY6F0C55D0dq9qipiz2cF/C7w25T0i3CXga8=
 |万事达|警告代码 |无... | |
 | rstf |重置过滤器生命周期 | 'RSTF'、'STET'、RESET_FILTER_LIFE_IGNORE、RESET_FILTER_LIFE_ACTION | |
 |科尔夫 |温度格式 | ON=摄氏，OFF=华氏| |
-| clcr |深层清洁 | CLNO=未激活，CLAC=正在进行深度清洁，CLCM=已完成 | |
+| clcr |深层清洁循环 | CLNO=未激活，CLAC=正在进行深度清洁，CLCM=已完成 | |
 |赫斯塔 |加热状态 |活动/空闲 | |
 | msta |加湿状态 |活动/空闲关闭，HUMD | |
 | psta | [HP0x] 未知 |初始化，CLNG，INV，关闭 | |

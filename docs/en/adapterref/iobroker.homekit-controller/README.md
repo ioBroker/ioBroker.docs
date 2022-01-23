@@ -65,26 +65,35 @@ After a restart of the adapter bluetooth devices can not be connected directly -
 
 ### Troubleshooting
 
-Pairing mModus bringen
-PIN mit bindestrichen eingeben
+#### Known incompatible devices
+If you have issues pairing the device with this adapter please try to pair it with the normal iOS Apple Home App. If this do not work then something is weird with the device and then also this adapter can not help. Pot try a reset, but else there is not chance.
 
-BLE:
-iobroker fix
+This is currently that way for some Tado Door Locks as example. They need to be paired using the Tado App which is somehow registering the device into Apple Home, but not via an official pair process.
 
-https://github.com/noble/noble#running-on-linux
+#### Other potential issues to check before opening a ticket
 
-    Adapterinstanz stoppen im Admin
-    mach eine Shell auf auf den rechner
-    DEBUG=hap* node /opt/iobroker/node_modules/iobroker.homekit-controller/build/main.js 0 --debug --logs
-    Dann im Admin in de Adapter Konfig gehen (adapter nicht dort nochmal starten ... der läuft schon auf der Kommendozeile) und einmal pairen und warten bis wieder fehler kommt und so
-    Dann Log von der Shell bitte posten. Da sollte mehr drin sein. gern als File hier anhängen
-    Zusätzlich bitte im Admin unter Objekte mal das Device Objekt siuchen von dem Gerät und da rechts auf den Stift klicken und auch das JSON posten was da angezeigt wird unter "Raw" oder so
+##### for BLE devices
+* If you have issues that the BLE connection do not work our you get Errors when the adapter tries to initialize the BluetoothLE connection, please first run `iobroker fix` to make sure that all permissions and needed capabilities are set correctly.
+* If this do not help please check https://github.com/noble/noble#running-on-linux
+* Please make sure that your system is up-to-date including kernel `apt update && apt dist-upgrade`
+* Try to reset the relevant BLE device with e.g. `sudo hciconfig hci0 reset`
+* For issues also provide the output of `uname -a` and `lsusb`
+* Low level BLE device log can be obtained using `sudo hcidump -t -x >log.txt` (in a second shell additionally to run the adapter)
 
-pair-setup characteristic not found
+##### General advices
+* Does the device have a Pairing Mode or such that needs to be activated first? But also read the manual careful, maybe the Pairing mode is for some other legacy protocol or bridge but not Apple Home.
+* Basically if the error "pair-setup characteristic not found" pops up while trying to pair then the device do not support pairing via Homekit in it's current state. The adapter cn not do anything then!
+* Please make sure to enter the PIN mit Dashes in the form "XXX-XX-XXX". Other formats should be declined by the library already by an error, but just to make sure
 
+## Debugging
+When you have issues and want to report an Issue (see below) then enhanced debug log is always helpful.
 
-https://forum.iobroker.net/post/726590
-
+* Please stop the adapter instance in iobBroker Admin
+* Open a shell on the relevant server
+* Manually start the adapter using `DEBUG=hap* node /opt/iobroker/node_modules/iobroker.homekit-controller/build/main.js 0 --debug --logs`
+* Then do whatever produces the error and grab the log from the  shell and post with the Issue.
+* post the console log also in the issue. This will generate a log on protocol level.
+* Additionally find the relevant object in Admin "Objects" tab and click the pencil on right and provide the JSON of the object.
 
 ### Resources and Links
 * Resource that tries to decode Elgato special states: https://gist.github.com/simont77/3f4d4330fa55b83f8ca96388d9004e7d
@@ -92,15 +101,17 @@ https://forum.iobroker.net/post/726590
 ### TODO
 * check how the adapter works with buttons (they do not have a state, and I do not own such a device. need support for this)
 * look into supporting video devices
-* look into support devices that offer images
-* check all cases where polling updates might overlap - feedback needed if there are problems
+* look into support devices that offer images (method is there but never saw it in action)
 
 ## Changelog
+### 0.4.1 (2022-01-21)
+* (Apollon77) Optimize close of connections on adapter stop
 
-### __WORK IN PROGRESS__
+### 0.4.0 (2022-01-21)
+* (Apollon77) performance increase by using persistent connections to IP devices and many more optimizations
 * (Apollon77) Only use one queue for all BLE devices
 * (Apollon77) Store pairing data directly after pair
-* (Apollon77) Optimize handing concurrent requests
+* (Apollon77) Optimize handing of concurrent requests
 * (Apollon77) Optimize value update handling and better detect stale data to force an update on next polling
 
 ### 0.3.3 (2021-10-26)
@@ -132,7 +143,7 @@ https://forum.iobroker.net/post/726590
 ## License
 MIT License
 
-Copyright (c) 2021 Ingo Fischer <github@fischer-ka.de>
+Copyright (c) 2021-2022 Ingo Fischer <github@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

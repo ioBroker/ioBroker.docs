@@ -276,13 +276,13 @@ class Blog extends Router {
         let next = pos ? Blog.page2Date(pages[pos - 1]) : '';
         let prev = pos + 1 < pages.length ? Blog.page2Date(pages[pos + 1]) : '';
 
-        return <Paper  className={this.props.classes.pagePage}>
+        return <Paper className={this.props.classes.pagePage}>
             {header.logo ? <div className={this.props.classes.pageLogoDiv} style={{backgroundImage: 'url(' + header.logo + ')'}}/> : null}
             <div className={this.props.classes.pageTitleDiv}>
                 <h2 className={this.props.classes.pageTitle}>{header.title}</h2>
                 <div className={this.props.classes.pagePosted}><strong>{header.author || header.Author}</strong> {I18n.t('posted on %s', Blog.page2Date(date))}</div>
-                {next ? <Button variant="contained" className={this.props.classes.pageTitleNextButton} onClick={() => this.onNavigate(null, null, pages[pos - 1])}>{next}&lt;=</Button> : null}
-                {prev ? <Button variant="contained" className={this.props.classes.pageTitlePrevButton} onClick={() => this.onNavigate(null, null, pages[pos + 1])}>=&gt;{prev}</Button> : null}
+                {next ? <Button variant="contained" className={this.props.classes.pageTitleNextButton} onClick={() => this.onNavigate(null, null, pages[pos - 1])}>← {next}</Button> : null}
+                {prev ? <Button variant="contained" className={this.props.classes.pageTitlePrevButton} onClick={() => this.onNavigate(null, null, pages[pos + 1])}>{prev} →</Button> : null}
             </div>
 
             {header.translatedFrom ?

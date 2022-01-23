@@ -55,6 +55,8 @@ In the picture there are three examples given. Since the screenshot was taken on
 * The energy consumtion however will show you that the current day for the computer is set to 0.351kWh, the week is set to 1.909 kWh and the year is set to 1.393 kWh (which is because today is Sunday and the week is already 7 days old, but it is also the 3rd of January which makes the year only three days old).
 
 ## Changelog
+### 0.6.1 (16.01.2022)
+* (Omega236) basic Admin 5 support
 ### 0.6.0 (18.02.2021)
 * (Omega236) add function to store history-Data to current-DP history"
 ### 0.5.4

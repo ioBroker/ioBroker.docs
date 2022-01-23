@@ -3,12 +3,22 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Новости, объявления и идеи о ioBroker]]></description>
         <link>https://www.iobroker.net/#ru/blog</link>
-        <lastBuildDate>Wed, 15 Dec 2021 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 19 Jan 2022 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[Встреча сообщества разработчиков, январь]]></title>
+            <description><![CDATA[
+                <p>Новый год только начался, а наша первая встреча в этом году уже состоялась. Мы из команды ioBroker желаем всем счастливого нового года и желаем, чтобы 2022 год был отличным годом для домашней автоматизации.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#ru/blog/2022_01_19</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2022_01_19</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 19 Jan 2022 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Встреча сообщества разработчиков, декабрь]]></title>
             <description><![CDATA[
-                <p>### Уважаемые пользователи ioBroker!</p>
+                <p>Уважаемые пользователи ioBroker, по многочисленным просьбам мы решили опубликовать результаты нашей встречи разработчиков здесь, в блоге. С этого момента мы будем создавать как минимум одну новую запись каждый месяц.</p>
             ]]></description>
             <link>https://www.iobroker.net/#ru/blog/2021_12_15</link>
             <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2021_12_15</guid>
