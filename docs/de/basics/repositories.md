@@ -1,17 +1,17 @@
 # Was ist ein Repository?
 Ein Repository ist ein zentraler Aufbewahrungsort für Softwareprogramme.
 
-Die Adapter, welche über die ioBroker Admin Oberfläche angezeigt und installiert/aktualisiert werden können, werden über ein zentralen Aufbewahrungsort (einem Repository) verwaltet. Defaultmäßig ist ioBroker nach einer Installation so konfiguriert, dass auf das "stable" Repository zuegriffen wird und die dort hinterlegten Adapter zur Installation angeboten werden. 
+Die Adapter, welche über die ioBroker Admin Oberfläche angezeigt und installiert/aktualisiert werden können, werden über einen zentralen Aufbewahrungsort (einem Repository) verwaltet. Defaultmäßig ist ioBroker nach einer Installation so konfiguriert, dass auf das "stable" Repository zuegriffen wird und die dort hinterlegten Adapter zur Installation angeboten werden. 
 
 Standardmäßig stehen in ioBroker zwei Repositories zur Verfügung:
-- stable (Hier stehen die Adapter in der Version bereit welche getestet und auf einem Produktivsystem genutzt werden können) 
-- beta (Hier sind Adapterversionen hinterlegt, welche sich in der Testphase befinden und noch mehrere Fehler haben können)
+- **stable**: In diesem Repository stehen die Adapter in der Version zur Verfügung, welche bereits getestet sind und somit auf einem Produktivsystem verwendet werden können 
+- **beta**: In diesem Repository stehen die Adapterversionen zur Verfügung, welche sich aktuell in der Testphase (!) befinden und noch mehrere Fehler beinhalten können
 
 <br><br>
 # Auswahl des Repository
 In den Basiseinstellungen von ioBroker kann das gewünschte Repository wie folgt eingestellt werden.
 
-Öffnen der Basiseinstellungen:
+Öffnen der Basiseinstellungen von ioBroker:
 
 ![](media/Repository_IconBasicSettings.png)
 
@@ -36,7 +36,7 @@ Wurde das Beta Repositroy ausgewählt, so erfolgt in der Adapterübersicht eine 
 <br><br>
 # Stable vs Beta Repository
 
-Grundsätzlich gilt, dass für eine produktive Installation von ioBroker IMMER das Stable Repository genutzt werden sollte. Im Beta Repository sind Versionen enthalten die ggf. noch Bugs enthalten und eventuell das ganze System beeinträchtigen können. 
+Grundsätzlich gilt, dass für eine produktive Installation von ioBroker IMMER das Stable Repository genutzt werden sollte. Im Beta Repository sind Versionen enthalten die noch Fehler enthalten und eventuell das ganze System beeinträchtigen können. 
 
 <br>
 
