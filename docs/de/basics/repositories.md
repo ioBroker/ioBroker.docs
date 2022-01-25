@@ -27,11 +27,12 @@ Wurde das Beta Repositroy ausgewählt, so erfolgt in der Adapterübersicht eine 
 ![](media/Repository_AdapterRepInfo.png)
 
 <br><br>
-# Standardpfad Repository
+# Standardpfade der Repositories
+Nachfolgend sind die Standardpfade der Repositories stable und beta dargestellt:
 ![](media/Repository_BasicsSettingsDefaultPath.png)
 
-- stable Link: http://download.iobroker.net/sources-dist.json
-- beta link: http://download.iobroker.net/sources-dist-latest.json
+- stable - Link zum Repository http://download.iobroker.net/sources-dist.json
+- beta - Link zum Repository http://download.iobroker.net/sources-dist-latest.json
 
 <br><br>
 # Stable vs Beta Repository
