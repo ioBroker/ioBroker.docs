@@ -44,13 +44,12 @@ Dieser Prozess kann eingie Zeit in Anspruch nehmen und die betroffenen Adapter k
 ----
 
 ### Anleitung für Debian und Ubuntu: 
-1. Backup:   
+1. Backup:  
 ```
     iobroker backup 
 ```
-oder  
-[Alternative variante](https://www.iobroker.net/#de/documentation/config/backup.md)  
-  
+- oder  [Alternative variante](https://www.iobroker.net/#de/documentation/config/backup.md)
+
 2. [Adapter Aktualisieren](https://www.iobroker.net/#de/documentation/tutorial/adapter.md?upgradeeinesadapters)  
   
 3. ioBroker stoppen: 
@@ -62,11 +61,11 @@ iobroker stopp
 ```
 ps aux | grep 'backup\|PID'
 ```  
-und
+- und
 ```
-ps auxww | grep 'io\|PID'
+ps aux | grep 'io\|PID'
 ```
-Bei bedarf
+- Bei bedarf
 ```
 sudo kill -9 <ProzessID>
 ```  
@@ -77,6 +76,15 @@ sudo kill -9 <ProzessID>
 ```
 which nodejs node npm && nodejs -v && node -v && npm -v
 ```  
+- Erwartete Ausgabe:  
+```
+/usr/bin/nodejs
+/usr/bin/node
+/usr/bin/npm
+v16.13.2
+v16.13.2
+8.1.2
+```
   
 7. ioBroker fixer Ausführen:  
 ```
