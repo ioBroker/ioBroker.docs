@@ -107,8 +107,8 @@ Für macOS gibt es Installer, siehe [nodejs](https://nodejs.org/en/download/) di
 ---
 Für Windows folgendermaßen vorgehen:
 
-<details>
 
+<details>
 <summary>Windows Nodejs update</summary>
 
 * Konsole: iobroker stop
@@ -121,7 +121,7 @@ C:\Program Files\iobroker\deinhostname\nodejs Ordner.
 C:\Program Files\iobroker\deinhostname\nodejs
 * Konsole: iobroker start
 
-<details> 
+</details> 
 
 ---
 
@@ -168,12 +168,10 @@ Leider gibt es Sonderfälle, wo auch die obigen Optionen das Rebuild nicht erled
 Dort kann ein Log zB (auch nach allen Rebuild Versuchen) wie folgt aussehen
 
 <details>
-
 <summary>LOG</summary>
 
- 
-
 ```
+	
 host.SmartHomeCenter | 2020-05-10 09:28:01.788 | error | Caught by controller[0]: }
 host.SmartHomeCenter | 2020-05-10 09:28:01.788 | error | Caught by controller[0]: ]
 host.SmartHomeCenter | 2020-05-10 09:28:01.788 | error | Caught by controller[0]: '/opt/iobroker/node_modules/serialport/compiled/12.16.3/linux/arm/serialport.node'
