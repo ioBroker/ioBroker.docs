@@ -67,6 +67,8 @@ Additionally you need a license to use the adapter. The license editions are ava
 * edit and modify GA objects with GA-Tools
 * edit and modify state-act relations with GA-Tools
 * NEW: allow non-KNX State direct link (vice-verse)
+* NEW: adapter responses to GroupValueRead to a directLink connected object
+* NEW: import of passwort protected project files (thanks to aKzenT)
 
 ##Adapter configuration
 After installing this adapter, open the adapter configuration.

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: rm79DnWiRATsNXZxQWrvVDq6/txbsmTRZ/N49dnPGgI=
+hash: Wy81fpxoyBloLmqBo3RDyH/vzaBqW6kSZAFngzuRok4=
 ---
 ![标识](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -21,7 +21,7 @@ hash: rm79DnWiRATsNXZxQWrvVDq6/txbsmTRZ/N49dnPGgI=
 所有生成的通信对象最初都配置为可读和可写，在适配器重新启动时从 knx 总线获取值。
 
 ＃ 安装
-该适配器在最新 / beta 存储库中可用。如果在 ioBroker 系统设置中将其选为标准存储库，则可以在“openknx”下的适配器列表中搜索适配器并通过单击 + 符号进行安装。另一种方法是通过 Github 符号以专家模式安装，方法是选择“来自 Github”并搜索 openknx。
+该适配器在最新 / beta 存储库中可用。如果在 ioBroker 系统设置中将其选为标准存储库，则可以在“openknx”下的适配器列表中搜索该适配器并通过单击 + 符号进行安装。另一种方法是通过 Github 符号以专家模式安装，方法是选择“来自 Github”并搜索 openknx。
 
 # 适配器配置
 ![设置](../../../en/adapterref/iobroker.openknx/docs/pictures/setting.png) 按“保存并关闭”或“保存”重新启动适配器并接管更改。
@@ -66,12 +66,12 @@ KNX IP 网关的 IP。
 错误对话框将在导入过程中发现问题，并提示如何清理 ets 数据库。
 可以在日志中找到其他信息。
 
-ETS 配置提示：如果 GA 和使用此 GA 的通信对象中有不同的 DPT 子类型，则 ETS 似乎使用编号最小的 DPT 类型。
+关于 ETS 配置的提示：如果 GA 和使用此 GA 的通信对象中有不同的 DPT 子类型，则 ETS 似乎使用编号最小的 DPT 类型。
 在这种情况下，手动确保所有元素都使用相同的所需数据类型。
 没有 DPT 基本类型的 GA 无法使用此适配器导入。 ETS4 项目必须转换为 ETS5 或更高版本，并且 DPT 必须设置为 GA。
 
 ### 别名
-KNX 设备可以具有属于命令 ga 的状态反馈的 ga。某些应用程序（例如某些 VIS 小部件）需要组合状态和驱动对象。您可以将这些状态组合成一个别名，方法是使用一个单独的别名 id 写入，另一个别名 id 读取。该菜单有助于根据命名约定和给定的过滤规则创建匹配对。
+KNX 设备可以具有属于命令 ga 的状态反馈的 ga。某些应用程序（例如某些 VIS 小部件）需要组合状态和驱动对象。您可以将这些状态组合成一个别名，方法是使用一个单独的别名 id 写入并使用另一个别名 id 读取。该菜单有助于根据命名约定和给定的过滤规则创建匹配对。
 在此处查找更多信息 https://www.iobroker.net/#en/documentation/dev/aliases.md
 
 ### 正则表达式
@@ -130,7 +130,7 @@ KNX 堆栈在收到组地址时设置链接的 ioBroker 对象的确认标志。
 KNX 上发送的帧不会导致写入对象的确认。
 
 ### Node Red 复杂数据类型示例
-创建一个连接到 ioBroker out 节点的函数节点，该节点与 DPT2 的 KNX 对象连接。
+创建连接到 ioBroker out 节点的函数节点，该节点与 DPT2 的 KNX 对象连接。
 msg.payload = {“优先级”：1，“数据”：0}；返回味精；
 
 # 日志级别
@@ -154,11 +154,14 @@ Handeled DPTs 是： 1-21,232,237,238 Unhandeled DPTs 被写为原始缓冲区�
 ### API 调用
 ioBroker 将状态定义为通信接口。
 
-setState( id: string, //对象路径状态：State | StateValue | SettableState, //将此设置为合理的值，以在 GroupValue_Read 命令的情况下省略警告 ack: false, //按照约定必须为 false c: 'GroupValue_Read ' //可选注释，设置此值以触发对该对象的总线读取，给定 StateValue 被忽略 ): void;
+setState( @param {string} 具有路径的对象的 ID @param {object|string|number|boolean} 状态简单值或具有属性的对象。
+{ val: value, ack: true|false, optional, 按照惯例应该是 false忽略自：origin，可选，默认 - 此适配器 c：注释，可选，将其设置为值 GroupValue_Read 以触发对该对象的总线读取，给定 StateValue 被忽略 expire：expireInSeconds 可选，默认 - 0 lc：timestampMS 可选，默认 -计算值 } @param {boolean} [ack] 可选，按照约定应该为 false @param {object} [options] 可选，用户上下文 @param {ioBroker.SetStateCallback} [callback] 可选，返回错误和 id
 
-示例：setState(myState, {val: false, ack: false, c:'GroupValue_Read'});设置状态（我的状态，空）；
+触发 GroupValue_Read 的示例：
 
-GroupValue_Read 注释不适用于 javascript 适配器。请改用空值。
+setState(myState, {val: false, ack: false, c:'GroupValue_Read'}); setState(myState, {val: false, ack: false, q:0x10});
+
+GroupValue_Read 注释不适用于 javascript 适配器。请改用 qualityAsNumber 值 0x10。
 
 ### 所有 DPT 的描述
 | KNX DPT | javascript 数据类型 |特殊价值 |取值范围 |备注 |
@@ -201,13 +204,13 @@ DPT 2 '期望对象 {"priority":0,"data":1}' 接收提供相同类型的字符�
 DPT19 需要来自日期对象的数字，Iobroker 无法处理对象，无法从时间戳派生的 KNX ko 字段未实现，例如。质量标志。
 
 日期和时间 DPT (DPT10, DPT11) 请记住，Javascript 和 KNX 具有非常不同的时间和日期基本类型。
-DPT10 是时间 (hh:mm:ss) 加上“星期几”。此概念在 JS 中不可用，因此您将获取/设置常规 Date Js 对象，但请记住您需要忽略日期、月份和年份。转换为“Mon, Jul 1st 12:34:56”的完全相同的数据报将在一周后评估为“Mon, Jul 8th 12:34:56”的完全不同的 JS 日期。被警告！ DPT11 是日期 (dd/mm/yyyy)：同样适用于 DPT11，您需要忽略时间部分。
+DPT10 是时间 (hh:mm:ss) 加上“星期几”。这个概念在 JS 中不可用，因此您将获取/设置常规的 Date Js 对象，但请记住您需要忽略日期、月份和年份。转换为“Mon, Jul 1st 12:34:56”的完全相同的数据报将在一周后评估为“Mon, Jul 8th 12:34:56”的完全不同的 JS 日期。被警告！ DPT11 是日期 (dd/mm/yyyy)：同样适用于 DPT11，您需要忽略时间部分。
 
 （DPT 的 KNX 规范 https://www.knx.org/wAssets/docs/downloads/Certification/Interworking-Datapoint-types/03_07_02-Datapoint-Types-v02.02.01-AS.pdf）
 
 ### 组值写入
 通过写入通信对象触发发送。
-当总线上接收到写帧时触发通信对象。
+当总线上接收到一个写帧时触发通信对象。
 
 ### 组值读取
 可以通过编写带有注释的通信对象来触发发送。
@@ -226,14 +229,14 @@ KNX 对象标志定义了它们所代表的对象的总线行为。
 |C: 通讯标志 | K：通讯标志 |总是设置 ||
 |R：读取标志 | L: Les-Flag |对象 native.answer_groupValueResponse ||
 |T：传输标志 | Ü: Übertragen 标志 |对象 common.write ||
-|W：写标志 | S: Schreiben-Flag |对象 common.read |总线可以修改对象|
+|W：写标志 | S: Schreiben-Flag |对象 common.read |总线可以修改的对象|
 |U：更新标志 | A: Aktualisieren-Flag |对象 common.read |在传入的 GroupValue_Responses 上更新对象 |
 |I：初始化标志 | I: Initialisierungs-Flag |对象 native.autoread | |
 
 ＃ 特征
 * 稳定可靠的knx堆栈
 * 对最重要的 DPT 的 KNX 数据报进行自动编码/解码，对其他 DPT 进行原始读写
-* 支持KNX组值读取、组值写入和组值响应
+* 支持KNX组值读取和组值写入和组值响应
 * 免费开源
 * 不依赖云服务，无需互联网访问即可运行
 * 开始时自动读取
@@ -249,11 +252,11 @@ KNX 对象标志定义了它们所代表的对象的总线行为。
 - 仅支持 IPv4
 
 ## Changelog
-### 0.1.15 ()
+### 0.1.15 (2022-01-23)
  * feature: more sanity checks for gui
  * feature: issue #84, add openknx to discovery adapter
  * feature: issue #82, warnings on import of duplicate ga addresses, also check iob object for duplicates
- * fix: issue #87, added null value to trigger GroupValue_Read, comments are overwritten in javascript adapter
+ * fix: issue #87, added q interface to trigger GroupValue_Read, comments are overwritten in javascript adapter
  * fix: remove unused reference to sentry
  
 ### 0.1.14 (2022-01-08)

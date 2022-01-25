@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.extron/README.md
 title: ioBroker.extron
-hash: y3CHZrJfGFL72Q0HVncXL/XiIWpl6gmMMgKnAhUQenw=
+hash: gHPmQRTN/ynCkRrmEcHbu1UHPcQIYnW1ORoexhn2Fv4=
 ---
 ![Logo](../../../en/adapterref/iobroker.extron/admin/extron.png)
 
@@ -39,45 +39,50 @@ Wenn Sie eine nichtkommerzielle Organisation sind oder es für den privaten Gebr
 - Der Gerätetyp wird zu Beginn des Gesprächs überprüft. Dies schlägt manchmal fehl. Muss auf einen zuverlässigeren Mechanismus umgestellt werden.
 - Treffen Sie eine genauere Auswahl der verwendeten Ein- und Ausgänge, um die Datenbankgröße auf DSP-Geräten zu reduzieren
 - Hinzufügen weiterer Befehle und deren Implementierung auf der Datenbankseite
-- Fügen Sie dem SMD 202 eine Medienwiedergabeunterstützung hinzu
 
 ## Changelog
 
-### 0.0.1
-* (Bannsaenger) initial release
+### 0.1.11
+* (Bannsaenger) fixed support for groups in DSP DMP128
 
-### 0.0.2
-* (Bannsaenger) prepared for checkin to iobroker.latest
+### 0.1.10
+* (mschlgl) added support for groups in DSP DMP128
 
-### 0.0.3
-* (Bannsaenger) fix dependencies for integration test
-
-### 0.1.0
-* (mschlgl) extend device/database structure to cover all controllable elements
-
-### 0.1.1
-* (mschlgl) extend device/database structure to add devices CP82, SME211, SMD202
-
-### 0.1.2
-* (mschlgl) extend device/database structure to add user flash memory
-
-### 0.1.3
-* (mschlgl) fixes on device communication and user flash file management
-
-### 0.1.4
-* (mschlgl) fixes on device communication cp82 and smd202
-
-### 0.1.5
-* (mschlgl) fixes on device communication sme211
-
-### 0.1.6
-* (mschlgl) added limiter section for DMP128
+### 0.1.9
+* (Bannsaenger) fixed setting of info.connection in telnet mode
 
 ### 0.1.7
 * (mschlgl) added plaint Telnet communication for DMP128
 
-### 0.1.9
-* (Bannsaenger) fixed setting of info.connection in telnet mode
+### 0.1.6
+* (mschlgl) added limiter section for DMP128
+
+### 0.1.5
+* (mschlgl) fixes on device communication sme211
+
+### 0.1.4
+* (mschlgl) fixes on device communication cp82 and smd202
+
+### 0.1.3
+* (mschlgl) fixes on device communication and user flash file management
+
+### 0.1.2
+* (mschlgl) extend device/database structure to add user flash memory
+
+### 0.1.1
+* (mschlgl) extend device/database structure to add devices CP82, SME211, SMD202
+
+### 0.1.0
+* (mschlgl) extend device/database structure to cover all controllable elements
+
+### 0.0.3
+* (Bannsaenger) fix dependencies for integration test
+
+### 0.0.2
+* (Bannsaenger) prepared for checkin to iobroker.latest
+
+### 0.0.1
+* (Bannsaenger) initial release
 
 ## License
 Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)

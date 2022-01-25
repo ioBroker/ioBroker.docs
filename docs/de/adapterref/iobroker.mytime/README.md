@@ -3,114 +3,114 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mytime/README.md
 title: ioBroker.mytime
-hash: 9JZi11AH9jR17dcl6rBgkzPmtTuSEO/L8qNYDeDgmBY=
+hash: a7L+rF17jhqztHSapeOLvt/yqEFihmBANmyCnUbc1d4=
 ---
 ![Logo](../../../en/adapterref/iobroker.mytime/admin/mytime.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.mytime.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.mytime.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/mytime-installed.svg)
+![Anzahl der Installationen (neueste)](http://iobroker.live/badges/mytime-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/mytime-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/oweitman/iobroker.mytime.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/oweitman/ioBroker.mytime/badge.svg)
 ![Travis-CI](http://img.shields.io/travis/oweitman/ioBroker.mytime/master.svg)
 
-#ioBroker.mytime
+# IoBroker.mytime
 ## WICHTIG
-Nur die englische Dokumentation ist gültig, da die automatische Übersetzung Bereiche übersetzt, die nicht übersetzt werden sollen.
+Nur die englische Dokumentation ist gültig, da die automatische Übersetzung Bereiche übersetzt, die nicht übersetzt werden sollten.
 
 ## Mytime-Adapter für ioBroker
-Dieser Adapter verarbeitet Zeit (zB: Countdown, etc.).
-Die Countdown-Funktionalität stellt Datenpunkte bereit, mit denen Sie einen Countdown (z. B. in einem Skript) verwalten können. Der Adapter enthält auch mehrere Widgets, um diese Countdowns zu visualisieren.
-Mit Zeitreihen können komplexe Zeitreihen erstellt werden, bei denen die Datenpunkte getriggert werden.
+Dieser Adapter verwaltet die Zeit (z. B.: Countdown usw.).
+Die Countdown-Funktion stellt Datenpunkte bereit, mit denen Sie einen Countdown verwalten können (z. B. in einem Skript). Der Adapter enthält auch mehrere Widgets zur Visualisierung dieser Countdowns.
+Zeitreihen können verwendet werden, um komplexe Zeitreihen zu erstellen, bei denen die Datenpunkte getriggert werden.
 
 ### Aufbau
 #### Countdown
-Im Konfigurationsdialog Reiter "Countdown" können Sie einen neuen Countdown zB 'Test' erstellen, Timer auf 10 Sekunden setzen und folgende Widgets importieren.
+Im Konfigurationsdialog Reiter „Countdown“ können Sie einen neuen Countdown zB „Test“ erstellen, den Timer auf 10 Sekunden stellen und die folgenden Widgets importieren.
 Datenpunkte sind für einen Countdown namens Test vorkonfiguriert.
 
-##### Stoppverhaltens-Timer
+##### Verhaltenstimer stoppen
 Nachdem der Countdown das Signal Stopp erhält, wird der Countdown auf die vom Timer eingestellte Zeit zurückgesetzt.
 
-##### Stoppverhalten Null Nachdem der Countdown das Signal Stopp erhält, bleibt der Countdown bei 0.
+##### Stoppverhalten Null Nachdem der Countdown das Signal Stopp erhält, bleibt der Countdown auf 0.
 #### Zeitfolgen
-Im Konfigurationsdialog Reiter "Zeitreihen" können Sie eine neue Zeitreihe mit einer oder mehreren Zeitreihen erstellen. Für jede Timerule können Sie verschiedene Parameter definieren. Jede Timeserie erzeugt einen separaten Datenpunkt, der bei den berechneten Zeitereignissen getriggert wird.
+Im Konfigurationsdialog Tab "Timeseries" können Sie eine neue Timeserie mit einer oder mehreren Timerules erstellen. Für jede Zeitregel können Sie verschiedene Parameter definieren. Jede Zeitreihe erzeugt einen separaten Datenpunkt, der bei den berechneten Zeitereignissen getriggert wird.
 Die Zeitereignisse werden in Echtzeit berechnet. Allerdings ist die verwendete Regelbibliothek noch nicht in allen Parameterkombinationen perfekt.
-Dies zeigt, dass die Seite bei einigen Kombinationen in eine Endlosschleife übergeht.
-Für Experimente kann auch die Demoseite http://jakubroztocil.github.io/rrule/ genutzt werden.
-Zusätzlich zum Hinzufügen einer Timerule können Sie eine Timerule hinzufügen, um Zeitereignisse auszuschließen, einzelne Zeitereignisse hinzuzufügen und auch einzelne Zeitereignisse auszuschließen.
+Dies zeigt, dass die Seite bei manchen Kombinationen in eine Endlosschleife geht.
+Auch die Demoseite http://jakubroztocil.github.io/rrule/ kann für Experimente genutzt werden.
+Zusätzlich zum Hinzufügen einer Zeitregel können Sie eine Zeitregel hinzufügen, um Zeitereignisse auszuschließen, einzelne Zeitereignisse hinzuzufügen und auch einzelne Zeitereignisse auszuschließen.
 
 ### Verwendung
 #### Zeitfolgen
 ##### Verfügbare Datenpunkte
-Nach der Konfiguration einer neuen Zeitreihe erstellt der Adapter folgende Datenpunkte:
+Nach der Konfiguration einer neuen Zeitreihe erstellt der Adapter die folgenden Datenpunkte:
 
 | Datenpunkt | Beschreibung |
 |-----------|---------------------------------------------------------------------------|
-| Aktion | aktueller Stand dieser Zeitreihe. mögliche Werte sind stop,run |
+| Aktion | Ist-Zustand dieser Zeitreihe. mögliche Werte sind stop,run |
 | cmd | keine Funktion atm |
 
 ##### Verfügbare Aktionszustände
 | Aktion | Beschreibung |
 |-----------|-------------------------------------------------------------------------------------------------------|
-| halt | Zur Zeit ist kein Zeitereignis aktiv |
-| laufen | ein Zeitereignis wurde ausgelöst. nach der konfigurierten Dauer wechselt der Datenpunkt zu Stopp |
+| halt | momentan ist kein Zeitereignis aktiv |
+| laufen | ein Zeitereignis wurde ausgelöst. nach der konfigurierten Dauer ändert sich der Datenpunkt auf stop |
 
 #### Countdown
 ##### Verfügbare Datenpunkte
-Nach der Konfiguration eines neuen Countdowns erstellt der Adapter folgende Datenpunkte:
+Nach der Konfiguration eines neuen Countdowns erstellt der Adapter die folgenden Datenpunkte:
 
 | Datenpunkt | Beschreibung |
 |-----------|---------------------------------------------------------------------------|
-| Aktion | aktueller Stand dieses Countdowns. mögliche Werte sind stop,run,pause,end |
-| cmd | Datenpunkt für Befehle. mögliche Befehle sind unten beschrieben |
+| Aktion | aktueller Stand des Countdowns. mögliche Werte sind stop,run,pause,end |
+| cmd | Datenpunkt für Befehle. Mögliche Befehle sind unten beschrieben |
 | starten | Datenpunkt für die Startzeit in Millisekunden |
 | Ende | Datenpunkt für die Endzeit in Millisekunden |
-| Timer | Datenpunkt für die Gesamtzeit in Millisekunden |
+| Timer | Datenpunkt für die eingestellte Gesamtzeit in Millisekunden |
 
 ##### Verfügbare Aktionszustände
 | Aktion | Beschreibung |
 |-----------|-------------------------------------------------------------------------------------------------------|
-| halt | der Countdown wird gestoppt, Start- und Endzeit wird auf 0 gesetzt |
-| laufen | der Countdown läuft. wenn der Countdown die Endzeit erreicht. die Aktion wechselt zum Ende |
-| Pause | Countdown ist im Pausemodus. die Endzeit wurde auf die Zeit der Pause gesetzt |
-| Ende | der Countdown ist beendet. diesen Zustand können Sie als Auslöser für weitere Aktionen verwenden (Sound, Popups, etc.) | |
+| halt | der Countdown wird gestoppt, Start- und Endzeit werden auf 0 gesetzt |
+| laufen | der Countdown läuft. wenn der Countdown die Endzeit erreicht. die Aktion wechselt zu Ende |
+| pausieren | Der Countdown befindet sich im Pausemodus. die Endzeit wurde auf die Zeit der Pause | gesetzt |
+| Ende | der Countdown ist beendet. diesen Zustand können Sie als Auslöser für weitere Aktionen (Sound, Popups etc.) verwenden | |
 
 ##### Verfügbare Befehle für den cmd-Datenpunkt
 | Befehl | Beispiel | Beschreibung |
 |---------------|----------------------|----------------------------------------------------------------------------------------------|
 | +Wert | +1:10 | fügt der Countdown-Einstellung Zeit hinzu. die Einstellung wird beim nächsten Start berücksichtigt |
 | -Wert | -1:2:3 | subtrahiert die Zeit vom Countdown. die Einstellung wird beim nächsten Start berücksichtigt |
-| =Wert | =5:00 | stellen Sie den Countdowntimer auf diese Zeit ein. |
-| #ISO-Datum | #2020-01-01T10:00:00 | Stellen Sie den Countdowntimer auf eine Zielzeit ein. Die Uhrzeit muss als ISO-Datestring formatiert sein |
-| $Zeit | $20:15 | Stellen Sie den Countdowntimer auf eine Zielzeit ein. Wenn die Uhrzeit vor der aktuellen Uhrzeit liegt. der nächste Tag steht fest.|
-| starten | starten | startet den Countdown |
-| halt | halt | stoppt den Countdown. die Countdownzeit wird auf die Einstellung | . zurückgesetzt |
-| Pause | Pause | hält den Countdown an |
+| =Wert | =5:00 | Stellen Sie den Countdowntimer auf diese Zeit ein. |
+| #ISO-Datum | #2020-01-01T10:00:00 | Stellen Sie den Countdowntimer auf eine Zielzeit ein. Die Uhrzeit muss als ISO-Datestring | formatiert sein |
+| $Zeit | $20:15 | Stellen Sie den Countdowntimer auf eine Zielzeit ein. Wenn die Zeit vor der aktuellen Zeit liegt. der nächste Tag steht fest.|
+| beginnen | starten | startet den Countdown |
+| halt | halt | stoppt den Countdown. die Countdownzeit wird auf die Einstellung | zurückgesetzt |
+| pausieren | pausieren | hält den Countdown an |
 | Ende | Ende | stoppt den Countdown. der Countdown wird auf 0 gesetzt |
-| setstop2timer | setstop2timer | Konfiguration des Stoppverhaltens auf Timer setzen |
-| setstop2zero | setstop2zero | Konfiguration des Stoppverhaltens auf Null setzen |
-| speichern | speichern | Speichern Sie die in Datenpunkten definierte Konfiguration in der iobroker-Konfiguration |
-| | | iobroker startet den Adapter nach dem automatischen Speichern neu |
+| setstop2timer | setstop2timer | setze die Konfiguration des Stoppverhaltens auf timer |
+| setstop2zero | setstop2zero | Konfiguration des Stoppverhaltens auf Nullen setzen |
+| speichern | sparen | Speichern Sie die in Datenpunkten definierte Konfiguration in der iobroker-Konfiguration |
+| | | iobroker startet den Adapter nach dem Speichern automatisch neu |
 
-##### Format des Wertes zum Einstellen des Countdown-Timers
+##### Format des Werts zum Einstellen des Countdown-Timers
 Sie können den Countdown auf eine unbegrenzte Zeit einstellen.
-die Notation des Wertes ist [Tage:[Stunden:[Minuten:[Sekunden]]]] Tage, Stunden und Minuten sind optional.
-Wenn Sie den Timer auf einen Tag stellen möchten, müssen Sie Stunden, Minuten und Sekunden einstellen. Sie müssen die normalen Wertebereiche (zB Stunden 0-24) nicht einhalten. Sie können auch 48 Stunden einstellen.
-Wenn Sie möchten, können Sie unregelmäßige Zeitangaben einstellen. die Zeit wird separat zusammengezählt
+die Schreibweise des Werts ist [Tage:[Stunden:[Minuten:[Sekunden]]]] Tage, Stunden und Minuten sind optional.
+Wenn Sie den Timer auf einen Tag einstellen möchten, müssen Sie auch Stunden, Minuten und Sekunden einstellen. Sie müssen die normalen Wertebereiche (z. B. Stunden 0-24) nicht beachten. Sie können auch 48 Stunden einstellen.
+Wenn Sie möchten, können Sie unregelmäßige Zeitangaben festlegen. die Zeit wird separat aufsummiert
 
 **Beispiele**
 
 | Einstellung | Beschreibung |
 |-----------|---------------------------------------------|
-| 1:0:0:0 | setze/addiert/subtrahiert 1 Tag zum Timer |
-| 2:0:0 | setzt/addiert/subtrahiert 2 Stunden zum Timer |
-| 3:0 | setzt/addiert/subtrahiert 3 Minuten zum Timer |
-| 120 | setzt/addiert/subtrahiert 120 Sekunden zum Timer |
-| 48:0:0 | setzt/addiert/subtrahiert 48 Stunden zum Timer |
-| 48:75:120 | setze/addiert/subtrahiert den Timer |
+| 1:0:0:0 | setze/addiere/subtrahiere 1 Tag zum Timer |
+| 2:0:0 | set/addiert/subtrahiert 2 Stunden zum Timer |
+| 3:0 | set/addiert/subtrahiert 3 Minuten zum Timer |
+| 120 | setze/addiere/subtrahiere 120 Sekunden zum Timer |
+| 48:0:0 | set/addiert/subtrahiert 48 Stunden zum Timer |
+| 48:75:120 | setze/addiere/subtrahiere den Timer |
 
-##### Format der Vorlage zum Formatieren der Countdown-Ausgabe im Widget
+##### Format der Vorlage zur Formatierung der Countdown-Ausgabe im Widget
 Folgende Platzhalter stehen zur Verfügung:
 
 | Platzhalter | Beschreibung |
@@ -120,7 +120,7 @@ Folgende Platzhalter stehen zur Verfügung:
 | H | Stunden ohne führende Nullen |
 | HH | Stunden mit führenden Nullen |
 | m | Minuten ohne führende Nullen |
-| mm | Minuten mit führenden Nullen |
+| Millimeter | Minuten mit führenden Nullen |
 | s | Sekunden ohne führende Nullen |
 | ss | Sekunden mit führenden Nullen |
 | \ | Escape-Zeichen, wenn Sie einen Platzhalter in der Ausgabe verwenden möchten |
@@ -132,26 +132,26 @@ Alle folgenden Beispiele mit Countdown-Timer 1:2:3:4
 | Vorlage | Beispiel | Ergebnis |
 |-----------------------|-------------------|--------------------------------------------------|
 | d\d Hh m\m s\s | 1d 2h 3m 4s | mit Escape-Zeichen und ohne führende Nullen |
-| dd\d HHh mm\m ss\s | 01d 02h 03m 04s | mit Escape-Zeichen und mit führenden Nullen |
+| tt\d HHh mm\m ss\s | 01d 02h 03m 04s | mit Escape-Zeichen und mit führenden Nullen |
 | ss\s | 93784s | nur Sekunden |
 | dd\d HH\h | 01d 02h | nur Tage und Stunden |
 | HH\h mm\m | 26h 03m | nur Stunden und Minuten |
 
 ###Widgets
-#### Widget Countdown schlicht
+#### Widget Countdown einfach
 Ein Countdown-Widget für eine reine Textausgabe
 
 ##### Widget-Eigenschaften
 ###### Oid Der Timer-Datenpunkt eines Countdown-Datenpunkts.
-###### Format Formatiert die Timer-Ausgabe. Standard ist mm:ss. Details siehe Kapitelformatvorlage
+###### Format Formatiert die Timerausgabe. Standard ist mm:ss. Details siehe Kapitelformatvorlage
 ##### Beispiel-Widget-Code
-die Widgets sind für einen Countdown namens test vorkonfiguriert.
+Die Widgets sind für einen Countdown namens Test vorkonfiguriert.
 
 ```
 [{"tpl":"tplMyTimeCountdownPlain","data":{"g_fixed":false,"g_visibility":false,"g_css_font_text":false,"g_css_background":false,"g_css_shadow_padding":false,"g_css_border":false,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"countdown_oid":"mytime.0.Countdown.test.timer","format":"d H m s"},"style":{"left":"771px","top":"143px","width":"151px","height":"16px"},"widgetSet":"mytime"},{"tpl":"tplJquiButtonState","data":{"oid":"mytime.0.Countdown.test.cmd","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":true,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"buttontext":"+10s","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"value":"+10","visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","class":"mytime"},"style":{"left":"742px","top":"111px","color":"white","font-weight":"lighter","font-size":"x-small","background":"","border-width":"2px","border-style":"solid","border-color":"white","border-radius":"10px","background-color":"#303030 !important","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","width":"55px"},"widgetSet":"jqui"},{"tpl":"tplJquiButtonState","data":{"oid":"mytime.0.Countdown.test.cmd","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":true,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"buttontext":"-10s","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"value":"-10","visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","class":"mytime"},"style":{"left":"801px","top":"111px","color":"white","font-weight":"lighter","font-size":"x-small","background":"","border-width":"2px","border-style":"solid","border-color":"white","border-radius":"10px","background-color":"#303030 !important","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","width":"55px"},"widgetSet":"jqui"},{"tpl":"tplJquiButtonState","data":{"oid":"mytime.0.Countdown.test.cmd","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":true,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"buttontext":"=10","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"value":"=10","visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","class":"mytime"},"style":{"left":"864px","top":"111px","color":"white","font-weight":"lighter","font-size":"x-small","background":"","border-width":"2px","border-style":"solid","border-color":"white","border-radius":"10px","background-color":"#303030 !important","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","width":"55px"},"widgetSet":"jqui"},{"tpl":"tplJquiButtonState","data":{"oid":"mytime.0.Countdown.test.cmd","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":true,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"buttontext":"start","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"value":"start","visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","class":"mytime"},"style":{"left":"742px","top":"163px","color":"white","font-weight":"lighter","font-size":"x-small","background":"","border-width":"2px","border-style":"solid","border-color":"white","border-radius":"10px","background-color":"#303030 !important","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","width":"55px"},"widgetSet":"jqui"},{"tpl":"tplJquiButtonState","data":{"oid":"mytime.0.Countdown.test.cmd","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":true,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"buttontext":"pause","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"value":"pause","visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","class":"mytime"},"style":{"left":"801px","top":"163px","color":"white","font-weight":"lighter","font-size":"x-small","background":"","border-width":"2px","border-style":"solid","border-color":"white","border-radius":"10px","background-color":"#303030 !important","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","width":"55px"},"widgetSet":"jqui"},{"tpl":"tplJquiButtonState","data":{"oid":"mytime.0.Countdown.test.cmd","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":true,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"buttontext":"stop","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"value":"stop","visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","class":"mytime"},"style":{"left":"864px","top":"163px","color":"white","font-weight":"lighter","font-size":"x-small","background":"","border-width":"2px","border-style":"solid","border-color":"white","border-radius":"10px","background-color":"#303030 !important","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","width":"55px"},"widgetSet":"jqui"}]
 ```
 
-##### Der aktuelle Aktionszustand (cdstop,cdrun,cdpause,cdend) des Countdowns steht als CSS-Klassenselektor zur Verfügung.
+##### Der aktuelle Aktionsstatus (cdstop,cdrun,cdpause,cdend) des Countdowns ist als CSS-Klassenselektor verfügbar.
 ```
 #w00000 .timer.cdend {
     color:red;
@@ -160,6 +160,18 @@ die Widgets sind für einen Countdown namens test vorkonfiguriert.
     color:green;
 }
 ```
+
+#### Widget Reverse Countdown einfach
+Ein Widget, das die verstrichene Zeit ab einem bestimmten Zeitpunkt anzeigt
+
+##### Widget-Eigenschaften
+###### datetime Ein DateTime-String der Startzeit.
+Der Ausdruck muss von der Javascript-Funktion new Date(expression) interpretierbar sein.
+Siehe auch https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse
+Beispiel: 2022-01-10 23:12 2022-01-104T23:12:00.000Z
+
+###### Format
+Formatiert die Timerausgabe. Standard ist mm:ss. Details siehe Kapitelformatvorlage
 
 #### Widget-Countdown-Kreis
 Ein Countdown-Widget im Ring-/Kreis-Design.
@@ -167,18 +179,18 @@ Ein Countdown-Widget im Ring-/Kreis-Design.
 ##### Widget-Eigenschaften
 ###### Oid Der Timer-Datenpunkt eines Countdown-Datenpunkts.
 ###### Notimetext Deaktiviert den Zeittext über die Polaruhr
-###### Format Formatiert die Timer-Ausgabe. Standard ist mm:ss. Details siehe Kapitelformatvorlage
-###### Umgekehrte Einstellung zum Vergrößern oder Verkleinern des Rings/Kreises
+###### Format Formatiert die Timerausgabe. Standard ist mm:ss. Details siehe Kapitelformatvorlage
+###### Umgekehrt Einstellung zum Vergrößern oder Verkleinern des Rings/Kreises
 ###### Breite Die Breite des Rings oder Kreises.
 ###### Ringlücke Pixellücke zwischen den Ringen
-###### Kappeneinstellung für die Enden des Rings/Kreises: rund oder gerade
+###### Caps Einstellung für die Enden des Rings/Kreises: rund oder gerade
 ###### Hintergrund Hintergrundfarbe des Rings/Kreises
 ###### Vordergrund Vordergrundfarbe des Rings/Kreises
-###### Showsec Zeigt den Sekundenring
-###### Showmin Zeigen Sie den Minutenring an
-###### Showhrs Zeigt den Minutenring an
-###### Showday Zeig den Ring der Tage
-##### Der aktuelle Aktionszustand (cdstop,cdrun,cdpause,cdend) des Countdowns steht als CSS-Klassenselektor zur Verfügung.
+###### Showsec Zeigt den Sekundenring an
+###### Showmin Minutenring anzeigen
+###### Showhrs Minutenring anzeigen
+###### Showday Zeigen Sie den Ring der Tage
+##### Der aktuelle Aktionsstatus (cdstop,cdrun,cdpause,cdend) des Countdowns ist als CSS-Klassenselektor verfügbar.
 ```
 #w00000 .timer.cdend {
     color:red;
@@ -188,22 +200,22 @@ Ein Countdown-Widget im Ring-/Kreis-Design.
 }
 ```
 
-#### Widget Countdown FlipClock
+#### Widget-Countdown FlipClock
 Ein Countdown-Widget im Flughafen-Flipboard-Stil
 
 ##### Widget-Eigenschaften
 ###### Oid Der Timer-Datenpunkt eines Countdown-Datenpunkts.
-###### Countdown_showsec Zeigt den Sekundenteil an. Zwischen zwei Einheiten darf keine Lücke sein.
-###### Countdown_showmin Zeigt den Minutenteil an. Zwischen zwei Einheiten darf keine Lücke sein.
-###### Countdown_showhrs Zeigt den Stundenteil an. Zwischen zwei Einheiten darf keine Lücke sein.
-###### Countdown_showday Zeigt den Tagesabschnitt an. Zwischen zwei Einheiten darf keine Lücke sein.
+###### Countdown_showsec Zeigt den Sekunden-Teil. es darf keine Lücke zwischen zwei Einheiten geben.
+###### Countdown_showmin Zeigt den Minutenteil an. es darf keine Lücke zwischen zwei Einheiten geben.
+###### Countdown_showhrs Zeigt den Stunden-Teil. es darf keine Lücke zwischen zwei Einheiten geben.
+###### Countdown_showday Zeigt den Tagesanteil. es darf keine Lücke zwischen zwei Einheiten geben.
 ###### Countdown_color Farbe des Countdowntimers
 ###### Countdown_background_color Hintergrundfarbe des Countdowntimers
 ###### Countdown_dot_color Farbe der Punkte des Countdowntimers
 ##### Tipps
-Wenn Sie die Größe der Countdown-Flipclock anpassen möchten, können Sie unter CSS-Einstellungen in vis für halbe Größe eingeben: Group CSS-Common / transform "scale(0.5)"
+Wenn Sie die Größe der Countdown-Flipclock anpassen möchten, können Sie unter CSS-Einstellungen in vis für die halbe Größe eingeben: Group CSS-Common / transform "scale(0.5)"
 
-##### Der aktuelle Aktionszustand (cdstop,cdrun,cdpause,cdend) des Countdowns steht als CSS-Klassenselektor zur Verfügung.
+##### Der aktuelle Aktionsstatus (cdstop,cdrun,cdpause,cdend) des Countdowns ist als CSS-Klassenselektor verfügbar.
 ```
 #w00000 .timer.cdend {
     color:red;
@@ -217,18 +229,18 @@ Wenn Sie die Größe der Countdown-Flipclock anpassen möchten, können Sie unte
 Ein Countdown-Widget im Nixie-Tube/LED-Stil
 
 ##### Widget-Eigenschaften
-###### Oid
+###### Od
 Der Timer-Datenpunkt eines Countdown-Datenpunkts.
 
-###### Countdown_showsec Zeigt den Sekundenteil an. Zwischen zwei Einheiten darf keine Lücke sein.
-###### Countdown_showmin Zeigt den Minutenteil an. Zwischen zwei Einheiten darf keine Lücke sein.
-###### Countdown_showhrs Zeigt den Stundenteil an. Zwischen zwei Einheiten darf keine Lücke sein.
-###### Countdown_showday Zeigt den Tagesabschnitt an. Zwischen zwei Einheiten darf keine Lücke sein.
+###### Countdown_showsec Zeigt den Sekunden-Teil. es darf keine Lücke zwischen zwei Einheiten geben.
+###### Countdown_showmin Zeigt den Minutenteil an. es darf keine Lücke zwischen zwei Einheiten geben.
+###### Countdown_showhrs Zeigt den Stunden-Teil. es darf keine Lücke zwischen zwei Einheiten geben.
+###### Countdown_showday Zeigt den Tagesanteil. es darf keine Lücke zwischen zwei Einheiten geben.
 ###### Countdown_color_active Farbe des Countdowntimers
 ###### Countdown_color_inactive Farbe der inaktiven Ziffern
 ###### Countdown_opacity_inactive Deckkraft der Farbe der inaktiven Ziffern
-###### Countdown_glowcolor Farbe des Leuchtens um diese Nixie-Ziffern
-#### Widget Wordclock
+###### Countdown_glowcolor Farbe des Leuchtens um die Nixie-Ziffern
+#### Wordclock-Widget
 Ein Widget zum Anzeigen einer Wordclock mit vielen Optionen
 
 ##### Widget-Eigenschaften
@@ -237,18 +249,18 @@ Einige verschiedene Sprachen für die Wordclock sind verfügbar
 
 ###### LetterActivated Farbe für die hervorgehobenen Wörter
 ###### LetterDeactivated Farbe für die normalen Buchstaben
-###### WordclockMargin Margin zwischen der Wordclock und den LEDs
-###### WithMinutes Zeigt die Minuten-LEDs in der Ecke der Wordclock
-###### MinuteSize Größe in Pixel der Minute LEDs
-###### MinuteFarbe der Minute LED
-###### WithSeconds Zeigt die Sekunden-LEDs der Wordclock
-###### SecondSize Größe in Pixel der Sekunden LEDs
-###### SekundeFarbe der Sekunden-LED
+###### WordclockMargin Abstand zwischen der Wordclock und den LEDs
+###### WithMinutes Zeigt die Minuten-LEDs in der Ecke der Wordclock an
+###### MinuteSize Größe in Pixel der Minuten-LEDs
+###### MinuteColor Farbe der Minuten-LED
+###### WithSeconds Zeigt die Sekunden-LEDs der Wordclock an
+###### SecondSize Größe in Pixel der Sekunden-LEDs
+###### SecondColor Farbe der Sekunden-LED
 ###### Zeitzone Die Uhrzeit der ausgewählten Zeitzone wird angezeigt
 ##### Tipps
-Wenn Sie die Größe der Countdown-Nixieclock anpassen möchten, können Sie unter CSS-Einstellungen in vis für halbe Größe eingeben: Group CSS-Common / transform "scale(0.5)"
+Wenn Sie die Größe der Countdown-Nixieclock anpassen möchten, können Sie unter CSS-Einstellungen in vis für die halbe Größe eingeben: Group CSS-Common / transform "scale(0.5)"
 
-##### Der aktuelle Aktionszustand (cdstop,cdrun,cdpause,cdend) des Countdowns steht als CSS-Klassenselektor zur Verfügung.
+##### Der aktuelle Aktionsstatus (cdstop,cdrun,cdpause,cdend) des Countdowns ist als CSS-Klassenselektor verfügbar.
 ```
 #w00000 .timer.cdend {
     color:red;
@@ -260,16 +272,16 @@ Wenn Sie die Größe der Countdown-Nixieclock anpassen möchten, können Sie unt
 
 ## Machen
 * 7-Segment-Anzeige
-* rollierende Zahlen
-* anpassbare Schriftarten
-* ts: Timerules zum Ausschluss (Zeitraum, einzelne Daten)
+* rollende Zahlen
+* Anpassbare Schriftarten
+* ts: Zeitregeln für den Ausschluss (Zeitraum, Einzeltermine)
 * ~~Zeitzone für Wordclock hinzufügen~~
 * ~~Wordclock-Timer~~
-* ~~zeitgesteuerter Planer: Plane einzelnes Datum/Zeit und wiederkehrende Ereignisse wie Outlook~~
+* ~~Zeitplaner: Planen Sie ein einzelnes Datum/eine einzelne Uhrzeit und wiederkehrende Ereignisse wie Outlook~~
 * ~~Nixie-Stil~~
-* ~~Flipboard-Anzeige (Flughafen-Anzeige)~~
-* ~~neuer Befehl um nur die Zielzeit ohne Datum einzustellen~~
-* ~~Countdown-Kreis-Widget mit Option zum Deaktivieren des Countdown-Textes
+* ~~Flip-Board-Display (Flughafen-Display)~~
+* ~~neuer Befehl, um nur die Zielzeit ohne Datum zu setzen~~
+* ~~Countdown-Kreis-Widget mit Option zum Deaktivieren von Countdown-Text
 * ~~Gruppentrenner '.' im Namen~~
 * ~~Polaruhr~~
 * ~~Kreis rückwärts~~
@@ -277,7 +289,13 @@ Wenn Sie die Größe der Countdown-Nixieclock anpassen möchten, können Sie unt
 
 ## Changelog
 
-
+### 0.7.10
+* add widget reverse countdown
+### 0.7.9
+* add more wordclock tests
+* fix wordclock matrix swiss
+### 0.7.8
+* add timezone for wordclock
 ### 0.7.7
 * add timezone for wordclock
 ### 0.7.6

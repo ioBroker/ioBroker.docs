@@ -63,11 +63,20 @@ Whenever a new EMS-ESP firmware adds new datafields and/or changes datafield nam
 Nevertheless obsolete datafields are not deleted automatically by the adapter. 
 There is an option to re-build the state-structure by deleting states on adapter re-start (states with history / db entries are kept)
 
-
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 1.0.8 (2022-01-24)
+* Adjustments for ems-esp firmware 3.4 part 2
+
+### 1.0.7 (2022-01-24)
+* Adjustments for ems-esp firmware 3.4
+
 ### 1.0.6 (2022-01-21) 
-Adjustments for non-UTF-8 json data from ems-esp
-Recalculate km200 recordings based on actual no of samples vs. theroretical max. samples
+* Adjustments for non-UTF-8 json data from ems-esp
+* Recalculate km200 recordings based on actual no of samples vs. theroretical max. samples
 
 ### 1.0.5
 * first stable version for ioBroker repository

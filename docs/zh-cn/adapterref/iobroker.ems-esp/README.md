@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: rgPI1sU1Ydkcmbz7XtzBdf/YB9FcW6gXpXfv2Xws9Hw=
+hash: jsN8PNG+XGCA1AL1dJw8oCAftT/UMma+0GyHl0iwaHQ=
 ---
 ![标识](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -18,7 +18,7 @@ hash: rgPI1sU1Ydkcmbz7XtzBdf/YB9FcW6gXpXfv2Xws9Hw=
 **测试：** ![测试和发布](https://github.com/tp1de/ioBroker.ems-esp/workflows/Test%20and%20Release/badge.svg)
 
 ## 用于 ioBroker 的 ems-esp 适配器
-该适配器支持博世集团 (Buderus / Junkers /Netfit 等) 的供暖系统，由 iobroker km200 适配器和 ems-esp 接口 (https://github.com/emsesp/EMS-ESP32) 支持，最新开发版本 (见下文）和ESP32芯片。现在也支持旧的 ESP8266 网关。
+该适配器支持博世集团（Buderus / Junkers /Netfit 等）的供暖系统，由 iobroker km200 适配器和 ems-esp 接口 (https://github.com/emsesp/EMS-ESP32) 支持，最新开发版本 (见下文）和ESP32芯片。现在也支持旧的 ESP8266 网关。
 
 ems-esp 适配器可以从 km200 网关和/或 ems-esp 硬件读取和写入数据。
 当类似 km200 / ip inside 的 IP 网关可用时，它可以用于原始 Bosch-group 网关或 ems-esp 或两者并行使用。
@@ -30,9 +30,9 @@ API V2 (ESP 8266) 不再受到官方支持，但可能仍然有效。
 
 EMS-ESP 中的重要设置：
 
-*** API V2：MQTT 设置必须是布尔格式 1/0 ！ *** *** API V3：布尔格式的格式化选项必须是 1/0 和枚举格式编号 ***
+*** API V2：MQTT 设置必须是布尔格式 1/0 ！ *** *** API V3：布尔格式的格式化选项必须为 1/0 和枚举格式编号 ***
 
-选择复选框时，类似 km200 的设备结构用于 ems-esp 数据字段或保留原始 EMS-ESP 设备视图：锅炉、恒温器、混合器等。并行使用 km200 网关时，建议使用 km200 数据结构体。然后所有数据字段（状态）都在 ioBroker 的对象结构中的相同位置。
+选中复选框时，类似 km200 的设备结构用于 ems-esp 数据字段或保留原始 EMS-ESP 设备视图：锅炉、恒温器、混合器等。并行使用 km200 网关时，建议使用 km200 数据结构体。然后所有数据字段（状态）都在 ioBroker 的对象结构中的相同位置。
 
 与 km200 适配器不同，要使用的字段可以由适配器实例参数中的相应 csv 文件定义。对于第一个适配器启动，建议使用“*”，因此选择所有 km200 数据字段。
 然后适配器在 ../iobroker-data/ems-esp 目录中创建一个 km200.csv 文件。该文件可用于适配器实例的下一次启动。
@@ -47,7 +47,7 @@ KM200轮询也是一个参数（标准300秒），可以设置的最小值是90�
 对于这些系统以及这些数据可用的地方，可以读取总耗电量和温水耗电量的耗电量统计数据（每小时/每天/每月）。
 
 必须启用复选框记录并且必须定义数据库实例（mySQL 或 InfluxDB）。
-SQL 或 InfluxDB 历史适配器需要安装并激活才能使用此选项。
+SQL 或 InfluxDB History 适配器需要安装并激活才能使用此选项。
 
 *** 这仅针对 mySQL 和 InfluxDB 数据库进行了测试 *** *** 对于 InfluxDB < V2，保留策略必须设置为至少 170 周 ***（在 iobroker 持续时间 170w 上更改全局保留策略；）
 
@@ -67,9 +67,19 @@ SQL 或 InfluxDB 历史适配器需要安装并激活才能使用此选项。
 #iobroker.ems-esp"
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 1.0.8 (2022-01-24)
+* Adjustments for ems-esp firmware 3.4 part 2
+
+### 1.0.7 (2022-01-24)
+* Adjustments for ems-esp firmware 3.4
+
 ### 1.0.6 (2022-01-21) 
-Adjustments for non-UTF-8 json data from ems-esp
-Recalculate km200 recordings based on actual no of samples vs. theroretical max. samples
+* Adjustments for non-UTF-8 json data from ems-esp
+* Recalculate km200 recordings based on actual no of samples vs. theroretical max. samples
 
 ### 1.0.5
 * first stable version for ioBroker repository

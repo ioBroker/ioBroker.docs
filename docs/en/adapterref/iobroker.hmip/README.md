@@ -60,8 +60,7 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 1.15.3 (2022-01-22)
 * (Apollon77) Add windowOpen indicator to two more places
 * (Apollon77) Optimize reconnection handling
 * (Apollon77) Optimize automatic initialization of unknown devices and channels

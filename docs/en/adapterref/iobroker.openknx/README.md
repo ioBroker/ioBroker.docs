@@ -179,17 +179,28 @@ Where number datatype is used please note that interface values can be scaled.
 IoBroker defines States as communication interface.
 
     setState(
-        id: string,                                     //object path
-        state: State | StateValue | SettableState,      //set this to a plausible value, to omit warning in case of GroupValue_Read command
-        ack: false,                                     //must be false by convention
-        c: 'GroupValue_Read'                            //optional comment, set this value to trigger a bus read to this object, given StateValue is ignored
-    ): void;
+    @param {string}                                 id of the object with path
+    @param {object|string|number|boolean}           state simple value or object with attribues.
+    {
+    val:    value,
+    ack:    true|false,                             optional, should be false by convention
+    ts:     timestampMS,                            optional, default - now
+    q:      qualityAsNumber,                        optional, set it to value 0x10 to trigger a bus read to this object, given StateValue is ignored
+    from:   origin,                                 optional, default - this adapter
+    c:      comment,                                optional, set it to value GroupValue_Read to trigger a bus read to this object, given StateValue is ignored
+    expire: expireInSeconds                         optional, default - 0
+    lc:     timestampMS                             optional, default - calculated value
+    }
+    @param {boolean} [ack]                          optional, should be false by convention
+    @param {object} [options]                       optional, user context
+    @param {ioBroker.SetStateCallback} [callback]   optional, return error and id
 
-  example:
-  setState(myState, {val: false, ack: false, c:'GroupValue_Read'});
-  setState(myState, null); 
+example to trigger a GroupValue_Read:
 
-GroupValue_Read comment does not work for javascript adapter. Use null value instead.
+    setState(myState, {val: false, ack: false, c:'GroupValue_Read'});
+    setState(myState, {val: false, ack: false, q:0x10});
+
+GroupValue_Read comment does not work for javascript adapter. Use qualityAsNumber value 0x10 instead.
 
 ### Description of all DPTs
 | KNX DPT   | javascript datatype    | special values                                                                                       | value range                               | remark                                              |
@@ -282,11 +293,11 @@ The KNX object flags define the bus behavior of the object they represent.
 - only IPv4 supported
 
 ## Changelog
-### 0.1.15 ()
+### 0.1.15 (2022-01-23)
  * feature: more sanity checks for gui
  * feature: issue #84, add openknx to discovery adapter
  * feature: issue #82, warnings on import of duplicate ga addresses, also check iob object for duplicates
- * fix: issue #87, added null value to trigger GroupValue_Read, comments are overwritten in javascript adapter
+ * fix: issue #87, added q interface to trigger GroupValue_Read, comments are overwritten in javascript adapter
  * fix: remove unused reference to sentry
  
 ### 0.1.14 (2022-01-08)

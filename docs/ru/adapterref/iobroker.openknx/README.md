@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: rm79DnWiRATsNXZxQWrvVDq6/txbsmTRZ/N49dnPGgI=
+hash: Wy81fpxoyBloLmqBo3RDyH/vzaBqW6kSZAFngzuRok4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -154,14 +154,17 @@ Autoread устанавливается в false, если из DPT ясно, ч
 ### Вызов API
 ioBroker определяет состояния как коммуникационный интерфейс.
 
-setState( id: string, // состояние пути к объекту: State | StateValue | SettableState, // установите для этого правдоподобное значение, чтобы пропустить предупреждение в случае команды GroupValue_Read ack: false, // должно быть false по соглашению c: 'GroupValue_Read ' // необязательный комментарий, установите это значение, чтобы инициировать чтение шины для этого объекта, при условии, что StateValue игнорируется ): void;
+setState( @param {string} идентификатор объекта с путем @param {object|string|number|boolean} простое значение состояния или объект с атрибутами.
+{ val: value, ack: true|false, необязательный, должен быть ложным по соглашению ts: timestampMS, необязательный, по умолчанию — теперь q: qualityAsNumber, необязательный, установите для него значение 0x10, чтобы инициировать чтение шины для этого объекта, если StateValue равно игнорируется из: источник, необязательный, по умолчанию — этот адаптер c: комментарий, необязательный, установите для него значение GroupValue_Read, чтобы инициировать чтение шины для этого объекта, при этом StateValue игнорируется expire: expireInSeconds, необязательный, по умолчанию — 0 lc: timestampMS, необязательный, по умолчанию — вычисляемое значение } @param {boolean} [ack] необязательный, должен быть ложным по соглашению @param {object} [options] необязательный, пользовательский контекст @param {ioBroker.SetStateCallback} [callback] необязательный, возвращает ошибку и идентификатор
 
-пример: setState(myState, {val: false, ack: false, c:'GroupValue_Read'}); setState (мое состояние, ноль);
+пример запуска GroupValue_Read:
 
-Комментарий GroupValue_Read не работает для адаптера javascript. Вместо этого используйте нулевое значение.
+setState(myState, {val: false, ack: false, c:'GroupValue_Read'}); setState(myState, {val: false, ack: false, q:0x10});
+
+Комментарий GroupValue_Read не работает для адаптера javascript. Вместо этого используйте значение qualityAsNumber 0x10.
 
 ### Описание всех DPT
-| KNX ЦСТ | тип данных javascript | специальные ценности | диапазон значений | замечание |
+| KNX ЦСТ | тип данных javascript | специальные значения | диапазон значений | замечание |
 | --------- | ---------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------- | --------------------------------------------------- |
 | ДПТ-1 | логический | | ложь, правда ||
 | ДПТ-2 | объект | {"приоритет":1 бит,"данные":1 бит} | - ||
@@ -186,9 +189,9 @@ setState( id: string, // состояние пути к объекту: State | 
 | ДПТ-17 | номер | | 1 байт | DPT_SceneNumber удален из авточтения |
 | ДПТ-20 | номер | | 1 байт ||
 | ДПТ-238 | номер | | 1 байт ||
-| ДПТ-10 | число для объекта Date | | - ||
+| ДПТ-10 | число для объекта даты | | - ||
 | ДПТ-11 | число для объекта Date | | - ||
-| ДПТ-19 | число для объекта даты | | - ||
+| ДПТ-19 | номер объекта даты | | - ||
 | ДПТ-26 | строка | например 00010203.. | - | Тип точки данных DPT_SceneInfo не прочитан autread|
 | ДПТ-238 | строка | например 00010203.. | - | DPT_SceneConfig не читается программой autread|
 | отдых | строка | например 00010203.. | - ||
@@ -238,7 +241,7 @@ DPT10 — это время (чч:мм:сс) плюс «день недели».
 * не зависит от облачных сервисов, работает без доступа в интернет
 * Авточтение при запуске
 * быстрый импорт групповых адресов в формате XML
-* создавать совместные объекты-псевдонимы, которые реагируют на входы статуса
+* создавать совместные объекты-псевдонимы, которые реагируют на входы состояния
 
 # Известные проблемы
 - никто
@@ -249,11 +252,11 @@ DPT10 — это время (чч:мм:сс) плюс «день недели».
 - поддерживается только IPv4
 
 ## Changelog
-### 0.1.15 ()
+### 0.1.15 (2022-01-23)
  * feature: more sanity checks for gui
  * feature: issue #84, add openknx to discovery adapter
  * feature: issue #82, warnings on import of duplicate ga addresses, also check iob object for duplicates
- * fix: issue #87, added null value to trigger GroupValue_Read, comments are overwritten in javascript adapter
+ * fix: issue #87, added q interface to trigger GroupValue_Read, comments are overwritten in javascript adapter
  * fix: remove unused reference to sentry
  
 ### 0.1.14 (2022-01-08)

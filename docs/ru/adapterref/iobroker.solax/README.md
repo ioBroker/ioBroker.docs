@@ -3,27 +3,35 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.solax/README.md
 title: ioBroker.solax
-hash: cqAQD2KxV+6kpxbF40whGwc1PfUZuAKGcCjDYYKuHsI=
+hash: fQlkfIsor5vQ4oPOyB4tcFzKV+WtKocUT+QyxRwkDjc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.solax/admin/solax.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.solax.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.solax.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.solax.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/solax-installed.svg)
-![Статус зависимости](https://img.shields.io/david/simatec/iobroker.solax.svg)
-![Известные уязвимости](https://snyk.io/test/github/simatec/ioBroker.solax/badge.svg)
+![Количество установок (последние)](http://iobroker.live/badges/solax-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/solax-stable.svg)
-![НПМ](https://nodei.co/npm/iobroker.solax.png?downloads=true)
+![Известные уязвимости](https://snyk.io/test/github/simatec/ioBroker.solax/badge.svg)
+![Лицензия](https://img.shields.io/github/license/simatec/ioBroker.solax?style=flat)
+![Пожертвовать](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 
 # IoBroker.solax
-![Тестирование и выпуск](https://github.com/simatec/ioBroker.solax/workflows/Test%20and%20Release/badge.svg)
+![Тестируйте и выпускайте](https://github.com/simatec/ioBroker.solax/workflows/Test%20and%20Release/badge.svg)
 
-## Переходник solax для ioBroker
-Подключение к облаку Solax Inverter API
+**************************************************************************************************************
+
+**Если вам это нравится, рассмотрите пожертвование:**
+
+[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+
+**************************************************************************************************************
+
+## Адаптер solax для ioBroker
+Подключение к облаку API-интерфейса Solax Inverter
 
 Этот адаптер вызывает данные вашего инвертора от производителя Solax в iobroker.
 
-Для этого вам понадобится учетная запись с Solax, ваш идентификатор токена и серийный номер вашего модуля WiFi.
+Для этого вам нужна учетная запись в Solax, ваш идентификатор токена и серийный номер вашего WiFi-модуля.
 
 ### Ваш API-токен
 <span><img src="docs/en/img/solax_api.png"></span>
@@ -33,24 +41,28 @@ hash: cqAQD2KxV+6kpxbF40whGwc1PfUZuAKGcCjDYYKuHsI=
 
 **************************************************************************************************************
 
-### Что такое Sentry.io и что передается на серверы этой компании?
-Sentry.io - это сервис, позволяющий разработчикам получать информацию об ошибках в своих приложениях. Именно это и реализовано в этом адаптере.
+### Что такое Sentry.io и что сообщается серверам этой компании?
+Sentry.io — это сервис для разработчиков, позволяющий получить обзор ошибок их приложений. И именно это реализовано в данном адаптере.
 
-Когда адаптер выходит из строя или возникает другая ошибка кода, это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется в Sentry. Когда вы разрешили iobroker GmbH собирать диагностические данные, включается также ваш установочный идентификатор (это просто уникальный идентификатор **без** дополнительной информации о вас, адрес электронной почты, имя и т. Д.). Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуты такой ошибкой. Все это помогает мне предоставлять безошибочные адаптеры, которые практически никогда не дают сбоев.
-
-**************************************************************************************************************
-
-** Если вам это нравится, рассмотрите возможность пожертвования: **
-
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+Когда адаптер выходит из строя или возникает другая ошибка кода, это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется в Sentry. Когда вы разрешаете iobroker GmbH собирать диагностические данные, также включается ваш идентификатор установки (это просто уникальный идентификатор **без** какой-либо дополнительной информации о вас, электронной почте, имени и т. д.). Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуто такой ошибкой. Все это помогает мне создавать безошибочные адаптеры, которые практически никогда не дают сбоев.
 
 **************************************************************************************************************
 
 ## Changelog
-<!--
-	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
--->
+<!-- ### __WORK IN PROGRESS__ -->
+
+### __WORK IN PROGRESS__
+* (simatec) local request for Wifi Pocket Stick added
+* (simatec) Dependencies updated
+* (simatec) test and release updated
+* (simatec) Number of days of history data added
+* (simatec) Expert-Mode added
+* (simatec) Docu updated
+* (simatec) Bugfixes
+
+### 0.3.7 (2021-11-17)
+* (simatec) Dependencies updated
+* (simatec) test and release updated
 
 ### 0.3.6 (2021-08-04)
 * (simatec) deps fixed
@@ -96,7 +108,7 @@ Sentry.io - это сервис, позволяющий разработчика
 ## License
 MIT License
 
-Copyright (c) 2021 simatec
+Copyright (c) 2021 - 2022 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

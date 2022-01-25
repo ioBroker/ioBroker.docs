@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: rgPI1sU1Ydkcmbz7XtzBdf/YB9FcW6gXpXfv2Xws9Hw=
+hash: jsN8PNG+XGCA1AL1dJw8oCAftT/UMma+0GyHl0iwaHQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -51,7 +51,7 @@ SQL oder InfluxDB History Adapter müssen installiert und aktiv sein, um diese O
 
 *** Dies ist bisher nur für mySQL- und InfluxDB-Datenbanken getestet *** *** Für InfluxDB < V2 muss die Aufbewahrungsrichtlinie auf mindestens 170 Wochen eingestellt werden *** (Änderung der Aufbewahrungsrichtlinie global auf iobroker-Dauer 170 W;)
 
-Dieser Adapter erstellt dann die jeweiligen Aufzeichnungszustände, aktiviert SQL-Statistiken und schreibt historische Datenbankeinträge mithilfe von SQL-Befehlen und aktualisiert die Aufzeichnungen. Die Aktualisierungshäufigkeit ist stündlich. Die Werte können dann z.B. den Flot Charts-Adapter oder Grafana.
+Dieser Adapter erstellt dann die jeweiligen Aufzeichnungszustände, aktiviert SQL-Statistiken und schreibt historische Datenbankeinträge mithilfe von SQL-Befehlen und aktualisiert die Aufzeichnungen. Die Aktualisierungshäufigkeit ist stündlich. Die Werte können dann angezeigt werden, indem Sie z. den Flot Charts-Adapter oder Grafana.
 
 Seit v0.9.0 gibt es Statistikzustände innerhalb der Objekte. Die Abfragezyklus-Verarbeitungszeit für ems-esp- und/oder km200-Gateway-Lesevorgänge und Zustandsverarbeitung werden angezeigt. Zusätzlich stehen die Anzahl der Kesselstarts pro Stunde / 24 Stunden und die Kesselauslastung pro Stunde (0-100%) zur Verfügung.
 
@@ -67,9 +67,19 @@ Es besteht die Möglichkeit, die Zustandsstruktur neu aufzubauen, indem Zuständ
 # Iobroker.ems-esp"
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 1.0.8 (2022-01-24)
+* Adjustments for ems-esp firmware 3.4 part 2
+
+### 1.0.7 (2022-01-24)
+* Adjustments for ems-esp firmware 3.4
+
 ### 1.0.6 (2022-01-21) 
-Adjustments for non-UTF-8 json data from ems-esp
-Recalculate km200 recordings based on actual no of samples vs. theroretical max. samples
+* Adjustments for non-UTF-8 json data from ems-esp
+* Recalculate km200 recordings based on actual no of samples vs. theroretical max. samples
 
 ### 1.0.5
 * first stable version for ioBroker repository

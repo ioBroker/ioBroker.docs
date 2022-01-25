@@ -4,13 +4,21 @@
 [![NPM version](http://img.shields.io/npm/v/iobroker.solax.svg)](https://www.npmjs.com/package/iobroker.solax)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.solax.svg)](https://www.npmjs.com/package/iobroker.solax)
 ![Number of Installations (latest)](http://iobroker.live/badges/solax-installed.svg)
-[![Dependency Status](https://img.shields.io/david/simatec/iobroker.solax.svg)](https://david-dm.org/simatec/iobroker.solax)
+![Number of Installations (stable)](http://iobroker.live/badges/solax-stable.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/simatec/ioBroker.solax/badge.svg)](https://snyk.io/test/github/simatec/ioBroker.solax)
 ![Test and Release](https://github.com/simatec/ioBroker.solax/workflows/Test%20and%20Release/badge.svg)
 
-<!--![Number of Installations (stable)](http://iobroker.live/badges/solax-stable.svg)-->
+[![License](https://img.shields.io/github/license/simatec/ioBroker.solax?style=flat)](https://github.com/simatec/ioBroker.solax/blob/master/LICENSE)
+[![Donate](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://paypal.me/mk1676)
 
-[![NPM](https://nodei.co/npm/iobroker.solax.png?downloads=true)](https://nodei.co/npm/iobroker.solax/)
+
+**************************************************************************************************************
+
+**If you like it, please consider a donation:**
+  
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+
+**************************************************************************************************************
 
 ## solax adapter for ioBroker
 
@@ -37,17 +45,18 @@ When the adapter crashes or an other Code error happens, this error message that
 
 **************************************************************************************************************
 
-**If you like it, please consider a donation:**
-  
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
-
-**************************************************************************************************************
-
 ## Changelog
-<!--
-	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
--->
+<!-- ### __WORK IN PROGRESS__ -->
+
+### __WORK IN PROGRESS__
+* (simatec) local request for Wifi Pocket Stick added
+* (simatec) Dependencies updated
+* (simatec) test and release updated
+* (simatec) Number of days of history data added
+* (simatec) Expert-Mode added
+* (simatec) Docu updated
+* (simatec) Bugfixes
+
 ### 0.3.7 (2021-11-17)
 * (simatec) Dependencies updated
 * (simatec) test and release updated
@@ -96,7 +105,7 @@ When the adapter crashes or an other Code error happens, this error message that
 ## License
 MIT License
 
-Copyright (c) 2021 simatec
+Copyright (c) 2021 - 2022 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

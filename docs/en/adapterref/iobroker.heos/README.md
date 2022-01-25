@@ -127,6 +127,9 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 
 
 ## Changelog
+### 1.9.2 (2022-01-22)
+* (withstu) add volume lock
+
 ### 1.9.1 (2021-08-17)
 * (withstu) fix type issues
 * (withstu) fix roles and repeat state
@@ -268,7 +271,7 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 ## License
 MIT License
 
-Copyright (c) 2021 withstu <withstu@gmx.de>
+Copyright (c) 2022 withstu <withstu@gmx.de>
 
 derived from https://forum.iobroker.net/topic/10420/vorlage-denon-heos-script by Uwe Uhula
 TTS derived from https://github.com/ioBroker/ioBroker.sonos

@@ -17,6 +17,9 @@ Connection with Selve actuators, sensors and senders through USB-Gateway
 [See the wiki for setup instructions](https://github.com/Rintrium/ioBroker.selverf/wiki)
 
 ## Changelog
+### 0.6.2 (2022-01-22)
+* Fix critical error for sensors and senders
+
 ### 0.6.1 (2022-01-19)
 * Stable version release
 * Minor (non functional) changes

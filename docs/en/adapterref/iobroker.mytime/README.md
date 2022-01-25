@@ -175,6 +175,22 @@ the widgets are preconfigured for a countdown named test.
     color:green;
 }
 ```
+
+#### Widget Reverse Countdown plain
+A widget that shows the elapsed time from a given point in time
+##### Widget Properties
+###### datetime
+A DateTime-String of the start time. 
+The expression must be interpretable by the javascript function new Date(expression). 
+See also https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse
+
+Example:
+2022-01-10 23:12
+2022-01-104T23:12:00.000Z
+
+###### Format
+Formats the timer output. default is mm:ss. for details see Chapter format template
+
 #### Widget Countdown Circle
 A countdown widget in a ring/circle design. 
 ##### Widget Properties
@@ -337,6 +353,8 @@ Group CSS-Common / transform "scale(0.5)"
 
 ## Changelog
 
+### 0.7.10
+* add widget reverse countdown
 ### 0.7.9
 * add more wordclock tests
 * fix wordclock matrix swiss

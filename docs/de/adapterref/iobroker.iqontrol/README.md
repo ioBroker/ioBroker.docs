@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: gDx+Zn9PbMv1GltHfVdvBXa0Ufb5h/kLG984ekGZFWE=
+hash: OyxGAVkIUU8dXiwNxPgUWdiDxkg5jNWAfj8Ia3CE9DY=
 ---
 ![Logo](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -161,7 +161,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 
 ## Popup-Meldungen
 * Jede Instanz erzeugt den Zustand ``iqontrol.x.Popup.Message``
-* Beim Übergeben von Werten an diesen Zustand wird eine Popup-Nachricht (oder Toast) angezeigt
+* Beim Übergeben von Werten an diesen Status wird eine Popup-Nachricht (oder Toast) angezeigt
 * Sie können HTML-Tags verwenden, um den Nachrichtentext zu formatieren
 * Es gibt einige zusätzliche Zustände zur weiteren Anpassung des angezeigten Popups (diese müssen gesetzt werden, bevor der Nachrichtendatenpunkt gesetzt wird):
     * ``Duration``: Dies ist die Zeit in ms, in der die Nachricht angezeigt wird; bei 0 muss die Meldung bestätigt werden
@@ -258,7 +258,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * Um iQontrol anzuweisen, einen WidgetState unter ``iqontrol.<Instanz>.Widgets`` zu generieren, können Sie ein Meta-Tag im Head-Bereich der Widget-Website verwenden:
 *Syntax: ``<meta name="widget-datapoint" content="WidgetName.StateName" data-type="string" data-role="text" /> „
 * Sie können den Datenpunkt weiter konfigurieren, indem Sie die Attribute data-type (der auf string, number oder boolean gesetzt werden kann), data-role, data-name, data-min, data-max, data-def und data-unit Attribute verwenden
-* Sie können auch einen URL-Parameter (siehe unten) als Variable verwenden, um beispielsweise eindeutige Instanzen der Widgets mit eigenen Datenpunkten zu erstellen.
+* Sie können auch einen URL-Parameter (siehe unten) als Variable verwenden, um beispielsweise verschiedene Instanzen der Widgets mit eigenen Datenpunkten zu erstellen.
 * Die Syntax lautet dann: `` <meta name="widget-datapoint" content="WidgetName.StateName|WidgetName.{instance}.StateName" data-type="string" data-role="text" /> „
 * Wenn die Variable ``instance`` gesetzt ist, dann wird der Teil nach dem ``|`` als WidgetState-Name verwendet und ``{instance}`` wird durch den Wert von ``instance`` ersetzt
 * Wenn die Variable ``instance`` nicht gesetzt ist, dann wird der Teil vor dem ``|`` als wigetState-Name verwendet
@@ -419,7 +419,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * 'Widget-URL-Parameter'
 * Syntax: `` <meta name="widget-urlparameters" content="parameter/default value/description/type;parameter2/default value2/description2/type2"/> „
 * Der Benutzer wird nach diesen Parametern gefragt, wenn er das Widget als URL oder Background_URL auswählt oder automatisch ein Widget erstellt
-* ``type`` ist optional und kann ``text`` (standardmäßig), ``number``, ``checkbox``, ``color``, ``select``, ``multipleSelect` sein `, ``combobox``, ``historyInstance``, ``datapoint``, ``listJsonDatapoint``, ``icon``, ``section``, ``divider``, ``info``, ``link`` oder ``hidden``
+* ``type`` ist optional und kann ``text`` (standardmäßig), ``number``, ``checkbox``, ``color``, ``select``, ``multipleSelect` sein `, ``combobox``, ``historyInstance``, ``datapoint``, ``listJsonDatapoint``, ``icon``, ``fontFamily``, ``fontSize``, ``fontStyle``, ``fontWeight``, ``section``, ``divider``, ``info``, ``link`` oder ``hidden``
 * Wenn der Typ ``select``, ``multipleSelect`` oder ``combobox`` ist, müssen Sie die möglichen Optionen angeben, indem Sie ``/<selectOptions>`` hinzufügen, wobei ``<selectOptions>`` ein ist String im Format ``<Wert1>,<Beschriftung1>/<Wert2>,<Beschriftung2>/...`` (Combobox ist eine Auswahlbox mit der Möglichkeit zur Eingabe von freiem Text)
 * Wenn Typ ``number`` ist, dann kann min, max und Schrittweite angegeben werden, indem ``/<numberOptions>`` hinzugefügt wird, wobei ``<numberOptions>`` ein String im Format ``<min> ist, <max>,<schritt>``
 * Die Typen ``section``, ``divider``, ``info`` und ``link`` haben keine weitere Funktion, sie dienen lediglich dazu, dem Benutzer Informationen anzuzeigen. Für ``link`` sollte der Wert eine URL sein, aber alle Slashes müssen durch Backslashes ersetzt werden.
@@ -646,7 +646,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``transparentIfInactive`` (Hintergrund transparent machen, wenn Gerät inaktiv):
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
-* ``noOverlayInactive`` (Überlagerung der Kachel entfernen, wenn Gerät inaktiv):
+* ``noOverlayInactive`` (Overlay der Kachel entfernen, wenn Gerät inaktiv):
 * Mögliche Werte: "true"|"false"
 * Voreinstellung: "true"
 * ``hideBackgroundURLInactive`` (Hintergründ vor Background_VIEW/URL/HTML ausblenden, wenn das Gerät inaktiv ist):
@@ -782,7 +782,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``showTimestamp`` (Zeitstempel im Dialog anzeigen):
 * Mögliche Werte: ""|"ja"|"nein"|"immer"|"nie"
 * Standard: ""
-* BATTERIE-leer-Symbol:
+* BATTERIE-Leer-Symbol:
 * ``batteryActiveCondition`` (Zustand):
 * Mögliche Werte: ""|"at"|"af"|"eqt"|"eqf"|"eq"|"ne"|"gt"|"ge"|"lt"|"le"
 * Standard: ""
@@ -1488,7 +1488,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 
 ###<img src="img/icons/time_alarmclock_on.png" width="32"> Datum (und Uhrzeit:
 * **STATE**: *boolean* - wenn wahr, wird die Kachel als aktiv angezeigt
-* **BETREFF**: *string* - um eine Beschreibung festzulegen
+* **BETREFF**: *Zeichenfolge* - um eine Beschreibung festzulegen
 * **RINGING**: *boolean* - wenn wahr, wird eine Alarmglocke angezeigt
 * Denken Sie daran: Sie können einen Quit- und einen Snooze-Button über ADDITIONAL_CONTROLS konfigurieren
 * **TIME**: *string* - String mit Datum und/oder Uhrzeit oder Dauer (Sie können das Format in den Geräteoptionen angeben) für das erste und zweite Mal
@@ -1505,7 +1505,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 | | Unix ms Zeitstempel | x | 1410715640579 | X | --- | --- |
 | Datum | Wochentag | d | 0 1 ... 5 6 | X | --- | --- |
 | | | dd | So Mo ... Fr Sa | X | X (übersetzt) | --- |
-| | | ddd | So Mo ... Fr Sa | X | X (übersetzt) | --- |
+| | | dd | So Mo ... Fr Sa | X | X (übersetzt) | --- |
 | | | dddd | Sonntag Montag ... Freitag Samstag | X | X (übersetzt) | --- |
 | | | tun | 0. 1. ... 5. 6. | X | --- | --- |
 | | Tag des Monats | D | 1 2 ... 30 31 | X | X | X |
@@ -1690,6 +1690,7 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
 * (sbormann) Added heading and border-color-option to JSON-table widget.
 * (sbormann) Changed behaviour of min/max/ignore-min-max-settings of FLOT-Chart-Widget.
 * (sbormann) Added option to invert color of INFO_A/B icons for dark-mode.
+* (sbormann) You can now chose fonts for the JSON-table widget.
 
 ### 1.11.0 (2021-12-18)
 * (sbormann) Added the ability to globally change the default icons.

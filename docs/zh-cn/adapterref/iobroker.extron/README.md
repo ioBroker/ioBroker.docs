@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.extron/README.md
 title: ioBroker.extron
-hash: y3CHZrJfGFL72Q0HVncXL/XiIWpl6gmMMgKnAhUQenw=
+hash: gHPmQRTN/ynCkRrmEcHbu1UHPcQIYnW1ORoexhn2Fv4=
 ---
 ![标识](../../../en/adapterref/iobroker.extron/admin/extron.png)
 
@@ -33,51 +33,56 @@ Extron 的控制设备。
 - H.264 流媒体播放器和解码器 (SMD 202)
 - 流媒体编码器 (SME 211)
 - 12x8 ProDSP 处理器 w/Dante (DMP 128 Plus AT)
-- 12x8 ProDSP 处理器，带 AEC、VoIP 和 Dante (DMP 128 Plus C V AT)
+- 12x8 ProDSP 处理器，带 AEC、VoIP 和 Dante（DMP 128 Plus C V AT）
 
 ＃＃ 去做
 - 在对话开始时检查设备类型。这有时会失败。必须改成更可靠的机制。
 - 对使用的输入和输出进行更精细的选择，以减少 DSP 设备的数据库大小
 - 在数据库端添加更多命令及其实现
-- 为 SMD 202 添加媒体播放支持
 
 ## Changelog
 
-### 0.0.1
-* (Bannsaenger) initial release
+### 0.1.11
+* (Bannsaenger) fixed support for groups in DSP DMP128
 
-### 0.0.2
-* (Bannsaenger) prepared for checkin to iobroker.latest
+### 0.1.10
+* (mschlgl) added support for groups in DSP DMP128
 
-### 0.0.3
-* (Bannsaenger) fix dependencies for integration test
-
-### 0.1.0
-* (mschlgl) extend device/database structure to cover all controllable elements
-
-### 0.1.1
-* (mschlgl) extend device/database structure to add devices CP82, SME211, SMD202
-
-### 0.1.2
-* (mschlgl) extend device/database structure to add user flash memory
-
-### 0.1.3
-* (mschlgl) fixes on device communication and user flash file management
-
-### 0.1.4
-* (mschlgl) fixes on device communication cp82 and smd202
-
-### 0.1.5
-* (mschlgl) fixes on device communication sme211
-
-### 0.1.6
-* (mschlgl) added limiter section for DMP128
+### 0.1.9
+* (Bannsaenger) fixed setting of info.connection in telnet mode
 
 ### 0.1.7
 * (mschlgl) added plaint Telnet communication for DMP128
 
-### 0.1.9
-* (Bannsaenger) fixed setting of info.connection in telnet mode
+### 0.1.6
+* (mschlgl) added limiter section for DMP128
+
+### 0.1.5
+* (mschlgl) fixes on device communication sme211
+
+### 0.1.4
+* (mschlgl) fixes on device communication cp82 and smd202
+
+### 0.1.3
+* (mschlgl) fixes on device communication and user flash file management
+
+### 0.1.2
+* (mschlgl) extend device/database structure to add user flash memory
+
+### 0.1.1
+* (mschlgl) extend device/database structure to add devices CP82, SME211, SMD202
+
+### 0.1.0
+* (mschlgl) extend device/database structure to cover all controllable elements
+
+### 0.0.3
+* (Bannsaenger) fix dependencies for integration test
+
+### 0.0.2
+* (Bannsaenger) prepared for checkin to iobroker.latest
+
+### 0.0.1
+* (Bannsaenger) initial release
 
 ## License
 Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)

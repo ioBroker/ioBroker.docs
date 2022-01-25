@@ -149,6 +149,9 @@ Abschließend sind die in der CCU angelegten Variablen aufgelistet
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.0.34 (2022-01-24)
+* (martin-herzog/foxriver76) fixed unnedded call which lead to warnings in rega log
+
 ### 3.0.33 (2021-11-18)
 * (foxriver76) if function or room names on CCU include dots, we replace them (fixes Sentry IOBROKER-HM-REGA-3H)
 
@@ -570,7 +573,7 @@ or non existent if no rpc instance existed
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>
 
 Copyright (c) 2014 hobbyquaker
 

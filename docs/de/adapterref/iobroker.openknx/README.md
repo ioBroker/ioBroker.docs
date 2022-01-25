@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: rm79DnWiRATsNXZxQWrvVDq6/txbsmTRZ/N49dnPGgI=
+hash: Wy81fpxoyBloLmqBo3RDyH/vzaBqW6kSZAFngzuRok4=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -143,9 +143,9 @@ Der GA-Import erzeugt eine Kommunikationsobjekt-Ordnerstruktur nach dem GA-Schem
 
 ioBroker-Zustandsrollen (https://github.com/ioBroker/ioBroker/blob/master/doc/STATE_ROLES.md) haben standardmäßig den Wert „state“. Einige granularere Werte werden vom DPT abgeleitet, zum Beispiel Date oder Switch.
 
-Autoread wird auf „false“ gesetzt, wenn aus dem DPT klar hervorgeht, dass dies ein Triggersignal ist. Dies gilt für Szenennummern.
+Autoread wird auf falsch gesetzt, wenn aus dem DPT klar ist, dass dies ein Triggersignal ist. Dies gilt für Szenennummern.
 
-{ "_id": "path.and.name.to.object", //abgeleitet von der KNX-Struktur "type": "state", "common": { //Werte hier können von iobroker interpretiert werden "desc": "Basetype: 1-bit value, Subtype: switch", //informativ, aus dpt "name": "Aussen Melder Licht schalten", //informative Beschreibung aus ets export "read": true, //default set, if false Eingehende Buswerte aktualisieren das Objekt "Rolle" nicht: Zustand, //Standardzustand, abgeleitet von DPT "Typ": "boolean", //Boolean, Zahl, Zeichenfolge, Objekt, abgeleitet von DPT "Einheit": "", //abgeleitet von dpt "write": true //default true, wenn Satzänderung am Objekt knx write auslöst, succ. write setzt dann ack flag auf true }, "native": { //Werte hier können vom openknx-Adapter interpretiert werden "address": "0/1/2", //knx-Gruppenadresse "answer_groupValueResponse": false, //default false, wenn auf true gesetzt, antwortet der Adapter mit Wert auf GroupValue_Read "autoread": true, //Standardwert true für Nicht-Trigger-Signale, Adapter sendet beim Start ein GroupValue_read, um seine Zustände zu synchronisieren "bitlength": 1, //Größe der Knx-Daten, abgeleitet von dpt "dpt": "DPT1.001", //DPT "encoding": { //informativ "0": "Off", "1": "On" }, "force_encoding": "", // informativ "signedness": "", //informativ "valuetype": "basic" //composite bedeutet über ein bestimmtes Javascript-Objekt gesetzt }, "from": "system.adap ter.openknx.0", "user": "system.user.admin", "ts": 1638913951639 }
+{ "_id": "path.and.name.to.object", //abgeleitet von der KNX-Struktur "type": "state", "common": { //Werte hier können von iobroker interpretiert werden "desc": "Basetype: 1-bit value, Subtype: switch", //informativ, aus dpt "name": "Aussen Melder Licht schalten", //informative Beschreibung aus ets export "read": true, //default set, if false Eingehende Buswerte aktualisieren das Objekt "Rolle" nicht: Zustand, //Standardzustand, abgeleitet von DPT "Typ": "boolean", //Boolean, Zahl, Zeichenfolge, Objekt, abgeleitet von DPT "Einheit": "", //abgeleitet von dpt "write": true //default true, wenn Satzänderung am Objekt knx write auslöst, succ. write setzt dann ack flag auf true }, "native": { //Werte hier können vom openknx-Adapter interpretiert werden "address": "0/1/2", //knx-Gruppenadresse "answer_groupValueResponse": false, //default false, wenn auf true gesetzt, antwortet der Adapter mit dem Wert auf GroupValue_Read "autoread": true, //default true für Nicht-Trigger-Signale, der Adapter sendet beim Start ein GroupValue_read, um seine Zustände zu synchronisieren "bitlength": 1, //Größe der Knx-Daten, abgeleitet von dpt "dpt": "DPT1.001", //DPT "encoding": { //informativ "0": "Off", "1": "On" }, "force_encoding": "", // informativ "signedness": "", //informativ "valuetype": "basic" //composite bedeutet über ein bestimmtes Javascript-Objekt gesetzt }, "from": "system.adap ter.openknx.0", "user": "system.user.admin", "ts": 1638913951639 }
 
 # Beschreibung der Adapter-Kommunikationsschnittstelle
 Gehandelte DPTs sind: 1-21.232.237.238 Ungehandelte DPTs werden als Rohpuffer geschrieben, die Schnittstelle ist eine sequentielle Folge von Hexadezimalzahlen. Schreiben Sie zum Beispiel „0102feff“, um die Werte 0x01 0x02 0xfe 0xff auf den Bus zu senden.
@@ -154,11 +154,14 @@ Beachten Sie bei Verwendung des Zahlendatentyps, dass Schnittstellenwerte skalie
 ### API-Aufruf
 ioBroker definiert States als Kommunikationsschnittstelle.
 
-setState( id: string, //Objektpfadstatus: State | StateValue | SettableState, //Setze dies auf einen plausiblen Wert, um die Warnung im Falle des GroupValue_Read-Befehls auszulassen ack: false, //muss per Konvention falsch sein c: 'GroupValue_Read ' //optionaler Kommentar, setzen Sie diesen Wert, um einen Bus-Lesevorgang zu diesem Objekt auszulösen, gegebener StateValue wird ignoriert): void;
+setState( @param {string} id des Objekts mit Pfad @param {object|string|number|boolean} Status einfacher Wert oder Objekt mit Attributen.
+{ val: value, ack: true|false, optional, sollte per Konvention falsch sein ts: timestampMS, optional, default - jetzt q: qualityAsNumber, optional, setze es auf den Wert 0x10, um einen Buslesevorgang zu diesem Objekt auszulösen, wenn StateValue gegeben ist ignoriert von: Ursprung, optional, Standard – dieser Adapter c: Kommentar, optional, setzen Sie ihn auf den Wert GroupValue_Read, um einen Bus-Lesevorgang für dieses Objekt auszulösen, gegebener StateValue wird ignoriert. berechneter Wert } @param {boolean} [ack] optional, sollte per Konvention falsch sein @param {object} [options] optional, Benutzerkontext @param {ioBroker.SetStateCallback} [callback] optional, Rückgabefehler und ID
 
-Beispiel: setState(myState, {val: false, ack: false, c:'GroupValue_Read'}); setState (myState, null);
+Beispiel zum Auslösen eines GroupValue_Read:
 
-GroupValue_Read-Kommentar funktioniert nicht für Javascript-Adapter. Verwenden Sie stattdessen einen Nullwert.
+setState(myState, {val: false, ack: false, c:'GroupValue_Read'}); setState(myState, {val: false, ack: false, q:0x10});
+
+GroupValue_Read-Kommentar funktioniert nicht für Javascript-Adapter. Verwenden Sie stattdessen den qualityAsNumber-Wert 0x10.
 
 ### Beschreibung aller DPTs
 | KNX-DPT | Javascript-Datentyp | besondere Werte | Wertebereich | Bemerkung |
@@ -168,12 +171,12 @@ GroupValue_Read-Kommentar funktioniert nicht für Javascript-Adapter. Verwenden 
 | DPT-3 | Objekt | {"decr_incr":1 Bit,"data":2 Bit} | - ||
 | DPT-18 | Objekt | {"save_recall":0,"scenenumber":0} | - |Datenpunkttyp DPT_SceneControl aus Autoread entfernt|
 | DPT-21 | Objekt | {"outofservice":0,"fault":0,"overridden":0,"inalarm":0,"alarmunack":0} | - ||
-| DPT-232 | Objekt | {Rot:0..255, Grün:0,255, Blau:0,255} | - ||
+| DPT-232 | Objekt | {rot:0..255, grün:0,255, blau:0,255} | - ||
 | DPT-237 | Objekt | {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | - ||
 | DPT-4 | Zeichenfolge | | ein als 8-Bit-Zeichen gesendetes Zeichen ||
 | DPT-16 | Zeichenfolge | | ein Zeichen als 16-Zeichen-String gesendet ||
 | DPT-5 | Zahl | | 8-Bit-Wert ohne Vorzeichen ||
-| DPT-5.001 | Nummer | | 0..100 [%] skaliert auf 1 Byte ||
+| DPT-5.001 | Zahl | | 0..100 [%] skaliert auf 1 Byte ||
 | DPT-5.003 | Zahl | | 0..360 [°] skaliert auf 1 Byte ||
 | DPT-6 | Zahl | | 8-Bit vorzeichenbehaftet -128..127 ||
 | DPT-7 | Zahl | | 16-Bit-Wert ohne Vorzeichen ||
@@ -185,7 +188,7 @@ GroupValue_Read-Kommentar funktioniert nicht für Javascript-Adapter. Verwenden 
 | DPT-15 | Zahl | | 4 Byte ||
 | DPT-17 | Zahl | | 1 Byte | DPT_SceneNumber aus Autoread entfernt|
 | DPT-20 | Zahl | | 1 Byte ||
-| DPT-238 | Nummer | | 1 Byte ||
+| DPT-238 | Zahl | | 1 Byte ||
 | DPT-10 | Zahl für Datumsobjekt | | - ||
 | DPT-11 | Zahl für Datumsobjekt | | - ||
 | DPT-19 | Zahl für Datumsobjekt | | - ||
@@ -249,11 +252,11 @@ Es sind 6 verschiedene Objektflags definiert.
 - nur IPv4 unterstützt
 
 ## Changelog
-### 0.1.15 ()
+### 0.1.15 (2022-01-23)
  * feature: more sanity checks for gui
  * feature: issue #84, add openknx to discovery adapter
  * feature: issue #82, warnings on import of duplicate ga addresses, also check iob object for duplicates
- * fix: issue #87, added null value to trigger GroupValue_Read, comments are overwritten in javascript adapter
+ * fix: issue #87, added q interface to trigger GroupValue_Read, comments are overwritten in javascript adapter
  * fix: remove unused reference to sentry
  
 ### 0.1.14 (2022-01-08)

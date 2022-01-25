@@ -3,40 +3,20 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solax/README.md
 title: ioBroker.solax
-hash: cqAQD2KxV+6kpxbF40whGwc1PfUZuAKGcCjDYYKuHsI=
+hash: fQlkfIsor5vQ4oPOyB4tcFzKV+WtKocUT+QyxRwkDjc=
 ---
 ![Logo](../../../en/adapterref/iobroker.solax/admin/solax.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.solax.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.solax.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/solax-installed.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/simatec/iobroker.solax.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/simatec/ioBroker.solax/badge.svg)
+![Anzahl der Installationen (neueste)](http://iobroker.live/badges/solax-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/solax-stable.svg)
-![NPM](https://nodei.co/npm/iobroker.solax.png?downloads=true)
+![Bekannte Schwachstellen](https://snyk.io/test/github/simatec/ioBroker.solax/badge.svg)
+![Lizenz](https://img.shields.io/github/license/simatec/ioBroker.solax?style=flat)
+![Spenden](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 
 # IoBroker.solax
 ![Testen und freigeben](https://github.com/simatec/ioBroker.solax/workflows/Test%20and%20Release/badge.svg)
-
-## Solax-Adapter für ioBroker
-Solax Inverter API Cloud-Verbindung
-
-Dieser Adapter ruft die Daten Ihres Wechselrichters vom Hersteller Solax in den iobroker ab.
-
-Dafür benötigen Sie einen Account bei Solax, Ihre Token-ID und die Seriennummer Ihres WLAN-Moduls.
-
-### Ihr API-Token
-<span><img src="docs/en/img/solax_api.png"></span>
-
-### Deine Seriennummer
-<span><img src="docs/en/img/wifi-stick.png"></span>
-
-**************************************************************************************************************
-
-### Was ist Sentry.io und was wird an die Server dieses Unternehmens gemeldet?
-Sentry.io ist ein Dienst für Entwickler, um sich einen Überblick über Fehler ihrer Anwendungen zu verschaffen. Und genau das ist in diesem Adapter implementiert.
-
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll angezeigt wird, an Sentry gesendet. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, dann ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder dergleichen) enthalten. Auf diese Weise kann Sentry Fehler gruppieren und anzeigen, wie viele eindeutige Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
 
 **************************************************************************************************************
 
@@ -46,11 +26,43 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 
 **************************************************************************************************************
 
+## Solax-Adapter für ioBroker
+Solax Wechselrichter-API-Cloud-Verbindung
+
+Dieser Adapter ruft die Daten Ihres Wechselrichters vom Hersteller Solax in den iobroker.
+
+Was Sie dazu benötigen, ist ein Konto bei Solax, Ihre Token-ID und die Seriennummer Ihres WLAN-Moduls.
+
+### Ihr API-Token
+<span><img src="docs/en/img/solax_api.png"></span>
+
+### Ihre Seriennummer
+<span><img src="docs/en/img/wifi-stick.png"></span>
+
+**************************************************************************************************************
+
+### Was ist Sentry.io und was wird an die Server dieser Firma gemeldet?
+Sentry.io ist ein Dienst für Entwickler, um sich einen Überblick über Fehler in ihren Anwendungen zu verschaffen. Und genau das ist in diesem Adapter umgesetzt.
+
+Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, dann ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder ähnliches) enthalten. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
+
+**************************************************************************************************************
+
 ## Changelog
-<!--
-	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
--->
+<!-- ### __WORK IN PROGRESS__ -->
+
+### __WORK IN PROGRESS__
+* (simatec) local request for Wifi Pocket Stick added
+* (simatec) Dependencies updated
+* (simatec) test and release updated
+* (simatec) Number of days of history data added
+* (simatec) Expert-Mode added
+* (simatec) Docu updated
+* (simatec) Bugfixes
+
+### 0.3.7 (2021-11-17)
+* (simatec) Dependencies updated
+* (simatec) test and release updated
 
 ### 0.3.6 (2021-08-04)
 * (simatec) deps fixed
@@ -96,7 +108,7 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 ## License
 MIT License
 
-Copyright (c) 2021 simatec
+Copyright (c) 2021 - 2022 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
