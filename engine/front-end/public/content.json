@@ -167,7 +167,7 @@
             "Proxmox": {
               "title": {
                 "en": "Proxmox",
-                "de": "Installation",
+                "de": "Proxmox",
                 "ru": "установка",
                 "zh-cn": "安装"
               },
@@ -176,7 +176,7 @@
             "VirtualBox": {
               "title": {
                 "en": "VirtualBox",
-                "de": "Installation",
+                "de": "VirtualBox",
                 "ru": "установка",
                 "zh-cn": "安装"
               },
@@ -185,7 +185,7 @@
             "Docker": {
               "title": {
                 "en": "Docker",
-                "de": "Installation",
+                "de": "Docker",
                 "ru": "установка",
                 "zh-cn": "安装"
               },
@@ -204,7 +204,7 @@
             "Node.js": {
               "title": {
                 "en": "Node.js",
-                "de": "Installation",
+                "de": "node.js",
                 "ru": "установка",
                 "zh-cn": "安装"
               },
@@ -250,7 +250,7 @@
             "General": {
               "title": {
                 "en": "General",
-                "de": "Installation",
+                "de": "Allgemein",
                 "ru": "установка",
                 "zh-cn": "安装"
               },
@@ -259,7 +259,7 @@
             "ioBroker": {
               "title": {
                 "en": "ioBroker",
-                "de": "Installation",
+                "de": "ioBroker",
                 "ru": "установка",
                 "zh-cn": "安装"
               },
@@ -399,7 +399,7 @@
         "Introduction": {
           "title": {
             "en": "Introduction",
-            "de": "Tutorial",
+            "de": "Einleitung",
             "ru": "Руководство",
             "zh-cn": "教程"
           },
@@ -408,7 +408,7 @@
         "First setup": {
           "title": {
             "en": "First setup",
-            "de": "Tutorial",
+            "de": "Setup",
             "ru": "учебник",
             "zh-cn": "教程"
           },
@@ -417,7 +417,7 @@
         "User interface": {
           "title": {
             "en": "User interface",
-            "de": "Tutorial",
+            "de": "User Interface",
             "ru": "учебник",
             "zh-cn": "教程"
           },
@@ -435,7 +435,7 @@
         "Simple logic": {
           "title": {
             "en": "Simple logic",
-            "de": "Tutorial",
+            "de": "Erste Schritte mit Logik",
             "ru": "учебник",
             "zh-cn": "教程"
           },
@@ -444,7 +444,7 @@
         "Visualisation": {
           "title": {
             "en": "Visualisation",
-            "de": "Tutorial",
+            "de": "Erste Schritte mit Vis",
             "ru": "учебник",
             "zh-cn": "教程"
           },
@@ -453,7 +453,7 @@
         "Data logging": {
           "title": {
             "en": "Data logging",
-            "de": "Tutorial",
+            "de": "Erste Schritte vit History",
             "ru": "учебник",
             "zh-cn": "教程"
           },
@@ -462,7 +462,7 @@
         "Charts": {
           "title": {
             "en": "Charts",
-            "de": "Tutorial",
+            "de": "Erste Schritte mit Charts",
             "ru": "учебник",
             "zh-cn": "教程"
           },
@@ -471,7 +471,7 @@
         "Updates": {
           "title": {
             "en": "Updates",
-            "de": "Tutorial",
+            "de": "richtig updaten",
             "ru": "Руководство",
             "zh-cn": "教程"
           },
