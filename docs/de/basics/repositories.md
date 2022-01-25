@@ -1,7 +1,7 @@
 # Was ist ein Repository?
 Ein Repository ist ein zentraler Aufbewahrungsort für Softwareprogramme.
 
-Die Adapter, welche über die ioBroker Admin Oberfläche angezeigt und installiert/aktualisiert werden können, werden über einen zentralen Aufbewahrungsort (einem Repository) verwaltet. Defaultmäßig ist ioBroker nach einer Installation so konfiguriert, dass auf das "stable" Repository zuegriffen wird und die dort hinterlegten Adapter zur Installation angeboten werden. 
+Die Adapter, welche über die ioBroker Admin Oberfläche angezeigt und installiert/aktualisiert werden können, werden über einen zentralen Aufbewahrungsort (einem Repository) verwaltet. Defaultmäßig ist ioBroker nach einer Installation so konfiguriert, dass auf das "stable" Repository zugegriffen wird und die dort hinterlegten Adapter zur Installation angeboten werden. 
 
 Standardmäßig stehen in ioBroker zwei Repositories zur Verfügung:
 - **stable**: In diesem Repository stehen die Adapter in der Version zur Verfügung, welche bereits getestet sind und somit auf einem Produktivsystem verwendet werden können 
