@@ -57,7 +57,7 @@ Auf diese Weise kann man die neueste Beta-Version installieren, ohne sein Reposi
 <br>
 
 ## Wie kommt ein Adapter in das Beta oder Stable Repository? 
-Lange bevor ein Adapter zur Installtion in ioBroker bereit steht stellt ein Entwickler einen Antrag auf Aufnahme ins Repository. Wenn das passiert ist, schauen sich erfahrene Entwickler den neuen Adapterquellcode an und geben dem anfragenden Entwickler ein Feedback mit den Punkten welche abgearbeitet werden müssen, bevor der neue Adapter ins Repository aufgenommen werden kann. 
+Lange bevor ein Adapter zur Installation in ioBroker bereit steht stellt ein Entwickler einen Antrag auf Aufnahme ins Repository. Wenn das passiert ist, schauen sich erfahrene Entwickler den neuen Adapterquellcode an und geben dem anfragenden Entwickler ein Feedback mit den Punkten welche abgearbeitet werden müssen, bevor der neue Adapter ins Repository aufgenommen werden kann. 
 
 Ein neuer Adapter steht zuerst im Beta Repository zur Verfügung und kann dann von den (Beta) Testern ausgiebig getestet werden. 
 Wenn die Testphase abgeschlossen ist und die gemeldeten Fehler gefixt worden sind, wird die Version des Adapters im stable Repository zur Verfügung gestellt.
