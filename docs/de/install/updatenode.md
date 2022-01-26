@@ -5,6 +5,7 @@ lastChanged: "26.01.2022"
 
 # Update [Node.JS](https://nodejs.org/)
  
+Wofür ioBroker Node.JS braucht kann man [Hier](https://www.iobroker.net/#de/documentation/basics/architecture.md) erfahren.
 Wer mehr über Node.JS wissen will findet bei [Wikipedia einen Artikel](https://de.wikipedia.org/wiki/Node.js) dazu.
 
 ### Ablauf:
