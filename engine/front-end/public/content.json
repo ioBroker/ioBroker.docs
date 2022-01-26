@@ -48,8 +48,8 @@
         },
         "Adapter & Instanzen": {
           "title": {
-            "en": "Adapter & Instanzen",
-            "de": "Adapter und Controller",
+            "en": "Adapter & Instances",
+            "de": "Adapter und Instanzen",
             "ru": "Адаптеры и контроллеры",
             "zh-cn": "适配器和控制器"
           },
