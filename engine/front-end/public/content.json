@@ -89,7 +89,7 @@
             "ru": "Псевдонимы",
             "zh-cn": "别名"
           },
-          "content": "basics/aliases.md"
+          "content": "basics/alias.md"
         },
         "Enums": {
           "title": {
