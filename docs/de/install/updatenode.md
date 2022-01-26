@@ -95,6 +95,56 @@ iobroker fix
  ```
  iobroker start
  ``` 
+ 
+ ----
+
+### Anleitung für Windows:  
+#### 1. Backup:  
+```
+    iobroker backup 
+```
+- oder  [Alternative variante](https://www.iobroker.net/#de/documentation/config/backup.md)
+
+#### 2. [Adapter Aktualisieren](https://www.iobroker.net/#de/documentation/tutorial/adapter.md?upgradeeinesadapters)  
+  
+#### 3. ioBroker stoppen: 
+```
+iobroker stopp
+```  
+  
+#### 4. Prüfen ob iobroker Vollständig beendet wurde:   
+???
+  
+#### 5. Node.JS Update:  
+Passenden [Installer Downloaden](https://nodejs.org/en/download/) und Ausführen  
+  
+#### 6. Versionen ?& Pfade? Prüfen:  
+```
+nodejs -v 
+```
+```
+node -v
+```
+```
+npm -v
+```
+- Erwartete Ausgabe:  
+```
+v16.13.2
+v16.13.2
+8.1.2
+```
+  
+#### 7. ioBroker fixer Ausführen:  
+```
+iobroker fix
+```  
+  
+ #### 8. ioBroker Starten:  
+ ```
+ iobroker start
+ ``` 
+
 ---
 # Problemlösung
 
