@@ -4,8 +4,14 @@ lastChanged: "26.01.2022"
 ---
 
 # Update [Node.JS](https://nodejs.org/)
+
+| Gültig für | |
+| --- | --- |
+| JS-Controller version | >=4.x |
+| Node.JS version | >=14.x |
+
  
-Wofür ioBroker Node.JS braucht kann man [Hier](https://www.iobroker.net/#de/documentation/basics/architecture.md) erfahren.
+Wofür ioBroker Node.JS braucht kann man [Hier](https://www.iobroker.net/#de/documentation/basics/architecture.md) erfahren.  
 Wer mehr über Node.JS wissen will findet bei [Wikipedia einen Artikel](https://de.wikipedia.org/wiki/Node.js) dazu.
 
 ### Ablauf:
