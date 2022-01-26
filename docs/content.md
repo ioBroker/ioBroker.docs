@@ -8,7 +8,8 @@
   * [Repositories](basics/repositories)
   * [Objects](basics/objects)
   * [States or Datapoints](basics/states)
-  * [Functions](basics/functions)
+  * [Alias](basics/alias)
+  * [Enums](basics/functions)
   * [Roles](basics/roles)
 
 * en:Installation;de:Installation;ru:Установка;zh-cn:安装系统
