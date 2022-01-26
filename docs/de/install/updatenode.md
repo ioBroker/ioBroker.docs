@@ -7,8 +7,8 @@ lastChanged: "26.01.2022"
 
 | Gültig für | |
 | --- | --- |
-| JS-Controller version | >=4.x |
-| Node.JS version | >=14.x |
+| JS-Controller version | 4.x |
+| Node.JS version | 14.x, 16.x |
 
  
 Wofür ioBroker Node.JS braucht kann man [Hier](https://www.iobroker.net/#de/documentation/basics/architecture.md) erfahren.  
