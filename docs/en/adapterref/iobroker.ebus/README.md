@@ -1,16 +1,18 @@
 ﻿![Logo](admin/ebus.png)
 # ioBroker.ebus
-![Number of Installations](http://iobroker.live/badges/ebus-installed.svg) ![Number of Installations](http://iobroker.live/badges/ebus-stable.svg) 
 
-[![NPM version](https://img.shields.io/npm/v/iobroker.ebus.svg)](https://www.npmjs.com/package/iobroker.ebus)
+![Number of Installations](http://iobroker.live/badges/ebus-installed.svg) ![Number of Installations](http://iobroker.live/badges/ebus-stable.svg)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.ebus.svg)](https://www.npmjs.com/package/iobroker.ebus)
-[![Tests](https://travis-ci.org/rg-engineering/ioBroker.ebus.svg?branch=master)](https://travis-ci.org/rg-engineering/ioBroker.ebus)
+[![NPM version](http://img.shields.io/npm/v/iobroker.ebus.svg)](https://www.npmjs.com/package/iobroker.ebus)
+
+[![Known Vulnerabilities](https://snyk.io/test/github/rg-engineering/ioBroker.ebus/badge.svg)](https://snyk.io/test/github/rg-engineering/ioBroker.ebus)
+![GitHub Actions](https://github.com/rg-engineering/ioBroker.ebus/workflows/Test%20and%20Release/badge.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.ebus.png?downloads=true)](https://nodei.co/npm/iobroker.ebus/)
 
+
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** 
 For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
-
 
 
 **If you like it, please consider a donation:**
@@ -28,12 +30,67 @@ There is a possibillity to poll data which are not polled by ebusd directly. Com
 
 Another feature is to send any command to ebusd and receive answer to work with e.g. scripts.
 
-current supported ebusd-version: 3.3
+current supported ebusd-version: 21.3
+
+
+## how to send commands to ebusd
+1. write a single command or an command list on datapoint ebus.0.cmd
+If you want to use more then one command, use , to separate single commands.
+example:
+read -f YieldTotal,read LegioProtectionEnabled,read -f -c broadcast outsidetemp
+
+2. when command is executed you will receive results per command in datapoint ebus.0.cmdResult
+The result is also comma-separeted
+example:
+2000, ERR: element not found, 10.5
+
+Attention: command in datapoint ebus.0.cmd is deleted after executing of command!
+
 
 ## known issues
 * please create issues at [github](https://github.com/rg-engineering/ioBroker.ebus/issues) if you find bugs or whish new features
    
 ## Changelog
+
+### 2.5.1 (2021-12-29)
+* (René) adjustable retries to send data if arbitration error appeared
+
+### 2.5.0 (2021-12-28)
+* (René) see issue #62: support ebusd 21.3
+
+### 2.4.5 (2021-11-07)
+* (René) bug fix color of labels in widget
+
+### 2.4.4 (2021-10-30)
+* (René) see issue #59: avoid endless loop
+* (René) update flot to 4.2.2
+* (René) bug fix missing space in command when using circuit name
+
+## 2.4.3 (2021-10-21)
+* (René) see issue #58: bug fix for Warn: ignoring history value 1 (invalid)" when no history values set
+
+## 2.4.2 (2021-10-19)
+* (René) see issue #55: bug fix
+
+## 2.4.0 (2021-10-17)
+* (René) overwork handling of read datapoints and history datapoints, circuit added optionally
+* (René) command can now include more then one command, just separate commands with ','
+* (René) see issue #55: warnings changed to debug messages
+
+## 2.3.2 (2021-09-02)
+* (René) see issue #49: support for ebusd 21.2
+* (René) see issue #40: option to use boolean instead string for values with on/off
+* (René) dependencies updated
+
+## 2.2.7 (2021-07-03)
+* (René) dependencies updated
+* (René) see issue #48: bug fix for wrong data type logs
+
+## 2.2.5 (2021-03-21)
+* (René) dependencies updated
+
+## 2.2.4 (2021-02-17)
+* (René) see issue #42: Uncaught ReferenceError: oView is not defined in widget solved
 
 ## 2.2.3 (2020-10-24)
 * (René) create history DP if not available 
@@ -114,7 +171,7 @@ current supported ebusd-version: 3.3
 * (René) initial release
 
 ## License
-Copyright (C) <2017 - 2020>  <info@rg-engineering.eu>
+Copyright (C) <2017 - 2021>  <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

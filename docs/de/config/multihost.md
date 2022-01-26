@@ -16,7 +16,7 @@ ist nicht mehr über deren Webinterface(s) erreichbar.
 Es ist daher sinnvoll für einen Slave einen Host mit Minimalinstallation zu verwenden, also nur den js-controller und den admin.
 
 
-##Installation
+## Installation
 
 ### Master Konfiguration
 Auf dem Master folgendes Kommando ausführen:
@@ -44,7 +44,7 @@ Das nun erscheinende Menü wie folgt ausfüllen
 2. `iobroker multihost enable`
   ``` enter pass phrase```
 
-3. `sudo service iobroker restart`
+3. `iobroker restart`
 
 
 ### Slave Konfiguration
@@ -52,7 +52,7 @@ Das nun erscheinende Menü wie folgt ausfüllen
 **Dieser Schritt ist unbedingt nötig, falls Redis DB im Einsatz ist.**
 
 Über die Konsole auf dem Slave bitte eingeben
-1. `sudo iobroker setup custom`
+1. `iobroker setup custom`
 
 
 Das nun erscheinende Menü wie folgt ausfüllen
@@ -83,7 +83,7 @@ Enter secret phrase for connection: *****
 Config ok. Please restart ioBroker: "iobroker restart"
 ```
 
-2. `sudo service iobroker restart`
+2. `iobroker restart`
 
 
 

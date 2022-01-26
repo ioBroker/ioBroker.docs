@@ -95,6 +95,39 @@ iobroker upload tr-064
 ```
 
 ## Changelog
+### 4.2.15 (2021-12-08)
+* (bluefox) fix crash case (Sentry IOBROKER-TR-064-35)
+
+### 4.2.14 (2021-07-21)
+* (Apollon77) Further optimizations for js-controller 3.3
+
+### 4.2.13 (2021-07-12)
+* (Apollon77) Optimize for js-controller 3.3 and prevent warnings (you pot. need to delete datapoints if you still see errors, they will be recreated)
+
+### 4.2.12 (2021-04-16)
+* (Apollon77) prevent html template for call lists to be overwritten by default one
+* (Apollon77) fix crash case (Sentry IOBROKER-TR-064-2M)
+
+### 4.2.11 (2021-03-12)
+* (Apollon77) fix id-reset detection for single calls
+
+### 4.2.10 (2021-03-11)
+* (Apollon77) better handle caller id resets by reboots/FW updates to also update list specific counter and log when this happened
+
+### 4.2.9 (2021-03-10)
+* (Apollon77) try to better handle calllist resets on FW updates
+* (Apollon77) Make sure jsonDeviceList do not get deleted on start
+* (Apollon77) Better handle not initialized calllist templates
+
+### 4.2.8 (2021-03-09)
+* (Apollon77) Optimize customized HTML templates if state is empty
+
+### 4.2.7 (2021-03-08)
+* (Apollon77) Allow customized HTML templates again
+
+### 4.2.6 (2021-02-18)
+* (Apollon77) Fix crash case (IOBROKER-TR-064-20)
+* (Apollon77) Get calllists working again
 
 ### 4.2.4 (2021-02-02)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-TR-064-1T)
@@ -145,7 +178,7 @@ iobroker upload tr-064
 
 ### 4.0.3 (2020-05-11)
 * (Apollon77) Make sure adapter do not crash of no calls were returned (Sentry IOBROKER-TR-064-7)
-* (Apollon77) Make sure adapter do not crash when providing a non string to "ring" state (Sentry IOBROKER-TR-064-8) 
+* (Apollon77) Make sure adapter do not crash when providing a non string to "ring" state (Sentry IOBROKER-TR-064-8)
 
 ### 4.0.1 (2020-04-23)
 * (Apollon77) handle case where no Phone deflections are available (Sentry IOBROKER-TR-064-1/2)
@@ -184,7 +217,7 @@ iobroker upload tr-064
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2020 soef <soef@gmx.net>
+Copyright (c) 2015-2021 soef <soef@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

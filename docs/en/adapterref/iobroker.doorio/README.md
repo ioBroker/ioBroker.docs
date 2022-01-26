@@ -1,6 +1,8 @@
 ![Logo](admin/doorio.png)
 # ioBroker.doorio
 
+![Number of Installations](http://iobroker.live/badges/doorio-installed.svg)
+![Number of Installations](http://iobroker.live/badges/doorio-stable.svg)
 [![Build Status](https://travis-ci.org/Bettman66/ioBroker.doorio.svg?branch=master)](https://travis-ci.org/Bettman66/ioBroker.doorio)
 [![NPM version](http://img.shields.io/npm/v/iobroker.doorio.svg)](https://www.npmjs.com/package/iobroker.doorio)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.doorio.svg)](https://www.npmjs.com/package/iobroker.doorio)
@@ -21,26 +23,32 @@ Ausgänge zu schalten. Für die Selbstgemachte Türsprechstelle, kann jede
 Hardware auf der sich Baresip installieren lässt genutzt werden.
 
 ## Changelog
-### 1.1.3
-* (bettman66) add test ring buttons
+### 2.1.3
+* (bettman66) change setForeignState ack
 
-### 1.1.2
-* (bettman66) Changes for js-controller 3.2.x
+### 2.1.2
+* (bettman66) update for js-controller
 
-### 1.1.1
-* (bettman66) add timeout for ring
+### 2.1.1
+* (bettman66) bugfix ack:true
 
-### 1.1.0
-* (bettman66) code optimization
+### 2.1.0
+* (bettman66) add bot update
 
-### 1.0.12
-* (bettman66) translate
+### 2.0.4
+* (bettman66) optimize code
 
-### 1.0.11
-* (peterfido) add whitelist for incoming calls
+### 2.0.3
+* (bettman66) bugfix version
 
-### 1.0.10
-* (bettman66) add detour
+### 2.0.2
+* (bettman66) merge dependabot
+
+### 2.0.1
+* (bettman66) npm error
+
+### 2.0.0
+* (bettman66) update test
 
 ## Links
 * https://forum.iobroker.net/topic/23413/ich-baue-eine-t%C3%BCrsprechstelle-ohne-cloud
@@ -49,7 +57,7 @@ Hardware auf der sich Baresip installieren lässt genutzt werden.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2021 Walter Zengel <w.zengel@gmx.de>
+Copyright (c) 2022 Walter Zengel <w.zengel@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -62,6 +62,9 @@ On configuration page you can select following modules:
 - WLAN
 
 ### Changelog
+## 0.1.2 (2021-11-06)
+* (foxriver76) we no longer use deprecated adapter.objects
+
 ## 0.1.1 (2018-01-27)
 - update index_m.html.
 - update index.html.

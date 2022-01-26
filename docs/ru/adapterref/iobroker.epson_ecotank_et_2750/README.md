@@ -3,48 +3,84 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.epson_ecotank_et_2750/README.md
 title: ioBroker.epson_ecotank_et_2750
-hash: IUDWowD2F47qpsEbXuEhUQ+yOlzvgfzE2z3VtnW5xyg=
+hash: QGYERdKPKZrMtzmYLiSa+4TLNez3Ad6i+rFBxaqw9eI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.epson_ecotank_et_2750/admin/epson_ecotank_et_2750.png)
 
 ![Количество установок](https://iobroker.live/badges/epson_ecotank_et_2750-stable.svg?dummy=unused)
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.epson_ecotank_et_2750.svg?dummy=unused)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.epson_ecotank_et_2750.svg?dummy=unused)
-![NPM](https://nodei.co/npm/iobroker.epson_ecotank_et_2750.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.epson_ecotank_et_2750.png?downloads=true)
 
 # IoBroker.epson_ecotank_et_2750
+[![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/epson_ecotank_et_2750/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 ## Адаптер EPSON EcoTank ET-2750 для ioBroker
 Этот адаптер считывает уровень в резервуаре и другую информацию из [EPSON EcoTank ET-2750](https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-2750) и сохраняет в ioBroker.
 
-[EPSON EcoTank ET-4750] (https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-4750) также поддерживается (проверено [Homoran](https://forum.iobroker.net/user/homoran))
+[EPSON EcoTank ET-4750] (https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-4750) также поддерживается (проверено [Homoran](https://forum.iobroker.net/user/homoran)) [EPSON EcoTank ET-3750] (https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-3750) также поддерживается (проверено [christofkac](https://github.com/christofkac)) [EPSON EcoTank ET-2721] (https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-2721) также поддерживается (проверено [mikepiko](https://github.com/mikepiko)) [EPSON WORKFORCE WF-3620DWF] (https://www.epson.de/products/printers/inkjet-printers/for-home/workforce-wf-3620dwf) также поддерживается (проверено [HReimann](https://github.com/HReimann))
 
 ## Конфигурация
 1. Создайте новый экземпляр адаптера.
-2. Заполните URL / IP-адрес и порт EPSON EcoTank ET-2750.
+2. Заполните URL / IP и порт EPSON EcoTank ET-2750.
 3. Настройте Synctime (по умолчанию 10 минут).
 4. Сохраните настройки.
 
 ## Changelog
+
 <!--
  https://github.com/AlCalzone/release-script#usage
     npm run release minor -- --all 0.9.8 -> 0.10.0
     npm run release patch -- --all 0.9.8 -> 0.9.9
-    npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0  
+    npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
+
+### 0.0.11 (2021-08-24)
+
+-   (o0Shojo0o) fix name for Workforce 3620
+-   (o0Shojo0o) fix firmware for Workforce 3620
+
+### 0.0.10 (2021-08-19)
+
+-   (o0Shojo0o) fix translation
+
+### 0.0.9 (2021-08-18)
+
+-   (o0Shojo0o) bugfix for incorrect mapping of settings, second try ...
+
+### 0.0.8 (2021-08-18)
+
+-   (o0Shojo0o) bugfix for incorrect mapping of settings
+
+### 0.0.7 (2021-08-18)
+
+-   (o0Shojo0o) change UI to JSONConfig
+
+### 0.0.6 (2021-08-01)
+
+-   (o0Shojo0o) better unload handling
+
+### 0.0.5 (2021-05-01)
+
+-   (o0shojo0o) fix js-controller 3.3.x warnings
+
 ### 0.0.4 (2021-02-01)
-* (o0shojo0o) bugfix first_print_date for 4750
-* (o0shojo0o) code cleaning and refactoring
+
+-   (o0shojo0o) bugfix first_print_date for 4750
+-   (o0shojo0o) code cleaning and refactoring
 
 ### 0.0.3 (2021-01-14)
-* (o0shojo0o) add compact mode
-* (o0shojo0o) all necessary changes for EPSON EcoTank ET-2750
-* (o0shojo0o) new tree structure
-* (o0shojo0o) replacing the request with axios npm module
+
+-   (o0shojo0o) add compact mode
+-   (o0shojo0o) all necessary changes for EPSON EcoTank ET-2750
+-   (o0shojo0o) new tree structure
+-   (o0shojo0o) replacing the request with axios npm module
 
 ### 0.0.1 (2021-01-03)
-* (o0shojo0o) forked from iobroker.epson_stylus_px830 0.2.1
+
+-   (o0shojo0o) forked from iobroker.epson_stylus_px830 0.2.1
 
 ## License
 
@@ -71,6 +107,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ---
-*Dank an die Erfinder des Basisskripts zum Parsen der Daten, Idittmar und MistyReblaus aus dem [Homematic-Forum](http://homematic-forum.de/forum/viewtopic.php?f=31&t=25140).* :+1: 
 
-*Dank an pix und rr0v1 für die Vorlage
+_Dank an die Erfinder des Basisskripts zum Parsen der Daten, Idittmar und MistyReblaus aus dem [Homematic-Forum](http://homematic-forum.de/forum/viewtopic.php?f=31&t=25140)._ :+1:
+
+\*Dank an pix und rr0v1 für die Vorlage

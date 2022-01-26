@@ -1,9 +1,7 @@
 ---
+BADGE-Number of Installations: http://iobroker.live/badges/admin-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.admin.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
-BADGE-Stable: http://iobroker.live/badges/admin-stable.svg
-BADGE-installed: http://iobroker.live/badges/admin-installed.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.admin.png?downloads=true
 ---
 # Admin
 
@@ -76,36 +74,29 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
-### 5.0.2 (2020-12-26)
-* (bluefox) Merged the changes from admin4
+### __WORK IN PROGRESS__
+* (jogibear9988) Enable http compression in webserver
 
-### 5.0.0 (2020-09_23)
-* (bluefox) The tile view implemented for the file browser
+### 5.2.3 (2021-12-24)
+* (bluefox) Fixed error in `AutocompleteSendTo`
+* (bluefox) Fixed error in charts
 
-### 4.2.1 (2021-01-12)
-* (Apollon77) Also allow pre-prelease versions for dependency checks
+### 5.2.2 (2021-12-21)
+* (bluefox) Changed the minimal required js-controller version to 3.3.22 
+* (bluefox) Used web-socket library 8 (no node 10 support anymore)
 
-### 4.2.0 (2021-01-08)
-* (bluefox) Support of new Let's Encrypt (only with js-controller 3.2.x)
+### 5.2.1 (2021-11-28)
+* (bluefox) Allow in expert mode the creation of states and channels in mqtt branch
 
-### 4.1.13 (2021-01-08)
-* (bluefox) Support of new Let's Encrypt (only with js-controller 3.2.x)
+### 5.2.0 (2021-11-26)
+* (Apollon77) Fix crash cases reported via sentry
+* (bluefox) Added support for multi-repositories
 
-### 4.1.12 (2020-12-12)
-* (bluefox) Corrected the error with empty names in enums
-
-### 4.1.11 (2020-11-22)
-* (theimo1221) Prevent Duplicate Event Handling on Dropdown Checkboxes
-* (paul53) fix Objects dialog
-
-### 4.1.10 (2020-10-08)
-* (bluefox) Corrected the icons of the custom tabs. 
-
-### 4.1.8 (2020-09-03)
-* (bluefox) Fixed editing of the objects with % sign in the ID.
+### 5.1.28 (2021-11-10)
+* (bluefox) Fixed discovery function
+* (bluefox) Fixed some GUI bugs
 
 ## License
-
 The MIT License (MIT)
 
-Copyright (c) 2014-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>

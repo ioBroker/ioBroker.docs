@@ -3,9 +3,7 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.fritzdect.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.fritzdect.svg
 BADGE-Number of Installations (latest): http://iobroker.live/badges/fritzdect-installed.svg
 BADGE-Number of Installations (stable): http://iobroker.live/badges/fritzdect-stable.svg
-BADGE-Dependency Status: https://img.shields.io/david/foxthefox/iobroker.fritzdect.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/foxthefox/ioBroker.fritzdect/badge.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.fritzdect.png?downloads=true
 ---
 ![Logo](../../admin/fritzdect_logo.png)
 # Installationshinweise
@@ -69,6 +67,59 @@ Vergleichbar für den Soll-/Istverlaufs ist demnach atualtemp und targettemp.
 Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig Information ist der debug modus über die Experteneinstellung der Instanz vorzuwählen.
 
 ## Changelog
+### 2.2.4
+* correction: number format from admin page for times and tsoll
+
+### 2.2.3 (npm)
+* buttons setmodeon/off/auto have now initial value false, and when triggered with true get false again (for next trigger)
+* buttons blindsclose/stop/open have now initial value false, and when triggered with true get false again (for next trigger)
+* boostactivetime and windowopenactivetime can now be set to a default value in the adapter config
+* new default temperature target in admin config (used if tsoll is not available e.g. object tree deleted and thermostat off/on)
+* corrections for handling the initial value for tsoll/lasttarget when thermostat is off/on
+
+### 2.2.2 (npm)
+* license update
+* corrected doc/de
+
+### 2.2.1
+* correction of "My colors" FB is not answering with valid xml
+* added test script (fritz.js) for login check in doc/de
+
+### 2.2.0 (npm)
+* refactoring of API to FB, single instance with relogin after experied session
+* refactoring main.js
+* using http.request instead of deprecated @root/request
+* log the user permissions
+* remove fasthack for OFF/ON, upper range tchange, absenk, komfort = 32
+* limitation of boost/windowopen activation to 24h
+* correction of "present" (issue #224) 
+
+### 2.1.16
+* temperature range in sockets 0..32°C -> -20..50°C
+* fast hack for OFF/ON feedback via temperature 253/254*0,5 -> upper range tchange, absenk, komfort = 128
+* fast mod for fwversion for HAN-FUN
+* present message correction
+
+### 2.1.15 (npm)
+* correction in timestamp as date/string
+* several version bumps
+
+### 2.1.14
+* operationmode and hkrmode tracking also after commands
+* extended datapoints for blinds from Rollotron
+* presence=0 was detected but not written to the datapoint, now corrected (skipping the updated is not affected)
+
+### 2.1.13
+* correction at group of switches (switchtype not recognized -> simpleonoff)
+* functionbitmask 32768 moved to role: switches
+
+### 2.1.12 (npm)
+* new values for DECT500
+* back to full unit testing
+
+### 2.1.11 (npm)
+* template for fritzfon
+
 ### 2.1.10
 * comfort/night is AUTO but reintroduced as operationmode
 
@@ -282,4 +333,4 @@ Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig In
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2021 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2018 - 2022 foxthefox <foxthefox@wysiwis.net>

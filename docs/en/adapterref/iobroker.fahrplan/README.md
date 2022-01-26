@@ -7,6 +7,7 @@
 ![Number of Installations (stable)](https://iobroker.live/badges/fahrplan-stable.svg)
 [![Dependency Status](https://img.shields.io/david/gaudes/iobroker.fahrplan.svg)](https://david-dm.org/gaudes/iobroker.fahrplan)
 ![Test and Release](https://github.com/gaudes/ioBroker.fahrplan/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/fahrplan/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 [![NPM](https://nodei.co/npm/iobroker.fahrplan.png?downloads=true)](https://nodei.co/npm/iobroker.fahrplan/)
 
@@ -68,12 +69,16 @@ Eine Suchfunktion ist im Tab Einstellungen integriert.
 
 ![](docs/de/img/settings.png)
 
-| Einstellung                  | Beschreibung
-|------------------------------|---
-| Anbieter                     |  Auswahl des zu verwendenden Anbieters, aktuell DB, ÖBB und SBB
-| Aktualisierungsintervall     |  Intervall in dem die Route aktualisiert werden, Angabe in Minuten
-| Verspätet markieren ab       |  Verspätung in Minuten ab der die Verbindung als verspätet markiert wird. Standardmäßig werden nur Verspätungen ab zwei Minuten markiert
-| HTML-Ansicht erzeugen        |  Erzeugt pro Route eine konfigurierbare HTML-Tabelle in einem Objekt
+| Einstellung                     | Beschreibung
+|---------------------------------|---
+| Anbieter                        |  Auswahl des zu verwendenden Anbieters, aktuell DB und ÖBB
+| Aktualisierungsintervall        |  Intervall in dem die Route aktualisiert werden, Angabe in Minuten
+| Verspätet markieren ab          |  Verspätung in Minuten ab der die Verbindung als verspätet markiert wird. Standardmäßig werden nur Verspätungen ab zwei Minuten markiert
+| Farbe für Pünktlich             |  Farbwert für bestätigte Pünktlichkeit
+| Farbe für Verspätungen          |  Farbwert für Verspätungen
+| Überschriftenerstellung         |  HTML-Tabellen werden mit Überschriften erzeugt
+| HTML-Ansicht erzeugen für Route |  Erzeugt pro Route eine konfigurierbare HTML-Tabelle in einem Objekt
+| HTML-Ansicht erzeugen pro Verbindung |  Erzeugt pro einzelner Verbindung eine HTML-Tabelle in einem Objekt
 | Detailierte Objekte speichern|  Konfiguration der auszugebenden Objekte
 | JSON-Elemente speichern      |  Die Rückgabe von HAFAS erfolgt als JSON, diese sollten zur Fehlerbehebung gespeichert werden
 
@@ -95,12 +100,12 @@ Mit dem +-Button können neue Einträge zur Tabelle hinzugefügt werden.
 | Von (Eigener Name)          | Benutzerdefinierter Name von Startbahnhof oder Starthaltestelle, für HTML- und Verspätungstext verwendet
 | Nach                        | Numerische ID von Zielbahnhof oder Zielhaltestelle (Ermittlung über Suche)
 | Nach (Eigener Name)         | Benutzerdefinierter Name von Zielbahnhof oder Zielhaltestelle, für HTML- und Verspätungstext verwendet
-| Via 1                       | Fahrt über bestimmten Ort angegeben als numerische ID (optional, sonst leer)
-| Via 2                       | Fahrt über bestimmten Ort angegeben als numerische ID (optional, sonst leer)
+| Via                         | Fahrt über bestimmten Ort angegeben als numerische ID (optional, sonst leer)
 | Verkehrsmittel              | Auswahl des Verkehrsmittels, z.B. Bus, S-Bahn, usw. Standardmäßig werden alle Verkehrsmittel ausgewählt
 | Max. Umstiege               | Maximale Anzahl an Umstiegen. 0 für nur direkte Verbindungen.
 | Abfahrten                   | Anzahl abzurufender Fahrten
 | Fahrradmitnahme             | Nur Verbindungen mit Fahrradmitnahme auswählen
+| Zeit-Offset                 | Abfahrtszeit: 0 = Jetzt, sonst n Minuten = Jetzt plus n Minuten
 
 #### Tab Verspätungsalarm
 
@@ -133,7 +138,8 @@ Mit dem +-Button können neue Einträge zur Tabelle hinzugefügt werden.
 | Von                         | Numerische ID von Startbahnhof oder Starthaltestelle (Ermittlung über Suche)
 | Von (Eigener Name)          | Benutzerdefinierter Name von Startbahnhof oder Starthaltestelle, für HTML-Ausgabe verwendet
 | Abfahrten                   | Anzahl abzurufender Abfahrten
-
+| Verkehrsmittel              | Auswahl des Verkehrsmittels, z.B. Bus, S-Bahn, usw. Standardmäßig werden alle Verkehrsmittel ausgewählt
+| Zeit-Offset                 | Abfahrtszeit: 0 = Jetzt, sonst n Minuten = Jetzt plus n Minuten
 
 ### English
 
@@ -146,10 +152,14 @@ Search function for theses IDs is integrated in Tab Settings.
 
 | Setting                     | Description
 |-----------------------------|---
-| Provider                    |  Selection of public transport provider, currently DB, ÖBB and SBB
+| Provider                    |  Selection of public transport provider, currently DB and ÖBB
 | Update interval             |  Interval for updates of the routes in minutes
 | Mark delayed after Delay in |  Define minutes after a delay should be marked as delay, per default a delay is marked when the delay is larger than one minute
-| Create HTML view            |  Creates per route a configurable HTML table in an object
+| Color for on time           |  Color for confirmed on time
+| Color for delays            |  Color for delays
+| Headlines creation for HTML tables |  Create headlines for HTML tables
+| Create HTML view for route  |  Creates per route a configurable HTML table in an object
+| Create HTML view per journey |  Creates per journey a HTML table in an object
 | Save detailed objects       |  Configuration of output objects
 | Save JSON elements          |  Return from HAFAS is JSON, should be saved for troubleshooting
 
@@ -167,12 +177,12 @@ With +-Button new entries can be added to the table.
 | From (Custom name)          | Custom name for start station oder start stop, used in HTML- and delay notification output
 | To                          | Numeric ID of destination station oder destination stop
 | From (Custom name)          | Custom name for destination station oder destination stop, used in HTML- and delay notification output
-| Via 1                       | Ride over special station as numeric ID (optional, empty per default)
-| Via 2                       | Ride over special station as numeric ID (optional, empty per default)
+| Via                         | Ride over special station as numeric ID (optional, empty per default)
 | Vehicle                     | Selection of vehicle, e.g. Bus, S-Bahn, etc. Per default all vehicles are selected
 | Max. transfers              | Maximum transfers on route, 0 for direct connections only
 | Departures                  | Number of departures to receive
 | Bycicle                     | Select only connections where bycicles allowed
+| Time Offset                 | Departure Time: 0 = now, otherwise n minutes = now plus n minutes
 
 #### Tab Delay alarm
 
@@ -205,6 +215,8 @@ With +-Button new entries can be added to the table.
 | From                        | Numeric ID of start station oder start stop
 | From (Custom name)          | Custom name for start station oder start stop, used in HTML- and delay notification output
 | Departures                  | Number of departures to receive
+| Vehicle                     | Selection of vehicle, e.g. Bus, S-Bahn, etc. Per default all vehicles are selected
+| Time Offset                 | Departure Time: 0 = now, otherwise n minutes = now plus n minutes
 
 ## Changelog
 
@@ -213,38 +225,38 @@ With +-Button new entries can be added to the table.
 	### __WORK IN PROGRESS__
 -->
 
-### __WORK IN PROGRESS__
-* (Gaudes) Add product selection to departure timetable
-* (Gaudes) Enhanced information reporting on error (Sentry Breadcrumbs)
-
-### 1.0.3 (2021-01-27)
-* (Gaudes) Station search returns only stations (Sentry Multiple results found for station)
-* (Gaudes) Integrate SBB profile
-* (Gaudes) Leave out superflous journey per route than configured
-* (Gaudes) Fix call of helper for correct counters
+### 1.2.0 (2021-09-19)
+* (Gaudes) Remove support for SBB, not using HAFAS anymore
+* (Gaudes) Fix Hafas error "Bad Gateway" with code 502 (Sentry #26)
+* (Gaudes) Fix unkown station in route (Sentry #7)
+* (Gaudes) Remove support for Node 10
+* (Gaudes) Update to newest Adapter creator for internal dependencies
 * (Gaudes) Include Dependabot updates
 
-### 1.0.2 (2021-01-12)
-* (Gaudes) Configurable Headline for HTML tables
-* (Gaudes) Fix correct deletion of unneeded objects (Sentry)
+### 1.1.1 (2021-06-22)
+* (Gaudes) Advanced error reporting for HAFAS errors
 * (Gaudes) Include Dependabot updates
 
-### 1.0.1 (2020-12-28)
-* (Gaudes) Fixing different errors from HAFAS
-* (Gaudes) Fixing identical start and destination station
-* (Gaudes) Require vehicle in configuration
+### 1.1.0 (2021-06-04)
+* (Gaudes) Time offset for routes and departure tables (Git #88)
+* (Gaudes) Check if unloaded before writing/deleting objects (Sentry #7)
 * (Gaudes) Include Dependabot updates
 
-### 1.0.0 (2020-12-09)
-* (Gaudes) First stable release
+### 1.0.7 (2021-04-06)
+* (Gaudes) Update HAFAS client to 5.15.2 (Fix error 'invalid json response body' with OEBB profile)
+* (Gaudes) Configurable colors for delays and on time
+* (Gaudes) Prepare for WebLate translations
+* (Gaudes) Include Dependabot updates
 
-### 0.2.8 (2020-12-02)
-* (Gaudes) Fixing connection error to HAFAS
+### 1.0.6 (2021-03-16)
+* (Gaudes) Fix route selection in delay config
+* (Gaudes) Fix SBB product suburban-train (Sentry #21)
+* (Gaudes) Include Dependabot updates
 
 ## License
 MIT License
 
-Copyright (c) 2020 Ralf Gaudes <ralf@gaudes.net>
+Copyright (c) 2021 Ralf Gaudes <ralf@gaudes.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

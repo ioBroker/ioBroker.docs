@@ -23,6 +23,17 @@ Connects your Vallox Air Ventilation system into your ioBroker home automation.
 
 ## Changelog
 
+### 1.2.0
+* Remove NodeJS 10.x support
+* Upgrade to js-controller 3.3 and Admin 5
+
+### 1.1.3
+* Fixed wrong datatype (number instead of boolean) in profile entries *_ENABLED [#33](https://github.com/hacki11/ioBroker.valloxmv/issues/33).
+* Fixed setting connection info without ack value.
+
+### 1.1.2
+* Fixed wrong datatype (string) in temperature states instead of numbers
+
 ### 1.1.1
 * Fix adapter-checker issues
 
@@ -70,7 +81,7 @@ Connects your Vallox Air Ventilation system into your ioBroker home automation.
 ## License
 MIT License
 
-Copyright (c) 2020 hacki11
+Copyright (c) 2021 hacki11
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

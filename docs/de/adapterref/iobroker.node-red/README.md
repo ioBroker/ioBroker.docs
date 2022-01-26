@@ -2,36 +2,74 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.node-red/README.md
-title: ioBroker Node-Red Adapter
-hash: x/QTu0owyv92klKSi7Cn7RXGk5HnDi5EUbAB8ZYEVKE=
+title: ioBroker node-red Adapter
+hash: ma/a3NNG2WCpcPI/UD71yZRFacjQFvR/qv73KSDlN80=
 ---
 ![Logo](../../../en/adapterref/iobroker.node-red/admin/node-red.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/node-red-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.node-red.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.node-red.svg)
-![Tests](https://travis-ci.org/ioBroker/ioBroker.node-red.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.node-red.png?downloads=true)
 
-# IoBroker knotenroter Adapter
-Startet die knotenrote Instanz und kommuniziert mit ihr.
+# IoBroker node-red Adapter
+![Testen und freigeben](https://github.com/ioBroker/ioBroker.node-red/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/node-red/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+Startet die Node-Red-Instanz und kommuniziert mit ihr.
 
 Dieser Adapter verwendet den Node-Red-Server von https://github.com/node-red/node-red
 
-** Hinweis: ** Wenn Sie im Dialogfeld "ID auswählen" des ioBroker-Knotens keine Variable finden können, starten Sie die knotenrote Instanz neu. Durch einen Neustart wird die neue Objektliste erstellt.
+**Hinweis:** Wenn Sie im Dialogfeld „ID auswählen“ des ioBroker-Knotens keine Variable finden können, starten Sie die Knoten-rote Instanz neu. Durch einen Neustart wird die neue Objektliste erstellt.
 
-** Upgrade auf 1.17.2: ** Wenn Sie bereits die Node-Red-Authentifizierung verwendet haben: Bitte legen Sie Ihr Passwort nach dem Upgrade in den Node-Red-Instanzeinstellungen in ioBroker erneut fest! Andernfalls können Sie sich nach dem Upgrade nicht mehr bei Node-Red anmelden.
+## Einstellungen
+- Abgesicherter Modus - Flows werden nicht gestartet, und Sie können die Flows bearbeiten, um ein Überlastungsproblem zu beheben.
 
-## Die Einstellungen
-- Abgesicherter Modus - Flows werden nicht gestartet und Sie können die Flows bearbeiten, um ein Überlastungsproblem zu beheben.
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-<! - Platzhalter für die nächste Version (am Zeilenanfang):
-
-### __WORK IN PROGRESS__ ->
+### __LAUFENDE ARBEIT__ -->
 
 ## Changelog
+### 2.5.0 (2022-xx-xx)
+* (jwiesel) Changed default setting to "convert data from ioBroker nodes into Strings" to false. Setting will not be changed automatically in instances already running.
+* (jwiesel) "Tail" node has been removed from the default palette in Node-RED 2.0. You can reinstall it from node-red-node-tail.
+* (jwiesel) Node-RED updated to 2.1.4 (incl. restructuring of settings.js)
+
+### 2.4.1 (2021-08-31)
+* (mickym2) Correct min7max for the object creation 
+* (bluefox) Node-red updated to 1.3.6
+
+### 2.4.0 (2021-07-16)
+* (Apollon77) update to node-red 1.3.5
+* (Apollon77) Optimize for js-controller 3.3
+* (Apollon77) Add option to override the default ack flag in the message for OutNode
+
+### 2.3.0 (2021-04-17)
+* (Apollon77) BREAKING update from node-red-contrib-aggregator: topic is NOT converted to lowercase anymore!
+* (Apollon77) update to node-red 1.3.2
+* (Apollon77) Add done calls to OutNode
+
+### 2.2.0 (2021-03-07)
+* (Apollon77/mickym2) Correct readonly flags. IMPORTANT: Now Readonly works as it should be. If you worked around the issue before please adjust your nodes!
+* (Apollon77) Fix using wildcards inside the id
+* (Apollon77) Update value on out node trigger 
+* (Apollon77) Update to node-red 1.2.9
+* (Apollon77) Add triggering in Nodes when delayed initialization on start
+* (Apollon77) Fix list node to support all object types
+
+### 2.1.0 (2021-02-04)
+* (Apollon77) Try to fix the MaxSubscribes error when having many nodes
+* (Apollon77) Update to node-red 1.2.8
+
+### 2.0.4 (2021-01-20)
+* (withstu) Fixed node-red modules installation
+
+### 2.0.3 (2020-12-27)
+* (Apollon77) make sure empty state values do not crash list node
+
+### 2.0.2 (2020-12-07)
+* (jwiesel) Updated settings.js, node-red and dependencies to the latest version.
+
 ### 2.0.1 (2020-08-08)
-* (jwiesel) Updated settings.js, node-red and dependencies to latest version.
+* (jwiesel) Updated settings.js, node-red and dependencies to the latest version.
 
 ### 2.0.0 (2020-06-20)
 * (Apollon77) check object and not state to detect if an object exists
@@ -48,7 +86,6 @@ Dieser Adapter verwendet den Node-Red-Server von https://github.com/node-red/nod
 * (Apollon77) make sure adapter namespace is prepended in all situations and so correct objects are created
 * (Apollon77) fix crash cases
 * (Apollon77) make sure msg topic is not overwritten by null 
-
 
 ### 1.16.5 (2020-03-17)
 * (bluefox) Caught errors if state deleted
@@ -81,7 +118,7 @@ Dieser Adapter verwendet den Node-Red-Server von https://github.com/node-red/nod
 * (WolfspiritM) Get Object node added
 
 ### 1.12.0 (2019-10-06)
-* (Apollon77) Allow to enable/diable the projects feature via Admin
+* (Apollon77) Allow to enable/disable the projects feature via Admin
 * (Apollon77) Upgrade to node.red 1.0.1 and also add all now extra npm packages to stay compatible
 
 ### 1.10.1 (2019-09-20)
@@ -199,7 +236,7 @@ Dieser Adapter verwendet den Node-Red-Server von https://github.com/node-red/nod
 * (bluefox) fix readme link
 
 ### 0.2.0 (2015-05-16)
-* (bluefox) allow install of additional npm and node-red packets
+* (bluefox) allow the installation of additional npm and node-red packets
 
 ### 0.1.9 (2015-03-26)
 * (bluefox) fix first start
@@ -237,7 +274,7 @@ Dieser Adapter verwendet den Node-Red-Server von https://github.com/node-red/nod
 
 ### 0.0.6 (2014-11-26)
 * (bluefox) use names like in mqtt: "adapter/instance/device/channel/state"
-* (bluefox) suport of "value" or "object" for input node
+* (bluefox) support of "value" or "object" for input node
 
 ### 0.0.5 (2014-11-22)
 * (bluefox) support of new naming concept
@@ -253,7 +290,7 @@ Dieser Adapter verwendet den Node-Red-Server von https://github.com/node-red/nod
 
 ## License
 
-Copyright 2014-2020 bluefox <dogafox@gmail.com>.
+Copyright 2014-2021 bluefox <dogafox@gmail.com>.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

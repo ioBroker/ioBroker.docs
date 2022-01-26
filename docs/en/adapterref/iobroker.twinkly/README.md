@@ -26,46 +26,120 @@ The following Settings are available:
 
 In the table you can add all the Twinkly lights you want to control. 
 
-| Column       | Description                        |
-| ------------ | ---------------------------------- |
-| `Enabled`    | Shall this connection be accessed  |
-| `Name`       | Name of the connection in ioBroker |
-| `IP Address` | IP-Address to the Twinkly Lights   |
+| Column       | Description                                                    |
+|--------------|----------------------------------------------------------------|
+| `Enabled`    | Shall this connection be accessed                              |
+| `Name`       | Name of the connection in ioBroker                             |
+| `IP Address` | IP-Address to the Twinkly Lights                               |
+| `State On`   | Which `ledMode` should be activated when state `on` is enabled |
 
 The following additionals States are created per device when checked:
-* Device Info (read)
-* Network Status (read)
-* MQTT (read/write)
+* Device Info
+* Network Status
+* MQTT
+
+
+The following States are available:
+
+| State         | Writable           | Description                                                                                                                     |
+|---------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `connected`   | :x:                | Device Connected                                                                                                                |
+| `details`     | :x:                | Device Details                                                                                                                  |
+| `firmware`    | :x:                | Firmware Version                                                                                                                |
+| `ledBri`      | :heavy_check_mark: | Brightness (deactivate control with -1)                                                                                         |
+| `ledColor`    | :heavy_check_mark: | Color of LEDs, HSV/RGB(W)/HEX (`Color`)                                                                                         |
+| `ledConfig`   | :heavy_check_mark: | Configuration of LEDs                                                                                                           |
+| `ledEffect`   | :heavy_check_mark: | Effects (`Effect`)                                                                                                              |
+| `ledLayout`   | :heavy_check_mark: | Layout of LEDs (disabled for further testing)                                                                                   |
+| `ledMode`     | :heavy_check_mark: | Mode: Movie, Color, Effect, Playlist, Off, RealTime (not yet supported), Demo                                                   |
+| `ledMovie`    | :heavy_check_mark: | Active Movie, If multiple Movies are added in the Playlist feature then they can be selected here. (`Movie`)                    |
+| `ledPlaylist` | :heavy_check_mark: | Active Playlist Entry, Switch between Movies. (`Playlist`)                                                                      |
+| `ledSat`      | :heavy_check_mark: | Saturation 0-100 (deactivate control with -1)                                                                                   |
+| `mqtt`        | :heavy_check_mark: | MQTT-Connection                                                                                                                 |
+| `name`        | :heavy_check_mark: | Name                                                                                                                            |
+| `network`     | :x:                | Network-Information                                                                                                             |
+| `on`          | :heavy_check_mark: | On/Off Switch                                                                                                                   |
+| `paused`      | :heavy_check_mark: | Pause Connection to Twinkly so you can do changes in the App. Otherwise you might loose the connection while working in the App |
+| `timer`       | :heavy_check_mark: | Update the Timer                                                                                                                |
+
+
 
 [Private API information](https://xled-docs.readthedocs.io/en/latest/) by [Pavol Babinčák](https://github.com/scrool)
 
-## TODO
-* After Switch "expand JSON" checked, channels don't get created (**restart solves this error atm**)
-* Network-Status (write)
-* State On: Checkbox for which ON-Mode Playlist/Movie 
+
+## Known Issues
+* The maximum length for the movie name is 15 characters
+
 
 ## Changelog
 
-### 0.1.x
-* 8 - (patrickbs96) Changes from the Review
-* 6 - (patrickbs96) Update dependencies
-* 5 - (patrickbs96) Prevent Crash Case at HTTP Error (Sentry IOBROKER-TWINKLY-3)
-* 4 - (patrickbs96) Temporary removing Reset as API path not exists
-* 1 - (patrickbs96) Prevent Crash Case at HTTP Error (Sentry IOBROKER-TWINKLY-3)
+### 0.2.11 (2022-01-02)
+* (patrickbs96) Add setting to select which ledMode should be activated
 
-### 0.0.x
-* 10 - (patrickbs96) Restructured CreateStates (dynamic)
-*  9 - (patrickbs96) Network-Status (read)
-*  8 - (patrickbs96) Transform JSON into states: Details, MQTT and Timer
-*  7 - (patrickbs96) Moved Twinkly Connection into own library
-*  6 - (patrickbs96) Implemented Ping to check if Twinkly is connected. `Connected State` is no longer needed.
-*  3 - (patrickbs96) finalized Admin and Coding
-*  1 - (patrickbs96) initial release
+### 0.2.10 (2021-12-31)
+* (patrickbs96) Add setting to enable automatically switching of Mode after State change (color, effect, movie, playlist)
+
+### 0.2.8 (2021-12-20)
+* (patrickbs96) Rename mode On to movie as it's a better representation
+
+### 0.2.7 (2021-12-19)
+* (patrickbs96) Hex without Hash. Option to not use ping for reachability.
+
+### 0.2.6 (2021-12-09)
+* (patrickbs96) Renamed States with led control. Now starting with "led".
+* (patrickbs96) Add new State `ledLayout`/`ledPlaylist`
+
+### 0.2.4 (2021-12-03)
+* (patrickbs96) Handle wrong input so it does not cause exceptions
+* (patrickbs96) Add new State `ledEffect`
+
+### 0.2.2 (2021-11-30)
+* (patrickbs96) Add new State `ledColor`
+
+### 0.2.0 (2021-11-28)
+* (patrickbs96) Add new Value `color` from API-Response (Sentry IOBROKER-TWINKLY-J, IOBROKER-TWINKLY-K, IOBROKER-TWINKLY-M, IOBROKER-TWINKLY-N, IOBROKER-TWINKLY-P)
+* (patrickbs96) Add Pause-Feature, to work with app. (Twinkly only allows one active connection...)
+* (patrickbs96) Add Feature, activate uploaded Movies (Playlist) 
+
+### 0.1.15 (2021-10-26)
+* (patrickbs96) Add new Value `network.accesspoint.password_changed` from API-Response (Sentry IOBROKER-TWINKLY-A)
+
+### 0.1.14 (2021-10-23)
+* (patrickbs96) Add new Value `network.station.status` from API-Response (Sentry IOBROKER-TWINKLY-A, IOBROKER-TWINKLY-B)
+* (patrickbs96) Add new Value `network.details.product_version` from API-Response (Sentry IOBROKER-TWINKLY-E)
+* (patrickbs96) Add new Value `network.details.rssi` from API-Response (Sentry IOBROKER-TWINKLY-D)
+* (patrickbs96) Add new Value `color` from API-Response (Sentry IOBROKER-TWINKLY-7)
+
+### 0.1.13 (2021-10-13)
+* (patrickbs96) Add new Value `network.station.rssi` from API-Response (Sentry IOBROKER-TWINKLY-8)
+
+### 0.1.12 (2021-09-13)
+* (patrickbs96) Added new Values from Response (Sentry IOBROKER-TWINKLY-7)
+* (patrickbs96) Prevent excessive Sentry Logging 
+
+### 0.1.10 (2021-09-04)
+* (patrickbs96) Update API values to Firmware 2.7.1
+
+### 0.1.8 (2021-02-06)
+* (patrickbs96) Changes from the Review
+
+### 0.1.6
+* (patrickbs96) Update dependencies
+
+### 0.1.5
+* (patrickbs96) Prevent Crash Case at HTTP Error (Sentry IOBROKER-TWINKLY-3)
+
+### 0.1.4
+* (patrickbs96) Temporary removing Reset as API path not exists
+
+### 0.1.1
+* (patrickbs96) Prevent Crash Case at HTTP Error (Sentry IOBROKER-TWINKLY-3)
+
 
 ## License
 MIT License
 
-Copyright (c) 2021 patrickbs96 <patrickbsimon96@gmail.com>
+Copyright (c) 2022 patrickbs96 <patrickbsimon96@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

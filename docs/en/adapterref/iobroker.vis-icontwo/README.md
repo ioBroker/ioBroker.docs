@@ -10,7 +10,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)](https://ci.appveyor.com/project/inventwo/iobroker-vis-icontwo)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/inventwo/iobroker.vis-icontow/LICENSE)
 
-[![Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GQPD3G25CKTEJ&source=url)
+[![Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
 
 [![NPM](https://nodei.co/npm/iobroker.vis-icontwo.png?downloads=true)](https://nodei.co/npm/iobroker.vis-icontwo/)
 
@@ -55,11 +55,165 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 (Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker)
 
-[![Spende](http://resources.inventwo.com/github/icontwo/spende.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GQPD3G25CKTEJ&source=url)
+[![Spende](http://resources.inventwo.com/github/icontwo/spende.png)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
 
 ## Changelog / Änderungsprotokoll
+
+### 0.85.0
+
+• Neue Icons hinzugefügt (Wetter-Warnung & Navigation & Automobil)
+
+### 0.84.0
+
+• Neue Icons hinzugefügt (Devices)
+
+### 0.83.0
+
+• Neue Icons hinzugefügt (Animals)
+
+### 0.82.0
+
+• Neue Icons hinzugefügt (Elektricity)
+
+### 0.81.0
+
+• Neue Icons hinzugefügt (Animated/Fan & Navigation)
+
+### 0.80.0
+
+• Neue Icons hinzugefügt (Brands/H2Oreader)
+
+### 0.79.0
+
+• Neue Icons hinzugefügt (Devices/Gas- & Watermeter)
+
+### 0.78.0
+
+• Neue Icons hinzugefügt (Spa_Fitness)
+
+### 0.77.0
+
+• Neue Icons hinzugefügt (Spa_Fitness)
+
+### 0.76.0
+
+• Neue Icons hinzugefügt (Devices/thermostat)
+
+### 0.75.0
+
+• Neue Icons hinzugefügt (Hobbies/Train)
+
+### 0.74.0
+
+• Neue Icons hinzugefügt (Letters/Rounded)
+
+### 0.73.0
+
+• Neue Icons hinzugefügt (Hobbies/Train)
+
+### 0.72.0
+
+• Neue Icons hinzugefügt (Hobbies/Train)
+
+### 0.71.0
+
+• Neue Icons hinzugefügt (Devices/Computer)
+
+### 0.70.0
+
+• Neue Icons hinzugefügt (Player/Cover)
+
+### 0.69.0
+
+• Neue Icons hinzugefügt (Hobbies/Train & Spa_Fitness)
+
+### 0.68.0
+
+• Neue Icons hinzugefügt (Devices/Sandfilter)
+
+### 0.67.0
+
+• Neue Icons hinzugefügt (Hobbies)
+
+
+### 0.66.0
+
+• Neue Icons hinzugefügt (Clock & Timer)
+
+### 0.65.1
+
+• Bugfix
+
+
+### 0.65.0
+
+• Neue Icons hinzugefügt (Player)
+
+### 0.64.0
+
+• Neue Icons hinzugefügt (Brands & Computer)
+
+### 0.63.0
+
+• Neue Icons hinzugefügt (Animated Icons - Arrows, Maps, Phones & Weather)
+
+### 0.62.0
+
+• Neue Icons hinzugefügt (Animated Icons - Charts & Alarm)
+
+### 0.61.0
+
+• Neue Icons hinzugefügt (Finance & Charts)
+
+### 0.60.0
+
+• Neue Icons hinzugefügt (Devices/Printer - 3D Druck Icons)
+
+### 0.50.2
+
+• Bugfix
+
+### 0.50.1
+
+• Code Optimierung und neuer Spenden-Link
+
+### 0.50.0
+
+• Neue Icons hinzugefügt (Gardinen)
+
+### 0.49.1
+
+• Bugfix
+
+### 0.49.0
+
+• Neue Icons hinzugefügt (Brands)
+
+### 0.48.0
+
+• Neue Icons hinzugefügt (Brands & Health)
+
+### 0.47.0
+
+• Neue Icons hinzugefügt (Animated Icons)
+
+### 0.46.0
+
+• Neue Icons hinzugefügt (Devices/Fountain Timer)
+
+### 0.45.0
+
+• Neue Icons hinzugefügt (Devices/Cleaner & Drinks/Wine)
+
+### 0.44.0
+
+• Neue Icons hinzugefügt (Devices/Laser)
+
+### 0.43.0
+
+• Neue Icons hinzugefügt (Backgrounds & Brands)
 
 ### 0.42.0
 
@@ -327,11 +481,11 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 • Erstveröffentlichung
 
 ### 0.0.1
-• Die Idee ist geboren
+• Die Idee ist geboren (16.05.2020)
 
 ## License
 
-Urheberrechte (c) 2020 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
+Urheberrechte (c) 2021 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
 
 
 MIT License (nur in englisch / englisch only)

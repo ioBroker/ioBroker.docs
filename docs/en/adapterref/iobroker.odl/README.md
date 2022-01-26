@@ -6,7 +6,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.odl.svg)](https://www.npmjs.com/package/iobroker.odl)
 ![Number of Installations (latest)](https://iobroker.live/badges/odl-installed.svg)
 ![Number of Installations (stable)](https://iobroker.live/badges/odl-stable.svg)
-[![Dependency Status](https://img.shields.io/david/crycode-de/iobroker.odl.svg)](https://david-dm.org/crycode-de/iobroker.odl)
 
 [![NPM](https://nodei.co/npm/iobroker.odl.png?downloads=true)](https://nodei.co/npm/iobroker.odl/)
 
@@ -80,7 +79,7 @@ Die aktuellen Messdaten werden von dem Adapter standardmäßig im Stundentakt ak
 
 ## License
 
-Copyright (c) 2019-2021 Peter Müller <peter@crycode.de>
+Copyright (c) 2019-2022 Peter Müller <peter@crycode.de>
 
 Data (c) [German Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/), [Data licence Germany – attribution – Version 2.0](http://www.govdata.de/dl-de/by-2-0)
 

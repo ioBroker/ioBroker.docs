@@ -14,10 +14,43 @@
 ## mercedesme adapter for ioBroker
 
 Mercedes me adapter for ioBroker
+Unter commands das commando auf klappen und den button neben start drücken wenn das command available ist.
+Remote sind vorgefertige Remote Befehle
 
 ## Changelog
 
-### 0.0.43
+### 0.0.56
+
+- fix vehicle list while login
+  
+### 0.0.55
+
+- fix refresh login
+### 0.0.55
+
+- fix refresh login
+  
+### 0.0.54
+
+- fix login
+  
+### 0.0.52
+
+- fix js-controller 3.3 warnings
+  
+### 0.0.51
+
+- improve handling of failing logins
+
+### 0.0.50
+
+- fix refresh token
+  
+### 0.0.47
+
+- fix new login
+  
+### 0.0.45
 
 - Small improvments
 

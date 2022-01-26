@@ -14,10 +14,9 @@ De lo contrario, actualice primero los esclavos con una actualización de los si
 Ejecute los siguientes comandos en un shell SSH (consola):
 * `iobroker stop`
 * `iobroker update`
+* `iobroker fix` o si esto no funciona usa: `curl -sL https://iobroker.net/fix.sh | bash -`
 * `iobroker upgrade self`
 * `iobroker start` o reiniciar el servidor, entonces ioBroker debería reiniciarse y puede estar seguro de que todos los procesos anteriores se completaron.
-
-Si el comando de actualización muestra Derechos de acceso / Errores de permiso, utilice el fijador de instalación (`curl -sL https://iobroker.net/fix.sh | bash-`) para solucionar estos problemas y el comando de actualización corre de nuevo.
 
 ## Linux/macOS (instalado manualmente)
 

@@ -3,20 +3,13 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mercury/README.md
 title: ioBroker.mercury
-hash: Gczr0skfaOUe1ay5WuSgq6K6o+Rw7pWyI2Kgn+9LpO4=
+hash: B8aBskRWNbWqLE5g80MXlpxViTRGiSaL4UuK8MkhiHQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mercury/admin/mercury.png)
 
-![Количество установок](http://iobroker.live/badges/mercury-installed.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.mercury.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.mercury.svg)
-![Стабильный](http://iobroker.live/badges/mercury-stable.svg)
-![NPM](https://nodei.co/npm/iobroker.mercury.png?downloads=true)
 ![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
 # IoBroker.mercury
-[![Тесты] (https://github.com/instalator/iobroker.mercury/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.mercury/actions/)
-
 ## Адаптер Mercury для ioBroker
 Получение данных со счетчиков электроэнергии Меркурий.
 Поддерживает TCP / IP и последовательные соединения.
@@ -39,7 +32,7 @@ hash: Gczr0skfaOUe1ay5WuSgq6K6o+Rw7pWyI2Kgn+9LpO4=
 
 ## Объекты
 ** RAW ** - отправка команды RAW и получение ответа.
-Команда без адреса и CRC, байты разделены пробелом. Пример: для однофазного счетчика - Считывание энергии за текущий месяц.
+Команда без адреса и CRC, байты разделены пробелом. Пример: Для 1-фазного счетчика - Считывание энергии за текущий месяц.
 
 ```
 32 0F
@@ -50,6 +43,9 @@ hash: Gczr0skfaOUe1ay5WuSgq6K6o+Rw7pWyI2Kgn+9LpO4=
 ```"{"type":"Buffer","data":[0,14,31,155,50,7,0,99,0,255,255,255,255,255,255,255,255,255,255,255,255,127,86]}"```
 
 ## Changelog
+
+### 0.1.5
+* (instalator) fixed a bug with polling multiple counters
 
 ### 0.1.4
 * (instalator) added frequency for 1 fase

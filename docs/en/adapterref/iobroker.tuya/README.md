@@ -1,15 +1,13 @@
 ![Logo](admin/tuya.png)
 # ioBroker.tuya
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/Apollon77/ioBroker.tuya.svg)](https://greenkeeper.io/)
+![Number of Installations](http://iobroker.live/badges/tuya-installed.svg)
+![Number of Installations](http://iobroker.live/badges/tuya-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.tuya.svg)](https://www.npmjs.com/package/iobroker.tuya)
 
-![Number of Installations](http://iobroker.live/badges/tuya-installed.svg) ![Number of Installations](http://iobroker.live/badges/tuya-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.tuya.svg)](https://www.npmjs.com/package/iobroker.tuya)
+![Test and Release](https://github.com/Apollon77/iobroker.tuya/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/tuya/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.tuya.svg)](https://www.npmjs.com/package/iobroker.tuya)
-
-**Tests:** Linux/Mac/Windows: [![Travis-CI](http://img.shields.io/travis/Apollon77/ioBroker.tuya/master.svg)](https://travis-ci.org/Apollon77/ioBroker.tuya)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Apollon77/ioBroker.tuya?branch=master&svg=true)](https://ci.appveyor.com/project/Apollon77/ioBroker-daikin/)
-
-[![NPM](https://nodei.co/npm/iobroker.tuya.png?downloads=true)](https://nodei.co/npm/iobroker.tuya/)
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
@@ -71,7 +69,7 @@ The sync is only needed initially or after you added new devices to your App.
 Some images for some mobile OS can be found at the [Proxy-Page](PROXY.md).
 
 ## Not for Battery powered devices
-Battery powered devices are normally NOT supported by this adapter! The reason is that they are not online all the time to save power. Whenever they get a signal, thay go online, send the update to the the Tuya cloud servers and go offline again. They do not emit any UDP packages or are online long enough so that the adapter could connect to them. 
+Battery powered devices are normally NOT supported by this adapter! The reason is that they are not online all the time to save power. Whenever they get a signal, they go online, send the update to the the Tuya cloud servers and go offline again. They do not emit any UDP packages or are online long enough so that the adapter could connect to them. 
 A soon as someone finds a way to directly fetch data from the Tuya cloud this may change.
 
 
@@ -89,6 +87,61 @@ Please use GitHub issues for this.
 Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
+### 3.6.15 (2022-01-24)
+* (Apollon77) More schema information added
+* (Apollon77) Recreate Proxy SSL certificates once older than 3 months to prevent ssl errors
+
+### 3.6.14 (2021-11-07)
+* (Apollon77) More schema information added
+
+### 3.6.13 (2021-10-28)
+* (Apollon77) More schema information added
+
+### 3.6.11 (2021-09-05)
+* (Apollon77) More schema information added
+
+### 3.6.9 (2021-07-18)
+* (Apollon77) Adjust reconnect handling on initialization
+
+### 3.6.8 (2021-07-18)
+* (Apollon77) Another fix on reconnect handling
+
+### 3.6.7 (2021-07-18)
+* (Apollon77) Another fix on reconnect handling
+
+### 3.6.6 (2021-07-17)
+* (Apollon77) Fix reconnect handling
+* (Apollon77) More schema information added
+
+### 3.6.5 (2021-06-23)
+* (Apollon77) Make sure for enums values are set with correct type
+* (Apollon77) More schema information added
+
+### 3.6.3 (2021-06-04)
+* (Apollon77) More schema information added
+* (Apollon77) Update tuyapi
+
+### 3.6.2 (2021-05-10)
+* (Apollon77) type "bitmap" is a number
+* (Apollon77) More schema information added
+
+### 3.6.1 (2021-04-11)
+* (Apollon77) More schema information added
+
+### 3.6.0 (2021-04-02)
+* (Apollon77) Fix broken data updates because of tuyaapi change
+* (Apollon77) Optimize "json unvalid" cases by refreshing data manually differently 
+* (Apollon77) More schema information added
+
+### 3.5.9 (2021-03-28)
+* (Apollon77) More schema information added
+
+### 3.5.8 (2021-03-24)
+* (Apollon77) More schema information added
+
+### 3.5.7 (2021-03-18)
+* (Apollon77) Fix crash case (Sentry IOBROKER-TUYA-P9)
+* (Apollon77) More schema information added
 
 ### 3.5.6 (2021-02-09)
 * (Apollon77) More schema information added
@@ -277,7 +330,7 @@ Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2022 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

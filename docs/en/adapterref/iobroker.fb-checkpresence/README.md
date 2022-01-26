@@ -1,18 +1,15 @@
-<h1>
-    <img src="admin/fb-checkpresence.png" width="64"/>
-    ioBroker.fb-checkpresence
-</h1>
+![Logo](admin/fb-checkpresence.png)
+# ioBroker.fb-checkpresence
 
-![Number of Installations](http://iobroker.live/badges/fb-checkpresence-installed.svg) ![Number of Installations](http://iobroker.live/badges/fb-checkpresence-stable.svg)
-[![NPM version](http://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)](https://www.npmjs.com/package/iobroker.fb-checkpresence)
+[![NPM version](https://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)](https://www.npmjs.com/package/iobroker.fb-checkpresence)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.fb-checkpresence.svg)](https://www.npmjs.com/package/iobroker.fb-checkpresence)
+![Number of Installations (latest)](https://iobroker.live/badges/fb-checkpresence-installed.svg)
+![Number of Installations (stable)](https://iobroker.live/badges/fb-checkpresence-stable.svg)
 [![Dependency Status](https://img.shields.io/david/afuerhoff/iobroker.fb-checkpresence.svg)](https://david-dm.org/afuerhoff/iobroker.fb-checkpresence)
 [![Known Vulnerabilities](https://snyk.io/test/github/afuerhoff/ioBroker.fb-checkpresence/badge.svg)](https://snyk.io/test/github/afuerhoff/ioBroker.fb-checkpresence)
-
 [![NPM](https://nodei.co/npm/iobroker.fb-checkpresence.png?downloads=true)](https://nodei.co/npm/iobroker.fb-checkpresence/)
 
-**Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/afuerhoff/ioBroker.fb-checkpresence/master.svg)](https://travis-ci.org/afuerhoff/ioBroker.fb-checkpresence)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/afuerhoff/ioBroker.fb-checkpresence?branch=master&svg=true)](https://ci.appveyor.com/project/afuerhoff/ioBroker-fb-checkpresence/)
+**Tests:** ![Test and Release](https://github.com/afuerhoff/ioBroker.fb-checkpresence/workflows/Test%20and%20Release/badge.svg)
 
 ## fb-checkpresence adapter for ioBroker
 
@@ -72,6 +69,8 @@ Therefore a user has to be created in the fritzbox. This is required with newer
 firmware version (>= 7.25)of the fritzbox. See here fore information: https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/Empfehlungen%20zur%20Benutzerfu%CC%88hrung%20bei%20der%20Anmeldung%20an%20einer%20FRITZ%21Box_v1.1.pdf 
 The password is encrypted and wasn't saved in clear text. The user name and password may have a maximum of 
 32 characters. See for information: https://service.avm.de/help/de/FRITZ-Box-Fon-WLAN-7490/014/hilfe_zeichen_fuer_kennwoerter#:~:text=Namen%20f%C3%BCr%20Benutzer,Kennwortfeld%20darf%20nicht%20leer%20sein.
+Hint: In some cases it could be that the fritzbox blocked the user if the password was not correctly inserted.
+Often a timeout message is in the log. Please check than the if you has insert the correct username and password.Then you have to reboot the fritzbox. 
 
 ### Ssl option
 In some cases the adapter could not connect to the fritzbox. It could help to disable this option.
@@ -80,7 +79,10 @@ In this case the adapter tries to connect without https.
 ### Interval
 You have separate intervals for family members and Fritzbox devices.
 The interval for Fritzbox devices can be configured from 1 to 59 minutes. Normally a value between 1 and 5 minutes is an optimal interval to read the fritzbox data. Family members could be configured from 10s to 600s. Every new cycle starts if the previous cycle 
-is finished. 
+is finished.
+
+### Filter time
+If the filter time is greater than 0s the state of a family member is checked twice (after the filter time) if the state is changing to false. If the state is true the state is immediate set.  
 
 ### History adapter
 Over the history adapter some values are calculated. You can choose, if the history, the sql or the influxdb adapter is used for this calculations. The history adapter must be installed preliminary and can then selected in the configuration dialog. 
@@ -101,8 +103,23 @@ If this option is checked, then the FB device object are re-synchronized with th
 This option can be checked if the creation of FB devices is allowed. If this option is checked, 
 the mesh objects for every device in the Fritzbox device list are created.
 
+### guest information
+If this option is checked the states for guests are created. 
+
+### qr-code generation
+If this option is checked the qr-code from guest wlan is generated. 
+
 ### Family member settings
-For a configured family member you must enter the Name, the mac- or ip-address, a comment and if the member is enabled for calculating. For every member the adapter creates a state presence and checks if the member is present or absent. The state was changed if the presence state changed. 
+For a configured family member you should enter the member name, the hostname, the mac- and ip-address, a comment and you can enable or disable the member. A group is optional. 
+If you leave the group empty and set the compatibility flag to true the behaviour is like an older version of the adaper. You can use the presence state from the family member or the state directly mapped to the family member name. In a future version you must use the presence state. This behaviour could be switched on/off with the compatibility checkbox:
+-> compatibility = true: behaviour as an older version with empty group. 
+-> compatibility = true and group not empty: new behaviour. All states beneath the familymembers folder. 
+-> compatibility = false: new behaviour. All states beneath the familymembers folder.
+
+For every member the adapter creates a presence state and checks if the member is present or absent. The state was changed if the presence state changed. 
+You can also enable the filtering for a member. If the state is true the state changes immediately to true. If it is false then the value will checked after the filter time again.
+If the state is in both cases false then the state changes to false. Otherwise it does not change.
+
 To get the speed information in the objects you have to select fb-devices option.
 
 ### Whitelist settings
@@ -176,46 +193,34 @@ Here you will find information about the history of the current day.
 ## Changelog 
 <!--
     Placeholder for the next version (at the beginning of the line):
-    ## __WORK IN PROGRESS__
+    ### __WORK IN PROGRESS__
     * Did some changes
     * Did some more changes
 -->
-### 1.1.2 (2021-01-13)
-* (afuerhoff) QR-Code implemented
-* (afuerhoff) setState presence only if changed
-* (afuerhoff) access rights implemented
-* (afuerhoff) use name for presence
-* (afuerhoff) active / inactive devices
-* (afuerhoff) interval 10s bug fixed
-* (afuerhoff) documentation edited 
+### 1.1.13 (2022-01-18)
+* (afuerhoff) issue #73: bugfix
 
-### 1.1.1 (2020-12-27)
-* (afuerhoff) Configuration optimized
-* (afuerhoff) Bugfix dateformat pattern
-* (afuerhoff) SSL (https) workaround implemented
-* (afuerhoff) Connection check optimized
-* (afuerhoff) Documentation added
-* (afuerhoff) Mesh handling optimized 
+### 1.1.12 (2022-01-13)
+* (afuerhoff) issue #74: bugfix
+* (afuerhoff) dependencies updated
 
-### 1.1.0 (2020-10-24)
-* (afuerhoff) second interval for family members implemented
-* (afuerhoff) mesh info added
-* (afuerhoff) configuration validation added
-* (afuerhoff) switch on, off guest wlan
-* (afuerhoff) switch on, off internet access of devices 
-* (afuerhoff) structural changes
-* (afuerhoff) code optimization
+### 1.1.11 (2021-12-22)
+* (afuerhoff) dependencies updated
+* (afuerhoff) bugfix blacklist
 
-### 1.0.4 (2020-06-28)
-* (afuerhoff) bugfix json list and guest handling, new object guest.presence
+### 1.1.10 (2021-09-24)
+* (afuerhoff) dependencies updated
 
-### 1.0.3 (2020-05-26)
-* (afuerhoff) bugfix checking mac or ip
+### 1.1.9 (2021-09-24)
+* (afuerhoff) dependencies updated
+* (afuerhoff) issue #63: getExtIp logging solved
+* (afuerhoff) issue #65: wrong logging in instance > 0 solved  
+* (afuerhoff) qr-code WPA2 + WPA3 fixed
 
 ## License
 MIT License
 
-Copyright (c) 2019-2021 Achim Fürhoff <achim.fuerhoff@outlook.de>
+Copyright (c) 2019-2022 Achim Fürhoff <achim.fuerhoff@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,114 +1,120 @@
 ---
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lametric/README.md
-title: ioBroker.lametric
-hash: J96EEfhXaMPbFj1J6CUCiIB2CbfhWhEyF1gfJdaKe8A=
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.lametric.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.lametric.svg
+BADGE-Stable: http://iobroker.live/badges/lametric-stable.svg
+BADGE-installed: http://iobroker.live/badges/lametric-installed.svg
+BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.lametric.svg
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.lametric/badge.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.lametric.png?downloads=true
 ---
-![Logo](../../../en/adapterref/iobroker.lametric/admin/lametric.png)
+![Logo](../../admin/lametric.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.lametric.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.lametric.svg)
-![Stabil](http://iobroker.live/badges/lametric-stable.svg)
-![Eingerichtet](http://iobroker.live/badges/lametric-installed.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/klein0r/iobroker.lametric.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/klein0r/ioBroker.lametric/badge.svg)
-![Build-Status](http://img.shields.io/travis/klein0r/ioBroker.lametric.svg)
-![NPM](https://nodei.co/npm/iobroker.lametric.png?downloads=true)
+# ioBroker.lametric
 
-# IoBroker.lametric
-Mit diesem Adapter können Sie Statusinformationen zu Ihrem [LaMetric Time](https://haus-auto.com/p/amz/LaMetricTime) *(Affiliate-Link)* abrufen und Benachrichtigungen an diesen senden.
-Sie benötigen lediglich die IP-Adresse Ihres Geräts und den API-Entwicklerschlüssel.
+## Anforderungen
 
-## Aufbau
-Getestet mit LaMetric Firmware *2.1.3* (empfohlen)
+- *LaMetric Time* mit Firmware *2.2.2* (oder neuer)
 
-Sie können Ihren persönlichen Schlüssel [Hier](https://developer.lametric.com/) erhalten.
+## Configuration
 
-![API-Schlüssel](../../../en/adapterref/iobroker.lametric/docs/apiKey.png)
+Du bekommst deinen Geräte-Schlüssel (API-Key) [hier](https://developer.lametric.com/user/devices).
 
-## Eigenschaften
-- Stellen Sie die Anzeigehelligkeit ein (Prozent, Auto-Modus / Manueller-Modus).
-- Stellen Sie die Lautstärke ein (Prozent)
-- Bildschirmschoner konfigurieren (aktivieren / deaktivieren, zeitbasiert, wenn es dunkel ist)
-- Aktivieren / Deaktivieren Sie Bluetooth und ändern Sie den Bluetooth-Namen
-- Zwischen Apps wechseln (nächste, vorherige, zu einer bestimmten App gehen)
-- Benachrichtigungen blockweise senden (mit konfigurierbarer Priorität, Ton, Symbolen, Text, ...)
-- Steuern Sie spezielle Apps wie Uhr, Radio, Stoppuhr oder Wetter
-- Verwenden Sie *My Data (DIY)* LaMetric App, um dauerhafte Informationen anzuzeigen
+![api-key](docs/apiKey.png)
 
-Funktionen sind durch die [offizielle API-Funktionen](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html) begrenzt.
+## Features
 
-## Blockbeispiele
-Sie können eine einfache Zeichenfolge als Nachricht verwenden, die als einzelner Frame angezeigt wird
+- Verändern der Display-Helligkeit (prozentual, Automatik/Manueller Modus)
+- Verändern der Lautstärke (prozentual)
+- Konfiguration des Bildschirmschoners (aktivieren/deaktivieren, Zeitbasiert, wenn dunkel)
+- Bluetooth aktivieren/deaktivieren, Bluetooth Name verändern
+- Zwischen Apps wechseln (nächste, vorige, gehe zu spezifischer App)
+- Versenden von Notifications (mit konfigurierbarer Priorität, Sound, Icons, Text, ...)
+- Kontrolle von speziellen Apps wie ``clock``, ``radio``, ``stopwatch`` oder ``weather``
+- Nutzung der *My Data (DIY)* LaMetric App um regelmäßig Informationen darzustellen
 
-![Einzelbild](../../../en/adapterref/iobroker.lametric/docs/blockly1.png)
+Alle Funktionen sind nur durch die [offizielle API](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html) limitiert.
 
-Um mehrere Frames anzuzeigen, können Sie auch ein Array als Nachricht bereitstellen
+## Blockly Beispiele
 
-![mehrere Frames](../../../en/adapterref/iobroker.lametric/docs/blockly2.png)
+Senden eines einfachen Textes, welcher als einzelner Frame angezeigt wird
 
-Wenn Sie Diagrammrahmen verwenden möchten, müssen Sie ein Array von Zahlen als Rahmen angeben
+![single frame](docs/blockly1.png)
 
-![Diagrammdatenrahmen](../../../en/adapterref/iobroker.lametric/docs/blockly3.png)
+Um mehrere Frames darzustellen, kann eine Liste von Texten übergeben werden
 
-## Meine Daten (DIY) *(Version> 1.1.0)*
-LaMetric bietet eine App (auf dem integrierten App-Markt) zum Abfragen benutzerdefinierter Daten. Diese App heißt [Meine Daten DIY](https://apps.lametric.com/apps/my_data__diy_/8942). Dieser Adapter erstellt einen neuen Status im erforderlichen Format.
-Mit dem Simple API Adapter können Sie die Daten zur LaMetric Time übertragen.
+![multiple frames](docs/blockly2.png)
+
+Um Graphen darzustellen, muss ein Array aus Zahlen als Liste in einem Frame übergeben werden.
+
+![chart data frames](docs/blockly3.png)
+
+## My Data (DIY) *(version > 1.1.0)*
+
+*LaMetric* bietet (über den integrierten App-Store) eine zusätzliche App an, um eigene Informationen darzustellen. Diese App heißt [My Data DIY](https://apps.lametric.com/apps/my_data__diy_/8942). Dieser Adapter erstellt einen Datenpunkt im erforderlichen Format.
+Du kannst den Simple API Adapter nutzen, um Daten zur LaMetric Time zu übertragen.
 
 ```ioBroker LaMetric Adapter -> State with Frame information <- Simple API Adapter <- My Data DIY App <- LaMetric```
 
-### Konfiguration (mit Authentifizierung)
-1. Installieren Sie den [Simple API ioBroker Adapter] (https://github.com/ioBroker/ioBroker.simple-api).
-2. Erstellen Sie einen neuen ioBroker-Benutzer namens "lametric" mit einem benutzerdefinierten Kennwort (z. B. HhX7dZl3Fe).
-3. Fügen Sie den Benutzer "lametrisch" zur Gruppe "Benutzer" hinzu.
-4. Installieren Sie diese *My Data DIY* App auf Ihrer LaMetric Time (verwenden Sie Market)
-5. Öffnen Sie die App-Einstellungen *Meine Daten (DIY)* und konfigurieren Sie die einfache API-URL (siehe unten).
-6. Gehen Sie zur Adapterkonfiguration und konfigurieren Sie die Frames mit Ihren benutzerdefinierten Informationen (Symbol und Text).
+### Konfiguration (mit Authentisierung)
+
+1. Installiere den [Simple API ioBroker Adapter](https://github.com/ioBroker/ioBroker.simple-api)
+2. Erstelle einen neuen ioBroker-Nutzer mit dem Namen ``lametric`` und einem eigenen Passwort (z.B. ``HhX7dZl3Fe``)
+3. Füge den neuen ``lametric``-Nutzer zur Gruppe ``users`` hinzu
+4. Installiere die App *My Data DIY* über den App-Store auf deiner *LaMetric Time*
+5. Öffne die Einstellungen der *My Data (DIY)* App und konfiguriere die URL des Simple API Adapters (siehe unten)
+6. Gehe in die Adaptereinstellungen und füge neue Frames mit deinen eigenen Informationen hinzu (siehe nächster Abschnitt)
 
 ```
-http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?&user=lametric&pass=HhX7dZl3Fe
+http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json&user=lametric&pass=HhX7dZl3Fe
 ```
 
-** Aktualisieren Sie ggf. IP, Port, Benutzer und Passwort in der URL! **
+**Wichtig: Nutze das json-Flag des SimpleAPI Adapters (verfügbar seit Version 2.6.2)**
 
-### Konfiguration (ohne Authentifizierung)
-1. Installieren Sie den [Simple API ioBroker Adapter] (https://github.com/ioBroker/ioBroker.simple-api).
-2. Installieren Sie diese *My Data DIY* App auf Ihrer LaMetric Time (verwenden Sie Market)
-3. Öffnen Sie die App-Einstellungen *Meine Daten (DIY)* und konfigurieren Sie die einfache API-URL (siehe unten).
-4. Gehen Sie zur Adapterkonfiguration und konfigurieren Sie die Frames mit Ihren benutzerdefinierten Informationen (Symbol und Text).
+**Stelle sicher, dass die IP, der Port, Benutzername und Passwort in der URL korrekt sind!**
+
+### Konfiguration (ohne Authentisierung)
+
+1. Installiere den [Simple API ioBroker Adapter](https://github.com/ioBroker/ioBroker.simple-api)
+2. Installiere die App *My Data DIY* über den App-Store auf deiner *LaMetric Time*
+3. Öffne die Einstellungen der *My Data (DIY)* App und konfiguriere die URL des Simple API Adapters (siehe unten)
+4. Gehe in die Adaptereinstellungen und füge neue Frames mit deinen eigenen Informationen hinzu (siehe nächster Abschnitt)
 
 ```
-http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/
+http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json
 ```
 
-** Stellen Sie sicher, dass IP und Port in der URL aktualisiert werden, falls erforderlich! **
+**Stelle sicher, dass die IP und der Port in der URL korrekt sind!**
 
-### Rahmenkonfiguration *(Version> 1.1.0)*
-- Verwenden Sie das Plus-Symbol, um so viele Frames hinzuzufügen, wie Sie möchten
-- Symbol: Wählen Sie ein Symbol auf der [offiziellen Website] (https://developer.lametric.com/icons) und geben Sie die ID in das Konfigurationsfeld ein. ** Wichtig: Fügen Sie ein i (für statische Symbole) oder ein a (für animierte Symbole) als Präfix für diese ID hinzu. (Beispiel: "i3389")
-- Text: Geben Sie einfach die Textinformationen für den Rahmen ein. Sie können Zustände in geschweiften Klammern verwenden. Diese Informationen werden durch den entsprechenden Wert des Status ersetzt. (Beispiel: `{youtube.0.channels.HausAutomatisierungCom.statistics.subscriberCount} Subscribers`)
+### Frame Konfiguration *(Version > 1.1.0)*
 
-Beispielkonfiguration von 2 Frames:
+- Füge mit dem Plus-Button so viele Frames hinzu, wie Du möchtest
+- Symbol: Wähle ein Symbol von der [offiziellen Webseite](https://developer.lametric.com/icons) und füge die ID in das Feld ein. **Wichtig: Nutze ein i (für statische Sybole) oder ein a (für animierte Symbole) als Präfix der ID (Beispiel: `i3389`)**
+- Text: Tippe einen beliebigen anzuzeigenden Text ein. Du kannst Informatioenn aus Datenpunkten abfragem, indem Du deren ID in geschweifte Klammern angibst. An dieser Stelle wird dann der aktuelle Wert der Datenpunkte eingesetzt. (Beispiel: `{youtube.0.channels.HausAutomatisierungCom.statistics.subscriberCount} Subscribers`)
 
-![Beispiel Frame-Konfiguration](../../../en/adapterref/iobroker.lametric/docs/myDataDIYConfig.png)
+Beispielkonfiguration von 3 Frames:
 
-## Spezielle Apps / Widgets *(Version> 1.1.2)*
-Sie können einige Apps mit benutzerdefinierten Informationen steuern
+![example frame config](docs/myDataDIYConfig.png)
 
-### Clock.clockface
-Zulässige Werte sind:
+## Spezielle Apps / Widgets *(Version > 1.1.2)*
 
-- eines von "Wetter", "page_a_day", "custom" oder "none"
-- Benutzerdefinierte Symboldaten im Format "Daten: Bild / PNG; Base64, <Base64-codierte PNG-Binärdatei" oder "Daten: Bild / GIF; Basis64, <Base64-codierte GIF-Binärdatei"
+Einige Apps lassen sich mit Zusatzinformationen versehen oder steuern.
+
+### clock.clockface
+
+Gültige Werte sind
+
+- `weather`, `page_a_day`, `custom` oder `none`
+- Eigene Icons im Format `data:image/png;base64,<base64 encoded png binary>` oder `data:image/gif;base64,<base64 encoded gif binary>`
 
 Beispiel: `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAOklEQVQYlWNUVFBgwAeYcEncv//gP04FMEmsCmCSiooKjHAFMEF0SRQTsEnCFcAE0SUZGBgYGAl5EwA+6RhuHb9bggAAAABJRU5ErkJggg==`
 
-### Countdown.configure
-Zulässiger Wert: Zeit in Sekunden
+### countdown.configure
 
-## Skripte
-Um die Nachricht in Ihrer la-Metrik anzuzeigen, senden Sie einfach eine Nachricht mit dem Skriptadapter an diese Instanz:
+Erlaubte Werte: Zeit in Sekunden
+
+## Scripts
+
+Um Nachrichten/Notifications auf Deiner *LaMetric Time* anzuzeigen, sende eine Nachricht mit dem JavaScript Adapter (oder einem anderen Adapter) an die entsprechende Instanz:
 
 ```JavaScript
 sendTo(
@@ -126,7 +132,7 @@ sendTo(
 );
 ```
 
-Beispiel Einzelbild:
+Beispiel einzelner Frame:
 
 ```JavaScript
 sendTo(
@@ -144,7 +150,7 @@ sendTo(
 );
 ```
 
-Beispiel für mehrere Frames:
+Beispiel mehrere Frames:
 
 ```JavaScript
 sendTo(
@@ -162,7 +168,7 @@ sendTo(
 );
 ```
 
-Beispiel, um einige Informationen zyklisch anzuzeigen:
+Beispiel zyklische Informationen:
 
 ```JavaScript
 let i = 0;
@@ -187,6 +193,54 @@ show();
 ```
 
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+
+* (klein0r) Updated dependencies
+
+### 1.5.2 (2021-12-23)
+
+* (klein0r) Updated dependencies
+* (klein0r) Updated documentation
+
+### 1.5.1
+
+* (klein0r) Translated all objects
+* (klein0r) Fixed HTTPS option
+
+### 1.5.0
+
+* (klein0r) Fixed myData DIY data type **(BREAKING CHANGE - requires SimpleAPI 2.6.2 or later to use json parameter)**
+* (klein0r) Added version check
+
+### 1.4.1
+
+* (klein0r) Fixed missing translations
+
+### 1.4.0
+
+* (klein0r) Admin 5 Support
+
+### 1.3.2
+
+* (klein0r) Updated dependencies
+
+### 1.3.1
+
+* (klein0r) Added local start and end time for screensaver
+
+### 1.3.0
+
+* (klein0r) Encrypt sensitive information **(BREAKING CHANGE - RE-ENTER YOUR API KEY)**
+
+### 1.2.1
+
+* (klein0r) Extended regex for My Data (DIY)
 
 ### 1.2.0
 
@@ -269,7 +323,7 @@ show();
 
 The MIT License (MIT)
 
-Copyright (c) 2021 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

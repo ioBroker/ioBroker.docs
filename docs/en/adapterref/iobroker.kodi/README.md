@@ -1,4 +1,5 @@
 ![Logo](admin/kodi.png)
+# Kodi for IoBroker (JSON-RPC API)
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.kodi.svg)](https://www.npmjs.com/package/iobroker.kodi)
 ![Number of Installations](http://iobroker.live/badges/kodi-stable.svg)
@@ -13,10 +14,7 @@
 
 [English manual](https://github.com/instalator/ioBroker.kodi/wiki/en_EN)
 
-# Адаптер Kodi для IoBroker (JSON-RPC API) 
 Вы можете найти официальную документацию KODI по API JSON-RCP [тут](http://kodi.wiki/view/JSON-RPC_API) и полный список доступных команд (для протокола версии 6) [тут](http://kodi.wiki/view/JSON-RPC_API/v6).
-
-***Примечание: Этот адаптер требует Nodejs 8.0+***
 
 ## Конфигурация KODI
 Включение удаленного управления и веб-сервера.
@@ -121,6 +119,16 @@ sendTo("kodi.0", {
  - Suspend - приостанавливает Kodi
 
 ## Changelog
+### 2.0.8
+* Important: js-controller >= 2.0.0 is required at least
+* (Apollon77) Update kode-ws dependency
+* (Apollon77) Prevent some js-controller 3.3. errors
+
+### 2.0.7
+* (instalator) fixed error subscribeNotification Player.OnResume [issues 49](https://github.com/instalator/ioBroker.kodi/issues/49)
+* (instalator) added user ratings [issues 57](https://github.com/instalator/ioBroker.kodi/issues/57)
+* (instalator) fix error [issues 58](https://github.com/instalator/ioBroker.kodi/issues/58)
+* (instalator) fixed error widgets
 
 #### 2.0.5
 * (instalator) changed css classes
@@ -226,7 +234,7 @@ sendTo("kodi.0", {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2020 instalator <vvvalt@mail.ru>
+Copyright (c) 2020-2021 instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

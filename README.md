@@ -32,7 +32,7 @@ Project content:
 - Translator
 
 ## How to create the documentation
-See [how to participate](http://www.iobroker.net/react/)
+See [how to participate](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md)
 
 ## Changelog
 Read the change log [here](CHANGELOG.md).
@@ -41,5 +41,5 @@ Read the change log [here](CHANGELOG.md).
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020 bluefox <dogafox@gmail.com>  
+Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>  
 Copyright (c) 2014      hobbyquaker

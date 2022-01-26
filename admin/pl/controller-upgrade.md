@@ -14,10 +14,9 @@ To jest zalecana opcja !!
 Wykonaj następujące polecenia w powłoce SSH (konsoli):
 * `iobroker stop`
 * `iobroker update`
+* `iobroker fix` lub jeśli to nie zadziała, użyj `curl -sL https://iobroker.net/fix.sh | bash -`
 * `iobroker upgrade self`
 * `iobroker start` lub restart serwera, następnie ioBroker powinien się zrestartować i możesz być pewien, że wszystkie stare procesy zostały zakończone.
-
-Jeśli polecenie aktualizacji wyświetla błędy praw dostępu / uprawnień, skorzystaj z narzędzia do naprawy instalacji (`curl -sL https://iobroker.net/fix.sh | bash-`), aby naprawić te problemy i polecenie aktualizacji biegnij jeszcze raz.
 
 ## Linux/macOS (instalowany ręcznie)
 

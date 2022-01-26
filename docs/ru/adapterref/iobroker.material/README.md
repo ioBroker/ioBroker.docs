@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.material/README.md
 title: ioBroker.material
-hash: Ulc3YoyyaWuA8XUEizcZKqEy12ZjA1yR1rUM1uQSmtc=
+hash: ZCJIXtNoy74A2TitzsIc9y7cTKVAPQpXAj50tzdOw5o=
 ---
-![логотип](../../../en/adapterref/iobroker.material/admin/material.png)
+![Логотип](../../../en/adapterref/iobroker.material/admin/material.png)
 
 ![Количество установок](http://iobroker.live/badges/material-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.material.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.material.svg)
-![NPM](https://nodei.co/npm/iobroker.material.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.material.png?downloads=true)
 
 # IoBroker.material
 Интерфейс React и Material UI.
@@ -18,36 +18,62 @@ hash: Ulc3YoyyaWuA8XUEizcZKqEy12ZjA1yR1rUM1uQSmtc=
 ![Скриншоты](../../../en/adapterref/iobroker.material/img/screenshot1.png)
 
 ## Монтаж
-** Важно! ** Этот адаптер не может быть установлен непосредственно с GitHub. Только с нпм.
+** Важно! ** Этот адаптер нельзя установить напрямую с github. Только из npm.
 
-## Использование
-Очень важно знать, что адаптер показывает только устройства, которые добавлены в некоторые категории, такие как *комнаты* или *функция* Лучше, если каждое устройство относится к обеим категориям. Потому что у каждого устройства есть тип и место.
+## Применение
+Очень важно знать, что адаптер показывает только устройства, которые добавлены в некоторые категории, например *комнаты* или *функции* Лучше, если каждое устройство будет относиться к обеим категориям. Потому что у каждого устройства есть свой тип и место.
 
 ## Поддерживаемые типы
-### Switch
+### Выключатель
 ### Диммер
-### Медиа-плейер
-### Том
-### Объем группы
-## Сделать
-* Камеры (над дополнительным адаптером)
+### Медиа плеер
+### Объем
+### Групповой объем
+## Делать
+* Кулачки (через дополнительный адаптер)
 * события (через дополнительный адаптер)
 * Главный экран
 * Графики
 * Узкое меню
 * пылесос
-* Показать бар для ползунков, чтобы указать положение
+* показать панель для ползунков, чтобы указать положение
 * поддержка кодов качества
 * Карты (OpensStreetMap)
 * Переключиться на экран по умолчанию через X секунд
-* Заказ состояний в информации
-* Используйте иконки в погоду, а не текст
+* Состояния заказа в информации
+* Используйте значки в погоде, а не текст
 
 ## Кредиты
-- Использованные иконки от flaticon
-- Регулятор громкости от [здесь] (https://codepen.io/blucube/pen/cudAz) Автор [Эд Хикс] (https://twitter.com/blucube) - Вдохновлен [выстрелом дрибблинга] (https: / /dribbble.com/shots/753124-Volume-Knob) [Рикардо Салазар] (https://twitter.com/rickss)
+- Использованы иконки от flaticon
+- Регулятор громкости отсюда [здесь] (https://codepen.io/blucube/pen/cudAz) Автор [Эд Хикс] (https://twitter.com/blucube) - На основе [удара каплей] (https: / /dribbble.com/shots/753124-Volume-Knob), автор [Рикардо Салазар] (https://twitter.com/rickss)
+
+<! - Заполнитель для следующей версии (в начале строки):
+
+### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
+### __WORK IN PROGRESS__
+### 1.0.0 (2021.07.13)
+* (bluefox) Redesign
+
+### 0.13.9 (2020.08.22)
+* (bluefox) Added support for new socket.io
+
+### 0.13.8 (2020.03.19)
+* (bluefox) Added sorting of rooms
+
+### 0.13.5 (2020.03.12)
+* (bluefox) Fixed error with stacked rooms
+
+### 0.13.1 (2020.03.11)
+* (bluefox) rebuild react
+
+### 0.13.0 (2020.02.10)
+* (Apollon77) compatibility to web 3.0
+
+### 0.12.1 (2019.11.06)
+* (bluefox) Packages were updated
+
 ### 0.10.6 (2019.01.29)
 *  Added Chinese support
 
@@ -117,6 +143,6 @@ hash: Ulc3YoyyaWuA8XUEizcZKqEy12ZjA1yR1rUM1uQSmtc=
 ## License
 CC-BY-NC
 
-Copyright (c) 2017-2018 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2021, bluefox <dogafox@gmail.com>
 
 Commercial use is not allowed without permission.

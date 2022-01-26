@@ -59,6 +59,11 @@ Documentation for the vis-widgets are available inside vis or [Widget-Documentat
 * ~~controllable gameday in the gameday widget~~
 
 ## Changelog
+
+### 1.2.1
+* fix result calculation
+### 1.2.1
+* fix object type
 ### 1.2.0
 * fix display of goals if goals are without minutes and playername saved by openligadb
 * fixed that sometimed request of states failed

@@ -3,76 +3,93 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.procon-ip/README.md
 title: ioBroker.procon-ip
-hash: lq6aPK/f3jS9/9tJe0w5W2aqj7uiH6EZYy7TeaZuxg4=
+hash: 9ybGLS8FLg/JAIpnt3fcmyEcSxL47ASj9n1b91qt3uE=
 ---
-![商标](../../../en/adapterref/iobroker.procon-ip/admin/iobroker-procon-ip.png)
+![标识](../../../en/adapterref/iobroker.procon-ip/admin/iobroker-procon-ip.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.procon-ip.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.procon-ip.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.procon-ip.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.procon-ip.svg)
 ![装置](http://iobroker.live/badges/procon-ip-installed.svg)
 ![依赖状态](https://img.shields.io/david/ylabonte/iobroker.procon-ip.svg)
 ![已知漏洞](https://snyk.io/test/github/ylabonte/ioBroker.procon-ip/badge.svg)
-![特拉维斯](http://img.shields.io/travis/ylabonte/ioBroker.procon-ip/master.svg)
-![NPM](https://nodei.co/npm/iobroker.procon-ip.png?downloads=true)
+![新产品管理](https://nodei.co/npm/iobroker.procon-ip.png?downloads=true)
 
-＃ioBroker.procon-ip
-## IoBroker的ProCon.IP池控制适配器
-ioBroker适配器，用于ProCon.IP游泳池控制单元的基本支持。它旨在与您的ioBroker家庭自动化集成，例如。
-建立涉及其他设备的逻辑或仅与您喜欢的语音助手配对：
+# IoBroker.procon-ip
+[![测试和发布](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml)
 
-*您可以使用[_cloud_]（https://github.com/ioBroker/ioBroker.cloud）或
+## IoBroker 的 ProCon.IP 池控制适配器
+ioBroker 适配器为 ProCon.IP 游泳池控制单元提供基本支持。它旨在与您的 ioBroker 家庭自动化集成，例如。
+构建涉及其他设备的逻辑或只是与您最喜欢的语音助手配对：
 
-适用于Alexa的[_IoT_](https://github.com/ioBroker/ioBroker.iot)适配器（我认为还有Google Home）和
+* 您可以使用 [_cloud_](https://github.com/ioBroker/ioBroker.cloud) 或
 
-* [_yahka_]（https://github.com/jensweigele/ioBroker.yahka）作为通往
+[_物联网_](https://github.com/ioBroker/ioBroker.iot) Alexa 适配器（我认为还有 Google Home）和
 
-  Siri或Apple可以访问Apple HomeKit
+* [_yahka_](https://github.com/jensweigele/ioBroker.yahka) 作为桥梁
 
-*使用[_javascript_]（https://github.com/ioBroker/ioBroker.javascript）进行
+  Apple HomeKit 可通过 Siri 或
 
-  建立自己的自定义逻辑。
+* 使用 [_javascript_](https://github.com/ioBroker/ioBroker.javascript) 来
 
-有关更多信息，请参见[维基](https://github.com/ylabonte/ioBroker.procon-ip/wiki)。
+  构建您自己的自定义逻辑。
 
-###什么是ProCon.IP池控件？
-![图片来自pooldigital.de](https://www.pooldigital.de/shop/media/image/66/47/a5/ProConIP1_720x600.png)
+有关更多信息，请参阅 [维基](https://github.com/ylabonte/ioBroker.procon-ip/wiki)。
 
-ProCon.IP池控制是用于家庭游泳池的低预算网络连接控制单元。借助其软件开关继电器，它可以按时间计划简单地计划多个泵（用于池过滤器和不同剂量方面），也可以根据其多个测量输入通道之一的读数/值（例如，I / O流量）进行控制。传感器，达拉斯1-Wire温度计，氧化还原和pH电极）。至少还有按需切换这些继电器的选项，这使得它们也适用于打开/关闭灯（或其他任何想要的开关）。
-并非所有功能都可以通过API获得。实际上，有一个文档化的API可以读取（轮询）CSV格式的值（`/GetState.csv`）。在我的记忆中，还有一个用于通过定时器打开/关闭继电器和打开继电器。但是我找不到第二个了。因此，它甚至不很漂亮，但具有功能性：ProCon.IP具有两个本机Web界面，可以对给定的功能（例如切换继电器）进行某种反向工程分析。
+### ProCon.IP 池控制是什么？
+![图片来自 pooldigital.de](https://www.pooldigital.de/shop/media/image/66/47/a5/ProConIP1_720x600.png)
 
-有关更多信息，请参见以下链接（很抱歉，它仅在德语中；到目前为止尚未找到英文文档/信息）：
+ProCon.IP 泳池控制是家庭游泳池的低预算网络连接控制单元。凭借其软件开关继电器，它可以控制多个泵（用于池过滤器和不同剂量方面），或者按照时间计划简单地计划，或者根据其多个输入通道之一的读数/值进行测量（例如 I/O 流量传感器、Dallas 1-Wire 温度计、氧化还原和 pH 电极）。至少还可以选择按需切换这些继电器，这使得它们也适用于开/关灯（或任何您想要的任何东西）。
+并非所有功能都可以通过 API 访问。事实上，有一个文档化的 API 用于读取（轮询）CSV 值（`/GetState.csv`）。在我的记忆中，还有另一个用于通过计时器打开/关闭和打开继电器。但是我再也找不到第二个了。因此，甚至不漂亮，但功能强大：ProCon.IP 有两个本机 Web 界面，可以对其进行分析，以对给定的功能进行某种逆向工程（例如切换继电器）。
 
-* [pooldigital.de网上商店]（https://www.pooldigital.de/shop/poolsteuerungen/procon.ip/35/procon.ip-webbasierte-poolsteuerung-/-dosieranlage）
-* [pooldigital.de论坛]（http://forum.pooldigital.de/）
+有关更多信息，请参阅以下链接（对不起，它只有德语；到目前为止还没有找到英文文档/信息）：
 
-**请明确说明：我与池控制单元的开发，销售，营销或支持无关。我刚刚开发了一种与ioBroker集成的解决方案，以使父母的家更智能。**
+* [pooldigital.de 网店](https://www.pooldigital.de/shop/poolsteuerungen/procon.ip/35/procon.ip-webbasierte-poolsteuerung-/-dosieranlage)
+* [pooldigital.de 论坛](http://forum.pooldigital.de/)
 
-###有关适配器的详细信息
-适配器使用ProCon.IP的`/GetState.csv`API轮询其值，以及另一个（未记录的）API，该API与按位命令一起操作以切换继电器。 ProCon.IP的原始Web界面也使用第二个。因此，将来可能会进行固件升级，从而破坏与该适配器的兼容性，或者至少破坏其切换继电器的功能。
+** 需要说明的是：我与泳池控制单元的开发、销售、营销或支持无关。我刚刚开发了一个解决方案，将其与 ioBroker 集成，让我父母的家变得更智能。**
 
-####兼容性
-目前，该适配器已与ProCon.IP固件**修订版1.7.0.c **结合进行测试和开发。
+### 适配器的详细信息
+适配器使用 ProCon.IP 的 `/GetState.csv` API 来轮询其值和另一个 - 未记录 - API，它使用按位命令操作来切换继电器。 ProCon.IP 的原始 Web 界面也使用第二个。因此，未来可能会有固件升级，与此适配器的制动器兼容性或至少它具有切换继电器的功能。
+
+#### 兼容性
+目前，该适配器已与 ProCon.IP 固件 ** 修订版 1.7.0.c** 结合进行测试和开发。
 
 ##路线图
 ### 1.x.x
-该计划没有什么特别的。您可以创建一个问题来建议新功能/功能...
+计划中没有什么特别之处。您可以创建一个问题来建议新特性/功能...
 
-**路线图上发生了什么事情，但是在1.0.0版本中没有实现？**嗯，文档已经得到改进。
-标签视图对我来说似乎很有趣。如果您喜欢这种功能，请告诉我...
-缺少关于控制器功能的自动化测试是非常令人不愉快的，但是现在的重点显然是变得稳定，并且为所有现有代码编写良好而有用的测试将花费大量时间（与使用复杂性和该软件项目的目标群体），并可能以进一步的重构而告终。因此，它将是将来的事情，但与1.0.0版本不再相关。
+**路线图上但未在 1.0.0 版本中实现的要点发生了什么变化？** 好吧，文档已经得到改进。
+选项卡视图对我来说似乎很有趣。如果您喜欢这样的功能，请告诉我...
+缺乏关于控制器功能的自动化测试是非常令人不快的，但现在的重点显然是变得稳定，并且为所有现有代码编写好的和有用的测试将花费大量时间（关于使用该软件项目的复杂性和目标群体），并可能以进一步重构而告终。所以它将是未来的东西，但不再与 1.0.0 版本相关。
 
-##发展与参与
-如果您希望参与此适配器的开发或文档，请随时与我联系。
+## 发展和参与
+如果您希望参与此适配器的开发或文档编制，请随时与我联系。
 
 该方法的有用链接将是
 
-* [TypeScript适配器模板]（https://github.com/ioBroker/ioBroker.template/tree/master/TypeScript）
+* [TypeScript 适配器模板](https://github.com/ioBroker/ioBroker.template/tree/master/TypeScript)
 
-  我从开始
+  我从和开始
 
-* [适配器开发人员指南]（https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md）。
+* [适配器开发人员指南](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md)。
 
 ## Changelog
+
+### 1.1.0
+Minor release:
+* Move API library sources into a [separate package](https://www.npmjs.com/package/procon-ip).
+* Update `common.name` attributes when the corresponding label changes.
+* Update dependencies
+
+### 1.0.2
+Minor update (was accidentally released as patch, regarding the version number):
+* Fine tune the polling and control requests 
+  (add additional adapter settings for this).
+* Wait a configurable amount of consecutive errors, before raising the log 
+  level to _Warning_ for polling requests.
+* Try to send control commands two more times, if an error occurs on the 
+  request. 
+**All point should reduce issues regarding irregular network disruptions.**
 
 ### 1.0.1
 Hotfix release:
@@ -172,4 +189,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2020 Yannic Labonte <yannic.labonte@gmail.com>
+Copyright (c) 2021 Yannic Labonte <yannic.labonte@gmail.com>

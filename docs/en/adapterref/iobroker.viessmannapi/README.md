@@ -1,165 +1,128 @@
-[![Build Status](https://travis-ci.org/thovid/ioBroker.viessmannapi.svg?branch=master)](https://travis-ci.org/thovid/ioBroker.viessmannapi)
-![Number of Installations](http://iobroker.live/badges/viessmannapi-installed.svg)
-
 ![Logo](admin/viessmannapi.png)
 
 # ioBroker.viessmannapi
- =================
+
+[![NPM version](https://img.shields.io/npm/v/iobroker.viessmannapi.svg)](https://www.npmjs.com/package/iobroker.viessmannapi)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.viessmannapi.svg)](https://www.npmjs.com/package/iobroker.viessmannapi)
+![Number of Installations (latest)](https://iobroker.live/badges/viessmannapi-installed.svg)
+![Number of Installations (stable)](https://iobroker.live/badges/viessmannapi-stable.svg)
+[![Dependency Status](https://img.shields.io/david/TA2k/iobroker.viessmannapi.svg)](https://david-dm.org/TA2k/iobroker.viessmannapi)
+
+[![NPM](https://nodei.co/npm/iobroker.viessmannapi.png?downloads=true)](https://nodei.co/npm/iobroker.viessmannapi/)
+
+**Tests:** ![Test and Release](https://github.com/TA2k/ioBroker.viessmannapi/workflows/Test%20and%20Release/badge.svg)
+
+## viessmannapi adapter for ioBroker
+
+Adapter for Viessmannapi
+
+**Man benötigt eine ClientID von der Viessmann API**
+
+
+https://developer.viessmann.com/de/clients besuchen und eine Client ID mit diesen Optionen erstellen:
+
+Name: iobroker
+
+**Google reCAPTCHA deaktivieren**
+
+URI: http://localhost:4200/
+
+Die Client ID in die Einstellungen kopieren
+
+**Außentemperatur findet sich z.B. hier:
+viessmannapi.0.XXXXX.0.features.heating.sensors.temperature.outside.properties.value.value**
+
+**Remote Befehle sind möglich unter
+viessmannapi.0.XXXXX.0.features.heating.dhw.temperature.main.commands.setTargetTemperature.setValue**
+
+
+
+**Kompatibilitätsliste**:
+
+**Regelungen für Wand- oder Kompaktgeräte**
+
+Vitotronic 200, Typ HO1, HO1A, HO1B, HO1D, HO2B, HO2C
+Vitotronic 200 RF, Typ HO1C, HO1E
+
+**Regelungen für bodenstehende Heizkessel**
+
+Vitotronic 200, Typ KO1B, KO2B, KW6, KW6A, KW6B, KW1, KW2, KW4, KW5
+Vitotronic 300, Typ KW3
+
+**Regelungen für Wärmepumpen und Hybridgeräte**
+
+Vitotronic 200, Typ WO1A, WO1B, WO1C
+
+**Regelungen für Festbrennstoffkessel**
+
+Vitoligno 200-S mit Ecotronic (ab Softwarestand 2.03)
+Vitoligno 250-S mit Ecotronic (ab Softwarestand 2.00)
+Vitoligno 300-C mit Ecotronic (ab Softwarestand 2.12)
+Vitoligno 300-P mit Vitotronic 200 FO1
+Vitoligno 300-S mit Ecotronic (ab Softwarestand 2.04)
+
+
+**Liste aller Datenpunkte:
+https://developer.viessmann.com/de/doc/iot/data-points**
+
+**Frage zu fehlende Datenpunkte bitte direkt an Viessmann
+https://www.viessmann-community.com/t5/The-Viessmann-API/bd-p/dev-viessmann-api**
+
+Beispiele:
+```
+Vorlauftemperatur: 
+viessmannapi.0.XXXX.features.heating.circuits.0.sensors.temperature.supply.properties.value.value, 
+
+Anzahl Zündungen:
+viessmannapi.0.XXXXX.features.heating.burners.0.statistics.properties.starts.value
+
+Betriebsstunden
+viessmannapi.0.XXXXX.features.heating.burners.0.statistics.properties.hours.value
+
+Kesseltemperatur
+viessmannapi.0.XXXXX.features.heating.boiler.sensors.temperature.main.properties.unit.value
+
+Kompressor aktiv:		viessmannapi.0.xxx.0.features.heating.compressors.0.properties.active.value
+Heizkreispumpe aktiv:		viessmannapi.0.xxx.0.features.heating.circuits.1.circulation.pump.properties.status.value
+Warmwasserbereitung:		viessmannapi.0.xxx.0.features.heating.dhw.charging.properties.active.value
+Heizungsmodus:			viessmannapi.0.xxx.0.features.heating.circuits.1.operating.modes.active.properties.value.value
+Heizprogramm:			viessmannapi.0.xxx.0.features.heating.circuits.1.operating.programs.active.properties.value.value
+Temperatur Heizprogramm normal:	viessmannapi.0.xxx.0.features.heating.circuits.1.operating.programs.normal.properties.temperature.value
+Temperatur Heizprogramm reduz.:	viessmannapi.0.xxx.0.features.heating.circuits.1.operating.programs.reduced.properties.temperature.value
+Warmwasser Soll Temperatur:	viessmannapi.0.xxx.0.features.heating.dhw.temperature.properties.value.value
+Warmwasser Ist Temperatur:	viessmannapi.0.xxx.0.features.heating.dhw.sensors.temperature.hotWaterStorage.properties.value.value
+Temperatur Außensensor:		viessmannapi.0.xxx.0.features.heating.sensors.temperature.outside.properties.value.value
+Statistik Kompressor Starts:	viessmannapi.0.xxx.0.features.heating.compressors.0.statistics.properties.starts.value
+Statistik Kompressor Stunden:	viessmannapi.0.xxx.0.features.heating.compressors.0.statistics.properties.hours.value
+Temperatursensoren der Heizkreise:   viessmannapi.0.xxxxxxx.0.features.heating.circuits.0.sensors.temperature.supply.properties.value.value
  
- **Note that as of March 2020, Viessmann has implemented some rate limiting for their API. Currently, the limits are 120 calls for a time window of 10 minutes and 1450 calls for a time window of 24 hours (see https://www.viessmann-community.com/t5/Experten-fragen/Q-amp-A-Viessmann-API/qaq-p/127660/comment-id/117660#M117660). For this reason, the poll intervall is set to 900 seconds. You can change it via the adpater configuration at your own risk. If too many calls are made in a short timeframe, your viessmann account is blocked for some time. This prevents access via the official Viessmann App as well!**
+Primärkreis Vorlauftemperatur:		viessmann.0.xxx.0.features.heating.primaryCircuit.sensors.temperature.supply.properties.value.value
+Sekundärkreis Vorlauftemperatur:	viessmann.0.xxx.0.features.heating.secondaryCircuit.sensors.temperature.supply.properties.value.value
+Sekundärkreis Rücklauftemperatur:	viessmann.0.xxx.0.features.heating.secondaryCircuit.sensors.temperature.return.properties.value.value
+?					viessmann.0.xxx.0.features.heating.sensors.temperature.return.properties.value.value
 
-This adapter connects your ioBroker system to your Viessmann central heating via the Viessmann API. It requires your heating system to be connected to the Viessmann Server via a Vitoconnect or similar device. All enabled information provided by the API is polled periodically (every 60 sec) and written into states.
-
-Note that this is a private project, so use at your own risk. It is not supported or endorsed by Viessmann!
-
-## Installation
-As this adapter is in an early development stage, installation can be done via the ioBroker 'latest' repository. On adapter settings, enter user name and password of your Viessmann account. If everything goes well, you should see states appear under `viessmannapi.X`. First values should arrive after 60 seconds.
-
-## States
-The specific states may depend on your installation. Examples are
-- `viessmannapi.0.heating.boiler.sensors.temperature.main.value` - boiler temperature
-- `viessmannapi.0.heating.circuits.0.heating.curve.shift` and `slope` - shift and slope determining the heating curve
-- `viessmannapi.0.heating.circuits.0.operating.modes.active.value` - current operating mode; for example `dhw` means hot water only, `dhwAndHeating` means hot water and heating
-- `viessmannapi.0.heating.sensors.temperature.outside.value` - outside temperature measured by the external sensor
-
-## Actions
-Some features provide *actions* to change some property. An action can be invoked via the `sendTo` method. The syntax looks like this:
-```javascript
-sendTo('viessmannapi.0', 'action', {
-    feature: 'heating.circuits.0.operating.programs.comfort',
-    action: 'setTemperature',
-    payload: {targetTemperature: 20}
-});
-```
-Above call would set the target temperature for the comfort program to 20°C. 
-
-### Supported Actions
-Below is a list of supported actions (note, that depending on your heating installation, some actions may not be available, or other actions are available but not documented here).
-
-| Feature                                           | Action               | Field                                                                                       | Notes                                                                            |
-|---------------------------------------------------|----------------------|---------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-| **heating.circuits.X.circulation.schedule**       |                      |                                                                                             |                                                                                  |
-|                                                   | setSchedule          |                                                                                             | sets the schedule for the circulation of circuit 'X'                             |
-|                                                   |                      | `newSchedule` (type:Schedule, see below, modes: 'on', default: 'off')                       | see description of Schedule type below                                           |
-| **heating.circuits.X.heating.curve**              |                      |                                                                                             |                                                                                  |
-|                                                   | setCurve             |                                                                                             | sets parameters of the heating curve for circuit 'X'; all fields required        |
-|                                                   |                      | `slope` (number, min: 0.2, max: 3.5, stepping: 0.1)                                         |                                                                                  |
-|                                                   |                      | `shift` (number, min: -13, max": 40, stepping: 1)                                           |                                                                                  |
-| **heating.circuits.X.heating.schedule**           |                      |                                                                                             |                                                                                  |
-|                                                   | setSchedule          |                                                                                             | sets the heating schedule for circuit 'X'                                        |
-|                                                   |                      | `newSchedule` (type: Schedule, see below, modes: 'normal', default: 'reduced'               | see description of Schedule type below                                           |
-| **heating.circuits.X.operating.modes.active**     |                      |                                                                                             |                                                                                  |
-|                                                   | setMode              |                                                                                             | sets the active mode for circuit 'X'                                             |
-|                                                   |                      | `mode` (string, enum: ["standby", "dhw", "dhwAndHeating", "forcedReduced", "forcedNormal"]) | required                                                                         |
-| **heating.circuits.X.operating.programs.comfort** |                      |                                                                                             |                                                                                  |
-|                                                   | setTemperature       |                                                                                             | sets temperature for comfort mode of circuit 'X'                                 |
-|                                                   |                      | `targetTemperature` (number, min: 4, max: 37, stepping: 1)                                  | required                                                                         |
-|                                                   | activate             |                                                                                             | No fields (send empty object), activates comfort mode                            |
-|                                                   | deactivate           |                                                                                             | No fields (send empty object), deactivates comfort mode                          |
-| **heating.circuits.X.operating.programs.eco**     |                      |                                                                                             |                                                                                  |
-|                                                   | activate             |                                                                                             | activates eco mode for circuit 'X' with optional temperature                     |
-|                                                   |                      | `temperature` (number, min: 3, max: 37, stepping: 1)                                        | optional                                                                         |
-|                                                   | deactivate           |                                                                                             | No fields (send empty object), deactivates eco mode                              |
-| **heating.circuits.X.operating.programs.holiday** |                      |                                                                                             |                                                                                  |
-|                                                   | schedule             |                                                                                             | Schedules holiday program for circuit 'X'                                        |
-|                                                   |                      | `start` (string)                                                                            | required, unknown format (probably some form of date string?)                    |
-|                                                   |                      | `end` (string)                                                                              | required, unknown format (probably some form of date string?)                    |
-|                                                   | unschedule           |                                                                                             | No fields (send empty object), deactivates holiday program                       |
-| **heating.circuits.X.operating.programs.normal**  |                      |                                                                                             |                                                                                  |
-|                                                   | setTemperature       |                                                                                             | Sets target temperature for normal mode of circuit 'X'                           |
-|                                                   |                      | `targetTemperature` (number, min: 3, max: 37, stepping: 1)                                  | required                                                                         |
-| **heating.circuits.X.operating.programs.reduced** |                      |                                                                                             |                                                                                  |
-|                                                   | setTemperature       |                                                                                             | Sets target temperature for reduced mode of circuit 'X'                          |
-|                                                   |                      | `targetTemperature` (number, min: 3, max: 37, stepping: 1)                                  | required                                                                         |
-| **heating.dhw.oneTimeCharge**                     |                      |                                                                                             |                                                                                  |
-|                                                   | activate             |                                                                                             | No fields (send empty object). Activates one time charge of hot water storage.   |
-|                                                   | deactivate           |                                                                                             | No fields (send empty object). Deactivates one time charge of hot water storage. |
-| **heating.dhw.temperature**                       |                      |                                                                                             |                                                                                  |
-|                                                   | setTargetTemperature |                                                                                             | Sets target temperature of hot water storage.                                    |
-|                                                   |                      | `temperature` (number, min: 10, max: 60, stepping: 1)                                       | required                                                                         |
-| **heating.dhw.schedule**                          |                      |                                                                                             |                                                                                  |
-|                                                   | setSchedule          |                                                                                             | sets the schedule for hot water perparation                                      |
-|                                                   |                      | `newSchedule` (type: Schedule, see below, modes: 'on', default: 'off')                      | See description of Schedule type below                                           |
-
-### Schedule Type
-Most actions use simple data types (numbers, strings). Some actions allow setting schedules. A schedule looks like this:
-```javascript
-{
-   "mon":[
-      {
-         "start":"05:30",
-         "end":"10:00",
-         "mode":"on",
-         "position":0
-      },
-      {
-          "start":"11:00",
-          "end":"12:30",
-          "mode":"on",
-          "position":1
-      },
-      /* ... */
-   ],
-   "tue":[ /* ... */ ],
-   "wed":[ /* ... */ ],
-   "thu":[ /* ... */ ],
-   "fri":[ /* ... */ ],
-   "sat":[ /* ... */ ],
-   "sun":[ /* ... */ ]
-}
 ```
 
-For each day, an array must be provided containing the "schedules" for this day. A single entry consists of start and end time, the scheduled "mode" and the position. The supported modes depend on what is scheduled, see table of supported features above. Outside of the scheduled elements, the default mode is used, see the table above. In the example above, something is scheduled to be "on" on monday between 5:30 and 10:00 and betwenn 11:00 and 12:30. Outside of these time intervals, the default mode ("off") is scheduled.
-
-### Querying all features
-To get a list of all available features with all available actions, simply send the message `describe` to a running adapter instance. The result is an array of all available features, that for example can be printed as JSON string via `JSON.stringify()`.
-
-*Example:*
-```javascript
-sendTo('viessmannapi.0', 'describe', {}, (result) => {
-    const features = JSON.stringify(result.result);
-    log(features);
-});
+**Beispiel zum setzen eines Schedule:**
 ```
-This script queries all available features and prints them into the log.
-
-## Notes
-- This adpater is in early development! Expect bugs, and feel free to report bugs here on github (https://github.com/thovid/ioBroker.viessmannapi/issues").
-
+var standard = '{"mon":[{"start":"00:00","end":"24:00","mode":"standard","position":0}],"tue":[{"start":"00:00","end":"24:00","mode":"standard","position":0}],\
+              "wed":[{"start":"00:00","end":"24:00","mode":"standard","position":0}],"thu":[{"start":"00:00","end":"24:00","mode":"standard","position":0}],\
+              "fri":[{"start":"00:00","end":"24:00","mode":"standard","position":0}],"sat":[{"start":"00:00","end":"24:00","mode":"standard","position":0}],\
+              "sun":[{"start":"00:00","end":"24:00","mode":"standard","position":0}]}'
+ 
+setState("viessmannapi.0.xxxxxxx.0.features.ventilation.schedule.commands.setSchedule.setValue", JSON.parse(standard)); 
+```
 ## Changelog
-### 1.3.3 (2020/03/23)
-* (thovid) Updated dependencies, set default poll intervall to 900 s due to rate limiting of the viessmann api
-### 1.3.2 (2019/02/10)
-* (thovid) Fixed a bug preventing the adapter to start
-### 1.3.1 (2019/02/05)
-* (thovid) reduced package size by removing unused stuff
-### 1.3.0 (2019/02/05)
-* (thovid) impoved action execution: validation of payload improved, schedule payload now supported
-* (thovid) added support for compact mode
-* (thovid) added configuration for poll interval
-### 1.2.0 (2018/12/18)
-* (thovid) added experimental support to execute actions on a feature via the `sendTo` function
-### 1.1.2 (2018/12/10)
-* (thovid) fixed bug that prevented email and password to be removed after initial authentication 
-### 1.1.1 (2018/12/10)
-* (thovid) fixed a bug that prevented certain properties from beeing exposed as states (for example `heating.burner`)
-### 1.1.0 (2018/12/10)
-* (thovid) Deletes email and password after sucessful connection, further connections are done via refresh token
-* (thovid) Uses npm released version of client lib, so no longer requires git upon installation
-### 1.0.0 (2018/12/07)
-* (thovid) Initial adapter
 
-## Legal
-- Viessmann and Vitoconnect are registered Trademarks of the Viessmann Werke GmbH & Co. KG. 
+### 2.0.1
 
-- This project is a private project and is *not* offically supported or endorsed by the Viessmann Werke GmbH & Co. KG, use at your own risk.
-
-- In case you have any questions, please contact me via github!
+-   (TA2k) initial release for new API. Complete new Data objects
 
 ## License
-The MIT License (MIT)
 
-Copyright (c) 2018 Thomas Vidic
+MIT License
+
+Copyright (c) 2021 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -168,13 +131,13 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

@@ -1,5 +1,12 @@
 # ioBroker.nibeuplink
-![Number of Installations](http://iobroker.live/badges/nibeuplink-installed.svg) ![Stable Version](http://iobroker.live/badges/nibeuplink-stable.svg) ![NPM Version](https://img.shields.io/npm/v/iobroker.nibeuplink.svg) ![NPM Downloads](https://img.shields.io/npm/dm/iobroker.nibeuplink.svg) ![Travis CI State](https://travis-ci.org/sebilm/ioBroker.nibeuplink.svg?branch=master)
+[![Build Status](https://github.com/sebilm/ioBroker.nibeuplink/workflows/Test%20and%20Release/badge.svg)](https://github.com/sebilm/ioBroker.nibeuplink/actions/workflows/test-and-release.yml)
+![Number of Installations](http://iobroker.live/badges/nibeuplink-installed.svg)
+![Stable Version](http://iobroker.live/badges/nibeuplink-stable.svg)
+[![NPM Version](https://img.shields.io/npm/v/iobroker.nibeuplink.svg)](https://nodei.co/npm/iobroker.nibeuplink/)
+[![NPM Downloads](https://img.shields.io/npm/dm/iobroker.nibeuplink.svg)](https://nodei.co/npm/iobroker.nibeuplink/)
+![Travis CI State](https://travis-ci.org/sebilm/ioBroker.nibeuplink.svg?branch=master)
+
+[![NPM](https://nodei.co/npm/iobroker.nibeuplink.png?downloads=true)](https://nodei.co/npm/iobroker.nibeuplink/)
 
 This ioBroker adapter receives data from a Nibe heat pump from Nibe Uplink.
 
@@ -12,7 +19,7 @@ This ioBroker adapter receives data from a Nibe heat pump from Nibe Uplink.
 5. Go to Nibe Uplink Api: https://api.nibeuplink.com/Account/LogIn and log in
 6. Click "MY APPLICATIONS" and then "Create application"
 7. Fill in: Name and Description can be everything e.g. ioBroker
-8. The Callback URL is important. You can use https://z0mt3c.github.io/nibe.html
+8. The Callback URL is important. You can use https://sebilm.github.io/ioBroker.nibeuplink/nibe.html
 9. Accept the NIBE Uplink API Services Agreement and click "Create application"
 10. Then you get an Identifier and a Secret - we need them
 11. Install this adapter in ioBroker
@@ -26,7 +33,42 @@ This ioBroker adapter receives data from a Nibe heat pump from Nibe Uplink.
 
 If you (later) get a "400 bad request" error in the log, you must get a new Auth Code - so do numbers 13 until 15 and 18.
 
+## Manage/Write Support
+
+It seems you can only change the parameters listet on the following web page:
+
+https://api.nibeuplink.com/docs/v1/Parameters (Settings section)
+
+The parameter "hot_water_boost" is parameter ID 48132.
+
+You can read other values but I think you can't write other values. Other values are here listed:
+
+https://github.com/sebilm/ioBroker.nibeuplink/blob/master/nibe-fetcher.js#L41
+
 ## Changelog
+
+### 1.0.1 - 2021-12-31
+* Fix write support #6
+
+### 1.0.0 - 2021-12-30
+* Support to manage Nibe heat pump (write support #6)
+  - You need to run the new version 30 minutes and then get a new AuthCode in the settings to use it!
+
+### 0.5.3 - 2021-11-21
+* Bump dependencies
+
+### 0.5.2 - 2021-07-04
+* Change default callback URL to own GitHub Pages
+* Bump dependencies
+
+### 0.5.1 - 2021-05-14
+* Store 'no current connection error' as empty string, not null
+* Bump dependencies
+
+### 0.5.0 - 2021-05-13
+* Add new connection types (cloud, poll)
+* Set supported node.js versions to >=12.0.0 <17
+* Do not log errors immediately after installation
 
 ### 0.4.0 - 2020-12-24
 * Set required js-controller to >=2.0.0
@@ -88,7 +130,7 @@ If you (later) get a "400 bad request" error in the log, you must get a new Auth
 ## License
 MIT License
 
-Copyright (c) 2019 Sebastian Häßelbarth <seb@sebmail.de>
+Copyright (c) 2021 Sebastian Häßelbarth <seb@sebmail.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

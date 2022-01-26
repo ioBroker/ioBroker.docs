@@ -5,10 +5,7 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.fritzdect.svg)](https://www.npmjs.com/package/iobroker.fritzdect)
 ![Number of Installations (latest)](http://iobroker.live/badges/fritzdect-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/fritzdect-stable.svg)
-[![Dependency Status](https://img.shields.io/david/foxthefox/iobroker.fritzdect.svg)](https://david-dm.org/foxthefox/iobroker.fritzdect)
 [![Known Vulnerabilities](https://snyk.io/test/github/foxthefox/ioBroker.fritzdect/badge.svg)](https://snyk.io/test/github/foxthefox/ioBroker.fritzdect)
-
-[![NPM](https://nodei.co/npm/iobroker.fritzdect.png?downloads=true)](https://nodei.co/npm/iobroker.fritzdect/)
 
 **Tests:** ![Test and Release](https://github.com/foxthefox/ioBroker.fritzdect/workflows/Test%20and%20Release/badge.svg)
 
@@ -42,18 +39,16 @@ The widget requires that also vis-metro and vis-jqui-mfd are installed
 
   1. Fritzbox returned '00000000' no login possible. possible reasons:
 
-        The fritzbox allows only a limited number of logins in a timeframe. So very fast polling (update) attempts may lead to blocking of logins.
+        The fritzbox allows only a limited number of logins in a timeframe.
         There are no appropriate user rights set in the fritzbox.
         There is a time elapsing in the fritzbox blocking the logins.
         A german doc is available here: [troubleshooting](./docs/de/troubleshooting.md)
 
- 2. no login to the FritzBox, when using https
-
-      Log messages if the form of:
+ 2. using https would result in:
 
           { error: { [Error: self signed certificate] code: 'DEPTH_ZERO_SELF_SIGNED_CERT' }
 
-      indicate that there are SSL security problems (certificate). Use the `"strictSSL": false` option (no tick in checkbox) in the admin page of adapter to disable the respective check (experimental). 
+      to overcome this, the option "rejectUnauthorized: false" is used in the https.request. 
 
 ## Thermostat
 ### Fritzbox AHA API
@@ -61,7 +56,7 @@ The API of fritzbox has the following access:
 * sethkrtsoll
     * 8-28°C for automatic control
     * greater 28°C (254=ON)
-    * greater 28°C (255=OFF)
+    * greater 28°C (253=OFF)
 
 These settings are covered by the hkrmode and the 3 buttons. The activation lasts as long there is no other command or programmed sequence.
 
@@ -70,6 +65,13 @@ Additionally there is the access to:
 * boostactive
 
 These are indications as well as commands (sethkrwindowopen,sethkrboost) and when commanded they act with the provided time limit (max. 24h).
+For activation of boost/windowopen the following sequence applies:
+* set the activetime to the desired value in minutes
+* activate the activ (from false -> true)
+* the acteendtime changes to the target
+For deactivation of boost/windowopen the following sequence applies:
+* deactivate the activ (from true -> false)
+* the acteendtime changes to unixtime=0
 
 ### fritzdect implementation
 From the above API possibilities the thermostat has different modes in point of view of iobroker.adapter:
@@ -135,6 +137,10 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 |*tchange*|number|-|temp with next change in °C| |DECT3x0| | | | | |
 |*endperiod*|time|-|time when next change is active| |DECT3x0| | | | | |
 |supported_modes|number|-|supported colormodes| | | | |DECT500| | |
+|*fullcolorsupport*|boolean|-|fullcolorsupport| | | | |DECT500| | |
+|*mapped*|boolean|-|indication mapped| | | | |DECT500| | |
+|*unmapped_hue*|number|-|unmapped hue value| | | | |DECT500| | |
+|*unmapped_saturation*|number|-|unmapped saturation value| | | | |DECT500| | |
 |current_mode|number|-|actual colormode| | | | |DECT500| | |
 |level|number|x|level 0-255 | | | | |DECT500|Blinds| |
 |levelpercentage|number|x|level 0-100 % | | | | |DECT500|Blinds| |
@@ -146,7 +152,8 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 |**blindsclose**|boolean|x|target close| | | | | |Blinds| |
 |**blindsstop**|boolean|x|target stop| | | | | |Blinds| |
 |lastalertchgtimestamp|time|-|timestamp | | | | | |Blinds| |
-
+|*enpositionsset*|boolean|-|status configuration | | | | | |Blinds| |
+|*mode*|text|-|modus | | | | | |Blinds| |
 
 ### groups
 |Object|Value|settable|Description|
@@ -164,7 +171,6 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 
 
 ## API limitations
-* too many login attempts to FB are refused by providing '00000000' as response
 * Boost and WindowOpen can only be set for the next 24h. time=0 is cancelling the command
 * updates to the thermostat are within a 15min range, depending on the previous communication of thermostat with fritzbox the next cycle is sooner or later, but definitely not imediately after an ioBroker intervention
 * if a windowopenactiv is set on a thermostat, which is part of a group, then the whole group and its thermostats is set to windowopenactiv (function inside the FB)
@@ -174,14 +180,65 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 
 ## Known Adapter Limitations:
 * Not all FW-versions of fritz.box support all objects.
-* https (DEPTH_ZERO_SELF_SIGNED_CERT -> strictSSL: false necessary) see above
 
 ## TODO:
 * map of data input from user to valid predefined colors (nearest match)
-* improvement of thermostat mode to text representation (auto, off, boost, comfort, night), comfort and night are also auto mode, but preset to the parametrized value
-* refactor to the format of as of "create adapter"
+* blind alert state -> decode bit array
 
 ## Changelog
+### 2.2.4
+* correction: number format from admin page for times and tsoll
+
+### 2.2.3 (npm)
+* buttons setmodeon/off/auto have now initial value false, and when triggered with true get false again (for next trigger)
+* buttons blindsclose/stop/open have now initial value false, and when triggered with true get false again (for next trigger)
+* boostactivetime and windowopenactivetime can now be set to a default value in the adapter config
+* new default temperature target in admin config (used if tsoll is not available e.g. object tree deleted and thermostat off/on)
+* corrections for handling the initial value for tsoll/lasttarget when thermostat is off/on
+
+### 2.2.2 (npm)
+* license update
+* corrected doc/de
+
+### 2.2.1
+* correction of "My colors" FB is not answering with valid xml
+* added test script (fritz.js) for login check in doc/de
+
+### 2.2.0 (npm)
+* refactoring of API to FB, single instance with relogin after experied session
+* refactoring main.js
+* using http.request instead of deprecated @root/request
+* log the user permissions
+* remove fasthack for OFF/ON, upper range tchange, absenk, komfort = 32
+* limitation of boost/windowopen activation to 24h
+* correction of "present" (issue #224) 
+
+### 2.1.16
+* temperature range in sockets 0..32°C -> -20..50°C
+* fast hack for OFF/ON feedback via temperature 253/254*0,5 -> upper range tchange, absenk, komfort = 128
+* fast mod for fwversion for HAN-FUN
+* present message correction
+
+### 2.1.15 (npm)
+* correction in timestamp as date/string
+* several version bumps
+
+### 2.1.14
+* operationmode and hkrmode tracking also after commands
+* extended datapoints for blinds from Rollotron
+* presence=0 was detected but not written to the datapoint, now corrected (skipping the updated is not affected)
+
+### 2.1.13
+* correction at group of switches (switchtype not recognized -> simpleonoff)
+* functionbitmask 32768 moved to role: switches
+
+### 2.1.12 (npm)
+* new values for DECT500
+* back to full unit testing
+
+### 2.1.11 (npm)
+* template for fritzfon
+
 ### 2.1.10
 * comfort/night is AUTO but reintroduced as operationmode
 
@@ -395,4 +452,4 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2021 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2018 - 2022 foxthefox <foxthefox@wysiwis.net>

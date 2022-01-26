@@ -2,22 +2,16 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sanext/README.md
-title: ioBroker.sanext
-hash: /1NQAs5hsEO5zROe69IA2MO23xH4YVyVzS9swD7JnWo=
+title: ioBroker.sannext
+hash: tHtUp8Y15p4QD+O5fFFWv2CKalhg0suSobJpm7lQ3Z8=
 ---
 ![标识](../../../en/adapterref/iobroker.sanext/admin/sanext_l.png)
 
-![安装数量](http://iobroker.live/badges/sanext-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.sanext.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.sanext.svg)
-![NPM](https://nodei.co/npm/iobroker.sanext.png?downloads=true)
 ![捐](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-＃ioBroker.sanext
-[![测试]（https://github.com/instalator/iobroker.sanext/workflows/Test%20and%20Release/badge.svg）](https://github.com/instalator/ioBroker.sanext/actions/)
-
-##用于ioBroker的Sanext适配器
-从热量表Sanext接收数据
+# IoBroker.sanext
+## IoBroker 的 Sanext 适配器
+从热量表 Sanext 接收数据
 
 ## Changelog
 

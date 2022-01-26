@@ -10,36 +10,42 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)](https://ci.appveyor.com/project/inventwo/iobroker-vis-inventwo)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/inventwo/iobroker.vis-inventwo/LICENSE)
 
-[![Paypal Donation](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GQPD3G25CKTEJ&source=url)
+[![Paypal Donation](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-green.svg)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 [![NPM](https://nodei.co/npm/iobroker.vis-inventwo.png?downloads=true)](https://nodei.co/npm/iobroker.vis-inventwo/)
 
 ## Schalter Widgets für den ioBroker.vis Adapter
 
+Schalter, Slider, Tabellen, Regler, Checkboxen, Radiobuttons und mehr...<br>
+Mit unserem Widgets-Set hast du die freie Wahl individuelle Visualisierungen ganz einfach für dein Smart-Home zu erstellen. 
+
 ###### .. ab v 2.0.0
-
-
 
 <table>
    <tr>
-        <td><center><b>Universal</b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td>
-        <td><center><b>Multi</b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td>
-        <td><center><b>Image</b><br><img src="widgets/vis-inventwo/img/Image.png"></td>
-         <td><center><b>Table</b><br><img src="widgets/vis-inventwo/img/Table.png"></td>
+        <td><center><b>Universal<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td>
+        <td><center><b>Multi<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td>
+        <td><center><b>Image<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Image.png"></td>
+         <td><center><b>Table<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Table.png"></td>
     </tr>
 <tr><td colspan=4></td></tr>   
     <tr>
-        <td><center><b>List</b><br><img src="widgets/vis-inventwo/img/List.png"></td>
-        <td><center><b>Marquee</b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td>
-        <td><center><b>Radio Button</b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td>
-        <td><center><b>Slider vertical</b><br><img src="widgets/vis-inventwo/img/Slider2.gif"></td>
+        <td><center><b>List<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/List.png"></td>
+        <td><center><b>Marquee<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td>
+        <td><center><b>Radio Button<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td>
+        <td><center><b>Slider<br>vertical</b><br><img src="widgets/vis-inventwo/img/Slider2.gif"></td>
     </tr>
 <tr><td colspan=4></td></tr>   
       <tr>
-        <td><center><b>Slider horizontal</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td>
-        <td><center><b>Colorslider horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td>
-        <td><center><b>Colorslider horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td>
-        <td><center><b>Toggle Switch</b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td>
+        <td><center><b>Slider<br>horizontal</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td>
+        <td><center><b>Colorslider<br>horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td>
+        <td><center><b>Colorslider<br>horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td>
+        <td><center><b>Toggle Switch<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td>
+    </tr>
+<tr><td colspan=4></td></tr>   
+      <tr>
+        <td><center><b>Basic Switch<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td>
+        <td><center><b>Checkbox/<br>Radiobutton</b><br><img src="widgets/vis-inventwo/img/Check.gif"></td>
     </tr>
 </table>
 
@@ -53,7 +59,7 @@
 
 
 
-Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit befinden sich in unserem Adapter NUR die reinen Schaltflächen (siehe oben) und die Icons. Uhr und Wetter stammen aus anderen Adaptern und müssen ggf. zusätzlich installiert werden.
+Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit befinden sich in unserem Adapter NUR die reinen Schaltflächen (siehe oben). Uhr und Wetter stammen aus anderen Adaptern und müssen ggf. zusätzlich installiert werden.
 
 ![Beispiel](http://resources.inventwo.com/github/inventwo/Preview.png)
 
@@ -66,11 +72,162 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 (Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker)
 
-[![Spende](http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GQPD3G25CKTEJ&source=url)
+[![Spende](http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
 
 ## Changelog / Änderungsprotokoll
+
+## 3.2.5
+- Bugfix
+
+## 3.2.4
+- Bugfix
+
+## 3.2.3
+- Bugfix
+
+## 3.2.2
+- Bugfix
+
+## 3.2.1
+- Problem mit aktiver Textfarbe behoben (#302)
+- Problem mit Multi-Widget und unterschiedlichem Prüftyp behoben (#303)
+- Problem beim Schließen mit View im PopUp behoben (#254)
+- Navigationseffekte aus der Basisnavigation hinzugefügt (#304)
+- Neu hinzugefügt Widget-Typ 'HTTP' für Universal- und Multi-Widget (#249)
+- Sichtbare Schritte für einfachen Slider hinzugefügt
+
+## 3.2.0
+- Textfarbe aktiv/inaktiv für Universal- & Multiwidget
+- Colorslider CIE Wert mit eckigen Klammern
+- Fehler behoben, dass Schattenfarbe bei Universal- & Multiwidget nicht aktualisiert
+- JSON Tabelle: Vorangestellter und angehänget Text
+
+## 3.1.3
+- Bugfix
+
+## 3.1.2
+- Bugfix
+
+## 3.1.1
+- Bugfix
+
+## 3.1.0
+- Neues Widget: Basisschalter
+- Neues Widget: Checkbox/Radiobutton
+- Bugfixes
+
+## 3.0.11
+- Bugfix
+
+## 3.0.10
+- Bugfix
+
+## 3.0.9
+- Bugfix
+
+## 3.0.8
+- Bugfix
+
+## 3.0.7
+- Bugfix
+
+## 3.0.6
+- Bugfix
+
+## 3.0.5
+- Bugfix
+
+## 3.0.4
+- Bugfix
+
+## 3.0.3
+- Bugfix
+
+## 3.0.2
+- Bugfix
+
+## 3.0.1
+- Bugfix
+
+## 3.0.0
+```diff
+#### ACHTUNG ####
+Nach dem Update sind die Icons vom Universal- und Multiwidget 
+nicht zu sehen, sind aber nicht weg! Damit diese wieder zu sehen sind müssen 
+die Widgets einmal EINZELN im Editor angeklickt werden.
+```
+- Beim Universal- und Multiwidget kann der Inhaltstyp geändert werden.
+    - Inhaltstypen: Bild (Standard), Analoge Uhr, Digitale Uhr und HTML/Text 
+    - Analoge und digitale Uhr: Farbe des Ziffernblatts under Zeiger kann frei gewählt werden, Zeitzone kann geändert werden
+    - Statt dem Icon kann ein eigener Text oder ein Datenpunktwert per Binding angezeigt werden
+- Vergleichsoperatoren Größer-Gelich und Kleiner-Gleich
+- PopUp kann per Datenpunk geöffnet werden
+- Bugfix:
+    - Colorslider unsichtbar wenn für CIE kein Wert vorhanden ist
+    - Links funktionieren nicht im Popup
+    - State Rückmeldedauer funktioniert nicht richtig
+
+## 2.9.7
+- Bugfix
+
+## 2.9.6
+- Bugfix
+
+## 2.9.5
+- Bugfix
+
+## 2.9.4
+- Bugfix
+
+## 2.9.3
+- Fehler mit PopUp behoben: Klick zum schließen wurde direkt nach Öffnen registriert und Klick löste Buttons hinter dem PopUp aus
+- Zustände wurden bei View in PopUp nicht richtig angezeigt
+
+## 2.9.2
+- Problem mit Datenpunkt zum Schließen des Popups behoben. ACHTUNG! Der Datenpunkt muss erneut ausgewählt werden
+
+## 2.9.1
+- Bugfix
+
+## 2.9.0
+- Multi-Widget-Status können unabhängig vom Widget-Typ nach Datenpunkten oder Views prüfen
+- Optionen zum automatischen Schließen des Popups hinzugefügt
+- Bugfixes
+
+## 2.8.3
+- Bugfix
+
+## 2.8.2
+- Problem mit Colorslider behoben: Wert wird nicht in Datenpunkt gesetzt, wenn "Wert bei Freigabe aktualisieren" aktiviert ist",
+
+## 2.8.1
+- Fehler behoben: Color Slider RGB aktualisiert bei Dp Änderung nicht (WICHTIG: Datenpunkte müssen neu ausgewählt werden!) 
+
+## 2.8.0
+- View in PopUp Option für Universal- und Multi-Widget hinzugefügt
+- Bugfix
+
+## 2.7.11
+- Bugfix
+
+## 2.7.10
+- Problem mit Bildern im Universal und Multi Widget behoben
+- Problem mit Bildwechesl im Universal und Multi Widget behoben
+
+## 2.7.9
+- Option für die Bildgröße für das Image-Widget hinzugefügt
+- Fehler von vorheriger Version behoben
+
+## 2.7.8
+- Problem mit Textausrichtung behoben
+- Problem mit Bildgröße im Image-Widget behoben
+
+## 2.7.7
+
+- Problem mit der Bildgröße behoben
+- Problem mit dem Farbregler behoben, dass der Wert beim loslassen nicht gespeichert wurde
 
 ## 2.7.6
 - Problem mit Symbolfarbe für Navi-Widget behoben
@@ -297,7 +454,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## License
 
-Urheberrechte (c) 2020 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
+Urheberrechte (c) 2021 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
 
 
 MIT License (nur in englisch / englisch only)

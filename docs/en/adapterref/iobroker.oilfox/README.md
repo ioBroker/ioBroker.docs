@@ -15,6 +15,9 @@ This adapter allows to get data from the oilfox sensor via the Oilfox Website.
 
 ## Changelog
 
+### 3.1.0 (2021.06.06)
+* (jogibear9988) fix multiple oilfox
+
 ### 3.0.0 (2020.09.10)
 * (bazidibavaria) fixes after api changes
 
@@ -52,7 +55,7 @@ This adapter allows to get data from the oilfox sensor via the Oilfox Website.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2019 jogibear9988 <jochen.kuehner@gmx.de>
+Copyright (c) 2018-2021 jogibear9988 <jochen.kuehner@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,13 +1,15 @@
 ![Logo](admin/alexa.png)
 # ioBroker.alexa2
-![Number of Installations](http://iobroker.live/badges/alexa2-installed.svg) ![Number of Installations](http://iobroker.live/badges/alexa2-stable.svg) 
 
-[![NPM version](https://img.shields.io/npm/v/iobroker.alexa2.svg)](https://www.npmjs.com/package/iobroker.alexa2)
-[![Build Status](https://travis-ci.org/Apollon77/ioBroker.alexa2.svg?branch=master)](https://travis-ci.org/Apollon77/ioBroker.alexa2)
-[![Build status](https://ci.appveyor.com/api/projects/status/c92hrxu79mvs1qxo?svg=true)](https://ci.appveyor.com/project/Apollon77/iobroker-alexa)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/Apollon77/iobroker.alexa2/blob/master/LICENSE) [![Greenkeeper badge](https://badges.greenkeeper.io/Apollon77/ioBroker.alexa2.svg)](https://greenkeeper.io/)
+![Number of Installations](http://iobroker.live/badges/alexa2-installed.svg)
+![Number of Installations](http://iobroker.live/badges/alexa2-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.alexa2.svg)](https://www.npmjs.com/package/iobroker.alexa2)
 
-**This adapter uses the service [Sentry.io](https://sentry.io) to automatically report exceptions and code errors and new device schemas to me as the developer.** More details see below!
+![Test and Release](https://github.com/Apollon77/iobroker.alexa2/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/alexa2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.alexa2.svg)](https://www.npmjs.com/package/iobroker.alexa2)
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 This adapter allows you to remote control your Alexa (Amazon Echo) devices.
 
@@ -47,6 +49,7 @@ Alarm (Wecker) settings for each device, if available.
 | enabled | Shows status of alarm and allows to change it: Activate alarm with true - Deactivate alarm with false | true / false |
 | time | Time for alarm. Overwrite the time for existing alarm to set a new time for this alarm. In case you have an existing alarm you can change the time here by simply overwrite the time in format hh:mm:ss, seconds are not needed to set | Time Input |
 | triggered | true if alarm is reached and triggered. Clock must be in sync with Amazon and iobroker, Use this to trigger other action as soon as the alarm time is reached | true / false |
+| recurringPattern | Shows the recurring pattern of alarm | 0 = one time, no recurring <br> P1D = daily <br> XXXX-WD = on weekdays <br> XXXX-WE = on weekends <br> XXXX-WXX-1 = every monday <br> XXXX-WXX-2 = every tuesday <br> XXXX-WXX-3 = every wednesday <br> XXXX-WXX-4 = every thursday <br> XXXX-WXX-5 = every friday <br> XXXX-WXX-6 = every saturday <br> XXXX-WXX-7 = every sunday |
 | new | time for new alarm for this device. If you put a value here a new alarm will be created | Time Input (hh:mm:ss, seconds are not needed) |
 
 ### alexa2.0.Echo-Devices.Serialnumber.Bluetooth.*
@@ -86,6 +89,8 @@ Detailed information Speak and Announcement: Type in here what you want Alexa to
 Example: 10;Alexa is saying Alexa with 10% volume, while 100;Alexa is 100% volume.
 Normally you only can send 250 characters per speak command. By using the semicolon it is possible to write as much as you want, as long as you separate 250 characters with a semicolon.
 Alexa will then speak the text after each other with a small break. You also can use the volume together with more 255 blocks by writing #Volume;#Block1;#Block2, a.s.o A volume set here will be used over a defined speak-volume.
+
+Partially also sounds from https://developer.amazon.com/en-US/docs/alexa/custom-skills/ask-soundlibrary.html work. Specify in speak or ssml as `<audio src="soundbank://soundlibrary/animals/amzn_sfx_bear_groan_roar_01"/>`. Details and discussion please at https://forum.iobroker.net/topic/27509/ssml-audio
 
 ### alexa2.0.Echo-Devices.Serialnumber.Info.*
 Information about the Alexa device
@@ -171,6 +176,7 @@ You can have one or more timer running on each Alexa device. Because of the very
 | - | - | - |
 | triggered | A timer got triggered | Information
 
+**Please note that it is important that the timezone of the ipbroker host is set to match your local timezone, else the triggered time detection might be wrong!**
 
 ### alexa2.0.Echo-Devices.Serialnumber.online
 Is this Alexa device online and connected to the Amazon cloud ?
@@ -280,13 +286,50 @@ If the automatic Cookie determination don't work or you do not trust the Adapter
 
 But be aware: The Cookie will time out after several time and then the adapter will stop working and disable itself. You then need to manually get a new cookie!
 
-## What is Sentry.io and what is reported to the servers of that company?
-Sentry.io is a service for developers to get an overview about errors from their applications. And exactly this is implemented in this adapter.
-
-When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry. When you allowed iobroker GmbH to collect diagnostic data then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of this helps me to provide error free adapters that basically never crashs.  
-
 
 ## Changelog
+### 3.12.0 (2021-11-13)
+* (Apollon77) SequenceNodes created for a device are now bound to the "deviceOwnCustomer" - should help in mixed owner groups
+* (ammawel) Add recurringPattern for Notifications (see Readme)
+* (Apollon77) Fix crash case
+* (Apollon77) Make sure states are not set too early before objects are created
+
+### 3.11.2 (2021-10-12)
+* (Apollon77) Fix crash case (Sentry IOBROKER-ALEXA2-AT)
+
+### 3.11.1 (2021-10-12)
+* (Apollon77) Prevent warnings with js-controller 3.3
+
+### 3.11.0 (2021-10-12)
+* (Apollon77) Add support for Multi Utterance Routines
+* (Apollon77) Fix object deletion for lists
+* (Apollon77) Fix Creation of new Lists and add deletion support
+* (Apollon77) Allow Commands for Stereo Pairs
+* (Apollon77) Optimize Push Connection and History retrieval
+
+### 3.10.4 (2021-10-11)
+* IMPORTANT: Node.js 10 support is dropped, supports LTS versions of Node.js starting with 12.x
+* (Apollon77) Update Push Connection
+
+### 3.9.3 (2021-07-11)
+* (Apollon77) Try to fix setting targetTemperature for ThermostatController
+
+### 3.9.2 (2021-07-05)
+* (Apollon77) Only ignore empty history entries if both, summary and alexaResponse is empty
+
+### 3.9.1 (2021-06-04)
+* (Apollon77) Fix cookie exchange and cookie validation checks
+
+### 3.9.0 (2021-05-11)
+* (Apollon77) Add some new devices
+* (Apollon77) Always recognize "alexa" as wakeword to handle commands via the apps correctly
+
+### 3.8.4 (2021-05-11)
+* (Apollon77) Optimize Cookie refresh handling
+* (Apollon77) Fix warnings from js-controller 3.3 and optimize
+
+### 3.8.2 (2021-04-19)
+* (Apollon77) Adjust automatic Cookie Refresh interval from 7 to 4 days
 
 ### 3.8.1 (2021-02-09)
 * (Apollon77) Initialize volume for all devices on start
@@ -347,7 +390,7 @@ When the adapter crashes or an other Code error happens, this error message that
 * (arteck) add echo studio
 
 ### 3.2.6 (2020-07-15)
-* (Apollon77) Work around Amazon Security changes and make proxy working again 
+* (Apollon77) Work around Amazon Security changes and make proxy working again
 
 ### 3.2.5 (2020-07-13)
 * (Apollon77) Work around Amazon Security changes and make proxy working again 
@@ -374,7 +417,7 @@ When the adapter crashes or an other Code error happens, this error message that
 * (Apollon77) make sure that Lists objects are deleted correctly when deleting
 * (Apollon77) Make compatible with nodejs 14
 * (Apollon77) Adjust to changes from Amazon so that initial Proxy process works again
-* (OberstVonGatow) Make sure that for Spotify Media data requests do not have negative effects and stop the playback  
+* (OberstVonGatow) Make sure that for Spotify Media data requests do not have negative effects and stop the playback
 
 ### 3.1.2 (2020-03-18)
 * (Gieskanne/Apollon77) Add Next Timer Date as state
@@ -412,7 +455,7 @@ When the adapter crashes or an other Code error happens, this error message that
 * (Apollon77) prevent some crashed after changes by Amazon
 * (Apollon77) fix Routine names after changes by Amazon
 * (Apollon77) add some devices and new images
-* (Apollon77) Add more situations to update player status because amazon send no info anymore on title changes 
+* (Apollon77) Add more situations to update player status because amazon send no info anymore on title changes
 
 ### 2.6.4 (2019-07-25)
 * (Apollon77) add some error handling for contacts
@@ -450,7 +493,7 @@ When the adapter crashes or an other Code error happens, this error message that
 * (Apollon77) optimize Admin display of Status/Link
 * (Apollon77) add Link to https://alexa.amazon.com to Admin instance overview
 * (Apollon77) Remove Admin2 support
-* (Apollon77) Optimize Handling from DNS errors (hopefully) to prevent stopped Adapters on Internet/DNS problems 
+* (Apollon77) Optimize Handling from DNS errors (hopefully) to prevent stopped Adapters on Internet/DNS problems
 
 ### 2.3.3 (2019-06-21/22)
 * (Apollon77) adjust to current Amazon changes
@@ -468,7 +511,7 @@ When the adapter crashes or an other Code error happens, this error message that
 ### 2.1.0 (2019-01-13) [unpublished]
 * (Apollon77) cookie handling completely rewritten, no email/password anymore, only Proxy (still only from log)
 * (Apollon77) fixes routine triggering that triggered on wrong device sometimes
-* (Apollon77) added new commands "deviceStop", "announcement", "notification", and "ssml" (see documentation above) 
+* (Apollon77) added new commands "deviceStop", "announcement", "notification", and "ssml" (see documentation above)
 
 ### 1.1.3 (2018-11-17)
 * (Apollon77) optimize cookie handling again
@@ -552,7 +595,6 @@ When the adapter crashes or an other Code error happens, this error message that
 * (Apollon77) New "Music-Provider" states depending on available music providers with possibility to enter a text to play something (same as you would speak it)
 * (Apollon77) Volume is send different now, so that it also works when Device player get's inactive
 
-
 ### 0.2.4 (2018-07-22)
 * (pix) materialize settings window
 * (Apollon77) WOn IP is set automatically with IP from first network interface
@@ -585,16 +627,6 @@ When the adapter crashes or an other Code error happens, this error message that
 * (Apollon77) 0.2.0: Automatically use different user-agents for Win32, MacOS and Linux based systems
 * (Apollon77) 0.2.0: Also support entering TuneIn-Station IDs ("s" plus 4-6 digits) to play that station
 
-### 0.1.x (Github only as iobroker.alexa)
-* (Apollon77) 0.1.5: Adapter disables itself on error (no cookie/no csrf in cookie/captcha needed)
-* (Apollon77) 0.1.5: Reorganized some states (delete object again please), add playerinfo section for later usage, hopefully fixed unplanned device renaming and other things
-* (Apollon77) 0.1.5: Added adapter config options to overwrite used amazon-page, user-agent and accept-language for cookie determination and
-* (Apollon77) 0.1.4: State changes are logged and only considered when ack=false!
-* (Apollon77) 0.1.3: Corrected all roles, delete objects and start again!
-* (Apollon77) 0.1.3: bluetooth connection status filled correctly initially
-* (Apollon77) 0.1.2: Library fixes and updates
-* (Apollon77) 0.1.1: Library fixes and updates
-
 ### 0.1.0 (2018-07-10)
 * (Apollon77) get Adapter working again, especially getting cookie and optimize refresh
 
@@ -605,7 +637,7 @@ When the adapter crashes or an other Code error happens, this error message that
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2018 soef <soef@gmx.net>, 2018-2020 Ingo Fischer <iobroker@fischer-ka.de>
+Copyright (c) 2018-2021 Ingo Fischer <iobroker@fischer-ka.de>, 2017-2018 soef <soef@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

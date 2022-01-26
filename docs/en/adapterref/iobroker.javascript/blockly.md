@@ -97,6 +97,7 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
         - [Get substring](#get-substring)
         - [Convert to upper case or to lower case](#Convert-to-upper-case-or-to-lower-case)
         - [Trim string](#trim-string)
+        - [Multiline](#multiline)
     - [Lists](#lists)
         - [Create empty list](#create-empty-list)
         - [Create list with values](#create-list-with-values)
@@ -2032,6 +2033,8 @@ With the help of this block you can cancel periodically execution of interval bl
 ### Convert to upper case or to lower case
 
 ### Trim string
+
+### Multiline
 
 ## Lists
 

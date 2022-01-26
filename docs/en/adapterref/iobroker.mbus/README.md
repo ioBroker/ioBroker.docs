@@ -2,8 +2,6 @@
 # ioBroker.mbus
 ======================
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/Apollon77/ioBroker.mbus.svg)](https://greenkeeper.io/)
-
 ![Number of Installations](http://iobroker.live/badges/mbus-installed.svg) ![Number of Installations](http://iobroker.live/badges/mbus-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.mbus.svg)](https://www.npmjs.com/package/iobroker.mbus)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.mbus.svg)](https://www.npmjs.com/package/iobroker.mbus)
 [![Code Climate](https://codeclimate.com/github/Apollon77/ioBroker.mbus/badges/gpa.svg)](https://codeclimate.com/github/Apollon77/ioBroker.mbus)
@@ -43,6 +41,12 @@ Please use GitHub issues for this.
 Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
+
+### 2.3.4 (2021-03-07)
+* (Apollon77) Send a reset to the device before reading data
+
+### 2.3.2 (2021-02-27)
+* (Apollon77) Prevent crash case(Sentry IOBROKER-MBUS-H)
 
 ### 2.3.1 (2020-10-30)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-MBUS-F)

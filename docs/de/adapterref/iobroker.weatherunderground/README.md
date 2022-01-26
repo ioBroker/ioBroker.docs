@@ -3,26 +3,27 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.weatherunderground/README.md
 title: ioBroker.weatherunderground
-hash: KQBKAuXaHZmK2XRbNAt/ff0+mkMYDLf0Ao3vFnFby04=
+hash: tzGdNig2Zr1fpKhzP9WLQqNVGjUWPlk3j/vm+9/NodI=
 ---
 ![Logo](../../../en/adapterref/iobroker.weatherunderground/admin/wu.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/weatherunderground-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.weatherunderground.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.weatherunderground.svg)
-![NPM](https://nodei.co/npm/iobroker.weatherunderground.png?downloads=true)
 
 # IoBroker.weatherunderground
+![Testen und freigeben](https://github.com/iobroker-community-adapters/iobroker.weatherunderground/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus] (https://weblate.iobroker.net/widgets/adapters/-/weatherunderground/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 ** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ioBroker Adapter zum Laden der 24-Stunden-Wettervorhersage für Ihren Standort aus [Das Wetter unter der Erde](http://www.wunderground.com/).
 Der Adapter lädt alle täglichen und stündlichen 15-Minuten-Prognosedaten (Standard).
 
 ## Anmerkungen
-Sie können diesen Adapter verwenden, um einen offiziellen API-Schlüssel für "PWS-Eigentümer" bereitzustellen, oder den API-Schlüssel leer lassen, um aus der WU-Webseite extrahierte Schlüssel zu verwenden.
+Sie können diesen Adapter verwenden, um einen offiziellen "PWS-Eigentümer" -API-Schlüssel bereitzustellen, oder den API-Schlüssel leer lassen, um aus der WU-Webseite extrahierte Schlüssel zu verwenden.
 
 ## Icon Sets
-Bei Verwendung der "Legacy-API" sind verschiedene Symbolsätze verfügbar (siehe unten). Für den Benutzer mit der neuen API haben sich die Bildnamen geändert (siehe https://docs.google.com/document/d/1dNCf6nF6cjm4oOxQxjtqNuAvG_iEe5f9MQH1xlCeV4s/edit) und können nun z. https://drive.google.com/drive/folders/0B6fWQWXuE09OOWtBOXJNX190TDQ und kann als benutzerdefinierter Satz verwendet werden (siehe unten).
+Bei Verwendung der "Legacy-API" sind verschiedene Symbolsätze verfügbar (siehe unten). Für die Benutzer mit der neuen API haben sich die Bildnamen geändert (siehe https://docs.google.com/document/d/1dNCf6nF6cjm4oOxQxjtqNuAvG_iEe5f9MQH1xlCeV4s/edit) und können nun z. https://drive.google.com/drive/folders/0B6fWQWXuE09OOWtBOXJNX190TDQ und kann als benutzerdefinierter Satz verwendet werden (siehe unten).
 
 Ändern Sie in den Adaptereinstellungen "Benutzerdefinierte Symbol-Basis-URL" in eines der verfügbaren Symbolsätze auf Weatherunderground: (Quelle: https://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets )
 
@@ -75,6 +76,13 @@ http://forum.iobroker.org/viewtopic.php?f=20&t=2042&sid=a863d19838bc49439759bef8
 Es gibt immer noch ein Problem mit der Codierung. Die Adressen mit "äüöß" werden falsch angezeigt.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Optimize for js-controller 3.3
+
+### 3.3.0 (2021-01-22)
+* (Apollon77) Optimize for js-controller 3.2
+* (Apollon77) js-controller 2.0 is now required at least
 
 ### 3.2.5 (2020-12-27)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-WEATHERUNDERGROUND-1, IOBROKER-WEATHERUNDERGROUND-2)
@@ -213,7 +221,7 @@ initial release with all basics to load WU-forecast data
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2020 dschaedl <daniel.schaedler@gmail.com>
+Copyright (c) 2015-2021 dschaedl <daniel.schaedler@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

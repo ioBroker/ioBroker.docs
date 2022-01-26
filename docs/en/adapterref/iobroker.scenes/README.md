@@ -1,10 +1,14 @@
 ![Logo](admin/scenes.png)
 # ioBroker scenes adapter
 
-![Number of Installations](http://iobroker.live/badges/scenes-installed.svg) ![Number of Installations](http://iobroker.live/badges/scenes-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.scenes.svg)](https://www.npmjs.com/package/iobroker.scenes)
+![Number of Installations](http://iobroker.live/badges/scenes-installed.svg)
+![Number of Installations](http://iobroker.live/badges/scenes-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.scenes.svg)](https://www.npmjs.com/package/iobroker.scenes)
+
+![Test and Release](https://github.com/ioBroker/ioBroker.scenes/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/scenes/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.scenes.svg)](https://www.npmjs.com/package/iobroker.scenes)
 
-[![NPM](https://nodei.co/npm/iobroker.scenes.png?downloads=true)](https://nodei.co/npm/iobroker.scenes/)
 
 _scenes Adapter_ can create scenes and execute them in ioBroker environment.
 
@@ -91,7 +95,17 @@ Delays can be used in the **group** too, but the states with delay are not parti
 
 ## Virtual groups
 **Virtual groups** are like virtual channels and like groups, but can have any kind of values: numbers, strings and so on. 
-You can create virtual group to control all shutters in living room. By writing 40% into virtual group all shutters will be set to 40%. 
+You can create virtual group to control all shutters in living room. 
+By writing 40% into virtual group all shutters will be set to 40%.
+
+Additionally, you can define the behaviour for which value should be taken for the group if not all states of the group have the same value.
+
+You can provide following aggregations (available only in advanced mode):
+- `uncertain` - (default) - the value of the group will have text `uncertain`.
+- `any` - first non zero value of all states in group.
+- `min` - minimal value of all states in group.
+- `max` - maximal value of all states in group.
+- `avg` - average value of all states in group.
 
 ## Save actual states as scene
 To save actual states in some scene you can send a message to the adapter:
@@ -114,6 +128,10 @@ The adapter will read all actual values for IDs defined in this scene and save i
 -->
 
 ## Changelog
+### 2.3.8 (2021-08-31)
+* (Apollon77) Handle case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
+* (TyrionWarMage) Added the aggregation mode for the virtual groups.
+* (bluefox) Sentry data will not be sent in front-end if the diagnostic or sentry is disabled
 
 ### 2.3.6 (2021-01-22)
 * (Apollon77) Check state id before getting value (Sentry IOBROKER-SCENES-F)
@@ -231,9 +249,10 @@ The adapter will read all actual values for IDs defined in this scene and save i
 ### 0.0.1 (2015-07-29)
 * (bluefox) initial commit
 
+## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2020, Bluefox (dogafox@gmail.com)
+Copyright (c) 2015-2021, Bluefox (dogafox@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

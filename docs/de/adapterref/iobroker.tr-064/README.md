@@ -8,71 +8,71 @@ hash: D59HzSVYkdStJaSDx6e91FA6u2/6TTOD7QeUisJd0X0=
 ---
 ![Logo](../../../en/adapterref/iobroker.tr-064/media/tr-064.png)
 
-# IoBroker.tr-064
+#ioBroker.tr-064
 ### Die Info
-Dieser Adapter liest Hauptinformationen von AVM Fritz! Box, wie Anrufliste oder Anzahl der Nachrichten auf dem Anrufbeantworter.
-Basierend auf diesen [AVM-Dokumentationen](https://avm.de/service/schnittstellen/)
+Dieser Adapter liest die wichtigsten Informationen von AVM Fritz!Box, wie Anrufliste oder Anzahl der Nachrichten auf dem Anrufbeantworter.
+Auf dieser Grundlage [AVM Dokumentationen](https://avm.de/service/schnittstellen/)
 
 ### Einfache Zustände und Funktionen
-- WLAN für 2,4 GHz und 5 GHz ein- und ausschalten,
-- Gast-WLAN ein- / ausschalten,
-- Fritz! Box neu starten,
+- WLAN für 2,4 GHz und 5 GHz ein-/ausschalten,
+- Gäste-WLAN ein-/ausschalten,
+- Fritz!Box neu starten,
 - WPS-Prozess starten,
 - Internet wieder verbinden
 - externe IP-Adresse
 
-### Klingeln (Nummer wählen)
-- Wenn Sie eine Internel-Nummer (wie ** 610) verwenden, klingelt das interne Telefon im Klingelstatus.
+### Klingeln (wählen Sie eine Nummer)
+- Wenn Sie eine interne Nummer (wie **610) verwenden, lässt der Rufstatus das interne Telefon klingeln.
 
-z. B.: ** 610 [, Zeitüberschreitung]
+Bsp.: **610[,Zeitüberschreitung]
 
-- Wenn Sie eine externe Nummer verwenden, verbindet Sie der Rufzustand mit der externen Nummer.
+- Bei Verwendung einer externen Nummer verbindet Sie der Ruftonstatus mit der externen Nummer.
 
 Die FritzBox ruft die externe Nummer an und Ihr Standardtelefon klingelt, wenn das angerufene Telefon abgenommen wird.
-Das Standardtelefon kann in der FritsBox unter Telefonie / Gebühren / [Tab] Wahlhilfe / Wählhilfe konfiguriert werden
+Das Standardtelefon kann in der FritsBox konfiguriert werden unter: Telefonie/Anrufe/[Tab]Wahlhilfe/Wählhilfe verwenden
 
 ### ToPauseState
 - Werte: klingeln, verbinden, beenden
 - Kann verwendet werden, um einen Videoplayer bei einem eingehenden Anruf (Klingeln) oder beim Abheben des Telefons (Verbinden) anzuhalten.
-- Die Wiederaufnahme kann am Endwert erfolgen.
+- Resume kann am Endwert erfolgen.
 
 ### Präsenz
-Sie können eine Liste der Geräte konfigurieren, die abgehört werden sollen.
-Kann von mDNS ausgelöst werden. Bei Verwendung von MDNS ist keine Abfrage erforderlich und es ist schneller
+Sie können eine Liste der zu hörenden Geräte konfigurieren.
+Kann per mDNS getriggert werden. Bei Verwendung von MDNS ist kein Polling erforderlich und es ist schneller
 
-### AB - Anrufbeantworter
-Kann ein- und ausgeschaltet werden.
-Der Status cbIndex kann auf die Adresse # des Anrufbeantworters gesetzt werden.
+### AB - Anrufbeantworter (Anrufbeantworter)
+Kann ein-/ausgeschaltet werden.
+Der Zustand cbIndex kann auf die Adresse # des Anrufbeantworters gesetzt werden.
 
 ### Anrufmonitor
-Der Anrufmonitor erstellt Echtzeitzustände für jeden eingehenden und ausgehenden Anruf.
-Wenn das Telefonbuch aktiviert ist (Standard), werden die Nummern in Namen aufgelöst. Es gibt auch einen Status, der auf ein klingelndes Telefon hinweist.
+Der Callmonitor erstellt Echtzeitstatus für jeden eingehenden und ausgehenden Anruf.
+Wenn das Telefonbuch aktiviert ist (Standard), werden Nummern in Namen aufgelöst. Es gibt auch einen Status, der auf ein klingelndes Telefon hinweist.
 
 ### Telefonbuch
-- Wenn das Telefonbuch aktiviert ist, wird der Name der Telefonnummer des Anrufers abgerufen.
-- Außerdem gibt es drei Zustände, um eine Nummer oder einen Namen aufzulösen. Falls verfügbar, erhalten Sie auch die Bild-URL des Kontakts.
+- Das Telefonbuch, falls aktiviert, wird verwendet, um den Namen der Telefonnummer des Anrufers abzurufen.
+- Weiterhin gibt es drei Zustände um eine Nummer oder einen Namen aufzulösen. Falls vorhanden, erhalten Sie auch die Bild-URL des Kontakts.
 
-  Beispiel: Wenn Sie das Status-Telefonbuch festlegen, werden alle drei Status, Name, Nummer und Bild auf den gefundenen Kontakt gesetzt. Beachten Sie, dass bei der Suche nach Namen zunächst der vollständige Name verglichen wird. Wenn dieser nicht gefunden wird, wird ein Teil von verwendet.
+  Bsp.: Wenn Sie den Status Telefonbuch.Nummer setzen, werden alle 3 Staaten, Name, Nummer und Bild auf den gefundenen Kontakt gesetzt. Beachten Sie, dass die Suche nach Namen zuerst den vollständigen Namen vergleicht, wenn er nicht gefunden wird, wird ein Teil davon verwendet.
 
 ### Anruflisten
 Ausgabeformate:
 
-- json
-- HTML
+-json
+-html
 
 Anruflisten sind:
 
 - alle Anrufe
-- verpasste Anrufe
+- Anrufe in Abwesenheit
 - eingehende Anrufe
 - ausgehende Anrufe
 
-Anrufanzahl: Die Anrufanzahl kann auf 0 gesetzt werden. Der nächste Anruf erhöht 1.
+Anrufzähler: Der Anrufzähler kann auf 0 gesetzt werden. Der nächste Anruf wird um 1 erhöht.
 
 Die HTML-Ausgabe kann durch eine Vorlage konfiguriert werden
 
-### Command & commandResult state
-Mit dem Befehlsstatus können Sie jeden tr-064-Befehl aus diesem [Dokumentation](https://avm.de/service/schnittstellen/) aufrufen.
+### Befehl & BefehlErgebnisstatus
+Mit dem Befehl state können Sie jeden tr-064 Befehl aus diesem [Dokumentation](https://avm.de/service/schnittstellen/) aufrufen.
 z.B.
 
 ```
@@ -86,14 +86,14 @@ command = {
 };
 ```
 
-Der Befehlsstatus sollte auf einen JSON der obigen Zeilen gesetzt werden. Also {...} (ohne Befehl = und Zeilenumbrüche) Der Rückruf des Aufrufs setzt den Befehl commandResult-Status.
+Der Befehlsstatus sollte auf einen JSON der obigen Zeilen gesetzt werden. Also { ... } (ohne Befehl = und Zeilenumbrüche) Der Rückruf des Aufrufs setzt den Befehlsergebnis-Zustand.
 
 ### Anrufüberwachung aktivieren
-Um die Anrufüberwachungsfunktion verwenden zu können, muss sie zuerst in der AVM Fritz! Box aktiviert werden.
-Um den Anrufmonitor zu aktivieren, wählen Sie ```#96*5*``` und der TCP / IP-Port 1012 wird geöffnet. Um den Port zu schließen, wählen Sie ```#96*4*```.
+Um die Anrufüberwachung nutzen zu können, muss diese zunächst in der AVM Fritz!Box aktiviert werden.
+Um die Anrufüberwachung zu aktivieren, wählen Sie ```#96*5*``` und der TCP/IP-Port 1012 wird geöffnet. Um den Port zu schließen, wählen Sie ```#96*4*```.
 
 ### Vorabversionen
-Prerelease-Versionen sind um npm mit dem Tag dev verfügbar.
+Vorabversionen sind bei npm mit dem Tag dev verfügbar.
 Sie können sie aus dem ioBroker-Stammverzeichnis installieren mit:
 
 ```
@@ -102,6 +102,39 @@ iobroker upload tr-064
 ```
 
 ## Changelog
+### 4.2.15 (2021-12-08)
+* (bluefox) fix crash case (Sentry IOBROKER-TR-064-35)
+
+### 4.2.14 (2021-07-21)
+* (Apollon77) Further optimizations for js-controller 3.3
+
+### 4.2.13 (2021-07-12)
+* (Apollon77) Optimize for js-controller 3.3 and prevent warnings (you pot. need to delete datapoints if you still see errors, they will be recreated)
+
+### 4.2.12 (2021-04-16)
+* (Apollon77) prevent html template for call lists to be overwritten by default one
+* (Apollon77) fix crash case (Sentry IOBROKER-TR-064-2M)
+
+### 4.2.11 (2021-03-12)
+* (Apollon77) fix id-reset detection for single calls
+
+### 4.2.10 (2021-03-11)
+* (Apollon77) better handle caller id resets by reboots/FW updates to also update list specific counter and log when this happened
+
+### 4.2.9 (2021-03-10)
+* (Apollon77) try to better handle calllist resets on FW updates
+* (Apollon77) Make sure jsonDeviceList do not get deleted on start
+* (Apollon77) Better handle not initialized calllist templates
+
+### 4.2.8 (2021-03-09)
+* (Apollon77) Optimize customized HTML templates if state is empty
+
+### 4.2.7 (2021-03-08)
+* (Apollon77) Allow customized HTML templates again
+
+### 4.2.6 (2021-02-18)
+* (Apollon77) Fix crash case (IOBROKER-TR-064-20)
+* (Apollon77) Get calllists working again
 
 ### 4.2.4 (2021-02-02)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-TR-064-1T)
@@ -152,7 +185,7 @@ iobroker upload tr-064
 
 ### 4.0.3 (2020-05-11)
 * (Apollon77) Make sure adapter do not crash of no calls were returned (Sentry IOBROKER-TR-064-7)
-* (Apollon77) Make sure adapter do not crash when providing a non string to "ring" state (Sentry IOBROKER-TR-064-8) 
+* (Apollon77) Make sure adapter do not crash when providing a non string to "ring" state (Sentry IOBROKER-TR-064-8)
 
 ### 4.0.1 (2020-04-23)
 * (Apollon77) handle case where no Phone deflections are available (Sentry IOBROKER-TR-064-1/2)
@@ -191,7 +224,7 @@ iobroker upload tr-064
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2020 soef <soef@gmx.net>
+Copyright (c) 2015-2021 soef <soef@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

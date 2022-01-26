@@ -22,6 +22,10 @@ Please update your system on Node 10.
 
 Use the state under remote control to control your car remotely.
 
+## Discussion and Questions
+
+<https://forum.iobroker.net/topic/26438/test-adapter-vw-connect-für-vw-id-audi-seat-skoda>
+
 ## Status fields Explanation
 
 Door and window states:
@@ -112,6 +116,46 @@ Door and window states:
 
 ## Changelog
 
+### 0.0.43
+
+- increase refresh token timeouts
+  
+### 0.0.42
+
+- fix skoda login
+
+### 0.0.40
+
+- add climate v3 for newer cars. Add Powerpass and Seat Elli
+
+### 0.0.39
+
+- fix id login
+
+### 0.0.36
+
+- add Skoda Enyaq support
+  
+### 0.0.35
+
+- add nodeJS v10 compatibility
+  
+### 0.0.34
+
+- add auto accept of new privacy consent
+  
+### 0.0.32
+
+- correct selection of last recent trips
+
+### 0.0.31
+
+- enable multiple selection of trip types
+  
+### 0.0.30
+
+- fix mutiple car problem, add VWv2 mode at the moment there is no different between VW and VWv2
+  
 ### 0.0.29
 
 - fix skoda refreshToken, smaller improvements
@@ -122,7 +166,7 @@ Door and window states:
 
 ### 0.0.25
 
-- add we charge 
+- add we charge
 
 ### 0.0.24
 

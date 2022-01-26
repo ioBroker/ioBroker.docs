@@ -1,46 +1,42 @@
 ---
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.lametric.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.lametric.svg
+BADGE-Stable: http://iobroker.live/badges/lametric-stable.svg
+BADGE-installed: http://iobroker.live/badges/lametric-installed.svg
+BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.lametric.svg
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.lametric/badge.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.lametric.png?downloads=true
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: J96EEfhXaMPbFj1J6CUCiIB2CbfhWhEyF1gfJdaKe8A=
+hash: PPdeemLAczafVqXoyDFeTy8m9xySufV2zack2EfZW8E=
 ---
-![Логотип](../../../en/adapterref/iobroker.lametric/admin/lametric.png)
-
-![Версия NPM](http://img.shields.io/npm/v/iobroker.lametric.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.lametric.svg)
-![Стабильный](http://iobroker.live/badges/lametric-stable.svg)
-![установлен](http://iobroker.live/badges/lametric-installed.svg)
-![Статус зависимости](https://img.shields.io/david/klein0r/iobroker.lametric.svg)
-![Известные уязвимости](https://snyk.io/test/github/klein0r/ioBroker.lametric/badge.svg)
-![Статус сборки](http://img.shields.io/travis/klein0r/ioBroker.lametric.svg)
-![NPM](https://nodei.co/npm/iobroker.lametric.png?downloads=true)
+![Логотип](../../../en/adapterref/iobroker.lametric/../../admin/lametric.png)
 
 # IoBroker.lametric
-Этот адаптер позволяет получать информацию о статусе вашего [LaMetric Time](https://haus-auto.com/p/amz/LaMetricTime) *(Партнерская ссылка)* и отправлять на него уведомления.
-Все, что вам нужно, это IP-адрес вашего устройства и ключ разработчика API.
+## Требования
+- *LaMetric Time* с прошивкой *2.2.2* (или новее)
 
 ## Конфигурация
-Протестировано с прошивкой LaMetric *2.1.3* (рекомендуется)
-
-Вы можете получить личный ключ [Вот](https://developer.lametric.com/).
+Вы можете получить API-ключ вашего устройства [здесь](https://developer.lametric.com/user/devices).
 
 ![API-ключ](../../../en/adapterref/iobroker.lametric/docs/apiKey.png)
 
-## Особенности
+## Функции
 - Установите яркость дисплея (в процентах, автоматический режим / ручной режим)
 - Установить громкость звука (в процентах)
 - Настроить заставку (включить / выключить, по времени, в темноте)
-- Активировать / деактивировать Bluetooth и изменить имя Bluetooth
+- Активировать / деактивировать bluetooth и изменить имя bluetooth
 - Переключение между приложениями (следующее, предыдущее, перейти к определенному приложению)
 - Отправлять уведомления блочно (с настраиваемым приоритетом, звуком, значками, текстом и т. Д.)
-- Управляйте специальными приложениями, такими как часы, радио, секундомер или погода
+- Управляйте специальными приложениями, такими как `` часы '', `` радио '', `` секундомер '' или `` погода ''
 - Используйте приложение *Мои данные (DIY)* LaMetric для отображения постоянной информации
 
 Возможности ограничены [официальные функции API](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html).
 
 ## Примеры блоков
-В качестве сообщения можно использовать простую строку, которая будет отображаться в виде одного кадра.
+Вы можете использовать простую строку в качестве сообщения, которое будет отображаться в виде одного кадра.
 
 ![одиночный кадр](../../../en/adapterref/iobroker.lametric/docs/blockly1.png)
 
@@ -53,22 +49,24 @@ hash: J96EEfhXaMPbFj1J6CUCiIB2CbfhWhEyF1gfJdaKe8A=
 ![фреймы данных диаграммы](../../../en/adapterref/iobroker.lametric/docs/blockly3.png)
 
 ## Мои данные (DIY) *(версия> 1.1.0)*
-LaMetric предлагает приложение (на рынке интегрированных приложений) для опроса пользовательских данных. Это приложение называется [Мои данные DIY](https://apps.lametric.com/apps/my_data__diy_/8942). Этот адаптер создает новое состояние в требуемом формате.
+* LaMetric * предлагает приложение (на встроенном рынке приложений) для опроса пользовательских данных. Это приложение называется [Мои данные DIY](https://apps.lametric.com/apps/my_data__diy_/8942). Этот адаптер создает новое состояние в нужном формате.
 Вы можете использовать Simple API Adapter для передачи данных в LaMetric Time.
 
 ```ioBroker LaMetric Adapter -> State with Frame information <- Simple API Adapter <- My Data DIY App <- LaMetric```
 
 ### Конфигурация (с аутентификацией)
 1. Установите [Простой адаптер API ioBroker] (https://github.com/ioBroker/ioBroker.simple-api)
-2. Создайте нового пользователя ioBroker с именем «lametric» с индивидуальным паролем (например, HhX7dZl3Fe).
-3. Добавьте «ламетрического» пользователя в группу «пользователи».
-4. Установите это приложение *My Data DIY* на LaMetric Time (используйте Market).
+2. Создайте нового пользователя ioBroker с именем «lametric» с индивидуальным паролем (например, «HhX7dZl3Fe»).
+3. Добавьте пользователя lametric в группу пользователей по умолчанию.
+4. Установите это приложение *My Data DIY* на *LaMetric Time* (используйте Market).
 5. Откройте настройки приложения *Мои данные (DIY)* и настройте простой URL-адрес API (см. Ниже).
-6. Перейдите в конфигурацию адаптера и настройте фреймы с вашей пользовательской информацией (значок и текст).
+6. Перейдите в конфигурацию адаптера и настройте фреймы с вашей пользовательской информацией (см. Следующую главу).
 
 ```
-http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?&user=lametric&pass=HhX7dZl3Fe
+http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json&user=lametric&pass=HhX7dZl3Fe
 ```
+
+** Важно: используйте json-флаг адаптера SimpleAPI (доступен с версии 2.6.2) **
 
 ** При необходимости обновите IP-адрес, порт, пользователя и пароль в URL-адресе! **
 
@@ -76,25 +74,25 @@ http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?&user=lametric&
 1. Установите [Простой адаптер API ioBroker] (https://github.com/ioBroker/ioBroker.simple-api)
 2. Установите это приложение *My Data DIY* на LaMetric Time (используйте Market).
 3. Откройте настройки приложения *Мои данные (DIY)* и настройте простой URL-адрес API (см. Ниже).
-4. Перейдите в конфигурацию адаптера и настройте фреймы с вашей пользовательской информацией (значок и текст).
+4. Перейдите в конфигурацию адаптера и настройте фреймы с вашей пользовательской информацией (см. Следующую главу).
 
 ```
-http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/
+http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json
 ```
 
 ** При необходимости обновите IP-адрес и порт в URL-адресе! **
 
 ### Конфигурация фрейма *(версия> 1.1.0)*
 - Используйте значок плюса, чтобы добавить столько кадров, сколько хотите
-- Значок: выберите значок на [официальном сайте] (https://developer.lametric.com/icons) и введите идентификатор в поле конфигурации. ** Важно: добавьте i (для статических значков) или a (для анимированных значков) в качестве префикса для этого идентификатора. (Пример: `i3389`)
+- Значок: выберите значок на [официальном веб-сайте] (https://developer.lametric.com/icons) и введите идентификатор в поле конфигурации. **Важно: добавьте i (для статических значков) или a (для анимированных значков) в качестве префикса для этого идентификатора. (Пример: `i3389`)**
 - Текст: просто введите текстовую информацию для рамки. Вы можете использовать состояния в фигурных скобках. Эта информация будет заменена соответствующим значением состояния. (Пример: `{youtube.0.channels.HausAutomatisierungCom.statistics.subscriberCount} Подписчики`)
 
-Пример конфигурации 2 кадров:
+Пример конфигурации из 3-х фреймов:
 
 ![пример конфигурации кадра](../../../en/adapterref/iobroker.lametric/docs/myDataDIYConfig.png)
 
 ## Специальные приложения / виджеты *(версия> 1.1.2)*
-Вы можете управлять некоторыми приложениями с помощью специальной информации
+Вы можете управлять некоторыми приложениями с помощью настраиваемой информации.
 
 ### Clock.clockface
 Допустимые значения:
@@ -108,7 +106,7 @@ http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/
 Допустимое значение: время в секундах.
 
 ## Скрипты
-Чтобы отобразить сообщение в вашей метрике la, просто отправьте сообщение этому экземпляру с помощью адаптера сценария:
+Чтобы отображать сообщения / уведомления на вашем *LaMetric Time* отправьте сообщение этому экземпляру с помощью адаптера JavaScript (или любого другого):
 
 ```JavaScript
 sendTo(
@@ -162,7 +160,7 @@ sendTo(
 );
 ```
 
-Пример для отображения некоторой информации циклически:
+Пример отображения некоторой информации циклически:
 
 ```JavaScript
 let i = 0;
@@ -187,6 +185,49 @@ show();
 ```
 
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+
+* (klein0r) Updated documentation
+
+### 1.5.1
+
+* (klein0r) Translated all objects
+* (klein0r) Fixed HTTPS option
+
+### 1.5.0
+
+* (klein0r) Fixed myData DIY data type **(BREAKING CHANGE - requires SimpleAPI 2.6.2 or later to use json parameter)**
+* (klein0r) Added version check
+
+### 1.4.1
+
+* (klein0r) Fixed missing translations
+
+### 1.4.0
+
+* (klein0r) Admin 5 Support
+
+### 1.3.2
+
+* (klein0r) Updated dependencies
+
+### 1.3.1
+
+* (klein0r) Added local start and end time for screensaver
+
+### 1.3.0
+
+* (klein0r) Encrypt sensitive information **(BREAKING CHANGE - RE-ENTER YOUR API KEY)**
+
+### 1.2.1
+
+* (klein0r) Extended regex for My Data (DIY)
 
 ### 1.2.0
 

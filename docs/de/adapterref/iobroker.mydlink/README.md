@@ -1,21 +1,12 @@
 ---
-BADGE-Number of Installations: http://iobroker.live/badges/mydlink-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.mydlink.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.mydlink.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.mydlink.svg
-BADGE-Tests: https://travis-ci.org/iobroker-community-adapters/ioBroker.mydlink.svg?branch=master
+BADGE-Number of Installations (latest): https://iobroker.live/badges/mydlink-installed.svg
+BADGE-Number of Installations (stable): https://iobroker.live/badges/mydlink-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.mydlink.png?downloads=true
 ---
-![Logo](admin/mydlink.png)
+![Logo](../../admin/mydlink.png)
 # ioBroker.mydlink
-
-
-![Number of Installations](http://iobroker.live/badges/mydlink-installed.svg) ![Number of Installations](http://iobroker.live/badges/mydlink-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.mydlink.svg)](https://www.npmjs.com/package/iobroker.mydlink)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.mydlink.svg)](https://www.npmjs.com/package/iobroker.mydlink)
-[![Tests](https://travis-ci.org/iobroker-community-adapters/ioBroker.mydlink.svg?branch=master)](https://travis-ci.org/iobroker-community-adapters/ioBroker.mydlink)
-
-[![NPM](https://nodei.co/npm/iobroker.mydlink.png?downloads=true)](https://nodei.co/npm/iobroker.mydlink/)
-
-
 
 MyDlink Adapter für ioBroker. 
 ------------------------------------------------------------------------------
@@ -34,9 +25,9 @@ Bisher wurden die folgenden Geräte erfolgreich mit dem Adapter getestet:
 
 | Model | Type  | Image |
 | :---: | :---: | :---: |
-| DSP-W215 | Steckdose (schalten, Temperatur, Strom) **Muss gepollt werden** | ![Image](../media/DSP_W215.png) |
-| DSP-W115 | Steckdose (schalten) | ![Image](../media/DSP_W115.png) | 
-| DCH-S150 | Bewegungsmelder **Muss gepollt werden** | ![Image](../media/DCH_S150.png) |
+| DSP-W215 | Steckdose (schalten, Temperatur, Strom) **Muss gepollt werden** | ![Image](media/DSP_W215.png) |
+| DSP-W115 | Steckdose (schalten) | ![Image](media/DSP_W115.png) | 
+| DCH-S150 | Bewegungsmelder **Muss gepollt werden** | ![Image](media/DCH_S150.png) |
 
 Ältere Geräte, wie die DSP-W215 oder der DCH-S150 müssen vom Adapter gepollt werden,
 was bedeutet, dass es immer eine kurze Verzögerung für den Statusreport an ioBroker
@@ -80,9 +71,29 @@ Gerät, die er braucht.
 ## Changelog
 <!-- 
 	Placeholder for next versions (this needs to be indented):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 	npm install @alcalzone/release-script
 -->
+### **WORK IN PROGRESS**
+* Update translations & dependencies
+
+### 1.1.12 (2021-07-21)
+* Update translations
+
+### 1.1.11 (2021-06-30)
+* adjusted types & roles to type-detector.
+
+### 1.1.10 (2021-06-30)
+* fix type warnings
+* updated translations and dependencies
+
+### 1.1.9 (2021-05-23)
+* updated translations
+
+### 1.1.8 (2021-05-20)
+* added: `telnet` token is now case insensitive
+* fixed: prevent object missing warning on new devices
+
 ### 1.1.7 (2020-10-09)
 * fixed: prevent error message with new mydlink plugs on switch
 
@@ -191,7 +202,7 @@ Gerät, die er braucht.
 ## License
 MIT License
 
-Copyright (c) 2020 Garfonso <garfonso@mobo.info>
+Copyright (c) 2021 Garfonso <garfonso@mobo.info>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -10,7 +10,7 @@ hash: 5nzOtddjd6p/3BVJJkfR7yHWPQUqVm2mcbdsP7tvrkM=
 
 # HomeMatic ReGaHSS
 ## Homematic
-> Homematic - это система умного дома от eQ-3, которая позволяет всесторонне контролировать широкий спектр функций с использованием сценариев (от простых до сложных) в доме или квартире.
+> Homematic - это система умного дома от eQ-3, которая позволяет всесторонне управлять широким спектром функций с использованием сценариев (от простых до сложных) в доме или квартире.
 
 > Устройства включают в себя продукты для управления освещением, рольставнями и отоплением, детекторы опасности, датчики безопасности и продукты для измерения погодных данных. Радиосвязь упрощает дооснащение. Компоненты проводной шины можно использовать в новостройках.
 
@@ -61,26 +61,26 @@ IP-адрес CCU можно выбрать в раскрывающемся ме
 
 Опрос
 
-Если эта функция активирована, CCU регулярно запрашивает данные RegaHSS на основе секунд, установленных в поле «Интервалы». Интервал не следует устанавливать слишком низким, поскольку слишком частый опрос может привести к сбою CCU.
+Если эта функция активирована, CCU регулярно запрашивает данные RegaHSS на основе секунд, установленных в поле «Интервалы». Интервал не следует устанавливать слишком маленьким, поскольку слишком частый опрос может привести к сбою CCU.
 
-Спусковой крючок
+Курок
 
-Чтобы свести к минимуму количество активных запросов от ioBroker к RegaHSS, триггер также может передавать данные в CCU в программе при внесении изменений.
-Для этого можно использовать виртуальную кнопку на CCU, которая запускается в программе CCU. По умолчанию это ключ BidCosRF.50.PRESS_SHORT (см. Пример программы).
+Чтобы свести к минимуму количество активных запросов от ioBroker к RegaHSS, триггер также может передавать данные в CCU в программе при изменении.
+Для этого можно использовать виртуальную кнопку на CCU, которая запускается в программе CCU. По умолчанию это ключ BidCosRF.50.PRESS_SHORT (см. Образец программы).
 
 ### Синхронизировать область
 Здесь пользователь может указать, какая информация должна быть передана из CCU в ioBroker. Затем в ioBroker создаются соответствующие объекты и точки данных.
 
-- DutyCycle: активирует индикацию рабочего цикла (в%)
+- DutyCycle: активирует указание рабочего цикла (в%)
 - Переменные: активирует передачу системных переменных из CCU.
 - Программы: активирует передачу названий программ из CCU.
 - Имена: активирует передачу текстовых имен точек данных из CCU.
-- Избранное: активирует передачу и список избранного
-- Комнаты: активирует захват комнат и их список
+- Избранное: активирует передачу и список избранного.
+- Комнаты: активирует захват комнат и их список.
 - Сделки: активирует передачу сделок и их список
 
 ### Область дополнительных настроек
-Здесь пользователь может решить, следует ли использовать https (зашифрованное и защищенное от прикосновения соединение). Если активирован, требуется имя пользователя и связанный пароль.
+Здесь пользователь может решить, следует ли использовать https (зашифрованное и защищенное от прикосновения соединение). Если активирован, необходимо ввести имя пользователя и пароль.
 
 После выполнения всех настроек страница конфигурации закрывается командой «сохранить и закрыть» (кнопка под областью настроек). Адаптер закрывается, и экземпляр запускается с новыми значениями.
 
@@ -92,7 +92,7 @@ IP-адрес CCU можно выбрать в раскрывающемся ме
 Если вы поместите указатель мыши на символ, вы получите подробную информацию.
 
 ### Объекты адаптера
-В области «Объекты» все значения и информация, передаваемая адаптером из CCU, отображаются в виде древовидной структуры.
+В области «Объекты» все значения и информация, передаваемые адаптером из CCU, отображаются в виде древовидной структуры.
 
 Поскольку объекты зависят от пользователя, здесь отображаются только общие объекты, одинаковые для всех пользователей.
 
@@ -100,18 +100,76 @@ IP-адрес CCU можно выбрать в раскрывающемся ме
 
 Первые папки (обычно номер ID) - это программы, содержащиеся в CCU.
 
-Папки CCU и info содержат основную информацию о шлюзе, включая
+Папки CCU и info содержат основную информацию о шлюзе, в т.ч.
 процентное значение рабочего цикла (если активировано).
 
 Наконец, перечислены переменные, созданные в CCU.
 
-### ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
+### ВОПРОСЫ-ОТВЕТЫ
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.0.34 (2022-01-24)
+* (martin-herzog/foxriver76) fixed unnedded call which lead to warnings in rega log
+
+### 3.0.33 (2021-11-18)
+* (foxriver76) if function or room names on CCU include dots, we replace them (fixes Sentry IOBROKER-HM-REGA-3H)
+
+### 3.0.32 (2021-10-14)
+* (foxriver76) Duty Cycle of LAN gateways can be -1 if they are disconnected (fixes #196)
+* (foxriver76) we now only scale on UNIT "100%" as hm-rpc does (fixes #207)
+
+### 3.0.31 (2021-08-12)
+* (foxriver76) we fixed some sentry issues (closes #182, closes #183)
+
+### 3.0.30 (2021-07-18)
+* (foxriver76) improved the detection of ALARM occurrences for virtual devices
+
+### 3.0.29 (2021-07-01)
+* (foxriver76) fixed bug on ALARM datapoint creation
+
+### 3.0.28 (2021-06-30)
+* (foxriver76) improve creation of ALARM dps even if no states provided by `getDatapoints` (fixes #168)
+
+### 3.0.27 (2021-06-28)
+* (foxriver76) fixed a bug that already deleted programs were only partially deleted in ioBroker
+__Please note: This will only work for deleted programs up from now. You have to clean up orphan programs manually__
+
+### 3.0.26 (2021-06-14)
+* (bluefox) Use name from device if channel has a default name
+
+### 3.0.25 (2021-05-14)
+* (foxriver76) remove old code, which also scaled unit: % values and not only unit: 100 %
+
+### 3.0.24 (2021-04-30)
+* (foxriver76) we fixed more occurrences of incorrect types (fixes #146)
+
+### 3.0.23 (2021-04-30)
+* (foxriver76) we now correctly convert the rssi values, workaround for https://github.com/jens-maus/RaspberryMatic/issues/897
+* (foxriver76) we made counter states of type "number", was incorrectly "string" (closes #145)
+
+### 3.0.22 (2021-04-30)
+* (foxriver76) parse the dutyCycle state to int (fixes #144)
+* (foxriver76) update dependencies
+* (foxriver76) removed unneeded dependency
+
+### 3.0.21 (2021-04-24)
+* (foxriver76) bring back io-package json readme attribute, admin does not fall back to docs as expected (fixes #135)
+
+### 3.0.20 (2021-04-20)
+* (foxriver76) admin/controller has a bug still requiring `common.title` (fixes #133)
+
+### 3.0.19 (2021-04-16)
+* (foxriver76) fix for custom webinterface port (addresses #117)
+
+### 3.0.18 (2021-04-05)
+* (foxriver76) local link now respects port and protocol
+
+### 3.0.17 (2021-04-04)
+* (foxriver76) correctly identify incomplete requests
 
 ### 3.0.16 (2021-01-31)
 * (foxriver76) fix issue with non-existing objects when using LAN-Gateways
@@ -313,7 +371,7 @@ or non existent if no rpc instance existed
 
 ### 2.0.1 (2019-01-01)
 * (foxriver76) fix error that prevented setting umlauts to system variables in ioBroker
-* (foxriver76) usage and application of eslint 
+* (foxriver76) usage and application of eslint
 
 ### 2.0.0 (2018-11-28)
 * (foxriver76) Https checkbox added
@@ -476,10 +534,9 @@ or non existent if no rpc instance existed
 * (hobbyquaker) Fix common.name attribute
 
 ## License
-
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>
 
 Copyright (c) 2014 hobbyquaker
 

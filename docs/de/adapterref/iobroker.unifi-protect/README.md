@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.unifi-protect/README.md
-title: ioBroker.unifi-schützen
-hash: +g06eboy/ZUEQeC75vPSMb/k/QpK2Yhwjz8x2xUdkaU=
+title: ioBroker.unifi-protect
+hash: RJarW6tFdBgeN6G+OP5I/VbAN/PFZhPFg6qQWtn0h2U=
 ---
 ![Logo](../../../en/adapterref/iobroker.unifi-protect/admin/unifi-protect.png)
 
@@ -12,17 +12,19 @@ hash: +g06eboy/ZUEQeC75vPSMb/k/QpK2Yhwjz8x2xUdkaU=
 ![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/unifi-protect-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/unifi-protect-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/peterbaumert/iobroker.unifi-protect.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/peterbaumert/ioBroker.unifi-protect/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/peterbaumert/ioBroker.unifi-protect/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.unifi-protect.png?downloads=true)
 
-# IoBroker.unifi-schützen
-## Unifi-Protect-Adapter für ioBroker
-Stellt eine Verbindung zum Unifi Protect Controller her und ruft alle Daten von hinzugefügten Kameras ab.
+#ioBroker.unifi-protect
+**Dieser Adapter verwendet den Dienst [Sentry.io](https://sentry.io), um mir als Entwickler automatisch Ausnahmen und Codefehler sowie neue Geräteschemata zu melden.** Weitere Details siehe unten!
 
-Standardports, wenn nicht von Ihnen selbst geändert:
+## Unifi-protect-Adapter für ioBroker
+Verbindet sich mit dem Unifi Protect Controller und ruft alle Daten von hinzugefügten Kameras ab.
 
- - Cloud Key Plus Gen2: 7443
- - UDM Pro: 443
+Standardports, falls nicht selbst geändert:
+
+ - Cloud Key Plus Gen2: 7443
+ - UDM Pro: 443
 
 ## Beispiele für getThumbnail und getSnapshot
 ```
@@ -61,51 +63,74 @@ sendTo('unifi-protect.0', 'getSnapshot', { "cameraid": "5e4a861c01d12503870003f9
 });
 ```
 
-## Changelog
+## Was ist Sentry.io und was wird an die Server dieses Unternehmens gemeldet?
+Sentry.io ist ein Dienst für Entwickler, um sich einen Überblick über Fehler ihrer Anwendungen zu verschaffen. Und genau das ist in diesem Adapter implementiert.
+
+Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll angezeigt wird, an Sentry gesendet. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, dann ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder dergleichen) enthalten. Auf diese Weise kann Sentry Fehler gruppieren und anzeigen, wie viele eindeutige Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
+
+## **IN ARBEIT**
+* erste Implementierung von Echtzeit-Updates api
+* lastMotion, lastRing, lcdMessage und smartDetectZone in realTimeEvents
+
+### 0.0.12 (2021-03-14)
+* intelligente Erkennungen hinzugefügt
+* einige LastMotion-Sachen behoben
+* UnifiOs-Unterstützung für CloudKey hinzugefügt
 
 ### 0.0.11 (2020-02-27)
-* changed Admin interface a little
-* added description for port
-* fixed UDM Pro writeable states
+* Admin-Oberfläche ein wenig geändert
+* Beschreibung für Port hinzugefügt
+* Beschreibbare Zustände von UDM Pro behoben
 
-### 0.0.10 (2020-02-26)
-* travis ci for integration tests fixed
-* actually use last x motion setting
+### 0.0.10 (26.02.2020)
+* travis ci für Integrationstests behoben
+* tatsächlich letzte x Bewegungseinstellung verwenden
 
 ### 0.0.9 (2020-02-21)
-* lastMotion of camera only updating if neccessary
-* first UDM integrations, changing settings NOT working yet
+* lastMotion der Kamera wird nur bei Bedarf aktualisiert
+* erste UDM-Integrationen, Einstellungen ändern funktioniert noch NICHT
 
 ### 0.0.8 (2020-02-17)
-* made motion Events optional (Last Motion is always stored)
-* made interval and "last x seconds of motions" adjustable
-* properly delete old motions
+* Bewegungsereignisse optional gemacht (Letzte Bewegung wird immer gespeichert)
+* Intervall und "letzte x Sekunden der Bewegungen" einstellbar gemacht
+* alte Bewegungen richtig löschen
 
 ### 0.0.7 (2020-02-09)
-* continuosly refresh motion events
-* changed data structur
-* added lastMotion Datapoint to each camera
+* Bewegungsereignisse kontinuierlich aktualisieren
+* geänderte Datenstruktur
+* lastMotion Datapoint zu jeder Kamera hinzugefügt
 
 ### 0.0.6 (2020-02-08)
-* make some settings changeable (name, osdSettings.*, recordingSettings.mode, ledSettings.isEnabled)
+* einige Einstellungen änderbar machen (name, osdSettings.*,recordingSettings.mode, ledSettings.isEnabled)
 
 ### 0.0.5 (2020-02-07)
-* new logo
-* added motion event data points
+* neues Logo
+* Bewegungsereignisdatenpunkte hinzugefügt
 
 ### 0.0.4 (2020-02-05)
-* release-script test and some Readme changes
+* Release-Script-Test und einige Readme-Änderungen
 
 ### 0.0.3 (03.02.2020)
-* (Peter Baumert) first working rls on npm
+* (Peter Baumert) erste funktionierende rls auf npm
 
 ### 0.0.1
-* (Peter Baumert) initial release
+* (Peter Baumert) Erstveröffentlichung
+
+## Code-Verwendung
+Der Code in [protect_api](./protect_api) wird hauptsächlich von [hjdhjds homebridge-unifi-protect . kopiert](https://github.com/hjdhjd/homebridge-unifi-protect).
+Vielen Dank für die Bereitstellung dieses Codes. Seine Codes-Lizenz finden Sie unter [Hier](https://github.com/hjdhjd/homebridge-unifi-protect/blob/master/LICENSE.md).
+
+## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ## **WORK IN PROGRESS**
+-->
 
 ## License
 MIT License
 
-Copyright (c) 2020 Peter Baumert <ioBroker.unifi-protect@outlook.com>
+Copyright (c) 2020-2021 Peter Baumert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

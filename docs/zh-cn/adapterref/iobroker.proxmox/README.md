@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.proxmox/README.md
 title: ioBroker.proxmox
-hash: YZfHDQXP8YyQEpI2E3qR221jfvRLNv51MYPpuJp22jo=
+hash: Wrv64f3rwuPXn1ILAfcIuj0IqU4RDj49XXMnIRX3nJo=
 ---
 ![商标](../../../en/adapterref/iobroker.proxmox/admin/logo.png)
 
@@ -15,14 +15,34 @@ hash: YZfHDQXP8YyQEpI2E3qR221jfvRLNv51MYPpuJp22jo=
 ＃ioBroker.proxmox
 =================
 
-![建立状态](https://github.com/iobroker-community-adapters/ioBroker.proxmox/workflows/Test%20and%20Release/badge.svg)
+![建置状态](https://github.com/iobroker-community-adapters/ioBroker.proxmox/workflows/Test%20and%20Release/badge.svg)
 
 该适配器从proxmox安装中读取数据
 
 ＃＃ 要求
-至少需要节点10.X.X，并且需要js-controller 2.0.0或更高版本
+至少需要节点10.X.X，并且需要js-controller 3.2.0或更高版本
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
+### 1.3.4 (2021-05-07)
+* (foxriver76) add dataSource and connectionType
+* (foxriver76) add compact mode (closes #12, closes #49)
+
+### 1.3.3 (2021-05-02)
+* (foxriver76) we fixed some incorrect types
+
+### 1.3.2 (2021-03-26)
+* (foxriver76) status of vms is now a string instead of incorrectly a button
+
+### 1.3.0 (2021-03-26)
+* (foxriver76) Detect newly added VMs/storages/nodes during runtime and restart instance to initialize everything correctly
+* (foxriver76) clean up deleted VM/storage/node objects
+__Requires js-controller >= 2.2.8__
+  
 ### 1.2.0 (2020-01-24)
 * (foxriver76) Created info connection state + channel
 * (foxriver76) status is a string and not a boolean, so set obj type correctly
@@ -60,7 +80,7 @@ __node v10 or above required__
 * (MeisterTR) cleaning up
 
 ### 0.0.5 (02.05.2018)
-* (MeisterTR) fixed worong ram
+* (MeisterTR) fixed wrong ram
 
 ### 0.0.5 (29.04.2018)
 * (MeisterTR) Testing fixes, now ready for node4
@@ -78,7 +98,7 @@ __node v10 or above required__
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2020 MeisterTR <meistertr.smarthome@gmail.com>
+Copyright (c) 2018 - 2021 MeisterTR <meistertr.smarthome@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

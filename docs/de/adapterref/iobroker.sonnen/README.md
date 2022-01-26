@@ -58,6 +58,10 @@ Nach Abschluss der Installation einer Adapterinstanz öffnet sich automatisch ei
 |:-------------|:-------------|
 |Abfrageintervall|Hier kann ein alternativer Wert in Millisekunden gesetzt werden. In diesem Intervall werden die States der sonnenBatterie aktualisiert.|
 
+| Feld         | Beschreibung |                                                                       
+|:-------------|:-------------|
+|Online-Status abfragen|Wenn Sie Anfragen von Ihrer Batterie an den sonnen-Server vermeiden möchten, können Sie die Online-Statusabfrage deaktivieren (nur relevant für 8080 API - z.B. eco8 und neuer)|
+
 
 Nach Abschluss der Konfiguration wird der Konfigurationsdialog mit `SPEICHERN UND SCHLIEßEN` verlassen. 
 Dadurch efolgt im Anschluß ein Neustart des Adapters.
@@ -91,6 +95,7 @@ andere ebenfalls beschrieben werden können. Zur Suche nach einem bestimmten Dat
 der Tastenkombination "STRG + F".
 
 ### States
+Hinweis: Die States der Legacy API (Port 3480) und der alten API (Port 7979) sind derzeit nicht oder nur partiell dokumentiert
 
 #### Channel: info
 
@@ -342,6 +347,64 @@ Die beiden Kanäle haben die identischen Zustände. Alle Zustände sind schreibg
 Der Kanal besteht aus schreibgeschützten Zuständen vom Typ `number`, die Informationen über den Wechselrichter der sonnenBatterie liefern.
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
+### 1.9.8 (2021-09-27)
+* (foxriver76) make requesting online status optional for 8080 api (closes #76)
+
+### 1.9.6 (2021-08-03)
+* (foxriver76) fix for horizontal flow animations in Safari (broken with 1.9.4)
+
+### 1.9.4 (2021-07-17)
+* (foxriver76) widget: make the svg smaller by using a flexbox to center the svg correctly inside the div
+
+### 1.9.3 (2021-07-16)
+* (foxriver76) also poll the configuration instead of updating it only once at start (closes #70)
+
+### 1.9.2 (2021-07-16)
+* (foxriver76) fix for legacy API
+
+### 1.9.1 (2021-07-16)
+* (foxriver76) use legacy API if old API is not completely implemented
+
+### 1.9.0 (2021-07-16)
+* (foxriver76) we now also support the legacy API (port 3480)
+* (foxriver76) switch from intervals to timeouts to avoid overlapping poll runs
+
+### 1.8.6 (2021-07-04)
+* (foxriver76) widget: we removed debug logging and unnecessary template functions
+* (foxriver76) widget: we now cache the jquery selectors to improve the performance
+
+### 1.8.5 (2021-07-02)
+* (foxriver76) widget: stroke width can now be configured
+
+### 1.8.4 (2021-07-01)
+* (foxriver76) widget: we made ID names more adapter specific to avoid getting wrong translations
+
+### 1.8.3 (2021-07-01)
+* (foxriver76) widget: we now allow defining the used adapter instance
+
+### 1.8.2 (2021-06-30)
+* (foxriver76) widget: css classes now have adapter specific names to avoid conflicts
+
+### 1.8.1 (2021-06-30)
+* (foxriver76) widget now has flow directions
+
+### 1.8.0 (2021-06-30)
+* (foxriver76) added widget
+
+### 1.7.3 (2021-05-01)
+* (foxriver76) we now update objects if attributes are updated, but preserve common.name attribute
+
+### 1.7.2 (2021-04-30)
+* (foxriver76) we fixed some type issues (fixes #58)
+
+### 1.7.1 (2021-03-19)
+* (foxriver76) do not log warnings on inverter endpoint if battery does not support it (closes #55)
+
 ### 1.7.0 (2020-11-12)
 * (foxriver76) new channels for powermeter and inverter
 
@@ -419,7 +482,7 @@ Der Kanal besteht aus schreibgeschützten Zuständen vom Typ `number`, die Infor
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2018-2021 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

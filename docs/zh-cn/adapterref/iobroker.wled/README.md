@@ -3,117 +3,71 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wled/README.md
 title: ioBroker.wled
-hash: A4BU5mIekOJUya3Lt5RdoOhPusUNE4/eshBSmlQ/Jm4=
+hash: pStvbquMEGwMuxEmQzOyowIP4eNECtJUsXFGkpvHiAA=
 ---
-![商标](../../../en/adapterref/iobroker.wled/admin/wled_large.png)
+![标识](../../../en/adapterref/iobroker.wled/admin/wled_logo_akemi.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.wled.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.wled.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.wled.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.wled.svg)
 ![安装数量（最新）](http://iobroker.live/badges/wled-installed.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/wled-stable.svg)
-![依赖状态](https://img.shields.io/david/iobroker-community-adapters/iobroker.wled.svg)
-![已知漏洞](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.wled/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.wled.png?downloads=true)
+![依赖状态](https://img.shields.io/david/DrozmotiX/iobroker.wled.svg)
+![已知漏洞](https://snyk.io/test/github/DrozmotiX/ioBroker.wled/badge.svg)
+![新产品管理](https://nodei.co/npm/iobroker.wled.png?downloads=true)
 
-＃ioBroker.wled
-![测试与发布](https://github.com/iobroker-community-adapters/ioBroker.wled/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.wled
+![测试和发布](https://github.com/DrozmotiX/ioBroker.wled/workflows/Test%20and%20Release/badge.svg)
 
-**此适配器使用服务[哨兵](https://sentry.io)向开发人员自动向我报告异常和代码错误以及新设备架构。**更多详细信息，请参见下文！
+**此适配器使用服务 [Sentry.io](https://sentry.io) 自动向作为开发人员的我报告异常和代码错误以及新设备架构。** 更多详细信息见下文！
 
-##用于ioBroker的wled适配器
-ESP8266 / ESP32 Web服务器的快速且功能丰富的实现，用于控制NeoPixel（WS2812B，WS2811，SK6812，APA102）LED或WS2801等基于SPI的芯片组！
+## IoBroker 的 wled 适配器
+ESP8266/ESP32 网络服务器的快速且功能丰富的实现，用于控制 NeoPixel（WS2812B、WS2811、SK6812、APA102）LED 或基于 SPI 的芯片组，如 WS2801！
 
-@Aircoookie的[WLED-Github项目](https://github.com/Aircoookie/WLED)§
+[WLED - Github 项目](https://github.com/Aircoookie/WLED)@Aircoookie
 
-##说明
-适配器会使用Bonjour服务自动尝试在网络中查找WLED设备。
-已知问题：具有VLAN分隔的网络通常不会路由广播流量，这意味着自动检测将失败。
+＃＃ 指示
+适配器会使用 Bonjour 服务自动尝试在您的网络中查找 WLED 设备。
+已知问题：具有 VLAN 分离的网络大多不路由广播流量，这意味着自动检测将失败。
 
-不用担心，在这种情况下，您可以通过IP地址手动添加设备。
+别担心，在这种情况下，您可以通过 IP 地址手动添加设备。
 
-1）确保WLED设备正在运行并且可以通过网络访问2）安装适配器3）配置数据轮询和自动检测周期的间隔时间4-A）启动适配器，应该自动检测设备4-B）如果A失败，使用添加设备按钮，并提供设备IP地址5）适配器将立即发送更改并每x秒轮询一次数据（可配置）
-
-＃＃ 去做
-* []将轮询切换到套接字连接，等待WLED固件实施
+1) 确保您的 WLED 设备正在运行并可通过网络访问 2) 安装适配器 3) 配置数据轮询和自动检测周期的间隔时间 4 - A) 启动适配器，设备应自动检测 4 - B) 如果 A 失败, 使用 Add-Device 按钮并提供设备 IP 地址 5) 适配器将立即发送更改并每 x 秒轮询数据（可配置）
 
 ＃＃ 支持我
-如果您喜欢我的工作，请随时提供个人捐款（这是DutchmanNL的个人捐款链接，与ioBroker项目无关！）[![捐赠]（https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png）](http://paypal.me/DutchmanNL)
+如果您喜欢我的作品，请随时提供个人捐赠（这是 DutchmanNL 的个人捐赠链接，与 ioBroker 项目无关！）[![捐赠](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
-##什么是Sentry.io，什么报告给该公司的服务器？
-Sentry.io是一项服务，供开发人员从其应用程序中获取有关错误的概述。确切地说，这是在此适配器中实现的。
+## 什么是 Sentry.io 以及向该公司的服务器报告什么？
+Sentry.io 是一项服务，供开发人员从他们的应用程序中获取有关错误的概述。而这正是在这个适配器中实现的。
 
-当适配器崩溃或发生其他代码错误时，此错误消息（也出现在ioBroker日志中）将提交给Sentry。当您允许iobroker GmbH收集诊断数据时，还将包括您的安装ID（这是唯一ID，**没有**有关您，电子邮件，姓名等的任何其他信息）。这使Sentry可以对错误进行分组并显示有多少唯一用户受此错误影响。所有这些都帮助我提供了基本不会崩溃的无错误适配器。
+当适配器崩溃或发生其他代码错误时，此错误消息也会出现在 ioBroker 日志中，并提交给 Sentry。当您允许 iobroker GmbH 收集诊断数据时，您的安装 ID（这只是一个唯一 ID **没有**关于您、电子邮件、姓名等的任何其他信息）也包括在内。这允许 Sentry 对错误进行分组并显示有多少唯一用户受到此类错误的影响。所有这些都帮助我提供基本上从不崩溃的无错误适配器。
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
-    ## __WORK IN PROGRESS__
+    ### __WORK IN PROGRESS__
 -->
 
-### 0.5.4 (2020-09-02)
-* (DutchmanNL) Support WLED 0.10.2, new state definitions implemented
-* (DutchmanNL) Update state definitions
-* (DutchmanNL) Remove log messages for missing states (Sentry report only)
-* (DutchmanNL) Bugfix : 0.5.3 decommissioned, update to 0.5.4 !
+### 0.6.3 (2021-09-08) - HotFixes
+* (DutchmanNL) Missing dropdown for ID of effects added
+* (DutchmanNL) HotFix: Missing axios dependency added
 
-### 0.5.2 (2020-08-29)
-* (DutchmanNL) Bugfix : Add missing Attributes with WLED 0.10.0
+### 0.6.1 (2021-09-08)
+* (DutchmanNL) Missing state definitions WLED FW 0.13.0-b12 added.
 
-### 0.5.1 (20-04-2020) Avoid writing objects unnecessarily, Sentry implemented
-* (DutchmanNL) Implement Sentry
-* (DutchmanNL) Bugfix : Devicename
-* (DutchmanNL) Bugfix : Warning with JS Controler 3.0.7
-* (DutchmanNL) Bugfix : Avoid writing objects unnecessarily
+### 0.6.0 (2021-08-31) - Support Websocket connections
+* (DutchmanNL) System load reduced
+* (DutchmanNL) All warnings related to JS-Controller 3.x checks solved
+* (DutchmanNL) Ensure legacy support of WLED FW < 0.12 (fallback to http-API instead of websocket)
+* (DutchmanNL) Communication by websocket implemented, this feature allows live data updates (instead of interval polling). Requires WLED firmware >= 12
 
-### 0.5.0 Stable release
-* (DutchmanNL) Added translations
-* (DutchmanNL) Release to stable repository, beta testing finished
+### 0.5.9 (2021-08-11)
+* (DutchmanNL) added new state attributes reported by Sentry
+* (DutchmanNL) added min & max for brightness value to support iOT adapter
 
-### 0.3.0 Bugfix : Correct handling of polling timer
-* (DutchmanNL  & Jey-Cee) Bugfix : Polling timer not saved
-* (DutchmanNL) Bugfix : Correct handling of "online" state
-* (DutchmanNL) Bugfix : Polling timer (offline devices did not reconnect)
-
-### 0.2.6 Bugfix : Hex state value change
-* (DutchmanNL) Bugfix : Hex state value change
-
-### 0.2.5 Stable release candidate
-* (DutchmanNL) Code cleanup
-* (DutchmanNL) Improved logging information
-* (DutchmanNL) Make polling timer configurable
-* (DutchmanNL) Correct handling of device online state
-* (DutchmanNL) Show online state in instance configuration
-
-### 0.2.0 Possibility to add devices by IP-adress
-* (DutchmanNL) Bugfix io-package
-* (DutchmanNL) Improved logging at adapter start
-* (DutchmanNL) Possibility to add devices by IP-adress implemented. (Needed for situations were autoscan fails)
-* (DutchmanNL) Ensure known devices get connected immediatly after adapter start instead of waiting for network scan
-
-### 0.1.9 Code improvements
-* (DutchmanNL) Code cleanup and optimalisation
-* (DutchmanNL) FIX memory leak by proper handling of bonjour service
-
-### 0.1.8 Bugfix
-* (DutchmanNL) Solved incorrect formated API call at state changes causing warning message
-
-### 0.1.7 Bugfix
-* (DutchmanNL) Fixed error when API call fails (write warning to log and retry at intervall time)
-
-### 0.1.6 HEX color states implemented
-* (DutchmanNL) HEX color states implemented
-
-### 0.1.5 Stable Beta release
-
-### 0.1.2
-* (DutchmanNL) Implement drop down menu for effects
-
-### 0.1.1
-* (DutchmanNL) Implemented states hidden from JSON-API : tt / psave / nn / time
-* (DutchmanNL) Improve logging issue
-
-### 0.1.0
-* (DutchmanNL) initial release
+### 0.5.8 (2021-08-11)
+* (DutchmanNL) added new state attributes reported by Sentry
+* (DutchmanNL) Bugfix Live override datapoint created as read-only #252
+* (DutchmanNL) excluded value "PIR" from data write due to current formatting
 
 ## License
 MIT License

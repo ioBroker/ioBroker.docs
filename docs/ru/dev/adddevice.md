@@ -10,7 +10,7 @@ hash: KJyj2QNgNPa29Jr/BcB/QJi6yPa8ucW5nGzTU+4Hr+A=
 
 - При необходимости расширите государственные роли необходимыми новыми ролями.
 - Расширьте тип детектора новым устройством
-- Добавьте устройство в iobroker.devices, чтобы можно было смоделировать его.
+- Добавьте устройство в iobroker.devices, чтобы можно было его смоделировать.
 - Добавить устройство в alexa / google and co
 
 ## Новые роли
@@ -28,7 +28,7 @@ hash: KJyj2QNgNPa29Jr/BcB/QJi6yPa8ucW5nGzTU+4Hr+A=
 - https://developer.amazon.com/de-DE/docs/alexa/device-apis/alexa-thermostatcontroller.html
 - https://developers.google.com/assistant/smarthome/guides/aircooler
 
-Наиболее полная картина состояний у Яндекса, поэтому разумно взять ее за основу.
+Наиболее полное представление о штатах имеет Яндекс, поэтому было бы разумно взять его за основу.
 Мы видели, что для режима термостата и для положения качания в документации нет ролей.
 
 Поэтому мы добавим его сюда: https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/stateroles.md#air-condition-or-thermostat
@@ -37,7 +37,7 @@ hash: KJyj2QNgNPa29Jr/BcB/QJi6yPa8ucW5nGzTU+4Hr+A=
 
 ## Детектор типа
 После того, как все необходимые роли добавлены или найдены, необходимо расширить тип детектора.
-Добавьте новый тип устройства в глобальный список: https://github.com/ioBroker/ioBroker.type-detector/blob/master/index.js#L29 Возьмите какое-нибудь устройство за основу и скопируйте его в `patterns` из класс `ChannelDetector`.
+Добавьте новый тип устройства в глобальный список: https://github.com/ioBroker/ioBroker.type-detector/blob/master/index.js#L29 Возьмите какое-нибудь устройство за основу и скопируйте его в `patterns` раздела класс `ChannelDetector`.
 Детектор типа должен каким-то образом различать устройства, поэтому у вашего устройства должен быть уникальный набор ролей.
 Мы возьмем `level.temperature` и `level.mode.thermostat` в качестве особого шаблона для кондиционера и отметим эти два состояния как `required`.
 Самые сложные устройства должны быть наверху в списке, поэтому они будут обнаружены первыми, а в конце будут появляться все больше и больше простых устройств.
@@ -48,4 +48,4 @@ hash: KJyj2QNgNPa29Jr/BcB/QJi6yPa8ucW5nGzTU+4Hr+A=
 Перейдите на https://github.com/ioBroker/ioBroker.devices/blob/master/src/package.json и обновите там свою версию.
 После этого расширьте список значков: https://github.com/ioBroker/ioBroker.devices/blob/master/src/src/Components/TypeIcon.js
 
- И создать новую версию тоже.
+ И создайте новую версию тоже.

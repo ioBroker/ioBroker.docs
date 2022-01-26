@@ -1,65 +1,106 @@
-![Logo](admin/luftdaten.png)
+---
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.luftdaten.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.luftdaten.svg
+BADGE-Stable: http://iobroker.live/badges/luftdaten-stable.svg
+BADGE-installed: http://iobroker.live/badges/luftdaten-installed.svg
+BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.luftdaten.svg
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.luftdaten/badge.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.luftdaten.png?downloads=true
+---
+![Logo](../../admin/luftdaten.png)
 
 # ioBroker.luftdaten
-
-[![NPM version](http://img.shields.io/npm/v/iobroker.luftdaten.svg)](https://www.npmjs.com/package/iobroker.luftdaten)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.luftdaten.svg)](https://www.npmjs.com/package/iobroker.luftdaten)
-[![Stable](http://iobroker.live/badges/luftdaten-stable.svg)](http://iobroker.live/badges/luftdaten-stable.svg)
-[![installed](http://iobroker.live/badges/luftdaten-installed.svg)](http://iobroker.live/badges/luftdaten-installed.svg)
-[![Dependency Status](https://img.shields.io/david/klein0r/iobroker.luftdaten.svg)](https://david-dm.org/klein0r/iobroker.luftdaten)
-[![Known Vulnerabilities](https://snyk.io/test/github/klein0r/ioBroker.luftdaten/badge.svg)](https://snyk.io/test/github/klein0r/ioBroker.luftdaten)
-[![Build Status](http://img.shields.io/travis/klein0r/ioBroker.luftdaten.svg)](https://travis-ci.org/klein0r/ioBroker.luftdaten)
-
-[![NPM](https://nodei.co/npm/iobroker.luftdaten.png?downloads=true)](https://nodei.co/npm/iobroker.luftdaten/)
-
-This adapter adds "luftdaten.info" sensor data to your ioBroker installation.
-You can decide if you want to add a local sensor by ip or if you just want to use the API of lufdaten.info to get the data of another sensor.
 
 ## Configuration
 
 ### Local
 
-1. Build your own adapter and add it to your local wifi network
+1. Build your own sensor and add it to your local network
 2. Create a new instance of the adapter
-3. Choose "Local" as type
-4. Fill the IP or Hostname of the sensor in the second input
-5. Choose a name and save the settings
+3. Type a custom name in the first table column
+4. Choose "Local" as type (second column)
+5. Fill the IP address or hostname of the sensor in the third column
+6. Save the settings
 
-Wait some minutes until the cronjob collects the data for the first time.
+Wait some seconds until the cronjob collects the data for the first time.
 
-*Feel free to change the schedule settings in the instances tab (default is every 15 minutes).*
+*Feel free to change the schedule settings in the instances tab (default: every 30 minutes).*
 
 ### Remote
 
-1. Choose one of the sensors on the online map: [deutschland.maps.luftdaten.info](https://deutschland.maps.luftdaten.info/)
+1. Choose one of the sensors on the official map: [sensor.community](https://sensor.community/en/)
 2. Click on the sensor and copy the ID (#XXXXX)
 3. Create a new instance of the adapter
-4. Choose "Remote" as type
-5. Fill the ID of the sensor in the second input
-6. Choose a name and save the settings
+4. Type a custom name in the first table column
+5. Choose "Remote" as type (second column)
+6. Fill the ID of the sensor in the third column (without #)
+7. Save the settings
 
-Wait some minutes until the cronjob collects the data for the first time.
+Wait some seconds until the cronjob collects the data for the first time.
 
-*Feel free to change the schedule settings in the instances tab (default is every 15 minutes).*
+*Feel free to change the schedule settings in the instances tab (default: every 30 minutes).*
 
-## Contributors
+### Example
 
-- klein0r
-- pix
-- GermanBluefox
-- Apollon77
+![Configuration example](./exampleConfiguration.png)
 
 ## Changelog
 
-### 1.0.2
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+
+* (klein0r) Added local link to sensor map
+* (klein0r) Added documentation
+
+### 2.1.3 (2021-12-23)
+
+* (klein0r) Updated dependencies
+
+### 2.1.2 (2021-11-14)
+
+* (klein0r) Translated admin tab table headers
+
+### 2.1.1 (2021-11-06)
+
+* (klein0r) Fixed missing translations
+
+### 2.1.0 (2021-11-04)
+
+* (klein0r) Admin 5 Support
+
+### 2.0.3 (2021-10-04)
+
+* (klein0r) Fixed error logging
+
+### 2.0.2 (2021-08-18)
+
+* (klein0r) Added timeout option
+
+### 2.0.1 (2021-08-17)
+
+* (klein0r) Minor bug fixes
+
+### 2.0.0 (2021-08-17)
+
+* (klein0r) Updated admin interface to maintain multiple sensors in one instance **(BREAKING CHANGE - RE-CONFIGURE YOUR SENSORS)**
+
+### 1.0.3 (2021-03-21)
+
+* (klein0r) Remove non-numeric characters from sensor id
+
+### 1.0.2 (2021-01-25)
 
 * (klein0r) Fixed async object creation
 
-### 1.0.1
+### 1.0.1 (2020-11-10)
 
 * (klein0r) Added iobroker sentry
 
-### 1.0.0
+### 1.0.0 (2020-08-27)
 
 * (klein0r) First stable release
 
@@ -141,7 +182,7 @@ Wait some minutes until the cronjob collects the data for the first time.
 
 The MIT License (MIT)
 
-Copyright (c) 2021 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -20,7 +20,15 @@ Vaillant multiMatic VR900/VR920 Adapter
 Change objects in the folders configuration. Some configuration will only work when the mode is in ON or MANUAL
 
 ## Changelog
+### 0.0.15
 
+-   bugfixes
+### 0.0.14
+
+-   add rooms support
+### 0.0.13
+
+-   fix livereport order
 ### 0.0.11
 
 -   fix issue with js-controller 3.2

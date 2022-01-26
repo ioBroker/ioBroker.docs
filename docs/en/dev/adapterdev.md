@@ -438,7 +438,6 @@ var adapter = utils.adapter({
     stateChange: null,    // optional - handler for subscribed states changes
     ready: null,          // optional - will be called when adapter is initialized
     unload: null,         // optional - will be called by adapter termination
-    noNamespace: false    // optional - if true, stateChange will be called with id that has no namespace. Instead "adapter.0.state" => "state"
 });
 ```
 All handlers can be simulated by events (see below), like:

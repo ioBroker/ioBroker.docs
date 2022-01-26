@@ -2,60 +2,129 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hmip/README.md
-title: ioBroker HomeMatic IP Cloud AccessPoint适配器
-hash: DXSNlH6ml8kVGnfNW5ZpU7AAy3X8gjqNfmneHLJ5A9w=
+title: ioBroker HomeMatic IP 云接入点适配器
+hash: OHa5PFtBSxk5+RH3R/q5CW91rJ1STL2h1rWa5dTSYGw=
 ---
-![商标](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
+![标识](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
 ![安装数量](http://iobroker.live/badges/hmip-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.hmip.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.hmip.svg)
-![建立状态](https://travis-ci.org/iobroker-community-adapters/ioBroker.hmip.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.hmip.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.hmip.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.hmip.svg)
 
-＃ioBroker HomeMatic IP Cloud AccessPoint适配器
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+# IoBroker HomeMatic IP 云接入点适配器
+![测试和发布](https://github.com/Apollon77/iobroker.hmip/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-##说明
-该适配器允许通过Homematic IP Cloud的Rest API与HomematicIP CloudAccessPoint通信
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
 
-**重要提示：**请将控制请求限制在最低限度，因为当您执行过多操作时，EQ-3开始阻止IP！
+＃＃ 描述
+该适配器允许通过 Homematic IP Cloud 的 Rest API 与 HomematicIP CloudAccessPoint 通信
 
-##安装
-此适配器需要版本大于等于8.6的node-js
+**重要提示：** 请将控制请求限制在最低限度，因为当你做太多时，EQ-3 开始阻止 IP！
 
-这是YouTube上的分步安装视频https://youtu.be/kXWfJRUYJIA
+＃＃ 安装
+此适配器需要版本 >= 8.6 的 node-js
+
+这是 YouTube 上的分步安装视频 https://youtu.be/kXWfJRUYJIA
 
 ##信息
-大多数Homematic IP设备已经在使用最新的适配器版本。
+大多数 Homematic IP 设备已经在使用最新的适配器版本。
 
-我会不断改进它，但是这需要时间。社区的任何帮助，例如拉取请求将不胜感激。
+我会不断改进它，但这需要时间。来自社区的任何帮助，例如拉请求将不胜感激。
 
-对于无法正常使用的HmIP设备，请创建与此信息有关的问题（每台设备一个，如果可能，请在主题中提供技术名称）。
-将在ioBroker中登录的适配器切换为傻模式，并将打印的设备的json添加到问题中的日志中。
-我可能还需要状态更改的json。
+对于不工作的 HmIP 设备，请使用此信息创建问题（请为每个设备创建一个问题，如果可能，请提供主题中的技术名称）。
+将 ioBroker 中的适配器登录切换到傻模式，并添加打印到问题日志中的设备的 json。
+我可能还需要状态更改的 json。
 
 谢谢
 
-如果您要查找信息，并且警报设置处于活动状态，则必须检查组INTERNAL和EXTERNAL的活动状态，它们组合表示三种警报状态。 “内部”和“外部”活动表示“离开”，仅“外部”活动表示仅“外围”活动。
+如果您正在查找信息，如果警报设置处于活动状态，您必须检查内部和外部组的活动状态，它们代表三种警报状态的组合。 INTERNAL 和 EXTERNAL actives 表示离开，只有 EXTERNAL active 表示只有 Perimeter 活跃。
 
-##重要信息此适配器可以做什么
-!!!您只能使用可通过原始Homematic IP应用程序触发的此适配器来触发事件。
-例如，设备之间的直接连接在应用程序中没有事件，也无法通过此适配器触发！！！
+## 重要信息可以用这个适配器做什么
+！！！您只能使用此适配器触发可通过原始 Homematic IP 应用程序触发的事件。
+例如设备之间的直接连接在应用程序中没有事件，也不能通过这个适配器触发！！！
 
 ##设置
-*输入您的SGTIN（接入点的背面）和PIN（如果之前已设置），然后通过按蓝色LED按钮来验证数据。这将创建一个身份验证令牌。
+* 输入您的 SGTIN（接入点背面）和 PIN（如果之前设置），并通过按下蓝色 LED 按钮验证数据。这将创建一个身份验证令牌。
+
+## 特殊设置
+### HMIP-DLD（门锁驱动器）
+如果您在 HmIP 应用程序（设置/访问授权 - 德语：“Zutrittsberechtigungen”）中为锁分配了 PIN，则需要在设备对象的 pin 状态中设置 PIN。这不是您的系统 PIN 码！！如果您还没有在设置中设置 PIN，您也可以将 pin 状态留空。
+此外，请将“iobroker”客户端添加到 HmIP 应用程序设置中的访问控制客户端列表中！
 
 ＃＃ 谢谢
-到coreGreenberet获得他的python库（https://github.com/coreGreenberet/homematicip-rest-api）
+* @coreGreenberet 用于他的 python 库 (https://github.com/coreGreenberet/homematicip-rest-api)
 
-ioBroker论坛中的## Diskussion
-https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
+*
 
-##适配器请求auf GitHub
+## IoBroker 论坛讨论 https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
+## 适配器请求 auf GitHub
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
+### 1.15.0 (2022-01-02)
+* Node.js 10.x is now minimum required version for this adapter
+* (Apollon77) Optimize WebSocket reconnection Logic
+* (Apollon77) Optimize current value handling and re-set value if a state change is not processed because of an unchanged value
+* (Apollon77) Implement startImpulse call for ImpulseOutputChannels for e.g. HM-WGC
+* (Apollon77) Implement experimental support for HMIP-DLD to set the lock state and also an option PIN if needed (see notes above)
+* (Apollon77) Detect new and unknown devices and channels and reinitialize the structure to add the new objects on the fly
+* (Apollon77) Implement DOOR_LOCK_SENSOR_CHANNEL
+* (Apollon77) Ignore HEAT_DEMAND_CHANNEL, DEHUMIDIFIER_DEMAND_CHANNEL, FLOOR_TERMINAL_BLOCK_CHANNEL and CHANGE_OVER_CHANNEL because no data to prevent logs
+* (Apollon77) optimize unload handling
+
+### 1.14.0 (2021-11-07)
+* (Apollon77) Lower loglevel for state change logs to debug
+* (Apollon77) Add verification when reading some data to prevent crashes
+* (Apollon77) Removed some generic (error/info) states that only exists on chosen devices to re-add later in a generic way
+
+### 1.13.2 (2021-08-25)
+* (Apollon77) Fix warning on js-controller 3.3 with two datapoints
+
+### 1.13.1 (2021-08-06)
+* (Apollon77) Fix warning on js-controller 3.3 with "sabotage" datapoint
+
+### 1.13.0 (2021-06-23)
+* (Apollon77) Add support for HM-WGC/IMPULSE_OUTPUT_CHANNEL
+
+### 1.12.2 (2021-06-04)
+* (Apollon77) Fix a warning in js-controller 3.3
+
+### 1.12.1 (2021-05-13)
+* (Apollon77) Fix a warning in js-controller 3.3
+
+### 1.12.0 (2021-05-13)
+* (Apollon77) Implement NOTIFICATION_MP3_SOUND_CHANNEL
+
+### 1.11.1 (2021-05-08)
+* (Apollon77) IMPORTANT: The adapter now requires js-controller 3.1 at least!
+* (Apollon77) Update objects on startup to make sure definition is current
+* (Apollon77) prevent warnings in js-controller 3.3
+
+### 1.11.0 (2021-04-25)
+* (Apollon77) Implement CARBON_DIOXIDE_SENSOR_CHANNEL
+
+### 1.10.0 (2021-04-12)
+* (Apollon77) Implement TEMPERATURE_SENSOR_2_EXTERNAL_DELTA_CHANNEL, DOOR_LOCK_CHANNEL and ACCESS_AUTHORIZATION_CHANNEL
+
+### 1.9.0 (2021-02-16)
+* (Apollon77) Round temperature values to nearest 0.5 degrees
+* (Apollon77) Only send values to HMIP when changed (reduce traffic!)
+* (Apollon77) Add debouncing to setPointTemperature changes (means value is sent out when "stable" for 5s!) (reduce traffic!)
+* (Apollon77) Add throttling to other change requests (means other changes are blocked for 1s) (reduce traffic!)
+* (Apollon77) Implement ANALOG_ROOM_CONTROL_CHANNEL (Sentry IOBROKER-HMIP-1X)
+
+### 1.7.2 (2021-02-09)
+* (Apollon77) Try to detect websocket connection failures start over
+
+### 1.7.0 (2021-01-26)
+* (Apollon77) add Heating Absence Permanent state and functionality
+* (Apollon77) add support for MULTI_MODE_INPUT_BLIND_CHANNEL
+
+### 1.6.2 (2021-01-21)
+* (Apollon77) Add check when HMIP domain could not be determined.
+
+### 1.6.1 (2021-01-12)
+* (Apollon77) Prevent crash case (Sentry IOBROKER-HMIP-1N)
 
 ### 1.6.0 (2020-12-24)
 * Important note: Please limit control requests to the bare minimum because EQ-3 started to block IPs when you do too much!
@@ -146,7 +215,7 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 * (jogibear9988) more devices, bugfixes. thanks to TobiasF1986, steckenpferd and Ma-ster77
 
 ### 0.0.3
-* (jogibear9988) bugfixes and more devices 
+* (jogibear9988) bugfixes and more devices
 
 ### 0.0.2
 * (jogibear9988) bugfixes, more devices and initial support of groups
@@ -157,7 +226,7 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2019 jogibear9988 <jochen.kuehner@gmx.de>
+Copyright (c) 2018-2022 jogibear9988 <jochen.kuehner@gmx.de>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

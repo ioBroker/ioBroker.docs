@@ -64,6 +64,9 @@ to be done in admin
 
 
 ## Changelog:
+### 0.1.4
+* (o0shojo0o) nodejsV14 compatibility
+
 ### 0.1.3
 * (atl285) added new sensor type LacCrosseDTT (double temp like TX25-IT)
 

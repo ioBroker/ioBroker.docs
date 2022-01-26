@@ -59,6 +59,10 @@ Tested on comfoair CA350.
 
 ## Changelog
 
+### 1.1.5
+
+-   Bugfix (js-controller update)
+
 ### 1.1.3
 
 -   boostmode added

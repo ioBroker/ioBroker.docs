@@ -1,11 +1,13 @@
 ![Logo](admin/ping.png)
 # PING Adapter
 
-![Number of Installations](http://iobroker.live/badges/ping-installed.svg) ![Number of Installations](http://iobroker.live/badges/ping-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.ping.svg)](https://www.npmjs.com/package/iobroker.ping)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.ping.svg)](https://www.npmjs.com/package/iobroker.ping)
-[![Tests](https://travis-ci.org/ioBroker/ioBroker.ping.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.ping)
+![Number of Installations](http://iobroker.live/badges/ping-installed.svg)
+![Number of Installations](http://iobroker.live/badges/ping-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.ping.svg)](https://www.npmjs.com/package/iobroker.ping)
 
-[![NPM](https://nodei.co/npm/iobroker.ping.png?downloads=true)](https://nodei.co/npm/iobroker.ping/)
+![Test and Release](https://github.com/ioBroker/ioBroker.ping/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/ping/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.ping.svg)](https://www.npmjs.com/package/iobroker.ping)
 
 ## Pings configured IP addresses.
 
@@ -14,9 +16,20 @@ Pings specified IP addresses in defined interval and monitors the results.
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Known Issues
-* if its not possible to ping your linux client, check if `iputils-ping` is correct installed on client
+* if it is not possible to ping your linux client, check if `iputils-ping` is correct installed on client
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
 
 ## Changelog
+### 1.5.2 (2022-01-20)
+* (basti4557) Number of retries can be defined if a ping request failed. This should minimize wrong offline detection.
+
+### 1.5.0 (2021-07-14)
+* js-controller 2.0 required at least
+* (Apollon77) optimize for js-controller 3.3
 
 ### 1.4.12 (2020-09-18)
 * (Apollon77) Prevent crash case when no devices are defined (Sentry IOBROKER-PING-R)
@@ -38,7 +51,7 @@ Pings specified IP addresses in defined interval and monitors the results.
 * (Apollon77) Fixed potential crash case (Sentry)
 
 ### 1.4.4 (2020-04-17)
-* (bluefox) Added support of Admin3 
+* (bluefox) Added support of Admin3
 
 ### 1.4.3 (2020-04-17)
 * (Apollon77) Add Sentry for js-controller 3.0
@@ -103,7 +116,7 @@ Pings specified IP addresses in defined interval and monitors the results.
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

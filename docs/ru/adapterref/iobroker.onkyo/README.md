@@ -3,30 +3,32 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.onkyo/README.md
 title: ioBroker.onkyo
-hash: MpXZSwTFF5f/P60KcItTJnhUQ5VltWiiShnaZGKJ7rM=
+hash: D2kaOQbC/ENX3OEQpT2QiPgW2tvZkW5i8JEEapw2dEU=
 ---
-![логотип](../../../en/adapterref/iobroker.onkyo/admin/onkyo.png)
+![Логотип](../../../en/adapterref/iobroker.onkyo/admin/onkyo.png)
 
 ![Количество установок](http://iobroker.live/badges/onkyo-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.onkyo.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.onkyo.svg)
-![Трэвис-CI](https://travis-ci.org/ioBroker/ioBroker.onkyo.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.onkyo.png?downloads=true)
 
 # IoBroker.onkyo
-### Главное обновление!
-Позаботьтесь об этом важном обновлении. Начиная с 2.0 произошли структурные изменения! Если вы обновитесь до этой версии, вы должны изменить переменные в любом другом адаптере, таком как VIS или javascript! Новая версия поддерживает материалы и обложки. Медиа-объекты поддерживают виджеты плеера, такие как sonso или winamp.
-![VIS](../../../en/adapterref/iobroker.onkyo/admin/player.png)
+![Тестирование и выпуск](https://github.com/ioBroker/iobroker.onkyo/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/onkyo/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Этот адаптер позволяет управлять AVR Onkyo и Pioneer с использованием протокола EISCP.
+** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
-Он использует узел-eiscp: https://github.com/tillbaks/node-eiscp
+### 2.0 Большое обновление!
+Начиная с версии 2.0 есть структурные изменения! Если вы обновитесь до этой версии, вам придется изменить переменные в любом другом адаптере, таком как VIS или javascript! В новой версии поддерживаются материалы и обложки. Медиа-объекты поддерживают виджеты проигрывателя, такие как sonos или winamp.
+![ВИС](../../../en/adapterref/iobroker.onkyo/admin/player.png)
 
-Для отправки команд существует специальное состояние «RAW». Записывает в это состояние только триггерные команды RAW, такие как известные файлы EISCP Excel. Как пример команды EISCP RAW в форме "PWR01".
+Этот адаптер позволяет управлять AVR Onkyo и Pioneer по протоколу EISCP.
 
-Другое специальное состояние, поддерживаемое адаптером, «связано». Это логическое значение, показывающее, подключен ли узел-eiscp к получателю.
+Он использует node-eiscp: https://github.com/tillbaks/node-eiscp
 
-Пример просмотра VIS ![VIS](../../../en/adapterref/iobroker.onkyo/admin/onkyo-vis.png)
+Для отправки команд есть особое состояние «RAW». Записывает в это состояние триггера только команды RAW, такие как известные файлы EISCP Excel. В качестве примера команды EISCP RAW в форме «PWR01».
+
+Еще одно особое состояние адаптера - «подключен». Это логическое значение, показывающее, подключен ли в настоящее время node-eiscp к получателю.
+
+Пример просмотра VIS ![ВИС](../../../en/adapterref/iobroker.onkyo/admin/onkyo-vis.png)
 
 ## Протестированные приемники
 ### Onkyo
@@ -38,7 +40,26 @@ hash: MpXZSwTFF5f/P60KcItTJnhUQ5VltWiiShnaZGKJ7rM=
 * VXS-S520D
 * VSX-1131
 
+<! - Заполнитель для следующей версии (в начале строки):
+
+### __РАБОТА В ПРОЦЕССЕ__ ->
+
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Add reconnection and device offline detection
+* (Apollon77) Add crash reporting using sentry in js.controller 3+
+
+### 2.0.6 (2021-05-28)
+* (Diginix) fixed data types
+
+### 2.0.5 (2021-04-27)
+* (Diginix) fixed some object properties
+* (bluefox) Added the support of compact mode
+
+### 2.0.3   
+* (Eisbaeeer) now support zone3   
+
 ### 2.0.2
 * (Eisbaeeer) fix double .js 
 
@@ -134,3 +155,8 @@ hash: MpXZSwTFF5f/P60KcItTJnhUQ5VltWiiShnaZGKJ7rM=
 
 ### 0.0.1
 * (owagner) initial version
+
+## License
+The MIT License (MIT)
+Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>,
+              2014-2015 Oliver Wagner <owagner@tellerulam.com>

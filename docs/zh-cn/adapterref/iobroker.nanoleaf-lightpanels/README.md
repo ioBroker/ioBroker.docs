@@ -2,65 +2,89 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.nanoleaf-lightpanels/README.md
-title: ioBroker.nanoleaf-lightpanels适配器
-hash: i+JgMJTd6a/CI3m4/mF4qoaX3UiBMFfPXnNlDbV8XDo=
+title: ioBroker.nanoleaf-lightpanels 适配器
+hash: lnhd9PuNqXO+UaujBzVUdFx9BDcYk6Zu8tfKVpx4p90=
 ---
-![商标](../../../en/adapterref/iobroker.nanoleaf-lightpanels/admin/nanoleaf-lightpanels.png)
+![标识](../../../en/adapterref/iobroker.nanoleaf-lightpanels/admin/nanoleaf-lightpanels.png)
 
-![NPM版本](https://img.shields.io/npm/v/iobroker.nanoleaf-lightpanels.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.nanoleaf-lightpanels.svg)
-![生成状态Travis](https://travis-ci.org/daniel-2k/ioBroker.nanoleaf-lightpanels.svg?branch=master)
-![建置状态传送带](https://ci.appveyor.com/api/projects/status/29fjgn8ww5w96etq/branch/master?svg=true)
-![NPM](https://nodei.co/npm/iobroker.nanoleaf-lightpanels.png?downloads=true)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.nanoleaf-lightpanels.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.nanoleaf-lightpanels.svg)
+![新产品管理](https://nodei.co/npm/iobroker.nanoleaf-lightpanels.png?downloads=true)
 
-＃ioBroker.nanoleaf-lightpanels适配器
+# IoBroker.nanoleaf-lightpanels 适配器
 =================
 
-这是一个ioBroker适配器，可通过nanoleaf OpenAPI控制nanoleaf光面板（以前称为nanoleaf Aurora）或nanoleaf Canvas和Shape。
+[![测试和发布](https://github.com/daniel-2k/ioBroker.nanoleaf-lightpanels/actions/workflows/test-and-release.yml/badge.svg?branch=master)](https://github.com/daniel-2k/ioBroker.nanoleaf-lightpanels/actions/workflows/test-and-release.yml)
 
-##连接到nanoleaf灯光面板/画布控制器：
-1.在适配器设置中，您必须设置nanoleaf Controller的IP地址或主机名和端口。您可以使用搜索功能发现网络中的所有纳米叶设备。
-2. nanoleaf OpenAPI需要授权令牌才能授予对OpenAPI的访问权限。如果已经拥有一个令牌，则可以在此处输入令牌，然后跳过下一步。
-3.如果没有授权令牌，则需要从nanoleaf OpenAPI请求它。
+这是一个 ioBroker 适配器，用于控制支持 OpenAPI 的 nanoleaf 设备。
 
-为此，通过按住设备上的电源按钮5-7秒钟，直到LED交替闪烁，将nanoleaf Controller设置为配对模式。
-然后在30秒内单击“获取授权令牌”按钮（配对模式在30秒后停止）。适配器必须正在运行！如果成功，则应该在“身份验证令牌”字段中看到授权令牌。如果发生错误，则会弹出带有错误消息的窗口（详细信息可以在日志中看到）。
+## 支持的模型
+* 灯板
+* 帆布
+* 形状
+* 元素
+* 行
 
-4.保存设置。
+## 连接到 nanoleaf 控制器：
+1. 在适配器设置中，您必须设置 nanoleaf 控制器的 IP 地址或主机名和端口。您可以使用搜索功能来发现网络中支持的所有 nanoleaf 设备。
+2. nanoleaf OpenAPI 需要一个授权令牌来授予对 OpenAPI 的访问权限。如果您已经有了，您可以在此处输入令牌并跳过下一步。
+3. 如果你没有授权令牌，你需要从 nanoleaf OpenAPI 请求它。
+
+为此，请按住设备上的电源按钮 5-7 秒，直到 LED 交替闪烁，从而将 nanoleaf 控制器设置为配对模式。
+然后在 30 秒内单击“获取授权令牌”按钮（配对模式在 30 秒后停止）。适配器必须正在运行！如果成功，则应在“身份验证令牌”字段中看到授权令牌。如果发生错误，您会弹出错误消息（您可以在日志中看到详细信息）。
+
+4. 保存设置。
 5.玩得开心！
 
-通过服务器发送事件（SSE）###直接状态更新
-由于Light Panel固件版本> 3.1.0和Canvas固件版本> 1.1.0，因此服务器发送事件（SSE）可以用于直接状态更新。对于“画布和形状”设备，支持触摸事件。
+### 通过服务器发送事件 (SSE) 直接更新状态
+由于 Light Panels 固件版本 > 3.1.0 和 Canvas 固件版本 > 1.1.0 Server Sent Events (SSE) 可用于直接状态更新。对于画布、形状和元素设备，支持触摸事件。
 
-_请注意：_要检测nanoleaf设备是否仍在运行，SSDP通知消息每60秒从nanoleaf设备发送一次。请确保您可以在端口1900上接收UDP多播消息（检查防火墙和路由）。否则，您将在适配器中收到有关连接已丢失的错误消息。如果您在保持生命方面遇到问题，请在管理设置中为nanoleaf适配器设置正确的适配器接口。
-对于搜索设备，请确保可以在UDP端口5000上接收流量。
-我注意到某些纳米叶设备突然停止发送SSDP通知消息，因此将不再检测到连接。这是纳米叶装置本身的问题。遇到此问题的人可以启用保持活动轮询机制，而不必使用其他适配器设置中的SSDP通知消息。
+_请注意：_为了检测 nanoleaf 设备是否还活着，每 60 秒从 nanoleaf 设备发送一次 SSDP 通知消息。请确保您可以在端口 1900 上接收 UDP 多播消息（检查防火墙和路由）。否则，您将在适配器中收到连接丢失的错误消息。如果您在保持活动状态时遇到问题，请在管理设置中为 nanoleaf 适配器设置正确的适配器接口。
+对于搜索设备，请确保您可以在 UDP 端口 5000 上接收流量。
+我注意到一些 nanoleaf 设备突然停止发送 SSDP 通知消息，因此不再检测到连接。这是 nanoleaf 设备本身的问题。遇到此问题的人可以在附加适配器设置中启用保持活动轮询机制而不是 SSDP 通知消息。
 
-状态更新轮询间隔的设置仅影响使用较低固件版本的设备，在这些固件中，轮询用于状态更新，或者在其他适配器设置中禁用了SSE功能。
+状态更新轮询间隔的设置仅影响固件版本较低的设备，其中轮询用于状态更新或在附加适配器设置中禁用 SSE 功能。
 
-## Alexa
-您可以通过ioBroker（云适配器）使用Alexa控制nanoleaf光面板/画布。
-支持电源开/关，亮度，色度和色温。
+## 亚历克萨
+您可以通过 ioBroker（云适配器）使用 Alexa 控制 nanoleaf 设备。
+支持开/关、亮度、颜色和色温。
 您必须设置数据点
 
-*状态（用于电源开/关）
-*色相（用于颜色）
-*饱和度（用于颜色）
-*亮度（用于彩色）
-* colorTemp（用于色温）
+* 状态（用于电源开/关）
+* 色调（用于颜色）
+* 饱和度（颜色）
+* 亮度（颜色）
+* colorTemp（色温）
 
-在云适配器中使用相同的智能名称。
+在相同智能名称下的云适配器中。
 
-## IoBroker可视化
-可以在ioBroker可视化中通过使用基本小部件（例如“开/关单选按钮”）或用于控制功率状态，亮度，色相，饱和度和色温状态的滑块来控制ioBroker可视化中的nanoleaf光面板/画布。
+## IoBroker 可视化
+可以在 ioBroker Visualization 中控制 nanoleaf 设备，方法是使用基本小部件作为“单选按钮开/关”或滑块来控制电源状态、亮度、色调、饱和度和色温状态。
 
-对于效果，您可以使用“选择ValueList”小部件将其用作下拉列表，然后将effectsList状态映射到小部件的value和text属性（类型：“ {nanoleaf-lightpanels.0.LightPanels.effectsList}” ->大括号很重要！）
+对于效果，您可以使用“选择值列表”小部件将其用作下拉列表，然后将效果列表状态映射到小部件的值和文本属性（类型：“{nanoleaf-lightpanels.0.LightPanels.effectsList}” -> 花括号很重要！）
 
-要控制和显示颜色，您必须安装颜色选择器样式的小部件。您可以将RGB ID映射到colorRGB状态，也可以使用三个HSV状态。
+要控制和可视化颜色，您必须安装颜色选择器样式小部件。您可以将 RGB ID 映射到 colorRGB 状态，也可以使用三个 HSV 状态。
 
-您可以使用在github上的/ vis子文件夹中找到的nanoleaf vis演示项目。
+您可以使用在 github 上的 /vis 子文件夹中找到的 nanoleaf vis 演示项目。
 
 ## Changelog
+
+### 1.3.1 (2021-12-05)
+* (daniel_2k) changed: write acknowledge to states directly after receiving success state from API
+* (daniel_2k) changed: ip address workaround also for device search to detect nanoleaf devices with missing host info through firmware bug
+* (daniel_2k) changed: optimized device detection and device keep alive detection
+
+### 1.3.0 (2021-11-28)
+* (daniel_2k) new: nanoleaf Lines supported
+* (daniel_2k) new: nanoleaf Elements supported
+* (daniel_2k) new: added state for writing custom effects and reading effects
+* (daniel_2k) changed: due to firmware errors in canvas and shapes, IP address from packet header is used instead of location (because it's empty) for SSDP MSEARCH and NOTIFY
+* (daniel_2k) fixed: devices were not deleted completely on device identification change
+
+### 1.2.1 (2021-06-20)
+* (daniel_2k) fixed: get a new authorization token is not possible when the current token is already invalid
+* (daniel_2k) fixed: device search in admin settings fixed
+* (daniel_2k) changed: obtaining an authorization token is also possible when field is already filled
 
 ### 1.2.0 (2021-01-03)
 * (daniel_2k) new: possibility to use polling for keep alive detection instead of SSDP notify messages (for nanoleaf devices which stop sending SSDP notify packages)
@@ -171,4 +195,4 @@ _请注意：_要检测nanoleaf设备是否仍在运行，SSDP通知消息每60�
 
 ## License
 The MIT License (MIT)
-Copyright (c) 2020 daniel_2k <daniel_2k@outlook.com>
+Copyright (c) 2021 daniel_2k <daniel_2k@outlook.com>

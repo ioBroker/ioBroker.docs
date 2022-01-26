@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sonos/README.md
 title: ioBroker.sonos
-hash: 6jEag0CWH8dCJXRGxsY8E66yJywGyTXx1xXfWnNc72A=
+hash: x3tMX2tReBIAjdwFd0t0N0YXCvG8rKrM72yJ6ndgiH8=
 ---
 ![Logo](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
 
@@ -12,39 +12,46 @@ hash: 6jEag0CWH8dCJXRGxsY8E66yJywGyTXx1xXfWnNc72A=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sonos.svg)
 ![NPM](https://nodei.co/npm/iobroker.sonos.png?downloads=true)
 
-# IoBroker.sonos
+#ioBroker.sonos
 Steuern und überwachen Sie SONOS-Geräte mit ioBroker.
 
 ## Umgang mit Gruppen
 * Zustände für den Umgang mit SONOS-Gruppen:
-  * **`Koordinator`** Setze den Koordinator, also das SONOS-Gerät, das der Master ist und die Gruppe koordiniert. Es erfordert, dass die IP-Adresse (Kanalname) des SONOS-Geräts der Koordinator ist, jedoch mit einem Unterstrich "_" anstelle eines Punkts ".". Verwenden Sie daher beispielsweise "192_168_0_100" für die IP-Adresse "192.168.0.100". Wenn das Gerät keiner Gruppe angehört, entspricht der Wert dem eigenen Kanalnamen (IP).
-  * **`group_volume`** das Volumen der Gruppe
-  * **`group_muted`** Stummschaltungsstatus der Gruppe.
-  * **ʻadd_to_group`** Fügen Sie dem SONOS-Gerät, unter dem sich dieser Status befindet, ein bestimmtes SONOS-Gerät hinzu. Verwenden Sie die IP-Adresse mit Unterstrichen (siehe oben).
-  * **`remove_from_group`** Entfernen Sie ein bestimmtes SONOS-Gerät von dem SONOS-Gerät, unter dem sich dieser Status befindet. Verwenden Sie die IP-Adresse mit Unterstrichen (siehe oben).
+   * **`coordinator`**: setze/bekomme den Koordinator, also das SONOS-Gerät, das der Master ist und die Gruppe koordiniert. Es erfordert, dass die IP-Adresse (Kanalname) des SONOS-Geräts der Koordinator ist, jedoch mit Unterstrich `_` statt Punkt `.`, also verwenden Sie beispielsweise `192_168_0_100` für die IP-Adresse `192.168.0.100`. Gehört das Gerät keiner Gruppe an, ist der Wert gleich dem eigenen Kanalnamen (IP).
+   * **`group_volume`**: das Volumen der Gruppe
+   * **`group_muted`**: Mute-Status der Gruppe.
+   * **`add_to_group`**: Füge ein bestimmtes SONOS-Gerät zu dem SONOS-Gerät hinzu, in dem sich dieser Zustand befindet. Verwenden Sie die IP-Adresse mit Unterstrichen (siehe oben).
+   * **`remove_from_group`**: Entferne ein bestimmtes SONOS-Gerät von dem SONOS-Gerät, in dem sich dieser Zustand befindet. Verwenden Sie die IP-Adresse mit Unterstrichen (siehe oben).
 
-*) Diese Zustände werden aktualisiert, wenn Änderungen in der SONOS-App vorgenommen werden.
+*) Diese Zustände werden aktualisiert, wenn Änderungen in der SONOS App vorgenommen werden.
 
-## Mit dem sayIt-Adapter verwenden
-Die Verwendung der [sayit adapter] (https://github.com/ioBroker/ioBroker.sayit) Stellen Sie mit diesem SONOS-Adapter sicher, dass der [Webadapter](https://github.com/ioBroker/ioBroker.web) wird instanziiert und läuft ebenfalls. Der Webadapter ist erforderlich, damit der SONOS-Adapter die generierte MP3-Datei vom sayit-Adapter lesen kann.
+## Verwendung mit dem sayIt-Adapter
+Um die [sayit Adapter](https://github.com/ioBroker/ioBroker.sayit) stellen Sie mit diesem SONOS Adapter sicher, dass der [Webadapter](https://github.com/ioBroker/ioBroker.web) zu verwenden, wird sie instanziiert und läuft auch. Der Web-Adapter wird benötigt, damit der SONOS-Adapter die generierte MP3-Datei vom sayit-Adapter lesen kann.
 
-### Warnung: Stabilitätsprobleme in Kombination mit dem sayIt-Adapter
-Bitte beachten Sie: Dieser SONOS-Adapter weist Stabilitätsprobleme auf, wenn mit dem sayIt-Adapter "Text to Speech" verwendet wird. Beobachtete Symptome:
+###Warnung: Stabilitätsprobleme in Kombination mit sayIt-Adapter
+Bitte beachten: Dieser SONOS-Adapter hat Stabilitätsprobleme, wenn 'Text-to-Speech' mit dem sayIt-Adapter verwendet wird. Beobachtete Symptome:
 
-1. Beliebige Volumenänderung auf 0 oder 100%.
-2. Keine Antwort nach einer zufälligen Anzahl von Texten auf Sprachsequenzen
+1. Beliebige Lautstärkeänderung auf 0 oder 100 %.
+2. Keine Reaktion nach einer zufälligen Anzahl von Text-zu-Sprachsequenzen
 
-Problemumgehung für Text zu Sprache ist die Verwendung der [SONOS HTTP API](https://github.com/jishi/node-sonos-http-api).
+Abhilfe für Text-to-Speech besteht darin, die [SONOS HTTP-API](https://github.com/jishi/node-sonos-http-api) zu verwenden.
 
 ## Machen
-* Warteschlange mit Deckblättern anzeigen
+* Warteschlange mit Abdeckungen anzeigen
+* Umschreiben mit https://github.com/svrooij/node-sonos-ts
 
 ## Aufbau
-- Webserver - [optional] Wenn der Webserver aktiviert ist oder nicht
-- Port - Wenn Webserver aktiviert ist, also der Port dafür. Standard 8083
+- Webserver - [optional] Wenn Webserver aktiviert oder nicht
+- Port - Wenn Webserver aktiviert ist, so den Port dafür. Standard 8083
 - Aktualisierung der verstrichenen Zeit (ms) - Intervall in ms, wie oft der verstrichene Timer aktualisiert werden soll, wenn der Titel abgespielt wird. (Standard 2000)
 
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+
+### __ARBEITEN IN PROGRESS__ -->
+
 ## Changelog
+### 2.1.4 (2021-12-17)
+* (bluefox) Catch possible errors by the start and unload
 
 ### 2.1.1 (2020-11-08)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-JS-CONTROLLER-S7, #78)
@@ -170,7 +177,6 @@ Problemumgehung für Text zu Sprache ist die Verwendung der [SONOS HTTP API](htt
 ### 0.0.5 (2014-11-24)
 * (bluefox) support of new naming concept
 
-
 ### 0.0.4 (2014-11-22)
 * (bluefox) support of text to speech
 
@@ -184,7 +190,7 @@ Problemumgehung für Text zu Sprache ist die Verwendung der [SONOS HTTP API](htt
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2021, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

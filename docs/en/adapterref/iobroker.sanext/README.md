@@ -1,14 +1,6 @@
 ![Logo](admin/sanext_l.png)
 # ioBroker.sanext
 
-![Number of Installations](http://iobroker.live/badges/sanext-installed.svg)
-![Number of Installations](http://iobroker.live/badges/sanext-stable.svg)
-[![NPM version](http://img.shields.io/npm/v/iobroker.sanext.svg)](https://www.npmjs.com/package/iobroker.sanext)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.sanext.svg)](https://www.npmjs.com/package/iobroker.sanext)
-[![Tests](https://github.com/instalator/iobroker.sanext/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.sanext/actions/)   
-
-[![NPM](https://nodei.co/npm/iobroker.sanext.png?downloads=true)](https://nodei.co/npm/iobroker.sanext/)
-
 [![Donate](https://img.shields.io/badge/Donate-YooMoney-green)](https://sobe.ru/na/instalator)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PFUALWTR2CTPY)
 

@@ -2,9 +2,12 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.binance/README.md
-title: ioBroker.binance
-hash: g1ciorZTR3u5Yhaf5+j4iEvviAnfozU2ASrlfW4BtJo=
+title: !!!
+hash: BSYnXyUI001V3VbS9LwVPs800MPSIjbRqcpcK7c2COY=
 ---
+# !!!
+# Bitte beachten Sie, dass dieses Plugin / Repository nicht mehr verfügbar ist (zur Annahme offen).
+# !!!
 ![Logo](../../../en/adapterref/iobroker.binance/admin/binance.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.binance.svg)
@@ -19,13 +22,19 @@ hash: g1ciorZTR3u5Yhaf5+j4iEvviAnfozU2ASrlfW4BtJo=
 ## Einführung
 Adapter zur Kommunikation mit der Krypto-Handelsplattform binance
 
-Der Adapter zieht die Preise der Währungen im konfigurierten Aktualisierungsintervall.
+Der Adapter zieht die Preise von Währungen im konfigurierten Aktualisierungsintervall.
 Wenn Sie einen API-Schlüssel und das entsprechende Geheimnis konfigurieren, werden auch Kontensalden abgerufen.
 Sie können einen API-Schlüssel auf binance.com erstellen. Ich empfehle, ihn auf "schreibgeschützt" zu beschränken.
 
 ![Screenshot-1] (Screenshot-1.png)! [Screenshot-2](../../../en/adapterref/iobroker.binance/screenshot-2.png)
 
 ## Changelog
+### 1.1.3
+- dependency update: lodash
+### 1.1.2
+- version label fix
+### 1.1.1
+- Possibility to disabled download of all prices. Polished options and translations.
 ### 1.1.0
 - added 24hr data for selected symbols
 ### 1.0.5

@@ -2,43 +2,45 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-google-fonts/README.md
-title: kein Titel
-hash: 81Sr6uKH58JZZX0vKGYE5h0CFEFbOEZ3p1Mo8s+OvwI=
+title: ioBroker.vis-google-fonts
+hash: FYs/5Rb8c3qcFZ1h+9NcvTpYvFAe6iewO19VpOiRrSk=
 ---
-![Logo](../../../en/adapterref/iobroker.vis-google-fonts/admin/vis-google-fonts.png) ioBroker.vis-google-fonts =============
+![Logo](../../../en/adapterref/iobroker.vis-google-fonts/admin/vis-google-fonts.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/vis-google-fonts-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.vis-google-fonts.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-google-fonts.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-google-fonts.png?downloads=true)
 
+#ioBroker.vis-google-fonts
 Zusätzliche Schriftarten für ioBroker.vis
 
 ## Verwendungszweck
-Installieren Sie Schriftarten und verwenden Sie das Feld **CSS-> Schriftfamilie** ![Wie benutzt man](../../../en/adapterref/iobroker.vis-google-fonts/img/usage.png)
+Installieren Sie Schriftarten und verwenden Sie das Feld **CSS->font-family**.
+![Wie benutzt man](../../../en/adapterref/iobroker.vis-google-fonts/img/usage.png)
 
-Schriften: ![Schriftarten](../../../en/adapterref/iobroker.vis-google-fonts/img/fonts.png)
+Schriftarten: ![Schriftarten](../../../en/adapterref/iobroker.vis-google-fonts/img/fonts.png)
 
-Erweitern Sie iobroker.vis mit Google-Schriftarten: https://www.google.com/fonts
+Erweitern Sie iobroker.vis mit Google Fonts: https://www.google.com/fonts
 
-Folgende Schriftarten werden mitgeliefert:
+Folgende Schriftarten werden eingebunden:
 
 - Alegreya - von Juan Pablo del Peral (juan@huertatipografica.com.ar)
 - Anton - von Vernon Adams (vern@newtypography.co.uk)
 - Arimo - von Apache 2.0
 - BadScript - von Cyreal (www.cyreal.org)
-- Bangers - von vernon adams (vern@newtypography.co.uk)
+- Bangers - von Vernon Adams (vern@newtypography.co.uk)
 - Candal - von Vernon Adams (vern@newtypography.co.uk)
 - Comfortaa - von Johan Aakerlund (aajohan@gmail.com)
 - DancingScript - von Pablo Impallari (www.impallari.com|impallari@gmail.com) und Igino Marini. (www.ikern.com|mail@iginomarini.com)
 - IndieFlower - von Kimberly Geswein (kimberlygeswein.com)
 - Jura - von Daniel Johnson (<il.basso.buffo@gmail.com>)
-- Lobster - von Pablo Impallari (www.impallari.com|impallari@gmail.com) und Alexei Vanyashin (www.cyreal.org|a@cyreal.org)
-- MarckScript - von Denis Masharov <denis.masharov@gmail.com> und Marck Fogel
+- Hummer - von Pablo Impallari (www.impallari.com|impallari@gmail.com) und Alexei Vanyashin (www.cyreal.org|a@cyreal.org)
+- MarckScript - von Denis Masharov <denis.masharov@gmail.com> & Marck Fogel
 - Neucha - von Jovanny Lemonad (http://www.jovanny.ru)
 - OpenSans-Condensed - Apache 2.0
 - Pacifico - von Vernon Adams (vern@newtypography.co.uk)
-- Spielen - von Jonas Hecksher, Playtypes, E-Types AS (e-types.com)
+- Spielen - von Jonas Hecksher, Playtypes, e-types AS (e-types.com)
 - PoiretOne - von Denis Masharov (denis.masharov@gmail.com)
 - PressStart2P - von Cody "CodeMan38" Boisclair (cody@zone38.net)
 - RobotoCondensed - Apache 2.0
@@ -49,18 +51,24 @@ Folgende Schriftarten werden mitgeliefert:
 - ShadowsIntoLight - von Kimberly Geswein (kimberlygeswein.com)
 - SigmarOne - von Vernon Adams (vern@newtypography.co.uk)
 - StalinistOne - von Alexey Maslov, Jovanny Lemonad (lemonad@jovanny.ru)
-- Ubuntu - UBUNTU FONT LIZENZ Version 1.0
+- Ubuntu - UBUNTU SCHRIFTARTLIZENZ Version 1.0
+
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+
+### __ARBEITEN IN PROGRESS__ -->
 
 ## Changelog
+### 1.0.3 (2021-11-11)
+* (bluefox) Support of compact mode added
 
 ### 1.0.0 (2016-04-20)
-- (bluefox) just set the version
+* (bluefox) just set the version
 
 ### 0.1.0 (2015-11-05)
-- (bluefox) always load google-fonts if installed
+* (bluefox) always load google-fonts if installed
 
 ### 0.0.1 (2015-11-05)
-- (bluefox) initial checkin
+* (bluefox) initial checkin
 
 ## License
  Apache 2.0 and SIL Open Font License 1.1

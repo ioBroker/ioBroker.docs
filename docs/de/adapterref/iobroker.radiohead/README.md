@@ -3,7 +3,6 @@ BADGE-NPM version: https://img.shields.io/npm/v/iobroker.radiohead.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.radiohead.svg
 BADGE-Number of Installations (latest): https://iobroker.live/badges/radiohead-installed.svg
 BADGE-Number of Installations (stable): https://iobroker.live/badges/radiohead-stable.svg
-BADGE-Dependency Status: https://img.shields.io/david/crycode-de/iobroker.radiohead.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.radiohead.png?downloads=true
 ---
 ![Logo](../../admin/radiohead.png)
@@ -290,6 +289,18 @@ Die Zähler der Nachrichten können bei Bedarf durch ein Schreiben in das Objekt
 
 ## Changelog
 
+### 1.3.0 (2022-01-07)
+* (crycode-de) Handling of serial port close events
+* (crycode-de) Try to reinitialize the serial port on close/errors
+* (crycode-de) Fixed spelling of indicator role
+* (crycode-de) Log messages now starts with an uppercase letter
+* (crycode-de) Debug log RHS version on adapter startup
+* (crycode-de) Some internal refracturing
+* (crycode-de) Updated dependencies
+
+### 1.2.0 (2021-09-17)
+* (crycode-de) Use stringified json for data.incoming state
+
 ### 1.1.1 (2021-01-09)
 * (crycode-de) Small fixes
 * (crycode-de) Updated dependencies
@@ -327,4 +338,4 @@ Die Zähler der Nachrichten können bei Bedarf durch ein Schreiben in das Objekt
 
 ## License
 
-Copyright (c) 2019-2021 Peter Müller <peter@crycode.de>
+Copyright (c) 2019-2022 Peter Müller <peter@crycode.de>

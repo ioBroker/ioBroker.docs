@@ -1,10 +1,13 @@
 ![Logo](admin/iot.png)
 # ioBroker IoT Adapter
 
-![Number of Installations](http://iobroker.live/badges/iot-installed.svg) ![Number of Installations](http://iobroker.live/badges/iot-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.iot.svg)](https://www.npmjs.com/package/iobroker.iot)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.iot.svg)](https://www.npmjs.com/package/iobroker.iot)
+![Number of Installations](http://iobroker.live/badges/iot-installed.svg)
+![Number of Installations](http://iobroker.live/badges/iot-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.iot.svg)](https://www.npmjs.com/package/iobroker.iot)
 
-[![NPM](https://nodei.co/npm/iobroker.iot.png?downloads=true)](https://nodei.co/npm/iobroker.iot/)
+![Test and Release](https://github.com/ioBroker/ioBroker.iot/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/iot/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.iot.svg)](https://www.npmjs.com/package/iobroker.iot)
 
 This adapter is ONLY for communication with Amazon Alexa, Google Home and Nightscout.
 It is not for remote access to your ioBroker instance. Use ioBroker.cloud adapter for that.
@@ -17,6 +20,11 @@ To use cloud adapter you should first to register on the ioBroker cloud [https:/
 [Reference to google API type settings](https://developers.google.com/actions/smarthome/guides/)
 
 ![Intro](img/intro.png)
+
+### Limits
+Everything has a limits, so the Amazon Alexa too. Alexa can support only up to 300 devices.
+
+Google Cloud and Alisa should be cleared
 
 ### Language
 If you select "default" language the smart names of devices and of enumerations will not be translated. If some language specified all known names will be translated into this language.
@@ -83,7 +91,7 @@ Alexa, lock the "lock name"
 ## How names will be generated
 The adapter tries to generate virtual devices for smart home control (e.g. Amazon Alexa or Google Home).
 
-The are two important enumerations for that: rooms and functions.
+There are two important enumerations for that: rooms and functions.
 
 Rooms are like: living room, bathroom, sleeping room.
 Functions are like: light, blind, heating.
@@ -93,9 +101,9 @@ Following conditions must be met to get the state in the automatically generated
 - the state must be in some "function" enumeration.
 - the state must have role ("state", "switch" or "level.*", e.g. level.dimmer) if not directly included into "functions".
 It can be that the channel is in the "functions", but state itself not.
-- the state must be writable: common.write = true
-- the state dimmer must have common.type as 'number'
-- the state heating must have common.unit as '°C', '°F' or '°K' and common.type as 'number'
+- the state must be writable: `common.write` = true
+- the state dimmer must have `common.type` as 'number'
+- the state heating must have `common.unit` as '°C', '°F' or '°K' and `common.type` as `number`
 
 If the state is only in "functions" and not in any "room", the name of state will be used.
 
@@ -116,9 +124,9 @@ If the group has more than one state, the group must be renamed via the enumerat
 To create own groups the user can install "scenes" adapter or create "script" in Javascript adapter.
 
 ### Replaces
-You can specify strings, that could be automatically replaced in the devices names. E. g. if you set replaces to:
-```.STATE,.LEVEL```, so all ".STATE" and ".LEVEL" will be deleted from names. Be careful with spaces.
-If you will set ```.STATE, .LEVEL```, so ".STATE" and " .LEVEL" will be replaced and not ".LEVEL".
+You can specify strings, that could be automatically replaced in the devices names. E.g. if you set replaces to:
+`.STATE,.LEVEL`, so all ".STATE" and ".LEVEL" will be deleted from names. Be careful with spaces.
+If you set `.STATE, .LEVEL`, so ".STATE" and " .LEVEL" will be replaced and not ".LEVEL".
 
 ## Helper states
 - **smart.lastObjectID**: This state will be set if only one device was controlled by home skill (alexa, google home).
@@ -130,17 +138,21 @@ If you will set ```.STATE, .LEVEL```, so ".STATE" and " .LEVEL" will be replaced
 ## IFTTT
 [instructions](doc/ifttt.md)
 
+## Google Home
+If you see following error message in the log: `[GHOME] Invalid URL Pro key. Status auto-update is disabled you can set states but receive states only manually`.
+So you must generate the URL-Key anew:
+
+![Url key](img/url_key.png)
+
 ## Services
 There is a possibility to send messages to cloud adapter.
-If you call ```[POST]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>``` und value as payload.
+If you call `[POST]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>` und value as payload.
 
-```
-curl --data "myString" https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>
-```
+`curl --data "myString" https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>`
 
 or
 
-```[GET]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>&data=myString```
+`[GET]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>&data=myString`
 
 If you set in the settings the field "White list for services" the name *custom_test*, and call with "custom_test" as the service name, the state **cloud.0.services.custom_test** will be set to *myString*.
 
@@ -150,29 +162,29 @@ Here you can find instructions how to use it with [tasker](doc/tasker.md).
 
 IFTTT service is allowed only if IFTTT key is set.
 
-Reserved names are "ifttt", "text2command", "simpleApi", "swagger". These must be used without the ```"custom_"``` prefix.
+Reserved names are `ifttt`, `text2command`, `simpleApi`, `swagger`. These must be used without the `custom_` prefix.
 
-### text2command
-You may write "text2command" in white list, you can send POST request to ```https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>``` to write data into *text2command.X.text* variable.
+### `text2command`
+You may write "text2command" in white list, you can send POST request to `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>` to write data into *text2command.X.text* variable.
 
-You can use GET method too ```https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>&data=<MY COMMAND>```
+You can use GET method too `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>&data=<MY COMMAND>`
 
-"X" can be defined in settings by the "Use text2command instance" option.
+`X` can be defined in settings by the "Use text2command instance" option.
 
 ## Custom skill
 The answers for custom skill can be processed in two ways:
-- text2command
-- javascript
+- `text2command`
+- `javascript`
 
-### text2command
-if *text2command* instance is defined in the configuration dialog, so the question will be sent to the instance.
+### `text2command`
+if `text2command` instance is defined in the configuration dialog, so the question will be sent to the instance.
 
-*text2command* must be configured that the expected phrase will be parsed and the answer will be given back.
+`text2command` must be configured that the expected phrase will be parsed and the answer will be given back.
 
-### Javascript
+### `Javascript`
 There is a possibility to process the question directly with script. It is activated by default if no *text2command* instance is selected.
 
-If *text2command* instance is defined, so this instance must provide the answer and the answer from *script* will be ignored.
+If `text2command` instance is defined, so this instance must provide the answer and the answer from *script* will be ignored.
 
 The adapter will provide the details in two states with different detail level
 * **smart.lastCommand** contains the received text including an info on type of query (intent). Example: "askDevice Status Rasenmäher"
@@ -256,6 +268,38 @@ Following types are supported:
 -->
 
 ## Changelog
+### 1.9.1 (2022-01-22)
+* (bluefox) Added experimental support for remote access
+
+### 1.8.25 (2021-11-18)
+* (bluefox) Corrected the enabling of the category
+
+### 1.8.24 (2021-09-19)
+* (bluefox) Respect the min/max limits by controlling
+
+### 1.8.23 (2021-09-18)
+* (bluefox) Fixed the response for the heating control
+
+### 1.8.22 (2021-05-16)
+* (bluefox) Make it admin4 compatible
+
+### 1.8.21 (2021-05-16)
+* (bluefox) Fixed the encryption of the password. Warning: if you see the message in the log, that password is invalid, please enter the password in configuration dialog one more time and save.
+
+### 1.8.20 (2021-05-16)
+* (foxriver76) we now write data received from custom services with acknowledge flag
+
+### 1.8.19 (2021-05-14)
+* (bluefox) Only added one debug output
+
+### 1.8.16 (2021-03-13)
+* (bluefox) fixed the blind functionality in alisa
+
+### 1.8.15 (2021-03-12)
+* (bluefox) implemented the sensor functionality in alisa
+
+### 1.8.14 (2021-03-12)
+* (bluefox) allowed the control of the blinds in alisa
 
 ### 1.8.13 (2021-02-04)
 * (Apollon77) add missing object smart.lastObjectID
@@ -267,7 +311,7 @@ Following types are supported:
 * (Morluktom) Alexa - Corrected the request for percentage values
 
 ### 1.8.10 (2021-01-20)
-* (bluefox) Added the reconnect strategy if DNS address cannot be resolved
+* (bluefox) Added the reconnection strategy if DNS address cannot be resolved
 
 ### 1.8.9 (2020-12-27)
 * (bluefox) Updated configuration GUI to the latest state
@@ -301,9 +345,6 @@ Following types are supported:
 
 ### 1.7.14 (2020-11-05)
 * (bluefox) Updated the select ID dialog.
-
-#### 1.7.13 (2020-10-30)
-* (foxriver76) add eraseOnUpload flag for js-controller 3.2+
 
 ### 1.7.12 (2020-09-25)
 * (bluefox) Updated the select ID dialog.
@@ -481,7 +522,7 @@ Following types are supported:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2022 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -500,4 +541,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-

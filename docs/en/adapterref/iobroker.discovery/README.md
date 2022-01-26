@@ -1,20 +1,20 @@
 ![Logo](admin/discovery.png)
 # ioBroker Discover Adapter
 
-![Number of Installations](http://iobroker.live/badges/discovery-installed.svg) 
-![Number of Installations](http://iobroker.live/badges/discovery-stable.svg) 
+![Number of Installations](http://iobroker.live/badges/discovery-installed.svg)
+![Number of Installations](http://iobroker.live/badges/discovery-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.discovery.svg)](https://www.npmjs.com/package/iobroker.discovery)
+
+![Test and Release](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.discovery.svg)](https://www.npmjs.com/package/iobroker.discovery)
-[![Tests](https://travis-ci.org/ioBroker/ioBroker.discovery.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.discovery)
-
-[![NPM](https://nodei.co/npm/iobroker.discovery.png?downloads=true)](https://nodei.co/npm/iobroker.discovery/)
-
 **Detect devices with all known methods.**
 
-This is special adapters, that tries to find all possible devices, that can be reachable from host.
+This is a special adapter, that tries to find all possible devices, that can be reachable from host.
 Just now it can detect via ping, UPnP (serial planned).
 
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** 
+For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Actually supported
 
@@ -24,6 +24,7 @@ Just now it can detect via ping, UPnP (serial planned).
 - Bosch Smart Home
 - Bose Soundtouch
 - Broadlink
+- BSBLan
 - Chromecast
 - Daikin climate control
 - deConz
@@ -51,6 +52,7 @@ Just now it can detect via ping, UPnP (serial planned).
 - InfluxDB
 - KLF-200
 - KNX (disabled actually)
+- Keba KeContact P30
 - Kodi
 - Landroid
 - LGTV
@@ -70,6 +72,7 @@ Just now it can detect via ping, UPnP (serial planned).
 - myDlink
 - Mysensors USB/Serial (9600, 38400, 57600, 115200)
 - nanoleaf Light Panels / Canvas
+- Net Tools
 - Nuki2
 - Nut
 - Onkyo
@@ -91,6 +94,7 @@ Just now it can detect via ping, UPnP (serial planned).
 - TR-064
 - Trådfri
 - UPnP
+- ValloxMV
 - Wifilight
 - Yamaha
 - Yeelight
@@ -98,13 +102,19 @@ Just now it can detect via ping, UPnP (serial planned).
 
 ### Offered as additional adapters
 - Cloud
-- History (if no SQL or InfluxDB found)
-- flot (offered when a History-Adapter is present)
+- History (if no SQL or InfluxDB found) 
+- IoT
+- eCharts (offered when a History-Adapter is present)
 - JavaScript
 - Info
-- Mobile
 - Vis
 - Web
+
+## If the adapter can not find IPs ...
+The adapter pings the network of the IP of the current host (x.y.z.1..255). Additionally, UPnP and mDNS is used to detect IPs. 
+
+If not all IPs are found then please check that the iobroker user can execute `/bin/ping`. 
+You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilities/permissions.
 
 ## Todo
 - artnet? (Bluefox)
@@ -130,6 +140,40 @@ Just now it can detect via ping, UPnP (serial planned).
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 2.7.5 (2021-11-09)
+* (Apollon77) Fix kecontact detection (Sentry IOBROKER-DISCOVERY-3P)
+
+### 2.7.4 (2021-11-09)
+* (bluefox) Replaced flot with eCharts
+* (bluefox) info Adapter removed
+
+### 2.7.3 (2021-10-05)
+* (Sneak-L8) updated kecontact detection
+
+### 2.7.2 (2021-08-31)
+* (Sneak-L8) support KeBa KeContact P30
+
+### 2.7.0 (2021-07-01)
+* (hacki11) Add discovery for BSBLan and ValloxMV
+* (Apollon77) Optimize for js-controller 3.3
+
+### 2.6.3 (2021-05-03)
+* (bluefox) Added support of Admin5
+
+### 2.6.2 (2021-04-13)
+* (Apollon77) Fix crash case in mihome discovery (Sentry IOBROKER-DISCOVERY-30)
+* (Apollon77) Fix crash case in ping logic (Sentry IOBROKER-DISCOVERY-2Y)
+* (Apollon77) Fix crash case in hf-lpb100 logic (Sentry IOBROKER-DISCOVERY-34)
+
+### 2.6.1 (2021-02-28)
+* (JeyCee) added iot and net-tools
+* (Apollon77) Adjust and optimize UDP and UPnP discoveries
+* (Apollon77) Add option to specify the "own IP address" and netmask to also allow discovery for e.g. docker cases where an external network should be scanned
+* (Apollon77) Fix ping progress counter when scanning multiple ip ranges
+* (JeyCee) removed mobile
+* (Apollon77) fix sonos and synology
+* (JeyCee) UI adjustments
+* (Apollon77) Fix crash cases (Sentry IOBROKER-DISCOVERY-2Q)
 
 ### 2.5.0 (2021-01-11)
 * (Zefau) Replace nuki2 with nuki-extended
@@ -144,7 +188,7 @@ Just now it can detect via ping, UPnP (serial planned).
 * (withstu) add heos
 
 ### 2.3.11 (2020-08-08)
-* (Grizzelbee) Added MieleCloudService 
+* (Grizzelbee) Added MieleCloudService
 
 ### 2.3.10 (2020-07-26)
 * (MiSchroe) Discovery Velux KLF-200 updated to new firmware
@@ -187,7 +231,7 @@ Just now it can detect via ping, UPnP (serial planned).
 * (oweitman) Add discovery for SqueezeboxRPC
 
 ### 2.1.0 (2020-01-21)
-* (foxriver76) no longer use adapter.objects
+* (foxriver76) no longer use `adapter.objects`
 * __js-controller > 2.0.0 required__
 
 ### 2.0.0 (2019-05-15)
@@ -284,7 +328,7 @@ Just now it can detect via ping, UPnP (serial planned).
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2020, Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2021, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

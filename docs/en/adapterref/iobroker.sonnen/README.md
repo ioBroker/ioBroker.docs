@@ -1,3 +1,9 @@
+---
+BADGE-Number of Installations: http://iobroker.live/badges/sonnen-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.sonnen.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.sonnen.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.sonnen.png?downloads=true
+---
 ![Logo](admin/sonnen.png)
 # ioBroker.sonnen
 ===========================
@@ -7,7 +13,15 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.sonnen.svg)](https://www.npmjs.com/package/iobroker.sonnen)
 
 
-[![NPM](https://nodei.co/npm/iobroker.sonnen.png?downloads=true)](https://nodei.co/npm/iobroker.sonnen/) 
+[![NPM](https://nodei.co/npm/iobroker.sonnen.png?downloads=true)](https://nodei.co/npm/iobroker.sonnen/)
+## Disclaimer
+The developers of this module are in no way endorsed by or affiliated with sonnen GmbH,
+or any associated subsidiaries, logos or trademarks.
+
+## Widget
+From version 1.8.0 on, the adapter comes with a vis widget. The widget only works with the port 8080 API.
+![Widget](/docs/en/media/widgetPreview.png)
+
 ## Installation
 You can either install the adapter via the ioBroker web interface or on your local machine via npm.
 
@@ -35,16 +49,18 @@ Additional to the adapter installation you have to add an instance of the adapte
 4. Now you can see the main settings of the adapter configuration page --> type in the ip-address of your sonnen battery.
 __It is also strongly recommended, to provide an API key, which can be found in the webinterface of your sonnen battery (Tab: Software Integration). Otherwise, the adapter uses the unofficial API.__
 ![Main Settings](/docs/en/media/mainSettings.png)
-5. If you want to thange the interval in which the states are polled, click on the tab "Advanced Settings"
+5. If you want to change the interval in which the states are polled, click on the tab "Advanced Settings"
 6. You can set the poll interval between 2000 ms (2 seconds) and 60000 ms (1 minute), the default value is 7 seconds
 ![Advanced Settings](/docs/en/media/advancedSettings.png)
-7. Click on Save & Close
+7. If you want to avoid requests from your battery to the sonnen server, you can deactivate the online status polling (only relevant for 8080 API - e.g. eco8 and newer)
+8. Click on Save & Close
 
 ## Usage
 Here you can find a description of the states and how to use them. The most states of this adapter are read-only states.
 Note, that there are two different sonnen API's so if you are missing states, they are probably not supported.
 
 ### States
+Note: The old and legacy API states (API port 3480/7979) are currently not or only partially documented
 
 #### Channel: info
 
@@ -241,6 +257,7 @@ Note, that there are two different sonnen API's so if you are missing states, th
     |boolean|R|
 
    *Read-only boolean which is true if your sonnen battery is online.* 
+
 #### Channel: control
 
 * control.charge
@@ -281,6 +298,64 @@ The both channels have the identical states. All states are read-only numbers.
 The channel consists of read-only states of type `number`, providing information about the inverter of your battery.
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
+### 1.9.8 (2021-09-27)
+* (foxriver76) make requesting online status optional for 8080 api (closes #76)
+
+### 1.9.6 (2021-08-03)
+* (foxriver76) fix for horizontal flow animations in Safari (broken with 1.9.4)
+
+### 1.9.4 (2021-07-17)
+* (foxriver76) widget: make the svg smaller by using a flexbox to center the svg correctly inside the div
+
+### 1.9.3 (2021-07-16)
+* (foxriver76) also poll the configuration instead of updating it only once at start (closes #70)
+
+### 1.9.2 (2021-07-16)
+* (foxriver76) fix for legacy API
+
+### 1.9.1 (2021-07-16)
+* (foxriver76) use legacy API if old API is not completely implemented
+
+### 1.9.0 (2021-07-16)
+* (foxriver76) we now also support the legacy API (port 3480)
+* (foxriver76) switch from intervals to timeouts to avoid overlapping poll runs
+
+### 1.8.6 (2021-07-04)
+* (foxriver76) widget: we removed debug logging and unnecessary template functions
+* (foxriver76) widget: we now cache the jquery selectors to improve the performance
+
+### 1.8.5 (2021-07-02)
+* (foxriver76) widget: stroke width can now be configured
+
+### 1.8.4 (2021-07-01)
+* (foxriver76) widget: we made ID names more adapter specific to avoid getting wrong translations
+
+### 1.8.3 (2021-07-01)
+* (foxriver76) widget: we now allow defining the used adapter instance
+
+### 1.8.2 (2021-06-30)
+* (foxriver76) widget: css classes now have adapter specific names to avoid conflicts
+
+### 1.8.1 (2021-06-30)
+* (foxriver76) widget now has flow directions
+
+### 1.8.0 (2021-06-30)
+* (foxriver76) added widget
+
+### 1.7.3 (2021-05-01)
+* (foxriver76) we now update objects if attributes are updated, but preserve common.name attribute
+
+### 1.7.2 (2021-04-30)
+* (foxriver76) we fixed some type issues (fixes #58)
+
+### 1.7.1 (2021-03-19)
+* (foxriver76) do not log warnings on inverter endpoint if battery does not support it (closes #55)
+
 ### 1.7.0 (2020-11-12)
 * (foxriver76) new channels for powermeter and inverter
 
@@ -358,7 +433,7 @@ The channel consists of read-only states of type `number`, providing information
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2018-2021 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

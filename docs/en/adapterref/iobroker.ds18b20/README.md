@@ -3,7 +3,6 @@ BADGE-NPM version: https://img.shields.io/npm/v/iobroker.ds18b20.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.ds18b20.svg
 BADGE-Number of Installations (latest): https://iobroker.live/badges/ds18b20-installed.svg
 BADGE-Number of Installations (stable): https://iobroker.live/badges/ds18b20-stable.svg
-BADGE-Dependency Status: https://img.shields.io/david/crycode-de/iobroker.ds18b20.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.ds18b20.png?downloads=true
 ---
 ![Logo](../../admin/ds18b20.png)
@@ -26,28 +25,34 @@ An example of the connection of DS18B20 sensors to a Raspberry Pi can be found b
 * Query interval customizable per sensor
 * Rundung und Umrechnung des gemessenen Wertes pro Sensor anpassbar
 * Rounding and conversion of the measured value customizable per sensor
+* Support for sensors at remote systems using the _remote client_
 
 ## Installation
 
-The adapter is currently available in the latest repository.
+The adapter is available in the stable and latest repository.
 
-Alternatively, it be installed using the URL `https://github.com/crycode-de/ioBroker.ds18b20.git`.
+Alternatively, the latest development version can be installed using the GitHub URL `https://github.com/crycode-de/ioBroker.ds18b20.git`.
+This is recommended in only some cases!
 
 
 ## Configuration
 
-In the adapter configuration, a **Default query interval** can be specified in milliseconds for all sensors. Minimum is 500.
+In the adapter configuration, a **Default query interval** can be specified in milliseconds for all sensors. Minimum is 500.  
+In addition, the **Path of the 1-wire devices** can be adjusted if necessary.  
+An integrated server can be activated and configured for the integration of sensors at a remote system.
 
 The sensors can be added to a table manually or by **Search Sensors**.
 
 ![Konfiguration](./img/config.png)
 
-The **Address** is the 1-wire address/ID of the sensor and determines the object ID.
+The **Address** is the 1-wire address/ID of the sensor and determines the object ID.  
 As an example, a sensor with the address `28-0000077ba131` gets the object ID `ds18b20.0.sensors.28-0000077ba131`.
 
 The **Name** is used to identity the sensor. It's freely selectable by you.
 
-For each sensor a custom **Query interval** may be specified in milliseconds.
+The **Remote system ID** is empty for directly attached sensors or the ID of the remote system for sensors attached to a remote system.
+
+For each sensor a custom **Query interval** may be specified in milliseconds.  
 If this field is left blank, the default query interval will be used.
 Minimum is 500.
 
@@ -59,8 +64,8 @@ Via **Factor** and **Offset** it is possible to adjust the value read by the sen
 The **Decimals** indicate how many places after the decimal point the value is rounded.
 The rounding takes place after the calculation with factor and offset.
 
-**Null on error** defines how sensor read errors are handled.
-If this option is set, a `null` value be written to the sensor state on error.
+**Null on error** defines how sensor read errors are handled.  
+If this option is set, a `null` value be written to the sensor state on error.  
 If unset, the state will not be updated on errors.
 
 
@@ -122,15 +127,29 @@ sendTo('ds18b20.0', 'search', {}, (ret) => {
         log(ret.err, 'warn');
     } else {
         for (let s of ret.sensors) {
-            log('Sensor: ' + s);
+            if (s.remoteSystemId) {
+                log('Sensor: ' + s.address + '@' + s.remoteSystemId);
+            } else {
+                log('Sensor: ' + s.address);
+            }
         }
     }
 });
 ```
 
+### `getRemoteSystems`
+
+With `getRemoteSystems` you are able to get the system IDs of all currently connected remote systems.
+
+```js
+sendTo('ds18b20.0', 'getRemoteSystems', {}, (ret) => {
+    log('ret: ' + JSON.stringify(ret));
+    log('Verbundene Systeme: ' + ret.join(', '));
+});
+```
 
 ## Adapter information
-Via the `ds18b20.*.info.connection` State, each adapter instance provides information on whether all configured sensors provide data.
+Via the `ds18b20.*.info.connection` State, each adapter instance provides information on whether all configured sensors provide data.  
 If the last reading of all sensors was successful, this state is `true`.
 As soon as one of the sensors has an error, this state is `false`.
 
@@ -157,6 +176,23 @@ lrwxrwxrwx 1 root root 0 Nov  2 11:18 28-0000077b9fea -> ../../../devices/w1_bus
 lrwxrwxrwx 1 root root 0 Nov  2 10:49 w1_bus_master1 -> ../../../devices/w1_bus_master1
 ```
 
+### Use of many sensors on the Raspberry Pi
+
+The number of sensors that can be operated error-free on a Raspberry Pi on one wire is limited and depends on some technical conditions (e.g. the length ot the wire).  
+Usually the first, sometimes random, failures occur from around 10 sensors.
+
+To use more sensors it is possible to split the sensors on multiple wires (GPIOs).
+Each wire needs it's own pull-up resistor.
+
+To enable the multiple wires you simply need to add multiple entries in the file `/boot/config.txt`:
+
+```
+dtoverlay=w1-gpio,gpiopin=4
+dtoverlay=w1-gpio,gpiopin=17
+```
+
+Each entry will create it's own `w1_bus_masterX` in the system.
+
 ### Kernel bug at negative temperatures
 
 There was a bug in the 5.10.y kernel of the Raspberry Pi since november 2020 which lead to negative temperatures be read as e.g. 4092 °C. (see [GitHub Issue](https://github.com/raspberrypi/linux/issues/4124))  
@@ -166,64 +202,51 @@ So a `rpi-update` should fix the problem.
 Adapter versions until v1.2.2 these obviously wrong values are transferred to the ioBroker State.  
 Since v1.2.3 the adapter checks if the read values are plausible (between -80 and +150 °C) and discards unplausible values.
 
-## Integration of sensors from a remote raspberry pi
+## Integration of sensors from a remote system
 
-It's also possible to integrate sensors which are connected a remote raspberry pi.
-For this purpose, the corresponding directory is shared on the remote Raspberry Pi using *samba* and then mounted on the ioBorker system.
+Starting in version 1.4.0 of _ioBroker.ds18b20_ it is possible to directly integrate sensors of a remote system using the _ioBroker.ds18b20 remote client_. You only need Node.js installed on the system for this.
 
-### Configuration on the remote raspberry pi
+In the adapter configuration you have set the checkbox **Enable remote sensors**. Then the adapter will create a TCP server on the given port and accept connections from remote clients.
 
-Installation of samba:
-```sh
-sudo apt install samba
-```
+The server-client connection will be encrypted using an `aes-256-cbc` algorithm.  
+Therefore the encryption key from the adapter configuration must be set at each client.
 
-Configuration in `/etc/samba/smb.conf`:
-```ini
-[ds1820]
-path = /sys/devices/w1_bus_master1
-comment = DS1820 Temperature sensors.
-available = yes
-browseable = yes
-guest ok = yes
-writeable = no
-force user = root
-force group = root
-```
+Then the _ioBroker.ds18b20 remote client_ connects to the adapter and will be shown under **Connected remote systems** in the adapter configuration.
 
-Restart samba to apply the changes:
-```sh
-sudo systemctl restart smbd
-```
+### Installation of the ioBroker.ds18b20 remote client
 
-### Configuration on the ioBroker system
+A setup for the _ioBroker.ds18b20 remote client_ is served by the adapter.
 
-Installation of samba client:
-```sh
-sudo apt install smbclient
-```
-
-Add an entry for the mount in `/etc/fstab`:
-```
-//<IP-ADRESS-REMOTE-RPI>/ds1820 /mnt/remote-ds1820 cifs defaults,vers=1.0 0 0
-```
-
-Create directory for the mount point:
-```sh
-sudo mkdir -p /mnt/remote-ds1820
-```
-
-Mount it:
-```sh
-sudo mount /mnt/remote-ds1820
-```
-
-### Adapter configuration
-In the adapter configuration you have to set the system path for the 1-wire devices to the mountpoint `/mnt/remote-ds1820`.
-
-If there are also sensors directly connected to the ioBroker system, you should add an extra instance of the adapter for the remote sensors.
+Instructions how to set up the client are includes in the adapter configuration.
 
 ## Changelog
+
+### 1.5.4 (2022-01-06)
+* (crycode-de) Catch errors while sending request to remote client (IOBROKER-DS18B20-C)
+
+### 1.5.3 (2021-12-28)
+* (crycode-de) Increased remote client protocol version to inform users that they should update their remote clients
+
+### 1.5.2 (2021-12-19)
+* (ghecker1) Fix remote client reconnect after multiple failed attempts
+  * **Reinstall of remote client needed to apply this fix!**
+
+### 1.5.1 (2021-12-12)
+* (crycode-de) Fix crash on undefined obj.native
+* (crycode-de) Updated remote-client-setup info in admin if https is used
+
+### 1.5.0 (2021-12-11)
+* (crycode-de) Add setting to disable specific sensors
+
+### 1.4.2 (2021-11-22)
+* (crycode-de) Added some instructions for installing remote client in admin
+
+### 1.4.1 (2021-04-20)
+* (crycode-de) Fixed bug if multiple remote sensors are used
+
+### 1.4.0 (2021-02-21)
+* (crycode-de) Support for remote sensors using an own tiny daemon and encrypted TCP sockets
+* (crycode-de) Set `q` flag to `0x81` (general problem by sensor) if a sensor reported a `null` value
 
 ### 1.3.0 (2021-02-11)
 * (crycode-de) Searching for sensors now works for multiple 1-wire masters
@@ -278,7 +301,7 @@ If there are also sensors directly connected to the ioBroker system, you should 
 
 ## License
 
-Copyright (c) 2019-2021 Peter Müller <peter@crycode.de>
+Copyright (c) 2019-2022 Peter Müller <peter@crycode.de>
 
 ### MIT License
 

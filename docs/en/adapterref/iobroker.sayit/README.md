@@ -1,9 +1,13 @@
 ![Logo](admin/sayit.png)
 # ioBroker sayit adapter
 
-![Number of Installations](http://iobroker.live/badges/sayit-installed.svg) ![Number of Installations](http://iobroker.live/badges/sayit-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.sayit.svg)](https://www.npmjs.com/package/iobroker.sayit)
+![Number of Installations](http://iobroker.live/badges/sayit-installed.svg)
+![Number of Installations](http://iobroker.live/badges/sayit-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.sayit.svg)](https://www.npmjs.com/package/iobroker.sayit)
+
+![Test and Release](https://github.com/ioBroker/iobroker.sayit/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/sayit/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.sayit.svg)](https://www.npmjs.com/package/iobroker.sayit)
-[![NPM](https://nodei.co/npm/iobroker.sayit.png?downloads=true)](https://nodei.co/npm/iobroker.sayit/)
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
@@ -120,6 +124,9 @@ Following values for engines are possible:
 - **it** - Italiano
 - **es** - Espaniol
 - **fr** - Français
+- **nl** - Nederlands
+- **zh-CN** - 简体中文
+- **pt** - Português
 
 #### Yandex
 - **ru_YA:Yandex** - Русский
@@ -130,6 +137,7 @@ Following values for engines are possible:
 - **ru-RU_CLOUD_Male** -           Русский - Максим
 - **de-DE_CLOUD_Female** -         Deutsch - Marlene
 - **de-DE_CLOUD_Male** -           Deutsch - Hans
+- **de-DE_CLOUD_Female_Vicki**  -  Deutsch - Vicki
 - **en-US_CLOUD_Female** -         en-US - Female - Salli
 - **en-US_CLOUD_Male** -           en-US - Male - Joey
 - **da-DK_CLOUD_Female** -         da-DK - Female - Naja
@@ -171,12 +179,14 @@ Following values for engines are possible:
 - **pl-PL_CLOUD_Male_Jan** -       pl-PL - Male - Jan
 - **pl-PL_CLOUD_Female** -         pl-PL - Female - Maja
 - **pt-BR_CLOUD_Female** -         pt-BR - Female - Vitoria
+- **pt-BR_CLOUD_Female_Camila**  - pt-BR - Female - Camila
 - **pt-BR_CLOUD_Male** -           pt-BR - Male - Ricardo
 - **pt-PT_CLOUD_Male** -           pt-PT - Male - Cristiano
 - **pt-PT_CLOUD_Female** -         pt-PT - Female - Ines
 - **ro-RO_CLOUD_Female** -         ro-RO - Female - Carmen
 - **sv-SE_CLOUD_Female** -         sv-SE - Female - Astrid
 - **tr-TR_CLOUD_Female** -         tr-TR - Female - Filiz
+- **pt-BR_CLOUD_Female_Camila** -  pt-BR - Female - Camila
 
 #### Pico TTS
 - **en-US** - Englisch US
@@ -187,60 +197,69 @@ Following values for engines are possible:
 - **fr-FR** - Français
 
 #### Amazon polly direct
-- **(ru-RU_AP_Female)** -           Русский - Татьяна
-- **(ru-RU_AP_Male)** -             Русский - Максим
-- **(de-DE_AP_Female)** -           Deutsch - Marlene
-- **(de-DE_AP_Female_Vicki)** -     Deutsch - Vicki
-- **(de-DE_AP_Male)** -             Deutsch - Hans
-- **(en-US_AP_Female)** -           en-US - Female - Salli
-- **(en-US_AP_Male)** -             en-US - Male - Joey
-- **(da-DK_AP_Female)** -           da-DK - Female - Naja
-- **(da-DK_AP_Male)** -             da-DK - Male - Mads
-- **(en-AU_AP_Female)** -           en-AU - Female - Nicole
-- **(en-AU_AP_Male)** -             en-AU - Male - Russell
-- **(en-GB_AP_Female_Amy)** -       en-GB - Female - Amy
-- **(en-GB_AP_Male)** -             en-GB - Male - Brian
-- **(en-GB_AP_Female_Emma)** -      en-GB - Female - Emma
-- **(en-GB-WLS_AP_Female)** -       en-GB-WLS - Female - Gwyneth
-- **(en-GB-WLS_AP_Male)** -         en-GB-WLS - Male - Geraint
-- **(cy-GB_AP_Female)** -           cy-GB - Female - Gwyneth
-- **(cy-GB_AP_Male)** -             cy-GB - Male - Geraint
-- **(en-IN_AP_Female)** -           en-IN - Female - Raveena
-- **(en-US_AP_Male_Chipmunk)** -    en-US - Male - Chipmunk
-- **(en-US_AP_Male_Eric)** -        en-US - Male - Eric
-- **(en-US_AP_Female_Ivy)** -       en-US - Female - Ivy
-- **(en-US_AP_Female_Jennifer)** -  en-US - Female - Jennifer
-- **(en-US_AP_Male_Justin)** -      en-US - Male - Justin
-- **(en-US_AP_Female_Kendra)** -    en-US - Female - Kendra
-- **(en-US_AP_Female_Kimberly)** -  en-US - Female - Kimberly
-- **(es-ES_AP_Female)** -           es-ES - Female - Conchita
-- **(es-ES_AP_Male)** -             es-ES - Male - Enrique
-- **(es-US_AP_Female)** -           es-US - Female - Penelope
-- **(es-US_AP_Male)** -             es-US - Male - Miguel
-- **(fr-CA_AP_Female)** -           fr-CA - Female - Chantal
-- **(fr-FR_AP_Female)** -           fr-FR - Female - Celine
-- **(fr-FR_AP_Male)** -             fr-FR - Male - Mathieu
-- **(is-IS_AP_Female)** -           is-IS - Female - Dora
-- **(is-IS_AP_Male)** -             is-IS - Male - Karl
-- **(it-IT_AP_Female)** -           it-IT - Female - Carla
-- **(it-IT_AP_Male)** -             it-IT - Male - Giorgio
-- **(nb-NO_AP_Female)** -           nb-NO - Female - Liv
-- **(nl-NL_AP_Female)** -           nl-NL - Female - Lotte
-- **(nl-NL_AP_Male)** -             nl-NL - Male - Ruben
-- **(pl-PL_AP_Female_Agnieszka)** -  pl-PL - Female - Agnieszka
-- **(pl-PL_AP_Male_Jacek)** -       pl-PL - Male - Jacek
-- **(pl-PL_AP_Female_Ewa)** -       pl-PL - Female - Ewa
-- **(pl-PL_AP_Male_Jan)** -         pl-PL - Male - Jan
-- **(pl-PL_AP_Female)** -           pl-PL - Female - Maja
-- **(pt-BR_AP_Female)** -           pt-BR - Female - Vitoria
-- **(pt-BR_AP_Male)** -             pt-BR - Male - Ricardo
-- **(pt-PT_AP_Male)** -             pt-PT - Male - Cristiano
-- **(pt-PT_AP_Female)** -           pt-PT - Female - Ines
-- **(ro-RO_AP_Female)** -           ro-RO - Female - Carmen
-- **(sv-SE_AP_Female)** -           sv-SE - Female - Astrid
-- **(tr-TR_AP_Female)** -           tr-TR - Female - Filiz
+- **ru-RU_AP_Female** -           Русский - Татьяна
+- **ru-RU_AP_Male** -             Русский - Максим
+- **de-DE_AP_Female** -           Deutsch - Marlene
+- **de-DE_AP_Female_Vicki** -     Deutsch - Vicki
+- **de-DE_AP_Male** -             Deutsch - Hans
+- **en-US_AP_Female** -           en-US - Female - Salli
+- **en-US_AP_Male** -             en-US - Male - Joey
+- **da-DK_AP_Female** -           da-DK - Female - Naja
+- **da-DK_AP_Male** -             da-DK - Male - Mads
+- **en-AU_AP_Female** -           en-AU - Female - Nicole
+- **en-AU_AP_Male** -             en-AU - Male - Russell
+- **en-GB_AP_Female_Amy** -       en-GB - Female - Amy
+- **en-GB_AP_Male** -             en-GB - Male - Brian
+- **en-GB_AP_Female_Emma** -      en-GB - Female - Emma
+- **en-GB-WLS_AP_Female** -       en-GB-WLS - Female - Gwyneth
+- **en-GB-WLS_AP_Male** -         en-GB-WLS - Male - Geraint
+- **cy-GB_AP_Female** -           cy-GB - Female - Gwyneth
+- **cy-GB_AP_Male** -             cy-GB - Male - Geraint
+- **en-IN_AP_Female** -           en-IN - Female - Raveena
+- **en-US_AP_Male_Chipmunk** -    en-US - Male - Chipmunk
+- **en-US_AP_Male_Eric** -        en-US - Male - Eric
+- **en-US_AP_Female_Ivy** -       en-US - Female - Ivy
+- **en-US_AP_Female_Jennifer** -  en-US - Female - Jennifer
+- **en-US_AP_Male_Justin** -      en-US - Male - Justin
+- **en-US_AP_Female_Kendra** -    en-US - Female - Kendra
+- **en-US_AP_Female_Kimberly** -  en-US - Female - Kimberly
+- **es-ES_AP_Female** -           es-ES - Female - Conchita
+- **es-ES_AP_Male** -             es-ES - Male - Enrique
+- **es-US_AP_Female** -           es-US - Female - Penelope
+- **es-US_AP_Male** -             es-US - Male - Miguel
+- **fr-CA_AP_Female** -           fr-CA - Female - Chantal
+- **fr-FR_AP_Female** -           fr-FR - Female - Celine
+- **fr-FR_AP_Male** -             fr-FR - Male - Mathieu
+- **is-IS_AP_Female** -           is-IS - Female - Dora
+- **is-IS_AP_Male** -             is-IS - Male - Karl
+- **it-IT_AP_Female** -           it-IT - Female - Carla
+- **it-IT_AP_Male** -             it-IT - Male - Giorgio
+- **nb-NO_AP_Female** -           nb-NO - Female - Liv
+- **nl-NL_AP_Female** -           nl-NL - Female - Lotte
+- **nl-NL_AP_Male** -             nl-NL - Male - Ruben
+- **pl-PL_AP_Female_Agnieszka** -  pl-PL - Female - Agnieszka
+- **pl-PL_AP_Male_Jacek** -       pl-PL - Male - Jacek
+- **pl-PL_AP_Female_Ewa** -       pl-PL - Female - Ewa
+- **pl-PL_AP_Male_Jan** -         pl-PL - Male - Jan
+- **pl-PL_AP_Female** -           pl-PL - Female - Maja
+- **pt-BR_AP_Female** -           pt-BR - Female - Vitoria
+- **pt-BR_AP_Male** -             pt-BR - Male - Ricardo
+- **pt-PT_AP_Male** -             pt-PT - Male - Cristiano
+- **pt-PT_AP_Female** -           pt-PT - Female - Ines
+- **ro-RO_AP_Female** -           ro-RO - Female - Carmen
+- **sv-SE_AP_Female** -           sv-SE - Female - Astrid
+- **tr-TR_AP_Female** -           tr-TR - Female - Filiz
+- **ko-KR_AP_Female** -           ko-KR - Female - Seoyeon
 
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
 ## Changelog
+### 1.12.3 (2021-06-25)
+* (bluefox) corrected the google engine
+* (bluefox) Added new voices: german, korean, brasil, Dutch
+
 ### 1.12.2 (2020-11-07)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-SAYIT-Q, IOBROKER-SAYIT-S, IOBROKER-SAYIT-T)
 
@@ -460,7 +479,7 @@ Changed type of top-level object to "meta" in order to comply with js-controller
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2021, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

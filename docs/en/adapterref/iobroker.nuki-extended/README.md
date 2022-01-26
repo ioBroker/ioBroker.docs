@@ -502,6 +502,13 @@ on({id: 'nuki-extended.0.openers.opener.state.ringStateUpdate', change: "any", a
 
 Please see [release page](https://github.com/Zefau/ioBroker.nuki-extended/releases) for changelog and detailed information.
 
+<!-- ### __WORK IN PROGRESS__ -->
+### 2.4.0 (2021-12-13)
+- (smaragdschlange) added support for Nuki Smart Door and Nuki Smart Lock 3.0 (Pro)
+
+### v2.3.1 (2021-07-20)
+- (Apollon77) Optimize for js-controller 3.3 and warnings prevented
+
 ### v2.3.0 (2020-08-10)
 - (Zefau) added support for the door sensor of the Nuki Smartlock ([introduced with Bridge firmware 2.6.0 / 1.16.0](https://developer.nuki.io/t/bridge-beta-fw-2-6-0-1-16-0-with-door-sensor-state/6159))
 - (Zefau) added support for the ring bell action of the Nuki Opener ([introduced with Bridge firmware 2.7.0 / 1.17.0](https://developer.nuki.io/t/bridge-beta-fw-2-7-0-1-17-0/6792))
@@ -560,7 +567,6 @@ Please see [release page](https://github.com/Zefau/ioBroker.nuki-extended/releas
 - (Zefau) added support for multiple devices (including Nuki Opener) on adapter web interface
 - (Zefau) added option to not retrieve all information (by deselecting `config` or `users`) via Nuki Web API
 
-
 ## Credits
 Thanks to [@Mik13](https://github.com/Mik13) for the [Nuki Bridge API implementation](https://github.com/Mik13/nuki-bridge-api#nuki-bridge-api).
 
@@ -570,7 +576,7 @@ Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smash
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2020 Zefau <zefau@mailbox.org>
+Copyright (c) 2019-2021 Zefau <zefau@mailbox.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

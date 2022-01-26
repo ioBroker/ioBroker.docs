@@ -1,3 +1,9 @@
+---
+BADGE-Number of Installations: http://iobroker.live/badges/xbox-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.xbox.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.xbox.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.xbox.png?downloads=true
+---
 ![Logo](admin/xbox.png)
 # ioBroker.xbox
 ===========================
@@ -6,6 +12,11 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.xbox.svg)](https://www.npmjs.com/package/iobroker.xbox)
 
 [![NPM](https://nodei.co/npm/iobroker.xbox.png?downloads=true)](https://nodei.co/npm/iobroker.xbox/)
+
+## Disclaimer
+Xbox, Xbox One, Smartglass and Xbox Live are trademarks of Microsoft Corporation.
+The developers of this module are in no way endorsed by or affiliated with
+Microsoft Corporation, or any associated subsidiaries, logos or trademarks.
 
 ## Steps 
 
@@ -320,8 +331,20 @@ In this section you can find a description of every state of the adapter.
 * media.view
 
    *View button for media content.*
-   
+
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
+### 0.7.7 (2021-04-18)
+* (foxriver76) do not log rest server logging on levels above debug, so it can be activated when needed
+
+### 0.7.6 (2021-03-29)
+* (foxriver76) added `requests` package as pip dev
+* (foxriver76) added logging for rest server
+
 ### 0.7.3 (2020-12-25)
 * (foxriver76) fixed debug logging on discovery
 

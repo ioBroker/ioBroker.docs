@@ -1,13 +1,6 @@
 ![Logo](admin/mikrotik_admin.png)
 ioBroker MikroTik Router adapter
-=================
-![Number of Installations](http://iobroker.live/badges/mikrotik-installed.svg)
-![Number of Installations](http://iobroker.live/badges/mikrotik-stable.svg)
-[![NPM version](http://img.shields.io/npm/v/iobroker.mikrotik.svg)](https://www.npmjs.com/package/iobroker.mikrotik)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.mikrotik.svg)](https://www.npmjs.com/package/iobroker.mikrotik)
-[![Tests](https://github.com/instalator/iobroker.mikrotik/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.mikrotik/actions/) 
-
-[![NPM](https://nodei.co/npm/iobroker.mikrotik.png?downloads=true)](https://nodei.co/npm/iobroker.mikrotik/)
+================
 
 [![Donate](https://img.shields.io/badge/Donate-YooMoney-green)](https://sobe.ru/na/instalator)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PFUALWTR2CTPY)
@@ -17,10 +10,13 @@ ioBroker MikroTik Router adapter
 Add address to firewall list and enable.  
 e.g. `name,127.0.0.1,comment`.
 ### raw
-Send command api to mikrotik  
+Send api command to mikrotik, the result of execution will be received in the `mikrotik.0.commands.response` object
 e.g.:  
  `/ip/firewall/address-list/add\n=list=2vpn\n=address=195.82.146.0/24\n=comment=rutracker.org`. OR
- `ip/firewall/address-list/add list=FuckRKN address=195.82.146.0/24 comment=rutracker.org`
+ `ip/firewall/address-list/add list=FuckRKN address=195.82.146.0/24 comment=rutracker.org`   
+ `ip/kid-control/print`   
+ `ip/kid-control/pause .id=*1`
+ `ip/kid-control/resume .id=*1`
 ### reboot, shutdown
 Reboot/shutdown mikrotik
 ### usb_reset
@@ -30,6 +26,12 @@ Reset power USB in mikrotik
 *The created objects are not deleted automatically when deleted in the router.*
 
 ## Changelog
+
+#### 1.0.16
+* (instalator) changed parse RAW
+
+#### 1.0.14
+* (instalator) added CAPsMAN [issues#28](https://github.com/instalator/ioBroker.mikrotik/issues/33)
 
 #### 1.0.13
 * (instalator) changed parse RAW command

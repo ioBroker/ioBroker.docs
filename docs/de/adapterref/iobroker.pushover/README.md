@@ -2,23 +2,24 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pushover/README.md
-title: ioBroker Pushover Adapter
-hash: c5Imzg+xdaAI5z1XO+xdJJq9QlsjoXmHDkHiUVJ6Vlo=
+title: ioBroker Pushover-Adapter
+hash: 8uVUvVWDJ0tLUQJQXXAaaPEfh0TOt1FQ6IXV3kwF0lY=
 ---
 ![Logo](../../../en/adapterref/iobroker.pushover/admin/pushover.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/pushover-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.pushover.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.pushover.svg)
-![NPM](https://nodei.co/npm/iobroker.pushover.png?downloads=true)
 
-# IoBroker Pushover Adapter
+# IoBroker Pushover-Adapter
+![Testen und freigeben](https://github.com/ioBroker/iobroker.pushover/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/pushover/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 Senden Sie Pushover-Benachrichtigungen von ioBroker.
 
-** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an mich als Entwickler zu melden. ** Weitere Details siehe unten!
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Aufbau
-Zunächst ist ein Konto bei Pushover erforderlich.
+Zuerst wird ein Konto bei Pushover benötigt.
 ![Pushover-Konfiguration](../../../en/adapterref/iobroker.pushover/img/Screen0.png)
 
 ![API-Token](../../../en/adapterref/iobroker.pushover/img/Screen1.png)
@@ -48,14 +49,16 @@ sendTo("pushover", {
                           //    1 to display as high-priority and bypass the user's quiet hours, or
                           //    2 to also require confirmation from the user
    token: 'API/KEY token' // optional
-                          // add other than configurated token to the call
+                          // add other than configured token to the call
    url,                   // optional  - a supplementary URL to show with your message
    url_title,             // optional  - a title for your supplementary URL, otherwise just the URL is shown
    device,                // optional  - your user's device name to send the message directly to that device, rather than all of the user's devices
    timestamp              // optional  - a Unix timestamp of your message's date and time to display to the user, rather than the time your message is received by our API
-   html                   // optional  - 1 to enable parsing of HTML formating for bold, italic, underlined and font color
+   html                   // optional  - 1 to enable parsing of HTML formatting for bold, italic, underlined and font color
    monospace              // optional  - 1 to display the message in monospace font
                           //    either html or monospace is allowed
+   file:                  '/opt/picture.png', // optional - attachment
+   file:                  { name: '/opt/picture.png', data: fs.readFileSync('/opt/picture.png') }, // optional - attachment
 });
 
 // Example for HTML format in the message
@@ -72,16 +75,40 @@ sendTo("pushover", {
 
 ```
 
-## Was ist Sentry und was wird den Servern gemeldet?
-Mit Sentry.io erhalten Entwickler einen Überblick über Fehler in ihren Anwendungen. Und genau das ist in diesem Adapter implementiert.
+## Blicke
+Mit Pushover's Glances können Sie kleine Datenmengen direkt auf einen ständig aktualisierten Bildschirm übertragen, der als Widget bezeichnet wird, z. B. eine Komplikation auf Ihrer Smartwatch oder ein Widget auf dem Sperrbildschirm Ihres Telefons.
 
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll angezeigt wird, an unseren eigenen Sentry-Server in Deutschland gesendet. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder dergleichen) enthalten. Auf diese Weise kann Sentry Fehler gruppieren und anzeigen, wie viele eindeutige Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
+```
+sendTo("pushover", "glances", {
+   message:  'Test text',    // mandatory - (100 characters) - the main line of data, used on most screens
+   title:    'SweetHome',    // optional  - (100 characters) - a description of the data being shown, such as "Widgets Sold"
+   token:    'API/KEY token' // optional  - add other than configured token to the call
+   subtext:  'Second line',  // optional  - (100 characters) - a second line of data
+   count:    3,              // optional  - (integer, may be negative) - shown on smaller screens; useful for simple counts
+   percent:   90,            // optional  - (integer 0 through 100, inclusive) - shown on some screens as a progress bar/circle
+   device:   'DEVICE_NAME',  // optional  - a user's device name to restrict messages to the widget on that device, otherwise leave blank to send messages to all available widgets of that user
+});
+```
 
-<! - Platzhalter für die nächste Version (am Zeilenanfang):
+Sie können Blockly mit dem Namen `glances` verwenden, um eine Nachricht aus `blockly` zu senden.
 
-### __WORK IN PROGRESS__ ->
+## Was ist Sentry und was wird an die Server gemeldet?
+Sentry.io ist eine Möglichkeit für Entwickler, sich einen Überblick über Fehler in ihren Anwendungen zu verschaffen. Und genau das ist in diesem Adapter implementiert.
+
+Wenn der Adapter abstürzt oder ein anderer Code-Fehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Log erscheint, an unseren eigenen in Deutschland gehosteten Sentry-Server gesendet. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, dann ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder dergleichen) enthalten. Auf diese Weise kann Sentry Fehler gruppieren und anzeigen, wie viele eindeutige Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
+
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+
+### __ARBEITEN IN PROGRESS__ -->
 
 ## Changelog
+### 2.0.5 (2021-06-29)
+* (bluefox) Corrected error with token
+
+### 2.0.4 (2021-06-28)
+* (dipts) Blockly input value for attachments
+* (bluefox) implemented the "glances"
+
 ### 2.0.3 (2020-09-25)
 * (klein0r) Removed spaces in the admin config dropdown
 
@@ -143,7 +170,7 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

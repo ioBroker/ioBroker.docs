@@ -3,17 +3,13 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mpd/README.md
 title: ioBroker.mpd адаптер
-hash: BE5qE1VcmCJxAla75VRDboDJGzG0LhArx2PnaGfw5mQ=
+hash: nICyiM828I14uglLlFHsHPTR/nhrqxON2tzU08H/1Yw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mpd/admin/mpd.png)
 
-![Количество установок](http://iobroker.live/badges/mpd-stable.svg)
-![Версия NPM](https://img.shields.io/npm/v/iobroker.mpd.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.mpd.svg)
-![NPM](https://nodei.co/npm/iobroker.mpd.png?downloads=true)
 ![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-# IoBroker.mpd адаптер [![Тесты] (https://github.com/instalator/iobroker.mpd/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.mpd/actions/)
+# IoBroker.mpd адаптер
 Подключайтесь к серверу [демон музыкального плеера](http://musicpd.org), отправляйте команды, отправляйте события.
 
 ## Документация

@@ -1,12 +1,17 @@
 ![Logo](admin/heatingcontrol.png)
 # ioBroker.HeatingControl
-![Number of Installations](http://iobroker.live/badges/heatingcontrol-installed.svg) ![Number of Installations](http://iobroker.live/badges/heatingcontrol-stable.svg) 
 
-[![NPM version](https://img.shields.io/npm/v/iobroker.heatingcontrol.svg)](https://www.npmjs.com/package/iobroker.heatingcontrol)
+
+![Number of Installations](http://iobroker.live/badges/heatingcontrol-installed.svg) ![Number of Installations](http://iobroker.live/badges/heatingcontrol-stable.svg)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.heatingcontrol.svg)](https://www.npmjs.com/package/iobroker.heatingcontrol)
-[![Tests](https://travis-ci.org/rg-engineering/ioBroker.heatingcontrol.svg?branch=master)](https://travis-ci.org/rg-engineering/ioBroker.heatingcontrol)
+[![NPM version](http://img.shields.io/npm/v/iobroker.heatingcontrol.svg)](https://www.npmjs.com/package/iobroker.heatingcontrol)
+
+[![Known Vulnerabilities](https://snyk.io/test/github/rg-engineering/ioBroker.heatingcontrol/badge.svg)](https://snyk.io/test/github/rg-engineering/ioBroker.heatingcontrol)
+![GitHub Actions](https://github.com/rg-engineering/ioBroker.heatingcontrol/workflows/Test%20and%20Release/badge.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.heatingcontrol.png?downloads=true)](https://nodei.co/npm/iobroker.heatingcontrol/)
+
+
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** 
 For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
@@ -15,6 +20,13 @@ For more details and for information how to disable the error reporting see [Sen
 **If you like it, please consider a donation:**
                                                                           
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url) 
+
+
+## Documentation
+
+**I'm looking for support in creating / updating the user documentation and the FAQ's. If someone is interested, please contact me...**
+
+
 
 ## Adapter for controlling your heating system.
 
@@ -86,12 +98,15 @@ Features:
 
 ### temperature decrease / increase
 
-| DP name           | description                                                | target temperature for relative decrease                                       | target temperature for absolute decrease                      |
-|-------------------|------------------------------------------------------------|--------------------------------------------------------------------------------|---------------------------------------------------------------|
-| GuestsPresent     | increase temperature because guests wants it warmer        | increase current profile temperature by Profiles.0.room.GuestIncrease          | set target to Profiles.0.room.absolute.GuestIncrease          | 
-| PartyNow          | decrease temperature because it's becoming hot'            | decrease current profile temperature by Profiles.0.room.PartyDecrease          | set target to Profiles.0.room.absolute.PartyDecrease          | 
-| Present           | we are present, if we are not present decrease temperature | decrease current profile temperature by Profiles.0.room.AbsentDecrease         | set target to Profiles.0.room.absolute.AbsentDecrease         | 
-| VacationAbsent    | we are absent, so decrease also on weekend                 | decrease current profile temperature by Profiles.0.room.VacationAbsentDecrease | set target to Profiles.0.room.absolute.VacationAbsentDecrease | 
+| DP name             | description                                                | target temperature for relative decrease                                       | target temperature for absolute decrease                      |
+|---------------------|------------------------------------------------------------|--------------------------------------------------------------------------------|---------------------------------------------------------------|
+| GuestsPresent       | increase temperature because guests wants it warmer        | increase current profile temperature by Profiles.0.room.GuestIncrease          | set target to Profiles.0.room.absolute.GuestIncrease          | 
+| PartyNow            | decrease temperature because it's becoming hot'            | decrease current profile temperature by Profiles.0.room.PartyDecrease          | set target to Profiles.0.room.absolute.PartyDecrease          | 
+| Present             | we are present, if we are not present decrease temperature | decrease current profile temperature by Profiles.0.room.AbsentDecrease         | set target to Profiles.0.room.absolute.AbsentDecrease         | 
+| VacationAbsent	  | we are absent, so decrease also on weekend                 | decrease current profile temperature by Profiles.0.room.VacationAbsentDecrease | set target to Profiles.0.room.absolute.VacationAbsentDecrease | 
+| FireplaceModeActive | decrease temperature bacause you use a fireplace, will be  | decrease current profile temperature by Profiles.0.room.FireplaceModeDecrease  | set target to Profiles.0.room.absolute.FireplaceModeDecrease  | 
+|                     | reseted automatically at adjustable time
+
 
 
 * in both szenarious only one lowering is used (in previous version of adapter more then one degreases could be used)
@@ -155,6 +170,13 @@ The standard behavior for override is, when you change temperature the override 
 and you change to 28°C after 15 minutes then 28°C is only used for the last 5 minutes. With that option you restart override whenever you change override temperature.
 In example above 28°C would then be used for 20 minutes which leads to 15 minutes 25°C and 20 minutes 28°C 
 
+## override mode
+There are two mode adjustable in admin for all rooms.
+* timer controlled
+this is the wellknown function, which uses a temperature and a duration. The given temperature is used for the duration and then temperature target will set back to value in auto mode
+* until next profile point
+this is a new function. Here we can use a temperature override until next profile point. The duration will be ignored but must be non-zero!
+
 
 ## Thermostat handles "window is open"
 Some thermostats can handle "window is open" by itself. In those cases a direct connection between window sensor and thermostat is configured and thermostat reduces
@@ -187,6 +209,25 @@ If you want to copy only one room, use the button in a certain room.
 The CopyPeriods are available per day or Mon-Fri per room. This copies the periods to the next section. In the above example, the CopyPeriods copies all periods from Friday in the kitchen room to the periods on Saturday in the kitchen room.
 So you can e.g. in the profile "every day separately", copy the periods from Monday to Sunday ...
 
+## maintenance mode
+
+to do
+
+## fireplace mode
+
+to do
+
+## actuator handling
+
+to do
+
+switch between linear and linear with hysteresis
+
+describe two new datapoints 
+heatingcontrol.0.Rooms.TestRaum.Regulator.HysteresisOffOffset
+and
+heatingcontrol.0.Rooms.TestRaum.Regulator.HysteresisOnOffset
+
 ## Issues and Feature Requests
 * If you are faced with any bugs or have feature requests for this adapter, please create an issue within the GitHub issue section of the adapter at [github](https://github.com/rg-engineering/ioBroker.heatingcontrol/issues). Any feedback is appreciated and will help to improve this adapter.
 
@@ -205,6 +246,95 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
+### 2.8.4 (in progress)
+* (René) see issue #289: round offset to 0.5°C instead 0.25°C
+* (René) see issue #292: set actors when room becomes inactive like out of heating period
+* (René) new datapoint to show current profile target temperature
+
+### 2.8.3 (2022-01-07)
+* (René) see issue #286: Loading the configuration fixed
+* (René) target temperature rounded to 0.5°C instead 0.25°C to avoid rounding on thermostat itself
+
+### 2.8.2 (2022-01-04)
+* (René) see issue #285: absent and VacationAbsent exchanged to check reduced mode
+* (René) see issue #271: ack flag set only if it's in own namespace, external DP'S acks are not set anymore
+
+### 2.8.1 (2021-12-29)
+* (René) see issue #283: show internal and external temperature sensors in room status
+* (René) see issue #272: extend override only if different temperature was sent
+* (René) see issue #278: reset remaining override time to 0 when override is canceled
+* (René) offset not to be used when room is in reduced mode (e.g. window open)
+* (René) see issue #271: set ack flag for changed DP after 2 seconds, to give a chance to other adpaters to react on un-acked DP's
+
+### 2.8.0 (2021-12-18)
+* (René) see issue #266: differrent regulators for actor handling added (linear and linear with hysteresis)
+
+### 2.7.2 (2021-11-14)
+* (René) bug fix load / save profiles: check fireplace mode added
+* (René) reset offset if disabled or no sensor (see issue #274)
+* (René) bug fix for override in case of "use changes from thermostat as override": reset and window open handling
+
+### 2.7.1 (2021-10-20)
+* (René) see issue #268: change of override in manual mode is mssing
+
+### 2.7.0 (2021-10-18)
+* (René) see issue #259: limit for temperature offset added
+* (René) see issue #227: maximum time difference between standard sensor and external sensor added
+* (René) see issue #264: some changes for Pittini-vis
+
+### 2.6.2 (2021-09-29)
+* (René) see issue #260: bug fix isActive not ignored
+
+### 2.6.1 (2021-09-25)
+* (René) see issue #258: bug fix fireplace mode and vis
+
+### 2.6.0 (2021-09-17)
+* (René) maintenance mode added
+
+### 2.5.1 (2021-08-20)
+* (René) see issue #255: bug fix fireplace mode
+
+### 2.5.0 (2021-08-20)
+* (René) fireplace mode added
+* (René) see issue #247: disable temp offset calculation when heating is off
+* (René) see issue #223: bug fix to find correct period
+* (René) see issue #194: accept float as minimum / maximum in vis settings; add warning if minumum is lower then 4.5°C
+
+### 2.4.3 (2021-06-17)
+* (René) see issue #243: bug fix for HeatingPeriod when adpater starts
+* (René) see issue #245: problem with manual mode when SensorOpenDelay is used
+* (René) see issue #244: bug fix for WindowOpenImg 
+
+### 2.4.2 (2021-05-17)
+* (René) logging for ActorsOn optimized
+
+### 2.4.1 (2021-05-15)
+* (René) see #233: remaining override time set also for choosen room in vis
+* (René) bug fix public holiday detection
+
+### 2.4.0 (2021-05-13)
+* (René) make it ready for js-controller 3.3
+
+### 2.3.2 (2021-04-18)
+* (ericsboro) vis translation to russian
+* (René) see issue #231: bug fix detect heating period
+
+### 2.3.1 (2021-04-05)
+* (René) some optimisations for vis translation
+
+### 2.3.0 (2021-03-20)
+* (René) see issue #187: show remaining override timeConverter
+* (René) see issue #225: support different languages for vis
+* (René) see issue #223: new overide mode "until next profile point"
+* (René) bug fix to calculate average for temperatur offset
+
+### 2.2.0 (2021-02-15)
+* (René) see issue #146: different type of window sensor and also adjustable comparative value
+* (René) see issue #110: optionally every room can be set to "no heating" with separate datapoint
+* (René) see issue #185: maintenance function: Delete all unused datapoints (e.g. profiles) is implemented now for admin
+* (René) see issue #185: maintenance function: Delete all devices related to a room, when a room is deleted is implemented now for admin
+* (René) see issue #207: copy buttons for vis added
+* (René) see issue #219: bug fix: DecreaseValues and ProfilName are copied in CopyProfile now
 
 ### 2.1.1 (2021-02-08)
 * (René) bug fix Temperatur Offset: invert sign of TemperatureOffset 
@@ -214,7 +344,6 @@ When the adapter crashes or an other Code error happens, this error message that
 * (René) see issue #194: limit and step width for increase / decrease values adjustable in admin 
 * (René) see issue #182: Temperatur Offset
 * (René) see issue #212: ActiveTimeSlot inkorrekt for vis
-
 
 ### 2.0.4 (2021-01-28)
 * (René) bug fix for issue #213: Warnung "!!! Statechange not handled"

@@ -5,7 +5,7 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.sql.svg)](https://www.npmjs.com/package/iobroker.sql)
 [![Tests](https://travis-ci.org/ioBroker/ioBroker.sql.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.sql)
 
-[![NPM](https://nodei.co/npm/iobroker.sql.png?downloads=true)](https://nodei.co/npm/iobroker.sql/) [![Greenkeeper badge](https://badges.greenkeeper.io/ioBroker/ioBroker.sql.svg)](https://greenkeeper.io/)
+[![NPM](https://nodei.co/npm/iobroker.sql.png?downloads=true)](https://nodei.co/npm/iobroker.sql/) 
 
 This adapter saves state history into SQL DB.
 
@@ -253,8 +253,8 @@ If you want to delete entry from the Database you can use the build in system fu
 
 ```
 sendTo('sql.0', 'delete', [
-    {id: 'mbus.0.counter.xxx, state: {ts: 1589458809352}, 
-    {id: 'mbus.0.counter.yyy, state: {ts: 1589458809353}
+    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352}, 
+    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353}
 ], result => console.log('deleted'));
 ```
 
@@ -262,8 +262,8 @@ To delete ALL history data for some data point execute:
 
 ```
 sendTo('sql.0', 'deleteAll', [
-    {id: 'mbus.0.counter.xxx} 
-    {id: 'mbus.0.counter.yyy}
+    {id: 'mbus.0.counter.xxx'} 
+    {id: 'mbus.0.counter.yyy'}
 ], result => console.log('deleted'));
 ``` 
 
@@ -271,8 +271,8 @@ To delete history data for some data point and for some range execute:
 
 ```
 sendTo('sql.0', 'deleteRange', [
-    {id: 'mbus.0.counter.xxx, start: '2019-01-01T00:00:00.000Z', end: '2019-12-31T23:59:59.999'}, 
-    {id: 'mbus.0.counter.yyy, start: 1589458809352, end: 1589458809353}
+    {id: 'mbus.0.counter.xxx', start: '2019-01-01T00:00:00.000Z', end: '2019-12-31T23:59:59.999'}, 
+    {id: 'mbus.0.counter.yyy', start: 1589458809352, end: 1589458809353}
 ], result => console.log('deleted'));
 ``` 
 
@@ -285,8 +285,8 @@ If you want to change entry's value, quality or acknowledge flag in the database
 
 ```
 sendTo('sql.0', 'update', [
-    {id: 'mbus.0.counter.xxx, state: {ts: 1589458809352, val: 15, ack: true, q: 0}, 
-    {id: 'mbus.0.counter.xxx, state: {ts: 1589458809353, val: 16, ack: true, q: 0}
+    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352, val: 15, ack: true, q: 0}, 
+    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353, val: 16, ack: true, q: 0}
 ], result => console.log('deleted'));
 ```
 
@@ -352,7 +352,7 @@ sendTo('sql.0', 'enableHistory', {
         console.log(result.error);
     }
     if (result.success) {
-        //successfull enabled
+        //successful enabled
     }
 });
 ```
@@ -368,7 +368,7 @@ sendTo('sql.0', 'disableHistory', {
         console.log(result.error);
     }
     if (result.success) {
-        //successfull enabled
+        // successful enabled
     }
 });
 ```
@@ -400,7 +400,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 - **Host**: IP address or host name with SQL Server
 - **Port**: Port of SQL Server (leave blank if not sure)
 - **Database name**: Database name. Default iobroker
-- **User**: User name for SQL. Must exist in the DB.
+- **User**: Username for SQL. Must exist in the DB.
 - **Password**: Password for SQL.
 - **Password confirm**: Just repeat password here.
 - **Encrypt**: Some DBs support encryption.
@@ -420,6 +420,20 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
+### 1.16.1 (2021-12-19)
+* (Excodibur) Hide settings not relevant when "log changes only" is not used
+* (Apollon77) Allow all number values for debounce again
+
+### 1.16.0 (2021-12-14)
+* (bluefox) Support only `js.controller` >= 3.3.x
+* (bluefox) Used system/custom view for collecting the objects
+* (bluefox) Implemented option to ignore zero- or/and below zero- values
+
+### 1.15.7 (2021-04-28)
+* (bluefox) fixed the support of Admin5
+
+### 1.15.6 (2021-04-19)
+* (bluefox) added support of Admin5
 
 ### 1.15.5 (2021-01-22)
 * (Apollon77) make sure message query is a string (Sentry)
@@ -429,7 +443,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 
 ### 1.15.3 (2020-08-29)
 * (bluefox) Added the option "Do not create database". E.g. if DB was created and it does not required to do that, because the user does not have enough rights.
- 
+
 ### 1.15.2 (2020-07-26)
 * (Apollon77) prevent wrong errors that realId is missing
 
@@ -448,15 +462,15 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 
 ### 1.14.0 (2020-05-20)
 * (bluefox) added the range deletion and the delete all operations
- 
+
 ### 1.13.1 (2020-05-20)
 * (bluefox) added changed and delete operations
- 
+
 ### 1.12.6 (2020-05-08)
 * (bluefox) set default history if not yet set
- 
+
 ### 1.12.5 (2020-05-05)
-* (Apollon77) Crash prevented for invalid objects (Sentry IOBROKER-SQL-X) 
+* (Apollon77) Crash prevented for invalid objects (Sentry IOBROKER-SQL-X)
 
 ### 1.12.4 (2020-05-04)
 * (Apollon77) Potential crash fixed when disabling data points too fast (Sentry IOBROKER-SQL-W) 
@@ -469,7 +483,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 * (Apollon77) MSSQL works again
 
 ### 1.12.1 (2020-04-26)
-* (Apollon77) Fix potential crash (Sentry) 
+* (Apollon77) Fix potential crash (Sentry)
 
 ### 1.12.0 (2020-04-23)
 * (Apollon77) Implement max Connections setting and respect it, now allows to control how many concurrent connections to database are used (default 100) and others wait up to 10s for a free connection before failing)
@@ -668,7 +682,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2020 bluefox <dogafox@gmail.com>, Apollon77
+Copyright (c) 2015-2021 bluefox <dogafox@gmail.com>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

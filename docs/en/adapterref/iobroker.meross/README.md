@@ -1,13 +1,13 @@
 ![Logo](admin/meross-logo.png)
 # ioBroker.meross
 
-![Number of Installations](http://iobroker.live/badges/meross-installed.svg) ![Number of Installations](http://iobroker.live/badges/meross-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.meross.svg)](https://www.npmjs.com/package/iobroker.meross)
+![Number of Installations](http://iobroker.live/badges/meross-installed.svg) 
+![Number of Installations](http://iobroker.live/badges/meross-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.meross.svg)](https://www.npmjs.com/package/iobroker.meross)
+
+![Test and Release](https://github.com/Apollon77/iobroker.meross/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/meross/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.meross.svg)](https://www.npmjs.com/package/iobroker.meross)
-
-**Tests:** Linux/Mac/Windows: [![Travis-CI](http://img.shields.io/travis/Apollon77/ioBroker.meross/master.svg)](https://travis-ci.org/Apollon77/ioBroker.meross)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Apollon77/ioBroker.meross?branch=master&svg=true)](https://ci.appveyor.com/project/Apollon77/ioBroker-daikin/)
-
-[![NPM](https://nodei.co/npm/iobroker.meross.png?downloads=true)](https://nodei.co/npm/iobroker.meross/)
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
@@ -19,12 +19,17 @@ You need to provide your Cloud login credentials. The adapter connects to your c
 One Adapter instance will show all devices from one Meross Cloud account and allows to control them.
 
 ## Known working devices
+
+All devices should work from my current knowledge. But please check the logs or report any feature or new devices types that are not creating states (new device types needs to be added manually by me, so an isue is important).
+
+Reported working are at least:
+
 * mss425e
 * mss310
 * MSS620 EU/UK
-
-
-If more devices work (or also not) please report them by opening a GitHub issue.
+* MTS100, MTS100v3, MTS150, MTS200
+* MRS100
+* ... and more that are not yet listed :-) Just tell me when a device works which is not listed via a GitHub issue.
 
 ## How to report issues and feature requests
 
@@ -33,9 +38,39 @@ Please use GitHub issues for this.
 Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
+### 1.10.0 (2022-01-20)
+* (Apollon77) Optimize Meross Communication to first try to communicate with the device locally before sending data to MQTT - enabled by default, you can disable it in settings!
+* (Apollon77) Optimize Meross Communication by using only one MQTT connection instead of one per device when cloud is used
+* (Apollon77) Add new state "disabled" to ignore connection error of a device; reconnections are still tried, but no error are logged if not successful
+* (Apollon77) Add support for Online status reports from MTS100 hub devices
+* (Apollon77) Automatically logout from meross cloud on adapter end; next start will do a new Login
+* (Apollon77) Automatically delete old devices if no longer existing (when js-controller >=2.2)
+* (Apollon77) Optimize MTS200 handling
+
+### 1.8.0 (2022-01-05)
+* (Apollon77) Add support for MTS200 Wifi Thermostat
+
+### 1.7.1 (2021-11-13)
+* (Apollon77) Allow to enter passwords with more than 15 characters
+
+### 1.7.0 (2021-11-13)
+* (Apollon77) Add support for MTS150 Thermostats
+* (Apollon77) Add support for MRS100 RollerShutter devices
+
+### 1.6.3 (2021-06-04)
+* (Apollon77) Update translations
+
+### 1.6.2 (2021-05-07)
+* (Apollon77) optimize for js-controller 3.3
+
+### 1.6.1 (2021-04-23)
+* (Apollon77) prevent crash case (Sentry IOBROKER-MEROSS-Z)
+
+### 1.6.0 (2021-04-18)
+* (Apollon77) add MOD100 Diffuser Spray device
 
 ### 1.5.1 (2020-12-05)
-* generate an unique uuid for each connection, fixes the "Server not available"
+* (Apollon77) generate an unique uuid for each connection, fixes the "Server not available"
 
 ### 1.5.0 (2020-06-25)
 * (Apollon77) Prevent crash cases (Sentry IOBROKER-MEROSS-G, IOBROKER-MEROSS-F)
@@ -108,7 +143,7 @@ Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2022 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

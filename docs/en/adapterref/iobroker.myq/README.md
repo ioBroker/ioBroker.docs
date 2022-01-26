@@ -49,6 +49,14 @@ Not all states are available for all type of devices.
 
 ## Changelog
 
+### 0.3.0
+
+-  Switched to myq library @hjdhjd/myq
+
+### 0.2.0
+
+-  Switched to myq-api library
+
 ### 0.1.2
 
 -  Poll states after sending command

@@ -2,50 +2,52 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.panasonic-viera/README.md
-title: ioBroker.panasonic-VIERA
-hash: G5hNKleLPHTXlncHi5VQBBRGFzLckfi/kwVrllbFCIY=
+title: ioBroker.panasonic-viera
+hash: 4/Fxt+78sHy10D+1VF1M2J9CzCuGxeQ/L5GItkkbMgA=
 ---
 ![商标](../../../en/adapterref/iobroker.panasonic-viera/admin/panasonic-viera.png)
 
 ![安装数量](http://iobroker.live/badges/panasonic-viera-stable.svg)
 ![NPM版本](http://img.shields.io/npm/v/iobroker.panasonic-viera.svg)
-![下载](https://img.shields.io/npm/dm/iobroker.panasonic-viera.svg)
-![依赖状态](https://img.shields.io/david/iobroker-community-adapters/iobroker.panasonic-viera.svg)
-![已知的漏洞](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.panasonic-viera/badge.svg)
+![资料下载](https://img.shields.io/npm/dm/iobroker.panasonic-viera.svg)
 ![NPM](https://nodei.co/npm/iobroker.panasonic-viera.png?downloads=true)
-![特拉维斯-CI](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.panasonic-viera/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/iobroker-community-adapters/ioBroker.panasonic-viera?branch=master&svg=true)
-![Greenkeeper徽章](https://badges.greenkeeper.io/iobroker-community-adapters/ioBroker.panasonic-viera.svg)
 
 ＃ioBroker.panasonic-viera
-##适用于ioBroker的Panasonic Viera智能电视适配器
-这是适用于Panasonic Viera智能电视的ioBroker适配器。使用Panasonic TX-50DX780和TX-50EXW进行测试。
+## IoBroker的Panasonic Viera Smart-TV适配器
+这是用于Panasonic Viera Smart-TV的ioBroker适配器。
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 2.0.0 (2021-05-09)
+* (jens-maus) added support to set Application and Encryption Key in adapter admin
+* (jens-maus) changed adapter to use node-panasonic-viera to support modern TV models
 
 ### 1.0.2
 * (cyberindy) some fixes
 
-#### 1.0.1
+### 1.0.1
 * (ldittmar) compact mode compatibility added
 * (ldittmar) add chinese support
 
-#### 1.0.0
+### 1.0.0
 * (ldittmar) Support of admin3
 
-#### 0.1.0
+### 0.1.0
 * (ldittmar) Test phase terminated. Adapter enabled.
 
-#### 0.0.5
+### 0.0.5
 * (ldittmar) Open beta test phase - please test it and give me feedback here as a issue or in the forum http://forum.iobroker.net/viewtopic.php?f=23&t=3854
 
-#### 0.0.1
+### 0.0.1
 * (ldittmar) initial release
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018 ldittmar <iobroker@lmdsoft.de>
+Copyright (c) 2018-2021 ldittmar <iobroker@lmdsoft.de>, Jens Maus <mail@jens-maus.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

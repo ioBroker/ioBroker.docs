@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.opi/README.md
 title: ioBroker.opi
-hash: qCQ8fHk1aPPvId/F6XawZRmekkuZrbj6rhVN3lwc9ZI=
+hash: QqoAS/PadgUSoQ6qePLCst9ZR/TDQhwI4YF34Xz25TY=
 ---
 ![Logo](../../../en/adapterref/iobroker.opi/admin/opi.png)
 
@@ -11,7 +11,9 @@ hash: qCQ8fHk1aPPvId/F6XawZRmekkuZrbj6rhVN3lwc9ZI=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.opi.svg)
 ![NPM](https://nodei.co/npm/iobroker.opi.png?downloads=true)
 
-# IoBroker.opi =====================
+# IoBroker.opi
+===================
+
 OPI-Monitor-Implementierung zur Integration in ioBroker.
 
 ### Wichtige Informationen
@@ -19,13 +21,13 @@ getestete Hardware: OrangePi plus2 H3
 
 ### Folgende Objekte stehen nach Auswahl zur Verfügung:
 ## *ZENTRALPROZESSOR*
-- cpu_frequency
-- load1
-- load5
-- load15
+- CPU_Frequenz
+- laden1
+- laden5
+- Last15
 
-## *Erinnerung*
-- memory_available
+## *Speicher*
+- Speicher_verfügbar
 - memory_free
 - memory_total
 
@@ -44,7 +46,7 @@ getestete Hardware: OrangePi plus2 H3
 ## *Temperatur*
 - soc_temp
 
-## *Uptime*
+## *Verfügbarkeit*
 - Betriebszeit
 
 ## *WLAN*
@@ -55,20 +57,23 @@ getestete Hardware: OrangePi plus2 H3
 Auf der Konfigurationsseite können Sie folgende Module auswählen:
 
 - ZENTRALPROZESSOR
-- Erinnerung
+- Speicher
 - Netzwerk
 - eMMC
 - Wechsel
 - Temperatur
-- Uptime
+- Betriebszeit
 - WLAN
 
-## 0.1.1 (2018-01-27)
-- Aktualisieren Sie index_m.html.
-- Aktualisieren Sie index.html.
-- Aktualisierungscodes.
+## 0.1.2 (2021-11-06)
+* (foxriver76) wir verwenden keine veralteten adapter.objects mehr
 
-0,1,0 (2018-01-24)
+## 0.1.1 (2018-01-27)
+- index_m.html aktualisieren.
+- index.html aktualisieren.
+- Codes aktualisieren.
+
+## 0.1.0 (2018-01-24)
 - Admin3-Unterstützung.
 
 ## 0.0.6 (2017-08-01)

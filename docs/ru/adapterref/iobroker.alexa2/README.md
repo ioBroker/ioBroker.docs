@@ -3,32 +3,32 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alexa2/README.md
 title: ioBroker.alexa2
-hash: D+SRUcPZBTZSG1ROflwqDxficUfm4fatrviEkRp4RUQ=
+hash: 0tkrZY32K/97TQpOQ+IVlSzPZ7AfaQ5i4iO5NNUUD+A=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alexa2/admin/alexa.png)
 
 ![Количество установок](http://iobroker.live/badges/alexa2-stable.svg)
-![Версия NPM](https://img.shields.io/npm/v/iobroker.alexa2.svg)
-![Статус сборки](https://ci.appveyor.com/api/projects/status/c92hrxu79mvs1qxo?svg=true)
-![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
-![Значок Greenkeeper](https://badges.greenkeeper.io/Apollon77/ioBroker.alexa2.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.alexa2.svg)
+![Загрузки](https://img.shields.io/npm/dm/iobroker.alexa2.svg)
 
 # IoBroker.alexa2
-** Этот адаптер использует службу [Sentry.io](https://sentry.io) для автоматического сообщения мне как разработчику об исключениях, ошибках кода и новых схемах устройств. ** Подробнее см. Ниже!
+![Тестирование и выпуск](https://github.com/Apollon77/iobroker.alexa2/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/alexa2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
 Этот адаптер позволяет удаленно управлять устройствами Alexa (Amazon Echo).
 
 Большое спасибо soef за версию 1 адаптера и Hauke и ruhr70 за идеи в их скриптах с ioBroker-Forum (особенно за обновления медиа)! Также большое спасибо Meicker за поддержку в документировании всего этого и многочисленным пользователям форума ioBroker за их поддержку в тестировании!
 
 ## Состояния и их значения:
-В пространстве имен адаптера (например, alexa2.0) создаются некоторые каналы
+В пространстве имен адаптера (например, alexa2.0) создаются некоторые каналы.
 
 ### Alexa2.0
 | Государственное название | значение |
 | - | - |
 | эхо-устройства. * | Состояния на устройство Echo, см. Ниже |
 | история. * | Информацию об истории команд см. Ниже |
-| умные домашние устройства. * | Состояния на устройство умного дома и в целом см. Ниже |
+| умные домашние устройства. * | Состояния по умному домашнему устройству и в целом см. Ниже |
 | информация. * | Общая информация о состоянии адаптера |
 | requestResult | Информация об ошибках при запросах устройств TuneIn и умного дома |
 
@@ -51,18 +51,19 @@ hash: D+SRUcPZBTZSG1ROflwqDxficUfm4fatrviEkRp4RUQ=
 | включен | Показывает состояние тревоги и позволяет изменить его: Активировать тревогу с истинным - Отключить тревогу с ложью | истина / ложь |
 | время | Время для тревоги. Перезаписать время для существующего будильника, чтобы установить новое время для этого будильника. Если у вас уже есть будильник, вы можете изменить время здесь, просто перезаписав время в формате чч: мм: сс, секунды устанавливать не нужно | Ввод времени |
 | срабатывает | истина, если тревога достигнута и сработала. Часы должны быть синхронизированы с Amazon и iobroker. Используйте это, чтобы запускать другие действия по достижении времени будильника | истина / ложь |
-| новый | время для нового будильника для этого устройства. Если вы установите здесь значение, будет создан новый сигнал тревоги | Ввод времени (чч: мм: сс, секунды не нужны) |
+| recurringPattern | Показывает повторяющийся образец сигнала тревоги | 0 = один раз, без повторения<br> P1D = ежедневно<br> XXXX-WD = в будние дни<br> XXXX-WE = по выходным<br> XXXX-WXX-1 = каждый понедельник<br> XXXX-WXX-2 = каждый вторник<br> XXXX-WXX-3 = каждую среду<br> XXXX-WXX-4 = каждый четверг<br> XXXX-WXX-5 = каждую пятницу<br> XXXX-WXX-6 = каждую субботу<br> XXXX-WXX-7 = каждое воскресенье |
+| новый | время для нового будильника для этого устройства. Если вы укажете здесь значение, будет создан новый сигнал тревоги | Ввод времени (чч: мм: сс, секунды не нужны) |
 
 ### Alexa2.0.Echo-Devices.Serialnumber.Bluetooth. *
 Здесь вы найдете все подключенные или известные устройства Bluetooth с MAC-адресами. Состояния каждого устройства:
 
 | Государственное название | значение |
 | - | - |
-| подключен | Показывает текущий статус подключения и разрешает соединение (установлено значение true) или отключение (установлено значение false) |
-| разорвать пару | Кнопка для отмены сопряжения этого устройства с устройством эха |
+| подключен | Показывает текущий статус подключения и разрешает подключение (установлено значение true) или отключение (установлено значение false) |
+| разорвать пару | Кнопка для отмены сопряжения этого устройства с устройством echo |
 
 ### Alexa2.0.Echo-Devices.Serialnumber.Commands. *
-С помощью команд вы можете запускать некоторые действия на вашем устройстве Alexa. Если вы используете их на мультирумном устройстве, они выполняются независимо и *не* синхронизируются на отдельных устройствах!
+С помощью команд вы можете запускать некоторые действия на вашем устройстве Alexa. Если вы используете их на мультирумном устройстве, они будут выполняться независимо и * не * будут * работать синхронно на отдельных устройствах!
 
 | Государственное название | значение | значение |
 | - | - | - |
@@ -72,7 +73,7 @@ hash: D+SRUcPZBTZSG1ROflwqDxficUfm4fatrviEkRp4RUQ=
 | забавный факт | Интересный факт от Алексы ... (На данный момент только США) | Кнопка |
 | шутка | Шутка от Алексы ... | Кнопка |
 | очистка | Воспроизводит "гонг" как для начала / конца режима прослушивания ... | Кнопка |
-| curatedtts | Случайное предложение из области, выбранной в Alexa ... | Текст (разрешено: «до свидания», «подтверждения», «доброе утро», «комплименты», «день рождения», «спокойной ночи», «iamhome») |
+| curatedtts | Случайное предложение из области, выбранной в Alexa ... | Текст (разрешены: «до свидания», «подтверждения», «доброе утро», «комплименты», «день рождения», «спокойной ночи», «iamhome») |
 | Singasong | Алекса поет песню ... | Кнопка |
 | говорить | Алекса говорит, что вы здесь вводите ... | Ввод текста |
 | SpeakVolume | Отрегулируйте громкость речи Alexa, эта громкость устанавливается перед разговором и сбрасывается после | 0-100 |
@@ -85,10 +86,12 @@ hash: D+SRUcPZBTZSG1ROflwqDxficUfm4fatrviEkRp4RUQ=
 | ssml | Озвучить строку XML SSML | Текст |
 | текстовая команда | Отправьте текстовую команду в Alexa, пока только в США! | Текст |
 
-Подробная информация Говорите и объявляйте: введите здесь то, что вы хотите, чтобы Алекса сказала. Вы также можете отрегулировать громкость Alexa, указав процент перед текстом.
+Подробная информация Говорите и объявляйте: введите здесь то, что вы хотите, чтобы Алекса сказала. Вы также можете настроить громкость Alexa, указав процент перед текстом.
 Пример: 10; Alexa говорит, что Alexa имеет объем 10%, а 100; Alexa - объем 100%.
 Обычно вы можете отправить только 250 символов за одну команду произнесения. Используя точку с запятой, можно писать сколько угодно, при условии, что вы разделите 250 символов точкой с запятой.
-Затем Alexa будет говорить текст друг за другом с небольшим перерывом. Вы также можете использовать громкость вместе с более 255 блоками, написав #Volume; # Block1; # Block2, a.s.o. Установленная здесь громкость будет использоваться вместо определенной громкости речи.
+Затем Alexa будет произносить текст друг за другом с небольшим перерывом. Вы также можете использовать громкость вместе с более 255 блоками, написав #Volume; # Block1; # Block2, a.s.o. Установленная здесь громкость будет использоваться поверх определенной громкости речи.
+
+Частично также звучит из https://developer.amazon.com/en-US/docs/alexa/custom-skills/ask-soundlibrary.html работы. Укажите в Speak или ssml как `<audio src="soundbank://soundlibrary/animals/amzn_sfx_bear_groan_roar_01"/>`. Подробности и обсуждение на https://forum.iobroker.net/topic/27509/ssml-audio
 
 ### Alexa2.0.Echo-Devices.Serialnumber.Info. *
 Информация об устройстве Alexa
@@ -112,8 +115,8 @@ hash: D+SRUcPZBTZSG1ROflwqDxficUfm4fatrviEkRp4RUQ=
 | Amazon-Music | Фраза для игры с Amazon Music | Ввод текста |
 | Amazon-Music-Playlist | Плейлист для воспроизведения с Amazon Music | Ввод текста |
 | Моя библиотека | Фраза для игры с моей библиотекой | Ввод текста |
-| Моя-библиотека-плейлист | Плейлист для игры с My Library | Ввод текста |
-| Tune-In | Фраза для воспроизведения с Tune In | Ввод текста |
+| Моя-библиотека-плейлист | Плейлист для игры с моей библиотекой | Ввод текста |
+| Tune-In | Фраза для прослушивания с Tune In | Ввод текста |
 | Tune-In-Playlist | Плейлист для воспроизведения с Tune In | Ввод текста |
 
 ### Alexa2.0.Echo-Devices.Serialnumber.Player. *
@@ -128,8 +131,8 @@ hash: D+SRUcPZBTZSG1ROflwqDxficUfm4fatrviEkRp4RUQ=
 | controlPause | Кнопка для запуска команды "пауза" для игрока | Кнопка |
 | controlPlay | Кнопка для запуска команды игрока "play" | Кнопка |
 | controlPrevious | Кнопка для запуска игрока "предыдущая" команда | Кнопка |
-| controlRepeat | Кнопка для запуска команды «повторить» игрока | истина / ложь |
-| controlRewind | Кнопка для запуска команды "перемотка" плеера (30сек) | Кнопка |
+| controlRepeat | Кнопка для запуска команды игрока "повторить" | истина / ложь |
+| controlRewind | Кнопка для запуска команды "перемотка назад" плеера (30сек) | Кнопка |
 | controlShuffle | Включите или отключите режим воспроизведения в случайном порядке для игрока | истина / ложь |
 | currentAlbum | Текущий альбом проигрывается | Информация |
 | currentArtist | Текущий исполнитель играет | Информация |
@@ -140,7 +143,7 @@ hash: D+SRUcPZBTZSG1ROflwqDxficUfm4fatrviEkRp4RUQ=
 | mediaLength | Длина текущего заголовка | Информация |
 | mediaLengthStr | активная длина носителя как (ЧЧ:) ММ: СС | Информация |
 | mainProgress | истекшее время активных медиа | Информация |
-| mainProgressPercent | истекшее время активных медиа в процентах | Информация |
+| mainProgressPercent | затраченное время активных медиа в процентах | Информация |
 | mediaProgressStr | активный медиа прогресс как (ЧЧ:) ММ: СС | Информация |
 | miniArtUrl | URL на произведение искусства (мини) | Информация |
 | приглушен | состояние «MUTE» | Информация, истина / ложь, громкость = 0 считается приглушенной |
@@ -156,13 +159,13 @@ hash: D+SRUcPZBTZSG1ROflwqDxficUfm4fatrviEkRp4RUQ=
 | Государственное название | значение | значение |
 | - | - | - |
 | включен | Показывает статус напоминания и позволяет его изменить: Активировать напоминание с истиной - Деактивировать напоминание со значением false, при отключении будет автоматически удалено через некоторое время после этого | истина / ложь |
-| время | Время для напоминания. Перезаписать время для существующего напоминания, чтобы установить новое время | Ввод времени | Если у вас есть напоминание, вы можете изменить время здесь, просто перезаписав время в формате чч: мм: сс, секунды устанавливать не нужно |
-| срабатывает | истина, если напоминание достигнуто и сработало. Часы должны быть синхронизированы с Amazon и iobroker. Используйте это, чтобы запускать другие действия, как только наступит время напоминания | истина / ложь |
+| время | Время для напоминания. Перезаписать время существующего напоминания, чтобы установить новое время | Ввод времени | Если у вас есть напоминание, вы можете изменить время здесь, просто перезаписав время в формате чч: мм: сс, секунды устанавливать не нужно |
+| срабатывает | истина, если напоминание достигнуто и сработало. Часы должны быть синхронизированы с Amazon и iobroker. Используйте это, чтобы запускать другие действия по достижении времени напоминания | истина / ложь |
 
 | новый | Добавить новое напоминание в формате<br> время (чч: мм), текст<br> | Ввод текста<br> 12:00, напомнить мне
 
 ### Alexa2.0.Echo-Devices.Serialnumber.Routines. *
-Обзор процедур, установленных в приложении Alexa. Самостоятельно созданные процедуры имеют серийный номер, Amazon показывает как «предварительно сконфигурировано: ...» Каждая процедура может быть запущена с помощью кнопки для однократного запуска.
+Обзор процедур, настроенных в приложении Alexa. Самостоятельно созданные подпрограммы имеют серийный номер, Amazon показывает как «предварительно сконфигурировано: ...» Каждая подпрограмма может быть запущена с помощью кнопки для однократного запуска.
 
 | Государственное название | значение | значение |
 | - | - | - |
@@ -170,12 +173,14 @@ hash: D+SRUcPZBTZSG1ROflwqDxficUfm4fatrviEkRp4RUQ=
 | Серийное или внутреннее имя процедуры | название процедуры | Кнопка
 
 ### Alexa2.0.Echo-Devices.Serialnumber.Timer. *
-На каждом устройстве Alexa можно запустить один или несколько таймеров. Из-за очень динамичной природы таймеров больше не будет создаваться объектов, таких как Alarm или Reminders, но существует способ получить информацию о срабатывании триггера.
+У вас может быть один или несколько таймеров, запущенных на каждом устройстве Alexa. Из-за очень динамичной природы таймеров больше не будет создаваться объектов, таких как Alarm или Reminders, но есть способ получить срабатывающую информацию.
 
 | Государственное название | значение | значение |
 | - | - | - |
 
 | срабатывает | Сработал таймер | Информация
+
+** Обратите внимание, что важно, чтобы часовой пояс хоста ipbroker был установлен в соответствии с вашим местным часовым поясом, иначе сработавшее определение времени может быть неправильным! **
 
 ### Alexa2.0.Echo-Devices.Serialnumber.online
 Это устройство Alexa подключено к сети и подключено к облаку Amazon?
@@ -183,20 +188,20 @@ hash: D+SRUcPZBTZSG1ROflwqDxficUfm4fatrviEkRp4RUQ=
 | Государственное название | значение | значение |
 | - | - | - |
 
-| онлайн | Устройство в сети? | Верно / неверно
+| онлайн | Устройство подключено к сети? | Верно / неверно
 
 ### Alexa2.0.История
 | Государственное название | значение | значение |
 | - | - | - |
-| #trigger | Кнопка для получения новой истории (более актуальной, чем отметка времени в createTime), требуется только тогда, когда push-соединение не используется | Кнопка |
-| cardContent | Дополнительная информация, как показано в Alexa-App / Echo Show | Информация |
-| cardJson | Дополнительная информация, отображаемая в приложении Alexa / Echo Show в формате JSON | Информация |
-| creationTime | дата этой записи в истории, новые записи в истории учитываются только позже, как эта отметка времени | Информация |
+| #trigger | Кнопка для получения новой истории (более актуальной, чем отметка времени в createTime), требуется только в том случае, если push-соединение не используется | Кнопка |
+| cardContent | Дополнительная информация, как показано в приложении Alexa / Echo Show | Информация |
+| cardJson | Дополнительная информация, как показано в приложении Alexa / Echo Show в формате JSON | Информация |
+| creationTime | дата этой записи в истории, новые записи в истории учитываются только позже, как эта временная метка | Информация |
 | domainApplicationId | Дополнительная информация, такая как Skill-ID или подобная, необязательная | Информация |
-| domainApplicationName | Дополнительная информация, например название навыка или что-то подобное, необязательно | Информация |
-| json | Json последних данных команды, чтобы иметь возможность обрабатывать всю информацию, например. в собственных JavaScripts | JSON |
+| domainApplicationName | Дополнительная информация, например, название навыка или что-то подобное, необязательно | Информация |
+| json | Json последних данных команды, чтобы иметь возможность обрабатывать всю информацию, например. в собственных сценариях JavaScripts | JSON |
 | имя | Имя устройства, получившего последний запрос | Информация |
-| serialNumber | серийный номер устройства, получившего последний запрос | Информация |
+| серийный номер | серийный номер устройства, получившего последний запрос | Информация |
 | статус | Статус последней команды для Alexa | УСПЕХ / ОТКАЗ / DISCARDED_NON_DEVICE_DIRECTED_INTENT; последний генерируется при активации устройства путем произнесения слова пробуждения или когда устройство отклоняет ввод как «не для меня» |
 | резюме | текст / сводка / действие, полученное устройством | Информация |
 
@@ -206,7 +211,7 @@ hash: D+SRUcPZBTZSG1ROflwqDxficUfm4fatrviEkRp4RUQ=
 | Государственное название | значение | значение |
 | - | - | - |
 
-| deleteAll | удаляет все устройства умного дома из Alexa, так же, как кнопка в приложении Alexa | Кнопка | DiscoverDevices | находит новые устройства для умного дома, такие же, как кнопка в приложении Alexa | Кнопка | queryAll | запрашивает все устройства, отображается только тогда, когда хотя бы одно устройство может получить информацию | Кнопка
+| deleteAll | удаляет все устройства умного дома из Alexa, так же, как кнопка в приложении Alexa | Кнопка | DiscoverDevices | находит новые умные домашние устройства, такие же, как кнопка в приложении Alexa | Кнопка | queryAll | запрашивает все устройства, отображается только тогда, когда хотя бы одно устройство может получить информацию | Кнопка
 
 ### Alexa.0.Smart-Home-Devices.SerialNumber. *
 | Государственное название | значение | значение |
@@ -227,12 +232,12 @@ hash: D+SRUcPZBTZSG1ROflwqDxficUfm4fatrviEkRp4RUQ=
 | цвет-яркость | яркость для определения цвета (вместе с оттенком и насыщенностью, HSV) | Информация, 0-1% |
 | цвет-оттенок | значение оттенка цвета (вместе с яркостью и насыщенностью, HSV) | Информация, 0-360 ° |
 | насыщенность цвета | насыщенность цвета (вместе с яркостью и оттенком, HSV) | Информация, 0-1 |
-| colorRGB | RGB-код фактического построения цвета из значений цвета- * | Информация, #rrggbb |
-| colorName | Название цвета, определенное Alexa - фиксированные значения | изменяемый, чтобы установить цвет, 0-144 |
+| colorRGB | Код RGB фактического цвета, построенного из значений цвета- * | Информация, #rrggbb |
+| colorName | Название цвета согласно определению Alexa - фиксированные значения | изменяемый, чтобы установить цвет, 0-144 |
 | colorTemperarureInKelvin | Цветовая температура в Кельвинах | Информация, 1000-10000К |
 | colorTemperatureName | Название цветовой температуры согласно определению Alexa - фиксированные значения | изменяемый, чтобы установить, 0-18 |
 
-С помощью #brightness вы можете настроить яркость вашего света, #colorName - это выбрать один предопределенный цвет (0-144). Для HUE Ambient light вы можете выбрать между 19 значениями от 0 до 18 в #colorTemperatureName. Весь свет можно включать и выключать с помощью #powerState.
+С помощью #brightness вы можете отрегулировать яркость вашего света, #colorName - это выбрать один предопределенный цвет (0–144). Для HUE Ambient light вы можете выбрать между 19 значениями от 0 до 18 в #colorTemperatureName. Весь свет можно включать и выключать с помощью #powerState.
 
 ### Alexa2.0.Info. *
 | Государственное название | значение | значение |
@@ -242,18 +247,18 @@ hash: D+SRUcPZBTZSG1ROflwqDxficUfm4fatrviEkRp4RUQ=
 | csrf | Alexa CSRF, используйте с несколькими внешними скриптами, которые также хотят получить доступ к API Alexa | Информация |
 
 ## Отсутствующие функции
-* как обновить исходный статус для громкости, перемешивания или повтора и doNotDisturb ?! Или ненужно?
-* добавить поля для отображения игровой информации, например, версии JS
+* как обновить начальный статус для громкости, перемешивания или повтора и doNotDisturb ?! Или ненужно?
+* добавить поля для отображения игровой информации, такой как версия JS
 * самодеактивация, если cookie / csrf недействительны
 
 ## Установка
 Как обычно, используйте стабильный репозиторий, последний репозиторий или используйте опцию «Установить» ioBroker с GitHub
 
-## Поиск проблемы
+## Исправление проблем
 ### Проблемы с определением файлов cookie по электронной почте / паролю
 Иногда Amazon использует специальные проверки при обнаружении неожиданного трафика при входе в систему.
 Это может привести к проблеме, заключающейся в том, что для входа в систему необходимо ответить на капчу.
-Чаще всего на эту капчу нужно ответить один раз, и после этого вход в систему работает без нее.
+Чаще всего на эту капчу нужно ответить один раз, и после этого вход в систему работает без капчи.
 
 Когда вам нужно ответить на такую капчу, попробуйте сделать следующее:
 
@@ -262,13 +267,13 @@ hash: D+SRUcPZBTZSG1ROflwqDxficUfm4fatrviEkRp4RUQ=
 * очистить все файлы cookie, которые могут существовать для Amazon, или использовать режим Proivate / Incognito в браузере
 * звоните https://alexa.amazon.de
 * вы должны получить форму входа (обычно отображается в старых мобильных браузерах)
-* войдите туда со своими учетными данными Amazon, в которых зарегистрирован Echo / Alexa
+* войдите туда со своими учетными данными Amazon, где Echo / Alexa зарегистрирован в
 * вам может потребоваться дважды войти в систему или ввести CAPTCHA
-* В конце вы должны увидеть «https://alexa.amazon.de/spa/index.html» как URL, но без какого-либо реального содержимого (потому что JS все еще отключен), НО ЭТО ПОЛНОСТЬЮ ОК !!!!
+* В конце вы должны увидеть "https://alexa.amazon.de/spa/index.html" как URL, но без какого-либо реального содержания (потому что JS все еще отключен), НО ЭТО ПОЛНОСТЬЮ ОК !!!!
 * теперь попробуйте снова получить cookie
-* если он по-прежнему не работает, сделайте это еще раз и проверьте User-Agent и accept-Language в своем браузере и используйте их в адаптере при следующей попытке
+* если он по-прежнему не работает, сделайте это еще раз и проверьте User-Agent и accept-Language из вашего браузера и используйте их в адаптере при следующей попытке
 
-Кроме того, Accept-Language-Header (по умолчанию «de-DE») должен соответствовать вашему языку / языку браузера / языку страницы amazon, на которую вы входите.
+Кроме того, Accept-Language-Header (по умолчанию «de-DE») должен соответствовать вашему языку / языку браузера / языку страницы Amazon, на которой вы входите.
 
 Вы также можете попробовать поиграть с User-Agent и использовать тот, который больше соответствует типу вашей системы.
 Например, при использовании «Mozilla / 5.0 (X11; Linux x86_64) AppleWebKit / 537.36 (KHTML, например, Gecko) Chrome / 51.0.2704.103 Safari / 537.36» в качестве User-Agent сообщалось, что он работает лучше, когда ioBroker работает в системе Linux.
@@ -279,16 +284,83 @@ hash: D+SRUcPZBTZSG1ROflwqDxficUfm4fatrviEkRp4RUQ=
 Если автоматическое определение файлов cookie не работает или вы не доверяете Адаптеру предоставлять адрес электронной почты / пароль, вы можете определить файл cookie самостоятельно. В сети есть несколько информации о том, как это сделать. Вот несколько ссылок:
 
 * https://www.gehrig.info/alexa/Alexa.html
-* или используйте shellscript из https://blog.loetzimmer.de/2017/10/amazon-alexa-hort-auf-die-shell-echo.html, чтобы получить его в оболочке ...
+* или используйте сценарий оболочки из https://blog.loetzimmer.de/2017/10/amazon-alexa-hort-auf-die-shell-echo.html, чтобы получить его в оболочке ...
 
 Но имейте в виду: время ожидания Cookie истечет через несколько раз, а затем адаптер перестанет работать и отключится. Затем вам нужно вручную получить новый файл cookie!
 
-## Что такое Sentry.io и что передается на серверы этой компании?
-Sentry.io - это сервис, позволяющий разработчикам получать обзор ошибок в своих приложениях. Именно это и реализовано в этом адаптере.
-
-Когда адаптер выходит из строя или возникает другая ошибка кода, это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется в Sentry. Когда вы разрешили iobroker GmbH собирать диагностические данные, включается также ваш идентификатор установки (это просто уникальный идентификатор **без** дополнительной информации о вас, электронной почты, имени и т. Д.). Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуты такой ошибкой. Все это помогает мне предоставлять безошибочные адаптеры, которые практически никогда не дают сбоев.
-
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Fix crash case
+* (ammawel) Add recurringPattern for Notifications (see Readme)
+* (Apollon77) Make sure states are not set too early before objects are created
+
+### 3.11.2 (2021-10-12)
+* (Apollon77) Fix crash case (Sentry IOBROKER-ALEXA2-AT)
+
+### 3.11.1 (2021-10-12)
+* (Apollon77) Prevent warnings with js-controller 3.3
+
+### 3.11.0 (2021-10-12)
+* (Apollon77) Add support for Multi Utterance Routines
+* (Apollon77) Fix object deletion for lists
+* (Apollon77) Fix Creation of new Lists and add deletion support
+* (Apollon77) Allow Commands for Stereo Pairs
+* (Apollon77) Optimize Push Connection and History retrieval
+
+### 3.10.4 (2021-10-11)
+* IMPORTANT: Node.js 10 support is dropped, supports LTS versions of Node.js starting with 12.x
+* (Apollon77) Update Push Connection
+
+### 3.9.3 (2021-07-11)
+* (Apollon77) Try to fix setting targetTemperature for ThermostatController
+
+### 3.9.2 (2021-07-05)
+* (Apollon77) Only ignore empty history entries if both, summary and alexaResponse is empty
+
+### 3.9.1 (2021-06-04)
+* (Apollon77) Fix cookie exchange and cookie validation checks
+
+### 3.9.0 (2021-05-11)
+* (Apollon77) Add some new devices
+* (Apollon77) Always recognize "alexa" as wakeword to handle commands via the apps correctly
+
+### 3.8.4 (2021-05-11)
+* (Apollon77) Optimize Cookie refresh handling
+* (Apollon77) Fix warnings from js-controller 3.3 and optimize
+
+### 3.8.2 (2021-04-19)
+* (Apollon77) Adjust automatic Cookie Refresh interval from 7 to 4 days
+
+### 3.8.1 (2021-02-09)
+* (Apollon77) Initialize volume for all devices on start
+
+### 3.8.0 (2021-02-04)
+* (Apollon77) Add configuration option to not write history entries where no command text was recognized
+
+### 3.7.1 (2021-02-03)
+* (Apollon77) add some more detected text into summary and answerText states (textCommand commands should be in history back again)
+
+### 3.7.0 (2021-02-03)
+* (Apollon77) IMPORTANT: History entries are now requested via a different data source because Amazon seems to tun off the old option. History.status is for this no longer filled, but new states were added. Only voice commands are reported ( textCommand entries not longer)
+* (Apollon77) other optimizations in communications and prevent hammering amazon with requests in error cases
+
+### 3.6.1 (2021-02-02)
+* (fbeister) Add and adjust some known devices
+* (Apollon77) Optimize object deletion
+
+### 3.6.0 (2021-01-28)
+* (Apollon77) Update Routines API because of amazon changes
+
+### 3.5.6 (2021-01-22)
+* (Apollon77) Catch error when deleting objects
+
+### 3.5.4 (2021-01-22)
+* (Apollon77) restart adapter when no initial cookie could be requested
+
+### 3.5.2 (2021-01-17)
+* (Apollon77) Prevent to write non-existing state values
+* (Apollon77) Add and adjust some known devices
 
 ### 3.5.0 (2020-12-24)
 * (Apollon77) Remove bespoken because textCommand is more flexible
@@ -319,7 +391,7 @@ Sentry.io - это сервис, позволяющий разработчика
 * (arteck) add echo studio
 
 ### 3.2.6 (2020-07-15)
-* (Apollon77) Work around Amazon Security changes and make proxy working again 
+* (Apollon77) Work around Amazon Security changes and make proxy working again
 
 ### 3.2.5 (2020-07-13)
 * (Apollon77) Work around Amazon Security changes and make proxy working again 
@@ -346,7 +418,7 @@ Sentry.io - это сервис, позволяющий разработчика
 * (Apollon77) make sure that Lists objects are deleted correctly when deleting
 * (Apollon77) Make compatible with nodejs 14
 * (Apollon77) Adjust to changes from Amazon so that initial Proxy process works again
-* (OberstVonGatow) Make sure that for Spotify Media data requests do not have negative effects and stop the playback  
+* (OberstVonGatow) Make sure that for Spotify Media data requests do not have negative effects and stop the playback
 
 ### 3.1.2 (2020-03-18)
 * (Gieskanne/Apollon77) Add Next Timer Date as state
@@ -384,7 +456,7 @@ Sentry.io - это сервис, позволяющий разработчика
 * (Apollon77) prevent some crashed after changes by Amazon
 * (Apollon77) fix Routine names after changes by Amazon
 * (Apollon77) add some devices and new images
-* (Apollon77) Add more situations to update player status because amazon send no info anymore on title changes 
+* (Apollon77) Add more situations to update player status because amazon send no info anymore on title changes
 
 ### 2.6.4 (2019-07-25)
 * (Apollon77) add some error handling for contacts
@@ -422,7 +494,7 @@ Sentry.io - это сервис, позволяющий разработчика
 * (Apollon77) optimize Admin display of Status/Link
 * (Apollon77) add Link to https://alexa.amazon.com to Admin instance overview
 * (Apollon77) Remove Admin2 support
-* (Apollon77) Optimize Handling from DNS errors (hopefully) to prevent stopped Adapters on Internet/DNS problems 
+* (Apollon77) Optimize Handling from DNS errors (hopefully) to prevent stopped Adapters on Internet/DNS problems
 
 ### 2.3.3 (2019-06-21/22)
 * (Apollon77) adjust to current Amazon changes
@@ -440,7 +512,7 @@ Sentry.io - это сервис, позволяющий разработчика
 ### 2.1.0 (2019-01-13) [unpublished]
 * (Apollon77) cookie handling completely rewritten, no email/password anymore, only Proxy (still only from log)
 * (Apollon77) fixes routine triggering that triggered on wrong device sometimes
-* (Apollon77) added new commands "deviceStop", "announcement", "notification", and "ssml" (see documentation above) 
+* (Apollon77) added new commands "deviceStop", "announcement", "notification", and "ssml" (see documentation above)
 
 ### 1.1.3 (2018-11-17)
 * (Apollon77) optimize cookie handling again
@@ -524,7 +596,6 @@ Sentry.io - это сервис, позволяющий разработчика
 * (Apollon77) New "Music-Provider" states depending on available music providers with possibility to enter a text to play something (same as you would speak it)
 * (Apollon77) Volume is send different now, so that it also works when Device player get's inactive
 
-
 ### 0.2.4 (2018-07-22)
 * (pix) materialize settings window
 * (Apollon77) WOn IP is set automatically with IP from first network interface
@@ -557,16 +628,6 @@ Sentry.io - это сервис, позволяющий разработчика
 * (Apollon77) 0.2.0: Automatically use different user-agents for Win32, MacOS and Linux based systems
 * (Apollon77) 0.2.0: Also support entering TuneIn-Station IDs ("s" plus 4-6 digits) to play that station
 
-### 0.1.x (Github only as iobroker.alexa)
-* (Apollon77) 0.1.5: Adapter disables itself on error (no cookie/no csrf in cookie/captcha needed)
-* (Apollon77) 0.1.5: Reorganized some states (delete object again please), add playerinfo section for later usage, hopefully fixed unplanned device renaming and other things
-* (Apollon77) 0.1.5: Added adapter config options to overwrite used amazon-page, user-agent and accept-language for cookie determination and
-* (Apollon77) 0.1.4: State changes are logged and only considered when ack=false!
-* (Apollon77) 0.1.3: Corrected all roles, delete objects and start again!
-* (Apollon77) 0.1.3: bluetooth connection status filled correctly initially
-* (Apollon77) 0.1.2: Library fixes and updates
-* (Apollon77) 0.1.1: Library fixes and updates
-
 ### 0.1.0 (2018-07-10)
 * (Apollon77) get Adapter working again, especially getting cookie and optimize refresh
 
@@ -577,7 +638,7 @@ Sentry.io - это сервис, позволяющий разработчика
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2018 soef <soef@gmx.net>, 2018-2020 Ingo Fischer <iobroker@fischer-ka.de>
+Copyright (c) 2018-2021 Ingo Fischer <iobroker@fischer-ka.de>, 2017-2018 soef <soef@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

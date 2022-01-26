@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: POmf7zWTwhMwMfgOvU1PxjKyLCJHQO/HZ6fkGLc6pIE=
+hash: yO9ZDtp6FL+u1N1OWFf7H/Z0PPR1+Qd0sC6ecQqS3kE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
@@ -11,8 +11,7 @@ hash: POmf7zWTwhMwMfgOvU1PxjKyLCJHQO/HZ6fkGLc6pIE=
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.sql.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sql.svg)
 ![Тесты](https://travis-ci.org/ioBroker/ioBroker.sql.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.sql.png?downloads=true)
-![Значок Greenkeeper](https://badges.greenkeeper.io/ioBroker/ioBroker.sql.svg)
+![НПМ](https://nodei.co/npm/iobroker.sql.png?downloads=true)
 
 # IoBroker.sql
 Этот адаптер сохраняет историю состояний в базе данных SQL.
@@ -51,7 +50,7 @@ iobroker start sql
 ```
 
 ### MySQL:
-Вы можете установить mysql в системах Linux следующим образом:
+Вы можете установить mysql в Linux-системах следующим образом:
 
 ```
 apt-get install mysql-server mysql-client
@@ -69,14 +68,14 @@ FLUSH PRIVILEGES;
 
 На "windows" его легко установить через установщик: https://dev.mysql.com/downloads/installer/.
 
-Обратите внимание на метод аутентификации. Новый алгоритм шифрования в MySQL 8.0 пока не поддерживается `node.js`, и вы должны выбрать устаревший метод аутентификации.
+Обратите внимание на метод аутентификации. Новый алгоритм шифрования в MySQL 8.0 еще не поддерживается `node.js`, и вы должны выбрать устаревший метод аутентификации.
 
-![Windows](../../../en/adapterref/iobroker.sql/img/WindowsMySQLinstaller.png)
+![Окна](../../../en/adapterref/iobroker.sql/img/WindowsMySQLinstaller.png)
 
 ## Структура БД
 Имя базы данных по умолчанию - «iobroker», но его можно изменить в конфигурации.
 
-### Источники Эта таблица представляет собой список экземпляров адаптера, записавших записи. (гос. из)
+### Источники Эта таблица представляет собой список экземпляров адаптера, написавших записи. (состояние из)
 | DB | Имя в запросе |
 |------------|----------------------|
 | MS-SQL | iobroker.dbo.sources |
@@ -129,10 +128,10 @@ FLUSH PRIVILEGES;
 |--------|--------------------------------------------|-------------------------------------------------|
 | id | INTEGER | ID состояния из таблицы «Точки данных» |
 | ts | BIGINT / INTEGER | Время в мс до эпохи. Может быть преобразовано во время с помощью «новой даты (ts)» |
-| val | РЕАЛЬНЫЙ | Значение |
+| val | НАСТОЯЩИЙ | Значение |
 | подтверждение | BIT / BOOLEAN | Подтверждено: 0 - не подтверждено, 1 - подтверждено |
 | _from | INTEGER | ID источника из таблицы «Источники» |
-| q | INTEGER | Качество как число. Вы можете найти описание [Вот](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
+| q | INTEGER | Качество как число. Вы можете найти описание [здесь](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
 * Примечание: * MS-SQL использует BIT, а другие используют BOOLEAN. SQLite использует для ts INTEGER и всех остальных BIGINT.
 
@@ -151,9 +150,9 @@ FLUSH PRIVILEGES;
 |--------|--------------------------------------------|-------------------------------------------------|
 | id | INTEGER | ID состояния из таблицы «Точки данных» |
 | ts | BIGINT / INTEGER | Время в мс до эпохи. Может быть преобразовано во время с помощью «новой даты (ts)» |
-| val | РЕАЛЬНЫЙ | Значение |
+| val | НАСТОЯЩИЙ | Значение |
 
-В этой таблице хранятся значения, когда счетчик был заменен, и значение не увеличилось, но не до нуля или ниже.
+В этой таблице хранятся значения, когда счетчик был заменен, и значение не увеличивалось, но не до нуля или ниже.
 
 ### Строки
 Значения для состояний с типом «строка».
@@ -174,7 +173,7 @@ FLUSH PRIVILEGES;
 | val | ТЕКСТ | Значение |
 | подтверждение | BIT / BOOLEAN | Подтверждено: 0 - не подтверждено, 1 - подтверждено |
 | _from | INTEGER | ID источника из таблицы «Источники» |
-| q | INTEGER | Качество как число. Вы можете найти описание [Вот](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
+| q | INTEGER | Качество как число. Вы можете найти описание [здесь](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
 * Примечание: * MS-SQL использует BIT, а другие используют BOOLEAN. SQLite использует для ts INTEGER и всех остальных BIGINT.
 
@@ -197,12 +196,12 @@ FLUSH PRIVILEGES;
 | val | BIT / BOOLEAN | Значение |
 | подтверждение | BIT / BOOLEAN | Подтверждено: 0 - не подтверждено, 1 - подтверждено |
 | _from | INTEGER | ID источника из таблицы «Источники» |
-| q | INTEGER | Качество как число. Вы можете найти описание [Вот](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
+| q | INTEGER | Качество как число. Вы можете найти описание [здесь](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
 * Примечание: * MS-SQL использует BIT, а другие используют BOOLEAN. SQLite использует для ts INTEGER и всех остальных BIGINT.
 
 ## Пользовательские запросы
-Пользователь может выполнять пользовательские запросы к таблицам из адаптера javascript:
+Пользователь может выполнять собственные запросы к таблицам из адаптера javascript:
 
 ```
 sendTo('sql.0', 'query', 'SELECT * FROM datapoints', function (result) {
@@ -215,7 +214,7 @@ sendTo('sql.0', 'query', 'SELECT * FROM datapoints', function (result) {
 });
 ```
 
-Или получить записи за последний час для ID = system.adapter.admin.0.memRss
+Или получите записи за последний час для ID = system.adapter.admin.0.memRss
 
 ```
 sendTo('sql.0', 'query', 'SELECT id FROM datapoints WHERE name="system.adapter.admin.0.memRss"', function (result) {
@@ -233,7 +232,7 @@ sendTo('sql.0', 'query', 'SELECT id FROM datapoints WHERE name="system.adapter.a
 });
 ```
 
-*Заметка:*
+*Примечание:*
 
 В зависимости от базы данных, имя базы данных или имя базы данных + схема должны быть вставлены перед именем таблицы - см. Поля выше в разделе «Структура баз данных».
 
@@ -262,8 +261,8 @@ sendTo('sql.0', 'query', 'SELECT id FROM datapoints WHERE name="system.adapter.a
 
 ```
 sendTo('sql.0', 'delete', [
-    {id: 'mbus.0.counter.xxx, state: {ts: 1589458809352},
-    {id: 'mbus.0.counter.yyy, state: {ts: 1589458809353}
+    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352},
+    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353}
 ], result => console.log('deleted'));
 ```
 
@@ -271,8 +270,8 @@ sendTo('sql.0', 'delete', [
 
 ```
 sendTo('sql.0', 'deleteAll', [
-    {id: 'mbus.0.counter.xxx}
-    {id: 'mbus.0.counter.yyy}
+    {id: 'mbus.0.counter.xxx'}
+    {id: 'mbus.0.counter.yyy'}
 ], result => console.log('deleted'));
 ```
 
@@ -280,8 +279,8 @@ sendTo('sql.0', 'deleteAll', [
 
 ```
 sendTo('sql.0', 'deleteRange', [
-    {id: 'mbus.0.counter.xxx, start: '2019-01-01T00:00:00.000Z', end: '2019-12-31T23:59:59.999'},
-    {id: 'mbus.0.counter.yyy, start: 1589458809352, end: 1589458809353}
+    {id: 'mbus.0.counter.xxx', start: '2019-01-01T00:00:00.000Z', end: '2019-12-31T23:59:59.999'},
+    {id: 'mbus.0.counter.yyy', start: 1589458809352, end: 1589458809353}
 ], result => console.log('deleted'));
 ```
 
@@ -294,8 +293,8 @@ sendTo('sql.0', 'deleteRange', [
 
 ```
 sendTo('sql.0', 'update', [
-    {id: 'mbus.0.counter.xxx, state: {ts: 1589458809352, val: 15, ack: true, q: 0},
-    {id: 'mbus.0.counter.xxx, state: {ts: 1589458809353, val: 16, ack: true, q: 0}
+    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352, val: 15, ack: true, q: 0},
+    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353, val: 16, ack: true, q: 0}
 ], result => console.log('deleted'));
 ```
 
@@ -339,13 +338,13 @@ sendTo('sql.0', 'getCounter', {
 });
 ```
 
-Если счетчик будет заменен, он тоже будет рассчитан.
+Если будет заменено счетное устройство, оно тоже будет рассчитано.
 
 ## Управление ведением журнала через Javascript
 Адаптер поддерживает включение и отключение ведения журнала через JavaScript, а также получение списка включенных точек данных с их настройками.
 
 ### Включить
-Сообщение требует наличия «идентификатора» точки данных. Кроме того, дополнительные «параметры» для определения конкретных настроек точки данных:
+Сообщение требует наличия «идентификатора» точки данных. Кроме того, необязательные «параметры» для определения конкретных настроек точки данных:
 
 ```
 sendTo('sql.0', 'enableHistory', {
@@ -363,12 +362,12 @@ sendTo('sql.0', 'enableHistory', {
         console.log(result.error);
     }
     if (result.success) {
-        //successfull enabled
+        //successful enabled
     }
 });
 ```
 
-### Отключить
+### Запрещать
 Сообщение требует наличия «идентификатора» точки данных.
 
 ```
@@ -379,7 +378,7 @@ sendTo('sql.0', 'disableHistory', {
         console.log(result.error);
     }
     if (result.success) {
-        //successfull enabled
+        // successful enabled
     }
 });
 ```
@@ -408,7 +407,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 
 ## Настройки соединения
 - **Тип БД** Тип БД SQL: MySQL, PostgreSQL, MS-SQL или SQLite3
-- **Хост** IP-адрес или имя хоста с SQL Server
+- **Хост** IP-адрес или имя хоста с SQL Server.
 - **Порт** порт SQL Server (оставьте поле пустым, если не уверены)
 - **Имя базы данных** имя базы данных. Iobroker по умолчанию
 - **Пользователь** имя пользователя для SQL. Должен существовать в БД.
@@ -420,7 +419,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 - **Не создавать базу данных** активируйте эту опцию, если база данных уже создана (например, администратором) и у пользователя ioBroker недостаточно прав для создания БД.
 
 ## Настройки по умолчанию
-- **Интервал устранения отказов** не сохранять значения чаще этого интервала.
+- **Интервал устранения отказов** не сохранять значения чаще, чем этот интервал.
 - **Записывать неизмененные значения любые** дополнительно записывать значения каждые X секунд.
 - **Минимальная разница между последним значением и записью** минимальный интервал между двумя значениями.
 - **Хранение** как долго значения будут храниться в БД.
@@ -430,6 +429,20 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (Excodibur) Hide settings not relevant when "log changes only" is not used
+* (Apollon77) Allow all number values for debounce again
+
+### 1.16.0 (2021-12-14)
+* (bluefox) Support only `js.controller` >= 3.3.x
+* (bluefox) Used system/custom view for collecting the objects
+* (bluefox) Implemented option to ignore zero- or/and below zero- values
+
+### 1.15.7 (2021-04-28)
+* (bluefox) fixed the support of Admin5
+
+### 1.15.6 (2021-04-19)
+* (bluefox) added support of Admin5
 
 ### 1.15.5 (2021-01-22)
 * (Apollon77) make sure message query is a string (Sentry)
@@ -439,7 +452,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 
 ### 1.15.3 (2020-08-29)
 * (bluefox) Added the option "Do not create database". E.g. if DB was created and it does not required to do that, because the user does not have enough rights.
- 
+
 ### 1.15.2 (2020-07-26)
 * (Apollon77) prevent wrong errors that realId is missing
 
@@ -458,15 +471,15 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 
 ### 1.14.0 (2020-05-20)
 * (bluefox) added the range deletion and the delete all operations
- 
+
 ### 1.13.1 (2020-05-20)
 * (bluefox) added changed and delete operations
- 
+
 ### 1.12.6 (2020-05-08)
 * (bluefox) set default history if not yet set
- 
+
 ### 1.12.5 (2020-05-05)
-* (Apollon77) Crash prevented for invalid objects (Sentry IOBROKER-SQL-X) 
+* (Apollon77) Crash prevented for invalid objects (Sentry IOBROKER-SQL-X)
 
 ### 1.12.4 (2020-05-04)
 * (Apollon77) Potential crash fixed when disabling data points too fast (Sentry IOBROKER-SQL-W) 
@@ -479,7 +492,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 * (Apollon77) MSSQL works again
 
 ### 1.12.1 (2020-04-26)
-* (Apollon77) Fix potential crash (Sentry) 
+* (Apollon77) Fix potential crash (Sentry)
 
 ### 1.12.0 (2020-04-23)
 * (Apollon77) Implement max Connections setting and respect it, now allows to control how many concurrent connections to database are used (default 100) and others wait up to 10s for a free connection before failing)
@@ -678,7 +691,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2020 bluefox <dogafox@gmail.com>, Apollon77
+Copyright (c) 2015-2021 bluefox <dogafox@gmail.com>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

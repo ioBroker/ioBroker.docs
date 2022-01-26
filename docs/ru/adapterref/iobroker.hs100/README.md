@@ -3,26 +3,40 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hs100/README.md
 title: ioBroker.hs100
-hash: lm/CDFdPTBxJAbjk7l1Wy/oVRjyrxim1HnZNucktYi8=
+hash: dDlSFwugLId+LLgjA6OFimZj8QDqrnQ8gUniavEIkoA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hs100/admin/hs100.png)
 
 ![Количество установок](http://iobroker.live/badges/hs100-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.hs100.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.hs100.svg)
-![NPM](https://nodei.co/npm/iobroker.hs100.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.hs100.png?downloads=true)
 
 # IoBroker.hs100
 =================
 
 Адаптер TP-Link для ioBroker -------------------------------------------- ----------------------------------
 
-Переключатель TP-Link Plug and Bulb
+Переключатель разъема TP-Link и лампочки
 
 <b>NodeJs &gt;&gt; 8.xx</b>
 
+<! - Заполнитель для следующей версии (в начале строки):
+
+https://github.com/AlCalzone/release-script#usage npm run release minor - --all 0.9.8 -> 0.10.0 npm run release patch - --all 0.9.8 -> 0.9.9 npm запустить предварительную бета-версию выпуска - --all v0.2.1 -> v0.2.2-beta.0 Заполнитель для следующей версии (в начале строки):
+
+### **РАБОТА В ПРОЦЕССЕ** ->
+
 ## Changelog
 
+### 2.0.6 (2021-08-01)
+* (arrizer) error handling merge back 
+
+### 2.0.4  (2021-04-30)
+* (arteck) js-controller 3.3.x 
+
+### 2.0.2  (2021-01-20)
+* (arteck) new js-controller upd
 
 ### 2.0.1 (2020-06-17)
 * (arteck) optimization

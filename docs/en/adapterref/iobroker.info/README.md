@@ -1,12 +1,9 @@
 ---
-BADGE-Number of Installations: http://iobroker.live/badges/info-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.info.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.info.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.info.png?downloads=true
-BADGE-Travis-CI: http://img.shields.io/travis/iobroker-community-adapters/ioBroker.info/master.svg
-BADGE-Greenkeeper badge: https://badges.greenkeeper.io/iobroker-community-adapters/ioBroker.info.svg
+BADGE-Number of Installations: http://iobroker.live/badges/info-stable.svg
 BADGE-Dependency Status: https://img.shields.io/david/iobroker-community-adapters/iobroker.info.svg
-BADGE-Known Vulnerabilities: https://snyk.io/test/github/iobroker-community-adapters/ioBroker.info/badge.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.info.png?downloads=true
 ---
 # Admin
 
@@ -316,6 +313,46 @@ Forum entries will be displayed without problems when accessing ioBroker via IP 
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 1.9.16 (2021-11-13)
+* (Apollon77) Update dependencies
+* (Apollon77) Fix translations
+
+### 1.9.15 (2021-11-10)
+* (simatec) Design fix for react-dark theme
+
+### 1.9.10 (2021-09-04)
+* (Speedbreaker12) Adjust some actions to prevent js-controller 3.3 warnings
+
+### 1.9.9 (2021-09-02)
+* (Apollon77) update library to prevent some errors
+* (Apollon77) Adjust some actions to prevent js-controller 3.3 warnings
+
+### 1.9.8 (2021-08-02)
+* Adjust object types to prevent js-controller 3.3 warnings
+
+### 1.9.7 (2021-07-27)
+* (bluefox) updated the clock background
+
+### 1.9.6 (2021-07-26)
+* (simatec) Design fix
+
+### 1.9.5 (2021-07-25)
+* (simatec) Design Fix
+
+### 1.9.4 (2021-07-24)
+* Ready for Admin 5
+
+### 1.9.2 (2021-07-22)
+* Fix too high load because of wrong parsing of settings
+
+### 1.9.1 (2021-07-21)
+* Adjust object types to prevent js-controller 3.3 warnings
+* Disable all data collection by default  -  users can activate whatever they really need
+
+### 1.9.0 (2021-07-20)
+* Breaking changes: Some systemdata objects have new names and corrected types and content! You might need to adjust scripts and visualizations!
+* (ldittmar81) Added Wifi, Docker, USB, Printer, Bluetooth and Audio infos
+* (Apollon77) Optimize for js-controller 3.3
 
 ### 1.7.15 (2021-01-13)
 * (Apollon77) fix crash case (Sentry IOBROKER-INFO-1X)
@@ -361,7 +398,7 @@ Forum entries will be displayed without problems when accessing ioBroker via IP 
 ### 1.7.2 (2020-05-07)
 * (ldittmar) Update systeminformation library
 * (ldittmar) Messages can be hidden
-* (ldittmar) Show subnet mask for ip4 and ip6 
+* (ldittmar) Show subnet mask for ip4 and ip6
 
 ### 1.7.1 (2020-04-29)
 * (ldittmar) Update systeminformation library
@@ -403,7 +440,7 @@ Forum entries will be displayed without problems when accessing ioBroker via IP 
 * (ldittmar) change systeminformation call interval
 * (ThomasBahn) News problem fixed
 * (ldittmar) Update systeminformation library
-* (badenbaden) Fixed russian spelling 
+* (badenbaden) Fixed russian spelling
 
 ### 1.4.1 (2019-08-01)
 * (bluefox) Removed default socket.io
@@ -485,7 +522,7 @@ Forum entries will be displayed without problems when accessing ioBroker via IP 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017 - 2020 ldittmar <iobroker@lmdsoft.de>
+Copyright (c) 2017 - 2021 ldittmar <iobroker@lmdsoft.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

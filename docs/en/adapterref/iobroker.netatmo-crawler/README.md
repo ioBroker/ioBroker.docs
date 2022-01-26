@@ -48,7 +48,7 @@ To find the url of your preferred weather station, follow these steps:
 
 4. Insert the link in the instance settings of the adapter
 
-   ![Insert](img/insert.jpg)
+   ![Insert](img/insert.png)
 
 General information
 ===================
@@ -119,6 +119,19 @@ Many thanks to [backfisch](https://github.com/backfisch88) for the initial idea 
 
 ## Changelog
 
+### 0.6.0
+* (Xenon-s) saves states with acknowledgement (#23 & #26)
+* (Bart19) updates dependencies and documentation (#25 & #27)
+### 0.5.1
+* (Bart19) updates dependencies
+### 0.5.0
+* (Bart19) adds measures for wind and gust with m/s (#22) and do not query rain_today in the first 15 minutes of a day (#21)
+### 0.4.1
+* (Bart19) changes exit code and introduces an exit message
+### 0.4.0
+* (Bart19) Rounds values to two decimals
+### 0.3.13
+* (Bart19) updates dependencies
 ### 0.3.9
 * (Bart19) updates dependencies
 ### 0.3.8

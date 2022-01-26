@@ -44,7 +44,27 @@ Better if every device belongs to both categories. Because every device has the 
 - Used icons from flaticon
 - Volume knob from [here](https://codepen.io/blucube/pen/cudAz) By [Ed Hicks](https://twitter.com/blucube) - Inspired by a [dribbble shot](https://dribbble.com/shots/753124-Volume-Knob)  by [Ricardo Salazar](https://twitter.com/rickss)
 
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
 ## Changelog
+### 1.1.2 (2021-12-28)
+* (bluefox) Fixed double sending in the switch control
+
+### 1.1.0 (2021-12-21)
+* (bluefox) Changed the light style to be looks like old style
+
+### 1.0.6 (2021-10-29)
+* (bluefox) Added support of `iobroker.material` app
+
+### 1.0.4 (2021-07-30)
+* (bluefox) Corrected the size of icons
+
+### 1.0.2 (2021-07-18)
+* (bluefox) Redesign
+
 ### 0.13.9 (2020.08.22)
 * (bluefox) Added support for new socket.io
 
@@ -75,6 +95,7 @@ Better if every device belongs to both categories. Because every device has the 
 
 ### 0.10.1 (2018.09.02)
 * (bluefox) GUI corrections
+
 ### 0.10.0 (2018.08.30)
 * (bluefox) RGB was corrected
 
@@ -132,6 +153,6 @@ Better if every device belongs to both categories. Because every device has the 
 ## License
 CC-BY-NC
 
-Copyright (c) 2017-2020, bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2021, bluefox <dogafox@gmail.com>
 
 Commercial use is not allowed without permission.

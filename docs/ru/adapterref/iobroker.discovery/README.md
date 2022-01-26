@@ -2,22 +2,20 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.discovery/README.md
-title: ioBroker Discover Адаптер
-hash: dtvHuKU+rdPUHU6HT/193yc5+i6OifknfuMqFHRb7Gg=
+title: Адаптер ioBroker Discover
+hash: WSxh2vB/89J2wIGBvg02ZcDCRwhLMB1RkMUg9R4NfCc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
 ![Количество установок](http://iobroker.live/badges/discovery-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.discovery.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.discovery.svg)
-![Тесты](https://travis-ci.org/ioBroker/ioBroker.discovery.svg?branch=master)
-![НПМ](https://nodei.co/npm/iobroker.discovery.png?downloads=true)
 
 # IoBroker Откройте для себя адаптер
-** Обнаруживайте устройства всеми известными методами. **
+![Тестирование и выпуск](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) **Обнаружение устройств всеми известными методами.**
 
-Это специальные адаптеры, которые пытаются найти все возможные устройства, доступные с хоста.
-Только сейчас он может определять через ping, UPnP (планируется серийный).
+Это специальный адаптер, который пытается найти все возможные устройства, доступные с хоста.
+Только сейчас он может обнаруживать через ping, UPnP (планируется серийный).
 
 ** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
@@ -27,6 +25,7 @@ hash: dtvHuKU+rdPUHU6HT/193yc5+i6OifknfuMqFHRb7Gg=
 - Умный дом Bosch
 - Bose Soundtouch
 - Broadlink
+- BSBLan
 - Chromecast
 - климат-контроль Daikin
 - deConz
@@ -54,6 +53,7 @@ hash: dtvHuKU+rdPUHU6HT/193yc5+i6OifknfuMqFHRb7Gg=
 - InfluxDB
 - КЛФ-200
 - KNX (фактически отключен)
+- Keba KeContact P30
 - Коди
 - Ландроид
 - LGTV
@@ -71,8 +71,9 @@ hash: dtvHuKU+rdPUHU6HT/193yc5+i6OifknfuMqFHRb7Gg=
 - Мпд
 - Musiccast
 - myDlink
-- Mysensors USB / Serial (9600, 38400, 57600, 115200)
+- Mysensors USB / последовательный (9600, 38400, 57600, 115200)
 - световые панели / холст nanoleaf
+- Сетевые инструменты
 - Нуки2
 - Орех
 - Onkyo
@@ -83,9 +84,9 @@ hash: dtvHuKU+rdPUHU6HT/193yc5+i6OifknfuMqFHRb7Gg=
 - RFLink (серийный 57600 бод)
 - SamsungTV
 - Smappee
-- Solarlog
+- Соларлог
 - Соннен
-- Sonos
+- Сонос
 - Stiebel-Eltron / Tecalor ISG (плюс)
 - SQL (MySQL, MSSQL, PostgreSQL)
 - Соковыжималка
@@ -94,6 +95,7 @@ hash: dtvHuKU+rdPUHU6HT/193yc5+i6OifknfuMqFHRb7Gg=
 - TR-064
 - Trådfri
 - UPnP
+- ВаллоксМВ
 - Wifilight
 - Ямаха
 - Yeelight
@@ -102,12 +104,18 @@ hash: dtvHuKU+rdPUHU6HT/193yc5+i6OifknfuMqFHRb7Gg=
 ### Предлагаются как дополнительные адаптеры
 - Облако
 - История (если SQL или InfluxDB не найдены)
-- flot (предлагается при наличии History-Adapter)
+- Интернет вещей
+- eCharts (предлагается при наличии адаптера истории)
 - JavaScript
 - Информация
-- мобильный
 - Vis
 - Интернет
+
+## Если адаптер не может найти IP ...
+Адаптер проверяет сеть на IP-адрес текущего хоста (x.y.z.1..255). Кроме того, для обнаружения IP-адресов используются UPnP и mDNS.
+
+Если не все IP-адреса найдены, проверьте, может ли пользователь iobroker выполнить `/bin/ping`.
+Вы можете выполнить `sudo setcap cap_net_raw+p /bin/ping`, чтобы добавить недостающие возможности / разрешения.
 
 ## Делать
 - артнет? (Bluefox)
@@ -126,19 +134,62 @@ hash: dtvHuKU+rdPUHU6HT/193yc5+i6OifknfuMqFHRb7Gg=
 - смартметр (Apollon77)
 - унифи (jens-maus)
 - волк (улыбается-валет)
-- xs1 (откровенный шуток)
+- xs1 (откровенный шутник)
 
 <! - Заполнитель для следующей версии (в начале строки):
 
 ### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
+### 2.7.5 (2021-11-09)
+* (Apollon77) Fix kecontact detection (Sentry IOBROKER-DISCOVERY-3P)
+
+### 2.7.4 (2021-11-09)
+* (bluefox) Replaced flot with eCharts
+* (bluefox) info Adapter removed
+
+### 2.7.3 (2021-10-05)
+* (Sneak-L8) updated kecontact detection
+
+### 2.7.2 (2021-08-31)
+* (Sneak-L8) support KeBa KeContact P30
+
+### 2.7.0 (2021-07-01)
+* (hacki11) Add discovery for BSBLan and ValloxMV
+* (Apollon77) Optimize for js-controller 3.3
+
+### 2.6.3 (2021-05-03)
+* (bluefox) Added support of Admin5
+
+### 2.6.2 (2021-04-13)
+* (Apollon77) Fix crash case in mihome discovery (Sentry IOBROKER-DISCOVERY-30)
+* (Apollon77) Fix crash case in ping logic (Sentry IOBROKER-DISCOVERY-2Y)
+* (Apollon77) Fix crash case in hf-lpb100 logic (Sentry IOBROKER-DISCOVERY-34)
+
+### 2.6.1 (2021-02-28)
+* (JeyCee) added iot and net-tools
+* (Apollon77) Adjust and optimize UDP and UPnP discoveries
+* (Apollon77) Add option to specify the "own IP address" and netmask to also allow discovery for e.g. docker cases where an external network should be scanned
+* (Apollon77) Fix ping progress counter when scanning multiple ip ranges
+* (JeyCee) removed mobile
+* (Apollon77) fix sonos and synology
+* (JeyCee) UI adjustments
+* (Apollon77) Fix crash cases (Sentry IOBROKER-DISCOVERY-2Q)
+
+### 2.5.0 (2021-01-11)
+* (Zefau) Replace nuki2 with nuki-extended
+* (Zefau) Suggest jarvis for discovery as advice
+* (Apollon77) Add checks on broadlink2 discovery to prevent crash case (Sentry IOBROKER-DISCOVERY-2H)
+
+### 2.4.1 (2020-12-06)
+* (Apollon77) Fix potential crash case in lightify (Sentry IOBROKER-DISCOVERY-2D)
+* (Apollon77) Fix potential crash case (Sentry IOBROKER-DISCOVERY-2C)
 
 ### 2.4.0 (2020-11-29)
 * (withstu) add heos
 
 ### 2.3.11 (2020-08-08)
-* (Grizzelbee) Added MieleCloudService 
+* (Grizzelbee) Added MieleCloudService
 
 ### 2.3.10 (2020-07-26)
 * (MiSchroe) Discovery Velux KLF-200 updated to new firmware
@@ -181,7 +232,7 @@ hash: dtvHuKU+rdPUHU6HT/193yc5+i6OifknfuMqFHRb7Gg=
 * (oweitman) Add discovery for SqueezeboxRPC
 
 ### 2.1.0 (2020-01-21)
-* (foxriver76) no longer use adapter.objects
+* (foxriver76) no longer use `adapter.objects`
 * __js-controller > 2.0.0 required__
 
 ### 2.0.0 (2019-05-15)
@@ -278,7 +329,7 @@ hash: dtvHuKU+rdPUHU6HT/193yc5+i6OifknfuMqFHRb7Gg=
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2020, Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2021, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -32,8 +32,23 @@ Workaround for text to speech is to use the [SONOS HTTP API](https://github.com/
 
 ## To Do
 * Show queue with covers
+* Rewrite with https://github.com/svrooij/node-sonos-ts
 
+## Configuration
+- Web server - [optional] If web server enabled or not
+- Port       - If Webserver is enabled, so the port for this. Default 8083
+- Update of elapsed time(ms) - Interval in ms how often to update elapsed timer when the title is playing. (Default 2000)
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
 ## Changelog
+### 2.1.7 (2021-12-20)
+* (bluefox) Corrected error with "SONOS not found"
+
+### 2.1.4 (2021-12-17)
+* (bluefox) Catch possible errors by the start and unload
 
 ### 2.1.1 (2020-11-08)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-JS-CONTROLLER-S7, #78)
@@ -159,7 +174,6 @@ Workaround for text to speech is to use the [SONOS HTTP API](https://github.com/
 ### 0.0.5 (2014-11-24)
 * (bluefox) support of new naming concept
 
-
 ### 0.0.4 (2014-11-22)
 * (bluefox) support of text to speech
 
@@ -169,16 +183,11 @@ Workaround for text to speech is to use the [SONOS HTTP API](https://github.com/
 ### 0.0.2 (2014-11-01)
 * (bluefox) improve configuration edit
 
-## Configuration
-- Web server - [optional] If web server enabled or not
-- Port       - If Webserver is enabled, so the port for this. Default 8083
-- Update of elapsed time(ms) - Interval in ms how often to update elapsed timer when the title is playing. (Default 2000)
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2021, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

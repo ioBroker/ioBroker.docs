@@ -17,13 +17,15 @@ The open JSON-interface (offene Json-Schnittstelle) has to be activated in the S
 
 ### Basic settings
 
-Set Solarlog - IP-address (192.XXX.X.XXX), port (optional) and polling - interval (in milliseconds, minimum 10s, recommended 30s or more).
+Set Solarlog - IP-address (192.XXX.X.XXX), port (optional) and polling - interval for consumption/production in seconds ('live'- data, min 10s).
 
 Security: you can activate the 'user' - password in your Solarlog and the 'user login activated' checkbox & add your password in the adapter config or you can run Solarlog and adapter without user password. If user-login is activated, it is recommended to stop the adapter while using the solarlog - user interface (otherwise you need to re-login after every request of the adapter).
 
 ### Advanced settings
 
-Check if all inverter / submeters / devices - data is to be collected.
+Check if all inverter / submeters / devices / smart energy - data is to be collected.
+
+Set polling - interval for average & sum up values in minutes (min 5min).
 
 Check if historical data is to be collected and set the time of day when the historical data objects will be updated.
 
@@ -37,6 +39,30 @@ Solarlog 200PM+ / 300PM+ / 500 / 1200Meter / 50
 SolarLog 50: There is no open JSON-Interface @ SolarLog 50 devices. So certain values in the 'info' and the 'status' channel will be 'ACCESS DENIED'. If you prefer another solution, please open an issue or post your preferences in a corresponding issue.
 
 ## Changelog
+
+### 2.2.1
+
+-   replaced 'request' by 'got', node.js >= 12.
+
+### 2.1.5
+
+-   bugfix (variable type).
+
+### 2.1.4
+
+-   history-/selfconsumption-data for SL500 added.
+
+### 2.1.3
+
+-   bugfixes (js-controller 3.3.x)
+
+### 2.1.1
+
+-   Cockpit- (consumption/production/battery/feed) and LCD-display data added. Polling structure optimized for a faster polling of certain values ('live'-data).
+
+### 2.0.2
+
+-   smart energy 'switch group' data added.
 
 ### 2.0.1
 
@@ -178,7 +204,7 @@ Planned Objects:
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 forelleblau marceladam@gmx.ch
+Copyright (c) 2018-2022 forelleblau marceladam@gmx.ch
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

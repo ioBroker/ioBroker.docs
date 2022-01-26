@@ -4,20 +4,26 @@ Due to the different hardware and platforms under which ioBroker runs, the js-co
 
 ## General information for all platforms
 
-**For an update from js-controller 1.x to 2.x please always read the information at https://forum.iobroker.net/topic/26759/js-controller-2-jetzt-f%C3%BCr-alle-im-stable read and note!**
+### js-controller 2.x
+For an update from js-controller 1.x to 2.x please always read and take care about the information at https://forum.iobroker.net/topic/26759/js-controller-2-jetzt-f%C3%BCr-alle-im-stable.
+When updating a master-slave systems, please update the slaves first and the master last! 
 
-Otherwise please update the slaves first with an update of master-slave systems and the master last!
+### js-controller 3.x
+For an update from js-controller 2.0/2.1/2.2 to 3.x please always read and take care about the information at the relevant Forum thread, egeg. https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable (for 3.2). js-controller 3.x requires at least Node.js Version 10.x.
 
-## Linux/macOS (new installer)
-This is the recommended option !!
+With a multi-host system that runs on js-controller 2.2 or an earlier 3.x it is necessary to update the master system first when updating to version 3.x. After updating the master must be restarted before the slaves will be updated! 
+
+
+
+## Linux/macOS (new installer - "curl shell installation script")
+This is the recommended variant for updating the js-controller if ioBroker was installed using the "curl shell installation script". 
 
 Please execute the following commands in an SSH shell (console):
 * `iobroker stop`
 * `iobroker update`
+* `iobroker fix` or if this do not work use: `curl -sL https://iobroker.net/fix.sh | bash -`
 * `iobroker upgrade self`
 * `iobroker start` or reboot server, then ioBroker should restart and you can be sure that all old processes were finished.
-
-If the upgrade command displays Access Rights / Permission errors, then please use the install fixer (`curl -sL https://iobroker.net/fix.sh | bash-`) to fix these issues and upgrade command run again.
 
 ## Linux/macOS (manually installed)
 

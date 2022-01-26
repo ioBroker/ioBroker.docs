@@ -3,45 +3,45 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tradfri/README.md
 title: ioBroker.tradfri
-hash: waY56Oxf+bx+srdcpDHrwGSMihR7UNSfR/l/TSCILIE=
+hash: k8sHWSFxjkHG5AwW44+dA1VLdNbTB1SeOtcWfsagl7U=
 ---
 ![Logo](../../../en/adapterref/iobroker.tradfri/admin/tradfri.png)
 
-![Total Alerts](https://img.shields.io/lgtm/alerts/g/AlCalzone/ioBroker.tradfri.svg?logo=lgtm&logoWidth=18)
+![Benachrichtigungen insgesamt](https://img.shields.io/lgtm/alerts/g/AlCalzone/ioBroker.tradfri.svg?logo=lgtm&logoWidth=18)
 ![Anzahl der Installationen](http://iobroker.live/badges/tradfri-stable.svg)
 
 # IoBroker.tradfri
 ![Build-Status](https://action-badges.now.sh/AlCalzone/ioBroker.tradfri)
 
-## Bedarf
+## Anforderungen
 * Linux (z. B. Raspberry Pi) / OSX / Windows
-* NodeJS> = 6.x.
-* Trådfri Gateway
+* NodeJS >= 12.x
+* Trådfri-Gateway
 
 ## Installation
-1. Installieren Sie diesen Adapter über die iobroker-Administrator-GUI oder über `npm install iobroker.tradfri --production`
-1. Fügen Sie in der ioBroker-Benutzeroberfläche eine Adapterinstanz hinzu.
-1. Konfigurieren Sie die Instanz, indem Sie die IP / den Hostnamen Ihres Gateways und den Sicherheitscode eingeben, der sich auf dem Etikett unten befindet.
+1. Installieren Sie diesen Adapter über die iobroker Admin-GUI oder über `npm install iobroker.tradfri --production`
+1. Fügen Sie in der ioBroker-GUI eine Adapterinstanz hinzu.
+1. Konfigurieren Sie die Instanz, indem Sie die IP/den Hostnamen Ihres Gateways und den Sicherheitscode eingeben, den Sie auf dem Etikett unten finden.
 
 ### Fehlerbehebung bei Installationsproblemen:
-#### Linux / OSX:
+#### Linux/OSX:
 Stellen Sie sicher, dass Sie die neueste veröffentlichte Version installieren. Wenn Kompilierungsfehler auftreten, müssen Sie möglicherweise build-essential installieren:
 
 ```
 apt-get -y install build-essential
 ```
 
-#### Windows:
-Wenn Sie mit älteren NodeJS-Versionen (<10) arbeiten, schlägt die Installation möglicherweise mit dem folgenden Fehler irgendwo im Protokoll fehl:
+#### Fenster:
+Wenn Sie auf älteren NodeJS-Versionen (< 10) laufen, kann die Installation mit dem folgenden Fehler irgendwo im Protokoll fehlschlagen:
 
 ```
 Can't find Python executable "python", you can set the PYTHON env variable.
 ```
 
-Öffnen Sie zur Lösung eine Verwaltungsshell:
+Um das Problem zu lösen, öffnen Sie eine Verwaltungsshell:
 
-1. <kbd>Drücken Sie die Windows-</kbd> Taste <kbd>⊞</kbd>
-2. Geben Sie &quot;cmd&quot; ein und drücken Sie <kbd>Strg</kbd> + <kbd>Umschalt</kbd> + <kbd>Eingabetaste</kbd>
+1. <kbd>Drücken Sie die ⊞ Windows-</kbd> Taste
+2. Geben Sie `cmd` ein, drücken Sie <kbd>Strg</kbd> + <kbd>Umschalt</kbd> + <kbd>Eingabetaste</kbd>
 3. Bestätigen Sie die UAC-Eingabeaufforderung
 
 und führen Sie den folgenden Befehl aus:
@@ -50,10 +50,10 @@ und führen Sie den folgenden Befehl aus:
 npm install --add-python-to-path --global windows-build-tools
 ```
 
-Dies kann eine Weile dauern ... danach sollte die Installation erfolgreich sein.
+Dies kann eine Weile dauern... danach sollte die Installation erfolgreich sein.
 
-## Senden von benutzerdefinierten CoAP-Paketen
-Sie können benutzerdefinierte CoAP-Pakete von anderen Adaptern mithilfe von `sendTo` senden. Beispiel aus JavaScript:
+## Benutzerdefinierte CoAP-Pakete senden
+Sie können benutzerdefinierte CoAP-Pakete von anderen Adaptern senden, indem Sie `sendTo` verwenden. Beispiel aus JavaScript:
 
 ```js
 sendTo("tradfri.0", "request", options, (ret) => {
@@ -88,6 +88,28 @@ Das Ergebnisobjekt `ret` sieht wie folgt aus:
 	Placeholder for next release:
 	### __WORK IN PROGRESS__
 -->
+### 3.0.1 (2021-06-30)
+* Workaround for a bug in IKEA gateway firmware `v1.15.x`
+
+### 3.0.0 (2021-06-19)
+* Update dependencies, require Node.js 12+
+
+### 2.7.3 (2021-05-14)
+* Fix remaining JS-Controller 3.3 warnings
+
+### 2.7.2 (2021-04-30)
+* Avoid warning about `undefined` states in JS-Controller 3.3+
+
+### 2.7.1 (2021-03-12)
+* Dependency updates
+* Fixed issues in `io-package.json` and README found by the adapter checker
+
+### 2.7.0 (2021-02-24)
+* Compatibility with gateway firmware v1.13.21
+* Added `whenPowerRestored` setting to configure what bulbs do after a power loss
+
+### 2.6.5 (2020-11-29)
+* Bugfix: Loading all scenes no longer stalls when a group has no scenes
 
 ### 2.6.4 (2020-11-29)
 * Fix: Updated `node-tradfri-client` to suppress warnings about unknown property `9109`
@@ -324,7 +346,7 @@ Das Ergebnisobjekt `ret` sieht wie folgt aus:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2020 AlCalzone <d.griesel@gmx.net>
+Copyright (c) 2017-2021 AlCalzone <d.griesel@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,14 +1,16 @@
 ![Logo](admin/vis-weather.png)
 # ioBroker.vis-weather
-![Number of Installations](http://iobroker.live/badges/vis-weather-installed.svg) ![Number of Installations](http://iobroker.live/badges/vis-weather-stable.svg) 
 
-[![NPM version](https://img.shields.io/npm/v/iobroker.vis-weather.svg)](https://www.npmjs.com/package/iobroker.vis-weather)
+![Number of Installations](http://iobroker.live/badges/vis-weather-installed.svg) ![Number of Installations](http://iobroker.live/badges/vis-weather-stable.svg)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.vis-weather.svg)](https://www.npmjs.com/package/iobroker.vis-weather)
-[![Tests](https://travis-ci.org/rg-engineering/ioBroker.vis-weather.svg?branch=master)](https://travis-ci.org/rg-engineering/ioBroker.vis-weather)
+[![NPM version](http://img.shields.io/npm/v/iobroker.vis-weather.svg)](https://www.npmjs.com/package/iobroker.vis-weather)
+
+[![Known Vulnerabilities](https://snyk.io/test/github/rg-engineering/ioBroker.vis-weather/badge.svg)](https://snyk.io/test/github/rg-engineering/ioBroker.vis-weather)
+![GitHub Actions](https://github.com/rg-engineering/ioBroker.vis-weather/workflows/Test%20and%20Release/badge.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.vis-weather.png?downloads=true)](https://nodei.co/npm/iobroker.vis-weather/)
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/rg-engineering/ioBroker.vis-weather.svg)](https://greenkeeper.io/)
+
 
 **If you like it, please consider a donation:**
                                                                           
@@ -32,9 +34,17 @@ You might need to enable "NextDaysDetailed".
 * please create issues at [github](https://github.com/rg-engineering/ioBroker.vis-weather/issues) if you find bugs or whish new features
 
 ## Changelog
+### 2.5.5 (2021-11-07)
+* (René) bug fix color of labels in widget
 
+### 2.5.4 (2021-10-30)
+* (René) see issue #37: avoid endless loop
+* (René) update flot to 4.2.2
 
-### 2.5.2 (2019-12-xx)
+### 2.5.3 (2021-03-21)
+* (René) dependencies updated
+
+### 2.5.2 (2019-12-12)
 * (René) some changes to make it compatible with widgets in sbfspot and ebus
 
 ### 2.5.1 (2019-12-08)
@@ -124,7 +134,7 @@ You might need to enable "NextDaysDetailed".
 * (René) initial release
 
 ## License
-Copyright (C) <2017 - 2020>  <info@rg-engineering.eu>
+Copyright (C) <2017 - 2021>  <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

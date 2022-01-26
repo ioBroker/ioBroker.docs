@@ -5,7 +5,7 @@ lastChanged: "09.12.2019"
 # Impressum
 
 ## Angaben gemäß § 5 TMG:
-**Firma:** ioBroker GmbH
+**Firma:** ioBroker Services GmbH
 
 **Adresse:** Lorenzstr. 16, 76135 Karlsruhe, Deutschland
 
@@ -13,7 +13,7 @@ lastChanged: "09.12.2019"
 
 **Umsatzsteuer-Identifikationsnummer gem. § 27a UStG:** DE 312299367
 
-**Vertretungsberechtigte Geschäftsführerin:** Khaeva Veronika
+**Vertretungsberechtigte Geschäftsführerin:** Haeva Veronika
 
 ## Kontakt
 **E-Mail:** 	info@iobroker.net

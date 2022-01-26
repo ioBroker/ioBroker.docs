@@ -4,34 +4,40 @@
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.nanoleaf-lightpanels.svg)](https://www.npmjs.com/package/iobroker.nanoleaf-lightpanels)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.nanoleaf-lightpanels.svg)](https://www.npmjs.com/package/iobroker.nanoleaf-lightpanels)
-[![Build Status Travis](https://travis-ci.org/daniel-2k/ioBroker.nanoleaf-lightpanels.svg?branch=master)](https://travis-ci.org/daniel-2k/ioBroker.nanoleaf-lightpanels)
-[![Build status Appveyor](https://ci.appveyor.com/api/projects/status/29fjgn8ww5w96etq/branch/master?svg=true)](https://ci.appveyor.com/project/daniel-2k/iobroker-nanoleaf-lightpanels/branch/master)
+[![Test and Release](https://github.com/daniel-2k/ioBroker.nanoleaf-lightpanels/actions/workflows/test-and-release.yml/badge.svg?branch=master)](https://github.com/daniel-2k/ioBroker.nanoleaf-lightpanels/actions/workflows/test-and-release.yml)
 
 [![NPM](https://nodei.co/npm/iobroker.nanoleaf-lightpanels.png?downloads=true)](https://nodei.co/npm/iobroker.nanoleaf-lightpanels/)
 
-This is an ioBroker Adapter to control the nanoleaf Light Panels (formerly nanoleaf Aurora) or nanoleaf Canvas and Shapes through the nanoleaf OpenAPI.
+This is an ioBroker adapter to control nanoleaf devices which support OpenAPI.
 
-## Connection to the nanoleaf Light Panels/Canvas Controller:
-1. In the adapter settings you have to set the IP address or hostname and port of the nanoleaf Controller. You can use the search function to discover all nanoleaf devices in your network.
+## Suported models
+* Light Panels
+* Canvas
+* Shapes
+* Elements
+* Lines
+
+## Connection to the nanoleaf controller:
+1. In the adapter settings you have to set the IP address or hostname and port of the nanoleaf controller. You can use the search function to discover all nanoleaf devices, which are supported, in your network.
 2. The nanoleaf OpenAPI needs an authorization token to grant access to the OpenAPI. If you have already one, you can enter the token here and skip the next step.
 3. If you don't have an authorization token, you need to request it from the nanoleaf OpenAPI.
-   To do this, set the nanoleaf Controller into pairing mode by pressing and holding the power button at the device for 5-7 seconds until the LEDs flash alternately.
+   To do this, set the nanoleaf controller into pairing mode by pressing and holding the power button at the device for 5-7 seconds until the LEDs flash alternately.
    Then click on the button 'Obtain authorization token' within 30 seconds (pairing mode stops after 30 seconds). The adapter must be running!
    If it was successful, the authorization token should be seen in the field 'Authentication token'. If an error occurred you get a pop up with the error message (details you can see in the log).
 4. Save the settings.
 5. Have fun!
 
 ### Direct Status update via Server Sent Events (SSE)
-Since Light Panels firmware version > 3.1.0 and Canvas firmware version > 1.1.0 Server Sent Events (SSE) can be used for direct status updates. For Canvas and Shapes devices touch events are supported.
+Since Light Panels firmware version > 3.1.0 and Canvas firmware version > 1.1.0 Server Sent Events (SSE) can be used for direct status updates. For Canvas, Shapes and Element devices touch events are supported.
 
-_Please note:_ to detect if nanoleaf device is still alive, SSDP notify messages were sent from nanoleaf device every 60 seconds. Please ensure you can receive UDP multicast messages on port 1900 (check firewall and routing). Otherwise you will get error messages in the adapter that connection was lost. If you have problems with keep alive, please set the correct adapter interface in admin settings for the nanoleaf adapter.
+_Please note:_ to detect if a nanoleaf device is still alive, SSDP notify messages were sent from nanoleaf device every 60 seconds. Please ensure that you can receive UDP multicast messages on port 1900 (check firewall and routing). Otherwise you will get error messages in the adapter that connection was lost. If you have problems with keep alive, please set the correct adapter interface in admin settings for the nanoleaf adapter.
 For searching devices please ensure you can receive traffic on UDP port 5000.
-I noticed that some nanoleaf devices suddenly stop sending the SSDP notify messages so connection will not be detected anymore. This is an issue with the nanoleaf device itself. People how have this problem can enable the usage of the keep alive polling mechanism instead of SSDP notify messages in the additional adapter settings.
+I noticed that some nanoleaf devices suddenly stop sending the SSDP notify messages so connection will not be detected anymore. This is an issue with the nanoleaf device itself. People having this problem, can enable the usage of the keep alive polling mechanism instead of SSDP notify messages in the additional adapter settings.
 
-The setting for the status update polling interval only affects devices with lower firmware versions where polling is used for status updates or if the SSE function is disabled in the additional adapter settings.
+The setting for the status update polling interval only affects devices with lower firmware versions, where polling is used for status updates or if the SSE function is disabled in the additional adapter settings.
 
 ## Alexa
-You can control the nanoleaf Light Panels/Canvas with Alexa via ioBroker (Cloud-Adapter).
+You can control the nanoleaf devices with Alexa via ioBroker (Cloud-Adapter).
 Power on/off, brightness, color and color temperature is supported.
 You have to set up the data points
 * state (for power on/off)
@@ -43,7 +49,7 @@ You have to set up the data points
 in Cloud adapter under the same smartname.
 
 ## ioBroker Visualization
-The nanoleaf Light Panels/Canvas can be controlled in ioBroker Visualization by using basic widgets as "Radiobuttons on/off" or sliders for controlling the power sate, the brightness, hue, saturation and color temperature states.
+The nanoleaf devices can be controlled in ioBroker Visualization by using basic widgets as "Radiobuttons on/off" or sliders for controlling the power sate, the brightness, hue, saturation and color temperature states.
 
 For effects you can use the "Select ValueList" widget to use it as a drop down list and then map the effectsList state to the value and text property of the widget (type: "{nanoleaf-lightpanels.0.LightPanels.effectsList}" -> the curly braces are important!)
 
@@ -52,6 +58,23 @@ To control and visualize the color you have to install the color picker style Wi
 You can use the nanoleaf vis demo project found in the /vis subfolder on github.
 
 ## Changelog
+
+### 1.3.1 (2021-12-05)
+* (daniel_2k) changed: write acknowledge to states directly after receiving success state from API
+* (daniel_2k) changed: ip address workaround also for device search to detect nanoleaf devices with missing host info through firmware bug
+* (daniel_2k) changed: optimized device detection and device keep alive detection
+
+### 1.3.0 (2021-11-28)
+* (daniel_2k) new: nanoleaf Lines supported
+* (daniel_2k) new: nanoleaf Elements supported
+* (daniel_2k) new: added state for writing custom effects and reading effects
+* (daniel_2k) changed: due to firmware errors in canvas and shapes, IP address from packet header is used instead of location (because it's empty) for SSDP MSEARCH and NOTIFY
+* (daniel_2k) fixed: devices were not deleted completely on device identification change
+
+### 1.2.1 (2021-06-20)
+* (daniel_2k) fixed: get a new authorization token is not possible when the current token is already invalid
+* (daniel_2k) fixed: device search in admin settings fixed
+* (daniel_2k) changed: obtaining an authorization token is also possible when field is already filled
 
 ### 1.2.0 (2021-01-03)
 * (daniel_2k) new: possibility to use polling for keep alive detection instead of SSDP notify messages (for nanoleaf devices which stop sending SSDP notify packages)
@@ -162,4 +185,4 @@ You can use the nanoleaf vis demo project found in the /vis subfolder on github.
 
 ## License
 The MIT License (MIT)
-Copyright (c) 2020 daniel_2k <daniel_2k@outlook.com>
+Copyright (c) 2021 daniel_2k <daniel_2k@outlook.com>

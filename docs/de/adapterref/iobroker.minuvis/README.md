@@ -3,50 +3,54 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.minuvis/README.md
 title: ioBroker.minuvis
-hash: tNrxYMcgsm7/fTwesDag94NQmL/cOWyFdQoRgiIDbB0=
+hash: 33enf9MUrEMU2aI4sKX5yIWdb+eiXfNlk3ys9TkkgCE=
 ---
 ![Logo](../../../en/adapterref/iobroker.minuvis/admin/minuvis.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.minuvis.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.minuvis.svg)
-![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/minuvis-installed.svg)
+![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/minuvis-installed.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/minukodu/iobroker.minuvis.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/minukodu/ioBroker.minuvis/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/minukodu/ioBroker.minuvis/badge.svg)
 ![Build-Status](https://travis-ci.org/minukodu/ioBroker.minuvis.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.minuvis.png?downloads=true)
 
 # IoBroker.minuvis
-## Minuvis Adapter für ioBroker
+##minuvis-Adapter für ioBroker
 Visualisierung für alle Geräte
 
 ########################################################################
-# WICHTIG !!!
-Wenn Sie ein Upgrade von Version <1.3.0 durchführen, beachten Sie bitte:
-
-* Der Speicherort der Konfigurationsdateien hat sich geändert
-* Sie können Ihre Konfigurationsdatei nicht am alten Ort speichern
-* Konfigurationsdatei mit dem roten Dropdown-Button lesen
-* Die Datei erhält das Präfix "OF_".
-* Speichern Sie jetzt die Konfigurationsdatei
-* Präfix verschwindet und die Konfigurationsdatei wird an einem neuen Ort gespeichert
+Version 2 ist jetzt raus
 
 ########################################################################
-## Anleitung
+# WICHTIG !!!!
+Wenn Sie ein Upgrade von Version < 1.3.0 durchführen, beachten Sie bitte:
+
+* Aktualisieren Sie zuerst auf Version v1.4 und speichern Sie die Konfigurationsdateien an einem neuen Ort erneut
+
+########################################################################
+* **BREAKING CHANGES** in Version 2 siehe: https://minukodu.de/de/news/minuvis-20-iobroker-verfügbar
+* Anleitung zum Update v1 -> v2 siehe: https://minukodu.de/de/news/update-minuvis-v1-v2
+
+* Wenn Sie Version 1 behalten möchten, verwenden Sie dieses Docker-Image: https://hub.docker.com/r/sepp68/minuvis-image
+
+########################################################################
+## Anweisungen
 - Adapter wie gewohnt installieren
-- Instanz von Minuvis erstellen (nur 1 möglich)
-- aktiviere socket.io-Instance bei web-Instance
+- Instanz von minuvis erstellen (nur 1 möglich)
+- Socket.io-Instanz bei Web-Instanz aktivieren
 
 ![socket.io@web](https://minukodu.de/githubimg/web_instance_socket_io.jpg)
 
 - Minuvis-Instanz öffnen
 
-![Minuvis-Instanz](https://minukodu.de/githubimg/minuvis_instance.jpg)
+![minuvis-Instanz](https://minukodu.de/githubimg/minuvis_instance.jpg)
 
-- Stellen Sie eine Verbindung zum socket.io-Port des Webs oder Ihrer eigenen socket.io-Instanz her
+- Verbinden Sie sich mit dem socket.io-Port des Webs oder Ihrer eigenen socket.io-Instanz
 
 ![verbinden](https://minukodu.de/githubimg/minuvis_connect.jpg)
 
-- Neue Seite hinzufügen
+- neue Seite hinzufügen
 
 ![Seite hinzufügen](https://minukodu.de/githubimg/minuvis_addpage.jpg)
 
@@ -58,13 +62,37 @@ Wenn Sie ein Upgrade von Version <1.3.0 durchführen, beachten Sie bitte:
 
 ![Staat wählen](https://minukodu.de/githubimg/minuvis_selectstate.jpg)
 
-- Vorschau Ihrer neuen App
+- Voransicht Ihrer neuen App
 
 ![Vorschau](https://minukodu.de/githubimg/minuvis_preview.jpg)
 
-Weitere Informationen finden Sie unter https://minukodu.de/de oder auf youtube unter https://youtu.be/dtHUBOEc4js
+Weitere Informationen finden Sie unter https://minukodu.de/de oder auf youtube https://youtu.be/dtHUBOEc4js
 
 ## Changelog
+
+### 2.1.0 (2021-07-31)
+* updated app and builder to V2.1.0
+
+### 2.0.0-rc.2 (2021-05-16)
+* updated app and builder to V2.0.0-rc.2
+
+### 2.0.0-rc.1 (2021-05-02)
+* updated app and builder to V2.0.0-rc.1
+
+### 2.0.0-beta.1 (2021-04-11)
+* updated app and builder to V2.0.0-beta.1
+
+### 2.0.0-alpha.2 (2021-04-05)
+* updated app to V2.0.0-alpha.2
+
+### 2.0.0-alpha (2021-03-08)
+* updated app to V2.0.0-alpha
+
+=======
+### 1.4.0 (2021-03-07)
+* updated app to V1.13.0
+### 1.3.1 (2021-01-24)
+* updated app to V1.12.1
 ### 1.3.0 (2021-01-24)
 * updated builder and app to V1.12.0
 * new meta-datapoint "0_userdata.0" for storing config-files
@@ -104,7 +132,7 @@ Weitere Informationen finden Sie unter https://minukodu.de/de oder auf youtube u
 ## License
 MIT License
 
-Copyright (c) 2020 svallant <svallant@gmx.eu>
+Copyright (c) 2021 svallant <svallant@gmx.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

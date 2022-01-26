@@ -7,6 +7,8 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.iqontrol.svg)](https://www.npmjs.com/package/iobroker.iqontrol)
 [![Dependency Status](https://img.shields.io/david/sbormann/iobroker.iqontrol.svg)](https://david-dm.org/sbormann/iobroker.iqontrol)
 [![Known Vulnerabilities](https://snyk.io/test/github/sbormann/ioBroker.iqontrol/badge.svg)](https://snyk.io/test/github/sbormann/ioBroker.iqontrol)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/iqontrol/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 
 [![NPM](https://nodei.co/npm/iobroker.iqontrol.png?downloads=true)](https://nodei.co/npm/iobroker.iqontrol/)
 
@@ -30,22 +32,14 @@
 
 Fast Web-App for Visualization. 
 
-![Screenshot](img/screenshot_kueche.png)
-
-\
-![Screenshot](img/screenshot_licht.png)
-
-\
-![Screenshot](img/screenshot_heizung.png)
-
-\
-![Screenshot](img/screenshot_rauchmelder.png)
-
-\
-![Screenshot](img/screenshot_flot.png)
-
-\
-![Screenshot](img/screenshot_dslraser.jpg "&copy; by dslraser")
+<img src="img/screenshot_kueche.png" width="200">
+<img src="img/screenshot_licht.png" width="200">
+<img src="img/screenshot_heizung.png" width="200">
+<img src="img/screenshot_rauchmelder.png" width="200">
+<img src="img/screenshot_flot.png" width="200">
+<img src="img/screenshot_dslraser.jpg" width="200" alt="&copy; by dslraser"> &copy; by dslraser
+<img src="img/screenshot_muuulle.jpg" width="200" alt="&copy; by muuulle"> &copy; by muuulle
+<img src="img/screenshot_peks-67.jpg" width="200" alt="&copy; by peks-67"> &copy; by peks-64
 
 Runs in any Browser. 
 Easy to setup, allthough it's fully customizable and responsive.
@@ -124,6 +118,19 @@ Most things work right out of the box. You *can*, but you don't have to use all 
     * Note upper and lower case
 
 
+## Fonts
+* You can upload your own font files in the Images/Widgets-Tab into the folder /userfonts
+* In the Options-Tab you have several places where these fonts can be chosen
+* It depends on your servers MIME-Settings, if the font is presented correctly to the browser - for me best worked .ttf and .woff (tested on a raspi 4b)
+    * These mime-settings should work:
+	    * .otf: application/x-font-opentype
+		* .ttf: application/x-font-ttf or application/x-font-truetype
+		* .woff: application/font-woff
+		* .woff2: application/font-woff2
+		* .eot: application/vnd.ms-fontobject
+	* You can convert fonts to other formats on fontsquirrel.com under generator
+* Keep in mind - webfonts are always a little tricky and not every font with every server and every browser will work
+
 ## Icons and Background-Images
 * You can use the inbuilt images or the images uploaded under the images tab or any free url you like
 * You can also use a variable inside the image-url. This may be useful for example for weather-forecasts. Use this pattern:
@@ -192,7 +199,10 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 
 ![Popup Screenshot](img/widget_screenshot.png)
 
-### postMessage-Communication (for experts only)
+<details>
+<summary>Widget development (for experts only): (<ins>klick to open</ins>)</summary>
+
+### postMessage-Communication
 * Technically the content of BACKGROUND_VIEW/URL/HTML is placed inside a HTML-Element called iframe, which is a website inside a website
 * By enabling the option "Allow postMessage-Communication for BACKGROUND_VIEW/URL/HTML" you can enable postMessage-Communication between the website inside this iframe and iQontrol itself
 * To send commands to iQontrol you can use the following javascript-command: ``window.parent.postMessage(message, "*");`` 
@@ -216,6 +226,8 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 			* This will cause iQontrol to send the value of the ioBroker state ``<stateId>`` (see below how to receive the answer-message)
         * ``{ command: "getStateSubscribed", stateId: <stateId> }``
 			* This will cause iQontrol to send the value of the ioBroker state ``<stateId>`` now and every time its value changes (see below how to receive the answer-messages)
+        * ``{ command: "getOptions"}``
+			* This will cause iQontrol to send the user options the user has configured as object
         * ``{ command: "renderView", value: <viewID> }``
 			* This will instruct iQontrol to render a view, where ``<viewID>`` needs to be formatted like ``iqontrol.<instance-number>.Views.<view-name>`` (case-sensitive)
         * ``{ command: "openDialog", value: <deviceID> }``
@@ -229,7 +241,7 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 			event.data.value = {
 				val: <value (rounded)>,
 				unit: "<unit>",
-				valFull: <value (not rounded)>,
+				valFull: <value (not rounded, no javascript-injection prevention)>,
 				plainText: "<clear text of val, for example taken from valuelist>",
 				min: <minimum>,
 				max: <maximum>,
@@ -245,12 +257,19 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 				ts: <timestamp of last actualization>,
 				q: <quality of signal>,
 				role: "<role of state>",
-				type: "<string|number|boolean>"
+				type: "<string|number|boolean>",
+				name: "<name of datapoint>",
+				desc: "<description of datapoint>",
+				Date: <Date-object (only present, if value is regognized as a valid time or period)>
 			}
 			````
 * To instruct iQontrol to generate a widgetState under ``iqontrol.<instance>.Widgets`` you can use a meta-tag inside the head-section of the widget-website:
     * Syntax: ``<meta name="widget-datapoint" content="WidgetName.StateName" data-type="string" data-role="text" />``
 	* You can further configure the datapoint by using data-type (which can be set to string, number or boolean), data-role, data-name, data-min, data-max, data-def and data-unit attributes
+	* You can also use a url-parameter (see below) as a variable, for example to create distinct instances of the widgets with own datapoints.
+	    * The Syntax is then: ``<meta name="widget-datapoint" content="WidgetName.StateName|WidgetName.{instance}.StateName" data-type="string" data-role="text" />``
+		* If the variable ``instance`` is set, then the part after the ``|`` will be used as widgetState-Name and ``{instance}`` will be replaced by the value of ``instance``
+		* If the variable ``instance`` is not set, then the part before the ``|`` will be used as wigetState-Name
     * The corresponding datapoint is only then created, if the widget-website is added to a device as URL or BACKGROUND_URL	
 * The same concept may be used for the URL/HTML-State, which is used to display a website inside the dialog of a device
 * To create an icon for your widget place a .png file with the same filename as the widget into the widgets directory
@@ -407,9 +426,11 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* 'widget-urlparameters'
 		* syntax: ``<meta name="widget-urlparameters" content="parameter/default value/description/type;parameter2/default value2/description2/type2"/>``
 		* The user will be asked for these parameters when chosing the widget as URL or BACKGROUND_URL or autocreates a widget
-		* ``type`` is optional and may be ``text`` (this is dafault), ``number``, ``checkbox``, ``color``, ``select``, ``multipleSelect``, ``historyInstance``, ``datapoint`` or ``icon``
-		    * If type is ``select`` or ``multipleSelect`` then you need to specify the possible options by adding ``/<selectOptions>``, where ``<selectOptions>`` is a string of the format ``<value1>,<caption1>/<value2>,<caption2>/...``
+		* ``type`` is optional and may be ``text`` (this is dafault), ``number``, ``checkbox``, ``color``, ``select``, ``multipleSelect``, ``combobox``, ``historyInstance``, ``datapoint``, ``listJsonDatapoint``, ``icon``, ``fontFamily``, ``fontSize``, ``fontStyle``, ``fontWeight``, ``section``, ``divider``, ``info``, ``link`` or ``hidden``
+		    * If type is ``select``, ``multipleSelect`` or ``combobox`` then you need to specify the possible options by adding ``/<selectOptions>``, where ``<selectOptions>`` is a string of the format ``<value1>,<caption1>/<value2>,<caption2>/...`` (combobox is a selectbox with the possibility to enter free text)
 		    * If type is ``number`` then can specify min, max and step-width by adding ``/<numberOptions>``, where ``<numberOptions>`` is a string of the format ``<min>,<max>,<step>``
+			* The types ``section``, ``divider``, ``info`` and ``link`` have no further function, they are just to display informations to the user. For ``link`` the value should be a url, but all slashes have to be replaced by backslashes.
+		    * Type ``hidden`` will be passed to the widget, but no configuration dialog is shown
 		* All these parameters will be given to the widget-website via an url-parameter-string (like ``widget.html?parameter=value&parameter2=value2``)
 		* You can use these settings inside your widget-website by requesting the url-parameters with a function like this:
 			````javascript
@@ -430,6 +451,12 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* syntax: ``<meta name="widget-options" content="{'noZoomOnHover': 'true', 'hideDeviceName': 'true'}"/>``
 		* See the expandable section below for the possible options that can be configured by this meta-tag
 
+	* 'widget-replaceurl'
+		* syntax: ``<meta name="widget-replaceurl" content="<url>" data-absolute="<true|false>"/>``
+		* This reconfigures the used URL/BACKGROUND_URL for this widget (this way you could define widget-presets, that are used to give special or simplified configurations to the user. But when calling the widget, iQontrol uses the given ``<url>`` instead of the original url.
+		* By default only the filename (with extention) is replaced. When setting ``data-absolute="true"`` then the whole url is replaced.
+
+
 <details>
 <summary>Show possible options that can be configured by the meta-tag 'widget-options': (<ins>klick to open</ins>)</summary>
 
@@ -440,6 +467,9 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* Default: ""
 * Device Specific Options:
 	* ``showState`` (Show State) - only valid for role Button and Program:
+		* Possible values: "true"|"false"
+		* Default: "false" 
+	* ``showPowerAsState: `` (Show POWER as state) - only valid for role Switch, Light and Fan:
 		* Possible values: "true"|"false"
 		* Default: "false" 
 	* ``buttonCaption`` (Caption for button) - only valid for role Button:
@@ -459,6 +489,9 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* ``alternativeColorspace`` (Colorspace for ALTERNATIVE_COLORSPACE_VALUE") - only valid for role Light:
 		* Possible values: ""|"RGB"|"#RGB"|"RGBW"|"#RGBW"|"RGBWWCW"|"#RGBWWCW"|"RGBCWWW"|"#RGBCWWW"|"RGB_HUEONLY"|"#RGB_HUEONLY"|"HUE_MILIGHT"|"HHSSBB_TUYA"
 		* Default: "" 
+	* ``linkOverlayActiveColorToHue`` (Use color of lamp as OVERLAY_ACTIVE_COLOR) - only valid for role Light:
+		* Possible values: "true"|"false"
+		* Default: "false" 
 	* ``linkGlowActiveColorToHue`` (Use color of lamp as GLOW_ACTIVE_COLOR) - only valid for role Light:
 		* Possible values: "true"|"false"
 		* Default: "false" 
@@ -487,9 +520,32 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* Default: "Down" 
 	* ``controlModeDisarmedValue`` (Value of CONTROL_MODE for 'disarmed') - only valid for role Alarm:
 		* Default: "0" 
+	* ``showStateAndLevelSeparatelyInTile`` (Show STATE and LEVEL separately in tile) - only valid for role Value:
+		* Possible values: ""|"devidedByComma"|"devidedByComma preceedCaptions"|"devidedBySemicolon"|"devidedBySemicolon preceedCaptions"|"devidedByHyphen"|"devidedByHyphen preceedCaptions"
+		* Default: "" 
+	* ``timeCaption`` (Caption for TIME) - only valid for role DateAndTime:
+		* Default: "" 
+	* ``timeFormat`` (Format of TIME (as stored in the datapoint, see readme)) - only valid for role DateAndTime:
+		* Default: "x" 
+	* ``timeDisplayFormat`` (Display-Format of TIME (how it should be displayed, see readme)) - only valid for role DateAndTime:
+		* Default: "dddd, DD.MM.YYYY HH:mm:ss" 
+	* ``timeDisplayDontShowDistance`` (Show Distance) - only valid for role DateAndTime:
+		* Possible values: ""|"false"|"true"
+		* Default: "" (this means, use custom datapoint settings)
+	* ``dateAndTimeTileActiveConditions`` (Tile is active when all selected items are true) - only valid for role DateAndTime:
+		* Possible values (array): "activeIfStateActive", "activeIfTimeNotZero", "activeIfTimeInFuture", "activeIfTimeInPast"
+		* Default: "activeIfStateActive,activeIfTimeInFuture" 
+	* ``dateAndTimeTileActiveWhenRinging`` (Tile is always active when RINGING is active) - only valid for role DateAndTime:
+		* Default: true 
+	* ``dateAndTimeShowInState`` (Show in state) - only valid for role DateAndTime:
+		* Possible values (array): "showStateIfInactive", "showStateIfActive", "showSubjectIfActive", "showSubjectIfInactive", "showTimeIfInactiveAndInPast", "showTimeIfInactiveAndInFuture", "showTimeIfActiveAndInPast", "showTimeIfActiveAndInFuture", "showTimeDistanceIfInactiveAndInPast", "showTimeDistanceIfInactiveAndInFuture", "showTimeDistanceIfActiveAndInPast", "showTimeDistanceIfActiveAndInFuture"
+		* Default: "showStateIfInactive,showSubjectIfActive,showTimeDistanceIfActiveAndInFuture" 
 	* ``coverImageReloadDelay`` (Delay reload of cover-image [ms]) - only valid for role Media:
 		* Possible values: number from 0 to 5000
 		* Default: "" 
+	* ``coverImageNoReloadOnTitleChange: `` (No forced reload of cover-image on change of TITLE) - only valid for role Media:
+		* Possible values: "true"|"false"
+		* Default: "false" 
 	* ``statePlayValue`` (Value of STATE for 'play') - only valid for role Media:
 		* Default: "play" 
 	* ``statePauseValue`` (Value of STATE for 'pause') - only valid for role Media:
@@ -525,6 +581,10 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* Possible values: "true"|"false"
 		* Default: "false" 
 * General:
+	* ``stateCaption`` (Caption of STATE):
+		* Default: "" 
+	* ``levelCaption`` (Caption of LEVEL):
+		* Default: "" 
 	* ``readonly`` (Readonly):
 		* Possible values: "true"|"false"
 		* Default: "false" 
@@ -535,13 +595,22 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* Possible values: "true"|"false"
 		* Default: "false" 
 * Tile-Behaviour (general):
+	* ``clickOnIconAction`` (Click on Icon Action):
+		* Possible values: "toggle"|"openDialog"|"enlarge"|"openLinkToOtherView"|"openURLExternal"|"false"
+		* Default: "toggle" 
+	* ``clickOnTileAction`` (Click on Tile Action):
+		* Possible values: "toggle"|"openDialog"|"enlarge"|"openLinkToOtherView"|"openURLExternal"|"false"
+		* Default: "openDialog" 
 	* ``clickOnIconOpensDialog`` (Click on icon opens dialog (instead of toggling)):
+		* *deprecated* since this option is now included in clickOnIconAction
 		* Possible values: "true"|"false"
-		* Default: "false" 
+		* Default: "false" 		
 	* ``clickOnTileToggles`` (Click on tile toggles (instead of opening dialog))):
+		* *deprecated* since this option is now included in clickOnTileAction
 		* Possible values: "true"|"false"
 		* Default: "false" 
 	* ``clickOnTileOpensDialog`` (Click on tile opens dialog):
+		* *deprecated* since this option is now included in clickOnTileAction
 		* Possible values: "true"|"false"
 		* Default: "true" (for most devices)
 	* ``noZoomOnHover`` (Disable zoom-effect on hover):
@@ -598,6 +667,9 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* ``hideInfoBIfInactive`` (Hide INFO_B, if the device is inactive):
 		* Possible values: "true"|"false"
 		* Default: "false"
+	* ``hideIndicatorIfInactive`` (Hide Indicator Icons (ERROR, UNREACH, BATTERY), if the device is inactive):
+		* Possible values: "true"|"false"
+		* Default: "false"
 	* ``hideStateIfInactive`` (Hide state, if the device is inactive):
 		* Possible values: "true"|"false"
 		* Default: "false"
@@ -638,6 +710,9 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* Possible values: "true"|"false"
 		* Default: "false"
 	* ``hideInfoBIfActive`` (Hide INFO_B, if the device is active):
+		* Possible values: "true"|"false"
+		* Default: "false"
+	* ``hideIndicatorIfActive`` (Hide Indicator Icons (ERROR, UNREACH, BATTERY), if the device is active):
 		* Possible values: "true"|"false"
 		* Default: "false"
 	* ``hideStateIfActive`` (Hide state, if the device is active):
@@ -697,6 +772,9 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* ``hideInfoBIfEnlarged`` (Hide INFO_B, if the device is enlarged):
 		* Possible values: "true"|"false"
 		* Default: "false"
+	* ``hideIndicatorIfEnlarged`` (Hide Indicator Icons (ERROR, UNREACH, BATTERY), if the device is enlarged):
+		* Possible values: "true"|"false"
+		* Default: "false"
 	* ``hideStateIfEnlarged`` (Hide state, if the device is enlarged):
 		* Possible values: "true"|"false"
 		* Default: "false"
@@ -720,11 +798,17 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* ``invertUnreach`` (Invert UNREACH (use connected instead of unreach)):
 		* Possible values: "true"|"false"
 		* Default: "false" 
+	* ``invertUnreach`` (Hide (resp. ignore) UNREACH, if the device is inactive):
+		* Possible values: "true"|"false"
+		* Default: "false" 
 * ERROR Icon:
 	* ``invertError`` (Invert ERROR (use ok instead of error)):
 		* Possible values: "true"|"false"
 		* Default: "false" 
 * BACKGROUND_VIEW/URL/HTML:
+	* ``adjustHeightToBackgroundView: `` (Adjust height of device tile to the size of BACKGROUND_VIEW):
+		* Possible values: "true"|"false"
+		* Default: "false"
 	* ``backgroundURLDynamicIframeZoom`` (Dynamic zoom for BACKGROUND_VIEW/URL/HTML (this is the zoom-level in % that would be needed, to let the content fit into a single 1x1 tile)):
 		* Possible values: number from 0.01 to 200
 		* Default: ""
@@ -874,7 +958,7 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 
 * You can upload the following HTML code as html-file into the /userwidgets subdirectory and reference it to BACKGROUND_URL-State (which then needs to be configured as "Constant")
 * When adding the widget a description is displayed
-* A url-parameter for your title is asked
+* A url-parameter for your title and for your instance is asked
 * Then you are asked, if you would like to apply the contained options
 * A bunch of datapoints are created to control the position of the map and to set favorite positions
 ````html
@@ -882,63 +966,64 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 <html style="width: 100%; height: 100%; margin: 0px;">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<meta name="widget-description" content="This is a map widget, please provide coordinates at iqontrol.x.Widgets.Map. (C) by Sebastian Bormann"/> 
-	<meta name="widget-urlparameters" content="title/My Map/Please enter a title for your map">
+	<meta name="widget-description" content="This is a map widget, please provide coordinates at iqontrol.x.Widgets.Map[.instance]. (C) by Sebastian Bormann"/> 
+	<meta name="widget-urlparameters" content="instance//Instance (create mulitple instances to get multiple distinct datapoints to configure your map)/number/0,100,1;title/My Map/Title for your map">
 	<meta name="widget-options" content="{'noZoomOnHover': 'true', 'hideDeviceName': 'true', 'sizeInactive': 'xwideIfInactive highIfInactive', 'iconNoPointerEventsInactive': 'true', 'hideDeviceNameIfInactive': 'true', 'hideStateIfInactive': 'true', 'sizeActive': 'fullWidthIfActive fullHeightIfActive', 'bigIconActive': 'true', 'iconNoPointerEventsActive': 'true', 'hideDeviceNameIfActive': 'true', 'hideStateIfActive': 'true', 'sizeEnlarged': 'fullWidthIfEnlarged fullHeightIfEnlarged', 'bigIconEnlarged': 'true', 'iconNoPointerEventsEnlarged': 'false', 'noOverlayEnlarged': 'true', 'hideDeviceNameIfEnlarged': 'true', 'hideStateIfEnlarged': 'true', 'popupAllowPostMessage': 'true', 'backgroundURLAllowPostMessage': 'true', 'backgroundURLNoPointerEvents': 'false'}"/>
 
-	<meta name="widget-datapoint" content="Map.Position.latitude" data-type="number" data-role="value.gps.latitude" />
-	<meta name="widget-datapoint" content="Map.Position.longitude" data-type="number" data-role="value.gps.longitude" />
-	<meta name="widget-datapoint" content="Map.Position.zoom" data-type="number" data-role="value.zoom" />
+	<meta name="widget-datapoint" content="Map.Position.latitude|Map.{instance}.Position.latitude" data-type="number" data-role="value.gps.latitude" />
+	<meta name="widget-datapoint" content="Map.Position.longitude|Map.{instance}.Position.longitude" data-type="number" data-role="value.gps.longitude" />
+	<meta name="widget-datapoint" content="Map.Position.zoom|Map.{instance}.Position.zoom" data-type="number" data-role="value.zoom" />
 
-	<meta name="widget-datapoint" content="Map.Favorites.0.Position.latitude" data-type="number" data-role="value.gps.latitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.0.Position.longitude" data-type="number" data-role="value.gps.longitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.0.name" data-type="string" data-role="text" />
-	<meta name="widget-datapoint" content="Map.Favorites.0.icon-url" data-type="string" data-role="url" />
+	<meta name="widget-datapoint" content="Map.Favorites.0.Position.latitude|Map.{instance}.Favorites.0.Position.latitude" data-type="number" data-role="value.gps.latitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.0.Position.longitude|Map.{instance}.Favorites.0.Position.longitude" data-type="number" data-role="value.gps.longitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.0.name|Map.{instance}.Favorites.0.name" data-type="string" data-role="text" />
+	<meta name="widget-datapoint" content="Map.Favorites.0.icon-url|Map.{instance}.Favorites.0.icon-url" data-type="string" data-role="url" />
 
-	<meta name="widget-datapoint" content="Map.Favorites.1.Position.latitude" data-type="number" data-role="value.gps.latitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.1.Position.longitude" data-type="number" data-role="value.gps.longitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.1.name" data-type="string" data-role="text" />
-	<meta name="widget-datapoint" content="Map.Favorites.1.icon-url" data-type="string" data-role="url" />
+	<meta name="widget-datapoint" content="Map.Favorites.1.Position.latitude|Map.{instance}.Favorites.1.Position.latitude" data-type="number" data-role="value.gps.latitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.1.Position.longitude|Map.{instance}.Favorites.1.Position.longitude" data-type="number" data-role="value.gps.longitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.1.name|Map.{instance}.Favorites.1.name" data-type="string" data-role="text" />
+	<meta name="widget-datapoint" content="Map.Favorites.1.icon-url|Map.{instance}.Favorites.1.icon-url" data-type="string" data-role="url" />
 
-	<meta name="widget-datapoint" content="Map.Favorites.2.Position.latitude" data-type="number" data-role="value.gps.latitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.2.Position.longitude" data-type="number" data-role="value.gps.longitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.2.name" data-type="string" data-role="text" />
-	<meta name="widget-datapoint" content="Map.Favorites.2.icon-url" data-type="string" data-role="url" />
+	<meta name="widget-datapoint" content="Map.Favorites.2.Position.latitude|Map.{instance}.Favorites.2.Position.latitude" data-type="number" data-role="value.gps.latitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.2.Position.longitude|Map.{instance}.Favorites.2.Position.longitude" data-type="number" data-role="value.gps.longitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.2.name|Map.{instance}.Favorites.2.name" data-type="string" data-role="text" />
+	<meta name="widget-datapoint" content="Map.Favorites.2.icon-url|Map.{instance}.Favorites.2.icon-url" data-type="string" data-role="url" />
 
-	<meta name="widget-datapoint" content="Map.Favorites.3.Position.latitude" data-type="number" data-role="value.gps.latitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.3.Position.longitude" data-type="number" data-role="value.gps.longitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.3.name" data-type="string" data-role="text" />
-	<meta name="widget-datapoint" content="Map.Favorites.3.icon-url" data-type="string" data-role="url" />
+	<meta name="widget-datapoint" content="Map.Favorites.3.Position.latitude|Map.{instance}.Favorites.3.Position.latitude" data-type="number" data-role="value.gps.latitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.3.Position.longitude|Map.{instance}.Favorites.3.Position.longitude" data-type="number" data-role="value.gps.longitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.3.name|Map.{instance}.Favorites.3.name" data-type="string" data-role="text" />
+	<meta name="widget-datapoint" content="Map.Favorites.3.icon-url|Map.{instance}.Favorites.3.icon-url" data-type="string" data-role="url" />
 
-	<meta name="widget-datapoint" content="Map.Favorites.4.Position.latitude" data-type="number" data-role="value.gps.latitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.4.Position.longitude" data-type="number" data-role="value.gps.longitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.4.name" data-type="string" data-role="text" />
-	<meta name="widget-datapoint" content="Map.Favorites.4.icon-url" data-type="string" data-role="url" />
+	<meta name="widget-datapoint" content="Map.Favorites.4.Position.latitude|Map.{instance}.Favorites.4.Position.latitude" data-type="number" data-role="value.gps.latitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.4.Position.longitude|Map.{instance}.Favorites.4.Position.longitude" data-type="number" data-role="value.gps.longitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.4.name|Map.{instance}.Favorites.4.name" data-type="string" data-role="text" />
+	<meta name="widget-datapoint" content="Map.Favorites.4.icon-url|Map.{instance}.Favorites.4.icon-url" data-type="string" data-role="url" />
 
-	<meta name="widget-datapoint" content="Map.Favorites.5.Position.latitude" data-type="number" data-role="value.gps.latitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.5.Position.longitude" data-type="number" data-role="value.gps.longitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.5.name" data-type="string" data-role="text" />
-	<meta name="widget-datapoint" content="Map.Favorites.5.icon-url" data-type="string" data-role="url" />
+	<meta name="widget-datapoint" content="Map.Favorites.5.Position.latitude|Map.{instance}.Favorites.5.Position.latitude" data-type="number" data-role="value.gps.latitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.5.Position.longitude|Map.{instance}.Favorites.5.Position.longitude" data-type="number" data-role="value.gps.longitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.5.name|Map.{instance}.Favorites.5.name" data-type="string" data-role="text" />
+	<meta name="widget-datapoint" content="Map.Favorites.5.icon-url|Map.{instance}.Favorites.5.icon-url" data-type="string" data-role="url" />
 
-	<meta name="widget-datapoint" content="Map.Favorites.6.Position.latitude" data-type="number" data-role="value.gps.latitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.6.Position.longitude" data-type="number" data-role="value.gps.longitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.6.name" data-type="string" data-role="text" />
-	<meta name="widget-datapoint" content="Map.Favorites.6.icon-url" data-type="string" data-role="url" />
+	<meta name="widget-datapoint" content="Map.Favorites.6.Position.latitude|Map.{instance}.Favorites.6.Position.latitude" data-type="number" data-role="value.gps.latitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.6.Position.longitude|Map.{instance}.Favorites.6.Position.longitude" data-type="number" data-role="value.gps.longitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.6.name|Map.{instance}.Favorites.6.name" data-type="string" data-role="text" />
+	<meta name="widget-datapoint" content="Map.Favorites.6.icon-url|Map.{instance}.Favorites.6.icon-url" data-type="string" data-role="url" />
 
-	<meta name="widget-datapoint" content="Map.Favorites.7.Position.latitude" data-type="number" data-role="value.gps.latitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.7.Position.longitude" data-type="number" data-role="value.gps.longitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.7.name" data-type="string" data-role="text" />
-	<meta name="widget-datapoint" content="Map.Favorites.7.icon-url" data-type="string" data-role="url" />
+	<meta name="widget-datapoint" content="Map.Favorites.7.Position.latitude|Map.{instance}.Favorites.7.Position.latitude" data-type="number" data-role="value.gps.latitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.7.Position.longitude|Map.{instance}.Favorites.7.Position.longitude" data-type="number" data-role="value.gps.longitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.7.name|Map.{instance}.Favorites.7.name" data-type="string" data-role="text" />
+	<meta name="widget-datapoint" content="Map.Favorites.7.icon-url|Map.{instance}.Favorites.7.icon-url" data-type="string" data-role="url" />
 
-	<meta name="widget-datapoint" content="Map.Favorites.8.Position.latitude" data-type="number" data-role="value.gps.latitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.8.Position.longitude" data-type="number" data-role="value.gps.longitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.8.name" data-type="string" data-role="text" />
-	<meta name="widget-datapoint" content="Map.Favorites.8.icon-url" data-type="string" data-role="url" />
+	<meta name="widget-datapoint" content="Map.Favorites.8.Position.latitude|Map.{instance}.Favorites.8.Position.latitude" data-type="number" data-role="value.gps.latitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.8.Position.longitude|Map.{instance}.Favorites.8.Position.longitude" data-type="number" data-role="value.gps.longitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.8.name|Map.{instance}.Favorites.8.name" data-type="string" data-role="text" />
+	<meta name="widget-datapoint" content="Map.Favorites.8.icon-url|Map.{instance}.Favorites.8.icon-url" data-type="string" data-role="url" />
 
-	<meta name="widget-datapoint" content="Map.Favorites.9.Position.latitude" data-type="number" data-role="value.gps.latitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.9.Position.longitude" data-type="number" data-role="value.gps.longitude" />
-	<meta name="widget-datapoint" content="Map.Favorites.9.name" data-type="string" data-role="text" />
-	<meta name="widget-datapoint" content="Map.Favorites.9.icon-url" data-type="string" data-role="url" />
+	<meta name="widget-datapoint" content="Map.Favorites.9.Position.latitude|Map.{instance}.Favorites.9.Position.latitude" data-type="number" data-role="value.gps.latitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.9.Position.longitude|Map.{instance}.Favorites.9.Position.longitude" data-type="number" data-role="value.gps.longitude" />
+	<meta name="widget-datapoint" content="Map.Favorites.9.name|Map.{instance}.Favorites.9.name" data-type="string" data-role="text" />
+	<meta name="widget-datapoint" content="Map.Favorites.9.icon-url|Map.{instance}.Favorites.9.icon-url" data-type="string" data-role="url" />
+	
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
 	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 	<title>iQontrol Map Widget</title>
@@ -956,19 +1041,22 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	var mapMarkerIcons = [];
 	var mymap = false;
 	
-	//Set title from UrlParameter
+	//Get UrlParameters
+	var instance = getUrlParameter('instance');
+	var widgetDatapointsRoot = (instance ? "Map." + instance : "Map");
 	document.getElementById('title').innerHTML = getUrlParameter('title') || "";
 
 	//Subscribe to WidgetDatapoints now
-	sendPostMessage("getWidgetStateSubscribed", "Map.Position.latitude");
-	sendPostMessage("getWidgetStateSubscribed", "Map.Position.longitude");
-	sendPostMessage("getWidgetStateSubscribed", "Map.Position.zoom");	  
+	console.log("Getting Map Datapoints from " + widgetDatapointsRoot);
+	sendPostMessage("getWidgetStateSubscribed", widgetDatapointsRoot + ".Position.latitude");
+	sendPostMessage("getWidgetStateSubscribed", widgetDatapointsRoot + ".Position.longitude");
+	sendPostMessage("getWidgetStateSubscribed", widgetDatapointsRoot + ".Position.zoom");	  
 	for(var i=0; i<10; i++){
 		mapFavorites[i] = {};
-		sendPostMessage("getWidgetStateSubscribed", "Map.Favorites." + i + ".Position.latitude");
-		sendPostMessage("getWidgetStateSubscribed", "Map.Favorites." + i + ".Position.longitude");
-		sendPostMessage("getWidgetStateSubscribed", "Map.Favorites." + i + ".name");
-		sendPostMessage("getWidgetStateSubscribed", "Map.Favorites." + i + ".icon-url");
+		sendPostMessage("getWidgetStateSubscribed", widgetDatapointsRoot + ".Favorites." + i + ".Position.latitude");
+		sendPostMessage("getWidgetStateSubscribed", widgetDatapointsRoot + ".Favorites." + i + ".Position.longitude");
+		sendPostMessage("getWidgetStateSubscribed", widgetDatapointsRoot + ".Favorites." + i + ".name");
+		sendPostMessage("getWidgetStateSubscribed", widgetDatapointsRoot + ".Favorites." + i + ".icon-url");
 	}
 
 	//Initialize and Reposition map
@@ -1037,26 +1125,26 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		if(event.data && event.data.command) switch(event.data.command){
 			case "getState":
 				if(event.data.stateId && event.data.value) switch(event.data.stateId){
-					case "Map.Position.latitude":
+					case widgetDatapointsRoot + ".Position.latitude":
 						console.log("Set latitude to " + event.data.value.valFull);
 						mapPositionLatitude = parseFloat(event.data.value.valFull) || 0;
 						repositionMap();
 					break;
 					
-					case "Map.Position.longitude":
+					case widgetDatapointsRoot + ".Position.longitude":
 						console.log("Set longitude to " + event.data.value.valFull);
 						mapPositionLongitude = parseFloat(event.data.value.valFull) || 0;
 						repositionMap();
 					break;
 					
-					case "Map.Position.zoom":
+					case widgetDatapointsRoot + ".Position.zoom":
 						console.log("Set zoom to " + event.data.value.valFull);
 						mapPositionZoom = parseFloat(event.data.value.valFull) || 0;
 						repositionMap();
 					break;
 					
 					default:
-					if(event.data.stateId.substring(0, 14) == "Map.Favorites."){
+					if(event.data.stateId.substring(0, 14) == widgetDatapointsRoot + ".Favorites."){
 						var favoritesIndex = parseInt(event.data.stateId.substring(14,15));
 						switch(event.data.stateId.substring(16)){
 							case "Position.latitude":
@@ -1101,15 +1189,76 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 </html>
 ````
 </details>
+</details>
 
-## Description of roles and associated states
-Every device has a role, which defines the function of the device. Every role generates a set of states, which can be linked to a corresponding iobroker state.
-If you use the auto-create-function, you can choose an existing device from the iobroker-object tree.  Autocreate tries to find out the role and to match as many states as possible.
-This will only work for known devices. For unknown devices, and to give devices advanced features, you can add them manually via the (+)-Button or edit the devices that were created by autocreate.
-To edit the role and the states of a device, click on the pencil behind the device. You will find a short description of the roles and the used states below:
+## Lists and Counters
+iQontrol provides a powerful tool to create dynamic lists and counters of devices and states. 
 
-### Modifying Datapoint Configuration
-You can modify the configuration of datapoints via the wrench-icon behind a datapoint in the device-configuration dialog or in objects-tab of iobroker. Here you can:
+Thus, for example, all open windows can be automatically counted and also visualized in a list. Another example would be the lamps currently switched on in the house. 
+
+Service messages can also be created that way, for example by counting the devices that cannot be reached or the devices with an empty battery. iQontrol updates the lists then automatically.
+
+To visualize the counted devices, you can use the Device-Counter-Widget, which provides an easy but yet highly customizable interface. Experts could also use the JSON-Table-Widget, which provides even more configuration-possibilities (the Device-Counter-Widget is a simplified Version of the JSON-Table-Widget).
+
+### Create a List
+* Go to the LISTS/COUNTERS tab, create a list and give it a uniqe name. Click on **edit**
+* In the upper part you have to define the **selectors**: 
+	* This list will be processed from top to bottom. 
+	* At any position you can add or remove items by defining conditions. This will generate your **TOTAL_LIST**.
+	* Conditions consist of the following parts:
+		* Modifier: Add or Remove items to the list
+		* Type: Chose what to add or remove to or from the list. Type could be:
+			* **All** - selfexplaining
+			* **Enumeration** - filter by enumeration. You can define enumerations, like 'rooms', 'functions' or 'windows upper floor' in ioBroker admin adapter
+			* **Enumeration with Childs** - enumerations contain often only the device without it's datapoint. Therefore you will mostly use Enumeration with Childs, which automatically includes the datapoints as well
+			* **ID** - filter by the ID of datapoints, for example remove IDs that don't end with '.color' or '.saturation'
+			* **Object-Type** - filter by Object-Type, which can be device, channel, state or enumeration
+			* **Type** - filter by the common.type of the datapoint, for example string, number, boolean
+			* **Role** - filter by the common.role of the datapoint. This is one of the most important filters, as every datapoint schould have a common.role that describes, what it stands for, for example switch, indicator.unreach or level.color.rgb. There are a plenty of common roles inside ioBroker, just have a look at your datapoints, the admin-adapter provides a list with all of them
+		* Compare operators: Some Types can be compared with a value. The operator stands for the comparation that is done, like 'is greater than', 'is lower than' or, for strings, 'begins with' or 'contains':
+			* They work case insensitive (so 'Text' is the same as 'text')
+			* You can also compare with multiple values at one time if you provide comma-separated list of arguments
+				* Example: ``|remove|ID|doesn't end with|.error,.overheat|`` will remove all IDs that don't end with '.error' OR with '.overheat'
+		* Value: The value the compare operator compares to
+	* You can also **filter for Aliases**: This is useful if you for example create a list that counts devices with low batteries. But you don't want it to count both, the original device, and its alias. So filter alias ensures, that datapoints, that have an alias in the list, will be removed
+* Next you can define **counters**:
+	* You can define several counters that count for given conditions in your TOTAL_LIST. Lets say, you have created a list with all your LOW-BATTERY-Datapoints. Now you want to count, how many of them are active at the moment, i.e. have the status 'true'. That is done by a counter
+	* You have to assign a name to every counter
+	* You can assign a unit to every counter
+	* You need to define at least one condition for every counter. To do so, click on the edit-icon:
+		* Add as many conditions, as you like
+		* The conditions are processed from top to bottom
+		* The conditions can be linked with AND or with OR operators, so you can build complex conditions for your counter
+	* The counters update everytime a datapoint in your TOTAL_LIST is changes
+	* Additionally, you can set a specific **time interval** at which the counter will be updated (for example if you count, how many devices you have with a timestamp older than 5 minutes - this requires a periodically checking)
+* Next you can define **calculations**:
+	* Calculations can be used to combine numeric datapoints and calculate for example the sum of different counters.
+	* You can also combine objects like arrays (lists) by addition or subtraction.
+* At least you can define **combinations**:
+	* Combinations can be used to combine different datapoints with text.
+	* The 'Pefix' will be placed before, the 'Postfix' after the value of the given ID.
+	* In the 'Only If'-Section you can define a condition, if the line schould be placed or not.
+		* By activating 'Just Prefix' just the prefix is placed (not the value nor the postfix), if the condition matches.
+		* You can also specify a 'Else' text, that will be placed, if the condition doesn't match.
+* The result of the lists with counters, calculations and combinations are saved in datapoints, which you will find under iqontrol.x.Lists
+
+### Examples
+* This example shows, how to create an UNREACH-List:
+	![List Edit Unreach](img/list_edit_unreach.png)
+	* The selectors first add all Datapoints with the common role 'indicator.unreach'
+	* But it then removes all Datapoints with 'STICKY_' in it's ID (homematic provides the STICKY_UNREACH-Indicator, which we don't want to count)
+	* It filters duplicates by aliases out
+	![List Edit Unreach](img/list_edit_unreach_counter.png)
+	* And lastly, it count all datapoints with the value 'true', that have that state for at least 15 seconds
+
+
+## Modifying Datapoint Configuration
+You can modify the configuration of datapoints via the wrench-icon (or rather gear-icon in new react-ui) behind a datapoint in the device-configuration dialog or in objects-tab of iobroker. 
+
+![CustomDialog Call](img/custom_call.png)
+![CustomDialog Example](img/custom_dialog.png)
+
+Here you can:
 * Set Readonly-Flag
 * Set Invert-Flag
 * Set Confirm-Flag (forces the user to confirm before a change is written to a datapoint)
@@ -1128,10 +1277,14 @@ You can modify the configuration of datapoints via the wrench-icon behind a data
 	* Example: 
 	    * Key: ``TuneIn-Playlist: *``, Target-Datapoint ID: ``alexa2.0.Echo-Devices.XYZ.Music-Provider.TuneIn-Playlist``, Target-Value: ``*``
 	    * If the user enters ``TuneIn-Playlist: Ambient`` the value ``Ambient`` will be written to ``alexa2.0.Echo-Devices.XYZ.Music-Provider.TuneIn-Playlist``
+        ![Concept of Target-Value-List](img/target-value-list_concept.png)
 
-![CustomDialog Call](img/custom_call.png)
-![CustomDialog Example](img/custom_dialog.png)
-![Concept of Target-Value-List](img/target-value-list_concept.png)
+
+## Description of roles and associated states
+Every device has a role, which defines the function of the device. Every role generates a set of states, which can be linked to a corresponding iobroker state.
+If you use the auto-create-function, you can choose an existing device from the iobroker-object tree.  Autocreate tries to find out the role and to match as many states as possible.
+This will only work for known devices. For unknown devices, and to give devices advanced features, you can add them manually via the (+)-Button or edit the devices that were created by autocreate.
+To edit the role and the states of a device, click on the pencil behind the device. You will find a short description of the roles and the used states below:
   
 ### General states:
 #### STATE and LEVEL
@@ -1147,7 +1300,7 @@ Almost all roles have a **STATE**- and/or a **LEVEL**-state. In most cases this 
             ...
         }
         ````
-    * You can create your own value list by modifying the datapoint (wrench-icon behind the datapoint in the objects-tab of iobroker, see above)
+    * You can create your own value list by modifying the datapoint (wrench-icon, or rather gear-icon in new react-ui, behind the datapoint in the objects-tab of iobroker, see above)
 	* iQontrol will display a defined valueList as a drop down field in the dialog under the following circumstances:
 	    * if type is 'numbers' and the valueList has exact as many entries, as steps between min- and max of the datapoint or
 		* if type is 'boolean', but role is not 'switch' or
@@ -1161,7 +1314,7 @@ However, not every type makes sense to every role. So the STATE of a switch for 
 * **INFO_A** and **INFO_B**: *array* - an array of datapoints and icons, that will be cyclical displayed in the upper right side of the tile
 
     ![INFO_A and INFO_B](img/info_a_info_b.png)
-* **ADDITIONAL_CONTROLS**: *array* - an array of datapoints, that define additional control elements that will be displayed inside info-dialog
+* **ADDITIONAL_CONTROLS**: *array* - an array of datapoints, that define additional control elements that will be displayed inside info-dialog. You can use variables inside names and captions (use the same syntax as for normal device-names)
 * **ADDITIONAL_INFO**: *array* - an array of datapoints, that will be displayed at the bottom of the info-dialog
 * **URL**: CONSTANT or DATAPOINT *string* - this url will be opened as iframe inside the dialog
 * **HTML**: CONSTANT or DATAPOINT *string* - this markup will be displayed inside the iframe, if no URL-Datapoint is specified
@@ -1178,6 +1331,7 @@ However, not every type makes sense to every role. So the STATE of a switch for 
 
     ![Badge](img/badge.png)
 * **OVERLAY_INACTIVE_COLOR** and **OVERLAY_ACTIVE_COLOR**: *string* - any valid html-color-string (like 'green', '#00FF00', 'rgba(0,255,0,0.5)' and so on) that represents the color of the overlay of the tile (depending on whether the tile is active of inactive). If no valid color-string is given, the standard-overlay-color (which can be configured in iQontrol-Options) is used. Keep in mind, that there is an option to define the transparency of the overlay in the iQontrol options, which will affect the appereance of the set overlay color.
+	* For Lights you can also use the option "Use color of lamp as OVERLAY_ACTIVE_COLOR" which can be found in the devicespecific options. 
 
     ![Overlay Color](img/overlay_color.png)
 
@@ -1289,8 +1443,8 @@ In addition to normal thermostat you can define:
 ### <img src="img/icons/blind_middle.png" width="32"> Blind:
 * **LEVEL**: *number* - height of the blind in percentage
 * **DIRECTION**: *value-list* - can be Stop, Up and Down. The values that represent Stop, Up, Down and Unknown can be configured
-* **STOP**: *boolean* - is set to true, if the stop button is pressed
-* **UP** / **DOWN**: *boolean* - is set to true, if the up / down button is pressed (for devices, that use UP and DOWN datapoints instead of or in addition to LEVEL). Additional you can define a value via the **UP_SET_VALUE** / **DOWN_SET_VALUE** Datapoints. If defined, this value will be sent instead of true, when the Up / Down button is pressed
+* **STOP**: *boolean* - is set to true, if the stop button is pressed.  Additionaly you can define a value via the **STOP_SET_VALUE** Datapoint. If defined, this value will be sent instead of true, when the Stop button is pressed
+* **UP** / **DOWN**: *boolean* - is set to true, if the up / down button is pressed (for devices, that use UP and DOWN datapoints instead of or in addition to LEVEL). Additionaly you can define a value via the **UP_SET_VALUE** / **DOWN_SET_VALUE** Datapoints. If defined, this value will be sent instead of true, when the Up / Down button is pressed
 * **FAVORITE_POSITION**: *boolean* - can be used to recall a favorite position. If the Favourite button (button caption can be configured in the device settings) is pressed, true will be sent to this datapoint. Additional you can define a value via the **FAVORITE_POSITION_SET_VALUE** Datapoint. If defined, this value will be sent instead of true, when the favorite button is pressed 
 * **SLATS_LEVEL**: *number* - position of slats in percentage
 
@@ -1318,6 +1472,108 @@ In addition to normal thermostat you can define:
 * **CHARGING**: *boolean* - if true, a charging-icon is displayed
 * **POWER**: *number* - power-consumption that will be displayed in small in the upper right corner
 * **VOLTAGE**: *number* - voltage that will be displayed in small in the upper right corner
+
+### <img src="img/icons/time_alarmclock_on.png" width="32"> Date and Time:
+* **STATE**: *boolean* - if true the tile will be showed as active 
+* **SUBJECT**: *string* - to set a description
+* **RINGING**: *boolean* - if true an alarm-bell is shown
+	* Keep in mind: you can configure a quit and a snooze-button via ADDITIONAL_CONTROLS
+* **TIME**: *string* - String with date and or time or duration (you can specify the format in the device options) for first and second time
+	
+<details>
+<summary>Show possible time formats: (<ins>klick to open</ins>)</summary>
+
+* In the custom-section (wrench-icon or rather gear-icon in new react-ui) of any datapoint you can configure time-format and time-display-format. If the datapoint contains time informations, these two parameters specify in which format the time is saved in the datapoint and how iQontrols displays the time to the user.
+* For the 'Date and Time'-Device these two settings can also be made in the device options inside the device-specific section. These will overwrite the settings made in the custom-section of the datapoint.
+* You can use the following tokens:
+
+|           |                                | Token              | Example                                                                      | Datapoint | Display                              | Picker                      |
+|----------:|-------------------------------:|--------------------|------------------------------------------------------------------------------|-----------|--------------------------------------|-----------------------------|
+| Timestamp | Unix s Timestamp               | X                  | 1410715640.579                                                               | X         | ---                                  | ---                         |
+|           | Unix ms Timestamp              | x                  | 1410715640579                                                                | X         | ---                                  | ---                         |
+| Date      | Day of Week                    | d                  | 0 1 ... 5 6                                                                  | X         | ---                                  | ---                         |
+|           |                                | dd                 | Su Mo ... Fr Sa                                                              | X         | X (translated)                       | ---                         |
+|           |                                | ddd                | Sun Mon ... Fri Sat                                                          | X         | X (translated)                       | ---                         |
+|           |                                | dddd               | Sunday Monday ... Friday Saturday                                            | X         | X (translated)                       | ---                         |
+|           |                                | do                 | 0th 1st ... 5th 6th                                                          | X         | ---                                  | ---                         |
+|           | Day of Month                   | D                  | 1 2 ... 30 31                                                                | X         | X                                    | X                           |
+|           |                                | DD                 | 01 02 ... 30 31                                                              | X         | X                                    | X                           |
+|           |                                | Do                 | 1st 2nd ... 30th 31st                                                        | X         | --- (converted to D)                 | --- (converted to D)        |
+|           | Month                          | M                  | 1 2 ... 11 12                                                                | X         | X                                    | X                           |
+|           |                                | MM                 | 01 02 ... 11 12                                                              | X         | X                                    | X                           |
+|           |                                | MMM                | Jan Feb ... Nov Dec                                                          | X         | X                                    | X                           |
+|           |                                | MMMM               | January February ... November December                                       | X         | X                                    | X                           |
+|           |                                | Mo                 | 1st 2nd ... 11th 12th                                                        | X         | --- (converted to M)                 | --- (converted to M)        |
+|           | Year                           | Y                  | 1970 1971 ... 9999 +10000 +10001                                             | X         | X                                    | X                           |
+|           |                                | YY                 | 70 71 ... 29 30                                                              | X         | X                                    | X                           |
+|           |                                | YYYY               | 1970 1971 ... 2029 2030                                                      | X         | X                                    | X                           |
+|           |                                | YYYYYY             | -001970 -001971 ... +001907 +001971                                          | X         | --- (converted to YYYY)              | --- (converted to YYYY)     |
+| Time      | AM/PM                          | A                  | AM PM                                                                        | X         | X                                    | X                           |
+|           |                                | a                  | am pm                                                                        | X         | X                                    | X                           |
+|           | Hour                           | H                  | 0 1 ... 22 23                                                                | X         | X                                    | X                           |
+|           |                                | HH                 | 00 01 ... 22 23                                                              | X         | X                                    | X                           |
+|           |                                | h                  | 1 2 ... 11 12                                                                | X         | X                                    | X                           |
+|           |                                | hh                 | 01 02 ... 11 12                                                              | X         | X                                    | X                           |
+|           |                                | k                  | 1 2 ... 23 24                                                                | X         | --- (converted to H)                 | --- (converted to H)        |
+|           |                                | kk                 | 01 02 ... 23 24                                                              | X         | --- (converted to HH)                | --- (converted to HH)       |
+|           | Minute                         | m                  | 0 1 ... 58 59                                                                | X         | X                                    | X                           |
+|           |                                | mm                 | 00 01 ... 58 59                                                              | X         | X                                    | X                           |
+|           | Second                         | s                  | 0 1 ... 58 59                                                                | X         | X                                    | X                           |
+|           |                                | ss                 | 00 01 ... 58 59                                                              | X         | X                                    | X                           |
+|           | Fractional Second              | S                  | 0 1 ... 8 9                                                                  | X         | ---                                  | ---                         |
+|           |                                | SS                 | 00 01 ... 98 99                                                              | X         | ---                                  | ---                         |
+|           |                                | SSS                | 000 001 ... 998 999                                                          | X         | ---                                  | ---                         |
+|           |                                | SSSS ... SSSSSSSSS | 000[0..] 001[0..] ... 998[0..] 999[0..]                                      | X         | ---                                  | ---                         |
+|           | Time Zone                      | z or zz            | EST CST ... MST PST                                                          | X         | ---                                  | ---                         |
+|           |                                | Z                  | -07:00 -06:00 ... +06:00 +07:00                                              | X         | ---                                  | ---                         |
+|           |                                | ZZ                 | -0700 -0600 ... +0600 +0700                                                  | X         | ---                                  | ---                         |
+| Periods   | Day of Year                    | DDD                | 1 2 ... 364 365                                                              | X         | ---                                  | ---                         |
+|           |                                | DDDD               | 001 002 ... 364 365                                                          | X         | ---                                  | ---                         |
+|           |                                | DDDo               | 1st 2nd ... 364th 365th                                                      | X         | ---                                  | ---                         |
+| Other     | Day of Week (Locale)           | e                  | 0 1 ... 5 6                                                                  | X         | ---                                  | ---                         |
+|           | Day of Week (ISO)              | E                  | 1 2 ... 6 7                                                                  | X         | ---                                  | ---                         |
+|           | Quarter                        | Q                  | 1 2 3 4                                                                      | X         | ---                                  | ---                         |
+|           |                                | Qo                 | 1st 2nd 3rd 4th                                                              | X         | ---                                  | ---                         |
+|           | Week of Year                   | w                  | 1 2 ... 52 53                                                                | X         | ---                                  | ---                         |
+|           |                                | wo                 | 1st 2nd ... 52nd 53rd                                                        | X         | ---                                  | ---                         |
+|           |                                | ww                 | 01 02 ... 52 53                                                              | X         | ---                                  | ---                         |
+|           | Week of Year (ISO)             | W                  | 1 2 ... 52 53                                                                | X         | ---                                  | ---                         |
+|           |                                | Wo                 | 1st 2nd ... 52nd 53rd                                                        | X         | ---                                  | ---                         |
+|           |                                | WW                 | 01 02 ... 52 53                                                              | X         | ---                                  | ---                         |
+|           | Era Year                       | y                  | 1 2 ... 2020 ...                                                             | X         | ---                                  | ---                         |
+|           |                                | yo                 | 1st 2nd … 2020th …                                                           | X         | ---                                  | ---                         |
+|           | Era                            | N, NN, NNN         | BC AD                                                                        | X         | ---                                  | ---                         |
+|           |                                | NNNN               | Before Christ, Anno Domini                                                   | X         | ---                                  | ---                         |
+|           |                                | NNNNN              | BC AD                                                                        | X         | ---                                  | ---                         |
+|           | Week Year                      | gg                 | 70 71 ... 29 30                                                              | X         | ---                                  | ---                         |
+|           |                                | gggg               | 1970 1971 ... 2029 2030                                                      | X         | ---                                  | ---                         |
+|           | Week Year (ISO)                | GG                 | 70 71 ... 29 30                                                              | X         | ---                                  | ---                         |
+|           |                                | GGGG               | 1970 1971 ... 2029 2030                                                      | X         | ---                                  | ---                         |
+| Periods   | Period                         | P                  | Marks a period and not a specific time. Can be one of the following formats: | X         | --- (converted to D [Day(s)], h:m:s) | --- (converted to D, h:m:s) |
+|           |                                |                    | milliseconds (e.g. 279344)                                                   |           |                                      |                             |
+|           |                                |                    | hours:minutes (e.g. 46:33)                                                   |           |                                      |                             |
+|           |                                |                    | hours:minutes:seconds (e.g. 46:33:44 or 28:33:44.5)                          |           |                                      |                             |
+|           |                                |                    | days hours:minutes.seconds (e.g. 1 22:33:44 or 1 22:33:44.5)                 |           |                                      |                             |
+|           |                                |                    | days.hours:minutes.seconds (e.g. 1.22:33:44 or 1.22:33:44.5)                 |           |                                      |                             |
+|           |                                |                    | ISO 8601 (e.g. P0Y0M1DT22H33M44S or P1DT22H33M44S)                           |           |                                      |                             |
+|           |                                | Py                 | Period of years                                                              | X         | ---                                  | ---                         |
+|           |                                | PM                 | Period of months                                                             | X         | ---                                  | ---                         |
+|           |                                | Pw                 | Period of weeks                                                              | X         | ---                                  | ---                         |
+|           |                                | Pd                 | Period of days                                                               | X         | ---                                  | ---                         |
+|           |                                | Ph                 | Period of hours                                                              | X         | ---                                  | ---                         |
+|           |                                | Pm                 | Period of minutes                                                            | X         | ---                                  | ---                         |
+|           |                                | Ps                 | Period of seconds                                                            | X         | ---                                  | ---                         |
+|           |                                | Pms                | Period of milliseconds                                                       | X         | ---                                  | ---                         |
+| Flags     | Set missing parts to beginning | tb                 | E.g. set date to 1970-01-01, if only a time is given                         | X         | ---                                  | ---                         |
+|           | Set missing parts to now       | tn                 | E.g. set date to now, if only a time is given                                | X         | ---                                  | ---                         |
+|           | Keep old missing parts         | to                 | E.g. leave date as before, if only a time is given                           | X         | ---                                  | ---                         |
+| Free text | Mark free text in brackets     | []                 | [this is an example, all tokens are ignored]                                 | X         | X                                    | ---                         |
+* If you use different configurations for datapoint-timeformat and display-timeformat, the following conversion-rules are used.
+* You can use the flags ``tb``, ``tn`` and ``to`` inside the datapoint-timeformat to influence the behavior.
+
+    ![Glow](img/dateandtime_conversionrules.png)
+
+</details>
 
 ### <img src="img/icons/value_on.png" width="32"> Value:
 * **STATE**: *any* - any valid state to be displayed (have a look at general states-section)
@@ -1349,7 +1605,7 @@ In addition to normal thermostat you can define:
     * 'ok' if the middle of the pad is clicked, 
 	* 'left', 'right', 'up' or 'down', if the edges of the pad are clicked or the pad is swiped in the corresponding direction or
 	* 'back', 'home' or 'menu*, if the corresponding buttons are clicked
-	* Keep in mind: You can use the Target-Value-List (accessible via the wrench-icon of each datapoint) to link from one datapoint to multiple datapoints, depending on the returned value (see Modifying Datapoints section above)
+	* Keep in mind: You can use the Target-Value-List (accessible via the wrench-icon, or rather gear-icon in new react ui, of each datapoint) to link from one datapoint to multiple datapoints, depending on the returned value (see Modifying Datapoints section above)
 * **REMOTE_COLOR**: *string* - shows colored buttons an returns the corresponding color ('red', 'green', 'yellow' or 'blue'), if a color is clicked
 * **REMOTE_CHANNELS**: *array* - an array of buttons. The name of the button is sent to the corresponding state-id, if the button is clicked
 * **REMOTE_ADDITIONAL_BUTTONS**: *array* - an array of buttons. The name of the button is sent to the corresponding state-id, if the button is clicked
@@ -1394,10 +1650,235 @@ This device has some special predefined size- and display-settings to show a tex
 
 
 ****
-    
-## Changelog
 
-### dev
+## Changelog
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+* (sbormann) Added option to show POWER as state.
+* (sbormann) Added preview of tile appeareance when setting tile colors.
+* (sbormann) Added scrollbar-settings for firefox.
+* (sbormann) Added option to adjust height of tile to the size of BACKGROUND_VIEW.
+* (sbormann) Added option to change and invert INFO_A/B-Symbols.
+* (sbormann) Added import and export function to device options.
+* (sbormann) Added option to hide indicator icons if inactive, active or enlarged.
+* (sbormann) Added column-sorting to JSON-Table-Widget.
+* (sbormann) The JSON-Table-Widget accepts now simple lists (for example an array of datapoints).
+* (sbormann) Added widget-replaceurl to widgets, which allows creation of simplified widget-presets, as preparation for further development.
+* (sbormann) Added option to media-player to disable forced reload of cover-image on TITLE-change.
+* (sbormann) Small adjustmets for ALTERNATIVE_COLORSPACE.
+* (sbormann) Added widget-replaceurl as a widget configuration parameter.
+* (sbormann) Introducing a powerful new feature: Lists and Counters.
+* (sbormann) Added Device-Counter-Widget.
+* (sbormann) Added heading and border-color-option to JSON-table widget.
+* (sbormann) Changed behaviour of min/max/ignore-min-max-settings of FLOT-Chart-Widget.
+* (sbormann) Added option to invert color of INFO_A/B icons for dark-mode.
+* (sbormann) You can now chose fonts for the JSON-table widget.
+
+### 1.11.0 (2021-12-18)
+* (sbormann) Added the ability to globally change the default icons.
+* (sbormann) Introducing iconsets and fluent icons.
+* (sbormann) Added option to change badge font and color.
+* (sbormann) Fixed setting of font family.
+* (sbormann) Fixed LayoutViewDeviceInactiveHoverOpacity.
+
+### 1.10.0 (2021-12-03)
+* (sbormann) Fixed ALTERNATIVE_COLORSPACE.
+* (sbormann) Added option to change the icons for BATTERY, UNREACH and ERROR.
+
+### 1.9.16 (2021-11-23)
+* (sbormann) Enhanced viewport height scaling for collapsibles.
+
+### 1.9.15 (2021-11-23)
+* (sbormann) Updated dependencies.
+* (sbormann) Updated type-detector.
+* (sbormann) Some minor code adjustments.
+
+### 1.9.14 (2021-11-21)
+* (sbormann) Added option to set colors for JSON-Table-Widget.
+* (sbormann) Fix for periods with role value.time.
+* (sbormann) Enhanced reconnection process when reopening the web app.
+* (sbormann) Prevent endless loop for Party-Mode if objects do not exist.
+
+### 1.9.13 (2021-10-02)
+* (sbormann) Minor design adjustments for dark-mode.
+
+### 1.9.12 (2021-09-28)
+* (sbormann) Fix for ADDITIONAL_CONTROLS rendering only once.
+
+### 1.9.11 (2021-09-27)
+* (sbormann) Added release-script by AlCalzone.
+* (sbormann) Set setState for postMessage to forced send.
+
+### 1.9.10 (2021-09-26)
+* (sbormann) Enhanced handling of states set by widgets.
+
+### 1.9.9 (2021-09-09)
+* (sbormann) Fixed collapsible not opening if initial closed.
+* (muuulle, sbormann) Enhanced Analog-Clock-Widget to be able to display the time of a datapoint.
+* (sbormann) Enhanced json-table-Widget to regognize parentNames of datapoints, transpose and convert json-data and some styling-options.
+* (sbormann) Enhanced styling of ADDITIONAL_INFO.
+
+### 1.9.8 (2021-09-03)
+* (sbormann) Fixed variables with special chars not working.
+* (sbormann) Enhanced json-table-widget with datapoint recognition, which allows to see values and toggle datapoints in the list.
+* (sbormann) Fixed view rendering problems with thermostats without CONTROL_MODE.
+* (sbormann) Added the ability to widgets, to create widgetStates that contain a variable (for example to create distinct instances of a widget with own datapoints).
+* (sbormann) The map widget has been extended with a instance-option to create multiple maps with own datapoints.
+
+### 1.9.7 (2021-08-31)
+* (sbormann) Added option to close collapsible subheaders, if others open.
+* (sbormann) Fixed missing subheaders if new line option was activated.
+* (sbormann) Added option to define new section spacing.
+* (sbormann) Minor design enhancements to dark mode, ADDITIONAL_INFO and JSON-Table-Widget.
+* (sbormann) Added more options to configure cols of JSON-Table-Widget.
+* (sbormann) Redesigned CONTROL_MODE of Thermostats to be a fieldset instead of a dropdown.
+* (sbormann) Overwrite step for HomematicIP-Temperature sensors with wrong min and max values.
+* (sbormann) Added option to send state-values when clicking on play, pause and stop to media.
+* (sbormann) Updated dependencies.
+* (sbormann) Added sections to widget options.
+* (sbormann) Added option to show state and level devided for device type value.
+
+### 1.9.6 (2021-08-21)
+* (sbormann) Removed some unnecessary horizontal lines in dialog.
+* (sbormann) Added option to edit caption of STATE or LEVEL.
+* (sbormann) Enhanced ADDITIONAL_INFO list (you can go back to old style via option) and added optional columns.
+* (sbormann) Added some polyfils for older browsers.
+* (sbormann) Fixed a bug that prevented certain options from being applied correctly.
+
+### 1.9.5 (2021-08-20)
+* (sbormann) Removed prevention of injection for iframes.
+
+### 1.9.4 (2021-08-20)
+* (sbormann, sandro_gera) Preventing injection of code into states.
+* (sbormann) Sub-Headers can now contain variables.
+* (sbormann) Added option to make sub-headers collapsible.
+* (sbormann) BACKGROUND_VIEWs are now lightend up in dark-mode.
+
+### 1.9.3 (2021-08-18)
+* (sbormann) Fixes for ADDITIONAL_CONTROLS.
+* (sbormann) Some minor enhancements for handling of Date and Time.
+* (sbormann) Added option to custom to hide period of date and time values.
+* (sbormann) Some design adjustments for dark-mode.
+* (sbormann) You can now freely configure all colours for dark-mode.
+* (sbormann) Added previous and next buttons to views-tab.
+
+### 1.9.2 (2021-08-17)
+* (sbormann) Fixed conversion error #199.
+* (sbormann) Added option to set ADDITIONAL_CONTROLS to half width.
+* (sbormann) Enhanced uploading of font files.
+* (sbormann) Added getOptions to postMessage-Communication for widgets.
+* (sbormann) Added Dark-Mode to JSON-Table-Widget.
+
+### 1.9.1 (2021-08-15)
+* (sbormann) You can now upload own font files.
+* (sbormann) Admin tab is now linked to the iqontrol-administration page instead of frontend.
+* (sbormann) Fixed mkDir for redis.
+* (sbormann) Enhanced enlarge button for large screens.
+
+### 1.9.0 (2021-08-13)
+* (sbormann) Added Dark-Mode.
+* (sbormann) Added new configuration options for click on tile/icon behaviours - WARNING: Old configuration is automatically converted to the new settings. Its recommendet to create a backup of your config BEFORE doing the update, as the new settings are not backwards-compatible and in case of conversion errors.
+* (sbormann) Added option to link color of lamp to OVERLAY_ACTIVE_COLOR.
+* (sbormann) Added option to define caption of button for external URLs.
+
+### 1.8.2 (2021-08-06)
+* (sbormann) Added JSON-Table Widget (Displays JSON-Data as table).
+* (sbormann) Enhanced device copy dialog with option to set new name and to replace datapoints.
+* (sbormann) You can now copy devices directly from the device list.
+* (sbormann) Entries with empty values in Arrays of INFO_A/B are now hidden.
+* (sbormann) Added option to hide UNREACH if device is inactive.
+* (sbormann) Fixed missing general options for device link to other view.
+* (sbormann) Fixed admin page not working in safari.
+* (sbormann) Added option to hide name for buttons in ADDITIONAL_CONTROLS.
+
+### 1.8.1 (2021-07-28)
+* (sbormann) Some design-adjustments for react-ui.
+* (sbormann) Keep track of ioBroker object changes in admin.
+* (sbormann) Fixed crash if active view has no devices.
+* (sbormann) Removed old conn.js from admin.
+* (Einstein2002, sbormann) Added HomematicIP-Thermostat.
+* (sbormann) Enhanced max-height of dialog.
+* (sbormann) Fixed up, down and stop button for blinds.
+* (sbormann) Changed some log messages.
+* (sbormann) Enhanced FLOT-Chart-Widget to set axis options.
+
+### 1.8.0 (2021-04-29)
+* (sbormann) Some design-adjustments for react-ui.
+
+### 1.7.3 (2021-04-27)
+* (sbormann) Fixed admin-tab for react.
+
+### 1.7.2 (2021-04-27)
+* (sbormann) Added compatibility to new react-ui of admin-adapter.
+* (sbormann) Fixed uploading of larger files.
+* (sbormann) Changed background-images in autocreate views function.
+* (sbormann) Internal definition and handling of device options changed.
+* (sbormann) The directories /usericons, /usersymbols and /userwidgets are now automatically created, if not existant.
+* (sbormann) Some design-adjustments for react-ui.
+
+### 1.7.1 (2021-04-18)
+* (sbormann) Fix to work with Admin v5.0.3 (renaming files and folders will only work with the upcoming next admin-update).
+* (sbormann) Updated dependencies.
+* (sbormann) Added option to show name of INFO_A/B.
+
+### 1.7.0 (2021-04-13)
+* (sbormann) Added combobox as possible option type.
+* (sbormann) Added Date and Time as new device for dates, times and periods (durations).
+* (sbormann) Added time-format and time-display-format to custom settings of datapoints.
+* (sbormann) Added time-picker for every STATE datapoint and ADDITIONAL_CONTROLS - of role value.time, value.date, value.datetime, level.timer and level.timer.sleep.
+* (sbormann) Enhanced blind to better show opening and closing, even if level is 0 or 100.
+* (sbormann) Added STOP_SET_VALUE for blinds.
+* (sbormann) You can now use variables in device-names, button-captions and headings of ADDITIONAL_CONTROLS.
+
+### 1.6.6 (2021-03-21)
+* (sbormann) Fix for double admin page.
+
+### 1.6.5 (2021-03-20)
+* (sbormann) If you change the device-specific option 'Return to OFF_SET_VALUE after [ms]' of buttons to 0, the button toggles now. 
+* (sbormann) Fixed noZoomOnHover for device icon on large screens. 
+* (sbormann) The options of the change device-options-function are now sorted alphabetically. 
+* (sbormann) Added option to configure appereance of VALVE_STATES for thermostats. 
+* (sbormann) Fixed recognition of blank icon for device-filling states and added padding, if badge is present. 
+* (sbormann) Added option to INFO_A/B to define the number of digits to be rounded to. 
+* (sbormann) Added option to customs-dialog to define the number of digits to be rounded to. 
+* (sbormann) Now also numerical values are treatet as strings, if common.role is string (before it was converted to level).
+* (sbormann) Now empty values on a value-list are not longer ignored.
+* (sbormann) Some fine adjustments to panel.
+* (sbormann) Updated type-detector.
+* (sbormann) Added edit button to views.
+* (sbormann) INFO_A/B will be hidden if value is empty.
+
+### 1.6.4 (2021-03-06)
+* (sbormann) Added select id dialog to change-device-states function.
+
+### 1.6.3 (2021-03-03)
+* (sbormann) Added match-list to change device-options-function.
+* (sbormann) Added change device-states-function to options.
+* (sbormann) Fixed comparing to 0 for tile active conditions.
+* (sbormann) Enhanced speed of admin ui.
+
+### 1.6.2 (2021-02-28)
+* (sbormann) Enhanced rendering of badge to avoid color flickering.
+* (sbormann) Added option clickOnIconToggles and clickOnIconOpensDialog to all devices. The logic is now: 
+    1. If clickOnIconToggles is true => toggle
+	2. else if clickOnIconOpensDialog is true => open dialog
+	3. else if linked view is given => open link to view
+	4. else do nothing
+* (sbormann) Fixed slider sometimes not working after swiping.
+* (sbormann) Prevent scrolling and flickering of background when dialog is opened.
+* (sbormann) Lights without hue but with active option linkGlowActiveColorToHue now glow in a slightly yellow.
+
+### 1.6.1 (2021-02-21)
+* (sbormann) Fixed sentry error in main.js.
+* (sbormann) Reworked shuffle-process.
+* (sbormann) Fixed can't scroll to bottom issue.
+* (sbormann) Added possibility to change many icons and options at once (under options, change device-options).
+
+### 1.6.0 (2021-02-19)
 * (sbormann) Changed standard badge-color to red, 20% transparency.
 * (sbormann) Added optional glow-effect for tiles.
 * (sbormann) Fixed edit-dialog of device not opening under some circumstances.
@@ -1414,9 +1895,13 @@ This device has some special predefined size- and display-settings to show a tex
 * (sbormann) Fixed option font-size for sub-header.
 * (sbormann) Moved option, to show toolbar in one single line, into the options-tab.
 * (sbormann) Added option, to invert Error Icon.
-* (sbormann) Rearranged device option for a better overview.
+* (sbormann) Rearranged device options for a better overview.
 * (sbormann) Added option noZoomOnHover for Icon (in device-options, section tile-behaviour (general) and, for all devices, in settings, section tile).
 * (sbormann) Added delay to visibility of badge to allow color-change happen before it appears.
+* (sbormann) Fixed min/max/step for number of url-parameters of widgets (which fixed range for FLOT-Chart).
+* (sbormann) Added PANEL_HIDE and the corresponding option Invert PANEL_HIDE to panel.
+* (sbormann) Added manifest.json.
+* (sbormann) Fixed saving values of color-picker.
 
 ### 1.5.7 (2021-01-24)
 * (sbormann) Fixed missing info.connection object.
@@ -1464,6 +1949,9 @@ This device has some special predefined size- and display-settings to show a tex
 ### 1.5.1 (2020-12-01)
 * (sbormann) Added url-paremeter noPanel.
 * (sbormann) Changed fetching-method of ioBroker Objects.
+
+<details>
+<summary>Older Changelog: (<ins>klick to open</ins>)</summary>
 
 ### 1.5.0 (2020-11-24)
 * (sbormann) Added Flot-Chart widget.
@@ -1709,9 +2197,6 @@ This device has some special predefined size- and display-settings to show a tex
 * (sbormann) Prevent pressure menu when scrolling and after opening menu.
 * (sbormann) Corrected a few translations.
 
-<details>
-<summary>Older Changelog: (<ins>klick to open</ins>)</summary>
-
 ### 0.4.1 (2020-05-15)
 * (sbormann) Added icons for toplight and tilted to window and enhanced window to recognize tilted position.
 * (sbormann) Fixed crash when using some thermostats.
@@ -1831,7 +2316,7 @@ This device has some special predefined size- and display-settings to show a tex
 
 ### 0.2.2 (2019-09-14)
 * (sbormann) Enhanced handling of control-mode for homematic-thermostat for more compatibility.
-* (sbormann) Reduced rate of sending when moving slider for blinds and thermostats. 
+* (sbormann) Reduced rate of sending when moving slider for blinds and thermostats.
 
 ### 0.2.1 (2019-09-07)
 * (sbormann) Fixed crash of Backend (interchanged index_m.html and custom_m.html).
@@ -1866,7 +2351,7 @@ This device has some special predefined size- and display-settings to show a tex
 * (sbormann) Fixed crash when using thermostat with setpoint an non homematic-devices.
 * (sbormann) Added min and max to custom dialog.
 * (sbormann) Now you can set none as a devices background image for active devices (formerly this was copied from inactive devices for backward-compatibility-reasons).
- 
+
 ### 0.1.10 (2019-08-20)
 * (sbormann) You can now define different units if value is zero or if value is one in custom dialog.
 * (sbormann) When changing an image via the new drop-down, save button will be activated now.
@@ -2106,9 +2591,6 @@ This device has some special predefined size- and display-settings to show a tex
 ### 0.0.15
 * (sbormann) Improved check for value type of states.
 * (sbormann) Improved slider-tooltip to lower font-size at large numbers.
-
-### 0.0 14
-* (sbormann) If role of state is not further specified, then check for role of parent object.
 
 ### 0.0.13
 * (sbormann) Doors and Windows now force true/false to be translated to opened/closed.

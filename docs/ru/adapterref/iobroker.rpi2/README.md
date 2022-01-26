@@ -3,16 +3,17 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rpi2/README.md
 title: без заголовка
-hash: LuTrQrlZ5YW5/rS6OYyVphiuYRKeh2CH3Y22fvNr/zQ=
+hash: R9fOiJyoT2DZytnnC+cE6C+nwMWndONVOBFvcpla20A=
 ---
 ![Логотип](../../../en/adapterref/iobroker.rpi2/admin/rpi.png) Адаптер ioBroker RPI-Monitor
 
 ![Количество установок](http://iobroker.live/badges/rpi2-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.rpi2.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.rpi2.svg)
-![НПМ](https://nodei.co/npm/iobroker.rpi2.png?downloads=true)
 
 ==============
+
+[![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/rpi2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 Реализация RPI-Monitor для интеграции в ioBroker. Это та же реализация, что и для iobroker.rpi, но с GPIO.
 
@@ -21,7 +22,7 @@ hash: LuTrQrlZ5YW5/rS6OYyVphiuYRKeh2CH3Y22fvNr/zQ=
 
 ** ioBroker требуются особые разрешения для управления GPIO. ** В большинстве дистрибутивов Linux это может быть достигнуто путем добавления пользователя ioBroker в группу `gpio` (рекомендуется) или запуска ioBroker под `root` (менее безопасно).
 
-## Установка
+## Монтаж
 После установки вам необходимо настроить все необходимые модули через страницу администрирования.
 
 После запуска iobroker.rpi все выбранные модули генерируют дерево объектов в ioBroker в пределах rpi. <instance>. <modulename>, например. rpi.0.cpu
@@ -61,7 +62,7 @@ sudo apt-get install -y build-essential python
 - sdcard_root_total
 - sdcard_root_used
 
-#### **Обмен**
+#### **Менять**
 - swap_total
 - swap_used
 
@@ -83,13 +84,13 @@ sudo apt-get install -y build-essential python
 - Объем памяти
 - Сеть
 - SD Card
-- Обмен
+- Менять
 - температура
-- Время работы
+- Время безотказной работы
 - WLAN
 
 ## Файлы журнала / Настройки конфигурации
-## Особенности
+## Функции
 ## Делать
 ## Протестированное оборудование
  - Odroid C1
@@ -138,11 +139,20 @@ sudo apt-get install -y build-essential python
 ```
 
 ## Датчики DHTxx / AM23xx
-Вы можете считывать данные с датчиков температуры / влажности DHT11, DHT22 и AM2302.
+Вы можете считывать показания датчиков температуры / влажности DHT11, DHT22 и AM2302.
 
 Подключите такой датчик к контакту GPIO, как описано на странице пакета [узел-dht-сенсор](https://www.npmjs.com/package/node-dht-sensor). Несколько датчиков могут быть подключены к *нескольким* контактам (это *не* шинная система), как обсуждалось.
 
 ## Changelog
+
+### 1.3.1 (2021-07-16)
+* (Apollon77) Prevent js-controller 3.3 warnings
+
+### 1.3.0 (2021-07-16)
+* (asgothian) Fix to get CPU frequencies also on Raspi 4
+* (raintor) Add support for DHTxx/AM23xx Sensors
+* (raintor) Configure internal Pull UP/Down Resistor
+* (raintor) Add port 'label'/'friendly name' to GPIO config
 
 ### 1.2.0 (2020-01-17)
 - (janfromberlin) GPIO configuration as output with defined initial value
@@ -196,6 +206,6 @@ sudo apt-get install -y build-essential python
 
 ## License
 
-Copyright (c) 2015-2020 husky-koglhof <husky.koglhof@icloud.com>
+Copyright (c) 2015-2021 husky-koglhof <husky.koglhof@icloud.com>
 
 MIT License

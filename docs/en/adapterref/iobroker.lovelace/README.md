@@ -1,19 +1,19 @@
 ![Logo](admin/lovelace.png)
 # ioBroker.lovelace
 
+![Number of Installations](http://iobroker.live/badges/lovelace-installed.svg)
+![Number of Installations](http://iobroker.live/badges/lovelace-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.lovelace.svg)](https://www.npmjs.com/package/iobroker.lovelace)
+
+![Test and Release](https://github.com/ioBroker/iobroker.lovelace/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/lovelace/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.lovelace.svg)](https://www.npmjs.com/package/iobroker.lovelace)
-[![Dependency Status](https://img.shields.io/david/ioBroker/iobroker.lovelace.svg)](https://david-dm.org/ioBroker/iobroker.lovelace)
-[![Known Vulnerabilities](https://snyk.io/test/github/ioBroker/ioBroker.lovelace/badge.svg)](https://snyk.io/test/github/ioBroker/ioBroker.lovelace)
-
-[![NPM](https://nodei.co/npm/iobroker.lovelace.png?downloads=true)](https://nodei.co/npm/iobroker.lovelace/)
-
-**Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.lovelace/master.svg)](https://travis-ci.org/ioBroker/ioBroker.lovelace)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/ioBroker/ioBroker.lovelace?branch=master&svg=true)](https://ci.appveyor.com/project/ioBroker/ioBroker-lovelace/)
 
 ## lovelace adapter for ioBroker
 
 With this adapter you can build visualization for ioBroker with Home Assistant Lovelace UI.
+
+[Deutsche Dokumentation](docs/de/README.md)
 
 ## Configuration
 There are two arts how the entities could be configured:
@@ -432,19 +432,21 @@ First of all the actual https://github.com/home-assistant/frontend (dev branch) 
 
 All changes for ioBroker are marked with comment `// IoB`.
 For now (20201021.4) following files were modified:
-- `.gitignore` - add `.idea` ignore
 - `build-scripts/gulp/app.js` - Add new gulp task
 - `build-scripts/gulp/webpack.js` - Add new gulp task
 - `src/data/lovelace.ts` - add hide toolbar option
+- `src/data/weather.ts` - add support to display weather icon from url.
 - `src/dialogs/more-info/ha-more-info-dialog.ts` - remove entity settings button and remove weather state & history
+- `src/dialogs/more-info/controls/more-info-climate.ts` - print mode name for unsupported modes
+- `src/dialogs/more-info/controls/more-info-weather.ts` - add support to display weather icon from url.
 - `src/entrypoints/core.ts` - modified authentication process
 - `src/layouts/home-assistant-main.ts` - remove app sidebar
-- `src/panels/lovelace/hui-root.ts` - added notifications and voice control
-- `src/util/documentation-url.ts` - for link to iobroker help instead of homeassistant.
-- `src/dialogs/more-info/controls/more-info-weather.ts` - add support to display weather icon from url.
-- `src/data/weather.ts` - add support to display weather icon from url.
 - `src/panels/lovelace/cards/hui-weather-forecast-card.ts` - add support to display weather icon from url.
 - `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` - add support to display weather icon from url with auth.
+- `src/panels/lovelace/hui-root.ts` - added notifications and voice control
+- `src/util/documentation-url.ts` - for link to iobroker help instead of homeassistant.
+- `.gitignore` - add `.idea` ignore
+- `package.json` - remove husky commit hook
 
 
 After that checkout modified version in `./build` folder. Then.
@@ -453,14 +455,36 @@ After that checkout modified version in `./build` folder. Then.
 2. `git clone https://github.com/GermanBluefox/home-assistant-polymer.git` it is a fork of https://github.com/home-assistant/frontend.git, but some things are modified (see the file list earlier).
 3. `cd home-assistant-polymer`
 4. `git checkout master`
-5. `npm install`
+5. `yarn install`
 6. `gulp build-app` for release or `gulp develop-iob` for the debugging version. To build web after changes you can call `webpack-dev-app` for faster build, but you need to call `build-app` anyway after the version is ready for use.
 7. copy all files from `./build/home-assistant-polymer/hass_frontend` into `./hass_frontend` in this repo
 8. Start `gulp rename` task.
 
+## Changelog
+
+<!--
+	PLACEHOLDER for next version:
+	### **WORK IN PROGRESS**
+-->
+### 2.1.4 (2022-01-09)
+* (Garfonso) Dependency update
+
+### 2.1.3 (2022-01-07)
+* (Garfonso) Fixed: remove backup of old frontend (sorry)
+
+### 2.1.2 (2022-01-06)
+* (Garfonso) Fixed: Menu was broken in frontend.
+
+### 2.1.1 (2022-01-06)
+* (Garfonso) Fixed: Entity update in some cases.
+
+### 2.1.0 (2022-01-06)
+* (Garfonso) Added: support for new things in frontend (like arm_vacation state, currency, ...).
+* (Garfonso) Change: Updated frontent to 20211229.0 (needs update of browser_mod, card_mod)
+
 ## License
 
-Copyright 2019-2021, bluefox <dogafox@gmail.com>
+Copyright 2019-2022, bluefox <dogafox@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

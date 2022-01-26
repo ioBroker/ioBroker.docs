@@ -1,9 +1,7 @@
 ---
 BADGE-Number of Installations: http://iobroker.live/badges/mqtt-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.mqtt.svg
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.mqtt.svg
-BADGE-Tests: https://travis-ci.org/ioBroker/ioBroker.mqtt.svg?branch=master
-BADGE-NPM: https://nodei.co/npm/iobroker.mqtt.png?downloads=true
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.meross.svg
 ---
 ![](MQTT)
 # MQTT Server and Client
@@ -806,6 +804,21 @@ control (see [example above](http://www.iobroker.net/?page_id=6435&lang=en#Appli
 Congratulations! Now you can control the system ioBroker and receive data via a cloud service!
 
 ## Changelog
+### 2.4.1 (2021-11-08)
+* (MichaelDvP) Added wildcard regex for "/#"
+
+### 2.4.0 (2021-05-09)
+* (Apollon77) only remember the last message per topic for offline clients that subscribed the topics when using persistent sessions
+* (Apollon77) only remember last wills for clients that subscribed the topics
+* (Apollon77) on "disconnect" message do not send last will as defined by specs
+* (Apollon77) set a new messageId when sending remembered messages
+* (Apollon77) Add small delay after subscribe before sending out topic values
+* (Apollon77) optimize for js-controller 3.3
+* (foxriver76) prevent errors in js-controller 3.3 and detect datatype changes for objects
+
+### 2.3.5 (2021-02-27)
+* (Apollon77) js-controller 2.0 is now required at least
+* (arteck) change default subscribe to mqtt.0.*
 
 ### 2.3.4 (2021-01-25)
 * (Apollon77) Catch errors when setting states (Sentry IOBROKER-MQTT-1F)
@@ -821,7 +834,7 @@ Congratulations! Now you can control the system ioBroker and receive data via a 
 * (FunCyRanger) Add option to ignore SSL validation errors
 
 ### 2.1.14 (2020-11-30)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-MQTT-11) 
+* (Apollon77) Prevent crash case (Sentry IOBROKER-MQTT-11)
 
 ### 2.1.13 (2020-11-16)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-MQTT-Q)
@@ -866,7 +879,7 @@ Congratulations! Now you can control the system ioBroker and receive data via a 
 * (bluefox) Add option to overwrite the client "clean session" settings
 
 ### 2.1.0 (2019-05-02)
-* (Zefau) Add option to send message using messagebox
+* (Zefau) Add option to send the message using messagebox
 * (Zefau) Fix error with logging on pubrec
 
 ### 2.0.6 (2019-01-16)
@@ -879,13 +892,13 @@ Congratulations! Now you can control the system ioBroker and receive data via a 
 * (Apollon77) Subscribe to topics after connect
 
 ### 2.0.3 (2018-08-11)
-* (bluefox) Prefix in server was corrected
+* (bluefox) Prefix in the server was corrected
 
 ### 2.0.2 (2018-08-09)
 * (bluefox) Behaviour of "set" topics was changed
 
 ### 2.0.1 (2018-07-06)
-* (bluefox) Double prefix by client was fixed
+* (bluefox) Double prefix by the client was fixed
 
 ### 2.0.0 (2018-03-05)
 * (bluefox) broke node.js 4 support
@@ -913,7 +926,7 @@ Congratulations! Now you can control the system ioBroker and receive data via a 
 
 ### 1.3.1 (2017-02-02)
 * (bluefox) Update mqtt packages
-* (bluefox) add Interval before send topics by connection ans send interval settings
+* (bluefox) add Interval before send topics by connection and send interval settings
 * (bluefox) reorganise configuration dialog
 
 ### 1.3.0 (2017-01-07)
@@ -937,13 +950,13 @@ Congratulations! Now you can control the system ioBroker and receive data via a 
 * (bluefox) fix authentication in server
 
 ### 1.1.1 (2016-09-12)
-* (bluefox) do not parse JSON states, that do not have attribute "val" to support other systems
+* (bluefox) do not parse JSON states, that do not have the attribute `val` to support other systems
 
 ### 1.1.0 (2016-07-23)
 * (bluefox) add new setting: Use different topic names for set and get
 
 ### 1.0.4 (2016-07-19)
-* (bluefox) convert values like "+58,890" into numbers too
+* (bluefox) convert values like `+58,890` into numbers too
 
 ### 1.0.3 (2016-05-14)
 * (cdjm) change client protocolID
@@ -962,7 +975,7 @@ Congratulations! Now you can control the system ioBroker and receive data via a 
 * (bluefox) fix SSL
 
 ### 0.4.2 (2016-02-10)
-* (bluefox) create object "info.connection"
+* (bluefox) create the object `info.connection`
 * (bluefox) add reconnection tests
 
 ### 0.4.1 (2016-02-04)
@@ -982,17 +995,17 @@ Congratulations! Now you can control the system ioBroker and receive data via a 
 * (Pmant) fix publish on subscribe
 
 ### 0.2.14 (2015-11-21)
-* (bluefox) fix error with wrong variable names 
+* (bluefox) fix error with wrong variable names
 
 ### 0.2.13 (2015-11-20)
-* (Pmant) fix error with wrong variable name 
+* (Pmant) fix error with wrong variable name
 
 ### 0.2.12 (2015-11-14)
 * (Pmant) send last known value on subscription (server)
 
 ### 0.2.11 (2015-10-17)
 * (bluefox) set maximal length of topic name
-* (bluefox) convert "true" and "false" to boolean values
+* (bluefox) convert `true` and `false` to boolean values
 
 ### 0.2.10 (2015-09-16)
 * (bluefox) protect against empty topics
@@ -1010,7 +1023,7 @@ Congratulations! Now you can control the system ioBroker and receive data via a 
 * (bluefox) subscribe to all states if no mask defined
 
 ### 0.2.4 (2015-05-14)
-* (bluefox) add state "clients" to server with the list of clients
+* (bluefox) add state `clients` to server with the list of clients
 
 ### 0.2.3 (2015-05-14)
 * (bluefox) fix some errors
@@ -1058,7 +1071,7 @@ Congratulations! Now you can control the system ioBroker and receive data via a 
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2021, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.schoolfree/README.md
 title: ioBroker.schoolfree
-hash: uzju6TA2Nd+imMw4P3aGsSgS0hBAeyPIQshsOhieXkI=
+hash: wN18juysKPSF8CRtXU2o7IO+98KeQ0F3ee1AtnacO50=
 ---
 ![商标](../../../en/adapterref/iobroker.schoolfree/admin/schoolfree.png)
 
@@ -17,7 +17,9 @@ hash: uzju6TA2Nd+imMw4P3aGsSgS0hBAeyPIQshsOhieXkI=
 ![NPM](https://nodei.co/npm/iobroker.schoolfree.png?downloads=true)
 
 ＃ioBroker.schoolfree
-该适配器使用服务Sentry.io向开发人员自动向我报告异常和代码错误以及新设备架构。详情请见下文！
+![测试与发布](https://github.com/simatec/ioBroker.schoolfree/workflows/Test%20and%20Release/badge.svg)
+
+该适配器使用服务Sentry.io向开发人员自动向我报告异常和代码错误以及新设备架构。更多详细信息请参见下文！
 
 ##适用于ioBroker的schoolfree适配器
 **如果您愿意，请考虑捐赠：**
@@ -26,10 +28,10 @@ hash: uzju6TA2Nd+imMw4P3aGsSgS0hBAeyPIQshsOhieXkI=
 
 ###德意志银行（Deutsche Beschreibung）：
 校内免费安装适配器。
-在Datenpunkteübergeben的Schulferien auswerten und Mit dem Adapter。
+在Datenpunkteübergeben的Schulgerien auswerten und Mit dem Adapter。
 Die Datenpunktekönnensomitfürweitere Funktionen wie Heizungssteuerungen，Rolladen- and Anwesenheitssteuerungen ausgewertet and verarbeitet werden。
 
-API的https://www.mehr-schulferien.de的Der aktuelle Bezug von Terminen的Schüfererienerfolgtüber的API
+API的https://www.mehr-schulferien.de
 
 德国和德国之间的友谊。
 
@@ -37,18 +39,18 @@ API的https://www.mehr-schulferien.de的Der aktuelle Bezug von Terminen的Schüf
 
 * info.current.end：Datumfürdas Ende der aktuellen Ferien
 * info.current.name：Bezeichnung der aktuellen Schulferien
-* info.current.start：起始日期
-* info.next.end：费恩（Fatum）
+* info.current.start：开始日期
+* info.next.end：费恩（Fer das Ende dernächstenFerien）
 *信息名称：Bezeichnung dernächstenSchulferien
 * info.next.start：开始日期Ferien
-*今日信息：切换状态指示灯（真/假）
-* info。明天：Switch for aktuellen Status morgen（true / false）
+*今日信息：切换到静态状态（真/假）
+* info。明天：Switch forfürden aktuellen Status morgen（true / false）
 
 *************************************************************************************************************************************
 
 ###英文说明：
 Schoolfree是用于iobroker安装的适配器。
-使用适配器，可以评估学校假期并将其传输到数据点。
+使用适配器，可以评估学校假期并将其转移到数据点。
 因此，可以针对其他功能（例如加热控制，快门和存在控制）对数据点进行评估和处理。
 
 当前的学校假期订阅是通过https://www.mehr-schulferien.de的API进行的
@@ -69,11 +71,37 @@ Schoolfree是用于iobroker安装的适配器。
 ###什么是Sentry.io，什么报告给该公司的服务器？
 Sentry.io是一项服务，供开发人员从其应用程序中获取有关错误的概述。确切地说，这是在此适配器中实现的。
 
-当适配器崩溃或发生其他代码错误时，此错误消息（也出现在ioBroker日志中）将提交给Sentry。当您允许iobroker GmbH收集诊断数据时，还将包括您的安装ID（这是唯一ID，**没有**有关您，电子邮件，姓名等的任何其他信息）。这使Sentry可以对错误进行分组，并显示有多少唯一用户受此错误影响。所有这些都帮助我提供了基本不会崩溃的无错误适配器。
+当适配器崩溃或发生其他代码错误时，此错误消息（也出现在ioBroker日志中）将提交给Sentry。当您允许iobroker GmbH收集诊断数据时，还将包括您的安装ID（这是唯一的ID，**没有**有关您的任何其他信息，电子邮件，姓名等）。这使Sentry可以对错误进行分组，并显示有多少唯一用户受此错误影响。所有这些都帮助我提供了基本上不会崩溃的无错误适配器。
 
 *************************************************************************************************************************************
 
 ## Changelog
+
+### 1.0.0 (06.05.2021)
+* (simatec) GUI revised
+* (simatec) Added support for admin5
+* (simatec) code cleaned
+* (simatec) dependencies updated
+* (simatec) Github Test and Release added
+
+### 0.7.0 (27.10.2020)
+* (simatec) Changeover from request to axios for data retrieval
+* (simatec) Conversion of the code structure
+* (simatec) code cleaned
+* (simatec) dependencies updated
+
+### 0.6.4 (06.07.2020)
+* (simatec) small Bugfixes
+
+### 0.6.3 (02.07.2020)
+* (simatec) Bugfix API Request error
+
+### 0.6.2 (27.05.2020)
+* (simatec) small Bugfixes at locations settings
+
+### 0.6.1 (11.05.2020)
+* (simatec) added errorhandling for sentry.io
+* (simatec) added node 14 support
 
 ### 0.6.0 (04.05.2020)
 * (simatec) added new features
@@ -127,7 +155,7 @@ Sentry.io是一项服务，供开发人员从其应用程序中获取有关错�
 ## License
 MIT License
 
-Copyright (c) 2019 - 2020 simatec
+Copyright (c) 2019 - 2021 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

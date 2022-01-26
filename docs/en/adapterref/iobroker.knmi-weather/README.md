@@ -5,9 +5,9 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.knmi-weather.svg)](https://www.npmjs.com/package/iobroker.knmi-weather)
 ![Number of Installations (latest)](http://iobroker.live/badges/knmi-weather-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/knmi-weather-stable.svg)
-[![Dependency Status](https://img.shields.io/david/iobroker-community-adapters/ioBroker.knmi-weather.svg)](https://david-dm.org/iobroker-community-adapters/ioBroker.knmi-weather)
+[![Dependency Status](https://img.shields.io/david/DrozmotiX/ioBroker.knmi-weather.svg)](https://david-dm.org/DrozmotiX/ioBroker.knmi-weather)
 [![NPM](https://nodei.co/npm/ioBroker.knmi-weather.png?downloads=true)](https://nodei.co/npm/ioBroker.knmi-weather/)  
-![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.coronavirus-statistics/workflows/Test%20and%20Release/badge.svg)   
+![Test and Release](https://github.com/DrozmotiX/ioBroker.coronavirus-statistics/workflows/Test%20and%20Release/badge.svg)   
 
 ## KNMI-Weather data and alarms for ioBroker
 
@@ -31,13 +31,19 @@ Get your free API-Key here : http://weerlive.nl/delen.php
 ## Support me
 If you like my work, please feel free to provide a personal donation  
 (this is an personal Donate link for DutchmanNL, no relation to the ioBroker Project !)  
-[![Donate](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.knmi-weather/master/admin/button.png)](http://paypal.me/DutchmanNL)
+[![Donate](https://raw.githubusercontent.com/DrozmotiX/ioBroker.knmi-weather/master/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.0.2 (2021-08-30) - Optimize error message in case API limit is reached
+* (DutchmanNL) Optimize error message in case API limit is reached
+
+### 1.0.1 (2021-08-17)
+* (DutchmanNL) Add support for windrgr
+* (DutchmanNL) Minor fixes & dependency updates
 
 ### 1.0.0 (2020-09-15)
 * (DutchmanNL) Final version release

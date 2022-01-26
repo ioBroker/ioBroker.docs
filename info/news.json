@@ -373,34 +373,34 @@
     },
     {
         "title": {
-            "en": "Node.JS versions smaller than 10 will be soon deprecated",
-            "de": "Node.JS-Versionen, die kleiner als 10 sind, werden bald nicht mehr unterstützt",
-            "ru": "Версии Node.JS, меньшие 10, скоро будут устаревшими",
-            "pt": "Versões do Node.JS menores que 10 serão descontinuadas em breve",
-            "nl": "Node.JS-versies kleiner dan 10 worden binnenkort verouderd",
-            "fr": "Les versions de Node.JS inférieures à 10 seront bientôt obsolètes",
-            "it": "Le versioni di Node.JS inferiori a 10 saranno presto deprecate",
-            "es": "Las versiones de Node.JS más pequeñas que 10 pronto serán desaprobadas",
-            "pl": "Wersje Node.JS mniejsze niż 10 zostaną wkrótce wycofane",
-            "zh-cn": "小于8的Node.JS版本将很快被弃用"
+            "en": "Node.JS versions smaller than 12 are no longer maintained by the Node Team",
+            "de": "Node.JS-Versionen kleiner als 12 werden vom Node-Team nicht mehr gepflegt",
+            "ru": "Node.JS версии меньше 12 больше не поддерживаются командой Node.",
+            "pt": "As versões do Node.JS menores que 12 não são mais mantidas pela equipe do Node",
+            "nl": "Node.JS-versies kleiner dan 12 worden niet langer onderhouden door het Node-team",
+            "fr": "Les versions de Node.JS inférieures à 12 ne sont plus gérées par l'équipe de nœuds",
+            "it": "Le versioni di Node.JS inferiori a 12 non sono più gestite dal Node Team",
+            "es": "Las versiones de Node.JS menores a 12 ya no son mantenidas por el Node Team",
+            "pl": "Wersje Node.JS mniejsze niż 12 nie są już obsługiwane przez zespół Node",
+            "zh-cn": "小于12的Node.JS版本不再由节点团队维护"
         },
         "content": {
-            "en": "With the upcoming version 3 of the JS-controller, the support of Node.JS versions smaller than 10.x.x will be discontinued. Please update your system to a higher version. We recommend the Node.JS version 12.x.x.",
-            "de": "Mit der kommenden Version 3 des JS-Controllers wird die Unterstützung von Node.JS-Versionen kleiner als 10.x.x eingestellt. Bitte aktualisieren Sie Ihr System auf eine höhere Version. Wir empfehlen die Node.JS-Version 12.x.x.",
-            "ru": "С выходом второй версии JS-контроллера поддержка версий Node.JS, меньших 10.x.x, будет прекращена. Пожалуйста, обновите вашу систему до более поздней версии. Мы рекомендуем Node.JS версии 12.x.x.",
-            "pt": "Com a próxima versão 3 do controlador JS, o suporte às versões do Node.JS menores que 10.x.x será descontinuado. Atualize seu sistema para uma versão superior. Recomendamos a versão 12.x.x do Node.JS.",
-            "nl": "Met de komende versie 3 van de JS-controller wordt de ondersteuning van Node.JS-versies kleiner dan 10.x.x stopgezet. Werk uw systeem bij naar een hogere versie. We raden de Node.JS-versie 12.x.x aan.",
-            "fr": "Avec la prochaine version 3 du contrôleur JS, le support des versions de Node.JS inférieures à 10.x.x sera supprimé. Veuillez mettre à jour votre système avec une version supérieure. Nous recommandons la version 12.x.x de Node.JS.",
-            "it": "Con la prossima versione 3 del controller JS, il supporto delle versioni Node.JS inferiori a 10.x.x verrà sospeso. Si prega di aggiornare il sistema a una versione successiva. Consigliamo Node.JS versione 12.x.x.",
-            "es": "Con la próxima versión 3 del controlador JS, se suspenderá el soporte de las versiones Node.JS más pequeñas que 10.x.x. Actualice su sistema a una versión superior. Recomendamos el Node.JS versión 12.x.x.",
-            "pl": "W nadchodzącej wersji 3 kontrolera JS obsługa Node.JS w wersji mniejszej niż 10.x.x zostanie przerwana. Zaktualizuj system do wyższej wersji. Zalecamy wersję 12.x.x. Node.JS",
-            "zh-cn": "随着即将发布的JS-controller版本3，将不再支持小于10.x.x的Node.JS版本。请更新您的系统到更高版本。我们建议使用Node.JS版本12.x.x。"
+            "en": "Dear ioBroker user, you are using a Node.JS version that is no longer maintained by the Node team. We recommend switching to Node.JS 12.x. To be on the safe side, please make a backup of the current system beforehand. Instructions for the update can be found here: <a>https://forum.iobroker.net/topic/44566/how-to-node-js-f%C3%BCr-iobroker-richtig-updaten-2021-edition</a>",
+            "de": "Lieber ioBroker Anwender, du nutzt eine Node.JS Version, die nicht mehr vom Node-Team gepflegt wird. Wir empfehlen den Wechsel auf Node.JS 12.x. Bitte zur Sicherheit vorher ein Backup des aktuellen Systems erstellen. Eine Anleitung zum Update haben wir hier bereitgestellt: <a>https://forum.iobroker.net/topic/44566/how-to-node-js-f%C3%BCr-iobroker-richtig-updaten-2021-edition</a>",
+            "ru": "Уважаемый пользователь ioBroker, вы используете версию Node.JS, которая больше не поддерживается командой Node. Мы рекомендуем перейти на Node.JS 12.x. На всякий случай заранее сделайте резервную копию текущей системы. Инструкции по обновлению можно найти здесь: <a>https://forum.iobroker.net/topic/44566/how-to-node-js-f%C3%BCr-iobroker-richtig-updaten-2021-edition</a>",
+            "pt": "Caro usuário do ioBroker, você está usando uma versão do Node.JS que não é mais mantida pela equipe do Node. Recomendamos mudar para Node.JS 12.x. Para estar no lado seguro, faça um backup do sistema atual com antecedência. As instruções para a atualização podem ser encontradas aqui: <a>https://forum.iobroker.net/topic/44566/how-to-node-js-f%C3%BCr-iobroker-richtig-updaten-2021-edition</a>",
+            "nl": "Beste ioBroker-gebruiker, u gebruikt een Node.JS-versie die niet langer wordt onderhouden door het Node-team. We raden aan om over te schakelen naar Node.JS 12.x. Maak voor de zekerheid vooraf een back-up van het huidige systeem. Instructies voor de update zijn hier te vinden: <a>https://forum.iobroker.net/topic/44566/how-to-node-js-f%C3%BCr-iobroker-richtig-updaten-2021-edition</a>",
+            "fr": "Cher utilisateur ioBroker, vous utilisez une version Node.JS qui n'est plus maintenue par l'équipe Node. Nous vous recommandons de passer à Node.JS 12.x. Par mesure de sécurité, veuillez effectuer au préalable une sauvegarde du système actuel. Les instructions pour la mise à jour sont disponibles ici: <a>https://forum.iobroker.net/topic/44566/how-to-node-js-f%C3%BCr-iobroker-richtig-updaten-2021-edition</a>",
+            "it": "Gentile utente di ioBroker, stai utilizzando una versione di Node.JS che non è più gestita dal team di Node. Consigliamo di passare a Node.JS 12.x. Per essere sicuri, eseguire prima un backup del sistema corrente. Le istruzioni per l'aggiornamento sono disponibili qui: <a>https://forum.iobroker.net/topic/44566/how-to-node-js-f%C3%BCr-iobroker-richtig-updaten-2021-edition</a>",
+            "es": "Estimado usuario de ioBroker, está utilizando una versión de Node.JS que ya no es mantenida por el equipo de Node. Recomendamos cambiar a Node.JS 12.x. Para estar seguro, haga una copia de seguridad del sistema actual de antemano. Las instrucciones para la actualización se pueden encontrar aquí: <a>https://forum.iobroker.net/topic/44566/how-to-node-js-f%C3%BCr-iobroker-richtig-updaten-2021-edition</a>",
+            "pl": "Drogi użytkowniku ioBroker, używasz wersji Node.JS, która nie jest już obsługiwana przez zespół Node. Zalecamy przejście na Node.JS 12.x. Ze względów bezpieczeństwa należy wcześniej wykonać kopię zapasową obecnego systemu. Instrukcje dotyczące aktualizacji można znaleźć tutaj: <a>https://forum.iobroker.net/topic/44566/how-to-node-js-f%C3%BCr-iobroker-richtig-updaten-2021-edition</a>",
+            "zh-cn": "尊敬的ioBroker用户，您使用的Node.JS版本不再由Node团队维护。我们建议切换到Node.JS12.x。为了安全起见，请事先备份当前系统。可以在以下位置找到更新说明：<a>https://forum.iobroker.net/topic/44566/how-to-node-js-f%C3%BCr-iobroker-richtig-updaten-2021-edition</a>"
         },
         "id": "js-controller",
-        "node-version": "smaller(10.0.0)",
+        "node-version": "smaller(12.0.0)",
         "class": "info",
         "fa-icon": "ban",
-        "created": "2020-05-29T19:00:00.000Z",
+        "created": "2021-04-27T19:00:00.000Z",
         "conditions": {
             "admin": "bigger(3.6.10)"
         }
@@ -685,58 +685,649 @@
             "zh-cn": "js-controller 3.2.16可用"
         },
         "content": {
-            "en": "After intensive testing the new js-controller 3.2.16 is available now in the Beta repository. No issues are known at the moment. With this it is time to also try the new version and report back issues in Forum!",
-            "de": "Nach intensiven Tests ist der neue js-controller 3.2.16 jetzt im Beta-Repository verfügbar. Derzeit sind keine Probleme bekannt. Damit ist es Zeit, auch die neue Version auszuprobieren und Probleme im Forum zu melden!",
-            "ru": "После интенсивного тестирования новый js-контроллер 3.2.16 теперь доступен в бета-репозитории. На данный момент о проблемах не известно. Пришло время попробовать новую версию и сообщить о проблемах на форуме!",
-            "pt": "Após testes intensivos, o novo js-controller 3.2.16 está disponível agora no repositório Beta. Nenhum problema é conhecido no momento. Com isso, é hora de também experimentar a nova versão e relatar problemas no fórum!",
-            "nl": "Na intensief testen is de nieuwe js-controller 3.2.16 nu beschikbaar in de Beta-repository. Op dit moment zijn er geen problemen bekend. Hiermee is het tijd om ook de nieuwe versie te proberen en problemen terug te melden in Forum!",
-            "fr": "Après des tests intensifs, le nouveau js-controller 3.2.16 est maintenant disponible dans le référentiel Beta. Aucun problème n'est connu pour le moment. Avec cela, il est temps d'essayer également la nouvelle version et de signaler les problèmes dans le forum!",
-            "it": "Dopo un intenso test, il nuovo js-controller 3.2.16 è ora disponibile nel repository Beta. Al momento non sono noti problemi. Con questo è ora di provare anche la nuova versione e segnalare i problemi arretrati nel Forum!",
-            "es": "Después de pruebas intensivas, el nuevo js-controller 3.2.16 ya está disponible en el repositorio Beta. No se conocen problemas por el momento. Con esto, es hora de probar también la nueva versión e informar problemas anteriores en el Foro.",
-            "pl": "Po intensywnych testach nowy js-controller 3.2.16 jest już dostępny w repozytorium Beta. W tej chwili nie są znane żadne problemy. W związku z tym nadszedł czas, aby wypróbować nową wersję i zgłaszać problemy na forum!",
-            "zh-cn": "经过大量测试后，新的js-controller 3.2.16现在可以在Beta存储库中使用。目前尚无问题。有了这个，现在该尝试新版本并在论坛中报告问题了！"
+            "en": "After intensive testing the new js-controller 3.2.16 is available now in the stable repository. No issues are known at the moment. More information on the changes and instructions can be found in forum at https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable",
+            "de": "Nach intensiven Tests ist der neue js-controller 3.2.16 jetzt im stabilen Repository verfügbar. Derzeit sind keine Probleme bekannt. Weitere Informationen zu den Änderungen und Anweisungen finden Sie im Forum unter https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable",
+            "ru": "После интенсивного тестирования новый js-контроллер 3.2.16 теперь доступен в стабильном репозитории. На данный момент о проблемах не известно. Более подробную информацию об изменениях и инструкции можно найти на форуме по адресу https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable",
+            "pt": "Após testes intensivos, o novo js-controller 3.2.16 está disponível agora no repositório estável. Nenhum problema é conhecido no momento. Mais informações sobre as mudanças e instruções podem ser encontradas no fórum em https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable",
+            "nl": "Na intensief testen is de nieuwe js-controller 3.2.16 nu beschikbaar in de stabiele repository. Momenteel zijn er geen problemen bekend. Meer informatie over de wijzigingen en instructies is te vinden op het forum op https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable",
+            "fr": "Après des tests intensifs, le nouveau js-controller 3.2.16 est maintenant disponible dans le référentiel stable. Aucun problème n'est connu pour le moment. Plus d'informations sur les changements et les instructions peuvent être trouvées dans le forum à https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable",
+            "it": "Dopo test intensivi, il nuovo js-controller 3.2.16 è ora disponibile nel repository stabile. Al momento non sono noti problemi. Maggiori informazioni sulle modifiche e le istruzioni possono essere trovate nel forum su https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable",
+            "es": "Después de pruebas intensivas, el nuevo js-controller 3.2.16 ya está disponible en el repositorio estable. No se conocen problemas por el momento. Puede encontrar más información sobre los cambios y las instrucciones en el foro en https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable",
+            "pl": "Po intensywnych testach nowy js-controller 3.2.16 jest już dostępny w stabilnym repozytorium. W tej chwili nie są znane żadne problemy. Więcej informacji o zmianach i instrukcje można znaleźć na forum pod adresem https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable",
+            "zh-cn": "经过大量测试后，新的js-controller 3.2.16现在可以在稳定的存储库中使用。目前尚无问题。有关更改和说明的更多信息，请访问论坛，网址为https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable 。"
         },
-        "id": "jscontroller32infoall",
-        "created": "2021-02-09T07:00:00.000Z",
+        "id": "jscontroller3216infoall",
+        "created": "2021-02-18T21:45:00.000Z",
         "class": "info",
         "fa-icon": "exclamation-circle",
-        "repo": "latest",
         "conditions": {
-            "js-controller": "smaller(3.2.0)"
+            "js-controller": "smaller(3.2.16)"
         }
     },
     {
         "title": {
-            "en": "js-controller 3.2.16 is available. Please update!",
-            "de": "js-controller 3.2.16 ist verfügbar. Bitte aktualisieren!",
-            "ru": "js-controller 3.2.16 доступен. Пожалуйста обновите!",
-            "pt": "js-controller 3.2.16 está disponível. Por favor atualize!",
-            "nl": "js-controller 3.2.16 is beschikbaar. Update alstublieft!",
-            "fr": "js-controller 3.2.16 est disponible. Veuillez mettre à jour!",
-            "it": "js-controller 3.2.16 è disponibile. Per favore aggiornare!",
-            "es": "js-controller 3.2.16 está disponible. ¡Por favor actualice!",
-            "pl": "js-controller 3.2.16 jest dostępny. Proszę zaktualizować!",
-            "zh-cn": "js-controller 3.2.16可用。请更新！"
+            "en": "Attention: MercedeMe Adapter needs urgent update",
+            "de": "Achtung: Der MercedeMe-Adapter muss dringend aktualisiert werden",
+            "ru": "Внимание: необходимо срочно обновить адаптер MercedeMe",
+            "pt": "Atenção: Adaptador MercedeMe precisa de atualização urgente",
+            "nl": "Let op: MercedeMe Adapter heeft dringend update nodig",
+            "fr": "Attention: l'adaptateur MercedeMe nécessite une mise à jour urgente",
+            "it": "Attenzione: l'adattatore MercedeMe necessita di un aggiornamento urgente",
+            "es": "Atención: el adaptador MercedeMe necesita una actualización urgente",
+            "pl": "Uwaga: adapter MercedeMe wymaga pilnej aktualizacji",
+            "zh-cn": "注意：MercedeMe适配器需要紧急更新"
         },
         "content": {
-            "en": "After intensive testing the new js-controller 3.2.16 is available now in the Beta repository. No issues are known at the moment. Weencourage you to update to the latest 3.2 version and report back issues in Forum!",
-            "de": "Nach intensiven Tests ist der neue js-controller 3.2.16 jetzt im Beta-Repository verfügbar. Derzeit sind keine Probleme bekannt. Wir empfehlen Ihnen, auf die neueste Version 3.2 zu aktualisieren und frühere Probleme im Forum zu melden!",
-            "ru": "После интенсивного тестирования новый js-контроллер 3.2.16 теперь доступен в бета-репозитории. На данный момент о проблемах не известно. Мы советуем вам обновиться до последней версии 3.2 и сообщать о проблемах на форуме!",
-            "pt": "Após testes intensivos, o novo js-controller 3.2.16 está disponível agora no repositório Beta. Nenhum problema é conhecido no momento. Nós o encorajamos a atualizar para a versão 3.2 mais recente e relatar problemas no fórum!",
-            "nl": "Na intensief testen is de nieuwe js-controller 3.2.16 nu beschikbaar in de Beta-repository. Op dit moment zijn er geen problemen bekend. We moedigen u aan om bij te werken naar de nieuwste 3.2-versie en problemen terug te melden in Forum!",
-            "fr": "Après des tests intensifs, le nouveau js-controller 3.2.16 est maintenant disponible dans le référentiel Beta. Aucun problème n'est connu pour le moment. Nous vous encourageons à mettre à jour vers la dernière version 3.2 et à signaler les problèmes dans Forum!",
-            "it": "Dopo un intenso test, il nuovo js-controller 3.2.16 è ora disponibile nel repository Beta. Al momento non sono noti problemi. Ti invitiamo ad aggiornare alla versione 3.2 più recente e a segnalare i problemi arretrati nel Forum!",
-            "es": "Después de pruebas intensivas, el nuevo js-controller 3.2.16 ya está disponible en el repositorio Beta. No se conocen problemas por el momento. ¡Le recomendamos que actualice a la última versión 3.2 e informe los problemas anteriores en el Foro!",
-            "pl": "Po intensywnych testach nowy js-controller 3.2.16 jest już dostępny w repozytorium Beta. W tej chwili nie są znane żadne problemy. Zachęcamy do aktualizacji do najnowszej wersji 3.2 i zgłaszania problemów na forum!",
-            "zh-cn": "经过大量测试后，新的js-controller 3.2.16现在可以在Beta存储库中使用。目前尚无问题。我们鼓励您更新到最新的3.2版本并在论坛中报告问题！"
+            "en": "Because of a change in the mercedesMe protocol the adapter needs to be updated.",
+            "de": "Aufgrund einer Änderung des mercedesMe-Protokolls muss der Adapter aktualisiert werden.",
+            "ru": "Из-за изменения протокола mercedesMe адаптер необходимо обновить.",
+            "pt": "Devido a uma mudança no protocolo mercedesMe, o adaptador precisa ser atualizado.",
+            "nl": "Vanwege een wijziging in het mercedesMe-protocol moet de adapter worden bijgewerkt.",
+            "fr": "En raison d'un changement dans le protocole mercedesMe, l'adaptateur doit être mis à jour.",
+            "it": "A causa di una modifica nel protocollo mercedesMe, l'adattatore deve essere aggiornato.",
+            "es": "Debido a un cambio en el protocolo mercedesMe, el adaptador debe actualizarse.",
+            "pl": "Ze względu na zmianę protokołu mercedesMe adapter wymaga aktualizacji.",
+            "zh-cn": "由于mercedesMe协议的更改，因此需要更新适配器。"
         },
-        "id": "jscontroller32info32",
-        "created": "2021-02-09T07:00:00.000Z",
+        "id": "mercedesme",
+        "created": "2021-02-17T22:00:00.000Z",
+        "class": "danger",
+        "fa-icon": "bolt",
+        "conditions": {
+            "mercedesme": "smaller(0.0.45)"
+        }
+    },
+    {
+        "title": {
+            "en": "The legacy Z-Wave adapter is deprecated",
+            "de": "Der originale Z-Wave-Adapter ist veraltet",
+            "ru": "Устаревший адаптер Z-Wave устарел",
+            "pt": "O adaptador Z-Wave legado está obsoleto",
+            "nl": "Legacy Z-Wave-adapter is verouderd",
+            "fr": "L'adaptateur Z-Wave hérité est obsolète",
+            "it": "L'adattatore Z-Wave legacy è obsoleto",
+            "es": "El adaptador heredado Z-Wave está en desuso",
+            "pl": "Starsza karta Z-Wave jest przestarzała",
+            "zh-cn": "旧版Z-Wave适配器已弃用"
+        },
+        "content": {
+            "en": "The legacy Z-Wave adapter (ioBroker.zwave) is deprecated. The main developer of OpenZWave has announced that he'll focus on other things from now on. As a result, OpenZWave and this adapter won't get any updates going forward.\n\nYou should use ioBroker.zwave2 instead.\n\nIf you are going to switch, be aware that the state IDs will change. It is recommended that you use the ioBroker alias function instead of the adapter's IDs in scripts and visualizations so you can change them all in one place instead of having to edit many things.",
+            "de": "Der originale Z-Wave-Adapter (ioBroker.zwave) ist veraltet. Der Hauptentwickler von OpenZWave hat angekündigt, dass er sich von nun an auf andere Dinge konzentrieren wird. Infolgedessen werden OpenZWave und dieser Adapter in Zukunft keine Updates erhalten.\n\nSie sollten stattdessen ioBroker.zwave2 verwenden.\n\nWenn Sie wechseln möchten, beachten Sie, dass sich die Status-IDs ändern. Es wird empfohlen, die ioBroker-Aliasfunktion anstelle die IDs der Adapter in Skripten und Visualisierungen zu verwenden, damit sie alle an einem Ort verändert werden können.",
+            "ru": "Устаревший адаптер Z-Wave (ioBroker.zwave) устарел. Главный разработчик OpenZWave объявил, что с этого момента он сосредоточится на других вещах. В результате OpenZWave и этот адаптер не получат никаких обновлений в будущем.\n\nВместо этого вам следует использовать ioBroker.zwave2.\n\nЕсли вы собираетесь переключиться, имейте в виду, что идентификаторы состояний изменятся. Рекомендуется использовать функцию псевдонима ioBroker вместо идентификаторов адаптера в сценариях и визуализациях, чтобы вы могли изменить их все в одном месте, вместо того, чтобы редактировать множество вещей.",
+            "pt": "O adaptador Z-Wave herdado (ioBroker.zwave) está obsoleto. O principal desenvolvedor do OpenZWave anunciou que se concentrará em outras coisas a partir de agora. Como resultado, o OpenZWave e este adaptador não receberão nenhuma atualização daqui para frente.\n\nVocê deve usar ioBroker.zwave2 em vez disso.\n\nSe você for trocar, esteja ciente de que os IDs de estado serão alterados. É recomendável usar a função de alias ioBroker em vez dos IDs do adaptador em scripts e visualizações, para que você possa alterá-los todos em um só lugar, em vez de ter que editar muitas coisas.",
+            "nl": "De oude Z-Wave-adapter (ioBroker.zwave) is verouderd. De hoofdontwikkelaar van OpenZWave heeft aangekondigd dat hij zich vanaf nu op andere dingen zal concentreren. Als gevolg hiervan krijgen OpenZWave en deze adapter in de toekomst geen updates.\n\nU moet in plaats daarvan ioBroker.zwave2 gebruiken.\n\nAls u gaat overschakelen, houd er dan rekening mee dat de status-ID's zullen veranderen. Het wordt aanbevolen dat u de ioBroker-aliasfunctie gebruikt in plaats van de adapter-ID's in scripts en visualisaties, zodat u ze allemaal op één plaats kunt wijzigen in plaats van veel dingen te moeten bewerken.",
+            "fr": "L'adaptateur Z-Wave hérité (ioBroker.zwave) est obsolète. Le développeur principal d'OpenZWave a annoncé qu'il se concentrerait désormais sur d'autres choses. En conséquence, OpenZWave et cet adaptateur ne recevront aucune mise à jour.\n\nVous devez utiliser ioBroker.zwave2 à la place.\n\nSi vous allez changer, sachez que les identifiants d'état changeront. Il est recommandé d'utiliser la fonction d'alias ioBroker au lieu des ID de l'adaptateur dans les scripts et les visualisations afin de pouvoir tous les modifier au même endroit au lieu d'avoir à modifier beaucoup de choses.",
+            "it": "L'adattatore Z-Wave legacy (ioBroker.zwave) è deprecato. Lo sviluppatore principale di OpenZWave ha annunciato che d'ora in poi si concentrerà su altre cose. Di conseguenza, OpenZWave e questo adattatore non riceveranno alcun aggiornamento in futuro.\n\nDovresti invece usare ioBroker.zwave2.\n\nSe hai intenzione di cambiare, tieni presente che gli ID di stato cambieranno. Si consiglia di utilizzare la funzione alias ioBroker invece degli ID dell'adattatore negli script e nelle visualizzazioni in modo da poterli modificare tutti in un unico posto invece di dover modificare molte cose.",
+            "es": "El adaptador Z-Wave heredado (ioBroker.zwave) está en desuso. El desarrollador principal de OpenZWave ha anunciado que se centrará en otras cosas a partir de ahora. Como resultado, OpenZWave y este adaptador no recibirán actualizaciones en el futuro.\n\nEn su lugar, debería utilizar ioBroker.zwave2.\n\nSi va a cambiar, tenga en cuenta que los ID de estado cambiarán. Se recomienda que utilice la función de alias de ioBroker en lugar de los ID del adaptador en los scripts y visualizaciones para que pueda cambiarlos todos en un solo lugar en lugar de tener que editar muchas cosas.",
+            "pl": "Starsza karta Z-Wave (ioBroker.zwave) jest przestarzała. Główny programista OpenZWave ogłosił, że od teraz skupi się na innych rzeczach. W rezultacie OpenZWave i ten adapter nie będą otrzymywać żadnych aktualizacji.\n\nZamiast tego powinieneś użyć ioBroker.zwave2.\n\nJeśli zamierzasz się przełączyć, pamiętaj, że identyfikatory stanów ulegną zmianie. Zaleca się używanie funkcji aliasu ioBroker zamiast identyfikatorów adaptera w skryptach i wizualizacjach, aby można było je wszystkie zmienić w jednym miejscu, zamiast edytować wiele rzeczy.",
+            "zh-cn": "不推荐使用旧版Z-Wave适配器（ioBroker.zwave）。 OpenZWave的主要开发人员宣布，从现在开始，他将专注于其他方面。结果，OpenZWave和此适配器将无法获得任何更新。\n\n您应该改用ioBroker.zwave2。\n\n如果要切换，请注意状态ID会更改。建议您在脚本和可视化文件中使用ioBroker别名功能代替适配器的ID，以便可以在一处更改它们，而不必进行许多编辑。"
+        },
+        "id": "zwave-deprecated",
+        "class": "info",
+        "fa-icon": "hourglass-end",
+        "created": "2021-03-12T01:00:00.000Z",
+        "conditions": {
+            "zwave": "installed",
+            "zwave2": "!installed"
+        }
+    },
+    {
+        "title": {
+            "en": "Please remove ioBroker Forum entry from radar2 monitoring configuration.",
+            "de": "Bitte entfernen Sie den Eintrag ioBroker-Forum aus der Radar2-Überwachungskonfiguration.",
+            "ru": "Удалите запись на форуме ioBroker из конфигурации мониторинга radar2.",
+            "pt": "Remova a entrada do fórum ioBroker da configuração de monitoramento do radar2.",
+            "nl": "Verwijder het ioBroker Forum-item uit de radar2-bewakingsconfiguratie.",
+            "fr": "Veuillez supprimer l'entrée du forum ioBroker de la configuration de surveillance radar2.",
+            "it": "Rimuovere la voce del forum ioBroker dalla configurazione del monitoraggio radar2.",
+            "es": "Elimine la entrada del Foro ioBroker de la configuración de monitoreo de radar2.",
+            "pl": "Usuń wpis na forum ioBroker z konfiguracji monitorowania radar2.",
+            "zh-cn": "请从radar2监视配置中删除ioBroker论坛条目。"
+        },
+        "content": {
+            "en": "The radar2 adapter contains a default entry that monitors the ioBroker Forum. Please remove this entry (called \"Forum\" and points to forum.iobroker.net) from your adapter configuration, because this generates a huge unneeded traffic on the forum.",
+            "de": "Der Radar2-Adapter enthält einen Standardeintrag, der das ioBroker-Forum überwacht. Bitte entfernen Sie diesen Eintrag (\"Forum\" genannt und verweist auf forum.iobroker.net) aus Ihrer Adapterkonfiguration, da dies einen großen, nicht benötigten Datenverkehr im Forum erzeugt.",
+            "ru": "Адаптер radar2 содержит запись по умолчанию, которая отслеживает форум ioBroker. Пожалуйста, удалите эту запись (которая называется «Форум» и указывает на forum.iobroker.net) из конфигурации вашего адаптера, потому что это создает огромный ненужный трафик на форуме.",
+            "pt": "O adaptador radar2 contém uma entrada padrão que monitora o fórum ioBroker. Remova esta entrada (chamada \"Fórum\" e aponta para forum.iobroker.net) da configuração do adaptador, porque isso gera um enorme tráfego desnecessário no fórum.",
+            "nl": "De radar2-adapter bevat een standaarditem dat het ioBroker-forum bewaakt. Verwijder dit item (genaamd \"Forum\" en verwijst naar forum.iobroker.net) uit uw adapterconfiguratie, omdat dit een enorm onnodig verkeer op het forum genereert.",
+            "fr": "L'adaptateur radar2 contient une entrée par défaut qui surveille le forum ioBroker. Veuillez supprimer cette entrée (appelée \"Forum\" et pointe vers forum.iobroker.net) de la configuration de votre adaptateur, car cela génère un énorme trafic inutile sur le forum.",
+            "it": "L'adattatore radar2 contiene una voce predefinita che controlla il forum ioBroker. Per favore rimuovi questa voce (chiamata \"Forum\" e punta a forum.iobroker.net) dalla configurazione dell'adattatore, perché questo genera un enorme traffico non necessario sul forum.",
+            "es": "El adaptador radar2 contiene una entrada predeterminada que supervisa el ioBroker Forum. Elimine esta entrada (llamada \"Foro\" y apunta a forum.iobroker.net) de la configuración de su adaptador, ya que esto genera un enorme tráfico innecesario en el foro.",
+            "pl": "Adapter radar2 zawiera domyślny wpis, który monitoruje forum ioBroker. Usuń ten wpis (zwany „Forum” i wskazuje na forum.iobroker.net) z konfiguracji twojego adaptera, ponieważ generuje to ogromny niepotrzebny ruch na forum.",
+            "zh-cn": "Radar2适配器包含一个监视ioBroker论坛的默认条目。请从您的适配器配置中删除此条目（称为“论坛”，并指向forum.iobroker.net），因为这会在论坛上产生大量不必要的流量。"
+        },
+        "id": "radar2-forum",
+        "class": "info",
+        "fa-icon": "bolt",
+        "created": "2021-03-19T08:00:00.000Z",
+        "conditions": {
+            "radar2": "installed"
+        }
+    },
+    {
+        "title": {
+            "en": "BackItUp Adapter is the recommended backup solution",
+            "de": "BackItUp Adapter ist die empfohlene Backup-Lösung",
+            "ru": "BackItUp Adapter - рекомендуемое решение для резервного копирования.",
+            "pt": "O Adaptador BackItUp é a solução de backup recomendada",
+            "nl": "BackItUp Adapter is de aanbevolen back-upoplossing",
+            "fr": "L'adaptateur BackItUp est la solution de sauvegarde recommandée",
+            "it": "BackItUp Adapter è la soluzione di backup consigliata",
+            "es": "BackItUp Adapter es la solución de respaldo recomendada",
+            "pl": "BackItUp Adapter jest zalecanym rozwiązaniem do tworzenia kopii zapasowych",
+            "zh-cn": "BackItUp Adapter是推荐的备份解决方案"
+        },
+        "content": {
+            "en": "Backups are a very decisive factor in SmartHome systems so that no settings or data are lost in the event of problems. We recommend everyone who is not currently using Backitup to install and set up the adapter to secure their iobroker data.",
+            "de": "Backups sind ein sehr entscheidender Faktor in SmartHome-Systemen, damit bei Problemen keine Einstellungen oder Daten verloren gehen. Wir empfehlen allen, die derzeit kein Backitup verwenden, den Adapter zu installieren und einzurichten, um ihre iobroker-Daten zu sichern.",
+            "ru": "Резервное копирование является очень решающим фактором в системах SmartHome, поэтому никакие настройки или данные не будут потеряны в случае возникновения проблем. Мы рекомендуем всем, кто в настоящее время не использует Backitup, установить и настроить адаптер для защиты своих данных iobroker.",
+            "pt": "Os backups são um fator muito decisivo em sistemas SmartHome para que nenhuma configuração ou dados sejam perdidos em caso de problemas. Recomendamos a todos que não estão usando o Backitup no momento, que instalem e configurem o adaptador para proteger seus dados iobroker.",
+            "nl": "Back-ups zijn een zeer doorslaggevende factor in SmartHome-systemen zodat bij problemen geen instellingen of gegevens verloren gaan. We raden iedereen die momenteel geen gebruik maakt van Backitup aan om de adapter te installeren en in te stellen om hun iobroker-gegevens te beveiligen.",
+            "fr": "Les sauvegardes sont un facteur très décisif dans les systèmes SmartHome afin qu'aucun paramètre ou donnée ne soit perdu en cas de problème. Nous recommandons à tous ceux qui n'utilisent pas actuellement Backitup d'installer et de configurer l'adaptateur pour sécuriser leurs données iobroker.",
+            "it": "I backup sono un fattore molto decisivo nei sistemi SmartHome in modo che nessuna impostazione o dato venga perso in caso di problemi. Consigliamo a tutti coloro che non stanno attualmente utilizzando Backitup di installare e configurare l'adattatore per proteggere i propri dati iobroker.",
+            "es": "Las copias de seguridad son un factor muy decisivo en los sistemas SmartHome para que no se pierdan configuraciones ni datos en caso de problemas. Recomendamos a todos los que no estén usando Backitup actualmente que instalen y configuren el adaptador para proteger sus datos de iobroker.",
+            "pl": "Kopie zapasowe są bardzo decydującym czynnikiem w systemach SmartHome, dzięki czemu żadne ustawienia ani dane nie zostaną utracone w przypadku problemów. Wszystkim, którzy obecnie nie używają programu Backitup, zalecamy zainstalowanie i skonfigurowanie adaptera w celu zabezpieczenia danych programu iobroker.",
+            "zh-cn": "备份是SmartHome系统中非常重要的因素，因此在出现问题时不会丢失任何设置或数据。我们建议所有当前不使用Backitup的人来安装和设置适配器以保护其iobroker数据。"
+        },
+        "id": "backitupAdapter",
         "class": "info",
         "fa-icon": "exclamation-circle",
-        "repo": "latest",
+        "created": "2021-04-08T00:00:00.000Z",
         "conditions": {
-            "js-controller": "between(3.2.0,3.2.15)"
+            "backitup": "!installed"
+        }
+    },
+    {
+        "title": {
+            "en": "Get ready for v2.0.0 of Z-Wave 2: Use aliases!",
+            "de": "Vorbereitung auf v2.0.0 von Z-Wave 2: Alias-Funktion verwenden!",
+            "ru": "Будьте готовы к v2.0.0 Z-Wave 2: используйте псевдонимы!",
+            "pt": "Prepare-se para a v2.0.0 do Z-Wave 2: Use apelidos!",
+            "nl": "Maak je klaar voor v2.0.0 van Z-Wave 2: gebruik aliassen!",
+            "fr": "Préparez-vous pour la v2.0.0 de Z-Wave 2: utilisez des alias!",
+            "it": "Preparati per la v2.0.0 di Z-Wave 2: usa gli alias!",
+            "es": "Prepárese para la v2.0.0 de Z-Wave 2: ¡use alias!",
+            "pl": "Przygotuj się na wersję 2.0.0 Z-Wave 2: używaj aliasów!",
+            "zh-cn": "准备好使用Z-Wave 2的v2.0.0：使用别名！"
+        },
+        "content": {
+            "en": "Version 2.0.0 of the Z-Wave 2 adapter will be released in the near future. \n\nThis version is going to include a change which necessary to accomodate the many devices that misuse endpoints. Unfortunately, the state IDs of those devices will change.\n\nPrepare now and use ioBroker's alias function instead of referencing state IDs directly in scripts and visualiations. This means you will be able to change all IDs in one central location once v2.0.0 is released.",
+            "de": "Die Version 2.0.0 des Z-Wave 2-Adapters wird in naher Zukunft veröffentlicht.\n\nDiese Version wird eine Änderung enthalten, die erforderlich ist, um den vielen Geräte gerecht zu werden, die Endpunkte inkorrekt implementieren. Leider werden sich dadurch die Datenpunkt-IDs dieser Geräte ändern.\n\nUm sich jetzt schon vorzubereiten, bitte die Alias-Funktion von ioBroker nutzen, anstatt die IDs direkt in Skripten und Visualisierungen zu referenzieren. Mit der Alias-Funktion können alle IDs an einem zentralen Ort aktualisiert werden, sobald Version 2.0 veröffentlicht ist.",
+            "ru": "Версия 2.0.0 адаптера Z-Wave 2 будет выпущена в ближайшее время.\n\nЭта версия будет включать изменение, необходимое для поддержки многих устройств, которые неправильно используют конечные точки. К сожалению, идентификаторы состояния этих устройств изменятся.\n\nПодготовьтесь и используйте функцию псевдонима ioBroker вместо ссылки на идентификаторы состояния непосредственно в сценариях и визуализациях. Это означает, что вы сможете изменить все идентификаторы в одном центральном месте после выпуска версии 2.0.0.",
+            "pt": "A versão 2.0.0 do adaptador Z-Wave 2 será lançada em um futuro próximo.\n\nEsta versão irá incluir uma alteração necessária para acomodar os muitos dispositivos que usam mal os terminais. Infelizmente, os IDs de estado desses dispositivos mudarão.\n\nPrepare-se agora e use a função de alias do ioBroker em vez de fazer referência aos IDs de estado diretamente em scripts e visualizações. Isso significa que você poderá alterar todos os IDs em um local central assim que a v2.0.0 for lançada.",
+            "nl": "Versie 2.0.0 van de Z-Wave 2-adapter zal in de nabije toekomst worden uitgebracht.\n\nDeze versie zal een wijziging bevatten die nodig is om tegemoet te komen aan de vele apparaten die eindpunten misbruiken. Helaas zullen de status-ID's van die apparaten veranderen.\n\n Bereid je nu voor en gebruik de aliasfunctie van ioBroker in plaats van rechtstreeks naar status-ID's te verwijzen in scripts en visualisaties. Dit betekent dat u alle ID's op één centrale locatie kunt wijzigen zodra v2.0.0 is uitgebracht.",
+            "fr": "La version 2.0.0 de l'adaptateur Z-Wave 2 sortira prochainement.\n\nCette version va inclure un changement nécessaire pour prendre en charge les nombreux périphériques qui abusent des terminaux. Malheureusement, les identifiants d'état de ces périphériques changeront.\n\nPréparez-vous maintenant et utilisez la fonction d'alias d'ioBroker au lieu de référencer directement les identifiants d'état dans les scripts et les visualisations. Cela signifie que vous pourrez modifier tous les identifiants dans un emplacement central une fois la version 2.0.0 publiée.",
+            "it": "La versione 2.0.0 dell'adattatore Z-Wave 2 verrà rilasciata nel prossimo futuro.\n\nQuesta versione includerà una modifica necessaria per accogliere i molti dispositivi che utilizzano in modo improprio gli endpoint. Sfortunatamente, gli ID di stato di questi dispositivi cambieranno.\n\nPreparare ora e utilizzare la funzione alias di ioBroker invece di fare riferimento agli ID di stato direttamente negli script e nelle visualizzazioni. Ciò significa che sarai in grado di modificare tutti gli ID in un'unica posizione centrale una volta rilasciata la v2.0.0.",
+            "es": "La versión 2.0.0 del adaptador Z-Wave 2 se lanzará próximamente.\n\nEsta versión incluirá un cambio que es necesario para adaptarse a los muchos dispositivos que hacen un mal uso de los terminales. Desafortunadamente, las ID de estado de esos dispositivos cambiarán.\n\nPrepárese ahora y use la función de alias de ioBroker en lugar de hacer referencia a las ID de estado directamente en scripts y visualizaciones. Esto significa que podrá cambiar todas las ID en una ubicación central una vez que se publique v2.0.0.",
+            "pl": "Wersja 2.0.0 adaptera Z-Wave 2 zostanie wydana w najbliższej przyszłości.\n\nTa wersja będzie zawierała zmianę niezbędną do dostosowania się do wielu urządzeń, które niewłaściwie używają punktów końcowych. Niestety, identyfikatory stanu tych urządzeń ulegną zmianie.\n\nPrzygotuj się teraz i użyj funkcji aliasu ioBroker zamiast odwoływać się do identyfikatorów stanu bezpośrednio w skryptach i wizualizacjach. Oznacza to, że po wydaniu wersji 2.0.0 będzie można zmienić wszystkie identyfikatory w jednym centralnym miejscu.",
+            "zh-cn": "Z-Wave 2适配器的2.0.0版将在不久的将来发布。\n\n此版本将包含一项更改，以适应许多滥用端点的设备。不幸的是，这些设备的状态ID将会更改。\n \n立即准备使用ioBroker的别名功能，而不是直接在脚本和可视化视图中引用状态ID。这意味着一旦发布v2.0.0，您就可以在一个中央位置更改所有ID。"
+        },
+        "id": "zwave2-v2-alias",
+        "class": "info",
+        "fa-icon": "wrench",
+        "created": "2021-04-29T01:00:00.000Z",
+        "conditions": {
+            "zwave2": "smaller(2.0.0)"
+        }
+    },
+    {
+        "title": {
+            "en": "WARNING: \"Device-Reminder\" update : Special procedure after update to versions as of 1.2.x",
+            "de": "WARNUNG: \"Device-Reminder\" -Update: Spezielles Vorgehen nach dem Update auf Versionen ab 1.2.x. nötig",
+            "ru": "ВНИМАНИЕ: Обновление \"Device-Reminder\": особая процедура после обновления до версий, начиная с 1.2.x",
+            "pt": "AVISO: Atualização \"Device-Reminder\": procedimento especial após a atualização para versões a partir de 1.2.x",
+            "nl": "WAARSCHUWING: \"Device-Reminder\" update: Speciale procedure na update naar versies vanaf 1.2.x",
+            "fr": "AVERTISSEMENT: mise à jour \"Device-Reminder\": procédure spéciale après mise à jour vers les versions à partir de 1.2.x",
+            "it": "ATTENZIONE: aggiornamento \"Device-Reminder\": procedura speciale dopo l'aggiornamento alle versioni a partire dalla 1.2.x",
+            "es": "ADVERTENCIA: Actualización \"Device-Reminder\": procedimiento especial después de la actualización a versiones a partir de 1.2.x",
+            "pl": "OSTRZEŻENIE: Aktualizacja „Przypomnienia o urządzeniu”: specjalna procedura po aktualizacji do wersji od 1.2.x.",
+            "zh-cn": "警告：“设备提醒”更新：更新到1.2.x以上的版本后的特殊步骤"
+        },
+        "content": {
+            "en": "When updating to version 1.2.x it is mandatory to open the instance setting and click on \"Save and close\"! Everything else is in the popup in the device-reminder instance UI",
+            "de": "Beim Update auf Version 1.2.x müssen Sie unbedingt die Instanzeinstellung öffnen und auf \"Speichern und schließen\" klicken! Alles weitere steht im Popup in der Benutzeroberfläche der device-reminder-Instanz",
+            "ru": "При обновлении до версии 1.2.x обязательно открыть настройки экземпляра и нажать «Сохранить и закрыть»! Все остальное находится во всплывающем окне пользовательского интерфейса экземпляра устройства-напоминания.",
+            "pt": "Ao atualizar para a versão 1.2.x é obrigatório abrir a configuração da instância e clicar em \"Salvar e fechar\"! Todo o resto está no pop-up na IU da instância do lembrete do dispositivo",
+            "nl": "Bij het updaten naar versie 1.2.x is het verplicht om de instantie-instelling te openen en op \"Opslaan en sluiten\" te klikken! Al het andere staat in de pop-up in de gebruikersinterface van de apparaatherinnering",
+            "fr": "Lors de la mise à jour vers la version 1.2.x, il est obligatoire d'ouvrir le paramètre d'instance et de cliquer sur \"Enregistrer et fermer\"! Tout le reste est dans la fenêtre contextuelle de l'interface utilisateur de l'instance de rappel d'appareil",
+            "it": "Quando si aggiorna alla versione 1.2.x è obbligatorio aprire le impostazioni dell'istanza e fare clic su \"Salva e chiudi\"! Tutto il resto è nel popup dell'interfaccia utente dell'istanza di promemoria dispositivo",
+            "es": "Al actualizar a la versión 1.2.x, es obligatorio abrir la configuración de la instancia y hacer clic en \"Guardar y cerrar\". Todo lo demás está en la ventana emergente en la interfaz de usuario de la instancia de recordatorio de dispositivo",
+            "pl": "W przypadku aktualizacji do wersji 1.2.x obowiązkowe jest otwarcie ustawienia instancji i kliknięcie przycisku „Zapisz i zamknij”! Cała reszta znajduje się w wyskakującym okienku w interfejsie użytkownika wystąpienia przypomnienia o urządzeniu",
+            "zh-cn": "更新到版本1.2.x时，必须打开实例设置，然后单击“保存并关闭”！其他所有内容都在设备提醒实例用户界面的弹出窗口中"
+        },
+        "id": "device-reminder-update-1-2-x",
+        "class": "warn",
+        "fa-icon": "exclamation-triangle",
+        "created": "2021-05-02T01:00:00.000Z",
+        "conditions": {
+            "device-reminder": "smaller(1.2.1)"
+        }
+    },
+    {
+        "title": {
+            "en": "BREAKING CHANGE: Your YAML configurations will be lost during an update!",
+            "de": "BREAKING CHANGE: Ihre YAML-Konfigurationen gehen bei einem Update verloren!",
+            "ru": "BREAKING CHANGE: ваши конфигурации YAML будут потеряны во время обновления!",
+            "pt": "BREAKING CHANGE: Suas configurações YAML serão perdidas durante uma atualização!",
+            "nl": "BREAKING CHANGE: Uw YAML-configuraties gaan verloren tijdens een update!",
+            "fr": "BREAKING CHANGE : vos configurations YAML seront perdues lors d'une mise à jour !",
+            "it": "CAMBIAMENTO DI ROTTURA: le tue configurazioni YAML andranno perse durante un aggiornamento!",
+            "es": "CAMBIO IMPORTANTE: ¡Tus configuraciones de YAML se perderán durante una actualización!",
+            "pl": "PRZEŁOMOWA ZMIANA: Twoje konfiguracje YAML zostaną utracone podczas aktualizacji!",
+            "zh-cn": "重大变化：您的 YAML 配置将在更新期间丢失！"
+        },
+        "content": {
+            "en": "If you use the integrated ESPHome dashboard, your YAML configurations will be lost during an update! Please ensure your YAML configuration before you update the adapter. There is no possibility to restore lost YAML configurations from the chip itself or from a previous ioBroker backup! From version 0.2.2 this error has been fixed and the YAML configurations saved in a different folder and by that also part of the ioBroker backup!",
+            "de": "Wenn Sie das integrierte ESPHome-Dashboard verwenden, gehen Ihre YAML-Konfigurationen bei einem Update verloren! Bitte stellen Sie Ihre YAML-Konfiguration sicher, bevor Sie den Adapter aktualisieren. Es gibt keine Möglichkeit, verlorene YAML-Konfigurationen vom Chip selbst oder von einem früheren ioBroker-Backup wiederherzustellen! Ab Version 0.2.2 wurde dieser Fehler behoben und die YAML-Konfigurationen in einem anderen Ordner gespeichert und damit auch Teil des ioBroker-Backups!",
+            "ru": "Если вы используете встроенную панель управления ESPHome, ваши конфигурации YAML будут потеряны во время обновления! Перед обновлением адаптера проверьте конфигурацию YAML. Нет возможности восстановить утерянные конфигурации YAML из самого чипа или из предыдущей резервной копии ioBroker! Начиная с версии 0.2.2, эта ошибка была исправлена, и конфигурации YAML сохранены в другой папке, что также является частью резервной копии ioBroker!",
+            "pt": "Se você usar o painel ESPHome integrado, suas configurações YAML serão perdidas durante uma atualização! Certifique-se de sua configuração YAML antes de atualizar o adaptador. Não há possibilidade de restaurar configurações YAML perdidas do próprio chip ou de um backup ioBroker anterior! A partir da versão 0.2.2, este erro foi corrigido e as configurações YAML salvas em uma pasta diferente e por isso também fazem parte do backup do ioBroker!",
+            "nl": "Als u het geïntegreerde ESPHome-dashboard gebruikt, gaan uw YAML-configuraties verloren tijdens een update! Controleer uw YAML-configuratie voordat u de adapter bijwerkt. Er is geen mogelijkheid om verloren YAML-configuraties te herstellen vanaf de chip zelf of vanaf een eerdere ioBroker-back-up! Vanaf versie 0.2.2 is deze fout verholpen en zijn de YAML-configuraties in een andere map opgeslagen en daarmee ook onderdeel van de ioBroker-back-up!",
+            "fr": "Si vous utilisez le tableau de bord ESPHome intégré, vos configurations YAML seront perdues lors d'une mise à jour ! Veuillez vous assurer de votre configuration YAML avant de mettre à jour l'adaptateur. Il n'y a aucune possibilité de restaurer les configurations YAML perdues à partir de la puce elle-même ou d'une précédente sauvegarde ioBroker ! À partir de la version 0.2.2, cette erreur a été corrigée et les configurations YAML enregistrées dans un dossier différent et faisant également partie de la sauvegarde ioBroker !",
+            "it": "Se utilizzi la dashboard ESPHome integrata, le tue configurazioni YAML andranno perse durante un aggiornamento! Assicurati la tua configurazione YAML prima di aggiornare l'adattatore. Non è possibile ripristinare le configurazioni YAML perse dal chip stesso o da un precedente backup di ioBroker! Dalla versione 0.2.2 questo errore è stato corretto e le configurazioni YAML salvate in una cartella diversa e da quella anche parte del backup ioBroker!",
+            "es": "Si usa el panel de control ESPHome integrado, ¡sus configuraciones de YAML se perderán durante una actualización! Asegúrese de su configuración YAML antes de actualizar el adaptador. ¡No hay posibilidad de restaurar configuraciones YAML perdidas desde el propio chip o desde una copia de seguridad de ioBroker anterior! A partir de la versión 0.2.2, este error se corrigió y las configuraciones de YAML se guardaron en una carpeta diferente y, por lo tanto, también forman parte de la copia de seguridad de ioBroker.",
+            "pl": "Jeśli korzystasz ze zintegrowanego pulpitu nawigacyjnego ESPHome, Twoje konfiguracje YAML zostaną utracone podczas aktualizacji! Przed aktualizacją adaptera sprawdź konfigurację YAML. Nie ma możliwości przywrócenia utraconych konfiguracji YAML z samego chipa lub z poprzedniej kopii zapasowej ioBroker! Od wersji 0.2.2 ten błąd został naprawiony i konfiguracje YAML zostały zapisane w innym folderze, a przez to również część kopii zapasowej ioBroker!",
+            "zh-cn": "如果您使用集成的 ESPHome 仪表板，您的 YAML 配置将在更新过程中丢失！在更新适配器之前，请确保您的 YAML 配置。无法从芯片本身或从以前的 ioBroker 备份恢复丢失的 YAML 配置！从版本 0.2.2 开始，此错误已得到修复，YAML 配置保存在不同的文件夹中，也是 ioBroker 备份的一部分！"
+        },
+        "id": "esphome-update-yaml",
+        "class": "danger",
+        "fa-icon": "bolt",
+        "created": "2021-06-24T01:00:00.000Z",
+        "conditions": {
+            "esphome": "smaller(0.2.2)"
+        }
+    },
+    {
+        "title": {
+            "en": "Do not update the Tradfri Gateway to v1.15.x",
+            "de": "Aktualisieren Sie das Tradfri Gateway nicht auf v1.15.x",
+            "ru": "Не обновляйте Tradfri Gateway до v1.15.x",
+            "pt": "Não atualize o Tradfri Gateway para v1.15.x",
+            "nl": "Werk de Tradfri Gateway niet bij naar v1.15.x",
+            "fr": "Ne pas mettre à jour la passerelle Tradfri vers v1.15.x",
+            "it": "Non aggiornare il gateway Tradfri alla v1.15.x",
+            "es": "No actualice Tradfri Gateway a v1.15.x",
+            "pl": "Nie aktualizuj Tradfri Gateway do wersji 1.15.x",
+            "zh-cn": "不要将 Tradfri 网关更新到 v1.15.x"
+        },
+        "content": {
+            "en": "If you update your Trådfri gateway to v1.15.x, you need at least the adapter version 3.0.1. Keep in mind that this version requires Node.js 12.\nA fix for version 2.7.x (Node.js 10) will follow tomorrow.\n\nWithout this fix, the adapter won't be able to connect after the gateway update.",
+            "de": "Wenn Sie Ihr Trådfri-Gateway auf v1.15.x aktualisieren, benötigen Sie mindestens die Adapterversion 3.0.1. Beachten Sie, dass diese Version Node.js 12 erfordert.\nEin Fix für Version 2.7.x (Node.js 10) folgt morgen.\n\nOhne diesen Fix kann der Adapter nach dem Gateway-Update keine Verbindung herstellen.",
+            "ru": "Если вы обновите свой шлюз Trådfri до v1.15.x, вам понадобится адаптер как минимум версии 3.0.1. Имейте в виду, что для этой версии требуется Node.js 12.\nИсправление для версии 2.7.x (Node.js 10) выйдет завтра.\n\nБез этого исправления адаптер не сможет подключиться после обновления шлюза.",
+            "pt": "Se você atualizar seu gateway Trådfri para v1.15.x, será necessário pelo menos a versão 3.0.1 do adaptador. Lembre-se de que esta versão requer o Node.js 12.\nUma correção para a versão 2.7.x (Node.js 10) virá amanhã.\n\nSem essa correção, o adaptador não será capaz de se conectar após a atualização do gateway.",
+            "nl": "Als u uw Trådfri-gateway bijwerkt naar v1.15.x, hebt u minimaal de adapterversie 3.0.1 nodig. Houd er rekening mee dat deze versie Node.js 12 vereist.\nEen oplossing voor versie 2.7.x (Node.js 10) volgt morgen.\n\nZonder deze oplossing kan de adapter geen verbinding maken na de gateway-update.",
+            "fr": "Si vous mettez à jour votre passerelle Trådfri vers la v1.15.x, vous avez au moins besoin de l'adaptateur version 3.0.1. Gardez à l'esprit que cette version nécessite Node.js 12.\nUn correctif pour la version 2.7.x (Node.js 10) suivra demain.\n\nSans ce correctif, l'adaptateur ne pourra pas se connecter après la mise à jour de la passerelle.",
+            "it": "Se aggiorni il tuo gateway Trådfri alla v1.15.x, hai bisogno almeno della versione dell'adattatore 3.0.1. Tieni presente che questa versione richiede Node.js 12.\nDomani seguirà una correzione per la versione 2.7.x (Node.js 10).\n\nSenza questa correzione, l'adattatore non sarà in grado di connettersi dopo l'aggiornamento del gateway.",
+            "es": "Si actualiza su puerta de enlace Trådfri a v1.15.x, necesita al menos la versión 3.0.1 del adaptador. Tenga en cuenta que esta versión requiere Node.js 12.\nMañana habrá una solución para la versión 2.7.x (Node.js 10).\n\nSin esta solución, el adaptador no podrá conectarse después de la actualización de la puerta de enlace.",
+            "pl": "Jeśli zaktualizujesz bramę Trådfri do wersji 1.15.x, potrzebujesz przynajmniej wersji adaptera 3.0.1. Pamiętaj, że ta wersja wymaga Node.js 12.\nPoprawka dla wersji 2.7.x (Node.js 10) pojawi się jutro.\n\nBez tej poprawki karta nie będzie mogła nawiązać połączenia po aktualizacji bramy.",
+            "zh-cn": "如果您将 Trådfri 网关更新到 v1.15.x，则至少需要适配器版本 3.0.1。请记住，此版本需要 Node.js 12。\n2.7.x 版（Node.js 10）的修复将于明天发布。\n\n如果没有此修复程序，适配器将无法在网关更新后连接。"
+        },
+        "id": "tradfri-gateway-1.15-noupdate",
+        "class": "warning",
+        "fa-icon": "exclamation-triangle",
+        "created": "2021-06-30T08:00:00.000Z",
+        "conditions": {
+            "tradfri": "smaller(2.7.4)"
+        }
+    },
+    {
+        "title": {
+            "en": "Compatibility with Trådfri gateway v1.15.x",
+            "de": "Kompatibilität mit Trådfri-Gateway v1.15.x",
+            "ru": "Совместимость со шлюзом Trådfri v1.15.x",
+            "pt": "Compatibilidade com gateway Trådfri v1.15.x",
+            "nl": "Compatibiliteit met Trådfri gateway v1.15.x",
+            "fr": "Compatibilité avec la passerelle Trådfri v1.15.x",
+            "it": "Compatibilità con il gateway Trådfri v1.15.x",
+            "es": "Compatibilidad con la puerta de enlace Trådfri v1.15.x",
+            "pl": "Kompatybilność z bramą Trådfri v1.15.x",
+            "zh-cn": "与 Trådfri 网关 v1.15.x 的兼容性"
+        },
+        "content": {
+            "en": "If you update your Trådfri gateway to v1.15.x, you need at least the adapter version 3.0.1.",
+            "de": "Wenn Sie Ihr Trådfri-Gateway auf v1.15.x aktualisieren, benötigen Sie mindestens die Adapterversion 3.0.1.",
+            "ru": "Если вы обновите свой шлюз Trådfri до v1.15.x, вам понадобится адаптер как минимум версии 3.0.1.",
+            "pt": "Se você atualizar seu gateway Trådfri para v1.15.x, será necessário pelo menos a versão 3.0.1 do adaptador.",
+            "nl": "Als u uw Trådfri-gateway bijwerkt naar v1.15.x, hebt u minimaal de adapterversie 3.0.1 nodig.",
+            "fr": "Si vous mettez à jour votre passerelle Trådfri vers la v1.15.x, vous avez au moins besoin de l'adaptateur version 3.0.1.",
+            "it": "Se aggiorni il tuo gateway Trådfri alla v1.15.x, hai bisogno almeno della versione dell'adattatore 3.0.1.",
+            "es": "Si actualiza su puerta de enlace Trådfri a v1.15.x, necesita al menos la versión 3.0.1 del adaptador.",
+            "pl": "Jeśli zaktualizujesz bramę Trådfri do wersji 1.15.x, potrzebujesz przynajmniej wersji adaptera 3.0.1.",
+            "zh-cn": "如果您将 Trådfri 网关更新到 v1.15.x，则至少需要适配器版本 3.0.1。"
+        },
+        "id": "tradfri-gateway-1.15-compat-v3",
+        "class": "warning",
+        "fa-icon": "exclamation-triangle",
+        "created": "2021-06-30T08:00:00.000Z",
+        "conditions": {
+            "tradfri": "equals(3.0.0)"
+        }
+    },
+    {
+        "title": {
+            "en": "JavaScript 5.2.x: Breaking change bei Objekttypen \"object\" und \"array\"",
+            "de": "JavaScript 5.2.x: Breaking change bei den Objekttypen \"object\" und \"array\"",
+            "ru": "JavaScript 5.2.x: Критическое изменение в Objekttypen \"объект\" и \"массив\"",
+            "pt": "JavaScript 5.2.x: quebrando a mudança bei Objekttypen \"objeto\" e \"array\"",
+            "nl": "JavaScript 5.2.x: Breaking change bei Objekttypen \"object\" en \"array\"",
+            "fr": "JavaScript 5.2.x : rupture du changement bei Objekttypen \"object\" et \"array\"",
+            "it": "JavaScript 5.2.x: Breaking change bei Objekttypen \"object\" e \"array\"",
+            "es": "JavaScript 5.2.x: Cambio rotundo en Objekttypen \"object\" und \"array\"",
+            "pl": "JavaScript 5.2.x: Zerwanie zmiany przy typie obiektu \"obiekt\" i \"tablica\"",
+            "zh-cn": "JavaScript 5.2.x：Bobjekttypen“对象”和“数组”的重大变化"
+        },
+        "content": {
+            "en": "Storing objects or arrays always needs to be stringified and this is checked by js-controller 3.3. In many cases this was not done correctly when storing or reading values and because of this users where confused.<br><br>Starting JavaScript Adapter version 5.2.0 the values of the Object types \"object\" and \"array\" are converted automatically for you! This means that no \"JSON.parse\" is needed anymore when reading such state values. if you use a JSON-parse then you script might crash and needs to be adjusted - just remove the JSON.parse. Also a JSON.stringify is not longer needed when writing such state values. This only affects state values of objects of type \"array\" or \"object\".",
+            "de": "Das Speichern von Objekten oder Arrays muss immer als String erfolgen und dies wird von js-controller 3.3 überprüft. In vielen Fällen wurde dies beim Speichern oder Lesen von Werten nicht richtig gemacht und dadurch waren die Benutzer verwirrt.<br><br> Ab JavaScript Adapter Version 5.2.0 werden die Werte der Objekttypen \"object\" und \",array\" automatisch konvertiert! Das bedeutet, dass beim Lesen solcher Zustandswerte kein \"JSON.parse\", mehr benötigt wird. Wenn ein JSON-Parse verwendet wird, kann das Skript abstürzen und muss angepasst werden - einfach das JSON.parse entfernen. Auch ein JSON.stringify wird beim Schreiben solcher Zustandswerte nicht mehr benötigt. Dies betrifft nur Zustandswerte von Objekten vom Typ \"Array\" oder \"Objekt\".",
+            "ru": "Хранение объектов или массивов всегда должно быть строковым, и это проверяется js-контроллером 3.3. Во многих случаях это было сделано неправильно при сохранении или чтении значений, и из-за этого пользователи были сбиты с толку.<br><br> Начиная с версии 5.2.0 адаптера JavaScript, значения типов объектов «объект» и «массив» конвертируются автоматически! Это означает, что при чтении таких значений состояния больше не требуется «JSON.parse». если вы используете JSON-синтаксический анализ, ваш скрипт может дать сбой и его нужно будет отрегулировать - просто удалите JSON.parse. Кроме того, JSON.stringify больше не нужен при записи таких значений состояния. Это влияет только на значения состояния объектов типа «массив» или «объект».",
+            "pt": "Armazenar objetos ou matrizes sempre precisa ser stringificado e isso é verificado pelo js-controller 3.3. Em muitos casos, isso não foi feito corretamente ao armazenar ou ler valores e por causa disso os usuários ficaram confusos.<br><br> Iniciando o adaptador JavaScript versão 5.2.0, os valores dos tipos de objeto \"objeto\" e \"matriz\" são convertidos automaticamente para você! Isso significa que nenhum \"JSON.parse\" é mais necessário ao ler esses valores de estado. se você usar um JSON-parse, seu script pode travar e precisa ser ajustado - apenas remova o JSON.parse. Além disso, um JSON.stringify não é mais necessário ao gravar tais valores de estado. Isso afeta apenas os valores de estado de objetos do tipo \"array\" ou \"objeto\".",
+            "nl": "Het opslaan van objecten of arrays moet altijd worden gestringified en dit wordt gecontroleerd door js-controller 3.3. In veel gevallen werd dit niet correct gedaan bij het opslaan of uitlezen van waarden en hierdoor waren gebruikers in de war.<br><br> Vanaf JavaScript Adapter versie 5.2.0 worden de waarden van de objecttypes \"object\" en \"array\" automatisch voor u geconverteerd! Dit betekent dat er geen \"JSON.parse\" meer nodig is bij het lezen van dergelijke statuswaarden. als je een JSON-parse gebruikt, kan je script crashen en moet het worden aangepast - verwijder gewoon de JSON.parse. Ook is een JSON.stringify niet langer nodig bij het schrijven van dergelijke statuswaarden. Dit heeft alleen invloed op statuswaarden van objecten van het type \"array\" of \"object\"",
+            "fr": "Le stockage d'objets ou de tableaux doit toujours être stringifié et cela est vérifié par js-controller 3.3. Dans de nombreux cas, cela n'a pas été fait correctement lors du stockage ou de la lecture des valeurs et à cause de cela, les utilisateurs étaient confus.<br><br> À partir de la version 5.2.0 de l'adaptateur JavaScript, les valeurs des types d'objets \"object\" et \"array\" sont converties automatiquement pour vous ! Cela signifie qu'aucun \"JSON.parse\" n'est plus nécessaire lors de la lecture de telles valeurs d'état. si vous utilisez une analyse JSON, votre script peut planter et doit être ajusté - supprimez simplement l'analyse JSON. De plus, un JSON.stringify n'est plus nécessaire lors de l'écriture de telles valeurs d'état. Cela n'affecte que les valeurs d'état des objets de type « tableau » ou « objet ».",
+            "it": "L'archiviazione di oggetti o array deve sempre essere stringata e questo è controllato da js-controller 3.3. In molti casi ciò non è stato fatto correttamente durante la memorizzazione o la lettura dei valori e per questo motivo gli utenti erano confusi.<br><br> A partire dalla versione 5.2.0 dell'adattatore JavaScript i valori dei tipi di oggetto \"oggetto\" e \"array\" vengono convertiti automaticamente per te! Ciò significa che non è più necessario \"JSON.parse\" durante la lettura di tali valori di stato. se usi un'analisi JSON, lo script potrebbe bloccarsi e deve essere regolato: rimuovi semplicemente JSON.parse. Inoltre, un JSON.stringify non è più necessario quando si scrivono tali valori di stato. Ciò riguarda solo i valori di stato degli oggetti di tipo \"array\" o \"object\".",
+            "es": "El almacenamiento de objetos o matrices siempre debe estar en cadena y esto es verificado por js-controller 3.3. En muchos casos, esto no se hizo correctamente al almacenar o leer valores y debido a esto los usuarios estaban confundidos.<br><br> A partir de la versión 5.2.0 del Adaptador de JavaScript, los valores de los tipos de objeto \"objeto\" y \"matriz\" se convierten automáticamente. Esto significa que ya no se necesita \"JSON.parse\" al leer dichos valores de estado. si usa un JSON-parse, entonces su script puede fallar y necesita ser ajustado, simplemente elimine el JSON.parse. Además, ya no se necesita JSON.stringify al escribir dichos valores de estado. Esto solo afecta a los valores de estado de los objetos de tipo \"matriz\" u \"objeto\".",
+            "pl": "Przechowywanie obiektów lub tablic zawsze wymaga sprecyzowania i jest to sprawdzane przez js-controller 3.3. W wielu przypadkach nie zostało to zrobione poprawnie podczas przechowywania lub odczytywania wartości iz tego powodu użytkownicy byli zdezorientowani.<br><br> Począwszy od wersji 5.2.0 JavaScript Adapter, wartości typów obiektów \"object\" i \"array\" są konwertowane automatycznie! Oznacza to, że podczas odczytywania takich wartości stanu nie jest już potrzebny „JSON.parse”. jeśli używasz parsowania JSON, skrypt może ulec awarii i musi zostać dostosowany - po prostu usuń JSON.parse. Również JSON.stringify nie jest już potrzebny podczas pisania takich wartości stanu. Ma to wpływ tylko na wartości stanu obiektów typu „array” lub „object”.",
+            "zh-cn": "存储对象或数组总是需要字符串化，这由 js-controller 3.3 检查。在许多情况下，这在存储或读取值时没有正确完成，因此用户会感到困惑。<br><br>从 JavaScript Adapter 版本 5.2.0 开始，对象类型“object”和“array”的值会自动为您转换！这意味着在读取此类状态值时不再需要“JSON.parse”。如果您使用 JSON-parse，那么您的脚本可能会崩溃并需要进行调整 - 只需删除 JSON.parse。写入此类状态值时也不再需要 JSON.stringify。这仅影响“数组”或“对象”类型的对象的状态值。"
+        },
+        "id": "javascript-520",
+        "class": "warning",
+        "fa-icon": "exclamation-triangle",
+        "created": "2021-07-06T17:45:00.000Z",
+        "conditions": {
+            "javascript": "smaller(5.2.2)"
+        }
+    },
+    {
+        "title": {
+            "en": "Vis Offline License available",
+            "de": "Vis Offline Lizenz verfügbar",
+            "ru": "Доступна автономная лицензия Vis",
+            "pt": "Licença Vis Offline disponível",
+            "nl": "Vis Offline-licentie beschikbaar",
+            "fr": "Licence hors ligne Vis disponible",
+            "it": "Licenza Vis Offline disponibile",
+            "es": "Licencia Vis Offline disponible",
+            "pl": "Dostępna jest licencja Vis Offline",
+            "zh-cn": "可见离线许可证可用"
+        },
+        "content": {
+              "en": "The currently available free private-use licenses for Vis check the license on startup of the Vis adapter online against the ioBroker license server. The commercial licenses do not require this online check. The community requested a way to remove this online dependency also for the free private-use license to allow to control their smart homes also when the internet connection has issues. Because of this a new \"Vis offline license\" is now also available with price 29,75 EUR to support the further development of ioBroker.\nFurther information are available in the Forum (german) at https://forum.iobroker.net/topic/46334/neue-vis-offline-lizenz-f%C3%BCr-die-private-nutzung",
+              "de": "Die derzeit verfügbaren kostenlosen Privatlizenzen für Vis prüfen die Lizenz beim Start des Vis-Adapters online gegen den ioBroker-Lizenzserver. Die kommerziellen Lizenzen erfordern diesen Online-Check nicht. Die Community forderte eine Möglichkeit, diese Online-Abhängigkeit auch für die kostenlose Privatnutzungslizenz zu beseitigen, um ihre Smart Homes auch bei Problemen mit der Internetverbindung steuern zu können. Aus diesem Grund ist jetzt auch eine neue \"Vis Offline-Lizenz\" zum Preis von 29,75 EUR erhältlich, um die Weiterentwicklung von ioBroker zu unterstützen.\nWeitere Informationen finden Sie im Forum (deutsch) unter https://forum.iobroker.net/topic/46334/neue-vis-offline-lizenz-f%C3%BCr-die-private-nutzung",
+              "ru": "Доступные в настоящее время бесплатные лицензии для частного использования для Vis проверяют лицензию при запуске адаптера Vis онлайн на сервере лицензий ioBroker. Для коммерческих лицензий эта онлайн-проверка не требуется. Сообщество запросило способ удалить эту онлайн-зависимость также для бесплатной лицензии на частное использование, чтобы позволить управлять своими умными домами также при проблемах с подключением к Интернету. В связи с этим теперь доступна новая «офлайн-лицензия Vis» по цене 29,75 евро для поддержки дальнейшего развития ioBroker.\nДополнительная информация доступна на форуме (на немецком языке) по адресу https://forum.iobroker.net/topic/46334/neue-vis-offline-lizenz-f%C3%BCr-die-private-nutzung",
+              "pt": "As licenças de uso privado gratuitas atualmente disponíveis para Vis verificam a licença na inicialização do adaptador Vis online no servidor de licença ioBroker. As licenças comerciais não exigem essa verificação online. A comunidade solicitou uma forma de remover essa dependência online também para a licença de uso privado gratuito para permitir o controle de suas casas inteligentes também quando a conexão com a Internet apresentar problemas. Por causa disso, uma nova \"Licença offline do Vis\" agora está disponível com o preço de 29,75 EUR para apoiar o desenvolvimento do ioBroker. \nMais informações estão disponíveis no Fórum (alemão) em https://forum.iobroker.net/topic/46334/neue-vis-offline-lizenz-f%C3%BCr-die-private-nutzung",
+              "nl": "De momenteel beschikbare gratis licenties voor privégebruik voor Vis vergelijken de licentie bij het online opstarten van de Vis-adapter met de ioBroker-licentieserver. De commerciële licenties vereisen deze online controle niet. De community vroeg om een manier om deze online afhankelijkheid te verwijderen, ook voor de gratis licentie voor privégebruik, zodat ze hun slimme huizen kunnen bedienen, ook wanneer de internetverbinding problemen heeft. Hierdoor is er nu ook een nieuwe \"Vis offline licentie\" beschikbaar met een prijs van 29,75 EUR ter ondersteuning van de verdere ontwikkeling van ioBroker.\nMeer informatie is beschikbaar in het Forum (duits) op https://forum.iobroker.net/topic/46334/neue-vis-offline-lizenz-f%C3%BCr-die-private-nutzung",
+              "fr": "Les licences à usage privé gratuites actuellement disponibles pour Vis vérifient la licence au démarrage de l'adaptateur Vis en ligne par rapport au serveur de licences ioBroker. Les licences commerciales ne nécessitent pas cette vérification en ligne. La communauté a demandé un moyen de supprimer cette dépendance en ligne également pour la licence d'utilisation privée gratuite afin de permettre de contrôler leurs maisons intelligentes également lorsque la connexion Internet a des problèmes. Pour cette raison, une nouvelle \"Licence hors ligne Vis\" est désormais également disponible au prix de 29,75 EUR pour soutenir le développement ultérieur d'ioBroker.\nDes informations supplémentaires sont disponibles sur le forum (allemand) à l'adresse https://forum.iobroker.net/topic/46334/neue-vis-offline-lizenz-f%C3%BCr-die-private-nutzung",
+              "it": "Le licenze gratuite per uso privato attualmente disponibili per Vis controllano la licenza all'avvio dell'adattatore Vis online rispetto al server licenze ioBroker. Le licenze commerciali non richiedono questo controllo online. La community ha chiesto un modo per rimuovere questa dipendenza online anche per la licenza gratuita per uso privato per consentire di controllare le proprie case intelligenti anche quando la connessione a Internet ha problemi. Per questo motivo è ora disponibile anche una nuova \"Licenza offline Vis\" al prezzo di 29,75 EUR per supportare l'ulteriore sviluppo di ioBroker.\nUlteriori informazioni sono disponibili nel Forum (tedesco) all'indirizzo https://forum.iobroker.net/topic/46334/neue-vis-offline-lizenz-f%C3%BCr-die-private-nutzung",
+              "es": "Las licencias de uso privado gratuitas disponibles actualmente para Vis comprueban la licencia al inicio del adaptador Vis en línea con el servidor de licencias de ioBroker. Las licencias comerciales no requieren esta verificación en línea. La comunidad solicitó una forma de eliminar esta dependencia en línea también para la licencia gratuita de uso privado para permitir controlar sus hogares inteligentes también cuando la conexión a Internet tiene problemas. Debido a esto, ahora también está disponible una nueva \"Licencia de Vis offline\" con un precio de 29,75 EUR para respaldar el desarrollo posterior de ioBroker.\nMás información disponible en el Foro (alemán) en https://forum.iobroker.net/topic/46334/neue-vis-offline-lizenz-f%C3%BCr-die-private-nutzung",
+              "pl": "Obecnie dostępne bezpłatne licencje do użytku prywatnego dla Visa sprawdzają licencję podczas uruchamiania karty Vis online na serwerze licencji ioBroker. Licencje komercyjne nie wymagają tego sprawdzenia online. Społeczność poprosiła o sposób na usunięcie tej zależności online również dla bezpłatnej licencji prywatnego użytku, aby umożliwić sterowanie inteligentnymi domami również w przypadku problemów z połączeniem internetowym. Z tego powodu nowa \"licencja Vis offline\" jest teraz również dostępna w cenie 29,75 EUR, aby wesprzeć dalszy rozwój ioBroker.\nDalsze informacje są dostępne na Forum (w języku niemieckim) pod adresem https://forum.iobroker.net/topic/46334/neue-vis-offline-lizenz-f%C3%BCr-die-private-nutzung",
+              "zh-cn": "当前可用的 Vis 免费私人使用许可证在 Vis 适配器启动时根据 ioBroker 许可证服务器在线检查许可证。商业许可证不需要此在线检查。社区要求一种方法来消除这种在线依赖，也是为了获得免费的私人使用许可，以便在互联网连接出现问题时也能控制他们的智能家居。因此，现在还提供价格为 29.75 欧元的新“Vis 离线许可证”，以支持 ioBroker 的进一步开发。\n更多信息可在 https://forum.iobroker.net/topic/46334/neue-vis-offline-lizenz-f%C3%BCr-die-private-nutzung"
+        },
+        "id": "vis-offline-142",
+        "class": "info",
+        "fa-icon": "exclamation-circle",
+        "created": "2021-07-11T13:00:00.000Z",
+        "conditions": {
+            "vis": "bigger(1.0.0)"
+        }
+    },
+    {
+        "title": {
+            "en": "Update your adapters before updating to js-controller 3.3!",
+            "de": "Vor Update auf js-controller 3.3 alle Adapter aktualisieren!",
+            "ru": "Обновите свои адаптеры перед обновлением до js-controller 3.3!",
+            "pt": "Atualize seus adaptadores antes de atualizar para js-controller 3.3!",
+            "nl": "Werk uw adapters bij voordat u bijwerkt naar js-controller 3.3!",
+            "fr": "Mettez à jour vos adaptateurs avant de passer à js-controller 3.3!",
+            "it": "Aggiorna i tuoi adattatori prima di aggiornare a js-controller 3.3!",
+            "es": "Actualice sus adaptadores antes de actualizar a js-controller 3.3!",
+            "pl": "Zaktualizuj swoje adaptery przed aktualizacją do js-controller 3.3!",
+            "zh-cn": "在更新到 js-controller 3.3 之前更新您的适配器"
+        },
+        "content": {
+            "en": "Before updating to js-controller 3.3 please make sure to update all adapters on your system that refernce in the changelog to be optimized for js-controller 3.3. Additional information about the changes in the new js-controller can be found in forum on https://forum.iobroker.net/topic/46758/js-controller-3-3-jetzt-im-stable",
+            "de": "Bitte vor dem Update auf js-controller 3.3 sicherstellen, dass alle Adapter auf dem System aktualisiert wurden, die im Changelog auf Optimierungen für js-controller 3.3 verweisen. Weitere Informationen zu den Änderungen im neuen js-controller finden sich im Forum unter https://forum.iobroker.net/topic/46758/js-controller-3-3-jetzt-im-stable",
+            "ru": "Перед обновлением до js-controller 3.3 обязательно обновите все адаптеры в вашей системе, которые упоминаются в журнале изменений, чтобы быть оптимизированными для js-controller 3.3. Дополнительную информацию об изменениях в новом js-controller можно найти на форуме на https://forum.iobroker.net/topic/46758/js-controller-3-3-jetzt-im-stable",
+            "pt": "Antes de atualizar para o js-controller 3.3, certifique-se de atualizar todos os adaptadores em seu sistema que fazem referência no changelog para serem otimizados para o js-controller 3.3. Informações adicionais sobre as mudanças no novo js-controller podem ser encontradas no fórum em https://forum.iobroker.net/topic/46758/js-controller-3-3-jetzt-im-stable",
+            "nl": "Voordat u bijwerkt naar js-controller 3.3, moet u ervoor zorgen dat u alle adapters op uw systeem bijwerkt die verwijzen naar de changelog om te worden geoptimaliseerd voor js-controller 3.3. Aanvullende informatie over de wijzigingen in de nieuwe js-controller is te vinden in het forum op https://forum.iobroker.net/topic/46758/js-controller-3-3-jetzt-im-stable",
+            "fr": "Avant de mettre à jour vers js-controller 3.3, assurez-vous de mettre à jour tous les adaptateurs de votre système qui font référence dans le journal des modifications à optimiser pour js-controller 3.3. Des informations supplémentaires sur les modifications apportées au nouveau js-controller peuvent être trouvées dans le forum sur https://forum.iobroker.net/topic/46758/js-controller-3-3-jetzt-im-stable",
+            "it": "Prima di aggiornare a js-controller 3.3, assicurati di aggiornare tutti gli adattatori sul tuo sistema che fanno riferimento nel log delle modifiche per essere ottimizzati per js-controller 3.3. Ulteriori informazioni sulle modifiche nel nuovo js-controller possono essere trovate nel forum su https://forum.iobroker.net/topic/46758/js-controller-3-3-jetzt-im-stable",
+            "es": "Antes de actualizar a js-controller 3.3, asegúrese de actualizar todos los adaptadores en su sistema que hacen referencia en el registro de cambios para ser optimizados para js-controller 3.3. Se puede encontrar información adicional sobre los cambios en el nuevo js-controller en el foro en https://forum.iobroker.net/topic/46758/js-controller-3-3-jetzt-im-stable",
+            "pl": "Przed aktualizacją do js-controller 3.3 upewnij się, że zaktualizowałeś wszystkie adaptery w systemie, które odwołują się w changelogu do optymalizacji dla js-controller 3.3. Dodatkowe informacje o zmianach w nowym js-controllerze znajdziecie na forum na https://forum.iobroker.net/topic/46758/js-controller-3-3-jetzt-im-stable",
+            "zh-cn": "在更新到 js-controller 3.3 之前，请确保更新系统上所有在更改日志中引用的适配器，以便针对 js-controller 3.3 进行优化。有关新 js-controller 更改的其他信息可以在 https://forum.iobroker.net/topic/46758/js-controller-3-3-jetzt-im-stable 上的论坛中找到"
+        },
+        "id": "jscontroller33",
+        "class": "info",
+        "fa-icon": "exclamation-circle",
+        "created": "2021-08-04T23:22:00.000Z",
+        "conditions": {
+            "js-controller": "smaller(3.3.15)"
+        }
+    },
+    {
+        "title": {
+            "en": "Important information prior Admin v5.x Update!",
+            "de": "Wichtige Informationen vor dem Admin v5.x Update!",
+            "ru": "Важная информация перед обновлением Admin v5.x!",
+            "pt": "Informações importantes antes da atualização do Admin v5.x!",
+            "nl": "Belangrijke informatie voorafgaand aan Admin v5.x Update!",
+            "fr": "Informations importantes avant la mise à jour Admin v5.x !",
+            "it": "Informazioni importanti prima dell'aggiornamento Admin v5.x!",
+            "es": "¡Información importante antes de la actualización Admin v5.x!",
+            "pl": "Ważne informacje przed aktualizacją Admin v5.x!",
+            "zh-cn": "Admin v5.x 更新之前的重要信息！"
+        },
+        "content": {
+            "en": "When you update the Admin Adapter to v5.x you need to do a \"Shift-Reload\" to be shire that the whole page is reloaded. You will see a completely new Admin user interface afterwards. If you want to get more information on changes, new features or have questions please check in forum at https://forum.iobroker.net/topic/46813/admin-v5-jetzt-im-stable . Some other adapter updates also require Admin to be updated to version 5!",
+            "de": "Wenn der Admin Adapter auf v5.x aktualisiert wird, muß die Seite per \"Shift-Reload\" neu geladen werden, um sicherzustellen, dass die gesamte Seite neu geladen wird. Danach begrüßt Euch eine komplett neue Admin-Benutzeroberfläche. Für mehr Informationen zu Änderungen, neuen Funktionen oder Fragen, besucht bitte das Forum unter https://forum.iobroker.net/topic/46813/admin-v5-jetzt-im-stable . Für einige andere Adapter-Updates muss Admin ebenfalls auf Version 5 aktualisiert werden!",
+            "ru": "Когда вы обновляете Admin Adapter до версии v5.x, вам нужно выполнить Shift-Reload, чтобы убедиться, что вся страница перезагружена. После этого вы увидите совершенно новый пользовательский интерфейс администратора. Если вы хотите получить дополнительную информацию об изменениях, новых функциях или задать вопросы, посетите форум по адресу https://forum.iobroker.net/topic/46813/admin-v5-jetzt-im-stable. Некоторые другие обновления адаптера также требуют обновления администратора до версии 5!",
+            "pt": "Quando você atualiza o Adaptador Admin para v5.x, você precisa fazer um \"Shift-Reload\" para que toda a página seja recarregada. Você verá uma interface de usuário Admin completamente nova posteriormente. Se você quiser obter mais informações sobre mudanças, novos recursos ou tiver dúvidas, consulte o fórum em https://forum.iobroker.net/topic/46813/admin-v5-jetzt-im-stable. Algumas outras atualizações do adaptador também requerem que o Admin seja atualizado para a versão 5!",
+            "nl": "Wanneer u de Admin Adapter bijwerkt naar v5.x, moet u een \"Shift-Reload\" uitvoeren om ervoor te zorgen dat de hele pagina opnieuw wordt geladen. U ziet daarna een volledig nieuwe Admin-gebruikersinterface. Als je meer informatie wilt over wijzigingen, nieuwe functies of vragen hebt, ga dan naar het forum op https://forum.iobroker.net/topic/46813/admin-v5-jetzt-im-stable. Sommige andere adapter-updates vereisen ook dat Admin wordt bijgewerkt naar versie 5!",
+            "fr": "Lorsque vous mettez à jour l'adaptateur d'administration vers la version 5.x, vous devez effectuer un \"Shift-Reload\" pour être sûr que toute la page est rechargée. Vous verrez ensuite une toute nouvelle interface utilisateur Admin. Si vous souhaitez obtenir plus d'informations sur les changements, les nouvelles fonctionnalités ou si vous avez des questions, veuillez consulter le forum à l'adresse https://forum.iobroker.net/topic/46813/admin-v5-jetzt-im-stable . Certaines autres mises à jour de l'adaptateur nécessitent également la mise à jour de l'administrateur vers la version 5 !",
+            "it": "Quando aggiorni l'adattatore di amministrazione alla v5.x, devi eseguire uno \"Shift-Reload\" per assicurarti che l'intera pagina venga ricaricata. In seguito vedrai un'interfaccia utente di amministrazione completamente nuova. Se vuoi avere maggiori informazioni su modifiche, nuove funzionalità o hai domande, controlla nel forum su https://forum.iobroker.net/topic/46813/admin-v5-jetzt-im-stable. Alcuni altri aggiornamenti dell'adattatore richiedono anche l'aggiornamento dell'amministratore alla versione 5!",
+            "es": "Cuando actualice el Adaptador de administrador a v5.x, debe hacer un \"Cambio-Recargar\" para estar seguro de que se recarga toda la página. A continuación, verá una interfaz de usuario de administrador completamente nueva. Si desea obtener más información sobre cambios, nuevas funciones o tiene preguntas, consulte el foro en https://forum.iobroker.net/topic/46813/admin-v5-jetzt-im-stable. ¡Algunas otras actualizaciones del adaptador también requieren que Admin se actualice a la versión 5!",
+            "pl": "Kiedy aktualizujesz Admin Adapter do v5.x, musisz wykonać \"Shift-Reload\", aby mieć pewność, że cała strona zostanie ponownie załadowana. Następnie zobaczysz zupełnie nowy interfejs użytkownika administratora. Jeśli chcesz uzyskać więcej informacji o zmianach, nowych funkcjach lub masz pytania, zajrzyj na forum pod adresem https://forum.iobroker.net/topic/46813/admin-v5-jetzt-im-stable . Niektóre inne aktualizacje adapterów wymagają również zaktualizowania administratora do wersji 5!",
+            "zh-cn": "当您将管理适配器更新到 v5.x 时，您需要执行“Shift-Reload”以重新加载整个页面。之后您将看到一个全新的管理员用户界面。如果您想获得有关更改、新功能的更多信息或有疑问，请在 https://forum.iobroker.net/topic/46813/admin-v5-jetzt-im-stable 的论坛中查看。其他一些适配器更新也需要 Admin 更新到版本 5！"
+        },
+        "id": "admin51stable",
+        "class": "info",
+        "fa-icon": "exclamation-circle",
+        "created": "2021-08-06T17:45:00.000Z",
+        "conditions": {
+            "js-controller": "smaller(5.1.0)"
+        }
+    },
+    {
+        "title": {
+            "en": "Attention: VW-connect Adapter needs urgent update",
+            "de": "Achtung: VW-connect Adapter benötigt dringend Update",
+            "ru": "Внимание: адаптер VW-connect нуждается в срочном обновлении.",
+            "pt": "Atenção: o adaptador VW-connect precisa de atualização urgente",
+            "nl": "Let op: VW-connect Adapter heeft een dringende update nodig",
+            "fr": "Attention : l'adaptateur VW-connect a besoin d'une mise à jour urgente",
+            "it": "Attenzione: l'adattatore VW-connect necessita di un aggiornamento urgente",
+            "es": "Atención: el adaptador VW-connect necesita una actualización urgente",
+            "pl": "Uwaga: adapter VW-connect wymaga pilnej aktualizacji!",
+            "zh-cn": "注意：VW-connect Adapter 需要紧急更新"
+          },
+        "content":{
+            "en": "Because of a problem in the VW login process the Adapter needs an update",
+            "de": "Aufgrund eines Problems im VW-Login-Prozess benötigt der Adapter ein Update",
+            "ru": "Из-за проблемы в процессе входа в систему VW адаптеру требуется обновление.",
+            "pt": "Devido a um problema no processo de login do VW, o adaptador precisa de uma atualização",
+            "nl": "Vanwege een probleem in het VW-inlogproces heeft de adapter een update nodig",
+            "fr": "En raison d'un problème dans le processus de connexion VW, l'adaptateur a besoin d'une mise à jour",
+            "it": "A causa di un problema nel processo di login VW, l'adattatore necessita di un aggiornamento",
+            "es": "Debido a un problema en el proceso de inicio de sesión de VW, el adaptador necesita una actualización",
+            "pl": "Z powodu problemu w procesie logowania VW Adapter wymaga aktualizacji",
+            "zh-cn": "由于大众登录过程中的问题，适配器需要更新"
+          },
+        "id": "vw-connect",
+        "created": "2021-09-20T14:00:00.000Z",
+        "class": "danger",
+        "fa-icon": "bolt",
+        "conditions": {
+            "vw-connect": "smaller(0.0.43)"
+        }
+    },
+    {
+        "title": {
+            "en": "Z-Wave 2: Troubleshooting for version 2.3 or higher",
+            "de": "Z-Wave 2: Problembehebung für Version 2.3 oder höher",
+            "ru": "Z-Wave 2: Устранение неполадок для версии 2.3 или выше",
+            "pt": "Z-Wave 2: Solução de problemas para a versão 2.3 ou superior",
+            "nl": "Z-Wave 2: Problemen oplossen voor versie 2.3 of hoger",
+            "fr": "Z-Wave 2 : Dépannage pour la version 2.3 ou supérieure",
+            "it": "Z-Wave 2: risoluzione dei problemi per la versione 2.3 o successiva",
+            "es": "Z-Wave 2: Solución de problemas para la versión 2.3 o superior",
+            "pl": "Z-Wave 2: Rozwiązywanie problemów w wersji 2.3 lub wyższej",
+            "zh-cn": "Z-Wave 2：2.3 或更高版本的故障排除"
+        },
+        "content": {
+            "en": "As of version 2.3, the Z-Wave controller is restarted on adapter startup and after some management operations.This can cause USB sticks to reconnect and get a different address, so that the adapter can not start.\n\nPlease read and follow https://github.com/AlCalzone/ioBroker.zwave2/blob/master/docs/en/troubleshooting.md#the-adapter-does-not-start-after-updating-to-version-23-or-higher. If nothing helps, this function can also be disabled.",
+            "de": "Ab Version 2.3 wird der Z-Wave Controller beim Adapterstart und bei manchen Verwaltungs-Operationen neu gestartet. Dies kann dafür sorgen, dass USB-Sticks neu verbinden und eine andere Adresse bekommen, sodass der Adapter nicht starten kann.\n\nBitte unbedingt https://github.com/AlCalzone/ioBroker.zwave2/blob/master/docs/de/bei-problemen.md#der-adapter-startet-nach-update-auf-version-23-oder-h%C3%B6her-nicht lesen und befolgen. Falls nichts hilft, kann diese Funktion auch deaktiviert werden.",
+            "ru": "Начиная с версии 2.3, контроллер Z-Wave перезапускается при запуске адаптера и после некоторых операций управления. Это может привести к повторному подключению USB-накопителей и получению другого адреса, так что адаптер не может запуститься.\n\nПожалуйста, прочтите и следуйте https: //github.com/AlCalzone/ioBroker.zwave2/blob/master/docs/en/troubleshooting.md#the-adapter-does-not-start-after-updating-to-version-23-or-higher. Если ничего не помогает, эту функцию также можно отключить.",
+            "pt": "A partir da versão 2.3, o controlador Z-Wave é reiniciado na inicialização do adaptador e após algumas operações de gerenciamento. Isso pode fazer com que os dispositivos USB sejam reconectados e obtenham um endereço diferente, de modo que o adaptador não pode iniciar.\n\nPor favor, leia e siga https: //github.com/AlCalzone/ioBroker.zwave2/blob/master/docs/en/trou troubleshooting.md#the-adapter-does-not-start-after-updating-to-version-23-or-higher. Se nada ajudar, esta função também pode ser desativada.",
+            "nl": "Vanaf versie 2.3 wordt de Z-Wave-controller opnieuw opgestart bij het opstarten van de adapter en na enkele beheerbewerkingen. Dit kan ertoe leiden dat USB-sticks opnieuw worden aangesloten en een ander adres krijgen, zodat de adapter niet kan starten.\n\nLees en volg https://github.com/AlCalzone/ioBroker.zwave2/blob/master/docs/en/troubleshooting.md#the-adapter-does-not-start-after-updating-to-versie-23-of-hoger. Als niets helpt, kan deze functie ook worden uitgeschakeld.",
+            "fr": "A partir de la version 2.3, le contrôleur Z-Wave est redémarré au démarrage de l'adaptateur et après certaines opérations de gestion. Cela peut entraîner la reconnexion des clés USB et obtenir une adresse différente, de sorte que l'adaptateur ne peut pas démarrer.\n\nVeuillez lire et suivre https://github.com/AlCalzone/ioBroker.zwave2/blob/master/docs/en/troubleshooting.md#the-adapter-does-not-start-after-updating-to-version-23-or-higher. Si rien n'y fait, cette fonction peut également être désactivée.",
+            "it": "A partire dalla versione 2.3, il controller Z-Wave viene riavviato all'avvio dell'adattatore e dopo alcune operazioni di gestione. Ciò può causare la riconnessione delle chiavette USB e l'ottenimento di un indirizzo diverso, in modo che l'adattatore non possa avviarsi.\n\nLeggere e seguire https://github.com/AlCalzone/ioBroker.zwave2/blob/master/docs/en/troubleshooting.md#the-adapter-does-not-start-after-updating-to-version-23-or-higher. Se nulla aiuta, questa funzione può anche essere disabilitata.",
+            "es": "A partir de la versión 2.3, el controlador Z-Wave se reinicia al iniciar el adaptador y después de algunas operaciones de administración. Esto puede hacer que las memorias USB se vuelvan a conectar y obtengan una dirección diferente, por lo que el adaptador no puede iniciarse.\n\nPor favor, lea y siga https://github.com/AlCalzone/ioBroker.zwave2/blob/master/docs/en/troubleshooting.md#the-adapter-does-not-start-after-updating-to-version-23-or-higher. Si nada ayuda, esta función también se puede desactivar.",
+            "pl": "Od wersji 2.3 kontroler Z-Wave jest ponownie uruchamiany po uruchomieniu adaptera i po wykonaniu pewnych operacji zarządzania. Może to spowodować ponowne połączenie pamięci USB i uzyskanie innego adresu, przez co adapter nie będzie mógł się uruchomić.\n\nProszę przeczytać i postępować zgodnie z https://github.com/AlCalzone/ioBroker.zwave2/blob/master/docs/en/troubleshooting.md#the-adapter-does-not-start-after-updating-to-version-23-lub-wyższy. Jeśli nic nie pomaga, tę funkcję można również wyłączyć.",
+            "zh-cn": "从版本 2.3 开始，Z-Wave 控制器会在适配器启动时和一些管理操作后重新启动。这可能会导致 U 盘重新连接并获得不同的地址，从而导致适配器无法启动。\n\n请阅读并遵循 https://github.com/AlCalzone/ioBroker.zwave2/blob/master/docs/en/troubleshooting.md#the-adapter-does-not-start-after-updating-to-version-23-or-higher。如果没有任何帮助，也可以禁用此功能。"
+        },
+        "id": "zwave2-v2.3-softreset",
+        "class": "info",
+        "fa-icon": "usb",
+        "created": "2021-10-26T01:00:00.000Z",
+        "conditions": {
+            "zwave2": "between(2.3.0,2.3.2)"
+        }
+    },
+    {
+        "title": {
+            "en": "The Squeezebox adapter will be discontinued and will be replaced.",
+            "de": "Der Squeezebox Adapter wird nicht weiterentwickelt und ersetzt.",
+            "ru": "Адаптер Squeezebox будет снят с производства и будет заменен.",
+            "pt": "O adaptador Squeezebox será descontinuado e substituído.",
+            "nl": "De Squeezebox-adapter wordt stopgezet en vervangen.",
+            "fr": "L'adaptateur Squeezebox sera abandonné et remplacé.",
+            "it": "L'adattatore Squeezebox verrà interrotto e verrà sostituito.",
+            "es": "El adaptador Squeezebox se descontinuará y será reemplazado.",
+            "pl": "Adapter Squeezebox zostanie wycofany z produkcji i zostanie wymieniony.",
+            "zh-cn": "Squeezebox 适配器将停产并更换。"
+        },
+        "content": {
+            "en": "The squeezebox adapter will not be further developed, please switch to the better successor SqueezeboxRPC.",
+            "de": "Der Squeezebox-Adapter wird nicht weiterentwickelt, bitte wechseln Sie auf den besseren Nachfolger SqueezeboxRPC.",
+            "ru": "Адаптер squeezebox не будет дорабатываться, пожалуйста, перейдите на более совершенный SqueezeboxRPC.",
+            "pt": "O adaptador da squeezebox não será mais desenvolvido, mude para o melhor sucessor SqueezeboxRPC.",
+            "nl": "De squeezebox adapter zal niet verder ontwikkeld worden, gelieve over te stappen naar de betere opvolger SqueezeboxRPC.",
+            "fr": "L'adaptateur squeezebox ne sera pas développé davantage, veuillez passer au meilleur successeur SqueezeboxRPC.",
+            "it": "L'adattatore squeezebox non sarà ulteriormente sviluppato, passare al successore migliore SqueezeboxRPC.",
+            "es": "El adaptador Squeezebox no se desarrollará más, cambie al mejor sucesor SqueezeboxRPC.",
+            "pl": "Adapter squeezebox nie będzie dalej rozwijany, proszę przejść na lepszego następcę SqueezeboxRPC.",
+            "zh-cn": "不会进一步开发squeezebox适配器，请切换到更好的后继者SqueezeboxRPC。"
+        },
+        "id": "squeezebox",
+        "class": "warning",
+        "fa-icon": "exclamation-circle",
+        "created": "2022-01-06T13:00:00.000Z",
+        "conditions": {
+            "squeezebox": "installed"
+        }
+    },
+    {
+        "title": {
+            "en": "Cloud / Vis offline Christmas offer 2021",
+            "de": "Cloud / Vis Offline Weihnachtsangebot 2021",
+            "ru": "Новогоднее предложение Cloud / Vis offline 2021",
+            "pt": "Cloud / Vis offline oferta de Natal 2021",
+            "nl": "Cloud / Vis offline Kerstaanbieding 2021",
+            "fr": "Offre de Noël hors ligne Cloud / Vis 2021",
+            "it": "Offerta di Natale offline Cloud/Vis 2021",
+            "es": "Oferta de Navidad fuera de línea de Cloud / Vis 2021",
+            "pl": "Cloud / Vis offline Oferta świąteczna 2021",
+            "zh-cn": "Cloud / Vis 线下圣诞节优惠 2021"
+        },
+        "content": {
+            "en": "There is again a discount on the cloud packages of around 33%! However, we have to limit the availability of the cloud or remote access licenses again in order to guarantee the stability and availability of the servers. The following applies to these licenses: As long as stocks last :). The assistant licenses are unlimited!\n\nRead more here: https://forum.iobroker.net/topic/50013/cloud-vis-offline-weihnachtsangebote-2021 (German only)",
+            "de": "Es gibt wieder einen Rabatt auf die Cloud-Pakete von rund 33%! Allerdings müssen wir die Verfügbarkeit der Cloud- oder Remote-Access-Lizenzen wieder einschränken, um die Stabilität und Verfügbarkeit der Server zu gewährleisten. Für diese Lizenzen gilt: Solange der Vorrat reicht :). Die Assistentenlizenzen sind unbegrenzt!\n\nLesen Sie hier mehr: https://forum.iobroker.net/topic/50013/cloud-vis-offline-weihnachtsangebote-2021",
+            "ru": "На облачные пакеты снова действует скидка около 33%! Однако мы должны снова ограничить доступность облачных лицензий или лицензий удаленного доступа, чтобы гарантировать стабильность и доступность серверов. К этим лицензиям применимо следующее: Пока доступно :). Лицензии ассистента не ограничены!\n\nПодробнее здесь: https://forum.iobroker.net/topic/50013/cloud-vis-offline-weihnachtsangebote-2021 (только на немецком языке)",
+            "pt": "Há novamente um desconto nos pacotes de nuvem em torno de 33%! No entanto, temos que limitar a disponibilidade da nuvem ou licenças de acesso remoto novamente para garantir a estabilidade e disponibilidade dos servidores. O seguinte se aplica a essas licenças: Enquanto durarem os estoques :). As licenças do assistente são ilimitadas!\n\nLeia mais aqui: https://forum.iobroker.net/topic/50013/cloud-vis-offline-weihnachtsangebote-2021 (apenas em alemão)",
+            "nl": "Er is weer een korting op de cloudpakketten van circa 33%! Wel moeten we de beschikbaarheid van de cloud- of remote access-licenties weer inperken om de stabiliteit en beschikbaarheid van de servers te garanderen. Voor deze licenties geldt het volgende: Zolang de voorraad strekt :). De assistent-licenties zijn onbeperkt!\n\nLees hier meer: https://forum.iobroker.net/topic/50013/cloud-vis-offline-weihnachtsangebote-2021 (alleen Duits)",
+            "fr": "Il y a encore une remise sur les forfaits cloud d'environ 33% ! Cependant, nous devons à nouveau limiter la disponibilité des licences cloud ou d'accès distant afin de garantir la stabilité et la disponibilité des serveurs. Ce qui suit s'applique à ces licences : Jusqu'à épuisement des stocks :). Les licences assistantes sont illimitées !\n\nEn savoir plus ici : https://forum.iobroker.net/topic/50013/cloud-vis-offline-weihnachtsangebote-2021 (en allemand uniquement)",
+            "it": "C'è di nuovo uno sconto sui pacchetti cloud di circa il 33%! Tuttavia, dobbiamo limitare nuovamente la disponibilità delle licenze cloud o di accesso remoto per garantire la stabilità e la disponibilità dei server. Quanto segue si applica a queste licenze: Fino ad esaurimento scorte :). Le licenze di assistente sono illimitate!\n\nLeggi di più qui: https://forum.iobroker.net/topic/50013/cloud-vis-offline-weihnachtsangebote-2021 (solo in tedesco)",
+            "es": "¡Nuevamente hay un descuento en los paquetes en la nube de alrededor del 33%! Sin embargo, tenemos que volver a limitar la disponibilidad de la nube o las licencias de acceso remoto para garantizar la estabilidad y disponibilidad de los servidores. Para estas licencias se aplica lo siguiente: Hasta agotar existencias :). ¡Las licencias de asistente son ilimitadas!\n\nLea más aquí: https://forum.iobroker.net/topic/50013/cloud-vis-offline-weihnachtsangebote-2021 (solo en alemán)",
+            "pl": "Ponownie mamy zniżkę na pakiety w chmurze w wysokości około 33%! Musimy jednak ponownie ograniczyć dostępność licencji na chmurę lub dostęp zdalny, aby zagwarantować stabilność i dostępność serwerów. Do tych licencji obowiązuje: Do wyczerpania zapasów :). Licencje asystenta są nieograniczone!\n\nPrzeczytaj więcej tutaj: https://forum.iobroker.net/topic/50013/cloud-vis-offline-weihnachtsangebote-2021 (tylko w języku niemieckim)",
+            "zh-cn": "云套餐又优惠了33%左右！但是，我们必须再次限制云或远程访问许可证的可用性，以保证服务器的稳定性和可用性。以下内容适用于这些许可证：只要存货售完 :)。助理许可证是无限的！\n\n在此处阅读更多信息：https://forum.iobroker.net/topic/50013/cloud-vis-offline-weihnachtsangebote-2021（仅限德语）"
+        },
+        "id": "christmas-action-2021",
+        "class": "info",
+        "fa-icon": "usb",
+        "created": "2021-12-08T11:00:00.000Z",
+        "date-end": "2022-01-10T00:00:00.000Z"
+    },
+    {
+        "title": {
+            "en": "The iogo adapter has been retired",
+            "de": "Der iogo-Adapter wurde eingestellt",
+            "ru": "Адаптер iogo удален",
+            "pt": "O adaptador iogo foi retirado",
+            "nl": "De iogo-adapter is met pensioen",
+            "fr": "L'adaptateur iogo a été retiré",
+            "it": "L'adattatore iogo è stato ritirato",
+            "es": "El adaptador iogo se ha retirado",
+            "pl": "Adapter iogo został wycofany",
+            "zh-cn": "iogo 适配器已停用"
+        },
+        "content": {
+            "en": "The iogo adapter will not be further developed, please switch to the successor iogopro.",
+            "de": "Der iogo Adapter wird nicht weiterentwickelt, bitte wechseln Sie auf den Nachfolger iogopro.",
+            "ru": "Адаптер iogo не будет развиваться, перейдите на преемника iogopro.",
+            "pt": "O adaptador iogo não será mais desenvolvido, mude para o sucessor iogopro.",
+            "nl": "De iogo adapter zal niet verder ontwikkeld worden, gelieve over te stappen naar de opvolger iogopro.",
+            "fr": "L'adaptateur iogo ne sera pas développé davantage, veuillez passer au successeur iogopro.",
+            "it": "L'adattatore iogo non sarà ulteriormente sviluppato, passare al successivo iogopro.",
+            "es": "El adaptador iogo no se desarrollará más, cambie al sucesor iogopro.",
+            "pl": "Adapter iogo nie będzie dalej rozwijany, przejdź na następcę iogopro.",
+            "zh-cn": "iogo适配器不会再开发了，请切换到后续iogopro。"
+        },
+        "id": "iogo-deleted",
+        "class": "warning",
+        "fa-icon": "exclamation-circle",
+        "created": "2021-01-03T19:00:00.000Z",
+        "conditions": {
+            "iogo": "installed"
+        }
+    },
+    {
+        "title": {
+            "en": "WM-Bus adapter is deprecated",
+            "de": "WM-Bus-Adapter ist veraltet",
+            "ru": "Адаптер WM-Bus устарел",
+            "pt": "O adaptador WM-Bus está obsoleto",
+            "nl": "WM-Bus-adapter is verouderd",
+            "fr": "L'adaptateur WM-Bus est obsolète",
+            "it": "L'adattatore WM-Bus è deprecato",
+            "es": "El adaptador WM-Bus está obsoleto",
+            "pl": "Adapter WM-Bus jest przestarzały",
+            "zh-cn": "WM-Bus 适配器已弃用"
+        },
+        "content": {
+            "en": "The WM-Bus adapter was replaced by Wireless-MBus adapter and is now removed from the official repositories. You can still use the WM-Bus adapter, as long it is working. But there will be no more support for this adapter.",
+            "de": "Der WM-Bus-Adapter wurde durch den Wireless-MBus-Adapter ersetzt und ist nun aus den offiziellen Repositories entfernt. Sie können den WM-Bus-Adapter weiterhin verwenden, solange er funktioniert. Dieser Adapter wird jedoch nicht mehr unterstützt.",
+            "ru": "Адаптер WM-Bus был заменен адаптером Wireless-MBus и теперь удален из официальных репозиториев. Вы все еще можете использовать адаптер WM-Bus, пока он работает. Но поддержки этого адаптера больше не будет.",
+            "pt": "O adaptador WM-Bus foi substituído pelo adaptador Wireless-MBus e agora foi removido dos repositórios oficiais. Você ainda pode usar o adaptador WM-Bus, desde que esteja funcionando. Mas não haverá mais suporte para este adaptador.",
+            "nl": "De WM-Bus-adapter is vervangen door een Wireless-MBus-adapter en is nu verwijderd uit de officiële repositories. U kunt de WM-Bus-adapter nog steeds gebruiken, zolang deze werkt. Maar er zal geen ondersteuning meer zijn voor deze adapter.",
+            "fr": "L'adaptateur WM-Bus a été remplacé par l'adaptateur Wireless-MBus et est désormais supprimé des référentiels officiels. Vous pouvez toujours utiliser l'adaptateur WM-Bus, tant qu'il fonctionne. Mais il n'y aura plus de support pour cet adaptateur.",
+            "it": "L'adattatore WM-Bus è stato sostituito dall'adattatore Wireless-MBus e ora è stato rimosso dai repository ufficiali. È ancora possibile utilizzare l'adattatore WM-Bus, purché funzioni. Ma non ci sarà più supporto per questo adattatore.",
+            "es": "El adaptador WM-Bus fue reemplazado por el adaptador Wireless-MBus y ahora se eliminó de los repositorios oficiales. Puede seguir utilizando el adaptador WM-Bus, siempre que esté funcionando. Pero no habrá más soporte para este adaptador.",
+            "pl": "Adapter WM-Bus został zastąpiony przez adapter Wireless-MBus i został usunięty z oficjalnych repozytoriów. Nadal możesz używać adaptera WM-Bus, dopóki działa. Ale nie będzie już obsługi tego adaptera.",
+            "zh-cn": "WM-Bus 适配器已被 Wireless-MBus 适配器取代，现在已从官方存储库中删除。只要 WM-Bus 适配器工作正常，您仍然可以使用它。但是将不再支持此适配器。"
+        },
+        "id": "wmBusAdapter",
+        "class": "info",
+        "fa-icon": "exclamation-circle",
+        "created": "2022-01-07T16:30:00.000Z",
+        "conditions": {
+            "wm-bus": "installed"
         }
     }
 ]

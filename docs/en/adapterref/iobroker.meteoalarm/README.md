@@ -1,44 +1,24 @@
 ![Logo](admin/meteoalarm.png)
 # ioBroker.meteoalarm
 
-[![Greenkeeper badge](https://snyk.io/test/github/jack-blackson/ioBroker.meteoalarm/badge.svg)](https://snyk.io/test/github/jack-blackson/ioBroker.meteoalarm) [![NPM version](http://img.shields.io/npm/v/iobroker.meteoalarm.svg)](https://www.npmjs.com/package/iobroker.meteoalarm) [![Build Status Travis](https://travis-ci.com/jack-blackson/ioBroker.meteoalarm.svg?branch=master)](https://travis-ci.com/jack-blackson/ioBroker.meteoalarm) [![Downloads](https://img.shields.io/npm/dm/iobroker.meteoalarm.svg)](https://www.npmjs.com/package/iobroker.meteoalarm) ![Number of Installations](http://iobroker.live/badges/meteoalarm-installed.svg) ![Number of Installations](http://iobroker.live/badges/meteoalarm-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.meteoalarm.svg)](https://www.npmjs.com/package/iobroker.meteoalarm) [![Build Status Travis](https://travis-ci.com/jack-blackson/ioBroker.meteoalarm.svg?branch=master)](https://travis-ci.com/jack-blackson/ioBroker.meteoalarm) [![Downloads](https://img.shields.io/npm/dm/iobroker.meteoalarm.svg)](https://www.npmjs.com/package/iobroker.meteoalarm) ![Number of Installations](http://iobroker.live/badges/meteoalarm-installed.svg) ![Number of Installations](http://iobroker.live/badges/meteoalarm-stable.svg)[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/meteoalarm/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) 
 
 [![NPM](https://nodei.co/npm/iobroker.meteoalarm.png?downloads=true)](https://nodei.co/npm/iobroker.meteoalarm.png?downloads=true/)
 
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 meteoalarm Adapter for ioBroker
 ------------------------------------------------------------------------------
-This adapter is pulling weather alarms from meteoalarm.eu, which includes wind, snow, rain, high and low temperature,etc. This information is available in local language and for detailed regions.
+This adapter is pulling weather alarms from https://meteoalarm.org, which includes wind, snow, rain, high and low temperature,etc. This information is available in local language and for detailed regions.
+
+Disclaimer: Time delays between this website and the www.meteoalarm.org website are possible, for the most up to date information about alert levels as published by the participating National Meteorological Services please use https://www.meteoalarm.org.
 
 ## How to use it
-There are two options how you can get the link to retrieve the meteoalarm information.
-
-Option 1: Choose your country, then press "load region", and then choose the region. The xml is then filled automatically. Just press save and you are ready.
-
-Option 2: Go to http://meteoalarm.eu and choose your region. Then go to the RSS symbol on the top right side, do a right click and copy the link. This is the link which you please add to the setup of the adapter.
-
-![Logo](screenshot.png)
+Choose your country, and afterwards the region you want the warnings for. If you are unsure what your region name is, please go to https://meteoalarm.org and try to find it on the map. 
 
 
-## Available fields
-|Field Name|Description|                                                                       
-|:---:|:---:|
-|Last Update|Date when the adapter received data the last time|
-|Link|Link to the RSS Feed|
-|Location|Alarm Location|
-|Publication Date|Publication Date of the alarm according to the website|
-|HTMLToday|HTML Widget that displays Alarms for today|
-|Weather Map Country|HTML Link to Weather Map of the Alarm Country|
-|Today/Tomorrow|These datapoints are available for today and tomorrow:|
-|   Text|Alarm Text in country specific language|
-|   From|Alarm starting date|
-|   To|Alarm ending date|
-|   Type|Type of Alarm as number|
-|   TypeText|Type of Alarm as text|
-|   Level|Level of Alarm as number|
-|   LevelText|Level of Alarm as text|
-|   Color|Alarm color for widgets|
-|   Icon|Alarm type icon|
-
+## Add it to your vis
+The easiest way to add it to your vis is by using the widget basic - string, and there choosing the datapoint htmlToday. This gives you a predesigned HTML widget, which you can adjust in the setup.
 
 ## Alarm Types
 |Alarm Type|Description|                                                                       
@@ -57,7 +37,24 @@ Option 2: Go to http://meteoalarm.eu and choose your region. Then go to the RSS 
 |12|Flood|
 |13|Rain-Flood|
 
+## Setup
+"No Background Color in HTML Widget": 
+Ability to use the HTML Widget without background color (e.g. if you want to use the color object to fill your whole widget, not just the html widget)
 
+"Define Warning colors": 
+Ability to define the colors for the various alarm levels in HEX code. Used for HTML widget and also for the color object to manually assign it to another widget
+
+"Use white icons": 
+Use white icons instead of black ones
+
+"Icons": 
+Define the size of the icon in the HTML widget
+
+"No symbols in widget":
+Don't use the symbol in the HTML widget. You can still access it in the objects. This is usefill if you want to show the icon seperatly from the widget - e.g. in a bigger size.
+
+"Today instead of Weekday"
+Show in the header of the widget instead of the weekday "today", "tomorrow" or "yesterday.
 
 ## Alarm Levels
 |Alarm Level|Description|                                                                       
@@ -69,42 +66,104 @@ Option 2: Go to http://meteoalarm.eu and choose your region. Then go to the RSS 
 
 ## Supported countries
 * Austria
-* Croatia
-* Czech Republic
-* Finnland
 * Germany
+* Belgium
+* BosniaHerzegovina
+* Croatia
+* Cyprus
+* Czech Republic
+* Denmark
+* Estonia
+* Finland
+* France
 * Greece
 * Hungary
-* Ireland
+* Iceland
 * Israel
 * Italy
 * Latvia
 * Lithuania
+* Luxembourg
 * Malta
-* Moldova
-* Montenegro
 * Netherlands
 * Norway
 * Poland
 * Romania
 * Serbia
 * Slovakia
+* Slovenia
 * Spain
-* Switzerland
 * Sweden
+* UK
 
 If you don't find your country, please create an issue on github, and I will be happy to add it
 
 ## Not possible countries
-* France (no rss feed available)
-* Portugal (no splitting possible)
-* Slovenia (no rss feed available)
+* Switzerland (geocode file from meteoalarm.org is probably incorrect)
+* Portugal (geocode file from meteoalarm.org is probably incorrect)
+* Bulgaria (geocode file from meteoalarm.org is probably incorrect)
 
-## Features to implement
-* Handle multiple alarms on one day
 
 
 ## Changelog
+
+## 2.0.10 (2021-12-10)
+* (jack-blackson) Bugfix Sentry IOBROKER-METEOALARM-2K
+* (jack-blackson) BUgfix for Ireland
+
+## 2.0.9 (2021-11-27)
+* (jack-blackson) Calculate date in words correctly - this time for real :)
+* (jack-blackson) Bugfix Sentry IOBROKER-METEOALARM-2N
+
+## 2.0.8 (2021-11-26)
+* (jack-blackson) Added new datapoint "No. of active alarms"
+* (jack-blackson) Adjusted package information
+* (jack-blackson) Bugfix date-presentation in HTML Widget for warnings 2 days in advance
+
+## 2.0.7 (2021-10-01)
+* (jack-blackson) Bugfix
+
+## 2.0.6 (2021-09-29)
+* (jack-blackson) Added North Macedonia
+* (jack-blackson) Bugfix for "result.feed.entry.forEach is not a function" error
+
+## 2.0.5 (2021-08-15)
+* (jack-blackson) Bugfix date in words
+
+## 2.0.4 (2021-08-13)
+* (jack-blackson) Bugfix readme link
+
+## 2.0.3 (2021-08-09)
+* (jack-blackson) Show date in words instead of day in HTML widget
+* (jack-blackson) Added language code for Belgium
+
+## 2.0.2 (2021-07-15)
+* (jack-blackson) Bugfix
+
+## 2.0.1 (2021-07-08)
+* (jack-blackson) Changed Alarm Folder Name to Alarm_X
+* (jack-blackson) Define in setup which Alarms you want to see
+* (jack-blackson) Sort Alarms by effective date
+## 2.0.0 (2021-07-06)
+* (jack-blackson) Switch to Meteoalarm.org, complete rebuild
+## 1.2.1 (2021-06-05)
+* (jack-blackson) Bugfix to handle incorrect XML (if country instead of region is used)
+* (jack-blackson) Added Luxembourg
+## 1.2.0 (2021-05-16)
+* (jack-blackson) New Setup: "No Background Color in HTML Widget", "Define Warning colors" and "Use white icons"
+* (jack-blackson) New Icons
+## 1.1.11 (2021-05-09)
+* (jack-blackson) Package Updates
+## 1.1.9 (2021-05-07)
+* (jack-blackson) Package Updates
+## 1.1.5 (2021-05-02)
+* (jack-blackson) Bugfix JS-Controller 3.3.1 errors, error handling no language defined
+## 1.1.4 (2021-04-05)
+* (jack-blackson) Handle ENOTFOUND error message, added Sentry
+## 1.1.3 (2021-03-29)
+* (jack-blackson) Error fixes adapter checker
+## 1.1.2 (2021-03-29)
+* (jack-blackson) Bugfix for not working data update, removed link autogeneration due to CORS errors
 ## 1.1.1 (2020-10-28)
 * (jack-blackson) Bugfix HTML Data
 ## 1.1.0 (2020-03-29)
@@ -155,7 +214,7 @@ Bell in icon designed by Freepik from www.flaticon.com
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2020 jack-blackson <blacksonj7@gmail.com>
+Copyright (c) 2019-2021 jack-blackson <blacksonj7@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

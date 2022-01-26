@@ -1,10 +1,7 @@
 ---
-BADGE-Build Status: https://travis-ci.org/ioBroker/ioBroker.ical.svg?branch=master
 BADGE-Number of Installations: http://iobroker.live/badges/ical-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.ical.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.ical.svg
-BADGE-Github Issues: http://githubbadges.herokuapp.com/ioBroker/ioBroker.ical/issues.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.ical.png?downloads=true
 ---
 ![Logo](ical.png)
 # ioBroker iCal adapter
@@ -83,6 +80,15 @@ To include a Google Calendar, you must go to the Google Calendar calendar settin
 
 #### OwnCloud Calendar
 To include a hardcooked calendar of an OwnCloud, you have to approve this calendar in the calendar view in OwnCloud as a hardcourt calendar and there the link.
+
+#### NextCloud Calendar
+To include a NextCloud calendar, the download link of the single desired calendar of a user must be copied in the calendar view in NextCloud.
+To do this, log in to NextCloud as a user and go to 'Calendar'. In the left column, click on the desired calendar by the circle with three dots.
+In the menu that appears hover with the mouse over 'Download' and right click to copy the link.
+Example: https://192.168.1.234/remote.php/dav/calendars/MYCALENDAR/personal/?export (it is important that the link contains "?export").
+
+Enter this URL into the ioBroker.ical adapter with username and password. This must be done individually for all desired calendars of all users.
+
 
 #### Baikal lightweight CalDAV+CardDAV Server
 The Baikal server offers the "ics-export" plugin that allows to export a calendar as a single ICal file. This export plugin is selected with the URL and allows seamless integration with this ioBroker adaptor. Please add the export filter to the URL of your calendar (`https://SERVER/baikal/cal.php/calendars/path/to/calendar?export&accept=ical`). If you encounter authentication issues, please change the `WebDAV authentication type` from `DIGEST` to `BASIC` in the admin settings of the WebUI of the Baikal server.
@@ -188,6 +194,62 @@ Blacklist: If you want to exclude all events of a specific location use `LOCATIO
 Whitelist: If you only want to include events of a specific location use regular expression like `/^(SUMMARY:.*)\s*(DESCRIPTION:.*)\s*(LOCATION:(?!MyLocation).*)$/` or for 2 locations `/^(SUMMARY:.*)\s*(DESCRIPTION:.*)\s*(LOCATION:(?!((MyHomeLocation)|(MyWorkLocation))).*)$/`
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 1.11.6 (2021-12-17)
+* (jens-maus) fixed incorrect recurrence event processing
+
+### 1.11.5 (2021-11-09)
+* (jens-maus) updated node-ical to latest 0.14.1
+* (jens-maus) fix another issue where an already ended event is still listed
+
+### 1.11.4 (2021-09-02)
+* (Apollon77) fix cases where already ended entries where still listed
+* (Apollon77) fix reported sentry crash cases (IOBROKER-ICAL-S, IOBROKER-ICAL-N)
+
+### 1.11.3 (2021-08-04)
+* (jens-maus) fixed timezone related handling
+
+### 1.11.2 (2021-08-01)
+* (Apollon77) Change one logline to debug
+
+### 1.11.1 (2021-07-30)
+* (Apollon77) Adjust date length for full day events to the full day
+
+### 1.11.0 (2021-07-30)
+* (Apollon77) Locally cache remote calendars to be used in case of request errors
+
+### 1.10.4 (2021-07-30)
+* (Apollon77) Make sure daysPast is correctly initialized if not provided
+* (Apollon77) When no calendar could be read then no events are updated/cleanup
+* (Apollon77) Respect HTTP statuscode from server response too to detect errors
+
+### 1.10.3 (2021-07-30)
+* (Apollon77/Feuersturm) Fix other timezone issues
+* (Apollon77) Fix setting external States when events are active
+* (Apollon77) Also list recurring entries from the past
+* (Apollon77) Fix the event states for the days in future
+
+### 1.10.2 (2021-07-25)
+* (Apollon77/Feuersturm) Fix wrong times and dates introduced in 1.7.5.
+* (Feuersturm) Allow Setting daysPast to be decreased to zero with button again
+
+### 1.10.1 (2021-07-22)
+* (Apollon77) Make sure all Event objects are created before values are written
+
+### 1.10.0 (2021-07-16)
+* IMPORTANT: data.table is now a stringified array!! Consider when using this value!
+* (Apollon77) Optimize for js-controller 3.3
+* (BasGo) added analysis for events marked as private in Google Calendar
+* (jens-maus) updated dependencies
+
+### 1.9.3 (2021-04-01)
+* (Apollon77) Better handling of some ical cases
+
+### 1.9.2 (2021-03-07)
+* (Apollon77) Prevent crash case when summary is not provided (Sentry IOBROKER-ICAL-K)
 
 ### 1.9.1 (2021-01-30)
 * (Apollon77) try to make sure all code is executed before adapter is ended
@@ -219,7 +281,7 @@ Whitelist: If you only want to include events of a specific location use regular
 
 ### 1.7.5 (2020-11-08)
 * (Apollon77) Only handle events with a start date (Sentry IOBROKER-ICAL-1, IOBROKER-ICAL-2, IOBROKER-ICAL-4)
-* (JensMaus) Update dependencies, fix some more issues
+* (jens-maus) Update dependencies, fix some more issues
 
 ### 1.7.4 (2020-08-26)
 * (Apollon77) Fix multiple parsing
@@ -360,7 +422,7 @@ Whitelist: If you only want to include events of a specific location use regular
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2021, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

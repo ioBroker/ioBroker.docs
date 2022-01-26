@@ -11,6 +11,7 @@
 
 ![Test and Release](https://github.com/AlCalzone/iobroker.zwave2/workflows/Test%20and%20Release/badge.svg)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/AlCalzone/ioBroker.zwave2.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/AlCalzone/ioBroker.zwave2/context:javascript)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/zwave2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 <h2 align="center">Z-Wave for ioBroker. But better.</h3>
 
@@ -39,39 +40,49 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
-### 1.8.10 (2021-02-03)
-* The startup should now be faster, especially if there are many sleeping devices
-* Fixed an issue where devices were incorrectly displayed as secure
-* Improved support for devices that use the legacy `Alarm CC`
-* Several improvements for Zooz and GE devices
+### 2.4.3 (2022-01-18)
+* Updated translations
+* Updated `zwave-js` from `8.9.1` to `8.11.2`. Check out the [releases](https://github.com/zwave-js/node-zwave-js/releases) for a detailed overview over the new and changed configuration files.
+* Add support for `Humidity Control Mode CC`
+* Add support for `Humidity Control Operating State CC`
+* Add support for `Humidity Control Setpoint CC`
+* Work around an issue where some devices could not be interviewed due to an incorrect `Version CC` response.
+* Fixed an issue where `Supervision Get` requests were not answered for sleeping nodes
+* Re-interviewing sleeping nodes now only resets the known information when the node wakes up
+* The `colors` dependency was recently [corrupted on purpose](https://www.theverge.com/2022/1/9/22874949/developer-corrupts-open-source-libraries-projects-affected). This patch updates all dependencies that depended on an affected version, directly or indirectly.
 
-### 1.8.9 (2021-01-31)
-* Labels for the Meter CC were improved to be unique
-* Many config files were added and updated
-* Improved compatibility with some devices, notably `ID Lock 150`, `Vision Security ZD2102-5`, `HomeSeer WD200+`
-* `currentValue` and similar values are now updated immediately when a set-type command succeeds. Verification is done after a short delay.
+### 2.4.2 (2021-12-23)
+* Fix: Additional node-related commands now respect and update the node status
+* Fixed an issue where the communication could get stuck after aborting a command
+* New and updated configuration files, see [here](https://github.com/zwave-js/node-zwave-js/releases/tag/v8.9.0) and [here](https://github.com/zwave-js/node-zwave-js/releases/tag/v8.9.1)
 
-### 1.8.8 (2021-01-24)
-* Fixed an issue where communication with sleeping secure nodes could get stuck
-* After changing a value, the verification of the new value happens with a larger delay to avoid capturing intermediate and outdated values
-* Several hundred device configuration files were added
+### 2.4.2-beta.1 (2021-12-17)
+* Fixed the check for incomplete or incorrect value IDs
 
-### 1.8.7 (2021-01-21)
-* The scene ID of `Scene Activation CC` now gets reset automatically
-* Fixed an error that could occur while configuring associations
-* Fixed two potential sources of crashes
-* The values of the root endpoint of some legacy devices are now correctly updated
-* Added support for `Aeotec aerQ ZWA009-A` US/Canada/Mexico version
-* Fixed invalid parameter options in many config files
+### 2.4.2-beta.0 (2021-12-16)
+* Experimental: The handling of messages has been rewritten from scratch and simplified. This may cause some unintended behavior.
+* Avoid interruption of the communication with a node by other nodes requesting responses from the controller
+* Improved reliability of encrypted communication
+* Battery-powered devices are nore sent to sleep more reliably
+* Fixed encoding of some configuration parameters
+* Fix: Limit allowed Node.js versions to `12.22.2+`, `14.13.0+`, `16+` and forbid installation on development Node.js versions
+* Fixed some crashes
+* Fixed an issue where healing the network would fail due to a too low timeout
+* Improved detection of sticks that do not support soft reset
+* New and updated configuration files, see [here](https://github.com/zwave-js/node-zwave-js/releases/tag/v8.8.0) and [here](https://github.com/zwave-js/node-zwave-js/releases/tag/v8.9.0-beta.3)
 
-### 1.8.6 (2021-01-17)
-* Many, many changes... See https://github.com/zwave-js/node-zwave-js/blob/master/CHANGELOG.md#changelog for details
+### 2.4.1 (2021-11-03)
+* Fix: Correctly update UI when canceling an inclusion process
+* Fix: Check for SmartStart support before using it
+* Fix: Add missing translations
+* Fixed the automatic lifeline association for some devices
+* New and updated configuration files, see [here](https://github.com/zwave-js/node-zwave-js/releases/tag/v8.7.3)
 
 ## License
 
 MIT License
 
-Copyright (c) 2019-2021 AlCalzone
+Copyright (c) 2019-2022 AlCalzone
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

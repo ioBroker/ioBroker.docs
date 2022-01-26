@@ -10,6 +10,8 @@
 
 [![NPM](https://nodei.co/npm/iobroker.unifi-protect.png?downloads=true)](https://nodei.co/npm/iobroker.unifi-protect/)
 
+**This adapter uses the service [Sentry.io](https://sentry.io) to automatically report exceptions and code errors and new device schemas to me as the developer.** More details see below!
+
 ## unifi-protect adapter for ioBroker
 
 Connects to Unifi Protect Controller and pulls all Data from added Cameras.
@@ -57,7 +59,26 @@ sendTo('unifi-protect.0', 'getSnapshot', { "cameraid": "5e4a861c01d12503870003f9
 });
 ```
 
+## What is Sentry.io and what is reported to the servers of that company?
+Sentry.io is a service for developers to get an overview about errors from their applications. And exactly this is implemented in this adapter.
+
+When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry. When you allowed iobroker GmbH to collect diagnostic data then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of this helps me to provide error free adapters that basically never crashs.
+
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ## **WORK IN PROGRESS**
+-->
+
+## **WORK IN PROGRESS**
+* first implementation of realtime updates api
+* lastMotion, lastRing, lcdMessage and smartDetectZone in realTimeEvents
+
+### 0.0.12 (2021-03-14)
+* added smart detections
+* fixed some lastMotion stuff
+* added UnifiOs Support for CloudKey
 
 ### 0.0.11 (2020-02-27)
 * changed Admin interface a little
@@ -98,10 +119,15 @@ sendTo('unifi-protect.0', 'getSnapshot', { "cameraid": "5e4a861c01d12503870003f9
 ### 0.0.1
 * (Peter Baumert) initial release
 
+## Code Usage
+The code in [protect_api](./protect_api) is mostly copied from [hjdhjd's homebridge-unifi-protect](https://github.com/hjdhjd/homebridge-unifi-protect).
+Thank you very much for providing this code. His codes license you can find [here](https://github.com/hjdhjd/homebridge-unifi-protect/blob/master/LICENSE.md).
+
+
 ## License
 MIT License
 
-Copyright (c) 2020 Peter Baumert <ioBroker.unifi-protect@outlook.com>
+Copyright (c) 2020-2021 Peter Baumert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

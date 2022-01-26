@@ -2,54 +2,48 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mclighting/README.md
-title: ioBroker McLighting Adapter
-hash: dXdR0TFBVa8nzSi2OtTRjXFxpkRm6+/sy9Bi+JeHlWo=
+title: ioBroker McLighting-Adapter
+hash: B+Xv4mslDQtd1AW3kZPCMev2cZZaLYvfVR7+ifEgCi8=
 ---
 ![Logo](../../../en/adapterref/iobroker.mclighting/admin/mclighting.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/mclighting-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.mclighting.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.mclighting.svg)
-![NPM](https://nodei.co/npm/iobroker.mclighting.png?downloads=true)
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-# IoBroker McLighting Adapter
+# IoBroker McLighting-Adapter
 =================
 
-[![Tests] (https://github.com/instalator/iobroker.mclighting/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.mclighting/actions/)
-
 ## Описание
-GBрайвер позволяет управлять RGB лентой на светодиодах WS2811 / WS2812 подключенной к ESP8266 с прошивкой §§LLL
+райвер озволяет управлять RGB лентой на светодиодах WS2811/WS2812 одключенной к ESP8266 mit рошивкой [McLighting](https://github.com/toblum/McLighting)
 
-Если вы хотите использовать RGBW-светодиоды (например, SK6812), подключенные к Esp8266, вам нужна вот эта доработанная прошивка: [McLightingRGBW](https://github.com/FabLab-Luenen/McLighting) и в настройках драйвера выбрать RGBW.
+сли вы хотите использовать RGBW-светодиоды (например, SK6812)
 
 ## Beschreibung
-Mit dem Treiber können Sie den RGB-Streifen an den LEDs WS2811 / WS2812 steuern, die mit der Firmware [McLighting](https://github.com/toblum/McLighting) an den ESP8266 angeschlossen sind
+Der Treiber ermöglicht die Steuerung des RGB-Streifens auf den LEDs WS2811/WS2812, die an den ESP8266 mit Firmware angeschlossen sind [McLighting](https://github.com/toblum/McLighting)
 
-Wenn Sie RGBW-LEDs (wie SK6812) verwenden möchten, die an den ESP8266 angeschlossen sind, sollten Sie nur diese Gabel verwenden: [McLightingRGBW](https://github.com/FabLab-Luenen/McLighting) und in der Adapterkonfiguration *RGBW* auswählen.
+Wenn Sie RGBW-LEDs (wie SK6812) an den ESP8266 angeschlossen verwenden möchten, sollten Sie einfach diese Gabel: [McLightingRGBW](https://github.com/FabLab-Luenen/McLighting) und in der Adapterkonfiguration *RGBW* auswählen.
 
 ## Verwenden
 ### Helligkeit
 Helligkeit einstellen.
 
-Wobei <brightness> die Helligkeit als Wert 0-255 ist.
+Dabei ist <brightness> die Helligkeit als Wert von 0-255.
 
 ### Geschwindigkeit Geschwindigkeit einstellen.
- Wobei <Geschwindigkeit> die Geschwindigkeit von 0 bis 255 ist.
+ Wobei <speed> die Geschwindigkeit von 0 bis 255 ist.
 
-### Mode Modus einstellen.
- Wobei <Lichtmodus> einer der folgenden ist:
+###-Modus Modus einstellen.
+ Dabei ist <lightmode> einer der folgenden:
 
-- aus (Alle LEDs ausschalten.)
+- aus (Schalten Sie alle LEDs aus.)
 - all (Schalten Sie alle LEDs in der angegebenen oder zuvor eingestellten Farbe ein.)
-- wischen (Schalten Sie alle LEDs in der angegebenen oder zuvor eingestellten Farbe mit Wischeffekt ein.)
+- Wipe (Schalten Sie alle LEDs in der angegebenen oder zuvor eingestellten Farbe ein, mit Wipe-Effekt.)
 - Regenbogen (Startet den Regenbogeneffekt.)
 - rainbowCycle (Startet den Regenbogenzyklus-Effekt.)
-- Theaterchase (Startet den Theaterchase-Effekt in der angegebenen oder zuvor festgelegten Farbe.)
+- theaterchase (Startet den Theaterchase-Effekt in der angegebenen oder zuvor eingestellten Farbe.)
 - theaterchaseRainbow (Startet den Theaterchase-Effekt mit wechselnden Farben.)
 - tv (Startet den TV-Simulator.)
 
-### Array_RGB (W)
+### Array_RGB(W)
  Beleuchten Sie mehrere LEDs in den angegebenen Farben.
 
 ```
@@ -57,26 +51,26 @@ Wobei <brightness> die Helligkeit als Wert 0-255 ist.
 [numled][hexrgb(w)],[numled][hexrgb(w)],[numled][hexrgb(w)],[...]
 ```
 
- Wobei <numled> die Nummer der LED ist (beginnend mit 00), z. 01.
+ Wobei <numled> die Nummer der LED ist (beginnend mit 00), z.B. 01.
 
- Wobei <hexrgb> die Farbe als HEX ist, z. 04d2ff.
+ Wobei <hexrgb> die Farbe als HEX ist, z.B. 04d2ff.
 
- Beispiel: + 09ffffff + 19ff0000 ODER 09ffffff, 19ff0000
+ Beispiel: +09ffffff+19ff0000 ODER 09ffffff,19ff0000
 
-### Farbe Legen Sie die Standardfarbe der Lampe fest.
- Wobei <r, g, b (, w)> die Farbe als Zahl (0 - 255) ist, z. 32,3,200 (, 255)
+### Color Legt die Standardfarbe der Lampe fest.
+ Dabei ist <r,g,b(,w)> die Farbe als Zahl (0 - 255), z.B. 32,3,200(, 255)
 
- Wenn aktiver Modus 0 (statisch) - Stellen Sie die Standardfarbe der Lampe ein und leuchten Sie alle LEDs in dieser Farbe.
+ Wenn aktiver Modus 0 (Statisch) - Stellen Sie die Standardfarbe der Lampe ein und leuchten alle LEDs in dieser Farbe.
 
-### Color_R, color_G, color_B (, color_W) Legt die Standardfarbe der Lampe fest.
- Wobei <r (g) (b) (w)> die Farbe als Zahl (0 - 255) ist, z. 154
+### Color_R, color_G, color_B(, color_W) Legt die Standardfarbe der Lampe fest.
+ Wobei <r(g)(b)(w)> die Farbe als Zahl ist (0 - 255), z.B. 154
 
- Wenn aktiver Modus 0 (statisch) - Stellen Sie die Standardfarbe der Lampe ein und leuchten Sie alle LEDs in dieser Farbe.
+ Wenn aktiver Modus 0 (Statisch) - Stellen Sie die Standardfarbe der Lampe ein und leuchten alle LEDs in dieser Farbe.
 
-### Color_RGB (W) Legt die Standardfarbe der Lampe fest.
- Wobei <hexrgb (w)> die Farbe als HEX ist, z. 04d2ff
+### Color_RGB(W) Legt die Standardfarbe der Lampe fest.
+ Wobei <hexrgb(w)> die Farbe als HEX ist, z.B. 04d2ff
 
- Wenn aktiver Modus 0 (statisch) - Stellen Sie die Standardfarbe der Lampe ein und leuchten Sie alle LEDs in dieser Farbe.
+ Wenn aktiver Modus 0 (Statisch) - Stellen Sie die Standardfarbe der Lampe ein und leuchten alle LEDs in dieser Farbe.
 
 ### list_modes Liste der verfügbaren Animationsmodi als Array.
 Ergebnis:
@@ -98,7 +92,7 @@ Ergebnis:
 
 ```
 
-### Range_RGB (W)
+### Bereich_RGB(W)
  Beleuchten Sie mehrere LED-Bereiche in den angegebenen Farben.
 
 ```
@@ -106,26 +100,26 @@ R[rangestart_led][rangeend_led][hexrgb(w)]R[rangestart_led][rangeend_led][hexrgb
 [rangestart_led][rangeend_led][hexrgb(w)],[rangestart_led][rangeend_led][hexrgb(w)],[rangestart_led][rangeend_led][hexrgb(w)],[...]
 ```
 
- Wobei <rangestart_led> die Startnummer des Bereichs ist (Nummern, die mit 00 beginnen), z. 00.
+ Wobei <rangestart_led> die Startnummer des Bereichs ist (Zahlen beginnen mit 00), z.B. 00.
 
- Wobei <rangeend_led> die Endnummer des Bereichs ist (Nummern beginnend mit 00), z. 09.
+ Wobei <rangeend_led> die Endnummer des Bereichs ist (Zahlen beginnen mit 00), z.B. 09.
 
- Wobei <hexrgb (w)> die Farbe als HEX ist, z. 04d2ff.
+ Wobei <hexrgb(w)> die Farbe als HEX ist, z.B. 04d2ff.
 
  Kann mehrfach wiederholt werden.
 
- Beispiel: R0009ffffffR1019ff0000 ODER 0009ffffff, 1019ff0000 leuchtet die ersten 10 LEDs weiß und die nächsten 10 rot
+ Beispiel: R0009ffffffR1019ff0000 ODER 0009ffffff,1019ff0000 leuchtet die ersten 10 LEDs weiß und die nächsten 10 rot
 
-### Set_all_RGB (W) Stellen Sie die Standardfarbe der Lampe ein und leuchten Sie alle LEDs in dieser Farbe.
- Wobei <hexrgb (w)> die Farbe als HEX ist, z. 04d2ff
+### Set_all_RGB(W) Legt die Standardfarbe der Lampe fest und zündet alle LEDs in dieser Farbe.
+ Wobei <hexrgb(w)> die Farbe als HEX ist, z.B. 04d2ff
 
-### Single_RGB (W) Leuchtet einzelne LEDs in der angegebenen Farbe.
- Wobei <numled> die Nummer der LED ist (beginnend mit 00), z. 01.
+### Single_RGB(W) Leuchtet einzelne LEDs in der angegebenen Farbe.
+ Wobei <numled> die Nummer der LED ist (beginnend mit 00), z.B. 01.
 
- Wobei <hexrgb (w)> die Farbe als HEX ist, z. 04d2ff.
+ Wobei <hexrgb(w)> die Farbe als HEX ist, z.B. 04d2ff.
 
 ### Fx_mode Animationsmodus einstellen.
- Wobei <animation_mode_id> in den list_modes aktiviert ist
+ Wo <animation_mode_id> ist aus den list_modes
 
 ### Fx_mode_name Aktueller Name fx_mode
 

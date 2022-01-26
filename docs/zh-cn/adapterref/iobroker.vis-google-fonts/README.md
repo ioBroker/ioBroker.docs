@@ -2,66 +2,73 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-google-fonts/README.md
-title: 无题
-hash: 81Sr6uKH58JZZX0vKGYE5h0CFEFbOEZ3p1Mo8s+OvwI=
+title: ioBroker.vis-google-fonts
+hash: FYs/5Rb8c3qcFZ1h+9NcvTpYvFAe6iewO19VpOiRrSk=
 ---
-![商标](../../../en/adapterref/iobroker.vis-google-fonts/admin/vis-google-fonts.png)ioBroker.vis-google-fonts ============
+![标识](../../../en/adapterref/iobroker.vis-google-fonts/admin/vis-google-fonts.png)
 
 ![安装数量](http://iobroker.live/badges/vis-google-fonts-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.vis-google-fonts.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.vis-google-fonts.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.vis-google-fonts.svg)
-![NPM](https://nodei.co/npm/iobroker.vis-google-fonts.png?downloads=true)
+![新产品管理](https://nodei.co/npm/iobroker.vis-google-fonts.png?downloads=true)
 
-其他字体为ioBroker.vis
+# IoBroker.vis-google-fonts
+ioBroker.vis 的其他字体
 
-##用法
-安装字体并使用字段** CSS-> font-family **。
+＃＃ 用法
+安装字体并使用字段**CSS->font-family**。
 ![如何使用](../../../en/adapterref/iobroker.vis-google-fonts/img/usage.png)
 
 字体：![字体](../../../en/adapterref/iobroker.vis-google-fonts/img/fonts.png)
 
-使用谷歌字体扩展iobroker.vis：https：//www.google.com/fonts
+使用 google 字体扩展 iobroker.vis：https://www.google.com/fonts
 
 将包括以下字体：
 
- -  Alegreya  - 来自Juan Pablo del Peral（juan@huertatipografica.com.ar）
- -  Anton  - 来自Vernon Adams（vern@newtypography.co.uk）
- -  Arimo  - 来自Apache 2.0
- -  BadScript  - 来自Cyreal（www.cyreal.org）
- -  Bangers  - 来自vernon adams（vern@newtypography.co.uk）
- -  Candal  - 来自Vernon Adams（vern@newtypography.co.uk）
- -  Comfortaa  - 来自Johan Aakerlund（aajohan@gmail.com）
- - 来自Pablo Impallari（www.impallari.com | impallari@gmail.com）和Igino Marini的DancingScript。 （www.ikern.com|mail@iginomarini.com）
- -  IndieFlower  - 来自Kimberly Geswein（kimberlygeswein.com）
- -  Jura  - 来自Daniel Johnson（<il.basso.buffo@gmail.com>）
- - 龙虾 - 来自Pablo Impallari（www.impallari.com | impallari@gmail.com）和Alexei Vanyashin（www.cyreal.org | a@cyreal.org）
- -  MarckScript  - 来自Denis Masharov <denis.masharov@gmail.com>和Marck Fogel
- -  Neucha  - 来自Jovanny Lemonad（http://www.jovanny.ru）
- -  OpenSans-Condensed  -  Apache 2.0
- -  Pacifico  - 来自Vernon Adams（vern@newtypography.co.uk）
- - 播放 - 来自Jonas Hecksher，Playtypes，e-types AS（e-types.com）
- -  PoiretOne  - 来自Denis Masharov（denis.masharov@gmail.com）
- -  PressStart2P  - 来自Cody“CodeMan38”Boisclair（cody@zone38.net）
- -  RobotoCondensed  -  Apache 2.0
- -  RubikMonoOne  - 来自Hubert和Fischer，Philipp Hubert（philipp@hubertfischer.com），Sebastian Fischer（sebastian@hubertfischer.com）
- -  RubikOne-Regular  - 来自Hubert和Fischer，Philipp Hubert（philipp@hubertfischer.com），Sebastian Fischer（sebastian@hubertfischer.com）
- -  RuslanDisplay  - 来自Denis Masharov <denis.masharov@gmail.com>
- -  RussoOne-Regular  - 来自Jovanny Lemonad（jovanny.ru）
- -  ShadowsIntoLight  - 来自Kimberly Geswein（kimberlygeswein.com）
- -  SigmarOne  - 来自Vernon Adams（vern@newtypography.co.uk）
- -  StalinistOne  - 来自Alexey Maslov，Jovanny Lemonad（lemonad@jovanny.ru）
- -  Ubuntu  -  UBUNTU FONT LICENSE版本1.0
+- Alegreya - 来自 Juan Pablo del Peral (juan@huertatipografica.com.ar)
+- 安东 - 来自弗农亚当斯 (vern@newtypography.co.uk)
+- Arimo - 来自 Apache 2.0
+- BadScript - 来自 Cyreal (www.cyreal.org)
+- Bangers - 来自弗农亚当斯 (vern@newtypography.co.uk)
+- Candal - 来自 Vernon Adams (vern@newtypography.co.uk)
+- Comfortaa - 来自 Johan Aakerlund (aajohan@gmail.com)
+- DancingScript - 来自 Pablo Impallari (www.impallari.com|impallari@gmail.com) 和 Igino Marini。 (www.ikern.com|mail@iginomarini.com)
+- IndieFlower - 来自 Kimberly Geswein (kimberlygeswein.com)
+- Jura - 来自 Daniel Johnson (<il.basso.buffo@gmail.com>)
+- 龙虾 - 来自 Pablo Impallari (www.impallari.com|impallari@gmail.com) 和 Alexei Vanyashin (www.cyreal.org|a@cyreal.org)
+- MarckScript - 来自 Denis Masharov <denis.masharov@gmail.com> 和 Marck Fogel
+- Neucha - 来自 Jovanny Lemonad (http://www.jovanny.ru)
+- OpenSans-Condensed - Apache 2.0
+- Pacifico - 来自弗农·亚当斯 (vern@newtypography.co.uk)
+- 游戏 - 来自 Jonas Hecksher、Playtypes、e-types AS (e-types.com)
+- PoiretOne - 来自丹尼斯·马沙罗夫 (denis.masharov@gmail.com)
+- PressStart2P - 来自 Cody "CodeMan38" Boisclair (cody@zone38.net)
+- RobotoCondensed - Apache 2.0
+- RubikMonoOne - 来自 Hubert 和 Fischer、Philipp Hubert (philipp@hubertfischer.com)、Sebastian Fischer (sebastian@hubertfischer.com)
+- RubikOne-Regular - 来自 Hubert 和 Fischer、Philipp Hubert (philipp@hubertfischer.com)、Sebastian Fischer (sebastian@hubertfischer.com)
+- RuslanDisplay - 来自丹尼斯·马沙罗夫 <denis.masharov@gmail.com>
+- RussoOne-Regular - 来自 Jovanny Lemonad (jovanny.ru)
+- ShadowsIntoLight - 来自 Kimberly Geswein (kimberlygeswein.com)
+- SigmarOne - 来自弗农·亚当斯 (vern@newtypography.co.uk)
+- StalinistOne - 来自 Alexey Maslov，Jovanny Lemonad (lemonad@jovanny.ru)
+- Ubuntu - UBUNTU 字体许可证版本 1.0
+
+<!-- 下一版本的占位符（在行首）：
+
+### __工作正在进行中__ -->
 
 ## Changelog
+### 1.0.3 (2021-11-11)
+* (bluefox) Support of compact mode added
 
 ### 1.0.0 (2016-04-20)
-- (bluefox) just set the version
+* (bluefox) just set the version
 
 ### 0.1.0 (2015-11-05)
-- (bluefox) always load google-fonts if installed
+* (bluefox) always load google-fonts if installed
 
 ### 0.0.1 (2015-11-05)
-- (bluefox) initial checkin
+* (bluefox) initial checkin
 
 ## License
  Apache 2.0 and SIL Open Font License 1.1

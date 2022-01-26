@@ -35,6 +35,8 @@ HEOS CLI specification: http://rn.dmglobal.com/euheos/HEOS_CLI_ProtocolSpecifica
 * "system/disconnect": Disconnect from HEOS
 * "system/reconnect": Disconnect and Connect
 * "system/load_sources": Reload sources
+* "system/reboot": Reboot connected player
+* "system/reboot_all": Reboot all players
 * "group/set_group?pid=<pid1>,<pid2>,...": Set group with the list of player ids e.g. "group/set_group?pid=12345678,12345679".
 * "group/set_group?pid=<pid1>" : Delete existing group e.g. "group/set_group?pid=12345678"
 * "group/ungroup_all" : Delete all groups
@@ -60,6 +62,12 @@ Note: Multiple commands are possible, if they are separated with the pipe e.g. s
 * "play_stream&url=url_path": Play URL-Stream
 * "add_to_queue&sid=1025&aid=4&cid=[CID]": Play playlist with [CID] on player (aid: 1 – play now; 2 – play next; 3 – add to end; 4 – replace and play)
 
+## Image color extraction
+With version 1.7.6 the prominent colors of the song cover are extracted and saved to three new player states:
+* **current_image_color_palette**: Prominent colors selected by node-vibrant.
+* **current_image_color_background**: Color with the biggest population in the image. Can be used as background color for player controls in VIS.
+* **current_image_color_foreground**: Color with the second biggest population in the image and a good read contrast to the background color. Can be used as text color for player controls in VIS.
+
 ## SayIt
 [SayIt Adapter](https://github.com/ioBroker/ioBroker.sayit) is supported.
 
@@ -70,6 +78,11 @@ Note: Multiple commands are possible, if they are separated with the pipe e.g. s
 [Material UI Adapter](https://github.com/ioBroker/ioBroker.material) is supported.
 
 ![Material](docs/media/material-ui.png)
+
+## Presets & Playlists
+The adapter does not automatically requests the current playlists and presets. To update/request the data and create the play states you have to browse the sources first:
+- Presets/Favorites: ```heos.0.sources.1028.browse```
+- Playlists: ```heos.0.sources.1025.browse```
 
 ## VIS
 
@@ -87,6 +100,7 @@ Note: Multiple commands are possible, if they are separated with the pipe e.g. s
 ![Player view](docs/media/player-view.png)
 
 ### Presets
+* Click button ```heos.0.sources.1028.browse``` to load presets
 * Open the file: [presets_view.json](docs/vis/views/presets_view.json)
 * Import view into VIS
 
@@ -113,6 +127,48 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 
 
 ## Changelog
+### 1.9.2 (2022-01-22)
+* (withstu) add volume lock
+
+### 1.9.1 (2021-08-17)
+* (withstu) fix type issues
+* (withstu) fix roles and repeat state
+
+### 1.9.0 (2021-07-27)
+* (stephanritscher) add option to configure udp source port
+
+### 1.8.6 (2021-06-13)
+* (withstu) test fixed pipeline
+
+### 1.8.4 (2021-06-13)
+* (withstu) improve stability
+
+### 1.8.3 (2021-05-13)
+* (withstu) fix upnp values on failure
+
+### 1.8.2 (2021-05-12)
+* (withstu) BREAKING: add queue paging
+* (withstu) BREAKING: volume_max -> volume_limit
+* (foxriver76) Fix type issues and some more minor changes
+
+### 1.8.1 (2021-05-07)
+* (withstu) fix reboot loop
+
+### 1.8.0 (2021-04-24)
+* (withstu) add reboot on failure configuration
+
+### 1.7.9 (2021-04-07)
+* (withstu) fix reboot
+* (withstu) add power state
+
+### 1.7.8 (2021-04-05)
+* (withstu) add reboot
+
+### 1.7.7 (2021-02-25)
+* (withstu) add creation of missing version state
+
+### 1.7.6 (2021-02-24)
+* (withstu) add image color extraction
 
 ### 1.7.5 (2021-02-12)
 * (withstu) add bit depth
@@ -215,7 +271,7 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 ## License
 MIT License
 
-Copyright (c) 2021 withstu <withstu@gmx.de>
+Copyright (c) 2022 withstu <withstu@gmx.de>
 
 derived from https://forum.iobroker.net/topic/10420/vorlage-denon-heos-script by Uwe Uhula
 TTS derived from https://github.com/ioBroker/ioBroker.sonos

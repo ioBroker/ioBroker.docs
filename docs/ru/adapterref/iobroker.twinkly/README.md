@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.twinkly/README.md
 title: ioBroker.twinkly
-hash: hldAZkmyW8gb0j+l0H2YzXZmhkZQE2diQeEA+IatQy8=
+hash: 2AkzmgVU11hLrQ0iNNizIIa/Kkg91b7iLSv0X1jkkBQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
@@ -13,7 +13,7 @@ hash: hldAZkmyW8gb0j+l0H2YzXZmhkZQE2diQeEA+IatQy8=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.twinkly.svg)
 ![Статус зависимости](https://img.shields.io/david/patrickbs96/iobroker.twinkly.svg)
 ![Известные уязвимости](https://snyk.io/test/github/patrickbs96/ioBroker.twinkly/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.twinkly.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.twinkly.png?downloads=true)
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/github/patrickbs96/ioBroker.twinkly?branch=master&svg=true)
 
 # IoBroker.twinkly
@@ -22,54 +22,122 @@ hash: hldAZkmyW8gb0j+l0H2YzXZmhkZQE2diQeEA+IatQy8=
 ## Адаптер twinkly для ioBroker
 Адаптер для связи с [Мерцающие огни](https://www.twinkly.com/).
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация по Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
 ## Настройки
 Доступны следующие настройки: ![admin.png](../../../en/adapterref/iobroker.twinkly/img/admin.png)
 
-В таблицу вы можете добавить все источники Twinkly, которыми хотите управлять.
+В таблицу вы можете добавить все мерцающие огни, которыми хотите управлять.
 
 | Колонка | Описание |
-| ------------ | ---------------------------------- |
+|--------------|----------------------------------------------------------------|
 | `Enabled` | Будет ли это соединение доступно |
 | `IP Address` | IP-адрес для мерцающих огней |
-| `IP-адрес` | IP-адрес для мерцающих огней |
+| `State On` | Какие `ledMode` должны быть активированы, когда состояние `on` включено |
+| `State On` | Какой `ledMode` должен быть активирован при включенном состоянии` on` |
 
-Если установлен флажок, для каждого устройства создаются следующие дополнительные состояния:
+При установке флажка для каждого устройства создаются следующие дополнительные состояния:
 
-* Информация об устройстве (читать)
-* Состояние сети (читать)
-* MQTT (чтение / запись)
+* Информация об устройстве
+* Состояние сети
+* MQTT
+
+Доступны следующие состояния:
+
+| Государство | Возможность записи | Описание |
+|---------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `connected` | : x: | Устройство подключено |
+| `firmware` | : x: | Версия прошивки |
+| `ledBri` | : heavy_check_mark: | Яркость (отключите управление с помощью -1) |
+| `ledColor` | : heavy_check_mark: | Цвет светодиодов, HSV / RGB (W) / HEX (`Color`) |
+| `ledConfig` | : heavy_check_mark: | Конфигурация светодиодов |
+| `ledEffect` | : heavy_check_mark: | Эффекты (`Effect`) |
+| `ledLayout` | : heavy_check_mark: | Расположение светодиодов (отключено для дальнейшего тестирования) |
+| `ledMode` | : heavy_check_mark: | Mode: Movie, Color, Effect, Playlist, Off, RealTime (пока не поддерживается), Demo |
+| `ledMovie` | : heavy_check_mark: | Активный фильм. Если в список воспроизведения добавлено несколько фильмов, их можно выбрать здесь. (`Movie`) |
+| `ledPlaylist` | : heavy_check_mark: | Активная запись в плейлисте, переключение между фильмами. (`Playlist`) |
+| `ledSat` | : heavy_check_mark: | Насыщенность 0-100 (отключите управление с помощью -1) |
+| `mqtt` | : heavy_check_mark: | MQTT-соединение |
+| `name` | : heavy_check_mark: | Имя |
+| `network` | : x: | Сетевая информация |
+| `on` | : heavy_check_mark: | Переключатель Вкл. / Выкл. |
+| `paused` | : heavy_check_mark: | Приостановите подключение к Twinkly, чтобы вы могли вносить изменения в приложение. В противном случае вы можете потерять соединение во время работы в приложении |
+| `timer` | : heavy_check_mark: | Обновите таймер |
+| `таймер` | : heavy_check_mark: | Обновите таймер |
 
 [Информация о частном API] (https://xled-docs.readthedocs.io/en/latest/) [Павол Бабинчак](https://github.com/scrool)
 
-## ДЕЛАТЬ
-* После того, как переключатель "развернуть JSON" установлен, каналы не создаются (** перезапуск решает эту ошибку atm **)
-* Состояние сети (запись)
-* Состояние включено: флажок для списка воспроизведения / фильма в режиме ВКЛ.
+## Известные проблемы
+* Максимальная длина названия фильма - 15 символов.
 
 ## Changelog
 
-### 0.1.x
-* 8 - (patrickbs96) Changes from the Review
-* 6 - (patrickbs96) Update dependencies
-* 5 - (patrickbs96) Prevent Crash Case at HTTP Error (Sentry IOBROKER-TWINKLY-3)
-* 4 - (patrickbs96) Temporary removing Reset as API path not exists
-* 1 - (patrickbs96) Prevent Crash Case at HTTP Error (Sentry IOBROKER-TWINKLY-3)
+### 0.2.11 (2022-01-02)
+* (patrickbs96) Add setting to select which ledMode should be activated
 
-### 0.0.x
-* 10 - (patrickbs96) Restructured CreateStates (dynamic)
-*  9 - (patrickbs96) Network-Status (read)
-*  8 - (patrickbs96) Transform JSON into states: Details, MQTT and Timer
-*  7 - (patrickbs96) Moved Twinkly Connection into own library
-*  6 - (patrickbs96) Implemented Ping to check if Twinkly is connected. `Connected State` is no longer needed.
-*  3 - (patrickbs96) finalized Admin and Coding
-*  1 - (patrickbs96) initial release
+### 0.2.10 (2021-12-31)
+* (patrickbs96) Add setting to enable automatically switching of Mode after State change (color, effect, movie, playlist)
+
+### 0.2.8 (2021-12-20)
+* (patrickbs96) Rename mode On to movie as it's a better representation
+
+### 0.2.7 (2021-12-19)
+* (patrickbs96) Hex without Hash. Option to not use ping for reachability.
+
+### 0.2.6 (2021-12-09)
+* (patrickbs96) Renamed States with led control. Now starting with "led".
+* (patrickbs96) Add new State `ledLayout`/`ledPlaylist`
+
+### 0.2.4 (2021-12-03)
+* (patrickbs96) Handle wrong input so it does not cause exceptions
+* (patrickbs96) Add new State `ledEffect`
+
+### 0.2.2 (2021-11-30)
+* (patrickbs96) Add new State `ledColor`
+
+### 0.2.0 (2021-11-28)
+* (patrickbs96) Add new Value `color` from API-Response (Sentry IOBROKER-TWINKLY-J, IOBROKER-TWINKLY-K, IOBROKER-TWINKLY-M, IOBROKER-TWINKLY-N, IOBROKER-TWINKLY-P)
+* (patrickbs96) Add Pause-Feature, to work with app. (Twinkly only allows one active connection...)
+* (patrickbs96) Add Feature, activate uploaded Movies (Playlist) 
+
+### 0.1.15 (2021-10-26)
+* (patrickbs96) Add new Value `network.accesspoint.password_changed` from API-Response (Sentry IOBROKER-TWINKLY-A)
+
+### 0.1.14 (2021-10-23)
+* (patrickbs96) Add new Value `network.station.status` from API-Response (Sentry IOBROKER-TWINKLY-A, IOBROKER-TWINKLY-B)
+* (patrickbs96) Add new Value `network.details.product_version` from API-Response (Sentry IOBROKER-TWINKLY-E)
+* (patrickbs96) Add new Value `network.details.rssi` from API-Response (Sentry IOBROKER-TWINKLY-D)
+* (patrickbs96) Add new Value `color` from API-Response (Sentry IOBROKER-TWINKLY-7)
+
+### 0.1.13 (2021-10-13)
+* (patrickbs96) Add new Value `network.station.rssi` from API-Response (Sentry IOBROKER-TWINKLY-8)
+
+### 0.1.12 (2021-09-13)
+* (patrickbs96) Added new Values from Response (Sentry IOBROKER-TWINKLY-7)
+* (patrickbs96) Prevent excessive Sentry Logging 
+
+### 0.1.10 (2021-09-04)
+* (patrickbs96) Update API values to Firmware 2.7.1
+
+### 0.1.8 (2021-02-06)
+* (patrickbs96) Changes from the Review
+
+### 0.1.6
+* (patrickbs96) Update dependencies
+
+### 0.1.5
+* (patrickbs96) Prevent Crash Case at HTTP Error (Sentry IOBROKER-TWINKLY-3)
+
+### 0.1.4
+* (patrickbs96) Temporary removing Reset as API path not exists
+
+### 0.1.1
+* (patrickbs96) Prevent Crash Case at HTTP Error (Sentry IOBROKER-TWINKLY-3)
 
 ## License
 MIT License
 
-Copyright (c) 2021 patrickbs96 <patrickbsimon96@gmail.com>
+Copyright (c) 2022 patrickbs96 <patrickbsimon96@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

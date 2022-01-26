@@ -2,36 +2,74 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.node-red/README.md
-title: Адаптер ioBroker node-red
-hash: x/QTu0owyv92klKSi7Cn7RXGk5HnDi5EUbAB8ZYEVKE=
+title: ioBroker узел-красный адаптер
+hash: ma/a3NNG2WCpcPI/UD71yZRFacjQFvR/qv73KSDlN80=
 ---
-![логотип](../../../en/adapterref/iobroker.node-red/admin/node-red.png)
+![Логотип](../../../en/adapterref/iobroker.node-red/admin/node-red.png)
 
 ![Количество установок](http://iobroker.live/badges/node-red-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.node-red.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.node-red.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.node-red.svg)
-![тесты](https://travis-ci.org/ioBroker/ioBroker.node-red.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.node-red.png?downloads=true)
 
-# IoBroker node-red Адаптер
-Запускает экземпляр node-red и связывается с ним.
+# IoBroker узел-красный адаптер
+![Тестируйте и выпускайте](https://github.com/ioBroker/ioBroker.node-red/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/node-red/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Этот адаптер использует сервер node-red из https://github.com/node-red/node-red
+Запускает экземпляр node-red и взаимодействует с ним.
 
-** Примечание: ** Если в диалоговом окне выбора идентификатора узла ioBroker вы не можете найти какую-либо переменную, перезапустите экземпляр node-red. При перезапуске будет создан новый список объектов.
+Этот адаптер использует сервер node-red из https://github.com/node-red/node-red.
 
-** Обновление до 1.17.2: ** Если вы уже использовали аутентификацию Node-Red: снова установите пароль в настройках экземпляра Node-Red в ioBroker после обновления! В противном случае вы больше не сможете войти в Node-Red после обновления.
+**Примечание:** Если в диалоговом окне выбора идентификатора узла ioBroker вы не можете найти какую-либо переменную, перезапустите экземпляр node-red. При перезапуске будет создан новый список объектов.
 
 ## Настройки
-- Безопасный режим - потоки не будут запускаться, и вы можете редактировать потоки, чтобы исправить некоторые проблемы с перегрузкой.
+- Безопасный режим - потоки не будут запущены, и вы можете редактировать потоки, чтобы устранить проблему с перегрузкой.
 
-<! - Заполнитель для следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
 
 ## Changelog
+### 2.5.0 (2022-xx-xx)
+* (jwiesel) Changed default setting to "convert data from ioBroker nodes into Strings" to false. Setting will not be changed automatically in instances already running.
+* (jwiesel) "Tail" node has been removed from the default palette in Node-RED 2.0. You can reinstall it from node-red-node-tail.
+* (jwiesel) Node-RED updated to 2.1.4 (incl. restructuring of settings.js)
+
+### 2.4.1 (2021-08-31)
+* (mickym2) Correct min7max for the object creation 
+* (bluefox) Node-red updated to 1.3.6
+
+### 2.4.0 (2021-07-16)
+* (Apollon77) update to node-red 1.3.5
+* (Apollon77) Optimize for js-controller 3.3
+* (Apollon77) Add option to override the default ack flag in the message for OutNode
+
+### 2.3.0 (2021-04-17)
+* (Apollon77) BREAKING update from node-red-contrib-aggregator: topic is NOT converted to lowercase anymore!
+* (Apollon77) update to node-red 1.3.2
+* (Apollon77) Add done calls to OutNode
+
+### 2.2.0 (2021-03-07)
+* (Apollon77/mickym2) Correct readonly flags. IMPORTANT: Now Readonly works as it should be. If you worked around the issue before please adjust your nodes!
+* (Apollon77) Fix using wildcards inside the id
+* (Apollon77) Update value on out node trigger 
+* (Apollon77) Update to node-red 1.2.9
+* (Apollon77) Add triggering in Nodes when delayed initialization on start
+* (Apollon77) Fix list node to support all object types
+
+### 2.1.0 (2021-02-04)
+* (Apollon77) Try to fix the MaxSubscribes error when having many nodes
+* (Apollon77) Update to node-red 1.2.8
+
+### 2.0.4 (2021-01-20)
+* (withstu) Fixed node-red modules installation
+
+### 2.0.3 (2020-12-27)
+* (Apollon77) make sure empty state values do not crash list node
+
+### 2.0.2 (2020-12-07)
+* (jwiesel) Updated settings.js, node-red and dependencies to the latest version.
+
 ### 2.0.1 (2020-08-08)
-* (jwiesel) Updated settings.js, node-red and dependencies to latest version.
+* (jwiesel) Updated settings.js, node-red and dependencies to the latest version.
 
 ### 2.0.0 (2020-06-20)
 * (Apollon77) check object and not state to detect if an object exists
@@ -48,7 +86,6 @@ hash: x/QTu0owyv92klKSi7Cn7RXGk5HnDi5EUbAB8ZYEVKE=
 * (Apollon77) make sure adapter namespace is prepended in all situations and so correct objects are created
 * (Apollon77) fix crash cases
 * (Apollon77) make sure msg topic is not overwritten by null 
-
 
 ### 1.16.5 (2020-03-17)
 * (bluefox) Caught errors if state deleted
@@ -81,7 +118,7 @@ hash: x/QTu0owyv92klKSi7Cn7RXGk5HnDi5EUbAB8ZYEVKE=
 * (WolfspiritM) Get Object node added
 
 ### 1.12.0 (2019-10-06)
-* (Apollon77) Allow to enable/diable the projects feature via Admin
+* (Apollon77) Allow to enable/disable the projects feature via Admin
 * (Apollon77) Upgrade to node.red 1.0.1 and also add all now extra npm packages to stay compatible
 
 ### 1.10.1 (2019-09-20)
@@ -199,7 +236,7 @@ hash: x/QTu0owyv92klKSi7Cn7RXGk5HnDi5EUbAB8ZYEVKE=
 * (bluefox) fix readme link
 
 ### 0.2.0 (2015-05-16)
-* (bluefox) allow install of additional npm and node-red packets
+* (bluefox) allow the installation of additional npm and node-red packets
 
 ### 0.1.9 (2015-03-26)
 * (bluefox) fix first start
@@ -237,7 +274,7 @@ hash: x/QTu0owyv92klKSi7Cn7RXGk5HnDi5EUbAB8ZYEVKE=
 
 ### 0.0.6 (2014-11-26)
 * (bluefox) use names like in mqtt: "adapter/instance/device/channel/state"
-* (bluefox) suport of "value" or "object" for input node
+* (bluefox) support of "value" or "object" for input node
 
 ### 0.0.5 (2014-11-22)
 * (bluefox) support of new naming concept
@@ -253,7 +290,7 @@ hash: x/QTu0owyv92klKSi7Cn7RXGk5HnDi5EUbAB8ZYEVKE=
 
 ## License
 
-Copyright 2014-2020 bluefox <dogafox@gmail.com>.
+Copyright 2014-2021 bluefox <dogafox@gmail.com>.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

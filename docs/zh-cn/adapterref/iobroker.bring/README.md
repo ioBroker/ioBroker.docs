@@ -1,139 +1,168 @@
 ---
+BADGE-Number of Installations: http://iobroker.live/badges/bring-installed.svg
+BADGE-Stable version: http://iobroker.live/badges/bring-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.bring.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.bring.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.bring.png?downloads=true
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bring/README.md
 title: ioBroker.bring
-hash: n1lrpEniOSNdTJPhXYpr74N+pzHkxWVNnX3UPJa37bc=
+hash: OZhjDNOBP7gPGWiHnvQq6ZDL5FVpF0lZ7JnqtpmifNM=
 ---
 ![商标](../../../en/adapterref/iobroker.bring/admin/bring.png)
 
 ![安装数量](http://iobroker.live/badges/bring-installed.svg)
 ![稳定版](http://iobroker.live/badges/bring-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.bring.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.bring.svg)
-![环保管理员徽章](https://badges.greenkeeper.io/foxriver76/ioBroker.bring.svg)
-![NPM](https://nodei.co/npm/iobroker.bring.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.bring.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.bring.svg)
+![新产品管理](https://nodei.co/npm/iobroker.bring.png?downloads=true)
 
-＃ioBroker.bring
+# IoBroker.bring
 ===========================
 
-![建立状态](https://github.com/foxriver76/ioBroker.bring/workflows/Test%20and%20Release/badge.svg)
+![构建状态](https://github.com/foxriver76/ioBroker.bring/workflows/Test%20and%20Release/badge.svg)
+
+## 免责声明
+本模块的开发者绝不是Bring! 的背书者或附属者！ Labs AG 或任何关联的子公司、徽标或商标。
 
 ＃＃ 状态
 有关创建状态的说明，请参见下文。
 
-###频道：信息
-*信息连接
+### 频道：信息
+* info.connection
 
-    |数据类型|权限|
+    |数据类型|权限|
     |:---:|:---:|
-    |布尔| R |
+    |布尔值|R|
 
-   *只读的布尔指标。如果您的经纪人随身登录，则状态为true，否则为false。*
+   *只读布尔指标。如果您的经纪人已登录，则状态为真，否则为假。*
 
 * info.user
 
-    |数据类型|权限|
+    |数据类型|权限|
     |:---:|:---:|
-    | string | R |
+    |字符串|R|
 
-   *只读字符串。包含已登录用户的名称。*
+   *只读字符串。包含登录用户的名称。*
 
-###购物清单
-对于每个购物清单，将创建具有以下状态的渠道：
+### 购物清单
+对于每个购物清单，将创建一个具有以下状态的频道：
 
-* *list* .content / *list* .contentHtml / NoHead
+* *list*.content / *list*.contentHtml/NoHead
 
-    |数据类型|权限|
+    |数据类型|权限|
     |:---:|:---:|
-    | string | R |
+    |字符串|R|
 
-*只读格式为列表或html表的json / html字符串。包含当前在您的购物清单上的商品。
-NoHead Html表是不带表头的*。
+*只读格式为列表或 html 表格的 json/html 字符串。包含当前在您的购物清单上的项目。
+NoHead Html 表没有表头。*
 
-* *list* .recentContent / *list* .recentContentHtml / NoHead
+* *list*.recentContent / *list*.recentContentHtml/NoHead
 
-    |数据类型|权限|
+    |数据类型|权限|
     |:---:|:---:|
-    | string | R |
+    |字符串|R|
 
-*只读格式为列表或html表的json / html字符串。包含最近在您的购物清单上的商品。
-NoHead Html表是不带表头的*。
+*只读格式为列表或 html 表格的 json/html 字符串。包含最近在您的购物清单上的项目。
+NoHead Html 表没有表头。*
 
-* *list* .removeItem
+* *列表*.removeItem
 
-    |数据类型|权限|
+    |数据类型|权限|
     |:---:|:---:|
-    |字符串| R / W |
+    |字符串|读/写|
 
-*选择应从购物清单和近期内容清单中删除的项目。
-当Bring！确认命令时，将确认状态。 API。*
+*选择一个应该从购物清单和最近内容清单中删除的项目。
+当命令被Bring 确认时，状态将被确认！ API.*
 
-* *list* .moveToRecentContent
+* *列表*.moveToRecentContent
 
-    |数据类型|权限|
+    |数据类型|权限|
     |:---:|:---:|
-    |字符串| R / W |
+    |字符串|读/写|
 
 *选择应移动或添加到最近内容列表的项目。
-当Bring！确认命令时，将确认状态。 API。*
+当命令被Bring 确认时，状态将被确认！ API.*
 
-* *list* .saveItem
+* *列表*.saveItem
 
-    |数据类型|权限|
+    |数据类型|权限|
     |:---:|:---:|
-    |字符串| R / W |
+    |字符串|读/写|
 
-*选择应添加到购物清单中的商品。您还可以通过以下模式设置状态，从而指定项目的其他信息：*
+*选择应该添加到购物清单的项目。您还可以通过以下模式设置状态来指定项目的附加信息：*
 
 ```Apple, 2.50 $, the green ones```
 
-*请注意，逗号后面的所有内容均描述了规范。
-当Bring！确认命令时，将确认状态。 API。*
+*请注意，逗号后面的所有内容都描述了规范。
+当命令被Bring 确认时，状态将被确认！ API.*
 
-* *list* .users / *list* .usersHtml / NoHead
+* *list*.users / *list*.usersHtml/NoHead
 
-    |数据类型|权限|
+    |数据类型|权限|
     |:---:|:---:|
-    | string | R |
+    |字符串|R|
 
-*只读格式为列表或html表的json / html字符串。包含属于购物清单的用户以及他们的电子邮件地址。
-NoHead Html表是不带表头的*。
+*只读格式为列表或 html 表格的 json/html 字符串。包含属于购物清单一部分的用户，以及他们的电子邮件地址。
+NoHead Html 表没有表头。*
 
-* *列表* .count
+* *列表*.count
 
-    |数据类型|权限|
+    |数据类型|权限|
     |:---:|:---:|
-    | number | R |
+    |编号|R|
 
-   *只读数字，代表列表中包含的项目数。*
+   *只读数字，表示列表中包含的项目数。*
 
-* *list* .messageTrigger
+* *list*.messageTrigger
 
-    |数据类型|权限|
+    |数据类型|权限|
     |:---:|:---:|
-    |按钮| R / W |
+    |按钮|读/写|
 
-*如果按此按钮，购物清单将发送到已配置的实例，例如G。推送，电报或/和电子邮件。*
+*如果您按下此按钮，购物清单将被发送到配置的实例，例如。 G。 Pushover、电报或/和电子邮件。*
 
-* *list* .enumSentence
+* *list*.enumSentence
 
-    |数据类型|权限|
+    |数据类型|权限|
     |:---:|:---:|
-    | string | R |
+    |字符串|R|
 
-*只读字符串，其中包含以可说形式列出的购物清单项目。
-可以使用e。 G。用于通过智能助手进行语音输出。*
+*只读字符串，其中包含可朗读形式的购物清单项目的枚举。
+这可以使用 e。 G。通过智能助手进行语音输出。*
 
-* *列表*。翻译
+* *列表*.translation
 
-    |数据类型|权限|
+    |数据类型|权限|
     |:---:|:---:|
-    | string | R |
+    |字符串|R|
 
-    *只读json字符串，其中包含将瑞士项目名称翻译为列表语言的字典。*
+    *只读 json 字符串，其中包含将瑞士项目名称翻译成列表语言的字典。*
 
 ## Changelog
+### 1.7.7 (2020-12-12)
+* (foxriver76) fix potential crash on `pollAllLists` function
+
+### 1.7.6 (2020-12-05)
+* (foxriver76) we now use a unique name for widget rendering function to avoid conflicts
+* (foxriver76) if we cannot render widget immediately we try again after one second (see #57)
+
+### 1.7.4 (2020-12-04)
+* (foxriver76) we now render the widget immediately
+
+### 1.7.3 (2020-10-26)
+* (foxriver76) bring module now returns real errors instead of strings, handle them correct
+
+### 1.7.2 (2020-04-23)
+* (foxriver76) fixed potential issue on rendering widget
+
+### 1.7.1 (2020-02-13)
+* (foxriver76) we are now using AES-256-CBC as encryption
+
+### 1.6.8 (2019-12-31)
+* (foxriver76) ensure compatibility with older browsers
+
 ### 1.6.6 (2019-11-21)
 * (foxriver76) improved error handling in widget
 
@@ -221,7 +250,7 @@ NoHead Html表是不带表头的*。
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2019-2020 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,25 +3,26 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-weather/README.md
 title: ioBroker.vis天气
-hash: E0dmMLuqIGEeUh+H8k+zwRZRqB8gibHsapW0fZBBndA=
+hash: Idkwye4z5+4DWez86HGlvNPZk3JPTNhIGrGsOS8h+gA=
 ---
 ![商标](../../../en/adapterref/iobroker.vis-weather/admin/vis-weather.png)
 
 ![安装数量](http://iobroker.live/badges/vis-weather-stable.svg)
-![NPM版本](https://img.shields.io/npm/v/iobroker.vis-weather.svg)
 ![资料下载](https://img.shields.io/npm/dm/iobroker.vis-weather.svg)
-![测验](https://travis-ci.org/rg-engineering/ioBroker.vis-weather.svg?branch=master)
+![NPM版本](http://img.shields.io/npm/v/iobroker.vis-weather.svg)
+![已知漏洞](https://snyk.io/test/github/rg-engineering/ioBroker.vis-weather/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-weather.png?downloads=true)
-![环保管理员徽章](https://badges.greenkeeper.io/rg-engineering/ioBroker.vis-weather.svg)
 
 ＃ioBroker.vis-天气
+![GitHub动作](https://github.com/rg-engineering/ioBroker.vis-weather/workflows/Test%20and%20Release/badge.svg)
+
 **如果您愿意，请考虑捐赠：**
 
 [![贝宝（https://www.paypalobjects.com/zh_CN/DK/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
 
 该可视组件显示来自DasWetter.com或weatherunderground的天气预报数据。您还需要运行DasWetter-Adpater或weatherunderground-Adapter ...
 
-在地下天气中，您需要启用接下来的36小时的预测。
+在地下天气中，您需要预测接下来的36小时启用。
 在DasWetter.com中，您需要启用四个预测数据结构之一。您可以选择要显示的那个。
 
 ##注释/ Wiki
@@ -33,12 +34,14 @@ hash: E0dmMLuqIGEeUh+H8k+zwRZRqB8gibHsapW0fZBBndA=
 您可能需要启用“ NextDaysDetailed”。
 
 ＃＃ 已知的问题
-*如果发现错误或有新功能，请在[github]（https://github.com/rg-engineering/ioBroker.vis-weather/issues）上创建问题
+*如果发现错误或希望获得新功能，请在[github]（https://github.com/rg-engineering/ioBroker.vis-weather/issues）上创建问题
 
 ## Changelog
 
+### 2.5.3 (2021-03-21)
+* (René) dependencies updated
 
-### 2.5.2 (2019-12-xx)
+### 2.5.2 (2019-12-12)
 * (René) some changes to make it compatible with widgets in sbfspot and ebus
 
 ### 2.5.1 (2019-12-08)
@@ -128,7 +131,7 @@ hash: E0dmMLuqIGEeUh+H8k+zwRZRqB8gibHsapW0fZBBndA=
 * (René) initial release
 
 ## License
-Copyright (C) <2017 - 2019>  <info@rg-engineering.eu>
+Copyright (C) <2017 - 2021>  <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

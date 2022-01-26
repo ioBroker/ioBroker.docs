@@ -3,25 +3,35 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.fullcalendar/README.md
 title: ioBroker.fullcalendar
-hash: DX6IOtyfD2n6HEHFlbGtHzeGhrPYDF21kseu7lftq5o=
+hash: saYl22VeLBacuAPbYj1YOhl911BtTZbi9ESjbwpNpRc=
 ---
-![商标](../../../en/adapterref/iobroker.fullcalendar/admin/fullcalendar.png)
+![标识](../../../en/adapterref/iobroker.fullcalendar/admin/fullcalendar.png)
 
 ![安装数量](http://iobroker.live/badges/fullcalendar-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.fullcalendar.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.fullcalendar.svg)
-![NPM](https://nodei.co/npm/iobroker.fullcalendar.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.fullcalendar.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.fullcalendar.svg)
+![新产品管理](https://nodei.co/npm/iobroker.fullcalendar.png?downloads=true)
 
-＃ioBroker.fullcalendar
-带有[全日历](https://fullcalendar.io)的时间表。
+# IoBroker.fullcalendar
+带有 [全日历](https://fullcalendar.io) 的时间表。
 
-您不得使用任何外部资源，调度仅在ioBroker中处理，并且不会与任何外部服务（例如“ google calender”或“ iTunes”）结合使用。
+您不得使用任何外部资源，调度仅在 ioBroker 中处理，不会与“谷歌日历”或“iTunes”等任何外部服务结合。
 
-![例](../../../en/adapterref/iobroker.fullcalendar/img/example.png)
+![例子](../../../en/adapterref/iobroker.fullcalendar/img/example.png)
 
-您可以使用日历来控制事件，并可以计划定期对其进行控制。
+您可以使用日历控制您的事件，并可以计划定期控制它们。
+
+<!-- 下一版本的占位符（在行首）：
+
+### __工作正在进行中__ -->
 
 ## Changelog
+### 1.2.0 (2021-12-14)
+* (bluefox) Updated to use with js-controller 3.3 and admin 5
+
+### 1.1.0 (2020-01-12)
+* (foxriver76) Updated to use with js-controller 2.x
+
 ### 1.0.0 (2019-11-17)
 * (bluefox) Support of compact mode added
 
@@ -47,4 +57,4 @@ hash: DX6IOtyfD2n6HEHFlbGtHzeGhrPYDF21kseu7lftq5o=
 ## License
 CC BY-NC 4.0
 
-Copyright (c) 2017-2019 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2021 bluefox <dogafox@gmail.com>

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.canbus/README.md
 title: ioBroker.canbus
-hash: JG9ulj+GTIm+5hiIQgcTji7RE9/DL3LG+pQjj5S57sI=
+hash: tMg9bs8laDd02JYcEJwNoU9LIeXIWbRTszVkW2f7KfE=
 ---
 # IoBroker.canbus
 ![Логотип](../../../en/adapterref/iobroker.canbus/admin/canbus.png)
@@ -13,7 +13,6 @@ hash: JG9ulj+GTIm+5hiIQgcTji7RE9/DL3LG+pQjj5S57sI=
 ![Количество установок (последнее)](https://iobroker.live/badges/canbus-installed.svg)
 ![Количество установок (стабильно)](https://iobroker.live/badges/canbus-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/crycode-de/iobroker.canbus.svg)
-![Известные уязвимости](https://snyk.io/test/github/crycode-de/ioBroker.canbus/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.canbus.png?downloads=true)
 
 [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/canbus/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
@@ -23,9 +22,9 @@ hash: JG9ulj+GTIm+5hiIQgcTji7RE9/DL3LG+pQjj5S57sI=
 ## Адаптер CAN-шины для ioBroker
 Этот адаптер подключает ioBroker к сети контроллеров (шина CAN).
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация по Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
-## Характеристики
+## Функции
 * Получать и отправлять необработанные сообщения с использованием стандартных и расширенных фреймов
 * Каждое сообщение может быть настроено для приема и / или отправки данных
 * Возможность автоматического добавления объектов для увиденных сообщений CAN, которые еще не настроены
@@ -34,12 +33,18 @@ hash: JG9ulj+GTIm+5hiIQgcTji7RE9/DL3LG+pQjj5S57sI=
   * Логические, включая поддержку битовой маски
   * Строки в разных кодировках символов
   * Пользовательские скрипты для чтения / записи из / в буфер необработанных данных
+* Расширенная функция импорта / экспорта
+  * Импорт конфигураций сообщений для расширения существующей конфигурации
+  * Импорт предопределенных "хорошо известных" конфигураций из GitHub в интерфейсе администратора.
+  * Экспорт и импорт конфигураций сообщений в виде файлов `json` или` csv`
+* Дополнительная поддержка фиксированной длины данных (DLC)
 * Дополнительная поддержка флага RTR
 * Дополнительные необработанные состояния, содержащие необработанные объекты сообщений CAN
+* Необязательно автоматически устанавливать определенное значение в заданном интервале для каждого парсера (полезно для данных опроса)
 
 ## Требования
 * Операционная система Linux (из-за используемой библиотеки socketcan)
-* Оборудование CAN, которое создает интерфейс, подобный `can0`
+* Оборудование CAN, которое поддерживается ядром и создает интерфейс, подобный `can0`
 * Некоторые знания о сообщениях, отправляемых на шину CAN
 
 ## Парсеры
@@ -48,21 +53,21 @@ hash: JG9ulj+GTIm+5hiIQgcTji7RE9/DL3LG+pQjj5S57sI=
 Существуют предопределенные парсеры для следующих типов данных.
 Кроме того, вы можете написать собственные сценарии для чтения / записи значений с помощью *настраиваемого парсера*
 
-### Числовые типы в репрезентации *big-endian* и *little-endian*
+### Числовые типы в репрезентации *с прямым порядком байтов* и *с прямым порядком байтов*
 * Знаковые и беззнаковые 8-, 16- и 32-битные целые числа
 * 32-битное число с плавающей запятой
 * 64-битный двойной
 
-### Boolean
+### Логическое
 * 1 байт, включая поддержку битовой маски
 
-### Строка
+### Нить
 * Длина от 1 до 8 байт
 *Кодировка: * ascii *, * base64 *, * hex *, * latin1 *, * utf8 *, * utf16le*
 
-### Пользовательский
+### Обычай
 Для настраиваемого парсера вы должны предоставить собственный сценарий чтения и записи.
-Эти скрипты должны быть чистым javascript и работать в песочнице.
+Эти скрипты должны быть чистым javascript и запускаться в песочнице.
 
 В скриптах вы можете использовать следующие возможности:
 
@@ -79,11 +84,23 @@ hash: JG9ulj+GTIm+5hiIQgcTji7RE9/DL3LG+pQjj5S57sI=
 #### Пользовательский сценарий чтения
 В сценарии чтения вы должны прочитать `value` из переменной `buffer`.
 
-В начале пользовательского сценария чтения `buffer` будут данными принятого / текущего сообщения CAN (как в состоянии `.json`).
-`value` будет `undefined` и должен быть установлен сценарием.
+В начале пользовательского сценария чтения `buffer` будут данными полученного / текущего сообщения CAN (как в состоянии `.json`).
+`value` будет `undefined` и должен быть установлен скриптом.
 
 Содержимое переменной `value` в конце настраиваемого сценария чтения будет использоваться как новое значение для состояния.
 Если `value` равен `undefined`, он будет проигнорирован. Используя это, вы можете фильтровать сообщения в пользовательском сценарии чтения по частям данных.
+
+##### Пример настраиваемого сценария чтения
+Проверьте первые три байта в полученном буфере на соответствие фиксированным значениям.
+При совпадении считайте 16-битовое целое число со знаком из байтов 3 и 4 буфера и разделите его на 10.
+
+```js
+if (buffer[0] === 0xC2 && buffer[1] === 0x10 && buffer[2] === 0x0F) {
+  value = buffer.readInt16BE(3) / 10;
+}
+```
+
+Причина `value` устанавливается только при совпадении первых трех байтов, все остальные данные будут проигнорированы и не будут устанавливать новое значение для состояния.
 
 #### Пользовательский сценарий записи
 В сценарии записи вы должны изменить (или заменить) переменную `buffer`.
@@ -92,6 +109,18 @@ hash: JG9ulj+GTIm+5hiIQgcTji7RE9/DL3LG+pQjj5S57sI=
 `value` устанавливается в значение состояния, которое должно быть записано в `buffer`.
 
 Содержимое переменной `buffer` в конце настраиваемого сценария записи будет использоваться в качестве новых данных для сообщения CAN.
+
+##### Пример настраиваемого сценария записи
+Подготовьте новый буфер с фиксированными значениями.
+Запишите значение состояния в буфер как 16-битное целое число со знаком, начиная с пятого байта в буфере.
+
+```js
+buffer = Buffer.from([0x30, 0x00, 0xFA, 0x06, 0x7E, 0x00, 0x00]);
+buffer.writeInt16BE(value, 5);
+```
+
+После этого новый `buffer` будет установлен как состояние `.json`.
+Если для сообщения включена опция *autosend* сообщение будет отправлено автоматически.
 
 ## Использование в скриптах
 Вы можете обрабатывать / изменять состояния `<messageId>.json` или `<messageId>.<parserId>` в своих сценариях.
@@ -114,31 +143,59 @@ hash: JG9ulj+GTIm+5hiIQgcTji7RE9/DL3LG+pQjj5S57sI=
 
 ## Changelog
 
-### 1.0.0-beta.4 (2020-11-27)
-* (crycode-de) Ignore read value if a parser returned undefined
-
-### 1.0.0-beta.3 (2020-11-25)
-* (crycode-de) Fixed js-controller dependency
-* (crycode-de) Custom parsers `getStateAsync` function now uses `getForeignStateAsync` internally
-* (crycode-de) Added parses readme
+### 1.2.1 (2021-06-22)
+* (crycode-de) Added option to automatically set a certain value in a given interval for each parser
+* (crycode-de) Added checks for duplicate parser IDs
+* (VeSler) Russian translation updates
+* (crycode-de) Use inline sourcemaps for the adapter build files to make remote debugging work
 * (crycode-de) Updated dependencies
 
-### 1.0.0-beta.2 (2020-11-23)
-* (crycode-de) Added Sentry error reporting
-### 1.0.0-beta.1 (2020-11-17)
-* (crycode-de) Added optional raw states.
-* (crycode-de) Added option to enable/disable rtr states.
+### 1.1.4 (2021-04-30)
+* (crycode-de) Added license information to import of well-known configurations
+* (crycode-de) Fixed "Parser returned wrong data type undefined" log message
+* (crycode-de) Updated dependencies
 
-### 0.1.0-alpha.1 (2020-11-09)
-* (crycode-de) New React UI
-* (crycode-de) Support for messages with specific DLC
-* (crycode-de) Parsers read on json state change with ack=false
+### 1.1.3 (2021-04-12)
+* (crycode-de) Added definition of possible state values in admin
+* (crycode-de) Added selection of the state role for each parser in admin
+* (crycode-de) Fixed display bug of floating action buttons in admin
+* (crycode-de) Export uses defaults if some config parts are not defined (e.g. if the config is from an older version)
+* (crycode-de) Fixed wrong validation if a message/parser was deleted
 
-### 0.0.1
-* (crycode-de) initial development release
+### 1.1.2 (2021-04-06)
+* (crycode-de) Added copy/paste function for message and parser configurations in admin
+
+### 1.1.1 (2021-04-02)
+* (crycode-de) Import bugfixes
+* (crycode-de) Prevent wrong log warning if a parser returned undefined
+* (crycode-de) Added react errorboundary for better clientside error handling
+
+### 1.1.0 (2021-04-01)
+* (crycode-de) Added import/export feature for messages in json or csv format
+* (crycode-de) Added import of well known configurations from GitHub
+* (crycode-de) Fixed config import in admin
+* (crycode-de) Added ioBroker state data type option for custom parsers
+
+### 1.0.2 (2021-03-26)
+* (crycode-de) Fixed issue where missing state prevented custom parser write
+* (DutchmanNL) Dutch translation updates
+* (UncleSamSwiss) French translation updates
+* (VeSler) Russian translation updates
+
+### 1.0.1 (2021-03-12)
+* (crycode-de) Use a queue to process _parser_ and _send_ state changes in the correct order
+* (crycode-de) Fixed some spelling issues
+* (crycode-de) Updated dependencies
+
+### 1.0.0 (2021-02-23)
+* (crycode-de) Sort messages in admin
+* (VeSler) Russian admin translations
+* (crycode-de) Updated dependencies
+
+Older changelog is in CHANGELOG_OLD.md
 
 ## License
 
 Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 
-Copyright (c) 2020 Peter Müller <peter@crycode.de> (https://crycode.de/)
+Copyright (c) 2020-2021 Peter Müller <peter@crycode.de> (https://crycode.de/)

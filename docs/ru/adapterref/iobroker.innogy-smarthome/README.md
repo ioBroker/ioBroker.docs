@@ -3,21 +3,26 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.innogy-smarthome/README.md
 title: ioBroker.Innogy-SmartHome
-hash: Rs8xNlbQlKEQTU86OLLUr0tNLzzFSJ/b4bsgMbaLt/o=
+hash: zrb54oRrAQSQ5uDovpjPK36mZBfe+C2c8GS969PRa9o=
 ---
-![логотип](../../../en/adapterref/iobroker.innogy-smarthome/admin/innogy-smarthome.png)
+![Логотип](../../../en/adapterref/iobroker.innogy-smarthome/admin/innogy-smarthome.png)
 
 ![Количество установок](http://iobroker.live/badges/innogy-smarthome-stable.svg)
-![Сложение](https://travis-ci.org/PArns/ioBroker.innogy-smarthome.svg?branch=master)
+![Строить](https://travis-ci.org/PArns/ioBroker.innogy-smarthome.svg?branch=master)
 
 # IoBroker.Innogy-SmartHome
-Этот адаптер используется для подключения устройств SmartHome Innogy к ioBroker. Вы можете узнать больше о Innogy [Вот](https://www.innogy.com).
+Этот адаптер используется для подключения устройств Innogy smarthome к ioBroker. Вы можете узнать больше об Innogy [здесь](https://www.innogy.com).
 
-### Требуется узел> 8.x
+### Требуется Node> 8.x
+Обратите внимание: для процесса аутентификации на хосте должен быть доступен порт 3000. Убедитесь, что его больше ничем не использует (например, Grafana)
+
 ## ТРЕБУЕТСЯ ПОМОЩЬ!
-Поскольку этот проект разрабатывается в свободное время, я * активно ищу помощь в поддержке и расширении этой библиотеки! Если вы готовы помочь, напишите мне!
+Поскольку этот проект разрабатывается в мое свободное время, я * активно ищу помощь в поддержке и расширении этой библиотеки! Если вы готовы помочь, напишите мне!
 
 ## Changelog
+
+### 0.3.7
+   Prevent js-controller 3.3 warnings
 
 ### 0.3.6
     Fixed authorization issues

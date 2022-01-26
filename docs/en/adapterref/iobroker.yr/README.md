@@ -1,25 +1,66 @@
-
 ![Logo](admin/yr.png)
 # ioBroker.yr
 
-![Number of Installations](http://iobroker.live/badges/yr-installed.svg) ![Number of Installations](http://iobroker.live/badges/yr-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.yr.svg)](https://www.npmjs.com/package/iobroker.yr)
+![Number of Installations](http://iobroker.live/badges/yr-installed.svg)
+![Number of Installations](http://iobroker.live/badges/yr-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.yr.svg)](https://www.npmjs.com/package/iobroker.yr)
+
+![Test and Release](https://github.com/ioBroker/ioBroker.yr/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/yr/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.yr.svg)](https://www.npmjs.com/package/iobroker.yr)
-[![Tests](https://travis-ci.org/ioBroker/ioBroker.yr.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.yr)
 
-[![NPM](https://nodei.co/npm/iobroker.yr.png?downloads=true)](https://nodei.co/npm/iobroker.yr/)
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-fetches 48h weather forecast from [yr.no](yr.no)
+## yr.no adapter for ioBroker
+
+fetches 10d weather forecast from [yr.no](yr.no)
 
 [yr.no](yr.no) is a joint service by the [Norwegian Meteorological Institute](met.no) and the [Norwegian Broadcasting Corporation](nrk.no)
 
-http://om.yr.no/verdata/free-weather-data/
+https://api.met.no/weatherapi/locationforecast/2.0/documentation
 
-**Note** - if _"Send missing translations to iobroker.net"_ is activated (default) missing translations will be sent to iobroker.net server. No ips or any additional info will be stored or analysed. Just missing translation.
+**Note** - if _"Send missing translations to iobroker.net"_ is activated (default) missing translations will be sent to iobroker.net server. No IPs or any additional info will be stored or analysed. Just missing translation.
 
 ## Icons
-Icons are taken from here [https://github.com/YR/weather-symbols](https://github.com/YR/weather-symbols) and belongs to yr.no.
+Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documentation](https://api.met.no/weatherapi/weathericon/2.0/documentation) and belongs to yr.no.
+
+
+## TODO
+* Add meteogram (png probably will discontinue with new API)
+* Add daily forecast based on hourly forecast
+* Add html table
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
 
 ## Changelog
+### 5.0.0 (2021-11-08)
+* (klein0r) Fixed translations
+* (klein0r) Update dates data type
+
+### 3.0.5 (2021-07-26)
+* (Apollon77) prevent calls and other errors to Yr when no location is defined
+
+### 3.0.4 (2021-07-16)
+* (Apollon77) prevent last js-controller 3.3 warnings
+
+### 3.0.3 (2021-07-12)
+* (Apollon77) prevent js-controller 3.3 warnings
+
+### 3.0.2 (2021-07-07)
+* (Apollon77) Fix crash issue from Sentry
+
+### 3.0.1 (2021-07-06)
+* (Apollon77) Optimizations and Fixes
+* (Apollon77) Add Sentry crash reporting
+
+### 3.0.0 [2021-06-06]
+* (withstu) Switch to new JSON API and change data Structure (breaking)
+* (withstu) Update project dependencies
+* (arteck) Type of state was corrected
+
 ### 2.0.3 [2018-10-10]
 * (bluefox) add translations
 
@@ -32,9 +73,6 @@ Icons are taken from here [https://github.com/YR/weather-symbols](https://github
 
 ### 1.0.5 [2016-10-10]
 * (bluefox) move weather widgets to this adapter
-
-## 1.0.4 [2016-07-06]
-* (bluefox) fix link to readme
 
 ### 1.0.3 [2016-05-17]
 * (bluefox) change readme path
@@ -91,6 +129,7 @@ Icons are taken from here [https://github.com/YR/weather-symbols](https://github
 
 ### 0.0.2
 * (hobbyquaker) fixes
+
 ### 0.0.1
 * (hobbyquaker) first release
 
@@ -100,7 +139,7 @@ Icons are taken from here [https://github.com/YR/weather-symbols](https://github
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2018 hobbyquaker <hq@ccu.io>
+Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -119,4 +158,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-

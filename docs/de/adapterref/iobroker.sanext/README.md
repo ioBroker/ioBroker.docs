@@ -3,19 +3,13 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sanext/README.md
 title: ioBroker.sanext
-hash: /1NQAs5hsEO5zROe69IA2MO23xH4YVyVzS9swD7JnWo=
+hash: tHtUp8Y15p4QD+O5fFFWv2CKalhg0suSobJpm7lQ3Z8=
 ---
 ![Logo](../../../en/adapterref/iobroker.sanext/admin/sanext_l.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/sanext-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.sanext.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.sanext.svg)
-![NPM](https://nodei.co/npm/iobroker.sanext.png?downloads=true)
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
 # IoBroker.sanext
-[![Tests] (https://github.com/instalator/iobroker.sanext/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.sanext/actions/)
-
 ## Sanext-Adapter für ioBroker
 Empfangen von Daten von Wärmezählern Sanext
 

@@ -2,10 +2,13 @@
 ioBroker RPI-Monitor Adapter
 ==============
 
-![Number of Installations](http://iobroker.live/badges/rpi2-installed.svg) ![Number of Installations](http://iobroker.live/badges/rpi2-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.rpi2.svg)](https://www.npmjs.com/package/iobroker.rpi2)
+![Number of Installations](http://iobroker.live/badges/rpi2-installed.svg)
+![Number of Installations](http://iobroker.live/badges/rpi2-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.rpi2.svg)](https://www.npmjs.com/package/iobroker.rpi2)
+
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/rpi2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.rpi2.svg)](https://www.npmjs.com/package/iobroker.rpi2)
 
-[![NPM](https://nodei.co/npm/iobroker.rpi2.png?downloads=true)](https://nodei.co/npm/iobroker.rpi2/)
 
 RPI-Monitor implementation for integration into ioBroker. It is the same implementation as for iobroker.rpi, but with GPIOs.
 
@@ -145,6 +148,15 @@ Connect such a sensor to a GPIO pin as described on the [node-dht-sensor](https:
 
 ## Changelog
 
+### 1.3.1 (2021-07-16)
+* (Apollon77) Prevent js-controller 3.3 warnings
+
+### 1.3.0 (2021-07-16)
+* (asgothian) Fix to get CPU frequencies also on Raspi 4
+* (raintor) Add support for DHTxx/AM23xx Sensors
+* (raintor) Configure internal Pull UP/Down Resistor
+* (raintor) Add port 'label'/'friendly name' to GPIO config
+
 ### 1.2.0 (2020-01-17)
 - (janfromberlin) GPIO configuration as output with defined initial value
 - (foxriver76) No longer use adapter.objects
@@ -197,6 +209,6 @@ Connect such a sensor to a GPIO pin as described on the [node-dht-sensor](https:
 
 ## License
 
-Copyright (c) 2015-2020 husky-koglhof <husky.koglhof@icloud.com>
+Copyright (c) 2015-2021 husky-koglhof <husky.koglhof@icloud.com>
 
 MIT License

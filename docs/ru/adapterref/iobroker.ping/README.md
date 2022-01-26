@@ -3,26 +3,36 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ping/README.md
 title: Адаптер PING
-hash: GdWVwWTl7oGrOnfAZSsq98vq6ttnGHj4BDlk0yANw4U=
+hash: adZNBLyb33WnI+xpH8t71WhdzNpSXZiI/Mjd/eA6Yc8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ping/admin/ping.png)
 
 ![Количество установок](http://iobroker.live/badges/ping-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.ping.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.ping.svg)
-![Тесты](https://travis-ci.org/ioBroker/ioBroker.ping.svg?branch=master)
-![НПМ](https://nodei.co/npm/iobroker.ping.png?downloads=true)
 
 # Адаптер PING
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.ping/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/ping/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 ## Пингует настроенные IP-адреса.
 Пингует указанные IP-адреса через определенный интервал и отслеживает результаты.
 
 ** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
-## Известные вопросы
+## Известные проблемы
 * если невозможно проверить связь с вашим клиентом linux, проверьте, правильно ли установлен iputils-ping на клиенте
 
+<! - Заполнитель для следующей версии (в начале строки):
+
+### __РАБОТА В ПРОЦЕССЕ__ ->
+
 ## Changelog
+### 1.5.1 (2021-12-28)
+* (basti4557) Number of retries can be defined if a ping request failed. This should minimize wrong offline detection.
+
+### 1.5.0 (2021-07-14)
+* js-controller 2.0 required at least
+* (Apollon77) optimize for js-controller 3.3
 
 ### 1.4.12 (2020-09-18)
 * (Apollon77) Prevent crash case when no devices are defined (Sentry IOBROKER-PING-R)
@@ -44,7 +54,7 @@ hash: GdWVwWTl7oGrOnfAZSsq98vq6ttnGHj4BDlk0yANw4U=
 * (Apollon77) Fixed potential crash case (Sentry)
 
 ### 1.4.4 (2020-04-17)
-* (bluefox) Added support of Admin3 
+* (bluefox) Added support of Admin3
 
 ### 1.4.3 (2020-04-17)
 * (Apollon77) Add Sentry for js-controller 3.0
@@ -109,7 +119,7 @@ hash: GdWVwWTl7oGrOnfAZSsq98vq6ttnGHj4BDlk0yANw4U=
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2021, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

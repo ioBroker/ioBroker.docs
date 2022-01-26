@@ -3,39 +3,41 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.daswetter/README.md
 title: ioBroker.DasWetter。
-hash: kfEgeJieyITeTDJH7RePBpBzCH0jn96NceNQjCQ46x8=
+hash: T0xUoiSI74CQfozKb+M++No+TerMO4EyKbH3kVB3PV0=
 ---
 ![商标](../../../en/adapterref/iobroker.daswetter/admin/daswettercom.png)
 
 ![安装数量](http://iobroker.live/badges/daswetter-stable.svg)
-![NPM版本](https://img.shields.io/npm/v/iobroker.daswetter.svg)
 ![资料下载](https://img.shields.io/npm/dm/iobroker.daswetter.svg)
-![测验](https://travis-ci.org/rg-engineering/ioBroker.daswetter.svg?branch=master)
+![NPM版本](http://img.shields.io/npm/v/iobroker.daswetter.svg)
+![已知漏洞](https://snyk.io/test/github/rg-engineering/ioBroker.daswetter/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.daswetter.png?downloads=true)
 
 ＃ioBroker.DasWetter。
+![GitHub动作](https://github.com/rg-engineering/ioBroker.daswetter/workflows/Test%20and%20Release/badge.svg)
+
 **此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
 
 **如果您愿意，请考虑捐赠：**
 
-[![paypal]（https://www.paypalobjects.com/zh_CN/DK/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+[![贝宝（https://www.paypalobjects.com/zh_CN/DK/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
 
 该适配器从DasWetter.com读取天气预报数据。
 
 您需要在DasWetter.com上拥有一个帐户。在https://www.daswetter.com/api/#/login上注册该帐户在某些情况下是免费的。
 
-在您的帐户中，您将找到四个不同数据模型的三个URL：
+在您的帐户中，您会找到用于四个不同数据模型的三个URL：
 
 *未来7天的天气预报以及当天的一般信息：高低，风（符号和描述），日符号和天气情况
-*每5天每3个小时的详细信息：每日的常规信息如下：高峰，低谷，风，阵风，降水，相对湿度，
+*每5天每3个小时的详细信息：每日的常规信息如下：高峰，低谷，大风，阵风，降水，相对湿度，
 
 海平面气压，雪线，日出和日落，与月亮有关的日期，当地时间
 
-*每小时预览详细数据（仅前2天，然后每3小时）
-*每3个小时进行5天的预测（JSON格式）
+*每小时预览一次，提供详细数据（仅前2天，然后每3小时）
+*每3个小时进行5天的预测（以JSON格式）
 
 所有这四个模型均已实现，至少应使用其中一个。
-在设置中，必须使用类似http://api.daswetter.com/index.php?api_lang=de&localidad=xxxx的URL。只需复制您帐户中的完整URL。
+在设置中，必须使用类似http://api.daswetter.com/index.php?api_lang=de&localidad=xxxx的URL。只需从您的帐户复制完整的URL。
 
 ##提示
 vis中使用的###图标
@@ -46,23 +48,31 @@ vis中使用的###图标
 NextHours_Day1中的###“当前”：
 * DasWetter.com不提供实际的当前天气值
 *但有时提供当前小时的预测会有所帮助
-*因此我们添加了“当前”，这只是相关的预测小时值的副本
+*因此，我们添加了“当前”，这只是相关的预测小时值的副本
 *请确保您每小时至少调用一次适配器，以确保正确更新“ current”
 *另请参见github功能请求[issue24]（https://github.com/rg-engineering/ioBroker.daswetter/issues/24）
 
 ###路径4
 *目前，DasWetter.com发送的数据与其自己的规范不同。
 
-现在，我们实现了“自动修复”功能，可以将结构更改为已记录的形状。
+现在，我们已经实现了“自动修复”，可以将结构更改为已记录的形状。
 
 ＃＃ 已知的问题
 *如果发现错误或有新功能，请在[github]（https://github.com/rg-engineering/ioBroker.daswetter/issues）上创建问题
 
 ## Changelog
 
+### 3.0.7 (2021-05-03)
+* (René) issue #91: remove warnings with js-controller 3.3.
+
+### 3.0.5 (2021-03-21)
+* (René) dependencies updated
+
+### 3.0.4 (2020-10-16)
+* (René) see issue #76: parse rain values as float instead integer 
+
 ### 3.0.3 (2020-09-19)
 * (René) see issue #66: parse numbers added 
-
 
 ### 3.0.1 (2020-05-01)
 * (René) breaking change: old data structure is not supported anymore
@@ -140,7 +150,7 @@ for compatibility: in configuration old data structure can be enabled
 needs also 2.x of vis-weather-widget
 
 ## License
-Copyright (C) <2017 - 2020>  <info@rg-engineering.eu>
+Copyright (C) <2017 - 2021>  <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

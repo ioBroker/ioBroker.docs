@@ -3,20 +3,16 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.starline/README.md
 title: ioBroker.starline
-hash: 0e9pfVWdmL6s9gl8je6O9oS7gHaqB19EvFOA6VA+WHo=
+hash: tKAmCdJIRJxCv5NwsM66DKRRbnyp6LdQpxGVntHm3pM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.starline/admin/starline_git.jpg)
 
-![Количество установок](http://iobroker.live/badges/starline-stable.svg)
-![Версия NPM](https://img.shields.io/npm/v/iobroker.starline.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.starline.svg)
-![NPM](https://nodei.co/npm/iobroker.starline.png?downloads=true)
 ![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-# IoBroker.starline [![Тесты] (https://github.com/instalator/iobroker.starline/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.starline/actions/)
-Для работы драйвера необходимо установленное и настроенное противоугонное устройство поддерживающее сервис StarLine телематика 2.0.
+# IoBroker.starline
+Для работы драйвера необходимо установленное и настроенное противоугонное устройство поддерживающее обслуживание StarLine телематика 2.0.
 
-Драйвер позволяет получать данные состояния автомобиля через сервис StarLine Телематика. https://starline-online.ru.
+Драйвер позволяет получить данные состояния автомобиля через сервис StarLine Telematica. https://starline-online.ru.
 
 ##### Управление основными режимами работы автосигнализации:
   - Постановка/снятие с охраны
@@ -24,7 +20,7 @@ hash: 0e9pfVWdmL6s9gl8je6O9oS7gHaqB19EvFOA6VA+WHo=
   - Автозапуск
   - Активация сервисного режима (Valet)
   - Активация доп. каналов
-  - Включение / отключение подогревателя Webasto (При его наличии)
+  - Включение/отключение подогревателя Webasto (При его наличии)
   - Запрос координат автомобиля
   - Отключение датчиков удара и наклона
 

@@ -53,7 +53,7 @@ oder SSD, USB-Stick, usw. (je nach verwendeter Hardware)
 ## Installationsanleitung
 ### Installation Betriebssystem
 
-* Das gewünschte Basis-Betriebssystem (Raspian Stretch, Ubuntu, Debian, usw.) – je nach verwendeter Hardware installieren.
+* Das gewünschte Basis-Betriebssystem (Raspberry OS Bullseye, Ubuntu, Debian, usw.) – je nach verwendeter Hardware installieren.
 
     Hilfe und Anleitungen zu den jeweiligen Versionen gibt es auf den entsprechenden Supportseiten, 
 Youtube, usw.
@@ -69,9 +69,9 @@ reicht es aus, den Befehl sudo zu verwenden und dem jeweiligen Befehl voran zu s
 
 Die folgende Anleitung ist auch bei einem Downgrade zu verwenden.
 
-Die momentan empfohlene Version ist node 12.x; bei anderen gewünschten Versionen in Schritt 4.1. die “12.x” gegen Y.x” austauschen.
+Die momentan empfohlene Version ist node 14.x; bei anderen gewünschten Versionen in Schritt 4.1. die “14.x” gegen Y.x” austauschen.
 
-!> Debian Buster erfordert mindestens node.js v10.x!!
+!> Node.js < 12.x wird nicht mehr supported
 
 
 <span style="color:red"> ungerade nodejs-Versionen sind grundsätzlich nicht empfohlen, da es sich um Entwicklerversionen handelt. </span>
@@ -108,7 +108,7 @@ gewünschten entspricht folgendes vorher ausführen:
 
 4. Node.js neu installieren für Linux und Raspberry 2/3
     
-    ``curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -``
+    ``curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -``
     
     ``sudo apt install -y nodejs``
 
@@ -120,13 +120,20 @@ Versionsnummer zurückgeben.
     Falls ``node -v`` eine Fehlermeldung wie “nicht gefunden” erzeugt, dann bitte ein 
 
     ``sudo ln -s /usr/local/bin/nodejs /usr/bin/node`` an der Konsole ausführen.
+    
+    
+    In neueren Installationen kann es sein, dass der Befehl ``nodejs -v`` eine Fehlermeldung wie “nicht gefunden” erzeugt. 
+    Dies ist prinzipiell unbedenklich, da der Befehl ``nodejs`` schon länger nicht mehr verwendet wird, kann aber über einen Symlink mit dem 
+    Befehl ``sudo ln -s /usr/bin/node /usr/bin/nodejs`` "repariert" werden.
+    
+---    
 
-    Sind die Versionen unterschiedlich, bitte nochmals den Abschnitt 
+Sind die Versionen unterschiedlich, bitte nochmals den Abschnitt 
 [Installation Node.js](#installation-nodejs) abarbeiten
 
-    Als letzte Überprüfung bitte noch die Version von npm mittels ``npm -v`` überprüfen.
+Als letzte Überprüfung bitte noch die Version von npm mittels ``npm -v`` überprüfen.
 
-    Ergibt dies eine Version < 6, bitte noch mit ``sudo -H npm install -g npm@6`` ein 
+Ergibt dies eine Version < 6, bitte noch mit ``sudo -H npm install -g npm@6`` ein 
 npm-Update durchführen
 
 ---
@@ -163,28 +170,15 @@ ioBroker nun über die angegebene IP im Webbrowser aufrufen: ``http://<IP-Adress
 
 **Hinweis:**
 
-mit der Installationsroutine funktionierten Anfang bis Mitte Januar die Befehle:
-
-* iobroker stop
-* iobroker start
-* iobroker restart
-* iobroker status
-
-nicht mehr. Das ist ein Feature von Linux – nicht ioBroker!
-
-statt dessen muss
-
-* sudo systemctl stop iobroker
-
-bzw. die anderen Entsprechungen benutzt werden
-
-Außerdem konnte es zu Rechteproblemen kommen.
+Nach Installationsänderungen kann es zu Rechteproblemen kommen.
 
  
 
 In diesem Fall bitte den Installations-Fixer anwenden:
 
 ``curl -sL https://iobroker.net/fix.sh | bash -``
+
+oder kurz `iobroker fix`
 
 
  

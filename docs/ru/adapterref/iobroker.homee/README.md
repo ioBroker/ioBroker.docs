@@ -2,41 +2,53 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.homee/README.md
-title: ioBroker Homee Адаптер
-hash: FhOuxeUOxXI0VM55+mR5qD8k0SJ09JRQMcCp5MY++ds=
+title: Адаптер ioBroker homee
+hash: UebqvVp7K22VBsbePxsF3E6xIrE8m0q27YxLhfpZWn0=
 ---
-![логотип](../../../en/adapterref/iobroker.homee/admin/homee.png)
+![Логотип](../../../en/adapterref/iobroker.homee/admin/homee.png)
 
 ![Количество установок](http://iobroker.live/badges/homee-stable.svg)
-![Значок Greenkeeper](https://badges.greenkeeper.io/Apollon77/ioBroker.homee.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.homee.svg)
+![Загрузки](https://img.shields.io/npm/dm/iobroker.homee.svg)
 
-# IoBroker homee Адаптер
-** Этот адаптер использует библиотеки Sentry, чтобы автоматически сообщать разработчикам об исключениях и ошибках кода. ** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. В [Sentry-Plugin Документация](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry report используется начиная с js-controller 3.0.
+# IoBroker homee адаптер
+![Тестирование и выпуск](https://github.com/Apollon77/iobroker.homee/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/homee/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
 ## Описание
-Этот адаптер соединяет ioBroker с homee и предоставляет следующие функции:
+Этот адаптер подключает ioBroker к homee и предоставляет следующие функции:
 
 * позволяет подключение через IP или homee-ID и имя пользователя / пароль
-* прочитать все устройства (узлы) и состояния (атрибуты) и показать их значения, включая обновления в ioBroker
-* разрешить изменение значений в ioBroker и отправить их обратно на дом к устройствам управления
-* выступает в качестве провайдера истории ioBroker для всех состояний устройств, где история включена в homee. Это означает, что вы можете использовать значения истории, хранящиеся в homee, для отображения в ioBroker с помощью flot, Admin или также JavaScript, включая все агрегаты на уровне данных, как известно, например, из. Адаптер истории
+* читать все устройства (узлы) и состояния (атрибуты) и отображать их значения, включая обновления, в ioBroker
+* разрешить изменять значения в ioBroker и отправлять их обратно в homee для управления устройствами
+* действует как поставщик истории ioBroker для всех устройств состояний, где история включена в homee. Это означает, что вы можете использовать значения истории, хранящиеся в homee, для отображения в ioBroker, используя flot, Admin или также JavaScript, включая все агрегаты на уровне данных, как известно, например, из Адаптер истории
 
-(пока) не поддерживается:
+не (пока) поддерживается:
 
-* группы, потому что они не предлагают никаких функций, таких как состояние на уровне группы или реальная запись на все устройства одновременно в homee
+* группы, потому что они не предлагают никаких функций, таких как состояние уровня группы или реальная запись на все устройства одновременно в homee
 * планы отопления
 
 Этот адаптер основан на выдающейся работе [stfnhmplr] (http://twitter.com/stfnhmplr) и его [homee-api](https://github.com/stfnhmplr/homee-api).
 
-## Известные вопросы
-* На js-controller <1.5.0 это может иметь странные последствия при включении других провайдеров истории для некоторых ролей (например, «switch»)
+## Известные проблемы
+* На js-controller <1.5.0 он может иметь странные эффекты при включении других поставщиков истории для некоторых ролей (например, "переключатель")
 
-## Как сообщать о проблемах и пожеланиях
-Пожалуйста, используйте проблемы GitHub для этого.
+## Как сообщить о проблемах и запросах функций
+Пожалуйста, используйте для этого проблемы GitHub.
 
-Лучше всего установить адаптер в режим журнала отладки (Экземпляры -> Экспертный режим -> Уровень журнала столбцов). Затем, пожалуйста, получите файл журнала с диска (подкаталог «log» в каталоге установки ioBroker, а не от Admin, потому что Admin обрезает строки). Если вам не нравится предоставлять его в выпуске GitHub, вы также можете отправить его мне по электронной почте (iobroker@fischer-ka.de). Пожалуйста, добавьте ссылку на соответствующую проблему GitHub И также опишите, что я вижу в журнале в какое время.
+Лучше всего установить адаптер в режим журнала отладки (Экземпляры -> Экспертный режим -> Уровень журнала столбцов). Затем получите файл журнала с диска (подкаталог "log" в установочном каталоге ioBroker, а не из Admin, потому что Admin сокращает строки). Если вам не нравится предоставлять его в выпуске GitHub, вы также можете отправить его мне по электронной почте (iobroker@fischer-ka.de). Добавьте ссылку на соответствующую проблему GitHub И также опишите, что я вижу в журнале и в какое время.
 
 ## Changelog
+### 1.2.0 (2021-08-01)
+* (bluefox) Added admin5 support
+* (Apollon77) Update to homee 2.33
+
+### 1.1.1 (2021-04-10)
+* (Apollon77) Update to homee 2.32
+
+### 1.1.0 (2020-11-30)
+* (Apollon77) Update to homee 2.30
 
 ### 1.0.7 (2020-06-12)
 * (Apollon77) Fix Admin finally
@@ -81,7 +93,7 @@ hash: FhOuxeUOxXI0VM55+mR5qD8k0SJ09JRQMcCp5MY++ds=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2021 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

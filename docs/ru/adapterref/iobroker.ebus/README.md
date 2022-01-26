@@ -3,37 +3,77 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: tB2ZoSeU+uiU1nCXjDPAxzxsj46Lg9vwLIwzPOdlofg=
+hash: nnXsKz3juS39hcO+utnX+rMe1wxQo2NkyGEEbvN2u9E=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
 ![Количество установок](http://iobroker.live/badges/ebus-stable.svg)
-![Версия NPM](https://img.shields.io/npm/v/iobroker.ebus.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.ebus.svg)
-![Тесты](https://travis-ci.org/rg-engineering/ioBroker.ebus.svg?branch=master)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.ebus.svg)
+![Известные уязвимости](https://snyk.io/test/github/rg-engineering/ioBroker.ebus/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.ebus.png?downloads=true)
 
 # IoBroker.ebus
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация по Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+![Действия GitHub](https://github.com/rg-engineering/ioBroker.ebus/workflows/Test%20and%20Release/badge.svg)
+
+** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
 ** Если вам это нравится, рассмотрите возможность пожертвования: **
 
-[![paypal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
 
 Этот адаптер читает
 
 - данные из ebusd с использованием html
 
-В этом случае ebusd должен работать и должен иметь возможность отправлять данные, например, проводник через http:// IP: порт / данные (http://192.168.0.123:8889/data) Текущая версия ebusd, вкл. файлы конфигурации можно скопировать с https://github.com/john30/ebusd. Все поля с данными, lastup и из глобального раздела анализируются. Все остальные на данный момент игнорируются.
+В этом случае ebusd должен работать и иметь возможность отправлять данные, например, проводник через http:// IP: порт / данные (http://192.168.0.123:8889/data) Текущая версия ebusd, вкл. файлы конфигурации можно скопировать с https://github.com/john30/ebusd. Все поля с данными, lastup и из глобального раздела анализируются. Все остальные на данный момент игнорируются.
 
 Существует возможность опроса данных, которые не опрашиваются напрямую ebusd. Команда read -f используется для принудительного чтения через ebus.
 
-Другая функция - отправить любую команду в ebusd и получить ответ для работы, например. скрипты.
+Еще одна функция - отправить любую команду в ebusd и получить ответ для работы, например. скрипты.
 
-текущая поддерживаемая версия ebusd: 3.3
+текущая поддерживаемая версия ebusd: 21.3
+
+## Как отправлять команды в ebusd
+1. напишите одну команду или список команд в datapoint ebus.0.cmd
+
+Если вы хотите использовать более одной команды, используйте, для разделения отдельных команд.
+пример: читать -f YieldTotal, читать LegioProtectionEnabled, читать -f -c broadcast outsidetemp
+
+2. при выполнении команды вы получите результаты каждой команды в точке данных ebus.0.cmdResult
+
+Результат также разделен запятыми, например: 2000, ERR: element not found, 10.5
+
+Внимание: команда в datapoint ebus.0.cmd удаляется после выполнения команды!
 
 ## Известные проблемы
 * пожалуйста, создавайте проблемы на [github] (https://github.com/rg-engineering/ioBroker.ebus/issues), если вы обнаружите ошибки или захотите новые функции
+
+## 2.4.3 (2021-10-21)
+* (Рене) см. Проблему № 58: исправление ошибки для предупреждения: игнорирование значения истории 1 (недействительно) ", когда значения истории не установлены.
+
+## 2.4.2 (2021-10-19)
+* (Рене) см. Выпуск # 55: исправление ошибки
+
+## 2.4.0 (2021-10-17)
+* (René) чрезмерная работа с точками чтения и историческими данными, схема добавлена опционально
+* Команда (René) теперь может включать более одной команды, просто разделяя команды с помощью ','
+* (Рене) см. Проблему # 55: предупреждения заменены сообщениями отладки.
+
+## 2.3.2 (02.09.2021)
+* (Рене) см. Выпуск # 49: поддержка ebusd 21.2
+* (Рене) см. Проблему # 40: возможность использовать логическое значение вместо строки для значений с включением / выключением
+* (René) зависимости обновлены
+
+## 2.2.7 (2021-07-03)
+* (René) зависимости обновлены
+* (Рене) см. Проблему # 48: исправление ошибки для журналов неправильного типа данных
+
+## 2.2.5 (21.03.2021)
+* (René) зависимости обновлены
+
+## 2.2.4 (17.02.2021)
+* (Рене) см. Проблему # 42: Неперехваченная ошибка ссылки: oView не определен в виджете, решена
 
 ## 2.2.3 (2020-10-24)
 * (Рене) создать историю DP, если она недоступна
@@ -43,7 +83,7 @@ hash: tB2ZoSeU+uiU1nCXjDPAxzxsj46Lg9vwLIwzPOdlofg=
 * (René) обновить зависимости
 
 ## 2.1.1 (27.06.2020)
-* (Рене) проблема № 26: исправление ошибки: "cmd not found" - это только сообщение отладки, а не ошибка
+* (Рене) проблема № 26: исправление ошибки: «cmd не найден» - это только отладочное сообщение, а не ошибка
 
 ## 2.1.0 (17.06.2020)
 * (René) рефакторинг: используется async / await
@@ -88,7 +128,7 @@ hash: tB2ZoSeU+uiU1nCXjDPAxzxsj46Lg9vwLIwzPOdlofg=
 * (Рене) записывает дату по TCP в ebusd
 
 ### 0.4.2
-* (René) исправление ошибки для администратора V3
+* (René) исправление ошибки для админки V3
 
 ### 0.4.1
 * (René) логотип изменен
@@ -102,7 +142,7 @@ hash: tB2ZoSeU+uiU1nCXjDPAxzxsj46Lg9vwLIwzPOdlofg=
 
 ### 0.2.0
 * (Рене) добавить историю как JSON для vis
-* (René) добавить виджет на основе плавающего режима для отображения графика температуры, состояния и мощности
+* (René) добавить виджет на основе плавающего режима для отображения графика температуры, статуса и мощности
 
 ### 0.1.0
 * (René) запланированный адаптер вместо deamon
@@ -111,12 +151,26 @@ hash: tB2ZoSeU+uiU1nCXjDPAxzxsj46Lg9vwLIwzPOdlofg=
 * (Рене) Кодировка UTF8
 
 ### 0.0.2
-* (Рене) первый выпуск
+* (Рене) первоначальный выпуск
 
 ## Changelog
 
+### 2.5.1 (2021-12-29)
+* (René) adjustable retries to send data if arbitration error appeared
+
+### 2.5.0 (2021-12-28)
+* (René) see issue #62: support ebusd 21.3
+
+### 2.4.5 (2021-11-07)
+* (René) bug fix color of labels in widget
+
+### 2.4.4 (2021-10-30)
+* (René) see issue #59: avoid endless loop
+* (René) update flot to 4.2.2
+* (René) bug fix missing space in command when using circuit name
+
 ## License
-Copyright (C) <2017 - 2020>  <info@rg-engineering.eu>
+Copyright (C) <2017 - 2021>  <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

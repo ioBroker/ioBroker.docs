@@ -9,6 +9,11 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/oweitman/ioBroker.mytime/badge.svg)](https://snyk.io/test/github/oweitman/ioBroker.mytime)
 [![Travis-CI](http://img.shields.io/travis/oweitman/ioBroker.mytime/master.svg)](https://travis-ci.org/oweitman/ioBroker.mytime)
 
+## IMPORTANT
+
+Only the english documentation is valid as the automatic translation
+translates areas that should not be translated.
+
 ## mytime adapter for ioBroker
 
 This adapter handle Time (eg: countdown,etc.).
@@ -145,6 +150,7 @@ All following Examples with countdown timer 1:2:3:4
 | HH\h mm\m             | 26h 03m           | only hours and minutes                           |
 
 ### Widgets
+
 #### Widget Countdown plain
 A countdown widget for a plain textual output
 ##### Widget Properties
@@ -169,6 +175,22 @@ the widgets are preconfigured for a countdown named test.
     color:green;
 }
 ```
+
+#### Widget Reverse Countdown plain
+A widget that shows the elapsed time from a given point in time
+##### Widget Properties
+###### datetime
+A DateTime-String of the start time. 
+The expression must be interpretable by the javascript function new Date(expression). 
+See also https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse
+
+Example:
+2022-01-10 23:12
+2022-01-104T23:12:00.000Z
+
+###### Format
+Formats the timer output. default is mm:ss. for details see Chapter format template
+
 #### Widget Countdown Circle
 A countdown widget in a ring/circle design. 
 ##### Widget Properties
@@ -249,6 +271,7 @@ Group CSS-Common / transform "scale(0.5)"
 #### Widget Countdown NixieClock
 A countdown widget in a Nixie-Tube/LED style 
 ##### Widget Properties
+
 ###### oid
 The timer datapoint of a countdown datapoint.
 ###### countdown_showsec
@@ -267,6 +290,33 @@ Color of the inactiv digits
 Opacity of the color of the inactive digits
 ###### countdown_glowcolor
 Color of the glow around thie Nixie-digits
+
+#### Widget Wordclock
+A widget to show a wordclock with many options
+##### Widget Properties
+
+###### language
+Some different languages for the wordclock are available
+###### letterActivated
+Color for the highlighted words
+###### letterDeactivated
+Color for the normal letters
+###### wordclockMargin
+Margin between the wordclock and the LEDs
+###### withMinutes
+Show the Minute-LEDs in the Corner of the wordclock
+###### minuteSize
+Size in Pixels of the Minute LEDs
+###### minuteColor
+color of the Minute LED
+###### withSeconds
+Show the Seconds-LEDs of the wordclock
+###### secondSize
+Size in Pixels of the Seconds LEDs
+###### secondColor
+color of the Seconds LED
+###### timezone
+The time of the selected timezone is displayed
 
 ##### Tips
 If you want to adjust the size of the countdown nixieclock, under css settings in vis you can enter for half size:
@@ -288,8 +338,9 @@ Group CSS-Common / transform "scale(0.5)"
 * 7segment display
 * rolling numbers
 * customizable fonts
-* wordclock timer ?
 * ts: timerules for exclusion (time range, single dates)
+* ~~add timezone for wordclock~~
+* ~~wordclock timer~~
 * ~~timed scheduler: plan single date/time and recurring events like outlook~~
 * ~~Nixie style~~
 * ~~flip board display (airport-display)~~
@@ -302,7 +353,29 @@ Group CSS-Common / transform "scale(0.5)"
 
 ## Changelog
 
-
+### 0.7.10
+* add widget reverse countdown
+### 0.7.9
+* add more wordclock tests
+* fix wordclock matrix swiss
+### 0.7.8
+* add timezone for wordclock
+### 0.7.7
+* add timezone for wordclock
+### 0.7.6
+* add tests for wordclock * remove admin tab
+### 0.7.5
+* Remove comments in io-package
+### 0.7.4
+* fix spanish language pack
+### 0.7.3
+* * add turkish language for wordclock
+### 0.7.2
+* * add russian and espaniol language for wordclock
+### 0.7.1
+* add margin property for wordclock * add italiano and francais for wordclock * wordclock remove border
+### 0.7.0
+* New widget wordclock
 ### 0.6.1
 * remove beta tag from widgets * m,assive reengeneering of the react classes, add functions für exclusion rules, adding single time events and exclude single time events
 ### 0.6.0

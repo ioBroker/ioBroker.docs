@@ -75,6 +75,16 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 -->
 
 ## Changelog
+### 4.1.0 (2021-07-17)
+* (bluefox) Added support for new javascript
+
+### 4.0.11 (2021-05-12)
+* (bluefox) Fixed the connection issue with the cloud
+* (bluefox) Added support for Admin5
+
+### 4.0.10 (2021-02-18)
+* (Apollon77) Fix crash case (Sentry IOBROKER-CLOUD-X)
+
 ### 4.0.9 (2021-02-01)
 * (bluefox) Support of lovelace via ioBroker.pro
 * (bluefox) Fixed error with the admin

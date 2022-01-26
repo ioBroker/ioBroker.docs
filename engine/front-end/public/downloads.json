@@ -1,7 +1,7 @@
 [
     {
     "file": "win/iobroker-latest-windows-installer.exe",
-    "linux": "Windows 32/64Bit",
+    "platform": "Windows 32/64Bit",
     "date": "20191123",
     "device": "Windows",
     "details": "Universal Installer mit<br><ul><li>Node.js + npm</li><li>Visual Studio 2017</li><li>Python, Git, Bonjour, ...</li></ul><br>Bitte UNBEDINGT die Info lesen und bei Neuinstallation und Update befolgen!",
@@ -10,11 +10,20 @@
   },
   {
     "file": "https://hub.docker.com/r/buanet/iobroker/",
-    "linux": "Docker",
+    "platform": "Docker",
     "date": "20190607",
     "device": "Docker",
     "details": "Docker image",
     "picture": "docker.png",
     "info": "https://smarthome.buanet.de/docker/container-images/iobroker/"
+  },
+  {
+    "file": "ioBroker_Image_RPi_v1.2.0_latest.zip",
+    "platform": "Raspberry OS",
+    "date": "20210809",
+    "device": "Raspberry Pi",
+    "details": "Raspberry OS Image with ioBroker",
+    "picture": "Pi4.png",
+    "info": "https://forum.iobroker.net/topic/41520/raspberry-os-lite-image-for-with-iobroker"
   }
 ]

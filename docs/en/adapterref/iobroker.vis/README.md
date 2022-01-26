@@ -8,6 +8,14 @@
 
 WEB visualisation for ioBroker platform.
 
+## License requirements
+To use this adapter in ioBroker you need to accept the source code license of the adapter. The source code of this adapter is available under the CC BY-NC license.
+
+Additionally, you need a license to use the adapter. The following license editions are available on https://iobroker.net/www/pricing 
+* **Community-License: Free for private use!**: Get a free license by registering an account on https://iobroker.net . The license if checked online against the ioBroker license server when the vis adapter is started, so an online connection at this timepoint is required!
+* **Private use Offline-License**: For paying a small support fee you can get rid of the required online license check on adapter startup. **Only for Private use!**
+* **Commercial License**: When using Vis in a commercial environment or selling Vis as part of ioBroker packages to your customers this license is for you. License check is also not requiring an online connection.
+
 ## Installation & Documentation
 
 ![Demo interface](img/user0.png)
@@ -16,12 +24,12 @@ WEB visualisation for ioBroker platform.
 [Online Demos](https://iobroker.click/)
 
 ## Bindings of objects
-Normally most of widgets have ObjectID attribute. And this attribute can be bound with some value of object ID.
+Normally, most of the widgets have ObjectID attribute and this attribute can be bound with some value of object ID.
 But there is another option how to bind *any* attribute of widget to some ObjectID. 
 
 Just write into attribute ```{object.id}``` and it will be bound (not in edit mode) to this object's value. 
-If you will use special format, you can even make some simple operations with it, e.g. multiplying or formatting.
-Patten has following format:
+If you use the special format, you can even make some simple operations with it, e.g. multiplying or formatting.
+Patten has the following format:
 
 ```
 {objectID;operation1;operation2;...}
@@ -29,20 +37,20 @@ Patten has following format:
 
 Following operations are supported:
 
-- `\*` - multiplying. Argument must be in brackets, like "*(4)". In this sample we multiplying value with 4.
+- `\*` - multiplying. Argument must be in brackets, like "*(4)". In this sample we multiply value with 4.
 - `\+` - add. Argument must be in brackets, like "+(4.5)". In this sample we add to value 4.5.
 - `\-` - subtract. Argument must be in brackets, like "-(-674.5)". In this sample we subtract from value -674.5.
-- `/` - dividing. Argument must be in brackets, like "/(0.5)". In this sample we dividing value by 0.5.
+- `/` - dividing. Argument must be in brackets, like "/(0.5)". In this sample we divide value by 0.5.
 - `%` - modulo. Argument must be in brackets, like "%(5)". In this sample we take modulo of 5.
 - `round` - round the value.
 - `round(N)` - round the value with N places after point, e.g. 34.678;round(1) => 34.7
 - `hex` - convert value to hexadecimal value. All letters are lower cased.
 - `hex2` - convert value to hexadecimal value. All letters are lower cased. If value less 16, so the leading zero will be added.
-- `HEX` - same as hex, but upper cased.
-- `HEX2` - same as hex2, but upper cased.
+- `HEX` - same as hex, but upper-cased.
+- `HEX2` - same as hex2, but upper-cased.
 - `date` - format date according to given format. Format is the same as in [iobroker.javascript](https://github.com/iobroker/iobroker.javascript/blob/master/README.md#formatdate)
-- `min(N)` - if value is less than N, take the N, elsewise value
-- `max(M)` - if value is greater than M, take the M, elsewise value
+- `min(N)` - if value is less than N, take the N, else value
+- `max(M)` - if value is greater than M, take the M, else value
 - `sqrt` - square root
 - `pow(n)` - power of N.
 - `pow` - power of 2.
@@ -72,7 +80,7 @@ To show timestamp of object write `.ts` or `.lc` (for last change) at the end of
 Last change: {objectRed.lc;date(hh:mm)}
 ```
 
-There is another possibility to write pattern:
+There is another possibility to write the pattern:
 
 ```
 Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(h*h + w*w))}
@@ -98,7 +106,7 @@ Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(Ma
 
 ### Special bindings
 There are a number different internal bindings to provide additional information in views:
-* `username` - shows logged in user
+* `username` - shows logged-in user
 * `view` - name of actual view
 * `wname` - widget name
 * `widget` - is an object with all data of widget. Can be used only in JS part, like `{a:a;widget.data.name}`
@@ -106,6 +114,7 @@ There are a number different internal bindings to provide additional information
 * `language` - can be `de`, `en` or `ru`.
 * `instance` - browser instance
 * `login` - if login required or not (e.g. to show/hide logout button)
+* `local_*` - if state name is started from `local_` it will not be reported to ioBroker but will update all widgets, that depends on this state. (Local variable for current browser session)
 
 Note: to use ":" in calculations (e.g. in string formula) use "::" instead.
 
@@ -127,15 +136,15 @@ Every widget has a field `filter`. If you set it to some value, e.g. `light`, so
 ## Control interface
 Vis creates 3 variables:
 
-- `control.instance` - Here the browser instance should be written or FFFFFFFF if every browser must be controlled.
+- `control.instance` - Here the browser instance should be written or `FFFFFFFF` if every browser must be controlled.
 - `control.data`     - Parameter for command. See specific command description.
 - `control.command`  - Command name. Write this variable triggers the command. That means before command will be written the "instance" and "data" must be prepared with data.
 
 Commands:
 
-* `alert` - show alert window in vis. "control.data" has following format "message;title;jquery-icon". Title and jquery-icon are optional. Icon names can be found [here](http://jqueryui.com/themeroller/). To show icon "ui-icon-info" write ```Message;;info```.
-* `changeView` - switch to desired view. "control.data" must have name of view. You can specify project name too as "project/view". Default project is "main".
-* `refresh` - reload vis, for instance after project is changed to reload on all browsers.
+* `alert` - show alert window in the vis. "control.data" has the following format "message;title;jquery-icon". Title and jquery-icon are optional. Icon names can be found [here](http://jqueryui.com/themeroller/). To show icon "ui-icon-info" write ```Message;;info```.
+* `changeView` - switch to desired view. "control.data" must have the name of view. You can specify project name too as "project/view". Default project is "main".
+* `refresh` - reload the vis, for instance after project is changed to reload on all browsers.
 * `reload` - same as refresh.
 * `dialog` - Show dialog window. Dialog must exist on view. One of:
 
@@ -152,13 +161,13 @@ Commands:
 * `playSound` - play sound file. The link to file is specified in `control.data`, e.g. http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3.
   You can upload your own file in vis and let it play as for instance `/vis.0/main/img/myFile.mp3`.
 
-If user changes the view or at start the variables will be filled by vis with
+If user changes the view or at start the variables will be filled by the vis with
 
 - `control.instance`: browser instance and `ack=true`
 - `control.data`: project and view name in form `project/view`, e.g. `main/view` (and `ack=true`)
 - `control.command`: `changedView` and `ack=true`
 
-You can write the JSON-string or Object into control.command as `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`. In this case the instance and data will be taken from JSON object.
+You can write the JSON-string or Object into `control.command` as `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`. In this case the instance and data will be taken from JSON object.
 
 Example for javascript adapter:
 
@@ -169,10 +178,10 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 ## Default view
 You can define for every view the desired resolution (Menu=>Tools=>Resolution). This is only the visual border in edit mode to show you the screen size on some specific device. In real time mode it will not be visible and all widgets outside of border will be visible.  
 
-Additionally you can define if this view must be used as default for this resolution. 
+Additionally, you can define if this view must be used as default for this resolution. 
 
 So every time the `index.html` (without `#viewName`) is called, the best suitable for this resolution view will be opened.
-If only one view has *"Default"* flag, so this view will be opened independent from screen resolution or orientation.      
+If only one view has *"Default"* flag, so this view will be opened independently of screen resolution or orientation.      
 
 E.g. you can create two views "Landscape-Mobile" and "Portrait-Mobile" and these two views will be switched automatically when you change the orientation or screen size.
 
@@ -181,10 +190,10 @@ There is a helper widget "basic - Screen Resolution" that shows actual screen re
 ## Settings
 ### Reload if sleep longer than
 There is a rule, that after some disconnection period the whole VIS page will be reloaded to synchronise the project.
-You can configure it in menu "Settings...". If you set interval to "never" so the page will be never reloaded.
+You can configure it in the menu "Settings...". If you set interval to "never" so the page will never be reloaded.
 
 ### Reconnect interval
-Set the interval between the connection attempts if disconnected. If you will set 2 seconds, it will try to establish the connection every 2 seconds.
+Set the interval between the connection attempts if disconnected. If you set 2 seconds, it will try to establish the connection every 2 seconds.
 
 ### Dark reconnect screen
 Sometimes (in the night) it is required to have dark loading screen. With this option you can set it.
@@ -197,8 +206,47 @@ Notice that these settings are valid only for reconnection and not for the first
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-
 ## Changelog
+### __WORK IN PROGRESS__
+* (bluefox) Added support for js-controller 4.x
+
+### 1.4.7 (2021-12-28)
+* (mswiege) Fixed subscribeOidAtRuntime if called with invalid IDs
+* (bluefox) Added support of license manager
+
+### 1.4.6 (2021-11-20)
+* (bluefox) Added the license check even without internet
+
+### 1.4.5 (2021-10-08)
+* (jens-maus) Added frame-src spec to content-security-policy header fixing frame related content blocking issues (e.g. using KioskPro iOS app).
+* (bluefox) Showed the extended error messages by license check
+* (Scrounger) Patch visibility oid binding
+
+### 1.4.4 (2021-08-31)
+* (jobe451) Allowed to have ":" in the binding object IDs
+
+### 1.4.3 (2021-07-11)
+* (bluefox) Added possibility to check license offline (only special once)
+
+### 1.4.0 (2021-07-01)
+* (bluefox) Changed path for check of certificates 
+* (thost96) fixes for issues found by adapter-checker
+
+### 1.3.10 (2021-05-25)
+* (bluefox) Fixed the support of admin5
+
+### 1.3.9 (2021-04-29)
+* (agav99) Added support of local browser variables
+* (Scrounger) Bug fix for null & NaN values in width and height
+* (bluefox) Added support for admin5
+
+### 1.3.8 (2021-03-03)
+* (bluefox) fix play sounds on iOS Safari an android
+* (Scrounger) visEditInspect: format dimension added
+* (foxriver76) Replace travis and appveyor by the GitHub actions
+* (Excodibur) Allow resources to be loaded as blob
+* (Excodibur ) Allow resources to be loaded as blob
+
 ### 1.3.7 (2021-01-20)
 * (Scrounger) Bug Fixed - Binding in JSON string
 
@@ -208,7 +256,7 @@ Notice that these settings are valid only for reconnection and not for the first
 * (Scrounger) Added the optional arguments to support Material Design Widgets
 
 ### 1.3.4 (2020-10-04)
-* (foxriver76) Corrected the error on older devices 
+* (foxriver76) Corrected the error on older devices
 
 ### 1.3.3 (2020-09-21)
 * (bluefox) Return de-bounce settings back
@@ -227,7 +275,7 @@ Notice that these settings are valid only for reconnection and not for the first
 * (foxriver76) only parse arrays and json objects, not booleans, normal strings etc
 
 ### 1.2.11 (2020-08-25)
-* (bluefox) The error message about the non-found chart view was fixed. 
+* (bluefox) The error message about the non-found chart view was fixed.
 
 ### 1.2.10 (2020-08-23)
 * (gsicilia82/fceller) JSON strings will be parsed in VIS bindings
@@ -286,7 +334,7 @@ Notice that these settings are valid only for reconnection and not for the first
 ### 1.1.3 (2018-04-12)
 * (bluefox) ignore click by scrolling on touch devices
 * (bluefox) remove wrong state vis.0.command
-* (bluefox) fix error with jplot
+* (bluefox) fix error with jPlot
 * (bluefox) better widget behaviour in edit Mode (basic, jqui)
 * Fix config dialog
 
@@ -301,7 +349,7 @@ Notice that these settings are valid only for reconnection and not for the first
 * (bluefox) The problem with view change on the touch devices fixed
 
 ### 1.0.5 (2017-11-19)
-* (bluefox) show number of datapoints in every project
+* (bluefox) show number of data points in every project
 
 ### 1.0.4 (2017-10-22)
 * (bluefox) Add autocomplete for view CSS options
@@ -316,7 +364,7 @@ Notice that these settings are valid only for reconnection and not for the first
 * (bluefox) fix fonts
 
 ### 0.15.7 (2017-10-01)
-* (bluefox) allow update of images without additional query (but it works only in spome very specific cases)
+* (bluefox) allow update of images without additional query (but it works only in some very specific cases)
 * (bluefox) zoom of iframes
 
 ### 0.15.5 (2017-07-24)
@@ -334,7 +382,7 @@ Notice that these settings are valid only for reconnection and not for the first
 
 ### 0.15.1 (2017-06-30)
 * (bluefox) Fix error with context menu
-* (bluefox) Allow add class to view
+* (bluefox) Allow adding of class to view
 
 ### 0.15.0 (2017-05-25)
 * (bluefox) fix copy of grouped widgets
@@ -348,7 +396,7 @@ Notice that these settings are valid only for reconnection and not for the first
 * (apollon77) fix jqui-dialog for auto-open
 
 ### 0.14.3 (2017-05-11)
-* (bluefox) fix export/import of groupped widgets
+* (bluefox) fix export/import of grouped widgets
 
 ### 0.14.2 (2017-04-29)
 * (bluefox) Fix install error
@@ -407,7 +455,7 @@ Notice that these settings are valid only for reconnection and not for the first
 
 ### 0.10.13 (2016-09-23)
 * (bluefox) fixed errors for iPad 1
-* (bluefox) start wokring on relative positions
+* (bluefox) start working on relative positions
 
 ### 0.10.12 (2016-09-16)
 * (bluefox) group specific visibility of widgets and views
@@ -422,9 +470,9 @@ Notice that these settings are valid only for reconnection and not for the first
 
 ### 0.10.9 (2016-09-04)
 * (bluefox) support of web-sockets force
-* (bluefox) destory unused views after 30 seconds
+* (bluefox) destroy unused views after 30 seconds
 * (bluefox) do not show middle leading lines if top and bottom are shown
-* (bluefox) let timestamp and lastchange to show time as interval
+* (bluefox) let timestamp and last-change to show time as interval
 
 ### 0.10.7 (2016-07-09)
 * (bluefox) add settings to reload vis
@@ -433,7 +481,7 @@ Notice that these settings are valid only for reconnection and not for the first
 * (bluefox) export/import
 * (bluefox) add global script
 * (bluefox) add 'not exist'/'not consist'/'exist' to signal and visibility
-* (bluefox) fix oids in editor
+* (bluefox) fix OIDs in editor
 
 ### 0.10.5 (2016-06-15)
 * (bluefox) fix select ID dialog
@@ -475,7 +523,7 @@ Notice that these settings are valid only for reconnection and not for the first
 * (bluefox) change security settings
 
 ## License
- Copyright (c) 2013-2021 bluefox, https://github.com/GermanBluefox <dogafox@gmail.com>,
+ Copyright (c) 2013-2022 bluefox, https://github.com/GermanBluefox <dogafox@gmail.com>,
  
  Copyright (c) 2013-2014 hobbyquaker, https://github.com/hobbyquaker <hobbyquaker@gmail.com>,
  

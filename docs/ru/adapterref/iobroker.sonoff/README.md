@@ -3,23 +3,25 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sonoff/README.md
 title: ioBroker Sonoff
-hash: 3sJtUS1rjlgVC9EW6ImdUqJPd9fS0yVC1S2ABMdysCw=
+hash: VDlcSKuA7whtiJQgKK9PL2zdKYwGkNcFtmHhOcwoe9c=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sonoff/admin/sonoff.png)
 
 ![Количество установок](http://iobroker.live/badges/sonoff-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.sonoff.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sonoff.svg)
-![Тесты](https://travis-ci.org/ioBroker/ioBroker.sonoff.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.sonoff.png?downloads=true)
 
 # IoBroker Sonoff
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.sonoff/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/sonoff/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+
 ## Применение
 Этот адаптер связывается с устройствами Sonoff с прошивкой Tasmota или устройствами ESP через MQTT.
 
 Ожидаются следующие темы:
 
-- `tele / DeviceNAME / STATE`
+- `теле / ИМЯ устройства / СОСТОЯНИЕ`
 - `теле / ИМЯ устройства / ДАТЧИК`
 - `tele / DeviceNAME / INFOx`
 - `tele / DeviceNAME / ENERGY`
@@ -27,7 +29,7 @@ hash: 3sJtUS1rjlgVC9EW6ImdUqJPd9fS0yVC1S2ABMdysCw=
 - `stat / DeviceNAME / POWERx`
 - `/ ИМЯ устройства / BM280 / Температура`
 - `/ ИМЯ устройства / BM280 / Влажность`
-- `/ DeviceNAME / BM280 / Temperatur`
+- `/ ИМЯ устройства / BM280 / Temperatur`
 - `/ DeviceNAME / BM280 / Feuchtigkeit`
 - `/ ИМЯ устройства / BM280 / Vcc`
 - `/ ИМЯ устройства / BM280 / VCC`
@@ -40,61 +42,61 @@ hash: 3sJtUS1rjlgVC9EW6ImdUqJPd9fS0yVC1S2ABMdysCw=
 - `/ ИМЯ устройства / BM280 / POWER4`
 - `/ DeviceNAME / BM280 / Switch1`
 - `/ ИМЯ устройства / BM280 / Switch2`
-- `/ ИМЯ устройства / BM280 / Всего`
+- `/ DeviceNAME / BM280 / Total`
 - `/ ИМЯ устройства / BM280 / Сегодня`
 - `/ ИМЯ устройства / BM280 / heute`
 - `/ DeviceNAME / BM280 / Yesterday`
-- `/ DeviceNAME / BM280 / gestern`
+- `/ ИМЯ устройства / BM280 / западный`
 - `/ DeviceNAME / BM280 / Faktor`
 - `/ DeviceNAME / BM280 / Factor`
 - `/ DeviceNAME / BM280 / Power`
-- `/ DeviceNAME / BM280 / Leistung`
+- `/ ИМЯ устройства / BM280 / Leistung`
 - `/ DeviceNAME / BM280 / Voltage`
 - `/ ИМЯ устройства / BM280 / Spannung`
 - `/ DeviceNAME / BM280 / Current`
-- `/ DeviceNAME / BM280 / Strom`
+- `/ ИМЯ устройства / BM280 / Strom`
 - `/ DeviceNAME / BM280 / Punkt`
 - `/ DeviceNAME / BM280 / Counter1`
 - `/ DeviceNAME / BM280 / Counter2`
-- `/ DeviceNAME / BM280 / Counter3`
-- `/ DeviceNAME / BM280 / Counter4`
+- `/ ИМЯ устройства / BM280 / Counter3`
+- `/ ИМЯ устройства / BM280 / Counter4`
 - `/ ИМЯ устройства / BM280 / Давление`
 - `/ DeviceNAME / BM280 / SeaPressure`
-- `/ DeviceNAME / BM280 / Druck`
+- `/ ИМЯ устройства / BM280 / Druck`
 - `/ ИМЯ устройства / BM280 / Прибл. Высота`
 - `/ DeviceNAME / BM280 / Module`
 - `/ ИМЯ устройства / BM280 / Версия`
 - `/ ИМЯ устройства / BM280 / Имя хоста`
 - `/ ИМЯ устройства / BM280 / IP-адрес`
-- `/ DeviceNAME / BM280 / IPaddress`
+- `/ ИМЯ устройства / BM280 / IP-адрес`
 - `/ ИМЯ устройства / BM280 / RestartReason`
-- `/ DeviceNAME / BM280 / CarbonDioxide`
-- `/ DeviceNAME / DHT11 / Illuminance`
+- `/ ИМЯ устройства / BM280 / Углекислый газ`
+- `/ ИМЯ устройства / DHT11 / Освещенность`
 - `/ ИМЯ устройства / SonoffSC / Light`
-- `/ DeviceNAME / SonoffSC / Noise`
+- `/ ИМЯ устройства / SonoffSC / Noise`
 - `/ ИМЯ устройства / SonoffSC / AirQuality`
 - `/ ИМЯ устройства / SDS0X1 / PM2.5`
 - `/ ИМЯ устройства / SDS0X1 / PM10`
 - `/ ИМЯ устройства / SDS0X1 / UvLevel`
-- `/ DeviceNAME / SDS0X1 / Latitude`
+- `/ ИМЯ устройства / SDS0X1 / Latitude`
 - `/ ИМЯ устройства / SDS0X1 / Долгота`
-- `/ DeviceNAME / SR04 / Distance`
+- `/ ИМЯ устройства / SR04 / Расстояние`
 
 ** Примечание **: список можно легко расширить. Отправьте разработчику `Pull Requests` или *данные отладки* для неизвестных состояний (через проблему).
 
 ## Автоматическое создание объектов
-В веб-конфигурации вы можете определить, какие телеграммы MQTT создают новые объекты не в точках данных по умолчанию.
+В веб-конфигурации вы можете определить, какие телеграммы MQTT создают новые объекты не в точках данных по умолчанию:
 
-* TELE_SENSOR создает объекты из телеграмм tele / xxx / SENSOR
-* TELE_STATE создает объекты из телеграмм tele / xxx / STATE
-* STAT_RESULT создает объекты из телеграмм stat / xxx / RESULT
+* `TELE_SENSOR` - создает объекты из телеграмм` tele / xxx / SENSOR`
+* `TELE_STATE` - создает объекты из телеграмм` tele / xxx / STATE`
+* `STAT_RESULT` - создает объекты из телеграмм` stat / xxx / RESULT`
 
 Обычно для большинства пользователей достаточно TELE_SENSOR.
 
 * `Create object tree` создает объекты как древовидную структуру
 
-** Предупреждение! ** Эта опция испортит ваше дерево объектов sonoff! Приходится переделывать все настройки для хранения ...
-Сохраните структуру объекта как файл JSON, чтобы вы могли воссоздать свою старую структуру.
+** Предупреждение! ** Эта опция испортит ваше дерево объектов sonoff! Приходится переделывать все настройки хранилища ...
+Сохраните структуру объекта в виде файла JSON, чтобы вы могли воссоздать старую структуру.
 Лучше всего остановить адаптер, удалить все объекты в sonoff и снова запустить адаптер.
 
 ## Флаги для светодиодных контроллеров
@@ -107,11 +109,24 @@ hash: 3sJtUS1rjlgVC9EW6ImdUqJPd9fS0yVC1S2ABMdysCw=
 * `modeLedExor` - exor для белых светодиодов и цветных светодиодов => если белые светодиоды включены, цветные светодиоды выключены и наоборот (по умолчанию true)
 * `modeReadColors` - разрешить чтение цвета из MQTT (по умолчанию false)
 
-## Changelog
+<! - Заполнитель для следующей версии (в начале строки):
 
-### __WORK IN PRGRESS__
-* (anwa) add several datapoints
-* (anwa) Fix tranlation for 'ignorePings'
+### __РАБОТА В ПРОЦЕССЕ__ ->
+
+## Changelog
+### 2.4.3 (2021-07-18)
+* (bluefox) Better type detection for non-described states
+
+### 2.4.2 (2021-07-17)
+* (bluefox) Optimize for js-controller 3.3
+
+### 2.4.1 (2021-07-17)
+* (Apollon77/bluefox) Optimize for js-controller 3.3
+* (Apollon77) Add Sentry for error reporting with js-controller 3.x+
+
+### 2.4.0 (2021-02-04)
+* (anwa) add several data points
+* (anwa) Fix translation for 'ignorePings'
 * (anwa) Fix wrong unit for humidity
 * (anwa) Config option to create a complete object tree instead of a flat structure
 * (anwa) Change Action type to string
@@ -130,7 +145,7 @@ hash: 3sJtUS1rjlgVC9EW6ImdUqJPd9fS0yVC1S2ABMdysCw=
 * (bluefox) Correct processing of `{temp: nan}`
 
 ### 2.2.3 (2019-01-10)
-* (simatec) Support for comapct mode
+* (simatec) Support for compact mode
 
 ### 2.2.2 (2018-06-22)
 * (bluefox) Configuration was fixed
@@ -139,7 +154,7 @@ hash: 3sJtUS1rjlgVC9EW6ImdUqJPd9fS0yVC1S2ABMdysCw=
 * (bluefox) '-' in names was allowed again
 
 ### 2.2.0 (2018-05-22)
-* (gemu2015) auto generate objects, support for arrays (channel), ledcontrollers improved
+* (gemu2015) auto generate objects, support for arrays (channel), led-controllers improved
 
 ### 2.1.3 (2018-05-08)
 * (bluefox) Added HC-SR04 Ultrasonic Sensor
@@ -178,7 +193,7 @@ hash: 3sJtUS1rjlgVC9EW6ImdUqJPd9fS0yVC1S2ABMdysCw=
 
 ### 1.0.0 (2017-11-27)
 * (AlZiBa) typo @ alive
-* (AlZiBa) add Todays power consumption for Sonoff POW
+* (AlZiBa) add Today's power consumption for Sonoff POW
 * (AlZiBa) unit of power consumption is kWh
 
 ### 0.3.3 (2017-11-03)
@@ -203,7 +218,7 @@ hash: 3sJtUS1rjlgVC9EW6ImdUqJPd9fS0yVC1S2ABMdysCw=
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2019, bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2021, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

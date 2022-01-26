@@ -2,23 +2,44 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ham-wemo/README.md
-title: ioBroker Wemo Adapter basierend auf Homebridge-Plattform-Wemo
-hash: hx6VgM2P5/guHzDNcKGwUoLd2cDvrtZycBsfurE7Sh0=
+title: ioBroker Wemo Adapter basierend auf homebridge-platform-wemo
+hash: U39IIVNl5ws/exoRh/dL8/4FDnZH1hVfYB3DthvFivk=
 ---
 ![Logo](../../../en/adapterref/iobroker.ham-wemo/admin/ham-wemo.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/ham-wemo-stable.svg)
-![Greenkeeper-Abzeichen](https://badges.greenkeeper.io/ioBroker/ioBroker.ham-wemo.svg)
+![NPM-Version](http://img.shields.io/npm/v/iobroker.ham-wemo.svg)
+![Downloads](https://img.shields.io/npm/dm/iobroker.ham-wemo.svg)
 
-# IoBroker Wemo Adapter basierend auf Homebridge-Plattform-Wemo
+# IoBroker Wemo-Adapter basierend auf homebridge-platform-wemo
+![Testen und freigeben](https://github.com/ioBroker/iobroker.ham-wemo/workflows/Test%20and%20Release/badge.svg)
+
 =================
 
 ## Beschreibung
-Dieser Adapter basiert auf dem Plug-In für Homebridge-Plattform-Wemo.
+Dieser Adapter basiert auf dem Plugin homebridge-platform-wemo.
 
-Lesen Sie mehr dazu unter https://www.npmjs.com/package/homebridge-platform-wemo
+Lesen Sie hier mehr darüber https://www.npmjs.com/package/homebridge-platform-wemo
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) plugin and homebridge updated
+
+### 1.1.1 (2021-03-24)
+* (Apollon77) js-controller 2.0 now needed as minimum
+* (Apollon77) homebridge version and dependencies updated
+
+
+### 1.1.0 (2020-08-08)
+* (Apollon77) BREAKING: Nodejs 10.17.0+ needed as minimum version
+* (Apollon77) homebridge version and dependencies updated
+
+### 1.0.1 (2019.07.05)
+* (Apollon77) homebridge version updated
+
+### 1.0.0
+* (Apollon77) Optimizations
 
 ### 0.2.2 (2018-06-23)
 * (bluefox) Small config fix
@@ -32,7 +53,7 @@ Lesen Sie mehr dazu unter https://www.npmjs.com/package/homebridge-platform-wemo
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2019 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

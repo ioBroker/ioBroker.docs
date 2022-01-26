@@ -3,16 +3,17 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.scenes/README.md
 title: Адаптер сцен ioBroker
-hash: twASJxCRZq+yqe5SjyTCaHNRF2nZdHP/VeGPh8flq/k=
+hash: 0DsSUdmPssFF9LGP26xHSDzqY0DSmyrZ0wAYSnvEHII=
 ---
 ![Логотип](../../../en/adapterref/iobroker.scenes/admin/scenes.png)
 
 ![Количество установок](http://iobroker.live/badges/scenes-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.scenes.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.scenes.svg)
-![NPM](https://nodei.co/npm/iobroker.scenes.png?downloads=true)
 
 Адаптер сцен # ioBroker
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.scenes/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/scenes/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 _scenes Adapter_ может создавать сцены и выполнять их в среде ioBroker.
 
 ** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
@@ -47,8 +48,8 @@ _scenes Adapter_ может создавать сцены и выполнять 
 ```
 
 В этом случае вентилятор будет включен при активации **сцены** и выключится через одну минуту.
-После выключения вентилятора значение _scene.allLightInBath_ станет **false** потому что не все состояния равны желаемым значениям.
-Состояния с опозданием в расчетах не участвуют.
+После выключения вентилятора значение _scene.allLightInBath_ изменится на **false** потому что не все состояния равны желаемым значениям.
+Состояния с задержкой в расчетах не участвуют.
 
 Вы можете протестировать сцену с помощью кнопки «play».
 Кроме того, вы можете напрямую связать эту **сцену** с другим идентификатором сцены. Например. если у вас есть датчик на двери, вы можете выбрать его как триггер:
@@ -64,7 +65,7 @@ _scenes Adapter_ может создавать сцены и выполнять 
 
 ## Группы
 ** Группы ** похожи на виртуальные каналы. Вы можете создать с помощью ** групп ** виртуальное устройство из нескольких исполнительных механизмов и управлять ими вместе, как одним устройством.
-Модифицируем наш образец подсветкой ванны.
+Давайте модифицируем наш образец подсветкой ванны.
 
 ```
   scene.allLightInBath             "set on true"    "set on false"
@@ -95,8 +96,19 @@ _scenes Adapter_ может создавать сцены и выполнять 
 Задержки можно использовать и в **группе** но состояния с задержкой не участвуют в расчетах текущего значения **группы**
 
 ## Виртуальные группы
-** Виртуальные группы ** похожи на виртуальные каналы и группы, но могут иметь любые значения: числа, строки и т. Д.
-Вы можете создать виртуальную группу для управления всеми ставнями в гостиной. При записи 40% в виртуальную группу все ставни будут установлены на 40%.
+** Виртуальные группы ** похожи на виртуальные каналы и группы, но могут иметь любые значения: числа, строки и так далее.
+Вы можете создать виртуальную группу для управления всеми ставнями в гостиной.
+При записи 40% в виртуальную группу все ставни будут установлены на 40%.
+
+Кроме того, вы можете определить поведение, при котором значение должно приниматься для группы, если не все состояния группы имеют одинаковое значение.
+
+Вы можете предоставить следующие агрегаты (доступны только в расширенном режиме):
+
+- `неопределенный` - (по умолчанию) - значение группы будет иметь текст` неопределенно`.
+- `any` - первое ненулевое значение всех состояний в группе.
+- `min` - минимальное значение всех состояний в группе.
+- `max` - максимальное значение всех состояний в группе.
+- `avg` - среднее значение всех состояний в группе.
 
 ## Сохранить текущие состояния как сцену
 Чтобы сохранить текущие состояния в какой-либо сцене, вы можете отправить сообщение адаптеру:
@@ -120,6 +132,20 @@ sendTo(
 ### __РАБОТА В ПРОЦЕССЕ__ ->
 
 ## Changelog
+### 2.3.8 (2021-08-31)
+* (Apollon77) Handle case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
+* (TyrionWarMage) Added the aggregation mode for the virtual groups.
+* (bluefox) Sentry data will not be sent in front-end if the diagnostic or sentry is disabled
+
+### 2.3.6 (2021-01-22)
+* (Apollon77) Check state id before getting value (Sentry IOBROKER-SCENES-F)
+
+### 2.3.5 (2021-01-22)
+* (Apollon77) Add error logging if invalid ids are configured for scenes (Sentry IOBROKER-SCENES-Y)
+
+### 2.3.4 (2021-01-16)
+* (Apollon77) Prevent crash case (Sentry IOBROKER-SCENES-X, IOBROKER-SCENES-V)
+
 ### 2.3.3 (2020-12-06)
 * (bluefox) Implemented drag&drop for the reorder of scenes in folders
 * (bluefox) Implemented Easy mode
@@ -227,9 +253,10 @@ sendTo(
 ### 0.0.1 (2015-07-29)
 * (bluefox) initial commit
 
+## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2020, Bluefox (dogafox@gmail.com)
+Copyright (c) 2015-2021, Bluefox (dogafox@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

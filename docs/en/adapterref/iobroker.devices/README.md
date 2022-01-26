@@ -1,15 +1,13 @@
 ![Logo](admin/devices.png)
 # ioBroker.devices
 
+![Number of Installations](http://iobroker.live/badges/devices-installed.svg)
+![Number of Installations](http://iobroker.live/badges/devices-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.devices.svg)](https://www.npmjs.com/package/iobroker.devices)
+
+![Test and Release](https://github.com/ioBroker/iobroker.devices/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/devices/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.devices.svg)](https://www.npmjs.com/package/iobroker.devices)
-[![Dependency Status](https://img.shields.io/david/ioBroker/iobroker.devices.svg)](https://david-dm.org/ioBroker/iobroker.devices)
-[![Known Vulnerabilities](https://snyk.io/test/github/ioBroker/ioBroker.devices/badge.svg)](https://snyk.io/test/github/ioBroker/ioBroker.devices)
-
-[![NPM](https://nodei.co/npm/iobroker.devices.png?downloads=true)](https://nodei.co/npm/iobroker.devices/)
-
-**Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.devices/master.svg)](https://travis-ci.org/ioBroker/ioBroker.devices)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/ioBroker/ioBroker.devices?branch=master&svg=true)](https://ci.appveyor.com/project/ioBroker/ioBroker-devices/)
 
 ## devices adapter for ioBroker
 
@@ -19,14 +17,10 @@ Manage and create devices for using it in other adapters like material, iot,...
 
 ![Screen](img/screen.png)
 
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## ToDo
-- clone existing device into linkeddevices/alias/javascript
-- add icons for all states of channels
 - add descriptions for states
-- show errors for google/alisa/alexa
-- detect if js-controller 2.0 installed
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -34,6 +28,33 @@ Manage and create devices for using it in other adapters like material, iot,...
 -->
 
 ## Changelog
+### 1.0.9 (2021-07-11)
+* (bluefox) Implement the narrow rows
+
+### 1.0.8 (2021-07-04)
+* (bluefox) Corrected creation of the devices
+
+### 1.0.7 (2021-06-30)
+* (bluefox) Corrected creation the folders
+
+### 1.0.6 (2021-06-27)
+* (bluefox) Implemented the filters
+
+### 1.0.5 (2021-06-26)
+* (bluefox) Implemented the edit of `states` parameter
+
+### 1.0.4 (2021-06-08)
+* (bluefox) Fixed some GUI errors
+
+### 1.0.1 (2021-06-07)
+* (bluefox) Added sentry
+
+### 1.0.0 (2021-06-07)
+* (bluefox) Added new devices
+
+### 0.3.16 (2021-03-11)
+* (bluefox) Fixed the error for IDs with the strange characters 
+
 ### 0.3.15 (2020-12-13)
 * (bluefox) Updated the select ID dialog
 
@@ -79,7 +100,7 @@ Manage and create devices for using it in other adapters like material, iot,...
 ## License
 MIT License
 
-Copyright (c) 2019-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2019-2021 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

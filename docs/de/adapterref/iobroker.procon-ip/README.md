@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.procon-ip/README.md
 title: ioBroker.procon-ip
-hash: lq6aPK/f3jS9/9tJe0w5W2aqj7uiH6EZYy7TeaZuxg4=
+hash: 9ybGLS8FLg/JAIpnt3fcmyEcSxL47ASj9n1b91qt3uE=
 ---
 ![Logo](../../../en/adapterref/iobroker.procon-ip/admin/iobroker-procon-ip.png)
 
@@ -11,68 +11,85 @@ hash: lq6aPK/f3jS9/9tJe0w5W2aqj7uiH6EZYy7TeaZuxg4=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.procon-ip.svg)
 ![Installationen](http://iobroker.live/badges/procon-ip-installed.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/ylabonte/iobroker.procon-ip.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/ylabonte/ioBroker.procon-ip/badge.svg)
-![Travis-CI](http://img.shields.io/travis/ylabonte/ioBroker.procon-ip/master.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/ylabonte/ioBroker.procon-ip/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.procon-ip.png?downloads=true)
 
 # IoBroker.procon-ip
-## ProCon.IP Pool Control Adapter für ioBroker
-ioBroker-Adapter zur grundlegenden Unterstützung der ProCon.IP-Schwimmbadsteuereinheit. Es ist für die Integration in Ihre ioBroker-Hausautomation vorgesehen, z.
-um eine Logik zu erstellen, an der andere Geräte beteiligt sind, oder um einfach mit Ihren bevorzugten Sprachassistenten gekoppelt zu werden:
+[![Test und Release](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml)
 
-* Sie können die [_cloud_] (https://github.com/ioBroker/ioBroker.cloud) oder verwenden
+## ProCon.IP Poolsteuerungsadapter für ioBroker
+ioBroker Adapter zur Basisunterstützung der Schwimmbadsteuerung ProCon.IP. Es ist für die Integration in Ihre ioBroker-Hausautomation vorgesehen, z.
+um eine Logik zu erstellen, die andere Geräte einbezieht oder einfach mit Ihrem/Ihren bevorzugten Sprachassistenten gekoppelt zu werden:
+
+* Sie können die [_cloud_](https://github.com/ioBroker/ioBroker.cloud) verwenden oder
 
 [_IoT_](https://github.com/ioBroker/ioBroker.iot) Adapter für Alexa (und auch Google Home, glaube ich) und
 
-* [_yahka_] (https://github.com/jensweigele/ioBroker.yahka) als Brücke zum
+* [_yahka_](https://github.com/jensweigele/ioBroker.yahka) als Brücke zum
 
-  Apple HomeKit von Siri oder zu erreichen
+  Apple HomeKit für Siri erreichbar oder
 
-* Verwenden Sie das [_javascript_] (https://github.com/ioBroker/ioBroker.javascript), um
+* Verwenden Sie das [_javascript_](https://github.com/ioBroker/ioBroker.javascript), um
 
   Erstellen Sie Ihre eigene benutzerdefinierte Logik.
 
-Weitere Informationen finden Sie in den [Wiki](https://github.com/ylabonte/ioBroker.procon-ip/wiki).
+Weitere Informationen finden Sie unter [Wiki](https://github.com/ylabonte/ioBroker.procon-ip/wiki).
 
-### Was ist die ProCon.IP-Poolsteuerung?
+### Was ist die Poolsteuerung von ProCon.IP?
 ![Bild von pooldigital.de](https://www.pooldigital.de/shop/media/image/66/47/a5/ProConIP1_720x600.png)
 
-Die ProCon.IP-Poolsteuerung ist eine an ein Netzwerk angeschlossene Low-Budget-Steuereinheit für Heimschwimmbäder. Mit seinen softwaregeschalteten Relais kann es mehrere Pumpen (für den Poolfilter und verschiedene Dosierungsaspekte) steuern, die entweder einfach pro Zeitplan geplant sind oder von einem Messwert / Wert aus einem seiner vielen Eingangskanäle für Messungen abhängen (z. B. E / A-Durchfluss) Sensoren, Dallas 1-Draht-Termometer, Redox- und pH-Elektroden). Zumindest besteht auch die Möglichkeit, diese Relais bei Bedarf einzuschalten, wodurch sie auch zum Ein- und Ausschalten von Lichtern (oder anderen gewünschten Elementen) verwendet werden können.
-Nicht alle Funktionen sind über die API erreichbar. Tatsächlich gibt es eine dokumentierte API zum Lesen (Abrufen) von Werten als CSV (`/GetState.csv`). In meinen Erinnerungen gab es eine andere zum Ein- und Ausschalten der Relais mit Timer. Aber ich kann den zweiten nicht mehr finden. Also nicht einmal hübsch, sondern funktional: Die ProCon.IP verfügt über zwei native Webschnittstellen, die analysiert werden können, um eine bestimmte Funktionalität (wie das Schalten der Relais) rückzuentwickeln.
+Die Poolsteuerung ProCon.IP ist eine Low-Budget-Netzwerksteuerung für private Schwimmbäder. Mit seinen softwaregeschalteten Relais kann er mehrere Pumpen (für den Poolfilter und unterschiedliche Dosierungsaspekte) entweder einfach nach Zeitplan geplant oder abhängig von einem Messwert/Wert von einem seiner vielen Eingangskanäle für Messungen (z Sensoren, Dallas 1-Wire-Termometer, Redox- und pH-Elektroden). Zumindest gibt es auch die Möglichkeit, diese Relais bei Bedarf zu schalten, wodurch sie auch zum Ein- und Ausschalten von Lichtern (oder anderen gewünschten) geeignet sind.
+Nicht alle Funktionen sind über die API erreichbar. Tatsächlich gibt es eine dokumentierte API zum Lesen (Abrufen) von Werten als CSV (`/GetState.csv`). In meinen Erinnerungen gab es noch einen zum Ein- und Ausschalten der Relais mit Timer. Aber den zweiten finde ich nicht mehr. Also nicht einmal schön, aber funktional: Die ProCon.IP verfügt über zwei native Webinterfaces, die analysiert werden können, um eine bestimmte Funktionalität (wie das Schalten der Relais) irgendwie nachzukonstruieren.
 
-Weitere Informationen finden Sie unter folgendem Link (leider nur auf Deutsch; ich habe noch keine englische Dokumentation / Information gefunden):
+Weitere Informationen finden Sie unter folgendem Link (leider nur auf Deutsch; bisher keine englische Dokumentation/Informationen gefunden):
 
-* [pooldigital.de Webshop] (https://www.pooldigital.de/shop/poolsteuerungen/procon.ip/35/procon.ip-webstellungs-poolsteuerung-/-dosieranlage)
-* [pooldigital.de Forum] (http://forum.pooldigital.de/)
+* [pooldigital.de Webshop](https://www.pooldigital.de/shop/poolsteuerungen/procon.ip/35/procon.ip-webbasierte-poolsteuerung-/-dosieranlage)
+* [pooldigital.de-Forum](http://forum.pooldigital.de/)
 
-** Um ganz klar zu sein: Ich habe nichts mit der Entwicklung, dem Verkauf, dem Marketing oder der Unterstützung der Poolsteuereinheit zu tun. Ich habe gerade eine Lösung entwickelt, um diese in ioBroker zu integrieren und das Zuhause meiner Eltern ein bisschen intelligenter zu machen. **
+**Nur um es klar zu sagen: Ich habe nichts mit der Entwicklung, dem Vertrieb, der Vermarktung oder dem Support der Poolsteuerung zu tun. Ich habe gerade eine Lösung entwickelt, um diese in ioBroker zu integrieren, um das Zuhause meiner Eltern ein bisschen intelligenter zu machen.**
 
-### Details zum Adapter
-Der Adapter verwendet die `/GetState.csv`-API des ProCon.IP, um seine Werte abzufragen, und eine andere - nicht dokumentierte - API, die mit bitweisen Befehlen zum Umschalten der Relais arbeitet. Die zweite wird auch von den ursprünglichen Webschnittstellen der ProCon.IP verwendet. Es könnte also zukünftige Firmware-Upgrades geben, die mit diesem Adapter kompatibel sind oder zumindest die Funktionalität zum Schalten der Relais.
+###Details zum Adapter
+Der Adapter verwendet die `/GetState.csv` API der ProCon.IP um seine Werte abzufragen und eine weitere - nicht dokumentierte - API, die mit bitweisen Befehlen zum Schalten der Relais arbeitet. Das zweite wird auch von den originalen Webinterfaces der ProCon.IP verwendet. Es kann also zu zukünftigen Firmware-Upgrades kommen, die Bremsenkompatibilität mit diesem Adapter oder zumindest die Funktionalität zum Schalten der Relais geben.
 
 #### Kompatibilität
-Derzeit wurde der Adapter in Kombination mit der ProCon.IP-Firmware **Version 1.7.0.c** getestet und entwickelt.
+Der Adapter wurde vorerst in Kombination mit der ProCon.IP Firmware **revision 1.7.0.c** getestet und entwickelt.
 
-## Roadmap
-### 1.x.x.
-Es gibt nichts Besonderes auf dem Plan. Sie können ein Problem erstellen, um neue Features / Funktionen vorzuschlagen ...
+##Fahrplan
+### 1.x.x
+Auf dem Plan steht nichts besonderes. Sie können ein Problem erstellen, um neue Funktionen/Funktionen vorzuschlagen...
 
-** Was ist mit den Punkten passiert, die auf der Roadmap standen, aber mit der Version 1.0.0 nicht implementiert wurden? ** Nun, die Dokumentation wurde bereits verbessert.
-Die Tab-Ansicht scheint mir ziemlich interessant zu sein. Wenn Sie eine solche Funktion schätzen würden, lassen Sie es mich einfach wissen ...
-Das Fehlen automatisierter Tests bezüglich der Funktionalität des Controllers ist ziemlich unangenehm, aber der Fokus liegt jetzt eindeutig darauf, stabil zu werden, und das Schreiben guter und nützlicher Tests für den gesamten vorhandenen Code wird viel Zeit kosten (in Bezug auf die Verwendung bezüglich des Komplexität und Zielgruppe dieses Softwareprojekts) und könnte in einem weiteren Refactoring enden. Es wird also etwas für die Zukunft sein, aber für die Version 1.0.0 nicht mehr relevant.
+**Was ist mit den Punkten passiert, die auf der Roadmap standen, aber nicht mit der Version 1.0.0 implementiert wurden?** Nun, die Dokumentation wurde bereits verbessert.
+Die Sache mit der Registerkartenansicht scheint mir ziemlich interessant zu sein. Wenn Sie eine solche Funktion schätzen würden, lassen Sie es mich einfach wissen...
+Das Fehlen von automatisierten Tests bezüglich der Funktionalität des Controllers ist ziemlich unangenehm, aber der Fokus liegt jetzt klar darauf, stabil zu werden und das Schreiben von guten und nützlichen Tests für den gesamten vorhandenen Code kostet viel Zeit (in Bezug auf den Einsatz bezüglich der Komplexität und Zielgruppe dieses Softwareprojekts) und könnte in einem weiteren Refactoring enden. Es wird also etwas für die Zukunft sein, aber für die Version 1.0.0 nicht mehr relevant.
 
 ## Entwicklung und Beteiligung
-Sie können mich gerne kontaktieren, wenn Sie an der Entwicklung oder Dokumentation dieses Adapters teilnehmen möchten.
+Kontaktieren Sie mich gerne, wenn Sie an der Entwicklung oder Dokumentation dieses Adapters mitwirken möchten.
 
 Nützliche Links für den Ansatz werden sein
 
-* die [TypeScript-Adaptervorlage] (https://github.com/ioBroker/ioBroker.template/tree/master/TypeScript)
+* die [TypeScript-Adaptervorlage](https://github.com/ioBroker/ioBroker.template/tree/master/TypeScript)
 
   Ich hatte angefangen von und
 
-* die [Anleitung für Adapterentwickler] (https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md).
+* der [Leitfaden für Adapterentwickler](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md).
 
 ## Changelog
+
+### 1.1.0
+Minor release:
+* Move API library sources into a [separate package](https://www.npmjs.com/package/procon-ip).
+* Update `common.name` attributes when the corresponding label changes.
+* Update dependencies
+
+### 1.0.2
+Minor update (was accidentally released as patch, regarding the version number):
+* Fine tune the polling and control requests 
+  (add additional adapter settings for this).
+* Wait a configurable amount of consecutive errors, before raising the log 
+  level to _Warning_ for polling requests.
+* Try to send control commands two more times, if an error occurs on the 
+  request. 
+**All point should reduce issues regarding irregular network disruptions.**
 
 ### 1.0.1
 Hotfix release:
@@ -172,4 +189,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2020 Yannic Labonte <yannic.labonte@gmail.com>
+Copyright (c) 2021 Yannic Labonte <yannic.labonte@gmail.com>

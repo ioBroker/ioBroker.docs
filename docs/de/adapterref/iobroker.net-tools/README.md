@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.net-tools/README.md
-title: Net Tools
-hash: IzxWLgZMxRAWfn8DB4DpXBGjGipYz94IyOFgl8VTfPw=
+title: Netztools
+hash: bxjSmJf72AXeKIg4SIx7hCk4hhVjPTSRo5U6FBK2BLE=
 ---
 ![Logo](../../../en/adapterref/iobroker.net-tools/admin/net-tools.png)
 
@@ -13,32 +13,37 @@ hash: IzxWLgZMxRAWfn8DB4DpXBGjGipYz94IyOFgl8VTfPw=
 ![Tests](https://travis-ci.org/jey-cee/ioBroker.net-tools.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.net-tools.png?downloads=true)
 
-# Net Tools
-### Entdecken Sie Geräte im Netzwerk
-Setzen Sie das Erkennungsobjekt auf true, um Geräte in Ihrem Netzwerk zu erkennen. Dieser Vorgang dauert eine Weile.
-Diese Funktion wird vom Erkennungsadapter bereitgestellt. Dies bedeutet, dass die Erkennung installiert wird, wenn dies nicht der Fall ist und ausgeführt werden muss.
+# Netztools
+| [Sponsoren](https://github.com/iobroker-community-adapters/ioBroker.net-tools/blob/master/SPONSORS.md) | |
+|---|---|
+| [![Spenden](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url) | <a href="https://discord.gg/33w6jUh"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2"></a> |
+| [![Spenden](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/ webscr?cmd=_s-xclick&amp;hosted_button_id=95YZN2LR59Q64&amp;source=url) | <a href="https://discord.gg/33w6jUh"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2"></a> |
+
+### Geräte im Netzwerk erkennen
+Setzen Sie Discover Object auf true, um Geräte in Ihrem Netzwerk zu erkennen. Dieser Vorgang dauert eine Weile.
+Diese Funktion wird vom Erkennungsadapter bereitgestellt, was bedeutet, dass die Erkennung installiert wird, wenn dies nicht der Fall ist und ausgeführt werden muss.
 
 Anmerkung: Diese Funktion ist auf das Subnetz des ioBroker-Hosts beschränkt.
 
-### Pingt konfigurierte IP-Adressen an
-Pingt die angegebenen IP-Adressen in einem definierten Intervall und überwacht die Ergebnisse. (lebendig, rps, Zeit)
+### Pings konfigurierte IP-Adressen an
+Pingt angegebene IP-Adressen in definierten Intervallen an und überwacht die Ergebnisse. (lebendig, rps, zeit)
 
 ### Wake on LAN
-Setzen Sie das wol-Objekt auf true und 3 WOL-Pakete werden mit einer Dauer von 750 ms an Ihr Gerät gesendet.
+Setzen Sie das wol-Objekt auf true und 3 WOL-Pakete werden mit einer Pause von 750 ms an Ihr Gerät gesendet.
 
-### Port-Scan
-Wenn Sie scan auf true setzen, wird nach allen offenen Ports in einem Bereich von 0-65535 gesucht. Dieser Vorgang dauert eine Weile.
+###Port-Scan
+Setzen Sie scan auf true, um alle offenen Ports in einem Bereich von 0-65535 zu scannen. Dieser Vorgang dauert eine Weile.
 Das Ergebnis wird in Objektports geschrieben.
 
 ---
 
 ## Für Entwickler
-#### Mac für bestimmtes Gerät abrufen
+#### Holen Sie sich einen Mac für ein bestimmtes Gerät
 `sendToAsync('net-tools.X, 'getMac', 'IP ADDRESS')`
 
 Anmerkung: Diese Funktion ist auf das Subnetz des ioBroker-Hosts beschränkt.
 
-#### Ping-spezifische IP-Adresse
+#### Spezifische IP-Adresse pingen
 `sendToAsync('net-tools.X, 'ping', 'IP ADDRESS')`
 
 #### Wake on LAN
@@ -46,24 +51,32 @@ Anmerkung: Diese Funktion ist auf das Subnetz des ioBroker-Hosts beschränkt.
 
 ---
 
-** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
-
-## [Sponsoren](https://github.com/iobroker-community-adapters/ioBroker.net-tools/blob/master/SPONSORS.MD)
-Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende leisten (dies ist ein persönlicher Spendenlink für Jey Cee, keine Beziehung zum ioBroker-Projekt!) [![Spenden] (https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)
-
-##### Treten Sie dem Discord-Server bei, um alles über die Integration von Net-Tools zu besprechen!
-<a href="https://discord.gg/33w6jUh"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Changelog
 
-### 0.1.0 
+### 0.1.5
+* changes on testing
+
+### 0.1.4
+* fixes for js-controller 3.3
+
+### 0.1.3
+* fixes for js-controller 3.3
+
+### 0.1.2
+* added device discovery to configuration page
+* start discovery if it is not started and stop it afterwards
+
+
+### 0.1.1 
 * initial release
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2020, Jey Cee <jey-cee@live.com>
+Copyright (c) 2020-2021, Jey Cee <jey-cee@live.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,6 +1,5 @@
 ![Logo](admin/vis-google-fonts.png)
-ioBroker.vis-google-fonts
-============
+# ioBroker.vis-google-fonts
 
 ![Number of Installations](http://iobroker.live/badges/vis-google-fonts-installed.svg) ![Number of Installations](http://iobroker.live/badges/vis-google-fonts-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.vis-google-fonts.svg)](https://www.npmjs.com/package/iobroker.vis-google-fonts)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.vis-google-fonts.svg)](https://www.npmjs.com/package/iobroker.vis-google-fonts)
@@ -48,16 +47,23 @@ Following fonts will be included:
 - StalinistOne - from Alexey Maslov, Jovanny Lemonad (lemonad@jovanny.ru)
 - Ubuntu - UBUNTU FONT LICENCE Version 1.0 
 
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
 ## Changelog
+### 1.0.3 (2021-11-11)
+* (bluefox) Support of compact mode added
 
 ### 1.0.0 (2016-04-20)
-- (bluefox) just set the version
+* (bluefox) just set the version
 
 ### 0.1.0 (2015-11-05)
-- (bluefox) always load google-fonts if installed
+* (bluefox) always load google-fonts if installed
 
 ### 0.0.1 (2015-11-05)
-- (bluefox) initial checkin
+* (bluefox) initial checkin
 
 ## License
  Apache 2.0 and SIL Open Font License 1.1
@@ -123,4 +129,3 @@ Following fonts will be included:
  with Reserved Font Name Sigmar One.
  
  Copyright (c) 2009-2011, Alexey Maslov, Jovanny Lemonad (lemonad@jovanny.ru), with Reserved Font Name 'Stalinist'
- 

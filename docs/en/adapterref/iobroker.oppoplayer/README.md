@@ -14,6 +14,9 @@ You can control playback and query status.
 
 ## Changelog
 
+### 0.2.3
+* (volkerrichert) add missing seconds definitions in io-package.json
+
 ### 0.2.2
 * (volkerrichert) "enable" compact mode
 
@@ -53,4 +56,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-Copyright (c) 2018-2020 Volker Richert volker@richert.nrw
+Copyright (c) 2018-2021 Volker Richert volker@richert.nrw

@@ -16,13 +16,43 @@
 
 This adapter calculates the current altitude and azimuth of the sun based on the geoposition. Additionally compass direction and the movement (sunrise or sunset) of the sun is stored.
 It is using the geo-position defined in the configuration. Calculation interval can be defined in instance preferences.
-Solar-noon values for some days like today, tomorrow or beginn of spring/summer/autumn/winter are stored as well.
+Solar-noon values for some days like today, tomorrow or beginn of spring/summer/autumn/winter are stored as well.  
+
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.3.8 (2021-12-07)
+* (HGlab01) Notifiy Sentry about new release
+
+### 0.3.7 (2021-11-29)
+* (HGlab01) Bump @alcalzone/release-script to 3.4.0
+* (HGlab01) Improve error handling
+
+### 0.3.5 (2021-07-27)
+* (HGlab01) Improve state and sentry handling by bump iobroker-jsonexplorer to v0.1.1
+
+### 0.3.4 (2021-05-11)
+* (HGlab01) prepare for js-controller 3.3.x
+* (HGlab01) Bump iobroker-jsonexplorer to v0.0.0-21
+* (HGlab01) add json-explorer version info at startup
+
+### 0.3.3 (2021-03-04)
+* (HGlab01) improve sentry handling
+* (HGlab01) verify config first
+
+### 0.3.2 (2021-02-17)
+* (HGlab01) add Sentry support
+
+### 0.3.1 (2021-02-15)
+* (HGlab01) add sunrise, sunset, dusk and dawn (#67)
+* (HGlab01) smaller improvments
+* (HGlab01) use iobroker-jsonexplorer for state-management
+
 ### 0.2.7 (2021-02-11)
 * (HGlab01) Fix sun-movement bug (#61)
 * (HGlab01) Optimize keywords
@@ -39,7 +69,7 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
 
 ### 0.2.3 (2020-12-13)
 * (HGlab01) Update dependencies
-* (HGlab01) Change type to "geoposition" 
+* (HGlab01) Change type to "geoposition"
 
 ### 0.2.2 (2020-12-07)
 * (HGlab01) Decrease log-level
@@ -56,7 +86,7 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
 ## License
 MIT License
 
-Copyright (c) 2021 HGlab01 <iobroker.followthesun@gmail.com>
+Copyright (c) 2022 HGlab01 <iobroker.followthesun@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

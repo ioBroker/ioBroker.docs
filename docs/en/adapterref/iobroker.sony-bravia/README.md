@@ -50,7 +50,7 @@ This is an ioBroker adapter for your Sony Bravia Smart-TV with Android OS. Teste
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 ldittmar <iobroker@lmdsoft.de>
+Copyright (c) 2018-2021 ldittmar <iobroker@lmdsoft.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

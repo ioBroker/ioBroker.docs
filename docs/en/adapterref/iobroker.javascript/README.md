@@ -2,8 +2,6 @@
 BADGE-Number of Installations: http://iobroker.live/badges/javascript-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.javascript.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.javascript.svg
-BADGE-Tests: https://travis-ci.org/ioBroker/ioBroker.javascript.svg?branch=master
-BADGE-NPM: https://nodei.co/npm/iobroker.javascript.png?downloads=true
 chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.javascript/README.md"},"en/adapterref/iobroker.javascript/blockly.md":{"title":{"en":"Contents"},"content":"en/adapterref/iobroker.javascript/blockly.md"}}}
 ---
 ## Content
@@ -23,7 +21,7 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
     - [schedule](#schedule)
         - [Time schedule](#time-schedule)
         - [Astro-function](#astro--function)
-    - [getSchedules](#egtschedules)
+    - [getSchedules](#getschedules)
     - [clearSchedule](#clearschedule)
     - [getAttr](#getattr)
     - [getAstroDate](#getastrodate)
@@ -635,12 +633,12 @@ Returns a javascript Date object for the specified pattern. For valid pattern va
 The returned Date object is calculated for the passed *date*. If no date is provided, the current day is used.
 
 ```js
-var sunriseEnd = getAstroDate("sunriseEnd");
+let sunriseEnd = getAstroDate("sunriseEnd");
 log("Sunrise ends today at " + sunriseEnd.toLocaleTimeString());
 
-var today = new Date();
-var tomorrow = today.setDate(today.getDate() + 1);
-var tomorrowNigh = getAstroDate("night", tomorrow);
+let today = new Date();
+let tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+let tomorrowNight = getAstroDate("night", tomorrow);
 ```
 
 ### isAstroDay
@@ -1581,27 +1579,30 @@ There is a possibility to enabled and disable scripts via states. For every scri
 Scripts can be activated and deactivated by controlling of this state with ack=false.
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+### 5.2.21 (2022-01-16)
+* (bluefox) Fixed build process
 
-### 4.10.15 (2021-01-31)
-* (Apollon77) Handle more cases with invalid script names/state-ids (Sentry IOBROKER-JAVASCRIPT-5W)
+### 5.2.19 (2022-01-10)
+* (AlCalzone) Fixed broken dependency
 
-### 4.10.14 (2021-01-25)
-* (Apollon77) Handle more cases with invalid script names/state-ids (Sentry IOBROKER-JAVASCRIPT-5R)
+### 5.2.18 (2021-12-14)
+* (klein0r) Fixed some german translations
+* (winnyschuster) Fixed astro schedules
 
-### 4.10.13 (2021-01-24)
-* (Apollon77) Handle more cases with invalid script names/state-ids (Sentry IOBROKER-JAVASCRIPT-4B)
+### 5.2.16 (2021-11-19)
+* (bluefox) Fixed the font in the editor
 
-### 4.10.11 (2021-01-22)
-* (Apollon77) Optimize error handling in createState and file mirror again
-
-### 4.10.10 (2021-01-22)
-* (Apollon77) Do not try to set a state value if object creation was not successful (Sentry IOBROKER-JAVASCRIPT-5G)
-* (Apollon77) Make sure no incorrect states are trying to be set (Sentry IOBROKER-JAVASCRIPT-5F, IOBROKER-JAVASCRIPT-5A)
+### 5.2.15 (2021-11-18)
+* (agross) Added the monitoring of symlinks my mirroring
+* (Apollon77) Fix two crash cases reported by Sentry
 
 ## License
-
 The MIT License (MIT)
 
-Copyright (c) 2014-2020 bluefox <dogafox@gmail.com>,
+Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>,
 
 Copyright (c) 2014      hobbyquaker

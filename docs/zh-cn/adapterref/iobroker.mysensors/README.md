@@ -3,26 +3,26 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mysensors/README.md
 title: ioBroker.mysensors
-hash: 8OVhqLSSuVs2O4XGqUqprbqL+6EyGFNFohcyr+vvoPo=
+hash: aSy0rOeIPaTcWu3iicEEsdBle/JK9AhuU/Xp+9gXKJ8=
 ---
-![商标](../../../en/adapterref/iobroker.mysensors/admin/mysensors.png)
+![标识](../../../en/adapterref/iobroker.mysensors/admin/mysensors.png)
 
 ![安装数量](http://iobroker.live/badges/mysensors-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.mysensors.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.mysensors.svg)
-![测验](https://travis-ci.org/ioBroker/ioBroker.mysensors.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.mysensors.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.mysensors.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.mysensors.svg)
+![测试](https://travis-ci.org/ioBroker/ioBroker.mysensors.svg?branch=master)
+![新产品管理](https://nodei.co/npm/iobroker.mysensors.png?downloads=true)
 
-＃ioBroker.mysensors
-该适配器与[mysensors](http://www.mysensors.org)串行或以太网网关（TCP或UDP）通信。
-在这种情况下，ioBroker选择的以太网网关是服务器，需要连接。
+# IoBroker.mysensors
+此适配器与 [我的传感器](http://www.mysensors.org) 串行或以太网网关（TCP 或 UDP）通信。
+如果在这种情况下选择的以太网网关 ioBroker 是服务器，则需要连接。
 
-## TCP客户端
-该选项仅与TCP串行桥（如[esp链接](https://github.com/jeelabs/esp-link)）一起使用。
+## TCP 客户端
+此选项仅与 TCP<=> 串行网桥一起使用，例如 [esp-link](https://github.com/jeelabs/esp-link)。
 
-##前提条件
-要在Windows上使用串行端口，需要VS来构建二进制文件。
-要在Linux上使用串行端口，必须构建必需的python2.7。要安装它们，只需编写：
+## 预要求
+要在 Windows 上使用串行端口，需要使用 VS 来构建二进制文件。
+要在 linux 上使用串行端口，它是 build-essential 和 python2.7 必需的。要安装它们，只需编写：
 
 ```
 sudo apt-get update
@@ -30,7 +30,14 @@ sudo apt-get install build-essential
 sudo apt-get install python2.7
 ```
 
+<!-- 下一个版本的占位符（在行首）：
+
+### __工作进行中__ -->
+
 ## Changelog
+### 2.0.2 (2021-11-08)
+* (sergeyksv) Added the support of deep sleep
+
 ### 2.0.1 (2020-06-01)
 * (jangatzke) compare integer values
 
@@ -121,7 +128,7 @@ sudo apt-get install python2.7
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2020, Bluefox<dogafox@gmail.com>
+Copyright (c) 2016-2021, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

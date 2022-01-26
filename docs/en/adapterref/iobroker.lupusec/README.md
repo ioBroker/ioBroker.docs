@@ -72,6 +72,7 @@ Fully supported and individually adapted are following devices:
   - Shock sensor (Type 93)
   - Smoke detector V2 (Type 14)
   - Inwall relay with dimmer V3 (Type 66)
+  - Keypad Outdoor V2 (Type 17)
 
 The two states apple_home_a1 and lupusec.0.status.apple_home_a2 for the Apple Homekit adapter yahka supported. You can turn in addition to the lupusec states the alarm system for area 1 and 2 on and off.  
 
@@ -98,6 +99,19 @@ You find all connected surveillance cams under 'webcams'. You can copy the link 
 You find your Nuki door opener under 'devices' like the Lupusec devices. The Nuki provides 2 states. The state nuki_state shows you the actuall state of the Nuki door opener like door is locked or unlocked. With the state nuki_action you can open, lock or unlock your door.  
 ![lupusec_obj_nuki](docs/en/img/lupusec_obj_nuki.png)
 
+### Lupusec SMS
+If you ar using the Lupusec XT1+, XT2+ or XT3 with an SMS sim card, you can send SMS with following states:
+![lupusec_obj_sms](docs/en/img/lupusec_obj_sms.png)
+
+Alternative you can send SMS from your JavaScript with following command:
+```
+sendTo('lupusec.0', 'sms', { number: '017247114711', text: 'Test message' });
+``` 
+
+if you are using the SMS gateway you can use following command in your script:
+```
+sendTo('lupusec.0', 'smsgw', { number: '017247114711', text: 'Test message' });
+``` 
 
 ## Troubleshooting
 If you start the Lupusec Adapter and you get the error that the alarm system is not reachable please try to ping the system from a terminal window of your ioBroker system. 
@@ -114,7 +128,27 @@ sudo chmod u+s `which ping`
 
 ## Changelog
 
-### 1.3.1-beta-1 (07.02.2021)
+### 1.3.6 (30.11.2021)
+* (Stübi) Bugfixing
+* (Stübi) Fixed Issue #41 (Datenpunkte für Temperatur gehen nur bis 0)
+* (Stübi) Fixed Issue #34 (cpu load 4-5% higher with 1.3.5 compared to older versions)
+
+### 1.3.5 (24.04.2021)
+* (Stübi) Add device keypad outdoor v2
+* (Stübi) Add log file state. Important time of Lupusec Alarm system and ioBroker have to be synchrony
+* (Stübi) Workaround dropdown list with admin in react mode (wrong type)
+
+### 1.3.4 (01.03.2021)
+* (Stübi) Bugfixing
+
+### 1.3.3 (17.02.2021)
+* (Stübi) Bugfixing
+* (Stübi) Send SMS with SMS gateway or SIM card
+
+### 1.3.2 (14.02.2021)
+* (Stübi) Send SMS if you are using a sim card
+
+### 1.3.1 (07.02.2021)
 * (Stübi) Add universal IR controller (type 52)
 
 ### 1.3.0 (03.10.2020)
@@ -244,7 +278,7 @@ Following things are planed in the future:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2020 Thorsten Stueben <thorsten@stueben.de>
+Copyright (c) 2019-2021 Thorsten Stueben <thorsten@stueben.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

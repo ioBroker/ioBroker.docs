@@ -3,41 +3,65 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: EIW18yaoylVnvsqYxbPVrnIhJgYn2pPq4A6ID4wbp+s=
+hash: 2ko0VniTyAy5+WiPRl8qRZNIMGJNQo44ffLR5DPNJTs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.kostal-piko-ba.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.kostal-piko-ba.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.kostal-piko-ba.svg)
-![Статус зависимости](https://img.shields.io/david/hombach/ioBroker.kostal-piko-ba.svg)
 ![Известные уязвимости](https://snyk.io/test/github/hombach/ioBroker.kostal-piko-ba/badge.svg)
+![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.kostal-piko-ba?branch=master&svg=true)
 ![НПМ](https://nodei.co/npm/iobroker.kostal-piko-ba.png?downloads=true)
-![Трэвис-Си](http://img.shields.io/travis/hombach/ioBroker.kostal-piko-ba/master.svg)
 
 # IoBroker.kostal-piko-ba
-![Версия NPM (стабильная)](http://ioBroker.live/badges/kostal-piko-ba-stable.svg) ![Количество установок (последнее)](http://ioBroker.live/badges/kostal-piko-ba-installed.svg)
+![Версия NPM (стабильная)](http://ioBroker.live/badges/kostal-piko-ba-stable.svg) ![Количество установок (последние)](http://ioBroker.live/badges/kostal-piko-ba-installed.svg)
 
-![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workflows/Node.js%20CI/badge.svg)
+CI-тесты: ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workflows/Node.js%20CI/badge.svg)
 
-## Адаптер для чтения данных Kostal Piko BA для iOBroker
-Адаптер для чтения данных Косталь Пико БА. Адаптер создает несколько состояний и последовательно обновляет их.
+## Адаптер для чтения данных БА Kostal Piko для iOBroker
+Адаптер для чтения данных Kostal Piko BA. Адаптер создает несколько состояний и последовательно их обновляет.
 Адаптер также работает с инвертором Kostal Piko 15.
-Мы будем очень признательны, если вы проверите работоспособность других инверторов и отправите мне сообщение.
+Буду очень признателен, если вы проверите работоспособность других инверторов и отправьте мне сообщение.
 
 ## Настройки
-Для подключения к инвертору Kostal Pico BA обязательно указание его IP-адреса в конфиге.
-Вы также можете редактировать частоту обновления данных в реальном времени, за день и в реальном времени.
+Для подключения к инвертору Kostal Pico BA указание его IP-адреса в конфиге обязательно.
+Вы также можете изменить частоту обновления данных в реальном времени, ежедневную статистику и статистику в реальном времени.
 
 ## Примечания
-Этот адаптер использует библиотеки Sentry, чтобы автоматически сообщать разработчикам об исключениях и ошибках кода. Для получения дополнительной информации и информации о том, как отключить сообщение об ошибках, см. [Документация по Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам. Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Changelog
 
+! Note that missing version entries are typically dependency updates for security.
+
+### 1.3.1 (23.01.2022)
+* (HombachC) correct rounding of analog values; bumped dependencies
+* (HombachC) added validation of configured IPv4 address
+
+### 1.3.0 (01.01.2022)
+* (HombachC) added optional support for analog inputs
+
+### 1.2.1 (24.12.2021)
+* (HombachC) introduced rounding of battery temp
+
+### 1.2.0 (16.12.2021)
+* (HombachC) dropped node.js 10 support; bumped dependencies; fixed vulnerability
+
+### 1.1.13 (16.10.2021)
+* (HombachC) bumped dependencies; fixed vulnerability
+
+### 1.1.12 (07.10.2021)
+* (GermanBlueFox) fixed icon link
+* (HombachC) bumped dependencies
+
+### 1.1.10 (16.07.2021)
+* (HombachC) bumped dependencies; fixed vulnerability
+
+### 1.1.7 (09.05.2021)
+* (HombachC) added tests for node.js 16; fixed vulnerability
+
 ### 1.1.3 (23.11.2020)
 * (HombachC) added battery.Voltage; added additional error handler; bumped dependencies
-
-### 1.1.2 (26.10.2020)
-* (HombachC) bumped dependencies
 
 ### 1.1.1 (09.10.2020) stable
 * (HombachC) minor documentation tweaks; DC current accuracy changed to mA
@@ -47,28 +71,23 @@ hash: EIW18yaoylVnvsqYxbPVrnIhJgYn2pPq4A6ID4wbp+s=
 * (HombachC) added battery.ChargeCycles
 * (HombachC) bumped dependencies; added battery.temperature
 
-### 1.0.2 (23.09.2020) stable
+### 1.0.2 (23.09.2020)
 * (HombachC) public release for stable repo
-
 ### 0.8.0 (18.08.2020)
 * (HombachC) seperate editable poll timer for statistics data
-
 ### 0.7.4 (03.07.2020)
 * (HombachC) added sentry.io support
-
 ### 0.6.1 (28.06.2020)
 * (HombachC) poll of statistics data separated
-
 ### 0.5.1 (22.06.2020)
 * (HombachC) introduced editable poll interval 
-
 ### 0.1.0 (15.05.2020)
 * (HombachC) initial working release
 
 ## License
 MIT License
 
-Copyright (c) 2020 HombachC
+Copyright (c) 2020 - 2022 HombachC
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

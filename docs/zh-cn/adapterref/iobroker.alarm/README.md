@@ -3,125 +3,159 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.alarm/README.md
 title: ioBroker.alarm
-hash: KDbrlsVux+RIy0pbsUg2ijd5L/i1q4vKiyC/NSBtKP8=
+hash: NwTEm+ngKMovQngTpclJO2as7MIXFvMIZAFX3TYdyAs=
 ---
-![商标](../../../en/adapterref/iobroker.alarm/admin/alarm.png)
+![标识](../../../en/adapterref/iobroker.alarm/admin/alarm.png)
 
 ![安装数量](http://iobroker.live/badges/alarm-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.alarm.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.alarm.svg)
-![依赖状态](https://img.shields.io/david/misanorot/iobroker.alarm.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.alarm.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.alarm.svg)
 ![已知漏洞](https://snyk.io/test/github/misanorot/ioBroker.alarm/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.alarm.png?downloads=true)
+![新PM](https://nodei.co/npm/iobroker.alarm.png?downloads=true)
 
-＃ioBroker.alarm
-** Github操作**：
+# IoBroker.alarm
+**Github 操作**：
 
-![GitHub动作](https://github.com/misanorot/ioBroker.alarm/workflows/Test%20and%20Release/badge.svg)
+![GitHub 操作](https://github.com/misanorot/ioBroker.alarm/workflows/Test%20and%20Release/badge.svg)
 
-[![paypal]（https://www.paypalobjects.com/zh_CN/DK/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYHW84XXF5REJ&source=url)
+[![贝宝](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYHW84XXF5REJ&source=url)
 
 **[英文说明](https://github.com/misanorot/ioBroker.alarm/blob/master/lib/Readme_en.md)**
 
-## IoBroker警报
-Dies ist ein Adapter，mit dem sich eine kleine Alarmanlage ohnegroßeprogrammiertechnische Vorkenntnisse realisierenlässt。
-圣经的第三节和第二节Nachtruhe oder De- und Aktivierung zuüberwachen。德斯坦·维特伦主义者·伊恩·迪内克特·德斯坦·威斯坦·因斯坦斯（州），安夫·安德里（auf andere）“州”。 DieseVerknüpfungenwerden im ReiterVeregnüpfungenangelegt。
+## IoBroker 警报
+Dies ist ein Adapter, mit dem sich eine kleine Alarmanlage ohne große programmiertechnische Vorkenntnisse realisieren lässt。
+Er bietet die Möglichkeit 3 Sicherheitskreise zu konfigurieren und diese z. B. bei Nachtruhe oder De- und Aktivierung zu überwachen。 Des Weiteren ist eine direkte Verknüpfung der jeweiligen Instanz "states", auf andere "states" möglich。 Diese Verknüpfungen werden im Reiter Verknüpfungen angelegt。
 
 ----------------------------------------------------------------------------------------------------------------------
 
 ### Tab Haupteinstellungen
-较高级别的居民，Natetruhe的Zeiten，Sirenezeit的Stiller-Alarm和Passwort的害虫。
+Hier werden die Einstellungen wie die Zeiten der Nachtruhe, Sirenezeit, Stiller-Alarm und Passwort vorgenommen。
 
--Aktivierzeit->Zeitverzögerungbis zu Aktivierung wenn man einen delay Datenpunkt benutzt
--Sienenzeit bei Einbruch-> Bei Einbruch wird der Datenpunkt alarm.0.status.sirenfürdie Zeit auf true gesetzt
--Alarmverzögerung->Verzögerungszeitbis Einbruchausgelöstwird（währenddieser Zeit wird der Stille Alarmausgelöst）
--Warnungen / Sirene innen的Auslösezezeit-> Benachrichtigungskreises oder scharf innen的北Auslösungzekreises，wird der jeweilszugehörigeDatenpunktfürdie Zeit auf true gesetzt
+- Aktivierzeit -> Zeitverzögerung bis zu Aktivierung wenn man einen delay Datenpunkt benutzt
+- Sirenenzeit bei Einbruch -> Bei Einbruch wird der Datenpunkt alarm.0.status.siren für die Zeit auf true gesetzt
+- Alarmverzögerung -> Verzögerungszeit bis Einbruch ausgelöst wird (während dieser Zeit wird der Stille Alarm ausgelöst)
+- Auslösezeit bei Warnungen/Sirene innen -> Bei Auslösung des Benachrichtigungskreises oder scharf innen Kreises, wird der jeweils zugehörige Datenpunkt für die Zeit auf true gesetzt
 
 ----------------------------------------------------------------------------------------------------------------------
 
 ### Tab Benachrichtigungen
-BenachrichtigungenüberAndere适配器wie z.B.电报，电子邮件或其他。
+Benachrichtigungen über Andere Adapter wie z。 B. Telegramm，电子邮件或其他。
 [问题](#Probleme)
+
+Bei Benachrichtigungen an den Telegram Adapter, ist es möglich User- oder Chat IDs zu benutzen。
 
 ----------------------------------------------------------------------------------------------------------------------
 
-### TabÜberwachung
-werden die Kreise der Anlage konfiguriert。
-*戴姆·德恩州立大学拉森学院
+### Tab Überwachung
+Hier werden die Kreise der Anlage konfiguriert。
+*死 Namen der states lassen sich ändern*
 
-阿尔赫拉格（先生）和安拉格（沙夫）的优先权。实习生的故事实习生的故事，实习生和实习生的故事。
-* Es ist durchausmöglich，达斯·曼·埃因姆州，den Haken bei allen drei Kreisen macht
+Der Alarmkreis hat die Priorität „hoch" und hat bei aktivierter Anlage (scharf) Vorrang vor allen anderen Kreisen. Er dient zur eigentlichen Überwachung der Anlage. Dies entspricht den Vollschutz einer Alarmanlage. Der scharf intern Kreis wird überwacht, wenn die Anlage sich im Zustand scharf intern befindet, dies entspricht einem Außenhautschutz einer Alarmanlage. Der Meldekreis dient nur zur Meldung während der Zustände scharf, scharf intern und bei der Nachtruhe。
+*Es ist durchaus möglich, dass man für einem state, den Haken bei allen drei Kreisen macht。*
 
-报警人，报警人，报警人，报警人，报警人。 Dadurch wird nach Ablauf der eingestellten Zeit（Haupteinstellungen），警报作者。
+Sollte man einen Kontakt haben, der den Alarmkreis nicht sofort auslösen soll, kann man das Häkchen bei "stiller Alarm" aktivieren, dadurch wird nach Ablauf der eingestellten Zeit (Haupteinstellungen), der Alarm ausgelöst。
 
-Die Kreise werdenfolgendermaßenüberwacht：
+Sollte es erforderlich sein die Einzelnen States nicht auf *true*, sondern auf *false* zu triggern (z.B. Drahtbruchsichere Sensoren), so kann man das Häkchen bei "negieren" setzen。
 
-#### Alarmkreis：
-阿兰基拉格州议会议员（沙尔夫·沙尔滕）您可以在警报器中查看警报。
+Sollte man im Tab Haupteinstellungen die Option "verlassen" aktiviert haben, kann man unter dem entsprechenden Datenpunkt "verlassen" anwählen。 Dies bewirkt, dass bei verzögerte Aktivierung, der Countdown nicht ablaufen muss, sondern es reicht z. B. die Tür zu schließen。
 
-#### Scharf实习生Kreis：
-Alle hier konfigurierten州werden beim Zustand scharf实习生überwachtundLösen实习生anerem den internen报警澳大利亚。
+Die Kreise werden folgendermaßen überwacht：
+
+#### 警报器：
+Alarmanlage lässt sich nicht aktivieren (scharf schalten) wenn ein konfigurierter state aktivist。 Bei aktivierter Alarmanlage führt eine Veränderung sofort zur Auslösung der Anlage。
+
+#### Scharf 实习生 Kreis：
+Alle hier konfigurierten states werden beim Zusstand scharf intern überwacht und lösen unter anderem den internen Alarm aus。
 
 #### Meldekreis：
-维也纳州立大学和维尔京群岛都死了。
+Der überwacht die konfigurierten states auf Veränderungen und meldet 死了。
 
 ----------------------------------------------------------------------------------------------------------------------
 
 ### Tab Sprachausgabe
-Iine eewgewünschteSprachausgabe z.B. bei beiÄnderungdes Zustandesgewünscht，lässtsich das hier mit dengewünschtenSätzenkonfigurieren。
-*曼·穆斯·希奇·谢尔·塞恩（Mus sich sicher sein），达斯·奥斯特瓦特·达滕彭克（Das derausgewählteDatenpunkt），麻省理工学院（Einem）文字beschrieben werden kann！ Z.B. “ sayit.0.tts” *
+Ist eine gewünschte Sprachausgabe z。 B. bei Änderung des Zusstandes gewünscht, lässt sich das hier mit den gewünschten Sätzen konfigurieren。
+*Man muss sich sicher sein, das der ausgewählte Datenpunkt, mit einem Text beschrieben werden kann！ Z.B. “sayit.0.tts”*
 
-曼彻斯特·曼·希奇（Ausgabe von Namen mit Ansagen lassen），坎恩·曼彻斯（Kann Man diese）选择anwählen。
-
-----------------------------------------------------------------------------------------------------------------------
-
-### TabVerknüpfungen
-等级较高的适配器州际直辖市外部州zuverknüpfen。 Somit ist ein Umwegüberein Skript oderähnlichennicht erforderlich。
-Eslässtsich somit z.B.在Nachtruhe的Beginn der初创公司中，Veriegelung desTürschlosses成为了现实。
-![商标](../../../en/adapterref/iobroker.alarm/admin/img/short.png)
-
-####Eingabeverknüpfungen
-触发器->任意= es wird bei jederÄnderunggetriggert ne = es wird nur getriggert wenn der Wert sichgeändert
-
-Auslösewert-> Ist der Wert，Auf welchen getriggert werden soll
+Möchte man sich die Ausgabe von Namen mit Ansagen lassen, kann man diese Option anwählen。
 
 ----------------------------------------------------------------------------------------------------------------------
 
-Der Adapter liefert eine ganze Anzahl国家/地区：
+### Tab Verknüpfungen
+Hier ist es möglich Adapter interne states direkt mit externen states zu verknüpfen。 Somit ist ein Umweg über ein Skript oder ähnlichen nicht erforderlich。
+Es lässt sich somit z。 B. bei Beginn der Nachtruhe, eine Verriegelung des Türschlosses realisieren。
+![标识](../../../en/adapterref/iobroker.alarm/admin/img/short.png)
 
-####“ alarm.x.use .....”。
-紧急状态下的警报状态。
+#### Eingabeverknüpfungen
+Trigger--> any = es wird bei jeder Änderung getriggert ne = es wird nur getriggert, wenn der Wert sich geändert
 
--use.activate_nightrest-> Aktivierung der Nachtruhe
--use.activate_sharp_inside_circuit->战役实习生（实习生）
--use.disable-> Deaktivierung der Anlage（Alarmkreis）
--use.enable-> Aktivierung der Anlage（Alarmkreis）
--use.enable_with_delay->安提格（Alarmkreis）博物馆（Verzögerungszeit）
--use.list-> Deaktivierung / Aktivierung / Warnkreis / Aktivierung mitVerzögerungszeit
--use.quit_changes->状态设置* info.notification_circuit_changes，info.sharp_inside_siren，status.activation_failed *
--use.toggle_password-> Deaktivierung / Aktivierung der Anlage（Alarmkreis）mit Passwort
--use.toggle_with_delay-> Deaktivierung / Aktivierung der Anlage（Alarmkreis）mitVerzögerungszeit
--use.toggle_with_delay_and_password-> Dealtivierung / Aktivierung der Anlage（Alarmkreis）密码和密码
--use.panic->HändischeAuslösungder Alarmanlage（Einbruch）
-
-####“ alarm.x.status ....”
-尊贵的祖尔斯坦德安拉日能力等级。
-
--status.sleep->自动发送信号Nachtruhe
-
-####“ alarm.x.info ....”
-LiefertzusätzlicheInformationen wie z.B. welche“Türenoffen sind” oder einen日志状态。
-由Mitternacht Geleert提供的log_today状态。
+Auslösewert--> Ist der Wert, auf welchen getriggert werden soll
 
 ----------------------------------------------------------------------------------------------------------------------
 
-##问题
--温恩·曼恩（Wen Man eine）的电报，德国坎斯坦·曼努尔州州立大学（Instanzauswählen）和曼斯·穆斯·比斯·奥夫（tesgram）* telegram.0 * Alleslöschen。
+### Tab Andere Alarme
+Es stehen einen zwei frei konfigurierbare Überwachungskreise zu Verfügung, diese werden bei Benutzung unabhängig dem Zusand der Alarmanlage ständig überwacht！ Als Voreinstellung sind diese als Feuer- und Wasseralarm beschriftet。 In der ganzen Konfiguration sind diese als Kreise 1 und 2 beschriftet und an den Nummern zu erkennen。
 
-#### Wichtig，死于Benutzung，死于适配器。
+Sollte es erforderlich sein die Einzelnen States nicht auf *true*, sondern auf *false* zu triggern (z.B. Drahtbruchsichere Sensoren), so kann man das Häkchen bei "negieren" setzen。
+
+####Es ist darauf zu achten, dass keine States aus dem eigentlichen Hauptüberwachungskreisen benutzt werden！
+----------------------------------------------------------------------------------------------------------------------
+
+Der Adapter liefert eine ganze Anzahl an 状态：
+
+#### “alarm.x.use.....”。
+Das sind die eigentlichen states um die Alarmanlage zu bedienen。
+
+- use.activate_nightrest -> Aktivierung der Nachtruhe
+- use.activate_sharp_inside_circuit -> Aktivierung der Überwachung des Warnkreises（实习生 scharf）
+- use.disable -> Deaktivierung der Anlage (Alarmkreis)
+- use.enable -> Aktivierung der Anlage (Alarmkreis)
+- use.enable_with_delay -> Aktivierung der Anlage (Alarmkreis) mit Verzögerungszeit
+- use.list -> Deaktivierung/Aktivierung/Warnkreis/Aktivierung mit Verzögerungszeit
+- use.quit_changes -> Rücksetzen der states *info.notification_circuit_changes, info.sharp_inside_siren, status.activation_failed, other_alarms.one_changes, other_alarms.two_changes*
+- use.toggle_password -> Deaktivierung/Aktivierung der Anlage (Alarmkreis) mit Passwort
+- use.toggle_with_delay -> Deaktivierung/Aktivierung der Anlage (Alarmkreis) mit Verzögerungszeit
+- use.toggle_with_delay_and_password -> Deaktivierung/Aktivierung der Anlage (Alarmkreis) mit Passwort und Verzögerungszeit
+- use.panic -> Händische Auslösung der Alarmanlage(Einbruch), auch wenn diese deaktiviert ist
+
+#### "alarm.x.status...."
+Hier lässte sich der Zusand der Anlageablesen。
+
+- status.sleep -> Signalisiert den Zusand der automatischen Nachtruhe
+
+#### "alarm.x.info...."
+Liefert zusätzliche Informationen wie z.B. welche "Türen offen sind" oder einen Log 状态。
+Der log_today state wird um Mitternacht geleert。
+
+#### “alarm.x.other_alarms....”
+Beinhaltet die Informationen für die "anderen" Alarmkreise 1 + 2。
+
+----------------------------------------------------------------------------------------------------------------------
+
+## 问题
+- wenn man eine Telegram oder ähnliches über das + hinzufügt, kann man nur ein state der Instanz auswählen und man muss bis auf *telegram.0* alles löschen。
+
+#### Wichtig, die Benutzung dieses Adapters geschieht auf eigene Gefahr, für etwaige Fehlfunktionen wird keine Haftung übernommen！
 
 ## Changelog
 
+
+#### 2.2.0 (16.01.2022)
+* (misanorot) added telegram special parameters
+
+#### 2.1.1 (07.11.2021)
+* (misanorot) added countdown state for silent alarm
+
+#### 2.1.0 (11.10.2021)
+* (misanorot) extend list states and speech output, added leave option
+
+#### 2.0.2 (08.08.2021)
+* (misanorot) fixed password issues
+
+#### 2.0.1 (04.05.2021)
+* (misanorot) fixed ack issues
+
+#### 2.0.0 (22.03.2021)
+* (misanorot) added other alarms
 
 #### 1.9.0 (08.01.2021)
 * (misanorot) added html states and fixed little issues
@@ -201,22 +235,4 @@ LiefertzusätzlicheInformationen wie z.B. welche“Türenoffen sind” oder eine
 ## License
 MIT License
 
-Copyright (c) 2019-2020 misanorot <audi16v@gmx.de>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Copyright (c) 2019-2022 misanorot <audi16v@gmx.de>

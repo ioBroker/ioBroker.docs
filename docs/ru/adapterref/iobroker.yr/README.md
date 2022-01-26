@@ -3,94 +3,68 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.yr/README.md
 title: ioBroker.yr
-hash: s+SkqMZbnSFY2acITgHvIqIIe9qKW6oTr0EU8TLj2nE=
+hash: 6My5rWltcJj/nnOkI8cobniG8X6f2KSkMWtGwcdSRO4=
 ---
-![логотип](../../../en/adapterref/iobroker.yr/admin/yr.png)
+![Логотип](../../../en/adapterref/iobroker.yr/admin/yr.png)
 
 ![Количество установок](http://iobroker.live/badges/yr-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.yr.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.yr.svg)
-![тесты](https://travis-ci.org/ioBroker/ioBroker.yr.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.yr.png?downloads=true)
 
 # IoBroker.yr
-получает прогноз погоды на 48 часов из [yr.no](yr.no)
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.yr/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/yr/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-[yr.no] (yr.no) является совместной службой [Норвежский метеорологический институт] (met.no) и [Норвежская радиовещательная корпорация](nrk.no)
+** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
 
-http://om.yr.no/verdata/free-weather-data/
+## Год нет адаптера для ioBroker
+получает прогноз погоды на 10 дней из [год нет](yr.no)
 
-** Примечание ** - если _ «Отправить отсутствующие переводы на iobroker.net» _ активировано (по умолчанию), то отсутствующие переводы будут отправлены на сервер iobroker.net. Никакие ips или любая дополнительная информация не будут сохранены или проанализированы. Просто отсутствует перевод.
+[yr.no] (yr.no) - совместная служба [Норвежского метеорологического института] (met.no) и [Норвежской радиовещательной корпорации](nrk.no)
+
+https://api.met.no/weatherapi/locationforecast/2.0/documentation
+
+** Примечание ** - если _ "Отправить недостающие переводы на iobroker.net" _ активировано (по умолчанию) отсутствующие переводы будут отправлены на сервер iobroker.net. Никакие IP-адреса или какая-либо дополнительная информация не будет храниться или анализироваться. Просто отсутствует перевод.
 
 ## Иконки
-Иконки взяты отсюда [https://github.com/YR/weather-symbols](https://github.com/YR/weather-symbols) и принадлежит yr.no.
+Иконки взяты отсюда [https://api.met.no/weatherapi/weathericon/2.0/documentation](https://api.met.no/weatherapi/weathericon/2.0/documentation) и принадлежат yr.no.
 
-## 1.0.4 [2016-07-06]
-* (bluefox) исправление ссылки на readme
+## ДЕЛАТЬ
+* Добавить метеограмму (png, вероятно, перестанет работать с новым API)
+* Добавить ежедневный прогноз на основе почасового прогноза
+* Добавить таблицу html
 
-### 1.0.3 [2016-05-17]
-* (bluefox) изменить путь чтения
+<! - Заполнитель для следующей версии (в начале строки):
 
-### 1.0.2 [2016-05-16]
-* (bluefox) добавить перевод
-
-### 1.0.1 [2016-04-25]
-* (bluefox) добавить перевод
-
-### 1.0.0 [2016-03-15]
-* (bluefox) изменение парсинга городов
-
-### 0.1.9 [2015-10-28]
-* (bluefox) исправить ошибку с переводами
-
-### 0.1.8 [2015-10-27]
-* (bluefox) переводы
-* (bluefox) автоматическая загрузка отсутствующих переводов на iobroker.net
-
-### 0.1.7 [2015-07-10]
-* (bluefox) заставляет вас работать с виджетами метро
-
-### 0.1.6 [2015-06-12]
-* (bluefox) переводы
-
-### 0.1.5 [2015-03-26]
-* (bluefox) переводы
-
-### 0.1.4 [2015-03-24]
-* (bluefox) убрать единицу «%» для «направления ветра»
-
-### 0.1.3 [2015-03-22]
-* (bluefox) исправляет ошибку завтра и послезавтра
-
-### 0.1.2 [2015-03-08]
-* (bluefox) правильные ссылки на сайт yr.no
-
-### 0.1.1
-* (bluefox) добавить переводы для погодных условий на другие языки
-
-### 0.1.0
-* (bluefox) обновить год на новой модели объектов
-
-### 0.0.4
-* (hobbyquaker) предварять "прогноз". указать идентификаторы
-
-### 0.0.3
-* (hobbyquaker) настройки интерфейса с автозаполнением для местоположения
-* (hobbyquaker) переименован в yr_forecast для прогноза
-* (hobbyquaker) добавлен атрибут детей
-* (хобби-квакер) уменьшенная детализация журнала
-* (хобби-квакер) исправления
-
-### 0.0.2
-* (хобби-квакер) исправления
-
-### 0.0.1
-* (hobbyquaker) первый выпуск
-
-## Сделать
-* setState forecast_object
+### __РАБОТА В ПРОЦЕССЕ__ ->
+## Делать
+* setState прогноз_объект
 
 ## Changelog
+### 5.0.0 (2021-11-08)
+* (klein0r) Fixed translations
+* (klein0r) Update dates data type
+
+### 3.0.5 (2021-07-26)
+* (Apollon77) prevent calls and other errors to Yr when no location is defined
+
+### 3.0.4 (2021-07-16)
+* (Apollon77) prevent last js-controller 3.3 warnings
+
+### 3.0.3 (2021-07-12)
+* (Apollon77) prevent js-controller 3.3 warnings
+
+### 3.0.2 (2021-07-07)
+* (Apollon77) Fix crash issue from Sentry
+
+### 3.0.1 (2021-07-06)
+* (Apollon77) Optimizations and Fixes
+* (Apollon77) Add Sentry crash reporting
+
+### 3.0.0 [2021-06-06]
+* (withstu) Switch to new JSON API and change data Structure (breaking)
+* (withstu) Update project dependencies
+* (arteck) Type of state was corrected
+
 ### 2.0.3 [2018-10-10]
 * (bluefox) add translations
 
@@ -104,10 +78,69 @@ http://om.yr.no/verdata/free-weather-data/
 ### 1.0.5 [2016-10-10]
 * (bluefox) move weather widgets to this adapter
 
+### 1.0.3 [2016-05-17]
+* (bluefox) change readme path
+
+### 1.0.2 [2016-05-16]
+* (bluefox) add translations
+
+### 1.0.1 [2016-04-25]
+* (bluefox) add translations
+
+### 1.0.0 [2016-03-15]
+* (bluefox) change parsing of cities
+
+### 0.1.9 [2015-10-28]
+* (bluefox) fix error with translations
+
+### 0.1.8 [2015-10-27]
+* (bluefox) translations
+* (bluefox) automatically upload of missing translations to iobroker.net
+
+### 0.1.7 [2015-07-10]
+* (bluefox) make yr works with metro widgets
+
+### 0.1.6 [2015-06-12]
+* (bluefox) translations
+
+### 0.1.5 [2015-03-26]
+* (bluefox) translations
+
+### 0.1.4 [2015-03-24]
+* (bluefox) remove unit "%" for "wind direction"
+
+### 0.1.3 [2015-03-22]
+* (bluefox) fix error with tomorrow and day after tomorrow
+
+### 0.1.2 [2015-03-08]
+* (bluefox) correct links to yr.no web site
+
+### 0.1.1
+* (bluefox) add translates for the weather states in other languages
+
+### 0.1.0
+* (bluefox) update yr on the new objects model
+
+### 0.0.4
+* (hobbyquaker) prepend "forecast." to state IDs
+
+### 0.0.3
+* (hobbyquaker) settings ui with autocomplete for location
+* (hobbyquaker) renamed yr_forecast to forecast
+* (hobbyquaker) added children attribute
+* (hobbyquaker) decreased log verbosity
+* (hobbyquaker) fixes
+
+### 0.0.2
+* (hobbyquaker) fixes
+
+### 0.0.1
+* (hobbyquaker) first release
+
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2018 hobbyquaker <hq@ccu.io>
+Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

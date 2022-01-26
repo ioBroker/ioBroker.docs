@@ -2,10 +2,10 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.binance/README.md
-title: ioBroker.binance
-hash: g1ciorZTR3u5Yhaf5+j4iEvviAnfozU2ASrlfW4BtJo=
+title: !!!
+hash: BSYnXyUI001V3VbS9LwVPs800MPSIjbRqcpcK7c2COY=
 ---
-![商标](../../../en/adapterref/iobroker.binance/admin/binance.png)
+# !!!
 
 ![NPM版本](http://img.shields.io/npm/v/iobroker.binance.svg)
 ![资料下载](https://img.shields.io/npm/dm/iobroker.binance.svg)
@@ -15,17 +15,27 @@ hash: g1ciorZTR3u5Yhaf5+j4iEvviAnfozU2ASrlfW4BtJo=
 ![已知漏洞](https://snyk.io/test/github/Kartax/ioBroker.binance/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.binance.png?downloads=true)
 
+＃请注意，该插件/存储库已停产（开放供采用）
+# !!!
+![商标](../../../en/adapterref/iobroker.binance/admin/binance.png)
+
 ＃ioBroker.binance
 ＃＃ 介绍
-与加密货币交易平台币安通信的适配器
+与加密货币交易平台币安进行通信的适配器
 
 适配器在配置的更新间隔中拉动货币价格。
-如果您配置了API密钥和相应的机密，它也会提取帐户余额。
+如果您配置了API密钥和相应的机密，它也会拉动帐户余额。
 您可以在binance.com上创建一个API密钥-我建议将其限制为“只读”。
 
 ![screenshot-1]（screenshot-1.png）！[screenshot-2](../../../en/adapterref/iobroker.binance/screenshot-2.png)
 
 ## Changelog
+### 1.1.3
+- dependency update: lodash
+### 1.1.2
+- version label fix
+### 1.1.1
+- Possibility to disabled download of all prices. Polished options and translations.
 ### 1.1.0
 - added 24hr data for selected symbols
 ### 1.0.5

@@ -2,31 +2,25 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lgtv-rs/README.md
-title: ioBroker LG TV RS232 Adapter
-hash: Q0Lbf74YZj8BycBQkEPeWUo7hxoteQCdGvVyv8wIWiA=
+title: ioBroker LG TV RS232-Adapter
+hash: Fd3OcKpG4vM1G1G4W4qa2bvzSGds4hV42NrpI17GAQI=
 ---
 ![Logo](../../../en/adapterref/iobroker.lgtv-rs/admin/lg_admin.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/lgtv-rs-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.lgtv-rs.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.lgtv-rs.svg)
-![NPM](https://nodei.co/npm/iobroker.lgtv-rs.png?downloads=true)
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-# IoBroker LG TV RS232 Adapter
-[![Tests] (https://github.com/instalator/iobroker.lgtv-rs/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.lgtv-rs/actions/)
-
-Der ioBroker LG TV RS232-Adapter dient zur Steuerung Ihres LG TV über RS232 in Verbindung mit dem Etnernet Gateway.
+# IoBroker LG TV RS232-Adapter
+Der ioBroker LG TV RS232 Adapter dient zur Steuerung Ihres LG TV über RS232 in Verbindung mit dem Etnernet Gateway.
 Die Liste der Modelle und Befehle ist in der Datei `admin/commands.json` enthalten.
 
-## Hardware
-Mit dem Treiber können Sie über die [Adapter](http://blog.instalator.ru/archives/744) RS232 eine Verbindung zum LG TV herstellen.
+##Hardware
+Der Treiber ermöglicht die Verbindung mit dem LG TV über [Adapter](http://blog.instalator.ru/archives/744) RS232 zu Ethernet.
 
 Als RS232-Gateway zu Ethernet wird jede Arduino-kompatible Karte verwendet, auf die Sie [dieser Code](https://github.com/stepansnigirev/ArduinoSerialToEthernet) herunterladen müssen.
-Sie benötigen außerdem einen Ethernet Shield W5100 oder W5500 und einen RS232-TTL-Konverter.
+Sie benötigen außerdem ein Ethernet Shield W5100 oder W5500 und einen RS232-zu-TTL-Konverter.
 
 ## Unterstützung
-Unterstützte Modelle: LD750 wird ...
+Unterstützte Modelle: LD750 soll...
 
 ## Changelog
 

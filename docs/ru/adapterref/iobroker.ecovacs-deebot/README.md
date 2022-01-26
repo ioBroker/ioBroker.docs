@@ -3,76 +3,169 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecovacs-deebot/README.md
 title: Адаптер Ecovacs Deebot для ioBroker
-hash: T0ob73oJ4PwAa7s273V/xK0R8ip52IqyySOGm7/MLWo=
+hash: 8NZ1eiNmphw0lfJjopIRN/qfZWJbmF6ZV/JqtlXNVh0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.ecovacs-deebot.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
-![npm](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
-![Трэвис-Си](https://travis-ci.org/mrbungle64/ioBroker.ecovacs-deebot.svg?branch=master)
+![Стабильная версия](http://iobroker.live/badges/ecovacs-deebot-stable.svg)
+![Последняя версия](http://img.shields.io/npm/v/iobroker.ecovacs-deebot.svg)
+![Количество установок](http://iobroker.live/badges/ecovacs-deebot-installed.svg)
+![Количество загрузок в месяц](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
+![Количество загрузок](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
 
-# Ecovacs Адаптер Deebot для ioBroker
+# Адаптер Ecovacs Deebot для ioBroker
+[![рабочий процесс github] (https://github.com/mrbungle64/iobroker.ecovacs-deebot/actions/workflows/node.js.yml/badge.svg)](https://github.com/mrbungle64/iobroker.ecovacs-deebot)
+
 Этот адаптер использует библиотеку [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js).
+
+## Функции
+Некоторые примечательные особенности:
+
+* Получить информацию (например, аккумулятор, журнал очистки, расходные материалы, состояние очистки и зарядки)
+* Отправка чистых команд (например, авто, точечная область, пользовательская область) и различных других команд (например, воспроизведение звука, сброс расходных материалов)
+* Сохраните последнюю пользовательскую область запуска и перезапустите сохраненные области
+* Регулировка мощности вакуума (скорости уборки) и уровня воды
+* Получить информацию во время процесса очистки (например, текущее положение и площадь)
+* Получить информацию о картах вкл. точечные области и виртуальные границы
+* Удаление, сохранение и воссоздание отдельных виртуальных границ, а также полного набора виртуальных границ *)
+* Функция загрузки текущего изображения карты *)
+
+*) Экспериментальный
+
+Обратите внимание: некоторые функции доступны только для некоторых моделей.
 
 ## Модели
 ### Поддерживаемые модели
-* Deebot 901
-* Deebot OZMO 920
-* Deebot OZMO 930
-* Deebot OZMO 950
+* Дибот 900/901
+* Дибот ОЗМО 930
+* Дибот ОЗМО 920/950
 
-### Эти модели, как известно, работают
-* Deebot Slim 2
-* Deebot N79 серии
-* Deebot 601
-* Deebot 710/711 (см. «Известные проблемы»)
-* Deebot 900
-* Deebot U2
-* Deebot OZMO 610
-* Deebot OZMO 900
-* Deebot OZMO T8 серии
+Перечисленные модели - это те, которые я использую сам или которые технически идентичны этим.
 
-### Эти модели должны работать
-* Deebot M88
-* Deebot 600/605
-* Deebot OZMO T5
-* Deebot OZMO Slim 10
-* Deebot U2 Pro / Мощность
+### Эти модели должны работать корректно или хотя бы частично
+* Дибот Слим 2
+* Серия Deebot N79
+* Дибот М88
+* Дибот 500
+* Дибот 600/601/605
+* Дибот 710/711
+* Дибот ОЗМО 610
+* Дибот ОЗМО 900/905
+* Дибот ОЗМО тонкий 10/11
+* Дибот ОЗМО Т5
+* Серия Deebot U2
+* Дибот N3 МАКС
+* Дибот N7
+* Серия Deebot N8
+* Серия Deebot T8
+* Серия Deebot T9
+
+Перечисленные модели либо уже работают, либо технически аналогичны этим моделям.
+Тем не менее, функциональность может быть частично ограничена.
+
+Я стараюсь достичь широкого спектра функциональности, но решаю это в каждом конкретном случае в зависимости от сложности и различных других критериев.
+Претензий к полной функциональности конечно нет.
 
 ## Установка
-Рекомендуется использовать версию Node.js 10 или более новую.
+Рекомендуется использовать Node.js версии 12.x или 14.x. Минимальная требуемая версия — 12.x.
 
-Этот адаптер использует библиотеку холста, которая может потребовать дополнительных установок.
-Для полного набора функций установите следующие пакеты.
+Этот адаптер использует библиотеку [узел-холст](https://www.npmjs.com/package/canvas) для некоторых функций, связанных с картой, которые могут потребовать установки некоторых дополнительных пакетов.
 
-Для систем Linux на базе Debian необходимо выполнить следующие команды:
+Установка холста необязательна и необязательна для моделей без функции карты, но для полной функциональности установите следующие пакеты.
+
+Для систем Linux на основе Debian необходимо выполнить следующие команды:
 
 ```bash
 sudo apt-get update
 sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 ```
 
-Для получения инструкций для других систем посетите https://www.npmjs.com/package/canvas#compiling.
+Перед выполнением следующей команды может потребоваться перезагрузка.
+
+```bash
+sudo npm install canvas --unsafe-perm=true
+```
+
+Инструкции для других систем см. на странице https://www.npmjs.com/package/canvas#compiling.
 
 ## Использование
-* Информацию о том, как использовать этот адаптер, можно найти [здесь] (https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
+* Информацию о том, как использовать этот адаптер, можно найти [здесь](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
 
 ### Состояния
-* Информацию о состояниях можно найти [здесь] (https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29) (на английском языке) и [здесь] (https:// github .com / mrbungle64 / ioBroker.ecovacs-deebot / wiki / Datenpunkte-% 28DE% 29) (немецкий)
+* Информацию о штатах можно найти [здесь](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29) (английский) и [здесь](https://github .com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Datenpunkte-%28DE%29) (немецкий)
 
-## Известные вопросы
-* Для Deebot Ozmo 930 рекомендуется [запланировать перезапуск] (https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) один раз в день, потому что есть некоторые сообщает, что соединение потеряно через прибл. 24 часа
-* Некоторые функции очистки могут не работать с 710/711. Пожалуйста, используйте пока версию 0.5.8.
-* Функция "edge" не работает с Deebot U2 (вместо этого запускает автоматическую очистку)
+## ВОПРОСЫ-ОТВЕТЫ
+* Часто задаваемые вопросы можно найти [здесь](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
 
-## ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
-* Часто задаваемые вопросы можно найти [здесь] (https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
+## Известные проблемы
+* Для некоторых моделей (например, Deebot OZMO 930) рекомендуется
 
-## Заявление об ограничении ответственности
+на [запланировать перезапуск](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) один раз в день, так как есть сообщения о том, что соединение теряется прибл. 24 часа
+
+* Функция «край» не работает с Deebot U2 (вместо этого запускается автоматическая очистка)
+* Некоторые состояния журнала очистки в серии T9 пусты ("last20Logs", "lastCleaningDate" и "lastCleaningMapImageURL").
+
+## Отказ от ответственности
 Я никоим образом не связан с ECOVACS.
 
 ## Changelog
+
+### 1.3.2 (alpha)
+
+* Recent updates
+
+### 1.3.1
+
+* Fix the cleaning functions for the Deebot 710 series
+
+### 1.3.0
+
+* Using library version 0.7.0 (beta)
+* The minimum required version of Node.js is now 12.x
+* Some improvements for newer models (e.g. T9 series)
+* Some other improvements and fixes
+
+### 1.2.4
+
+* Using library version 0.6.8
+* Some optimizations
+* Preparations for changing the minimum required Node.js version to 12.x
+
+### 1.2.3
+
+* Using library version 0.6.6
+* Lots of code refactoring, optimizations and some fixes
+
+### 1.2.2
+
+* Added function to load current map image (non 950 type models, e.g. OZMO 930, Deebot 901)
+
+### 1.2.1
+
+* Some enhancements and fixes
+* (benep) Added state to play sound by id
+
+### 1.2.0
+* Using library version 0.6.1
+* Added functions for deleting, saving and recreating saved virtual boundaries (950 type models, e.g. OZMO 920/950, T8 series)
+* Added functions for saving and recreating sets of virtual boundaries (950 type models, e.g. OZMO 920/950, T8 series)
+* Added options to control clean speed and water level separately for each spot area
+* Added function to save current spot area values
+* Added function to load current map image (950 type models, e.g. OZMO 920/950, T8 series)
+* Added some cleaning log values and some states for current cleaning stats
+* Removed "Use alternative API call for lastCleaningMapImageURL and lastCleaningTimestamp" option
+* Moved some states from "info" channel to sub channels "info.library" and "info.network"
+* Quite a lot of improvements for processing map data, spot areas and virtual boundaries
+* Some optimisations for js-controller 3.3
+* Improved support for N8 series
+* Initial support for T9 series
+* Some improvements and fixes
+
+### 1.1.1
+* Using library version 0.6.0
+  * Updated login process
+  * Support for Chinese server login
+* Initial support for some models (e.g. N3, N7 and N8 series)
 
 ### 1.1.0
 * Stable release
@@ -102,7 +195,7 @@ sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev l
 * Some improvements for js-controller 3.2.x
 
 ### 1.0.8
-* Using library version 0.5.2 (0.5.2-beta.1)
+* Using library version 0.5.2
 * Added available virtualBoundaries channel for Deebot 900/901 and Ozmo 930 (read only)
 * Added "volume" and buttons for resetting consumable values for 950 type models (920/950/T8)
 * Improved synchronization of spot area buttons
@@ -112,7 +205,7 @@ sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev l
 * Bump some dependencies
 
 ### 1.0.7
-* Using library version 0.5.1 (0.5.1-beta.3)
+* Using library version 0.5.1
 * Initial support for Deebot U2 series
 * Improved support for Ozmo T8 models
 * (boriswerner) Fixed cleaning log for 950 type models (920/950/T8)
@@ -121,7 +214,7 @@ sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev l
 * Several enhancements and fixes
 
 ### 1.0.6
-* Using library version 0.5.0-beta.0
+* Using library version 0.5.0
 * Fix for running multiple devices
 * Support for additional Ozmo T8 models
 * Add option to synchronize spotArea buttons
@@ -162,7 +255,7 @@ sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev l
 
 MIT License
 
-Copyright (c) 2020 Sascha Hölzel <mrb1232@posteo.de>
+Copyright (c) 2021 Sascha Hölzel <mrb1232@posteo.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,15 +1,19 @@
 ![Logo](admin/ham.png)
 # ioBroker Homebridge accessories manager
-![Number of Installations](http://iobroker.live/badges/ham-installed.svg) ![Number of Installations](http://iobroker.live/badges/ham-stable.svg) 
-[![Greenkeeper badge](https://badges.greenkeeper.io/ioBroker/ioBroker.ham.svg)](https://greenkeeper.io/)
 
-=================
+![Number of Installations](http://iobroker.live/badges/ham-installed.svg)
+![Number of Installations](http://iobroker.live/badges/ham-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.ham.svg)](https://www.npmjs.com/package/iobroker.ham)
+
+![Test and Release](https://github.com/ioBroker/iobroker.ham/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/ham/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.ham.svg)](https://www.npmjs.com/package/iobroker.ham)
 
 Use Homebridge plugins in ioBroker or run a global installed Homebridge as ioBroker adapter.
 All States from Homebridge will be available in ioBroker too and can also be controlled there.
 
 ## Description
-This adapter provides two different modes:
+This adapter provides three different modes:
 
 ### Default (Wrapper) Mode
 In the default mode the adapter allows you to use homebridge Plugin Modules directly.
@@ -17,21 +21,34 @@ You can explore all available plugins at the NPM website by [searching for the k
 
 You simply add the list of modules to the Adapter configuration and provide the configuration
 in the JSON-editor (see Plugin descriptions).
-After this all Homebridge objects will be created in ioBroker too and all writable objects can
+After this, all Homebridge objects will be created in ioBroker too and all writable objects can
 be changed too.
+
+**IMPORTANT: This mode allows to use the device integrations of the provided homebridge plugins. No "bridge" is provided that can be used by the Home App!**
 
 A link of successfully tried plugins with examples can be found here: https://forum.iobroker.net/viewtopic.php?f=20&t=15021
 
+### Local-Homebridge-Mode
+If you want to have a published bridge to be used by the Home App and want to also interact with it from ioBroker and get the data, but do not already have homebridge installed then use this mode.
+
+The Local mode installs the current compatible version of homebridge and runs it as ioBroker user. You provide the complete homebridge configuration using ioBroker. 
+The installation of the homebridge modules is also done via ioBroker.
+
+**IMPORTANT: When using child bridges (new homebridge feature since 1.3.x) the adapter CAN NOT access the data provided by these child bridges! Only the main bridge is accessable!**
+
 ### Global-Homebridge-Mode
-If you already use Homebridge (Apple OpenSource SmartHome) to control your devices
+If you already use Homebridge (Apple OpenSource SmartHome) as a global installation on the host where also ioBroker runs on,
 then you can use this existing Homebridge installation and start this Homebridge
 installation as ioBroker process. In this case the Homebridge server is started by ioBroker.
-Additionally all states from Homebridge are available as states in ioBroker and allows to
-control from ioBroker.
+Additionally all states from Homebridge are available as states in ioBroker and allow to be controlled from ioBroker.
 
-For this to work you need to provide the location of the systems global node-modules folder. For this call **npm root -g**. Additionally you need to privide the path of the homebridge configuration directory (usually .homebridge in the users folder).
+For this to work you need to provide the location of the systems global node-modules folder. For this call **npm root -g**. Additionally you need to provide the path of the homebridge configuration directory (usually .homebridge in the "users" folder).
 
-## Following adapters were tested in Default mode
+**IMPORTANT: ioBroker runs as user "iobroker", but homebridge normally as root or homebridge user (depending on how you installed it). You need to make sure that the homebride "persistance" folder can be accessed by the ioBroker user, else you will see errors that the file can not be saved (which can crash the adapter!)**
+
+**IMPORTANT: When using child bridges (new homebridge feature since 1.3.x) the adapter CAN NOT access the data provided by these child bridges! Only the main bridge is accessable!**
+
+## Following plugins were tested in Default mode
 
 * homebridge-chamberlain v1.0.1 - plugin for Chamberlain garage door openers with MyQ
 * homebridge-doorbird v0.0.4 - Plugin for Doorbird
@@ -44,13 +61,21 @@ For this to work you need to provide the location of the systems global node-mod
 * homebridge-platform-wemo v1.0.1 - Belkin WeMo Platform plugin
 * homebridge-seasons v1.0.1  - A plugin to display the current season of the year.
 * homebridge-vera v0.8.2 - VeraLink is an application for Z-Wave accessories from Vera (Node.js 8.11.3)
-
+... and many more
 
 ## TODO
 * Tests
 * More documentation?!
 
 ## Changelog
+
+### 4.0.2 (2021-05-08)
+* (Apollon77) prevent warnings in js-controller 3.3
+
+### 4.0.1 (2021-03-24)
+* (Apollon77) update homebridge and wrapper to 1.3.4 (latest as of today). IMPORTANT: Requires also homebridge 1.3.x installed when using global mode and local mode will update to 1.3.x too! Check your plugins for updates!
+* (UncleSamSwiss) Add an experimental version of new plugin selection and configuration tab - TRY IT OUT!
+* (Apollon77) IMPORTANT: Configurations in local/global mode with child bridges will NOT work because ioBroker can not access the data on the child bridge processes!
 
 ### 3.0.2 (2020-11-29)
 * (Apollon77) update homebridge in wrapper to 1.1.6 (latest as of today)
@@ -124,7 +149,7 @@ For this to work you need to provide the location of the systems global node-mod
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2018-2021 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -2,9 +2,10 @@
 BADGE-Number of Installations: http://iobroker.live/badges/backitup-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.backitup.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.backitup.svg
-BADGE-Dependency Status: https://img.shields.io/david/simatec/iobroker.backitup.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/simatec/ioBroker.backitup/badge.svg
 BADGE-Travis-CI: http://img.shields.io/travis/simatec/ioBroker.backitup/master.svg
+BADGE-License: https://img.shields.io/github/license/simatec/ioBroker.backitup?style=flat
+BADGE-Donate: https://img.shields.io/badge/donate-paypal-blue?style=flat
 BADGE-NPM: https://nodei.co/npm/iobroker.backitup.png?downloads=true
 ---
 ![Logo](img/backitup.png)
@@ -14,16 +15,26 @@ BADGE-NPM: https://nodei.co/npm/iobroker.backitup.png?downloads=true
 ![Number of Installations](http://iobroker.live/badges/backitup-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.backitup.svg)](https://www.npmjs.com/package/iobroker.backitup)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.backitup.svg)](https://www.npmjs.com/package/iobroker.backitup)
-[![Dependency Status](https://img.shields.io/david/simatec/iobroker.backitup.svg)](https://david-dm.org/simatec/iobroker.backitup)
 [![Known Vulnerabilities](https://snyk.io/test/github/simatec/ioBroker.backitup/badge.svg)](https://snyk.io/test/github/simatec/ioBroker.backitup)
+![Test and Release](https://github.com/simatec/ioBroker.backitup/workflows/Test%20and%20Release/badge.svg)
+
 [![Travis-CI](http://img.shields.io/travis/simatec/ioBroker.backitup/master.svg)](https://travis-ci.org/simatec/ioBroker.backitup)
+[![License](https://img.shields.io/github/license/simatec/ioBroker.backitup?style=flat)](https://github.com/simatec/ioBroker.backitup/blob/master/LICENSE)
+[![Donate](https://img.shields.io/badge/donate-paypal-blue?style=flat)](https://paypal.me/mk1676)
+
 
 [![NPM](https://nodei.co/npm/iobroker.backitup.png?downloads=true)](https://nodei.co/npm/iobroker.backitup/)
 
+**Wenn Ihnen Backitup gefällt, denken Sie bitte über eine Spende nach:**
+  
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+
+**************************************************************************************************************
 
 # Inhalt
 * [Grundlegendes](#grundlegendes)
 * [Abhängigkeiten](#abhängkeiten)
+* [Benutzung und Bedienung](#Benutzung-und-Bedienung)
 * [Backuptypen](#Backuptypen)
 	* [ioBroker Backup](#ioBroker-Backup)
 	* [CCU Backup (Homematic)](#CCU-Backup-(Homematic))
@@ -35,6 +46,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.backitup.png?downloads=true
     * [Jarvis-Backup](#Jarvis-Backup)
     * [Zigbee-Backup](#Zigbee-Backup)
     * [Grafana-Backup](#Grafana-Backup)
+    * [Yahka-Backup](#Yahka-Backup)
 * [Speicher-Optionen](#Speicher-Optionen)
     * [CIFS](#CIFS)
     * [NFS](#NFS)
@@ -43,6 +55,8 @@ BADGE-NPM: https://nodei.co/npm/iobroker.backitup.png?downloads=true
     * [Dropbox](#Dropbox)
     * [Google Drive](#Google-Drive)
     * [WebDAV](#WebDAV)
+* [Multihost Unterstützung](#Multihost-Unterstützung)
+* [Docker Unterstützung](#Docker-Unterstützung)
 * [Verwendung](#Verwendung)
 * [Benachichtigungen](#Benachichtigungen)
 * [Restore](#Restore)
@@ -56,7 +70,7 @@ Backitup ist eine Backuplösung, mit der das zyklische Sichern einer IoBroker-In
 
 Der Adapter ist für Multiplattformen geeignet und kann  neben Linux-Installationen auch auf Windows und Mac Installationen verwendet werden.
 
-[zurück](#Inhalt)
+### [zurück](#Inhalt)
 ---
 
 # Abhängigkeiten
@@ -67,7 +81,7 @@ Der Adapter ist für Multiplattformen geeignet und kann  neben Linux-Installatio
     - `sudo apt-get install nfs-common`
 
 * Für die verwendung des MySql-Backups muss mysqldump auf dem System installiert sein
-    - `sudo apt-get install mysql-client`
+    - `sudo apt-get install mysql-client` oder unter Debian `sudo apt-get install default-mysql-client`
 
 * Für die verwendung des PostgreSQL-Backups muss mysqldump auf dem System installiert sein
     - [Installationsanleitung PostgreSQL](https://www.postgresql.org/download/linux/debian/)
@@ -75,7 +89,20 @@ Der Adapter ist für Multiplattformen geeignet und kann  neben Linux-Installatio
 * Für die Verwendung des InfluxDB Backups muss influxd installiert sein
     - [Installationsanleitung InfluxDB](https://docs.influxdata.com/influxdb/v1.8/introduction/install/)
 
-[zurück](#Inhalt)
+### [zurück](#Inhalt)
+---
+
+# Benutzung und Bedienung
+Backitup kann in den Adapter-Instanzen konfiguriert werden. Dort stehen alle folgenden Einstellungsmöglichkeiten zur Verfügung.<br><br>
+Für die tägliche Arbeit und Bedienung von Backitup steht im Admin-Tab ein Reiter zur Verfügung.<br>
+Ist dieser Reiter im Tab-Menü der Admin-Oberfläche aktiv, kann Backitup direkt über den Reiter in der linken Tab-Leiste des iobrokers bedient werden.<br><br>
+Dort stehen Informationen zu den erstellten Backups zur Verfügung, es können Backups erstellt werden und es besteht die Möglichkeit einen Restore des Backups auszuführen.
+
+![adminTab](img/adminTab.png)
+![adminTabRestore](img/adminTabRestore.png)
+![adminTabInfo](img/adminTabInfo.png)
+
+### [zurück](#Inhalt)
 ---
 
 # Backuptypen
@@ -86,10 +113,13 @@ Dieses Backup entspricht dem in IoBroker enthaltenen Backup welches man in der K
 
 ## CCU Backup (Homematic)
 Dieses Backup bietet die Möglichkeit 3 verschiedene Varianten einer Homematic Installations (CCU-Original / pivCCU / Raspberrymatic) zu sichern. Auch die Ausführung dieses Backups kann durch die festgelegten Einstellungen in der Adapterkonfiguration oder dem Widget OneClick-Backup durchgeführt werden.
+<br><br>
+Wer nicht nur eine CCU sichern will, kann die Option "Sicherung mehrerer Systeme" aktivieren und im Anschluss seine Homematic Zentralen in der Tabelle definieren.
 
 ## Mysql-Backup
 Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backup ioBroker erstellt und nach Ablauf der angegebenen Vorhaltezeit auch gelöscht. FTP oder CIFS sind für dieses Backup ebenfalls gültig sofern bei den anderen IoBroker-Backup-Typen eingestellt.<br><br>
-Wichig hierbei ist, dass auch wenn der Mysql-Server auf einem entferten System läuft, die mysqldump auf dem ioBroker System laufen muss.<br>Für Linuxsysteme wäre der Installationsbefehl wie folgt: `sudo apt-get install mysql-client`
+Wichig hierbei ist, dass auch wenn der Mysql-Server auf einem entferten System läuft, die mysqldump auf dem ioBroker System laufen muss.<br>Für Linuxsysteme wäre der Installationsbefehl wie folgt: `sudo apt-get install mysql-client` oder unter Debian `sudo apt-get install default-mysql-client`.<br><br>
+Wer nicht nur eine Datenbank sichern will, kann die Option "Sicherung mehrerer Systeme" aktivieren und im Anschluss seine Datenbanken in der Tabelle definieren.
 
 ## Redis-Backup
 Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backup ioBroker erstellt und nach Ablauf der angegebenen Vorhaltezeit auch gelöscht. FTP oder CIFS sind für dieses Backup ebenfalls gültig sofern bei den anderen IoBroker-Backup-Typen eingestellt.<br>
@@ -118,16 +148,19 @@ bind-address = "0.0.0.0:8088"
 
 **Nach dem Änderungen in der Konfiguration muss der InfluxDB-Dienst neugestartet werden.**
 
-Weitere Informationen zur Datensicherung der InfluxDB sind [hier](https://docs.influxdata.com/influxdb/v1.8/administration/backup_and_restore/#online-backup-and-restore-for-influxdb-oss) zu finden.
+Weitere Informationen zur Datensicherung der InfluxDB sind [hier](https://docs.influxdata.com/influxdb/v1.8/administration/backup_and_restore/#online-backup-and-restore-for-influxdb-oss) zu finden.<br><br>
+Wer nicht nur eine Datenbank sichern will, kann die Option "Sicherung mehrerer Systeme" aktivieren und im Anschluss seine Datenbanken in der Tabelle definieren.
 
 ## PostgreSQL-Backup
 Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backup ioBroker erstellt und nach Ablauf der angegebenen Vorhaltezeit auch gelöscht. FTP oder CIFS sind für dieses Backup ebenfalls gültig sofern bei den anderen IoBroker-Backup-Typen eingestellt.<br><br>
-Wichig hierbei ist, dass auch wenn der PostgreSQL-Server auf einem entferten System läuft, die PostgreSQL auf dem ioBroker System laufen muss.<br>Für Linuxsysteme gibt es [hier](https://www.postgresql.org/download/linux/debian/) eine Installationsanleitung
+Wichig hierbei ist, dass auch wenn der PostgreSQL-Server auf einem entferten System läuft, die PostgreSQL auf dem ioBroker System laufen muss.<br>Für Linuxsysteme gibt es [hier](https://www.postgresql.org/download/linux/debian/) eine Installationsanleitung.<br><br>
+Wer nicht nur eine Datenbank sichern will, kann die Option "Sicherung mehrerer Systeme" aktivieren und im Anschluss seine Datenbanken in der Tabelle definieren.
 
 ## Javascript-Backup
 Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backup ioBroker erstellt und nach Ablauf der angegebenen Vorhaltezeit auch gelöscht. FTP oder CIFS sind für dieses Backup ebenfalls gültig sofern bei den anderen IoBroker-Backup-Typen eingestellt.<br><br>
-Um das Javascript Backup erstellen zu können, muss im Vorfeld in der Javascript-Adapter Konfiguration die Menüpunkte "Spiegeln von Skripten in den Dateipfad" und "Instanz, die Spiegelung macht" festgelegt werden.<br>
-Backitup kann dann im Konfiguartionsmenü die Einstellungen übernehmen
+Ab Backitup-Version 2.2.0 werden Skripte direkt aus den Objekten gesichert. Javascript-Backups aus älteren Backitup-Version sind für einen Restore nicht kompatibel!!<br><br>
+Um mit Backitup-Versionen < 2.2.0 Javascript Sicherungen durchführen zu können, muss im Vorfeld in der Javascript-Adapter Konfiguration die Menüpunkte "Spiegeln von Skripten in den Dateipfad" und "Instanz, die Spiegelung macht" festgelegt werden.<br>
+Backitup kann dann im Konfiguartionsmenü die Einstellungen übernehmen.
 
 ## Jarvis-Backup
 Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backup ioBroker erstellt und nach Ablauf der angegebenen Vorhaltezeit auch gelöscht. FTP oder CIFS sind für dieses Backup ebenfalls gültig sofern bei den anderen IoBroker-Backup-Typen eingestellt.<br><br>
@@ -142,7 +175,11 @@ Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backu
 **Des Weiteren muss in der Grafana-Weboberfläche ein Api-Key erzeugt werden, um Zugriff auf die Dashboards zu bekommen.**<br>
 Der Api-Key kann unter ***"Configuration → API Keys"*** erstellt werden.
 
-[zurück](#Inhalt)
+## Yahka-Backup
+Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backup ioBroker erstellt und nach Ablauf der angegebenen Vorhaltezeit auch gelöscht. FTP oder CIFS sind für dieses Backup ebenfalls gültig sofern bei den anderen IoBroker-Backup-Typen eingestellt.<br><br>
+Es werden alle Systemeinstellungen und Geräteeinstellungen von Homkit gesichert.
+
+### [zurück](#Inhalt)
 ---
 
 # Speicher-Optionen
@@ -172,11 +209,13 @@ Die Angabe der IP Adresse muss für die Copy-Funktion leer bleiben.
   
 ## Dropbox
 Um die Sicherung in der Dropbox zu nutzen, muss ein Access Token und eine APP unter https://www.dropbox.com/developers/apps erstellt werden<br><br>
-* Schritt 1: Den Button "Create Backup" nutzen
-* Schritt 2: "Dropbox API" auswählen
+* Schritt 1: Den Button "Create App" nutzen
+* Schritt 2: "Scoped access" auswählen
 * Schritt 3: "App folder" auswählen
-* Schritt 4: "Name your app" vergeben
-* Schritt 5: "Generated access token" Button drücken (Der Token wird in den Einstellungen von Backitup eingetragen)<br><br>
+* Schritt 4: "Name your app" vergeben und "Create App" Button wählen
+* Schritt 5: Im Tab-Reiter "Permissions" alle 4 Häckchen im Bereich "Files and folders" setzen
+* Schritt 6: Im Tab-Reiter "Settings" die "Access token expiration" auf "No expiration" stellen
+* Schritt 7: "Generated access token" Button drücken (Dieser erzeugte Token wird in den Einstellungen von Backitup eingetragen)<br><br>
 In deiner Dropbox gibt es nun einen neuen Ordner mit dem Namen "Apps"
   
 ## Google Drive
@@ -188,11 +227,43 @@ Keine Tokens oder Anwenderdaten werden in der Cloud gespeichert.
 Mit WebDAV bietet Backitup die Möglichkeit mehrere Cloudsysteme anzusprechen.<br>Die bekannteste ist hier NextCloud.
 Um eine WebDAV-Verbindung herzustellen, weren der Username und das Passwort des Cloud Accounts benötigt.<br>
 Die Verbindung zur Cloud erfolgt über eine verschlüsselte Verbindung.<br><br>
-Um eine Verbindung aufbauen zu können, muss der Hostname der Cloud alle Sicherheitszertifikate erfüllen.
-Eine Verbindung mit lokaler IP-Adresse ist nicht möglich, da diese keine Lets Encrypt Zertifikate enthält.<br><br>
-> Beispiel URL: "https://example.com/remote.php/dav/files/username/"
+Um eine Verbindung aufbauen zu können, muss der Hostname der Cloud alle Sicherheitszertifikate erfüllen.<br><br>
+> Beispiel URL: "https://example.com/remote.php/dav/files/username/"<br><br>
+Eine Verbindung mit lokaler IP-Adresse ist nur möglich, wenn die Option "Nur signierte Zertifikate zulassen" deaktiviert ist.
 
-[zurück](#Inhalt)
+### [zurück](#Inhalt)
+---
+
+# Multihost Unterstützung
+Ab Backitup Version 2.2.0 wird Multihost für die Sicherung entfernter Systeme (z.B. Zigbee oder entfernte Datenbanken) unterstützt. Multihost für Backitup kann mit mehreren Instanzen von Backitup auf verschiedenen Hosts arbeiten.<br>
+Ein Instanz von Backitup muss zur Unterstützung als Master konfiguriert. Alle weiteren Instanzen, die sich auf entfernten Hosts befinden, werden als Slave konfiguriert.<br><br>
+Das Management der automatischen Backups übernimmt der Master. Alle Slave Instanzen können im Master über das Menü ausgewählt werden.<br>
+Für die Slave Instanzen können folgende Backup-Optionen aktiviert werden:<br>
+* Redis
+* Zigbee
+* Jarvis
+* History
+* InfluxDB
+* MySql
+* PostgreSql
+* Grafana
+* Yahka
+
+Da in einer Slave Instanz die automatischen Backups durch den Master geregelt werden, sind iobroker-Backups, Javascript-Backups und CCU-Backups nicht auswählbar.<br><br>
+Die Speicherorte für die einzelnen Backups können auf jedem Slave frei konfiguriert werden. So kann jeder sein Dateiablagesystem unabhängig vom Master gestallten.<br><br>
+
+Bei Systemen mit begrenzten RAM kann der Backitup Master die Slave Instanzen für den Backupprozess automatisch starten und im Anschluss wieder stoppen.<br>
+Diese Option ist im Menü konfigurierbar. 
+
+### [zurück](#Inhalt)
+---
+
+# Docker Unterstützung
+Ab Version 2.2.0 wird das Backup und der Restore im offizielen Docker-Container unterstützt.<br><br>
+Da im Docker keine Datenbanksysteme installiert werden sollten, werden Backups sämtlicher Datenbanken nicht unterstützt und sind bei einem erkannten Docker-Container nicht auswählbar.<br>
+Die Unterstützung für Backitup wird im offizielen iobroker Docker Container ab Version v5.2.0-beta4 unterstützt.
+
+### [zurück](#Inhalt)
 ---
 
 # Verwendung
@@ -249,7 +320,7 @@ Syntax: {BackitupInstanz.history.html}
 
 Syntax: {wert: <BackitupInstanz>.oneClick.<Auslösetrigger>; wert === "true" || wert === true ? "Text während der Backuperstellung" : "Standard-Text"}
 
-[zurück](#Inhalt)
+### [zurück](#Inhalt)
 ---
 
 # Benachichtigungen
@@ -261,7 +332,7 @@ Syntax: {wert: <BackitupInstanz>.oneClick.<Auslösetrigger>; wert === "true" || 
    * E-Mail 
    * Whatsapp
 
-[zurück](#Inhalt)
+### [zurück](#Inhalt)
 ---
 
 # Restore
@@ -297,13 +368,13 @@ Eine detailierte Anleitung zum Restore mit Backitup und auch zum manuellen Resto
     - Den Befehl:“reboot“ auf der Raspberrymatic ausführen um den PI neu zu starten
     - Alternativ kann das Backup natürlich auch wie gewohnt über das Webinterface wieder hergestellt werden.
 
-[zurück](#Inhalt)
+### [zurück](#Inhalt)
 ---
 
 # Fehlersuche
     Um Fehler zu loggen, muss Backitup in unter dem IoBroker Reiter Instanzen auf Log-Stufe "debug" gestellt werden.
 
-[zurück](#Inhalt)
+### [zurück](#Inhalt)
 --- 
 
 # Aufgetretene Fehler / Lösungen:
@@ -329,7 +400,7 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
     iobroker fix
     sudo reboot
     ```
-8.  Solltet Ihr eine Fehlermeldung beim erstellen der Redis Datenbank bekommen, prüft bitte, ob euer User iobroker die Rechte hat und ob er in der User-Gruppe Redis vorhanden ist.
+7.  Solltet Ihr eine Fehlermeldung beim erstellen der Redis Datenbank bekommen, prüft bitte, ob euer User iobroker die Rechte hat und ob er in der User-Gruppe Redis vorhanden ist.
     Wenn dies nicht der Fall ist, könnt ihr das mit folgenden Befehl in der Konsole beheben.
     
     ```
@@ -338,10 +409,163 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
     ```
     Wenn ihr nicht mit dem Installerscript eure Iobroker Installation aufgesetzt habt und euer User einen anderen Namen hat, bitte in dem Befehl "iobroker" durch euren User ersetzen.
 
-[zurück](#Inhalt)
+8.  Wenn eine Fritzbox als NAS mit einer Firmware >= 7.21 verwendet wird, sollten in Backitup die SMB-Einstellungen auf "3.1.1" eingestellt und die Option "noserverino" aktiviert werden.
+
+### [zurück](#Inhalt)
 ---
 
 ## Changelog
+<!-- ### __WORK IN PROGRESS__ -->
+### 2.2.3 (2022-01-10)
+* (simatec) Bugfix Error Message
+* (simatec) dependencies updated
+
+### 2.2.2 (06.11.2021)
+* (simatec) Fix CCU option to use self-signed certificates
+* (simatec) Fix Config Menu
+* (simatec) dependabot added
+* (simatec) small Bugfixes
+
+### 2.2.1 (08.10.2021)
+* (simatec) CCU option to use self-signed certificates
+* (simatec) small fix for Javascript Message
+
+### 2.2.0 (06.10.2021)
+* (simatec) multihost function for master/slave systems added
+* (simatec) Multi CCU Backup added
+* (simatec) Multi InfluxDB Backup added
+* (simatec) Multi MySql Backup added
+* (simatec) Multi PGSql Backup added
+* (simatec) Yahka backup added
+* (simatec) Yahka Restore added
+* (simatec) new Restore Interface added
+* (simatec) new Tab-Menu added
+* (simatec) Docker Support added
+* (simatec) delete option for temp-directory added
+* (simatec) breaking changes!! Javascript Backup from Objects added
+* (simatec) breaking changes!! Javascript Restore from Objects added
+* (simatec) WebDav option to use self-signed certificates
+
+### 2.1.17 (15.08.2021)
+* (simatec) dependencies updated
+* (simatec) Preparation for dark design by Admin 5
+
+### 2.1.16 (12.08.2021)
+* (simatec) dependencies updated
+* (simatec) https support for ccu backup
+* (simatec) sentry Bugfixes
+
+### 2.1.15 (05.08.2021)
+* (simatec) Bugfix Google Drive
+* (simatec) memory optimization
+* (simatec) fix Zigbee Restore
+* (simatec) Grafana Protocol selection added
+* (simatec) translations updated
+
+### 2.1.14 (04.08.2021)
+* (simatec) dependencies updated
+* (simatec) RAM memory optimization
+* (simatec) googleapis deleted
+* (simatec) @googleapis/drive added
+
+### 2.1.13 (14.06.2021)
+* (simatec) ready for Grafana 8.x
+* (simatec) BugFix PostgreSQL
+* (simatec) dependencies updated
+* (simatec) Name-Sufix for Messages added
+
+### 2.1.12 (01.06.2021)
+* (simatec) adminTab edited
+* (simatec) translation changed
+* (simatec) dependencies updated
+* (simatec) more debug for mount added
+* (simatec) Bugfix history json
+
+### 2.1.11 (19.05.2021)
+* (simatec) adminTab edited
+* (simatec) translation changed
+
+### 2.1.10 (16.05.2021)
+* (simatec) Bugfix adminTab
+
+### 2.1.9 (15.05.2021)
+* (simatec) adminTab for admin 5 changed
+
+### 2.1.8 (14.05.2021)
+* (simatec) adminTab for admin 5 changed
+
+### 2.1.7 (14.05.2021)
+* (simatec) Bugfix mysql Restore
+* (simatec) Bugfix pgsql Restore
+* (simatec) small Bugfix
+* (simatec) dependencies updated
+* (simatec) node 16 support added
+
+### 2.1.6 (01.05.2021)
+* (simatec) Bugfix for js-controller 3.3.x
+* (simatec) small Bugfix Dropbox Log
+* (simatec) small Bugfix for History Config reading
+
+### 2.1.5 (29.04.2021)
+* (simatec) Bugfix AdminTab
+* (simatec) small Bugfix
+
+### 2.1.4 (26.04.2021)
+* (simatec) Redesign Restore GUI
+* (simatec) small GUI Bugfix
+
+### 2.1.3 (22.04.2021)
+* (simatec) Admin-Tab changed
+* (simatec) Javascript Restore changed
+* (simatec) Redesign Admin-Tab
+* (simatec) Redesign Config
+* (simatec) Preparation for admin 5
+
+### 2.1.2 (13.04.2021)
+* (simatec) Creation of temporary folders changed
+* (simatec) Filter for redis rdb files changed
+* (simatec) automatic deletion of old influx databases added
+* (simatec) noserverino option for CIFS mount added
+* (simatec) dependencies updated
+
+### 2.1.1 (11.04.2021)
+* (simatec) Bugfix redis
+* (simatec) debug Log for Restore request added
+* (simatec) Bugfix influxdb
+* (simatec) ignore Filenames for javascript-Backup added
+
+### 2.1.0 (24.03.2021)
+* (simatec) Admin-Tab added
+* (simatec) dependencies targz removed
+* (simatec) dependencies tar-fs added
+* (simatec) dependencies updated
+* (simatec) small Bugfixes
+
+### 2.0.5 (14.03.2021)
+* (simatec) error handling for redis backup added
+* (simatec) error handling for history backup added
+* (simatec) BugFix Grafana backup
+
+### 2.0.4 (10.03.2021)
+* (simatec) Bugfix history json
+* (simatec) BugFix Redis backup
+* (simatec) chmod for backup directory added
+* (simatec) error handling for Grafana backup added
+
+### 2.0.3 (04.03.2021)
+* (simatec) Promise for redis aof added
+* (simatec) BugFix Grafana restore
+* (simatec) small BugFix umount
+
+### 2.0.2 (03.03.2021)
+* (simatec) BugFix redis backup
+* (simatec) aof for redis added
+
+### 2.0.1 (23.02.2021)
+* (simatec) BugFix redis backup/restore
+* (simatec) dependencies node-tar added
+* (simatec) BugFix Notification
+* (simatec) BugFix Grafana backup
 
 ### 2.0.0 (31.01.2021)
 * (simatec) BugFix detect last backup
@@ -356,6 +580,8 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 * (simatec) Source code rewritten
 * (simatec) Restore revised
 * (simatec) fixed many small bugs
+* (simatec) Added warning messages
+* (simatec) Fixed cloud restore
 
 ### 1.8.5 (11.01.2021)
 * (simatec) Bugfix Jarvis Backup
@@ -425,7 +651,6 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 * (simatec) small fixes for sentry.io
 * (simatec) small fixes on zigbee backup
 
-
 ### 1.6.3 (01.09.2020)
 * (simatec) dependencies for googleapis updated
 * (simatec) dependencies for dropbox-v2-api updated
@@ -464,7 +689,6 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 ### 1.5.4 (29.04.2020)
 * (simatec) added osDependencies for nfs and cifs
 * (simatec) Bugfixes for errorhandling telegram, pushover, e-mail, ftp list and create backup folder
-
 
 ### 1.5.3 (28.04.2020)
 * (simatec) many smal Bugfixes for errorhandling sentry.io
@@ -721,7 +945,6 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
  * (peoples) Some Bugfixes
  * (peoples) Added translations in words.js
 
-
 ### 0.2.3 (19.07.2018)
  * (bluefox) The backup buttons in configuration dialog were added
  * (bluefox) Show bash output text
@@ -769,7 +992,7 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2020 simatec
+Copyright (c) 2018 - 2022 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

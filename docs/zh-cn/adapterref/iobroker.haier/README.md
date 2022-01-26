@@ -2,73 +2,67 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.haier/README.md
-title: ioBroker Haier空调适配器
-hash: ROuNUa5/rOhtGEF6rozSiVNfEYVPA01f94d2z8ozq4U=
+title: ioBroker 海尔空调适配器
+hash: lElAdsQSqdcvWBnza70hSO0PKoEFIk/ZAopUAW9LUCw=
 ---
 ![标识](../../../en/adapterref/iobroker.haier/admin/haier_admin.png)
 
-![安装数量](http://iobroker.live/badges/haier-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.haier.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.haier.svg)
-![NPM](https://nodei.co/npm/iobroker.haier.png?downloads=true)
 ![捐](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-＃ioBroker Haier空调适配器
+#ioBroker海尔空调适配器
 =================
 
-[![测试]（https://github.com/instalator/iobroker.haier/workflows/Test%20and%20Release/badge.svg）](https://github.com/instalator/ioBroker.haier/actions/)
-
-ioBroker Haier适配器用于通过UART与TCP到串行网关的结合来控制Haier空调。
-在“ Lightera”系列的空调上检查工作。
+ioBroker Haier 适配器用于通过 UART 结合 TCP 到串行网关来控制您的海尔空调。
+在“Lightera”系列的空调上检查工作。
 
 ＃＃ 硬件
-作为TCP到串行网关，我使用此[代码]（https://github.com/instalator/ESP8266.TelnetToSerial）和此[device](https://blog.instalator.ru/archives/433)。
+作为 TCP 到串行网关，我使用这个 [代码]（https://github.com/instalator/ESP8266.TelnetToSerial）和这个[设备](https://blog.instalator.ru/archives/433)。
 
 ＃＃ 使用
 ＃＃＃ 力量
 打开和关闭空调。 （真假）
 
-###临时
-室温的当前指示。°C
+### 温度
+室温指示。(°C)
 
-### Settemp
-设定温度。 （16-30°C）
+###设置温度
+设置温度。 (16 - 30 °C)
 
 ＃＃＃ 模式
-* **自动**或** 0 **-一键即可为您提供舒适的房间！空调单元可以判断室内温度和湿度，并据此进行调整。
-* **凉**或** 1 **-冷藏室。
-* **加热**或** 2 **-室内暖气。
-* **风扇**或** 3 **-仅风扇。
-* **干燥**或** 4 **-空气除湿。
-* **关闭**或** 5 **-关闭交流电源。
+* **自动**或**0** - 一键给你一个舒适的房间！空调机组可以判断室内温度和湿度，并进行相应的调整。
+* **cool** 或 **1** - 冷却室。
+* **heat** 或 **2** - 房间供暖。
+* **fan** 或 **3** - 只有风扇。
+* **干燥**或**4** - 空气除湿。
+* **off** 或 **5** - 关闭交流电。
 
 ＃＃＃ 风扇转速
-* ** min **或** 2 **-风扇速度
-* **中**或** 1 **-风扇速度
-* **最大**或** 0 **-风扇速度
-* **自动**或** 3 **-风扇速度
+* **min** 或 **2** - 风扇速度
+* **mid** 或 **1** - 风扇速度
+* **max** 或 **0** - 风扇速度
+* **自动** 或 **3** - 风扇速度
 
 ＃＃＃ 摇摆
-* ** ud **或** 1 **-自动上/下。
-* ** lr **或** 2 **-自动向左/向右。
-* **两个**或** 3 **-双向。
-* **假**或** 0 **或**关闭**-关闭。
+* **ud** 或 **1** - 自动向上/向下。
+* **lr** 或 **2** - 自动左/右。
+* **both** 或 **3** - 双向。
+* **false** 或 **0** 或 **off** - 关闭。
 
 ＃＃＃ 健康
-（是/否）空调中的水离子发生器可以产生大量阴离子，从而有效平衡空气中的位置和阴离子数量，还可以杀死细菌并加快房间中的灰尘沉积，最终净化室内的空气。房间。
+(true/false) 空调中的水离子发生器可以产生大量的负离子，有效平衡空气中的位置和负离子数量，同时杀灭细菌，加速房间内的灰尘沉积，最终净化室内空气。房间。
 
-### Lockremote
-锁定红外遥控器（对/错）
+### 锁遥控器
+锁定红外遥控器（真/假）
 
-###压缩机
+### 压缩器
 如果压缩机开启
 
 ＃＃＃ 新鲜的
-（是/否）从房间中排出通风的空气，并吸入新鲜空气。
+(true/false) 排出房间内的污浊空气，吸入新鲜空气。
 （此功能在某些型号上不可用。）
 
 ＃＃＃ 生的
-发送没有起始字节和校验和示例的RAW HEX代码：开机-** 0A000000000001014D02 **
+发送不带起始字节和校验和的 RAW HEX 代码示例：开机 - **0A000000000001014D02**
 
 ## Changelog
 

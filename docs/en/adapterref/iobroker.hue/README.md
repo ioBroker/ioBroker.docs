@@ -1,11 +1,21 @@
 ![Logo](admin/hue.jpeg)
 # ioBroker Philips Hue Bridge Adapter
-==============
 
-![Build Status](https://github.com/iobroker-community-adapters/ioBroker.hue/workflows/Test%20and%20Release/badge.svg)
-![Number of Installations](http://iobroker.live/badges/hue-installed.svg) ![Number of Installations](http://iobroker.live/badges/hue-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.hue.svg)](https://www.npmjs.com/package/iobroker.hue)
+![Number of Installations](http://iobroker.live/badges/hue-installed.svg)
+![Number of Installations](http://iobroker.live/badges/hue-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.hue.svg)](https://www.npmjs.com/package/iobroker.hue)
+
+![Test and Release](https://github.com/iobroker-community-adapters/iobroker.hue/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/hue/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.hue.svg)](https://www.npmjs.com/package/iobroker.hue)
-[![NPM](https://nodei.co/npm/iobroker.hue.png?downloads=true)](https://nodei.co/npm/iobroker.hue/)
+
+**This adapter uses the service [Sentry.io](https://sentry.io) to automatically report exceptions and code errors and new device schemas to me as the developer.** More details see below!
+
+## What is Sentry.io and what is reported to the servers of that company?
+Sentry.io is a service for developers to get an overview about errors from their applications. Exactly this is implemented in this adapter.
+
+When the adapter crashes or another Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry.
+When you have allowed ioBroker GmbH to collect diagnostic data then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of these helps me to provide error free adapters that basically never crashs.
 
 ## English :gb:
 This adapter connects your Philips Hue Bridges with ioBroker to control Philips Hue LED bulbs, Friends of Hue LED lamps, stripes, plugs like from Osram, and other SmartLink capable devices (like LivingWhites and some LivingColors).
@@ -14,7 +24,7 @@ This adapter connects your Philips Hue Bridges with ioBroker to control Philips 
 Once you have installed this adapter within ioBroker, create an adapter instance accordingly. Next, you need to connect your Hue bridge with ioBroker within the adapter settings:
 1. If you are using another bridge than v2, configure port to 80 (non-https), else 443 (https) should be the way to go.
 2. Click on "Find Bridge" button to get the IP address of your bridge. This will search for all bridges in your environment. Then select the bridge to which you want to connect. The field "Bridge Address" will be populated with the IP address of your chosen Hue bridge.
-3. Next, click on "Create User" button in the settings and then walk to your Hue bridge device, so your hardware, to push its round button. You'll gonna have 30 seconds to proceed. Once you pushed the button, the field "Bridge User" should be populated with a generated string.
+3. Next, click on "Create User" button in the settings and then walk to your Hue bridge device, so your hardware, to push its round button. You'll be going to have 30 seconds to proceed. Once you pushed the button, the field "Bridge User" should be populated with a generated string.
 4. Modify any other options in the adapter settings and then select "save and close".
 5. Finally, you should be all set: The adapter will generate all objects to control your Hue devices accordingly.
 
@@ -25,15 +35,30 @@ Please note: Adapter settings button "Find Bridge" will be inactive if field "Br
 |---|---|
 |__Bridge address__|IP address of your Hue bridge, you can try to detect it by pressing `Find Bridge` button.|
 |__Port__|Port of your Hue bridge, normally 443 (SSL) and 80 (non-SSL).|
-|__SSL__|If checked, connecton is secured via SSL, port will automatically change to 443 (it is strongly recommended to use SSL).|
+|__SSL__|If checked, connection is secured via SSL, port will automatically change to 443 (it is strongly recommended to use SSL).|
 |__User__|Username of your bridge user. You can create it, by pressing `Create User` button and following the screen instructions.|
 |__Ignore scenes__|If checked, scenes will not be shown/controlled by the adapter.|
 |__Ignore groups__|If checked, groups will not be shown/controlled by the adapter.|
-|__"Legacy" structure__|To support backwards compatibility, it is possible to hold an old object structure in ioBroker. This old structure is `hue.<instance_number>.<brdige_name_channel>.<light_or_group_channel>.<state>`. The new structure removes `<brdige_name_channel>` and thus makes it necessary to adapt old scripts, etc. If an existing old strcuture is detected by the adapter, the structure will be used without checking the checkbox. However, if migration from old to new structure is desired, delete the whole `hue.<instance_number>` namespace once.
+|__"Legacy" structure__|To support backwards compatibility, it is possible to hold an old object structure in ioBroker. This old structure is `hue.<instance_number>.<bridge_name_channel>.<light_or_group_channel>.<state>`. The new structure removes `<bridge_name_channel>` and thus makes it necessary to adapt old scripts, etc. If an existing old structure is detected by the adapter, the structure will be used without checking the checkbox. However, if migration from old to new structure is desired, delete the whole `hue.<instance_number>` namespace once.
 |__Native turn off/on behaviour__|If checked, the adapter will turn on/off lights in the same fashion as the native Hue app does. Otherwise, lamps will be set to a level of 100 % when switched on. Additionally when a group is already turned on, setting the brightness level will affect only the already turned on lamps and will not turn the lamps on, which are currently turned off.|
 |__Sync software sensors__|Also sync software sensors. These are virtual sensors, e.g. created by Hue Labs scenes. By controlling the `status` datapoint of such a sensor you can start/stop scenes which follow this logic. In most cases `0` turns scene off and `1` turns it on.|
 |__Polling__|If checked, the adapter will poll state changes, otherwise it can only be used to control lamps, not to show their status.|
 |__Polling interval__|Defines how often the states will be polled, and thus updated in ioBroker. Low polling intervals can cause performance issues in some settings. Hence, the minimum allowed polling interval is 2 seconds. If polling interval is set to less than 2 seconds it will be set to 2 seconds during runtime.|
+
+### Commands
+Command states (e.g. `hue.0.All.command`) can be used to set multiple commands to the bridge. 
+This allows to set a group or a light to a specific state using e.g. a transiton time.
+
+```javascript
+setState('hue.0.All.command', { "bri": 50, "transitiontime": 30 }, false);
+```
+
+For groups which contain scenes, like `hue.0.Wohnzimmer.scene_hell` the scenes can also be activated with a transitiontime.
+To do this, pass the scene argument to the corresponding command.
+
+```javascript
+setState('hue.0.All.Wohnzimmer', { "scene": "hell", "transitiontime": 30 }, false);
+```
 
 ### Additional information
 With version 3.3.0 the group states `anyOn` and `allOn` became controllable, note that they will just act like the `on` state,
@@ -41,9 +66,115 @@ when controlled. In some cases, it may be desirable to have a controllable `anyO
 
 ## Deutsch :de:
 Bindet Philips Hue / LivingColors / LivingWhites Lampen ein. 
-In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfiguriert werden. Um einen User zu aktivieren einmal auf create user drücken und dann innerhalb von 30 Sekunden den Button an der Hue bridge drücken. Dann wird automatisch der User übergeben. 
+In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfiguriert werden. Um einen User zu aktivieren, einmal auf create user drücken und dann innerhalb von 30 Sekunden den Button an der Hue bridge drücken. Dann wird automatisch der User übergeben. 
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+### 3.6.5 (2022-01-11)
+* (foxriver76) correctly identify third party switches (closes #273)
+
+### 3.6.3 (2022-01-09)
+* (foxriver76) added `info.connection` state (closes #268)
+
+### 3.6.1 (2022-01-09)
+* (foxriver76) ct values of groups can be even lower due to third party lights
+
+### 3.6.0 (2021-12-30)
+* (foxriver76) allow triggering scenes via `command` state, this allows to start a scene with `transitiontime`
+
+### 3.5.31 (2021-11-20)
+* (foxriver76) ct value fix of #234 ported for 0 (All) group
+
+### 3.5.30 (2021-11-14)
+* (foxriver76) we fixed Sentry IOBROKER-HUE-1K, IOBROKER-HUE-A, IOBROKER-HUE-1J
+
+### 3.5.29 (2021-11-14)
+* (bluefox) Caught SENTRY error.
+
+### 3.5.28 (2021-11-04)
+* (foxriver76) another fix for invalid ct values (fixes #234)
+
+### 3.5.27 (2021-11-01)
+* (foxriver76) we fixed missing object type of some scenes (closes #255)
+
+### 3.5.26 (2021-10-20)
+* (foxriver76) fixed an issue with the username set in Hue API (fixes 249)
+* (klein0r) fixed translation of search popup (fixes #247)
+
+### 3.5.25 (2021-09-15)
+* (foxriver76) if we cannot determine correct ct value, we won't set it (fixes #234)
+
+### 3.5.23 (2021-08-26)
+* (Pmant) fix for third party devices delivering wrong ct values
+
+### 3.5.22 (2021-08-12)
+* (foxriver76) fixed several sentry issues (closes #217, closes #218, closes #219, closes #220)
+
+### 3.5.20 (2021-08-10)
+* (foxriver76) we now define minimum ct of groups to 2000 instead of 2179 (fixes #216)
+
+### 3.5.19 (2021-06-02)
+* (foxriver76) fix crash case if we cannot get min/max ct values
+
+### 3.5.18 (2021-06-01)
+* (foxriver76) get the correct min/max ct values from api for lights (closes #192)
+
+### 3.5.17 (2021-05-26)
+* (foxriver76) prevent edge case crash (fixes #196)
+
+### 3.5.16 (2021-05-07)
+* (foxriver76) make buttons type `boolean` (closes #189)
+
+### 3.5.15 (2021-05-05)
+* (foxriver76) fixed some default type values, which produced warnings once
+
+### 3.5.14 (2021-05-04)
+* (foxriver76) protect the user token from access by foreign adapters
+* (foxriver76) fixed types of default values on groups
+
+### 3.5.13 (2021-05-03)
+* (foxriver76) we fixed some more types
+
+### 3.5.12 (2021-05-02)
+* (foxriver76) we give skipped switches common.type 'mixed' instead of none
+* (foxriver76) we have corrected the min max of color temperature (empirically found)
+
+### 3.5.11 (2021-05-02)
+* (foxriver76) we now update objects if type has changed
+
+### 3.5.10 (2021-04-30)
+* (foxriver76) we removed the common.max from lightlevel, was 17,000 but can be much higher
+* (foxriver76) we added common.type for states where the attribute was missing
+
+### 3.5.9 (2021-04-30)
+* (foxriver76) start this adapter in TIER 2
+
+### 3.5.8 (2021-04-17)
+* (foxriver76) minor changes
+
+### 3.5.5 (2021-04-07)
+* (foxriver76) fixed a bug where an error on user creation crashed the adapter instance
+
+### 3.5.4 (2021-03-25)
+* (foxriver76) fixing several edge case crashes
+
+### 3.5.2 (2021-02-24)
+* (foxriver76) fix crashes if wrong data type or invalid value passed for ct and hue, now logging an error
+* (foxriver76) fix crashes if rgb where outside allowed range or wrong type
+* (foxriver76) fix potential crashes on bridge discovery, due to unnecessary stringify/parse logic
+* (foxriver76) fix graphical issue with the label of bridge user when newly created, due to missing call of updateTextFields
+
+### 3.5.1 (2021-02-20)
+* (foxriver76) avoid crash cases on invalid xy, setting state for non-existing device and on failing user creation
+
+### 3.5.0 (2021-02-18)
+* (foxriver76) use official js-controller regex for replacing forbidden chars (fixes #165)
+* (foxriver76) use release-script
+* (foxriver76) sentry added
+
 ### 3.4.0 (2021-01-20)
 * (foxriver76) we now restart the adapter automatically to add new devices if they have been added to bridge
 
@@ -66,7 +197,7 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 * (foxriver76) fixed issue on frontend validation of polling intervals starting with 1
 
 ### 3.3.4 (2020-06-02)
-* (foxriver76) implemented fix for problems with switches and handling id conflicts 
+* (foxriver76) implemented fix for problems with switches and handling id conflicts
 
 ### 3.3.3 (2020-05-31)
 * (foxriver76) we now handle potential id conflicts, when adding devices from different type with same name over time
@@ -326,8 +457,5 @@ __ATTENTION: Remove all objects once, ids have changed__
 
 Apache 2.0
 
-Copyright (c) 2017-2020 Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2022 Bluefox <dogafox@gmail.com>
 Copyright (c) 2014-2016 hobbyquaker
-
-
-
