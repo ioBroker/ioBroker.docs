@@ -82,10 +82,19 @@
           },
           "content": "basics/states.md"
         },
-        "Functions": {
+        "Alias": {
           "title": {
-            "en": "Functions",
-            "de": "Funktionen",
+            "en": "Alias",
+            "de": "Alias",
+            "ru": "Псевдонимы",
+            "zh-cn": "别名"
+          },
+          "content": "basics/aliases.md"
+        },
+        "Enums": {
+          "title": {
+            "en": "Enums",
+            "de": "Aufzählungen",
             "ru": "Функции",
             "zh-cn": "职能"
           },
