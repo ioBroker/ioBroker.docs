@@ -24,7 +24,7 @@ die Integration einer selbst erstellten Lösung - ioBroker macht fast alles mög
    Daher kann es vorkommen, dass Links noch nicht funktionieren oder
    Inhalte fehlen. Wir sind für jede Hilfe bei der Erstellung neuer
    Artikel oder für Verbesserungen dankbar. Informationen dazu gibt
-   es [im Forum](https://forum.iobroker.net/viewtopic.php?f=8&t=16933).
+   es hier [im Forum][].
    <br><br>
    **Bis alle Inhalte übernommen wurden, ist die alte Dokumentation noch [hier zu finden](https://www.iobroker.net/docu/).
    Sie wird sukzessive durch die neue Dokumentation ersetzt.**
@@ -109,6 +109,6 @@ zur freien Verfügung.
 [Grundlagen]: https://www.iobroker.net/#de/documentation/basics/README.md
 [Adaptern]: http://download.iobroker.net/list.html
 [hier zu finden]: https://www.iobroker.net/docu/
-[im Forum]: https://forum.iobroker.net/viewtopic.php?f=8&t=16933
+[im Forum]: https://forum.iobroker.net/category/186/dokumentations-support
 [GitHub]: https://github.com/ioBroker
 [Forum]: https://forum.iobroker.net
