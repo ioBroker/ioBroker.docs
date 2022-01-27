@@ -29,7 +29,7 @@ Adapterinstallation, Konfiguration, mini-Scripting und
 mini-Visualisierung sowie eine Historisierung mit
 Diagrammdarstellung umfasst.
 
-Immer wieder auf das Kapitel "Konfiguation" für mehr Details
+Immer wieder auf das Kapitel "Konfiguration" für mehr Details
 verweisen.   
 @@@
 
