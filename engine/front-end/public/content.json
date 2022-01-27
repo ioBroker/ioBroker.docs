@@ -50,7 +50,7 @@
           "title": {
             "en": "Adapter & Instances",
             "de": "Adapter und Instanzen",
-            "ru": "Адаптеры и контроллеры",
+            "ru": "Адаптеры и их экземпляры",
             "zh-cn": "适配器和控制器"
           },
           "content": "basics/adapter.md"
