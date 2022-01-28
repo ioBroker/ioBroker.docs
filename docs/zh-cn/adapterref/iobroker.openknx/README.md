@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: Wy81fpxoyBloLmqBo3RDyH/vzaBqW6kSZAFngzuRok4=
+hash: tYvwlhfmIW5HK8sqVTDJwBvGypWOVWFVZu3HIgZ3PCI=
 ---
 ![标识](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -66,7 +66,7 @@ KNX IP 网关的 IP。
 错误对话框将在导入过程中发现问题，并提示如何清理 ets 数据库。
 可以在日志中找到其他信息。
 
-关于 ETS 配置的提示：如果 GA 和使用此 GA 的通信对象中有不同的 DPT 子类型，则 ETS 似乎使用编号最小的 DPT 类型。
+ETS 配置提示：如果 GA 和使用此 GA 的通信对象中有不同的 DPT 子类型，则 ETS 似乎使用编号最小的 DPT 类型。
 在这种情况下，手动确保所有元素都使用相同的所需数据类型。
 没有 DPT 基本类型的 GA 无法使用此适配器导入。 ETS4 项目必须转换为 ETS5 或更高版本，并且 DPT 必须设置为 GA。
 
@@ -210,11 +210,11 @@ DPT10 是时间 (hh:mm:ss) 加上“星期几”。这个概念在 JS 中不可�
 
 ### 组值写入
 通过写入通信对象触发发送。
-当总线上接收到一个写帧时触发通信对象。
+当总线上接收到写帧时触发通信对象。
 
 ### 组值读取
 可以通过编写带有注释的通信对象来触发发送。
-接收，如果配置将触发实际c.o的组值响应（限制：此时组值写入）。值，见下文。
+接收，如果配置会触发实际c.o.的组值响应（限制：此时组值写入）值，见下文。
 
 ### 组值响应
 如果 answer_groupValueResponse 设置为 true，则适配器将以 GroupValue_Response 回复先前收到的 GroupValue_Read 请求。
@@ -229,9 +229,14 @@ KNX 对象标志定义了它们所代表的对象的总线行为。
 |C: 通讯标志 | K：通讯标志 |总是设置 ||
 |R：读取标志 | L: Les-Flag |对象 native.answer_groupValueResponse ||
 |T：传输标志 | Ü: Übertragen 标志 |对象 common.write ||
-|W：写标志 | S: Schreiben-Flag |对象 common.read |总线可以修改的对象|
+|W：写标志 | S: Schreiben-Flag |对象 common.read |总线可以修改对象|
 |U：更新标志 | A: Aktualisieren-Flag |对象 common.read |在传入的 GroupValue_Responses 上更新对象 |
 |I：初始化标志 | I: Initialisierungs-Flag |对象 native.autoread | |
+
+# 监控和错误跟踪
+Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
+它可以帮助开发人员更好地寻找错误并获取现场使用数据。以假名方式跟踪用户的身份。
+数据被发送到托管在德国的 Iobroker Sentry 服务器。如果您已允许 iobroker GmbH 收集诊断数据，则还包括您的匿名安装 ID。这允许 Sentry 对错误进行分组并显示有多少唯一用户受到此类错误的影响。
 
 ＃ 特征
 * 稳定可靠的knx堆栈
@@ -252,12 +257,18 @@ KNX 对象标志定义了它们所代表的对象的总线行为。
 - 仅支持 IPv4
 
 ## Changelog
+### 0.1.16 (2022-01-27)
+* feature: add back sentry
+* fix: stability alias generation
+* fix: better input settings plausibilization in admin
+* fix: reset after settings change was broken, dont reset for alias change
+
 ### 0.1.15 (2022-01-23)
  * feature: more sanity checks for gui
  * feature: issue #84, add openknx to discovery adapter
  * feature: issue #82, warnings on import of duplicate ga addresses, also check iob object for duplicates
  * fix: issue #87, added q interface to trigger GroupValue_Read, comments are overwritten in javascript adapter
- * fix: remove unused reference to sentry
+ * fix: remove currently unused reference to sentry
  
 ### 0.1.14 (2022-01-08)
 * feature: autodetect the KNX IP interface parameters

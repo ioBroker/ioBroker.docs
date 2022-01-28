@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: Wy81fpxoyBloLmqBo3RDyH/vzaBqW6kSZAFngzuRok4=
+hash: tYvwlhfmIW5HK8sqVTDJwBvGypWOVWFVZu3HIgZ3PCI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -108,7 +108,7 @@ IP-адрес вашего IP-шлюза KNX.
 - Импорт проекта
 
 ## Перенос скриптов
-- Открытые сценарии
+- Открытые скрипты
 - 3 точки -> Экспортировать все скрипты
 - Откройте Zip-файл и откройте папку в редакторе
 - Поиск Заменить knx.0 на openknx.0
@@ -124,7 +124,7 @@ IP-адрес вашего IP-шлюза KNX.
 - выберите Импорт (Перезаписать)
 
 # Как использовать адаптер и основная концепция
-### Флаги ACK
+### ACK флаги
 Приложения не должны устанавливать флаги подтверждения, приложение уведомляется от этого адаптера флагом подтверждения, если данные обновляются.
 KNX Stack устанавливает флаг подтверждения связанного объекта ioBroker при получении группового адреса.
 Отправленные кадры по KNX не приводят к подтверждению записываемого объекта.
@@ -139,7 +139,7 @@ msg.payload = {"приоритет":1,"данные":0}; вернуть сооб
 
 # Описание объекта связи IOBroker
 ioBroker определяет объекты для хранения настроек коммуникационных интерфейсов.
-Импорт GA создает структуру папок объектов связи в соответствии со схемой ga main-group/middle-group. Каждый групповой адрес представляет собой объект со следующими автоматически генерируемыми данными.
+Импорт GA создает структуру папок объектов связи в соответствии со схемой ga main-group/middle-group. Каждый групповой адрес представляет собой объект со следующими автоматически сгенерированными данными.
 
 Роли состояния ioBroker (https://github.com/ioBroker/ioBroker/blob/master/doc/STATE_ROLES.md) по умолчанию имеют значение «состояние». Некоторые более детальные значения получаются из DPT, например Date или Switch.
 
@@ -189,9 +189,9 @@ setState(myState, {val: false, ack: false, c:'GroupValue_Read'}); setState(mySta
 | ДПТ-17 | номер | | 1 байт | DPT_SceneNumber удален из авточтения |
 | ДПТ-20 | номер | | 1 байт ||
 | ДПТ-238 | номер | | 1 байт ||
-| ДПТ-10 | число для объекта даты | | - ||
-| ДПТ-11 | число для объекта Date | | - ||
-| ДПТ-19 | номер объекта даты | | - ||
+| ДПТ-10 | номер объекта Date | | - ||
+| ДПТ-11 | номер объекта даты | | - ||
+| ДПТ-19 | число для объекта даты | | - ||
 | ДПТ-26 | строка | например 00010203.. | - | Тип точки данных DPT_SceneInfo не прочитан autread|
 | ДПТ-238 | строка | например 00010203.. | - | DPT_SceneConfig не читается программой autread|
 | отдых | строка | например 00010203.. | - ||
@@ -233,6 +233,11 @@ DPT10 — это время (чч:мм:сс) плюс «день недели».
 |U: флаг обновления | A: Aktualisieren-Флаг | объект common.read | обновить объект при входящих сообщениях GroupValue_Response |
 |I: флаг инициализации | I: Initialisierungs-Flag | объект native.autoread | |
 
+# Мониторинг и отслеживание ошибок
+Openknx использует sentry.io для мониторинга приложений и отслеживания ошибок.
+Это помогает разработчикам лучше выявлять ошибки и получать данные об использовании полей. Идентификация пользователя отслеживается псевдонимным способом.
+Данные отправляются на сервер Iobroker Sentry, расположенный в Германии. Если вы разрешили iobroker GmbH собирать диагностические данные, то также будет включен ваш анонимный идентификатор установки. Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуто такой ошибкой.
+
 # Функции
 * стабильный и надежный стек knx
 * Автоматическое кодирование/декодирование дейтаграмм KNX для наиболее важных ЦСТ, необработанное чтение и запись для других ЦСТ
@@ -252,12 +257,18 @@ DPT10 — это время (чч:мм:сс) плюс «день недели».
 - поддерживается только IPv4
 
 ## Changelog
+### 0.1.16 (2022-01-27)
+* feature: add back sentry
+* fix: stability alias generation
+* fix: better input settings plausibilization in admin
+* fix: reset after settings change was broken, dont reset for alias change
+
 ### 0.1.15 (2022-01-23)
  * feature: more sanity checks for gui
  * feature: issue #84, add openknx to discovery adapter
  * feature: issue #82, warnings on import of duplicate ga addresses, also check iob object for duplicates
  * fix: issue #87, added q interface to trigger GroupValue_Read, comments are overwritten in javascript adapter
- * fix: remove unused reference to sentry
+ * fix: remove currently unused reference to sentry
  
 ### 0.1.14 (2022-01-08)
 * feature: autodetect the KNX IP interface parameters

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.solax/README.md
 title: ioBroker.solax
-hash: fQlkfIsor5vQ4oPOyB4tcFzKV+WtKocUT+QyxRwkDjc=
+hash: HUBxVg5wWIo2qX34/a2x74UiyQ7rBdb6Bi8u4BJtnDI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.solax/admin/solax.png)
 
@@ -26,18 +26,95 @@ hash: fQlkfIsor5vQ4oPOyB4tcFzKV+WtKocUT+QyxRwkDjc=
 
 **************************************************************************************************************
 
-## Адаптер solax для ioBroker
+### Адаптер Solax для ioBroker
+**************************************************************************************************************
+
+### Немецкая документация
+#### Solax Cloud-Verbindung
+Solax Wechselrichter API-Cloud-Verbindung
+
+Dieser Adapter ruft die Daten deines Wechselrichters vom Hersteller Solax für iobroker ab.
+
+Был dazu benötigt wird, ist ein Konto bei Solax, eine Token-ID und die Seriennummer des Pocket Wifi oder LAN Sticks.
+
+#### API-токен
+<span><img src="docs/en/img/solax_api.png"></span>
+
+#### Серийный номер
+<span><img src="docs/en/img/wifi-stick.png"></span>
+
+#### Experteneinstellungen
+Локальное подключение Wird aktuell nur dem Pocket Wifi Sticks unterstützt. LAN-Sticks подключены к облачному модусу.
+
+Achtung, wer in den Experteneinstellungen den lokalen Modus aktiviert sollte im Vorfeld zwingend die aktuelle Firmwareversion seines Pocket Wifi Sticks prüfen.
+Eine Firmware Version больше 2.30.20 darf der Stick nicht installiert haben, da Solax in höheren Versionen den lokalen Zugriff blockiert und es zu einem Absturz des Wifi Sticks führt.
+
+Wie man die Версия микропрограммы prüfen kann und ein Downgrade auf die correkte Version hinbekommt, wird hier erklärt.
+
+Um die Firmware auf dem Stick zu prüfen, müsst ihr euch mit dem Hotspot des Sticks verbinden.
+Der Name des Hotspots sollte bei euch wie folgt aussehen: `Solax_SWXXXXXXXX`. XXXXXXXX wird durch eure Seriennummer ersetzt.
+
+Если вы используете Hotspot verbunden seit, dann geht ihr mit fogender IP-адрес в вашем браузере на веб-интерфейсе Wi-Fi-Sticks: `5.8.8.8`<br> Solltet ihr euer Passwort bei der Ersteinrichtung nicht geändert haben, sind die Standard Login-Daten admin:admin
+
+<span><img src="docs/en/img/webif.png"></span>
+
+Я открываю веб-интерфейс на вкладке «Система» и нахожу актуальную версию встроенного ПО.<br> Если версия выше 2.033.20, то она должна быть обновлена Вкладка в меню «Обновление встроенного ПО (.usb)» с исправлением версии.
+
+Die Version 2.033.20 könnt ihr euch unter folgenden Link herunterladen:
+
+[Скачать прошивку для карманного Wi-Fi](https://github.com/simatec/ioBroker.solax/raw/master/docs/files/618.00122.00_Pocket_WIFI_V2.033.20_20190313.usb.zip)
+
+Die Zip-Datei muss entpackt werden und es muss die Datei mit der Endung &quot;.usb&quot; ausgewählt werden.<br> Nun könnt Ihr den Downgrade starten und werdet nach ca. 20-30 Sekunden eine Meldung bekommen, dass das Update erfolgreich war und der Stick neu gestartet wird.
+
+Nach erfolgreichen Neustart könnt ihr nun über den Hotspot mit der IP-Adresse `5.8.8.8` oder auch über eure locale IP in eurem Netzwerk auf den Wifi-Stick zugreifen.
+
+Prüft bitte vor einer Verbindung zu dem Adapter noch einmal, ob der Downgrade erfolgreich war und die correkte Firmware installiert ist.
+
+Im Adapter müssen die lokale IP-Adresse (nicht die Hotspot IP) und das Passwort des Webinterfaces eingetragen werden und ihr habt nun eine sekundengenaue lokale Analyze eures Wechselrichters
+
+**************************************************************************************************************
+
+### Документация на английском языке
+#### Подключение к облаку Solax
 Подключение к облаку API-интерфейса Solax Inverter
 
 Этот адаптер вызывает данные вашего инвертора от производителя Solax в iobroker.
 
 Для этого вам нужна учетная запись в Solax, ваш идентификатор токена и серийный номер вашего WiFi-модуля.
 
-### Ваш API-токен
+#### API-токен
 <span><img src="docs/en/img/solax_api.png"></span>
 
-### Ваш серийный номер
+#### Серийный номер
 <span><img src="docs/en/img/wifi-stick.png"></span>
+
+#### Экспертные настройки
+Локальное соединение в настоящее время поддерживается только Pocket Wifi Sticks. Сетевые флешки могут работать только в облачном режиме.
+
+Внимание, если вы активируете локальный режим в экспертных настройках, вам следует заранее проверить текущую версию прошивки вашего Pocket Wifi Stick.<br> На флешке не должна быть установлена версия прошивки выше 2.30.20, поскольку Solax блокирует локальный доступ в более высоких версиях и вызывает сбой флешки Wifi.
+
+Здесь объясняется, как проверить версию прошивки и как перейти на правильную версию.
+
+Чтобы проверить прошивку на флешке, необходимо подключиться к точке доступа флешки.
+Имя вашей точки доступа должно выглядеть следующим образом: `Solax_SWXXXXXXXX`. XXXXXXXX будет заменен вашим серийным номером.
+
+Если вы подключены к точке доступа, перейдите в веб-интерфейс Wifi-модуля в браузере со следующим IP-адресом: `5.8.8.8`<br> Если вы не меняли пароль во время первоначальной настройки, данные для входа по умолчанию — admin:admin.
+
+<span><img src="docs/en/img/webif.png"></span>
+
+В веб-интерфейсе вы переходите на вкладку «Система» и там вы найдете текущую версию установленной прошивки.<br> Если версия выше 2.033.20, можно прошить нужную версию в той же вкладке через пункт меню &quot;Обновить прошивку (.usb)&quot;.
+
+Вы можете скачать версию 2.033.20 по следующей ссылке:
+
+[Скачать прошивку для карманного Wi-Fi](https://github.com/simatec/ioBroker.solax/raw/master/docs/files/618.00122.00_Pocket_WIFI_V2.033.20_20190313.usb.zip)
+
+Zip-файл необходимо распаковать и выбрать файл с расширением «.usb».<br> Теперь вы можете начать даунгрейд и примерно через 20-30 секунд вы получите сообщение о том, что обновление прошло успешно и флешка будет перезапущена.
+
+После успешного перезапуска вы можете получить доступ к WiFi-модулю через точку доступа с IP-адресом `5.8.8.8` или через локальный IP-адрес в вашей сети.
+
+Перед подключением к адаптеру еще раз проверьте, прошел ли даунгрейд успешно и установлена ли правильная прошивка.
+
+Локальный IP-адрес (не IP-адрес точки доступа) и пароль веб-интерфейса должны быть введены в адаптер, и теперь у вас есть локальный анализ вашего инвертора с точностью до секунды.
 
 **************************************************************************************************************
 
@@ -50,8 +127,13 @@ Sentry.io — это сервис для разработчиков, позво�
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 0.4.2 (2022-01-27)
+* (simatec) Fix json state
 
-### __WORK IN PROGRESS__
+### 0.4.1 (2022-01-26)
+* (simatec) Fix react Translatation
+
+### 0.4.0 (2022-01-25)
 * (simatec) local request for Wifi Pocket Stick added
 * (simatec) Dependencies updated
 * (simatec) test and release updated

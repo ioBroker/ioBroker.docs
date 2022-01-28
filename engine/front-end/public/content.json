@@ -48,9 +48,9 @@
         },
         "Adapter & Instanzen": {
           "title": {
-            "en": "Adapter & Instances",
-            "de": "Adapter und Instanzen",
-            "ru": "Адаптеры и их экземпляры",
+            "en": "Adapter & Instanzen",
+            "de": "Adapter und Controller",
+            "ru": "Адаптеры и контроллеры",
             "zh-cn": "适配器和控制器"
           },
           "content": "basics/adapter.md"
@@ -58,9 +58,9 @@
         "Repositories": {
           "title": {
             "en": "Repositories",
-            "de": "Repositories",
-            "ru": "Репозитории",
-            "zh-cn": "存储库"
+            "de": "Was ist ein Repository?",
+            "ru": "Что такое репозиторий?",
+            "zh-cn": "什么是存储库？"
           },
           "content": "basics/repositories.md"
         },
@@ -86,15 +86,15 @@
           "title": {
             "en": "Alias",
             "de": "Alias",
-            "ru": "Псевдонимы",
-            "zh-cn": "别名"
+            "ru": "no title",
+            "zh-cn": "no title"
           },
           "content": "basics/alias.md"
         },
         "Enums": {
           "title": {
             "en": "Enums",
-            "de": "Aufzählungen",
+            "de": "Funktionen",
             "ru": "Функции",
             "zh-cn": "职能"
           },
@@ -103,9 +103,9 @@
         "Roles": {
           "title": {
             "en": "Roles",
-            "de": "Rollen",
-            "ru": "рулон",
-            "zh-cn": "卷"
+            "de": "Rollen von Datenpunkten",
+            "ru": "Роли точек данных",
+            "zh-cn": "数据点的作用"
           },
           "content": "basics/roles.md"
         }
@@ -176,7 +176,7 @@
             "Proxmox": {
               "title": {
                 "en": "Proxmox",
-                "de": "Proxmox",
+                "de": "Installation",
                 "ru": "установка",
                 "zh-cn": "安装"
               },
@@ -185,7 +185,7 @@
             "VirtualBox": {
               "title": {
                 "en": "VirtualBox",
-                "de": "VirtualBox",
+                "de": "Installation",
                 "ru": "установка",
                 "zh-cn": "安装"
               },
@@ -194,7 +194,7 @@
             "Docker": {
               "title": {
                 "en": "Docker",
-                "de": "Docker",
+                "de": "Installation",
                 "ru": "установка",
                 "zh-cn": "安装"
               },
@@ -213,7 +213,7 @@
             "Node.js": {
               "title": {
                 "en": "Node.js",
-                "de": "node.js",
+                "de": "Installation",
                 "ru": "установка",
                 "zh-cn": "安装"
               },
@@ -259,7 +259,7 @@
             "General": {
               "title": {
                 "en": "General",
-                "de": "Allgemein",
+                "de": "Installation",
                 "ru": "установка",
                 "zh-cn": "安装"
               },
@@ -268,7 +268,7 @@
             "ioBroker": {
               "title": {
                 "en": "ioBroker",
-                "de": "ioBroker",
+                "de": "Installation",
                 "ru": "установка",
                 "zh-cn": "安装"
               },
@@ -408,7 +408,7 @@
         "Introduction": {
           "title": {
             "en": "Introduction",
-            "de": "Einleitung",
+            "de": "Tutorial",
             "ru": "Руководство",
             "zh-cn": "教程"
           },
@@ -417,7 +417,7 @@
         "First setup": {
           "title": {
             "en": "First setup",
-            "de": "Setup",
+            "de": "Tutorial",
             "ru": "учебник",
             "zh-cn": "教程"
           },
@@ -426,7 +426,7 @@
         "User interface": {
           "title": {
             "en": "User interface",
-            "de": "User Interface",
+            "de": "Tutorial",
             "ru": "учебник",
             "zh-cn": "教程"
           },
@@ -444,7 +444,7 @@
         "Simple logic": {
           "title": {
             "en": "Simple logic",
-            "de": "Erste Schritte mit Logik",
+            "de": "Tutorial",
             "ru": "учебник",
             "zh-cn": "教程"
           },
@@ -453,7 +453,7 @@
         "Visualisation": {
           "title": {
             "en": "Visualisation",
-            "de": "Erste Schritte mit Vis",
+            "de": "Tutorial",
             "ru": "учебник",
             "zh-cn": "教程"
           },
@@ -462,7 +462,7 @@
         "Data logging": {
           "title": {
             "en": "Data logging",
-            "de": "Erste Schritte vit History",
+            "de": "Tutorial",
             "ru": "учебник",
             "zh-cn": "教程"
           },
@@ -471,7 +471,7 @@
         "Charts": {
           "title": {
             "en": "Charts",
-            "de": "Erste Schritte mit Charts",
+            "de": "Tutorial",
             "ru": "учебник",
             "zh-cn": "教程"
           },
@@ -480,7 +480,7 @@
         "Updates": {
           "title": {
             "en": "Updates",
-            "de": "richtig updaten",
+            "de": "Tutorial",
             "ru": "Руководство",
             "zh-cn": "教程"
           },

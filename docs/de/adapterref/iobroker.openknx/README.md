@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: Wy81fpxoyBloLmqBo3RDyH/vzaBqW6kSZAFngzuRok4=
+hash: tYvwlhfmIW5HK8sqVTDJwBvGypWOVWFVZu3HIgZ3PCI=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -171,7 +171,7 @@ GroupValue_Read-Kommentar funktioniert nicht für Javascript-Adapter. Verwenden 
 | DPT-3 | Objekt | {"decr_incr":1 Bit,"data":2 Bit} | - ||
 | DPT-18 | Objekt | {"save_recall":0,"scenenumber":0} | - |Datenpunkttyp DPT_SceneControl aus Autoread entfernt|
 | DPT-21 | Objekt | {"outofservice":0,"fault":0,"overridden":0,"inalarm":0,"alarmunack":0} | - ||
-| DPT-232 | Objekt | {rot:0..255, grün:0,255, blau:0,255} | - ||
+| DPT-232 | Objekt | {Rot:0..255, Grün:0,255, Blau:0,255} | - ||
 | DPT-237 | Objekt | {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | - ||
 | DPT-4 | Zeichenfolge | | ein als 8-Bit-Zeichen gesendetes Zeichen ||
 | DPT-16 | Zeichenfolge | | ein Zeichen als 16-Zeichen-String gesendet ||
@@ -229,9 +229,14 @@ Es sind 6 verschiedene Objektflags definiert.
 |C: das Kommunikationsflag | K: Kommunikations-Flag | immer gesetzt ||
 |R: das Lese-Flag | L: Lese-Flag | Objekt native.answer_groupValueResponse ||
 |T: das Sendeflag | Ü: Übertragen-Flagge | Objekt common.write ||
-|W: das Schreiben-Flag | S: Schreiben-Flag | Objekt common.read | Bus kann das Objekt ändern |
+|W: das Schreiben-Flag | S: Schreiben-Flag | Objekt common.read | Bus kann das Objekt modifizieren |
 |U: das Update-Flag | A: Aktualisieren-Flag | Objekt common.read | Objekt bei eingehenden GroupValue_Responses aktualisieren |
 |I: das Initialisierungsflag | I: Initialisierungs-Flag | Objekt native.autoread | |
+
+# Überwachung und Fehlerverfolgung
+Openknx verwendet sentry.io für die Anwendungsüberwachung und Fehlerverfolgung.
+Es hilft Entwicklern, Fehler besser zu finden und Daten zur Feldnutzung zu gewinnen. Die Identifizierung eines Nutzers wird pseudonymisiert nachverfolgt.
+Die Daten werden an den in Deutschland gehosteten Iobroker Sentry-Server gesendet. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, dann ist auch Ihre anonyme Installations-ID enthalten. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind.
 
 # Merkmale
 * Stabiler und zuverlässiger Knx-Stack
@@ -252,12 +257,18 @@ Es sind 6 verschiedene Objektflags definiert.
 - nur IPv4 unterstützt
 
 ## Changelog
+### 0.1.16 (2022-01-27)
+* feature: add back sentry
+* fix: stability alias generation
+* fix: better input settings plausibilization in admin
+* fix: reset after settings change was broken, dont reset for alias change
+
 ### 0.1.15 (2022-01-23)
  * feature: more sanity checks for gui
  * feature: issue #84, add openknx to discovery adapter
  * feature: issue #82, warnings on import of duplicate ga addresses, also check iob object for duplicates
  * fix: issue #87, added q interface to trigger GroupValue_Read, comments are overwritten in javascript adapter
- * fix: remove unused reference to sentry
+ * fix: remove currently unused reference to sentry
  
 ### 0.1.14 (2022-01-08)
 * feature: autodetect the KNX IP interface parameters

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.homekit-controller/README.md
 title: ioBroker.homekit-控制器
-hash: X9TntE4sGhJfsdGvmSEz4g3uIyTIhMxUjApyU9Gw4Ww=
+hash: 8WklqVfVhAM7m8QqhDDH4r69iv3vLstogp+KmPd9WEY=
 ---
 ![标识](../../../en/adapterref/iobroker.homekit-controller/admin/homekit-controller.png)
 
@@ -23,7 +23,7 @@ hash: X9TntE4sGhJfsdGvmSEz4g3uIyTIhMxUjApyU9Gw4Ww=
 ### 适配器不是...
 ... 提供由 Apple Home 应用程序/系统控制的 ioBroker 设备或状态。如果你想要这个方向，请使用 [呀卡](https://github.com/jensweigele/ioBroker.yahka) 适配器。
 
-... 支持基于线程的设备。 Homekit Thread 规范尚未公开。
+... 支持“仅”基于线程的设备。 Homekit 线程规范尚未公开。目前市场上的所有设备都支持BLE或WLAN，因此适配器将根本不使用Thread而是其他方式进行通信。
 
 ###如何使用适配器
 适配器侦听网络中的可用设备。
@@ -39,10 +39,10 @@ hash: X9TntE4sGhJfsdGvmSEz4g3uIyTIhMxUjApyU9Gw4Ww=
 数据点是使用适当的状态创建的，如果可用，还有正确的角色。使用其他通用角色。
 
 ###识别信息
-未与任何控制器配对的设备具有可以用“true”触发的 admin.identify 状态。在这种情况下，相关设备应该识别自己（例如，灯应该闪烁等，以便可以识别）。此功能仅在设备未与控制器配对时可用。
+未与任何控制器配对的设备具有 admin.identify 状态，可以使用“true”触发。在这种情况下，相关设备应该识别自己（例如，灯应该闪烁等，以便可以识别）。此功能仅在设备未与控制器配对时可用。
 
 #### 配对信息
-要将设备与此适配器实例配对，您需要提供设备上显示的引脚或标签等。 PIN 是 QR 码旁边的 8 个数字。数字需要以 123-45-678 的格式输入（当破折号未打印在标签上或屏幕上时！）
+要将设备与此适配器实例配对，您需要提供设备上显示的引脚或标签等。 PIN 是 QR 码旁边的 8 个数字。需要以 123-45-678 格式输入数字（当破折号未打印在标签上或屏幕上显示时也是如此！）
 
 现在需要将 PIN 输入到 admin.pairWithPin 状态 - 很快就会出现管理 UI。
 
@@ -55,7 +55,7 @@ hash: X9TntE4sGhJfsdGvmSEz4g3uIyTIhMxUjApyU9Gw4Ww=
 
 #### IP 设备使用特别注意事项
 IP 设备是使用 UDP 包发现的，因此您的主机需要与设备位于同一网络中。目前没有真正的解决方法，因为使用的 MDNS 记录包含配对过程的重要信息。
-尤其是在使用 Docker 时，您需要找到方法（主机模式、macvlan、...）来查看 UDP 包。
+特别是在使用 Docker 时，您需要找到方法（主机模式、macvlan、...）来查看 UDP 包。
 
 没有控件或屏幕的基于 WLAN 的 IP 设备的主要挑战是让它们进入您的 WLAN 网络。很可能有制造商特定的移动应用程序最初将设备添加到您的网络。如果此初始过程还将设备与 Apple Home 配对，您可能需要在之后取消配对（例如 https://www.macrumors.com/how-to/delete-homekit-device/）。在此之后，它应该在您的 WLAN 中并且可以与此适配器配对。
 
@@ -64,22 +64,22 @@ IP 设备是使用 UDP 包发现的，因此您的主机需要与设备位于同
 #### BLE设备使用特别注意事项
 默认情况下，适配器设置中禁用 BLE。启用后可以发现可达的设备。
 
-由于蓝牙设备的限制，没有可用的状态变化“实时更新”。设备将通过触发立即数据刷新的特殊包报告“重要状态变化”（例如“开启”状态变化）。此外，数据会在定义的数据轮询间隔内刷新。不要将它们设置得太短！
+由于蓝牙设备的限制，无法获得状态变化的“实时更新”。设备将通过触发立即数据刷新的特殊包报告“重要状态变化”（例如“开启”状态变化）。此外，数据会在定义的数据轮询间隔内刷新。不要将它们设置得太短！
 
 重新启动适配器蓝牙设备后无法直接连接 - 系统需要从设备接收至少一个发现包以获取所需的连接详细信息。这意味着 BLE 设备的可用可能会有点延迟。
 
 ＃＃＃ 故障排除
-#### 已知不兼容的设备
+#### 已知不兼容设备
 如果您在将设备与此适配器配对时遇到问题，请尝试将其与普通 iOS Apple Home 应用程序配对。如果这不起作用，那么设备有些奇怪，然后这个适配器也无济于事。锅尝试重置，但没有机会。
 
-目前，以一些多度门锁为例。它们需要使用 Tado 应用程序进行配对，该应用程序以某种方式将设备注册到 Apple Home，但不是通过官方配对过程。
+目前以某些多度门锁为例。它们需要使用 Tado 应用程序进行配对，该应用程序以某种方式将设备注册到 Apple Home，但不是通过官方配对过程。
 
 #### 开票前需要检查的其他潜在问题
 ##### 用于 BLE 设备
 * 如果您遇到 BLE 连接无法正常工作的问题，当适配器尝试初始化 BluetoothLE 连接时出现错误，请首先运行 `iobroker fix` 以确保正确设置所有权限和所需功能。
 * 如果这没有帮助，请检查 https://github.com/noble/noble#running-on-linux
 * 请确保您的系统是最新的，包括内核 `apt update && apt dist-upgrade`
-* 尝试使用例如重置相关的 BLE 设备`sudo hciconfig hci0 重置`
+*尝试使用例如重置相关的BLE设备`sudo hciconfig hci0 重置`
 * 对于问题，还提供 `uname -a` 和 `lsusb` 的输出
 * 可以使用 `sudo hcidump -t -x >log.txt` 获取低级 BLE 设备日志（另外在第二个 shell 中运行适配器）
 
@@ -103,10 +103,16 @@ IP 设备是使用 UDP 包发现的，因此您的主机需要与设备位于同
 
 ＃＃＃ 去做
 * 检查适配器如何与按钮一起工作（它们没有状态，我没有这样的设备。需要支持）
-* 研究支持的视频设备
+* 查看支持的视频设备
 *查看提供图像的支持设备（方法在那里，但从未在实际中看到过）
 
 ## Changelog
+### 0.4.3 (2022-01-25)
+* (Apollon77) make sure all connections get closed on reconnect
+
+### 0.4.2 (2022-01-25)
+* (Apollon77) Reset HTTP connection if timeouts happen on data polling
+
 ### 0.4.1 (2022-01-21)
 * (Apollon77) Optimize close of connections on adapter stop
 

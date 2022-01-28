@@ -186,6 +186,10 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 * blind alert state -> decode bit array
 
 ## Changelog
+### 2.2.5
+* several improvements for error handling
+* handling of invalid xml-answer for check user rights
+
 ### 2.2.4
 * correction: number format from admin page for times and tsoll
 

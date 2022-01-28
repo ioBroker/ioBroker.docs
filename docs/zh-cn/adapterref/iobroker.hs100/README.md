@@ -3,29 +3,31 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hs100/README.md
 title: ioBroker.hs100
-hash: dDlSFwugLId+LLgjA6OFimZj8QDqrnQ8gUniavEIkoA=
+hash: CPoooePFi/uSO1bFlBwG9UluaNTJxH8HfnrUqbxG6Fw=
 ---
 ![标识](../../../en/adapterref/iobroker.hs100/admin/hs100.png)
 
 ![安装数量](http://iobroker.live/badges/hs100-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.hs100.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.hs100.svg)
-![新产品管理](https://nodei.co/npm/iobroker.hs100.png?downloads=true)
+![新PM](https://nodei.co/npm/iobroker.hs100.png?downloads=true)
 
 # IoBroker.hs100
 =================
 
-ioBroker 的 TP-Link 适配器-------------------------------------------- ----------------------------------
+ioBroker 的 TP-Link 适配器 -------------------------------------------------------- ----------------------------------
 
-开关 TP-Link 插头和灯泡
+切换 TP-Link 插头和灯泡
+
+用于插头 hs100 插头 hs110 灯泡 LBxxx
 
 <b>NodeJs &gt;&gt; 8.xx</b>
 
 <!-- 下一个版本的占位符（在行首）：
 
-https://github.com/AlCalzone/release-script#usage npm run release minor -- --all 0.9.8 -> 0.10.0 npm run release patch -- --all 0.9.8 -> 0.9.9 npm运行 release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0 下一版本的占位符（在行的开头）：
+https://github.com/AlCalzone/release-script#usage npm run release minor -- --all 0.9.8 -> 0.10.0 npm run release patch -- --all 0.9.8 -> 0.9.9 npm运行 release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0 下一个版本的占位符（在行首）：
 
-### **工作正在进行中** -->
+### **正在进行中** -->
 
 ## Changelog
 

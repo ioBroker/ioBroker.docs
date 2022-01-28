@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mytime/README.md
 title: ioBroker.mytime
-hash: a7L+rF17jhqztHSapeOLvt/yqEFihmBANmyCnUbc1d4=
+hash: xMMKU/tNSgObOEGe6ERoprb7/chSmR7eBPmGaK7+758=
 ---
 ![标识](../../../en/adapterref/iobroker.mytime/admin/mytime.png)
 
@@ -34,20 +34,20 @@ hash: a7L+rF17jhqztHSapeOLvt/yqEFihmBANmyCnUbc1d4=
 
 ##### 停止行为归零 倒计时得到信号停止后，倒计时保持在 0。
 ＃＃＃＃ 时间序列
-在配置对话框“时间序列”选项卡中，您可以创建一个具有一个或多个计时器的新时间序列。对于每个时间规则，您可以定义不同的参数每个时间序列创建一个单独的数据点，该数据点在计算的时间事件中触发。
+在配置对话框“时间序列”选项卡中，您可以使用一个或多个计时器创建一个新的时间序列。对于每个时间规则，您可以定义不同的参数每个时间序列创建一个单独的数据点，该数据点在计算的时间事件中触发。
 时间事件是实时计算的。但是，使用的 rrule 库在所有参数组合中还不是完美的。
 这表明，在某些组合下，页面会进入无限循环。
 演示页面 http://jakubroztocil.github.io/rrule/ 也可用于实验。
-除了添加时间规则之外，您还可以添加时间规则以排除时间事件、添加单个时间事件以及排除单个时间事件。
+除了添加时间规则，您还可以添加时间规则以排除时间事件、添加单个时间事件以及排除单个时间事件。
 
 ＃＃＃ 用法
 ＃＃＃＃ 时间序列
 ##### 可用数据点
 配置新时间序列后，适配器会创建以下数据点：
 
-|数据点 |说明 |
+|数据点 |描述 |
 |-----------|---------------------------------------------------------------------------|
-|行动 |时代的实际状态。可能的值是 stop,run |
+|行动 |时代的实际状态。可能的值为 stop,run |
 |命令 |无功能自动取款机 |
 
 ##### 可用的操作状态
@@ -60,7 +60,7 @@ hash: a7L+rF17jhqztHSapeOLvt/yqEFihmBANmyCnUbc1d4=
 ##### 可用数据点
 配置新的倒计时后，适配器会创建以下数据点：
 
-|数据点 |说明 |
+|数据点 |描述 |
 |-----------|---------------------------------------------------------------------------|
 |行动 |倒计时的实际状态。可能的值为停止、运行、暂停、结束 |
 |命令 |命令的数据点。可能的命令如下所述 |
@@ -77,7 +77,7 @@ hash: a7L+rF17jhqztHSapeOLvt/yqEFihmBANmyCnUbc1d4=
 |结束 |倒计时结束。您可以将此状态用作进一步操作（声音、弹出窗口等）的触发器 | |
 
 ##### Cmd 数据点的可用命令
-|命令 |示例 |说明 |
+|命令 |示例 |描述 |
 |---------------|----------------------|----------------------------------------------------------------------------------------------|
 | +价值 | +1:10 |为倒计时设置增加时间。下次启动时会考虑该设置|
 | -值 | -1:2:3 |从倒计时中减去时间。下次启动时会考虑该设置|
@@ -113,10 +113,10 @@ hash: a7L+rF17jhqztHSapeOLvt/yqEFihmBANmyCnUbc1d4=
 ##### 模板的格式以格式化小部件中的倒计时输出
 可以使用以下占位符：
 
-|占位符 |说明 |
+|占位符 |描述 |
 |-------------|-----------------------------------------------------------------|
 | d |没有前导零的日子|
-| dd |带前导零的日子| 高分辨率照片| CLIPARTO |
+| dd |前导零的日子|
 | H |没有前导零的小时 |
 | HH |带前导零的小时 |
 |米 |没有前导零的分钟|
@@ -166,13 +166,17 @@ hash: a7L+rF17jhqztHSapeOLvt/yqEFihmBANmyCnUbc1d4=
 
 ##### 小部件属性
 ###### datetime 开始时间的 DateTime 字符串。
-该表达式必须可由 javascript 函数 new Date(expression) 解释。
+表达式必须可由 javascript 函数 new Date(expression) 解释。
 另请参阅 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse
 示例：2022-01-10 23:12 2022-01-104T23:12:00.000Z
 
 ＃＃＃＃＃＃ 格式
 格式化定时器输出。默认为 mm:ss。详情见章节格式模板
 
+###### HTML-Prepend
+此文本或 html 被附加到小部件的输出中
+
+###### HTML-Append 此文本或 html 附加到小部件的输出
 #### 小部件倒计时圈
 环形/圆形设计中的倒计时小部件。
 
@@ -274,7 +278,7 @@ Nixie-Tube/LED 风格的倒计时小部件
 * 7段显示
 *滚动数字
 * 可自定义的字体
-* ts：排除定时器（时间范围，单个日期）
+* ts：排除时间规则（时间范围，单个日期）
 * ~~为字时钟添加时区~~
 * ~~字时钟计时器~~
 * ~~定时调度器：计划单个日期/时间和像outlook这样的重复事件~~
@@ -289,6 +293,8 @@ Nixie-Tube/LED 风格的倒计时小部件
 
 ## Changelog
 
+### 0.7.12
+* add html_prepend and html_append properties to the widget reverse countdown
 ### 0.7.10
 * add widget reverse countdown
 ### 0.7.9

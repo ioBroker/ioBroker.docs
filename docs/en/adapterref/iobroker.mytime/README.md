@@ -191,6 +191,11 @@ Example:
 ###### Format
 Formats the timer output. default is mm:ss. for details see Chapter format template
 
+###### HTML-Prepend
+This text or html is prepended to the output of the widget
+###### HTML-Append
+This text or html is appended to the output of the widget
+
 #### Widget Countdown Circle
 A countdown widget in a ring/circle design. 
 ##### Widget Properties
@@ -353,6 +358,8 @@ Group CSS-Common / transform "scale(0.5)"
 
 ## Changelog
 
+### 0.7.12
+* add html_prepend and html_append properties to the widget reverse countdown
 ### 0.7.10
 * add widget reverse countdown
 ### 0.7.9

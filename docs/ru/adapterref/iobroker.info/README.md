@@ -315,6 +315,10 @@ $ sudo apt-get install smartmontools
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 1.9.17 (2022-01-26)
+* (simatec) Design fix
+* (simatec) Update dependencies
+
 ### 1.9.16 (2021-11-13)
 * (Apollon77) Update dependencies
 * (Apollon77) Fix translations
@@ -524,7 +528,7 @@ $ sudo apt-get install smartmontools
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017 - 2021 ldittmar <iobroker@lmdsoft.de>
+Copyright (c) 2017 - 2022 ldittmar <iobroker@lmdsoft.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

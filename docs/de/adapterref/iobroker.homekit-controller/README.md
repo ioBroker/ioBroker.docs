@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.homekit-controller/README.md
 title: ioBroker.homekit-controller
-hash: X9TntE4sGhJfsdGvmSEz4g3uIyTIhMxUjApyU9Gw4Ww=
+hash: 8WklqVfVhAM7m8QqhDDH4r69iv3vLstogp+KmPd9WEY=
 ---
 ![Logo](../../../en/adapterref/iobroker.homekit-controller/admin/homekit-controller.png)
 
@@ -23,7 +23,7 @@ Mit diesem Adapter können Sie Geräte mit dem „Works with HomeKit“-Logo, di
 ### Der Adapter ist nicht ...
 ... ioBroker-Geräte oder -Zustände anzubieten, die von einer Apple Home-App / einem Apple Home-System gesteuert werden sollen. Wenn Sie diese Richtung wünschen, verwenden Sie bitte den Adapter [Jahka](https://github.com/jensweigele/ioBroker.yahka).
 
-... Thread-basierte Geräte unterstützen. Die Homekit-Thread-Spezifikationen sind noch nicht öffentlich verfügbar.
+... unterstützt "nur" Thread-basierte Geräte. Die Homekit-Thread-Spezifikationen sind noch nicht öffentlich verfügbar. Nach aktuellem Kenntnisstand unterstützen alle Geräte auf dem Markt auch BLE oder WLAN, der Adapter wird also einfach nicht Thread sondern andere Wege zur Kommunikation nutzen.
 
 ### Verwendung des Adapters
 Der Adapter lauscht auf verfügbare Geräte in Ihrem Netzwerk.
@@ -107,6 +107,12 @@ Wenn Sie Probleme haben und ein Problem melden möchten (siehe unten), ist das e
 * Schauen Sie sich Support-Geräte an, die Bilder anbieten (Methode ist da, aber nie in Aktion gesehen)
 
 ## Changelog
+### 0.4.3 (2022-01-25)
+* (Apollon77) make sure all connections get closed on reconnect
+
+### 0.4.2 (2022-01-25)
+* (Apollon77) Reset HTTP connection if timeouts happen on data polling
+
 ### 0.4.1 (2022-01-21)
 * (Apollon77) Optimize close of connections on adapter stop
 

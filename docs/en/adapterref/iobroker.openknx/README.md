@@ -274,6 +274,11 @@ The KNX object flags define the bus behavior of the object they represent.
 |U: the Update flag         | A: Aktualisieren-Flag    | object common.read                                | update object on incoming GroupValue_Responses |
 |I: the Initialization flag | I: Initialisierungs-Flag | object native.autoread                            |                                                |
 
+# Monitoring and Error Tracking
+Openknx uses sentry.io for application monitoring and error tracking.
+It aids developers to better hunt bugs and gain field usage data. The identification of an user is tracked in a pseudonymised way.
+Data is sent to Iobroker Sentry server hosted in Germany. If you have allowed iobroker GmbH to collect diagnostic data then also your anonymous installation ID is included. This allows Sentry to group errors and show how many unique users are affected by such an error.
+
 # Features
 * stable and reliable knx stack
 * Automatic encoding/deconding of KNX datagrams for most importants DPTs, raw read and write for other DPTs
@@ -293,12 +298,18 @@ The KNX object flags define the bus behavior of the object they represent.
 - only IPv4 supported
 
 ## Changelog
+### 0.1.16 (2022-01-27)
+* feature: add back sentry
+* fix: stability alias generation
+* fix: better input settings plausibilization in admin
+* fix: reset after settings change was broken, dont reset for alias change
+
 ### 0.1.15 (2022-01-23)
  * feature: more sanity checks for gui
  * feature: issue #84, add openknx to discovery adapter
  * feature: issue #82, warnings on import of duplicate ga addresses, also check iob object for duplicates
  * fix: issue #87, added q interface to trigger GroupValue_Read, comments are overwritten in javascript adapter
- * fix: remove unused reference to sentry
+ * fix: remove currently unused reference to sentry
  
 ### 0.1.14 (2022-01-08)
 * feature: autodetect the KNX IP interface parameters

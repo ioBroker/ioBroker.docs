@@ -18,7 +18,7 @@ The Server will store this message and send it to its subscribers when the clien
 
 ### subscriptions
 Comma separated list of topics that are not covered by existing states.
-Received messages are converted to states within the adapters namespace (e.g. mqtt.0) and subscribed.
+Received messages are converted to states within the adapter's namespace (e.g. mqtt.0) and subscribed.
 You can remove topics after all states have been created.
 
 ### publish prefix
@@ -68,11 +68,17 @@ default: state-ID converted to a mqtt topic.
 -->
 
 ## Changelog
+### 1.5.0 (2022-01-26)
+* IMPORTANT: This adapter now required at least js-controller 3.3.x
+* (Apollon77) Fix crash cases
+
+### 1.4.1 (2022-01-26)
+* (bluefox) js-controller 3.3 optimizations
 
 ### 1.4.0 (2021-07-16)
 * IMPORTANT: This adapter now required at least js-controller 2.0.0
 * (Apollon77) js-controller 3.3 optimizations
-* (AlCalzone) Unpublish expired states
+* (AlCalzone) Unpublished expired states
 * (AlCalzone) Only handle stat values if state exists
 
 ### 1.3.2 (2021-04-19)
@@ -97,7 +103,7 @@ default: state-ID converted to a mqtt topic.
 
 ### 1.1.0 (2017-12-30)
 * (bluefox) Translations
-* (bluefox) Udpate of MQTT module
+* (bluefox) Update of MQTT module
 
 ### 1.0.1 (2017-11-16)
 
@@ -129,7 +135,7 @@ default: state-ID converted to a mqtt topic.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2021 Pmant
+Copyright (c) 2016-2022 Pmant
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

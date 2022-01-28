@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solax/README.md
 title: ioBroker.solax
-hash: fQlkfIsor5vQ4oPOyB4tcFzKV+WtKocUT+QyxRwkDjc=
+hash: HUBxVg5wWIo2qX34/a2x74UiyQ7rBdb6Bi8u4BJtnDI=
 ---
 ![Logo](../../../en/adapterref/iobroker.solax/admin/solax.png)
 
@@ -26,18 +26,95 @@ hash: fQlkfIsor5vQ4oPOyB4tcFzKV+WtKocUT+QyxRwkDjc=
 
 **************************************************************************************************************
 
-## Solax-Adapter für ioBroker
+### Solax-Adapter für ioBroker
+**************************************************************************************************************
+
+### Deutsche Dokumentation
+#### Solax Cloud-Verbindung
+Solax Wechselrichter API-Cloud-Verbindung
+
+This Adapter ruft die Daten deines Wechselrichters vom Hersteller Solax für iobroker ab.
+
+Was dazu benötigt WIRD, ist ein Konto bei Solax, eine Token-ID und die Seriennummer des Pocket Wifi oder LAN Sticks.
+
+#### API-Token
+<span><img src="docs/en/img/solax_api.png"></span>
+
+#### Seriennummer
+<span><img src="docs/en/img/wifi-stick.png"></span>
+
+#### Experteneinstellungen
+Die lokale Verbindung wird aktuell nur von dem Pocket Wifi Sticks unterstützt. LAN-Sticks können nur im Cloud-Modus betrieben werden.
+
+Achtung, wer in den Experteneinstellungen den lokalen Modus aktiviert sollte im Vorfeld die aktuelle Firmwareversion seines Pocket Wifi Sticks prüfen.
+Eine Firmware-Version größer 2.30.20 darf der Stick nicht installiert haben, da Solax in höheren Versionen den lokalen Zugriff blockiert und es zu einem Absturz des Wifi-Sticks führt.
+
+Wie man die Firmware-Version prüfen kann und ein Downgrade auf die korrekte Version hinbekommt, wird hier erklärt.
+
+Um die Firmware auf dem Stick zu prüfen, müsstet ihr euch mit dem Hotspot des Sticks verbinden.
+Der Name des Hotspots sollte bei euch wie folgt aussehen: `Solax_SWXXXXXXXX`. XXXXXXXX wird durch eure Seriennummer ersetzt.
+
+Wenn ihr mit dem Hotspot verbunden seit, dann geht ihr mit folgender IP-Adresse in euren Browser auf das Webinterface des Wifi-Sticks: `5.8.8.8`<br> Solltet ihr euer Passwort bei der Ersteinrichtung nicht geändert haben, sind die Standard Login-Daten admin:admin
+
+<span><img src="docs/en/img/webif.png"></span>
+
+Im Webinterface geht ihr auf den Tab &quot;System&quot; und findet dort die aktuell installierte Firmware-Version.<br> Sollte die Version größer 2.033.20 sein, könnt ihr im gleichen Tab über den Menüpunkt &quot;Firmware aktualisieren (.usb)&quot; die korrekte Version flashen.
+
+Die Version 2.033.20 könnt ihr euch unter folgendem Link herunterladen:
+
+[Laden Sie die Pocket Wifi-Firmware herunter](https://github.com/simatec/ioBroker.solax/raw/master/docs/files/618.00122.00_Pocket_WIFI_V2.033.20_20190313.usb.zip)
+
+Die Zip-Datei muss entpackt werden und es muss die Datei mit der Endung „.usb“ ausgewählt werden.<br> Nun könnt Ihr den Downgrade starten und werdet nach ca. 20-30 Sekunden eine Meldung bekommen, dass das Update erfolgreich war und der Stick neu gestartet wird.
+
+Nach erfolgreichem Neustart könnt ihr nun über den Hotspot mit der IP-Adresse `5.8.8.8` oder auch über eure lokale IP in eurem Netzwerk auf den Wifi-Stick zugreifen.
+
+Prüft bitte vor einer Verbindung zu dem Adapter noch einmal, ob der Downgrade erfolgreich war und die Firmware korrekt installiert ist.
+
+Im Adapter müssen die lokale IP-Adresse (nicht die Hotspot-IP) und das Passwort des Webinterfaces eingetragen werden und ihr habt nun eine sekundengenaue lokale Analyse eures Wechselrichters
+
+**************************************************************************************************************
+
+### Englische Dokumentation
+#### Solax Cloud-Verbindung
 Solax Wechselrichter-API-Cloud-Verbindung
 
 Dieser Adapter ruft die Daten Ihres Wechselrichters vom Hersteller Solax in den iobroker.
 
 Was Sie dazu benötigen, ist ein Konto bei Solax, Ihre Token-ID und die Seriennummer Ihres WLAN-Moduls.
 
-### Ihr API-Token
+#### API-Token
 <span><img src="docs/en/img/solax_api.png"></span>
 
-### Ihre Seriennummer
+#### Seriennummer
 <span><img src="docs/en/img/wifi-stick.png"></span>
+
+#### Experteneinstellungen
+Die lokale Verbindung wird derzeit nur von den Pocket Wifi Sticks unterstützt. LAN-Sticks können nur im Cloud-Modus betrieben werden.
+
+Achtung, wenn Sie in den Experteneinstellungen den lokalen Modus aktivieren, sollten Sie vorab die aktuelle Firmware-Version Ihres Pocket Wifi Sticks prüfen.<br> Auf dem Stick darf keine Firmware größer als 2.30.20 installiert sein, da Solax in höheren Versionen den lokalen Zugriff blockiert und den WLAN-Stick zum Absturz bringt.
+
+Wie Sie die Firmware-Version überprüfen und auf die richtige Version downgraden, wird hier erklärt.
+
+Um die Firmware auf dem Stick zu überprüfen, müssen Sie sich mit dem Hotspot des Sticks verbinden.
+Ihr Hotspot-Name sollte folgendermaßen aussehen: `Solax_SWXXXXXXXX`. XXXXXXXX wird durch Ihre Seriennummer ersetzt.
+
+Wenn Sie mit dem Hotspot verbunden sind, gehen Sie in Ihrem Browser auf die Weboberfläche des WLAN-Sticks mit folgender IP-Adresse: `5.8.8.8`<br> Wenn Sie Ihr Passwort bei der Ersteinrichtung nicht geändert haben, lauten die Standard-Anmeldedaten admin:admin
+
+<span><img src="docs/en/img/webif.png"></span>
+
+Im Webinterface gehen Sie auf den Reiter „System“ und finden dort die aktuell installierte Firmware-Version.<br> Wenn die Version größer als 2.033.20 ist, können Sie im selben Reiter über den Menüpunkt „Firmware aktualisieren (.usb)“ die richtige Version flashen.
+
+Sie können die Version 2.033.20 unter folgendem Link herunterladen:
+
+[Laden Sie die Pocket Wifi-Firmware herunter](https://github.com/simatec/ioBroker.solax/raw/master/docs/files/618.00122.00_Pocket_WIFI_V2.033.20_20190313.usb.zip)
+
+Die Zip-Datei muss entpackt und die Datei mit der Endung „.usb“ ausgewählt werden.<br> Nun können Sie das Downgrade starten und nach ca. 20-30 Sekunden erhalten Sie eine Meldung, dass das Update erfolgreich war und der Stick neu gestartet wird.
+
+Nach erfolgreichem Neustart können Sie nun über den Hotspot mit der IP-Adresse `5.8.8.8` oder über Ihre lokale IP in Ihrem Netzwerk auf den WLAN-Stick zugreifen.
+
+Bitte überprüfen Sie vor dem Verbinden mit dem Adapter noch einmal, ob das Downgrade erfolgreich war und die richtige Firmware installiert ist.
+
+Die lokale IP-Adresse (nicht die Hotspot-IP) und das Passwort des Webinterfaces müssen im Adapter eingetragen werden und schon haben Sie eine sekundengenaue lokale Analyse Ihres Wechselrichters
 
 **************************************************************************************************************
 
@@ -50,8 +127,13 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 0.4.2 (2022-01-27)
+* (simatec) Fix json state
 
-### __WORK IN PROGRESS__
+### 0.4.1 (2022-01-26)
+* (simatec) Fix react Translatation
+
+### 0.4.0 (2022-01-25)
 * (simatec) local request for Wifi Pocket Stick added
 * (simatec) Dependencies updated
 * (simatec) test and release updated

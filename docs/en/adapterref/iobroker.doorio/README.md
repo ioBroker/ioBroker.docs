@@ -22,6 +22,10 @@ Eingang von ioBroker genutzt werden. Der Adapter erkennt auch DTMF-Töne um
 Ausgänge zu schalten. Für die Selbstgemachte Türsprechstelle, kann jede
 Hardware auf der sich Baresip installieren lässt genutzt werden.
 
+## Links
+* [ioBroker Forum Hardware Thread](https://forum.iobroker.net/topic/23413/ich-baue-eine-t%C3%BCrsprechstelle-ohne-cloud)
+* [ioBroker Forum Adapter Thread](https://forum.iobroker.net/topic/22746/test-adapter-doorio-v0-0-x)
+
 ## Changelog
 ### 2.1.3
 * (bettman66) change setForeignState ack
@@ -49,10 +53,6 @@ Hardware auf der sich Baresip installieren lässt genutzt werden.
 
 ### 2.0.0
 * (bettman66) update test
-
-## Links
-* https://forum.iobroker.net/topic/23413/ich-baue-eine-t%C3%BCrsprechstelle-ohne-cloud
-* https://forum.iobroker.net/topic/22746/test-adapter-doorio-v0-0-x
 
 ## License
 The MIT License (MIT)

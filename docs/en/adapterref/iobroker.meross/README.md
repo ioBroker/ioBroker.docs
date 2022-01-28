@@ -38,6 +38,9 @@ Please use GitHub issues for this.
 Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
+### 1.10.1 (2022-01-26)
+* (Apollon77) Fix pot. crash case
+
 ### 1.10.0 (2022-01-20)
 * (Apollon77) Optimize Meross Communication to first try to communicate with the device locally before sending data to MQTT - enabled by default, you can disable it in settings!
 * (Apollon77) Optimize Meross Communication by using only one MQTT connection instead of one per device when cloud is used

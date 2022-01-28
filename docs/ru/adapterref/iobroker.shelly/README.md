@@ -2,145 +2,37 @@
 BADGE-Number of Installations: http://iobroker.live/badges/shelly-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.shelly.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.shelly.svg
+chapters: {"pages":{"en/adapterref/iobroker.shelly/README.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/README.md"},"en/adapterref/iobroker.shelly/https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/protocol-coap.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/protocol-coap.md"},"en/adapterref/iobroker.shelly/https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/protocol-mqtt.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/protocol-mqtt.md"},"en/adapterref/iobroker.shelly/https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/restricted-login.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/restricted-login.md"},"en/adapterref/iobroker.shelly/https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/state-changes.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/state-changes.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/README.md
-title: ioBroker.shelly
-hash: lWXmsOSrtSultk4UC9EcmYOpqJo9oXG0QGiSqaHzgEo=
+title: ioBroker.шелли
+hash: WD16f0ExENHXj+fuWsljhLcX+rKCXEc4alQfcetY8YI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.shelly/../../admin/shelly.png)
 
-# IoBroker.shelly
+# IoBroker.шелли
 ## Требования
 1. nodejs 12.0 (или новее)
-2. js-controller 3.3.0 (или новее)
+2. js-контроллер 3.3.0 (или новее)
 4. Адаптер администратора 5.1.25 (или новее)
 
 ## Поколения устройств
-Ознакомьтесь со списком *поддерживаемых устройств* для получения более подробной информации.
+Проверьте список *поддерживаемых устройств* для получения более подробной информации.
 
-- Gen1: устройства ESP8266, CoAP или MQTT
-- Gen2: устройства ESP32, RCP или MQTT
+- **Gen1**: устройства ESP8266, CoAP или MQTT
+- **Поколение 2**: устройства ESP32, RCP или MQTT.
 
 ## Общий
-Вы можете использовать адаптер в режиме CoAP или MQTT. Режим по умолчанию - CoAP, и вам не нужно ничего делать. **Если вы хотите использовать устройства Gen2, вы должны использовать MQTT!**
+Вы можете использовать адаптер в режиме CoAP или MQTT. Режим по умолчанию — CoAP, и вам не нужно ничего делать. **Если вы хотите использовать устройства Gen2, вы должны использовать MQTT!**
 
-![iobroker_general](../../../en/adapterref/iobroker.shelly/../iobroker_general.png)
+![iobroker_general](../../../en/adapterref/iobroker.shelly/./img/iobroker_general.png)
 
-## Конфигурация
-### Ограниченный вход
-Чтобы защитить свои устройства Shelly с помощью ограниченного входа в систему, выберите имя пользователя и пароль в конфигурации ioBroker на вкладке *общие настройки*
-
-![iobroker_general_restrict_login](../../../en/adapterref/iobroker.shelly/../iobroker_general_restrict_login.png)
-
-Активируйте ограничение входа на всех своих устройствах Shelly:
-
-1. Откройте веб-конфигурацию Shelly в своем веб-браузере (не в приложении Shelly!)
-2. Перейдите в «Настройки Интернета и безопасности -> Ограниченный вход».
-3. Установите флажок и введите ранее настроенные имя пользователя и пароль.
-4. Сохраните конфигурацию - Shelly автоматически перезагрузится.
-5. Убедитесь, что на всех ваших устройствах Shelly настроены одно и то же имя пользователя и пароль.
-
-![shelly_restrict_login](../../../en/adapterref/iobroker.shelly/../shelly_restrict_login.png)
-
-### Изменения состояния
-По умолчанию вы увидите это изменение, только если значение состояния изменится. В этом случае *Обновлять объекты, даже если нет изменения значения* деактивировано.
-
-Пример:
-
-* shelly.0.SHBTN-1 # A4CF12F454A3 # 1.Button.Event = 'S' (временная метка последнего изменения: 01.02.2020 10:20:00)
-* shelly.0.SHBTN-1 # A4CF12F454A3 # 1.Button.Event = 'S' (Отметка времени последнего изменения: 01.02.2020 **10: 20: 00** - в ioBroker нет изменений, потому что значение равно такой же
-* shelly.0.SHBTN-1 # A4CF12F454A3 # 1.Button.Event = 'L' (временная метка последнего изменения: 01.02.2020 10:22:00)
-
-Если вы активируете *Обновлять объекты, даже если нет изменения значения* состояние будет обновлено без изменения значения. Единственное, что будет изменено в этом случае, - это *Last Changed Timestamp*
-
-Пример:
-
-* shelly.0.SHBTN-1 # A4CF12F454A3 # 1.Button.Event = 'S' (временная метка последнего изменения: 01.02.2020 10:20:00)
-* shelly.0.SHBTN-1 # A4CF12F454A3 # 1.Button.Event = 'S' (Last Changed Timestamp: 01.02.2020 **10: 21: 00** - изменение временной метки в ioBroker, значение такое же
-* shelly.0.SHBTN-1 # A4CF12F454A3 # 1.Button.Event = 'L' (временная метка последнего изменения: 01.02.2020 10:22:00)
-
-### CoAP
-По умолчанию используется протокол CoAP.
-
-Если вы используете Shelly с прошивкой менее 1.9.4, вам не нужно ничего настраивать. ioBroker сам найдет ваши устройства Shelly.
-
-** Если вы используете версии прошивки выше 1.9.4, вам необходимо ввести CoIoT-сервер для CoAP на вашем устройстве Shelly. ** Введите IP-адрес вашего сервера ioBroker, а затем порт 5683 в качестве CoIoT-сервера. Например, если ioBroker работает по адресу ```192.168.1.2```, вы должны ввести ```192.168.1.2:5683``` и активировать CoIoT.
-
-** Важно: поскольку CoAP использует многоадресные пакеты UDP, устройства Shelly должны находиться в той же подсети, что и ваш сервер ioBroker. **
-
-Если вы используете ioBroker в контейнере докеров, контейнер должен работать в сетевом режиме ```host``` или ```macvlan```. Если док-контейнер работает в режиме ```bridge```, ваши устройства Shelly не будут обнаружены.
-
-![iobroker_restrict_login](../../../en/adapterref/iobroker.shelly/../iobroker_general_coap.png)
-
-CoAP добавит все устройства в вашу сеть. Если вы хотите исключить некоторые устройства Shelly, вы можете поместить их в черный список. Просто введите серийные номера в таблицу черного списка:
-
-![iobroker_coap](../../../en/adapterref/iobroker.shelly/../iobroker_coap.png)
-
-#### Исправление проблем
-В некоторых случаях устройства Shelly не будут обнаружены адаптером Shelly в режиме CoAP. Пожалуйста, попробуйте следующее:
-
-1. Отключите экземпляр адаптера ioBroker Shelly. **Не удаляйте адаптер Shelly!** Но важно отключить экземпляр Shelly.
-2. Откройте окно терминала и выполните следующие команды на сервере ioBroker:
-
-```
-cd /opt/iobroker/node_modules/iobroker.shelly/
-node coaptest.js
-```
-
-Вы можете использовать ```tcpdump``` для прослушивания сообщений CoAP:
-
-```
-# Install tcpdump if it is not installed
-sudo apt-get update
-sudo apt-get install tcpdump
-
-# tcpdump with IP address of Shelly device on network device eth1
-sudo tcpdump -i eth1 src <IP-OF-SHELLY> and port 5683 -A
-
-# tcpdump with IP address of Shelly device
-sudo tcpdump src <IP-OF-SHELLY> and port 5683 -A
-
-# tcpdump of all Shelly devices on network device eth1
-sudo tcpdump  -i eth1 port 5683 -A
-
- # tcpdump of all Shelly devices
-sudo tcpdump port 5683 -A
-```
-
-Теперь вы увидите все сообщения CoAP от Shelly. Если вы не видите никаких сообщений, у вас проблема с сетью с UDP или многоадресными сообщениями.
-
-Сообщения CoAP выглядят так:
-
-``` 
-UDP Server listening on 0.0.0.0:5683
-2020-08-19T19:33:29.484Z - 192.168.20.233:5683 - P-B3citsml	SHBTN-1#AXXXXXXXXXX#2RC{"G":[[0,9103,0],[0,2102,"S"],[0,2103,1],[0,3115,0],[0,3112,0],[0,3111,100],[0,9102,["button"]]]}
-2020-08-19T19:33:29.827Z - 192.168.20.233:5683 - P-C3citsml	SHBTN-1#AXXXXXXXXXX#2RC{"G":[[0,9103,0],[0,2102,"S"],[0,2103,1],[0,3115,0],[0,3112,0],[0,3111,100],[0,9102,["button"]]]}
-2020-08-19T19:33:33.942Z - 192.168.20.233:5683 - P-D3citsml	SHBTN-1#AXXXXXXXXXX#2RC{"G":[[0,9103,0],[0,2102,"S"],[0,2103,1],[0,3115,0],[0,3112,0],[0,3111,100],[0,9102,["button"]]]}
-```
-
-### MQTT
-1. Откройте конфигурацию адаптера Shelly в ioBroker.
-2. Выберите MQTT и HTTP как *протокол* в *общих настройках*
-3. Откройте вкладку **mqtt settings**
-4. Выберите безопасное имя пользователя и пароль (вы должны настроить эту информацию на своих устройствах Shelly)
-
-![iobroker_general](../../../en/adapterref/iobroker.shelly/../iobroker_general_mqtt.png)
-
-![iobroker_mqtt](../../../en/adapterref/iobroker.shelly/../iobroker_mqtt.png)
-
-Активируйте MQTT на всех своих устройствах Shelly:
-
-1. Откройте веб-конфигурацию Shelly в своем веб-браузере (не в приложении Shelly!)
-2. Перейдите в «Настройки Интернета и безопасности -> Дополнительно - Настройки разработчика».
-3. Активируйте MQTT и введите ранее настроенное имя пользователя, пароль и IP-адрес вашей установки ioBroker, а затем порт 1882 (например, `` 192.168.20.242: 1882``)
-4. Сохраните конфигурацию - Shelly автоматически перезагрузится.
-
-- Для устройств Gen1: не меняйте `` настраиваемый префикс MQTT`` (адаптер не будет работать, если вы измените префикс)
-
-![shelly_mqtt1](../../../en/adapterref/iobroker.shelly/../shelly_mqtt1.png)
-
-![shelly_mqtt2](../../../en/adapterref/iobroker.shelly/../shelly_mqtt2.png)
+## Оглавление
+- [Протокол CoAP](protocol-coap.md)
+- [Протокол MQTT](protocol-mqtt.md)
+- [Ограниченный вход](restricted-login.md)
+- [Состояние изменений](state-changes.md)
 
 ## Changelog
 
@@ -148,8 +40,17 @@ UDP Server listening on 0.0.0.0:5683
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.1.1 (2022-01-26)
+* (klein0r) Fixed firmware auto update
+* (klein0r) Updated timeouts
+* (klein0r) Added command source for shelly 2.5
+* (klein0r) Added color for device objects as online indicator
 
-### **WORK IN PROGRESS**
+### 5.1.0 (2022-01-25)
+* (klein0r) Added input states for generation 2 devices
+* (klein0r) Fixed online state management and adapter indicator
+* (klein0r) Fixed long push data type for some devices
+* (klein0r) Fixed fahrenheit temperature states
 * (klein0r) Code refactoring
 * (klein0r) Updated documentation
 
@@ -444,9 +345,12 @@ Important: The adapter now requires at least Node.js 12.x, js-controller 3.3+ an
 * Shows RSSI Status for Shelly 1 & 2. You need Firmware 1.4.4
 
 ## License
+
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 Thorsten Stueben <thorsten@stueben.de>, Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2022 Thorsten Stueben <thorsten@stueben.de>,
+                        Apollon77 <iobroker@fischer-ka.de> and
+                        Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

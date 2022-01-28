@@ -3,60 +3,61 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.doorio/README.md
 title: ioBroker.doorio
-hash: OXB7nvAFt6ITxkgbxen7gzRW89pXdtH3Gv4lsHTU1DE=
+hash: o1RBbRI0CSb9+BOz0XM8a4FKs0Y+Pq/MLHrtSCQVIbU=
 ---
-![логотип](../../../en/adapterref/iobroker.doorio/admin/doorio.png)
+![Логотип](../../../en/adapterref/iobroker.doorio/admin/doorio.png)
 
+![Количество установок](http://iobroker.live/badges/doorio-stable.svg)
 ![Статус сборки](https://travis-ci.org/Bettman66/ioBroker.doorio.svg?branch=master)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.doorio.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.doorio.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.doorio.svg)
-![NPM](https://nodei.co/npm/iobroker.doorio.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.doorio.png?downloads=true)
 
 # IoBroker.doorio
 ## Информация
 Самодельный адаптер DoorStation для ioBroker
 
 Этот адаптер подключается к Sip-клиенту Baresip через tcp.socket для связи с домофоном. В качестве триггера звонка можно использовать любой вход от ioBroker.
-Адаптер также распознает тональные сигналы DTMF для переключения выходов. Для самодельной дверной станции можно использовать любую фурнитуру, на которую можно установить Baresip.
+Адаптер также распознает тональные сигналы DTMF для переключения выходов. Для самодельной дверной станции можно использовать любую фурнитуру, на которую может установить Baresip.
 
-Адаптер Dieser позволяет использовать SIP-клиент с Baresip Sip-Client, подключенный к Türsprechstelle zu kommunizieren. Als Klingelauslöser kann jeder Eingang von ioBroker genutzt werden. Der Adapter erkennt auch DTMF-Töne um Ausgänge zu schalten. Für die Selbstgemachte Türsprechstelle, kann jede Hardware auf der sich Baresip installieren lässt genutzt werden.
+Адаптер Dieser включает в себя tcp.socket mit dem Baresip Sip-Client, um mit einer Türsprechstelle zu kommunizieren. Als Klingelauslöser kann jeder Eingang von ioBroker genutzt werden. Der Adapter erkennt auch DTMF-Töne um Ausgänge zu schalten. Für die Selbstgemachte Türsprechstelle, kann jede Hardware auf der sich Baresip installieren lässt genutzt werden.
 
 ## Ссылки
-* https://forum.iobroker.net/topic/23413/ich-baue-eine-t%C3%BCrsprechstelle-ohne-cloud
-* https://forum.iobroker.net/topic/22746/test-adapter-doorio-v0-0-x
+* [Оборудование форума ioBroker] (https://forum.iobroker.net/topic/23413/ich-baue-eine-t%C3%BCrsprechstelle-ohne-cloud)
+* [Тема адаптера форума ioBroker] (https://forum.iobroker.net/topic/22746/test-adapter-doorio-v0-0-x)
 
 ## Changelog
-### 1.0.10
-* (bettman66) add detour
+### 2.1.3
+* (bettman66) change setForeignState ack
 
-### 1.0.9
-* (bettman66) fix userconfigerror
+### 2.1.2
+* (bettman66) update for js-controller
 
-### 1.0.8
-* (bettman66) fix dtmf-timeout
+### 2.1.1
+* (bettman66) bugfix ack:true
 
-### 1.0.7
-* (bettman66) check states
+### 2.1.0
+* (bettman66) add bot update
 
-### 1.0.6
-* (bettman66) clearTimeouts
+### 2.0.4
+* (bettman66) optimize code
 
-### 1.0.5
-* (bettman66) update stable
+### 2.0.3
+* (bettman66) bugfix version
 
-### 1.0.4
-* (bettman66) new config
+### 2.0.2
+* (bettman66) merge dependabot
 
-### 1.0.3
-* (bettman66) update adapter-core
+### 2.0.1
+* (bettman66) npm error
 
-### 1.0.2
-* (bettman66) add selectID.js
+### 2.0.0
+* (bettman66) update test
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2020 Walter Zengel <w.zengel@gmx.de>
+Copyright (c) 2022 Walter Zengel <w.zengel@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

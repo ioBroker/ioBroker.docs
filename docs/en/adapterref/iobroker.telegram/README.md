@@ -703,6 +703,16 @@ msg.payload = {
 -->
 
 ## Changelog
+### 1.11.1 (2022-01-27)
+* (bluefox) fixed the receiving files
+
+### 1.11.0 (2022-01-26)
+* (bluefox) Added bruteforce protection
+* (bluefox) Extended blockly with `disable_web_preview` option
+* (bluefox) added `communicate.responseSilent` state to answer silently
+
+### 1.10.1 (2022-01-26)
+* (bluefox) Updated telegram library
 
 ### 1.10.0 (2021-07-30)
 * (PeterVoronov) Add botSendRaw state to allow processing of the RAW data send by bot
@@ -747,7 +757,7 @@ msg.payload = {
 
 ### 1.5.9 (2020-05-04)
 * (Apollon77) potential error fixed when sending messages
-* (Apollon77) webserver initialization optimized again to prevent errors with invalid certificates 
+* (Apollon77) webserver initialization optimized again to prevent errors with invalid certificates
 
 ### 1.5.8 (2020-04-30)
 * (Apollon77) errors on webserver initialization are handled properly
@@ -758,7 +768,7 @@ msg.payload = {
 
 ### 1.5.5 (2020-04-04)
 * (alutov) Fixed bug for telegram users with an empty username
-* (Mark Rohrbacher) Allowed JSON objects in telegram.*.communicate.response 
+* (Mark Rohrbacher) Allowed JSON objects in telegram.*.communicate.response
 
 ### 1.5.4 (2020-03-11)
 * (bluefox) Improvement of `callmebot`
@@ -771,7 +781,7 @@ msg.payload = {
 * (bluefox) Invalid parameters were checked
 
 ### 1.5.0 (2020-02-03)
-* (bluefox) Added voice calls 
+* (bluefox) Added voice calls
 
 ### 1.4.7 (2019-12-27)
 * (Apollon77) Make compatible with js-controller 2.3
@@ -948,7 +958,7 @@ msg.payload = {
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2021, bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2022, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -18,7 +18,7 @@ This adapter allows you to pair and directly control devices with the "works wit
 ### The adapter is not ...
 ... offering ioBroker devices or states to be controlled by an Apple Home app/system. If you want this direction please use the [yahka](https://github.com/jensweigele/ioBroker.yahka) adapter.
 
-... supporting Thread based devices. The Homekit Thread specifications are not yet publicly available.
+... supporting Thread "only" based devices. The Homekit Thread specifications are not yet publicly available. From the current knowledge all devices on the market also support BLE or WLAN, so the adapter will simply not use Thread but other ways to communicate.
 
 ### How to use the adapter
 
@@ -104,6 +104,12 @@ When you have issues and want to report an Issue (see below) then enhanced debug
 * look into support devices that offer images (method is there but never saw it in action)
 
 ## Changelog
+### 0.4.3 (2022-01-25)
+* (Apollon77) make sure all connections get closed on reconnect
+
+### 0.4.2 (2022-01-25)
+* (Apollon77) Reset HTTP connection if timeouts happen on data polling
+
 ### 0.4.1 (2022-01-21)
 * (Apollon77) Optimize close of connections on adapter stop
 

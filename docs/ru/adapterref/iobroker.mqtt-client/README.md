@@ -3,77 +3,90 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mqtt-client/README.md
 title: ioBroker.mqtt-клиент
-hash: GV9yQNtkLUyfuDFH9uo5frFCfqrBm6d4DIke/mXo0NA=
+hash: ofz++iad9eq0lluL5KUB1IuSL9EjZGwEEsw5xWtEUxg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mqtt-client/admin/mqtt-client.png)
 
 ![Количество установок](http://iobroker.live/badges/mqtt-client-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.mqtt-client.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.mqtt-client.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.mqtt-client.svg)
 ![НПМ](https://nodei.co/npm/iobroker.mqtt-client.png?downloads=true)
 
-# IoBroker.mqtt-client
+# IoBroker.mqtt-клиент
 ## Настройки адаптера
 ![Адаптер](../../../en/adapterref/iobroker.mqtt-client/img/settings.png)
 
-### При соединении темы и сообщения
-Раздел ```on connect message``` публикуется в ```on connect topic``` каждый раз, когда клиент подключается или повторно подключается к серверу.
+### При подключении темы и сообщения
+```on connect message``` публикуется в ```on connect topic``` каждый раз, когда клиент подключается или повторно подключается к серверу.
 
-### Последняя тема и сообщение
-Раздел ```last will message``` публикуется в ```last will topic``` каждый раз, когда клиент подключается или повторно подключается к серверу.
+### Последней будет тема и сообщение
+```last will message``` публикуется в ```last will topic``` каждый раз, когда клиент подключается или повторно подключается к серверу.
 Сервер сохранит это сообщение и отправит его своим подписчикам, когда клиент отключится.
 
 ### Подписки
-Разделенный запятыми список тем, не охваченных существующими состояниями.
-Полученные сообщения преобразуются в состояния в пространстве имен адаптеров (например, mqtt.0) и подписываются.
+Разделенный запятыми список тем, которые не охватываются существующими штатами.
+Полученные сообщения преобразуются в состояния в пространстве имен адаптера (например, mqtt.0) и подписываются.
 Вы можете удалять темы после создания всех состояний.
 
-### Префикс публикации
+### Опубликовать префикс
 При публикации это будет добавлено ко всем темам.
 По умолчанию пусто (без префикса).
 
 ### Префикс подписки
-При подписке это будет добавлено ко всем темам.
+При подписке это будет добавляться ко всем темам.
 По умолчанию пусто (без префикса).
 
 ## Настройки состояния
 ![Состояние](../../../en/adapterref/iobroker.mqtt-client/img/dialog.png)
 
 ### Включено
-Включает или отключает функциональность mqtt-client для этого состояния.
-Отключение приведет к удалению любых настроек mqtt-client из этого состояния.
+Включает или отключает функциональность mqtt-клиента для этого состояния.
+Отключение удалит все настройки mqtt-клиента из этого состояния.
 
 ### Тема
-Тема, в которой опубликовано данное состояние и на которую подписана.
-По умолчанию: state-ID преобразован в тему mqtt.
+Тема, в которой публикуется это состояние и на которую вы подписаны.
+по умолчанию: идентификатор состояния преобразован в тему mqtt.
 
 ### Опубликовать
-* состояние `` enable`` будет опубликовано
-* Состояние `` только изменения '' будет опубликовано только при изменении его значения
-* `` as object``, все состояние будет опубликовано как объект
-* `` qos`` см. <http://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels>
-* `` сохранить '' см. <http://www.hivemq.com/blog/mqtt-essentials-part-8-reolated-messages>
+* Состояние ```enable``` будет опубликовано
+* Состояние ```changes only``` будет опубликовано только при изменении его значения
+* ``как объект``` все состояние будет опубликовано как объект
+* ```qos``` см. <http://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels>
+* ```сохранить``` см. <http://www.hivemq.com/blog/mqtt-essentials-part-8-retained-messages>
 
 ### Подписываться
-* Тема `` enable`` будет подписана, и состояние будет соответственно обновлено
-* Состояние `` только изменения '' будет записано только при изменении значения
-* Сообщения `` как объект '' будут интерпретироваться как объекты
-* `` qos`` см. <http://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels>
-* `` ack`` при обновлении состояния флаг подтверждения будет установлен соответственно
+* Тема ```enable``` будет подписана, и состояние будет соответствующим образом обновлено.
+* Состояние ```changes only``` будет записано только при изменении значения
+* сообщения ```как объект``` будут интерпретироваться как объекты
+* ```qos``` см. <http://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels>
+* ```ack``` при обновлении состояния флаг подтверждения будет установлен соответствующим образом
 
 #### Примечание
-* если для параметра ack установлено значение true, он будет перезаписывать объекты, подтвержденные подтверждением, см. `` как объект ''
-* для предотвращения зацикливания сообщений, если включены и публикация, и подписка, для подписки всегда включено `` только изменения ''
+* когда для ack установлено значение true, он будет перезаписывать объекты ack, см. ```как объект```
+* для предотвращения зацикливания сообщений, если включены и публикация, и подписка, ```только изменения``` всегда включен для подписки
 
-## ДЕЛАТЬ
+## СДЕЛАТЬ
 * тестовые префиксы
-* подключение / повторное подключение без чистой сессии
+* подключиться/переподключиться без очистки сеанса
 
-<! - Заполнитель для следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
 
 ## Changelog
+### 1.5.0 (2022-01-26)
+* IMPORTANT: This adapter now required at least js-controller 3.3.x
+* (Apollon77) Fix crash cases
+
+### 1.4.1 (2022-01-26)
+* (bluefox) js-controller 3.3 optimizations
+
+### 1.4.0 (2021-07-16)
+* IMPORTANT: This adapter now required at least js-controller 2.0.0
+* (Apollon77) js-controller 3.3 optimizations
+* (AlCalzone) Unpublished expired states
+* (AlCalzone) Only handle stat values if state exists
+
 ### 1.3.2 (2021-04-19)
 * (bluefox) Added support of admin5
 
@@ -96,7 +109,7 @@ hash: GV9yQNtkLUyfuDFH9uo5frFCfqrBm6d4DIke/mXo0NA=
 
 ### 1.1.0 (2017-12-30)
 * (bluefox) Translations
-* (bluefox) Udpate of MQTT module
+* (bluefox) Update of MQTT module
 
 ### 1.0.1 (2017-11-16)
 
@@ -128,7 +141,7 @@ hash: GV9yQNtkLUyfuDFH9uo5frFCfqrBm6d4DIke/mXo0NA=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2020 Pmant
+Copyright (c) 2016-2022 Pmant
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

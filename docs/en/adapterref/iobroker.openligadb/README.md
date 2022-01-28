@@ -60,7 +60,11 @@ Documentation for the vis-widgets are available inside vis or [Widget-Documentat
 
 ## Changelog
 
-### 1.2.1
+### 1.2.4
+* fix problems reported by adapter-checker
+### 1.2.3
+* add connectiontype and datasource to io-package.json
+### 1.2.2
 * fix result calculation
 ### 1.2.1
 * fix object type
@@ -153,7 +157,7 @@ Documentation for the vis-widgets are available inside vis or [Widget-Documentat
 ## License
 MIT License
 
-Copyright (c) 2020 oweitman
+Copyright (c) 2022 oweitman
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

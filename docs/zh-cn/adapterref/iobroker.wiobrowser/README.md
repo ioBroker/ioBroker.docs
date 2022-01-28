@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wiobrowser/README.md
 title: ioBroker.wiobrowser
-hash: q0CPdHZezMLKSWyMMKNBE5kEju6I8tERABBYi2q8p5A=
+hash: 99M0E7HtYbdh8wpgKiILcXsNP9IFwFIsBk3vRdAcMuY=
 ---
 ![标识](../../../en/adapterref/iobroker.wiobrowser/admin/wiobrowser.png)
 
@@ -17,14 +17,52 @@ hash: q0CPdHZezMLKSWyMMKNBE5kEju6I8tERABBYi2q8p5A=
 ## 信息
 用于 ioBroker 的 Windows 全屏浏览器适配器的控制
 
-此适配器通过 tcp.socket 连接到 Windows 全屏浏览器以对其进行控制。
+这个适配器通过 tcp.socket 连接到 wioBrowser 来控制它。有 3 种不同的 wioBrowser 应用程序：+ wioBrowser WebView2 框架 + wio 浏览器 Chromium 框架 + wioNoweb
 
-Dieser Adapter verbindet sich über tcp.socket mit dem Windows Fullscreenbrowser, um ihn zu steuern。
+wioBrowser 是一个可以通过 ioBroker 控制的 Windows 全屏浏览器，它显示可以在适配器中设置的单个网站或网站幻灯片。信息也会传输到适配器：+ CPU 负载 + 可用内存 + 平板电脑或笔记本电脑上的当前电池放电 + 主机名 + IP
+
+他还可以控制： + 屏幕开/关 + 退出应用程序 + 音量 +/- + 静音开/关 + 亮度 +/- + 使用开关运行程序，例如C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100
+
+文本和语音消息可以发送到设备。
+
+除了网络功能外，wiNoweb 应用程序的功能相同。
+
+*** Dieser Adapter verbindet sich über tcp.socket mit dem wioBrowser, um ihn zu steuern。 Es gibt 3 unterschiedliche wioBrowser 应用程序：+ wioBrowser WebView2 框架 + wioBrowser Chromium 框架 + wioNoweb
+
+wioBrowser ist ein Windows Fullscreen Browser der sich über ioBroker steuern lässt, er zeigt einzelne Webseiten an oder eine Webseiten Slideshow die man im Adapter einstellen kann。 Es werden auch Infos an den Adapter übertragen: + CPU Last + freier Speicher + aktuelle Batterieentladung bei Tablet oder Notebook + 主机名 + IP
+
+Er kann auch steuern: + Bildschirm an/aus + App bedenden + Lautstärke +/- + Stumm an/aus + Helligkeit +/- + Program mit Schaltern ausführen z.B C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100
+
+Es können Text und Sprach Nachrichten an das Gerät gesendet werden。
+
+Die App wioNoweb kann das auch bis auf die Webfunktionen。
 
 ＃＃ 关联
-* https://forum.iobroker.net/topic/50982/neuer-adapter-wiobrowser-f%C3%BCr-windows
+* [ioBroker 论坛适配器线程](https://forum.iobroker.net/topic/50982/neuer-adapter-wiobrowser-f%C3%BCr-windows)
+* [Tutorial über die Messages](https://forum.iobroker.net/topic/51534/tutorial-wiobrowser-windows-desktop-popup-messages) vom User @hydrotec
 
 ## Changelog
+### 0.3.0
+* (bettman66) bugfix port
+
+### 0.2.7
+* (bettman66) add hostname
+
+### 0.2.6
+* (bettman66) add free memory
+
+### 0.2.5
+* (bettman66) add cpu info
+
+### 0.2.4
+* (bettman66) add speakmessage
+
+### 0.2.3
+* (bettman66) add volume
+
+### 0.2.2
+* (bettman66) add sapi
+
 ### 0.2.1
 * (bettman66) repository
 

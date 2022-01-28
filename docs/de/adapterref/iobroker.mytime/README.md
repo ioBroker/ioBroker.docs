@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mytime/README.md
 title: ioBroker.mytime
-hash: a7L+rF17jhqztHSapeOLvt/yqEFihmBANmyCnUbc1d4=
+hash: xMMKU/tNSgObOEGe6ERoprb7/chSmR7eBPmGaK7+758=
 ---
 ![Logo](../../../en/adapterref/iobroker.mytime/admin/mytime.png)
 
@@ -54,7 +54,7 @@ Nach der Konfiguration einer neuen Zeitreihe erstellt der Adapter die folgenden 
 | Aktion | Beschreibung |
 |-----------|-------------------------------------------------------------------------------------------------------|
 | halt | momentan ist kein Zeitereignis aktiv |
-| laufen | ein Zeitereignis wurde ausgelöst. nach der konfigurierten Dauer ändert sich der Datenpunkt auf stop |
+| laufen | ein Zeitereignis wurde ausgelöst. Nach der konfigurierten Dauer ändert sich der Datenpunkt auf stop |
 
 #### Countdown
 ##### Verfügbare Datenpunkte
@@ -84,7 +84,7 @@ Nach der Konfiguration eines neuen Countdowns erstellt der Adapter die folgenden
 | =Wert | =5:00 | Stellen Sie den Countdowntimer auf diese Zeit ein. |
 | #ISO-Datum | #2020-01-01T10:00:00 | Stellen Sie den Countdowntimer auf eine Zielzeit ein. Die Uhrzeit muss als ISO-Datestring | formatiert sein |
 | $Zeit | $20:15 | Stellen Sie den Countdowntimer auf eine Zielzeit ein. Wenn die Zeit vor der aktuellen Zeit liegt. der nächste Tag steht fest.|
-| beginnen | starten | startet den Countdown |
+| starten | starten | startet den Countdown |
 | halt | halt | stoppt den Countdown. die Countdownzeit wird auf die Einstellung | zurückgesetzt |
 | pausieren | pausieren | hält den Countdown an |
 | Ende | Ende | stoppt den Countdown. der Countdown wird auf 0 gesetzt |
@@ -173,6 +173,10 @@ Beispiel: 2022-01-10 23:12 2022-01-104T23:12:00.000Z
 ###### Format
 Formatiert die Timerausgabe. Standard ist mm:ss. Details siehe Kapitelformatvorlage
 
+###### HTML-Prepend
+Dieser Text oder HTML-Code wird der Ausgabe des Widgets vorangestellt
+
+###### HTML-Append Dieser Text oder HTML-Code wird an die Ausgabe des Widgets angehängt
 #### Widget-Countdown-Kreis
 Ein Countdown-Widget im Ring-/Kreis-Design.
 
@@ -289,6 +293,8 @@ Wenn Sie die Größe der Countdown-Nixieclock anpassen möchten, können Sie unt
 
 ## Changelog
 
+### 0.7.12
+* add html_prepend and html_append properties to the widget reverse countdown
 ### 0.7.10
 * add widget reverse countdown
 ### 0.7.9

@@ -153,6 +153,8 @@ Beinhaltet die Informationen für die "anderen" Alarmkreise 1 + 2.
 
 ## Changelog
 
+#### 3.0.0 (27.01.2022)
+* (misanorot) changed burgle concept, added silent alarm at sharp inside, fixed little issues
 
 #### 2.2.1 (20.01.2022)
 * (misanorot) added notification when warnings at beginning night rest

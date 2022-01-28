@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: jsN8PNG+XGCA1AL1dJw8oCAftT/UMma+0GyHl0iwaHQ=
+hash: QgSorar90YOR3L8BE7JFLzk83P00C1JwBN96wkFsamA=
 ---
 ![Logo](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -17,51 +17,65 @@ hash: jsN8PNG+XGCA1AL1dJw8oCAftT/UMma+0GyHl0iwaHQ=
 # IoBroker.ems-esp
 **Tests:** ![Testen und freigeben](https://github.com/tp1de/ioBroker.ems-esp/workflows/Test%20and%20Release/badge.svg)
 
-## Ems-esp-Adapter für ioBroker
-Der Adapter unterstützt die Heizsysteme der Bosch-Gruppe (Buderus / Junkers / Netfit usw.), wie sie vom iobroker km200-Adapter und der ems-esp-Schnittstelle (https://github.com/emsesp/EMS-ESP32) mit der neuesten Dev-Version ( siehe unten) und der ESP32-Chip. Die alten ESP8266-Gateways werden jetzt ebenfalls unterstützt.
+## Ems-esp und km200/IP-inside Adapter
+Der Adapter unterstützt eine Schnittstelle zu den Heizsystemen der Bosch-Gruppe mit EMS- oder EMS+-Bus.
+(Buderus/Junkers/Netfit usw.).
 
-Der ems-esp Adapter kann Daten vom km200 Gateway und/oder der ems-esp Hardware lesen und schreiben.
-Es kann für die originalen Gateways der Bosch-Gruppe oder das ems-esp oder beide parallel verwendet werden, wenn ein IP-Gateway wie km200 / ip inside verfügbar ist.
+Es kann über Web-API-Aufrufe mit dem Heizsystem verbunden werden:
 
-Der ems-esp Adapter liest Werte aus dem Hardware EMS-Bus mit installierter ems-esp Hardware und der Adapter nutzt die REST API V3 Schnittstelle. Die Einstellungen zum Aktivieren von API-Schreibbefehlen in ems-esp müssen zum Schreiben von Werten aktiviert werden.
+* km200, km100, km50 oder IP-inside (von Bosch Group)
+* ems-esp-Schnittstelle (https://github.com/emsesp/EMS-ESP32) mit aktueller Dev-Version (siehe unten) und dem ESP32-Chip. Auch die alten ESP8266-Gateways werden teilweise unterstützt.
 
-Der Adapter wurde mit den neuesten Versionen von ESP32 >= v3.3.0 getestet.
-API V2 (ESP 8266) wird offiziell nicht mehr unterstützt, funktioniert aber möglicherweise noch.
+Der ems-esp Adapter kann Daten zum ems-Bus lesen und schreiben, der alle Heizungskomponenten steuert.
+Es kann entweder für die Original-Gateways der Bosch-Gruppe oder das ems-esp oder beide parallel verwendet werden.
+
+Der Adapter ist für das ems-esp Gateway mit neusten Firmware-Versionen von ESP32 >= v3.3.0 getestet.
+Alte Systeme mit einem ESP 8266 werden offiziell nicht mehr unterstützt, könnten aber noch funktionieren.
 
 WICHTIGE EINSTELLUNGEN im EMS-ESP:
 
-*** API V2: MQTT-Einstellungen müssen im booleschen Format 1/0 sein! *** *** API V3: Formatierungsoptionen für das boolesche Format muss 1/0 und für das Enum-Format Zahl sein ***
+* API V2: MQTT-Einstellungen müssen im booleschen Format 1/0 sein!
+* API V3: Formatierungsoptionen für das boolesche Format muss 1/0 und für das Enum-Format Zahl sein
+* Die Einstellungen zum Aktivieren von API-Schreibbefehlen in ems-esp müssen aktiviert sein
+* Die Autorisierung des Zugriffstokens auf API-Aufrufe umgehen muss festgelegt oder das Token muss eingegeben werden.
 
-Bei Auswahl des Kontrollkästchens wird entweder die km200-ähnliche Gerätestruktur für ems-ESP-Datenfelder verwendet oder die ursprüngliche EMS-ESP-Geräteansicht beibehalten: Boiler, Thermostat, Mischer usw. Bei paralleler Verwendung des km200-Gateways wird empfohlen, die km200-Daten zu verwenden Struktur. Dann befinden sich alle Datenfelder (Zustände) innerhalb der Objektstruktur von ioBroker an derselben Stelle.
+Bei Auswahl des Kontrollkästchens wird entweder die km200-ähnliche Gerätestruktur für ems-ESP-Datenfelder verwendet oder die ursprüngliche EMS-ESP-Geräteansicht beibehalten: Boiler, Thermostat, Mischer usw. Bei paralleler Verwendung des km200-Gateways wird empfohlen, die km200-Daten zu verwenden Struktur. Dann befinden sich alle Entitäten / Zustände innerhalb der Objektstruktur von ioBroker an derselben Stelle.
 
-Im Gegensatz zum km200-Adapter konnten die zu verwendenden Felder durch die jeweilige csv-Datei innerhalb der Adapterinstanzparameter definiert werden. Für den ersten Adapterstart wird empfohlen, ein "*" zu verwenden, also alle km200-Datenfelder auszuwählen.
-Der Adapter erstellt dann eine km200.csv-Datei im Verzeichnis ../iobroker-data/ems-esp. Diese Datei kann beim nächsten Start der Adapter-Instanz verwendet werden.
-Nicht benötigte Zeilen (Felder) können gelöscht werden, um die Anzahl der auszulesenden km200-Felder zu reduzieren. (Eine Kopie machen)
+Im Gegensatz zum km200-Adapter konnten die zu verwendenden Felder durch die jeweilige csv-Datei innerhalb der Adapterinstanzparameter definiert werden. Für den ersten Adapterstart wird empfohlen, ein "*" zu verwenden, also alle km200-Datenfelder auszuwählen. Der Adapter erstellt dann eine km200.csv-Datei im Verzeichnis ../iobroker-data/ems-esp/{instance}. Diese Datei kann beim nächsten Start der Adapter-Instanz verwendet werden. Nicht benötigte Zeilen (Felder) können gelöscht werden, um die Anzahl der zu lesenden km200-Felder zu reduzieren. (Eine Kopie machen)
 
 Dieser Adapter liest nach Startwerten von ems-esp und km200 per HTTP-Get-Requests und ist in der Lage, Zustandsänderungen zu abonnieren und die entsprechenden http (post)-Befehle entweder an die ems-esp-Hardware oder das km200-Gateway zurückzusenden.
 
-EMS-ESP Read Polling ist jetzt ein Parameter (Standard 60 Sekunden) und kann nicht unter 15 Sekunden eingestellt werden.
-KM200 Polling ist ebenfalls ein Parameter (Standard 300 Sekunden) und der minimal einstellbare Wert beträgt 90 Sekunden.
+* EMS-ESP Read Polling ist ein Parameter (Standard 60 Sekunden) und kann nicht unter 15 Sekunden eingestellt werden.
+* KM200 Polling ist ebenfalls ein Parameter (Standard 300 Sekunden) und der minimal einstellbare Wert beträgt 90 Sekunden.
 
-Die meisten modernen Heizungssysteme verfügen über ein IP-Inside-Gateway und unterstützen Energiestatistiken (Erfassung für Gesamtstromverbrauch und Warmwasser (BW)).
-Für diese Systeme und wo diese Daten verfügbar sind, können die Stromverbrauchsstatistiken für Gesamt- und Warmwasserverbrauch ausgelesen werden (stündlich / täglich / monatlich).
+Die meisten modernen Heizsysteme verfügen über ein IP-Inside-Gateway und unterstützen Energiestatistiken:
 
-Die Checkbox Aufzeichnungen muss aktiviert und die Datenbankinstanz (mySQL oder InfluxDB) definiert werden.
+* Erfassung für Gesamtstromverbrauch und Warmwasser (BW)
+* Für diese Systeme und wo diese Daten verfügbar sind, können die Stromverbrauchsstatistiken für Gesamt- und Warmwasserverbrauch abgelesen werden (stündlich / täglich / monatlich).
+* Die Checkbox Aufzeichnungen muss aktiviert und die Datenbankinstanz (mySQL oder InfluxDB) definiert sein.
+
 SQL oder InfluxDB History Adapter müssen installiert und aktiv sein, um diese Option zu verwenden.
 
-*** Dies ist bisher nur für mySQL- und InfluxDB-Datenbanken getestet *** *** Für InfluxDB < V2 muss die Aufbewahrungsrichtlinie auf mindestens 170 Wochen eingestellt werden *** (Änderung der Aufbewahrungsrichtlinie global auf iobroker-Dauer 170 W;)
+* Dies ist bisher nur für mySQL- und InfluxDB-Datenbanken getestet
+* Für InfluxDB < V2 muss die Aufbewahrungsrichtlinie auf mindestens 170 Wochen eingestellt werden.
+* (Änderung der Aufbewahrungsrichtlinie global auf iobroker-Dauer 170w;)
 
-Dieser Adapter erstellt dann die jeweiligen Aufzeichnungszustände, aktiviert SQL-Statistiken und schreibt historische Datenbankeinträge mithilfe von SQL-Befehlen und aktualisiert die Aufzeichnungen. Die Aktualisierungshäufigkeit ist stündlich. Die Werte können dann angezeigt werden, indem Sie z. den Flot Charts-Adapter oder Grafana.
+Dieser Adapter erstellt dann die jeweiligen Aufzeichnungszustände, aktiviert SQL-Statistiken und schreibt historische Datenbankeinträge mithilfe von SQL-Befehlen und aktualisiert die Aufzeichnungen. Die Aktualisierungshäufigkeit ist stündlich. Die Werte können dann mithilfe von Charting-Tools, z. den Flot Charts-Adapter oder Grafana.
 
-Seit v0.9.0 gibt es Statistikzustände innerhalb der Objekte. Die Abfragezyklus-Verarbeitungszeit für ems-esp- und/oder km200-Gateway-Lesevorgänge und Zustandsverarbeitung werden angezeigt. Zusätzlich stehen die Anzahl der Kesselstarts pro Stunde / 24 Stunden und die Kesselauslastung pro Stunde (0-100%) zur Verfügung.
+Kesselstatistiken können aktiviert werden und zeigen:
 
-Wenn Werte eingetragen sind, kann der Kesselwirkungsgrad anhand der durchschnittlichen Kesseltemperatur berechnet werden: (Kesseltemperatur + Rücklauftemperatur) / 2.
-Da die Rücklauftemperatur in km200 nicht mehr verfügbar ist, wird die Rücklauftemperatur mit Kesseltemperatur -10 °C berechnet, wenn kein ems-esp verfügbar ist.
-Sehen Sie im Datenblatt Ihres Heizkessels nach, um die Effizienztabelle entsprechend anzupassen.
-Zur Berechnung der Statistik wird eine Datenbankinstanz (siehe oben) benötigt.
+* Die Abfragezyklus-Verarbeitungszeit für ems-esp- und/oder km200-Gateway-Lesevorgänge und Zustandsverarbeitung
+* Die Anzahl der Kessel- und Warmwasserstarts pro Stunde / 24 Stunden
+* Kesselauslastung pro Stunde (0-100%).
 
-Wann immer eine neue EMS-ESP-Firmware neue Datenfelder hinzufügt und/oder Datenfeldnamen ändert, werden sie während des Adapterlaufs verarbeitet.
-Trotzdem werden veraltete Datenfelder nicht automatisch vom Adapter gelöscht.
+Der Kesselwirkungsgrad kann berechnet werden, wenn die Parameter ausgefüllt sind.
+
+* Die Kesseleffizienz kann basierend auf der durchschnittlichen Kesseltemperatur berechnet werden: (Kesseltemperatur + Rücklauftemperatur) / 2.
+* Da die Rücklauftemperatur in km200 nicht mehr verfügbar ist, wird die Rücklauftemperatur mit Kesseltemperatur -10 °C berechnet, wenn kein ems-esp verfügbar ist.
+* Sehen Sie im Datenblatt Ihres Heizkessels nach, um die Effizienztabelle entsprechend anzupassen.
+* Zur Berechnung der Statistik wird eine Datenbankinstanz (siehe oben) benötigt.
+
+Wann immer eine neue EMS-ESP-Firmware neue Datenfelder hinzufügt und/oder Datenfeldnamen ändert, werden sie während des Adapterlaufs verarbeitet. Trotzdem werden veraltete Datenfelder nicht automatisch vom Adapter gelöscht.
 Es besteht die Möglichkeit, die Zustandsstruktur neu aufzubauen, indem Zustände beim Neustart des Adapters gelöscht werden (Zustände mit Historie / db-Einträgen bleiben erhalten)
 
 # Iobroker.ems-esp"
@@ -71,6 +85,10 @@ Es besteht die Möglichkeit, die Zustandsstruktur neu aufzubauen, indem Zuständ
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.9 (2022-01-27)
+* New code to avoid mysql duplicate key errors
+* Further adjustments for ems firmware 3.4
+
 ### 1.0.8 (2022-01-24)
 * Adjustments for ems-esp firmware 3.4 part 2
 

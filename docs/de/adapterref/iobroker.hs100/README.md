@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hs100/README.md
 title: ioBroker.hs100
-hash: dDlSFwugLId+LLgjA6OFimZj8QDqrnQ8gUniavEIkoA=
+hash: CPoooePFi/uSO1bFlBwG9UluaNTJxH8HfnrUqbxG6Fw=
 ---
 ![Logo](../../../en/adapterref/iobroker.hs100/admin/hs100.png)
 
@@ -15,9 +15,11 @@ hash: dDlSFwugLId+LLgjA6OFimZj8QDqrnQ8gUniavEIkoA=
 # IoBroker.hs100
 =================
 
-TP-Link-Adapter für ioBroker ---------------------------------------------- ----------------------------------
+TP-Link-Adapter für ioBroker -------------------------------------------- ----------------------------------
 
-TP-Link-Stecker und -Glühbirne wechseln
+Wechseln Sie TP-Link-Stecker und -Glühbirne
+
+für Stecker hs100 Stecker hs110 Birne LBxxx
 
 <b>NodeJs &gt;&gt; 8.xx</b>
 
@@ -25,7 +27,7 @@ TP-Link-Stecker und -Glühbirne wechseln
 
 https://github.com/AlCalzone/release-script#usage npm run release minor -- --all 0.9.8 -> 0.10.0 npm run release patch -- --all 0.9.8 -> 0.9.9 npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0 Platzhalter für die nächste Version (am Zeilenanfang):
 
-### **ARBEITEN LÄUFT** -->
+### **IN ARBEIT** -->
 
 ## Changelog
 

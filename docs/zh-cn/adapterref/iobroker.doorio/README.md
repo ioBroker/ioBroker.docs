@@ -3,60 +3,61 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.doorio/README.md
 title: ioBroker.doorio
-hash: OXB7nvAFt6ITxkgbxen7gzRW89pXdtH3Gv4lsHTU1DE=
+hash: o1RBbRI0CSb9+BOz0XM8a4FKs0Y+Pq/MLHrtSCQVIbU=
 ---
-![商标](../../../en/adapterref/iobroker.doorio/admin/doorio.png)
+![标识](../../../en/adapterref/iobroker.doorio/admin/doorio.png)
 
-![建立状态](https://travis-ci.org/Bettman66/ioBroker.doorio.svg?branch=master)
-![NPM版本](http://img.shields.io/npm/v/iobroker.doorio.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.doorio.svg)
-![NPM](https://nodei.co/npm/iobroker.doorio.png?downloads=true)
+![安装数量](http://iobroker.live/badges/doorio-stable.svg)
+![构建状态](https://travis-ci.org/Bettman66/ioBroker.doorio.svg?branch=master)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.doorio.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.doorio.svg)
+![新PM](https://nodei.co/npm/iobroker.doorio.png?downloads=true)
 
-＃ioBroker.doorio
-##信息
-ioBroker的自制DoorStation适配器
+# IoBroker.doorio
+## 信息
+用于 ioBroker 的自制 DoorStation 适配器
 
-该适配器通过tcp.socket连接到Baresip Sip客户端，以与门电话进行通信。作为响铃触发器，可以使用ioBroker的每个输入。
-适配器还识别DTMF音调以切换输出。对于自制门禁系统，可以使用可以安装Baresip的任何硬件。
+此适配器通过 tcp.socket 连接到 Baresip Sip 客户端以与门电话进行通信。作为铃声触发器，可以使用来自 ioBroker 的每个输入。
+该适配器还可以识别 DTMF 音调以切换输出。对于自制门站，可以使用 Baresip 可以安装的任何硬件。
 
-Dieser Adapter verbindet sichübertcp.socket mit dem Baresip Sip客户端，um mit einerTürsprechstellezu kommunizieren。 AlsKlingelauslöserkann jeder Eingang von ioBroker genutzt werden。 Der Adapter erkennt以及DTMF-TöneumAusgängezu schalten。硬件制造商，德国五金制造商Baresip installierenlässtgenutzt werden。
+Dieser Adapter verbindet sich über tcp.socket mit dem Baresip Sip-Client，嗯 mit einer Türsprechstelle zu kommunizieren。 Als Klingelauslöser kann jeder Eingang von ioBroker genutzt werden。 Der Adapter erkennt auch DTMF-Töne um Ausgänge zu schalten。 Für die Selbstgemachte Türsprechstelle, kann jede Hardware auf der sich Baresip installieren lässt genutzt werden。
 
-##链接
-* https://forum.iobroker.net/topic/23413/ich-baue-eine-t%C3%BCrsprechstelle-ohne-cloud
-* https://forum.iobroker.net/topic/22746/test-adapter-doorio-v0-0-x
+## 链接
+* [ioBroker 论坛硬件线程](https://forum.iobroker.net/topic/23413/ich-baue-eine-t%C3%BCrsprechstelle-ohne-cloud)
+* [ioBroker 论坛适配器线程](https://forum.iobroker.net/topic/22746/test-adapter-doorio-v0-0-x)
 
 ## Changelog
-### 1.0.10
-* (bettman66) add detour
+### 2.1.3
+* (bettman66) change setForeignState ack
 
-### 1.0.9
-* (bettman66) fix userconfigerror
+### 2.1.2
+* (bettman66) update for js-controller
 
-### 1.0.8
-* (bettman66) fix dtmf-timeout
+### 2.1.1
+* (bettman66) bugfix ack:true
 
-### 1.0.7
-* (bettman66) check states
+### 2.1.0
+* (bettman66) add bot update
 
-### 1.0.6
-* (bettman66) clearTimeouts
+### 2.0.4
+* (bettman66) optimize code
 
-### 1.0.5
-* (bettman66) update stable
+### 2.0.3
+* (bettman66) bugfix version
 
-### 1.0.4
-* (bettman66) new config
+### 2.0.2
+* (bettman66) merge dependabot
 
-### 1.0.3
-* (bettman66) update adapter-core
+### 2.0.1
+* (bettman66) npm error
 
-### 1.0.2
-* (bettman66) add selectID.js
+### 2.0.0
+* (bettman66) update test
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2020 Walter Zengel <w.zengel@gmx.de>
+Copyright (c) 2022 Walter Zengel <w.zengel@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

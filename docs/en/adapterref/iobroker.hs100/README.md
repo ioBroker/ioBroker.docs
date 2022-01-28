@@ -15,6 +15,22 @@ TP-Link adapter for ioBroker
 
 Switch TP-Link Plug and Bulb
 
+
+for
+plug hs100
+plug hs110
+bulb LBxxx
+
+
+
+
+
+
+
+
+
+
+
 <b>NodeJs >> 8.x.x </b>
 
 <!--
