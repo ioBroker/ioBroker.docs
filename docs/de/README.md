@@ -179,6 +179,8 @@ für Systemintegratoren die Remote-Verwaltung auf ein lokal installiertes ioBrok
 -System 24/7 möglich. Die Zugriffsteuerung kann mittels Benutzer und Gruppen vom
 Anwender frei konfiguriert werden.
 
+![](media/iobroker-cloud-services-overview.png)  
+
 <br>
 
 # Community
