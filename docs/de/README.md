@@ -19,13 +19,13 @@ lastChanged: "30.01.2022"
 
 # ioBroker - Automate your life
 
-ioBroker ist eine Softwarelösung um verschiedene Smarthome-Systeme, die ohne
-ioBroker Insellösungen bleiben würden, in einem Gesamtsystem zu integrieren.
+ioBroker ist eine Softwarelösung zur Automatisierung Deines Heims. Es erlaubt verschiedenste Smarthome-Systeme, die ohne
+ioBroker Insellösungen bleiben würden, anzubinden und so übergreifend zu steuern.
 
 ioBroker ist daher **die** Integrationsplattform für das Internet der Dinge.
 
 Ein ioBroker-System ist modular aufgebaut. Eine Vielzahl von [Adaptern][] ermöglicht
-die Kommunikation mit über 450 verschiedenen Plattformen von A wie Alexa bis Z
+die Kommunikation mit über 450 verschiedenen Plattformen, Systemen und Geräte von A wie Alexa bis Z
 wie Z-Wave.  
 
 Sei es die Einbindung kommerzieller Produkte aus fast allen Lebensbereichen oder
@@ -37,10 +37,10 @@ die Integration einer selbst erstellten Lösung - ioBroker macht fast alles mög
 
 ![](media/iobroker-simple-overview.png)  
 
-Diese Grafik zeigt wie ioBroker als Middleware vereinfacht funktioniert, um verschiedene Smarthomelösungen oder weitere Dienste (z.B. Kalender) miteinander zu verbinden.
-Die in ioBroker zur Verfügung stehenden Adapter können unter anderem mit zentral verwalteten Kalendern oder herstellerspezfischen Smartehomesysteme (welche im LAN oder WLAN angeschlossenen angeschlossen sind) kommunizieren. Auf diese Weise kann die ioBroker Software Statusinformationen lesen oder Daten schreiben, um Aktionen zu triggern.
+Diese Grafik zeigt wie ioBroker als zentrales System die verschiedensten Smarthomelösungen und weitere Dienste (z.B. Kalender) koordiniert und miteinander verbindet.
+Die in ioBroker zur Verfügung stehenden Adapter können unter anderem mit zentral verwalteten Kalendern oder herstellerspezfischen Smart-Home-Systeme (welche im LAN oder WLAN angeschlossenen angeschlossen sind) kommunizieren. Auf diese Weise kann die ioBroker Software Statusinformationen lesen oder Steuer-Aktionen auslösen.
 
-Nehmen wir an, dass ein Anwender in der Wohnung bereits einige Lampen über Philipps Hue steuert sowie seine Rolläden über Homematic IP öffnen und schließen kann.
+Nehmen wir an, dass ein Anwender in der Wohnung bereits einige Lampen über Philipps Hue steuert, sowie seine Rolläden über Homematic IP öffnen und schließen kann.
 
 Mit dem Einsatz der ioBroker Software ist es nun möglich eine Anwesenheitssimulation zu realisieren, in welcher die Hue Lampen ein- und ausgeschaltet und die Rolläden hoch und runter gefahren werden können wenn der Anwender im Urlaub ist.
 
@@ -50,7 +50,7 @@ Mit dem Einsatz der ioBroker Software ist es nun möglich eine Anwesenheitssimul
 - Um 22:00 Uhr werden alle Rolläden geschlossen und alle Hue Lampen ausgeschaltet.
 - Um 08:00 Uhr morgens werden alle Rolläden wieder hochgefahren.
 
-Über den "Adapter User Interface" kann sich ein Anwender individuelle Status und Steuerungsseiten für seine Hue Lampen und Rolläden bauen, auf die mit den mobilen Endgeräten von zu Hause oder aus dem Urlaub (z.B. mittels ioBroker Cloud Services oder VPN) zugegriffen werden kann.
+Über die verfügbaren Visualisierungs-Adapter kann sich ein Anwender individuelle Status und Steuerungsseiten für seine Hue Lampen und Rolläden bauen, auf die mit den mobilen Endgeräten von zu Hause oder aus dem Urlaub (z.B. mittels ioBroker Cloud Services oder VPN) zugegriffen werden kann.
 
 <br>
 
@@ -117,60 +117,40 @@ HabPanel-Adapter schnell realisiert werden.
 
 
 # Wer steckt hinter ioBroker?
-ioBroker ist ein Open Source Projekt welches von der ioBroker Community unterstützt wird und von [Bluefox][] als Projektowner administriert wird. 
+ioBroker ist ein Open Source Projekt welches von der ioBroker Community entwickelt wird und von [Bluefox][] als Projektowner administriert wird.
+
+In diesem Zuge arbeiten viele Entwickler und viele weitere Helfer, in Ihrer Freizeit ehrenamtlich an den zentralen System-Komponenten, den vielen Adaptern, dem Social-Media-Support, der Dokumentation und vielem Mehr. Deshalb erfolgt der Einsatz der Software auf eigene Haftung, ausgenommen dem Vorsatz einer mutwilligen Schädigung. 
+Es gibt keinen vertraglich festgelegten Support aus der Open-Source Community, aber gemeinsam haben wir bisher jedes Problem gelöst bekommen!
+
+ioBroker hat hierbei einen eher dezentralen Ansatz, wobei jeder Adapter in einem eigenen GitHub-Repository gepflegt wird. Hierbei trifft der jeweilige Adapter-Entwickler weitestgehend selbst die ENtscheidungen zu seinem Adapter. Featurewünsche oder auch fremde Feature-Erweiterungen als "pull-Request" werden hierbei natürlich berücksichtigt.
+
+Einige Entwickler haben sich darüber hinaus in der Adapter-Community zusammengeschlosen um sicherzustellen das auch im Falle davon das einzelne ENtwickler keine Zeit mehr für Ihre Adapter haben diese weitergepflegt werden können.
+
+Richtungsentscheidungen der zentralen Komponenten und des Gesamtprojekts werden innerhalb des Core-Teams diskutiert und dann umgesetzt.
+
+ioBroker Core Entwickler:
+* Bluefox
+* Apollon77
+* foxriver76
+* AlCalzone
+* 
+ioBroker Developer: https://forum.iobroker.net/groups/developer
+
+# Lizenzen und Kosten
+Sehr viele ioBrker Projekte stehen mitsamt dem Quellcode auf [GitHub][] zur Verfügung. In den allermeisten Fällen steht der Quellcode unter der MIT Lizenz. Manchmal werden allerdings auch Lizenzen wie GPL, CC BY-NC oder andere genutzt, welche zu berücksichtgen sind, daber für die End-Nutzer an sich keinen großen Unterschied darstellen!
+Der Entwickler eines Adapters legt für den jeweiligen Adapter die Lizenz selbst fest.
+
+In sehr seltenen Fällen (<5 Adapter aktuell) wird eine (teils kostenpflichtige) Lizenz benötigt um einen Adapter zu nnutzen. Für den "Vis" Adapter stellt beispielsweise die ioBroker GmbH eine kostenfreie Lizenz für die private Nutzung zur Verfügung - für eine kommerzielle Nutzung ist allerdings eine kostenpflichtige Lizenz nötig.
+Ein Überblick und die Bestellung der Lizenz für diese Adapter erfolgt über diese Seite [iobrokerPreise][]. Die Kosten für eine kommerzielle Nutzung dieser Adapter ist dort ebenfalls aufgeführt.
+
+# Wie finanziert sich ioBroker?
+Alle zentralen Komponenten und nahezu alle weiteren Adapter sind kostenfrei erhältlich und der Quellcode der allermeisten Adapter steht auf GitHub offen zur Verfügung.
 
 Da ein Open Source Projekt keine Einnahmen erzielen kann um z.B. Server zu kaufen bedarf es für diese Dinge eine offizielle Gesellschaftsform, die ioBroker GmbH. Die ioBroker GmbH bietet unter anderem auch einen kommerziellen Support für die ioBroker Software oder verkauft z.B. einen ioBroker-Server. 
 
 Die ioBroker GmbH stellt für das Community-Projekt die Infrastruktur (z.B. den Forum Server) kostenfrei zur Verfügung und hat auch in der Vergangenheit bereits Entwicklungsleistung eingekauft, welche in die Entwicklung der Open Source Projekte (zB Admin5) geflossen ist. 
 
-ioBroker Free Cloud ist ebenfalls ein kostenfreier Dienst der der Community durch die ioBroker GmbH zur Verfügung gestellt wird. Die Pro-Cloud und der iot-Service sind kommerzielle Angebote der ioBroker GmbH, wobei die Kosten gerade einmal die Betriebskosten decken.
-
-Entscheidungen in der Adapterentwicklung werden von den jeweiligen Adapter-Entwicklern weitestgehend selbst getroffen. 
-Richtungsentscheidungen werden innerhalb des Core-Teams diskutiert und dann umgesetzt.
-
-
-ioBroker Core Entwickler
-ioBroker Developer: https://forum.iobroker.net/groups/developer
-
-
-
-<br>
-
-# Lizenzen und Kosten
-Die Struktur des ioBroker Projekts ist zweigeteilt.
-
-Die ioBroker Software an sich ist zu großen Teilen Open Source und kostenfrei erhältlich. Dies trifft in jedem Fall auf den js-Controller und dem Installer zu. Der Quellcode der ioBroker Software liegt auf [GitHub][] 
-
-Die einzelnen Adapter, welche von verschiedenen Entwicklern programmiert und der ioBroker Software zur Installation beigesteuert werden stehen unter verschiedene Lizenzen.  Die meisten Adapter sind ebenfalls wie die ioBroker Software für jeden Nutzer kostenfrei benutzbar. 
-Der Entwickler eines Adapters legt für den jeweiligen Adapter die Lizenz selbst fest.
-
-<br>
-Für eine sehr kleine Anzahl an Adaptern (Anzahl < 5 ) wird auch für die private Nutzung eine kostenfreie bzw. kostenpflichte Lizenz benötigt, welche von der ioBroker GmbH ausgestellt wird. 
-
-Ein Überblick und die Bestellung der Lizenz für diese Adapter erfolgt über diese Seite [iobrokerPreise][]. Die Kosten für eine kommerzielle Nutzung dieser Adapter ist dort ebenfalls aufgeführt.
-
-<br>
-
-Die ioBroker GmbH stellt für die Open Source Community kostenfrei die nötige Infrastruktur zur Verfügung, um z.B. Webseite, Forum, Downloads u.ä. zu ermöglichen.
-
-Die ioBroker GmbH betreibt weiterhin den Free- und Pro-Cloud-Server und finanziert die nötige Infrastruktur für die Amazon-Skills, die von allen Usern nutzbar sind.
-
-Weiterhin ist die ioBroker GmbH der Vertragspartner für die im Rahmen der Pro-Cloud angebotenen Assistenten- und Fernzugriffs-Lizenzen.
-
-Darüber hinaus engagiert sich die ioBroker GmbH bei der kommerziellen Nutzung von ioBroker und entwickelt ggf. nicht kostenfrei verfügbare Closed Source Erweiterungen, um eine kommerzielle bzw. professionellere Nutzung zu ermöglichen.
-
-
-<br>
-
-
-
-?> ioBroker ist keine kommerzielle Software. ioBroker wird von ehrenamtlichen Helfern 
-   entwickelt und gepflegt. Deshalb erfolgt der Einsatz der Software auf eigene Haftung, 
-   ausgenommen dem Vorsatz einer mutwilligen Schädigung. 
-   Es gibt keinen vertraglich festgelegten Support!
-
-
-<br>
+Die ioBroker Free Cloud ist ebenfalls ein kostenfreier Dienst, der der Community durch die ioBroker GmbH zur Verfügung gestellt wird. Die Pro-Cloud und der iot-Service sind kommerzielle Angebote der ioBroker GmbH, wobei die Kosten gerade einmal die Betriebskosten decken.
 
 
 # Remotezugrif auf deine ioBroker Installation über die ioBroker Cloud 
