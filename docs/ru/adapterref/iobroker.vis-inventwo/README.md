@@ -2,47 +2,63 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-inventwo/README.md
-title: ioBroker.vis-inventorywo
-hash: l1tKeyaPNJTtKc0cAocDn/W4oA6qiIO78iQbdbXfkMY=
+title: ioBroker.vis-inventwo
+hash: HI9BpKYvxkkgAaAo8bKOlSHvyKzg/VDgvLboIOi5pBI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.vis-inventwo.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.vis-inventwo.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/vis-inventwo-stable.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-inventwo.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/vis-inventwo-installed.svg)
+![Количество установок (последние)](http://iobroker.live/badges/vis-inventwo-installed.svg)
 ![Статус зависимости](https://img.shields.io/david/inventwo/iobroker.vis-inventwo.svg)
 ![Известные уязвимости](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo/badge.svg)
 ![Статус сборки](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)
 ![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
-![Пожертвование Paypal](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-green.svg)
+![Пожертвование PayPal](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-green.svg)
 ![НПМ](https://nodei.co/npm/iobroker.vis-inventwo.png?downloads=true)
 
-# IoBroker.vis-inventorywo
-## Виджеты Schalter для адаптера ioBroker.vis
-Schalter, Slider, Tabellen, Regler, Checkboxen, Radiobuttons und mehr ...<br> Mit unserem Widgets-Set hast du die freie Wahl Individualuelle Visualisierungen ganz einfach für dein Smart-Home zu erstellen.
+# IoBroker.vis-inventwo
+## Виджеты для адаптера ioBroker.vis
+Schalter, Slider, Tabellen, Regler, Checkboxen, Radiobuttons и многое другое...<br> Mit unserem Widgets-Set имеет свободную индивидуальную визуализацию, предназначенную для умного дома.
 
-###### .. ab v 2.0.0
-<table><tr><td><center><b>Универсальный<br></b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td><td><center> <b>Мульти<br></b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td><td><center> <b>Изображение<br></b><br><img src="widgets/vis-inventwo/img/Image.png"></td><td><center> <b>Стол<br></b> <br><img src="widgets/vis-inventwo/img/Table.png"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>Список<br></b><br><img src="widgets/vis-inventwo/img/List.png"></td><td><center> <b>Шатер<br></b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td><td><center> <b>Переключатель<br></b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td><td><center> <b>Слайдер<br> вертикальный</b> <br><img src="widgets/vis-inventwo/img/Slider2.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Слайдер<br> горизонтальный</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td><td><center> <b>Colorslider<br> горизонтальный</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td><td><center> <b>Colorslider<br> горизонтальный</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td><td><center> <b>Переключить переключатель<br></b> <br><img src="widgets/vis-inventwo/img/Toggle.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Базовый переключатель<br></b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td><td><center> <b>Флажок /<br> Переключатель</b><br><img src="widgets/vis-inventwo/img/Check.gif"></td></tr></table>
+![Универсальный и мультивиджет Vorschau](https://resources.inventwo.com/github/inventwo/preview_universal_widget.png)
 
-###### .. v 1.3.8
-![Beispiel](http://resources.inventwo.com/github/inventwo/Set.png)
+Аналоговый Урен [Дополнительная информация](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
-Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit befinden sich in unserem Adapter NUR die reinen Schaltflächen (siehe oben). Uhr und Wetter stammen aus anderen Adaptern und müssen ggf. zusätzlich installiert werden.
+![Аналог Форшау Урен](https://resources.inventwo.com/github/inventwo/preview_clocks.png)
 
-![Beispiel](http://resources.inventwo.com/github/inventwo/Preview.png)
+Цифровой Урен [Дополнительная информация](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
-![Beispiel](http://resources.inventwo.com/github/inventwo/Preview2.png)
+![Форшау Диджитал Урен](https://resources.inventwo.com/github/inventwo/preview_clocks_digital.png)
+
+###### ..аб v 2.0.0
+<table><tr><td><center><b>Универсальный<br></b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td><td><center> <b>Мульти<br></b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td><td><center> <b>Изображение<br></b><br><img src="widgets/vis-inventwo/img/Image.png"></td><td><center> <b>Таблица<br></b> <br><img src="widgets/vis-inventwo/img/Table.png"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>Список<br></b><br><img src="widgets/vis-inventwo/img/List.png"></td><td><center> <b>Шатер<br></b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td><td><center> <b>Переключатель<br></b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td><td><center> <b>Слайдер<br> вертикальный</b> <br><img src="widgets/vis-inventwo/img/Slider2.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Слайдер<br> горизонтальный</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td><td><center> <b>Цветслайдер<br> горизонтальный</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td><td><center> <b>Цветслайдер<br> горизонтальный</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td><td><center> <b>Переключить переключатель<br></b> <br><img src="widgets/vis-inventwo/img/Toggle.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Основной переключатель<br></b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td><td><center> <b>Флажок/<br> Переключатель</b><br><img src="widgets/vis-inventwo/img/Check.gif"></td></tr></table>
+
+Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit befinden sich in unserem Адаптер NUR die reinen Schaltflächen (siehe oben). Uhr und Wetter stammen aus anderen Adaptern und müssen ggf. zusätzlich installiert werden.
+
+![Бейшпиль](http://resources.inventwo.com/github/inventwo/Preview.png)
+
+![Бейшпиль](http://resources.inventwo.com/github/inventwo/Preview2.png)
 ---
 
 ## Unterstützung
 Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen uns über jede Spende.
 
-(Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker)
+(Dieser Link для доступа к PayPal-Konto und steht in keiner Verbindung zum ioBroker)
 
-[![Sdency] (http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
+[![Расход](http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
+
+## 3.2.6
+- JSON-Tabelle: Hintergrund pro Zeile in Abhängigkeit eines Wertes färben [#280](https://github.com/inventwo/ioBroker.vis-inventwo/issues/280)
+- JSON-Tabelle: Standardsortierung einer Spalte [# 286] (https://github.com/inventwo/ioBroker.vis-inventwo/issues/286)
+- Универсальный и мультивиджетный виджет ViewInPopUp: Прокрутите вид сверху [#344](https://github.com/inventwo/ioBroker.vis-inventwo/issues/344)
+- Универсальный и мультивиджет HTTP: ссылка на новую вкладку geöffnet werden [#363] (https://github.com/inventwo/ioBroker.vis-inventwo/issues/363)
+
+- ИСПРАВЛЕНО: JSON-Tabelle funktioniert nun auch wenn nur ein einzelnes Objekt statt Array mit Objekten im Datenpunkt steht [#319] (https://github.com/inventwo/ioBroker.vis-inventwo/issues/319)
+- ИСПРАВЛЕНО: JSON-Tabelle: 10-stelliger Zeitstempel funktionierte nicht [#376] (https://github.com/inventwo/ioBroker.vis-inventwo/issues/376)
 
 ## 3.2.5
 - Исправлена ошибка
@@ -57,18 +73,18 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 - Исправлена ошибка
 
 ## 3.2.1
-- Проблема с активацией Textfarbe behoben (# 302)
-- Проблема с Multi-Widget und unterschiedlichem Prüftyp behoben (# 303)
-- Проблема beim Schließen mit View im PopUp behoben (# 254)
-- Navigationseffekte aus der Basisnavigation hinzugefügt (# 304)
-- Neu hinzugefügt Widget-Typ 'HTTP' für Universal- und Multi-Widget (# 249)
+- Проблема с активатором Textfarbe behoben (#302)
+- Проблема с Multi-Widget und unterschiedlichem Prüftyp behoben (#303)
+- Проблема, связанная с просмотром во всплывающем окне (# 254)
+- Navigationseffekte aus der Basisnavigation hinzugefügt (#304)
+- Новый тип виджета «HTTP» для универсального и многофункционального виджета (# 249)
 - Sichtbare Schritte für einfachen Slider hinzugefügt
 
 ## 3.2.0
-- Textfarbe aktiv / inaktiv für Universal- & Multiwidget
+- Активный/неактивный текст для универсального и мультивиджета
 - Colorslider CIE Wert mit eckigen Klammern
 - Fehler behoben, dass Schattenfarbe bei Universal- & Multiwidget nicht aktualisiert
-- Табель JSON: Vorangestellter und angehänget Text
+- JSON Tabelle: Разнообразный и понятный текст
 
 ## 3.1.3
 - Исправлена ошибка
@@ -80,8 +96,8 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 - Исправлена ошибка
 
 ## 3.1.0
-- Новый виджет: Basisschalter
-- Новый виджет: флажок / радиокнопка
+- Новый виджет: Basisshalter
+- Новый виджет: флажок/переключатель
 - Исправление ошибок
 
 ## 3.0.11
@@ -126,15 +142,15 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 ```
 
 - Beim Universal- und Multiwidget kann der Inhaltstyp geändert werden.
-    - Тип текста: Bild (стандартный), Analoge Uhr, Digitale Uhr и HTML / Text
-    - Analoge und digitale Uhr: Farbe des Ziffernblatts под руководством Zeiger kann frei gewählt werden, Zeitzone kann geändert werden
+    - Inhaltstypen: Bild (стандартный), Analoge Uhr, Digitale Uhr и HTML/Text
+    - Analoge und digitale Uhr: Farbe des Ziffernblatts под Zeiger kann frei gewählt werden, Zeitzone kann geändert werden
     - Statt dem Icon kann ein eigener Text oder ein Datenpunktwert per Binding angezeigt werden
 - Vergleichsoperatoren Größer-Gelich und Kleiner-Gleich
-- PopUp kann для Datenpunk geöffnet werden
+- Канн PopUp для Datenpunk geöffnet werden
 - Исправлена ошибка:
     - Colorslider unsichtbar wenn für CIE kein Wert vorhanden ist
-    - Ссылки funktionieren nicht im Popup
-    - Государственный Rückmeldedauer funktioniert nicht richtig
+    - Ссылки функционируют во всплывающем окне.
+    - State Rückmeldedauer funktioniert nicht richtig
 
 ## 2.9.7
 - Исправлена ошибка
@@ -149,77 +165,77 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Исправлена ошибка
 
 ## 2.9.3
-- Fehler mit PopUp behoben: Klick zum schließen wurde direkt nach Öffnen registriert und Klick löste Buttons hinter dem PopUp aus
-- Zustände wurden bei Посмотреть в PopUp nicht richtig angezeigt
+- Fehler mit PopUp behoben: Klick zum schließen wurde direkt nach Öffnen registriert und Klick löste Buttons Hinter dem PopUp aus
+- Zustände wurden bei View in PopUp nicht richtig angezeigt
 
 ## 2.9.2
-- Проблема с Datenpunkt zum Schließen des Popups behoben. АЧТУНГ! Der Datenpunkt muss erneut ausgewählt werden
+- Проблема с Datenpunkt zum Schließen де Popups behoben. АКТУНГ! Der Datenpunkt muss erneut ausgewählt werden
 
 ## 2.9.1
 - Исправлена ошибка
 
 ## 2.9.0
-- Мульти-виджет-статус отображается без изменений виджет-Тип nach Datenpunkten или Views prüfen
-- Optionen zum automatischen Schließen des Popups hinzugefügt
+- Multi-Widget-Status показывает неиспользованный виджет-Typ nach Datenpunkten oder Views prüfen
+- Optionen Zum Automaticischen Schließen des Popups hinzugefügt
 - Исправление ошибок
 
 ## 2.8.3
 - Исправлена ошибка
 
 ## 2.8.2
-- Problem mit Colorslider behoben: Wert wird nicht in Datenpunkt gesetzt, wenn "Wert bei Freigabe aktualisieren" aktiviert ist ",
+- Проблема с Colorslider behoben: Wert wird nicht in Datenpunkt gesetzt, wenn "Wert bei Freigabe aktualisieren" aktiviert ist",
 
 ## 2.8.1
-- Fehler behoben: Color Slider RGB актуально на Dp Änderung nicht (WICHTIG: Datenpunkte müssen neu ausgewählt werden!)
+- Пользуйтесь: Color Slider RGB актуализируйте в Dp Änderung nicht (WICHTIG: Datenpunkte müssen neu ausgewählt werden!)
 
 ## 2.8.0
-- Просмотр в PopUp Option для универсального и мульти-виджета hinzugefügt
+- Просмотр во всплывающем окне для универсального и многофункционального виджета
 - Исправлена ошибка
 
 ## 2.7.11
 - Исправлена ошибка
 
 ## 2.7.10
-- Problem mit Bildern im Universal und Multi Widget behoben
-- Проблема с Bildwechesl im Universal и Multi Widget behoben
+- Проблема с изображениями в универсальном и многофункциональном виджете
+- Проблема с Bildwechesl im Universal und Multi Widget behoben
 
 ## 2.7.9
-- Option für die Bildgröße für das Image-Widget hinzugefügt
-- Fehler von vorheriger Version behoben
+- Опция für die Bildgröße für das Image-Widget hinzugefügt
+- Fehler von vorheriger Версия behoben
 
 ## 2.7.8
 - Проблема с Textausrichtung behoben
-- Problem mit Bildgröße im Image-Widget behoben
+- Проблема с Bildgröße im Image-Widget behoben
 
 ## 2.7.7
-- Problem mit der Bildgröße behoben
-- Problem mit dem Farbregler behoben, dass der Wert beim loslassen nicht gespeichert wurde
+- Проблема мит дер Bildgröße behoben
+- Проблема с дем Farbregler behoben, dass der Wert beim loslassen nicht gespeichert wurde
 
 ## 2.7.6
 - Проблема с Symbolfarbe für Navi-Widget behoben
-- Problem mit Hervorhebung auf Touch-Geräten behoben
+- Проблема с Hervorhebung auf Touch-Geräten behoben
 - Проблема с Radiobutton-Widget и Datentyp Zahlen behobenn
 
 ## 2.7.5
 - JSON Tabelle farbliche Schwellenwerte für Zahlen
 - Fehler beim Slider behoben wenn ungültiger Wert im Datenpunkt steht
 - Fehler behoben: Signalbilder wurden mit eingefärbt
-- Вариант um Bildfarbe zu Invertieren eingefügt, um Farbfilter zu umgehen
-- Цветной слайдер kann nun zwischen HEX, RGB und CIE unterscheiden
+- Опция um Bildfarbe zu invertieren eingefügt, um Farbfilter zu umgehen
+- Ползунок цвета не может быть изменен в HEX, RGB и CIE.
 
 ## 2.7.4
 - Fehlende Übersetzung für Hover-Farben hinzugefügt
 
 ## 2.7.3
 - Fehler beim Multi-State und mehreren Zuständen behoben
-- Schatten und Rand Hover für Buttons hinzugefügt
+- Schatten und Rand Hover для кнопок hinzugefügt
 
 ## 2.7.2
 - Фелер в Radiobutton mit Bildfarbe behoben
-- Fehler behoben: Doppeltes klicken bei State mit Verweildauer
-- Hovereffekt für Buttons eingefügt
-- Problem mit anzeigen des Sliderwertss behoben
-- Слайдер текста anhängen möglich
+- Fehler behoben: Двойные клики Bei State mit Verweildauer
+- Hovereffect для кнопок eingefügt
+- Проблема с анализом слайдера.
+- Слайдер Text anhängen möglich
 
 ## 2.7.1
 - Исправлена ошибка
@@ -229,17 +245,17 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - JSON Tabelle Spaltenformat boolean und number
 - JSON Tabelle Kopfzeile kann fixiert werden
 - JSON Tabelle Fehler beim sortieren behoben
-- JSON Tabelle konfigurierbare Dummyzeile wenn JSON leer ist
-- Фелер Бехобен
+- JSON Table configurierbare Dummyzeile wenn JSON leer ist
+- Фелер бехобен
 
 ## 2.6.0
-- Универсальный и мульти-виджет Vergleichsoperatoren gleich, größer, kleiner und nicht hinzugefügt
-- Ползунок Min / Max инвертированный
-- Слайдер Wert erst beim loslassen setzen
-- Виджет um Wert zu erhöhen oder zu senken
+- Универсальный и мультивиджет Vergleichsoperatoren gleich, größer, kleiner und nicht hinzugefügt
+- Ползунок мин./макс.
+- Slider Wert erst beim loslassen setzen
+- Widget um Wert zu erhöhen oder zu senken
 - JSON Tabelle Fehler mit Datum behoben
 
-. JSON Tabelle anzeige von Millisekunden möglich
+. JSON Table anzeige von Millisekunden moglich
 
 - JSON Tabelle Platzhalter wenn Eintrag leer ist
 - JSON Tabelle Spalten können per Klick sortiert werden
@@ -303,57 +319,57 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Фелер в JSON Tabelle behoben
 
 ## 2.3.0
-- Problem behoben, bei dem Schaltflächen zweimal Werte senden
+- Проблема behoben, bei dem Schaltflächen zweimal Werte senden
 - Datum / Uhrzeit und Bildformat für Tabellenzellen hinzugefügt
-- Универсальный и мульти-виджет-атрибут, указанный в клике, на актуальном виджете
+- Универсальный и мульти-виджет-атрибут, который позволяет активировать виджет.
 
 ## 2.2.3
 - Фелер в JSON Tabelle behoben
 
 ## 2.2.2
-- Fehler im Multi Widget behoben: Bilder und Text wechseln nicht bei Typ Navigation
+- Используйте Multi Widget behoben: Bilder und Text wechseln nicht bei Typ Navigation
 
 ## 2.2.1
-- Фелер в JSON Tabelle behoben, wenn kein gültiges JSON-Objekt vorhanden ist
+- Fehler in JSON Tabelle behoben, wenn kein gültiges JSON-Object vorhanden ist
 - Fehler в Value-List behoben: Wert wird nicht aktualisiert
 
 ## 2.2.0
-- Datenpunktwerte werden jetzt bei allen Widgets im Editor angezeigt
-- Новый виджет: Marquee (Laufschrift)
-- Универсальный и многосторонний Verweildauer hinzugefügt
-- Виджет списка Abstand zwischen den Einträgen kann eingestell werden
+- Datenpunktwerte werden jetzt bei allen Widgets im Editor angezigt
+- Новый виджет: бегущая строка (Laufschrift)
+- Универсальное и мультигосударственное Verweildauer hinzugefügt
+- List Widget Abstand zwischen den Einträgen kann eingestell werden
 
 ## 2.1.0
-- Datenpunktwerte werden im VIS Editor angezeigt!
+- Datenpunktwerte werden im VIS Editor angzeigt!
 
 ## 2.0.1
 - Übersetzungsfehler behoben
-- Граница Farbe behoben
-- Виджет-Untertitel behoben
+- Пограничный Фарбе Бехобен
+- Widget-Untertitel behoben
 
 ## 2.0.0
-- Переключатель, кнопка, навигация и виджет фона (sowie die kleinen Ausführungen) zu einem einzigen Widget zussammengeführt -> dem Universal Widget
+- Переключатель, кнопка, навигация и фоновый виджет (необходимо использовать виджет) с помощью универсального виджета -> универсального виджета.
 - Multi Widget -> wie das Universal, nur dass hier auf mehrere Datenpunkte und Werte geprüft werden kann (Ähnlich der Signalbild Funktion)
-- Виджет изображения kann nun auf Datenpunkt prüfen
+- Image Widget kann nun auf Datenpunkt prüfen
 - Радиокнопки hinzugefügt
 - Werteliste hinzugefügt (Kann Liste aus einem Datenpunkt oder manuell eingetragenem Text erstellen)
 
 ## 1.3.8
-- Шаг ползунка изменен на десятичный
+- Изменен шаг ползунка на десятичный
 - Исправлена проблема с числовыми значениями
 
 ### 1.3.7
-- Исправлена проблема с навигацией по тачскринам.
+- Исправлена проблема с навигацией на сенсорных экранах
 
 ### 1.3.6
-- Добавлена опция установки состояния для навигации.
-- Исправлена проблема с точками данных без конфигурации.
+- Добавлена опция установки состояния для навигации
+- Исправлена проблема с точками данных без конфига
 
 ### 1.3.5
-- Добавлена частота обновления таблицы
+- Добавлена частота обновления для таблицы
 
 ### 1.3.4
-- Удалены значки и фоны, изменен конфиг, Исправлена навигация.
+- Убраны иконки и фоны, изменен конфиг, Исправлена навигация
 
 ### 1.3.3
 - Исправлена опция значения фонового виджета
@@ -362,28 +378,28 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Исправлена ошибка
 
 ### 1.3.1
-- Изменено поведение цвета кнопки навигации.
+- Изменено цветовое поведение кнопки навигации.
 - Добавлены новые иконки
 
 ### 1.3.0
-- Добавлена таблица JSON
+- Добавлена JSON-таблица.
 - Добавлена задержка для навигации
 - Текст в кнопках теперь может быть HTML
 - Добавлены новые иконки
 
 ### 1.2.3
-- Добавлен активный цвет навигации.
-- Исправлен цвет состояния для переключателя значений
+- Добавлен активный цвет навигации
+- Исправлен цвет состояния для переключения значений
 
 ## 1.2.2
 - Исправление ошибки: значение ползунка, конфигурация
 
 ## 1.2.1
-- Исправлен виджет слайдера: разделен на два виджета (горизонтальный и вертикальный)
+- Исправлен виджет Slider: разделен на два виджета (горизонтальный и вертикальный)
 
 ### 1.2.0
-- Добавлен виджет изображений
-- Добавлен ползунок для изменения радиуса границы для всех 4 углов (если эта версия является обновлением для вас, вам нужно щелкнуть каждую кнопку в редакторе vis, чтобы вернуть углы по умолчанию)
+- Добавлен виджет изображения
+- Добавлен ползунок для изменения радиуса границы для всех 4 углов (если эта версия является обновлением для вас, вам нужно нажать на каждую кнопку в виз-редакторе, чтобы вернуть углы по умолчанию)
 - Добавлены новые иконки
 
 ### 1.1.1
@@ -393,10 +409,10 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Добавлен виджет слайдера
 - Добавлена возможность зеркального отображения
 - Добавлены новые иконки
-- Изменены виджеты кнопок для использования шрифта и текста по умолчанию.
+- Изменены виджеты кнопок для использования шрифта и параметров текста по умолчанию.
 
 ### 1.0.0
-- Фон виджета и прозрачность содержимого, переключатель можно изменить с логического на значение, значки изменены с белого на черный, добавлены бесшовные фоны
+- Фон виджета и непрозрачность содержимого, переключатель может быть изменен с логического на значение, изменены значки с белого на черный, добавлен бесшовный фон.
 
 ### 0.1.2
 - Исправление ошибок
@@ -409,7 +425,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 ...
 
 ### 0.1.0 (Erstveröffentlichung)
-- Дизайн-виджеты inventorywo
+- изобретайте два виджета дизайна
 
 ...
 
@@ -422,8 +438,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 ## License
 
-Urheberrechte (c) 2021 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
-
+Copyright (c) 2022 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
 
 MIT License (nur in englisch / englisch only)
 

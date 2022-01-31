@@ -22,6 +22,7 @@ Ein Beispiel für die Anbindung von DS18B20 Sensoren an einen Raspberry Pi ist w
 * Automatische Erkennung der angeschlossenen Sensoren
 * Fehlererkennung beim Abfragen der Sensoren (Checksumme, Kommunikationsfehler, Gerät getrennt)
 * Abfrageintervall pro Sensor anpassbar
+* Einzelne Sensoren können deaktiviert werden
 * Rundung und Umrechnung des gemessenen Wertes pro Sensor anpassbar
 * Unterstützung von Sensoren an entfernten Systemen über den _Remote Client_
 
@@ -36,8 +37,12 @@ Dies ist aber in den seltensten Fällen zu empfehlen!
 
 ## Konfiguration
 
-In der Adapterkonfiguration kann der **Standardabfrageintervall** für alle Sensoren in Millisekunden festgelegt werden. Das Minimum ist 500.  
+In der Adapterkonfiguration kann der **Standardabfrageintervall** für alle Sensoren in Millisekunden festgelegt werden. Das Minimum ist 500.
+
 Zudem kann der **Pfad der 1-Wire Geräte** bei Bedarf angepasst werden.  
+Standard ist hier `/sys/bus/w1/devices`, wodurch Sensoren allen vorhandenen Bus-Mastern gefunden werden.  
+Alternativ kann auch der direkte Pfad zu einem Bus-Master, z.B. `/sys/bus/w1/devices/w1_bus_master1`, angegeben werden, wodurch nur Sensoren dieses Bus-Masters gefunden werden.
+
 Für ein Einbindung von Sensoren an einem entfernten System kann weiterhin der hierfür integrierte Server aktiviert und konfiguriert werden.
 
 In einer Tabelle können die einzelnen Sensoren händisch oder über **Sensoren suchen** hinzugefügt werden.
@@ -67,6 +72,7 @@ Die Rundung erfolgt nach der Berechnung mit Faktor und Offset.
 Ist die Option gesetzt, dann werden `null`-Werte bei Fehlern in den State des Sensors geschrieben.  
 Ohne diese Option wird bei Fehlern der State nicht aktualisiert.
 
+Über den **Aktivert**-Haken können einzelne Sensoren separat deaktiviert werden.
 
 ### Umrechnung von `°C` in `°F`
 
@@ -206,7 +212,7 @@ Ab v1.2.3 prüft der Adapter zusätzlich, ob der gelesene Wert plausibel ist (zw
 
 Ab Version 1.4.0 von _ioBroker.ds18b20_ können Sensoren an entfernten Systemen direkt über den eigenen _ioBroker.ds18b20 Remote Client_ eingebunden werden. Hierfür ist auf dem entfernten System lediglich Node.js erforderlich.
 
-In der Adapterkonfiguration muss der Haken für **Entfernte Sensoren aktiviren** gesetzt sein. Der Adapter startet dann auf dem angegebenen Port einen TCP Server und nimmt Verbindungen der Clients entgegen.
+In der Adapterkonfiguration muss der Haken für **Entfernte Sensoren aktivieren** gesetzt sein. Der Adapter startet dann auf dem angegebenen Port einen TCP Server und nimmt Verbindungen der Clients entgegen.
 
 Die Verbindung zwischen Server und Client ist über einen `aes-256-cbc` Algorithmus verschlüsselt.  
 Hierfür muss bei den Clients der in der Adapterkonfiguration angezeigte Verschlüsselungsschlüssel gesetzt werden.
@@ -221,6 +227,10 @@ Anweisungen zur Einrichtung sind in der Adapterkonfiguration zu finden.
 
 ## Changelog
 
+### 1.6.0 (2022-01-29)
+* (crycode-de) Added sorting of sensors in admin and keep the sort order
+* (crycode-de) Allow usage of w1_bus_masterX directly as w1DevicesPath
+* (crycode-de) Fixed display of errors in admin
 ### 1.5.4 (2022-01-06)
 * (crycode-de) Catch errors while sending request to remote client (IOBROKER-DS18B20-C)
 

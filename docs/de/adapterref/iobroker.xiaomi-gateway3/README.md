@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.xiaomi-gateway3/README.md
 title: ioBroker.xiaomi-gateway3
-hash: zEOOOguUuNY667w9Siuy2u83kBAtydApsYgY4RvqrIc=
+hash: a84WA/1HW/AdX3cRiK/8nj6A6xfkwmbe2n8LaB7+E2c=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.xiaomi-gateway3.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.xiaomi-gateway3.svg)
@@ -31,7 +31,7 @@ Ein großer Teil des Codes basiert auf und wurde neu geschrieben von [AlexxIT](h
 ## Wie kannst du helfen?
 Zunächst einmal können Sie den Adapter einfach installieren, verwenden und Probleme melden.
 
-Wenn Sie viele verschiedene Geräte haben, können Sie außerdem helfen, deren Unterstützung zu verbessern, indem Sie die Option `Debug output (to state)` (siehe unten) aktivieren und mir nach einigen Tagen, in denen Debug-Daten gesammelt werden, eine Debug-Ausgabe geben.
+Außerdem können Sie, wenn Sie viele verschiedene Geräte haben, helfen, deren Unterstützung zu verbessern, indem Sie die Option `Debug output (to state)` (siehe unten) aktivieren und mir nach einigen Tagen, in denen Debug-Daten gesammelt werden, eine Debug-Ausgabe geben.
 
 ## Hardware und Grenzen
 <img src="static/xiaomi-gateway3-img.png" width="250">
@@ -53,11 +53,11 @@ __*!!Achtung:*__ Firmware-Versionen niedriger als `1.4.7_0000` Adapter werden un
 - [ ] Aqara-Birne (ZNLDP12LM)
 - [ ] Aqara-Taste (WXKG11LM)
 - [ ] Aqara-Würfel (MFKZQ01LM)
-- [ ] Aqara-Vorhang (ZNCLDJ11LM)
+- [x] Aqara-Vorhang (ZNCLDJ11LM)
 - [ ] Aqara Vorhang B1 (ZNCLDJ12LM)
 - [ ] Aqara Türschloss S1 (ZNMS11LM)
 - [ ] Aqara Türschloss S2 (ZNMS12LM)
-- [ ] Aqara Türschloss S2 Pro (ZNMS12LM)
+- [] Aqara Türschloss S2 Pro (ZNMS12LM)
 - [x] Aqara Türsensor (MCCGQ11LM)
 - [ ] Aqara Double Wall Button (WXKG02LM)
 - [ ] Aqara Double Wall Button D1 (WXKG07LM)
@@ -68,7 +68,7 @@ __*!!Achtung:*__ Firmware-Versionen niedriger als `1.4.7_0000` Adapter werden un
 - [ ] Aqara Doppelwandschalter US (WS-USC04)
 - [x] Aqara-Bewegungssensor (RTCGQ11LM)
 - [ ] Aqara Opple Vierknopf (WXCJKG12LM)
-- [ ] Aqara Opple MX480 (XDD13LM)
+- [] Aqara Opple MX480 (XDD13LM)
 - [ ] Aqara Opple MX650 (XDD12LM)
 - [ ] Aqara Opple Sechsknopf (WXCJKG13LM)
 - [ ] Aqara Opple Zweiknopf (WXCJKG11LM)
@@ -76,7 +76,7 @@ __*!!Achtung:*__ Firmware-Versionen niedriger als `1.4.7_0000` Adapter werden un
 - [ ] Aqara Präzisionsbewegungssensor (RTCGQ13LM)
 - [ ] Aqara-Relais (LLKZMK11LM)
 - [ ] Aqara Relais T1 (DLKZMK11LM,SSM-U01,SSM-U02)
-- [ ] Aqara Rollo (ZNGZDJ11LM)
+- [x] Aqara Rollo (ZNGZDJ11LM)
 - [ ] Aqara Rollo E1 (ZNJLBL01LM)
 - [ ] Aqara Shake-Taste (WXKG12LM)
 - [ ] Aqara Single Wall Button (WXKG03LM)
@@ -100,7 +100,7 @@ __*!!Achtung:*__ Firmware-Versionen niedriger als `1.4.7_0000` Adapter werden un
 - [ ] IKEA Birne E27 950 lm (LED1546G12)
 - [ ] IKEA Birne E27 980 lm (LED1545G12)
 - [ ] IKEA Glühbirne GU10 400 lm (LED1537R6,LED1650R5)
-- [ ] Xiaomi-Taste (WXKG01LM)
+- [x] Xiaomi-Taste (WXKG01LM)
 - [x] Xiaomi-Türsensor (MCCGQ01LM)
 - [ ] Xiaomi Lichtsensor (GZCGQ01LM)
 - [ ] Xiaomi-Bewegungssensor (RTCGQ01LM)
@@ -134,10 +134,28 @@ __*!!Achtung:*__ Firmware-Versionen niedriger als `1.4.7_0000` Adapter werden un
 - [] Xiaomi Zahnbürste T500 (MES601)
 - [] Xiaomi Wasserlecksensor (SJWS01LM)
 - [ ] Xiaomi ZenMeasure Uhr (MHO-C303)
-- [ ] Xiaomi ZenMeasure TH (MHO-C401)
+- [x] Xiaomi ZenMeasure TH (MHO-C401)
 - [ ] Yeelight-Taste S1 (YLAI003)
 
 _**Hinweis:** BLE-Geräte haben möglicherweise beim ersten Mal nach dem Koppeln keinen Status, da ich die Spezifikationen für Geräte nicht kenne und vorerst keine Eigenschaften für alle Geräte definiert habe. Zustände werden hinzugefügt, wenn das Gerät die entsprechende Eigenschaft aktualisiert. Ich hoffe, ich werde dies mit Ihrer Hilfe im Laufe der Zeit beheben._
+
+## Beschreibung einiger Zustände
+### `Button long press`
+Für Tastengeräte sehen Sie eine Kombination aus zwei Zuständen (wie) `long_press` und `long_timeout`.
+Wie funktioniert es? Schaltflächen, die langes Drücken unterstützen, senden eine Nachricht beim Drücken und beim Loslassen-Ereignis. Manchmal kann es vorkommen, dass die Schaltfläche keine Nachricht auf der Freigabetaste gesendet hat. In diesem Fall sollte `timeout` helfen, den Zustand "freizugeben".
+
+Standardmäßig ist `timeout` der Statuswert nicht gesetzt und `long_press` wird 1 Sekunde nach dem Start losgelassen, auch wenn Sie die Taste noch gedrückt halten. Wenn Sie `long_timeout` auf -1 setzen, wird der Timeout überhaupt ignoriert und der Status wird nur durch eine Nachricht von der Schaltfläche "freigegeben".
+
+In den meisten Fällen ist es sinnvoll, `timeout` auf einen kleinen Wert wie 4 oder 5 Sekunden einzustellen.
+
+### `Occupancy` und `Occupancy timeout`
+RTCGQ11LM und andere Bewegungssensoren haben eine Verzögerung (Timeout) nach der Bewegungserkennung von 5 bis 60 Sekunden (abhängig von Versionen und Modifikationen). Das bedeutet, dass während dieser Zeit keine neue Bewegung erkannt werden kann (technisch sendet der Sensor keine Nachricht).
+
+`occupancy` werden _**true**_, wenn der Sensor Bewegung erkennt und bleiben _**true**_.
+
+Ziel von `occupancy_timeout` wird `occupancy` auf _**false**_ gesetzt, wenn Sensor wieder Nachricht senden kann. Standardmäßig ist `occupancy_timeout` nicht gesetzt und `occupancy` wechseln nach 60 Sekunden wieder auf _**false**_. Wenn Ihr Sensor eine andere Verzögerung hat, ist es besser, `occupancy_timeout` auf diesen Verzögerungswert einzustellen.
+
+Wenn Sie direkt nach der Bewegungserkennung zu _**false**_ zurückkehren möchten, können Sie `occupancy_timeout` auf 1 Sekunde einstellen.
 
 ## Aufbau
 Um ein Gateway zu verbinden, benötigen Sie IP und TOKEN des Gateways. Sie können dies manuell oder über die Cloud tun.
@@ -188,6 +206,8 @@ Setzen Sie „true“, um störende Summersignale zu deaktivieren, oder „false
 Verschieben Sie Geräte-DB-Dateien in den Speicher. Dies kann die Arbeit von Zigbee- und Bluetooth-Geräten verbessern. __*Aber es kann vorkommen, dass einige Daten verloren gehen. Verwendung auf eigene Gefahr.*__
 
 ### Protokollierungseinstellungen
+_**Hinweis: Um Debug-Meldungen im ioBroker-Protokoll anzuzeigen, müssen Sie `debug` Protokollebene für den Adapter auf der Seite `Instances` einstellen (Expertenmodus auf aktiviert umschalten)**_
+
 - [x] __Debug-Protokoll__<br/>
 
 Aktivieren Sie die Debug-Protokollierung. Wenn deaktiviert, haben andere Protokollierungsoptionen keine Auswirkung.
@@ -219,6 +239,14 @@ _**Achtung:** Sie sollten bedenken, dass dies nicht wirklich eine Statistik der 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.3 (2022-01-30)
+* Fix lumi temperature and voltage
+
+### 0.3.2 (2022-01-30)
+* Bug fixes and code improvements
+* Add curtain and buttons support
+* Update README
+
 ### 0.3.1 (2022-01-17)
 * Bug fixes and code improvements
 * Improved support firmware 1.5.1_0032 and some devices
@@ -263,3 +291,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+<!--
+    npm run release -- -p iobroker --all --dry
+-->

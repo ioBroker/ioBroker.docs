@@ -33,6 +33,9 @@ Most datapoints are readonly, you can set the following:
 | remoteDisable | 0: Enable; 1: Disable |
 
 ## Changelog
+### 0.0.4
+* (weggetor) Bugfix sending username + password to Intesis API (formerly send admin/admin hardcoded)
+
 ### 0.0.3
 * (weggetor) Renamed some variables to avoid possible interference with other adapters, removed not used adminTab
 

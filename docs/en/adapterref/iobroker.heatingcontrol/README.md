@@ -246,7 +246,7 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
-### 2.8.4 (in progress)
+### 2.8.4 (2022-01-29)
 * (René) see issue #289: round offset to 0.5°C instead 0.25°C
 * (René) see issue #292: set actors when room becomes inactive like out of heating period
 * (René) see issue #291: inter actuator delay added

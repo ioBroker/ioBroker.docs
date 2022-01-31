@@ -11,9 +11,17 @@
                     "link": "https://www.facebook.com/groups/440499112958264"
                 },
                 {
+                    "title": "ioBroker Vis Facebook Gruppe",
+                    "link": "https://www.facebook.com/groups/183692692909269"
+                },
+                {
                     "title": "Teamspeak für Smart Home Systeme (Facebook)",
                     "link": "https://www.facebook.com/groups/331465920952236"
                 },   
+                {
+                    "title": "ioBroker JavaScript Widgets Softwareentwickling Software Experte Facebook",
+                    "link": "https://www.facebook.com/groups/339099823164662"
+                },
                 {	
                     "title": "CREATIONX - Smart Home Forum",
                     "link": "https://forum.creationx.de/forum/index.php?board/19-iobroker/"
@@ -25,6 +33,10 @@
                 {
                     "title": "ioBroker Meetup Karlsruhe Smart Home IoT",
                     "link": "https://www.meetup.com/de-DE/ioBroker-Meetup-Karlsruhe-Smart-Home-IoT/?_locale=de-DE"
+                },
+                {
+                    "title": "ioBroker Community Telegram Gruppe",
+                    "link": "https://t.me/iobrokergermany"
                 }
             ],
             "documentation": [
@@ -50,6 +62,10 @@
                 }
             ],
             "development": [
+                {
+                    "title": "ioBroker Entwicklungs Telegram Gruppe",
+                    "link": "https://t.me/ioBroker_development"
+                }
             ],
             "blog": [
                 {
@@ -74,6 +90,16 @@
                 }
             ],
             "news": [
+                {
+                    "title": "Smart Home: Steuerungssoftware ioBroker als Docker-Container in Betrieb nehmen",
+                    "link": "https://www.heise.de/ratgeber/Smart-Home-Steuerungssoftware-ioBroker-als-Docker-Container-in-Betrieb-nehmen-6216330.html",
+                    "date": "2021-10-19T00:00:00.000Z"
+                },
+                {
+                    "title": "Smart Home verwalten mit ioBroker: Geräte übergreifend automatisiert steuern",
+                    "link": "https://www.heise.de/ratgeber/Smart-Home-verwalten-mit-ioBroker-Geraete-uebergreifend-automatisiert-steuern-6186156.html",
+                    "date": "2021-09-21T00:00:00.000Z"
+                },                
                 {
                     "title": "ioBroker – die kostenlose Smart-Home Zentrale",
                     "link": "https://gacheck.de/iobroker-die-kostenlose-smarthome-zentrale/",
@@ -269,6 +295,14 @@
                 {
                     "title": "ioBroker official tweeter",
                     "link": "https://twitter.com/iobroker"
+                },
+                {
+                    "title": "IoBroker SmartHome and IoT Facebook group",
+                    "link": "https://www.facebook.com/groups/iobrokerinternational"
+                },
+                {
+                    "title": "ioBroker World Telegram group",
+                    "link": "https://t.me/+TxwSHT9Qz9BkODBi"
                 }
             ],
             "documentation": [

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.xiaomi-gateway3/README.md
 title: ioBroker.xiaomi-gateway3
-hash: zEOOOguUuNY667w9Siuy2u83kBAtydApsYgY4RvqrIc=
+hash: a84WA/1HW/AdX3cRiK/8nj6A6xfkwmbe2n8LaB7+E2c=
 ---
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.xiaomi-gateway3.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.xiaomi-gateway3.svg)
@@ -18,7 +18,7 @@ hash: zEOOOguUuNY667w9Siuy2u83kBAtydApsYgY4RvqrIc=
 
 ## Xiaomi-gateway3 ioBroker 适配器
 该适配器允许 ioBroker 与小米网关 3 通信并使用它来控制小米设备。
-适配器通过 MQTT 协议与网关通信（它连接到内置 MQTT 代理）。但是，您必须通过 Mi Home (Cloud) 将网关和设备配对。
+适配器通过 MQTT 协议与网关通信（它连接到内置的 MQTT 代理）。但是，您必须通过 Mi Home (Cloud) 将网关和设备配对。
 
 ## 早期版本
 适配器目前处于开发阶段。但已经具备随时可用的功能。
@@ -43,7 +43,7 @@ hash: zEOOOguUuNY667w9Siuy2u83kBAtydApsYgY4RvqrIc=
 
 您可以使用这些版本的自定义或库存固件刷新网关：[维基](https://github.com/AlexxIT/XiaomiGateway3/wiki)。
 
-__*!!Attantion:*__ 固件版本低于`1.4.7_0000` 适配器不支持也不支持。不保证支持低于 `v1.5.0_0026` 的版本。
+__*!!注意：*__ 低于`1.4.7_0000` 的固件版本不支持也不支持。不保证支持低于 `v1.5.0_0026` 的版本。
 
 ## 支持的设备
 - [x] 测试
@@ -53,7 +53,7 @@ __*!!Attantion:*__ 固件版本低于`1.4.7_0000` 适配器不支持也不支持
 - [ ] Aqara 灯泡 (ZNLDP12LM)
 - [ ] Aqara 按钮 (WXKG11LM)
 - [ ] Aqara 魔方 (MFKZQ01LM)
-- [ ] Aqara 窗帘 (ZNCLDJ11LM)
+- [x] Aqara 窗帘 (ZNCLDJ11LM)
 - [ ] Aqara 窗帘 B1 (ZNCLDJ12LM)
 - [ ] Aqara 门锁 S1 (ZNMS11LM)
 - [ ] Aqara 门锁 S2 (ZNMS12LM)
@@ -76,7 +76,7 @@ __*!!Attantion:*__ 固件版本低于`1.4.7_0000` 适配器不支持也不支持
 - [ ] Aqara 精密运动传感器 (RTCGQ13LM)
 - [ ] Aqara 继电器 (LLKZMK11LM)
 - [ ] Aqara 继电器 T1 (DLKZMK11LM,SSM-U01,SSM-U02)
-- [ ] Aqara 卷帘 (ZNGZDJ11LM)
+- [x] Aqara 卷帘 (ZNGZDJ11LM)
 - [ ] Aqara 卷帘 E1 (ZNJLBL01LM)
 - [ ] Aqara 摇动按钮 (WXKG12LM)
 - [ ] Aqara 单墙按钮 (WXKG03LM)
@@ -98,9 +98,9 @@ __*!!Attantion:*__ 固件版本低于`1.4.7_0000` 适配器不支持也不支持
 - [ ] 宜家灯泡 E14 400 lm (LED1536G5)
 - [ ] 宜家灯泡 E27 1000 流明 (LED1623G12)
 - [ ] 宜家灯泡 E27 950 lm (LED1546G12)
-- [ ] 宜家灯泡 E27 980 lm (LED1545G12)
+- []宜家灯泡 E27 980 lm (LED1545G12)
 - [ ] 宜家 GU10 灯泡 400 lm (LED1537R6,LED1650R5)
-- [ ] 小米按钮 (WXKG01LM)
+- [x] 小米按钮 (WXKG01LM)
 - [x] 小米门磁 (MCCGQ01LM)
 - [ ] 小米光传感器 (GZCGQ01LM)
 - [ ] 小米运动传感器 (RTCGQ01LM)
@@ -134,17 +134,35 @@ __*!!Attantion:*__ 固件版本低于`1.4.7_0000` 适配器不支持也不支持
 - [ ] 小米牙刷 T500 (MES601)
 - [ ] 小米漏水传感器 (SJWS01LM)
 - [ ] 小米 ZenMeasure 时钟 (MHO-C303)
-- [ ] 小米 ZenMeasure TH (MHO-C401)
+- [x] 小米 ZenMeasure TH (MHO-C401)
 - [ ] Yeelight 按钮 S1 (YLAI003)
 
 _**注意：** BLE 设备在配对后第一次可能没有状态，因为我不知道设备的规格，也没有为所有设备定义属性。当设备更新相应的属性时，将添加状态。我希望我能在你的帮助下随着时间的推移解决这个问题。_
 
+## 一些状态描述
+### `Button long press`
+对于按钮设备，您可以看到两种状态的组合（如）`long_press`和`long_timeout`。
+它是如何工作的？支持长按的按钮在按下和释放事件时发送消息。当按钮未在释放按钮上发送消息时，有时可能会发生这种情况。在这种情况下，`timeout`应该有助于“释放”状态。
+
+默认情况下`timeout`状态值未设置，并且`long_press`将在开始按住按钮后 1 秒内释放，即使您仍然按住它。如果您将 `long_timeout` 设置为 -1 超时将被完全忽略，并且状态将仅通过来自按钮的消息“释放”。
+
+在大多数情况下，将 `timeout` 设置为 4 或 5 秒之类的小值是合理的。
+
+### `Occupancy`和`Occupancy timeout`
+RTCGQ11LM 和其他运动传感器在运动检测后有 5 到 60 秒的延迟（超时）（取决于版本和修改）。这意味着在此期间无法检测到新的运动（技术上传感器不发送消息）。
+
+`occupancy`当传感器检测到运动并保持_**真**_时变为_**真**_。
+
+当传感器可以再次发送消息时，`occupancy_timeout` 的目标设置为 `occupancy` 为 _**false**_。默认情况下，`occupancy_timeout`未设置，`occupancy`在 60 秒后返回 _**false**_。如果您的传感器有不同的延迟，最好将 `occupancy_timeout` 设置为该延迟值。
+
+如果您想在检测到运动后立即返回 _**false**_，您可以将 `occupancy_timeout` 设置为 1 秒。
+
 ＃＃ 配置
 要连接网关，您需要获取网关的 IP 和 TOKEN。您可以手动或从云端执行此操作。
 
-_**注意：**从云端获取设备存在问题。我还没有得到代码或云的这个问题，但是你现在应该尝试多次获取（按下按钮）设备（直到你最终得到）。_
+_**注意：**从云端获取设备存在问题。我还没有得到代码或云的这个问题，但是你现在应该尝试多次获取（按下按钮）设备（直到你最终得到）。
 
-您还必须选择 telnet open 命令（在大多数情况下选项 #2）。您可以通过按钮测试连接和远程登录。
+此外，您还必须选择 telnet open 命令（在大多数情况下是选项 #2）。您可以通过按钮测试连接和远程登录。
 
 *这里 ping 不是真正的 ping。这是对设备可用性的更多检查。*
 
@@ -188,6 +206,8 @@ _**注意：**从云端获取设备存在问题。我还没有得到代码或云
 将设备数据库文件移动到内存。这可以改善 zigbee 和蓝牙设备的工作。 __*但可能会丢失一些数据。使用风险自负。*__
 
 ### 日志设置
+_**注意：要在 ioBroker 日志中查看调试消息，您必须在 `Instances` 页面下为适配器设置 `debug` 日志级别（将专家模式切换为启用）**_
+
 - [x] __调试日志__<br/>
 
 启用调试日志记录。如果禁用其他日志记录选项，则无效。
@@ -219,6 +239,14 @@ _**注意：**您应该记住，这并不是网关和设备之间的 zigbee 消�
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.3 (2022-01-30)
+* Fix lumi temperature and voltage
+
+### 0.3.2 (2022-01-30)
+* Bug fixes and code improvements
+* Add curtain and buttons support
+* Update README
+
 ### 0.3.1 (2022-01-17)
 * Bug fixes and code improvements
 * Improved support firmware 1.5.1_0032 and some devices
@@ -263,3 +291,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+<!--
+    npm run release -- -p iobroker --all --dry
+-->

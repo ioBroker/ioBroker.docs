@@ -3,50 +3,50 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: eY2PM8p+KrILW1ThtTPX4W9dPfYLwdbQngSP2IPbHY4=
+hash: WxQDA4QfXUb7WgPzrJH8H6DAvOKZ1aJVOScPMMGPCEA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.web/admin/web.png)
 
 ![Количество установок](http://iobroker.live/badges/web-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.web.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.web.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.web.svg)
 
 # IoBroker.web
-![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.web/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Тестируйте и выпускайте](https://github.com/ioBroker/ioBroker.web/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 Веб-сервер на базе Node.js и экспресс для чтения файлов из БД ioBroker
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Настройка веб-сокетов
-На некоторых клиентах веб-сокетов возникает проблема с производительностью связи.
-Иногда эта проблема возникает из-за отката связи socket.io с механизмом длительного опроса.
-Вы можете установить опцию *Force Web-Sockets* чтобы принудительно использовать только транспорт веб-сокетов.
+На некоторых клиентах веб-сокетов есть проблемы с производительностью связи.
+Иногда эта проблема возникает из-за отката связи socket.io в механизме длительного опроса.
+Вы можете установить опцию *Force Web-Sockets*, чтобы принудительно использовать транспорт только через веб-сокеты.
 
-## Let's Encrypt Certificates
-Прочтите [здесь](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
+## Давайте зашифруем сертификаты
+Читать [здесь](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
 
 ## Расширения
 Веб-драйвер поддерживает расширения.
-Расширение - это обработчик URL-адресов, который будет вызываться при появлении такого URL-запроса.
+Расширение является обработчиком URL, который будет вызываться при появлении такого запроса URL.
 Расширения выглядят как обычный адаптер, но у них нет запущенного процесса, и они будут вызываться веб-сервером.
 
-Например. пользователь может активировать специальный прокси-адаптер и подключаться к другим устройствам (например, веб-камерам) на том же веб-сервере.
-Требуется, чтобы все сервисы были доступны на одном веб-сервере.
+Например. пользователь может активировать специальный прокси-адаптер и получить доступ к другим устройствам (например, веб-камерам) на том же веб-сервере.
+Необходимо, чтобы все службы были доступны на одном веб-сервере.
 
-Веб-расширение могло и должно поддерживать функцию `unload`, которая могла бы возвращать `promise`, если действие выгрузки займет некоторое время.
+Веб-расширение может и должно поддерживать функцию `unload`, которая может возвращать `promise`, если действие выгрузки займет некоторое время.
 
-Вы можете узнать больше о веб-расширениях [здесь](WEB-EXTENSIONS-HOWTO.md).
+Подробнее о веб-расширениях можно прочитать [здесь](WEB-EXTENSIONS-HOWTO.md).
 
-## Защита от перебора
-Если аутентификация включена и пользователь 5 раз вводит неверный пароль в течение одной минуты, он должен подождать не менее одной минуты до следующей попытки.
+## Защита от грубой силы
+Если включена аутентификация и пользователь вводит неверный пароль 5 раз в течение одной минуты, он должен подождать не менее одной минуты до следующей попытки.
 После 15-й неправильной попытки пользователь должен подождать 1 час.
 
 ## Опция «Оставаться в системе»
-Если выбрана эта опция, пользователь остается в системе в течение одного месяца.
-В противном случае пользователь останется в системе в течение настроенного «тайм-аута входа в систему».
+Если выбран этот параметр, пользователь остается в системе в течение одного месяца.
+В противном случае пользователь останется в системе в течение настроенного «время ожидания входа».
 
-## Доступ к значениям состояния
+## Значения состояния доступа
 Вы можете получить доступ к значениям нормального и двоичного состояния через HTTP-запрос на получение.
 
 ```
@@ -61,7 +61,7 @@ http://IP:8082/state/javascript.picture.png =>
 [IMAGE]
 ```
 
-Изображение должно быть записано в адаптере javascript, например:
+Изображение должно быть записано в адаптер javascript, например:
 
 ```
 createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
@@ -69,30 +69,49 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 });
 ```
 
-## Параметр «Обычная проверка подлинности»
-Разрешает вход через базовую аутентификацию, отправляя `401` Неавторизованный с заголовком `WWW-Authenticate`.
-Это можно использовать для таких приложений, как *FullyBrowser* При однократном вводе неправильных учетных данных вы будете перенаправлены на страницу входа.
+## Опция «Базовая аутентификация»
+Разрешает вход через обычную аутентификацию путем отправки `401` Unauthorized с заголовком `WWW-Authenticate`.
+Это можно использовать для таких приложений, как *FullyBrowser*. При вводе неверных учетных данных один раз вы будете перенаправлены на страницу входа.
 
 ## Расширенные опции
 ### Перенаправление по умолчанию
-Если при открытии веб-порта в браузере не должно отображаться ни одно приложение, а какое-то конкретное приложение, путь может быть указан здесь (например, `/vis/`), чтобы этот путь открывался автоматически.
+Если при открытии веб-порта в браузере должно отображаться не приложение, а какое-то конкретное приложение, здесь можно указать путь (например, `/vis/`), чтобы этот путь был открыт автоматически.
 
-<! - Заполнитель для следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
 
 ## Changelog
+### 4.0.1 (2022-01-30)
+* (bluefox) Added the update warning
+
+### 4.0.0 (2022-01-29)
+* (jogibear9988) Add http compression support
+* (bluefox) Used new socketio adapter with only web sockets
+
+### 3.4.16 (2021-11-15)
+* (bluefox/Apollon77) Fixed error with unload of web extensions
+
+### 3.4.13 (2021-10-25)
+* (bluefox) Fixed the connection indication
+
+### 3.4.12 (2021-10-23)
+* (bluefox) Fixed the warning about non-existing object
+
+### 3.4.11 (2021-10-22)
+* (bluefox) Added warning, that the white list works only with the integrated socket-io interface
+
 ### 3.4.9 (2021-08-11)
 * (bluefox) Fixed error with access list
 * (bluefox) Added support of the unload function for web-extensions 
-* (bluefox) Added readme for the web-extensions development 
- 
+* (bluefox) Added readme for the web-extensions development
+
 ### 3.4.8 (2021-08-10)
 * (bluefox) added the default redirect option
- 
+
 ### 3.4.7 (2021-07-31)
 * (bluefox) Corrected the small config GUI error
- 
+
 ### 3.4.5 (2021-07-20)
 * (Apollon77) fix admin dependency because since 3.4.2 Admin 5.1 is required
 
@@ -114,7 +133,7 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 * (Apollon77) automatically decrypt secrets for web-extensions
 
 ### 3.3.0 (2021-02-01)
-* (bluefox) The admin GUI was rewritten with reactJS 
+* (bluefox) The admin GUI was rewritten with reactJS
 
 ### 3.2.3 (2021-01-12)
 * (Apollon77) If no port is provided use default 8082 (Sentry IOBROKER-WEB-2S)
@@ -135,7 +154,7 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 * (bluefox) Added the support of multi-language names for the welcome screen.
 
 ### 3.0.12 (2020-08-22)
-* (bluefox) Updated used npm libraries 
+* (bluefox) Updated used npm libraries
 
 ### 3.0.10 (2020-07-28)
 * (Apollon77) socketio pingTimeout and pinInterval increased to prevent too fast re-connections and bigger visualizations
@@ -145,7 +164,7 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 * (Apollon77) Optimize error handling for web-server initialization again
 
 ### 3.0.8 (2020-05-04)
-* (Apollon77) web-server initialization optimized again to prevent errors with invalid certificates 
+* (Apollon77) web-server initialization optimized again to prevent errors with invalid certificates
 
 ### 3.0.7 (2020-04-30)
 * (Apollon77) errors on web-server initialization are handled properly
@@ -355,6 +374,7 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 ### 1.1.1 (2015-11-01)
 * (bluefox) some files were missed on npm
 *
+
 ### 1.1.0 (2015-11-01)
 * (bluefox) update jquery UI libs
 
@@ -467,7 +487,7 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 Bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

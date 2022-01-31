@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: eY2PM8p+KrILW1ThtTPX4W9dPfYLwdbQngSP2IPbHY4=
+hash: WxQDA4QfXUb7WgPzrJH8H6DAvOKZ1aJVOScPMMGPCEA=
 ---
 ![Logo](../../../en/adapterref/iobroker.web/admin/web.png)
 
@@ -11,42 +11,42 @@ hash: eY2PM8p+KrILW1ThtTPX4W9dPfYLwdbQngSP2IPbHY4=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.web.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.web.svg)
 
-#ioBroker.web
+# IoBroker.web
 ![Testen und freigeben](https://github.com/ioBroker/ioBroker.web/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 Webserver auf Basis von Node.js und Express zum Lesen der Dateien aus ioBroker DB
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
-## Tuning Web-Sockets
+## Web-Sockets optimieren
 Bei einigen Web-Sockets-Clients gibt es Leistungsprobleme bei der Kommunikation.
-Manchmal ist dieses Problem auf einen Fallback der socket.io-Kommunikation auf einen langen Polling-Mechanismus zurückzuführen.
-Sie können die Option *Web-Sockets erzwingen* einstellen, um nur den Transport von Web-Sockets zu erzwingen.
+Manchmal ist dieses Problem auf einen Fallback der socket.io-Kommunikation auf einen langen Abfragemechanismus zurückzuführen.
+Sie können die Option *Force Web-Sockets* so einstellen, dass nur die Verwendung von Web-Sockets-Transport erzwungen wird.
 
 ## Lassen Sie uns Zertifikate verschlüsseln
-Lesen Sie [hier](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
+Lesen [Hier](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
 
 ## Erweiterungen
 Webtreiber unterstützt Erweiterungen.
 Die Erweiterung ist ein URL-Handler, der aufgerufen wird, wenn eine solche URL-Anfrage erscheint.
-Die Erweiterungen sehen aus wie die normalen Adapter, haben aber keinen laufenden Prozess und werden vom Webserver aufgerufen.
+Die Erweiterungen sehen aus wie der normale Adapter, haben aber keinen laufenden Prozess und werden vom Webserver aufgerufen.
 
-Z.B. der Benutzer kann einen speziellen Proxy-Adapter aktivieren und andere Geräte (wie Webcams) im selben Webserver erreichen.
-Es ist erforderlich, dass alle Dienste unter einem Webserver verfügbar sind.
+Z.B. Der Benutzer kann einen speziellen Proxy-Adapter aktivieren und andere Geräte (wie Webcams) auf demselben Webserver erreichen.
+Es ist erforderlich, alle Dienste unter einem Webserver verfügbar zu machen.
 
-Web-Erweiterung könnte und sollte `unload` Funktion unterstützen, die `promise` zurückgeben könnte, wenn die Entladeaktion einige Zeit in Anspruch nimmt.
+Die Web-Erweiterung könnte und sollte die Funktion `unload` unterstützen, die `promise` zurückgeben könnte, wenn der Entladevorgang einige Zeit in Anspruch nimmt.
 
-Lesen Sie mehr über Web-Erweiterungen [hier](WEB-EXTENSIONS-HOWTO.md).
+Lesen Sie mehr über Web-Erweiterungen [Hier](WEB-EXTENSIONS-HOWTO.md).
 
 ## Brute-Force-Schutz
 Wenn die Authentifizierung aktiviert ist und der Benutzer innerhalb einer Minute fünfmal ein ungültiges Passwort eingibt, muss er mindestens eine Minute bis zum nächsten Versuch warten.
 Nach dem 15. Fehlversuch muss der Benutzer 1 Stunde warten.
 
-## Option "Angemeldet bleiben"
-Wenn diese Option ausgewählt ist, bleibt der Benutzer einen Monat lang eingeloggt.
-Wenn nicht, bleibt der Benutzer für die konfigurierte "Login-Zeitüberschreitung" angemeldet.
+## Option "Angemeldet bleiben".
+Wenn diese Option ausgewählt ist, bleibt der Benutzer einen Monat lang angemeldet.
+Wenn nicht, bleibt der Benutzer für das konfigurierte "Login-Timeout" angemeldet.
 
-## Auf die Werte des Status zugreifen
+## Greifen Sie auf die Werte des Status zu
 Sie können über die HTTP-Get-Anforderung auf die normalen und binären Zustandswerte zugreifen.
 
 ```
@@ -61,7 +61,7 @@ http://IP:8082/state/javascript.picture.png =>
 [IMAGE]
 ```
 
-Das Bild muss in den Javascript-Adapter geschrieben werden wie:
+Das Bild muss wie folgt in den Javascript-Adapter geschrieben werden:
 
 ```
 createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
@@ -69,30 +69,49 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 });
 ```
 
-## Option "Basis-Authentifizierung"
-Ermöglicht die Anmeldung über die Basisauthentifizierung durch Senden von `401` Unauthorized mit einem `WWW-Authenticate`-Header.
-Dies kann für Anwendungen wie *FullyBrowser* verwendet werden. Wenn Sie einmal die falschen Zugangsdaten eingeben, werden Sie auf die Anmeldeseite weitergeleitet.
+## Option "Basisauthentifizierung".
+Ermöglicht die Anmeldung über die Standardauthentifizierung durch Senden von `401` Unautorisiert mit einem `WWW-Authenticate`-Header.
+Dies kann für Anwendungen wie *FullyBrowser* verwendet werden. Wenn Sie einmal die falschen Zugangsdaten eingeben, werden Sie zur Anmeldeseite weitergeleitet.
 
 ## Erweiterte Optionen
 ### Standardumleitung
-Wenn beim Öffnen des Webports im Browser keine APP-Auswahl angezeigt werden soll, sondern eine bestimmte Anwendung, könnte hier der Pfad angegeben werden (z.B. `/vis/`), damit dieser Pfad automatisch geöffnet wird.
+Wenn beim Öffnen des Webports im Browser keine APP-Auswahl angezeigt werden soll, sondern eine bestimmte Anwendung, könnte hier der Pfad angegeben werden (z. B. `/vis/`), damit dieser Pfad automatisch geöffnet wird.
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __ARBEITEN IN PROGRESS__ -->
+### __LAUFENDE ARBEIT__ -->
 
 ## Changelog
+### 4.0.1 (2022-01-30)
+* (bluefox) Added the update warning
+
+### 4.0.0 (2022-01-29)
+* (jogibear9988) Add http compression support
+* (bluefox) Used new socketio adapter with only web sockets
+
+### 3.4.16 (2021-11-15)
+* (bluefox/Apollon77) Fixed error with unload of web extensions
+
+### 3.4.13 (2021-10-25)
+* (bluefox) Fixed the connection indication
+
+### 3.4.12 (2021-10-23)
+* (bluefox) Fixed the warning about non-existing object
+
+### 3.4.11 (2021-10-22)
+* (bluefox) Added warning, that the white list works only with the integrated socket-io interface
+
 ### 3.4.9 (2021-08-11)
 * (bluefox) Fixed error with access list
 * (bluefox) Added support of the unload function for web-extensions 
-* (bluefox) Added readme for the web-extensions development 
- 
+* (bluefox) Added readme for the web-extensions development
+
 ### 3.4.8 (2021-08-10)
 * (bluefox) added the default redirect option
- 
+
 ### 3.4.7 (2021-07-31)
 * (bluefox) Corrected the small config GUI error
- 
+
 ### 3.4.5 (2021-07-20)
 * (Apollon77) fix admin dependency because since 3.4.2 Admin 5.1 is required
 
@@ -114,7 +133,7 @@ Wenn beim Öffnen des Webports im Browser keine APP-Auswahl angezeigt werden sol
 * (Apollon77) automatically decrypt secrets for web-extensions
 
 ### 3.3.0 (2021-02-01)
-* (bluefox) The admin GUI was rewritten with reactJS 
+* (bluefox) The admin GUI was rewritten with reactJS
 
 ### 3.2.3 (2021-01-12)
 * (Apollon77) If no port is provided use default 8082 (Sentry IOBROKER-WEB-2S)
@@ -135,7 +154,7 @@ Wenn beim Öffnen des Webports im Browser keine APP-Auswahl angezeigt werden sol
 * (bluefox) Added the support of multi-language names for the welcome screen.
 
 ### 3.0.12 (2020-08-22)
-* (bluefox) Updated used npm libraries 
+* (bluefox) Updated used npm libraries
 
 ### 3.0.10 (2020-07-28)
 * (Apollon77) socketio pingTimeout and pinInterval increased to prevent too fast re-connections and bigger visualizations
@@ -145,7 +164,7 @@ Wenn beim Öffnen des Webports im Browser keine APP-Auswahl angezeigt werden sol
 * (Apollon77) Optimize error handling for web-server initialization again
 
 ### 3.0.8 (2020-05-04)
-* (Apollon77) web-server initialization optimized again to prevent errors with invalid certificates 
+* (Apollon77) web-server initialization optimized again to prevent errors with invalid certificates
 
 ### 3.0.7 (2020-04-30)
 * (Apollon77) errors on web-server initialization are handled properly
@@ -355,6 +374,7 @@ Wenn beim Öffnen des Webports im Browser keine APP-Auswahl angezeigt werden sol
 ### 1.1.1 (2015-11-01)
 * (bluefox) some files were missed on npm
 *
+
 ### 1.1.0 (2015-11-01)
 * (bluefox) update jquery UI libs
 
@@ -467,7 +487,7 @@ Wenn beim Öffnen des Webports im Browser keine APP-Auswahl angezeigt werden sol
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 Bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
