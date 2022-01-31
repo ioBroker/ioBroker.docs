@@ -23,6 +23,7 @@ An example of the connection of DS18B20 sensors to a Raspberry Pi can be found b
 * Auto detect of the connected sensors
 * Detection of errors while reading a sensor (checksum, communication error, device disconnected)
 * Query interval customizable per sensor
+* Single senors may be disabled
 * Rundung und Umrechnung des gemessenen Wertes pro Sensor anpassbar
 * Rounding and conversion of the measured value customizable per sensor
 * Support for sensors at remote systems using the _remote client_
@@ -37,8 +38,12 @@ This is recommended in only some cases!
 
 ## Configuration
 
-In the adapter configuration, a **Default query interval** can be specified in milliseconds for all sensors. Minimum is 500.  
+In the adapter configuration, a **Default query interval** can be specified in milliseconds for all sensors. Minimum is 500.
+
 In addition, the **Path of the 1-wire devices** can be adjusted if necessary.  
+Default is `/sys/bus/w1/devices`, where sensors on all bus masters will be detected.  
+Alternatively you may set the direct path ot one bus master, e.g. `/sys/bus/w1/devices/w1_bus_master1`. Then you will get only sensors for this single bus master.
+
 An integrated server can be activated and configured for the integration of sensors at a remote system.
 
 The sensors can be added to a table manually or by **Search Sensors**.
@@ -67,6 +72,8 @@ The rounding takes place after the calculation with factor and offset.
 **Null on error** defines how sensor read errors are handled.  
 If this option is set, a `null` value be written to the sensor state on error.  
 If unset, the state will not be updated on errors.
+
+The **Enabled** checkbox allows you disable specific sensors separately.
 
 
 ### Conversion from `°C` to `°F`
@@ -221,6 +228,10 @@ Instructions how to set up the client are includes in the adapter configuration.
 
 ## Changelog
 
+### 1.6.0 (2022-01-29)
+* (crycode-de) Added sorting of sensors in admin and keep the sort order
+* (crycode-de) Allow usage of w1_bus_masterX directly as w1DevicesPath
+* (crycode-de) Fixed display of errors in admin
 ### 1.5.4 (2022-01-06)
 * (crycode-de) Catch errors while sending request to remote client (IOBROKER-DS18B20-C)
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: tYvwlhfmIW5HK8sqVTDJwBvGypWOVWFVZu3HIgZ3PCI=
+hash: 9RoTOkmpsdKGiO0Z8+uYJrrII46BeOks0DE+0bg/RQw=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -123,6 +123,13 @@ Der vollständige Name einschließlich Pfad wird verwendet, um auf Ähnlichkeit 
 - Von hier aus können Sie eine Dashboard-JSON-Datei hochladen
 - Wählen Sie Importieren (Überschreiben)
 
+## Zustrom migrieren
+- Melden Sie sich mit dem Befehl Influx bei Ihrem IOBroker-Server an
+- Verwenden Sie iobroker (oder Ihre spezifische Datenbank, die über den Befehl show databases aufgelistet wird)
+- Einträge auflisten mit: Messungen anzeigen
+- Tabellen kopieren mit Befehl: select * in "entry_new" from "entry_old";
+- Zufluss für neues Objekt entry_new aktivieren
+
 # Verwendung des Adapters & Grundkonzept
 ### ACK-Flags
 Anwendungen sollen keine ack-Flags setzen, die Anwendung wird von diesem Adapter durch das ack-Flag benachrichtigt, wenn Daten aktualisiert werden.
@@ -171,7 +178,7 @@ GroupValue_Read-Kommentar funktioniert nicht für Javascript-Adapter. Verwenden 
 | DPT-3 | Objekt | {"decr_incr":1 Bit,"data":2 Bit} | - ||
 | DPT-18 | Objekt | {"save_recall":0,"scenenumber":0} | - |Datenpunkttyp DPT_SceneControl aus Autoread entfernt|
 | DPT-21 | Objekt | {"outofservice":0,"fault":0,"overridden":0,"inalarm":0,"alarmunack":0} | - ||
-| DPT-232 | Objekt | {Rot:0..255, Grün:0,255, Blau:0,255} | - ||
+| DPT-232 | Objekt | {rot:0..255, grün:0,255, blau:0,255} | - ||
 | DPT-237 | Objekt | {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | - ||
 | DPT-4 | Zeichenfolge | | ein als 8-Bit-Zeichen gesendetes Zeichen ||
 | DPT-16 | Zeichenfolge | | ein Zeichen als 16-Zeichen-String gesendet ||
@@ -229,7 +236,7 @@ Es sind 6 verschiedene Objektflags definiert.
 |C: das Kommunikationsflag | K: Kommunikations-Flag | immer gesetzt ||
 |R: das Lese-Flag | L: Lese-Flag | Objekt native.answer_groupValueResponse ||
 |T: das Sendeflag | Ü: Übertragen-Flagge | Objekt common.write ||
-|W: das Schreiben-Flag | S: Schreiben-Flag | Objekt common.read | Bus kann das Objekt modifizieren |
+|W: das Schreiben-Flag | S: Schreiben-Flag | Objekt common.read | Bus kann das Objekt ändern |
 |U: das Update-Flag | A: Aktualisieren-Flag | Objekt common.read | Objekt bei eingehenden GroupValue_Responses aktualisieren |
 |I: das Initialisierungsflag | I: Initialisierungs-Flag | Objekt native.autoread | |
 
@@ -257,6 +264,18 @@ Die Daten werden an den in Deutschland gehosteten Iobroker Sentry-Server gesende
 - nur IPv4 unterstützt
 
 ## Changelog
+### 0.1.19 (2022-02-)
+* feature:
+* bugfix:
+
+### 0.1.18 (2022-01-30)
+* bugfix: issue #61 Alias dialog not working 1st time
+
+### 0.1.17 (2022-01-29)
+* feature: more information in alias import dialog
+* feature: warning on startup if ga are inconsistent
+* fix: corrected object count statistics on startup
+
 ### 0.1.16 (2022-01-27)
 * feature: add back sentry
 * fix: stability alias generation

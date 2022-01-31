@@ -222,8 +222,6 @@ With command in javascript adapter you can activate text to speech engine of And
 
 ```setState('vis.0.control.command', '{"instance": "*", "data":"say something", "command": "tts"}');```
 
-
-
 ## TODO
 - enable automatically load of project files from ioBroker server (e.g. for home use)
 

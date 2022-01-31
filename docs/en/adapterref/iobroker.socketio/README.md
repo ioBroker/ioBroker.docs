@@ -6,10 +6,11 @@
 
 [![NPM](https://nodei.co/npm/iobroker.socketio.png?downloads=true)](https://nodei.co/npm/iobroker.socketio/)
 
+This adapter used by WEB applications and adapters to communicate with ioBroker using websockets and the socket.io protocol.
 
-This adapter used by some WEB applications and adapters to communicate with ioBroker using socket.io protocol.
+**Important Note: Since v4.0 of this adapter pure Websockets are used exclusively! Socket.io is no longer implemented by the socket.io library, but simulated via pure WebSockets!**
 
-Users can use this adapter to connect their products to ioBroker via web sockets. Actually this adapter is used by Flot, Rickshaw, Vis and mobile to extract data from ioBroker.
+Users can use this adapter to connect their products to ioBroker via web sockets. Actually this adapter is e.g. used by Flot, Rickshaw, Vis and mobile to extract data from ioBroker.
 
 You can find in the example [directory](https://github.com/ioBroker/ioBroker.socketio/tree/master/example) simple application that uses this interface to show some data.
 
@@ -21,7 +22,7 @@ It is useful to read about the [structure of the objects](https://github.com/ioB
 
 ## Brief description of concept
 ### Object
-Object is description of data point or group. Group could content other datapoints in this case it called channel. If group consists of other channels in this case it called device. 
+Object is description of data point or group. Group could content other data points in this case it called channel. If group consists of other channels in this case it called device. 
 
 Object is meta information that describes data point and could content: max/min value, unit, name, default value, type of value, information for adapter for communication (e.g. ip address) and so on.
 
@@ -38,34 +39,33 @@ State is actual value of the data point and presented by javascript object:
 }
 ```
 
-States change itself very frequently in compare to objects. (Normally objects should be changed once by creation and that's all) 
+States change itself very frequently in compare to the objects. (Normally objects should be changed once by creation and that's all) 
 
 ### Acknowledgment
-Every state has attribute "ack". It shows the direction of command. 
+Every state has the attribute "ack". It shows the direction of command. 
 - If ack=false, it means some other adapter wants to control (write) this variable, so that command will be executed (e.g. light will be switched on).
 - If ack=true, it means that device informs about new value. (e.g. light was switched on manually or motion was detected)
  
-**Example**: we have some home automation adapter (HAA) that has one lamp connected under address *haa.0.lamp1*. 
-- Lamp can be switched on manually with physical switch or via wifi with he help of HAA. 
-- If vis wants to switch the lamp on via wifi it should set the new value with ```{value: true, ack: false}```. 
+**Example**: we have some home automation adapter (HAA) that has one lamp connected under address `haa.0.lamp1`. 
+- Lamp can be switched on manually with physical switch or via Wi-Fi with the help of HAA. 
+- If vis wants to switch the lamp on via Wi-Fi it should set the new value with ```{value: true, ack: false}```. 
 - When the lamp is switched on it is normally inform HAA about new state and the value should be immediately overwritten with ```{value: true, ack: true}```.
 - If the lamp is switched off manually via physical switch it informs HAA about new state with ```{value: false, ack: true}```. 
 
 ### Quality
-Every data point has attribute **q** - *quality*. 
-
+Every data point has an attribute `q` - *quality*. 
 
 ## Usage
 It is suggested to use example/conn.js for communication. 
 
-After inclusion of conn.js file the global object **servConn** could be used to establish the communication with socketio adapter.
+After inclusion of conn.js file the global object `servConn` could be used to establish the communication with socketio adapter.
 
-**servConn** object has hollowing methods:
+`servConn` object has hollowing methods:
 
 ### init
 - function (connOptions, connCallbacks, objectsRequired)
 
-**connOptions** - is optional parameter:
+`connOptions` - is optional parameter:
 
 ```
 connOptions = {
@@ -83,7 +83,7 @@ var socketSession  = '';                       // is connOptions.socketSession
 servConn.namespace = 'myapp';                  // is connOptions.name
 ```
 
-**connCallbacks** - object with callbacks:
+`connCallbacks` - object with callbacks:
 
 ```
 connCallbacks = {
@@ -101,26 +101,25 @@ set new value of some data point.
  
 E.g. ```servConn.setState('adapter.0.myvalue', true)``` writes ```{val: true, ack: false}``` into *adapter.0.myvalue*.
 
-- **pointId** - is ID of the state, like *adapter.0.myvalue*,
-- **value**   - new value of the state, could be simple value (string, number, boolean) or object like ```{val: newValue, ack: false, q: 0}```. 
+- `pointId` - is ID of the state, like `adapter.0.myvalue`,
+- `value`   - new value of the state, could be simple value (string, number, boolean) or object like ```{val: newValue, ack: false, q: 0}```. 
 In case if used simple value, "ack" will be set to "false".
-- **callback** - ```function (error) {}``` - called when the write of new value into DB is performed (not when the device was controlled).  
-
+- `callback` - ```function (error) {}``` - called when the write of new value into DB is performed (not when the device was controlled).  
 
 ### getStates
 - function (IDs, callback)
 
 get the states of more than one state. This command normally is called after the connection is established to get the actual states of used data points.
 
-- **IDs** - pattern or array with IDs. Could be omitted to get all states. Patterns could have wildcards, like: '*.STATE', 'haa.0.*' 
-- **callback** - ```function (error, states) {}``` - *states* is object like ```{'id1': 'state1', 'id2': 'state2', ...}```. *stateX* are objects with the structure described [above](#state). 
+- `IDs` - pattern or array with IDs. Could be omitted to get all states. Patterns could have wildcards, like: '*.STATE', 'haa.0.*' 
+- `callback` - ```function (error, states) {}``` - *states* is object like ```{'id1': 'state1', 'id2': 'state2', ...}```. *stateX* are objects with the structure described [above](#state). 
 
 ### httpGet
 - function (url, callback)
 
 calls this URL from PC, where socketio adapter runs.
-- **url** - is address to call. 
-- **callback** - ```function (data) {}``` - result of the request (html body). 
+- `url` - is address to call. 
+- `callback` - ```function (data) {}``` - result of the request (html body). 
 
 ### logError
 - function (errorText)
@@ -132,7 +131,7 @@ writes error message into controller's log.
 
 reads controller configuration like language, temperature units, point or comma delimiter in floats, date format.
 
-- **callback** - ```function (err, config) {}``` - config looks like:
+- `callback` - ```function (err, config) {}``` - config looks like:
 
 ```
 {
@@ -158,8 +157,8 @@ reads controller configuration like language, temperature units, point or comma 
 
 read specific object from DB. With this function the meta information of some object could be read.
 
-- **id** - id of the state, like "haa.0.light1",
-- **callback** - ```function (error, obj)``` - obj looks like:
+- `id` - id of the state, like "haa.0.light1",
+- `callback` - ```function (error, obj)``` - obj looks like:
   
 ```
 {
@@ -198,7 +197,7 @@ read specific object from DB. With this function the meta information of some ob
 
 read all objects from DB. 
 
-- **callback** - ```function (error, objs)``` - objs looks like:  ```{'id1': 'object1', 'id2': 'object2', ...}```
+- `callback` - ```function (error, objs)``` - objs looks like:  ```{'id1': 'object1', 'id2': 'object2', ...}```
 
 ### readDir
 - function (dirName, callback)
@@ -246,7 +245,7 @@ Files are stored in DB (or similar) and normally should not be accessed directly
 ### mkdir
 - function (dirName, callback)
 
-- **callback** - ```function (error) {}```
+- `callback` - ```function (error) {}```
 
 ### unlink
 - function (name, callback)
@@ -254,53 +253,53 @@ Files are stored in DB (or similar) and normally should not be accessed directly
 deletes file or directory. Directory must be empty to be deleted. 
 
 - dirName - name of the directory or file like */mobile.0/data*.
-- **callback** - ```function (error) {}```
+- `callback` - ```function (error) {}```
 
 ### readFile
 - function (filename, callback)
 
-- **callback** - ```function (error, fileData, mimeType)```
+- `callback` - ```function (error, fileData, mimeType)```
 
 ### readFile64
 - function (filename, callback)
 
-- **callback** - ```function (error, data)``` - data is ```{mime: mimeType, data: base64data}```
+- `callback` - ```function (error, data)``` - data is ```{mime: mimeType, data: base64data}```
 
 ### writeFile
 - function (filename, data, mode, callback)
 
-- **callback** - ```function (error) {}```
+- `callback` - ```function (error) {}```
 
 ### writeFile64
 - function (filename, data, mode, callback)
 
-- **callback** - ```function (error) {}```
+- `callback` - ```function (error) {}```
 
 ### renameFile
 - function (oldName, newName, callback)
 
-- **callback** - ```function (error) {}```
+- `callback` - ```function (error) {}```
 
 ### getHistory
 - function (instance, options, callback)
 
-- **callback** - ```function (error, data, step, sessionId) {}```
+- `callback` - ```function (error, data, step, sessionId) {}```
 
 ### requireLog
 - function (isRequire, callback)
 
 activates/deactivates log receiving for this socket.
 
-- **callback** - ```function (error) {}```
+- `callback` - ```function (error) {}```
 
 ### authEnabled
 - function ()
 
 reads if the authentication is enabled and which user is logged in
 
-- **callback** - ```function (authEnabled, currentUser) {}```
+- `callback` - ```function (authEnabled, currentUser) {}```
 
-If authentication is enabled, so current logged in user will be returned, if auth is disabled, so the default user "running as" will be returned.
+If authentication is enabled, so current logged-in user will be returned, if auth is disabled, so the default user "running as" will be returned.
 
 ## Tuning Web-Sockets
 On some web-sockets clients there is performance problem with communication. Sometimes this problem is due to fallback of socket.io communication on long polling mechanism.
@@ -312,10 +311,21 @@ You can set option *Force Web-Sockets* to force using only web-sockets transport
 -->
 
 ## Changelog
+### 4.0.3 (2022-01-30)
+* (bluefox) Removed the deprecated "passport.socketio" packet
+
+### 4.0.2 (2022-01-30)
+* (bluefox) Removed "force web sockets" option
+
+### 4.0.1 (2022-01-29)
+* (bluefox) Fixed authentication
+
+### 4.0.0 (2022-01-29)
+* (bluefox) Remove socket-io and use only web sockets
 
 ### 3.1.5 (2021-10-22)
 * (foxriver76) make error logging on failed authentication more specific
-* (foxriver76) "request" was repalced by "axios" 
+* (foxriver76) "request" was replaced by "axios"
 
 ### 3.1.4 (2021-01-13)
 * (Apollon77) Define instanceObject "connected" to prevent warning with js-controller 3.2
@@ -336,7 +346,7 @@ You can set option *Force Web-Sockets* to force using only web-sockets transport
 * (Apollon77) make sure web adapter gets restarted on socketio adapter upgrade
 
 ### 3.0.10 (2020-07-16)
-* (Apollon77) Error catched when trying to write an empty base64 value into a file (Sentry )
+* (Apollon77) Error caught when trying to write an empty base64 value into a file (Sentry )
 
 ### 3.0.9 (2020-06-11)
 * (Apollon77) optimize error handling on webserver initialization again
@@ -345,7 +355,7 @@ You can set option *Force Web-Sockets* to force using only web-sockets transport
 * (Apollon77) Make sure adapter does not crash if getHttp is called with an invalid URL (Sentry IOBROKER-WEB-R)
 
 ### 3.0.7 (2020-05-04)
-* (Apollon77) webserver initialization optimized again to prevent errors with invalid certificates 
+* (Apollon77) webserver initialization optimized again to prevent errors with invalid certificates
 
 ### 3.0.6 (2020-04-30)
 * (bluefox) errors on webserver initialization are handled properly
@@ -422,7 +432,7 @@ You can set option *Force Web-Sockets* to force using only web-sockets transport
 * (bluefox) Fix authentication for app
 
 ### 1.7.0 (2016-08-30)
-* (bluefox) сompatible only with new admin
+* (bluefox) compatible only with new admin
 
 ### 1.6.1 (2016-08-29)
 * (bluefox) fix error by checking user name
@@ -540,4 +550,4 @@ You can set option *Force Web-Sockets* to force using only web-sockets transport
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>

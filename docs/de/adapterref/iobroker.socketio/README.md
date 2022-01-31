@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.socketio/README.md
-title: ioBroker socket.io
-hash: 2WWkvzj61wWh5yMhLS97vFEGNAVHxv+IwFs5aOj8Ma8=
+title: ioBroker-socket.io
+hash: LiIYhUgFOj7RdsVerQB0EZRgEb4Wwyt5+MnOv/c2NGY=
 ---
 ![Logo](../../../en/adapterref/iobroker.socketio/admin/socketio.png)
 
@@ -12,27 +12,29 @@ hash: 2WWkvzj61wWh5yMhLS97vFEGNAVHxv+IwFs5aOj8Ma8=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.socketio.svg)
 ![NPM](https://nodei.co/npm/iobroker.socketio.png?downloads=true)
 
-# IoBroker socket.io
-Dieser Adapter wird von einigen WEB-Anwendungen und Adaptern zur Kommunikation mit ioBroker über das Protokoll socket.io verwendet.
+# IoBroker-socket.io
+Dieser Adapter wird von WEB-Anwendungen und Adaptern verwendet, um mit ioBroker über Websockets und das socket.io-Protokoll zu kommunizieren.
 
-Benutzer können diesen Adapter verwenden, um ihre Produkte über Web-Sockets mit ioBroker zu verbinden. Tatsächlich wird dieser Adapter von Flot, Rickshaw, Vis und Mobile verwendet, um Daten aus ioBroker zu extrahieren.
+**Wichtiger Hinweis: Seit v4.0 dieses Adapters werden ausschließlich reine Websockets verwendet! Socket.io wird nicht mehr durch die socket.io-Bibliothek implementiert, sondern über reine WebSockets simuliert!**
 
-Im Beispiel [Verzeichnis](https://github.com/ioBroker/ioBroker.socketio/tree/master/example) finden Sie eine einfache Anwendung, die über diese Schnittstelle einige Daten anzeigt.
+Benutzer können diesen Adapter verwenden, um ihre Produkte über Websockets mit ioBroker zu verbinden. Eigentlich ist dieser Adapter z.B. Wird von Flot, Rickshaw, Vis und Mobile verwendet, um Daten aus ioBroker zu extrahieren.
 
-Unter Verwendung der Schnittstelle socket.io sollte der Benutzer die [Grundlagen und Konzept](https://github.com/ioBroker/ioBroker) des Systems verstehen.
+Sie finden im Beispiel [Verzeichnis](https://github.com/ioBroker/ioBroker.socketio/tree/master/example) eine einfache Anwendung, die diese Schnittstelle verwendet, um einige Daten anzuzeigen.
 
-Es ist nützlich, auch über die [Struktur der Objekte](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md) zu lesen.
+Durch die Verwendung der socket.io-Schnittstelle sollte der Benutzer die [Grundlagen und Konzept](https://github.com/ioBroker/ioBroker) des Systems verstehen.
 
-** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+Es ist auch nützlich, über die [Struktur der Objekte](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md) zu lesen.
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Kurze Beschreibung des Konzepts
 ### Objekt
-Objekt ist die Beschreibung eines Datenpunkts oder einer Datengruppe. Die Gruppe könnte andere Datenpunkte in diesem Fall als Kanal bezeichnen. Wenn die Gruppe in diesem Fall aus anderen Kanälen besteht, wird sie als Gerät bezeichnet.
+Objekt ist eine Beschreibung des Datenpunkts oder der Gruppe. Die Gruppe könnte andere Datenpunkte enthalten, in diesem Fall heißt sie Kanal. Wenn die Gruppe aus anderen Kanälen besteht, wird sie in diesem Fall als Gerät bezeichnet.
 
-Objekt ist eine Metainformation, die einen Datenpunkt beschreibt und Inhalt enthalten kann: Max / Min-Wert, Einheit, Name, Standardwert, Werttyp, Informationen für den Adapter für die Kommunikation (z. B. IP-Adresse) und so weiter.
+Objekt sind Metainformationen, die einen Datenpunkt beschreiben und Folgendes enthalten können: Maximal-/Mindestwert, Einheit, Name, Standardwert, Werttyp, Informationen zum Adapter für die Kommunikation (z. B. IP-Adresse) und so weiter.
 
 ### Zustand
-Der Status ist der tatsächliche Wert des Datenpunkts und wird vom Javascript-Objekt dargestellt:
+Status ist der tatsächliche Wert des Datenpunkts und wird durch ein Javascript-Objekt dargestellt:
 
 ```
 {
@@ -45,35 +47,35 @@ Der Status ist der tatsächliche Wert des Datenpunkts und wird vom Javascript-Ob
 }
 ```
 
-Zustände ändern sich sehr häufig im Vergleich zu Objekten. (Normalerweise sollten Objekte einmal durch Erstellen geändert werden und das ist alles)
+Zustände ändern sich sehr häufig im Vergleich zu den Objekten. (Normalerweise sollten Objekte einmal bei der Erstellung geändert werden und das ist alles)
 
 ### Wissen
-Jeder Staat hat das Attribut "ack". Es zeigt die Befehlsrichtung.
+Jeder Zustand hat das Attribut "ack". Es zeigt die Befehlsrichtung an.
 
-- Wenn ack = false ist, bedeutet dies, dass ein anderer Adapter diese Variable steuern (schreiben) möchte, damit der Befehl ausgeführt wird (z. B. wird das Licht eingeschaltet).
-- Wenn ack = true, bedeutet dies, dass das Gerät über einen neuen Wert informiert. (z. B. wurde das Licht manuell eingeschaltet oder eine Bewegung wurde erkannt)
+- Wenn ack=false, bedeutet dies, dass ein anderer Adapter diese Variable steuern (schreiben) möchte, damit dieser Befehl ausgeführt wird (z. B. Licht wird eingeschaltet).
+- Wenn ack=true, bedeutet dies, dass das Gerät über den neuen Wert informiert. (z. B. Licht wurde manuell eingeschaltet oder Bewegung erkannt)
 
-** Beispiel **: Wir haben einen Hausautomationsadapter (HAA), an den eine Lampe unter der Adresse *haa.0.lamp1* angeschlossen ist.
+**Beispiel**: Wir haben einen Heimautomatisierungsadapter (HAA), an dem eine Lampe unter der Adresse `haa.0.lamp1` angeschlossen ist.
 
 - Die Lampe kann manuell mit einem physischen Schalter oder über WLAN mit Hilfe von HAA eingeschaltet werden.
-- Wenn vis die Lampe über WLAN einschalten möchte, sollte der neue Wert mit `` `{value: true, ack: false}` `` eingestellt werden.
-- Wenn die Lampe eingeschaltet ist, wird HAA normalerweise über den neuen Status informiert und der Wert sollte sofort mit `` `{value: true, ack: true}` `` überschrieben werden.
-- Wenn die Lampe manuell über einen physischen Schalter ausgeschaltet wird, informiert sie HAA über den neuen Status mit `` `{Wert: falsch, ack: wahr}` ``.
+- Wenn vis die Lampe über Wi-Fi einschalten möchte, sollte es den neuen Wert mit ```{value: true, ack: false}``` setzen.
+- Wenn die Lampe eingeschaltet wird, wird sie normalerweise HAA über den neuen Zustand informiert und der Wert sollte sofort mit ```{value: true, ack: true}``` überschrieben werden.
+- Wenn die Lampe manuell über einen physischen Schalter ausgeschaltet wird, informiert sie HAA über den neuen Zustand mit ```{value: false, ack: true}```.
 
 ### Qualität
-Jeder Datenpunkt hat das Attribut **q** - *Qualität*
+Jeder Datenpunkt hat ein Attribut `q` - *Qualität*.
 
 ## Verwendung
-Es wird empfohlen, example / conn.js für die Kommunikation zu verwenden.
+Es wird empfohlen, example/conn.js für die Kommunikation zu verwenden.
 
-Nach Aufnahme der Datei conn.js kann das globale Objekt **servConn** verwendet werden, um die Kommunikation mit dem Socketio-Adapter herzustellen.
+Nach Einbindung der Datei conn.js konnte das globale Objekt `servConn` verwendet werden, um die Kommunikation mit dem Socketio-Adapter herzustellen.
 
-Das Objekt **servConn** verfügt über Aushöhlungsmethoden:
+`servConn` Objekt hat Aushöhlungsmethoden:
 
 ### Drin
-- Funktion (connOptions, connCallbacks, Objekte Erforderlich)
+- Funktion (connOptions, connCallbacks, objectsRequired)
 
-** connOptions ** - ist ein optionaler Parameter:
+`connOptions` - ist optionaler Parameter:
 
 ```
 connOptions = {
@@ -83,7 +85,7 @@ connOptions = {
 };
 ```
 
-Sie können diese Parameter übergeben, indem Sie die globalen Variablen auch vor dem Aufruf von "init" definieren:
+Sie können diese Parameter übergeben, indem Sie auch die globalen Variablen vor dem Aufruf von "init" definieren:
 
 ```
 var socketUrl      = 'http://localhost:8084';  // is connOptions.connLink
@@ -91,7 +93,7 @@ var socketSession  = '';                       // is connOptions.socketSession
 servConn.namespace = 'myapp';                  // is connOptions.name
 ```
 
-** connCallbacks ** - Objekt mit Rückrufen:
+`connCallbacks` - Objekt mit Callbacks:
 
 ```
 connCallbacks = {
@@ -103,46 +105,46 @@ connCallbacks = {
 ```
 
 ### SetState
-- Funktion (pointId, Wert, Rückruf)
+- Funktion (pointId, Wert, Callback)
 
-Setzen Sie einen neuen Wert für einen Datenpunkt.
+neuen Wert eines Datenpunktes setzen.
 
-Z.B. ```servConn.setState('adapter.0.myvalue', true)``` schreibt ```{val: true, ack: false}``` in *adapter.0.myvalue*
+Z.B. ```servConn.setState('adapter.0.myvalue', true)``` schreibt ```{val: true, ack: false}``` in *adapter.0.myvalue*.
 
-- **pointId** - ist die ID des Status, wie *adapter.0.myvalue*
-- **value** - neuer Wert des Status, kann ein einfacher Wert (Zeichenfolge, Zahl, Boolescher Wert) oder ein Objekt wie `` `{val: newValue, ack: false, q: 0}` `` sein.
+- `pointId` - ist die ID des Zustands, wie `adapter.0.myvalue`,
+- `value` - Neuer Wert des Zustands, kann ein einfacher Wert (String, Zahl, boolescher Wert) oder ein Objekt wie ```{val: newValue, ack: false, q: 0}``` sein.
 
 Falls ein einfacher Wert verwendet wird, wird "ack" auf "false" gesetzt.
 
-- **Rückruf** - `` `Funktion (Fehler) {}` `` - Wird aufgerufen, wenn das Schreiben eines neuen Werts in die Datenbank ausgeführt wird (nicht, wenn das Gerät gesteuert wurde).
+- `callback` - ```function (error) {}``` - aufgerufen, wenn das Schreiben eines neuen Werts in die DB ausgeführt wird (nicht, wenn das Gerät gesteuert wurde).
 
 ### GetStates
-- Funktion (IDs, Rückruf)
+- Funktion (IDs, Callback)
 
-Holen Sie sich die Zustände von mehr als einem Zustand. Dieser Befehl wird normalerweise aufgerufen, nachdem die Verbindung hergestellt wurde, um den tatsächlichen Status der verwendeten Datenpunkte abzurufen.
+Holen Sie sich die Zustände von mehr als einem Zustand. Dieser Befehl wird normalerweise aufgerufen, nachdem die Verbindung hergestellt wurde, um die aktuellen Zustände der verwendeten Datenpunkte zu erhalten.
 
-- **IDs** - Muster oder Array mit IDs. Könnte weggelassen werden, um alle Zustände zu erhalten. Muster können Platzhalter haben, z. B.: '* .STATE', 'haa.0. *'
-- **Rückruf** - `` `Funktion (Fehler, Zustände) {}` `` - *Zustände* ist ein Objekt wie `` `{'id1': 'state1', 'id2': 'state2', .. .} `` `. *stateX* sind Objekte mit der oben beschriebenen Struktur (# state).
+- "IDs" - Muster oder Array mit IDs. Könnte weggelassen werden, um alle Zustände zu erhalten. Muster können Platzhalter enthalten, wie: '*.STATE', 'haa.0.*'
+- `callback` - ```function (error, states) {}``` - *states* ist Objekt wie ```{'id1': 'state1', 'id2': 'state2', ...} ```. *stateX* sind Objekte mit der [oben] beschriebenen Struktur (#state).
 
 ### HttpGet
 - Funktion (URL, Rückruf)
 
-Ruft diese URL vom PC auf, auf dem der Socketio-Adapter ausgeführt wird.
+ruft diese URL vom PC auf, auf dem der Socketio-Adapter läuft.
 
-- **url** - ist die anzurufende Adresse.
-- **Rückruf** - `` `Funktion (Daten) {}` `` - Ergebnis der Anfrage (HTML-Body).
+- `url` - ist die anzurufende Adresse.
+- `callback` - ```function (data) {}``` - result of the request (html body).
 
-### LogError
-- Funktion (errorText)
+### Protokollfehler
+- Funktion (FehlerText)
 
-schreibt eine Fehlermeldung in das Protokoll des Controllers.
+schreibt Fehlermeldung ins Log des Controllers.
 
 ### GetConfig
 - Funktion (Rückruf)
 
-Liest die Controller-Konfiguration wie Sprache, Temperatureinheiten, Punkt- oder Komma-Trennzeichen in Gleitkommazahlen, Datumsformat.
+liest Controller-Konfiguration wie Sprache, Temperatureinheiten, Punkt- oder Komma-Trennzeichen in Fließkommazahlen, Datumsformat.
 
-- **Rückruf** - `` `Funktion (err, config) {}` `` - config sieht aus wie:
+- `callback` - ```function (err, config) {}``` - config sieht so aus:
 
 ```
 {
@@ -163,13 +165,13 @@ Liest die Controller-Konfiguration wie Sprache, Temperatureinheiten, Punkt- oder
 }
 ```
 
-### GetObject
+### Objekt abrufen
 - Funktion (ID, Rückruf)
 
-Lesen Sie ein bestimmtes Objekt aus der Datenbank. Mit dieser Funktion konnten die Metainformationen eines Objekts gelesen werden.
+bestimmtes Objekt aus DB lesen. Mit dieser Funktion können die Metainformationen einiger Objekte gelesen werden.
 
-- **id** - id des Staates, wie "haa.0.light1",
-- **Rückruf** - `` `Funktion (Fehler, obj)` `` - obj sieht aus wie:
+- `id` - ID des Zustands, wie "haa.0.light1",
+- `callback` - ```function (error, obj)``` - obj sieht so aus:
 
 ```
 {
@@ -206,19 +208,19 @@ Lesen Sie ein bestimmtes Objekt aus der Datenbank. Mit dieser Funktion konnten d
 ### GetObjects
 - Funktion (Rückruf)
 
-Lesen Sie alle Objekte aus der Datenbank.
+alle Objekte aus DB lesen.
 
-- **Rückruf** - `` `Funktion (Fehler, objs)` `` - objs sieht aus wie: `` `{'id1': 'object1', 'id2': 'object2', ...}` ` `
+- `callback` - ```function (error, objs)``` - objs sieht so aus: ```{'id1': 'object1', 'id2': 'object2', ...}```
 
 ### ReadDir
-- Funktion (dirName, Rückruf)
+- Funktion (dirName, Callback)
 
 liest Dateien und Verzeichnisse im angegebenen Verzeichnis.
 
-Dateien werden in der Datenbank (oder ähnlichem) gespeichert und sollten normalerweise nicht direkt aufgerufen werden. Der Dateiname besteht aus Pfad, Dateiname und Dateierweiterung wie "/mobile.0/data/fileName.txt".
+Dateien werden in DB (oder ähnlich) gespeichert und sollten normalerweise nicht direkt aufgerufen werden. Der Dateiname besteht aus Pfad, Dateiname und Dateierweiterung, z. B. "/mobile.0/data/fileName.txt".
 
-- dirName - Name des Verzeichnisses wie */ mobile.0 / data*
-- Rückruf - `` `Funktion (Fehler, Liste)` `` - Liste sieht aus wie:
+- dirName - Name des Verzeichnisses wie */mobile.0/data*
+- Callback - ```Funktion (Fehler, Liste)``` - Liste sieht so aus:
 
 ```
 [
@@ -254,73 +256,98 @@ Dateien werden in der Datenbank (oder ähnlichem) gespeichert und sollten normal
 ```
 
 ### Mkdir
-- Funktion (dirName, Rückruf)
+- Funktion (dirName, Callback)
 
-- **Rückruf** - `` `Funktion (Fehler) {}` ``
+- `Rückruf` - ```Funktion (Fehler) {}```
 
 ### Verknüpfung aufheben
-- Funktion (Name, Rückruf)
+- Funktion (Name, Callback)
 
 löscht Datei oder Verzeichnis. Das Verzeichnis muss leer sein, um gelöscht zu werden.
 
-- dirName - Name des Verzeichnisses oder der Datei wie */ mobile.0 / data*
-- **Rückruf** - `` `Funktion (Fehler) {}` ``
+- dirName - Name des Verzeichnisses oder der Datei wie */mobile.0/data*.
+- `Rückruf` - ```Funktion (Fehler) {}```
 
-### ReadFile
-- Funktion (Dateiname, Rückruf)
+### Datei lesen
+- Funktion (Dateiname, Callback)
 
-- **Rückruf** - `` `Funktion (Fehler, fileData, mimeType)` ``
+- `callback` - ```function (error, fileData, mimeType)```
 
 ### ReadFile64
-- Funktion (Dateiname, Rückruf)
+- Funktion (Dateiname, Callback)
 
-- **Rückruf** - `` `Funktion (Fehler, Daten)` `` - Daten sind `` `{mime: mimeType, Daten: base64data}` ``
+- `callback` - ```function (error, data)``` - data is ```{mime: mimeType, data: base64data}```
 
-### WriteFile
-- Funktion (Dateiname, Daten, Modus, Rückruf)
+### Datei schreiben
+- Funktion (Dateiname, Daten, Modus, Callback)
 
-- **Rückruf** - `` `Funktion (Fehler) {}` ``
+- `Rückruf` - ```Funktion (Fehler) {}```
 
-### WriteFile64
-- Funktion (Dateiname, Daten, Modus, Rückruf)
+### SchreibeDatei64
+- Funktion (Dateiname, Daten, Modus, Callback)
 
-- **Rückruf** - `` `Funktion (Fehler) {}` ``
+- `Rückruf` - ```Funktion (Fehler) {}```
 
 ### Datei umbenennen
-- Funktion (alter Name, neuer Name, Rückruf)
+- Funktion (alterName, neuerName, Rückruf)
 
-- **Rückruf** - `` `Funktion (Fehler) {}` ``
+- `Rückruf` - ```Funktion (Fehler) {}```
 
-### GetHistory
-- Funktion (Instanz, Optionen, Rückruf)
+### Geschichte abrufen
+- Funktion (Instanz, Optionen, Callback)
 
-- **Rückruf** - `` `Funktion (Fehler, Daten, Schritt, Sitzungs-ID) {}` ``
+- `callback` - ```function (error, data, step, sessionId) {}```
 
-### RequireLog
-- Funktion (isRequire, Rückruf)
+### Protokoll erforderlich
+- Funktion (isRequire, Callback)
 
-Aktiviert / deaktiviert den Protokollempfang für diesen Socket.
+aktiviert/deaktiviert den Protokollempfang für diesen Socket.
 
-- **Rückruf** - `` `Funktion (Fehler) {}` ``
+- `Rückruf` - ```Funktion (Fehler) {}```
 
-### AuthEnabled
+### AuthentifizierungAktiviert
 - Funktion ()
 
 liest, ob die Authentifizierung aktiviert ist und welcher Benutzer angemeldet ist
 
-- **Rückruf** - `` `Funktion (authEnabled, currentUser) {}` ``
+- `Rückruf` - ```Funktion (authEnabled, aktuellerBenutzer) {}```
 
-Wenn die Authentifizierung aktiviert ist, wird der aktuell angemeldete Benutzer zurückgegeben. Wenn die Authentifizierung deaktiviert ist, wird der Standardbenutzer "Ausführen als" zurückgegeben.
+Wenn die Authentifizierung aktiviert ist, wird der aktuell angemeldete Benutzer zurückgegeben, wenn die Authentifizierung deaktiviert ist, wird der Standardbenutzer "wird ausgeführt als" zurückgegeben.
 
 ## Web-Sockets optimieren
-Auf einigen Web-Sockets-Clients gibt es Leistungsprobleme bei der Kommunikation. Manchmal ist dieses Problem auf einen Fallback der Socket.io-Kommunikation bei einem langen Abfragemechanismus zurückzuführen.
-Sie können die Option *Web-Sockets erzwingen* so einstellen, dass nur der Transport von Web-Sockets erzwungen wird.
+Bei einigen Web-Sockets-Clients gibt es Leistungsprobleme bei der Kommunikation. Manchmal ist dieses Problem auf einen Fallback der socket.io-Kommunikation auf einen langen Abfragemechanismus zurückzuführen.
+Sie können die Option *Force Web-Sockets* so einstellen, dass nur die Verwendung von Web-Sockets-Transport erzwungen wird.
 
-<! - Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __WORK IN PROGRESS__ ->
+### __LAUFENDE ARBEIT__ -->
 
 ## Changelog
+### 4.0.3 (2022-01-30)
+* (bluefox) Removed the deprecated "passport.socketio" packet
+
+### 4.0.2 (2022-01-30)
+* (bluefox) Removed "force web sockets" option
+
+### 4.0.1 (2022-01-29)
+* (bluefox) Fixed authentication
+
+### 4.0.0 (2022-01-29)
+* (bluefox) Remove socket-io and use only web sockets
+
+### 3.1.5 (2021-10-22)
+* (foxriver76) make error logging on failed authentication more specific
+* (foxriver76) "request" was replaced by "axios"
+
+### 3.1.4 (2021-01-13)
+* (Apollon77) Define instanceObject "connected" to prevent warning with js-controller 3.2
+
+### 3.1.3 (2021-01-12)
+* (Apollon77) fix socketio dependency
+
+### 3.1.2 (2021-01-09)
+* (bluefox) Support of new Let's Encrypt (only with js-controller 3.2.x)
+
 ### 3.0.13 (2020-08-21)
 * (bluefox) Added getAdapterName method
 
@@ -331,7 +358,7 @@ Sie können die Option *Web-Sockets erzwingen* so einstellen, dass nur der Trans
 * (Apollon77) make sure web adapter gets restarted on socketio adapter upgrade
 
 ### 3.0.10 (2020-07-16)
-* (Apollon77) Error catched when trying to write an empty base64 value into a file (Sentry )
+* (Apollon77) Error caught when trying to write an empty base64 value into a file (Sentry )
 
 ### 3.0.9 (2020-06-11)
 * (Apollon77) optimize error handling on webserver initialization again
@@ -340,7 +367,7 @@ Sie können die Option *Web-Sockets erzwingen* so einstellen, dass nur der Trans
 * (Apollon77) Make sure adapter does not crash if getHttp is called with an invalid URL (Sentry IOBROKER-WEB-R)
 
 ### 3.0.7 (2020-05-04)
-* (Apollon77) webserver initialization optimized again to prevent errors with invalid certificates 
+* (Apollon77) webserver initialization optimized again to prevent errors with invalid certificates
 
 ### 3.0.6 (2020-04-30)
 * (bluefox) errors on webserver initialization are handled properly
@@ -417,7 +444,7 @@ Sie können die Option *Web-Sockets erzwingen* so einstellen, dass nur der Trans
 * (bluefox) Fix authentication for app
 
 ### 1.7.0 (2016-08-30)
-* (bluefox) сompatible only with new admin
+* (bluefox) compatible only with new admin
 
 ### 1.6.1 (2016-08-29)
 * (bluefox) fix error by checking user name
@@ -535,4 +562,4 @@ Sie können die Option *Web-Sockets erzwingen* so einstellen, dass nur der Trans
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>

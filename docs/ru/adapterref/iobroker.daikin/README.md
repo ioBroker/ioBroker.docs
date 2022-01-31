@@ -3,21 +3,23 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.daikin/README.md
 title: ioBroker.daikin
-hash: 4PrusdRlwgE7SPSpTy4rMpdJOabjqia5G+WxaDJZYw4=
+hash: x7eKzTIKcJi4ifx/hgdPjMcwUekpvvE2NPKeI3Sc6G8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.daikin/admin/daikin.jpg)
 
 ![Количество установок](http://iobroker.live/badges/daikin-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.daikin.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.daikin.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.daikin.svg)
 
 # IoBroker.daikin
-![Тестирование и выпуск](https://github.com/Apollon77/iobroker.daikin/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/daikin/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Тестируйте и выпускайте](https://github.com/Apollon77/iobroker.daikin/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/daikin/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Этот адаптер подключается к устройству кондиционирования воздуха Daikin и позволяет управлять устройством и считывать с него значения.
-Устройство Daikin должно быть оснащено контроллером Daikin Wifi. Обычно должны поддерживаться все контроллеры Wi-Fi, которые поддерживаются приложением Daikin.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
-Согласно документации поддержки Daikin следующие устройства должны быть совместимы (как минимум):
+Этот адаптер подключается к устройству кондиционера Daikin и позволяет управлять устройством и считывать с него значения.
+Устройство Daikin должно быть оснащено контроллером Daikin Wifi. Обычно должны поддерживаться все контроллеры Wi-Fi, поддерживаемые приложением Daikin.
+
+В соответствии с документами поддержки Daikin следующие устройства должны быть совместимы (как минимум):
 
 Совместимые блоки в сочетании с BRP069A41: FTXG20LV1BW, FTXG20LV1BS, FTXG25LV1BW, FTXG25LV1BS, FTXG35LV1BW, FTXG35LV1BS, FTXG50LV1BW, FTXG50LV1BS, FTXJ20LV1BW, FTXJ20LV1BS, FTXJ25LV1BW, FTXJ25LV1BS, FTXJ35LV1BW, FTXJ35LV1BS, FTXJ50LV1BW, FTXJ50LV1BS,
 
@@ -28,28 +30,37 @@ hash: 4PrusdRlwgE7SPSpTy4rMpdJOabjqia5G+WxaDJZYw4=
 Совместимые блоки в сочетании с BRP069A44 (?): FTX50KV1B, FTX60KV1B
 
 ## Описание параметров
-### DaikinIp
-IP-адрес контроллера Wi-Fi с устройства
+### ДайкинИп
+IP контроллера Wi-Fi с устройства
 
-### PollingInterval
+### Интервал опроса
 Интервал в секундах для обновления данных с устройства. Дополнительно значения обновляются при каждом изменении
 
-## Описание доступных экземпляров объектов / состояний
+## Описание доступных объектов/состояний экземпляра
 После подключения адаптера к устройству Daikin создается структура объектов:
 
-* deviceInfo. *: Общая информация об устройстве Daikin, только для чтения.
-* control. *: основные контролируемые значения с устройства, такие как целевая температура, режим и т. д., **чтение и запись**
-* controlInfo. *: Дополнительная управляющая информация от Устройства, только для чтения
-* modelInfo. *: информация о самом устройстве и поддерживаемых функциях, только для чтения
-* sensorInfo. *: данные датчика от устройства, такие как измеренная температура в помещении и на улице.
+* deviceInfo.* : Общая информация об устройстве Daikin, только для чтения
+* control.* : Основные контролируемые значения с устройства, такие как целевая температура, режим и т. д., **доступные для чтения и записи**
+* controlInfo.* : Дополнительная управляющая информация с устройства, только для чтения
+* modelInfo.* : Информация о самом устройстве и поддерживаемых функциях, только для чтения
+* SensorInfo.* : Данные датчика с устройства, такие как измеренная температура в помещении и снаружи.
 
-## Делать
-* улучшение тестирования: проверки состояния и setState's
-* проверьте информацию о модели / поддерживаемые функции
+## Сделать
+* улучшить тестирование: проверки состояния и setState's
+* проверить информацию о модели/поддерживаемые функции
 * документы для веб-страницы
-* Виджет VIS
+* ВИД-виджет
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Optimize unload handling
+
+### 1.3.3 (2021-06-24)
+* (Apollon77) Prevent crash case when no temperature was read out (Sentry IOBROKER-DAIKIN-D, IOBROKER-DAIKIN-M)
+
+### 1.3.2 (2021-06-05)
+* (Apollon77) Handle modes correctly where no temperature or humidity parameters are required
 
 ### 1.3.1 (2021-05-14)
 * (Apollon77) Prepare for js-controller 3.3

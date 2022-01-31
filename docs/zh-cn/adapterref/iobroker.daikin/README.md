@@ -3,21 +3,23 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.daikin/README.md
 title: ioBroker.daikin
-hash: 4PrusdRlwgE7SPSpTy4rMpdJOabjqia5G+WxaDJZYw4=
+hash: x7eKzTIKcJi4ifx/hgdPjMcwUekpvvE2NPKeI3Sc6G8=
 ---
-![商标](../../../en/adapterref/iobroker.daikin/admin/daikin.jpg)
+![标识](../../../en/adapterref/iobroker.daikin/admin/daikin.jpg)
 
 ![安装数量](http://iobroker.live/badges/daikin-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.daikin.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.daikin.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.daikin.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.daikin.svg)
 
-＃ioBroker.daikin
-![测试与发布](https://github.com/Apollon77/iobroker.daikin/workflows/Test%20and%20Release/badge.svg)[![翻译状态]（https://weblate.iobroker.net/widgets/adapters/-/daikin/svg-badge.svg）](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker.daikin
+![测试和发布](https://github.com/Apollon77/iobroker.daikin/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/daikin/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-该适配器连接到Daikin空调设备，并允许控制该设备并从中读取值。
-Daikin设备需要配备Daikin Wifi控制器。通常，应支持Daikin应用程序支持的所有wifi控制器。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
-根据Daikin支持文档，以下设备应兼容（至少）：
+该适配器连接到大金空调设备，并允许控制设备并从中读取值。
+Daikin 设备需要配备 Daikin Wifi 控制器。通常应支持 Daikin App 支持的所有 wifi 控制器。
+
+根据大金支持文件，以下设备应该兼容（至少）：
 
 兼容单元与BRP069A41：FTXG20LV1BW，FTXG20LV1BS，FTXG25LV1BW，FTXG25LV1BS，FTXG35LV1BW，FTXG35LV1BS，FTXG50LV1BW，FTXG50LV1BS，FTXJ20LV1BW，FTXJ20LV1BS，FTXJ25LV1BW，FTXJ25LV1BS，FTXJ35LV1BW，FTXJ35LV1BS，FTXJ50LV1BW，FTXJ50LV1BS，
 
@@ -25,31 +27,40 @@ FTXZ25NV1B，FTXZ35NV1B，FTXZ50NV1B，FTXS35K2V1B，FTXS35K3V1B，FTXS42K2V1B�
 
 与BRP069A43组合兼容单元（？）：CTXS15K2V1B，CTXS15K3V1B，FTXS20K2V1B，FTXS20K3V1B，FTXS25K2V1B，FTXS25K3V1B，CTXS35K2V1B，CTXS35K3V1B，FTXM20K3V1B，FTXM25K3V1B，ATXS20K2V1B，ATXS20K3V1B，ATXS25K2V1B，ATXS25K3V1B，FTX20J2V1B，FTX25J2V1B，FTX35J2V1B，FTX20J3V1B，FTX25J3V1B， FTX35J3V1B，FTXL25J2V1B，FTXL35J2V1B，FTX20KV1B，FTX25KV1B，FTX35KV1B，FTX20GV1B，FTX25GV1B，FTX35GV1B，ATX20J2V1B，ATX20J3V1B，ATX25J2V1B，ATX25J3V1B，ATX35J2V1B，ATX35J3V1B，ATX20KV1B，ATX25KV1B，ATX35KV1B，ATXL25J2V1B，ATXL35J2V1B，
 
-与BRP069A44（？）组合使用的兼容单元：FTX50KV1B，FTX60KV1B
+与 BRP069A44 (?) 组合的兼容单元：FTX50KV1B、FTX60KV1B
 
 ##参数说明
-### DaikinIp
-设备中Wifi控制器的IP
+###大金IP
+来自设备的 Wifi 控制器的 IP
 
-### PollingInterval
-以秒为单位的时间间隔，用于更新设备中的数据。此外，每次更改都会更新值
+### 轮询间隔
+从设备更新数据的时间间隔（以秒为单位）。此外，每次更改都会更新值
 
-##可用实例对象/状态的描述
-适配器连接到Daikin设备后，将创建对象的结构：
+## 可用实例对象/状态的描述
+适配器连接到 Daikin 设备后，会创建一个对象结构：
 
-* deviceInfo。*：有关Daikin设备的一般信息，只读
-* control。*：来自设备的主要可控制值，例如目标温度，模式等，**可读写**
-* controlInfo。*：来自设备的其他控制信息，只读
-* modelInfo。*：有关设备本身及其支持的功能的信息，只读
-* sensorInfo。*：来自设备的传感器数据，例如测量的室内和室外温度
+* deviceInfo.* : 关于 Daikin 设备的一般信息，只读
+* control.* : 来自设备的主要可控值，如目标温度、模式等，**可读写**
+* controlInfo.* : 来自设备的附加控制信息，只读
+* modelInfo.* ：关于设备本身和支持的功能的信息，只读
+* sensorInfo.* : 来自设备的传感器数据，例如测量的室内和室外温度
 
 ＃＃ 去做
-*增强测试：状态检查和setState的
-*检查型号信息/支持的功能
-*网页文档
-* VIS小部件
+* 增强测试：状态检查和 setState 的
+* 检查型号信息/支持的功能
+* 网页文档
+* 可见小部件
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Optimize unload handling
+
+### 1.3.3 (2021-06-24)
+* (Apollon77) Prevent crash case when no temperature was read out (Sentry IOBROKER-DAIKIN-D, IOBROKER-DAIKIN-M)
+
+### 1.3.2 (2021-06-05)
+* (Apollon77) Handle modes correctly where no temperature or humidity parameters are required
 
 ### 1.3.1 (2021-05-14)
 * (Apollon77) Prepare for js-controller 3.3

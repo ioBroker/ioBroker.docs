@@ -112,6 +112,9 @@ CCU 和 info 文件夹包含网关的基本信息，包括。
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.0.35 (2022-01-28)
+* (foxriver76) do not log warning if we cannot sychnoronize favorites of empty string user (fixes #227)
+
 ### 3.0.34 (2022-01-24)
 * (martin-herzog/foxriver76) fixed unnedded call which lead to warnings in rega log
 

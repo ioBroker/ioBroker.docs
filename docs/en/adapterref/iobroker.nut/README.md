@@ -85,6 +85,10 @@ directory) to try it out on the commandline. Call the scripts using "node filena
 	### __WORK IN PROGRESS__
 -->
 
+### __WORK IN PROGRESS__
+* (simatec) jsonConfig added
+* (simatec) test and release updated
+
 ### 1.5.0 (2021-05-08)
 * (Apollon77) Add connection states
 * (Apollon77) Optimize for js-controller 3.3

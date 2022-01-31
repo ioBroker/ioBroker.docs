@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: 2ko0VniTyAy5+WiPRl8qRZNIMGJNQo44ffLR5DPNJTs=
+hash: bxNvnE1krXL4YkdLDoYrwKg0RC1j50s8LWSTKRTcZQM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
@@ -20,7 +20,7 @@ CI-тесты: ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/
 
 ## Адаптер для чтения данных БА Kostal Piko для iOBroker
 Адаптер для чтения данных Kostal Piko BA. Адаптер создает несколько состояний и последовательно их обновляет.
-Адаптер также работает с инвертором Kostal Piko 15.
+Адаптер также работает с инверторами Kostal Piko 12 и 15.
 Буду очень признателен, если вы проверите работоспособность других инверторов и отправьте мне сообщение.
 
 ## Настройки
@@ -34,43 +34,35 @@ CI-тесты: ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/
 
 ! Note that missing version entries are typically dependency updates for security.
 
+### 1.4.0 (30.01.2022)
+* (HombachC) added support for grid 1-3 current, voltage and power
+* (HombachC) bumped dependencies
 ### 1.3.1 (23.01.2022)
 * (HombachC) correct rounding of analog values; bumped dependencies
 * (HombachC) added validation of configured IPv4 address
-
 ### 1.3.0 (01.01.2022)
 * (HombachC) added optional support for analog inputs
-
 ### 1.2.1 (24.12.2021)
 * (HombachC) introduced rounding of battery temp
-
 ### 1.2.0 (16.12.2021)
 * (HombachC) dropped node.js 10 support; bumped dependencies; fixed vulnerability
-
 ### 1.1.13 (16.10.2021)
 * (HombachC) bumped dependencies; fixed vulnerability
-
 ### 1.1.12 (07.10.2021)
 * (GermanBlueFox) fixed icon link
 * (HombachC) bumped dependencies
-
 ### 1.1.10 (16.07.2021)
 * (HombachC) bumped dependencies; fixed vulnerability
-
 ### 1.1.7 (09.05.2021)
 * (HombachC) added tests for node.js 16; fixed vulnerability
-
 ### 1.1.3 (23.11.2020)
 * (HombachC) added battery.Voltage; added additional error handler; bumped dependencies
-
 ### 1.1.1 (09.10.2020) stable
 * (HombachC) minor documentation tweaks; DC current accuracy changed to mA
-
 ### 1.1.0 (09.10.2020)
-* (tobstare) added DC1-3 Current, Voltage and Power
+* (tobstare) added DC1-3 current, voltage and power
 * (HombachC) added battery.ChargeCycles
 * (HombachC) bumped dependencies; added battery.temperature
-
 ### 1.0.2 (23.09.2020)
 * (HombachC) public release for stable repo
 ### 0.8.0 (18.08.2020)
@@ -79,8 +71,6 @@ CI-тесты: ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/
 * (HombachC) added sentry.io support
 ### 0.6.1 (28.06.2020)
 * (HombachC) poll of statistics data separated
-### 0.5.1 (22.06.2020)
-* (HombachC) introduced editable poll interval 
 ### 0.1.0 (15.05.2020)
 * (HombachC) initial working release
 

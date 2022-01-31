@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: tYvwlhfmIW5HK8sqVTDJwBvGypWOVWFVZu3HIgZ3PCI=
+hash: 9RoTOkmpsdKGiO0Z8+uYJrrII46BeOks0DE+0bg/RQw=
 ---
 ![标识](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -25,7 +25,7 @@ hash: tYvwlhfmIW5HK8sqVTDJwBvGypWOVWFVZu3HIgZ3PCI=
 
 # 适配器配置
 ![设置](../../../en/adapterref/iobroker.openknx/docs/pictures/setting.png) 按“保存并关闭”或“保存”重新启动适配器并接管更改。
-启动时，适配器会尝试读取所有带有自动读取标志（默认设置）的 GroupAdress。
+启动时，适配器尝试读取所有具有自动读取标志（默认设置）的 GroupAdress。
 这可能需要一段时间，并且会在您的 KNX 总线上产生更高的负载。这可确保适配器从一开始就使用最新值运行。
 自动读取是在适配器启动或重新启动后与 knx 总线的第一次连接时完成的，而不是在每次 knx 重新连接时完成的。
 适配器安装后，打开适配器配置。填写：
@@ -123,6 +123,13 @@ KNX 设备可以具有属于命令 ga 的状态反馈的 ga。某些应用程序
 - 从这里您可以上传仪表板 JSON 文件
 - 选择导入（覆盖）
 
+## 迁移涌入
+- 使用命令 influx 登录到您的 IOBroker 服务器
+- 使用 iobroker（或您通过命令 show databases 列出的特定数据库）
+- 列出条目：显示测量值
+- 使用命令复制表：select * into "entry_new" from "entry_old"；
+- 为新对象 entry_new 设置流入启用
+
 # 如何使用适配器和基本概念
 ### ACK 标志
 应用程序不应设置 ack 标志，如果数据更新，则通过 ack 标志从该适配器通知应用程序。
@@ -214,7 +221,7 @@ DPT10 是时间 (hh:mm:ss) 加上“星期几”。这个概念在 JS 中不可�
 
 ### 组值读取
 可以通过编写带有注释的通信对象来触发发送。
-接收，如果配置会触发实际c.o.的组值响应（限制：此时组值写入）值，见下文。
+接收，如果配置将触发实际c.o的组值响应（限制：此时组值写入）。值，见下文。
 
 ### 组值响应
 如果 answer_groupValueResponse 设置为 true，则适配器将以 GroupValue_Response 回复先前收到的 GroupValue_Read 请求。
@@ -229,7 +236,7 @@ KNX 对象标志定义了它们所代表的对象的总线行为。
 |C: 通讯标志 | K：通讯标志 |总是设置 ||
 |R：读取标志 | L: Les-Flag |对象 native.answer_groupValueResponse ||
 |T：传输标志 | Ü: Übertragen 标志 |对象 common.write ||
-|W：写标志 | S: Schreiben-Flag |对象 common.read |总线可以修改对象|
+|W：写标志 | S: Schreiben-Flag |对象 common.read |总线可以修改的对象|
 |U：更新标志 | A: Aktualisieren-Flag |对象 common.read |在传入的 GroupValue_Responses 上更新对象 |
 |I：初始化标志 | I: Initialisierungs-Flag |对象 native.autoread | |
 
@@ -257,6 +264,18 @@ Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
 - 仅支持 IPv4
 
 ## Changelog
+### 0.1.19 (2022-02-)
+* feature:
+* bugfix:
+
+### 0.1.18 (2022-01-30)
+* bugfix: issue #61 Alias dialog not working 1st time
+
+### 0.1.17 (2022-01-29)
+* feature: more information in alias import dialog
+* feature: warning on startup if ga are inconsistent
+* fix: corrected object count statistics on startup
+
 ### 0.1.16 (2022-01-27)
 * feature: add back sentry
 * fix: stability alias generation

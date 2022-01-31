@@ -43,15 +43,22 @@ Here is what to configure when creating a new instance of the adapter. Settings 
   </tr>
   <tr>
     <td>E3/DC IP address</td>
-    <td>Address in your local network, like 192.168.178.33</td>
+    <td>
+      Address in your local network, like 192.168.178.107 <br>
+      You can check the IP on your E3/DC screen, it's called "System-IP": <br>
+      <img src="admin/e3dc-system-ip.png" width="600">
+    </td>
   </tr>
   <tr>
     <td>E3/DC Port</td>
-    <td>RSCP port of your E3/DC, usually 5033</td>
+    <td>RSCP port of your E3/DC, usually 5033<br>NOTE: this is different fom the Modbus-Port.</td>
   </tr>
   <tr>
     <td>RSCP Password</td>
-    <td>Password, as entered locally at your E3/DC station.</td>
+    <td>
+      RSCP-Password, as entered locally at your E3/DC station: <br>
+      <img src="admin/e3dc-rscp-password.png" width="600">
+    </td>
   </tr>
     <td>SET_POWER re-send interval [s]</td>
     <td>Define how often ioBroker will request state updates from E3/DC.</td>

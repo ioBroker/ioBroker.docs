@@ -17,7 +17,9 @@ Adapter for FordPass
 
 ## Changelog
 
-### 0.0.6
+### 0.0.8
+* (TA2k) add remote control for refresh
+### 0.0.7
 * (TA2k) initial release
 
 ## License

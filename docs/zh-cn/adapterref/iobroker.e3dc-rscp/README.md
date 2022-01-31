@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.e3dc-rscp/README.md
 title: ioBroker.e3dc-rscp
-hash: PfZfTYfq+ESsXPIZORMGkfFUgbQ/x+e2t+p86mgcokQ=
+hash: Lcb+JAjLFioxK2P6DXuahbuvXFo10cJjo8jT6+MDYoU=
 ---
 ![标识](../../../en/adapterref/iobroker.e3dc-rscp/admin/e3dc-rscp.png)
 
@@ -24,7 +24,7 @@ e3dc-rscp 适配器是为<a href="https://www.e3dc.com/produkte/s10/">E3/DC S10<
 
 ＃＃ 表中的内容
 1. [适配器配置](#toc)
-1.【接口消息的覆盖范围】(#cov)
+1.【接口消息的覆盖率】(#cov)
 1. [示例脚本](#sam)
 1. [更新日志](#log)
 1. [许可证](#lic)
@@ -32,7 +32,7 @@ e3dc-rscp 适配器是为<a href="https://www.e3dc.com/produkte/s10/">E3/DC S10<
 <a name="toc"></a>
 
 ## 适配器配置这里是创建适配器的新实例时要配置的内容。设置在选项卡中组织。
-### 标签“选项”<table><tr><th>输入栏</th><th>意义</th></tr><tr><td>E3/DC 门户用户名</td><td>您在<a href="https://s10.e3dc.com/s10/">E3/DC 门户网站上的</a>用户名。 E3/DC 在授予 RSCP 访问权限之前会在那里检查您的凭据。</td></tr><tr><td> E3/DC 门户密码</td><td>您在<a href="https://s10.e3dc.com/s10/">E3/DC 门户网站上的</a>用户名。</td></tr><tr><td> E3/DC IP 地址</td><td>本地网络中的地址，例如 192.168.178.33</td></tr><tr><td> E3/DC 端口</td><td>您的 E3/DC 的 RSCP 端口，通常为 5033</td></tr><tr><td> RSCP 密码</td><td>密码，在您的 E3/DC 站本地输入。</td></tr><td> SET_POWER 重发间隔 [s]</td><td>定义 ioBroker 从 E3/DC 请求状态更新的频率。</td></tr><tr><td>元组发送延迟 [s]</td><td>定义 ioBroker 在将空闲期或数据历史更改写入 E3/DC 之前将等待多长时间。目的是将几个后续更改合并到一个调用中。在一个空闲周期或一个数据历史刻度内的值每次发生变化时，分别设置/重置一个专用超时；更改仅在超时结束后传输。这适用于 EMS.IDLE_PERIODS_* 和 DB.HISTORY_DATA_*</td></tr><tr><td>每个 E3/DC 命名空间的复选框</td><td>只会为选中的命名空间请求数据。</td></tr></table>
+### 标签“选项”<table><tr><th>输入栏</th><th>意义</th></tr><tr><td>E3/DC 门户用户名</td><td>您在<a href="https://s10.e3dc.com/s10/">E3/DC 门户网站上的</a>用户名。 E3/DC 在授予 RSCP 访问权限之前会在那里检查您的凭据。</td></tr><tr><td> E3/DC 门户密码</td><td>您在<a href="https://s10.e3dc.com/s10/">E3/DC 门户网站上的</a>用户名。</td></tr><tr><td> E3/DC IP 地址</td><td>本地网络中的地址，例如 192.168.178.107<br>您可以在 E3/DC 屏幕上查看 IP，它称为“System-IP”：<br><img src="admin/e3dc-system-ip.png" width="600"></td></tr><tr><td> E3/DC 端口</td><td>您的 E3/DC 的 RSCP 端口，通常为 5033<br>注意：这与 Modbus 端口不同。</td></tr><tr><td> RSCP 密码</td><td>RSCP-密码，在您的 E3/DC 站本地输入：<br><img src="admin/e3dc-rscp-password.png" width="600"></td></tr><td> SET_POWER 重发间隔 [s]</td><td>定义 ioBroker 从 E3/DC 请求状态更新的频率。</td></tr><tr><td>元组发送延迟 [s]</td><td>定义 ioBroker 在将空闲期或数据历史更改写入 E3/DC 之前将等待多长时间。目的是将几个后续更改合并到一个调用中。在一个空闲周期或一个数据历史刻度内的值每次发生变化时，分别设置/重置一个专用超时；更改仅在超时结束后传输。这适用于 EMS.IDLE_PERIODS_* 和 DB.HISTORY_DATA_*</td></tr><tr><td>每个 E3/DC 命名空间的复选框</td><td>只会为选中的命名空间请求数据。</td></tr></table>
 ### 选项卡“轮询间隔”
 <table><tr><th>输入栏</th><th>意义</th></tr><tr><td>轮询间隔短 [s]</td><td>定义 ioBroker 为大多数动态变量向 E3/DC 请求状态更新的频率。</td></tr><tr><td>轮询间隔介质 [m]</td><td>定义 ioBroker 在常规情况下从 E3/DC 请求状态更新的频率。</td></tr><tr><td>轮询间隔长 [h]</td><td>定义 ioBroker 向 E3/DC 请求很少或从未修改过的变量的状态更新的频率。</td></tr><tr><td>请求标签表</td><td>将单个请求标签分配给 S/M/L 轮询间隔。</td></tr></table><a name="toc"></a>
 
