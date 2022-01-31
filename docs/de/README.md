@@ -1,6 +1,6 @@
 ---
 title:       "Willkommen"
-lastChanged: "30.01.2022"
+lastChanged: "31.01.2022"
 ---
 # Wilkommen
 
@@ -24,9 +24,9 @@ ioBroker Insellösungen bleiben würden, anzubinden und so übergreifend zu steu
 
 ioBroker ist daher **die** Integrationsplattform für das Internet der Dinge.
 
-Ein ioBroker-System ist modular aufgebaut. Eine Vielzahl von [Adaptern][] ermöglicht
-die Kommunikation mit über 450 verschiedenen Plattformen, Systemen und Geräte von A wie Alexa bis Z
-wie Z-Wave.  
+Das ioBroker-System ist modular aufgebaut und kann durch die Installation von einzelnen [Adaptern][] um die individuellen Wünsche erweitert werden. 
+Über 450 Adaptern realisieren die Einbindung von verschiedenen Plattformen, Systemen und Geräten von A wie Alexa bis Z und viele weitere Möglichkeiten zur Automatiserung.
+
 
 Sei es die Einbindung kommerzieller Produkte aus fast allen Lebensbereichen oder
 die Integration einer selbst erstellten Lösung - ioBroker macht fast alles möglich.
@@ -119,7 +119,9 @@ HabPanel-Adapter schnell realisiert werden.
 # Wer steckt hinter ioBroker?
 ioBroker ist ein Open Source Projekt welches von der ioBroker Community entwickelt wird und von [Bluefox][] als Projektowner administriert wird.
 
-In diesem Zuge arbeiten viele Entwickler und viele weitere Helfer, in Ihrer Freizeit ehrenamtlich an den zentralen System-Komponenten, den vielen Adaptern, dem Social-Media-Support, der Dokumentation und vielem Mehr. Deshalb erfolgt der Einsatz der Software auf eigene Haftung, ausgenommen dem Vorsatz einer mutwilligen Schädigung. 
+In diesem Zuge arbeiten viele Entwickler und viele weitere Helfer in ihrer Freizeit ehrenamtlich an den zentralen System-Komponenten, den vielen Adaptern, dem Social-Media-Support, der Dokumentation und vielem mehr.  
+Mit der großen und hilfsbereiten Community hat sich bisher zu jedem Problem eine Lösung gefunden.   
+
 Es gibt keinen vertraglich festgelegten Support aus der Open-Source Community, aber gemeinsam haben wir bisher jedes Problem gelöst bekommen!
 
 ioBroker hat hierbei einen eher dezentralen Ansatz, wobei jeder Adapter in einem eigenen GitHub-Repository gepflegt wird. Hierbei trifft der jeweilige Adapter-Entwickler weitestgehend selbst die ENtscheidungen zu seinem Adapter. Featurewünsche oder auch fremde Feature-Erweiterungen als "pull-Request" werden hierbei natürlich berücksichtigt.
@@ -129,11 +131,11 @@ Einige Entwickler haben sich darüber hinaus in der Adapter-Community zusammenge
 Richtungsentscheidungen der zentralen Komponenten und des Gesamtprojekts werden innerhalb des Core-Teams diskutiert und dann umgesetzt.
 
 ioBroker Core Entwickler:
-* Bluefox
-* Apollon77
-* foxriver76
-* AlCalzone
-* 
+* [Bluefox][]
+* [Apollon77][]
+* [foxriver76][]
+* [AlCalzone][]
+
 ioBroker Developer: https://forum.iobroker.net/groups/developer
 
 # Lizenzen und Kosten
@@ -198,4 +200,7 @@ Auf [ioBrokerStatistics][] findet ihr eine Übersichtsseite mit ein paar interes
 [FacebookIoBrokerSmartHomeIoTInternational]: https://www.facebook.com/groups/iobrokerinternational
 [iobrokerPreise]: https://iobroker.net/www/pricing
 [Bluefox]: https://github.com/GermanBluefox
+[Apollon77]: https://github.com/Apollon77
+[foxriver76]: https://github.com/foxriver76
+[AlCalzone]: https://github.com/AlCalzone
 [ioBrokerStatistics]: https://www.iobroker.net/#de/statistics
