@@ -48,6 +48,9 @@ bulb LBxxx
 
 ## Changelog
 
+### 2.0.7 (2022-01-31)
+* (arrizer) error handling merge back 
+
 ### 2.0.6 (2021-08-01)
 * (arrizer) error handling merge back 
 

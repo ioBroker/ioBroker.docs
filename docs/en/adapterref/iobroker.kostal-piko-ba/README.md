@@ -29,6 +29,8 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ! Note that missing version entries are typically dependency updates for security.
 
+### 1.4.1 (31.01.2022)
+* (HombachC) optimized logging
 ### 1.4.0 (30.01.2022)
 * (HombachC) added support for grid 1-3 current, voltage and power
 * (HombachC) bumped dependencies

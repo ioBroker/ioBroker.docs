@@ -34,6 +34,10 @@ A small excerpt just of the command options:
 
 
 ## Changelog
+
+### 2.0.14 (2022-01-31)
+* (arteck) life tick error
+
 ### 2.0.12 (2021-12-18)
 * (arteck) screenBrightness direct command
 

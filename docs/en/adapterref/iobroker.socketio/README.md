@@ -311,17 +311,9 @@ You can set option *Force Web-Sockets* to force using only web-sockets transport
 -->
 
 ## Changelog
-### 4.0.3 (2022-01-30)
-* (bluefox) Removed the deprecated "passport.socketio" packet
-
-### 4.0.2 (2022-01-30)
-* (bluefox) Removed "force web sockets" option
-
-### 4.0.1 (2022-01-29)
-* (bluefox) Fixed authentication
-
-### 4.0.0 (2022-01-29)
-* (bluefox) Remove socket-io and use only web sockets
+### 4.1.0 (2022-01-31)
+* (bluefox) Update socket.io library to 2.4.1
+* (bluefox) Used json config for settings
 
 ### 3.1.5 (2021-10-22)
 * (foxriver76) make error logging on failed authentication more specific
