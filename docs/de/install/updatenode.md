@@ -271,8 +271,8 @@ iobroker fix
 iobroker start
 ```
 
-# [Anleitung für Docker](https://smarthome.buanet.de/2020/10/iobroker-docker-container-updates-upgrades/)
-- Node.js wird in der Regel durch ein Update des Containers auf eine neue Version des [Docker Image](https://hub.docker.com/r/buanet/iobroker/tags) durchgeführt.
+## Anleitung für Docker
+- Node.js wird in der Regel durch ein Update des Containers auf eine neue Version des [Docker Image](https://hub.docker.com/r/buanet/iobroker/tags) durchgeführt. Eine detaillierte Vorgehensweise, sowie weitere Details zum iobroker container ist bei [buanet](https://smarthome.buanet.de/2020/10/iobroker-docker-container-updates-upgrades/) zu finden.
 
 ## Problemlösung
 ### manueller Rebuild
