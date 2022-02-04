@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sonoff/README.md
 title: ioBroker Sonoff
-hash: VDlcSKuA7whtiJQgKK9PL2zdKYwGkNcFtmHhOcwoe9c=
+hash: BuWs6Xf4dythFIb3T4+TK/e4TloQ+Q1DftYMt4kY/t8=
 ---
 ![Logo](../../../en/adapterref/iobroker.sonoff/admin/sonoff.png)
 
@@ -11,109 +11,134 @@ hash: VDlcSKuA7whtiJQgKK9PL2zdKYwGkNcFtmHhOcwoe9c=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sonoff.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sonoff.svg)
 
-#ioBroker Sonoff
+# IoBroker Sonoff
 ![Testen und freigeben](https://github.com/ioBroker/ioBroker.sonoff/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/sonoff/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+
+## Vergleich von ioBroker-Adaptern mit MQTT-Protokoll
+||ioBroker.sonoff|[ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (im Broker-Modus)|[ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (im Client Modus)|[ioBroker.mqtt-client](https://github.com/Pmant/ioBroker.mqtt-client/)|
+
+||ioBroker.sonoff|[ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (im Broker-Modus)|[ioBroker.mqtt](https://github.com/ioBroker/ioBroker .mqtt/) (im Client-Modus)|[ioBroker.mqtt-client](https://github.com/Pmant/ioBroker.mqtt-client/)|
+|---|---|---|---|---|
+|Hat einen integrierten MQTT-Broker|ja|ja|nein|nein|
+|leitet Nachrichten an andere MQTT-Abonnenten weiter|NEIN!!!|ja|nicht zutreffend|nicht zutreffend|
+|Externer MQTT-Broker|nicht unterstützt|nicht unterstützt|erforderlich|erforderlich|
+|Tasmota-MQTT-Nachrichten an ioBroker-Objekte|intelligente Verarbeitung|1:1-Verarbeitung aller Nachrichten|1:1-Verarbeitung abonnierter Nachrichten|1:1-Verarbeitung abonnierter Nachrichten|
+|Nicht-Tasmota-MQTT-Nachrichten an ioBroker-Objekte|keine Verarbeitung|1:1-Verarbeitung aller Nachrichten|1:1-Verarbeitung abonnierter Nachrichten|1:1-Verarbeitung abonnierter Nachrichten|
+|ioBroker-Werte als MQTT-Nachrichten veröffentlichen|keine|konfigurierte Teilbäume|konfigurierte Teilbäume|individuell konfigurierte Werte|
 
 ## Verwendung
 Dieser Adapter kommuniziert mit Sonoff-Geräten mit Tasmota-Firmware oder ESP-Geräten über MQTT.
 
 Folgende Themen werden erwartet:
 
-- `tele/Gerätename/STATE`
-- `tele/Gerätename/SENSOR`
-- `tele/Gerätename/INFOx`
-- `tele/DeviceNAME/ENERGY`
-- `cmnd/DeviceNAME/POWERx`
-- `stat/DeviceNAME/POWERx`
-- `/Gerätename/BM280/Temperatur`
-- `/Gerätename/BM280/Luftfeuchtigkeit`
-- `/Gerätename/BM280/Temperatur`
-- `/DeviceNAME/BM280/Feuchtigkeit`
-- `/Gerätename/BM280/Vcc`
-- `/Gerätename/BM280/VCC`
-- `/Gerätename/BM280/Laufzeit`
-- `/Gerätename/BM280/RSSI`
-- `/Gerätename/BM280/POWER`
-- `/Gerätename/BM280/POWER1`
-- `/Gerätename/BM280/POWER2`
-- `/Gerätename/BM280/POWER3`
-- `/Gerätename/BM280/POWER4`
-- `/Gerätename/BM280/Switch1`
-- `/Gerätename/BM280/Switch2`
-- `/Gerätename/BM280/Gesamt`
-- `/Gerätename/BM280/Heute`
-- `/Gerätename/BM280/heute`
-- `/Gerätename/BM280/Gestern`
-- `/Gerätename/BM280/gestern`
-- `/Gerätename/BM280/Faktor`
-- `/Gerätename/BM280/Faktor`
-- `/Gerätename/BM280/Power`
-- `/Gerätename/BM280/Leistung`
-- `/Gerätename/BM280/Spannung`
-- `/DeviceNAME/BM280/Spannung`
-- `/Gerätename/BM280/Aktuell`
-- `/Gerätename/BM280/Strom`
-- `/Gerätename/BM280/Punkt`
-- `/Gerätename/BM280/Zähler1`
-- `/Gerätename/BM280/Zähler2`
-- `/Gerätename/BM280/Zähler3`
-- `/Gerätename/BM280/Zähler4`
-- `/Gerätename/BM280/Druck`
-- `/Gerätename/BM280/SeaPressure`
-- `/DeviceNAME/BM280/Druck`
-- `/Gerätename/BM280/Ca. Höhe`
-- `/Gerätename/BM280/Modul`
-- `/Gerätename/BM280/Version`
-- `/Gerätename/BM280/Hostname`
-- `/Gerätename/BM280/IPAdresse`
-- `/Gerätename/BM280/IP-Adresse`
-- `/DeviceNAME/BM280/RestartReason`
-- `/DeviceNAME/BM280/CarbonDioxide`
-- `/Gerätename/DHT11/Beleuchtungsstärke`
-- `/Gerätename/SonoffSC/Light`
-- `/Gerätename/SonoffSC/Noise`
-- `/DeviceNAME/SonoffSC/AirQuality`
-- `/Gerätename/SDS0X1/PM2.5`
-- `/Gerätename/SDS0X1/PM10`
-- `/Gerätename/SDS0X1/UvLevel`
-- `/DeviceNAME/SDS0X1/Latitude`
-- `/Gerätename/SDS0X1/Längengrad`
-- `/Gerätename/SR04/Entfernung`
+- `tele/GeräteNAME/STATUS`
+- `tele/GeräteNAME/SENSOR`
+- `tele/GeräteNAME/INFOx`
+- `tele/GeräteNAME/ENERGIE`
+- `cmnd/GeräteNAME/POWERx`
+- `stat/GeräteNAME/POWERx`
+- `/GeräteNAME/BM280/Temperatur`
+- `/GeräteNAME/BM280/Feuchtigkeit`
+- `/GeräteNAME/BM280/Temperatur`
+- `/GeräteNAME/BM280/Feuchtigkeit`
+- `/GeräteNAME/BM280/Vcc`
+- `/GeräteNAME/BM280/VCC`
+- `/GeräteNAME/BM280/Laufzeit`
+- `/GeräteNAME/BM280/RSSI`
+- `/GeräteNAME/BM280/POWER`
+- `/GeräteNAME/BM280/POWER1`
+- `/GeräteNAME/BM280/POWER2`
+- `/GeräteNAME/BM280/POWER3`
+- `/GeräteNAME/BM280/POWER4`
+- `/GeräteNAME/BM280/Switch1`
+- `/GeräteNAME/BM280/Switch2`
+- `/GeräteNAME/BM280/Gesamt`
+- `/GeräteNAME/BM280/Heute`
+- `/GeräteNAME/BM280/heute`
+- `/GeräteNAME/BM280/Gestern`
+- `/GeräteNAME/BM280/gestern`
+- `/GeräteNAME/BM280/Faktor`
+- `/GeräteNAME/BM280/Factor`
+- `/GeräteNAME/BM280/Power`
+- `/GeräteNAME/BM280/Leistung`
+- `/GeräteNAME/BM280/Spannung`
+- `/GeräteNAME/BM280/Spannung`
+- `/GeräteNAME/BM280/Aktuell`
+- `/GeräteNAME/BM280/Strom`
+- `/GeräteNAME/BM280/Punkt`
+- `/GeräteNAME/BM280/Zähler1`
+- `/GeräteNAME/BM280/Zähler2`
+- `/GeräteNAME/BM280/Counter3`
+- `/GeräteNAME/BM280/Counter4`
+- `/GeräteNAME/BM280/Druck`
+- `/GeräteNAME/BM280/SeaPressure`
+- `/GeräteNAME/BM280/Druck`
+- `/GeräteNAME/BM280/Ca. Höhe`
+- `/GeräteNAME/BM280/Modul`
+- `/GeräteNAME/BM280/Version`
+- `/GeräteNAME/BM280/Hostname`
+- `/GeräteNAME/BM280/IPAdresse`
+- `/GeräteNAME/BM280/IP-Adresse`
+- `/GeräteNAME/BM280/RestartReason`
+- `/GeräteNAME/BM280/Kohlendioxid`
+- `/GeräteNAME/DHT11/Illuminanz`
+- `/GeräteNAME/SonoffSC/Light`
+- `/GeräteNAME/SonoffSC/Noise`
+- `/GeräteNAME/SonoffSC/AirQuality`
+- `/GeräteNAME/SDS0X1/PM2.5`
+- `/GeräteNAME/SDS0X1/PM10`
+- `/GeräteNAME/SDS0X1/UvLevel`
+- `/GeräteNAME/SDS0X1/Latitude`
+- `/GeräteNAME/SDS0X1/Längengrad`
+- `/GeräteNAME/SR04/Entfernung`
 
-**Hinweis**: Die Liste könnte leicht erweitert werden. Bitte senden Sie `Pull Requests` oder *Debug-Daten* für unbekannte Zustände an den Entwickler (per Problem).
+**Anmerkung**: Die Liste könnte leicht erweitert werden. Bitte senden Sie `Pull Requests` oder *Debug-Daten* für unbekannte Zustände an den Entwickler (über Issue).
 
 ## Automatische Erstellung von Objekten
-In der Webkonfiguration können Sie festlegen, welche MQTT-Telegramme die neuen Objekte nicht in Standarddatenpunkten erstellen:
+In der Web-Config können Sie festlegen, welche MQTT-Telegramme die neuen Objekte nicht in Default-Datenpunkten anlegen:
 
-* `TELE_SENSOR` - erzeugt Objekte aus `tele/xxx/SENSOR` Telegrammen
-* `TELE_STATE` - erzeugt Objekte aus `tele/xxx/STATE` Telegrammen
+* `TELE_SENSOR` - erstellt Objekte aus `tele/xxx/SENSOR` Telegrammen
+* `TELE_STATE` - erstellt Objekte aus `tele/xxx/STATE` Telegrammen
 * `STAT_RESULT` - erstellt Objekte aus `stat/xxx/RESULT` Telegrammen
 
-Normalerweise sollte TELE_SENSOR für die meisten Benutzer ausreichend sein.
+Normalerweise sollte TELE_SENSOR für die meisten Benutzer ausreichen.
 
-* `Objektbaum erstellen` erstellt Objekte als Baumstruktur
+* `Create object tree` erstellt Objekte als Baumstruktur
 
-**Warnung!** Diese Option wird Ihren Sonoff-Objektbaum durcheinander bringen! Sie müssen alle Einstellungen für die Speicherung wiederholen...
-Speichern Sie die Objektstruktur als JSON-Datei, damit Sie Ihre alte Struktur neu erstellen können.
+**Warnung!** Diese Option bringt Ihren Sonoff-Objektbaum durcheinander! Sie müssen alle Einstellungen für die Speicherung wiederholen ...
+Speichern Sie die Objektstruktur als JSON-Datei, damit Sie Ihre alte Struktur wiederherstellen können.
 Am besten stoppen Sie den Adapter, löschen alle Objekte unter sonoff und starten den Adapter erneut.
 
 ## Flags für LED-Controller
 Die Moduszustände werden nur erstellt, wenn das Gerät einen der folgenden Zustände hat:
 
-- `Rot`, `Grün`, `Blau`, `WW`, `CW`, `Farbe`, `RGB_POWER`, `WW_POWER`, `CW_POWER`, `Farbton`, `Sättigung`
+- „Rot“, „Grün“, „Blau“, „WW“, „CW“, „Farbe“, „RGB_POWER“, „WW_POWER“, „CW_POWER“, „Farbton“, „Sättigung“.
 
 Zustände:
 
-* `modeLedExor` - Exor für weiße LEDs und Farb-LEDs => wenn die weißen LEDs eingeschaltet sind, werden Farb-LEDs ausgeschaltet und umgekehrt (Default true)
-* `modeReadColors` - ermöglicht das Lesen von Farben aus MQTT (Standardwert false)
+* `modeLedExor` - exor für weiße LEDs und farbige LEDs => wenn die weißen LEDs eingeschaltet sind, werden farbige LEDs ausgeschaltet und umgekehrt (default true)
+* `modeReadColors` - ermöglicht das Lesen von Farben aus MQTT (Standard falsch)
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __ARBEITEN IN PROGRESS__ -->
+### __LAUFENDE ARBEIT__ -->
 
 ## Changelog
+### 2.4.7 (2021-11-14)
+* (Apollon77) Fix crash case (Sentry IOBROKER-SONOFF-1S)
+
+### 2.4.6 (2021-11-13)
+* (Apollon77) Fix some crash cases reported by Sentry (IOBROKER-SONOFF-B, IOBROKER-SONOFF-R, IOBROKER-SONOFF-4, IOBROKER-SONOFF-1, IOBROKER-SONOFF-13, IOBROKER-SONOFF-1J, IOBROKER-SONOFF-16, IOBROKER-SONOFF-3, IOBROKER-SONOFF-H)
+* (Apollon77) Adjust Uptime to mixed because it seems that it can be number or string
+
+### 2.4.5 (2021-07-21)
+* (Apollon77) Fix some crash cases reported by Sentry
+
+### 2.4.4 (2021-07-19)
+* (bluefox) Added UvaIntensity and UvbIntensity
+
 ### 2.4.3 (2021-07-18)
 * (bluefox) Better type detection for non-described states
 

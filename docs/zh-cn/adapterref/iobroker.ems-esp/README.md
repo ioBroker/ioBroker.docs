@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: QgSorar90YOR3L8BE7JFLzk83P00C1JwBN96wkFsamA=
+hash: rIRMCKYKYkYUqBkMJA/yB4E9eFI7GjeGnBgpyZIgOVA=
 ---
 ![标识](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -23,7 +23,7 @@ hash: QgSorar90YOR3L8BE7JFLzk83P00C1JwBN96wkFsamA=
 
 它可以通过使用 Web-API 调用来连接供暖系统：
 
-* km200、km100、km50 或 IP-inside（来自博世集团）
+* km200、km200 hrv、km100、km50 或 IP-inside（来自博世集团）
 * 具有最新开发版本（见下文）和 ESP32 芯片的 ems-esp 接口（https://github.com/emsesp/EMS-ESP32）。旧的 ESP8266 网关也得到部分支持。
 
 ems-esp 适配器可以读取和写入数据到 ems 总线，以控制所有加热组件。
@@ -35,9 +35,9 @@ ems-esp 适配器可以读取和写入数据到 ems 总线，以控制所有加�
 EMS-ESP 中的重要设置：
 
 * API V2：MQTT 设置必须是布尔格式 1/0 ！
-* API V3：布尔格式的格式化选项必须是 1/0 和枚举格式编号
+* API V3：布尔格式的格式化选项必须为 1/0 和枚举格式编号
 * 必须启用 ems-esp 中的启用 API 写入命令设置
-* 必须设置 API 调用的绕过访问令牌授权或输入令牌。
+* 必须设置 API 调用的绕过访问令牌授权或必须输入令牌。
 
 选择复选框时，类似 km200 的设备结构用于 ems-esp 数据字段或保留原始 EMS-ESP 设备视图：锅炉、恒温器、混合器等。并行使用 km200 网关时，建议使用 km200 数据结构体。然后所有实体/状态都在 ioBroker 的对象结构中的同一位置。
 
@@ -54,13 +54,13 @@ EMS-ESP 中的重要设置：
 * 对于这些系统以及该数据可用的情况，可以读取总耗电量和温水耗电量的耗电量统计数据（每小时/每天/每月）。
 * 必须启用复选框记录并且必须定义数据库实例（mySQL 或 InfluxDB）。
 
-SQL 或 InfluxDB 历史适配器需要安装并激活才能使用此选项。
+SQL 或 InfluxDB History 适配器需要安装并激活才能使用此选项。
 
 * 这仅针对 mySQL 和 InfluxDB 数据库进行了测试
 * 对于 InfluxDB < V2，保留策略必须设置为至少 170 周。
 *（在 iobroker 持续时间 170w 上更改全局保留政策；）
 
-然后，此适配器创建相应的记录状态，启用 sql 统计信息并使用 sql 命令写入历史数据库条目并更新记录。更新频率是每小时一次。然后可以使用图表工具显示这些值，例如Flot Charts 适配器或 Grafana。
+然后，此适配器创建相应的记录状态，启用 sql 统计信息并使用 sql 命令写入历史数据库条目，并正在更新记录。更新频率是每小时一次。然后可以使用图表工具显示这些值，例如Flot Charts 适配器或 Grafana。
 
 可以启用锅炉统计显示：
 
@@ -71,7 +71,7 @@ SQL 或 InfluxDB 历史适配器需要安装并激活才能使用此选项。
 如果参数被填充，则可以计算锅炉效率。
 
 * 锅炉效率可根据平均锅炉温度计算：（锅炉温度+回水温度）/2。
-* 由于在 km200 中不再提供返回温度，当没有可用的 ems-esp 时，返回温度以锅炉温度 -10 °C 计算。
+* 由于在 km200 中不再提供返回温度，因此当没有可用的 ems-esp 时，返回温度以锅炉温度 -10 °C 计算。
 * 查看您的锅炉的数据表以相应地调整效率表。
 * 需要一个数据库实例（见上文）来计算统计信息。
 
@@ -85,6 +85,13 @@ SQL 或 InfluxDB 历史适配器需要安装并激活才能使用此选项。
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.11 (2022-02-01)
+* support for KM200 HRV (ventilation)
+* corrections on recordings for 1st day of month
+
+### 1.0.10 (2022-01-28)
+* Further adjustments for ems firmware 3.4 and error corrections 1.0.9
+
 ### 1.0.9 (2022-01-27)
 * New code to avoid mysql duplicate key errors
 * Further adjustments for ems firmware 3.4

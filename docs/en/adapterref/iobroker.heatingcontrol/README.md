@@ -246,6 +246,10 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
+### 2.8.5 (in progress)
+* (René) sentry: Cannot read property 'PARENT_TYPE' of undefined
+* (René) see issue #291: inter thermostat delay added
+
 ### 2.8.4 (2022-01-29)
 * (René) see issue #289: round offset to 0.5°C instead 0.25°C
 * (René) see issue #292: set actors when room becomes inactive like out of heating period

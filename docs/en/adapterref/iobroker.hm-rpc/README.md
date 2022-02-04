@@ -138,7 +138,7 @@ Here, measured values, control and status data are listed; depending on the func
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>
 
 Copyright (c) 2014 hobbyquaker
 

@@ -5,7 +5,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.slideshow.svg)](https://www.npmjs.com/package/iobroker.slideshow)
 ![Number of Installations (latest)](https://iobroker.live/badges/slideshow-installed.svg)
 ![Number of Installations (stable)](https://iobroker.live/badges/slideshow-stable.svg)
-[![Dependency Status](https://img.shields.io/david/gaudes/iobroker.slideshow.svg)](https://david-dm.org/gaudes/iobroker.slideshow)
 ![Test and Release](https://github.com/gaudes/ioBroker.slideshow/workflows/Test%20and%20Release/badge.svg)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/slideshow/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 

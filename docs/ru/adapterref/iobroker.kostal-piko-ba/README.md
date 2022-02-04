@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: bxNvnE1krXL4YkdLDoYrwKg0RC1j50s8LWSTKRTcZQM=
+hash: GdBSMj8IVxvLJSfNGAWd61K7Ft+I3RX/yTi6nI9GXYE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
@@ -20,7 +20,7 @@ CI-тесты: ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/
 
 ## Адаптер для чтения данных БА Kostal Piko для iOBroker
 Адаптер для чтения данных Kostal Piko BA. Адаптер создает несколько состояний и последовательно их обновляет.
-Адаптер также работает с инверторами Kostal Piko 12 и 15.
+Адаптер также работает с инверторами Kostal Piko 10, 12, 15 и 20.
 Буду очень признателен, если вы проверите работоспособность других инверторов и отправьте мне сообщение.
 
 ## Настройки
@@ -34,6 +34,11 @@ CI-тесты: ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/
 
 ! Note that missing version entries are typically dependency updates for security.
 
+### 1.4.2 (01.02.2022)
+* (HombachC) added support for inverter type, version and name
+* (HombachC) fixed timing error
+### 1.4.1 (31.01.2022)
+* (HombachC) optimized logging; bumped dependencies
 ### 1.4.0 (30.01.2022)
 * (HombachC) added support for grid 1-3 current, voltage and power
 * (HombachC) bumped dependencies
@@ -51,8 +56,6 @@ CI-тесты: ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/
 ### 1.1.12 (07.10.2021)
 * (GermanBlueFox) fixed icon link
 * (HombachC) bumped dependencies
-### 1.1.10 (16.07.2021)
-* (HombachC) bumped dependencies; fixed vulnerability
 ### 1.1.7 (09.05.2021)
 * (HombachC) added tests for node.js 16; fixed vulnerability
 ### 1.1.3 (23.11.2020)

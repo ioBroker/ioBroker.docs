@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: OyxGAVkIUU8dXiwNxPgUWdiDxkg5jNWAfj8Ia3CE9DY=
+hash: TBa4olbhdOBsMmhMf65iTfvWkfbO0nk0QnBnNFg1zXE=
 ---
 ![Logo](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -56,7 +56,11 @@ Sie können es als Web-App auf dem Startbildschirm speichern und es sieht aus un
 * Wenn Sie auf Probleme stoßen, lesen Sie bitte den Abschnitt [Fehlerbehebung](#Fehlerbehebung) am Ende dieser Readme-Datei
 
 ##Forum
-Besuchen Sie [iobroker-Forum](https://forum.iobroker.net/topic/22039/neuer-adapter-visualisierung-iqontrol).
+Besuchen Sie den Support-Thread [iobroker-Forum](https://forum.iobroker.net/topic/52077).
+Besuchen Sie den Entwickler-Thread [iobroker-Forum](https://forum.iobroker.net/topic/22039).
+
+##Wiki
+Schau mal ins Wiki [wiki](https://github.com/sbormann/ioBroker.iqontrol/wiki).
 
 ## Wie benutzt man
 **Hab keine Angst vor den vielen Möglichkeiten, die du hast.** Die meisten Dinge funktionieren sofort nach dem Auspacken. Sie *können*, müssen aber nicht alle Konfigurationsmöglichkeiten nutzen, die iQontrol bietet! Beginnen Sie einfach so:
@@ -491,11 +495,13 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * Standard: "false"
 * ``controlModeDisabledValue`` (Wert von CONTROL_MODE für 'disabled') - nur gültig für Rolle Thermostat:
 * Standard: ""
-* ``stateClosedValue`` (Wert von STATE für 'geschlossen') - nur gültig für Rolle Window:
+* ``stateClosedValue`` (Wert von STATE für 'geschlossen') - nur gültig für Rolle Window und Door with Lock:
 * Standard: ""
 * ``stateOpenedValue`` (Wert von STATE für 'opened') - nur gültig für Rolle Window:
 * Standard: ""
 * ``stateTiltedValue`` (Wert von STATE für 'tilted') - nur gültig für Rolle Window:
+* Standard: ""
+* ``lockStateLockedValue`` (Wert von LOCK_STATE für 'locked') - nur gültig für Rolle Door with Lock:
 * Standard: ""
 * ``invertActuatorLevel`` (Invert LEVEL (0 = open)) - nur gültig für Rolle Blind:
 * Mögliche Werte: "true"|"false"
@@ -545,7 +551,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``statePauseValue`` (Wert von STATE für 'pause') - nur gültig für Rolle Media:
 * Standard: "Pause"
 * ``stateStopValue`` (Wert von STATE für 'stop') - nur gültig für Rolle Media:
-* Vorgabe: „stopp“
+* Voreinstellung: "stopp"
 * ``hidePlayOverlay`` (Hide Play Icon) - nur gültig für Rolle Media:
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
@@ -599,7 +605,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * *veraltet*, da diese Option jetzt in clickOnIconAction enthalten ist
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
-* ``clickOnTileToggles`` (Klicken Sie auf die Kachelumschalter (anstatt den Dialog zu öffnen))):
+* ``clickOnTileToggles`` (Klicken Sie auf die Kachelschalter (anstatt den Dialog zu öffnen))):
 * *veraltet*, da diese Option jetzt in clickOnTileAction enthalten ist
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
@@ -646,7 +652,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``transparentIfInactive`` (Hintergrund transparent machen, wenn Gerät inaktiv):
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
-* ``noOverlayInactive`` (Overlay der Kachel entfernen, wenn Gerät inaktiv):
+* ``noOverlayInactive`` (Überlagerung der Kachel entfernen, wenn Gerät inaktiv):
 * Mögliche Werte: "true"|"false"
 * Voreinstellung: "true"
 * ``hideBackgroundURLInactive`` (Hintergründ vor Background_VIEW/URL/HTML ausblenden, wenn das Gerät inaktiv ist):
@@ -694,7 +700,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``noOverlayActive`` (Overlay der Kachel entfernen, falls Gerät aktiv):
 * Mögliche Werte: "true"|"false"
 * Voreinstellung: "true"
-* ``hideBackgroundURLActive`` (Hintergründe von Background_VIEW/URL/HTML ausblenden, wenn das Gerät aktiv ist):
+* ``hideBackgroundURLActive`` (Hintergründe vor Background_VIEW/URL/HTML ausblenden, wenn das Gerät aktiv ist):
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
 * ``hideDeviceNameIfActive`` (Gerätenamen ausblenden, wenn das Gerät aktiv ist):
@@ -782,7 +788,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``showTimestamp`` (Zeitstempel im Dialog anzeigen):
 * Mögliche Werte: ""|"ja"|"nein"|"immer"|"nie"
 * Standard: ""
-* BATTERIE-Leer-Symbol:
+* BATTERIE-leer-Symbol:
 * ``batteryActiveCondition`` (Zustand):
 * Mögliche Werte: ""|"at"|"af"|"eqt"|"eqf"|"eq"|"ne"|"gt"|"ge"|"lt"|"le"
 * Standard: ""
@@ -809,7 +815,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``backgroundURLPadding`` (Auffüllen auf Background_VIEW/URL/HTML anwenden):
 * Mögliche Werte: Zahl von 0 bis 50 [Pixel]
 * Standard: ""
-* ``backgroundURLAllowPostMessage`` (Erlaube postMessage-Kommunikation für background_VIEW/URL/HTML):
+* ``backgroundURLAllowPostMessage`` (Erlaube postMessage-Kommunikation für Background_view/URL/HTML):
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
 * ``backgroundURLNoPointerEvents`` (Mausereignisse auf die Kachel richten statt auf den Inhalt von DESCRIPTION_VIEW/URL/HTML):
@@ -1230,13 +1236,22 @@ Um die gezählten Geräte zu visualisieren, können Sie das Device-Counter-Widge
 * Als nächstes können Sie **Berechnungen** definieren:
 * Berechnungen können verwendet werden, um numerische Datenpunkte zu kombinieren und beispielsweise die Summe verschiedener Zähler zu berechnen.
 * Sie können auch Objekte wie Arrays (Listen) durch Addition oder Subtraktion kombinieren.
-* Zumindest können Sie **Kombinationen** definieren:
+* Dann können Sie **Kombinationen** definieren:
 * Kombinationen können verwendet werden, um verschiedene Datenpunkte mit Text zu kombinieren.
 * Das 'Pefix' wird vor, das 'Postfix' nach dem Wert der angegebenen ID gesetzt.
 * In der 'Only If'-Sektion können Sie eine Bedingung definieren, ob die Linie platziert werden soll oder nicht.
 * Durch Aktivieren von 'Nur Präfix' wird nur das Präfix gesetzt (nicht der Wert oder das Postfix), wenn die Bedingung zutrifft.
 * Sie können auch einen 'Sonst'-Text angeben, der platziert wird, wenn die Bedingung nicht zutrifft.
-* Die Ergebnisse der Listen mit Zählern, Berechnungen und Kombinationen werden in Datenpunkten gespeichert, die Sie unter iqontrol.x.Listen finden
+* Zumindest können Sie **Protokolle** definieren:
+* Protokolle können verwendet werden, um Änderungen an Datenpunkten mit Zeitstempel in einer Tabelle zu protokollieren.
+* Jedes Mal, wenn sich ein Wert einer der angegebenen IDs ändert, wird das Protokoll aktualisiert.
+* Durch Hinzufügen einer Entprellzeit können Sie verhindern, dass sie zu häufig aktualisiert wird (z. B. wenn sich einige Werte fast gleichzeitig ändern).
+* Das Protokoll ist eine Tabelle, die aus beliebig vielen Spalten besteht.
+* Sie müssen den Spalten eindeutige Namen zuweisen.
+* Dann kann der Inhalt der Spalte definiert werden: die Eintragsnummer, ein Zeitstempel oder der Wert einer ID.
+* Das Ergebnis des Logs wird als JSON-Code gespeichert und kann über das JSON-Table-Widget angezeigt werden.
+
+* Die Ergebnisse der Listen mit Zählern, Berechnungen, Kombinationen und Protokollen werden in Datenpunkten gespeichert, die Sie unter iqontrol.x.Listen finden
 
 ### Beispiele
 * Dieses Beispiel zeigt, wie man eine UNREACH-Liste erstellt:
@@ -1250,6 +1265,11 @@ Um die gezählten Geräte zu visualisieren, können Sie das Device-Counter-Widge
 	![Liste Bearbeiten Nicht erreichbar](../../../en/adapterref/iobroker.iqontrol/img/list_edit_unreach_counter.png)
 
 * Und schließlich werden alle Datenpunkte mit dem Wert „true“ gezählt, die diesen Zustand für mindestens 15 Sekunden haben
+* Es gibt einige eingebaute Standardlisten, die Sie hinzufügen können, zum Beispiel komplexe Service-Meldungen und einen Adapter-Monitor. Klicken Sie einfach auf die Schaltfläche „Standardlisten hinzufügen“ und wählen Sie aus, was Sie hinzufügen möchten. Fühlen Sie sich frei, die Listen zu untersuchen, um ein besseres Verständnis dafür zu bekommen, wie die Arbeit funktioniert.
+
+###Wiki
+* Es gibt eine sehr gute Erklärung mit einigen guten Erweiterungen von dslraser im Wiki: [wiki](https://github.com/sbormann/ioBroker.iqontrol/wiki/Listen-Z%C3%A4hler)
+* Hier finden Sie einige Tipps zur Konfiguration der Icon-Ersetzungen im Device-Counter-Widget: [wiki](https://github.com/sbormann/ioBroker.iqontrol/wiki/JSON-Table-and-Device-Counter- Widget---Icon-Ersetzungen)
 
 ## Ändern der Datenpunktkonfiguration
 Sie können die Konfiguration von Datenpunkten über das Schraubenschlüssel-Symbol (oder eher das Zahnrad-Symbol im neuen React-UI) hinter einem Datenpunkt im Gerätekonfigurationsdialog oder im Objekt-Tab von iobroker ändern.
@@ -1478,7 +1498,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
   *Alternativ können Sie eine* erteliste* zuweisen, um zusätzliche Zustände wie 'Manipuliert' anzuzeigen
   *Sie können auch eine* eichenfolge* zuweisen, um einen beliebigen Text wie "Feuer im Obergeschoss" anzuzeigen
 * **CONTROL_MODE**: *Werteliste* - Auswahl des Betriebsmodus wie "Scharf" und "Unscharf"
-    * In den Geräteoptionen können Sie den Wert definieren, der „unscharf“ darstellt, damit das entsprechende Symbol angezeigt werden kann
+    * In den Geräteoptionen können Sie den Wert definieren, der „unscharf“ darstellt, sodass das entsprechende Symbol angezeigt werden kann
 
 ###<img src="img/icons/battery_full.png" width="32"> Batterie:
 * **STATUS**: *Zahl* - Batteriestand in Prozent
@@ -1505,7 +1525,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 | | Unix ms Zeitstempel | x | 1410715640579 | X | --- | --- |
 | Datum | Wochentag | d | 0 1 ... 5 6 | X | --- | --- |
 | | | dd | So Mo ... Fr Sa | X | X (übersetzt) | --- |
-| | | dd | So Mo ... Fr Sa | X | X (übersetzt) | --- |
+| | | ddd | So Mo ... Fr Sa | X | X (übersetzt) | --- |
 | | | dddd | Sonntag Montag ... Freitag Samstag | X | X (übersetzt) | --- |
 | | | tun | 0. 1. ... 5. 6. | X | --- | --- |
 | | Tag des Monats | D | 1 2 ... 30 31 | X | X | X |
@@ -1672,25 +1692,29 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
 -->
 
 ### **WORK IN PROGRESS**
+* (sbormann) Introducing a powerful new feature: Lists and Counters.
+* (sbormann) The JSON-Table-Widget accepts now simple lists (for example an array of datapoints).
+* (sbormann) Added configurable font to JSON-table widget.
+* (sbormann) Added column-sorting to JSON-Table-Widget.
+* (sbormann) Added heading and border-color-option to JSON-table widget.
+* (sbormann) Added Device-Counter-Widget.
 * (sbormann) Added option to show POWER as state.
 * (sbormann) Added preview of tile appeareance when setting tile colors.
 * (sbormann) Added scrollbar-settings for firefox.
 * (sbormann) Added option to adjust height of tile to the size of BACKGROUND_VIEW.
 * (sbormann) Added option to change and invert INFO_A/B-Symbols.
-* (sbormann) Added import and export function to device options.
+* (sbormann) Added option to invert color of INFO_A/B icons for dark-mode.
 * (sbormann) Added option to hide indicator icons if inactive, active or enlarged.
-* (sbormann) Added column-sorting to JSON-Table-Widget.
-* (sbormann) The JSON-Table-Widget accepts now simple lists (for example an array of datapoints).
+* (sbormann) Added import and export function to device options.
 * (sbormann) Added widget-replaceurl to widgets, which allows creation of simplified widget-presets, as preparation for further development.
 * (sbormann) Added option to media-player to disable forced reload of cover-image on TITLE-change.
-* (sbormann) Small adjustmets for ALTERNATIVE_COLORSPACE.
+* (sbormann) Adjustmets for ALTERNATIVE_COLORSPACE.
 * (sbormann) Added widget-replaceurl as a widget configuration parameter.
-* (sbormann) Introducing a powerful new feature: Lists and Counters.
-* (sbormann) Added Device-Counter-Widget.
-* (sbormann) Added heading and border-color-option to JSON-table widget.
 * (sbormann) Changed behaviour of min/max/ignore-min-max-settings of FLOT-Chart-Widget.
-* (sbormann) Added option to invert color of INFO_A/B icons for dark-mode.
-* (sbormann) You can now chose fonts for the JSON-table widget.
+* (sbormann) Added export and import function to devices.
+* (sbormann) Fixed border-radius for big mode.
+* (sbormann) Added configurable values for 'closed' and 'locked' for 'Door with Lock'
+* (sbormann) Fixed targetValues for Admin 5.
 
 ### 1.11.0 (2021-12-18)
 * (sbormann) Added the ability to globally change the default icons.

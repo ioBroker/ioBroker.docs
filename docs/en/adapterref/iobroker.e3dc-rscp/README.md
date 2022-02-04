@@ -330,6 +330,7 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 (git-kick)
 * [CVE-2021-23566](https://nvd.nist.gov/vuln/detail/CVE-2021-23566): require nanoid >=3.1.31 - [Issue #61](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/61)
 * [CVE-2020-28469](https://nvd.nist.gov/vuln/detail/CVE-2020-28469): require glob-parent >=5.1.2
+* [Sentry Event](https://sentry.io/organizations/ulrich-kick/issues/2812710513/events/0c4653a38cd24b6a8732a10d07370e06/): Type Error in sendNextFrame(), handling case this == null
 ### 1.0.0
 (git-kick)
 * Prerequisites for ioBroker repo in README.md, io-package.json, github

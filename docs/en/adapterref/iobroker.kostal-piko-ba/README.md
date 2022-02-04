@@ -15,7 +15,7 @@ CI-Tests:
 
 ## Adapter for reading Kostal Piko BA data for iOBroker
 Adapter for reading Kostal Piko BA data. Adapter creates some states and updates them sequentially.
-Adapter also working with Kostal Piko 12 & 15 inverters. 
+Adapter also working with Kostal Piko 10, 12, 15 & 20 inverters. 
 It's greatly appreciated if you verify functionality with other inverters and please send me a note.
 
 ## Settings
@@ -29,8 +29,11 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ! Note that missing version entries are typically dependency updates for security.
 
+### 1.4.2 (01.02.2022)
+* (HombachC) added support for inverter type, version and name
+* (HombachC) fixed timing error
 ### 1.4.1 (31.01.2022)
-* (HombachC) optimized logging
+* (HombachC) optimized logging; bumped dependencies
 ### 1.4.0 (30.01.2022)
 * (HombachC) added support for grid 1-3 current, voltage and power
 * (HombachC) bumped dependencies
@@ -48,8 +51,6 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ### 1.1.12 (07.10.2021)
 * (GermanBlueFox) fixed icon link
 * (HombachC) bumped dependencies
-### 1.1.10 (16.07.2021)
-* (HombachC) bumped dependencies; fixed vulnerability
 ### 1.1.7 (09.05.2021)
 * (HombachC) added tests for node.js 16; fixed vulnerability
 ### 1.1.3 (23.11.2020)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: QgSorar90YOR3L8BE7JFLzk83P00C1JwBN96wkFsamA=
+hash: rIRMCKYKYkYUqBkMJA/yB4E9eFI7GjeGnBgpyZIgOVA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -23,7 +23,7 @@ hash: QgSorar90YOR3L8BE7JFLzk83P00C1JwBN96wkFsamA=
 
 Он может взаимодействовать с системой отопления с использованием вызовов Web-API в направлении:
 
-* км200, км100, км50 или IP-внутри (от Bosch Group)
+* км200, км200 грн, км100, км50 или ИП-внутри (от Bosch Group)
 * Интерфейс ems-esp (https://github.com/emsesp/EMS-ESP32) с последней версией dev (см. ниже) и чипом ESP32. Старые шлюзы ESP8266 также частично поддерживаются.
 
 Адаптер ems-esp может считывать и записывать данные в шину ems, управляющую всеми компонентами системы отопления.
@@ -46,7 +46,7 @@ hash: QgSorar90YOR3L8BE7JFLzk83P00C1JwBN96wkFsamA=
 Этот адаптер считывает значения after start из ems-esp и km200 с помощью HTTP-запросов на получение и способен подписываться на изменения состояния и отправлять соответствующие команды http (post) обратно либо на оборудование ems-esp, либо на шлюз km200.
 
 * Опрос чтения EMS-ESP является параметром (стандартно 60 секунд) и не может быть установлен ниже 15 секунд.
-* Опрос KM200 также является параметром (стандартно 300 секунд), а минимальное значение, которое можно установить, составляет 90 секунд.
+* Опрос KM200 также является параметром (стандартно 300 секунд), и минимальное значение, которое можно установить, составляет 90 секунд.
 
 Большинство современных систем отопления имеют шлюз ip-inside и поддерживают статистику энергопотребления:
 
@@ -85,6 +85,13 @@ hash: QgSorar90YOR3L8BE7JFLzk83P00C1JwBN96wkFsamA=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.11 (2022-02-01)
+* support for KM200 HRV (ventilation)
+* corrections on recordings for 1st day of month
+
+### 1.0.10 (2022-01-28)
+* Further adjustments for ems firmware 3.4 and error corrections 1.0.9
+
 ### 1.0.9 (2022-01-27)
 * New code to avoid mysql duplicate key errors
 * Further adjustments for ems firmware 3.4

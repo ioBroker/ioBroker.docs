@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: QgSorar90YOR3L8BE7JFLzk83P00C1JwBN96wkFsamA=
+hash: rIRMCKYKYkYUqBkMJA/yB4E9eFI7GjeGnBgpyZIgOVA=
 ---
 ![Logo](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -23,7 +23,7 @@ Der Adapter unterstützt eine Schnittstelle zu den Heizsystemen der Bosch-Gruppe
 
 Es kann über Web-API-Aufrufe mit dem Heizsystem verbunden werden:
 
-* km200, km100, km50 oder IP-inside (von Bosch Group)
+* km200, km200 hrv, km100, km50 oder IP-inside (aus der Bosch-Gruppe)
 * ems-esp-Schnittstelle (https://github.com/emsesp/EMS-ESP32) mit aktueller Dev-Version (siehe unten) und dem ESP32-Chip. Auch die alten ESP8266-Gateways werden teilweise unterstützt.
 
 Der ems-esp Adapter kann Daten zum ems-Bus lesen und schreiben, der alle Heizungskomponenten steuert.
@@ -85,6 +85,13 @@ Es besteht die Möglichkeit, die Zustandsstruktur neu aufzubauen, indem Zuständ
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.11 (2022-02-01)
+* support for KM200 HRV (ventilation)
+* corrections on recordings for 1st day of month
+
+### 1.0.10 (2022-01-28)
+* Further adjustments for ems firmware 3.4 and error corrections 1.0.9
+
 ### 1.0.9 (2022-01-27)
 * New code to avoid mysql duplicate key errors
 * Further adjustments for ems firmware 3.4

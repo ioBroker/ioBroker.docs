@@ -82,7 +82,7 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 -->
 
 ## Changelog
-### 4.1.0 (2022-01-31)
+### 4.1.1 (2022-02-01)
 * (bluefox) Allowed the switch between iobroker.socketio and iobroker.ws for internal web sockets
 
 ### 4.0.1 (2022-01-30)

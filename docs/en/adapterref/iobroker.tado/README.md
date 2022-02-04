@@ -42,6 +42,9 @@ If you like my work, please feel free to provide a personal donation
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.3.15-alpha.0 (2022-02-02)
+* (HGlab01) obj.common.states handling improved for js-controller 4.0
+
 ### 0.3.14 (2022-01-21)
 * (HGlab01) Improve hotwater handling
 * (HGlab01) Improve AC Control v3 devices 

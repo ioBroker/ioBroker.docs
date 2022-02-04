@@ -1,10 +1,11 @@
 ![Logo](admin/jeelab_logo.png)
 # ioBroker.jeelink
-![Number of Installations](http://iobroker.live/badges/jeelink-installed.svg) ![Number of Installations](http://iobroker.live/badges/jeelink-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.jeelink.svg)](https://www.npmjs.com/package/iobroker.jeelink)
+![Number of Installations](http://iobroker.live/badges/jeelink-installed.svg) 
+![Number of Installations](http://iobroker.live/badges/jeelink-stable.svg) 
+[![NPM version](http://img.shields.io/npm/v/iobroker.jeelink.svg)](https://www.npmjs.com/package/iobroker.jeelink)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.jeelink.svg)](https://www.npmjs.com/package/iobroker.jeelink)
-[![Build Status](https://travis-ci.org/foxthefox/ioBroker.jeelink.svg?branch=master)](https://travis-ci.org/foxthefox/ioBroker.jeelink)
 
-[![NPM](https://nodei.co/npm/iobroker.jeelink.png?downloads=true)](https://nodei.co/npm/iobroker.jeelink/)
+**Tests:** ![Test and Release](https://github.com/foxthefox/ioBroker.jeelink/workflows/Test%20and%20Release/badge.svg)
 
 This is an adapter for ioBroker to integrate RFM12B/RFM69 via Jeelink.
 The jeelink can be used with the preloaded software (rfmdemo) for the reading of openenergy sensors (emon).
@@ -64,6 +65,10 @@ to be done in admin
 
 
 ## Changelog:
+### 1.0.0
+* (foxthefox) refactoring, use of classbased style,
+* github actions instead of travis
+
 ### 0.1.4
 * (o0shojo0o) nodejsV14 compatibility
 
@@ -112,4 +117,4 @@ to be done in admin
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2020 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2016 - 2022 foxthefox <foxthefox@wysiwis.net>
