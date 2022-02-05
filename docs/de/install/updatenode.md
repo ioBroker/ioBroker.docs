@@ -1,6 +1,6 @@
 ---
 title:       "Update NodeJS"
-lastChanged: "01.02.2022"
+lastChanged: "05.02.2022"
 ---
 
 # Node.js Update
@@ -19,7 +19,8 @@ Ohne Node.js funktioniert ioBroker nicht, Details dazu unter [Architektur](https
 Wer mehr über Node.js erfahren möchte, [Wikipedia Node.js](https://de.wikipedia.org/wiki/Node.js).
   
   
-?> **Bei einem Node.js Versionswechsel sind bestimmte Vorraussetzungen zu prüfen und müssen gegebenenfalls im Vorfeld korrigiert werden. Dabei ist darauf zu achten, in welchen Pfaden die Installation liegt.**
+?> **Bei einem Node.js Versionswechsel sind bestimmte Vorraussetzungen zu prüfen und müssen gegebenenfalls im Vorfeld korrigiert werden.
+Dabei ist darauf zu achten, in welchen Pfaden die Installation liegt.**
 
 ### Vorgehensweise
 
@@ -101,46 +102,7 @@ Dort kann ein Log zB (auch nach allen Rebuild Versuchen) wie folgt aussehen
 <details>
 <summary>LOG</summary>
 
-```
-	
-host.SmartHomeCenter | 2020-05-10 09:28:01.788 | error | Caught by controller[0]: }
-host.SmartHomeCenter | 2020-05-10 09:28:01.788 | error | Caught by controller[0]: ]
-host.SmartHomeCenter | 2020-05-10 09:28:01.788 | error | Caught by controller[0]: '/opt/iobroker/node_modules/serialport/compiled/12.16.3/linux/arm/serialport.node'
-host.SmartHomeCenter | 2020-05-10 09:28:01.787 | error | Caught by controller[0]: '/opt/iobroker/node_modules/serialport/build/default/serialport.node',
-host.SmartHomeCenter | 2020-05-10 09:28:01.787 | error | Caught by controller[0]: '/opt/iobroker/node_modules/serialport/Release/serialport.node',
-host.SmartHomeCenter | 2020-05-10 09:28:01.787 | error | Caught by controller[0]: '/opt/iobroker/node_modules/serialport/out/Release/serialport.node',
-host.SmartHomeCenter | 2020-05-10 09:28:01.787 | error | Caught by controller[0]: '/opt/iobroker/node_modules/serialport/Debug/serialport.node',
-host.SmartHomeCenter | 2020-05-10 09:28:01.787 | error | Caught by controller[0]: '/opt/iobroker/node_modules/serialport/out/Debug/serialport.node',
-host.SmartHomeCenter | 2020-05-10 09:28:01.786 | error | Caught by controller[0]: '/opt/iobroker/node_modules/serialport/build/Release/serialport.node',
-host.SmartHomeCenter | 2020-05-10 09:28:01.786 | error | Caught by controller[0]: '/opt/iobroker/node_modules/serialport/build/Debug/serialport.node',
-host.SmartHomeCenter | 2020-05-10 09:28:01.786 | error | Caught by controller[0]: '/opt/iobroker/node_modules/serialport/build/serialport.node',
-host.SmartHomeCenter | 2020-05-10 09:28:01.786 | error | Caught by controller[0]: tries: [
-host.SmartHomeCenter | 2020-05-10 09:28:01.786 | error | Caught by controller[0]: at Module._compile (internal/modules/cjs/loader.js:1133:30) {
-host.SmartHomeCenter | 2020-05-10 09:28:01.785 | error | Caught by controller[0]: at Object. (/opt/iobroker/node_modules/serialport/lib/bindings/auto-detect.js:16:22)
-host.SmartHomeCenter | 2020-05-10 09:28:01.785 | error | Caught by controller[0]: at require (internal/modules/cjs/helpers.js:77:18)
-host.SmartHomeCenter | 2020-05-10 09:28:01.785 | error | Caught by controller[0]: at Module.require (internal/modules/cjs/loader.js:1019:19)
-host.SmartHomeCenter | 2020-05-10 09:28:01.785 | error | Caught by controller[0]: at Function.Module._load (internal/modules/cjs/loader.js:877:14)
-host.SmartHomeCenter | 2020-05-10 09:28:01.785 | error | Caught by controller[0]: at Module.load (internal/modules/cjs/loader.js:977:32)
-host.SmartHomeCenter | 2020-05-10 09:28:01.784 | error | Caught by controller[0]: at Object.Module._extensions..js (internal/modules/cjs/loader.js:1153:10)
-host.SmartHomeCenter | 2020-05-10 09:28:01.784 | error | Caught by controller[0]: at Module._compile (internal/modules/cjs/loader.js:1133:30)
-host.SmartHomeCenter | 2020-05-10 09:28:01.784 | error | Caught by controller[0]: at Object. (/opt/iobroker/node_modules/serialport/lib/bindings/linux.js:2:36)
-host.SmartHomeCenter | 2020-05-10 09:28:01.784 | error | Caught by controller[0]: at bindings (/opt/iobroker/node_modules/serialport/node_modules/bindings/bindings.js:93:9)
-host.SmartHomeCenter | 2020-05-10 09:28:01.783 | error | Caught by controller[0]: → /opt/iobroker/node_modules/serialport/compiled/12.16.3/linux/arm/serialport.node
-host.SmartHomeCenter | 2020-05-10 09:28:01.783 | error | Caught by controller[0]: → /opt/iobroker/node_modules/serialport/build/default/serialport.node
-host.SmartHomeCenter | 2020-05-10 09:28:01.783 | error | Caught by controller[0]: → /opt/iobroker/node_modules/serialport/Release/serialport.node
-host.SmartHomeCenter | 2020-05-10 09:28:01.783 | error | Caught by controller[0]: → /opt/iobroker/node_modules/serialport/out/Release/serialport.node
-host.SmartHomeCenter | 2020-05-10 09:28:01.782 | error | Caught by controller[0]: → /opt/iobroker/node_modules/serialport/Debug/serialport.node
-host.SmartHomeCenter | 2020-05-10 09:28:01.782 | error | Caught by controller[0]: → /opt/iobroker/node_modules/serialport/out/Debug/serialport.node
-host.SmartHomeCenter | 2020-05-10 09:28:01.782 | error | Caught by controller[0]: → /opt/iobroker/node_modules/serialport/build/Release/serialport.node
-host.SmartHomeCenter | 2020-05-10 09:28:01.782 | error | Caught by controller[0]: → /opt/iobroker/node_modules/serialport/build/Debug/serialport.node
-host.SmartHomeCenter | 2020-05-10 09:28:01.781 | error | Caught by controller[0]: → /opt/iobroker/node_modules/serialport/build/serialport.node
-host.SmartHomeCenter | 2020-05-10 09:28:01.781 | error | Caught by controller[0]: Error: Could not locate the bindings file. Tried:
-host.SmartHomeCenter | 2020-05-10 09:28:01.781 | error | Caught by controller[0]: ^
-host.SmartHomeCenter | 2020-05-10 09:28:01.780 | error | Caught by controller[0]: throw err
-host.SmartHomeCenter | 2020-05-10 09:28:01.780 | error | Caught by controller[0]: /opt/iobroker/node_modules/serialport/node_modules/bindings/bindings.js:96
-
-
-```
+![LOG](media/Log-Update_NodeJS.jpg")
  
 </details>
 
@@ -177,7 +139,8 @@ iobroker backup
 ```
 - alternative [Möglichkeiten](https://www.iobroker.net/#de/documentation/config/backup.md)
 
-#### 3 - [Adapter Aktualisieren](https://www.iobroker.net/#de/documentation/tutorial/adapter.md?upgradeeinesadapters)
+#### 3 - Adapter aktualisieren
+- Anleitung dazu findet man unter [Adapter verwalten](https://www.iobroker.net/#de/documentation/tutorial/adapter.md)
 
 #### 4 - ioBroker stoppen
 ```
@@ -197,7 +160,8 @@ ps aux | grep 'backup\|PID'
 sudo kill -9 <ProzessID>
 ```
 
-#### 6 - [Node.JS Update](https://github.com/nodesource/distributions#installation-instructions)
+#### 6 - Node.JS Update
+- Details zu [Node.Js](https://github.com/nodesource/distributions#installation-instructions)
 ```
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt install -y nodejs
@@ -232,7 +196,8 @@ iobroker backup
 ```
 - alternative [Möglichkeiten](https://www.iobroker.net/#de/documentation/config/backup.md)
 
-#### 3 - [Adapter Aktualisieren](https://www.iobroker.net/#de/documentation/tutorial/adapter.md?upgradeeinesadapters)
+#### 3 - Adapter aktualisieren
+- Anleitung dazu findet man unter [Adapter verwalten](https://www.iobroker.net/#de/documentation/tutorial/adapter.md)
 
 #### 4- Sicherung des Ordners:
 ```
@@ -272,7 +237,8 @@ iobroker start
 ```
 
 ## Anleitung für Docker
-- Node.js wird in der Regel durch ein Update des Containers auf eine neue Version des [Docker Image](https://hub.docker.com/r/buanet/iobroker/tags) durchgeführt. Eine detaillierte Vorgehensweise, sowie weitere Details zum iobroker container ist bei [buanet](https://smarthome.buanet.de/2020/10/iobroker-docker-container-updates-upgrades/) zu finden.
+- Node.js wird in der Regel durch ein Update des Containers auf eine neue Version des [Docker Image](https://hub.docker.com/r/buanet/iobroker/tags) durchgeführt.  
+- Eine detaillierte Vorgehensweise, sowie weitere Details zum iobroker container ist bei [buanet](https://smarthome.buanet.de/2020/10/iobroker-docker-container-updates-upgrades/) zu finden.
 
 ## Problemlösung
 ### manueller Rebuild
@@ -290,4 +256,3 @@ iobroker rebuild <adaptername> --install
 ?> Solange js-Controller kleiner Version 4, muss auch bei einem Node.js Update innerhalb einer Major Version, der [ioBroker fixer](https://www.iobroker.net/#de/documentation/install/linux.md) ausgeführt werden.  
 Mit dem zukünftigen js-Controller in Version 4 werden Rebuild's vollautomatisch gehändelt.  
 Ein manueller Rebuild wird dann nicht mehr unterstützt.
-
