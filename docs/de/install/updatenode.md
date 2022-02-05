@@ -88,7 +88,7 @@ ioBroker versucht automatisch die Adapter zu erkennen die nicht starten, weil Si
 <details>
 <summary>Manuelle Rebuilds</summary>
 
-Sollte ein automatischer Rebuild nicht funktioniert haben, so kann dieser manuell ausgeführt werden.
+Sollte ein automatischer Rebuild nicht funktioniert haben, so kann dieser manuell ausgeführt werden, siehe Problemlösung.
 
 </details>
 
