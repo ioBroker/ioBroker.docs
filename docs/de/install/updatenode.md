@@ -102,7 +102,7 @@ Dort kann ein Log zB (auch nach allen Rebuild Versuchen) wie folgt aussehen
 <details>
 <summary>LOG</summary>
 
-![LOG](media/Log-Update_NodeJS.jpg")
+![LOG](media/Log-Update_NodeJS.jpg)
  
 </details>
 
