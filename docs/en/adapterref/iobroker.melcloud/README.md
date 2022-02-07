@@ -30,9 +30,13 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.1.6 (2022-02-06)
+* (Black-Thunder) fixed warnings
 
-### __WORK IN PROGRESS__
+### 1.1.5 (2022-02-06)
 * (Black-Thunder) replaced deprecated package "request" with "axios"
+* (Black-Thunder) fix warnings for js-controller v4
+* (Black-Thunder) updated dependencies
 
 ### 1.1.4 (2021-05-16)
 * (Black-Thunder) implemented separate queue for sending device commands to improve robustness when sending multiple commands
@@ -43,7 +47,7 @@ Documentation:
 * (Black-Thunder) ignore unchanged state values to decrease network traffic
 * (Black-Thunder) only update state values if they are really changed
 * (Black-Thunder) extend existing objects to ensure compatibility with js-controller >= v3.2
-* (Black-Thunder) only allow values with 0.5 steps for "targetTemp" 
+* (Black-Thunder) only allow values with 0.5 steps for "targetTemp"
 
 ### 1.1.2 (2021-04-30)
 * (Black-Thunder) added compatibility with js-controller >= v3.2
@@ -161,7 +165,7 @@ Documentation:
 ## License
 MIT License
 
-Copyright (c) 2021 Black-Thunder <glwars@aol.de>
+Copyright (c) 2022 Black-Thunder <glwars@aol.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

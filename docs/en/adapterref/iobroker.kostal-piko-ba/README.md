@@ -13,14 +13,15 @@ CI-Tests:
 
 [![NPM](https://nodei.co/npm/iobroker.kostal-piko-ba.png?downloads=true)](https://nodei.co/npm/iobroker.kostal-piko-ba/)
 
-## Adapter for reading Kostal Piko BA data for iOBroker
-Adapter for reading Kostal Piko BA data. Adapter creates some states and updates them sequentially.
-Adapter also working with Kostal Piko 10, 12, 15 & 20 inverters. 
+## Adapter for reading Kostal Piko & Piko BA data for iOBroker
+Adapter for reading Kostal Piko & Piko BA data. Adapter creates some states and updates them sequentially.
+Adapter working with Kostal Piko 6BA, 10, 12, 15 & 20 inverters. 
 It's greatly appreciated if you verify functionality with other inverters and please send me a note.
 
 ## Settings
-To connect to the Kostal Pico BA inverter noting its IP-address into the config is mandatory.
+To connect to the Kostal Pico (BA) inverter setting its IP-address into the config is mandatory.
 You could also edit the update frequencies of live data, daily and livetime statistics.
+If needed, set mark for read-out the 4 analog values, too.  
 
 ## Notes
 This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers. For more details and for informations on how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.

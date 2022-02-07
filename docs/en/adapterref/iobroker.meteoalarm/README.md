@@ -94,18 +94,27 @@ Show in the header of the widget instead of the weekday "today", "tomorrow" or "
 * Slovenia
 * Spain
 * Sweden
+* Switzerland
 * UK
 
 If you don't find your country, please create an issue on github, and I will be happy to add it
 
 ## Not possible countries
-* Switzerland (geocode file from meteoalarm.org is probably incorrect)
 * Portugal (geocode file from meteoalarm.org is probably incorrect)
 * Bulgaria (geocode file from meteoalarm.org is probably incorrect)
 
 
 
 ## Changelog
+## 2.1.0 (2022-02-03)
+* (jack-blackson) Added Switzerland
+
+## 2.0.10 (2021-12-10)
+* (jack-blackson) Bugfix Sentry IOBROKER-METEOALARM-2K
+* (jack-blackson) Bugfix for Ireland
+
+## 2.0.9 (2021-11-27)
+* (jack-blackson) Calculate date in words correctly - this time for real :)
 
 ## 2.0.10 (2021-12-10)
 * (jack-blackson) Bugfix Sentry IOBROKER-METEOALARM-2K

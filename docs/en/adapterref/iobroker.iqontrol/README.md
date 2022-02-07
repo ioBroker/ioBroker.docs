@@ -1679,6 +1679,10 @@ This device has some special predefined size- and display-settings to show a tex
 -->
 
 ### **WORK IN PROGRESS**
+* (sbormann) Kompatibility to new ioBroker websocket.
+* (sbormann) Enhanced datapoint-rcognition in json-table-widget.
+
+### 2.0.0-rc1.0 (2022-02-04)
 * (sbormann) Introducing a powerful new feature: Lists and Counters.
 * (sbormann) The JSON-Table-Widget accepts now simple lists (for example an array of datapoints).
 * (sbormann) Added configurable font to JSON-table widget.
@@ -2674,7 +2678,7 @@ This device has some special predefined size- and display-settings to show a tex
 ## License
 MIT License
 
-Copyright (c) 2021 Sebastian Bormann
+Copyright (c) 2022 Sebastian Bormann
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

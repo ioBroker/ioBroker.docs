@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: GdBSMj8IVxvLJSfNGAWd61K7Ft+I3RX/yTi6nI9GXYE=
+hash: qKmWR0OODk+IzG6VSWERlUkcs5OCuwE/6awZMTFyOe0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
@@ -18,14 +18,15 @@ hash: GdBSMj8IVxvLJSfNGAWd61K7Ft+I3RX/yTi6nI9GXYE=
 
 CI-тесты: ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workflows/Node.js%20CI/badge.svg)
 
-## Адаптер для чтения данных БА Kostal Piko для iOBroker
-Адаптер для чтения данных Kostal Piko BA. Адаптер создает несколько состояний и последовательно их обновляет.
-Адаптер также работает с инверторами Kostal Piko 10, 12, 15 и 20.
+## Адаптер для чтения данных Kostal Piko & Piko BA для iOBroker
+Адаптер для чтения данных Kostal Piko & Piko BA. Адаптер создает несколько состояний и последовательно их обновляет.
+Адаптер для инверторов Kostal Piko 6BA, 10, 12, 15 и 20.
 Буду очень признателен, если вы проверите работоспособность других инверторов и отправьте мне сообщение.
 
 ## Настройки
-Для подключения к инвертору Kostal Pico BA указание его IP-адреса в конфиге обязательно.
+Для подключения к инвертору Kostal Pico (BA) установка его IP-адреса в конфиге обязательна.
 Вы также можете изменить частоту обновления данных в реальном времени, ежедневную статистику и статистику в реальном времени.
+При необходимости установите метку для считывания 4 аналоговых значений.
 
 ## Примечания
 Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам. Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.

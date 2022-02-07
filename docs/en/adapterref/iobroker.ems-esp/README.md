@@ -73,6 +73,9 @@ There is an option to re-build the state-structure by deleting states on adapter
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.12 (2022-02-06)
+* update statistics states
+
 ### 1.0.11 (2022-02-01)
 * support for KM200 HRV (ventilation)
 * corrections on recordings for 1st day of month

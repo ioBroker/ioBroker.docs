@@ -1,12 +1,14 @@
 # ioBroker.nibeuplink
+
+[![NPM version](https://img.shields.io/npm/v/iobroker.nibeuplink.svg)](https://www.npmjs.com/package/iobroker.nibeuplink)
+![Current version in stable repository](https://iobroker.live/badges/nibeuplink-stable.svg)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.nibeuplink.svg)](https://www.npmjs.com/package/iobroker.nibeuplink)
+![Number of Installations](https://iobroker.live/badges/nibeuplink-installed.svg)
 [![Build Status](https://github.com/sebilm/ioBroker.nibeuplink/workflows/Test%20and%20Release/badge.svg)](https://github.com/sebilm/ioBroker.nibeuplink/actions/workflows/test-and-release.yml)
-![Number of Installations](http://iobroker.live/badges/nibeuplink-installed.svg)
-![Stable Version](http://iobroker.live/badges/nibeuplink-stable.svg)
-[![NPM Version](https://img.shields.io/npm/v/iobroker.nibeuplink.svg)](https://nodei.co/npm/iobroker.nibeuplink/)
-[![NPM Downloads](https://img.shields.io/npm/dm/iobroker.nibeuplink.svg)](https://nodei.co/npm/iobroker.nibeuplink/)
-![Travis CI State](https://travis-ci.org/sebilm/ioBroker.nibeuplink.svg?branch=master)
 
 [![NPM](https://nodei.co/npm/iobroker.nibeuplink.png?downloads=true)](https://nodei.co/npm/iobroker.nibeuplink/)
+
+## nibeuplink adapter for ioBroker
 
 This ioBroker adapter receives data from a Nibe heat pump from Nibe Uplink.
 
@@ -47,90 +49,112 @@ https://github.com/sebilm/ioBroker.nibeuplink/blob/master/nibe-fetcher.js#L41
 
 ## Changelog
 
+### 1.1.0 - 2022-02-06:
+
+- Switch to TypeSctipt
+- Use axios instead of wreck
+
 ### 1.0.1 - 2021-12-31
-* Fix write support #6
+
+- Fix write support #6
 
 ### 1.0.0 - 2021-12-30
-* Support to manage Nibe heat pump (write support #6)
+
+- Support to manage Nibe heat pump (write support #6)
+  - To manage your Nibe heat pump you must pay for it on Nibe Uplink website!
   - You need to run the new version 30 minutes and then get a new AuthCode in the settings to use it!
 
 ### 0.5.3 - 2021-11-21
-* Bump dependencies
+
+- Bump dependencies
 
 ### 0.5.2 - 2021-07-04
-* Change default callback URL to own GitHub Pages
-* Bump dependencies
+
+- Change default callback URL to own GitHub Pages
+- Bump dependencies
 
 ### 0.5.1 - 2021-05-14
-* Store 'no current connection error' as empty string, not null
-* Bump dependencies
+
+- Store 'no current connection error' as empty string, not null
+- Bump dependencies
 
 ### 0.5.0 - 2021-05-13
-* Add new connection types (cloud, poll)
-* Set supported node.js versions to >=12.0.0 <17
-* Do not log errors immediately after installation
+
+- Add new connection types (cloud, poll)
+- Set supported node.js versions to >=12.0.0 <17
+- Do not log errors immediately after installation
 
 ### 0.4.0 - 2020-12-24
-* Set required js-controller to >=2.0.0
-* Test for Node 8 removed
-* Support for compact mode enabled
-* Support for more than one unit added
+
+- Set required js-controller to >=2.0.0
+- Test for Node 8 removed
+- Support for compact mode enabled
+- Support for more than one unit added
   - There is a new object structure - one level more for the unit.
   - The old objects will be updated if they are found - so don't panic.
   - If you don't need the old objects, you can remove them. They will not be created again.
-* Devide by 10 added to external flow temperature
-* Hundreds of missing parameters were added
+- Devide by 10 added to external flow temperature
+- Hundreds of missing parameters were added
   - The old fallback objects are no longer supported and updated. So check your objects update time.
   - You can remove the old objects. They will not be created again.
-* Fallback names for unknown parameters changed (id added at the beginning)
+- Fallback names for unknown parameters changed (id added at the beginning)
   - The old fallback objects are no longer supported and updated. So check your objects update time.
   - You can remove the old objects. They will not be created again.
   - If you have objects with numbers at the beginning, then these are fallback names. Please email me and I can add them.
-* Store session in iobroker data directory
+- Store session in iobroker data directory
   - After the adapter update you always had to get a new AuthCode and set it in the adapter settings.
   - This is no longer necessary from the next version.
   - But after the update to this version (0.4.0) it is necessary once again.
-* Translate object keys of serial number, version and product in english for all languages (section SYSTEM_INFO)
+- Translate object keys of serial number, version and product in english for all languages (section SYSTEM_INFO)
   - The old objects are no longer supported and updated. So check your objects update time.
-* Norwegian added
-* Code refactoring
+- Norwegian added
+- Code refactoring
 
 ### 0.3.0 - 2019-10-31
-* Compact mode disabled
-* Support for Node 6 removed
-* Trim whitespaces from setting parameters
-* Bugfix: Customs disabled
+
+- Compact mode disabled
+- Support for Node 6 removed
+- Trim whitespaces from setting parameters
+- Bugfix: Customs disabled
 
 ### 0.2.2 - 2019-03-24
-* Internal clean-up
+
+- Internal clean-up
 
 ### 0.2.1 - 2019-03-21
-* Dependencies updated
-* Fix problem with nodejs 6 and the spread operator and async
+
+- Dependencies updated
+- Fix problem with nodejs 6 and the spread operator and async
 
 ### 0.2.0 - 2019-03-16
-* Code change to new template
-* Support for Compact mode (js-Controller 2.0 Feature) added (#1)
-* Translations in settings page
-* Type moved from general to climate control
+
+- Code change to new template
+- Support for Compact mode (js-Controller 2.0 Feature) added (#1)
+- Translations in settings page
+- Type moved from general to climate control
 
 ### 0.1.1 - 2019-02-19
-* Do not create deprecated sub path objects - only update them if present (if you have them and don't use them, you can delete them)
-* info.connection added
+
+- Do not create deprecated sub path objects - only update them if present (if you have them and don't use them, you can delete them)
+- info.connection added
 
 ### 0.1.0 - 2019-02-17
-* Objects tree changed: New, more readable objects added
+
+- Objects tree changed: New, more readable objects added
 
 ### 0.0.2 - 2019-02-17
-* Language support for objects tree
+
+- Language support for objects tree
 
 ### 0.0.1 - 2018-12-09
-* Initial release
+
+- Initial release
 
 ## License
+
 MIT License
 
-Copyright (c) 2021 Sebastian Häßelbarth <seb@sebmail.de>
+Copyright (c) 2022 Sebastian Häßelbarth <seb@sebmail.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

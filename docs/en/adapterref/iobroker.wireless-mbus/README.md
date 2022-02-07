@@ -54,6 +54,9 @@ The easiest way to setup the keys is to start the adapter without any key setup 
 
 ## Changelog
 
+### 0.7.7
+* (ChL) Add support for Diehl PRIOS encoded telegrams (ported from wmbusmeters)
+
 ### 0.7.5 / 0.7.6
 * (ChL) Fix timeout handling - if no problems occur this will be republished as 1.0.0
 

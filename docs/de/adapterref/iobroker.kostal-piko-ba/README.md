@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: GdBSMj8IVxvLJSfNGAWd61K7Ft+I3RX/yTi6nI9GXYE=
+hash: qKmWR0OODk+IzG6VSWERlUkcs5OCuwE/6awZMTFyOe0=
 ---
 ![Logo](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
@@ -18,14 +18,15 @@ hash: GdBSMj8IVxvLJSfNGAWd61K7Ft+I3RX/yTi6nI9GXYE=
 
 CI-Tests: ![Node.js-CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workflows/Node.js%20CI/badge.svg)
 
-## Adapter zum Auslesen von Kostal Piko BA Daten für iOBroker
-Adapter zum Auslesen von Kostal Piko BA Daten. Der Adapter erstellt einige Zustände und aktualisiert sie nacheinander.
-Adapter funktioniert auch mit Kostal Piko 10, 12, 15 & 20 Wechselrichtern.
+## Adapter zum Auslesen von Kostal Piko & Piko BA Daten für iOBroker
+Adapter zum Auslesen von Kostal Piko & Piko BA Daten. Der Adapter erstellt einige Zustände und aktualisiert sie nacheinander.
+Adapter funktioniert mit Kostal Piko 6BA, 10, 12, 15 & 20 Wechselrichtern.
 Es wird sehr geschätzt, wenn Sie die Funktionalität mit anderen Wechselrichtern überprüfen und mir bitte eine Nachricht senden.
 
 ## Einstellungen
-Um sich mit dem Kostal Pico BA-Wechselrichter zu verbinden, müssen Sie dessen IP-Adresse in der Konfiguration angeben.
+Um sich mit dem Kostal Pico (BA) Wechselrichter zu verbinden, ist die Einstellung seiner IP-Adresse in der Konfiguration zwingend erforderlich.
 Sie können auch die Aktualisierungsfrequenzen von Live-Daten, Tages- und Livezeit-Statistiken bearbeiten.
+Bei Bedarf auch Markierung zum Auslesen der 4 Analogwerte setzen.
 
 ## Anmerkungen
 Dieser Adapter verwendet Sentry-Bibliotheken, um automatisch Ausnahmen und Codefehler an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlermeldung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.

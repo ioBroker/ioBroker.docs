@@ -27,6 +27,14 @@ This is an ioBroker adapter for your Sony Bravia Smart-TV with Android OS. Teste
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+* (ThomasBra) Added info.modelInformation
+* (ThomasBra) Added info.playingContentInfo - title of the used channel or port
+* (ThomasBra) Set info.powerStatusActive changeable
+* (ThomasBra) Turn over to tv channels - the first 150 listed tv channels
+* (ThomasBra) Turn over to AV Content - external input
+* (ThomasBra) Starting / Terminate Apps
+
 ### 1.0.2
 * (raintonr) Added info.powerStatusActive
 * (raintonr) Optimizations
