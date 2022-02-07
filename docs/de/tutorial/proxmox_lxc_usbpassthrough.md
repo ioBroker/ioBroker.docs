@@ -29,14 +29,11 @@ Mit folgendem Befehl werden alle aktuell verbunden USB-Geräte am Proxmox Host a
 
 ``lsusb``
  
-![Instanz erzeugen](/media/proxmox_lxc_usbpassthrough/proxmoxlxc00.PNG)
-
-ioBroker.docs/docs/de/tutorial/media/proxmox_lxc_usbpassthrough/proxmoxlxc00.PNG 
-ioBroker.docs/blob/master/docs/de/media/proxmox_lxc_usbpassthrough/proxmoxlxc00.PNG
+![00](media/proxmox_lxc_usbpassthrough/proxmoxlxc00.PNG)
 
 Nun wird das zu einbindende USB-Gerät am Proxmox Host eingesteckt und der Befehl lsusb erneut ausgeführt
 
- 
+![01](media/proxmox_lxc_usbpassthrough/proxmoxlxc01.PNG) 
 
 Im Screenshot ist zusehen das ein neues Gerät mit der USB-Bus-Nummer: **001** und der Device-Nummer: **003** gelistet wird.
 
@@ -48,16 +45,25 @@ Wichtig verwende bei dem Befehl die Ausgabe deiner USB-Bus-Nummer und Device-Num
 
 ***ls -l /dev/bus/usb/USB-Bus-Nummer/Device-Nummer***
 
+![02](media/proxmox_lxc_usbpassthrough/proxmoxlxc02.PNG)
+
 Das USB-Gerät hat in diesem Beispiel die major device number **189**, notiere dir den Wert deines Gerätes in einer Textdatei mit dem Vermerk: #1
+
+![03](media/proxmox_lxc_usbpassthrough/proxmoxlxc03.PNG)
  
 Als nächstes geben wir die unique id des USB-Gerätes aus und notieren den Ausgabe Wert in der Textdatei mit dem Vermerk: #2
  
 ``ls /dev/serial/by-id/``
+
+![04](media/proxmox_lxc_usbpassthrough/proxmoxlxc04.PNG)
+
+![05](media/proxmox_lxc_usbpassthrough/proxmoxlxc05.PNG)
  
 Als letzten Schritt wird die major device number des ttyACM ausgegeben und mit dem Vermerk: #3 notiert:
 
 ``ls -l /dev/ttyACM*``
 
+![06](media/proxmox_lxc_usbpassthrough/proxmoxlxc06.PNG)
  
 Sollte hierbei keine Ausgabe erfolgen, wird das USB-Gerät eventuell als ttyUSB eingebunden:
 
@@ -65,7 +71,7 @@ Sollte hierbei keine Ausgabe erfolgen, wird das USB-Gerät eventuell als ttyUSB 
 
 Somit haben wir **drei** Werte vom USB-Gerät notiert die für das Einbinden in der Konfigurationsdatei des lxc benötigt werden.
  
-
+![07](media/proxmox_lxc_usbpassthrough/proxmoxlxc07.PNG)
 
 ##  2.) LXC Konfigurationsdatei bearbeiten
 
