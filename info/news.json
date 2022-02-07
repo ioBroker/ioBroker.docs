@@ -1329,5 +1329,39 @@
         "conditions": {
             "wm-bus": "installed"
         }
+    },
+    {
+        "title": {
+            "en": "Eufy-Security Adapter renamed due to trademark infringement",
+            "de": "Eufy-Security Adapter wegen Markenrechtsverletzung umbenannt",
+            "ru": "Eufy-Security Adapter переименован в связи с нарушением прав на торговую марку",
+            "pt": "Adaptador Eufy-Security renomeado devido a violação de marca",
+            "nl": "Eufy-Security Adapter hernoemd wegens inbreuk op handelsmerk",
+            "fr": "Eufy-Security Adapter renommé en raison d'une violation de marque déposée",
+            "it": "Eufy-Security Adapter rinominato a causa della violazione del marchio",
+            "es": "El adaptador de seguridad Eufy cambia de nombre debido a la infracción de la marca",
+            "pl": "Zmiana nazwy adaptera Eufy-Security z powodu naruszenia znaku towarowego",
+            "zh-cn": "由于商标侵权，Eufy-Security适配器重新命名"
+        },
+        "content": {
+            "en": "The Eufy-Security Adapter has been renamed to EuSec due to a trademark infringement. Please uninstall the Eufy-Security Adapter and install euSec.",
+            "de": "Der Eufy-Security Adapter wurde aufgrund einer Markenrechtsverletzung in EuSec umbenannt. Bitte deinstallieren Sie den Eufy-Security Adapter und installieren Sie euSec.",
+            "ru": "Адаптер Eufy-Security был переименован в EuSec в связи с нарушением прав на торговую марку. Пожалуйста, удалите Eufy-Security Adapter и установите euSec.",
+            "pt": "O Adaptador Eufy-Security foi renomeado para EuSec devido a uma violação de marca registada. Por favor, desinstale o Adaptador Eufy-Sec e instale o euSec.",
+            "nl": "De Eufy-Security Adapter is hernoemd naar EuSec vanwege een handelsmerk inbreuk. Gelieve de Eufy-Security Adapter te verwijderen en euSec te installeren.",
+            "fr": "L'adaptateur Eufy-Security a été renommé EuSec en raison d'une violation de la marque déposée. Veuillez désinstaller l'adaptateur Eufy-Security et installer euSec.",
+            "it": "L'Eufy-Security Adapter è stato rinominato in EuSec a causa di una violazione del marchio. Per favore disinstallare l'Eufy-Security Adapter e installare euSec.",
+            "es": "El Adaptador de Seguridad Eufy ha sido renombrado a EuSec debido a una infracción de marca. Por favor, desinstale el adaptador de seguridad Eufy e instale euSec.",
+            "pl": "Nazwa adaptera Eufy-Security została zmieniona na euSec z powodu naruszenia znaku towarowego. Proszę odinstalować Adapter Eufy-Security i zainstalować euSec.",
+            "zh-cn": "由于商标侵权，Eufy-Security Adapter已改名为EuSec。请卸载Eufy-Security Adapter并安装euSec。"
+        },
+        "id": "euSec-renamed",
+        "class": "warning",
+        "fa-icon": "exclamation-circle",
+        "created": "2022-02-07T12:00:00.000Z",
+        "conditions": {
+            "eufy-security": "installed",
+            "eusec": "!installed"
+        }
     }
 ]
