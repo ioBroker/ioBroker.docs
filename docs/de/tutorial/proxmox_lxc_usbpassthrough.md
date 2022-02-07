@@ -223,11 +223,15 @@ major device number und ttyACM.. ggbfs. Anpassen.
 
 Anschließend muss noch der Eintrag der lxc Konfigurationsdatei angepasst werden:
 
-``lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0 none bind,optional,create=file``
+```
+lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0 none bind,optional,create=file
+```
 
 wird ersetzt durch:
 
-``lxc.mount.entry: /var/lib/lxc/ContainerID/devices/ttyACM0 dev/ttyACM0 none bind,optional,create=file``
+```
+lxc.mount.entry: /var/lib/lxc/ContainerID/devices/ttyACM0 dev/ttyACM0 none bind,optional,create=file
+```
 
 
 
