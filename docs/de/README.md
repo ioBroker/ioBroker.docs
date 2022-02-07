@@ -22,74 +22,71 @@ lastChanged: "31.01.2022"
 ioBroker ist eine Softwarelösung zur Automatisierung Deines Heims. Es erlaubt verschiedenste Smarthome-Systeme, die ohne
 ioBroker Insellösungen bleiben würden, anzubinden und so übergreifend zu steuern.
 
-ioBroker ist daher **die** Integrationsplattform für das Internet der Dinge.
+ioBroker ist daher **die** Integrationsplattform für das Internet der Dinge und ermöglicht die Einbindung von kommerziellen Produkten aus fast allen Lebensbereiche oder die Integration einer selbst erstellten Lösung.
 
 Das ioBroker-System ist modular aufgebaut und kann durch die Installation von einzelnen [Adaptern][] um die individuellen Wünsche erweitert werden. 
 Über 450 Adaptern realisieren die Einbindung von verschiedenen Plattformen, Systemen und Geräten von A wie Alexa bis Z und viele weitere Möglichkeiten zur Automatiserung.
 
-
-Sei es die Einbindung kommerzieller Produkte aus fast allen Lebensbereichen oder
-die Integration einer selbst erstellten Lösung - ioBroker macht fast alles möglich.
-
 <br>
 
-## ioBroker Beispielkonfiguration
+## ioBroker verbindet unterschiedlichen Smarthomsysteme
 
 ![](media/iobroker-simple-overview.png)  
 
-Diese Grafik zeigt wie ioBroker als zentrales System die verschiedensten Smarthomelösungen und weitere Dienste (z.B. Kalender) koordiniert und miteinander verbindet.
-Die in ioBroker zur Verfügung stehenden Adapter können unter anderem mit zentral verwalteten Kalendern oder herstellerspezfischen Smart-Home-Systeme (welche im LAN oder WLAN angeschlossenen angeschlossen sind) kommunizieren. Auf diese Weise kann die ioBroker Software Statusinformationen lesen oder Steuer-Aktionen auslösen.
+Diese Grafik zeigt wie ioBroker als zentrales System die verschiedensten Smarthomesysteme und weitere Dienste (z.B. Kalender) koordiniert und miteinander verbindet.
+Die in ioBroker zur Verfügung stehenden Adapter können unter anderem mit zentral verwalteten Kalendern oder herstellerspezfischen Smart-Home-Systemen (welche im LAN oder WLAN angeschlossenen angeschlossen sind) kommunizieren. Auf diese Weise kann die ioBroker Software Statusinformationen lesen oder Steuer-Aktionen auslösen.
 
-Nehmen wir an, dass ein Anwender in der Wohnung bereits einige Lampen über Philipps Hue steuert, sowie seine Rolläden über Homematic IP öffnen und schließen kann.
+<br>
 
-Mit dem Einsatz der ioBroker Software ist es nun möglich eine Anwesenheitssimulation zu realisieren, in welcher die Hue Lampen ein- und ausgeschaltet und die Rolläden hoch und runter gefahren werden können wenn der Anwender im Urlaub ist.
+### Anwensdungsbeispiel Anwesenheitssimulation
+<br>
 
-Über die Logikbausteine (Adapter Logikprogrammierung) kann der Anwender mit wenigen Schritten den folgende Ablauf realisieren:
+In diesem Anwendungsbeispiel wird exemplarisch aufgezeigt, wie die beiden voneinander unabhängigen Smarthomesysteme Philipps Hue und Homematic IP mittels ioBroker zusammengeführt werden, um eine Anwesenheitssimulation zu realisieren.
 
-- Wenn im Kalender der Eintrag "Urlaub" eingetragen ist, werden ab 18 Uhr Abends abwechselnd verschiedene HUE Lampen ein- und ausgeschaltet.
+Durch die Anbindung der beiden Smarthomeysteme an die ioBroker Software ist ioBroker in der Lage die Zustände der Hue Lampen (ein/aus) sowie die Rolläden (hoch/runter) zu verändern. Die Erkennung der Urlaubszeit erfolgt durch die Anbindung des Kalenders in ioBroker.
+
+Durch Nutzung der Logikbausteine (Adapter Logikprogrammierung) in ioBroker kann der Anwender nun mit wenigen Schritten den folgende Ablauf realisieren:
+
+- Wenn im Kalender der Eintrag "Urlaub" eingetragen ist, werden um 18 Uhr Abends alle HUE Lampen eingeschaltet.
 - Um 22:00 Uhr werden alle Rolläden geschlossen und alle Hue Lampen ausgeschaltet.
 - Um 08:00 Uhr morgens werden alle Rolläden wieder hochgefahren.
 
-Über die verfügbaren Visualisierungs-Adapter kann sich ein Anwender individuelle Status und Steuerungsseiten für seine Hue Lampen und Rolläden bauen, auf die mit den mobilen Endgeräten von zu Hause oder aus dem Urlaub (z.B. mittels ioBroker Cloud Services oder VPN) zugegriffen werden kann.
+Über die verfügbaren Visualisierungs-Adapter kann sich der Anwender individuelle Status und Steuerungsseiten für seine Hue Lampen und Rolläden bauen, auf die mit den mobilen Endgeräten von zu Hause oder aus dem Urlaub (z.B. mittels ioBroker Cloud Services oder VPN) zugegriffen werden kann.
 
 <br>
-
-## Plattformübergreifend
-Jeder, der sich mit Hausautomation beschäftigt, wird früher oder später
-feststellen, dass einzelne Systeme häufig nicht perfekt sind. Jedes System hat
-seine Stärken und Schwächen. ioBroker ist deshalb plattformübergreifend und
-Parallelbetrieb mit bestehenden Lösungen ist jederzeit möglich. So können
-Synergieeffekte genutzt und das Beste aus allen Welten zusammengeführt werden.
-
-ioBroker selbst IST auf fast allen Plattformen zu Hause. ioBroker kann unter
-Windows, Linux, OSX oder auch als Dockerimage installiert werden.
-Vorkonfigurierte Installationsimages nehmen dabei dem Anwender die
-Installationsarbeit ab.
 
 <br>
 
 
+# Stärken von ioBroker
+
+## Plattformunabhängig
+ioBroker kann auf fast allen Hardwareplattformen wo ein Linux, OSX, Windows, Docker läuft (Einplatinencomputer wie ein Raspberry Pi, Server, NAS, Server mit Virtualisierungsumgebungen wie z.B. Proxmox, Desktopcomputer, ...) installiert werden. 
+
+Eine einfache Installationsroutine aus einer einzigen Zeile (one-line installer) ermögicht unter Linux eine anwenderfreundliche Installation und somit einen schnellen Einstieg in ioBroker.
+
+<br>
 
 ## Skalierbar
 Sollen im Laufe der Zeit weitere Smarthome-Systeme angebunden werden, können
 diese vom Anwender jederzeit über zusätzliche Adapter bei laufendem Betrieb
 implementiert werden.
 Auch ioBroker selbst ist skalierbar: Mehrere ioBroker-Server können zu einem
-`Mutihost`-System verbunden werden. Dabei ist sogar die Mischung von
-Betriebssystemplattformen und die Kopplung von SoC-Einplatinencomputern mit
+Mutihost-System verbunden werden. Dabei ist sogar die Mischung von
+Betriebssystemplattformen und die Kopplung von Einplatinencomputern mit
 großen Multicore-Servern möglich.
-Für Systeme mit höchsten Performanceanforderungen kann optional Redis, eine
-besonders schnelle Datenbank, eingebunden werden.
 
-## Programmierbar
-Eine optionale Programmierung erfolgt mit JavaScript, einer seit 1995 stetig
-weiter entwickelten Skriptsprache. Diese ist einfach zu erlernen, so dass neue 
-Anforderungen schnell umsetzbar sind. Das macht es möglich, dass jeder zu 
-ioBroker beitragen kann und auch individuelle Anforderungen umsetzbar sind.
+<br>
 
-Für Einsteiger in die Programmierung ist die Variante 'Blockly' vorhanden, die es 
-ermöglicht, ohne umfangreiche Programmierkenntnisse selber per 'drag and drop' 
-schnell zu Ergebnissen zu kommen. 
+## Individeuelle Programmierung von Abläufen
+Mit den Logik Adaptern bietet ioBroker die Möglichkeit individuelle Abläufe und Skripte zu erstellen. 
+In einem Skript kann z.B. ein Wert von einem Adapter überwacht werden (Urlaub ist im Kalender am heutigen Tag eingetragen) und eine Aktion ausgelöst werden (Schalte um 18 Uhr alle Hue Lichter ein).
+
+In ioBroker können diese individuellen Abläufe durch Drag and Drop von Bausteinen (grafische Programmierung) in "Rules" oder "Blockly" realisiert werden oder in klassischer Form mit "Javascript" oder "Typescript" in Form von geschriebenem Quellcode. 
+
+Weitere Erklärungen zu den Logikbausteinen werden in der Doku im Abschnitt "Logik und Automatisierung" erläutert.
+
+<br>
 
 ## Visualisierung
 ioBroker stellt mit `VIS` ein mächtiges Tool zur Erstellung einer individuellen 
