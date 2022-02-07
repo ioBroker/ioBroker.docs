@@ -12,7 +12,7 @@ Diese Anleitung erklärt Schritt für Schritt das durchreichen eines USB-Geräte
 
 Bei einer VM ist das durchreichen eines USB-Gerätes direkt über die Web Oberfläche von Proxmox möglich, bei einem Linux Container muss hierfür aktuell noch manuell die Konfigurationsdatei des lxc bearbeitet werden. 
 
-In der Anleitung wird das Einbinden eines Texas Instruments Inc. CC2531 Zigbee Stick beschrieben, dieselben Schritte können aber analog für andere Zigbee Sticks (ConBee, CC2652P etc.) oder für andere USB-Geräte mit der Ausnahme von USB Netzwerk Geräten (Bluetooth/Wlan) verwendet werden.
+In der Anleitung wird das Einbinden eines **Texas Instruments Inc. CC2531** Zigbee Stick beschrieben, dieselben Schritte können aber analog für andere Zigbee Sticks (ConBee, CC2652P etc.) oder für andere USB-Geräte mit der Ausnahme von USB Netzwerk Geräten (Bluetooth/Wlan) verwendet werden.
 
 Für diese Anleitung wurde Proxmox in der Version 7.1 verwendet. 
 
@@ -103,6 +103,7 @@ Ans Ende der Konfigurationsdatei wird folgendes hinzugefügt:
 ```
 lxc.cgroup2.devices.allow: c 189:* rwm
 lxc.mount.entry: usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012023529-if00 dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012023529-if00 none bind,optional,create=file
+
 lxc.cgroup2.devices.allow: c 166:* rwm
 lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0 none bind,optional,create=file
 ```
@@ -199,15 +200,16 @@ Abschließend noch folgenden Befehl ausführen um die udev Regel zu aktivieren:
 
 ## 5.) Troubleshooting
 
-Fehler: ttyACM0 Rechte im lxc passen nicht bzw. gehen nach kurzer Zeit verloren (ConBee II).
+**Fehler:** ttyACM0 Rechte im lxc passen nicht bzw. gehen nach kurzer Zeit verloren (ConBee II).
 
 ```
+ls -l /dev/ttyACM0
  c--------- 0 nobody nogroup 166, 0 Feb  7 14:29 ttyACM0
 ```
 
-Lösung: mit mknod eine dauerhafte Bindung an container erstellen. 
+**Lösung:** mit mknod eine dauerhafte Bindung für den Container erstellen. 
 
-Dazu wird im Pfad /var/lib/lxc/CONTAINERID der Ordner devices erstellt und in diesem Ordner mit mknod die Bindung erzeugt. 
+Dazu wird im Pfad **"/var/lib/lxc/CONTAINERID"** der Ordner **devices** erstellt und in diesem Ordner mit mknod die Bindung erzeugt: 
 
 ``mkdir /var/lib/lxc/201/devices``
 
@@ -219,7 +221,7 @@ mknod erstellt in dem Pfad eine Datei namens ttyACM0 (solange die Datei existier
 
 ![17](media/proxmox_lxc_usbpassthrough/proxmoxlxc17.PNG)
 
-major device number und ttyACM.. ggbfs. Anpassen.
+***major device number und ttyACM.. ggbfs. anpassen***
 
 Anschließend muss noch der Eintrag der lxc Konfigurationsdatei angepasst werden:
 
@@ -230,7 +232,7 @@ lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0 none bind,optional,create=file
 wird ersetzt durch:
 
 ```
-lxc.mount.entry: /var/lib/lxc/ContainerID/devices/ttyACM0 dev/ttyACM0 none bind,optional,create=file
+lxc.mount.entry: /var/lib/lxc/CONTAINERID/devices/ttyACM0 dev/ttyACM0 none bind,optional,create=file
 ```
 
 
