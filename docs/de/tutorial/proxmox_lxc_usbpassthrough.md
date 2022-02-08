@@ -65,7 +65,7 @@ Als letzten Schritt wird die major device number des ttyACM ausgegeben und mit d
 
 ![06](media/proxmox_lxc_usbpassthrough/proxmoxlxc06.PNG)
  
->Sollte hierbei keine Ausgabe erfolgen, wird das USB-Gerät eventuell als ttyUSB eingebunden (ls -l /dev/ttyUSB*) oder ist kein USB CDC class Gerät (damit können alle Punkte zum einbinden vom ttyACM ignoriert werden)
+>Sollte hierbei keine Ausgabe erfolgen, prüfe mit „ls -l /dev/serial/by-id/“ ob das USB-Gerät vom System als ttyUSB eingebunden wird, wenn ja ersetze alle folgenden Befehle die sich auf **ttyACM…** beziehen durch **ttyUSB…**  sollte keine Ausgabe erscheinen ist es kein USB CDC class Gerät (Serielle Kommunikation) damit können alle Punkte zum Einbinden vom ttyACM ignoriert werden.
 
 Somit haben wir **drei** Werte vom USB-Gerät notiert die für das Einbinden in der Konfigurationsdatei des lxc benötigt werden.
  
