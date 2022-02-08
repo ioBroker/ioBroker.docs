@@ -99,6 +99,7 @@ Nun wird die Konfigurationsdatei mit vi oder nano bearbeitet:
 
 
 Ans Ende der Konfigurationsdatei wird folgendes hinzugefügt:
+> Achtung! Besitzt der Container aktive Snapshots zu erkennen an [SNAPSHOTSNAME] in der Config Datei, muss der folgende Code vor und nach Beginn jedes Snapshots eingefügt werden [wie hier zu sehen](media/proxmox_lxc_usbpassthrough/proxmoxlxc18.PNG) da ansonsten der Code mit dem löschen eines Snapshots entfernt wird. 
 
 ```
 lxc.cgroup2.devices.allow: c 189:* rwm
