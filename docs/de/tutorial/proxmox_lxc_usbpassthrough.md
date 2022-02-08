@@ -179,7 +179,7 @@ Mit lsusb listen wir wieder die aktuell verbunden USB-Geräte auf:
  
 Diesmal notieren wir uns die Zahlenwerte Werte nach ID in diesem Fall also **0451:16a8**
 
-* Der erste Wert: 0451 steht hierbei für den idVendor und der zweite Wert: 16a8 für idProduct.
+* Der erste Wert: ***0451*** steht hierbei für den **idVendor** und der zweite Wert: ***16a8*** für **idProduct**.
 
 Nun wird mit vi oder nano die udev Regel unter /etc/udev/rules.d erstellt:
 
