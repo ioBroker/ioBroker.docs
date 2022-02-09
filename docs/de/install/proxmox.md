@@ -7,7 +7,9 @@ Schlüsselworte: Proxmox, LXC, USB Passthrough
 
 # Proxmox 
 
-## Proxmox - ioBroker Installation in einer VM
+![proxmoxlogo](media/proxmox/Proxmox-logo-860.png)
+
+## Proxmox - ioBroker Installation in einer VM (Virtuellen Maschine) 
 
 ?> ***Dies ist ein Platzhalter***.
    <br><br>
@@ -36,7 +38,7 @@ Schlüsselworte: Proxmox, LXC, USB Passthrough
 
 ### Vorwort
 
-Diese Anleitung erklärt Schritt für Schritt das durchreichen eines USB-Gerätes (USB Passthrough) in Proxmox an einen LXC (Linux Container).
+Dieser Teil der Anleitung erklärt Schritt für Schritt das durchreichen eines USB-Gerätes (USB Passthrough) in Proxmox an einen LXC (Linux Container).
 
 Bei einer VM ist das durchreichen eines USB-Gerätes direkt über die Web Oberfläche von Proxmox möglich, bei einem Linux Container muss hierfür aktuell noch manuell die Konfigurationsdatei des lxc bearbeitet werden. 
 
@@ -58,11 +60,11 @@ Mit folgendem Befehl werden alle aktuell verbunden USB-Geräte am Proxmox Host a
 
 ``lsusb``
  
-![00](media/proxmox/proxmoxlxc00.PNG)
+![proxmoxlxc00](media/proxmox/proxmoxlxc00.PNG)
 
 Nun wird das zu einbindende USB-Gerät am Proxmox Host eingesteckt und der Befehl lsusb erneut ausgeführt
 
-![01](media/proxmox/proxmoxlxc01.PNG) 
+![proxmoxlxc01](media/proxmox/proxmoxlxc01.PNG) 
 
 Im Screenshot ist zusehen das ein neues Gerät mit der USB-Bus-Nummer: **001** und der Device-Nummer: **003** gelistet wird.
 
@@ -74,31 +76,31 @@ Wichtig verwende bei dem Befehl die Ausgabe deiner USB-Bus-Nummer und Device-Num
 
 ***ls -l /dev/bus/usb/USB-Bus-Nummer/Device-Nummer***
 
-![02](media/proxmox/proxmoxlxc02.PNG)
+![proxmoxlxc02](media/proxmox/proxmoxlxc02.PNG)
 
 Das USB-Gerät hat in diesem Beispiel die major device number **189**, notiere dir den Wert deines Gerätes in einer Textdatei mit dem Vermerk: #1
 
-![03](media/proxmox/proxmoxlxc03.PNG)
+![proxmoxlxc03](media/proxmox/proxmoxlxc03.PNG)
  
 Als nächstes geben wir die unique id des USB-Gerätes aus und notieren den Ausgabe Wert in der Textdatei mit dem Vermerk: #2
  
 ``ls /dev/serial/by-id/``
 
-![04](media/proxmox/proxmoxlxc04.PNG)
+![proxmoxlxc04](media/proxmox/proxmoxlxc04.PNG)
 
-![05](media/proxmox/proxmoxlxc05.PNG)
+![proxmoxlxc05](media/proxmox/proxmoxlxc05.PNG)
  
 Als letzten Schritt wird die major device number des ttyACM ausgegeben und mit dem Vermerk: #3 notiert:
 
 ``ls -l /dev/ttyACM*``
 
-![06](media/proxmox/proxmoxlxc06.PNG)
+![proxmoxlxc06](media/proxmox/proxmoxlxc06.PNG)
  
 >Sollte hierbei keine Ausgabe erfolgen, prüfe mit „ls -l /dev/serial/by-id/“ ob das USB-Gerät vom System als ttyUSB eingebunden wird, wenn ja ersetze alle folgenden Befehle die sich auf **ttyACM…** beziehen durch **ttyUSB…**  sollte keine Ausgabe erscheinen ist es kein USB CDC class Gerät (Serielle Kommunikation) damit können alle Punkte zum Einbinden vom ttyACM ignoriert werden.
 
 Somit haben wir **drei** Werte vom USB-Gerät notiert die für das Einbinden in der Konfigurationsdatei des lxc benötigt werden.
  
-![07](media/proxmox/proxmoxlxc07.PNG)
+![proxmoxlxc07](media/proxmox/proxmoxlxc07.PNG)
 
 ###  2.) LXC Konfigurationsdatei bearbeiten
 
@@ -108,21 +110,21 @@ Am Proxmox Host ins LXC Konfigurationsverzeichnis wechseln mit:
 
 Die Konfigurationsdatei hat die gleiche ID Nummer die bei der Erstellung des lxc vergeben wurde!
  
-![08](media/proxmox/proxmoxlxc08.PNG)
+![proxmoxlxc08](media/proxmox/proxmoxlxc08.PNG)
 
-![09](media/proxmox/proxmoxlxc09.PNG)
+![proxmoxlxc09](media/proxmox/proxmoxlxc09.PNG)
  
 Bevor die Konfigurationsdatei bearbeitet wird, sollte eine Sicherheitskopie erstellt werden:
 
 ``cp 201.conf 201.conf.backup``
 
-![10](media/proxmox/proxmoxlxc10.PNG)
+![proxmoxlxc10](media/proxmox/proxmoxlxc10.PNG)
  
 Nun wird die Konfigurationsdatei mit vi oder nano bearbeitet:
 
 ``nano 201.conf``
  
-![11](media/proxmox/proxmoxlxc11.PNG)
+![proxmoxlxc11](media/proxmox/proxmoxlxc11.PNG)
 
 
 
@@ -174,7 +176,7 @@ Mit den befehlen:
 
 wird überprüft ob die Anpassungen an der Konfigurationsdatei erfolgreich waren.
  
-![13](media/proxmox/proxmoxlxc13.PNG)
+![proxmoxlxc13](media/proxmox/proxmoxlxc13.PNG)
  
 * Wie im Screenshot zu sehen hat nun der Container Zugriff auf das USB-Gerät.
 
@@ -191,7 +193,7 @@ Wird wie eingangsbeschrieben ein Zigbee Stick an den Container durchgereicht mus
 
 angegeben werden damit das korrekte Gerät vom Adapter angesprochen wird.
  
-![14](media/proxmox/proxmoxlxc14.PNG)
+![proxmoxlxc14](media/proxmox/proxmoxlxc14.PNG)
 
 ### 4.) UDEV Regel für permanente Rechte Anpassung von ttyACM0
 
@@ -205,7 +207,7 @@ Mit lsusb listen wir wieder die aktuell verbunden USB-Geräte auf:
 
 ``lsusb``
 
-![15](media/proxmox/proxmoxlxc15.PNG)
+![proxmoxlxc15](media/proxmox/proxmoxlxc15.PNG)
  
 Diesmal notieren wir uns die Zahlenwerte Werte nach ID in diesem Fall also **0451:16a8**
 
@@ -221,7 +223,7 @@ und folgender Inhalt eingefügt:
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="0451", ATTRS{idProduct}=="16a8", GROUP="users", MODE="0666"
 ```
 
-![16](media/proxmox/proxmoxlxc16.PNG)
+![proxmoxlxc16](media/proxmox/proxmoxlxc16.PNG)
  
 
 Abschließend noch folgenden Befehl ausführen um die udev Regel zu aktivieren:
@@ -251,7 +253,7 @@ Dazu wird im Pfad **"/var/lib/lxc/CONTAINERID"** der Ordner **devices** erstellt
 
 mknod erstellt in dem Pfad eine Datei namens ttyACM0 (solange die Datei existiert ist das Gerät an den lxc gebunden)
 
-![17](media/proxmox/proxmoxlxc17.PNG)
+![proxmoxlxc17](media/proxmox/proxmoxlxc17.PNG)
 
 ***major device number und ttyACM.. ggbfs. anpassen***
 
