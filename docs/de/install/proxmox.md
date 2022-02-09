@@ -130,7 +130,6 @@ Nun wird die Konfigurationsdatei mit vi oder nano bearbeitet:
 
 
 Ans Ende der Konfigurationsdatei wird folgendes hinzugefügt:
-> Achtung! Besitzt der Container aktive Snapshots zu erkennen an [SNAPSHOTSNAME] in der Config Datei, muss der folgende Code vor und nach Beginn jedes Snapshots eingefügt werden [wie hier zu sehen](media/proxmox/proxmoxlxc18.PNG) da ansonsten der Code mit dem löschen eines Snapshots entfernt wird. 
 
 ```
 lxc.cgroup2.devices.allow: c 189:* rwm
@@ -151,6 +150,33 @@ Ersetze die markierten Werte mit den vermerkten Einträgen aus deiner Notiz!
 
 Die Konfigurationsdatei abspeichern (Im Nano Editor mit der Tastenkombination: STRG + o & STRG + x zum beenden des Editors)
 
+> ACHTUNG! Sollte dein Container aktive Snapshots besizen:
+
+<details>
+Snapshots erkennst du in der Config Datei an der Bezeichnung [SNAPSHOTSNAME] dabei entspricht der letzte Eintrag deiner Config Datei deinem aktuellen Live Zustand, da mit der Entfernung eines Snapshots auch die Code Anpassung mit entfernt wird, füge den Code am besten wie im Screenshot zusehen dem lxc und allen Snapshots hinzu.
+
+![proxmoxlxc18](media/proxmox/proxmoxlxc18.PNG)
+
+</details>
+
+> ACHTUNG! Proxmox Installation vor Version 7.0
+
+<details>
+
+Ersetze die Einträge mit
+   
+```
+lxc.cgroup2
+```   
+
+durch
+   
+```
+lxc.cgroup
+```
+
+</details>
+   
 Abschließend noch folgenden Befehl absetzen um die benötigten Rechte für ttyACM0 zu setzen:
 
 ``chmod o+rw /dev/ttyACM*``
