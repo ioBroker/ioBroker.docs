@@ -19,7 +19,7 @@ Schlüsselworte: Proxmox, LXC, USB Passthrough
  
 </details>
 
-## Proxmox - ioBroker Installation in einem LXC (Linux Containers)
+## Proxmox - ioBroker Installation in einem LXC (Linux Container)
 
 ?> ***Dies ist ein Platzhalter***.
    <br><br>
