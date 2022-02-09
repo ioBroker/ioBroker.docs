@@ -6,9 +6,32 @@ editLink:
 
 # Proxmox 
 
+## Proxmox - ioBroker Installation in einer VM
+
+?> ***Dies ist ein Platzhalter***.
+   <br><br>
+   Hilf mit bei ioBroker und erweitere diesen Artikel.  
+   Bitte beachte den [ioBroker Style Guide](community/styleguidedoc), 
+   damit die Änderungen einfacher übernommen werden können.
+
+<details>
+ 
+</details>
+
+## Proxmox - ioBroker Installation in einem LXC (Linux Containers)
+
+?> ***Dies ist ein Platzhalter***.
+   <br><br>
+   Hilf mit bei ioBroker und erweitere diesen Artikel.  
+   Bitte beachte den [ioBroker Style Guide](community/styleguidedoc), 
+   damit die Änderungen einfacher übernommen werden können.
 
 
-## Proxmox LXC (Linux Containers) - USB Geräte durchreichen
+<details>
+ 
+</details>
+
+## Proxmox - LXC (Linux Containers) -> USB Geräte durchreichen
 
 ### Vorwort
 
@@ -204,7 +227,7 @@ Abschließend noch folgenden Befehl ausführen um die udev Regel zu aktivieren:
 
 ``udevadm control –reload``
 
-## 5.) Troubleshooting
+### 5.) Troubleshooting
 
 **Fehler:** ttyACM0 Rechte im lxc passen nicht bzw. gehen nach kurzer Zeit verloren (ConBee II).
 
