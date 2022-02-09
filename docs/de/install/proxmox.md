@@ -42,7 +42,7 @@ Bei einer VM ist das durchreichen eines USB-Gerätes direkt über die Web Oberfl
 
 In der Anleitung wird das Einbinden eines **Texas Instruments Inc. CC2531** Zigbee Stick beschrieben, dieselben Schritte können aber analog für andere Zigbee Sticks (ConBee, CC2652P etc.) oder für andere USB-Geräte mit der Ausnahme von USB Netzwerk Geräten (Bluetooth/Wlan) verwendet werden.
 
-* Für diese Anleitung wurde Proxmox in der Version 7.1 verwendet. 
+* Für diesen Teil der Anleitung wurde Proxmox in der Version 7.1 verwendet. 
 
 <details>
 
