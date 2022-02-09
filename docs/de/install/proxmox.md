@@ -187,6 +187,8 @@ Um die Anpassungen am lxc zu übernehmen einen cold boot vom Container mit **pct
 
 ``pct start 201``
 
+> Tipp lege dir eine Kopie deiner funktionierenden Config Datei am besten extern ab, da z. B. der integrierte Proxmox Backup Dienst nicht den Inhalt deiner Config nicht mit sichert!   
+
 ### 3.) LXC USB Passthrough prüfen & zigbee Instanz Konfiguration
 Aufbau einer SSH-Verbindung zum LXC:
 
@@ -255,8 +257,6 @@ SUBSYSTEMS=="usb", ATTRS{idVendor}=="0451", ATTRS{idProduct}=="16a8", GROUP="use
 Abschließend noch folgenden Befehl ausführen um die udev Regel zu aktivieren:
 
 ``udevadm control –reload``
-
-Noch ein Tipp zum Abschluss lege dir eine Kopie deiner funktionierenden Config Datei am besten extern ab, da z. B. der integrierte Proxmox Backup Dienst nicht den Inhalt deiner Config nicht mit sichert!
 
 ### 5.) Troubleshooting
 
