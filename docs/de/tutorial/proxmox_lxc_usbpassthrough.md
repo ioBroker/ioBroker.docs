@@ -6,10 +6,11 @@ editLink:
 
 # Proxmox 
 
-# Proxmox LXC (Linux Containers) - USB Geräte durchreichen
 
 
-## Vorwort
+## Proxmox LXC (Linux Containers) - USB Geräte durchreichen
+
+### Vorwort
 
 Diese Anleitung erklärt Schritt für Schritt das durchreichen eines USB-Gerätes (USB Passthrough) in Proxmox an einen LXC (Linux Container).
 
@@ -19,8 +20,9 @@ In der Anleitung wird das Einbinden eines **Texas Instruments Inc. CC2531** Zigb
 
 Für diese Anleitung wurde Proxmox in der Version 7.1 verwendet. 
 
+<details>
 
-## 1.) Informationen zum USB-Gerät sammeln
+### 1.) Informationen zum USB-Gerät sammeln
 
 Aufbau einer SSH-Verbindung zu Proxmox:
 
@@ -74,7 +76,7 @@ Somit haben wir **drei** Werte vom USB-Gerät notiert die für das Einbinden in 
  
 ![07](media/proxmox_lxc_usbpassthrough/proxmoxlxc07.PNG)
 
-##  2.) LXC Konfigurationsdatei bearbeiten
+###  2.) LXC Konfigurationsdatei bearbeiten
 
 Am Proxmox Host ins LXC Konfigurationsverzeichnis wechseln mit:
 
@@ -133,7 +135,7 @@ Um die Anpassungen am lxc zu übernehmen einen cold boot vom Container mit **pct
 
 ``pct start 201``
 
-## 3.) LXC USB Passthrough prüfen & zigbee Instanz Konfiguration
+### 3.) LXC USB Passthrough prüfen & zigbee Instanz Konfiguration
 Aufbau einer SSH-Verbindung zum LXC:
 
 ``ssh Benutzer@IP-Adresse``
@@ -167,7 +169,7 @@ angegeben werden damit das korrekte Gerät vom Adapter angesprochen wird.
  
 ![14](media/proxmox_lxc_usbpassthrough/proxmoxlxc14.PNG)
 
-## 4.) UDEV Regel für permanente Rechte Anpassung von ttyACM0
+### 4.) UDEV Regel für permanente Rechte Anpassung von ttyACM0
 
 Am Ende von Schritt 3 wurde mit dem Befehl 
 
@@ -242,6 +244,6 @@ lxc.mount.entry: /var/lib/lxc/CONTAINERID/devices/ttyACM0 dev/ttyACM0 none bind,
 ```
 </details>
 
-
+</details>
 
 
