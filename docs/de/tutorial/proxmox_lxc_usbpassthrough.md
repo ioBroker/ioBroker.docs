@@ -1,7 +1,8 @@
 ---
-title: Proxmox LXC (Linux Containers) - USB Geräte durchreichen
-lastChanged: 07.02.2022
-editLink: 
+title: Proxmox 
+Version: 0.1
+Autoren: TeNNo2k5
+Schlüsselworte: Proxmox, LXC, USB Passthrough
 ---
 
 # Proxmox 
