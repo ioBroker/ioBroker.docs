@@ -256,6 +256,8 @@ Abschließend noch folgenden Befehl ausführen um die udev Regel zu aktivieren:
 
 ``udevadm control –reload``
 
+Noch ein Tipp zum Abschluss lege dir eine Kopie deiner funktionierenden Config Datei am besten extern ab, da z. B. der integrierte Proxmox Backup Dienst nicht den Inhalt deiner Config nicht mit sichert!
+
 ### 5.) Troubleshooting
 
 **Fehler:** ttyACM0 Rechte im lxc passen nicht bzw. gehen nach kurzer Zeit verloren (ConBee II).
