@@ -210,6 +210,8 @@ ls -l /dev/ttyACM0
 
 **Lösung:** mit mknod eine dauerhafte Bindung für den Container erstellen. 
 
+<details>
+
 Dazu wird im Pfad **"/var/lib/lxc/CONTAINERID"** der Ordner **devices** erstellt und in diesem Ordner mit mknod die Bindung erzeugt: 
 
 ``mkdir /var/lib/lxc/201/devices``
@@ -235,7 +237,7 @@ wird ersetzt durch:
 ```
 lxc.mount.entry: /var/lib/lxc/CONTAINERID/devices/ttyACM0 dev/ttyACM0 none bind,optional,create=file
 ```
-
+</details>
 
 
 
