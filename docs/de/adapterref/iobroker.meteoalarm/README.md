@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: 634FL3JYifQ9UK1Dn8r7PTgH1KvfcIoTDWegVnf+kjI=
+hash: VBnLZTz9acrcKjC7PStNAN1GVFTId+gNbMbT2nBCJEY=
 ---
 ![Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -101,6 +101,10 @@ Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf GitHub, und 
 ## Nicht mögliche Länder
 * Portugal (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
 * Bulgarien (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
+
+## 2.1.1 (08.02.2022)
+* (jack-blackson) Aktualisierte Lizenzinformationen
+* (jack-blackson) Fehler für js-controller 4.x behoben
 
 ## 2.1.0 (2022-02-03)
 * (jack-blackson) Schweiz hinzugefügt
@@ -247,7 +251,7 @@ Glocke im Symbol, entworfen von Freepik von www.flaticon.com
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2021 jack-blackson <blacksonj7@gmail.com>
+Copyright (c) 2019-2022 jack-blackson <blacksonj7@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

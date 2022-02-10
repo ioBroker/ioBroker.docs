@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: TBa4olbhdOBsMmhMf65iTfvWkfbO0nk0QnBnNFg1zXE=
+hash: BfYxbJHOv1roN/GPJRuun68PNzSEnxpFXV9xbgodQKc=
 ---
 ![Logo](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -34,7 +34,7 @@ hash: TBa4olbhdOBsMmhMf65iTfvWkfbO0nk0QnBnNFg1zXE=
 ## Iqontrol-Adapter für ioBroker
 Schnelle Web-App zur Visualisierung.
 
-<img src="img/screenshot_kueche.png" width="200"><img src="img/screenshot_licht.png" width="200"><img src="img/screenshot_heizung.png" width="200"><img src="img/screenshot_rauchmelder.png" width="200"><img src="img/screenshot_flot.png" width="200"><img src="img/screenshot_dslraser.jpg" width="200" alt="© von dslraser"> © von dslraser<img src="img/screenshot_muuulle.jpg" width="200" alt="© von muuulle"> © von muuulle<img src="img/screenshot_peks-67.jpg" width="200" alt="© von peks-67"> © von peks-64
+<img src="img/screenshot_kueche.png" width="200"><img src="img/screenshot_licht.png" width="200"><img src="img/screenshot_heizung.png" width="200"><img src="img/screenshot_rauchmelder.png" width="200"><img src="img/screenshot_flot.png" width="200"> © von dslraser:<img src="img/screenshot_dslraser.jpg" width="200" alt="© von dslraser"> © von muuulle:<img src="img/screenshot_muuulle.jpg" width="200" alt="© von muuulle"> © von peks-64:<img src="img/screenshot_peks-67.jpg" width="200" alt="© von peks-67">
 
 Läuft in jedem Browser.
 Einfach einzurichten, obwohl es vollständig anpassbar und reaktionsschnell ist.
@@ -413,7 +413,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 </html>
 ````
 
-</details>
+</Details>
 
 ### Weitere Konfiguration von Widgets
 * Es gibt zusätzliche Meta-Tags, die Sie im Head-Bereich Ihrer Widget-Website verwenden können, um das Verhalten des Widgets zu konfigurieren:
@@ -551,7 +551,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``statePauseValue`` (Wert von STATE für 'pause') - nur gültig für Rolle Media:
 * Standard: "Pause"
 * ``stateStopValue`` (Wert von STATE für 'stop') - nur gültig für Rolle Media:
-* Voreinstellung: "stopp"
+* Vorgabe: „stopp“
 * ``hidePlayOverlay`` (Hide Play Icon) - nur gültig für Rolle Media:
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
@@ -567,7 +567,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``remoteKeepSectionsOpen`` (Abschnitte offen halten) - nur gültig für Rolle Medien:
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
-* ``remoteSectionsStartOpened`` (Starten Sie mit diesen anfangs geöffneten Abschnitten) - nur gültig für die Rolle Medien:
+* ``remoteSectionsStartOpened`` (Beginnen Sie mit diesen anfangs geöffneten Abschnitten) - nur gültig für die Rolle Medien:
 * Mögliche Werte: Array mit "REMOTE_PAD", "REMOTE_CONTROL", "REMOTE_ADDITIONAL_BUTTONS", "REMOTE_CHANNELS", "REMOTE_NUMBERS" und/oder "REMOTE_COLORS"
 * Standard: "false"
 * ``remoteShowDirectionsInsidePad`` (Vol und Ch +/- im Pad anzeigen) - nur gültig für Rolle Media:
@@ -652,7 +652,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``transparentIfInactive`` (Hintergrund transparent machen, wenn Gerät inaktiv):
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
-* ``noOverlayInactive`` (Überlagerung der Kachel entfernen, wenn Gerät inaktiv):
+* ``noOverlayInactive`` (Overlay der Kachel entfernen, wenn Gerät inaktiv):
 * Mögliche Werte: "true"|"false"
 * Voreinstellung: "true"
 * ``hideBackgroundURLInactive`` (Hintergründ vor Background_VIEW/URL/HTML ausblenden, wenn das Gerät inaktiv ist):
@@ -700,7 +700,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``noOverlayActive`` (Overlay der Kachel entfernen, falls Gerät aktiv):
 * Mögliche Werte: "true"|"false"
 * Voreinstellung: "true"
-* ``hideBackgroundURLActive`` (Hintergründe vor Background_VIEW/URL/HTML ausblenden, wenn das Gerät aktiv ist):
+* ``hideBackgroundURLActive`` (Hintergründe von Background_VIEW/URL/HTML ausblenden, wenn das Gerät aktiv ist):
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
 * ``hideDeviceNameIfActive`` (Gerätenamen ausblenden, wenn das Gerät aktiv ist):
@@ -815,7 +815,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``backgroundURLPadding`` (Auffüllen auf Background_VIEW/URL/HTML anwenden):
 * Mögliche Werte: Zahl von 0 bis 50 [Pixel]
 * Standard: ""
-* ``backgroundURLAllowPostMessage`` (Erlaube postMessage-Kommunikation für Background_view/URL/HTML):
+* ``backgroundURLAllowPostMessage`` (Erlaube postMessage-Kommunikation für background_VIEW/URL/HTML):
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
 * ``backgroundURLNoPointerEvents`` (Mausereignisse auf die Kachel richten statt auf den Inhalt von DESCRIPTION_VIEW/URL/HTML):
@@ -862,7 +862,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``additionalInfoCaption`` (Beschriftung für ADDITIONAL_INFO):
 * Voreinstellung: "Zusätzliche Infos"
 
-</details>
+</Details>
 
 <details><summary>Beispiel-Widget-Website anzeigen, die eine Karte mit den obigen Einstellungen erstellt: (<ins> zum Öffnen anklicken</ins> )</summary>
 
@@ -953,7 +953,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 </html>
 ````
 
-</details>
+</Details>
 
 <details><summary>Zeigen Sie ein fortgeschritteneres Beispiel: (<ins> zum Öffnen anklicken</ins> )</summary>
 
@@ -1606,7 +1606,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 
     ![Glühen](../../../en/adapterref/iobroker.iqontrol/img/dateandtime_conversionrules.png)
 
-</details>
+</Details>
 
 ###<img src="img/icons/value_on.png" width="32"> Wert:
 * **STATE**: *any* - jeder gültige Status, der angezeigt werden soll (siehe allgemeine Status-Sektion)
@@ -1690,8 +1690,16 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.0.0-rc1.2 (2022-02-09)
+* (sbormann) Fixed counting of logs.
+* (sbormann) Lists are now saved as readonly and with ack=true.
 
-### **WORK IN PROGRESS**
+### 2.0.0-rc1.1 (2022-02-08)
+* (sbormann) Kompatibility to new ioBroker websocket established.
+* (sbormann) Enhanced datapoint-rcognition in json-table-widget.
+* (sbormann) Fixed INFO A/B icon brightness-setting for dark mode.
+
+### 2.0.0-rc1.0 (2022-02-04)
 * (sbormann) Introducing a powerful new feature: Lists and Counters.
 * (sbormann) The JSON-Table-Widget accepts now simple lists (for example an array of datapoints).
 * (sbormann) Added configurable font to JSON-table widget.
@@ -2687,7 +2695,7 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
 ## License
 MIT License
 
-Copyright (c) 2021 Sebastian Bormann
+Copyright (c) 2022 Sebastian Bormann
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

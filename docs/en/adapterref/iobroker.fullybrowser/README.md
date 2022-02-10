@@ -34,6 +34,12 @@ A small excerpt just of the command options:
 
 
 ## Changelog
+### 2.1.1 (2022-02-07)
+* (arteck) js-controller 4.x
+*
+
+### 2.1.0 (2022-02-07)
+* (arteck) js-controller 4
 
 ### 2.0.14 (2022-01-31)
 * (arteck) life tick error
@@ -71,8 +77,6 @@ A small excerpt just of the command options:
 
 ### 1.0.1 (2019-06-20)
 * (arteck) encodeURL
-
-
 
 ## License
 The MIT License (MIT)

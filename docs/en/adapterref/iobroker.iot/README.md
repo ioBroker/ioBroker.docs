@@ -268,6 +268,12 @@ Following types are supported:
 -->
 
 ## Changelog
+### 1.9.5 (2022-02-08)
+* (bluefox) Fixed Google home error with color control
+
+### 1.9.4 (2022-02-08)
+* (bluefox) Fixed error with the certificates fetching
+
 ### 1.9.3 (2022-02-03)
 * (bluefox) Removed deprecated package `request`
 * (bluefox) Refactoring and better error handling

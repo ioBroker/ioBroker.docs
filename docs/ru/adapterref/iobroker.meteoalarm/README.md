@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: 634FL3JYifQ9UK1Dn8r7PTgH1KvfcIoTDWegVnf+kjI=
+hash: VBnLZTz9acrcKjC7PStNAN1GVFTId+gNbMbT2nBCJEY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -34,7 +34,7 @@ hash: 634FL3JYifQ9UK1Dn8r7PTgH1KvfcIoTDWegVnf+kjI=
 |4|Туман|
 |5|Высокая температура|
 |6|Низкая температура|
-|7|Событие на побережье|
+|7|Береговое событие|
 |8|Лесной пожар|
 |9|Лавина|
 |10|Дождь|
@@ -101,6 +101,10 @@ hash: 634FL3JYifQ9UK1Dn8r7PTgH1KvfcIoTDWegVnf+kjI=
 ## Невозможные страны
 * Португалия (файл геокода с сайта meteoalarm.org, вероятно, неверен)
 * Болгария (файл геокода с сайта meteoalarm.org, вероятно, неверен)
+
+## 2.1.1 (2022-02-08)
+* (jack-blackson) Обновлена информация о лицензии
+* (jack-blackson) Исправлены ошибки для js-controller 4.x
 
 ## 2.1.0 (2022-02-03)
 * (джек-блэксон) Добавлена Швейцария
@@ -217,7 +221,7 @@ hash: 634FL3JYifQ9UK1Dn8r7PTgH1KvfcIoTDWegVnf+kjI=
 * (джек-блэксон) Релизная версия
 
 ### 0.6.0 (05.08.2019)
-* (jack-blackson) Хранить значки погоды локально в адаптере
+* (jack-blackson) Хранить иконки погоды локально в адаптере
 
 ### 0.5.0 (21 июля 2019 г.)
 * (джек-блэксон) Обработка тайм-аутов
@@ -247,7 +251,7 @@ hash: 634FL3JYifQ9UK1Dn8r7PTgH1KvfcIoTDWegVnf+kjI=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2021 jack-blackson <blacksonj7@gmail.com>
+Copyright (c) 2019-2022 jack-blackson <blacksonj7@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

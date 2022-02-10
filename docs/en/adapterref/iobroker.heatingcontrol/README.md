@@ -249,6 +249,8 @@ When the adapter crashes or an other Code error happens, this error message that
 ### 2.8.5 (in progress)
 * (René) sentry: Cannot read property 'PARENT_TYPE' of undefined
 * (René) see issue #291: inter thermostat delay added
+* (René) better logging for timediff measurement with external sensors
+* (René) minimum temperature check added in offset calculation
 
 ### 2.8.4 (2022-01-29)
 * (René) see issue #289: round offset to 0.5°C instead 0.25°C
@@ -600,7 +602,7 @@ Attention: some changes in datapoints!!
 
 ## License
 
-Copyright (C) <2019-2021>  <info@rg-engineering.eu>
+Copyright (C) <2019-2022>  <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

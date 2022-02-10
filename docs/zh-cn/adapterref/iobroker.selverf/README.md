@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.selverf/README.md
 title: ioBroker.selveRF
-hash: hsL3udpLEEdfB6zDKBQzRt4UFZYuQilkr1mo5PMk6PA=
+hash: y+2HHfqEj9eImO8h6DydWXnJNwvwmwOHPqUbaZ/n50M=
 ---
 ![标识](../../../en/adapterref/iobroker.selverf/admin/selverf.png)
 
@@ -21,7 +21,12 @@ hash: hsL3udpLEEdfB6zDKBQzRt4UFZYuQilkr1mo5PMk6PA=
 
 [有关设置说明，请参阅 wiki](https://github.com/Rintrium/ioBroker.selverf/wiki)
 
+这个项目不隶属于Selve。这是一个个人项目。
+
 ## Changelog
+### 0.6.2 (2022-01-22)
+* Fix critical error for sensors and senders
+
 ### 0.6.1 (2022-01-19)
 * Stable version release
 * Minor (non functional) changes

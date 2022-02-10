@@ -2,281 +2,287 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sayit/README.md
-title: ioBroker Sayit адаптер
-hash: dVFKADhbgDqafi/M87JumTUg0kZhVqrVo0ih/VSNkLY=
+title: адаптер ioBroker
+hash: 7B0yLKRAk8e8+YiRSNjunOnT6kEc4kjMxRqi78RmAxQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sayit/admin/sayit.png)
 
 ![Количество установок](http://iobroker.live/badges/sayit-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.sayit.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.sayit.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sayit.svg)
 
-# IoBroker Sayit адаптер
-![Тестирование и выпуск](https://github.com/ioBroker/iobroker.sayit/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/sayit/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# Адаптер sayit ioBroker
+![Тестируйте и выпускайте](https://github.com/ioBroker/iobroker.sayit/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/sayit/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
-SayIt Adapter может преобразовывать текст в речь и воспроизводить его на каком-либо устройстве.
+Адаптер SayIt может преобразовывать текст в речь и воспроизводить его на некоторых устройствах.
 
 ## Конфигурация
-Поддерживаются следующие фактические выходы:
+Поддерживаются фактические следующие выходы:
 
-- *Браузер* - текст будет воспроизводиться браузером при открытой странице iobroker.vis. Он поддерживается почти всеми настольными браузерами и несколькими мобильными браузерами.
+- *Браузер* - текст будет воспроизводиться браузером с открытой страницей iobroker.vis. Он поддерживается почти всеми настольными браузерами и несколькими мобильными браузерами.
 
-- *[Home24- MediaPlayer] (http://www.home-24.net/index.php?app=media)* - текст будет отправлен и воспроизведен на устройстве Android с установленным Home24 - MediaPlayer. Для этого будет использоваться встроенный в Android движок преобразования текста в речь. Порт нельзя изменить и установить на 50000.
+- *[Home24-MediaPlayer](http://www.home-24.net/index.php?app=media)* - текст будет отправлен и воспроизведен на устройстве Android с установленным Home24 - MediaPlayer. Для этого будет использоваться встроенный в Android движок преобразования текста в речь. Порт нельзя изменить и установить на 50000.
 
-- *Home24 - MediaPlayer и [FTP-сервер] (https://play.google.com/store/apps/details?id=lutey.FTPServer)* - текст будет отправлен и воспроизведен на устройстве Android с Home24 - MediaPlayer установлены. Для этого будет использоваться механизм преобразования текста в речь Google. Сгенерированный mp3-файл будет скопирован через FTP на устройство Android и воспроизведен с помощью Home24 - MediaPlayer.
+- *Home24 - MediaPlayer и [FTP-сервер](https://play.google.com/store/apps/details?id=lutey.FTPServer)* - текст будет отправлен и воспроизведен на устройстве Android с Home24 - MediaPlayer установлен. Для этого будет использоваться движок преобразования текста в речь Google. Сгенерированный файл mp3 будет скопирован через FTP на устройство Android и воспроизведен с помощью Home24 - MediaPlayer.
 
-    У обоих приложений должны быть одинаковые домашние каталоги. (Например, корневой каталог \ "SD-карты \").
+    Оба приложения должны иметь одинаковые домашние каталоги. (Например, корневой каталог \"sd-карты\").
 
-- *System* - текст будет воспроизводиться ОС, в которой работает адаптер ioBroker. Поддерживаются следующие ОС: Windows, linux, Mac OSx.
+- *Система* - текст будет воспроизводиться ОС, на которой работает адаптер ioBroker. Поддерживаются следующие ОС: Windows, Linux, Mac OSx.
 
-- *Windows engine* - текст будет воспроизводиться окнами, в которых запущен адаптер sayIt. Для этого будет использоваться механизм преобразования текста в речь Windows, который должен быть предварительно сконфигурирован пользователем. Вы можете проверить [здесь] (http://windows.microsoft.com/en-us/windows/setting-speech-options#1TC=windows-7), как его настроить.
+- *Windows engine* - текст будет воспроизводиться окнами, на которых работает адаптер sayIt. Для этого будет использоваться движок преобразования текста в речь Windows, который должен быть предварительно настроен пользователем. Вы можете проверить [здесь](http://windows.microsoft.com/en-us/windows/setting-speech-options#1TC=windows-7), как его настроить.
 
-- *Sonos* - воспроизводить текст на устройстве sonos. Убедитесь, что Web Adaptor включен. Требуется включить SONOS для чтения сгенерированных файлов mp3.
+- *Sonos* - воспроизведение текста на устройстве Sonos. Убедитесь, что веб-адаптер включен. Требуется разрешить SONOS читать сгенерированные файлы mp3.
 
-- *Heos* - воспроизводить текст на устройстве heos. Убедитесь, что Web Adaptor включен. Необходимо, чтобы HEOS читал сгенерированные файлы mp3.
+- *Heos* - воспроизводить текст на устройстве HEOS. Убедитесь, что веб-адаптер включен. Необходимо, чтобы HEOS мог читать сгенерированные файлы mp3.
 
-- *Chromecast* - воспроизводить текст на устройстве Chromecast.
+- *Chromecast* - воспроизведение текста на устройстве Chromecast.
 
-- *MPD* - проигрывать текст на Music Player Daemon. Используйте только **http** для веб-адаптера, не используйте https.
+- *MPD* - проигрывать текст в Music Player Daemon. Используйте только **http** для веб-адаптера, не используйте https.
 
-Чтобы включить преобразование текста в речь в системе RaspberryPI или Linux, вызовите один раз следующую команду ```sudo apt-get -y install mpg321``` для установки mpg321.
+Чтобы включить преобразование текста в речь в системе RaspberryPI или Linux, вызовите один раз после команды `sudo apt-get -y install mpg321`, чтобы установить mpg321.
 
-Файлы mp3 / wav можно воспроизводить, записав их имя в объект. (например, "/vis.0/main/img/door-bell.mp3")
+Файлы mp3/wav можно воспроизводить, записав их имя в объект. (например, `/vis.0/main/img/door-bell.mp3`)
 
-Файл должен быть сначала загружен.
+Файл должен быть предварительно загружен.
 
-### Двигатели TTS
+### Двигатели ТТС
 онлайн:
 
 - Google: английский, немецкий, русский, итальянский, испанский, французский
 - Яндекс: русский
 
-Для использования голосов Яндекса необходимо запросить ключ API здесь: [https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/](https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/). [Этот сервис будет отключен 1 января 2019 года и заменен Яндекс.облаком] Чтобы использовать Яндекс.облако, вам необходимо зарегистрироваться здесь: [https://cloud.yandex.ru/], установить SpeechKIT API в облаке и получить токен аутентификации и идентификатор папки, как описано в инструкциях API.
+Для использования голосов Яндекса вы должны запросить ключ API здесь: [https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/](https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/). [Этот сервис будет отключен 1 января 2019 года и заменен Яндекс.Облаком] Для использования Яндекс.Облака вам необходимо зарегистрироваться здесь: [https://cloud.yandex.ru/], установить SpeechKIT API в Облаке и получить Auth Token и идентификатор папки, как описано в инструкциях API.
 
-- Ивона: английский, немецкий, русский, итальянский, испанский, французский, датский, валлийский, исландский, голландский, польский, португальский, румынский, шведский, турецкий
+- Ivona: английский, немецкий, русский, итальянский, испанский, французский, датский, валлийский, исландский, голландский, польский, португальский, румынский, шведский, турецкий
 
-        Чтобы использовать голоса Amazon (Ivona), вам необходимо получить ключ доступа и секретный ключ [здесь](http://www.ivona.com/us/for-business/speech-cloud/).
+        Чтобы использовать голоса Amazon(Ivona), вам необходимо получить ключ доступа и секретный ключ [здесь](http://www.ivona.com/us/for-business/speech-cloud/).
 
 - Облако:
 
-        Для использования облачных голосов вам потребуется настроенный облачный адаптер. (Его можно отключить, но необходимо настроить). Этот сервис использует AWS Polly, и его можно использовать напрямую.
+        Чтобы использовать облачные голоса, вам нужен настроенный облачный адаптер. (Его можно отключить, но необходимо настроить). Этот сервис использует AWS Polly, и его можно использовать напрямую.
 
-- Amazon Web Services Polly:
+- Полли Amazon Web Services:
 
-        Чтобы использовать голоса AWS Polly, необходимо создать ключ доступа и секретный ключ [здесь] (https://console.aws.amazon.com/iam/home). Документацию Amazon можно найти [здесь](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html).
+        Чтобы использовать голоса AWS Polly, необходимо создать ключ доступа и секретный ключ [здесь] (https://console.aws.amazon.com/iam/home). Документацию Amazon вы можете найти [здесь](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html).
 
 не в сети:
 
 - PicoTTS (только для Linux): английский, немецкий, итальянский, испанский, французский
 
-Для PicoTTS необходимо установить следующие пакеты: libttspico-utils и lame.
-Команда установки: 'sudo apt-get install libttspico-utils lame'
+Для PicoTTS необходимо установить следующие пакеты: `libttspico-utils` и lame.
+Команда установки: `sudo apt-get install libttspico-utils lame`
 
-### Форматирование текста Cloud and Amazon Web Services Polly
+### Облако и Amazon Web Services Форматирование текста Polly
 Вы можете отформатировать текст с помощью [Язык разметки синтеза речи](http://docs.aws.amazon.com/polly/latest/dg/ssml.html).
 
-Самые полезные функции:
+Наиболее полезные функции:
 
-- `` <break time = "3s" /> `` `- сделать паузу на x секунд (максимум 10 секунд).
-- `` <emphasis> big </emphasis> `` - сделать акцент на каком-то слове.
-- `` <prosody volume = "+ 6dB" rate = "90%"> Я говорю это </prosody> `` - управление параметрами скорости и громкости.
-- `` <say-as convert-as = "digits"> 12345 </say-as> `` `- произносите каждую цифру отдельно.
+- `<break time="3s"/>`- сделать паузу на x секунд (максимум 10 секунд).
+- `<emphasis>большой</emphasis>` - сделать ударение на каком-то слове.
+- `<prosody volume="+6dB" rate="90%">Я говорю это</prosody>` - управлять параметрами скорости и громкости.
+- `<say-asterpret-as="digits">12345</say-as>` - произносить каждую цифру отдельно.
 
-Подробнее [Информация](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/speech-synthesis-markup-language-ssml-reference).
+Еще [Информация](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/speech-synthesis-markup-language-ssml-reference).
 
 ### Системная команда
 Если у вас есть программа, которая может воспроизводить аудиофайлы локально или где-то еще, вы можете написать эту команду здесь. Например.
 
 ```myCustomPlayer --option```
 
-Если выбран вывод **System** адаптер sayit выполнит следующую команду в локальной системе:
+Если выбран выход **System**, адаптер `sayit` выполнит следующую команду в локальной системе:
 
 ```myCustomPlayer --option /opt/iobroker/node_modules/iobroker.sayit/say.mp3```
 
-Если имя файла должно оставаться где-то посередине, вы можете использовать *%s* чтобы указать, где должно быть размещено имя файла:
+Если имя файла должно оставаться где-то посередине, вы можете использовать *%s*, чтобы указать, где должно быть размещено имя файла:
 
 ```myCustomPlayer --option "%s" > /dev/null```
 
 sayIt сделает из него ```myCustomPlayer --option "/opt/iobroker/node_modules/iobroker.sayit/say.mp3" > /dev/null```.
 
-## Применение
-Адаптер SayIt нельзя использовать отдельно. Он должен управляться с помощью адаптера javascript или с помощью определенного виджета.
-После создания экземпляра адаптера можно будет найти следующие объекты:
+## Использование
+Адаптер SayIt нельзя использовать отдельно. Он должен управляться из javascript-адаптера или из «vis» с помощью определенного виджета.
+После создания экземпляра адаптера вы можете найти следующие объекты:
 
-- sayit.N.tts.text: Фраза, которую нужно произносить.
-- sayit.N.tts.volume: громкость, которая будет использоваться при воспроизведении фразы.
-- sayit.N.tts.playing: true, если текст сейчас воспроизводится, и false, если нет. Поддерживается только для режима игры "windows" и "system".
-- sayit.N.tts.cachetext: фраза для кеширования, после чего ее можно использовать без интернета.
+- `sayit.N.tts.text`: Произносимая фраза.
+- `sayit.N.tts.volume`: громкость, которая будет использоваться при воспроизведении фразы.
+- `sayit.N.tts.playing`: true, если текст воспроизводится, и false, если нет. Поддерживается только для режимов воспроизведения "windows" и "system".
+- `sayit.N.tts.cachetext`: Фраза для кэширования, после чего ее можно будет использовать без интернета.
 
-   Например. вы можете ввести здесь вручную «Нет интернета», и если пинг до google.com отрицательный, напишите «Нет интернета» в «tts.text», и он будет произноситься. Конечно, кеш должен быть включен.
+   Например. вы можете ввести здесь вручную «Нет интернета», и если пинг до google.com отрицательный, напишите «Нет интернета» в «tts.text», и это будет произнесено. Кэш конечно должен быть включен.
 
-Состояние **tts.text** поддерживает расширенный синтаксис, поэтому язык / движок и объем могут быть определены вместе с текстом. Он используется для включения многоязычных механизмов text2speech.
-Например. если у адаптера есть движок "Google-english", можно с помощью фразы ```de:Sag es``` заставить использовать речевой движок Google-Deustch.
+Состояние **tts.text** поддерживает расширенный синтаксис, поэтому язык/движок и громкость можно определить вместе с текстом. Он используется для включения многоязычных движков text2speech.
+Например. если адаптер имеет движок "Google-english", можно с помощью фразы ```de:Sag es``` принудительно использовать речевой движок Google-Deutsch.
 
-С ```ru;75;Погода хорошая``` мы можем заставить использовать русский язык и объем 75%.
+С помощью ```ru;75;Погода хорошая``` мы можем принудительно использовать русский язык и громкость 75%.
 
-Вы можете указать объем объявления в процентах от текущего или заданного объема (не от максимального). Например. если команда - ```de;75;Gutes Wetter```и «громкость объявления» - 50%, объявление будет воспроизводиться с громкостью 38% из 100% возможных.
+Вы можете указать громкость объявления в процентах от текущей или заданной громкости (не от максимальной). Например. если команда ```de;75;Gutes Wetter``` и "громкость объявления" равна 50%, то объявление будет воспроизводиться с громкостью 38% из возможных 100%.
 
-Также можно указать системную команду для воспроизведения файла mp3. Если оставить поле пустым, будут использоваться настройки по умолчанию: windows - cmdmp3.exe, OSX - / usr / bin / afplay, linux - mpg321 или omxplayer (рекомендуется).
+Также можно указать системную команду для воспроизведения mp3-файла. Если вы оставите это поле пустым, будут использоваться настройки по умолчанию: Windows — `cmdmp3.exe`, OSX — `/usr/bin/afplay`, linux — `mpg321` или `omxplayer` (рекомендуется).
 
 Чтобы установить omxplayer, напишите ```sudo apt-get install omxplayer``` или напишите ```sudo apt-get install mpg321```, чтобы установить mpg321.
 
-** Примечание: ** Выбор объявления по умолчанию будет возможен только после запуска экземпляра.
+**Примечание.** Выбор объявления по умолчанию будет возможен только после запуска экземпляра.
 
 ### Приоритеты
-Чтобы сразу же произнести текст, несмотря на текст в очереди, у вас есть 2 возможности:
+Чтобы немедленно произнести текст, несмотря на тексты в очереди, у вас есть 2 возможности:
 
 - место "!" как первый символ в тексте, поэтому этот текст будет произноситься сразу после текущего.
-- впишите истину в состояние "tts.clearQueue" и очередь будет очищена. После этого вы можете записать новый текст в "tts.text", но все тексты из очереди будут выброшены.
+- написать true в состояние "tts.clearQueue" и очередь будет очищена. После этого вы можете записать новый текст в "tts.text", но все тексты в очереди будут удалены.
 
 ### Двигатели
 Возможны следующие значения для двигателей:
 
 #### Google
 - **en** - английский
-- **de** - Deutsch
-- **пл** - Польски
+- **de** - немецкий
+- **pl** - польский
 - **ru** - Русский
 - **uk** - український
 - **это** - итальяно
-- **es** - испанский
-- **fr** - Français
-- **нл** - Нидерланды
-- **zh-CN** - 简体 中文
-- **pt** - Português
+- **es** - Эспаньол
+- **fr** - французский
+- **nl** - Нидерланды
+- **zh-CN** - 简体中文
+- **pt** - португальский
 
 #### Яндекс
-- **ru_YA: Яндекс** - Русский
-- **ru_YA_CLOUD: Яндекс Облако** - Русский [API Яндекс.Облака генерирует файлы в формате OGG. Для воспроизведения файлов ogg на linux необходимо установить mplayer и выбрать его в качестве системного проигрывателя]
+- **ru_YA:Яндекс** - Русский
+- **ru_YA_CLOUD:Яндекс Облако** - English [API Яндекс.Облака формирует файлы в формате OGG. Для воспроизведения ogg-файлов в Linux необходимо установить mplayer и выбрать его в качестве системного проигрывателя]
 
-#### Amazon через облако
+#### Amazon polly через облако
 - **ru-RU_CLOUD_Female** - Русский - Татьяна
 - **ru-RU_CLOUD_Male** - Русский - Максим
-- **de-DE_CLOUD_Female** - Deutsch - Марлен
-- **de-DE_CLOUD_Male** - Deutsch - Hans
-- **de-DE_CLOUD_Female_Vicki** - Deutsch - Vicki
+- **de-DE_CLOUD_Female** - Дойч - Марлен
+- **de-DE_CLOUD_Male** - Немецкий - Ганс
+- **de-DE_CLOUD_Female_Vicki** - Deutsch - Вики
 - **en-US_CLOUD_Female** - en-US - Женский - Салли
-- **en-US_CLOUD_Male** - en-US - Мужской - Joey
+- **en-US_CLOUD_Male** - en-US - Мужской - Джоуи
 - **da-DK_CLOUD_Female** - da-DK - Женский - Naja
-- **da-DK_CLOUD_Male** - da-DK - Мужчина - Мадс
-- **en-AU_CLOUD_Female** - en-AU - Женский - Николь
+- **da-DK_CLOUD_Male** - da-DK - Мужской - Мадс
+- **en-AU_CLOUD_Female** - en-AU - Женщина - Николь
 - **en-AU_CLOUD_Male** - en-AU - Мужской - Рассел
 - **en-GB_CLOUD_Female_Amy** - en-GB - Женский - Эми
 - **en-GB_CLOUD_Male** - en-GB - Мужской - Брайан
-- **en-GB_CLOUD_Female_Emma** - en-GB - Женский - Эмма
+- **en-GB_CLOUD_Female_Emma** - en-GB - Женщина - Эмма
 - **en-GB-WLS_CLOUD_Female** - en-GB-WLS - Женский - Гвинет
-- **en-GB-WLS_CLOUD_Male** - en-GB-WLS - Мужской - Geraint
-- **cy-GB_CLOUD_Female** - cy-GB - Женский - Гвинет
-- **cy-GB_CLOUD_Male** - cy-GB - Мужской - Geraint
-- **en-IN_CLOUD_Female** - en-IN - Женщина - Raveena
-- **en-US_CLOUD_Male_Chipmunk** - en-US - Мужчина - бурундук
-- **en-US_CLOUD_Male_Eric** - en-US - Мужской - Эрик
+- **en-GB-WLS_CLOUD_Male** - en-GB-WLS - Мужской - Герайнт
+- **cy-GB_CLOUD_Female** - cy-GB - Женщина - Гвинет
+- **cy-GB_CLOUD_Male** - cy-GB - Мужской - Герайнт
+- **en-IN_CLOUD_Female** - en-IN - Женский - Равина
+- **en-US_CLOUD_Male_Chipmunk** - en-US - Самец - Бурундук
+- **en-US_CLOUD_Male_Eric** - en-US - Мужчина - Эрик
 - **en-US_CLOUD_Female_Ivy** - en-US - Женский - Плющ
-- **en-US_CLOUD_Female_Jennifer** - en-US - Женский - Дженнифер
+- **en-US_CLOUD_Female_Jennifer** - en-US - Женщина - Дженнифер
 - **en-US_CLOUD_Male_Justin** - en-US - Мужчина - Джастин
 - **en-US_CLOUD_Female_Kendra** - en-US - Женский - Кендра
-- **en-US_CLOUD_Female_Kimberly** - en-US - Женский - Kimberly
-- **es-ES_CLOUD_Female** - es-ES - Женский - Conchita
-- **es-ES_CLOUD_Male** - es-ES - Мужчина - Энрике
+- **en-US_CLOUD_Female_Kimberly** - en-US - Женщина - Кимберли
+- **es-ES_CLOUD_Female** - es-ES - Женский - Кончита
+- **es-ES_CLOUD_Male** - es-ES - Мужской - Энрике
 - **es-US_CLOUD_Female** - es-US - Женский - Пенелопа
 - **es-US_CLOUD_Male** - es-US - Мужской - Мигель
-- **fr-CA_CLOUD_Female** - fr-CA - Женский - Chantal
-- **fr-FR_CLOUD_Female** - fr-FR - Женский - Celine
-- **fr-FR_CLOUD_Male** - fr-FR - Мужской - Mathieu
+- **fr-CA_CLOUD_Female** - fr-CA - Женский - Шанталь
+- **fr-FR_CLOUD_Female** - fr-FR - Женский - Селин
+- **fr-FR_CLOUD_Male** - fr-FR - мужской - Матье
 - **is-IS_CLOUD_Female** - is-IS - Женский - Дора
-- **is-IS_CLOUD_Male** - is-IS - Мужской - Karl
-- **it-IT_CLOUD_Female** - it-IT - Женский - Carla
-- **it-IT_CLOUD_Male** - it-IT - Мужской - Giorgio
-- **nb-NO_CLOUD_Female** - nb-NO - Женский - Liv
+- **is-IS_CLOUD_Male** - is-IS - Мужчина - Карл
+- **it-IT_CLOUD_Female** - it-IT - Женский - Карла
+- **it-IT_CLOUD_Male** - it-IT - Мужской - Джорджио
+- **nb-NO_CLOUD_Female** - nb-NO - Женский - Лив
 - **nl-NL_CLOUD_Female** - nl-NL - Женский - Lotte
 - **nl-NL_CLOUD_Male** - nl-NL - Мужской - Рубен
-- **pl-PL_CLOUD_Female_Agnieszka** - pl-PL - Женский - Agnieszka
-- **pl-PL_CLOUD_Male_Jacek** - pl-PL - Мужчина - Яцек
-- **pl-PL_CLOUD_Female_Ewa** - pl-PL - Женский - Ewa
+- **pl-PL_CLOUD_Female_Agnieszka** - pl-PL - Женский - Агнешка
+- **pl-PL_CLOUD_Male_Jacek** - pl-PL - Male - Jacek
+- **pl-PL_CLOUD_Female_Ewa** - pl-PL - женский - Ewa
 - **pl-PL_CLOUD_Male_Jan** - pl-PL - Male - Jan
-- **pl-PL_CLOUD_Female** - pl-PL - Женский - Maja
+- **pl-PL_CLOUD_Female** - pl-PL - Женский - Майя
 - **pt-BR_CLOUD_Female** - pt-BR - Женский - Витория
-- **pt-BR_CLOUD_Female_Camila** - pt-BR - Женский - Camila
-- **pt-BR_CLOUD_Male** - pt-BR - Мужской - Ricardo
-- **pt-PT_CLOUD_Male** - pt-PT - Мужчина - Cristiano
-- **pt-PT_CLOUD_Female** - pt-PT - Female - Ines
+- **pt-BR_CLOUD_Female_Camila** - pt-BR - Женщина - Камила
+- **pt-BR_CLOUD_Male** - pt-BR - Мужской - Рикардо
+- **pt-PT_CLOUD_Male** - pt-PT - Мужчина - Криштиану
+- **pt-PT_CLOUD_Female** - pt-PT - Женский - Инес
 - **ro-RO_CLOUD_Female** - ro-RO - Женский - Кармен
 - **sv-SE_CLOUD_Female** - sv-SE - Женский - Астрид
-- **tr-TR_CLOUD_Female** - tr-TR - Женский - Filiz
-- **pt-BR_CLOUD_Female_Camila** - pt-BR - Женский - Camila
+- **tr-TR_CLOUD_Female** - tr-TR - Женский - Филиз
+- **pt-BR_CLOUD_Female_Camila** - pt-BR - Женщина - Камила
 
-#### Pico TTS
-- **en-US** - Englisch US
-- **en-GB** - Englisch GB
-- **de-DE** - Deutsch
+#### Пико ТТС
+- **en-US** - Английский США
+- **en-GB** - английский GB
+- **de-DE** - Немецкий
 - **it-IT** - итальяно
-- **es-ES** - испанский
-- **fr-FR** - Français
+- **es-ES** - Эспаньол
+- **fr-FR** - французский
 
-#### Amazon polly direct
+#### Амазонка Полли Директ
 - **ru-RU_AP_Female** - Русский - Татьяна
 - **ru-RU_AP_Male** - Русский - Максим
-- **de-DE_AP_Female** - Deutsch - Марлен
-- **de-DE_AP_Female_Vicki** - Deutsch - Вики
-- **de-DE_AP_Male** - Deutsch - Hans
+- **de-DE_AP_Female** - Дойч - Марлен
+- **de-DE_AP_Female_Vicki** - Дойч - Вики
+- **de-DE_AP_Male** - Немецкий - Ганс
 - **en-US_AP_Female** - en-US - Женский - Салли
-- **en-US_AP_Male** - en-US - Мужской - Joey
+- **en-US_AP_Male** - en-US - Мужской - Джоуи
 - **da-DK_AP_Female** - da-DK - Женский - Naja
-- **da-DK_AP_Male** - da-DK - Мужской - Mads
-- **en-AU_AP_Female** - en-AU - Женский - Николь
+- **da-DK_AP_Male** - da-DK - Мужской - Мадс
+- **en-AU_AP_Female** - en-AU - Женщина - Николь
 - **en-AU_AP_Male** - en-AU - Мужской - Рассел
 - **en-GB_AP_Female_Amy** - en-GB - Женский - Эми
 - **en-GB_AP_Male** - en-GB - Мужской - Брайан
-- **en-GB_AP_Female_Emma** - en-GB - Женский - Эмма
-- **en-GB-WLS_AP_Female** - en-GB-WLS - Женский - Гвинет
-- **en-GB-WLS_AP_Male** - en-GB-WLS - Мужской - Geraint
-- **cy-GB_AP_Female** - cy-GB - Женский - Гвинет
-- **cy-GB_AP_Male** - cy-GB - Мужской - Geraint
-- **en-IN_AP_Female** - en-IN - Женщина - Raveena
-- **en-US_AP_Male_Chipmunk** - en-US - Самец - бурундук
-- **en-US_AP_Male_Eric** - en-US - Мужской - Эрик
+- **en-GB_AP_Female_Emma** - en-GB - Женщина - Эмма
+- **en-GB-WLS_AP_Female** - en-GB-WLS - Женщина - Гвинет
+- **en-GB-WLS_AP_Male** - en-GB-WLS - Мужской - Герайнт
+- **cy-GB_AP_Female** - cy-GB - Женщина - Гвинет
+- **cy-GB_AP_Male** - cy-GB - Мужской - Герайнт
+- **en-IN_AP_Female** - en-IN - Женский - Равина
+- **en-US_AP_Male_Chipmunk** - en-US - Самец - Бурундук
+- **en-US_AP_Male_Eric** - en-US - Мужчина - Эрик
 - **en-US_AP_Female_Ivy** - en-US - Женский - Плющ
-- **en-US_AP_Female_Jennifer** - en-US - Женский - Дженнифер
-- **en-US_AP_Male_Justin** - en-US - Мужчина - Джастин
+- **en-US_AP_Female_Jennifer** - en-US - Женщина - Дженнифер
+- **en-US_AP_Male_Justin** - en-US - Мужской - Джастин
 - **en-US_AP_Female_Kendra** - en-US - Женский - Кендра
-- **en-US_AP_Female_Kimberly** - en-US - Женский - Kimberly
-- **es-ES_AP_Female** - es-ES - Женский - Conchita
-- **es-ES_AP_Male** - es-ES - Мужчина - Энрике
+- **en-US_AP_Female_Kimberly** - en-US - Женщина - Кимберли
+- **es-ES_AP_Female** - es-ES - Женский - Кончита
+- **es-ES_AP_Male** - es-ES - Мужской - Энрике
 - **es-US_AP_Female** - es-US - Женский - Пенелопа
-- **es-US_AP_Male** - es-US - Мужчина - Мигель
-- **fr-CA_AP_Female** - fr-CA - Женский - Chantal
-- **fr-FR_AP_Female** - fr-FR - Женский - Celine
-- **fr-FR_AP_Male** - fr-FR - Мужской - Mathieu
+- **es-US_AP_Male** - es-US - Мужской - Мигель
+- **fr-CA_AP_Female** - fr-CA - Женский - Шанталь
+- **fr-FR_AP_Female** - fr-FR - Женский - Селин
+- **fr-FR_AP_Male** - fr-FR - Мужской - Матье
 - **is-IS_AP_Female** - is-IS - Женский - Дора
-- **is-IS_AP_Male** - is-IS - Мужской - Karl
-- **it-IT_AP_Female** - it-IT - Женский - Carla
-- **it-IT_AP_Male** - it-IT - Мужской - Giorgio
-- **nb-NO_AP_Female** - nb-NO - Женский - Liv
+- **is-IS_AP_Male** - is-IS - Мужской - Карл
+- **it-IT_AP_Female** - it-IT - Женский - Карла
+- **it-IT_AP_Male** - it-IT - Мужской - Джорджио
+- **nb-NO_AP_Female** - nb-NO - Женский - Лив
 - **nl-NL_AP_Female** - nl-NL - Женский - Lotte
-- **nl-NL_AP_Male** - nl-NL - Мужской - Рубен
-- **pl-PL_AP_Female_Agnieszka** - pl-PL - Женский - Agnieszka
-- **pl-PL_AP_Male_Jacek** - pl-PL - Мужчина - Jacek
-- **pl-PL_AP_Female_Ewa** - pl-PL - Женский - Ewa
+- **nl-NL_AP_Male** - nl-NL - Кобель - Рубен
+- **pl-PL_AP_Female_Agnieszka** - pl-PL - Женский - Агнешка
+- **pl-PL_AP_Male_Jacek** - pl-PL - Male - Jacek
+- **pl-PL_AP_Female_Ewa** - pl-PL - женский - Ewa
 - **pl-PL_AP_Male_Jan** - pl-PL - Male - Jan
-- **pl-PL_AP_Female** - pl-PL - Женский - Maja
+- **pl-PL_AP_Female** - pl-PL - Женский - Майя
 - **pt-BR_AP_Female** - pt-BR - Женский - Витория
-- **pt-BR_AP_Male** - pt-BR - Мужской - Ricardo
-- **pt-PT_AP_Male** - pt-PT - Мужчина - Cristiano
-- **pt-PT_AP_Female** - pt-PT - Female - Ines
+- **pt-BR_AP_Male** - pt-BR - Кобель - Рикардо
+- **pt-PT_AP_Male** - pt-PT - Мужской - Криштиану
+- **pt-PT_AP_Female** - pt-PT - Женский - Инес
 - **ro-RO_AP_Female** - ro-RO - Женский - Кармен
-- **sv-SE_AP_Female** - sv-SE - Женщина - Астрид
-- **tr-TR_AP_Female** - tr-TR - Женский - Filiz
+- **sv-SE_AP_Female** - sv-SE - Женский - Астрид
+- **tr-TR_AP_Female** - tr-TR - Женский - Филиз
 - **ko-KR_AP_Female** - ko-KR - Женский - Соён
 
-<! - Заполнитель для следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
 
 ## Changelog
+### 1.12.6 (2022-02-09)
+* (bluefox) used setForeignBinaryState if possible
+
+### 1.12.5 (2022-02-09)
+* (bluefox) Fixed errors in io-package.json
+
 ### 1.12.3 (2021-06-25)
-* (bluefox) corrected the google engine
+* (bluefox) corrected the Google engine
 * (bluefox) Added new voices: german, korean, brasil, Dutch
 
 ### 1.12.2 (2020-11-07)
@@ -498,7 +504,7 @@ Changed type of top-level object to "meta" in order to comply with js-controller
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2021, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -74,8 +74,12 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
-### __WORK IN PROGRESS__
+### 5.3.0 (2022-02-09)
 * (jogibear9988) Enable http compression in webserver
+* (bluefox) Removed deprecated package "request"
+* (bluefox) Added JSONL option for base settings
+* (bluefox) Added small improvements
+* (bluefox) Added the file viewer for binary states
 
 ### 5.2.3 (2021-12-24)
 * (bluefox) Fixed error in `AutocompleteSendTo`
@@ -92,11 +96,7 @@ lettering of the log appears in red.
 * (Apollon77) Fix crash cases reported via sentry
 * (bluefox) Added support for multi-repositories
 
-### 5.1.28 (2021-11-10)
-* (bluefox) Fixed discovery function
-* (bluefox) Fixed some GUI bugs
-
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.xiaomi-gateway3/README.md
 title: ioBroker.xiaomi-gateway3
-hash: a84WA/1HW/AdX3cRiK/8nj6A6xfkwmbe2n8LaB7+E2c=
+hash: 8eg2WtQ32z+01fulwtQjQrBx7CLRyhXmv1b6AMK9sg4=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.xiaomi-gateway3.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.xiaomi-gateway3.svg)
@@ -127,7 +127,7 @@ __*!!Achtung:*__ Firmware-Versionen niedriger als `1.4.7_0000` Adapter werden un
 - [] Xiaomi Qingping Bewegungssensor (CGPR1)
 - [] Xiaomi Qingping TH Lite (CGDK2)
 - [] Xiaomi Qingping TH-Sensor (CGG1)
-- [ ] Xiaomi-Safe (BGX-5/X1-3001)
+- [] Xiaomi-Safe (BGX-5/X1-3001)
 - [x] Xiaomi TH Uhr (LYWSD02MMC)
 - [] Xiaomi TH-Sensor (LYWSDCGQ/01ZM)
 - [x] Xiaomi TH-Sensor 2 (LYWSD03MMC)
@@ -139,7 +139,7 @@ __*!!Achtung:*__ Firmware-Versionen niedriger als `1.4.7_0000` Adapter werden un
 
 _**Hinweis:** BLE-Geräte haben möglicherweise beim ersten Mal nach dem Koppeln keinen Status, da ich die Spezifikationen für Geräte nicht kenne und vorerst keine Eigenschaften für alle Geräte definiert habe. Zustände werden hinzugefügt, wenn das Gerät die entsprechende Eigenschaft aktualisiert. Ich hoffe, ich werde dies mit Ihrer Hilfe im Laufe der Zeit beheben._
 
-## Beschreibung einiger Zustände
+## Beschreibung einiger Staaten
 ### `Button long press`
 Für Tastengeräte sehen Sie eine Kombination aus zwei Zuständen (wie) `long_press` und `long_timeout`.
 Wie funktioniert es? Schaltflächen, die langes Drücken unterstützen, senden eine Nachricht beim Drücken und beim Loslassen-Ereignis. Manchmal kann es vorkommen, dass die Schaltfläche keine Nachricht auf der Freigabetaste gesendet hat. In diesem Fall sollte `timeout` helfen, den Zustand "freizugeben".
@@ -159,8 +159,6 @@ Wenn Sie direkt nach der Bewegungserkennung zu _**false**_ zurückkehren möchte
 
 ## Aufbau
 Um ein Gateway zu verbinden, benötigen Sie IP und TOKEN des Gateways. Sie können dies manuell oder über die Cloud tun.
-
-_**Achtung:** Es gibt ein Problem beim Abrufen von Geräten aus der Cloud. Ich verstehe noch nicht, ob es sich um ein Problem mit Code oder Cloud handelt, aber Sie sollten vorerst mehrmals versuchen, Geräte zu erhalten (Taste drücken), bis Sie es endlich bekommen._
 
 Außerdem müssen Sie den Telnet-Öffnungsbefehl auswählen (in den meisten Fällen Option Nr. 2). Sie können Verbindung und Telnet über Schaltflächen testen.
 
@@ -206,7 +204,7 @@ Setzen Sie „true“, um störende Summersignale zu deaktivieren, oder „false
 Verschieben Sie Geräte-DB-Dateien in den Speicher. Dies kann die Arbeit von Zigbee- und Bluetooth-Geräten verbessern. __*Aber es kann vorkommen, dass einige Daten verloren gehen. Verwendung auf eigene Gefahr.*__
 
 ### Protokollierungseinstellungen
-_**Hinweis: Um Debug-Meldungen im ioBroker-Protokoll anzuzeigen, müssen Sie `debug` Protokollebene für den Adapter auf der Seite `Instances` einstellen (Expertenmodus auf aktiviert umschalten)**_
+_**Hinweis:** Um Debug-Meldungen im ioBroker-Protokoll anzuzeigen, müssen Sie `debug` Protokollebene für Adapter auf der Seite `Instances` einstellen (Expertenmodus auf aktiviert umschalten)_
 
 - [x] __Debug-Protokoll__<br/>
 
@@ -225,6 +223,17 @@ Aktivieren Sie die MQTT-Nachrichtenprotokollierung von BLE-Geräten.
 Aktivieren Sie alle anderen Adaptermeldungen.
 
 ## Registerkarte
+### Geräte
+<img src="static/tab-devices.png">
+
+<br>
+
+Auf der Seite `devices` gibt es Gerätekarten, auf denen Sie einige Informationen über Geräte und aktuelle Statuswerte sehen und einige davon steuern können.
+
+Außerdem können Sie `friendly name` des Geräts ändern.
+
+_**Hinweis:** Im Moment hat diese Seite grundlegende Funktionen. Es wird in Zukunft gut ausgebaut._
+
 ### Statistik
 <img src="static/tab-statistic.png">
 

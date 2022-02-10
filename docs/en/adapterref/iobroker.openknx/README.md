@@ -306,8 +306,9 @@ Data is sent to Iobroker Sentry server hosted in Germany. If you have allowed io
 
 ## Changelog
 ### 0.1.19 (2022-02-)
-* feature:
-* bugfix:
+* feature: allow usage of same KNX GAs in multiple objects
+* bugfix: less warnings in alias generation
+* bugfix: adapter reset after project import
 
 ### 0.1.18 (2022-01-30)
 * bugfix: issue #61 Alias dialog not working 1st time

@@ -34,6 +34,11 @@ There are knowledge bases that can be useful for working with Zigbee-devices and
 * in Russian https://github.com/kirovilya/ioBroker.zigbee/wiki
 
 ## Changelog
+
+### 1.6.15 (2022-02-08)
+* (arteck) Battery status % calculation was changed for xiaomi devices
+* 
+
 ### 1.6.14 (2022-01)
 * (asgothian) OTA limitation
   - devices with the available state set to false are excluded from OTA updates (and the update check)

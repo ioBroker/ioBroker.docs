@@ -67,6 +67,9 @@ on({id: "ring.0.doorbell_4711.kind"/*Kind*/},  (obj) => {
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 2.0.0-beta.3 (2022-02-08)
+* (theimo1221) Fix adapter checker issues
+
 ### 2.0.0-beta.0 (2022-02-05)
 * (theimo1221) Update packages
 * (theimo1221) Add JS-Controller 4.0 dependency
@@ -184,7 +187,7 @@ on({id: "ring.0.doorbell_4711.kind"/*Kind*/},  (obj) => {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2020 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>
+Copyright (c) 2022 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

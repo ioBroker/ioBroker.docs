@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.node-red/README.md
 title: ioBroker node-red Adapter
-hash: ma/a3NNG2WCpcPI/UD71yZRFacjQFvR/qv73KSDlN80=
+hash: Hepdf/NZ/L9whqqNKIiOn4KWFfh63yiXgLpbfS1rFzg=
 ---
 ![标识](../../../en/adapterref/iobroker.node-red/admin/node-red.png)
 
@@ -20,6 +20,8 @@ hash: ma/a3NNG2WCpcPI/UD71yZRFacjQFvR/qv73KSDlN80=
 
 **注意：** 如果在 ioBroker 节点的选择 ID 对话框中找不到变量，请重新启动节点红色实例。通过重新启动将创建新的对象列表。
 
+**升级到1.17.2：**如果您已经使用过Node-Red认证：请在升级后再次在ioBroker的Node-Red实例设置中设置您的密码！否则升级后您将无法再登录 Node-Red。
+
 ## 设置
 - 安全模式 - 流程不会启动，您可以编辑流程以修复一些过载问题。
 
@@ -28,10 +30,13 @@ hash: ma/a3NNG2WCpcPI/UD71yZRFacjQFvR/qv73KSDlN80=
 ### __工作进行中__ -->
 
 ## Changelog
-### 2.5.0 (2022-xx-xx)
+### __WORK IN PROGRESS__
 * (jwiesel) Changed default setting to "convert data from ioBroker nodes into Strings" to false. Setting will not be changed automatically in instances already running.
 * (jwiesel) "Tail" node has been removed from the default palette in Node-RED 2.0. You can reinstall it from node-red-node-tail.
 * (jwiesel) Node-RED updated to 2.1.4 (incl. restructuring of settings.js)
+
+### 2.4.2 (2022-02-07)
+* (Apollon77) Make compatible with js-controller 4.0
 
 ### 2.4.1 (2021-08-31)
 * (mickym2) Correct min7max for the object creation 

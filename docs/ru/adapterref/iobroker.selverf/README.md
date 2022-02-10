@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.selverf/README.md
 title: ioBroker.seveRF
-hash: hsL3udpLEEdfB6zDKBQzRt4UFZYuQilkr1mo5PMk6PA=
+hash: y+2HHfqEj9eImO8h6DydWXnJNwvwmwOHPqUbaZ/n50M=
 ---
 ![Логотип](../../../en/adapterref/iobroker.selverf/admin/selverf.png)
 
@@ -21,7 +21,12 @@ hash: hsL3udpLEEdfB6zDKBQzRt4UFZYuQilkr1mo5PMk6PA=
 
 [Инструкции по установке см. на вики.](https://github.com/Rintrium/ioBroker.selverf/wiki)
 
+Этот проект не связан с Selve. Это личный проект.
+
 ## Changelog
+### 0.6.2 (2022-01-22)
+* Fix critical error for sensors and senders
+
 ### 0.6.1 (2022-01-19)
 * Stable version release
 * Minor (non functional) changes

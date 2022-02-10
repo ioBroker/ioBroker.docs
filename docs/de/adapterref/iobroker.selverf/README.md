@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.selverf/README.md
 title: ioBroker.selveRF
-hash: hsL3udpLEEdfB6zDKBQzRt4UFZYuQilkr1mo5PMk6PA=
+hash: y+2HHfqEj9eImO8h6DydWXnJNwvwmwOHPqUbaZ/n50M=
 ---
 ![Logo](../../../en/adapterref/iobroker.selverf/admin/selverf.png)
 
@@ -21,7 +21,12 @@ Verbindung mit Selve Aktoren, Sensoren und Sendern über USB-Gateway
 
 [Siehe Wiki für Einrichtungsanweisungen](https://github.com/Rintrium/ioBroker.selverf/wiki)
 
+Dieses Projekt ist nicht mit Selve verbunden. Es ist ein persönliches Projekt.
+
 ## Changelog
+### 0.6.2 (2022-01-22)
+* Fix critical error for sensors and senders
+
 ### 0.6.1 (2022-01-19)
 * Stable version release
 * Minor (non functional) changes

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: 634FL3JYifQ9UK1Dn8r7PTgH1KvfcIoTDWegVnf+kjI=
+hash: VBnLZTz9acrcKjC7PStNAN1GVFTId+gNbMbT2nBCJEY=
 ---
 ![标识](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -23,7 +23,7 @@ ioBroker 的meteoalarm 适配器 ---------------------------------------------- 
 选择你的国家，然后选择你想要警告的地区。如果您不确定您所在地区的名称，请访问 https://meteoalarm.org 并尝试在地图上找到它。
 
 ## 将其添加到您的 vis
-将它添加到您的 vis 的最简单方法是使用小部件基本 - 字符串，然后选择数据点 htmlToday。这为您提供了一个预先设计的 HTML 小部件，您可以在设置中对其进行调整。
+将它添加到 vis 的最简单方法是使用小部件基本 - 字符串，然后选择数据点 htmlToday。这为您提供了一个预先设计的 HTML 小部件，您可以在设置中对其进行调整。
 
 ## 警报类型
 |报警类型|说明|
@@ -53,7 +53,7 @@ ioBroker 的meteoalarm 适配器 ---------------------------------------------- 
 
 “小部件中没有符号”：不要在 HTML 小部件中使用符号。您仍然可以在对象中访问它。如果您想从小部件中单独显示图标，这是有用的 - 例如在更大的尺寸。
 
-“今天而不是工作日” 在小部件的标题中显示，而不是工作日“今天”、“明天”或“昨天”。
+“今天而不是工作日” 在小部件的标题中显示而不是工作日“今天”、“明天”或“昨天”。
 
 ## 警报级别
 |报警等级|说明|
@@ -96,11 +96,15 @@ ioBroker 的meteoalarm 适配器 ---------------------------------------------- 
 * 瑞士
 * 英国
 
-如果你没有找到你的国家，请在 github 上创建一个 issue，我会很乐意添加它
+如果你没有找到你的国家，请在 github 上创建一个 issue，我很乐意添加它
 
 ##不可能的国家
 * 葡萄牙（meteoalarm.org 的地理编码文件可能不正确）
 * 保加利亚（meteoalarm.org 的地理编码文件可能不正确）
+
+## 2.1.1 (2022-02-08)
+* (jack-blackson) 更新了许可证信息
+* (jack-blackson) 修复了 js-controller 4.x 的错误
 
 ## 2.1.0 (2022-02-03)
 * (jack-blackson) 添加了瑞士
@@ -110,7 +114,7 @@ ioBroker 的meteoalarm 适配器 ---------------------------------------------- 
 * (jack-blackson) 爱尔兰修正错误
 
 ## 2.0.9 (2021-11-27)
-* (jack-blackson) 用文字正确计算日期 - 这次是真的 :)
+* (jack-blackson) 用文字正确计算日期 - 这次是真的:)
 
 ## 2.0.10 (2021-12-10)
 * (jack-blackson) 修正 Sentry IOBROKER-METEOALARM-2K
@@ -247,7 +251,7 @@ ioBroker 的meteoalarm 适配器 ---------------------------------------------- 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2021 jack-blackson <blacksonj7@gmail.com>
+Copyright (c) 2019-2022 jack-blackson <blacksonj7@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

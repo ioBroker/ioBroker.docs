@@ -32,6 +32,11 @@ Zigbee-Geräte die nicht in der Liste aufgeführt sind, können zwar gepairt wer
 Es gibt noch ein [Freundschaftprojekt](https://github.com/koenkk/zigbee2mqtt) mit gleichen Funktionen und gleicher Technologie, welcher mit denselben Geräten über ein MQTT Protokoll kommuniziert. Wenn irgendwelche Verbesserungen oder neu unterstütze Geräte im Projekt Zigbee2MQTT eingefügt werden, können jene auch in dieses Projekt hinzugefügt werden. Solltet Ihr unterschiede merken, schreibt bitte ein Issue, wir kümmern uns darum
 
 ## Changelog
+
+### 1.6.15 (2022-02-08)
+* (arteck) Battery status % calculation was changed for xiaomi devices
+* 
+
 ### 1.6.14 (2022-01)
 * (asgothian) OTA limitation
   - devices with the available state set to false are excluded from OTA updates (and the update check)

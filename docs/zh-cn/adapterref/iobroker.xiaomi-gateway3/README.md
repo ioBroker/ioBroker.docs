@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.xiaomi-gateway3/README.md
 title: ioBroker.xiaomi-gateway3
-hash: a84WA/1HW/AdX3cRiK/8nj6A6xfkwmbe2n8LaB7+E2c=
+hash: 8eg2WtQ32z+01fulwtQjQrBx7CLRyhXmv1b6AMK9sg4=
 ---
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.xiaomi-gateway3.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.xiaomi-gateway3.svg)
@@ -18,7 +18,7 @@ hash: a84WA/1HW/AdX3cRiK/8nj6A6xfkwmbe2n8LaB7+E2c=
 
 ## Xiaomi-gateway3 ioBroker 适配器
 该适配器允许 ioBroker 与小米网关 3 通信并使用它来控制小米设备。
-适配器通过 MQTT 协议与网关通信（它连接到内置的 MQTT 代理）。但是，您必须通过 Mi Home (Cloud) 将网关和设备配对。
+适配器通过 MQTT 协议与网关通信（它连接到内置 MQTT 代理）。但是，您必须通过 Mi Home (Cloud) 将网关和设备配对。
 
 ## 早期版本
 适配器目前处于开发阶段。但已经具备随时可用的功能。
@@ -43,7 +43,7 @@ hash: a84WA/1HW/AdX3cRiK/8nj6A6xfkwmbe2n8LaB7+E2c=
 
 您可以使用这些版本的自定义或库存固件刷新网关：[维基](https://github.com/AlexxIT/XiaomiGateway3/wiki)。
 
-__*!!注意：*__ 低于`1.4.7_0000` 的固件版本不支持也不支持。不保证支持低于 `v1.5.0_0026` 的版本。
+__*!!Attantion:*__ 固件版本低于`1.4.7_0000` 适配器不支持也不支持。不保证支持低于 `v1.5.0_0026` 的版本。
 
 ## 支持的设备
 - [x] 测试
@@ -98,8 +98,8 @@ __*!!注意：*__ 低于`1.4.7_0000` 的固件版本不支持也不支持。不�
 - [ ] 宜家灯泡 E14 400 lm (LED1536G5)
 - [ ] 宜家灯泡 E27 1000 流明 (LED1623G12)
 - [ ] 宜家灯泡 E27 950 lm (LED1546G12)
-- []宜家灯泡 E27 980 lm (LED1545G12)
-- [ ] 宜家 GU10 灯泡 400 lm (LED1537R6,LED1650R5)
+- [ ] 宜家灯泡 E27 980 lm (LED1545G12)
+- [ ] 宜家灯泡 GU10 400 lm (LED1537R6,LED1650R5)
 - [x] 小米按钮 (WXKG01LM)
 - [x] 小米门磁 (MCCGQ01LM)
 - [ ] 小米光传感器 (GZCGQ01LM)
@@ -146,23 +146,21 @@ _**注意：** BLE 设备在配对后第一次可能没有状态，因为我不�
 
 默认情况下`timeout`状态值未设置，并且`long_press`将在开始按住按钮后 1 秒内释放，即使您仍然按住它。如果您将 `long_timeout` 设置为 -1 超时将被完全忽略，并且状态将仅通过来自按钮的消息“释放”。
 
-在大多数情况下，将 `timeout` 设置为 4 或 5 秒之类的小值是合理的。
+在大多数情况下，将 `timeout` 设置为某个小值（如 4 或 5 秒）是合理的。
 
 ### `Occupancy`和`Occupancy timeout`
 RTCGQ11LM 和其他运动传感器在运动检测后有 5 到 60 秒的延迟（超时）（取决于版本和修改）。这意味着在此期间无法检测到新的运动（技术上传感器不发送消息）。
 
 `occupancy`当传感器检测到运动并保持_**真**_时变为_**真**_。
 
-当传感器可以再次发送消息时，`occupancy_timeout` 的目标设置为 `occupancy` 为 _**false**_。默认情况下，`occupancy_timeout`未设置，`occupancy`在 60 秒后返回 _**false**_。如果您的传感器有不同的延迟，最好将 `occupancy_timeout` 设置为该延迟值。
+当传感器可以再次发送消息时，`occupancy_timeout` 的目标设置为 `occupancy` 为 _**false**_。默认情况下`occupancy_timeout`未设置，`occupancy`在 60 秒后返回 _**false**_。如果您的传感器有不同的延迟，最好将 `occupancy_timeout` 设置为该延迟值。
 
 如果您想在检测到运动后立即返回 _**false**_，您可以将 `occupancy_timeout` 设置为 1 秒。
 
 ＃＃ 配置
 要连接网关，您需要获取网关的 IP 和 TOKEN。您可以手动或从云端执行此操作。
 
-_**注意：**从云端获取设备存在问题。我还没有得到代码或云的这个问题，但是你现在应该尝试多次获取（按下按钮）设备（直到你最终得到）。
-
-此外，您还必须选择 telnet open 命令（在大多数情况下是选项 #2）。您可以通过按钮测试连接和远程登录。
+您还必须选择 telnet open 命令（在大多数情况下选项 #2）。您可以通过按钮测试连接和远程登录。
 
 *这里 ping 不是真正的 ping。这是对设备可用性的更多检查。*
 
@@ -206,7 +204,7 @@ _**注意：**从云端获取设备存在问题。我还没有得到代码或云
 将设备数据库文件移动到内存。这可以改善 zigbee 和蓝牙设备的工作。 __*但可能会丢失一些数据。使用风险自负。*__
 
 ### 日志设置
-_**注意：要在 ioBroker 日志中查看调试消息，您必须在 `Instances` 页面下为适配器设置 `debug` 日志级别（将专家模式切换为启用）**_
+_**注意：**要在 ioBroker 日志中查看调试消息，您必须在 `Instances` 页面下为适配器设置 `debug` 日志级别（将专家模式切换为启用）_
 
 - [x] __调试日志__<br/>
 
@@ -225,6 +223,17 @@ _**注意：要在 ioBroker 日志中查看调试消息，您必须在 `Instance
 启用所有其他适配器消息。
 
 ##标签页
+＃＃＃ 设备
+<img src="static/tab-devices.png">
+
+<br>
+
+`devices`页面上有设备卡，您可以在其中查看有关设备、当前状态值的一些信息，并可以控制其中一些。
+
+您也可以更改设备的`friendly name`。
+
+_**注意：**目前此页面具有基本功能。将来会很好地扩展。_
+
 ＃＃＃ 统计
 <img src="static/tab-statistic.png">
 

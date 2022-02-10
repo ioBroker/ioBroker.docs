@@ -212,6 +212,15 @@ Der Offset kann alle Abholtermine im Kalender in die Zukunft oder in die Vergang
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (klein0r) Updated state roles
+* (klein0r) Added hint for Admin 4 configuration
+
+### 1.4.2 (2022-02-07)
+
+* (klein0r) Added check for ical configuration
+
 ### 1.4.1 (2021-12-23)
 
 * (klein0r) Updated dependencies

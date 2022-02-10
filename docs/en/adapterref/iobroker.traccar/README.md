@@ -89,7 +89,7 @@ This adapter imports in real time the position and the extended data from [Tracc
 
 MIT License
 
-Copyright (c) 2021 Dennis Rathjen <info@bastelbunker.de>
+Copyright (c) 2022 Dennis Rathjen <info@bastelbunker.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

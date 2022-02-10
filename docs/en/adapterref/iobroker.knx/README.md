@@ -240,6 +240,14 @@ relation.
 -->
 
 ## Changelog
+### 2.0.10
+* import of ETS6.0.2 projects **ETS6.0.1 not possible**
+* bugfixes
+
+### 2.0.9
+* import password protected project files
+* bug fixes
+
 ### 2.0.8
 * fixed bug with unackn write
 * fixed bug in linkedState

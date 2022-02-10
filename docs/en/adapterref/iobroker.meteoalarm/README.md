@@ -106,6 +106,11 @@ If you don't find your country, please create an issue on github, and I will be 
 
 
 ## Changelog
+
+## 2.1.1 (2022-02-08)
+* (jack-blackson) Updated License Info
+* (jack-blackson) Fixed errors for js-controller 4.x
+
 ## 2.1.0 (2022-02-03)
 * (jack-blackson) Added Switzerland
 
@@ -223,7 +228,7 @@ Bell in icon designed by Freepik from www.flaticon.com
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2021 jack-blackson <blacksonj7@gmail.com>
+Copyright (c) 2019-2022 jack-blackson <blacksonj7@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

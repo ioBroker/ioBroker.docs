@@ -37,9 +37,9 @@ Fast Web-App for Visualization.
 <img src="img/screenshot_heizung.png" width="200">
 <img src="img/screenshot_rauchmelder.png" width="200">
 <img src="img/screenshot_flot.png" width="200">
-<img src="img/screenshot_dslraser.jpg" width="200" alt="&copy; by dslraser"> &copy; by dslraser
-<img src="img/screenshot_muuulle.jpg" width="200" alt="&copy; by muuulle"> &copy; by muuulle
-<img src="img/screenshot_peks-67.jpg" width="200" alt="&copy; by peks-67"> &copy; by peks-64
+&copy; by dslraser: <img src="img/screenshot_dslraser.jpg" width="200" alt="&copy; by dslraser">
+&copy; by muuulle:<img src="img/screenshot_muuulle.jpg" width="200" alt="&copy; by muuulle">
+&copy; by peks-64:<img src="img/screenshot_peks-67.jpg" width="200" alt="&copy; by peks-67">
 
 Runs in any Browser. 
 Easy to setup, allthough it's fully customizable and responsive.
@@ -1677,10 +1677,14 @@ This device has some special predefined size- and display-settings to show a tex
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.0.0-rc1.2 (2022-02-09)
+* (sbormann) Fixed counting of logs.
+* (sbormann) Lists are now saved as readonly and with ack=true.
 
-### **WORK IN PROGRESS**
-* (sbormann) Kompatibility to new ioBroker websocket.
+### 2.0.0-rc1.1 (2022-02-08)
+* (sbormann) Kompatibility to new ioBroker websocket established.
 * (sbormann) Enhanced datapoint-rcognition in json-table-widget.
+* (sbormann) Fixed INFO A/B icon brightness-setting for dark mode.
 
 ### 2.0.0-rc1.0 (2022-02-04)
 * (sbormann) Introducing a powerful new feature: Lists and Counters.

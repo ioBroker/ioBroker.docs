@@ -5,7 +5,6 @@
 ![Number of Installations (stable)](http://iobroker.live/badges/vis-inventwo-stable.svg)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.vis-inventwo.svg)](https://www.npmjs.com/package/iobroker.vis-inventwo)
 ![Number of Installations (latest)](http://iobroker.live/badges/vis-inventwo-installed.svg)
-[![Dependency Status](https://img.shields.io/david/inventwo/iobroker.vis-inventwo.svg)](https://david-dm.org/inventwo/iobroker.vis-inventwo)
 [![Known Vulnerabilities](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo/badge.svg)](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo)
 [![Build status](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)](https://ci.appveyor.com/project/inventwo/iobroker-vis-inventwo)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/inventwo/iobroker.vis-inventwo/LICENSE)

@@ -173,8 +173,6 @@ If you want to back to _**false**_ right after motion detected you can set `occu
 
 To connect a gateway you need get IP and TOKEN of gateway. You can do this manually or from cloud.
 
-_**Attantion:** There is issue with getting devices from cloud. I don't get yet is this issue with code or with cloud, however you should try to get (press button) devices several times (until you finally get), for now._
-
 Also you have to chose telnet open command (in most cases option #2). You can test connection and telnet by buttons.
 
 *Ping here not actually ping. It is more check of device availability.*
@@ -217,7 +215,7 @@ Move devices DB files to memory. This can improve work zigbee and bluetooth devi
 
 ### Logging settings
 
-_**Note: To see debug messages in ioBroker log you have to set `debug` log level  for adapter under `Instances` page (toggle expert mode into enabled)**_
+_**Note:** To see debug messages in ioBroker log you have to set `debug` log level  for adapter under `Instances` page (toggle expert mode into enabled)_
 
 - [x] __Debug log__<br/>
 Enable debug logging. If disabled other logging options has no effect.
@@ -233,6 +231,18 @@ Enable all other adapter messages.
 
 
 ## Tab page
+
+### Devices
+
+<img src="static/tab-devices.png">
+
+<br>
+
+There are devices cards on `devices` page in which you can see some info about device, current states values and can control some of them.
+
+Also you can change `friendly name` of device.
+
+_**Note:** For now this page has basic functional. It well be expanded in future._
 
 ### Statistic
 

@@ -259,7 +259,7 @@ With +-Button new entries can be added to the table.
 ## License
 MIT License
 
-Copyright (c) 2021 Ralf Gaudes <ralf@gaudes.net>
+Copyright (c) 2022 Ralf Gaudes <ralf@gaudes.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

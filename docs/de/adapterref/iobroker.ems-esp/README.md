@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: rIRMCKYKYkYUqBkMJA/yB4E9eFI7GjeGnBgpyZIgOVA=
+hash: C/xUp7La1rBt/FRuF0vIgIpbpWzp4PULaWRI4/QY5Zg=
 ---
 ![Logo](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -24,13 +24,14 @@ Der Adapter unterstützt eine Schnittstelle zu den Heizsystemen der Bosch-Gruppe
 Es kann über Web-API-Aufrufe mit dem Heizsystem verbunden werden:
 
 * km200, km200 hrv, km100, km50 oder IP-inside (aus der Bosch-Gruppe)
-* ems-esp-Schnittstelle (https://github.com/emsesp/EMS-ESP32) mit aktueller Dev-Version (siehe unten) und dem ESP32-Chip. Auch die alten ESP8266-Gateways werden teilweise unterstützt.
+* ems-esp-Schnittstelle (https://github.com/emsesp/EMS-ESP32) mit aktueller Dev-Version (siehe unten) und dem ESP32-Chip.
+* Bis zu dieser Version werden auch die alten ESP8266 Gateways mit API V2 unterstützt.
 
 Der ems-esp Adapter kann Daten zum ems-Bus lesen und schreiben, der alle Heizungskomponenten steuert.
 Es kann entweder für die Original-Gateways der Bosch-Gruppe oder das ems-esp oder beide parallel verwendet werden.
 
-Der Adapter ist für das ems-esp Gateway mit neusten Firmware-Versionen von ESP32 >= v3.3.0 getestet.
-Alte Systeme mit einem ESP 8266 werden offiziell nicht mehr unterstützt, könnten aber noch funktionieren.
+Der Adapter ist für das ems-esp Gateway mit neusten Firmware-Versionen von ESP32 >= v3.3.1 getestet.
+Alte Systeme mit einem ESP 8266 werden nur noch bis zu dieser Adapterversion unterstützt.
 
 WICHTIGE EINSTELLUNGEN im EMS-ESP:
 
@@ -85,6 +86,25 @@ Es besteht die Möglichkeit, die Zustandsstruktur neu aufzubauen, indem Zuständ
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2022-02-07)
+* last tested version for old ems-esp ESP8266 with API V2.
+* support for KM200 HRV (ventilation)
+* corrections for km200 recordings and statistics module
+* prepare for ems-esp firmware 3.4
+
+### 1.0.14 (2022-02-07)
+* adjust paths in io-package.json
+
+### 1.0.13 (2022-02-07)
+* last tested version for old ems-esp ESP8266 with API V2.
+* No support for future adapter versions anymore - please upgrade to ESP32.
+* support for KM200 HRV (ventilation)
+* corrections for km200 recordings and statistics module
+* prepare for ems-esp firmware 3.4
+
+### 1.0.12 (2022-02-06)
+* update statistics states
+
 ### 1.0.11 (2022-02-01)
 * support for KM200 HRV (ventilation)
 * corrections on recordings for 1st day of month

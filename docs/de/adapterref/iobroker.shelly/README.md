@@ -40,6 +40,10 @@ Der Adapter kann über CoAP oder MQTT mit den Geräten kommunizieren. Der Standa
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (klein0r) Just perform firmware update if an available update was detected
+
 ### 5.1.2 (2022-01-29)
 * (klein0r) Fixed Shelly UNI ADC voltage
 * (klein0r) Fixed dimmer brightness values handling

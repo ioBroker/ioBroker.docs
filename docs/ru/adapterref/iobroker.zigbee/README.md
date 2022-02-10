@@ -32,6 +32,11 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.zigbee.svg
 Поэтому, если какие-либо улучшения или поддержка новых zigbee-устройств происходит в проекте Zigbee2MQTT, то можно перенести и добавить этот же функционал в этот драйвер. Если заметили это, то напиши issue - перенесем.
 
 ## Changelog
+
+### 1.6.15 (2022-02-08)
+* (arteck) Battery status % calculation was changed for xiaomi devices
+* 
+
 ### 1.6.14 (2022-01)
 * (asgothian) OTA limitation
   - devices with the available state set to false are excluded from OTA updates (and the update check)
