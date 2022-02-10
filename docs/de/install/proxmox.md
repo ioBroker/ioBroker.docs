@@ -164,10 +164,10 @@ Ersetze die markierten Werte mit den vermerkten Einträgen aus deiner Notiz!
 
 Die Konfigurationsdatei abspeichern (Im Nano Editor mit der Tastenkombination: STRG + o & STRG + x zum beenden des Editors)
 
-> ACHTUNG! Sollte dein Container aktive Snapshots besizen:
+> ACHTUNG! Sollte dein Container aktive Snapshots besitzen:
 
 <details>
-Snapshots erkennst du in der Config Datei an der Bezeichnung [SNAPSHOTSNAME] dabei entspricht der letzte Eintrag deiner Config Datei deinem aktuellen Live Zustand, da mit der Entfernung eines Snapshots auch die Code Anpassung mit entfernt wird, füge den Code am besten wie im Screenshot zusehen dem lxc und allen Snapshots hinzu.
+Dann gehört der lxc.cgroup Code nicht an das Ende der Config Datei sondern vor den ersten Eintrag eines Snaphots. 
 
 ![proxmoxlxc18](media/proxmox/proxmoxlxc18.PNG)
 
