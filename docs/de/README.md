@@ -25,7 +25,7 @@ ioBroker Insellösungen bleiben würden, anzubinden und so übergreifend zu steu
 ioBroker ist daher **die** Integrationsplattform für das Internet der Dinge und ermöglicht die Einbindung von kommerziellen Produkten aus fast allen Lebensbereiche oder die Integration einer selbst erstellten Lösung.
 
 Das ioBroker-System ist modular aufgebaut und kann durch die Installation von einzelnen [Adaptern][] um die individuellen Wünsche erweitert werden. 
-Über 450 Adaptern realisieren die Einbindung von verschiedenen Plattformen, Systemen und Geräten von A wie Alexa bis Z und viele weitere Möglichkeiten zur Automatiserung.
+Über 450 Adaptern realisieren die Einbindung von verschiedenen Plattformen, Systemen und Geräten von A wie Alexa bis Z wie Zigbee und viele weitere Möglichkeiten zur Automatiserung.
 
 <br>
 
@@ -84,11 +84,16 @@ In einem Skript kann z.B. ein Wert von einem Adapter überwacht werden (Urlaub i
 
 In ioBroker können diese individuellen Abläufe durch Drag and Drop von Bausteinen (grafische Programmierung) in "Rules" oder "Blockly" realisiert werden oder in klassischer Form mit "Javascript" oder "Typescript" in Form von geschriebenem Quellcode. 
 
-Weitere Erklärungen zu den Logikbausteinen werden in der Doku im Abschnitt "Logik und Automatisierung" erläutert.
+Weitere Erklärungen zu den Logikbausteinen und auch weiteren wie Node-Red oder Szenen-Adapter werden in der Doku im Abschnitt "Logik und Automatisierung" erläutert.
 
 <br>
 
 ## Visualisierung
+
+
+### VIS
+[Adapterseite vis][]
+
 ioBroker stellt mit `VIS` ein mächtiges Tool zur Erstellung einer individuellen 
 Visualisierung zur Verfügung. Aktuelle Werte von Sensoren können genau so wie 
 historische Verläufe grafisch aufbereitet dargestellt werden. Live-Bilder von 
@@ -107,8 +112,61 @@ dabei auf die unterschiedlichsten Endgeräte abgestimmt werden - vom Smartphone
 über das Wandtablet mit Touchfunktion bis hin zum Personal Computer - alles kann 
 durch einfaches Drag and Drop realisiert werden. 
 
-Einfache vorgefertigte Bedienoberflächen können mit dem Material- oder dem 
-HabPanel-Adapter schnell realisiert werden.
+![](media/iobroker-visualisation-vis.png)
+
+<br>
+
+![](media/iobroker-visualisation-vis-wetter.png)
+
+
+
+<br>
+
+### Material UI
+React und Material UI interface.
+
+[Adapterseite Material][]
+
+![](media/iobroker-visualisation-material.png)  
+
+<br>
+
+### Jarvis
+[Adapterseite Jarvis][]
+
+jarvis ist eine Material Design Visualisierung, die auf Material UI basiert. jarvis gibt eine Struktur und Module vor, die zur Visualisierung genutzt werden, aber sehr flexibel konfiguriert werden können.
+
+jarvis ist responsive und passt sich der Größe des Screens an und bietet ein standardisiertes Design, so dass in kurzer Zeit eine Visualisierung zusammengestellt. werden kann
+
+Das Layout ist flexibel konfigurierbar. Es können optional (beliebig viele) Tabs verwendet werden. Jeder Tab kann entweder fullscreen sein oder beliebig viele columns haben, die die einzelnen modules in flexibler Reihenfolge beinhalten.
+
+**Beispielbild einfügen !!!**
+
+https://forum.iobroker.net/topic/37661/showcase-jarvis-just-another-remarkable-vis/91?_=1644617861709
+
+<br>
+
+### iQontrol
+
+TEMP
+https://forum.iobroker.net/topic/52077/iqontrol-vis-support-thread?_=1644618646229
+
+![](media/iobroker-visualisation-iqontrol.png)
+
+<br>
+
+### Lovelace
+
+[Adapterseite lovelace][]
+
+Mit diesem Adapter kann die HomeAssistant UI Lovelace für ioBroker genutzt werden.
+Lovelace ist responsive, passt sich also automatisch an das Display an (PC, Tablet, Smartphone, ...)
+Es lassen sich schnell hübsche UIs erstellen mit Hilf der Cards
+Der Editor ist in die UI integriert und weitgehend WYSIWYG (What you see is what you get)
+
+
+![](media/iobroker-visualisation-lovelace.png)  
+
 
 <br>
 
@@ -201,3 +259,7 @@ Auf [ioBrokerStatistics][] findet ihr eine Übersichtsseite mit ein paar interes
 [foxriver76]: https://github.com/foxriver76
 [AlCalzone]: https://github.com/AlCalzone
 [ioBrokerStatistics]: https://www.iobroker.net/#de/statistics
+[Adapterseite Material]: https://www.iobroker.net/#de/adapters/adapterref/iobroker.material/README.md
+[Adapterseite Jarvis]: https://www.iobroker.net/#de/adapters/adapterref/iobroker.jarvis/README.md
+[Adapterseite vis]: https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis/README.md
+[Adapterseite lovelace]:https://www.iobroker.net/#de/adapters/adapterref/iobroker.lovelace/README.md
