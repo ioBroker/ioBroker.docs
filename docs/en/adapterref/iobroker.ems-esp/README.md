@@ -74,6 +74,9 @@ There is an option to re-build the state-structure by deleting states on adapter
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.1.1 (2022-02-11)
+* Improve tests on km200 ip-address and passwords
+
 ### 1.1.0 (2022-02-07)
 * last tested version for old ems-esp ESP8266 with API V2.
 * support for KM200 HRV (ventilation)

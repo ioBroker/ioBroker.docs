@@ -1,52 +1,37 @@
 ---
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.birthdays.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.birthdays.svg
+BADGE-Stable: http://iobroker.live/badges/birthdays-stable.svg
+BADGE-installed: http://iobroker.live/badges/birthdays-installed.svg
+BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.birthdays.svg
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.birthdays/badge.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.birthdays.png?downloads=true
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.birthdays/README.md
-title: ioBroker. дни рождения
-hash: kCfQvkZ4tMuXCDMcKFXfsCYUe7J1yG0ieoLT3iWNa3I=
+title: ioBroker.дни рождения
+hash: i8jm2htDCET3736KrzWMOj/Z/fZrrXwRpvRQyO0JB1k=
 ---
-![Логотип](../../../en/adapterref/iobroker.birthdays/admin/birthdays.png)
+![Логотип](../../../en/adapterref/iobroker.birthdays/../../admin/birthdays.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.birthdays.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.birthdays.svg)
-![Стабильный](http://iobroker.live/badges/birthdays-stable.svg)
-![установлен](http://iobroker.live/badges/birthdays-installed.svg)
-![Статус зависимости](https://img.shields.io/david/klein0r/iobroker.birthdays.svg)
-![Известные уязвимости](https://snyk.io/test/github/klein0r/ioBroker.birthdays/badge.svg)
-![НПМ](https://nodei.co/npm/iobroker.birthdays.png?downloads=true)
-
-# IoBroker.birthdays
-![Тестирование и выпуск](https://github.com/klein0r/ioBroker.birthdays/workflows/Test%20and%20Release/badge.svg)
-
-Используйте файл ical для импорта дней рождения контактов или укажите даты рождения прямо в настройках адаптера.
-
-## При финансовой поддержке
-[![ioBroker Master Kurs] (https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-birthdays)
-
-## Установка
-Используйте «список адаптеров» в ioBroker, чтобы установить стабильную версию этого адаптера. Вы также можете использовать интерфейс командной строки для установки этого адаптера:
-
-```
-iobroker add birthdays
-```
-
-## Конфигурация
-Вы можете использовать ical url для доступа к календарю дней рождений. Адаптер будет искать все события в этом файле.
+# IoBroker.дни рождения
+## ICal
+Вы можете использовать ical URL, чтобы предоставить доступ к календарю вашего дня рождения. Адаптер будет искать все события в этом файле.
 
 Ваши события
 
 1. в описании должен быть указан год рождения (например, 1987)
 2. мероприятия на целый день
-3. должны «повторяться ежегодно»
+3. нужно «повторять ежегодно»
 
-НЕ ОБЯЗАТЕЛЬНО использовать опцию ical. Вы также можете указать все даты рождения в настройках. *Когда вы используете оба варианта, информация будет объединена.*
+НЕ обязательно использовать опцию ical. Вы также можете указать все даты рождения в настройках. *При использовании обоих вариантов информация будет объединена.*
 
-![Пример календаря](../../../en/adapterref/iobroker.birthdays/images/exampleCalendar.png)
+![Пример календаря](../../../en/adapterref/iobroker.birthdays/../exampleCalendar.png)
 
-## Пример (блочно)
-(требуется пустышка)
+## Пример (блочный)
+(требует отжимания)
 
-![Пример блока](../../../en/adapterref/iobroker.birthdays/images/exampleBlockly.png)
+![Блочный пример](../../../en/adapterref/iobroker.birthdays/../exampleBlockly.png)
 
 ```xml
 <xml xmlns="https://developers.google.com/blockly/xml">
@@ -213,15 +198,28 @@ iobroker add birthdays
 </xml>
 ```
 
-## Кредиты
-[Логотип herbanu](https://pixabay.com/de/vectors/geburtstag-karte-cele-feier-design-3148707/)
-
 ## Changelog
 
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2022-02-10)
+
+* (klein0r) Updated state roles
+* (klein0r) Added hint for Admin 4 configuration
+* (klein0r) Fixed translations
+
+### 0.2.0 (2022-01-06)
+
+* (klein0r) Added option to ignore certificate errors
+
+### 0.1.8 (2022-01-03)
+
+* (klein0r) Birthdays on 29th of February create NaN objects
+* (klein0r) Added check for empty names
+* (klein0r) Added date checks
+
 ### 0.1.7 (2021-12-23)
 
 * (klein0r) Added defaults for birthdays table
@@ -272,7 +270,7 @@ iobroker add birthdays
 
 The MIT License (MIT)
 
-Copyright (c) 2021 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

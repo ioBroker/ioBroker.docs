@@ -58,6 +58,10 @@ In addition to the states in non-extended mode, the following values are availab
 -->
         
 ## Changelog
+### **WORK IN PROGRESS**
+* Updated dependencies
+* Compatibility check for js-controller 4.0
+
 ### 0.6.4 (2021-08-19)
 * (TGuybrush) Bug fixes
   * Prevent warnings regarding non-existent objects upon adapter instance creation and start-up under js-controller 3.2.x
@@ -124,7 +128,7 @@ The authors are in no way endorsed by or affiliated with SMA Solar Technology AG
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2021 IoBroker-Community
+Copyright (c) 2022 IoBroker-Community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

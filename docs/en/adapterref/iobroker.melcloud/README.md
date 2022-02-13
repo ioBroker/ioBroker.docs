@@ -17,7 +17,7 @@
 
 ## melcloud adapter for ioBroker
 
-This adapter integrates Mitsubishi air conditioning systems via MELCloud (https://www.melcloud.com/) into ioBroker.
+This adapter integrates Mitsubishi Electric devices via MELCloud (https://www.melcloud.com/) into ioBroker.
 
 Documentation:
 
@@ -30,6 +30,9 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+* (Black-Thunder) Added support for air to water devices (e.g. heatpumps)
+
 ### 1.1.6 (2022-02-06)
 * (Black-Thunder) fixed warnings
 

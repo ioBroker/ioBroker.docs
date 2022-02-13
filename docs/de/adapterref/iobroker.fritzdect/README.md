@@ -67,6 +67,9 @@ Vergleichbar für den Soll-/Istverlaufs ist demnach atualtemp und targettemp.
 Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig Information ist der debug modus über die Experteneinstellung der Instanz vorzuwählen.
 
 ## Changelog
+### 2.2.6
+* new objects for thermostat adaptiveHeatingRunning, adaptiveHeatingActive
+
 ### 2.2.5
 * several improvements for error handling
 * handling of invalid xml-answer for check user rights

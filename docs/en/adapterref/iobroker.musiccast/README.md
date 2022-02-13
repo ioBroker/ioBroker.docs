@@ -1,12 +1,13 @@
 ![Logo](admin/musiccast.png)
 # ioBroker.musiccast
 
-![Number of Installations](http://iobroker.live/badges/musiccast-installed.svg) ![Number of Installations](http://iobroker.live/badges/musiccast-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.musiccast.svg)](https://www.npmjs.com/package/iobroker.musiccast)
+![Number of Installations](http://iobroker.live/badges/musiccast-installed.svg) 
+![Number of Installations](http://iobroker.live/badges/musiccast-stable.svg) 
+[![NPM version](http://img.shields.io/npm/v/iobroker.musiccast.svg)](https://www.npmjs.com/package/iobroker.musiccast)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.musiccast.svg)](https://www.npmjs.com/package/iobroker.musiccast)
-[![Build Status](https://travis-ci.org/foxthefox/ioBroker.musiccast.svg?branch=master)](https://travis-ci.org/foxthefox/ioBroker.musiccast)
 
+**Tests:** ![Test and Release](https://github.com/foxthefox/ioBroker.musiccast/workflows/Test%20and%20Release/badge.svg)
 
-[![NPM](https://nodei.co/npm/iobroker.musiccast.png?downloads=true)](https://nodei.co/npm/iobroker.musiccast/)
 
 adapter for Yamaha MusicCast devices like WX-010/030, YSP-1600
 
@@ -199,12 +200,16 @@ The following objects are currently implemented:
 * dialog level
 
 ## Changelog
+### 1.0.01
+* changed algorithm for developer support 
+
 ## 1.0.0 BREAKING CHANGES
 * the deviceId was previously the systemId, which is not unique. Now the deviceId is used, this is changing the object tree
 * musiccast API 2.0.0
 * device search can now returns more than 1 device
 * new output for developer in the the admin panel
 * more async/await
+* corrected testing
 
 #### 0.2.2
 * musiccast API 0.0.14

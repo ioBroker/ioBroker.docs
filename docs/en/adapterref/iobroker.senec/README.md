@@ -3,7 +3,6 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.senec.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.senec.svg
 BADGE-Number of Installations (latest): http://iobroker.live/badges/senec-installed.svg
 BADGE-Number of Installations (stable): http://iobroker.live/badges/senec-stable.svg
-BADGE-Dependency Status: https://img.shields.io/david/nobl/iobroker.senec.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/nobl/ioBroker.senec/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.senec.png?downloads=true
 ---
@@ -563,6 +562,13 @@ This channel contains calculated values. Currently these are day/week/month/year
    *Read-only text, which designates the serial number of wallbox [0..3].*
 
 ## Changelog
+### 1.3.4 (NoBl)
+* Moved from request to axios
+* Added more state attributes (if you have updated descriptions or anything, please open an issue!)
+
+### 1.3.3 (NoBl)
+* Updated to current template.
+
 ### 1.3.2 (NoBl)
 * Autarky without decimal places (again). They are causing more updates than we really need.
 * Autarky values won't reset to 0 at change of timeframe (day, week, ...) anymore. They are calculated based on reference values anyways.
@@ -595,7 +601,7 @@ This channel contains calculated values. Currently these are day/week/month/year
 ## License
 MIT License
 
-Copyright (c) 2021 Norbert Bluemle <github@bluemle.org>
+Copyright (c) 2022 Norbert Bluemle <github@bluemle.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: HI9BpKYvxkkgAaAo8bKOlSHvyKzg/VDgvLboIOi5pBI=
+hash: 4+DnDllALH8CcqihFgOVDMG83D43CNMU9TNXP3FJNzA=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -11,7 +11,6 @@ hash: HI9BpKYvxkkgAaAo8bKOlSHvyKzg/VDgvLboIOi5pBI=
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/vis-inventwo-stable.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-inventwo.svg)
 ![Anzahl der Installationen (neueste)](http://iobroker.live/badges/vis-inventwo-installed.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/inventwo/iobroker.vis-inventwo.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo/badge.svg)
 ![Build-Status](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)
 ![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
@@ -50,6 +49,13 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 [![Ausgaben](http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
+
+## 3.2.8
+- Radiobutton-Liste: Mehrzeilige/Mehrspaltige Darstellung möglich [#393](https://github.com/inventwo/ioBroker.vis-inventwo/issues/393)
+- JSON-Tabelle: Textausrichtung für Kopfzeile hinzugefügt [#394](https://github.com/inventwo/ioBroker.vis-inventwo/issues/394)
+
+## 3.2.7
+- BEHOBEN: Popup schließt nicht bei Datenpunktwert
 
 ## 3.2.6
 - JSON-Tabelle: Hintergrund pro Zeile in Abhängigkeit eines Wertes färben [#280](https://github.com/inventwo/ioBroker.vis-inventwo/issues/280)
@@ -355,7 +361,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Werteliste hinzugefügt (Kann Liste aus einem Datenpunkt oder manuell eingetragenem Text erstellen)
 
 ## 1.3.8
-- Schiebereglerschritt auf Dezimal geändert
+- Schieberschritt auf Dezimal geändert
 - Problem mit numerischen Werten behoben
 
 ### 1.3.7
