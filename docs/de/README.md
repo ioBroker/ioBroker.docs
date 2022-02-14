@@ -94,15 +94,11 @@ Weitere Erklärungen zu den Logikbausteinen und auch weiteren wie Node-Red oder 
 ### VIS
 [Adapterseite vis][]
 
-ioBroker stellt mit `VIS` ein mächtiges Tool zur Erstellung einer individuellen 
+ioBroker stellt mit dem Adapter VIS (Visualisierung) ein mächtiges Tool zur Erstellung einer individuellen 
 Visualisierung zur Verfügung. Aktuelle Werte von Sensoren können genau so wie 
 historische Verläufe grafisch aufbereitet dargestellt werden. Live-Bilder von 
 Überwachungskameras, die Implementierung einer Alarmanlage, Heizungssysteme und 
 Klimatechnik - fast alles was vorstellbar ist, kann auch umgesetzt werden. 
-
-*Beispiel für eine selbst erstellte VIS-Benutzeroberfläche*
-![VIS](media/vis2.png)  
-
 
 Dabei hat der Anwender maximale Gestaltungsfreiheit. Vorgefertigte Bausteine zur 
 einfachen Verwendung helfen dem Anwender dabei. Doch nicht nur die Anzeige von 
@@ -116,6 +112,8 @@ durch einfaches Drag and Drop realisiert werden.
 
 <br>
 
+![VIS](media/vis2.png)  
+<br>
 ![](media/iobroker-visualisation-vis-wetter.png)
 
 
@@ -140,18 +138,16 @@ jarvis ist responsive und passt sich der Größe des Screens an und bietet ein s
 
 Das Layout ist flexibel konfigurierbar. Es können optional (beliebig viele) Tabs verwendet werden. Jeder Tab kann entweder fullscreen sein oder beliebig viele columns haben, die die einzelnen modules in flexibler Reihenfolge beinhalten.
 
-**Beispielbild einfügen !!!**
-
-https://forum.iobroker.net/topic/37661/showcase-jarvis-just-another-remarkable-vis/91?_=1644617861709
+![](media/iobroker-visualisation-jarvis.png)
+![](media/iobroker-visualisation-jarvisDevices.png)
 
 <br>
 
 ### iQontrol
 
-TEMP
-https://forum.iobroker.net/topic/52077/iqontrol-vis-support-thread?_=1644618646229
+Video [iQontrol Demo Video][]
 
-![](media/iobroker-visualisation-iqontrol.png)
+![](media/iobroker-visualisation-iqontrol.png) 
 
 <br>
 
@@ -168,6 +164,7 @@ Der Editor ist in die UI integriert und weitgehend WYSIWYG (What you see is what
 ![](media/iobroker-visualisation-lovelace.png)  
 
 
+<br>
 <br>
 
 
@@ -263,3 +260,4 @@ Auf [ioBrokerStatistics][] findet ihr eine Übersichtsseite mit ein paar interes
 [Adapterseite Jarvis]: https://www.iobroker.net/#de/adapters/adapterref/iobroker.jarvis/README.md
 [Adapterseite vis]: https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis/README.md
 [Adapterseite lovelace]:https://www.iobroker.net/#de/adapters/adapterref/iobroker.lovelace/README.md
+ [iQontrol Demo Video]: https://www.youtube.com/watch?v=QHgmrzMmcX4&list=PL8epyNz8pGEv6-R8dnfXm-m5aBlZFKOBG&index=1
