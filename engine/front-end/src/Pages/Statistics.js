@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+import clsx from 'clsx';
+
 import Paper from '@material-ui/core/Paper';
 import IconButton from '@material-ui/core/IconButton';
 import Table from '@material-ui/core/Table';
@@ -136,7 +138,7 @@ class Statistics extends Component {
     }
 
     renderMap() {
-        return <Paper key="map" className={this.props.classes.paper + ' ' + this.props.classes.paperMap}>
+        return <Paper key="map" className={clsx(this.props.classes.paper, this.props.classes.paperMap)}>
             <IconButton
                 className={this.props.classes.iframeButton}
                 title={I18n.t('Open in new window')}
@@ -157,18 +159,18 @@ class Statistics extends Component {
         return <Table key="table" padding="dense" className={this.props.classes.table}>
             <TableHead>
                 <TableRow>
-                    <TableCell className={this.props.classes.tableCell + ' ' + this.props.classes.tableColumnVersion} align="right">{I18n.t('Country')}</TableCell>
-                    <TableCell className={this.props.classes.tableCell + ' ' + this.props.classes.tableColumnCount} align="left">{I18n.t('Count')}</TableCell>
-                    <TableCell className={this.props.classes.tableCell + ' ' + this.props.classes.tableColumnPercent} align="left">%</TableCell>
+                    <TableCell className={clsx(this.props.classes.tableCell, this.props.classes.tableColumnVersion)} align="right">{I18n.t('Country')}</TableCell>
+                    <TableCell className={clsx(this.props.classes.tableCell, this.props.classes.tableColumnCount)} align="left">{I18n.t('Count')}</TableCell>
+                    <TableCell className={clsx(this.props.classes.tableCell, this.props.classes.tableColumnPercent)} align="left">%</TableCell>
                 </TableRow>
             </TableHead>
             <TableBody>
-                {keys.map(c => (
+                {keys.map(c =>
                     <TableRow className={this.props.classes.tableRow}>
-                        <TableCell className={this.props.classes.tableCell + ' ' + this.props.classes.tableColumnVersion}>{c}</TableCell>
-                        <TableCell className={this.props.classes.tableCell + ' ' + this.props.classes.tableColumnCount}>{countries[c]}</TableCell>
-                        <TableCell className={this.props.classes.tableCell + ' ' + this.props.classes.tableColumnPercent}>{Math.round((countries[c] / sum) * 10000) / 100}%</TableCell>
-                    </TableRow>))}
+                        <TableCell className={clsx(this.props.classes.tableCell, this.props.classes.tableColumnVersion)}>{c}</TableCell>
+                        <TableCell className={clsx(this.props.classes.tableCell, this.props.classes.tableColumnCount)}>{countries[c]}</TableCell>
+                        <TableCell className={clsx(this.props.classes.tableCell, this.props.classes.tableColumnPercent)}>{Math.round((countries[c] / sum) * 10000) / 100}%</TableCell>
+                    </TableRow>)}
             </TableBody>
         </Table>;
     }
@@ -178,7 +180,7 @@ class Statistics extends Component {
             return null;
         }
 
-        return <Paper key="countries" className={this.props.classes.paper + ' ' + this.props.classes.paperCountries + ' ' + (this.state.mobile ? this.props.classes.paperMobile : '')}>
+        return <Paper key="countries" className={clsx(this.props.classes.paper, this.props.classes.paperCountries, this.state.mobile ? this.props.classes.paperMobile : '')}>
             {this.renderCountriesTable()}
         </Paper>;
     }
@@ -188,7 +190,7 @@ class Statistics extends Component {
             return null;
         }
 
-        return <Paper key="plattform" className={this.props.classes.paper + ' ' + this.props.classes.paperPlatforms + ' ' + (this.state.mobile ? this.props.classes.paperMobile : '')}>
+        return <Paper key="plattform" className={clsx(this.props.classes.paper, this.props.classes.paperPlatforms, this.state.mobile ? this.props.classes.paperMobile : '')}>
             <div className={this.props.classes.paperHeader} title={this.state.date}>{I18n.t('Platforms')}</div>
             <PieStats
                 data={this.state.statistics.platforms}
@@ -204,7 +206,7 @@ class Statistics extends Component {
             return null;
         }
 
-        return <Paper key="language" className={this.props.classes.paper + ' ' + this.props.classes.paperLanguages + ' ' + (this.state.mobile ? this.props.classes.paperMobile : '')}>
+        return <Paper key="language" className={clsx(this.props.classes.paper, this.props.classes.paperLanguages, this.state.mobile ? this.props.classes.paperMobile : '')}>
             <div className={this.props.classes.paperHeader} title={this.state.date}>{I18n.t('Languages')}</div>
             <PieStats
                 data={this.state.statistics.languages}
@@ -220,7 +222,7 @@ class Statistics extends Component {
             return null;
         }
 
-        return <Paper key="nodes" className={this.props.classes.paper + ' ' + this.props.classes.paperNodes + ' ' + (this.state.mobile ? this.props.classes.paperMobile : '')}>
+        return <Paper key="nodes" className={clsx(this.props.classes.paper, this.props.classes.paperNodes, this.state.mobile ? this.props.classes.paperMobile : '')}>
             <div className={this.props.classes.paperHeader} title={this.state.date}>{I18n.t('Node versions')}</div>
             <PieStats
                 data={this.state.statistics.nodes}
@@ -296,11 +298,11 @@ class Statistics extends Component {
             }]
         };
 
-        return <Paper key="counters" className={this.props.classes.paper + ' ' + this.props.classes.paperCounters + ' ' + (this.state.mobile ? this.props.classes.paperMobile : '')}>
+        return <Paper key="counters" className={clsx(this.props.classes.paper, this.props.classes.paperCounters, this.state.mobile ? this.props.classes.paperMobile : '')}>
             <div
                 title={this.state.date}
                 className={this.props.classes.paperHeader}>
-                {I18n.t('Installations') + ' ' + counts[labels[labels.length - 1]] + ' - ' + labels[labels.length - 1]}
+                {`${I18n.t('Installations')} ${counts[labels[labels.length - 1]]} - ${labels[labels.length - 1]}`}
             </div>
             <ReactEcharts
                 option={option}
@@ -309,6 +311,54 @@ class Statistics extends Component {
                 lazyUpdate={true}
  //               opts={{renderer: 'svg'}}
                 theme={"westeros"}
+            />
+        </Paper>;
+    }
+
+    renderDbStatesTypes() {
+        if (!this.state.statistics || !this.state.statistics.dbTypeStates) {
+            return null;
+        }
+
+        return <Paper key="plattform" className={clsx(this.props.classes.paper, this.props.classes.paperPlatforms, this.state.mobile ? this.props.classes.paperMobile : '')}>
+            <div className={this.props.classes.paperHeader} title={this.state.date}>{I18n.t('State DB Types')}</div>
+            <PieStats
+                data={this.state.statistics.dbTypeStates}
+                height={'380px'}
+                startFromPercent={0}
+                series={I18n.t('State DB Types')}
+            />
+        </Paper>;
+    }
+
+    renderDbObjectsTypes() {
+        if (!this.state.statistics || !this.state.statistics.dbTypeObjects) {
+            return null;
+        }
+
+        return <Paper key="plattform" className={clsx(this.props.classes.paper, this.props.classes.paperPlatforms, this.state.mobile ? this.props.classes.paperMobile : '')}>
+            <div className={this.props.classes.paperHeader} title={this.state.date}>{I18n.t('Object DB Types')}</div>
+            <PieStats
+                data={this.state.statistics.dbTypeObjects}
+                height={'380px'}
+                startFromPercent={0}
+                series={I18n.t('Object DB Types')}
+            />
+        </Paper>;
+    }
+
+    renderDocker() {
+        if (!this.state.statistics || !this.state.statistics.docker) {
+            return null;
+        }
+
+        return <Paper key="plattform" className={clsx(this.props.classes.paper, this.props.classes.paperPlatforms, this.state.mobile ? this.props.classes.paperMobile : '')}>
+            <div className={this.props.classes.paperHeader} title={this.state.date}>{I18n.t('Docker vs Normal')}</div>
+            <PieStats
+                data={this.state.statistics.docker}
+                height={'380px'}
+                startFromPercent={0}
+                series={I18n.t('Docker vs Normal')}
             />
         </Paper>;
     }
@@ -322,6 +372,9 @@ class Statistics extends Component {
                 {this.renderNodes()}
                 {this.renderCounters()}
                 {this.renderCountries()}
+                {this.renderDbStatesTypes()}
+                {this.renderDbObjectsTypes()}
+                {this.renderDocker()}
                 <Footer key="footer" theme={this.props.theme} mobile={this.props.mobile} onNavigate={this.props.onNavigate}/>
             </div>
 

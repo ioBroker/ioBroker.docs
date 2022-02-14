@@ -14,7 +14,7 @@ Im Standard wird das CoAP-Protokoll verwendet。
 
 Falls Du einen Shelly mit einer Firmware kleiner oder gleich 1.9.4 verwendest, ist keine weitere Konfiguration notwendig。 Deine Geräte werden automatisch vom Adapter gefunden。
 
-**Falls Du eine Version größer als 1.9.4 verwendest, musst Du einen CoIoT-Server für CoAP auf den Shelly-Geräten konfigurieren。** Trag als CoIoT-Server die IP-Adresse von deinem ioBroker Server ein - gefolgt von Port §§ JJJJJ_0§§。 Wenn dein ioBroker beispielsweise under der Adresse ```192.168.1.2``` erreichbar ist, trage dort ```192.168.1.2:5683``` ein und aktiviere CoIoT。
+**Falls Du eine Version größer als 1.9.4 verwendest, musst Du einen CoIoT-Server für CoAP auf den Shelly-Geräten konfigurieren.** Trag als CoIoT-Server die IP-Adresse von deinem ioBroker Server ein - gefolgt von Port §§ JJJJJ_0§§。 Wenn dein ioBroker beispielsweise under der Adresse ```192.168.1.2``` erreichbar ist, trage dort ```192.168.1.2:5683``` ein und aktiviere CoIoT。
 
 **Wichtig：Da CoAP Multicast UDP Pakete verwendet，müssen deine Shelly-Geräte im gleichen Subnetz wie dein ioBroker Server sein。**
 

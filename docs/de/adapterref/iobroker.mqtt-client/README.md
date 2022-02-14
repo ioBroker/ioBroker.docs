@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mqtt-client/README.md
 title: ioBroker.mqtt-client
-hash: ofz++iad9eq0lluL5KUB1IuSL9EjZGwEEsw5xWtEUxg=
+hash: HdtB+RffifVs4/gPqky/n22oi7tbCSBOAqzDvzcVLbw=
 ---
 ![Logo](../../../en/adapterref/iobroker.mqtt-client/admin/mqtt-client.png)
 
@@ -19,9 +19,12 @@ hash: ofz++iad9eq0lluL5KUB1IuSL9EjZGwEEsw5xWtEUxg=
 ### Zu Connect-Thema und -Nachricht
 Der ```on connect message``` wird jedes Mal an den ```on connect topic``` veröffentlicht, wenn der Client eine Verbindung zum Server herstellt oder wieder herstellt.
 
+### Zu Thema und Nachricht trennen
+```on disconnect message``` wird an ```on disconnect topic``` veröffentlicht, wenn der Adapter ordnungsgemäß beendet wird.
+
 ### Zuletzt Thema und Nachricht
 Der ```last will message``` wird jedes Mal an den ```last will topic``` veröffentlicht, wenn der Client eine Verbindung zum Server herstellt oder wieder herstellt.
-Der Server speichert diese Nachricht und sendet sie an seine Abonnenten, wenn der Client die Verbindung trennt.
+Der Server speichert diese Nachricht und sendet sie an seine Abonnenten, wenn der Client unerwartet die Verbindung trennt.
 
 ### Abonnements
 Durch Kommas getrennte Liste von Themen, die nicht von bestehenden Zuständen abgedeckt sind.
@@ -74,6 +77,10 @@ Standard: Zustands-ID in ein mqtt-Thema umgewandelt.
 ### __LAUFENDE ARBEIT__ -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (Pmant) fix LWT documentation
+* (Pmant) optionally publish a message when disconnecting gracefully
+
 ### 1.5.0 (2022-01-26)
 * IMPORTANT: This adapter now required at least js-controller 3.3.x
 * (Apollon77) Fix crash cases

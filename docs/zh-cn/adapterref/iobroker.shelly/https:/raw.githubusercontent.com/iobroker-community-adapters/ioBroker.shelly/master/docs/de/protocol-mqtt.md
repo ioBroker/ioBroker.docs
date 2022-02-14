@@ -21,7 +21,7 @@ hash: wj5UcKMGrSCffh0URHHWrTS8q28l3IDd6gGlj7vbEI8=
 
 Aktiviere MQTT auf deinen Shelly-Geräten：
 
-1. 在 einem 浏览器中使用 Shelly-Webkonfiguration（在 der Shelly App 中没有！）
+1. 在 einem 浏览器中使用 Shelly-Webkonfiguration（在 der Shelly 应用程序中不存在！）
 2. Gehe zu```Internet & Security settings -> Advanced - Developer settings```
 3. Aktiviere MQTT und gib die gerade konfigurierten Benutzerdaten und die IP-Adresse deiner ioBroker-Installation ein - gefolgt von Port 1882 (beispielsweise ```192.168.20.242:1882```)
 4. Speichere die Konfiguration - der Shelly startet automatisch neu

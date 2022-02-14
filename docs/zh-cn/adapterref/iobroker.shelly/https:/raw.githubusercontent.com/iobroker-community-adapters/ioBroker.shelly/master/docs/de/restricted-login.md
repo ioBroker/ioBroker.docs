@@ -28,7 +28,7 @@ Aktiviere den geschützten Zugriff auf allen Shelly-Geräten。
 ![贝壳 1 代](../../../../../../../../../../en/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/../shelly_restrict_login-gen1.png)
 
 ### 第 2 代
-1. 在 einem 浏览器中使用 Shelly-Webkonfiguration（在 der Shelly App 中没有！）
+1. 在 einem 浏览器中使用 Shelly-Webkonfiguration（在 der Shelly 应用程序中不存在！）
 2. Gehe zu ```设备 -> 认证```
 3. Aktiviere das Passwort-Feature und gibt das gerade konfigurierte Passwort ein
 4. Speichere die KOnfiguration

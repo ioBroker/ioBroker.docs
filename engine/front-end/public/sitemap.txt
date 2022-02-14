@@ -802,6 +802,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.helios/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.heos/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.heytech/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.hid/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.hikvision-alarmserver/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.hilink/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.history/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.hm-rega/README.md
@@ -978,6 +979,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.radar2/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.radiohead/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.rainbird/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.renault/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.resol/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.rflink/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.rfxcom/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.rickshaw/README.md
@@ -1135,6 +1137,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.wmswebcontrol/README.m
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.wolf/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.wolf-smartset/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.worx/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.ws/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.x-touch/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.xbox/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.xiaomi-gateway3/README.md
@@ -1303,6 +1306,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.helios/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.heos/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.heytech/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.hid/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.hikvision-alarmserver/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.hilink/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.history/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.hm-rega/README.md
@@ -1479,6 +1483,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.radar2/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.radiohead/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.rainbird/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.renault/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.resol/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.rflink/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.rfxcom/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.rickshaw/README.md
@@ -1636,6 +1641,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.wmswebcontrol/README.m
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.wolf/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.wolf-smartset/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.worx/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.ws/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.x-touch/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.xbox/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.xiaomi-gateway3/README.md
@@ -1804,6 +1810,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.helios/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.heos/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.heytech/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.hid/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.hikvision-alarmserver/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.hilink/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.history/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.hm-rega/README.md
@@ -1980,6 +1987,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.radar2/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.radiohead/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.rainbird/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.renault/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.resol/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.rflink/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.rfxcom/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.rickshaw/README.md
@@ -2137,6 +2145,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.wmswebcontrol/README.m
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.wolf/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.wolf-smartset/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.worx/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.ws/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.x-touch/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.xbox/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.xiaomi-gateway3/README.md
@@ -2305,6 +2314,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.helios/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.heos/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.heytech/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hid/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hikvision-alarmserver/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hilink/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.history/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hm-rega/README.md
@@ -2481,6 +2491,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.radar2/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.radiohead/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.rainbird/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.renault/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.resol/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.rflink/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.rfxcom/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.rickshaw/README.md
@@ -2638,6 +2649,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wmswebcontrol/READM
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wolf/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wolf-smartset/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.worx/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ws/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.x-touch/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.xbox/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.xiaomi-gateway3/README.md

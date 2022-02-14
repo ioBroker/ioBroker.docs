@@ -1,32 +1,17 @@
-![Logo](admin/birthdays.png)
+---
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.birthdays.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.birthdays.svg
+BADGE-Stable: http://iobroker.live/badges/birthdays-stable.svg
+BADGE-installed: http://iobroker.live/badges/birthdays-installed.svg
+BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.birthdays.svg
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.birthdays/badge.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.birthdays.png?downloads=true
+---
+![Logo](../../admin/birthdays.png)
 
 # ioBroker.birthdays
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.birthdays.svg)](https://www.npmjs.com/package/iobroker.birthdays)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.birthdays.svg)](https://www.npmjs.com/package/iobroker.birthdays)
-[![Stable](http://iobroker.live/badges/birthdays-stable.svg)](http://iobroker.live/badges/birthdays-stable.svg)
-[![installed](http://iobroker.live/badges/birthdays-installed.svg)](http://iobroker.live/badges/birthdays-installed.svg)
-[![Dependency Status](https://img.shields.io/david/klein0r/iobroker.birthdays.svg)](https://david-dm.org/klein0r/iobroker.birthdays)
-[![Known Vulnerabilities](https://snyk.io/test/github/klein0r/ioBroker.birthdays/badge.svg)](https://snyk.io/test/github/klein0r/ioBroker.birthdays)
-![Test and Release](https://github.com/klein0r/ioBroker.birthdays/workflows/Test%20and%20Release/badge.svg)
-
-[![NPM](https://nodei.co/npm/iobroker.birthdays.png?downloads=true)](https://nodei.co/npm/iobroker.birthdays/)
-
-Use an ical file to import your contacts birthdays or define the birthday dates directly in the adapter settings
-
-## Sponsored by
-
-[![ioBroker Master Kurs](https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-birthdays)
-
-## Installation
-
-Please use the "adapter list" in ioBroker to install a stable version of this adapter. You can also use the CLI to install this adapter:
-
-```
-iobroker add birthdays
-```
-
-## Configuration
+## iCal
 
 You can use an ical url to provide access to your birthday calendar. The adapter will search for all events within that file.
 
@@ -38,13 +23,13 @@ Your events
 
 It is NOT required to use the ical option. You can also define all birthday dates in the settings. *When you use both options, the information will be merged.*
 
-![Calendar example](images/exampleCalendar.png)
+![Calendar example](../exampleCalendar.png)
 
 ## Example (Blockly)
 
 (requires pushover)
 
-![Blockly example](images/exampleBlockly.png)
+![Blockly example](../exampleBlockly.png)
 
 ```xml
 <xml xmlns="https://developers.google.com/blockly/xml">
@@ -217,6 +202,12 @@ It is NOT required to use the ical option. You can also define all birthday date
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2022-02-10)
+
+* (klein0r) Updated state roles
+* (klein0r) Added hint for Admin 4 configuration
+* (klein0r) Fixed translations
+
 ### 0.2.0 (2022-01-06)
 
 * (klein0r) Added option to ignore certificate errors
@@ -272,10 +263,6 @@ It is NOT required to use the ical option. You can also define all birthday date
 ### 0.0.1 (2020-12-28)
 
 * (klein0r) initial release
-
-## Credits
-
-[Logo by herbanu](https://pixabay.com/de/vectors/geburtstag-karte-cele-feier-design-3148707/)
 
 ## License
 

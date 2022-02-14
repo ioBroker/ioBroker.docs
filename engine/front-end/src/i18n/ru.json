@@ -143,5 +143,8 @@
   "33% discount on Remote access and Assistants!": "Скидка 33% на Удаленный доступ и Ассистентов!",
   "Get it!": "Взять!",
   "Open in new window": "Открыть в новом окне",
-  "RSS Feed": "Новостная лента"
+  "RSS Feed": "Новостная лента",
+  "Docker vs Normal": "Докер vs Normal",
+  "Object DB Types": "Типы БД объектов",
+  "State DB Types": "Типы БД состояний"
 }

@@ -19,7 +19,6 @@ Discussion: https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder
 
 ## Changelog
 ### 2.2.0
-
 * (Newan) Test release for 503 Error
 
 ### 2.2.0

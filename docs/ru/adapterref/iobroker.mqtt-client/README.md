@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mqtt-client/README.md
 title: ioBroker.mqtt-клиент
-hash: ofz++iad9eq0lluL5KUB1IuSL9EjZGwEEsw5xWtEUxg=
+hash: HdtB+RffifVs4/gPqky/n22oi7tbCSBOAqzDvzcVLbw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mqtt-client/admin/mqtt-client.png)
 
@@ -19,9 +19,12 @@ hash: ofz++iad9eq0lluL5KUB1IuSL9EjZGwEEsw5xWtEUxg=
 ### При подключении темы и сообщения
 ```on connect message``` публикуется в ```on connect topic``` каждый раз, когда клиент подключается или повторно подключается к серверу.
 
+### При отключении темы и сообщения
+```on disconnect message``` публикуется в ```on disconnect topic```, когда адаптер корректно останавливается.
+
 ### Последней будет тема и сообщение
 ```last will message``` публикуется в ```last will topic``` каждый раз, когда клиент подключается или повторно подключается к серверу.
-Сервер сохранит это сообщение и отправит его своим подписчикам, когда клиент отключится.
+Сервер сохранит это сообщение и отправит его своим подписчикам, когда клиент неожиданно отключится.
 
 ### Подписки
 Разделенный запятыми список тем, которые не охватываются существующими штатами.
@@ -74,6 +77,10 @@ hash: ofz++iad9eq0lluL5KUB1IuSL9EjZGwEEsw5xWtEUxg=
 ### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (Pmant) fix LWT documentation
+* (Pmant) optionally publish a message when disconnecting gracefully
+
 ### 1.5.0 (2022-01-26)
 * IMPORTANT: This adapter now required at least js-controller 3.3.x
 * (Apollon77) Fix crash cases

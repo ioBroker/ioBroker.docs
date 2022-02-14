@@ -522,7 +522,7 @@ ID: `system.adapter.<adapter.name>`
 * `common.main`               - **Deprecated** Use main in package.json.
 * `common.materializeTab`     - if adapter supports > admin3 for the tab (materialize style)
 * `common.materialize`        - if adapter supports > admin3 (materialize style)
-* `common.messagebox`         - true if message box supported. If yes, the object system.adapter.&lt;adapter.name&gt&lt;adapter.instance&gt.messagebox will be created to send messges to adapter (used for email, pushover,...;
+* `common.messagebox`         - true if message box supported. Hence, the adapter can receive sendTo messages (used for email, pushover,...)
 * `common.messages`           - Conditional messages by update. See [Conditional messages](#conditional-messages) for details.
 * `common.mode`               - **mandatory** possible values see below
 * `common.name`               - **mandatory** name of adapter without "ioBroker."

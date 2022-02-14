@@ -3,61 +3,68 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.myvbus/README.md
 title: ioBroker.myvbus
-hash: 6kKllJqqY6mebKgEc/lPReCJxOPTFTpcWPfDSiCXAfY=
+hash: sNPkORaSVOs312S5OrbFo1j7SheCbsjHx0Y1bd/1zH0=
 ---
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/myvbus-installed.svg)
+# IoBroker.myvbus
+![Logo](../../../en/adapterref/iobroker.myvbus/admin/myvbus.png)
+
+![Anzahl der Installationen (neueste)](http://iobroker.live/badges/myvbus-installed.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.myvbus.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/myvbus-stable.svg)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.myvbus.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/iobroker-community-adapters/iobroker.myvbus.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.myvbus/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.myvbus.png?downloads=true)
-
-#ioBroker.myvbus
-![Logo](../../../en/adapterref/iobroker.myvbus/admin/myvbus.png)
 
 **Tests:** ![Testen und freigeben](https://github.com/iobroker-community-adapters/iobroker.myvbus/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker-Adapter für Resol VBus
-Dieser Adapter verbindet ioBroker mit verschiedenen VBus-basierten Geräten unter Verwendung von resol-vbus, einer JavaScript-Bibliothek zur Erfassung von RESOL-VBus-Daten, bereitgestellt von Daniel Wippermann.
+Dieser Adapter verbindet ioBroker mit verschiedenen VBus-basierten Geräten unter Verwendung von resol-vbus, einer JavaScript-Bibliothek zur Erfassung von RESOL VBus-Daten, bereitgestellt von Daniel Wippermann.
 
 <https://github.com/danielwippermann/resol-vbus>
 
 <https://www.npmjs.com/package/resol-vbus>
 
-## Eigenschaften
-* Ermöglicht das Auslesen der Messdaten verschiedener RESOL(R) VBus(R) Geräte - vorzugsweise Solar- und Anlagenregler der DeltaSol(R) Serie inkl. Einbau-Wärmemengenzähler (HQM) - mittels DL3 oder DL2 Datenlogger, KM2 Kommunikationsmodule, VBus/LAN-Schnittstellenadapter oder serielle/LAN-Gateways lokal über TCP/IP.
-* Der Gerätezugriff über den seriellen Schnittstellenadapter VBus/USB oder über VBus.net(R) mit DLx/KMx wird ebenfalls unterstützt.
+## Merkmale
+* Ermöglicht das Auslesen der Messdaten verschiedener RESOL(R) VBus(R)-Geräte - vorzugsweise Solar- und Systemregler der DeltaSol(R)-Serie inkl. eingebautem Wärmemengenzähler (WMZ) - mittels Datenlogger DL3 oder DL2, KM2 Kommunikationsmodule, VBus/LAN-Schnittstellenadapter oder Seriell/LAN-Gateways lokal über TCP/IP.
+* Der Gerätezugriff über den seriellen VBus/USB-Schnittstellenadapter oder über VBus.net(R) mit DLx/KMx wird ebenfalls unterstützt.
 * Verarbeitet Live-VBus-Datenströme und stellt sie als ioBroker-Zustände zur Verfügung.
 * Werte werden mit einer konfigurierbaren Zykluszeit aktualisiert.
-* Das Lesen oder Einstellen der Konfigurationsparameter des VBus-Geräts wird nicht unterstützt. Hierzu sind die von Resol zur Verfügung gestellten Tools zu verwenden, z.B. über VBus.net oder das Parametriertool RPT.
-* Das Lesen von DL3-Kanal 0 (Sensoren, die direkt mit dem DL3-Gerät verbunden sind) wird aufgrund von Einschränkungen der DL3-Schnittstelle nicht unterstützt.
+* Das Lesen oder Einstellen der VBus-Gerätekonfigurationsparameter wird nicht unterstützt. Hierfür sollten die von Resol bereitgestellten Tools verwendet werden, z. B. über VBus.net oder das Parametriertool RPT.
+* Das Lesen von DL3-Kanal 0 (direkt an das DL3-Gerät angeschlossene Sensoren) wird aufgrund von Einschränkungen der DL3-Schnittstelle nicht unterstützt.
 
 ## Konfigurationshinweise
-* Die Standardeinstellung für die Verbindungsart ist VBus/LAN, muss aber auch für VBus/LAN explizit gewählt werden, sonst wird keine Verbindung aufgebaut.
-* Die korrekten Einstellungen für den direkten LAN-Zugang für VBus/LAN, DL3, DL2, KM2 sind:
+* Die Standardeinstellung für die Verbindungsart ist VBus/LAN, muss aber auch für VBus/LAN explizit ausgewählt werden, sonst kommt keine Verbindung zustande.
+* Die korrekten Einstellungen für den direkten LAN-Zugriff für VBus/LAN, DL3, DL2, KM2 sind:
   * Verbindungstyp: VBus/LAN oder KM2 oder DL2 oder DL3
   * Verbindungskennung: IP-Adresse (z. B. 192.168.178.188) oder FullyQualifiedHostName (z. B. host1.example.com)
   * VBus-Passwort: YourVBusPassword (Standard: vbus)
-  * Anschlussport: Standardeinstellung 7053 sollte nicht geändert werden
-  * DL3-Kanal: Nur für DL3 relevant (Werte 1-6, Kanal 0 können nicht ausgelesen werden)
+  * Verbindungsport: Die Standardeinstellung 7053 sollte nicht geändert werden
+  * DL3-Kanal: Nur relevant für DL3 (Werte 1-6, Kanal 0 kann nicht ausgelesen werden)
   * Aktualisierungsintervall: Zeit zwischen Aktualisierungen der Messwerte (Standard 30s)
 * Die korrekten Einstellungen für den DL3-, DL2-, KM2-Zugriff über VBus.net sind:
-  * Anschlussart: DL3 oder DL2 oder KM2
-  * Verbindungskennung: vbus.net (oder vbus.io) - beide ohne http:// und Via Kennung!
-  * Anschlussport: Standardeinstellung 7053 sollte nicht geändert werden
+  * Verbindungstyp: DL3 oder DL2 oder KM2
+  * Verbindungskennung: vbus.net (oder vbus.io) - beide ohne http:// und Via-Kennung!
+  * Verbindungsport: Die Standardeinstellung 7053 sollte nicht geändert werden
   * VBus-Passwort: YourVBusPassword (Standard: vbus)
-  * DL3-Kanal: Nur für DL3 relevant (Werte: 1-6, Kanal 0 nicht auslesbar)
-  * Via Identifier: YourViaIdentifier (z.B. d1234567890) - ohne http:// davor oder .vbus.io dahinter
+  * DL3-Kanal: Nur für DL3 relevant (Werte: 1-6, Kanal 0 kann nicht ausgelesen werden)
+  * Via-Kennung: YourViaIdentifier (z. B. d1234567890) - ohne http:// davor oder .vbus.io dahinter
   * Aktualisierungsintervall: Zeit zwischen der Aktualisierung der Messwerte (Standard 30s)
 
 ## Rechtliche Hinweise
-RESOL, VBus, VBus.net, DeltaSol und andere sind Marken oder eingetragene Marken der RESOL - Elektronische Regelungen GmbH <https://www.resol.de/de>
+RESOL, VBus, VBus.net, DeltaSol und andere sind Warenzeichen oder eingetragene Warenzeichen der RESOL - Elektronische Regelungen GmbH <https://www.resol.de/de>
 
-Alle anderen Marken sind Eigentum ihrer jeweiligen Inhaber.
-Die Autoren werden in keiner Weise von der RESOL GmbH oder verbundenen Tochtergesellschaften, Logos oder Marken unterstützt oder mit ihr verbunden.
+Alle anderen Warenzeichen sind Eigentum ihrer jeweiligen Inhaber.
+Die Autoren werden in keiner Weise von RESOL GmbH oder verbundenen Tochterunternehmen, Logos oder Marken unterstützt oder sind mit ihnen verbunden.
 
 ## Changelog
+### 0.2.2 (2022-02-11)
+* Updated dependencies
+* Compatibility check for js-controller 4.0
+* Support for js-controller 1.x dropped
+
+### 0.2.1 (2021-08-18)
+* Update dependencies
+* Changed allowed range of temperature values to include the error values for short circuit and open circuit
+
 ### 0.2.0 (2021-06-25)
 * Dropped node.js 10 support, added node.js 14 and 16 support
 
@@ -75,30 +82,11 @@ Die Autoren werden in keiner Weise von der RESOL GmbH oder verbundenen Tochterge
 * (pdbjjens) Fix: Prevent warnings regarding non-existent objects upon adapter instance creation and start-up with js-controller 3.2.x
 * (pdbjjens) Fix: updated dependencies and vulnerabilities
 
-### 0.0.6
-* (pdbjjens) alpha 6 release updated dependencies
-
-### 0.0.5
-* (pdbjjens) alpha 5 release improved type and role mapping of adapter values
-
-### 0.0.4
-* (pdbjjens) alpha 4 release updated dependency on resol-vbus library to 0.21.0
-
-### 0.0.3
-* (pdbjjens) alpha 3 release tested with DL3 over local LAN and VBus.net and DeltaSol SLT (0x1001) incl. HQM (0x1011)
-
-### 0.0.2
-* (pdbjjens) alpha 2 release tested with VBus/LAN, KM2, VBus.net and DeltaSol E (0x7721 & 0x7722), DeltaSol M (0x7311 & 0x716), DeltaSol CS Plus (0x2211), Oventrop RQXXL (0x7541)
-
-### 0.0.1
-
-* (pdbjjens) initial release tested only with VBus/USB (Serial) and DeltaSol(R) BS2009 (0x427B)
-
 ## License
 
 MIT License
 
-Copyright (c) 2021 Jens-Peter Jensen <jjensen@t-online.de>
+Copyright (c) 2022 Jens-Peter Jensen <jjensen@t-online.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

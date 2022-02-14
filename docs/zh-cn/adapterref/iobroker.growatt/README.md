@@ -3,117 +3,154 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.growatt/README.md
 title: ioBroker.growatt
-hash: tNfyZqnf+Sreq11IchgIq1RM4gZqrgSul0+RXZ0tEhY=
+hash: VO3tERayIPGkKkpa2tQp+mKo3wuRC+Jg39Ao//wNgA0=
 ---
 ![标识](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.growatt.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.growatt.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.growatt.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.growatt.svg)
 ![安装数量（最新）](http://iobroker.live/badges/growatt-installed.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/growatt-stable.svg)
 ![依赖状态](https://img.shields.io/david/PLCHome/ioBroker.growatt.svg)
-![NPM](https://nodei.co/npm/iobroker.growatt.png?downloads=true)
+![新PM](https://nodei.co/npm/iobroker.growatt.png?downloads=true)
 
-＃ioBroker.growatt
-##针对ioBroker的growatt适配器
-ioBroker Growatt适配器可与Growatt Shine Server通信。
-我没有隶属关系。
-通常，每5分钟将数据从数据记录器发送到云端。
+# IoBroker.growatt
+## IoBroker 的 growatt 适配器
+ioBroker Growatt 适配器与 Growatt Shine 服务器通信。
+我不隶属。
+通常，数据每 5 分钟从数据记录器发送到云端。
 您可以更改它，请参见下文。
-该软件每30秒查询一次服务器，以使偏移量不会太大。
 
-并非所有工厂类型都已实现。
+并非所有植物类型都已实施。
 
-当前只能读取数据，无法写入参数或更改参数。
+目前只能读取数据，无法写入参数或更改参数。
 
 ----------------------------------------------------------------------------------------------------------------------
 
-＃适配器管理页面
-##主要设置
-###用户和密码
-请输入您在Shine应用程序或Web门户中也使用的名称和密码。
+# 适配器管理页面
+## 主要设置
+### 用户和密码
+请输入您也在 Shine 应用程序或门户网站中使用的名称和密码。
 
-###使用共享密钥登录
-在Growatt网站上的“能源，工厂管理，操作工具”下，您可以通过电子邮件向自己发送密钥。
+### 使用共享密钥登录
+在 Growatt 网站的能源、工厂管理、操作工具下，您可以通过电子邮件向自己发送密钥。
 
-###读取工厂数据
-该数据记录包含已存储的主数据
+### 读取植物数据
+该数据记录包含存储的主数据
 
-###读取最近的历史记录数据
-从数据记录器的历史记录中读取最后一条数据记录。
+### 读取最后的历史数据
+从数据记录器的历史中读取最后一条数据记录。
 此功能支持数据记录器的分钟间隔。
 
-###读取状态数据
-这些数据并非适用于所有工厂（不是INV / MAX / TLX）。该数据集包含实时数据。
+### 读取状态数据
+这些数据不适用于所有工厂（不是 INV/MAX/TLX）。该数据集包含实时数据。
 此功能支持数据记录器的分钟间隔。
 
-###读取总数据
+### 读取总数据
 该数据记录包含聚合数据。
 
-###读取设备数据
-该数据记录包含来自设备的一些数据。其他类别中也有一些数据。
+### 读取设备数据
+该数据记录包含来自设备的一些数据。一些数据也可用于其他类别。
 
-###阅读天气
+### 读取天气
 该数据集包含天气预报。
 
-##管理对象
-在这里，您可以定义逆变器采集的每个值（对象）应该发生什么。
-有很多不属于您的变频器的值。这些可以在这里删除。
-由于在保存时没有事件可用于重新加载对象列表。按下保存按钮时必须使用更新按钮。
+### 超时秒数
+HTTP 请求的默认超时。默认值 60 秒，与 Web 浏览器一样
+
+### 进程超时（以秒为单位）
+此超时监视从 Growatt 服务器收集的数据。如果服务器在这段时间内没有处理完所有数据，则会报告错误，会话结束并启动新的循环计时器。默认值为 600 秒。
+
+### 保持网络会话
+适配器只登录一次，而不是每次来自 Growatt 服务器的数据请求都登录。默认情况下它是打开的。
+
+### 会话时间（以分钟为单位）
+您可以在此处设置适配器何时退出服务器并再次登录。 0 表示从不注销。默认值为 0=无穷大。
+
+### 周期时间（以秒为单位）
+从服务器请求数据的时间间隔。然后从下一次中扣除数据查询所需的时间。如果查询持续时间长于等待时间，则适配器仅休眠 100 毫秒。默认值为 30 秒。
+
+### 错误循环时间（以秒为单位）
+如果在 Growatt 服务器上查询值时发生错误，则使用此时间而不是循环时间。默认值为 120 秒
+
+## 管理对象
+在这里，您可以定义逆变器获取的每个值（对象）应该发生什么。
+有很多值不属于你的逆变器。这些可以在这里删除。
+因为在保存时没有可以重新加载对象列表的事件。按下保存时必须使用更新按钮。
 
 ＃＃＃ 普通的
-对象保留，值被更新。
+对象保留，值更新。
 
 ＃＃＃ 删除
-删除对象，并丢弃变频器加载的值。
-更新后，由于该对象不再存在，因此仅显示ID和操作。如果正常选择，则保存后将再次创建对象。
+对象被删除，逆变器加载的值被丢弃。
+更新后，由于对象不再存在，仅显示 ID 和操作。如果正常选择，保存后会再次创建对象。
 
 ###没有更新
-该对象仍然存在，来自变频器的值将被丢弃。
+对象保留，来自逆变器的值被丢弃。
 
 ----------------------------------------------------------------------------------------------------------------------
 
-＃加速数据间隔
-##您可以将记录器间隔设置为5分钟到1分钟
-从ShineWiFi-S上卸下KEY按钮的橡胶塞，然后短按内部的按钮。蓝色LED将点亮。使用您的手机或计算机连接到ShineWiFi-S模块发出的无线网络。网络名称/ SSID是ShineWiFi-S模块的序列号。
-
-##登录页面
-成功建立连接后，打开手机或计算机上的Web浏览器，然后在地址栏中键入192.168.10.100。用户名是admin，默认密码是12345678。
-![登录页面](../../../en/adapterref/iobroker.growatt/docs/login.png)
-
-＃＃ 高级设置
-将数据间隔时间更改为1分钟![高级设置](../../../en/adapterref/iobroker.growatt/docs/advancedsettings.png)
-
-##系统重启
-在此页面上重新启动ShineWiFi-S模块，单击“立即重新启动”以启用刚进行的新设置，并从ShineWiFi模块的内部Web服务器注销。
-![系统重启](../../../en/adapterref/iobroker.growatt/docs/restart.png)
-
-** Growatt端的图表没有变化。在那里，您只能看到数据记录器中数据的变化。**
+# 加速数据间隔新方法
+* 打开 ShinePhone 应用程序
+* 点击下方附件
+* 右上角 +，然后列出数据记录器
+* 点击现有的数据记录器
+* 配置数据记录器
+* 无线热点模式
+* 将摇杆置于 AP 模式
+* 连接到 Wifi 热点，密码 123456789 ？ <-再次检查
+* 继续
+* 先进的
+* 时间设定
+* 间隔为 1
+* 输入密码growattYYYYMMDD（例如growatt20220209）
+* 开锁
+* 单击并应用更改
+* 退出热点模式
 
 ----------------------------------------------------------------------------------------------------------------------
 
-＃德语-加速数据间隔
-## Du kannst das Protokollierungsintervall von 5 Minuten auf 1分钟einstellen
-密码键和WiFi的激活，以及按键按钮。
-Der ShineWiFi-S精灵nur kurz热点（SSID = Seriennummer des ShineWiFi-S）。 Beim Netz mit einem便携式计算机。
+# 加速数据间隔旧方法
+## 您可以将记录器间隔设置为 5 分钟到 1 分钟
+从 ShineWiFi-S 上取下 KEY 按钮的橡胶塞，短按里面的按钮。蓝色 LED 将亮起。使用手机或电脑连接 ShineWiFi-S 模块发出的无线网络。网络名称/SSID 是 ShineWiFi-S 模块的序列号。
 
-## Einloggen
-ALS Webadresse http://192.168.10.100（位于浏览器eingeben中）。
-Der用户名ist Admin和das Passwort 12345678（系统管理中的高级人）。
+## 登录页面
+连接成功后，打开手机或电脑的浏览器，在地址栏输入192.168.10.100。用户名为 admin，默认密码为 12345678。
 ![登录页面](../../../en/adapterref/iobroker.growatt/docs/login.png)
 
 ＃＃ 高级设置
-可以使用“高级设置”查看间隔时间。 （von 5 auf 1）![高级设置](../../../en/adapterref/iobroker.growatt/docs/advancedsettings.png)
+将数据间隔时间更改为 1 分钟![高级设置](../../../en/adapterref/iobroker.growatt/docs/advancedsettings.png)
 
 ##系统重启
-Auf System重新启动gehen和Button herzhaft，从bers vorsichtig Klicken。
+在此页面重新启动您的 ShineWiFi-S 模块，单击“立即重启”以启用您刚刚所做的新设置并从您的 ShineWiFi 模块的内部网络服务器注销。
 ![系统重启](../../../en/adapterref/iobroker.growatt/docs/restart.png)
 
-** Es gibt keineÄnderungand den Diagrammen在Growatt-Seite之后，于5分钟后关闭。 Datenlogger中的Dort sehen Sie nur eineÄnderungder。**
+**成长方的图表没有变化。在那里，您只能看到数据记录器中数据的变化。**
 
 -*-
 
 ## Changelog
+
+### 1.1.3 (12.02.2022)
+* (PLCHome) Read me
+
+### 1.1.2 (12.02.2022)
+* (PLCHome) Timeouts made maintainable and adjusted. Request timout is now 60 second like chrome
+* (PLCHome) Server request improved and additionally secured against dying
+* (PLCHome) Calculate sleep to next request to keep cycle. Minimum sleep is 100ms
+* (PLCHome) Error output: if the key has expired, requests are forwarded with an error code, which is now in the log
+* (PLCHome) Improved error handling
+* (PLCHome) Improved debugging
+* (PLCHome) Update the includes
+
+### 1.1.1 (27.05.2021)
+* (PLCHome) The web request timeout was increased due to login issues
+
+### 1.1.0 (24.05.2021)
+* (PLCHome) Improvement of the connection via Axios Session
+
+### 1.0.1 (05.03.2021)
+* (PLCHome) Duplicate keys are transmitted, I try to filter them out.
 
 ### 1.0.0 (24.02.2021)
 * (PLCHome) Read me
@@ -182,7 +219,7 @@ Auf System重新启动gehen和Button herzhaft，从bers vorsichtig Klicken。
 ## License
 MIT License
 
-Copyright (c) 2021 PLCHome <https://github.com/PLCHome>
+Copyright (c) 2022 PLCHome <https://github.com/PLCHome> <ioBroker@****.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

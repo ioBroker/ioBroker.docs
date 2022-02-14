@@ -12,9 +12,12 @@
 ### on connect topic and message
 The ```on connect message``` is published to the ```on connect topic``` every time the client connects or reconnects to the server.
 
+### on disconnect topic and message
+The ```on disconnect message``` is published to the ```on disconnect topic``` when the adapter stops gracefully.
+
 ### last will topic and message
 The ```last will message``` is published to the ```last will topic``` every time the client connects or reconnects to the server.
-The Server will store this message and send it to its subscribers when the client disconnects.
+The Server will store this message and send it to its subscribers when the client disconnects unexpectedly.
 
 ### subscriptions
 Comma separated list of topics that are not covered by existing states.
@@ -68,6 +71,10 @@ default: state-ID converted to a mqtt topic.
 -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (Pmant) fix LWT documentation
+* (Pmant) optionally publish a message when disconnecting gracefully
+
 ### 1.5.0 (2022-01-26)
 * IMPORTANT: This adapter now required at least js-controller 3.3.x
 * (Apollon77) Fix crash cases

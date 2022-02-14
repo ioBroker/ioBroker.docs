@@ -26,7 +26,7 @@ hash: wj5UcKMGrSCffh0URHHWrTS8q28l3IDd6gGlj7vbEI8=
 3. Активация MQTT и генерация конфигураций Benutzerdaten и IP-адреса определения ioBroker-Installation ein — gefolgt von Port 1882 (beispielsweise ```192.168.20.242:1882```)
 4. Speichere die Konfiguration - der Shelly startet autotisch neu
 
-- Bei Gen1-Geräten: Ändere nicht den ```custom MQTT prefix``` (адаптер не имеет функциональных возможностей, если он не используется)
+- Bei Gen1-Geräten: Ändere nicht den ```пользовательский префикс MQTT``` (адаптер не имеет функциональных возможностей, если он не используется)
 
 ![Шелли gen1](../../../../../../../../../../en/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/../shelly_mqtt-gen1.png)
 

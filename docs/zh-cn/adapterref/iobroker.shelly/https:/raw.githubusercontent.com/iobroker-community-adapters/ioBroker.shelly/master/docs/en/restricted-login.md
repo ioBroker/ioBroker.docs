@@ -21,7 +21,7 @@ hash: EGaADnnibnxatRZByNCswqiZD/5YEwI6XQehKJ3UB/4=
 ### 第 1 代
 1. 在您的网络浏览器中打开 Shelly 网络配置（而不是在 Shelly 应用程序中！）
 2.转到```Internet和安全设置->限制登录```
-3.勾选复选框并输入之前配置的用户名和密码
+3. 勾选复选框并输入之前配置的用户名和密码
 4. 保存配置 - Shelly 会自动重启
 5. 确保在所有 Shelly 设备上配置相同的用户名和密码
 

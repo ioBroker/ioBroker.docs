@@ -16,7 +16,7 @@ Falls Du einen Shelly mit einer Firmware kleiner oder gleich 1.9.4 verwendest, i
 
 **Выше версии 1.9.4 verwendest, необходимо установить CoIoT-Server для CoAP в конфигурации Shelly-Geräten.** Отследить CoIoT-Server с IP-адресом определенного сервера ioBroker ein - gefolgt von Port §§ JJJJJ_0§§. Wenn dein ioBroker beispielsweise under der Adresse ```192.168.1.2``` erreichbar ist, trage dort ```192.168.1.2:5683``` ein und aktiviere CoIoT.
 
-**Выбор: Пакет многоадресной рассылки UDP CoAP передается, если Shelly-Geräte в удаленной подсети с сервером ioBroker.**
+**Выбор: Пакет многоадресной рассылки UDP CoAP передается, если Shelly-Geräte использует глобальную подсеть с сервером ioBroker непосредственно.**
 
 Попадает Du ioBroker в Einem Docker-Container, имейте в виду, что Container im Netzwerkmodus ```host``` или ```macvlan``` configuriert sein. Sollte der Docker-Container im Netzwerkmodus ```bridge``` laufen, werden keine Shelly-Geräte gefunden.
 
@@ -67,7 +67,7 @@ sudo tcpdump  -i eth1 port 5683 -A
 sudo tcpdump port 5683 -A
 ```
 
-Nun solltest Du alle CoAP-Nachrichten von den Shelly-Geräten sehen. Все тесты Du keine Nachrichten sehen, hast Du ein Netzwerkproblem mit UDP или Multicast-Nachrichten.
+Nun solltest Du alle CoAP-Nachrichten von den Shelly-Geräten sehen. Испытайте Du keine Nachrichten sehen, hast Du ein Netzwerkproblem mit UDP или Multicast-Nachrichten.
 
 CoAP-Nachrichten sehen wie folgt aus:
 

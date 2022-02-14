@@ -3,17 +3,17 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.musiccast/README.md
 title: ioBroker.musiccast
-hash: wkBvhQ++frCk99DOENud8SfkZpKXrLLCwHJ4f60MGoo=
+hash: 41PVavZQZPOUQv1i4MQXzrwU2Tre40zZbj/mDuJffK4=
 ---
 ![标识](../../../en/adapterref/iobroker.musiccast/admin/musiccast.png)
 
 ![安装数量](http://iobroker.live/badges/musiccast-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.musiccast.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.musiccast.svg)
-![构建状态](https://travis-ci.org/foxthefox/ioBroker.musiccast.svg?branch=master)
-![新PM](https://nodei.co/npm/iobroker.musiccast.png?downloads=true)
 
 # IoBroker.musiccast
+**测试：** ![测试和发布](https://github.com/foxthefox/ioBroker.musiccast/workflows/Test%20and%20Release/badge.svg)
+
 适用于 WX-010/030、YSP-1600 等 Yamaha MusicCast 设备的适配器
 
 ＃＃ 安装：
@@ -37,7 +37,7 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 
 万一有 2 个或更多设备提供相同的 ID，则稍微更改一个 ID。否则适配器无法区分这 2 个设备。
 
-如果您想查看您收听的曲目的播放时间更新，请启用/选中相应的复选框。请注意，这会增加消息计数（每台设备每秒更新一次）。
+如果您想查看您收听的曲目的播放时间更新，请启用/选中相应的复选框。请注意，这会增加消息计数（每台设备的每一秒都是更新的乒乓球）。
 
 ## 可用对象
 当前实现了以下对象：
@@ -101,9 +101,9 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 |netusb.play_time|值|-|以 s 为单位的播放时间|
 |netusb.play_queue_type|文本|-|netusb 队列类型|
 |netusb.total_time|value|-|在 s 中播放的总时间|
-|netusb.recent_info|json|-|播放项目历史|
-|netusb.preset_info|json|-|保存的预设/收藏|
-|netusb.presetrecallnumber|value|x|调用收藏列表中的#|
+|netusb.recent_info|json|-|播放项目的历史|
+|netusb.preset_info|json|-|保存的预设/收藏夹|
+|netusb.presetrecallnumber|value|x|召回收藏列表中的#|
 |netusb.usb_devicetype|text|-|连接的 USB 设备的类型|
 |netusb.attribute|value|-|哪些可能性有服务，待解码|
 
@@ -131,7 +131,7 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 |cd.repeat_stat|文本|-|重复状态|
 |cd.device_stat|文本|-|设备状态|
 |cd.playtime|value|-|当前播放时间|
-|cd.totaltime|value|-|当前曲目总时间|
+|cd.totaltime|值|-|当前曲目总时间|
 |cd.disctime|值|-|CD 总时间|
 |cd.tracknumber|value|-|当前正在播放的曲目|
 |cd.totaltracks|值|-|CD 曲目总数|
@@ -151,7 +151,7 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 |tuner.am.tuned|布尔值|-|调幅|
 |tuner.fm.preset|number|x|FM 预设编号|
 |tuner.fm.freq|number|x|以 kHz 为单位的 FM 频率|
-|tuner.fm.tuned|布尔值|-|调频|
+|tuner.fm.tuned|布尔值|-|FM 调谐|
 |tuner.fm.audio_mode|字符串|-|FM 单声道/立体声|
 |tuner.dab.preset|number|x|DAB 预设编号|
 |tuner.dab.id|编号|-|DAB 电台 ID|
@@ -159,9 +159,9 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 |tuner.dab.freq|数字|-|DAB 频率|
 |tuner.dab.category|字符串|-|主要/次要|
 |tuner.dab.audio_mode|字符串|-|DAB 单声道/立体声|
-|tuner.dab.bit_rate|number|-|DAB 比特率 (kpbs)|
+|tuner.dab.bit_rate|number|-|DAB 比特率（kpbs）|
 |tuner.dab.quality|number|-|DAB 质量 0-100|
-|tuner.dab.tune_aid|number|-|DAB 信号强度 0-100|
+|tuner.dab.tune_aid|编号|-|DAB 信号强度 0-100|
 |tuner.dab.off_air|布尔值|-|DAB 关闭空气|
 |tuner.dab.dab_plus|布尔值|-|DAB+|
 |tuner.dab.program_type|字符串|-|DAB 节目类型|
@@ -212,6 +212,7 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 * 设备搜索现在可以返回超过 1 个设备
 * 管理面板中开发人员的新输出
 * 更多异步/等待
+* 修正测试
 
 #### 0.2.2
 * 音乐广播 API 0.0.14
@@ -278,7 +279,7 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 
 #### 0.0.4
 * 新对象和功能（输入、sound_prog、EQ、clearVoice）
-* 在管理页面中搜索/发现
+* 管理页面中的搜索/发现
 
 #### 0.0.3
 * 更多对象实现
@@ -291,6 +292,8 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 * 可用命令电源、静音、音量
 
 ## Changelog
+### 1.0.01
+* changed algorithm for developer support
 
 ## License
 

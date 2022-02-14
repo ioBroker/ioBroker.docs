@@ -1,74 +1,264 @@
 ---
 title: Update NodeJS
-lastChanged: 30.05.2019
+lastChanged: 05.02.2022
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/updatenode.md
-hash: MPmZUM6TWpDMUxNDz1o1kaEj1vxig35ozaoOi5UeK+M=
+hash: iSLz8sUffswhG1lpe6Z/C7bcCIDjSZh+Mf79z/wrP0M=
 ---
-# Update NodeJS for ioBroker
-Every year a new Node.js version is released which is marked as LTS (Long Term Support) with a straight version number and will be maintained for several years.
-At the same time, an earlier Node.js LTS version reaches its end of life (`End of Life`).
-In 2019, NodeJS version 12 will be declared LTS in October, and version 6 was released end-of-life in April.
+# Node.js update
+| js controller | Node.js | npm |
+| ------ | ----------- | ------------- |
+| < 4.x | 12.x, 14.x, 16.x | 6.x |
+| 4.x | 12.x, 14.x, 16.x | 6.x, 7.x, 8.x |
 
-Even though the js-controller up to version 1.5.11 still supports Node.js as of version 4, new adapters come more and more often with e.g. Node.js 8 as a basic requirement, because every new Node.js version brings new features.
+## Why do you need to update it?
+As is common with many open-source technologies, Node.js is evolving rapidly.
+Updates that increase **stability** and **security** or even add **new features** appear regularly.
 
-All Node.js versions with odd version numbers are development versions and are not officially supported and should not be used!
+ioBroker does not work without Node.js, see [architecture](https://www.iobroker.net/#de/documentation/basics/architecture.md) for details.
+If you want to learn more about Node.js, [Wikipedia Node.js](https://de.wikipedia.org/wiki/Node.js).
 
-But even the latest version does not make sense, because here are often not quite compatible libraries.
-At the moment Node.js 10 would be the recommended version.
+?> **In the case of a Node.js version change, certain requirements must be checked and corrected in advance if necessary.
+It is important to note the paths in which the installation is located.**
 
-Every few years, the update of the Node.js is up for an ioBroker installation and this article should summarize how we do it best.
+### Method
+#### 1 - Check conditions
+- version and path
+- operating system
+- js controller
+- Adapters
 
-First of all, ioBroker should be stopped so that updates can not cause any side effects or crashes.
-Please also check whether all processes that started with `io.` have been terminated.
+<details><summary>Why does it need to be checked?</summary>
 
-Furthermore, of course, a backup should necessarily be created.
-You can use the BackItUp adapter or the command line command
+- which version and, above all, in which directory is the installation located
 
-```iobroker backup```
+- In the Raspi environment, older systems based on "Debian jessie" or "Debian wheezy" are often used. There is nothing higher than Nodejs 10 for them, an operating system update would be possible if necessary.
 
-The next step is to update Node.js on the system to the desired new version.
-Under Linux, it is sufficient to simply execute the Nodesource installation commands as listed under [https://github.com/nodesource/distributions#debinstall](https://github.com/nodesource/distributions#debinstall).
-For macOS there is an installer on [https://nodejs.org/en/download/](https://nodejs.org/en/download/) which you simply reinstall.
-If the ioBroker installer was used under Windows then please do NOT update the Nodejs / npm version on your own, but follow the instructions of the installer.
+- Check which js-controller version is installed (also visible on the host tab in the admin).
 
-Unfortunately, this is only half of the work, as there are many modules used modules that will be installed during installation for the then current Node.js.
-When updating the Node.js, these modules must all be updated, otherwise there will be errors during execution.
+For versions **before** js-controller 3.x, please update the js-controller first if possible. Best on at least 3.2! For example, there is this [contribution](https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable) in the forum.
 
-There are several ways to update this:
+- To ensure that there are no incompatibilities or problems after the update, you should check all adapters on the system and update them if necessary.
 
-1. **npm rebuild**
+It is best to check the adapter readme via admin, in the changelog, or in the GitHub of the respective adapter to see whether the installed adapter versions explicitly support the planned Node.js version.
 
-The first attempt should always be made with the command `npm rebuild` in the ioBroker directory, because this works the cleanest and is executed directly by the package management. Ideally, it will take a few minutes and some warnings might be listed.
-But if there are mistakes, then you have to check and solve them exactly ... that's the tricky part here.
-In the next post we try to collect all the known of these cases with your solution approaches.
-If that works, this is the fastest and cleanest way.
+</details>
 
-2. **reinstall script**
+#### 2 - Create backup
+Before any changes are made to the system, a backup must be created. Depending on the system, there are different options. The BackitUp Adapter or the command line command is recommended.
+The backup should be up-to-date so that no data is lost.
 
-If this does not do, the js controller includes a reinstall script (reinstall.sh or js-controller 1.5 reinstall.js).
-This script will detect any installed ioBroker adapters, then delete them from the node_modules directory and reinstall them.
-This approach is a bit more expensive than npm rebuild, but it serves the same purpose. This generally works well, but you should not break the process. If it does happen or there are problems starting after this procedure, then best choose the path in the next point.
-The reinstall.sh-script which was included in the js-controller 1.4 has a formatting problem and has to be used for Linux with the command
+#### 3 - Update Adapter
+The adapters used in the system should be compatible with the new Node.js version, if necessary they must be updated.
 
-... ??? be corrected so it does.
+#### 4 - Stop ioBroker
+ioBroker is stopped using its own console command or system service management
 
-3. **node-modules reset**
+#### 5 - Check if processes are still running
+This usually terminates all processes. To be on the safe side, you should check again that there are really no processes (adapters, backups) running. You can also use a tool like "top" to check whether there are still processes that start with "io." start.
 
-Another variant, which takes a bit longer, is the approach to simply delete all ode-JS modules, manually install the js-controller and then start ioBroker and have the missing adapters installed automatically.
-To do this, delete the entire node_modules directory in the ioBroker directory. Then you install the controller in the relevant version (here eg 1.5.12 which is currently in stable):
+#### 6 - Node.js update
+The next step is to update Node.js to the desired new version.
+However, the update differs depending on the operating system installed, see instructions **Note** The Node Package Manager, `npm` for short, is also updated, this may have to be up to js-controller version 3, depending on the Node. js version to be reverted to npm v6.x. Starting with js-controller version 4, npm v7/8 is also supported.
 
-```npm install iobroker.js-controller@1.5.12 --production  --no-optional --logevel=error```
+#### 7 - Check version and paths
+After the update is complete, the paths and installed versions are checked again.
 
-Then you start ioBroker. It is important that the iobroker-data directory is not changed.
-Then ioBroker starts and will find out in turn that the adapters it wants to start are not installed and install them. Depending on the system, this can take time - sometimes up to a few hours (or all night on slow SD cards).
-But then everything should be updated.
+#### 8 - Run ioBroker fixer
+Since the installation of Node.js, as mentioned at the beginning, makes some changes to the system, it is necessary to run the ioBroker fixer afterwards.
+Among other things, this restores the security settings required for the operation of ioBroker and checks and corrects all authorizations.
 
-4. **Reinstallation with Restore**
+#### 9 - Start ioBroker
+Some JavaScript modules used contain parts that have to be compiled. This process takes place during installation.
+By compiling these modules are bound to the Node.js version. After the update, these parts must therefore be recompiled.
+Since js-controller version 3.0, an attempt is made to recognize adapters that contain such parts and to automatically carry out a rebuild.
+This process can take some time and the affected adapters can restart multiple times.
 
-A small modification of the last variant is a reinstallation. This secures the `iobroker-data` directory (or uses the backup from above). Then delete the whole ioBroker directory and use the installer.
-Immediately afterwards ioBroker stops again (which is started automatically after installation) and copies the iobroker-data directory or uses `iobroker restore`. Then you start ioBroker again.
-The remainder then runs as in option 3 and takes its time.
+<details><summary>Automatic rebuilds</summary>
 
-Please give feedback on what works for you, what you use and what the problems and your solutions are.
+ioBroker automatically tries to detect adapters that don't start because they need to be updated. This works in such a way that the typical error messages are recognized and ioBroker tries to update accordingly. First, a "rebuild" of the affected adapter is performed, if that doesn't help, the adapter dependencies are updated. It is therefore possible that the adapter restarts several times. Please be patient here! Only become active when the adapter stays red and the log says that the rebuild didn't work!
+
+</details>
+
+<details><summary>Manual rebuilds</summary>
+
+If an automatic rebuild did not work, it can be carried out manually, see Troubleshooting.
+
+</details>
+
+<details><summary>Special cases (e.g. serial port)</summary>
+
+Unfortunately, there are special cases where the above options don't do the rebuild either, one of them is serialport.
+
+A log can look like this (also after all rebuild attempts).
+
+<details><summary>LOG</summary>
+
+![LOG](../../de/install/media/Log-Update_NodeJS.jpg)
+
+</details>
+
+There are also other error messages, but they all boil down to the same thing.
+The easiest option is then to manually rebuild in the **correct** directory.
+In that case look for the directory with "bindings" - above it is */opt/iobroker/node_modules/serialport/node_modules/bindings ...* on newer versions it can also be something like */opt/iobroker/node_modules/serialport/node_modules /@serialport/bindings*.
+
+Then switch to this directory and execute `npm install --production`. Then restart the adapter again.
+
+Another case are adapters with canvas module (possibly echarts or Mihome-vacuum) where there can be problems.
+
+</details>
+
+## Guide for Debian/Ubuntu
+#### 1 - Check version and path
+```
+which nodejs node npm && nodejs -v && node -v && npm -v
+```
+
+- Output
+
+```
+/usr/bin/nodejs
+/usr/bin/node
+/usr/bin/npm
+v14.18.3
+v14.18.3
+6.14.15
+```
+
+#### 2 - Backup
+```
+iobroker backup
+```
+
+- alternative [possibilities](https://www.iobroker.net/#de/documentation/config/backup.md)
+
+#### 3 - Update Adapter
+- Instructions can be found under [Manage adapters](https://www.iobroker.net/#de/documentation/tutorial/adapter.md)
+
+#### 4 - Stop ioBroker
+```
+iobroker stop
+```
+
+#### 5 - Check ioBroker processes
+```
+ps aux | grep 'io\|PID'
+```
+
+- and
+
+```
+ps aux | grep 'backup\|PID'
+```
+
+- if processes are still running
+
+```
+sudo kill -9 <ProzessID>
+```
+
+#### 6 - Node.JS update
+- Details on [Node.Js](https://github.com/nodesource/distributions#installation-instructions)
+
+```
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt install -y nodejs
+```
+
+- For Node.js 16 simply replace 14 with 16 in the URL.
+
+#### 7 - Check version/path
+```
+which nodejs node npm && nodejs -v && node -v && npm -v
+```
+
+#### 8 - Run iobroker fixer
+```
+iobroker fix
+```
+
+#### 9 - Start ioBroker
+```
+ iobroker start
+ ```
+
+## Instructions for Windows
+#### 1 - Check version (Windows key + R)
+```
+cmd.exe /C node -v & pause
+```
+
+#### 2 - Backup
+```
+iobroker backup
+```
+
+- alternative [possibilities](https://www.iobroker.net/#de/documentation/config/backup.md)
+
+#### 3 - Update Adapter
+- Instructions can be found under [Manage adapters](https://www.iobroker.net/#de/documentation/tutorial/adapter.md)
+
+#### 4- Backup of folder:
+```
+C:\Program Files\iobroker\deinhostname\nodejs
+```
+
+#### 5 - stop iobroker
+```
+iobroker stop
+```
+
+#### 6 - Node.js update
+- Download [Node.js](https://nodejs.org) as an archive, not as an msi file
+- Unzip the download and copy the entire folder over the existing folder:
+
+```
+C:\Program Files\iobroker\deinhostname\nodejs
+```
+
+- Copy the **nodevars.bat** file from the backup copy back to the folder:
+
+```
+C:\Program Files\iobroker\deinhostname\nodejs
+```
+
+#### 7 - Check version
+```
+cmd.exe /C node -v & pause
+```
+
+#### 8 - Run iobroker fixer
+```
+iobroker fix
+```
+
+#### 9 - Start ioBroker
+```
+iobroker start
+```
+
+## Instructions for Docker
+- Node.js is usually done by updating the container to a new version of the [Docker Image](https://hub.docker.com/r/buanet/iobroker/tags).
+- A detailed procedure and further details on the iobroker container can be found at [buanet](https://smarthome.buanet.de/2020/10/iobroker-docker-container-updates-upgrades/).
+
+## Troubleshooting
+### Manual rebuild
+- For this there is
+
+```
+iobroker rebuild <adaptername>
+```
+
+- if that's not enough
+
+```
+iobroker rebuild <adaptername> --install
+```
+
+- just run it manually at the shell. Ideally, everything should be done automatically.
+
+# Notice
+?> As long as the js controller is lower than version 4, the [ioBroker fixer](https://www.iobroker.net/#de/documentation/install/linux.md) must also be executed with a Node.js update within a major version.
+With the future js controller in version 4, rebuilds are handled fully automatically.
+A manual rebuild is then no longer supported.

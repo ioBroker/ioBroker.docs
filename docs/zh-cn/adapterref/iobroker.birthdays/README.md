@@ -1,52 +1,37 @@
 ---
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.birthdays.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.birthdays.svg
+BADGE-Stable: http://iobroker.live/badges/birthdays-stable.svg
+BADGE-installed: http://iobroker.live/badges/birthdays-installed.svg
+BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.birthdays.svg
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.birthdays/badge.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.birthdays.png?downloads=true
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.birthdays/README.md
 title: ioBroker.birthdays
-hash: kCfQvkZ4tMuXCDMcKFXfsCYUe7J1yG0ieoLT3iWNa3I=
+hash: i8jm2htDCET3736KrzWMOj/Z/fZrrXwRpvRQyO0JB1k=
 ---
-![标识](../../../en/adapterref/iobroker.birthdays/admin/birthdays.png)
-
-![NPM 版本](http://img.shields.io/npm/v/iobroker.birthdays.svg)
-![下载](https://img.shields.io/npm/dm/iobroker.birthdays.svg)
-![稳定的](http://iobroker.live/badges/birthdays-stable.svg)
-![已安装](http://iobroker.live/badges/birthdays-installed.svg)
-![依赖状态](https://img.shields.io/david/klein0r/iobroker.birthdays.svg)
-![已知漏洞](https://snyk.io/test/github/klein0r/ioBroker.birthdays/badge.svg)
-![新产品管理](https://nodei.co/npm/iobroker.birthdays.png?downloads=true)
+![标识](../../../en/adapterref/iobroker.birthdays/../../admin/birthdays.png)
 
 # IoBroker.birthdays
-![测试和发布](https://github.com/klein0r/ioBroker.birthdays/workflows/Test%20and%20Release/badge.svg)
-
-使用 ical 文件导入您的联系人生日或直接在适配器设置中定义生日日期
-
-＃＃ 由...赞助
-[![ioBroker Master Kurs](https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-birthdays)
-
-＃＃ 安装
-请使用 ioBroker 中的“适配器列表”来安装此适配器的稳定版本。您还可以使用 CLI 安装此适配器：
-
-```
-iobroker add birthdays
-```
-
-＃＃ 配置
+## ICal
 您可以使用 ical url 来访问您的生日日历。适配器将搜索该文件中的所有事件。
 
 您的活动
 
-1. 必须在说明中包含出生年份（例如 1987）
-2. 全天活动
+1. 必须在描述中包含出生年份（例如 1987 年）
+2. 是全天活动
 3.必须“每年重复”
 
 不需要使用 ical 选项。您还可以在设置中定义所有生日日期。 *当您同时使用这两个选项时，信息将被合并。*
 
-![日历示例](../../../en/adapterref/iobroker.birthdays/images/exampleCalendar.png)
+![日历示例](../../../en/adapterref/iobroker.birthdays/../exampleCalendar.png)
 
 ## 示例（块状）
 （需要俯卧撑）
 
-![块状示例](../../../en/adapterref/iobroker.birthdays/images/exampleBlockly.png)
+![块状示例](../../../en/adapterref/iobroker.birthdays/../exampleBlockly.png)
 
 ```xml
 <xml xmlns="https://developers.google.com/blockly/xml">
@@ -213,15 +198,28 @@ iobroker add birthdays
 </xml>
 ```
 
-##学分
-[Herbanu 的标志](https://pixabay.com/de/vectors/geburtstag-karte-cele-feier-design-3148707/)
-
 ## Changelog
 
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2022-02-10)
+
+* (klein0r) Updated state roles
+* (klein0r) Added hint for Admin 4 configuration
+* (klein0r) Fixed translations
+
+### 0.2.0 (2022-01-06)
+
+* (klein0r) Added option to ignore certificate errors
+
+### 0.1.8 (2022-01-03)
+
+* (klein0r) Birthdays on 29th of February create NaN objects
+* (klein0r) Added check for empty names
+* (klein0r) Added date checks
+
 ### 0.1.7 (2021-12-23)
 
 * (klein0r) Added defaults for birthdays table
@@ -272,7 +270,7 @@ iobroker add birthdays
 
 The MIT License (MIT)
 
-Copyright (c) 2021 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mqtt-client/README.md
 title: ioBroker.mqtt-客户端
-hash: ofz++iad9eq0lluL5KUB1IuSL9EjZGwEEsw5xWtEUxg=
+hash: HdtB+RffifVs4/gPqky/n22oi7tbCSBOAqzDvzcVLbw=
 ---
 ![标识](../../../en/adapterref/iobroker.mqtt-client/admin/mqtt-client.png)
 
@@ -19,9 +19,12 @@ hash: ofz++iad9eq0lluL5KUB1IuSL9EjZGwEEsw5xWtEUxg=
 ###关于连接主题和消息
 每次客户端连接或重新连接到服务器时，```on connect message``` 都会发布到 ```on connect topic```。
 
+### 关于断开主题和消息
+当适配器正常停止时，```on disconnect message``` 将发布到 ```on disconnect topic```。
+
 ###最后将主题和消息
 每次客户端连接或重新连接到服务器时，```last will message``` 都会发布到 ```last will topic```。
-服务器将存储此消息并在客户端断开连接时将其发送给其订阅者。
+当客户端意外断开连接时，服务器将存储此消息并将其发送给其订阅者。
 
 ###订阅
 现有状态未涵盖的以逗号分隔的主题列表。
@@ -41,7 +44,7 @@ hash: ofz++iad9eq0lluL5KUB1IuSL9EjZGwEEsw5xWtEUxg=
 
 ### 启用
 启用或禁用此状态的 mqtt-client 功能。
-禁用将从此状态删除任何 mqtt-client 设置。
+禁用将从该状态删除任何 mqtt-client 设置。
 
 ＃＃＃ 话题
 发布和订阅此状态的主题。
@@ -62,7 +65,7 @@ hash: ofz++iad9eq0lluL5KUB1IuSL9EjZGwEEsw5xWtEUxg=
 * ```ack``` 在状态更新时，确认标志将被相应地设置
 
 ＃＃＃＃ 笔记
-* 当 ack 设置为 true 时，它会覆盖对象 ack，参见 ```as object```
+* 当 ack 设置为 true 时，它将覆盖对象 ack，参见 ```as object```
 * 为了防止消息循环，如果同时启用了发布和订阅
 
 ＃＃ 去做
@@ -74,6 +77,10 @@ hash: ofz++iad9eq0lluL5KUB1IuSL9EjZGwEEsw5xWtEUxg=
 ### __工作进行中__ -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (Pmant) fix LWT documentation
+* (Pmant) optionally publish a message when disconnecting gracefully
+
 ### 1.5.0 (2022-01-26)
 * IMPORTANT: This adapter now required at least js-controller 3.3.x
 * (Apollon77) Fix crash cases

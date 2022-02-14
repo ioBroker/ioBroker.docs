@@ -3,44 +3,65 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.melcloud/README.md
 title: ioBroker.melcloud
-hash: wY1Lx3VCzhsH26JWm83tQOR8uVP8AlXh37D+dWNaTeY=
+hash: jg3hO0fgbO1hEwUIekw/9ma1DSu7/hpvO+pOPZYHgkQ=
 ---
-![商标](../../../en/adapterref/iobroker.melcloud/admin/melcloud.png)
+![标识](../../../en/adapterref/iobroker.melcloud/admin/melcloud.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.melcloud.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.melcloud.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.melcloud.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.melcloud.svg)
 ![安装数量（最新）](http://iobroker.live/badges/melcloud-installed.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/melcloud-stable.svg)
 ![依赖状态](https://img.shields.io/david/Black-Thunder/iobroker.melcloud.svg)
 ![已知漏洞](https://snyk.io/test/github/Black-Thunder/ioBroker.melcloud/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.melcloud.png?downloads=true)
+![新PM](https://nodei.co/npm/iobroker.melcloud.png?downloads=true)
 
-*由[Freepik]（https://www.flaticon.com/authors/freepik）来自[www.flaticon.com](https://www.flaticon.com/")制成的图标*
+*由[Freepik](https://www.flaticon.com/authors/freepik) 来自 [www.flaticon.com](https://www.flaticon.com/")*制作的图标
 
-＃ioBroker.melcloud
-[![测试]（https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/test.yml/badge.svg）]（https://github.com/Black-Thunder/ioBroker.melcloud/actions /workflows/test.yml）[！[Reviewdog]（https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/code-quality.yml/badge.svg）](https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/code-quality.yml)
+# IoBroker.melcloud
+[![测试](https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/test.yml/badge.svg)](https://github.com/Black-Thunder/ioBroker.melcloud/actions /workflows/test.yml) [![Reviewdog](https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/code-quality.yml/badge.svg)](https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/code-quality.yml)
 
-## IoBroker的melcloud适配器
-该适配器通过MELCloud（https://www.melcloud.com/）将三菱空调系统集成到ioBroker中。
+## 用于 ioBroker 的 melcloud 适配器
+该适配器通过 MELCloud (https://www.melcloud.com/) 将 Mitsubishi Electric 设备集成到 ioBroker。
 
-说明文件：
+文档：
 
-* [论坛主题]（https://forum.iobroker.net/topic/40705/test-adapter-melcloud-v1-1-x-latest）
-* [英文说明]（https://github.com/Black-Thunder/ioBroker.melcloud/tree/master/docs/en/melcloud.md）
-* [Deutsche Beschreibung]（https://github.com/Black-Thunder/ioBroker.melcloud/tree/master/docs/de/melcloud.md）
+* [论坛主题](https://forum.iobroker.net/topic/40705/test-adapter-melcloud-v1-1-x-latest)
+* [英文说明](https://github.com/Black-Thunder/ioBroker.melcloud/tree/master/docs/en/melcloud.md)
+* [Deutsche Beschreibung](https://github.com/Black-Thunder/ioBroker.melcloud/tree/master/docs/de/melcloud.md)
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+* (Black-Thunder) Added support for air to water devices (e.g. heatpumps)
+
+### 1.1.6 (2022-02-06)
+* (Black-Thunder) fixed warnings
+
+### 1.1.5 (2022-02-06)
+* (Black-Thunder) replaced deprecated package "request" with "axios"
+* (Black-Thunder) fix warnings for js-controller v4
+* (Black-Thunder) updated dependencies
+
+### 1.1.4 (2021-05-16)
+* (Black-Thunder) implemented separate queue for sending device commands to improve robustness when sending multiple commands
+* (Black-Thunder) only update "control" state values with ack=true when it was requested by user before
+
+### 1.1.3 (2021-05-12)
+* (Black-Thunder) IMPORTANT: The adapter now requires js-controller 3.1 at least
+* (Black-Thunder) ignore unchanged state values to decrease network traffic
+* (Black-Thunder) only update state values if they are really changed
+* (Black-Thunder) extend existing objects to ensure compatibility with js-controller >= v3.2
+* (Black-Thunder) only allow values with 0.5 steps for "targetTemp"
 
 ### 1.1.2 (2021-04-30)
-* (Black-Thunder) added compability with js-controller >= v3.3.1
+* (Black-Thunder) added compatibility with js-controller >= v3.2
 * (Black-Thunder) updated dependencies
 
 ### 1.1.1 (2021-01-10)
-**Attention: With this version you must reenter your password in the adapter settings and save again! Otherwise login will fail.**
+**Attention: With this version you must reenter your password in the adapter settings and save again! Otherwise, login will fail.**
 * (Black-Thunder) fix: correctly use auto decryption handling for password 
 * (Black-Thunder) polling interval in adapter settings is now limited to values greater than 0
 
@@ -92,7 +113,7 @@ hash: wY1Lx3VCzhsH26JWm83tQOR8uVP8AlXh37D+dWNaTeY=
 ### 0.0.3 26.05.2020
 * (Black-Thunder) added indicator if device is reachable
 * (Black-Thunder) corrected role of "targetTemp", "power" and "deviceName"
-* (Black-Thunder) added new states "macAddress" and "actualFanSpeed" (indicates fan speed whern running in auto mode)
+* (Black-Thunder) added new states "macAddress" and "actualFanSpeed" (indicates fan speed when running in auto mode)
 * (Black-Thunder) added translations
 
 ### 0.0.2-alpha9 25.05.2020
@@ -128,7 +149,7 @@ hash: wY1Lx3VCzhsH26JWm83tQOR8uVP8AlXh37D+dWNaTeY=
 ### 0.0.2 24.05.2020
 * (Black-Thunder) first implementation of device control (all states under "device.XXX.control")
 * (Black-Thunder) added more device options
-* (Black-Thunder) extended and optimized logging (e.g. when logging into MelCloud)
+* (Black-Thunder) extended and optimized logging (e.g., when logging into MelCloud)
 * (Black-Thunder) implemented polling of cloud data
 
 ### 0.0.1-alpha4 11.05.2020
@@ -151,7 +172,7 @@ hash: wY1Lx3VCzhsH26JWm83tQOR8uVP8AlXh37D+dWNaTeY=
 ## License
 MIT License
 
-Copyright (c) 2020 Black-Thunder <glwars@aol.de>
+Copyright (c) 2022 Black-Thunder <glwars@aol.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

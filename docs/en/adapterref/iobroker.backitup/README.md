@@ -412,6 +412,26 @@ Here is a list of the problems that have occurred so far and their solutions, if
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 2.3.1 (2022-02-12)
+* (simatec) Bugfix Grafana
+* (simatec) Bugfix Restore for Docker System
+* (simatec) Restore Interface with https Support
+* (simatec) use iobroker SSL Certificates for https
+
+### 2.3.0 (2022-02-11)
+* (simatec) Influxdb2 Backup added
+* (simatec) Influxdb2 Restore added
+* (simatec) Bugfix Grafana Backup
+* (simatec) Bugfix GUI
+* (simatec) Bugfix Redis Restore
+* (simatec) New Restore WebIf added
+* (simatec) dependencies updated
+* (simatec) Bugfix start after Restore
+* (simatec) redis remote Backup added
+* (simatec) Error messages configurable
+* (simatec) Translations added
+* (simatec) Adjustments to js-controller 4
+
 ### 2.2.4 (2022-01-27)
 * (simatec) Restore backup of different controller version added
 * (simatec) Fix YAHKA Backup for more Instances

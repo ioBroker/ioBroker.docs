@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: BfYxbJHOv1roN/GPJRuun68PNzSEnxpFXV9xbgodQKc=
+hash: Ew1s2gzhYtfBStlZETDUND2oeQA2J13+clrmLMif9q4=
 ---
 ![Logo](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -413,7 +413,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 </html>
 ````
 
-</Details>
+</details>
 
 ### Weitere Konfiguration von Widgets
 * Es gibt zusätzliche Meta-Tags, die Sie im Head-Bereich Ihrer Widget-Website verwenden können, um das Verhalten des Widgets zu konfigurieren:
@@ -423,7 +423,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * 'Widget-URL-Parameter'
 * Syntax: `` <meta name="widget-urlparameters" content="parameter/default value/description/type;parameter2/default value2/description2/type2"/> „
 * Der Benutzer wird nach diesen Parametern gefragt, wenn er das Widget als URL oder Background_URL auswählt oder automatisch ein Widget erstellt
-* ``type`` ist optional und kann ``text`` (standardmäßig), ``number``, ``checkbox``, ``color``, ``select``, ``multipleSelect` sein `, ``combobox``, ``historyInstance``, ``datapoint``, ``listJsonDatapoint``, ``icon``, ``fontFamily``, ``fontSize``, ``fontStyle``, ``fontWeight``, ``section``, ``divider``, ``info``, ``link`` oder ``hidden``
+* ``type`` ist optional und kann ``text`` (standardmäßig), ``number``, ``checkbox``, ``color``, ``select``, ``multipleSelect` sein `, ``combobox``, ``historyInstance``, ``datapoint``, ``listJsonDatapoint``, ``icon``, ``fontFamily``, ``fontSize``, ``fontStyle``, ``fontWeight``, ``language``, ``section``, ``divider``, ``info``, ``link`` oder ``hidden``
 * Wenn der Typ ``select``, ``multipleSelect`` oder ``combobox`` ist, müssen Sie die möglichen Optionen angeben, indem Sie ``/<selectOptions>`` hinzufügen, wobei ``<selectOptions>`` ein ist String im Format ``<Wert1>,<Beschriftung1>/<Wert2>,<Beschriftung2>/...`` (Combobox ist eine Auswahlbox mit der Möglichkeit zur Eingabe von freiem Text)
 * Wenn Typ ``number`` ist, dann kann min, max und Schrittweite angegeben werden, indem ``/<numberOptions>`` hinzugefügt wird, wobei ``<numberOptions>`` ein String im Format ``<min> ist, <max>,<schritt>``
 * Die Typen ``section``, ``divider``, ``info`` und ``link`` haben keine weitere Funktion, sie dienen lediglich dazu, dem Benutzer Informationen anzuzeigen. Für ``link`` sollte der Wert eine URL sein, aber alle Slashes müssen durch Backslashes ersetzt werden.
@@ -453,7 +453,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 
 * 'widget-replaceurl'
 * Syntax: `` <meta name="widget-replaceurl" content="<url>" data-absolute="<true|false>"/> „
-* Dies konfiguriert die verwendete URL/BACKGROUND_URL für dieses Widget neu (auf diese Weise könnten Sie Widget-Voreinstellungen definieren, die verwendet werden, um dem Benutzer spezielle oder vereinfachte Konfigurationen zu geben. Aber wenn das Widget aufgerufen wird, verwendet iQontrol die angegebene ``<url>` ` anstelle der ursprünglichen URL.
+* Dies konfiguriert die verwendete URL/BACKGROUND_URL für dieses Widget neu (auf diese Weise könnten Sie Widget-Voreinstellungen definieren, die verwendet werden, um dem Benutzer spezielle oder vereinfachte Konfigurationen zu geben. Aber wenn das Widget aufgerufen wird, verwendet iQontrol die angegebene ``<url>`". ` anstelle der ursprünglichen URL.
 * Standardmäßig wird nur der Dateiname (mit Erweiterung) ersetzt. Beim Setzen von ``data-absolute="true"`` wird die gesamte URL ersetzt.
 
 <details><summary>Mögliche Optionen anzeigen, die durch das Meta-Tag &#39;widget-options&#39; konfiguriert werden können: (<ins> zum Öffnen anklicken</ins> )</summary>
@@ -567,7 +567,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``remoteKeepSectionsOpen`` (Abschnitte offen halten) - nur gültig für Rolle Medien:
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
-* ``remoteSectionsStartOpened`` (Beginnen Sie mit diesen anfangs geöffneten Abschnitten) - nur gültig für die Rolle Medien:
+* ``remoteSectionsStartOpened`` (Starten Sie mit diesen anfangs geöffneten Abschnitten) - nur gültig für die Rolle Medien:
 * Mögliche Werte: Array mit "REMOTE_PAD", "REMOTE_CONTROL", "REMOTE_ADDITIONAL_BUTTONS", "REMOTE_CHANNELS", "REMOTE_NUMBERS" und/oder "REMOTE_COLORS"
 * Standard: "false"
 * ``remoteShowDirectionsInsidePad`` (Vol und Ch +/- im Pad anzeigen) - nur gültig für Rolle Media:
@@ -652,7 +652,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``transparentIfInactive`` (Hintergrund transparent machen, wenn Gerät inaktiv):
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
-* ``noOverlayInactive`` (Overlay der Kachel entfernen, wenn Gerät inaktiv):
+* ``noOverlayInactive`` (Überlagerung der Kachel entfernen, wenn Gerät inaktiv):
 * Mögliche Werte: "true"|"false"
 * Voreinstellung: "true"
 * ``hideBackgroundURLInactive`` (Hintergründ vor Background_VIEW/URL/HTML ausblenden, wenn das Gerät inaktiv ist):
@@ -700,7 +700,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``noOverlayActive`` (Overlay der Kachel entfernen, falls Gerät aktiv):
 * Mögliche Werte: "true"|"false"
 * Voreinstellung: "true"
-* ``hideBackgroundURLActive`` (Hintergründe von Background_VIEW/URL/HTML ausblenden, wenn das Gerät aktiv ist):
+* ``hideBackgroundURLActive`` (Hintergründe vor Background_VIEW/URL/HTML ausblenden, wenn das Gerät aktiv ist):
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
 * ``hideDeviceNameIfActive`` (Gerätenamen ausblenden, wenn das Gerät aktiv ist):
@@ -805,7 +805,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``invertError`` (ERROR umkehren (ok anstelle von error verwenden)):
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
-*HINTERGRUND_ANSICHT/URL/HTML:
+*HINTERGRUND_VIEW/URL/HTML:
 * ``adjustHeightToBackgroundView: `` (Höhe der Gerätekachel an die Größe vonbackground_VIEW anpassen):
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
@@ -815,7 +815,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``backgroundURLPadding`` (Auffüllen auf Background_VIEW/URL/HTML anwenden):
 * Mögliche Werte: Zahl von 0 bis 50 [Pixel]
 * Standard: ""
-* ``backgroundURLAllowPostMessage`` (Erlaube postMessage-Kommunikation für background_VIEW/URL/HTML):
+* ``backgroundURLAllowPostMessage`` (Erlaube postMessage-Kommunikation für Background_view/URL/HTML):
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
 * ``backgroundURLNoPointerEvents`` (Mausereignisse auf die Kachel richten statt auf den Inhalt von DESCRIPTION_VIEW/URL/HTML):
@@ -862,7 +862,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``additionalInfoCaption`` (Beschriftung für ADDITIONAL_INFO):
 * Voreinstellung: "Zusätzliche Infos"
 
-</Details>
+</details>
 
 <details><summary>Beispiel-Widget-Website anzeigen, die eine Karte mit den obigen Einstellungen erstellt: (<ins> zum Öffnen anklicken</ins> )</summary>
 
@@ -953,7 +953,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 </html>
 ````
 
-</Details>
+</details>
 
 <details><summary>Zeigen Sie ein fortgeschritteneres Beispiel: (<ins> zum Öffnen anklicken</ins> )</summary>
 
@@ -1191,7 +1191,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 </html>
 ````
 
-</detail> </detail>
+</details> </details>
 
 ## Listen und Zähler
 iQontrol bietet ein leistungsstarkes Tool zum Erstellen dynamischer Listen und Zähler von Geräten und Zuständen.
@@ -1212,7 +1212,7 @@ Um die gezählten Geräte zu visualisieren, können Sie das Device-Counter-Widge
 * Typ: Wählen Sie aus, was zur Liste hinzugefügt oder daraus entfernt werden soll. Typ könnte sein:
 * **Alle** - selbsterklärend
 * **Aufzählung** - Filtern nach Aufzählung. Sie können Aufzählungen wie „Räume“, „Funktionen“ oder „Fenster im Obergeschoss“ im ioBroker-Admin-Adapter definieren
-* **Aufzählung mit Childs** - Aufzählungen enthalten oft nur das Gerät ohne seinen Datenpunkt. Daher werden Sie meistens die Aufzählung mit untergeordneten Elementen verwenden, die automatisch auch die Datenpunkte enthält
+* **Aufzählung mit Childs** - Aufzählungen enthalten oft nur das Gerät ohne seinen Datenpunkt. Daher werden Sie meistens die Enumeration mit Childs verwenden, die automatisch auch die Datenpunkte enthält
 * **ID** - Filtern Sie nach der ID von Datenpunkten, entfernen Sie beispielsweise IDs, die nicht mit „.color“ oder „.saturation“ enden.
 * **Objekttyp** - Filtern nach Objekttyp, der Gerät, Kanal, Zustand oder Aufzählung sein kann
 * **Typ** - filtern Sie nach dem gemeinsamen.Typ des Datenpunkts, z. B. Zeichenfolge, Zahl, Boolesch
@@ -1382,7 +1382,7 @@ Allerdings ist nicht jeder Typ für jede Rolle sinnvoll. So ist beispielsweise d
 Jedes Licht kann einen oder beide der folgenden Zustände haben:
 
 * **STATE**: *boolean* - Ein-/Aus-Zustand anzeigen und setzen
-* **LEVEL**: *Nummer* - Zeigt und stellt die Lichtstärke ein
+* **LEVEL**: *Zahl* - zeigt und stellt die Lichtstärke ein
 
 Optional können Sie folgende Zustände definieren:
 
@@ -1498,7 +1498,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
   *Alternativ können Sie eine* erteliste* zuweisen, um zusätzliche Zustände wie 'Manipuliert' anzuzeigen
   *Sie können auch eine* eichenfolge* zuweisen, um einen beliebigen Text wie "Feuer im Obergeschoss" anzuzeigen
 * **CONTROL_MODE**: *Werteliste* - Auswahl des Betriebsmodus wie "Scharf" und "Unscharf"
-    * In den Geräteoptionen können Sie den Wert definieren, der „unscharf“ darstellt, sodass das entsprechende Symbol angezeigt werden kann
+    * In den Geräteoptionen können Sie den Wert definieren, der „unscharf“ darstellt, damit das entsprechende Symbol angezeigt werden kann
 
 ###<img src="img/icons/battery_full.png" width="32"> Batterie:
 * **STATUS**: *Zahl* - Batteriestand in Prozent
@@ -1577,7 +1577,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 | | Ära | N, NN, NNN | v. Chr. n. Chr. | X | --- | --- |
 | | | NNNN | Vor Christus, Anno Domini | X | --- | --- |
 | | | NNNNN | v. Chr. n. Chr. | X | --- | --- |
-| | Woche Jahr | g | 70 71 ... 29 30 | X | --- | --- |
+| | Woche Jahr | gg | 70 71 ... 29 30 | X | --- | --- |
 | | | ggg | 1970 1971 ... 2029 2030 | X | --- | --- |
 | | Woche Jahr (ISO) | GG | 70 71 ... 29 30 | X | --- | --- |
 | | | GGGG | 1970 1971 ... 2029 2030 | X | --- | --- |
@@ -1606,7 +1606,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 
     ![Glühen](../../../en/adapterref/iobroker.iqontrol/img/dateandtime_conversionrules.png)
 
-</Details>
+</details>
 
 ###<img src="img/icons/value_on.png" width="32"> Wert:
 * **STATE**: *any* - jeder gültige Status, der angezeigt werden soll (siehe allgemeine Status-Sektion)
@@ -1690,9 +1690,12 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 2.0.0-rc1.2 (2022-02-09)
+### 2.0.0-rc2.0 (2022-02-12)
 * (sbormann) Fixed counting of logs.
 * (sbormann) Lists are now saved as readonly and with ack=true.
+* (sbormann) Fixed glow.
+* (sbormann) Added option to define, how the parent name of lists is determined.
+* (dirkhe, sbormann) Added save-button to dialogs.
 
 ### 2.0.0-rc1.1 (2022-02-08)
 * (sbormann) Kompatibility to new ioBroker websocket established.
