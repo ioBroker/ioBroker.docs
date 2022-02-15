@@ -89,6 +89,9 @@ Weitere Erklärungen zu den Logikbausteinen und auch weiteren wie Node-Red oder 
 <br>
 
 ## Visualisierung
+Mehrere Visualisierungsadapter bietem dem Anwender die Möglichkeit Steuerungsoptionen sowie Zustandsinformationen grafisch zu realisieren. Diese individuellen Visualisierungen können dann auf dem Tablet, Smartphone, Computer dargestellt und bedient werden.
+
+Nachfolgend werden einige Visualisierungsadapter und deren Haupteigenschaften kurz vorgestellt. 
 
 
 ### VIS
@@ -145,9 +148,23 @@ Das Layout ist flexibel konfigurierbar. Es können optional (beliebig viele) Tab
 
 ### iQontrol
 
+Schnell ans Ziel - aber dennoch flexibel, das zeichnet iQontrol aus:
+- Die Vis einmal erstellen und überall nutzen: Vom PC, über Tablet zu Handy, iQontrol läuft auf allen Endgeräten - entweder im Browser oder als WebApp (lässt sich auf dem Homescreen speichern und fühlt sich dann an, wie eine App)
+- iQontrol passt sich dabei allen Auflösungen dynamisch an
+- Superschnelle Ladezeit
+- Mit den Standard-Einstellungen kommt man schnell zum Ziel
+- Mit den erweiterten Einstellungen und Widgets hat man hingegen hohe Flexibilität und Anpassungsmöglichkeiten (bei manchen Installationen erkennt man gar nicht mehr, dass es eigentlich iQontrol ist)
+
 Video [iQontrol Demo Video][]
 
-![](media/iobroker-visualisation-iqontrol.png) 
+<img src="media/iobroker-visualisation-iqontrol.png" width="350">
+<img src="media/iobroker-visualisation-iqontrol2.png" width="350">
+<img src="media/iobroker-visualisation-iqontrol3.png" width="350">
+
+<br>
+
+<img src="media/iobroker-visualisation-iqontrol4.png" width="350">
+<img src="media/iobroker-visualisation-iqontrol5.png" width="350">
 
 <br>
 
