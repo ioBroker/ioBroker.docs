@@ -157,14 +157,14 @@ Schnell ans Ziel - aber dennoch flexibel, das zeichnet iQontrol aus:
 
 Video [iQontrol Demo Video][]
 
-<img src="media/iobroker-visualisation-iqontrol.png" width="350">
-<img src="media/iobroker-visualisation-iqontrol2.png" width="350">
-<img src="media/iobroker-visualisation-iqontrol3.png" width="350">
+<img src="media/iobroker-visualisation-iqontrol.png" width="200">
+<img src="media/iobroker-visualisation-iqontrol2.png" width="200">
+<img src="media/iobroker-visualisation-iqontrol3.png" width="200">
 
 <br>
 
-<img src="media/iobroker-visualisation-iqontrol4.png" width="350">
-<img src="media/iobroker-visualisation-iqontrol5.png" width="350">
+<img src="media/iobroker-visualisation-iqontrol4.png" width="200">
+<img src="media/iobroker-visualisation-iqontrol5.png" width="200">
 
 <br>
 
