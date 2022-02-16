@@ -3,55 +3,50 @@ title: Proxmox
 Version: 0.1
 Autoren: TeNNo2k5
 Schlüsselworte: Proxmox, LXC, USB Passthrough
-lastChanged: 09.02.2022
+lastChanged: 15.02.2022
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/proxmox.md
-hash: EKN5IpA6ztzOddInmyVH5iNkd9yIMj5F1TBocYKweA4=
+hash: 2qh4okoJbvYW47SXLPtJP7KD3Yj5JMY46oQ9V78mH9Y=
 ---
 # Proxmox
 ![proxmox logo](../../de/install/media/proxmox/Proxmox-logo-860.png)
 
 ## Proxmox - ioBroker installation in a VM (Virtual Machine)
-?> ***This is a placeholder***.<br><br> Help ioBroker and expand this article. Please note the [ioBroker Style Guide](community/styleguidedoc) so that the changes can be adopted more easily.
+?> ***This is a placeholder***.<br><br> Help ioBroker and expand this article. Please note the [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.
 
 <details>
 
 </details>
 
 ## Proxmox - ioBroker installation in a LXC (Linux container)
-?> ***This is a placeholder***.<br><br> Help ioBroker and expand this article. Please note the [ioBroker Style Guide](community/styleguidedoc) so that the changes can be adopted more easily.
+?> ***This is a placeholder***.<br><br> Help ioBroker and expand this article. Please note the [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.
 
 <details>
 
 </details>
 
 ## Proxmox - LXC (Linux Containers) -> Pass through USB devices
-### Foreword
 This part of the guide explains step by step how to pass through a USB device (USB passthrough) in Proxmox to an LXC (Linux container).
 
 With a VM, it is possible to pass on a USB device directly via the Proxmox web interface. With a Linux container, the configuration file of the lxc currently has to be edited manually for this.
 
-The instructions describe how to integrate a **Texas Instruments Inc. CC2531** Zigbee Stick, but the same steps can be used analogously for other Zigbee Sticks (ConBee, CC2652P etc.) or for other USB devices with the exception of USB network devices ( Bluetooth/Wlan) can be used.
+The instructions describe how to integrate a **Texas Instruments Inc. CC2531** Zigbee stick, but the same steps can be used analogously for other Zigbee sticks (ConBee, CC2652P etc.) or for other USB devices with the exception of USB network devices ( Bluetooth/Wlan) can be used.
 
 * Proxmox version 7.1 was used for this part of the instructions.
 
+### 1.) Gather information about the USB device
 <details>
 
-### 1.) Gather information about the USB device
 Establishing an SSH connection to Proxmox:
 
-```
-ssh root@IP-Adresse
-```
+~~~ ssh root@ip address ~~~
 
-<span style="color:red">If the USB device is already connected to the Proxmox Host, unplug the device for the time being.</span>
+<span style="color:red">**If the USB device is already connected to the Proxmox Host, unplug the device for now.**</span>
 
 The following command lists all currently connected USB devices on the Proxmox host:
 
-```
-lsusb
-```
+~~~ lsusb ~~~
 
 ![proxmoxlxc00](../../de/install/media/proxmox/proxmoxlxc00.PNG)
 
@@ -63,9 +58,7 @@ In the screenshot you can see that a new device with the USB bus number: **001**
 
 This information is required to use the following command to e.g. output the **major device number** from the device:
 
-```
-ls -l /dev/bus/usb/001/003
-```
+~~~ ls -l /dev/bus/usb/001/003 ~~~
 
 It is important to use the output of your USB bus number and device number with the command!
 
@@ -79,9 +72,7 @@ The USB device in this example has the major device number **189**, write down t
 
 Next we output the unique id of the USB device and note the output value in the text file with the note: #2
 
-```
-ls /dev/serial/by-id/
-```
+~~~ ls /dev/serial/by-id/ ~~~
 
 ![proxmoxlxc04](../../de/install/media/proxmox/proxmoxlxc04.PNG)
 
@@ -89,24 +80,24 @@ ls /dev/serial/by-id/
 
 As a last step, the major device number of the ttyACM is output and noted with the note: #3:
 
-```
-ls -l /dev/ttyACM*
-```
+~~~ ls -l /dev/ttyACM* ~~~
 
 ![proxmoxlxc06](../../de/install/media/proxmox/proxmoxlxc06.PNG)
 
->If there is no output, check with "ls -l /dev/serial/by-id/" whether the USB device is integrated by the system as ttyUSB, if so replace all the following commands that refer to **ttyACM...** obtain by **ttyUSB…** should no output appear it is not a USB CDC class device (serial communication) so all points to include from ttyACM can be ignored.
+>*If there is no output, check with "ls -l /dev/serial/by-id/" whether the USB device is integrated by the system as ttyUSB, if so replace all the following commands that refer to **ttyACM...* * obtain from **ttyUSB…** if there is no output it is not a USB CDC class device (serial communication) so all points to include from ttyACM can be ignored.*
 
-So we wrote down **three** values from the USB device that are needed for the integration into the configuration file of the lxc.
+So we wrote down **three** values from the USB device that are needed for the integration in the configuration file of the lxc.
 
 ![proxmoxlxc07](../../de/install/media/proxmox/proxmoxlxc07.PNG)
 
+</details>
+
 ### 2.) Edit LXC configuration file
+<details>
+
 Change to the LXC configuration directory on the Proxmox host with:
 
-```
-cd /etc/pve/lxc
-```
+~~~ cd /etc/pve/lxc ~~~
 
 The configuration file has the same ID number that was assigned when the lxc was created!
 
@@ -116,29 +107,21 @@ The configuration file has the same ID number that was assigned when the lxc was
 
 Before editing the configuration file, a backup copy should be created:
 
-```
-cp 201.conf 201.conf.backup
-```
+~~~ cp 201.conf 201.conf.backup ~~~
 
 ![proxmoxlxc10](../../de/install/media/proxmox/proxmoxlxc10.PNG)
 
 Now the configuration file is edited with vi or nano:
 
-```
-nano 201.conf
-```
+~~~ nano 201.conf ~~~
 
 ![proxmoxlxc11](../../de/install/media/proxmox/proxmoxlxc11.PNG)
 
 The following is added to the end of the configuration file:
 
-```
-lxc.cgroup2.devices.allow: c 189:* rwm
-lxc.mount.entry: usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012023529-if00 dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012023529-if00 none bind,optional,create=file
+~~~ lxc.cgroup2.devices.allow: c 189:* rwm lxc.mount.entry: usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012023529-if00 dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B001202B001202B001202
 
-lxc.cgroup2.devices.allow: c 166:* rwm
-lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0 none bind,optional,create=file
-```
+lxc.cgroup2.devices.allow: c 166:* rwm lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0 none bind,optional,create=file ~~~
 
 Replace the marked values with the noted entries from your note!
 
@@ -150,68 +133,64 @@ Replace the marked values with the noted entries from your note!
 
 Save the configuration file (in the nano editor with the key combination: CTRL + o & CTRL + x to exit the editor)
 
-> ATTENTION! If your container has active snapshots:
+</br>
 
-<details>Then the lxc.cgroup code does not belong at the end of the config file but before the first entry of a snapshot.
+<span style="color:orange">**DANGER! - If your container has active snapshots:**</span>
+
+<details>
+
+Then the lxc.cgroup code does not belong at the end of the config file but before the first entry of a snapshot.
 
 ![proxmoxlxc18](../../de/install/media/proxmox/proxmoxlxc18.PNG)
 
 </details>
 
-> ATTENTION! Proxmox installation before version 7.0
+<span style="color:orange">**DANGER! - Proxmox installation before version 7.0:**</span>
 
 <details>
 
 Replace the entries with
 
-```
-lxc.cgroup2
-```
+~~~ lxc.cgroup2 ~~~
 
 through
 
-```
-lxc.cgroup
-```
+~~~ lxc.cgroup ~~~
 
 </details>
 
-Finally, issue the following command to set the required rights for ttyACM0:
+</br> Finally, issue the following command to set the required rights for ttyACM0:
 
-```
-chmod o+rw /dev/ttyACM*
-```
+~~~ chmod o+rw /dev/ttyACM* ~~~
 
 To apply the adjustments to the lxc, perform a cold boot from the container with **pct stop id / pct start id**:
 
-```
-pct stop 201
-```
+~~~ pct stop 201 ~~~
 
-```
-pct start 201
-```
+~~~ pct start 201 ~~~
 
-> Tip, it is best to store a copy of your working config file externally, since e.g. B. the integrated Proxmox backup service does not back up the content of your config!
+</br>
 
-### 3.) Check LXC USB passthrough & zigbee instance configuration
+<span style="color:green">**Tip it is best to store a copy of your working config file externally, since e.g. B. the integrated Proxmox backup service does not back up the content of your config!**</span>
+
+</br>
+
+</details>
+
+### 3.) Check LXC USB passthrough & Zigbee instance configuration
+<details>
+
 Establishing an SSH connection to the LXC:
 
-```
-ssh Benutzer@IP-Adresse
-```
+~~~ ssh user@ip address ~~~
 
 With the commands:
 
-```
-lsusb
-```
+~~~ lsusb ~~~
 
 &
 
-```
-ls -l /dev
-```
+~~~ ls -l /dev ~~~
 
 it is checked whether the adjustments to the configuration file were successful.
 
@@ -227,82 +206,69 @@ it is checked whether the adjustments to the configuration file were successful.
 
 If, as described above, a Zigbee stick is passed through to the container, it must be entered in iobroker in the Zigbee adapter settings under COM port name
 
-```
-/dev/ttyACM0
-```
+~~~ /dev/ttyACM0 ~~~
 
 specified so that the correct device is addressed by the adapter.
 
 ![proxmoxlxc14](../../de/install/media/proxmox/proxmoxlxc14.PNG)
 
+</details>
+
 ### 4.) UDEV rule for permanent rights Adjustment of ttyACM0
+<details>
+
 At the end of step 3 was using the command
 
-```
-chmod o+rw /dev/ttyACM*
-```
+~~~ chmod o+rw /dev/ttyACM* ~~~
 
 the appropriate rights are set for ttyACM0, but these rights changes are reset when the Proxmox host is restarted. A udev rule is required on the Proxmox host for permanent adjustment.
 
 With lsusb we list the currently connected USB devices again:
 
-```
-lsusb
-```
+~~~ lsusb ~~~
 
 ![proxmoxlxc15](../../de/install/media/proxmox/proxmoxlxc15.PNG)
 
-This time we write down the numerical values after ID, so in this case **0451:16a8**
+This time we write down the numerical values after ID in this case **0451:16a8**
 
 * The first value: ***0451*** stands for the **idVendor** and the second value: ***16a8*** for **idProduct**.
 
 Now the udev rule is created under /etc/udev/rules.d with vi or nano:
 
-```
-nano /etc/udev/rules.d/50-myusb.rules
-```
+~~~ nano /etc/udev/rules.d/50-myusb.rules ~~~
 
 and added the following content:
 
-```
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0451", ATTRS{idProduct}=="16a8", GROUP="users", MODE="0666"
-```
+~~~ SUBSYSTEMS=="usb", ATTRS{idVendor}=="0451", ATTRS{idProduct}=="16a8", GROUP="users", MODE="0666" ~~~
 
 ![proxmoxlxc16](../../de/install/media/proxmox/proxmoxlxc16.PNG)
 
 Finally, run the following command to activate the udev rule:
 
-```
-udevadm control –reload
-```
+~~~ udevadm control –reload ~~~
+
+</details>
 
 ### 5.) Troubleshooting
+<details>
+
 **Error:** ttyACM0 rights in the lxc do not match or are lost after a short time (ConBee II).
 
-```
-ls -l /dev/ttyACM0
- c--------- 0 nobody nogroup 166, 0 Feb  7 14:29 ttyACM0
-```
+~~~ ls -l /dev/ttyACM0 c--------- 0 nobody nogroup 166, 0 Feb 7 14:29 ttyACM0 ~~~
+
+</br>
 
 **Solution:** Use mknod to create a persistent binding to the container.
 
-<details>
-
 To do this, the **devices** folder is created in the path **"/var/lib/lxc/CONTAINERID"** and the binding is created in this folder with mknod:
 
-```
-mkdir /var/lib/lxc/201/devices
-```
+~~~ mkdir /var/lib/lxc/201/devices ~~~
 
-```
-cd /var/lib/lxc/201/devices
-```
+~~~ cd /var/lib/lxc/201/devices ~~~
 
-```
-mknod -m 666 ttyACM0 c 166 0
-```
+~~~ mknod -m 666 ttyACM0 c 166 0 ~~~
 
-mknod creates a file named ttyACM0 in the path (as long as the file exists the device is bound to the lxc)
++ *mknod creates a file named ttyACM0 in the path (as long as the file exists, the device is bound to the lxc)*
 
 ![proxmoxlxc17](../../de/install/media/proxmox/proxmoxlxc17.PNG)
 
@@ -310,16 +276,10 @@ mknod creates a file named ttyACM0 in the path (as long as the file exists the d
 
 Then the entry in the lxc configuration file must be adjusted:
 
-```
-lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0 none bind,optional,create=file
-```
+~~~ lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0 none bind,optional,create=file ~~~
 
 is replaced by:
 
-```
-lxc.mount.entry: /var/lib/lxc/CONTAINERID/devices/ttyACM0 dev/ttyACM0 none bind,optional,create=file
-```
-
-</details>
+~~~ lxc.mount.entry: /var/lib/lxc/CONTAINERID/devices/ttyACM0 dev/ttyACM0 none bind,optional,create=file ~~~
 
 </details>

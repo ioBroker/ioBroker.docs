@@ -145,7 +145,7 @@ Structure:
 | ts     | BIGINT / INTEGER                           | Time in ms till epoch. Can be converted to time with "new Date(ts)" |
 | val    | REAL                                       | Value                                           |
  
-This table stores the values when the counter was exchanged and the value does not increased, but failed to zero or lower value. 
+This table stores the values when the counter was exchanged and the value does not increase, but failed to zero or lower value. 
 
 ### Strings
 Values for states with type "string".
@@ -267,7 +267,7 @@ sendTo('sql.0', 'deleteAll', [
 ], result => console.log('deleted'));
 ``` 
 
-To delete history data for some data point and for some range execute:
+To delete history data for some data point and for some range, execute:
 
 ```
 sendTo('sql.0', 'deleteRange', [
@@ -292,7 +292,7 @@ sendTo('sql.0', 'update', [
 
 `ts` is mandatory. At least one other flags must be included in state object.
 
-Be careful with `counters`. The `counters` in DB will not be reset and you must handle it yourself. 
+Be careful with `counters`. The `counters` in DB will not be reset, and you must handle it yourself. 
 
 ## Get history
 Additional to custom queries, you can use build in system function **getHistory**:

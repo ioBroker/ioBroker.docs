@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.material/README.md
 title: ioBroker.material
-hash: ZCJIXtNoy74A2TitzsIc9y7cTKVAPQpXAj50tzdOw5o=
+hash: N32nXySCbl01mgm0rQzaSUKRK6tVRfpCT6IPqTyQU8s=
 ---
 ![Логотип](../../../en/adapterref/iobroker.material/admin/material.png)
 
 ![Количество установок](http://iobroker.live/badges/material-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.material.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.material.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.material.svg)
 ![НПМ](https://nodei.co/npm/iobroker.material.png?downloads=true)
 
@@ -17,43 +17,55 @@ hash: ZCJIXtNoy74A2TitzsIc9y7cTKVAPQpXAj50tzdOw5o=
 
 ![Скриншоты](../../../en/adapterref/iobroker.material/img/screenshot1.png)
 
-## Монтаж
-** Важно! ** Этот адаптер нельзя установить напрямую с github. Только из npm.
+## Установка
+**Важно!** Этот адаптер нельзя установить напрямую с GitHub. Только из нпм.
 
-## Применение
-Очень важно знать, что адаптер показывает только устройства, которые добавлены в некоторые категории, например *комнаты* или *функции* Лучше, если каждое устройство будет относиться к обеим категориям. Потому что у каждого устройства есть свой тип и место.
+## Использование
+Очень важно знать, что адаптер показывает только те устройства, которые добавлены в некоторые категории, например *комнаты* или *функции*.
+Лучше, если каждое устройство будет относиться к обеим категориям. Потому что каждое устройство имеет тип и место.
 
 ## Поддерживаемые типы
 ### Выключатель
 ### Диммер
-### Медиа плеер
+### Медиа-плейер
 ### Объем
-### Групповой объем
-## Делать
+### Громкость группы
+## Сделать
 * Кулачки (через дополнительный адаптер)
 * события (через дополнительный адаптер)
 * Главный экран
 * Графики
 * Узкое меню
 * пылесос
-* показать панель для ползунков, чтобы указать положение
+* показать полосу для ползунков, чтобы указать положение
 * поддержка кодов качества
 * Карты (OpensStreetMap)
 * Переключиться на экран по умолчанию через X секунд
-* Состояния заказа в информации
-* Используйте значки в погоде, а не текст
+* Заказ указывается в информации
+* Используйте иконки в погоде, а не в тексте
 
 ## Кредиты
 - Использованы иконки от flaticon
-- Регулятор громкости отсюда [здесь] (https://codepen.io/blucube/pen/cudAz) Автор [Эд Хикс] (https://twitter.com/blucube) - На основе [удара каплей] (https: / /dribbble.com/shots/753124-Volume-Knob), автор [Рикардо Салазар] (https://twitter.com/rickss)
+- Регулятор громкости из [здесь] (https://codepen.io/blucube/pen/cudAz) Автор [Эд Хикс] (https://twitter.com/blucube) /dribbble.com/shots/753124-Volume-Knob) [Рикардо Салазар] (https://twitter.com/rickss)
 
-<! - Заполнитель для следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
 
 ## Changelog
-### __WORK IN PROGRESS__
-### 1.0.0 (2021.07.13)
+### 1.1.2 (2021-12-28)
+* (bluefox) Fixed double sending in the switch control
+
+### 1.1.0 (2021-12-21)
+* (bluefox) Changed the light style to be looks like old style
+
+### 1.0.6 (2021-10-29)
+* (bluefox) Added support of `iobroker.material` app
+
+### 1.0.4 (2021-07-30)
+* (bluefox) Corrected the size of icons
+
+### 1.0.2 (2021-07-18)
 * (bluefox) Redesign
 
 ### 0.13.9 (2020.08.22)
@@ -86,6 +98,7 @@ hash: ZCJIXtNoy74A2TitzsIc9y7cTKVAPQpXAj50tzdOw5o=
 
 ### 0.10.1 (2018.09.02)
 * (bluefox) GUI corrections
+
 ### 0.10.0 (2018.08.30)
 * (bluefox) RGB was corrected
 
@@ -143,6 +156,6 @@ hash: ZCJIXtNoy74A2TitzsIc9y7cTKVAPQpXAj50tzdOw5o=
 ## License
 CC-BY-NC
 
-Copyright (c) 2017-2021, bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2022, bluefox <dogafox@gmail.com>
 
 Commercial use is not allowed without permission.

@@ -42,7 +42,18 @@ You can use the adapter in CoAP or MQTT mode. The default mode is CoAP and you d
 -->
 ### **WORK IN PROGRESS**
 
+* (klein0r) Added Shelly Pro 1
+* (klein0r) Added Shelly Pro 1 PM
+* (klein0r) Added Shelly Pro 2
+* (klein0r) Added Shelly Pro 2 PM
+* (klein0r) Allow to change names of generation 2 devices
+* (klein0r) Replaced node-fetch with axios (also for digest auth)
+
+### 5.1.3 (2022-02-13)
+
+* (klein0r) Changed common.states strings to objects
 * (klein0r) Just perform firmware update if an available update was detected
+* (klein0r) Extended logging for CoAP
 
 ### 5.1.2 (2022-01-29)
 * (klein0r) Fixed Shelly UNI ADC voltage

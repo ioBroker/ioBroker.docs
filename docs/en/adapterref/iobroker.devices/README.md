@@ -28,6 +28,10 @@ Manage and create devices for using it in other adapters like material, iot,...
 -->
 
 ## Changelog
+### 1.0.10 (2022-02-13)
+* (bluefox) Corrected edit of folders
+* (bluefox) Updated some libraries
+
 ### 1.0.9 (2021-07-11)
 * (bluefox) Implement the narrow rows
 
@@ -53,7 +57,7 @@ Manage and create devices for using it in other adapters like material, iot,...
 * (bluefox) Added new devices
 
 ### 0.3.16 (2021-03-11)
-* (bluefox) Fixed the error for IDs with the strange characters 
+* (bluefox) Fixed the error for IDs with the strange characters
 
 ### 0.3.15 (2020-12-13)
 * (bluefox) Updated the select ID dialog
@@ -100,7 +104,7 @@ Manage and create devices for using it in other adapters like material, iot,...
 ## License
 MIT License
 
-Copyright (c) 2019-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2019-2022 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
