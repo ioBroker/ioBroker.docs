@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.material/README.md
 title: ioBroker.material
-hash: ZCJIXtNoy74A2TitzsIc9y7cTKVAPQpXAj50tzdOw5o=
+hash: N32nXySCbl01mgm0rQzaSUKRK6tVRfpCT6IPqTyQU8s=
 ---
-![商标](../../../en/adapterref/iobroker.material/admin/material.png)
+![标识](../../../en/adapterref/iobroker.material/admin/material.png)
 
 ![安装数量](http://iobroker.live/badges/material-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.material.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.material.svg)
-![新产品管理](https://nodei.co/npm/iobroker.material.png?downloads=true)
+![新PM](https://nodei.co/npm/iobroker.material.png?downloads=true)
 
 # IoBroker.material
 React 和 Material UI 界面。
@@ -18,18 +18,18 @@ React 和 Material UI 界面。
 ![截图](../../../en/adapterref/iobroker.material/img/screenshot1.png)
 
 ＃＃ 安装
-**重要！** 这个适配器不能直接从 github 安装。仅来自 npm。
+**重要！** 此适配器无法直接从 GitHub 安装。仅来自 npm。
 
 ＃＃ 用法
-重要的是要知道，该适配器仅显示添加到某些类别的设备，例如 *rooms* 或 *function*。
+了解这一点非常重要，该适配器仅显示添加到某些类别的设备，例如 *rooms* 或 *function*。
 如果每个设备都属于这两个类别，那就更好了。因为每个设备都有类型和位置。
 
 ## 支持的类型
 ＃＃＃ 转变
-###调光器
+### 调光器
 ＃＃＃ 媒体播放器
 ＃＃＃ 体积
-###组音量
+### 群组音量
 ＃＃ 去做
 * 凸轮（通过额外的适配器）
 * 事件（通过额外的适配器）
@@ -40,21 +40,32 @@ React 和 Material UI 界面。
 * 显示滑块以指示位置
 * 支持质量代码
 * 地图（OpensStreetMap）
-* X秒后切换到默认屏幕
+* X 秒后切换到默认屏幕
 * 信息中的订单状态
-* 在天气中使用图标而不是文本
+* 在天气中使用图标而不是文字
 
-##学分
-- 从 flaticon 使用的图标
-- 来自 [here](https://codepen.io/blucube/pen/cudAz) 的音量旋钮 [Ed Hicks](https://twitter.com/blucube) - 灵感来自 [运球镜头](https:/ /dribbble.com/shots/753124-Volume-Knob) 作者 [Ricardo Salazar](https://twitter.com/rickss)
+## 学分
+- 使用来自 flaticon 的图标
+- 来自 [这里](https://codepen.io/blucube/pen/cudAz) 的音量旋钮，作者 [Ed Hicks](https://twitter.com/blucube) - 灵感来自 [运球射击](https:// /dribbble.com/shots/753124-Volume-Knob）作者 [Ricardo Salazar]（https://twitter.com/rickss）
 
-<!-- 下一版本的占位符（在行首）：
+<!-- 下一个版本的占位符（在行首）：
 
 ### __工作进行中__ -->
 
 ## Changelog
-### __WORK IN PROGRESS__
-### 1.0.0 (2021.07.13)
+### 1.1.2 (2021-12-28)
+* (bluefox) Fixed double sending in the switch control
+
+### 1.1.0 (2021-12-21)
+* (bluefox) Changed the light style to be looks like old style
+
+### 1.0.6 (2021-10-29)
+* (bluefox) Added support of `iobroker.material` app
+
+### 1.0.4 (2021-07-30)
+* (bluefox) Corrected the size of icons
+
+### 1.0.2 (2021-07-18)
 * (bluefox) Redesign
 
 ### 0.13.9 (2020.08.22)
@@ -87,6 +98,7 @@ React 和 Material UI 界面。
 
 ### 0.10.1 (2018.09.02)
 * (bluefox) GUI corrections
+
 ### 0.10.0 (2018.08.30)
 * (bluefox) RGB was corrected
 
@@ -144,6 +156,6 @@ React 和 Material UI 界面。
 ## License
 CC-BY-NC
 
-Copyright (c) 2017-2021, bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2022, bluefox <dogafox@gmail.com>
 
 Commercial use is not allowed without permission.

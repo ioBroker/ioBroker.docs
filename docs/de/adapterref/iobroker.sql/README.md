@@ -3,32 +3,32 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: yO9ZDtp6FL+u1N1OWFf7H/Z0PPR1+Qd0sC6ecQqS3kE=
+hash: DCF5AmF4X9Z+t37Ff0XTqogvrFR9L2WUru1+DJ5UxBA=
 ---
 ![Logo](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/sql-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sql.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sql.svg)
-![Tests](https://travis-ci.org/ioBroker/ioBroker.sql.svg?branch=master)
+![Prüfungen](https://travis-ci.org/ioBroker/ioBroker.sql.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.sql.png?downloads=true)
 
 # IoBroker.sql
-Dieser Adapter speichert den Statusverlauf in SQL DB.
+Dieser Adapter speichert den Zustandsverlauf in der SQL-Datenbank.
 
-Unterstützt PostgreSQL, mysql, Microsoft SQL Server und sqlite.
-Sie können Port 0 belassen, wenn der Standardport gewünscht wird.
+Unterstützt PostgreSQL, MySQL, Microsoft SQL Server und SQLite.
+Sie können Port 0 beibehalten, wenn der Standardport gewünscht wird.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
-###MS-SQL:
-Verwenden Sie ```localhost\instance``` für den Host und überprüfen Sie TCP/IP-Verbindungen aktiviert.
+### MS-SQL:
+Verwenden Sie ```localhost\instance``` für den Host und prüfen Sie, ob die TCP/IP-Verbindungen aktiviert sind.
 https://msdn.microsoft.com/en-us/library/bb909712(v=vs.90).aspx
 
-###SQLite:
-ist "file"-DB und kann nicht zu viele Events verwalten. Wenn Sie eine große Datenmenge haben, verwenden Sie die echte DB, wie PostgreSQL und Co.
+### SQLite:
+ist "Datei"-DB und kann nicht zu viele Ereignisse verwalten. Wenn Sie eine große Datenmenge haben, verwenden Sie die echte DB, wie PostgreSQL und Co.
 
-SQLite DB muss nicht extra installiert werden. Es ist nur eine Datei auf der Festplatte, aber um sie zu installieren, benötigen Sie Build-Tools auf Ihrem System. Für Linux schreiben Sie einfach:
+SQLite DB muss nicht extra installiert werden. Es ist nur eine Datei auf der Festplatte, aber um sie zu installieren, benötigen Sie Build-Tools auf Ihrem System. Für Linux einfach schreiben:
 
 ```
 sudo apt-get install build-essential
@@ -40,7 +40,7 @@ Für Windows:
 c:\>npm install --global --production windows-build-tools
 ```
 
-und dann den Adapter neu installieren, z.B.:
+und installieren Sie dann den Adapter neu, z.
 
 ```
 cd /opt/iobroker
@@ -62,33 +62,33 @@ GRANT ALL PRIVILEGES ON * . * TO 'iobroker'@'%';
 FLUSH PRIVILEGES;
 ```
 
-Bearbeiten Sie bei Bedarf */etc/mysql/my.cnf*, um die Bindung an die IP-Adresse für die Remote-Verbindung festzulegen.
+Bearbeiten Sie bei Bedarf */etc/mysql/my.cnf*, um die Bindung an die IP-Adresse für die Remoteverbindung festzulegen.
 
-**Warnung**: Der iobroker-Benutzer ist "admin". Geben Sie dem iobroker-Benutzer bei Bedarf eingeschränkte Rechte.
+**Warnung**: iobroker-Benutzer ist „admin“. Falls erforderlich, geben Sie dem iobroker-Benutzer eingeschränkte Rechte.
 
-Auf den "Windowsn" kann es einfach per Installer installiert werden: https://dev.mysql.com/downloads/installer/.
+Unter "Windows" kann es einfach per Installer installiert werden: https://dev.mysql.com/downloads/installer/.
 
 Achten Sie auf die Authentifizierungsmethode. Der neue Verschlüsselungsalgorithmus in MySQL 8.0 wird noch nicht von `node.js` unterstützt und Sie müssen die Legacy-Authentifizierungsmethode auswählen.
 
 ![Fenster](../../../en/adapterref/iobroker.sql/img/WindowsMySQLinstaller.png)
 
-## Struktur der DBs
-Der Standardname der Datenbank ist "iobroker", kann aber in der Konfiguration geändert werden.
+## Aufbau der DBs
+Der Standarddatenbankname ist „iobroker“, kann aber in der Konfiguration geändert werden.
 
-### Sources Diese Tabelle ist eine Liste der Adapterinstanzen, die die Einträge geschrieben haben. (Zustand.von)
+### Quellen Diese Tabelle ist eine Liste der Adapterinstanzen, die die Einträge geschrieben haben. (Zustand.von)
 | DB | Name in Abfrage |
 |------------|----------------------|
-| MS-SQL | iobroker.dbo.sources |
+| MS SQL | iobroker.dbo.sources |
 | MySQL | iobroker.sources |
 | PostgreSQL | Quellen |
 | SQLite | Quellen |
 
 Struktur:
 
-| Feld | Typ | Beschreibung |
+| Feld | Geben Sie | ein Beschreibung |
 |-------|--------------------------------------------|-------------------------------------------|
-| ID | INTEGER NICHT NULL PRIMARY KEY IDENTITY(1,1) | eindeutige ID |
-| Name | varchar(255) / TEXT | Instanz von Adapter, die den Eintrag | . geschrieben hat |
+| ID | INTEGER NOT NULL PRIMARY KEY IDENTITY(1,1) | eindeutige ID |
+| Name | varchar(255) / TEXT | Instanz des Adapters, die den Eintrag | geschrieben hat |
 
 *Hinweis:* MS-SQL verwendet varchar(255) und andere verwenden TEXT
 
@@ -97,41 +97,41 @@ Diese Tabelle ist eine Liste von Datenpunkten. (IDs)
 
 | DB | Name in Abfrage |
 |------------|-------------------------|
-| MS-SQL | iobroker.dbo.datapoints |
-| MySQL | iobroker.datapoints |
+| MS SQL | iobroker.dbo.Datenpunkte |
+| MySQL | iobroker.Datenpunkte |
 | PostgreSQL | Datenpunkte |
 | SQLite | Datenpunkte |
 
 Struktur:
 
-| Feld | Typ | Beschreibung |
+| Feld | Geben Sie | ein Beschreibung |
 |-------|--------------------------------------------|-------------------------------------------------|
-| ID | INTEGER NICHT NULL PRIMARY KEY IDENTITY(1,1) | eindeutige ID |
+| ID | INTEGER NOT NULL PRIMARY KEY IDENTITY(1,1) | eindeutige ID |
 | Name | varchar(255) / TEXT | ID der Variablen, z.B. hm-rpc.0.JEQ283747.1.STATE |
-| Typ | INTEGER | 0 - Zahl, 1 - Zeichenfolge, 2 - Boolean |
+| Typ | GANZZAHL | 0 - Zahl, 1 - Zeichenkette, 2 - boolescher Wert |
 
 *Hinweis:* MS-SQL verwendet varchar(255) und andere verwenden TEXT
 
-###Zahlen
+### Zahlen
 Werte für Zustände vom Typ "Zahl". **ts** bedeutet "Zeitreihe".
 
 | DB | Name in Abfrage |
 |------------|-------------------------|
-| MS-SQL | iobroker.dbo.ts_number |
+| MS SQL | iobroker.dbo.ts_number |
 | MySQL | iobroker.ts_number |
-| PostgreSQL | ts_zahl |
-| SQLite | ts_zahl |
+| PostgreSQL | ts_nummer |
+| SQLite | ts_nummer |
 
 Struktur:
 
-| Feld | Typ | Beschreibung |
+| Feld | Geben Sie | ein Beschreibung |
 |--------|--------------------------------------------|-------------------------------------------------|
-| ID | INTEGER | Zustands-ID aus Tabelle "Datenpunkte" |
-| ts | BIGINT / INTEGER | Zeit in ms bis Epoche. Kann mit "new Date(ts)" in Zeit umgewandelt werden |
-| val | REAL | Wert |
-| ack | BIT/BOOLEAN | Wird quittiert: 0 - nicht ack, 1 - ack |
-| _von | INTEGER | ID der Quelle aus der Tabelle "Quellen" |
-| q | INTEGER | Qualität als Zahl. Sie finden die Beschreibung [Hier](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
+| ID | GANZZAHL | ID des Zustands aus Tabelle "Datenpunkte" |
+| ts | BIGINT / INTEGER | Zeit in ms bis zur Epoche. Kann mit "new Date(ts)" | in Zeit umgerechnet werden |
+| Wert | WIRKLICH | Wert |
+| ack | BIT/BOOLESCH | Wird bestätigt: 0 - nicht ack, 1 - ack |
+| _von | GANZZAHL | ID der Quelle aus Tabelle "Quellen" |
+| q | GANZZAHL | Qualität als Zahl. Beschreibung finden Sie in [Hier](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
 *Hinweis:* MS-SQL verwendet BIT und andere verwenden BOOLEAN. SQLite verwendet für ts INTEGER und alle anderen BIGINT.
 
@@ -139,64 +139,64 @@ Der Benutzer kann zusätzlich zum Typ `number` die Funktionalität von "Zählern
 
 | DB | Name in der Abfrage |
 |------------|-------------------------|
-| MS-SQL | iobroker.dbo.ts_counter |
+| MS SQL | iobroker.dbo.ts_counter |
 | MySQL | iobroker.ts_counter |
 | PostgreSQL | ts_counter |
 | SQLite | ts_counter |
 
 Struktur:
 
-| Feld | Typ | Beschreibung |
+| Feld | Geben Sie | ein Beschreibung |
 |--------|--------------------------------------------|-------------------------------------------------|
-| ID | INTEGER | Zustands-ID aus Tabelle "Datenpunkte" |
-| ts | BIGINT / INTEGER | Zeit in ms bis Epoche. Kann mit "new Date(ts)" in Zeit umgewandelt werden |
-| val | REAL | Wert |
+| ID | GANZZAHL | ID des Zustands aus Tabelle "Datenpunkte" |
+| ts | BIGINT / INTEGER | Zeit in ms bis zur Epoche. Kann mit "new Date(ts)" | in Zeit umgerechnet werden |
+| Wert | WIRKLICH | Wert |
 
-In dieser Tabelle werden die Werte gespeichert, wenn der Zähler ausgetauscht wurde und der Wert nicht erhöht wurde, sondern auf Null oder einen niedrigeren Wert ausgefallen ist.
+Diese Tabelle speichert die Werte, wenn der Zähler ausgetauscht wurde und der Wert nicht erhöht, sondern auf Null oder niedrigeren Wert ausgefallen ist.
 
-### Zeichenfolgen
-Werte für Zustände vom Typ "string".
+### Saiten
+Werte für Zustände vom Typ "String".
 
 | DB | Name in Abfrage |
 |------------|-------------------------|
-| MS-SQL | iobroker.dbo.ts_string |
+| MS SQL | iobroker.dbo.ts_string |
 | MySQL | iobroker.ts_string |
 | PostgreSQL | ts_string |
 | SQLite | ts_string |
 
 Struktur:
 
-| Feld | Typ | Beschreibung |
+| Feld | Geben Sie | ein Beschreibung |
 |--------|--------------------------------------------|-------------------------------------------------|
-| ID | INTEGER | Zustands-ID aus Tabelle "Datenpunkte" |
-| ts | BIGINT | Zeit in ms bis Epoche. Kann mit "new Date(ts)" in Zeit umgewandelt werden |
-| val | TEXT | Wert |
-| ack | BIT/BOOLEAN | Wird quittiert: 0 - nicht ack, 1 - ack |
-| _von | INTEGER | ID der Quelle aus der Tabelle "Quellen" |
-| q | INTEGER | Qualität als Zahl. Sie finden die Beschreibung [Hier](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
+| ID | GANZZAHL | ID des Zustands aus Tabelle "Datenpunkte" |
+| ts | GROSSARTIG | Zeit in ms bis zur Epoche. Kann mit "new Date(ts)" | in Zeit umgerechnet werden |
+| Wert | TEXT | Wert |
+| ack | BIT/BOOLESCH | Wird bestätigt: 0 - nicht ack, 1 - ack |
+| _von | GANZZAHL | ID der Quelle aus Tabelle "Quellen" |
+| q | GANZZAHL | Qualität als Zahl. Beschreibung finden Sie in [Hier](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
 *Hinweis:* MS-SQL verwendet BIT und andere verwenden BOOLEAN. SQLite verwendet für ts INTEGER und alle anderen BIGINT.
 
-###Boolesche Werte
+### Boolesche Werte
 Werte für Zustände vom Typ "boolean".
 
 | DB | Name in Abfrage |
 |------------|-------------------------|
-| MS-SQL | iobroker.dbo.ts_bool |
+| MS SQL | iobroker.dbo.ts_bool |
 | MySQL | iobroker.ts_bool |
 | PostgreSQL | ts_bool |
 | SQLite | ts_bool |
 
 Struktur:
 
-| Feld | Typ | Beschreibung |
+| Feld | Geben Sie | ein Beschreibung |
 |--------|--------------------------------------------|-------------------------------------------------|
-| ID | INTEGER | Zustands-ID aus Tabelle "Datenpunkte" |
-| ts | BIGINT | Zeit in ms bis Epoche. Kann mit "new Date(ts)" in Zeit umgewandelt werden |
-| val | BIT/BOOLEAN | Wert |
-| ack | BIT/BOOLEAN | Wird quittiert: 0 - nicht ack, 1 - ack |
-| _von | INTEGER | ID der Quelle aus der Tabelle "Quellen" |
-| q | INTEGER | Qualität als Zahl. Sie finden die Beschreibung [Hier](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
+| ID | GANZZAHL | ID des Zustands aus Tabelle "Datenpunkte" |
+| ts | GROSSARTIG | Zeit in ms bis zur Epoche. Kann mit "new Date(ts)" | in Zeit umgerechnet werden |
+| Wert | BIT/BOOLESCH | Wert |
+| ack | BIT/BOOLESCH | Wird bestätigt: 0 - nicht ack, 1 - ack |
+| _von | GANZZAHL | ID der Quelle aus Tabelle "Quellen" |
+| q | GANZZAHL | Qualität als Zahl. Beschreibung finden Sie in [Hier](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
 *Hinweis:* MS-SQL verwendet BIT und andere verwenden BOOLEAN. SQLite verwendet für ts INTEGER und alle anderen BIGINT.
 
@@ -214,7 +214,7 @@ sendTo('sql.0', 'query', 'SELECT * FROM datapoints', function (result) {
 });
 ```
 
-Oder holen Sie sich Einträge für die letzte Stunde für ID=system.adapter.admin.0.memRss
+Oder erhalten Sie Einträge für die letzte Stunde für ID=system.adapter.admin.0.memRss
 
 ```
 sendTo('sql.0', 'query', 'SELECT id FROM datapoints WHERE name="system.adapter.admin.0.memRss"', function (result) {
@@ -234,14 +234,14 @@ sendTo('sql.0', 'query', 'SELECT id FROM datapoints WHERE name="system.adapter.a
 
 *Notiz:*
 
-Je nach Datenbank muss der Datenbankname oder Datenbankname + Schema vor dem Tabellennamen eingefügt werden - siehe Kästen oben unter 'Struktur der DBs'.
+Je nach Datenbank muss vor dem Tabellennamen der Datenbankname oder Datenbankname + Schema eingefügt werden - siehe Kästen oben unter 'Aufbau der DBs'.
 
-Beispiel, wenn Ihre Datenbank 'iobroker' heißt:
+Beispiel, wenn Ihre Datenbank „iobroker“ heißt:
 
 | DB | Name in Abfrage |
 |------------|------------------------------------------|
-| MS-SQL | SELECT * FROM iobroker.dbo.datapoints ...|
-| MySQL | SELECT * FROM iobroker.datapoints ... |
+| MS SQL | SELECT * FROM iobroker.dbo.datapoints ...|
+| MySQL | WÄHLEN Sie * FROM iobroker.datapoints ... |
 
 ## StoreState
 Wenn Sie andere Daten in die InfluxDB/SQL schreiben möchten, können Sie die eingebaute Systemfunktion **storeState** verwenden.
@@ -251,13 +251,13 @@ Die angegebenen IDs werden nicht gegen die ioBroker-Datenbank geprüft und müss
 
 Die Nachricht kann eines der folgenden drei Formate haben:
 
-* eine ID und ein Statusobjekt: `{id: 'adapter.0.device.counter', state: {val: 1, ts: 10239499}}`
-* eine ID und ein Array von Zustandsobjekten: `{id: 'adapter.0.device.counter', state: [{val: 1, ts: 10239499}, {val: 2, ts: 10239599}, {val: 3 , quer: 10239699}]}`
-* Array von mehreren IDs mit Zustandsobjekten `[{id: 'adapter.0.device.counter1', state: {val: 1, ts: 10239499}, {id: 'adapter.0.device.counter2', state: {val: 2, ts: 10239599}]`
+* ein ID- und ein Statusobjekt: `{id: 'adapter.0.device.counter', state: {val: 1, ts: 10239499}}`
+* eine ID und ein Array von Zustandsobjekten: `{id: 'adapter.0.device.counter', state: [{val: 1, ts: 10239499}, {val: 2, ts: 10239599}, {val: 3 , ts: 10239699}]}`
+* Array mehrerer IDs mit Zustandsobjekten `[{id: 'adapter.0.device.counter1', state: {val: 1, ts: 10239499}, {id: 'adapter.0.device.counter2', state: {val: 2, ts: 10239599}]`
 
-Zusätzlich können Sie das Attribut `rules: true` hinzufügen, um alle Regeln zu aktivieren, wie `counter`, `changesOnly`, `de-bounce` usw.: `{id: 'adapter.0.device.counter', rules: true, state: [{val: 1, ts: 10239499}, {val: 2, ts: 10239599}, {val: 3, ts: 10239699}]}`
+Zusätzlich können Sie das Attribut `rules: true` hinzufügen, um alle Regeln zu aktivieren, wie `counter`, `changesOnly`, `de-bounce` und so weiter: `{id: 'adapter.0.device.counter', rules: true, state: [{val: 1, ts: 10239499}, {val: 2, ts: 10239599}, {val: 3, ts: 10239699}]}`
 
-## Staat löschen
+## Zustand löschen
 Wenn Sie einen Eintrag aus der Datenbank löschen möchten, können Sie die eingebaute Systemfunktion **löschen** verwenden:
 
 ```
@@ -267,7 +267,7 @@ sendTo('sql.0', 'delete', [
 ], result => console.log('deleted'));
 ```
 
-Um ALLE Verlaufsdaten für einige Datenpunkte zu löschen, führen Sie Folgendes aus:
+Um ALLE Verlaufsdaten für einen Datenpunkt zu löschen, führen Sie Folgendes aus:
 
 ```
 sendTo('sql.0', 'deleteAll', [
@@ -276,7 +276,7 @@ sendTo('sql.0', 'deleteAll', [
 ], result => console.log('deleted'));
 ```
 
-Um die Verlaufsdaten für einige Datenpunkte und für einige Bereiche zu löschen, führen Sie Folgendes aus:
+Führen Sie Folgendes aus, um Verlaufsdaten für einen Datenpunkt und einen Bereich zu löschen:
 
 ```
 sendTo('sql.0', 'deleteRange', [
@@ -285,12 +285,12 @@ sendTo('sql.0', 'deleteRange', [
 ], result => console.log('deleted'));
 ```
 
-Die Zeit kann ms seit Epoche oder ein ans-String sein, der durch das Javascript-Datumsobjekt konvertiert werden könnte.
+Die Zeit könnte ms seit Epoche oder eine ans-Zeichenfolge sein, die durch das Javascript-Datumsobjekt konvertiert werden könnte.
 
-Werte werden einschließlich definierter Grenzen gelöscht. `ts >= start AND ts <= end`
+Werte werden inklusive definierter Grenzen gelöscht. `ts >= start AND ts <= end`
 
-## Status ändern
-Wenn Sie den Wert, die Qualität oder das Bestätigungskennzeichen eines Eintrags in der Datenbank ändern möchten, können Sie die integrierte Systemfunktion **aktualisieren** verwenden:
+## Zustand ändern
+Wenn Sie den Wert, die Qualität oder das Acknowledge-Flag in der Datenbank ändern möchten, können Sie die eingebaute Systemfunktion **update** verwenden:
 
 ```
 sendTo('sql.0', 'update', [
@@ -301,10 +301,10 @@ sendTo('sql.0', 'update', [
 
 `ts` ist obligatorisch. Mindestens ein weiteres Flag muss im Zustandsobjekt enthalten sein.
 
-Seien Sie vorsichtig mit `counters`. Die `counters` in der DB werden nicht zurückgesetzt und müssen von Ihnen selbst bearbeitet werden.
+Seien Sie vorsichtig mit `counters`. Der `counters` in DB wird nicht zurückgesetzt und Sie müssen sich selbst darum kümmern.
 
-## Geschichte abrufen
-Zusätzlich zu benutzerdefinierten Abfragen können Sie die integrierte Systemfunktion **getHistory** verwenden:
+## Verlauf abrufen
+Zusätzlich zu benutzerdefinierten Abfragen können Sie die eingebaute Systemfunktion **getHistory** verwenden:
 
 ```
 var end = Date.now();
@@ -323,7 +323,7 @@ sendTo('sql.0', 'getHistory', {
 ```
 
 ## Zähler abrufen
-Der Benutzer kann den Wert eines Zählers (Typ=Zahl, Zähler=Wahr) für einen bestimmten Zeitraum abfragen.
+Der Benutzer kann den Wert eines Zählers (Typ = Zahl, Zähler = wahr) für einen bestimmten Zeitraum abfragen.
 
 ```
 var now = Date.now();
@@ -339,13 +339,13 @@ sendTo('sql.0', 'getCounter', {
 });
 ```
 
-Wird das Zählergerät getauscht, wird dies ebenfalls berechnet.
+Wenn das Zählergerät ersetzt wird, wird es ebenfalls berechnet.
 
 ## Verwaltung der Verlaufsprotokollierung über Javascript
 Der Adapter unterstützt das Aktivieren und Deaktivieren der Verlaufsprotokollierung über JavaScript sowie das Abrufen der Liste der aktivierten Datenpunkte mit ihren Einstellungen.
 
 ### Ermöglichen
-Die Nachricht benötigt die "id" des Datenpunkts. Zusätzlich optionale "Optionen", um die datenpunktspezifischen Einstellungen zu definieren:
+Die Nachricht muss die "ID" des Datenpunkts haben. Zusätzlich optionale "Optionen" zum Definieren der datenpunktspezifischen Einstellungen:
 
 ```
 sendTo('sql.0', 'enableHistory', {
@@ -369,7 +369,7 @@ sendTo('sql.0', 'enableHistory', {
 ```
 
 ### Deaktivieren
-Die Nachricht benötigt die "id" des Datenpunkts.
+Die Nachricht muss die "ID" des Datenpunkts haben.
 
 ```
 sendTo('sql.0', 'disableHistory', {
@@ -407,30 +407,30 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ```
 
 ## Verbindungseinstellungen
-- **DB-Typ**: Typ der SQL-Datenbank: MySQL, PostgreSQL, MS-SQL oder SQLite3
-- **Host**: IP-Adresse oder Hostname mit SQL Server
-- **Port**: Port des SQL-Servers (lassen Sie das Feld leer, wenn Sie sich nicht sicher sind)
-- **Datenbankname**: Datenbankname. Standard-Iobroker
+- **DB-Typ**: Typ der SQL-DB: MySQL, PostgreSQL, MS-SQL oder SQLite3
+- **Host**: IP-Adresse oder Hostname bei SQL Server
+- **Port**: Port von SQL Server (leer lassen, wenn nicht sicher)
+- **Datenbankname**: Datenbankname. Standard-iobroker
 - **Benutzer**: Benutzername für SQL. Muss in der DB vorhanden sein.
 - **Passwort**: Passwort für SQL.
 - **Passwort bestätigen**: Wiederholen Sie hier einfach das Passwort.
-- **Encrypt**: Einige DBs unterstützen die Verschlüsselung.
-- **Real aufrunden auf**: Anzahl der Stellen nach dem Komma.
-- **Parallele Anfragen zulassen**: Gleichzeitige SQL-Anfragen an die DB zulassen.
+- **Verschlüsseln**: Einige DBs unterstützen Verschlüsselung.
+- **Reelle Zahl runden auf**: Anzahl der Ziffern nach dem Komma.
+- **Parallele Anfragen zulassen**: Gleichzeitige SQL-Anfragen an DB zulassen.
 - **Datenbank nicht erstellen**: Aktivieren Sie diese Option, wenn die Datenbank bereits erstellt wurde (z. B. vom Administrator) und der ioBroker-Benutzer nicht über ausreichende Rechte zum Erstellen einer DB verfügt.
 
 ## Standardeinstellungen
 - **Entprellintervall**: Werte nicht öfter als dieses Intervall speichern.
-- **Unveränderte Werte beliebig protokollieren**: Alle X Sekunden zusätzlich die Werte schreiben.
-- **Mindestdifferenz vom letzten Wert zum Protokoll**: Der minimale Abstand zwischen zwei Werten.
-- **Speicheraufbewahrung**: Wie lange die Werte in der DB gespeichert werden.
+- **Ungeänderte Werte beliebig protokollieren**: Werte zusätzlich alle X Sekunden schreiben.
+- **Mindestdifferenz vom letzten zu protokollierenden Wert**: Das Mindestintervall zwischen zwei Werten.
+- **Speicherdauer**: Wie lange die Werte in der DB gespeichert werden.
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __ARBEITEN IN PROGRESS__ -->
+### __LAUFENDE ARBEIT__ -->
 
 ## Changelog
-### __WORK IN PROGRESS__
+### 1.16.1 (2021-12-19)
 * (Excodibur) Hide settings not relevant when "log changes only" is not used
 * (Apollon77) Allow all number values for debounce again
 

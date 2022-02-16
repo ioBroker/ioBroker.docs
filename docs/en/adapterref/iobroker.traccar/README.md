@@ -35,6 +35,10 @@ This adapter imports in real time the position and the extended data from [Tracc
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+
+-   (o0shojo0o) add Device datapoint Status
+
 ### 0.0.11 (2021-08-19)
 
 -   (o0shojo0o) fix translation

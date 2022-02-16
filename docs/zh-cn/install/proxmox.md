@@ -3,31 +3,30 @@ title: Proxmox
 Version: 0.1
 Autoren: TeNNo2k5
 Schlüsselworte: Proxmox, LXC, USB Passthrough
-lastChanged: 09.02.2022
+lastChanged: 15.02.2022
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/proxmox.md
-hash: EKN5IpA6ztzOddInmyVH5iNkd9yIMj5F1TBocYKweA4=
+hash: 2qh4okoJbvYW47SXLPtJP7KD3Yj5JMY46oQ9V78mH9Y=
 ---
 # Proxmox
 ![proxmox 徽标](../../de/install/media/proxmox/Proxmox-logo-860.png)
 
 ## Proxmox - 在 VM（虚拟机）中安装 ioBroker
-?> ***这是一个占位符***。<br><br>帮助 ioBroker 并扩展本文。请注意[ioBroker 风格指南](community/styleguidedoc)，以便更容易地采用更改。
+?> ***这是一个占位符***。<br><br>帮助 ioBroker 并扩展本文。请注意[ioBroker 风格指南](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md)，以便更容易地采用更改。
 
 <details>
 
 </详情>
 
 ## Proxmox - 在 LXC（Linux 容器）中安装 ioBroker
-?> ***这是一个占位符***。<br><br>帮助 ioBroker 并扩展本文。请注意[ioBroker 风格指南](community/styleguidedoc)，以便更容易地采用更改。
+?> ***这是一个占位符***。<br><br>帮助 ioBroker 并扩展本文。请注意[ioBroker 风格指南](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md)，以便更容易地采用更改。
 
 <details>
 
 </详情>
 
 ## Proxmox - LXC (Linux Containers) -> 通过 USB 设备
-### 前言
 本指南的这一部分逐步解释了如何通过 Proxmox 中的 USB 设备（USB 直通）到 LXC（Linux 容器）。
 
 使用虚拟机，可以直接通过 Proxmox Web 界面传递 USB 设备。使用 Linux 容器，目前需要手动编辑 lxc 的配置文件。
@@ -36,22 +35,18 @@ hash: EKN5IpA6ztzOddInmyVH5iNkd9yIMj5F1TBocYKweA4=
 
 * Proxmox 7.1 版用于这部分说明。
 
+### 1.) 收集有关 USB 设备的信息
 <details>
 
-### 1.) 收集有关 USB 设备的信息
 建立到 Proxmox 的 SSH 连接：
 
-```
-ssh root@IP-Adresse
-```
+~~~ ssh root@ip地址~~~
 
-<span style="color:red">如果 USB 设备已经连接到 Proxmox Host，请暂时拔掉设备。</span>
+<span style="color:red">**如果 USB 设备已经连接到 Proxmox 主机，请暂时拔下设备。**</span>
 
 以下命令列出 Proxmox 主机上所有当前连接的 USB 设备：
 
-```
-lsusb
-```
+~~~ lsusb ~~~
 
 ![proxmoxlxc00](../../de/install/media/proxmox/proxmoxlxc00.PNG)
 
@@ -63,9 +58,7 @@ lsusb
 
 使用以下命令需要此信息，例如从设备输出**主要设备号**：
 
-```
-ls -l /dev/bus/usb/001/003
-```
+~~~ ls -l /dev/bus/usb/001/003 ~~~
 
 在命令中使用 USB 总线号和设备号的输出非常重要！
 
@@ -73,15 +66,13 @@ ls -l /dev/bus/usb/001/003
 
 ![proxmoxlxc02](../../de/install/media/proxmox/proxmoxlxc02.PNG)
 
-此示例中的 USB 设备的主要设备编号为 **189**，在文本文件中记下您的设备的值，并带有注释：#1
+此示例中的 USB 设备的主设备号为 **189**，在文本文件中记下您的设备的值，并带有注释：#1
 
 ![proxmoxlxc03](../../de/install/media/proxmox/proxmoxlxc03.PNG)
 
 接下来我们输出USB设备的唯一ID，并在文本文件中用注释记下输出值：#2
 
-```
-ls /dev/serial/by-id/
-```
+~~~ ls /dev/serial/by-id/ ~~~
 
 ![proxmoxlxc04](../../de/install/media/proxmox/proxmoxlxc04.PNG)
 
@@ -89,24 +80,24 @@ ls /dev/serial/by-id/
 
 作为最后一步，输出 ttyACM 的主要设备号并用注释注明：#3：
 
-```
-ls -l /dev/ttyACM*
-```
+~~~ ls -l /dev/ttyACM* ~~~
 
 ![proxmoxlxc06](../../de/install/media/proxmox/proxmoxlxc06.PNG)
 
->如果没有输出，用“ls -l /dev/serial/by-id/”检查USB设备是否被系统集成为ttyUSB，如果是则替换下面所有引用**ttyACM的命令。 .** 由 **ttyUSB...** 获得，如果没有输出，则它不是 USB CDC 类设备（串行通信），因此可以忽略 ttyACM 中包含的所有点。
+>*如果没有输出，用“ls -l /dev/serial/by-id/”检查USB设备是否被系统集成为ttyUSB，如果是则替换下面所有引用**ttyACM的命令。 ..* * 从 **ttyUSB...** 获取，如果没有输出，则它不是 USB CDC 类设备（串行通信），因此可以忽略从 ttyACM 包含的所有点。*
 
 所以我们从USB设备中记下了集成到lxc的配置文件中所需的**三个**值。
 
 ![proxmoxlxc07](../../de/install/media/proxmox/proxmoxlxc07.PNG)
 
+</详情>
+
 ### 2.) 编辑 LXC 配置文件
+<details>
+
 使用以下命令切换到 Proxmox 主机上的 LXC 配置目录：
 
-```
-cd /etc/pve/lxc
-```
+~~~ cd /etc/pve/lxc ~~~
 
 配置文件的 ID 号与创建 lxc 时分配的 ID 号相同！
 
@@ -116,29 +107,21 @@ cd /etc/pve/lxc
 
 在编辑配置文件之前，应该创建一个备份副本：
 
-```
-cp 201.conf 201.conf.backup
-```
+~~~ cp 201.conf 201.conf.backup ~~~
 
 ![proxmoxlxc10](../../de/install/media/proxmox/proxmoxlxc10.PNG)
 
 现在使用 vi 或 nano 编辑配置文件：
 
-```
-nano 201.conf
-```
+~~~ 纳米 201.conf ~~~
 
 ![proxmoxlxc11](../../de/install/media/proxmox/proxmoxlxc11.PNG)
 
 将以下内容添加到配置文件的末尾：
 
-```
-lxc.cgroup2.devices.allow: c 189:* rwm
-lxc.mount.entry: usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012023529-if00 dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012023529-if00 none bind,optional,create=file
+~~~ lxc.cgroup2.devices.allow: c 189:* rwm lxc.mount.entry: usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012023529-if00 dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012
 
-lxc.cgroup2.devices.allow: c 166:* rwm
-lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0 none bind,optional,create=file
-```
+lxc.cgroup2.devices.allow: c 166:* rwm lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0 none bind,optional,create=file ~~~
 
 用您笔记中的注释条目替换标记的值！
 
@@ -150,68 +133,64 @@ lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0 none bind,optional,create=file
 
 保存配置文件（在 nano 编辑器中使用组合键：CTRL + o & CTRL + x 退出编辑器）
 
-> 注意！如果您的容器有活动快照：
+</br>
 
-<details>那么 lxc.cgroup 代码不属于配置文件的末尾，而是在快照的第一个条目之前。
+<span style="color:orange">**危险！ - 如果您的容器有活动快照：**</span>
+
+<details>
+
+那么 lxc.cgroup 代码不属于配置文件的末尾，而是在快照的第一个条目之前。
 
 ![proxmoxlxc18](../../de/install/media/proxmox/proxmoxlxc18.PNG)
 
 </详情>
 
-> 注意！ Proxmox 7.0 之前的安装
+<span style="color:orange">**危险！ - Proxmox 7.0 版之前的安装：**</span>
 
 <details>
 
 将条目替换为
 
-```
-lxc.cgroup2
-```
+~~~ lxc.cgroup2 ~~~
 
 通过
 
-```
-lxc.cgroup
-```
+~~~ lxc.cgroup ~~~
 
 </详情>
 
-最后，发出以下命令为 ttyACM0 设置所需的权限：
+</br> 最后，发出以下命令来设置 ttyACM0 所需的权限：
 
-```
-chmod o+rw /dev/ttyACM*
-```
+~~~ chmod o+rw /dev/ttyACM* ~~~
 
 要将调整应用于 lxc，请使用 **pct stop id / pct start id** 从容器执行冷启动：
 
-```
-pct stop 201
-```
+~~~ pct 停止 201 ~~~
 
-```
-pct start 201
-```
+~~~ pct 开始 201 ~~~
 
-> 提示，最好在外部存储工作配置文件的副本，因为例如B. 集成的 Proxmox 备份服务不会备份您的配置内容！
+</br>
 
-### 3.) 检查 LXC USB 直通和 zigbee 实例配置
+<span style="color:green">**提示最好在外部存储工作配置文件的副本，因为例如B. 集成的 Proxmox 备份服务不会备份您的配置内容！**</span>
+
+</br>
+
+</详情>
+
+### 3.) 检查 LXC USB 直通和 Zigbee 实例配置
+<details>
+
 建立与 LXC 的 SSH 连接：
 
-```
-ssh Benutzer@IP-Adresse
-```
+~~~ ssh 用户@ip 地址~~~
 
 使用命令：
 
-```
-lsusb
-```
+~~~ lsusb ~~~
 
 &
 
-```
-ls -l /dev
-```
+~~~ ls -l /dev ~~~
 
 检查配置文件的调整是否成功。
 
@@ -219,7 +198,7 @@ ls -l /dev
 
 * 如屏幕截图所示，容器现在可以访问 USB 设备。
 
-* 重要的是 ttyACM0 在屏幕截图中具有相同的权限，即 **crw-rw-rw- 1 nobody nogroup**
+* 重要的是 ttyACM0 在截图中具有相同的权限，即 **crw-rw-rw- 1 nobody nogroup**
 
 >***如果不检查配置文件中的所有值是否都按照描述设置，权限还是不匹配则跳转到第5点***
 
@@ -227,82 +206,69 @@ ls -l /dev
 
 如果如上所述，将 Zigbee 棒传递到容器，则必须在 iobroker 中的 Zigbee 适配器设置中的 COM 端口名称下输入
 
-```
-/dev/ttyACM0
-```
+~~~ /dev/ttyACM0 ~~~
 
 指定以便适配器寻址正确的设备。
 
 ![proxmoxlxc14](../../de/install/media/proxmox/proxmoxlxc14.PNG)
 
+</详情>
+
 ### 4.) 永久权限的UDEV规则调整ttyACM0
+<details>
+
 在第 3 步结束时使用命令
 
-```
-chmod o+rw /dev/ttyACM*
-```
+~~~ chmod o+rw /dev/ttyACM* ~~~
 
 为 ttyACM0 设置了相应的权限，但是这些权限更改会在 Proxmox 主机重新启动时重置。需要在 Proxmox 主机上设置 udev 规则才能进行永久调整。
 
 使用 lsusb 我们再次列出当前连接的 USB 设备：
 
-```
-lsusb
-```
+~~~ lsusb ~~~
 
 ![proxmoxlxc15](../../de/install/media/proxmox/proxmoxlxc15.PNG)
 
-这次我们记下本例中ID后面的数值**0451:16a8**
+这次我们记下ID后面的数值，所以本例中**0451:16a8**
 
 * 第一个值：***0451*** 代表 **idVendor**，第二个值：***16a8*** 代表**idProduct**。
 
 现在使用 vi 或 nano 在 /etc/udev/rules.d 下创建 udev 规则：
 
-```
-nano /etc/udev/rules.d/50-myusb.rules
-```
+~~~ 纳米 /etc/udev/rules.d/50-myusb.rules ~~~
 
 并添加了以下内容：
 
-```
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0451", ATTRS{idProduct}=="16a8", GROUP="users", MODE="0666"
-```
+~~~ SUBSYSTEMS=="usb", ATTRS{idVendor}=="0451", ATTRS{idProduct}=="16a8", GROUP="users", MODE="0666" ~~~
 
 ![proxmoxlxc16](../../de/install/media/proxmox/proxmoxlxc16.PNG)
 
-最后，运行以下命令来激活 udev 规则：
+最后，运行以下命令激活 udev 规则：
 
-```
-udevadm control –reload
-```
+~~~ udevadm control –reload ~~~
+
+</详情>
 
 ### 5.) 故障排除
+<details>
+
 **错误：** lxc 中的 ttyACM0 权限不匹配或在短时间内丢失 (ConBee II)。
 
-```
-ls -l /dev/ttyACM0
- c--------- 0 nobody nogroup 166, 0 Feb  7 14:29 ttyACM0
-```
+~~~ ls -l /dev/ttyACM0 c--------- 0 没有人 nogroup 166, 0 Feb 7 14:29 ttyACM0 ~~~
 
-**解决方案：** 使用 mknod 为容器创建持久绑定。
+</br>
 
-<details>
+**解决方案：** 使用 mknod 创建与容器的持久绑定。
 
 为此，在路径 **"/var/lib/lxc/CONTAINERID"** 中创建 **devices** 文件夹，并使用 mknod 在此文件夹中创建绑定：
 
-```
-mkdir /var/lib/lxc/201/devices
-```
+~~~ mkdir /var/lib/lxc/201/devices ~~~
 
-```
-cd /var/lib/lxc/201/devices
-```
+~~~ cd /var/lib/lxc/201/devices ~~~
 
-```
-mknod -m 666 ttyACM0 c 166 0
-```
+~~~ mknod -m 666 ttyACM0 c 166 0 ~~~
 
-mknod 在路径中创建一个名为 ttyACM0 的文件（只要该文件存在，设备就绑定到 lxc）
++ *mknod 在路径中创建一个名为 ttyACM0 的文件（只要文件存在，设备就绑定到 lxc）*
 
 ![proxmoxlxc17](../../de/install/media/proxmox/proxmoxlxc17.PNG)
 
@@ -310,16 +276,10 @@ mknod 在路径中创建一个名为 ttyACM0 的文件（只要该文件存在�
 
 那么lxc配置文件中的条目必须调整：
 
-```
-lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0 none bind,optional,create=file
-```
+~~~ lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0 none bind,optional,create=file ~~~
 
 替换为：
 
-```
-lxc.mount.entry: /var/lib/lxc/CONTAINERID/devices/ttyACM0 dev/ttyACM0 none bind,optional,create=file
-```
-
-</详情>
+~~~ lxc.mount.entry: /var/lib/lxc/CONTAINERID/devices/ttyACM0 dev/ttyACM0 none bind,optional,create=file ~~~
 
 </详情>

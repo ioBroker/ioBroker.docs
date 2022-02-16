@@ -27,6 +27,9 @@ There a two acepted commands:
 * `import` imports the youngest file from the userdata folder. Additionally you can specify `file` and/or the `devicegroup` number to restore. If `path` is specified the entire filesystem will be used and a `file` name is mandatory.  
 
 ## Changelog
+### 0.5.0
+* (Bannsanger) fixes in db creation for js controller 4.x
+
 ### 0.4.2
 * (Bannsaenger) changed sort order in changelog
 
