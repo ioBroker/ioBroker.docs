@@ -775,7 +775,7 @@ the quality of states will be set up depends on the connection status.
 * checkGroup = function checkGroup(user, group, callback)
 * stop (common.mode: subscribe, schedule, once)
 * terminate
-* setInteral
+* setInterval
 * clearInterval
 * setTimeout
 * clearTimeout
