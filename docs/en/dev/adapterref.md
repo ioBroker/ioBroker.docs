@@ -779,6 +779,7 @@ the quality of states will be set up depends on the connection status.
 * clearInterval
 * setTimeout
 * clearTimeout
+* delay (since js-controller 4)
 * log.debug(msg)
 * log.info(msg)
 * log.warn(msg)
