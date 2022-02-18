@@ -18,7 +18,7 @@ The following chapters describe Database Schema.
 ## IDs
 ID is a string with a maximum length of 240 bytes, hierarchically structured, levels separated by dots.
 
-Following characters are prohibited to use in IDs: `._\\-/ :!#$%&()+=@^{}|~`.
+Following characters are prohibited to use in IDs: `.\-/:!#$%&()+=@^{}|~`.
 
 The ID has different levels. Each level is determined by the dot. Example: `system.adapter.admin.0`
 - `system` - is the name space for system objects
