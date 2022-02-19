@@ -1363,5 +1363,39 @@
             "eufy-security": "installed",
             "eusec": "!installed"
         }
+    },
+    {
+        "title": {
+            "en": "js-controller 4.0.x is available as Beta",
+            "de": "js-controller 4.0.x ist als Beta verfügbar",
+            "ru": "js-controller 4.0.x доступен в виде бета-версии",
+            "pt": "js-controller 4.0.x está disponível como Beta",
+            "nl": "js-controller 4.0.x is beschikbaar als bèta",
+            "fr": "js-controller 4.0.x est disponible en version bêta",
+            "it": "js-controller 4.0.x è disponibile come Beta",
+            "es": "js-controller 4.0.x está disponible como Beta",
+            "pl": "js-controller 4.0.x jest dostępny w wersji beta",
+            "zh-cn": "js-controller 4.0.x 已作为 Beta 版提供"
+        },
+        "content": {
+            "en": "After already some testing the new js-controller 4.0.x is available now in the beta/latest repository. No issues are known at the moment. On initial upgrade some \"NOT SUPPORTED\" Messages are shown during the upgrade process which can be ignored. More information on the changes and instructions can be found in forum at https://forum.iobroker.net/post/756370",
+            "de": "Nach einigen Tests ist der neue js-controller 4.0.x nun im Beta/neuesten Repository verfügbar. Im Moment sind keine Probleme bekannt. Beim ersten Upgrade werden während des Upgrade-Vorgangs einige „NOT SUPPORTED“-Meldungen angezeigt, die ignoriert werden können. Weitere Informationen zu den Änderungen und Anweisungen finden Sie im Forum unter https://forum.iobroker.net/post/756370",
+            "ru": "После некоторого тестирования новый js-контроллер 4.0.x теперь доступен в бета-версии/последней версии репозитория. На данный момент о проблемах ничего не известно. При первоначальном обновлении в процессе обновления отображаются некоторые сообщения «NOT SUPPORTED», которые можно игнорировать. Дополнительную информацию об изменениях и инструкции можно найти на форуме по адресу https://forum.iobroker.net/post/756370.",
+            "pt": "Após alguns testes, o novo js-controller 4.0.x já está disponível no repositório beta/latest. Nenhum problema é conhecido no momento. Na atualização inicial, algumas mensagens \"NOT SUPPORTED\" são mostradas durante o processo de atualização que podem ser ignoradas. Mais informações sobre as alterações e instruções podem ser encontradas no fórum em https://forum.iobroker.net/post/756370",
+            "nl": "Na al wat testen is de nieuwe js-controller 4.0.x nu beschikbaar in de beta/laatste repository. Er zijn op dit moment geen problemen bekend. Bij de eerste upgrade worden tijdens het upgradeproces enkele \"NOT SUPPORTED\"-berichten weergegeven die kunnen worden genegeerd. Meer informatie over de wijzigingen en instructies is te vinden op het forum op https://forum.iobroker.net/post/756370",
+            "fr": "Après déjà quelques tests, le nouveau js-controller 4.0.x est maintenant disponible dans le référentiel beta/latest. Aucun problème n'est connu pour le moment. Lors de la mise à niveau initiale, certains messages \"NOT SUPPORTED\" s'affichent pendant le processus de mise à niveau et peuvent être ignorés. Plus d'informations sur les modifications et les instructions peuvent être trouvées dans le forum à https://forum.iobroker.net/post/756370",
+            "it": "Dopo già alcuni test, il nuovo js-controller 4.0.x è ora disponibile nel repository beta/latest. Al momento non sono noti problemi. Durante l'aggiornamento iniziale vengono visualizzati alcuni messaggi \"NOT SUPPORTED\" durante il processo di aggiornamento che possono essere ignorati. Maggiori informazioni sulle modifiche e le istruzioni possono essere trovate nel forum su https://forum.iobroker.net/post/756370",
+            "es": "Después de algunas pruebas, el nuevo js-controller 4.0.x ya está disponible en el repositorio beta/latest. No se conocen problemas por el momento. En la actualización inicial, se muestran algunos mensajes \"NOT SUPPORTED\" durante el proceso de actualización que se pueden ignorar. Puede encontrar más información sobre los cambios e instrucciones en el foro en https://forum.iobroker.net/post/756370",
+            "pl": "Po kilku testach nowy js-controller 4.0.x jest już dostępny w repozytorium beta/latest. W tej chwili nie są znane żadne problemy. Podczas początkowej aktualizacji podczas procesu aktualizacji wyświetlane są komunikaty „NOT SUPPORTED”, które można zignorować. Więcej informacji na temat zmian i instrukcji można znaleźć na forum pod adresem https://forum.iobroker.net/post/756370",
+            "zh-cn": "经过一些测试后，新的 js-controller 4.0.x 现在可以在 beta/latest 存储库中使用。目前没有已知问题。初始升级时，升级过程中会显示一些“不支持”消息，可以忽略。有关更改和说明的更多信息，请访问 https://forum.iobroker.net/post/756370 论坛"
+        },
+        "id": "jscontroller40xinfolatest",
+        "created": "2022-02-19T18:40:00.000Z",
+        "class": "info",
+        "fa-icon": "exclamation-circle",
+        "repo": "latest",
+        "conditions": {
+            "js-controller": "smaller(4.0.14)"
+        }
     }
 ]
