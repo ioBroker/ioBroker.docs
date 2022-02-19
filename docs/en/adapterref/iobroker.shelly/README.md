@@ -42,11 +42,19 @@ You can use the adapter in CoAP or MQTT mode. The default mode is CoAP and you d
 -->
 ### **WORK IN PROGRESS**
 
+* (klein0r) Fixed datatype error of Shelly 1/PM ext switch
+
+### 5.2.0 (2022-02-16)
+
 * (klein0r) Added Shelly Pro 1
 * (klein0r) Added Shelly Pro 1 PM
 * (klein0r) Added Shelly Pro 2
 * (klein0r) Added Shelly Pro 2 PM
-* (klein0r) Allow to change names of generation 2 devices
+* (klein0r) Added Shelly Plus 2 PM
+* (klein0r) Allow to change device and channel names of generation 2 devices
+* (klein0r) Added auto on/off timers for generation 2 devices
+* (klein0r) Added input mode, events and initial state for generation 2 devices
+* (klein0r) Added support of covers / shutters for generation 2 devices
 * (klein0r) Replaced node-fetch with axios (also for digest auth)
 
 ### 5.1.3 (2022-02-13)

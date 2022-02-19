@@ -24,7 +24,7 @@ Folgende Quellen stehen aktuell zur Verfügung:
 * Die letzten acht täglichen Bilder von Bing.com
 * Via VIS-Dateimanager hochgeladene Bilder
 * Bilder aus beliebigem Pfad im Dateisystem
-* Bilder von Synology PhotoStation
+* Bilder von Synology PhotoStation und Synology Photo
 
 Zur Darstellung in VIS stellt der Adapter ein Widget zur Verfügung.
 Dieses bietet auch Funktionen für Effekt beim Bildwechsel, beispielsweise sanftes Ein- und Ausblenden.
@@ -52,7 +52,7 @@ Außerdem kann eingestellt werden, wie oft die Liste der Bilder aktualisiert wer
 
 Bei Auswahl der Quelle "Dateisystem" kann dann noch der Pfad im Dateisystem ausgewählt werden, außerdem das Format (Hoch- oder Querformat) der anzuzeigenden Bilder sowie die Reihenfolge.
 
-Bei Auswahl der Quelle "Synology PhotoStation" muss die IP-Adresse oder der Hostname sowie Benutzername und Passwort angegeben werden. Download von Bildern durch Benutzer muss in den Einstellungen von PhotoStation aktiviert sein.
+Bei Auswahl der Quelle "Synology PhotoStation" muss die DSM-Version, die IP-Adresse oder der Hostname sowie Benutzername und Passwort angegeben werden. Download von Bildern durch Benutzer muss in den Einstellungen von PhotoStation aktiviert sein.
 
 ### VIS-Widget
 Das Widget ist in der Kategorie "slideshow" enthalten.
@@ -95,9 +95,7 @@ Ja, aber nicht direkt durch den Adapter. ioBroker unterstützt mittlerweile sehr
 **Synology**
 
 Können für Synology PhotoStation weitere Einstellungen wie z.B. Auswahl des Albums integriert werden?
-Kann DSM 7 (Synology Photos) unterstützt werden?
 
-Synology PhotoStation wird mit DSM 6 enden. Der Nachfolger, Synology Photos, erscheint mit DSM 7. DSM 7 ist aktuell noch Beta, die finale Version wird vermutlich Sommer 2021 erscheinen. Vermutlich ändert sich auch die Entwickler-Schnittstelle. Daher investiere ich keinen Aufwand mehr in die bisherige Version. Sobald DSM 7 offiziell erscheint werden ich die Integration prüfen. Leider gab es für die bisherige Version keine offizielle Dokumentation von Synology.
 Der Zugriff auf bestimmte Fotoalben bzw. Ordner kann jedoch in der aktuellen Version von PhotoStation einfach realisiert werden. Hierzu unter DSM einen Benutzer für Slideshow anlegen und diesem Benutzer in der PhotoStation nur Berechtigungen auf die gewünschten Fotoalben bzw. Ordner geben.
 
 ## <a name="english"></a>Slideshow Adapter for ioBroker
@@ -108,7 +106,7 @@ The following Sources can actually be used:
 * The last eight daily pictures from Bing.com
 * Pictures uploaded by VIS-File-Manager
 * Pictures from file system path
-* Pictures from Synology PhotoStation
+* Pictures from Synology PhotoStation or Synology Photo
 
 The Adapter provides a Widget for Presentation in VIS, which offers effects on picture change, for example smooth fade-out and fade-in.
 Additionally a timeout can be configured. When on other views in the same VIS project no actions for the defined timeout occured, the view with the Slideshow will be started. With a click on the picture it changes back to the last view or to a predefined view.
@@ -134,7 +132,7 @@ Also configurable is how often the list of images should be updated. The setting
 
 When source "File system" is selected, the path can be entered and the format (landscape or portrait) of the pictures to be shown. Also the order can be configured.
 
-When source "Synology PhotoStation" is selected, the IP address or hostname and an username with password has to be configured. Download of pictures has to be enabled in PhotoStation settings.
+When source "Synology PhotoStation" is selected, the Synology DSM version, the IP address or hostname and an username with password has to be configured. Download of pictures has to be enabled in PhotoStation settings.
 
 Attention:  After changes (Adding or Deleting) a restart of the adapter is required.
 
@@ -191,8 +189,10 @@ However, access to certain photo albums or folders can easily be implemented in 
 -->
 
 ### __WORK IN PROGRESS__
+* (Gaudes) Include support for Synology DSM 7
 * (Gaudes) Remove support for Node 10
 * (Gaudes) Update to newest Adapter creator for internal dependencies
+* (Gaudes) Include adapter-dev
 * (Gaudes) Include Dependabot updates
 
 ### 0.1.4 (2021-04-18)
@@ -251,7 +251,7 @@ However, access to certain photo albums or folders can easily be implemented in 
 ## License
 MIT License
 
-Copyright (c) 2021 Gaudes <ralf@gaudes.net>
+Copyright (c) 2022 Gaudes <ralf@gaudes.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

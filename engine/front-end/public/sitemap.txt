@@ -1020,6 +1020,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shelly/state-changes.m
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shuttercontrol/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.sia/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.siegenia/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.signal-cmb/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.simple-api/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.slideshow/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.sma-em/README.md
@@ -1532,6 +1533,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shelly/state-changes.m
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shuttercontrol/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.sia/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.siegenia/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.signal-cmb/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.simple-api/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.slideshow/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.sma-em/README.md
@@ -2044,6 +2046,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shelly/state-changes.m
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shuttercontrol/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.sia/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.siegenia/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.signal-cmb/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.simple-api/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.slideshow/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.sma-em/README.md
@@ -2556,6 +2559,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shelly/state-change
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shuttercontrol/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sia/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.siegenia/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.signal-cmb/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.simple-api/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.slideshow/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sma-em/README.md

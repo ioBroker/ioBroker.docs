@@ -412,6 +412,10 @@ Here is a list of the problems that have occurred so far and their solutions, if
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 2.3.3 (2022-02-17)
+* (simatec) small GUI fixes
+* (simatec) Docker restore tunning
+
 ### 2.3.2 (2022-02-13)
 * (simatec) Bugfix Restore Interface for http
 * (simatec) Fix json history

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/objectsschema.md
 title: 核心理念
-hash: meXu8w+49qheTRuRB43RJkogUW5HBk2XxjDAVaSQ9V4=
+hash: tK6YuHKe/GBt0L7cZVQTqQkxhdGY5spF7K5qLNwQuBU=
 ---
 # 核心理念
 ioBroker 中有两种根本不同的数据类型。所谓的**状态**（`states`）和**对象**。
@@ -17,14 +17,14 @@ ioBroker 中有两种根本不同的数据类型。所谓的**状态**（`states
 以下章节描述了数据库模式。
 
 ## ID
-ID 是一个最大长度为 240 字节的字符串，分层结构，由点分隔的级别。
+ID 是一个字符串，最大长度为 240 字节，分层结构，由点分隔的级别。
 
-禁止在 ID 中使用以下字符：`._\\-/ :!#$%&()+=@^{}|~`。
+它用于检查禁止在 ID 中使用的字符的正则表达式可以在 https://github.com/ioBroker/ioBroker.js-controller/blob/master/packages/common/lib/common/tools 中找到。 js#L44。
 
 ID有不同的级别。每个级别由点确定。示例：`system.adapter.admin.0`
 
 - `system` - 是系统对象的命名空间
-- `适配器` - 适配器配置的命名空间
+- `adapter` - 适配器配置的命名空间
 - `admin` - 适配器名称
 - `0` - 适配器实例
 
@@ -202,7 +202,7 @@ ID有不同的级别。每个级别由点确定。示例：`system.adapter.admin
 * `common.write` (boolean, 强制) - 如果状态是可写的，则为真
 * `common.role`（字符串，强制）- 状态角色（在用户界面中用于指示选择哪个小部件，见下文）
 * `common.states`（可选）数字类型属性，带有可能状态的对象`{'value'：'valueName'，'value2'：'valueName2'，0：'OFF'，1：'ON'}`或（由 admin5 支持）一个状态数组，例如 `['Start', 'Flight', 'Land']`
-* `common.workingID` (string, optional) - 如果这个状态有辅助状态WORKING。这里必须写全名，如果前部分与实际相同，则只写最后一部分。用于`HM.LEVEL`并且通常具有值`WORKING`
+* `common.workingID` (string, optional) - 如果这个状态有辅助状态WORKING。这里必须写全名，如果前部分与实际相同，则只写最后部分。用于`HM.LEVEL`并且通常具有值`WORKING`
 * `common.custom`（可选）- 具有特定适配器的自定义设置的结构。像`{"influxdb.0": {"enabled": true, "alias": "name"}}`。 `enabled` 属性是必需的，如果它不是真的，整个属性将被删除。
 
 ##### 属性`common.history`
@@ -270,7 +270,7 @@ Die Verlaufsfunktion benötigt den Verlaufsadapter oder einen anderen Speicherad
 * `phone` - fritz box, speedport 等等
 
 * `button` - 像墙壁开关或电视遥控器，其中每个按钮的状态如 .play、.stop、.pause
-* `remote` - 电视或其他遥控器的状态是带有按下值的字符串，例如“播放”、“停止”、“暂停”
+* `remote` - 具有状态的电视或其他遥控器是带有按下值的字符串，例如“播放”、“停止”、“暂停”
 
 * `meta` - 关于设备的信息
 * `meta.version` - 设备版本
@@ -490,7 +490,7 @@ ID：`system.adapter.<adapter.name>`
 * `common.adminTab.link` - TAB 中 iframe 的链接。您可以像这样使用参数替换：`http://%ip%:%port%`。 IP 将替换为主机 IP。将从 `native.port` 中提取 `port`。
 * `common.adminTab.name` - 管理员标签的名称
 * `common.adminTab.singleton` - [true/false] 如果适配器有管理员的 TAB。将只显示所有实例的一个 TAB。
-* `common.allowInit` - [true/false] 如果设置更改或适配器已启动，则允许“不在时间表内”调用“已调度”适配器。或者允许计划的适配器在配置更改后启动一次，然后按计划启动。
+* `common.allowInit` - [true/false] 如果设置更改或适配器已启动，则允许在“不在时间表内”调用“已调度”适配器。或者允许计划的适配器在配置更改后启动一次，然后按计划启动。
 * `common.availableModes` - 如果可能有多个模式，则为 `common.mode` 的值
 * `common.blockly` - [true/false] 如果适配器具有用于块的自定义块。 （需要`admin/blockly.js`）
 * `common.connectionType` - 与设备的连接类型：`local/cloud`。参见`common.dataSource`。
@@ -501,7 +501,7 @@ ID：`system.adapter.<adapter.name>`
 * `common.config.width` - 配置对话框的默认宽度（已弃用 - 仅对 admin2 有效）
 * `common.dataFolder` - 与适配器存储数据的 iobroker-data 相关的文件夹。此文件夹将自动备份和恢复。您可以在其中使用变量 `%INSTANCE%`。
 * `common.dataSource` - 如何从设备接收数据：`poll/push/assumption`。它与 `connectionType` 一起很重要。
-* `common.disableDataReporting` - 不要通过 `sentry` 报告此实例的错误
+* `common.disableDataReporting` - 不通过 `sentry` 报告此实例的错误
 * `common.dependencies` - 类似 `[{"js-controller": ">=2.0.0"}]` 的数组，描述了同一主机上的此适配器需要哪些 ioBroker 模块。
 * `common.docs` - 类似 `{"en": "docs/en/README.md", "de": ["docs/de/README.md", "docs/de/README1.md" 的结构]}` 描述文档（如果不在 `README.md` 中）
 * `common.enabled` - **mandatory** [true/false] 值应为 false，因此默认情况下禁用新实例
@@ -526,12 +526,12 @@ ID：`system.adapter.<adapter.name>`
 * `common.materialize` - 如果适配器支持 > admin3（物化风格）
 * `common.messagebox` - 如果支持消息框，则为 true。因此，适配器可以接收 sendTo 消息（用于电子邮件、pushover 等）
 * `common.messages` - 更新的条件消息。有关详细信息，请参阅 [条件消息](#conditional-messages)。
-* `common.mode` - **强制** 可能的值见下文
+* `common.mode` - **强制**可能的值见下文
 * `common.name` - **强制**没有“ioBroker”的适配器名称。
 * `common.noConfig` - [true/false] 例如不显示配置对话框
 * `common.noIntro` - 永远不会在管理员的介绍/概述屏幕上显示此适配器的实例（如图标、小部件）
 * `common.noRepository` - [true/false] 如果适配器随初始安装交付或有自己的存储库
-* `common.nogit` - 如果为真，则不能直接从 github 安装
+* `common.nogit` - 如果为真，则无法直接从 github 安装
 * `common.nondeletable` - [true/false] 此适配器无法删除或更新。它将与控制器一起更新。
 * `common.npmLibs` - 已弃用。使用 package.json `dependencies`。
 * `common.onlyWWW` - [true/false] 对控制器说，适配器只有 html 文件，没有 main.js，就像人力车一样
@@ -546,7 +546,7 @@ ID：`system.adapter.<adapter.name>`
 * `common.restartAdapters` - 包含在安装此适配器后必须重新启动的适配器名称的数组，例如[“可见”]
 * `common.restartSchedule` - CRON 计划重启模式`daemon` 适配器
 * `common.schedule` - 如果适配器在 `schedule` 模式下运行，则 CRON 计划。
-* `common.serviceStates` - [true/false or path] 如果适配器可以提供额外的状态。如果是，将调用路径 `adapter/lib/states.js` 并给出以下参数函数（对象、状态、实例、配置、回调）。该函数必须提供具有类似 `function (err, result) { result = [{id: 'id1', val: 1}, {id: 'id2', val: 2}]} 的值的点数组
+* `common.serviceStates` - [true/false or path] 如果适配器可以提供额外的状态。如果是，将调用路径 `adapter/lib/states.js` 并给出以下参数函数（对象、状态、实例、配置、回调）。该函数必须传递具有类似 `function (err, result) { result = [{id: 'id1', val: 1}, {id: 'id2', val: 2}]} 的值的点数组
 * `common.singletonHost` - 适配器只能在一台主机上安装一次
 * `common.singleton` - 适配器在整个系统中只能安装一次
 * `common.stopBeforeUpdate` - [true/false] 如果适配器必须在更新前停止
@@ -566,7 +566,7 @@ ID：`system.adapter.<adapter.name>`
 * `common.webExtendable` - [true/false] 如果此适配器中的 Web 服务器可以使用代理、simple-api 等插件/扩展进行扩展
 * `common.webExtension` - 连接网络扩展的相对文件名。例如。在 `simple-api` `lib/simpleapi.js` 相对于适配器根目录。此外，`native.webInstance` 需要说明此扩展将包含在何处。空意味着，它必须作为自己的 Web 服务运行。 “*”表示每个 Web 服务器都必须包含它。
 * `common.webPreSettings` - webServer 适配器必须包含在 info.js 中的参数列表。 （示例材料）
-* `common.webservers` - 应从适配器的 www 文件夹中提供内容的 Web 服务器实例数组
+* `common.webservers` - 应该从适配器的 www 文件夹提供内容的 Web 服务器实例数组
 * `common.welcomeScreen` - 页面数组，应该显示在“web”index.html 页面上。 `["vis/edit.html", "vis/index.html"]` 或 `[{"link": "vis/edit.html", "name": "Vis editor", "img": "vis /img/edit.png", "color": "blue"}, "vis/index.html"]`
 * `common.welcomeScreen.order` - 待办事项
 * `common.welcomeScreenPro` - 与 `common.welcomeScreen` 相同，但仅用于从 ioBroker.cloud 访问。
@@ -635,7 +635,7 @@ ID：`system.host.<host>`
 * `common.platform` - （强制）可能的值`Javascript/Node.js`（更多）
 * `common.enabled` - （强制）是否激活脚本
 * `common.source` - （强制）脚本源
-* `common.engine` - (可选) *script engine* 应该运行这个脚本的实例 (f.e. 'javascript.0') - 如果省略的引擎被自动选择
+* `common.engine` - (可选) *脚本引擎* 应该运行此脚本的实例 (f.e. 'javascript.0') - 如果自动选择省略的引擎
 
 ####用户
 * `common.name` - （强制）用户名（区分大小写）
