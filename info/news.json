@@ -1393,7 +1393,7 @@
         "created": "2022-02-19T18:40:00.000Z",
         "class": "info",
         "fa-icon": "exclamation-circle",
-        "repo": "latest",
+        "repo": "beta",
         "conditions": {
             "js-controller": "smaller(4.0.14)"
         }
