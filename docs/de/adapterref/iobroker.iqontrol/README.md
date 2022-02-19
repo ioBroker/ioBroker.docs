@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: Ew1s2gzhYtfBStlZETDUND2oeQA2J13+clrmLMif9q4=
+hash: i5RuIdI8WsYV4wYZhFzae3YUlNEULJoy6VXKrS/pJak=
 ---
 ![Logo](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -11,14 +11,13 @@ hash: Ew1s2gzhYtfBStlZETDUND2oeQA2J13+clrmLMif9q4=
 ![stabile Version](http://iobroker.live/badges/iqontrol-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.iqontrol.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.iqontrol.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/sbormann/iobroker.iqontrol.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/sbormann/ioBroker.iqontrol/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.iqontrol.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/sbormann/ioBroker.iqontrol/master.svg)
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/github/sbormann/ioBroker.iqontrol?branch=master&svg=true)
 
 # IoBroker.iqontrol
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/iqontrol/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+<!-- [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/iqontrol/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) -->
 
 **Tests:**
 
@@ -46,6 +45,12 @@ Einfach einzurichten, obwohl es vollständig anpassbar und reaktionsschnell ist.
 
 ## Zum Startbildschirm hinzufügen
 Sie können es als Web-App auf dem Startbildschirm speichern und es sieht aus und fühlt sich an wie eine native App: ![Zum Startbildschirm hinzufügen](../../../en/adapterref/iobroker.iqontrol/img/add_to_homescreen.png)
+
+Dies funktioniert auch auf Ihrem PC mit Chrome:
+
+* Öffnen Sie iQontrol in Chrome
+* Klicken Sie auf das Drei-Punkte-Menü - Weitere Tools - Verknüpfung erstellen
+* Sie finden iQontrol dann im Startmenü unter Chrome-Apps und können es sogar zu Ihrer Taskleiste hinzufügen
 
 ## Du brauchst...
 * Nodejs 10 oder höher
@@ -453,7 +458,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 
 * 'widget-replaceurl'
 * Syntax: `` <meta name="widget-replaceurl" content="<url>" data-absolute="<true|false>"/> „
-* Dies konfiguriert die verwendete URL/BACKGROUND_URL für dieses Widget neu (auf diese Weise könnten Sie Widget-Voreinstellungen definieren, die verwendet werden, um dem Benutzer spezielle oder vereinfachte Konfigurationen zu geben. Aber wenn das Widget aufgerufen wird, verwendet iQontrol die angegebene ``<url>`". ` anstelle der ursprünglichen URL.
+* Dies konfiguriert die verwendete URL/BACKGROUND_URL für dieses Widget neu (auf diese Weise könnten Sie Widget-Voreinstellungen definieren, die verwendet werden, um dem Benutzer spezielle oder vereinfachte Konfigurationen zu geben. Aber wenn das Widget aufgerufen wird, verwendet iQontrol die angegebene ``<url>` ` anstelle der ursprünglichen URL.
 * Standardmäßig wird nur der Dateiname (mit Erweiterung) ersetzt. Beim Setzen von ``data-absolute="true"`` wird die gesamte URL ersetzt.
 
 <details><summary>Mögliche Optionen anzeigen, die durch das Meta-Tag &#39;widget-options&#39; konfiguriert werden können: (<ins> zum Öffnen anklicken</ins> )</summary>
@@ -700,7 +705,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``noOverlayActive`` (Overlay der Kachel entfernen, falls Gerät aktiv):
 * Mögliche Werte: "true"|"false"
 * Voreinstellung: "true"
-* ``hideBackgroundURLActive`` (Hintergründe vor Background_VIEW/URL/HTML ausblenden, wenn das Gerät aktiv ist):
+* ``hideBackgroundURLActive`` (Hintergründe von Background_VIEW/URL/HTML ausblenden, wenn das Gerät aktiv ist):
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
 * ``hideDeviceNameIfActive`` (Gerätenamen ausblenden, wenn das Gerät aktiv ist):
@@ -815,7 +820,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``backgroundURLPadding`` (Auffüllen auf Background_VIEW/URL/HTML anwenden):
 * Mögliche Werte: Zahl von 0 bis 50 [Pixel]
 * Standard: ""
-* ``backgroundURLAllowPostMessage`` (Erlaube postMessage-Kommunikation für Background_view/URL/HTML):
+* ``backgroundURLAllowPostMessage`` (Erlaube postMessage-Kommunikation für background_VIEW/URL/HTML):
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
 * ``backgroundURLNoPointerEvents`` (Mausereignisse auf die Kachel richten statt auf den Inhalt von DESCRIPTION_VIEW/URL/HTML):
@@ -1191,7 +1196,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 </html>
 ````
 
-</details> </details>
+</detail> </detail>
 
 ## Listen und Zähler
 iQontrol bietet ein leistungsstarkes Tool zum Erstellen dynamischer Listen und Zähler von Geräten und Zuständen.
@@ -1212,7 +1217,7 @@ Um die gezählten Geräte zu visualisieren, können Sie das Device-Counter-Widge
 * Typ: Wählen Sie aus, was zur Liste hinzugefügt oder daraus entfernt werden soll. Typ könnte sein:
 * **Alle** - selbsterklärend
 * **Aufzählung** - Filtern nach Aufzählung. Sie können Aufzählungen wie „Räume“, „Funktionen“ oder „Fenster im Obergeschoss“ im ioBroker-Admin-Adapter definieren
-* **Aufzählung mit Childs** - Aufzählungen enthalten oft nur das Gerät ohne seinen Datenpunkt. Daher werden Sie meistens die Enumeration mit Childs verwenden, die automatisch auch die Datenpunkte enthält
+* **Aufzählung mit Childs** - Aufzählungen enthalten oft nur das Gerät ohne seinen Datenpunkt. Daher werden Sie meistens die Aufzählung mit untergeordneten Elementen verwenden, die automatisch auch die Datenpunkte enthält
 * **ID** - Filtern Sie nach der ID von Datenpunkten, entfernen Sie beispielsweise IDs, die nicht mit „.color“ oder „.saturation“ enden.
 * **Objekttyp** - Filtern nach Objekttyp, der Gerät, Kanal, Zustand oder Aufzählung sein kann
 * **Typ** - filtern Sie nach dem gemeinsamen.Typ des Datenpunkts, z. B. Zeichenfolge, Zahl, Boolesch
@@ -1382,7 +1387,7 @@ Allerdings ist nicht jeder Typ für jede Rolle sinnvoll. So ist beispielsweise d
 Jedes Licht kann einen oder beide der folgenden Zustände haben:
 
 * **STATE**: *boolean* - Ein-/Aus-Zustand anzeigen und setzen
-* **LEVEL**: *Zahl* - zeigt und stellt die Lichtstärke ein
+* **LEVEL**: *Nummer* - Zeigt und stellt die Lichtstärke ein
 
 Optional können Sie folgende Zustände definieren:
 
@@ -1498,7 +1503,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
   *Alternativ können Sie eine* erteliste* zuweisen, um zusätzliche Zustände wie 'Manipuliert' anzuzeigen
   *Sie können auch eine* eichenfolge* zuweisen, um einen beliebigen Text wie "Feuer im Obergeschoss" anzuzeigen
 * **CONTROL_MODE**: *Werteliste* - Auswahl des Betriebsmodus wie "Scharf" und "Unscharf"
-    * In den Geräteoptionen können Sie den Wert definieren, der „unscharf“ darstellt, damit das entsprechende Symbol angezeigt werden kann
+    * In den Geräteoptionen können Sie den Wert definieren, der „unscharf“ darstellt, sodass das entsprechende Symbol angezeigt werden kann
 
 ###<img src="img/icons/battery_full.png" width="32"> Batterie:
 * **STATUS**: *Zahl* - Batteriestand in Prozent
@@ -1508,7 +1513,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 
 ###<img src="img/icons/time_alarmclock_on.png" width="32"> Datum (und Uhrzeit:
 * **STATE**: *boolean* - wenn wahr, wird die Kachel als aktiv angezeigt
-* **BETREFF**: *Zeichenfolge* - um eine Beschreibung festzulegen
+* **BETREFF**: *string* - um eine Beschreibung festzulegen
 * **RINGING**: *boolean* - wenn wahr, wird eine Alarmglocke angezeigt
 * Denken Sie daran: Sie können einen Quit- und einen Snooze-Button über ADDITIONAL_CONTROLS konfigurieren
 * **TIME**: *string* - String mit Datum und/oder Uhrzeit oder Dauer (Sie können das Format in den Geräteoptionen angeben) für das erste und zweite Mal
@@ -1577,7 +1582,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 | | Ära | N, NN, NNN | v. Chr. n. Chr. | X | --- | --- |
 | | | NNNN | Vor Christus, Anno Domini | X | --- | --- |
 | | | NNNNN | v. Chr. n. Chr. | X | --- | --- |
-| | Woche Jahr | gg | 70 71 ... 29 30 | X | --- | --- |
+| | Woche Jahr | g | 70 71 ... 29 30 | X | --- | --- |
 | | | ggg | 1970 1971 ... 2029 2030 | X | --- | --- |
 | | Woche Jahr (ISO) | GG | 70 71 ... 29 30 | X | --- | --- |
 | | | GGGG | 1970 1971 ... 2029 2030 | X | --- | --- |
@@ -1644,7 +1649,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 * **REMOTE_ADDITIONAL_BUTTONS**: *array* - ein Array von Schaltflächen. Der Name des Buttons wird an die entsprechende State-ID gesendet, wenn der Button angeklickt wird
 * **REMOTE_HIDE_REMOTE**: *boolean* - wenn wahr, wird der komplette Fernbedienungsbereich ausgeblendet (z. B. um ihn nur anzuzeigen, wenn eine gültige Quelle ausgewählt ist)
 
-###<img src="img/icons/popup.png" width="32"> Auftauchen:
+###<img src="img/icons/popup.png" width="32"> Pop-up:
 * **STATE**: *any* - kann verwendet werden, um weitere Informationen anzuzeigen
 
 ###<img src="img/icons/link.png" width="32"> Externer Link:
@@ -1690,12 +1695,21 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.0.0-rc2.2 (2022-02-15)
+* (sbormann) Minor enhancements and bugfixes.
+
+### 2.0.0-rc2.1 (2022-02-14)
+* (sbormann) Abort button now works in preview mode.
+
 ### 2.0.0-rc2.0 (2022-02-12)
 * (sbormann) Fixed counting of logs.
 * (sbormann) Lists are now saved as readonly and with ack=true.
 * (sbormann) Fixed glow.
+* (sbormann) Enhanced sorting of JSON-Table-Widget.
 * (sbormann) Added option to define, how the parent name of lists is determined.
 * (dirkhe, sbormann) Added save-button to dialogs.
+* (dirkhe) Added preview mode.
+* (sbormann) Added option to define toolbar selected icon background color.
 
 ### 2.0.0-rc1.1 (2022-02-08)
 * (sbormann) Kompatibility to new ioBroker websocket established.

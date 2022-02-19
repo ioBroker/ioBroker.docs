@@ -313,6 +313,9 @@ You can set option *Force Web-Sockets* to force using only web-sockets transport
 -->
 
 ## Changelog
+### 1.1.6 (2022-02-16)
+* (bluefox) Added `unlink` and `rename` to web functions
+
 ### 1.1.4 (2022-02-13)
 * (bluefox) Changed name `info.connection` to `info.connected`
 
@@ -329,7 +332,6 @@ You can set option *Force Web-Sockets* to force using only web-sockets transport
 * (bluefox) Initial commit
 
 ## License
-
 The MIT License (MIT)
 
 Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>

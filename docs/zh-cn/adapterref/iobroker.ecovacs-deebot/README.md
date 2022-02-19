@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
 title: 用于 ioBroker 的 Ecovacs Deebot 适配器
-hash: 8NZ1eiNmphw0lfJjopIRN/qfZWJbmF6ZV/JqtlXNVh0=
+hash: 3BGSH3RZfns7IR4uZVaIoX8nGD2rfZ3Q0n15IypQv1Y=
 ---
-![标识](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
+![商标](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
 ![稳定版](http://iobroker.live/badges/ecovacs-deebot-stable.svg)
 ![最新版本](http://img.shields.io/npm/v/iobroker.ecovacs-deebot.svg)
@@ -19,10 +19,10 @@ hash: 8NZ1eiNmphw0lfJjopIRN/qfZWJbmF6ZV/JqtlXNVh0=
 此适配器使用 [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js) 库。
 
 ＃＃ 特征
-一些值得注意的特点是：
+一些值得注意的功能是：
 
 * 检索信息（例如电池、清洁日志、耗材、清洁和充电状态）
-* 发送清理命令（例如自动、点区域、自定义区域）和各种其他命令（例如播放声音、重置消耗品）
+* 发送清洁命令（例如自动、点区域、自定义区域）和各种其他命令（例如播放声音、重置消耗品）
 * 保存上次运行的自定义区域并重新运行保存的区域
 * 真空功率（清洁速度）和水位的调整
 * 在清洁过程中检索信息（例如当前位置和区域）
@@ -98,6 +98,7 @@ sudo npm install canvas --unsafe-perm=true
 * 常见问题可以在 [这里](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ) 找到
 
 ＃＃ 已知的问题
+* 地图图像的生成目前在 32 位系统上不稳定
 * 对于某些型号（例如 Deebot OZMO 930），建议使用
 
 [安排重启](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) 每天一次，因为有一些报告称连接在大约 10 分钟后丢失。 24小时
@@ -110,9 +111,18 @@ sudo npm install canvas --unsafe-perm=true
 
 ## Changelog
 
-### 1.3.2 (alpha)
+### 1.3.4 (alpha)
+* Bumped ecovacs-deebot.js to 0.7.2 (alpha)
+* Implement some experimental functions for auto empty stations
+* Some refactoring
 
-* Recent updates
+### 1.3.3
+* Bumped ecovacs-deebot.js to 0.7.1 (incl. fix for CVE-2022-0155)
+
+### 1.3.2
+
+* Bumped follow-redirects to 1.14.7 (fix for CVE-2022-0155) and some other dependencies
+* Added N8 PRO+
 
 ### 1.3.1
 
@@ -255,7 +265,7 @@ sudo npm install canvas --unsafe-perm=true
 
 MIT License
 
-Copyright (c) 2021 Sascha Hölzel <mrb1232@posteo.de>
+Copyright (c) 2022 Sascha Hölzel <mrb1232@posteo.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

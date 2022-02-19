@@ -72,6 +72,9 @@ default: state-ID converted to a mqtt topic.
 
 ## Changelog
 ### __WORK IN PROGRESS__
+* (Pmant) add option to select protocol version
+* (Pmant) add websocket support
+* (Pmant) publish values once on enabling publishing
 * (Pmant) Upgrade to MQTT version 4 (resolves many connection issues)
 * (Pmant) fix LWT documentation
 * (Pmant) optionally publish a message when disconnecting gracefully

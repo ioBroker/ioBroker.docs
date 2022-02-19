@@ -75,6 +75,13 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* Important: Requires js-controller 3.1 at least!
+* (Apollon77) Add some checks to prevent issues with missing data
+* (Apollon77) FIx some crash cases reported by Sentry
+* (Apollon77) pass HEAD requests without body (Sentry IOBROKER-CLOUD-14)
+
 ### 4.1.0 (2021-07-17)
 * (bluefox) Added support for new javascript
 
@@ -293,7 +300,7 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2022 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

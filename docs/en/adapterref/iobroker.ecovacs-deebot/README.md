@@ -100,6 +100,7 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 
 ## Known issues
 
+* The generation of map images is currently not stable on 32-bit systems
 * For some models (e.g. Deebot OZMO 930) it is recommended
   to [schedule a restart](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) once a day
   because there are some reports that the connection is lost after approx. 24 hours
@@ -110,7 +111,8 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 
 ### 1.3.4 (alpha)
 * Bumped ecovacs-deebot.js to 0.7.2 (alpha)
-* Implement some experimental functions for auto empty stations 
+* Implement some experimental functions for auto empty stations
+* Some refactoring
 
 ### 1.3.3
 * Bumped ecovacs-deebot.js to 0.7.1 (incl. fix for CVE-2022-0155)

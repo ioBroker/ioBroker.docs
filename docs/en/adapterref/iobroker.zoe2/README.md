@@ -119,7 +119,9 @@ for your great documentation and work.
 
 ## Changelog
 
-
+### 0.2.4 (2022-02-16)
+- Replaced obsolete Request-Library by axios
+- Code-Adjustments
 
 ### 0.2.3 (2021-07-29)
 - Code Adjustments, Error-Handling

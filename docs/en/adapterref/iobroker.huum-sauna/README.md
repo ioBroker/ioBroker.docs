@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@iobroker/adapter-core": "^2.5.1",
-    "axios": "^0.24.0",
+    "axios": "^0.25.0",
     "suncalc2": "^1.8.1"
   },
   "devDependencies": {
@@ -30,7 +30,7 @@
     "@types/sinon": "^10.0.6",
     "@types/sinon-chai": "^3.2.8",
     "auto-changelog": "^2.3.0",
-    "axios": "^0.24.0",
+    "axios": "^0.25.0",
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
     "eslint": "^7.32.0",

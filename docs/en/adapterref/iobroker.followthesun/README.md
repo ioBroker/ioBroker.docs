@@ -26,6 +26,10 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.3.9-alpha.0 (2022-02-16)
+* (HGlab01) Bump iobroker-jsonexplorer to v0.1.9
+* (HGlab01) js-controller 4.0 readiness
+
 ### 0.3.8 (2021-12-07)
 * (HGlab01) Notifiy Sentry about new release
 

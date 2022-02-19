@@ -207,6 +207,7 @@ Possible options:
 - **limit** - do not return more entries than limit (only used if aggregate is 'onchange'/'none')
 - **addId** - if *id* field should be included in answer
 - **aggregate** - aggregate method:
+    - *minmax* - Splice the whole time range in small intervals and find for every interval max value and min value and use them for this interval (nulls will be ignored).
     - *max* - Splice the whole time range in small intervals and find for every interval max value and use it for this interval (nulls will be ignored).
     - *min* - Same as max, but take minimal value.
     - *average* - Same as max, but take average value.
@@ -216,6 +217,8 @@ Possible options:
 
 When raw data are selected without using 'step' the returned fields are ts, val, ack, q and from.
 As soon as step is used the returned fields are ts and val.
+
+Interpolated values will be marked as `i=true`, like: `{i: true, val: 4.7384845, ts: 29892365723652}`.
 
 Please hold in mind that InfluxDB aggregates on "rounded time boundaries" (see https://docs.influxdata.com/influxdb/v0.11/troubleshooting/frequently_encountered_issues/#understanding-the-time-intervals-returned-from-group-by-time-queries)
 
@@ -303,7 +306,7 @@ sendTo('influxdb.0', 'enableHistory', {
         console.log(result.error);
     }
     if (result.success) {
-        //successfull enabled
+        // successfully enabled
     }
 });
 ```
@@ -319,7 +322,7 @@ sendTo('influxdb.0', 'disableHistory', {
         console.log(result.error);
     }
     if (result.success) {
-        //successfull enabled
+        // successfully enabled
     }
 });
 ```
@@ -352,6 +355,9 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
+### 2.5.1 (2022-02-16)
+* (bluefox) Marked interpolated data with `i=true`
+
 ### 2.5.0 (2022-02-14)
 * (bluefox) Added new messages: 'update', 'delete', 'deleteRange', 'deleteAll' (only for influxdb v1)
 * (bluefox) Corrected aggregation of data

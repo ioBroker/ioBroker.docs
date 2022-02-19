@@ -420,6 +420,9 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
+### 1.16.2 (2022-02-16)
+* (bluefox) Marked interpolated data with `i=true`
+
 ### 1.16.1 (2021-12-19)
 * (Excodibur) Hide settings not relevant when "log changes only" is not used
 * (Apollon77) Allow all number values for debounce again
@@ -682,7 +685,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2021 bluefox <dogafox@gmail.com>, Apollon77
+Copyright (c) 2015-2022 bluefox <dogafox@gmail.com>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -64,9 +64,10 @@ TKK= Temperature inverter
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-### **WORK IN PROGRESS**
+### 1.0.5 (2022-02-17)
 * (afuerhoff) dependencies updated
 * (afuerhoff) test and release updated
+* (afuerhoff) smaller changes
 
 ### 1.0.4 (2022-02-09)
 * (afuerhoff) dependencies updated
@@ -81,12 +82,6 @@ TKK= Temperature inverter
 
 ### 1.0.1 (2021-05-01)
 * (afuerhoff) changes due to js-controller 3.3.x
-
-### 1.0.0 (2021-04-25)
-* (afuerhoff) dependencies updated
-* (afuerhoff) documentation changed
-* (afuerhoff) minor changes
-* (afuerhoff) due to stable state version set to 1.0.0
 
 ## License
 MIT License

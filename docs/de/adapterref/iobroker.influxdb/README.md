@@ -104,6 +104,9 @@ Wählt man in der Titelzeile unter Historie "mit" oder "influxdb.0" aus, werden
 Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 ## Changelog
+### 2.5.1 (2022-02-16)
+* (bluefox) Marked interpolated data with `i=true`
+
 ### 2.5.0 (2022-02-14)
 * (bluefox) Added new messages: 'update', 'delete', 'deleteRange', 'deleteAll' (only for influxdb v1)
 * (bluefox) Corrected aggregation of data
