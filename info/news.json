@@ -1389,13 +1389,13 @@
             "pl": "Po kilku testach nowy js-controller 4.0.x jest już dostępny w repozytorium beta/latest. W tej chwili nie są znane żadne problemy. Podczas początkowej aktualizacji podczas procesu aktualizacji wyświetlane są komunikaty „NOT SUPPORTED”, które można zignorować. Więcej informacji na temat zmian i instrukcji można znaleźć na forum pod adresem https://forum.iobroker.net/post/756370",
             "zh-cn": "经过一些测试后，新的 js-controller 4.0.x 现在可以在 beta/latest 存储库中使用。目前没有已知问题。初始升级时，升级过程中会显示一些“不支持”消息，可以忽略。有关更改和说明的更多信息，请访问 https://forum.iobroker.net/post/756370 论坛"
         },
-        "id": "jscontroller40xinfolatest",
-        "created": "2022-02-19T18:40:00.000Z",
+        "id": "jscontroller40xinfolatest2",
+        "created": "2022-02-20T12:10:00.000Z",
         "class": "info",
         "fa-icon": "exclamation-circle",
         "repo": "latest",
         "conditions": {
-            "js-controller": "smaller(4.0.14)"
+            "js-controller": "smaller(4.0.15)"
         }
     },
     {
@@ -1423,13 +1423,13 @@
             "pl": "Po kilku testach nowy js-controller 4.0.x jest już dostępny w repozytorium beta/latest. W tej chwili nie są znane żadne problemy. Podczas początkowej aktualizacji podczas procesu aktualizacji wyświetlane są komunikaty „NOT SUPPORTED”, które można zignorować. Więcej informacji na temat zmian i instrukcji można znaleźć na forum pod adresem https://forum.iobroker.net/post/756370",
             "zh-cn": "经过一些测试后，新的 js-controller 4.0.x 现在可以在 beta/latest 存储库中使用。目前没有已知问题。初始升级时，升级过程中会显示一些“不支持”消息，可以忽略。有关更改和说明的更多信息，请访问 https://forum.iobroker.net/post/756370 论坛"
         },
-        "id": "jscontroller40xinfobeta",
-        "created": "2022-02-19T18:40:00.000Z",
+        "id": "jscontroller40xinfobeta2",
+        "created": "2022-02-20T12:10:00.000Z",
         "class": "info",
         "fa-icon": "exclamation-circle",
         "repo": "beta",
         "conditions": {
-            "js-controller": "smaller(4.0.14)"
+            "js-controller": "smaller(4.0.15)"
         }
     }
 ]
