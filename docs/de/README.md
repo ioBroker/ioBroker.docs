@@ -157,7 +157,8 @@ Schnell ans Ziel - aber dennoch flexibel, das zeichnet iQontrol aus:
 
 Video [iQontrol Demo Video][]
 
-<img src="media/iobroker-visualisation-iqontrol.png" width="200">
+
+<img src="media/iobroker-visualisation-iqontrol.png" width="200"> 
 <img src="media/iobroker-visualisation-iqontrol2.png" width="200">
 <img src="media/iobroker-visualisation-iqontrol3.png" width="200">
 
@@ -172,11 +173,11 @@ Video [iQontrol Demo Video][]
 
 [Adapterseite lovelace][]
 
-Mit diesem Adapter kann die HomeAssistant UI Lovelace für ioBroker genutzt werden.
-Lovelace ist responsive, passt sich also automatisch an das Display an (PC, Tablet, Smartphone, ...)
-Es lassen sich schnell hübsche UIs erstellen mit Hilf der Cards
-Der Editor ist in die UI integriert und weitgehend WYSIWYG (What you see is what you get)
+Mit diesem Adapter kann die HomeAssistant UI Lovelace für ioBroker genutzt werden. Lovelace hat ein responsivefähiges Design und passt sich somit  automatisch an das Layout vom PC, Tablet oder Smartphone Bildschirm an. 
 
+In Lovelace stehen direkt die Geräte mit ihren Eigenschaften zur Ansicht / Ansteuerung bereit, welche in ioBroker hinterlegt sind (z.B. bei einer Lampe Ein/Aus, Helligkeit, Farbtemperatur).
+
+Der Lovelace Editor (WYSIWYG Prinzip - What you see is what you get Prinzip) ermöglicht die einfache Erstellung von modernen UIs mit wenigen Handgriffen. Für die Umsetzung von komplexere Anforderungen und Wünschen stehen custom cards und der YAML Editor zur Verfügung. Inspirationen für eine Lovelace UI können in der HomeAssistant Welt gesammelt und dann in ioBroker umgesetzt werden.
 
 ![](media/iobroker-visualisation-lovelace.png)  
 
