@@ -25,25 +25,26 @@ ioBroker Insellösungen bleiben würden, anzubinden und so übergreifend zu steu
 ioBroker ist daher **die** Integrationsplattform für das Internet der Dinge und ermöglicht die Einbindung von kommerziellen Produkten aus fast allen Lebensbereiche oder die Integration einer selbst erstellten Lösung.
 
 Das ioBroker-System ist modular aufgebaut und kann durch die Installation von einzelnen [Adaptern][] um die individuellen Wünsche erweitert werden. 
-Über 450 Adaptern realisieren die Einbindung von verschiedenen Plattformen, Systemen und Geräten von A wie Alexa bis Z wie Zigbee und viele weitere Möglichkeiten zur Automatiserung.
+
+Über 450 Adaptern realisieren die Einbindung von verschiedenen Plattformen, Systemen und Geräten von A wie Alexa bis Z wie Zigbee und viele weitere Möglichkeiten zur Automatisierung.
 
 <br>
 
-## ioBroker verbindet unterschiedlichen Smarthomsysteme
+## ioBroker verbindet unterschiedlichen Smarthomesysteme
 
 ![](media/iobroker-simple-overview.png)  
 
 Diese Grafik zeigt wie ioBroker als zentrales System die verschiedensten Smarthomesysteme und weitere Dienste (z.B. Kalender) koordiniert und miteinander verbindet.
-Die in ioBroker zur Verfügung stehenden Adapter können unter anderem mit zentral verwalteten Kalendern oder herstellerspezfischen Smart-Home-Systemen (welche im LAN oder WLAN angeschlossenen angeschlossen sind) kommunizieren. Auf diese Weise kann die ioBroker Software Statusinformationen lesen oder Steuer-Aktionen auslösen.
+Die in ioBroker zur Verfügung stehenden Adapter können unter anderem mit zentral verwalteten Kalendern oder herstellerspezfischen Smart-Home-Systemen (welche im LAN oder WLAN angeschlossen sind) kommunizieren. Auf diese Weise kann die ioBroker Software Statusinformationen lesen oder Steuer-Aktionen auslösen.
 
 <br>
 
-### Anwensdungsbeispiel Anwesenheitssimulation
+### Anwendungsbeispiel Anwesenheitssimulation
 <br>
 
 In diesem Anwendungsbeispiel wird exemplarisch aufgezeigt, wie die beiden voneinander unabhängigen Smarthomesysteme Philipps Hue und Homematic IP mittels ioBroker zusammengeführt werden, um eine Anwesenheitssimulation zu realisieren.
 
-Durch die Anbindung der beiden Smarthomeysteme an die ioBroker Software ist ioBroker in der Lage die Zustände der Hue Lampen (ein/aus) sowie die Rolläden (hoch/runter) zu verändern. Die Erkennung der Urlaubszeit erfolgt durch die Anbindung des Kalenders in ioBroker.
+Durch die Anbindung der beiden Smarthomesysteme an die ioBroker Software, ist ioBroker in der Lage die Zustände der Hue Lampen (ein/aus) sowie die Rolläden (hoch/runter) zu verändern. Die Erkennung der Urlaubszeit erfolgt durch die Anbindung des Kalenders in ioBroker.
 
 Durch Nutzung der Logikbausteine (Adapter Logikprogrammierung) in ioBroker kann der Anwender nun mit wenigen Schritten den folgende Ablauf realisieren:
 
@@ -78,7 +79,7 @@ großen Multicore-Servern möglich.
 
 <br>
 
-## Individeuelle Programmierung von Abläufen
+## Individuelle Programmierung von Abläufen
 Mit den Logik Adaptern bietet ioBroker die Möglichkeit individuelle Abläufe und Skripte zu erstellen. 
 In einem Skript kann z.B. ein Wert von einem Adapter überwacht werden (Urlaub ist im Kalender am heutigen Tag eingetragen) und eine Aktion ausgelöst werden (Schalte um 18 Uhr alle Hue Lichter ein).
 
@@ -194,9 +195,9 @@ Mit der großen und hilfsbereiten Community hat sich bisher zu jedem Problem ein
 
 Es gibt keinen vertraglich festgelegten Support aus der Open-Source Community, aber gemeinsam haben wir bisher jedes Problem gelöst bekommen!
 
-ioBroker hat hierbei einen eher dezentralen Ansatz, wobei jeder Adapter in einem eigenen GitHub-Repository gepflegt wird. Hierbei trifft der jeweilige Adapter-Entwickler weitestgehend selbst die ENtscheidungen zu seinem Adapter. Featurewünsche oder auch fremde Feature-Erweiterungen als "pull-Request" werden hierbei natürlich berücksichtigt.
+ioBroker hat hierbei einen eher dezentralen Ansatz, wobei jeder Adapter in einem eigenen GitHub-Repository gepflegt wird. Hierbei trifft der jeweilige Adapter-Entwickler weitestgehend selbst die Entscheidungen zu seinem Adapter. Featurewünsche oder auch fremde Feature-Erweiterungen als "pull-Request" werden hierbei natürlich berücksichtigt.
 
-Einige Entwickler haben sich darüber hinaus in der Adapter-Community zusammengeschlosen um sicherzustellen das auch im Falle davon das einzelne ENtwickler keine Zeit mehr für Ihre Adapter haben diese weitergepflegt werden können.
+Einige Entwickler haben sich darüber hinaus in der Adapter-Community zusammengeschlossen um sicherzustellen das auch im Falle davon, das einzelne Entwickler keine Zeit mehr für Ihre Adapter haben, diese weitergepflegt werden können.
 
 Richtungsentscheidungen der zentralen Komponenten und des Gesamtprojekts werden innerhalb des Core-Teams diskutiert und dann umgesetzt.
 
@@ -209,23 +210,23 @@ ioBroker Core Entwickler:
 ioBroker Developer: https://forum.iobroker.net/groups/developer
 
 # Lizenzen und Kosten
-Sehr viele ioBrker Projekte stehen mitsamt dem Quellcode auf [GitHub][] zur Verfügung. In den allermeisten Fällen steht der Quellcode unter der MIT Lizenz. Manchmal werden allerdings auch Lizenzen wie GPL, CC BY-NC oder andere genutzt, welche zu berücksichtgen sind, daber für die End-Nutzer an sich keinen großen Unterschied darstellen!
+Sehr viele ioBroker Projekte stehen mitsamt dem Quellcode auf [GitHub][] zur Verfügung. In den allermeisten Fällen steht der Quellcode unter der MIT Lizenz. Manchmal werden allerdings auch Lizenzen wie GPL, CC BY-NC oder andere genutzt, welche zu berücksichtgen sind, jedoch für End-Nutzer an sich keinen großen Unterschied darstellen!
 Der Entwickler eines Adapters legt für den jeweiligen Adapter die Lizenz selbst fest.
 
-In sehr seltenen Fällen (<5 Adapter aktuell) wird eine (teils kostenpflichtige) Lizenz benötigt um einen Adapter zu nnutzen. Für den "Vis" Adapter stellt beispielsweise die ioBroker GmbH eine kostenfreie Lizenz für die private Nutzung zur Verfügung - für eine kommerzielle Nutzung ist allerdings eine kostenpflichtige Lizenz nötig.
+In sehr seltenen Fällen (<5 Adapter aktuell) wird eine (teils kostenpflichtige) Lizenz benötigt um einen Adapter zu nutzen. Für den "Vis" Adapter stellt beispielsweise die ioBroker GmbH eine kostenfreie Lizenz für die private Nutzung zur Verfügung - für eine kommerzielle Nutzung ist allerdings eine kostenpflichtige Lizenz nötig.
 Ein Überblick und die Bestellung der Lizenz für diese Adapter erfolgt über diese Seite [iobrokerPreise][]. Die Kosten für eine kommerzielle Nutzung dieser Adapter ist dort ebenfalls aufgeführt.
 
 # Wie finanziert sich ioBroker?
 Alle zentralen Komponenten und nahezu alle weiteren Adapter sind kostenfrei erhältlich und der Quellcode der allermeisten Adapter steht auf GitHub offen zur Verfügung.
 
-Da ein Open Source Projekt keine Einnahmen erzielen kann um z.B. Server zu kaufen bedarf es für diese Dinge eine offizielle Gesellschaftsform, die ioBroker GmbH. Die ioBroker GmbH bietet unter anderem auch einen kommerziellen Support für die ioBroker Software oder verkauft z.B. einen ioBroker-Server. 
+Da ein Open Source Projekt keine Einnahmen erzielen kann um z.B. Server zu kaufen, bedarf es für diese Dinge eine offizielle Gesellschaftsform, die ioBroker GmbH. Die ioBroker GmbH bietet unter anderem auch einen kommerziellen Support für die ioBroker Software oder verkauft z.B. einen ioBroker-Server. 
 
 Die ioBroker GmbH stellt für das Community-Projekt die Infrastruktur (z.B. den Forum Server) kostenfrei zur Verfügung und hat auch in der Vergangenheit bereits Entwicklungsleistung eingekauft, welche in die Entwicklung der Open Source Projekte (zB Admin5) geflossen ist. 
 
 Die ioBroker Free Cloud ist ebenfalls ein kostenfreier Dienst, der der Community durch die ioBroker GmbH zur Verfügung gestellt wird. Die Pro-Cloud und der iot-Service sind kommerzielle Angebote der ioBroker GmbH, wobei die Kosten gerade einmal die Betriebskosten decken.
 
 
-# Remotezugrif auf deine ioBroker Installation über die ioBroker Cloud 
+# Remotezugriff auf deine ioBroker Installation über die ioBroker Cloud 
 Über einen optionalen cloudbasierten Zugriff ist für den Anwender oder auch
 für Systemintegratoren die Remote-Verwaltung auf ein lokal installiertes ioBroker
 -System 24/7 möglich. Die Zugriffsteuerung kann mittels Benutzer und Gruppen vom
