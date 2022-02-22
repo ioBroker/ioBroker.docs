@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.alarm/README.md
 title: ioBroker.alarm
-hash: NwTEm+ngKMovQngTpclJO2as7MIXFvMIZAFX3TYdyAs=
+hash: 35YLzZGCcEvtRZxNdJtUJv+FJOfRzzS2HD5mbEVWV0w=
 ---
 ![标识](../../../en/adapterref/iobroker.alarm/admin/alarm.png)
 
@@ -24,7 +24,7 @@ hash: NwTEm+ngKMovQngTpclJO2as7MIXFvMIZAFX3TYdyAs=
 
 ## IoBroker 警报
 Dies ist ein Adapter, mit dem sich eine kleine Alarmanlage ohne große programmiertechnische Vorkenntnisse realisieren lässt。
-Er bietet die Möglichkeit 3 Sicherheitskreise zu konfigurieren und diese z. B. bei Nachtruhe oder De- und Aktivierung zu überwachen。 Des Weiteren ist eine direkte Verknüpfung der jeweiligen Instanz "states", auf andere "states" möglich。 Diese Verknüpfungen werden im Reiter Verknüpfungen angelegt。
+Er bietet die Möglichkeit 3 Sicherheitskreise zu konfigurieren und diese z。 B. bei Nachtruhe oder De- und Aktivierung zu überwachen。 Des Weiteren ist eine direkte Verknüpfung der jeweiligen Instanz "states", auf andere "states" möglich。 Diese Verknüpfungen werden im Reiter Verknüpfungen angelegt。
 
 ----------------------------------------------------------------------------------------------------------------------
 
@@ -32,9 +32,8 @@ Er bietet die Möglichkeit 3 Sicherheitskreise zu konfigurieren und diese z. B. 
 Hier werden die Einstellungen wie die Zeiten der Nachtruhe, Sirenezeit, Stiller-Alarm und Passwort vorgenommen。
 
 - Aktivierzeit -> Zeitverzögerung bis zu Aktivierung wenn man einen delay Datenpunkt benutzt
-- Sirenenzeit bei Einbruch -> Bei Einbruch wird der Datenpunkt alarm.0.status.siren für die Zeit auf true gesetzt
+- Sirenenzeit bei Einbruch -> Bei Einbruch wird der Datenpunkt alarm.0.status.siren / siren_inside für die Zeit auf true gesetzt
 - Alarmverzögerung -> Verzögerungszeit bis Einbruch ausgelöst wird (während dieser Zeit wird der Stille Alarm ausgelöst)
-- Auslösezeit bei Warnungen/Sirene innen -> Bei Auslösung des Benachrichtigungskreises oder scharf innen Kreises, wird der jeweils zugehörige Datenpunkt für die Zeit auf true gesetzt
 
 ----------------------------------------------------------------------------------------------------------------------
 
@@ -62,7 +61,7 @@ Sollte man im Tab Haupteinstellungen die Option "verlassen" aktiviert haben, kan
 Die Kreise werden folgendermaßen überwacht：
 
 #### 警报器：
-Alarmanlage lässt sich nicht aktivieren (scharf schalten) wenn ein konfigurierter state aktivist。 Bei aktivierter Alarmanlage führt eine Veränderung sofort zur Auslösung der Anlage。
+Alarmanlage lässt sich nicht aktivieren (scharf schalten) wenn ein konfigurierter state aktivist. Bei aktivierter Alarmanlage führt eine Veränderung sofort zur Auslösung der Anlage。
 
 #### Scharf 实习生 Kreis：
 Alle hier konfigurierten states werden beim Zusstand scharf intern überwacht und lösen unter anderem den internen Alarm aus。
@@ -138,6 +137,11 @@ Beinhaltet die Informationen für die "anderen" Alarmkreise 1 + 2。
 
 ## Changelog
 
+#### 3.0.3 (31.01.2022)
+* (misanorot) changed burgle concept, added silent alarm at sharp inside, fixed little issues
+
+#### 2.2.1 (20.01.2022)
+* (misanorot) added notification when warnings at beginning night rest
 
 #### 2.2.0 (16.01.2022)
 * (misanorot) added telegram special parameters

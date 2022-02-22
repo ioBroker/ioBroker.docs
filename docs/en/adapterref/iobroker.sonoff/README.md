@@ -11,6 +11,17 @@
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
+## Comparison of ioBroker adapters using MQTT protocol
+If you only have Tasmotas speaking MQTT protocol go for ioBroker.sonoff. For other scenarios consider the different options:
+||ioBroker.sonoff|[ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (in broker mode)|[ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (in client mode)|[ioBroker.mqtt-client](https://github.com/Pmant/ioBroker.mqtt-client/)|
+|---|---|---|---|---|
+|Has a built-in MQTT broker|yes|yes|no|no|
+|Relays messages to other MQTT subscribers|NO!!!|yes|not aplicable|not aplicable|
+|External MQTT broker|unsupported|unsupported|required|required|
+|Tasmota MQTT messages to ioBroker Objects|smart processing|1:1 processing of all messages|1:1 processing of subscribed messages|1:1 processing of subscribed messages|
+|non-Tasmota MQTT messages to ioBroker Objects|no processing|1:1 processing of all messages|1:1 processing of subscribed messages|1:1 processing of subscribed messages|
+|publish ioBroker values as MQTT messages|none|configured subtrees|configured subtrees|individually configured values|
+
 ## Usage
 
 This adapter communicates with Sonoff devices with Tasmota firmware or ESP devices via MQTT.

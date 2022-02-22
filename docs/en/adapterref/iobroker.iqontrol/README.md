@@ -5,9 +5,8 @@
 ![Stable version](http://iobroker.live/badges/iqontrol-stable.svg) 
 [![NPM version](http://img.shields.io/npm/v/iobroker.iqontrol.svg)](https://www.npmjs.com/package/iobroker.iqontrol)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.iqontrol.svg)](https://www.npmjs.com/package/iobroker.iqontrol)
-[![Dependency Status](https://img.shields.io/david/sbormann/iobroker.iqontrol.svg)](https://david-dm.org/sbormann/iobroker.iqontrol)
 [![Known Vulnerabilities](https://snyk.io/test/github/sbormann/ioBroker.iqontrol/badge.svg)](https://snyk.io/test/github/sbormann/ioBroker.iqontrol)
-[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/iqontrol/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+<!-- [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/iqontrol/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) -->
 
 
 [![NPM](https://nodei.co/npm/iobroker.iqontrol.png?downloads=true)](https://nodei.co/npm/iobroker.iqontrol/)
@@ -37,9 +36,9 @@ Fast Web-App for Visualization.
 <img src="img/screenshot_heizung.png" width="200">
 <img src="img/screenshot_rauchmelder.png" width="200">
 <img src="img/screenshot_flot.png" width="200">
-<img src="img/screenshot_dslraser.jpg" width="200" alt="&copy; by dslraser"> &copy; by dslraser
-<img src="img/screenshot_muuulle.jpg" width="200" alt="&copy; by muuulle"> &copy; by muuulle
-<img src="img/screenshot_peks-67.jpg" width="200" alt="&copy; by peks-67"> &copy; by peks-64
+&copy; by dslraser: <img src="img/screenshot_dslraser.jpg" width="200" alt="&copy; by dslraser">
+&copy; by muuulle:<img src="img/screenshot_muuulle.jpg" width="200" alt="&copy; by muuulle">
+&copy; by peks-64:<img src="img/screenshot_peks-67.jpg" width="200" alt="&copy; by peks-67">
 
 Runs in any Browser. 
 Easy to setup, allthough it's fully customizable and responsive.
@@ -54,6 +53,10 @@ Easy to setup, allthough it's fully customizable and responsive.
 You can save it as Web-App on Homescreen and it looks and feels like a native app:
 ![Add to Homescreeen](img/add_to_homescreen.png)
 
+This also works on your PC with Chrome:
+* Open iQontrol in Chrome
+* Klick on the three-dots-menu - More tools - Create shortcut
+* You will then find iQontrol in the startmenu under chrome apps and can even add it to your taskbar
 
 ## You need...
 * Nodejs 10 or higher
@@ -65,7 +68,12 @@ You can save it as Web-App on Homescreen and it looks and feels like a native ap
 
 
 ## Forum
-Visit [iobroker forum](https://forum.iobroker.net/topic/22039/neuer-adapter-visualisierung-iqontrol). 
+Visit the Support-Thread [iobroker forum](https://forum.iobroker.net/topic/52077). 
+Visit the Developer-Thread [iobroker forum](https://forum.iobroker.net/topic/22039). 
+
+
+## Wiki
+Have a look at the wiki [wiki](https://github.com/sbormann/ioBroker.iqontrol/wiki).
 
 
 ## How to use
@@ -426,7 +434,7 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* 'widget-urlparameters'
 		* syntax: ``<meta name="widget-urlparameters" content="parameter/default value/description/type;parameter2/default value2/description2/type2"/>``
 		* The user will be asked for these parameters when chosing the widget as URL or BACKGROUND_URL or autocreates a widget
-		* ``type`` is optional and may be ``text`` (this is dafault), ``number``, ``checkbox``, ``color``, ``select``, ``multipleSelect``, ``combobox``, ``historyInstance``, ``datapoint``, ``listJsonDatapoint``, ``icon``, ``fontFamily``, ``fontSize``, ``fontStyle``, ``fontWeight``, ``section``, ``divider``, ``info``, ``link`` or ``hidden``
+		* ``type`` is optional and may be ``text`` (this is dafault), ``number``, ``checkbox``, ``color``, ``select``, ``multipleSelect``, ``combobox``, ``historyInstance``, ``datapoint``, ``listJsonDatapoint``, ``icon``, ``fontFamily``, ``fontSize``, ``fontStyle``, ``fontWeight``, ``language``, ``section``, ``divider``, ``info``, ``link`` or ``hidden``
 		    * If type is ``select``, ``multipleSelect`` or ``combobox`` then you need to specify the possible options by adding ``/<selectOptions>``, where ``<selectOptions>`` is a string of the format ``<value1>,<caption1>/<value2>,<caption2>/...`` (combobox is a selectbox with the possibility to enter free text)
 		    * If type is ``number`` then can specify min, max and step-width by adding ``/<numberOptions>``, where ``<numberOptions>`` is a string of the format ``<min>,<max>,<step>``
 			* The types ``section``, ``divider``, ``info`` and ``link`` have no further function, they are just to display informations to the user. For ``link`` the value should be a url, but all slashes have to be replaced by backslashes.
@@ -497,11 +505,13 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* Default: "false" 
 	* ``controlModeDisabledValue`` (Value of CONTROL_MODE for 'disabled') - only valid for role Thermostat:
 		* Default: "" 
-	* ``stateClosedValue`` (Value of STATE for 'closed') - only valid for role Window:
+	* ``stateClosedValue`` (Value of STATE for 'closed') - only valid for role Window and Door with Lock:
 		* Default: "" 
 	* ``stateOpenedValue`` (Value of STATE for 'opened') - only valid for role Window:
 		* Default: "" 
 	* ``stateTiltedValue`` (Value of STATE for 'tilted') - only valid for role Window:
+		* Default: "" 
+	* ``lockStateLockedValue`` (Value of LOCK_STATE for 'locked') - only valid for role Door with Lock:
 		* Default: "" 
 	* ``invertActuatorLevel`` (Invert LEVEL (0 = open)) - only valid for role Blind:
 		* Possible values: "true"|"false"
@@ -1234,13 +1244,22 @@ To visualize the counted devices, you can use the Device-Counter-Widget, which p
 * Next you can define **calculations**:
 	* Calculations can be used to combine numeric datapoints and calculate for example the sum of different counters.
 	* You can also combine objects like arrays (lists) by addition or subtraction.
-* At least you can define **combinations**:
+* Then you can define **combinations**:
 	* Combinations can be used to combine different datapoints with text.
 	* The 'Pefix' will be placed before, the 'Postfix' after the value of the given ID.
 	* In the 'Only If'-Section you can define a condition, if the line schould be placed or not.
 		* By activating 'Just Prefix' just the prefix is placed (not the value nor the postfix), if the condition matches.
 		* You can also specify a 'Else' text, that will be placed, if the condition doesn't match.
-* The result of the lists with counters, calculations and combinations are saved in datapoints, which you will find under iqontrol.x.Lists
+* At least you can define **logs**:
+	* Logs can be used to log changes in datapoints with timestamp in a table.
+	* Everytime a value of one of the given IDs changes, the log is updated. 
+		* By adding a debounce-time, you can prevent it from updating to often (for example if some values change nearly simultanously).
+	* The log is a table, that consists of as many columns as you like. 
+		* You have to assign unique names to the columns. 
+		* Then the content of the column can be defined: the entry number, a timestamp or the value of an ID.
+	* The result of the log is saved as JSON-Code and can be displayed by the JSON-Table-Widget.
+
+* The result of the lists with counters, calculations, combinations and logs are saved in datapoints, which you will find under iqontrol.x.Lists
 
 ### Examples
 * This example shows, how to create an UNREACH-List:
@@ -1250,6 +1269,11 @@ To visualize the counted devices, you can use the Device-Counter-Widget, which p
 	* It filters duplicates by aliases out
 	![List Edit Unreach](img/list_edit_unreach_counter.png)
 	* And lastly, it count all datapoints with the value 'true', that have that state for at least 15 seconds
+* There are some built in default lists you can add, for example complex Service-Messages and a Adapter-Monitor. Just hit the 'Add Default Lists' button and chose what to add. Feel free to examine the lists, to get a better understanding, how the work.
+
+### Wiki
+* There is a very good Explanation with some good Enhancements by dslraser in the wiki: [wiki](https://github.com/sbormann/ioBroker.iqontrol/wiki/Listen-Z%C3%A4hler)
+* Here you can find some tips for configuring the icon-replacements in the device-counter widget: [wiki](https://github.com/sbormann/ioBroker.iqontrol/wiki/JSON-Table-and-Device-Counter-Widget---Icon-Replacements)
 
 
 ## Modifying Datapoint Configuration
@@ -1656,29 +1680,55 @@ This device has some special predefined size- and display-settings to show a tex
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.0.0-rc3.0 (2022-02-19)
+* (sbormann) Added seconds from alive and seconds from connection to counter conditions of lists
+* (sbormann) Removed start_url from manifest.json to allow multiple instances as homescreen app
 
-### **WORK IN PROGRESS**
+### 2.0.0-rc2.2 (2022-02-15)
+* (sbormann) Minor enhancements and bugfixes.
+
+### 2.0.0-rc2.1 (2022-02-14)
+* (sbormann) Abort button now works in preview mode.
+
+### 2.0.0-rc2.0 (2022-02-12)
+* (sbormann) Fixed counting of logs.
+* (sbormann) Lists are now saved as readonly and with ack=true.
+* (sbormann) Fixed glow.
+* (sbormann) Enhanced sorting of JSON-Table-Widget.
+* (sbormann) Added option to define, how the parent name of lists is determined.
+* (dirkhe, sbormann) Added save-button to dialogs.
+* (dirkhe) Added preview mode.
+* (sbormann) Added option to define toolbar selected icon background color.
+
+### 2.0.0-rc1.1 (2022-02-08)
+* (sbormann) Kompatibility to new ioBroker websocket established.
+* (sbormann) Enhanced datapoint-rcognition in json-table-widget.
+* (sbormann) Fixed INFO A/B icon brightness-setting for dark mode.
+
+### 2.0.0-rc1.0 (2022-02-04)
+* (sbormann) Introducing a powerful new feature: Lists and Counters.
+* (sbormann) The JSON-Table-Widget accepts now simple lists (for example an array of datapoints).
+* (sbormann) Added configurable font to JSON-table widget.
+* (sbormann) Added column-sorting to JSON-Table-Widget.
+* (sbormann) Added heading and border-color-option to JSON-table widget.
+* (sbormann) Added Device-Counter-Widget.
 * (sbormann) Added option to show POWER as state.
 * (sbormann) Added preview of tile appeareance when setting tile colors.
 * (sbormann) Added scrollbar-settings for firefox.
 * (sbormann) Added option to adjust height of tile to the size of BACKGROUND_VIEW.
 * (sbormann) Added option to change and invert INFO_A/B-Symbols.
-* (sbormann) Added import and export function to device options.
+* (sbormann) Added option to invert color of INFO_A/B icons for dark-mode.
 * (sbormann) Added option to hide indicator icons if inactive, active or enlarged.
-* (sbormann) Added column-sorting to JSON-Table-Widget.
-* (sbormann) The JSON-Table-Widget accepts now simple lists (for example an array of datapoints).
+* (sbormann) Added import and export function to device options.
 * (sbormann) Added widget-replaceurl to widgets, which allows creation of simplified widget-presets, as preparation for further development.
 * (sbormann) Added option to media-player to disable forced reload of cover-image on TITLE-change.
-* (sbormann) Small adjustmets for ALTERNATIVE_COLORSPACE.
+* (sbormann) Adjustmets for ALTERNATIVE_COLORSPACE.
 * (sbormann) Added widget-replaceurl as a widget configuration parameter.
-* (sbormann) Introducing a powerful new feature: Lists and Counters.
-* (sbormann) Added Device-Counter-Widget.
-* (sbormann) Added heading and border-color-option to JSON-table widget.
 * (sbormann) Changed behaviour of min/max/ignore-min-max-settings of FLOT-Chart-Widget.
-* (sbormann) Added option to invert color of INFO_A/B icons for dark-mode.
-* (sbormann) Added configurable font to JSON-table widget.
 * (sbormann) Added export and import function to devices.
 * (sbormann) Fixed border-radius for big mode.
+* (sbormann) Added configurable values for 'closed' and 'locked' for 'Door with Lock'
+* (sbormann) Fixed targetValues for Admin 5.
 
 ### 1.11.0 (2021-12-18)
 * (sbormann) Added the ability to globally change the default icons.
@@ -2651,7 +2701,7 @@ This device has some special predefined size- and display-settings to show a tex
 ## License
 MIT License
 
-Copyright (c) 2021 Sebastian Bormann
+Copyright (c) 2022 Sebastian Bormann
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

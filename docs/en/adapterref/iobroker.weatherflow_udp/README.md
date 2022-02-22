@@ -7,7 +7,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.weatherflow_udp.svg)](https://www.npmjs.com/package/iobroker.weatherflow_udp)
 ![Number of Installations (latest)](http://iobroker.live/badges/weatherflow_udp-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/weatherflow_udp-stable.svg)
-[![Dependency Status](https://img.shields.io/david/woessmich/iobroker.weatherflow_udp.svg)](https://david-dm.org/woessmich/iobroker.weatherflow_udp)
 [![Known Vulnerabilities](https://snyk.io/test/github/woessmich/ioBroker.weatherflow_udp/badge.svg)](https://snyk.io/test/github/woessmich/ioBroker.weatherflow_udp)
 
 [![NPM](https://nodei.co/npm/iobroker.weatherflow_udp.png?downloads=true)](https://nodei.co/npm/iobroker.weatherflow_udp/)
@@ -59,6 +58,8 @@ Further, the adapter provides a selection of useful minimum and maximum values o
 The protocol sends a lightning distance of 0 when no lightning was detected. Values of 0 are modified to 999 to avoid the impression that lightning strikes are directly overhead.
 
 ## Changelog
+### 0.1.2
+(womi) Update js-controller >3.0.0; checked compatibility with js-controller 4.0 
 ### 0.1.1
 (womi) Fixed "invalid date" in timestamps 
 ### 0.1.0
@@ -66,8 +67,6 @@ The protocol sends a lightning distance of 0 when no lightning was detected. Val
 
 ## License
 MIT License
-
-Copyright (c) 2021 womi <woessmich@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -86,3 +85,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Copyright (c) 2022 womi <woessmich@gmail.com>

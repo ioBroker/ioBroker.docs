@@ -2,14 +2,14 @@
 BADGE-Number of Installations: http://iobroker.live/badges/shelly-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.shelly.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.shelly.svg
-chapters: {"pages":{"en/adapterref/iobroker.shelly/README.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/README.md"},"en/adapterref/iobroker.shelly/https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/protocol-coap.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/protocol-coap.md"},"en/adapterref/iobroker.shelly/https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/protocol-mqtt.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/protocol-mqtt.md"},"en/adapterref/iobroker.shelly/https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/restricted-login.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/restricted-login.md"},"en/adapterref/iobroker.shelly/https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/state-changes.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/state-changes.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.shelly/README.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/README.md"},"en/adapterref/iobroker.shelly/protocol-coap.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/protocol-coap.md"},"en/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/protocol-mqtt.md"},"en/adapterref/iobroker.shelly/restricted-login.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/restricted-login.md"},"en/adapterref/iobroker.shelly/state-changes.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/state-changes.md"}}}
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/README.md
 title: ioBroker.shelly
-hash: WD16f0ExENHXj+fuWsljhLcX+rKCXEc4alQfcetY8YI=
+hash: sCC4owACSdNq+uXvR3JpDGYNrcHZIdIq4rm6fMptea0=
 ---
-![标识](../../../en/adapterref/iobroker.shelly/../../admin/shelly.png)
+![商标](../../../en/adapterref/iobroker.shelly/../../admin/shelly.png)
 
 # IoBroker.shelly
 ＃＃ 要求
@@ -33,6 +33,7 @@ hash: WD16f0ExENHXj+fuWsljhLcX+rKCXEc4alQfcetY8YI=
 - [MQTT 协议](protocol-mqtt.md)
 - [限制登录](restricted-login.md)
 - [状态变化](state-changes.md)
+- [常见问题](faq.md)
 
 ## Changelog
 
@@ -40,6 +41,38 @@ hash: WD16f0ExENHXj+fuWsljhLcX+rKCXEc4alQfcetY8YI=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (klein0r) Added Shelly Plus I4
+* (klein0r) Added more objects for power metering channels (current, voltage, limits, ...)
+* (klein0r) Moved device temperature of generation 2 devices to relays (this is the official way)
+* (klein0r) Added Sys channel (eco mode, timezone, ...) for generation 1 devices
+* (klein0r) Fixed datatype error of Shelly 1/PM ext switch
+
+### 5.2.0 (2022-02-16)
+
+* (klein0r) Added Shelly Pro 1
+* (klein0r) Added Shelly Pro 1 PM
+* (klein0r) Added Shelly Pro 2
+* (klein0r) Added Shelly Pro 2 PM
+* (klein0r) Added Shelly Plus 2 PM
+* (klein0r) Allow to change device and channel names of generation 2 devices
+* (klein0r) Added auto on/off timers for generation 2 devices
+* (klein0r) Added input mode, events and initial state for generation 2 devices
+* (klein0r) Added support of covers / shutters for generation 2 devices
+* (klein0r) Replaced node-fetch with axios (also for digest auth)
+
+### 5.1.3 (2022-02-13)
+
+* (klein0r) Changed common.states strings to objects
+* (klein0r) Just perform firmware update if an available update was detected
+* (klein0r) Extended logging for CoAP
+
+### 5.1.2 (2022-01-29)
+* (klein0r) Fixed Shelly UNI ADC voltage
+* (klein0r) Fixed dimmer brightness values handling
+* (klein0r) Logging improvements for offline devices
+
 ### 5.1.1 (2022-01-26)
 * (klein0r) Fixed firmware auto update
 * (klein0r) Updated timeouts

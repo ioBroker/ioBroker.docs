@@ -27,6 +27,9 @@ Hardware auf der sich Baresip installieren lässt genutzt werden.
 * [ioBroker Forum Adapter Thread](https://forum.iobroker.net/topic/22746/test-adapter-doorio-v0-0-x)
 
 ## Changelog
+### 2.1.4
+* (bettman66) test redial
+
 ### 2.1.3
 * (bettman66) change setForeignState ack
 

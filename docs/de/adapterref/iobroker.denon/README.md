@@ -1224,7 +1224,7 @@ und info.connection. Zusätzlich werden die folgenden States für jede Zone 2-12
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2018-2022 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

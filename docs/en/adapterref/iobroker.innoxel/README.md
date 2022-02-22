@@ -106,8 +106,7 @@ sendTo("innoxel.0", "setDimValue", "1:7:80", () => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.1.5 (2022-02-12)
 
 -   (matthsc) don't always terminate adapter on errors while updating identities
 -   (matthsc) improve error messages

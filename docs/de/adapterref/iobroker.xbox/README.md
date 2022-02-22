@@ -360,6 +360,9 @@ der Tastenkombination "STRG + F".
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 0.7.8 (2022-02-20)
+* (foxriver76) we now set `unsafePerm` flag to ensure compatibility with future controller
+* (foxriver76) updated dependencies
 
 ### 0.7.7 (2021-04-18)
 * (foxriver76) do not log rest server logging on levels above debug, so it can be activated when needed
@@ -563,7 +566,7 @@ self detected and prevents reconnection on shutdown
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2018-2022 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

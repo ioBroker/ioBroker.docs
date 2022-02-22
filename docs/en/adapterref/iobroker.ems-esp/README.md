@@ -17,14 +17,15 @@ The adapter supports an interface towards the heating systems from Bosch Group u
 (Buderus / Junkers /Netfit etc). 
 
 It can interface towards the heating system with use of Web-API calls toward:
-* km200, km100, km50 or IP-inside (from Bosch Group)
-* ems-esp interface (https://github.com/emsesp/EMS-ESP32) with latest dev version (see below) and the ESP32 chip. The old ESP8266 gateways are partially supported as well.
+* km200, km200 hrv, km100, km50 or IP-inside (from Bosch Group) 
+* ems-esp interface (https://github.com/emsesp/EMS-ESP32) with latest dev version (see below) and the ESP32 chip. 
+* The old ESP8266 gateways with API V2 are supported until this version as well.
 
 The ems-esp adapter can read and write data to the ems-bus steering all heating components. 
 It can be used either for the original Bosch-group gateways or the ems-esp or both in parallel.
 
-The adapter is tested for the ems-esp gateway with latest firmware versions of ESP32 >= v3.3.0. 
-Old systems with an ESP 8266 are not supported officially anymore, but might still work.
+The adapter is tested for the ems-esp gateway with latest firmware versions of ESP32 >= v3.3.1. 
+Old systems with an ESP 8266 are only supported until this adapter version.
 
 IMPORTANT SETTINGS in EMS-ESP:
 
@@ -73,6 +74,44 @@ There is an option to re-build the state-structure by deleting states on adapter
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* new logic and state-structure for km200 recordings
+* support Buderus heatpump with Logamatic HMC300 IP-Inside
+
+### 1.2.1 (2022-02-18)
+* adjust for js-controller v4 - part 2
+* private password encryption by admin instead of own code (if necessary please re-enter pw)
+
+### 1.2.0 (2022-02-18)
+* Adjust for js-controller v4 - part 1
+* private password encryption by admin instead of own code (if necessary please re-enter pw)
+
+### 1.1.1 (2022-02-11)
+* Improve tests on km200 ip-address and passwords
+
+### 1.1.0 (2022-02-07)
+* last tested version for old ems-esp ESP8266 with API V2.
+* support for KM200 HRV (ventilation)
+* corrections for km200 recordings and statistics module
+* prepare for ems-esp firmware 3.4
+
+### 1.0.14 (2022-02-07)
+* adjust paths in io-package.json
+
+### 1.0.13 (2022-02-07)
+* last tested version for old ems-esp ESP8266 with API V2.
+* No support for future adapter versions anymore - please upgrade to ESP32.
+* support for KM200 HRV (ventilation)
+* corrections for km200 recordings and statistics module
+* prepare for ems-esp firmware 3.4
+
+### 1.0.12 (2022-02-06)
+* update statistics states
+
+### 1.0.11 (2022-02-01)
+* support for KM200 HRV (ventilation)
+* corrections on recordings for 1st day of month
+
 ### 1.0.10 (2022-01-28)
 * Further adjustments for ems firmware 3.4 and error corrections 1.0.9
 

@@ -193,10 +193,10 @@ Die Baumstruktur wird automatisch nach Namen zusammengestellt. Z.B. ```system.ad
 Attribute:
 
 * `common.type` (optional - (Standard ist gemischt == beliebiger Typ) (mögliche Werte: Zahl, Zeichenfolge, Boolescher Wert, Array, Objekt, gemischt, Datei). Ausnahmsweise können Objekte mit dem Typ` meta` `common haben .type = meta.user` oder `meta.folder`
-* `common.min` (optional)
-* `common.max` (optional)
-* `common.step` (optional) - Intervall erhöhen / verringern. Z.B. 0,5 für Thermostat
-* `common.unit` (optional)
+* `common.min` (optional, number)
+* `common.max` (optional, number)
+* `common.step` (optional, number) - Intervall erhöhen / verringern. Z.B. 0,5 für Thermostat
+* `common.unit` (optional, string)
 * `common.def` (optional - der Standardwert)
 * `common.defAck` (optional - wenn common.def gesetzt ist, wird dieser Wert als ack-Flag verwendet, js-controller 2.0.0+)
 * `common.desc` (optional, Zeichenfolge oder Objekt) - Beschreibung, Objekt für mehrsprachige Beschreibung
@@ -298,8 +298,6 @@ mögliche Werte:
        "type":  "boolean",              // optional,  default "boolean"
        "read":  true,                   // mandatory, default true
        "write": false,                  // mandatory, default false
-       "min":   false,                  // optional,  default false
-       "max":   true,                   // optional,  default true
        "role":  "indicator.working"     // mandatory
        "desc":  ""                      // optional,  default undefined
    }
@@ -330,8 +328,6 @@ mögliche Werte:
        "type":  "boolean",              // optional,  default "boolean"
        "read":  true,                   // mandatory, default true
        "write": false,                  // mandatory, default false
-       "min":   false,                  // optional,  default false
-       "max":   true,                   // optional,  default true
        "role":  "indicator.maintenance" // mandatory
        "desc":  "Problem description"   // optional,  default undefined
    }
@@ -347,8 +343,6 @@ mögliche Werte:
        "type":  "boolean",              // optional,  default "boolean"
        "read":  true,                   // mandatory, default true
        "write": false,                  // mandatory, default false
-       "min":   false,                  // optional,  default false
-       "max":   true,                   // optional,  default true
        "role":  "indicator.maintenance.unreach" // mandatory
        "desc":  "Device unreachable"    // optional,  default 'Device unreachable'
    }

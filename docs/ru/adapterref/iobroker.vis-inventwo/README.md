@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: HI9BpKYvxkkgAaAo8bKOlSHvyKzg/VDgvLboIOi5pBI=
+hash: 4+DnDllALH8CcqihFgOVDMG83D43CNMU9TNXP3FJNzA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -11,7 +11,6 @@ hash: HI9BpKYvxkkgAaAo8bKOlSHvyKzg/VDgvLboIOi5pBI=
 ![Количество установок (стабильно)](http://iobroker.live/badges/vis-inventwo-stable.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-inventwo.svg)
 ![Количество установок (последние)](http://iobroker.live/badges/vis-inventwo-installed.svg)
-![Статус зависимости](https://img.shields.io/david/inventwo/iobroker.vis-inventwo.svg)
 ![Известные уязвимости](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo/badge.svg)
 ![Статус сборки](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)
 ![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
@@ -50,6 +49,13 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 [![Расход](http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
+
+## 3.2.8
+- Radiobutton-List: Mehrzeilige/Mehrspaltige Darstellung möglich [#393](https://github.com/inventwo/ioBroker.vis-inventwo/issues/393)
+- Таблица JSON: Textausrichtung für Kopfzeile hinzugefügt [#394](https://github.com/inventwo/ioBroker.vis-inventwo/issues/394)
+
+## 3.2.7
+- ИСПРАВЛЕНО: всплывающее окно schließt nicht bei Datenpunktwert
 
 ## 3.2.6
 - JSON-Tabelle: Hintergrund pro Zeile in Abhängigkeit eines Wertes färben [#280](https://github.com/inventwo/ioBroker.vis-inventwo/issues/280)
@@ -232,7 +238,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 ## 2.7.2
 - Фелер в Radiobutton mit Bildfarbe behoben
-- Fehler behoben: Двойные клики Bei State mit Verweildauer
+- Fehler behoben: Doppeltes klicken bei State mit Verweildauer
 - Hovereffect для кнопок eingefügt
 - Проблема с анализом слайдера.
 - Слайдер Text anhängen möglich

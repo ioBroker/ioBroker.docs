@@ -13,14 +13,15 @@ CI-Tests:
 
 [![NPM](https://nodei.co/npm/iobroker.kostal-piko-ba.png?downloads=true)](https://nodei.co/npm/iobroker.kostal-piko-ba/)
 
-## Adapter for reading Kostal Piko BA data for iOBroker
-Adapter for reading Kostal Piko BA data. Adapter creates some states and updates them sequentially.
-Adapter also working with Kostal Piko 12 & 15 inverters. 
+## Adapter for reading Kostal Piko & Piko BA data for iOBroker
+Adapter for reading Kostal Piko & Piko BA data. Adapter creates some states and updates them sequentially.
+Adapter working with Kostal Piko 6BA, 10, 12, 15 & 20 inverters. 
 It's greatly appreciated if you verify functionality with other inverters and please send me a note.
 
 ## Settings
-To connect to the Kostal Pico BA inverter noting its IP-address into the config is mandatory.
+To connect to the Kostal Pico (BA) inverter setting its IP-address into the config is mandatory.
 You could also edit the update frequencies of live data, daily and livetime statistics.
+If needed, set mark for read-out the 4 analog values, too.  
 
 ## Notes
 This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers. For more details and for informations on how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
@@ -29,6 +30,11 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ! Note that missing version entries are typically dependency updates for security.
 
+### 1.4.2 (01.02.2022)
+* (HombachC) added support for inverter type, version and name
+* (HombachC) fixed timing error
+### 1.4.1 (31.01.2022)
+* (HombachC) optimized logging; bumped dependencies
 ### 1.4.0 (30.01.2022)
 * (HombachC) added support for grid 1-3 current, voltage and power
 * (HombachC) bumped dependencies
@@ -46,8 +52,6 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ### 1.1.12 (07.10.2021)
 * (GermanBlueFox) fixed icon link
 * (HombachC) bumped dependencies
-### 1.1.10 (16.07.2021)
-* (HombachC) bumped dependencies; fixed vulnerability
 ### 1.1.7 (09.05.2021)
 * (HombachC) added tests for node.js 16; fixed vulnerability
 ### 1.1.3 (23.11.2020)

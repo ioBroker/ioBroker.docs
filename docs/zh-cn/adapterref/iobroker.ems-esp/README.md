@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: QgSorar90YOR3L8BE7JFLzk83P00C1JwBN96wkFsamA=
+hash: C/xUp7La1rBt/FRuF0vIgIpbpWzp4PULaWRI4/QY5Zg=
 ---
 ![标识](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -21,16 +21,17 @@ hash: QgSorar90YOR3L8BE7JFLzk83P00C1JwBN96wkFsamA=
 该适配器支持使用 EMS 或 EMS+ 总线连接到 Bosch Group 供暖系统的接口。
 （布德鲁斯 / 容克斯 / Netfit 等）。
 
-它可以通过使用 Web-API 调用来连接供暖系统：
+它可以通过使用 Web-API 调用与加热系统接口：
 
-* km200、km100、km50 或 IP-inside（来自博世集团）
-* 具有最新开发版本（见下文）和 ESP32 芯片的 ems-esp 接口（https://github.com/emsesp/EMS-ESP32）。旧的 ESP8266 网关也得到部分支持。
+* km200、km200 hrv、km100、km50 或 IP-inside（来自博世集团）
+* 具有最新开发版本（见下文）和 ESP32 芯片的 ems-esp 接口（https://github.com/emsesp/EMS-ESP32）。
+* 在此版本之前也支持具有 API V2 的旧 ESP8266 网关。
 
 ems-esp 适配器可以读取和写入数据到 ems 总线，以控制所有加热组件。
 它可以用于原始的 Bosch-group 网关或 ems-esp 或两者并行使用。
 
-该适配器已针对具有最新固件版本 ESP32 >= v3.3.0 的 ems-esp 网关进行测试。
-带有 ESP 8266 的旧系统不再受到官方支持，但可能仍然有效。
+该适配器已针对具有最新固件版本 ESP32 >= v3.3.1 的 ems-esp 网关进行测试。
+仅在此适配器版本之前支持具有 ESP 8266 的旧系统。
 
 EMS-ESP 中的重要设置：
 
@@ -54,7 +55,7 @@ EMS-ESP 中的重要设置：
 * 对于这些系统以及该数据可用的情况，可以读取总耗电量和温水耗电量的耗电量统计数据（每小时/每天/每月）。
 * 必须启用复选框记录并且必须定义数据库实例（mySQL 或 InfluxDB）。
 
-SQL 或 InfluxDB 历史适配器需要安装并激活才能使用此选项。
+SQL 或 InfluxDB History 适配器需要安装并激活才能使用此选项。
 
 * 这仅针对 mySQL 和 InfluxDB 数据库进行了测试
 * 对于 InfluxDB < V2，保留策略必须设置为至少 170 周。
@@ -71,7 +72,7 @@ SQL 或 InfluxDB 历史适配器需要安装并激活才能使用此选项。
 如果参数被填充，则可以计算锅炉效率。
 
 * 锅炉效率可根据平均锅炉温度计算：（锅炉温度+回水温度）/2。
-* 由于在 km200 中不再提供返回温度，当没有可用的 ems-esp 时，返回温度以锅炉温度 -10 °C 计算。
+* 由于在 km200 中不再提供返回温度，因此当没有可用的 ems-esp 时，返回温度以锅炉温度 -10 °C 计算。
 * 查看您的锅炉的数据表以相应地调整效率表。
 * 需要一个数据库实例（见上文）来计算统计信息。
 
@@ -85,6 +86,32 @@ SQL 或 InfluxDB 历史适配器需要安装并激活才能使用此选项。
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2022-02-07)
+* last tested version for old ems-esp ESP8266 with API V2.
+* support for KM200 HRV (ventilation)
+* corrections for km200 recordings and statistics module
+* prepare for ems-esp firmware 3.4
+
+### 1.0.14 (2022-02-07)
+* adjust paths in io-package.json
+
+### 1.0.13 (2022-02-07)
+* last tested version for old ems-esp ESP8266 with API V2.
+* No support for future adapter versions anymore - please upgrade to ESP32.
+* support for KM200 HRV (ventilation)
+* corrections for km200 recordings and statistics module
+* prepare for ems-esp firmware 3.4
+
+### 1.0.12 (2022-02-06)
+* update statistics states
+
+### 1.0.11 (2022-02-01)
+* support for KM200 HRV (ventilation)
+* corrections on recordings for 1st day of month
+
+### 1.0.10 (2022-01-28)
+* Further adjustments for ems firmware 3.4 and error corrections 1.0.9
+
 ### 1.0.9 (2022-01-27)
 * New code to avoid mysql duplicate key errors
 * Further adjustments for ems firmware 3.4

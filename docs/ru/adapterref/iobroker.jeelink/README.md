@@ -3,81 +3,88 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.jeelink/README.md
 title: ioBroker.jeelink
-hash: apV/B74CjZZUMKx+MC9nfCoMdKN4fZnzSlibWD1ycMc=
+hash: rPSqnNM3m5uwBSJrk2WL56yYfLJq+MTgr07FhF649mY=
 ---
-![логотип](../../../en/adapterref/iobroker.jeelink/admin/jeelab_logo.png)
+![Логотип](../../../en/adapterref/iobroker.jeelink/admin/jeelab_logo.png)
 
 ![Количество установок](http://iobroker.live/badges/jeelink-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.jeelink.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.jeelink.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.jeelink.svg)
-![Статус сборки](https://travis-ci.org/foxthefox/ioBroker.jeelink.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.jeelink.png?downloads=true)
 
 # IoBroker.jeelink
-Это адаптер для ioBroker для интеграции RFM12B / RFM69 через Jeelink.
-Jeelink может использоваться с предварительно загруженным программным обеспечением (rfmdemo) для считывания датчиков openenergy (emon).
-Для использования датчиков LaCrosse необходимо заменить прошивку (см. Форум iobroker).
+**Тесты:** ![Тестируйте и выпускайте](https://github.com/foxthefox/ioBroker.jeelink/workflows/Test%20and%20Release/badge.svg)
 
-## Монтаж:
+Это адаптер для ioBroker для интеграции RFM12B/RFM69 через Jeelink.
+Jeelink можно использовать с предварительно загруженным программным обеспечением (rfmdemo) для считывания показаний датчиков openenergy (emon).
+Для использования датчиков LaCrosse необходимо заменить прошивку (см. форум iobroker).
+
+## Установка:
 ### Выпущенная версия
 ```javascript
 npm install iobroker.jeelink
 ```
 
-на малине это может помочь использовать:
+на малине может помочь использование:
 
 ```javascript
  npm install --unsafe-perm iobroker.jeelink
  ```
 
- потому что пакет serialport должен быть построен на неподдерживаемом arm-hw
+ потому что пакет serialport должен быть собран на неподдерживаемом arm-hw
 
-### Актуальная версия разработки от github (во время тестирования может не работать!)
+### Актуальная версия разработки с github (при тестировании может не работать!)
 ```javascript
 npm install https://github.com/foxthefox/ioBroker.jeelink/tarball/master --production
 ```
 
-или же
+или
 
 ```javascript
 npm install --unsafe-perm https://github.com/foxthefox/ioBroker.jeelink/tarball/master --production
 ```
 
 ## Настройки:
-- USB-порт JeelinkAdapter обычно / dev / ttyACME
--Серийная скорость обычно 57600 бод
+- USB-порт JeelinkAdapter обычно /dev/ttyACME
+- Серийная скорость обычно 57600 бод
 
 ## Конфигурация:
-должно быть сделано в админ
+сделать в админке
 
 * определение порта USB
-* настройка скорости передачи
-- определить адрес датчика, который получен в эфире
-- определить уникальный адрес датчика в адаптере (LaCrosse меняет адрес в эфире после замены батареи, поэтому просмотрите журнал и отрегулируйте адрес датчика после замены батареи)
+* установка скорости передачи данных
+- определить адрес датчика, который принимается в эфире
+- определить уникальный адрес датчика в адаптере (LaCrosse меняет адрес в эфире после замены батареи, поэтому следите за журналом и корректируйте адрес датчика после замены батареи)
 - определить тип датчика (см. примеры ниже)
 - определить комнату
 
 ## Датчики
-| Объект | Варианты устройства | Пример телеграммы | Описание |
+|Объект|варианты устройств|пример телеграммы|Описание|
 |--------|-------|:-:|--------|
-| emonTH | emonTH | OK 19 ... | датчик от openenergy.org |
-| emonWater | emonWater | OK 21 ... | датчик с RFM12B для дозирования воды |
-| LaCrosseDTH | TX | OK 9 ... | датчики от LaCrosse, технолин |
-| LaCrosseDTT | TX | OK 9 ... | датчики от LaCrosse, технолин двойной температуры |
-| HMS100TF | TXH29DTH-IT | H00 ... | датчики технолин |
-| LaCrosseBMP180 || OK WS ... | сенсорный мод, суперджи |
-| LaCrosseWS | WS1080, TX22, WS1600 | OK WS ... | Метеостанция |
-| EC3000 | EC3000 | OK 22 ... | Счетчик энергии |
-| EMT7110 | EMT7110 | OK EMT7110 ... | Счетчик энергии |
-| уровень | уровень | OK LS ... | датчик уровня |
+|emonTH|emonTH|ОК 19 ...|датчик с сайта openenergy.org|
+|emonWater|emonWater|OK 21 ... |датчик с RFM12B для учета воды|
+|LaCrosseDTH |TX|OK 9 ... |датчики LaCrosse, technoline|
+|LaCrosseDTT |TX|OK 9 ... |датчики от LaCrosse, technoline double temp|
+|HMS100TF |TXH29DTH-IT|H00 ... |датчики technoline|
+|LaCrosseBMP180||OK WS ... |сенсорный мод, суперджи|
+|LaCrosseWS|WS1080,TX22,WS1600|OK WS ... |Метеостанция|
+|EC3000|EC3000|OK 22 ... |Счетчик энергии|
+|EMT7110|EMT7110|OK EMT7110 ... |Счетчик энергии|
+|уровень|уровень|ОК LS ... |датчик уровня|
 
 ## СДЕЛАТЬ:
 * другие типы датчиков
 * поместите код датчика в отдельный файл
-* подталкивание нового датчика в конфигурацию, затем отображается на странице admin / config
-* Температура HMS100TF ниже 0 °C и низкий уровень заряда батареи должны быть реализованы
+* добавление нового датчика в конфигурацию, после чего он отображается на странице администрирования/конфигурации
+* HMS100TF Температура ниже 0°C и низкий заряд батареи должны быть реализованы
 
 ## Changelog
+### 1.0.0
+* (foxthefox) refactoring, use of classbased style,
+* github actions instead of travis
+
+### 0.1.4
+* (o0shojo0o) nodejsV14 compatibility
+
 ### 0.1.3
 * (atl285) added new sensor type LacCrosseDTT (double temp like TX25-IT)
 
@@ -123,4 +130,4 @@ npm install --unsafe-perm https://github.com/foxthefox/ioBroker.jeelink/tarball/
 
 The MIT License (MIT)
 
-Copyright (c) 2018 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2016 - 2022 foxthefox <foxthefox@wysiwis.net>

@@ -3,67 +3,67 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.eventlist/README.md
 title: ioBroker.eventlist
-hash: ywraCHe0HMT0583wHjYdV78lyHfLS1pss3mUMXaxF2w=
+hash: pMEjj/E/4LClSw8GSTCvaYfgt5JuNQxvWKqQv9loPTQ=
 ---
-![商标](../../../en/adapterref/iobroker.eventlist/admin/eventlist.png)
+![标识](../../../en/adapterref/iobroker.eventlist/admin/eventlist.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.eventlist.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.eventlist.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.eventlist.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.eventlist.svg)
 ![安装数量（最新）](http://iobroker.live/badges/eventlist-installed.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/eventlist-stable.svg)
 ![依赖状态](https://img.shields.io/david/bluefox/iobroker.eventlist.svg)
 ![已知漏洞](https://snyk.io/test/github/bluefox/ioBroker.eventlist/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.eventlist.png?downloads=true)
+![新PM](https://nodei.co/npm/iobroker.eventlist.png?downloads=true)
 
-＃ioBroker.eventlist
-## IoBroker的事件列表适配器
+# IoBroker.eventlist
+## IoBroker 的事件列表适配器
 允许定义必须在事件列表中记录的状态。
 
-该列表可以显示为admin，web，vis，另存为PDF，材料（尚未实现）。
+该列表可以在 admin、web、vis、另存为 PDF、material（尚未实现）中显示。
 
-此外，您可以通过电报或WhatsApp发送事件。
+此外，您可以通过 Telegram 或 WhatsApp 发送事件。
 
 ![列表](../../../en/adapterref/iobroker.eventlist/img/list.png)
 
 ![PDF格式](../../../en/adapterref/iobroker.eventlist/img/pdf.png)
 
-##闹钟模式
-仅可以在警报模式下生成事件。
-警报模式可以通过变量`eventlist.X.alarm`来控制。
+##报警模式
+事件只能在警报模式下生成。
+报警模式可以由变量`eventlist.X.alarm`控制。
 
-另外，仅当警报模式为开时，才可以向信使发送消息。
+此外，只有在警报模式打开时才能向信使发送消息。
 
 用例：
 
--例如仅当没有人在家时，门磁才可以发送消息。否则，仅在事件列表中收集有关开门的事件。
+- 例如。门磁只有在没有人在家的情况下才能发送消息。否则关于开门的事件将只收集在事件列表中。
 
-##可能的演讲
-###在“管理员”标签中
-您可以在管理员中将事件列表作为选项卡启用。
+## 可能的演示文稿
+### 在管理员选项卡中
+您可以在管理员中启用事件列表作为选项卡。
 
-###网站
-事件列表可以显示在`http://<IP>:8082/eventlist/index.html`下。 （对于大于0的实例：`http://<IP>:8082/eventlist/index.html?X`，其中X是实例编号）
+### 网络
+事件列表可以在`http://<IP>:8082/eventlist/index.html`下显示。 （对于实例 > 0：`http://<IP>:8082/eventlist/index.html?X`，其中 X 是实例编号）
 
-### Vis窗口小部件
-事件列表可以显示为可视化小部件。
+### 可见小部件
+事件列表可以显示为 vis 小部件。
 
-### PDF生成
-有可能生成包含所有事件的PDF文档。
+### PDF 生成
+可以生成包含所有事件的 PDF 文档。
 
-如果将模式放在其中，则文档标题可以包含生成日期：`Event list on {{YYYY MM DD}}`。
+如果您将模式放入其中，文档标题可以包含生成日期：`Event list on {{YYYY MM DD}}`。
 时间格式的确切描述可以在这里找到：https://momentjs.com/docs/#/displaying/format/
 
-可以通过将`true`写入`eventlist.0.triggerPDF`中来触发PDF的生成。
+可以通过将 `true` 写入 `eventlist.0.triggerPDF` 来触发 PDF 的生成。
 
-可以通过以下方式访问PDF文件：
+PDF 文件可以通过以下方式访问：
 
--网络：http：// <IP>：8082 / eventlist / eventlist / report.pdf`（对于大于0的实例：http：// <IP>：8082 / eventlist / eventlist / report-X.pdf，其中X是实例编号）
--管理员：“ http：// <IP>：8081 / files / eventlist / report.pdf”（对于大于0的实例：“ http：// <IP>：8081 / files / eventlist / report-X.pdf”，其中X是实例编号）
+- 网络：`http://<IP>:8082/eventlist/eventlist/report.pdf`（例如 > 0：`http://<IP>:8082/eventlist/eventlist/report-X.pdf`，其中 X 是实例编号）
+- 管理员：`http://<IP>:8081/files/eventlist/report.pdf`（例如 > 0：`http://<IP>:8081/files/eventlist/report-X.pdf`，其中 X 是实例编号）
 
-**无法在PDF中显示图标。**
+**图标无法以 PDF 格式显示。**
 
-##消息框
-用户可以通过javascript将自定义事件添加到列表中：
+## 消息框
+用户可以通过 javascript 将自定义事件添加到列表中：
 
 ```
 // add custom event to event list
@@ -83,7 +83,7 @@ setState('eventlist.0.insert', 'My custom text');
 setState('eventlist.0.insert', {event: 'My custom text %s', val: 5});
 ```
 
-用户可以请求格式化的JSON列表以获取特定ID。当然，必须在`eventlist`中启用该ID。
+用户可以请求特定 ID 的格式化 JSON 列表。当然ID必须在`eventlist`之前启用。
 
 ```
 // add custom event to event list
@@ -122,34 +122,44 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 });
 ```
 
-##模式
+## 模式
 在事件文本和状态文本中，可以使用以下模式：
 
--％s-值（状态更改为％s =>状态更改为5），
--％u-单位（状态更改为％s％u =>状态更改为5％），
--％n-名称（“％n将状态更改为％s” =>“设备A的状态更改为5”），
--％t-时间（`状态更改状态为％t` =>`状态更改状态为Sep Fr，16：32：00`），
--％r-相对时间（“状态已更改状态％r” =>“状态已更改状态5秒前”），
--％d-持续时间（“状态处于％d的先前状态=>”状态处于5s的先前状态），
--％g-值差（“状态已更改为％g％” =>“状态已更改为1％”），
--％o-值差（状态从％o更改为％o =>状态在1％上更改）
+- %s - value (`State changed to %s` => `State changed to 5`),
+- %u - 单位（`状态更改为 %s%u` => `状态更改为 5%`），
+- %n - 名称（`%n 将状态更改为 %s` => `设备 A 将状态更改为 5`），
+- %t - time (`State changed state on %t` => `State changed state on Sep Fr, 16:32:00`),
+- %r - 相对时间（`State changed state %r` => `State changed state 5 seconds ago`），
+- %d - 持续时间（`状态处于先前状态 %d` => `状态处于先前状态 5s`），
+- %g - 值差异（`状态在 %g% 上发生了变化` => `状态在 1% 上发生了变化`），
+- %o - 值差异（`State changed value from %o to %` => `State was changed on 1%`）
 
-##网络中多个实例的使用
-例如。您可以显示实例2的特定列表，例如`http://IP:8082/eventlist/index.htmlindex.html?2`。
+## Web 中多个实例的使用
+例如。您可以显示实例 2 的特定列表，例如 `http://IP:8082/eventlist/index.htmlindex.html?2`。
 
-生成的报告将存储在`eventlist/report.pdf`中的实例0中，但存储在`eventlist/report-1.pdf`中的实例1中。
+生成的报告将存储在 `eventlist/report.pdf` 中的实例 0，但例如 `eventlist/report-1.pdf` 中的实例 1。
 
 ＃＃ 去做
--根据语言更改PDF的初始文本
--许多预定义的图标（最少100个）
--材质小部件
--将消息发送到syslog（可能是splunk）https://www.npmjs.com/package/splunk-logging
+- 以相应语言更改 PDF 中的初始文本
+- 许多预定义的图标（最少 100 个）
+- 材料小部件
+- 将消息发送到系统日志（可能是 splunk）https://www.npmjs.com/package/splunk-logging
 
-<！-下一个版本的占位符（在该行的开头）：
+<!-- 下一个版本的占位符（在行首）：
 
-### __正在进行的工程__->
+### __工作进行中__ -->
 
 ## Changelog
+### 0.5.4 (2022-02-14)
+* (bluefox) Corrected the image paths
+
+### 0.5.3 (2022-02-13)
+* (bluefox) Corrected the error with "changes only" option
+* (bluefox) Added possibility to use icons with custom events
+
+### 0.4.4 (2021-06-24)
+* (bluefox) Corrected the warning for js-controller 3.x
+
 ### 0.4.3 (2021-04-19)
 * (bluefox) Added the support of Admin5
 
@@ -168,22 +178,22 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 
 ### 0.2.8 (2020-10-14)
 * (bluefox) Corrected error in pdf settings  
-* (bluefox) Implemented the recalculation of the relative time every 10 seconds  
+* (bluefox) Implemented the recalculation of the relative time every 10 seconds
 
 ### 0.2.6 (2020-09-25)
-* (bluefox) Corrected error in pdf creation  
+* (bluefox) Corrected error in pdf creation
 
 ### 0.2.5 (2020-09-24)
-* (bluefox) Extended icon selector 
- 
+* (bluefox) Extended icon selector
+
 ### 0.2.1 (2020-09-21)
-* (bluefox) Vis-widget was corrected 
+* (bluefox) Vis-widget was corrected
 
 ### 0.1.3 (2020-09-15)
-* (bluefox) Implemented the alarm mode and messengers 
+* (bluefox) Implemented the alarm mode and messengers
 
 ### 0.0.3 (2020-09-08)
-* (bluefox) Objects with states are supported now 
+* (bluefox) Objects with states are supported now
 
 ### 0.0.2 (2020-09-07)
 * (bluefox) initial commit
@@ -194,7 +204,7 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 ## License
 MIT License
 
-Copyright (c) 2020 ioBroker <dogafox@gmail.com>
+Copyright (c) 2020-2022 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

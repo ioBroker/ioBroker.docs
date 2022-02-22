@@ -89,23 +89,24 @@ class Adapters extends Component {
     }
 
     render() {
-        if (!this.state.adapters.length) return null;
+        if (!this.state.adapters.length) {
+            return null;
+        }
 
         this.words = this.words || {};
         this.words.installed = I18n.t('installed %s times');
 
-        return (
-            <div key="adapters" className={this.props.classes.mainDiv + ' '  + (this.props.backClass || '')}>
-                <div className={this.props.classes.title}>{I18n.t('Over %s connected services and systems!', this.state.count)}</div>
-                <div className={this.props.classes.boxDiv}>
-                    <div className={this.props.classes.box}>
-                        {this.state.adapters.map((a, i) => (
-                            <div key={a + '_' + i} className={this.props.classes.adapter} title={a.name + ', ' + this.words.installed.replace('%s', a.installs)}>
-                                <img className={this.props.classes.icon} src={a.icon} alt={a.name} onClick={() => this.props.onNavigate(null, 'adapters', `adapterref/iobroker.${a.name}/README.md`)}/>
-                            </div>))}
-                    </div>
+        return <div key="adapters" className={this.props.classes.mainDiv + ' '  + (this.props.backClass || '')}>
+            <div className={this.props.classes.title}>{I18n.t('Over %s connected services and systems!', this.state.count)}</div>
+            <div className={this.props.classes.boxDiv}>
+                <div className={this.props.classes.box}>
+                    {this.state.adapters.map((a, i) =>
+                        <div key={a + '_' + i} className={this.props.classes.adapter} title={a.name + ', ' + this.words.installed.replace('%s', a.installs)}>
+                            <img className={this.props.classes.icon} src={a.icon} alt={a.name} onClick={() => this.props.onNavigate(null, 'adapters', `adapterref/iobroker.${a.name}/README.md`)}/>
+                        </div>)}
                 </div>
-            </div>);
+            </div>
+        </div>;
     }
 }
 

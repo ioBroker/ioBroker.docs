@@ -76,11 +76,14 @@ In the scripts you are able to use the following features:
 * `async`/`await`
 * Adapter log functions `log.warn('something')`, `log.info('something')`, `log.debug('something')`
 * `getStateAsync('id')` and `getObjectAsync('id')` where `id` is the full ID of the state/object
+* An object `sharedData` which is shared between all custom scripts of an adapter instance
 
 Errors in the scripts will be logged by the adapter.
 
 In both scripts the variables `buffer` and `value` are predefined.  
 `buffer` always contains the current CAN message content as a Node.js Buffer.  
+
+The `sharedData` object is empty by default and may be used to share some data between multiple calls of a single custom parser or even between multiple custom parsers.
 
 #### Custom read script
 
@@ -149,6 +152,9 @@ By writing JSON data to the `raw.send` state you are able to send CAN messages c
 `ext` and `rtr` are optional and default to `false`.
 
 ## Changelog
+
+### 1.3.0 (2022-02-07)
+* (crycode-de) Added `sharedData` object in custom parsers
 
 ### 1.2.3 (2021-10-17)
 * (crycode-de) Added missing `autoSet...` parser options to csv export/import

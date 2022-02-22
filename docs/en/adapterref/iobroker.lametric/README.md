@@ -198,9 +198,14 @@ show();
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
 ### **WORK IN PROGRESS**
 
+* (klein0r) Updated state roles
+* (klein0r) Added hint for Admin 4 configuration
+
+### 1.5.3 (2022-02-08)
+
+* (klein0r) Updated log messages and error handling
 * (klein0r) Updated dependencies
 
 ### 1.5.2 (2021-12-23)

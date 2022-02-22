@@ -3,16 +3,15 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.canbus/README.md
 title: ioBroker.canbus
-hash: tMg9bs8laDd02JYcEJwNoU9LIeXIWbRTszVkW2f7KfE=
+hash: 3cIsF9IkK2XBHSxx2d33+5cqsawYPRQ8dsqv1hiTq80=
 ---
 # IoBroker.canbus
 ![Logo](../../../en/adapterref/iobroker.canbus/admin/canbus.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.canbus.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.canbus.svg)
-![Anzahl der Installationen (spätestens)](https://iobroker.live/badges/canbus-installed.svg)
+![Anzahl der Installationen (neueste)](https://iobroker.live/badges/canbus-installed.svg)
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/canbus-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/crycode-de/iobroker.canbus.svg)
 ![NPM](https://nodei.co/npm/iobroker.canbus.png?downloads=true)
 
 [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/canbus/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
@@ -22,77 +21,80 @@ hash: tMg9bs8laDd02JYcEJwNoU9LIeXIWbRTszVkW2f7KfE=
 ## CAN-Bus-Adapter für ioBroker
 Dieser Adapter verbindet ioBroker mit einem Controller Area Network (CAN-Bus).
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
-## Eigenschaften
-* Empfangen und Senden von Rohnachrichten mit Standard-Frames und erweiterten Frames
+## Merkmale
+* Empfangen und senden Sie Rohnachrichten mit Standard-Frames und erweiterten Frames
 * Jede Nachricht kann zum Empfangen und/oder Senden von Daten konfiguriert werden
-* Möglichkeit zum automatischen Hinzufügen von Objekten für gesehene CAN-Nachrichten, die noch nicht konfiguriert sind
+* Fähigkeit zum automatischen Hinzufügen von Objekten für gesehene CAN-Nachrichten, die noch nicht konfiguriert sind
 * Konfigurieren Sie Parser für jede Nachricht, um Daten aus dem/in den Rohnachrichtenpuffer zu lesen/schreiben
   * Numerische Typen
-  * Boolesche Werte einschließlich Bitmasken-Unterstützung
+  * Boolesche Werte einschließlich Bitmask-Unterstützung
   * Strings in verschiedenen Zeichenkodierungen
-  * Benutzerdefinierte Skripte zum Lesen/Schreiben aus/in den Rohdatenpuffer
+  * Benutzerdefinierte Skripte zum Lesen/Schreiben aus dem/in den Puffer von Rohdaten
 * Erweiterte Import-/Exportfunktion
-  * Nachrichtenkonfigurationen importieren, um Ihre vorhandene Konfiguration zu erweitern
+  * Nachrichtenkonfigurationen importieren, um Ihre bestehende Konfiguration zu erweitern
   * Importieren Sie vordefinierte "bekannte" Konfigurationen von GitHub innerhalb der Admin-Oberfläche
-  * Exportieren und importieren Sie Ihre Nachrichtenkonfigurationen als `json`- oder `csv`-Dateien
+  * Exportieren und importieren Sie Ihre Nachrichtenkonfigurationen als „json“- oder „csv“-Dateien
 * Optionale Unterstützung für feste Datenlängen (DLC)
 * Optionale Unterstützung für das RTR-Flag
-* Optionale Rohzustände mit rohen CAN-Nachrichtenobjekten
-* Optional automatisch einen bestimmten Wert in einem bestimmten Intervall für jeden Parser setzen (nützlich zum Abfragen von Daten)
+* Optionale Rohzustände, die rohe CAN-Nachrichtenobjekte enthalten
+* Optional automatisch einen bestimmten Wert in einem bestimmten Intervall für jeden Parser setzen (nützlich zum Abrufen von Daten)
 
-## Bedarf
-* Linux-Betriebssystem (wegen der verwendeten Socketcan-Bibliothek)
-* CAN-Hardware, die vom Kernel unterstützt wird und eine Schnittstelle wie `can0` . erstellt
+## Anforderungen
+* Betriebssystem Linux (wegen der verwendeten Socketcan-Bibliothek)
+* CAN-Hardware, die vom Kernel unterstützt wird und eine Schnittstelle wie `can0` erstellt
 * Einige Kenntnisse über die Nachrichten, die auf Ihrem CAN-Bus gesendet werden
 
-##Parser
-Mit Parsern können Sie Daten aus dem CAN-Nachrichtenpuffer lesen oder in diesen schreiben.
+## Parser
+Mithilfe von Parsern können Sie Daten aus dem CAN-Nachrichtenpuffer lesen oder in diesen schreiben.
 
 Für die folgenden Datentypen gibt es vordefinierte Parser.
-Zusätzlich können Sie eigene Skripte schreiben, um Werte mit einem *benutzerdefinierten Parser* zu lesen/schreiben.
+Zusätzlich können Sie Ihre eigenen Skripte schreiben, um Werte mit einem *benutzerdefinierten Parser* zu lesen/schreiben.
 
-### Numerische Typen in *Big-Endian*- und *Little-Endian*-Darstellung
-* Vorzeichenbehaftete und vorzeichenlose 8, 16 und 32 Bit Ganzzahl
+### Numerische Typen in *big-endian*- und *little-endian*-Darstellung
+* 8-, 16- und 32-Bit-Integer mit und ohne Vorzeichen
 * 32-Bit-Float
 * 64-Bit-Doppel
 
-###Boolean
-* 1 Byte inklusive Bitmaskenunterstützung
+### Boolesch
+* 1 Byte einschließlich Bitmask-Unterstützung
 
-### Zeichenfolge
+### Zeichenkette
 * 1 bis 8 Byte Länge
 * Kodierung: *ascii*, *base64*, *hex*, *latin1*, *utf8*, *utf16le*
 
-### Benutzerdefiniert
+### Brauch
 Für einen benutzerdefinierten Parser müssen Sie ein eigenes Lese- und Schreibskript bereitstellen.
-Diese Skripte sollten reines Javascript sein und werden in einer Sandbox ausgeführt.
+Diese Skripte sollten reines Javascript sein und in einer Sandbox ausgeführt werden.
 
 In den Skripten können Sie die folgenden Funktionen verwenden:
 
 * Die meisten von Node.js eingebauten Funktionen
-* `async`/`warten`
-* Adapter-Logfunktionen `log.warn('something')`, `log.info('something')`, `log.debug('something')`
-* `getStateAsync('id')` und `getObjectAsync('id')` wobei `id` die vollständige ID des Zustands/Objekts ist
+* `async`/`await`
+* Adapterprotokollfunktionen `log.warn('etwas')`, `log.info('etwas')`, `log.debug('etwas')`
+* "getStateAsync('id')" und "getObjectAsync('id')", wobei "id" die vollständige ID des Zustands/Objekts ist
+* Ein Objekt „sharedData“, das von allen benutzerdefinierten Skripten einer Adapterinstanz gemeinsam genutzt wird
 
 Fehler in den Skripten werden vom Adapter protokolliert.
 
 In beiden Skripten sind die Variablen `buffer` und `value` vordefiniert.
-`buffer` enthält immer den aktuellen Inhalt der CAN-Botschaft als Node.js-Puffer.
+`buffer` enthält immer den aktuellen Inhalt der CAN-Nachricht als Node.js Buffer.
+
+Das Objekt `sharedData` ist standardmäßig leer und kann verwendet werden, um einige Daten zwischen mehreren Aufrufen eines einzelnen benutzerdefinierten Parsers oder sogar zwischen mehreren benutzerdefinierten Parsern gemeinsam zu nutzen.
 
 #### Benutzerdefiniertes Leseskript
 In einem Leseskript müssen Sie die `value` aus der Variablen `buffer` lesen.
 
-Am Anfang des benutzerdefinierten Leseskripts sind `buffer` die empfangenen/aktuellen CAN-Nachrichtendaten (wie im Zustand `.json`).
-`value` sind `undefined` und sollten vom Skript gesetzt werden.
+Am Anfang des benutzerdefinierten Leseskripts stehen `buffer` die empfangenen/aktuellen CAN-Nachrichtendaten (wie im Zustand `.json`).
+`value` wird zu `undefined` und sollte vom Skript gesetzt werden.
 
-Der Inhalt der Variable `value` am Ende des benutzerdefinierten Leseskripts wird als neuer Wert für den Zustand verwendet.
+Als neuer Wert für den Status wird der Inhalt der Variable `value` am Ende des benutzerdefinierten Leseskripts verwendet.
 Wenn `value` `undefined` ist, wird es ignoriert. Damit können Sie Nachrichten im benutzerdefinierten Leseskript nach Datenteilen filtern.
 
 ##### Beispiel für ein benutzerdefiniertes Leseskript
-Prüfen Sie, ob die ersten drei Bytes im empfangenen Puffer mit festen Werten übereinstimmen.
-Lesen Sie bei Übereinstimmung einen 16-Bit-Integer-Wert mit Vorzeichen aus den Pufferbytes 3 und 4 und dividieren Sie ihn durch 10.
+Prüfen Sie die ersten drei Bytes im Empfangspuffer auf Übereinstimmung mit festen Werten.
+Lesen Sie bei Übereinstimmung einen 16-Bit-Ganzzahlwert mit Vorzeichen aus den Pufferbytes 3 und 4 und dividieren Sie ihn durch 10.
 
 ```js
 if (buffer[0] === 0xC2 && buffer[1] === 0x10 && buffer[2] === 0x0F) {
@@ -100,7 +102,7 @@ if (buffer[0] === 0xC2 && buffer[1] === 0x10 && buffer[2] === 0x0F) {
 }
 ```
 
-Ursache von `value` wird nur gesetzt, wenn die ersten drei Bytes übereinstimmen, alle anderen Daten werden ignoriert und kein neuer Wert in den Zustand gesetzt.
+Ursache von `value` wird nur gesetzt, wenn die ersten drei Bytes übereinstimmen, alle anderen Daten werden ignoriert und setzen dem Zustand keinen neuen Wert.
 
 #### Benutzerdefiniertes Schreibskript
 In einem Schreibskript müssen Sie die Variable `buffer` ändern (oder ersetzen).
@@ -108,26 +110,26 @@ In einem Schreibskript müssen Sie die Variable `buffer` ändern (oder ersetzen)
 Zu Beginn des benutzerdefinierten Schreibskripts sind `buffer` die aktuellen CAN-Nachrichtendaten (wie im Zustand `.json`).
 `value` wird auf den Wert des Zustands gesetzt, der in die `buffer` geschrieben werden soll.
 
-Der Inhalt der Variable `buffer` am Ende des Custom Write Scripts wird als neue Daten für die CAN-Botschaft verwendet.
+Der Inhalt der Variable `buffer` am Ende des benutzerdefinierten Schreibskripts wird als neue Daten für die CAN-Nachricht verwendet.
 
 ##### Beispiel für ein benutzerdefiniertes Schreibskript
 Bereiten Sie einen neuen Puffer mit festen Werten vor.
-Schreiben Sie den Zustandswert als vorzeichenbehaftete 16-Bit-Ganzzahl in den Puffer, beginnend mit dem fünften Byte im Puffer.
+Schreiben Sie den Statuswert als vorzeichenbehaftete 16-Bit-Ganzzahl in den Puffer, beginnend beim fünften Byte im Puffer.
 
 ```js
 buffer = Buffer.from([0x30, 0x00, 0xFA, 0x06, 0x7E, 0x00, 0x00]);
 buffer.writeInt16BE(value, 5);
 ```
 
-Der neue `buffer` wird dann als `.json`-Zustand gesetzt.
+Der neue `buffer` wird dann als Zustand `.json` gesetzt.
 Wenn die Option *autosend* für die Nachricht aktiviert ist, wird die Nachricht automatisch gesendet.
 
 ## Verwendung in Skripten
 Sie können die Zustände `<messageId>.json` oder `<messageId>.<parserId>` in Ihren Skripten bearbeiten/ändern.
 
 Zusätzlich können Sie die Zustände `raw.received` und `raw.send` verwenden, wenn Sie diese in der Adapterkonfiguration aktiviert haben.
-Sie enthalten die stringifizierten JSON-Daten der Nachrichtendaten und können verwendet werden, um jede empfangene oder gesendete Nachricht unabhängig von den konfigurierten Nachrichten zu behandeln.
-Durch Schreiben von JSON-Daten in den Zustand `raw.send` können Sie CAN-Nachrichten mit beliebigen Daten senden.
+Sie enthalten die stringifizierten JSON-Daten der Nachrichtendaten und können verwendet werden, um jede empfangene oder gesendete Nachricht unabhängig von den konfigurierten Nachrichten zu verarbeiten.
+Indem Sie JSON-Daten in den Zustand `raw.send` schreiben, können Sie CAN-Nachrichten mit beliebigen Daten senden.
 
 ### Beispiel für ein Rohnachrichtenobjekt
 ```js
@@ -139,9 +141,21 @@ Durch Schreiben von JSON-Daten in den Zustand `raw.send` können Sie CAN-Nachric
 }
 ```
 
-`ext` und `rtr` sind optional und standardmäßig `false`.
+`ext` und `rtr` sind optional und standardmäßig auf `false` eingestellt.
 
 ## Changelog
+
+### 1.3.0 (2022-02-07)
+* (crycode-de) Added `sharedData` object in custom parsers
+
+### 1.2.3 (2021-10-17)
+* (crycode-de) Added missing `autoSet...` parser options to csv export/import
+* (crycode-de) Fixed `TypeError: Method Promise.prototype.then called on incompatible receiver [object Object]` triggered by a bug in an old `vm2` version
+* (crycode-de) Updated dependencies
+
+### 1.2.2 (2021-08-22)
+* (crycode-de) Fixed text colors in dark theme of admin 5
+* (crycode-de) Updated dependencies
 
 ### 1.2.1 (2021-06-22)
 * (crycode-de) Added option to automatically set a certain value in a given interval for each parser
@@ -198,4 +212,4 @@ Older changelog is in CHANGELOG_OLD.md
 
 Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 
-Copyright (c) 2020-2021 Peter Müller <peter@crycode.de> (https://crycode.de/)
+Copyright (c) 2020-2022 Peter Müller <peter@crycode.de> (https://crycode.de/)

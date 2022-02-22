@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.MieleCloudService
-hash: dyitqM1ppDZHJO2rxUuf34lxYTzkCJdUwnoUW66XdPU=
+hash: MF3IUYLSqEFaAgFTidjyD0x+FE2iWrJgSPVEE9GXj1A=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
@@ -66,7 +66,7 @@ hash: dyitqM1ppDZHJO2rxUuf34lxYTzkCJdUwnoUW66XdPU=
 Есть некоторые точки данных, доступные в 2 видах. Как человекочитаемый текст и как число.
 Эти поля числовых данных, принадлежащие текстовому полю, имеют то же имя, но с добавлением «_raw».
 Те поля, которые имеют общее значение, перечислены ниже.
-Поля, которые не указаны в списке, различаются по своему значению от устройства к устройству и не задокументированы Miele.
+Поля, не перечисленные в списке, различаются по своему значению в зависимости от устройства и не задокументированы Miele.
 Если вам нужно ссылаться в скриптах на эти поля, всегда используйте значения _raw.
 Текстовые значения могут измениться в будущем, а также зависят от языка.
 Вот список того, что означают эти необработанные значения:
@@ -77,7 +77,7 @@ hash: dyitqM1ppDZHJO2rxUuf34lxYTzkCJdUwnoUW66XdPU=
 | 1 | СТИРАЛЬНАЯ МАШИНА |
 | 2 | СУШИЛЬНАЯ МАШИНА |
 | 7 | ПОСУДОМОЕЧНАЯ МАШИНА |
-| 8 | ПОСУДОМОЕЧНАЯ МАШИНА ПОЛУПРОФ |
+| 8 | ПОСУДОМОЕЧНАЯ МАШИНА ПОЛУПРОФЕССИОНАЛЬНАЯ |
 | 12 | ПЕЧЬ |
 | 13 | ПЕЧЬ МИКРОВОЛНОВАЯ ПЕЧЬ |
 | 14 | ОСОБЕННОСТИ варочной панели |
@@ -108,7 +108,7 @@ hash: dyitqM1ppDZHJO2rxUuf34lxYTzkCJdUwnoUW66XdPU=
 | 68 | ВИННЫЙ ШКАФ С МОРОЗИЛЬНОЙ КАМЕРОЙ |
 
 ### Состояние/Статус
-| Исходное значение | состояние |
+| Исходное значение | государство |
 |-----------|-----------------------------|
 | 1 | ВЫКЛ |
 | 2 | STAND_BY |
@@ -131,7 +131,7 @@ hash: dyitqM1ppDZHJO2rxUuf34lxYTzkCJdUwnoUW66XdPU=
 | 255 | Устройство в автономном режиме |
 
 ### ProgramType/Programmart
-| Исходное значение | государство |
+| Исходное значение | состояние |
 |-----------|------------------------|
 | 0 | Нормальный режим работы |
 | 1 | Собственная программа |
@@ -150,7 +150,7 @@ hash: dyitqM1ppDZHJO2rxUuf34lxYTzkCJdUwnoUW66XdPU=
 | 6 | Машинное железо |
 
 ### Programmbezeichnung
-| Исходное значение | состояние | доступно для |
+| Исходное значение | государство | доступно для |
 |-----------|-------------------------|-----------------|
 | 1 | "Baumwolle" / "Хлопок" | Стиральная машина |
 | 3 | "Пфлегельихт" | Стиральная машина |
@@ -165,12 +165,12 @@ hash: dyitqM1ppDZHJO2rxUuf34lxYTzkCJdUwnoUW66XdPU=
 | 37 | "Открытый" | Стиральная машина |
 | 48 | "Flusen ausspülen" | Стиральная машина сушилка |
 | 50 | "Дункл Вэше" | Стиральная машина сушилка |
-| 52 | "Нур Спюлен/Штеркен" | Стиральная машина |
+| 52 | "Нур Спюлен/Штаркен" | Стиральная машина |
 | 122 | "Экспресс 20" | Стиральная машина сушилка |
 | 123 | "Данклс/Джинсы" | Стиральная машина |
 
 ### ProgramPhase
-| Исходное значение | государство | доступно для |
+| Исходное значение | состояние | доступно для |
 |-----------|---------------------------|-----------------------------|
 | 258 | "Айнвайхен" | Стиральная машина |
 | 260 | «Вашен» / «Стирка» | Стиральная машина |
@@ -189,9 +189,16 @@ hash: dyitqM1ppDZHJO2rxUuf34lxYTzkCJdUwnoUW66XdPU=
 | 532 | "Flusen ausspülen" | Стиральная машина сушилка |
 
 ## Авторское право
-Авторское право (c) 2019 - 2022 grizzelbee <open.source@hingsen.de>
+Авторское право (c) 2019-2022 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+### V5.0.5 (2022-02-07) (Invincible)
+* (grizzelbee) Fix: fixed some lgtm findings
+* (grizzelbee) New: Added link to request Miele API credentials in config page.  
+* (grizzelbee) Upd: dependencies got updated
+* (grizzelbee) Upd: removed separate license file
+
+
 ### V5.0.4 (2022-01-07) (Invincible)
 * (grizzelbee) Fix: [MIELECLOUDSERVICE-7](https://sentry.io/organizations/nocompany-6j/issues/2379624775/?project=5735758) handling if there is no auth token for a request 
 * (grizzelbee) Fix: [MIELECLOUDSERVICE-2J](https://sentry.io/organizations/nocompany-6j/issues/2885488082/?project=5735758) handling if there is no auth token for a request

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.node-red/README.md
 title: ioBroker узел-красный адаптер
-hash: ma/a3NNG2WCpcPI/UD71yZRFacjQFvR/qv73KSDlN80=
+hash: Hepdf/NZ/L9whqqNKIiOn4KWFfh63yiXgLpbfS1rFzg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.node-red/admin/node-red.png)
 
@@ -20,6 +20,8 @@ hash: ma/a3NNG2WCpcPI/UD71yZRFacjQFvR/qv73KSDlN80=
 
 **Примечание:** Если в диалоговом окне выбора идентификатора узла ioBroker вы не можете найти какую-либо переменную, перезапустите экземпляр node-red. При перезапуске будет создан новый список объектов.
 
+**Обновление до версии 1.17.2:** Если вы уже использовали аутентификацию Node-Red: после обновления снова установите пароль в настройках экземпляра Node-Red в ioBroker! В противном случае вы больше не сможете войти в Node-Red после обновления.
+
 ## Настройки
 - Безопасный режим - потоки не будут запущены, и вы можете редактировать потоки, чтобы устранить проблему с перегрузкой.
 
@@ -28,10 +30,13 @@ hash: ma/a3NNG2WCpcPI/UD71yZRFacjQFvR/qv73KSDlN80=
 ### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
 
 ## Changelog
-### 2.5.0 (2022-xx-xx)
+### __WORK IN PROGRESS__
 * (jwiesel) Changed default setting to "convert data from ioBroker nodes into Strings" to false. Setting will not be changed automatically in instances already running.
 * (jwiesel) "Tail" node has been removed from the default palette in Node-RED 2.0. You can reinstall it from node-red-node-tail.
 * (jwiesel) Node-RED updated to 2.1.4 (incl. restructuring of settings.js)
+
+### 2.4.2 (2022-02-07)
+* (Apollon77) Make compatible with js-controller 4.0
 
 ### 2.4.1 (2021-08-31)
 * (mickym2) Correct min7max for the object creation 

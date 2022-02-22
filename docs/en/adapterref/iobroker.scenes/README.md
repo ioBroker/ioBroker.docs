@@ -9,7 +9,6 @@
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/scenes/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.scenes.svg)](https://www.npmjs.com/package/iobroker.scenes)
 
-
 _scenes Adapter_ can create scenes and execute them in ioBroker environment.
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
@@ -102,7 +101,7 @@ Additionally, you can define the behaviour for which value should be taken for t
 
 You can provide following aggregations (available only in advanced mode):
 - `uncertain` - (default) - the value of the group will have text `uncertain`.
-- `any` - first non zero value of all states in group.
+- `any` - first non-zero value of all states in group.
 - `min` - minimal value of all states in group.
 - `max` - maximal value of all states in group.
 - `avg` - average value of all states in group.
@@ -128,6 +127,10 @@ The adapter will read all actual values for IDs defined in this scene and save i
 -->
 
 ## Changelog
+### 2.3.9 (2022-02-13)
+* (bluefox) Updated some GUI libraries
+* (bluefox) Updated releaser
+
 ### 2.3.8 (2021-08-31)
 * (Apollon77) Handle case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
 * (TyrionWarMage) Added the aggregation mode for the virtual groups.
@@ -239,7 +242,7 @@ The adapter will read all actual values for IDs defined in this scene and save i
 
 ### 0.1.0 (2015-08-09)
 * (bluefox) fix error with delays and config change
-* (bluefox) implement replace 
+* (bluefox) implement replace
 
 ### 0.0.2 (2015-08-05)
 * (bluefox) change configuration schema
@@ -252,7 +255,7 @@ The adapter will read all actual values for IDs defined in this scene and save i
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2021, Bluefox (dogafox@gmail.com)
+Copyright (c) 2015-2022, Bluefox (dogafox@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -271,4 +274,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-

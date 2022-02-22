@@ -62,14 +62,16 @@ Beispiel mit valuetrackerovertime:
 -->
 ## Changelog
 
+### 1.4.6 (2022-02-14)
+* (Omega236) Update Dependencies
 
-### 1.4.5 (2021-05-27)
+### 1.4.5 (2022-01-30)
 * (Omega236) add minimum/standby power usage
 
-### 1.4.4 (2021-05-27)
+### 1.4.4 (2022-01-30)
 * (Omega236) bugfix wrong datapoint name
 
-### 1.4.3 (2021-05-27)
+### 1.4.3 (2022-01-16)
 * (bluefox) added support for admin5
 
 ### 1.4.1 (2021-02-13)
@@ -143,7 +145,7 @@ Beispiel mit valuetrackerovertime:
 ## License
 MIT License
 
-Copyright (c) 2021 Omega236 general.of.omega@googlemail.com
+Copyright (c) 2022 Omega236 general.of.omega@googlemail.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

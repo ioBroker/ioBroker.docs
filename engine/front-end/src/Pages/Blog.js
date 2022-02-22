@@ -266,7 +266,7 @@ class Blog extends Router {
 
         const {body, header} = Utils.extractHeader(this.state.text);
 
-        const reactElement = (<MarkdownView markdown={body} options={CONVERTER_OPTIONS} />);
+        const reactElement = <MarkdownView markdown={body} options={CONVERTER_OPTIONS} />;
 
         this.replaceHref(reactElement, `${this.props.language}/blog/`);
 

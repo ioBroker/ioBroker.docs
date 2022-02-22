@@ -183,6 +183,8 @@ https://github.com/elParaguayo/LMS-CLI-Documentation/blob/master/LMS-CLI.md
 
 ## Changelog
 
+### 1.3.10
+* getalbumartist as artist if setting of TPE2/TPE3 in LMS are changed"
 ### 1.3.9
 * fix error with deleting favorites
 * fix wrong type for datapoint
