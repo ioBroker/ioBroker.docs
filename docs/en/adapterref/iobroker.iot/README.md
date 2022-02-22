@@ -268,6 +268,13 @@ Following types are supported:
 -->
 
 ## Changelog
+### 1.9.7 (2022-02-20)
+* (Apollon77) Fix crash case reported by Sentry (IOBROKER-IOT-3C)
+
+### 1.9.6 (2022-02-19)
+* (Apollon77) Make sure to not remember the off value when using stored values for on
+* (Apollon77) Fix crash case reported by Sentry (IOBROKER-IOT-3A)
+
 ### 1.9.5 (2022-02-08)
 * (bluefox) Fixed Google home error with color control
 

@@ -1,6 +1,6 @@
 {
   "name": "iobroker.huum-sauna",
-  "version": "0.3.0",
+  "version": "0.3.6",
   "description": "HUUM Sauna Steuerung",
   "author": "Chris <besterquester@live.at>",
   "homepage": "https://github.com/Chris-1965/ioBroker.huum-sauna",
@@ -19,8 +19,9 @@
     "suncalc2": "^1.8.1"
   },
   "devDependencies": {
-    "@alcalzone/release-script": "^2.2.2",
-    "@iobroker/testing": "^2.5.2",
+    "@alcalzone/release-script": "^3.5.2",
+    "@alcalzone/release-script-plugin-iobroker": "^3.5.1",
+    "@iobroker/testing": "^2.5.4",
     "@types/chai": "^4.3.0",
     "@types/chai-as-promised": "^7.1.4",
     "@types/gulp": "^4.0.9",
@@ -29,7 +30,6 @@
     "@types/proxyquire": "^1.3.28",
     "@types/sinon": "^10.0.6",
     "@types/sinon-chai": "^3.2.8",
-    "auto-changelog": "^2.3.0",
     "axios": "^0.25.0",
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
@@ -64,8 +64,8 @@
     "test": "npm run test:js && npm run test:package",
     "check": "tsc --noEmit -p tsconfig.check.json",
     "lint": "eslint",
-    "release": "release-script",
-    "version": "auto-changelog -p && git add CHANGELOG.md"
+    "release:patch": "release-script patch --addPlaceholder -p iobroker -nn -y",
+    "release:minor": "release-script minor --addPlaceholder -p iobroker -nn -y"
   },
   "resolutions": {
     "glob-parent": "^6.0.1"

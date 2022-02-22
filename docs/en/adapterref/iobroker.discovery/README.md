@@ -30,6 +30,7 @@ For more details and for information how to disable the error reporting see [Sen
 - deConz
 - Denon /Marantz
 - DoorBird
+- e3dc-rscp
 - ebus
 - ekey
 - energymanager (E.ON/Solarwatt)
@@ -77,6 +78,7 @@ For more details and for information how to disable the error reporting see [Sen
 - Nut
 - Onkyo
 - OpenHAB
+- OpenKNX
 - Ping
 - Plex
 - Proxmox
@@ -140,6 +142,10 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 2.8.0 (2022-02-20)
+* (boellner) add openknx
+* (git-kick) add e3dc-rscp
+
 ### 2.7.5 (2021-11-09)
 * (Apollon77) Fix kecontact detection (Sentry IOBROKER-DISCOVERY-3P)
 
@@ -328,7 +334,7 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2021, Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2022, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

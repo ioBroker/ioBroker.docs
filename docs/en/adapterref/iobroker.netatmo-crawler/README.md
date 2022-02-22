@@ -118,6 +118,8 @@ Many thanks to [backfisch](https://github.com/backfisch88) for the initial idea 
 
 
 ## Changelog
+### 0.8.0
+* (Bart19) Adds additional 'rain_lastHour' state as 'rain' state is now real time value
 ### 0.7.1
 * (Bart19) removed old news (#17)
 ### 0.7.0
