@@ -390,7 +390,7 @@ KeConnect is a registered trademark of KEBA AG.
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright 2021 UncleSamSwiss, Sneak-L8
+   Copyright 2021-2022 UncleSamSwiss, Sneak-L8
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

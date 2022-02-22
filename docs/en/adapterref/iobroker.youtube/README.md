@@ -42,45 +42,50 @@ To get an API-Key you have to go to [console.developers.google.com](https://cons
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.0.0 (2022-02-12)
+
+* (klein0r) Updated state roles
+* (klein0r) Added hint for Admin 4 configuration
+
 ### 2.0.4 (2021-12-23)
 
 * (klein0r) Translated all objects
 * (klein0r) Updated dependencies
 
-### 2.0.3
+### 2.0.3 (2021-11-07)
 
 * (klein0r) Fixed missing VIS widget
 
-### 2.0.1
+### 2.0.1 (2021-11-06)
 
 * (klein0r) Fixed missing translations
 
-### 2.0.0
+### 2.0.0 (2021-11-04)
 
 * (klein0r) Admin 5 Support
 
-### 1.1.1
+### 1.1.1 (2021-08-03)
 
 * (klein0r) Updated dependencies
 
-### 1.1.0
+### 1.1.0 (2021-05-03)
 
 * (klein0r) Encrypt sensitive information **(BREAKING CHANGE - RE-ENTER YOUR API KEY)**
 
-### 1.0.3
+### 1.0.3 (2021-02-06)
 
 * (klein0r) Remove forbidden chars from state
 * (klein0r) Fixed async object creation
 
-### 1.0.2
+### 1.0.2 (2021-01-22)
 
 * (klein0r) Delete unsed states
 
-### 1.0.1
+### 1.0.1 (2021-01-09)
 
 * (klein0r) Fixed trailing dot in channel error message
 
-### 1.0.0
+### 1.0.0 (2020-08-27)
 
 * (klein0r) First stable release
 

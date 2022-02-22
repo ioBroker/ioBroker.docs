@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: QgSorar90YOR3L8BE7JFLzk83P00C1JwBN96wkFsamA=
+hash: C/xUp7La1rBt/FRuF0vIgIpbpWzp4PULaWRI4/QY5Zg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -18,19 +18,20 @@ hash: QgSorar90YOR3L8BE7JFLzk83P00C1JwBN96wkFsamA=
 **Тесты:** ![Тестируйте и выпускайте](https://github.com/tp1de/ioBroker.ems-esp/workflows/Test%20and%20Release/badge.svg)
 
 ## Ems-esp и адаптер km200/IP-inside
-Адаптер поддерживает интерфейс с системами отопления Bosch Group с использованием шины EMS или EMS+.
+Адаптер поддерживает интерфейс к системам отопления Bosch Group с использованием шины EMS или EMS+.
 (Buderus/Junkers/Netfit и т.д.).
 
 Он может взаимодействовать с системой отопления с использованием вызовов Web-API в направлении:
 
-* км200, км100, км50 или IP-внутри (от Bosch Group)
-* Интерфейс ems-esp (https://github.com/emsesp/EMS-ESP32) с последней версией dev (см. ниже) и чипом ESP32. Старые шлюзы ESP8266 также частично поддерживаются.
+* км200, км200 грн, км100, км50 или ИП-внутри (от Bosch Group)
+* Интерфейс ems-esp (https://github.com/emsesp/EMS-ESP32) с последней версией dev (см. ниже) и чипом ESP32.
+* Старые шлюзы ESP8266 с API V2 поддерживаются и до этой версии.
 
 Адаптер ems-esp может считывать и записывать данные в шину ems, управляющую всеми компонентами системы отопления.
 Его можно использовать либо для исходных шлюзов Bosch-group, либо для ems-esp, либо для обоих параллельно.
 
-Адаптер протестирован для шлюза ems-esp с последними версиями прошивки ESP32 >= v3.3.0.
-Старые системы с ESP 8266 официально больше не поддерживаются, но могут работать.
+Адаптер протестирован для шлюза ems-esp с последними версиями прошивки ESP32 >= v3.3.1.
+Старые системы с ESP 8266 поддерживаются только до этой версии адаптера.
 
 ВАЖНЫЕ НАСТРОЙКИ в EMS-ESP:
 
@@ -39,11 +40,11 @@ hash: QgSorar90YOR3L8BE7JFLzk83P00C1JwBN96wkFsamA=
 * Должен быть включен параметр «Включить команды записи API» в ems-esp.
 * Должна быть установлена авторизация Bypass Access Token для вызовов API или должен быть введен токен.
 
-При установке флажка либо используется структура устройства типа km200 для полей данных ems-esp, либо сохраняется исходный вид устройства EMS-ESP: котел, термостат, смеситель и т. д. При параллельном использовании шлюза km200 рекомендуется использовать данные km200. структура. Тогда все объекты/состояния находятся в одном и том же месте в структуре объектов ioBroker.
+При установке флажка либо используется структура устройства типа km200 для полей данных ems-esp, либо сохраняется исходный вид устройства EMS-ESP: котел, термостат, смеситель и т. д. При параллельном использовании шлюза km200 рекомендуется использовать данные km200. структура. Тогда все объекты/состояния находятся в одном и том же месте в структуре объекта ioBroker.
 
 В отличие от адаптера km200, используемые поля могут быть определены в соответствующем csv-файле в параметрах экземпляра адаптера. Для запуска 1-го адаптера рекомендуется использовать «*», поэтому выберите все поля данных km200. Затем адаптер создает файл km200.csv в каталоге ../iobroker-data/ems-esp/{instance}. Этот файл можно использовать для следующего запуска экземпляра адаптера. Ненужные строки (поля) можно удалить, чтобы уменьшить количество считываемых полей km200. (Сделать копию)
 
-Этот адаптер считывает значения after start из ems-esp и km200 с помощью HTTP-запросов на получение и способен подписываться на изменения состояния и отправлять соответствующие команды http (post) обратно либо на оборудование ems-esp, либо на шлюз km200.
+Этот адаптер считывает значения after start из ems-esp и km200 с помощью http-запросов get и способен подписываться на изменения состояния и отправлять соответствующие http-команды (post) либо на аппаратное обеспечение ems-esp, либо на шлюз km200.
 
 * Опрос чтения EMS-ESP является параметром (стандартно 60 секунд) и не может быть установлен ниже 15 секунд.
 * Опрос KM200 также является параметром (стандартно 300 секунд), а минимальное значение, которое можно установить, составляет 90 секунд.
@@ -85,6 +86,32 @@ hash: QgSorar90YOR3L8BE7JFLzk83P00C1JwBN96wkFsamA=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2022-02-07)
+* last tested version for old ems-esp ESP8266 with API V2.
+* support for KM200 HRV (ventilation)
+* corrections for km200 recordings and statistics module
+* prepare for ems-esp firmware 3.4
+
+### 1.0.14 (2022-02-07)
+* adjust paths in io-package.json
+
+### 1.0.13 (2022-02-07)
+* last tested version for old ems-esp ESP8266 with API V2.
+* No support for future adapter versions anymore - please upgrade to ESP32.
+* support for KM200 HRV (ventilation)
+* corrections for km200 recordings and statistics module
+* prepare for ems-esp firmware 3.4
+
+### 1.0.12 (2022-02-06)
+* update statistics states
+
+### 1.0.11 (2022-02-01)
+* support for KM200 HRV (ventilation)
+* corrections on recordings for 1st day of month
+
+### 1.0.10 (2022-01-28)
+* Further adjustments for ems firmware 3.4 and error corrections 1.0.9
+
 ### 1.0.9 (2022-01-27)
 * New code to avoid mysql duplicate key errors
 * Further adjustments for ems firmware 3.4

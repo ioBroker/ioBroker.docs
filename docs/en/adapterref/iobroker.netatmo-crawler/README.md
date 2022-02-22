@@ -4,7 +4,7 @@
 [![NPM version](http://img.shields.io/npm/v/iobroker.netatmo-crawler.svg)](https://www.npmjs.com/package/iobroker.netatmo-crawler)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.netatmo-crawler.svg)](https://www.npmjs.com/package/iobroker.netatmo-crawler)
 ![Number of Installations (latest)](http://iobroker.live/badges/netatmo-crawler-installed.svg)
-<!-- ![Number of Installations (stable)](http://iobroker.live/badges/netatmo-crawler-stable.svg) -->
+![Stable Version](http://iobroker.live/badges/netatmo-crawler-stable.svg)
 [![Dependency Status](https://img.shields.io/david/Bart1909/iobroker.netatmo-crawler.svg)](https://david-dm.org/Bart1909/iobroker.netatmo-crawler)
 [![Known Vulnerabilities](https://snyk.io/test/github/Bart1909/ioBroker.netatmo-crawler/badge.svg)](https://snyk.io/test/github/Bart1909/ioBroker.netatmo-crawler)
 [![Build Status](https://travis-ci.org/Bart1909/ioBroker.netatmo-crawler.svg?branch=master)](https://travis-ci.org/Bart1909/ioBroker.netatmo-crawler)
@@ -118,7 +118,18 @@ Many thanks to [backfisch](https://github.com/backfisch88) for the initial idea 
 
 
 ## Changelog
-
+### 0.8.0
+* (Bart19) Adds additional 'rain_lastHour' state as 'rain' state is now real time value
+### 0.7.1
+* (Bart19) removed old news (#17)
+### 0.7.0
+* (Bart19) saves states as read-only (#23)
+### 0.6.3
+* (Bart19) updates dependencies
+### 0.6.2
+* (Bart19) updates dependencies
+### 0.6.1
+* (Bart19) updates dependencies and changes some warnings to information level
 ### 0.6.0
 * (Xenon-s) saves states with acknowledgement (#23 & #26)
 * (Bart19) updates dependencies and documentation (#25 & #27)
@@ -182,7 +193,7 @@ Many thanks to [backfisch](https://github.com/backfisch88) for the initial idea 
 
 MIT License
 
-Copyright (c) 2020 Bart19 <webmaster@bart19.de>
+Copyright (c) 2022 Bart19 <webmaster@bart19.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -29,6 +29,9 @@ Only selected holidays count in the process.
 The adapter starts daily at midnight. Due to the nature of the subject, no higher frequency is required.
 
 ## Changelog
+### 1.1.1 (2022-02-01)
+* (alcalzone, pix) Dependencies updated
+ 
 ### 1.1.0 (2021-12-26)
 * (bluefox) Formatting
 * (bluefox) fixed error with the events in the next year
@@ -172,7 +175,7 @@ The adapter starts daily at midnight. Due to the nature of the subject, no highe
 
 ## License
 
-Copyright (c) 2021 pix
+Copyright (c) 2022 pix
 
 The MIT License (MIT)
 

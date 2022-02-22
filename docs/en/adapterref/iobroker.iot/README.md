@@ -268,6 +268,23 @@ Following types are supported:
 -->
 
 ## Changelog
+### 1.9.7 (2022-02-20)
+* (Apollon77) Fix crash case reported by Sentry (IOBROKER-IOT-3C)
+
+### 1.9.6 (2022-02-19)
+* (Apollon77) Make sure to not remember the off value when using stored values for on
+* (Apollon77) Fix crash case reported by Sentry (IOBROKER-IOT-3A)
+
+### 1.9.5 (2022-02-08)
+* (bluefox) Fixed Google home error with color control
+
+### 1.9.4 (2022-02-08)
+* (bluefox) Fixed error with the certificates fetching
+
+### 1.9.3 (2022-02-03)
+* (bluefox) Removed deprecated package `request`
+* (bluefox) Refactoring and better error handling
+
 ### 1.9.2 (2022-01-26)
 * (bluefox) Added experimental support for remote access
 

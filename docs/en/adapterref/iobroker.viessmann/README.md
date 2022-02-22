@@ -78,6 +78,9 @@ mit dem gewünschten *get* Wert beschrieben werden.
 
 ### Changelog
 
+#### 1.3.5 (08.02.2022)
+* (misanorot) fixed ack issues
+
 #### 1.3.4 (04.05.2021)
 * (misanorot) fixed ack issues
 
@@ -140,4 +143,4 @@ mit dem gewünschten *get* Wert beschrieben werden.
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2021 misanorot <audi16v@gmx.de>
+Copyright (c) 2017-2022 misanorot <audi16v@gmx.de>

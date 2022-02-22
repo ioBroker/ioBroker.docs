@@ -430,7 +430,7 @@ class Markdown extends Router {
                         this.onNavigate(null, href);
                     }
                 }
-            }} title={link}>{text}</a>;
+            }} title={link} href=".">{text}</a>;
 
         /*
         if (reactObj && (reactObj.type === 'h1' || reactObj.type === 'h2' || reactObj.type === 'h3' || reactObj.type === 'h3')) {

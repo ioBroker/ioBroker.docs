@@ -1,52 +1,35 @@
 ---
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.birthdays/README.md
-title: ioBroker.geburtstage
-hash: kCfQvkZ4tMuXCDMcKFXfsCYUe7J1yG0ieoLT3iWNa3I=
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.birthdays.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.birthdays.svg
+BADGE-Stable: http://iobroker.live/badges/birthdays-stable.svg
+BADGE-installed: http://iobroker.live/badges/birthdays-installed.svg
+BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.birthdays.svg
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.birthdays/badge.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.birthdays.png?downloads=true
 ---
-![Logo](../../../en/adapterref/iobroker.birthdays/admin/birthdays.png)
+![Logo](../../admin/birthdays.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.birthdays.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.birthdays.svg)
-![Stabil](http://iobroker.live/badges/birthdays-stable.svg)
-![Eingerichtet](http://iobroker.live/badges/birthdays-installed.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/klein0r/iobroker.birthdays.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/klein0r/ioBroker.birthdays/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.birthdays.png?downloads=true)
+# ioBroker.birthdays
 
-#ioBroker.geburtstage
-![Testen und freigeben](https://github.com/klein0r/ioBroker.birthdays/workflows/Test%20and%20Release/badge.svg)
+## iCal
 
-Verwenden Sie eine ical-Datei, um die Geburtstage Ihrer Kontakte zu importieren oder definieren Sie die Geburtstagsdaten direkt in den Adaptereinstellungen
+Du kannst eine iCal-URL nutzen, welche alle Geburtstage enthält. Der Adapter sucht nach allen Terminen in dieser Datei.
 
-## Gefördert durch
-[![ioBroker Master Kurs](https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-birthdays)
+Deine Termine
 
-## Installation
-Bitte verwenden Sie die "Adapterliste" in ioBroker, um eine stabile Version dieses Adapters zu installieren. Sie können diesen Adapter auch über die CLI installieren:
+1. müssen das Geburtsjahr in der Beschreibung enthalten (z.B. 1987)
+2. sind ganztäging
+3. stehen auf "jährlich wiederholen"
 
-```
-iobroker add birthdays
-```
+Es ist NICHT zwingend erforderlich die iCal-Option zu nutzen. Du kannst alternativ auch alle Geburtstage manuell in der Instanz eintragen. *Falls Du beide Optionen nutzt, werden die Informationen zusammengeführt.*
 
-## Aufbau
-Sie können eine ical-URL verwenden, um Zugriff auf Ihren Geburtstagskalender zu gewähren. Der Adapter sucht nach allen Ereignissen in dieser Datei.
+![Calendar example](../exampleCalendar.png)
 
-Ihre Veranstaltungen
+## Beispiel (Blockly)
 
-1. muss das Geburtsjahr in der Beschreibung enthalten (z.B. 1987)
-2. sind ganztägige Veranstaltungen
-3. müssen "jährlich wiederholt" werden
+(erfordert pushover)
 
-Es ist NICHT erforderlich, die Option ical zu verwenden. Sie können auch alle Geburtstagsdaten in den Einstellungen definieren. *Wenn Sie beide Optionen verwenden, werden die Informationen zusammengeführt.*
-
-![Kalenderbeispiel](../../../en/adapterref/iobroker.birthdays/images/exampleCalendar.png)
-
-## Beispiel (Blockweise)
-(erfordert Pushover)
-
-![Blockiges Beispiel](../../../en/adapterref/iobroker.birthdays/images/exampleBlockly.png)
+![Blockly example](../exampleBlockly.png)
 
 ```xml
 <xml xmlns="https://developers.google.com/blockly/xml">
@@ -213,15 +196,28 @@ Es ist NICHT erforderlich, die Option ical zu verwenden. Sie können auch alle G
 </xml>
 ```
 
-## Credits
-[Logo von herbanu](https://pixabay.com/de/vectors/geburtstag-karte-cele-feier-design-3148707/)
-
 ## Changelog
 
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2022-02-10)
+
+* (klein0r) Updated state roles
+* (klein0r) Added hint for Admin 4 configuration
+* (klein0r) Fixed translations
+
+### 0.2.0 (2022-01-06)
+
+* (klein0r) Added option to ignore certificate errors
+
+### 0.1.8 (2022-01-03)
+
+* (klein0r) Birthdays on 29th of February create NaN objects
+* (klein0r) Added check for empty names
+* (klein0r) Added date checks
+
 ### 0.1.7 (2021-12-23)
 
 * (klein0r) Added defaults for birthdays table
@@ -272,7 +268,7 @@ Es ist NICHT erforderlich, die Option ical zu verwenden. Sie können auch alle G
 
 The MIT License (MIT)
 
-Copyright (c) 2021 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

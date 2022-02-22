@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.discovery/README.md
 title: ioBroker Discover-Adapter
-hash: WSxh2vB/89J2wIGBvg02ZcDCRwhLMB1RkMUg9R4NfCc=
+hash: kfH6c2xUP7RvRNl3MkU8uPffTH3wicEvCLo1bCRzge0=
 ---
 ![Logo](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
@@ -15,55 +15,56 @@ hash: WSxh2vB/89J2wIGBvg02ZcDCRwhLMB1RkMUg9R4NfCc=
 ![Testen und freigeben](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) **Geräte mit allen bekannten Methoden erkennen.**
 
 Dies ist ein spezieller Adapter, der versucht, alle möglichen Geräte zu finden, die vom Host aus erreichbar sind.
-Gerade jetzt kann es per Ping erkennen, UPnP (seriell geplant).
+Kann gerade jetzt per Ping, UPnP (seriell geplant) erkennen.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
-##Wird unterstützt
+## Wird tatsächlich unterstützt
 ### Automatisch erkannt
 - Beckhoff-SPS
-- Bosch Smart Home
-- Bose Soundtouch
+- Bosch-Smart-Home
+- Bose-Soundtouch
 - Broadlink
 - BSBLan
 - Chromecast
-- Daikin-Klimaautomatik
+- Daikin-Klimasteuerung
 - deConz
-- Denon /Marantz
+- Denon/Marantz
 - Türvogel
-- ebus
--ekey
+- e3dc-rscp
+- Ebus
+- ekey
 - Energiemanager (E.ON/Solarwatt)
--enet (Jung)
+- enet (Jung)
 - Epson Eingabestift PX830
 - Fakeroku (Harmonie)
-- FHEM
+-FHEM
 - FireTV
-- Fritzdect
+- Fritzdekt
 - Fronius
 - G-Homa-Stecker
 - Harmonie
-- Heos
+- Hey
 - Heimassistent
-- Homematic-CCU (hm-rpc, hm-rega)
-- Homepilot
+- Homematic CCU (hm-rpc, hm-rega)
+- Heimpilot
 - HP-lio
-- Philips HUE
-- Plex
+-Philips HUE
+-Plex
 - InfluxDB
 - KLF-200
 - KNX (tatsächlich deaktiviert)
 - Keba KeContact P30
-- Kodi
+-Kodi
 - Landroid
-- LGTV
-- Beleuchten
+-LGTV
+- Aufhellen
 - Loxone
-- Lupusec
-- MAX! Würfel
-- McLighting
+- Lupusek
+- Max! Würfel
+-McLighting
 - MegaD
-- Miele
+-Miele
 - Miele Cloud-Service
 - Mi Home Smarthome
 - Mikrotik
@@ -72,20 +73,21 @@ Gerade jetzt kann es per Ping erkennen, UPnP (seriell geplant).
 - Musiksendung
 - myDlink
 - Mysensors USB/Seriell (9600, 38400, 57600, 115200)
-- Nanoleaf Light Panels / Canvas
-- Netztools
-- Nuki2
+- Nanoleaf Light Panels / Leinwand
+- Net-Tools
+-Nuki2
 - Nuss
-- Onkyo
+-Onkyo
 - OpenHAB
+- OpenKNX
 - Ping
-- Plex
+-Plex
 - Proxmox
-- RFLink (Seriell 57600 Baud)
+- RFLink (Seriennummer 57600 Baud)
 - SamsungTV
 - Smappee
 - Solarlog
-- Sonnen
+- Sonne
 - Sonos
 - Stiebel-Eltron/Tecalor ISG (plus)
 - SQL (MySQL, MSSQL, PostgreSQL)
@@ -94,17 +96,17 @@ Gerade jetzt kann es per Ping erkennen, UPnP (seriell geplant).
 - Synologie
 - TR-064
 - Trådfri
-- UPnP
+-UPnP
 - ValloxMV
-- WLAN-Licht
-- Yamaha
+- Wifilight
+- Jamaika
 - Yeelight
-- Z-Wave-USB (getestet mit Aeon Labs)
+- Z-wave USB (getestet mit Aeon Labs)
 
-### Wird als zusätzliche Adapter angeboten
+### Wird als zusätzlicher Adapter angeboten
 - Wolke
-- Verlauf (wenn kein SQL oder InfluxDB gefunden wurde)
-- IoT
+- Historie (falls kein SQL oder InfluxDB gefunden)
+- Internet der Dinge
 - eCharts (wird angeboten, wenn ein History-Adapter vorhanden ist)
 - JavaScript
 - Die Info
@@ -112,35 +114,39 @@ Gerade jetzt kann es per Ping erkennen, UPnP (seriell geplant).
 - Netz
 
 ## Wenn der Adapter keine IPs finden kann ...
-Der Adapter pingt das Netzwerk der IP des aktuellen Hosts (x.y.z.1..255). Darüber hinaus werden UPnP und mDNS verwendet, um IPs zu erkennen.
+Der Adapter pingt das Netzwerk der IP des aktuellen Hosts (x.y.z.1..255). Zusätzlich werden UPnP und mDNS verwendet, um IPs zu erkennen.
 
-Wenn nicht alle IPs gefunden werden, prüfen Sie bitte, ob der iobroker-Benutzer `/bin/ping` ausführen kann.
+Wenn nicht alle IPs gefunden werden, überprüfen Sie bitte, ob der iobroker-Benutzer `/bin/ping` ausführen kann.
 Sie können `sudo setcap cap_net_raw+p /bin/ping` ausführen, um fehlende Fähigkeiten/Berechtigungen hinzuzufügen.
 
 ## Machen
 - artnet? (Blauer Fuchs)
 - B-Control-Em? (Blauer Fuchs)
 - cul / maxcul (Bluefox)
-- Foobar200 (Installationsgerät)
+- Foobar200 (Installateur)
 - fritzbox (ruhr70)
-- km200 (Frankwitz)
+- km200 (Frankjoke)
 - megaesp (ausHaus)
 - Modbus (Bluefox)
-- mqtt/mqtt-Client (Bluefox)
+- mqtt/mqtt-client (Bluefox)
 - owfs (Bluefox)
 - rpi2 (wenn ioBroker auf Raspberry läuft)
 - rwe-smarthome (PArns)
 - s7 (Bluefox)
 - Smartmeter (Apollon77)
 - unifi (jens-maus)
-- Wolf (lächelnder Jack)
-- xs1 (Frankwitz)
+- Wolf (lächelnder Bube)
+- xs1 (Frankjoke)
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __ARBEITEN IN PROGRESS__ -->
+### __LAUFENDE ARBEIT__ -->
 
 ## Changelog
+### 2.8.0 (2022-02-20)
+* (boellner) add openknx
+* (git-kick) add e3dc-rscp
+
 ### 2.7.5 (2021-11-09)
 * (Apollon77) Fix kecontact detection (Sentry IOBROKER-DISCOVERY-3P)
 
@@ -329,7 +335,7 @@ Sie können `sudo setcap cap_net_raw+p /bin/ping` ausführen, um fehlende Fähig
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2021, Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2022, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

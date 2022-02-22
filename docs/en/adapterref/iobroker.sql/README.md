@@ -145,7 +145,7 @@ Structure:
 | ts     | BIGINT / INTEGER                           | Time in ms till epoch. Can be converted to time with "new Date(ts)" |
 | val    | REAL                                       | Value                                           |
  
-This table stores the values when the counter was exchanged and the value does not increased, but failed to zero or lower value. 
+This table stores the values when the counter was exchanged and the value does not increase, but failed to zero or lower value. 
 
 ### Strings
 Values for states with type "string".
@@ -267,7 +267,7 @@ sendTo('sql.0', 'deleteAll', [
 ], result => console.log('deleted'));
 ``` 
 
-To delete history data for some data point and for some range execute:
+To delete history data for some data point and for some range, execute:
 
 ```
 sendTo('sql.0', 'deleteRange', [
@@ -292,7 +292,7 @@ sendTo('sql.0', 'update', [
 
 `ts` is mandatory. At least one other flags must be included in state object.
 
-Be careful with `counters`. The `counters` in DB will not be reset and you must handle it yourself. 
+Be careful with `counters`. The `counters` in DB will not be reset, and you must handle it yourself. 
 
 ## Get history
 Additional to custom queries, you can use build in system function **getHistory**:
@@ -420,6 +420,9 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
+### 1.16.2 (2022-02-16)
+* (bluefox) Marked interpolated data with `i=true`
+
 ### 1.16.1 (2021-12-19)
 * (Excodibur) Hide settings not relevant when "log changes only" is not used
 * (Apollon77) Allow all number values for debounce again
@@ -682,7 +685,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2021 bluefox <dogafox@gmail.com>, Apollon77
+Copyright (c) 2015-2022 bluefox <dogafox@gmail.com>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

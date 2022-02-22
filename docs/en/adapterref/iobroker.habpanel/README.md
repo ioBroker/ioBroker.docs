@@ -12,11 +12,11 @@ It notably features an embedded dashboard designer allowing to build interfaces 
 
 ## Installation
 **Important!**
-This adapter cannot be installed directly from github. Only from npm.
+This adapter cannot be installed directly from GitHub. Only from npm.
 
 ## Getting started
 
-- When accessing HABPanel for the first time on a new browser or device, you should be presented with a rather empty screen - follow the tutorial and begin by clicking (or tapping) on the top-right corner icon.
+- When accessing HABPanel for the first time on a new browser or device, you should be presented with a rather empty screen - follow the tutorial and begin by clicking (or tapping) on the icon in top-right corner .
 - You're now in edit mode, a link (_"Add new dashboard"_) appeared, as well as an _"Advanced settings"_ link.
 - If you previously used HABPanel and stored some panel configurations on the server, go to _"Advanced settings"_ and click on your previous configuration - it will be instantly brought back. Or, create your first dashboard: click/tap on the _"Add new dashboard"_ link and give it a name.
 - Click/tap on the dashboard tile to enter the dashboard editor
@@ -44,10 +44,17 @@ This adapter cannot be installed directly from github. Only from npm.
 
 ![](doc/images/habpanel_screenshot6.png)
 
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
 
 ## Changelog
+### 0.5.0 (2022-02-16)
+* (jogibear9988) added on support for new websockets
+
 ### 0.4.3 (2020-08-22)
-* (bluefox) The compatibility to socket.io 3.0.13 provided 
+* (bluefox) The compatibility to socket.io 3.0.13 provided
 
 ### 0.4.1 (2020-02-10)
 * (Apollon77) compatibility to web 3.0
@@ -87,6 +94,6 @@ This adapter cannot be installed directly from github. Only from npm.
 * (bluefox) initial commit
 
 ## License
-Copyright 2017-2020 bluefox <dogafox@gmail.com>
+Copyright 2017-2022 bluefox <dogafox@gmail.com>
 
 Eclipse Public License

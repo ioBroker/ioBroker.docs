@@ -3,23 +3,23 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.eventlist/README.md
 title: ioBroker.eventlist
-hash: ywraCHe0HMT0583wHjYdV78lyHfLS1pss3mUMXaxF2w=
+hash: pMEjj/E/4LClSw8GSTCvaYfgt5JuNQxvWKqQv9loPTQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.eventlist/admin/eventlist.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.eventlist.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.eventlist.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.eventlist.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/eventlist-installed.svg)
+![Количество установок (последние)](http://iobroker.live/badges/eventlist-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/eventlist-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/bluefox/iobroker.eventlist.svg)
 ![Известные уязвимости](https://snyk.io/test/github/bluefox/ioBroker.eventlist/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.eventlist.png?downloads=true)
 
-# IoBroker.eventlist
+# IoBroker.список событий
 ## Адаптер Event-List для ioBroker
-Позволяет определить состояния, которые необходимо регистрировать в списке событий.
+Позволяет определить состояния, которые должны регистрироваться в списке событий.
 
-Список может быть показан в админке, веб, vis, сохранен как PDF, материал (еще не реализован).
+Список можно показать в админке, сети, визе, сохранить в формате PDF, материале (пока не реализовано).
 
 Кроме того, вы можете отправлять события через Telegram или WhatsApp.
 
@@ -29,41 +29,41 @@ hash: ywraCHe0HMT0583wHjYdV78lyHfLS1pss3mUMXaxF2w=
 
 ## Режим тревоги
 События могли генерироваться только в режиме тревоги.
-Режимом тревоги можно управлять с помощью переменной `eventlist.X.alarm`.
+Режим тревоги может управляться переменной `eventlist.X.alarm`.
 
-Кроме того, сообщения в мессенджеры могут быть отправлены, только если включен режим тревоги.
+Кроме того, сообщения в мессенджеры можно было отправлять только при включенном режиме тревоги.
 
-Пример использования:
+Вариант использования:
 
-- Например. датчик двери может отправлять сообщения, только если никого нет дома. В противном случае события об открытии дверей будут собираться только в списке событий.
+- напр. датчик двери может отправлять сообщения, только если никого нет дома. В противном случае события об открытии двери будут собираться только в списке событий.
 
 ## Возможные презентации
-### В Admin как вкладка
-Вы можете включить список событий на вкладке в админке.
+### В админке как вкладка
+Вы можете включить список событий как вкладку в админке.
 
 ### Интернет
-Список событий может отображаться под `http://<IP>:8082/eventlist/index.html`. (для экземпляров> 0: `http://<IP>:8082/eventlist/index.html?X`, где X - номер экземпляра)
+Список событий может отображаться в разделе `http://<IP>:8082/eventlist/index.html`. (для экземпляров > 0: `http://<IP>:8082/eventlist/index.html?X`, где X — номер экземпляра)
 
-### Виджет Vis
-Список событий может отображаться как виджет vis.
+### Виджет для просмотра
+Список событий может отображаться в виде виджета.
 
-### Создание PDF
-Есть возможность сгенерировать PDF-документ со всеми событиями.
+### Генерация PDF
+Есть возможность создать PDF документ со всеми событиями.
 
-Заголовок документа может состоять из даты создания, если вы поместите в него шаблон: `Event list on {{YYYY MM DD}}`.
+Название документа может состоять из даты создания, если в него поместить шаблон: `Event list on {{YYYY MM DD}}`.
 Точное описание формата времени можно найти здесь: https://momentjs.com/docs/#/displaying/format/
 
-Создание PDF-файла можно запустить, записав `true` в `eventlist.0.triggerPDF`.
+Генерацию PDF можно запустить, записав `true` в `eventlist.0.triggerPDF`.
 
-Доступ к файлу PDF можно получить через:
+Доступ к PDF-файлу можно получить через:
 
-- web: `http:// <IP>: 8082 / eventlist / eventlist / report.pdf` (для экземпляров> 0:` http: // <IP>: 8082 / eventlist / eventlist / report-X.pdf`, где X - номер экземпляра)
-- admin: `http:// <IP>: 8081 / files / eventlist / report.pdf` (для экземпляров> 0:` http: // <IP>: 8081 / files / eventlist / report-X.pdf`, где X - номер экземпляра)
+- Интернет: `http://<IP>:8082/eventlist/eventlist/report.pdf` (для экземпляров > 0: `http://<IP>:8082/eventlist/eventlist/report-X.pdf`, где X — номер экземпляра)
+- администратор: `http://<IP>:8081/files/eventlist/report.pdf` (для экземпляров > 0: `http://<IP>:8081/files/eventlist/report-X.pdf`, где X — номер экземпляра)
 
-** Значки не могут быть отображены в PDF. **
+**Значки не отображались в формате PDF.**
 
 ## Окно сообщения
-Пользователь может добавлять собственные события в список через javascript:
+Пользователь может добавлять пользовательские события в список через javascript:
 
 ```
 // add custom event to event list
@@ -83,7 +83,7 @@ setState('eventlist.0.insert', 'My custom text');
 setState('eventlist.0.insert', {event: 'My custom text %s', val: 5});
 ```
 
-Пользователь может запросить отформатированный список JSON для определенного идентификатора. Конечно, ID должен быть включен в `eventlist` раньше.
+Пользователь может запросить отформатированный список JSON для определенного идентификатора. Конечно, идентификатор должен быть включен в `eventlist` до этого.
 
 ```
 // add custom event to event list
@@ -125,31 +125,41 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 ## Шаблоны
 В текстах событий и в текстах состояний могут использоваться следующие шаблоны:
 
-- %s  - значение (`Состояние изменено на% s` =>` Состояние изменено на 5`),
--% u - unit (`Состояние изменено на %s % u` =>` Состояние изменено на 5% `),
--% n - имя (`% n изменено состояние на %s ` =>` Устройство A изменило состояние на 5`),
--% t - время (`Состояние изменено на% t` =>` Состояние изменено на сентябрь Пт, 16: 32: 00`),
--% r - относительное время (`Состояние изменилось состояние% r` =>` Состояние изменилось 5 секунд назад`),
--% d - продолжительность (`State was in previous state for% d` =>` State was in previous state for 5s`),
--% g - разница значений (`Состояние было изменено на% g%` => `Состояние было изменено на 1%`),
--% o - разница значений (`Состояние изменено значение с% o на%` => `Состояние было изменено на 1%`)
+- %s - значение (`Состояние изменено на %s` => `Состояние изменено на 5`),
+- %u - единица (`Состояние изменено на %s%u` => `Состояние изменено на 5%`),
+- %n - имя (`%n изменил состояние на %s` => `Устройство A изменило состояние на 5`),
+- %t - время (`Состояние изменено на %t` => `Состояние изменено сен пт, 16:32:00`),
+- %r - относительное время (`Состояние изменено %r` => `Состояние изменено 5 секунд назад`),
+- %d - продолжительность (`Состояние было в предыдущем состоянии в течение %d` => `Состояние было в предыдущем состоянии в течение 5 с`),
+- %g - разница значений (`Состояние было изменено на %g%` => `Состояние было изменено на 1%`),
+- %o - разница значений (`Состояние изменилось с %o на %` => `Состояние изменилось на 1%`)
 
 ## Использование нескольких экземпляров в сети
-Например. вы можете показать конкретный список, например 2, например `http://IP:8082/eventlist/index.htmlindex.html?2`.
+Например. вы можете показать конкретный список для экземпляра 2, например `http://IP:8082/eventlist/index.htmlindex.html?2`.
 
-Сгенерированный отчет будет сохранен, например, 0 в `eventlist/report.pdf`, но, например, 1 в `eventlist/report-1.pdf`.
+Сгенерированный отчет будет сохранен, например, под номером 0 в `eventlist/report.pdf` и, например, под номером 1 в `eventlist/report-1.pdf`.
 
-## Делать
-- Изменить исходные тексты в PDF на соответствующем языке
-- Множество предустановленных значков (минимум 100)
-- Виджет материалов
-- Отправлять сообщения в системный журнал (возможно, splunk) https://www.npmjs.com/package/splunk-logging
+## Сделать
+- Изменить начальные тексты в PDF на соответствующем языке
+- Множество предустановленных иконок (минимум 100)
+- Материальный виджет
+- Отправка сообщений в системный журнал (возможно, splunk) https://www.npmjs.com/package/splunk-logging
 
-<! - Заполнитель для следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
 
 ## Changelog
+### 0.5.4 (2022-02-14)
+* (bluefox) Corrected the image paths
+
+### 0.5.3 (2022-02-13)
+* (bluefox) Corrected the error with "changes only" option
+* (bluefox) Added possibility to use icons with custom events
+
+### 0.4.4 (2021-06-24)
+* (bluefox) Corrected the warning for js-controller 3.x
+
 ### 0.4.3 (2021-04-19)
 * (bluefox) Added the support of Admin5
 
@@ -168,22 +178,22 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 
 ### 0.2.8 (2020-10-14)
 * (bluefox) Corrected error in pdf settings  
-* (bluefox) Implemented the recalculation of the relative time every 10 seconds  
+* (bluefox) Implemented the recalculation of the relative time every 10 seconds
 
 ### 0.2.6 (2020-09-25)
-* (bluefox) Corrected error in pdf creation  
+* (bluefox) Corrected error in pdf creation
 
 ### 0.2.5 (2020-09-24)
-* (bluefox) Extended icon selector 
- 
+* (bluefox) Extended icon selector
+
 ### 0.2.1 (2020-09-21)
-* (bluefox) Vis-widget was corrected 
+* (bluefox) Vis-widget was corrected
 
 ### 0.1.3 (2020-09-15)
-* (bluefox) Implemented the alarm mode and messengers 
+* (bluefox) Implemented the alarm mode and messengers
 
 ### 0.0.3 (2020-09-08)
-* (bluefox) Objects with states are supported now 
+* (bluefox) Objects with states are supported now
 
 ### 0.0.2 (2020-09-07)
 * (bluefox) initial commit
@@ -194,7 +204,7 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 ## License
 MIT License
 
-Copyright (c) 2020 ioBroker <dogafox@gmail.com>
+Copyright (c) 2020-2022 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

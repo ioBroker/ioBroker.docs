@@ -323,6 +323,14 @@ ioBroker的官方适配器数量已经相当可观。 当然，网上还有更�
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+
+### 1.9.19 (2022-xx-xx)
+* (ldittmar) Fix audio, USB, bluetooth and printer view
+* (ldittmar) Translations fix
+
+### 1.9.18 (2022-02-01)
+* (Apollon77) Fix invalid object definition to prevent errors in js-controller 4
+
 ### 1.9.17 (2022-01-26)
 * (simatec) Design fix
 * (simatec) Update dependencies

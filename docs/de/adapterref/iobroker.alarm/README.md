@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alarm/README.md
 title: ioBroker.alarm
-hash: NwTEm+ngKMovQngTpclJO2as7MIXFvMIZAFX3TYdyAs=
+hash: 35YLzZGCcEvtRZxNdJtUJv+FJOfRzzS2HD5mbEVWV0w=
 ---
 ![Logo](../../../en/adapterref/iobroker.alarm/admin/alarm.png)
 
@@ -32,9 +32,8 @@ Er bietet die Möglichkeit 3 Sicherheitskreise zu konfigurieren und diese z. B. 
 Hier werden die Einstellungen wie die Zeiten der Nachtruhe, Sirenezeit, Stiller-Alarm und Passwort vorgenommen.
 
 - Aktivierzeit -> Zeitverzögerung bis zu Aktivierung wenn man einen delay Datenpunkt benutzt
-- Sirenenzeit bei Einbruch -> Bei Einbruch wird der Datenpunkt alarm.0.status.siren für die Zeit auf true gesetzt
+- Sirenenzeit bei Einbruch -> Bei Einbruch wird der Datenpunkt alarm.0.status.siren / siren_inside für die Zeit auf true gesetzt
 - Alarmverzögerung -> Verzögerungszeit bis Einbruch ausgelöst wird (während dieser Zeit wird der Stille Alarm ausgelöst)
-- Auslösezeit bei Warnungen/Sirene innen -> Bei Auslösung des Benachrichtigungskreises oder scharf innen Kreises, wird der jeweilige Datenpunkt für die Zeit auf true gesetzt
 
 ----------------------------------------------------------------------------------------------------------------------
 
@@ -138,6 +137,11 @@ Beinhaltet die Informationen für die "anderen" Alarmkreise 1 + 2.
 
 ## Changelog
 
+#### 3.0.3 (31.01.2022)
+* (misanorot) changed burgle concept, added silent alarm at sharp inside, fixed little issues
+
+#### 2.2.1 (20.01.2022)
+* (misanorot) added notification when warnings at beginning night rest
 
 #### 2.2.0 (16.01.2022)
 * (misanorot) added telegram special parameters

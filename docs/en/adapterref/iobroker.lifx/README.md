@@ -3,10 +3,8 @@
 
 ![Number of Installations](http://iobroker.live/badges/lifx-installed.svg) ![Number of Installations](http://iobroker.live/badges/lifx-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.lifx.svg)](https://www.npmjs.com/package/iobroker.lifx)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.lifx.svg)](https://www.npmjs.com/package/iobroker.lifx)
-[![Build Status](https://travis-ci.org/foxthefox/ioBroker.lifx.svg?branch=master)](https://travis-ci.org/foxthefox/ioBroker.lifx)
 
-
-[![NPM](https://nodei.co/npm/iobroker.lifx.png?downloads=true)](https://nodei.co/npm/iobroker.lifx/)
+**Tests:** ![Test and Release](https://github.com/foxthefox/ioBroker.lifx/workflows/Test%20and%20Release/badge.svg)
 
 Lifx adapter for ioBroker
 
@@ -63,7 +61,11 @@ npm install https://github.com/foxthefox/ioBroker.lifx/tarball/master --producti
 - values outside of range cause crash of adapter
 
 ## Changelog:
-### 0.2.1 x
+### 1.0.0
+* refactoring, change to class based structure of the adapter
+* gitub actions instead travis
+
+### 0.2.1
 - (Jarvis020) errorhandling improvements
 - (Jarvis020) fade time
 
@@ -101,4 +103,4 @@ npm install https://github.com/foxthefox/ioBroker.lifx/tarball/master --producti
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2021 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2016-2022 foxthefox <foxthefox@wysiwis.net>

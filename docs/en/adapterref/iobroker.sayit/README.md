@@ -16,7 +16,7 @@ SayIt Adapter can convert text to speech and play it on some device.
 ## Configuration
 Actual following outputs are supported:
 
-- *Browser* - the text will be played by browser with opened iobroker.vis page. It is supported almost by every desktop browser and by few mobily Browsers.
+- *Browser* - the text will be played by browser with opened `iobroker.vis` page. It is supported almost by every desktop browser and by few mobile Browsers.
 
 - *[Home24- MediaPlayer](http://www.home-24.net/index.php?app=media)* - the text will be sent and played to the Android device with Home24 - MediaPlayer installed. For this will be used build in Android text to speech engine. The port cannot be changed and set to 50000.
 
@@ -25,19 +25,19 @@ Actual following outputs are supported:
 
 - *System* - the text will be played by OS, where the ioBroker adapter runs. Following OS are supported: Windows, linux, Mac OSx.
 
-- *Windows engine* - the text will be played by windows, where the sayIt adapter runs. For this will be used windows text to speech engine, that should be preconfigured by user. You can check [here](http://windows.microsoft.com/en-us/windows/setting-speech-options#1TC=windows-7) how to setup it.
+- *Windows engine* - the text will be played by windows, where the sayIt adapter runs. For this will be used windows text to speech engine, that should be preconfigured by user. You can check [here](http://windows.microsoft.com/en-us/windows/setting-speech-options#1TC=windows-7) how to set up it.
 
 - *Sonos* - play text on sonos device. Be sure the Web Adapter is enabled. It is required to enable SONOS to read the generated mp3 files.
 
-- *Heos* - play text on heos device. Be sure the Web Adapter is enabled. It is required to enable HEOS to read the generated mp3 files.
+- *Heos* - play text on HEOS device. Be sure the Web Adapter is enabled. It is required to enable HEOS to read the generated mp3 files.
 
 - *Chromecast* - play text on Chromecast device.
 
 - *MPD* - play text on Music Player Daemon. Use only **http** for web adapter, don't use https.
 
-To enable the text to speech on RaspberryPI or linux system call one time following command ```sudo apt-get -y install mpg321``` to install mpg321.
+To enable the text to speech on RaspberryPI or linux system call one time following command `sudo apt-get -y install mpg321` to install mpg321.
 
-The mp3/wav files can be played to by writing its name into the object. (e.g. "/vis.0/main/img/door-bell.mp3")
+The mp3/wav files can be played to by writing its name into the object. (e.g. `/vis.0/main/img/door-bell.mp3`)
 
 The file must be first loaded.
 
@@ -56,17 +56,17 @@ online:
 
 offline:
 - PicoTTS (linux only): English, German, Italian, Spanish, French
-        For PicoTTS it is necessary to install the following packages: libttspico-utils and lame.
-        Installation command: 'sudo apt-get install libttspico-utils lame'
+        For PicoTTS it is necessary to install the following packages: `libttspico-utils` and lame.
+        Installation command: `sudo apt-get install libttspico-utils lame`
 
 ### Cloud and Amazon Web Services Polly text formatting
 You can format your text with [Speech Synthesis Markup Language](http://docs.aws.amazon.com/polly/latest/dg/ssml.html).
 
 Most useful features:
-- ```<break time="3s"/>```- make a pause for x seconds (max 10 seconds).
-- ```<emphasis> big </emphasis>``` - make an emphasis on some word.
-- ```<prosody volume="+6dB" rate="90%">I am speaking this</prosody>``` - control speed and volume parameters.
-- ```<say-as interpret-as="digits">12345</say-as>``` - say every digit separately.
+- `<break time="3s"/>`- make a pause for x seconds (max 10 seconds).
+- `<emphasis> big </emphasis>` - make an emphasis on some word.
+- `<prosody volume="+6dB" rate="90%">I am speaking this</prosody>` - control speed and volume parameters.
+- `<say-as interpret-as="digits">12345</say-as>` - say every digit separately.
 
 More [info](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/speech-synthesis-markup-language-ssml-reference).
 
@@ -75,7 +75,7 @@ If you have some program, that can play audio files locally or somewhere else, y
 
 ```myCustomPlayer --option```
 
-If **System** output is selected, the sayit adapter will execute following command on local system:
+If **System** output is selected, the `sayit` adapter will execute following command on local system:
 
 ```myCustomPlayer --option /opt/iobroker/node_modules/iobroker.sayit/say.mp3```
 
@@ -87,21 +87,21 @@ sayIt will make ```myCustomPlayer --option "/opt/iobroker/node_modules/iobroker.
 
 ## Usage
 SayIt adapter cannot be used alone. It must be controlled from javascript adapter or from "vis" with specific widget.
-After creation of adapter instance will can find following objects:
-- sayit.N.tts.text: Phrase to be spoken.
-- sayit.N.tts.volume: volume which will be used by playing of the phrase.
-- sayit.N.tts.playing: true if text is now playing and false if not. Supported only for "windows" and "system" play mode.
-- sayit.N.tts.cachetext: Phrase to be cached and then it can be used without internet.
-   E.g. you can enter here manually "No internet" and if ping to google.com is negative, write  "No internet" to "tts.text" and it will pronounced. Of course cache must be enabled.
+After creation of adapter instance you can find following objects:
+- `sayit.N.tts.text`: Phrase to be spoken.
+- `sayit.N.tts.volume`: volume which will be used by playing of the phrase.
+- `sayit.N.tts.playing`: true if text is now playing and false if not. Supported only for "windows" and "system" play mode.
+- `sayit.N.tts.cachetext`: Phrase to be cached, and then it can be used without internet.
+   E.g. you can enter here manually "No internet" and if ping to google.com is negative, write  "No internet" to "tts.text" and it will be pronounced. Of course cache must be enabled.
 
-State **tts.text** supports extended syntax, so the langugage/engine and volume can be defined together with text. It is used to enable multi-language text2speech engines.
-E.g. if adapter has engine "Google-english", it is possible with phrase ```de:Sag es``` to force to use Google-Deustch speech engine.
+State **tts.text** supports extended syntax, so the language/engine and volume can be defined together with text. It is used to enable multi-language text2speech engines.
+E.g. if adapter has engine "Google-english", it is possible with phrase ```de:Sag es``` to force using Google-Deutsch speech engine.
 
-With ```ru;75;Погода хорошая``` we can force to use russian language and volume 75%.
+With ```ru;75;Погода хорошая``` we can force using russian language and volume 75%.
 
-You can specify the volume of announcement in percent from current or given volume (not from maximal). E.g. if command is ```de;75;Gutes Wetter```and "announce volume" is 50%, the announce will be played with volume 38% from 100% possible.
+You can specify the volume of announcement in percent from current or given volume (not from maximal). E.g. if command is ```de;75;Gutes Wetter```and "announce volume" is 50%, the announcement will be played with volume 38% from 100% possible.
 
-The system command to play the mp3 file can be specified too. If you leave it blank, the default settings will be used: windows - cmdmp3.exe, OSX - /usr/bin/afplay, linux - mpg321 or omxplayer (recommended).
+The system command to play the mp3 file can be specified too. If you leave it blank, the default settings will be used: windows - `cmdmp3.exe`, OSX - `/usr/bin/afplay`, linux - `mpg321` or `omxplayer` (recommended).
 
 To install omxplayer write ```sudo apt-get install omxplayer``` or write ```sudo apt-get install mpg321``` to install mpg321.
 
@@ -256,8 +256,14 @@ Following values for engines are possible:
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 1.12.6 (2022-02-09)
+* (bluefox) used setForeignBinaryState if possible
+
+### 1.12.5 (2022-02-09)
+* (bluefox) Fixed errors in io-package.json
+
 ### 1.12.3 (2021-06-25)
-* (bluefox) corrected the google engine
+* (bluefox) corrected the Google engine
 * (bluefox) Added new voices: german, korean, brasil, Dutch
 
 ### 1.12.2 (2020-11-07)
@@ -479,7 +485,7 @@ Changed type of top-level object to "meta" in order to comply with js-controller
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2021, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

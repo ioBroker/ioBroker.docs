@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: yO9ZDtp6FL+u1N1OWFf7H/Z0PPR1+Qd0sC6ecQqS3kE=
+hash: DCF5AmF4X9Z+t37Ff0XTqogvrFR9L2WUru1+DJ5UxBA=
 ---
 ![标识](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
@@ -11,7 +11,7 @@ hash: yO9ZDtp6FL+u1N1OWFf7H/Z0PPR1+Qd0sC6ecQqS3kE=
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.sql.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.sql.svg)
 ![测试](https://travis-ci.org/ioBroker/ioBroker.sql.svg?branch=master)
-![新产品管理](https://nodei.co/npm/iobroker.sql.png?downloads=true)
+![新PM](https://nodei.co/npm/iobroker.sql.png?downloads=true)
 
 # IoBroker.sql
 此适配器将状态历史记录保存到 SQL DB 中。
@@ -19,16 +19,16 @@ hash: yO9ZDtp6FL+u1N1OWFf7H/Z0PPR1+Qd0sC6ecQqS3kE=
 支持 PostgreSQL、mysql、Microsoft SQL Server 和 sqlite。
 如果需要默认端口，您可以保留端口 0。
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ### MS-SQL：
-对主机使用 ```localhost\instance``` 并检查启用的 TCP/IP 连接。
+使用 ```localhost\instance``` 作为主机并检查 TCP/IP 连接是否启用。
 https://msdn.microsoft.com/en-us/library/bb909712(v=vs.90).aspx
 
 ### SQLite：
-是“文件”-DB，无法管理太多事件。如果您有大量数据，请使用真正的数据库，例如 PostgreSQL 和 co。
+是“文件”-DB，无法管理太多事件。如果您有大量数据，请使用真实数据库，例如 PostgreSQL 和 co。
 
-不得额外安装 SQLite DB。它只是磁盘上的一个文件，但要安装它，您需要在系统上使用构建工具。对于 linux，只需写：
+不得额外安装 SQLite DB。它只是磁盘上的一个文件，但要安装它，您需要系统上的构建工具。对于 linux，只需编写：
 
 ```
 sudo apt-get install build-essential
@@ -62,23 +62,23 @@ GRANT ALL PRIVILEGES ON * . * TO 'iobroker'@'%';
 FLUSH PRIVILEGES;
 ```
 
-如果需要，编辑 */etc/mysql/my.cnf* 以设置绑定到远程连接的 IP 地址。
+如果需要，编辑 */etc/mysql/my.cnf* 以将绑定设置为远程连接的 IP 地址。
 
-**警告**：iobroker 用户是“admin”。如果需要，向 iobroker 用户授予有限的权限。
+**警告**：iobroker 用户是“管理员”。如果需要，为 iobroker 用户提供有限的权限。
 
 在“windows”上，它可以通过安装程序轻松安装：https://dev.mysql.com/downloads/installer/。
 
-注意认证方式。 `node.js` 尚不支持 MySQL 8.0 中的新加密算法，您必须选择旧的身份验证方法。
+注意认证方法。 `node.js`尚不支持 MySQL 8.0 中的新加密算法，您必须选择旧式身份验证方法。
 
 ![视窗](../../../en/adapterref/iobroker.sql/img/WindowsMySQLinstaller.png)
 
 ## 数据库的结构
 默认数据库名称为“iobroker”，但可以在配置中更改。
 
-### Sources 此表是写入条目的适配器实例列表。 (state.from)
+### Sources 此表是适配器实例的列表，用于编写条目。 （状态。来自）
 |数据库 |查询中的名称 |
 |------------|----------------------|
-| MS-SQL | iobroker.dbo.sources |
+|微软 SQL | iobroker.dbo.sources |
 | MySQL | iobroker.sources |
 | PostgreSQL |来源 |
 | SQLite |来源 |
@@ -87,17 +87,17 @@ FLUSH PRIVILEGES;
 
 |领域 |类型 |说明 |
 |-------|--------------------------------------------|-------------------------------------------|
-|身份证 |整数非空主键标识(1,1) |唯一标识 |
-|姓名 | varchar(255) / 文本 |写入条目的适配器实例 |
+|编号 | INTEGER NOT NULL PRIMARY KEY IDENTITY(1,1) |唯一标识 |
+|姓名 | varchar(255) / 文本 |适配器的实例，它写了条目 |
 
-*注：* MS-SQL 使用 varchar(255)，其他使用 TEXT
+*注意：* MS-SQL 使用 varchar(255)，其他使用 TEXT
 
 ＃＃＃ 数据点
-此表是数据点列表。 (ID)
+此表是数据点列表。 （ID）
 
 |数据库 |查询中的名称 |
 |------------|-------------------------|
-| MS-SQL | iobroker.dbo.datapoints |
+|微软 SQL | iobroker.dbo.datapoints |
 | MySQL | iobroker.datapoints |
 | PostgreSQL |数据点 |
 | SQLite |数据点 |
@@ -106,18 +106,18 @@ FLUSH PRIVILEGES;
 
 |领域 |类型 |说明 |
 |-------|--------------------------------------------|-------------------------------------------------|
-|身份证 |整数非空主键标识(1,1) |唯一标识 |
+|编号 | INTEGER NOT NULL PRIMARY KEY IDENTITY(1,1) |唯一标识 |
 |姓名 | varchar(255) / 文本 |变量的 ID，例如hm-rpc.0.JEQ283747.1.STATE |
 |类型 |整数 | 0 - 数字，1 - 字符串，2 - 布尔值 |
 
-*注：* MS-SQL 使用 varchar(255)，其他使用 TEXT
+*注意：* MS-SQL 使用 varchar(255)，其他使用 TEXT
 
 ### 数字
-类型为“number”的状态的值。 **ts** 表示“时间序列”。
+具有“数字”类型的状态的值。 **ts** 表示“时间序列”。
 
 |数据库 |查询中的名称 |
 |------------|-------------------------|
-| MS-SQL | iobroker.dbo.ts_number |
+|微软 SQL | iobroker.dbo.ts_number |
 | MySQL | iobroker.ts_number |
 | PostgreSQL | ts_number |
 | SQLite | ts_number |
@@ -126,20 +126,20 @@ FLUSH PRIVILEGES;
 
 |领域 |类型 |说明 |
 |--------|--------------------------------------------|-------------------------------------------------|
-|身份证 |整数 | “数据点”表中的状态 ID |
-| ts |大整数/整数 |到纪元的时间（以毫秒为单位）。可以使用“new Date(ts)”转换为时间 |
-|瓦尔 |真实 |价值 |
-|确认 |位/布尔 |被确认：0 - 不确认，1 - 确认 |
+|编号 |整数 | “数据点”表中的状态 ID |
+| ts |大整数/整数 |以毫秒为单位的时间，直到纪元。可以使用“new Date(ts)”转换为时间 |
+|值 |真实 |价值 |
+|确认 |位/布尔值 |已确认：0 - 未确认，1 - 确认 |
 | _来自 |整数 | “来源”表中的来源 ID |
-| q |整数 |质量如数字。您可以找到说明 [这里](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
+|问 |整数 |质量如数。您可以找到描述[这里](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
-*注：* MS-SQL 使用 BIT，其他使用 BOOLEAN。 SQLite 用于 ts INTEGER 和所有其他 BIGINT。
+*注意：* MS-SQL 使用 BIT，其他使用 BOOLEAN。 SQLite 用于 ts INTEGER 和所有其他 BIGINT。
 
-用户可以定义额外的类型`number`“计数器”的功能。为此，创建了下表：
+用户可以定义附加类型`number`“计数器”的功能。为此，创建了下表：
 
 |数据库 |查询中的名称 |
 |------------|-------------------------|
-| MS-SQL | iobroker.dbo.ts_counter |
+|微软 SQL | iobroker.dbo.ts_counter |
 | MySQL | iobroker.ts_counter |
 | PostgreSQL | ts_counter |
 | SQLite | ts_counter |
@@ -148,18 +148,18 @@ FLUSH PRIVILEGES;
 
 |领域 |类型 |说明 |
 |--------|--------------------------------------------|-------------------------------------------------|
-|身份证 |整数 | “数据点”表中的状态 ID |
-| ts |大整数/整数 |到纪元的时间（以毫秒为单位）。可以使用“new Date(ts)”转换为时间 |
-|瓦尔 |真实 |价值 |
+|编号 |整数 | “数据点”表中的状态 ID |
+| ts |大整数/整数 |以毫秒为单位的时间，直到纪元。可以使用“new Date(ts)”转换为时间 |
+|值 |真实 |价值 |
 
-该表存储了当计数器被交换并且该值不增加但未能为零或更低值时的值。
+此表存储计数器交换时的值，并且该值没有增加，但未能为零或更低的值。
 
 ### 字符串
-类型为“字符串”的状态的值。
+“字符串”类型的状态值。
 
 |数据库 |查询中的名称 |
 |------------|-------------------------|
-| MS-SQL | iobroker.dbo.ts_string |
+|微软 SQL | iobroker.dbo.ts_string |
 | MySQL | iobroker.ts_string |
 | PostgreSQL | ts_string |
 | SQLite | ts_string |
@@ -168,21 +168,21 @@ FLUSH PRIVILEGES;
 
 |领域 |类型 |说明 |
 |--------|--------------------------------------------|-------------------------------------------------|
-|身份证 |整数 | “数据点”表中的状态 ID |
-| ts | BIGINT |到纪元的时间（以毫秒为单位）。可以使用“new Date(ts)”转换为时间 |
-|瓦尔 |正文 |价值 |
-|确认 |位/布尔 |被确认：0 - 不确认，1 - 确认 |
+|编号 |整数 | “数据点”表中的状态 ID |
+| ts |大数据 |以毫秒为单位的时间，直到纪元。可以使用“new Date(ts)”转换为时间 |
+|值 |正文 |价值 |
+|确认 |位/布尔值 |已确认：0 - 未确认，1 - 确认 |
 | _来自 |整数 | “来源”表中的来源 ID |
-| q |整数 |质量如数字。您可以找到说明 [这里](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
+|问 |整数 |质量如数。您可以找到描述[这里](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
-*注：* MS-SQL 使用 BIT，其他使用 BOOLEAN。 SQLite 用于 ts INTEGER 和所有其他 BIGINT。
+*注意：* MS-SQL 使用 BIT，其他使用 BOOLEAN。 SQLite 用于 ts INTEGER 和所有其他 BIGINT。
 
 ### 布尔值
-类型为“boolean”的状态的值。
+具有“布尔”类型的状态的值。
 
 |数据库 |查询中的名称 |
 |------------|-------------------------|
-| MS-SQL | iobroker.dbo.ts_bool |
+|微软 SQL | iobroker.dbo.ts_bool |
 | MySQL | iobroker.ts_bool |
 | PostgreSQL | ts_bool |
 | SQLite | ts_bool |
@@ -191,14 +191,14 @@ FLUSH PRIVILEGES;
 
 |领域 |类型 |说明 |
 |--------|--------------------------------------------|-------------------------------------------------|
-|身份证 |整数 | “数据点”表中的状态 ID |
-| ts | BIGINT |到纪元的时间（以毫秒为单位）。可以使用“new Date(ts)”转换为时间 |
-|瓦尔 |位/布尔 |价值 |
-|确认 |位/布尔 |被确认：0 - 不确认，1 - 确认 |
+|编号 |整数 | “数据点”表中的状态 ID |
+| ts |大数据 |以毫秒为单位的时间，直到纪元。可以使用“new Date(ts)”转换为时间 |
+|值 |位/布尔值 |价值 |
+|确认 |位/布尔值 |已确认：0 - 未确认，1 - 确认 |
 | _来自 |整数 | “来源”表中的来源 ID |
-| q |整数 |质量如数字。您可以找到说明 [这里](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
+|问 |整数 |质量如数。您可以找到描述[这里](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
-*注：* MS-SQL 使用 BIT，其他使用 BOOLEAN。 SQLite 用于 ts INTEGER 和所有其他 BIGINT。
+*注意：* MS-SQL 使用 BIT，其他使用 BOOLEAN。 SQLite 用于 ts INTEGER 和所有其他 BIGINT。
 
 ## 自定义查询
 用户可以从 javascript 适配器对表执行自定义查询：
@@ -214,7 +214,7 @@ sendTo('sql.0', 'query', 'SELECT * FROM datapoints', function (result) {
 });
 ```
 
-或者获取 ID=system.adapter.admin.0.memRss 的最后一小时的条目
+或获取 ID=system.adapter.admin.0.memRss 的最后一小时的条目
 
 ```
 sendTo('sql.0', 'query', 'SELECT id FROM datapoints WHERE name="system.adapter.admin.0.memRss"', function (result) {
@@ -234,31 +234,31 @@ sendTo('sql.0', 'query', 'SELECT id FROM datapoints WHERE name="system.adapter.a
 
 *笔记：*
 
-根据数据库，必须在表名之前插入数据库名称或数据库名称 + 模式 - 请参阅上面“数据库结构”下的框。
+根据数据库，必须在表名之前插入数据库名称或数据库名称 + 架构 - 请参见上面“数据库结构”下的框。
 
 例如，如果您的数据库名为“iobroker”：
 
 |数据库 |查询中的名称 |
 |------------|------------------------------------------|
-| MS-SQL | SELECT * FROM iobroker.dbo.datapoints ...|
-| MySQL | SELECT * FROM iobroker.datapoints ... |
+|微软 SQL |选择 * FROM iobroker.dbo.datapoints ...|
+| MySQL |选择 * FROM iobroker.datapoints ... |
 
-## 商店状态
+## 存储状态
 如果您想将其他数据写入 InfluxDB/SQL，您可以使用内置系统函数 **storeState**。
-此函数还可用于转换来自其他 History 适配器（如 History 或 SQL）的数据。
+此函数还可用于转换来自其他历史适配器（如 History 或 SQL）的数据。
 
-给定的 ID 不会根据 ioBroker 数据库进行检查，也不需要在那里设置，但只能直接访问。
+给定的 ID 不会根据 ioBroker 数据库检查，也不需要在那里设置，但只能直接访问。
 
 消息可以具有以下三种格式之一：
 
 * 一个 ID 和一个状态对象：`{id: 'adapter.0.device.counter', state: {val: 1, ts: 10239499}}`
 * 一个 ID 和状态对象数组：`{id: 'adapter.0.device.counter', state: [{val: 1, ts: 10239499}, {val: 2, ts: 10239599}, {val: 3 , ts: 10239699}]}`
-* 具有状态对象的多个 ID 数组`[{id: 'adapter.0.device.counter1', state: {val: 1, ts: 10239499}, {id: 'adapter.0.device.counter2', state: {val: 2, ts: 10239599}]`
+* 具有状态对象的多个 ID 数组 `[{id: 'adapter.0.device.counter1', state: {val: 1, ts: 10239499}, {id: 'adapter.0.device.counter2', state: {val：2，ts：10239599}]`
 
-此外，您可以添加属性 `rules: true` 以激活所有规则，例如 `counter`、`changesOnly`、`de-bounce` 等等：`{id: 'adapter.0.device.counter', rules: true, state: [{val: 1, ts: 10239499}, {val: 2, ts: 10239599}, {val: 3, ts: 10239699}]}`
+此外，您可以添加属性`rules: true`来激活所有规则，如`counter`、`changesOnly`、`de-bounce`等：`{id: 'adapter.0.device.counter', rules: true, state: [{val: 1, ts: 10239499}, {val: 2, ts: 10239599}, {val: 3, ts: 10239699}]}`
 
-##删除状态
-如果你想从数据库中删除条目，你可以使用内置的系统函数**delete**：
+## 删除状态
+如果要从数据库中删除条目，可以使用内置系统函数 **delete**：
 
 ```
 sendTo('sql.0', 'delete', [
@@ -276,7 +276,7 @@ sendTo('sql.0', 'deleteAll', [
 ], result => console.log('deleted'));
 ```
 
-要删除某些数据点和某些范围的历史数据，请执行：
+要删除某个数据点和某个范围的历史数据，请执行：
 
 ```
 sendTo('sql.0', 'deleteRange', [
@@ -285,7 +285,7 @@ sendTo('sql.0', 'deleteRange', [
 ], result => console.log('deleted'));
 ```
 
-时间可以是自纪元或 ans 字符串以来的毫秒，可以由 javascript Date 对象转换。
+时间可以是自纪元以来的 ms 或 ans 字符串，可以通过 javascript Date 对象进行转换。
 
 值将被删除，包括定义的限制。 `ts >= start AND ts <= end`
 
@@ -299,12 +299,12 @@ sendTo('sql.0', 'update', [
 ], result => console.log('deleted'));
 ```
 
-`ts` 是强制性的。至少一个其他标志必须包含在状态对象中。
+`ts`是强制性的。状态对象中必须至少包含一个其他标志。
 
-小心 `counters`。 DB中的`counters`不会被重置，你必须自己处理。
+小心`counters`。 DB中的`counters`不会被重置，必须自己处理。
 
-## 获取历史记录
-除了自定义查询之外，您还可以使用内置系统函数 **getHistory**：
+## 获取历史
+除了自定义查询，您还可以使用内置系统函数 **getHistory**：
 
 ```
 var end = Date.now();
@@ -323,7 +323,7 @@ sendTo('sql.0', 'getHistory', {
 ```
 
 ## 获取计数器
-用户可以询问特定时间段的某个计数器的值（type=number，counter=true）。
+用户可以询问特定时期的某个计数器的值（类型=数字，计数器=真）。
 
 ```
 var now = Date.now();
@@ -341,8 +341,8 @@ sendTo('sql.0', 'getCounter', {
 
 如果计数器设备将被更换，它也将被计算。
 
-## 历史记录管理通过 Javascript
-该适配器支持通过 JavaScript 启用和禁用历史记录，还支持检索已启用数据点及其设置的列表。
+## 通过 Javascript 进行历史记录管理
+该适配器支持通过 JavaScript 启用和禁用历史记录，还支持使用其设置检索启用的数据点列表。
 
 ＃＃＃ 使能够
 该消息需要具有数据点的“id”。此外，用于定义数据点特定设置的可选“选项”：
@@ -384,8 +384,8 @@ sendTo('sql.0', 'disableHistory', {
 });
 ```
 
-###获取列表
-该消息没有参数。
+### 获取列表
+消息没有参数。
 
 ```
 sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
@@ -407,30 +407,30 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ```
 
 ## 连接设置
-- **DB Type**：SQL DB 的类型：MySQL、PostgreSQL、MS-SQL 或 SQLite3
-- **Host**：SQL Server 的 IP 地址或主机名
-- **Port**：SQL Server 的端口（如果不确定，请留空）
-- **数据库名称**：数据库名称。默认iobroker
+- **DB 类型**：SQL DB 的类型：MySQL、PostgreSQL、MS-SQL 或 SQLite3
+- **主机**：带有 SQL Server 的 IP 地址或主机名
+- **端口**：SQL Server 的端口（如果不确定，请留空）
+- **数据库名称**：数据库名称。默认 iobroker
 - **用户**：SQL 的用户名。必须存在于数据库中。
-- **密码**：SQL 密码。
-- **密码确认**：只需在此处重复密码即可。
-- **加密**：部分数据库支持加密。
+- **密码**：SQL 的密码。
+- **密码确认**：只需在此处重复密码。
+- **加密**：一些数据库支持加密。
 - **四舍五入到**：逗号后的位数。
 - **允许并行请求**：允许同时向数据库发出 SQL 请求。
-- **不创建数据库**：如果数据库已经创建（例如由管理员创建）并且 ioBroker 用户没有足够的权限来创建数据库，则激活此选项。
+- **不创建数据库**：如果数据库已经创建（例如由管理员创建）并且 ioBroker-user 没有足够的权限来创建数据库，则激活此选项。
 
 ＃＃ 默认设置
-- **去抖动间隔**：不要存储比此间隔更频繁的值。
+- **去抖动间隔**：不要比这个间隔更频繁地存储值。
 - **记录任何未更改的值**：每 X 秒额外写入一次值。
 - **从最后一个值到日志的最小差异**：两个值之间的最小间隔。
 - **存储保留**：值将在数据库中存储多长时间。
 
-<!-- 下一版本的占位符（在行首）：
+<!-- 下一个版本的占位符（在行首）：
 
-### __工作正在进行中__ -->
+### __工作进行中__ -->
 
 ## Changelog
-### __WORK IN PROGRESS__
+### 1.16.1 (2021-12-19)
 * (Excodibur) Hide settings not relevant when "log changes only" is not used
 * (Apollon77) Allow all number values for debounce again
 

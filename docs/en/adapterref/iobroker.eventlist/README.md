@@ -45,7 +45,7 @@ Event list can be displayed as vis widget.
 There is a possibility to generate a PDF document with all events.
 
 Document title can consist the generation date if you place the pattern into it: `Event list on {{YYYY MM DD}}`. 
-The exactly description of time format could be found here: https://momentjs.com/docs/#/displaying/format/
+The exact description of time format could be found here: https://momentjs.com/docs/#/displaying/format/
 
 The generation of PDF can be triggered by writing a `true` into `eventlist.0.triggerPDF`. 
 
@@ -140,6 +140,13 @@ The generated report will be stored for instance 0 in `eventlist/report.pdf`, bu
 -->
 
 ## Changelog
+### 0.5.4 (2022-02-14)
+* (bluefox) Corrected the image paths
+
+### 0.5.3 (2022-02-13)
+* (bluefox) Corrected the error with "changes only" option
+* (bluefox) Added possibility to use icons with custom events
+
 ### 0.4.4 (2021-06-24)
 * (bluefox) Corrected the warning for js-controller 3.x
 
@@ -161,22 +168,22 @@ The generated report will be stored for instance 0 in `eventlist/report.pdf`, bu
 
 ### 0.2.8 (2020-10-14)
 * (bluefox) Corrected error in pdf settings  
-* (bluefox) Implemented the recalculation of the relative time every 10 seconds  
+* (bluefox) Implemented the recalculation of the relative time every 10 seconds
 
 ### 0.2.6 (2020-09-25)
-* (bluefox) Corrected error in pdf creation  
+* (bluefox) Corrected error in pdf creation
 
 ### 0.2.5 (2020-09-24)
-* (bluefox) Extended icon selector 
- 
+* (bluefox) Extended icon selector
+
 ### 0.2.1 (2020-09-21)
-* (bluefox) Vis-widget was corrected 
+* (bluefox) Vis-widget was corrected
 
 ### 0.1.3 (2020-09-15)
-* (bluefox) Implemented the alarm mode and messengers 
+* (bluefox) Implemented the alarm mode and messengers
 
 ### 0.0.3 (2020-09-08)
-* (bluefox) Objects with states are supported now 
+* (bluefox) Objects with states are supported now
 
 ### 0.0.2 (2020-09-07)
 * (bluefox) initial commit
@@ -187,7 +194,7 @@ The generated report will be stored for instance 0 in `eventlist/report.pdf`, bu
 ## License
 MIT License
 
-Copyright (c) 2020 ioBroker <dogafox@gmail.com>
+Copyright (c) 2020-2022 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

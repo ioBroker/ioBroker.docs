@@ -8,12 +8,19 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/simatec/ioBroker.uv-protect/badge.svg)](https://snyk.io/test/github/simatec/ioBroker.uv-protect)
 ![Test and Release](https://github.com/simatec/ioBroker.uv-protect/workflows/Test%20and%20Release/badge.svg)
 
-[![NPM](https://nodei.co/npm/iobroker.uv-protect.png?downloads=true)](https://nodei.co/npm/iobroker.uv-protect/)
+[![License](https://img.shields.io/github/license/simatec/ioBroker.uv-protect?style=flat)](https://github.com/simatec/ioBroker.uv-protect/blob/master/LICENSE)
+[![Donate](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://paypal.me/mk1676)
 
 
 ## uv-protect adapter for ioBroker
 
 UV-Protect from openUV-API
+
+**************************************************************************************************************
+
+**If you like it, please consider a donation:**
+  
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
 
 **************************************************************************************************************
 
@@ -24,14 +31,13 @@ When the adapter crashes or an other Code error happens, this error message that
 
 **************************************************************************************************************
 
-**If you like it, please consider a donation:**
-  
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
-
-**************************************************************************************************************
-
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 0.3.5 (2022-02-08)
+* (simatec) Fix value types
+* (simatec) Fix Axios Request
+* (simatec) Dependencies updated
+
 ### 0.3.4 (2021-11-17)
 * (simatec) Dependencies updated
 * (simatec) test and release updated
@@ -75,7 +81,7 @@ When the adapter crashes or an other Code error happens, this error message that
 ## License
 MIT License
 
-Copyright (c) 2021 simatec
+Copyright (c) 2021 - 2022 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alarm/README.md
 title: ioBroker.alarm
-hash: NwTEm+ngKMovQngTpclJO2as7MIXFvMIZAFX3TYdyAs=
+hash: 35YLzZGCcEvtRZxNdJtUJv+FJOfRzzS2HD5mbEVWV0w=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alarm/admin/alarm.png)
 
@@ -32,9 +32,8 @@ Er bietet die Möglichkeit 3 Sicherheitskreise zu configurieren und diese z. B. 
 Hier werden die Einstellungen wie die Zeiten der Nachtruhe, Sirenezeit, Stiller-Alarm и Passwort vorgenommen.
 
 - Aktivierzeit -> Zeitverzögerung bis zu Aktivierung wenn man einen delay Datenpunkt benutzt
-- Sirenenzeit bei Einbruch -> Bei Einbruch wird der Datenpunkt alarm.0.status.siren für die Zeit auf true gesetzt
+- Sirenenzeit bei Einbruch -> Bei Einbruch wird der Datenpunkt alarm.0.status.siren / siren_inside für die Zeit auf true gesetzt
 - Alarmverzögerung -> Verzögerungszeit bis Einbruch ausgelöst wird (während dieser Zeit wird der Stille Alarm ausgelöst)
-- Auslösezeit bei Warnungen/Sirene innen -> Bei Auslösung des Benachrichtigungskreises oder scharf innen Kreises, wird der jeweils zugehörige Datenpunkt für die Zeit auf true gesetzt
 
 ----------------------------------------------------------------------------------------------------------------------
 
@@ -103,7 +102,7 @@ Sollte es erforderlich sein die Einzelnen States nicht auf *true*, sondern auf *
 Der Adapter liefert eine ganze Anzahl an заявляет:
 
 #### "alarm.x.use...".
-Das sind die eigentlichen заявляет um die Alarmanlage zu bediienen.
+Das sind die eigentlichen заявляет um die Alarmanlage zu bedienen.
 
 - use.activate_nightrest -> Aktivierung der Nachtruhe
 - use.activate_sharp_inside_circuit -> Aktivierung der Überwachung des Warnkreises (стажер)
@@ -138,6 +137,11 @@ Beinhaltet die Informationen für die "anderen" Alarmkreise 1 + 2.
 
 ## Changelog
 
+#### 3.0.3 (31.01.2022)
+* (misanorot) changed burgle concept, added silent alarm at sharp inside, fixed little issues
+
+#### 2.2.1 (20.01.2022)
+* (misanorot) added notification when warnings at beginning night rest
 
 #### 2.2.0 (16.01.2022)
 * (misanorot) added telegram special parameters

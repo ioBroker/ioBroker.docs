@@ -34,6 +34,16 @@ A small excerpt just of the command options:
 
 
 ## Changelog
+### 2.1.1 (2022-02-07)
+* (arteck) js-controller 4.x
+*
+
+### 2.1.0 (2022-02-07)
+* (arteck) js-controller 4
+
+### 2.0.14 (2022-01-31)
+* (arteck) life tick error
+
 ### 2.0.12 (2021-12-18)
 * (arteck) screenBrightness direct command
 
@@ -68,12 +78,10 @@ A small excerpt just of the command options:
 ### 1.0.1 (2019-06-20)
 * (arteck) encodeURL
 
-
-
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 Arthur Rupp <arteck@outlook.com>
+Copyright (c) 2018-2022 Arthur Rupp <arteck@outlook.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

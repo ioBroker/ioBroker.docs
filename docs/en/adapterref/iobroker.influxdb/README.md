@@ -36,10 +36,10 @@ When doing custom queries via the "query" message you can use Flux queries to se
 #### Store metadata information as tags instead of fields
 For Influx 1.x state value, as well as associated metadata fields (`q`, `ack` and `from`) are stored as fields within InfluxDB. When using Flux-commands to retrieve this data (instead of InfluxQL) the data is returned in separate tables, which makes it more difficult to view the data in a joined way when using external database clients or Influx CLI `query` command. This is by design, as Influx only supports one field per data-point.
 
-With Influx 2.x it is now also possible, to store this metadata-information besides the actual value of the state as Influx Tags. Tags are indexed and allow for faster search queries. In addition they are closely linked to the measurement stored within the db, meaning they will be returned in one table with the queried measurement which makes them much easier to handle, when used outside of this adapter. There are limitations with this however:
+With Influx 2.x it is now also possible, to store this metadata-information besides the actual value of the state as Influx Tags. Tags are indexed and allow for faster search queries. In addition, they are closely linked to the measurement stored within the db, meaning they will be returned in one table with the queried measurement which makes them much easier to handle, when used outside this adapter. There are limitations with this however:
 - The use of tags for metadata needs to be enabled under `Advanced Settings`. It is disabled by default.
 - If you decide to use tags, you cannot continue to use old measurements that were gathered with Influx 1.x, as they are stored in fields.
-- Attempting to use an existing database that was setup without enabling the Tag-feature will cause the adapter to fail to initialize and you will see an error message about it in the log.
+- Attempting to use an existing database that was set up without enabling the Tag-feature will cause the adapter to fail to initialize, and you will see an error message about it in the log.
   - This also is valid the other way: Once you start using the Tag-feature in a new database, you cannot switch back to using fields for this database.
 - This feature is currently only available, if you use Influx 2.x. And only if you use the new responsive GUI of Admin 5.
 
@@ -57,20 +57,20 @@ Please also read [Understanding Retention Policies](RetentionPolicies.md).
 ## Direct writes or buffered writes?
 With the default configuration the adapter stores each single datapoint directly into the database and only use the internal buffer if the database is not available. If the database was not available the buffer is flushed at the given interval, so it can take the defined interval till the missing points are written!
 
-By changing the configuration it is possible to cache new datapoints up to a defined count or a defined maximum interval after which all points are stored into the database. This also gives better performance and less system load compared to writing the datapoints directly.
-InfluxDB has a limitation of the maximum size for writes which is at around 2MB. It should be save to have up to 15.000 datapoints as buffer maximum, maybe also 20.000, but this highly depends on the length of your datapoint-IDs.
+By changing the configuration it is possible to cache new data points up to a defined count or a defined maximum interval after which all points are stored into the database. This also gives better performance and less system load compared to writing the data points directly.
+InfluxDB has a limitation of the maximum size for writes which is at around 2MB. It should be safe to have up to 15.000 data points as buffer maximum, maybe also 20.000, but this highly depends on the length of your datapoint-IDs.
 
-On exit of the adapter the buffer is storedon disk and reinitialized with next adapter start, so no datapoints should be lost and will be written after next start.
+On exit of the adapter the buffer is stored on disk and reinitialized with next adapter start, so no data points should be lost and will be written after next start.
 
-## InfluxDB and datatypes
-InfluxDB is very strict on datatypes. The datatype for a measurement value is defined with it's first write.
-The adapter tries to write with the correct value, but if the datatype changes for the same state then there may be write
-errors into the InfluxDB. The adapter detects this and will write these potential conflicting datapoints always directly, but write errors mean that the value is not written into the DB at all. So make sure to check the logs for such cases.
+## InfluxDB and data types
+InfluxDB is very strict on data types. The datatype for a measurement value is defined with it's first write.
+The adapter tries to write with the correct value, but if the datatype changes for the same state then there may be the write
+errors in the InfluxDB. The adapter detects this and will write these potential conflicting data points always directly, but write errors mean that the value is not written into the DB at all. So make sure to check the logs for such cases.
 
-Additionally InfluxDB do not support "null" values, so these are not written at all into the DB.
+Additionally, InfluxDB do not support "null" values, so these are not written at all into the DB.
 
 ## Installation of InfluxDB
-Please refer to the official InfluxDB pages for installationinstructions depending on your OS.
+Please refer to the official InfluxDB pages for installation instructions depending on your OS.
 
 * InfluxDB 1.x: https://docs.influxdata.com/influxdb/v1.8/introduction/install/
 * InfluxDB 2.x: https://docs.influxdata.com/influxdb/v2.0/install/
@@ -78,7 +78,7 @@ Please refer to the official InfluxDB pages for installationinstructions dependi
 ### Setup authentication for InfluxDB 1.x (optional)
 **NOTE:** Influx DB V2.x relies on organization/token login, instead of username/password! This is only applicable for InfluxDB 1.x
 
-If you use DB localy you may leave authentication disabled and skip this part.
+If you use DB locally you may leave authentication disabled and skip this part.
 
 - Start service: ``` service influxdb start ```
 - Go to admin page: http://<ip>:8083
@@ -107,7 +107,7 @@ Enable authentication, by editing /etc/influxdb/influxdb.conf:
 There is additional charting tool for InfluxDB - Grafana.
 It must be installed additionally.
 
-Install a current version of Grafana 3.x+ because InfluxDB support is enhanced there in comparism to earlier Grafana versions.
+Install a current version of Grafana 3.x+ because InfluxDB support is enhanced there in comparison to earlier Grafana versions.
 
 Under debian you can install it as described at http://docs.grafana.org/installation/debian/ .
 For ARM platforms your can check vor v3.x at https://github.com/fg2it/grafana-on-raspberry.
@@ -183,7 +183,7 @@ sendTo('influxdb.0', 'query', 'from(bucket: "iobroker") |> range(start: -3h); fr
 **NOTE:** The values are coming back in the result array in filename "value" (instead of "val" as normal in ioBroker)
 
 ## Get history
-Additional to custom queries, you can use build in system function **getHistory** to access the stored history for datapoints:
+Additional to custom queries, you can use build in system function **getHistory** to access the stored history for data points:
 ```
 var end = new Date().getTime();
 sendTo('influxdb.0', 'getHistory', {
@@ -207,6 +207,7 @@ Possible options:
 - **limit** - do not return more entries than limit (only used if aggregate is 'onchange'/'none')
 - **addId** - if *id* field should be included in answer
 - **aggregate** - aggregate method:
+    - *minmax* - Splice the whole time range in small intervals and find for every interval max value and min value and use them for this interval (nulls will be ignored).
     - *max* - Splice the whole time range in small intervals and find for every interval max value and use it for this interval (nulls will be ignored).
     - *min* - Same as max, but take minimal value.
     - *average* - Same as max, but take average value.
@@ -217,9 +218,11 @@ Possible options:
 When raw data are selected without using 'step' the returned fields are ts, val, ack, q and from.
 As soon as step is used the returned fields are ts and val.
 
+Interpolated values will be marked as `i=true`, like: `{i: true, val: 4.7384845, ts: 29892365723652}`.
+
 Please hold in mind that InfluxDB aggregates on "rounded time boundaries" (see https://docs.influxdata.com/influxdb/v0.11/troubleshooting/frequently_encountered_issues/#understanding-the-time-intervals-returned-from-group-by-time-queries)
 
-InfluxDB is very strict when it comes to datatypes. This has effects for aggregator functions, e.g.:
+InfluxDB is very strict when it comes to data types. This has effects for aggregator functions, e.g.:
 * average (MEAN) can not be used for boolean values (true/false), only MIN or MAX works here
 * average (MEAN) can not be used for string values (text), no aggregator makes sense here at all
 * ...
@@ -235,11 +238,57 @@ The Message can have one of the following three formats:
 * one ID and array of state objects
 * array of multiple IDs with state objects
 
+## delete state
+If you want to delete entry from the Database you can use the build in system function **delete**:
+
+```
+sendTo('sql.0', 'delete', [
+    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352}, 
+    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353}
+], result => console.log('deleted'));
+```
+
+To delete ALL history data for some data point execute:
+
+```
+sendTo('sql.0', 'deleteAll', [
+    {id: 'mbus.0.counter.xxx'} 
+    {id: 'mbus.0.counter.yyy'}
+], result => console.log('deleted'));
+``` 
+
+To delete history data for some data point and for some range, execute:
+
+```
+sendTo('sql.0', 'deleteRange', [
+    {id: 'mbus.0.counter.xxx', start: '2019-01-01T00:00:00.000Z', end: '2019-12-31T23:59:59.999'}, 
+    {id: 'mbus.0.counter.yyy', start: 1589458809352, end: 1589458809353}
+], result => console.log('deleted'));
+``` 
+
+Time could be ms since epoch or ans string, that could be converted by javascript Date object.
+
+Values will be deleted including defined limits. `ts >= start AND ts <= end`
+
+## change state
+If you want to change entry's value, quality or acknowledge flag in the database you can use the build in system function **update**:
+
+```
+sendTo('sql.0', 'update', [
+    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352, val: 15, ack: true, q: 0}, 
+    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353, val: 16, ack: true, q: 0}
+], result => console.log('deleted'));
+```
+
+`ts` is mandatory. At least one other flags must be included in state object.
+
+Be careful with `counters`. The `counters` in DB will not be reset, and you must handle it yourself.
+
 ## History Logging Management via Javascript
-The adapter supports enabling and disabling of history logging via JavaScript and also retrieving the list of enabled datapoints with their settings.
+The adapter supports enabling and disabling of history logging via JavaScript and also retrieving the list of enabled data points with their settings.
 
 ### enable
-The message requires to have the "id" of the datapoint.Additionally optional "options" to define the datapoint specific settings:
+The message requires to have the "id" of the datapoint. Additionally, optional "options" to define the datapoint specific settings:
 
 ```
 sendTo('influxdb.0', 'enableHistory', {
@@ -257,7 +306,7 @@ sendTo('influxdb.0', 'enableHistory', {
         console.log(result.error);
     }
     if (result.success) {
-        //successfull enabled
+        // successfully enabled
     }
 });
 ```
@@ -273,7 +322,7 @@ sendTo('influxdb.0', 'disableHistory', {
         console.log(result.error);
     }
     if (result.success) {
-        //successfull enabled
+        // successfully enabled
     }
 });
 ```
@@ -304,7 +353,15 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
 ## Changelog
+### 2.5.1 (2022-02-16)
+* (bluefox) Marked interpolated data with `i=true`
+
+### 2.5.0 (2022-02-14)
+* (bluefox) Added new messages: 'update', 'delete', 'deleteRange', 'deleteAll' (only for influxdb v1)
+* (bluefox) Corrected aggregation of data
+
 ### 2.4.0 (2021-12-19)
 * (Excodibur) Added expert settings to deactivate health checks for Influx 2 db (There are no health checks for Influx 1)
 * (Excodibur) Hide settings not relevant when "log changes only" is not used
@@ -353,7 +410,7 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 * (bluefox) added command to read supported features
 
 ### 1.8.6 (2020-05-11)
-* (Apollon77) make sure disabling of datapoints while starting adapter do not crash adapter (Sentry IOBROKER-INFLUXDB-7)
+* (Apollon77) make sure disabling of data points while starting adapter do not crash adapter (Sentry IOBROKER-INFLUXDB-7)
 * (Apollon77) Make sure all start values are processed correctly
 * (Apollon77) More checks to make sure to not crash when states are disabled while data are processed (Sentry IOBROKER-INFLUXDB-8)
 
@@ -361,7 +418,7 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 * (bluefox) set default history if not yet set
 
 ### 1.8.4 (2020-05-02)
-* (Apollon77) make sure disabling of datapoints do not crash adapter (Sentry IOBROKER-INFLUXDB-4)
+* (Apollon77) make sure disabling of data points do not crash adapter (Sentry IOBROKER-INFLUXDB-4)
 
 ### 1.8.3 (2020-04-29)
 * (Apollon77) Fix pot crash case when deleting objects while saving values (Sentry)
@@ -384,7 +441,7 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 * (Apollon77) Small fix for older configurations
 
 ### 1.3.2
-* (Apollon77) Enhance Min-Delta logic for datapoints from type mixed
+* (Apollon77) Enhance Min-Delta logic for data points from type mixed
 
 ### 1.3.1 (2017-01-16)
 * (bluefox) Fix handling of float values in Adapter config and Datapoint config.
@@ -466,7 +523,7 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2021 bluefox, apollon77
+Copyright (c) 2015-2022 bluefox, apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

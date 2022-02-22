@@ -8,6 +8,7 @@
 
 **Downloads**
 [![Downloads](https://img.shields.io/npm/dm/iobroker.zoe2.svg)](https://www.npmjs.com/package/iobroker.zoe2)
+ ![Number of Installations](https://iobroker.live/badges/zoe2-installed.svg)
 
 **License:**
 [![License](https://img.shields.io/github/license/fungus75/ioBroker.zoe2)](https://github.com/fungus75/ioBroker.zoe2/blob/master/LICENSE)
@@ -118,9 +119,12 @@ for your great documentation and work.
 
 ## Changelog
 
+### 0.2.4 (2022-02-16)
+- Replaced obsolete Request-Library by axios
+- Code-Adjustments
+
 ### 0.2.3 (2021-07-29)
 - Code Adjustments, Error-Handling
-
 
 ### 0.2.2 (2021-07-26)
 - Store Password Encrypted (You have to reset it, if updating from older version)

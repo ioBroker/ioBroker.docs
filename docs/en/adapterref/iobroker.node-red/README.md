@@ -15,6 +15,8 @@ This adapter uses the node-red server from https://github.com/node-red/node-red
 
 **Note:** If in select ID dialog of the ioBroker node you cannot find some variable, restart node-red instance. By restarting the new list of objects will be created.
 
+**Upgrade to 1.17.2:** If you already used Node-Red authentication: Please set your password in the Node-Red instance settings in ioBroker again after the upgrade! Otherwise you cannot login to Node-Red any longer after the upgrade.
+
 
 ## Settings
 - Safe mode - Flows will not be started, and you can edit the flows to fix some overload problem.
@@ -25,10 +27,13 @@ This adapter uses the node-red server from https://github.com/node-red/node-red
 -->
 
 ## Changelog
-### 2.5.0 (2022-xx-xx)
+### __WORK IN PROGRESS__
 * (jwiesel) Changed default setting to "convert data from ioBroker nodes into Strings" to false. Setting will not be changed automatically in instances already running.
 * (jwiesel) "Tail" node has been removed from the default palette in Node-RED 2.0. You can reinstall it from node-red-node-tail.
 * (jwiesel) Node-RED updated to 2.1.4 (incl. restructuring of settings.js)
+
+### 2.4.2 (2022-02-07)
+* (Apollon77) Make compatible with js-controller 4.0
 
 ### 2.4.1 (2021-08-31)
 * (mickym2) Correct min7max for the object creation 

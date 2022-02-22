@@ -84,8 +84,7 @@ directory) to try it out on the commandline. Call the scripts using "node filena
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-
-### __WORK IN PROGRESS__
+### 1.5.1 (2022-02-19)
 * (simatec) jsonConfig added
 * (simatec) test and release updated
 
@@ -145,7 +144,7 @@ directory) to try it out on the commandline. Call the scripts using "node filena
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2021 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2016-2022 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -12,7 +12,7 @@ React and Material UI interface.
 
 ## Installation
 **Important!**
-This adapter cannot be installed directly from github. Only from npm.
+This adapter cannot be installed directly from GitHub. Only from npm.
 
 ## Usage
 It is very important to know, that adapter shows only devices that added to some categories, like *rooms* or *function*.
@@ -153,6 +153,6 @@ Better if every device belongs to both categories. Because every device has the 
 ## License
 CC-BY-NC
 
-Copyright (c) 2017-2021, bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2022, bluefox <dogafox@gmail.com>
 
 Commercial use is not allowed without permission.

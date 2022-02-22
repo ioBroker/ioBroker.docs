@@ -169,7 +169,7 @@ If you want to support the work I would appreciate a small donation. This is 100
 
 MIT License
 
-Copyright (c) 2021 Christopher Holomek <holomekc.github@gmail.com>
+Copyright (c) 2022 Christopher Holomek <holomekc.github@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

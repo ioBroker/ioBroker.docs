@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.MieleCloudService
-hash: dyitqM1ppDZHJO2rxUuf34lxYTzkCJdUwnoUW66XdPU=
+hash: MF3IUYLSqEFaAgFTidjyD0x+FE2iWrJgSPVEE9GXj1A=
 ---
 ![标识](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
@@ -35,7 +35,7 @@ hash: dyitqM1ppDZHJO2rxUuf34lxYTzkCJdUwnoUW66XdPU=
  * latest Repo - 获取最新的测试版本（可能不稳定）
  * 通过：https://github.com/Grizzelbee/ioBroker.mielecloudservice.git - 获取最新的开发版本
 2. 在 Miele 智能手机 App 中为 Miele@Home 创建 App-Account
-3. 在 https://www.miele.com/f/com/en/register_api.aspx 创建一个开发者帐户
+3. 在 https://www.miele.com/f/com/en/register_api.aspx 创建一个开发者账户
 4. 将您的 Miele 设备添加到应用程序（如果未自动添加）
 6. 填写从 Miele-developer Team 收到的 client_secret 和 client_id 以及来自 App 的 account-id 和密码。
 
@@ -47,10 +47,10 @@ hash: dyitqM1ppDZHJO2rxUuf34lxYTzkCJdUwnoUW66XdPU=
 
 ### 程序（在 API V1.0.5 中引入）
 在 API V1.0.5 中，德国美诺 Miele 引入了一个名为“/programs”的新端点。
-对该端点的支持从适配器版本 4.5.0 开始。将创建一个新的数据点 [device.Actions.Program]，列出 Miele 返回的所有支持的程序。
+对该端点的支持从适配器版本 4.5.0 开始。将创建一个新数据点 [device.Actions.Program]，列出 Miele 返回的所有支持的程序。
 **选择其中一个值将立即执行程序！** 目前仅支持简单程序。例如。烤箱需要一些额外的信息——这将在未来的版本中实现。
 
-在发布适配器时，德国美诺 Miele 记录了一些支持此端点的设备类别，并且只有（至少对我而言）其中的一部分真正起作用。对于我的咖啡系统、洗衣机和滚筒式烘干机，它只适用于咖啡系统。
+在发布适配器时，德国美诺 Miele 记录了一些设备类别来支持此端点，并且只有（至少对我而言）其中的一部分真正起作用。对于我的咖啡系统、洗衣机和滚筒式烘干机，它只适用于咖啡系统。
 但德国美诺 Miele 正在努力并定期提供支持。
 有关更多信息，请参阅通用 Miele API 文档（如下）。
 
@@ -189,9 +189,16 @@ hash: dyitqM1ppDZHJO2rxUuf34lxYTzkCJdUwnoUW66XdPU=
 |第532章"Flusen ausspülen" |洗衣机烘干机 |
 
 ##版权
-版权所有 (c) 2019 - 2022 grizzelbee <open.source@hingsen.de>
+版权所有 (c) 2019-2022 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+### V5.0.5 (2022-02-07) (Invincible)
+* (grizzelbee) Fix: fixed some lgtm findings
+* (grizzelbee) New: Added link to request Miele API credentials in config page.  
+* (grizzelbee) Upd: dependencies got updated
+* (grizzelbee) Upd: removed separate license file
+
+
 ### V5.0.4 (2022-01-07) (Invincible)
 * (grizzelbee) Fix: [MIELECLOUDSERVICE-7](https://sentry.io/organizations/nocompany-6j/issues/2379624775/?project=5735758) handling if there is no auth token for a request 
 * (grizzelbee) Fix: [MIELECLOUDSERVICE-2J](https://sentry.io/organizations/nocompany-6j/issues/2885488082/?project=5735758) handling if there is no auth token for a request

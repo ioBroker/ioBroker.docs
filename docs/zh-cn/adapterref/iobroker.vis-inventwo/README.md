@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: HI9BpKYvxkkgAaAo8bKOlSHvyKzg/VDgvLboIOi5pBI=
+hash: 4+DnDllALH8CcqihFgOVDMG83D43CNMU9TNXP3FJNzA=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -11,7 +11,6 @@ hash: HI9BpKYvxkkgAaAo8bKOlSHvyKzg/VDgvLboIOi5pBI=
 ![安装数量（稳定）](http://iobroker.live/badges/vis-inventwo-stable.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.vis-inventwo.svg)
 ![安装数量（最新）](http://iobroker.live/badges/vis-inventwo-installed.svg)
-![依赖状态](https://img.shields.io/david/inventwo/iobroker.vis-inventwo.svg)
 ![已知漏洞](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo/badge.svg)
 ![构建状态](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)
 ![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
@@ -51,6 +50,13 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ---
 
+## 3.2.8
+- 单选按钮列表：Mehrzeilige/Mehrspaltige Darstellung möglich [#393](https://github.com/inventwo/ioBroker.vis-inventwo/issues/393)
+- JSON-Tabelle：Textausrichtung für Kopfzeile hinzugefügt [#394](https://github.com/inventwo/ioBroker.vis-inventwo/issues/394)
+
+## 3.2.7
+- 修正：弹出 schließt nicht bei Datenpunktwert
+
 ## 3.2.6
 - JSON-Tabelle：Abhängigkeit eines Wertes färben 中的 Hintergrund pro Zeile [#280](https://github.com/inventwo/ioBroker.vis-inventwo/issues/280)
 - JSON-Tabelle：Standardsortierung einer Spalte [#286](https://github.com/inventwo/ioBroker.vis-inventwo/issues/286)
@@ -75,7 +81,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 ## 3.2.1
 - 问题 mit aktiver Textfarbe behoben (#302)
 - 问题 mit Multi-Widget und unterschiedlichem Prüftyp behoben (#303)
--问题beim Schließen mit View im PopUp behoben (#254)
+- 问题 beim Schließen mit View im PopUp behoben (#254)
 - Navigationseffekte aus der Basisnavigation hinzugefügt (#304)
 - Neu hinzugefügt Widget-Typ 'HTTP' für Universal- und Multi-Widget (#249)
 - Sichtbare Schritte für einfachen Slider hinzugefügt
@@ -335,7 +341,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 ## 2.2.0
 - Datenpunktwerte werden jetzt bei allen Widgets im Editor angezeigt
-- Neues Widget: Marquee (Laufschrift)
+- Neues 小工具：Marquee (Laufschrift)
 - Universal und Multi State Verweildauer hinzugefügt
 - List Widget Abstand zwischen den Einträgen kann eingestell werden
 
@@ -425,7 +431,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 ...
 
 ### 0.1.0 (Erstveröffentlichung)
-- inventwo设计小部件
+- inventwo设计小工具
 
 ...
 

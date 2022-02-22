@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: OyxGAVkIUU8dXiwNxPgUWdiDxkg5jNWAfj8Ia3CE9DY=
+hash: i5RuIdI8WsYV4wYZhFzae3YUlNEULJoy6VXKrS/pJak=
 ---
 ![Logo](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -11,14 +11,13 @@ hash: OyxGAVkIUU8dXiwNxPgUWdiDxkg5jNWAfj8Ia3CE9DY=
 ![stabile Version](http://iobroker.live/badges/iqontrol-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.iqontrol.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.iqontrol.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/sbormann/iobroker.iqontrol.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/sbormann/ioBroker.iqontrol/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.iqontrol.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/sbormann/ioBroker.iqontrol/master.svg)
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/github/sbormann/ioBroker.iqontrol?branch=master&svg=true)
 
 # IoBroker.iqontrol
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/iqontrol/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+<!-- [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/iqontrol/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) -->
 
 **Tests:**
 
@@ -34,7 +33,7 @@ hash: OyxGAVkIUU8dXiwNxPgUWdiDxkg5jNWAfj8Ia3CE9DY=
 ## Iqontrol-Adapter für ioBroker
 Schnelle Web-App zur Visualisierung.
 
-<img src="img/screenshot_kueche.png" width="200"><img src="img/screenshot_licht.png" width="200"><img src="img/screenshot_heizung.png" width="200"><img src="img/screenshot_rauchmelder.png" width="200"><img src="img/screenshot_flot.png" width="200"><img src="img/screenshot_dslraser.jpg" width="200" alt="© von dslraser"> © von dslraser<img src="img/screenshot_muuulle.jpg" width="200" alt="© von muuulle"> © von muuulle<img src="img/screenshot_peks-67.jpg" width="200" alt="© von peks-67"> © von peks-64
+<img src="img/screenshot_kueche.png" width="200"><img src="img/screenshot_licht.png" width="200"><img src="img/screenshot_heizung.png" width="200"><img src="img/screenshot_rauchmelder.png" width="200"><img src="img/screenshot_flot.png" width="200"> © von dslraser:<img src="img/screenshot_dslraser.jpg" width="200" alt="© von dslraser"> © von muuulle:<img src="img/screenshot_muuulle.jpg" width="200" alt="© von muuulle"> © von peks-64:<img src="img/screenshot_peks-67.jpg" width="200" alt="© von peks-67">
 
 Läuft in jedem Browser.
 Einfach einzurichten, obwohl es vollständig anpassbar und reaktionsschnell ist.
@@ -47,6 +46,12 @@ Einfach einzurichten, obwohl es vollständig anpassbar und reaktionsschnell ist.
 ## Zum Startbildschirm hinzufügen
 Sie können es als Web-App auf dem Startbildschirm speichern und es sieht aus und fühlt sich an wie eine native App: ![Zum Startbildschirm hinzufügen](../../../en/adapterref/iobroker.iqontrol/img/add_to_homescreen.png)
 
+Dies funktioniert auch auf Ihrem PC mit Chrome:
+
+* Öffnen Sie iQontrol in Chrome
+* Klicken Sie auf das Drei-Punkte-Menü - Weitere Tools - Verknüpfung erstellen
+* Sie finden iQontrol dann im Startmenü unter Chrome-Apps und können es sogar zu Ihrer Taskleiste hinzufügen
+
 ## Du brauchst...
 * Nodejs 10 oder höher
 * Web-Adapter mit einer Instanz, die dasselbe Protokoll (http oder https) wie der Admin-Adapter ausführt, socket.IO auf 'integrated' gesetzt und 'Force Web-Sockets' deaktiviert
@@ -56,7 +61,11 @@ Sie können es als Web-App auf dem Startbildschirm speichern und es sieht aus un
 * Wenn Sie auf Probleme stoßen, lesen Sie bitte den Abschnitt [Fehlerbehebung](#Fehlerbehebung) am Ende dieser Readme-Datei
 
 ##Forum
-Besuchen Sie [iobroker-Forum](https://forum.iobroker.net/topic/22039/neuer-adapter-visualisierung-iqontrol).
+Besuchen Sie den Support-Thread [iobroker-Forum](https://forum.iobroker.net/topic/52077).
+Besuchen Sie den Entwickler-Thread [iobroker-Forum](https://forum.iobroker.net/topic/22039).
+
+##Wiki
+Schau mal ins Wiki [wiki](https://github.com/sbormann/ioBroker.iqontrol/wiki).
 
 ## Wie benutzt man
 **Hab keine Angst vor den vielen Möglichkeiten, die du hast.** Die meisten Dinge funktionieren sofort nach dem Auspacken. Sie *können*, müssen aber nicht alle Konfigurationsmöglichkeiten nutzen, die iQontrol bietet! Beginnen Sie einfach so:
@@ -419,7 +428,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * 'Widget-URL-Parameter'
 * Syntax: `` <meta name="widget-urlparameters" content="parameter/default value/description/type;parameter2/default value2/description2/type2"/> „
 * Der Benutzer wird nach diesen Parametern gefragt, wenn er das Widget als URL oder Background_URL auswählt oder automatisch ein Widget erstellt
-* ``type`` ist optional und kann ``text`` (standardmäßig), ``number``, ``checkbox``, ``color``, ``select``, ``multipleSelect` sein `, ``combobox``, ``historyInstance``, ``datapoint``, ``listJsonDatapoint``, ``icon``, ``fontFamily``, ``fontSize``, ``fontStyle``, ``fontWeight``, ``section``, ``divider``, ``info``, ``link`` oder ``hidden``
+* ``type`` ist optional und kann ``text`` (standardmäßig), ``number``, ``checkbox``, ``color``, ``select``, ``multipleSelect` sein `, ``combobox``, ``historyInstance``, ``datapoint``, ``listJsonDatapoint``, ``icon``, ``fontFamily``, ``fontSize``, ``fontStyle``, ``fontWeight``, ``language``, ``section``, ``divider``, ``info``, ``link`` oder ``hidden``
 * Wenn der Typ ``select``, ``multipleSelect`` oder ``combobox`` ist, müssen Sie die möglichen Optionen angeben, indem Sie ``/<selectOptions>`` hinzufügen, wobei ``<selectOptions>`` ein ist String im Format ``<Wert1>,<Beschriftung1>/<Wert2>,<Beschriftung2>/...`` (Combobox ist eine Auswahlbox mit der Möglichkeit zur Eingabe von freiem Text)
 * Wenn Typ ``number`` ist, dann kann min, max und Schrittweite angegeben werden, indem ``/<numberOptions>`` hinzugefügt wird, wobei ``<numberOptions>`` ein String im Format ``<min> ist, <max>,<schritt>``
 * Die Typen ``section``, ``divider``, ``info`` und ``link`` haben keine weitere Funktion, sie dienen lediglich dazu, dem Benutzer Informationen anzuzeigen. Für ``link`` sollte der Wert eine URL sein, aber alle Slashes müssen durch Backslashes ersetzt werden.
@@ -491,11 +500,13 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * Standard: "false"
 * ``controlModeDisabledValue`` (Wert von CONTROL_MODE für 'disabled') - nur gültig für Rolle Thermostat:
 * Standard: ""
-* ``stateClosedValue`` (Wert von STATE für 'geschlossen') - nur gültig für Rolle Window:
+* ``stateClosedValue`` (Wert von STATE für 'geschlossen') - nur gültig für Rolle Window und Door with Lock:
 * Standard: ""
 * ``stateOpenedValue`` (Wert von STATE für 'opened') - nur gültig für Rolle Window:
 * Standard: ""
 * ``stateTiltedValue`` (Wert von STATE für 'tilted') - nur gültig für Rolle Window:
+* Standard: ""
+* ``lockStateLockedValue`` (Wert von LOCK_STATE für 'locked') - nur gültig für Rolle Door with Lock:
 * Standard: ""
 * ``invertActuatorLevel`` (Invert LEVEL (0 = open)) - nur gültig für Rolle Blind:
 * Mögliche Werte: "true"|"false"
@@ -599,7 +610,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * *veraltet*, da diese Option jetzt in clickOnIconAction enthalten ist
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
-* ``clickOnTileToggles`` (Klicken Sie auf die Kachelumschalter (anstatt den Dialog zu öffnen))):
+* ``clickOnTileToggles`` (Klicken Sie auf die Kachelschalter (anstatt den Dialog zu öffnen))):
 * *veraltet*, da diese Option jetzt in clickOnTileAction enthalten ist
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
@@ -646,7 +657,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``transparentIfInactive`` (Hintergrund transparent machen, wenn Gerät inaktiv):
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
-* ``noOverlayInactive`` (Overlay der Kachel entfernen, wenn Gerät inaktiv):
+* ``noOverlayInactive`` (Überlagerung der Kachel entfernen, wenn Gerät inaktiv):
 * Mögliche Werte: "true"|"false"
 * Voreinstellung: "true"
 * ``hideBackgroundURLInactive`` (Hintergründ vor Background_VIEW/URL/HTML ausblenden, wenn das Gerät inaktiv ist):
@@ -782,7 +793,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``showTimestamp`` (Zeitstempel im Dialog anzeigen):
 * Mögliche Werte: ""|"ja"|"nein"|"immer"|"nie"
 * Standard: ""
-* BATTERIE-Leer-Symbol:
+* BATTERIE-leer-Symbol:
 * ``batteryActiveCondition`` (Zustand):
 * Mögliche Werte: ""|"at"|"af"|"eqt"|"eqf"|"eq"|"ne"|"gt"|"ge"|"lt"|"le"
 * Standard: ""
@@ -799,7 +810,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * ``invertError`` (ERROR umkehren (ok anstelle von error verwenden)):
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
-*HINTERGRUND_ANSICHT/URL/HTML:
+*HINTERGRUND_VIEW/URL/HTML:
 * ``adjustHeightToBackgroundView: `` (Höhe der Gerätekachel an die Größe vonbackground_VIEW anpassen):
 * Mögliche Werte: "true"|"false"
 * Standard: "false"
@@ -1230,13 +1241,22 @@ Um die gezählten Geräte zu visualisieren, können Sie das Device-Counter-Widge
 * Als nächstes können Sie **Berechnungen** definieren:
 * Berechnungen können verwendet werden, um numerische Datenpunkte zu kombinieren und beispielsweise die Summe verschiedener Zähler zu berechnen.
 * Sie können auch Objekte wie Arrays (Listen) durch Addition oder Subtraktion kombinieren.
-* Zumindest können Sie **Kombinationen** definieren:
+* Dann können Sie **Kombinationen** definieren:
 * Kombinationen können verwendet werden, um verschiedene Datenpunkte mit Text zu kombinieren.
 * Das 'Pefix' wird vor, das 'Postfix' nach dem Wert der angegebenen ID gesetzt.
 * In der 'Only If'-Sektion können Sie eine Bedingung definieren, ob die Linie platziert werden soll oder nicht.
 * Durch Aktivieren von 'Nur Präfix' wird nur das Präfix gesetzt (nicht der Wert oder das Postfix), wenn die Bedingung zutrifft.
 * Sie können auch einen 'Sonst'-Text angeben, der platziert wird, wenn die Bedingung nicht zutrifft.
-* Die Ergebnisse der Listen mit Zählern, Berechnungen und Kombinationen werden in Datenpunkten gespeichert, die Sie unter iqontrol.x.Listen finden
+* Zumindest können Sie **Protokolle** definieren:
+* Protokolle können verwendet werden, um Änderungen an Datenpunkten mit Zeitstempel in einer Tabelle zu protokollieren.
+* Jedes Mal, wenn sich ein Wert einer der angegebenen IDs ändert, wird das Protokoll aktualisiert.
+* Durch Hinzufügen einer Entprellzeit können Sie verhindern, dass sie zu häufig aktualisiert wird (z. B. wenn sich einige Werte fast gleichzeitig ändern).
+* Das Protokoll ist eine Tabelle, die aus beliebig vielen Spalten besteht.
+* Sie müssen den Spalten eindeutige Namen zuweisen.
+* Dann kann der Inhalt der Spalte definiert werden: die Eintragsnummer, ein Zeitstempel oder der Wert einer ID.
+* Das Ergebnis des Logs wird als JSON-Code gespeichert und kann über das JSON-Table-Widget angezeigt werden.
+
+* Die Ergebnisse der Listen mit Zählern, Berechnungen, Kombinationen und Protokollen werden in Datenpunkten gespeichert, die Sie unter iqontrol.x.Listen finden
 
 ### Beispiele
 * Dieses Beispiel zeigt, wie man eine UNREACH-Liste erstellt:
@@ -1250,6 +1270,11 @@ Um die gezählten Geräte zu visualisieren, können Sie das Device-Counter-Widge
 	![Liste Bearbeiten Nicht erreichbar](../../../en/adapterref/iobroker.iqontrol/img/list_edit_unreach_counter.png)
 
 * Und schließlich werden alle Datenpunkte mit dem Wert „true“ gezählt, die diesen Zustand für mindestens 15 Sekunden haben
+* Es gibt einige eingebaute Standardlisten, die Sie hinzufügen können, zum Beispiel komplexe Service-Meldungen und einen Adapter-Monitor. Klicken Sie einfach auf die Schaltfläche „Standardlisten hinzufügen“ und wählen Sie aus, was Sie hinzufügen möchten. Fühlen Sie sich frei, die Listen zu untersuchen, um ein besseres Verständnis dafür zu bekommen, wie die Arbeit funktioniert.
+
+###Wiki
+* Es gibt eine sehr gute Erklärung mit einigen guten Erweiterungen von dslraser im Wiki: [wiki](https://github.com/sbormann/ioBroker.iqontrol/wiki/Listen-Z%C3%A4hler)
+* Hier finden Sie einige Tipps zur Konfiguration der Icon-Ersetzungen im Device-Counter-Widget: [wiki](https://github.com/sbormann/ioBroker.iqontrol/wiki/JSON-Table-and-Device-Counter- Widget---Icon-Ersetzungen)
 
 ## Ändern der Datenpunktkonfiguration
 Sie können die Konfiguration von Datenpunkten über das Schraubenschlüssel-Symbol (oder eher das Zahnrad-Symbol im neuen React-UI) hinter einem Datenpunkt im Gerätekonfigurationsdialog oder im Objekt-Tab von iobroker ändern.
@@ -1478,7 +1503,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
   *Alternativ können Sie eine* erteliste* zuweisen, um zusätzliche Zustände wie 'Manipuliert' anzuzeigen
   *Sie können auch eine* eichenfolge* zuweisen, um einen beliebigen Text wie "Feuer im Obergeschoss" anzuzeigen
 * **CONTROL_MODE**: *Werteliste* - Auswahl des Betriebsmodus wie "Scharf" und "Unscharf"
-    * In den Geräteoptionen können Sie den Wert definieren, der „unscharf“ darstellt, damit das entsprechende Symbol angezeigt werden kann
+    * In den Geräteoptionen können Sie den Wert definieren, der „unscharf“ darstellt, sodass das entsprechende Symbol angezeigt werden kann
 
 ###<img src="img/icons/battery_full.png" width="32"> Batterie:
 * **STATUS**: *Zahl* - Batteriestand in Prozent
@@ -1488,7 +1513,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 
 ###<img src="img/icons/time_alarmclock_on.png" width="32"> Datum (und Uhrzeit:
 * **STATE**: *boolean* - wenn wahr, wird die Kachel als aktiv angezeigt
-* **BETREFF**: *Zeichenfolge* - um eine Beschreibung festzulegen
+* **BETREFF**: *string* - um eine Beschreibung festzulegen
 * **RINGING**: *boolean* - wenn wahr, wird eine Alarmglocke angezeigt
 * Denken Sie daran: Sie können einen Quit- und einen Snooze-Button über ADDITIONAL_CONTROLS konfigurieren
 * **TIME**: *string* - String mit Datum und/oder Uhrzeit oder Dauer (Sie können das Format in den Geräteoptionen angeben) für das erste und zweite Mal
@@ -1505,7 +1530,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 | | Unix ms Zeitstempel | x | 1410715640579 | X | --- | --- |
 | Datum | Wochentag | d | 0 1 ... 5 6 | X | --- | --- |
 | | | dd | So Mo ... Fr Sa | X | X (übersetzt) | --- |
-| | | dd | So Mo ... Fr Sa | X | X (übersetzt) | --- |
+| | | ddd | So Mo ... Fr Sa | X | X (übersetzt) | --- |
 | | | dddd | Sonntag Montag ... Freitag Samstag | X | X (übersetzt) | --- |
 | | | tun | 0. 1. ... 5. 6. | X | --- | --- |
 | | Tag des Monats | D | 1 2 ... 30 31 | X | X | X |
@@ -1624,7 +1649,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 * **REMOTE_ADDITIONAL_BUTTONS**: *array* - ein Array von Schaltflächen. Der Name des Buttons wird an die entsprechende State-ID gesendet, wenn der Button angeklickt wird
 * **REMOTE_HIDE_REMOTE**: *boolean* - wenn wahr, wird der komplette Fernbedienungsbereich ausgeblendet (z. B. um ihn nur anzuzeigen, wenn eine gültige Quelle ausgewählt ist)
 
-###<img src="img/icons/popup.png" width="32"> Auftauchen:
+###<img src="img/icons/popup.png" width="32"> Pop-up:
 * **STATE**: *any* - kann verwendet werden, um weitere Informationen anzuzeigen
 
 ###<img src="img/icons/link.png" width="32"> Externer Link:
@@ -1670,27 +1695,51 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.0.0-rc2.2 (2022-02-15)
+* (sbormann) Minor enhancements and bugfixes.
 
-### **WORK IN PROGRESS**
+### 2.0.0-rc2.1 (2022-02-14)
+* (sbormann) Abort button now works in preview mode.
+
+### 2.0.0-rc2.0 (2022-02-12)
+* (sbormann) Fixed counting of logs.
+* (sbormann) Lists are now saved as readonly and with ack=true.
+* (sbormann) Fixed glow.
+* (sbormann) Enhanced sorting of JSON-Table-Widget.
+* (sbormann) Added option to define, how the parent name of lists is determined.
+* (dirkhe, sbormann) Added save-button to dialogs.
+* (dirkhe) Added preview mode.
+* (sbormann) Added option to define toolbar selected icon background color.
+
+### 2.0.0-rc1.1 (2022-02-08)
+* (sbormann) Kompatibility to new ioBroker websocket established.
+* (sbormann) Enhanced datapoint-rcognition in json-table-widget.
+* (sbormann) Fixed INFO A/B icon brightness-setting for dark mode.
+
+### 2.0.0-rc1.0 (2022-02-04)
+* (sbormann) Introducing a powerful new feature: Lists and Counters.
+* (sbormann) The JSON-Table-Widget accepts now simple lists (for example an array of datapoints).
+* (sbormann) Added configurable font to JSON-table widget.
+* (sbormann) Added column-sorting to JSON-Table-Widget.
+* (sbormann) Added heading and border-color-option to JSON-table widget.
+* (sbormann) Added Device-Counter-Widget.
 * (sbormann) Added option to show POWER as state.
 * (sbormann) Added preview of tile appeareance when setting tile colors.
 * (sbormann) Added scrollbar-settings for firefox.
 * (sbormann) Added option to adjust height of tile to the size of BACKGROUND_VIEW.
 * (sbormann) Added option to change and invert INFO_A/B-Symbols.
-* (sbormann) Added import and export function to device options.
+* (sbormann) Added option to invert color of INFO_A/B icons for dark-mode.
 * (sbormann) Added option to hide indicator icons if inactive, active or enlarged.
-* (sbormann) Added column-sorting to JSON-Table-Widget.
-* (sbormann) The JSON-Table-Widget accepts now simple lists (for example an array of datapoints).
+* (sbormann) Added import and export function to device options.
 * (sbormann) Added widget-replaceurl to widgets, which allows creation of simplified widget-presets, as preparation for further development.
 * (sbormann) Added option to media-player to disable forced reload of cover-image on TITLE-change.
-* (sbormann) Small adjustmets for ALTERNATIVE_COLORSPACE.
+* (sbormann) Adjustmets for ALTERNATIVE_COLORSPACE.
 * (sbormann) Added widget-replaceurl as a widget configuration parameter.
-* (sbormann) Introducing a powerful new feature: Lists and Counters.
-* (sbormann) Added Device-Counter-Widget.
-* (sbormann) Added heading and border-color-option to JSON-table widget.
 * (sbormann) Changed behaviour of min/max/ignore-min-max-settings of FLOT-Chart-Widget.
-* (sbormann) Added option to invert color of INFO_A/B icons for dark-mode.
-* (sbormann) You can now chose fonts for the JSON-table widget.
+* (sbormann) Added export and import function to devices.
+* (sbormann) Fixed border-radius for big mode.
+* (sbormann) Added configurable values for 'closed' and 'locked' for 'Door with Lock'
+* (sbormann) Fixed targetValues for Admin 5.
 
 ### 1.11.0 (2021-12-18)
 * (sbormann) Added the ability to globally change the default icons.
@@ -2663,7 +2712,7 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
 ## License
 MIT License
 
-Copyright (c) 2021 Sebastian Bormann
+Copyright (c) 2022 Sebastian Bormann
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

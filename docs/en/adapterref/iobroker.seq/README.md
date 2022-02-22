@@ -124,7 +124,7 @@ It is also possible to apply a filter to the log levels and also to the adapters
 
 MIT License
 
-Copyright (c) 2021 Dennis Rathjen <info@bastelbunker.de>
+Copyright (c) 2022 Dennis Rathjen <info@bastelbunker.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

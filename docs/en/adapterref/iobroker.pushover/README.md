@@ -99,6 +99,12 @@ When the adapter crashes or an other Code error happens, this error message that
 -->
 
 ## Changelog
+
+### 2.1.0 (2022-02-20)
+* Important: js-controller 3.0+ required! 
+* (Apollon77) Remove some legacy code
+* (Apollon77) Prevent potential crash case when error occurs
+
 ### 2.0.5 (2021-06-29)
 * (bluefox) Corrected error with token
 
@@ -167,7 +173,7 @@ When the adapter crashes or an other Code error happens, this error message that
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

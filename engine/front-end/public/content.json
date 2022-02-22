@@ -176,9 +176,9 @@
             "Proxmox": {
               "title": {
                 "en": "Proxmox",
-                "de": "Installation",
-                "ru": "установка",
-                "zh-cn": "安装"
+                "de": "Proxmox",
+                "ru": "Проксмокс",
+                "zh-cn": "Proxmox"
               },
               "content": "install/proxmox.md"
             },
@@ -288,7 +288,7 @@
                 "en": "Node.js & npm",
                 "de": "Update NodeJS",
                 "ru": "Обновить NodeJS",
-                "zh-cn": "更新NodeJS"
+                "zh-cn": "更新 NodeJS"
               },
               "content": "install/updatenode.md"
             }

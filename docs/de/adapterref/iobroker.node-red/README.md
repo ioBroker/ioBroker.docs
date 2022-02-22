@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.node-red/README.md
 title: ioBroker node-red Adapter
-hash: ma/a3NNG2WCpcPI/UD71yZRFacjQFvR/qv73KSDlN80=
+hash: Hepdf/NZ/L9whqqNKIiOn4KWFfh63yiXgLpbfS1rFzg=
 ---
 ![Logo](../../../en/adapterref/iobroker.node-red/admin/node-red.png)
 
@@ -20,18 +20,23 @@ Dieser Adapter verwendet den Node-Red-Server von https://github.com/node-red/nod
 
 **Hinweis:** Wenn Sie im Dialogfeld „ID auswählen“ des ioBroker-Knotens keine Variable finden können, starten Sie die Knoten-rote Instanz neu. Durch einen Neustart wird die neue Objektliste erstellt.
 
+**Upgrade auf 1.17.2:** Wenn Sie bereits die Node-Red-Authentifizierung verwendet haben: Bitte setzen Sie Ihr Passwort nach dem Upgrade erneut in den Node-Red-Instanzeinstellungen in ioBroker! Andernfalls können Sie sich nach dem Upgrade nicht mehr bei Node-Red anmelden.
+
 ## Einstellungen
-- Abgesicherter Modus - Flows werden nicht gestartet, und Sie können die Flows bearbeiten, um ein Überlastungsproblem zu beheben.
+- Abgesicherter Modus - Flows werden nicht gestartet und Sie können die Flows bearbeiten, um ein Überlastungsproblem zu beheben.
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
 ### __LAUFENDE ARBEIT__ -->
 
 ## Changelog
-### 2.5.0 (2022-xx-xx)
+### __WORK IN PROGRESS__
 * (jwiesel) Changed default setting to "convert data from ioBroker nodes into Strings" to false. Setting will not be changed automatically in instances already running.
 * (jwiesel) "Tail" node has been removed from the default palette in Node-RED 2.0. You can reinstall it from node-red-node-tail.
 * (jwiesel) Node-RED updated to 2.1.4 (incl. restructuring of settings.js)
+
+### 2.4.2 (2022-02-07)
+* (Apollon77) Make compatible with js-controller 4.0
 
 ### 2.4.1 (2021-08-31)
 * (mickym2) Correct min7max for the object creation 

@@ -5,7 +5,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.fahrplan.svg)](https://www.npmjs.com/package/iobroker.fahrplan)
 ![Number of Installations (latest)](https://iobroker.live/badges/fahrplan-installed.svg)
 ![Number of Installations (stable)](https://iobroker.live/badges/fahrplan-stable.svg)
-[![Dependency Status](https://img.shields.io/david/gaudes/iobroker.fahrplan.svg)](https://david-dm.org/gaudes/iobroker.fahrplan)
 ![Test and Release](https://github.com/gaudes/ioBroker.fahrplan/workflows/Test%20and%20Release/badge.svg)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/fahrplan/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
@@ -225,6 +224,10 @@ With +-Button new entries can be added to the table.
 	### __WORK IN PROGRESS__
 -->
 
+### __WORK IN PROGRESS__
+* (Gaudes) Fix channel description for timetables (Git #176)
+* (Gaudes) Include Dependabot updates
+
 ### 1.2.0 (2021-09-19)
 * (Gaudes) Remove support for SBB, not using HAFAS anymore
 * (Gaudes) Fix Hafas error "Bad Gateway" with code 502 (Sentry #26)
@@ -256,7 +259,7 @@ With +-Button new entries can be added to the table.
 ## License
 MIT License
 
-Copyright (c) 2021 Ralf Gaudes <ralf@gaudes.net>
+Copyright (c) 2022 Ralf Gaudes <ralf@gaudes.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

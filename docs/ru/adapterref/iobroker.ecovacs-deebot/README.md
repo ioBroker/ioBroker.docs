@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecovacs-deebot/README.md
 title: Адаптер Ecovacs Deebot для ioBroker
-hash: 8NZ1eiNmphw0lfJjopIRN/qfZWJbmF6ZV/JqtlXNVh0=
+hash: 3BGSH3RZfns7IR4uZVaIoX8nGD2rfZ3Q0n15IypQv1Y=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -88,7 +88,7 @@ sudo npm install canvas --unsafe-perm=true
 
 Инструкции для других систем см. на странице https://www.npmjs.com/package/canvas#compiling.
 
-## Использование
+## Применение
 * Информацию о том, как использовать этот адаптер, можно найти [здесь](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
 
 ### Состояния
@@ -97,7 +97,8 @@ sudo npm install canvas --unsafe-perm=true
 ## ВОПРОСЫ-ОТВЕТЫ
 * Часто задаваемые вопросы можно найти [здесь](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
 
-## Известные проблемы
+## Известные вопросы
+* Генерация изображений карт в настоящее время нестабильна на 32-битных системах.
 * Для некоторых моделей (например, Deebot OZMO 930) рекомендуется
 
 на [запланировать перезапуск](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) один раз в день, так как есть сообщения о том, что соединение теряется прибл. 24 часа
@@ -110,9 +111,18 @@ sudo npm install canvas --unsafe-perm=true
 
 ## Changelog
 
-### 1.3.2 (alpha)
+### 1.3.4 (alpha)
+* Bumped ecovacs-deebot.js to 0.7.2 (alpha)
+* Implement some experimental functions for auto empty stations
+* Some refactoring
 
-* Recent updates
+### 1.3.3
+* Bumped ecovacs-deebot.js to 0.7.1 (incl. fix for CVE-2022-0155)
+
+### 1.3.2
+
+* Bumped follow-redirects to 1.14.7 (fix for CVE-2022-0155) and some other dependencies
+* Added N8 PRO+
 
 ### 1.3.1
 
@@ -255,7 +265,7 @@ sudo npm install canvas --unsafe-perm=true
 
 MIT License
 
-Copyright (c) 2021 Sascha Hölzel <mrb1232@posteo.de>
+Copyright (c) 2022 Sascha Hölzel <mrb1232@posteo.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

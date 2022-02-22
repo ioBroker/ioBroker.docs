@@ -3,30 +3,23 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.uv-protect/README.md
 title: ioBroker.uv-protect
-hash: TBTR4bXR4tlxEmBan4NHvnFreUDxvOBPdQY2zMnGLFE=
+hash: SIxeKRjYKbMmCUk8cjZHcIMhd9ErlfpX71Kgy/vLO/M=
 ---
 ![Logo](../../../en/adapterref/iobroker.uv-protect/admin/uv-protect.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.uv-protect.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.uv-protect.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/uv-protect-installed.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/simatec/iobroker.uv-protect.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/simatec/ioBroker.uv-protect/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.uv-protect.png?downloads=true)
+![Anzahl der Installationen (neueste)](http://iobroker.live/badges/uv-protect-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/uv-protect-stable.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/simatec/ioBroker.uv-protect/badge.svg)
+![Lizenz](https://img.shields.io/github/license/simatec/ioBroker.uv-protect?style=flat)
+![Spenden](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 
-#ioBroker.uv-protect
+# IoBroker.uv-protect
 ![Testen und freigeben](https://github.com/simatec/ioBroker.uv-protect/workflows/Test%20and%20Release/badge.svg)
 
 ## UV-Schutz-Adapter für ioBroker
 UV-Protect von openUV-API
-
-**************************************************************************************************************
-
-### Was ist Sentry.io und was wird an die Server dieses Unternehmens gemeldet?
-Sentry.io ist ein Dienst für Entwickler, um sich einen Überblick über Fehler ihrer Anwendungen zu verschaffen. Und genau das ist in diesem Adapter implementiert.
-
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll angezeigt wird, an Sentry gesendet. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, dann ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder dergleichen) enthalten. Auf diese Weise kann Sentry Fehler gruppieren und anzeigen, wie viele eindeutige Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
 
 **************************************************************************************************************
 
@@ -36,8 +29,26 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 
 **************************************************************************************************************
 
+### Was ist Sentry.io und was wird an die Server dieser Firma gemeldet?
+Sentry.io ist ein Dienst für Entwickler, um sich einen Überblick über Fehler in ihren Anwendungen zu verschaffen. Und genau das ist in diesem Adapter umgesetzt.
+
+Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, dann ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder ähnliches) enthalten. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
+
+**************************************************************************************************************
+
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 0.3.5 (2022-02-08)
+* (simatec) Fix value types
+* (simatec) Fix Axios Request
+* (simatec) Dependencies updated
+
+### 0.3.4 (2021-11-17)
+* (simatec) Dependencies updated
+* (simatec) test and release updated
+
+### 0.3.3 (31.07.2021)
+* (simatec) Bugfix async/await function
 
 ### 0.3.2 (28.07.2021)
 * (simatec) Bugfix
@@ -75,7 +86,7 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 ## License
 MIT License
 
-Copyright (c) 2021 simatec
+Copyright (c) 2021 - 2022 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

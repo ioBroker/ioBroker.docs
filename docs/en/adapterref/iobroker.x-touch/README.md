@@ -27,6 +27,9 @@ There a two acepted commands:
 * `import` imports the youngest file from the userdata folder. Additionally you can specify `file` and/or the `devicegroup` number to restore. If `path` is specified the entire filesystem will be used and a `file` name is mandatory.  
 
 ## Changelog
+### 0.5.0
+* (Bannsanger) fixes in db creation for js controller 4.x
+
 ### 0.4.2
 * (Bannsaenger) changed sort order in changelog
 
@@ -69,7 +72,7 @@ There a two acepted commands:
 ## License
 MIT License
 
-Copyright (c) 2021 Bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2021-2022 Bannsaenger <bannsaenger@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
