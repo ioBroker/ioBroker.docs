@@ -212,7 +212,7 @@ The offset can move all pickup events in your calendar to the future or to the p
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.4.3 (2022-02-21)
 
 * (klein0r) Updated state roles
 * (klein0r) Added hint for Admin 4 configuration

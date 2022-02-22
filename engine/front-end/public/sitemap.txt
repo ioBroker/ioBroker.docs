@@ -686,6 +686,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.alias-manager/README.m
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.alpha2/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.amazon-dash/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.anelhut/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.apcups/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.artnet/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.artnet-recorder/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.asterisk/README.md
@@ -956,6 +957,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.owntracks/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.palazzetti/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.panasonic-comfort-cloud/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.panasonic-viera/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.parcel/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.parser/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.paw/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.pegelalarm/README.md
@@ -1016,6 +1018,9 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shelly/https:/raw.gith
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/protocol-coap.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/protocol-mqtt.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/restricted-login.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shelly/protocol-coap.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shelly/protocol-mqtt.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shelly/restricted-login.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shelly/state-changes.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shuttercontrol/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.sia/README.md
@@ -1199,6 +1204,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.alias-manager/README.m
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.alpha2/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.amazon-dash/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.anelhut/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.apcups/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.artnet/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.artnet-recorder/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.asterisk/README.md
@@ -1469,6 +1475,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.owntracks/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.palazzetti/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.panasonic-comfort-cloud/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.panasonic-viera/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.parcel/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.parser/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.paw/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.pegelalarm/README.md
@@ -1529,6 +1536,9 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shelly/https:/raw.gith
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/protocol-coap.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/protocol-mqtt.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/restricted-login.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shelly/protocol-coap.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shelly/protocol-mqtt.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shelly/restricted-login.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shelly/state-changes.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shuttercontrol/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.sia/README.md
@@ -1712,6 +1722,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.alias-manager/README.m
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.alpha2/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.amazon-dash/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.anelhut/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.apcups/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.artnet/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.artnet-recorder/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.asterisk/README.md
@@ -1982,6 +1993,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.owntracks/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.palazzetti/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.panasonic-comfort-cloud/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.panasonic-viera/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.parcel/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.parser/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.paw/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.pegelalarm/README.md
@@ -2042,6 +2054,9 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shelly/https:/raw.gith
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/protocol-coap.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/protocol-mqtt.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/restricted-login.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shelly/protocol-coap.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shelly/protocol-mqtt.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shelly/restricted-login.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shelly/state-changes.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shuttercontrol/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.sia/README.md
@@ -2225,6 +2240,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.alias-manager/READM
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.alpha2/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.amazon-dash/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.anelhut/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.apcups/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.artnet/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.artnet-recorder/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.asterisk/README.md
@@ -2495,6 +2511,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.owntracks/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.palazzetti/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.panasonic-comfort-cloud/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.panasonic-viera/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.parcel/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.parser/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.paw/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.pegelalarm/README.md
@@ -2555,6 +2572,9 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shelly/https:/raw.g
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/protocol-coap.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/protocol-mqtt.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/restricted-login.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shelly/protocol-coap.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shelly/protocol-mqtt.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shelly/restricted-login.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shelly/state-changes.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shuttercontrol/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sia/README.md

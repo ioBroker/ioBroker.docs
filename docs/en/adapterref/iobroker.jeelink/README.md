@@ -65,9 +65,13 @@ to be done in admin
 
 
 ## Changelog:
+### 1.0.1
+* (foxthefox) round -> this round
+* (foxthefox) baudrate settings in admin as number
+
 ### 1.0.0
 * (foxthefox) refactoring, use of classbased style,
-* github actions instead of travis
+* (foxthefox) github actions instead of travis
 
 ### 0.1.4
 * (o0shojo0o) nodejsV14 compatibility

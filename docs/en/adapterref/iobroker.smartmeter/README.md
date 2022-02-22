@@ -90,6 +90,9 @@ Sentry.io is a way for developers to get an overview about errors from their app
 When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to our own Sentry server hosted in germany. When you allowed iobroker GmbH to collect diagnostic data then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of this helps me to provide error free adapters that basically never crashs.  
 
 ## Changelog
+### 3.3.3 (2022-02-21)
+* IMPORTANT: This version requires at least Node.js 12.17+ (excluding non LTS like 13.x)
+* (Apollon77) Prevent some crash cases
 
 ### 3.2.1 (2021-05-09)
 * (Apollon77) Optimize for js-controller 3.3
@@ -236,7 +239,7 @@ When the adapter crashes or an other Code error happens, this error message that
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2021 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2017-2022 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -72,6 +72,11 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 日志的字体显示为红色。
 
 ## Changelog
+### 5.3.1 (2022-02-21)
+* (bluefox) Support of IPv6 address by links (vis, material, end so on)
+* (bluefox) Corrected errors in the base settings
+* (bluefox) Corrected error with the pre-selected language in wizard
+
 ### 5.3.0 (2022-02-09)
 * (jogibear9988) Enable http compression in webserver
 * (bluefox) Removed deprecated package "request"
@@ -89,10 +94,6 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 
 ### 5.2.1 (2021-11-28)
 * (bluefox) Allow in expert mode the creation of states and channels in mqtt branch
-
-### 5.2.0 (2021-11-26)
-* (Apollon77) Fix crash cases reported via sentry
-* (bluefox) Added support for multi-repositories
 
 ## License
 The MIT License (MIT)

@@ -2,7 +2,7 @@
 BADGE-Number of Installations: http://iobroker.live/badges/shelly-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.shelly.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.shelly.svg
-chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/README.md"},"de/adapterref/iobroker.shelly/https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/protocol-coap.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/protocol-coap.md"},"de/adapterref/iobroker.shelly/https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/protocol-mqtt.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/protocol-mqtt.md"},"de/adapterref/iobroker.shelly/https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/restricted-login.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/restricted-login.md"},"de/adapterref/iobroker.shelly/state-changes.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/state-changes.md"}}}
+chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/README.md"},"de/adapterref/iobroker.shelly/protocol-coap.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-coap.md"},"de/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-mqtt.md"},"de/adapterref/iobroker.shelly/restricted-login.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/restricted-login.md"},"de/adapterref/iobroker.shelly/state-changes.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/state-changes.md"}}}
 ---
 ![Logo](../../admin/shelly.png)
 
@@ -33,6 +33,7 @@ Der Adapter kann über CoAP oder MQTT mit den Geräten kommunizieren. Der Standa
 - [MQTT Protokoll](protocol-mqtt.md)
 - [Geschützter Login](restricted-login.md)
 - [Zustandsänderungen](state-changes.md)
+- [FAQ](faq.md)
 
 ## Changelog
 
@@ -42,6 +43,10 @@ Der Adapter kann über CoAP oder MQTT mit den Geräten kommunizieren. Der Standa
 -->
 ### **WORK IN PROGRESS**
 
+* (klein0r) Added Shelly Plus I4
+* (klein0r) Added more objects for power metering channels (current, voltage, limits, ...)
+* (klein0r) Moved device temperature of generation 2 devices to relays (this is the official way)
+* (klein0r) Added Sys channel (eco mode, timezone, ...) for generation 1 devices
 * (klein0r) Fixed datatype error of Shelly 1/PM ext switch
 
 ### 5.2.0 (2022-02-16)

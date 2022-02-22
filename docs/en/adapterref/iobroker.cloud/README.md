@@ -75,8 +75,7 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 -->
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 4.1.1 (2022-02-19)
 * Important: Requires js-controller 3.1 at least!
 * (Apollon77) Add some checks to prevent issues with missing data
 * (Apollon77) FIx some crash cases reported by Sentry
@@ -107,7 +106,7 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 * (bluefox) Stop all timers on the unloading
 
 ### 4.0.3 (2021-01-26)
-* (bluefox) Added the ignoring of restart on disconnect by the redirection 
+* (bluefox) Added the ignoring of restart on disconnect by the redirection
 
 ### 4.0.2 (2021-01-24)
 * (Apollon77) Make sure states which were not set or expired do not crash when requested via services (Sentry IOBROKER-CLOUD-P)

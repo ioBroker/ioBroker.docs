@@ -305,9 +305,12 @@ Data is sent to Iobroker Sentry server hosted in Germany. If you have allowed io
 - only IPv4 supported
 
 ## Changelog
-### 0.1.20 (2022-02-)
-* feature: add some dpts
+### 0.1.20 (2022-02-19)
+* feature: add more dpts
 * bugfix: corrected some min max values
+* bugfix: some unhandeled dpts could not be received
+* bugfix: fix import
+* bugfix: min max values
 
 ### 0.1.19 (2022-02-11)
 * feature: allow usage of same KNX GAs in multiple objects

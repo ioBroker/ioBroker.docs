@@ -45,7 +45,8 @@ Here is what to configure when creating a new instance of the adapter. Settings 
     <td>E3/DC IP address</td>
     <td>
       Address in your local network, like 192.168.178.107 <br>
-      You can check the IP on your E3/DC screen, it's called "System-IP": <br>
+      <code>ioBroker.discovery</code> (from 2.8.0) is able to detect E3/DC devices using uPnP. <br>
+      You can also check the IP on your E3/DC screen, it's called "System-IP": <br>
       <img src="admin/e3dc-system-ip.png" width="600">
     </td>
   </tr>
@@ -338,6 +339,9 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 <a name="log"></a>
 
 ## Changelog
+### 1.0.3
+(git-kick)
+* Reconnect does not work after RESTART_APPLICATION - [Issue #74](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/74)
 ### 1.0.2
 (git-kick)
 * SYS namespace, experimental support - [Issue #60](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/60)

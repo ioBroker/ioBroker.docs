@@ -33,12 +33,12 @@ Keywords work as following:
 
 - keywords are divided by space
 - all keywords must present in a sentence to trigger a rule: e.g. keyword: `light on` will trigger on `switch light on`, `make light on everywhere` and do not trigger on `switch on`, `make light`.
-- one keyword can has many forms. Variations of keyword must be divided by "/". E.g. keywords: `switch/make/do light on/true` will trigger on: `do light true`, `make please light on`.
+- one keyword can have many forms. Variations of keyword must be divided by "/". E.g. keywords: `switch/make/do light on/true` will trigger on: `do light true`, `make please light on`.
 - if keyword can come in many cases(nom, gen, accusative, plural, ...) they all must be listed as variations, like: `switch light/lights on`.
 
 Following functions will be interpreted as
 
-enum.functions:
+`enum.functions`:
 
 **`enum.functions.light`** (Licht | Свет):
 
@@ -50,7 +50,7 @@ enum.functions:
 - roles - `level.backlight`
 - roles - `switch.backlight`
 
-**`enum.functions.blinds/shutter`** (Rolladen | Жалюзи/окна)
+**`enum.functions.blinds/shutter`** (Rollladen | Жалюзи/окна)
 
 - roles - `level.blind`
 - roles - `switch.blind`
@@ -81,32 +81,32 @@ enum.functions:
 
 Following rooms are supported:
 
-| key word in phrase    | Possible enum.rooms in english  | in german                | in russian             |
-|-----------------------|---------------------------------|--------------------------|------------------------|
-| everywhere            | everywhere                      | -                        | -                      |
-| living                | livingroom                      | wohnzimmer               | зал                    |
-| bedroom               | bedroom/sleepingroom            | schlafzimmer             | спальня                |
-| bath                  | bathroom/bath                   | badezimmer/bad           | ванная                 |
-| working/office        | office                          | arbeitszimmer            | кабинет                |
-| kids/child/nursery    | nursery                         | kinderzimmer             | детская                |
-| guets wc/guest closet | guestwc                         | gästewc                  | гостевой туалет        |
-| wc/closet             | wc                              | wc                       | туалет                 |   
-| floor/enter           | floor                           | diele/gang/flur          | коридор/прихожая       |
-| kitchen               | kitchen                         | küche/kueche             | кухня                  |
-| balcony/terrace/patio | terrace                         | balkon/terrasse          | терасса/балкон         |
-| dinning               | dinningroom                     | esszimmer                | столовая               |
-| garage                | garage                          | garage                   | гараж                  |
-| stair                 | stairs                          | trepe/treppenhaus        | лестница               |
-| garden                | garden                          | garten                   | сад                    |
-| court/yard            | court                           | hof                      | двор                   |
-| guest room            | guestroom                       | gästezimmer              | гостевая               |
-| attic                 | attic                           | speicher                 | кладовка               |
-| roof                  | roof                            | dachstuhl                | крыша                  |
-| terminal              | terminal                        | anschlussraum            | сени                   |
-| wash room             | washroom                        | waschraum                | прачечная              |
-| heat room             | heatroom                        | heatingroom/heizungsraum | котельная              |
-| hovel                 | hovel                           | schuppen/scheune         | сарай                  |
-| summer house          | summerhouse                     | gartenhaus               | теплица                |
+| key word in phrase    | Possible enum.rooms in english  | in german                | in russian       |
+|-----------------------|---------------------------------|--------------------------|------------------|
+| everywhere            | everywhere                      | -                        | -                |
+| living                | livingroom                      | wohnzimmer               | зал              |
+| bedroom               | bedroom/sleepingroom            | schlafzimmer             | спальня          |
+| bath                  | bathroom/bath                   | badezimmer/bad           | ванная           |
+| working/office        | office                          | arbeitszimmer            | кабинет          |
+| kids/child/nursery    | nursery                         | kinderzimmer             | детская          |
+| guets wc/guest closet | guestwc                         | gästewc                  | гостевой туалет  |
+| wc/closet             | wc                              | wc                       | туалет           |   
+| floor/enter           | floor                           | diele/gang/flur          | коридор/прихожая |
+| kitchen               | kitchen                         | küche/kueche             | кухня            |
+| balcony/terrace/patio | terrace                         | balkon/terrasse          | терраса/балкон  |
+| dinning               | dinningroom                     | esszimmer                | столовая         |
+| garage                | garage                          | garage                   | гараж            |
+| stair                 | stairs                          | trepe/treppenhaus        | лестница         |
+| garden                | garden                          | garten                   | сад              |
+| court/yard            | court                           | hof                      | двор             |
+| guest room            | guestroom                       | gästezimmer              | гостевая         |
+| attic                 | attic                           | speicher                 | кладовка         |
+| roof                  | roof                            | dachstuhl                | крыша            |
+| terminal              | terminal                        | anschlussraum            | сени             |
+| wash room             | washroom                        | waschraum                | прачечная        |
+| heat room             | heatroom                        | heatingroom/heizungsraum | котельная        |
+| hovel                 | hovel                           | schuppen/scheune         | сарай            |
+| summer house          | summerhouse                     | gartenhaus               | теплица          |
 
 You can use patterns in acknowledges:
 
@@ -261,6 +261,12 @@ If activated so by every command (no matter if the request came via state or sen
 -->
 
 ## Changelog
+### 2.2.1 (2022-02-21)
+* (bluefox) Checked the existence of sayit instance before output
+* (bluefox) Added the decimal places settings to temperature  
+* (bluefox) Added the second object ID to user queries
+* (bluefox) Added the option: "No negative answer"
+
 ### 2.1.6 (2022-02-16)
 * (bluefox) Corrected GUI
 

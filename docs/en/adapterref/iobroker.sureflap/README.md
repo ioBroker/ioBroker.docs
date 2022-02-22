@@ -115,6 +115,12 @@ The picture of the cat flap, hub and smartphone app is provided free to use from
 
 ## Changelog
 
+### 1.1.1 (2022-02-20)
+* (Sickboy78) removed pet type control from pet flap (is a cat flap exclusive feature)
+* (Sickboy78) fixed wrong default value for info.last_update
+* (Sickboy78) testing updates for js-controller 4
+* (Sickboy78) security updates
+
 ### 1.1.0 (2022-01-17)
 * (Sickboy78) bugfix and security updates
 
