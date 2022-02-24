@@ -410,7 +410,7 @@ exit
 und anschließend mit den Neuen Benutzer einloggen. Im Anschluß kann nun iobroker installiert werden.
 
 <details>
-<summary>User anlegen</summary>
+<summary>ausloggen und mit Benutzer anmelden</summary>
 
 ![lxc-useranmeldung](media/proxmox/lxc-useranmeldung)
 
