@@ -246,7 +246,7 @@ Wichtig ist hier nur, dass man ein **apt dist-upgrade** verwendet (auf „normal
 
 Insofern ist Proxmox nun in seiner Grundkonfiguration abgeschlossen. Wenn man sich ausgiebiger mit Proxmox beschäftigen möchte, lohnt ein Blick ins [Proxmox Wiki](https://pve.proxmox.com/wiki/Main_Page) bzw. ins [offizielle Forum](https://forum.proxmox.com/).
 
-
+---
 
 ## Proxmox - ioBroker Installation in einer VM (Virtuellen Maschine) 
 
@@ -260,19 +260,238 @@ Insofern ist Proxmox nun in seiner Grundkonfiguration abgeschlossen. Wenn man si
  
 </details>
 
-## Proxmox - ioBroker Installation in einem LXC (Linux Container)
+---
 
-?> ***Dies ist ein Platzhalter***.
-   <br><br>
-   Hilf mit bei ioBroker und erweitere diesen Artikel.  
-   Bitte beachte den [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md), 
-   damit die Änderungen einfacher übernommen werden können.
+## Proxmox - Erstellen eines Linux Containers (LXC) + ioBroker Installation im Anschluß
+
+Diese Beispiel-Anleitung zeigt wie ein LXC Container (debian11) erstellt und anschließend ioBroker darin installiert wird.
+
+Aufgrund der Übersichtlichkeit, sind Bildbeschreibungen und Zusatzinfo's zum aufklappen.
+ 
+### 1 - Container Template herunterladen
+
+Zuerst wird ein Template benötigt, welches in der Grundinstallation (sofern keine weiteren Laufwerke angelegt wurden) ins root Verzeichnis (local) geladen werden muss.
+
+Hierzu geht man auf local > Container Templates. Mit einem Klick auf **Templates** öffnet sich eine Auswahliste. Hier wählt man debian-11-standard(bullseye) und klickt auf herunterladen.
 
 
 <details>
- 
+<summary>Template herunterladen</summary>
+
+![local](media/proxmox/local)
+
+![pemplates](media/proxmox/templates)
+
+![pemplate-laden](media/proxmox/template-laden)
+
 </details>
 
+### 2 - LXC erstellen
+
+Mit einem Klick auf den blauen Button **Erstelle CT** öffnet sich ein Fenster, in dem nun folgende Einstellungen getroffen werden müssen.
+
+- Allgemein: Vergabe des Hostname und Passwort, ID wird vorgegeben (beginnt mit 100), kann jedoch geändert werden.
+- Template: Storage Auswahl(local) und Template(debian-11-standard)
+- Disks: Vergabe der Diskgröße(nicht zu großzügig sein, vergrößern kann man jederzeit)
+- CPU: Ist abhängig wie Leistungsstark der Rechner ist (kann ebenfalls jederzeit angepasst werden)
+- Speicher: Ram/Swap-Vergabe (kann jederzeit, auch im laufendem Betrieb angepasst werden)
+- Netzwerk: statische IP/CIDR Vergabe, Gateway, sofern kein Ipv6 eingerichtet, wird dies auf SLAAC gestellt
+- DNS: wird in der Regel nichts verändert(verwende Werte vom Host)
+- Bestätigen: Hier sieht man noch einmal eine Zusammenfassung, wenn alle Eingaben stimmen, anschließend auf **Abschließen** klicken.
+
+
+<details>
+<summary>Bilderserie Erstelle CT</summary>
+
+![pve](media/proxmox/pve)
+
+![lxc-allgemein](media/proxmox/lxc-allgemein)
+
+![lxc-template](media/proxmox/lxc-template)
+
+![lxc-disks](media/proxmox/lxc-disks)
+
+![lxc-cpu](media/proxmox/lxc-cpu)
+
+![lxc-speicher](media/proxmox/lxc-speicher)
+
+![lxc-netzwerk](media/proxmox/lxc-netzwerk)
+
+![lxc-dns](media/proxmox/lxc-dns)
+
+![lxc-bestätigen](media/proxmox/lxc-bestätigen)
+
+![lxc-taskviewer](media/proxmox/lxc-taskviewer)
+
+
+</details>
+
+
+### 3 - LXC einrichten
+
+Nachdem der Container nun gestartet wurde, begibt man sich auf die Konsole des LXC
+
+<details>
+<summary>Konsole</summary>
+
+![lxc-konsole](media/proxmox/lxc-konsole)
+
+</details>
+
+Hier loggt man sich zunächst als root mit dem zuvor vergebenen Passwort, welches beim LXC erstellen vergeben wurde, ein und bringt diesen erst einmal auf einen aktuellen  Stand.
+
+~~~
+apt update && apt upgrade
+~~~
+
+
+<details>
+<summary>Upgrade</summary>
+
+![lxc-upgrade](media/proxmox/lxc-upgrade)
+
+</details>
+
+Hierbei wird direkt darauf hingewiesen, das die Zeitzone noch eingestellt werden muss.
+
+~~~
+dpkg-reconfigure tzdata
+~~~
+
+
+<details>
+<summary>Zeitzone</summary>
+
+![lxc-tzdata](media/proxmox/lxc-tzdata)
+
+![lxc-area](media/proxmox/lxc-area)
+
+![lxc-timezone](media/proxmox/lxc-timezone)
+
+</details>
+
+
+Nun wird **sudo** und **curl** nachinstalliert. Sudo wird benötigt, um wie im nächsten Schritt, einen Benutzer korrekt anzulegen, mit dem zukünftig auf der Konsole gearbeitet wird. Curl ist nötig, um im letzten Schritt das IoBroker Installationsscript abzurufen.
+
+~~~
+apt install sudo curl
+~~~
+
+
+<details>
+<summary>Nachinstallieren</summary>
+
+![lxc-sudo](media/proxmox/lxc-sudo)
+
+</details>
+
+
+Jetzt legt man den zukünftigen Benutzer an. "Benutzername" in dem Fall ersetzen. Passwortvergabe für den User. Der Rest kann mit ENTER bestätigt werden.
+
+~~~
+adduser benutzername
+~~~
+
+
+<details>
+<summary>User anlegen</summary>
+
+![lxc-adduser](media/proxmox/lxc-adduser)
+
+</details>
+
+
+Im letzen Schritt, bevor nun ioBroker installiert wird, einmal ausloggen
+
+~~~
+exit
+~~~
+
+und anschließend mit den Neuen Benutzer einloggen. Im Anschluß kann nun iobroker installiert werden.
+
+<details>
+<summary>User anlegen</summary>
+
+![lxc-useranmeldung](media/proxmox/lxc-useranmeldung)
+
+</details>
+
+---
+
+## ioBroker installieren
+
+Für die Installation von ioBroker benötigt man lediglich einen einzigen Befehl.
+
+~~~
+curl -sLf https://iobroker.net/install.sh | bash -
+~~~
+
+Die Installationschritte dabei, sind in 4 Schritten unterteilt, welche vollautomatisch durchlaufen.
+
+- Installing prerequisites (1/4)
+- Creating ioBroker user and directory (2/4)
+- Installing ioBroker (3/4)
+- Finalizing installation (4/4)
+
+<details>
+<summary>Installer</summary>
+
+![iobroker-installer](media/proxmox/iobroker-installer)
+
+![iobroker-installer1](media/proxmox/iobroker-installer1)
+
+![iobroker-installer2](media/proxmox/iobroker-installer2)
+
+![iobroker-installer3](media/proxmox/iobroker-installer3)
+
+</details>
+
+Die Installation ist erfolgreich abgeschlossen, wenn am Ende folgendes erscheint.
+
+~~~
+ioBroker was installed successfully
+Open http://10.1.1.222:8081 in a browser and start configuring!
+~~~
+
+Dies bedeutet auch zugleich, das über die Adresse, ioBroker nun im Browser aufgerufen werden kann. Wenn alles problemlos funktioniert hat, wird man mit dem ioBroker-Setup berüßt. Nun sind es nur noch ein paar Schritte, durch die man mit dem Assistenten geleitet wird.
+
+
+<details>
+<summary>Bilderserie ioBroker Assistent</summary>
+
+![iobroker-setup](media/proxmox/iobroker-setup)
+
+![iobroker-setup1](media/proxmox/iobroker-setup1)
+
+![iobroker-setup2](media/proxmox/iobroker-setup2)
+
+![iobroker-setup3](media/proxmox/iobroker-setup3)
+
+![iobroker-setup4](media/proxmox/iobroker-setup4)
+
+![iobroker-setup5](media/proxmox/iobroker-setup5)
+
+![iobroker-setup6](media/proxmox/iobroker-setup6)
+
+</details>
+
+Im Anschluss hat man noch die Möglichkeit, nach Geräten und Diensten suchen zu lassen. Benötigte Adapter/Instanzen können dadurch automatisch angelegt werden.
+
+<details>
+<summary>Bilderserie Geräte/Dienst Suche</summary>
+
+![gerätesuche](media/proxmox/gerätesuche)
+
+![instanzen](media/proxmox/instanzen)
+
+![iobroker-fertig](media/proxmox/iobroker-fertig)
+   
+</details>
+
+Somit ist die ioBroker Installation beendet. Weitere Adapter können je nach Anwendungsfall und Wunsch, jederzeit zusätzlich installiert werden.
+
+---
+   
 ## Proxmox - LXC (Linux Containers) -> USB Geräte durchreichen
 
 Dieser Teil der Anleitung erklärt Schritt für Schritt das durchreichen eines USB-Gerätes (USB Passthrough) in Proxmox an einen LXC (Linux Container).
