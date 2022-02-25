@@ -8,10 +8,10 @@ Due to the different hardware and platforms under which ioBroker runs, the js-co
 For an update from js-controller 1.x to 2.x please always read and take care about the information at https://forum.iobroker.net/topic/26759/js-controller-2-jetzt-f%C3%BCr-alle-im-stable.
 When updating a master-slave systems, please update the slaves first and the master last! 
 
-### js-controller 3.x
-For an update from js-controller 2.0/2.1/2.2 to 3.x please always read and take care about the information at the relevant Forum thread, egeg. https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable (for 3.2). js-controller 3.x requires at least Node.js Version 10.x.
+### js-controller 4.x
+For an update from js-controller 2.x/3.x to 4.x please always read and take care about the information at the relevant Forum thread, e.g. https://forum.iobroker.net/topic/52886/js-controller-4-0-x-jetzt-f%C3%BCr-alle-user-im-stable (for 4.0). js-controller 4.x requires at least Node.js Version 12.x.
 
-With a multi-host system that runs on js-controller 2.2 or an earlier 3.x it is necessary to update the master system first when updating to version 3.x. After updating the master must be restarted before the slaves will be updated! 
+With a multi-host system that runs on js-controller 2.2 or 3.x it is necessary to update the master system first when updating to version 4.x. After updating the master must be restarted before the slaves will be updated! 
 
 
 
