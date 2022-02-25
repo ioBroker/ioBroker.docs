@@ -262,7 +262,7 @@ Insofern ist Proxmox nun in seiner Grundkonfiguration abgeschlossen. Wenn man si
 
 ---
 
-## Proxmox - Erstellen eines Linux Containers (LXC) + ioBroker Installation im Anschluß
+## Proxmox - Erstellen eines [Linux Containers (LXC)](https://pve.proxmox.com/wiki/Linux_Container) + ioBroker Installation im Anschluß
 
 Diese Beispiel-Anleitung zeigt wie ein LXC Container (debian11) erstellt und anschließend ioBroker darin installiert wird.
 
