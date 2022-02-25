@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.parcel/README.md
 title: ioBroker.parcel
-hash: ysXhdEeJfTRscz7RQXb9f5+gyaWa0wh9yh7dA4Cu3lQ=
+hash: w6IvcVdldEc9Sc5nzaVg4+YhAf3R09ciJHAFmIULHOc=
 ---
 ![Logo](../../../en/adapterref/iobroker.parcel/admin/parcel.png)
 
@@ -40,8 +40,20 @@ Login und Passwort eingeben
 
 In den Instanz Einstellung aktivieren und z.B. Telegramm.0 eingeben
 
-### DHL Briefverfolgung in der Vis anzeigen.
-Den Datenpunkt image einem "String img src"-Element als Objekt-ID zuordnen
+## Sicht ##
+**Sendungen als Vis Table darstellen**
+
+Datenpunkte alle Sendungen: packet.0.allProviderJson
+
+Datenpunkte in Zustellung: packet.0.inDelivery
+
+**Widget: json-Tabelle**
+
+Anleitung: https://www.smarthome-tricks.de/software-iobroker/iobroker-vis-json-table-widget-teil-1-basics/
+
+**DHL Briefverfolgung in Vis anzeigen.**
+
+Den Datenpunkt packet.0.dhl.briefe....image ein "String img src"-Element als Objekt-ID zuordnen
 
 ##Diskussion und Fragen
 <https://forum.iobroker.net/topic/51795/test-adapter-parcel-paketverfolgung-dhl-v0-0-1>

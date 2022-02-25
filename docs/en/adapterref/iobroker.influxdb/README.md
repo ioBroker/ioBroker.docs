@@ -282,8 +282,6 @@ sendTo('sql.0', 'update', [
 
 `ts` is mandatory. At least one other flags must be included in state object.
 
-Be careful with `counters`. The `counters` in DB will not be reset, and you must handle it yourself.
-
 ## History Logging Management via Javascript
 The adapter supports enabling and disabling of history logging via JavaScript and also retrieving the list of enabled data points with their settings.
 
@@ -355,7 +353,11 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
-### 2.5.1 (2022-02-16)
+### 2.6.0 (2022-02-24)
+* (Excodibur) Make request timeout configurable - defaults to 30s
+* (Apollon77) Add option to also accept self signed ssl certificates for InfluxDB 2.x
+
+### 2.5.2 (2022-02-22)
 * (bluefox) Marked interpolated data with `i=true`
 
 ### 2.5.0 (2022-02-14)

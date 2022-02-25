@@ -24,7 +24,8 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.2.10-alpha.0 (2022-02-16)
+### 0.2.10 (2022-02-24)
+* (HGlab01) Bump iobroker-jsonexplorer to v0.1.9
 * (HGlab01) js-controller 4.0 readiness
 
 ### 0.2.9 (2021-11-29)

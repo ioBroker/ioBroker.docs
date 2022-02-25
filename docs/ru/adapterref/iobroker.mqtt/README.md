@@ -746,6 +746,11 @@ void loop() {
 получать от нее данные через облачный сервис!
 
 ## Changelog
+### 2.5.0 (2022-02-24)
+* (uwesimon/Apollon77) fix test connection with mqtts
+* (uwesimon/Apollon77) ReconnectTimeout is now handled in seconds, so default is 10s instead of 10ms
+* (Apollon77) Correct info.connection object default values
+
 ### 2.4.1 (2021-11-08)
 * (MichaelDvP) Added wildcard regex for "/#"
 
@@ -1013,7 +1018,7 @@ void loop() {
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2021, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

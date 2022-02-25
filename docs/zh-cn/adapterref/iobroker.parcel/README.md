@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.parcel/README.md
 title: ioBroker.parcel
-hash: ysXhdEeJfTRscz7RQXb9f5+gyaWa0wh9yh7dA4Cu3lQ=
+hash: w6IvcVdldEc9Sc5nzaVg4+YhAf3R09ciJHAFmIULHOc=
 ---
 ![商标](../../../en/adapterref/iobroker.parcel/admin/parcel.png)
 
@@ -40,8 +40,20 @@ hash: ysXhdEeJfTRscz7RQXb9f5+gyaWa0wh9yh7dA4Cu3lQ=
 
 In den Instanz Einstellung aktivieren und z.B.电报.0 eingeben
 
-### DHL Briefverfolgung in der Vis anzeigen。
-Den Datenpunkt image ein "String img src" element als Object ID zuordnen
+##可见##
+**Sendungen 饰演 Vis Table darstellen**
+
+Datenpunkte alle Sendungen: parcel.0.allProviderJson
+
+Zustellung的Datenpunkte：parcel.0.inDelivery
+
+**小部件：json 表**
+
+评论：https://www.smarthome-tricks.de/software-iobroker/iobroker-vis-json-table-widget-teil-1-basics/
+
+**DHL Briefverfolgung in Vis anzeigen.**
+
+Den Datenpunkt parcel.0.dhl.briefe....图像 ein "String img src" element als Object ID zuordnen
 
 ## 讨论和讨论
 <https://forum.iobroker.net/topic/51795/test-adapter-parcel-paketverfolgung-dhl-v0-0-1>

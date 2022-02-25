@@ -139,6 +139,9 @@ CCU / Homematic支持不同的设备类型（有线，无线，HMIP，CUxD）。
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.15.8 (2022-02-23)
+* (foxriver76) we now ensure, that the `uuid` used for connection is really unique
+
 ### 1.15.7 (2022-02-20)
 * (foxriver76) fixed new devices beeing created as `undefined`
 

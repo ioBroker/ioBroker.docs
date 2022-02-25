@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.parcel/README.md
 title: ioBroker.parcel
-hash: ysXhdEeJfTRscz7RQXb9f5+gyaWa0wh9yh7dA4Cu3lQ=
+hash: w6IvcVdldEc9Sc5nzaVg4+YhAf3R09ciJHAFmIULHOc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.parcel/admin/parcel.png)
 
@@ -40,8 +40,20 @@ hash: ysXhdEeJfTRscz7RQXb9f5+gyaWa0wh9yh7dA4Cu3lQ=
 
 In den Instanz Einstellung aktivieren und z.B. телеграмма.0 eingeben
 
-### DHL Briefverfolgung в отчетах Vis.
-Den Datenpunkt image ein "String img src" element as Object ID zuordnen
+## Вис ##
+**Sendungen als Vis Table darstellen**
+
+Дата для всех отправлений: посылка.0.allProviderJson
+
+Datenpunkte в Zustellung: посылка.0.inDelivery
+
+**Виджет: таблица json**
+
+Анлейтунг: https://www.smarthome-tricks.de/software-iobroker/iobroker-vis-json-table-widget-teil-1-basics/
+
+**DHL Briefverfolgung в Vis anzeigen.**
+
+Den Datenpunkt partition.0.dhl.briefe....image ein "String img src" element als Object ID zuordnen
 
 ## Обсуждение и обсуждение
 <https://forum.iobroker.net/topic/51795/test-adapter-parcel-packetverfolgung-dhl-v0-0-1>

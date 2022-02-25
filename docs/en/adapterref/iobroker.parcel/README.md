@@ -35,10 +35,25 @@ Login und Passwort eingeben
 
 In den Instanz Einstellung aktivieren und z.B. telegram.0 eingeben
 
+## Vis ##
 
-### DHL Briefverfolgung in der Vis anzeigen.
+**Sendungen als Vis Table darstellen**
 
-Den Datenpunkt image ein "String img src" element als Object ID zuordnen
+Datenpunkte alle Sendungen:
+parcel.0.allProviderJson
+
+Datenpunkte in Zustellung:
+parcel.0.inDelivery
+
+**Widget: json Table**
+
+Anleitung:
+https://www.smarthome-tricks.de/software-iobroker/iobroker-vis-json-table-widget-teil-1-basics/
+
+
+**DHL Briefverfolgung in Vis anzeigen.**
+
+Den Datenpunkt parcel.0.dhl.briefe....image ein "String img src" element als Object ID zuordnen
 
 ## Diskussion und Fragen
 

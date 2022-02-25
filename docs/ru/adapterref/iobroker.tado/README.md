@@ -3,58 +3,69 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: 1mq5/OTYWIpPvTUkw0K4ZfYdjEUKY8D2kk9sCQcSzYA=
+hash: aPE5lBaytBWMN/A1iVEPzyZcr8V1K+9KF+ccJ+64+us=
 ---
 # IoBroker.tado
 
 ![Количество установок](http://iobroker.live/badges/tado-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.tado.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.tado.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.tado.svg)
-![Статус зависимости](https://img.shields.io/david/DrozmotiX/iobroker.tado.svg)
 ![Известные уязвимости](https://snyk.io/test/github/DrozmotiX/ioBroker.tado/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.tado.png?downloads=true)
 
 <img src="./admin/tado.png" width="50" height="50">
 
-[![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-![Тестирование и выпуск](https://github.com/DrozmotiX/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
+![Тестируйте и выпускайте](https://github.com/DrozmotiX/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер tado для ioBroker
-tado ° обеспечивает комфортный и здоровый климат, экономя до 31% на счетах за отопление.
+tado° обеспечивает комфортный и здоровый климат, экономя при этом до 31% на счетах за отопление.
 
 ## Поддержите меня
-Если вам нравятся мои работы, пожалуйста, сделайте личное пожертвование (это личная ссылка для пожертвований для DutchmanNL, не имеющая отношения к проекту ioBroker! [![Пожертвовать] (https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
+Если вам нравится моя работа, не стесняйтесь сделать личное пожертвование (это личная ссылка для пожертвования для DutchmanNL, не имеющая отношения к проекту ioBroker! [![Пожертвовать](https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
-## Вещи, которыми можно управлять
-| Государство | Описание |
+## Вещи, которыми вы можете управлять
+| состояние | Описание |
 | ----- | ----------- |
-| тадо. [x]. [yyyyyy] .Rooms. [z] .setting.power | Включение / выключение устройства |
-| tado. [x]. [yyyyyy] .Rooms. [z] .setting.temperature.celsius | Определите температуру |
-| тадо. [x]. [yyyyyy] .Rooms. [z] .overlayClearZone | Перейти в автоматический режим |
-| tado. [x]. [yyyyyy] .Rooms. [z] .overlay.termination.typeSkillBasedApp | Установить режим расписания |
-| tado. [x]. [yyyyyy] .Rooms. [z] .overlay.termination.durationInSeconds | Установите, как долго будет действовать режим расписания |
-| tado. [x]. [yyyyyy] .Rooms. [z] .devices. [RUaaaaaaaaaa] .offset.offsetCelsius | Температурное смещение |
-| тадо. [x]. [yyyyyy] .Rooms. [z] .timeTables.tt_id | Выбрать активное расписание |
-| тадо. [x]. [yyyyyy] .Home.state.presence | Установите режим ДОМАШНИЙ или ВНЕЗАПНО |
-| тадо. [x]. [yyyyyy] .Home.masterswitch | Включение / выключение всех устройств |
-| тадо. [x]. [yyyyyy] .Rooms. [z] .setting.mode | Режим переменного тока (только устройства переменного тока) |
-| тадо. [x]. [yyyyyy] .Rooms. [z] .setting.fanspeed | Fanspeed (только устройства переменного тока с версиями V3 и более ранними) |
-| тадо. [x]. [yyyyyy] .Rooms. [z] .setting.fanLebel | Fanlebel (только устройства переменного тока с версией V3 +) |
-| тадо. [x]. [yyyyyy] .Rooms. [z] .setting.verticalSwing | Вертикальный поворот (только устройства переменного тока с версией V3 +) |
-| tado. [x]. [yyyyyy] .Rooms. [z] .setting.horizontalSwing | Горизонтальный поворот (только устройства переменного тока с версиями V3 и более ранними) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.power | Включить/выключить устройство |
+| tado.[x].[yyyyyy].Rooms.[z].setting.temperature.celsius | Определить температуру |
+| tado.[x].[yyyyyy].Rooms.[z].overlayClearZone | Переключиться в автоматический режим |
+| tado.[x].[yyyyyy].Rooms.[z].overlay.termination.typeSkillBasedApp | Установить режим расписания |
+| tado.[x].[yyyyyy].Rooms.[z].overlay.termination.durationInSeconds | Установите, как долго будет применяться режим расписания |
+| tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].offset.offsetCelsius | Смещение температуры |
+| tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].childLockEnabled | Блокировка от детей вкл/выкл |
+| tado.[x].[yyyyyy].Rooms.[z].timeTables.tt_id | Выберите активное расписание |
+| tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.openWindowDetectionEnabled | Включить/выключить обнаружение открытого окна на термостате |
+| tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.timeoutInSeconds | Тайм-аут, как долго термостаты выключаются при обнаружении открытого окна |
+| tado.[x].[yyyyyy].Rooms.[z].activateOpenWindow | Выключать термостаты при обнаружении открытого окна (работает, только если термостат обнаруживает открытое окно) |
+| tado.[x].[yyyyyy].Home.state.presence | Установите режим ДОМА или ВНЕШНИЙ |
+| tado.[x].[yyyyyy].Home.masterswitch | Включить/выключить все устройства |
+| tado.[x].[yyyyyy].Rooms.[z].setting.mode | Режим переменного тока (только устройства переменного тока) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | Fanspeed (только устройства переменного тока с версией V3 и более ранними) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | Fanlebel (только устройства переменного тока версии V3+) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.verticalSwing | Вертикальное качание (только устройства переменного тока с версией V3+) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | Горизонтальное качание (только устройства переменного тока версии V3 и старше) |
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.13-alpha.9 (2021-12-24)
+### 0.3.15-alpha.2 (2022-02-24)
+* (ilueckel) Support steering of ActivateOpenWindow, OpenWindowDetection, childLockEnabled 
+* (HGlab01) Bump iobroker-jsonexplorer to v0.1.9
+* (HGlab01) js-controller 4.0 readiness
+
+### 0.3.14 (2022-01-21)
+* (HGlab01) Improve hotwater handling
+* (HGlab01) Improve AC Control v3 devices 
+* (HGlab01) Support swing ON/OFF for AC v3 devices
+
+### 0.3.13 (2022-01-03)
 * (HGlab01) Optimize internet-check by using isOnline-library
 * (HGlab01) Support Smart AC Control V3+ (issue #403)
-* (HGlab01) Fix issue 'fan level not allowed in mode DRY'
-* (HGlab01) Fix issue 'mode not in supported modes [COOL, HEAT, DRY, FAN, AUTO]'
-* (HGlab01) Fix issue 'temperature required for mode AUTO'
+* (HGlab01) Offset temperature rounding to max. 2 digits
 
 ### 0.3.12 (2021-11-25)
 * (HGlab01) support attribute 'showScheduleSetup'
@@ -171,7 +182,7 @@ tado ° обеспечивает комфортный и здоровый кли
 ## License
 MIT License
 
-Copyright (c) 2021 DutchmanNL <rdrozda@hotmail.com> & HGlab01
+Copyright (c) 2022 DutchmanNL <rdrozda@hotmail.com> & HGlab01
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

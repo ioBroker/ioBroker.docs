@@ -104,7 +104,11 @@ Wählt man in der Titelzeile unter Historie "mit" oder "influxdb.0" aus, werden
 Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 ## Changelog
-### 2.5.1 (2022-02-16)
+### 2.6.0 (2022-02-24)
+* (Excodibur) Make request timeout configurable - defaults to 30s
+* (Apollon77) Add option to also accept self signed ssl certificates for InfluxDB 2.x
+
+### 2.5.2 (2022-02-22)
 * (bluefox) Marked interpolated data with `i=true`
 
 ### 2.5.0 (2022-02-14)
