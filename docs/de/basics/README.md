@@ -39,7 +39,7 @@ Ein ioBroker Server kann nahezu auf jeder Hardware installiert werden. Einzige
 Bedingung ist, dass es für das entsprechende Betriebssystem eine aktuelle  
 Version von [nodejs](https://nodejs.org/en/download/) gibt.
 
-!> Stand Mai 2021 wird für ioBroker noch nodejs 12.x empfohlen.
+!> Stand Februar 2022 wird für ioBroker noch Node.js 14.x empfohlen.
 
 Für eine größere Installation wird außerdem ein Arbeitsspeicher (RAM) von  
 mindestens 2GB empfohlen. Zum Testen reicht ein Raspberry Pi 2/3 mit 1GB RAM,  
