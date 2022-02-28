@@ -1,5 +1,8 @@
-![Logo](./admin/systeminfo.png) Reads (and writes) informationen from System(s)
----
+![Logo](admin/systeminfo.png) 
+# Systeminfo
+
+Reads (and writes) informationen from System(s)
+
 [![NPM version](http://img.shields.io/npm/v/iobroker.systeminfo.svg)](https://www.npmjs.com/package/iobroker.systeminfo)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.systeminfo.svg)](https://www.npmjs.com/package/iobroker.systeminfo)
 **Tests:** Linux/Mac: [![Travis-CI Build Status](https://travis-ci.org/frankjoke/ioBroker.systeminfo.svg?branch=master)](https://travis-ci.org/frankjoke/ioBroker.systeminfo)
@@ -110,15 +113,11 @@ It handles text, HTML, json and XML data types wizh special query mechanisms.
 * Allow import/export of configs to easily add new functions
 * Allow access of web pages with authentication and also writing/postng web content
 
-## Installation
-
-Mit ioBroker admin, npm install iobroker.systeminfo oder von <https://github.com/frankjoke/ioBroker.systeminfo> 
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2017, frankjoke <frankjoke@hotmail.com>
+Copyright (c) 2017-2019, frankjoke <frankjoke@hotmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

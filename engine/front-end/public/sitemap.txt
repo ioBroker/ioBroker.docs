@@ -704,6 +704,8 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.benq/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.bestway/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.binance/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.birthdays/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.birthdays/carddav.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.birthdays/ical.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.ble/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.blebox/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.blink4home/README.md
@@ -863,6 +865,10 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.knx/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.kodi/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.kostal-piko-ba/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.lametric/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.lametric/apps.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.lametric/blockly.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.lametric/my-data-diy.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.lametric/notifications.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.landroid/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.lcn/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.legrand-ecocompteur/README.md
@@ -1222,6 +1228,8 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.benq/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.bestway/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.binance/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.birthdays/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.birthdays/carddav.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.birthdays/ical.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.ble/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.blebox/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.blink4home/README.md
@@ -1381,6 +1389,10 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.knx/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.kodi/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.kostal-piko-ba/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.lametric/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.lametric/apps.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.lametric/blockly.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.lametric/my-data-diy.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.lametric/notifications.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.landroid/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.lcn/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.legrand-ecocompteur/README.md
@@ -1740,6 +1752,8 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.benq/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.bestway/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.binance/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.birthdays/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.birthdays/carddav.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.birthdays/ical.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.ble/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.blebox/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.blink4home/README.md
@@ -1899,6 +1913,10 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.knx/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.kodi/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.kostal-piko-ba/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.lametric/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.lametric/apps.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.lametric/blockly.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.lametric/my-data-diy.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.lametric/notifications.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.landroid/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.lcn/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.legrand-ecocompteur/README.md
@@ -2258,6 +2276,8 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.benq/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.bestway/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.binance/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.birthdays/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.birthdays/carddav.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.birthdays/ical.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ble/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.blebox/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.blink4home/README.md
@@ -2417,6 +2437,10 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.knx/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.kodi/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.kostal-piko-ba/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.lametric/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.lametric/apps.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.lametric/blockly.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.lametric/my-data-diy.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.lametric/notifications.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.landroid/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.lcn/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.legrand-ecocompteur/README.md

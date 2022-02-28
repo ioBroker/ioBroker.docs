@@ -41,17 +41,17 @@ You can use the adapter in CoAP or MQTT mode. The default mode is CoAP and you d
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-
+### 5.3.0 (2022-02-27)
 * (klein0r) Added Shelly Plus I4
 * (klein0r) Added more objects for power metering channels (current, voltage, limits, ...)
 * (klein0r) Moved device temperature of generation 2 devices to relays (this is the official way)
 * (klein0r) Added Sys channel (eco mode, timezone, ...) for generation 1 devices
 * (klein0r) Fixed datatype error of Shelly 1/PM ext switch
+* (klein0r) Added option to enable/disable WiFi access point (generation 2 devices)
+* (klein0r) Added power limits and position control for covers (generation 2 devices)
 * (klein0r) Removed colors for online state indication on device objects
 
 ### 5.2.0 (2022-02-16)
-
 * (klein0r) Added Shelly Pro 1
 * (klein0r) Added Shelly Pro 1 PM
 * (klein0r) Added Shelly Pro 2
@@ -64,7 +64,6 @@ You can use the adapter in CoAP or MQTT mode. The default mode is CoAP and you d
 * (klein0r) Replaced node-fetch with axios (also for digest auth)
 
 ### 5.1.3 (2022-02-13)
-
 * (klein0r) Changed common.states strings to objects
 * (klein0r) Just perform firmware update if an available update was detected
 * (klein0r) Extended logging for CoAP

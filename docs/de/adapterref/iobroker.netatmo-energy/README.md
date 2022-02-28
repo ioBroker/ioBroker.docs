@@ -3,7 +3,6 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.netatmo-energy.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.netatmo-energy.svg
 BADGE-Number of Installations (latest): http://iobroker.live/badges/netatmo-energy-installed.svg
 BADGE-Number of Installations (stable): http://iobroker.live/badges/netatmo-energy-stable.svg
-BADGE-Dependency Status: https://img.shields.io/david/Homemade-Disaster/iobroker.netatmo-energy.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/Homemade-Disaster/ioBroker.netatmo-energy/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true
 ---
@@ -14,7 +13,6 @@ BADGE-NPM: https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true
 [![Downloads](https://img.shields.io/npm/dm/iobroker.netatmo-energy.svg)](https://www.npmjs.com/package/iobroker.netatmo-energy)
 ![Number of Installations (latest)](http://iobroker.live/badges/netatmo-energy-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/netatmo-energy-stable.svg)
-[![Dependency Status](https://img.shields.io/david/Homemade-Disaster/iobroker.netatmo-energy.svg)](https://david-dm.org/Homemade-Disaster/iobroker.netatmo-energy)
 [![Known Vulnerabilities](https://snyk.io/test/github/Homemade-Disaster/ioBroker.netatmo-energy/badge.svg)](https://snyk.io/test/github/Homemade-Disaster/ioBroker.netatmo-energy)
 
 [![NPM](https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true)](https://nodei.co/npm/iobroker.netatmo-energy/)
@@ -104,7 +102,14 @@ Widget für VIS um ein komplettes Thermostat anzuzeigen. Sie müssen nur den "Se
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.2 (2022-02-27)
+* (ioKlausi) Coding überarbeitet
+
+### 1.0.1 (2022-02-27)
+* (ioKlausi) Coding überarbeitet
+
+### 1.0.0 (2022-02-25)
+* (ioKlausi) Hauptversion veröffentlichen
 
 ### 0.2.4 (2022-02-13)
 * (ioKlausi) Release Script hinzugefügt
@@ -230,6 +235,15 @@ SOFTWARE.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.2 (2022-02-27)
+* (ioKlausi) Redesign coding
+
+### 1.0.1 (2022-02-27)
+* (ioKlausi) Redesign coding
+
+### 1.0.0 (2022-02-25)
+* (ioKlausi) Create major version
+
 ### 0.2.4 (2022-02-13)
 * (ioKlausi) Release Script added
 

@@ -25,7 +25,7 @@ iobroker upload yamaha
 ``
 
 #### Realtime
-The states will be created, when they accur. I.e. use your ir-remote and change something and you will see the new states. 
+The states will be created, when they occur. I.e. use your ir-remote and change something and you will see the new states. 
 Only one connection is accepted by yamaha devices.
 
 #### Requirements
@@ -35,6 +35,8 @@ You have to enable "network standby" function in the configuration of your recei
 
 
 ## Changelog
+### 0.4.1
+* (Sneak-L8) "toggleMute" now toggle mute state (instead of always muting)
 ### 0.4.0
 * (Garfonso) added admin 3 compatibility and more meta-data stuff.
 * (Garfonso) added compact mode support.

@@ -3,37 +3,37 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.deconz/README.md
 title: без заголовка
-hash: 4Q95qlMPJ1GRwW4YORp1JEHRxM0wDdpigsWkH6r7kNY=
+hash: 4+tbBmkb3CHsa40NYBLcBSntHQkOopeu1oB/itCB7zo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
 ![Количество установок](http://iobroker.live/badges/deconz-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.deconz.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.deconz.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.deconz.svg)
 ![НПМ](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
 
-ioBroker deConz dresden-elektronik Адаптер
+Адаптер ioBroker deConz dresden-elektronik
 
 ==============
 
 ## Уведомление
 Нет поддержки бета-версий deConz
 
-Требуемая версия js-контроллера> 2.x.x, Требуемая версия node.js> = 10.x.x
+Требуемая версия js-контроллера >2.x.x, Требуется node.js >= 10.x.x
 
 ## Английский
 Подключается к программному обеспечению deConz, разработанному dresden-elektronik. Это программное обеспечение призвано стать универсальным решением ZigBee Gateway с использованием оборудования от dresden-elektronik, USB-накопителя ConBee и модуля RaspBee для Raspberry Pi.
 
-Вы должны сначала сделать ссылку на deConz.
+Вы должны сначала установить ссылку на deConz.
 
 1. а) Введите IP-адрес для deConz
 
-    б) Введите номер порта, стандартный - 80.
+    б) Введите номер порта, стандарт 80.
 
-2. После ввода и сохранения IP-адреса и порта нажмите кнопку «Создать ключ API». Теперь вы можете ввести учетные данные для deConz или перейти в приложение Phoscon и зарегистрировать ioBroker как стороннее приложение.
+2. После ввода и сохранения IP-адреса и порта нажмите кнопку «Создать ключ API». Теперь вы можете ввести учетные данные для deConz или перейти в приложение Phoscon и зарегистрировать ioBroker в качестве стороннего приложения.
 
 #### Отправить более одной команды одновременно
-Для этого есть объект под названием «действие».
+Для этого существует объект под названием «действие».
 
 Примеры:
 
@@ -42,11 +42,32 @@ ioBroker deConz dresden-elektronik Адаптер
 `"on": true, "transitiontime": 5, "hue": 65500`
 
 ## Ссылки
-[deConz](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/) [Плагин REST](https://github.com/dresden-elektronik/deconz-rest-plugin) [Шлюзы (оборудование)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
+[деконз](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/) [REST-плагин](https://github.com/dresden-elektronik/deconz-rest-plugin) [Шлюзы (аппаратные)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
 
-## [Спонсоры](https://github.com/iobroker-community-adapters/ioBroker.deconz/blob/master/SPONSORS.MD)
+## [Спонсоры](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+
+### 1.3.20 (2022-02-26)
+* (withstu) add retry if gateway is busy
+* change min/max range for offset
+* updated translations
+* fix link for overview page
+* fix parameter can not be set since deConz 2.11.5
+* fix xy is invalid: #289 #295
+* remove Sentry
+
+### 1.3.19 (2021-08-08)
+* fix for js-controller 3.3.x
+
+### 1.3.17
+* fix crash [#248](https://github.com/Jey-Cee/ioBroker.deconz/issues/248)
+
+### 1.3.16 
+* added datapoints melody and volume (Used by NEO-Alarm-Sirene by Tuya)
+* added new effects for Müller Licht Tint: sunset, party, worklight, campfire, romance, nightlight
+* added new effects for Lidl Melinera: steady, snow, rainbow, snake, twinkle, fireworks, flag, waves, updown, vintage, fading, collide, strobe, sparkles, carnival, glow 
+* added 2 new datapoints they were used by Lidl Melinera effects: effectspeed: simple number; effectcolours: array of rgb values = [[255,0,0],[0,255,0],[0,0,255]] https://github.com/dresden-elektronik/deconz-rest-plugin/issues/3716#issuecomment-735467996
 
 ### 1.3.15 (2021-05-08)
 * fix info message: "State value to set for "deconz.0.Sensors.3.pending" has to be stringified but received type "object""
@@ -272,4 +293,4 @@ ioBroker deConz dresden-elektronik Адаптер
 ## License
 Apache-2.0
 
-Copyright (c) 2017-2021 Jey Cee jey-cee@live.com
+Copyright (c) 2017-2022 Jey Cee jey-cee@live.com

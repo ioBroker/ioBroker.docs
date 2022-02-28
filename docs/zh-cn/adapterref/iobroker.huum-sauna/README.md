@@ -2,7 +2,49 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.huum-sauna/README.md
-title: 无题
-hash: ttCh6etaF/z6J69KXW7n5Ozj8snFnBTI2uqJyiVhuOo=
+title: ioBroker.huum-桑拿
+hash: aU0jjpssM3SwaO7SgNk2hq7ngOl6nohYqjvWz06NWe4=
 ---
-{“名称”：“iobroker.huum-sauna”，“版本”：“0.3.6”，“描述”：“HUUM Sauna Steuerung”，“作者”：“Chris <besterquester@live.at>”，“主页": "https://github.com/Chris-1965/ioBroker.huum-sauna", "license": "MIT", "keywords": [ "sauna", "control" ], "repository": { "类型”：“git”，“url”：“git+https://github.com/Chris-1965/ioBroker.huum-sauna.git”}，“依赖项”：{“@iobroker/adapter-core”： “^2.5.1”、“axios”：“^0.25.0”、“suncalc2”：“^1.8.1”}、“devDependencies”：{“@alcalzone/release-script”：“^3.5.2” ，“@alcalzone/release-script-plugin-iobroker”：“^3.5.1”，“@iobroker/testing”：“^2.5.4”，“@types/chai”：“^4.3.0”，“ @types/chai-as-promised": "^7.1.4", "@types/gulp": "^4.0.9", "@types/mocha": "^9.0.0", "@types/node ": "^14.18.5", "@types/proxyquire": "^1.3.28", "@types/sinon": "^10.0.6", "@types/sinon-chai": "^3.2. 8”、“axios”：“^0.25.0”、“chai”：“^4.3.4”、“chai-as-promised”：“^7.1.1”、“eslint”：“^7.32.0” ，“gulp”：“^4.0.2”，“mocha”：“^9.1.3”，“nanoid”：“^3.2.0”，“proxyquire”：“^2.1.3”，“ sinon”：“^12.0.1”，“sinon-chai”：“^3.7.0”，“suncalc2”：“^1.8.1”，“typescript”：“~4.4.4”}，“optionalDependencies”： { "fsevents": "2.1.2" }, "main": "main.js", "files": [ "admin{,/!(src)/**}/!(tsconfig|tsconfig.*)。 json", "admin{,/!(src)/**}/*.{html,css,png,svg,jpg,js}", "lib/", "www/", "io-package.json ", "LICENSE", "main.js" ], "scripts": { "test:js": "node ./node_modules/mocha/bin/mocha --config test/mocharc.custom.json \"{!( node_modules|test)/**/*.test.js,*.test.js,test/**/test!(PackageFiles|Startup).js}\"", "test:package": "node ./node_modules /mocha/bin/mocha test/package --exit", "test:unit": "node ./node_modules/mocha/bin/mocha test/unit --exit", "test:integration": "node ./node_modules /mocha/bin/mocha test/integration --exit", "test": "npm run test:js && npm run test:package", "check": "tsc --noEmit -p tsconfig.check.json", "lint": "eslint", "release:patch": "release-script patch --addPlaceholder -p iobroker -nn -y", "release:minor": "release-script minor --addPlaceholder -p iobro ker -nn -y" }, "resolutions": { "glob-parent": "^6.0.1" }, "bugs": { "url": "https://github.com/Chris-1965/ioBroker .huum-sauna/issues" }, "directories": { "lib": "lib", "test": "test" } }
+![商标](../../../en/adapterref/iobroker.huum-sauna/admin/huum-sauna.png)
+
+![下载](https://img.shields.io/npm/dm/iobroker.huum-sauna)
+![安装数量](https://img.shields.io/npm/v/iobroker.huum-sauna/latest)
+![已知漏洞](https://snyk.io/test/github/chris-1965/ioBroker.huum-sauna/badge.svg)
+![新PM](https://nodei.co/npm/iobroker.huum-sauna.png?downloads=true)
+
+# IoBroker.huum-桑拿
+该适配器将 HUUM 桑拿控制设备集成到 iobroker。
+可以找到用于桑拿控制的 HUUM Devive 规范[这里](https://huum.de/)
+
+＃＃ 参数
+- HUUM 网页“https://api.huum.eu/action/home/”的 1 + 2 个用户凭证
+- 3刷新..刷新从设备加载HUUM数据
+- 4 个光路 .. 用于切换外部光的可选光路（状态）。如果使用空 HUUM 开关方式
+- 5 AstroLight .. 设置时，灯光会在日落时自动打开（用于室外桑拿）。
+
+## 用法示例
+![涂鸦](https://user-images.githubusercontent.com/56934142/150417838-425261da-a6c7-47b3-bf1b-2af6035ffd59.png)
+
+## [变更日志](CHANGELOG.md)
+
+## License
+MIT License
+
+"Copyright (c) 2022 Chris <besterquester@live.at>"
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

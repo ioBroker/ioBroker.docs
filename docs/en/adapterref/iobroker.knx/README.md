@@ -11,6 +11,7 @@
 * [Description](#description)
 * [Requirements](#requirements)
 * [Features](#features)
+* [Installation](#installation)
 * [Adapter configuration](#adapter-configuration)
     * [Install the License](#install-the-license)
     * [Configuration Interface](#configuration-interface)
@@ -69,6 +70,9 @@ Additionally you need a license to use the adapter. The license editions are ava
 * NEW: allow non-KNX State direct link (vice-verse)
 * NEW: adapter responses to GroupValueRead to a directLink connected object
 * NEW: import of passwort protected project files (thanks to aKzenT)
+
+###Installation
+This adapter is only installable with npm. Installation via github does **not** work.
 
 ##Adapter configuration
 After installing this adapter, open the adapter configuration.
@@ -240,6 +244,16 @@ relation.
 -->
 
 ## Changelog
+### 2.0.12 (25.02.2022)
+* fixed handling of undefined DP
+* updated datapointtypes
+* fix warning with incompatible DPT in future
+* the biggest issue of all: I get shocked because of the war in Ukraine. My thoughts are with the people of Ukraine, I am infinitely sorry for what is happening to them and their country. It is an inhuman shame.
+* can't fix it, but I appeal to everyone: Be neighbors and not enemies. Respect the other and do not fight yourselves.
+
+### 2.0.11
+* fixed password handling for projects from upgraded ETS
+
 ### 2.0.10
 * import of ETS6.0.2 projects **ETS6.0.1 not possible**
 * bugfixes

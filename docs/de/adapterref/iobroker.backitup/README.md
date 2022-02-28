@@ -65,6 +65,19 @@ Backitup ist eine Backuplösung, mit der das zyklische Sichern einer IoBroker-In
 
 Der Adapter ist für Multiplattformen geeignet und kann  neben Linux-Installationen auch auf Windows und Mac Installationen verwendet werden.
 
+Des Weiteren besteht die Möglichkeit verschiedene optionale Backups wie z.B. SQL-Datenbanken, Influx-Datenbanken und einige Adapter- und Geräte Einstellungen zu sichern.
+
+Backitup arbeitet sehr eng mit dem js-controller zusammen und erstellt ein iobroker Backup identisch dem CLI Befehl `iobroker backup`.
+
+Es werden hier identisch dem Standard Backup des js-controllers alle States und Objects, sowie die Nutzerdateien wie z.B. VIS gesichert.
+
+Auch der Restore ist komplett identisch dem CLI Befehl `iobroker restore <backupname>` des js-controllers.
+
+Bei einem Restore werden alle States, Objects und Nutzerdaten von Backitup wiederhergestellt.
+Nach dem Restore startet euer iobroker neu und ab da übernimmt die Installation fehlender Adapter dann wieder der js-controller.
+
+Backitup hat nach dem Start des iobrokers keinerlei Einfluss auf die Wiederherstellung. Dies passiert alles im Hintergrund und übernimmt der js-controller anhand der wiederhergestellten Informationen in den States und Objects.
+
 ### [zurück](#Inhalt)
 ---
 
@@ -82,7 +95,9 @@ Der Adapter ist für Multiplattformen geeignet und kann  neben Linux-Installatio
     - [Installationsanleitung PostgreSQL](https://www.postgresql.org/download/linux/debian/)
 
 * Für die Verwendung des InfluxDB Backups muss influxd installiert sein
-    - [Installationsanleitung InfluxDB](https://docs.influxdata.com/influxdb/v1.8/introduction/install/)
+    - [Installationsanleitung InfluxDB 1.x](https://docs.influxdata.com/influxdb/v1.8/introduction/install/)
+    - [Installationsanleitung InfluxDB 2.x](https://docs.influxdata.com/influxdb/v2.1/install/)
+    - [Installationsanleitung Influx-CLI für 2.x](https://docs.influxdata.com/influxdb/v2.1/tools/influx-cli/?t=Linux)
 
 ### [zurück](#Inhalt)
 ---
@@ -124,11 +139,39 @@ sudo usermod -a -G redis iobroker
 sudo reboot
 ```
 
+Ab Backitup Version 2.3.x ist es möglich ein Remote Backup für Redis zu erstellen.
+
+Für ein Remote-Backup wird auf dem loaklen iobroker System redis-cli benötigt.
+
+`sudo apt install redis-tools`
+
+
+Hier müsst ihr euren Host und Port des entfernten Redis Servers angeben und die Login Daten eures Systems.
+
+Dies ist gerade für Docker User ein wichtiges Feature.
+
+Bitte beachtet, dass ein Redis Restore für Remote Systeme nicht über die Backitup GUI möglich ist.
+Redis unterstützt dies nicht.
+Hier muss die im tar.gz Archiv enthaltene dump.rdb händisch wiederhergestellt werden.
+
+Dafür muss das Backup-Archiv entpackt werden, die Datei in das Redis Verzeichnis kopiert werden und die Rechte für die dump.rdb angepasst werden.
+
+Hier ein Beispiel:
+```
+sudo tar -xvzf <Backupdatei>.tar.gz /var/lib/redis/
+sudo chown redis:redis /var/lib/redis/dump.rdb
+redis-cli shutdown nosave
+```
+
 ## History Daten Backup
 Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backup ioBroker erstellt und nach Ablauf der angegebenen Vorhaltezeit auch gelöscht. FTP oder CIFS sind für dieses Backup ebenfalls gültig sofern bei den anderen IoBroker-Backup-Typen eingestellt.
 
 ## InfluxDB-Backup
 Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backup ioBroker erstellt und nach Ablauf der angegebenen Vorhaltezeit auch gelöscht. FTP oder CIFS sind für dieses Backup ebenfalls gültig sofern bei den anderen IoBroker-Backup-Typen eingestellt.<br><br>
+**Vorraussetzungen für ein Remote Backup mit InfluxDB v1.x:**
+
+Für das Remote Backup unter InfluxDB 1.x sind einige Anpassungen nötig.
+
 **Um ein InfluxDB Backup ausführen zu können, muss Influxd auf dem iobroker-System installiert sein.**<br>
 **Hierbei ist es egal, ob die Datenbank lokal verwaltet wird oder auf einen anderen Server läuft.**<br><br>
 Wenn die InfluxDB von einem entfernten Server gesichert werden soll, müssen in der influxdb.conf auf dem entfernten Server die Remote-Rechte für den RPC-Dienst angepasst werden.
@@ -144,7 +187,20 @@ bind-address = "0.0.0.0:8088"
 **Nach dem Änderungen in der Konfiguration muss der InfluxDB-Dienst neugestartet werden.**
 
 Weitere Informationen zur Datensicherung der InfluxDB sind [hier](https://docs.influxdata.com/influxdb/v1.8/administration/backup_and_restore/#online-backup-and-restore-for-influxdb-oss) zu finden.<br><br>
-Wer nicht nur eine Datenbank sichern will, kann die Option "Sicherung mehrerer Systeme" aktivieren und im Anschluss seine Datenbanken in der Tabelle definieren.
+
+**Vorraussetzungen für ein Backup mit InfluxDB v2.x:**
+
+Um ein Backup einer InfluxDB 2.x erstellen zu können, muss Influx-CLI auf eurem System installiert sein.
+Dies ist sowohl bei einem lokalen als auch bei einem Remote Backup erforderlich.
+
+Bei einem Remote Backup muss Influx-CLI auf dem System installiert sein, auf dem auch euer iobroker läuft.
+Auf dem entfernten System, in dem eure Datenbank arbeitet, ist die Installation für ein Backup nicht erforderlich.
+
+Hier findet Ihr die offizielle Anleitung, wie Ihr Influx-CLI auf eurem System installieren könnt.
+
+[Installationsanleitung Influx-CLI für 2.x](https://docs.influxdata.com/influxdb/v2.1/tools/influx-cli/?t=Linux)<br><br>
+
+Wer nicht nur eine Datenbank sichern will, kann die Option "Sicherung mehrerer Systeme" aktivieren und im Anschluss seine Datenbanken in der Tabelle definieren.<br>
 
 ## PostgreSQL-Backup
 Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backup ioBroker erstellt und nach Ablauf der angegebenen Vorhaltezeit auch gelöscht. FTP oder CIFS sind für dieses Backup ebenfalls gültig sofern bei den anderen IoBroker-Backup-Typen eingestellt.<br><br>
@@ -333,6 +389,17 @@ Syntax: {wert: <BackitupInstanz>.oneClick.<Auslösetrigger>; wert === "true" || 
 # Restore
 
 Mit Backitup ist es möglich, alle erzeugten Backup-Typen über das Konfiguartionsmenü im ioBroker auch wiederherzustellen.<br><br>
+Backitup arbeitet sehr eng mit dem js-controller zusammen und erstellt ein iobroker Backup identisch dem CLI Befehl "iobroker backup".
+
+Es werden hier identisch dem Standard Backup des js-controllers alle States und Objects, sowie die Nutzerdateien wie z.B. VIS gesichert.
+
+Auch der Restore ist komplett identisch dem CLI Befehl des js-controllers.
+
+Bei einem Restore werden alle States, Objects und Nutzerdaten von Backitup wiederhergestellt.
+Nach dem Restore startet euer iobroker neu und ab da übernimmt die Installation fehlender Adapter dann wieder der js-controller.
+
+Backitup hat nach dem Start des iobrokers keinerlei Einfluss auf die Wiederherstellung. Dies passiert alles im Hintergrund und übernimmt der js-controller anhand der wiederhergestellten Informationen in den States und Objects.
+
 Es kann aus allen Speichermedien ein Restore ausgeführt werden.<br><br>
 **Grundsätzlich ist aber der sicherste Weg, den Restore lokal auszuführen.**<br><br>
 Wer den sichersten Weg wählt und den Restore lokal ausführen möchte, muss die Backupdatei im iobroker Backup-Ordner ablegen.
@@ -411,6 +478,13 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 2.3.5 (2022-02-26)
+* (simatec) fix Redis Config
+
+### 2.3.4 (2022-02-26)
+* (simatec) Redis Remote Backup for Docker added
+* (simatec) Docu updated
+
 ### 2.3.3 (2022-02-17)
 * (simatec) small GUI fixes
 * (simatec) Docker restore tunning

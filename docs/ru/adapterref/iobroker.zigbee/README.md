@@ -34,6 +34,7 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.zigbee.svg
 ## Changelog
 ### 1.6.16 (2022-02-16)
 * (arteck) admin dep fix
+* (arteck) colored objects for online/offline state
 
 
 ### 1.6.15 (2022-02-08)

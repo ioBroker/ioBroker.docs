@@ -2,42 +2,44 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.yamaha/README.md
-title: без названия
-hash: lXGOOhOdLLITEXW7oIwVl9BUiIyU7vTFrTiTPlvTwIc=
+title: без заголовка
+hash: qMqwNP1m3hgyOK3FeucZu0RBOMTKytVSiWBL5QLlzvw=
 ---
-![логотип](../../../en/adapterref/iobroker.yamaha/admin/yamaha.png)
+![Логотип](../../../en/adapterref/iobroker.yamaha/admin/yamaha.png)
 
 ![Количество установок](http://iobroker.live/badges/yamaha-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.yamaha.svg)
-![тесты](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.yamaha/master.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.yamaha.svg)
+![Тесты](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.yamaha/master.svg)
 ![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 
 ## IoBroker.yamaha
 #### Описание
-Адаптер для ресиверов Yamaha AV
+Адаптер для AV-ресиверов Yamaha
 
 ### Первоначальное создание
-Этот адаптер изначально был создан @soef по адресу https://github.com/soef/ioBroker.yamaha, но больше не поддерживается, поэтому мы переместили его в iobroker-community, чтобы можно было исправлять ошибки. спасибо @soef за его работу.
+Этот адаптер изначально был создан @soef по адресу https://github.com/soef/ioBroker.yamaha, но больше не поддерживается, поэтому мы переместили его в сообщество iobroker, чтобы можно было исправить ошибки. спасибо @soef за его работу.
 
 #### Конфигурация
-В настоящее время без автообнаружения необходимо ввести IP-адрес получателя.
+В настоящее время без автообнаружения вам необходимо ввести IP-адрес вашего приемника.
 
 #### Установка
-через админ ioBroker.
+через администратора ioBroker.
 
-В противном случае выполните следующую команду в корневом каталоге iobroker (например, в / opt / iobroker) `` npm install iobroker.yamaha iobroker upload yamaha ``
+В противном случае выполните следующую команду в корневом каталоге iobroker (например, в /opt/iobroker) `` npm install iobroker.yamaha iobroker upload yamaha ``
 
 #### В реальном времени
-Государства будут созданы, когда они появятся. То есть используйте свой пульт дистанционного управления и измените что-нибудь, и вы увидите новые состояния.
+Состояния будут созданы, когда они произойдут. т.е. используйте свой ИК-пульт и измените что-нибудь, и вы увидите новые состояния.
 Устройства yamaha принимают только одно соединение.
 
 #### Требования
-Yamaha Reciver
+Ресивер Ямаха
 
-Вы должны включить функцию «ожидания сети» в конфигурации вашего приемника
+Вы должны включить функцию «ожидание сети» в конфигурации вашего ресивера.
 
 ## Changelog
-### 0.3.21
+### 0.4.1
+* (Sneak-L8) "toggleMute" now toggle mute state (instead of always muting)
+### 0.4.0
 * (Garfonso) added admin 3 compatibility and more meta-data stuff.
 * (Garfonso) added compact mode support.
 ### 0.3.20

@@ -3,33 +3,33 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.yamaha/README.md
 title: 无题
-hash: lXGOOhOdLLITEXW7oIwVl9BUiIyU7vTFrTiTPlvTwIc=
+hash: qMqwNP1m3hgyOK3FeucZu0RBOMTKytVSiWBL5QLlzvw=
 ---
 ![商标](../../../en/adapterref/iobroker.yamaha/admin/yamaha.png)
 
 ![安装数量](http://iobroker.live/badges/yamaha-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.yamaha.svg)
-![测验](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.yamaha/master.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.yamaha.svg)
+![测试](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.yamaha/master.svg)
 ![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 
 ## IoBroker.yamaha
-####说明
-适用于Yamaha AV接收机的适配器
+＃＃＃＃ 描述
+雅马哈 AV 接收器适配器
 
-###初始创建
-该适配器最初是由@soef在https://github.com/soef/ioBroker.yamaha创建的，但不再维护，因此我们将其移至iobroker-community，以便可以修复错误。感谢@soef的工作。
+### 初始创建
+该适配器最初由 @soef 在 https://github.com/soef/ioBroker.yamaha 创建，但不再维护，因此我们将其移至 iobroker-community 以便修复错误。感谢@soef 的工作。
 
-####配置
-当前没有自动发现，您必须输入接收者的IP
+＃＃＃＃ 配置
+目前没有自动发现，你必须输入你的接收器的 IP
 
-####安装
-通过ioBroker Admin。
+＃＃＃＃ 安装
+通过 ioBroker 管理员。
 
-otherweise在iobroker根目录中执行以下命令（例如在/ opt / iobroker中）``npm install iobroker.yamaha iobroker upload yamaha``
+否则在 iobroker 根目录（例如在 /opt/iobroker 中）执行以下命令 `` npm install iobroker.yamaha iobroker upload yamaha ``
 
 ＃＃＃＃ 即时的
-状态累积时将创建它们。即使用您的红外遥控器并更改某些内容，您将看到新的状态。
-yamaha设备仅接受一个连接。
+状态将在它们发生时被创建。 IE。使用你的 ir-remote 并改变一些东西，你会看到新的状态。
+yamaha 设备只接受一个连接。
 
 ＃＃＃＃ 要求
 雅马哈接收器
@@ -37,7 +37,9 @@ yamaha设备仅接受一个连接。
 您必须在接收器的配置中启用“网络待机”功能
 
 ## Changelog
-### 0.3.21
+### 0.4.1
+* (Sneak-L8) "toggleMute" now toggle mute state (instead of always muting)
+### 0.4.0
 * (Garfonso) added admin 3 compatibility and more meta-data stuff.
 * (Garfonso) added compact mode support.
 ### 0.3.20

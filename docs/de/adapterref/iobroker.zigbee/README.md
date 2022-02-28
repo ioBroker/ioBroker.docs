@@ -34,6 +34,7 @@ Es gibt noch ein [Freundschaftprojekt](https://github.com/koenkk/zigbee2mqtt) mi
 ## Changelog
 ### 1.6.16 (2022-02-16)
 * (arteck) admin dep fix
+* (arteck) colored objects for online/offline state
 
 
 ### 1.6.15 (2022-02-08)

@@ -3,22 +3,20 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.netatmo-energy.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.netatmo-energy.svg
 BADGE-Number of Installations (latest): http://iobroker.live/badges/netatmo-energy-installed.svg
 BADGE-Number of Installations (stable): http://iobroker.live/badges/netatmo-energy-stable.svg
-BADGE-Dependency Status: https://img.shields.io/david/Homemade-Disaster/iobroker.netatmo-energy.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/Homemade-Disaster/ioBroker.netatmo-energy/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.netatmo-energy/README.md
 title: ioBroker.netatmo-energy
-hash: e9aZbvxE5/6muBYnfiS/kURuwjYm1lcBGgPc4i824MA=
+hash: QgPU6VWQpgxU3o6yrwqVOGok3fynYGHA/iFryvaHrlE=
 ---
-![标识](https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/admin/netatmo-energy.png)
+![商标](https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/admin/netatmo-energy.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.netatmo-energy.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.netatmo-energy.svg)
 ![安装数量（最新）](http://iobroker.live/badges/netatmo-energy-installed.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/netatmo-energy-stable.svg)
-![依赖状态](https://img.shields.io/david/Homemade-Disaster/iobroker.netatmo-energy.svg)
 ![已知漏洞](https://snyk.io/test/github/Homemade-Disaster/ioBroker.netatmo-energy/badge.svg)
 ![新PM](https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true)
 
@@ -56,11 +54,11 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo Cloud
 ## IoBroker 的 netatmo-energy 适配器
 使用 Netatmo-Energy API 检索或更改当前设置。适配器使用获取请求将数据传输到 Netatmo Energy API。 API 官方文档：https://dev.netatmo.com/apidocumentation/energy。
 
-适配器创建自己的设备“energyAPP”，其中包含“APIRequests”和“触发器”。
+适配器创建自己的设备“energyAPP”，其中包含“APIRequests”和“trigger”。
 
 ### API 请求
 * homedata ... 获取 Netatmo Energy 安装的整个结构（使用 NAPlug 参数）。您可以自己为手动请求选择所有其他参数。
-* homestatus ...确定并传输您分配的阀门的状态和技术信息。如果您想要有关特定类型设备的信息，您可以自己选择它。
+* homestatus ...确定并传输您分配的阀门的状态和技术信息。如果您需要有关特定类型设备的信息，您可以自行选择。
 * getroommeasure ... 有了这个，你可以得到你房间的历史数据。结果被输入到“响应”字段中。
 * getmeasure ...这将为您提供锅炉的历史数据。结果被输入到“响应”字段中。
 * setthermmode_schedule ... 将 Netatmo Energy 安装的运行模式设置为“Schedule”（默认）
@@ -107,9 +105,17 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo Cloud
 <!-- 下一个版本的占位符（在行首）：
 
 ### **正在进行中** -->
-＃＃＃ **工作正在进行中**
+### 1.0.2 (2022-02-27)
+* (ioKlausi) 编码已修改
+
+### 1.0.1 (2022-02-27)
+* (ioKlausi) 编码已修改
+
+### 1.0.0 (2022-02-25)
+* 发布 (ioKlausi) 主版本
+
 ### 0.2.4 (2022-02-13)
-* 添加 (ioKlausi) 发布脚本
+* 添加（ioKlausi）发布脚本
 
 ### 0.2.3
 * 添加 (ioKlausi) AbortController
@@ -222,6 +228,15 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo Cloud
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.2 (2022-02-27)
+* (ioKlausi) Redesign coding
+
+### 1.0.1 (2022-02-27)
+* (ioKlausi) Redesign coding
+
+### 1.0.0 (2022-02-25)
+* (ioKlausi) Create major version
+
 ### 0.2.4 (2022-02-13)
 * (ioKlausi) Release Script added
 

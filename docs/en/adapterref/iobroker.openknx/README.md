@@ -305,6 +305,14 @@ Data is sent to Iobroker Sentry server hosted in Germany. If you have allowed io
 - only IPv4 supported
 
 ## Changelog
+### 0.1.22 (2022-02-26)
+* bufix: repair reception error
+
+### 0.1.21 (2022-02-25)
+* feature: dont sent ack request in ldata.ind, this is disturbing clients if not filtered out by gateway
+* bugfix: reinit if event received before connection established to avoid deadlock
+* dependency:adapter core must be 2.6.0 or higher
+
 ### 0.1.20 (2022-02-19)
 * feature: add more dpts
 * bugfix: corrected some min max values

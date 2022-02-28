@@ -3,13 +3,13 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.yamaha/README.md
 title: kein Titel
-hash: lXGOOhOdLLITEXW7oIwVl9BUiIyU7vTFrTiTPlvTwIc=
+hash: qMqwNP1m3hgyOK3FeucZu0RBOMTKytVSiWBL5QLlzvw=
 ---
 ![Logo](../../../en/adapterref/iobroker.yamaha/admin/yamaha.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/yamaha-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.yamaha.svg)
-![Tests](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.yamaha/master.svg)
+![Prüfungen](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.yamaha/master.svg)
 ![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 
 ## IoBroker.yamaha
@@ -17,27 +17,29 @@ hash: lXGOOhOdLLITEXW7oIwVl9BUiIyU7vTFrTiTPlvTwIc=
 Adapter für Yamaha AV-Receiver
 
 ### Ersterstellung
-Dieser Adapter wurde ursprünglich von @soef unter https://github.com/soef/ioBroker.yamaha erstellt, aber nicht mehr gewartet. Deshalb haben wir ihn in die iobroker-Community verschoben, damit Fehler behoben werden können. danke @soef für seine arbeit.
+Dieser Adapter wurde ursprünglich von @soef unter https://github.com/soef/ioBroker.yamaha erstellt, aber nicht mehr gepflegt, also haben wir ihn in die iobroker-community verschoben, damit Fehler behoben werden können. Danke @soef für seine Arbeit.
 
 #### Aufbau
-Derzeit ohne automatische Erkennung müssen Sie die IP Ihres Empfängers eingeben
+Derzeit ohne Autodiscover müssen Sie die IP Ihres Receivers eingeben
 
 #### Installation
 über ioBroker Admin.
 
-Andernfalls führen Sie den folgenden Befehl im Stammverzeichnis von iobroker aus (z. B. in / opt / iobroker). `` Npm install iobroker.yamaha iobroker upload yamaha ``
+Andernfalls führen Sie im iobroker-Root-Verzeichnis (z. B. in /opt/iobroker) den folgenden Befehl aus: `` npm install iobroker.yamaha iobroker upload yamaha ``
 
 #### Echtzeit
-Die Zustände werden erstellt, wenn sie genau sind. Das heißt, Verwenden Sie Ihre IR-Fernbedienung und ändern Sie etwas, und Sie werden die neuen Zustände sehen.
+Die Zustände werden erstellt, wenn sie auftreten. Dh Verwenden Sie Ihre IR-Fernbedienung und ändern Sie etwas, und Sie werden die neuen Zustände sehen.
 Nur eine Verbindung wird von Yamaha-Geräten akzeptiert.
 
-#### Bedarf
-Yamaha Reciver
+#### Anforderungen
+Yamaha-Empfänger
 
-Sie müssen die "Netzwerk-Standby" -Funktion in der Konfiguration Ihres Empfängers aktivieren
+Sie müssen die „Netzwerk-Standby“-Funktion in der Konfiguration Ihres Receivers aktivieren
 
 ## Changelog
-### 0.3.21
+### 0.4.1
+* (Sneak-L8) "toggleMute" now toggle mute state (instead of always muting)
+### 0.4.0
 * (Garfonso) added admin 3 compatibility and more meta-data stuff.
 * (Garfonso) added compact mode support.
 ### 0.3.20

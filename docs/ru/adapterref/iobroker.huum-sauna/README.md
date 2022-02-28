@@ -2,7 +2,49 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.huum-sauna/README.md
-title: без заголовка
-hash: ttCh6etaF/z6J69KXW7n5Ozj8snFnBTI2uqJyiVhuOo=
+title: ioBroker.huum-сауна
+hash: aU0jjpssM3SwaO7SgNk2hq7ngOl6nohYqjvWz06NWe4=
 ---
-{ "name": "iobroker.huum-sauna", "версия": "0.3.6", "description": "HUUM Sauna Steuerung", "автор": "Крис <besterquester@live.at>", "homepage ": "https://github.com/Chris-1965/ioBroker.huum-sauna", "лицензия": "MIT", "ключевые слова": [ "сауна", "управление" ], "репозиторий": { " type": "git", "url": "git+https://github.com/Chris-1965/ioBroker.huum-sauna.git" }, "dependencies": { "@iobroker/adapter-core": "^2.5.1", "axios": "^0.25.0", "suncalc2": "^1.8.1" }, "devDependencies": { "@alcalzone/release-script": "^3.5.2" , "@alcalzone/release-script-plugin-iobroker": "^3.5.1", "@iobroker/testing": "^2.5.4", "@types/chai": "^4.3.0", " @types/chai-as-promised": "^7.1.4", "@types/gulp": "^4.0.9", "@types/mocha": "^9.0.0", "@types/node ": "^14.18.5", "@types/proxyquire": "^1.3.28", "@types/sinon": "^10.0.6", "@types/sinon-chai": "^3.2. 8", "axios": "^0.25.0", "chai": "^4.3.4", "chai-as-promise": "^7.1.1", "eslint": "^7.32.0" , "gulp": "^4.0.2", "mocha": "^9.1.3", "nanoid": "^3.2.0", "proxyquire": "^2.1.3", " sinon": "^12.0.1", "sinon-chai": "^3.7.0", "suncalc2": "^1.8.1", "typescript": "~4.4.4" }, "необязательные зависимости": { "fsevents": "2.1.2" }, "main": "main.js", "files": [ "admin{,/!(src)/**}/!(tsconfig|tsconfig.*). json", "admin{,/!(src)/**}/*.{html,css,png,svg,jpg,js}", "lib/", "www/", "io-package.json ", "ЛИЦЕНЗИЯ", "main.js" ], "scripts": { "test:js": "node ./node_modules/mocha/bin/mocha --config test/mocharc.custom.json \"{!( node_modules|test)/**/*.test.js,*.test.js,test/**/test!(PackageFiles|Startup.js}\"", "test:package": "node ./node_modules /mocha/bin/mocha test/package --exit", "test:unit": "узел ./node_modules/mocha/bin/mocha test/unit --exit", "test:integration": "node ./node_modules /mocha/bin/mocha test/integration --exit", "test": "npm run test:js && npm run test:package", "check": "tsc --noEmit -p tsconfig.check.json", "lint": "eslint", "release:patch": "патч релиз-скрипта --addPlaceholder -p iobroker -nn -y", "release:minor": "дополнительный релиз-скрипт --addPlaceholder -p iobro ker -nn -y" }, "разрешения": { "glob-parent": "^6.0.1" }, "ошибки": { "url": "https://github.com/Chris-1965/ioBroker .huum-sauna/issues" }, "каталоги": { "lib": "lib", "test": "test" } }
+![Логотип](../../../en/adapterref/iobroker.huum-sauna/admin/huum-sauna.png)
+
+![Загрузки](https://img.shields.io/npm/dm/iobroker.huum-sauna)
+![Количество установок](https://img.shields.io/npm/v/iobroker.huum-sauna/latest)
+![Известные уязвимости](https://snyk.io/test/github/chris-1965/ioBroker.huum-sauna/badge.svg)
+![НПМ](https://nodei.co/npm/iobroker.huum-sauna.png?downloads=true)
+
+# IoBroker.huum-сауна
+Этот адаптер интегрирует устройство управления сауной HUUM в iobroker.
+Спецификацию HUUM Devive для управления сауной можно найти [здесь](https://huum.de/)
+
+## Параметры
+- 1 + 2 учетных данных пользователя для веб-страницы HUUM «https://api.huum.eu/action/home/»
+- 3 обновления .. Обновить, чтобы загрузить данные HUUM с устройства
+- 4 lightpath.. Дополнительный Lightpath (состояние) для переключения внешнего света. Если используется пустой метод переключения HUUM
+- 5 AstroLight .. При настройке свет автоматически включается с заходом солнца (для саун на открытом воздухе).
+
+## Пример использования
+![графика](https://user-images.githubusercontent.com/56934142/150417838-425261da-a6c7-47b3-bf1b-2af6035ffd59.png)
+
+## [Список изменений](CHANGELOG.md)
+
+## License
+MIT License
+
+"Copyright (c) 2022 Chris <besterquester@live.at>"
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

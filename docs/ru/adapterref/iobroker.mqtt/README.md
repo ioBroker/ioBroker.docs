@@ -746,6 +746,14 @@ void loop() {
 получать от нее данные через облачный сервис!
 
 ## Changelog
+### 2.6.1 (2022-02-25)
+* (Apollon77) Fix object structure sync for server usage
+
+### 2.6.0 (2022-02-25)
+* (Apollon77) Update objects if data type changes also for "client" usage
+* (Apollon77) Update mqtt library
+* (Apollon77) Create a folder object structure if objects do not exist in the adapter namespace
+
 ### 2.5.0 (2022-02-24)
 * (uwesimon/Apollon77) fix test connection with mqtts
 * (uwesimon/Apollon77) ReconnectTimeout is now handled in seconds, so default is 10s instead of 10ms

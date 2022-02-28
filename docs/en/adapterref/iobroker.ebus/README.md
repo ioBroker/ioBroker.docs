@@ -52,6 +52,9 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
    
 ## Changelog
 
+### 2.6.0 (in progress)
+* (René) replace bent by axios
+
 ### 2.5.1 (2021-12-29)
 * (René) adjustable retries to send data if arbitration error appeared
 
@@ -171,7 +174,7 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
 * (René) initial release
 
 ## License
-Copyright (C) <2017 - 2021>  <info@rg-engineering.eu>
+Copyright (C) <2017 - 2022>  <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

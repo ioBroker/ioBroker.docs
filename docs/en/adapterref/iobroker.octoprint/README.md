@@ -64,6 +64,7 @@ Please use state `system.adapter.octoprint.0.alive` to stop/start the instance.
 ### 3.1.0 (2022-02-24)
 
 * (klein0r) Calculate date/time when print will be finished
+* (klein0r) Renamed ``printjob.progress.printtime_left`` to ``printjob.progress.printtimeLeft`` **(BREAKING CHANGE - CHECK YOUR SCRIPTS AND VIS)**
 
 ### 3.0.1 (2022-02-12)
 

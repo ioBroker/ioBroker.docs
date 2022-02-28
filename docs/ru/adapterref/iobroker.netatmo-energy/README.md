@@ -3,14 +3,13 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.netatmo-energy.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.netatmo-energy.svg
 BADGE-Number of Installations (latest): http://iobroker.live/badges/netatmo-energy-installed.svg
 BADGE-Number of Installations (stable): http://iobroker.live/badges/netatmo-energy-stable.svg
-BADGE-Dependency Status: https://img.shields.io/david/Homemade-Disaster/iobroker.netatmo-energy.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/Homemade-Disaster/ioBroker.netatmo-energy/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.netatmo-energy/README.md
-title: ioBroker.netatmo-энергия
-hash: e9aZbvxE5/6muBYnfiS/kURuwjYm1lcBGgPc4i824MA=
+title: ioBroker.netатмо-энергия
+hash: QgPU6VWQpgxU3o6yrwqVOGok3fynYGHA/iFryvaHrlE=
 ---
 ![логотип](https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/admin/netatmo-energy.png)
 
@@ -18,7 +17,6 @@ hash: e9aZbvxE5/6muBYnfiS/kURuwjYm1lcBGgPc4i824MA=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.netatmo-energy.svg)
 ![Количество установок (последние)](http://iobroker.live/badges/netatmo-energy-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/netatmo-energy-stable.svg)
-![Статус зависимости](https://img.shields.io/david/Homemade-Disaster/iobroker.netatmo-energy.svg)
 ![Известные уязвимости](https://snyk.io/test/github/Homemade-Disaster/ioBroker.netatmo-energy/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true)
 
@@ -36,7 +34,7 @@ hash: e9aZbvxE5/6muBYnfiS/kURuwjYm1lcBGgPc4i824MA=
 - Создайте собственное приложение, щелкнув свою учетную запись (вверху/слева) и нажав кнопку «Создать».
   - Заполните форму и сохраните ее
   - Применить полученный client-ID и client-secret-ID к конфигурации адаптера
-  - Перейти к документации по API https://dev.netatmo.com/apidocumentation/energy
+  - Перейдите к документации по API https://dev.netatmo.com/apidocumentation/energy.
   - Выберите "ПОЛУЧИТЬ домашние данные" - "Попробовать" - "ВЫПОЛНИТЬ / HOMESDATA"
     - вы получите ответ, в котором найдете свой домашний ID
     - Применить их к конфигурации адаптера
@@ -106,8 +104,16 @@ hash: e9aZbvxE5/6muBYnfiS/kURuwjYm1lcBGgPc4i824MA=
 ## Список изменений
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### **В РАБОТЕ** -->
-### **РАБОТА В ПРОЦЕССЕ**
+### **ВЫПОЛНЯЕТСЯ** -->
+### 1.0.2 (27 февраля 2022 г.)
+* (ioKlausi) Изменено кодирование
+
+### 1.0.1 (27 февраля 2022 г.)
+* (ioKlausi) Изменено кодирование
+
+### 1.0.0 (25 февраля 2022 г.)
+* Опубликовать (ioKlausi) основную версию
+
 ### 0.2.4 (13 февраля 2022 г.)
 * Добавлен (ioKlausi) скрипт релиза
 
@@ -166,7 +172,7 @@ hash: e9aZbvxE5/6muBYnfiS/kURuwjYm1lcBGgPc4i824MA=
 * (ioKlausi) Пересмотреть роли состояний
 
 ### 0.1.6
-* (ioKlausi) Инициировать запрос домашних состояний с помощью таймера и переработанный экран конфигурации
+* (ioKlausi) Инициировать запрос домашних состояний с использованием таймера и переработанный экран конфигурации
 
 ### 0.1.5
 * (ioKlausi) добавлено шифрование/дешифрование пароля
@@ -222,6 +228,15 @@ hash: e9aZbvxE5/6muBYnfiS/kURuwjYm1lcBGgPc4i824MA=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.2 (2022-02-27)
+* (ioKlausi) Redesign coding
+
+### 1.0.1 (2022-02-27)
+* (ioKlausi) Redesign coding
+
+### 1.0.0 (2022-02-25)
+* (ioKlausi) Create major version
+
 ### 0.2.4 (2022-02-13)
 * (ioKlausi) Release Script added
 

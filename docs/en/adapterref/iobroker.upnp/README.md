@@ -222,6 +222,9 @@ You can enable polling in admin via objects configuration.
 -->
 
 ## Changelog
+### 1.0.21 (2022-02-27)
+* small fixes
+
 ### 1.0.20 (2021-12-04)
 * (foxriver76) ensure compatibility with future controller versions
 __requires controller v3.3.0__
@@ -311,7 +314,7 @@ Breaking change: naming was changed and command to poll has another name - "requ
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2021 Jey Cee <jey-cee@live.com>
+Copyright (c) 2016-2022 Jey Cee <jey-cee@live.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

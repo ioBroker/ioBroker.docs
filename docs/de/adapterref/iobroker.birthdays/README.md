@@ -6,6 +6,7 @@ BADGE-installed: http://iobroker.live/badges/birthdays-installed.svg
 BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.birthdays.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.birthdays/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.birthdays.png?downloads=true
+chapters: {"pages":{"de/adapterref/iobroker.birthdays/README.md":{"title":{"de":"ioBroker.birthdays"},"content":"de/adapterref/iobroker.birthdays/README.md"},"de/adapterref/iobroker.birthdays/ical.md":{"title":{"de":"ioBroker.birthdays"},"content":"de/adapterref/iobroker.birthdays/ical.md"},"de/adapterref/iobroker.birthdays/carddav.md":{"title":{"de":"ioBroker.birthdays"},"content":"de/adapterref/iobroker.birthdays/carddav.md"}}}
 ---
 ![Logo](../../admin/birthdays.png)
 
@@ -23,6 +24,18 @@ BADGE-NPM: https://nodei.co/npm/iobroker.birthdays.png?downloads=true
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.1.3 (2022-02-27)
+
+* (klein0r) Stop adapter when everything was processed (with timeout)
+
+### 1.1.2 (2022-02-27)
+
+* (klein0r) Stop adapter when everything was processed
+
+### 1.1.1 (2022-02-25)
+
+* (klein0r) CardDAV password config is not a clear text anymore
+
 ### 1.1.0 (2022-02-24)
 
 * (klein0r) Added CardDAV support
