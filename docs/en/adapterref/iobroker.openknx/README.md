@@ -305,6 +305,10 @@ Data is sent to Iobroker Sentry server hosted in Germany. If you have allowed io
 - only IPv4 supported
 
 ## Changelog
+### 0.1.23 (2022-)
+*
+*
+
 ### 0.1.22 (2022-02-26)
 * bufix: repair reception error
 

@@ -9,12 +9,12 @@ chapters: {"pages":{"de/adapterref/iobroker.lametric/README.md":{"title":{"de":"
 
 Senden eines einfachen Textes, welcher als einzelner Frame angezeigt wird
 
-![single frame](./blockly1.png)
+![single frame](./img/blockly1.png)
 
 Um mehrere Frames darzustellen, kann eine Liste von Texten übergeben werden
 
-![multiple frames](./blockly2.png)
+![multiple frames](./img/blockly2.png)
 
 Um Graphen darzustellen, muss ein Array aus Zahlen als Liste in einem Frame übergeben werden.
 
-![chart data frames](./blockly3.png)
+![chart data frames](./img/blockly3.png)

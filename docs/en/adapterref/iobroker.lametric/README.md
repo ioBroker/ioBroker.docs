@@ -20,7 +20,7 @@ chapters: {"pages":{"en/adapterref/iobroker.lametric/README.md":{"title":{"en":"
 
 You can get your device API key [here](https://developer.lametric.com/user/devices).
 
-![api-key](./api-key.png)
+![api-key](./img/api-key.png)
 
 ## Features
 

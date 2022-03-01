@@ -562,6 +562,10 @@ This channel contains calculated values. Currently these are day/week/month/year
    *Read-only text, which designates the serial number of wallbox [0..3].*
 
 ## Changelog
+### 1.3.5-beta (NoBl)
+* Added more state attributes (if you have updated descriptions or anything, please open an issue!)
+* Workaround in case SENEC reports bogus request data
+
 ### 1.3.4 (NoBl)
 * Moved from request to axios
 * Added more state attributes (if you have updated descriptions or anything, please open an issue!)

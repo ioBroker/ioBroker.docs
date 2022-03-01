@@ -11,18 +11,18 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: LyNjO2+yN5NV0KY8Oomb8/2+8/3+HCrTz9S5J7cszhs=
+hash: 3j24ehDmVjhAPK0LHBNP14LmXmvMg7AOLF7zh1SBSUQ=
 ---
 ![商标](../../../en/adapterref/iobroker.lametric/../../admin/lametric.png)
 
 # IoBroker.lametric
 ＃＃ 要求
-- *LaMetric Time* 与固件 *2.2.2*（或更高版本）
+- *LaMetric Time* 固件 *2.2.2*（或更高版本）
 
 ＃＃ 配置
 您可以获得您的设备 API 密钥[这里](https://developer.lametric.com/user/devices)。
 
-![api-key](../../../en/adapterref/iobroker.lametric/./api-key.png)
+![api-key](../../../en/adapterref/iobroker.lametric/./img/api-key.png)
 
 ＃＃ 特征
 - 设置显示亮度（百分比，自动模式/手动模式）
@@ -30,7 +30,7 @@ hash: LyNjO2+yN5NV0KY8Oomb8/2+8/3+HCrTz9S5J7cszhs=
 - 配置屏幕保护程序（启用/禁用，基于时间，黑暗时）
 - 激活/停用蓝牙并更改蓝牙名称
 - 在应用程序之间切换（下一个、上一个、转到特定应用程序）
-- 以块状发送通知（具有可配置的优先级、声音、图标、文本......）
+- 发送通知块（具有可配置的优先级，声音，图标，文本，...）
 - 控制“时钟”、“收音机”、“秒表”或“天气”等特殊应用
 - 使用 *My Data (DIY)* LaMetric App 显示持久信息
 

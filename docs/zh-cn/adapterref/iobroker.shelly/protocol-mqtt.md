@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/protocol-mqtt.md
 title: ioBroker.shelly
-hash: WzLCNgnYqTmiO09+RSvlZtbuT0oaNfuPnARm77R54ac=
+hash: Bd+LVUP47yND7GlSfMKQwS9NFjqNftpSs/7lAVFW0Q0=
 ---
 ![商标](../../../de/adapterref/iobroker.shelly/../../admin/shelly.png)
 
@@ -13,7 +13,7 @@ hash: WzLCNgnYqTmiO09+RSvlZtbuT0oaNfuPnARm77R54ac=
 ### 重要说明
 - 无法将 Shelly 适配器连接到网络中现有的 MQTT 代理
 - Shelly 适配器启动自己的 MQTT 代理，该代理在端口 ``1882`` 上启动，以避免与同一系统上的其他 MQTT 代理发生冲突
-- MQTT代理的标准端口可以在适配器的配置中进行调整
+- MQTT代理的标准端口可以在适配器的配置中调整
 - 不需要任何 MQTT 协议知识 - 所有通信都在内部处理
 
 ＃＃＃ 配置
@@ -35,8 +35,8 @@ hash: WzLCNgnYqTmiO09+RSvlZtbuT0oaNfuPnARm77R54ac=
 
 - 对于 Gen1 设备：不要更改 ```自定义 MQTT 前缀```（如果更改此值，适配器将不起作用）
 
-![贝壳第一代](../../../de/adapterref/iobroker.shelly/../shelly_mqtt-gen1.png)
+![贝壳第一代](../../../de/adapterref/iobroker.shelly/./img/shelly_mqtt-gen1.png)
 
-![贝壳 gen2](../../../de/adapterref/iobroker.shelly/../shelly_mqtt-gen2.png)
+![贝壳 gen2](../../../de/adapterref/iobroker.shelly/./img/shelly_mqtt-gen2.png)
 
 **对于第 2 代设备，必须启用所有 RPC 选项（见屏幕截图）！**

@@ -50,4 +50,4 @@ http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json
 
 Beispielkonfiguration von einigen Frames:
 
-![example frame config](./my-data-diy.png)
+![example frame config](./img/my-data-diy.png)

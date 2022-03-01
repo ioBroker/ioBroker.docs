@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.birthdays/ical.md
 title: ioBroker.дни рождения
-hash: 7PVSXX5HcARvg3MqME0iIPEkz+trfJT22hvzPMJ8VVM=
+hash: uoJri3RfjSItUNren+DTDAbjRngKNiL1eZ2Oy7nGz7U=
 ---
 ![логотип](../../../de/adapterref/iobroker.birthdays/../../admin/birthdays.png)
 
@@ -23,8 +23,8 @@ hash: 7PVSXX5HcARvg3MqME0iIPEkz+trfJT22hvzPMJ8VVM=
 ### Пример Календаря Google
 Перейдите к [Календарь Google](http://calendar.google.com/) и создайте новый календарь. Затем вы вводите новые встречи, соответствующие критериям (см. выше). После этого URL-адрес частного календаря можно использовать в адаптере для использования встреч.
 
-![iCal Новая запись Google](../../../de/adapterref/iobroker.birthdays/./ical-google-new.png)
+![iCal Новая запись Google](../../../de/adapterref/iobroker.birthdays/./img/ical-google-new.png)
 
-![Настройки iCal Google](../../../de/adapterref/iobroker.birthdays/./ical-google-settings.png)
+![Настройки iCal Google](../../../de/adapterref/iobroker.birthdays/./img/ical-google-settings.png)
 
-![iCal URL-адрес Google](../../../de/adapterref/iobroker.birthdays/./ical-google-url.png)
+![iCal URL-адрес Google](../../../de/adapterref/iobroker.birthdays/./img/ical-google-url.png)

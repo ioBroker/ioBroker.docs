@@ -6,11 +6,12 @@ BADGE-installed: http://iobroker.live/badges/trashschedule-installed.svg
 BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.trashschedule.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.trashschedule/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.trashschedule.png?downloads=true
+chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/README.md"},"en/adapterref/iobroker.trashschedule/blockly.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/blockly.md"},"en/adapterref/iobroker.trashschedule/faq.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.trashschedule/faq.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.trashschedule/README.md
 title: ioBroker.trashschedule
-hash: UV3HqVZZtcoUaaOnkXYcvc9qyq3KiXymFFmX/tF7MkI=
+hash: OmCAF9tPfHiplklRPb7FKvn4Qz4gOvgnuqybiVaWIiE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.trashschedule/../../admin/trashschedule.png)
 
@@ -21,7 +22,7 @@ hash: UV3HqVZZtcoUaaOnkXYcvc9qyq3KiXymFFmX/tF7MkI=
 3. Установите «Дни предварительного просмотра» на диапазон, который включает каждый тип корзины как минимум дважды (например, 30 дней).
 4. Если вы используете вкладку «события», обязательно установите флажок «отображать» для каждого типа события, которое также должно использоваться в вашем расписании корзины (в противном случае событие будет скрыто экземпляром ical)
 
-![классический](../../../en/adapterref/iobroker.trashschedule/./ical.png)
+![классический](../../../en/adapterref/iobroker.trashschedule/./img/ical.png)
 
 ## Конфигурация
 1. Создайте экземпляр ```trashschedule``` и выберите ical экземпляр в качестве источника.
@@ -29,178 +30,14 @@ hash: UV3HqVZZtcoUaaOnkXYcvc9qyq3KiXymFFmX/tF7MkI=
 3. Определите имя для каждого нового типа корзины и настройте соответствующие события.
 4. Запустите экземпляр
 
-**Вопросы?** Проверьте [Вопросы-Ответы](./faq.md)
+**Вопросы?** См. [Вопросы-Ответы](./faq.md)
 
-![расписание мусора](../../../en/adapterref/iobroker.trashschedule/./trashschedule.png)
+![расписание мусора](../../../en/adapterref/iobroker.trashschedule/./img/trashschedule.png)
 
-![мусорное расписание_типы](../../../en/adapterref/iobroker.trashschedule/./trashschedule_types.png)
+![мусорное расписание_типы](../../../en/adapterref/iobroker.trashschedule/./img/trashschedule_types.png)
 
 ## Виджет VIS
-![Виджет VIS](../../../en/adapterref/iobroker.trashschedule/../vis.png)
-
-## Блочный пример
-![Блочный пример](../../../en/adapterref/iobroker.trashschedule/../exampleBlockly.png)
-
-```xml
-<xml xmlns="https://developers.google.com/blockly/xml">
-  <block type="comment" id="@ObjS.SGnDWy?:*J=bee" x="37" y="188">
-    <field name="COMMENT">Um 18:00 Uhr am Vortag (verbleibende Tage = 1) erinnern, dass Abholung bevorsteht</field>
-    <next>
-      <block type="schedule" id=";J}3hpr7:d~*N?CrR==A">
-        <field name="SCHEDULE">0 18 * * *</field>
-        <statement name="STATEMENT">
-          <block type="controls_if" id="EjaN~}B1gMA9ySf2%9kr">
-            <value name="IF0">
-              <block type="logic_operation" id="+hQc|po$a[W}HKd]slrE" inline="false">
-                <field name="OP">AND</field>
-                <value name="A">
-                  <block type="get_value" id="Q;BN3$0J3q5$0sumfBYC">
-                    <field name="ATTR">val</field>
-                    <field name="OID">trashschedule.0.next.dateFound</field>
-                  </block>
-                </value>
-                <value name="B">
-                  <block type="logic_compare" id=")Z1Ml4oq9UCnquPo!giX">
-                    <field name="OP">EQ</field>
-                    <value name="A">
-                      <block type="get_value" id="k@gpt[%7O[i`*b;SWlu4">
-                        <field name="ATTR">val</field>
-                        <field name="OID">trashschedule.0.next.daysLeft</field>
-                      </block>
-                    </value>
-                    <value name="B">
-                      <block type="math_number" id="([hVlm^PW0,gm`C/xp?a">
-                        <field name="NUM">1</field>
-                      </block>
-                    </value>
-                  </block>
-                </value>
-              </block>
-            </value>
-            <statement name="DO0">
-              <block type="pushover" id="vqjP6Z6|7M.^)lx4]GiG">
-                <field name="INSTANCE"></field>
-                <field name="SOUND">gamelan</field>
-                <field name="PRIORITY">0</field>
-                <field name="LOG"></field>
-                <value name="MESSAGE">
-                  <shadow type="text" id="yt8+Z!a;[|CJy`,K(B.3">
-                    <field name="TEXT">text</field>
-                  </shadow>
-                  <block type="text_join" id="pm:dwF91X!Oj82P^4Oz8">
-                    <mutation items="2"></mutation>
-                    <value name="ADD0">
-                      <block type="text" id="%|}mW_iCoyweL$jy9wHq">
-                        <field name="TEXT">Morgen wird der Müll abgeholt: </field>
-                      </block>
-                    </value>
-                    <value name="ADD1">
-                      <block type="get_value" id="~TDqVlE(:gEW7snO2_]s">
-                        <field name="ATTR">val</field>
-                        <field name="OID">trashschedule.0.next.typesText</field>
-                      </block>
-                    </value>
-                  </block>
-                </value>
-                <value name="TITLE">
-                  <block type="text" id="t*+0*zY(|S3fI3WBX[2g">
-                    <field name="TEXT">Müllabfuhr</field>
-                  </block>
-                </value>
-              </block>
-            </statement>
-          </block>
-        </statement>
-        <next>
-          <block type="comment" id="~rf)Dy*vQ]9g?yVIWVsP">
-            <field name="COMMENT">Um 07:00 Uhr am Abholtag (verbleibende Tage = 0) erinnern, dass Abholung bevorsteht</field>
-            <next>
-              <block type="schedule" id="O%4=ke4-(?vnjhtIDnt3">
-                <field name="SCHEDULE">0 7 * * *</field>
-                <statement name="STATEMENT">
-                  <block type="controls_if" id="kyfB;W(WcA(/-ZWG2j6(">
-                    <value name="IF0">
-                      <block type="logic_operation" id=".wZBS3T):whb7WB!a-c_" inline="false">
-                        <field name="OP">AND</field>
-                        <value name="A">
-                          <block type="get_value" id=",jhL[do$G_Q6TNBH,D]o">
-                            <field name="ATTR">val</field>
-                            <field name="OID">trashschedule.0.next.dateFound</field>
-                          </block>
-                        </value>
-                        <value name="B">
-                          <block type="logic_compare" id="Rlwt:Jv/rTfO.E:ZmYak">
-                            <field name="OP">EQ</field>
-                            <value name="A">
-                              <block type="get_value" id="WdL)rds~)z*-)1k),cX(">
-                                <field name="ATTR">val</field>
-                                <field name="OID">trashschedule.0.next.daysLeft</field>
-                              </block>
-                            </value>
-                            <value name="B">
-                              <block type="math_number" id="w%5y6PluO}wjq]lDY+Gd">
-                                <field name="NUM">0</field>
-                              </block>
-                            </value>
-                          </block>
-                        </value>
-                      </block>
-                    </value>
-                    <statement name="DO0">
-                      <block type="pushover" id="L,TLF/L9|B6bF4)|gj?F">
-                        <field name="INSTANCE"></field>
-                        <field name="SOUND">gamelan</field>
-                        <field name="PRIORITY">0</field>
-                        <field name="LOG"></field>
-                        <value name="MESSAGE">
-                          <shadow type="text">
-                            <field name="TEXT">text</field>
-                          </shadow>
-                          <block type="text_join" id="Cw#u;:L537u`7Dz2:Kll">
-                            <mutation items="2"></mutation>
-                            <value name="ADD0">
-                              <block type="text" id=".zD)ZQXz7Esr0%?Z1Y(|">
-                                <field name="TEXT">Heute wird der Müll abgeholt: </field>
-                              </block>
-                            </value>
-                            <value name="ADD1">
-                              <block type="get_value" id="9m]6=cBQH_B(%ZOH*j-4">
-                                <field name="ATTR">val</field>
-                                <field name="OID">trashschedule.0.next.typesText</field>
-                              </block>
-                            </value>
-                          </block>
-                        </value>
-                        <value name="TITLE">
-                          <block type="text" id="ki`]5O+.IzI%2Gfw5VT-">
-                            <field name="TEXT">Müllabfuhr</field>
-                          </block>
-                        </value>
-                      </block>
-                    </statement>
-                  </block>
-                </statement>
-              </block>
-            </next>
-          </block>
-        </next>
-      </block>
-    </next>
-  </block>
-</xml>
-```
-
-## Конфигурация смещения
-Смещение может переместить все события пикапа в вашем календаре в будущее или в прошлое.
-
-## По умолчанию: 0
-![Пример смещения](../../../en/adapterref/iobroker.trashschedule/../offsetExample.jpg)
-
-## Пример: 1
-![Пример смещения](../../../en/adapterref/iobroker.trashschedule/../offsetExample1.jpg)
-
-## Пример: -1
-![Пример смещения](../../../en/adapterref/iobroker.trashschedule/../offsetExample2.jpg)
+![Виджет VIS](../../../en/adapterref/iobroker.trashschedule/./img/vis.png)
 
 ## Changelog
 
@@ -208,6 +45,15 @@ hash: UV3HqVZZtcoUaaOnkXYcvc9qyq3KiXymFFmX/tF7MkI=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.4.3 (2022-02-21)
+
+* (klein0r) Updated state roles
+* (klein0r) Added hint for Admin 4 configuration
+
+### 1.4.2 (2022-02-07)
+
+* (klein0r) Added check for ical configuration
+
 ### 1.4.1 (2021-12-23)
 
 * (klein0r) Updated dependencies
@@ -352,7 +198,7 @@ hash: UV3HqVZZtcoUaaOnkXYcvc9qyq3KiXymFFmX/tF7MkI=
 
 MIT License
 
-Copyright (c) 2021 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

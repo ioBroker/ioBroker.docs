@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.birthdays/carddav.md
 title: ioBroker.дни рождения
-hash: 2rkFpPBJLDH9eCQ/bhwzN3q87xts0rkCKvzNmNjR5fY=
+hash: fBGKnuC5hNdWiAzcHP6dAp6ashaG1aNdqKb9tTlDBsc=
 ---
 ![логотип](../../../de/adapterref/iobroker.birthdays/../../admin/birthdays.png)
 
@@ -13,6 +13,6 @@ hash: 2rkFpPBJLDH9eCQ/bhwzN3q87xts0rkCKvzNmNjR5fY=
 *CardDAV доступен начиная с версии адаптера 1.1.0*
 
 ### Контакты Synology
-![Настройки CardDAV Synology](../../../de/adapterref/iobroker.birthdays/./carddav-synology-settings.png)
+![Настройки CardDAV Synology](../../../de/adapterref/iobroker.birthdays/./img/carddav-synology-settings.png)
 
-![URL-адрес CardDAV Synology](../../../de/adapterref/iobroker.birthdays/./carddav-synology-url.png)
+![URL-адрес CardDAV Synology](../../../de/adapterref/iobroker.birthdays/./img/carddav-synology-url.png)

@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/protocol-mqtt.md
 title: ioBroker.шелли
-hash: WzLCNgnYqTmiO09+RSvlZtbuT0oaNfuPnARm77R54ac=
+hash: Bd+LVUP47yND7GlSfMKQwS9NFjqNftpSs/7lAVFW0Q0=
 ---
 ![логотип](../../../de/adapterref/iobroker.shelly/../../admin/shelly.png)
 
@@ -35,8 +35,8 @@ hash: WzLCNgnYqTmiO09+RSvlZtbuT0oaNfuPnARm77R54ac=
 
 - Для устройств Gen1: не меняйте ```пользовательский префикс MQTT``` (адаптер не будет работать, если вы измените это значение).
 
-![Шелли gen1](../../../de/adapterref/iobroker.shelly/../shelly_mqtt-gen1.png)
+![Шелли gen1](../../../de/adapterref/iobroker.shelly/./img/shelly_mqtt-gen1.png)
 
-![Шелли Gen2](../../../de/adapterref/iobroker.shelly/../shelly_mqtt-gen2.png)
+![Шелли Gen2](../../../de/adapterref/iobroker.shelly/./img/shelly_mqtt-gen2.png)
 
 **Для устройств 2-го поколения должны быть включены все параметры RPC (см. снимок экрана)!**

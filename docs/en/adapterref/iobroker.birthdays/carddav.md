@@ -11,6 +11,6 @@ chapters: {"pages":{"en/adapterref/iobroker.birthdays/README.md":{"title":{"en":
 
 ### Synology Contacts
 
-![CardDAV Settings Synology](./carddav-synology-settings.png)
+![CardDAV Settings Synology](./img/carddav-synology-settings.png)
 
-![CardDAV URL Synology](./carddav-synology-url.png)
+![CardDAV URL Synology](./img/carddav-synology-url.png)

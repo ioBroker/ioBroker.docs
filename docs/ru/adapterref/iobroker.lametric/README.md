@@ -11,7 +11,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: LyNjO2+yN5NV0KY8Oomb8/2+8/3+HCrTz9S5J7cszhs=
+hash: 3j24ehDmVjhAPK0LHBNP14LmXmvMg7AOLF7zh1SBSUQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lametric/../../admin/lametric.png)
 
@@ -22,7 +22,7 @@ hash: LyNjO2+yN5NV0KY8Oomb8/2+8/3+HCrTz9S5J7cszhs=
 ## Конфигурация
 Вы можете получить ключ API своего устройства [здесь](https://developer.lametric.com/user/devices).
 
-![API-ключ](../../../en/adapterref/iobroker.lametric/./api-key.png)
+![API-ключ](../../../en/adapterref/iobroker.lametric/./img/api-key.png)
 
 ## Функции
 - Установить яркость дисплея (в процентах, автоматический режим/ручной режим)

@@ -21,8 +21,8 @@ It is NOT required to use the ical option. You can also define all birthday date
 
 Go to [Google Calendar](http://calendar.google.com/) and create a new calendar. Add new birthday events to that calendar, which match the required criteria (see above). After that, you have to copy the private calendar url to use this calendar in the adapter.
 
-![iCal New Event Google](./ical-google-new.png)
+![iCal New Event Google](./img/ical-google-new.png)
 
-![iCal Settings Google](./ical-google-settings.png)
+![iCal Settings Google](./img/ical-google-settings.png)
 
-![iCal URL Google](./ical-google-url.png)
+![iCal URL Google](./img/ical-google-url.png)

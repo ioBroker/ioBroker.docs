@@ -21,8 +21,8 @@ Es ist NICHT zwingend erforderlich die iCal-Option zu nutzen. Du kannst alternat
 
 Gehe zum [Google Kalender](http://calendar.google.com/) und erstelle einen neuen Kalender. In diesen trägst Du dann neue Termine ein, welche den Kriterien (siehe oben) entsprechen. Danach kann die private Kalender-URL im Adapter verwendet werden um die Termine zu nutzen.
 
-![iCal Neuer Eintrag Google](./ical-google-new.png)
+![iCal Neuer Eintrag Google](./img/ical-google-new.png)
 
-![iCal Einstellungen Google](./ical-google-settings.png)
+![iCal Einstellungen Google](./img/ical-google-settings.png)
 
-![iCal URL Google](./ical-google-url.png)
+![iCal URL Google](./img/ical-google-url.png)

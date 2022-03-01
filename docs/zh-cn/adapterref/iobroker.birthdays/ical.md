@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.birthdays/ical.md
 title: ioBroker.birthdays
-hash: 7PVSXX5HcARvg3MqME0iIPEkz+trfJT22hvzPMJ8VVM=
+hash: uoJri3RfjSItUNren+DTDAbjRngKNiL1eZ2Oy7nGz7U=
 ---
 ![商标](../../../de/adapterref/iobroker.birthdays/../../admin/birthdays.png)
 
@@ -23,8 +23,8 @@ hash: 7PVSXX5HcARvg3MqME0iIPEkz+trfJT22hvzPMJ8VVM=
 ### 谷歌日历示例
 转到[谷歌日历](http://calendar.google.com/)并创建一个新日历。然后在此输入符合条件的新约会（见上文）。之后，可以在适配器中使用私有日历 URL 来使用约会。
 
-![iCal 新条目谷歌](../../../de/adapterref/iobroker.birthdays/./ical-google-new.png)
+![iCal 新条目谷歌](../../../de/adapterref/iobroker.birthdays/./img/ical-google-new.png)
 
-![iCal 设置谷歌](../../../de/adapterref/iobroker.birthdays/./ical-google-settings.png)
+![iCal 设置谷歌](../../../de/adapterref/iobroker.birthdays/./img/ical-google-settings.png)
 
-![iCal 网址谷歌](../../../de/adapterref/iobroker.birthdays/./ical-google-url.png)
+![iCal 网址谷歌](../../../de/adapterref/iobroker.birthdays/./img/ical-google-url.png)

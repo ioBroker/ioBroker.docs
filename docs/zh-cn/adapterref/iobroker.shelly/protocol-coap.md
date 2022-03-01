@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/protocol-coap.md
 title: ioBroker.shelly
-hash: 4xO4g+gr0t8H5P2ozmQJSnbPEH6WKFK+hRvsABnNi8o=
+hash: 4JbV6CdWbjaA6vp5oyOgb8Lcum1+pJOzrX/9qdgUe30=
 ---
 ![商标](../../../de/adapterref/iobroker.shelly/../../admin/shelly.png)
 
@@ -26,12 +26,12 @@ CoAP 添加网络中的所有设备。如果要排除单个设备，可以在黑
 
 ![iobroker_coap](../../../de/adapterref/iobroker.shelly/./img/iobroker_coap.png)
 
-![shelly_coap](../../../de/adapterref/iobroker.shelly/../shelly_coap.png)
+![shelly_coap](../../../de/adapterref/iobroker.shelly/./img/shelly_coap.png)
 
 ### 重要说明
 #### Shelly 固件 1.8.0（或更新版本）
 - 如果您使用 CoAP 协议，则必须从此版本开始使用适配器的 4.0.0（或更新）版本。
-- 对于固件较旧的设备（Shelly 4 Pro 除外），必须使用适配器版本 3.3.6（或更旧）。适配器版本 4.0.0（或更高版本）与旧固件版本不兼容！
+- 对于固件较旧的设备（Shelly 4 Pro 除外），必须使用适配器版本 3.3.6（或更早）。适配器版本 4.0.0（或更高版本）与旧固件版本不兼容！
 
 #### Shelly 固件 1.9.4（或更新版本）
 - 从这个版本开始，如果使用 CoAP 协议，则必须在每个 Shelly 上存储 CoIoT 服务器。本文档中 CoAP 部分的更多详细信息。

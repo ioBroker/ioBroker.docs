@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/blockly.md
 title: ioBroker.lametric
-hash: fJJ9DqewhHreBUz1afZ6ZYLzfNAmjTxwyn0irae8TkU=
+hash: ZWHAjFD9uLetdMfusImcQ5qbFjzjisp7oa3rPf4LSNE=
 ---
 ![логотип](../../../de/adapterref/iobroker.lametric/../../admin/lametric.png)
 
@@ -12,12 +12,12 @@ hash: fJJ9DqewhHreBUz1afZ6ZYLzfNAmjTxwyn0irae8TkU=
 ## Блочные примеры
 Отправка простого текста, который отображается в виде одного кадра
 
-![одиночный кадр](../../../de/adapterref/iobroker.lametric/./blockly1.png)
+![одиночный кадр](../../../de/adapterref/iobroker.lametric/./img/blockly1.png)
 
 Список текстов может быть передан для отображения нескольких фреймов
 
-![несколько кадров](../../../de/adapterref/iobroker.lametric/./blockly2.png)
+![несколько кадров](../../../de/adapterref/iobroker.lametric/./img/blockly2.png)
 
 Для отображения графиков массив чисел должен быть передан в виде списка во фрейме.
 
-![фреймы данных диаграммы](../../../de/adapterref/iobroker.lametric/./blockly3.png)
+![фреймы данных диаграммы](../../../de/adapterref/iobroker.lametric/./img/blockly3.png)

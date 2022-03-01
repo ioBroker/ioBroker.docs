@@ -42,7 +42,7 @@ Wait some seconds until the cronjob collects the data for the first time.
 
 ### Example
 
-![Configuration example](./exampleConfiguration.png)
+![Configuration example](./img/exampleConfiguration.png)
 
 ## Changelog
 

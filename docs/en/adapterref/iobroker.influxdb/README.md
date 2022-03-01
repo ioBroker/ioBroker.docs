@@ -353,6 +353,9 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
+### 2.6.1 (2022-02-28)
+* (Excodibur) Address issue with updating retention policy for influxDB 1
+
 ### 2.6.0 (2022-02-24)
 * (Excodibur) Make request timeout configurable - defaults to 30s
 * (Apollon77) Add option to also accept self signed ssl certificates for InfluxDB 2.x

@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/restricted-login.md
 title: ioBroker.шелли
-hash: PQLcH/5udMusTlxjjlZXllm+3nin3omqilO1WkBgvKY=
+hash: KSwWPyMo0b2e/iCwIZGpuh/Be6fKXaP6aO2Ypui9tbI=
 ---
 ![логотип](../../../de/adapterref/iobroker.shelly/../../admin/shelly.png)
 
@@ -25,7 +25,7 @@ hash: PQLcH/5udMusTlxjjlZXllm+3nin3omqilO1WkBgvKY=
 4. Сохраните конфигурацию — Shelly перезапустится автоматически.
 5. Убедитесь, что одинаковые учетные данные настроены на всех устройствах Shelly.
 
-![Шелли ген 1](../../../de/adapterref/iobroker.shelly/../shelly_restrict_login-gen1.png)
+![Шелли ген 1](../../../de/adapterref/iobroker.shelly/./img/shelly_restrict_login-gen1.png)
 
 ### Поколение 2
 1. Откройте веб-конфигурацию Shelly в браузере (не в приложении Shelly!)
@@ -33,4 +33,4 @@ hash: PQLcH/5udMusTlxjjlZXllm+3nin3omqilO1WkBgvKY=
 3. Включите функцию пароля и введите только что настроенный пароль.
 4. Сохраните конфигурацию
 
-![Шелли ген 2](../../../de/adapterref/iobroker.shelly/../shelly_restrict_login-gen2.png)
+![Шелли ген 2](../../../de/adapterref/iobroker.shelly/./img/shelly_restrict_login-gen2.png)

@@ -9,12 +9,12 @@ chapters: {"pages":{"en/adapterref/iobroker.lametric/README.md":{"title":{"en":"
 
 You can use a simple string as message, which will be shown as a single frame
 
-![single frame](./blockly1.png)
+![single frame](./img/blockly1.png)
 
 To show multiple frames, you can also provide an array as message
 
-![multiple frames](./blockly2.png)
+![multiple frames](./img/blockly2.png)
 
 If you want to use chart frames, you have to specify an array of numbers as a frame
 
-![chart data frames](./blockly3.png)
+![chart data frames](./img/blockly3.png)

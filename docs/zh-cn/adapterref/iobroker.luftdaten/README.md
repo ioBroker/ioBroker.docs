@@ -10,9 +10,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.luftdaten/README.md
 title: ioBroker.luftdaten
-hash: MvIcuk/eHSWW1ebwVL2sU+6AQ0nkZn4HG7oqBGKl7kw=
+hash: RgjyUcz+6h/w4vumvBaWQBnfA/ViD04Q1jOZLvyagTk=
 ---
-![标识](../../../en/adapterref/iobroker.luftdaten/../../admin/luftdaten.png)
+![商标](../../../en/adapterref/iobroker.luftdaten/../../admin/luftdaten.png)
 
 # IoBroker.luftdaten
 ＃＃ 配置
@@ -42,7 +42,7 @@ hash: MvIcuk/eHSWW1ebwVL2sU+6AQ0nkZn4HG7oqBGKl7kw=
 *随意更改实例选项卡中的计划设置（默认：每 30 分钟）。*
 
 ＃＃＃ 例子
-![配置示例](../../../en/adapterref/iobroker.luftdaten/./exampleConfiguration.png)
+![配置示例](../../../en/adapterref/iobroker.luftdaten/./img/exampleConfiguration.png)
 
 ## Changelog
 
@@ -55,6 +55,8 @@ hash: MvIcuk/eHSWW1ebwVL2sU+6AQ0nkZn4HG7oqBGKl7kw=
 
 * (klein0r) Added local link to sensor map
 * (klein0r) Added documentation
+* (klein0r) Added hint for Admin 4 configuration
+* (klein0r) Updated state roles
 
 ### 2.1.3 (2021-12-23)
 
@@ -182,7 +184,7 @@ hash: MvIcuk/eHSWW1ebwVL2sU+6AQ0nkZn4HG7oqBGKl7kw=
 
 The MIT License (MIT)
 
-Copyright (c) 2021 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

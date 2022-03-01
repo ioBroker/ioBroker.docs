@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lametric/my-data-diy.md
 title: ioBroker.lametric
-hash: 09v28Es4lPeVPPPbl6LNyafmkRVelSq/5QwgV4Vlp6g=
+hash: 2LhFVKaEfainwUdOOpewFKtoccW132P+qAQB5aXTLUU=
 ---
 ![商标](../../../de/adapterref/iobroker.lametric/../../admin/lametric.png)
 
@@ -50,4 +50,4 @@ http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json
 
 一些框架的示例配置：
 
-![示例框架配置](../../../de/adapterref/iobroker.lametric/./my-data-diy.png)
+![示例框架配置](../../../de/adapterref/iobroker.lametric/./img/my-data-diy.png)

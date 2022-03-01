@@ -3,8 +3,8 @@ chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"io
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/protocol-coap.md
-title: ioBroker.шелли
-hash: 4xO4g+gr0t8H5P2ozmQJSnbPEH6WKFK+hRvsABnNi8o=
+title: ioBroker.shelly
+hash: 4JbV6CdWbjaA6vp5oyOgb8Lcum1+pJOzrX/9qdgUe30=
 ---
 ![логотип](../../../de/adapterref/iobroker.shelly/../../admin/shelly.png)
 
@@ -26,7 +26,7 @@ CoAP добавляет все устройства в вашей сети. Ес
 
 ![iobroker_coap](../../../de/adapterref/iobroker.shelly/./img/iobroker_coap.png)
 
-![shelly_coap](../../../de/adapterref/iobroker.shelly/../shelly_coap.png)
+![shelly_coap](../../../de/adapterref/iobroker.shelly/./img/shelly_coap.png)
 
 ### Важные инструкции
 #### Прошивка Shelly 1.8.0 (или новее)

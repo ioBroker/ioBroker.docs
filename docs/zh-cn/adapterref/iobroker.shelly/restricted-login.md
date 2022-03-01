@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/restricted-login.md
 title: ioBroker.shelly
-hash: PQLcH/5udMusTlxjjlZXllm+3nin3omqilO1WkBgvKY=
+hash: KSwWPyMo0b2e/iCwIZGpuh/Be6fKXaP6aO2Ypui9tbI=
 ---
 ![商标](../../../de/adapterref/iobroker.shelly/../../admin/shelly.png)
 
@@ -21,11 +21,11 @@ hash: PQLcH/5udMusTlxjjlZXllm+3nin3omqilO1WkBgvKY=
 ### 第 1 代
 1. 在浏览器中打开 Shelly Web 配置（不是在 Shelly 应用程序中！）
 2.转到```Internet和安全设置->限制登录```
-3.勾选安全访问复选框并输入您刚刚配置的访问数据
+3.勾选安全访问复选框，输入刚刚配置的访问数据
 4. 保存配置 - Shelly 会自动重启
 5. 确保在所有 Shelly 设备上配置了相同的凭据
 
-![贝壳基因1](../../../de/adapterref/iobroker.shelly/../shelly_restrict_login-gen1.png)
+![贝壳基因1](../../../de/adapterref/iobroker.shelly/./img/shelly_restrict_login-gen1.png)
 
 ### 第 2 代
 1. 在浏览器中打开 Shelly Web 配置（不是在 Shelly 应用程序中！）
@@ -33,4 +33,4 @@ hash: PQLcH/5udMusTlxjjlZXllm+3nin3omqilO1WkBgvKY=
 3.开启密码功能，输入刚刚配置的密码
 4.保存配置
 
-![贝壳基因2](../../../de/adapterref/iobroker.shelly/../shelly_restrict_login-gen2.png)
+![贝壳基因2](../../../de/adapterref/iobroker.shelly/./img/shelly_restrict_login-gen2.png)

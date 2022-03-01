@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/my-data-diy.md
 title: ioBroker.lametric
-hash: 09v28Es4lPeVPPPbl6LNyafmkRVelSq/5QwgV4Vlp6g=
+hash: 2LhFVKaEfainwUdOOpewFKtoccW132P+qAQB5aXTLUU=
 ---
 ![логотип](../../../de/adapterref/iobroker.lametric/../../admin/lametric.png)
 
@@ -32,7 +32,7 @@ http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json&user=lamet
 **Убедитесь, что IP, порт, имя пользователя и пароль в URL указаны правильно!**
 
 ### Конфигурация (без аутентификации)
-1. Установите [Simple API ioBroker Adapter] (https://github.com/ioBroker/ioBroker.simple-api)
+1. Установите [Адаптер Simple API ioBroker] (https://github.com/ioBroker/ioBroker.simple-api)
 2. Установите приложение *My Data DIY* на *LaMetric Time* через магазин приложений.
 3. Откройте настройки приложения *Мои данные (DIY)* и настройте URL-адрес простого адаптера API (см. ниже).
 4. Зайдите в настройки адаптера и добавьте новые кадры со своей информацией (см. следующий раздел)
@@ -50,4 +50,4 @@ http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json
 
 Пример конфигурации некоторых кадров:
 
-![пример конфигурации кадра](../../../de/adapterref/iobroker.lametric/./my-data-diy.png)
+![пример конфигурации кадра](../../../de/adapterref/iobroker.lametric/./img/my-data-diy.png)

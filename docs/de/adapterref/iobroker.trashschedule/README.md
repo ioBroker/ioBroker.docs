@@ -6,6 +6,7 @@ BADGE-installed: http://iobroker.live/badges/trashschedule-installed.svg
 BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.trashschedule.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.trashschedule/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.trashschedule.png?downloads=true
+chapters: {"pages":{"de/adapterref/iobroker.trashschedule/README.md":{"title":{"de":"ioBroker.trashschedule"},"content":"de/adapterref/iobroker.trashschedule/README.md"},"de/adapterref/iobroker.trashschedule/blockly.md":{"title":{"de":"ioBroker.trashschedule"},"content":"de/adapterref/iobroker.trashschedule/blockly.md"},"de/adapterref/iobroker.trashschedule/faq.md":{"title":{"de":"ioBroker.trashschedule"},"content":"de/adapterref/iobroker.trashschedule/faq.md"}}}
 ---
 ![Logo](../../admin/trashschedule.png)
 
@@ -18,7 +19,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.trashschedule.png?downloads=true
 3. Setze die "Tagesvorschau" auf einen Wert, welcher möglichst jeden Abfalltyp mindestens zweimal enthält (z.B. 30 Tage)
 4. Falls Du die "Ereignisse" verwendest, stelle sicher, dass bei jedem Ereignis "anzeigen" ausgewählt wurde, welches für den Müllkalender ebenfalls relevant ist (andernfalls werden die Termine vom iCal Adapter ausgeblendet)
 
-![ical](./ical.png)
+![ical](./img/ical.png)
 
 ## Konfiguration
 
@@ -29,182 +30,13 @@ BADGE-NPM: https://nodei.co/npm/iobroker.trashschedule.png?downloads=true
 
 **Fragen?** Schaue in die [FAQ](./faq.md)
 
-![trashschedule](./trashschedule.png)
+![trashschedule](./img/trashschedule.png)
 
-![trashschedule_types](./trashschedule_types.png)
+![trashschedule_types](./img/trashschedule_types.png)
 
 ## VIS Widget
 
-![VIS widget](../vis.png)
-
-## Blockly-Beispiel
-
-![Blockly example](../exampleBlockly.png)
-
-```xml
-<xml xmlns="https://developers.google.com/blockly/xml">
-  <block type="comment" id="@ObjS.SGnDWy?:*J=bee" x="37" y="188">
-    <field name="COMMENT">Um 18:00 Uhr am Vortag (verbleibende Tage = 1) erinnern, dass Abholung bevorsteht</field>
-    <next>
-      <block type="schedule" id=";J}3hpr7:d~*N?CrR==A">
-        <field name="SCHEDULE">0 18 * * *</field>
-        <statement name="STATEMENT">
-          <block type="controls_if" id="EjaN~}B1gMA9ySf2%9kr">
-            <value name="IF0">
-              <block type="logic_operation" id="+hQc|po$a[W}HKd]slrE" inline="false">
-                <field name="OP">AND</field>
-                <value name="A">
-                  <block type="get_value" id="Q;BN3$0J3q5$0sumfBYC">
-                    <field name="ATTR">val</field>
-                    <field name="OID">trashschedule.0.next.dateFound</field>
-                  </block>
-                </value>
-                <value name="B">
-                  <block type="logic_compare" id=")Z1Ml4oq9UCnquPo!giX">
-                    <field name="OP">EQ</field>
-                    <value name="A">
-                      <block type="get_value" id="k@gpt[%7O[i`*b;SWlu4">
-                        <field name="ATTR">val</field>
-                        <field name="OID">trashschedule.0.next.daysLeft</field>
-                      </block>
-                    </value>
-                    <value name="B">
-                      <block type="math_number" id="([hVlm^PW0,gm`C/xp?a">
-                        <field name="NUM">1</field>
-                      </block>
-                    </value>
-                  </block>
-                </value>
-              </block>
-            </value>
-            <statement name="DO0">
-              <block type="pushover" id="vqjP6Z6|7M.^)lx4]GiG">
-                <field name="INSTANCE"></field>
-                <field name="SOUND">gamelan</field>
-                <field name="PRIORITY">0</field>
-                <field name="LOG"></field>
-                <value name="MESSAGE">
-                  <shadow type="text" id="yt8+Z!a;[|CJy`,K(B.3">
-                    <field name="TEXT">text</field>
-                  </shadow>
-                  <block type="text_join" id="pm:dwF91X!Oj82P^4Oz8">
-                    <mutation items="2"></mutation>
-                    <value name="ADD0">
-                      <block type="text" id="%|}mW_iCoyweL$jy9wHq">
-                        <field name="TEXT">Morgen wird der Müll abgeholt: </field>
-                      </block>
-                    </value>
-                    <value name="ADD1">
-                      <block type="get_value" id="~TDqVlE(:gEW7snO2_]s">
-                        <field name="ATTR">val</field>
-                        <field name="OID">trashschedule.0.next.typesText</field>
-                      </block>
-                    </value>
-                  </block>
-                </value>
-                <value name="TITLE">
-                  <block type="text" id="t*+0*zY(|S3fI3WBX[2g">
-                    <field name="TEXT">Müllabfuhr</field>
-                  </block>
-                </value>
-              </block>
-            </statement>
-          </block>
-        </statement>
-        <next>
-          <block type="comment" id="~rf)Dy*vQ]9g?yVIWVsP">
-            <field name="COMMENT">Um 07:00 Uhr am Abholtag (verbleibende Tage = 0) erinnern, dass Abholung bevorsteht</field>
-            <next>
-              <block type="schedule" id="O%4=ke4-(?vnjhtIDnt3">
-                <field name="SCHEDULE">0 7 * * *</field>
-                <statement name="STATEMENT">
-                  <block type="controls_if" id="kyfB;W(WcA(/-ZWG2j6(">
-                    <value name="IF0">
-                      <block type="logic_operation" id=".wZBS3T):whb7WB!a-c_" inline="false">
-                        <field name="OP">AND</field>
-                        <value name="A">
-                          <block type="get_value" id=",jhL[do$G_Q6TNBH,D]o">
-                            <field name="ATTR">val</field>
-                            <field name="OID">trashschedule.0.next.dateFound</field>
-                          </block>
-                        </value>
-                        <value name="B">
-                          <block type="logic_compare" id="Rlwt:Jv/rTfO.E:ZmYak">
-                            <field name="OP">EQ</field>
-                            <value name="A">
-                              <block type="get_value" id="WdL)rds~)z*-)1k),cX(">
-                                <field name="ATTR">val</field>
-                                <field name="OID">trashschedule.0.next.daysLeft</field>
-                              </block>
-                            </value>
-                            <value name="B">
-                              <block type="math_number" id="w%5y6PluO}wjq]lDY+Gd">
-                                <field name="NUM">0</field>
-                              </block>
-                            </value>
-                          </block>
-                        </value>
-                      </block>
-                    </value>
-                    <statement name="DO0">
-                      <block type="pushover" id="L,TLF/L9|B6bF4)|gj?F">
-                        <field name="INSTANCE"></field>
-                        <field name="SOUND">gamelan</field>
-                        <field name="PRIORITY">0</field>
-                        <field name="LOG"></field>
-                        <value name="MESSAGE">
-                          <shadow type="text">
-                            <field name="TEXT">text</field>
-                          </shadow>
-                          <block type="text_join" id="Cw#u;:L537u`7Dz2:Kll">
-                            <mutation items="2"></mutation>
-                            <value name="ADD0">
-                              <block type="text" id=".zD)ZQXz7Esr0%?Z1Y(|">
-                                <field name="TEXT">Heute wird der Müll abgeholt: </field>
-                              </block>
-                            </value>
-                            <value name="ADD1">
-                              <block type="get_value" id="9m]6=cBQH_B(%ZOH*j-4">
-                                <field name="ATTR">val</field>
-                                <field name="OID">trashschedule.0.next.typesText</field>
-                              </block>
-                            </value>
-                          </block>
-                        </value>
-                        <value name="TITLE">
-                          <block type="text" id="ki`]5O+.IzI%2Gfw5VT-">
-                            <field name="TEXT">Müllabfuhr</field>
-                          </block>
-                        </value>
-                      </block>
-                    </statement>
-                  </block>
-                </statement>
-              </block>
-            </next>
-          </block>
-        </next>
-      </block>
-    </next>
-  </block>
-</xml>
-```
-
-## Offset konfiguration
-
-Der Offset kann alle Abholtermine im Kalender in die Zukunft oder in die Vergangenheit schieben.
-
-## Standard: 0
-
-![Offset example](../offsetExample.jpg)
-
-## Beispiel: 1
-
-![Offset example](../offsetExample1.jpg)
-
-## Beispiel: -1
-
-![Offset example](../offsetExample2.jpg)
+![VIS widget](./img/vis.png)
 
 ## Changelog
 
