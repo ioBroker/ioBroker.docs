@@ -248,17 +248,242 @@ Insofern ist Proxmox nun in seiner Grundkonfiguration abgeschlossen. Wenn man si
 
 ---
 
-## Proxmox - ioBroker Installation in einer VM (Virtuellen Maschine) 
+## Proxmox - Erstellen einer Virtuelle Qemu/KVM-Maschine (VM) + ioBroker Installation im Anschluß
 
-?> ***Dies ist ein Platzhalter***.
-   <br><br>
-   Hilf mit bei ioBroker und erweitere diesen Artikel.  
-   Bitte beachte den [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md), 
-   damit die Änderungen einfacher übernommen werden können.
+Diese Beispiel-Anleitung zeigt wie eine [VM](https://pve.proxmox.com/wiki/Qemu/KVM_Virtual_Machines) (debian11) erstellt und anschließend ioBroker darin installiert wird.
+
+Es ist natürlich möglich anstatt Debian auch ein Ubuntu zu verwenden, jedoch ist hierbei darauf zu achten, eine Ubuntu Server **LTS Version** zu verwenden.
+
+Aufgrund der Übersichtlichkeit, sind Bildbeschreibungen und Zusatzinfo's zum aufklappen.
+
+### 1 - ISO-Image herunterladen
+
+Zuerst wird ein [ISO-Image](https://www.debian.org/distrib/)(64-Bit-PC Netinst-ISO) benötigt, welches in der Grundinstallation (sofern keine weiteren Laufwerke angelegt wurden) ins root Verzeichnis (local) geladen werden muss.
+
+Hierzu geht man auf local > ISO-Images. Dort gibt es zwei Möglichkeiten.
+
+- Über den Button **Hochladen** kann die ISO, welche zuvor auf dem Rechner abgelegt wurde, auf den Proxmox Host geladen werden.
+- **Von URL herunterladen** ist es möglich, die ISO direkt per URL auf den Host zu laden. Dazu kopiert man sich die Link Adresse der 64-Bit-PC Netinst-ISO(rechte Maustaste), fügt die URL ein und mit einem Klick auf **URL abfragen** wird diese abgerufen. Mit einem abschliessenden Klick auf **Herunterladen**, wird nun die ISO direkt heruntergeladen.
+
 
 <details>
- 
+<summary>ISO herunterladen</summary>
+
+![vm-iso](media/proxmox/vm-iso)
+
+![vm-isourl](media/proxmox/vm-isourl)
+
+
 </details>
+
+
+### 2 - VM erstellen
+
+Mit einem Klick auf den blauen Button **Erstelle VM** öffnet sich ein Fenster, in dem folgende Einstellungen getroffen werden müssen.
+
+- Allgemein: Vergabe des Hostname und Passwort, ID wird vorgegeben (beginnt mit 100), kann geändert werden, jedoch nicht nachträglich.
+- OS: Storage Auswahl(local) und ISO-Image(debian-11-netinst.iso)
+- System: bleibt alles in der Standardeinstellung, **Qemu Agent Haken setzen**
+- Disks: Storage local-lvm, Disk-Größe 10GB (10-20GB sollten ausreichend sein, ein nachträgliches Ändern ist möglich, wird jedoch hier nicht weiter beschrieben).
+- CPU: Ist abhängig wie Leistungsstark der Rechner ist (kann ebenfalls jederzeit angepasst werden, VM muss dazu neu gestartet werden)
+- Speicher: Ramgröße im MiB (kann ebenfalls jederzeit angepasst werden, VM muss dazu neu gestartet werden)
+- Netzwerk: vmbr0, alles andere bleibt wie vorgegeben
+- Bestätigen: Hier sieht man noch einmal eine Zusammenfassung, (Haken setzen bei **Nach Erstellen starten**) anschließend wird mit einem Klick auf **Abschließen** die VM erstellt.
+
+<details>
+<summary>Bilderserie Erstelle VM</summary>
+
+
+![vm-allgemein](media/proxmox/vm-allgemein)
+
+![vm-os](media/proxmox/vm-os)
+
+![vm-system](media/proxmox/vm-system)
+
+![vm-disks](media/proxmox/vm-disks)
+
+![vm-cpu](media/proxmox/vm-cpu)
+
+![vm-speicher](media/proxmox/vm-speicher)
+
+![vm-netzwerk](media/proxmox/vm-netzwerk)
+
+![vm-bestätigen](media/proxmox/vm-bestätigen)
+
+
+</details>
+
+
+### 3 - Debian Install
+
+Nachdem die VM gestartet wurde, begibt man sich nun auf die Konsole der VM und startet den **Install**.
+
+
+<details>
+<summary>Konsole</summary>
+
+![vm-install](media/proxmox/vm-install)
+
+</details>
+
+Hierbei wird man durch die Installation geführt und muss währenddessen einige Einstellungen tätigen. Zur Bedienung benötigt man die Tab-, Leer- und Pfeiltasten. Aufgrund des Umfangs sind diverse Einstellungen der Bilderserie zu entnehmen.
+
+<span style="color:red">**ACHTUNG! - Es darf kein root Passwort vergeben werden.**</span>
+
+
+<details>
+<summary>Bilderserie Debian Install</summary>
+
+![vm-1](media/proxmox/vm-1)
+
+![vm-2](media/proxmox/vm-2)
+
+![vm-3](media/proxmox/vm-3)
+
+![vm-4](media/proxmox/vm-4)
+
+![vm-5](media/proxmox/vm-5)
+
+![vm-6](media/proxmox/vm-6)
+
+![vm-7](media/proxmox/vm-7)
+
+![vm-8](media/proxmox/vm-8)
+
+![vm-9](media/proxmox/vm-9)
+
+![vm-10](media/proxmox/vm-10)
+
+![vm-11](media/proxmox/vm-11)
+
+![vm-12](media/proxmox/vm-12)
+
+![vm-13](media/proxmox/vm-13)
+
+![vm-14](media/proxmox/vm-14)
+
+![vm-15](media/proxmox/vm-15)
+
+![vm-16](media/proxmox/vm-16)
+
+![vm-17](media/proxmox/vm-17)
+
+![vm-18](media/proxmox/vm-18)
+
+![vm-19](media/proxmox/vm-19)
+
+![vm-20](media/proxmox/vm-20)
+
+![vm-21](media/proxmox/vm-21)
+
+![vm-22](media/proxmox/vm-22)
+
+![vm-23](media/proxmox/vm-23)
+
+![vm-24](media/proxmox/vm-24)
+
+![vm-25](media/proxmox/vm-25)
+
+![vm-26](media/proxmox/vm-26)
+
+
+</details>
+
+
+### 4 - VM einrichten
+
+Nachdem die VM neu gestartet wurde, loggt man sich mit dem aus der Installation vergebenen "Benutzername" und "Passwort" ein. Anschliessend wird mit dem Befehl
+
+~~~
+ip addr
+~~~
+
+die IP Adresse ausfindig gemacht. Diese wird benötigt, um wie im nächsten Schritt, sich remote per ssh mit der VM zu verbinden.
+
+<details>
+<summary>ip addr</summary>
+
+![vm-ipaddr](media/proxmox/vm-ipaddr)
+
+</details>
+
+Nun kann per ssh (z.b. Putty) auf die VM zugegriffen werden. Hier loggt man sich ebenfalls wieder mit "Benutzername" und "Passwort" ein.
+Anschließend kann die Netzwerkadresse von **dhcp** auf **statisch** geändert werden. (was bei Serverbetrieb zu empfehlen ist)
+
+~~~
+sudo nano /etc/network/interfaces
+~~~
+
+<details>
+<summary>network/interfaces</summary>
+
+![vm-nano](media/proxmox/vm-nano)
+
+![vm-dhcp](media/proxmox/vm-dhcp)
+
+![vm-statisch](media/proxmox/vm-statisch)
+
+
+</details>
+
+Änderungen im Editor werden mit der Tastenkombination STRG + o , danach ENTER, gespeichert, STRG + x beendet den Editor.
+
+Änderungen der IP werden erst nach einem Neustart der VM wirksam. Zuvor wird jedoch noch geprüft, ob der Qemu-Guest-Agent aktiv ist, mittels
+
+~~~
+sudo systemctl status qemu-guest-agent
+~~~
+
+<details>
+<summary>Guest-Agent</summary>
+
+![vm-qemuguest](media/proxmox/vm-qemuguest)
+
+</details>
+
+
+<span style="color:orange">**ACHTUNG! - Bei Ubuntu Installationen muss der Qemu-Guest-Agent nachinstalliert und gestartet werden..**</span>
+
+Befehle dazu:
+
+~~~
+sudo apt-get install qemu-guest-agent
+sudo systemctl start qemu-guest-agent
+~~~
+
+Desweitern, um iobroker installieren zu können, muss **curl** noch nachinstalliert werden.
+~~~
+sudo apt install curl
+~~~
+
+<details>
+<summary>curl nachinstallieren</summary>
+
+![vm-curl](media/proxmox/vm-curl)
+
+</details>
+
+Um Geräte(USB) in einer VM durchzureichen, wählt man die VM > Hardware > Hinzufügen > USB-Geräte > Hersteller/Geräte ID. Hier werden alle angeschlossenen Geräte gelistet.
+
+<details>
+<summary>USB-Geräte</summary>
+
+![vm-usb](media/proxmox/vm-usb)
+
+</details>
+
+
+Damit die VM auch nach einem reboot des Rechners(Proxmox) automatisch startet, muss dies in den Optionen der VM noch aktiviert werden.
+
+<details>
+<summary>Option booten</summary>
+
+![vm-booten](media/proxmox/vm-booten)
+
+</details>
+
+
+Somit ist die Installation und Einrichtung der VM abgeschlossen. Nun kann die VM neu gestartet und im Anschluß ioBroker installiert werden.
 
 ---
 
@@ -297,7 +522,7 @@ Mit einem Klick auf den blauen Button **Erstelle CT** öffnet sich ein Fenster, 
 - Speicher: Ram/Swap-Vergabe (kann jederzeit, auch im laufendem Betrieb angepasst werden)
 - Netzwerk: statische IP/CIDR Vergabe, Gateway, sofern kein Ipv6 eingerichtet, wird dies auf SLAAC gestellt
 - DNS: wird in der Regel nichts verändert(verwende Werte vom Host)
-- Bestätigen: Hier sieht man noch einmal eine Zusammenfassung, wenn alle Eingaben stimmen, anschließend auf **Abschließen** klicken.
+- Bestätigen: Zusammenfassung, (Haken setzen bei **Nach Erstellen starten**) anschließend wird mit einem Klick auf **Abschließen** der Container erstellt.
 
 
 <details>
@@ -415,6 +640,17 @@ und anschließend mit den Neuen Benutzer einloggen. Im Anschluß kann nun iobrok
 ![lxc-useranmeldung](media/proxmox/lxc-useranmeldung)
 
 </details>
+
+
+Damit der LXC auch nach einem reboot des Rechners(Proxmox) automatisch startet, muss dies in den Optionen des Containers noch aktiviert werden.
+
+<details>
+<summary>Option booten</summary>
+
+![lxc-booten](media/proxmox/lxc-booten)
+
+</details>
+
 
 ---
 
