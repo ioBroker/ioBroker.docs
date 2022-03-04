@@ -746,6 +746,9 @@ void loop() {
 получать от нее данные через облачный сервис!
 
 ## Changelog
+### 2.6.2 (2022-03-03)
+* (Apollon77) If datatypes of objects change during an adapter run, adjust datatype of mqtt.X.* objects to "mixed" to prevent issues
+
 ### 2.6.1 (2022-02-25)
 * (Apollon77) Fix object structure sync for server usage
 

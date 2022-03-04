@@ -2,24 +2,32 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.innogy-smarthome/README.md
-title: ioBroker.Innogy-SmartHome
-hash: zrb54oRrAQSQ5uDovpjPK36mZBfe+C2c8GS969PRa9o=
+title: ioBroker.Innogy-Умный Дом
+hash: eM87OnZEGzxQlx5tSF+c+NGPYvqNLO9rvnJDJS1VB+Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.innogy-smarthome/admin/innogy-smarthome.png)
 
 ![Количество установок](http://iobroker.live/badges/innogy-smarthome-stable.svg)
 ![Строить](https://travis-ci.org/PArns/ioBroker.innogy-smarthome.svg?branch=master)
 
-# IoBroker.Innogy-SmartHome
-Этот адаптер используется для подключения устройств Innogy smarthome к ioBroker. Вы можете узнать больше об Innogy [здесь](https://www.innogy.com).
+# IoBroker.Innogy-Умный Дом
+Этот адаптер используется для подключения устройств Livisi SmartHome к ioBroker. Вы можете прочитать больше о Livisi [здесь](https://www.livisi.com).
 
-### Требуется Node> 8.x
-Обратите внимание: для процесса аутентификации на хосте должен быть доступен порт 3000. Убедитесь, что его больше ничем не использует (например, Grafana)
+###Требуется узел > 8.x
+Обратите внимание: для процесса аутентификации необходимо, чтобы порт 3000 был доступен на хосте. Пожалуйста, убедитесь, что ничто другое не использует его (например, Grafana). Эта версия теперь также поддерживает новую функциональность Livisi Local SmartHome!
 
 ## ТРЕБУЕТСЯ ПОМОЩЬ!
-Поскольку этот проект разрабатывается в мое свободное время, я * активно ищу помощь в поддержке и расширении этой библиотеки! Если вы готовы помочь, напишите мне!
+Поскольку этот проект разрабатывается в свободное время, я активно ищу помощь в поддержке и расширении этой библиотеки! Если вы готовы помочь, напишите мне!
 
 ## Changelog
+
+### 0.4.1
+    Fixed cloud auth, if local auth is activated (blank page)
+    Changed Admin design to be compatible with black & white style
+    Added missing states
+
+### 0.4.0
+    Added support for new Local SmartHome (currently in Beta, requires SHC 2 & Firmware >= 8.17 - you can find more info [here](https://community.livisi.de/lsh-en/))
 
 ### 0.3.7
    Prevent js-controller 3.3 warnings

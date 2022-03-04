@@ -353,6 +353,11 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
+### 2.6.2 (2022-03-03)
+* (Apollon77) Correctly handle db names with hyphens for InfluxDB 1
+* (Apollon77) Fix getHistory for non boolean fields
+* (Apollon77) Adjust shard group duration to influxdb proposals
+
 ### 2.6.1 (2022-02-28)
 * (Excodibur) Address issue with updating retention policy for influxDB 1
 

@@ -14,7 +14,7 @@
 
 ## divera247 adapter for ioBroker
 
-Adapter for the alerting service ["Divera 24/7"](https://www.divera247.com/)
+Adapter for the alerting service <a href="https://www.divera247.com/" target="_blank">Divera 24/7</a>
 
 ## Requirements
 For full usability of this adapter your organisation has to subscribe the "Alarm" plan of Divera 24/7 services
@@ -77,7 +77,7 @@ Furthermore please choose an updating interval for calling the API server. 30 se
 ## License
 MIT License
 
-Copyright (c) 2021 TKnpl <dev@t-concepts.de>
+Copyright (c) 2022 TKnpl <dev@t-concepts.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

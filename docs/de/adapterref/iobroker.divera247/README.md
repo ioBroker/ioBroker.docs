@@ -3,13 +3,13 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.divera247/README.md
 title: ioBroker.divera247
-hash: vnxAtGaRJCjT2GRJQQhQNDi5fXgr9Cwf2V3/MzkAcyI=
+hash: iLvR8mcp5vOwu68v+pjLUyITgbFnLx27GKGe6FtD9Xc=
 ---
 ![Logo](../../../en/adapterref/iobroker.divera247/admin/divera247_long.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.divera247.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.divera247.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/divera247-installed.svg)
+![Anzahl der Installationen (neueste)](http://iobroker.live/badges/divera247-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/divera247-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TKnpl/iobroker.divera247.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/TKnpl/ioBroker.divera247/badge.svg)
@@ -18,22 +18,22 @@ hash: vnxAtGaRJCjT2GRJQQhQNDi5fXgr9Cwf2V3/MzkAcyI=
 # IoBroker.divera247
 **Tests:** ![Testen und freigeben](https://github.com/TKnpl/ioBroker.divera247/workflows/Test%20and%20Release/badge.svg)
 
-##divera247 Adapter für ioBroker
-Adapter für den Alarmierungsdienst ["Diver 24/7"](https://www.divera247.com/)
+## Divera247-Adapter für ioBroker
+Adapter für den Alarmierungsdienst <a href="https://www.divera247.com/" target="_blank">Divera 24/7</a>
 
 ## Anforderungen
-Für die volle Nutzung dieses Adapters muss Ihre Organisation den "Alarm"-Plan der Divera 24/7-Dienste abonnieren
+Für die volle Nutzbarkeit dieses Adapters muss Ihre Organisation den „Alarm“-Plan der Divera 24/7-Dienste abonnieren
 
 ## Konfiguration dieses Adapters
 Sie müssen Ihre "Divera 24/7"-Anmeldedaten für diesen Adapter eingeben.
 
 Außerdem können Sie die Alarme auf bestimmte Benutzer oder Alarmgruppen beschränken.
-Dazu müssen Sie die Divera-Benutzer-IDs oder die Alarmgruppennummer in die Admin-Seite dieses Adapters eingeben. Es können mehrere Benutzer-IDs und / oder Alarmgruppennummern durch Komma (,) getrennt angegeben werden.
-Dieser Adapter überprüft zuerst die Benutzer-IDs, bevor er die Gruppen überprüft. Der erste Treffer löst den Alarm aus und aktualisiert alle Zustände. Eine Kombination von UserID und Alarmgruppe ist derzeit nicht möglich.
+Dazu müssen Sie die Divera-Benutzer-IDs oder die Alarmgruppennummer auf der Admin-Seite dieses Adapters eingeben. Mehrere Benutzerkennungen und / oder Alarmgruppennummern können durch Komma (,) getrennt angegeben werden.
+Dieser Adapter prüft zuerst die Benutzer-IDs, bevor er die Gruppen prüft. Der erste Treffer löst den Alarm aus und aktualisiert alle Zustände. Eine Kombination aus UserID und Alarmgruppe ist derzeit nicht möglich.
 
 Um **alle Alarme** zu abonnieren, lassen Sie das entsprechende Feld einfach leer.
 
-Außerdem wählen Sie bitte ein Aktualisierungsintervall für den Aufruf des API-Servers. 30 Sekunden werden empfohlen. Das Minimum beträgt 10 Sekunden.
+Wählen Sie außerdem ein Aktualisierungsintervall für den Aufruf des API-Servers. 30 Sekunden werden empfohlen. Das Minimum beträgt 10 Sekunden.
 
 ## Changelog
 
@@ -82,7 +82,7 @@ Außerdem wählen Sie bitte ein Aktualisierungsintervall für den Aufruf des API
 ## License
 MIT License
 
-Copyright (c) 2021 TKnpl <dev@t-concepts.de>
+Copyright (c) 2022 TKnpl <dev@t-concepts.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

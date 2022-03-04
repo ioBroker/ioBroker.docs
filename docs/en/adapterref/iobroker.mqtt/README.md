@@ -804,6 +804,9 @@ control (see [example above](http://www.iobroker.net/?page_id=6435&lang=en#Appli
 Congratulations! Now you can control the system ioBroker and receive data via a cloud service!
 
 ## Changelog
+### 2.6.2 (2022-03-03)
+* (Apollon77) If datatypes of objects change during an adapter run, adjust datatype of mqtt.X.* objects to "mixed" to prevent issues
+
 ### 2.6.1 (2022-02-25)
 * (Apollon77) Fix object structure sync for server usage
 

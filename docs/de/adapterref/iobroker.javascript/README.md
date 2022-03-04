@@ -69,6 +69,17 @@ Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätz
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 5.3.1 (2022-03-03)
+* (Apollon77) Add missing callback check in setObject
+
+### 5.3.0 (2022-03-02)
+* (Apollon77) Prevent some crash cases reported by Sentry (IOBROKER-JAVASCRIPT-A3)
+* (Apollon77) Fix Enum Updates
+* (Apollon77) Optimize making sure data are current for synchronous return of states/objects even for asynchronous action cases before
+* (Apollon77) Make sure admin files is cleaned up on update
+* (Apollon77) update channel/device structures for $ selector on object updates
+* (Apollon77) Adjustments for js-controller 4.0
+
 ### 5.2.21 (2022-01-16)
 * (bluefox) Fixed build process
 
@@ -78,13 +89,6 @@ Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätz
 ### 5.2.18 (2021-12-14)
 * (klein0r) Fixed some german translations
 * (winnyschuster) Fixed astro schedules
-
-### 5.2.16 (2021-11-19)
-* (bluefox) Fixed the font in the editor
-
-### 5.2.15 (2021-11-18)
-* (agross) Added the monitoring of symlinks my mirroring
-* (Apollon77) Fix two crash cases reported by Sentry
 
 ## License
 The MIT License (MIT)
