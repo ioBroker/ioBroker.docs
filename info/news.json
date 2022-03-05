@@ -1366,70 +1366,68 @@
     },
     {
         "title": {
-            "en": "js-controller 4.0.x is available as Beta",
-            "de": "js-controller 4.0.x ist als Beta verfügbar",
-            "ru": "js-controller 4.0.x доступен в виде бета-версии",
-            "pt": "js-controller 4.0.x está disponível como Beta",
-            "nl": "js-controller 4.0.x is beschikbaar als bèta",
-            "fr": "js-controller 4.0.x est disponible en version bêta",
-            "it": "js-controller 4.0.x è disponibile come Beta",
-            "es": "js-controller 4.0.x está disponible como Beta",
-            "pl": "js-controller 4.0.x jest dostępny w wersji beta",
-            "zh-cn": "js-controller 4.0.x 已作为 Beta 版提供"
+            "en": "js-controller 4.0.x is available",
+            "de": "js-controller 4.0.x ist verfügbar",
+            "ru": "js-контроллер 4.0.x доступен",
+            "pt": "js-controller 4.0.x está disponível",
+            "nl": "js-controller 4.0.x is beschikbaar",
+            "fr": "js-controller 4.0.x est disponible",
+            "it": "js-controller 4.0.x è disponibile",
+            "es": "js-controller 4.0.x está disponible",
+            "pl": "js-controller 4.0.x jest dostępny",
+            "zh-cn": "js-controller 4.0.x 可用"
         },
         "content": {
-            "en": "After already some testing the new js-controller 4.0.x is available now in the beta/latest repository. No issues are known at the moment. On initial upgrade some \"NOT SUPPORTED\" Messages are shown during the upgrade process which can be ignored. More information on the changes and instructions can be found in forum at https://forum.iobroker.net/post/756370",
-            "de": "Nach einigen Tests ist der neue js-controller 4.0.x nun im Beta/neuesten Repository verfügbar. Im Moment sind keine Probleme bekannt. Beim ersten Upgrade werden während des Upgrade-Vorgangs einige „NOT SUPPORTED“-Meldungen angezeigt, die ignoriert werden können. Weitere Informationen zu den Änderungen und Anweisungen finden Sie im Forum unter https://forum.iobroker.net/post/756370",
-            "ru": "После некоторого тестирования новый js-контроллер 4.0.x теперь доступен в бета-версии/последней версии репозитория. На данный момент о проблемах ничего не известно. При первоначальном обновлении в процессе обновления отображаются некоторые сообщения «NOT SUPPORTED», которые можно игнорировать. Дополнительную информацию об изменениях и инструкции можно найти на форуме по адресу https://forum.iobroker.net/post/756370.",
-            "pt": "Após alguns testes, o novo js-controller 4.0.x já está disponível no repositório beta/latest. Nenhum problema é conhecido no momento. Na atualização inicial, algumas mensagens \"NOT SUPPORTED\" são mostradas durante o processo de atualização que podem ser ignoradas. Mais informações sobre as alterações e instruções podem ser encontradas no fórum em https://forum.iobroker.net/post/756370",
-            "nl": "Na al wat testen is de nieuwe js-controller 4.0.x nu beschikbaar in de beta/laatste repository. Er zijn op dit moment geen problemen bekend. Bij de eerste upgrade worden tijdens het upgradeproces enkele \"NOT SUPPORTED\"-berichten weergegeven die kunnen worden genegeerd. Meer informatie over de wijzigingen en instructies is te vinden op het forum op https://forum.iobroker.net/post/756370",
-            "fr": "Après déjà quelques tests, le nouveau js-controller 4.0.x est maintenant disponible dans le référentiel beta/latest. Aucun problème n'est connu pour le moment. Lors de la mise à niveau initiale, certains messages \"NOT SUPPORTED\" s'affichent pendant le processus de mise à niveau et peuvent être ignorés. Plus d'informations sur les modifications et les instructions peuvent être trouvées dans le forum à https://forum.iobroker.net/post/756370",
-            "it": "Dopo già alcuni test, il nuovo js-controller 4.0.x è ora disponibile nel repository beta/latest. Al momento non sono noti problemi. Durante l'aggiornamento iniziale vengono visualizzati alcuni messaggi \"NOT SUPPORTED\" durante il processo di aggiornamento che possono essere ignorati. Maggiori informazioni sulle modifiche e le istruzioni possono essere trovate nel forum su https://forum.iobroker.net/post/756370",
-            "es": "Después de algunas pruebas, el nuevo js-controller 4.0.x ya está disponible en el repositorio beta/latest. No se conocen problemas por el momento. En la actualización inicial, se muestran algunos mensajes \"NOT SUPPORTED\" durante el proceso de actualización que se pueden ignorar. Puede encontrar más información sobre los cambios e instrucciones en el foro en https://forum.iobroker.net/post/756370",
-            "pl": "Po kilku testach nowy js-controller 4.0.x jest już dostępny w repozytorium beta/latest. W tej chwili nie są znane żadne problemy. Podczas początkowej aktualizacji podczas procesu aktualizacji wyświetlane są komunikaty „NOT SUPPORTED”, które można zignorować. Więcej informacji na temat zmian i instrukcji można znaleźć na forum pod adresem https://forum.iobroker.net/post/756370",
-            "zh-cn": "经过一些测试后，新的 js-controller 4.0.x 现在可以在 beta/latest 存储库中使用。目前没有已知问题。初始升级时，升级过程中会显示一些“不支持”消息，可以忽略。有关更改和说明的更多信息，请访问 https://forum.iobroker.net/post/756370 论坛"
+            "en": "The new js-controller 4.0.x is available now or all users. No issues are known at the moment. On initial upgrade some \"NOT SUPPORTED\" Messages could be shown during the upgrade process which can be ignored. More information on this version, and FAQ and other instructions can be found in forum at https://forum.iobroker.net/post/768618 (german).",
+            "de": "Der neue js-controller 4.0.x ist ab sofort für alle Benutzer verfügbar. Im Moment sind keine Probleme bekannt. Beim erstmaligen Upgrade könnten während des Upgrade-Vorgangs einige „NICHT UNTERSTÜTZT“-Meldungen angezeigt werden, die ignoriert werden können. Weitere Informationen zu dieser Version, sowie FAQ und weitere Anleitungen finden Sie im Forum unter https://forum.iobroker.net/post/768618.",
+            "ru": "Новый js-контроллер 4.0.x доступен уже сейчас или всем пользователям. На данный момент о проблемах ничего не известно. При первоначальном обновлении некоторые сообщения «НЕ ПОДДЕРЖИВАЮТСЯ» могут отображаться во время процесса обновления, которые можно игнорировать. Дополнительную информацию об этой версии, а также ответы на часто задаваемые вопросы и другие инструкции можно найти на форуме по адресу https://forum.iobroker.net/post/768618 (немецкий).",
+            "pt": "O novo js-controller 4.0.x já está disponível para todos os usuários. Nenhum problema é conhecido no momento. Na atualização inicial, algumas mensagens \"NÃO SUPORTADO\" podem ser exibidas durante o processo de atualização, as quais podem ser ignoradas. Mais informações sobre esta versão, FAQ e outras instruções podem ser encontradas no fórum https://forum.iobroker.net/post/768618 (alemão).",
+            "nl": "De nieuwe js-controller 4.0.x is nu beschikbaar voor alle gebruikers. Er zijn op dit moment geen problemen bekend. Bij de eerste upgrade kunnen sommige \"NIET SUPPORTED\"-berichten worden weergegeven tijdens het upgradeproces, die kunnen worden genegeerd. Meer informatie over deze versie en FAQ en andere instructies zijn te vinden op het forum op https://forum.iobroker.net/post/768618 (duits).",
+            "fr": "Le nouveau js-controller 4.0.x est disponible dès maintenant ou pour tous les utilisateurs. Aucun problème n'est connu pour le moment. Lors de la mise à niveau initiale, certains messages \"NON SUPPORTÉ\" peuvent s'afficher pendant le processus de mise à niveau et peuvent être ignorés. Plus d'informations sur cette version, et la FAQ et d'autres instructions peuvent être trouvées dans le forum à https://forum.iobroker.net/post/768618 (allemand).",
+            "it": "Il nuovo js-controller 4.0.x è ora disponibile per tutti gli utenti. Al momento non sono noti problemi. Durante l'aggiornamento iniziale potrebbero essere visualizzati alcuni messaggi \"NON SUPPORTATI\" durante il processo di aggiornamento che possono essere ignorati. Maggiori informazioni su questa versione, FAQ e altre istruzioni possono essere trovate nel forum su https://forum.iobroker.net/post/768618 (tedesco).",
+            "es": "El nuevo js-controller 4.0.x ya está disponible para todos los usuarios. No se conocen problemas por el momento. En la actualización inicial, es posible que se muestren algunos mensajes \"NO COMPATIBLES\" durante el proceso de actualización que se pueden ignorar. Puede encontrar más información sobre esta versión, preguntas frecuentes y otras instrucciones en el foro en https://forum.iobroker.net/post/768618 (alemán).",
+            "pl": "Nowy js-controller 4.0.x jest już dostępny lub dla wszystkich użytkowników. W tej chwili nie są znane żadne problemy. Podczas początkowej aktualizacji niektóre komunikaty „NIE WSPIERANE” mogą być wyświetlane podczas procesu aktualizacji, co można zignorować. Więcej informacji na temat tej wersji, FAQ i inne instrukcje można znaleźć na forum pod adresem https://forum.iobroker.net/post/768618 (niemiecki).",
+            "zh-cn": "新的 js-controller 4.0.x 现在或所有用户都可用。目前没有已知问题。初始升级时，升级过程中可能会显示一些“不支持”消息，可以忽略。有关此版本的更多信息、常见问题解答和其他说明可以在 https://forum.iobroker.net/post/768618（德语）的论坛中找到。"
         },
-        "id": "jscontroller40xinfolatest2",
-        "created": "2022-02-20T12:10:00.000Z",
+        "id": "jscontroller40xinfostable",
+        "created": "2022-03-05T18:10:00.000Z",
         "class": "info",
         "fa-icon": "exclamation-circle",
-        "repo": "latest",
         "conditions": {
             "js-controller": "smaller(4.0.15)"
         }
     },
     {
         "title": {
-            "en": "js-controller 4.0.x is available as Beta",
-            "de": "js-controller 4.0.x ist als Beta verfügbar",
-            "ru": "js-controller 4.0.x доступен в виде бета-версии",
-            "pt": "js-controller 4.0.x está disponível como Beta",
-            "nl": "js-controller 4.0.x is beschikbaar als bèta",
-            "fr": "js-controller 4.0.x est disponible en version bêta",
-            "it": "js-controller 4.0.x è disponibile come Beta",
-            "es": "js-controller 4.0.x está disponible como Beta",
-            "pl": "js-controller 4.0.x jest dostępny w wersji beta",
-            "zh-cn": "js-controller 4.0.x 已作为 Beta 版提供"
+            "en": "URGENT: Plase change start time of yr.no Adapter!",
+            "de": "DRINGEND: Startzeit des yr.no Adapters bitte ändern!",
+            "ru": "СРОЧНО: Пожалуйста, измените время запуска yr.no Adapter!",
+            "pt": "URGENTE: Mude a hora de início de yr.no Adaptador!",
+            "nl": "DRINGEND: Wijzig starttijd van jr.no Adapter!",
+            "fr": "URGENT : veuillez modifier l'heure de début de l'adaptateur yr.no !",
+            "it": "URGENTE: cambiare l'ora di inizio dell'anno adattatore!",
+            "es": "URGENTE: ¡Por favor, cambie la hora de inicio del año y el adaptador no!",
+            "pl": "PILNE: Zmień czas rozpoczęcia adaptera yr.no!",
+            "zh-cn": "紧急：请更改 yr.no Adapter 的开始时间！"
         },
         "content": {
-            "en": "After already some testing the new js-controller 4.0.x is available now in the beta/latest repository. No issues are known at the moment. On initial upgrade some \"NOT SUPPORTED\" Messages are shown during the upgrade process which can be ignored. More information on the changes and instructions can be found in forum at https://forum.iobroker.net/post/756370",
-            "de": "Nach einigen Tests ist der neue js-controller 4.0.x nun im Beta/neuesten Repository verfügbar. Im Moment sind keine Probleme bekannt. Beim ersten Upgrade werden während des Upgrade-Vorgangs einige „NOT SUPPORTED“-Meldungen angezeigt, die ignoriert werden können. Weitere Informationen zu den Änderungen und Anweisungen finden Sie im Forum unter https://forum.iobroker.net/post/756370",
-            "ru": "После некоторого тестирования новый js-контроллер 4.0.x теперь доступен в бета-версии/последней версии репозитория. На данный момент о проблемах ничего не известно. При первоначальном обновлении в процессе обновления отображаются некоторые сообщения «NOT SUPPORTED», которые можно игнорировать. Дополнительную информацию об изменениях и инструкции можно найти на форуме по адресу https://forum.iobroker.net/post/756370.",
-            "pt": "Após alguns testes, o novo js-controller 4.0.x já está disponível no repositório beta/latest. Nenhum problema é conhecido no momento. Na atualização inicial, algumas mensagens \"NOT SUPPORTED\" são mostradas durante o processo de atualização que podem ser ignoradas. Mais informações sobre as alterações e instruções podem ser encontradas no fórum em https://forum.iobroker.net/post/756370",
-            "nl": "Na al wat testen is de nieuwe js-controller 4.0.x nu beschikbaar in de beta/laatste repository. Er zijn op dit moment geen problemen bekend. Bij de eerste upgrade worden tijdens het upgradeproces enkele \"NOT SUPPORTED\"-berichten weergegeven die kunnen worden genegeerd. Meer informatie over de wijzigingen en instructies is te vinden op het forum op https://forum.iobroker.net/post/756370",
-            "fr": "Après déjà quelques tests, le nouveau js-controller 4.0.x est maintenant disponible dans le référentiel beta/latest. Aucun problème n'est connu pour le moment. Lors de la mise à niveau initiale, certains messages \"NOT SUPPORTED\" s'affichent pendant le processus de mise à niveau et peuvent être ignorés. Plus d'informations sur les modifications et les instructions peuvent être trouvées dans le forum à https://forum.iobroker.net/post/756370",
-            "it": "Dopo già alcuni test, il nuovo js-controller 4.0.x è ora disponibile nel repository beta/latest. Al momento non sono noti problemi. Durante l'aggiornamento iniziale vengono visualizzati alcuni messaggi \"NOT SUPPORTED\" durante il processo di aggiornamento che possono essere ignorati. Maggiori informazioni sulle modifiche e le istruzioni possono essere trovate nel forum su https://forum.iobroker.net/post/756370",
-            "es": "Después de algunas pruebas, el nuevo js-controller 4.0.x ya está disponible en el repositorio beta/latest. No se conocen problemas por el momento. En la actualización inicial, se muestran algunos mensajes \"NOT SUPPORTED\" durante el proceso de actualización que se pueden ignorar. Puede encontrar más información sobre los cambios e instrucciones en el foro en https://forum.iobroker.net/post/756370",
-            "pl": "Po kilku testach nowy js-controller 4.0.x jest już dostępny w repozytorium beta/latest. W tej chwili nie są znane żadne problemy. Podczas początkowej aktualizacji podczas procesu aktualizacji wyświetlane są komunikaty „NOT SUPPORTED”, które można zignorować. Więcej informacji na temat zmian i instrukcji można znaleźć na forum pod adresem https://forum.iobroker.net/post/756370",
-            "zh-cn": "经过一些测试后，新的 js-controller 4.0.x 现在可以在 beta/latest 存储库中使用。目前没有已知问题。初始升级时，升级过程中会显示一些“不支持”消息，可以忽略。有关更改和说明的更多信息，请访问 https://forum.iobroker.net/post/756370 论坛"
+            "en": "On request of the yr.no service provider we urgently ask you to adjust the start time of the adapter on your system or install version 5.1.0 which is doing this on first start for you (is available in Beta/Latest channel today 5.3.22, stable soon). Please do not use the default (Minute 6 after each full hour). To manually adjust the time please simply change it to a random different minute. You do that in Admin - Instances - Expand yr.0 and change the time planning setting. Using the default setting in that many installations produces a load spike on the systems of yr.no.",
+            "de": "Auf Anfrage des yr.no-Dienstleisters bitten wir dringend, die Startzeit des Adapters auf allen Systemen anzupassen, oder die Version 5.1.0 zu installieren, die dies beim ersten Start automatisch erledigt (ist heute im Beta/Latest verfügbar 5.3.22, bald auch in stable). Bitte verwendet nicht die bei der Installation voreingestellte Startzeit (Minute 6 nach jeder vollen Stunde). Bitte die Zeit einfach auf eine zufällige andere Minute ändern. Im Admin - Instanzen - Aufklappen von yr.0 dann die Zeitplanungseinstellung ändern. Die Verwendung der Standardeinstellung in so vielen Installationen erzeugt eine Lastspitze auf den Systemen von yr.no.",
+            "ru": "По запросу поставщика услуг yr.no мы настоятельно просим вас настроить время запуска адаптера в вашей системе или установить версию 5.1.0, которая делает это при первом запуске для вас (доступна в бета-канале сегодня 5.3.22, скоро стабилизируется). Пожалуйста, не используйте значение по умолчанию (6 минут после каждого полного часа). Чтобы настроить время вручную, просто измените его на случайную другую минуту. Вы делаете это в Admin - Экземпляры - Разверните yr.0 и измените настройку планирования времени. Использование настроек по умолчанию во многих установках вызывает всплеск нагрузки на системы yr.no.",
+            "pt": "A pedido do provedor de serviços yr.no, solicitamos urgentemente que você ajuste a hora de início do adaptador em seu sistema ou instale a versão 5.1.0 que está fazendo isso na primeira inicialização para você (está disponível no canal Beta hoje 5.3.22, estável em breve). Por favor, não use o padrão (6 minutos após cada hora completa). Para ajustar manualmente a hora, basta alterá-la para um minuto diferente aleatório. Você faz isso em Admin - Instances - Expand yr.0 e altera a configuração de planejamento de tempo. Usar a configuração padrão em muitas instalações produz um pico de carga nos sistemas de yr.no.",
+            "nl": "Op verzoek van de yr.no-serviceprovider vragen we u dringend om de starttijd van de adapter op uw systeem aan te passen of versie 5.1.0 te installeren die dit bij de eerste start voor u doet (is vandaag beschikbaar in Beta-kanaal 5.3.22, binnenkort stabiel). Gebruik a.u.b. niet de standaard (minuut 6 na elk vol uur). Om de tijd handmatig aan te passen, wijzigt u deze eenvoudig in een willekeurige andere minuut. Dat doe je in Admin - Instances - Expand yr.0 en verander de tijdplanningsinstelling. Het gebruik van de standaardinstelling in die zin dat veel installaties een belastingspiek veroorzaken op de systemen van jaar.nr.",
+            "fr": "À la demande du fournisseur de services yr.no, nous vous demandons d'urgence d'ajuster l'heure de démarrage de l'adaptateur sur votre système ou d'installer la version 5.1.0 qui le fait au premier démarrage pour vous (est disponible dans le canal bêta aujourd'hui 5.3.22, stable bientôt). Veuillez ne pas utiliser la valeur par défaut (Minute 6 après chaque heure complète). Pour ajuster manuellement l'heure, veuillez simplement la changer en une minute différente aléatoire. Vous faites cela dans Admin - Instances - Développez yr.0 et modifiez le paramètre de planification du temps. L'utilisation du paramètre par défaut dans ce nombre d'installations produit un pic de charge sur les systèmes de yr.no.",
+            "it": "Su richiesta del fornitore di servizi yr.no, ti chiediamo urgentemente di regolare l'ora di inizio dell'adattatore sul tuo sistema o di installare la versione 5.1.0 che lo sta facendo al primo avvio per te (è disponibile nel canale Beta oggi 5.3.22, stabile a breve). Si prega di non utilizzare l'impostazione predefinita (minuto 6 dopo ogni ora intera). Per regolare manualmente l'ora, cambiala semplicemente in un minuto diverso casuale. Puoi farlo in Amministrazione - Istanze - Espandi anno 0 e modifica l'impostazione della pianificazione del tempo. L'utilizzo dell'impostazione predefinita in molte installazioni produce un picco di carico sui sistemi di yr.no.",
+            "es": "A pedido del proveedor de servicios de yr.no, le pedimos urgentemente que ajuste la hora de inicio del adaptador en su sistema o que instale la versión 5.1.0 que hace esto en el primer inicio (está disponible en el canal Beta hoy 5.3.22, estable pronto). No utilice el valor predeterminado (minuto 6 después de cada hora completa). Para ajustar manualmente la hora, simplemente cámbiela a un minuto diferente al azar. Puede hacerlo en Admin - Instancias - Expandir año.0 y cambiar la configuración de planificación del tiempo. Usar la configuración predeterminada en muchas instalaciones produce un pico de carga en los sistemas de yr.no.",
+            "pl": "Na żądanie usługodawcy yr.no pilnie prosimy o dostosowanie czasu uruchomienia adaptera w systemie lub zainstalowanie wersji 5.1.0, która robi to przy pierwszym uruchomieniu (jest dostępna w kanale Beta dzisiaj 5.3.22, stabilny wkrótce). Nie używaj wartości domyślnej (6 minut po każdej pełnej godzinie). Aby ręcznie ustawić czas, po prostu zmień go na losową inną minutę. Robisz to w Admin - Instances - Expand yr.0 i zmieniasz ustawienia planowania czasu. Korzystanie z ustawienia domyślnego w wielu instalacjach powoduje wzrost obciążenia w systemach yr.no.",
+            "zh-cn": "应 yr.no 服务提供商的要求，我们紧急要求您调整系统上适配器的启动时间或安装 5.1.0 版本，它会在首次启动时为您执行此操作（今天 5.3.22 可在 Beta 通道中使用，很快稳定）。请不要使用默认值（每个整小时后的第 6 分钟）。要手动调整时间，只需将其更改为随机的不同分钟。您在 Admin - Instances - Expand yr.0 中执行此操作并更改时间计划设置。在许多安装中使用默认设置会在 yr.no 的系统上产生负载峰值。"
         },
-        "id": "jscontroller40xinfobeta2",
-        "created": "2022-02-20T12:10:00.000Z",
-        "class": "info",
-        "fa-icon": "exclamation-circle",
-        "repo": "beta",
+        "id": "yrnonodefaulttime",
+        "created": "2022-03-05T18:10:00.000Z",
+        "class": "danger",
+        "fa-icon": "bolt",
         "conditions": {
-            "js-controller": "smaller(4.0.15)"
+            "yr": "smaller(5.1.0)"
         }
     }
 ]
