@@ -15,7 +15,7 @@
 
 [![NPM](https://nodei.co/npm/iobroker.sureflap.png?downloads=true)](https://nodei.co/npm/iobroker.sureflap/)
 
-## Adpater for SureFlap® cat and pet flaps from Sure Petcare®
+## Adpater for smart pet devices from Sure Petcare®
 <p align="center">
   <img src="/admin/SureFlap_Pet_Door_Connect_Hub_Phone.png" />
 </p>
@@ -26,9 +26,11 @@ Add username and password from your Sure Petcare® account on the adapter config
 
 ## Description
 
-The adapter provides information about the settings and status of your cat flap or feeder.
+The adapter provides information about the settings and status of your pet flap, cat flap or feeder.
 
-It also shows the location of your pets.
+It also shows the location of your pets and their food consumption (with feeder).
+
+It lets you control the lockmode and curfew of your flap and set the location of your pets.
 
 ### Changeable Values
 
@@ -114,6 +116,10 @@ SureFlap® and Sure Petcare® are registered trademarks of [SureFlap Ltd.](https
 The picture of the cat flap, hub and smartphone app is provided free to use from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
+
+### 1.1.2 (2022-03-06)
+* (Sickboy78) improved error and timeout handling
+* (Sickboy78) optimized subscribed states
 
 ### 1.1.1 (2022-02-20)
 * (Sickboy78) removed pet type control from pet flap (is a cat flap exclusive feature)

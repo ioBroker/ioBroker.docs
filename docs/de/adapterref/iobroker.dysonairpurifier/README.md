@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
+hash: sKUfxcSmPXdPzYWQWeePo3w6ZShSC/bcEjRwoyRlCQI=
 ---
 # IoBroker.dysonAirPurifier
 ![Logo](admin/dyson_logo.svg)![Logo](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -16,7 +16,7 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 ![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.dysonairpurifier.svg)
 
-[![Test und Freigabe](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml)
+[![Test und Freigabe](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml) ![CodeQL](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/codeQL.yml/badge.svg)
 
 ## IoBroker Adapter für Dyson Luftreiniger und Ventilatoren
 Dieser Adapter verbindet ioBroker mit verschiedenen Dyson Luftreinigern.
@@ -140,7 +140,7 @@ Dieser Adapter ist derzeit in der Lage, die folgenden Zustände Ihrer Geräte zu
 * Befeuchtungsmodus, Ein / Aus
 * BefeuchtenAutoModus, Auto / Aus
 * Automatisches Befeuchtungsziel, Automatisches Befeuchtungsziel
-* Befeuchtungsziel, manuelles Befeuchtungsziel
+* Befeuchtungsziel, Manuelles Befeuchtungsziel
 * TemperatureUnit , Einheit zur Anzeige der Temperaturwerte (Lüfteranzeige).
 * Wasserhärte, weich, mittel, hart
 
@@ -265,6 +265,12 @@ Redundante Werte?
 Dyson, pure cool, pure hot & cool und andere sind Warenzeichen oder eingetragene Warenzeichen von [Dyson Ltd.](https://www.dyson.com) Alle anderen Warenzeichen sind Eigentum ihrer jeweiligen Inhaber.
 
 ## Changelog
+
+
+
+### V2.3.2 (2022-03-04) (Fairytale of doom)
+* (grizzelbee) Fix: Fixed: Sentry-Error: [DYSONAIRPURIFIER-D](https://sentry.io/organizations/grizzelbee/issues/3021418514)
+* (grizzelbee) Upd: Updated dependencies
 
 ### V2.3.1 (2022-01-14) (Fairytale of doom)
 * (grizzelbee) Upd: Updated dependencies

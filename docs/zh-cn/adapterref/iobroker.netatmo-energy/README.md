@@ -9,7 +9,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.netatmo-energy/README.md
 title: ioBroker.netatmo-energy
-hash: QgPU6VWQpgxU3o6yrwqVOGok3fynYGHA/iFryvaHrlE=
+hash: WoXcvVkQghHosqZQPWmtwhGpF1cBJ1gMpppeOIyBMOc=
 ---
 ![商标](https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/admin/netatmo-energy.png)
 
@@ -21,7 +21,7 @@ hash: QgPU6VWQpgxU3o6yrwqVOGok3fynYGHA/iFryvaHrlE=
 ![新PM](https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true)
 
 # IoBroker.netatmo-energy
-**测试：** ![测试和发布](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/workflows/Test%20and%20Release/badge.svg)
+![测试和发布](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/admin/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **此适配器使用 Sentry 库向开发人员发送崩溃和程序代码错误的自动报告。**有关如何禁用此功能的更多详细信息和信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry 报告从 js-controller 3.0 开始可用。
 
@@ -74,7 +74,7 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo Cloud
 * refresh_structure ...依次生成请求homesdata和homestatus
 
 ### 更改请求
-* setroomthermpoint ... 根据“设置”通道中的手动更改，更改将传输到 Netatmo Energy APP。 （瞬时或自触发 - “立即传输温度变化”）
+* setroomthermpoint ... 根据“设置”通道中的手动更改，更改将传输到 Netatmo Energy APP。 （瞬时或自触发 - “立即传输温度变化”）。 “设置”通道中的“set_mode_to_home”按钮将阀门模式“set_mode_to_home”设置为“home”。
 
 ＃＃＃ 状态
 * running ... 在这里你可以看到一个 API 请求当前是否正在运行
@@ -102,115 +102,29 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo Cloud
 <img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/valve_widget_de.png" alt="设置API" width="250px"/>
 
 ## 变更日志
-<!-- 下一个版本的占位符（在行首）：
+[旧的变化](CHANGELOG_OLD.md) <!-- 下一个版本的占位符（在行首）：
 
 ### **正在进行中** -->
-### 1.0.2 (2022-02-27)
-* (ioKlausi) 编码已修改
+### 1.1.2 (2022-03-06)
+* (ioKlausi) 错误修正简易管理员
 
-### 1.0.1 (2022-02-27)
+### 1.1.1 (2022-03-06)
+* (ioKlausi) 修正 setroomthermpoint
+
+### 1.1.0 (2022-03-06)
+* (ioKlausi) setroomthermpoint - 阀门模式的触发器设置
+
+### 1.0.4 (2022-03-05)
+* (ioKlausi) 错误修正 - 发送消息
+
+### 1.0.3 (2022-03-05)
+* (ioKlausi) 自定义页面切换为 json
+
+### 1.0.2 (2022-02-27)
 * (ioKlausi) 编码已修改
 
 ### 1.0.0 (2022-02-25)
 * 发布 (ioKlausi) 主版本
-
-### 0.2.4 (2022-02-13)
-* 添加（ioKlausi）发布脚本
-
-### 0.2.3
-* 添加 (ioKlausi) AbortController
-
-### 0.2.2
-* (ioKlausi) 添加翻译和测试紧凑模式
-
-### 0.2.1
-* (ioKlausi) 调整对象的创建
-
-### 0.2.0
-* (ioKlausi) js-controller 4.0 的兼容性检查
-
-### 1/00/20
-* (ioKlausi) 错误修复（哨兵错误）
-
-### 01/01/19
-* (ioKlausi) 适配器完成并创建 wiki
-
-### 01/01/18
-* (ioKlausi) 为小部件信号创建单独的图标
-
-### 01/01/17
-* (ioKlausi) 为打开的窗口调整了小部件，修复了 setroomthermpoint 的错误
-
-### 01/01/16
-* (ioKlausi) 错误修复
-
-### 01/01/15
-* (ioKlausi) 为恒温器添加了自己的小部件
-
-### 01/01/14
-* 添加（ioKlausi）通知助手
-
-### 0.1.13
-* (ioKlausi) 令牌有效性检查已修改
-
-### 01/01/12
-* (ioKlausi) 修改编码，包括哨兵，检查令牌有效性
-
-### 01/01/11
-* (ioKlausi) 适配器类型已更改
-
-### 01/01/10
-* 添加 (ioKlausi) API 请求 getmeasure 和 getroommeasure 以供手动使用
-
-### 0.1.9
-* 添加了 (ioKlausi) API Request synchomeschedule 供手动使用
-
-### 0.1.8
-* (ioKlausi) API 请求 switchhomeschedule 和所有可能的请求添加
-
-### 0.1.7
-* (ioKlausi) 修改国家的角色
-
-### 0.1.6
-* (ioKlausi) 使用计时器触发 homestates 请求并修改配置屏幕
-
-### 0.1.5
-* (ioKlausi) 添加密码加密/解密
-
-### 0.1.4
-* (ioKlausi) 创建了新的 NPM 版本
-
-### 0.1.3
-* (ioKlausi) 计划已修改
-
-### 0.1.2
-* (ioKlausi) “SpecialRequests”更改为设备“energyAPP”。
-
-### 0.1.1
-* 更改后立即触发 (ioKlausi) API homestatus
-
-### 0.1.0
-* (ioKlausi) 适配器的错误修复和发布
-
-### 0.0.6
-* (ioKlausi) 最新安装的默认值
-
-### 0.0.5
-* (ioKlausi) ACK 逻辑改变
-
-### 0.0.4
-* (ioKlausi) API 文件夹创建的更改
-
-### 0.0.3
-* (ioKlausi) 翻译和错误修复
-
-### 0.0.2
-* (ioKlausi) API 请求和结构建立
-
-### 0.0.1
-* (ioKlausi) 初始版本
-
-适配器创建
 
 ＃＃ 执照
 麻省理工学院执照
@@ -221,36 +135,34 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo Cloud
 
 上述版权声明和本许可声明应出现在本软件的任何随附副本或大部分内容中。
 
-本软件按“原样”提供，不提供任何形式的明示或明示、暗示的保证，包括但不限于对适销性、特定用途的适用性和非侵权性的保证。在任何情况下，作者或版权持有人均不对因本软件或本软件的使用或其他行为引起或与之相关的任何索赔、损害或其他责任承担责任，无论是合同、侵权或其他方面的责任。
+本软件按“原样”提供，不提供任何形式的明示或明示、暗示的保证，包括但不限于对适销性、特定用途的适用性和非侵权性的保证。在任何情况下，作者或版权持有人均不对因本软件或本软件的使用或其他行为引起的或与之相关的任何索赔、损害或其他责任（无论是合同、侵权或其他）承担责任。
 
 ## Changelog
+[Older changes](CHANGELOG_OLD.md)
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.0.2 (2022-02-27)
-* (ioKlausi) Redesign coding
+### 1.1.2 (2022-03-06)
+* (ioKlausi) Bugfix Easy Admin 
 
-### 1.0.1 (2022-02-27)
+### 1.1.1 (2022-03-06)
+* (ioKlausi) Bugfix setroomthermpoint 
+
+### 1.1.0 (2022-03-06)
+* (ioKlausi) setroomthermpoint - Trigger for valve-mode implemented
+
+### 1.0.4 (2022-03-05)
+* (ioKlausi) Bugfix - send message
+
+### 1.0.3 (2022-03-05)
+* (ioKlausi) Transfered Customizing-UI to json
+
+### 1.0.2 (2022-02-27)
 * (ioKlausi) Redesign coding
 
 ### 1.0.0 (2022-02-25)
 * (ioKlausi) Create major version
-
-### 0.2.4 (2022-02-13)
-* (ioKlausi) Release Script added
-
-### 0.2.3
-* (ioKlausi) AbortController added
-
-### 0.2.2
-* (ioKlausi) Übersetzungen hinzugefügt & Kompaktmodus getestet
-
-### 0.2.1
-* (ioKlausi) Creation of states adapted
-
-### 0.2.0
-* (ioKlausi) Compatibility check to js-controller 4.0
 
 ## License
 MIT License

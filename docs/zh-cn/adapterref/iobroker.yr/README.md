@@ -3,34 +3,34 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.yr/README.md
 title: ioBroker.yr
-hash: 6My5rWltcJj/nnOkI8cobniG8X6f2KSkMWtGwcdSRO4=
+hash: SSIKrqxW3jtFiYTEPdVAOcBbo+UIFyIX/NGJTm/qwcc=
 ---
-![标识](../../../en/adapterref/iobroker.yr/admin/yr.png)
+![商标](../../../en/adapterref/iobroker.yr/admin/yr.png)
 
 ![安装数量](http://iobroker.live/badges/yr-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.yr.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.yr.svg)
 
 # IoBroker.yr
-![测试和发布](https://github.com/ioBroker/ioBroker.yr/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/yr/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试和发布](https://github.com/ioBroker/ioBroker.yr/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/yr/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ## Yr.no ioBroker 适配器
-从 [年号](yr.no) 获取 10 天天气预报
+从[年号](https://yr.no)获取 10 天天气预报
 
-[yr.no](yr.no) 是[挪威气象研究所](met.no) 和[挪威广播公司](nrk.no)
+[yr.no](https://yr.no) 是由 [挪威气象研究所](https://met.no) 和 [挪威广播公司] 联合提供的服务](https://nrk.no)
 
 https://api.met.no/weatherapi/locationforecast/2.0/documentation
 
-**注意** - 如果 _“将丢失的翻译发送到 iobroker.net”_ 被激活（默认）丢失的翻译将被发送到 iobroker.net 服务器。不会存储或分析 IP 或任何其他信息。只是缺少翻译。
+**注意** - 如果 _“将缺失的翻译发送到 iobroker.net”_ 被激活（默认）缺失的翻译将被发送到 iobroker.net 服务器。不会存储或分析任何 IP 或任何其他信息。只是缺少翻译。
 
 ## 图标
-图标取自此处 [https://api.met.no/weatherapi/weathericon/2.0/documentation](https://api.met.no/weatherapi/weathericon/2.0/documentation) 并且属于 yr.no。
+图标取自此处[https://api.met.no/weatherapi/weathericon/2.0/documentation](https://api.met.no/weatherapi/weathericon/2.0/documentation)，属于 yr.no。
 
 ＃＃ 去做
-* 添加气象图（png 可能会因新 API 停止使用）
-* 根据每小时预测添加每日预测
+* 添加气象图（png 可能会停止使用新的 API）
+*根据每小时预测添加每日预测
 * 添加html表格
 
 <!-- 下一个版本的占位符（在行首）：
@@ -40,6 +40,11 @@ https://api.met.no/weatherapi/locationforecast/2.0/documentation
 * 设置状态预测对象
 
 ## Changelog
+### 5.1.0 (2022-03-05)
+* (Apollon77) Move schedule if default is used on request of met.no
+* (Apollon77) Do not query legend/icons dynamically, but deliver with the version
+* (Apollon77) make sure to not execute logic when adapter stopped already
+
 ### 5.0.0 (2021-11-08)
 * (klein0r) Fixed translations
 * (klein0r) Update dates data type
@@ -140,7 +145,7 @@ https://api.met.no/weatherapi/locationforecast/2.0/documentation
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>, Bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022 hobbyquaker <hq@ccu.io>, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

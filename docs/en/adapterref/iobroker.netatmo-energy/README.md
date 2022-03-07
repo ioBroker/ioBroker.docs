@@ -16,8 +16,8 @@ BADGE-NPM: https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true
 [![Known Vulnerabilities](https://snyk.io/test/github/Homemade-Disaster/ioBroker.netatmo-energy/badge.svg)](https://snyk.io/test/github/Homemade-Disaster/ioBroker.netatmo-energy)
 
 [![NPM](https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true)](https://nodei.co/npm/iobroker.netatmo-energy/)
-
-**Tests:** ![Test and Release](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/workflows/Test%20and%20Release/badge.svg)
+![Test and Release](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/admin/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
@@ -70,7 +70,7 @@ If an API request need parameters, you can find these in the channel "parameters
 * refresh_structure     ... create request homesdata and homestatus in sequenz
 
 ### Update requests
-* setroomthermpoint     ... depending on the "setting" channel it sets the temperature of each room (immediately or by using the trigger "applychanges")
+* setroomthermpoint     ... depending on the "setting" channel it sets the temperature of each room (immediately or by using the trigger "applychanges"). In the channel "setting" you can use the button "set_mode_to_home" to set "home"-Mode for the valve.
 
 ### Status
 * running               ... here you can see if API Requests are running right now
@@ -99,33 +99,31 @@ Widget for VIS to show a complete valve. You have only to define the "SetTemp" -
 <img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/valve_widget_en.png" alt="settingsAPI" width="250px"/>
 
 ## Changelog
+[Older changes](CHANGELOG_OLD.md)
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.0.2 (2022-02-27)
-* (ioKlausi) Redesign coding
+### 1.1.2 (2022-03-06)
+* (ioKlausi) Bugfix Easy Admin 
 
-### 1.0.1 (2022-02-27)
+### 1.1.1 (2022-03-06)
+* (ioKlausi) Bugfix setroomthermpoint 
+
+### 1.1.0 (2022-03-06)
+* (ioKlausi) setroomthermpoint - Trigger for valve-mode implemented
+
+### 1.0.4 (2022-03-05)
+* (ioKlausi) Bugfix - send message
+
+### 1.0.3 (2022-03-05)
+* (ioKlausi) Transfered Customizing-UI to json
+
+### 1.0.2 (2022-02-27)
 * (ioKlausi) Redesign coding
 
 ### 1.0.0 (2022-02-25)
 * (ioKlausi) Create major version
-
-### 0.2.4 (2022-02-13)
-* (ioKlausi) Release Script added
-
-### 0.2.3
-* (ioKlausi) AbortController added
-
-### 0.2.2
-* (ioKlausi) Übersetzungen hinzugefügt & Kompaktmodus getestet
-
-### 0.2.1
-* (ioKlausi) Creation of states adapted
-
-### 0.2.0
-* (ioKlausi) Compatibility check to js-controller 4.0
 
 ## License
 MIT License

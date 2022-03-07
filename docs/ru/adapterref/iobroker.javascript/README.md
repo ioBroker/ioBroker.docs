@@ -2640,6 +2640,14 @@ return 'your result';
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 5.3.3 (2022-03-06)
+* (bluefox) Added async functions: createStateAsync, deleteStateAsync
+
+### 5.3.2 (2022-03-06)
+* (Apollon77) fix problem that scripts were not starting when scriptsEnabled State was triggered (or startScript was used)
+* (Apollon77) Make sure callbacks on startScript/stopScript work and Async variants also resolve
+* (Apollon77) Make sure startScriptAsync, stopScriptAsync and runScriptAsync resolve in debug mode too
+
 ### 5.3.1 (2022-03-03)
 * (Apollon77) Add missing callback check in setObject
 
@@ -2653,13 +2661,6 @@ return 'your result';
 
 ### 5.2.21 (2022-01-16)
 * (bluefox) Fixed build process
-
-### 5.2.19 (2022-01-10)
-* (AlCalzone) Fixed broken dependency
-
-### 5.2.18 (2021-12-14)
-* (klein0r) Fixed some german translations
-* (winnyschuster) Fixed astro schedules
 
 ## License
 The MIT License (MIT)

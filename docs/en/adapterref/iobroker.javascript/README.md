@@ -42,7 +42,9 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
     - [getIdByName](#getidbyname)
     - [getEnums](#getenums)
     - [createState](#createstate)
+    - [createStateAsync](#createstateasync)
     - [deleteState](#deletestate)
+    - [deleteStateAsync](#deletestateasync)
     - [sendTo](#sendto)
     - [sendToHost](#sendtohost)
     - [setInterval](#setinterval)
@@ -951,7 +953,7 @@ getEnums('rooms');
 ```js
 createState(name, initialValue, forceCreation, common, native, callback);
 ```
-Create state and object in javascript space if does not exist, e.g. "javascript.0.mystate".
+Create state and object in javascript space if it does not exist, e.g. "javascript.0.mystate".
 
 #### Parameters:
 
@@ -969,6 +971,13 @@ It is possible short type of createState:
 - `createState('myVariable', {name: 'My own variable', unit: '°C'}, function () {log('created');});`
 - `createState('myVariable', 1, {name: 'My own variable', unit: '°C'})` - create variable if does not exist with specific name and units
 
+### createStateAsync
+```js
+await createStateAsync(name, initialValue, forceCreation, common, native);
+```
+
+Same as `createState`, but the promise will be returned.
+
 ### deleteState
 ```js
 deleteState(name, callback);
@@ -979,6 +988,13 @@ Delete state and object in javascript space, e.g. "javascript.0.mystate". States
 deleteState('myVariable')
 ```
 simply delete variable if exists.
+
+### deleteStateAsync
+```js
+await deleteStateAsync(name);
+```
+
+Same as `deleteState`, but the promise will be returned.
 
 ### sendTo
 ```js
@@ -1583,6 +1599,14 @@ Scripts can be activated and deactivated by controlling of this state with ack=f
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 5.3.3 (2022-03-06)
+* (bluefox) Added async functions: createStateAsync, deleteStateAsync
+
+### 5.3.2 (2022-03-06)
+* (Apollon77) fix problem that scripts were not starting when scriptsEnabled State was triggered (or startScript was used)
+* (Apollon77) Make sure callbacks on startScript/stopScript work and Async variants also resolve
+* (Apollon77) Make sure startScriptAsync, stopScriptAsync and runScriptAsync resolve in debug mode too
+
 ### 5.3.1 (2022-03-03)
 * (Apollon77) Add missing callback check in setObject
 
@@ -1596,13 +1620,6 @@ Scripts can be activated and deactivated by controlling of this state with ack=f
 
 ### 5.2.21 (2022-01-16)
 * (bluefox) Fixed build process
-
-### 5.2.19 (2022-01-10)
-* (AlCalzone) Fixed broken dependency
-
-### 5.2.18 (2021-12-14)
-* (klein0r) Fixed some german translations
-* (winnyschuster) Fixed astro schedules
 
 ## License
 The MIT License (MIT)

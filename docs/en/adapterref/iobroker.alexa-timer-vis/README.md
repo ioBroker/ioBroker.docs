@@ -54,6 +54,8 @@ A timer or several by voice input, is created via Alexa, this is evaluated by th
 
 
 ## Changelog
+### 0.0.13 (06.03.2022)
+* Delete of Timers with the same value, fixed
 ### 0.1.12 (15.02.2022)
 * Delete of Timer fixed
 ### 0.1.11 (12.02.2022)

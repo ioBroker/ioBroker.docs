@@ -7,6 +7,7 @@
 ![Number of Installations (stable)](http://iobroker.live/badges/dysonairpurifier-stable.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/Grizzelbee/ioBroker.dysonairpurifier/badge.svg)](https://snyk.io/test/github/Grizzelbee/ioBroker.dysonairpurifier)
 [![Test and Release](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml)
+![CodeQL](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/codeQL.yml/badge.svg)
 [![NPM](https://nodei.co/npm/iobroker.dysonAirPurifier.svg?downloads=true)](https://nodei.co/npm/iobroker.dysonairpurifier/)
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/grizzelbee/iobroker.dysonairpurifier/blob/master/LICENSE)
@@ -161,6 +162,12 @@ Which is what the dyson app does also.
 * Sometimes the adapter loses the MQTT connection to a fan and isn't able to reconnect. In my case it's sufficient to unplug the fan for approximately 10 seconds to reset it and plug it in again. Give it a try.
 
 ## Changelog
+
+
+
+### V2.3.2 (2022-03-04) (Fairytale of doom)
+* (grizzelbee) Fix: Fixed: Sentry-Error: [DYSONAIRPURIFIER-D](https://sentry.io/organizations/grizzelbee/issues/3021418514)
+* (grizzelbee) Upd: Updated dependencies
 
 ### V2.3.1 (2022-01-14) (Fairytale of doom)
 * (grizzelbee) Upd: Updated dependencies

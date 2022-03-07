@@ -58,6 +58,7 @@ The default timeout for HTTP requests. The default value 60 seconds, as with web
 ### Process timeout in seconds
 
 This timeout monitors the collection of data from the Growatt server. If the server does not process all of the data within this time, an error is reported, the session is ended and a new cycle timer is started. The default value is 600 seconds.
+If the value is 0, this check function is not executed.
 
 ### Keep web session
 
@@ -141,6 +142,9 @@ ShineWiFi module.
 -*-
 
 ## Changelog
+### 1.1.8 (16.03.2022)
+* (PLCHome) Improvement triggered by "Sentry" issues
+
 ### 1.1.7 (13.02.2022)
 * (PLCHome) "Sentry" was added
 

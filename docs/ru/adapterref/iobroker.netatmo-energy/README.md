@@ -8,8 +8,8 @@ BADGE-NPM: https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.netatmo-energy/README.md
-title: ioBroker.netатмо-энергия
-hash: QgPU6VWQpgxU3o6yrwqVOGok3fynYGHA/iFryvaHrlE=
+title: ioBroker.netatmo-энергия
+hash: WoXcvVkQghHosqZQPWmtwhGpF1cBJ1gMpppeOIyBMOc=
 ---
 ![логотип](https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/admin/netatmo-energy.png)
 
@@ -21,7 +21,7 @@ hash: QgPU6VWQpgxU3o6yrwqVOGok3fynYGHA/iFryvaHrlE=
 ![НПМ](https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true)
 
 # IoBroker.netatmo-energy
-**Тесты:** ![тестирование и выпуск](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/workflows/Test%20and%20Release/badge.svg)
+![тестирование и выпуск](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/admin/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Этот адаптер использует библиотеки Sentry для отправки автоматических отчетов о сбоях и ошибках программного кода разработчикам.** Дополнительные сведения и информацию о том, как отключить эту функцию, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry доступны, начиная с js-controller 3.0.
 
@@ -64,7 +64,7 @@ hash: QgPU6VWQpgxU3o6yrwqVOGok3fynYGHA/iFryvaHrlE=
 * setthermmode_schedule ... Устанавливает рабочий режим установки Netatmo Energy на «Расписание» (по умолчанию)
 * setthermmode_hq ... устанавливает режим работы установки Netatmo Energy на "hq" (защита от замерзания)
 * setthermmode_away … Устанавливает режим работы установки Netatmo Energy на «в гостях» (не дома)
-* switchhomeschedule ... Устанавливает «режим расписания» API Netatmo Energy. Все возможные режимы перечислены в канале "switchhomeschedule".
+* switchhomeschedule ... Устанавливает «режим расписания» Netatmo Energy API. Все возможные режимы перечислены в канале "switchhomeschedule".
 * synchomeschedule ... Устанавливает графики нагрева вашего приложения Netatmo Energy. Чтобы изменить конкретный график отопления, введите его. В противном случае текущий установленный будет изменен. Введите необходимые параметры и инициируйте запрос расписания синхронизации.
 
 Если для запроса API требуются параметры, их можно найти в соответствующем канале запроса в канале «параметры».
@@ -74,7 +74,7 @@ hash: QgPU6VWQpgxU3o6yrwqVOGok3fynYGHA/iFryvaHrlE=
 * refresh_structure ... генерировать запросы homedata и homestatus один за другим
 
 ### Запросы на изменение
-* setroomthermpoint ... в зависимости от ручных изменений в канале «настройка», изменения передаются в приложение Netatmo Energy. (либо мгновенно, либо автоматически - «немедленная передача изменений температуры»)
+* setroomthermpoint ... в зависимости от ручных изменений в канале «настройка», изменения передаются в приложение Netatmo Energy. (либо мгновенно, либо автоматически - "немедленная передача изменений температуры"). Кнопка «set_mode_to_home» в канале «setting» устанавливает режим клапана «set_mode_to_home» на «home».
 
 ### Состояние
 * работает ... здесь вы можете увидеть, выполняется ли в данный момент запрос API
@@ -102,115 +102,29 @@ hash: QgPU6VWQpgxU3o6yrwqVOGok3fynYGHA/iFryvaHrlE=
 <img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/valve_widget_de.png" alt="настройкиAPI" width="250px"/>
 
 ## Список изменений
-<!-- Заполнитель для следующей версии (в начале строки):
+[старые изменения](CHANGELOG_OLD.md) <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **ВЫПОЛНЯЕТСЯ** -->
-### 1.0.2 (27 февраля 2022 г.)
-* (ioKlausi) Изменено кодирование
+### 1.1.2 (2022-03-06)
+* (ioKlausi) Исправление ошибки Easy Admin
 
-### 1.0.1 (27 февраля 2022 г.)
+### 1.1.1 (2022-03-06)
+* (ioKlausi) Исправление ошибки setroomthermpoint
+
+### 1.1.0 (2022-03-06)
+* (ioKlausi) setroomthermpoint - Настройка триггера для режима клапана
+
+### 1.0.4 (05.03.2022)
+* (ioKlausi) исправление - отправить сообщение
+
+### 1.0.3 (05.03.2022)
+* (ioKlausi) страница настройки переключена на json
+
+### 1.0.2 (27 февраля 2022 г.)
 * (ioKlausi) Изменено кодирование
 
 ### 1.0.0 (25 февраля 2022 г.)
 * Опубликовать (ioKlausi) основную версию
-
-### 0.2.4 (13 февраля 2022 г.)
-* Добавлен (ioKlausi) скрипт релиза
-
-### 0.2.3
-* Добавлен (ioKlausi) AbortController
-
-### 0.2.2
-* (ioKlausi) добавлены переводы и протестирован компактный режим
-
-### 0.2.1
-* (ioKlausi) Настроено создание объектов
-
-### 0.2.0
-* (ioKlausi) проверка совместимости для js-контроллера 4.0
-
-### 00.01.20
-* (ioKlausi) исправления ошибок (ошибка часового)
-
-### 01.01.19
-* (ioKlausi) Адаптер завершен, вики создана
-
-### 01.01.18
-* (ioKlausi) Созданы отдельные иконки для сигналов виджета
-
-### 01.01.17
-* (ioKlausi) Виджет настроен на открытое окно, исправление ошибки setroomthermpoint
-
-### 01.01.16
-* (ioKlausi) исправления ошибок
-
-### 01.01.15
-* (ioKlausi) Добавлен собственный виджет для термостата
-
-### 01.01.14
-* Добавлен (ioKlausi) помощник по уведомлениям
-
-### 0.1.13
-* (ioKlausi) Изменена проверка действительности токена
-
-### 01.01.12
-* (ioKlausi) Пересмотреть кодировку, включить часовой, проверить достоверность токена
-
-### 01.01.11
-* (ioKlausi) изменен тип адаптера
-
-### 01.01.10
-* Добавлены (ioKlausi) API-запросы getmeasure и getroommeasure для ручного использования
-
-### 0.1.9
-* Добавлено (ioKlausi) расписание запросов API для ручного использования
-
-### 0.1.8
-* (ioKlausi) Добавлен запрос API switchhomeschedule и все возможные запросы
-
-### 0.1.7
-* (ioKlausi) Пересмотреть роли состояний
-
-### 0.1.6
-* (ioKlausi) Инициировать запрос домашних состояний с использованием таймера и переработанный экран конфигурации
-
-### 0.1.5
-* (ioKlausi) добавлено шифрование/дешифрование пароля
-
-### 0.1.4
-* (ioKlausi) Создана новая версия NPM
-
-### 0.1.3
-* (ioKlausi) Программа исправлена
-
-### 0.1.2
-* (ioKlausi) «SpecialRequests» изменено на устройство «energyAPP».
-
-### 0.1.1
-* Активировать (ioKlausi) домашний статус API сразу после изменения
-
-### 0.1.0
-* (ioKlausi) Исправление ошибок и выпуск адаптера
-
-### 0.0.6
-* (ioKlausi) Значения по умолчанию для последних установленных
-
-### 0.0.5
-* (ioKlausi) изменена логика ACK
-
-### 0.0.4
-* (ioKlausi) Изменение создания папки API
-
-### 0.0.3
-* (ioKlausi) Перевод и исправления ошибок
-
-### 0.0.2
-* (ioKlausi) API-запросы и структура установлены
-
-### 0.0.1
-* (ioKlausi) Первоначальный выпуск
-
-создание адаптера
 
 ## Лицензия
 лицензия Массачусетского технологического института
@@ -224,33 +138,31 @@ hash: QgPU6VWQpgxU3o6yrwqVOGok3fynYGHA/iFryvaHrlE=
 ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ПРЕДОСТАВЛЯЕТСЯ «КАК ЕСТЬ» БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ, ЯВНЫХ ИЛИ ЯВНЫХ, ПОДРАЗУМЕВАЕМЫХ, ВКЛЮЧАЯ, ПОМИМО ПРОЧЕГО, ГАРАНТИИ КОММЕРЧЕСКОЙ ПРИГОДНОСТИ, ПРИГОДНОСТИ ДЛЯ ОПРЕДЕЛЕННОЙ ЦЕЛИ И НЕНАРУШЕНИЯ ПРАВ. НИ ПРИ КАКИХ ОБСТОЯТЕЛЬСТВАХ АВТОРЫ ИЛИ ОБЛАДАТЕЛИ АВТОРСКИМ ПРАВОМ НЕ НЕСУТ ОТВЕТСТВЕННОСТИ ЗА ЛЮБЫЕ ПРЕТЕНЗИИ, УЩЕРБ ИЛИ ИНУЮ ОТВЕТСТВЕННОСТЬ, БУДУТ СВЯЗАННЫЕ С ДОГОВОРОМ, ПРАВОМ ИЛИ ИНЫМ ОБРАЗОМ, ВОЗНИКАЮЩИЕ В СВЯЗИ С ПРОГРАММНЫМ ОБЕСПЕЧЕНИЕМ, ИСПОЛЬЗОВАНИЕМ ИЛИ ДРУГИМИ ДЕЙСТВИЯМИ В ПРОГРАММНОМ ОБЕСПЕЧЕНИИ.
 
 ## Changelog
+[Older changes](CHANGELOG_OLD.md)
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.0.2 (2022-02-27)
-* (ioKlausi) Redesign coding
+### 1.1.2 (2022-03-06)
+* (ioKlausi) Bugfix Easy Admin 
 
-### 1.0.1 (2022-02-27)
+### 1.1.1 (2022-03-06)
+* (ioKlausi) Bugfix setroomthermpoint 
+
+### 1.1.0 (2022-03-06)
+* (ioKlausi) setroomthermpoint - Trigger for valve-mode implemented
+
+### 1.0.4 (2022-03-05)
+* (ioKlausi) Bugfix - send message
+
+### 1.0.3 (2022-03-05)
+* (ioKlausi) Transfered Customizing-UI to json
+
+### 1.0.2 (2022-02-27)
 * (ioKlausi) Redesign coding
 
 ### 1.0.0 (2022-02-25)
 * (ioKlausi) Create major version
-
-### 0.2.4 (2022-02-13)
-* (ioKlausi) Release Script added
-
-### 0.2.3
-* (ioKlausi) AbortController added
-
-### 0.2.2
-* (ioKlausi) Übersetzungen hinzugefügt & Kompaktmodus getestet
-
-### 0.2.1
-* (ioKlausi) Creation of states adapted
-
-### 0.2.0
-* (ioKlausi) Compatibility check to js-controller 4.0
 
 ## License
 MIT License

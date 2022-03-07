@@ -5,7 +5,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.divera247.svg)](https://www.npmjs.com/package/iobroker.divera247)
 ![Number of Installations (latest)](http://iobroker.live/badges/divera247-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/divera247-stable.svg)
-[![Dependency Status](https://img.shields.io/david/TKnpl/iobroker.divera247.svg)](https://david-dm.org/TKnpl/iobroker.divera247)
 [![Known Vulnerabilities](https://snyk.io/test/github/TKnpl/ioBroker.divera247/badge.svg)](https://snyk.io/test/github/TKnpl/ioBroker.divera247)
 
 [![NPM](https://nodei.co/npm/iobroker.divera247.png?downloads=true)](https://nodei.co/npm/iobroker.divera247/)

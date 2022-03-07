@@ -16,8 +16,8 @@ BADGE-NPM: https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true
 [![Known Vulnerabilities](https://snyk.io/test/github/Homemade-Disaster/ioBroker.netatmo-energy/badge.svg)](https://snyk.io/test/github/Homemade-Disaster/ioBroker.netatmo-energy)
 
 [![NPM](https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true)](https://nodei.co/npm/iobroker.netatmo-energy/)
-
-**Tests:** ![Test and Release](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/workflows/Test%20and%20Release/badge.svg)
+![Test and Release](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/admin/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Dieser Adapter verwendet Sentry Bibliotheken, um einen automatischen Report von Abbrüchen und Programmcode Fehlern an die Entwickler zu senden.** Für weitere Details und für Informationen zur Deaktivierung dieser Funktion beachten sie bitte [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting ist verfügbar ab js-controller 3.0.
 
@@ -70,7 +70,7 @@ Wenn ein API Request Parameter benötigt können sie diese im korrespondierenden
 * refresh_structure     ... erzeuge die Requests homesdata und homestatus hintereinander
 
 ### Änderungs-Requests
-* setroomthermpoint     ... abhängig von den manuellen Änderungen im Channel "setting" werden die Änderungen an die Netatmo Energy APP übertragen. (entweder sofort oder selbst getriggert - "Temperaturänderungen sofort übertragen")
+* setroomthermpoint     ... abhängig von den manuellen Änderungen im Channel "setting" werden die Änderungen an die Netatmo Energy APP übertragen. (entweder sofort oder selbst getriggert - "Temperaturänderungen sofort übertragen"). Der Button "set_mode_to_home" im channel "setting" setzt den Ventil-mode "set_mode_to_home" auf "home".
 
 ### Status
 * running               ... hier kann man erkenne ob derzeit ein API Request läuft
@@ -98,115 +98,31 @@ Widget für VIS um ein komplettes Thermostat anzuzeigen. Sie müssen nur den "Se
 <img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/valve_widget_de.png" alt="settingsAPI" width="250px"/>
 
 ## Änderungsprotokoll
+[ältere Änderungen](CHANGELOG_OLD.md)
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.0.2 (2022-02-27)
-* (ioKlausi) Coding überarbeitet
+### 1.1.2 (2022-03-06)
+* (ioKlausi) Bugfix Easy Admin 
 
-### 1.0.1 (2022-02-27)
+### 1.1.1 (2022-03-06)
+* (ioKlausi) Bugfix setroomthermpoint 
+
+### 1.1.0 (2022-03-06)
+* (ioKlausi) setroomthermpoint - Trigger für Ventilmodus eingerichtet
+
+### 1.0.4 (2022-03-05)
+* (ioKlausi) Bugfix - Nachricht senden
+
+### 1.0.3 (2022-03-05)
+* (ioKlausi) Customizingseite auf json umgestellt
+
+### 1.0.2 (2022-02-27)
 * (ioKlausi) Coding überarbeitet
 
 ### 1.0.0 (2022-02-25)
 * (ioKlausi) Hauptversion veröffentlichen
-
-### 0.2.4 (2022-02-13)
-* (ioKlausi) Release Script hinzugefügt
-
-### 0.2.3
-* (ioKlausi) AbortController hinzugefügt
-
-### 0.2.2
-* (ioKlausi) Übersetzungen hinzugefügt & Kompaktmodus getestet
-
-### 0.2.1
-* (ioKlausi) Erstellen von Objekten angepasst
-
-### 0.2.0
-* (ioKlausi) Kompatibilitätsprüfung für js-controller 4.0
-
-### 0.1.20
-* (ioKlausi) Fehlerbehebungen (Sentry Fehler)
-
-### 0.1.19
-* (ioKlausi) Adapter fertiggestellt & wiki erstellt
-
-### 0.1.18
-* (ioKlausi) Separate Symbole für Widget-Signale erstellt
-
-### 0.1.17
-* (ioKlausi) Widget angepasst für geöffnetes Fenster, Bug fixing setroomthermpoint
-
-### 0.1.16
-* (ioKlausi) Fehlerbehebungen
-
-### 0.1.15
-* (ioKlausi) Eigenes Widget für ein Thermostat hinzugefügt
-
-### 0.1.14
-* (ioKlausi) Benachrichtigungsassistent hinzugefügt
-
-### 0.1.13
-* (ioKlausi) Prüfung der Token Gültigkeit überarbeitet
-
-### 0.1.12
-* (ioKlausi) Coding überarbeiten, sentry einbinden, Token Gültigkeit prüfen
-
-### 0.1.11
-* (ioKlausi) Adaptertyp geändert
-
-### 0.1.10
-* (ioKlausi) API Requests getmeasure und getroommeasure für manuelle Verwendung hinzugefügt
-
-### 0.1.9
-* (ioKlausi) API Request synchomeschedule für manuelle Verwendung hinzugefügt
-
-### 0.1.8
-* (ioKlausi) API Request switchhomeschedule und alle möglichen Requests hinzugefügt
-
-### 0.1.7
-* (ioKlausi) Rollen der States überarbeiten
-
-### 0.1.6
-* (ioKlausi) homestates Request mittels Timer auslösen und Konfigurationsbildschirm überarbeitet
-
-### 0.1.5
-* (ioKlausi) Passwort Ver-/Entschlüsselung hinzugefügt
-
-### 0.1.4
-* (ioKlausi) Neue NPM Version erstellt
-
-### 0.1.3
-* (ioKlausi) Programm überarbeitet
-
-### 0.1.2
-* (ioKlausi) "SpecialRequests" auf Gerät "energyAPP" geändert
-
-### 0.1.1
-* (ioKlausi) API homestatus sofort nach Änderung auslösen
-
-### 0.1.0
-* (ioKlausi) Fehlerbehebung und Veröffentlichung des Adapters
-
-### 0.0.6
-* (ioKlausi) Vorgaben für Latest eingebaut
-
-### 0.0.5
-* (ioKlausi) ACK Logik verändert
-
-### 0.0.4
-* (ioKlausi) Änderung der API Ordner Erstellung
-
-### 0.0.3
-* (ioKlausi) Übersetzung und Fehlerbehebung
-
-### 0.0.2
-* (ioKlausi) API Requests und Strukturaufbau etabliert
-
-### 0.0.1
-* (ioKlausi) Initiales Release
-Adaptererstellung
 
 ## Lizenz
 MIT-Lizenz
@@ -231,33 +147,31 @@ AUS ODER IM ZUSAMMENHANG MIT DER SOFTWARE ODER DER NUTZUNG ODER ANDEREN HANDELN 
 SOFTWARE.
 
 ## Changelog
+[Older changes](CHANGELOG_OLD.md)
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.0.2 (2022-02-27)
-* (ioKlausi) Redesign coding
+### 1.1.2 (2022-03-06)
+* (ioKlausi) Bugfix Easy Admin 
 
-### 1.0.1 (2022-02-27)
+### 1.1.1 (2022-03-06)
+* (ioKlausi) Bugfix setroomthermpoint 
+
+### 1.1.0 (2022-03-06)
+* (ioKlausi) setroomthermpoint - Trigger for valve-mode implemented
+
+### 1.0.4 (2022-03-05)
+* (ioKlausi) Bugfix - send message
+
+### 1.0.3 (2022-03-05)
+* (ioKlausi) Transfered Customizing-UI to json
+
+### 1.0.2 (2022-02-27)
 * (ioKlausi) Redesign coding
 
 ### 1.0.0 (2022-02-25)
 * (ioKlausi) Create major version
-
-### 0.2.4 (2022-02-13)
-* (ioKlausi) Release Script added
-
-### 0.2.3
-* (ioKlausi) AbortController added
-
-### 0.2.2
-* (ioKlausi) Übersetzungen hinzugefügt & Kompaktmodus getestet
-
-### 0.2.1
-* (ioKlausi) Creation of states adapted
-
-### 0.2.0
-* (ioKlausi) Compatibility check to js-controller 4.0
 
 ## License
 MIT License

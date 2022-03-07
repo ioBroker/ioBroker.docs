@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
+hash: sKUfxcSmPXdPzYWQWeePo3w6ZShSC/bcEjRwoyRlCQI=
 ---
 # IoBroker.dysonAirPurifier
 ![Логотип](admin/dyson_logo.svg)![Логотип](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -16,7 +16,7 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 ![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.dysonairpurifier.svg)
 
-[![Тестирование и выпуск] (https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml)
+[![Тестирование и выпуск] (https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml) ![КодQL](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/codeQL.yml/badge.svg)
 
 ## Адаптер ioBroker для очистителей воздуха и вентиляторов Dyson
 Этот адаптер соединяет ioBroker с различными очистителями воздуха Dyson.
@@ -132,8 +132,8 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 * ContinuousMonitoring, непрерывный мониторинг датчиков окружающей среды, даже если устройство выключено.
 * MainPower , Основная мощность вентилятора.
 * AutomaticMode , Вентилятор работает в автоматическом режиме.
-* Flowdirection , Направление, куда дует вентилятор. ВКЛ = спереди; OFF=Назад (он же Jet focus)
-* Jetfocus, Направление куда дует вентилятор. ВКЛ = спереди; OFF=Назад (он же Jet focus)
+* Flowdirection , Направление, куда дует вентилятор. ВКЛ=спереди; ВЫКЛ=Назад (он же Jet focus)
+* Jetfocus, Направление куда дует вентилятор. ВКЛ=спереди; ВЫКЛ=Назад (он же Jet focus)
 * Режим обогрева, режим обогрева [ВКЛ/ВЫКЛ]
 * HeatingTargetTemp , Целевая температура для нагрева
 * AirQualityTarget, Целевое качество воздуха для автоматического режима.
@@ -148,7 +148,7 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 Скорость вентилятора допускает только значения от 1 до 10 и Авто. Если вы хотите установить скорость вращения вентилятора на 0, вам нужно отключить основное питание.
 Что и делает приложение Dyson.
 
-### Известные проблемы
+### Известные вопросы
 * Нет автоматического определения IP устройств
 * Иногда адаптер теряет соединение MQTT с вентилятором и не может восстановить соединение. В моем случае достаточно отключить вентилятор примерно на 10 секунд, чтобы перезагрузить его и снова подключить. Попробуйте.
 
@@ -170,7 +170,7 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 |------|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
 | эркд | Код последней ошибки | NONE или некоторые шестнадцатеричные значения | |
 | фильм | оставшийся срок службы фильтра | 0000 - 4300 | часы |
-| фмод | Режим | ВЕНТИЛЯТОР, АВТО, ВЫКЛ | |
+| фмод | режим | ВЕНТИЛЯТОР, АВТО, ВЫКЛ | |
 | фпвр | Главная мощность | ВКЛ, ВЫКЛ | |
 | фнст | Статус вентилятора | ВКЛ, ВЫКЛ, ВЕНТИЛЯТОР | |
 | фнсп | Скорость вентилятора | 0001 - 0010, АВТО | |
@@ -188,8 +188,8 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 | нмдв | Макс. скорость вращения в ночном режиме? | 0004 | |
 | cflr | Статус Угольный фильтр | 0000 - 0100 | Процент |
 | cflt | Угольный фильтр | КАРФ, НЕТ | |
-| hflr | Статус HEPA-фильтр | 0000 - 0100 | Процент |
-| hflt | HEPA-фильтр | ГХЭП, ГКОМ | |
+| hflr | Статус HEPA-фильтр | 0000 - 0100 | процент |
+| hflt | НЕРА-фильтр | ГХЭП, ГКОМ | |
 | слтм | Таймер сна | ВКЛ, ВЫКЛ || |
 | мод | Режим нагревателя [ВКЛ/ВЫКЛ] | ТЕПЛО | |
 | hмакс | Целевая температура для обогрева | 0 .. 5000 | К |
@@ -229,7 +229,7 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 #### Данные
 | имя | значение | возможные значения | Единица |
 |------|----------------------------|-----------------|---------|
-| воздействовать | Влажность (%) | 0000 - 0100 | Процент |
+| воздействовать | Влажность (%) | 0000 - 0100 | процент |
 | договор | Пыль | 0000 - 0009 | |
 | слтм | Таймер сна | ВЫКЛ... 9999 | Минуты |
 | такт | Температура в Кельвинах | 0000 - 5000 | К |
@@ -246,7 +246,7 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 Избыточные значения?
 
 #### Данные
-| имя | смысл | возможные значения | Единица |
+| имя | значение | возможные значения | Единица |
 |-------------|--------------------------------------------------------------------------|---------------------------------------------|-------------|
 | приятель0 - приятель9 | количество секунд, проведенных в этом уровне пыли с начала часа | 0000 - 3600 | |
 | пальма | кажется медианным значением palX | | |
@@ -265,6 +265,12 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 Dyson, pure cool, pure hot & cool и другие являются товарными знаками или зарегистрированными товарными знаками [Дайсон Лтд.](https://www.dyson.com) Все прочие товарные знаки являются собственностью соответствующих владельцев.
 
 ## Changelog
+
+
+
+### V2.3.2 (2022-03-04) (Fairytale of doom)
+* (grizzelbee) Fix: Fixed: Sentry-Error: [DYSONAIRPURIFIER-D](https://sentry.io/organizations/grizzelbee/issues/3021418514)
+* (grizzelbee) Upd: Updated dependencies
 
 ### V2.3.1 (2022-01-14) (Fairytale of doom)
 * (grizzelbee) Upd: Updated dependencies

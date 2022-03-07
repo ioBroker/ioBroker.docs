@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.growatt/README.md
 title: ioBroker.growatt
-hash: VO3tERayIPGkKkpa2tQp+mKo3wuRC+Jg39Ao//wNgA0=
+hash: u+0xUXjhtPJ4FIijx/74CtuRVDVmd0xZ+gjJI8w/9jo=
 ---
-![标识](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
+![商标](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.growatt.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.growatt.svg)
@@ -60,6 +60,7 @@ HTTP 请求的默认超时。默认值 60 秒，与 Web 浏览器一样
 
 ### 进程超时（以秒为单位）
 此超时监视从 Growatt 服务器收集的数据。如果服务器在这段时间内没有处理完所有数据，则会报告错误，会话结束并启动新的循环计时器。默认值为 600 秒。
+如果值为 0，则不执行此检查功能。
 
 ### 保持网络会话
 适配器只登录一次，而不是每次来自 Growatt 服务器的数据请求都登录。默认情况下它是打开的。
@@ -115,7 +116,7 @@ HTTP 请求的默认超时。默认值 60 秒，与 Web 浏览器一样
 从 ShineWiFi-S 上取下 KEY 按钮的橡胶塞，短按里面的按钮。蓝色 LED 将亮起。使用手机或电脑连接 ShineWiFi-S 模块发出的无线网络。网络名称/SSID 是 ShineWiFi-S 模块的序列号。
 
 ## 登录页面
-连接成功后，打开手机或电脑的浏览器，在地址栏输入192.168.10.100。用户名为 admin，默认密码为 12345678。
+连接成功后，打开手机或电脑的浏览器，在地址栏输入192.168.10.100。用户名是 admin，默认密码是 12345678。
 ![登录页面](../../../en/adapterref/iobroker.growatt/docs/login.png)
 
 ＃＃ 高级设置
@@ -130,8 +131,13 @@ HTTP 请求的默认超时。默认值 60 秒，与 Web 浏览器一样
 -*-
 
 ## Changelog
+### 1.1.8 (16.03.2022)
+* (PLCHome) Improvement triggered by "Sentry" issues
 
-### 1.1.3 (12.02.2022)
+### 1.1.7 (13.02.2022)
+* (PLCHome) "Sentry" was added
+
+### 1.1.6 (12.02.2022)
 * (PLCHome) Read me
 
 ### 1.1.2 (12.02.2022)
@@ -217,9 +223,9 @@ HTTP 请求的默认超时。默认值 60 秒，与 Web 浏览器一样
 -*-
 
 ## License
-MIT License
+The MIT License (MIT)
 
-Copyright (c) 2022 PLCHome <https://github.com/PLCHome> <ioBroker@****.de>
+Copyright (c) 2020 - 2022 PLCHome
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

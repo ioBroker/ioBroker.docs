@@ -35,6 +35,10 @@ the personsId is the id within the "Known" persons folder
 -->
 ## Changelog
 
+### __WORK IN PROGRESS__
+* (foxriver76) prevent crashes if application limit reached
+* (foxriver76) ensure that minimum polling interval of 5 minutes is followed
+
 ### 1.4.4 (2021-07-21)
 * (Apollon77) Fix typo that lead to a crash
 

@@ -53,6 +53,11 @@ Zu den Batterie-Größen: Der Adapter funktioniert auch für Zelltemperaturen un
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
+### 1.3.1 - testing
+* Better detection of battery type and inverter
+* SOC not only from normal data but from diagnosis-data, too. There we have one decimal place more
+
 ### 1.3.0 (2021-11-06)
 * updated even more dependencies
 * official release with new state SOH

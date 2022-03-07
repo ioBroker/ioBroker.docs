@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.growatt/README.md
 title: ioBroker.growatt
-hash: VO3tERayIPGkKkpa2tQp+mKo3wuRC+Jg39Ao//wNgA0=
+hash: u+0xUXjhtPJ4FIijx/74CtuRVDVmd0xZ+gjJI8w/9jo=
 ---
 ![Logo](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
@@ -60,6 +60,7 @@ Das Standardzeitlimit für HTTP-Anforderungen. Der Standardwert 60 Sekunden, wie
 
 ### Prozesszeitüberschreitung in Sekunden
 Dieses Timeout überwacht die Sammlung von Daten vom Growatt-Server. Wenn der Server innerhalb dieser Zeit nicht alle Daten verarbeitet, wird ein Fehler gemeldet, die Sitzung beendet und ein neuer Zyklus-Timer gestartet. Der Standardwert ist 600 Sekunden.
+Wenn der Wert 0 ist, wird diese Prüffunktion nicht ausgeführt.
 
 ### Websitzung beibehalten
 Der Adapter meldet sich nur einmal an und nicht bei jeder Datenanfrage vom Growatt-Server. Standardmäßig ist es eingeschaltet.
@@ -86,7 +87,7 @@ Das Objekt wird gelöscht und der vom Umrichter geladene Wert wird verworfen.
 Nach der Aktualisierung werden nur die ID und die Aktion angezeigt, da das Objekt nicht mehr existiert. Wenn Sie normal auswählen, wird das Objekt nach dem Speichern erneut erstellt.
 
 ### Kein Update
-Das Objekt bleibt bestehen, die Werte vom Wechselrichter werden verworfen.
+Das Objekt bleibt bestehen, die Werte aus dem Wechselrichter werden verworfen.
 
 ----------------------------------------------------------------------------------------------------------------------
 
@@ -130,8 +131,13 @@ Starten Sie Ihr ShineWiFi-S-Modul auf dieser Seite neu, klicken Sie auf „Sofor
 -*-
 
 ## Changelog
+### 1.1.8 (16.03.2022)
+* (PLCHome) Improvement triggered by "Sentry" issues
 
-### 1.1.3 (12.02.2022)
+### 1.1.7 (13.02.2022)
+* (PLCHome) "Sentry" was added
+
+### 1.1.6 (12.02.2022)
 * (PLCHome) Read me
 
 ### 1.1.2 (12.02.2022)
@@ -217,9 +223,9 @@ Starten Sie Ihr ShineWiFi-S-Modul auf dieser Seite neu, klicken Sie auf „Sofor
 -*-
 
 ## License
-MIT License
+The MIT License (MIT)
 
-Copyright (c) 2022 PLCHome <https://github.com/PLCHome> <ioBroker@****.de>
+Copyright (c) 2020 - 2022 PLCHome
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

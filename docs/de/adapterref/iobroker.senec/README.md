@@ -582,7 +582,10 @@ Dieser Kanal enthält berechnete Werte. Aktuell sind dies Tages-/Wochen-/Monats-
    *Nur lesbarer Text, die die Seriennummern der evtl. vorhandenen Wallboxen 0-3 angibt.*
 
 ## Changelog
-### 1.3.5-beta (NoBl)
+### 1.3.6 (NoBl)
+* Fixed log.warning error
+
+### 1.3.5 (NoBl)
 * Added more state attributes (if you have updated descriptions or anything, please open an issue!)
 * Workaround in case SENEC reports bogus request data
 

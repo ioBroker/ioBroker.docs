@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.growatt/README.md
 title: ioBroker.growatt
-hash: VO3tERayIPGkKkpa2tQp+mKo3wuRC+Jg39Ao//wNgA0=
+hash: u+0xUXjhtPJ4FIijx/74CtuRVDVmd0xZ+gjJI8w/9jo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
@@ -21,14 +21,14 @@ hash: VO3tERayIPGkKkpa2tQp+mKo3wuRC+Jg39Ao//wNgA0=
 Обычно данные отправляются из регистратора данных в облако каждые 5 минут.
 Вы можете изменить его, см. ниже.
 
-Не все типы установок реализованы.
+Не все типы растений реализованы.
 
 В настоящее время можно только читать данные, запись или изменение параметров невозможно.
 
 ----------------------------------------------------------------------------------------------------------------------
 
 # Административная страница адаптера
-## Основные параметры
+## Основные настройки
 ### Пользователь и пароль
 Пожалуйста, введите имя и пароль, которые вы также используете в приложении Shine или на веб-портале.
 
@@ -60,6 +60,7 @@ hash: VO3tERayIPGkKkpa2tQp+mKo3wuRC+Jg39Ao//wNgA0=
 
 ### Время ожидания процесса в секундах
 Этот тайм-аут отслеживает сбор данных с сервера Growatt. Если сервер не обрабатывает все данные в течение этого времени, сообщается об ошибке, сеанс завершается и запускается новый таймер цикла. Значение по умолчанию — 600 секунд.
+Если значение равно 0, эта функция проверки не выполняется.
 
 ### Сохранить веб-сессию
 Адаптер входит в систему только один раз, а не при каждом запросе данных с сервера Growatt. По умолчанию он включен.
@@ -78,7 +79,7 @@ hash: VO3tERayIPGkKkpa2tQp+mKo3wuRC+Jg39Ao//wNgA0=
 Есть много значений, которые не принадлежат вашему инвертору. Их можно удалить здесь.
 Так как нет события, с помощью которого можно было бы перезагрузить список объектов при сохранении. Кнопка обновления должна использоваться при нажатии кнопки сохранения.
 
-### Нормальный
+### Обычный
 Объект остается, значение обновляется.
 
 ### Удалить
@@ -121,7 +122,7 @@ hash: VO3tERayIPGkKkpa2tQp+mKo3wuRC+Jg39Ao//wNgA0=
 ## Расширенные настройки
 Измените время интервала данных на 1 минуту ![Расширенные настройки](../../../en/adapterref/iobroker.growatt/docs/advancedsettings.png)
 
-## Перезапуск системы
+## Перезагрузка системы
 Перезапустите модуль ShineWiFi-S на этой странице, нажмите «Немедленный перезапуск», чтобы активировать новые настройки, которые вы только что сделали, и выйдите из внутреннего веб-сервера вашего модуля ShineWiFi.
 ![Перезапуск системы](../../../en/adapterref/iobroker.growatt/docs/restart.png)
 
@@ -130,8 +131,13 @@ hash: VO3tERayIPGkKkpa2tQp+mKo3wuRC+Jg39Ao//wNgA0=
 -*-
 
 ## Changelog
+### 1.1.8 (16.03.2022)
+* (PLCHome) Improvement triggered by "Sentry" issues
 
-### 1.1.3 (12.02.2022)
+### 1.1.7 (13.02.2022)
+* (PLCHome) "Sentry" was added
+
+### 1.1.6 (12.02.2022)
 * (PLCHome) Read me
 
 ### 1.1.2 (12.02.2022)
@@ -217,9 +223,9 @@ hash: VO3tERayIPGkKkpa2tQp+mKo3wuRC+Jg39Ao//wNgA0=
 -*-
 
 ## License
-MIT License
+The MIT License (MIT)
 
-Copyright (c) 2022 PLCHome <https://github.com/PLCHome> <ioBroker@****.de>
+Copyright (c) 2020 - 2022 PLCHome
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

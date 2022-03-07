@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.yr/README.md
-title: ioBroker.y
-hash: 6My5rWltcJj/nnOkI8cobniG8X6f2KSkMWtGwcdSRO4=
+title: ioBroker.yr
+hash: SSIKrqxW3jtFiYTEPdVAOcBbo+UIFyIX/NGJTm/qwcc=
 ---
 ![Logo](../../../en/adapterref/iobroker.yr/admin/yr.png)
 
@@ -14,32 +14,37 @@ hash: 6My5rWltcJj/nnOkI8cobniG8X6f2KSkMWtGwcdSRO4=
 # IoBroker.yr
 ![Testen und freigeben](https://github.com/ioBroker/ioBroker.yr/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/yr/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
-## Jahr kein Adapter für ioBroker
-holt 10d Wettervorhersage von [Jahr.nr](yr.no)
+## Yr.no-Adapter für ioBroker
+holt 10d Wettervorhersage von [Jahr.Nr](https://yr.no)
 
-[yr.no](yr.no) ist ein gemeinsamer Dienst des [Norwegian Meteorological Institute](met.no) und des [Norwegian Broadcasting Corporation](nrk.no)
+[yr.no](https://yr.no) ist ein gemeinsamer Dienst des [Norwegian Meteorological Institute](https://met.no) und der [Norwegian Broadcasting Corporation](https://nrk.no)
 
 https://api.met.no/weatherapi/locationforecast/2.0/documentation
 
-**Hinweis** - wenn _"Fehlende Übersetzungen an iobroker.net senden"_ aktiviert ist (Standard), werden fehlende Übersetzungen an den iobroker.net-Server gesendet. Es werden keine IPs oder zusätzliche Informationen gespeichert oder analysiert. Fehlt nur noch die Übersetzung.
+**Hinweis** - wenn _"Fehlende Übersetzungen an iobroker.net senden"_ aktiviert ist (Standardeinstellung), werden fehlende Übersetzungen an den iobroker.net-Server gesendet. Es werden keine IPs oder zusätzliche Informationen gespeichert oder analysiert. Fehlt nur noch die Übersetzung.
 
-##Symbole
-Icons werden von hier [https://api.met.no/weatherapi/weathericon/2.0/documentation](https://api.met.no/weatherapi/weathericon/2.0/documentation) übernommen und gehören zur Bj.Nr.
+##-Symbole
+Icons stammen von hier [https://api.met.no/weatherapi/weathericon/2.0/documentation](https://api.met.no/weatherapi/weathericon/2.0/documentation) und gehören zu yr.no.
 
 ## MACHEN
-* Meteogramm hinzufügen (png wird wahrscheinlich mit der neuen API eingestellt)
+* Meteogramm hinzugefügt (png wird wahrscheinlich mit neuer API eingestellt)
 * Fügen Sie eine tägliche Vorhersage basierend auf der stündlichen Vorhersage hinzu
 * HTML-Tabelle hinzufügen
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __ARBEITEN IN PROGRESS__ -->
+### __LAUFENDE ARBEIT__ -->
 ## Machen
-* setState-Prognose_Objekt
+* SetState-Prognoseobjekt
 
 ## Changelog
+### 5.1.0 (2022-03-05)
+* (Apollon77) Move schedule if default is used on request of met.no
+* (Apollon77) Do not query legend/icons dynamically, but deliver with the version
+* (Apollon77) make sure to not execute logic when adapter stopped already
+
 ### 5.0.0 (2021-11-08)
 * (klein0r) Fixed translations
 * (klein0r) Update dates data type
@@ -140,7 +145,7 @@ Icons werden von hier [https://api.met.no/weatherapi/weathericon/2.0/documentati
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>, Bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022 hobbyquaker <hq@ccu.io>, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
