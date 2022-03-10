@@ -7,7 +7,7 @@ lastChanged: 15.02.2022
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/proxmox.md
-hash: f59N5O3KKS/hmr7FJUOBYHgDkpmBM0bWd08IDuHTqHE=
+hash: MCIDdrJ8n1EqsF7J7/tQiurVhVXZOLmcBDob18o6YM0=
 ---
 # Proxmox
 ![proxmox 徽标](../../de/install/media/proxmox/Proxmox-logo-860.png)
@@ -35,7 +35,7 @@ Proxmox 在其自己的 Web 界面中“打包”QEMU/KVM，从而使管理变�
 
 <details><summary>Proxmox ISO</summary>
 
-![proxmox-iso](../../de/install/media/proxmox/proxmox-iso)
+![proxmox-iso](../../de/install/media/proxmox/proxmox-iso.png)
 
 </详情>
 
@@ -48,7 +48,7 @@ Proxmox 在其自己的 Web 界面中“打包”QEMU/KVM，从而使管理变�
 
 <details><summary>安装菜单</summary>
 
-![安装菜单](../../de/install/media/proxmox/installationsmenü)
+![安装菜单](../../de/install/media/proxmox/installationsmenü.png)
 
 </详情>
 
@@ -56,7 +56,7 @@ Proxmox 在其自己的 Web 界面中“打包”QEMU/KVM，从而使管理变�
 
 <details><summary>猫头鹰</summary>
 
-![猫头鹰](../../de/install/media/proxmox/eula)
+![猫头鹰](../../de/install/media/proxmox/eula.png)
 
 </详情>
 
@@ -64,7 +64,7 @@ Proxmox 在其自己的 Web 界面中“打包”QEMU/KVM，从而使管理变�
 
 <details><summary>硬盘的选择</summary>
 
-![磁盘选择](../../de/install/media/proxmox/festplattenauswahl)
+![磁盘选择](../../de/install/media/proxmox/festplattenauswahl.png)
 
 </详情>
 
@@ -72,7 +72,7 @@ Proxmox 在其自己的 Web 界面中“打包”QEMU/KVM，从而使管理变�
 
 <details><summary>高级硬盘选项</summary>
 
-![硬盘选项](../../de/install/media/proxmox/harddisk-options)
+![硬盘选项](../../de/install/media/proxmox/harddisk-options.png)
 
 </详情>
 
@@ -81,7 +81,7 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 <details><summary>使用高级设置，可以在此处指定某些参数：</summary>
 
-- 文件系统：在这里您可以选择文件系统。这里的默认值是 ext4，在大多数情况下这是一个不错的选择。如果主机系统上有多个可用硬盘（以及大量 RAM），则具有适当 RAID 级别的 zfs 选项在这里很有意义。但是，在这种情况下，您应该从根本上处理 ZFS。
+- 文件系统：在这里您可以选择文件系统。这里的默认值为 ext4，在大多数情况下这是一个不错的选择。如果主机系统上有多个可用硬盘（以及大量 RAM），则具有适当 RAID 级别的 zfs 选项在这里很有意义。但是，在这种情况下，您应该从根本上处理 ZFS。
 - hdsize：指定应用于 Proxmox 的总硬盘大小。在这里你通常选择完整的硬盘大小，除非你以后想添加更多的分区。
 - swapsize：确定交换卷的大小。这里的标准是与内置内存大小相同，但最小为 4 GB，最大为 8 GB。
 - maxroot：指定根卷（Proxmox 本身）的最大大小。 **这里需要提一下，在基础安装中，后面需要的模板和ISO镜像也存放在这里。**
@@ -90,13 +90,13 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 </详情>
 
-通常，您可以将所有选项保留为默认设置（即此处未指定任何内容）。这些已经针对大多数安装进行了优化设置。
+通常，您可以将所有选项保留为默认设置（即此处未指定任何内容）。这些已经为大多数安装进行了优化设置。
 
 为 Proxmox 选择硬盘后，会查询本地化选项（国家、时间和相关的键盘布局）：
 
 <details><summary>本土化</summary>
 
-![地点](../../de/install/media/proxmox/location)
+![地点](../../de/install/media/proxmox/location.png)
 
 </详情>
 
@@ -104,7 +104,7 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 <details><summary>密码和邮箱</summary>
 
-![密码](../../de/install/media/proxmox/password)
+![密码](../../de/install/media/proxmox/password.png)
 
 </详情>
 
@@ -112,7 +112,7 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 <details><summary>网络</summary>
 
-![网络](../../de/install/media/proxmox/network)
+![网络](../../de/install/media/proxmox/network.png)
 
 </详情>
 
@@ -120,7 +120,7 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 <details><summary>概括</summary>
 
-![概括](../../de/install/media/proxmox/zusammenfassung)
+![概括](../../de/install/media/proxmox/zusammenfassung.png)
 
 </详情>
 
@@ -128,7 +128,7 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 <details><summary>安装</summary>
 
-![安装](../../de/install/media/proxmox/installation)
+![安装](../../de/install/media/proxmox/installation.png)
 
 </详情>
 
@@ -138,15 +138,15 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 <details><summary>安慰</summary>
 
-![安慰](../../de/install/media/proxmox/konsole)
+![安慰](../../de/install/media/proxmox/konsole.png)
 
 </详情>
 
-现在它在浏览器中继续（例如 https://10.1.1.89:8006）。但是，首先会显示警告。这是因为在安装过程中生成了自签名证书，浏览器当然不知道。此时您可以放心地忽略此消息 - 无论如何，连接都是通过 HTTPS 加密的。消息本身取决于浏览器。在此示例中，单击 **Advanced** 然后单击 **Continue to 10.1.1.89(unsafe)**
+现在在浏览器中继续（例如 https://10.1.1.89:8006）。但是，首先会显示警告。这是因为在安装过程中生成了自签名证书，浏览器当然不知道。此时您可以放心地忽略此消息 - 无论如何，连接都是通过 HTTPS 加密的。消息本身取决于浏览器。在此示例中，单击 **Advanced** 然后单击 **Continue to 10.1.1.89(unsafe)**
 
 <details><summary>隐私错误</summary>
 
-![隐私错误](../../de/install/media/proxmox/datenschutzfehler)
+![隐私错误](../../de/install/media/proxmox/datenschutzfehler.png)
 
 </详情>
 
@@ -154,7 +154,7 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 <details><summary>注册</summary>
 
-![注册](../../de/install/media/proxmox/anmeldung)
+![注册](../../de/install/media/proxmox/anmeldung.png)
 
 </详情>
 
@@ -162,7 +162,7 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 <details><summary>订阅</summary>
 
-![订阅](../../de/install/media/proxmox/subskription)
+![订阅](../../de/install/media/proxmox/subskription.png)
 
 </详情>
 
@@ -170,7 +170,7 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 <details><summary>包源</summary>
 
-![包源](../../de/install/media/proxmox/paketquellen)
+![包源](../../de/install/media/proxmox/paketquellen.png)
 
 </详情>
 
@@ -178,7 +178,7 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 <details><summary>非订阅</summary>
 
-![没有订阅](../../de/install/media/proxmox/no-subscription)
+![没有订阅](../../de/install/media/proxmox/no-subscription.png)
 
 </详情>
 
@@ -188,7 +188,7 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 <details><summary>企业资料库</summary>
 
-![企业](../../de/install/media/proxmox/enterprise)
+![企业](../../de/install/media/proxmox/enterprise.png)
 
 </详情>
 
@@ -197,18 +197,18 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 <details><summary>更新</summary>
 
-![更新](../../de/install/media/proxmox/updates)
+![更新](../../de/install/media/proxmox/updates.png)
 
 </详情>
 
 只需选择所需的 Proxmox 节点（例如“pve”），然后单击更新下的**更新**。这是所谓的任务查看器打开的地方，当系统上执行任何活动时，它总是显示。现在可以再次关闭任务查看器。顺便说一句，当显示任务查看器时，您不必等到任务完成（“TASK OK”），但始终可以直接再次关闭此对话框 - 任务本身继续在后台运行。
-如果更新现在可用，则可以通过单击**升级**来导入它们。
+如果更新现在可用，则可以通过单击 **Upgrade** 导入它们。
 
 Web 控制台在此处打开，您可以监控进度。
 
 <details><summary>网络控制台</summary>
 
-![网络控制台](../../de/install/media/proxmox/web-konsole)
+![网络控制台](../../de/install/media/proxmox/web-konsole.png)
 
 </详情>
 
@@ -222,17 +222,207 @@ Web 控制台在此处打开，您可以监控进度。
 
 ---
 
-## Proxmox - 在 VM（虚拟机）中安装 ioBroker
-?> ***这是一个占位符***。<br><br>帮助 ioBroker 并扩展本文。请注意 [ioBroker 风格指南](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md)，以便更容易地采用更改。
+## Proxmox - 创建一个虚拟 Qemu/KVM 机器 (VM) + ioBroker 安装之后
+本示例指南展示了如何创建 [虚拟机](https://pve.proxmox.com/wiki/Qemu/KVM_Virtual_Machines) (debian11)，然后在其中安装 ioBroker。
 
-<details>
+当然可以使用 Ubuntu 代替 Debian，但请确保使用 Ubuntu Server **LTS 版本**。
+
+为了清楚起见，可以打开图像描述和附加信息。
+
+### 1 - 下载 ISO 映像
+首先，需要一个[ISO 映像](https://www.debian.org/distrib/)(64-bit PC Netinst-ISO)，它必须在基本安装中加载到根目录（本地）（如果没有创建其他驱动器）。
+
+为此，请转到本地 > ISO 映像。那里有两个选择。
+
+- 之前存储在计算机上的 ISO，可以通过 **Upload** 按钮加载到 Proxmox 主机上。
+- **从 URL 下载** 可以通过 URL 将 ISO 直接上传到主机。为此，复制 64 位 PC Netinst-ISO 的链接地址（鼠标右键），插入 URL 并单击 **Query URL** 以检索它。最后点击 **Download**，即可直接下载 ISO。
+
+<details><summary>下载 ISO</summary>
+
+![vm-iso](../../de/install/media/proxmox/vm-iso.png)
+
+![vm-isourl](../../de/install/media/proxmox/vm-isourl.png)
 
 </详情>
 
+### 2 - 创建虚拟机
+单击蓝色的 **Create VM** 按钮打开一个窗口，必须在其中进行以下设置。
+
+- 常规：分配主机名和密码，ID 已给出（以 100 开头），可以更改，但不能稍后更改。
+- 操作系统：存储选择（本地）和 ISO 映像（debian-11-netinst.iso）
+- 系统：一切都保持在默认设置，**检查 Qemu 代理**
+- 磁盘：存储 local-lvm，磁盘大小 10GB（10-20GB 应该足够了，以后可以更改，但这里不再赘述）。
+- CPU：取决于电脑的强大程度（也可以随时调整，为此必须重新启动VM）
+- 内存：以 MiB 为单位的 RAM 大小（也可以随时调整，为此必须重新启动 VM）
+- 网络：vmbr0，其他一切都保持默认
+- 确认：在这里您可以再次看到摘要（检查 **Start after creation**）然后单击 **Finish** 以创建 VM。
+
+<details><summary>系列图像 创建虚拟机</summary>
+
+![vm-通用](../../de/install/media/proxmox/vm-allgemein.png)
+
+![虚拟机操作系统](../../de/install/media/proxmox/vm-os.png)
+
+![虚拟机系统](../../de/install/media/proxmox/vm-system.png)
+
+![虚拟机磁盘](../../de/install/media/proxmox/vm-disks.png)
+
+![虚拟机处理器](../../de/install/media/proxmox/vm-cpu.png)
+
+![虚拟机存储](../../de/install/media/proxmox/vm-speicher.png)
+
+![虚拟机网络](../../de/install/media/proxmox/vm-netzwerk.png)
+
+![vm-确认](../../de/install/media/proxmox/vm-bestätigen.png)
+
+</详情>
+
+### 3 - Debian 安装
+启动 VM 后，转到 VM 控制台并启动 **Install**。
+
+<details><summary>安慰</summary>
+
+![虚拟机安装](../../de/install/media/proxmox/vm-install.png)
+
+</详情>
+
+您将被引导完成安装，并且必须在此过程中进行一些设置。要使用它，您需要制表键、空格键和箭头键。由于范围的原因，可以找到一系列图像的各种镜头。
+
+<span style="color:red">**注意力！ - 不能分配 root 密码。**</span>
+
+<details><summary>图像系列 Debian 安装</summary>
+
+![vm-1](../../de/install/media/proxmox/vm-1.png)
+
+![vm-2](../../de/install/media/proxmox/vm-2.png)
+
+![vm-3](../../de/install/media/proxmox/vm-3.png)
+
+![vm-4](../../de/install/media/proxmox/vm-4.png)
+
+![vm-5](../../de/install/media/proxmox/vm-5.png)
+
+![vm-6](../../de/install/media/proxmox/vm-6.png)
+
+![vm-7](../../de/install/media/proxmox/vm-7.png)
+
+![vm-8](../../de/install/media/proxmox/vm-8.png)
+
+![vm-9](../../de/install/media/proxmox/vm-9.png)
+
+![vm-10](../../de/install/media/proxmox/vm-10.png)
+
+![vm-11](../../de/install/media/proxmox/vm-11.png)
+
+![vm-12](../../de/install/media/proxmox/vm-12.png)
+
+![vm-13](../../de/install/media/proxmox/vm-13.png)
+
+![vm-14](../../de/install/media/proxmox/vm-14.png)
+
+![vm-15](../../de/install/media/proxmox/vm-15.png)
+
+![vm-16](../../de/install/media/proxmox/vm-16.png)
+
+![vm-17](../../de/install/media/proxmox/vm-17.png)
+
+![vm-18](../../de/install/media/proxmox/vm-18.png)
+
+![vm-19](../../de/install/media/proxmox/vm-19.png)
+
+![vm-20](../../de/install/media/proxmox/vm-20.png)
+
+![vm-21](../../de/install/media/proxmox/vm-21.png)
+
+![vm-22](../../de/install/media/proxmox/vm-22.png)
+
+![vm-23](../../de/install/media/proxmox/vm-23.png)
+
+![vm-24](../../de/install/media/proxmox/vm-24.png)
+
+![vm-25](../../de/install/media/proxmox/vm-25.png)
+
+![vm-26](../../de/install/media/proxmox/vm-26.png)
+
+</详情>
+
+### 4 - 设置虚拟机
+重新启动 VM 后，使用安装时分配的“用户名”和“密码”登录。然后用命令
+
+~~~ ip地址~~~
+
+找到了IP地址。这是通过 ssh 远程连接到 VM 所必需的，如下一步所示。
+
+<details><summary>ip地址</summary>
+
+![vm-ipaddr](../../de/install/media/proxmox/vm-ipaddr.png)
+
+</详情>
+
+现在可以通过 ssh（例如 Putty）访问 VM。在这里您也可以使用“用户名”和“密码”再次登录。
+然后可以将网络地址从**dhcp**更改为**static**。 （推荐用于服务器操作）
+
+~~~ sudo nano /etc/network/interfaces ~~~
+
+<details><summary>网络/接口</summary>
+
+![虚拟机纳米](../../de/install/media/proxmox/vm-nano.png)
+
+![虚拟机-dhcp](../../de/install/media/proxmox/vm-dhcp.png)
+
+![vm-静态](../../de/install/media/proxmox/vm-statisch.png)
+
+</详情>
+
+使用组合键 CTRL + o 保存编辑器中的更改，然后 ENTER，CTRL + x 退出编辑器。
+
+对 IP 的更改仅在 VM 重新启动后才会生效。然而，在此之前，它会检查 Qemu 来宾代理是否处于活动状态，使用
+
+~~~ sudo systemctl status qemu-guest-agent ~~~
+
+<details><summary>来宾代理</summary>
+
+![vm-qemuguest](../../de/install/media/proxmox/vm-qemuguest.png)
+
+</详情>
+
+<span style="color:orange">**注意力！ - 对于 Ubuntu 安装，必须安装并启动 Qemu Guest Agent..**</span>
+
+为此的命令：
+
+~~~ sudo apt-get install qemu-guest-agent sudo systemctl start qemu-guest-agent ~~~
+
+此外，为了能够安装 iobroker，必须在之后安装 **curl**。
+~~~ sudo apt install curl ~~~
+
+<details><summary>重新安装卷曲</summary>
+
+![虚拟机卷曲](../../de/install/media/proxmox/vm-curl.png)
+
+</详情>
+
+要通过 VM 中的设备 (USB)，请选择 VM > Hardware > Add > USB Devices > Vendor/Device ID。此处列出了所有连接的设备。
+
+<details><summary>USB 设备</summary>
+
+![虚拟机-usb](../../de/install/media/proxmox/vm-usb.png)
+
+</详情>
+
+为了使 VM 在计算机 (Proxmox) 重新启动后自动启动，必须在 VM 选项中激活它。
+
+<details><summary>引导选项</summary>
+
+![虚拟机引导](../../de/install/media/proxmox/vm-booten.png)
+
+</详情>
+
+这样就完成了 VM 的安装和设置。现在可以重新启动 VM，然后可以安装 ioBroker。
+
 ---
 
-## Proxmox - 之后创建 [Linux 容器 (LXC)](https://pve.proxmox.com/wiki/Linux_Container) + ioBroker 安装
-本示例指南展示了如何创建 LXC 容器 (debian11)，然后在其中安装 ioBroker。
+## Proxmox - 之后创建 Linux 容器 (LXC) + ioBroker 安装
+本示例指南展示了如何创建一个 [LXC 容器](https://pve.proxmox.com/wiki/Linux_Container) (debian11)，然后在其中安装 ioBroker。
 
 为了清楚起见，可以打开图像描述和附加信息。
 
@@ -243,11 +433,11 @@ Web 控制台在此处打开，您可以监控进度。
 
 <details><summary>下载模板</summary>
 
-![当地的](../../de/install/media/proxmox/local)
+![当地的](../../de/install/media/proxmox/local.png)
 
-![模板](../../de/install/media/proxmox/templates)
+![模板](../../de/install/media/proxmox/templates.png)
 
-![模板加载](../../de/install/media/proxmox/template-laden)
+![模板加载](../../de/install/media/proxmox/template-laden.png)
 
 </详情>
 
@@ -261,29 +451,29 @@ Web 控制台在此处打开，您可以监控进度。
 - 内存：Ram/Swap 分配（可随时调整，甚至在运行期间）
 - 网络：静态 IP/CIDR 分配、网关，如果没有设置 IPv6，则设置为 SLAAC
 - DNS：通常什么都没有改变（使用来自主机的值）
-- 确认：在这里您可以再次看到摘要，如果所有条目都正确，然后单击**完成**。
+- 确认：摘要（勾选**创建后开始**）然后点击**完成**创建容器。
 
 <details><summary>图像系列 创建 CT</summary>
 
-![pve](../../de/install/media/proxmox/pve)
+![pve](../../de/install/media/proxmox/pve.png)
 
-![lxc-通用](../../de/install/media/proxmox/lxc-allgemein)
+![lxc-通用](../../de/install/media/proxmox/lxc-allgemein.png)
 
-![lxc-模板](../../de/install/media/proxmox/lxc-template)
+![lxc-模板](../../de/install/media/proxmox/lxc-template.png)
 
-![lxc 磁盘](../../de/install/media/proxmox/lxc-disks)
+![lxc 磁盘](../../de/install/media/proxmox/lxc-disks.png)
 
-![lxc处理器](../../de/install/media/proxmox/lxc-cpu)
+![lxc处理器](../../de/install/media/proxmox/lxc-cpu.png)
 
-![lxc内存](../../de/install/media/proxmox/lxc-speicher)
+![lxc内存](../../de/install/media/proxmox/lxc-speicher.png)
 
-![LXC网络](../../de/install/media/proxmox/lxc-netzwerk)
+![LXC网络](../../de/install/media/proxmox/lxc-netzwerk.png)
 
-![lxc-dns](../../de/install/media/proxmox/lxc-dns)
+![lxc-dns](../../de/install/media/proxmox/lxc-dns.png)
 
-![lxc-确认](../../de/install/media/proxmox/lxc-bestätigen)
+![lxc-确认](../../de/install/media/proxmox/lxc-bestätigen.png)
 
-![lxc-任务查看器](../../de/install/media/proxmox/lxc-taskviewer)
+![lxc-任务查看器](../../de/install/media/proxmox/lxc-taskviewer.png)
 
 </详情>
 
@@ -292,7 +482,7 @@ Web 控制台在此处打开，您可以监控进度。
 
 <details><summary>安慰</summary>
 
-![lxc 控制台](../../de/install/media/proxmox/lxc-konsole)
+![lxc 控制台](../../de/install/media/proxmox/lxc-konsole.png)
 
 </详情>
 
@@ -302,7 +492,7 @@ Web 控制台在此处打开，您可以监控进度。
 
 <details><summary>升级</summary>
 
-![lxc升级](../../de/install/media/proxmox/lxc-upgrade)
+![lxc升级](../../de/install/media/proxmox/lxc-upgrade.png)
 
 </详情>
 
@@ -312,11 +502,11 @@ Web 控制台在此处打开，您可以监控进度。
 
 <details><summary>时区</summary>
 
-![lxc-tzdata](../../de/install/media/proxmox/lxc-tzdata)
+![lxc-tzdata](../../de/install/media/proxmox/lxc-tzdata.png)
 
-![LXC区](../../de/install/media/proxmox/lxc-area)
+![LXC区](../../de/install/media/proxmox/lxc-area.png)
 
-![lxc-时区](../../de/install/media/proxmox/lxc-timezone)
+![lxc-时区](../../de/install/media/proxmox/lxc-timezone.png)
 
 </详情>
 
@@ -326,7 +516,7 @@ Web 控制台在此处打开，您可以监控进度。
 
 <details><summary>重新安装</summary>
 
-![lxc-须藤](../../de/install/media/proxmox/lxc-sudo)
+![lxc-须藤](../../de/install/media/proxmox/lxc-sudo.png)
 
 </详情>
 
@@ -336,7 +526,7 @@ Web 控制台在此处打开，您可以监控进度。
 
 <details><summary>创建用户</summary>
 
-![lxc-adduser](../../de/install/media/proxmox/lxc-adduser)
+![lxc-adduser](../../de/install/media/proxmox/lxc-adduser.png)
 
 </详情>
 
@@ -348,7 +538,15 @@ Web 控制台在此处打开，您可以监控进度。
 
 <details><summary>注销并以用户身份登录</summary>
 
-![lxc用户登录](../../de/install/media/proxmox/lxc-useranmeldung)
+![lxc用户登录](../../de/install/media/proxmox/lxc-useranmeldung.png)
+
+</详情>
+
+为了让 LXC 在重新启动计算机 (Proxmox) 后自动启动，必须在容器选项中激活它。
+
+<details><summary>引导选项</summary>
+
+![LXC 开机](../../de/install/media/proxmox/lxc-booten.png)
 
 </详情>
 
@@ -368,17 +566,17 @@ Web 控制台在此处打开，您可以监控进度。
 
 <details><summary>安装人员</summary>
 
-![iobroker 安装程序](../../de/install/media/proxmox/iobroker-installer)
+![iobroker 安装程序](../../de/install/media/proxmox/iobroker-installer.png)
 
-![iobroker-installer1](../../de/install/media/proxmox/iobroker-installer1)
+![iobroker-installer1](../../de/install/media/proxmox/iobroker-installer1.png)
 
-![iobroker-installer2](../../de/install/media/proxmox/iobroker-installer2)
+![iobroker-installer2](../../de/install/media/proxmox/iobroker-installer2.png)
 
-![iobroker-installer3](../../de/install/media/proxmox/iobroker-installer3)
+![iobroker-installer3](../../de/install/media/proxmox/iobroker-installer3.png)
 
 </详情>
 
-最后出现如下提示，即表示安装成功。
+最后出现如下提示时，安装成功完成。
 
 ~~~ ioBroker 安装成功 在浏览器中打开http://10.1.1.222:8081 开始配置！ ~~~
 
@@ -386,19 +584,19 @@ Web 控制台在此处打开，您可以监控进度。
 
 <details><summary>系列图像 ioBroker 助手</summary>
 
-![iobroker 设置](../../de/install/media/proxmox/iobroker-setup)
+![iobroker 设置](../../de/install/media/proxmox/iobroker-setup.png)
 
-![iobroker-setup1](../../de/install/media/proxmox/iobroker-setup1)
+![iobroker-setup1](../../de/install/media/proxmox/iobroker-setup1.png)
 
-![iobroker-setup2](../../de/install/media/proxmox/iobroker-setup2)
+![iobroker-setup2](../../de/install/media/proxmox/iobroker-setup2.png)
 
-![iobroker-setup3](../../de/install/media/proxmox/iobroker-setup3)
+![iobroker-setup3](../../de/install/media/proxmox/iobroker-setup3.png)
 
-![iobroker-setup4](../../de/install/media/proxmox/iobroker-setup4)
+![iobroker-setup4](../../de/install/media/proxmox/iobroker-setup4.png)
 
-![iobroker-setup5](../../de/install/media/proxmox/iobroker-setup5)
+![iobroker-setup5](../../de/install/media/proxmox/iobroker-setup5.png)
 
-![iobroker-setup6](../../de/install/media/proxmox/iobroker-setup6)
+![iobroker-setup6](../../de/install/media/proxmox/iobroker-setup6.png)
 
 </详情>
 
@@ -406,11 +604,11 @@ Web 控制台在此处打开，您可以监控进度。
 
 <details><summary>图像系列设备/服务搜索</summary>
 
-![设备搜索](../../de/install/media/proxmox/gerätesuche)
+![设备搜索](../../de/install/media/proxmox/gerätesuche.png)
 
-![实例](../../de/install/media/proxmox/instanzen)
+![实例](../../de/install/media/proxmox/instanzen.png)
 
-![iobroker-完成](../../de/install/media/proxmox/iobroker-fertig)
+![iobroker-完成](../../de/install/media/proxmox/iobroker-fertig.png)
 
 </详情>
 
@@ -478,7 +676,7 @@ Web 控制台在此处打开，您可以监控进度。
 
 >*如果没有输出，用“ls -l /dev/serial/by-id/”检查USB设备是否被系统集成为ttyUSB，如果是则替换下面所有引用**ttyACM的命令。 ..* * 从 **ttyUSB...** 获取，如果没有输出，则它不是 USB CDC 类设备（串行通信），因此可以忽略从 ttyACM 包含的所有点。*
 
-所以我们从USB设备中记下了集成到lxc的配置文件中所需的**三个**值。
+所以我们在lxc的配置文件中记下了集成所需的来自USB设备的**三个**值。
 
 ![proxmoxlxc07](../../de/install/media/proxmox/proxmoxlxc07.PNG)
 
@@ -511,7 +709,7 @@ Web 控制台在此处打开，您可以监控进度。
 
 将以下内容添加到配置文件的末尾：
 
-~~~ lxc.cgroup2.devices.allow: c 189:* rwm lxc.mount.entry: usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012023529-if00 dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___20X00124B0012
+~~~ lxc.cgroup2.devices.allow: c 189:* rwm lxc.mount.entry: usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012023529-if00 dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___2B00124B0120=2
 
 lxc.cgroup2.devices.allow: c 166:* rwm lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0 none bind,optional,create=file ~~~
 
@@ -592,7 +790,7 @@ lxc.cgroup2.devices.allow: c 166:* rwm lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0
 
 * 重要的是 ttyACM0 在屏幕截图中具有相同的权限，即 **crw-rw-rw- 1 nobody nogroup**
 
->***如果不检查配置文件中的所有值是否都按照描述设置，权限应该还是不匹配然后跳转到第5点***
+>***如果不检查配置文件中的所有值是否都按照描述设置，权限还是不匹配则跳转到第5点***
 
 * 截图还显示cc2531的设备号从3变成了4，这是因为在此期间棒子被拔了又插了。但是，由于在配置文件中指定了唯一 ID 而不是总线/设备编号，因此 USB 直通继续工作。
 
@@ -613,7 +811,7 @@ lxc.cgroup2.devices.allow: c 166:* rwm lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0
 
 ~~~ chmod o+rw /dev/ttyACM* ~~~
 
-为 ttyACM0 设置了相应的权限，但是这些权限更改会在 Proxmox 主机重新启动时重置。需要在 Proxmox 主机上设置 udev 规则才能永久调整。
+为 ttyACM0 设置了相应的权限，但是这些权限更改会在 Proxmox 主机重新启动时重置。需要在 Proxmox 主机上设置 udev 规则才能进行永久调整。
 
 使用 lsusb 我们再次列出当前连接的 USB 设备：
 
@@ -635,7 +833,7 @@ lxc.cgroup2.devices.allow: c 166:* rwm lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0
 
 ![proxmoxlxc16](../../de/install/media/proxmox/proxmoxlxc16.PNG)
 
-最后，运行以下命令来激活 udev 规则：
+最后，运行以下命令激活 udev 规则：
 
 ~~~ udevadm control –reload ~~~
 
@@ -664,7 +862,7 @@ lxc.cgroup2.devices.allow: c 166:* rwm lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0
 
 ![proxmoxlxc17](../../de/install/media/proxmox/proxmoxlxc17.PNG)
 
-***主要设备号和ttyACM..必要时调整***
+***主要设备号和ttyACM..根据需要调整***
 
 那么lxc配置文件中的条目必须调整：
 

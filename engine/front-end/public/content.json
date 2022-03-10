@@ -813,7 +813,7 @@
           "title": {
             "en": "Multi-Host",
             "de": "Multihost",
-            "ru": "Мультихост",
+            "ru": "мультихост",
             "zh-cn": "高级配置 - 多主机"
           },
           "content": "config/multihost.md"

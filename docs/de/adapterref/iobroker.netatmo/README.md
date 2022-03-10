@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.netatmo/README.md
 title: ioBroker.netatmo
-hash: wnL39RRsXHajzRiYCAIDRJ05Yhdq6qC6OgfCzBEEQEM=
+hash: SL5lZ9scvkpwCjRYSdXWbjlrZvTu6XwF2XF6+8Obl7Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.netatmo/admin/netatmo.png)
 
@@ -13,12 +13,22 @@ hash: wnL39RRsXHajzRiYCAIDRJ05Yhdq6qC6OgfCzBEEQEM=
 ![NPM](https://nodei.co/npm/iobroker.netatmo.png?downloads=true)
 
 # IoBroker.netatmo
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+
 Netatmo-Adapter für ioBroker
 
-## Installation
-Geben Sie einfach Ihren Netatmo-Benutzernamen und Ihr Passwort in den Adaptereinstellungen ein
+## Installation und Konfiguration
+Geben Sie einfach Ihren Netatmo-Benutzernamen und Ihr Passwort in den Adaptereinstellungen ein.
 
-Sie können auch den sendTo-Befehl verwenden, um alle Personen als abwesend zu setzen (z. B. bei Verwendung als Alarmanlage)
+Standardmäßig wird für die Anfragen ein allgemeiner API-Schlüssel verwendet, der das Aktualisierungsintervall auf 10 Minuten begrenzt!
+
+Um das Intervall zu erhöhen oder Live-Updates von Welcome & Presence, CO- und Rauchmeldern zu erhalten, müssen Sie nur eine eigene ID/ein Geheimnis aus Ihrer NetAtmo-App eingeben.
+Rufen Sie dazu die folgende URL auf, melden Sie sich mit Ihrem Netatmo-Konto an und füllen Sie das angeforderte Formular auf https://auth.netatmo.com/access/login?next_url=https%3A%2F%2Fdev.netatmo.com% aus. 2Fapps%2Ferstelle eine App !
+
+Bitte stellen Sie sicher, dass Sie Ihre Limits so konfigurieren, dass sie https://dev.netatmo.com/guideline#rate-limits einhalten (und denken Sie daran, dass diese Limits auch für ALLE BENUTZER gelten, wenn Sie keine eigene ID/Secret verwenden)
+
+## SendTo support
+Sie können auch den Befehl sendTo verwenden, um alle Personen als abwesend zu setzen (z. B. bei Verwendung als Alarmsystem).
 
 ```
 sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: []});
@@ -32,22 +42,43 @@ sendTo('netatmo.0', "setAway");
 
 um alle Personen für alle Kameras als abwesend zu markieren
 
-es ist auch möglich eine oder mehrere bestimmte Personen als abwesend zu markieren
+Es ist auch möglich, eine oder mehrere bestimmte Personen als abwesend zu markieren
 
 ```
 sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123123123123']});
 ```
 
-Der Parameter homeId ist der String, der hinter dem Namen Ihrer Kamera auf der Registerkarte Objekte aufgeführt ist (optional, wenn mehrere Kameras installiert sind), die personId ist die ID im Ordner "Bekannte" Personen
+Der Parameter homeId ist die Zeichenfolge, die hinter dem Namen Ihrer Kamera auf der Registerkarte "Objekte" aufgeführt ist (optional, wenn mehrere Kameras installiert sind), die personsId ist die ID im Ordner "Bekannte" Personen
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __ARBEITEN IN PROGRESS__ -->
+### __LAUFENDE ARBEIT__ -->
 
 ## Changelog
+### 1.5.1 (2022-03-09)
+* (Apollon77) Fix jsonconfig for Client secret
+
+### 1.5.0 (2022-03-08)
+* (kyuka-dom) Added support for netatmo carbon monoxide sensor.
+* (kyuka-dom) Added support for netatmo smoke alarm.
+* (foxriver76) prevent crashes if application limit reached
+* (Apollon77) Allow to specify own id/secret in all cases
+* (Apollon77/foxriver76) ensure that minimum polling interval of 10 minutes is respected if no individual ID/Secret is provided
+* (Apollon77) Several pother fixes and optimizations
+* (Apollon77) Add Sentry for crash reporting
+
+### 1.4.4 (2021-07-21)
+* (Apollon77) Fix typo that lead to a crash
+
+### 1.4.3 (2021-06-27)
+* (Apollon77) Fix typo to fix crash
+
+### 1.4.2 (2021-06-27)
+* (bluefox) Removed warnings about the type of states
+
 ### 1.4.0 (2021-06-24)
 * (bluefox) Added the support of admin5 
-* (bluefox) Removed warnings about the type of states  
+* (bluefox) Removed warnings about the type of states
 
 ### 1.3.3
 * (PArns) removed person history
@@ -160,4 +191,4 @@ Der Parameter homeId ist der String, der hinter dem Namen Ihrer Kamera auf der R
 ## License
 MIT
 
-Copyright (c) 2016-2021 Patrick Arns <iobroker@patrick-arns.de>
+Copyright (c) 2016-2022 Patrick Arns <iobroker@patrick-arns.de>

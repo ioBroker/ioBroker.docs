@@ -16,20 +16,21 @@
 Adapter for the alerting service <a href="https://www.divera247.com/" target="_blank">Divera 24/7</a>
 
 ## Requirements
-For full usability of this adapter your organisation has to subscribe the "Alarm" plan of Divera 24/7 services
+For full usability of this adapter your organisation has to subscribe the "Alarm" plan of Divera 24/7 services in minimum otherwise, the adapter will not work or will not work completely.
 
 ## Configuartion of this adapter
 You have to enter your "Divera 24/7" login crendentials to this adapter.
 
 Furthermore you can restrict the alarms on specific users or alarm groups.
-For this you have to enter the Divera user IDs or alarm group number into the admin page of this adapter. Several user IDs and / or alarm group numbers can be specifyed seperated by comma (,).
+For this you have to enter the Divera user IDs or alarm group numbers into the admin page of this adapter. Several user IDs and / or alarm group numbers can be specifyed seperated by comma (,).
 This adapter checks first the userIDs befor it checks the groups. The first hit will trigger the alarm and update all states. A combination of userID and alarm group is currently not possible.
 
-To subscribe **all alarms**, just leave the relevant field empty.
-
-Furthermore please choose an updating interval for calling the API server. 30 seconds are recommended. The minimum is 10 seconds.
+To subscribe **all alarms**, just leave the input fields empty.
 
 ## Changelog
+
+### 0.2.0
+* (TKnpl) complete renewal of the adapter
 
 ### 0.1.3
 * (TKnpl) general revision of the adapter

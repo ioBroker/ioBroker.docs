@@ -12,7 +12,7 @@ This Adapter takes data from a byd PV battery ( https://www.bydbatterybox.com/ )
 
 ## be careful
 
-There are two steps in the beConnect app, in the first step you get the normal data, in the second step you get detail-data for all cells (individual cell temperature and voltage and some more details) To get the detail-data there has to be a delay after one of the data-packets till I can get the result. I think in the meantime alle cells are measured, but I am not sure. So I limited the frequency of reading the detail-data, it is done only ever "n" readings of the normal data, you can change this setting. If you do not need the detail-data: you can switch this part off.
+There are two steps in the beConnect app, in the first step you get the normal data, in the second step you get detail-data for all cells (individual cell temperature and voltage and some more details) To get the detail-data there has to be a delay after one of the data-packets till I can get the result. I think in the meantime alle cells are measured, but I am not sure. I am definetely not shure if you harm your battery with polling this data too often, so be aware: You are on your own risk!
 
 ## hint for systems with 5 modules
 
@@ -34,7 +34,7 @@ Test Mode - show data in error log: If you check this box: the sent and recieved
 
 Prinzipiell ist der Adapter durch Anaylse der Datenpakete zwischen der BYD-App und dem BYD-Akku-System entstanden. Es werden im Wesentlichen die Daten aus dem TAB System Info und aus dem TAB Diagnosis dargestellt. Offensichtlich sind die Daten für "System Info" sofort in der Batterie bereit zum abholen, für die Diagnose-Daten sieht es so aus als wäre ein Messvorgang erforderlich, zwischen der Abfrage und den Werten muss ein Zeitintervall von gut 3 Sekunden eingehalten werden. 
 
-Daher lasse ich die Diagnose-Daten auch nicht bei jeder Abfrage der Daten mit ermitteln.
+Ich bin mir nicht sicher ob das BYD-System durch zu häufige Abfragen beschädigt wird, also: Es ist Dein Risiko was Du hier einträgst!
 
 ## Zu den Einstellungen:
 Intervall: Zeitlicher Abstand zwischen den Abfragen des Adapters
@@ -43,7 +43,7 @@ IP-Adresse: Eigentlich logisch, damit ist die IP-Adresse des Adapters gemeint. D
 
 Batterie-Details: Steuerung, ob die Details zu den Zellen gelesen werden sollen
 
-Lesezyklen zu Batterie-Details: Anzahl der "Normal-Lese-Zyklen" bis wieder einmal die Diagnose-Daten gelesen werden. Hier die Warnung dazu: Ich habe keine Idee ob man sich durch häufige Diagnose-Messungen Nachteile einhandelt, daher empfehle ich den Wert möglichst hoch zu setzen. Ich wüsste auch nicht was man mit den Diagnose-Daten im regelmäßigen Poll anfangen sollte.
+Lesezyklen zu Batterie-Details: Anzahl der "Normal-Lese-Zyklen" bis wieder einmal die Diagnose-Daten gelesen werden. Hier die Warnung dazu: Ich habe keine Idee ob man sich durch häufige Diagnose-Messungen Nachteile einhandelt, daher empfehle ich den Wert möglichst hoch zu setzen. Ich wüsste auch nicht was man mit den Diagnose-Daten im regelmäßigen Poll anfangen sollte. 
 
 Zu den Batterie-Größen: Der Adapter funktioniert auch für Zelltemperaturen und ZellSpannungen bei 2,3 und 4 Batterie-Modulen. Bei einem System mit 5 Modulen werden nur die Zellspannungen der ersten 128 Zellen angezeigt. Für die Zellen 129 bis 160 ist mir nicht bekannt wo die Daten gespeichert werden. Ich würde das gerne mit in den Adapter einbauen, benötige aber dafür einen Wireshark-Mittschnitt der Kommunikation zwischen der beConnect App und dem Speicher. Ich helfe auch gerne wenn jemand nicht weiß wie man den Mittschnitt machen kann, entweder per Teamviewer oder per Postings im Forum. Offensichtlich funktioniert die Kommunikation für die 5. Einheit anders als bei den ersten 4 Einheiten. 
 
@@ -57,6 +57,7 @@ Zu den Batterie-Größen: Der Adapter funktioniert auch für Zelltemperaturen un
 ### 1.3.1 - testing
 * Better detection of battery type and inverter
 * SOC not only from normal data but from diagnosis-data, too. There we have one decimal place more
+* removed frequency limit for battery detail data
 
 ### 1.3.0 (2021-11-06)
 * updated even more dependencies

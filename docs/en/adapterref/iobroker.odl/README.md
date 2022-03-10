@@ -21,11 +21,11 @@ For more information about the ambient dose rate in germany visit https://odlinf
 
 Dieser Adapter integriert die ODL (Ortsdosisleistung) Messwerte von ausgewählten Messstellen des [Bundesamtes für Strahlenschutz (BfS)](https://www.bfs.de/) in ioBroker.
 
-Das bundesweite Messnetz des BfS umfasst rund 1800 ortsfeste Messstellen, die permanent die vor Ort aktuelle Gamma-Umweltradioaktivität (Ortsdosisleistung) erfassen und aufzeichnen. Die gewonnenen Messdaten werden vom BfS gesammelt, ausgewertet und öffentlich unter der _Datenlizenz Deutschland_ zur Verfügung gestellt.
+Das bundesweite Messnetz des BfS umfasst rund 1700 ortsfeste Messstellen, die permanent die vor Ort aktuelle Gamma-Umweltradioaktivität (Ortsdosisleistung) erfassen und aufzeichnen. Die gewonnenen Messdaten werden vom BfS gesammelt, ausgewertet und öffentlich unter der _Datenlizenz Deutschland_ zur Verfügung gestellt.
 
 Für weitere Informationen zur ODL siehe https://odlinfo.bfs.de/.
 
-Dieser Adapter läd die aktuellen und historischen 1-Stunden-Mittelwerte der Messdaten direkt über einen Web Feature Service (WFS) des [Geoportals des BfS](https://www.imis.bfs.de/geoportal/). Das BfS ist Urheber der vom Adapter verwendeten Daten.
+Dieser Adapter läd die aktuellen und historischen 1-Stunden-Mittelwerte der Messdaten direkt über einen Web Feature Service (WFS) des [Geoportals des BfS](https://www.imis.bfs.de/geoportal/). Das BfS ist Urheber der vom Adapter verwendeten Daten.  
 Wird ein aktivierter History-Adapter (history, influxdb oder sql) erkannt, dann werden gegebenenfalls in der Historie fehlende Datenpunkte durch den Adapter automatisch nachgetragen, sodass sich vollständige Zeitreihen ergeben.
 
 Die aktuellen Messdaten werden von dem Adapter standardmäßig im Stundentakt aktualisiert. Ein geringerer Aktualisierungsintervall ist meist nicht sinnvoll, da die zu Grunde liegenden Messdaten auf dem BfS-Server (abhängig von der Messstelle) größtenteils stündlich aktualisiert werden.
@@ -35,6 +35,15 @@ Die aktuellen Messdaten werden von dem Adapter standardmäßig im Stundentakt ak
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Changelog
+
+### 1.2.0 (Pending)
+
+* (crycode-de) Randomize adapter schedule between minute 15 and 45 on first start
+* (crycode-de) Delay execution between 0 and 60 seconds for scheduled starts
+* (crycode-de) Replaced `request` with `axios`
+* (crycode-de) Updated dependencies
+* (crycode-de) Use inline sourcemaps for better debugging
+* (crycode-de) Require node >=12
 
 ### 1.1.4 (2021-01-16)
 * (crycode-de) Updated BfS logo

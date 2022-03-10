@@ -1,11 +1,15 @@
 ![Logo](admin/parser.png)
 ioBroker parser adapter
 =================
-![Number of Installations](http://iobroker.live/badges/parser-installed.svg) ![Number of Installations](http://iobroker.live/badges/parser-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.parser.svg)](https://www.npmjs.com/package/iobroker.parser)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.parser.svg)](https://www.npmjs.com/package/iobroker.parser)
-[![Tests](https://travis-ci.org/ioBroker/ioBroker.parser.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.parser)
+![Number of Installations](http://iobroker.live/badges/parser-installed.svg)
+![Number of Installations](http://iobroker.live/badges/parser-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.parser.svg)](https://www.npmjs.com/package/iobroker.parser)
 
-[![NPM](https://nodei.co/npm/iobroker.parser.png?downloads=true)](https://nodei.co/npm/iobroker.parser/)
+![Test and Release](https://github.com/ioBroker/ioBroker.parser/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/parser/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.parser.svg)](https://www.npmjs.com/package/iobroker.parser)
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 This adapter parses data received via URL or from a file, by using regular expressions. For each rule being configured in the settings of this adapter, a state will be created under `parser.<instance number>` and filled and updated with the parsed information.
 
@@ -103,9 +107,14 @@ Values can have quality codes:
 
 
 ## Changelog
+### 1.1.2 (2022-03-09)
+* (Apollon77) Fix initialization of new parser objects
 
-### __WORK IN PROGRESS__
+### 1.1.1 (2022-03-07)
+* IMPORTANT: js-controller 2.0 is required at least now!
 * (Apollon77) ignore self signed ssl certificates
+* (Apollon77) make sure object changes do not block further updates of values
+* (Apollon77) Add Sentry to get crash reports
 
 ### 1.0.7 (2018-10-08)
 * (bluefox) Comma will be replaced automatically by point for the offset and for the factor
@@ -139,3 +148,26 @@ Values can have quality codes:
 
 ### 0.0.1 (2017-01-16)
 * (bluefox) initial commit
+
+## License
+The MIT License (MIT)
+
+Copyright (c) 2017-2022 bluefox <dogafox@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

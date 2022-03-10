@@ -3,43 +3,64 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.odl/README.md
 title: ioBroker.odl
-hash: Jts9Oc6Ce70T3TKN1f7AohQAa4ZawDryzULKAbAkGsY=
+hash: yPhHMYXGikwqZ75sE9VA54QX5UHg/aPVatzyW8G74Fg=
 ---
 ![Logo](../../../en/adapterref/iobroker.odl/admin/odl.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.odl.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.odl.svg)
-![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/odl-installed.svg)
+![Anzahl der Installationen (neueste)](https://iobroker.live/badges/odl-installed.svg)
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/odl-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/crycode-de/iobroker.odl.svg)
 ![NPM](https://nodei.co/npm/iobroker.odl.png?downloads=true)
 
 # IoBroker.odl
-** Tests: ** ![Testen und freigeben](https://github.com/crycode-de/iobroker.odl/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und freigeben](https://github.com/crycode-de/iobroker.odl/workflows/Test%20and%20Release/badge.svg)
 
 ## ODL-Adapter für ioBroker
-Dieser Adapter integriert die ODL-Werte (Ortsdosisleistung / Ambient Dose Rate) der angegebenen Messpunkte der deutschen [Bundesamt für Strahlenschutz (BfS)](https://www.bfs.de/) in ioBroker.
+Dieser Adapter integriert die ODL (Ortsdosisleistung / Ambient Dose Rate) Werte von festgelegten Messstellen der deutschen [Bundesamt für Strahlenschutz (BfS)](https://www.bfs.de/) in ioBroker.
 
-Weitere Informationen zur Umgebungsdosis in Deutschland finden Sie unter https://odlinfo.bfs.de/.
-
----
-
-Dieser Adapter hat die ODL (Ortsdosisleistung) Messwerte von arbeits Messstellen des [Bundesamtes für Strahlenschutz (BfS)](https://www.bfs.de/) in ioBroker.
-
-Das bundesweite Messnetz des BfS wird rund 1800 ortsfeste Messstellen, die permanente sterben vor Ort aktuelle Gamma-Umweltradiowirkung (Ortsdosisleistung) gehört und aufzeichnen. Die getroffenen Messdaten werden vom BfS erfahren, gehörtert und sehen unter derDatenlizenz Deutschland zur Verfügung gestellt.
-
-Für weitere Informationen zur ODL siehe https://odlinfo.bfs.de/.
-
-Dieser Adapter läd die neuen und historischen 1-Stunden-Mittelwerte der Messdaten direkt über einen Web Feature Service (WFS) des [Geoportals des BfS](https://www.imis.bfs.de/geoportal/). Das BfS ist Urheber der vom Adapter Verantwortlichen Daten.
-Wird ein aktivierter History-Adapter (geschichte, influxdb oder sql) erkannt, dann werden werdenfälle in der Historie fehlende Datenpunkte durch den Adapter erhalten
-
-Die neuen Messdaten werden von dem Adapter standardmäßig im Stundentaktschauen. Ein Aktualer Aktualisierungsintervall ist am meisten nicht erledigt, da die zu Grundeinstellungen Messdaten auf dem BfS-Server werden.
+Weitere Informationen zur Ortsdosisleistung in Deutschland finden Sie unter https://odlinfo.bfs.de/.
 
 ---
 
-** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+This Adapter integriert sterben ODL (Ortsdosisleistung) Messwerte von selected Messstellen des [Bundesamt für Strahlenschutz (BfS)](https://www.bfs.de/) in ioBroker.
+
+Das bundesweite Messnetz des BfS umfasst rund 1700 ortsfeste Messstellen, die permanent die vor Ort aktuelle Gamma-Umweltradioaktivität (Ortsdosisleistung) erfassen und aufzeichnen. Die gewonnenen Messdaten werden vom BfS gesammelt, ausgewertet und öffentlich unter der _Datenlizenz Deutschland_ zur Verfügung gestellt.
+
+Weitere Informationen zur ODL finden Sie unter https://odlinfo.bfs.de/.
+
+This Adapter läd die aktuellen und historischen 1-Stunden-Mittelwerte der Messdaten direkt über einen Web Feature Service (WFS) des [Geoportale des BfS](https://www.imis.bfs.de/geoportal/). Das BfS ist Urheber der vom Adapter verwendeten Daten.
+Wird ein aktivierter History-Adapter (history, influxdb oder sql) erkannt, dann werden gegebenenfalls in der Historie fehlende Datenpunkte durch den Adapter automatisch nachgetragen, sodass sich vollständige Zeitreihen ergeben.
+
+Die aktuellen Messdaten werden von dem Adapter standardmäßig im Stundentakt aktualisiert. Ein geringerer Aktualisierungsintervall ist meist nicht sinnvoll, da die zu Grunde liegenden Messdaten auf dem BfS-Server (abhängig von der Messstelle) geringfügig aktualisiert werden.
+
+---
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Changelog
+
+### 1.2.0 (Pending)
+
+* (crycode-de) Randomize adapter schedule between minute 15 and 45 on first start
+* (crycode-de) Delay execution between 0 and 60 seconds for scheduled starts
+* (crycode-de) Replaced `request` with `axios`
+* (crycode-de) Updated dependencies
+* (crycode-de) Use inline sourcemaps for better debugging
+* (crycode-de) Require node >=12
+
+### 1.1.4 (2021-01-16)
+* (crycode-de) Updated BfS logo
+* (crycode-de) Updated dependencies
+
+### 1.1.3 (2020-12-31)
+* (crycode-de) Fixed issue when log is not available at startup timeout
+
+### 1.1.2 (2020-12-23)
+* (crycode-de) Fix objects parameters for objects created before v1.1.1
+
+### 1.1.1 (2020-12-23)
+* (crycode-de) Fixed issue creating odl state object
 
 ### 1.1.0 (2020-12-21)
 * (crycode-de) Added Sentry error reporting
@@ -70,7 +91,7 @@ Die neuen Messdaten werden von dem Adapter standardmäßig im Stundentaktschauen
 
 ## License
 
-Copyright (c) 2019-2020 Peter Müller <peter@crycode.de>
+Copyright (c) 2019-2022 Peter Müller <peter@crycode.de>
 
 Data (c) [German Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/), [Data licence Germany – attribution – Version 2.0](http://www.govdata.de/dl-de/by-2-0)
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: 4+DnDllALH8CcqihFgOVDMG83D43CNMU9TNXP3FJNzA=
+hash: IBSVsCJbHr/y4tneh9GPQCJGpFDXuk3TzTV+UHxZB3E=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -31,8 +31,12 @@ Schalter, Slider, Tabellen, Regler, Checkboxen, Radiobuttons и многое д�
 
 ![Форшау Диджитал Урен](https://resources.inventwo.com/github/inventwo/preview_clocks_digital.png)
 
+Палитра цветов [Дополнительная информация](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Colorpicker)
+
+![Форшау Colorpicker](https://resources.inventwo.com/github/inventwo/Preview_Colorpicker.png)
+
 ###### ..аб v 2.0.0
-<table><tr><td><center><b>Универсальный<br></b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td><td><center> <b>Мульти<br></b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td><td><center> <b>Изображение<br></b><br><img src="widgets/vis-inventwo/img/Image.png"></td><td><center> <b>Таблица<br></b> <br><img src="widgets/vis-inventwo/img/Table.png"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>Список<br></b><br><img src="widgets/vis-inventwo/img/List.png"></td><td><center> <b>Шатер<br></b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td><td><center> <b>Переключатель<br></b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td><td><center> <b>Слайдер<br> вертикальный</b> <br><img src="widgets/vis-inventwo/img/Slider2.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Слайдер<br> горизонтальный</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td><td><center> <b>Цветслайдер<br> горизонтальный</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td><td><center> <b>Цветслайдер<br> горизонтальный</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td><td><center> <b>Переключить переключатель<br></b> <br><img src="widgets/vis-inventwo/img/Toggle.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Основной переключатель<br></b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td><td><center> <b>Флажок/<br> Переключатель</b><br><img src="widgets/vis-inventwo/img/Check.gif"></td></tr></table>
+<table><tr><td><center><b>Универсальный<br></b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td><td><center> <b>Мульти<br></b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td><td><center> <b>Изображение<br></b><br><img src="widgets/vis-inventwo/img/Image.png"></td><td><center> <b>Стол<br></b> <br><img src="widgets/vis-inventwo/img/Table.png"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>Список<br></b><br><img src="widgets/vis-inventwo/img/List.png"></td><td><center> <b>Шатер<br></b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td><td><center> <b>Переключатель<br></b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td><td><center> <b>Слайдер<br> вертикальный</b> <br><img src="widgets/vis-inventwo/img/Slider2.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Слайдер<br> горизонтальный</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td><td><center> <b>Цветслайдер<br> горизонтальный</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td><td><center> <b>Цветслайдер<br> горизонтальный</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td><td><center> <b>Переключить переключатель<br></b> <br><img src="widgets/vis-inventwo/img/Toggle.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Основной переключатель<br></b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td><td><center> <b>Флажок/<br> Переключатель</b><br><img src="widgets/vis-inventwo/img/Check.gif"></td><td><center> <b>Палитра цветов<br></b><br><img src="widgets/vis-inventwo/img/Colorpicker.png"></td></tr></table>
 
 Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit befinden sich in unserem Адаптер NUR die reinen Schaltflächen (siehe oben). Uhr und Wetter stammen aus anderen Adaptern und müssen ggf. zusätzlich installiert werden.
 
@@ -49,6 +53,9 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 [![Расход](http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
+
+## 3.3.0
+- Новый виджет: конфигуратор Colorpicker для HEX, RGB, HSL, HSV и CIE/XY на основе [iro.js] (https://iro.js.org/)
 
 ## 3.2.8
 - Radiobutton-List: Mehrzeilige/Mehrspaltige Darstellung möglich [#393](https://github.com/inventwo/ioBroker.vis-inventwo/issues/393)
@@ -214,7 +221,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Проблема с Bildgröße im Image-Widget behoben
 
 ## 2.7.7
-- Проблема мит дер Bildgröße behoben
+- Проблема с Bildgröße behoben
 - Проблема с дем Farbregler behoben, dass der Wert beim loslassen nicht gespeichert wurde
 
 ## 2.7.6
@@ -238,7 +245,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 ## 2.7.2
 - Фелер в Radiobutton mit Bildfarbe behoben
-- Fehler behoben: Doppeltes klicken bei State mit Verweildauer
+- Fehler behoben: Двойные клики Bei State mit Verweildauer
 - Hovereffect для кнопок eingefügt
 - Проблема с анализом слайдера.
 - Слайдер Text anhängen möglich
@@ -342,7 +349,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 ## 2.2.0
 - Datenpunktwerte werden jetzt bei allen Widgets im Editor angezigt
 - Новый виджет: бегущая строка (Laufschrift)
-- Универсальное и мультигосударственное Verweildauer hinzugefügt
+- Universal und Multi State Verweildauer hinzugefügt
 - List Widget Abstand zwischen den Einträgen kann eingestell werden
 
 ## 2.1.0
@@ -354,7 +361,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Widget-Untertitel behoben
 
 ## 2.0.0
-- Переключатель, кнопка, навигация и фоновый виджет (необходимо использовать виджет) с помощью универсального виджета -> универсального виджета.
+- Переключатель, кнопка, навигационный и фоновый виджет (необходимо использовать виджет) с помощью универсального виджета -> универсального виджета.
 - Multi Widget -> wie das Universal, nur dass hier auf mehrere Datenpunkte und Werte geprüft werden kann (Ähnlich der Signalbild Funktion)
 - Image Widget kann nun auf Datenpunkt prüfen
 - Радиокнопки hinzugefügt
@@ -384,7 +391,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Исправлена ошибка
 
 ### 1.3.1
-- Изменено цветовое поведение кнопки навигации.
+- Изменено поведение цвета кнопки навигации.
 - Добавлены новые иконки
 
 ### 1.3.0

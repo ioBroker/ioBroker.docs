@@ -10,11 +10,13 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: wqbZyoFW41bl995eiA+q9nvd+eCMqHKTv2XByoWQWj4=
+hash: aTYwR68R4eY5dXYLeHgdlUJrMnSoz0zuuOcbWfrgxhg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.octoprint/../../admin/octoprint.png)
 
 # IoBroker.octoprint
+**Протестировано с [Октопринт](https://github.com/OctoPrint/OctoPrint/releases) 1.7.3**
+
 ## Функции
 ### Информация
 - Получить информацию о версии
@@ -28,7 +30,7 @@ hash: wqbZyoFW41bl995eiA+q9nvd+eCMqHKTv2XByoWQWj4=
 - Выдавливание/Втягивание (когда "работает")
 
 ### Команды
-- Принтер: подключить, отключить и домой
+- Принтер: подключи, отключи и домой
 - Работа: запуск, пауза, возобновление, отмена, перезапуск
 - SD-карта: инициализация, обновление, выпуск
 - Пользовательские команды принтера
@@ -37,11 +39,11 @@ hash: wqbZyoFW41bl995eiA+q9nvd+eCMqHKTv2XByoWQWj4=
 - Выберите файл или распечатайте его
 
 ### Поддерживаемые плагины
-- [Отображение хода выполнения слоя] (https://github.com/OllisGit/OctoPrint-DisplayLayerProgress) - протестировано с версией 1.27.2 (требуется **адаптер версии 2.1.0** или новее)
+- [Отображение хода выполнения слоя] (https://github.com/OllisGit/OctoPrint-DisplayLayerProgress) - протестировано с версией 1.28.0 (требуется **адаптер версии 2.1.0** или новее)
 - [Slicer Thumbnails] (https://github.com/jneilliii/OctoPrint-PrusaSlicerThumbnails) - протестировано с версией 1.0.0 (требуется **адаптер версии 2.2.0** или выше)
 
 ## Важный!
-НЕ перезапускайте свой экземпляр OctoPrint (или любой другой экземпляр) с таким кодом:
+НЕ перезапускайте свой экземпляр OctoPrint (или любой другой экземпляр) с помощью такого кода:
 
 ```javascript
 var obj = getObject('system.adapter.octoprint.0');
@@ -59,9 +61,18 @@ setObject('system.adapter.octoprint.0', obj);
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.2.0 (2022-03-07)
+
+Tested with OctoPrint 1.7.3
+
+* (klein0r) Added print times as readable states (seconds to string)
+* (klein0r) Added formatted date when print job will finish
+* (klein0r) Added fan speed and feedrate from plugin Display Layer Progress
+
 ### 3.1.0 (2022-02-24)
 
 * (klein0r) Calculate date/time when print will be finished
+* (klein0r) Renamed ``printjob.progress.printtime_left`` to ``printjob.progress.printtimeLeft`` **(BREAKING CHANGE - CHECK YOUR SCRIPTS AND VIS)**
 
 ### 3.0.1 (2022-02-12)
 

@@ -11,6 +11,8 @@ BADGE-NPM: https://nodei.co/npm/iobroker.octoprint.png?downloads=true
 
 # ioBroker.octoprint
 
+**Tested with [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.7.3**
+
 ## Features
 
 ### Information
@@ -38,7 +40,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.octoprint.png?downloads=true
 
 ### Supported Plugins
 
-- [Display Layer Progress](https://github.com/OllisGit/OctoPrint-DisplayLayerProgress) - tested with version 1.27.2 (requires **adapter version 2.1.0** or later)
+- [Display Layer Progress](https://github.com/OllisGit/OctoPrint-DisplayLayerProgress) - tested with version 1.28.0 (requires **adapter version 2.1.0** or later)
 - [Slicer Thumbnails](https://github.com/jneilliii/OctoPrint-PrusaSlicerThumbnails) - tested with version 1.0.0 (requires **adapter version 2.2.0** or later)
 
 ## Important!
@@ -61,9 +63,13 @@ Please use state `system.adapter.octoprint.0.alive` to stop/start the instance.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.2.0 (2022-03-07)
+
+Tested with OctoPrint 1.7.3
 
 * (klein0r) Added print times as readable states (seconds to string)
+* (klein0r) Added formatted date when print job will finish
+* (klein0r) Added fan speed and feedrate from plugin Display Layer Progress
 
 ### 3.1.0 (2022-02-24)
 

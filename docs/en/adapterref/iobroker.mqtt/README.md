@@ -804,6 +804,10 @@ control (see [example above](http://www.iobroker.net/?page_id=6435&lang=en#Appli
 Congratulations! Now you can control the system ioBroker and receive data via a cloud service!
 
 ## Changelog
+### 2.7.0 (2022-03-09)
+* (Apollon77) Prevent Client or server to overwrite the own info.connection state
+* (Apollon77) replace # and + characters by _ when publishing a value because these characters are forbidden when publishing for most brokers
+
 ### 2.6.2 (2022-03-03)
 * (Apollon77) If datatypes of objects change during an adapter run, adjust datatype of mqtt.X.* objects to "mixed" to prevent issues
 

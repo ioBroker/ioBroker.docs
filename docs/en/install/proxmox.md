@@ -7,7 +7,7 @@ lastChanged: 15.02.2022
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/proxmox.md
-hash: f59N5O3KKS/hmr7FJUOBYHgDkpmBM0bWd08IDuHTqHE=
+hash: MCIDdrJ8n1EqsF7J7/tQiurVhVXZOLmcBDob18o6YM0=
 ---
 # Proxmox
 ![proxmox logo](../../de/install/media/proxmox/Proxmox-logo-860.png)
@@ -35,7 +35,7 @@ First you need an ISO image, which can be downloaded from [Proxmox download page
 
 <details><summary>Proxmox Iso</summary>
 
-![proxmox-iso](../../de/install/media/proxmox/proxmox-iso)
+![proxmox-iso](../../de/install/media/proxmox/proxmox-iso.png)
 
 </details>
 
@@ -48,7 +48,7 @@ The system must be configured in the UEFI/BIOS so that it can be started from a 
 
 <details><summary>Installation menu</summary>
 
-![installation menu](../../de/install/media/proxmox/installationsmenü)
+![installation menu](../../de/install/media/proxmox/installationsmenü.png)
 
 </details>
 
@@ -56,7 +56,7 @@ The next step is to agree to the terms of use (EULA).
 
 <details><summary>owl</summary>
 
-![owl](../../de/install/media/proxmox/eula)
+![owl](../../de/install/media/proxmox/eula.png)
 
 </details>
 
@@ -64,7 +64,7 @@ The next step is to choose the hard drive on which Proxmox is to be installed. I
 
 <details><summary>Selection of the hard disk</summary>
 
-![disk selection](../../de/install/media/proxmox/festplattenauswahl)
+![disk selection](../../de/install/media/proxmox/festplattenauswahl.png)
 
 </details>
 
@@ -72,7 +72,7 @@ With the **Button Options** you can also specify other parameters for the instal
 
 <details><summary>Advanced hard disk options</summary>
 
-![harddisk-options](../../de/install/media/proxmox/harddisk-options)
+![harddisk-options](../../de/install/media/proxmox/harddisk-options.png)
 
 </details>
 
@@ -96,7 +96,7 @@ After selecting the hard drive for Proxmox, the localization options are queried
 
 <details><summary>localization</summary>
 
-![location](../../de/install/media/proxmox/location)
+![location](../../de/install/media/proxmox/location.png)
 
 </details>
 
@@ -104,7 +104,7 @@ The password of the root user is then entered. An e-mail address is also request
 
 <details><summary>password and email</summary>
 
-![password](../../de/install/media/proxmox/password)
+![password](../../de/install/media/proxmox/password.png)
 
 </details>
 
@@ -112,7 +112,7 @@ The next step of the installer deals with the network settings. A static IP addr
 
 <details><summary>network</summary>
 
-![network](../../de/install/media/proxmox/network)
+![network](../../de/install/media/proxmox/network.png)
 
 </details>
 
@@ -120,7 +120,7 @@ At the end a summary of the installation is displayed:
 
 <details><summary>Summary</summary>
 
-![Summary](../../de/install/media/proxmox/zusammenfassung)
+![Summary](../../de/install/media/proxmox/zusammenfassung.png)
 
 </details>
 
@@ -128,7 +128,7 @@ The system is installed by checking the settings and clicking on Install.
 
 <details><summary>installation</summary>
 
-![installation](../../de/install/media/proxmox/installation)
+![installation](../../de/install/media/proxmox/installation.png)
 
 </details>
 
@@ -138,15 +138,15 @@ Then you see the terminal. The instructions are already displayed here on how th
 
 <details><summary>console</summary>
 
-![console](../../de/install/media/proxmox/konsole)
+![console](../../de/install/media/proxmox/konsole.png)
 
 </details>
 
-Now continue in the browser (example https://10.1.1.89:8006). First, however, a warning is displayed. This is due to the fact that a self-signed certificate was generated during installation, which of course is not known to the browser. You can safely ignore this message at this point - the connection is encrypted via HTTPS in any case. The message itself depends on the browser. In this example, click **Advanced** and then click **Continue to 10.1.1.89(unsafe)**
+Now continue in the browser (example https://10.1.1.89:8006). First, however, a warning is displayed. This is due to the fact that a self-signed certificate was generated during installation, which of course is not known to the browser. You can safely ignore this message at this point - the connection is encrypted via HTTPS in any case. The message itself is browser dependent. In this example, click **Advanced** and then click **Continue to 10.1.1.89(unsafe)**
 
 <details><summary>privacy error</summary>
 
-![privacy error](../../de/install/media/proxmox/datenschutzfehler)
+![privacy error](../../de/install/media/proxmox/datenschutzfehler.png)
 
 </details>
 
@@ -154,7 +154,7 @@ The login then takes place with the user root and the password selected during i
 
 <details><summary>Sign up</summary>
 
-![Sign up](../../de/install/media/proxmox/anmeldung)
+![Sign up](../../de/install/media/proxmox/anmeldung.png)
 
 </details>
 
@@ -162,7 +162,7 @@ Immediately after this login you will be greeted by a message that you do not ha
 
 <details><summary>subscription</summary>
 
-![subscription](../../de/install/media/proxmox/subskription)
+![subscription](../../de/install/media/proxmox/subskription.png)
 
 </details>
 
@@ -170,7 +170,7 @@ Now the Proxmox package sources have to be adjusted so that updates can be recei
 
 <details><summary>package sources</summary>
 
-![package sources](../../de/install/media/proxmox/paketquellen)
+![package sources](../../de/install/media/proxmox/paketquellen.png)
 
 </details>
 
@@ -178,7 +178,7 @@ To do this, the **Non-Subscription-Repository** is added to the package sources.
 
 <details><summary>Non Subscription</summary>
 
-![no subscription](../../de/install/media/proxmox/no-subscription)
+![no subscription](../../de/install/media/proxmox/no-subscription.png)
 
 </details>
 
@@ -188,7 +188,7 @@ The configuration of the repositories then looks like this:
 
 <details><summary>Enterprise Repository</summary>
 
-![enterprise](../../de/install/media/proxmox/enterprise)
+![enterprise](../../de/install/media/proxmox/enterprise.png)
 
 </details>
 
@@ -197,7 +197,7 @@ After the package sources have been changed, a first system update should be car
 
 <details><summary>updates</summary>
 
-![updates](../../de/install/media/proxmox/updates)
+![updates](../../de/install/media/proxmox/updates.png)
 
 </details>
 
@@ -208,7 +208,7 @@ The web console opens here and you can monitor the progress.
 
 <details><summary>web console</summary>
 
-![web console](../../de/install/media/proxmox/web-konsole)
+![web console](../../de/install/media/proxmox/web-konsole.png)
 
 </details>
 
@@ -222,17 +222,207 @@ In this respect, Proxmox is now complete in its basic configuration. If you want
 
 ---
 
-## Proxmox - ioBroker installation in a VM (Virtual Machine)
-?> ***This is a placeholder***.<br><br> Help ioBroker and expand this article. Please note the [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.
+## Proxmox - Creation of a virtual Qemu/KVM machine (VM) + ioBroker installation afterwards
+This example guide shows how to create a [VM](https://pve.proxmox.com/wiki/Qemu/KVM_Virtual_Machines) (debian11) and then install ioBroker in it.
 
-<details>
+It is of course possible to use Ubuntu instead of Debian, but make sure to use an Ubuntu Server **LTS Version**.
+
+For the sake of clarity, image descriptions and additional information can be opened.
+
+### 1 - Download ISO image
+First, a [ISO image](https://www.debian.org/distrib/)(64-bit PC Netinst-ISO) is required, which must be loaded into the root directory (local) in the basic installation (if no other drives have been created).
+
+To do this, go to local > ISO images. There are two options there.
+
+- The ISO, which was previously stored on the computer, can be loaded onto the Proxmox host via the **Upload** button.
+- **Download from URL** it is possible to upload the ISO directly to the host via URL. To do this, copy the link address of the 64-bit PC Netinst-ISO (right mouse button), insert the URL and click on **Query URL** to retrieve it. With a final click on **Download**, the ISO is now downloaded directly.
+
+<details><summary>Download ISO</summary>
+
+![vm-iso](../../de/install/media/proxmox/vm-iso.png)
+
+![vm-isourl](../../de/install/media/proxmox/vm-isourl.png)
 
 </details>
 
+### 2 - Create VM
+Clicking on the blue **Create VM** button opens a window in which the following settings must be made.
+
+- General: assignment of the hostname and password, ID is given (starts with 100), can be changed, but not later.
+- OS: Storage selection(local) and ISO image(debian-11-netinst.iso)
+- System: everything stays in the default setting, **check Qemu Agent**
+- Disks: Storage local-lvm, disk size 10GB (10-20GB should be sufficient, changing later is possible, but is not described further here).
+- CPU: Depends on how powerful the computer is (can also be adjusted at any time, VM must be restarted for this)
+- Memory: RAM size in MiB (can also be adjusted at any time, VM must be restarted for this)
+- Network: vmbr0, everything else stays as default
+- Confirm: Here you can see a summary again (check **Start after creation**) and then click on **Finish** to create the VM.
+
+<details><summary>Series of images Create VM</summary>
+
+![vm-general](../../de/install/media/proxmox/vm-allgemein.png)
+
+![vm-os](../../de/install/media/proxmox/vm-os.png)
+
+![vm system](../../de/install/media/proxmox/vm-system.png)
+
+![vm-disks](../../de/install/media/proxmox/vm-disks.png)
+
+![vm cpu](../../de/install/media/proxmox/vm-cpu.png)
+
+![vm storage](../../de/install/media/proxmox/vm-speicher.png)
+
+![vm network](../../de/install/media/proxmox/vm-netzwerk.png)
+
+![vm-confirm](../../de/install/media/proxmox/vm-bestätigen.png)
+
+</details>
+
+### 3 - Debian Install
+After the VM has been started, go to the VM console and start the **Install**.
+
+<details><summary>console</summary>
+
+![vm-install](../../de/install/media/proxmox/vm-install.png)
+
+</details>
+
+You will be guided through the installation and have to make some settings during this process. To use it, you need the tab, space and arrow keys. Due to the scope, various shots of the series of images can be found.
+
+<span style="color:red">**ATTENTION! - No root password may be assigned.**</span>
+
+<details><summary>Image series Debian Install</summary>
+
+![vm-1](../../de/install/media/proxmox/vm-1.png)
+
+![vm-2](../../de/install/media/proxmox/vm-2.png)
+
+![vm-3](../../de/install/media/proxmox/vm-3.png)
+
+![vm-4](../../de/install/media/proxmox/vm-4.png)
+
+![vm-5](../../de/install/media/proxmox/vm-5.png)
+
+![vm-6](../../de/install/media/proxmox/vm-6.png)
+
+![vm-7](../../de/install/media/proxmox/vm-7.png)
+
+![vm-8](../../de/install/media/proxmox/vm-8.png)
+
+![vm-9](../../de/install/media/proxmox/vm-9.png)
+
+![vm-10](../../de/install/media/proxmox/vm-10.png)
+
+![vm-11](../../de/install/media/proxmox/vm-11.png)
+
+![vm-12](../../de/install/media/proxmox/vm-12.png)
+
+![vm-13](../../de/install/media/proxmox/vm-13.png)
+
+![vm-14](../../de/install/media/proxmox/vm-14.png)
+
+![vm-15](../../de/install/media/proxmox/vm-15.png)
+
+![vm-16](../../de/install/media/proxmox/vm-16.png)
+
+![vm-17](../../de/install/media/proxmox/vm-17.png)
+
+![vm-18](../../de/install/media/proxmox/vm-18.png)
+
+![vm-19](../../de/install/media/proxmox/vm-19.png)
+
+![vm-20](../../de/install/media/proxmox/vm-20.png)
+
+![vm-21](../../de/install/media/proxmox/vm-21.png)
+
+![vm-22](../../de/install/media/proxmox/vm-22.png)
+
+![vm-23](../../de/install/media/proxmox/vm-23.png)
+
+![vm-24](../../de/install/media/proxmox/vm-24.png)
+
+![vm-25](../../de/install/media/proxmox/vm-25.png)
+
+![vm-26](../../de/install/media/proxmox/vm-26.png)
+
+</details>
+
+### 4 - Set up VM
+After the VM has been restarted, log in with the "Username" and "Password" assigned from the installation. Then with the command
+
+~~~ ip addr ~~~
+
+found the IP address. This is required to connect to the VM remotely via ssh, as in the next step.
+
+<details><summary>ip addr</summary>
+
+![vm-ipaddr](../../de/install/media/proxmox/vm-ipaddr.png)
+
+</details>
+
+The VM can now be accessed via ssh (e.g. Putty). Here you can also log in again with "user name" and "password".
+Then the network address can be changed from **dhcp** to **static**. (which is recommended for server operation)
+
+~~~ sudo nano /etc/network/interfaces ~~~
+
+<details><summary>network/interfaces</summary>
+
+![vm-nano](../../de/install/media/proxmox/vm-nano.png)
+
+![vm-dhcp](../../de/install/media/proxmox/vm-dhcp.png)
+
+![vm-static](../../de/install/media/proxmox/vm-statisch.png)
+
+</details>
+
+Changes in the editor are saved with the key combination CTRL + o , then ENTER, CTRL + x exits the editor.
+
+Changes to the IP only take effect after a restart of the VM. Before that, however, it is checked whether the Qemu Guest Agent is active using
+
+~~~ sudo systemctl status qemu-guest-agent ~~~
+
+<details><summary>Guest Agent</summary>
+
+![vm-qemuguest](../../de/install/media/proxmox/vm-qemuguest.png)
+
+</details>
+
+<span style="color:orange">**ATTENTION! - For Ubuntu installations, the Qemu Guest Agent must be installed and started..**</span>
+
+Commands for this:
+
+~~~ sudo apt-get install qemu-guest-agent sudo systemctl start qemu-guest-agent ~~~
+
+Furthermore, in order to be able to install iobroker, **curl** has to be installed afterwards.
+~~~ sudo apt install curl ~~~
+
+<details><summary>reinstall curl</summary>
+
+![vm curl](../../de/install/media/proxmox/vm-curl.png)
+
+</details>
+
+To pass through devices (USB) in a VM, select the VM > Hardware > Add > USB Devices > Vendor/Device ID. All connected devices are listed here.
+
+<details><summary>USB devices</summary>
+
+![vm-usb](../../de/install/media/proxmox/vm-usb.png)
+
+</details>
+
+In order for the VM to start automatically after a reboot of the computer (Proxmox), this must be activated in the VM options.
+
+<details><summary>boot option</summary>
+
+![vm-boot](../../de/install/media/proxmox/vm-booten.png)
+
+</details>
+
+This completes the installation and setup of the VM. Now the VM can be restarted and then ioBroker can be installed.
+
 ---
 
-## Proxmox - Create a [Linux Containers (LXC)](https://pve.proxmox.com/wiki/Linux_Container) + ioBroker installation afterwards
-This example guide shows how to create an LXC container (debian11) and then install ioBroker in it.
+## Proxmox - Creation of a Linux container (LXC) + ioBroker installation afterwards
+This example guide shows how to create a [LXC containers](https://pve.proxmox.com/wiki/Linux_Container) (debian11) and then install ioBroker in it.
 
 For the sake of clarity, image descriptions and additional information can be opened.
 
@@ -243,11 +433,11 @@ To do this, go to local > Container Templates. A click on **Templates** opens a 
 
 <details><summary>Download template</summary>
 
-![local](../../de/install/media/proxmox/local)
+![local](../../de/install/media/proxmox/local.png)
 
-![templates](../../de/install/media/proxmox/templates)
+![templates](../../de/install/media/proxmox/templates.png)
 
-![template-load](../../de/install/media/proxmox/template-laden)
+![template-load](../../de/install/media/proxmox/template-laden.png)
 
 </details>
 
@@ -258,32 +448,32 @@ A click on the blue button **Create CT** opens a window in which the following s
 - Template: Storage Selection(local) and Template(debian-11-standard)
 - Disks: Assignment of the disk size (do not be too generous, you can enlarge it at any time)
 - CPU: Depends on how powerful the computer is (can also be adjusted at any time)
-- Memory: Ram/Swap allocation (can be adjusted at any time, even during operation)
+- Memory: Ram/Swap assignment (can be adjusted at any time, even during operation)
 - Network: static IP/CIDR assignment, gateway, if no IPv6 is set up, this is set to SLAAC
 - DNS: usually nothing is changed (use values from the host)
-- Confirm: Here you can see a summary again, if all entries are correct, then click on **Finish**.
+- Confirm: Summary (tick **Start after creation**) then click on **Finish** to create the container.
 
 <details><summary>Image series Create CT</summary>
 
-![pve](../../de/install/media/proxmox/pve)
+![pve](../../de/install/media/proxmox/pve.png)
 
-![lxc-general](../../de/install/media/proxmox/lxc-allgemein)
+![lxc-general](../../de/install/media/proxmox/lxc-allgemein.png)
 
-![lxc-template](../../de/install/media/proxmox/lxc-template)
+![lxc-template](../../de/install/media/proxmox/lxc-template.png)
 
-![lxc disks](../../de/install/media/proxmox/lxc-disks)
+![lxc disks](../../de/install/media/proxmox/lxc-disks.png)
 
-![lxc cpu](../../de/install/media/proxmox/lxc-cpu)
+![lxc cpu](../../de/install/media/proxmox/lxc-cpu.png)
 
-![lxc memory](../../de/install/media/proxmox/lxc-speicher)
+![lxc memory](../../de/install/media/proxmox/lxc-speicher.png)
 
-![lxc network](../../de/install/media/proxmox/lxc-netzwerk)
+![lxc network](../../de/install/media/proxmox/lxc-netzwerk.png)
 
-![lxc-dns](../../de/install/media/proxmox/lxc-dns)
+![lxc-dns](../../de/install/media/proxmox/lxc-dns.png)
 
-![lxc-confirm](../../de/install/media/proxmox/lxc-bestätigen)
+![lxc-confirm](../../de/install/media/proxmox/lxc-bestätigen.png)
 
-![lxc-taskviewer](../../de/install/media/proxmox/lxc-taskviewer)
+![lxc-taskviewer](../../de/install/media/proxmox/lxc-taskviewer.png)
 
 </details>
 
@@ -292,7 +482,7 @@ Now that the container has been started, go to the console of the LXC
 
 <details><summary>console</summary>
 
-![lxc console](../../de/install/media/proxmox/lxc-konsole)
+![lxc console](../../de/install/media/proxmox/lxc-konsole.png)
 
 </details>
 
@@ -302,7 +492,7 @@ Here you first log in as root with the previously assigned password, which was a
 
 <details><summary>upgrade</summary>
 
-![lxc upgrade](../../de/install/media/proxmox/lxc-upgrade)
+![lxc upgrade](../../de/install/media/proxmox/lxc-upgrade.png)
 
 </details>
 
@@ -312,21 +502,21 @@ It is pointed out directly that the time zone still has to be set.
 
 <details><summary>time zone</summary>
 
-![lxc-tzdata](../../de/install/media/proxmox/lxc-tzdata)
+![lxc-tzdata](../../de/install/media/proxmox/lxc-tzdata.png)
 
-![lxc area](../../de/install/media/proxmox/lxc-area)
+![lxc area](../../de/install/media/proxmox/lxc-area.png)
 
-![lxc-timezone](../../de/install/media/proxmox/lxc-timezone)
+![lxc-timezone](../../de/install/media/proxmox/lxc-timezone.png)
 
 </details>
 
-Now **sudo** and **curl** will be installed. Sudo is required, as in the next step, to correctly create a user that will be used on the console in the future. Curl is needed to call the ioBroker installation script in the last step.
+Now **sudo** and **curl** will be installed. Sudo is required, as in the next step, to correctly create a user that will be used on the console in the future. Curl is necessary to call the ioBroker installation script in the last step.
 
 ~~~ apt install sudo curl ~~~
 
 <details><summary>reinstall</summary>
 
-![lxc-sudo](../../de/install/media/proxmox/lxc-sudo)
+![lxc-sudo](../../de/install/media/proxmox/lxc-sudo.png)
 
 </details>
 
@@ -336,7 +526,7 @@ Now create the future user. Replace "username" in that case. Password assignment
 
 <details><summary>Create users</summary>
 
-![lxc-adduser](../../de/install/media/proxmox/lxc-adduser)
+![lxc-adduser](../../de/install/media/proxmox/lxc-adduser.png)
 
 </details>
 
@@ -348,7 +538,15 @@ and then log in with the new user. iobroker can now be installed.
 
 <details><summary>log out and login as user</summary>
 
-![lxc user login](../../de/install/media/proxmox/lxc-useranmeldung)
+![lxc user login](../../de/install/media/proxmox/lxc-useranmeldung.png)
+
+</details>
+
+In order for the LXC to start automatically after a reboot of the computer (Proxmox), this must be activated in the container options.
+
+<details><summary>boot option</summary>
+
+![lxc boot](../../de/install/media/proxmox/lxc-booten.png)
 
 </details>
 
@@ -368,13 +566,13 @@ The installation steps are divided into 4 steps, which run through fully automat
 
 <details><summary>installers</summary>
 
-![iobroker installer](../../de/install/media/proxmox/iobroker-installer)
+![iobroker installer](../../de/install/media/proxmox/iobroker-installer.png)
 
-![iobroker-installer1](../../de/install/media/proxmox/iobroker-installer1)
+![iobroker-installer1](../../de/install/media/proxmox/iobroker-installer1.png)
 
-![iobroker-installer2](../../de/install/media/proxmox/iobroker-installer2)
+![iobroker-installer2](../../de/install/media/proxmox/iobroker-installer2.png)
 
-![iobroker-installer3](../../de/install/media/proxmox/iobroker-installer3)
+![iobroker-installer3](../../de/install/media/proxmox/iobroker-installer3.png)
 
 </details>
 
@@ -386,19 +584,19 @@ At the same time, this also means that ioBroker can now be called up in the brow
 
 <details><summary>Series of images ioBroker Assistant</summary>
 
-![iobroker setup](../../de/install/media/proxmox/iobroker-setup)
+![iobroker setup](../../de/install/media/proxmox/iobroker-setup.png)
 
-![iobroker-setup1](../../de/install/media/proxmox/iobroker-setup1)
+![iobroker-setup1](../../de/install/media/proxmox/iobroker-setup1.png)
 
-![iobroker-setup2](../../de/install/media/proxmox/iobroker-setup2)
+![iobroker-setup2](../../de/install/media/proxmox/iobroker-setup2.png)
 
-![iobroker-setup3](../../de/install/media/proxmox/iobroker-setup3)
+![iobroker-setup3](../../de/install/media/proxmox/iobroker-setup3.png)
 
-![iobroker-setup4](../../de/install/media/proxmox/iobroker-setup4)
+![iobroker-setup4](../../de/install/media/proxmox/iobroker-setup4.png)
 
-![iobroker-setup5](../../de/install/media/proxmox/iobroker-setup5)
+![iobroker-setup5](../../de/install/media/proxmox/iobroker-setup5.png)
 
-![iobroker-setup6](../../de/install/media/proxmox/iobroker-setup6)
+![iobroker-setup6](../../de/install/media/proxmox/iobroker-setup6.png)
 
 </details>
 
@@ -406,11 +604,11 @@ You can then search for devices and services. Required adapters/instances can be
 
 <details><summary>Image series device/service search</summary>
 
-![device search](../../de/install/media/proxmox/gerätesuche)
+![device search](../../de/install/media/proxmox/gerätesuche.png)
 
-![instances](../../de/install/media/proxmox/instanzen)
+![instances](../../de/install/media/proxmox/instanzen.png)
 
-![iobroker-done](../../de/install/media/proxmox/iobroker-fertig)
+![iobroker-done](../../de/install/media/proxmox/iobroker-fertig.png)
 
 </details>
 
@@ -423,7 +621,7 @@ This part of the guide explains step by step how to pass through a USB device (U
 
 With a VM, it is possible to pass on a USB device directly via the Proxmox web interface. With a Linux container, the configuration file of the lxc currently has to be edited manually for this.
 
-The instructions describe how to integrate a **Texas Instruments Inc. CC2531** Zigbee Stick, but the same steps can be used analogously for other Zigbee Sticks (ConBee, CC2652P etc.) or for other USB devices with the exception of USB network devices ( Bluetooth/Wlan) can be used.
+The instructions describe how to integrate a **Texas Instruments Inc. CC2531** Zigbee stick, but the same steps can be used analogously for other Zigbee sticks (ConBee, CC2652P etc.) or for other USB devices with the exception of USB network devices ( Bluetooth/Wlan) can be used.
 
 * Proxmox version 7.1 was used for this part of the instructions.
 
@@ -478,7 +676,7 @@ As a last step, the major device number of the ttyACM is output and noted with t
 
 >*If there is no output, check with "ls -l /dev/serial/by-id/" whether the USB device is integrated by the system as ttyUSB, if so replace all the following commands that refer to **ttyACM...* * obtain from **ttyUSB…** if there is no output it is not a USB CDC class device (serial communication) so all points to include from ttyACM can be ignored.*
 
-So we wrote down **three** values from the USB device that are needed for the integration into the configuration file of the lxc.
+So we wrote down **three** values from the USB device that are needed for the integration in the configuration file of the lxc.
 
 ![proxmoxlxc07](../../de/install/media/proxmox/proxmoxlxc07.PNG)
 

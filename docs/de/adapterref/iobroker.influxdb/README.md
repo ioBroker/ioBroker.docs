@@ -104,6 +104,9 @@ Wählt man in der Titelzeile unter Historie "mit" oder "influxdb.0" aus, werden
 Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 ## Changelog
+### 2.6.3 (2022-03-07)
+* (Apollon77) Fix potential crash cases (Sentry IOBROKER-INFLUXDB-4Q)
+
 ### 2.6.2 (2022-03-03)
 * (Apollon77) Correctly handle db names with hyphens for InfluxDB 1
 * (Apollon77) Fix getHistory for non boolean fields

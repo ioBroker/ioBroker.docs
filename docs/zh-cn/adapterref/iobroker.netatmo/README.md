@@ -3,51 +3,82 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.netatmo/README.md
 title: ioBroker.netatmo
-hash: wnL39RRsXHajzRiYCAIDRJ05Yhdq6qC6OgfCzBEEQEM=
+hash: SL5lZ9scvkpwCjRYSdXWbjlrZvTu6XwF2XF6+8Obl7Y=
 ---
 ![商标](../../../en/adapterref/iobroker.netatmo/admin/netatmo.png)
 
 ![安装数量](http://iobroker.live/badges/netatmo-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.netatmo.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.netatmo.svg)
-![新产品管理](https://nodei.co/npm/iobroker.netatmo.png?downloads=true)
+![新PM](https://nodei.co/npm/iobroker.netatmo.png?downloads=true)
 
 # IoBroker.netatmo
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+
 ioBroker 的 Netatmo 适配器
 
-＃＃ 安装
-只需在适配器设置中输入您的 Netatmo 用户名和密码
+## 安装和配置
+只需在适配器设置中输入您的 Netatmo 用户名和密码。
 
-您还可以使用 sendTo 命令将所有人员设置为离开（例如，如果用作警报系统）
+默认情况下，通用 API 密钥用于执行将更新间隔限制为 10 分钟的请求！
+
+要增加间隔或从 Welcome & Presence 获取实时更新，您只需从 NetAtmo 应用程序输入自己的 ID/秘密。
+为此，请转到以下 URL，使用您的 Netatmo 帐户登录并在 https://auth.netatmo.com/access/login?next_url=https%3A%2F%2Fdev.netatmo.com% 上填写请求的表格2Fapps%2Fcreateanapp ！
+
+请确保配置他们尊重 https://dev.netatmo.com/guideline#rate-limits 的限制（请记住，如果您不使用自己的 ID/秘密，所有用户也存在这些限制）
+
+##发送到支持
+您还可以使用 sendTo 命令将所有人设置为远离（例如，如果用作警报系统）
 
 ```
 sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: []});
 ```
 
-或者
+要么
 
 ```
 sendTo('netatmo.0', "setAway");
 ```
 
-将所有人员标记为离开所有摄像机
+将所有人标记为离开所有摄像机
 
-也可以将一个或多个特定人员标记为离开
+也可以将一个或多个特定的人标记为离开
 
 ```
 sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123123123123']});
 ```
 
-参数 homeId 是在“对象”选项卡中列在您的相机名称后面的字符串（可选，如果安装了多个相机），personId 是“已知”人员文件夹中的 ID
+参数 homeId 是“对象”选项卡中摄像机名称后面列出的字符串（可选，如果安装了多个摄像机），personId 是“已知”人员文件夹中的 id
 
-<!-- 下一版本的占位符（在行首）：
+<!-- 下一个版本的占位符（在行首）：
 
-### __工作进行中__ -->
+### __工作正在进行中__ -->
 
 ## Changelog
+### 1.5.1 (2022-03-09)
+* (Apollon77) Fix jsonconfig for Client secret
+
+### 1.5.0 (2022-03-08)
+* (kyuka-dom) Added support for netatmo carbon monoxide sensor.
+* (kyuka-dom) Added support for netatmo smoke alarm.
+* (foxriver76) prevent crashes if application limit reached
+* (Apollon77) Allow to specify own id/secret in all cases
+* (Apollon77/foxriver76) ensure that minimum polling interval of 10 minutes is respected if no individual ID/Secret is provided
+* (Apollon77) Several pother fixes and optimizations
+* (Apollon77) Add Sentry for crash reporting
+
+### 1.4.4 (2021-07-21)
+* (Apollon77) Fix typo that lead to a crash
+
+### 1.4.3 (2021-06-27)
+* (Apollon77) Fix typo to fix crash
+
+### 1.4.2 (2021-06-27)
+* (bluefox) Removed warnings about the type of states
+
 ### 1.4.0 (2021-06-24)
 * (bluefox) Added the support of admin5 
-* (bluefox) Removed warnings about the type of states  
+* (bluefox) Removed warnings about the type of states
 
 ### 1.3.3
 * (PArns) removed person history
@@ -160,4 +191,4 @@ sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123
 ## License
 MIT
 
-Copyright (c) 2016-2021 Patrick Arns <iobroker@patrick-arns.de>
+Copyright (c) 2016-2022 Patrick Arns <iobroker@patrick-arns.de>

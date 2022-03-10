@@ -3,28 +3,38 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.netatmo/README.md
 title: ioBroker.netatmo
-hash: wnL39RRsXHajzRiYCAIDRJ05Yhdq6qC6OgfCzBEEQEM=
+hash: SL5lZ9scvkpwCjRYSdXWbjlrZvTu6XwF2XF6+8Obl7Y=
 ---
 ![Логотип](../../../en/adapterref/iobroker.netatmo/admin/netatmo.png)
 
 ![Количество установок](http://iobroker.live/badges/netatmo-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.netatmo.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.netatmo.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.netatmo.svg)
 ![НПМ](https://nodei.co/npm/iobroker.netatmo.png?downloads=true)
 
 # IoBroker.netatmo
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+
 Адаптер Netatmo для ioBroker
 
-## Монтаж
-Просто введите свое имя пользователя и пароль Netatmo в настройках адаптера.
+## Установка и настройка
+Просто введите имя пользователя и пароль Netatmo в настройках адаптера.
 
-Вы также можете использовать команду sendTo, чтобы отключить всех людей (например, если они используются в качестве системы сигнализации).
+По умолчанию для выполнения запросов используется общий ключ API, который ограничивает интервал обновления до 10 минут!
+
+Чтобы увеличить интервал или получать оперативные обновления от приветствия и присутствия, детекторов CO и дыма, вам нужно всего лишь ввести собственный идентификатор / секрет из вашего приложения NetAtmo.
+Для этого перейдите по следующему URL-адресу, войдите в свою учетную запись Netatmo и заполните запрашиваемую форму на https://auth.netatmo.com/access/login?next_url=https%3A%2F%2Fdev.netatmo.com% 2Fapps%2Fcreateanapp !
+
+Убедитесь, что вы настроили свои лимиты так, чтобы они соответствовали https://dev.netatmo.com/guideline#rate-limits (и имейте в виду, что эти лимиты также существуют для ВСЕХ ПОЛЬЗОВАТЕЛЕЙ, если вы не используете собственный идентификатор/секрет)
+
+## Отправить в поддержку
+Вы также можете использовать команду sendTo, чтобы установить, что все люди находятся вдали (например, если они используются в качестве системы сигнализации).
 
 ```
 sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: []});
 ```
 
-или же
+или
 
 ```
 sendTo('netatmo.0', "setAway");
@@ -32,22 +42,43 @@ sendTo('netatmo.0', "setAway");
 
 пометить всех людей как отсутствующих для всех камер
 
-также можно отметить одного или нескольких конкретных людей как отсутствующих
+также можно пометить одного или нескольких конкретных людей как отсутствующих
 
 ```
 sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123123123123']});
 ```
 
-Параметр homeId - это строка, указанная за именем вашей камеры на вкладке «Объекты» (необязательно, если установлено несколько камер), personId - это идентификатор в папке «Известные» люди.
+Параметр homeId — это строка, указанная за именем вашей камеры на вкладке «Объекты» (необязательно, если установлено несколько камер), personId — это идентификатор в папке «Известные» люди.
 
-<! - Заполнитель для следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
 
 ## Changelog
+### 1.5.1 (2022-03-09)
+* (Apollon77) Fix jsonconfig for Client secret
+
+### 1.5.0 (2022-03-08)
+* (kyuka-dom) Added support for netatmo carbon monoxide sensor.
+* (kyuka-dom) Added support for netatmo smoke alarm.
+* (foxriver76) prevent crashes if application limit reached
+* (Apollon77) Allow to specify own id/secret in all cases
+* (Apollon77/foxriver76) ensure that minimum polling interval of 10 minutes is respected if no individual ID/Secret is provided
+* (Apollon77) Several pother fixes and optimizations
+* (Apollon77) Add Sentry for crash reporting
+
+### 1.4.4 (2021-07-21)
+* (Apollon77) Fix typo that lead to a crash
+
+### 1.4.3 (2021-06-27)
+* (Apollon77) Fix typo to fix crash
+
+### 1.4.2 (2021-06-27)
+* (bluefox) Removed warnings about the type of states
+
 ### 1.4.0 (2021-06-24)
 * (bluefox) Added the support of admin5 
-* (bluefox) Removed warnings about the type of states  
+* (bluefox) Removed warnings about the type of states
 
 ### 1.3.3
 * (PArns) removed person history
@@ -160,4 +191,4 @@ sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123
 ## License
 MIT
 
-Copyright (c) 2016-2021 Patrick Arns <iobroker@patrick-arns.de>
+Copyright (c) 2016-2022 Patrick Arns <iobroker@patrick-arns.de>

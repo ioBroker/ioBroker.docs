@@ -3,23 +3,22 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openweathermap/README.md
 title: ioBroker.openweathermap
-hash: rSdWpYSlF75wNrmlQtHFGfZozUb9JJK9guKYSyn4Q6o=
+hash: s5CWmMPsnKxv36nwXhF6OCP4IZJE39aUJhs2FpXSI58=
 ---
-![标识](../../../en/adapterref/iobroker.openweathermap/admin/openweathermap.png)
+![商标](../../../en/adapterref/iobroker.openweathermap/admin/openweathermap.png)
 
+![安装数量](http://iobroker.live/badges/openweathermap-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.openweathermap.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.openweathermap.svg)
-![稳定的](http://iobroker.live/badges/openweathermap-stable.svg)
-![已安装](http://iobroker.live/badges/openweathermap-installed.svg)
-![依赖状态](https://img.shields.io/david/ioBroker/ioBroker.openweathermap.svg)
-![已知漏洞](https://snyk.io/test/github/ioBroker/ioBroker.openweathermap/badge.svg)
-![测试](https://travis-ci.org/ioBroker/ioBroker.openweathermap.svg?branch=master)
-![新产品管理](https://nodei.co/npm/iobroker.openweathermap.png?downloads=true)
 
 # IoBroker.openweathermap
-从 [https://openweathermap.org/](openweathermap.org) 获取 5 天天气预报
+![测试和发布](https://github.com/ioBroker/ioBroker.openweathermap/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/openweathermap/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-您需要一个 api 密钥来访问数据。注册后可以免费获得的api key [这里](https://home.openweathermap.org/api_keys)。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+
+从[https://openweathermap.org/](openweathermap.org)获取 5 天的天气预报
+
+您需要一个 api 密钥来访问数据。注册后可免费获得的api密钥[这里](https://home.openweathermap.org/api_keys)。
 
 ## Changelog
 
@@ -35,7 +34,7 @@ hash: rSdWpYSlF75wNrmlQtHFGfZozUb9JJK9guKYSyn4Q6o=
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2022 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

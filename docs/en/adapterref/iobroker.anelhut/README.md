@@ -51,6 +51,7 @@ Manufacturer: https://shop.anel.eu/
     -   Don't forget the port forwarding, if you like to use this adapter with a docker environment:
         -   77:77/udp #port forwarding first anel device
         -   78:78/udp #port forwarding second anel device
+    -   You can find a working docker-compose example for reference in this repository (examples/docker-compose.yml)
 
 ## Note
 
@@ -58,6 +59,14 @@ This adapter was tested with all Anel devices. Thanks to the anel developer :).
 Please report any issues.
 
 ## Changelog
+
+### 1.0.10
+
+-   (dan1-de) Implemented XOR User/Password encryption; improved logging/log levels;
+
+### 1.0.9
+
+-   (dan1-de) Corrected bug for Pro v3
 
 ### 1.0.8
 
