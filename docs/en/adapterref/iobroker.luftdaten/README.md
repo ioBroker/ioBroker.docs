@@ -53,10 +53,11 @@ Wait some seconds until the cronjob collects the data for the first time.
 
 ### **WORK IN PROGRESS**
 
-* (klein0r) Added local link to sensor map
 * (klein0r) Added documentation
 * (klein0r) Added hint for Admin 4 configuration
 * (klein0r) Updated state roles
+* (klein0r) Updated debug messages to provide more information
+* (klein0r) Updated dependencies
 
 ### 2.1.3 (2021-12-23)
 

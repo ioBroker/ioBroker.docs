@@ -1,14 +1,15 @@
 ![Logo](admin/philips-air.png)
 # ioBroker.philips-air
 
+![Number of Installations](http://iobroker.live/badges/philips-air-installed.svg)
+![Number of Installations](http://iobroker.live/badges/philips-air-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.philips-air.svg)](https://www.npmjs.com/package/iobroker.philips-air)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.philips-air.svg)](https://www.npmjs.com/package/iobroker.philips-air)
-![Number of Installations (latest)](http://iobroker.live/badges/philips-air-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/philips-air-stable.svg)
-[![Dependency Status](https://img.shields.io/david/iobroker-community-adapters/iobroker.philips-air.svg)](https://david-dm.org/iobroker-community-adapters/iobroker.philips-air)
-[![Known Vulnerabilities](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.philips-air/badge.svg)](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.philips-air)
 
-[![NPM](https://nodei.co/npm/iobroker.philips-air.png?downloads=true)](https://nodei.co/npm/iobroker.philips-air/)
+![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.philips-air/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/philips-air/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.philips-air.svg)](https://www.npmjs.com/package/iobroker.philips-air)
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Philips air purifier adapter for ioBroker
 Connects Philips air purifier with ioBroker.
@@ -23,14 +24,16 @@ It can happen, that some devices have not all variables and they will stay unfil
 
 ![Objects](img/objects.png)
 ## Changelog
+### 0.1.3 (2022-03-12)
+* (Apollon77) General updates and optimizations
 
 ### 0.1.1 (2020-10-14)
-* (ioBroker) initial release
+* (bluefox) initial release
 
 ## License
 MIT License
 
-Copyright (c) 2020 ioBroker <dogafox@gmail.com>
+Copyright (c) 2020-2022 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

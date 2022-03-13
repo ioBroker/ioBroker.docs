@@ -17,13 +17,15 @@ Fetches 5 days weather forecast from [https://openweathermap.org/](openweatherma
 You need an api key to access the data. The api key you can get for free after registration [here](https://home.openweathermap.org/api_keys).
 
 ## Changelog
+### 0.2.2 (2022-03-11)
+* (Apollon77) Fix crash case (Sentry IOBROKER-OPENWEATHERMAP-1)
 
-### 0.2.0
-
+### 0.2.1 (2022-03-10)
+* (Apollon77) Move schedule if default is used and adjust to once an hour to better spread the requests over time to prevent peaks; Additionally add a random delay in the start minute
 * (klein0r) updated everything
+* (Apollon77) updated unload/stop handling
 
 ### 0.1.0
-
 * (bluefox) first release
 
 ## License

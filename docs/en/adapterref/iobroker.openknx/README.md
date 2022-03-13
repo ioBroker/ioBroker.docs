@@ -306,8 +306,8 @@ Data is sent to Iobroker Sentry server hosted in Germany. If you have allowed io
 
 ## Changelog
 ### 0.1.23 (2022-)
-*
-*
+* bugfix: min max common object values only for number 
+* feature: change default regexp for alias
 
 ### 0.1.22 (2022-02-26)
 * bufix: repair reception error

@@ -1,14 +1,15 @@
 ![Logo](admin/xterm.png)
 # ioBroker.xterm
 
+![Number of Installations](http://iobroker.live/badges/xterm-installed.svg)
+![Number of Installations](http://iobroker.live/badges/xterm-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.xterm.svg)](https://www.npmjs.com/package/iobroker.xterm)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.xterm.svg)](https://www.npmjs.com/package/iobroker.xterm)
-![Number of Installations (latest)](http://iobroker.live/badges/xterm-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/xterm-stable.svg)
-[![Dependency Status](https://img.shields.io/david/bluefox <dogafox@gmail.com>/iobroker.xterm.svg)](https://david-dm.org/bluefox <dogafox@gmail.com>/iobroker.xterm)
-[![Known Vulnerabilities](https://snyk.io/test/github/bluefox <dogafox@gmail.com>/ioBroker.xterm/badge.svg)](https://snyk.io/test/github/bluefox <dogafox@gmail.com>/ioBroker.xterm)
 
-[![NPM](https://nodei.co/npm/iobroker.xterm.png?downloads=true)](https://nodei.co/npm/iobroker.xterm/)
+![Test and Release](https://github.com/ioBroker/ioBroker.xterm/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/xterm/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.xterm.svg)](https://www.npmjs.com/package/iobroker.xterm)
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## xterm adapter for ioBroker
 This adapter allows executing shell commands on ioBroker host. It replaces the `ioBroker.terminal` adapter.
@@ -38,11 +39,18 @@ Note: Some terminal commands with interactivity do not work. E.g. `nano` and som
 -->
 
 ## Changelog
+### 0.3.0 (2022-03-12)
+* (Apollon77) Prevent some warnings in js-controller 3+
+* (Apollon77) Add Fallback to simulated shell if bash/cmd.exe is selected by node-pty was not installed correctly!
+* (Apollon77) Rework info.connection status to show that server is connected also as green by using "none" to show that noone is connected
+* (Apollon77) Update all dependencies
+* (Apollon77) Add sentry for crash reporting
+
 ### 0.2.0 (2021-09-18)
 * (bluefox) Added the real terminal (bash or cmd.exe) to simulated one
 
 ### 0.1.0 (2021-09-18)
-* (bluefox) changed type of the connection state to "string" 
+* (bluefox) changed type of the connection state to "string"
 
 ### 0.0.3 (2021-09-16)
 * (ioBroker) first working release
@@ -53,7 +61,7 @@ Note: Some terminal commands with interactivity do not work. E.g. `nano` and som
 ## License
 MIT License
 
-Copyright (c) 2021 ioBroker <dogafox@gmail.com>
+Copyright (c) 2021-2022 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

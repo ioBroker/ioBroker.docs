@@ -134,11 +134,10 @@ hash: GmavLxm+klUaUCFI7o/yKJ8KJqOtoyN2RmgfJUQcojY=
 这些说明是根据我们的知识和信念创建的。
 
 ## Changelog
-### 1.3.9 (2022-01-19)
+### 1.4.0 (2022-03-10)
 * (drtsb) Added two new aqara devices and some missing icons
-
-### 1.3.8 (2021-09-13)
 * (VLGorskij) fixed the error messages for some states
+* (Apollon77) Catch some errors reported by Sentry and users
 
 ### 1.3.7 (2021-01-22)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-MIHOME-A)

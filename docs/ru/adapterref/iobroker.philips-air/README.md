@@ -3,22 +3,22 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.philips-air/README.md
 title: ioBroker.philips-air
-hash: zYfc3wAURPeQ5XU+DF2XdcWICEq5gT8ZMhvZO62Px8A=
+hash: 6a/jPRtdR/DfVuGhoLx+Fo57e3c0pWDg9gcKiVUJKmo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.philips-air/admin/philips-air.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.philips-air.svg)
+![Количество установок](http://iobroker.live/badges/philips-air-stable.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.philips-air.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.philips-air.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/philips-air-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/philips-air-stable.svg)
-![Статус зависимости](https://img.shields.io/david/iobroker-community-adapters/iobroker.philips-air.svg)
-![Известные уязвимости](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.philips-air/badge.svg)
-![НПМ](https://nodei.co/npm/iobroker.philips-air.png?downloads=true)
 
 # IoBroker.philips-air
+![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/ioBroker.philips-air/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/philips-air/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+
 ## Адаптер очистителя воздуха Philips для ioBroker
 Соединяет очиститель воздуха Philips с ioBroker.
-** Протестировано только с AC2729 **, но должно работать с новым очистителем, который обменивается данными через COAP с шифрованием.
+**Проверено только с AC2729**, но должно работать с новым очистителем, который обменивается данными через COAP с шифрованием.
 ![AC2729](../../../en/adapterref/iobroker.philips-air/img/device.png)
 
 [Ссылка на веб-сайт Philips](https://www.philips.de/c-m-ho/luftreiniger-und-luftbefeuchter/kombi)
@@ -30,14 +30,16 @@ hash: zYfc3wAURPeQ5XU+DF2XdcWICEq5gT8ZMhvZO62Px8A=
 ![Объекты](../../../en/adapterref/iobroker.philips-air/img/objects.png)
 
 ## Changelog
+### 0.1.3 (2022-03-12)
+* (Apollon77) General updates and optimizations
 
 ### 0.1.1 (2020-10-14)
-* (ioBroker) initial release
+* (bluefox) initial release
 
 ## License
 MIT License
 
-Copyright (c) 2020 ioBroker <dogafox@gmail.com>
+Copyright (c) 2020-2022 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

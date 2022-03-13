@@ -58,6 +58,7 @@ Zu den Batterie-Größen: Der Adapter funktioniert auch für Zelltemperaturen un
 * Better detection of battery type and inverter
 * SOC not only from normal data but from diagnosis-data, too. There we have one decimal place more
 * removed frequency limit for battery detail data
+* increased max count of temperature measurements for HVS to 64
 
 ### 1.3.0 (2021-11-06)
 * updated even more dependencies

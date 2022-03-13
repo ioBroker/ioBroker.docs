@@ -244,6 +244,11 @@ relation.
 -->
 
 ## Changelog
+### 2.0.13 (12.03.2022)
+* added ETSv5.7.7 import
+* fixed "unknown value" bug
+* some other small fixes
+
 ### 2.0.12 (25.02.2022)
 * fixed handling of undefined DP
 * updated datapointtypes

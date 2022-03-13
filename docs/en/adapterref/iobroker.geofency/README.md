@@ -2,11 +2,15 @@
 # ioBroker.geofency
 ====================
 
-![Number of Installations](http://iobroker.live/badges/geofency-installed.svg) ![Number of Installations](http://iobroker.live/badges/geofency-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.geofency.svg)](https://www.npmjs.com/package/iobroker.geofency)
+![Number of Installations](http://iobroker.live/badges/geofency-installed.svg)
+![Number of Installations](http://iobroker.live/badges/geofency-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.geofency.svg)](https://www.npmjs.com/package/iobroker.geofency)
+
+![Test and Release](https://github.com/ioBroker/ioBroker.geofency/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/geofency/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.geofency.svg)](https://www.npmjs.com/package/iobroker.geofency)
 
-[![NPM](https://nodei.co/npm/iobroker.geofency.png?downloads=true)](https://nodei.co/npm/iobroker.geofency/)
-
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 This Adapter is able to receive [geofency](http://www.geofency.com/) events when entering or leaving a defined area with your mobile device.
 All values of the geofency-webhook of the request are stored under the name of the location in ioBroker.
@@ -25,6 +29,12 @@ It is not recommended to expose this adapter to the public internet.
 Some kind of WAF/proxy/entry Server should be put before ioBroker. (e.g. nginx is nice and easy to configure).
 
 ## Changelog
+### 1.1.0 (2022-03-11)
+* IMPORTANT: Forbidden characters are now replaced by _ in generated State IDs. Because gave an error before should not be breaking 
+* (Apollon77) Add new json state with the json of the last incoming data
+* (Apollon77) Add new data channel under the user with all data fields from the incoming data as own states
+* (Apollon77) Add Sentry for crash-reporting
+* (Apollon77) Prevent some error cases reported
 
 ### 1.0.3 (2021-03-10)
 * (Apollon77) Fix port checks
@@ -86,7 +96,7 @@ Some kind of WAF/proxy/entry Server should be put before ioBroker. (e.g. nginx i
 
 The MIT License (MIT)
 
-Copyright (c) 2015 dschaedl <daniel.schaedler@gmail.com>
+Copyright (c) 2015-2022 dschaedl <daniel.schaedler@gmail.com>, iobroker-community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

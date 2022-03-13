@@ -73,6 +73,9 @@ http://forum.iobroker.org/viewtopic.php?f=20&t=2042&sid=a863d19838bc49439759bef8
 There is a still a problem with encoding. The addresses with "äüöß" will be shown wrong.
 
 ## Changelog
+### 3.4.0 (2022-03-10)
+* (Apollon77) If no official API-Key is used: Move schedule if default is used to better spread the requests over time to prevent peaks; Additionally add a random delay in the start minute
+* (Apollon77) Further optimizations and additional logging
 
 ### 3.3.1 (2021-06-28)
 * (Apollon77) Optimize for js-controller 3.3
@@ -102,34 +105,34 @@ There is a still a problem with encoding. The addresses with "äüöß" will be 
 ### 3.1.6 (2019-10-16)
 * (Bjoern3003) adjust to WU changes, now v3 API for hourly data
 * (Apollon77) run once after installation/update
- 
+
 ### 3.1.3
 * (Apollon77) text correction
- 
+
 ### 3.1.2 (2019-07-27)
 * (Apollon77) use new parameters to get decimal precision values
- 
+
 ### 3.1.1 (2019-07-14)
 * (Apollon77) add windDirection as string calculated based on degrees
- 
+
 ### 3.1.0 (2019-07-12)
 * (Apollon77) remove option for legacy API because disabled by WU
- 
+
 ### 3.0.14 (2019-07-11)
 * (Apollon77) optimize checking of pws station id
- 
+
 ### 3.0.13 (2019-07-10)
 * (Apollon77) Fix error in image url handling
- 
+
 ### 3.0.11/12 (2019-07-09)
 * (Apollon77) Re-Fetch PWS station key on Error 401
- 
+
 ### 3.0.10 (2019-05-27)
 * (Apollon77) Adopt logic to WU changes
- 
+
 ### 3.0.8 (2019-03-23)
 * (Apollon77) Add additional guidance when location is not found by WU
- 
+
 ### 3.0.7 (2019-03-22)
 * (Apollon77) implement to extract used "legacy" API keys out of WU website to allow restore of functionality for now
 * (Apollon77) Also extract API keys for newer API version from website to be usable together with real "PWS owner keys" in future
@@ -218,7 +221,7 @@ initial release with all basics to load WU-forecast data
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2021 dschaedl <daniel.schaedler@gmail.com>
+Copyright (c) 2015-2022 dschaedl <daniel.schaedler@gmail.com>, iobroker-community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

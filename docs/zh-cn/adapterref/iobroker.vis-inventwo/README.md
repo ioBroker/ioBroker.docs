@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: IBSVsCJbHr/y4tneh9GPQCJGpFDXuk3TzTV+UHxZB3E=
+hash: vuHfcwf2MtKeAZ+R8O4cy1ils57ilmTtTVHQ8CVPZGg=
 ---
 ![商标](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -53,6 +53,12 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 [![花费](http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
+
+## 3.3.2
+- 错误修正
+
+## 3.3.1
+- 错误修正
 
 ## 3.3.0
 - Neues Widget: Konfigurierbarer Colorpicker für HEX, RGB, HSL, HSV und CIE/XY basierend auf [iro.js](https://iro.js.org/)
@@ -438,7 +444,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 ...
 
 ### 0.1.0 (Erstveröffentlichung)
-- inventwo设计小工具
+- inventwo设计小部件
 
 ...
 

@@ -69,6 +69,9 @@ Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätz
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+* (Apollon77) Automatically create missing folder objects when states are created using createState
+
 ### 5.3.3 (2022-03-06)
 * (bluefox) Added async functions: createStateAsync, deleteStateAsync
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rfxcom/README.md
 title: ioBroker.rfxcom
-hash: sHn5GJunDJU2gCzbWU1P920vRVUfOaaV3gTF/zyrpN4=
+hash: 7nbcRLPBSS10VFNTYxZ596/gHlhYGkY1VLwYo0fOZNc=
 ---
 ![Logo](../../../en/adapterref/iobroker.rfxcom/admin/rfxcom.png)
 
@@ -11,35 +11,41 @@ hash: sHn5GJunDJU2gCzbWU1P920vRVUfOaaV3gTF/zyrpN4=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.rfxcom.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.rfxcom.svg)
 
-#ioBroker.rfxcom
+# IoBroker.rfxcom
 ![Testen und freigeben](https://github.com/ioBroker/ioBroker.rfxcom/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/rfxcom/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+
 Dieser Adapter kommuniziert mit [rfxcom](http://www.rfxcom.com).
-Wird zum Empfangen der Daten von Wettersensoren und drahtlosen Netzschaltern verwendet.
+Wird zum Empfangen der Daten von Wettersensoren und drahtlosen Leistungsschaltern verwendet.
 
-Lesen Sie die ausführliche Dokumentation zu RfxCom [Hier](http://www.rfxcom.com/WebRoot/StoreNL2/Shops/78165469/MediaGallery/Downloads/RFXtrx_User_Guide.pdf)
+Ausführliche Dokumentation zu RfxCom lesen [Hier](http://www.rfxcom.com/WebRoot/StoreNL2/Shops/78165469/MediaGallery/Downloads/RFXtrx_User_Guide.pdf)
 
-## Verwendung
-Um das Anlernen von Sensoren zu ermöglichen, müssen Sie den „Einschlussmodus“ aktivieren.
-Der Aufnahmemodus wird standardmäßig für 5 Minuten (300000 ms) aktiviert und nach 5 Minuten automatisch deaktiviert.
+## Verwendungszweck
+Um das Einlernen von Sensoren zu ermöglichen, müssen Sie den „Einschlussmodus“ aktivieren.
+Der Inklusionsmodus wird standardmäßig für 5 Minuten (300000 ms) aktiviert und nach 5 Minuten automatisch deaktiviert.
 
-Um den Inklusionsmodus für immer zu aktivieren, setzen Sie einfach "Inclusion Timeout" auf 0.
+Um den Inklusionsmodus für immer zu aktivieren, setzen Sie einfach "Inclusion timeout" auf 0.
 
 ## Paar
-Die Geräte erhalten bei jedem Batteriewechsel die neue Adresse.
+Bei jedem Batteriewechsel erhalten die Geräte die neue Adresse.
 
-Also muss nach dem Batteriewechsel neu gelernt werden.
+Es muss also nach dem Batteriewechsel neu eingelernt werden.
 
-Drücken Sie dazu kurz vor dem Einlegen des Akkus die Pair-Taste und das Gerät wird mit der neuen Adresse eingelernt.
+Drücken Sie dazu kurz vor dem Einlegen der Batterie die Pair-Taste und das Gerät wird mit der neuen Adresse angelernt.
 
 ## Machen
-**Momentan werden nur Somfy-, Curtain- und Lighting3-Geräte unterstützt.**
+**Im Moment werden nur Somfy-, Curtain- und Lighting3-Geräte unterstützt.**
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __ARBEITEN IN PROGRESS__ -->
+### __LAUFENDE ARBEIT__ -->
 
 ## Changelog
+
+### 2.0.2 (2021-11-10)
+* (bluefox) Fixed error by deleting of object
+
 ### 2.0.1 (2021-06-29)
 * (peterbaumert) update packages
 * (bluefox) Breaking change: no linux with 32 bit support

@@ -90,6 +90,9 @@ Sentry.io is a way for developers to get an overview about errors from their app
 When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to our own Sentry server hosted in germany. When you allowed iobroker GmbH to collect diagnostic data then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of this helps me to provide error free adapters that basically never crashs.  
 
 ## Changelog
+### 3.3.4 (2022-03-11)
+* (Apollon77) Restore functionality of Port list in Admin
+
 ### 3.3.3 (2022-02-21)
 * IMPORTANT: This version requires at least Node.js 12.17+ (excluding non LTS like 13.x)
 * (Apollon77) Prevent some crash cases
@@ -176,7 +179,7 @@ When the adapter crashes or an other Code error happens, this error message that
 ### 1.1.0 (31.01.2018)
 * Allow multiple queries for D0 and Serial-Bidirectional communication
 * a lot of bugfixing and Optimizations
-* Switch to Serialport 6.0.4 to hopefully get more stable (less/no SIGSEGV/SIGABRT ...)
+* Switch to SerialPort 6.0.4 to hopefully get more stable (less/no SIGSEGV/SIGABRT ...)
 
 ### 1.0.0 (25.08.2017)
 * Update smartmeter library and fix some timing issues
@@ -218,13 +221,6 @@ When the adapter crashes or an other Code error happens, this error message that
 ### 0.3.0 (11.02.2017)
 * We now should be quiet stable
 
-### 0.2.x
-* Public release of Adapter after forum Tests
-* remove all additional logging
-* enhance Adapter config screenxw
-* Add possibility to overwrite serial connections settings and also D0 Mode for devices that send a wrong identification
-* update smartmeter-obis library for memory optimizations
-
 ### 0.1.1
 * Update smartmeter-obis library to 0.2.5 to add Serial Timeout for Request/Response protocol
 
@@ -233,7 +229,6 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ### 0.0.1
 * Initial version for internal testing
-
 
 ## License
 

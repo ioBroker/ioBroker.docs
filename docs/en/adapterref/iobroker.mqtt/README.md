@@ -1,7 +1,7 @@
 ---
 BADGE-Number of Installations: http://iobroker.live/badges/mqtt-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.mqtt.svg
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.meross.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.mqtt.svg
 ---
 ![](MQTT)
 # MQTT Server and Client
@@ -804,6 +804,12 @@ control (see [example above](http://www.iobroker.net/?page_id=6435&lang=en#Appli
 Congratulations! Now you can control the system ioBroker and receive data via a cloud service!
 
 ## Changelog
+### 2.7.3 (2022-03-11)
+* (Apollon77) Further optimization of automatic folder creation
+
+### 2.7.2 (2022-03-11)
+* (Apollon77) Optimize the automatic folder creation and allow to automatically overwrite these objects when needed
+
 ### 2.7.0 (2022-03-09)
 * (Apollon77) Prevent Client or server to overwrite the own info.connection state
 * (Apollon77) replace # and + characters by _ when publishing a value because these characters are forbidden when publishing for most brokers

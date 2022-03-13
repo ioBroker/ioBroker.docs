@@ -3,80 +3,89 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.owntracks/README.md
 title: ioBroker.owntracks
-hash: 9p2xJZhQ25yVPI/EITvA+kfPkAnx8O6RuuvJkT6Sv6w=
+hash: IAemSdd1zL0l6vbLjHNYPc7c0Afbdkgbf1C+h7zOyXw=
 ---
 ![商标](../../../en/adapterref/iobroker.owntracks/admin/owntracks.png)
 
 ![安装数量](http://iobroker.live/badges/owntracks-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.owntracks.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.owntracks.svg)
-![NPM](https://nodei.co/npm/iobroker.owntracks.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.owntracks.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.owntracks.svg)
 
-＃ioBroker.owntracks
-[自己的曲目](http://owntracks.org/)是适用于Android和iOS的应用程序。
+# IoBroker.owntracks
+![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.owntracks/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/owntracks/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-App会将您的位置（设备的位置）连续发送到特定服务器。在我们的情况下，它将是ioBroker服务器。 MQTT协议将用于通信或ioBroker.cloud / ioBroker.iot适配器。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+
+[自己的曲目](http://owntracks.org/)是一款适用于安卓和iOS的应用程序。
+
+应用程序将您的位置（设备位置）连续发送到特定服务器。在我们的例子中，它将是 ioBroker 服务器。 MQTT 协议将用于通信或 ioBroker.cloud / ioBroker.iot 适配器。
 
 链接：
 
--Android：[https://play.google.com/store/apps/details?id=org.owntracks.android]（https://play.google.com/store/apps/details?id=org.owntracks .android）
--iOS：[https://itunes.apple.com/de/app/owntracks/id692424691?mt=8]（https://itunes.apple.com/de/app/owntracks/id692424691?mt=8）
+- 安卓：[https://play.google.com/store/apps/details?id=org.owntracks.android](https://play.google.com/store/apps/details?id=org.owntracks 。安卓）
+- iOS：[https://itunes.apple.com/de/app/owntracks/id692424691?mt=8](https://itunes.apple.com/de/app/owntracks/id692424691?mt=8)
 
-##安装说明
-###连接配置（使用MQTT服务器）
-OwnTracks适配器在MQTT服务器的端口1883（可配置）上启动，以从具有坐标的设备接收消息。
-问题在于该服务器必须可以从Internet进行访问。
-通常，必须配置路由器或防火墙以转发流量。
+## 设置说明
+### 连接配置（使用 MQTT 服务器）
+OwnTracks Adapter 在 MQTT 服务器的 1883 端口（可配置）上启动，以接收来自具有坐标的设备的消息。
+问题是该服务器必须可以从 Internet 访问。
+通常有一个路由器或防火墙，必须配置为转发流量。
 
-###应用和适配器配置
-必须分别在ioBroker适配器的Android / iOS应用中设置以下首选项：
+### 应用程序和适配器配置
+必须在 ioBroker 适配器中分别在 Android / iOS 应用程序中设置以下首选项：
 
--连接/模式-MQTT专用
--连接/主机/主机-系统或DynDNS域的IP地址。例如。 http://www.noip.com/让我们使用域名代替IP地址。
--连接/主机/端口-1883或路由器上的端口
--连接/主机/ WebSockets-否
--连接/标识/用户名-iobroker
--连接/标识/密码-通过适配器设置
--连接/标识/设备ID-设备或人员的名称。对于该设备，将创建状态。例如。如果deviceID为“标记”，则在首次联系后将创建以下状态：
+- 连接/模式 - MQTT 私有
+- 连接/主机/主机 - 您的系统或 DynDNS 域的 IP 地址。例如。 http://www.noip.com/ 允许使用域名而不是 IP 地址。
+- 连接/主机/端口 - 1883 或您路由器上的端口
+- 连接/主机/WebSockets - 错误
+- 连接/标识/用户名 - iobroker
+- 连接/标识/密码 - 来自适配器设置
+- 连接/标识/DeviceID - 设备或人的名称。对于此设备，将创建状态。例如。如果 deviceID 为“Mark”，则在第一次联系后将创建以下状态：
 
-    -owntracks.0.users.Mark.longitude
-    -owntracks.0.users.Mark.latitude
+    - owntracks.0.users.Mark.longitude
+    - owntracks.0.users.Mark.latitude
 
--连接/标识/ TrackerID-要在地图上写入的用户简称（最多2个字母）。
--连接/安全性/ TLS-关闭
--高级/加密密钥-可选，但建议：添加密码短语以进行加密
+- 连接/标识/TrackerID - 用户的短名称（最多 2 个字母）以将其写在地图上。
+- 连接/安全/TLS - 关闭
+- 高级/加密密钥 - 可选，但推荐：添加密码短语进行加密
 
-请确认自己的轨道通过抽屉中的“状态”条目连接到iobroker实例：
+请通过抽屉中的“状态”条目验证 owntracks 是否已连接到 iobroker 实例：
 
-![设定值](../../../en/adapterref/iobroker.owntracks/img/connection.jpg)
+![设置](../../../en/adapterref/iobroker.owntracks/img/connection.jpg)
 
 ＃＃＃ 重要的提示！
-**当收到特定的有效负载时，将生成ioBroker中的状态！这意味着ioBroker中的位置将在用户第一次离开或输入位置时生成。**您将在下面看到目标结构
+** ioBroker 中的状态将在收到特定的有效载荷时生成！！这意味着 ioBroker 中的位置将在用户第一次离开或进入该位置时生成。** 下面您将看到目标结构
 
-![设定值](../../../en/adapterref/iobroker.owntracks/img/structure.png)
+![设置](../../../en/adapterref/iobroker.owntracks/img/structure.png)
 
-###区域配置
-要在owntracks适配器中设置位置，您必须在owntracks Android / iOS应用中创建区域。
+### 区域配置
+要在 owntracks 适配器中设置位置，您必须在 owntracks Android / iOS 应用程序中创建区域。
 为此，请转到抽屉中的“区域”
 
-![设定值](../../../en/adapterref/iobroker.owntracks/img/regions1.jpg)
+![设置](../../../en/adapterref/iobroker.owntracks/img/regions1.jpg)
 
-通过单击右上角的加号（+）创建一个新区域
+通过单击右上角的加号 (+) 创建新区域
 
-![设定值](../../../en/adapterref/iobroker.owntracks/img/regions2.jpg)
+![设置](../../../en/adapterref/iobroker.owntracks/img/regions2.jpg)
 
-使用右上角的位置按钮可以检索当前位置，或者自己在“纬度和经度”中输入位置。此外，指定位置的半径。如果您共享位置，则当您输入/离开位置时，您的好友（请参阅Android / iOS应用的抽屉中的信息）会收到通知。
+使用右上角的位置按钮检索当前位置或自己输入纬度和经度。此外，指定位置的半径。如果您共享位置，您的朋友（请参阅 Android / iOS 应用程序的抽屉）会在您进入/离开位置时收到通知。
 
-![设定值](../../../en/adapterref/iobroker.owntracks/img/regions3.jpg)
+![设置](../../../en/adapterref/iobroker.owntracks/img/regions3.jpg)
 
-###图标设置（在ioBroker.owntracks适配器内）
-您可以为每个用户定义一个图标。只需通过拖放或鼠标单击上传图片即可。它将自动缩放为64x64。
+### 图标设置（在 ioBroker.owntracks 适配器中）
+您可以为每个用户定义一个图标。只需通过拖放上传或用鼠标单击您的图像。它将自动缩放为 64x64。
 
-该名称必须等于OwnTracks应用中的DeviceID。
+该名称必须与 OwnTracks 应用中的 DeviceID 相同。
 
-![设定值](../../../en/adapterref/iobroker.owntracks/img/settings1.png)
+![设置](../../../en/adapterref/iobroker.owntracks/img/settings1.png)
 
 ## Changelog
+### 1.0.1 (2022-03-12)
+* (Garfonso) fix roles for type detection
+* (Apollon77) Add Sentry for crash reporting
+
+### 1.0.0 (2020-12-06)
+* (Apollon77) respect "bind" configuration, also for IPv6
 
 ### 0.6.3 (2020-05-12)
 * (Apollon77) updated dependencies
@@ -114,7 +123,7 @@ OwnTracks适配器在MQTT服务器的端口1883（可配置）上启动，以从
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2020 bluefox<dogafox@gmail.com>
+Copyright (c) 2016-2022 bluefox<dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

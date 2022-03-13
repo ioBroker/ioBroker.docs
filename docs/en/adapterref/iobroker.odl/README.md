@@ -36,10 +36,18 @@ Die aktuellen Messdaten werden von dem Adapter standardmäßig im Stundentakt ak
 
 ## Changelog
 
-### 1.2.0 (Pending)
+### 2.0.0 (Pending)
 
-* (crycode-de) Randomize adapter schedule between minute 15 and 45 on first start
-* (crycode-de) Delay execution between 0 and 60 seconds for scheduled starts
+* (crycode-de) Use official data API from BfS
+* (crycode-de) **Breaking**: Use 9-digit identifiers instead of locality codes
+  * New object will be created for each location
+  * Migration from locality codes to identifiers is done on first start after adapter upgrade, but custom object settings (like history) have to be migrated manually
+* (crycode-de) **Breaking**: The `.odl` state is now named `.value`
+* (crycode-de) Added optional support for cosmic and terrestrial value components (disabled by default)
+* (crycode-de) Added `.status` state representing the location status given from BfS
+* (crycode-de) If an enabled history (_history_, _influxdb_, _sql_) for `.value`, `.valueCosmic` or `.valueTerrestrial` is found, the adapter tries to load the timeseries data from BfS for past 7 days.
+* (crycode-de) If the status of a location is not "in operation", the value states will be `null` with `q` set to `0x81` (general problem by sensor)
+* (crycode-de) Randomize adapter schedule between minute 15 and 45 and also using seconds on first start to better spread API calls
 * (crycode-de) Replaced `request` with `axios`
 * (crycode-de) Updated dependencies
 * (crycode-de) Use inline sourcemaps for better debugging

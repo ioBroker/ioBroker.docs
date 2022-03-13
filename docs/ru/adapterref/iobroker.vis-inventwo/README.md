@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: IBSVsCJbHr/y4tneh9GPQCJGpFDXuk3TzTV+UHxZB3E=
+hash: vuHfcwf2MtKeAZ+R8O4cy1ils57ilmTtTVHQ8CVPZGg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -53,6 +53,12 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 [![Расход](http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
+
+## 3.3.2
+- Исправлена ошибка
+
+## 3.3.1
+- Исправлена ошибка
 
 ## 3.3.0
 - Новый виджет: конфигуратор Colorpicker для HEX, RGB, HSL, HSV и CIE/XY на основе [iro.js] (https://iro.js.org/)
@@ -245,7 +251,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 ## 2.7.2
 - Фелер в Radiobutton mit Bildfarbe behoben
-- Fehler behoben: Двойные клики Bei State mit Verweildauer
+- Fehler behoben: Doppeltes klicken bei State mit Verweildauer
 - Hovereffect для кнопок eingefügt
 - Проблема с анализом слайдера.
 - Слайдер Text anhängen möglich
@@ -349,7 +355,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 ## 2.2.0
 - Datenpunktwerte werden jetzt bei allen Widgets im Editor angezigt
 - Новый виджет: бегущая строка (Laufschrift)
-- Universal und Multi State Verweildauer hinzugefügt
+- Универсальное и мультигосударственное Verweildauer hinzugefügt
 - List Widget Abstand zwischen den Einträgen kann eingestell werden
 
 ## 2.1.0
@@ -361,7 +367,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Widget-Untertitel behoben
 
 ## 2.0.0
-- Переключатель, кнопка, навигационный и фоновый виджет (необходимо использовать виджет) с помощью универсального виджета -> универсального виджета.
+- Переключатель, кнопка, навигация и фоновый виджет (необходимо использовать виджет) с помощью универсального виджета -> универсального виджета.
 - Multi Widget -> wie das Universal, nur dass hier auf mehrere Datenpunkte und Werte geprüft werden kann (Ähnlich der Signalbild Funktion)
 - Image Widget kann nun auf Datenpunkt prüfen
 - Радиокнопки hinzugefügt
@@ -391,7 +397,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Исправлена ошибка
 
 ### 1.3.1
-- Изменено поведение цвета кнопки навигации.
+- Изменено цветовое поведение кнопки навигации.
 - Добавлены новые иконки
 
 ### 1.3.0
@@ -422,7 +428,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Добавлен виджет слайдера
 - Добавлена возможность зеркального отображения
 - Добавлены новые иконки
-- Изменены виджеты кнопок для использования шрифта и параметров текста по умолчанию.
+- Изменены виджеты кнопок, чтобы использовать параметры шрифта и текста по умолчанию.
 
 ### 1.0.0
 - Фон виджета и непрозрачность содержимого, переключатель может быть изменен с логического на значение, изменены значки с белого на черный, добавлен бесшовный фон.

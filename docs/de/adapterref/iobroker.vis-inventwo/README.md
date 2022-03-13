@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: IBSVsCJbHr/y4tneh9GPQCJGpFDXuk3TzTV+UHxZB3E=
+hash: vuHfcwf2MtKeAZ+R8O4cy1ils57ilmTtTVHQ8CVPZGg=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -53,6 +53,12 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 [![Ausgaben](http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
+
+## 3.3.2
+- Bug-Fix
+
+## 3.3.1
+- Bug-Fix
 
 ## 3.3.0
 - Neues Widget: Konfigurierbarer Colorpicker für HEX, RGB, HSL, HSV und CIE/XY basierend auf [iro.js](https://iro.js.org/)
@@ -368,7 +374,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Werteliste hinzugefügt (Kann Liste aus einem Datenpunkt oder manuell eingetragenem Text erstellen)
 
 ## 1.3.8
-- Schiebereglerschritt auf Dezimal geändert
+- Schieberschritt auf Dezimal geändert
 - Problem mit numerischen Werten behoben
 
 ### 1.3.7
