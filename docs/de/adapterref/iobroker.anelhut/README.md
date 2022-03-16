@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.anelhut/README.md
 title: ioBroker.anelhut
-hash: zCcv67mMcDZEazbGRPY0dDNLQz1d4F9XSQcwNaI7ooE=
+hash: /VmtWU7XAgQsJ0sAfuhMVh06Ou9jdZhL6ypEUXTC8IU=
 ---
 ![Logo](../../../en/adapterref/iobroker.anelhut/admin/anelhut.png)
 
@@ -42,6 +42,7 @@ Hersteller: https://shop.anel.eu/
         - DeviceIP: IP-Adresse Ihres Gerätes (bitte keinen Hostnamen verwenden)
         - UDPSendPort: Geben Sie den Port ein, der im Webinterface Ihres Anel-Geräts angezeigt wird. Dies ist der Empfangsport aus Sicht des Endgerätes (Default: 75).
         - UDPRecievePort: Geben Sie den Port ein, der im Webinterface Ihres Anel-Geräts angezeigt wird. Dies ist der Sendeport aus Sicht des anel Gerätes (Default: 77).
+        - XOR-Benutzer und -Passwort: Standardmäßig deaktiviert. Für mehr Sicherheit können Sie die XOR-Benutzer- und Passwortverschlüsselung aktivieren. Nicht jedes Anel-Gerät unterstützt XOR-Benutzer und -Passwort. Bitte überprüfen Sie vor der Aktivierung dieser Funktion, ob Ihr Gerät dies unterstützt. Sie können dies in der erstellten Objektstruktur überprüfen (Gerät -> Allgemein -> XOR_USER_Passwort). Wenn der Wert wahr ist, wird XOR User & Password von Ihrem Gerät unterstützt.
 
 Wichtiger Hinweis: Wenn Sie mehrere Geräte steuern möchten, verwenden Sie bitte für jedes Gerät einen anderen Empfangsport.
 Sie können beispielsweise Port 77 für das erste Gerät und 78 für das zweite und 79 für das dritte usw. verwenden.
@@ -58,6 +59,10 @@ Sie können die Ports auf der Weboberfläche des Geräts ändern.
 ## Notiz
 Dieser Adapter wurde mit allen Anel-Geräten getestet. Danke an den anel-Entwickler :).
 Bitte melden Sie alle Probleme.
+
+## Bekannte Probleme
+### NET-PwrCtrl PRO
+Bitte verwenden Sie die neuste Firmware (4.2). Sie können es unter https://de.anel.eu/index.htm?src=support/hut/hut.htm herunterladen
 
 ## Changelog
 

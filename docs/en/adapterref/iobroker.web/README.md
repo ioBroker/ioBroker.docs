@@ -82,6 +82,9 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (Apollon77) Provide state and object changes for simple-api
+
 ### 4.2.0 (2022-02-21)
 * (bluefox) Updated ws to fix the flot editor
 

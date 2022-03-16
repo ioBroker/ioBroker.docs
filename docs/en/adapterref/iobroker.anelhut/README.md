@@ -40,6 +40,7 @@ Manufacturer: https://shop.anel.eu/
         -   DeviceIP: IP Adress of your device (please use no hostname)
         -   UDPSendPort: Insert the port which is shown in the webinterface of your Anel device. This is the recieve port from the view of the anel device (default: 75).
         -   UDPRecievePort: Insert the port which is shown in webinterface of your Anel device. This is the send port from the view of the anel device (default: 77).
+        -   XOR User & Password: Disabled by default. For more security you can enable XOR user and password encryption. Not every anel device supports XOR user & password. Please check before enabling this feature, if your device supports this. You can check this in the created object structure (device -> general -> XOR_USER_Password). If the value is true, XOR User & Password is supported by your device.
 
         Important note: If you want to controll multiple devices, please use a different recieve port for each device.
         For example you can use port 77 for the first device and 78 for the second and 79 for the third and so on.
@@ -57,6 +58,12 @@ Manufacturer: https://shop.anel.eu/
 
 This adapter was tested with all Anel devices. Thanks to the anel developer :).
 Please report any issues.
+
+## Known Issues
+
+### NET-PwrCtrl PRO
+
+Please use the latest firmeware (4.2). You can download it from https://de.anel.eu/index.htm?src=support/hut/hut.htm
 
 ## Changelog
 

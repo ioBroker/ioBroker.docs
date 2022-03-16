@@ -17,6 +17,9 @@ Fetches 5 days weather forecast from [https://openweathermap.org/](openweatherma
 You need an api key to access the data. The api key you can get for free after registration [here](https://home.openweathermap.org/api_keys).
 
 ## Changelog
+### 0.2.3 (2022-03-15)
+* (Apollon77) Increase timeout to read data to 10s
+
 ### 0.2.2 (2022-03-11)
 * (Apollon77) Fix crash case (Sentry IOBROKER-OPENWEATHERMAP-1)
 

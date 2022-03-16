@@ -139,6 +139,11 @@ CCU / Homematic поддерживает различные типы устро�
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.15.9 (2022-03-15)
+* (foxriver76) fixed handling of `replaceDevice` event
+* (foxriver76) we have fixed some log messages
+* (foxriver76) added image of HmIP-SMI55-2
+
 ### 1.15.8 (2022-02-23)
 * (foxriver76) we now ensure, that the `uuid` used for connection is really unique
 

@@ -724,6 +724,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.bydhvs/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.calendar/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.cameras/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.canbus/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.chargemaster/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.chromecast/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.cleveron/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.cloud/README.md
@@ -1154,7 +1155,9 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.whatsapp-cmb/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.wiffi-wz/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.wifilight/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.windows-control/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.winsipbrowser/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.wiobrowser/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.wireguard/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.wireless-mbus/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.withings/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.wlanthermo-nano/README.md
@@ -1250,6 +1253,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.bydhvs/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.calendar/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.cameras/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.canbus/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.chargemaster/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.chromecast/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.cleveron/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.cloud/README.md
@@ -1680,7 +1684,9 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.whatsapp-cmb/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.wiffi-wz/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.wifilight/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.windows-control/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.winsipbrowser/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.wiobrowser/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.wireguard/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.wireless-mbus/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.withings/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.wlanthermo-nano/README.md
@@ -1776,6 +1782,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.bydhvs/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.calendar/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.cameras/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.canbus/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.chargemaster/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.chromecast/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.cleveron/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.cloud/README.md
@@ -2206,7 +2213,9 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.whatsapp-cmb/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.wiffi-wz/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.wifilight/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.windows-control/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.winsipbrowser/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.wiobrowser/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.wireguard/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.wireless-mbus/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.withings/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.wlanthermo-nano/README.md
@@ -2302,6 +2311,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.bydhvs/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.calendar/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.cameras/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.canbus/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.chargemaster/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.chromecast/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.cleveron/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.cloud/README.md
@@ -2732,7 +2742,9 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.whatsapp-cmb/README
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wiffi-wz/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wifilight/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.windows-control/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.winsipbrowser/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wiobrowser/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wireguard/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wireless-mbus/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.withings/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wlanthermo-nano/README.md

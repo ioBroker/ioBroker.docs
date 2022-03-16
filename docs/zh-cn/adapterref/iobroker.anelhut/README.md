@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.anelhut/README.md
 title: ioBroker.anelhut
-hash: zCcv67mMcDZEazbGRPY0dDNLQz1d4F9XSQcwNaI7ooE=
+hash: /VmtWU7XAgQsJ0sAfuhMVh06Ou9jdZhL6ypEUXTC8IU=
 ---
 ![商标](../../../en/adapterref/iobroker.anelhut/admin/anelhut.png)
 
@@ -42,6 +42,7 @@ ANEL Electronic AG NET-PwrCrtl 设备的适配器。
         - DeviceIP：您设备的 IP 地址（请不要使用主机名）
         - UDPSendPort：插入显示在您的 Anel 设备 Web 界面中的端口。这是从 anel 设备视图中的接收端口（默认值：75）。
         - UDPRecievePort：插入显示在您的 Anel 设备的 web 界面中的端口。这是 anel 设备视图中的发送端口（默认值：77）。
+        - XOR 用户和密码：默认禁用。为了提高安全性，您可以启用 XOR 用户和密码加密。并非每个 anel 设备都支持 XOR 用户和密码。如果您的设备支持此功能，请在启用此功能之前检查。您可以在创建的对象结构中检查这一点（设备 -> 通用 -> XOR_USER_Password）。如果该值为 true，则您的设备支持 XOR 用户和密码。
 
 重要提示：如果您想控制多个设备，请为每个设备使用不同的接收端口。
 例如，您可以将端口 77 用于第一个设备，将 78 用于第二个设备，将 79 用于第三个设备，依此类推。
@@ -58,6 +59,10 @@ ANEL Electronic AG NET-PwrCrtl 设备的适配器。
 ＃＃ 笔记
 此适配器已针对所有 Anel 设备进行了测试。感谢 anel 开发人员:)。
 请报告任何问题。
+
+＃＃ 已知的问题
+### NET-PwrCtrl PRO
+请使用最新的固件 (4.2)。您可以从 https://de.anel.eu/index.htm?src=support/hut/hut.htm 下载
 
 ## Changelog
 

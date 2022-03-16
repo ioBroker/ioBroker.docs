@@ -5,7 +5,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.lg-ess-home.svg)](https://www.npmjs.com/package/iobroker.lg-ess-home)
 ![Number of Installations (latest)](http://iobroker.live/badges/lg-ess-home-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/lg-ess-home-stable.svg)
-[![Dependency Status](https://img.shields.io/david/Morluktom/iobroker.lg-ess-home.svg)](https://david-dm.org/Morluktom/iobroker.lg-ess-home)
 [![Known Vulnerabilities](https://snyk.io/test/github/Morluktom/ioBroker.lg-ess-home/badge.svg)](https://snyk.io/test/github/Morluktom/ioBroker.lg-ess-home)
 
 [![NPM](https://nodei.co/npm/iobroker.lg-ess-home.png?downloads=true)](https://nodei.co/npm/iobroker.lg-ess-home/)
@@ -36,6 +35,9 @@ you can use any REST Client to get the password:
 This should give you the password and a status in return.
 
 ## Changelog
+### 0.2.0 (2022-03-14)
+* (Morluktom) Chart widget added
+
 ### 0.1.1 (2022-01-07)
 * (Morluktom) replaced deprecated library and login as installer only when needed
 

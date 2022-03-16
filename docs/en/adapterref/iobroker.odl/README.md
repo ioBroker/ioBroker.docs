@@ -6,6 +6,7 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.odl.svg)](https://www.npmjs.com/package/iobroker.odl)
 ![Number of Installations (latest)](https://iobroker.live/badges/odl-installed.svg)
 ![Number of Installations (stable)](https://iobroker.live/badges/odl-stable.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/odl/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 [![NPM](https://nodei.co/npm/iobroker.odl.png?downloads=true)](https://nodei.co/npm/iobroker.odl/)
 
@@ -19,39 +20,50 @@ For more information about the ambient dose rate in germany visit https://odlinf
 
 ---
 
+## Die aktuelle Umweltradioaktivität in ioBroker
+
 Dieser Adapter integriert die ODL (Ortsdosisleistung) Messwerte von ausgewählten Messstellen des [Bundesamtes für Strahlenschutz (BfS)](https://www.bfs.de/) in ioBroker.
 
 Das bundesweite Messnetz des BfS umfasst rund 1700 ortsfeste Messstellen, die permanent die vor Ort aktuelle Gamma-Umweltradioaktivität (Ortsdosisleistung) erfassen und aufzeichnen. Die gewonnenen Messdaten werden vom BfS gesammelt, ausgewertet und öffentlich unter der _Datenlizenz Deutschland_ zur Verfügung gestellt.
 
 Für weitere Informationen zur ODL siehe https://odlinfo.bfs.de/.
 
-Dieser Adapter läd die aktuellen und historischen 1-Stunden-Mittelwerte der Messdaten direkt über einen Web Feature Service (WFS) des [Geoportals des BfS](https://www.imis.bfs.de/geoportal/). Das BfS ist Urheber der vom Adapter verwendeten Daten.  
-Wird ein aktivierter History-Adapter (history, influxdb oder sql) erkannt, dann werden gegebenenfalls in der Historie fehlende Datenpunkte durch den Adapter automatisch nachgetragen, sodass sich vollständige Zeitreihen ergeben.
+Dieser Adapter läd die aktuellen 1-Stunden-Mittelwerte der Messdaten direkt über die [offizielle Datenschnittstelle des BfS](https://odlinfo.bfs.de/ODL/DE/service/datenschnittstelle/datenschnittstelle_node.html). Das BfS ist Urheber der vom Adapter verwendeten Daten.  
+Alle Daten werden in unveränderter Form, so wie sie von der Datenschnittstelle geliefert werden, vom Adapter bereitgestellt.
 
-Die aktuellen Messdaten werden von dem Adapter standardmäßig im Stundentakt aktualisiert. Ein geringerer Aktualisierungsintervall ist meist nicht sinnvoll, da die zu Grunde liegenden Messdaten auf dem BfS-Server (abhängig von der Messstelle) größtenteils stündlich aktualisiert werden.
+Wird ein aktivierter History-Adapter (_history_, _influxdb_ oder _sql_) erkannt, dann werden gegebenenfalls in der Historie fehlende Datenpunkte durch den Adapter automatisch nachgetragen, sodass sich vollständige Zeitreihen ergeben.
 
+Die aktuellen Messdaten werden von dem Adapter standardmäßig im Stundentakt aktualisiert. Ein geringerer Aktualisierungsintervall ist meist nicht sinnvoll, da die zu Grunde liegenden Messdaten auf dem BfS-Server (abhängig von der Messstelle) größtenteils stündlich aktualisiert werden.  
+Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der Daten angepasst, sodass nicht alle Installation die Daten zur gleichen Zeit abrufen und die Datenschnittstelle des BfS nicht unnötig belastet wird.
+
+[![Screenshot 1](./docs/ioBroker-odl-01.png)](./docs/ioBroker-odl-01.png)
+
+[![Screenshot 2](./docs/ioBroker-odl-02.png)](./docs/ioBroker-odl-02.png)
 ---
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Changelog
 
-### 2.0.0 (Pending)
+### 2.0.1 (2022-03-14)
 
 * (crycode-de) Use official data API from BfS
 * (crycode-de) **Breaking**: Use 9-digit identifiers instead of locality codes
   * New object will be created for each location
   * Migration from locality codes to identifiers is done on first start after adapter upgrade, but custom object settings (like history) have to be migrated manually
 * (crycode-de) **Breaking**: The `.odl` state is now named `.value`
+* (crycode-de) Added statistic states
 * (crycode-de) Added optional support for cosmic and terrestrial value components (disabled by default)
 * (crycode-de) Added `.status` state representing the location status given from BfS
 * (crycode-de) If an enabled history (_history_, _influxdb_, _sql_) for `.value`, `.valueCosmic` or `.valueTerrestrial` is found, the adapter tries to load the timeseries data from BfS for past 7 days.
 * (crycode-de) If the status of a location is not "in operation", the value states will be `null` with `q` set to `0x81` (general problem by sensor)
+* (crycode-de) Complete rebuild of the admin interface using react
 * (crycode-de) Randomize adapter schedule between minute 15 and 45 and also using seconds on first start to better spread API calls
 * (crycode-de) Replaced `request` with `axios`
+* (crycode-de) Updated adapter dev toolchain
 * (crycode-de) Updated dependencies
-* (crycode-de) Use inline sourcemaps for better debugging
 * (crycode-de) Require node >=12
+* (crycode-de) Use weblate for translations
 
 ### 1.1.4 (2021-01-16)
 * (crycode-de) Updated BfS logo

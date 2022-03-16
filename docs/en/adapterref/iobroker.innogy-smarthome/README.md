@@ -16,6 +16,17 @@ As this project is developed during my spare time, I*m actively looking for help
 
 ## Changelog
 
+### 0.4.5
+    Fixed a naming problem with newly created devices
+
+### 0.4.3
+    Added min & max for pointTemperature
+
+### 0.4.2
+    Added debug information for invalid value data
+    Fixed . in device names
+    Fixed crashes caused by invalid point temperatures (< 6 & > 30)
+
 ### 0.4.1
     Fixed cloud auth, if local auth is activated (blank page)
     Changed Admin design to be compatible with black & white style

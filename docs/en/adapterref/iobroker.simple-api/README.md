@@ -580,6 +580,10 @@ If no data source was specified or the noHistory parameter is passed, then only 
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Optimize performance, especially when using names instead of object ids
+
 ### 2.6.3 (2022-02-19)
 * (Apollon77) Optimize error message for multilanguage objects
 * (Apollon77) Do not overwrite state properties by object properties

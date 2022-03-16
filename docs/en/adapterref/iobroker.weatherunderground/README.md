@@ -73,6 +73,10 @@ http://forum.iobroker.org/viewtopic.php?f=20&t=2042&sid=a863d19838bc49439759bef8
 There is a still a problem with encoding. The addresses with "äüöß" will be shown wrong.
 
 ## Changelog
+### 3.4.1 (2022-03-13)
+* (bluefox) Use axios for communication
+* (bluefox) make sure date states are filled correctly
+
 ### 3.4.0 (2022-03-10)
 * (Apollon77) If no official API-Key is used: Move schedule if default is used to better spread the requests over time to prevent peaks; Additionally add a random delay in the start minute
 * (Apollon77) Further optimizations and additional logging

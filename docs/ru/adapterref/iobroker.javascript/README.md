@@ -2640,8 +2640,18 @@ return 'your result';
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
+### 5.4.2 (2022-03-15)
+* (Apollon77) Fix automatic start of Rules scripts when starting adapter
+
+### 5.4.1 (2022-03-15)
+* (Apollon77) Fix blockly subscribes broken in 5.4.0
+
+### 5.4.0 (2022-03-13)
 * (Apollon77) Automatically create missing folder objects when states are created using createState
+* (Apollon77) Fix special characters in blockly subscribe logic
+* (Apollon77) Fix timing issue where state updates could not be current on startup
+* (Apollon77) Fix state name handing
+* (Apollon77) Fix potential crash cases reported by Sentry
 
 ### 5.3.3 (2022-03-06)
 * (bluefox) Added async functions: createStateAsync, deleteStateAsync
@@ -2650,20 +2660,6 @@ return 'your result';
 * (Apollon77) fix problem that scripts were not starting when scriptsEnabled State was triggered (or startScript was used)
 * (Apollon77) Make sure callbacks on startScript/stopScript work and Async variants also resolve
 * (Apollon77) Make sure startScriptAsync, stopScriptAsync and runScriptAsync resolve in debug mode too
-
-### 5.3.1 (2022-03-03)
-* (Apollon77) Add missing callback check in setObject
-
-### 5.3.0 (2022-03-02)
-* (Apollon77) Prevent some crash cases reported by Sentry (IOBROKER-JAVASCRIPT-A3)
-* (Apollon77) Fix Enum Updates
-* (Apollon77) Optimize making sure data are current for synchronous return of states/objects even for asynchronous action cases before
-* (Apollon77) Make sure admin files is cleaned up on update
-* (Apollon77) update channel/device structures for $ selector on object updates
-* (Apollon77) Adjustments for js-controller 4.0
-
-### 5.2.21 (2022-01-16)
-* (bluefox) Fixed build process
 
 ## License
 The MIT License (MIT)
