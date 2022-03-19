@@ -18,7 +18,7 @@ The following chapters describe Database Schema.
 ## IDs
 ID is a string with a maximum length of 240 bytes, hierarchically structured, levels separated by dots.
 
-The regex that it used to check for characters that are prohibited to use in IDs can be found in https://github.com/ioBroker/ioBroker.js-controller/blob/master/packages/common/lib/common/tools.js#L44.
+Following characters are prohibited to use in IDs: `._\\-/ :!#$%&()+=@^{}|~`.
 
 The ID has different levels. Each level is determined by the dot. Example: `system.adapter.admin.0`
 - `system` - is the name space for system objects
@@ -506,7 +506,7 @@ ID: `system.adapter.<adapter.name>`
 * `common.engineTypes`        - deprecated. Use engine in package.json
 * `common.eraseOnUpload`      - erase all previous data in the directory before upload
 * `common.expert`             - show this object only in the expert mode in admin
-* `common.extIcon`            - link to external icon for uninstalled adapters. Normally on github.
+* `common.extIcon`            - link to external icon for uninstalled adapters. Normally on GitHub.
 * `common.getHistory`         - [true/false] if adapter supports getHistory message
 * `common.globalDependencies` - Array like `[{"admin": ">=2.0.0"}]` that describes which ioBroker modules are required for this adapter on one of the hosts.
 * `common.icon`               - name of the local icon (should be located in subdirectory "admin")
@@ -522,14 +522,14 @@ ID: `system.adapter.<adapter.name>`
 * `common.main`               - **Deprecated** Use main in package.json.
 * `common.materializeTab`     - if adapter supports > admin3 for the tab (materialize style)
 * `common.materialize`        - if adapter supports > admin3 (materialize style)
-* `common.messagebox`         - true if message box supported. Hence, the adapter can receive sendTo messages (used for email, pushover,...)
+* `common.messagebox`         - true if message box supported. If yes, the object system.adapter.&lt;adapter.name&gt&lt;adapter.instance&gt.messagebox will be created to send messges to adapter (used for email, pushover,...;
 * `common.messages`           - Conditional messages by update. See [Conditional messages](#conditional-messages) for details.
 * `common.mode`               - **mandatory** possible values see below
 * `common.name`               - **mandatory** name of adapter without "ioBroker."
 * `common.noConfig`           - [true/false] do not show configuration dialog for instance
 * `common.noIntro`            - never show instances of this adapter on Intro/Overview screen in the admin (like icons, widgets)
 * `common.noRepository`       - [true/false] if adapter delivered with initial installation or has own repository
-* `common.nogit`              - if true, no install from github directly is possible
+* `common.nogit`              - if true, no install from GitHub directly is possible
 * `common.nondeletable`       - [true/false] this adapter cannot be deleted or updated. It will be updated together with the controller.
 * `common.npmLibs`            - deprecated. Use package.json `dependencies`.
 * `common.onlyWWW`            - [true/false] say to controller, that adapter has only html files and no main.js, like rickshaw
@@ -539,21 +539,22 @@ ID: `system.adapter.<adapter.name>`
 * `common.os`                 - string or array of the supported operation systems, e.g. `["linux", "darwin"]`
 * `common.platform`           - **mandatory** possible values: Javascript/Node.js, more coming
 * `common.pugins.sentry`      - structure with the configuration data for the `sentry` plugin
-* `common.preserveSettings`   - string (or array) with names of attributes in common of instance, which will not be deleted. E.g. "history", so by setState('system.adapter.mqtt.0", {..}) the field common.history will not be deleted even if new object does not have this field. To delete the attribute it must be explicitly done with `common: {history: null}`.
+* `common.preserveSettings`   - string (or array) with names of attributes in common of instance, which will not be deleted. E.g. "history", so by `setState("system.adapter.mqtt.0", {..})` the field `common.history` will not be deleted even if new object does not have this field. To delete the attribute it must be explicitly done with `common: {history: null}`.
 * `common.readme`             - URL of the ReadMe file
 * `common.restartAdapters`    - array with names of adapter that must be restarted after this adapter is installed, e.g. ["vis"]
 * `common.restartSchedule`    - CRON schedule to restart mode `daemon` adapters
 * `common.schedule`           - CRON schedule if adapter runs in mode `schedule`.
-* `common.serviceStates`      - [true/false or path] if adapter can deliver additional states. If yes, the path `adapter/lib/states.js` will be called and it give following parameters function (objects, states, instance, config, callback). The function must deliver the array of points with values like `function (err, result) { result = [{id: 'id1', val: 1}, {id: 'id2', val: 2}]}`
+* `common.serviceStates`      - [true/false or path] if adapter can deliver additional states. If yes, the path `adapter/lib/states.js` will be called, and it gives following parameters function (objects, states, instance, config, callback). The function must deliver the array of points with values like `function (err, result) { result = [{id: 'id1', val: 1}, {id: 'id2', val: 2}]}`
 * `common.singletonHost`      - adapter can be installed only once on one host
 * `common.singleton`          - adapter can be installed only once in whole system
+* `common.statusStates`       - Structure for status indication in admin in form `"statusStates": {"onlineId": "0.connected", "errorId": "hm-rpc.0.AB203424.0.error"}`. Instead of `onlineId` the `offlineId` could be used. If ID is very short (less than 2 dots in it), so the ID will be treated as relative to current object.
 * `common.stopBeforeUpdate`   - [true/false] if adapter must be stopped before update
 * `common.stopTimeout`        - timeout in ms to wait, till the adapter shut down. Default 500ms.
 * `common.subscribable`       - variables of this adapter must be subscribed with sendTo to enable updates
 * `common.subscribe`          - name of variable, that is subscribed automatically
-* `common.supportCustoms`     - [true/false] if the adapter support settings for every state. It has to have custom.html file in the admin. Sample can be found in ioBroker.history
-* `common.supportStopInstance`- [true/false] if adapter supports signal stopInstance (**messagebox** required). The signal will be sent before stop to the adapter. (used if the problems occured with SIGTERM)
-* `common.titleLang`          - **mandatory** longer name of adapter in all supported languages like {en: 'Adapter', de: 'adapter', ru: 'Драйвер'}
+* `common.supportCustoms`     - [true/false] if the adapter support settings for every state. It has to have custom.html file in the admin. Sample can be found in `ioBroker.history`
+* `common.supportStopInstance`- [true/false] if adapter supports signal stopInstance (**messagebox** required). The signal will be sent before stop to the adapter. (used if the problems occurred with SIGTERM)
+* `common.titleLang`          - **mandatory** longer name of adapter in all supported languages like `{en: 'Adapter', de: 'adapter', ru: 'Драйвер'}`
 * `common.title`              - (deprecated) longer name of adapter to show in admin
 * `common.type`               - Adapter type. See [Types](adapterpublish.md)
 * `common.unchanged`          - (system) please do not use this flag. It is a flag to inform the system, that configuration dialog must be shown in the admin.
