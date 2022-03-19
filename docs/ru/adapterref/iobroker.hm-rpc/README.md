@@ -139,6 +139,12 @@ CCU / Homematic поддерживает различные типы устро�
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.15.11 (2022-03-18)
+* (foxriver76) fallback to old adapter port determination logic (closes #509)
+
+### 1.15.10 (2022-03-17)
+* (foxriver76) we use our own set of forbidden chars again
+
 ### 1.15.9 (2022-03-15)
 * (foxriver76) fixed handling of `replaceDevice` event
 * (foxriver76) we have fixed some log messages

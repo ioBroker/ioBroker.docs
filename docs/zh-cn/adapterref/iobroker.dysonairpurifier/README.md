@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dyson空气净化器
-hash: sKUfxcSmPXdPzYWQWeePo3w6ZShSC/bcEjRwoyRlCQI=
+hash: wE2GvSKVqbB0ZUIQhgsyUCRJ6SNOfKH2bodwoOh2eKE=
 ---
 # IoBroker.dysonAirPurifier
 ![标志](admin/dyson_logo.svg)![标志](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -20,8 +20,9 @@ hash: sKUfxcSmPXdPzYWQWeePo3w6ZShSC/bcEjRwoyRlCQI=
 
 ## 适用于戴森空气净化器和风扇的 ioBroker 适配器
 该适配器将 ioBroker 连接到各种戴森空气净化器。
-
 由[Freepik](https://www.flaticon.com/de/autoren/freepik) 来自 [www.flaticon.com](https://www.flaticon.com/de/)创建的徽标中的风扇图标。
+
+&gt; 如果你喜欢这个适配器并考虑支持我<br/>&gt; [![使用 payPal 捐款](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
 
 ### 支持的设备
 * Dyson Pure Cool Link Tower (TP02, ProductType 475)
@@ -183,7 +184,7 @@ hash: sKUfxcSmPXdPzYWQWeePo3w6ZShSC/bcEjRwoyRlCQI=
 |操作系统 |振荡活动 |开、关、空闲 | |
 |安普|振荡角 | CUST, 0180 | °（度）|
 |卡塔尔 |空气质量目标 | 0001=好，0002=正常，0003=差，0004=非常差 | |
-|右下角 |持续监控 |开、关 | |
+| rhtm |持续监控 |开、关 | |
 |汽车 |自动模式 |开、关 | |
 |纳米片 |夜间模式最大风扇速度？ | 0004 | |
 | cflr |状态 碳过滤器 | 0000 - 0100 |百分比 |
@@ -203,8 +204,8 @@ hash: sKUfxcSmPXdPzYWQWeePo3w6ZShSC/bcEjRwoyRlCQI=
 |万事达|警告代码 |无... | |
 | rstf |重置过滤器生命周期 | 'RSTF'、'STET'、RESET_FILTER_LIFE_IGNORE、RESET_FILTER_LIFE_ACTION | |
 |科尔夫 |温度格式 | ON=摄氏，OFF=华氏| |
-| clcr |深层清洁 | CLNO=未激活，CLAC=正在进行深度清洁，CLCM=已完成 | |
-|赫斯塔 |加热状态 |活动/空闲 | |
+| clcr |深层清洁循环 | CLNO=未激活，CLAC=正在进行深度清洁，CLCM=已完成 | |
+| hsta |加热状态 |活动/空闲 | |
 | msta |加湿状态 |活动/空闲关闭，HUMD | |
 | psta | [HP0x] 未知 |初始化，CLNG，INV，关闭 | |
 |布里尔 |未知 | 0002 | LEVEL_LOW、LEVEL_MEDIUM、LEVEL_HIGH |
@@ -266,6 +267,13 @@ Dyson、pure cool、pure hot &cool 等是 [戴森有限公司](https://www.dyson
 
 ## Changelog
 
+### V2.4.0 (2022-03-17) (Echo from the past)
+* (grizzelbee) New: Added warning code to device tree
+* (grizzelbee) New: Added Device-faults as SystemState to device tree
+* (grizzelbee) New: Added donate button to readme and config page
+* (grizzelbee) Upd: Switched "Sending data to device" message from loglevel info to debug
+* (grizzelbee) Upd: reduced amount of debug messages
+* (grizzelbee) Upd: Updated dependencies
 
 
 ### V2.3.2 (2022-03-04) (Fairytale of doom)

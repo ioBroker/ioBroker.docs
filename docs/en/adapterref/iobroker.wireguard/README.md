@@ -14,6 +14,9 @@
 ## wireguard adapter for ioBroker
 Connect to WireGuard hosts and grab connection information on peers. This adapter is intended to be a monitoring instance for your WireGuard hosts. 
 
+> If you like this adapter and consider supporting me <br/>
+> [![Donate with payPal](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
+
 ## Prerequisites
 * running ssh server on every host to monitor
 * The wg executable (wg.exe on Windows) needs to be in the search path
@@ -71,6 +74,10 @@ Basically there are three ways to execute the command:
 * none
 
 ## Changelog
+### v1.1.2 (2022-03-17)
+* (grizzelbee) New: Added donate button
+* (grizzelbee) Upd: dependency update
+
 ### v1.1.1 (2022-03-13)
 * (grizzelbee) Upd: Changed titleLang from WireGuard to WireGuard monitoring
 * (grizzelbee) Upd: dependency update

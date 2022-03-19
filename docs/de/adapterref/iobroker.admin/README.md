@@ -121,6 +121,10 @@ Auch die Repositorien und Sicherheitseinstellungen können hier eingestellt werd
 Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitts zu erreichen.
 
 ## Changelog
+### 5.3.2 (2022-03-18)
+* (xXBJXx) added Radio Buttons for value2table
+* (bluefox) Corrected many GUI errors
+
 ### 5.3.1 (2022-02-21)
 * (bluefox) Support of IPv6 address by links (vis, material, end so on)
 * (bluefox) Corrected errors in the base settings
@@ -140,9 +144,6 @@ Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitt
 ### 5.2.2 (2021-12-21)
 * (bluefox) Changed the minimal required js-controller version to 3.3.22 
 * (bluefox) Used web-socket library 8 (no node 10 support anymore)
-
-### 5.2.1 (2021-11-28)
-* (bluefox) Allow in expert mode the creation of states and channels in mqtt branch
 
 ## License
 The MIT License (MIT)

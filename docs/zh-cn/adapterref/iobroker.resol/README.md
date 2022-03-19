@@ -3,10 +3,10 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.resol/README.md
 title: ioBroker.resol
-hash: 5KDhA+LkQammqaj6e563W7RHzA1/Ce2QS3Ad3XVu6G8=
+hash: PrkSK9V9UrIMTJzsbmV+Z7A3Kqad2Gbst21lsMXgIBg=
 ---
 # IoBroker.resol
-![标识](../../../en/adapterref/iobroker.resol/admin/resol.svg)
+![商标](../../../en/adapterref/iobroker.resol/admin/resol.svg)
 
 ![安装数量（最新）](http://iobroker.live/badges/resol-installed.svg)
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.resol.svg)
@@ -26,8 +26,10 @@ hash: 5KDhA+LkQammqaj6e563W7RHzA1/Ce2QS3Ad3XVu6G8=
 ## 用于 Resol VBus 的 ioBroker 适配器
 该适配器将各种基于 VBus 的设备连接到支持各种连接类型的 ioBroker。
 
+&gt; 如果你喜欢这个适配器并考虑支持我<br/>&gt; [![使用 payPal 捐款](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
+
 它使用了由 Daniel Wippermann 提供的 JavaScript 库 resol-vbus。
-如果您有兴趣深入了解，请访问 <https://github.com/danielwippermann/resol-vbus> 和 <https://www.npmjs.com/package/resol-vbus>。
+如果您有兴趣深入了解，请访问 <https://github.com/danielwippermann/resol-vbus>。
 
 ＃＃ 特征
 * 可以从各种 RESOL(R) VBus(R) 设备读取测量数据 - 最好是 DeltaSol(R) 系列的太阳能和系统控制器，包括内置热量计 (HQM) - 使用 DL3 或 DL2 数据记录器 KM2通信模块、VBus/LAN 接口适配器或本地通过 TCP/IP 的串行/LAN 网关。
@@ -36,10 +38,6 @@ hash: 5KDhA+LkQammqaj6e563W7RHzA1/Ce2QS3Ad3XVu6G8=
 * 使用可配置的循环时间更新值。
 * 不支持读取或设置 VBus 设备配置参数。应使用 Resol 提供的工具，例如通过 VBus.net 或参数化工具 RPT。
 * 由于 DL3 接口的限制，不支持读取 DL3 通道 0（传感器直接连接到 DL3 设备）。
-
-##哨兵.io
-该适配器使用 sentry.io 收集有关崩溃的详细信息并将其自动报告给作者。
-[ioBroker.sentry 插件](https://github.com/ioBroker/plugin-sentry)用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 了解有关插件的功能、收集哪些信息以及如何禁用它的详细信息，如果您不喜欢用您的崩溃信息来支持作者。
 
 ## 配置提示
 * 连接类型的默认设置是 VBus/LAN，但即使是 VBus/LAN 也必须明确选择，否则将无法建立连接。
@@ -119,7 +117,7 @@ hash: 5KDhA+LkQammqaj6e563W7RHzA1/Ce2QS3Ad3XVu6G8=
 
 "fct": [{"name":"Pumpe1","cmd":"Handbetrieb1","val":"val"}, {"name":"Pumpe2","cmd":"Handbetrieb2","val ":"val"}, {"name":"Rueckkuehlung","cmd":"ORueckkuehlung","val":"val"}, {"name":"AutoRueckkuehl","cmds":[{"cmd ":"ORueckkuehlung","val":"val"},{"cmd":"OHolyCool","val":"val"}]} ]}
 
-保存文件并重新启动适配器，您会发现现在有一个新对象 Rueckkuehlung。
+保存文件并重新启动适配器，您现在会发现一个新对象 Rueckkuehlung。
 
 ＃＃ 去做
 ＃＃ 法律声明
@@ -127,10 +125,17 @@ RESOL、VBus、VBus.net、DeltaSol 和其他是 RESOL - Elektronische Regelungen
 
 所有其他商标均为其各自所有者的财产。
 
+##哨兵.io
+该适配器使用 sentry.io 收集有关崩溃的详细信息并将其自动报告给作者。
+[ioBroker.sentry 插件](https://github.com/ioBroker/plugin-sentry)用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 了解有关插件的功能、收集哪些信息以及如何禁用它的详细信息，如果您不喜欢用您的崩溃信息来支持作者。
+
 ##版权
 版权所有 (c) 2022 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+### v0.4.4 (2022-03-17)
+* (grizzelbee) New: Added donate button to config page and readme
+* (grizzelbee) Upd: Dependencies got updated
 
 ### v0.4.3 (2022-02-08)
 * (grizzelbee) Fix: fixed wrong state role "switch" and changed to "level"

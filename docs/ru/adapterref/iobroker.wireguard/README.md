@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wireguard/README.md
 title: ioBroker.wireguard
-hash: qYwuflfbIK4Q0GetfOS5pzvUrD4+VqWpeqCedGTGMso=
+hash: dZjVhwMhaW0jhQZu21FGK8CoqCgC879g8jGaW6o1vV4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.wireguard/admin/Logo_of_WireGuard.svg)
 
@@ -20,6 +20,8 @@ hash: qYwuflfbIK4Q0GetfOS5pzvUrD4+VqWpeqCedGTGMso=
 
 ## Адаптер wireguard для ioBroker
 Подключайтесь к узлам WireGuard и собирайте информацию о соединениях с одноранговыми узлами. Этот адаптер предназначен для мониторинга ваших хостов WireGuard.
+
+&gt; Если вам нравится этот адаптер и вы можете поддержать меня<br/> &gt; [![Пожертвовать через PayPal](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
 
 ## Предпосылки
 * запуск ssh-сервера на каждом хосте для мониторинга
@@ -65,7 +67,7 @@ hash: qYwuflfbIK4Q0GetfOS5pzvUrD4+VqWpeqCedGTGMso=
 В основном есть три способа выполнить команду:
 
 * используйте административного пользователя (root или аналогичный). Это будет работать, но откроет весь ваш сервер в случае потери/кражи учетных данных.
-* использование SetUID-Bit: установив этот бит (насколько я понял), каждый пользователь может выполнять отмеченный файл с правами администратора без необходимости ввода пароля. **Включая хакеров**. Таким образом, установка этого бита в команде wg раскрывает всю мощь команды wg. Если хотите, выполните chmod u+s /usr/bin/wg от имени администратора.
+* Использование SetUID-Bit: установив этот бит (насколько я понял), каждый пользователь может запускать помеченный файл с административными привилегиями без необходимости ввода пароля. **Включая хакеров**. Таким образом, установка этого бита в команде wg раскрывает всю мощь команды wg. Если хотите, выполните chmod u+s /usr/bin/wg от имени администратора.
 * использование sudoers: с моей точки зрения, самый безопасный способ — настроить нового простого пользователя с базовыми привилегиями и добавить простую строку в файл sudoers, которая позволяет этому пользователю выполнять необходимую команду без ввода пароля — и ТОЛЬКО ЭТО команда. Пожалуйста, обратитесь к документации вашего дистрибутива для правильной информации о редактировании файла sudoers и использовании visudo. На скриншоте ниже показано, что нужно добавить в файл. `wireguard-monitoring-user` — пользователь по вашему выбору. Остальное должно быть именно так, как вы видите.
 
 ```
@@ -90,6 +92,10 @@ wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg show all dump
 Copyright (c) grizzelbee, 2022 г. <open.source@hingsen.de>
 
 ## Changelog
+### v1.1.2 (2022-03-17)
+* (grizzelbee) New: Added donate button
+* (grizzelbee) Upd: dependency update
+
 ### v1.1.1 (2022-03-13)
 * (grizzelbee) Upd: Changed titleLang from WireGuard to WireGuard monitoring
 * (grizzelbee) Upd: dependency update

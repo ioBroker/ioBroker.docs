@@ -14,10 +14,11 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.dysonairpurifier.svg)](https://www.npmjs.com/package/iobroker.dysonairpurifier)
 
 ## ioBroker Adapter for Dyson Air Purifiers and fans
-
 This adapter connects ioBroker to various Dyson Air Purifiers.
-
 Fan-Icon in Logo created by [Freepik](https://www.flaticon.com/de/autoren/freepik) from [www.flaticon.com](https://www.flaticon.com/de/).
+
+> If you like this adapter and consider supporting me <br/>
+> [![Donate with payPal](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
 
 ### supported devices
 
@@ -163,6 +164,13 @@ Which is what the dyson app does also.
 
 ## Changelog
 
+### V2.4.0 (2022-03-17) (Echo from the past)
+* (grizzelbee) New: Added warning code to device tree
+* (grizzelbee) New: Added Device-faults as SystemState to device tree
+* (grizzelbee) New: Added donate button to readme and config page
+* (grizzelbee) Upd: Switched "Sending data to device" message from loglevel info to debug
+* (grizzelbee) Upd: reduced amount of debug messages
+* (grizzelbee) Upd: Updated dependencies
 
 
 ### V2.3.2 (2022-03-04) (Fairytale of doom)

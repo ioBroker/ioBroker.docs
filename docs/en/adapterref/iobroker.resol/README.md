@@ -20,11 +20,15 @@ Here you get the ability to control your vbus controller.
 
 
 ## ioBroker Adapter for Resol VBus
-
 This adapter connects various VBus-based devices to ioBroker supporting various connection types. 
 
+> If you like this adapter and consider supporting me <br/>
+> [![Donate with payPal](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
+
+
+
 It's using resol-vbus, a JavaScript library provided by Daniel Wippermann.
-Please visit <https://github.com/danielwippermann/resol-vbus> and <https://www.npmjs.com/package/resol-vbus> if you're interested in a deeper dive. 
+Please visit <https://github.com/danielwippermann/resol-vbus>  if you're interested in a deeper dive. 
 
 ## Features
 
@@ -34,12 +38,6 @@ Please visit <https://github.com/danielwippermann/resol-vbus> and <https://www.n
 * Values are updated with a configurable cycle time.
 * Reading or setting the VBus device configuration parameters is not supported. The tools provided by Resol should be used for this, e.g. via VBus.net or the parameterization tool RPT.
 * Reading DL3 channel 0 (sensors directly connected to the DL3 device) is not supported due to limitations of the DL3 interface.
-
-## sentry.io
-
-This adapter uses sentry.io to collect details on crashes and report it automated to the author. 
-The [ioBroker.sentry plugin](https://github.com/ioBroker/plugin-sentry) is used for it. Please refer to 
-the [plugin homepage](https://github.com/ioBroker/plugin-sentry) for detailed information on what the plugin does, which information is collected and how to disable it, if you don't like to support the author with you're information on crashes.
 
 ## Configuration hints
 
@@ -148,6 +146,9 @@ Save the file and restart the adapter, you will find now a new object Rueckkuehl
 ## Todo
 
 ## Changelog
+### v0.4.4 (2022-03-17)
+* (grizzelbee) New: Added donate button to config page and readme
+* (grizzelbee) Upd: Dependencies got updated
 
 ### v0.4.3 (2022-02-08)
 * (grizzelbee) Fix: fixed wrong state role "switch" and changed to "level"
@@ -236,6 +237,12 @@ RESOL, VBus, VBus.net, DeltaSol and others are trademarks or registered trademar
 <https://www.resol.de/en>
 
 All other trademarks are the property of their respective owners.
+
+## sentry.io
+
+This adapter uses sentry.io to collect details on crashes and report it automated to the author.
+The [ioBroker.sentry plugin](https://github.com/ioBroker/plugin-sentry) is used for it. Please refer to
+the [plugin homepage](https://github.com/ioBroker/plugin-sentry) for detailed information on what the plugin does, which information is collected and how to disable it, if you don't like to support the author with you're information on crashes.
 
 
 

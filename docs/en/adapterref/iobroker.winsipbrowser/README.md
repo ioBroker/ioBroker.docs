@@ -36,6 +36,9 @@ He can also control:
 * [ioBroker Forum Programm Thread](https://forum.iobroker.net/topic/53032/sprechanlagen-innenstation-browser-mit-sip-client?_=1646732403727)
 
 ## Changelog
+### 0.1.2
+* (bettman66) play musicfile
+
 ### 0.1.1
 * (bettman66) stop slideshow by touchevent
 

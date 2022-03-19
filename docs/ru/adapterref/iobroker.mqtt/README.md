@@ -746,6 +746,9 @@ void loop() {
 получать от нее данные через облачный сервис!
 
 ## Changelog
+### 2.7.4 (2022-03-18)
+* (Apollon77) Update mqtt library dependency
+
 ### 2.7.3 (2022-03-11)
 * (Apollon77) Further optimization of automatic folder creation
 

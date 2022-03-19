@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wireguard/README.md
 title: ioBroker.wireguard
-hash: qYwuflfbIK4Q0GetfOS5pzvUrD4+VqWpeqCedGTGMso=
+hash: dZjVhwMhaW0jhQZu21FGK8CoqCgC879g8jGaW6o1vV4=
 ---
 ![商标](../../../en/adapterref/iobroker.wireguard/admin/Logo_of_WireGuard.svg)
 
@@ -20,6 +20,8 @@ hash: qYwuflfbIK4Q0GetfOS5pzvUrD4+VqWpeqCedGTGMso=
 
 ## IoBroker 的wireguard 适配器
 连接到 WireGuard 主机并获取对等点的连接信息。此适配器旨在成为您的 WireGuard 主机的监控实例。
+
+&gt; 如果你喜欢这个适配器并考虑支持我<br/>&gt; [![使用 payPal 捐款](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
 
 ## 先决条件
 * 在每台主机上运行 ssh 服务器进行监控
@@ -81,7 +83,7 @@ wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg show all dump
 
 ##哨兵.io
 该适配器使用 sentry.io 收集有关崩溃的详细信息并将其自动报告给作者。
-[ioBroker.sentry 插件](https://github.com/ioBroker/plugin-sentry)用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 以获取有关插件功能、收集哪些信息以及如何禁用它的详细信息，如果您不希望通过您的崩溃信息来支持作者。
+[ioBroker.sentry 插件](https://github.com/ioBroker/plugin-sentry)用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 了解有关插件的功能、收集哪些信息以及如何禁用它的详细信息，如果您不喜欢用您的崩溃信息来支持作者。
 
 ### 免责声明
 这个项目与 WireGuard 没有任何关系。 WireGuard 名称和 WireGuard 徽标仅用于指代该项目，并且是其所有者的财产。他们不是这个项目的一部分。
@@ -90,6 +92,10 @@ wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg show all dump
 版权所有 (c) 2022 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+### v1.1.2 (2022-03-17)
+* (grizzelbee) New: Added donate button
+* (grizzelbee) Upd: dependency update
+
 ### v1.1.1 (2022-03-13)
 * (grizzelbee) Upd: Changed titleLang from WireGuard to WireGuard monitoring
 * (grizzelbee) Upd: dependency update

@@ -124,6 +124,9 @@ There is an option to re-build the state-structure by deleting states on adapter
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.4.0 (2022-03-16)
+* recordings new logic and now working without database
+
 ### 1.3.3 (2022-02-26)
 * avoid null values in recordings
 

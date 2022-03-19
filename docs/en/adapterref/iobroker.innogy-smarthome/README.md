@@ -16,6 +16,9 @@ As this project is developed during my spare time, I*m actively looking for help
 
 ## Changelog
 
+### 0.4.6
+    Added missing states
+
 ### 0.4.5
     Fixed a naming problem with newly created devices
 

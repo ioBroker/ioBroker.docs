@@ -16,7 +16,7 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
 
 1. Create a new instance of the **ical adapter**
 2. Configure url of your calendar (e.g. google calendar)
-3. Set "Preview days" to a range which includes every trash type at least twice (e.g. 30 days)
+3. Set "Preview days" to a range which includes every trash type at least twice (e.g. 45 days)
 4. If you use the "events" tab, ensure to enable the "display" checkbox for each event type which should also be used in your trash schedule (otherwise the event will be hidden by the ical instance)
 
 ![ical](./img/ical.png)

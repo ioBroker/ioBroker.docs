@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wireguard/README.md
 title: ioBroker.wireguard
-hash: qYwuflfbIK4Q0GetfOS5pzvUrD4+VqWpeqCedGTGMso=
+hash: dZjVhwMhaW0jhQZu21FGK8CoqCgC879g8jGaW6o1vV4=
 ---
 ![Logo](../../../en/adapterref/iobroker.wireguard/admin/Logo_of_WireGuard.svg)
 
@@ -20,6 +20,8 @@ hash: qYwuflfbIK4Q0GetfOS5pzvUrD4+VqWpeqCedGTGMso=
 
 ## Wireguard-Adapter für ioBroker
 Stellen Sie eine Verbindung zu WireGuard-Hosts her und holen Sie sich Verbindungsinformationen zu Peers. Dieser Adapter soll eine Überwachungsinstanz für Ihre WireGuard-Hosts sein.
+
+&gt; Wenn Ihnen dieser Adapter gefällt und Sie erwägen, mich zu unterstützen<br/> &gt; [![Mit payPal spenden](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
 
 ## Voraussetzungen
 * SSH-Server auf jedem zu überwachenden Host ausführen
@@ -90,6 +92,10 @@ Dieses Projekt hat in keiner Weise mit WireGuard zu tun. Der Name WireGuard und 
 Copyright (c) 2022 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+### v1.1.2 (2022-03-17)
+* (grizzelbee) New: Added donate button
+* (grizzelbee) Upd: dependency update
+
 ### v1.1.1 (2022-03-13)
 * (grizzelbee) Upd: Changed titleLang from WireGuard to WireGuard monitoring
 * (grizzelbee) Upd: dependency update

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.resol/README.md
 title: ioBroker.resol
-hash: 5KDhA+LkQammqaj6e563W7RHzA1/Ce2QS3Ad3XVu6G8=
+hash: PrkSK9V9UrIMTJzsbmV+Z7A3Kqad2Gbst21lsMXgIBg=
 ---
 # IoBroker.resol
 ![Logo](../../../en/adapterref/iobroker.resol/admin/resol.svg)
@@ -26,8 +26,10 @@ Hier erhalten Sie die Möglichkeit, Ihren VBus-Controller zu steuern.
 ## IoBroker-Adapter für Resol VBus
 Dieser Adapter verbindet verschiedene VBus-basierte Geräte mit ioBroker und unterstützt verschiedene Verbindungstypen.
 
+&gt; Wenn Ihnen dieser Adapter gefällt und Sie erwägen, mich zu unterstützen<br/> &gt; [![Mit payPal spenden](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
+
 Es verwendet resol-vbus, eine von Daniel Wippermann bereitgestellte JavaScript-Bibliothek.
-Bitte besuchen Sie <https://github.com/danielwippermann/resol-vbus> und <https://www.npmjs.com/package/resol-vbus>, wenn Sie an einem tieferen Tauchgang interessiert sind.
+Bitte besuchen Sie <https://github.com/danielwippermann/resol-vbus>, wenn Sie an einem tieferen Tauchgang interessiert sind.
 
 ## Merkmale
 * Ermöglicht das Auslesen der Messdaten verschiedener RESOL(R) VBus(R)-Geräte - vorzugsweise Solar- und Systemregler der DeltaSol(R)-Serie inkl. eingebautem Wärmemengenzähler (WMZ) - mittels Datenlogger DL3 oder DL2, KM2 Kommunikationsmodule, VBus/LAN-Schnittstellenadapter oder Seriell/LAN-Gateways lokal über TCP/IP.
@@ -36,10 +38,6 @@ Bitte besuchen Sie <https://github.com/danielwippermann/resol-vbus> und <https:/
 * Werte werden mit einer konfigurierbaren Zykluszeit aktualisiert.
 * Das Lesen oder Einstellen der VBus-Gerätekonfigurationsparameter wird nicht unterstützt. Hierfür sollten die von Resol bereitgestellten Tools verwendet werden, z. B. über VBus.net oder das Parametriertool RPT.
 * Das Lesen von DL3-Kanal 0 (direkt an das DL3-Gerät angeschlossene Sensoren) wird aufgrund von Einschränkungen der DL3-Schnittstelle nicht unterstützt.
-
-## Sentry.io
-Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch an den Autor zu melden.
-Dafür wird der [ioBroker.sentry-Plugin](https://github.com/ioBroker/plugin-sentry) verwendet. Bitte beachten Sie die [Plugin-Homepage](https://github.com/ioBroker/plugin-sentry) für detaillierte Informationen darüber, was das Plugin tut, welche Informationen gesammelt werden und wie es deaktiviert werden kann, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
 
 ## Konfigurationshinweise
 * Die Standardeinstellung für die Verbindungsart ist VBus/LAN, muss aber auch für VBus/LAN explizit ausgewählt werden, sonst kommt keine Verbindung zustande.
@@ -127,10 +125,17 @@ RESOL, VBus, VBus.net, DeltaSol und andere sind Warenzeichen oder eingetragene W
 
 Alle anderen Warenzeichen sind Eigentum ihrer jeweiligen Inhaber.
 
+## Sentry.io
+Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch an den Autor zu melden.
+Dafür wird der [ioBroker.sentry-Plugin](https://github.com/ioBroker/plugin-sentry) verwendet. Bitte beachten Sie die [Plugin-Homepage](https://github.com/ioBroker/plugin-sentry) für detaillierte Informationen darüber, was das Plugin tut, welche Informationen gesammelt werden und wie es deaktiviert werden kann, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
+
 ## Urheberrechte ©
 Copyright (c) 2022 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+### v0.4.4 (2022-03-17)
+* (grizzelbee) New: Added donate button to config page and readme
+* (grizzelbee) Upd: Dependencies got updated
 
 ### v0.4.3 (2022-02-08)
 * (grizzelbee) Fix: fixed wrong state role "switch" and changed to "level"

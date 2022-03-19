@@ -3,21 +3,31 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.snmp/README.md
 title: ioBroker.snmp
-hash: yys9Kg/cH7SuwJuiyiwBEtiXaUYwVB/m9dQgMSpbFB4=
+hash: D6Ehnm9VxRfXBY2U36r8YLIy8Omlq15Atc6y2A3ACIU=
 ---
-![логотип](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
+![Логотип](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
 
 ![Количество установок](http://iobroker.live/badges/snmp-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.snmp.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.snmp.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.snmp.svg)
-![тесты](https://travis-ci.org/CTJaeger/ioBroker.snmp.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.snmp.png?downloads=true)
 
 # IoBroker.snmp
+![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/iobroker.snmp/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/snmp/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+
 ## Информация
-Этот адаптер опрашивает информацию с устройства SNMP, например, принтеры, сеть ...
+Этот адаптер запрашивает информацию с SNMP-устройства, такую как принтеры, сеть...
 
 ## Changelog
+### __WORK IN PROGRESS__
+* IMPORTANT: This release will change the object structures!!
+* (McM1957) reduce latency for update of info.connection 
+* (McM1957) avoid excessive error logs if target is unreachable, optimize logging
+* (McM1957) add additional online at ip base to indicate target is reachable
+* (McM1957) output warning if OIDs specify different communities for one device
+* (Apollon77) Add Sentry for crash reporting
+
 ### 0.5.0
 * (Marcolotti) Add documentation (de,en,ru)
 * (Marcolotti) Add languages (de,en,ru)
@@ -35,7 +45,7 @@ hash: yys9Kg/cH7SuwJuiyiwBEtiXaUYwVB/m9dQgMSpbFB4=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017 Marcolotti <info@ct-j.de>
+Copyright (c) 2017-2022 Marcolotti <info@ct-j.de>, ioBroker Community Developers 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

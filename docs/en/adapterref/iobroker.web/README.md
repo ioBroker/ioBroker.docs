@@ -82,7 +82,7 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 -->
 
 ## Changelog
-### __WORK IN PROGRESS__
+### 4.2.1 (2022-03-18)
 * (Apollon77) Provide state and object changes for simple-api
 
 ### 4.2.0 (2022-02-21)
