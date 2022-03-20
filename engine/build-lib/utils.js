@@ -232,7 +232,7 @@ function extractBadges(body) {
                 let alt = m[1];
                 let link = m[2];
                 if (link.toLowerCase().match(/^https?:\/\//) &&
-                    BADGES.find(badge => link.indexOf(badge) !== -1)) {
+                    BADGES.find(badge => link.includes(badge))) {
                     badges[alt] = link;
                     body = body.replace(image, '--delete--');
                 }
@@ -243,7 +243,7 @@ function extractBadges(body) {
     // [](https://www.npmjs.com/package/iobroker.admin)
     const lines = body.split('\n');
     for (let i = lines.length - 1; i >= 0; i--) {
-        if (lines[i].indexOf('--delete--') !== -1) {
+        if (lines[i].includes('--delete--')) {
             lines.splice(i, 1);
         }
     }
@@ -253,11 +253,15 @@ function extractBadges(body) {
 }
 
 function addBadgesToBody(body, badges) {
-    if (!badges  || !Object.keys(badges).length) return body;
+    if (!badges  || !Object.keys(badges).length) {
+        return body;
+    }
     const lines = body.split('\n');
     let i = 0;
     // skip logo and title
-    while (lines[i].startsWith('# ') || lines[i].startsWith('![')) i++;
+    while (lines[i].startsWith('# ') || lines[i].startsWith('![')) {
+        i++;
+    }
 
     lines.splice(i, 0, '');
 

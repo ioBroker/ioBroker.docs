@@ -298,7 +298,8 @@ function sync2Languages(fromLang, toLang, testDir, cb, files) {
     files = files || utils.getAllFiles(consts.SRC_DOC_DIR + fromLang, true).sort();
 
     if (testDir) {
-        files = files.filter(file => file.indexOf('/' + testDir + '/') !== -1);
+        const _testDir = `/${testDir}/`;
+        files = files.filter(file => file.includes(_testDir));
     }
 
     if (!files.length) {
@@ -317,7 +318,7 @@ function sync2Languages(fromLang, toLang, testDir, cb, files) {
                 const fls = utils.getAllFiles(parts.join('/'), false).sort();
                 fls.filter(f => !f.match(/\.md$/) && !f.match(/affiliate\.json$/))
                     .forEach(file =>
-                        utils.writeSafe(file.replace('/' + fromLang + '/', '/' + toLang + '/'), fs.readFileSync(file)));
+                        utils.writeSafe(file.replace(`/${fromLang}/`, `/${toLang}/`), fs.readFileSync(file)));
             }
             setTimeout(() => sync2Languages(fromLang, toLang, testDir, cb, files), 100);
         });
