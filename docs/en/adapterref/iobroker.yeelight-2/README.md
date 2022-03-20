@@ -131,7 +131,7 @@ base from: adb backup https://github.com/cahek2202/ioBroker.yeelight
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 MeisterTR <meistertr.smarthome@gmail.com>, cahek2202 <cahek2202@mail.ru>
+Copyright (c) 2018-2022 MeisterTR <meistertr.smarthome@gmail.com>, cahek2202 <cahek2202@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

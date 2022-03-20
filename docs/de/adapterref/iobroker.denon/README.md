@@ -858,6 +858,15 @@ Die folgenden States werden vom Adapter angelegt:
    *Number Wert, welcher auf eine in info.onlinePresets enthaltene Id gesetzt werden kann.
    Hierdurch wird der entsprechende Favoriten-Sender wiedergegeben.
    Dieser State erhält kein acknowledge, selbst dann nicht, wenn er erfolgreich durchgeführt wurde.*
+
+* settings.speakerPreset
+
+  |Datentyp|Berechtigung|
+  |:---:|:---:|
+  |number|R/W|
+
+  *Stellen Sie die Lautsprechervoreinstellung ein, sofern dies vom AVR unterstützt wird. 
+  Die Lautsprechervoreinstellung kann den Wert `1` oder `2` annehmen.*
    
  ### Weitere States
 Da manche AV-Receiver, wie z. B. der DENON POA-3012CI eine andere Logik nutzen, gibt es für diese unterschiedliche States.
@@ -956,6 +965,9 @@ und info.connection. Zusätzlich werden die folgenden States für jede Zone 2-12
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.13.1 (2022-03-19)
+* (foxriver76) added `settings.speakerPreset`
+
 ### 1.12.1 (2022-01-03)
 * (foxriver76) fixed missing digits in `tuner.stationName`
 

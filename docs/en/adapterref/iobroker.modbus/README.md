@@ -272,9 +272,13 @@ There are some programs in folder *test' to test the TCP communication:
 - mod_RSsim.exe is slave simulator. It can be that you need [Microsoft Visual C++ 2008 SP1 Redistributable Package](https://www.microsoft.com/en-us/download/details.aspx?id=5582) to start it (because of SideBySide error).
 
 <!--
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 4.0.1 (2022-03-20)
+* (bluefox) Updated serial port package
+* (bluefox) Minimal node.js version is 12
+
 ### 3.4.17 (2021-11-11)
 * (Apollon77) Catch errors in tasks processing to prevent crashes
 
@@ -521,7 +525,7 @@ There are some programs in folder *test' to test the TCP communication:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2021 Bluefox <dogafox@gmail.com>
+Copyright (c) 2015-2022 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

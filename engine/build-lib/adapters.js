@@ -422,7 +422,7 @@ function getReadme(lang, dirName, repo, adapter) {
 // 2. If file on disk is marked as local. If yes: Download remote file and get License and Changelog, write it into local file
 // 3. For non-local files, download the remote files and replace local ones
 function processAdapterLang(adapter, repo, lang, content) {
-    const dirName = ADAPTERS_DIR.replace('/LANG/', '/' + lang + '/') + 'iobroker.' + adapter;
+    const dirName = `${ADAPTERS_DIR.replace('/LANG/', '/' + lang + '/')}iobroker.${adapter}`;
 
     let iconName = repo.extIcon ? repo.extIcon.split('/').pop() : '';
 
@@ -453,12 +453,8 @@ function processAdapterLang(adapter, repo, lang, content) {
                 content.pages[repo.type].pages[adapter].icon = `adapterref/iobroker.${adapter}/${iconName}`;
             }
 
-            if (adapter === 'shelly') {
-                console.log('shelly');
-            }
-
             // download readme files direct from repo or read locally and merge it with downloaded
-            return getReadme(lang, dirName, repo, adapter)
+            getReadme(lang, dirName, repo, adapter)
                 .then(results => {
                     if (!results || !results[0] || !results[0].body) {
                         return Promise.resolve();
@@ -511,7 +507,14 @@ function processAdapterLang(adapter, repo, lang, content) {
                         downloadImagesForReadme(lang, repo, result)
                             .then(result =>
                                 result && utils.writeSafe(dirName + '/' + result.name, result.body))));
+                })
+                .catch(error => {
+                    console.error(`Cannot get readme for ${adapter}: ${error}`);
+                    return null;
                 });
+        })
+        .catch(error => {
+            console.error(`Cannot process adapter (${adapter} lang(${lang}): ${error}`);
         });
 }
 
@@ -609,7 +612,7 @@ function buildAdapterContent(adapter, noDownload) {
                             fs.writeFileSync(consts.FRONT_END_DIR + 'adapters.json', JSON.stringify(content, null, 2));
                             resolve(content);
                         });
-                    })
+                    });
 
                 /*const a = 'fritzbox';
                 const dirName = ADAPTERS_DIR.replace('/LANG/', '/en/') + 'iobroker.' + a;

@@ -698,6 +698,7 @@ msg.payload = {
     "parse_mode": "MarkdownV2"
 }
 ```
+Before sending it to `telegram.INSTANCE.communicate.responseJson you need to stringify the object!`
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -707,6 +708,7 @@ msg.payload = {
 ## Changelog
 
 ### __WORK IN PROGRESS__
+* (Apollon77) Add new JSON states communication.responseJson and communication.responseSilentJson to also accept json structures (stringified!) to send messages
 * (Apollon77) Try to prevent adapter crashes when internet is not available 
 * (Apollon77) Add Sentry for crash reporting
 

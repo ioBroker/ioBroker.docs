@@ -263,6 +263,9 @@ Following types are supported:
 -->
 
 ## Changelog
+### 1.11.2 (2022-03-20)
+* (Apollon77) Fix crash case reported by Sentry (IOBROKER-IOT-3P)
+
 ### 1.11.1 (2022-03-18)
 * (Apollon77) Optimize logging when many devices are used
 

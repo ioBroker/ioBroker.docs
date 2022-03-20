@@ -125,9 +125,10 @@ The whole name including path is used to check for similarity.
 # howto use the adapter & basic concept
 
 ### ACK flags
-Applications shall not set ack flags, application is notified from this adapter by the ack flag if data is updated.
-KNX Stack sets the ack flag of the linked IoBroker object on receiption of a group address.
-Sent frames on KNX do not result into a ack of the writing object.
+Applications shall never set ack flags, application is notified from this adapter by the ack flag if data is updated.
+KNX Stack sets the ack flag of the corresponding IoBroker object on receiption of a group address.
+Sent frames on KNX triggered by application writing to a object does not result into an acknowledgement message to that object.
+This behavior can be overwritten by checking in the admin dialog the checkbox "set acknowledgement flag when application writes to object".
 
 ### Node Red complex datatype example
 Create a function node that connects to a ioBroker out node that connects with a KNX object of DPT2.
@@ -305,9 +306,11 @@ Data is sent to Iobroker Sentry server hosted in Germany. If you have allowed io
 - only IPv4 supported
 
 ## Changelog
-### 0.1.23 (2022-)
-* bugfix: min max common object values only for number 
+### 0.1.23 (2022-03-19)
 * feature: change default regexp for alias
+* feature: new option to set ack flag when application writes to object
+* feature: supportes knx device scan in iobroker.discovery 2.8.0
+* bugfix: min max common object values only for number 
 
 ### 0.1.22 (2022-02-26)
 * bufix: repair reception error

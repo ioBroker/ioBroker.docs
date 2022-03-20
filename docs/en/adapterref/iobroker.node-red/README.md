@@ -23,10 +23,14 @@ This adapter uses the node-red server from https://github.com/node-red/node-red
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-    ### __WORK IN PROGRESS__
+    ### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 3.0.1 (2022-03-20)
+* (Bannsaenger) added option for in Node to choose topic format (MQTT with / or ioBroker with .). Default: MQTT
+*
+
 ### 3.0.0 (2022-03-11)
 * IMPORTANT: Node-RED is now v2. Please check your nodes for compatibility! See also https://nodered.org/blog/2021/07/20/version-2-0-released and https://nodered.org/blog/2021/10/21/version-2-1-released
 * Detailed overview (in german): https://forum.iobroker.net/post/775767
@@ -38,10 +42,10 @@ This adapter uses the node-red server from https://github.com/node-red/node-red
 * (bluefox) Added debug output: Cannot set state of non-existing object
 * (bluefox) Allow setting of regular expression in the list node in message
 * (bluefox) Allow the filtering of `ack=false` messages for IN node
-* (Apollon77) Enhance GetNode rbe/deadband functions to optionally ignore initial value
+* (Apollon77) Enhance GetNode rbe/dead-band functions to optionally ignore initial value
 * (Apollon77) Return undefined for GetNode if the state currently has no value set (e.g. because expired or never set)
 * (Apollon77) Allow for GetNode to return an error if a state-id is used for which no object exists, else also return undefined
-* (Apollon77) Also allow to access system.* states directly
+* (Apollon77) Also allow accessing system.* states directly
 * (Apollon77) When RBE function is used on InNode and not value is sent on start still initialize current value internally
 * (Apollon77) Add node-ID in front of all log lines logged by node logic
 * (jwiesel) Changed default setting to "convert data from ioBroker nodes into Strings" to false. Setting will not be changed automatically in instances already existing

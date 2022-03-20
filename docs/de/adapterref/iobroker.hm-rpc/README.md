@@ -195,6 +195,9 @@ Auszug:
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.15.12 (2022-03-19)
+* (foxriver76) we now adjust min/max correct if a `SPECIAL` value falls out of range (closes #459)
+
 ### 1.15.11 (2022-03-18)
 * (foxriver76) fallback to old adapter port determination logic (closes #509)
 

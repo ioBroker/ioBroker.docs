@@ -24,41 +24,19 @@ wioBrowser is a Windows fullscreen browser that can be controlled via ioBroker, 
 + IP
 
 He can also control:
-+ Screen on/off
++ screen on/off
 + exit app
 + volume +/-
-+ Mute on/off
++ mute on/off
 + brightness +/-
-+ Run programs with switches e.g. C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100
-+ Text Messages
-+ Speak Messages
-
-***
-Dieser Adapter verbindet sich über tcp.socket mit dem wioBrowser, um ihn zu steuern. Es gibt 3 unterschiedliche wioBrowser Apps:
-+ wioBrowser WebView2 Framework
-+ wioBrowser Chromium Framework
-+ wioNoweb (Gleiche Funktionen ohne Web)
-
-wioBrowser ist ein Windows Fullscreen Browser der sich über ioBroker steuern lässt, er zeigt einzelne Webseiten an oder eine Webseiten Slideshow die man im Adapter einstellen kann. Es werden auch Infos an den Adapter übertragen:
-+ CPU Last 
-+ freier Speicher
-+ aktuelle Batterieentladung bei Tablet oder Notebook
-+ Hostname
-+ IP
-
-Er kann auch steuern:
-+ Bildschirm an/aus
-+ App beenden
-+ Lautstärke +/-
-+ Stumm an/aus
-+ Helligkeit +/-
-+ Programme mit Schaltern ausführen z.B C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100
-+ Text Nachrichten
-+ Sprach Nachrichten
++ run programs with switches e.g. C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100
++ text messages
++ speak messages
++ play audiofiles
 
 ## Link
 * [ioBroker Forum Adapter Thread](https://forum.iobroker.net/topic/50982/neuer-adapter-wiobrowser-f%C3%BCr-windows)
-* [Tutorial über die Messages](https://forum.iobroker.net/topic/51534/tutorial-wiobrowser-windows-desktop-popup-messages) vom User hydrotec
+* [Tutorial über die Messages](https://forum.iobroker.net/topic/51534/tutorial-wiobrowser-windows-desktop-popup-messages) by user hydrotec
 
 ## Changelog
 ### 1.1.4

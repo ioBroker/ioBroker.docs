@@ -104,6 +104,12 @@ Widget for VIS to show a complete valve. You have only to define the "SetTemp" -
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.4 (2022-03-20)
+* (ioKlausi) Plug added to tab page 
+
+### 1.1.3 (2022-03-19)
+* (ioKlausi) Valve page added 
+
 ### 1.1.2 (2022-03-06)
 * (ioKlausi) Bugfix Easy Admin 
 

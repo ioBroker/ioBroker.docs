@@ -25,8 +25,11 @@ function queuePromises(promises, cb) {
         cb && cb();
     } else {
         const task = promises.shift();
-        task.then(() =>
-            setTimeout(() => queuePromises(promises, cb), 100));
+        task
+            .catch(error => console.error('Cannot process task: ' + error))
+            .then(() =>
+                setTimeout(() =>
+                    queuePromises(promises, cb), 100))
     }
 }
 

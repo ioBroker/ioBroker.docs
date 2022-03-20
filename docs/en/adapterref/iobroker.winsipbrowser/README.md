@@ -22,20 +22,24 @@ winsipbrowser is a Windows fullscreen browser wit sipclient that can be controll
 + IP
 
 He can also control:
-+ Screen on/off
++ screen on/off
 + exit app
 + volume +/-
-+ Mute on/off
++ mute on/off
 + brightness +/-
-+ Run programs with switches e.g. C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100
-+ Text Messages
-+ Speak Messages
++ run programs with switches e.g. C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100
++ text messages
++ speak messages
++ play audiofiles
 
 ## Link
 * [ioBroker Forum Adapter Thread](https://forum.iobroker.net/topic/53162/neuer-adapter-winsipbrowser-f%C3%BCr-windows)
 * [ioBroker Forum Programm Thread](https://forum.iobroker.net/topic/53032/sprechanlagen-innenstation-browser-mit-sip-client?_=1646732403727)
 
 ## Changelog
+### 0.1.4
+* (bettman66) change objects
+
 ### 0.1.2
 * (bettman66) play musicfile
 

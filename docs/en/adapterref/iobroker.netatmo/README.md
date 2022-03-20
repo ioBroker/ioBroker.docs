@@ -47,6 +47,7 @@ the personsId is the id within the "Known" persons folder
 ## Changelog
 
 ### __WORK IN PROGRESS__
+* IMPORTANT: js-controller 3.3.19 is needed at least!
 * (Apollon77) Adjust some roles and written data to prevent warnings in logs
 * (Apollon77) Try fix events
 

@@ -139,9 +139,12 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 3.0.0 (2022-03-20)
+* (bluefox) Updated serialport package
+
 ### 2.8.0 (2022-02-20)
 * (boellner) add openknx
 * (git-kick) add e3dc-rscp

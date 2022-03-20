@@ -34,7 +34,7 @@ If you want to have a published bridge to be used by the Home App and want to al
 The Local mode installs the current compatible version of homebridge and runs it as ioBroker user. You provide the complete homebridge configuration using ioBroker. 
 The installation of the homebridge modules is also done via ioBroker.
 
-**IMPORTANT: When using child bridges (new homebridge feature since 1.3.x) the adapter CAN NOT access the data provided by these child bridges! Only the main bridge is accessable!**
+**IMPORTANT: When using child bridges (new homebridge feature since 1.3.x) the adapter CAN NOT access the data provided by these child bridges! Only the main bridge is accessible!**
 
 ### Global-Homebridge-Mode
 If you already use Homebridge (Apple OpenSource SmartHome) as a global installation on the host where also ioBroker runs on,
@@ -67,7 +67,14 @@ For this to work you need to provide the location of the systems global node-mod
 * Tests
 * More documentation?!
 
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+
 ## Changelog
+### 4.0.3 (2022-03-20)
+* (bluefox) Update packages
 
 ### 4.0.2 (2021-05-08)
 * (Apollon77) prevent warnings in js-controller 3.3
@@ -81,7 +88,7 @@ For this to work you need to provide the location of the systems global node-mod
 * (Apollon77) update homebridge in wrapper to 1.1.6 (latest as of today)
 
 ### 3.0.1 (2020-08-08)
-* (Apollon77) set a very high limit (again) on allowed accessories and services because irrelevant 
+* (Apollon77) set a very high limit (again) on allowed accessories and services because irrelevant
 
 ### 3.0.0 (2020-08-04)
 * (Apollon77) BREAKING: ONLY WORKS WITH HOMEBRIDGE 1.1.x+ AND Node JS >=10.17.0!! Make sure plugins support it AND homebridge is updated to 1.1.x when you use the Global Mode!
@@ -149,7 +156,7 @@ For this to work you need to provide the location of the systems global node-mod
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2018-2022 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

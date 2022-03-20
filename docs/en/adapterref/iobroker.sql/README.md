@@ -428,7 +428,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 * (Apollon77) Allow all number values for debounce again
 
 ### 1.16.0 (2021-12-14)
-* (bluefox) Support only `js.controller` >= 3.3.x
+* (bluefox) Support only `js-controller` >= 3.3.x
 * (bluefox) Used system/custom view for collecting the objects
 * (bluefox) Implemented option to ignore zero- or/and below zero- values
 

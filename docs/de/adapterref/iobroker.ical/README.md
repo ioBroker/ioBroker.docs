@@ -197,6 +197,15 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### __WORK IN PROGRESS__
+* (Apollon77/Scrounger) Add option to choose the ack flag set when updating foreign objects on events
+* (HSE83) use a color field from the calendar entry as color for display
+* (Apollon77) When not replacing date with text and entry ends at 0:0:0 show the day before as end
+* (Apollon77) Fix issues when no end date is provided in the calendar entry (start and end are the same)
+* (Apollon77) Correctly calculate length of multi day events
+* (Apollon77) Respect DST changes in some calculations to prevent strange effects
+
 ### 1.11.6 (2021-12-17)
 * (jens-maus) fixed incorrect recurrence event processing
 
@@ -421,7 +430,7 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2021, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

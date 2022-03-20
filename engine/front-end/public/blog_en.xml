@@ -56,7 +56,7 @@
             <pubDate>Tue, 12 May 2020 06:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[js-controller 2.0]]></title>
+            <title><![CDATA[js controller 2.0]]></title>
             <description><![CDATA[
                 <p>Hello ioBroker community,</p>
             ]]></description>
@@ -66,9 +66,9 @@
             <pubDate>Mon, 14 Oct 2019 06:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Windows Installer]]></title>
+            <title><![CDATA[Windows installer]]></title>
             <description><![CDATA[
-                <p>Today we have information about ioBroker on Windows machines and an update on the TeamSpeak community.\nFurthermore, we give you an overview of new visualization adapters. Be curious.</p>
+                <p>Today we have information about ioBroker on Windows machines and an update on the TeamSpeak community.\nFurthermore, we give you an overview of new visualization adapters. Stay tuned.</p>
             ]]></description>
             <link>https://www.iobroker.net/#en/blog/2019_06_12</link>
             <guid isPermaLink="true">https://www.iobroker.net/#en/blog/2019_06_12</guid>
@@ -78,7 +78,7 @@
         <item>
             <title><![CDATA[New ioBroker website]]></title>
             <description><![CDATA[
-                <p>Today we have news about the ioBroker website, the new **js-controller** 1.5.12 and improvements in the admin and info adapter.\nAlso a few new adapters should not be missing.</p>
+                <p>Today we have news about the ioBroker website, the new **js-controller** 1.5.12 and improvements in the admin and info adapter.\nOf course, a few new adapters should not be missing either.</p>
             ]]></description>
             <link>https://www.iobroker.net/#en/blog/2019_06_11</link>
             <guid isPermaLink="true">https://www.iobroker.net/#en/blog/2019_06_11</guid>
@@ -88,7 +88,7 @@
         <item>
             <title><![CDATA[ioBroker Newsletter February 2019]]></title>
             <description><![CDATA[
-                <p>Today there are some ioBroker news again:\nThe forum conversion is done and the new forum is online. The new js-controller 1.5.7 is now available for advanced testing in the Latest Repository, and also the installer fixer has been released to bring existing installations to the same level as new ones. Of course, we also have important information about the Tanker King adapter and some new adapters.</p>
+                <p>Today there is some ioBroker news again: The forum changeover has taken place and the new forum is online. The new js-controller 1.5.7 is now available for extended testing in the latest repository and also the installation fixer has been released to bring existing installations up to date with new ones. Of course, we also have important information about the Tankerkönig adapter and some new adapters.</p>
             ]]></description>
             <link>https://www.iobroker.net/#en/blog/2019_02_27</link>
             <guid isPermaLink="true">https://www.iobroker.net/#en/blog/2019_02_27</guid>
@@ -96,7 +96,7 @@
             <pubDate>Wed, 27 Feb 2019 06:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[js-controller 1.5.7 available in the Latest Repository]]></title>
+            <title><![CDATA[js-controller 1.5.7 available in Latest Repository]]></title>
             <description><![CDATA[
                 <p>After some delay and many intensive tests with great support from the community and here in the forum, we are pleased to release the next version of the js-controller for official further tests for all interested users.</p>
             ]]></description>
@@ -116,7 +116,7 @@
             <pubDate>Fri, 22 Feb 2019 06:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Cloud Adapter Version]]></title>
+            <title><![CDATA[Cloud adapter version]]></title>
             <description><![CDATA[
                 <p>The new cloud adapter version has been prepared.</p>
             ]]></description>

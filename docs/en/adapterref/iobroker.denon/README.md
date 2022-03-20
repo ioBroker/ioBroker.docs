@@ -803,7 +803,15 @@ Following states will be created by the adapter:
 
    *Number value, which can be set to a value of info.onlinePresets. This will load the related channel.
    This state will not get an acknowledge, no matter the command has been successful or not.*
-   
+
+* settings.speakerPreset
+
+  |Data type|Permission|                                                                       
+  |:---:|:---:|
+  |number|R/W|
+
+  *Set the speaker preset if supported by the AVR. Speaker preset can be `1` or `2`.*
+
 ### Other States
 Due to the fact that some AVRs like the DENON POA-3012CI use another logic there are some differences in the states.
 The states which are equal to the ones listed above are: settings.powerSystem, settings.expertCommand, display.brightness
@@ -906,6 +914,9 @@ The adapter is tested with an DENON AVR-X1200W and a Marantz SR5009.
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.13.1 (2022-03-19)
+* (foxriver76) added `settings.speakerPreset`
+
 ### 1.12.1 (2022-01-03)
 * (foxriver76) fixed missing digits in `tuner.stationName`
 

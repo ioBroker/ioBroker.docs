@@ -41,7 +41,7 @@ Workaround for text to speech is to use the [SONOS HTTP API](https://github.com/
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 ## Changelog
 ### 2.1.7 (2021-12-20)
@@ -187,7 +187,7 @@ Workaround for text to speech is to use the [SONOS HTTP API](https://github.com/
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2021, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
