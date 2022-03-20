@@ -21,11 +21,6 @@ To use cloud adapter you should first to register on the ioBroker cloud [https:/
 
 ![Intro](img/intro.png)
 
-### Limits
-Everything has a limits, so the Amazon Alexa too. Alexa can support only up to 300 devices.
-
-Google Cloud and Alisa should be cleared
-
 ### Language
 If you select "default" language the smart names of devices and of enumerations will not be translated. If some language specified all known names will be translated into this language.
 It is done to switch fast between many languages for demonstration purposes.
@@ -264,10 +259,28 @@ Following types are supported:
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 1.11.1 (2022-03-18)
+* (Apollon77) Optimize logging when many devices are used
+
+### 1.11.0 (2022-03-17)
+* (Apollon77) Also support "stored" when a rgb state is turned on/off
+* (Apollon77) Fix control percent value to respect min/max correctly
+* (bluefox) Support of response messages longer than 128k (zip)
+
+### 1.10.0 (2022-03-09)
+* (Apollon77) Respect min/max when calculating the value for byOn with % values
+
+### 1.9.7 (2022-02-20)
+* (Apollon77) Fix crash case reported by Sentry (IOBROKER-IOT-3C)
+
+### 1.9.6 (2022-02-19)
+* (Apollon77) Make sure to not remember the off value when using stored values for on
+* (Apollon77) Fix crash case reported by Sentry (IOBROKER-IOT-3A)
+
 ### 1.9.5 (2022-02-08)
 * (bluefox) Fixed Google home error with color control
 

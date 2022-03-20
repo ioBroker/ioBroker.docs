@@ -2,44 +2,49 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.yr/README.md
-title: ioBroker.yr
-hash: 6My5rWltcJj/nnOkI8cobniG8X6f2KSkMWtGwcdSRO4=
+title: ioBroker.год
+hash: SSIKrqxW3jtFiYTEPdVAOcBbo+UIFyIX/NGJTm/qwcc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.yr/admin/yr.png)
 
 ![Количество установок](http://iobroker.live/badges/yr-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.yr.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.yr.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.yr.svg)
 
-# IoBroker.yr
-![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.yr/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/yr/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker.год
+![Тестируйте и выпускайте](https://github.com/ioBroker/ioBroker.yr/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/yr/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
-## Год нет адаптера для ioBroker
-получает прогноз погоды на 10 дней из [год нет](yr.no)
+## Год. нет адаптера для ioBroker
+получает прогноз погоды на 10 дней из [год.нет](https://yr.no)
 
-[yr.no] (yr.no) - совместная служба [Норвежского метеорологического института] (met.no) и [Норвежской радиовещательной корпорации](nrk.no)
+[yr.no](https://yr.no) — совместная служба [Норвежского метеорологического института](https://met.no) и [Норвежской радиовещательной корпорации](https://nrk.no)
 
 https://api.met.no/weatherapi/locationforecast/2.0/documentation
 
-** Примечание ** - если _ "Отправить недостающие переводы на iobroker.net" _ активировано (по умолчанию) отсутствующие переводы будут отправлены на сервер iobroker.net. Никакие IP-адреса или какая-либо дополнительная информация не будет храниться или анализироваться. Просто отсутствует перевод.
+**Примечание** - если _"Отправить отсутствующие переводы на iobroker.net"_ активировано (по умолчанию), отсутствующие переводы будут отправлены на сервер iobroker.net. Никакие IP-адреса или любая дополнительная информация не будут храниться или анализироваться. Просто отсутствует перевод.
 
 ## Иконки
 Иконки взяты отсюда [https://api.met.no/weatherapi/weathericon/2.0/documentation](https://api.met.no/weatherapi/weathericon/2.0/documentation) и принадлежат yr.no.
 
-## ДЕЛАТЬ
-* Добавить метеограмму (png, вероятно, перестанет работать с новым API)
+## СДЕЛАТЬ
+* Добавить метеограмму (png, вероятно, прекратит поддержку с новым API)
 * Добавить ежедневный прогноз на основе почасового прогноза
-* Добавить таблицу html
+* Добавить html-таблицу
 
-<! - Заполнитель для следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
-## Делать
+### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
+## Сделать
 * setState прогноз_объект
 
 ## Changelog
+### 5.1.0 (2022-03-05)
+* (Apollon77) Move schedule if default is used on request of met.no
+* (Apollon77) Do not query legend/icons dynamically, but deliver with the version
+* (Apollon77) make sure to not execute logic when adapter stopped already
+
 ### 5.0.0 (2021-11-08)
 * (klein0r) Fixed translations
 * (klein0r) Update dates data type
@@ -140,7 +145,7 @@ https://api.met.no/weatherapi/locationforecast/2.0/documentation
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>, Bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022 hobbyquaker <hq@ccu.io>, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

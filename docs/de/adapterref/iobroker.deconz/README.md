@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.deconz/README.md
 title: kein Titel
-hash: 4Q95qlMPJ1GRwW4YORp1JEHRxM0wDdpigsWkH6r7kNY=
+hash: 4+tbBmkb3CHsa40NYBLcBSntHQkOopeu1oB/itCB7zo=
 ---
 ![Logo](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
@@ -16,23 +16,23 @@ ioBroker deConz dresden-elektronik Adapter
 
 ==============
 
-## Beachten
-Keine Unterstützung für Beta-Versionen von deConz
+## Notiz
+Kein Support für Beta-Versionen von deConz
 
-Erforderliche js-controller Version> 2.x.x, Erforderliche node.js> = 10.x.x.
+Erforderliche JS-Controller-Version >2.x.x, Erforderliche node.js >= 10.x.x
 
 ## Englisch
-Verbindet mit der von dresden-elektronik entwickelten deConz-Software. Diese Software soll eine universelle ZigBee Gateway-Lösung sein, die Hardware von dresden-elektronik, den ConBee USB-Stick und RaspBee, ein Modul für den Raspberry Pi, verwendet.
+Verbindet sich mit der von dresden-elektronik entwickelten deConz-Software. Diese Software zielt darauf ab, eine universelle ZigBee-Gateway-Lösung zu sein, die Hardware von dresden-elektronik, den ConBee-USB-Stick und RaspBee, ein Modul für den Raspberry Pi, verwendet.
 
-Sie müssen zuerst einen Link zu deConz erstellen.
+Sie müssen zuerst auf deConz verlinken.
 
 1. a) Geben Sie die IP-Adresse für deConz ein
 
-    b) Geben Sie die Portnummer ein, Standard ist 80.
+    b) Portnummer eingeben, Standard ist 80.
 
-2. Nachdem Sie die IP-Adresse und den Port eingegeben und gespeichert haben, klicken Sie auf die Schaltfläche "API-Schlüssel erstellen". Jetzt können Sie die Anmeldeinformationen für deConz eingeben oder zur Phoscon-App gehen und ioBroker als APP eines Drittanbieters registrieren.
+2. Nachdem die IP-Adresse und der Port eingegeben und gespeichert wurden, klicken Sie auf die Schaltfläche „Create API Key“. Jetzt können Sie die Zugangsdaten für deConz eingeben oder zur Phoscon APP gehen und ioBroker als Drittanbieter-APP registrieren.
 
-#### Mehr als einen Befehl gleichzeitig senden
+#### Senden Sie mehr als einen Befehl gleichzeitig
 Zu diesem Zweck gibt es ein Objekt namens "Aktion".
 
 Beispiele:
@@ -44,9 +44,30 @@ Beispiele:
 ## Links
 [deConz](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/) [REST-Plugin](https://github.com/dresden-elektronik/deconz-rest-plugin) [Gateways (Hardware)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
 
-## [Sponsoren](https://github.com/iobroker-community-adapters/ioBroker.deconz/blob/master/SPONSORS.MD)
+## [Sponsoren](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+
+### 1.3.20 (2022-02-26)
+* (withstu) add retry if gateway is busy
+* change min/max range for offset
+* updated translations
+* fix link for overview page
+* fix parameter can not be set since deConz 2.11.5
+* fix xy is invalid: #289 #295
+* remove Sentry
+
+### 1.3.19 (2021-08-08)
+* fix for js-controller 3.3.x
+
+### 1.3.17
+* fix crash [#248](https://github.com/Jey-Cee/ioBroker.deconz/issues/248)
+
+### 1.3.16 
+* added datapoints melody and volume (Used by NEO-Alarm-Sirene by Tuya)
+* added new effects for Müller Licht Tint: sunset, party, worklight, campfire, romance, nightlight
+* added new effects for Lidl Melinera: steady, snow, rainbow, snake, twinkle, fireworks, flag, waves, updown, vintage, fading, collide, strobe, sparkles, carnival, glow 
+* added 2 new datapoints they were used by Lidl Melinera effects: effectspeed: simple number; effectcolours: array of rgb values = [[255,0,0],[0,255,0],[0,0,255]] https://github.com/dresden-elektronik/deconz-rest-plugin/issues/3716#issuecomment-735467996
 
 ### 1.3.15 (2021-05-08)
 * fix info message: "State value to set for "deconz.0.Sensors.3.pending" has to be stringified but received type "object""
@@ -272,4 +293,4 @@ Beispiele:
 ## License
 Apache-2.0
 
-Copyright (c) 2017-2021 Jey Cee jey-cee@live.com
+Copyright (c) 2017-2022 Jey Cee jey-cee@live.com

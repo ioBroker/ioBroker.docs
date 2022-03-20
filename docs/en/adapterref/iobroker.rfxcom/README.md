@@ -9,6 +9,8 @@
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/rfxcom/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.rfxcom.svg)](https://www.npmjs.com/package/iobroker.rfxcom)
 
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 This adapter communicates with [rfxcom](http://www.rfxcom.com).
 Used for receiving the data from weather sensors and wireless power switches.
 
@@ -35,6 +37,7 @@ To do that press the pair button just before inserting the battery and the devic
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+
 ### 2.0.2 (2021-11-10)
 * (bluefox) Fixed error by deleting of object
 

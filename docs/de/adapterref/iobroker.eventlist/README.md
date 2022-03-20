@@ -3,64 +3,64 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.eventlist/README.md
 title: ioBroker.eventlist
-hash: ywraCHe0HMT0583wHjYdV78lyHfLS1pss3mUMXaxF2w=
+hash: pMEjj/E/4LClSw8GSTCvaYfgt5JuNQxvWKqQv9loPTQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.eventlist/admin/eventlist.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.eventlist.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.eventlist.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/eventlist-installed.svg)
+![Anzahl der Installationen (neueste)](http://iobroker.live/badges/eventlist-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/eventlist-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/bluefox/iobroker.eventlist.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/bluefox/ioBroker.eventlist/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/bluefox/ioBroker.eventlist/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.eventlist.png?downloads=true)
 
 # IoBroker.eventlist
-## Ereignislistenadapter für ioBroker
-Ermöglicht das Definieren der Zustände, die in der Ereignisliste protokolliert werden müssen.
+## Event-List-Adapter für ioBroker
+Ermöglicht die Definition der Zustände, die in der Ereignisliste angemeldet werden müssen.
 
-Die Liste kann in admin, web, vis angezeigt, als PDF gespeichert, Material (noch nicht implementiert).
+Die Liste kann in admin, web, vis angezeigt werden, als PDF gespeichert werden, Material (noch nicht implementiert).
 
-Zusätzlich können Sie Ereignisse per Telegramm oder WhatsApp senden.
+Zusätzlich können Sie Events per Telegram oder WhatsApp versenden.
 
 ![Aufführen](../../../en/adapterref/iobroker.eventlist/img/list.png)
 
-![PDF](../../../en/adapterref/iobroker.eventlist/img/pdf.png)
+![Pdf](../../../en/adapterref/iobroker.eventlist/img/pdf.png)
 
 ## Alarmmodus
 Die Ereignisse konnten nur im Alarmmodus generiert werden.
-Der Alarmmodus kann durch die Variable `eventlist.X.alarm` gesteuert werden.
+Der Alarmmodus könnte durch die Variable `eventlist.X.alarm` gesteuert werden.
 
-Außerdem können die Nachrichten an Messenger nur gesendet werden, wenn der Alarmmodus aktiviert ist.
+Außerdem könnten die Nachrichten an Messenger nur gesendet werden, wenn der Alarmmodus eingeschaltet ist.
 
 Anwendungsfall:
 
-- Z.B. Der Türsensor kann die Nachrichten nur senden, wenn niemand zu Hause ist. Andernfalls werden die Ereignisse zum Öffnen der Tür nur in der Ereignisliste erfasst.
+- Z.B. Türsensor kann die Nachrichten nur senden, wenn niemand zu Hause ist. Andernfalls werden die Ereignisse zum Thema Türöffnung nur in der Ereignisliste gesammelt.
 
 ## Mögliche Präsentationen
 ### In Admin als Registerkarte
-Sie können die Ereignisliste als Registerkarte im Administrator aktivieren.
+Sie können die Ereignisliste als Registerkarte im Admin aktivieren.
 
 ### Netz
-Die Ereignisliste kann unter `http://<IP>:8082/eventlist/index.html` angezeigt werden. (für Instanzen> 0: `http://<IP>:8082/eventlist/index.html?X`, wobei X die Instanznummer ist)
+Ereignisliste könnte unter `http://<IP>:8082/eventlist/index.html` angezeigt werden. (für Instanzen > 0: `http://<IP>:8082/eventlist/index.html?X`, wobei X die Instanznummer ist)
 
-### Vis Widget
-Die Ereignisliste kann als vis-Widget angezeigt werden.
+### Vis-Widget
+Die Ereignisliste kann als Vis-Widget angezeigt werden.
 
 ### PDF-Generierung
-Es besteht die Möglichkeit, mit allen Ereignissen ein PDF-Dokument zu erstellen.
+Es besteht die Möglichkeit, ein PDF-Dokument mit allen Veranstaltungen zu generieren.
 
-Der Dokumenttitel kann aus dem Generierungsdatum bestehen, wenn Sie das Muster darin platzieren: `Event list on {{YYYY MM DD}}`.
+Dokumenttitel kann aus dem Erstellungsdatum bestehen, wenn Sie das Muster darin platzieren: `Event list on {{YYYY MM DD}}`.
 Die genaue Beschreibung des Zeitformats finden Sie hier: https://momentjs.com/docs/#/displaying/format/
 
-Die Erzeugung von PDF kann durch Schreiben eines `true` in `eventlist.0.triggerPDF` ausgelöst werden.
+Die PDF-Generierung kann durch Schreiben eines `true` in `eventlist.0.triggerPDF` ausgelöst werden.
 
 Auf die PDF-Datei kann zugegriffen werden über:
 
-- web: `http:// <IP>: 8082 / eventlist / eventlist / report.pdf` (für Instanzen> 0:` http: // <IP>: 8082 / eventlist / eventlist / report-X.pdf`, wobei X die Instanznummer ist)
-- admin: `http:// <IP>: 8081 / files / eventlist / report.pdf` (für Instanzen> 0:` http: // <IP>: 8081 / files / eventlist / report-X.pdf`, wobei X die Instanznummer ist)
+- web: `http://<IP>:8082/eventlist/eventlist/report.pdf` (für Instanzen > 0: `http://<IP>:8082/eventlist/eventlist/report-X.pdf`, wobei X die Instanznummer ist)
+- admin: `http://<IP>:8081/files/eventlist/report.pdf` (für Instanzen > 0: `http://<IP>:8081/files/eventlist/report-X.pdf`, wobei X die Instanznummer ist)
 
-** Die Symbole konnten nicht als PDF angezeigt werden. **
+**Die Symbole konnten im PDF nicht angezeigt werden.**
 
 ## Nachrichtenbox
 Der Benutzer kann der Liste benutzerdefinierte Ereignisse über Javascript hinzufügen:
@@ -83,7 +83,7 @@ setState('eventlist.0.insert', 'My custom text');
 setState('eventlist.0.insert', {event: 'My custom text %s', val: 5});
 ```
 
-Der Benutzer kann eine formatierte JSON-Liste für eine bestimmte ID anfordern. Natürlich muss die ID vorher in den `eventlist` aktiviert sein.
+Der Benutzer kann eine formatierte JSON-Liste für eine bestimmte ID anfordern. Die ID muss natürlich vorher im `eventlist` freigeschaltet werden.
 
 ```
 // add custom event to event list
@@ -123,33 +123,43 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 ```
 
 ## Muster
-In den Veranstaltungstexten und in den Staatstexten könnten folgende Muster verwendet werden:
+In den Ereignistexten und in den Zustandstexten könnten folgende Muster verwendet werden:
 
-- %s  - Wert (`Status geändert in% s` =>` Status geändert in 5`),
--% u - unit (`Status geändert in %s % u` =>` Status geändert in 5% `),
--% n - Name (`% n hat den Status in %s ` geändert =>` Gerät A hat den Status in 5` geändert),
--% t - Zeit (`Status geändert Status auf% t` =>` Status geändert Status am Sep Fr, 16: 32: 00`),
--% r - relative Zeit (`Zustand geändert Zustand% r` =>` Zustand geändert Zustand vor 5 Sekunden`),
--% d - Dauer (`Zustand war für% d im vorherigen Zustand = =` `Zustand war für 5s im vorherigen Zustand`),
--% g - Wertdifferenz (`Status wurde auf% g% geändert` => `Status wurde auf 1% geändert`),
--% o - Wertdifferenz (`Status geändert Wert von% o auf%` => `Status wurde auf 1% geändert`)
+- %s - Wert (`Zustand geändert zu %s` => `Zustand geändert zu 5`),
+- %u - unit (`Zustand geändert zu %s%u` => `Zustand geändert zu 5%`),
+- %n - name (`%n hat den Status zu %s geändert` => `Gerät A hat den Status zu 5 geändert`),
+- %t - time (`Zustand geändert am %t` => `Zustand geändert am Sep Fr, 16:32:00`),
+- %r - relative Zeit (`Status hat Status %r geändert` => `Status hat Status vor 5 Sekunden geändert`),
+- %d - Dauer (`Zustand war %d im vorherigen Zustand` => `Zustand war 5s lang im vorherigen Zustand`),
+- %g - Wertdifferenz (`Status wurde geändert am %g%` => `Status wurde geändert am 1%`),
+- %o - Wertdifferenz (`Status hat Wert von %o auf % geändert` => `Status wurde um 1% geändert`)
 
 ## Verwendung mehrerer Instanzen im Web
-Z.B. Sie können eine bestimmte Liste zum Beispiel 2 anzeigen, z. B. `http://IP:8082/eventlist/index.htmlindex.html?2`.
+Z.B. Sie können eine bestimmte Liste für Instanz 2 anzeigen, wie `http://IP:8082/eventlist/index.htmlindex.html?2`.
 
-Der generierte Bericht wird zum Beispiel 0 in `eventlist/report.pdf` gespeichert, zum Beispiel 1 in `eventlist/report-1.pdf`.
+Der generierte Bericht wird beispielsweise als Instanz 0 in `eventlist/report.pdf` gespeichert, aber als Instanz 1 in `eventlist/report-1.pdf`.
 
 ## Machen
-- Ändern Sie die ersten Texte in PDF in der entsprechenden Sprache
+- Anfangstexte im PDF in entsprechender Sprache ändern
 - Viele vordefinierte Symbole (mindestens 100)
-- Material Widget
-- Senden Sie Nachrichten an syslog (möglicherweise Splunk) https://www.npmjs.com/package/splunk-logging
+- Material-Widget
+- Senden Sie Nachrichten an Syslog (möglicherweise Splunk) https://www.npmjs.com/package/splunk-logging
 
-<! - Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __WORK IN PROGRESS__ ->
+### __LAUFENDE ARBEIT__ -->
 
 ## Changelog
+### 0.5.4 (2022-02-14)
+* (bluefox) Corrected the image paths
+
+### 0.5.3 (2022-02-13)
+* (bluefox) Corrected the error with "changes only" option
+* (bluefox) Added possibility to use icons with custom events
+
+### 0.4.4 (2021-06-24)
+* (bluefox) Corrected the warning for js-controller 3.x
+
 ### 0.4.3 (2021-04-19)
 * (bluefox) Added the support of Admin5
 
@@ -168,22 +178,22 @@ Der generierte Bericht wird zum Beispiel 0 in `eventlist/report.pdf` gespeichert
 
 ### 0.2.8 (2020-10-14)
 * (bluefox) Corrected error in pdf settings  
-* (bluefox) Implemented the recalculation of the relative time every 10 seconds  
+* (bluefox) Implemented the recalculation of the relative time every 10 seconds
 
 ### 0.2.6 (2020-09-25)
-* (bluefox) Corrected error in pdf creation  
+* (bluefox) Corrected error in pdf creation
 
 ### 0.2.5 (2020-09-24)
-* (bluefox) Extended icon selector 
- 
+* (bluefox) Extended icon selector
+
 ### 0.2.1 (2020-09-21)
-* (bluefox) Vis-widget was corrected 
+* (bluefox) Vis-widget was corrected
 
 ### 0.1.3 (2020-09-15)
-* (bluefox) Implemented the alarm mode and messengers 
+* (bluefox) Implemented the alarm mode and messengers
 
 ### 0.0.3 (2020-09-08)
-* (bluefox) Objects with states are supported now 
+* (bluefox) Objects with states are supported now
 
 ### 0.0.2 (2020-09-07)
 * (bluefox) initial commit
@@ -194,7 +204,7 @@ Der generierte Bericht wird zum Beispiel 0 in `eventlist/report.pdf` gespeichert
 ## License
 MIT License
 
-Copyright (c) 2020 ioBroker <dogafox@gmail.com>
+Copyright (c) 2020-2022 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

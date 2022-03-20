@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: rXrT4jC7T4e+NWRa1Yj/h88/IlzfPQ9VwsayDPPc0Kg=
+hash: vIYKCEqfuPNPZOwhsgjBjdzWgqv+Hh2LBEDyPT/8ams=
 ---
-![标识](../../../en/adapterref/iobroker.knx/admin/knx.png)
+![商标](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.knx.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.knx.svg)
@@ -16,18 +16,19 @@ hash: rXrT4jC7T4e+NWRa1Yj/h88/IlzfPQ9VwsayDPPc0Kg=
 * [描述](#description)
 * [要求](#requirements)
 * [特征](#features)
+* [安装](#安装)
 * [适配器配置](#adapter-configuration)
     * [安装许可证](#install-the-license)
     * [配置接口](#configuration-interface)
     * [对象](#objects)
-    * [用法](#usage)
+    * [用法]（#用法）
     * [数据点类型 (DPT)](#data-point-types-dpt)
     * [如何导入](#how-the-import-works)
     * [避免问题](#avoidance-of-problems)
 * [GA-工具](#ga-tool)
     * [将非 KNX 状态直接链接到 KNX 反之诗](#direct-link-non-knx-state-to-knx-vice-verse)
 * [计划功能](#planned-features)
-* [变更日志](#changelog)
+* [更新日志](#changelog)
 
 ＃＃ 描述
 en：此适配器允许从 ETS 导入 knxproj 文件。它生成 KNX 组地址和 ioBroker 之间的转换，并将设备放入房间（尤其是 MobileUI）。
@@ -36,7 +37,7 @@ en：此适配器允许从 ETS 导入 knxproj 文件。它生成 KNX 组地址�
 
 它连接到标准 KNX/LAN 网关。
 
-**注意：随着更改为 KNX-Adapter 版本 2.x，许可已更改。您可以从 [https://iobroker.net](https://iobroker.net/)** 获得新许可证
+**注意：随着更改为 KNX-Adapter 版本 2.x，许可已更改。您可以从 [https://iobroker.net](https://iobroker.net/)** 获得新的许可证
 
 **您还应该将 iobroker js-controller 和 admin 更新到最新版本。**
 
@@ -62,6 +63,9 @@ en：此适配器允许从 ETS 导入 knxproj 文件。它生成 KNX 组地址�
 * 新：适配器对 GroupValueRead 的响应到 directLink 连接对象
 * 新：导入受密码保护的项目文件（感谢 aKzenT）
 
+＃＃＃安装
+这个适配器只能通过 npm 安装。通过 github 安装 **不** 工作。
+
 ##适配器配置
 安装此适配器后，打开适配器配置。
 
@@ -69,7 +73,7 @@ en：此适配器允许从 ETS 导入 knxproj 文件。它生成 KNX 组地址�
 第一步是申请许可证。如果您尚未安装许可证，则会应用 500 个数据点。
 
 * (1) 显示您的系统 ID，您需要这个才能获得许可证
-* (2) 点击此处申请您的许可证
+* (2) 点击这里申请您的许可证
 
 ![knxV2-first-start-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-first-start-mod.jpg)
 
@@ -133,7 +137,7 @@ en：此适配器允许从 ETS 导入 knxproj 文件。它生成 KNX 组地址�
 
 3. 查找状态 一项法案涉及：
 
-在 ets-exports 中没有关于状态和行为地址的信息。适配器解析所有“状态”或“状态”的 GA。如果有 2 个 GA 的相似度超过 90%，那么一个地址将是行动，另一个是状态。还会检查 DPT 是否相似。这就是为什么如果 GA 命名不一致，很难找到对等点。
+在 ets-exports 中没有关于状态和行为地址的信息。适配器解析所有“状态”或“状态”的 GA。如果有 2 个 GA 的相似度超过 90%，那么一个地址将是行为，另一个是状态。还会检查 DPT 是否相似。这就是为什么如果 GA 命名不一致，很难找到对等点。
 
 4. 设备配置中的标志检查：
 
@@ -151,7 +155,7 @@ en：此适配器允许从 ETS 导入 knxproj 文件。它生成 KNX 组地址�
 6. 创建数据点对等点 (DPP)：
 
 如果 GA、GAR 和 DPT 有效，将创建 DPP。这是适配器正在使用的 DPP。
-如果 GA 中缺少 DPT，因为找不到它，则不会创建 DPP。可以使用 GA-Tool 完成。
+如果 GA 中缺少 DPT，因为找不到它，则不会创建 DPP。可以使用 GA-Tool 来完成。
 
 7. 在适配器启动时：
 
@@ -197,7 +201,7 @@ GA-Tool 可以轻松更改 GA 的属性。
 
 1. 选定的 GA
 2.属性改变
-3. 没有改变的可能
+3. 不可能改变
 
 ### 将非 KNX 状态直接链接到 KNX，反之亦然
 从适配器版本 2.0.6 开始，可以将非 KNX ioBroker 状态直接链接到 GA。这可用于将时间、日期、任何状态或信息应用于 KNX。 （一个小提示：您可以将任何 IOT 组件直接链接到 KNX 中的 GA（例如，将 homematic 按钮链接到 KNX GA 或将 KNX 按钮传感器链接到您的 sonosplayer））。可以使用 GroupValueRead 读取状态，如果状态更改，它将在 KNX 上自动更新。此外，如果您在 KNX 上进行更改，它将更新链接的非 KNX 物联网设备。
@@ -230,9 +234,27 @@ GA-Tool 可以轻松更改 GA 的属性。
 ## 异常和错误
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
-开发人员无法获得有关系统/配置/用户/环境的任何进一步特殊信息。如果未找到许可证，还会报告适配器版本和主机 ID。
+开发人员无法获得有关系统/配置/用户/环境的任何进一步的特殊信息。如果未找到许可证，还会报告适配器版本和主机 ID。
 
 ## Changelog
+### 2.0.12 (25.02.2022)
+* fixed handling of undefined DP
+* updated datapointtypes
+* fix warning with incompatible DPT in future
+* the biggest issue of all: I get shocked because of the war in Ukraine. My thoughts are with the people of Ukraine, I am infinitely sorry for what is happening to them and their country. It is an inhuman shame.
+* can't fix it, but I appeal to everyone: Be neighbors and not enemies. Respect the other and do not fight yourselves.
+
+### 2.0.11
+* fixed password handling for projects from upgraded ETS
+
+### 2.0.10
+* import of ETS6.0.2 projects **ETS6.0.1 not possible**
+* bugfixes
+
+### 2.0.9
+* import password protected project files
+* bug fixes
+
 ### 2.0.8
 * fixed bug with unackn write
 * fixed bug in linkedState

@@ -112,6 +112,9 @@ CCU 和 info 文件夹包含网关的基本信息，包括。
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.0.37 (2022-02-22)
+* (foxriver76) only delete hm-rpc objects of configured instances from enums (fixes #253)
+
 ### 3.0.35 (2022-01-28)
 * (foxriver76) do not log warning if we cannot sychnoronize favorites of empty string user (fixes #227)
 

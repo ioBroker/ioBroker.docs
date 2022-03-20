@@ -3,33 +3,59 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.geofency/README.md
 title: ioBroker.geofency
-hash: /Hr5Dz3mNY4oC17SdjVrA3/ev+RnM3cakDuPwTgkyFk=
+hash: 9q400lKCLOrH3KroQdM2FDGS4Wtgr4+8ckgI1w7tR9o=
 ---
 ![Logo](../../../en/adapterref/iobroker.geofency/admin/geofency.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/geofency-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.geofency.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.geofency.svg)
-![NPM](https://nodei.co/npm/iobroker.geofency.png?downloads=true)
 
-# IoBroker.geofency =====================
-Dieser Adapter kann Ereignisse nach [Geofency](http://www.geofency.com/) empfangen, wenn er mit seinem Mobilgerät einen bestimmten Bereich betritt oder verlässt.
-Alle Werte des Geofency-Webhooks der Anfrage werden unter dem Namen des Standorts im ioBroker gespeichert.
+# IoBroker.geofency
+====================
 
-## Konfiguration auf dem mobilen Gerät:
+![Testen und freigeben](https://github.com/ioBroker/ioBroker.geofency/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/geofency/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+
+Dieser Adapter kann [geofency](http://www.geofency.com/) Ereignisse empfangen, wenn Sie mit Ihrem Mobilgerät einen definierten Bereich betreten oder verlassen.
+Alle Werte des Geofency-Webhook der Anfrage werden unter dem Namen des Standorts in ioBroker gespeichert.
+
+## Konfiguration auf Mobilgerät:
 * für jeden Standort -> Eigenschaften -> Webhook-Einstellungen:
- * URL für Einreise und Ausfahrt: & lt; Ihre ioBroker-Domäne & gt;: & lt; konfigurierter Port & gt; / & lt; beliebiger Standortname & gt;
- * Post-Format: JSON-codiert: aktiviert
- * Authentifizierung: Legen Sie den Benutzer / das Kennwort aus der iobroker.geofency-Konfiguration fest
+ * URL für Ein- und Ausstieg: &lt;Ihre ioBroker-Domain&gt;:&lt;konfigurierter Port&gt;/&lt;beliebiger Standortname&gt;
+ * Beitragsformat: JSON-kodiert: aktiviert
+ * Authentifizierung: Benutzer / Passwort aus der iobroker.geofency-Konfiguration festlegen
 
-## Im ioBroker Forum
+## Im ioBroker Forum (Deutsch)
 http://forum.iobroker.net/viewtopic.php?f=20&t=2076
 
 ## Sicherheitshinweis:
-Es wird nicht empfohlen, diesen Adapter dem öffentlichen Internet zugänglich zu machen.
-Eine Art WAF / Proxy / Entry-Server sollte vor dem ioBroker abgelegt werden. (z. B. ist nginx schön und einfach zu konfigurieren).
+Es wird nicht empfohlen, diesen Adapter dem öffentlichen Internet auszusetzen.
+ioBroker sollte eine Art WAF/Proxy/Entry-Server vorangestellt werden. (zB nginx ist schön und einfach zu konfigurieren).
 
 ## Changelog
+### 1.1.0 (2022-03-11)
+* IMPORTANT: Forbidden characters are now replaced by _ in generated State IDs. Because gave an error before should not be breaking 
+* (Apollon77) Add new json state with the json of the last incoming data
+* (Apollon77) Add new data channel under the user with all data fields from the incoming data as own states
+* (Apollon77) Add Sentry for crash-reporting
+* (Apollon77) Prevent some error cases reported
+
+### 1.0.3 (2021-03-10)
+* (Apollon77) Fix port checks
+
+### 1.0.2 (2021-03-09)
+* (Apollon77) optimize stop handling to really end the server
+
+### 1.0.1 (2021-03-07)
+* (Apollon77) prevent warnings with js-controller 3.2
+
+### 1.0.0 (2021-02-26)
+* (Apollon77) js-controller 2.0 is now needed at least
+* (allesgutewarweg) Add more JSON decoded states
+* (Apollon77) Update dependencies
+
 ### 0.3.2 (2018-03-07)
 * (Apollon77) Fix Authentication
 
@@ -76,7 +102,7 @@ Eine Art WAF / Proxy / Entry-Server sollte vor dem ioBroker abgelegt werden. (z.
 
 The MIT License (MIT)
 
-Copyright (c) 2015 dschaedl <daniel.schaedler@gmail.com>
+Copyright (c) 2015-2022 dschaedl <daniel.schaedler@gmail.com>, iobroker-community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -202,6 +202,8 @@ The following devices are defined:
     -   productsCount - Number of products that are controlled through this scene
     -   run - Set this state to true to run the scene. If a scene is running this state is set to true.
     -   stop - Set this state to stop a running scene. This state is writable, only.
+    -   velocity - Set this state to control the velocity with which the scene should run. Set this state
+        before you run the scene. The velocity isn't stored inside the KLF-200 and can't be read from there.
 
 ## Changelog
 
@@ -212,7 +214,8 @@ The following devices are defined:
 <!-- prettier-ignore -->
 ### __WORK IN PROGRESS__
 
--   (Michael Schroeder) Upgrade dependencies, switch to Typescript 4.5
+-   (Michael Schroeder) Upgrade dependencies, switch to Typescript 4.6, compatibility check with js-controller 4.x
+-   (Michael Schroeder) [#12](https://github.com/MiSchroe/ioBroker.klf200/issues/12) Support silent mode in scenes
 
 ### 1.0.1 (2020-07-20)
 

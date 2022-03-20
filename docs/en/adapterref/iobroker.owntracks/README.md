@@ -1,10 +1,15 @@
 ![Logo](admin/owntracks.png)
 # ioBroker.owntracks
 
-![Number of Installations](http://iobroker.live/badges/owntracks-installed.svg) ![Number of Installations](http://iobroker.live/badges/owntracks-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.owntracks.svg)](https://www.npmjs.com/package/iobroker.owntracks)
+![Number of Installations](http://iobroker.live/badges/owntracks-installed.svg)
+![Number of Installations](http://iobroker.live/badges/owntracks-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.owntracks.svg)](https://www.npmjs.com/package/iobroker.owntracks)
+
+![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.owntracks/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/owntracks/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.owntracks.svg)](https://www.npmjs.com/package/iobroker.owntracks)
 
-[![NPM](https://nodei.co/npm/iobroker.owntracks.png?downloads=true)](https://nodei.co/npm/iobroker.owntracks/)
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 [OwnTracks](http://owntracks.org/) is an app for android and iOS.
 
@@ -74,6 +79,9 @@ The name must be equal to DeviceID in OwnTracks app.
 ![Settings](img/settings1.png)
 
 ## Changelog
+### 1.0.1 (2022-03-12)
+* (Garfonso) fix roles for type detection
+* (Apollon77) Add Sentry for crash reporting
 
 ### 1.0.0 (2020-12-06)
 * (Apollon77) respect "bind" configuration, also for IPv6
@@ -114,7 +122,7 @@ The name must be equal to DeviceID in OwnTracks app.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2020 bluefox<dogafox@gmail.com>
+Copyright (c) 2016-2022 bluefox<dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

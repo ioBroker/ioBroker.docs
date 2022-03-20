@@ -3,55 +3,74 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sureflap/README.md
 title: ioBroker.sureflap
-hash: vYeV5RQS/D0Ad5A0LLu5B4PUXTUBpY4cmHGUmAYcI4o=
+hash: GDlWBe+K/gW1jDuXCwhr5IS3zmwm4/5e8M9zQsoxL0U=
 ---
-![Версия NPM](http://img.shields.io/npm/v/iobroker.sureflap.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.sureflap.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sureflap.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/sureflap-installed.svg)
+![Количество установок (последние)](http://iobroker.live/badges/sureflap-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/sureflap-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/Sickboy78/iobroker.sureflap.svg)
 ![Известные уязвимости](https://snyk.io/test/github/Sickboy78/ioBroker.sureflap/badge.svg)
-![Трэвис-Си](http://img.shields.io/travis/Sickboy78/ioBroker.sureflap/master.svg)
+![Трэвис-CI](http://img.shields.io/travis/Sickboy78/ioBroker.sureflap/master.svg)
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Sickboy78/ioBroker.sureflap?branch=master&svg=true)
 ![НПМ](https://nodei.co/npm/iobroker.sureflap.png?downloads=true)
 
 <p align="center"> <img src="admin/sureflap.png" /> </p>
 
 # IoBroker.sureflap
-## Adpater для лоскутов SureFlap® для кошек и домашних животных от Sure Petcare®
+## Адаптер для умных устройств для домашних животных от Sure Petcare®
 <p align="center"> <img src="/admin/SureFlap_Pet_Door_Connect_Hub_Phone.png" /> </p>
 
 ## Конфигурация
 Добавьте имя пользователя и пароль из своей учетной записи Sure Petcare® на странице конфигурации адаптера.
 
 ## Описание
-Адаптер предоставляет информацию о настройках и состоянии вашей кормушки для кошек.
+Адаптер предоставляет информацию о настройках и состоянии заслонки для домашних животных, кошачьей заслонки или кормушки.
 
-Он также показывает местонахождение ваших питомцев.
+Он также показывает местонахождение ваших питомцев и их потребление пищи (с кормушкой).
+
+Это позволяет вам контролировать режим блокировки и комендантский час вашего щитка и устанавливать местоположение ваших питомцев.
 
 ### Изменяемые значения
-Следующие состояния могут быть изменены, и они вступят в силу на вашем устройстве, соответственно, будут отражены в вашем приложении Sure Petcare®.
+Следующие состояния могут быть изменены и вступят в силу на вашем устройстве, соответственно, они будут отражены в вашем приложении Sure Petcare®.
 
 | состояние | описание | допустимые значения |
 |-------|-------------|----------------|
-| имя_хозяйства.имя_концентратора.control.led_mode | устанавливает яркость светодиодов хаба | **0** - выключено<br> **1** - высокий<br> **4** - затемненный |
-| имя_хозяйства.имя_концентратора.имя_клапана.control.curfew | включает или отключает настроенный комендантский час<br> (комендантский час настраивается через приложение) | **истина** или **ложь** |
-| имя_хозяйства.имя_концентратора.Название_ заслонки.control.lockmode | устанавливает режим блокировки | **0** - открыто<br> **1** - заблокировать<br> **2** - заблокировать<br> **3** - закрыто (закрывается и выключается) |
-| имя_хозяйства.имя_концентратора.Название_кладыша.assigned_pets.name_pet_control.type | устанавливает тип питомца для назначенного питомца и лоскута | **2** - уличный питомец<br> **3** - домашнее животное |
-| имя_хозяйства.имя_концентратора.имя_фидера.control.close_delay | устанавливает задержку закрытия крышки кормушки | **0** - быстро<br> **4** - нормально<br> **20** - медленно |
-| имя_хозяйства.pets.pet_name.inside | определяет, находится ли ваш питомец внутри | **истина** или **ложь** |
+| house_name.hub_name.control.led_mode | устанавливает яркость светодиодов хаба | **0** - выкл.<br> **1** - высокий<br> **4** - затемненный |
+| house_name.hub_name.flap_name.control.curfew | включает или отключает настроенный комендантский час<br> (комендантский час необходимо настроить через приложение) | **правда** или **ложь** |
+| house_name.hub_name.flap_name.control.lockmode | устанавливает режим блокировки | **0** - открыто<br> **1** - заблокировать<br> **2** - блокировка<br> **3** - закрыто (блокировка входа и выхода) |
+| домашнее_имя.hub_name.flap_name.assigned_pets.pet_name.control.type | устанавливает тип питомца для назначенного питомца и щитка | **2** - питомец на улице<br> **3** - домашний питомец |
+| house_name.hub_name.feeder_name.control.close_delay | задает задержку закрытия крышки кормушки | **0** - быстро<br> **4** - нормальный<br> **20** - медленно |
+| имя_домохозяйства.pets.имя_питомца.внутри | устанавливает, находится ли ваш питомец внутри | **правда** или **ложь** |
 
-### Состав
+### Структура
 Адаптер создает следующую иерархическую структуру:
 
-адаптер<br> ├ имя_хозяйства<br> │ ├ имя_хаба<br> │ │ ├ онлайн<br> │ │ ├ контроль<br> │ │ │ └ led_mode<br> │ │ ├ имя_фидера<br> │ │ │ ├ аккумулятор<br> │ │ │ ├ battery_percentage<br> │ │ │ ├ онлайн<br> │ │ │ ├ assign_pets<br> │ │ │ │ └ pet_name<br> │ │ │ ├ миски<br> │ │ │ │ └ 0..1<br> │ │ │ │ ├ food_type<br> │ │ │ │ ├ цель<br> │ │ │ │ └ вес<br> │ │ │ └ контроль<br> │ │ │ └ close_delay<br> │ │ └ flap_name<br> │ │ ├ аккумулятор<br> │ │ ├ battery_percentage<br> │ │ ├ curfew_active<br> │ │ ├ онлайн<br> │ │ ├ контроль<br> │ │ │ ├ комендантский час<br> │ │ │ └ режим блокировки<br> │ │ ├ комендантский час<br> │ │ │ └ 0..i<br> │ │ │ ├ включен<br> │ │ │ ├ lock_time<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ включен<br> │ │ │ ├ lock_time<br> │ │ │ └ unlock_time<br> │ │ └ assign_pets<br> │ │ └ pet_name<br> │ │ └ контроль<br> │ │ └ тип<br> │ ├ история<br> │ │ └ 0..24<br> │ │ └ ...<br> │ └ домашние животные<br> │ └ pet_name<br> │ ├ внутри<br> │ ├ имя<br> │ ├ так как<br> │ └ еда<br> │ ├ last_time_eaten<br> │ ├ time_spent<br> │ ├ times_eaten<br> │ └ сухой..мокрый<br> │ └ вес<br> └ информация<br> ├ all_devices_online<br> ├ соединение<br> └ last_update<br>
+адаптер<br> ├ имя_домохозяйства<br> │ ├ имя_хаба<br> │ │ ├ онлайн<br> │ │ ├ управление<br> │ │ │ └ led_mode<br> │ │ ├ имя_фидера<br> │ │ │ ├ аккумулятор<br> │ │ │ ├ battery_percentage<br> │ │ │ ├ онлайн<br> │ │ │ ├ назначенные_питомцы<br> │ │ │ │ └ pet_name<br> │ │ │ ├ чаши<br> │ │ │ │ └ 0..1<br> │ │ │ │ ├ food_type<br> │ │ │ │ ├ цель<br> │ │ │ │ └ вес<br> │ │ │ └ управление<br> │ │ │ └ close_delay<br> │ │ └ имя_клапана<br> │ │ ├ батарея<br> │ │ ├ батарея_процент<br> │ │ ├ комендантский час_активный<br> │ │ ├ онлайн<br> │ │ ├ управление<br> │ │ │ ├ комендантский час<br> │ │ │ └ режим блокировки<br> │ │ ├ комендантский час<br> │ │ │ └ 0..i<br> │ │ │ ├ включен<br> │ │ │ ├ время блокировки<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ включен<br> │ │ │ ├ время блокировки<br> │ │ │ └ время разблокировки<br> │ │ └ назначенные_питомцы<br> │ │ └ pet_name<br> │ │ └ управление<br> │ │ └ тип<br> │ ├ история<br> │ │ └ 0..24<br> │ │ └ ...<br> │ └ домашние животные<br> │ └ pet_name<br> │ ├ внутри<br> │ ├ имя<br> │ ├ так как<br> │ └ еда<br> │ ├ last_time_eaten<br> │ ├ затраченное время<br> │ ├ times_eaten<br> │ └ сухой..мокрый<br> │ └ вес<br> └ информация<br> ├ all_devices_online<br> ├ подключение<br> └ последнее_обновление<br>
 
 ## Примечания
-SureFlap® и Sure Petcare® являются зарегистрированными товарными знаками [SureFlap Ltd.](https://www.surepetcare.com/).
+SureFlap® и Sure Petcare® являются зарегистрированными товарными знаками [ООО «СюрФлап».](https://www.surepetcare.com/)
 
-Изображение откидной створки для кошек, концентратора и приложения для смартфона предоставляется бесплатно в [Конечно Petcare®](https://www.surepetcare.com/en-us/press).
+Изображение кошачьего щитка, концентратора и приложения для смартфона предоставляется бесплатно от [Конечно Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
+
+### 1.1.2 (2022-03-06)
+* (Sickboy78) improved error and timeout handling
+* (Sickboy78) optimized subscribed states
+
+### 1.1.1 (2022-02-20)
+* (Sickboy78) removed pet type control from pet flap (is a cat flap exclusive feature)
+* (Sickboy78) fixed wrong default value for info.last_update
+* (Sickboy78) testing updates for js-controller 4
+* (Sickboy78) security updates
+
+### 1.1.0 (2022-01-17)
+* (Sickboy78) bugfix and security updates
+
+### 1.0.9 (2022-01-05)
+* (Sickboy78) removed old encrypt/decrypt from index_m
+* (Sickboy78) added adapter unloaded guard in case unload happens during data requests
 
 ### 1.0.8 (2021-11-22)
 * (Sickboy78) added food type, target weight and remaining food in feeder
@@ -90,7 +109,7 @@ SureFlap® и Sure Petcare® являются зарегистрированны
 
 MIT License
 
-Copyright (c) 2021 Sickboy78 <asmoday_666@gmx.de>
+Copyright (c) 2022 Sickboy78 <asmoday_666@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

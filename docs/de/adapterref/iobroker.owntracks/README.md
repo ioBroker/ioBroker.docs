@@ -3,80 +3,89 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.owntracks/README.md
 title: ioBroker.owntracks
-hash: 9p2xJZhQ25yVPI/EITvA+kfPkAnx8O6RuuvJkT6Sv6w=
+hash: IAemSdd1zL0l6vbLjHNYPc7c0Afbdkgbf1C+h7zOyXw=
 ---
 ![Logo](../../../en/adapterref/iobroker.owntracks/admin/owntracks.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/owntracks-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.owntracks.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.owntracks.svg)
-![NPM](https://nodei.co/npm/iobroker.owntracks.png?downloads=true)
 
 # IoBroker.owntracks
-[OwnTracks](http://owntracks.org/) ist eine App für Android und iOS.
+![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.owntracks/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/owntracks/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-App sendet Ihre Position (Position des Geräts) kontinuierlich an einen bestimmten Server. In unserem Fall handelt es sich um einen ioBroker-Server. Entweder wird das MQTT-Protokoll für die Kommunikation verwendet oder der Adapter ioBroker.cloud / ioBroker.iot.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
-Link für:
+[Eigene Spuren](http://owntracks.org/) ist eine App für Android und iOS.
 
-- Android: [https://play.google.com/store/apps/details?id=org.owntracks.android lightboxes(https://play.google.com/store/apps/details?id=org.owntracks .Android)
-- iOS: [https://itunes.apple.com/de/app/owntracks/id692424691?mt=8 lightboxes(https://itunes.apple.com/de/app/owntracks/id692424691?mt=8)
+App sendet Ihre Position (Position des Geräts) kontinuierlich an einen bestimmten Server. In unserem Fall wird es der ioBroker-Server sein. Zur Kommunikation wird entweder das MQTT-Protokoll verwendet oder der Adapter ioBroker.cloud / ioBroker.iot.
 
-## Setup-Anweisungen
-### Verbindungskonfiguration (über MQTT-Server)
-Der OwnTracks-Adapter startet an Port 1883 (konfigurierbar) eines MQTT-Servers, um die Nachrichten von Geräten mit Koordinaten zu empfangen.
+Verbindung für:
+
+- Android: [https://play.google.com/store/apps/details?id=org.owntracks.android](https://play.google.com/store/apps/details?id=org.owntracks .Android)
+- iOS: [https://itunes.apple.com/de/app/owntracks/id692424691?mt=8](https://itunes.apple.com/de/app/owntracks/id692424691?mt=8)
+
+## Einrichtungsanweisungen
+### Verbindungskonfiguration (mit MQTT-Server)
+OwnTracks Adapter startet auf Port 1883 (konfigurierbar) einen MQTT-Server, um die Nachrichten von Geräten mit Koordinaten zu empfangen.
 Das Problem ist, dass dieser Server über das Internet erreichbar sein muss.
-Normalerweise gibt es einen Router oder eine Firewall, die für die Weiterleitung des Datenverkehrs konfiguriert werden muss.
+Normalerweise gibt es einen Router oder eine Firewall, die konfiguriert werden muss, um den Datenverkehr weiterzuleiten.
 
-### App & Adapter Konfiguration
-Die folgenden Einstellungen müssen in der Android / iOS-App bzw. im ioBroker-Adapter festgelegt werden:
+### App- und Adapterkonfiguration
+Folgende Einstellungen müssen in der Android / iOS App bzw. im ioBroker Adapter gesetzt werden:
 
-- Verbindung / Modus - MQTT privat
-- Verbindung / Host / Host - IP-Adresse Ihres Systems oder Ihrer DynDNS-Domäne. Z.B. Unter http://www.noip.com/ können Sie den Domainnamen anstelle der IP-Adresse verwenden.
-- Verbindung / Host / Port - 1883 oder Ihr Port an Ihrem Router
-- Verbindung / Host / WebSockets - false
-- Verbindung / Identifikation / Benutzername - iobroker
-- Verbindung / Identifikation / Passwort - aus den Adaptereinstellungen
-- Verbindung / Identifikation / Geräte-ID - Name des Geräts oder der Person. Für dieses Gerät werden die Zustände erstellt. Z.B. Wenn die Geräte-ID "Markieren" ist, werden nach dem ersten Kontakt folgende Status erstellt:
+- Verbindung/Modus - MQTT privat
+- Verbindung/Host/Host - IP-Adresse Ihres Systems oder DynDNS-Domain. Z.B. http://www.noip.com/ lässt den Domänennamen anstelle der IP-Adresse verwenden.
+- Connection/Host/Port - 1883 oder Ihr Port auf Ihrem Router
+- Verbindung/Host/WebSockets - falsch
+- Verbindung/Identifikation/Benutzername - iobroker
+- Verbindung/Identifikation/Passwort - aus den Adaptereinstellungen
+- Verbindung/Identifikation/Geräte-ID - Name des Geräts oder der Person. Für dieses Gerät werden die Zustände erstellt. Z.B. wenn die Geräte-ID "Mark" ist, werden nach dem ersten Kontakt folgende Zustände erstellt:
 
-    - owntracks.0.users.Mark.longitude
-    - owntracks.0.users.Mark.latitude
+    - owntracks.0.users.Mark.longitude
+    - owntracks.0.users.Mark.latitude
 
-- Verbindung / Identifikation / TrackerID - Kurzname des Benutzers (bis zu 2 Buchstaben), der ihn auf die Karte schreiben soll.
-- Verbindung / Sicherheit / TLS - aus
-- Erweiterter / Verschlüsselungsschlüssel - optional, aber empfohlen: Fügen Sie eine Passphrase für die Verschlüsselung hinzu
+- Verbindung/Identifikation/TrackerID - Kurzname des Benutzers (bis zu 2 Buchstaben), um ihn auf die Karte zu schreiben.
+- Verbindung/Sicherheit/TLS - aus
+- Erweitert/Verschlüsselungsschlüssel - optional, aber empfohlen: Fügen Sie eine Passphrase für die Verschlüsselung hinzu
 
-Bitte überprüfen Sie, ob owntracks über den Eintrag "Status" in der Schublade mit der iobroker-Instanz verbunden sind:
+Bitte vergewissern Sie sich, dass owntracks mit der iobroker-Instanz über den „Status“-Eintrag in der Schublade verbunden ist:
 
-![die Einstellungen](../../../en/adapterref/iobroker.owntracks/img/connection.jpg)
+![Einstellungen](../../../en/adapterref/iobroker.owntracks/img/connection.jpg)
 
-### WICHTIGE NOTIZ!
-** Die Zustände in ioBroker werden generiert, wenn die spezifische Nutzlast empfangen wird !! Dies bedeutet, dass die Standorte in ioBroker generiert werden, wenn der Benutzer den Standort zum ersten Mal verlässt oder betritt. ** Unten sehen Sie die Zielstruktur
+### WICHTIGER HINWEIS!
+**Die Zustände in ioBroker werden generiert, wenn die spezifische Nutzlast empfangen wird!! Das bedeutet, dass die Standorte in ioBroker generiert werden, wenn der Benutzer den Standort zum ersten Mal verlässt oder betritt.** Unten sehen Sie die Zielstruktur
 
-![die Einstellungen](../../../en/adapterref/iobroker.owntracks/img/structure.png)
+![Einstellungen](../../../en/adapterref/iobroker.owntracks/img/structure.png)
 
-### Regionskonfiguration
-Um Standorte innerhalb des Owntracks-Adapters einzurichten, müssen Sie Regionen in der Owntracks-Android / iOS-App erstellen.
-Gehen Sie dazu in der Schublade zu "Regionen"
+### Konfiguration der Regionen
+Um Standorte innerhalb des owntracks Adapters einzurichten, müssen Sie Regionen in der owntracks Android / iOS App erstellen.
+Gehen Sie dazu in der Schublade auf „Regionen“.
 
-![die Einstellungen](../../../en/adapterref/iobroker.owntracks/img/regions1.jpg)
+![Einstellungen](../../../en/adapterref/iobroker.owntracks/img/regions1.jpg)
 
 Erstellen Sie eine neue Region, indem Sie auf das Pluszeichen (+) in der oberen rechten Ecke klicken
 
-![die Einstellungen](../../../en/adapterref/iobroker.owntracks/img/regions2.jpg)
+![Einstellungen](../../../en/adapterref/iobroker.owntracks/img/regions2.jpg)
 
-Verwenden Sie die Standortschaltfläche in der oberen rechten Ecke, um den aktuellen Standort abzurufen, oder geben Sie sie selbst in Breiten- und Längengrad ein. Geben Sie außerdem einen Radius für den Standort an. Wenn Sie den Standort freigeben, erhalten Ihre Freunde (siehe in der Schublade der Android / iOS-App) eine Benachrichtigung, wenn Sie einen Standort betreten / verlassen.
+Verwenden Sie die Standortschaltfläche in der oberen rechten Ecke, um den aktuellen Standort abzurufen, oder geben Sie ihn selbst in Breiten- und Längengrad ein. Geben Sie außerdem einen Umkreis für den Standort an. Wenn Sie den Standort teilen, erhalten Ihre Freunde (siehe in der Schublade der Android-/iOS-App) eine Benachrichtigung, wenn Sie einen Standort betreten/verlassen.
 
-![die Einstellungen](../../../en/adapterref/iobroker.owntracks/img/regions3.jpg)
+![Einstellungen](../../../en/adapterref/iobroker.owntracks/img/regions3.jpg)
 
-### Symboleinstellungen (innerhalb des Adapters ioBroker.owntracks)
-Sie können für jeden Benutzer ein Symbol definieren. Laden Sie einfach per Drag & Drop oder per Mausklick Ihr Bild hoch. Es wird automatisch auf 64x64 skaliert.
+### Symboleinstellungen (innerhalb des ioBroker.owntracks-Adapters)
+Sie können für jeden Benutzer ein Symbol definieren. Laden Sie einfach per Drag&Drop oder per Mausklick Ihr Bild hoch. Es wird automatisch auf 64x64 skaliert.
 
-Der Name muss der Geräte-ID in der OwnTracks-App entsprechen.
+Der Name muss gleich der Geräte-ID in der OwnTracks-App sein.
 
-![die Einstellungen](../../../en/adapterref/iobroker.owntracks/img/settings1.png)
+![Einstellungen](../../../en/adapterref/iobroker.owntracks/img/settings1.png)
 
 ## Changelog
+### 1.0.1 (2022-03-12)
+* (Garfonso) fix roles for type detection
+* (Apollon77) Add Sentry for crash reporting
+
+### 1.0.0 (2020-12-06)
+* (Apollon77) respect "bind" configuration, also for IPv6
 
 ### 0.6.3 (2020-05-12)
 * (Apollon77) updated dependencies
@@ -114,7 +123,7 @@ Der Name muss der Geräte-ID in der OwnTracks-App entsprechen.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2020 bluefox<dogafox@gmail.com>
+Copyright (c) 2016-2022 bluefox<dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

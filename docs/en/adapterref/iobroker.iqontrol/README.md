@@ -5,9 +5,8 @@
 ![Stable version](http://iobroker.live/badges/iqontrol-stable.svg) 
 [![NPM version](http://img.shields.io/npm/v/iobroker.iqontrol.svg)](https://www.npmjs.com/package/iobroker.iqontrol)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.iqontrol.svg)](https://www.npmjs.com/package/iobroker.iqontrol)
-[![Dependency Status](https://img.shields.io/david/sbormann/iobroker.iqontrol.svg)](https://david-dm.org/sbormann/iobroker.iqontrol)
 [![Known Vulnerabilities](https://snyk.io/test/github/sbormann/ioBroker.iqontrol/badge.svg)](https://snyk.io/test/github/sbormann/ioBroker.iqontrol)
-[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/iqontrol/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+<!-- [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/iqontrol/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) -->
 
 
 [![NPM](https://nodei.co/npm/iobroker.iqontrol.png?downloads=true)](https://nodei.co/npm/iobroker.iqontrol/)
@@ -54,6 +53,10 @@ Easy to setup, allthough it's fully customizable and responsive.
 You can save it as Web-App on Homescreen and it looks and feels like a native app:
 ![Add to Homescreeen](img/add_to_homescreen.png)
 
+This also works on your PC with Chrome:
+* Open iQontrol in Chrome
+* Klick on the three-dots-menu - More tools - Create shortcut
+* You will then find iQontrol in the startmenu under chrome apps and can even add it to your taskbar
 
 ## You need...
 * Nodejs 10 or higher
@@ -431,7 +434,7 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* 'widget-urlparameters'
 		* syntax: ``<meta name="widget-urlparameters" content="parameter/default value/description/type;parameter2/default value2/description2/type2"/>``
 		* The user will be asked for these parameters when chosing the widget as URL or BACKGROUND_URL or autocreates a widget
-		* ``type`` is optional and may be ``text`` (this is dafault), ``number``, ``checkbox``, ``color``, ``select``, ``multipleSelect``, ``combobox``, ``historyInstance``, ``datapoint``, ``listJsonDatapoint``, ``icon``, ``fontFamily``, ``fontSize``, ``fontStyle``, ``fontWeight``, ``section``, ``divider``, ``info``, ``link`` or ``hidden``
+		* ``type`` is optional and may be ``text`` (this is dafault), ``number``, ``checkbox``, ``color``, ``select``, ``multipleSelect``, ``combobox``, ``historyInstance``, ``datapoint``, ``listJsonDatapoint``, ``icon``, ``fontFamily``, ``fontSize``, ``fontStyle``, ``fontWeight``, ``language``, ``section``, ``divider``, ``info``, ``link`` or ``hidden``
 		    * If type is ``select``, ``multipleSelect`` or ``combobox`` then you need to specify the possible options by adding ``/<selectOptions>``, where ``<selectOptions>`` is a string of the format ``<value1>,<caption1>/<value2>,<caption2>/...`` (combobox is a selectbox with the possibility to enter free text)
 		    * If type is ``number`` then can specify min, max and step-width by adding ``/<numberOptions>``, where ``<numberOptions>`` is a string of the format ``<min>,<max>,<step>``
 			* The types ``section``, ``divider``, ``info`` and ``link`` have no further function, they are just to display informations to the user. For ``link`` the value should be a url, but all slashes have to be replaced by backslashes.
@@ -1677,9 +1680,38 @@ This device has some special predefined size- and display-settings to show a tex
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 2.0.0-rc1.2 (2022-02-09)
+### 2.0.1 (2022-03-09)
+* (sbormann) Fixed json-table sorting order.
+* (sbormann) Added placeholder-option for empty tables to json-table-widget.
+* (sbormann) Fixed 'switch to this widget button' for widgets with replace-url.
+* (sbormann) Added more timestamp options to datapoint-detection of json-table-widget.
+* (sbormann) Enhanced sorting of lists.
+
+### 2.0.0 (2022-02-25)
+* (sbormann) Minor fixes.
+
+### 2.0.0-rc4.0 (2022-02-22)
+* (sbormann) Added option to allow widgets to adjust height of device tile and enhanced JSON-Table-Widget and Device-Counter-Widget to do so.
+
+### 2.0.0-rc3.0 (2022-02-19)
+* (sbormann) Added seconds from alive and seconds from connection to counter conditions of lists.
+* (sbormann) Removed start_url from manifest.json to allow multiple instances as homescreen app.
+
+### 2.0.0-rc2.2 (2022-02-15)
+* (sbormann) Minor enhancements and bugfixes.
+
+### 2.0.0-rc2.1 (2022-02-14)
+* (sbormann) Abort button now works in preview mode.
+
+### 2.0.0-rc2.0 (2022-02-12)
 * (sbormann) Fixed counting of logs.
 * (sbormann) Lists are now saved as readonly and with ack=true.
+* (sbormann) Fixed glow.
+* (sbormann) Enhanced sorting of JSON-Table-Widget.
+* (sbormann) Added option to define, how the parent name of lists is determined.
+* (dirkhe, sbormann) Added save-button to dialogs.
+* (dirkhe) Added preview mode.
+* (sbormann) Added option to define toolbar selected icon background color.
 
 ### 2.0.0-rc1.1 (2022-02-08)
 * (sbormann) Kompatibility to new ioBroker websocket established.

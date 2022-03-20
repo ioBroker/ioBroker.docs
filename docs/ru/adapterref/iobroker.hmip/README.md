@@ -2,57 +2,57 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hmip/README.md
-title: ioBroker HomeMatic IP Cloud AccessPoint адаптер
-hash: OHa5PFtBSxk5+RH3R/q5CW91rJ1STL2h1rWa5dTSYGw=
+title: Адаптер ioBroker HomeMatic IP Cloud AccessPoint
+hash: ROYKPghAX5l6O5CwpV5igdwihIhItCQHbISMzvUv7mY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
 ![Количество установок](http://iobroker.live/badges/hmip-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.hmip.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.hmip.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.hmip.svg)
 
-# IoBroker HomeMatic IP Cloud AccessPoint Adapter
-![Тестирование и выпуск](https://github.com/Apollon77/iobroker.hmip/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# Адаптер ioBroker HomeMatic IP Cloud AccessPoint
+![Тестируйте и выпускайте](https://github.com/Apollon77/iobroker.hmip/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Описание
-Этот адаптер позволяет обмениваться данными с HomematicIP CloudAccessPoint через Rest API из Homematic IP Cloud.
+Этот адаптер обеспечивает связь с HomematicIP CloudAccessPoint через Rest API облака Homematic IP.
 
-** Важное примечание: ** Пожалуйста, ограничьте количество запросов на управление до минимума, потому что EQ-3 начал блокировать IP-адреса, когда вы делаете слишком много!
+**Важное примечание:** Пожалуйста, ограничьте запросы управления до минимума, потому что EQ-3 начал блокировать IP-адреса, когда вы делаете слишком много!
 
 ## Установка
-Этому адаптеру требуется node-js в версии> = 8.6.
+Этому адаптеру требуется node-js версии >= 10.0.
 
 Вот пошаговое видео по установке на YouTube https://youtu.be/kXWfJRUYJIA
 
 ## Информация
 Большинство IP-устройств Homematic уже работают с последней версией адаптера.
 
-Я буду постоянно его улучшать, но это займет время. Любая помощь от сообщества, например, Запрос на вытягивание будет очень признателен.
+Я буду улучшать его постоянно, но на это потребуется время. Любая помощь от сообщества, например. Запрос на вытягивание будет высоко оценен.
 
-Если устройства HmIP не работают, создайте проблему с этой информацией (пожалуйста, по одному для каждого устройства и, если возможно, укажите техническое название в теме).
-Переключите ведение журнала адаптера в ioBroker в глупый режим и добавьте json-код устройства, который печатается в журнале проблемы.
+Для неработающих устройств HmIP создайте проблему с этой информацией (по одной на каждое устройство и, если возможно, с техническим названием в теме).
+Переключите логирование адаптера в ioBroker в глупый режим и добавьте json устройства, которое печатается в лог в тикете.
 Мне также может понадобиться json изменения состояния.
 
 Спасибо
 
-Если вы ищете информацию, если настройки сигнализации активны, вы должны проверить активный статус группы ВНУТРЕННИЙ и ВНЕШНИЙ, они представляют в комбинации три состояния сигнализации. ВНУТРЕННИЙ и ВНЕШНИЙ активны означает Нет на месте, активен только ВНЕШНИЙ означает, что активен только периметр.
+Если вы ищете информацию, если настройки сигнализации активны, вы должны проверить активное состояние групп ВНУТРЕННЯЯ и ВНЕШНЯЯ, они представляют собой комбинацию трех состояний сигнализации. ВНУТРЕННИЕ и ВНЕШНИЕ активные значения означают В гостях, только ВНЕШНИЕ активные означают, что активен только периметр.
 
 ## Важная информация, что можно сделать с этим адаптером
-!!! С помощью этого адаптера можно запускать только события, которые могут запускаться через исходное приложение Homematic IP.
-Например, прямые соединения между устройствами не имеют событий в приложении и не могут быть запущены через этот адаптер !!!
+!!! С помощью этого адаптера вы можете запускать только те события, которые можно запускать через исходное приложение Homematic IP.
+Например, прямые соединения между устройствами не имеют событий в приложении и также не могут быть запущены через этот адаптер!!!
 
 ## Настройки
-* введите свой SGTIN (на задней панели точки доступа) и PIN-код (если установлен ранее) и подтвердите данные, нажав синюю светодиодную кнопку. Это создаст токен аутентификации.
+* введите свой SGTIN (на задней панели точки доступа) и PIN-код (если он был установлен ранее) и подтвердите данные, нажав кнопку с синим светодиодом. Это создаст токен аутентификации.
 
 ## Специальные настройки
 ### HMIP-DLD (привод дверного замка)
-Если вы назначили PIN-код для замка в приложении HmIP (Настройки / Права доступа - немецкий: «Zutrittsberechtigungen»), то PIN-код необходимо установить в состоянии контактов объектов устройств. Это НЕ ваш системный PIN-код !! Если вы не установили PIN-код в настройках, вы также можете оставить его пустым в состоянии PIN-кода.
-Дополнительно добавьте клиент «iobroker» в список клиентов контроля доступа в настройках приложения HmIP!
+Если вы назначили PIN-код замку в приложении HmIP (Настройки / Авторизация доступа — немецкий: «Zutrittsberechtigungen»), то PIN-код необходимо установить в состоянии PIN-кода объектов устройств. Это НЕ ПИН-код вашей системы! если вы не установили PIN-код в настройках, вы также можете оставить его пустым в состоянии PIN-кода.
+Дополнительно, пожалуйста, добавьте клиент "iobroker" в список клиентов контроля доступа в настройках приложения HmIP!
 
 ## Спасибо
-* @coreGreenberet за его библиотеку python (https://github.com/coreGreenberet/homematicip-rest-api)
+* @coreGreenberet за его библиотеку Python (https://github.com/coreGreenberet/homematicip-rest-api)
 
 *
 
@@ -61,12 +61,23 @@ hash: OHa5PFtBSxk5+RH3R/q5CW91rJ1STL2h1rWa5dTSYGw=
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
+### 1.15.4 (2022-02-19)
+* (Apollon77) Fix sendDoorCommand for HmIP-MOD-HO
+
+### 1.15.3 (2022-01-22)
+* (Apollon77) Add windowOpen indicator to two more places
+* (Apollon77) Optimize reconnection handling
+* (Apollon77) Optimize automatic initialization of unknown devices and channels
+
+### 1.15.2 (2022-01-04)
+* (Apollon77) Wait 10s until no new "unknown state update" was received before updating the whole system
+
 ### 1.15.0 (2022-01-02)
 * Node.js 10.x is now minimum required version for this adapter
 * (Apollon77) Optimize WebSocket reconnection Logic
 * (Apollon77) Optimize current value handling and re-set value if a state change is not processed because of an unchanged value
 * (Apollon77) Implement startImpulse call for ImpulseOutputChannels for e.g. HM-WGC
-* (Apollon77) Implement experimental support for HMIP-DLD to set the lock state and also an option PIN if needed (see notes above)
+* (Apollon77) Implement support for HMIP-DLD to set the lock state and also an option PIN if needed (see notes above)
 * (Apollon77) Detect new and unknown devices and channels and reinitialize the structure to add the new objects on the fly
 * (Apollon77) Implement DOOR_LOCK_SENSOR_CHANNEL
 * (Apollon77) Ignore HEAT_DEMAND_CHANNEL, DEHUMIDIFIER_DEMAND_CHANNEL, FLOOR_TERMINAL_BLOCK_CHANNEL and CHANGE_OVER_CHANNEL because no data to prevent logs

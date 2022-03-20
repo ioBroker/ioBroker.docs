@@ -3,21 +3,31 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.snmp/README.md
 title: ioBroker.snmp
-hash: yys9Kg/cH7SuwJuiyiwBEtiXaUYwVB/m9dQgMSpbFB4=
+hash: D6Ehnm9VxRfXBY2U36r8YLIy8Omlq15Atc6y2A3ACIU=
 ---
 ![Logo](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/snmp-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.snmp.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.snmp.svg)
-![Tests](https://travis-ci.org/CTJaeger/ioBroker.snmp.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.snmp.png?downloads=true)
 
 # IoBroker.snmp
-## Info
-Dieser Adapter fragt Informationen vom SNMP-Gerät ab, z. B. Drucker, Netzwerk ...
+![Testen und freigeben](https://github.com/iobroker-community-adapters/iobroker.snmp/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/snmp/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+
+## Die Info
+Dieser Adapter fragt Informationen von SNMP-Geräten wie Drucker, Netzwerk ...
 
 ## Changelog
+### __WORK IN PROGRESS__
+* IMPORTANT: This release will change the object structures!!
+* (McM1957) reduce latency for update of info.connection 
+* (McM1957) avoid excessive error logs if target is unreachable, optimize logging
+* (McM1957) add additional online at ip base to indicate target is reachable
+* (McM1957) output warning if OIDs specify different communities for one device
+* (Apollon77) Add Sentry for crash reporting
+
 ### 0.5.0
 * (Marcolotti) Add documentation (de,en,ru)
 * (Marcolotti) Add languages (de,en,ru)
@@ -35,7 +45,7 @@ Dieser Adapter fragt Informationen vom SNMP-Gerät ab, z. B. Drucker, Netzwerk .
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017 Marcolotti <info@ct-j.de>
+Copyright (c) 2017-2022 Marcolotti <info@ct-j.de>, ioBroker Community Developers 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

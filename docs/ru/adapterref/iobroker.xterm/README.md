@@ -3,52 +3,59 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.xterm/README.md
 title: ioBroker.xterm
-hash: yUz3ldjCTS+rHznLQDtBRUNUoyt13EdVQGBZ5/F0/2I=
+hash: hCuILSwuMbtUJCOktc8XL5+HlsucbR19k2kGfr90IvM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.xterm/admin/xterm.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.xterm.svg)
+![Количество установок](http://iobroker.live/badges/xterm-stable.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.xterm.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.xterm.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/xterm-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/xterm-stable.svg)
-![Статус зависимости](https://img.shields.io/david/bluefox <dogafox@gmail.com>/iobroker.xterm.svg)
-![Известные уязвимости](https://snyk.io/test/github/bluefox <dogafox@gmail.com>/ioBroker.xterm/badge.svg)
-![НПМ](https://nodei.co/npm/iobroker.xterm.png?downloads=true)
 
 # IoBroker.xterm
+![Тестируйте и выпускайте](https://github.com/ioBroker/ioBroker.xterm/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/xterm/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+
 ## Адаптер xterm для ioBroker
 Этот адаптер позволяет выполнять команды оболочки на хосте ioBroker. Он заменяет адаптер `ioBroker.terminal`.
 
-Терминальный сервер, чтобы открыть интерфейс командной строки.
-Пожалуйста, используйте его только в административных целях.
+Терминальный сервер для открытия интерфейса командной строки.
+Пожалуйста, используйте его только для целей администрирования.
 
 На основе пакетов xterm.js и node-pty.
 
-Если аутентификация включена, только пользователь ioBroker «admin» может войти в систему.
+Если аутентификация включена, только пользователь ioBroker с правами администратора может войти в систему.
 
-## Использование
+## Применение
 Адаптер поддерживает 2 режима:
 
-- Запускает cmd.exe (windows) или bash (linux). В Linux bash запускается под пользователем `iobroker`, и, возможно, вам следует переключиться на другого пользователя с большими привилегиями (через` su USER`).
-- Или смоделировать оболочку с помощью node.js (вы можете активировать эту опцию, если первая опция не работает)
+- Запускает cmd.exe (Windows) или Bash (Linux). В Linux bash работает под пользователем iobroker, и, возможно, вам следует переключиться на другого пользователя с большими привилегиями (через su USER).
+- Или имитировать оболочку с помощью node.js (Вы можете активировать эту опцию, если первая опция не работает)
 
-Примечание. Некоторые интерактивные команды терминала не работают. Например. `nano` и некоторые другие.
+Примечание. Некоторые команды терминала с интерактивностью не работают. Например. `nano` и некоторые другие.
 
-## ДЕЛАТЬ
+## СДЕЛАТЬ
 - Моделирование: Ctrl + R (История)
-- Моделирование: больше страниц кодирования. Если вы найдете кодовую страницу, подходящую для вашей системы, создайте проблему. Возможные страницы кодирования можно найти [здесь] (https://github.com/ashtuchkin/iconv-lite/wiki/Supported-Encodings).
+- Моделирование: больше страниц кодирования. Если вы найдете кодовую страницу, подходящую для вашей системы, создайте вопрос. Возможные страницы кодирования можно найти [здесь](https://github.com/ashtuchkin/iconv-lite/wiki/Supported-Encodings).
 - Поддержка более одного сеанса (вкладки)
 
-<! - Заполнитель для следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
 
 ## Changelog
+### 0.3.0 (2022-03-12)
+* (Apollon77) Prevent some warnings in js-controller 3+
+* (Apollon77) Add Fallback to simulated shell if bash/cmd.exe is selected by node-pty was not installed correctly!
+* (Apollon77) Rework info.connection status to show that server is connected also as green by using "none" to show that noone is connected
+* (Apollon77) Update all dependencies
+* (Apollon77) Add sentry for crash reporting
+
 ### 0.2.0 (2021-09-18)
 * (bluefox) Added the real terminal (bash or cmd.exe) to simulated one
 
 ### 0.1.0 (2021-09-18)
-* (bluefox) changed type of the connection state to "string" 
+* (bluefox) changed type of the connection state to "string"
 
 ### 0.0.3 (2021-09-16)
 * (ioBroker) first working release
@@ -59,7 +66,7 @@ hash: yUz3ldjCTS+rHznLQDtBRUNUoyt13EdVQGBZ5/F0/2I=
 ## License
 MIT License
 
-Copyright (c) 2021 ioBroker <dogafox@gmail.com>
+Copyright (c) 2021-2022 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

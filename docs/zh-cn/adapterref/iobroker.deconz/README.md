@@ -3,37 +3,37 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.deconz/README.md
 title: 无题
-hash: 4Q95qlMPJ1GRwW4YORp1JEHRxM0wDdpigsWkH6r7kNY=
+hash: 4+tbBmkb3CHsa40NYBLcBSntHQkOopeu1oB/itCB7zo=
 ---
 ![商标](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
 ![安装数量](http://iobroker.live/badges/deconz-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.deconz.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.deconz.svg)
-![NPM](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.deconz.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.deconz.svg)
+![新PM](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
 
-ioBroker deConz dresden-elektronik适配器
+ioBroker deConz 德累斯顿电子适配器
 
 ==============
 
 ＃＃ 注意
-不支持deConz的Beta版本
+不支持 deConz 的 Beta 版本
 
-所需的js-controller版本> 2.x.x，所需的node.js> = 10.x.x
+所需的 js 控制器版本 >2.x.x，所需的 node.js >= 10.x.x
 
 ＃＃ 英语
-连接到由dresden-elektronik开发的deConz软件。该软件旨在成为通用的ZigBee网关解决方案，使用来自dresden-elektronik的硬件，ConBee USB棒和RaspBee作为Raspberry Pi的模块。
+连接到由 dresden-elektronik 开发的 deConz 软件。该软件旨在成为一个通用的 ZigBee 网关解决方案，使用来自 dresden-elektronik 的硬件、ConBee USB 记忆棒和用于 Raspberry Pi 的 RaspBee 模块。
 
-您必须先链接到deConz。
+您必须首先链接到 deConz。
 
-1. a）输入deConz的IP地址
+1. a) 输入 deConz 的 IP 地址
 
-    b）输入端口号，标准为80。
+    b) 输入端口号，标准为 80。
 
-2.输入并保存IP地址和端口后，单击“创建API密钥”按钮。现在，您可以输入deConz的凭据或转到Phoscon APP并将ioBroker注册为第三方APP。
+2. 输入 IP 地址和端口并保存后，点击“创建 API 密钥”按钮。现在您可以输入 deConz 的凭据或进入 Phoscon APP 并将 ioBroker 注册为第三方 APP。
 
 ####同时发送多个命令
-为此，存在一个称为“动作”的对象。
+为此目的，有一个称为“动作”的对象。
 
 例子：
 
@@ -41,12 +41,33 @@ ioBroker deConz dresden-elektronik适配器
 
 `"on": true, "transitiontime": 5, "hue": 65500`
 
-##链接
-[德康兹](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/)[REST插件](https://github.com/dresden-elektronik/deconz-rest-plugin)[网关（硬件）](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
+## 链接
+[德康兹](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/)[REST 插件](https://github.com/dresden-elektronik/deconz-rest-plugin)[网关（硬件）](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
 
-## [赞助商](https://github.com/iobroker-community-adapters/ioBroker.deconz/blob/master/SPONSORS.MD)
+## [赞助商](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+
+### 1.3.20 (2022-02-26)
+* (withstu) add retry if gateway is busy
+* change min/max range for offset
+* updated translations
+* fix link for overview page
+* fix parameter can not be set since deConz 2.11.5
+* fix xy is invalid: #289 #295
+* remove Sentry
+
+### 1.3.19 (2021-08-08)
+* fix for js-controller 3.3.x
+
+### 1.3.17
+* fix crash [#248](https://github.com/Jey-Cee/ioBroker.deconz/issues/248)
+
+### 1.3.16 
+* added datapoints melody and volume (Used by NEO-Alarm-Sirene by Tuya)
+* added new effects for Müller Licht Tint: sunset, party, worklight, campfire, romance, nightlight
+* added new effects for Lidl Melinera: steady, snow, rainbow, snake, twinkle, fireworks, flag, waves, updown, vintage, fading, collide, strobe, sparkles, carnival, glow 
+* added 2 new datapoints they were used by Lidl Melinera effects: effectspeed: simple number; effectcolours: array of rgb values = [[255,0,0],[0,255,0],[0,0,255]] https://github.com/dresden-elektronik/deconz-rest-plugin/issues/3716#issuecomment-735467996
 
 ### 1.3.15 (2021-05-08)
 * fix info message: "State value to set for "deconz.0.Sensors.3.pending" has to be stringified but received type "object""
@@ -272,4 +293,4 @@ ioBroker deConz dresden-elektronik适配器
 ## License
 Apache-2.0
 
-Copyright (c) 2017-2021 Jey Cee jey-cee@live.com
+Copyright (c) 2017-2022 Jey Cee jey-cee@live.com

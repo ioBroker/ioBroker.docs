@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[有关ioBroker的新闻，公告和想法]]></description>
         <link>https://www.iobroker.net/#zh-cn/blog</link>
-        <lastBuildDate>Wed, 19 Jan 2022 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 16 Feb 2022 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[二月开发会议]]></title>
+            <description><![CDATA[
+                <p>亲爱的社区，双日快乐（2022 年 2 月 22 日），上个月 ioBroker 再次发生了很多事情。经过长时间的开发，新的 js-controller 4.0（发布名称“Isabelle”）在 Beta/Latest Repository 中可用。除了一些优化和改进之外，这个版本的主要重点是性能改进。\n此外，还有来自开发者会议及以后的更多消息，我们在这里为您总结了这些消息。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2022_02_16</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2022_02_16</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 16 Feb 2022 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[开发者社区会议 1 月]]></title>
             <description><![CDATA[

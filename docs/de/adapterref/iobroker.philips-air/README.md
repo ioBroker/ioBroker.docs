@@ -3,41 +3,43 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.philips-air/README.md
 title: ioBroker.philips-air
-hash: zYfc3wAURPeQ5XU+DF2XdcWICEq5gT8ZMhvZO62Px8A=
+hash: 6a/jPRtdR/DfVuGhoLx+Fo57e3c0pWDg9gcKiVUJKmo=
 ---
 ![Logo](../../../en/adapterref/iobroker.philips-air/admin/philips-air.png)
 
+![Anzahl der Installationen](http://iobroker.live/badges/philips-air-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.philips-air.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.philips-air.svg)
-![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/philips-air-installed.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/philips-air-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/iobroker-community-adapters/iobroker.philips-air.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.philips-air/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.philips-air.png?downloads=true)
 
 # IoBroker.philips-air
+![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.philips-air/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/philips-air/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+
 ## Philips Luftreinigeradapter für ioBroker
-Verbindet den Philips Luftreiniger mit ioBroker.
-** Nur mit AC2729 getestet **, sollte aber mit einem neuen Luftreiniger funktionieren, der über COAP mit Verschlüsselung kommuniziert.
+Verbindet Philips Luftreiniger mit ioBroker.
+**Nur mit AC2729 getestet**, sollte aber mit neuen Reinigern funktionieren, die über COAP mit Verschlüsselung kommunizieren.
 ![AC2729](../../../en/adapterref/iobroker.philips-air/img/device.png)
 
-[Link zur philips Website](https://www.philips.de/c-m-ho/luftreiniger-und-luftbefeuchter/kombi)
+[Link zur Philips-Website](https://www.philips.de/c-m-ho/luftreiniger-und-luftbefeuchter/kombi)
 
 ## Verwendungszweck
-Es wird nur die IP-Adresse des Geräts benötigt. Finden Sie es in Ihrem Router (z. B. `MiCO`).
-Es kann vorkommen, dass einige Geräte nicht alle Variablen haben und im Objektbaum nicht ausgefüllt bleiben.
+Nur die IP-Adresse des Geräts ist erforderlich. Finden Sie es in Ihrem Router (z. B. `MiCO`).
+Es kann vorkommen, dass einige Geräte nicht alle Variablen haben und diese im Objektbaum ungefüllt bleiben.
 
 ![Objekte](../../../en/adapterref/iobroker.philips-air/img/objects.png)
 
 ## Changelog
+### 0.1.3 (2022-03-12)
+* (Apollon77) General updates and optimizations
 
 ### 0.1.1 (2020-10-14)
-* (ioBroker) initial release
+* (bluefox) initial release
 
 ## License
 MIT License
 
-Copyright (c) 2020 ioBroker <dogafox@gmail.com>
+Copyright (c) 2020-2022 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

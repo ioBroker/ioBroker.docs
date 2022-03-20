@@ -6,183 +6,41 @@ BADGE-installed: http://iobroker.live/badges/lametric-installed.svg
 BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.lametric.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.lametric/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.lametric.png?downloads=true
+chapters: {"pages":{"en/adapterref/iobroker.lametric/README.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/README.md"},"en/adapterref/iobroker.lametric/apps.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/apps.md"},"en/adapterref/iobroker.lametric/my-data-diy.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/my-data-diy.md"},"en/adapterref/iobroker.lametric/notifications.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/notifications.md"},"en/adapterref/iobroker.lametric/blockly.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/blockly.md"}}}
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: PPdeemLAczafVqXoyDFeTy8m9xySufV2zack2EfZW8E=
+hash: 3j24ehDmVjhAPK0LHBNP14LmXmvMg7AOLF7zh1SBSUQ=
 ---
-![标识](../../../en/adapterref/iobroker.lametric/../../admin/lametric.png)
+![商标](../../../en/adapterref/iobroker.lametric/../../admin/lametric.png)
 
 # IoBroker.lametric
 ＃＃ 要求
 - *LaMetric Time* 固件 *2.2.2*（或更高版本）
 
 ＃＃ 配置
-您可以获得您的设备 API 密钥 [这里](https://developer.lametric.com/user/devices)。
+您可以获得您的设备 API 密钥[这里](https://developer.lametric.com/user/devices)。
 
-![api-key](../../../en/adapterref/iobroker.lametric/docs/apiKey.png)
+![api-key](../../../en/adapterref/iobroker.lametric/./img/api-key.png)
 
 ＃＃ 特征
 - 设置显示亮度（百分比，自动模式/手动模式）
 - 设置音量（百分比）
-- 配置屏幕保护程序（启用/禁用、基于时间、黑暗时）
+- 配置屏幕保护程序（启用/禁用，基于时间，黑暗时）
 - 激活/停用蓝牙并更改蓝牙名称
-- 在应用程序之间切换（下一个，上一个，转到特定的应用程序）
-- 使用块发送通知（具有可配置的优先级、声音、图标、文本……）
-- 控制特殊应用程序，如“时钟”、“收音机”、“秒表”或“天气”
+- 在应用程序之间切换（下一个、上一个、转到特定应用程序）
+- 发送通知块（具有可配置的优先级，声音，图标，文本，...）
+- 控制“时钟”、“收音机”、“秒表”或“天气”等特殊应用
 - 使用 *My Data (DIY)* LaMetric App 显示持久信息
 
-功能受限于 [官方 API 功能](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html)。
+功能受 [官方 API 功能](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html) 限制。
 
-## 块状示例
-您可以使用简单的字符串作为消息，它将显示为单个框架
-
-![单帧](../../../en/adapterref/iobroker.lametric/docs/blockly1.png)
-
-要显示多个帧，您还可以提供一个数组作为消息
-
-![多帧](../../../en/adapterref/iobroker.lametric/docs/blockly2.png)
-
-如果要使用图表框架，则必须将数字数组指定为框架
-
-![图表数据框](../../../en/adapterref/iobroker.lametric/docs/blockly3.png)
-
-##我的数据（DIY）*（版本> 1.1.0）*
-*LaMetric* 提供一个应用程序（在集成应用程序市场上）来轮询自定义数据。这个应用程序被称为[我的数据DIY](https://apps.lametric.com/apps/my_data__diy_/8942)。此适配器以所需格式创建新状态。
-您可以使用 Simple API Adapter 将数据传输到 LaMetric Time。
-
-```ioBroker LaMetric Adapter -> State with Frame information <- Simple API Adapter <- My Data DIY App <- LaMetric```
-
-### 配置（带身份验证）
-1.安装【Simple API ioBroker Adapter】(https://github.com/ioBroker/ioBroker.simple-api)
-2. 使用自定义密码（例如“HhX7dZl3Fe”）创建一个名为“lametric”的新 ioBroker 用户
-3. 将 ``lametric`` 用户添加到默认组 ``users``
-4. 在您的 *LaMetric Time* 上安装此 *My Data DIY* 应用程序（使用 Market）
-5.打开*我的数据（DIY）*应用程序设置并配置简单的api url（见下文）
-6. 转到适配器配置并使用您的自定义信息配置框架（参见下一章）
-
-```
-http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json&user=lametric&pass=HhX7dZl3Fe
-```
-
-**重要：使用 SimpleAPI Adapter 的 json 标志（自 2.6.2 版起可用）**
-
-**如有必要，请确保更新 URL 中的 IP、端口、用户和密码！**
-
-### 配置（无需身份验证）
-1.安装【Simple API ioBroker Adapter】(https://github.com/ioBroker/ioBroker.simple-api)
-2. 在您的 LaMetric Time 上安装这个 *My Data DIY* 应用程序（使用 Market）
-3.打开*我的数据（DIY）*应用程序设置并配置简单的api url（见下文）
-4. 转到适配器配置并使用您的自定义信息配置框架（参见下一章）
-
-```
-http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json
-```
-
-**如有必要，请确保更新 URL 中的 IP 和端口！**
-
-### 框架配置 *（版本 > 1.1.0）*
-- 使用加号图标添加任意数量的框架
-- 图标：从【官网】(https://developer.lametric.com/icons)中选择一个图标，并将ID放入配置字段。 **重要提示：添加 i（对于静态图标）或 a（对于动画图标）作为该 ID 的前缀。 （例如：`i3389`）**
-- 文本：只需键入框架的文本信息。您可以在花括号中使用状态。这些信息将替换为相应的状态值。 （例如：`{youtube.0.channels.HausAutomatisierungCom.statistics.subscriberCount} 订阅者`）
-
-3个框架的示例配置：
-
-![示例框架配置](../../../en/adapterref/iobroker.lametric/docs/myDataDIYConfig.png)
-
-##特殊应用程序/小工具*（版本> 1.1.2）*
-您可以使用自定义信息控制某些应用程序。
-
-###clock.clockface
-允许的值为：
-
-- `weather`、`page_a_day`、`custom` 或 `none` 之一
-- 自定义图标数据格式为`data:image/png;base64,<base64 编码的png 二进制>` 或`data:image/gif;base64,<base64 编码的gif 二进制>`
-
-示例：`data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAOklEQVQYlWNUVFBgwAeYcEncv//gP04FMEmsCmCSiooKjHAFMEF0SRQTsEnCFcAE0SUZGBgYGAl5EwA+6RhuHb9bggAAAABJRU5ErkJggg==`
-
-###倒计时.configure
-允许值：以秒为单位的时间
-
-## 脚本
-要在您的 *LaMetric Time* 上显示消息/通知，请使用 JavaScript 适配器（或任何其他适配器）向此实例发送消息：
-
-```JavaScript
-sendTo(
-    "lametric.0",
-    "notification",
-    {
-        priority: "[info|warning|critical]",
-        iconType: "[none|info|alert]",
-        sound: "<string from sound list>",
-        lifeTime: <milliseconds>,
-        icon: "<icon>",
-        text: "<string|array>",
-        cycles: <integer>
-    }
-);
-```
-
-单帧示例：
-
-```JavaScript
-sendTo(
-    "lametric.0",
-    "notification",
-    {
-        priority: "info",
-        iconType: "none",
-        sound: "cat",
-        lifeTime: 5000,
-        icon: "i31820",
-        text: "test",
-        cycles: 1
-    }
-);
-```
-
-示例多帧：
-
-```JavaScript
-sendTo(
-    "lametric.0",
-    "notification",
-    {
-        priority: "info",
-        iconType: "none",
-        sound: "cat",
-        lifeTime: 5000,
-        icon: "i31820",
-        text: ["frame 1", "frame 2", "frame 3"],
-        cycles: 1
-    }
-);
-```
-
-示例显示一些信息循环：
-
-```JavaScript
-let i = 0;
-function show() {
-    console.log('Show ' + i);
-    sendTo(
-        "lametric.0",
-        "notification",
-        {
-            priority: "info",
-            iconType: "info",
-            lifeTime: 5000,
-            icon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjEuNWRHWFIAAAAySURBVBhXY4AAYdcKk1lngCSUDwHIfAQbzgLqgDCgIqRLwFkQCYQoBAD5EATl4wQMDADhuxQzaDgX0gAAAABJRU5ErkJggg==",
-            text: "Hi " + i,
-            cycles: 1
-        }
-    );
-    i++;
-}
-setInterval(show, 10000);
-show();
-```
+＃＃ 目录
+- [应用程序](apps.md)
+- [Blockly](blockly.md)
+- [我的数据DIY](my-data-diy.md)
+- [通知](notifications.md)
 
 ## Changelog
 
@@ -190,9 +48,21 @@ show();
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.6.0 (2022-02-27)
 
-### **WORK IN PROGRESS**
+* (klein0r) Allow german umlauts in My Data DIY objects
+* (klein0r) Updated documentation
+* (klein0r) Updated state roles
+* (klein0r) Added hint for Admin 4 configuration
 
+### 1.5.3 (2022-02-08)
+
+* (klein0r) Updated log messages and error handling
+* (klein0r) Updated dependencies
+
+### 1.5.2 (2021-12-23)
+
+* (klein0r) Updated dependencies
 * (klein0r) Updated documentation
 
 ### 1.5.1
@@ -310,7 +180,7 @@ show();
 
 The MIT License (MIT)
 
-Copyright (c) 2021 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

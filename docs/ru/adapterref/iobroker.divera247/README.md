@@ -3,39 +3,39 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.divera247/README.md
 title: ioBroker.divera247
-hash: vnxAtGaRJCjT2GRJQQhQNDi5fXgr9Cwf2V3/MzkAcyI=
+hash: LyHEz+a45NCnsQ0Y2SDqeWhCuAvLD11aWtvFJ1vjonQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.divera247/admin/divera247_long.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.divera247.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.divera247.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.divera247.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/divera247-installed.svg)
+![Количество установок (последние)](http://iobroker.live/badges/divera247-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/divera247-stable.svg)
-![Статус зависимости](https://img.shields.io/david/TKnpl/iobroker.divera247.svg)
 ![Известные уязвимости](https://snyk.io/test/github/TKnpl/ioBroker.divera247/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.divera247.png?downloads=true)
 
 # IoBroker.divera247
-** Испытания: ** ![Тестирование и выпуск](https://github.com/TKnpl/ioBroker.divera247/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестируйте и выпускайте](https://github.com/TKnpl/ioBroker.divera247/workflows/Test%20and%20Release/badge.svg)
 
-## Divera247 адаптер для ioBroker
-Адаптер для службы оповещения [«Дивера 24/7»](https://www.divera247.com/)
+## Адаптер divera247 для ioBroker
+Адаптер для службы оповещения <a href="https://www.divera247.com/" target="_blank">Divera 24/7</a>
 
 ## Требования
-Для полноценного использования этого адаптера ваша организация должна подписаться на тарифный план «Тревога» услуг Divera 24/7.
+Для полноценного использования этого адаптера ваша организация должна подписаться на тариф «Тревога» услуг Divera 24/7 как минимум, иначе адаптер не будет работать или будет работать не полностью.
 
 ## Конфигурация этого адаптера
-Вы должны ввести свои учетные данные для входа в «Divera 24/7» на этом адаптере.
+Вы должны ввести свои учетные данные для входа в систему «Divera 24/7» для этого адаптера.
 
-Кроме того, вы можете ограничить срабатывание сигналов тревоги для определенных пользователей или групп сигналов тревоги.
-Для этого вам необходимо ввести ID пользователей Divera или номер группы тревог на странице администратора этого адаптера. Несколько идентификаторов пользователей и / или номеров групп тревог могут быть указаны через запятую (,).
-Этот адаптер сначала проверяет идентификаторы пользователей, прежде чем проверять группы. Первое попадание вызовет тревогу и обновит все состояния. Комбинация идентификатора пользователя и группы алармов в настоящее время невозможна.
+Кроме того, вы можете ограничить будильники для определенных пользователей или групп будильников.
+Для этого вам необходимо ввести идентификаторы пользователей Divera или номера групп сигналов тревоги на странице администрирования этого адаптера. Через запятую (,) можно указать несколько идентификаторов пользователей и/или номеров групп тревог.
+Этот адаптер сначала проверяет идентификаторы пользователей, прежде чем проверять группы. Первое попадание вызовет тревогу и обновит все состояния. Комбинация идентификатора пользователя и группы сигналов тревоги в настоящее время невозможна.
 
-Чтобы подписаться **на все будильники** просто оставьте соответствующее поле пустым.
-
-Кроме того, выберите интервал обновления для вызова API-сервера. Рекомендуется 30 секунд. Минимум 10 секунд.
+Чтобы подписаться на **все тревоги**, просто оставьте поля ввода пустыми.
 
 ## Changelog
+
+### 0.2.0
+* (TKnpl) complete renewal of the adapter
 
 ### 0.1.3
 * (TKnpl) general revision of the adapter
@@ -82,7 +82,7 @@ hash: vnxAtGaRJCjT2GRJQQhQNDi5fXgr9Cwf2V3/MzkAcyI=
 ## License
 MIT License
 
-Copyright (c) 2021 TKnpl <dev@t-concepts.de>
+Copyright (c) 2022 TKnpl <dev@t-concepts.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

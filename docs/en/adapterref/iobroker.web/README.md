@@ -82,6 +82,28 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 -->
 
 ## Changelog
+### 4.2.1 (2022-03-18)
+* (Apollon77) Provide state and object changes for simple-api
+
+### 4.2.0 (2022-02-21)
+* (bluefox) Updated ws to fix the flot editor
+
+### 4.1.6 (2022-02-19)
+* (Apollon77) Prevent some potential crash cases on adapter stop
+
+### 4.1.5 (2022-02-16)
+* (bluefox) Updated ws and socket-io
+
+### 4.1.4 (2022-02-14)
+* (bluefox) Added debug output for white list
+* (bluefox) Logout button will be hidden if basic authentication enabled. As logout not possible with basic authentication.
+
+### 4.1.3 (2022-02-13)
+* (bluefox) Corrected the white list GUI
+
+### 4.1.2 (2022-02-02)
+* (bluefox) Updated ws adapter to fix problem with URLs containing '#'
+
 ### 4.1.1 (2022-02-01)
 * (bluefox) Allowed the switch between iobroker.socketio and iobroker.ws for internal web sockets
 

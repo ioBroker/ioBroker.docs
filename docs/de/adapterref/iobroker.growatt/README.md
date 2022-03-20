@@ -3,13 +3,13 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.growatt/README.md
 title: ioBroker.growatt
-hash: tNfyZqnf+Sreq11IchgIq1RM4gZqrgSul0+RXZ0tEhY=
+hash: u+0xUXjhtPJ4FIijx/74CtuRVDVmd0xZ+gjJI8w/9jo=
 ---
 ![Logo](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.growatt.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.growatt.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/growatt-installed.svg)
+![Anzahl der Installationen (neueste)](http://iobroker.live/badges/growatt-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/growatt-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/PLCHome/ioBroker.growatt.svg)
 ![NPM](https://nodei.co/npm/iobroker.growatt.png?downloads=true)
@@ -17,103 +17,146 @@ hash: tNfyZqnf+Sreq11IchgIq1RM4gZqrgSul0+RXZ0tEhY=
 # IoBroker.growatt
 ## Growatt-Adapter für ioBroker
 ioBroker Growatt Adapter zur Kommunikation mit Growatt Shine Server.
-Ich bin nicht verbunden.
-Normalerweise werden die Daten alle 5 Minuten vom Datenlogger an die Cloud gesendet.
+Ich bin nicht angeschlossen.
+Normalerweise werden die Daten alle 5 Minuten vom Datenlogger in die Cloud gesendet.
 Sie können es ändern, siehe unten.
-Die Software fragt den Server alle 30 Sekunden ab, damit der Offset nicht zu groß ist.
 
 Nicht alle Anlagentypen sind implementiert.
 
-Derzeit können nur Daten gelesen werden, das Schreiben von Parametern oder das Ändern von Parametern ist nicht möglich.
+Aktuell können nur Daten gelesen werden, das Schreiben von Parametern oder das Ändern von Parametern ist nicht möglich.
 
 ----------------------------------------------------------------------------------------------------------------------
 
-# Adapter-Administrationsseite
+# Adapter-Admin-Seite
 ## Haupteinstellungen
 ### Benutzer und Passwort
 Bitte geben Sie den Namen und das Passwort ein, die Sie auch in der Shine-App oder im Webportal verwenden.
 
-### Mit gemeinsamem Schlüssel anmelden
-Auf der Growatt-Website unter Energie, Anlagenmanagement, Betriebstools können Sie sich einen Schlüssel per E-Mail senden.
+### Anmeldung mit gemeinsamem Schlüssel
+Auf der Growatt-Website unter Energie, Anlagenmanagement, Betriebstools können Sie sich selbst einen Schlüssel per E-Mail zusenden.
 
 ### Anlagendaten lesen
-Dieser Datensatz enthält die gespeicherten Stammdaten
+Dieser Datensatz enthält die hinterlegten Stammdaten
 
 ### Letzte Verlaufsdaten lesen
-Liest den letzten Datensatz aus dem Verlauf des Datenloggers.
+Liest den letzten Datensatz aus der Historie des Datenloggers.
 Diese Funktion unterstützt Minutenintervalle für den Datenlogger.
 
 ### Statusdaten lesen
-Diese Daten sind nicht für alle Anlagen verfügbar (nicht INV / MAX / TLX). Dieser Datensatz enthält Live-Daten.
+Diese Daten sind nicht für alle Anlagen (nicht INV/MAX/TLX) verfügbar. Dieser Datensatz enthält Live-Daten.
 Diese Funktion unterstützt Minutenintervalle für den Datenlogger.
 
 ### Gesamtdaten lesen
 Dieser Datensatz enthält Aggregationsdaten.
 
 ### Gerätedaten lesen
-Dieser Datensatz enthält einige Daten vom Gerät. Einige Daten sind auch in den anderen Kategorien verfügbar.
+Dieser Datensatz enthält einige Daten des Geräts. Einige Daten sind auch in den anderen Kategorien verfügbar.
 
 ### Wetter lesen
 Dieser Datensatz enthält die Wettervorhersage.
 
+### Timeout in Sekunden
+Das Standardzeitlimit für HTTP-Anforderungen. Der Standardwert 60 Sekunden, wie bei Webbrowsern
+
+### Prozesszeitüberschreitung in Sekunden
+Dieses Timeout überwacht die Sammlung von Daten vom Growatt-Server. Wenn der Server innerhalb dieser Zeit nicht alle Daten verarbeitet, wird ein Fehler gemeldet, die Sitzung beendet und ein neuer Zyklus-Timer gestartet. Der Standardwert ist 600 Sekunden.
+Wenn der Wert 0 ist, wird diese Prüffunktion nicht ausgeführt.
+
+### Websitzung beibehalten
+Der Adapter meldet sich nur einmal an und nicht bei jeder Datenanfrage vom Growatt-Server. Standardmäßig ist es eingeschaltet.
+
+### Sitzungszeit in Minuten
+Hier können Sie einstellen, wann sich der Adapter vom Server ab- und wieder anmeldet. Eine 0 bedeutet nie abmelden. Der Standardwert ist 0 = unendlich.
+
+### Zykluszeit in Sekunden
+Das Intervall, in dem die Daten vom Server angefordert werden. Die für die Datenabfrage benötigte Zeit wird dann von der nächsten abgezogen. Dauert die Abfrage länger als die Wartezeit, schläft der Adapter nur 100ms. Der Standardwert ist 30 Sekunden.
+
+### Fehlerzykluszeit in Sekunden
+Tritt bei der Abfrage der Werte beim Growatt-Server ein Fehler auf, wird diese Zeit anstelle der Zykluszeit verwendet. Der Standardwert ist 120 Sekunden
+
 ## Objekte verwalten
-Hier können Sie festlegen, was mit jedem Wert (Objekt) geschehen soll, der vom Wechselrichter erfasst wird.
+Hier können Sie festlegen, was mit jedem Wert (Objekt) passieren soll, der vom Umrichter abgeholt wird.
 Es gibt viele Werte, die nicht zu Ihrem Wechselrichter gehören. Diese können hier entfernt werden.
-Da es kein Ereignis gibt, mit dem die Objektliste beim Speichern neu geladen werden kann. Die Schaltfläche Aktualisieren muss verwendet werden, wenn Speichern gespeichert wird.
+Da es kein Ereignis gibt, mit dem die Objektliste beim Speichern neu geladen werden kann. Die Schaltfläche „Aktualisieren“ muss verwendet werden, wenn „Speichern“ gedrückt wird.
 
 ### Normal
-Das Objekt bleibt erhalten, der Wert wird aktualisiert.
+Das Objekt bleibt bestehen, der Wert wird aktualisiert.
 
 ### Löschen
-Das Objekt wird gelöscht und der vom Wechselrichter geladene Wert wird verworfen.
-Nach dem Update werden nur die ID und die Aktion angezeigt, da das Objekt nicht mehr vorhanden ist. Wenn Sie normal auswählen, wird das Objekt nach dem Speichern erneut erstellt.
+Das Objekt wird gelöscht und der vom Umrichter geladene Wert wird verworfen.
+Nach der Aktualisierung werden nur die ID und die Aktion angezeigt, da das Objekt nicht mehr existiert. Wenn Sie normal auswählen, wird das Objekt nach dem Speichern erneut erstellt.
 
 ### Kein Update
-Das Objekt bleibt erhalten, die Werte vom Wechselrichter werden verworfen.
+Das Objekt bleibt bestehen, die Werte aus dem Wechselrichter werden verworfen.
 
 ----------------------------------------------------------------------------------------------------------------------
 
-# Datenintervall beschleunigen
-## Sie können das Logger-Intervall zwischen 5 Minuten und 1 Minute einstellen
-Entfernen Sie den Gummistopfen der KEY-Taste von ShineWiFi-S und drücken Sie kurz die Taste im Inneren. Die blaue LED leuchtet auf. Verwenden Sie Ihr Telefon oder Ihren Computer, um eine Verbindung zum drahtlosen Netzwerk des ShineWiFi-S-Moduls herzustellen. Der Netzwerkname / die SSID ist die Seriennummer des ShineWiFi-S-Moduls.
+# Datenintervall beschleunigen neue Methode
+* Öffnen Sie die ShinePhone-App
+* Klicken Sie unten auf den Anhang
+* Oben rechts +, dann Datenlogger auflisten
+* Klicken Sie auf vorhandenen Datenlogger
+* Datenlogger konfigurieren
+* Drahtloser Hotspot-Modus
+* Bringen Sie den Stick in den AP-Modus
+* Mit WLAN-Hotspot verbinden, PW 123456789 ? <- erneut prüfen
+* Fortsetzen
+* Fortschrittlich
+* Zeiteinstellung
+* Intervall bis 1
+* Geben Sie das Passwort growattJJJJMMTT ein (z. B. growatt20220209)
+* Freischalten
+* Klicken Sie auf und übernehmen Sie die Änderungen
+* Verlassen Sie den Hotspot-Modus
+
+----------------------------------------------------------------------------------------------------------------------
+
+# Datenintervall beschleunigen alte Methode
+## Sie können das Logger-Intervall von 5 Minuten bis 1 Minute einstellen
+Entfernen Sie den Gummistopfen der KEY-Taste von ShineWiFi-S und drücken Sie kurz die Taste im Inneren. Die blaue LED leuchtet auf. Verwenden Sie Ihr Telefon oder Ihren Computer, um sich mit dem drahtlosen Netzwerk zu verbinden, das vom ShineWiFi-S-Modul ausgegeben wird. Der Netzwerkname/SSID ist die Seriennummer des ShineWiFi-S-Moduls.
 
 ## Loginseite
-Nachdem die Verbindung erfolgreich hergestellt wurde, öffnen Sie den Webbrowser auf Ihrem Telefon oder Computer und geben Sie 192.168.10.100 in die Adressleiste ein. Der Benutzername lautet admin, das Standardkennwort lautet 12345678.
+Nachdem die Verbindung erfolgreich hergestellt wurde, öffnen Sie den Webbrowser auf Ihrem Telefon oder Computer und geben Sie 192.168.10.100 in die Adressleiste ein. Der Benutzername ist admin, das Standardpasswort ist 12345678.
 ![Loginseite](../../../en/adapterref/iobroker.growatt/docs/login.png)
 
 ## Erweiterte Einstellungen
-Ändern Sie die Datenintervallzeit auf 1 Minute. ![Erweiterte Einstellungen](../../../en/adapterref/iobroker.growatt/docs/advancedsettings.png)
+Ändern Sie die Datenintervallzeit auf 1 Minute ![Erweiterte Einstellungen](../../../en/adapterref/iobroker.growatt/docs/advancedsettings.png)
 
 ## Systemneustart
-Starten Sie Ihr ShineWiFi-S-Modul auf dieser Seite neu. Klicken Sie auf "Sofort neu starten", um die soeben vorgenommenen neuen Einstellungen zu aktivieren und sich vom internen Webserver Ihres ShineWiFi-Moduls abzumelden.
+Starten Sie Ihr ShineWiFi-S-Modul auf dieser Seite neu, klicken Sie auf „Sofort neu starten“, um die neuen Einstellungen zu aktivieren, die Sie gerade vorgenommen haben, und melden Sie sich vom internen Webserver Ihres ShineWiFi-Moduls ab.
 ![Systemneustart](../../../en/adapterref/iobroker.growatt/docs/restart.png)
 
-** Es gibt keine Änderung an den Diagrammen auf der Growatt-Seite. Dort können Sie nur eine Änderung der Daten aus dem Datenlogger sehen. **
-
-----------------------------------------------------------------------------------------------------------------------
-
-# Deutsch - Beschleunigungsdatenintervall
-## Du kannst das Protokollierungsintervall von 5 Minuten auf 1 Minute Handlungen
-Den Gummi vor dem KEY Button des ShineWiFi-S entfernen und den Button kurz hören.
-Der ShineWiFi-S spielt nun kurz Hotspot (SSID = Seriennummer des ShineWiFi-S). Beim Netz mit einem Laptop oder dem Handy anmelden.
-
-## Einloggen
-als Webadresse http://192.168.10.100 in der Browser-Eingabe.
-Der Benutzername ist Admin und das Passwort 12345678.
-![Loginseite](../../../en/adapterref/iobroker.growatt/docs/login.png)
-
-## Erweiterte Einstellungen
-Auf "Erweiterte Einstellungen" gehen und das Intervall ändern. (von 5 auf 1) ![Erweiterte Einstellungen](../../../en/adapterref/iobroker.growatt/docs/advancedsettings.png)
-
-## Systemneustart
-Auf System Neustart gehen und Button herzhaft, aber zukünftige Rechte.
-![Systemneustart](../../../en/adapterref/iobroker.growatt/docs/restart.png)
-
-** Es gibt keine Möglichkeit an den Diagrammen auf der Growatt-Seite, die bleibt bei 5min. Dort sehen Sie nur eine Frage der Daten im Datenlogger. **
+**Es gibt keine Änderung an den Diagrammen auf der Growatt-Seite. Dort sehen Sie nur eine Änderung der Daten des Datenloggers.**
 
 -*-
 
 ## Changelog
+### 1.1.8 (16.03.2022)
+* (PLCHome) Improvement triggered by "Sentry" issues
+
+### 1.1.7 (13.02.2022)
+* (PLCHome) "Sentry" was added
+
+### 1.1.6 (12.02.2022)
+* (PLCHome) Read me
+
+### 1.1.2 (12.02.2022)
+* (PLCHome) Timeouts made maintainable and adjusted. Request timout is now 60 second like chrome
+* (PLCHome) Server request improved and additionally secured against dying
+* (PLCHome) Calculate sleep to next request to keep cycle. Minimum sleep is 100ms
+* (PLCHome) Error output: if the key has expired, requests are forwarded with an error code, which is now in the log
+* (PLCHome) Improved error handling
+* (PLCHome) Improved debugging
+* (PLCHome) Update the includes
+
+### 1.1.1 (27.05.2021)
+* (PLCHome) The web request timeout was increased due to login issues
+
+### 1.1.0 (24.05.2021)
+* (PLCHome) Improvement of the connection via Axios Session
+
+### 1.0.1 (05.03.2021)
+* (PLCHome) Duplicate keys are transmitted, I try to filter them out.
 
 ### 1.0.0 (24.02.2021)
 * (PLCHome) Read me
@@ -180,9 +223,9 @@ Auf System Neustart gehen und Button herzhaft, aber zukünftige Rechte.
 -*-
 
 ## License
-MIT License
+The MIT License (MIT)
 
-Copyright (c) 2021 PLCHome <https://github.com/PLCHome>
+Copyright (c) 2020 - 2022 PLCHome
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -2640,22 +2640,25 @@ return 'your result';
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-### 5.2.21 (2022-01-16)
-* (bluefox) Fixed build process
+### 5.4.3 (2022-03-17)
+* (Apollon77) Fix handling of month schedules with given date list
+* (Apollon77) Optimize scheduling to make sure to not miss triggers if callbacks would need too long
 
-### 5.2.19 (2022-01-10)
-* (AlCalzone) Fixed broken dependency
+### 5.4.2 (2022-03-15)
+* (Apollon77) Fix automatic start of Rules scripts when starting adapter
 
-### 5.2.18 (2021-12-14)
-* (klein0r) Fixed some german translations
-* (winnyschuster) Fixed astro schedules
+### 5.4.1 (2022-03-15)
+* (Apollon77) Fix blockly subscribes broken in 5.4.0
 
-### 5.2.16 (2021-11-19)
-* (bluefox) Fixed the font in the editor
+### 5.4.0 (2022-03-13)
+* (Apollon77) Automatically create missing folder objects when states are created using createState
+* (Apollon77) Fix special characters in blockly subscribe logic
+* (Apollon77) Fix timing issue where state updates could not be current on startup
+* (Apollon77) Fix state name handing
+* (Apollon77) Fix potential crash cases reported by Sentry
 
-### 5.2.15 (2021-11-18)
-* (agross) Added the monitoring of symlinks my mirroring
-* (Apollon77) Fix two crash cases reported by Sentry
+### 5.3.3 (2022-03-06)
+* (bluefox) Added async functions: createStateAsync, deleteStateAsync
 
 ## License
 The MIT License (MIT)

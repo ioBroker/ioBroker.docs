@@ -3,23 +3,22 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openweathermap/README.md
 title: ioBroker.openweathermap
-hash: rSdWpYSlF75wNrmlQtHFGfZozUb9JJK9guKYSyn4Q6o=
+hash: s5CWmMPsnKxv36nwXhF6OCP4IZJE39aUJhs2FpXSI58=
 ---
 ![Logo](../../../en/adapterref/iobroker.openweathermap/admin/openweathermap.png)
 
+![Anzahl der Installationen](http://iobroker.live/badges/openweathermap-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.openweathermap.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.openweathermap.svg)
-![Stabil](http://iobroker.live/badges/openweathermap-stable.svg)
-![Eingerichtet](http://iobroker.live/badges/openweathermap-installed.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/ioBroker/ioBroker.openweathermap.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/ioBroker/ioBroker.openweathermap/badge.svg)
-![Tests](https://travis-ci.org/ioBroker/ioBroker.openweathermap.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.openweathermap.png?downloads=true)
 
 # IoBroker.openweathermap
+![Testen und freigeben](https://github.com/ioBroker/ioBroker.openweathermap/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/openweathermap/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+
 Ruft 5 Tage Wettervorhersage von [https://openweathermap.org/](openweathermap.org) ab
 
-Sie benötigen einen API-Schlüssel, um auf die Daten zuzugreifen. Den API-Schlüssel erhalten Sie kostenlos nach der Registrierung [Hier](https://home.openweathermap.org/api_keys).
+Sie benötigen einen API-Schlüssel, um auf die Daten zuzugreifen. Den API-Schlüssel erhalten Sie kostenlos nach Registrierung [Hier](https://home.openweathermap.org/api_keys).
 
 ## Changelog
 
@@ -35,7 +34,7 @@ Sie benötigen einen API-Schlüssel, um auf die Daten zuzugreifen. Den API-Schl�
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2022 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

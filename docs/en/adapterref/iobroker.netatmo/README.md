@@ -6,10 +6,21 @@
 
 [![NPM](https://nodei.co/npm/iobroker.netatmo.png?downloads=true)](https://nodei.co/npm/iobroker.netatmo/)
 
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 Netatmo adapter for ioBroker
 
-## Installation
-Just enter your Netatmo username & password within the adapter settings
+## Installation and Configuration
+Just enter your Netatmo username & password within the adapter settings.
+
+By default a general API key is used to do the requests which limits the update interval to 10 Minutes! 
+
+To increase the interval or to get live updates from Welcome & Presence, CO- und Smoke-Detectors are only you need to enter an own ID/Secret from your NetAtmo App.
+To do so, go to the following URL, login with your Netatmo account and fill out the requested form on https://auth.netatmo.com/access/login?next_url=https%3A%2F%2Fdev.netatmo.com%2Fapps%2Fcreateanapp !
+
+Please make sure to configurer your limits that they respect https://dev.netatmo.com/guideline#rate-limits (and have in mind that these linits also exist for ALL USERS if you do not use an own ID/Secret)
+
+## sendTo support
 
 You can also use the sendTo command to set all persons as away (for example if in use as alarm system)
 ```
@@ -35,6 +46,26 @@ the personsId is the id within the "Known" persons folder
 -->
 ## Changelog
 
+### __WORK IN PROGRESS__
+* (Apollon77) Adjust some roles and written data to prevent warnings in logs
+* (Apollon77) Try fix events
+
+### 1.6.0 (2022-03-13)
+* (Apollon77) Important: In person names (Welcome) in state IDs forbidden characters are now replaces by _!!
+* (Apollon77) Fix another potential crash case reported by sentry
+
+### 1.5.1 (2022-03-09)
+* (Apollon77) Fix jsonconfig for Client secret
+
+### 1.5.0 (2022-03-08)
+* (kyuka-dom) Added support for netatmo carbon monoxide sensor.
+* (kyuka-dom) Added support for netatmo smoke alarm.
+* (foxriver76) prevent crashes if application limit reached
+* (Apollon77) Allow to specify own id/secret in all cases
+* (Apollon77/foxriver76) ensure that minimum polling interval of 10 minutes is respected if no individual ID/Secret is provided
+* (Apollon77) Several pother fixes and optimizations
+* (Apollon77) Add Sentry for crash reporting
+
 ### 1.4.4 (2021-07-21)
 * (Apollon77) Fix typo that lead to a crash
 
@@ -46,7 +77,7 @@ the personsId is the id within the "Known" persons folder
 
 ### 1.4.0 (2021-06-24)
 * (bluefox) Added the support of admin5 
-* (bluefox) Removed warnings about the type of states  
+* (bluefox) Removed warnings about the type of states
 
 ### 1.3.3
 * (PArns) removed person history
@@ -159,4 +190,4 @@ the personsId is the id within the "Known" persons folder
 ## License
 MIT
 
-Copyright (c) 2016-2021 Patrick Arns <iobroker@patrick-arns.de>
+Copyright (c) 2016-2022 Patrick Arns <iobroker@patrick-arns.de>

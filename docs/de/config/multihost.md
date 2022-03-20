@@ -95,14 +95,14 @@ Sollte das nicht geschehen bitte beide Hosts rebooten. zuerst den Master, dann d
 
 ## Multihost mit verschiedenen Subnetzen
 
-**Wenn beide ioBroker-Hosts in unterschiedlichen Subnetzen sind, …
+Wenn beide ioBroker-Hosts in unterschiedlichen Subnetzen sind, …
 
-Beispiel:**
+Beispiel:
 
 * Normales LAN (für PC, Tablet, use.) = 192.168.178.0/24
 * IoT LAN (für Shelly, Kameras, usw.) = 10.20.30.0/24
 
-… geht die Multihost-Automatik (“sudo iobroker multihost enable” und “sudo iobroker multihost browse“) nicht, sondern nur der alte Weg (`iobroker setup custom`) siehe oben
+… geht die Multihost-Automatik (“iobroker multihost enable” und “iobroker multihost browse“) nicht, sondern nur der alte Weg (`iobroker setup custom`) siehe oben
 
 
 

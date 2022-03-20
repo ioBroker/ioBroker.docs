@@ -1,13 +1,21 @@
 ![Logo](admin/yamaha.png)
 ## ioBroker.yamaha
 
-![Number of Installations](http://iobroker.live/badges/yamaha-installed.svg) ![Number of Installations](http://iobroker.live/badges/yamaha-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.yamaha.svg)](https://www.npmjs.com/package/iobroker.yamaha)
-[![Tests](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.yamaha/master.svg)](https://travis-ci.org/iobroker-community-adapters/ioBroker.yamaha)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/iobroker-community-adapters/iobroker.yamaha/blob/master/LICENSE)
+![Number of Installations](http://iobroker.live/badges/yamaha-installed.svg)
+![Number of Installations](http://iobroker.live/badges/yamaha-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.yamaha.svg)](https://www.npmjs.com/package/iobroker.yamaha)
+
+![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.yamaha/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/yamaha/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.yamaha.svg)](https://www.npmjs.com/package/iobroker.yamaha)
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 #### Description
 
 Adapter for Yamaha AV receivers
+
+Discussion please at github or at https://forum.iobroker.net/topic/53174/weiterentwicklung-yamaha-adapter
 
 ### Initial Creation
 This adapter was initialy created by @soef at https://github.com/soef/ioBroker.yamaha but not maintained any more, so we moved it to iobroker-community so that bugs could be fixed. thanks @soef for his work.
@@ -25,7 +33,7 @@ iobroker upload yamaha
 ``
 
 #### Realtime
-The states will be created, when they accur. I.e. use your ir-remote and change something and you will see the new states. 
+The states will be created, when they occur. I.e. use your ir-remote and change something and you will see the new states. 
 Only one connection is accepted by yamaha devices.
 
 #### Requirements
@@ -35,42 +43,66 @@ You have to enable "network standby" function in the configuration of your recei
 
 
 ## Changelog
+### 0.5.1
+* (Sneak-L8) fix type of pureDirect
+
+### 0.5.0 (2022-03-08)
+* IMPORTANT: js-controller 2.0 is needed at least
+* (Apollon77) Add Sentry for crash reporting
+
+### 0.4.1
+* (Sneak-L8) "toggleMute" now toggle mute state (instead of always muting)
+
 ### 0.4.0
 * (Garfonso) added admin 3 compatibility and more meta-data stuff.
 * (Garfonso) added compact mode support.
+
 ### 0.3.20
 * (Garfonso) adjusted local copy of soef.js to js-controller 3.0
 * (Garfonso) updated meta information (links etc) to iobroker-community-adapters
+
 ### 0.3.19
 * (soef) Changelog added to readme
+
 ### 0.3.18
 * (Apollon77) Update utils.js and usage, CI Testing and deps
+
 ### 0.3.17
 * (Apollon77) update basic package-file testing
+
 ### 0.3.16
 * (soef) node 0.12 removed from testing
+
 ### 0.3.15
 * (soef) Enhance CI testing
+
 ### 0.3.14
 * (soef) Possible exception in reconnect fixed
+
 ### 0.3.12
 * (soef) Version incr. for npm
+
 ### 0.3.11
 * (soef) reconnect overworked
+
 ### 0.3.10
 * (soef) realtime Ping now configurable
+
 ### 0.3.8
 * (soef) realtime states optimized
+
 ### 0.3.7
 * (soef) fix typo in creating realtime states
+
 ### 0.3.6
 * (soef) timeout to connect reduced
 
 <!--
+
 ### License
 The MIT License (MIT)
 
-Copyright (c) 2015-2020 soef <soef@gmx.net>
+Copyright (c) 2015-2022 soef <soef@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

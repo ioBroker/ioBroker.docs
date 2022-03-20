@@ -1,6 +1,16 @@
 ![Logo](admin/fitbit-api.png)
 # ioBroker.fitbit
 
+![Number of Installations](http://iobroker.live/badges/fitbit-api-installed.svg)
+![Number of Installations](http://iobroker.live/badges/fitbit-api-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.fitbit-api.svg)](https://www.npmjs.com/package/iobroker.fitbit-api)
+
+![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.fitbit-api/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/fitbit-api/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.fitbit-api.svg)](https://www.npmjs.com/package/iobroker.fitbit-api)
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 This adapter pulls Data from fitbit API!
 
 ## Configuration
@@ -36,7 +46,7 @@ The API was implemented according to https://dev.fitbit.com/build/reference/web-
 ## License
 The MIT License (MIT)
 
-Copyright 2019, bluefox <dogafox@gmail.com>
+Copyright 2019-2022, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

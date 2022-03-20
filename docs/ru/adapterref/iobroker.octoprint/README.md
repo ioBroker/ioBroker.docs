@@ -1,48 +1,36 @@
 ---
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.octoprint.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.octoprint.svg
+BADGE-Stable: http://iobroker.live/badges/octoprint-stable.svg
+BADGE-installed: http://iobroker.live/badges/octoprint-installed.svg
+BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.octoprint.svg
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.octoprint/badge.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.octoprint.png?downloads=true
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: dD+bUWRriLBqzTd1a4v+YeMwmng9ECO5yufCPWoQO5g=
+hash: aTYwR68R4eY5dXYLeHgdlUJrMnSoz0zuuOcbWfrgxhg=
 ---
-![Логотип](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
-
-![версия NPM](http://img.shields.io/npm/v/iobroker.octoprint.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.octoprint.svg)
-![Стабильный](http://iobroker.live/badges/octoprint-stable.svg)
-![установлен](http://iobroker.live/badges/octoprint-installed.svg)
-![Статус зависимости](https://img.shields.io/david/klein0r/iobroker.octoprint.svg)
-![Известные уязвимости](https://snyk.io/test/github/klein0r/ioBroker.octoprint/badge.svg)
-![НПМ](https://nodei.co/npm/iobroker.octoprint.png?downloads=true)
+![Логотип](../../../en/adapterref/iobroker.octoprint/../../admin/octoprint.png)
 
 # IoBroker.octoprint
-![Тестируйте и выпускайте](https://github.com/klein0r/ioBroker.octoprint/workflows/Test%20and%20Release/badge.svg)
-
-Адаптер для подключения OctoPrint к ioBroker
-
-**Протестировано с [Октопринт](https://github.com/OctoPrint/OctoPrint/releases) 1.7.2**
-
-## Установка
-Пожалуйста, используйте «список адаптеров» в ioBroker, чтобы установить стабильную версию этого адаптера. Вы также можете использовать CLI для установки этого адаптера:
-
-```
-iobroker add octoprint
-```
+**Протестировано с [Октопринт](https://github.com/OctoPrint/OctoPrint/releases) 1.7.3**
 
 ## Функции
 ### Информация
 - Получить информацию о версии
-- Получить информацию о принтере
-- Получить текущую информацию о задании на печать
-- Получить информацию о списке файлов
+- Получить информацию о принтере (когда «работает»)
+- Получить текущую информацию о задании на печать (при ``печати``)
+- Получить информацию о списке файлов (когда не ``печать``)
 
 ### Инструменты
-- Установить температуру инструмента
-- Установить температуру кровати
-- Выдавливание / втягивание
+- Установите температуру инструмента (когда «работает»)
+- Установите температуру кровати (когда «работает»)
+- Выдавливание/Втягивание (когда "работает")
 
 ### Команды
-- Принтер: подключить, отключить и домой
+- Принтер: подключи, отключи и домой
 - Работа: запуск, пауза, возобновление, отмена, перезапуск
 - SD-карта: инициализация, обновление, выпуск
 - Пользовательские команды принтера
@@ -51,7 +39,7 @@ iobroker add octoprint
 - Выберите файл или распечатайте его
 
 ### Поддерживаемые плагины
-- [Отображение хода выполнения слоя] (https://github.com/OllisGit/OctoPrint-DisplayLayerProgress) - протестировано с версией 1.27.2 (требуется **адаптер версии 2.1.0** или новее)
+- [Отображение хода выполнения слоя] (https://github.com/OllisGit/OctoPrint-DisplayLayerProgress) - протестировано с версией 1.28.0 (требуется **адаптер версии 2.1.0** или новее)
 - [Slicer Thumbnails] (https://github.com/jneilliii/OctoPrint-PrusaSlicerThumbnails) - протестировано с версией 1.0.0 (требуется **адаптер версии 2.2.0** или выше)
 
 ## Важный!
@@ -67,15 +55,34 @@ setObject('system.adapter.octoprint.0', obj);
 
 Используйте состояние `system.adapter.octoprint.0.alive`, чтобы остановить или запустить экземпляр.
 
-## Часовой
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
-
 ## Changelog
 
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.2.0 (2022-03-07)
+
+Tested with OctoPrint 1.7.3
+
+* (klein0r) Added print times as readable states (seconds to string)
+* (klein0r) Added formatted date when print job will finish
+* (klein0r) Added fan speed and feedrate from plugin Display Layer Progress
+
+### 3.1.0 (2022-02-24)
+
+* (klein0r) Calculate date/time when print will be finished
+* (klein0r) Renamed ``printjob.progress.printtime_left`` to ``printjob.progress.printtimeLeft`` **(BREAKING CHANGE - CHECK YOUR SCRIPTS AND VIS)**
+
+### 3.0.1 (2022-02-12)
+
+* (klein0r) Updated state roles
+* (klein0r) Added hint for Admin 4 configuration
+
+### 3.0.0 (2022-01-19)
+
+* (klein0r) Added printing and operational state
+
 ### 2.2.0 (2022-01-15)
 
 * (klein0r) Added plugin support: Slicer Thumbnails

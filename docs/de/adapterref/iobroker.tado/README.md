@@ -3,16 +3,16 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: 1mq5/OTYWIpPvTUkw0K4ZfYdjEUKY8D2kk9sCQcSzYA=
+hash: aPE5lBaytBWMN/A1iVEPzyZcr8V1K+9KF+ccJ+64+us=
 ---
+# IoBroker.tado
+
 ![Anzahl der Installationen](http://iobroker.live/badges/tado-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.tado.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.tado.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/DrozmotiX/iobroker.tado.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/DrozmotiX/ioBroker.tado/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.tado.png?downloads=true)
 
-#ioBroker.tado
 <img src="./admin/tado.png" width="50" height="50">
 
 [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
@@ -20,40 +20,52 @@ hash: 1mq5/OTYWIpPvTUkw0K4ZfYdjEUKY8D2kk9sCQcSzYA=
 ![Testen und freigeben](https://github.com/DrozmotiX/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
 
 ## Tado-Adapter für ioBroker
-tado° sorgt für ein angenehmes und gesundes Klima und spart bis zu 31% Heizkosten.
+tado° sorgt für ein angenehmes und gesundes Klima und spart dabei bis zu 31 % Heizkosten.
 
 ## Unterstütze mich
-Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende zukommen lassen (dies ist ein persönlicher Spendenlink für DutchmanNL, kein Bezug zum ioBroker-Projekt ! [![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
+Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende machen (dies ist ein persönlicher Spendenlink für DutchmanNL, keine Verbindung zum ioBroker-Projekt! [![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Dinge, die du steuern kannst
 | Staat | Beschreibung |
 | ----- | ----------- |
-| tado.[x].[yyyyyy].Rooms.[z].setting.power | Gerät ein-/ausschalten |
-| tado.[x].[yyyyyy].Rooms.[z].setting.temperature.celsius | Temperatur definieren |
-| tado.[x].[yyyyyy].Rooms.[z].overlayClearZone | In den Automatikmodus wechseln |
-| tado.[x].[yyyyyy].Rooms.[z].overlay.termination.typeSkillBasedApp | Fahrplanmodus einstellen |
-| tado.[x].[yyyyyy].Rooms.[z].overlay.termination.durationInSeconds | Legen Sie fest, wie lange der Fahrplanmodus gelten soll |
+| tado.[x].[yyyyyy].Räume.[z].setting.power | Gerät ein-/ausschalten |
+| tado.[x].[yyyyyy].Räume.[z].Einstellung.Temperatur.Celsius | Temperatur definieren |
+| tado.[x].[yyyyyy].Räume.[z].overlayClearZone | Wechseln Sie in den Automatikmodus |
+| tado.[x].[yyyyyy].Rooms.[z].overlay.termination.typeSkillBasedApp | Zeitplanmodus einstellen |
+| tado.[x].[yyyyyy].Räume.[z].overlay.termination.durationInSeconds | Legen Sie fest, wie lange der Zeitplanmodus gelten soll |
 | tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].offset.offsetCelsius | Temperatur-Offset |
-| tado.[x].[yyyyyy].Rooms.[z].timeTables.tt_id | Aktiven Fahrplan auswählen |
-| tado.[x].[yyyyyy].Heimatstaat.Präsenz | HOME- oder AWAY-Modus einstellen |
-| tado.[x].[yyyyyy].Home.masterswitch | Alle Geräte ein-/ausschalten |
-| tado.[x].[yyyyyy].Rooms.[z].setting.mode | AC-Modus (nur AC-Geräte) |
-| tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | Lüftergeschwindigkeit (nur AC-Geräte mit V3 und älteren Versionen) |
-| tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | Fanlebel (nur AC-Geräte mit V3+ Version) |
-| tado.[x].[yyyyyy].Rooms.[z].setting.verticalSwing | Vertikalschaukel (nur AC-Geräte mit Version V3+) |
-| tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | Horizontale Schaukel (nur AC-Geräte mit V3 und älteren Versionen) |
+| tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].childLockEnabled | Kindersicherung ein/aus |
+| tado.[x].[yyyyyy].Räume.[z].timeTables.tt_id | Wählen Sie aktiven Zeitplan |
+| tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.openWindowDetectionEnabled | Erkennung offener Fenster am Thermostat aktivieren/deaktivieren |
+| tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.timeoutInSeconds | Timeout, wie lange Thermostate ausgeschaltet werden, wenn ein offenes Fenster erkannt wird |
+| tado.[x].[yyyyyy].Räume.[z].activateOpenWindow | Thermostate ausschalten, wenn ein offenes Fenster erkannt wird (funktioniert nur, wenn der Thermostat ein offenes Fenster erkennt) |
+| tado.[x].[yyyyyy].Home.state.presence | Modus ZUHAUSE oder ABWESEND einstellen |
+| tado.[x].[yyyyyy].Home.Hauptschalter | Alle Geräte ein-/ausschalten |
+| tado.[x].[yyyyyy].Räume.[z].setting.mode | AC-Modus (nur AC-Geräte) |
+| tado.[x].[yyyyyy].Räume.[z].setting.fanspeed | Fanspeed (nur AC-Geräte mit V3 und älteren Versionen) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | Fanlabel (nur AC-Geräte mit Version V3+) |
+| tado.[x].[yyyyyy].Räume.[z].setting.verticalSwing | Vertikalschwenk (nur AC-Geräte mit Version V3+) |
+| tado.[x].[yyyyyy].Räume.[z].setting.horizontalSwing | Horizontalschwenk (nur AC-Geräte mit V3 und älteren Versionen) |
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.13-alpha.9 (2021-12-24)
+### 0.3.15-alpha.2 (2022-02-24)
+* (ilueckel) Support steering of ActivateOpenWindow, OpenWindowDetection, childLockEnabled 
+* (HGlab01) Bump iobroker-jsonexplorer to v0.1.9
+* (HGlab01) js-controller 4.0 readiness
+
+### 0.3.14 (2022-01-21)
+* (HGlab01) Improve hotwater handling
+* (HGlab01) Improve AC Control v3 devices 
+* (HGlab01) Support swing ON/OFF for AC v3 devices
+
+### 0.3.13 (2022-01-03)
 * (HGlab01) Optimize internet-check by using isOnline-library
 * (HGlab01) Support Smart AC Control V3+ (issue #403)
-* (HGlab01) Fix issue 'fan level not allowed in mode DRY'
-* (HGlab01) Fix issue 'mode not in supported modes [COOL, HEAT, DRY, FAN, AUTO]'
-* (HGlab01) Fix issue 'temperature required for mode AUTO'
+* (HGlab01) Offset temperature rounding to max. 2 digits
 
 ### 0.3.12 (2021-11-25)
 * (HGlab01) support attribute 'showScheduleSetup'
@@ -170,7 +182,7 @@ Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende zuk
 ## License
 MIT License
 
-Copyright (c) 2021 DutchmanNL <rdrozda@hotmail.com> & HGlab01
+Copyright (c) 2022 DutchmanNL <rdrozda@hotmail.com> & HGlab01
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

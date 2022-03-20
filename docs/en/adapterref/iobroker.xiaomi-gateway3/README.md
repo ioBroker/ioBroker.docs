@@ -260,6 +260,11 @@ _**Attantion:** You should to keep in mind this is not really statistic of zigbe
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.4 (2022-02-10)
+* Fix issue getting devices from cloud and switch to RC4
+* Add devices page
+* Other fixes and improvements
+
 ### 0.3.3 (2022-01-30)
 * Fix lumi temperature and voltage
 

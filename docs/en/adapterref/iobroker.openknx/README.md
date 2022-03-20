@@ -305,7 +305,26 @@ Data is sent to Iobroker Sentry server hosted in Germany. If you have allowed io
 - only IPv4 supported
 
 ## Changelog
-### 0.1.19 (2022-02-)
+### 0.1.23 (2022-)
+* bugfix: min max common object values only for number 
+* feature: change default regexp for alias
+
+### 0.1.22 (2022-02-26)
+* bufix: repair reception error
+
+### 0.1.21 (2022-02-25)
+* feature: dont sent ack request in ldata.ind, this is disturbing clients if not filtered out by gateway
+* bugfix: reinit if event received before connection established to avoid deadlock
+* dependency:adapter core must be 2.6.0 or higher
+
+### 0.1.20 (2022-02-19)
+* feature: add more dpts
+* bugfix: corrected some min max values
+* bugfix: some unhandeled dpts could not be received
+* bugfix: fix import
+* bugfix: min max values
+
+### 0.1.19 (2022-02-11)
 * feature: allow usage of same KNX GAs in multiple objects
 * bugfix: less warnings in alias generation
 * bugfix: adapter reset after project import

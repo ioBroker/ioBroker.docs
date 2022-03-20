@@ -3,56 +3,56 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hmip/README.md
 title: ioBroker HomeMatic IP 云接入点适配器
-hash: OHa5PFtBSxk5+RH3R/q5CW91rJ1STL2h1rWa5dTSYGw=
+hash: ROYKPghAX5l6O5CwpV5igdwihIhItCQHbISMzvUv7mY=
 ---
-![标识](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
+![商标](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
 ![安装数量](http://iobroker.live/badges/hmip-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.hmip.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.hmip.svg)
 
 # IoBroker HomeMatic IP 云接入点适配器
-![测试和发布](https://github.com/Apollon77/iobroker.hmip/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试和发布](https://github.com/Apollon77/iobroker.hmip/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ＃＃ 描述
-该适配器允许通过 Homematic IP Cloud 的 Rest API 与 HomematicIP CloudAccessPoint 通信
+此适配器允许通过 Homematic IP Cloud 的 Rest API 与 HomematicIP CloudAccessPoint 通信
 
-**重要提示：** 请将控制请求限制在最低限度，因为当你做太多时，EQ-3 开始阻止 IP！
+**重要提示：** 请将控制请求限制在最低限度，因为当您执行过多操作时，EQ-3 开始阻止 IP！
 
 ＃＃ 安装
-此适配器需要版本 >= 8.6 的 node-js
+此适配器需要版本 >= 10.0 的 node-js
 
 这是 YouTube 上的分步安装视频 https://youtu.be/kXWfJRUYJIA
 
-##信息
+## 信息
 大多数 Homematic IP 设备已经在使用最新的适配器版本。
 
-我会不断改进它，但这需要时间。来自社区的任何帮助，例如拉请求将不胜感激。
+我会不断改进它，但这需要时间。来自社区的任何帮助，例如拉取请求将不胜感激。
 
-对于不工作的 HmIP 设备，请使用此信息创建问题（请为每个设备创建一个问题，如果可能，请提供主题中的技术名称）。
-将 ioBroker 中的适配器登录切换到傻模式，并添加打印到问题日志中的设备的 json。
+对于不工作的 HmIP 设备，请使用此信息创建一个问题（请为每个设备提供一个，如果可能，请在主题中提供技术名称）。
+将 ioBroker 中的适配器日志切换为 silly 模式，并将打印到问题日志中的设备的 json 添加到日志中。
 我可能还需要状态更改的 json。
 
 谢谢
 
-如果您正在查找信息，如果警报设置处于活动状态，您必须检查内部和外部组的活动状态，它们代表三种警报状态的组合。 INTERNAL 和 EXTERNAL actives 表示离开，只有 EXTERNAL active 表示只有 Perimeter 活跃。
+如果您正在查找信息，如果警报设置处于活动状态，则必须检查组 INTERNAL 和 EXTERNAL 的活动状态，它们代表三种警报状态的组合。内部和外部活动意味着离开，只有外部活动意味着只有外围活动。
 
 ## 重要信息可以用这个适配器做什么
-！！！您只能使用此适配器触发可通过原始 Homematic IP 应用程序触发的事件。
+！！！您只能使用此适配器触发可以通过原始 Homematic IP 应用程序触发的事件。
 例如设备之间的直接连接在应用程序中没有事件，也不能通过这个适配器触发！！！
 
-##设置
+## 设置
 * 输入您的 SGTIN（接入点背面）和 PIN（如果之前设置），并通过按下蓝色 LED 按钮验证数据。这将创建一个身份验证令牌。
 
-## 特殊设置
+##特殊设置
 ### HMIP-DLD（门锁驱动器）
-如果您在 HmIP 应用程序（设置/访问授权 - 德语：“Zutrittsberechtigungen”）中为锁分配了 PIN，则需要在设备对象的 pin 状态中设置 PIN。这不是您的系统 PIN 码！！如果您还没有在设置中设置 PIN，您也可以将 pin 状态留空。
-此外，请将“iobroker”客户端添加到 HmIP 应用程序设置中的访问控制客户端列表中！
+如果您已为 HmIP 应用程序中的锁分配了 PIN（设置/访问授权 - 德语：“Zutrittsberechtigungen”），则需要在设备对象的 pin 状态下设置 PIN。这不是您的系统 PIN 码！！如果您没有在设置中设置 PIN，您也可以在 pin 状态下留空。
+此外，请将“iobroker”客户端添加到 HmIP 应用设置中的访问控制客户端列表中！
 
 ＃＃ 谢谢
-* @coreGreenberet 用于他的 python 库 (https://github.com/coreGreenberet/homematicip-rest-api)
+* @coreGreenberet 获取他的 python 库 (https://github.com/coreGreenberet/homematicip-rest-api)
 
 *
 
@@ -61,12 +61,23 @@ hash: OHa5PFtBSxk5+RH3R/q5CW91rJ1STL2h1rWa5dTSYGw=
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
+### 1.15.4 (2022-02-19)
+* (Apollon77) Fix sendDoorCommand for HmIP-MOD-HO
+
+### 1.15.3 (2022-01-22)
+* (Apollon77) Add windowOpen indicator to two more places
+* (Apollon77) Optimize reconnection handling
+* (Apollon77) Optimize automatic initialization of unknown devices and channels
+
+### 1.15.2 (2022-01-04)
+* (Apollon77) Wait 10s until no new "unknown state update" was received before updating the whole system
+
 ### 1.15.0 (2022-01-02)
 * Node.js 10.x is now minimum required version for this adapter
 * (Apollon77) Optimize WebSocket reconnection Logic
 * (Apollon77) Optimize current value handling and re-set value if a state change is not processed because of an unchanged value
 * (Apollon77) Implement startImpulse call for ImpulseOutputChannels for e.g. HM-WGC
-* (Apollon77) Implement experimental support for HMIP-DLD to set the lock state and also an option PIN if needed (see notes above)
+* (Apollon77) Implement support for HMIP-DLD to set the lock state and also an option PIN if needed (see notes above)
 * (Apollon77) Detect new and unknown devices and channels and reinitialize the structure to add the new objects on the fly
 * (Apollon77) Implement DOOR_LOCK_SENSOR_CHANNEL
 * (Apollon77) Ignore HEAT_DEMAND_CHANNEL, DEHUMIDIFIER_DEMAND_CHANNEL, FLOOR_TERMINAL_BLOCK_CHANNEL and CHANGE_OVER_CHANNEL because no data to prevent logs

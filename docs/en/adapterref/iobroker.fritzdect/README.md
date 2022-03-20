@@ -129,6 +129,8 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 |*boostactive*|boolean|x|boost mode active status and cmd| |DECT3x0| | | | | |
 |*boostactiveendtime*|time|-|time when boost status ends| |DECT3x0| | | | | |
 |**boostactivtime**|number|x|time (minutes) when activation of boost| |DECT3x0| | | | | |
+|**adaptiveHeatingRunning**|boolean|-|adaptive heating status| |DECT3x0| | | | | |
+|**adaptiveHeatingActive**|boolean|x|adaptive heating cmd| |DECT3x0| | | | | |
 |**setmodeauto**|number|x|set Auto| |DECT3x0| | | | | |
 |**setmodeon**|number|x|set On| |DECT3x0| | | | | |
 |**setmodeoff**|number|x|set Off| |DECT3x0| | | | | |
@@ -186,6 +188,9 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 * blind alert state -> decode bit array
 
 ## Changelog
+### 2.2.6
+* new objects for thermostat adaptiveHeatingRunning, adaptiveHeatingActive
+
 ### 2.2.5
 * several improvements for error handling
 * handling of invalid xml-answer for check user rights

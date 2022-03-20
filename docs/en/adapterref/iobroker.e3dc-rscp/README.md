@@ -45,7 +45,8 @@ Here is what to configure when creating a new instance of the adapter. Settings 
     <td>E3/DC IP address</td>
     <td>
       Address in your local network, like 192.168.178.107 <br>
-      You can check the IP on your E3/DC screen, it's called "System-IP": <br>
+      <code>ioBroker.discovery</code> (from 2.8.0) is able to detect E3/DC devices using uPnP. <br>
+      You can also check the IP on your E3/DC screen, it's called "System-IP": <br>
       <img src="admin/e3dc-system-ip.png" width="600">
     </td>
   </tr>
@@ -93,7 +94,7 @@ Here is what to configure when creating a new instance of the adapter. Settings 
   </tr>
   <tr>
     <td>Request tag table</td>
-    <td>Assign single request tags to S/M/L polling intervals.</td>
+    <td>Assign single request tags to S/M/L polling intervals. <br>Note that there is no 1:1 mapping between states in the object tree and items in the polling intervals list. Reasons are various: sometimes the response is empty (often true for EMS_REQ_STORED_ERRORS), then no state will appear in the object tree. Sometimes we choose one common name for "getter" and "setter" (e.g. EMS_USER_CHARGE_LIMIT response is written to EMS_MAX_CHARGE_POWER state). Also, the E3/DC's response may contain more than one tag (e.g. a BAT_REQ_INFO request will deliver BAT_RSOC, BAT_MODULE_VOLTAGE, BAT_CURRENT and more).</td>
   </tr>
 </table>
 <a name="toc"></a>
@@ -170,7 +171,7 @@ The RSCP protocol groups *Tags* (i.e. states or values) into *Namespaces* (i.e. 
   <tr>
     <td>SYS</td>
     <td>System reboot/start</td>
-    <td>not supported (yet)</td>
+    <td>experimental</td>
   </tr>
   <tr>
     <td>UM</td>
@@ -288,6 +289,18 @@ The RSCP protocol groups *Tags* (i.e. states or values) into *Namespaces* (i.e. 
     <td>string</td>
     <td>Interval between data points</td>
   </tr>
+  <tr>
+    <td>SYS</td>
+    <td>SYSTEM_REBOOT</td>
+    <td>number</td>
+    <td>Change value to 1 will reboot E3/DC system.</td>
+  </tr>
+  <tr>
+    <td>SYS</td>
+    <td>RESTART_APPLICATION</td>
+    <td>boolean</td>
+    <td>Change value to true will restart E3/DC application.</td>
+  </tr>
 </table> 
 
 Note (1): Full path is EMS.IDLE_PERIODS_(DIS)CHARGE.&lt;day-of-week&gt; - e.g. "EMS.IDLE_PERIODS_CHARGE.00-Monday". Changes are only sent "tuple sendig delay" after the last change. 
@@ -326,6 +339,20 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 <a name="log"></a>
 
 ## Changelog
+### 1.0.3
+(git-kick)
+* Reconnect does not work after RESTART_APPLICATION - [Issue #74](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/74)
+* Query of battery data does not work - [Issue #85](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/85)
+* DCB_CELL_TEMPERATURE = 0 obviously means there is no value, so display "(null)" instead of "0 °C"
+* Uncaught out-of-range exception when entering invalid data - [Issue #88](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/88)
+### 1.0.2
+(git-kick)
+* SYS namespace, experimental support - [Issue #60](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/60)
+* info.connection is true while no connection - [Issue #64](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/64)
+* Compatibility check to js-controller 4.0 - [Issue #75](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/75)
+* WB.PM_ACTIVE_PHASES decode values - [Issue #76](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/76)
+* WB.MODE decode value 8 - [Issue #77](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/77)
+* Dependabot: follow-redirects 1.14.8
 ### 1.0.1
 (git-kick)
 * [CVE-2021-23566](https://nvd.nist.gov/vuln/detail/CVE-2021-23566): require nanoid >=3.1.31 - [Issue #61](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/61)

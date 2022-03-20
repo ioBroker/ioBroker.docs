@@ -9,6 +9,8 @@
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/telegram/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.telegram.svg)](https://www.npmjs.com/package/iobroker.telegram)
 
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 ## Configuration
 Ask [@BotFather](https://telegram.me/botfather) to create new bot ```/newbot```.
 
@@ -703,6 +705,11 @@ msg.payload = {
 -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Try to prevent adapter crashes when internet is not available 
+* (Apollon77) Add Sentry for crash reporting
+
 ### 1.11.1 (2022-01-27)
 * (bluefox) fixed the receiving files
 

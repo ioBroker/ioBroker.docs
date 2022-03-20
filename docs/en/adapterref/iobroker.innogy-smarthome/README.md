@@ -3,17 +3,40 @@
 ![Number of Installations](http://iobroker.live/badges/innogy-smarthome-installed.svg) ![Number of Installations](http://iobroker.live/badges/innogy-smarthome-stable.svg) 
 [![Build](https://travis-ci.org/PArns/ioBroker.innogy-smarthome.svg?branch=master)](https://travis-ci.org/PArns/ioBroker.innogy-smarthome)
 
-This adapter is used to connect the Innogy smarthome devices to ioBroker. You can read more about Innogy [here](https://www.innogy.com).
+This adapter is used to connect the Livisi SmartHome devices to ioBroker. You can read more about Livisi [here](https://www.livisi.com).
 
 ###Requires Node > 8.x
 
 Please note: For the Authentication process Port 3000 is needed to be available om the host. Please check that nothing else is using it (e.g. Grafana)
+This version supports now also the new Livisi Local SmartHome functionality!
 
 ## HELP WANTED!
 
 As this project is developed during my spare time, I*m actively looking for help to maintain and extend this lib! If you're willing to help, drop me a line!
 
 ## Changelog
+
+### 0.4.6
+    Added missing states
+
+### 0.4.5
+    Fixed a naming problem with newly created devices
+
+### 0.4.3
+    Added min & max for pointTemperature
+
+### 0.4.2
+    Added debug information for invalid value data
+    Fixed . in device names
+    Fixed crashes caused by invalid point temperatures (< 6 & > 30)
+
+### 0.4.1
+    Fixed cloud auth, if local auth is activated (blank page)
+    Changed Admin design to be compatible with black & white style
+    Added missing states
+
+### 0.4.0
+    Added support for new Local SmartHome (currently in Beta, requires SHC 2 & Firmware >= 8.17 - you can find more info [here](https://community.livisi.de/lsh-en/))
 
 ### 0.3.7
    Prevent js-controller 3.3 warnings

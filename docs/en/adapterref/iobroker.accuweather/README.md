@@ -41,6 +41,10 @@ For better view a custom lovelace card is created - see https://github.com/algar
 -->
 
 ## Changelog
+
+### 1.2.4 (2022-02-08)
+* (algar42) Depency updates
+
 ### 1.2.3 (2021-12-29)
 * (algar42) HoursOfSun Parameter added to the Daily forecast
 

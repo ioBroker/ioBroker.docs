@@ -3,14 +3,13 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.procon-ip/README.md
 title: ioBroker.procon-ip
-hash: 9ybGLS8FLg/JAIpnt3fcmyEcSxL47ASj9n1b91qt3uE=
+hash: aKdT4iGgBwCGFFq2YnIilaECYMo/57RrfFFGWfGiDjY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.procon-ip/admin/iobroker-procon-ip.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.procon-ip.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.procon-ip.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.procon-ip.svg)
 ![Установки](http://iobroker.live/badges/procon-ip-installed.svg)
-![Статус зависимости](https://img.shields.io/david/ylabonte/iobroker.procon-ip.svg)
 ![Известные уязвимости](https://snyk.io/test/github/ylabonte/ioBroker.procon-ip/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.procon-ip.png?downloads=true)
 
@@ -19,69 +18,85 @@ hash: 9ybGLS8FLg/JAIpnt3fcmyEcSxL47ASj9n1b91qt3uE=
 
 ## Адаптер управления пулом ProCon.IP для ioBroker
 Адаптер ioBroker для базовой поддержки блока управления бассейном ProCon.IP. Он предназначен для интеграции с вашей домашней автоматизацией ioBroker, например.
-для построения логики, которая включает другие устройства или просто для работы в паре с вашим любимым голосовым помощником (ами):
+для построения логики, включающей другие устройства, или просто для сопряжения с вашими любимыми голосовыми помощниками:
 
-* Вы можете использовать [_cloud_] (https://github.com/ioBroker/ioBroker.cloud) или
+* Вы можете использовать [_cloud_](https://github.com/ioBroker/ioBroker.cloud) или
 
 [_IoT_](https://github.com/ioBroker/ioBroker.iot) адаптер для Alexa (а также Google Home, я думаю) и
 
-* [_yahka_] (https://github.com/jensweigele/ioBroker.yahka) в качестве моста к
+* [_yahka_](https://github.com/jensweigele/ioBroker.yahka) как мост к
 
   Apple HomeKit будет доступен Siri или
 
-* используйте [_javascript_] (https://github.com/ioBroker/ioBroker.javascript), чтобы
+* используйте [_javascript_](https://github.com/ioBroker/ioBroker.javascript) для
 
-  создайте свою собственную логику.
+  построить свою собственную пользовательскую логику.
 
-См. [вики](https://github.com/ylabonte/ioBroker.procon-ip/wiki) для получения дополнительной информации.
+Дополнительную информацию см. в [вики](https://github.com/ylabonte/ioBroker.procon-ip/wiki).
 
-### Что такое пул управления ProCon.IP?
+### Что такое управление пулом ProCon.IP?
 ![Изображение с сайта pooldigital.de](https://www.pooldigital.de/shop/media/image/66/47/a5/ProConIP1_720x600.png)
 
-ProCon.IP pool control - это недорогой сетевой блок управления для домашних бассейнов. Благодаря программно переключаемым реле, он может управлять несколькими насосами (для фильтра бассейна и различных аспектов дозирования) либо просто по расписанию, либо в зависимости от показаний / значений одного из его многочисленных входных каналов для измерений (например, потока ввода / вывода). датчики, термометры Dallas 1-Wire, электроды окислительно-восстановительного потенциала и pH). По крайней мере, есть также возможность переключать эти реле по запросу, что делает их также применимыми для включения / выключения освещения (или чего-то еще, что вы хотите).
-Не все его функции доступны через API. Фактически существует один документированный API для чтения (опроса) значений в виде CSV (`/GetState.csv`). В моих воспоминаниях был еще один для включения / выключения реле по таймеру. Но второго я уже не могу найти. Так что даже не красиво, но функционально: ProCon.IP имеет два встроенных веб-интерфейса, которые можно анализировать для какой-то обратной инженерии заданной функциональности (например, переключения реле).
+Блок управления бассейном ProCon.IP — это недорогой блок управления с сетевым подключением для домашних бассейнов. С помощью программно-переключаемых реле он может управлять несколькими насосами (для фильтра бассейна и различных аспектов дозирования), либо просто планируя их по расписанию, либо в зависимости от показаний/значений одного из многочисленных входных каналов для измерений (например, расход в/в). датчиков, термометров Dallas 1-Wire, окислительно-восстановительных и рН-электродов). По крайней мере, есть также возможность переключать эти реле по запросу, что делает их также применимыми для включения/выключения света (или чего-либо еще, что вы хотите).
+Не все его функции доступны через API. На самом деле существует один задокументированный API для чтения (опроса) значений в формате CSV (`/GetState.csv`). В моей памяти был еще один для включения/выключения реле и включения с таймером. Но я не могу найти второй больше. Так что даже не красиво, но функционально: ProCon.IP имеет два родных веб-интерфейса, которые можно анализировать, чтобы перепроектировать заданную функциональность (например, переключение реле).
 
-Для получения дополнительной информации см. Следующую ссылку (извините, это только на немецком языке; пока не нашел английской документации / информации):
+Для получения дополнительной информации см. следующую ссылку (извините, это только на немецком языке, пока не нашел документацию/информацию на английском языке):
 
 * [Интернет-магазин pooldigital.de] (https://www.pooldigital.de/shop/poolsteuerungen/procon.ip/35/procon.ip-webbasierte-poolsteuerung-/-dosieranlage)
-* [форум pooldigital.de] (http://forum.pooldigital.de/)
+* [форум pooldigital.de](http://forum.pooldigital.de/)
 
-** Для ясности: я не имею ничего общего с разработкой, продажей, маркетингом или поддержкой блока управления пулом. Я только что разработал решение для интеграции этого с ioBroker, чтобы сделать дом моих родителей немного умнее. **
+**Просто для ясности: я не имею никакого отношения к разработке, продажам, маркетингу или поддержке блока управления пулом. Я только что разработал решение для интеграции с ioBroker, чтобы сделать дом моих родителей немного умнее.**
 
-### Подробная информация об адаптере
-Адаптер использует API `/GetState.csv` из ProCon.IP для опроса своих значений и другой - не задокументированный - API, который работает с поразрядными командами для переключения реле. Второй также используется в исходных веб-интерфейсах ProCon.IP. Таким образом, в будущем могут появиться обновления прошивки, которые тормозят совместимость с этим адаптером или, по крайней мере, функциональность переключения реле.
+### Подробности об адаптере
+Адаптер использует `/GetState.csv` API ProCon.IP для опроса своих значений и другой недокументированный API, который работает с побитовыми командами для переключения реле. Второй также используется оригинальными веб-интерфейсами ProCon.IP. Таким образом, в будущем могут быть обновления прошивки, которые тормозят совместимость с этим адаптером или, по крайней мере, его функциональность переключения реле.
 
 #### Совместимость
-На данный момент адаптер протестирован и разработан в сочетании с прошивкой ProCon.IP **версии 1.7.0.c**
+На данный момент адаптер протестирован и разработан в сочетании с прошивкой ProCon.IP **редакция 1.7.0.c**.
 
 ## Дорожная карта
-### 1.x.x
-В плане ничего особенного нет. Вы можете создать проблему, чтобы предложить новые функции / функции ...
+### Версия v1.x.x
+Ничего особенного в плане нет. Вы можете создать задачу, чтобы предложить новые функции/возможности...
 
-** Что случилось с пунктами, которые были в дорожной карте, но не были реализованы в версии 1.0.0? ** Что ж, документация уже была улучшена.
-Мне показалась довольно интересной штука с вкладками. Если вам понравится такая функция, просто дайте мне знать ...
-Отсутствие автоматизированных тестов, касающихся функциональности контроллера, довольно неприятно, но теперь ясно, что основное внимание уделяется стабилизации, и написание хороших и полезных тестов для всего существующего кода будет стоить много времени (в отношении использования в отношении сложность и целевая группа этого программного проекта) и может закончиться дальнейшим рефакторингом. Так что это будет что-то в будущем, но уже не актуально для версии 1.0.0.
+**Что случилось с пунктами, которые были в дорожной карте, но не были реализованы в релизе 1.0.0?** Ну, документация уже была улучшена.
+Представление во вкладках кажется мне довольно интересным. Если вы оцените такую возможность, просто дайте мне знать...
+Отсутствие автоматизированных тестов относительно функциональности контроллера довольно неприятно, но сейчас явно делается упор на то, чтобы стать стабильным, а написание хороших и полезных тестов для всего существующего кода будет стоить много времени (по отношению к использованию относительно сложность и целевая группа этого программного проекта) и может закончиться дальнейшим рефакторингом. Так что это будет что-то на будущее, но уже не актуально для версии 1.0.0.
 
 ## Развитие и участие
-Не стесняйтесь обращаться ко мне, если вы хотите участвовать в разработке или документации этого адаптера.
+Не стесняйтесь обращаться ко мне, если вы хотите принять участие в разработке или документировании этого адаптера.
 
-Полезные ссылки по подходу будут
+Полезные ссылки для подхода будут
 
-* [шаблон адаптера TypeScript] (https://github.com/ioBroker/ioBroker.template/tree/master/TypeScript)
+* [Шаблон адаптера TypeScript] (https://github.com/ioBroker/ioBroker.template/tree/master/TypeScript)
 
   Я начал с и
 
-* [руководство для разработчиков адаптеров] (https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md).
+* [руководство для разработчиков адаптеров](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md).
 
 ## Changelog
 
-### 1.1.0
+### Release v1.2.0
+Minor release:
+* Update `procon-ip` API library package to v1.3.2  
+  (should fix a bug that let the relay switching fail).
+* Fix minor issues that occur with invalid controller URLs.
+* Update further dependencies.
+
+### ~~Release v1.1.3~~
+Skipped.
+
+### ~~Release v1.1.2~~
+Release skipped, because it failed in integration tests.
+
+### Release v1.1.1
 Minor release:
 * Move API library sources into a [separate package](https://www.npmjs.com/package/procon-ip).
 * Update `common.name` attributes when the corresponding label changes.
 * Update dependencies
 
-### 1.0.2
+### ~~Release v1.1.0~~
+Release skipped.
+
+### Release v1.0.2
 Minor update (was accidentally released as patch, regarding the version number):
 * Fine tune the polling and control requests 
   (add additional adapter settings for this).
@@ -91,14 +106,14 @@ Minor update (was accidentally released as patch, regarding the version number):
   request. 
 **All point should reduce issues regarding irregular network disruptions.**
 
-### 1.0.1
+### Release v1.0.1
 Hotfix release:
 * Fix Object State updates  
   For some reason the two js objects used to compare the before and after values
   of the GetState.csv calls became the same object (before was referencing the
   new values). That caused the adapter to never update the object states.
 
-### 1.0.0
+### Release v1.0.0
 Official release in ioBroker adapter repository:  
 The most exciting change with this release is, that it's available from the
 ioBroker adapter repository. Hence you can just install it, without copy/
@@ -110,36 +125,36 @@ pasting the github repo url of this adapter!
   Now it's up to you to extend the wiki or request me using issues to extend
   the wiki or README.md regarding a specific content.
 
-### 0.4.1
+### Release v0.4.1
 Bugfix release:
 * Fix write actions to the appropriate states of external relays  
   _This will add auto-recognition on whether the external relays are activated
   or not and therefore decide on how to handle write actions to the
   corresponding relay state._
 
-### 0.4.0
+### Release v0.4.0
 Public release version:
 * Add encryption for configuration settings stored in ioBroker's internal db
 * Improve http request/connection error handling
 * Reduce logging output
 * Remove the unused admin tab
 
-### 0.3.1
+### Release v0.3.1
 Functional and security update:
 * Update dependencies including some reported as vulnerable
 * Add connection status indication for iobroker's instance tab
 * Add form validation for the configuration settings
 
-### 0.2.0
+### Release v0.2.0
 Minor update:
 * Update npm dependencies
 * Group admin settings input fields in rows
 
-### 0.1.1
+### Release v0.1.1
 Security update:
 * Update vulnerable eslint-utils
 
-### 0.1.0
+### Release v0.1.0
 Functional update and minor fixes:
 * Fix object attributes regarding the cloud adapter
 * Optimization for the cloud adapter
@@ -148,21 +163,21 @@ Functional update and minor fixes:
     * Recognize relays with 'light', 'licht' or 'leucht' in its name as
       `smartType` _LIGHT_ 
 
-### 0.0.4
+### Release v0.0.4
 Security update:
 * Update `lodash` (pinning version `4.17.14`)
 * Update other indirect and direct dependencies
 
-### 0.0.3
+### Release v0.0.3
 Bugfix release:
 * Fix missing `value` states
 * Reduce logging output
 
-### 0.0.2
+### Release v0.0.2
 Bugfix release:
 * Fix sys info state values
 
-### 0.0.1
+### Release v0.0.1
 Initial release with following features:
 * All information from `GetState.csv` as readonly states
 * Writable states for all relays to toggle auto/manual

@@ -42,7 +42,10 @@ function downloadImagesForReadme(lang, repo, data) {
                 link = link.split('?')[0];
                 link = link.split(' ')[0];
 
-                if (!fs.existsSync(localDirName + link)) {
+                const absLocalPath = path.normalize(localDirName + link);
+
+                // Check if file should be downloaded within adapter path
+                if (absLocalPath.indexOf(localDirName) === 0 && !fs.existsSync(localDirName)) {
                     let relative;
 
                     if (data.link) {
@@ -54,8 +57,8 @@ function downloadImagesForReadme(lang, repo, data) {
                     }
 
                     axios(relative + link, {responseType: 'arraybuffer'})
-                        .then(result => result && result.data && utils.writeSafe(localDirName + link, result.data))
-                        .catch(err => err && console.error(`Cannot _download ${relative}${link}: ${err}`))
+                        .then(result => result && result.data && utils.writeSafe(absLocalPath, result.data))
+                        .catch(err => err && console.error(`Cannot _download "${relative}${link}" to "${absLocalPath}": ${err}`))
                         .then(() => resolve1());
                 } else {
                     resolve1();
@@ -417,7 +420,7 @@ function getReadme(lang, dirName, repo, adapter) {
 
 // 1. Check if file exists on disk
 // 2. If file on disk is marked as local. If yes: Download remote file and get License and Changelog, write it into local file
-// 3. For non local files, download the remote files and replace local ones
+// 3. For non-local files, download the remote files and replace local ones
 function processAdapterLang(adapter, repo, lang, content) {
     const dirName = ADAPTERS_DIR.replace('/LANG/', '/' + lang + '/') + 'iobroker.' + adapter;
 
@@ -430,7 +433,7 @@ function processAdapterLang(adapter, repo, lang, content) {
     iconName = iconName.split('?')[0];
 
     // download logo
-    return getIcon(repo.extIcon, consts.FRONT_END_DIR + consts.LANGUAGES[0] + '/adapterref/iobroker.' + adapter + '/' + iconName)
+    return getIcon(repo.extIcon, `${consts.FRONT_END_DIR + consts.LANGUAGES[0]}/adapterref/iobroker.${adapter}/${iconName}`)
         .then(icon => {
             if (icon) {
                 utils.writeSafe(`${consts.FRONT_END_DIR + lang}/adapterref/iobroker.${adapter}/${iconName}`, icon);
@@ -442,16 +445,20 @@ function processAdapterLang(adapter, repo, lang, content) {
 
             content.pages[repo.type].pages[adapter] = content.pages[repo.type].pages[adapter] || {
                 title: {[lang]: adapter},
-                content: 'adapterref/iobroker.' + adapter + '/README.md'
+                content: `adapterref/iobroker.${adapter}/README.md`
             };
             content.pages[repo.type].pages[adapter].title[lang] = adapter;
 
             if (iconName) {
-                content.pages[repo.type].pages[adapter].icon = 'adapterref/iobroker.' + adapter + '/' + iconName;
+                content.pages[repo.type].pages[adapter].icon = `adapterref/iobroker.${adapter}/${iconName}`;
+            }
+
+            if (adapter === 'shelly') {
+                console.log('shelly');
             }
 
             // download readme files direct from repo or read locally and merge it with downloaded
-            getReadme(lang, dirName, repo, adapter)
+            return getReadme(lang, dirName, repo, adapter)
                 .then(results => {
                     if (!results || !results[0] || !results[0].body) {
                         return Promise.resolve();
@@ -463,6 +470,11 @@ function processAdapterLang(adapter, repo, lang, content) {
                         // add title to every file
                         results.forEach(item => {
                             const name = `${lang}/adapterref/iobroker.${adapter}/${item.link.replace(item.relative, '')}`;
+                            if (name.includes('://')) {
+                                console.error(`Cannot replace in LINK: ${name}`);
+                                console.error(`LINK    : ${item.link}`);
+                                console.error(`RELATIVE: ${item.relative}`);
+                            }
                             const title = utils.getTitle(item.body);
                             chapters.pages[name] = {title: {[lang]: title}, content: name};
                         });
@@ -552,8 +564,8 @@ function downloadStatistics() {
 }
 
 // Download stable and latest repositories
-// Apply versions from stable to latest repo
-// For every adapter in latest repo
+// Apply versions from stable to the latest repo
+// For every adapter in the latest repo
 //    execute processAdapter (it downloads the readme from repo and stores it in docs)
 // and then save adapters.json with the full list of adapters.
 function buildAdapterContent(adapter, noDownload) {
@@ -705,11 +717,15 @@ function copyAllAdaptersToFrontEnd() {
 }
 
 if (!module.parent) {
+    buildAdapterContent('shelly')
+        .then(content => {
+            console.log(JSON.stringify(content));
+        });
     /*buildAdapterContent().then(content => {
         console.log(JSON.stringify(content));
     });*/
-    copyAdapterToFrontEnd('de', 'fritzbox')
-        .then(() => console.log('done'))
+    /*copyAdapterToFrontEnd('de', 'fritzbox')
+        .then(() => console.log('done'))*/
 } else {
     module.exports = {
         buildAdapterContent,

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dyson空气净化器
-hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
+hash: wE2GvSKVqbB0ZUIQhgsyUCRJ6SNOfKH2bodwoOh2eKE=
 ---
 # IoBroker.dysonAirPurifier
 ![标志](admin/dyson_logo.svg)![标志](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -16,12 +16,13 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 ![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![下载](https://img.shields.io/npm/dm/iobroker.dysonairpurifier.svg)
 
-[![测试和发布](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml)
+[![测试和发布](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml)![代码QL](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/codeQL.yml/badge.svg)
 
 ## 适用于戴森空气净化器和风扇的 ioBroker 适配器
 该适配器将 ioBroker 连接到各种戴森空气净化器。
-
 由[Freepik](https://www.flaticon.com/de/autoren/freepik) 来自 [www.flaticon.com](https://www.flaticon.com/de/)创建的徽标中的风扇图标。
+
+&gt; 如果你喜欢这个适配器并考虑支持我<br/>&gt; [![使用 payPal 捐款](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
 
 ### 支持的设备
 * Dyson Pure Cool Link Tower (TP02, ProductType 475)
@@ -44,7 +45,7 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 * 从 Dyson 服务器读取设备列表
 * 处理*无限*数量的粉丝（当然，事实上您的 ioBroker 主机的资源限制了数量）。
 
-＃＃ 怎么运行的
+＃＃ 这个怎么运作
 启动时，dyson 云会查询绑定到您帐户的所有已知设备及其 MQTT 密码。有了这个列表，适配器就可以本地连接到所有设备并与它们交互。
 
 * 连接戴森云只需要获取绑定到您账户的设备列表和他们的MQTT密码。
@@ -82,7 +83,7 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 戴森用户名和密码是通用配置数据，需要在适配器的配置页面中输入。
 不同的是，IP 被输入到 `devices` 选项卡页面上设备树中的字段 `Hostname`。
 
-####如何配置适配器
+#### 如何配置适配器
 > 在此适配器的第一次常规启动时，将为您的所有设备查询 Dyson API，并将在设备树中创建所有受支持的设备——API 提供的基本信息和附加字段 `Hostaddress`。
 > > 所以请运行适配器一次，您的戴森设备将在设备树中创建，并带有它们的基本设置。
 > > 然后停止适配器，在设备树的`Hostaddress` 字段中输入 IP，然后重新启动适配器。之后，设备树中的 Dyson 设备应填充数据。
@@ -129,9 +130,9 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 * OscillationRight , OscillationAngle 上边界
 * OscillationLeft , OscillationAngle 下边界
 * 振荡角，振荡角
-* ContinuousMonitoring ，即使设备关闭也能持续监控环境传感器。
+* ContinuousMonitoring，即使设备关闭也能持续监控环境传感器。
 * MainPower ，风扇的主电源。
-* AutomaticMode , 风扇处于自动模式。
+* AutomaticMode ，风扇处于自动模式。
 * Flowdirection ，风扇吹向的方向。开=前；关闭=返回（又名 Jet 焦点）
 * Jetfocus，风扇吹向的方向。开=前；关闭=返回（又名 Jet 焦点）
 *加热模式，加热模式[开/关]
@@ -176,7 +177,7 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 | fnsp |风扇转速 | 0001 - 0010，自动 | |
 |目录 |粉丝方向又名。 Jet 对焦/ ON=前，OFF=后 |开、关 | |
 | foc |喷气焦点 |开、关 | |
-|修改 |夜间模式 |开、关 | |
+|模组 |夜间模式 |开、关 | |
 |奥森 |振荡 |开、关 | |
 |奥斯 | OscillationAngle 下边界 | 0005 - 355 | °（度）|
 |奥绍| OscillationAngle 上边界 | 0005 - 355 | °（度）|
@@ -204,7 +205,7 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 | rstf |重置过滤器生命周期 | 'RSTF'、'STET'、RESET_FILTER_LIFE_IGNORE、RESET_FILTER_LIFE_ACTION | |
 |科尔夫 |温度格式 | ON=摄氏，OFF=华氏| |
 | clcr |深层清洁循环 | CLNO=未激活，CLAC=正在进行深度清洁，CLCM=已完成 | |
-|赫斯塔 |加热状态 |活动/空闲 | |
+| hsta |加热状态 |活动/空闲 | |
 | msta |加湿状态 |活动/空闲关闭，HUMD | |
 | psta | [HP0x] 未知 |初始化，CLNG，INV，关闭 | |
 |布里尔 |未知 | 0002 | LEVEL_LOW、LEVEL_MEDIUM、LEVEL_HIGH |
@@ -262,9 +263,22 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 | tmpm |开尔文温度？ | 0000 - 5000 | |
 
 ＃＃ 法律声明
-Dyson、pure cool、pure hot & cool 等是 [戴森有限公司](https://www.dyson.com) 的商标或注册商标，所有其他商标均为其各自所有者的财产。
+Dyson、pure cool、pure hot &cool 等是 [戴森有限公司](https://www.dyson.com) 的商标或注册商标，所有其他商标均为其各自所有者的财产。
 
 ## Changelog
+
+### V2.4.0 (2022-03-17) (Echo from the past)
+* (grizzelbee) New: Added warning code to device tree
+* (grizzelbee) New: Added Device-faults as SystemState to device tree
+* (grizzelbee) New: Added donate button to readme and config page
+* (grizzelbee) Upd: Switched "Sending data to device" message from loglevel info to debug
+* (grizzelbee) Upd: reduced amount of debug messages
+* (grizzelbee) Upd: Updated dependencies
+
+
+### V2.3.2 (2022-03-04) (Fairytale of doom)
+* (grizzelbee) Fix: Fixed: Sentry-Error: [DYSONAIRPURIFIER-D](https://sentry.io/organizations/grizzelbee/issues/3021418514)
+* (grizzelbee) Upd: Updated dependencies
 
 ### V2.3.1 (2022-01-14) (Fairytale of doom)
 * (grizzelbee) Upd: Updated dependencies

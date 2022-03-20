@@ -44,7 +44,7 @@ To login you only need your username and password from your smartset-app. After 
 ## License
 MIT License
 
-Copyright (c) 2021 MeisterTR <meistertr.smarthome@gmail.com>
+Copyright (c) 2021-2022 MeisterTR <meistertr.smarthome@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

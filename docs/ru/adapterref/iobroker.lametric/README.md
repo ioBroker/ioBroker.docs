@@ -6,11 +6,12 @@ BADGE-installed: http://iobroker.live/badges/lametric-installed.svg
 BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.lametric.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.lametric/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.lametric.png?downloads=true
+chapters: {"pages":{"en/adapterref/iobroker.lametric/README.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/README.md"},"en/adapterref/iobroker.lametric/apps.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/apps.md"},"en/adapterref/iobroker.lametric/my-data-diy.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/my-data-diy.md"},"en/adapterref/iobroker.lametric/notifications.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/notifications.md"},"en/adapterref/iobroker.lametric/blockly.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/blockly.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: PPdeemLAczafVqXoyDFeTy8m9xySufV2zack2EfZW8E=
+hash: 3j24ehDmVjhAPK0LHBNP14LmXmvMg7AOLF7zh1SBSUQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lametric/../../admin/lametric.png)
 
@@ -19,170 +20,27 @@ hash: PPdeemLAczafVqXoyDFeTy8m9xySufV2zack2EfZW8E=
 - *LaMetric Time* с прошивкой *2.2.2* (или новее)
 
 ## Конфигурация
-Вы можете получить API-ключ вашего устройства [здесь](https://developer.lametric.com/user/devices).
+Вы можете получить ключ API своего устройства [здесь](https://developer.lametric.com/user/devices).
 
-![API-ключ](../../../en/adapterref/iobroker.lametric/docs/apiKey.png)
+![API-ключ](../../../en/adapterref/iobroker.lametric/./img/api-key.png)
 
 ## Функции
-- Установите яркость дисплея (в процентах, автоматический режим / ручной режим)
+- Установить яркость дисплея (в процентах, автоматический режим/ручной режим)
 - Установить громкость звука (в процентах)
-- Настроить заставку (включить / выключить, по времени, в темноте)
-- Активировать / деактивировать bluetooth и изменить имя bluetooth
-- Переключение между приложениями (следующее, предыдущее, перейти к определенному приложению)
-- Отправлять уведомления блочно (с настраиваемым приоритетом, звуком, значками, текстом и т. Д.)
-- Управляйте специальными приложениями, такими как `` часы '', `` радио '', `` секундомер '' или `` погода ''
-- Используйте приложение *Мои данные (DIY)* LaMetric для отображения постоянной информации
+- Настройка скринсейвера (включить/отключить, по времени, когда темно)
+- Активировать / деактивировать Bluetooth и изменить имя Bluetooth
+- Переключение между приложениями (следующее, предыдущее, переход к определенному приложению)
+- Отправляйте уведомления блочно (с настраиваемым приоритетом, звуком, значками, текстом, ...)
+- Управляйте специальными приложениями, такими как «часы», «радио», «секундомер» или «погода».
+- Используйте приложение *My Data (DIY)* LaMetric для отображения постоянной информации.
 
 Возможности ограничены [официальные функции API](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html).
 
-## Примеры блоков
-Вы можете использовать простую строку в качестве сообщения, которое будет отображаться в виде одного кадра.
-
-![одиночный кадр](../../../en/adapterref/iobroker.lametric/docs/blockly1.png)
-
-Чтобы показать несколько кадров, вы также можете предоставить массив как сообщение
-
-![несколько кадров](../../../en/adapterref/iobroker.lametric/docs/blockly2.png)
-
-Если вы хотите использовать рамки диаграммы, вы должны указать массив чисел как рамку
-
-![фреймы данных диаграммы](../../../en/adapterref/iobroker.lametric/docs/blockly3.png)
-
-## Мои данные (DIY) *(версия> 1.1.0)*
-* LaMetric * предлагает приложение (на встроенном рынке приложений) для опроса пользовательских данных. Это приложение называется [Мои данные DIY](https://apps.lametric.com/apps/my_data__diy_/8942). Этот адаптер создает новое состояние в нужном формате.
-Вы можете использовать Simple API Adapter для передачи данных в LaMetric Time.
-
-```ioBroker LaMetric Adapter -> State with Frame information <- Simple API Adapter <- My Data DIY App <- LaMetric```
-
-### Конфигурация (с аутентификацией)
-1. Установите [Простой адаптер API ioBroker] (https://github.com/ioBroker/ioBroker.simple-api)
-2. Создайте нового пользователя ioBroker с именем «lametric» с индивидуальным паролем (например, «HhX7dZl3Fe»).
-3. Добавьте пользователя lametric в группу пользователей по умолчанию.
-4. Установите это приложение *My Data DIY* на *LaMetric Time* (используйте Market).
-5. Откройте настройки приложения *Мои данные (DIY)* и настройте простой URL-адрес API (см. Ниже).
-6. Перейдите в конфигурацию адаптера и настройте фреймы с вашей пользовательской информацией (см. Следующую главу).
-
-```
-http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json&user=lametric&pass=HhX7dZl3Fe
-```
-
-** Важно: используйте json-флаг адаптера SimpleAPI (доступен с версии 2.6.2) **
-
-** При необходимости обновите IP-адрес, порт, пользователя и пароль в URL-адресе! **
-
-### Конфигурация (без аутентификации)
-1. Установите [Простой адаптер API ioBroker] (https://github.com/ioBroker/ioBroker.simple-api)
-2. Установите это приложение *My Data DIY* на LaMetric Time (используйте Market).
-3. Откройте настройки приложения *Мои данные (DIY)* и настройте простой URL-адрес API (см. Ниже).
-4. Перейдите в конфигурацию адаптера и настройте фреймы с вашей пользовательской информацией (см. Следующую главу).
-
-```
-http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json
-```
-
-** При необходимости обновите IP-адрес и порт в URL-адресе! **
-
-### Конфигурация фрейма *(версия> 1.1.0)*
-- Используйте значок плюса, чтобы добавить столько кадров, сколько хотите
-- Значок: выберите значок на [официальном веб-сайте] (https://developer.lametric.com/icons) и введите идентификатор в поле конфигурации. **Важно: добавьте i (для статических значков) или a (для анимированных значков) в качестве префикса для этого идентификатора. (Пример: `i3389`)**
-- Текст: просто введите текстовую информацию для рамки. Вы можете использовать состояния в фигурных скобках. Эта информация будет заменена соответствующим значением состояния. (Пример: `{youtube.0.channels.HausAutomatisierungCom.statistics.subscriberCount} Подписчики`)
-
-Пример конфигурации из 3-х фреймов:
-
-![пример конфигурации кадра](../../../en/adapterref/iobroker.lametric/docs/myDataDIYConfig.png)
-
-## Специальные приложения / виджеты *(версия> 1.1.2)*
-Вы можете управлять некоторыми приложениями с помощью настраиваемой информации.
-
-### Clock.clockface
-Допустимые значения:
-
-- один из вариантов: weather, page_a_day, custom или none
-- данные пользовательского значка в формате `data: image / png; base64, <двоичный png в кодировке base64>` или `data: image / gif; base64, <двоичный gif в кодировке base64>`
-
-Пример: `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAOklEQVQYlWNUVFBgwAeYcEncv//gP04FMEmsCmCSiooKjHAFMEF0SRQTsEnCFcAE0SUZGBgYGAl5EwA+6RhuHb9bggAAAABJRU5ErkJggg==`
-
-### Countdown.configure
-Допустимое значение: время в секундах.
-
-## Скрипты
-Чтобы отображать сообщения / уведомления на вашем *LaMetric Time* отправьте сообщение этому экземпляру с помощью адаптера JavaScript (или любого другого):
-
-```JavaScript
-sendTo(
-    "lametric.0",
-    "notification",
-    {
-        priority: "[info|warning|critical]",
-        iconType: "[none|info|alert]",
-        sound: "<string from sound list>",
-        lifeTime: <milliseconds>,
-        icon: "<icon>",
-        text: "<string|array>",
-        cycles: <integer>
-    }
-);
-```
-
-Пример одиночного кадра:
-
-```JavaScript
-sendTo(
-    "lametric.0",
-    "notification",
-    {
-        priority: "info",
-        iconType: "none",
-        sound: "cat",
-        lifeTime: 5000,
-        icon: "i31820",
-        text: "test",
-        cycles: 1
-    }
-);
-```
-
-Пример нескольких кадров:
-
-```JavaScript
-sendTo(
-    "lametric.0",
-    "notification",
-    {
-        priority: "info",
-        iconType: "none",
-        sound: "cat",
-        lifeTime: 5000,
-        icon: "i31820",
-        text: ["frame 1", "frame 2", "frame 3"],
-        cycles: 1
-    }
-);
-```
-
-Пример отображения некоторой информации циклически:
-
-```JavaScript
-let i = 0;
-function show() {
-    console.log('Show ' + i);
-    sendTo(
-        "lametric.0",
-        "notification",
-        {
-            priority: "info",
-            iconType: "info",
-            lifeTime: 5000,
-            icon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjEuNWRHWFIAAAAySURBVBhXY4AAYdcKk1lngCSUDwHIfAQbzgLqgDCgIqRLwFkQCYQoBAD5EATl4wQMDADhuxQzaDgX0gAAAABJRU5ErkJggg==",
-            text: "Hi " + i,
-            cycles: 1
-        }
-    );
-    i++;
-}
-setInterval(show, 10000);
-show();
-```
+## Оглавление
+- [Приложения](apps.md)
+- [Блокли](blockly.md)
+- [Мои данные своими руками](my-data-diy.md)
+- [Уведомления](notifications.md)
 
 ## Changelog
 
@@ -190,9 +48,21 @@ show();
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.6.0 (2022-02-27)
 
-### **WORK IN PROGRESS**
+* (klein0r) Allow german umlauts in My Data DIY objects
+* (klein0r) Updated documentation
+* (klein0r) Updated state roles
+* (klein0r) Added hint for Admin 4 configuration
 
+### 1.5.3 (2022-02-08)
+
+* (klein0r) Updated log messages and error handling
+* (klein0r) Updated dependencies
+
+### 1.5.2 (2021-12-23)
+
+* (klein0r) Updated dependencies
 * (klein0r) Updated documentation
 
 ### 1.5.1
@@ -310,7 +180,7 @@ show();
 
 The MIT License (MIT)
 
-Copyright (c) 2021 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -57,8 +57,11 @@ Now we have implemented a "auto-repair" which changes to structure to documented
 
 ## Changelog
 
-### 3.0.10 (in progress)
+### 3.1.0 (in progress)
+* (René) replace bent by axios
 * (René) dependencies updated
+* (René) see issue  #128: add UV index
+
 
 ### 3.0.9 (2021-11-09)
 * (René) dependencies updated

@@ -3,17 +3,17 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.musiccast/README.md
 title: ioBroker.musiccast
-hash: wkBvhQ++frCk99DOENud8SfkZpKXrLLCwHJ4f60MGoo=
+hash: 41PVavZQZPOUQv1i4MQXzrwU2Tre40zZbj/mDuJffK4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.musiccast/admin/musiccast.png)
 
 ![Количество установок](http://iobroker.live/badges/musiccast-stable.svg)
 ![версия NPM](http://img.shields.io/npm/v/iobroker.musiccast.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.musiccast.svg)
-![Статус сборки](https://travis-ci.org/foxthefox/ioBroker.musiccast.svg?branch=master)
-![НПМ](https://nodei.co/npm/iobroker.musiccast.png?downloads=true)
 
 # IoBroker.musiccast
+**Тесты:** ![Тестируйте и выпускайте](https://github.com/foxthefox/ioBroker.musiccast/workflows/Test%20and%20Release/badge.svg)
+
 адаптер для устройств Yamaha MusicCast, таких как WX-010/030, YSP-1600
 
 ## Установка:
@@ -33,7 +33,7 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 
 ## Настройки
 Страница администратора со знаком «+» может использоваться для добавления вручную IP-адреса, идентификатора устройства, типа и имени.
-Нажмите кнопку поиска для обнаружения. Если у вас несколько устройств, вам придется нажимать кнопку несколько раз, пока не будут обнаружены все устройства. К сожалению, обнаружение возвращает только один объект за раз, и это может быть любое из ваших устройств MusicCast. Если возврат такой же, как уже часть таблицы, вам нужно снова нажать кнопку. Иногда помогает сохранить и снова открыть страницу damin.
+Нажмите кнопку поиска для открытия. Если у вас несколько устройств, вам придется нажимать кнопку несколько раз, пока не будут обнаружены все устройства. К сожалению, обнаружение возвращает только один объект за раз, и это может быть любое из ваших устройств MusicCast. Если возврат такой же, как уже часть таблицы, вам нужно снова нажать кнопку. Иногда помогает сохранить и снова открыть страницу damin.
 
 В маловероятном случае, когда 2 или более устройств передают один и тот же идентификатор, немного измените один идентификатор. В противном случае адаптер не сможет различить 2 устройства.
 
@@ -51,7 +51,7 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 |{zone}.volume|value|x|0...max (макс. в зависимости от устройства)|
 |{zone}.act_vol_mode|текст|?|фактическая громкость в режиме дБ|
 |{zone}.act_vol_val|значение|?|фактическое значение громкости в дБ|
-|{zone}.act_vol_unit|текст|-|фактическая единица измерения громкости (должна быть дБ)|
+|{zone}.act_vol_unit|текст|-|фактическая единица измерения громкости (должно быть дБ)|
 |{zone}.act_vol_mode_list|текст|-|фактическая громкость в дБ режимах|
 |{zone}.input|text|x|вводы в зависимости от устройства|
 |{zone}.input_list|текст|-|возможные входы|
@@ -185,19 +185,19 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 |clock.volume|число|x|Громкость будильника|
 |clock.fade_interval|number|x|Интервал исчезновения будильника|
 |clock.fade_type|число|x|Тип затухания будильника|
-|clock.mode|string|x|Режим будильника один день/еженедельно|
-|clock.repeat|boolean|x|Повторить будильник, если указан один день|
+|clock.mode|string|x|Режим будильника на один день/еженедельно|
+|clock.repeat|boolean|x|Повторение будильника, если указан один день|
 |clock.{day}.enable|boolean|x|Действительность настройки часов|
 |clock.{day}.time|string|-|Время включения будильника ччмм 00-23,00-59|
 |clock.{day}.beep|boolean|x|Действительность звукового сигнала часов|
 |clock.{day}.playback_type|string|-|Тип воспроизведения будильника возобновление/предустановка|
-|clock.{day}.resume_input|строка|-|Идентификатор ввода возобновления будильника|
+|clock.{day}.resume_input|string|-|Идентификатор ввода возобновления будильника|
 |clock.{day}.preset_type|string|-|Тип предустановки будильника|
 |clock.{day}.preset_num|номер|-|Идентификатор входа предустановки будильника|
 |clock.{day}.preset_netusb_input|string|-|Идентификатор входа netusb будильника |
 |clock.{day}.preset_netusb_text|string|-|Текст netusb будильника |
 |clock.{day}.preset_tuner_band|string|-|Диапазон тюнера будильника|
-|clock.{day}.preset_tuner_number|number|-|Частота тюнера будильника или идентификатор станции|
+|clock.{day}.preset_tuner_number|number|-|Частота тюнера будильника или ID станции|
 
 ## Сделать
 * поддержка списков
@@ -212,6 +212,7 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 * поиск устройств теперь может возвращать более 1 устройства
 * новый вывод для разработчика в админке
 * больше асинхронности/ожидания
+* исправлено тестирование
 
 #### 0.2.2
 * API музыкального вещания 0.0.14
@@ -291,6 +292,8 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 * доступные команды питания, отключения звука, громкости
 
 ## Changelog
+### 1.0.01
+* changed algorithm for developer support
 
 ## License
 

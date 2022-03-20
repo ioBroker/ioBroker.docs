@@ -46,6 +46,9 @@ Example of VIS view
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 2.1.2 (2022-03-11)
+* (Diginix/Apollon77) set object defaults with correct data type
+
 ### 2.1.1 (2021-11-18)
 * (Apollon77) Fix some crash cases reported by Sentry
 
@@ -163,5 +166,5 @@ Example of VIS view
 
 ## License
 The MIT License (MIT)
-Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>,
+Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>,
               2014-2015 Oliver Wagner <owagner@tellerulam.com>

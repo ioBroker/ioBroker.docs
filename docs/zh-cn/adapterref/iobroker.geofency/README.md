@@ -3,33 +3,59 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.geofency/README.md
 title: ioBroker.geofency
-hash: /Hr5Dz3mNY4oC17SdjVrA3/ev+RnM3cakDuPwTgkyFk=
+hash: 9q400lKCLOrH3KroQdM2FDGS4Wtgr4+8ckgI1w7tR9o=
 ---
 ![商标](../../../en/adapterref/iobroker.geofency/admin/geofency.png)
 
 ![安装数量](http://iobroker.live/badges/geofency-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.geofency.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.geofency.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.geofency.svg)
-![NPM](https://nodei.co/npm/iobroker.geofency.png?downloads=true)
 
-＃ioBroker.geofency ====================
-当您的移动设备进入或离开指定区域时，此适配器能够接收[geofency](http://www.geofency.com/)事件。
-请求的geofency-webhook的所有值都存储在ioBroker中的位置名称下。
+# IoBroker.geofency
+====================
 
-移动设备上的##配置：
-*对于任何位置 - >属性 - > webhook设置：
- *进入和退出的网址：＆lt;您的ioBroker域＆gt;：＆lt;已配置的端口＆gt; /＆lt;任何位置名称＆gt;
- *帖子格式：JSON编码：启用
- *身份验证：从iobroker.geofency配置设置用户/密码
+![测试和发布](https://github.com/ioBroker/ioBroker.geofency/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/geofency/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-ioBroker论坛中的##（德语）
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+
+当您使用移动设备进入或离开定义的区域时，此适配器能够接收 [地理围栏](http://www.geofency.com/) 事件。
+请求的 geofency-webhook 的所有值都存储在 ioBroker 中的位置名称下。
+
+## 移动设备上的配置：
+* 对于任何位置 -> 属性 -> webhook 设置：
+ * 进入和退出的 URL：&lt;您的 ioBroker 域&gt;：&lt;配置的端口&gt;/&lt;任何位置名称&gt;
+ * 帖子格式：JSON 编码：启用
+ * 身份验证：从 iobroker.geofency 配置设置用户/密码
+
+## 在 ioBroker 论坛（德语）
 http://forum.iobroker.net/viewtopic.php?f=20&t=2076
 
-##安全说明：
-建议不要将此适配器公开给公共Internet。
-应该在ioBroker之前放置某种WAF /代理/入口服务器。 （例如，nginx很好，易于配置）。
+##安全提示：
+不建议将此适配器公开到公共 Internet。
+某种 WAF/proxy/entry Server 应该放在 ioBroker 之前。 （例如 nginx 很好并且易于配置）。
 
 ## Changelog
+### 1.1.0 (2022-03-11)
+* IMPORTANT: Forbidden characters are now replaced by _ in generated State IDs. Because gave an error before should not be breaking 
+* (Apollon77) Add new json state with the json of the last incoming data
+* (Apollon77) Add new data channel under the user with all data fields from the incoming data as own states
+* (Apollon77) Add Sentry for crash-reporting
+* (Apollon77) Prevent some error cases reported
+
+### 1.0.3 (2021-03-10)
+* (Apollon77) Fix port checks
+
+### 1.0.2 (2021-03-09)
+* (Apollon77) optimize stop handling to really end the server
+
+### 1.0.1 (2021-03-07)
+* (Apollon77) prevent warnings with js-controller 3.2
+
+### 1.0.0 (2021-02-26)
+* (Apollon77) js-controller 2.0 is now needed at least
+* (allesgutewarweg) Add more JSON decoded states
+* (Apollon77) Update dependencies
+
 ### 0.3.2 (2018-03-07)
 * (Apollon77) Fix Authentication
 
@@ -76,7 +102,7 @@ http://forum.iobroker.net/viewtopic.php?f=20&t=2076
 
 The MIT License (MIT)
 
-Copyright (c) 2015 dschaedl <daniel.schaedler@gmail.com>
+Copyright (c) 2015-2022 dschaedl <daniel.schaedler@gmail.com>, iobroker-community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

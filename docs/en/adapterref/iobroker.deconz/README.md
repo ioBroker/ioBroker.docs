@@ -39,15 +39,24 @@ Examples:
 [REST plugin](https://github.com/dresden-elektronik/deconz-rest-plugin)  
 [Gateways (Hardware)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)  
 
-## [Sponsors](https://github.com/iobroker-community-adapters/ioBroker.deconz/blob/master/SPONSORS.MD)
+## [Sponsors](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+
+### 1.3.20 (2022-02-26)
+* (withstu) add retry if gateway is busy
+* change min/max range for offset
+* updated translations
+* fix link for overview page
+* fix parameter can not be set since deConz 2.11.5
+* fix xy is invalid: #289 #295
+* remove Sentry
 
 ### 1.3.19 (2021-08-08)
 * fix for js-controller 3.3.x
 
 ### 1.3.17
-* fix crash [#248](https://github.com/iobroker-community-adapters/ioBroker.deconz/issues/248)
+* fix crash [#248](https://github.com/Jey-Cee/ioBroker.deconz/issues/248)
 
 ### 1.3.16 
 * added datapoints melody and volume (Used by NEO-Alarm-Sirene by Tuya)
@@ -279,7 +288,7 @@ Examples:
 ## License
 Apache-2.0
 
-Copyright (c) 2017-2021 Jey Cee jey-cee@live.com
+Copyright (c) 2017-2022 Jey Cee jey-cee@live.com
 
 
 

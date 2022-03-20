@@ -1,7 +1,7 @@
 ---
 BADGE-Number of Installations: http://iobroker.live/badges/mqtt-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.mqtt.svg
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.meross.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.mqtt.svg
 ---
 ![](MQTT)
 # MQTT Server and Client
@@ -804,6 +804,35 @@ control (see [example above](http://www.iobroker.net/?page_id=6435&lang=en#Appli
 Congratulations! Now you can control the system ioBroker and receive data via a cloud service!
 
 ## Changelog
+### 2.7.4 (2022-03-18)
+* (Apollon77) Update mqtt library dependency
+
+### 2.7.3 (2022-03-11)
+* (Apollon77) Further optimization of automatic folder creation
+
+### 2.7.2 (2022-03-11)
+* (Apollon77) Optimize the automatic folder creation and allow to automatically overwrite these objects when needed
+
+### 2.7.0 (2022-03-09)
+* (Apollon77) Prevent Client or server to overwrite the own info.connection state
+* (Apollon77) replace # and + characters by _ when publishing a value because these characters are forbidden when publishing for most brokers
+
+### 2.6.2 (2022-03-03)
+* (Apollon77) If datatypes of objects change during an adapter run, adjust datatype of mqtt.X.* objects to "mixed" to prevent issues
+
+### 2.6.1 (2022-02-25)
+* (Apollon77) Fix object structure sync for server usage
+
+### 2.6.0 (2022-02-25)
+* (Apollon77) Update objects if data type changes also for "client" usage
+* (Apollon77) Update mqtt library
+* (Apollon77) Create a folder object structure if objects do not exist in the adapter namespace
+
+### 2.5.0 (2022-02-24)
+* (uwesimon/Apollon77) fix test connection with mqtts
+* (uwesimon/Apollon77) ReconnectTimeout is now handled in seconds, so default is 10s instead of 10ms
+* (Apollon77) Correct info.connection object default values
+
 ### 2.4.1 (2021-11-08)
 * (MichaelDvP) Added wildcard regex for "/#"
 
@@ -1071,7 +1100,7 @@ Congratulations! Now you can control the system ioBroker and receive data via a 
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2021, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

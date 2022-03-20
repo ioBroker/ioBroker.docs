@@ -13,9 +13,9 @@
 
 ## yr.no adapter for ioBroker
 
-fetches 10d weather forecast from [yr.no](yr.no)
+fetches 10d weather forecast from [yr.no](https://yr.no)
 
-[yr.no](yr.no) is a joint service by the [Norwegian Meteorological Institute](met.no) and the [Norwegian Broadcasting Corporation](nrk.no)
+[yr.no](https://yr.no) is a joint service by the [Norwegian Meteorological Institute](https://met.no) and the [Norwegian Broadcasting Corporation](https://nrk.no)
 
 https://api.met.no/weatherapi/locationforecast/2.0/documentation
 
@@ -36,6 +36,17 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 -->
 
 ## Changelog
+### 5.1.2 (2022-03-10)
+* (Apollon77) Fix some invalid object default values
+
+### 5.1.1 (2022-03-10)
+* (Apollon77) Add legend file to release also and fix usage
+
+### 5.1.0 (2022-03-05)
+* (Apollon77) Move schedule if default is used on request of met.no
+* (Apollon77) Do not query legend/icons dynamically, but deliver with the version
+* (Apollon77) make sure to not execute logic when adapter stopped already
+
 ### 5.0.0 (2021-11-08)
 * (klein0r) Fixed translations
 * (klein0r) Update dates data type
@@ -139,7 +150,7 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>, Bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022 hobbyquaker <hq@ccu.io>, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

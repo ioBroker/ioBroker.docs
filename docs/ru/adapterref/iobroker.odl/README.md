@@ -3,43 +3,84 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.odl/README.md
 title: ioBroker.odl
-hash: Jts9Oc6Ce70T3TKN1f7AohQAa4ZawDryzULKAbAkGsY=
+hash: 9vjfqQ+49Y26u75AD4jUizUBlarzNnzyU2enxL6IH8s=
 ---
 ![Логотип](../../../en/adapterref/iobroker.odl/admin/odl.png)
 
-![Версия NPM](https://img.shields.io/npm/v/iobroker.odl.svg)
+![версия NPM](https://img.shields.io/npm/v/iobroker.odl.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.odl.svg)
-![Количество установок (последнее)](https://iobroker.live/badges/odl-installed.svg)
+![Количество установок (последние)](https://iobroker.live/badges/odl-installed.svg)
 ![Количество установок (стабильно)](https://iobroker.live/badges/odl-stable.svg)
-![Статус зависимости](https://img.shields.io/david/crycode-de/iobroker.odl.svg)
-![NPM](https://nodei.co/npm/iobroker.odl.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.odl.png?downloads=true)
 
 # IoBroker.odl
-** Тесты: ** ![Тестирование и выпуск](https://github.com/crycode-de/iobroker.odl/workflows/Test%20and%20Release/badge.svg)
+[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/odl/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-## ODL адаптер для ioBroker
-Этот адаптер интегрирует значения ODL (Ortsdosisleistung / Ambient Dose Rate) в указанных точках измерения немецкого [Федеральное ведомство по радиационной защите (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/) в ioBroker.
+**Тесты:** ![Тестируйте и выпускайте](https://github.com/crycode-de/iobroker.odl/workflows/Test%20and%20Release/badge.svg)
 
-Для получения дополнительной информации о мощности амбиентной дозы в Германии посетите сайт https://odlinfo.bfs.de/.
+## Адаптер ODL для ioBroker
+Этот адаптер интегрирует значения ODL (Ortsdosisleistung/мощность амбиентной дозы) указанных точек измерения немецкого [Федеральное управление по радиационной защите (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/) в ioBroker.
+
+Для получения дополнительной информации о мощности амбиентной дозы в Германии посетите https://odlinfo.bfs.de/.
 
 ---
 
-Dieser Adapter integriert die ODL (Ortsdosisleistung) Messwerte von ausgewählten Messstellen des [Bundesamtes für Strahlenschutz (BfS)](https://www.bfs.de/) в ioBroker.
+## Die aktuelle Umweltradioaktivität в ioBroker
+Интегрированный адаптер Dieser для ODL (Ortsdosisleistung) Messwerte von ausgewählten Messstellen des [Bundesamtes für Strahlenschutz (BfS)](https://www.bfs.de/) в ioBroker.
 
-Das bundesweite Messnetz des BfS umfasst rund 1800 ortsfeste Messstellen, die постоянный умереть в Ort aktuelle Gamma-Umweltradioaktivität (Ortsdosisleistung) erfassen und aufzeichnen. Die gewonnenen Messdaten werden vom BfS gesammelt, ausgewertet und öffentlich unter der _Datenlizenz Deutschland_ zur Verfügung gestellt.
+Das bundesweite Messnetz des BfS umfasst rund 1700 ortsfeste Messstellen, die Permanent Die vor Ort aktuelle Gamma-Umweltradioaktivität (Ortsdosisleistung) erfassen und aufzeichnen. Die gewonnenen Messdaten werden vom BfS gesammelt, ausgewertet und öffentlich unter der _Datenlizenz Deutschland_ zur Verfügung gestellt.
 
 Für weitere Informationen zur ODL siehe https://odlinfo.bfs.de/.
 
-Адаптер Dieser находится в действующем и историческом 1-м офисе с прямым доступом к веб-службе (WFS) в [Геопорталы BFS](https://www.imis.bfs.de/geoportal/). Das BfS ist Urheber der vom Adapter verwendeten Daten.
-Wird ein aktivierter History-Adapter (история, приток данных или sql) erkannt, dann werden gegebenenfalls in der Historie fehlende Datenpunkte durch den Adaptor automatisch nachgetragen, sodass sich vollständige Zeitreihen ergeben.
+Dieser Adapter läd die aktuellen 1-Stunden-Mittelwerte der Messdaten direkt über die [offizielle Datenschnittstelle des BfS](https://odlinfo.bfs.de/ODL/DE/service/datenschnittstelle/datenschnittstelle_node.html). Das BfS ist Urheber der vom Adapter verwendeten Daten.
+Alle Daten werden in unveränderter Form, so wie sie von der Datenschnittstelle geliefert werden, vom Adapter bereitgestellt.
+
+Wird ein aktivierter History-Adapter (_history_, _influxdb_ oder _sql_) erkannt, dann werden gegebenenfalls in der Historie Fehlende Datenpunkte durch den Adapterautotisch nachgetragen, sodass sich vollständige Zeitreihen ergeben.
 
 Die aktuellen Messdaten werden von dem Adapter standardmäßig im Stundentakt aktualisiert. Ein geringerer Aktualisierungsintervall ist meist nicht sinnvoll, da die zu Grunde liegenden Messdaten auf dem BfS-Server (abhängig von der Messstelle) größtenteils stündlich aktualisiert werden.
+Beimersten Start des Adapters wird Automaticisch der Zeitpunkt für den Abruf der Daten angepasst, sodass nicht alle Installation die Daten zur gleichen Zeit abrufen und die Datenschnittstelle des BfS nicht unnötig belastet wird.
 
+[![Скриншот 1](./docs/ioBroker-odl-01.png)](../../../en/adapterref/iobroker.odl/./docs/ioBroker-odl-01.png)
+
+[![Скриншот 2](./docs/ioBroker-odl-02.png)](../../../en/adapterref/iobroker.odl/./docs/ioBroker-odl-02.png)
 ---
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Changelog
+
+### 2.0.1 (2022-03-14)
+
+* (crycode-de) Use official data API from BfS
+* (crycode-de) **Breaking**: Use 9-digit identifiers instead of locality codes
+  * New object will be created for each location
+  * Migration from locality codes to identifiers is done on first start after adapter upgrade, but custom object settings (like history) have to be migrated manually
+* (crycode-de) **Breaking**: The `.odl` state is now named `.value`
+* (crycode-de) Added statistic states
+* (crycode-de) Added optional support for cosmic and terrestrial value components (disabled by default)
+* (crycode-de) Added `.status` state representing the location status given from BfS
+* (crycode-de) If an enabled history (_history_, _influxdb_, _sql_) for `.value`, `.valueCosmic` or `.valueTerrestrial` is found, the adapter tries to load the timeseries data from BfS for past 7 days.
+* (crycode-de) If the status of a location is not "in operation", the value states will be `null` with `q` set to `0x81` (general problem by sensor)
+* (crycode-de) Complete rebuild of the admin interface using react
+* (crycode-de) Randomize adapter schedule between minute 15 and 45 and also using seconds on first start to better spread API calls
+* (crycode-de) Replaced `request` with `axios`
+* (crycode-de) Updated adapter dev toolchain
+* (crycode-de) Updated dependencies
+* (crycode-de) Require node >=12
+* (crycode-de) Use weblate for translations
+
+### 1.1.4 (2021-01-16)
+* (crycode-de) Updated BfS logo
+* (crycode-de) Updated dependencies
+
+### 1.1.3 (2020-12-31)
+* (crycode-de) Fixed issue when log is not available at startup timeout
+
+### 1.1.2 (2020-12-23)
+* (crycode-de) Fix objects parameters for objects created before v1.1.1
+
+### 1.1.1 (2020-12-23)
+* (crycode-de) Fixed issue creating odl state object
 
 ### 1.1.0 (2020-12-21)
 * (crycode-de) Added Sentry error reporting
@@ -70,7 +111,7 @@ Die aktuellen Messdaten werden von dem Adapter standardmäßig im Stundentakt ak
 
 ## License
 
-Copyright (c) 2019-2020 Peter Müller <peter@crycode.de>
+Copyright (c) 2019-2022 Peter Müller <peter@crycode.de>
 
 Data (c) [German Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/), [Data licence Germany – attribution – Version 2.0](http://www.govdata.de/dl-de/by-2-0)
 

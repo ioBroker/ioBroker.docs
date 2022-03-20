@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
+hash: wE2GvSKVqbB0ZUIQhgsyUCRJ6SNOfKH2bodwoOh2eKE=
 ---
 # IoBroker.dysonAirPurifier
 ![Логотип](admin/dyson_logo.svg)![Логотип](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -16,12 +16,13 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 ![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.dysonairpurifier.svg)
 
-[![Тестирование и выпуск] (https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml)
+[![Тестирование и выпуск] (https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml) ![КодQL](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/codeQL.yml/badge.svg)
 
 ## Адаптер ioBroker для очистителей воздуха и вентиляторов Dyson
 Этот адаптер соединяет ioBroker с различными очистителями воздуха Dyson.
-
 Значок фаната в логотипе, созданный [Freepik](https://www.flaticon.com/de/autoren/freepik) с [www.flaticon.com](https://www.flaticon.com/de/).
+
+&gt; Если вам нравится этот адаптер и вы можете поддержать меня<br/> &gt; [![Пожертвовать через PayPal](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
 
 ### Поддерживаемые устройства
 * Dyson Pure Cool Link Tower (TP02, ProductType 475)
@@ -42,7 +43,7 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 * Считывает значения с устройств и датчиков
 * Может управлять устройствами, давая вам возможность изменять некоторые значения (основная мощность, колебания, нагрев, скорость вентилятора, ...)
 * Читает список устройств с серверов Dyson
-* Обрабатывает *неограниченное* количество поклонников (на самом деле ресурсы вашего хоста ioBroker ограничивают это количество).
+* Обрабатывает *неограниченное* количество фанатов (на самом деле ресурсы вашего хоста ioBroker ограничивают это количество).
 
 ## Как это работает
 При запуске облако Dyson запрашивает все известные устройства, привязанные к вашей учетной записи, и их пароли MQTT. Имея этот список на руках, адаптер локально подключается ко всем устройствам и взаимодействует с ними.
@@ -131,9 +132,9 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 * Угол колебания , Угол колебания
 * ContinuousMonitoring, непрерывный мониторинг датчиков окружающей среды, даже если устройство выключено.
 * MainPower , Основная мощность вентилятора.
-* AutomaticMode , Вентилятор работает в автоматическом режиме.
+* AutomaticMode , Вентилятор находится в автоматическом режиме.
 * Flowdirection , Направление, куда дует вентилятор. ВКЛ = спереди; OFF=Назад (он же Jet focus)
-* Jetfocus, Направление куда дует вентилятор. ВКЛ = спереди; OFF=Назад (он же Jet focus)
+* Jetfocus, Направление куда дует вентилятор. ВКЛ=спереди; ВЫКЛ=Назад (он же Jet focus)
 * Режим обогрева, режим обогрева [ВКЛ/ВЫКЛ]
 * HeatingTargetTemp , Целевая температура для нагрева
 * AirQualityTarget, Целевое качество воздуха для автоматического режима.
@@ -148,15 +149,15 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 Скорость вентилятора допускает только значения от 1 до 10 и Авто. Если вы хотите установить скорость вращения вентилятора на 0, вам нужно отключить основное питание.
 Что и делает приложение Dyson.
 
-### Известные проблемы
+### Известные вопросы
 * Нет автоматического определения IP устройств
 * Иногда адаптер теряет соединение MQTT с вентилятором и не может восстановить соединение. В моем случае достаточно отключить вентилятор примерно на 10 секунд, чтобы перезагрузить его и снова подключить. Попробуйте.
 
 ## Объяснение данных API Dyson (полезная нагрузка сообщения)
-Информация скопирована и расширена с <https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md>.
+Информация скопирована и дополнена с <https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md>.
 
 ### ТЕКУЩЕЕ СОСТОЯНИЕ
-| имя | значение | возможные значения | Единица |
+| имя | смысл | возможные значения | Единица |
 |--------------|------------------------------------------------------------|----------------------|------|
 | режим-причина | Текущий режим был установлен с помощью RemoteControl, App, Scheduler | КНР, ЛАПП, ЛЩ, ПУИ | |
 | состояние-причина | | РЕЖИМ | |
@@ -170,7 +171,7 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 |------|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
 | эркд | Код последней ошибки | NONE или некоторые шестнадцатеричные значения | |
 | фильм | оставшийся срок службы фильтра | 0000 - 4300 | часы |
-| фмод | Режим | ВЕНТИЛЯТОР, АВТО, ВЫКЛ | |
+| фмод | режим | ВЕНТИЛЯТОР, АВТО, ВЫКЛ | |
 | фпвр | Главная мощность | ВКЛ, ВЫКЛ | |
 | фнст | Статус вентилятора | ВКЛ, ВЫКЛ, ВЕНТИЛЯТОР | |
 | фнсп | Скорость вентилятора | 0001 - 0010, АВТО | |
@@ -186,7 +187,7 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 | ритм | Непрерывный мониторинг | ВКЛ, ВЫКЛ | |
 | авто | Автоматический режим | ВКЛ, ВЫКЛ | |
 | нмдв | Макс. скорость вращения в ночном режиме? | 0004 | |
-| cflr | Статус Угольный фильтр | 0000 - 0100 | Процент |
+| cflr | Статус Угольный фильтр | 0000 - 0100 | процент |
 | cflt | Угольный фильтр | КАРФ, НЕТ | |
 | hflr | Статус HEPA-фильтр | 0000 - 0100 | Процент |
 | hflt | HEPA-фильтр | ГХЭП, ГКОМ | |
@@ -246,7 +247,7 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 Избыточные значения?
 
 #### Данные
-| имя | смысл | возможные значения | Единица |
+| имя | значение | возможные значения | Единица |
 |-------------|--------------------------------------------------------------------------|---------------------------------------------|-------------|
 | приятель0 - приятель9 | количество секунд, проведенных в этом уровне пыли с начала часа | 0000 - 3600 | |
 | пальма | кажется медианным значением palX | | |
@@ -265,6 +266,19 @@ hash: Mlho8Fb/5kV7FMKtUNBDi3f4f5aAe9lEJIi/3JCk/hQ=
 Dyson, pure cool, pure hot & cool и другие являются товарными знаками или зарегистрированными товарными знаками [Дайсон Лтд.](https://www.dyson.com) Все прочие товарные знаки являются собственностью соответствующих владельцев.
 
 ## Changelog
+
+### V2.4.0 (2022-03-17) (Echo from the past)
+* (grizzelbee) New: Added warning code to device tree
+* (grizzelbee) New: Added Device-faults as SystemState to device tree
+* (grizzelbee) New: Added donate button to readme and config page
+* (grizzelbee) Upd: Switched "Sending data to device" message from loglevel info to debug
+* (grizzelbee) Upd: reduced amount of debug messages
+* (grizzelbee) Upd: Updated dependencies
+
+
+### V2.3.2 (2022-03-04) (Fairytale of doom)
+* (grizzelbee) Fix: Fixed: Sentry-Error: [DYSONAIRPURIFIER-D](https://sentry.io/organizations/grizzelbee/issues/3021418514)
+* (grizzelbee) Upd: Updated dependencies
 
 ### V2.3.1 (2022-01-14) (Fairytale of doom)
 * (grizzelbee) Upd: Updated dependencies

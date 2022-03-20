@@ -10,7 +10,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.luftdaten/README.md
 title: ioBroker.luftdaten
-hash: MvIcuk/eHSWW1ebwVL2sU+6AQ0nkZn4HG7oqBGKl7kw=
+hash: RgjyUcz+6h/w4vumvBaWQBnfA/ViD04Q1jOZLvyagTk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.luftdaten/../../admin/luftdaten.png)
 
@@ -20,7 +20,7 @@ hash: MvIcuk/eHSWW1ebwVL2sU+6AQ0nkZn4HG7oqBGKl7kw=
 1. Создайте свой собственный датчик и добавьте его в локальную сеть.
 2. Создайте новый экземпляр адаптера
 3. Введите произвольное имя в первый столбец таблицы.
-4. Выберите «Локальный» в качестве типа (второй столбец)
+4. Выберите «Локальный» в качестве типа (второй столбец).
 5. Заполните IP-адрес или имя хоста датчика в третьем столбце.
 6. Сохраните настройки
 
@@ -28,8 +28,8 @@ hash: MvIcuk/eHSWW1ebwVL2sU+6AQ0nkZn4HG7oqBGKl7kw=
 
 *Не стесняйтесь изменять настройки расписания на вкладке экземпляров (по умолчанию: каждые 30 минут).*
 
-### Дистанционный пульт
-1. Выберите один из датчиков на официальной карте: [sensor.community](https://sensor.community/ru/)
+### Удаленный
+1. Выберите один из датчиков на официальной карте: [sensor.community](https://sensor.community/en/)
 2. Нажмите на датчик и скопируйте ID (#XXXXX)
 3. Создайте новый экземпляр адаптера
 4. Введите произвольное имя в первый столбец таблицы.
@@ -42,7 +42,7 @@ hash: MvIcuk/eHSWW1ebwVL2sU+6AQ0nkZn4HG7oqBGKl7kw=
 *Не стесняйтесь изменять настройки расписания на вкладке экземпляров (по умолчанию: каждые 30 минут).*
 
 ### Пример
-![Пример конфигурации](../../../en/adapterref/iobroker.luftdaten/./exampleConfiguration.png)
+![Пример конфигурации](../../../en/adapterref/iobroker.luftdaten/./img/exampleConfiguration.png)
 
 ## Changelog
 
@@ -55,6 +55,8 @@ hash: MvIcuk/eHSWW1ebwVL2sU+6AQ0nkZn4HG7oqBGKl7kw=
 
 * (klein0r) Added local link to sensor map
 * (klein0r) Added documentation
+* (klein0r) Added hint for Admin 4 configuration
+* (klein0r) Updated state roles
 
 ### 2.1.3 (2021-12-23)
 
@@ -182,7 +184,7 @@ hash: MvIcuk/eHSWW1ebwVL2sU+6AQ0nkZn4HG7oqBGKl7kw=
 
 The MIT License (MIT)
 
-Copyright (c) 2021 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -15,7 +15,6 @@ ioBroker Growatt Adapter to communiacte with Growatt Shine Server.
 I'm not affiliated.
 Usually, the data is sent from the data logger to the cloud every 5 minutes.
 You can change it, see below.
-The software queries the server every 30 seconds so that the offset is not too great.
 
 Not all plant types are implemented.
 
@@ -53,6 +52,30 @@ This data record contains some data from the device. Some data are also availabl
 ### Read weather
 This data set contains the weather forecast.
 
+### Timeout in seconds
+The default timeout for HTTP requests. The default value 60 seconds, as with web browsers
+
+### Process timeout in seconds
+
+This timeout monitors the collection of data from the Growatt server. If the server does not process all of the data within this time, an error is reported, the session is ended and a new cycle timer is started. The default value is 600 seconds.
+If the value is 0, this check function is not executed.
+
+### Keep web session
+
+The adapter only logs in once and not with every data request from the Growatt server. By default it is on.
+
+### Session time in minutes
+
+Here you can set when the adapter logs out of the server and logs in again. A 0 means never log out. Default value is 0=infinity.
+
+### Cycle time in seconds
+
+The interval at which the data is requested from the server. The time required for the data query is then deducted from the next one. If the query lasts longer than the waiting time, the adapter only sleeps 100ms. The default value is 30 seconds.
+
+### Error cycle time in seconds
+
+If an error occurs when querying the values at the Growatt server, this time is used instead of the cycle time. The default value is 120 seconds
+
 ## Manage Objects
 Here you can define what should happen to each value (object) that is picked up by the inverter.
 There are a lot of values ​​that do not belong to your inverter. These can be removed here.
@@ -69,8 +92,27 @@ After the update, only the ID and the action are displayed because the object no
 The object remains, the values ​​from the inverter are discarded.
 
 ----------------------------------------------------------------------------------------------------------------------
+# Speedup data interval new method
 
-# Speedup data interval
+* Open the ShinePhone app
+* Click on attachment below
+* Top right +, then list data loggers
+* Click on existing data logger
+* Configure data logger
+* Wireless hotspot mode
+* Put the stick in AP mode
+* Connect to Wifi hotspot, PW 123456789 ? <- check again
+* Continue
+* Advanced
+* Time setting
+* Interval to 1
+* Enter password growattYYYYMMDD (e.g.growatt20220209)
+* Unlock
+* Click and apply changes
+* Exit hotspot mode
+
+----------------------------------------------------------------------------------------------------------------------
+# Speedup data interval old method
 
 ## You can set the logger interval from 5 minutes to 1 minute
 
@@ -97,33 +139,26 @@ ShineWiFi module.
 
 **There is no change to the charts on growatt side. There you can only see a change in the data from the datalogger.**
 
-----------------------------------------------------------------------------------------------------------------------
-
-# German - Speedup data interval
-
-## Du kannst das Protokollierungsintervall von 5 Minuten auf 1 Minute einstellen
-
-Den Gummi vor dem KEY Button des ShineWiFi-S entfernen und den Button kurz drücken.
-Der ShineWiFi-S spielt nun kurz Hotspot (SSID = Seriennummer des ShineWiFi-S). Beim Netz mit einem Laptop oder dem Handy anmelden.
-
-## Einloggen
-als Webadresse http://192.168.10.100 in der Browser eingeben.
-Der Username ist Admin und das Passwort 12345678 (sollte man gleich auch mal ändern, geht in System Management).
-![Login Page](docs/login.png)
-
-## Advanced Settings
-Auf "Advanced Settings" gehen und das Intervall ändern. (von 5 auf 1)
-![Advanced Settings](docs/advancedsettings.png)
-
-## System Restart
-Auf System Restart gehen und Button herzhaft, aber vorsichtig Klicken.
-![System Restart](docs/restart.png)
-
-**Es gibt keine Änderung an den Diagrammen auf der Growatt-Seite, die bleiben bei 5min. Dort sehen Sie nur eine Änderung der Daten im Datenlogger.**
-
 -*-
 
 ## Changelog
+### 1.1.8 (16.03.2022)
+* (PLCHome) Improvement triggered by "Sentry" issues
+
+### 1.1.7 (13.02.2022)
+* (PLCHome) "Sentry" was added
+
+### 1.1.6 (12.02.2022)
+* (PLCHome) Read me
+
+### 1.1.2 (12.02.2022)
+* (PLCHome) Timeouts made maintainable and adjusted. Request timout is now 60 second like chrome
+* (PLCHome) Server request improved and additionally secured against dying
+* (PLCHome) Calculate sleep to next request to keep cycle. Minimum sleep is 100ms
+* (PLCHome) Error output: if the key has expired, requests are forwarded with an error code, which is now in the log
+* (PLCHome) Improved error handling
+* (PLCHome) Improved debugging
+* (PLCHome) Update the includes
 
 ### 1.1.1 (27.05.2021)
 * (PLCHome) The web request timeout was increased due to login issues
@@ -199,9 +234,9 @@ Auf System Restart gehen und Button herzhaft, aber vorsichtig Klicken.
 -*-
 
 ## License
-MIT License
+The MIT License (MIT)
 
-Copyright (c) 2021 PLCHome <https://github.com/PLCHome> <ioBroker@****.de>
+Copyright (c) 2020 - 2022 PLCHome
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

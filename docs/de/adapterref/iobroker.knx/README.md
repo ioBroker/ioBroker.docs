@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: rXrT4jC7T4e+NWRa1Yj/h88/IlzfPQ9VwsayDPPc0Kg=
+hash: vIYKCEqfuPNPZOwhsgjBjdzWgqv+Hh2LBEDyPT/8ams=
 ---
 ![Logo](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
@@ -16,6 +16,7 @@ hash: rXrT4jC7T4e+NWRa1Yj/h88/IlzfPQ9VwsayDPPc0Kg=
 * [Beschreibung](#Beschreibung)
 * [Anforderungen](#Anforderungen)
 * [Funktionen](#Funktionen)
+* [Installation](#Installation)
 * [Adapterkonfiguration](#adapter-configuration)
     * [Lizenz installieren](#install-the-license)
     * [Konfigurationsschnittstelle](#configuration-interface)
@@ -61,6 +62,9 @@ Ohne diese Voraussetzungen kann der Adapter nicht installiert werden oder funkti
 * NEU: Nicht-KNX-State-Direktverbindung zulassen (umgekehrt)
 * NEU: Adapterantworten auf GroupValueRead an ein mit DirectLink verbundenes Objekt
 * NEU: Import passwortgeschützter Projektdateien (Dank an aKzenT)
+
+###Installation
+Dieser Adapter kann nur mit npm installiert werden. Die Installation über github funktioniert **nicht**.
 
 ##Adapterkonfiguration
 Öffnen Sie nach der Installation dieses Adapters die Adapterkonfiguration.
@@ -113,7 +117,7 @@ Das Hochladen einer passwortgeschützten Datei ist noch nicht verfügbar.
 ### Objekte
 Hier befindet sich unter knx.0 der Gruppenadressbaum wie in Ihrem ETS-Projekt. Verwenden Sie zum Ändern der Eigenschaften das GA-Tool.
 
-### Verwendung
+### Verwendungszweck
 Wenn der Adapter erfolgreich startet, stehen Ihnen Ihre Datenpunkte für alles zur Verfügung, was Sie gerne tun.
 
 ### Datenpunkttypen (DPT)
@@ -233,6 +237,24 @@ Jetzt ist KNX-GA **(1)** direkt mit Nicht-KNX-iobroker **(2)** verknüpft. Mit *
 Der Entwickler kann keine weiteren speziellen Informationen über das System/config/user/enviroment erhalten. Falls keine Lizenz gefunden wird, werden auch die Adapterversion und die Host-ID gemeldet.
 
 ## Changelog
+### 2.0.12 (25.02.2022)
+* fixed handling of undefined DP
+* updated datapointtypes
+* fix warning with incompatible DPT in future
+* the biggest issue of all: I get shocked because of the war in Ukraine. My thoughts are with the people of Ukraine, I am infinitely sorry for what is happening to them and their country. It is an inhuman shame.
+* can't fix it, but I appeal to everyone: Be neighbors and not enemies. Respect the other and do not fight yourselves.
+
+### 2.0.11
+* fixed password handling for projects from upgraded ETS
+
+### 2.0.10
+* import of ETS6.0.2 projects **ETS6.0.1 not possible**
+* bugfixes
+
+### 2.0.9
+* import password protected project files
+* bug fixes
+
 ### 2.0.8
 * fixed bug with unackn write
 * fixed bug in linkedState

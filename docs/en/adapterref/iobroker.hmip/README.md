@@ -17,7 +17,7 @@ This adapter allows the communication with a HomematicIP CloudAccessPoint via th
 **Important note:** Please limit control requests to the bare minimum because EQ-3 started to block IPs when you do too much!
 
 ## Installation
-This Adapter needs node-js in version >= 8.6
+This Adapter needs node-js in version >= 10.0
 
 Here a Step-by-Step Installation Video on YouTube 
 https://youtu.be/kXWfJRUYJIA
@@ -60,6 +60,9 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
+### 1.15.4 (2022-02-19)
+* (Apollon77) Fix sendDoorCommand for HmIP-MOD-HO
+
 ### 1.15.3 (2022-01-22)
 * (Apollon77) Add windowOpen indicator to two more places
 * (Apollon77) Optimize reconnection handling

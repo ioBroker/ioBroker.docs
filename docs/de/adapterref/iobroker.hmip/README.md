@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hmip/README.md
 title: ioBroker HomeMatic IP Cloud AccessPoint-Adapter
-hash: OHa5PFtBSxk5+RH3R/q5CW91rJ1STL2h1rWa5dTSYGw=
+hash: ROYKPghAX5l6O5CwpV5igdwihIhItCQHbISMzvUv7mY=
 ---
 ![Logo](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
@@ -14,42 +14,42 @@ hash: OHa5PFtBSxk5+RH3R/q5CW91rJ1STL2h1rWa5dTSYGw=
 # IoBroker HomeMatic IP Cloud AccessPoint-Adapter
 ![Testen und freigeben](https://github.com/Apollon77/iobroker.hmip/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Beschreibung
 Dieser Adapter ermöglicht die Kommunikation mit einem HomematicIP CloudAccessPoint über die Rest API der Homematic IP Cloud
 
-**Wichtiger Hinweis:** Bitte beschränken Sie Kontrollanfragen auf das Nötigste, da EQ-3 anfing, IPs zu blockieren, wenn Sie zu viel tun!
+**Wichtiger Hinweis:** Bitte beschränken Sie Steueranfragen auf das Nötigste, da EQ-3 anfing, IPs zu blockieren, wenn Sie zu viel tun!
 
 ## Installation
-Dieser Adapter benötigt node-js in Version >= 8.6
+Dieser Adapter benötigt node-js in Version >= 10.0
 
 Hier ein Schritt-für-Schritt-Installationsvideo auf YouTube https://youtu.be/kXWfJRUYJIA
 
 ## Die Info
-Die meisten Homematic IP Geräte arbeiten bereits mit der neuesten Adapterversion.
+Die meisten Homematic IP Geräte arbeiten bereits mit der neusten Adapterversion.
 
-Ich werde es ständig verbessern, aber es wird Zeit brauchen. Jede Hilfe von der Community durch z.B. Pull Request wäre sehr dankbar.
+Ich werde es ständig verbessern, aber es wird Zeit brauchen. Jegliche Hilfe von der Community durch z.B. Pull-Request wäre sehr willkommen.
 
-Bei nicht funktionierenden HmIP-Geräten erstellen Sie bitte mit dieser Info ein Issue (bitte pro Gerät und möglichst den technischen Namen im Betreff).
-Schalten Sie die Adapterprotokollierung in ioBroker in den dummen Modus und fügen Sie den Json des Geräts hinzu, der dem Protokoll im Issue gedruckt wird.
-Möglicherweise benötige ich auch einen Json einer Zustandsänderung.
+Bei nicht funktionierenden HmIP-Geräten erstellen Sie bitte ein Problem mit dieser Info (bitte eines pro Gerät und wenn möglich den technischen Namen im Betreff).
+Schalten Sie die Adapterprotokollierung in ioBroker in den Silly-Modus und fügen Sie den json des Geräts hinzu, der im Problem zum Protokoll gedruckt wird.
+Möglicherweise benötige ich auch einen json einer Zustandsänderung.
 
-Danke schön
+Danke
 
-Wenn Sie nach Informationen suchen, müssen Sie, wenn die Alarmeinstellungen aktiv sind, den aktiven Status der Gruppe INTERN und EXTERN überprüfen, sie repräsentieren in Kombination die drei Alarmzustände. INTERN und EXTERN aktiv bedeutet Abwesend, nur EXTERN aktiv bedeutet nur Perimeter aktiv.
+Wenn Sie nach Informationen suchen, ob die Alarmeinstellungen aktiv sind, müssen Sie den aktiven Status der Gruppen INTERN und EXTERN überprüfen, sie repräsentieren in Kombination die drei Alarmzustände. INTERNE und EXTERNE Aktive bedeuten Abwesend, nur EXTERNE Aktive bedeuten nur Perimeter aktiv.
 
-##Wichtige Info was mit diesem Adapter gemacht werden kann
+##Wichtige Info was man mit diesem Adapter machen kann
 !!! Mit diesem Adapter können Sie nur Ereignisse auslösen, die über die Original Homematic IP App ausgelöst werden können.
-Direkte Verbindungen zwischen Geräten haben zB keine Events in der App und können auch nicht über diesen Adapter ausgelöst werden!!!
+Beispielsweise haben direkte Verbindungen zwischen Geräten keine Events in der App und können auch nicht über diesen Adapter getriggert werden!!!
 
 ## Einstellungen
-* Geben Sie Ihre SGTIN (Rückseite des Access Points) und die PIN (sofern zuvor festgelegt) ein und bestätigen Sie die Daten durch Drücken der blauen LED-Taste. Dadurch wird ein Authentifizierungstoken erstellt.
+* Geben Sie Ihre SGTIN (Rückseite des Access Points) und die PIN (falls zuvor festgelegt) ein und bestätigen Sie die Daten durch Drücken der blauen LED-Taste. Dadurch wird ein Authentifizierungstoken erstellt.
 
 ## Spezielle Einstellungen
 ### HMIP-DLD (Türschlossantrieb)
-Wenn Sie dem Schloss in der HmIP-App eine PIN (Einstellungen / Zugangsberechtigungen) zugewiesen haben, muss die PIN im PIN-Zustand der Geräteobjekte gesetzt werden. Es ist NICHT Ihre System-PIN!! Wenn Sie in den Einstellungen keine PIN festgelegt haben, können Sie den PIN-Status auch leer lassen.
-Bitte fügen Sie zusätzlich den "iobroker"-Client zur Liste der Zugriffskontroll-Clients in den HmIP-App-Einstellungen hinzu!
+Wenn Sie dem Schloss in der HmIP-App (Einstellungen / Zugangsberechtigungen) eine PIN zugewiesen haben, muss die PIN im PIN-Zustand der Geräteobjekte gesetzt werden. Es ist NICHT Ihre System-PIN!! Wenn Sie in den Einstellungen keine PIN festgelegt haben, können Sie den PIN-Status auch leer lassen.
+Bitte fügen Sie zusätzlich den „iobroker“-Client zur Liste der Zugangskontroll-Clients in den HmIP-App-Einstellungen hinzu!
 
 ## Danke
 * an @coreGreenberet für seine Python-Bibliothek (https://github.com/coreGreenberet/homematicip-rest-api)
@@ -61,12 +61,23 @@ Bitte fügen Sie zusätzlich den "iobroker"-Client zur Liste der Zugriffskontrol
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
+### 1.15.4 (2022-02-19)
+* (Apollon77) Fix sendDoorCommand for HmIP-MOD-HO
+
+### 1.15.3 (2022-01-22)
+* (Apollon77) Add windowOpen indicator to two more places
+* (Apollon77) Optimize reconnection handling
+* (Apollon77) Optimize automatic initialization of unknown devices and channels
+
+### 1.15.2 (2022-01-04)
+* (Apollon77) Wait 10s until no new "unknown state update" was received before updating the whole system
+
 ### 1.15.0 (2022-01-02)
 * Node.js 10.x is now minimum required version for this adapter
 * (Apollon77) Optimize WebSocket reconnection Logic
 * (Apollon77) Optimize current value handling and re-set value if a state change is not processed because of an unchanged value
 * (Apollon77) Implement startImpulse call for ImpulseOutputChannels for e.g. HM-WGC
-* (Apollon77) Implement experimental support for HMIP-DLD to set the lock state and also an option PIN if needed (see notes above)
+* (Apollon77) Implement support for HMIP-DLD to set the lock state and also an option PIN if needed (see notes above)
 * (Apollon77) Detect new and unknown devices and channels and reinitialize the structure to add the new objects on the fly
 * (Apollon77) Implement DOOR_LOCK_SENSOR_CHANNEL
 * (Apollon77) Ignore HEAT_DEMAND_CHANNEL, DEHUMIDIFIER_DEMAND_CHANNEL, FLOOR_TERMINAL_BLOCK_CHANNEL and CHANGE_OVER_CHANNEL because no data to prevent logs

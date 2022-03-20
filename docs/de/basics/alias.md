@@ -157,3 +157,4 @@ Seit Version 3.0 des js-controllers können getrennte Status- und Kommando-Daten
     native: {},
     type: 'state'
 }
+```

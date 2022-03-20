@@ -104,6 +104,28 @@ Wählt man in der Titelzeile unter Historie "mit" oder "influxdb.0" aus, werden
 Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 ## Changelog
+### 2.6.3 (2022-03-07)
+* (Apollon77) Fix potential crash cases (Sentry IOBROKER-INFLUXDB-4Q)
+
+### 2.6.2 (2022-03-03)
+* (Apollon77) Correctly handle db names with hyphens for InfluxDB 1
+* (Apollon77) Fix getHistory for non boolean fields
+* (Apollon77) Adjust shard group duration to influxdb proposals
+
+### 2.6.1 (2022-02-28)
+* (Excodibur) Address issue with updating retention policy for influxDB 1
+
+### 2.6.0 (2022-02-24)
+* (Excodibur) Make request timeout configurable - defaults to 30s
+* (Apollon77) Add option to also accept self signed ssl certificates for InfluxDB 2.x
+
+### 2.5.2 (2022-02-22)
+* (bluefox) Marked interpolated data with `i=true`
+
+### 2.5.0 (2022-02-14)
+* (bluefox) Added new messages: 'update', 'delete', 'deleteRange', 'deleteAll' (only for influxdb v1)
+* (bluefox) Corrected aggregation of data
+
 ### 2.4.0 (2021-12-19)
 * (Excodibur) Added expert settings to deactivate health checks for Influx 2 db (There are no health checks for Influx 1)
 * (Excodibur) Hide settings not relevant when "log changes only" is not used
@@ -152,7 +174,7 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 * (bluefox) added command to read supported features
 
 ### 1.8.6 (2020-05-11)
-* (Apollon77) make sure disabling of datapoints while starting adapter do not crash adapter (Sentry IOBROKER-INFLUXDB-7)
+* (Apollon77) make sure disabling of data points while starting adapter do not crash adapter (Sentry IOBROKER-INFLUXDB-7)
 * (Apollon77) Make sure all start values are processed correctly
 * (Apollon77) More checks to make sure to not crash when states are disabled while data are processed (Sentry IOBROKER-INFLUXDB-8)
 
@@ -160,7 +182,7 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 * (bluefox) set default history if not yet set
 
 ### 1.8.4 (2020-05-02)
-* (Apollon77) make sure disabling of datapoints do not crash adapter (Sentry IOBROKER-INFLUXDB-4)
+* (Apollon77) make sure disabling of data points do not crash adapter (Sentry IOBROKER-INFLUXDB-4)
 
 ### 1.8.3 (2020-04-29)
 * (Apollon77) Fix pot crash case when deleting objects while saving values (Sentry)
@@ -183,7 +205,7 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 * (Apollon77) Small fix for older configurations
 
 ### 1.3.2
-* (Apollon77) Enhance Min-Delta logic for datapoints from type mixed
+* (Apollon77) Enhance Min-Delta logic for data points from type mixed
 
 ### 1.3.1 (2017-01-16)
 * (bluefox) Fix handling of float values in Adapter config and Datapoint config.
@@ -265,7 +287,7 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2021 bluefox, apollon77
+Copyright (c) 2015-2022 bluefox, apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -146,25 +146,6 @@
           },
           "content": "install/hardware.md"
         },
-        "Ready images": {
-          "title": {
-            "en": "Ready images",
-            "de": "Fertigimages",
-            "ru": "Готовые образы",
-            "zh-cn": "镜像安装"
-          },
-          "pages": {
-            "Overview": {
-              "title": {
-                "en": "Overview",
-                "de": "Vorgehen bei Verwendung von Images",
-                "ru": "Работа с образами диска",
-                "zh-cn": "处理图像"
-              },
-              "content": "install/images.md"
-            }
-          }
-        },
         "Virtualization platforms": {
           "title": {
             "en": "Virtualization platforms",
@@ -176,9 +157,9 @@
             "Proxmox": {
               "title": {
                 "en": "Proxmox",
-                "de": "Installation",
-                "ru": "установка",
-                "zh-cn": "安装"
+                "de": "Proxmox",
+                "ru": "Проксмокс",
+                "zh-cn": "Proxmox"
               },
               "content": "install/proxmox.md"
             },
@@ -288,7 +269,7 @@
                 "en": "Node.js & npm",
                 "de": "Update NodeJS",
                 "ru": "Обновить NodeJS",
-                "zh-cn": "更新NodeJS"
+                "zh-cn": "更新 NodeJS"
               },
               "content": "install/updatenode.md"
             }
@@ -813,7 +794,7 @@
           "title": {
             "en": "Multi-Host",
             "de": "Multihost",
-            "ru": "Мультихост",
+            "ru": "мультихост",
             "zh-cn": "高级配置 - 多主机"
           },
           "content": "config/multihost.md"

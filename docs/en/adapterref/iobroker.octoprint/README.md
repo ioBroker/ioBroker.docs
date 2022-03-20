@@ -1,44 +1,32 @@
-![Logo](admin/octoprint.png)
+---
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.octoprint.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.octoprint.svg
+BADGE-Stable: http://iobroker.live/badges/octoprint-stable.svg
+BADGE-installed: http://iobroker.live/badges/octoprint-installed.svg
+BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.octoprint.svg
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.octoprint/badge.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.octoprint.png?downloads=true
+---
+![Logo](../../admin/octoprint.png)
 
 # ioBroker.octoprint
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.octoprint.svg)](https://www.npmjs.com/package/iobroker.octoprint)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.octoprint.svg)](https://www.npmjs.com/package/iobroker.octoprint)
-[![Stable](http://iobroker.live/badges/octoprint-stable.svg)](http://iobroker.live/badges/octoprint-stable.svg)
-[![installed](http://iobroker.live/badges/octoprint-installed.svg)](http://iobroker.live/badges/octoprint-installed.svg)
-[![Dependency Status](https://img.shields.io/david/klein0r/iobroker.octoprint.svg)](https://david-dm.org/klein0r/iobroker.octoprint)
-[![Known Vulnerabilities](https://snyk.io/test/github/klein0r/ioBroker.octoprint/badge.svg)](https://snyk.io/test/github/klein0r/ioBroker.octoprint)
-![Test and Release](https://github.com/klein0r/ioBroker.octoprint/workflows/Test%20and%20Release/badge.svg)
-
-
-[![NPM](https://nodei.co/npm/iobroker.octoprint.png?downloads=true)](https://nodei.co/npm/iobroker.octoprint/)
-
-Adapter to connect OctoPrint to ioBroker
-
-**Tested with [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.7.2**
-
-## Installation
-
-Please use the "adapter list" in ioBroker to install a stable version of this adapter. You can also use the CLI to install this adapter:
-
-```
-iobroker add octoprint
-```
+**Tested with [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.7.3**
 
 ## Features
 
 ### Information
 
 - Get version information
-- Get printer information
-- Get current print job information
-- Get file list information
+- Get printer information (when ``operational``)
+- Get current print job information (when ``printing``)
+- Get file list information (when not ``printing``)
 
 ### Tools
 
-- Set tool temperature
-- Set bed temperature
-- Extrude / Retract
+- Set tool temperature (when ``operational``)
+- Set bed temperature (when ``operational``)
+- Extrude / Retract (when ``operational``)
 
 ### Commands
 
@@ -52,7 +40,7 @@ iobroker add octoprint
 
 ### Supported Plugins
 
-- [Display Layer Progress](https://github.com/OllisGit/OctoPrint-DisplayLayerProgress) - tested with version 1.27.2 (requires **adapter version 2.1.0** or later)
+- [Display Layer Progress](https://github.com/OllisGit/OctoPrint-DisplayLayerProgress) - tested with version 1.28.0 (requires **adapter version 2.1.0** or later)
 - [Slicer Thumbnails](https://github.com/jneilliii/OctoPrint-PrusaSlicerThumbnails) - tested with version 1.0.0 (requires **adapter version 2.2.0** or later)
 
 ## Important!
@@ -69,16 +57,34 @@ Since the `API key` is a protected attribute since version 1.1.0, this will remo
 
 Please use state `system.adapter.octoprint.0.alive` to stop/start the instance.
 
-## Sentry
-
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
-
 ## Changelog
 
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.2.0 (2022-03-07)
+
+Tested with OctoPrint 1.7.3
+
+* (klein0r) Added print times as readable states (seconds to string)
+* (klein0r) Added formatted date when print job will finish
+* (klein0r) Added fan speed and feedrate from plugin Display Layer Progress
+
+### 3.1.0 (2022-02-24)
+
+* (klein0r) Calculate date/time when print will be finished
+* (klein0r) Renamed ``printjob.progress.printtime_left`` to ``printjob.progress.printtimeLeft`` **(BREAKING CHANGE - CHECK YOUR SCRIPTS AND VIS)**
+
+### 3.0.1 (2022-02-12)
+
+* (klein0r) Updated state roles
+* (klein0r) Added hint for Admin 4 configuration
+
+### 3.0.0 (2022-01-19)
+
+* (klein0r) Added printing and operational state
+
 ### 2.2.0 (2022-01-15)
 
 * (klein0r) Added plugin support: Slicer Thumbnails

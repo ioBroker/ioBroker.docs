@@ -1,7 +1,8 @@
 ---
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.info.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.info.svg
-BADGE-Number of Installations: http://iobroker.live/badges/info-stable.svg
+BADGE-Number of Installations: http://iobroker.live/badges/info-installed.svg
+BADGE-Current version in stable repository: http://iobroker.live/badges/info-stable.svg
 BADGE-Dependency Status: https://img.shields.io/david/iobroker-community-adapters/iobroker.info.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.info.png?downloads=true
 ---
@@ -316,7 +317,9 @@ $ sudo apt-get install smartmontools
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
 
-### 1.9.19 (2022-xx-xx)
+### 1.9.20 (**WORK IN PROGRESS**)
+
+### 1.9.19 (2022-03-01)
 * (ldittmar) Fix audio, USB, bluetooth and printer view
 * (ldittmar) Translations fix
 

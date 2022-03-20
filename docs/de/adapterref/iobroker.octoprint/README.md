@@ -1,61 +1,51 @@
 ---
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.octoprint/README.md
-title: ioBroker.octoprint
-hash: dD+bUWRriLBqzTd1a4v+YeMwmng9ECO5yufCPWoQO5g=
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.octoprint.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.octoprint.svg
+BADGE-Stable: http://iobroker.live/badges/octoprint-stable.svg
+BADGE-installed: http://iobroker.live/badges/octoprint-installed.svg
+BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.octoprint.svg
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.octoprint/badge.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.octoprint.png?downloads=true
 ---
-![Logo](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
+![Logo](../../admin/octoprint.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.octoprint.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.octoprint.svg)
-![Stabil](http://iobroker.live/badges/octoprint-stable.svg)
-![Eingerichtet](http://iobroker.live/badges/octoprint-installed.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/klein0r/iobroker.octoprint.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/klein0r/ioBroker.octoprint/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.octoprint.png?downloads=true)
+# ioBroker.octoprint
 
-# IoBroker.octoprint
-![Testen und freigeben](https://github.com/klein0r/ioBroker.octoprint/workflows/Test%20and%20Release/badge.svg)
+**Getestet mit [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.7.3**
 
-Adapter zur Verbindung von OctoPrint mit ioBroker
+## Features
 
-**Getestet mit [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.7.2**
+### Informationen
 
-## Installation
-Bitte verwenden Sie die "Adapterliste" in ioBroker, um eine stabile Version dieses Adapters zu installieren. Sie können diesen Adapter auch über die CLI installieren:
+- Versions-Informationen
+- Drucker-Informationen (wenn ``operational``)
+- Infos zum Druckauftrag (wenn ``printing``)
+- Datei-Informationen (wenn nicht ``printing``)
 
-```
-iobroker add octoprint
-```
+### Werkzeuge
 
-## Merkmale
-### Information
-- Holen Sie sich Versionsinformationen
-- Druckerinformationen abrufen
-- Holen Sie sich aktuelle Druckauftragsinformationen
-- Holen Sie sich Dateilisteninformationen
+- Tool-Temperatur ändern (wenn ``operational``)
+- Bed-Temperatur ändern (wenn ``operational``)
+- Extrude / Retract (wenn ``operational``)
 
-### Werkzeug
-- Werkzeugtemperatur einstellen
-- Betttemperatur einstellen
-- Extrudieren / Zurückziehen
+### Kommandos
 
-### Befehle
-- Drucker: Verbinden, trennen und nach Hause
-- Job: Start, Pause, Fortsetzen, Abbrechen, Neustart
+- Drucker: Connect, disconnect and home
+- Druckauftrag: Start, Pause, Resume, Cancel, Restart
 - SD-Karte: Init, Refresh, Release
-- Benutzerdefinierte Druckerbefehle
-- Systembefehle
-- Jog X-, Y- und Z-Achse
-- Wählen Sie eine Datei aus oder drucken Sie sie aus
+- Eigene Drucker-Befehle
+- System-Kommandos
+- Jog X, Y and Z Achse
+- Datei auswählen und drucken
 
 ### Unterstützte Plugins
-- [Fortschritt der Anzeigeebene](https://github.com/OllisGit/OctoPrint-DisplayLayerProgress) - getestet mit Version 1.27.2 (benötigt **Adapterversion 2.1.0** oder höher)
-- [Slicer Thumbnails](https://github.com/jneilliii/OctoPrint-PrusaSlicerThumbnails) - getestet mit Version 1.0.0 (benötigt **Adapterversion 2.2.0** oder höher)
+
+- [Display Layer Progress](https://github.com/OllisGit/OctoPrint-DisplayLayerProgress) - getestet mit Version 1.28.0 (erfordert **Adapter-Version 2.1.0** oder neuer)
+- [Slicer Thumbnails](https://github.com/jneilliii/OctoPrint-PrusaSlicerThumbnails) - getestet mit Version 1.0.0 (erfordert **Adapter-Version 2.2.0** oder neuer)
 
 ## Wichtig!
-Starten Sie Ihre OctoPrint-Instanz (oder eine andere Instanz) NICHT mit folgendem Code neu:
+
+Starte deine OctoPrint-Instanz (oder irgend eine andere Instsanz) NICHT mit dem folgenden Code neu:
 
 ```javascript
 var obj = getObject('system.adapter.octoprint.0');
@@ -63,12 +53,9 @@ obj.common.enabled = false;
 setObject('system.adapter.octoprint.0', obj);
 ```
 
-Da `API key` seit Version 1.1.0 ein geschütztes Attribut ist, wird dadurch der konfigurierte API-Schlüssel entfernt. Der Grund dafür ist, dass `getObject` keine geschützten Informationen zurückgibt (der API-Schlüssel ist also nicht im zurückgegebenen Objekt enthalten). Wenn Sie das Objekt speichern, speichern Sie ein Objekt ohne den Schlüssel.
+Da der `API-Key` seit Adapter-Version 1.1.0 als geschütztes Attribut hinterlegt ist, würde dadurch die Konfiguration des API-Key verloren gehen. Der Grund dafür ist, dass `getObject` keine geschützen Attribute ausliefert (sodass der API-Key nicht im zurückgelieferten Objekt enthalten ist). Wird das Objekt dann erneut gespeichert, geht das Attribut im Objekt verloren.
 
-Bitte verwenden Sie den Zustand `system.adapter.octoprint.0.alive`, um die Instanz zu stoppen/starten.
-
-##Wache
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+Bitte nutzt den Datenpunkt `system.adapter.octoprint.0.alive` um die Instanz zu starten oder zu stoppen.
 
 ## Changelog
 
@@ -76,6 +63,28 @@ Bitte verwenden Sie den Zustand `system.adapter.octoprint.0.alive`, um die Insta
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.2.0 (2022-03-07)
+
+Tested with OctoPrint 1.7.3
+
+* (klein0r) Added print times as readable states (seconds to string)
+* (klein0r) Added formatted date when print job will finish
+* (klein0r) Added fan speed and feedrate from plugin Display Layer Progress
+
+### 3.1.0 (2022-02-24)
+
+* (klein0r) Calculate date/time when print will be finished
+* (klein0r) Renamed ``printjob.progress.printtime_left`` to ``printjob.progress.printtimeLeft`` **(BREAKING CHANGE - CHECK YOUR SCRIPTS AND VIS)**
+
+### 3.0.1 (2022-02-12)
+
+* (klein0r) Updated state roles
+* (klein0r) Added hint for Admin 4 configuration
+
+### 3.0.0 (2022-01-19)
+
+* (klein0r) Added printing and operational state
+
 ### 2.2.0 (2022-01-15)
 
 * (klein0r) Added plugin support: Slicer Thumbnails

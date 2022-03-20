@@ -1,48 +1,36 @@
 ---
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.octoprint.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.octoprint.svg
+BADGE-Stable: http://iobroker.live/badges/octoprint-stable.svg
+BADGE-installed: http://iobroker.live/badges/octoprint-installed.svg
+BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.octoprint.svg
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.octoprint/badge.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.octoprint.png?downloads=true
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: dD+bUWRriLBqzTd1a4v+YeMwmng9ECO5yufCPWoQO5g=
+hash: aTYwR68R4eY5dXYLeHgdlUJrMnSoz0zuuOcbWfrgxhg=
 ---
-![标识](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
-
-![NPM 版本](http://img.shields.io/npm/v/iobroker.octoprint.svg)
-![下载](https://img.shields.io/npm/dm/iobroker.octoprint.svg)
-![稳定的](http://iobroker.live/badges/octoprint-stable.svg)
-![已安装](http://iobroker.live/badges/octoprint-installed.svg)
-![依赖状态](https://img.shields.io/david/klein0r/iobroker.octoprint.svg)
-![已知漏洞](https://snyk.io/test/github/klein0r/ioBroker.octoprint/badge.svg)
-![新PM](https://nodei.co/npm/iobroker.octoprint.png?downloads=true)
+![商标](../../../en/adapterref/iobroker.octoprint/../../admin/octoprint.png)
 
 # IoBroker.octoprint
-![测试和发布](https://github.com/klein0r/ioBroker.octoprint/workflows/Test%20and%20Release/badge.svg)
-
-将 OctoPrint 连接到 ioBroker 的适配器
-
-**通过[OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.7.2 测试**
-
-＃＃ 安装
-请使用 ioBroker 中的“适配器列表”安装此适配器的稳定版本。您还可以使用 CLI 安装此适配器：
-
-```
-iobroker add octoprint
-```
+**通过[OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.7.3 测试**
 
 ＃＃ 特征
 ＃＃＃ 信息
 - 获取版本信息
-- 获取打印机信息
-- 获取当前打印作业信息
-- 获取文件列表信息
+- 获取打印机信息（“操作”时）
+- 获取当前打印作业信息（“打印”时）
+- 获取文件列表信息（不“打印”时）
 
 ＃＃＃ 工具
-- 设置工具温度
-- 设置床温
-- 挤出/缩回
+- 设置工具温度（“操作”时）
+- 设置床温（“操作”时）
+- 挤出/缩回（“操作”时）
 
 ### 命令
-- 打印机：连接、断开连接和回家
+- 打印机：连接、断开和回家
 - 工作：开始、暂停、继续、取消、重新开始
 - SD卡：初始化、刷新、释放
 - 自定义打印机命令
@@ -51,7 +39,7 @@ iobroker add octoprint
 - 选择一个文件或打印它
 
 ### 支持的插件
-- [显示层进度](https://github.com/OllisGit/OctoPrint-DisplayLayerProgress) - 使用版本 1.27.2 测试（需要 **适配器版本 2.1.0** 或更高版本）
+- [显示层进度](https://github.com/OllisGit/OctoPrint-DisplayLayerProgress) - 使用版本 1.28.0 测试（需要 **适配器版本 2.1.0** 或更高版本）
 - [切片器缩略图](https://github.com/jneilliii/OctoPrint-PrusaSlicerThumbnails) - 使用 1.0.0 版测试（需要 **适配器 2.2.0 版或更高版本）
 
 ＃＃ 重要的！
@@ -67,15 +55,34 @@ setObject('system.adapter.octoprint.0', obj);
 
 请使用状态 `system.adapter.octoprint.0.alive` 停止/启动实例。
 
-##哨兵
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
-
 ## Changelog
 
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.2.0 (2022-03-07)
+
+Tested with OctoPrint 1.7.3
+
+* (klein0r) Added print times as readable states (seconds to string)
+* (klein0r) Added formatted date when print job will finish
+* (klein0r) Added fan speed and feedrate from plugin Display Layer Progress
+
+### 3.1.0 (2022-02-24)
+
+* (klein0r) Calculate date/time when print will be finished
+* (klein0r) Renamed ``printjob.progress.printtime_left`` to ``printjob.progress.printtimeLeft`` **(BREAKING CHANGE - CHECK YOUR SCRIPTS AND VIS)**
+
+### 3.0.1 (2022-02-12)
+
+* (klein0r) Updated state roles
+* (klein0r) Added hint for Admin 4 configuration
+
+### 3.0.0 (2022-01-19)
+
+* (klein0r) Added printing and operational state
+
 ### 2.2.0 (2022-01-15)
 
 * (klein0r) Added plugin support: Slicer Thumbnails

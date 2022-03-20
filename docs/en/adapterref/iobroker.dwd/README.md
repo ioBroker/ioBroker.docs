@@ -24,6 +24,9 @@ This adapter loads the weather warnings from the German weather service via JSON
 
 ## Changelog
 
+### __WORK IN PROGRESS__
+* (Apollon77) Add instruction text to warning data
+
 ### 2.7.7 (2021-07-01)
 * (Apollon77) Fix start/end dates
 
@@ -173,7 +176,7 @@ This adapter loads the weather warnings from the German weather service via JSON
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2021 bluefox <dogafox@gmail.com>, hobbyquaker
+Copyright (c) 2016-2022 bluefox <dogafox@gmail.com>, hobbyquaker
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

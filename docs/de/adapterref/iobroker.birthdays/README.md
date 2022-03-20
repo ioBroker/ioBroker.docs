@@ -1,220 +1,22 @@
 ---
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.birthdays/README.md
-title: ioBroker.geburtstage
-hash: kCfQvkZ4tMuXCDMcKFXfsCYUe7J1yG0ieoLT3iWNa3I=
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.birthdays.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.birthdays.svg
+BADGE-Stable: http://iobroker.live/badges/birthdays-stable.svg
+BADGE-installed: http://iobroker.live/badges/birthdays-installed.svg
+BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.birthdays.svg
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.birthdays/badge.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.birthdays.png?downloads=true
+chapters: {"pages":{"de/adapterref/iobroker.birthdays/README.md":{"title":{"de":"ioBroker.birthdays"},"content":"de/adapterref/iobroker.birthdays/README.md"},"de/adapterref/iobroker.birthdays/ical.md":{"title":{"de":"ioBroker.birthdays"},"content":"de/adapterref/iobroker.birthdays/ical.md"},"de/adapterref/iobroker.birthdays/carddav.md":{"title":{"de":"ioBroker.birthdays"},"content":"de/adapterref/iobroker.birthdays/carddav.md"}}}
 ---
-![Logo](../../../en/adapterref/iobroker.birthdays/admin/birthdays.png)
+![Logo](../../admin/birthdays.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.birthdays.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.birthdays.svg)
-![Stabil](http://iobroker.live/badges/birthdays-stable.svg)
-![Eingerichtet](http://iobroker.live/badges/birthdays-installed.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/klein0r/iobroker.birthdays.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/klein0r/ioBroker.birthdays/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.birthdays.png?downloads=true)
+# ioBroker.birthdays
 
-#ioBroker.geburtstage
-![Testen und freigeben](https://github.com/klein0r/ioBroker.birthdays/workflows/Test%20and%20Release/badge.svg)
+## Inhaltsverzeichnis
 
-Verwenden Sie eine ical-Datei, um die Geburtstage Ihrer Kontakte zu importieren oder definieren Sie die Geburtstagsdaten direkt in den Adaptereinstellungen
-
-## Gefördert durch
-[![ioBroker Master Kurs](https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-birthdays)
-
-## Installation
-Bitte verwenden Sie die "Adapterliste" in ioBroker, um eine stabile Version dieses Adapters zu installieren. Sie können diesen Adapter auch über die CLI installieren:
-
-```
-iobroker add birthdays
-```
-
-## Aufbau
-Sie können eine ical-URL verwenden, um Zugriff auf Ihren Geburtstagskalender zu gewähren. Der Adapter sucht nach allen Ereignissen in dieser Datei.
-
-Ihre Veranstaltungen
-
-1. muss das Geburtsjahr in der Beschreibung enthalten (z.B. 1987)
-2. sind ganztägige Veranstaltungen
-3. müssen "jährlich wiederholt" werden
-
-Es ist NICHT erforderlich, die Option ical zu verwenden. Sie können auch alle Geburtstagsdaten in den Einstellungen definieren. *Wenn Sie beide Optionen verwenden, werden die Informationen zusammengeführt.*
-
-![Kalenderbeispiel](../../../en/adapterref/iobroker.birthdays/images/exampleCalendar.png)
-
-## Beispiel (Blockweise)
-(erfordert Pushover)
-
-![Blockiges Beispiel](../../../en/adapterref/iobroker.birthdays/images/exampleBlockly.png)
-
-```xml
-<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="p+Z^g1!hvR3!J9i,X(AI">text</variable>
-  </variables>
-  <block type="procedures_defnoreturn" id="gJY_AOXgo;b#ej2CXe3/" x="87" y="-212">
-    <mutation>
-      <arg name="text" varid="p+Z^g1!hvR3!J9i,X(AI"></arg>
-    </mutation>
-    <field name="NAME">sendText</field>
-    <comment pinned="false" h="80" w="160">Beschreibe diese Funktion …</comment>
-    <statement name="STACK">
-      <block type="pushover" id="D7E4hKm%5=|Yi-b-)9(A">
-        <field name="INSTANCE"></field>
-        <field name="SOUND"></field>
-        <field name="PRIORITY">0</field>
-        <field name="LOG"></field>
-        <value name="MESSAGE">
-          <shadow type="text" id="prP3?f.yGgkkp))l]A07">
-            <field name="TEXT">text</field>
-          </shadow>
-          <block type="variables_get" id="iMSl1Pg7ZEvE%hQd6B9{">
-            <field name="VAR" id="p+Z^g1!hvR3!J9i,X(AI">text</field>
-          </block>
-        </value>
-        <value name="TITLE">
-          <block type="text" id="T96y]A^n-1TV52cw%+Gk">
-            <field name="TEXT">Geburtstags-Kalender</field>
-          </block>
-        </value>
-      </block>
-    </statement>
-  </block>
-  <block type="schedule" id="6#((PC;76=!e/P3^ZsKI" x="88" y="113">
-    <field name="SCHEDULE">0 7 * * *</field>
-    <statement name="STATEMENT">
-      <block type="controls_if" id="oZ%5t{r{bO3c{Xhl-|_a">
-        <mutation elseif="1"></mutation>
-        <value name="IF0">
-          <block type="logic_compare" id=",Ui1[S(n}f`O*5_zS=:K">
-            <field name="OP">EQ</field>
-            <value name="A">
-              <block type="get_value" id="L/Vh`N_zLwYK$+90B)l.">
-                <field name="ATTR">val</field>
-                <field name="OID">birthdays.0.next.daysLeft</field>
-              </block>
-            </value>
-            <value name="B">
-              <block type="math_number" id="W87L*`2V7yMC5j};TO0,">
-                <field name="NUM">0</field>
-              </block>
-            </value>
-          </block>
-        </value>
-        <statement name="DO0">
-          <block type="procedures_callnoreturn" id="|%0O9GCBWm-9UV_Z~/%^">
-            <mutation name="sendText">
-              <arg name="text"></arg>
-            </mutation>
-            <value name="ARG0">
-              <block type="text_join" id="rQa(!TVIvOgf/Vnn,nWG">
-                <mutation items="2"></mutation>
-                <value name="ADD0">
-                  <block type="text" id="h770a|!zX%7)X[Vk.2,[">
-                    <field name="TEXT">Geburtstage heute: </field>
-                  </block>
-                </value>
-                <value name="ADD1">
-                  <block type="get_value" id="U2%GgLhMX(ra$S;y1/_K">
-                    <field name="ATTR">val</field>
-                    <field name="OID">birthdays.0.next.text</field>
-                  </block>
-                </value>
-              </block>
-            </value>
-            <next>
-              <block type="controls_if" id="$QQRR`a-vzSUU}88$?~`">
-                <value name="IF0">
-                  <block type="logic_compare" id="eg:?F}+ID`%G1LHM5PAZ">
-                    <field name="OP">EQ</field>
-                    <value name="A">
-                      <block type="get_value" id="Ato::k3GO0QfM_Fs.6s;">
-                        <field name="ATTR">val</field>
-                        <field name="OID">birthdays.0.nextAfter.daysLeft</field>
-                      </block>
-                    </value>
-                    <value name="B">
-                      <block type="math_number" id="n(N#~`eD{7Q,X!c=+/(V">
-                        <field name="NUM">1</field>
-                      </block>
-                    </value>
-                  </block>
-                </value>
-                <statement name="DO0">
-                  <block type="procedures_callnoreturn" id="T6*=i:ILlcQ^z%0.w~yK">
-                    <mutation name="sendText">
-                      <arg name="text"></arg>
-                    </mutation>
-                    <value name="ARG0">
-                      <block type="text_join" id="*ne-l72dQ??5^6Dj2gV$">
-                        <mutation items="2"></mutation>
-                        <value name="ADD0">
-                          <block type="text" id="ba}815_R_35-Y~GG*}/R">
-                            <field name="TEXT">Geburtstage morgen: </field>
-                          </block>
-                        </value>
-                        <value name="ADD1">
-                          <block type="get_value" id="u?8B|PylEzphdFq{f]QK">
-                            <field name="ATTR">val</field>
-                            <field name="OID">birthdays.0.nextAfter.text</field>
-                          </block>
-                        </value>
-                      </block>
-                    </value>
-                  </block>
-                </statement>
-              </block>
-            </next>
-          </block>
-        </statement>
-        <value name="IF1">
-          <block type="logic_compare" id="4E5@w,gT+=q(NaaGdT?U">
-            <field name="OP">EQ</field>
-            <value name="A">
-              <block type="get_value" id="~~U^$SjlNI3ns6I5Yz~O">
-                <field name="ATTR">val</field>
-                <field name="OID">birthdays.0.next.daysLeft</field>
-              </block>
-            </value>
-            <value name="B">
-              <block type="math_number" id="T{[v+psC[IzHkn.LkZP4">
-                <field name="NUM">1</field>
-              </block>
-            </value>
-          </block>
-        </value>
-        <statement name="DO1">
-          <block type="procedures_callnoreturn" id="I5L?1ZB,[|2x[Nm$8s4Z">
-            <mutation name="sendText">
-              <arg name="text"></arg>
-            </mutation>
-            <value name="ARG0">
-              <block type="text_join" id="!EFb@yB_*Hm!QU{gcA]I">
-                <mutation items="2"></mutation>
-                <value name="ADD0">
-                  <block type="text" id="{ofc`NkX8NjN`:`DEIH*">
-                    <field name="TEXT">Geburtstage morgen: </field>
-                  </block>
-                </value>
-                <value name="ADD1">
-                  <block type="get_value" id=",%aRO_hL*tODl=By@eru">
-                    <field name="ATTR">val</field>
-                    <field name="OID">birthdays.0.next.text</field>
-                  </block>
-                </value>
-              </block>
-            </value>
-          </block>
-        </statement>
-      </block>
-    </statement>
-  </block>
-</xml>
-```
-
-## Credits
-[Logo von herbanu](https://pixabay.com/de/vectors/geburtstag-karte-cele-feier-design-3148707/)
+- [iCal](ical.md)
+- [CardDAV](carddav.md)
+- [Blockly](blockly.md)
 
 ## Changelog
 
@@ -222,6 +24,43 @@ Es ist NICHT erforderlich, die Option ical zu verwenden. Sie können auch alle G
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.2.0 (2022-03-04)
+
+* (klein0r) Dropped "node-ical" dependency and parse events directly
+* (klein0r) Stop scheduled adapter instance in any case and report errors
+
+### 1.1.3 (2022-02-27)
+
+* (klein0r) Stop adapter when everything was processed (with timeout)
+
+### 1.1.2 (2022-02-27)
+
+* (klein0r) Stop adapter when everything was processed
+
+### 1.1.1 (2022-02-25)
+
+* (klein0r) CardDAV password config is not a clear text anymore
+
+### 1.1.0 (2022-02-24)
+
+* (klein0r) Added CardDAV support
+
+### 1.0.0 (2022-02-10)
+
+* (klein0r) Updated state roles
+* (klein0r) Added hint for Admin 4 configuration
+* (klein0r) Fixed translations
+
+### 0.2.0 (2022-01-06)
+
+* (klein0r) Added option to ignore certificate errors
+
+### 0.1.8 (2022-01-03)
+
+* (klein0r) Birthdays on 29th of February create NaN objects
+* (klein0r) Added check for empty names
+* (klein0r) Added date checks
+
 ### 0.1.7 (2021-12-23)
 
 * (klein0r) Added defaults for birthdays table
@@ -272,7 +111,7 @@ Es ist NICHT erforderlich, die Option ical zu verwenden. Sie können auch alle G
 
 The MIT License (MIT)
 
-Copyright (c) 2021 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

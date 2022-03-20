@@ -153,6 +153,9 @@ By writing JSON data to the `raw.send` state you are able to send CAN messages c
 
 ## Changelog
 
+### 1.3.1 (pending)
+* (crycode-de) Fixed `autoSetValue` defaults for parsers
+
 ### 1.3.0 (2022-02-07)
 * (crycode-de) Added `sharedData` object in custom parsers
 

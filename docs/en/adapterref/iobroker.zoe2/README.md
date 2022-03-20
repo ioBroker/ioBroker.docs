@@ -8,6 +8,7 @@
 
 **Downloads**
 [![Downloads](https://img.shields.io/npm/dm/iobroker.zoe2.svg)](https://www.npmjs.com/package/iobroker.zoe2)
+ ![Number of Installations](https://iobroker.live/badges/zoe2-installed.svg)
 
 **License:**
 [![License](https://img.shields.io/github/license/fungus75/ioBroker.zoe2)](https://github.com/fungus75/ioBroker.zoe2/blob/master/LICENSE)
@@ -19,6 +20,8 @@ Simple ioBroker-Adapter to get some basic values from Renault ZOE and use it in 
 
 
 IMPORTANT!!! IF YOU UPDATE FROM A VERSION BEFORE 0.2.2, YOU HAVE TO REENTER YOUR PASSWORD BECAUSE STARTING WITH 0.2.2 PASSWORD IS SAVED ENCRYPTED!!!
+
+**API KEY!!! IF ADAPTER STOPS WORKING PLEASE ALWAYS LOOK AT https://github.com/fungus75/ioBroker.zoe2/wiki BECAUSE RENAULT OFTEN CHANGES THEIR API KEY!!!**
 
 
 PLEASE NOTE: THIS ADAPTER USES THE SAME API AS THE MY RENAULT APP. BUT YOU MUST HAVE TO SET UP MY RENAULT APP TO WORK BEFORE USING THIS ADAPTER. i.e. on Android: https://play.google.com/store/apps/developer?id=RENAULT+SAS - if you want to use the old api, please use https://github.com/fungus75/ioBroker.zoe instead.
@@ -118,9 +121,12 @@ for your great documentation and work.
 
 ## Changelog
 
+### 0.2.4 (2022-02-16)
+- Replaced obsolete Request-Library by axios
+- Code-Adjustments
+
 ### 0.2.3 (2021-07-29)
 - Code Adjustments, Error-Handling
-
 
 ### 0.2.2 (2021-07-26)
 - Store Password Encrypted (You have to reset it, if updating from older version)

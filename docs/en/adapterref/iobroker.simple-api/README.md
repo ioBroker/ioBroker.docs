@@ -580,6 +580,13 @@ If no data source was specified or the noHistory parameter is passed, then only 
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 2.6.4 (2022-03-17)
+* (Apollon77) Optimize performance, especially when using names instead of object ids
+
+### 2.6.3 (2022-02-19)
+* (Apollon77) Optimize error message for multilanguage objects
+* (Apollon77) Do not overwrite state properties by object properties
+
 ### 2.6.2 (2021-11-12)
 * (bluefox) Support of new flags for `getPlainValue`: `json` and `noStringify`
 
@@ -718,7 +725,7 @@ If no data source was specified or the noHistory parameter is passed, then only 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2015-2022 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

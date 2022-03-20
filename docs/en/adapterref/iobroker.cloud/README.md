@@ -75,6 +75,12 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 -->
 
 ## Changelog
+### 4.1.1 (2022-02-19)
+* Important: Requires js-controller 3.1 at least!
+* (Apollon77) Add some checks to prevent issues with missing data
+* (Apollon77) FIx some crash cases reported by Sentry
+* (Apollon77) pass HEAD requests without body (Sentry IOBROKER-CLOUD-14)
+
 ### 4.1.0 (2021-07-17)
 * (bluefox) Added support for new javascript
 
@@ -100,7 +106,7 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 * (bluefox) Stop all timers on the unloading
 
 ### 4.0.3 (2021-01-26)
-* (bluefox) Added the ignoring of restart on disconnect by the redirection 
+* (bluefox) Added the ignoring of restart on disconnect by the redirection
 
 ### 4.0.2 (2021-01-24)
 * (Apollon77) Make sure states which were not set or expired do not crash when requested via services (Sentry IOBROKER-CLOUD-P)
@@ -293,7 +299,7 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2022 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rfxcom/README.md
 title: ioBroker.rfxcom
-hash: sHn5GJunDJU2gCzbWU1P920vRVUfOaaV3gTF/zyrpN4=
+hash: 7nbcRLPBSS10VFNTYxZ596/gHlhYGkY1VLwYo0fOZNc=
 ---
 ![商标](../../../en/adapterref/iobroker.rfxcom/admin/rfxcom.png)
 
@@ -12,7 +12,9 @@ hash: sHn5GJunDJU2gCzbWU1P920vRVUfOaaV3gTF/zyrpN4=
 ![下载](https://img.shields.io/npm/dm/iobroker.rfxcom.svg)
 
 # IoBroker.rfxcom
-![测试和发布](https://github.com/ioBroker/ioBroker.rfxcom/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/rfxcom/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试和发布](https://github.com/ioBroker/ioBroker.rfxcom/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/rfxcom/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 此适配器与 [rfxcom](http://www.rfxcom.com) 通信。
 用于接收来自天气传感器和无线电源开关的数据。
@@ -20,7 +22,7 @@ hash: sHn5GJunDJU2gCzbWU1P920vRVUfOaaV3gTF/zyrpN4=
 阅读 RfxCom 的详细文档[这里](http://www.rfxcom.com/WebRoot/StoreNL2/Shops/78165469/MediaGallery/Downloads/RFXtrx_User_Guide.pdf)
 
 ＃＃ 用法
-要启用传感器的学习，您必须激活“包含模式”。
+要启用传感器学习，您必须激活“包含模式”。
 默认情况下，包含模式将启用 5 分钟（300000 毫秒），5 分钟后将自动禁用。
 
 要永久启用包含模式，只需将“包含超时”设置为 0。
@@ -30,16 +32,20 @@ hash: sHn5GJunDJU2gCzbWU1P920vRVUfOaaV3gTF/zyrpN4=
 
 所以更换电池后必须重新学习。
 
-为此，请在插入电池之前按下配对按钮，设备将获知新地址。
+为此，在插入电池之前按下配对按钮，设备将学习新地址。
 
 ＃＃ 去做
 **目前仅支持尚飞、Curtain 和 Lighting3 设备。**
 
 <!-- 下一个版本的占位符（在行首）：
 
-### __工作进行中__ -->
+### __工作正在进行中__ -->
 
 ## Changelog
+
+### 2.0.2 (2021-11-10)
+* (bluefox) Fixed error by deleting of object
+
 ### 2.0.1 (2021-06-29)
 * (peterbaumert) update packages
 * (bluefox) Breaking change: no linux with 32 bit support

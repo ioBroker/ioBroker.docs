@@ -16,8 +16,6 @@
   * [Introduction](install/README)
   * [Requirements](install/requirements)
   * [Hardware](install/hardware)
-  * en:Ready images;de:Fertigimages;ru:Готовые образы;zh-cn:镜像安装
-    * [Overview](install/images)
   * en:Virtualization platforms;de:Virtualisierungsplattformen;ru:Платформы виртуализации;zh-cn:虚拟机安装
     * [Proxmox](install/proxmox)
     * [VirtualBox](install/virtualbox)

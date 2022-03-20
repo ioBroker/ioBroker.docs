@@ -2,12 +2,12 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sureflap/README.md
-title: ioBroker.surflap
-hash: vYeV5RQS/D0Ad5A0LLu5B4PUXTUBpY4cmHGUmAYcI4o=
+title: ioBroker.sureflap
+hash: GDlWBe+K/gW1jDuXCwhr5IS3zmwm4/5e8M9zQsoxL0U=
 ---
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sureflap.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sureflap.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/sureflap-installed.svg)
+![Anzahl der Installationen (neueste)](http://iobroker.live/badges/sureflap-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/sureflap-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/Sickboy78/iobroker.sureflap.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/Sickboy78/ioBroker.sureflap/badge.svg)
@@ -18,40 +18,59 @@ hash: vYeV5RQS/D0Ad5A0LLu5B4PUXTUBpY4cmHGUmAYcI4o=
 <p align="center"> <img src="admin/sureflap.png" /> </p>
 
 # IoBroker.sureflap
-## Adapter für SureFlap® Katzen- und Haustierklappen von Sure Petcare®
+## Adapter für Smart Pet Devices von Sure Petcare®
 <p align="center"> <img src="/admin/SureFlap_Pet_Door_Connect_Hub_Phone.png" /> </p>
 
 ## Aufbau
-Fügen Sie auf der Adapterkonfigurationsseite einen Benutzernamen und ein Passwort von Ihrem Sure Petcare®-Konto hinzu.
+Fügen Sie den Benutzernamen und das Passwort Ihres Sure Petcare®-Kontos auf der Adapterkonfigurationsseite hinzu.
 
 ## Beschreibung
-Der Adapter informiert über die Einstellungen und den Status Ihrer Katzenklappe oder Ihres Futterautomaten.
+Der Adapter gibt Auskunft über die Einstellungen und den Status Ihrer Haustierklappe, Katzenklappe oder Ihres Futterautomaten.
 
-Es zeigt auch den Standort Ihrer Haustiere an.
+Es zeigt auch den Aufenthaltsort Ihrer Haustiere und deren Futteraufnahme (mit Futternapf).
 
-### Änderbare Werte
-Die folgenden Zustände können geändert werden und werden auf Ihrem Gerät wirksam bzw. werden in Ihrer Sure Petcare®-App angezeigt.
+Damit können Sie den Sperrmodus und die Ausgangssperre Ihrer Klappe steuern und den Standort Ihrer Haustiere festlegen.
+
+### Veränderbare Werte
+Die folgenden Zustände können geändert werden und werden auf Ihrem Gerät wirksam bzw. in Ihrer Sure Petcare®-App wiedergegeben.
 
 | Zustand | Beschreibung | zulässige Werte |
 |-------|-------------|----------------|
 | haushaltsname.hub_name.control.led_mode | stellt die Helligkeit der Hub-LEDs ein | **0** - aus<br> **1** - hoch<br> **4** - gedimmt |
-| house_name.hub_name.flap_name.control.curfew | aktiviert oder deaktiviert die konfigurierte Ausgangssperre<br> (Ausgangssperre muss per App konfiguriert werden) | **wahr** oder **falsch** |
-| house_name.hub_name.flap_name.control.lockmode | setzt den Sperrmodus | **0** - geöffnet<br> **1** - einschließen<br> **2** - Aussperren<br> **3** - geschlossen (ein- und aussperren) |
-| house_name.hub_name.flap_name.assigned_pets.pet_name.control.type | legt den Haustiertyp für das zugewiesene Haustier und die Klappe fest | **2** - Haustier im Freien<br> **3** - Haustier im Haus |
-| house_name.hub_name.feeder_name.control.close_delay | stellt die Schließverzögerung des Zufuhrdeckels ein | **0** - schnell<br> **4** - normal<br> **20** - langsam |
-| haushaltsname.haustiere.haustiername.inside | legt fest, ob Ihr Haustier drinnen ist | **wahr** oder **falsch** |
+| Haushaltsname.Hub_Name.Klappenname.Kontrolle.Ausgangssperre | aktiviert oder deaktiviert die konfigurierte Ausgangssperre<br> (Ausgangssperre muss per App konfiguriert werden) | **wahr** oder **falsch** |
+| Haushaltsname.Hub_Name.Klappenname.Steuerung.Sperrmodus | setzt den Sperrmodus | **0** - offen<br> **1** - einsperren<br> **2** - sperren<br> **3** - geschlossen (ein- und aussperren) |
+| Haushaltsname.Hub_Name.Klappenname.Zugewiesene_Haustiere.Haustiername.Steuerung.Typ | setzt den Haustiertyp für das zugewiesene Haustier und die Klappe | **2** - Haustier im Freien<br> **3** - Haustier |
+| haushaltsname.hub_name.feeder_name.control.close_delay | legt die Schließverzögerung des Speiserdeckels fest | **0** - schnell<br> **4** - normal<br> **20** - langsam |
+| haushaltsname.haustiere.haustiername.innen | legt fest, ob sich Ihr Haustier darin befindet | **wahr** oder **falsch** |
 
 ### Struktur
 Der Adapter erstellt die folgende hierarchische Struktur:
 
-Adapter<br> ├ haushaltsname<br> │ ├ hub_name<br> │ │ ├ online<br> │ │ ├ Kontrolle<br> │ │ │ └ led_mode<br> │ │ ├ feeder_name<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterie_Prozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ zugewiesene_Haustiere<br> │ │ │ │ └ pet_name<br> │ │ │ ├ Schüsseln<br> │ │ │ │ └ 0..1<br> │ │ │ │ ├ food_type<br> │ │ │ │ ├ Ziel<br> │ │ │ │ └ Gewicht<br> │ │ │ └ Kontrolle<br> │ │ │ └ close_delay<br> │ │ └ Klappenname<br> │ │ ├ Batterie<br> │ │ ├ Batterie_Prozentsatz<br> │ │ ├ curfew_active<br> │ │ ├ online<br> │ │ ├ Kontrolle<br> │ │ │ ├ Ausgangssperre<br> │ │ │ └ Sperrmodus<br> │ │ ├ Ausgangssperre<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ lock_time<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ lock_time<br> │ │ │ └ unlock_time<br> │ │ └ zugewiesene_Haustiere<br> │ │ └ pet_name<br> │ │ └ Kontrolle<br> │ │ └ Typ<br> │ ├ Geschichte<br> │ │ └ 0..24<br> │ │ └ ...<br> │ └ Haustiere<br> │ └ pet_name<br> │ ├ innen<br> │ ├ Name<br> │ ├ seit<br> │ └ Essen<br> │ ├ last_time_eaten<br> │ ├ verbrachte Zeit<br> │ ├ times_eaten<br> │ └ trocken..nass<br> │ └ Gewicht<br> info<br> ├ all_devices_online<br> ├ Verbindung<br> └ letztes_update<br>
+Adapter<br> ├ Haushaltsname<br> │ ├ hub_name<br> │ │ ├ online<br> │ │ ├ kontrollieren<br> │ │ │ └ led_mode<br> │ │ ├ feeder_name<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterie_Prozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ zugewiesene_Haustiere<br> │ │ │ │ └ pet_name<br> │ │ │ ├ Schalen<br> │ │ │ │ └ 0..1<br> │ │ │ │ ├ Lebensmitteltyp<br> │ │ │ │ ├ Ziel<br> │ │ │ │ └ Gewicht<br> │ │ │ └ kontrollieren<br> │ │ │ └ Schließverzögerung<br> │ │ └ Klappenname<br> │ │ ├ Batterie<br> │ │ ├ Batterieprozentsatz<br> │ │ ├ Sperrstunde_aktiv<br> │ │ ├ online<br> │ │ ├ kontrollieren<br> │ │ │ ├ Ausgangssperre<br> │ │ │ └ Sperrmodus<br> │ │ ├ Ausgangssperre<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ lock_time<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ lock_time<br> │ │ │ └ unlock_time<br> │ │ └ zugewiesene_haustiere<br> │ │ └ pet_name<br> │ │ └ kontrollieren<br> │ │ └ eingeben<br> │ ├ Geschichte<br> │ │ └ 0..24<br> │ │ └ ...<br> │ └ Haustiere<br> │ └ pet_name<br> │ ├ innen<br> │ ├ Namen<br> │ ├ seit<br> │ └ Essen<br> │ ├ zuletzt_gegessen<br> │ ├ aufgewendete Zeit<br> │ ├ mal_gegessen<br> │ └ trocken..nass<br> │ └ Gewicht<br> └ Infos<br> ├ alle_Geräte_online<br> ├ Verbindung<br> └ letzte_aktualisierung<br>
 
 ## Anmerkungen
 SureFlap® und Sure Petcare® sind eingetragene Warenzeichen von [SureFlap Ltd.](https://www.surepetcare.com/)
 
-Das Bild der Katzenklappe, des Hubs und der Smartphone-App wird von [Sure Petcare®](https://www.surepetcare.com/en-us/press) kostenlos zur Verfügung gestellt.
+Das Bild der Katzenklappe, des Hubs und der Smartphone-App wird von [Sicher Petcare®](https://www.surepetcare.com/en-us/press) kostenlos zur Verfügung gestellt.
 
 ## Changelog
+
+### 1.1.2 (2022-03-06)
+* (Sickboy78) improved error and timeout handling
+* (Sickboy78) optimized subscribed states
+
+### 1.1.1 (2022-02-20)
+* (Sickboy78) removed pet type control from pet flap (is a cat flap exclusive feature)
+* (Sickboy78) fixed wrong default value for info.last_update
+* (Sickboy78) testing updates for js-controller 4
+* (Sickboy78) security updates
+
+### 1.1.0 (2022-01-17)
+* (Sickboy78) bugfix and security updates
+
+### 1.0.9 (2022-01-05)
+* (Sickboy78) removed old encrypt/decrypt from index_m
+* (Sickboy78) added adapter unloaded guard in case unload happens during data requests
 
 ### 1.0.8 (2021-11-22)
 * (Sickboy78) added food type, target weight and remaining food in feeder
@@ -90,7 +109,7 @@ Das Bild der Katzenklappe, des Hubs und der Smartphone-App wird von [Sure Petcar
 
 MIT License
 
-Copyright (c) 2021 Sickboy78 <asmoday_666@gmx.de>
+Copyright (c) 2022 Sickboy78 <asmoday_666@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

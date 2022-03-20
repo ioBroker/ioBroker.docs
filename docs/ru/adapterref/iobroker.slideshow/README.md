@@ -2,183 +2,188 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.slideshow/README.md
-title: ioBroker.slideshow
-hash: 8/D05kkVGAGGdx8R2raAPYz/Nnw278Ps6uxt/JycIvw=
+title: ioBroker.слайд-шоу
+hash: 0567hUtbU7xUZRXy7s5faV7yRsbM5uJboFkUTFKLxTQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.slideshow/admin/slideshow.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.slideshow.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.slideshow.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.slideshow.svg)
-![Количество установок (последнее)](https://iobroker.live/badges/slideshow-installed.svg)
+![Количество установок (последние)](https://iobroker.live/badges/slideshow-installed.svg)
 ![Количество установок (стабильно)](https://iobroker.live/badges/slideshow-stable.svg)
-![Статус зависимости](https://img.shields.io/david/gaudes/iobroker.slideshow.svg)
 ![НПМ](https://nodei.co/npm/iobroker.slideshow.png?downloads=true)
 
-# IoBroker.slideshow
-![Тестирование и выпуск](https://github.com/gaudes/ioBroker.slideshow/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/slideshow/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker.слайд-шоу
+![Тестируйте и выпускайте](https://github.com/gaudes/ioBroker.slideshow/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/slideshow/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 [Deutsche Beschreibung](#deutsch)
 
-[Английское описание](#english)
+[английское описание](#english)
 
 ![Демо](../../../en/adapterref/iobroker.slideshow/docs/img/demo.gif)
 
 ##<a name="deutsch"></a> Адаптер Diashow для ioBroker
-Dieser Adapter für ioBroker stellt eine Diashow quasi als Bildschirmschoner für VIS zur Verfügung.
+Адаптер Dieser для ioBroker stellt eine Diashow почти как Bildschirmschoner für VIS zur Verfügung.
 
 Folgende Quellen stehen aktuell zur Verfügung:
 
-* Die letzten acht täglichen Фотографии на Bing.com
+* Die letzten acht täglichen Bilder von Bing.com
 * Через VIS-Dateimanager hochgeladene Bilder
-* Изображения на основе Pfad im Dateisystem
-* Фотографии Synology PhotoStation
+* Bilder aus beliebigem Pfad im Dateisystem
+* Фотографии Synology PhotoStation и Synology Photo
 
-Zur Darstellung в VIS stellt der Adapter ein Widget zur Verfügung.
+Zur Darstellung в VIS Stellt der Adapter ein Widget zur Verfügung.
 Dieses bietet auch Funktionen für Effekt beim Bildwechsel, beispielsweise sanftes Ein- und Ausblenden.
-Zusätzlich kann ein Timeout eingestellt werden. Sofern auf anderen View im Projekt keine Aktion für das eingestellte Timeout erfolgt ist, wird zur View mit der Diashow gewechselt. Durck Klicken des Bilds wird entweder zurück zur letzten Ansicht oder zu eingestellten Ansicht gewechselt.
+Zusätzlich kann ein Timeout eingestellt werden. Sofern auf anderen View im Projekt keine Aktion für das eingestellte Timeout erfolgt ist, wird zur View mit der Diashow gewechselt. Durck Klicken des Bilds wird entweder zurück zur letzten Ansicht oder zu einer eingestellten Ansicht gewechselt.
 
-Neben dem Bild selbst als Pfad oder Base64-kodiertes Objekt werden weitere Objekte mit Informationen zum Bild in ioBroker erstellt.
-Diese sind abhängig von der ausgewählten Quelle:
+Neben dem Bild selbst as Pfad oder Base64-kodiertes Objekt werden weitere Objekte mit Informationen zum Bild in ioBroker erstellt.
+Diese sind abhängig von der Ausgewählten Quelle:
 
-| Объект | Bing | Lokal und Dateisystem | Synology | ----------- | ----------- | ----------- | ----------- | info1 | Название | Название (EXIF-информация) | Название | info2 | Beschreibung | Betreff (EXIF-информация) | Beschreibung | info3 | Информация об авторских правах | Комментарий (EXIF-информация) | Dateiname | дата | Datum der Anzeige auf Bing-Seite | Ауфнахмедатум (EXIF-информация) | Aufnahmedatum
+| Объект | Бинг | Локальная система и система дат | Синология | ----------- | ----------- | ----------- | ----------- | информация1 | Название | Название (EXIF-информация) | Название | информация2 | Информация | Betreff (EXIF-информация) | Информация | информация3 | Информация об авторских правах | Комментарии (EXIF-информация) | Дата | дата | Datum der Anzeige auf Bing-Seite | Aufnahmedatum (EXIF-информация) | Ауфнамедатум
 
-Der Button "updatepicturelist" как Objekt в ioBroker liet die Bilder aus den konfigurierten Quellen neu ein, z.B. nach Hinzufügen oder Löschen von Bildern. Die Bilder aus allen Quellen mit Ausnahme Bing werden sonst nur beim Start des Adapters eingelesen. Bing-Bilder werden stündlich automatisch aktualisiert.
+Der Button "updatepicturelist" как объект в ioBroker находится в Bilder aus den configurierten Quellen neu ein, z.B. nach Hinzufügen oder Löschen von Bildern. Die Bilder aus allen Quellen mit Ausnahme Bing werden sonst nur beim Start des Adapters eingelesen. Bing-Bilder werden stündlich Automaticisch aktualisiert.
 
-** Dieser Adapter предназначен для Sentry Bibliotheken um automatisch Abstürze und Programmfehler an die Entwickler zu übermitteln. ** Подробная информация и информация о Deaktivierung der Fehlerberichterstattung в [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting сообщает о версии JS-Controller 3.0.
+**Адаптер для Sentry Bibliotheken с автоматическим абстракцией и программным обеспечением и интеграцией для übermitteln.** Weitere Details und für Informationen zur Deaktivierung der Fehlerberichterstattung in der [Sentry-плагин Документация](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting поддерживается JS-контроллером 3.0.
 
 ### Конфигурация
 In den Einstellungen des Adapters wird die Quelle der Bilder ausgewählt, außerdem das Intervall für den Wechsel der Bilder, beispielsweise 10 Sekunden.
-Außerdem kann eingestellt werden, wie of die Liste der Bilder aktualisiert werden soll. Die Einstellung erfolgt in Stunden, bei 0 ist die automatische Aktualisierung deaktiviert.
+Außerdem kann eingestellt werden, wie часто умирают Liste der Bilder aktualisiert werden soll. Die Einstellung erfolgt in Stunden, bei 0 ist dieAutotische Aktualisierung deaktiviert.
 
-Bei Auswahl der Quelle "Dateisystem" kann dann noch der Pfad im Dateisystem ausgewählt werden, außerdem das Format (Hoch- oder Querformat) der anzuzeigenden Bilder sowie die Reihenfolge.
+Bei Auswahl der Quelle "Dateisystem" kann dann noch der Pfad im Dateisystem ausgewählt werden, außerdem das Format (Hochoder Querformat) der anzuzeigenden Bilder sowie die Reihenfolge.
 
-Bei Auswahl der Quelle "Synology PhotoStation" должен иметь IP-адрес или имя хоста sowie Benutzername und Passwort angegeben werden. Скачать фон Bildern из Benutzer Muss in den Einstellungen von PhotoStation aktiviert sein.
+Будьте уверены в том, что "Synology PhotoStation" должна иметь DSM-версию, IP-адрес или имя хоста, а также измененное имя пользователя и пароль. Загрузить изображения с изображением изображений в фотоснимках с PhotoStation, которые активны.
 
-### VIS-Widget
-Das Widget представляет собой увлекательную категорию «слайд-шоу».
+### VIS-виджет
+Das Widget ist в дер Kategorie "слайд-шоу" волнует.
 
-Das Widget Sollte в собственном представлении View interiert werden. Hierdurch lässt sich der automatische Start der Diashow nutzen.
+Das Widget один в один прекрасный вид полностью интегрированы. Hierdurch lässt sich der Automaticische Start der Diashow nutzen.
 
 Folgende Einstellungen sind möglich:
 
-* Abschnitt "Allgemein"
-* Идентификатор объекта: Hier muss der vom Adapter erzeugte Datenpunkt ausgewählt werden, beispielsweise "slideshow.0.picture"
-* Widget mit Bild füllen
-* True (стандартный) = Bild füllt das Widget, der Bildrand ist möglicherweise abgeschnitten
+* Абшнит "Allgemein"
+* Object-ID: Hier muss der vom Adapter erzeugte Datenpunkt ausgewählt werden, beispielsweise "slideshow.0.picture"
+* Виджет с полным изображением
+* True (Стандарт) = Bild füllt das Widget, der Bildrand ist möglicherweise abgeschnitten
 * False = Das vollständige Bild wird angezeigt, das Widget kann jedoch leere Zonen haben
-* Abschnitt "Эффект"
-* Эффект слайд-шоу: Als Effekt kann zwischen folgenden gewählt werden:
-* «Кейн»
+* Абшнит "Эффект"
+* SlideshowEffect: Als Effekt kann zwischen folgenden gewählt werden:
+* "Кейн"
 * "Fade": Einfaches Verblassen und Erscheinen
 * «Переход»: Überblenden
-* "jQuery-Effekt": разнообразные jQuery-Effekte, beispielsweise Rolladen
+* "jQuery-Effekt": Разнообразный jQuery-Effekte, beispielsweise Rolladen
 * Übergangsphase: Zeit in Millisekunden für den Effekt, gute Werte sind 500 или 1000 мс
-* Стиль перехода: Стиль для "Transistion" и "jQuery-Effekt"
-* jQuery-Effekt: Gewünschter jQuery-Effekt
+* Стиль перехода: Стиль «Переход» и «Эффект jQuery».
+* jQuery-Эффект: Gewünschter jQuery-Эффект
 * Abschnitt "Automatischer Diashow-Start"
-* Aktivierung des automatischen Starts
+* Активация автоматических пусков
 * Тайм-аут: Nach welcher Zeit ohne Aktion auf die Diashow-View gewechselt wird
-* Зил бейм Кликен:
+* Ziel beim Klicken:
 * Zuletzt verwendete Ansicht
 * Konfigurierte Ansicht (siehe nächster Einstellung)
-* Кейн, Falls beispielsweise ein eigener Button integriert werden soll
+* Кейн, падает beispielsweise ein eigener Button integriert werden soll
 * Zielansicht: Aufzurufende Ansicht beim Verlassen der Diashow
 
-### ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
-** Quelle Dateisystem **
+### ВОПРОСЫ-ОТВЕТЫ
+**Quelle Dateisystem**
 
 Können Netzlaufwerke eingebunden werden?
 
-Ja, aber nicht direkt durch den Adapter. ioBroker unterstützt mittlerweile sehr viele Betriebssysteme. Der Zugriff und das Verbinden von Netzwerkfreigaben ist je nach Betriebssystem komplett unterschiedlich. Teilweise werden auch weitere Komponenten wie z.B. Samba bei Linux полезен. Das Verbinden des Netzlaufwerks (Mappen bzw. Mount) kann aber direkt über das Betriebssystem durchgeführt werden. Unter Linux erfolgt der Mount in ein angegebenes Verzeichnis, z.B. / мнт / картинки. Dieses Verzeichnis kann dann in der Adapter-Konfiguration verwendet werden.
+Ja, aber nicht direkt durch den Adapter. ioBroker unterstützt mittlerweile sehr viele Betriebssysteme. Der Zugriff und das Verbinden von Netzwerkfreigaben ist je nach Betriebssystem komplett unterschiedlich. Teilweise werden auch weitere Komponenten wie z.B. Самба в Linux выгодна. Das Verbinden des Netzlaufwerks (Mappen bzw. Mount) kann aber direkt über das Betriebssystem durchgeführt werden. Unter Linux erfolgt der Mount in ein angegebenes Verzeichnis, z.B. /мнт/картинки. Dieses Verzeichnis kann dann in der Adapter-Konfiguration verwendet werden.
 
-** Synology **
+**Синология**
 
-Können für Synology PhotoStation weitere Einstellungen wie z.B. Auswahl des Albums integriert werden? Kann DSM 7 (Synology Photos) unterstützt werden?
+Контент для Synology PhotoStation weitere Einstellungen wie z.B. Auswahl des Albums integriert werden?
 
-Synology PhotoStation wird mit DSM 6 enden. Der Nachfolger, Synology Photos, erscheint mit DSM 7. DSM 7 ist aktuell noch Beta, die final Version wird vermutlich Sommer 2021 erscheinen. Vermutlich ändert sich auch die Entwickler-Schnittstelle. Daher investiere ich keinen Aufwand mehr in die bisherige Version. Sobald DSM 7 offiziell erscheint werden ich die Integration prüfen. Leider gab es für die bisherige Version keine offizielle Dokumentation von Synology.
-Der Zugriff auf bestimmte Fotoalben bzw. Ordner kann jedoch in der aktuellen Version von PhotoStation einfach realisiert werden. Hierzu unter DSM einen Benutzer für Slideshow anlegen und diesem Benutzer in der PhotoStation nur Berechtigungen auf die gewünschten Fotoalben bzw. Ordner geben.
+Der Zugriff auf bestimmte Fotoalben bzw. Заказать kann jedoch in der aktuellen Version от PhotoStation einfach realisiert werden. Hierzu unter DSM einen Benutzer für Slideshow anlegen und diesem Benutzer в дер PhotoStation nur Berechtigungen auf die gewünschten Fotoalben bzw. Заказ гебен.
 
 ##<a name="english"></a> Адаптер слайд-шоу для ioBroker
-Этот адаптер для ioBroker предоставляет слайд-шоу для VIS, как заставку.
+Этот адаптер для ioBroker обеспечивает слайд-шоу для VIS, например заставку.
 
-Фактически можно использовать следующие источники:
+Фактически могут быть использованы следующие источники:
 
 * Последние восемь ежедневных изображений с Bing.com
-* Изображения загружены VIS-File-Manager
+* Изображения, загруженные VIS-File-Manager
 * Картинки из пути к файловой системе
-* Изображения с Synology PhotoStation
+* Изображения с Synology PhotoStation или Synology Photo
 
-Адаптер предоставляет виджет для презентации в VIS, который предлагает эффекты при изменении изображения, например плавное затухание и затухание.
-Дополнительно можно настроить тайм-аут. Если в других представлениях того же проекта VIS не произошло никаких действий в течение заданного времени ожидания, будет запущено представление со слайд-шоу. Щелчком по изображению происходит возврат к последнему виду или к предопределенному виду.
+Адаптер предоставляет виджет для презентации в VIS, который предлагает эффекты изменения изображения, например, плавное исчезновение и появление.
+Дополнительно можно настроить тайм-аут. Когда в других представлениях того же проекта VIS не происходит никаких действий в течение заданного времени ожидания, будет запущено представление со Слайд-шоу. Щелчком по картинке она возвращается к последнему виду или к предварительно определенному виду.
 
-Помимо изображения в виде пути или объекта в кодировке Base64 есть еще объекты с информацией об изображении, созданные в ioBroker.
-Это зависит от выбранного источника:
+Помимо изображения в виде пути или объекта, закодированного в Base64, есть еще объекты с информацией об изображении, созданные в ioBroker.
+Они зависят от выбранного источника:
 
-| Объект | Bing | Локальная и файловая система | Synology | ----------- | ----------- | ----------- | ----------- | info1 | Название | Название (информация EXIF) | Название | info2 | Описание | Тема (информация EXIF) | Описание | info3 | Авторские права | Комментарий (информация EXIF) | Dateiname | дата | Дата, указанная на странице Bing | Дата записи (информация EXIF) | Дата записи
+| Объект | Бинг | Локальная и файловая система | Синология | ----------- | ----------- | ----------- | ----------- | информация1 | Название | Заголовок (информация EXIF) | Название | информация2 | Описание | Тема (информация EXIF) | Описание | информация3 | Авторское право | Комментарий (информация EXIF) | Дата | дата | Дата отображается на странице Bing | Дата записи (данные EXIF) | Дата записи
 
-Кнопка «updatepicturelist» как объект в ioBroker перечитывает изображения из настроенного источника, что полезно, например, после добавления или удаления изображений из источника. Изображения из всех источников, кроме Bing, обычно загружаются при запуске адаптера. Картинки Bing автоматически обновляются ежечасно.
+Кнопка «updatepicturelist» как объект в ioBroker перечитывает картинки из настроенного источника, полезная, например, после добавления или удаления картинок из источника. Картинки со всех источников, кроме Bing, обычно загружаются при запуске Адаптера. Изображения Bing автоматически обновляются ежечасно.
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ### Конфигурация
-В настройках адаптера можно выбрать источник изображения. Хотя интервал для картинки менялся.
+В настройках адаптера можно выбрать источник изображения. Хотя интервал смены картинки.
 Также можно настроить частоту обновления списка изображений. Настройка производится в часах, 0 отключает автоматическое обновление.
 
 Когда выбран источник «Файловая система», можно ввести путь и формат (альбомный или портретный) отображаемых изображений. Также порядок можно настроить.
 
-Когда выбран источник «Synology PhotoStation», необходимо настроить IP-адрес или имя хоста и имя пользователя с паролем. Скачивание изображений должно быть разрешено в настройках PhotoStation.
+Если выбран источник «Synology PhotoStation», необходимо настроить версию Synology DSM, IP-адрес или имя хоста и имя пользователя с паролем. Загрузка изображений должна быть включена в настройках PhotoStation.
 
-Внимание: после внесения изменений (добавления или удаления) потребуется перезапуск адаптера.
+Внимание: После изменений (Добавление или Удаление) требуется перезагрузка адаптера.
 
-### VIS-Widget
-Виджет находится в категории «слайд-шоу».
+### VIS-виджет
+Виджет можно найти в категории «слайд-шоу».
 
 Виджет должен быть интегрирован в собственное представление, чтобы можно было использовать автоматический запуск слайд-шоу.
 
-Существуют следующие варианты конфигурации:
+Существуют следующие параметры конфигурации:
 
-* Категория «Обычные»
-* Object-ID: должен быть предоставлен объект ioBroker, созданный адаптером, например "slideshow.0.picture"
-* Заполните виджет картинкой
-* True (по умолчанию) = изображение заполняет виджет, граница изображения может быть обрезана
-* False = Изображение отображается полностью, но в виджете могут быть пустые зоны
-* Категория «Эффект»
+* Категория "Общие"
+* Object-ID: Должен быть предоставлен объект ioBroker, созданный адаптером, например "slideshow.0.picture"
+* Заполнить виджет картинкой
+* True (по умолчанию) = Виджет заполняется изображением, граница изображения может быть обрезана
+* False = отображается полное изображение, но виджет может иметь пустые зоны
+* Категория "Эффект"
 * Эффект слайд-шоу: доступны следующие параметры:
 * "Никто"
-* "Fade": простое постепенное исчезновение и появление.
-* «Переход»: плавное усиление
-* «jQuery-Effekt»: различные эффекты jQuery, например «слепой».
-* Переходный период: время действия эффекта в миллисекундах, рекомендуемые значения - 500 или 1000.
-* Стиль перехода: стиль для "Transistion" и "jQuery-Effect"
-* jQuery-Effect: желаемый эффект
-* Категория «Автоматический запуск слайд-шоу»
+* «Fade»: простое постепенное исчезновение и постепенное появление
+* "Переход": затухание
+* "jQuery-Effekt": Различные эффекты jQuery, например "слепой"
+* Переходный период: время в миллисекундах для эффекта, рекомендуемые значения 500 или 1000.
+* Стиль перехода: стиль для «перехода» и «эффекта jQuery».
+* jQuery-эффект: желаемый эффект
+* Категория "Автоматический запуск слайд-шоу"
 * Включить автоматический запуск
 * Тайм-аут: по истечении которого в секундах бездействия в других представлениях будет запущено слайд-шоу.
-* Таргетинг на клик:
-* Последний использованный просмотр
-* Настроенный вид (см. Следующую настройку)
+* Таргетинг по клику:
+* Последний использованный вид
+* Настроенный вид (см. следующую настройку)
 * Нет, например, при интеграции другого виджета, поэтому
-* Целевой вид: вид, отображаемый при выходе из слайд-шоу
+* Целевой вид: вид для отображения при выходе из слайд-шоу
 
-### ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
-** Исходная файловая система **
+### ВОПРОСЫ-ОТВЕТЫ
+**Исходная файловая система**
 
 Можно ли интегрировать сетевые диски?
 
-Да, но не напрямую через адаптер. ioBroker теперь поддерживает большое количество операционных систем. Доступ к общим сетевым ресурсам и подключение к ним полностью различаются в зависимости от операционной системы. В некоторых случаях также требуются дополнительные компоненты, такие как Samba для Linux. Подключение сетевого диска (сопоставление или монтирование) может быть выполнено непосредственно операционной системой. В Linux монтирование происходит в указанном каталоге, например. / мнт / картинки. Затем этот каталог можно использовать в конфигурации адаптера.
+Да, но не напрямую через переходник. ioBroker теперь поддерживает большое количество операционных систем. Доступ к общим сетевым ресурсам и их подключение полностью различаются в зависимости от операционной системы. В некоторых случаях также требуются дополнительные компоненты, такие как Samba для Linux. Подключение сетевого диска (сопоставление или монтирование) может выполняться непосредственно операционной системой. В Linux монтирование происходит в указанный каталог, например. /мнт/картинки. Затем этот каталог можно использовать в конфигурации адаптера.
 
-** Источник Synology **
+**Источник Synology**
 
-Можно ли интегрировать в Synology PhotoStation дополнительные настройки, такие как выбор альбома? Может ли поддерживаться DSM 7 (Synology Photos)?
+Можно ли интегрировать в Synology PhotoStation дополнительные настройки, такие как выбор альбома? Поддерживается ли DSM 7 (Synology Photos)?
 
-Synology PhotoStation прекратит выпуск DSM 6. Преемник, Synology Photos, появится в DSM 7. DSM 7 в настоящее время все еще находится в стадии бета-тестирования, окончательная версия, вероятно, появится летом 2021 года. Предположительно, интерфейс разработчика также изменится. Так что я не буду прилагать больше усилий к предыдущей версии. Как только DSM 7 выйдет официально, проверю интеграцию. К сожалению, официальной документации Synology для предыдущей версии не было.
-Однако доступ к определенным фотоальбомам или папкам можно легко реализовать в текущей версии PhotoStation. Для этого создайте пользователя для слайд-шоу в DSM и предоставьте ему права доступа только к нужным фотоальбомам или папкам на PhotoStation.
+Synology PhotoStation закончится с DSM 6. Преемник, Synology Photos, появится с DSM 7. DSM 7 в настоящее время все еще находится в стадии бета-тестирования, финальная версия, вероятно, появится летом 2021 года. Предположительно изменится и интерфейс разработчика. Поэтому я больше не буду вкладывать усилия в предыдущую версию. Как только DSM 7 выйдет официально, проверю интеграцию. К сожалению, официальной документации Synology для предыдущей версии не было.
+Однако доступ к определенным фотоальбомам или папкам можно легко реализовать в текущей версии PhotoStation. Для этого создайте пользователя для слайд-шоу в DSM и предоставьте этому пользователю разрешения только на нужные фотоальбомы или папки в PhotoStation.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
+### __WORK IN PROGRESS__
+* (Gaudes) Include support for Synology DSM 7
+* (Gaudes) Remove support for Node 10
+* (Gaudes) Update to newest Adapter creator for internal dependencies
+* (Gaudes) Include adapter-dev
+* (Gaudes) Include Dependabot updates
 
 ### 0.1.4 (2021-04-18)
 * (Gaudes) Configurable order for Filesystem (Git #37)
@@ -236,7 +241,7 @@ Synology PhotoStation прекратит выпуск DSM 6. Преемник, S
 ## License
 MIT License
 
-Copyright (c) 2021 Gaudes <ralf@gaudes.net>
+Copyright (c) 2022 Gaudes <ralf@gaudes.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

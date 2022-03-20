@@ -5,7 +5,6 @@
 ![Number of Installations (stable)](http://iobroker.live/badges/vis-icontwo-stable.svg)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.vis-icontwo.svg?)](https://www.npmjs.com/package/iobroker.vis-icontwo)
 ![Number of Installations (latest)](http://iobroker.live/badges/vis-icontwo-installed.svg)
-[![Dependency Status](https://img.shields.io/david/inventwo/iobroker.vis-icontwo.svg)](https://david-dm.org/inventwo/iobroker.vis-icontwo)
 [![Known Vulnerabilities](https://snyk.io/test/github/inventwo/iobroker.vis-icontwo/badge.svg)](https://snyk.io/test/github/inventwo/iobroker.vis-icontwo)
 [![Build status](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)](https://ci.appveyor.com/project/inventwo/iobroker-vis-icontwo)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/inventwo/iobroker.vis-icontow/LICENSE)
@@ -60,6 +59,22 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 ---
 
 ## Changelog / Änderungsprotokoll
+
+### 0.87.0
+
+• Neue Icons hinzugefügt (Battery/Percent)
+
+### 0.86.2
+
+• Bugfix
+
+### 0.86.1
+
+• Bugfix (npm Version)
+
+### 0.86.0
+
+• Neue Icons hinzugefügt (Versand)
 
 ### 0.85.0
 
@@ -485,7 +500,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## License
 
-Urheberrechte (c) 2021 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
+Urheberrechte (c) 2022 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
 
 
 MIT License (nur in englisch / englisch only)

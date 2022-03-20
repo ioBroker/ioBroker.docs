@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: 8NZ1eiNmphw0lfJjopIRN/qfZWJbmF6ZV/JqtlXNVh0=
+hash: 3BGSH3RZfns7IR4uZVaIoX8nGD2rfZ3Q0n15IypQv1Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -16,62 +16,62 @@ hash: 8NZ1eiNmphw0lfJjopIRN/qfZWJbmF6ZV/JqtlXNVh0=
 # Ecovacs Deebot-Adapter für ioBroker
 [![github-workflow](https://github.com/mrbungle64/iobroker.ecovacs-deebot/actions/workflows/node.js.yml/badge.svg)](https://github.com/mrbungle64/iobroker.ecovacs-deebot)
 
-Dieser Adapter verwendet die [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js) Bibliothek.
+Dieser Adapter verwendet die Bibliothek [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js).
 
 ## Merkmale
 Einige bemerkenswerte Merkmale sind:
 
 * Informationen abrufen (z. B. Akku, Reinigungsprotokoll, Verbrauchsmaterial, Reinigungs- und Ladestatus)
-* Senden Sie saubere Befehle (z. B. Auto, Spot-Bereich, benutzerdefinierter Bereich) und verschiedene andere Befehle (z. B. Sound abspielen, Verbrauchsmaterialien zurücksetzen)
+* Senden Sie Reinigungsbefehle (z. B. Auto, Spot-Bereich, benutzerdefinierter Bereich) und verschiedene andere Befehle (z. B. Ton abspielen, Verbrauchsmaterialien zurücksetzen)
 * Speichern Sie den zuletzt ausgeführten benutzerdefinierten Bereich und führen Sie die gespeicherten Bereiche erneut aus
-* Einstellung von Saugleistung (Reinigungsgeschwindigkeit) und Wasserstand
-* Abrufen von Informationen während des Reinigungsvorgangs (z. B. aktuelle Position und Bereich)
+* Anpassung der Saugleistung (Reinigungsgeschwindigkeit) und des Wasserstands
+* Informationen während des Reinigungsvorgangs abrufen (z. B. aktuelle Position und Bereich)
 * Abrufen von Informationen der Karten inkl. Spotbereiche und virtuelle Grenzen
-* Löschen, speichern und neu erstellen einzelner virtueller Grenzen sowie eines vollständigen Satzes virtueller Grenzen *)
+* Einzelne virtuelle Grenzen sowie einen vollständigen Satz virtueller Grenzen löschen, speichern und neu erstellen *)
 * Funktion zum Laden des aktuellen Kartenbildes *)
 
 *) Experimentell
 
-Bitte beachten: Einige Funktionen sind nur für einige Modelle verfügbar
+Bitte beachten Sie: Einige Funktionen sind nur für einige Modelle verfügbar
 
-##Modelle
-###Unterstützte Modelle
-* Deebot 900/901
-* Deebot OZMO 930
-* Deebot OZMO 920/950
+## Modelle
+### Unterstützte Modelle
+* Debot 900/901
+*Deebot OZMO 930
+* Deebot-OZMO 920/950
 
-Die aufgeführten Modelle sind diejenigen, die ich selbst im Einsatz habe oder die technisch mit diesen identisch sind.
+Bei den aufgeführten Modellen handelt es sich um solche, die ich selbst im Einsatz habe oder die technisch mit diesen identisch sind.
 
 ### Diese Modelle sollten richtig oder zumindest teilweise funktionieren
 * Deebot Slim 2
 * Deebot N79-Serie
-* Deebot M88
-* Deebot 500
-* Deebot 600/601/605
-* Deebot 710/711
-* Deebot OZMO 610
-* Deebot OZMO 900/905
-* Deebot OZMO Slim 10/11
-* Deebot OZMO T5
+*Deebot M88
+* Debbot 500
+* Debot 600/601/605
+* Debot 710/711
+*Deebot OZMO 610
+* Deebot-OZMO 900/905
+*Deebot OZMO Slim 10/11
+*Deebot OZMO T5
 * Deebot U2-Serie
-* Deebot N3 MAX
-* Deebot N7
+*Deebot N3 MAX
+* Debot N7
 * Deebot N8-Serie
 * Deebot T8-Serie
 * Deebot T9-Serie
 
-Die aufgeführten Modelle sind entweder bereits bekannt oder ähneln technisch diesen Modellen.
-Dennoch kann die Funktionalität teilweise eingeschränkt sein.
+Die aufgeführten Modelle funktionieren entweder bereits oder sind diesen Modellen technisch ähnlich.
+Trotzdem kann die Funktionalität teilweise eingeschränkt sein.
 
-Ich versuche eine breite Funktionalität zu erreichen, entscheide dies aber von Fall zu Fall je nach Komplexität und diversen anderen Kriterien.
+Ich versuche, eine möglichst breite Funktionalität zu erreichen, entscheide dies aber von Fall zu Fall je nach Komplexität und diversen anderen Kriterien.
 Es besteht natürlich kein Anspruch auf volle Funktionalität.
 
 ## Installation
 Es wird empfohlen, Version 12.x oder 14.x von Node.js zu verwenden. Die erforderliche Mindestversion ist 12.x
 
-Dieser Adapter verwendet die [Knoten-Leinwand](https://www.npmjs.com/package/canvas) Bibliothek für einige kartenbezogene Funktionen, die die Installation einiger zusätzlicher Pakete erfordern können.
+Dieser Adapter verwendet die Bibliothek [Knotenleinwand](https://www.npmjs.com/package/canvas) für einige kartenbezogene Funktionen, die möglicherweise die Installation einiger zusätzlicher Pakete erfordern.
 
-Die Installation von Canvas ist optional und bei Modellen ohne Kartenfunktionalität nicht notwendig, aber für den vollen Funktionsumfang installieren Sie bitte die folgenden Pakete.
+Die Installation von Canvas ist optional und bei Modellen ohne Kartenfunktionalität nicht notwendig, für vollen Funktionsumfang installieren Sie bitte die folgenden Pakete.
 
 Für Debian-basierte Linux-Systeme sollten die folgenden Befehle ausgeführt werden:
 
@@ -88,7 +88,7 @@ sudo npm install canvas --unsafe-perm=true
 
 Anweisungen für andere Systeme finden Sie unter https://www.npmjs.com/package/canvas#compiling
 
-## Verwendung
+## Verwendungszweck
 * Informationen zur Verwendung dieses Adapters finden Sie [hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
 
 ### Zustände
@@ -98,11 +98,12 @@ Anweisungen für andere Systeme finden Sie unter https://www.npmjs.com/package/c
 * Häufig gestellte Fragen finden Sie [hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
 
 ## Bekannte Probleme
-* Für einige Modelle (z.B. Deebot OZMO 930) wird es empfohlen
+* Die Generierung von Kartenbildern ist derzeit auf 32-Bit-Systemen nicht stabil
+* Für einige Modelle (z. B. Deebot OZMO 930) wird es empfohlen
 
-zu [einen Neustart planen](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) einmal täglich, da es einige Meldungen gibt, dass die Verbindung nach ca. 24 Stunden
+an [Neustart planen](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) einmal täglich, weil es einige Berichte gibt, dass die Verbindung nach ca. 24 Stunden
 
-* Die Funktion "edge" funktioniert nicht mit Deebot U2 (startet stattdessen die automatische Reinigung)
+* Die "Edge"-Funktion funktioniert nicht mit Deebot U2 (startet stattdessen die automatische Reinigung)
 * Einige "cleaninglog"-Zustände sind bei der T9-Serie leer ("last20Logs", "lastCleaningDate" und "lastCleaningMapImageURL")
 
 ## Haftungsausschluss
@@ -110,9 +111,18 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
 
 ## Changelog
 
-### 1.3.2 (alpha)
+### 1.3.4 (alpha)
+* Bumped ecovacs-deebot.js to 0.7.2 (alpha)
+* Implement some experimental functions for auto empty stations
+* Some refactoring
 
-* Recent updates
+### 1.3.3
+* Bumped ecovacs-deebot.js to 0.7.1 (incl. fix for CVE-2022-0155)
+
+### 1.3.2
+
+* Bumped follow-redirects to 1.14.7 (fix for CVE-2022-0155) and some other dependencies
+* Added N8 PRO+
 
 ### 1.3.1
 
@@ -255,7 +265,7 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
 
 MIT License
 
-Copyright (c) 2021 Sascha Hölzel <mrb1232@posteo.de>
+Copyright (c) 2022 Sascha Hölzel <mrb1232@posteo.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
