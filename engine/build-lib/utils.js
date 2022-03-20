@@ -119,7 +119,11 @@ function writeSafe(fileName, data) {
     const parts = fileName.replace(/\\/g, '/').split('/');
     parts.pop();
     createDir(parts.join('/'));
-    fs.writeFileSync(fileName, data);
+    if (fileName.includes('https:')) {
+        console.error(`Cannot save "${fileName}"`);
+    } else {
+        fs.writeFileSync(fileName, data);
+    }
 }
 
 function copyDir(source, target) {
@@ -133,7 +137,11 @@ function copyDir(source, target) {
             }
             copyDir(sourceName, targetName);
         } else {
-            fs.writeFileSync(targetName, fs.readFileSync(sourceName));
+            if (targetName.includes('https:')) {
+                console.error(`Cannot save "${targetName}"`);
+            } else {
+                fs.writeFileSync(targetName, fs.readFileSync(sourceName));
+            }
         }
     });
 }
