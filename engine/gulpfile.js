@@ -41,8 +41,8 @@ function lang2data(lang, isFlat) {
             if (isFlat) {
                 str += (lang[w] === '' ? (isFlat[w] || w) : lang[w]) + '\n';
             } else {
-                const key = '    "' + w.replace(/"/g, '\\"') + '": ';
-                str += key + '"' + lang[w].replace(/"/g, '\\"') + '",\n';
+                const key = `    "${w.replace(/"/g, '\\"')}": `;
+                str += `${key}"${lang[w].replace(/"/g, '\\"')}",\n`;
             }
         }
     }
@@ -58,11 +58,11 @@ function lang2data(lang, isFlat) {
 function readWordJs(src) {
     try {
         let words;
-        words = fs.readFileSync(src + 'i18n/' + fileName).toString();
+        words = fs.readFileSync(`${src}i18n/${fileName}`).toString();
         words = words.substring(words.indexOf('{'), words.length);
         words = words.substring(0, words.lastIndexOf(';'));
 
-        const resultFunc = new Function('return ' + words + ';');
+        const resultFunc = new Function(`return ${words};`);
 
         return resultFunc();
     } catch (e) {
@@ -271,7 +271,7 @@ gulp.task('flat=>i18n', done => {
     files.forEach(file => {
         const lang = file.replace(/\.txt$/, '');
         langs.push(lang);
-        const lines = fs.readFileSync(dir + '/flat/' + file).toString().split(/[\r\n]/);
+        const lines = fs.readFileSync(`${dir}/flat/${file}`).toString().split(/[\r\n]/);
         lines.forEach((word, i) => {
             index[keys[i]] = index[keys[i]] || {};
             index[keys[i]][lang] = word;
@@ -281,11 +281,11 @@ gulp.task('flat=>i18n', done => {
         const words = {};
         keys.forEach((key, line) => {
             if (!index[key]) {
-                console.log('No word ' + key + ', ' + lang + ', line: ' + line);
+                console.log(`No word ${key}, ${lang}, line: ${line}`);
             }
             words[key] = index[key][lang];
         });
-        fs.writeFileSync(dir + '/' + lang + '.json', JSON.stringify(words, null, 2));
+        fs.writeFileSync(`${dir}/${lang}.json`, JSON.stringify(words, null, 2));
     });
     done();
 });
@@ -313,15 +313,15 @@ gulp.task('translate', async function () {
 
             console.log('Translate Text: ' + l);
             let existing = {};
-            if (fs.existsSync('./front-end/src/i18n/' + l + '.json')) {
-                existing = require('./front-end/src/i18n/' + l + '.json');
+            if (fs.existsSync(`./front-end/src/i18n/${l}.json`)) {
+                existing = require(`./front-end/src/i18n/${l}.json`);
             }
             for (let t in enTranslations) {
                 if (enTranslations.hasOwnProperty(t) && !existing[t]) {
                     existing[t] = await translate(enTranslations[t], l, yandex);
                 }
             }
-            fs.writeFileSync('./front-end/src/i18n/' + l + '.json', JSON.stringify(existing, null, 4));
+            fs.writeFileSync(`./front-end/src/i18n/${l}.json`, JSON.stringify(existing, null, 4));
         }
     }
 });
@@ -350,10 +350,10 @@ gulp.task('downloadAndSyncOne', done => {
 
 });
 
-gulp.task('syncDocsTest', done => documentation.syncDocs('iobroker.ping', done));
+gulp.task('syncDocsTest', done => documentation.syncDocs('iobroker.shelly', done));
 
 gulp.task('downloadAdapterTest', () => {
-    return adapters.buildAdapterContent('ping')
+    return adapters.buildAdapterContent('shelly')
         .then(content => {
             console.log(JSON.stringify(content));
         });
@@ -465,19 +465,19 @@ gulp.task('8.createSitemap', done => {
     ];
     // add blogs
     consts.LANGUAGES.forEach(lang => {
-        const files = fs.readdirSync(consts.FRONT_END_DIR + lang + '/blog').filter(f => f.match(/\.md$/));
-        files.forEach(f => links.push('#' + lang.replace('{lang}', lang) + '/blog/' + f.replace(/\.md$/, '')));
+        const files = fs.readdirSync(`${consts.FRONT_END_DIR + lang}/blog`).filter(f => f.match(/\.md$/));
+        files.forEach(f => links.push(`#${lang.replace('{lang}', lang)}/blog/${f.replace(/\.md$/, '')}`));
     });
     // add documents
     consts.LANGUAGES.forEach(lang => {
         const files = scanDir(consts.FRONT_END_DIR + lang).filter(f => !f.startsWith('/adapterref') && !f.startsWith('/blog'));
-        files.forEach(f => links.push('#' + lang + '/documentation' + f));
+        files.forEach(f => links.push(`#${lang}/documentation${f}`));
     });
 
     // add adapters
     consts.LANGUAGES.forEach(lang => {
-        const files = scanDir(consts.FRONT_END_DIR + lang + '/adapterref');
-        files.forEach(f => links.push('#' + lang + '/adapters/adapterref' + f));
+        const files = scanDir(`${consts.FRONT_END_DIR + lang}/adapterref`);
+        files.forEach(f => links.push(`#${lang}/adapters/adapterref${f}`));
     });
 
     // generate file
@@ -537,7 +537,7 @@ gulp.task('9.build', done => {
 gulp.task('default', gulp.series(
     '0.clean',              // clean dir
     '1.blog',               // translate and copy blogs
-    '2.downloadAdapters',   // download all adapters an create adapter.json
+    '2.downloadAdapters',   // download all adapters and create adapter.json
     '3.downloadVisCordova', // download app documentation
     '4.syncDocs',           // translate documents and adapters
     '5.faq',                // combine FAQ together
