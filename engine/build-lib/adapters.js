@@ -42,7 +42,10 @@ function downloadImagesForReadme(lang, repo, data) {
                 link = link.split('?')[0];
                 link = link.split(' ')[0];
 
-                if (!fs.existsSync(localDirName + link)) {
+                const absLocalPath = path.normalize(localDirName + link);
+
+                // Check if file should be downloaded within adapter path
+                if (absLocalPath.indexOf(localDirName) === 0 && !fs.existsSync(localDirName)) {
                     let relative;
 
                     if (data.link) {
@@ -53,9 +56,11 @@ function downloadImagesForReadme(lang, repo, data) {
                         relative = link;
                     }
 
+                    // console.log(`Downloading "${relative + link}" file to: "${absLocalPath}"`);
+
                     axios(relative + link, {responseType: 'arraybuffer'})
-                        .then(result => result && result.data && utils.writeSafe(localDirName + link, result.data))
-                        .catch(err => err && console.error(`Cannot _download ${relative}${link}: ${err}`))
+                        .then(result => result && result.data && utils.writeSafe(absLocalPath, result.data))
+                        .catch(err => err && console.error(`Cannot _download "${relative}${link}" to "${absLocalPath}": ${err}`))
                         .then(() => resolve1());
                 } else {
                     resolve1();
