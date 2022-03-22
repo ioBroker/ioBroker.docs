@@ -165,7 +165,6 @@ https://doc.iobroker.net/#de/documentation/install/README.md
 https://doc.iobroker.net/#de/documentation/install/centos.md
 https://doc.iobroker.net/#de/documentation/install/docker.md
 https://doc.iobroker.net/#de/documentation/install/hardware.md
-https://doc.iobroker.net/#de/documentation/install/images.md
 https://doc.iobroker.net/#de/documentation/install/linux.md
 https://doc.iobroker.net/#de/documentation/install/macos.md
 https://doc.iobroker.net/#de/documentation/install/nodejs.md
@@ -310,7 +309,6 @@ https://doc.iobroker.net/#en/documentation/install/README.md
 https://doc.iobroker.net/#en/documentation/install/centos.md
 https://doc.iobroker.net/#en/documentation/install/docker.md
 https://doc.iobroker.net/#en/documentation/install/hardware.md
-https://doc.iobroker.net/#en/documentation/install/images.md
 https://doc.iobroker.net/#en/documentation/install/linux.md
 https://doc.iobroker.net/#en/documentation/install/macos.md
 https://doc.iobroker.net/#en/documentation/install/nodejs.md
@@ -455,7 +453,6 @@ https://doc.iobroker.net/#ru/documentation/install/README.md
 https://doc.iobroker.net/#ru/documentation/install/centos.md
 https://doc.iobroker.net/#ru/documentation/install/docker.md
 https://doc.iobroker.net/#ru/documentation/install/hardware.md
-https://doc.iobroker.net/#ru/documentation/install/images.md
 https://doc.iobroker.net/#ru/documentation/install/linux.md
 https://doc.iobroker.net/#ru/documentation/install/macos.md
 https://doc.iobroker.net/#ru/documentation/install/nodejs.md
@@ -600,7 +597,6 @@ https://doc.iobroker.net/#zh-cn/documentation/install/README.md
 https://doc.iobroker.net/#zh-cn/documentation/install/centos.md
 https://doc.iobroker.net/#zh-cn/documentation/install/docker.md
 https://doc.iobroker.net/#zh-cn/documentation/install/hardware.md
-https://doc.iobroker.net/#zh-cn/documentation/install/images.md
 https://doc.iobroker.net/#zh-cn/documentation/install/linux.md
 https://doc.iobroker.net/#zh-cn/documentation/install/macos.md
 https://doc.iobroker.net/#zh-cn/documentation/install/nodejs.md
@@ -1022,13 +1018,6 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.selverf/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.senec/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.seq/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shelly/README.md
-https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/protocol-coap.md
-https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/protocol-mqtt.md
-https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/restricted-login.md
-https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/state-changes.md
-https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/protocol-coap.md
-https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/protocol-mqtt.md
-https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/restricted-login.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shelly/protocol-coap.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shelly/protocol-mqtt.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shelly/restricted-login.md
@@ -1551,13 +1540,6 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.selverf/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.senec/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.seq/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shelly/README.md
-https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/protocol-coap.md
-https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/protocol-mqtt.md
-https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/restricted-login.md
-https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/state-changes.md
-https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/protocol-coap.md
-https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/protocol-mqtt.md
-https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/restricted-login.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shelly/protocol-coap.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shelly/protocol-mqtt.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shelly/restricted-login.md
@@ -2080,13 +2062,6 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.selverf/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.senec/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.seq/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shelly/README.md
-https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/protocol-coap.md
-https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/protocol-mqtt.md
-https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/restricted-login.md
-https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/state-changes.md
-https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/protocol-coap.md
-https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/protocol-mqtt.md
-https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/restricted-login.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shelly/protocol-coap.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shelly/protocol-mqtt.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shelly/restricted-login.md
@@ -2609,13 +2584,6 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.selverf/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.senec/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.seq/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shelly/README.md
-https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/protocol-coap.md
-https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/protocol-mqtt.md
-https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/restricted-login.md
-https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/de/state-changes.md
-https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/protocol-coap.md
-https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/protocol-mqtt.md
-https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shelly/https:/raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/docs/en/restricted-login.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shelly/protocol-coap.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shelly/protocol-mqtt.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shelly/restricted-login.md

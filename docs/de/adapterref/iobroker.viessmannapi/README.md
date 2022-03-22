@@ -3,13 +3,13 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.viessmannapi/README.md
 title: ioBroker.viessmannapi
-hash: LcIzZQpLtODOas7VRpVUpZDVryxWy0F6LR375X5TBa0=
+hash: rJnTMsjfbY6/GtrlBGj69mnQpu98U+RlnKn7lqTwCPw=
 ---
 ![Logo](../../../en/adapterref/iobroker.viessmannapi/admin/viessmannapi.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.viessmannapi.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.viessmannapi.svg)
-![Anzahl der Installationen (spätestens)](https://iobroker.live/badges/viessmannapi-installed.svg)
+![Anzahl der Installationen (neueste)](https://iobroker.live/badges/viessmannapi-installed.svg)
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/viessmannapi-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.viessmannapi.svg)
 ![NPM](https://nodei.co/npm/iobroker.viessmannapi.png?downloads=true)
@@ -22,7 +22,7 @@ Adapter für Viessmannapi
 
 **Man benötigt eine ClientID von der Viessmann API**
 
-https://developer.viessmann.com/de/clients besuchen und eine Client ID mit diesen Optionen erstellen:
+https://app.developer.viessmann.com besuchen und eine Client-ID mit diesen Optionen erstellen:
 
 Name: iobroker
 
@@ -32,7 +32,7 @@ URI: http://localhost:4200/
 
 Die Client-ID in die Einstellungen kopieren
 
-**Außentemperatur findet sich z.B. hier: viessmannapi.0.XXXXX.0.features.heizungssensoren.temperatur.outside.properties.value.value**
+**Außentemperatur findet sich z.B. hier: viessmannapi.0.XXXXX.0.features.heating sensors.temperatur.outside.properties.value.value**
 
 **Remote Befehle sind möglich unter viessmannapi.0.XXXXX.0.features.heating.dhw.temperature.main.commands.setTargetTemperature.setValue**
 
@@ -42,7 +42,7 @@ Die Client-ID in die Einstellungen kopieren
 
 Vitotronic 200, Typ HO1, HO1A, HO1B, HO1D, HO2B, HO2C Vitotronic 200 RF, Typ HO1C, HO1E
 
-**Regelungen für bodenstehende Heizkessel**
+**Regelungen für stehende Bodenheizkessel**
 
 Vitotronic 200, Typ KO1B, KO2B, KW6, KW6A, KW6B, KW1, KW2, KW4, KW5 Vitotronic 300, Typ KW3
 
@@ -54,9 +54,9 @@ Vitotronic 200, Typ WO1A, WO1B, WO1C
 
 Vitoligno 200-S mit Ecotronic (ab Softwarestand 2.03) Vitoligno 250-S mit Ecotronic (ab Softwarestand 2.00) Vitoligno 300-C mit Ecotronic (ab Softwarestand 2.12) Vitoligno 300-P mit Vitotronic 200 FO1 Vitoligno 300-S mit Ecotronic (ab Softwarestand 2.04)
 
-**Liste aller Datenpunkte: https://developer.viessmann.com/de/doc/iot/data-points**
+**Liste aller Datenpunkte: https://documentation.viessmann.com/static/iot/data-points**
 
-**Frage zu fehlende Datenpunkte bitte direkt an Viessmann https://www.viessmann-community.com/t5/The-Viessmann-API/bd-p/dev-viessmann-api**
+**Frage zu fehlenden Datenpunkten bitte direkt an Viessmann https://www.viessmann-community.com/t5/The-Viessmann-API/bd-p/dev-viessmann-api**
 
 Beispiele:
 
@@ -115,7 +115,7 @@ setState("viessmannapi.0.xxxxxxx.0.features.ventilation.schedule.commands.setSch
 
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

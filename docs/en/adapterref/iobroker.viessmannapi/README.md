@@ -19,7 +19,7 @@ Adapter for Viessmannapi
 **Man benötigt eine ClientID von der Viessmann API**
 
 
-https://developer.viessmann.com/de/clients besuchen und eine Client ID mit diesen Optionen erstellen:
+https://app.developer.viessmann.com besuchen und eine Client ID mit diesen Optionen erstellen:
 
 Name: iobroker
 
@@ -63,7 +63,7 @@ Vitoligno 300-S mit Ecotronic (ab Softwarestand 2.04)
 
 
 **Liste aller Datenpunkte:
-https://developer.viessmann.com/de/doc/iot/data-points**
+https://documentation.viessmann.com/static/iot/data-points**
 
 **Frage zu fehlende Datenpunkte bitte direkt an Viessmann
 https://www.viessmann-community.com/t5/The-Viessmann-API/bd-p/dev-viessmann-api**
@@ -122,7 +122,7 @@ setState("viessmannapi.0.xxxxxxx.0.features.ventilation.schedule.commands.setSch
 
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

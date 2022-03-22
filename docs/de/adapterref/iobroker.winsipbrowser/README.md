@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.winsipbrowser/README.md
 title: ioBroker.winsipbrowser
-hash: gn5ynf5pXo2yihnyTWneeKz+P8/EkMtH+zFR6j5LvUw=
+hash: JhCF2oBEXZ6EkgZLT8QpMSgHqKfgWIvb8v1C2fjyMhc=
 ---
 ![Logo](../../../en/adapterref/iobroker.winsipbrowser/admin/winsipbrowser.png)
 
@@ -22,13 +22,19 @@ Dieser Adapter stellt über tcp.socket eine Verbindung zu winsipbrowser her, um 
 
 winsipbrowser ist ein über ioBroker steuerbarer Windows-Vollbildbrowser mit sipclient, der einzelne Websites oder eine im Adapter einstellbare Website-Slideshow anzeigt. Außerdem werden Informationen an den Adapter übermittelt: + CPU-Auslastung + freier Speicher + aktuelle Akkuentladung auf Tablet oder Notebook + Hostname + IP
 
-Er kann auch steuern: + Bildschirm ein/aus + App beenden + Lautstärke +/- + Stumm ein/aus + Helligkeit +/- + Programme mit Schaltern ausführen, z. C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100 + Textnachrichten + Sprachnachrichten
+Er kann auch steuern: + Bildschirm ein/aus + App beenden + Lautstärke +/- + Stumm ein/aus + Helligkeit +/- + Programme mit Schaltern ausführen, z. C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100 + Textnachrichten + Nachrichten sprechen + Audiodateien abspielen
 
 ## Verknüpfung
 * [Adapter-Thread im ioBroker-Forum](https://forum.iobroker.net/topic/53162/neuer-adapter-winsipbrowser-f%C3%BCr-windows)
 * [ioBroker Forum Programm Thread](https://forum.iobroker.net/topic/53032/sprechanlagen-innenstation-browser-mit-sip-client?_=1646732403727)
 
 ## Changelog
+### 0.1.4
+* (bettman66) change objects
+
+### 0.1.2
+* (bettman66) play musicfile
+
 ### 0.1.1
 * (bettman66) stop slideshow by touchevent
 

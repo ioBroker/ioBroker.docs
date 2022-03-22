@@ -9,7 +9,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.netatmo-energy/README.md
 title: ioBroker.netatmo-энергия
-hash: WoXcvVkQghHosqZQPWmtwhGpF1cBJ1gMpppeOIyBMOc=
+hash: 0fXS3TMn/d7ekK7riPcnT8C909t+EN7wKXUmZdFvTHc=
 ---
 ![логотип](https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/admin/netatmo-energy.png)
 
@@ -34,7 +34,7 @@ hash: WoXcvVkQghHosqZQPWmtwhGpF1cBJ1gMpppeOIyBMOc=
 - Создайте собственное приложение, щелкнув свою учетную запись (вверху/слева) и нажав кнопку «Создать».
   - Заполните форму и сохраните ее
   - Применить полученный client-ID и client-secret-ID к конфигурации адаптера
-  - Перейдите к документации по API https://dev.netatmo.com/apidocumentation/energy.
+  - Перейти к документации по API https://dev.netatmo.com/apidocumentation/energy
   - Выберите "ПОЛУЧИТЬ домашние данные" - "Попробовать" - "ВЫПОЛНИТЬ / HOMESDATA"
     - вы получите ответ, в котором найдете свой домашний ID
     - Применить их к конфигурации адаптера
@@ -58,13 +58,13 @@ hash: WoXcvVkQghHosqZQPWmtwhGpF1cBJ1gMpppeOIyBMOc=
 
 ### API-запросы
 * homedata ... извлекает всю структуру установки Netatmo Energy (используя параметр NAPlug). Все остальные параметры для ручных запросов вы можете выбрать самостоятельно.
-* homestatus ... определяет и передает состояние и техническую информацию назначенных вам клапанов. Если вам нужна информация о конкретном типе устройства, вы можете выбрать его самостоятельно.
+* homestatus ... определяет и передает статус и техническую информацию назначенных вам клапанов. Если вам нужна информация о конкретном типе устройства, вы можете выбрать его самостоятельно.
 * getroommeasure ... При этом вы получаете исторические данные о ваших комнатах. Результат вводится в поле «Ответ».
 * getmeasure ... Это даст вам исторические данные вашего котла. Результат вводится в поле «Ответ».
 * setthermmode_schedule ... Устанавливает рабочий режим установки Netatmo Energy на «Расписание» (по умолчанию)
 * setthermmode_hq ... устанавливает режим работы установки Netatmo Energy на "hq" (защита от замерзания)
 * setthermmode_away … Устанавливает режим работы установки Netatmo Energy на «в гостях» (не дома)
-* switchhomeschedule ... Устанавливает «режим расписания» Netatmo Energy API. Все возможные режимы перечислены в канале "switchhomeschedule".
+* switchhomeschedule ... Устанавливает «режим расписания» API Netatmo Energy. Все возможные режимы перечислены в канале "switchhomeschedule".
 * synchomeschedule ... Устанавливает графики нагрева вашего приложения Netatmo Energy. Чтобы изменить конкретный график отопления, введите его. В противном случае текущий установленный будет изменен. Введите необходимые параметры и инициируйте запрос расписания синхронизации.
 
 Если для запроса API требуются параметры, их можно найти в соответствующем канале запроса в канале «параметры».
@@ -105,11 +105,17 @@ hash: WoXcvVkQghHosqZQPWmtwhGpF1cBJ1gMpppeOIyBMOc=
 [старые изменения](CHANGELOG_OLD.md) <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **ВЫПОЛНЯЕТСЯ** -->
+### 1.1.4 (20.03.2022)
+* (ioKlausi) Мост добавлен на главную страницу
+
+### 1.1.3 (2022-03-19)
+* (ioKlausi) добавлена главная страница с вентилями
+
 ### 1.1.2 (2022-03-06)
 * (ioKlausi) Исправление ошибки Easy Admin
 
 ### 1.1.1 (2022-03-06)
-* (ioKlausi) Исправление ошибки setroomthermpoint
+* (ioKlausi) Исправлена ошибка setroomthermpoint
 
 ### 1.1.0 (2022-03-06)
 * (ioKlausi) setroomthermpoint - Настройка триггера для режима клапана
@@ -143,6 +149,12 @@ hash: WoXcvVkQghHosqZQPWmtwhGpF1cBJ1gMpppeOIyBMOc=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.4 (2022-03-20)
+* (ioKlausi) Plug added to tab page 
+
+### 1.1.3 (2022-03-19)
+* (ioKlausi) Valve page added 
+
 ### 1.1.2 (2022-03-06)
 * (ioKlausi) Bugfix Easy Admin 
 

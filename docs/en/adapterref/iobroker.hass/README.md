@@ -1,8 +1,15 @@
 ![Logo](admin/hass.png)
 # ioBroker.hass
 
+![Number of Installations](http://iobroker.live/badges/hass-installed.svg)
+![Number of Installations](http://iobroker.live/badges/hass-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.hass.svg)](https://www.npmjs.com/package/iobroker.hass)
+
+![Test and Release](https://github.com/ioBroker/ioBroker.hass/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/hass/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.hass.svg)](https://www.npmjs.com/package/iobroker.hass)
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 
 This adapter allows the connecting of Home Assistant to ioBroker.
@@ -24,6 +31,11 @@ Please check it https://www.smarthomejetzt.de/mit-iobroker-auf-eine-home-assista
 
 ## Changelog
 
+### __WORK IN PROGRESS__
+* (Apollon77) Implement Service triggers to use any value to trigger or stringified JSON to call with fields
+* (Apollon77) Optimize unload handling
+* (Apollon7) Add Sentry for crash reporting
+
 ### 1.0.1 (2021-09-04)
 * IMPORTANT: js-controller 2.0 is needed st least!
 * (Apollon77) Fix start issue
@@ -38,7 +50,7 @@ Please check it https://www.smarthomejetzt.de/mit-iobroker-auf-eine-home-assista
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2022 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

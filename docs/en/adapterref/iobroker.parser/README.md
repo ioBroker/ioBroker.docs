@@ -107,6 +107,9 @@ Values can have quality codes:
 
 
 ## Changelog
+### 1.1.4 (2022-03-21)
+* (Apollon77) Fix crash case reported by Sentry
+
 ### 1.1.3 (2022-03-20)
 * (Apollon77) if regex did not match set defined replacement value (or null)
 

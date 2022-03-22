@@ -3,39 +3,51 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.cul/README.md
 title: ioBroker.cul
-hash: K4rCOBSVFqE1jD3svv7aukvEal1t2fI6QVtX90V21KE=
+hash: 2tnvBHDfP0OFs68GeLH/DpaXwMsDO4ad4AP58dE/qQY=
 ---
 ![商标](../../../en/adapterref/iobroker.cul/admin/busware.jpg)
 
 ![安装数量](http://iobroker.live/badges/cul-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.cul.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.cul.svg)
-![测验](https://travis-ci.org/ioBroker/ioBroker.cul.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.cul.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.cul.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.cul.svg)
+![测试](https://travis-ci.org/ioBroker/ioBroker.cul.svg?branch=master)
+![新PM](https://nodei.co/npm/iobroker.cul.png?downloads=true)
 
-＃ioBroker.cul
-ioBroker适配器可通过[CUL](http://busware.de/tiki-index.php?page=CUL)/[ulf](http://culfw.de)控制FS20，Max！，HMS和其他设备。取决于https://github.com/hobbyquaker/cul
+# IoBroker.cul
+ioBroker 适配器通过[文化部](http://busware.de/tiki-index.php?page=CUL)/[阴阳师](http://culfw.de)控制 FS20、Max!、HMS 和其他设备。取决于 https://github.com/hobbyquaker/cul
 
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
-##支持的设备
--* EM *-EM1000WZ，EMWZ
--* FS20 *，含ESA1000 / 2000
--* HMS *-HMS100-TF，HMS100-T，HMS100-WD，RM100-2，HMS100-TFK，HMS100-MG，HMS100-CO，HMS100-FIT
--* MORITZ *-MAX！
--* WS *-KS300TH，S300TH，WS2000 / WS7000
+## 支持的设备
+- *EM* - EM1000WZ、EMWZ
+- *FS20*，包括。 ESA1000/2000
+- *HMS* - HMS100-TF、HMS100-T、HMS100-WD、RM100-2、HMS100-TFK、HMS100-MG、HMS100-CO、HMS100-FIT
+- *莫里茨* - 最大！
+- *WS* - KS300TH、S300TH、WS2000/WS7000
 
 ＃＃ 如何
-###例如，将命令发送到FS20设备。的JavaScript
+### 向 FS20 设备发送命令，例如JavaScript
 ```sendTo("cul.0", "send", {"protocol":"FS20", "housecode":"A1B2", "address":"01", "command":"00"});```
 
-###使用JavaSript发送原始命令（例如，发送到InterTechno设备）
+### 使用 JavaScript 发送原始命令（例如到 InterTechno 设备）
 ```sendTo("cul.0", "sendraw", {"command": 'is0FFFFF0FFFFF'});```
 
-此命令使用此适配器的CUL库向设备发送命令。
-基于Javascript / Node.js的Busware CUL USB / culfw适配器
+这些命令使用此适配器的 CUL 库向设备发送命令。
+基于 Javascript/Node.js 的 `Busware CUL USB / culfw` 适配器
+
+<!-- 下一个版本的占位符（在行首）：
+
+### **正在进行中** -->
 
 ## Changelog
+### 2.0.1 (2022-03-21)
+* (bluefox) Updated serialport package
+
+### 1.3.5 (2021-04-12)
+* (Apollon77) Make sure that cul is connected before accepting state changes (Sentry IOBROKER-CUL-R)
+
+### 1.3.4 (2020-12-02)
+* (Apollon77) prevent crash case (Sentry IOBROKER-CUL-D)
 
 ### 1.3.3 (2020-09-25)
 * (EvilEls) Added raw command support with cul.write()
@@ -46,13 +58,13 @@ ioBroker适配器可通过[CUL](http://busware.de/tiki-index.php?page=CUL)/[ulf]
 
 ### 1.3.1 (2020-07-26)
 * (Apollon77) make sure connection check do not crash adapter (Sentry IOBROKER-CUL-3)
-* (Apollon77) crashes preventd (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)
+* (Apollon77) crashes prevented (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)
 
 ### 1.3.0 (2020-07-20)
 * (Apollon77) Really update dependencies and Serialport
 
 ### 1.2.2 (2020-04-30)
-* (Apollon77) Update dependencies/Serialport 
+* (Apollon77) Update dependencies/Serialport
 
 ### 1.2.1 (2020-03-18)
 * (bluefox) Changed license from non SPDX conform 
@@ -94,4 +106,4 @@ ioBroker适配器可通过[CUL](http://busware.de/tiki-index.php?page=CUL)/[ulf]
 
 ## License
 
-[Licensed under GPLv2](LICENSE) Copyright (c) 2014-2020 hobbyquaker
+[Licensed under GPLv2](LICENSE) Copyright (c) 2014-2022 hobbyquaker

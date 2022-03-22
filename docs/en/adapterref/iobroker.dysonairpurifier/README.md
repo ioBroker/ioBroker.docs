@@ -55,12 +55,6 @@ connects to all devices locally and interacts with them.
 
 ## Installation
 
-### sentry.io
-This adapter uses sentry.io to collect details on crashes and report it automated to the author. The [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry)
-plugin is used for it. Please refer to the [plugin homepage](https://github.com/ioBroker/plugin-sentry) for detailed information
-on what the plugin does, which information is collected and how to disable it, if you don't like to support the author with
-your information on crashes.
-
 ### Prerequisites
 
 * This adapter needs Node.js >= version 10
@@ -158,11 +152,21 @@ Possible values for these states are documented below, as far as known.
 Fan speed only allows values from 1 to 10 and Auto. If you like to set your fan speed down to 0 you'll need to power off the main power.
 Which is what the dyson app does also.
 
+### SystemStates folder (since v2.4.0)
+The devices are capable of reporting failures. This feature has been added in adapter version 2.4.0. 
+For now there are only rough information on the failures, and the data points vary from device to device.
+If you have better information on a failure don't hesitate to report it to me to improve the adapter.
+All states report whether there is a failure or not. `True` means a failure, `false` means "No failure". 
+
 ### Known issues
 * No automatic IP detection of devices
-* Sometimes the adapter loses the MQTT connection to a fan and isn't able to reconnect. In my case it's sufficient to unplug the fan for approximately 10 seconds to reset it and plug it in again. Give it a try.
-
+* Sometimes the adapter loses the MQTT connection to a fan and isn't able to reconnect. 
+  * In my case it's sufficient to unplug the fan for approximately 10 seconds to reset it and plug it in again. Give it a try.
+  * In other cases it has been an IP issue. Resetting the DHCP server (router) solved the issue.
 ## Changelog
+
+### V2.4.1 (2022-03-20) (Echo from the past)
+* (grizzelbee) New: Changed SystemState from text to boolean data points
 
 ### V2.4.0 (2022-03-17) (Echo from the past)
 * (grizzelbee) New: Added warning code to device tree
@@ -516,6 +520,12 @@ Redundant values?
 | fons        | seems to be a number of seconds spend in a specific time                 | 0000 - 3600                                 |             |
 | humm        | humidity ? (%)                                                           | 0000 - 0100                                 |             |
 | tmpm        | temperature in kelvin ?                                                  | 0000 - 5000                                 |             |
+
+### sentry.io
+This adapter uses sentry.io to collect details on crashes and report it automated to the author. The [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry)
+plugin is used for it. Please refer to the [plugin homepage](https://github.com/ioBroker/plugin-sentry) for detailed information
+on what the plugin does, which information is collected and how to disable it, if you don't like to support the author with
+your information on crashes.
 
 ## Legal Notices
 

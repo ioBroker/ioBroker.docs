@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: wE2GvSKVqbB0ZUIQhgsyUCRJ6SNOfKH2bodwoOh2eKE=
+hash: TbkOmVklXgCQ/fsAX5z1oU+XngUtTNQiCwo/aUT/ujk=
 ---
 # IoBroker.dysonAirPurifier
 ![Logo](admin/dyson_logo.svg)![Logo](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -56,9 +56,6 @@ Beim Start wird die Dyson Cloud nach allen bekannten Geräten, die mit Ihrem Kon
 * Alle Verbindungsinformationen im Adapter werden gelöscht und beim Neustart neu aufgebaut.
 
 ## Installation
-### Sentry.io
-Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch an den Autor zu melden. Dafür wird das Plugin [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) verwendet. Bitte beachten Sie die [Plugin-Homepage](https://github.com/ioBroker/plugin-sentry) für detaillierte Informationen darüber, was das Plugin tut, welche Informationen gesammelt werden und wie es deaktiviert werden kann, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
-
 ### Voraussetzungen
 * Dieser Adapter benötigt Node.js >= Version 10
 * Es wird mindestens js-Controller 3.0.0 benötigt
@@ -149,17 +146,25 @@ Mögliche Werte für diese Zustände sind, soweit bekannt, weiter unten dokument
 Lüftergeschwindigkeit erlaubt nur Werte von 1 bis 10 und Auto. Wenn Sie Ihre Lüftergeschwindigkeit auf 0 stellen möchten, müssen Sie die Hauptstromversorgung ausschalten.
 Das macht auch die Dyson-App.
 
+### SystemStates-Ordner (seit v2.4.0)
+Die Geräte sind in der Lage, Ausfälle zu melden. Diese Funktion wurde in Adapterversion 2.4.0 hinzugefügt.
+Bisher gibt es nur grobe Informationen zu den Ausfällen, und die Datenpunkte variieren von Gerät zu Gerät.
+Wenn Sie bessere Informationen zu einem Fehler haben, zögern Sie nicht, ihn mir zu melden, um den Adapter zu verbessern.
+Alle Zustände melden, ob ein Fehler vorliegt oder nicht. `True` bedeutet einen Fehler, `false` bedeutet "Kein Fehler".
+
 ### Bekannte Probleme
 * Keine automatische IP-Erkennung von Geräten
-* Manchmal verliert der Adapter die MQTT-Verbindung zu einem Lüfter und kann sich nicht wieder verbinden. In meinem Fall reicht es aus, den Lüfter für ca. 10 Sekunden vom Netz zu nehmen, um ihn zurückzusetzen und wieder einzustecken. Versuche es.
+* Manchmal verliert der Adapter die MQTT-Verbindung zu einem Lüfter und kann sich nicht wieder verbinden.
+  * In meinem Fall reicht es aus, den Lüfter für ca. 10 Sekunden vom Stromnetz zu trennen, um ihn zurückzusetzen und wieder einzustecken. Versuche es.
+  * In anderen Fällen war es ein IP-Problem. Das Zurücksetzen des DHCP-Servers (Router) löste das Problem.
 
-## Erklärung der Dyson API-Daten (Nachrichtennutzlast)
+## Erläuterung der Dyson-API-Daten (Nachrichtennutzlast)
 Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md>
 
 ### AKTUELLEN ZUSTAND
 | Name | Bedeutung | mögliche Werte | Einheit |
 |--------------|------------------------------------------------------------|----------------------|------|
-| Modusgrund | Der aktuelle Modus wurde von RemoteControl, App, Scheduler | festgelegt PRC, LAPP, LSCH, PUI | |
+| Modusgrund | Der aktuelle Modus wurde von RemoteControl, App, Scheduler | eingestellt PRC, LAPP, LSCH, PUI | |
 | Staatsgrund | | MODUS | |
 | rsi | WLAN-Stärke | -100 - 0 | dBm |
 | Kanal | WLAN-Kanal | 52 | |
@@ -262,10 +267,16 @@ Redundante Werte?
 | summen | Feuchtigkeit ? (%) | 0000 - 0100 | |
 | tpm | Temperatur in Kelvin? | 0000 - 5000 | |
 
+### Sentry.io
+Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch an den Autor zu melden. Dafür wird das Plugin [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) verwendet. Bitte beachten Sie die [Plugin-Homepage](https://github.com/ioBroker/plugin-sentry) für detaillierte Informationen darüber, was das Plugin tut, welche Informationen gesammelt werden und wie es deaktiviert werden kann, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
+
 ## Rechtliche Hinweise
 Dyson, pure cool, pure hot & cool und andere sind Warenzeichen oder eingetragene Warenzeichen von [Dyson Ltd.](https://www.dyson.com) Alle anderen Warenzeichen sind Eigentum ihrer jeweiligen Inhaber.
 
 ## Changelog
+
+### V2.4.1 (2022-03-20) (Echo from the past)
+* (grizzelbee) New: Changed SystemState from text to boolean data points
 
 ### V2.4.0 (2022-03-17) (Echo from the past)
 * (grizzelbee) New: Added warning code to device tree

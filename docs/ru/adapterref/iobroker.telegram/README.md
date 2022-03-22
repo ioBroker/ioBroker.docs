@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.telegram/README.md
 title: Адаптер телеграммы ioBroker
-hash: +UIqc239lrjwJRJFGDGP1tWkGJ4Ioj98fuRAja86qY8=
+hash: jWi7uWMh/Jbm7Sb2TWH5+ijaXdhBq3K/rLyGsDaqitw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.telegram/admin/telegram.png)
 
@@ -136,7 +136,7 @@ sendTo('telegram.0', {
 
 **Возможные варианты**:
 
-- *disable_notification*: отправляет сообщение без вывода сообщений. Пользователи iOS не получат уведомление, пользователи Android получат уведомление без звука. (все типы)
+- *disable_notification*: Отправляет сообщение без вывода сообщений. Пользователи iOS не получат уведомление, пользователи Android получат уведомление без звука. (все типы)
 - *parse_mode*: отправьте Markdown или HTML, если вы хотите, чтобы приложения Telegram отображали полужирный шрифт, курсив, текст фиксированной ширины или встроенные URL-адреса в сообщении вашего бота. Возможные значения: «Markdown», «MarkdownV2», «HTML» (сообщение).
 - *disable_web_page_preview*: отключает предварительный просмотр ссылок в этом сообщении (сообщении).
 - *caption*: Подпись к документу, фото или видео, 0-200 символов (видео, аудио, фото, документ)
@@ -581,7 +581,7 @@ sendTo('telegram.0', 'call', {
 - `ru-RU-Standard-D` - Русский (Россия) (Мужской 2 голос)
 - `sk-SK-Standard-A` - словацкий (Словакия) (женский голос)
 - `es-ES-Standard-A` - испанский (Испания) (женский голос - будет использоваться, если язык системы ES и язык не указан)
-- `sv-SE-Standard-A` - Шведский (Швеция) (женский голос)
+- `sv-SE-Standard-A` - шведский (Швеция) (женский голос)
 - `tr-TR-Standard-A` - Турецкий (Турция) (женский голос)
 - `tr-TR-Standard-B` - Турецкий (Турция) (мужской голос)
 - `tr-TR-Standard-C` - турецкий (Турция) (женский 2 голос)
@@ -630,7 +630,7 @@ sendTo('telegram.0', 'call', {
 
 ### Кнопки в очереди
 Сколько кнопок должно быть показано в строке для одного устройства.
-Из-за длинного названия, возможно, лучше отображать только 2 (или даже одну) кнопки в строке.
+Из-за длинного названия, возможно, лучше показывать только 2 (или даже одну) кнопки в строке.
 
 ![настройки](../../../en/adapterref/iobroker.telegram/img/stateSettings3.png)
 
@@ -702,13 +702,15 @@ msg.payload = {
 }
 ```
 
+Перед отправкой в `telegram.INSTANCE.communicate.responseJson you need to stringify the object!`
+
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 1.12.0 (2022-03-21)
+* (Apollon77) Add new JSON states communication.responseJson and communication.responseSilentJson to also accept json structures (stringified!) to send messages
 * (Apollon77) Try to prevent adapter crashes when internet is not available 
 * (Apollon77) Add Sentry for crash reporting
 

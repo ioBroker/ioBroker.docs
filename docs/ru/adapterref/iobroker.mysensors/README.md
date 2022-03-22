@@ -3,26 +3,26 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mysensors/README.md
 title: ioBroker.mysensors
-hash: aSy0rOeIPaTcWu3iicEEsdBle/JK9AhuU/Xp+9gXKJ8=
+hash: KnLKRjIiq8ieUK5hWxhZac4nJqAAScbQVkOtPO/H3Fg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mysensors/admin/mysensors.png)
 
 ![Количество установок](http://iobroker.live/badges/mysensors-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.mysensors.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.mysensors.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.mysensors.svg)
 ![Тесты](https://travis-ci.org/ioBroker/ioBroker.mysensors.svg?branch=master)
 ![НПМ](https://nodei.co/npm/iobroker.mysensors.png?downloads=true)
 
 # IoBroker.mysensors
-Этот адаптер взаимодействует с последовательным шлюзом [мои сенсоры](http://www.mysensors.org) или шлюзом Ethernet (TCP или UDP).
-Если выбран Ethernet-шлюз, в этом случае ioBroker является сервером, который ожидает подключения.
+Этот адаптер взаимодействует с [мои сенсоры](http://www.mysensors.org) последовательным шлюзом или шлюзом Ethernet (TCP или UDP).
+Если в этом случае выбран шлюз Ethernet, ioBroker является сервером, который ожидает соединения.
 
 ## TCP-клиент
-Этот параметр работает только вместе с TCP &lt; = &gt; последовательным мостом, например [esp-ссылка](https://github.com/jeelabs/esp-link).
+Эта опция работает только вместе с мостом TCP&lt;=&gt;Serial, например [esp-ссылка](https://github.com/jeelabs/esp-link).
 
-## Предварительно требует
-Чтобы использовать последовательный порт в Windows, VS требуется создать двоичный файл.
-Для использования последовательного порта в Linux это необходимо для сборки и требуется python2.7. Для их установки просто напишите:
+## Предварительно требуется
+Чтобы использовать последовательный порт в Windows, требуется VS для сборки двоичного файла.
+Чтобы использовать последовательный порт в Linux, необходима сборка и требуется python2.7. Для их установки просто напишите:
 
 ```
 sudo apt-get update
@@ -30,12 +30,15 @@ sudo apt-get install build-essential
 sudo apt-get install python2.7
 ```
 
-<! - Заполнитель для следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+### **ВЫПОЛНЯЕТСЯ** -->
 
 ## Changelog
-### 2.0.2 (2021-11-08)
+### 3.0.0 (2022-03-21)
+* (bluefox) Updated serialport package
+
+### 2.0.3 (2021-11-10)
 * (sergeyksv) Added the support of deep sleep
 
 ### 2.0.1 (2020-06-01)
@@ -128,7 +131,7 @@ sudo apt-get install python2.7
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2021, Bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2022, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

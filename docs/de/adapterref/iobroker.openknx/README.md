@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: 9RoTOkmpsdKGiO0Z8+uYJrrII46BeOks0DE+0bg/RQw=
+hash: adlMwdlDSjVkmJ7ddZAsHrTPYbW7fHSSyF0P3Y1dkcU=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -128,13 +128,14 @@ Der vollständige Name einschließlich Pfad wird verwendet, um auf Ähnlichkeit 
 - Verwenden Sie iobroker (oder Ihre spezifische Datenbank, die über den Befehl show databases aufgelistet wird)
 - Einträge auflisten mit: Messungen anzeigen
 - Tabellen kopieren mit Befehl: select * in "entry_new" from "entry_old";
-- Zufluss für neues Objekt entry_new aktivieren
+- Zustrom aktiviert für neues Objekt entry_new setzen
 
 # Verwendung des Adapters & Grundkonzept
 ### ACK-Flags
-Anwendungen sollen keine ack-Flags setzen, die Anwendung wird von diesem Adapter durch das ack-Flag benachrichtigt, wenn Daten aktualisiert werden.
-KNX Stack setzt das ack-Flag des verknüpften ioBroker-Objekts beim Empfang einer Gruppenadresse.
-Gesendete Frames auf KNX führen nicht zu einer Bestätigung des schreibenden Objekts.
+Anwendungen dürfen niemals ack-Flags setzen, die Anwendung wird von diesem Adapter durch das ack-Flag benachrichtigt, wenn Daten aktualisiert werden.
+KNX Stack setzt das ack-Flag des entsprechenden ioBroker-Objekts beim Empfang einer Gruppenadresse.
+Gesendete Frames auf KNX, die durch das Schreiben einer Anwendung auf ein Objekt ausgelöst werden, führen nicht zu einer Bestätigungsnachricht an dieses Objekt.
+Dieses Verhalten kann überschrieben werden, indem im Admin-Dialog die Checkbox „Bestätigungskennzeichen setzen, wenn Anwendung auf Objekt schreibt“ aktiviert wird.
 
 ### Beispiel für den komplexen Datentyp Node Red
 Erstellen Sie einen Funktionsknoten, der eine Verbindung zu einem ioBroker-Ausgangsknoten herstellt, der eine Verbindung zu einem KNX-Objekt von DPT2 herstellt.
@@ -264,9 +265,31 @@ Die Daten werden an den in Deutschland gehosteten Iobroker Sentry-Server gesende
 - nur IPv4 unterstützt
 
 ## Changelog
-### 0.1.19 (2022-02-)
-* feature:
-* bugfix:
+### 0.1.23 (2022-03-19)
+* feature: change default regexp for alias
+* feature: new option to set ack flag when application writes to object
+* feature: supportes knx device scan in iobroker.discovery 2.8.0
+* bugfix: min max common object values only for number 
+
+### 0.1.22 (2022-02-26)
+* bufix: repair reception error
+
+### 0.1.21 (2022-02-25)
+* feature: dont sent ack request in ldata.ind, this is disturbing clients if not filtered out by gateway
+* bugfix: reinit if event received before connection established to avoid deadlock
+* dependency:adapter core must be 2.6.0 or higher
+
+### 0.1.20 (2022-02-19)
+* feature: add more dpts
+* bugfix: corrected some min max values
+* bugfix: some unhandeled dpts could not be received
+* bugfix: fix import
+* bugfix: min max values
+
+### 0.1.19 (2022-02-11)
+* feature: allow usage of same KNX GAs in multiple objects
+* bugfix: less warnings in alias generation
+* bugfix: adapter reset after project import
 
 ### 0.1.18 (2022-01-30)
 * bugfix: issue #61 Alias dialog not working 1st time

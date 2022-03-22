@@ -25,10 +25,13 @@ sudo apt-get install python2.7
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 3.0.0 (2022-03-21)
+* (bluefox) Updated serialport package
+
 ### 2.0.3 (2021-11-10)
 * (sergeyksv) Added the support of deep sleep
 
@@ -122,7 +125,7 @@ sudo apt-get install python2.7
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2021, Bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2022, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

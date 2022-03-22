@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.node-red/README.md
 title: ioBroker node-red Adapter
-hash: Hepdf/NZ/L9whqqNKIiOn4KWFfh63yiXgLpbfS1rFzg=
+hash: 4OxIR4oqWLjrtd/WIIWwjXCeQpiMeKliKKTDwivA7BQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.node-red/admin/node-red.png)
 
@@ -27,13 +27,31 @@ Dieser Adapter verwendet den Node-Red-Server von https://github.com/node-red/nod
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __LAUFENDE ARBEIT__ -->
+### **IN ARBEIT** -->
 
 ## Changelog
-### __WORK IN PROGRESS__
-* (jwiesel) Changed default setting to "convert data from ioBroker nodes into Strings" to false. Setting will not be changed automatically in instances already running.
+### 3.0.1 (2022-03-20)
+* (Bannsaenger) added option for in Node to choose topic format (MQTT with / or ioBroker with .). Default: MQTT
+*
+
+### 3.0.0 (2022-03-11)
+* IMPORTANT: Node-RED is now v2. Please check your nodes for compatibility! See also https://nodered.org/blog/2021/07/20/version-2-0-released and https://nodered.org/blog/2021/10/21/version-2-1-released
+* Detailed overview (in german): https://forum.iobroker.net/post/775767
+* (jwiesel) Node-RED updated to 2.2.2
 * (jwiesel) "Tail" node has been removed from the default palette in Node-RED 2.0. You can reinstall it from node-red-node-tail.
-* (jwiesel) Node-RED updated to 2.1.4 (incl. restructuring of settings.js)
+* (Apollon77) Automatically create missing folders when node-red creates objects in javascript.*, node-red.* and 0_userdata.0.*
+* (jwiesel) Added NodeRed parameter httpStatic to instance settings
+* (bluefox) Added the reading of objects from admin for SelectID dialog
+* (bluefox) Added debug output: Cannot set state of non-existing object
+* (bluefox) Allow setting of regular expression in the list node in message
+* (bluefox) Allow the filtering of `ack=false` messages for IN node
+* (Apollon77) Enhance GetNode rbe/dead-band functions to optionally ignore initial value
+* (Apollon77) Return undefined for GetNode if the state currently has no value set (e.g. because expired or never set)
+* (Apollon77) Allow for GetNode to return an error if a state-id is used for which no object exists, else also return undefined
+* (Apollon77) Also allow accessing system.* states directly
+* (Apollon77) When RBE function is used on InNode and not value is sent on start still initialize current value internally
+* (Apollon77) Add node-ID in front of all log lines logged by node logic
+* (jwiesel) Changed default setting to "convert data from ioBroker nodes into Strings" to false. Setting will not be changed automatically in instances already existing
 
 ### 2.4.2 (2022-02-07)
 * (Apollon77) Make compatible with js-controller 4.0
@@ -90,7 +108,7 @@ Dieser Adapter verwendet den Node-Red-Server von https://github.com/node-red/nod
 * (Apollon77) update node-red to 1.0.6 and deps
 * (Apollon77) make sure adapter namespace is prepended in all situations and so correct objects are created
 * (Apollon77) fix crash cases
-* (Apollon77) make sure msg topic is not overwritten by null 
+* (Apollon77) make sure msg topic is not overwritten by null
 
 ### 1.16.5 (2020-03-17)
 * (bluefox) Caught errors if state deleted
@@ -117,7 +135,7 @@ Dieser Adapter verwendet den Node-Red-Server von https://github.com/node-red/nod
 * (SchumyHao) Set state name, role, type and readonly state in node and msg
 
 ### 1.13.1 (2019-10-23)
-* (RustyThePropellerHead) Logging elevated from debug to info for debug-nodes with console output 
+* (RustyThePropellerHead) Logging elevated from debug to info for debug-nodes with console output
 
 ### 1.13.0 (2019-10-20)
 * (WolfspiritM) Get Object node added
@@ -295,7 +313,7 @@ Dieser Adapter verwendet den Node-Red-Server von https://github.com/node-red/nod
 
 ## License
 
-Copyright 2014-2021 bluefox <dogafox@gmail.com>.
+Copyright 2014-2022 bluefox <dogafox@gmail.com>.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: 9RoTOkmpsdKGiO0Z8+uYJrrII46BeOks0DE+0bg/RQw=
+hash: adlMwdlDSjVkmJ7ddZAsHrTPYbW7fHSSyF0P3Y1dkcU=
 ---
-![标识](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
+![商标](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.openknx.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.openknx.svg)
@@ -132,12 +132,13 @@ KNX 设备可以具有属于命令 ga 的状态反馈的 ga。某些应用程序
 
 # 如何使用适配器和基本概念
 ### ACK 标志
-应用程序不应设置 ack 标志，如果数据更新，则通过 ack 标志从该适配器通知应用程序。
-KNX 堆栈在收到组地址时设置链接的 ioBroker 对象的确认标志。
-KNX 上发送的帧不会导致写入对象的确认。
+应用程序永远不会设置 ack 标志，如果数据更新，则通过 ack 标志从该适配器通知应用程序。
+KNX 堆栈在收到组地址时设置相应 ioBroker 对象的确认标志。
+由应用程序写入对象触发的 KNX 上发送的帧不会导致对该对象的确认消息。
+可以通过在管理对话框中选中复选框“在应用程序写入对象时设置确认标志”来覆盖此行为。
 
 ### Node Red 复杂数据类型示例
-创建连接到 ioBroker out 节点的函数节点，该节点与 DPT2 的 KNX 对象连接。
+创建一个连接到 ioBroker out 节点的函数节点，该节点与 DPT2 的 KNX 对象连接。
 msg.payload = {“优先级”：1，“数据”：0}；返回味精；
 
 # 日志级别
@@ -148,7 +149,7 @@ msg.payload = {“优先级”：1，“数据”：0}；返回味精；
 ioBroker 定义对象来保存通信接口设置。
 GA 导入生成遵循 ga 主组/中间组方案的通信对象文件夹结构。每个组地址都是一个对象，具有以下自动生成的数据。
 
-ioBroker 状态角色 (https://github.com/ioBroker/ioBroker/blob/master/doc/STATE_ROLES.md) 默认具有值“状态”。一些更细化的值是从 DPT 派生的，例如 Date 或 Switch。
+ioBroker 状态角色 (https://github.com/ioBroker/ioBroker/blob/master/doc/STATE_ROLES.md) 默认具有值“状态”。从 DPT 派生一些更细化的值，例如 Date 或 Switch。
 
 自动读取设置为假，从 DPT 可以清楚地看出这是一个触发信号。这适用于场景编号。
 
@@ -248,7 +249,7 @@ Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
 ＃ 特征
 * 稳定可靠的knx堆栈
 * 对最重要的 DPT 的 KNX 数据报进行自动编码/解码，对其他 DPT 进行原始读写
-* 支持KNX组值读取和组值写入和组值响应
+* 支持KNX组值读取、组值写入和组值响应
 * 免费开源
 * 不依赖云服务，无需互联网访问即可运行
 * 开始时自动读取
@@ -256,7 +257,7 @@ Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
 * 创建对状态输入做出反应的联合别名对象
 
 # 已知问题
-- 没有任何
+- 没有
 
 # 限制
 - 不支持 ETS 4 导出文件格式
@@ -264,9 +265,31 @@ Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
 - 仅支持 IPv4
 
 ## Changelog
-### 0.1.19 (2022-02-)
-* feature:
-* bugfix:
+### 0.1.23 (2022-03-19)
+* feature: change default regexp for alias
+* feature: new option to set ack flag when application writes to object
+* feature: supportes knx device scan in iobroker.discovery 2.8.0
+* bugfix: min max common object values only for number 
+
+### 0.1.22 (2022-02-26)
+* bufix: repair reception error
+
+### 0.1.21 (2022-02-25)
+* feature: dont sent ack request in ldata.ind, this is disturbing clients if not filtered out by gateway
+* bugfix: reinit if event received before connection established to avoid deadlock
+* dependency:adapter core must be 2.6.0 or higher
+
+### 0.1.20 (2022-02-19)
+* feature: add more dpts
+* bugfix: corrected some min max values
+* bugfix: some unhandeled dpts could not be received
+* bugfix: fix import
+* bugfix: min max values
+
+### 0.1.19 (2022-02-11)
+* feature: allow usage of same KNX GAs in multiple objects
+* bugfix: less warnings in alias generation
+* bugfix: adapter reset after project import
 
 ### 0.1.18 (2022-01-30)
 * bugfix: issue #61 Alias dialog not working 1st time

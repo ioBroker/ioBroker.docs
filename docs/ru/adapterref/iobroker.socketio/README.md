@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.socketio/README.md
 title: ioBroker socket.io
-hash: LiIYhUgFOj7RdsVerQB0EZRgEb4Wwyt5+MnOv/c2NGY=
+hash: NixpEzORuHeSWseO0Rk2CnI94e5xGCi65Gua14wZGoM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.socketio/admin/socketio.png)
 
@@ -62,15 +62,15 @@ hash: LiIYhUgFOj7RdsVerQB0EZRgEb4Wwyt5+MnOv/c2NGY=
 - Когда лампа включена, она обычно информирует HAA о новом состоянии, и значение должно быть немедленно перезаписано с помощью ```{value: true, ack: true}```.
 - Если лампа выключается вручную с помощью физического переключателя, она информирует HAA о новом состоянии с помощью ```{value: false, ack: true}```.
 
-### Качество
+### Качественный
 Каждая точка данных имеет атрибут `q` — *качество*.
 
-## Использование
+## Применение
 Для связи рекомендуется использовать example/conn.js.
 
 После включения файла conn.js глобальный объект `servConn` можно использовать для установления связи с адаптером socketio.
 
-`servConn` объект имеет методы выдалбливания:
+`servConn` Объект имеет методы выдалбливания:
 
 ### В этом
 - функция (connOptions, connCallbacks, objectsRequired)
@@ -320,20 +320,22 @@ connCallbacks = {
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
+### **В РАБОТЕ** -->
 
 ## Changelog
-### 4.0.3 (2022-01-30)
-* (bluefox) Removed the deprecated "passport.socketio" packet
+### 4.1.5 (2022-03-20)
+* (Apollon77) make sure patterns are handled as strings on subscribe/unsubscribe
+* (Apollon77) when getHistory is called with instance as string correct the data into an object
 
-### 4.0.2 (2022-01-30)
-* (bluefox) Removed "force web sockets" option
+### 4.1.4 (2022-02-16)
+* (bluefox) Added `unlink` and `rename` to web functions
 
-### 4.0.1 (2022-01-29)
-* (bluefox) Fixed authentication
+### 4.1.2 (2022-02-13)
+* (bluefox) Corrected the connection indication
 
-### 4.0.0 (2022-01-29)
-* (bluefox) Remove socket-io and use only web sockets
+### 4.1.0 (2022-01-31)
+* (bluefox) Update socket.io library to 2.4.1
+* (bluefox) Used json config for settings
 
 ### 3.1.5 (2021-10-22)
 * (foxriver76) make error logging on failed authentication more specific

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/objectsschema.md
 title: 核心理念
-hash: tK6YuHKe/GBt0L7cZVQTqQkxhdGY5spF7K5qLNwQuBU=
+hash: K2MgjRqbHPOYkKudFC028rMZ9OmW1Wo5NyIqsCu+c/U=
 ---
 # 核心理念
 ioBroker 中有两种根本不同的数据类型。所谓的**状态**（`states`）和**对象**。
@@ -24,7 +24,7 @@ ID 是一个字符串，最大长度为 240 字节，分层结构，由点分隔
 ID有不同的级别。每个级别由点确定。示例：`system.adapter.admin.0`
 
 - `system` - 是系统对象的命名空间
-- `adapter` - 适配器配置的命名空间
+- `适配器` - 适配器配置的命名空间
 - `admin` - 适配器名称
 - `0` - 适配器实例
 
@@ -202,7 +202,7 @@ ID有不同的级别。每个级别由点确定。示例：`system.adapter.admin
 * `common.write` (boolean, 强制) - 如果状态是可写的，则为真
 * `common.role`（字符串，强制）- 状态角色（在用户界面中用于指示选择哪个小部件，见下文）
 * `common.states`（可选）数字类型属性，带有可能状态的对象`{'value'：'valueName'，'value2'：'valueName2'，0：'OFF'，1：'ON'}`或（由 admin5 支持）一个状态数组，例如 `['Start', 'Flight', 'Land']`
-* `common.workingID` (string, optional) - 如果这个状态有辅助状态WORKING。这里必须写全名，如果前部分与实际相同，则只写最后部分。用于`HM.LEVEL`并且通常具有值`WORKING`
+* `common.workingID` (string, optional) - 如果这个状态有辅助状态WORKING。这里必须写全名，如果前部分与实际相同，则只写最后部分。用于 `HM.LEVEL` 并且通常具有值 `WORKING`
 * `common.custom`（可选）- 具有特定适配器的自定义设置的结构。像`{"influxdb.0": {"enabled": true, "alias": "name"}}`。 `enabled` 属性是必需的，如果它不是真的，整个属性将被删除。
 
 ##### 属性`common.history`
@@ -501,14 +501,14 @@ ID：`system.adapter.<adapter.name>`
 * `common.config.width` - 配置对话框的默认宽度（已弃用 - 仅对 admin2 有效）
 * `common.dataFolder` - 与适配器存储数据的 iobroker-data 相关的文件夹。此文件夹将自动备份和恢复。您可以在其中使用变量 `%INSTANCE%`。
 * `common.dataSource` - 如何从设备接收数据：`poll/push/assumption`。它与 `connectionType` 一起很重要。
-* `common.disableDataReporting` - 不通过 `sentry` 报告此实例的错误
+* `common.disableDataReporting` - 不要通过 `sentry` 报告此实例的错误
 * `common.dependencies` - 类似 `[{"js-controller": ">=2.0.0"}]` 的数组，描述了同一主机上的此适配器需要哪些 ioBroker 模块。
 * `common.docs` - 类似 `{"en": "docs/en/README.md", "de": ["docs/de/README.md", "docs/de/README1.md" 的结构]}` 描述文档（如果不在 `README.md` 中）
 * `common.enabled` - **mandatory** [true/false] 值应为 false，因此默认情况下禁用新实例
 * `common.engineTypes` - 已弃用。在 package.json 中使用引擎
 * `common.eraseOnUpload` - 在上传之前擦除目录中所有以前的数据
 * `common.expert` - 仅在管理员的专家模式下显示此对象
-* `common.extIcon` - 链接到已卸载适配器的外部图标。一般在github上。
+* `common.extIcon` - 链接到已卸载适配器的外部图标。通常在 GitHub 上。
 * `common.getHistory` - [true/false] 如果适配器支持 getHistory 消息
 * `common.globalDependencies` - 类似 `[{"admin": ">=2.0.0"}]` 的数组，描述了其中一台主机上的此适配器需要哪些 ioBroker 模块。
 * `common.icon` - 本地图标的名称（应位于子目录“admin”中）
@@ -526,12 +526,12 @@ ID：`system.adapter.<adapter.name>`
 * `common.materialize` - 如果适配器支持 > admin3（物化风格）
 * `common.messagebox` - 如果支持消息框，则为 true。因此，适配器可以接收 sendTo 消息（用于电子邮件、pushover 等）
 * `common.messages` - 更新的条件消息。有关详细信息，请参阅 [条件消息](#conditional-messages)。
-* `common.mode` - **强制**可能的值见下文
+* `common.mode` - **强制** 可能的值见下文
 * `common.name` - **强制**没有“ioBroker”的适配器名称。
 * `common.noConfig` - [true/false] 例如不显示配置对话框
 * `common.noIntro` - 永远不会在管理员的介绍/概述屏幕上显示此适配器的实例（如图标、小部件）
 * `common.noRepository` - [true/false] 如果适配器随初始安装交付或有自己的存储库
-* `common.nogit` - 如果为真，则无法直接从 github 安装
+* `common.nogit` - 如果为真，则无法直接从 GitHub 安装
 * `common.nondeletable` - [true/false] 此适配器无法删除或更新。它将与控制器一起更新。
 * `common.npmLibs` - 已弃用。使用 package.json `dependencies`。
 * `common.onlyWWW` - [true/false] 对控制器说，适配器只有 html 文件，没有 main.js，就像人力车一样
@@ -541,21 +541,22 @@ ID：`system.adapter.<adapter.name>`
 * `common.os` - 支持的操作系统的字符串或数组，例如`["linux", "darwin"]`
 * `common.platform` - **强制**可能的值：Javascript/Node.js，更多即将到来
 * `common.pugins.sentry` - 带有`sentry` 插件配置数据的结构
-* `common.preserveSettings` - 字符串（或数组），具有实例共有的属性名称，不会被删除。例如。 "history"，所以通过 setState('system.adapter.mqtt.0", {..}) 字段 common.history 不会被删除，即使新对象没有这个字段。要删除属性必须显式用 `common: {history: null}` 完成。
+* `common.preserveSettings` - 字符串（或数组），具有实例共有的属性名称，不会被删除。例如。 "history"，所以通过 `setState("system.adapter.mqtt.0", {..})` 字段 `common.history` 不会被删除，即使新对象没有这个字段。要删除属性，必须使用 `common: {history: null}` 显式完成。
 * `common.readme` - 自述文件的 URL
 * `common.restartAdapters` - 包含在安装此适配器后必须重新启动的适配器名称的数组，例如[“可见”]
 * `common.restartSchedule` - CRON 计划重启模式`daemon` 适配器
 * `common.schedule` - 如果适配器在 `schedule` 模式下运行，则 CRON 计划。
-* `common.serviceStates` - [true/false or path] 如果适配器可以提供额外的状态。如果是，将调用路径 `adapter/lib/states.js` 并给出以下参数函数（对象、状态、实例、配置、回调）。该函数必须传递具有类似 `function (err, result) { result = [{id: 'id1', val: 1}, {id: 'id2', val: 2}]} 的值的点数组
+* `common.serviceStates` - [true/false or path] 如果适配器可以提供额外的状态。如果是，将调用路径 `adapter/lib/states.js`，并提供以下参数函数（对象、状态、实例、配置、回调）。该函数必须传递具有类似 `function (err, result) { result = [{id: 'id1', val: 1}, {id: 'id2', val: 2}]} 的值的点数组
 * `common.singletonHost` - 适配器只能在一台主机上安装一次
 * `common.singleton` - 适配器在整个系统中只能安装一次
+* `common.statusStates` - admin 中状态指示的结构，形式为 `"statusStates": {"onlineId": "0.connected", "errorId": "hm-rpc.0.AB203424.0.error"}` .可以使用 `offlineId` 代替 `onlineId`。如果 ID 很短（其中少于 2 个点），则 ID 将被视为相对于当前对象。
 * `common.stopBeforeUpdate` - [true/false] 如果适配器必须在更新前停止
 * `common.stopTimeout` - 超时等待，直到适配器关闭。默认 500 毫秒。
 * `common.subscribable` - 此适配器的变量必须使用 sendTo 订阅才能启用更新
 * `common.subscribe` - 变量名，自动订阅
-* `common.supportCustoms` - [true/false] 如果适配器支持每个状态的设置。它必须在管理员中有 custom.html 文件。示例可以在 ioBroker.history 中找到
+* `common.supportCustoms` - [true/false] 如果适配器支持每个状态的设置。它必须在管理员中有 custom.html 文件。示例可以在 `ioBroker.history` 中找到
 * `common.supportStopInstance`- [true/false] 如果适配器支持信号 stopInstance（需要**messagebox**）。该信号将在停止之前发送到适配器。 （在 SIGTERM 出现问题时使用）
-* `common.titleLang` - **强制**在所有支持的语言中适配器的更长名称，例如 {en: 'Adapter', de: 'adapter', ru: 'Драйвер'}
+* `common.titleLang` - **强制** 在所有支持的语言中，适配器的更长名称，例如 `{en: 'Adapter', de: 'adapter', ru: 'Драйвер'}`
 * `common.title` - （已弃用）要在管理员中显示的适配器的更长名称
 * `common.type` - 适配器类型。请参阅 [类型](adapterpublish.md)
 * `common.unchanged` - （系统）请不要使用这个标志。这是一个通知系统的标志，该配置对话框必须显示在管理员中。

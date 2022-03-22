@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wiobrowser/README.md
 title: ioBroker.wiobrowser
-hash: QEjcKZX7N0B7az8svF+U13+hxDTAFxmAD7A/NeDh+xI=
+hash: 5BBNpQZAOvaQtUekK3nVYC2tjKvRgetZM93ySNFaOMY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.wiobrowser/admin/wiobrowser.png)
 
@@ -20,19 +20,16 @@ hash: QEjcKZX7N0B7az8svF+U13+hxDTAFxmAD7A/NeDh+xI=
 
 wioBrowser — это полноэкранный браузер Windows, которым можно управлять через ioBroker, он отображает отдельные веб-сайты или слайд-шоу веб-сайтов, которые можно настроить в адаптере. На адаптер также передается информация: + загрузка процессора + свободная память + текущий разряд батареи на планшете или ноутбуке + имя хоста + IP
 
-Он также может управлять: + включение/выключение экрана + выход из приложения + громкость +/- + включение/выключение звука + яркость +/- + запуск программ с помощью переключателей, например. C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100 + текстовые сообщения + голосовые сообщения
+Он также может управлять: + включение/выключение экрана + выход из приложения + громкость +/- + включение/выключение звука + яркость +/- + запуск программ с помощью переключателей, например. C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100 + текстовые сообщения + голосовые сообщения + воспроизведение аудиофайлов
 
-*** Адаптер Dieser включает в себя tcp.socket mit dem wioBrowser, um ihn zu steuern. Есть 3 несовместимых приложения wioBrowser: + wioBrowser WebView2 Framework + wioBrowser Chromium Framework + wioNoweb (Gleiche Funktionen ohne Web)
-
-wioBrowser является полноэкранным браузером Windows, который используется в ioBroker, когда вы используете последний веб-сайт и один из веб-сайтов Слайд-шоу с помощью адаптера. Es werden auch Infos and den Adapter übertragen: + CPU Last + freier Speicher + aktuelle Batterieentladung bei Tablet oder Notebook + Hostname + IP
-
-Er kann auch steuern: + Bildschirm an/aus + App beden + Lautstärke +/- + Stumm an/aus + Helligkeit +/- + Program mit Schaltern ausführen z.B C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100 + Text Nachrichten + Sprach Nachrichten
-
-## Ссылка на сайт
+## Связь
 * [Тема адаптера форума ioBroker] (https://forum.iobroker.net/topic/50982/neuer-adapter-wiobrowser-f%C3%BCr-windows)
-* [Учебник по сообщениям](https://forum.iobroker.net/topic/51534/tutorial-wiobrowser-windows-desktop-popup-messages) от пользователя hydrotec
+* [Учебное пособие по сообщениям](https://forum.iobroker.net/topic/51534/tutorial-wiobrowser-windows-desktop-popup-messages) пользователем hydrotec
 
 ## Changelog
+### 1.1.4
+* (bettman66) play audiofile
+
 ### 1.1.2
 * (bettman66) translate
 

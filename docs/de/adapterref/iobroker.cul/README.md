@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cul/README.md
 title: ioBroker.cul
-hash: K4rCOBSVFqE1jD3svv7aukvEal1t2fI6QVtX90V21KE=
+hash: 2tnvBHDfP0OFs68GeLH/DpaXwMsDO4ad4AP58dE/qQY=
 ---
 ![Logo](../../../en/adapterref/iobroker.cul/admin/busware.jpg)
 
@@ -14,28 +14,40 @@ hash: K4rCOBSVFqE1jD3svv7aukvEal1t2fI6QVtX90V21KE=
 ![NPM](https://nodei.co/npm/iobroker.cul.png?downloads=true)
 
 # IoBroker.cul
-ioBroker-Adapter zur Steuerung von FS20, Max!, HMS und anderen Geräten über [CUL](http://busware.de/tiki-index.php?page=CUL) / [culfw](http://culfw.de). Hängt von https://github.com/hobbyquaker/cul ab
+ioBroker-Adapter zur Steuerung von FS20, Max!, HMS und anderen Geräten über [CUL](http://busware.de/tiki-index.php?page=CUL) / [Kulfw](http://culfw.de). Hängt von https://github.com/hobbyquaker/cul ab
 
-** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Unterstützte Geräte
 - *EM* - EM1000WZ, EMWZ
-- *FS20* inkl. ESA1000 / 2000
+- *FS20*, inkl. ESVG1000/2000
 - *HMS* - HMS100-TF, HMS100-T, HMS100-WD, RM100-2, HMS100-TFK, HMS100-MG, HMS100-CO, HMS100-FIT
 - *MORITZ* - MAX!
-- *WS* - KS300TH, S300TH, WS2000 / WS7000
+- *WS* - KS300TH, S300TH, WS2000/WS7000
 
 ## Wie man
-### Senden Sie einen Befehl an ein FS20-Gerät in z. JavaScript
+### Senden Sie einen Befehl an ein FS20-Gerät, z. JavaScript
 ```sendTo("cul.0", "send", {"protocol":"FS20", "housecode":"A1B2", "address":"01", "command":"00"});```
 
-### Senden Sie mit JavaSript einen Raw-Befehl (z. B. an ein InterTechno-Gerät)
+### Senden Sie einen Rohbefehl (z. B. an ein InterTechno-Gerät) mithilfe von JavaScript
 ```sendTo("cul.0", "sendraw", {"command": 'is0FFFFF0FFFFF'});```
 
-Diese Befehle verwenden die CUL-Bibliothek dieses Adapters, um den Befehlen ein Gerät zu senden.
-Javascript / Node.js basierter Busware CUL USB / Culfw Adapter
+Diese Befehle verwenden die CUL-Bibliothek dieses Adapters, um die Befehle an ein Gerät zu senden.
+Javascript/Node.js-basierter `Busware CUL USB / culfw`-Adapter
+
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+
+### **IN ARBEIT** -->
 
 ## Changelog
+### 2.0.1 (2022-03-21)
+* (bluefox) Updated serialport package
+
+### 1.3.5 (2021-04-12)
+* (Apollon77) Make sure that cul is connected before accepting state changes (Sentry IOBROKER-CUL-R)
+
+### 1.3.4 (2020-12-02)
+* (Apollon77) prevent crash case (Sentry IOBROKER-CUL-D)
 
 ### 1.3.3 (2020-09-25)
 * (EvilEls) Added raw command support with cul.write()
@@ -46,13 +58,13 @@ Javascript / Node.js basierter Busware CUL USB / Culfw Adapter
 
 ### 1.3.1 (2020-07-26)
 * (Apollon77) make sure connection check do not crash adapter (Sentry IOBROKER-CUL-3)
-* (Apollon77) crashes preventd (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)
+* (Apollon77) crashes prevented (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)
 
 ### 1.3.0 (2020-07-20)
 * (Apollon77) Really update dependencies and Serialport
 
 ### 1.2.2 (2020-04-30)
-* (Apollon77) Update dependencies/Serialport 
+* (Apollon77) Update dependencies/Serialport
 
 ### 1.2.1 (2020-03-18)
 * (bluefox) Changed license from non SPDX conform 
@@ -94,4 +106,4 @@ Javascript / Node.js basierter Busware CUL USB / Culfw Adapter
 
 ## License
 
-[Licensed under GPLv2](LICENSE) Copyright (c) 2014-2020 hobbyquaker
+[Licensed under GPLv2](LICENSE) Copyright (c) 2014-2022 hobbyquaker

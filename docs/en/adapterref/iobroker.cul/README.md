@@ -37,7 +37,7 @@ Javascript/Node.js based `Busware CUL USB / culfw` adapter
 -->
 
 ## Changelog
-### 2.0.0 (2022-03-20)
+### 2.0.1 (2022-03-21)
 * (bluefox) Updated serialport package
 
 ### 1.3.5 (2021-04-12)

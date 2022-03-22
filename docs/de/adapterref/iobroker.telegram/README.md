@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.telegram/README.md
 title: ioBroker-Telegrammadapter
-hash: +UIqc239lrjwJRJFGDGP1tWkGJ4Ioj98fuRAja86qY8=
+hash: jWi7uWMh/Jbm7Sb2TWH5+ijaXdhBq3K/rLyGsDaqitw=
 ---
 ![Logo](../../../en/adapterref/iobroker.telegram/admin/telegram.png)
 
@@ -578,7 +578,7 @@ Mögliche Werte für Sprache:
 - `ru-RU-Standard-A` - Russisch (Russland) (weibliche Stimme - wird verwendet, wenn die Systemsprache RU ist und keine Sprache angegeben wurde)
 - `ru-RU-Standard-B` - Russisch (Russland) (Männerstimme)
 - `ru-RU-Standard-C` - Russisch (Russland) (Frauenstimme 2)
-- `ru-RU-Standard-D` - Russisch (Russland) (2 männliche Stimme)
+- `ru-RU-Standard-D` - Russisch (Russland) (männliche 2-Stimme)
 - `sk-SK-Standard-A` - Slowakisch (Slowakei) (weibliche Stimme)
 - `es-ES-Standard-A` - Spanisch (Spanien) (Frauenstimme - wird verwendet, wenn die Systemsprache ES ist und keine Sprache angegeben wurde)
 - `sv-SE-Standard-A` - Schwedisch (Schweden) (weibliche Stimme)
@@ -635,7 +635,7 @@ Wegen des langen Namens ist es vielleicht besser, nur 2 (oder sogar nur einen) B
 ![die Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings3.png)
 
 ### Nur schreiben
-Wenn aktiviert, wird die Schaltfläche Statusabfrage (`Door lamp ?`) nicht angezeigt.
+Falls aktiviert, wird die Schaltfläche Statusabfrage (`Door lamp ?`) nicht angezeigt.
 ![die Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings4.png)
 
 ### Auf Befehl
@@ -702,13 +702,15 @@ msg.payload = {
 }
 ```
 
+Vor dem Senden an `telegram.INSTANCE.communicate.responseJson you need to stringify the object!`
+
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
 ### __LAUFENDE ARBEIT__ -->
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 1.12.0 (2022-03-21)
+* (Apollon77) Add new JSON states communication.responseJson and communication.responseSilentJson to also accept json structures (stringified!) to send messages
 * (Apollon77) Try to prevent adapter crashes when internet is not available 
 * (Apollon77) Add Sentry for crash reporting
 

@@ -3,30 +3,36 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.dwd/README.md
 title: ioBroker.dwd
-hash: hMqC9TzffM0CXLhIv++7Lym4DA59/buppGlYwt3rwlk=
+hash: 6WbybGFTHdcbV6GkbqjZPQ3RwiwdJ8LOJybLchA8ZlY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.dwd/admin/dwd.png)
 
 ![Количество установок](http://iobroker.live/badges/dwd-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.dwd.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.dwd.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.dwd.svg)
 
 # IoBroker.dwd
-![Тестирование и выпуск](https://github.com/ioBroker/iobroker.dwd/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/dwd/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Тестируйте и выпускайте](https://github.com/ioBroker/iobroker.dwd/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/dwd/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Авторские права Deutscher Wetterdienst
+Авторское право Deutscher Wetterdienst
 
-Адаптер Dieser установлен на Wetterwarnungen vom deutschen Wetterdienst с ссылкой JSON.
+Адаптер Dieser предлагает ссылку на немецкое руководство по ссылке JSON.
 
-Этот адаптер загружает предупреждения о погоде от немецкой службы погоды по ссылке JSON.
+Этот адаптер загружает предупреждения о погоде от немецкой метеорологической службы по ссылке JSON.
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
-<! - Заполнитель для следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+### **ВЫПОЛНЯЕТСЯ** -->
 
 ## Changelog
+### 2.8.1 (2022-03-21)
+* (Apollon77) Add instruction text to warning data
+
+### 2.7.7 (2021-07-01)
+* (Apollon77) Fix start/end dates
+
 ### 2.7.6 (2021-06-28)
 * (sbormann) Added new states to `warning.severity`
 * (bluefox) Removed warnings
@@ -69,14 +75,14 @@ hash: hMqC9TzffM0CXLhIv++7Lym4DA59/buppGlYwt3rwlk=
 * (Apollon77) Better handle errors when adapter ends (again Sentry)
 
 ### 2.4.9 (2020-05-11)
-* (Apollon77) Better handle errors when adapter ends (Sentry IOBROKER-DWD-1) 
+* (Apollon77) Better handle errors when adapter ends (Sentry IOBROKER-DWD-1)
 
 ### 2.4.8 (2020-04-30)
-* (Apollon77) Better handle errors when adapter ends 
+* (Apollon77) Better handle errors when adapter ends
 
 ### 2.4.7 (2020-04-18)
 * (Apollon77) Add Sentry for error reporting with js-controller 3.0
-* (Apollon77) Fix crash because of undefined lat/long 
+* (Apollon77) Fix crash because of undefined lat/long
 
 ### 2.4.6 (2020-02-24)
 * (bluefox) Time format added to widget
@@ -173,7 +179,7 @@ hash: hMqC9TzffM0CXLhIv++7Lym4DA59/buppGlYwt3rwlk=
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2021 bluefox <dogafox@gmail.com>, hobbyquaker
+Copyright (c) 2016-2022 bluefox <dogafox@gmail.com>, hobbyquaker
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

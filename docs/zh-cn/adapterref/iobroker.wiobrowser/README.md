@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wiobrowser/README.md
 title: ioBroker.wiobrowser
-hash: QEjcKZX7N0B7az8svF+U13+hxDTAFxmAD7A/NeDh+xI=
+hash: 5BBNpQZAOvaQtUekK3nVYC2tjKvRgetZM93ySNFaOMY=
 ---
-![标识](../../../en/adapterref/iobroker.wiobrowser/admin/wiobrowser.png)
+![商标](../../../en/adapterref/iobroker.wiobrowser/admin/wiobrowser.png)
 
 ![安装数量](http://iobroker.live/badges/wiobrowser-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.wiobrowser.svg)
@@ -20,19 +20,16 @@ hash: QEjcKZX7N0B7az8svF+U13+hxDTAFxmAD7A/NeDh+xI=
 
 wioBrowser 是一个可以通过 ioBroker 控制的 Windows 全屏浏览器，它显示可以在适配器中设置的单个网站或网站幻灯片。信息也会传输到适配器：+ CPU 负载 + 可用内存 + 平板电脑或笔记本电脑上的当前电池放电 + 主机名 + IP
 
-他还可以控制： + 屏幕开/关 + 退出应用程序 + 音量 +/- + 静音开/关 + 亮度 +/- + 使用开关运行程序，例如C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100 + 短信 + 语音
-
-*** Dieser Adapter verbindet sich über tcp.socket mit dem wioBrowser，嗯 ihn zu steuern。 Es gibt 3 unterschiedliche wioBrowser 应用程序：+ wioBrowser WebView2 框架 + wioBrowser Chromium 框架 + wioNoweb (Gleiche Funktionen ohne Web)
-
-wioBrowser ist ein Windows Fullscreen Browser der sich über ioBroker steuern lässt, er zeigt einzelne Webseiten an oder eine Webseiten Slideshow die man im Adapter einstellen kann。 Es werden auch Infos an den Adapter übertragen: + CPU Last + freier Speicher + aktuelle Batterieentladung bei Tablet oder Notebook + 主机名 + IP
-
-Er kann auch steuern：+ Bildschirm an/aus + App bedenden + Lautstärke +/- + Stumm an/aus + Helligkeit +/- + Program mit Schaltern ausführen z.B C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100 + Text Nachrichten + Sprach Nachrichten
+他还可以控制： + 屏幕开/关 + 退出应用程序 + 音量 +/- + 静音开/关 + 亮度 +/- + 使用开关运行程序，例如C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100 + 文本消息 + 语音消息 + 播放音频文件
 
 ＃＃ 关联
 * [ioBroker 论坛适配器线程](https://forum.iobroker.net/topic/50982/neuer-adapter-wiobrowser-f%C3%BCr-windows)
-* [Tutorial über die Messages](https://forum.iobroker.net/topic/51534/tutorial-wiobrowser-windows-desktop-popup-messages) vom User hydrotec
+* [Tutorial über die Messages](https://forum.iobroker.net/topic/51534/tutorial-wiobrowser-windows-desktop-popup-messages) 用户hydrotec
 
 ## Changelog
+### 1.1.4
+* (bettman66) play audiofile
+
 ### 1.1.2
 * (bettman66) translate
 

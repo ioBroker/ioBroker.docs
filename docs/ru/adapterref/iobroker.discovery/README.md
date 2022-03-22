@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.discovery/README.md
 title: Адаптер обнаружения ioBroker
-hash: kfH6c2xUP7RvRNl3MkU8uPffTH3wicEvCLo1bCRzge0=
+hash: ynzTH5DYs4NTogey3awfNS0TZFy0qJDkudHnQoVA4cg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
@@ -140,9 +140,12 @@ hash: kfH6c2xUP7RvRNl3MkU8uPffTH3wicEvCLo1bCRzge0=
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
+### **ВЫПОЛНЯЕТСЯ** -->
 
 ## Changelog
+### 3.0.2 (2022-03-21)
+* (bluefox) Updated serialport package
+
 ### 2.8.0 (2022-02-20)
 * (boellner) add openknx
 * (git-kick) add e3dc-rscp

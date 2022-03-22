@@ -7,14 +7,14 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.denon/README.md
 title: ioBroker.denon
-hash: NXzLkWw2R6xwJOSJ3VdqQr7qOTIyBUNRn1e0HbX4zjo=
+hash: pVtahMGL0HeNcKSx8rUcOXvmb126tYXzTjoxeXwdwvo=
 ---
-![标识](../../../en/adapterref/iobroker.denon/admin/denon.png)
+![商标](../../../en/adapterref/iobroker.denon/admin/denon.png)
 
 ![安装数量](http://iobroker.live/badges/denon-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.denon.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.denon.svg)
-![新产品管理](https://nodei.co/npm/iobroker.denon.png?downloads=true)
+![新PM](https://nodei.co/npm/iobroker.denon.png?downloads=true)
 
 # IoBroker.denon
 ===========================
@@ -23,20 +23,20 @@ hash: NXzLkWw2R6xwJOSJ3VdqQr7qOTIyBUNRn1e0HbX4zjo=
 
 ## 免责声明
 DENON 和 Marantz 是 D&M Holdings Inc. 的商标。
-本模块的开发者不受 D&M Holdings Inc. 或其任何关联子公司、徽标或商标的认可或附属。
+该模块的开发人员绝不会得到 D&M Holdings Inc. 或任何相关子公司、徽标或商标的认可或附属。
 
 ＃＃ 安装
 您可以通过 ioBroker Web 界面或通过 npm 在本地计算机上安装适配器。
 
 ### 基于浏览器
-1. 在浏览器中打开您的 ioBroker 网页界面（例如：192.168.30.70:8081）
-2. 单击“适配器”选项卡
-3. 在过滤器中输入“天龙”
-4. 单击三个点，然后单击 DENON AVR 适配器的“+”符号
+1. 在浏览器中打开您的 ioBroker Web 界面（例如：192.168.30.70:8081）
+2.单击选项卡“适配器”
+3. 在过滤器中输入“Denon”
+4.点击三个点，然后点击DENON AVR适配器的“+”符号
 
 ![添加适配器](../../../en/adapterref/iobroker.denon/docs/en/media/plusAddAdapter.png)
 
-###本地机器
+### 本地机器
 导航到您的 iobroker 文件夹并执行以下命令：
 
 ```bash
@@ -44,66 +44,66 @@ npm i iobroker.denon
 ```
 
 ＃＃ 设置
-除了适配器安装之外，您还必须确保正确配置了 AVR。
+除了适配器安装之外，您还必须确保您的 AVR 配置正确。
 
 ### IoBroker
-1.在浏览器中打开你的ioBroker界面（例如：192.168.1.33:8081）
-2.导航到标签“适配器”
-3. 单击三个点，然后单击 DENON AVR 适配器的“+”符号
+1.在浏览器中打开您的ioBroker界面（例如：192.168.1.33:8081）
+2.导航到选项卡“适配器”
+3.点击三个点，然后点击DENON AVR适配器的“+”符号
 
 ![添加适配器](../../../en/adapterref/iobroker.denon/docs/en/media/plusAddAdapter.png)
 
-4. 现在您可以看到适配器配置页面 --> 输入您的 DENON AVR 的 ip 地址或单击搜索
+4. 现在您可以看到适配器配置页面 --> 输入您的 DENON AVR 的 ip-address 或点击搜索
 
-用于在您的网络中查找 AVR 的图标（通过 UPnP）![适配器配置](../../../en/adapterref/iobroker.denon/docs/en/media/fillInIp.png)
+在您的网络中查找 AVR 的图标（通过 UPnP）![适配器配置](../../../en/adapterref/iobroker.denon/docs/en/media/fillInIp.png)
 
-5. 如果您还想调整请求/轮询间隔，请确保单击“高级设置”选项卡。
+5. 如果您还想调整请求/轮询间隔，请务必单击“高级设置”选项卡。
 
 通过减少轮询间隔，适配器将减少更新显示内容之间的时间。
 通过减少请求间隔，发送命令之间的时间将减少。
 默认设置应该适合大多数用户。
 ![高级设置](../../../en/adapterref/iobroker.denon/docs/en/media/advancedSettings.png)
 
-6. 单击保存并关闭
+6.点击保存并关闭
 
 ### AV 接收器的网络设置
 1. 按 SETUP 按钮，然后菜单出现在 FL 显示器（和 GUI）上
-2. 选择“网络”-->“设置”
-3. 设置如下参数
+2.选择“网络”-->“设置”
+3. 设置如下所述的参数
 
-   *DHCP：“ON”（当 DHCP 服务器在本地网络上时使用此设置。）*
+   *DHCP：“开”（当 DHCP 服务器在本地网络上时使用此设置。）*
 
-   *IP 地址：当 <DHCP> 设置为“关闭”时，请设置 IP 地址。*
+   *IP地址：当<DHCP>设置为“关闭”时，请设置IP地址。*
 
    *子网掩码：当<DHCP>设置为“关闭”时，请设置子网掩码。*
 
-   *网关：设置网关在本地网络时的网关地址。*
+   *网关：当网关在本地网络时，设置网关的地址。*
 
-   *主DNS：请勿设置此参数。*
+   *主 DNS：请勿设置此参数。*
 
    *第二个DNS：不要设置这个参数。*
 
    *代理：将此参数设置为“关闭”。*
 
 4. 按 SETUP 按钮，然后菜单出现在 FL 显示器（和 GUI）上
-5.选择“网络”-->网络控制/IP控制
+5.选择“网络”-->网络控制/IP控制“
 6. 将此参数设置为“始终开启”。
 
 ＃＃ 用法
-请注意，AVR 只能管理一个 telnet 连接。如果您有一个活动的 telnet 连接 e. G。使用 javascript 适配器，AVR 将拒绝此适配器的连接。
+请注意，AVR 只能管理一个 telnet 连接。如果您有一个活动的 telnet 连接 e。 G。使用 javascript 适配器，AVR 将拒绝该适配器的连接。
 在这里您可以找到状态的描述以及如何使用它们。
 
 ＃＃＃ 纽扣
 适配器创建以下按钮：
 
-#### 频道：zoneMain / zone2 / zone3
+####频道：zoneMain / zone2 / zone3
 * zoneMain.playPause
 
    *播放和暂停来自蓝牙、在线、USB/iPod 来源的音乐。*
 
 * zoneMain.play
 
-   *播放来自蓝牙、在线、USB/iPod 来源的音乐。*
+   *从蓝牙、在线、USB/iPod 源播放音乐。*
 
 * zoneMain.pause
 
@@ -131,50 +131,50 @@ npm i iobroker.denon
 
 * zoneMain.equalizerBassUp / zone2.equalizerBassUp / zone3.equalizerBassUp
 
-   *增加区域低音水平的按钮。*
+   *增加区域低音级别的按钮。*
 
-   *当 Dyn EQ 设置为关闭且音调控制打开时，可以调整低音和高音设置*
+   *当 Dyn EQ 设置为 OFF 且音调控制打开时，可以调整低音和高音设置*
 
 * zoneMain.equalizerBassDown / zone2.equalizerBassDown / zone3.equalizerBassDown
 
-   *降低区域低音电平的按钮。*
+   *降低区域低音级别的按钮。*
 
-   *当 Dyn EQ 设置为关闭且音调控制打开时，可以调整低音和高音设置*
+   *当 Dyn EQ 设置为 OFF 且音调控制打开时，可以调整低音和高音设置*
 
 * zoneMain.equalizerTrebleUp / zone2.equalizerTrebleUp / zone3.equalizerTrebleUp
 
-   *增加区域高音水平的按钮。*
+   *增加区域高音电平的按钮。*
 
-   *当 Dyn EQ 设置为关闭且音调控制打开时，可以调整低音和高音设置*
+   *当 Dyn EQ 设置为 OFF 且音调控制打开时，可以调整低音和高音设置*
 
 * zoneMain.equalizerTrebleDown / zone2.equalizerTrebleDown / zone3.equalizerTrebleDown
 
    *降低区域高音电平的按钮。*
 
-   *当 Dyn EQ 设置为关闭且音调控制打开时，可以调整低音和高音设置*
+   *当 Dyn EQ 设置为 OFF 且音调控制打开时，可以调整低音和高音设置*
 
 #### 频道：设置
 * settings.subwooferLevelDown / settings.subwooferTwoLevelDown
 
-   *按下按钮降低低音炮音量。*
+   *按下按钮可降低低音炮音量。*
 
 * settings.subwooferLevelUp / settings.subwooferTwoLevelUp
 
-   *按按钮增加低音炮音量。*
+   *通过按下按钮提高低音炮电平。*
 
 * settings.containmentAmountDown
 
-   *减少 Audyssey LFC 数量。仅当您的 AVR 支持该按钮时，才会创建该按钮。*
+   *减少 Audyssey LFC 数量。只有在您的 AVR 支持时才会创建该按钮。*
 
 * settings.containmentAmountUp
 
-   *增加 Audyssey LFC 数量。仅当您的 AVR 支持该按钮时，才会创建该按钮。*
+   *增加 Audyssey LFC 数量。只有在您的 AVR 支持时才会创建该按钮。*
 
 * settings.cursorUp / settings.cursorDown / settings.cursorLeft / settings.cursorRight
 
    *模拟遥控器的光标按钮*
 
-* settings.enter
+* 设置。输入
 
    *模拟遥控器的回车键*
 
@@ -186,7 +186,7 @@ npm i iobroker.denon
 
    *模拟遥控器的选项按钮*
 
-* settings.info
+* 设置信息
 
    *模拟遥控器的信息按钮*
 
@@ -202,12 +202,12 @@ npm i iobroker.denon
 ＃＃＃ 状态
 适配器将创建以下状态：
 
-#### 频道：信息
+####频道：信息
 * info.connection
 
     |数据类型|权限|
     |:---:|:---:|
-    |布尔值|R|
+    |布尔|R|
 
    *只读布尔指标。如果您的经纪人连接到您的 DENON AVR，则状态为真，否则为假。*
 
@@ -225,20 +225,20 @@ npm i iobroker.denon
     |:---:|:---:|
     |字符串|R|
 
-*JSON 数组格式的字符串，通过 id 和频道代表当前保存的收藏夹。
-每个通道的名称限制为 20 位数字。您可以通过设置 settings.savePreset 将当前频道保存到一个 id 并通过将 settings.loadPreset 设置为相关 id 来加载一个。*
+*JSON 数组格式的字符串，通过 id 和频道表示当前保存的收藏夹。
+每个频道的名称限制为 20 位数字。您可以通过设置 settings.savePreset 将当前频道保存到一个 id 并通过将 settings.loadPreset 设置为相关 id 来加载一个。*
 
-#### 频道：zoneMain / zone2 / zone3
+####频道：zoneMain / zone2 / zone3
 * zoneMain.volume / zone2.volume / zone3.volume
 
     |数据类型|权限|
     |:---:|:---:|
-    |编号|读/写|
+    |数字|读/写|
 
-*代表 AVR 的当前主区/Zone2/Zone 3 音量的数值。您也可以在此处设置音量。
-在不同的状态下，音量也以 dB 表示，例如。 G。主卷数据库*
+*代表 AVR 的当前 Main Zone / Zone2 / Zone 3 音量的数值。您也可以在此处设置音量。
+在单独的状态下，音量也以 dB 表示，例如。 G。主卷数据库*
 
-   *范围是从 0 到 98（由于最大音量可能会更低），其中 80 = 0 dB*
+   *范围从 0 到 98（由于最大音量可能会更低），其中 80 = 0 dB*
 
    *例子：*
 
@@ -252,7 +252,7 @@ setState('denon.0.zoneMain.volume', 45.5); // Sets volume of Main Zone to 45.5
     |:---:|:---:|
     |编号|R|
 
-   *代表最大可能音量的只读数字，其中 80 = 0 dB。在maximumVolumeDB 状态下，音量也以dB 为单位设置。*
+   *代表最大可能音量的只读数字，其中 80 = 0 dB。在 maximumVolumeDB 状态下，音量也以 dB 为单位。*
 
 * zoneMain.muteIndicator / zone2.muteIndicator / zone3.muteIndicator
 
@@ -260,7 +260,7 @@ setState('denon.0.zoneMain.volume', 45.5); // Sets volume of Main Zone to 45.5
     |:---:|:---:|
     |布尔值|读/写|
 
-   *布尔值，如果 Main Zone/Zone2/Zone3 静音则为真，否则为假。您可以在此状态下将 AVR 静音。*
+   *布尔值，如果主区域/区域2/区域3静音，则为真，否则为假。您可以在此状态下静音您的 AVR。*
 
    *例子：*
 
@@ -274,7 +274,7 @@ setState('denon.0.zoneMain.muteIndicator', true); // Mutes the Main Zone of your
     |:---:|:---:|
     |布尔值|读/写|
 
-   *布尔值，如果Zone 开启则为真，否则为假。您可以在此状态下打开和关闭 AVR/Zone。*
+   *布尔值，如果区域打开则为真，否则为假。您可以在此状态下打开和关闭 AVR/Zone。*
 
 * zoneMain.selectInput / zone2.selectInput / zone3.selectInput
 
@@ -298,41 +298,41 @@ setState('denon.0.zoneMain.muteIndicator', true); // Mutes the Main Zone of your
 
    *6：SAT/CBL*
 
-   *7：播放*
+   *7：MPLAY*
 
    *8：游戏*
 
    *9：网络*
 
-   *10: 斑点*
+   *10：指定*
 
    *11：LASTFM*
 
-   *12：无线电*
+   *12: 无线电*
 
    *13：服务器*
 
-   *14：收藏夹*
+   *14：最爱*
 
    *15：AUX1*
 
-   *16：AUX2*
+   *16：辅助2*
 
    *17：AUX3*
 
-   *18：AUX4*
+   *18: AUX4*
 
    *19：AUX5*
 
    *20：AUX6*
 
-   *21：AUX7*
+   *21: AUX7*
 
-   *22：BT*
+   *22：英国电信*
 
    *23：USB*
 
-*请注意，并非所有输入源都适用于每个 AVR 型号。如果您的 AVR 有其他输入，一旦检测到它们，它们将被附加到列表中。*
+*请注意，并非每个 AVR 型号都提供每个输入源。如果您的 AVR 有其他输入，一旦检测到它们，它们将被附加到列表中。*
 
    *例子：*
 
@@ -344,7 +344,7 @@ setState('denon.0.zoneMain.muteIndicator', true); // Mutes the Main Zone of your
 
    |数据类型|权限|
    |:---:|:---:|
-   |编号|读/写|
+   |数字|读/写|
 
    *模拟遥控器的快速选择按钮，主区域/区域 2/区域 3 的数字从 1 到 5。*
 
@@ -352,9 +352,9 @@ setState('denon.0.zoneMain.muteIndicator', true); // Mutes the Main Zone of your
 
     |数据类型|权限|
     |:---:|:---:|
-    |编号|读/写|
+    |数字|读/写|
 
-   *数值读取和设置所选区域的睡眠定时器。该值将在 10 秒内更新。*
+   *用于读取和设置所选区域的睡眠定时器的数值。该值将在 10 秒内更新。*
 
 * zoneMain.iconURL
 
@@ -370,78 +370,78 @@ setState('denon.0.zoneMain.muteIndicator', true); // Mutes the Main Zone of your
 
     |数据类型|权限|
     |:---:|:---:|
-    |编号|读/写|
+    |数字|读/写|
 
-   *代表区域低音电平的数值。值范围为 -6 至 +6 dB。*
+   *代表区域低音级别的数值。值范围为 -6 至 +6 dB。*
 
-   *当 Dyn EQ 设置为关闭且音调控制打开时，可以调整低音和高音设置*
+   *当 Dyn EQ 设置为 OFF 且音调控制打开时，可以调整低音和高音设置*
 
 * zoneMain.equalizerTreble / zone2.equalizerTreble / zone3.equalizerTreble
 
     |数据类型|权限|
     |:---:|:---:|
-    |编号|读/写|
+    |数字|读/写|
 
-   *代表区域高音级别的数字值。值范围为 -6 至 +6 dB。*
+   *代表区域高音电平的数值。值范围为 -6 至 +6 dB。*
 
-   *当 Dyn EQ 设置为关闭且音调控制打开时，可以调整低音和高音设置*
+   *当 Dyn EQ 设置为 OFF 且音调控制打开时，可以调整低音和高音设置*
 
 * zoneMain.channelVolumeFrontLeft / zone2.channelVolumeFrontLeft / zone3.channelVolumeFrontLeft / ...
 
    |数据类型|权限|
    |:---:|:---:|
-   |编号|读/写|
+   |数字|读/写|
 
-*代表每个扬声器当前声道音量的数值。每个扬声器都有一个单独的状态。这些设置会影响当前的选择输入模式。状态可在 -12 dB 至 +12 dB 之间调整。*
+*代表每个扬声器当前声道音量的数值。每个扬声器都有一个单独的状态。这些设置会影响当前的选择输入模式。状态可以从 -12 dB 调整到 +12 dB。*
 
-#### 频道：调谐器
-* tuner.stationName
+####频道：调谐器
+* 调谐器.stationName
 
   |数据类型|权限|
   |:---:|:---:|
   |字符串|R|
 
-  *包含当前电台名称的只读字符串（如果可用）。*
+  *只读字符串，包含当前电台名称（如果可用）。*
 
-* 调谐器.频率
+* 调谐器频率
 
   |数据类型|权限|
   |:---:|:---:|
-  |编号|读/写|
+  |数字|读/写|
 
 *代表当前频率的数值。您还可以在此状态下设置频率。
-低于 500 的值为 FM 频率，高于 500 的值为 AM 频率。*
+低于 500 的值适用于 FM 频率，高于 500 的值适用于 AM 频率。*
 
 ```javascript
 setState('denon.0.tuner.frequency', 106.9); // Set frequency to 106.9 MHz (FM)
 ```
 
-#### 频道：显示
-* display.displayContent
+####频道：显示
+* display.display内容
 
     |数据类型|权限|
     |:---:|:---:|
     |字符串|R|
 
-   *包含 AVR 显示内容的只读字符串。它有九个状态 0 - 9.*
+   *包含您的 AVR 显示内容的只读字符串。它有九个状态 0 - 9.*
 
    *HEOS AVR 不支持显示内容*
 
-* 显示亮度
+* display.brightness
 
     |数据类型|权限|
     |:---:|:---:|
     |字符串|读/写|
 
-   *代表显示亮度的字符串值。该值还可以通过以下编码设置显示亮度：*
+   *表示显示亮度的字符串值。该值还可以通过以下编码设置显示亮度：*
 
    *0: 关闭 --> 关闭显示*
 
-   *1: 暗 --> 显示暗*
+   *1: 暗 --> 使显示变暗*
 
-   *2: 变暗 --> 显示变暗*
+   *2: 变暗 --> 使显示变暗*
 
-   *3: 亮 --> 显示亮*
+   *3: Bright --> 使显示变亮*
 
    *例子：*
 
@@ -450,13 +450,13 @@ setState('denon.0.display.brightness', '3'); // Sets display brightness to "Brig
 ```
 
 #### 频道：设置
-* settings.powerSystem
+* 设置.powerSystem
 
     |数据类型|权限|
     |:---:|:---:|
     |布尔值|读/写|
 
-   *布尔值，如果 AVR 开启，则为真，否则为假。您还可以在此状态下打开和关闭 AVR。*
+   *布尔值，如果 AVR 已打开，则为 true，否则为 false。您还可以在此状态下打开和关闭 AVR。*
 
 * settings.surroundMode
 
@@ -464,7 +464,7 @@ setState('denon.0.display.brightness', '3'); // Sets display brightness to "Brig
     |:---:|:---:|
     |字符串|读/写|
 
-   *字符串值包含当前的环绕声模式。您还可以使用以下编码更改源：*
+   *字符串值包含当前环绕模式。您还可以使用以下编码更改源：*
 
    *0：立体声*
 
@@ -472,11 +472,11 @@ setState('denon.0.display.brightness', '3'); // Sets display brightness to "Brig
 
    *2：视频游戏*
 
-   *3：MCH立体声*
+   *3：MCH 立体声*
 
-   *4：DTS环绕*
+   *4：DTS 环绕声*
 
-   *5：杜比数字*
+   *5：杜比数码*
 
    *6：电影*
 
@@ -492,7 +492,7 @@ setState('denon.0.display.brightness', '3'); // Sets display brightness to "Brig
 
    *12：AURO3D*
 
-   *13：AURO2DSURR*
+   *13: AURO2DSURR*
 
    *14：宽屏*
 
@@ -508,7 +508,7 @@ setState('denon.0.display.brightness', '3'); // Sets display brightness to "Brig
 
    *20：矩阵*
 
-   *请注意，并非所有环绕声模式都适用于每个 AVR 型号。*
+   *请注意，并非每种 AVR 型号都支持每种环绕声模式。*
 
    *例子：*
 
@@ -516,13 +516,13 @@ setState('denon.0.display.brightness', '3'); // Sets display brightness to "Brig
 setState('denon.0.settings.surroundMode', '3'); // Sets Multi Channel Stereo as surround mode
 ```
 
-* settings.lfeAmount
+* 设置.lfeAmount
 
     |数据类型|权限|
     |:---:|:---:|
-    |编号|读/写|
+    |数字|读/写|
 
-*附加到扬声器的低音炮信号量（以 dB 为单位）。
+*附加到扬声器的低音炮信号量，以 dB 为单位。
 范围从 0 dB 到 -10 dB。其中 10 = -10 dB。*
 
 * settings.expert 命令
@@ -531,7 +531,7 @@ setState('denon.0.settings.surroundMode', '3'); // Sets Multi Channel Stereo as 
     |:---:|:---:|
     |字符串|读/写|
 
-   *您可以在此状态下发送您自己的自定义命令。您可以在 [AVR-Control-Protocol.pdf](docs/AVR-Control-Protocol.pdf)* 中找到有关现有命令的概述
+   *您可以在此状态下发送自己的自定义命令。您可以在 [AVR-控制协议.pdf](docs/AVR-Control-Protocol.pdf)* 中找到有关现有命令的概述
 
    *例子：*
 
@@ -613,7 +613,7 @@ etState('denon.0.settings.outputMonitor', '2'); // Sets monitor 2 as active moni
     |:---:|:---:|
     |字符串|读/写|
 
-   *选择您的 AVR 的视频处理模式。只有在您的 AVR 支持时才会创建此状态。您可以在以下状态之间切换：*
+   *选择您的 AVR 的视频处理模式。仅当您的 AVR 支持时才会创建此状态。您可以在以下状态之间切换：*
 
    *0：自动*
 
@@ -633,7 +633,7 @@ setState('denon.0.settings.videoProcessingMode', '2'); // Sets Video Processing 
     |:---:|:---:|
     |布尔值|读/写|
 
-   *布尔值，如果中心展开被调整为真，否则为假。您还可以在此状态下打开/关闭中心传播。*
+   *布尔值，如果启用中心扩散，则为真，否则为假。您还可以使用此状态打开/关闭中心传播。*
 
 * settings.dynamicEq
 
@@ -641,7 +641,7 @@ setState('denon.0.settings.videoProcessingMode', '2'); // Sets Video Processing 
     |:---:|:---:|
     |布尔值|读/写|
 
-   *代表动态均衡器状态的布尔值。您还可以在此状态下打开和关闭动态均衡器。*
+   *代表动态均衡器状态的布尔值。您还可以在此状态下打开和关闭动态均衡器。 *
 
 * settings.subwooferLevelState
 
@@ -655,45 +655,45 @@ setState('denon.0.settings.videoProcessingMode', '2'); // Sets Video Processing 
 
     |数据类型|权限|
     |:---:|:---:|
-    |编号|读/写|
+    |数字|读/写|
 
-*表示当前低音炮电平的数值。该值的范围从 -12 到 12（-12 dB 到 +12 dB）。
+*表示当前低音炮电平的数值。该值的范围为 -12 到 12（-12 dB 到 +12 dB）。
 只有在您的 AVR 支持时才会创建 SubwooferTwoLevel 状态。*
 
-* settings.audysseyLfc
+* 设置.audysseyLfc
 
     |数据类型|权限|
     |:---:|:---:|
     |布尔值|读/写|
 
 *布尔值，包含并能够控制 Audyssey 低频遏制状态（开/关）。
-仅当您的 AVR 支持该状态时，才会创建该状态。*
+只有在您的 AVR 支持的情况下才会创建该状态。*
 
 * settings.containmentAmount
 
     |数据类型|权限|
     |:---:|:---:|
-    |编号|读/写|
+    |数字|读/写|
 
-*用于设置低频包含量的数值。该值可以在 1 到 7 之间。只有在您的 AVR 支持时才会创建状态。*
+*用于设置低频遏制量的数值。该值可以在 1 到 7 之间。只有在您的 AVR 支持的情况下才会创建状态。*
 
-* settings.multEq
+* 设置.multEq
 
     |数据类型|权限|
     |:---:|:---:|
     |字符串|读/写|
 
-   *字符串值，使用以下编码设置您的AVR的MultEQ功能：*
+   *字符串值，使用以下编码设置您的 AVR 的 MultEQ 功能：*
 
-   *0：关闭*
+   *0：关*
 
    *1：奥德赛*
 
    *2：BYP.LR*
 
-   *3：平面*
+   *3：平*
 
-   *4：手册*
+   *4：手动*
 
 * settings.dynamicVolume
 
@@ -701,15 +701,15 @@ setState('denon.0.settings.videoProcessingMode', '2'); // Sets Video Processing 
     |:---:|:---:|
     |字符串|读/写|
 
-   *通过以下编码选择动态音量的字符串值：*
+   *通过以下编码选择动态卷的字符串值：*
 
-   *0：关闭 --> 关闭动态音量*
+   *0: 关闭 --> 关闭动态音量*
 
-   *1: LIT --> 将动态音量调亮*
+   *1: LIT --> 将动态音量变为亮*
 
-   *2: MED --> 将动态音量调至中等*
+   *2: MED --> 将动态音量变为中等*
 
-   *3：HEV --> 将动态音量调大*
+   *3: HEV --> 将动态音量调大*
 
 * settings.referenceLevelOffset
 
@@ -719,7 +719,7 @@ setState('denon.0.settings.videoProcessingMode', '2'); // Sets Video Processing 
 
    *通过以下编码选择参考电平偏移的字符串值：*
 
-   *0：0 分贝*
+   *0: 0 分贝*
 
    *5：5 分贝*
 
@@ -739,7 +739,7 @@ setState('denon.0.settings.referenceLevelOffset', '5'); // Sets Reference Level 
     |:---:|:---:|
     |字符串|读/写|
 
-   *用于设置图片模式直接更改的字符串值。仅当您的 AVR 支持时才会创建此状态*
+   *设置图片模式直接更改的字符串值。只有当您的 AVR 支持时才会创建此状态*
 
    *您可以将以下值设置为字符串：*
 
@@ -757,7 +757,7 @@ setState('denon.0.settings.referenceLevelOffset', '5'); // Sets Reference Level 
 
    *'ISF 日'*
 
-   *'ISF 之夜'*
+   *'ISF之夜'*
 
    *例子：*
 
@@ -765,53 +765,61 @@ setState('denon.0.settings.referenceLevelOffset', '5'); // Sets Reference Level 
 setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct Change to Standard
 ```
 
-* settings.toneControl
+* 设置.toneControl
 
     |数据类型|权限|
     |:---:|:---:|
     |布尔值|读/写|
 
-   *布尔值，表示音调控制状态。您可以在此状态下关闭/打开它。*
+   *布尔值，表示音调控制状态。您可以在此状态下将其关闭/打开。*
 
    *音调控制只能在 Dyn EQ 设置为 OFF 时打开*
 
-* settings.setupMenu
+* 设置.setupMenu
 
     |数据类型|权限|
     |:---:|:---:|
     |布尔值|读/写|
 
-   *布尔指示器，指示设置菜单当前是打开还是关闭。您可以在此状态下打开和关闭它。*
+   *布尔指示器，指示设置菜单当前是打开还是关闭。您可以在此状态下打开和关闭它。 *
 
 * settings.savePreset
 
     |数据类型|权限|
     |:---:|:---:|
-    |编号|读/写|
+    |数字|读/写|
 
-*数字值，可以设置为info.onlinePresets的值。然后当前频道将保存为给定编号的预设。
-只能使用 info.onlinePresets 中包含的数字。无论命令是否成功，状态都不会得到确认。您可以检查 info.onlinePresets 以检查该命令是否按方面运行。*
+*数值，可以设置为info.onlinePresets的值。然后当前频道将被保存为给定号码的预设。
+只能使用 info.onlinePresets 中包含的数字。无论命令成功与否，状态都不会得到确认。您可以检查 info.onlinePresets 以检查命令是否按方面工作。*
 
-* settings.loadPreset
+* 设置.loadPreset
 
     |数据类型|权限|
     |:---:|:---:|
-    |编号|读/写|
+    |数字|读/写|
 
-*数字值，可以设置为info.onlinePresets的值。这将加载相关频道。
-无论命令是否成功，此状态都不会得到确认。 *
+*数值，可以设置为info.onlinePresets的值。这将加载相关频道。
+无论命令是否成功，此状态都不会得到确认。*
+
+* settings.speakerPreset
+
+  |数据类型|权限|
+  |:---:|:---:|
+  |数字|读/写|
+
+  *如果 AVR 支持，请设置扬声器预设。扬声器预设可以是`1`或`2`。*
 
 ### 其他州
 由于某些 AVR（如 DENON POA-3012CI）使用另一种逻辑，因此状态存在一些差异。
-与上面列出的状态相同的状态是：settings.powerSystem、settings.expertCommand、display.brightness 和 info.connection。为每个区域 2-12（偶数）创建了以下附加状态：
+与上面列出的状态相同的状态是：settings.powerSystem、settings.expertCommand、display.brightness 和 info.connection。此外，还会为每个区域 2-12（偶数）创建以下状态：
 
 * zoneX.speakerOneVolume / zoneX.speakerTwoVolume
 
     |数据类型|权限|
     |:---:|:---:|
-    |编号|读/写|
+    |数字|读/写|
 
-*数值，代表AVR扬声器的音量。如果 operationMode 设置为“BRIDGED”，则扬声器无法独立控制，一个的控制也会控制另一个的音量。*
+*数值，代表AVR扬声器的音量。如果 operationMode 设置为“BRIDGED”，则无法独立控制扬声器，并且其中一个的控制还可以控制另一个音量。*
 
 * zoneX.selectInputOne / zoneX.selectInputTwo
 
@@ -819,15 +827,15 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
     |:---:|:---:|
     |字符串|读/写|
 
-*键值对，代表AVR扬声器的选定输入。如果 operationMode 设置为“BRIDGED”，则扬声器不能独立控制，一个的控制也控制另一个的输入。 *
+*键值对，表示 AVR 扬声器的选定输入。如果 operationMode 设置为“BRIDGED”，则扬声器无法独立控制，并且其中一个的控制还控制其他的输入。*
 
     *以下值是可能的：*
 
-    *'0': 'BUS L'*
+    *'0': '总线 L'*
 
-    *'1': 'BUS R'*
+    *'1': '总线 R'*
 
-    *'2': 'BUS M'*
+    *'2': '总线 M'*
 
     *'3'：'辅助'*
 
@@ -837,7 +845,7 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
     |:---:|:---:|
     |字符串|读/写|
 
-*键值对，代表AVR的操作模式。如果 operationMode 设置为“BRIDGED”，则扬声器无法独立控制，控制扬声器一也控制扬声器二。*
+*键值对，代表AVR的操作模式。如果 operationMode 设置为“BRIDGED”，则扬声器无法独立控制，并且控制扬声器 1 也可以控制扬声器 2。*
 
     *以下值是可能的：*
 
@@ -851,7 +859,7 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
     |:---:|:---:|
     |布尔值|读/写|
 
-*布尔值，指示扬声器的低切滤波器是启用还是禁用。在桥接模式下，两个扬声器将相互依赖。*
+*布尔值，表示扬声器的低切滤波器是启用还是禁用。在桥接模式下，两个扬声器将相互依赖。*
 
 * zoneX.zoneTurnOnModeChange
 
@@ -859,11 +867,11 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
     |:---:|:---:|
     |字符串|读/写|
 
-*键值对，代表该区域的区域开启模式变化。您还可以在此状态下控制您的 AVR。*
+*键值对，代表区域的区域开启模式改变。您还可以在此状态下控制您的 AVR。*
 
     *以下值是可能的：*
 
-    *'0': '常数'*
+    *'0'：'常数'*
 
     *'1': '触发'*
 
@@ -877,7 +885,7 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
     |:---:|:---:|
     |布尔值|读/写|
 
-    *使用此布尔值打开或关闭触发器输入。*
+    *使用此布尔值打开或关闭触发输入。*
 
 * zoneX.audioSignalInput
 
@@ -885,18 +893,21 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
     |:---:|:---:|
     |布尔值|读/写|
 
-    *指示和控制 AVR 音频信号输入的布尔值。*
+    *布尔值，指示和控制 AVR 的音频信号输入。*
 
 ## 缺少功能和错误
 如果您缺少任何功能或检测到错误，请打开 [问题](https://github.com/foxriver76/ioBroker.denon/issues)。
 
-该适配器使用 DENON AVR-X1200W 和 Marantz SR5009 进行测试。
+该适配器使用 DENON AVR-X1200W 和 Marantz SR5009 进行了测试。
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.13.1 (2022-03-19)
+* (foxriver76) added `settings.speakerPreset`
+
 ### 1.12.1 (2022-01-03)
 * (foxriver76) fixed missing digits in `tuner.stationName`
 
@@ -1165,7 +1176,7 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2018-2022 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

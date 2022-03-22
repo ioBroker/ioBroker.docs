@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.socketio/README.md
 title: ioBroker socket.io
-hash: LiIYhUgFOj7RdsVerQB0EZRgEb4Wwyt5+MnOv/c2NGY=
+hash: NixpEzORuHeSWseO0Rk2CnI94e5xGCi65Gua14wZGoM=
 ---
-![标识](../../../en/adapterref/iobroker.socketio/admin/socketio.png)
+![商标](../../../en/adapterref/iobroker.socketio/admin/socketio.png)
 
 ![安装数量](http://iobroker.live/badges/socketio-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.socketio.svg)
@@ -60,7 +60,7 @@ WEB 应用程序和适配器使用此适配器使用 websockets 和 socket.io �
 - 灯可以通过物理开关手动打开，也可以在 HAA 的帮助下通过 Wi-Fi 开启。
 - 如果 vis 想通过 Wi-Fi 打开灯，它应该使用```{value: true, ack: false}```设置新值。
 - 当灯打开时，通常会通知 HAA 新状态，该值应立即用 ```{value: true, ack: true}``` 覆盖。
-- 如果灯是通过物理开关手动关闭的，它会通过```{value: false, ack: true}```通知HAA关于新状态。
+- 如果灯是通过物理开关手动关闭的，它会通过 ```{value: false, ack: true}``` 通知 HAA 新状态。
 
 ＃＃＃ 质量
 每个数据点都有一个属性`q` - *质量*。
@@ -109,7 +109,7 @@ connCallbacks = {
 
 设置一些数据点的新值。
 
-例如。 ```servConn.setState('adapter.0.myvalue', true)``` 将 ```{val: true, ack: false}``` 写入 *adapter.0.myvalue*。
+例如。 ```servConn.setState('adapter.0.myvalue', true)```将```{val: true, ack: false}```写入*adapter.0.myvalue*。
 
 - `pointId` - 是状态的 ID，如 `adapter.0.myvalue`，
 - `value` - 状态的新值，可以是简单值（字符串、数字、布尔值）或对象，如```{val: newValue, ack: false, q: 0}```。
@@ -320,20 +320,22 @@ connCallbacks = {
 
 <!-- 下一个版本的占位符（在行首）：
 
-### __工作进行中__ -->
+### **正在进行中** -->
 
 ## Changelog
-### 4.0.3 (2022-01-30)
-* (bluefox) Removed the deprecated "passport.socketio" packet
+### 4.1.5 (2022-03-20)
+* (Apollon77) make sure patterns are handled as strings on subscribe/unsubscribe
+* (Apollon77) when getHistory is called with instance as string correct the data into an object
 
-### 4.0.2 (2022-01-30)
-* (bluefox) Removed "force web sockets" option
+### 4.1.4 (2022-02-16)
+* (bluefox) Added `unlink` and `rename` to web functions
 
-### 4.0.1 (2022-01-29)
-* (bluefox) Fixed authentication
+### 4.1.2 (2022-02-13)
+* (bluefox) Corrected the connection indication
 
-### 4.0.0 (2022-01-29)
-* (bluefox) Remove socket-io and use only web sockets
+### 4.1.0 (2022-01-31)
+* (bluefox) Update socket.io library to 2.4.1
+* (bluefox) Used json config for settings
 
 ### 3.1.5 (2021-10-22)
 * (foxriver76) make error logging on failed authentication more specific

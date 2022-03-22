@@ -120,6 +120,10 @@ States:
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 2.5.0 (2022-03-21)
+* (GreatSUN) Implement writing of NSPanel Widget changes
+* (Apollon77) Fix crash case reported by Sentry
+
 ### 2.4.7 (2021-11-14)
 * (Apollon77) Fix crash case (Sentry IOBROKER-SONOFF-1S)
 
@@ -237,7 +241,7 @@ States:
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2021, bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2022, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

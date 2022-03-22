@@ -236,10 +236,15 @@ Activate the Notifications tab. The communication settings are then made on the 
   - off(Boost)(5) → Irrigation circuit interrupted for 30 s because a boost function is active.
 
 ## Changelog
+
 <!--
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
 -->
+
+### 0.2.8 (2022-03-20)
+* Adaptation for js controller 4
+* switched main.js to async
 
 ### 0.2.7 (16.10.2021)
 * (Dirk-Peter-md) zusätzliche Testnachrichten gelöscht, Readme aktualisiert
@@ -309,7 +314,7 @@ Activate the Notifications tab. The communication settings are then made on the 
 ## License
 MIT License
 
-Copyright (c) 2021 Dirk Peter <dirk.peter@freenet.de>
+Copyright (c) 2022 Dirk Peter <dirk.peter@freenet.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

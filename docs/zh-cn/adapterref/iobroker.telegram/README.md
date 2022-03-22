@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.telegram/README.md
 title: ioBroker 电报适配器
-hash: +UIqc239lrjwJRJFGDGP1tWkGJ4Ioj98fuRAja86qY8=
+hash: jWi7uWMh/Jbm7Sb2TWH5+ijaXdhBq3K/rLyGsDaqitw=
 ---
 ![商标](../../../en/adapterref/iobroker.telegram/admin/telegram.png)
 
@@ -76,7 +76,7 @@ JSON 语法还允许从 [电报机器人 API](https://core.telegram.org/bots/api
 iobroker 日志将在日志中显示聊天 ID。
 
 ＃＃ 用法
-您可以将电报与 [text2command](https://github.com/ioBroker/ioBroker.text2command) 适配器一起使用。有预定义的通信模式，您可以以文本形式命令您回家。
+您可以使用带有 [text2command](https://github.com/ioBroker/ioBroker.text2command) 适配器的电报。有预定义的通信模式，您可以以文本形式命令您回家。
 
 要发送照片，只需发送文件路径而不是文本或 URL：`sendTo('telegram', 'absolute/path/file.png')` 或 `sendTo('telegram', 'https://telegram.org/img/t_logo.png')`。
 
@@ -171,7 +171,7 @@ sendTo('telegram.0', {
 ```
 
 ＃＃＃ 键盘
-您可以在客户端显示键盘 **ReplyKeyboardMarkup**：
+您可以在客户端显示键盘**ReplyKeyboardMarkup**：
 
 ```
 sendTo('telegram.0', {
@@ -187,7 +187,7 @@ sendTo('telegram.0', {
 });
 ```
 
-你可以阅读更多[这里]（https://core.telegram.org/bots/api#replykeyboardmarkup）和[这里](https://core.telegram.org/bots#keyboards)。
+您可以阅读更多[这里]（https://core.telegram.org/bots/api#replykeyboardmarkup）和[这里](https://core.telegram.org/bots#keyboards)。
 
 您可以在客户端显示键盘**InlineKeyboardMarkup**：
 
@@ -204,7 +204,7 @@ sendTo('telegram', {
 });
 ```
 
-你可以阅读更多[这里]（https://core.telegram.org/bots/api#inlinekeyboardmarkup）和[这里](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating)。
+您可以阅读更多[这里]（https://core.telegram.org/bots/api#inlinekeyboardmarkup）和[这里](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating)。
 
 **注意：** *用户按下回调按钮后，Telegram 客户端将显示一个进度条，直到您调用 answerCallbackQuery。因此，即使不需要通知用户（例如，不指定任何可选参数），也有必要通过调用 answerCallbackQuery 做出反应。*
 
@@ -294,7 +294,7 @@ if (command ==="1_2") {
 }
 ```
 
-你可以阅读更多[这里](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagetexttext-options--promise)。
+您可以阅读更多[这里](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagetexttext-options--promise)。
 
 ### 编辑消息标题
 使用此方法编辑机器人或通过机器人发送的消息的标题（对于内联机器人）。
@@ -452,7 +452,7 @@ Telegram 只能使用 HTTPS 服务器，但您可以使用 **let's encrypt** 证
 ## 高级安全性
 可以禁用用户的身份验证。所以没有一个新人可以进行身份验证。
 
-要创建受信任用户列表，请首先禁用“不验证新用户”选项，并通过发送 `/password <PASSWORD>` 消息验证应在受信任列表中的所有用户。
+要创建受信任用户列表，首先禁用“不验证新用户”选项，并通过发送 `/password <PASSWORD>` 消息验证应在受信任列表中的所有用户。
 
 发送有效密码的用户将存储在受信任列表中。
 
@@ -508,7 +508,7 @@ sendTo('telegram.0', 'call', {
 - `nl-NL-Standard-A` - 荷兰语（荷兰）（女性声音 - 如果系统语言为 NL 且未提供语言，则将使用）
 - `nl-NL-Standard-B` - 荷兰语（荷兰）（男声）
 - `nl-NL-Standard-C` - 荷兰语（荷兰）（男 2 声）
-- `nl-NL-Standard-D` - 荷兰语（荷兰）（女 2 声）
+- `nl-NL-Standard-D` - 荷兰语（荷兰）（女性 2 声）
 - `nl-NL-Standard-E` - 荷兰语（荷兰）（女性 3 声）
 - `en-AU-Standard-A` - 英语（澳大利亚）（女声）
 - `en-AU-Standard-B` - 英语（澳大利亚）（男声）
@@ -524,14 +524,14 @@ sendTo('telegram.0', 'call', {
 - `en-US-Standard-B` - 英语（美国）（男声）
 - `en-US-Standard-C` - 英语（美国）（女声）
 - `en-US-Standard-D` - 英语（美国）（男 2 声）
-- `en-US-Standard-E` - 英语（美国）（女 2 声）
+- `en-US-Standard-E` - 英语（美国）（女性 2 声）
 - `fil-PH-Standard-A` - 菲律宾语（菲律宾）（女声）
 - `fi-FI-Standard-A` - 芬兰语（芬兰）（女声）
 - `fr-CA-Standard-A` - 法语（加拿大）（女声）
 - `fr-CA-Standard-B` - 法语（加拿大）（男声）
-- `fr-CA-Standard-C` - 法语（加拿大）（女性 2 声）
+- `fr-CA-Standard-C` - 法语（加拿大）（女 2 声）
 - `fr-CA-Standard-D` - 法语（加拿大）（男 2 声）
-- `fr-FR-Standard-A` - 法语（法国）（女性声音 - 如果系统语言为 FR 且未提供语言，将使用）
+- `fr-FR-Standard-A` - 法语（法国）（女声 - 如果系统语言为 FR 且未提供语言，则将使用）
 - `fr-FR-Standard-B` - 法语（法国）（男声）
 - `fr-FR-Standard-C` - 法语（法国）（女 2 声）
 - `fr-FR-Standard-D` - 法语（法国）（男 2 声）
@@ -630,7 +630,7 @@ sendTo('telegram.0', 'call', {
 
 ### 按钮排成一行
 一个设备的一行中必须显示多少个按钮。
-由于名称很长，最好在一行中仅显示 2 个（甚至仅显示一个）按钮。
+由于名称很长，可能最好在一行中只显示 2 个（或什至只有一个）按钮。
 
 ![设置](../../../en/adapterref/iobroker.telegram/img/stateSettings3.png)
 
@@ -666,7 +666,7 @@ sendTo('telegram.0', 'call', {
 如果电报机器人在私人聊天中收到用户发送给机器人的消息，但在群聊中没有收到用户发送的消息。
 在这种情况下，您必须与 `@botfather` 交谈并禁用隐私模式。
 
-BotFath 聊天：
+BotFath聊天：
 
 ```
 You: /setprivacy
@@ -702,13 +702,15 @@ msg.payload = {
 }
 ```
 
+在发送到`telegram.INSTANCE.communicate.responseJson you need to stringify the object!`之前
+
 <!-- 下一个版本的占位符（在行首）：
 
 ### __工作进行中__ -->
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 1.12.0 (2022-03-21)
+* (Apollon77) Add new JSON states communication.responseJson and communication.responseSilentJson to also accept json structures (stringified!) to send messages
 * (Apollon77) Try to prevent adapter crashes when internet is not available 
 * (Apollon77) Add Sentry for crash reporting
 

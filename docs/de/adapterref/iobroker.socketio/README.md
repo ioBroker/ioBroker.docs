@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.socketio/README.md
 title: ioBroker-socket.io
-hash: LiIYhUgFOj7RdsVerQB0EZRgEb4Wwyt5+MnOv/c2NGY=
+hash: NixpEzORuHeSWseO0Rk2CnI94e5xGCi65Gua14wZGoM=
 ---
 ![Logo](../../../en/adapterref/iobroker.socketio/admin/socketio.png)
 
@@ -33,7 +33,7 @@ Objekt ist eine Beschreibung des Datenpunkts oder der Gruppe. Die Gruppe könnte
 
 Objekt sind Metainformationen, die einen Datenpunkt beschreiben und Folgendes enthalten können: Maximal-/Mindestwert, Einheit, Name, Standardwert, Werttyp, Informationen zum Adapter für die Kommunikation (z. B. IP-Adresse) und so weiter.
 
-### Zustand
+### Bundesland
 Status ist der tatsächliche Wert des Datenpunkts und wird durch ein Javascript-Objekt dargestellt:
 
 ```
@@ -65,7 +65,7 @@ Jeder Zustand hat das Attribut "ack". Es zeigt die Befehlsrichtung an.
 ### Qualität
 Jeder Datenpunkt hat ein Attribut `q` - *Qualität*.
 
-## Verwendung
+## Verwendungszweck
 Es wird empfohlen, example/conn.js für die Kommunikation zu verwenden.
 
 Nach Einbindung der Datei conn.js konnte das globale Objekt `servConn` verwendet werden, um die Kommunikation mit dem Socketio-Adapter herzustellen.
@@ -312,7 +312,7 @@ liest, ob die Authentifizierung aktiviert ist und welcher Benutzer angemeldet is
 
 - `Rückruf` - ```Funktion (authEnabled, aktuellerBenutzer) {}```
 
-Wenn die Authentifizierung aktiviert ist, wird der aktuell angemeldete Benutzer zurückgegeben, wenn die Authentifizierung deaktiviert ist, wird der Standardbenutzer "wird ausgeführt als" zurückgegeben.
+Wenn die Authentifizierung aktiviert ist, wird der aktuell angemeldete Benutzer zurückgegeben, wenn die Authentifizierung deaktiviert ist, wird der Standardbenutzer "running as" zurückgegeben.
 
 ## Web-Sockets optimieren
 Bei einigen Web-Sockets-Clients gibt es Leistungsprobleme bei der Kommunikation. Manchmal ist dieses Problem auf einen Fallback der socket.io-Kommunikation auf einen langen Abfragemechanismus zurückzuführen.
@@ -320,20 +320,22 @@ Sie können die Option *Force Web-Sockets* so einstellen, dass nur die Verwendun
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __LAUFENDE ARBEIT__ -->
+### **IN ARBEIT** -->
 
 ## Changelog
-### 4.0.3 (2022-01-30)
-* (bluefox) Removed the deprecated "passport.socketio" packet
+### 4.1.5 (2022-03-20)
+* (Apollon77) make sure patterns are handled as strings on subscribe/unsubscribe
+* (Apollon77) when getHistory is called with instance as string correct the data into an object
 
-### 4.0.2 (2022-01-30)
-* (bluefox) Removed "force web sockets" option
+### 4.1.4 (2022-02-16)
+* (bluefox) Added `unlink` and `rename` to web functions
 
-### 4.0.1 (2022-01-29)
-* (bluefox) Fixed authentication
+### 4.1.2 (2022-02-13)
+* (bluefox) Corrected the connection indication
 
-### 4.0.0 (2022-01-29)
-* (bluefox) Remove socket-io and use only web sockets
+### 4.1.0 (2022-01-31)
+* (bluefox) Update socket.io library to 2.4.1
+* (bluefox) Used json config for settings
 
 ### 3.1.5 (2021-10-22)
 * (foxriver76) make error logging on failed authentication more specific

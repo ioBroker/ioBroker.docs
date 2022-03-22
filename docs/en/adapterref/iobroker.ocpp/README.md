@@ -23,6 +23,9 @@ Adapter to connect an OCPP 1.6 supported wallbox
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.0 (2022-03-21)
+* (foxriver76) implemented authentication
+
 ### 0.3.3 (2022-02-14)
 * (foxriver76) fixed default value of `info.connection`
 

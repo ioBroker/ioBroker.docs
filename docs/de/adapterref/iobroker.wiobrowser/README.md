@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wiobrowser/README.md
 title: ioBroker.wiobrowser
-hash: QEjcKZX7N0B7az8svF+U13+hxDTAFxmAD7A/NeDh+xI=
+hash: 5BBNpQZAOvaQtUekK3nVYC2tjKvRgetZM93ySNFaOMY=
 ---
 ![Logo](../../../en/adapterref/iobroker.wiobrowser/admin/wiobrowser.png)
 
@@ -20,19 +20,16 @@ Dieser Adapter verbindet sich über tcp.socket mit dem wioBrowser, um ihn zu ste
 
 wioBrowser ist ein über ioBroker steuerbarer Windows-Vollbildbrowser, der einzelne Webseiten oder eine im Adapter einstellbare Webseiten-Slideshow anzeigt. Außerdem werden Informationen an den Adapter übermittelt: + CPU-Auslastung + freier Speicher + aktuelle Akkuentladung auf Tablet oder Notebook + Hostname + IP
 
-Er kann auch steuern: + Bildschirm ein/aus + App beenden + Lautstärke +/- + Stumm ein/aus + Helligkeit +/- + Programme mit Schaltern ausführen, z. C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100 + Textnachrichten + Sprachnachrichten
-
-*** Dieser Adapter verbindet sich über tcp.socket mit dem wioBrowser, um ihn zu steuern. Es gibt 3 unterschiedliche wioBrowser Apps: + wioBrowser WebView2 Framework + wioBrowser Chromium Framework + wioNoweb (Gleiche Funktionen ohne Web)
-
-wioBrowser ist ein Windows Fullscreen Browser der sich über ioBroker steuern lässt, er zeigt einzelne Webseiten an oder eine Webseiten Slideshow die man im Adapter einstellen kann. Es werden auch Infos an den Adapter übertragen: + CPU Last + freier Speicher + aktuelle Batterieentladung bei Tablet oder Notebook + Hostname + IP
-
-Er kann auch steuern: + Bildschirm an/aus + App beenden + Lautstärke +/- + Stumm an/aus + Helligkeit +/- + Programm mit Schaltern ausführen z.B C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100 + Text Nachrichten + Sprach Nachrichten
+Er kann auch steuern: + Bildschirm ein/aus + App beenden + Lautstärke +/- + Stumm ein/aus + Helligkeit +/- + Programme mit Schaltern ausführen, z. C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100 + Textnachrichten + Nachrichten sprechen + Audiodateien abspielen
 
 ## Verknüpfung
 * [Adapter-Thread im ioBroker-Forum](https://forum.iobroker.net/topic/50982/neuer-adapter-wiobrowser-f%C3%BCr-windows)
-* [Tutorial über die Messages](https://forum.iobroker.net/topic/51534/tutorial-wiobrowser-windows-desktop-popup-messages) vom User hydrotec
+* [Tutorial über die Messages](https://forum.iobroker.net/topic/51534/tutorial-wiobrowser-windows-desktop-popup-messages) von Benutzer hydrotec
 
 ## Changelog
+### 1.1.4
+* (bettman66) play audiofile
+
 ### 1.1.2
 * (bettman66) translate
 

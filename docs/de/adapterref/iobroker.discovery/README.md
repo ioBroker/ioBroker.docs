@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.discovery/README.md
 title: ioBroker Discover-Adapter
-hash: kfH6c2xUP7RvRNl3MkU8uPffTH3wicEvCLo1bCRzge0=
+hash: ynzTH5DYs4NTogey3awfNS0TZFy0qJDkudHnQoVA4cg=
 ---
 ![Logo](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
@@ -140,9 +140,12 @@ Sie können `sudo setcap cap_net_raw+p /bin/ping` ausführen, um fehlende Fähig
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __LAUFENDE ARBEIT__ -->
+### **IN ARBEIT** -->
 
 ## Changelog
+### 3.0.2 (2022-03-21)
+* (bluefox) Updated serialport package
+
 ### 2.8.0 (2022-02-20)
 * (boellner) add openknx
 * (git-kick) add e3dc-rscp

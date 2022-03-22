@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.discovery/README.md
 title: ioBroker 发现适配器
-hash: kfH6c2xUP7RvRNl3MkU8uPffTH3wicEvCLo1bCRzge0=
+hash: ynzTH5DYs4NTogey3awfNS0TZFy0qJDkudHnQoVA4cg=
 ---
 ![商标](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
@@ -14,7 +14,7 @@ hash: kfH6c2xUP7RvRNl3MkU8uPffTH3wicEvCLo1bCRzge0=
 # IoBroker 发现适配器
 ![测试和发布](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) **使用所有已知方法检测设备。**
 
-这是一个特殊的适配器，它试图找到可以从主机访问的所有可能的设备。
+这是一个特殊的适配器，它试图找到所有可能的设备，可以从主机访问。
 刚才它可以通过ping、UPnP（串行计划）进行检测。
 
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
@@ -69,7 +69,7 @@ hash: kfH6c2xUP7RvRNl3MkU8uPffTH3wicEvCLo1bCRzge0=
 - 米家智能家居
 - 米克罗提克
 - MiLight 桥接器 (v6)
-- MPD
+- mpd
 - 音乐广播
 - 我的链接
 - Mysensors USB/串口（9600、38400、57600、115200）
@@ -100,7 +100,7 @@ hash: kfH6c2xUP7RvRNl3MkU8uPffTH3wicEvCLo1bCRzge0=
 - 瓦洛克斯MV
 - 无线灯
 - 雅马哈
-- 夜光
+- 耶莱特
 - Z-wave USB（经 Aeon Labs 测试）
 
 ### 作为附加适配器提供
@@ -140,9 +140,12 @@ hash: kfH6c2xUP7RvRNl3MkU8uPffTH3wicEvCLo1bCRzge0=
 
 <!-- 下一个版本的占位符（在行首）：
 
-### __工作进行中__ -->
+### **正在进行中** -->
 
 ## Changelog
+### 3.0.2 (2022-03-21)
+* (bluefox) Updated serialport package
+
 ### 2.8.0 (2022-02-20)
 * (boellner) add openknx
 * (git-kick) add e3dc-rscp

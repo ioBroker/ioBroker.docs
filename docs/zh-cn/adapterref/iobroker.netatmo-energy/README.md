@@ -9,7 +9,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.netatmo-energy/README.md
 title: ioBroker.netatmo-energy
-hash: WoXcvVkQghHosqZQPWmtwhGpF1cBJ1gMpppeOIyBMOc=
+hash: 0fXS3TMn/d7ekK7riPcnT8C909t+EN7wKXUmZdFvTHc=
 ---
 ![商标](https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/admin/netatmo-energy.png)
 
@@ -59,7 +59,7 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo Cloud
 ### API 请求
 * homedata ... 获取 Netatmo Energy 安装的整个结构（使用 NAPlug 参数）。您可以自己为手动请求选择所有其他参数。
 * homestatus ...确定并传输您分配的阀门的状态和技术信息。如果您需要有关特定类型设备的信息，您可以自行选择。
-* getroommeasure ... 有了这个，你可以得到你房间的历史数据。结果被输入到“响应”字段中。
+* getroommeasure ... 这样你就可以得到你房间的历史数据。结果被输入到“响应”字段中。
 * getmeasure ...这将为您提供锅炉的历史数据。结果被输入到“响应”字段中。
 * setthermmode_schedule ... 将 Netatmo Energy 安装的运行模式设置为“Schedule”（默认）
 * setthermmode_hq ... 将 Netatmo Energy 装置的运行模式设置为“hq”（防霜）
@@ -77,7 +77,7 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo Cloud
 * setroomthermpoint ... 根据“设置”通道中的手动更改，更改将传输到 Netatmo Energy APP。 （瞬时或自触发 - “立即传输温度变化”）。 “设置”通道中的“set_mode_to_home”按钮将阀门模式“set_mode_to_home”设置为“home”。
 
 ＃＃＃ 状态
-* running ... 在这里你可以看到一个 API 请求当前是否正在运行
+* running ... 在这里你可以看到 API 请求当前是否正在运行
 
 ### 请求结构
 <img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/EnergyAPP_measure.png" alt="设置登录" width="80%"/><img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/EnergyAPP.png" alt="设置登录" width="80%"/>
@@ -105,6 +105,12 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo Cloud
 [旧的变化](CHANGELOG_OLD.md) <!-- 下一个版本的占位符（在行首）：
 
 ### **正在进行中** -->
+### 1.1.4 (2022-03-20)
+* (ioKlausi) 桥添加到主页
+
+### 1.1.3 (2022-03-19)
+* (ioKlausi) 添加了带有阀门的主页
+
 ### 1.1.2 (2022-03-06)
 * (ioKlausi) 错误修正简易管理员
 
@@ -143,6 +149,12 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo Cloud
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.4 (2022-03-20)
+* (ioKlausi) Plug added to tab page 
+
+### 1.1.3 (2022-03-19)
+* (ioKlausi) Valve page added 
+
 ### 1.1.2 (2022-03-06)
 * (ioKlausi) Bugfix Easy Admin 
 

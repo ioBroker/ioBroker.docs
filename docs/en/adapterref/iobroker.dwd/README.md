@@ -19,12 +19,11 @@ This adapter loads the weather warnings from the German weather service via JSON
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 2.8.1 (2022-03-21)
 * (Apollon77) Add instruction text to warning data
 
 ### 2.7.7 (2021-07-01)
@@ -72,14 +71,14 @@ This adapter loads the weather warnings from the German weather service via JSON
 * (Apollon77) Better handle errors when adapter ends (again Sentry)
 
 ### 2.4.9 (2020-05-11)
-* (Apollon77) Better handle errors when adapter ends (Sentry IOBROKER-DWD-1) 
+* (Apollon77) Better handle errors when adapter ends (Sentry IOBROKER-DWD-1)
 
 ### 2.4.8 (2020-04-30)
-* (Apollon77) Better handle errors when adapter ends 
+* (Apollon77) Better handle errors when adapter ends
 
 ### 2.4.7 (2020-04-18)
 * (Apollon77) Add Sentry for error reporting with js-controller 3.0
-* (Apollon77) Fix crash because of undefined lat/long 
+* (Apollon77) Fix crash because of undefined lat/long
 
 ### 2.4.6 (2020-02-24)
 * (bluefox) Time format added to widget

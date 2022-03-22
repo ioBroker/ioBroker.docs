@@ -3,62 +3,62 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.viessmannapi/README.md
 title: ioBroker.viessmannapi
-hash: LcIzZQpLtODOas7VRpVUpZDVryxWy0F6LR375X5TBa0=
+hash: rJnTMsjfbY6/GtrlBGj69mnQpu98U+RlnKn7lqTwCPw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.viessmannapi/admin/viessmannapi.png)
 
-![Версия NPM](https://img.shields.io/npm/v/iobroker.viessmannapi.svg)
+![версия NPM](https://img.shields.io/npm/v/iobroker.viessmannapi.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.viessmannapi.svg)
-![Количество установок (последнее)](https://iobroker.live/badges/viessmannapi-installed.svg)
+![Количество установок (последние)](https://iobroker.live/badges/viessmannapi-installed.svg)
 ![Количество установок (стабильно)](https://iobroker.live/badges/viessmannapi-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.viessmannapi.svg)
 ![НПМ](https://nodei.co/npm/iobroker.viessmannapi.png?downloads=true)
 
 # IoBroker.viessmannapi
-** Испытания: ** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.viessmannapi/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестируйте и выпускайте](https://github.com/TA2k/ioBroker.viessmannapi/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер viessmannapi для ioBroker
 Адаптер для Viessmannapi
 
-** Man benötigt eine ClientID von der Viessmann API **
+**Пользовательский идентификатор ClientID от Viessmann API**
 
-https://developer.viessmann.com/de/clients besuchen und eine Client ID mit diesen Optionen erstellen:
+https://app.developer.viessmann.com для получения идентификатора клиента и его дополнительных опций:
 
 Имя: iobroker
 
-** Google reCAPTCHA deaktivieren **
+**Отключение Google reCAPTCHA**
 
-URI: http:// localhost: 4200 /
+URI: http://локальный:4200/
 
-Идентификатор клиента Die в die Einstellungen kopieren
+Идентификатор клиента в Einstellungen kopieren
 
-** Außentemperatur findet sich z.B. hier: viessmannapi.0.XXXXX.0.features.heating.sensors.температура.outide.properties.value.value **
+** Außentemperatur findet sich z.B. hier: viessmannapi.0.XXXXX.0.характеристики.датчики.отопления.температура.наружного.свойства.значение.значение**
 
-** Remote Befehle sind möglich unter viessmannapi.0.XXXXX.0.features.heating.dhw.temperature.main.commands.setTargetTemperature.setValue **
+**Удаленное управление с помощью функции контроля доступа.0.XXXXX.0.features.heating.dhw.temperature.main.commands.setTargetTemperature.setValue**
 
-** Kompatibilitätsliste **:
+**Список совместимости**:
 
-** Regelungen für Wand- oder Kompaktgeräte **
+**Regelungen für Wandoder Kompaktgeräte**
 
 Vitotronic 200, тип HO1, HO1A, HO1B, HO1D, HO2B, HO2C Vitotronic 200 RF, тип HO1C, HO1E
 
-** Regelungen für bodenstehende Heizkessel **
+**Regelungen für bodenstehende Heizkessel**
 
-Vitotronic 200, Тип KO1B, KO2B, KW6, KW6A, KW6B, KW1, KW2, KW4, KW5 Vitotronic 300, Тип KW3
+Vitotronic 200, тип KO1B, KO2B, KW6, KW6A, KW6B, KW1, KW2, KW4, KW5 Vitotronic 300, тип KW3
 
-** Regelungen für Wärmepumpen und Hybridgeräte **
+**Regelungen für Wärmepumpen und Hybridgeräte**
 
 Vitotronic 200, тип WO1A, WO1B, WO1C
 
-** Regelungen für Festbrennstoffkessel **
+**Regelungen für Festbrennstoffkessel**
 
-Vitoligno 200-S mit Ecotronic (ab Softwarestand 2.03) Vitoligno 250-S mit Ecotronic (ab Softwarestand 2.00) Vitoligno 300-C mit Ecotronic (ab Softwarestand 2.12) Vitoligno 300-P mit Vitotronic 200 FO1 Vitoligno 300-S mit Ecotronic (ab Softwarestand 2,04)
+Vitoligno 200-S с Ecotronic (ab Softwarestand 2.03) Vitoligno 250-S с Ecotronic (ab Softwarestand 2.00) Vitoligno 300-C с Ecotronic (ab Softwarestand 2.12) Vitoligno 300-P с Vitotronic 200 FO1 Vitoligno 300-S с Ecotronic (ab Softwarestand 2.04)
 
-** Просмотрите список Datenpunkte: https://developer.viessmann.com/de/doc/iot/data-points**
+**Список всех дат: https://documentation.viessmann.com/static/iot/data-points**
 
-** Frage zu fehlende Datenpunkte bitte direkt an Viessmann https://www.viessmann-community.com/t5/The-Viessmann-API/bd-p/dev-viessmann-api**
+**Frage zu fehlende Datenpunkte bitte direct an Viessmann https://www.viessmann-community.com/t5/The-Viessmann-API/bd-p/dev-viessmann-api**
 
-Биспиле:
+Бесшовный:
 
 ```
 Vorlauftemperatur:
@@ -94,7 +94,7 @@ Sekundärkreis Rücklauftemperatur:	viessmann.0.xxx.0.features.heating.secondary
 
 ```
 
-** Beispiel zum setzen eines Расписание: **
+**Beispiel zum setzen eines Расписание:**
 
 ```
 var standard = '{"mon":[{"start":"00:00","end":"24:00","mode":"standard","position":0}],"tue":[{"start":"00:00","end":"24:00","mode":"standard","position":0}],\
@@ -115,7 +115,7 @@ setState("viessmannapi.0.xxxxxxx.0.features.ventilation.schedule.commands.setSch
 
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

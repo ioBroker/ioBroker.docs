@@ -3,39 +3,51 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.cul/README.md
 title: ioBroker.cul
-hash: K4rCOBSVFqE1jD3svv7aukvEal1t2fI6QVtX90V21KE=
+hash: 2tnvBHDfP0OFs68GeLH/DpaXwMsDO4ad4AP58dE/qQY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.cul/admin/busware.jpg)
 
 ![Количество установок](http://iobroker.live/badges/cul-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.cul.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.cul.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.cul.svg)
 ![Тесты](https://travis-ci.org/ioBroker/ioBroker.cul.svg?branch=master)
 ![НПМ](https://nodei.co/npm/iobroker.cul.png?downloads=true)
 
 # IoBroker.cul
-Адаптер ioBroker для управления FS20, Max !, HMS и другими устройствами через [CUL](http://busware.de/tiki-index.php?page=CUL) / [culfw](http://culfw.de). Зависит от https://github.com/hobbyquaker/cul
+Адаптер ioBroker для управления FS20, Max!, HMS и другими устройствами через [КУЛ](http://busware.de/tiki-index.php?page=CUL) / [кульф](http://culfw.de). Зависит от https://github.com/hobbyquaker/cul
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация по Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Поддерживаемые устройства
 - *EM* - EM1000WZ, EMWZ
-- *FS20* вкл. ESA1000 / 2000
+- *ФС20*, в т.ч. ЕСА1000/2000
 - *HMS* - HMS100-TF, HMS100-T, HMS100-WD, RM100-2, HMS100-TFK, HMS100-MG, HMS100-CO, HMS100-FIT
 - *МОРИЦ* - МАКС!
-- *WS* - KS300TH, S300TH, WS2000 / WS7000
+- *WS* - KS300TH, S300TH, WS2000/WS7000
 
 ## Как
-### Отправьте команду на устройство FS20, например, в JavaScript
+### Отправьте команду на устройство FS20, например. JavaScript
 ```sendTo("cul.0", "send", {"protocol":"FS20", "housecode":"A1B2", "address":"01", "command":"00"});```
 
-### Отправьте необработанную команду (например, на устройство InterTechno) с помощью JavaSript
+### Отправьте необработанную команду (например, на устройство InterTechno) с помощью JavaScript
 ```sendTo("cul.0", "sendraw", {"command": 'is0FFFFF0FFFFF'});```
 
 Эти команды используют библиотеку CUL этого адаптера для отправки команд устройству.
-Адаптер Busware CUL USB / culfw на основе Javascript / Node.js
+Адаптер `Busware CUL USB / culfw` на основе Javascript/Node.js
+
+<!-- Заполнитель для следующей версии (в начале строки):
+
+### **ВЫПОЛНЯЕТСЯ** -->
 
 ## Changelog
+### 2.0.1 (2022-03-21)
+* (bluefox) Updated serialport package
+
+### 1.3.5 (2021-04-12)
+* (Apollon77) Make sure that cul is connected before accepting state changes (Sentry IOBROKER-CUL-R)
+
+### 1.3.4 (2020-12-02)
+* (Apollon77) prevent crash case (Sentry IOBROKER-CUL-D)
 
 ### 1.3.3 (2020-09-25)
 * (EvilEls) Added raw command support with cul.write()
@@ -46,13 +58,13 @@ hash: K4rCOBSVFqE1jD3svv7aukvEal1t2fI6QVtX90V21KE=
 
 ### 1.3.1 (2020-07-26)
 * (Apollon77) make sure connection check do not crash adapter (Sentry IOBROKER-CUL-3)
-* (Apollon77) crashes preventd (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)
+* (Apollon77) crashes prevented (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)
 
 ### 1.3.0 (2020-07-20)
 * (Apollon77) Really update dependencies and Serialport
 
 ### 1.2.2 (2020-04-30)
-* (Apollon77) Update dependencies/Serialport 
+* (Apollon77) Update dependencies/Serialport
 
 ### 1.2.1 (2020-03-18)
 * (bluefox) Changed license from non SPDX conform 
@@ -94,4 +106,4 @@ hash: K4rCOBSVFqE1jD3svv7aukvEal1t2fI6QVtX90V21KE=
 
 ## License
 
-[Licensed under GPLv2](LICENSE) Copyright (c) 2014-2020 hobbyquaker
+[Licensed under GPLv2](LICENSE) Copyright (c) 2014-2022 hobbyquaker

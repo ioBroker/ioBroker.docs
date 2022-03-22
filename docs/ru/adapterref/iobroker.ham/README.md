@@ -3,74 +3,80 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ham/README.md
 title: Менеджер по аксессуарам ioBroker Homebridge
-hash: hUvbkZy2OBzJvWiov5BK/C8IBdn/Hi1+NWwzHyonC9w=
+hash: KN3LWhHrXcOlTyNyVHB3YLTVcG+EMOBGThWzmj6X/Io=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ham/admin/ham.png)
 
 ![Количество установок](http://iobroker.live/badges/ham-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.ham.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.ham.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.ham.svg)
 
-# IoBroker Менеджер по аксессуарам Homebridge
-![Тестирование и выпуск](https://github.com/ioBroker/iobroker.ham/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/ham/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# Менеджер по аксессуарам ioBroker Homebridge
+![Тестируйте и выпускайте](https://github.com/ioBroker/iobroker.ham/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/ham/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 Используйте плагины Homebridge в ioBroker или запустите глобально установленный Homebridge в качестве адаптера ioBroker.
-Все состояния из Homebridge также будут доступны в ioBroker и там также можно будет управлять.
+Все состояния из Homebridge также будут доступны в ioBroker, и ими также можно будет управлять там.
 
 ## Описание
 Этот адаптер обеспечивает три различных режима:
 
-### Режим по умолчанию (обертка)
-В режиме по умолчанию адаптер позволяет напрямую использовать модули плагинов homebridge.
-Вы можете изучить все доступные плагины на сайте NPM в [поиск по ключевому слову `homebridge-plugin`](https://www.npmjs.com/search?q=homebridge-plugin).
+### Режим по умолчанию (оболочка)
+В режиме по умолчанию адаптер позволяет напрямую использовать подключаемые модули homebridge.
+Вы можете ознакомиться со всеми доступными плагинами на веб-сайте NPM по [поиск по ключевому слову `homebridge-plugin`](https://www.npmjs.com/search?q=homebridge-plugin).
 
-Вы просто добавляете список модулей в конфигурацию адаптера и предоставляете конфигурацию в JSON-редакторе (см. Описания плагинов).
+Вы просто добавляете список модулей в конфигурацию адаптера и предоставляете конфигурацию в JSON-редакторе (см. описания плагинов).
 После этого все объекты Homebridge также будут созданы в ioBroker, и все объекты, доступные для записи, также можно будет изменить.
 
-** ВАЖНО: этот режим позволяет использовать интеграции с устройствами предоставленных плагинов Homebridge. Не предусмотрено никакого «моста», который можно использовать в приложении Home! **
+** ВАЖНО: этот режим позволяет использовать интеграцию устройств с предоставленными плагинами Homebridge. Не предусмотрен «мост», который может использоваться приложением Home!**
 
 Ссылку на успешно опробованные плагины с примерами можно найти здесь: https://forum.iobroker.net/viewtopic.php?f=20&t=15021
 
-### Local-Homebridge-Mode
-Если вы хотите, чтобы опубликованный мост использовался домашним приложением, и вы также хотите взаимодействовать с ним из ioBroker и получать данные, но у вас еще нет установленного домашнего моста, используйте этот режим.
+### Режим локального домашнего моста
+Если вы хотите иметь опубликованный мост, который будет использоваться приложением Home, а также взаимодействовать с ним из ioBroker и получать данные, но у вас еще не установлен homebridge, используйте этот режим.
 
-В локальном режиме устанавливается текущая совместимая версия homebridge и запускается от имени пользователя ioBroker. Вы предоставляете полную конфигурацию домашнего моста с помощью ioBroker.
-Установка модулей Homebridge также выполняется через ioBroker.
+Локальный режим устанавливает текущую совместимую версию homebridge и запускает ее от имени пользователя ioBroker. Вы предоставляете полную конфигурацию домашнего моста, используя ioBroker.
+Установка модулей хоумбриджа также осуществляется через ioBroker.
 
-** ВАЖНО: При использовании дочерних мостов (новая функция домашнего моста с версии 1.3.x) адаптер НЕ МОЖЕТ получить доступ к данным, предоставляемым этими дочерними мостами! Доступен только главный мост! **
+**ВАЖНО: При использовании дочерних мостов (новая функция домашнего моста начиная с версии 1.3.x) адаптер НЕ МОЖЕТ получить доступ к данным, предоставляемым этими дочерними мостами! Доступен только главный мост!**
 
 ### Global-Homebridge-Mode
 Если вы уже используете Homebridge (Apple OpenSource SmartHome) в качестве глобальной установки на хосте, на котором также работает ioBroker, вы можете использовать эту существующую установку Homebridge и запустить эту установку Homebridge как процесс ioBroker. В этом случае сервер Homebridge запускается ioBroker.
-Кроме того, все состояния из Homebridge доступны как состояния в ioBroker и могут управляться из ioBroker.
+Кроме того, все состояния из Homebridge доступны как состояния в ioBroker и позволяют управлять ими из ioBroker.
 
-Чтобы это работало, вам необходимо указать расположение глобальной папки системных узлов и модулей. Для этого вызовите **npm root -g** Дополнительно вам необходимо указать путь к каталогу конфигурации homebridge (обычно .homebridge в папке "users").
+Чтобы это работало, вам необходимо указать расположение системной глобальной папки node-modules. Для этого вызовите **npm root -g**. Кроме того, вам необходимо указать путь к каталогу конфигурации homebridge (обычно .homebridge в папке «users»).
 
-** ВАЖНО: ioBroker запускается как пользователь «iobroker», но homebridge обычно как пользователь root или homebridge (в зависимости от того, как вы его установили). Вам необходимо убедиться, что папка homebride "persistance" доступна для пользователя ioBroker, иначе вы увидите ошибки, что файл не может быть сохранен (что может привести к сбою адаптера!) **
+**ВАЖНО: ioBroker запускается от имени пользователя «iobroker», а homebridge обычно от имени пользователя root или пользователя homebridge (в зависимости от того, как вы его установили). Вам нужно убедиться, что пользователь ioBroker может получить доступ к папке homebride «persistance», иначе вы увидите ошибки, что файл не может быть сохранен (что может привести к сбою адаптера!)**
 
-** ВАЖНО: При использовании дочерних мостов (новая функция домашнего моста с версии 1.3.x) адаптер НЕ МОЖЕТ получить доступ к данным, предоставляемым этими дочерними мостами! Доступен только главный мост! **
+**ВАЖНО: При использовании дочерних мостов (новая функция домашнего моста начиная с версии 1.3.x) адаптер НЕ МОЖЕТ получить доступ к данным, предоставляемым этими дочерними мостами! Доступен только главный мост!**
 
 ## Следующие плагины были протестированы в режиме по умолчанию
-* homebridge-Chamberlain v1.0.1 - плагин для открывателей гаражных ворот Chamberlain с MyQ
+* homebridge-chamberlain v1.0.1 - плагин для открывания гаражных ворот Чемберлен с MyQ
 * homebridge-doorbird v0.0.4 - Плагин для Doorbird
-* homebridge-dyson-link v2.2.2 - устройства Dyson Link
+* homebridge-dyson-link v2.2.2 — устройства Dyson Link
 * homebridge-edomoticz v2.1.11 - Полноценный современный плагин для Domoticz
-* homebridge-Fibaro-HC2 v2.1.5 - интеграция с Fibaro HomeCenter
-* homebridge-homee v0.2.4 - Полноценный современный плагин для Homee
+* homebridge-Fibaro-HC2 v2.1.5 - интеграция Fibaro HomeCenter
+* homebridge-homee v0.2.4 - полноценный современный плагин для Homee
 * homebridge-ikea-tradfri-gateway v1.0.26 - Tradfri
-* homebridge-noolite v0.0.29 - Noolite через модули USB MTRF-64 или МТRF-64
-* homebridge-platform-wemo v1.0.1 - плагин Belkin WeMo Platform
-* homebridge-seasons v1.0.1 - плагин для отображения текущего времени года.
-* homebridge-vera v0.8.2 - VeraLink - приложение для аксессуаров Z-Wave от Vera (Node.js 8.11.3)
+* homebridge-noolite v0.0.29 - Noolite через USB модули MTRF-64 или МТРФ-64
+* homebridge-platform-wemo v1.0.1 — плагин Belkin WeMo Platform
+* homebridge-seasons v1.0.1 - Плагин для отображения текущего времени года.
+* homebridge-vera v0.8.2 — VeraLink — приложение для аксессуаров Z-Wave от Vera (Node.js 8.11.3)
 
 ... и многое другое
 
-## ДЕЛАТЬ
+## СДЕЛАТЬ
 * Тесты
-* Больше документации ?!
+* Больше документации?!
+
+<!-- Заполнитель для следующей версии (в начале строки):
+
+### **ВЫПОЛНЯЕТСЯ** -->
 
 ## Changelog
+### 4.0.3 (2022-03-20)
+* (bluefox) Update packages
 
-### __WORK IN PROGRESS__
+### 4.0.2 (2021-05-08)
 * (Apollon77) prevent warnings in js-controller 3.3
 
 ### 4.0.1 (2021-03-24)
@@ -82,7 +88,7 @@ hash: hUvbkZy2OBzJvWiov5BK/C8IBdn/Hi1+NWwzHyonC9w=
 * (Apollon77) update homebridge in wrapper to 1.1.6 (latest as of today)
 
 ### 3.0.1 (2020-08-08)
-* (Apollon77) set a very high limit (again) on allowed accessories and services because irrelevant 
+* (Apollon77) set a very high limit (again) on allowed accessories and services because irrelevant
 
 ### 3.0.0 (2020-08-04)
 * (Apollon77) BREAKING: ONLY WORKS WITH HOMEBRIDGE 1.1.x+ AND Node JS >=10.17.0!! Make sure plugins support it AND homebridge is updated to 1.1.x when you use the Global Mode!
@@ -150,7 +156,7 @@ hash: hUvbkZy2OBzJvWiov5BK/C8IBdn/Hi1+NWwzHyonC9w=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2018-2022 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

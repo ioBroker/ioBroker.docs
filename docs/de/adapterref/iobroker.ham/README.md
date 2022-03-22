@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ham/README.md
-title: ioBroker Homebridge Zubehörmanager
-hash: hUvbkZy2OBzJvWiov5BK/C8IBdn/Hi1+NWwzHyonC9w=
+title: ioBroker Homebridge-Zubehörmanager
+hash: KN3LWhHrXcOlTyNyVHB3YLTVcG+EMOBGThWzmj6X/Io=
 ---
 ![Logo](../../../en/adapterref/iobroker.ham/admin/ham.png)
 
@@ -11,66 +11,72 @@ hash: hUvbkZy2OBzJvWiov5BK/C8IBdn/Hi1+NWwzHyonC9w=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.ham.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.ham.svg)
 
-# IoBroker Homebridge Zubehörmanager
-![Testen und freigeben](https://github.com/ioBroker/iobroker.ham/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus] (https://weblate.iobroker.net/widgets/adapters/-/ham/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker Homebridge-Zubehörmanager
+![Testen und freigeben](https://github.com/ioBroker/iobroker.ham/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/ham/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 Verwenden Sie Homebridge-Plugins in ioBroker oder führen Sie eine global installierte Homebridge als ioBroker-Adapter aus.
-Alle Staaten von Homebridge werden auch in ioBroker verfügbar sein und können dort auch gesteuert werden.
+Alle Zustände von Homebridge werden auch in ioBroker verfügbar sein und können dort auch kontrolliert werden.
 
 ## Beschreibung
 Dieser Adapter bietet drei verschiedene Modi:
 
-### Standardmodus (Wrapper)
-Im Standardmodus können Sie mit dem Adapter Homebridge-Plugin-Module direkt verwenden.
-Sie können alle verfügbaren Plugins auf der NPM-Website unter [Suche nach dem Schlüsselwort `homebridge-plugin`](https://www.npmjs.com/search?q=homebridge-plugin) durchsuchen.
+### Standardmodus (Wrapper).
+Im Standardmodus ermöglicht der Adapter die direkte Verwendung von Homebridge-Plugin-Modulen.
+Sie können alle verfügbaren Plugins auf der NPM-Website unter [nach dem Schlüsselwort `homebridge-plugin` suchen](https://www.npmjs.com/search?q=homebridge-plugin) erkunden.
 
-Sie fügen einfach die Liste der Module zur Adapterkonfiguration hinzu und geben die Konfiguration im JSON-Editor an (siehe Plugin-Beschreibungen).
+Sie fügen einfach die Liste der Module zur Adapterkonfiguration hinzu und stellen die Konfiguration im JSON-Editor bereit (siehe Plugin-Beschreibungen).
 Danach werden alle Homebridge-Objekte auch in ioBroker erstellt und alle beschreibbaren Objekte können ebenfalls geändert werden.
 
-** WICHTIG: In diesem Modus können die Geräteintegrationen der bereitgestellten Homebridge-Plugins verwendet werden. Es wird keine "Brücke" bereitgestellt, die von der Home App verwendet werden kann! **
+**WICHTIG: Dieser Modus ermöglicht die Verwendung der Geräteintegrationen der bereitgestellten Homebridge-Plugins. Es wird keine „Brücke“ bereitgestellt, die von der Home-App verwendet werden kann!**
 
 Einen Link erfolgreich erprobter Plugins mit Beispielen finden Sie hier: https://forum.iobroker.net/viewtopic.php?f=20&t=15021
 
 ### Local-Homebridge-Modus
-Wenn Sie möchten, dass eine veröffentlichte Bridge von der Home-App verwendet wird und Sie auch über ioBroker mit ihr interagieren und die Daten abrufen möchten, Homebridge jedoch noch nicht installiert ist, verwenden Sie diesen Modus.
+Wenn Sie eine veröffentlichte Bridge haben möchten, die von der Home-App verwendet werden soll, und auch mit ihr von ioBroker interagieren und die Daten abrufen möchten, aber Homebridge noch nicht installiert haben, verwenden Sie diesen Modus.
 
 Der lokale Modus installiert die aktuelle kompatible Version von Homebridge und führt sie als ioBroker-Benutzer aus. Sie stellen die vollständige Homebridge-Konfiguration mit ioBroker bereit.
 Die Installation der Homebridge-Module erfolgt ebenfalls über ioBroker.
 
-** WICHTIG: Bei Verwendung von untergeordneten Bridges (neue Homebridge-Funktion seit 1.3.x) kann der Adapter NICHT auf die von diesen untergeordneten Bridges bereitgestellten Daten zugreifen! Nur die Hauptbrücke ist zugänglich! **
+**WICHTIG: Bei Verwendung von Child-Bridges (neues Homebridge-Feature seit 1.3.x) kann der Adapter NICHT auf die von diesen Child-Bridges bereitgestellten Daten zugreifen! Nur die Hauptbrücke ist zugänglich!**
 
 ### Global-Homebridge-Modus
-Wenn Sie Homebridge (Apple OpenSource SmartHome) bereits als globale Installation auf dem Host verwenden, auf dem auch ioBroker ausgeführt wird, können Sie diese vorhandene Homebridge-Installation verwenden und diese Homebridge-Installation als ioBroker-Prozess starten. In diesem Fall wird der Homebridge-Server von ioBroker gestartet.
-Zusätzlich sind alle Status von Homebridge als Status in ioBroker verfügbar und können von ioBroker aus gesteuert werden.
+Wenn Sie Homebridge (Apple OpenSource SmartHome) bereits als globale Installation auf dem Host verwenden, auf dem auch ioBroker läuft, dann können Sie diese vorhandene Homebridge-Installation verwenden und diese Homebridge-Installation als ioBroker-Prozess starten. In diesem Fall wird der Homebridge-Server von ioBroker gestartet.
+Zusätzlich sind alle Zustände von Homebridge als Zustände in ioBroker verfügbar und können von ioBroker aus gesteuert werden.
 
-Damit dies funktioniert, müssen Sie den Speicherort des globalen Knotenmodulordners des Systems angeben. Für diesen Aufruf **npm root -g** Außerdem müssen Sie den Pfad des Homebridge-Konfigurationsverzeichnisses angeben (normalerweise .homebridge im Ordner "users").
+Damit dies funktioniert, müssen Sie den Speicherort des globalen Ordners node-modules des Systems angeben. Rufen Sie dazu **npm root -g** auf. Zusätzlich müssen Sie den Pfad des Homebridge-Konfigurationsverzeichnisses angeben (normalerweise .homebridge im Ordner "users").
 
-** WICHTIG: ioBroker wird als Benutzer "iobroker" ausgeführt, Homebridge jedoch normalerweise als Root- oder Homebridge-Benutzer (je nachdem, wie Sie es installiert haben). Sie müssen sicherstellen, dass der ioBroker-Benutzer auf den Ordner "Persistenz" der Homebride zugreifen kann. Andernfalls werden Fehler angezeigt, dass die Datei nicht gespeichert werden kann (wodurch der Adapter abstürzen kann!) **
+**WICHTIG: ioBroker läuft als Benutzer „iobroker“, aber Homebridge normalerweise als Root- oder Homebridge-Benutzer (je nachdem, wie Sie es installiert haben). Sie müssen sicherstellen, dass der ioBroker-Benutzer auf den Homebride-Ordner „Persistance“ zugreifen kann, da sonst Fehler angezeigt werden, dass die Datei nicht gespeichert werden kann (was den Adapter zum Absturz bringen kann!)**
 
-** WICHTIG: Bei Verwendung von untergeordneten Bridges (neue Homebridge-Funktion seit 1.3.x) kann der Adapter NICHT auf die von diesen untergeordneten Bridges bereitgestellten Daten zugreifen! Nur die Hauptbrücke ist zugänglich! **
+**WICHTIG: Bei Verwendung von Child-Bridges (neues Homebridge-Feature seit 1.3.x) kann der Adapter NICHT auf die von diesen Child-Bridges bereitgestellten Daten zugreifen! Nur die Hauptbrücke ist zugänglich!**
 
 ## Folgende Plugins wurden im Standardmodus getestet
-* homebridge-Chamberlain v1.0.1 - Plugin für Chamberlain Garagentoröffner mit MyQ
+* homebridge-chamberlain v1.0.1 - Plugin für Chamberlain Garagentoröffner mit MyQ
 * homebridge-doorbird v0.0.4 - Plugin für Doorbird
 * homebridge-dyson-link v2.2.2 - Dyson Link-Geräte
-* homebridge-edomoticz v2.1.11 - Ein vollwertiges, aktuelles Plugin für Domoticz
+* homebridge-edomoticz v2.1.11 - Ein vollwertiges aktuelles Plugin für Domoticz
 * homebridge-Fibaro-HC2 v2.1.5 - Fibaro HomeCenter-Integration
-* homebridge-homee v0.2.4 - Ein vollwertiges, aktuelles Plugin für Homee
+* homebridge-homee v0.2.4 - Ein vollwertiges aktuelles Plugin für Homee
 * homebridge-ikea-tradfri-gateway v1.0.26 - Tradfri
 * homebridge-noolite v0.0.29 - Noolite über USB MTRF-64- oder МТRF-64-Module
-* homebridge-platform-wemo v1.0.1 - Belkin WeMo Platform Plugin
-* homebridge-saisone v1.0.1 - Ein Plugin zur Anzeige der aktuellen Jahreszeit.
-* homebridge-vera v0.8.2 - VeraLink ist eine Anwendung für Z-Wave-Zubehör von Vera (Node.js 8.11.3).
+* homebridge-platform-wemo v1.0.1 – Belkin WeMo-Plattform-Plugin
+* homebridge-seasons v1.0.1 - Ein Plugin zur Anzeige der aktuellen Jahreszeit.
+* homebridge-vera v0.8.2 - VeraLink ist eine Anwendung für Z-Wave-Zubehör von Vera (Node.js 8.11.3)
 
 ... und viele mehr
 
 ## MACHEN
-* Tests
+* Prüfungen
 * Mehr Dokumentation?!
 
-## Changelog
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __WORK IN PROGRESS__
+### **IN ARBEIT** -->
+
+## Changelog
+### 4.0.3 (2022-03-20)
+* (bluefox) Update packages
+
+### 4.0.2 (2021-05-08)
 * (Apollon77) prevent warnings in js-controller 3.3
 
 ### 4.0.1 (2021-03-24)
@@ -82,7 +88,7 @@ Damit dies funktioniert, müssen Sie den Speicherort des globalen Knotenmodulord
 * (Apollon77) update homebridge in wrapper to 1.1.6 (latest as of today)
 
 ### 3.0.1 (2020-08-08)
-* (Apollon77) set a very high limit (again) on allowed accessories and services because irrelevant 
+* (Apollon77) set a very high limit (again) on allowed accessories and services because irrelevant
 
 ### 3.0.0 (2020-08-04)
 * (Apollon77) BREAKING: ONLY WORKS WITH HOMEBRIDGE 1.1.x+ AND Node JS >=10.17.0!! Make sure plugins support it AND homebridge is updated to 1.1.x when you use the Global Mode!
@@ -150,7 +156,7 @@ Damit dies funktioniert, müssen Sie den Speicherort des globalen Knotenmodulord
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2018-2022 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

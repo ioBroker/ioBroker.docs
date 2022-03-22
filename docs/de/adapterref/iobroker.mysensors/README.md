@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mysensors/README.md
 title: ioBroker.mysensors
-hash: aSy0rOeIPaTcWu3iicEEsdBle/JK9AhuU/Xp+9gXKJ8=
+hash: KnLKRjIiq8ieUK5hWxhZac4nJqAAScbQVkOtPO/H3Fg=
 ---
 ![Logo](../../../en/adapterref/iobroker.mysensors/admin/mysensors.png)
 
@@ -14,15 +14,15 @@ hash: aSy0rOeIPaTcWu3iicEEsdBle/JK9AhuU/Xp+9gXKJ8=
 ![NPM](https://nodei.co/npm/iobroker.mysensors.png?downloads=true)
 
 # IoBroker.mysensors
-Dieser Adapter kommuniziert mit [mysensors](http://www.mysensors.org) seriellem oder Ethernet-Gateway (TCP oder UDP).
-Wenn in diesem Fall das Ethernet-Gateway ausgewählt ist, ist ioBroker ein Server, der Verbindungen erwartet.
+Dieser Adapter kommuniziert mit [meinesensoren](http://www.mysensors.org) seriellem oder Ethernet-Gateway (TCP oder UDP).
+Wenn Ethernet-Gateway ausgewählt ist, ist in diesem Fall ioBroker ein Server, der Verbindungen erwartet.
 
 ## TCP-Client
 Diese Option funktioniert nur zusammen mit TCP&lt;=&gt;Serial Bridge, wie [esp-link](https://github.com/jeelabs/esp-link).
 
-## Vorraussetzungen
-Um den seriellen Port unter Windows zu verwenden, ist es VS erforderlich, die Binärdatei zu erstellen.
-Um den seriellen Port unter Linux zu verwenden, ist er unbedingt erforderlich und Python2.7 erforderlich. Um sie zu installieren, schreiben Sie einfach:
+## Pre erfordert
+Um die serielle Schnittstelle unter Windows zu verwenden, ist VS erforderlich, um die Binärdatei zu erstellen.
+Um den seriellen Port unter Linux zu verwenden, ist es Build-Essential und Python2.7 erforderlich. Um sie zu installieren, schreiben Sie einfach:
 
 ```
 sudo apt-get update
@@ -32,10 +32,13 @@ sudo apt-get install python2.7
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __ARBEITEN IN PROGRESS__ -->
+### **IN ARBEIT** -->
 
 ## Changelog
-### 2.0.2 (2021-11-08)
+### 3.0.0 (2022-03-21)
+* (bluefox) Updated serialport package
+
+### 2.0.3 (2021-11-10)
 * (sergeyksv) Added the support of deep sleep
 
 ### 2.0.1 (2020-06-01)
@@ -128,7 +131,7 @@ sudo apt-get install python2.7
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2021, Bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2022, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

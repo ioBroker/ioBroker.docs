@@ -8,12 +8,13 @@ BADGE-NPM: https://nodei.co/npm/iobroker.sprinklecontrol.png?downloads=true
 ---
 ![Logo](img/sprinklecontrol.png)
 # SprinkleControl
-### *Der Adapter zur individuellen automatischen Gartenbewässerung. << So wie es jeder mag >> ;-)*
+### *Der Adapter zur individuellen automatischen Gartenbewässerung. << so wie es jeder mag >> ;-)*
 
 
 ---
 
-# Inhaltsverzeichnis <a id="inhaltsverzeichnis"></a>
+<a id="inhaltsverzeichnis"></a>
+# Inhaltsverzeichnis 
 * [1 Grundlegendes](#1-grundlegendes)
 * [2 Installation](#2-installation)
 * [3 Konfiguration](#3-konfiguration)
@@ -32,7 +33,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.sprinklecontrol.png?downloads=true
 * [6 Zeit-Einstellungen](#6-zeit-einstellungen) 
 * [7 Zusätzliche-Einstellungen](#7-zustzliche-einstellungen) 
   * [7.1 Astro-Einstellungen](#71-astro-einstellungen) 
-  * [7.2 Debug-Einstellungen](#72-debug-einstellungen)
+  * [7.2 Debug-Einstellungen](#72-debug-einstellungen) 
   * [7.3 Zusätzliche Benachrichtigungseinstellung](#73-zustzliche-benachrichtigungseinstellungen) 
   * [7.4 Sensoren zur Berechnung der Verdunstung](#74-sensoren-zur-berechnung-der-verdunstung) 
   * [7.5 Wettervorhersage](#75-wettervorhersage) 
@@ -40,12 +41,12 @@ BADGE-NPM: https://nodei.co/npm/iobroker.sprinklecontrol.png?downloads=true
   * [8.1 Telegram](#81-telegram) 
   * [8.2 Pushover](#82-pushover) 
   * [8.3 E-Mail](#83-e-mail) 
-  * [8.4 WhatsApp](#84-whatsapp)
-* [9 Objekte](#9-objekte)
-  * [9.1 control](#91-control)
-  * [9.2 evaporation](#92-evaporation)
-  * [9.3 info](#93-info)
-  * [9.4 sprinkle](#94-sprinkle)
+  * [8.4 WhatsApp](#84-whatsapp) 
+* [9 Objekte](#9-objekte) 
+  * [9.1 control](#91-control) 
+  * [9.2 evaporation](#92-evaporation) 
+  * [9.3 info](#93-info) 
+  * [9.4 sprinkle](#94-sprinkle) 
 * [10 Was ist für die Zukunft geplant](#10-was-ist-fr-die-zukunft-geplant) 
 
 
@@ -171,14 +172,14 @@ Diese Konfigurationsebene besteht aus zwei Reitern: [**Haupteinstellungen**](#42
 
 
 <a id="4211-bewasserungseinstellungen"></a>
-#### 4.2.1.1 Bewässerungseinstellungen 
+#### 4.2.1.1 Bewässerungseinstellungen
 
 * **Bewässerungszeit in min** – Einstellung der Zeit zum Bewässern in Minuten
-   > **Information** → Unter "Berechnung der Verdunstung“ und "Bodenfeuchte-Sensor analog“ wird die Bewässerungszeit verlängert je weiter der Trigger "niedrigster Prozentsatz der Bodenfeuchte“ unterschritten wurde.
-   > Bei **Start an festen Wochentagen (ohne Sensoren)** und **Bodenfeuchte-Sensor bistabil** erfolgt die Verlängerung proportional der extraterrestrische Strahlung ihrer Region.
+    > **Information** → Unter "Berechnung der Verdunstung“ und "Bodenfeuchte-Sensor analog“ wird die Bewässerungszeit verlängert je weiter der Trigger "niedrigster Prozentsatz der Bodenfeuchte“ unterschritten wurde.
+    > Bei **Start an festen Wochentagen (ohne Sensoren)** und **Bodenfeuchte-Sensor bistabil** erfolgt die Verlängerung proportional der extraterrestrische Strahlung ihrer Region.
 * **maximale Bewässerungsverlängerung in %** – Begrenzung der Bewässerungsdauer in Prozent (100 % = Bewässerungsdauer wird nicht verlängert)
-  > **Information** → Bei **Start an festen Wochentagen (ohne Sensoren)** und **Bodenfeuchte-Sensor bistabil** wird hier die Verlängerung der Bewässerungszeit angegeben. Wobei am 21.12.
-    die Bewässerungszeit gleich der Eingabe und am 21.6. gleich der maximalen Verlängerung entspricht. Dazwischen wird die Bewässerungszeit proportional der extraterrestrische Strahlung ihrer Region angepasst.
+    > **Information** → Bei **Start an festen Wochentagen (ohne Sensoren)** und **Bodenfeuchte-Sensor bistabil** wird hier die Verlängerung der Bewässerungszeit angegeben. Wobei am 21.12.
+     die Bewässerungszeit gleich der Eingabe und am 21.6. gleich der maximalen Verlängerung entspricht. Dazwischen wird die Bewässerungszeit proportional der extraterrestrische Strahlung ihrer Region angepasst.
 * **Bewässerungsintervall in min** – Die Bewässerungsdauer wird in einem Intervall aufgeteilt. (z. B. 5 min an, mindestens 5 min aus, 5 min an, usw.)
     > **Tipp** –> Ich habe bei der Autoauffahrt ein Rasengitter verlegt. Hier läuft das Wasser beim Bewässern einfach nur die Schräge herunter. Durch die Bewässerung in Intervallen konnte ich dem entgegenwirken.
 
@@ -189,7 +190,7 @@ Diese Konfigurationsebene besteht aus zwei Reitern: [**Haupteinstellungen**](#42
 #### 4.2.1.2 Einschaltpunkt zum Gießen
 
 * Über **Methode zur Kontrolle der Bodenfeuchtigkeit** werden die verschiedenen Sensoren, zur Steuerung der Bewässerung und deren verhalten, festgelegt.
-> **Information** → Über [**„Zusätzliche Einstellungen" → „Wettervorhersage"**](#75-wettervorhersage) kann der Startvorgang verschoben werden, wenn es Regen soll. 
+    > **Information** → Über [**„Zusätzliche Einstellungen" → „Wettervorhersage"**](#75-wettervorhersage) kann der Startvorgang verschoben werden, wenn es Regen soll. 
 
 ---
 
@@ -249,7 +250,7 @@ Diese Konfigurationsebene besteht aus zwei Reitern: [**Haupteinstellungen**](#42
     + **Drei Tage Rhythmus** → Der 1. Tag der Bewässerung ist der Folgetag, nach dem Speichern der Konfiguration, und dann jeden 3. Tag in Folge.
     + **Jeden zweiten Tag** → Der 1. Tag der Bewässerung ist der Folgetag, nach dem Speichern der Konfiguration, und dann jeden 2. Tag in Folge.
     + **An festen Tagen starten** → Die Bewässerungstage werden individuell nach Wochentagen bestimmt.
-    > **Info** → Die Bewässerungsdauer wird Verlängert siehe [Bewässerungseinstellungen](#4211-bewasserungseinstellungen)
+    > **Info** → Die Bewässerungsdauer wird verlängert siehe [Bewässerungseinstellungen](#4211-bewasserungseinstellungen)
     
 ---
 
@@ -595,10 +596,15 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 ---
 
 ## Changelog
+
 <!--
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
 -->
+
+### 0.2.8 (2022-03-20)
+* Adaptation for js controller 4
+* switched main.js to async
 
 ### 0.2.7 (16.10.2021)
 * (Dirk-Peter-md) zusätzliche Testnachrichten gelöscht, Readme aktualisiert
@@ -668,7 +674,7 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 ## License
 MIT License
 
-Copyright (c) 2021 Dirk Peter <dirk.peter@freenet.de>
+Copyright (c) 2022 Dirk Peter <dirk.peter@freenet.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

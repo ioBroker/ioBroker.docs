@@ -3,26 +3,26 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mysensors/README.md
 title: ioBroker.mysensors
-hash: aSy0rOeIPaTcWu3iicEEsdBle/JK9AhuU/Xp+9gXKJ8=
+hash: KnLKRjIiq8ieUK5hWxhZac4nJqAAScbQVkOtPO/H3Fg=
 ---
-![标识](../../../en/adapterref/iobroker.mysensors/admin/mysensors.png)
+![商标](../../../en/adapterref/iobroker.mysensors/admin/mysensors.png)
 
 ![安装数量](http://iobroker.live/badges/mysensors-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.mysensors.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.mysensors.svg)
 ![测试](https://travis-ci.org/ioBroker/ioBroker.mysensors.svg?branch=master)
-![新产品管理](https://nodei.co/npm/iobroker.mysensors.png?downloads=true)
+![新PM](https://nodei.co/npm/iobroker.mysensors.png?downloads=true)
 
 # IoBroker.mysensors
-此适配器与 [我的传感器](http://www.mysensors.org) 串行或以太网网关（TCP 或 UDP）通信。
+此适配器与[我的传感器](http://www.mysensors.org) 串行或以太网网关（TCP 或 UDP）通信。
 如果在这种情况下选择的以太网网关 ioBroker 是服务器，则需要连接。
 
 ## TCP 客户端
-此选项仅与 TCP<=> 串行网桥一起使用，例如 [esp-link](https://github.com/jeelabs/esp-link)。
+此选项仅与 TCP&lt;=&gt;Serial bridge 一起使用，如 [ESP-链接](https://github.com/jeelabs/esp-link)。
 
-## 预要求
-要在 Windows 上使用串行端口，需要使用 VS 来构建二进制文件。
-要在 linux 上使用串行端口，它是 build-essential 和 python2.7 必需的。要安装它们，只需编写：
+##前置要求
+要在 Windows 上使用串行端口，需要 VS 构建二进制文件。
+要在 linux 上使用串口，它是 build-essential 和 python2.7 必需的。要安装它们，只需编写：
 
 ```
 sudo apt-get update
@@ -32,10 +32,13 @@ sudo apt-get install python2.7
 
 <!-- 下一个版本的占位符（在行首）：
 
-### __工作进行中__ -->
+### **正在进行中** -->
 
 ## Changelog
-### 2.0.2 (2021-11-08)
+### 3.0.0 (2022-03-21)
+* (bluefox) Updated serialport package
+
+### 2.0.3 (2021-11-10)
 * (sergeyksv) Added the support of deep sleep
 
 ### 2.0.1 (2020-06-01)
@@ -128,7 +131,7 @@ sudo apt-get install python2.7
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2021, Bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2022, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

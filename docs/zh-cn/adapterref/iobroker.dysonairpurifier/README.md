@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dyson空气净化器
-hash: wE2GvSKVqbB0ZUIQhgsyUCRJ6SNOfKH2bodwoOh2eKE=
+hash: TbkOmVklXgCQ/fsAX5z1oU+XngUtTNQiCwo/aUT/ujk=
 ---
 # IoBroker.dysonAirPurifier
 ![标志](admin/dyson_logo.svg)![标志](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -56,9 +56,6 @@ hash: wE2GvSKVqbB0ZUIQhgsyUCRJ6SNOfKH2bodwoOh2eKE=
 * 适配器中的所有连接信息都会在重新启动期间被删除并重新构建。
 
 ＃＃ 安装
-### Sentry.io
-该适配器使用 sentry.io 收集有关崩溃的详细信息并将其自动报告给作者。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry)插件用于它。请参阅[插件主页](https://github.com/ioBroker/plugin-sentry)以获取有关插件功能、收集哪些信息以及如何禁用它的详细信息，如果您不喜欢用您的崩溃信息来支持作者。
-
 ### 先决条件
 * 此适配器需要 Node.js >= 版本 10
 * 至少需要 js-Controller 3.0.0
@@ -76,7 +73,7 @@ hash: wE2GvSKVqbB0ZUIQhgsyUCRJ6SNOfKH2bodwoOh2eKE=
 您还可以使用这些方法安装较旧的版本（通过指向版本标签，例如，```v0.6.0``` 而不是 URL 中的 ```master```），但通常首选最新版本。
 
 ### 需要配置数据
-* 戴森账号用户名
+* 戴森账户用户名
 * Dyson 帐户密码（此适配器最多可处理 32 个字符的密码）
 * LAN 中的风扇/空气净化器 IP 地址（并非在所有情况下）。
 
@@ -98,7 +95,7 @@ hash: wE2GvSKVqbB0ZUIQhgsyUCRJ6SNOfKH2bodwoOh2eKE=
 
 ### 2 因素身份验证（自 V0.9.0 起）
 安装适配器后，它应该会自动启动 - 如果没有，请先启动它。
-更新后它也会自动重启。在这两种情况下，它都将保持“黄色”状态，并且可能会在日志中显示一些错误 - 现在很好。
+更新后它也会自动重启。在这两种情况下，它都会保持“黄色”状态，并且可能会在日志中显示一些错误 - 现在很好。
 
 * 打开适配器的配置对话框
 * 至少填写您的电子邮件地址、密码和国家代码 - 其余为可选
@@ -132,7 +129,7 @@ hash: wE2GvSKVqbB0ZUIQhgsyUCRJ6SNOfKH2bodwoOh2eKE=
 * 振荡角，振荡角
 * ContinuousMonitoring，即使设备关闭也能持续监控环境传感器。
 * MainPower ，风扇的主电源。
-* AutomaticMode ，风扇处于自动模式。
+* AutomaticMode , 风扇处于自动模式。
 * Flowdirection ，风扇吹向的方向。开=前；关闭=返回（又名 Jet 焦点）
 * Jetfocus，风扇吹向的方向。开=前；关闭=返回（又名 Jet 焦点）
 *加热模式，加热模式[开/关]
@@ -149,9 +146,17 @@ hash: wE2GvSKVqbB0ZUIQhgsyUCRJ6SNOfKH2bodwoOh2eKE=
 风扇速度仅允许从 1 到 10 的值和自动。如果您想将风扇速度设置为 0，则需要关闭主电源。
 这也是戴森应用程序所做的。
 
+### SystemStates 文件夹（自 v2.4.0 起）
+这些设备能够报告故障。此功能已在适配器版本 2.4.0 中添加。
+目前只有关于故障的粗略信息，并且数据点因设备而异。
+如果您对故障有更好的信息，请随时向我报告以改进适配器。
+所有状态都报告是否存在故障。 `True`表示失败，`false`表示“没有失败”。
+
 ＃＃＃ 已知的问题
 *没有设备的自动IP检测
-* 有时适配器会丢失与风扇的 MQTT 连接并且无法重新连接。在我的情况下，拔下风扇大约 10 秒钟就足以重置它并重新插入。试一试。
+* 有时适配器会丢失与风扇的 MQTT 连接并且无法重新连接。
+  * 在我的情况下，拔下风扇大约 10 秒钟就足以重置它并重新插入。试一试。
+  * 在其他情况下，它一直是 IP 问题。重置 DHCP 服务器（路由器）解决了这个问题。
 
 ## Dyson API 数据说明（消息负载）
 从 <https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md> 复制和扩展的信息
@@ -204,8 +209,8 @@ hash: wE2GvSKVqbB0ZUIQhgsyUCRJ6SNOfKH2bodwoOh2eKE=
 |万事达|警告代码 |无... | |
 | rstf |重置过滤器生命周期 | 'RSTF'、'STET'、RESET_FILTER_LIFE_IGNORE、RESET_FILTER_LIFE_ACTION | |
 |科尔夫 |温度格式 | ON=摄氏，OFF=华氏| |
-| clcr |深层清洁循环 | CLNO=未激活，CLAC=正在进行深度清洁，CLCM=已完成 | |
-| hsta |加热状态 |活动/空闲 | |
+| clcr |深层清洁 | CLNO=未激活，CLAC=正在进行深度清洁，CLCM=已完成 | |
+|赫斯塔 |加热状态 |活动/空闲 | |
 | msta |加湿状态 |活动/空闲关闭，HUMD | |
 | psta | [HP0x] 未知 |初始化，CLNG，INV，关闭 | |
 |布里尔 |未知 | 0002 | LEVEL_LOW、LEVEL_MEDIUM、LEVEL_HIGH |
@@ -262,10 +267,16 @@ hash: wE2GvSKVqbB0ZUIQhgsyUCRJ6SNOfKH2bodwoOh2eKE=
 |哼哼|湿度 ？ (%) | 0000 - 0100 | |
 | tmpm |开尔文温度？ | 0000 - 5000 | |
 
+### Sentry.io
+该适配器使用 sentry.io 收集有关崩溃的详细信息并将其自动报告给作者。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry)插件用于它。请参阅[插件主页](https://github.com/ioBroker/plugin-sentry)以获取有关插件功能、收集哪些信息以及如何禁用它的详细信息，如果您不喜欢用您的崩溃信息来支持作者。
+
 ＃＃ 法律声明
-Dyson、pure cool、pure hot &cool 等是 [戴森有限公司](https://www.dyson.com) 的商标或注册商标，所有其他商标均为其各自所有者的财产。
+Dyson、pure cool、pure hot & cool 等是 [戴森有限公司](https://www.dyson.com) 的商标或注册商标，所有其他商标均为其各自所有者的财产。
 
 ## Changelog
+
+### V2.4.1 (2022-03-20) (Echo from the past)
+* (grizzelbee) New: Changed SystemState from text to boolean data points
 
 ### V2.4.0 (2022-03-17) (Echo from the past)
 * (grizzelbee) New: Added warning code to device tree

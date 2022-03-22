@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dwd/README.md
 title: ioBroker.dwd
-hash: hMqC9TzffM0CXLhIv++7Lym4DA59/buppGlYwt3rwlk=
+hash: 6WbybGFTHdcbV6GkbqjZPQ3RwiwdJ8LOJybLchA8ZlY=
 ---
 ![Logo](../../../en/adapterref/iobroker.dwd/admin/dwd.png)
 
@@ -11,22 +11,28 @@ hash: hMqC9TzffM0CXLhIv++7Lym4DA59/buppGlYwt3rwlk=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.dwd.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.dwd.svg)
 
-#ioBroker.dwd
+# IoBroker.dwd
 ![Testen und freigeben](https://github.com/ioBroker/iobroker.dwd/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/dwd/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 Copyright Deutscher Wetterdienst
 
-This Adapter lädt die Wetterwarnungen vom deutschen Wetterdienst über JSON link.
+Dieser Adapter lädt die Wetterwarnungen vom deutschen Wetterdienst über JSON-Link.
 
 Dieser Adapter lädt die Wetterwarnungen des Deutschen Wetterdienstes per JSON-Link.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __ARBEITEN IN PROGRESS__ -->
+### **IN ARBEIT** -->
 
 ## Changelog
+### 2.8.1 (2022-03-21)
+* (Apollon77) Add instruction text to warning data
+
+### 2.7.7 (2021-07-01)
+* (Apollon77) Fix start/end dates
+
 ### 2.7.6 (2021-06-28)
 * (sbormann) Added new states to `warning.severity`
 * (bluefox) Removed warnings
@@ -69,14 +75,14 @@ Dieser Adapter lädt die Wetterwarnungen des Deutschen Wetterdienstes per JSON-L
 * (Apollon77) Better handle errors when adapter ends (again Sentry)
 
 ### 2.4.9 (2020-05-11)
-* (Apollon77) Better handle errors when adapter ends (Sentry IOBROKER-DWD-1) 
+* (Apollon77) Better handle errors when adapter ends (Sentry IOBROKER-DWD-1)
 
 ### 2.4.8 (2020-04-30)
-* (Apollon77) Better handle errors when adapter ends 
+* (Apollon77) Better handle errors when adapter ends
 
 ### 2.4.7 (2020-04-18)
 * (Apollon77) Add Sentry for error reporting with js-controller 3.0
-* (Apollon77) Fix crash because of undefined lat/long 
+* (Apollon77) Fix crash because of undefined lat/long
 
 ### 2.4.6 (2020-02-24)
 * (bluefox) Time format added to widget
@@ -173,7 +179,7 @@ Dieser Adapter lädt die Wetterwarnungen des Deutschen Wetterdienstes per JSON-L
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2021 bluefox <dogafox@gmail.com>, hobbyquaker
+Copyright (c) 2016-2022 bluefox <dogafox@gmail.com>, hobbyquaker
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

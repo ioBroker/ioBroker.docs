@@ -197,14 +197,15 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### __WORK IN PROGRESS__
+### 1.12.0 (2022-03-21)
 * (Apollon77/Scrounger) Add option to choose the ack flag set when updating foreign objects on events
 * (HSE83) use a color field from the calendar entry as color for display
-* (Apollon77) When not replacing date with text and entry ends at 0:0:0 show the day before as end
+* (Apollon77) When no Arrow for already running events is shown and dates are not replaced with words display the start date in the list and not the end date
+* (Apollon77) When not replacing date with words and entry ends at 0:0:0 show the day before as end
 * (Apollon77) Fix issues when no end date is provided in the calendar entry (start and end are the same)
 * (Apollon77) Correctly calculate length of multi day events
 * (Apollon77) Respect DST changes in some calculations to prevent strange effects
+* (Apollon77) Parse ics Files with different line endings again
 
 ### 1.11.6 (2021-12-17)
 * (jens-maus) fixed incorrect recurrence event processing
