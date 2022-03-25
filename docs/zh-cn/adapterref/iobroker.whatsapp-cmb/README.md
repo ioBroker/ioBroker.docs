@@ -3,41 +3,41 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.whatsapp-cmb/README.md
 title: ioBroker.whatsapp-cmb
-hash: 6mnvKUWBcvbbKUMhf6evfg+bhlkfRDSyAw7fj7WoSF0=
+hash: sVlJIat6I35imhV4ofyCrVukaUPymurismGdwWXhLSo=
 ---
 ![商标](../../../en/adapterref/iobroker.whatsapp-cmb/admin/whatsapp-cmb.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.whatsapp-cmb.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.whatsapp-cmb.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.whatsapp-cmb.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.whatsapp-cmb.svg)
 ![依赖状态](https://img.shields.io/david/ioBroker/iobroker.whatsapp-cmb.svg)
 ![已知漏洞](https://snyk.io/test/github/ioBroker/ioBroker.whatsapp-cmb/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.whatsapp-cmb.png?downloads=true)
-![特拉维斯](http://img.shields.io/travis/ioBroker/ioBroker.whatsapp-cmb/master.svg)
+![新PM](https://nodei.co/npm/iobroker.whatsapp-cmb.png?downloads=true)
+![Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.whatsapp-cmb/master.svg)
 
-＃ioBroker.whatsapp-cmb
-## Whatsapp-cmb适配器适用于ioBroker
-非常感谢免费的[CallMeBot](https://www.callmebot.com/blog/free-api-whatsapp-messages/)服务，此适配器使您可以向自己或其他号码发送WhatsApp消息。
+# IoBroker.whatsapp-cmb
+## IoBroker 的 whatsapp-cmb 适配器
+非常感谢免费的[呼叫我机器人](https://www.callmebot.com/blog/free-api-whatsapp-messages/)服务，此适配器允许您将 WhatsApp 消息发送给自己或其他号码。
 
-**注意**：*免费API仅用于个人用途！*
+**注意**：*免费 API 仅供个人使用！*
 
-###配置
-*以下文档是从[Callmebot](https://www.callmebot.com/blog/free-api-whatsapp-messages/)页面复制的。*
+＃＃＃ 配置
+*以下文档是从 [呼叫机器人](https://www.callmebot.com/blog/free-api-whatsapp-messages/) 页复制的。*
 
-使用API之前，您需要从机器人获取API密钥：
+在使用 API 之前，您需要从机器人获取 API 密钥：
 
--将电话号码** + 34 644 59 71 67 **添加到您的电话联系人中。 （根据需要命名。）
--发送此消息“我允许callmebot向我发送消息”（英语）到创建的新联系人（当然使用WhatsApp）。
--等待直到收到消息“ API已激活”作为您的电话号码。您的APIKEY是机器人的123123`。由于这仍处于beta测试中，因此激活最多可能需要2分钟。
--机器人发出的WhatsApp消息将包含使用API发送消息所需的API密钥。
--现在，您可以在ioBroker配置中使用API KEY。
+- 将电话号码 **+34 644 44 21 48** 添加到您的电话联系人中。 （随意命名。）
+- 将此消息“我允许 callmebot 向我发送消息”（英文）发送给创建的新联系人（当然使用 WhatsApp）。
+- 等到您收到消息“API 已为您的电话号码激活”。您的 APIKEY 是来自机器人的 123123`。由于这仍处于 Beta 测试阶段，因此激活可能需要 2 分钟。
+- 来自机器人的 WhatsApp 消息将包含使用 API 发送消息所需的 API 密钥。
+- 您现在可以在 ioBroker 配置中使用 API KEY。
 
-示例：![例](../../../en/adapterref/iobroker.whatsapp-cmb/img/whatsapp.jpg)
+示例：![例子](../../../en/adapterref/iobroker.whatsapp-cmb/img/whatsapp.jpg)
 
-###用法
-有两种发送消息的可能性：
+＃＃＃ 用法
+发送消息有两种可能性：
 
--通过`whatsapp-cmb.0.sendMessage`。只需在此状态下写入一些文本，消息便会发送到在设置对话框中配置的默认号码。
--通过来自javascript适配器的消息：
+- 通过`whatsapp-cmb.0.sendMessage`。只需将一些文本写入此状态，消息将发送到默认号码，该号码在设置对话框中配置。
+- 通过来自 javascript 适配器的消息：
 
 ```
 sendTo('whatsapp-cmb.0', 'send', {
@@ -48,9 +48,9 @@ sendTo('whatsapp-cmb.0', 'send', {
 
 ![块状](../../../en/adapterref/iobroker.whatsapp-cmb/img/blockly.png)
 
-<！-下一个版本的占位符（在该行的开头）：
+<!-- 下一个版本的占位符（在行首）：
 
-### __正在进行的工程__->
+### __工作进行中__ -->
 
 ## Changelog
 ### 0.1.6 (2020-08-31)

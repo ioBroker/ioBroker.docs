@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hass/README.md
 title: ioBroker.hass
-hash: 3LBDmKokRYoDsXDzGsuzG5zVIZNDnBhqHwMcsAyLLzE=
+hash: miH711nLAOxOLZP7MtUd6GLoOm4iN1J8JHPbulklyQU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hass/admin/hass.png)
 
@@ -21,6 +21,38 @@ hash: 3LBDmKokRYoDsXDzGsuzG5zVIZNDnBhqHwMcsAyLLzE=
 ## Применение
 Создайте долгосрочный токен в HASS и используйте его в качестве PW (скопируйте его также в поле повтора).
 
+Затем он должен считать все атрибуты для всех устройств. Службы могут быть управляемыми (например, «turn_on»). Для управления услугами у вас есть два варианта:
+
+* Установите состояние со значением ack=false, которое не является строкой (например, Boolean true), тогда оно будет запущено также в HASS без дополнительных служебных данных
+* Установите состояние со строковым значением ack=false, которое представляет собой строковый объект JSON для вызова службы и использования объекта JSON в качестве данных службы.
+
+Для последней опции на light.turn_off, например. `{"transition":10,"flash":"short"}` эти две детали служебных данных отправляются вместе с вызовом HASS. Доступные поля с их определением данных можно увидеть в определении JSON объекта ioBroker в разделе native.fields, и в приведенном выше примере они будут выглядеть следующим образом:
+
+`...
+native: { "fields": { "transition": { "name": "Transition", "description": "Продолжительность перехода в следующее состояние.", "selector": { "number": { "min" : 0, "max": 300, "unit_of_measurement": "секунды" } } }, "flash": { "name": "Flash", "description": "Если свет должен мигать.", "advanced": true, "selector": { "select": { "options": [ "long", "short" ] } } } }, "entity_id": "light.mi_control_hub_light", "attr": "turn_off", "type ": "свет" } ...
+`
+
+Для некоторых служб, таких как set_speed, требуется вызов объекта JSON, такого как `{speed: "high"}`, в целом для предоставления требуемых значений. В этом случае определение поля выглядит, например. подобно:
+
+```
+...
+    native: {
+        "fields": {
+            "speed": {
+                "name": "Speed",
+                "description": "Speed setting.",
+                "required": true,
+                "example": "low",
+                "selector": {
+                    "text": null
+                }
+            }
+        }
+        ...
+    }
+...
+```
+
 ## Конфигурация
 Есть хорошая статья про подключение.
 
@@ -33,8 +65,8 @@ hash: 3LBDmKokRYoDsXDzGsuzG5zVIZNDnBhqHwMcsAyLLzE=
 ### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 1.1.0 (2022-03-24)
+* IMPORTANT: You need to re-enter the password once after installing this version!
 * (Apollon77) Implement Service triggers to use any value to trigger or stringified JSON to call with fields
 * (Apollon77) Optimize unload handling
 * (Apollon7) Add Sentry for crash reporting

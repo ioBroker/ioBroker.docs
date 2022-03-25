@@ -9,9 +9,9 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.netatmo-energy/README.md
 title: ioBroker.netatmo-энергия
-hash: 0fXS3TMn/d7ekK7riPcnT8C909t+EN7wKXUmZdFvTHc=
+hash: fDsxOVOmHFXbLal6j2QisYyuHHNveF0QsaG476De/vA=
 ---
-![логотип](https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/admin/netatmo-energy.png)
+![логотип](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/admin/netatmo-energy.png)
 
 ![версия NPM](http://img.shields.io/npm/v/iobroker.netatmo-energy.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.netatmo-energy.svg)
@@ -34,7 +34,7 @@ hash: 0fXS3TMn/d7ekK7riPcnT8C909t+EN7wKXUmZdFvTHc=
 - Создайте собственное приложение, щелкнув свою учетную запись (вверху/слева) и нажав кнопку «Создать».
   - Заполните форму и сохраните ее
   - Применить полученный client-ID и client-secret-ID к конфигурации адаптера
-  - Перейти к документации по API https://dev.netatmo.com/apidocumentation/energy
+  - Перейдите к документации по API https://dev.netatmo.com/apidocumentation/energy.
   - Выберите "ПОЛУЧИТЬ домашние данные" - "Попробовать" - "ВЫПОЛНИТЬ / HOMESDATA"
     - вы получите ответ, в котором найдете свой домашний ID
     - Применить их к конфигурации адаптера
@@ -47,9 +47,9 @@ hash: 0fXS3TMn/d7ekK7riPcnT8C909t+EN7wKXUmZdFvTHc=
 
 Подробное описание доступно в виде вики (https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/wiki).
 
-<img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/settings_login_de.png" alt="настройкиВход" width="70%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/settings_login_de.png" alt="настройкиВход" width="70%"/>
 
-<img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/settings_api_de.png" alt="настройкиAPI" width="70%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/settings_api_de.png" alt="настройкиAPI" width="70%"/>
 
 ## Адаптер netatmo-energy для ioBroker
 Текущие настройки извлекаются или изменяются с помощью API Netatmo-Energy. Адаптер использует запрос на выборку для передачи данных в Netatmo Energy API. Официальная документация API: https://dev.netatmo.com/apidocumentation/energy.
@@ -58,7 +58,7 @@ hash: 0fXS3TMn/d7ekK7riPcnT8C909t+EN7wKXUmZdFvTHc=
 
 ### API-запросы
 * homedata ... извлекает всю структуру установки Netatmo Energy (используя параметр NAPlug). Все остальные параметры для ручных запросов вы можете выбрать самостоятельно.
-* homestatus ... определяет и передает статус и техническую информацию назначенных вам клапанов. Если вам нужна информация о конкретном типе устройства, вы можете выбрать его самостоятельно.
+* homestatus ... определяет и передает состояние и техническую информацию назначенных вам клапанов. Если вам нужна информация о конкретном типе устройства, вы можете выбрать его самостоятельно.
 * getroommeasure ... При этом вы получаете исторические данные о ваших комнатах. Результат вводится в поле «Ответ».
 * getmeasure ... Это даст вам исторические данные вашего котла. Результат вводится в поле «Ответ».
 * setthermmode_schedule ... Устанавливает рабочий режим установки Netatmo Energy на «Расписание» (по умолчанию)
@@ -74,13 +74,14 @@ hash: 0fXS3TMn/d7ekK7riPcnT8C909t+EN7wKXUmZdFvTHc=
 * refresh_structure ... генерировать запросы homedata и homestatus один за другим
 
 ### Запросы на изменение
-* setroomthermpoint ... в зависимости от ручных изменений в канале «настройка», изменения передаются в приложение Netatmo Energy. (либо мгновенно, либо автоматически - "немедленная передача изменений температуры"). Кнопка «set_mode_to_home» в канале «setting» устанавливает режим клапана «set_mode_to_home» на «home».
+* setroomthermpoint ... в зависимости от ручных изменений в канале «настройка», изменения передаются в приложение Netatmo Energy. (либо мгновенно, либо автоматически - "немедленная передача изменений температуры").
+* set_mode_to_home ... Кнопка "set_mode_to_home" в канале "setting" устанавливает режим клапана "set_mode_to_home" на "home".
 
 ### Состояние
 * работает ... здесь вы можете увидеть, выполняется ли в данный момент запрос API
 
 ### Структура запроса
-<img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/EnergyAPP_measure.png" alt="настройкиВход" width="80%"/><img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/EnergyAPP.png" alt="настройкиВход" width="80%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/EnergyAPP_measure.png" alt="настройкиВход" width="80%"/><img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/EnergyAPP.png" alt="настройкиВход" width="80%"/>
 
 ## Создание структур
 При запуске адаптера обновляется текущее состояние всего приложения Netatmo Energy и передается состояние всех клапанов и термостатов. В зависимости от общих настроек (чтение состояний API сразу после изменения) состояние клапанов и термостатов снова загружается сразу после изменения API (немедленно отправляется запрос исходного состояния).
@@ -90,58 +91,21 @@ hash: 0fXS3TMn/d7ekK7riPcnT8C909t+EN7wKXUmZdFvTHc=
 Если вы активировали службу уведомлений в конфигурации адаптера, вам будут приходить различные сообщения.
 Доступны следующие услуги.
 
-<img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/notification_types_de.png" alt="настройкиAPI" width="30%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_types_de.png" alt="настройкиAPI" width="30%"/>
 
-    Пожалуйста, введите необходимые данные для подключения к выбранной вами службе уведомлений.
+Пожалуйста, введите необходимые данные для подключения к выбранной вами службе уведомлений.
 
-<img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/notification_de.png" alt="настройкиAPI" width="70%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_de.png" alt="настройкиAPI" width="70%"/>
+
+## Вкладка администратора
+На вкладке администратора вы можете отобразить все термостаты, мосты и клапаны вашего экземпляра netatmo energy. Там же можно обновить это представление или запустить полное обновление API.
+
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/admintab_de.png" alt="вкладка администратора" width="70%"/>
 
 ## Виджет
 Виджет для VIS для отображения полного термостата. Вам нужно только ввести точку данных "SetTemp". Вся остальная информация определяется динамически из структуры "rooms".
 
-<img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/valve_widget_de.png" alt="настройкиAPI" width="250px"/>
-
-## Список изменений
-[старые изменения](CHANGELOG_OLD.md) <!-- Заполнитель для следующей версии (в начале строки):
-
-### **ВЫПОЛНЯЕТСЯ** -->
-### 1.1.4 (20.03.2022)
-* (ioKlausi) Мост добавлен на главную страницу
-
-### 1.1.3 (2022-03-19)
-* (ioKlausi) добавлена главная страница с вентилями
-
-### 1.1.2 (2022-03-06)
-* (ioKlausi) Исправление ошибки Easy Admin
-
-### 1.1.1 (2022-03-06)
-* (ioKlausi) Исправлена ошибка setroomthermpoint
-
-### 1.1.0 (2022-03-06)
-* (ioKlausi) setroomthermpoint - Настройка триггера для режима клапана
-
-### 1.0.4 (05.03.2022)
-* (ioKlausi) исправление - отправить сообщение
-
-### 1.0.3 (05.03.2022)
-* (ioKlausi) страница настройки переключена на json
-
-### 1.0.2 (27 февраля 2022 г.)
-* (ioKlausi) Изменено кодирование
-
-### 1.0.0 (25 февраля 2022 г.)
-* Опубликовать (ioKlausi) основную версию
-
-## Лицензия
-лицензия Массачусетского технологического института
-
-Авторское право (c) 2022 ioKlausi <nii@gmx.at>
-
-Настоящим предоставляется бесплатное разрешение любому лицу, получившему копию этого программного обеспечения и связанных с ним файлов документации («Программное обеспечение»), использовать, копировать, изменять, объединять Программное обеспечение без ограничений, в том числе без ограничения прав, публиковать , распространять, сублицензировать и/или продавать копии Программного обеспечения и разрешать установку Программного обеспечения лицами, для которых оно предназначено, при соблюдении следующих условий:
-
-Вышеупомянутое уведомление об авторских правах и это уведомление о разрешении должны быть включены в любую включенную копию или существенную часть Программного обеспечения.
-
-ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ПРЕДОСТАВЛЯЕТСЯ «КАК ЕСТЬ» БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ, ЯВНЫХ ИЛИ ЯВНЫХ, ПОДРАЗУМЕВАЕМЫХ, ВКЛЮЧАЯ, ПОМИМО ПРОЧЕГО, ГАРАНТИИ КОММЕРЧЕСКОЙ ПРИГОДНОСТИ, ПРИГОДНОСТИ ДЛЯ ОПРЕДЕЛЕННОЙ ЦЕЛИ И НЕНАРУШЕНИЯ ПРАВ. НИ ПРИ КАКИХ ОБСТОЯТЕЛЬСТВАХ АВТОРЫ ИЛИ ОБЛАДАТЕЛИ АВТОРСКИМ ПРАВОМ НЕ НЕСУТ ОТВЕТСТВЕННОСТИ ЗА ЛЮБЫЕ ПРЕТЕНЗИИ, УЩЕРБ ИЛИ ИНУЮ ОТВЕТСТВЕННОСТЬ, БУДУТ СВЯЗАННЫЕ С ДОГОВОРОМ, ПРАВОМ ИЛИ ИНЫМ ОБРАЗОМ, ВОЗНИКАЮЩИЕ В СВЯЗИ С ПРОГРАММНЫМ ОБЕСПЕЧЕНИЕМ, ИСПОЛЬЗОВАНИЕМ ИЛИ ДРУГИМИ ДЕЙСТВИЯМИ В ПРОГРАММНОМ ОБЕСПЕЧЕНИИ.
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/valve_widget_de.png" alt="настройкиAPI" width="250px"/>
 
 ## Changelog
 [Older changes](CHANGELOG_OLD.md)
@@ -149,11 +113,20 @@ hash: 0fXS3TMn/d7ekK7riPcnT8C909t+EN7wKXUmZdFvTHc=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.7 (2022-03-24)
+* (ioKlausi) Bridge information added to each card
+
+### 1.1.6 (2022-03-24)
+* (ioKlausi) Rework README.md & WIKI
+
+### 1.1.5 (2022-03-23)
+* (ioKlausi) Refresh functionality added to admin tab
+
 ### 1.1.4 (2022-03-20)
-* (ioKlausi) Plug added to tab page 
+* (ioKlausi) Plug added to admin tab 
 
 ### 1.1.3 (2022-03-19)
-* (ioKlausi) Valve page added 
+* (ioKlausi) Admin tab for valves added 
 
 ### 1.1.2 (2022-03-06)
 * (ioKlausi) Bugfix Easy Admin 

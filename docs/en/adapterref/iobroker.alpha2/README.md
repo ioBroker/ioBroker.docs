@@ -60,6 +60,10 @@ You can check the object VACATION.STATE to check the status. If the status showi
 
 ## Changelog
 
+### 1.0.4
+. (bigluke26)
+Added PUMP status issue #26
+
 ### 1.0.3
 . (Eisbaeeer)
 Fixed error messages in log

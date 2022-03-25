@@ -31,7 +31,7 @@ Für weitere Informationen zur ODL siehe https://odlinfo.bfs.de/.
 Dieser Adapter läd die aktuellen 1-Stunden-Mittelwerte der Messdaten direkt über die [offizielle Datenschnittstelle des BfS](https://odlinfo.bfs.de/ODL/DE/service/datenschnittstelle/datenschnittstelle_node.html). Das BfS ist Urheber der vom Adapter verwendeten Daten.  
 Alle Daten werden in unveränderter Form, so wie sie von der Datenschnittstelle geliefert werden, vom Adapter bereitgestellt.
 
-Wird ein aktivierter History-Adapter (_history_, _influxdb_ oder _sql_) erkannt, dann werden gegebenenfalls in der Historie fehlende Datenpunkte durch den Adapter automatisch nachgetragen, sodass sich vollständige Zeitreihen ergeben.
+Wird ein aktivierter History-Adapter (_history_, _influxdb_ oder _sql_) für einen Werte-State erkannt, dann werden gegebenenfalls in der Historie fehlende Datenpunkte durch den Adapter automatisch nachgetragen, sodass sich vollständige Zeitreihen ergeben.
 
 Die aktuellen Messdaten werden von dem Adapter standardmäßig im Stundentakt aktualisiert. Ein geringerer Aktualisierungsintervall ist meist nicht sinnvoll, da die zu Grunde liegenden Messdaten auf dem BfS-Server (abhängig von der Messstelle) größtenteils stündlich aktualisiert werden.  
 Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der Daten angepasst, sodass nicht alle Installation die Daten zur gleichen Zeit abrufen und die Datenschnittstelle des BfS nicht unnötig belastet wird.
@@ -44,6 +44,15 @@ Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Changelog
+
+### 2.0.3 (2022-03-23)
+
+* (crycode-de) Optimized Sentry integration in admin
+
+### 2.0.2 (2022-03-23)
+
+* (crycode-de) Fixed config error (Sentry IOBROKER-ODL-2)
+* (crycode-de) Updated dependencies
 
 ### 2.0.1 (2022-03-14)
 

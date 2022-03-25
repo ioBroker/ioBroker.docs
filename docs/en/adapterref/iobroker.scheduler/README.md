@@ -18,13 +18,19 @@ The user should add devices to profile and all devices in profile will be set to
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 1.0.0 (2022-03-22)
+* (bluefox) GUI migrated to material@5
+
+### 0.1.3 (2022-03-22)
+* (bluefox) Just the packages were updated
+
 ### 0.1.2 (2021-09-14)
 * (bluefox) "Sentry" was added
- 
+
 ### 0.1.1 (2021-09-13)
 * (bluefox) Initial release
 
@@ -34,7 +40,7 @@ The user should add devices to profile and all devices in profile will be set to
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2021-2022 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -53,4 +59,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-

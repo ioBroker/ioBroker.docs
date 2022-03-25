@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.odl/README.md
 title: ioBroker.odl
-hash: 9vjfqQ+49Y26u75AD4jUizUBlarzNnzyU2enxL6IH8s=
+hash: jPQzZiJpW2Nqfm8pCHsfD0Fy+NNXglnvZFN6GWXQjSo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.odl/admin/odl.png)
 
@@ -35,7 +35,7 @@ Für weitere Informationen zur ODL siehe https://odlinfo.bfs.de/.
 Dieser Adapter läd die aktuellen 1-Stunden-Mittelwerte der Messdaten direkt über die [offizielle Datenschnittstelle des BfS](https://odlinfo.bfs.de/ODL/DE/service/datenschnittstelle/datenschnittstelle_node.html). Das BfS ist Urheber der vom Adapter verwendeten Daten.
 Alle Daten werden in unveränderter Form, so wie sie von der Datenschnittstelle geliefert werden, vom Adapter bereitgestellt.
 
-Wird ein aktivierter History-Adapter (_history_, _influxdb_ oder _sql_) erkannt, dann werden gegebenenfalls in der Historie Fehlende Datenpunkte durch den Adapterautotisch nachgetragen, sodass sich vollständige Zeitreihen ergeben.
+Wird ein aktivierter History-Adapter (_history_, _influxdb_ oder _sql_) für einen Werte-State erkannt, dann werden gegebenenfalls in der Historie fehlende Datenpunkte durch den Adapterautotisch nachgetragen, sodass sich vollständige Zeitreihen ergeben.
 
 Die aktuellen Messdaten werden von dem Adapter standardmäßig im Stundentakt aktualisiert. Ein geringerer Aktualisierungsintervall ist meist nicht sinnvoll, da die zu Grunde liegenden Messdaten auf dem BfS-Server (abhängig von der Messstelle) größtenteils stündlich aktualisiert werden.
 Beimersten Start des Adapters wird Automaticisch der Zeitpunkt für den Abruf der Daten angepasst, sodass nicht alle Installation die Daten zur gleichen Zeit abrufen und die Datenschnittstelle des BfS nicht unnötig belastet wird.
@@ -48,6 +48,15 @@ Beimersten Start des Adapters wird Automaticisch der Zeitpunkt für den Abruf de
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Changelog
+
+### 2.0.3 (2022-03-23)
+
+* (crycode-de) Optimized Sentry integration in admin
+
+### 2.0.2 (2022-03-23)
+
+* (crycode-de) Fixed config error (Sentry IOBROKER-ODL-2)
+* (crycode-de) Updated dependencies
 
 ### 2.0.1 (2022-03-14)
 

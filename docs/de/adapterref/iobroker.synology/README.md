@@ -3,64 +3,64 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.synology/README.md
 title: ioBroker Synology-Adapter
-hash: OxUM3HRRXEpU5OvLjX1r2+WC1HwFQeeyV73RDtW+Fr8=
+hash: 0Pz2xxoeTnCMcdZNLOmTN8lQIC2F12yZaPQP2y1pxVk=
 ---
 ![Logo](../../../en/adapterref/iobroker.synology/admin/synology.png)
 
-![Spenden](https://img.shields.io/badge/Donate-PayPal-green.svg)
 ![Anzahl der Installationen](http://iobroker.live/badges/synology-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.synology.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.synology.svg)
-![NPM](https://nodei.co/npm/iobroker.synology.png?downloads=true)
 
-# IoBroker Synology-Adapter
-[![Tests](https://github.com/iobroker-community-adapters/iobroker.synology/workflows/Test%20and%20Release/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.synology/actions/)
+# IoBroker-Synology-Adapter
+![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.synology/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/synology/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Beschreibung
 Mit dem Treiber können Sie Daten empfangen und Ihren Synology NAS-Server verwalten.
 
 ### 2FA-Einstellungen
-Wenn Sie 2FA verwenden, siehe Anweisungen [Hier](docs/en/template.md)
+Wenn Sie 2FA in DSM6 verwenden, siehe Anweisungen [Hier](docs/en/template.md)
 
 ### SendMethod
-Sie können jeden Befehl (eine Methode) senden, indem Sie das sendMethod-Objekt setzen, zum Beispiel: Get the SurveillanceStation info ist eine getInfo-Methode ohne zusätzliche Parameter.
+Sie können jeden Befehl (Methode) senden, indem Sie das sendMethod-Objekt festlegen, zum Beispiel: Get the SurveillanceStation info ist eine getInfo-Methode ohne zusätzliche Parameter.
 
 ```{"method": "getInfo", "params": {}}```
 
-### Steuerung
+### Kontrolle
 **commands.reboot** - NAS neu starten
 
 **commands.shutdown** - NAS herunterfahren
 
 ***SurveillanceStation.cameras.{NAMECAM}***:
 
-* aktiviert - Aktueller Status und Kamera aktivieren/deaktivieren
-* linkSnapshot - URL für Snapshot
+* aktiviert – Aktueller Status und Kamera aktivieren/deaktivieren
+* linkSnapshot - URL für Schnappschuss
 
-***SurveillanceStation.HomeMode.status_on*** - Aktueller Status und Homemode aktivieren/deaktivieren
+***SurveillanceStation.HomeMode.status_on*** – Aktueller Status und Homemode aktivieren/deaktivieren
 
-***SurveillanceStation.getSnapshotCamera*** - Schnappschuss nach Kameranummer abrufen, die Datei wird in einem Verzeichnis gespeichert ``...iobroker-data\synology_0\snapshotCam_2.jpg``
+***SurveillanceStation.getSnapshotCamera*** - Schnappschuss nach Kameranummer abrufen, die Datei wird im Verzeichnis ``...iobroker-data\synology_0\snapshotCam_2.jpg`` gespeichert
 
-***AudioStation.player.{PLAYERID}***:
+***AudioStation.players.{PLAYERID}***:
 
-* Play, Pause, Stop, Next, Prev - Steuerung der Wiedergabe (Button, nur true)
-* wiederholen - Wiederholungssteuerung (Aus, Alle, Eins)
-* Shuffle - Shuffle-Steuerung (true/false)
-* Lautstärke - Lautstärke Remote-Player (0-100)
+* play, pause, stop, next, prev - Steuerung der Wiedergabe (Taste, nur wahr)
+* repeat - Wiederholungssteuerung (Aus, Alle, Eins)
+* shuffle - Shuffle-Steuerung (true/false)
+* Lautstärke - Lautstärke des Remote-Players (0-100)
 * seek - Steuerung der Wiedergabesuche (0-100)
-* play_folder - Füge Tracks aus dem Ordner zur Playlist hinzu (ID-Ordner z.B. ``dir_5816``)
-* play_track - Titel anhand seiner ID abspielen (z. B. ``music_120847``)
-* current_play - Kontrolle und Status des aktuellen Tracks anhand seiner Nummer in der Playlist (z.B. ``14``)
+* play_folder - Tracks aus dem Ordner zur Playlist hinzufügen (id folder z.B. ``dir_5816``)
+* play_track - Titel nach seiner ID abspielen (z. B. ``music_120847``)
+* current_play - Steuerung und Status des aktuellen Tracks durch seine Nummer in der Playlist (z.B. ``14``)
 
-***DownloadStation***:
+***Downloadstation***:
 
 * activeTask - Anzahl unvollständiger Downloads
 * listTasks - ein Array mit unvollständigen Downloads
 * shedule_enabled, shedule_emule_enabled - Status und Kontrolle von geplanten oder sofortigen Downloads
 * add_hash_download - zu Hash-Downloads hinzufügen (z. B. ``8BD3CAD02FC9ECB661A12378414FA310D3F3FE03``)
-* add_url_download - Download-URL oder Magnetlink hinzufügen
+* add_url_download - Download-URL oder Magnet-Link hinzufügen
 * Ordner - Der herunterzuladende Ordner, der vor dem Hinzufügen des Downloads festgelegt wird, andernfalls wird er in den Standardordner geladen
-* pause_task, restart_task - Unterbrechen Sie den Download und setzen Sie ihn fort. (z.B. ``dbid_170`` oder ``170`` oder ``all``)
+* pause_task, resume_task - Unterbrechen Sie den Download und setzen Sie ihn fort. (zB ``dbid_170`` oder ``170`` oder ``all``)
 
 ### Nachrichtenbox
 ```
@@ -70,6 +70,13 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ```
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Fix type issues since js.controller 3.3
+
+### 2.0.1 (2021-09-17)
+* (MeisterTR) Workaround JSON config Password
+
 ### 2.0.0
 * (instalator) DSM7 support
 
@@ -189,7 +196,7 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2021 instalator <vvvalt@mail.ru>
+Copyright (c) 2021-2022 instalator <vvvalt@mail.ru>, ioBroker Community-Developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

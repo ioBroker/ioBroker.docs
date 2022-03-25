@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.scheduler/README.md
 title: ioBroker Scheduler-Adapter
-hash: QHoQGGa7+9V8FkiMRFpKl7sC/fM/puwAoX3uZcQmZ0s=
+hash: 8EINMhe99lMcUx8egAyQ+uN/Bo6A475OmLl3QZrBSvo=
 ---
 ![Logo](../../../en/adapterref/iobroker.scheduler/admin/scheduler.png)
 
@@ -15,23 +15,29 @@ hash: QHoQGGa7+9V8FkiMRFpKl7sC/fM/puwAoX3uZcQmZ0s=
 # IoBroker Scheduler-Adapter
 Dieser Adapter wurde entwickelt, um Geräte nach einem Zeitplan zu steuern. Zum Beispiel Heizungs- oder Bewässerungssteuerung.
 
-Sie können die Profile mit unterschiedlicher Priorität erstellen: normal (z. B. an Werktagen), hoch (z. B. am Wochenende) und hoch (z. B. für Feiertage).
+Sie können die Profile mit unterschiedlicher Priorität erstellen: normal (z. B. Werktage), hoch (z. B. Wochenende) und am höchsten (z. B. für Feiertage).
 Das Profil mit der höheren Priorität überlastet andere Profile.
 
-Für jedes Profil wird die aktive Variable erstellt. Der Benutzer kann jedoch eine eigene Aktivierungsvariable auswählen, z.B. Feiertage zu kontrollieren.
+Für jedes Profil wird die aktive Variable erstellt. Der Benutzer kann jedoch eine eigene Aktivierungsvariable auswählen, z. Feiertage zu kontrollieren.
 
-Der Benutzer sollte dem Profil Geräte hinzufügen und alle Geräte im Profil werden auf denselben Wert gesetzt.
+Der Benutzer sollte Geräte zum Profil hinzufügen und alle Geräte im Profil werden auf denselben Wert gesetzt.
 
 ![Bildschirmfoto](../../../en/adapterref/iobroker.scheduler/img/scheduler.png)
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __ARBEITEN IN PROGRESS__ -->
+### **IN ARBEIT** -->
 
 ## Changelog
+### 1.0.0 (2022-03-22)
+* (bluefox) GUI migrated to material@5
+
+### 0.1.3 (2022-03-22)
+* (bluefox) Just the packages were updated
+
 ### 0.1.2 (2021-09-14)
 * (bluefox) "Sentry" was added
- 
+
 ### 0.1.1 (2021-09-13)
 * (bluefox) Initial release
 
@@ -41,7 +47,7 @@ Der Benutzer sollte dem Profil Geräte hinzufügen und alle Geräte im Profil we
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2021-2022 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

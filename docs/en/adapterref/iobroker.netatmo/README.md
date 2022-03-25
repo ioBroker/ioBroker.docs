@@ -45,11 +45,10 @@ the personsId is the id within the "Known" persons folder
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 1.7.0 (2022-03-24)
 * IMPORTANT: js-controller 3.3.19 is needed at least!
+* (Apollon77) Activate events again (manually delete objects once if you get type errors)
 * (Apollon77) Adjust some roles and written data to prevent warnings in logs
-* (Apollon77) Try fix events
 
 ### 1.6.0 (2022-03-13)
 * (Apollon77) Important: In person names (Welcome) in state IDs forbidden characters are now replaces by _!!

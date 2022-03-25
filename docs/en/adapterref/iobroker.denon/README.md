@@ -914,6 +914,9 @@ The adapter is tested with an DENON AVR-X1200W and a Marantz SR5009.
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.13.2 (2022-03-23)
+* (foxriver76) fixed requesting interval
+
 ### 1.13.1 (2022-03-19)
 * (foxriver76) added `settings.speakerPreset`
 

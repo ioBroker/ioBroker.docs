@@ -40,7 +40,7 @@ Meaning of the options in the config file:
 
 - `preview`: 7 # means that appointments are displayed 7 days in advance
 - `runEveryMinutes`: 30 # means that the adapter automatically rewists the calendar every 30 minutes. If 0 is not read automatically
-- `colorize`: true # Today's appointments will be colored red, tomorrow's appointments will be orange, this option overrides the option everyCalOneColor
+- `colorize`: true # Today's appointments  and appointments which are currently running will be colored red, tomorrow's appointments will be orange, this option overrides the option everyCalOneColor
 - `debug`: false # if true, extended output is written to the CCU.IO log
 - `defColor`:` white` # sets the default color of the calendar entries
 - `fulltime`: ` ` # determines by which string the time 00:00 is replaced for all day appointments. For spaces (between the quotes), the time is omitted for all-day appointments
@@ -54,7 +54,10 @@ Meaning of the options in the config file:
 - `Events`:
   - `name`:" vacation ":
   - `enabled`: true # determines if the event will be edited
+  - `Set ID`: An additional state can be entered here, which is updated when the event is active
+  - `On / Off`: Here, an alternative value can be written to the state stored under 'Set ID'
   - `display`: false # determines whether the event is also displayed in the iCalEvents, or only evaluated
+  - `Set Ack`: false # Ack "off" controls the state, e.g. to switch something. #true Ack "on" updates the value
   
   By setting an event (in this example "vacation"), the calendars are searched for the string "vacation".
   If an appointment with the keyword "vacation" is in a calendar, then automatically a state with the
@@ -62,6 +65,12 @@ Meaning of the options in the config file:
   A status is created for each day of the preview period. Danger!
   It is searched for a substring, i. an entry in the calendar "vacation" is recognized as well as a
   Entry "holiday parents". This must be taken into account when setting the events.
+  
+- Explanation of the states under ical.0.events.0
+  - The event in the path ical.0.events.0.later is set to true if it is still happening today but has not started yet
+  - The event in path ical.0.events.0.now is set to true if it is currently active
+  - The event in the path ical.0.events.0.today is set to true if the event is active today
+
   
 By adjusting the CSS in the VIS, the styles of today's (standard red) and tomorrow's dates (standard orange) can be set:
 - `iCalWarn` - Newline calendar entry today
@@ -198,6 +207,9 @@ Whitelist: If you only want to include events of a specific location use regular
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.12.1 (2022-03-22)
+* (Apollon77) Adjust colorize of dates to also show dates started in the past with todays color
+
 ### 1.12.0 (2022-03-21)
 * (Apollon77/Scrounger) Add option to choose the ack flag set when updating foreign objects on events
 * (HSE83) use a color field from the calendar entry as color for display

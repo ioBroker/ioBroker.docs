@@ -1,15 +1,15 @@
 ![Logo](admin/synology.png)
 # ioBroker Synology adapter
 
-[![Donate](https://img.shields.io/badge/Donate-YooMoney-green)](https://sobe.ru/na/instalator)
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PFUALWTR2CTPY)
+![Number of Installations](http://iobroker.live/badges/synology-installed.svg)
+![Number of Installations](http://iobroker.live/badges/synology-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.synology.svg)](https://www.npmjs.com/package/iobroker.synology)
 
-
-![Number of Installations](http://iobroker.live/badges/synology-installed.svg) ![Number of Installations](http://iobroker.live/badges/synology-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.synology.svg)](https://www.npmjs.com/package/iobroker.synology)
+![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.synology/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/synology/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.synology.svg)](https://www.npmjs.com/package/iobroker.synology)
-[![Tests](https://github.com/iobroker-community-adapters/iobroker.synology/workflows/Test%20and%20Release/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.synology/actions/)
 
-[![NPM](https://nodei.co/npm/iobroker.synology.png?downloads=true)](https://nodei.co/npm/iobroker.synology/)
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 
 ## Description
@@ -17,7 +17,7 @@ The driver allows you to receive data and manage your Synology NAS server.
 
 ### 2FA Settings
 
-If you use 2FA see instructions [here](docs/en/template.md)
+If you use 2FA in DSM6 see instructions [here](docs/en/template.md)
 
 ### sendMethod
 
@@ -66,8 +66,13 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ```
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Fix type issues since js.controller 3.3
+
 ### 2.0.1 (2021-09-17)
-* (MeisterTR) Workarround JSON config Password
+* (MeisterTR) Workaround JSON config Password
+
 ### 2.0.0
 * (instalator) DSM7 support
 
@@ -187,7 +192,7 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2021 instalator <vvvalt@mail.ru>
+Copyright (c) 2021-2022 instalator <vvvalt@mail.ru>, ioBroker Community-Developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

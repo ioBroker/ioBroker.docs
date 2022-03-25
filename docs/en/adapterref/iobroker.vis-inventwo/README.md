@@ -85,6 +85,9 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+## 3.3.3 
+- Problem mit Umrandungsfarbe beim Multi-Widget View in PopUp behoben
+
 ## 3.3.2
 - Bugfix
 

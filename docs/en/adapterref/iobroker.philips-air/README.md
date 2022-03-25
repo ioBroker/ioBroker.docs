@@ -24,6 +24,11 @@ It can happen, that some devices have not all variables and they will stay unfil
 
 ![Objects](img/objects.png)
 ## Changelog
+### 0.1.4 (2022-03-23)
+* (Apollon77) Downgrade coap library to restore functionality for some devices
+* (Apollon77) Prevent crash case and make control more flexible
+* (Apollon77) correctly handle control.function state
+
 ### 0.1.3 (2022-03-12)
 * (Apollon77) General updates and optimizations
 

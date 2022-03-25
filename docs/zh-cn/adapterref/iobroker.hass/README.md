@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hass/README.md
 title: ioBroker.hass
-hash: 3LBDmKokRYoDsXDzGsuzG5zVIZNDnBhqHwMcsAyLLzE=
+hash: miH711nLAOxOLZP7MtUd6GLoOm4iN1J8JHPbulklyQU=
 ---
 ![商标](../../../en/adapterref/iobroker.hass/admin/hass.png)
 
@@ -21,6 +21,38 @@ hash: 3LBDmKokRYoDsXDzGsuzG5zVIZNDnBhqHwMcsAyLLzE=
 ＃＃ 用法
 在 HASS 中创建一个长期令牌并将其用作 PW（也将其复制到重复字段中）。
 
+然后它应该读出所有设备的所有属性。服务可能是可控的（例如“turn_on”）。要控制服务，您有两种选择：
+
+* 使用不是字符串的 ack=false 值设置状态（例如，布尔值 true），然后它也将在 HASS 中触发，无需额外的服务数据
+* 使用 ack=false 字符串值设置状态，该字符串值是字符串化的 JSON 对象以调用服务并将 JSON 对象用作服务数据
+
+对于 light.turn_off 上的最后一个选项，例如`{"transition":10,"flash":"short"}`这两个服务数据详细信息随对 HASS 的调用发送。可用字段及其数据定义可以在 native.fields 部分的 ioBroker 对象的 JSON 定义中看到，并且在上面的示例中如下所示：
+
+` ...
+本机：{“字段”：{“转换”：{“名称”：“转换”，“描述”：“进入下一个状态所需的持续时间。”，“选择器”：{“数字”：{“分钟” : 0, "max": 300, "unit_of_measurement": "seconds" } } }, "flash": { "name": "Flash", "description": "如果灯应该闪烁。", "advanced":真，“选择器”：{“选择”：{“选项”：[“长”，“短”]}}}}}，“实体ID”：“light.mi_control_hub_light”，“属性”：“关闭”，“类型“： “光” } ...
+`
+
+对于像 set_speed 这样的一些服务，通常需要使用像 `{speed: "high"}` 这样的 JSON 对象来调用以提供所需的值。在这种情况下，字段定义看起来例如喜欢：
+
+```
+...
+    native: {
+        "fields": {
+            "speed": {
+                "name": "Speed",
+                "description": "Speed setting.",
+                "required": true,
+                "example": "low",
+                "selector": {
+                    "text": null
+                }
+            }
+        }
+        ...
+    }
+...
+```
+
 ＃＃ 配置
 有一篇关于连接的好文章。
 
@@ -33,8 +65,8 @@ hash: 3LBDmKokRYoDsXDzGsuzG5zVIZNDnBhqHwMcsAyLLzE=
 ### __工作进行中__ -->
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 1.1.0 (2022-03-24)
+* IMPORTANT: You need to re-enter the password once after installing this version!
 * (Apollon77) Implement Service triggers to use any value to trigger or stringified JSON to call with fields
 * (Apollon77) Optimize unload handling
 * (Apollon7) Add Sentry for crash reporting

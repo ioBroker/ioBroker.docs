@@ -2,65 +2,65 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.synology/README.md
-title: ioBroker адаптер Synology
-hash: OxUM3HRRXEpU5OvLjX1r2+WC1HwFQeeyV73RDtW+Fr8=
+title: адаптер ioBroker Synology
+hash: 0Pz2xxoeTnCMcdZNLOmTN8lQIC2F12yZaPQP2y1pxVk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.synology/admin/synology.png)
 
-![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-green.svg)
 ![Количество установок](http://iobroker.live/badges/synology-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.synology.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.synology.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.synology.svg)
-![НПМ](https://nodei.co/npm/iobroker.synology.png?downloads=true)
 
-# IoBroker Адаптер Synology
-[![Тесты] (https://github.com/iobroker-community-adapters/iobroker.synology/workflows/Test%20and%20Release/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.synology/actions/)
+# Адаптер ioBroker Synology
+![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/ioBroker.synology/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/synology/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Описание
 Драйвер позволяет получать данные и управлять сервером Synology NAS.
 
-### Настройки 2FA
-Если вы используете 2FA, см. Инструкции [здесь](docs/en/template.md).
+### Настройки двухфакторной аутентификации
+Если вы используете 2FA в DSM6, см. инструкции [здесь](docs/en/template.md)
 
-### SendMethod
-Вы можете отправить любую команду (метод), установив объект sendMethod, например: Get the SurveillanceStation info - это метод getInfo без дополнительных параметров.
+### Метод отправки
+Вы можете отправить любую команду (метод), задав объект sendMethod, например: Получить информацию о SurveillanceStation — это метод getInfo без дополнительных параметров.
 
 ```{"method": "getInfo", "params": {}}```
 
 ### Контроль
-** commands.reboot ** - перезагрузить NAS
+**commands.reboot** - перезагрузить NAS
 
-** commands.shutdown ** - выключить NAS
+**commands.shutdown** — выключение NAS
 
-*** SurveillanceStation.cameras. {NAMECAM} ***:
+***SurveillanceStation.камеры.{NAMECAM}***:
 
-* enabled - Текущий статус и включение / отключение камеры
+* enabled - Текущий статус и включение/отключение камеры
 * linkSnapshot - URL для снимка
 
-*** SurveillanceStation.HomeMode.status_on *** - Текущий статус и включение / отключение домашнего режима
+***SurveillanceStation.HomeMode.status_on*** — Текущее состояние и включение/отключение домашнего режима.
 
-*** SurveillanceStation.getSnapshotCamera *** - Получение снимка по номеру камеры, файл сохраняется в каталоге ``...iobroker-data\synology_0\snapshotCam_2.jpg``
+***SurveillanceStation.getSnapshotCamera*** - Получить снимок по номеру камеры, файл сохраняется в каталоге ``...iobroker-data\synology_0\snapshotCam_2.jpg``
 
-*** AudioStation.players. {PLAYERID} ***:
+***AudioStation.players.{PLAYERID}***:
 
-* play, pause, stop, next, prev - Управление воспроизведением (кнопка, только true)
-* repeat - Повторить контроль (Выкл., Все, Один)
-* shuffle - управление перемешиванием (true / false)
+* play, pause, stop, next, prev - Управление воспроизведением (кнопка, только правда)
+* Repeat - Управление повтором (Выкл., Все, Один)
+* shuffle - управление перемешиванием (true/false)
 * volume - Громкость удаленного плеера (0-100)
 * seek - Управление поиском при воспроизведении (0-100)
-* play_folder - Добавить треки из папки в плейлист (id папки, например, `` dir_5816``)
-* play_track - проигрывать трек по его id (например, music_120847)
-* current_play - Контроль и статус текущего трека по его номеру в плейлисте (например, `` 14 '')
+* play_folder - Добавить треки из папки в список воспроизведения (id папки, например, ``dir_5816``)
+* play_track - Воспроизведение трека по его идентификатору (например, ``music_120847``)
+* current_play - Контроль и статус текущего трека по его номеру в плейлисте (например, ``14``)
 
-*** DownloadStation ***:
+***Станция загрузки***:
 
 * activeTask - количество незавершенных загрузок
 * listTasks - массив с незавершенными загрузками
-* shedule_enabled, shedule_emule_enabled - Статус и контроль запланированных или немедленных загрузок
-* add_hash_download - добавить в хеш-загрузку (например, `` 8BD3CAD02FC9ECB661A12378414FA310D3F3FE03 '')
-* add_url_download - добавить ссылку для скачивания или магнитную ссылку
-* папка - папка для загрузки, задается перед добавлением загрузки, в противном случае она загружается в папку по умолчанию
-* pause_task, resume_task - Приостановить загрузку и возобновить. (например, dbid_170, 170 или all)
+* shedule_enabled, shedule_emule_enabled — статус и контроль запланированных или немедленных загрузок
+* add_hash_download — добавить в загрузку хэшей (например, ``8BD3CAD02FC9ECB661A12378414FA310D3F3FE03``)
+* add_url_download — добавить URL для скачивания или магнитную ссылку
+*folder - Папка для скачивания, устанавливается перед добавлением загрузки, иначе загружается в папку по умолчанию
+* pause_task,resume_task — приостановить загрузку и возобновить. (например, ``dbid_170`` или ``170`` или ``все``)
 
 ### Окно сообщения
 ```
@@ -70,6 +70,13 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ```
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Fix type issues since js.controller 3.3
+
+### 2.0.1 (2021-09-17)
+* (MeisterTR) Workaround JSON config Password
+
 ### 2.0.0
 * (instalator) DSM7 support
 
@@ -189,7 +196,7 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2021 instalator <vvvalt@mail.ru>
+Copyright (c) 2021-2022 instalator <vvvalt@mail.ru>, ioBroker Community-Developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

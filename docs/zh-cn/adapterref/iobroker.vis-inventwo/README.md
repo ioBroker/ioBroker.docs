@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: vuHfcwf2MtKeAZ+R8O4cy1ils57ilmTtTVHQ8CVPZGg=
+hash: zbuKROSjKbUgOtcrUsAKqzheswCFfLhR6/bn6DZiwHo=
 ---
 ![商标](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -54,6 +54,9 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ---
 
+## 3.3.3
+- 问题 mit Umrandungsfarbe beim 弹出窗口中的多小部件视图 behoben
+
 ## 3.3.2
 - 错误修正
 
@@ -94,7 +97,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 ## 3.2.1
 - 问题 mit aktiver Textfarbe behoben (#302)
 - 问题 mit Multi-Widget und unterschiedlichem Prüftyp behoben (#303)
--问题beim Schließen mit View im PopUp behoben (#254)
+- 问题 beim Schließen mit View im PopUp behoben (#254)
 - Navigationseffekte aus der Basisnavigation hinzugefügt (#304)
 - Neu hinzugefügt Widget-Typ 'HTTP' für Universal- und Multi-Widget (#249)
 - Sichtbare Schritte für einfachen Slider hinzugefügt
@@ -354,7 +357,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 ## 2.2.0
 - Datenpunktwerte werden jetzt bei allen Widgets im Editor angezeigt
-- Neues Widget: Marquee (Laufschrift)
+- Neues 小工具：Marquee (Laufschrift)
 - Universal und Multi State Verweildauer hinzugefügt
 - List Widget Abstand zwischen den Einträgen kann eingestell werden
 

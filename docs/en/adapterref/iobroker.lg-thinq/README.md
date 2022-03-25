@@ -21,7 +21,7 @@ Adapter for LG ThinQ
 
 ## Changelog
 
-### 0.0.1
+### 0.0.3
 * (TA2k) initial release
 
 ## License

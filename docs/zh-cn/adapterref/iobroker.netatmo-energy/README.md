@@ -9,9 +9,9 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.netatmo-energy/README.md
 title: ioBroker.netatmo-energy
-hash: 0fXS3TMn/d7ekK7riPcnT8C909t+EN7wKXUmZdFvTHc=
+hash: fDsxOVOmHFXbLal6j2QisYyuHHNveF0QsaG476De/vA=
 ---
-![商标](https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/admin/netatmo-energy.png)
+![商标](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/admin/netatmo-energy.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.netatmo-energy.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.netatmo-energy.svg)
@@ -47,9 +47,9 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo Cloud
 
 详细描述可作为 wiki (https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/wiki) 获得。
 
-<img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/settings_login_de.png" alt="设置登录" width="70%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/settings_login_de.png" alt="设置登录" width="70%"/>
 
-<img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/settings_api_de.png" alt="设置API" width="70%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/settings_api_de.png" alt="设置API" width="70%"/>
 
 ## IoBroker 的 netatmo-energy 适配器
 使用 Netatmo-Energy API 检索或更改当前设置。适配器使用获取请求将数据传输到 Netatmo Energy API。 API 官方文档：https://dev.netatmo.com/apidocumentation/energy。
@@ -74,13 +74,14 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo Cloud
 * refresh_structure ...依次生成请求homesdata和homestatus
 
 ### 更改请求
-* setroomthermpoint ... 根据“设置”通道中的手动更改，更改将传输到 Netatmo Energy APP。 （瞬时或自触发 - “立即传输温度变化”）。 “设置”通道中的“set_mode_to_home”按钮将阀门模式“set_mode_to_home”设置为“home”。
+* setroomthermpoint ... 根据“设置”通道中的手动更改，更改将传输到 Netatmo Energy APP。 （瞬时或自触发 - “立即传输温度变化”）。
+* set_mode_to_home ...“设置”通道中的“set_mode_to_home”按钮将阀门模式“set_mode_to_home”设置为“home”。
 
 ＃＃＃ 状态
 * running ... 在这里你可以看到 API 请求当前是否正在运行
 
 ### 请求结构
-<img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/EnergyAPP_measure.png" alt="设置登录" width="80%"/><img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/EnergyAPP.png" alt="设置登录" width="80%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/EnergyAPP_measure.png" alt="设置登录" width="80%"/><img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/EnergyAPP.png" alt="设置登录" width="80%"/>
 
 ## 构建结构
 当适配器启动时，整个Netatmo Energy APP的当前状态被刷新并且所有阀门和恒温器的状态被传输。根据一般设置（更改后立即读取 API 状态），在 API 更改后立即再次获取阀门和恒温器的状态（立即发送 homestatus 请求）。
@@ -90,58 +91,21 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo Cloud
 如果您在适配器配置中激活了通知服务，则会向您发送各种消息。
 提供以下服务。
 
-<img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/notification_types_de.png" alt="设置API" width="30%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_types_de.png" alt="设置API" width="30%"/>
 
-    请为您选择的通知服务输入必要的连接数据。
+请为您选择的通知服务输入必要的连接数据。
 
-<img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/notification_de.png" alt="设置API" width="70%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_de.png" alt="设置API" width="70%"/>
+
+## 管理选项卡
+在管理选项卡上，您可以显示您的 netatmo 能源实例的所有恒温器、桥接器和阀门。也可以更新此视图或启动完整的 API 更新。
+
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/admintab_de.png" alt="管理选项卡" width="70%"/>
 
 ## 小部件
 用于 VIS 的小部件，用于显示完整的恒温器。您只需输入“SetTemp”数据点。所有其他信息都是从“房间”结构中动态确定的。
 
-<img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/valve_widget_de.png" alt="设置API" width="250px"/>
-
-## 变更日志
-[旧的变化](CHANGELOG_OLD.md) <!-- 下一个版本的占位符（在行首）：
-
-### **正在进行中** -->
-### 1.1.4 (2022-03-20)
-* (ioKlausi) 桥添加到主页
-
-### 1.1.3 (2022-03-19)
-* (ioKlausi) 添加了带有阀门的主页
-
-### 1.1.2 (2022-03-06)
-* (ioKlausi) 错误修正简易管理员
-
-### 1.1.1 (2022-03-06)
-* (ioKlausi) 修正 setroomthermpoint
-
-### 1.1.0 (2022-03-06)
-* (ioKlausi) setroomthermpoint - 阀门模式的触发器设置
-
-### 1.0.4 (2022-03-05)
-* (ioKlausi) 错误修正 - 发送消息
-
-### 1.0.3 (2022-03-05)
-* (ioKlausi) 自定义页面切换为 json
-
-### 1.0.2 (2022-02-27)
-* (ioKlausi) 编码已修改
-
-### 1.0.0 (2022-02-25)
-* 发布 (ioKlausi) 主版本
-
-＃＃ 执照
-麻省理工学院执照
-
-版权所有 (c) 2022 ioKlausi <nii@gmx.at>
-
-特此免费授予任何获得本软件和相关文档文件（“软件”）副本的人，以不受限制地使用、复制、修改、合并到软件中，包括不受权利限制、发布、分发、再许可和/或出售本软件的副本，并允许为其设置本软件的人员，但须符合以下条件：
-
-上述版权声明和本许可声明应出现在本软件的任何随附副本或大部分内容中。
-
-本软件按“原样”提供，不提供任何形式的明示或明示、暗示的保证，包括但不限于对适销性、特定用途的适用性和非侵权性的保证。在任何情况下，作者或版权持有人均不对因本软件或本软件的使用或其他行为引起的或与之相关的任何索赔、损害或其他责任（无论是合同、侵权或其他）承担责任。
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/valve_widget_de.png" alt="设置API" width="250px"/>
 
 ## Changelog
 [Older changes](CHANGELOG_OLD.md)
@@ -149,11 +113,20 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo Cloud
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.7 (2022-03-24)
+* (ioKlausi) Bridge information added to each card
+
+### 1.1.6 (2022-03-24)
+* (ioKlausi) Rework README.md & WIKI
+
+### 1.1.5 (2022-03-23)
+* (ioKlausi) Refresh functionality added to admin tab
+
 ### 1.1.4 (2022-03-20)
-* (ioKlausi) Plug added to tab page 
+* (ioKlausi) Plug added to admin tab 
 
 ### 1.1.3 (2022-03-19)
-* (ioKlausi) Valve page added 
+* (ioKlausi) Admin tab for valves added 
 
 ### 1.1.2 (2022-03-06)
 * (ioKlausi) Bugfix Easy Admin 

@@ -38,7 +38,7 @@ Bedeutung der Optionen im Konfigfile:
 
 - `preview`: 7 heisst, dass Termine 7 Tage im voraus angezeigt werden
 - `runEveryMinutes`: 30 bedeutet dass der Adapter automatisch alle 30min den Kalender neu einliesst. Bei 0 wird nicht automatisch eingelesen
-- `colorize`: true Termine am heutigen Tag werden rot gefärbt, Termine am morgigen Tag orange, diese Option überstimmt die Option everyCalOneColor
+- `colorize`: true Termine am heutigen Tag sowie aktuell laufende Termine werden rot gefärbt, Termine am morgigen Tag orange, diese Option überstimmt die Option everyCalOneColor
 - `debug`: false bei true werden erweiterte Ausgaben ins CCU.IO Log geschrieben
 - `defColor`: `white` legt die Standardfarbe der Kalendereinträge fest
 - `fulltime`: ` ` legt fest durch welchen String bei ganztägigen Terminen die Uhrzeit 00:00 ersetzt wird. Bei Leerzeichen (zwischen den Hochkommas) wird dir Uhrzeit bei ganztägigen Terminen weggelassen
@@ -52,7 +52,10 @@ Bedeutung der Optionen im Konfigfile:
 - `Events`: 
   - `name`: "Urlaub":  
   - `enabled`: true # legt fest, ob das Event bearbeitet wird 
+  - `Set ID`: Hier kann ein zusätzlicher State eingetragen werden, welcher aktualisiert wird, wenn das Event aktiv ist 
+  - `On / Off`: Hier kann ein alternativer Wert in den bei 'Set ID' hinterlegten State geschrieben werden
   - `display`: false # legt fest, ob das Event auch in dem iCalEvents angezeigt wird, oder nur ausgewertet wird
+  - `Set Ack`: false # Ack "aus" steuert den State um z.B. etwas zu schalten. #true Ack "an" aktualisiert den Wert
   
   Durch setzen eines Events (in diesem Beispiel „Urlaub“), werden die Kalender nach dem String „Urlaub“ durchsucht. 
   Sollte ein Termin mit dem Stichwort „Urlaub“ in einem Kalender stehen, so wird automatisch eine State mit dem 
@@ -60,6 +63,11 @@ Bedeutung der Optionen im Konfigfile:
   Es wird für jeden Tag des preview Zeitraums ein Status angelegt. Achtung! 
   Es wird nach einem Substring gesucht, d.h. ein Eintrag im Kalender „Urlaub“ wird genauso erkannt wie ein 
   Eintrag „Urlaub Eltern“. Dies ist beim festlegen der Ereignisse zu berücksichtigen.
+
+- Erklärung zu den States unter ical.0.events.0 
+  - Das Event im Pfad ical.0.events.0.later wird auf true gesetzt, wenn es heute noch stattfindet aber noch nicht begonnen ist
+  - Das Event im Pfad ical.0.events.0.now wir auf true gesetzt, wenn es aktuell aktiv ist
+  - Das Event im Pfad ical.0.events.0.today wird auf true gesetzt, wenn das Event am heutigen Tag aktiv ist
   
 Durch Anpassen der CSS im VIS können die Styles von heutigen (Standard rot) und morgigen Terminen (Standard Orange) festegelegt werden: 
 - `iCalWarn` - Zeilenanfang Kalendereintrag heute
@@ -197,6 +205,9 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.12.1 (2022-03-22)
+* (Apollon77) Adjust colorize of dates to also show dates started in the past with todays color
+
 ### 1.12.0 (2022-03-21)
 * (Apollon77/Scrounger) Add option to choose the ack flag set when updating foreign objects on events
 * (HSE83) use a color field from the calendar entry as color for display

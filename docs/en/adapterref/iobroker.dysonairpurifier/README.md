@@ -164,6 +164,11 @@ All states report whether there is a failure or not. `True` means a failure, `fa
   * In my case it's sufficient to unplug the fan for approximately 10 seconds to reset it and plug it in again. Give it a try.
   * In other cases it has been an IP issue. Resetting the DHCP server (router) solved the issue.
 ## Changelog
+### V2.5.1 (2022-03-23) (Halo of the dark)
+* (grizzelbee) Fix: Improved layout of config page and added tooltips to the checkboxes
+
+### V2.5.0 (2022-03-22) (Halo of the dark)
+* (grizzelbee) New: [#185](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/185) Added config option to disable logging of reconnect events
 
 ### V2.4.1 (2022-03-20) (Echo from the past)
 * (grizzelbee) New: Changed SystemState from text to boolean data points
@@ -175,7 +180,6 @@ All states report whether there is a failure or not. `True` means a failure, `fa
 * (grizzelbee) Upd: Switched "Sending data to device" message from loglevel info to debug
 * (grizzelbee) Upd: reduced amount of debug messages
 * (grizzelbee) Upd: Updated dependencies
-
 
 ### V2.3.2 (2022-03-04) (Fairytale of doom)
 * (grizzelbee) Fix: Fixed: Sentry-Error: [DYSONAIRPURIFIER-D](https://sentry.io/organizations/grizzelbee/issues/3021418514)

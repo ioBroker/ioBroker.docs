@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.odl/README.md
 title: ioBroker.odl
-hash: 9vjfqQ+49Y26u75AD4jUizUBlarzNnzyU2enxL6IH8s=
+hash: jPQzZiJpW2Nqfm8pCHsfD0Fy+NNXglnvZFN6GWXQjSo=
 ---
 ![商标](../../../en/adapterref/iobroker.odl/admin/odl.png)
 
@@ -35,7 +35,7 @@ Für weitere Informationen zur ODL siehe https://odlinfo.bfs.de/。
 Dieser Adapter läd die aktuellen 1-Stunden-Mittelwerte der Messdaten direkt über die [BfS 官方日期](https://odlinfo.bfs.de/ODL/DE/service/datenschnittstelle/datenschnittstelle_node.html)。 Das BfS ist Urheber der vom Adapter verwendeten Daten。
 Alle Daten werden in unveränderter Form, so wie sie von der Datenschnittstelle geliefert werden, vom Adapter bereitgestellt。
 
-Wird ein aktivierter History-Adapter (_history_, _influxdb_ oder _sql_) erkannt, dann werden gegebenenfalls in der Historie fehlende Datenpunkte durch den Adapter automatisch nachgetragen, sodass sich vollständige Zeitreihen ergeben。
+Wird ein aktivierter History-Adapter (_history_, _influxdb_ oder _sql_) für einen Werte-State erkannt, dann werden gegebenenfalls in der Historie fehlende Datenpunkte durch den Adapter automatisch nachgetragen, sodass sich vollständige Zeitreihen ergeben。
 
 Die aktuellen Messdaten werden von dem Adapter standardmäßig im Stundentakt aktualisiert。 Ein geringerer Aktualisierungsintervall ist meist nicht sinnvoll, da die zu Grunde liegenden Messdaten auf dem BfS-Server (abhängig von der Messstelle) größtenteils stündlich aktualisiert werden。
 Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der Daten angepasst, sodass nicht alle Installation die Daten zur gleichen Zeit abrufen und die Datenschnittstelle des BfS nicht unnötig belastet wird。
@@ -48,6 +48,15 @@ Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ## Changelog
+
+### 2.0.3 (2022-03-23)
+
+* (crycode-de) Optimized Sentry integration in admin
+
+### 2.0.2 (2022-03-23)
+
+* (crycode-de) Fixed config error (Sentry IOBROKER-ODL-2)
+* (crycode-de) Updated dependencies
 
 ### 2.0.1 (2022-03-14)
 

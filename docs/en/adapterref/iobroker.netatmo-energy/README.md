@@ -6,7 +6,7 @@ BADGE-Number of Installations (stable): http://iobroker.live/badges/netatmo-ener
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/Homemade-Disaster/ioBroker.netatmo-energy/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true
 ---
-![Logo](https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/admin/netatmo-energy.png)
+![Logo](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/admin/netatmo-energy.png)
 # ioBroker.netatmo-energy
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.netatmo-energy.svg)](https://www.npmjs.com/package/iobroker.netatmo-energy)
@@ -14,10 +14,10 @@ BADGE-NPM: https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true
 ![Number of Installations (latest)](http://iobroker.live/badges/netatmo-energy-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/netatmo-energy-stable.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/Homemade-Disaster/ioBroker.netatmo-energy/badge.svg)](https://snyk.io/test/github/Homemade-Disaster/ioBroker.netatmo-energy)
-
-[![NPM](https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true)](https://nodei.co/npm/iobroker.netatmo-energy/)
 ![Test and Release](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/workflows/Test%20and%20Release/badge.svg)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/admin/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+[![NPM](https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true)](https://nodei.co/npm/iobroker.netatmo-energy/)
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
@@ -43,9 +43,9 @@ Account at Netatmo Cloud
 
 A detailed description is available on adapter wiki (https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/wiki).
 
-<img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/settings_login_en.png" alt="settingsLogin" width="70%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/settings_login_en.png" alt="settingsLogin" width="70%"/>
 
-<img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/settings_api_en.png" alt="settingsAPI" width="70%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/settings_api_en.png" alt="settingsAPI" width="70%"/>
 
 ## netatmo-energy adapter for ioBroker
 Get and set data using Netatmo-Energy API. This adapter uses the fetch command to execute http requests to Netatmo Energy API. The official documentation of this API: https://dev.netatmo.com/apidocumentation/energy.
@@ -70,13 +70,14 @@ If an API request need parameters, you can find these in the channel "parameters
 * refresh_structure     ... create request homesdata and homestatus in sequenz
 
 ### Update requests
-* setroomthermpoint     ... depending on the "setting" channel it sets the temperature of each room (immediately or by using the trigger "applychanges"). In the channel "setting" you can use the button "set_mode_to_home" to set "home"-Mode for the valve.
+* setroomthermpoint     ... depending on the "setting" channel it sets the temperature of each room (immediately or by using the trigger "applychanges"). 
+* set_mode_to_home      ... In the channel "setting" you can use the button "set_mode_to_home" to set "home"-Mode for the valve.
 
 ### Status
 * running               ... here you can see if API Requests are running right now
 
 ### Request structure
-<img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/EnergyAPP_measure.png" alt="settingsLogin" width="80%"/><img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/EnergyAPP.png" alt="settingsLogin" width="80%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/EnergyAPP_measure.png" alt="settingsLogin" width="80%"/><img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/EnergyAPP.png" alt="settingsLogin" width="80%"/>
 
 ## Build structure
 If you start the adapter it will be generating the actual "homes"-environment of your Netatmo Energy APP.
@@ -87,16 +88,21 @@ Depending on the adapter settings it will refresh theses data after sending an A
 If you have activated a notification service in the adapter configuration you get specific messages using a notification service.
 Following services are available.
 
-<img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/notification_types_en.png" alt="settingsAPI" width="30%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_types_en.png" alt="settingsAPI" width="30%"/>
 
 Please insert the necessary informations to connect to the service you choose.
 
-<img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/notification_en.png" alt="settingsAPI" width="70%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_en.png" alt="settingsAPI" width="70%"/>
+
+## Admin-Tab
+On the Admin-Tab you can see all thermostates, plugs and valves from your netatmo energy instance. From there you can refresh the view and also request an API refresh.
+
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/admintab_en.png" alt="admintab" width="70%"/>
 
 ## Widget
 Widget for VIS to show a complete valve. You have only to define the "SetTemp" - datapoint. The widget will get all other fields dynamically out of the "rooms"-structure.
 
-<img src="https://raw.githubusercontent.com/Homemade-Disaster/ioBroker.netatmo-energy/master/docs/img/valve_widget_en.png" alt="settingsAPI" width="250px"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/valve_widget_en.png" alt="settingsAPI" width="250px"/>
 
 ## Changelog
 [Older changes](CHANGELOG_OLD.md)
@@ -104,11 +110,20 @@ Widget for VIS to show a complete valve. You have only to define the "SetTemp" -
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.7 (2022-03-24)
+* (ioKlausi) Bridge information added to each card
+
+### 1.1.6 (2022-03-24)
+* (ioKlausi) Rework README.md & WIKI
+
+### 1.1.5 (2022-03-23)
+* (ioKlausi) Refresh functionality added to admin tab
+
 ### 1.1.4 (2022-03-20)
-* (ioKlausi) Plug added to tab page 
+* (ioKlausi) Plug added to admin tab 
 
 ### 1.1.3 (2022-03-19)
-* (ioKlausi) Valve page added 
+* (ioKlausi) Admin tab for valves added 
 
 ### 1.1.2 (2022-03-06)
 * (ioKlausi) Bugfix Easy Admin 

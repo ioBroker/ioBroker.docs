@@ -3,41 +3,41 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.whatsapp-cmb/README.md
 title: ioBroker.whatsapp-cmb
-hash: 6mnvKUWBcvbbKUMhf6evfg+bhlkfRDSyAw7fj7WoSF0=
+hash: sVlJIat6I35imhV4ofyCrVukaUPymurismGdwWXhLSo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.whatsapp-cmb/admin/whatsapp-cmb.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.whatsapp-cmb.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.whatsapp-cmb.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.whatsapp-cmb.svg)
 ![Статус зависимости](https://img.shields.io/david/ioBroker/iobroker.whatsapp-cmb.svg)
 ![Известные уязвимости](https://snyk.io/test/github/ioBroker/ioBroker.whatsapp-cmb/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.whatsapp-cmb.png?downloads=true)
-![Трэвис-Си](http://img.shields.io/travis/ioBroker/ioBroker.whatsapp-cmb/master.svg)
+![Трэвис-CI](http://img.shields.io/travis/ioBroker/ioBroker.whatsapp-cmb/master.svg)
 
 # IoBroker.whatsapp-cmb
 ## Адаптер whatsapp-cmb для ioBroker
-Большое спасибо бесплатному сервису [CallMeBot](https://www.callmebot.com/blog/free-api-whatsapp-messages/), этот адаптер позволяет отправлять сообщения WhatsApp себе или на другой номер.
+Большое спасибо бесплатному сервису [CallMeBot](https://www.callmebot.com/blog/free-api-whatsapp-messages/), этот адаптер позволяет отправлять сообщения WhatsApp на себя или на другой номер.
 
-** Примечание **: *Бесплатный API предназначен только для личного использования!*
+**Примечание** : *Бесплатный API предназначен только для личного использования!*
 
 ### Конфигурация
 *Следующая документация была скопирована со страницы [callmebot](https://www.callmebot.com/blog/free-api-whatsapp-messages/).*
 
-Перед использованием API необходимо получить ключ API от бота:
+Вам необходимо получить ключ API от бота перед использованием API:
 
-- Добавьте номер телефона **+ 34 644 59 71 67** в свои телефонные контакты. (Назовите его как хотите.)
-- Отправьте это сообщение «Я разрешаю callmebot отправлять мне сообщения» (на английском языке) новому созданному контакту (конечно, с помощью WhatsApp).
-- Дождитесь появления сообщения «API активирован для вашего номера телефона. Ваш APIKEY - 123123` от бота. Поскольку он все еще находится в стадии бета-тестирования, активация может занять до 2 минут.
-- Сообщение WhatsApp от бота будет содержать ключ API, необходимый для отправки сообщений с помощью API.
+- Добавьте номер телефона **+34 644 44 21 48** в свои телефонные контакты. (Назовите его как хотите.)
+- Отправьте это сообщение «Я разрешаю callmebot отправлять мне сообщения» (на английском языке) новому созданному контакту (конечно, используя WhatsApp).
+- Подождите, пока вы не получите сообщение `API активирован для вашего номера телефона. Ваш APIKEY 123123` от бота. Поскольку это все еще находится в стадии бета-тестирования, активация может занять до 2 минут.
+- Сообщение WhatsApp от бота будет содержать ключ API, необходимый для отправки сообщений с использованием API.
 - Теперь вы можете использовать API KEY в конфигурации ioBroker.
 
-Пример: ![пример](../../../en/adapterref/iobroker.whatsapp-cmb/img/whatsapp.jpg)
+Пример: ![Пример](../../../en/adapterref/iobroker.whatsapp-cmb/img/whatsapp.jpg)
 
 ### Применение
 Есть две возможности отправить сообщение:
 
-- через `whatsapp-cmb.0.sendMessage`. Просто введите текст в это состояние, и сообщение будет отправлено на номер по умолчанию, который был настроен в диалоге настроек.
-- через сообщение от адаптера javascript:
+- через `whatsapp-cmb.0.sendMessage`. Просто напишите текст в этом состоянии, и сообщение будет отправлено на номер по умолчанию, который был настроен в диалоге настроек.
+- через сообщение от javascript-адаптера:
 
 ```
 sendTo('whatsapp-cmb.0', 'send', {
@@ -46,11 +46,11 @@ sendTo('whatsapp-cmb.0', 'send', {
 });
 ```
 
-![Блочно](../../../en/adapterref/iobroker.whatsapp-cmb/img/blockly.png)
+![Блочный](../../../en/adapterref/iobroker.whatsapp-cmb/img/blockly.png)
 
-<! - Заполнитель для следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
 
 ## Changelog
 ### 0.1.6 (2020-08-31)

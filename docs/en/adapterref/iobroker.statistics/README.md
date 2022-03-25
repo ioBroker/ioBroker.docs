@@ -47,6 +47,10 @@ A german HowTo doc is available here: [howto_de](./doc/howto_de.md)
 -->
 
 ## Changelog
+### 1.1.0 (2022-03-24)
+* IMPORTANT: js-controller 3.2 is needed at least!
+* (Apollon77) Prepare for future js-controller compatibility
+
 ### 1.0.10 (2021-11-14)
 * (Apollon77) prevent some crash cases
 
@@ -121,6 +125,6 @@ A german HowTo doc is available here: [howto_de](./doc/howto_de.md)
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 foxthefox <foxthefox@wysiwis.net>,
+Copyright (c) 2018-2022 foxthefox <foxthefox@wysiwis.net>,
 
-Copyright (c) 2018-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2022 bluefox <dogafox@gmail.com>

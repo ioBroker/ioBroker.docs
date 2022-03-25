@@ -17,6 +17,69 @@ This adapter allows the connecting of Home Assistant to ioBroker.
 ## Usage
 Create a long term token in HASS and use it as PW (copy it also in the repeat field).
 
+Then it should read out all attributes for all devices. Services might be controllable (e.g. "turn_on"). To control services you have two options:
+* Set the state with an ack=false value which is not a string (e.g. Boolean true) then it will be triggered also in HASS without additional service data
+* Set the state with an ack=false String value which is a stringified JSON object to call the service and use the JSON object as service data
+
+For the last option on a light.turn_off with e.g. `{"transition":10,"flash":"short"}` these two service data details are sent with the call to HASS. The available fields with their data definition can be seen in the JSON definition of the ioBroker object in the native.fields section and would look like the following in the above example:
+
+`
+...
+    native: {
+        "fields": {
+            "transition": {
+                "name": "Transition",
+                "description": "Duration it takes to get to next state.",
+                "selector": {
+                    "number": {
+                        "min": 0,
+                        "max": 300,
+                        "unit_of_measurement": "seconds"
+                    }
+                }
+            },
+            "flash": {
+                "name": "Flash",
+                "description": "If the light should flash.",
+                "advanced": true,
+                "selector": {
+                    "select": {
+                        "options": [
+                            "long",
+                            "short"
+                        ]
+                    }
+                }
+            }
+        },
+        "entity_id": "light.mi_control_hub_light",
+        "attr": "turn_off",
+        "type": "light"
+    }
+...
+`
+
+For some services like set_speed it is required to call with a JSON object like `{speed: "high"}` in general to provide required values. In this case the field definition look e.g. like:
+
+```
+...
+    native: {
+        "fields": {
+            "speed": {
+                "name": "Speed",
+                "description": "Speed setting.",
+                "required": true,
+                "example": "low",
+                "selector": {
+                    "text": null
+                }
+            }
+        }
+        ...
+    }
+...
+```
+
 ## Configuration
 There is a good article about connection. 
 
@@ -30,8 +93,8 @@ Please check it https://www.smarthomejetzt.de/mit-iobroker-auf-eine-home-assista
 -->
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 1.1.0 (2022-03-24)
+* IMPORTANT: You need to re-enter the password once after installing this version!
 * (Apollon77) Implement Service triggers to use any value to trigger or stringified JSON to call with fields
 * (Apollon77) Optimize unload handling
 * (Apollon7) Add Sentry for crash reporting

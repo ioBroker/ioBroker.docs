@@ -3,24 +3,24 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.synology/README.md
 title: ioBroker Synology 适配器
-hash: OxUM3HRRXEpU5OvLjX1r2+WC1HwFQeeyV73RDtW+Fr8=
+hash: 0Pz2xxoeTnCMcdZNLOmTN8lQIC2F12yZaPQP2y1pxVk=
 ---
-![标识](../../../en/adapterref/iobroker.synology/admin/synology.png)
+![商标](../../../en/adapterref/iobroker.synology/admin/synology.png)
 
-![捐](https://img.shields.io/badge/Donate-PayPal-green.svg)
 ![安装数量](http://iobroker.live/badges/synology-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.synology.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.synology.svg)
-![新产品管理](https://nodei.co/npm/iobroker.synology.png?downloads=true)
 
 # IoBroker Synology 适配器
-[![测试](https://github.com/iobroker-community-adapters/iobroker.synology/workflows/Test%20and%20Release/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.synology/actions/)
+![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.synology/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/synology/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ＃＃ 描述
-该驱动程序允许您接收数据和管理您的 Synology NAS 服务器。
+该驱动程序允许您接收数据并管理您的 Synology NAS 服务器。
 
 ### 2FA 设置
-如果您使用 2FA，请参阅说明 [这里](docs/en/template.md)
+如果您在 DSM6 中使用 2FA，请参阅说明[这里](docs/en/template.md)
 
 ### 发送方法
 您可以通过设置 sendMethod 对象来发送任何命令（方法），例如： Get the SurveillanceStation info 是一个没有附加参数的 getInfo 方法。
@@ -34,33 +34,33 @@ hash: OxUM3HRRXEpU5OvLjX1r2+WC1HwFQeeyV73RDtW+Fr8=
 
 ***SurveillanceStation.cameras.{NAMECAM}***：
 
-* 启用 - 当前状态和启用/禁用相机
+*启用 - 当前状态和启用/禁用相机
 * linkSnapshot - 快照的 URL
 
 ***SurveillanceStation.HomeMode.status_on*** - 当前状态和启用/禁用家庭模式
 
-***SurveillanceStation.getSnapshotCamera*** - 根据摄像机编号获取快照，文件保存在目录``...iobroker-data\synology_0\snapshotCam_2.jpg``
+***SurveillanceStation.getSnapshotCamera*** - 通过相机编号获取快照，文件保存在目录``...iobroker-data\synology_0\snapshotCam_2.jpg``
 
 ***AudioStation.players.{PLAYERID}***：
 
-* 播放、暂停、停止、下一首、上一首 - 控制播放（按钮，仅 true）
-* 重复 - 重复控制（关、全部、一）
+* 播放、暂停、停止、下一个、上一个 - 控制播放（按钮，仅 true）
+*重复 - 重复控制（关闭，全部，一）
 * shuffle - 随机控制（真/假）
-* volume - 音量远程播放器（0-100）
+* 音量 - 音量远程播放器 (0-100)
 * seek - 控制播放搜索 (0-100)
-* play_folder - 将文件夹中的曲目添加到播放列表（id 文件夹，例如``dir_5816``）
-* play_track - 按 id 播放曲目（例如“music_120847”）
-* current_play - 当前曲目在播放列表中的编号（例如“14”）的控制和状态
+* play_folder - 将文件夹中的曲目添加到播放列表（id 文件夹，例如 ``dir_5816``）
+* play_track - 按其 id 播放曲目（例如 ``music_120847``）
+* current_play - 当前曲目在播放列表中的编号控制和状态（例如“14”）
 
 ***下载站***：
 
-* activeTask - 未完成下载的数量
-* listTasks - 下载不完整的数组
-* shedule_enabled, shedule_emule_enabled - 预定或立即下载的状态和控制
-* add_hash_download - 添加到哈希下载（例如``8BD3CAD02FC9ECB661A12378414FA310D3F3FE03``）
-* add_url_download - 添加下载地址或磁力链接
+* activeTask - 不完整下载的数量
+* listTasks - 一个下载不完整的数组
+* shedule_enabled, shedule_emule_enabled - 预定或即时下载的状态和控制
+* add_hash_download - 添加到哈希下载（例如 ``8BD3CAD02FC9ECB661A12378414FA310D3F3FE03``）
+* add_url_download - 添加下载 URL 或磁力链接
 * folder - 要下载的文件夹，添加下载前设置，否则加载到默认文件夹
-* pause_task, resume_task - 暂停下载并恢复。 （例如“dbid_170”或“170”或“all”）
+* pause_task, resume_task - 暂停下载并继续。 （例如 ``dbid_170`` 或 ``170`` 或 ``all``）
 
 ### 消息框
 ```
@@ -70,6 +70,13 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ```
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Fix type issues since js.controller 3.3
+
+### 2.0.1 (2021-09-17)
+* (MeisterTR) Workaround JSON config Password
+
 ### 2.0.0
 * (instalator) DSM7 support
 
@@ -189,7 +196,7 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2021 instalator <vvvalt@mail.ru>
+Copyright (c) 2021-2022 instalator <vvvalt@mail.ru>, ioBroker Community-Developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

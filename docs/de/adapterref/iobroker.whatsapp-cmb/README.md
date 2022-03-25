@@ -3,40 +3,40 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.whatsapp-cmb/README.md
 title: ioBroker.whatsapp-cmb
-hash: 6mnvKUWBcvbbKUMhf6evfg+bhlkfRDSyAw7fj7WoSF0=
+hash: sVlJIat6I35imhV4ofyCrVukaUPymurismGdwWXhLSo=
 ---
 ![Logo](../../../en/adapterref/iobroker.whatsapp-cmb/admin/whatsapp-cmb.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.whatsapp-cmb.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.whatsapp-cmb.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/ioBroker/iobroker.whatsapp-cmb.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/ioBroker/ioBroker.whatsapp-cmb/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/ioBroker/ioBroker.whatsapp-cmb/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.whatsapp-cmb.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.whatsapp-cmb/master.svg)
 
 # IoBroker.whatsapp-cmb
-## WhatsApp-Cmb-Adapter für ioBroker
-Dank des kostenlosen Dienstes [CallMeBot](https://www.callmebot.com/blog/free-api-whatsapp-messages/) können Sie mit diesem Adapter WhatsApp-Nachrichten an sich selbst oder eine andere Nummer senden.
+## Whatsapp-cmb-Adapter für ioBroker
+Dank des kostenlosen [CallMeBot](https://www.callmebot.com/blog/free-api-whatsapp-messages/)-Dienstes können Sie mit diesem Adapter WhatsApp-Nachrichten an sich selbst oder eine andere Nummer senden.
 
-** Hinweis **: *Die kostenlose API ist nur für den persönlichen Gebrauch bestimmt!*
+**Hinweis** : *Die kostenlose API ist nur für den persönlichen Gebrauch bestimmt!*
 
 ### Aufbau
-*Die folgende Dokumentation wurde von der Seite [Callmebot](https://www.callmebot.com/blog/free-api-whatsapp-messages/) kopiert.*
+*Folgende Dokumentation wurde von [callmebot](https://www.callmebot.com/blog/free-api-whatsapp-messages/) Seite kopiert.*
 
-Sie müssen den API-Schlüssel vom Bot erhalten, bevor Sie die API verwenden können:
+Sie müssen den API-Schlüssel vom Bot abrufen, bevor Sie die API verwenden:
 
-- Fügen Sie die Telefonnummer **+ 34 644 59 71 67** zu Ihren Telefonkontakten hinzu. (Nennen Sie es wie Sie möchten.)
-- Senden Sie diese Nachricht "Ich erlaube Callmebot, mir Nachrichten zu senden" (auf Englisch) an den neu erstellten Kontakt (natürlich mit WhatsApp).
-- Warten Sie, bis Sie die Meldung `API Activated für Ihre Telefonnummer erhalten. Ihr APIKEY ist 123123` vom Bot. Da dies noch im Beta-Test ist, kann die Aktivierung bis zu 2 Minuten dauern.
-- Die WhatsApp-Nachricht vom Bot enthält den API-Schlüssel, der zum Senden von Nachrichten über die API erforderlich ist.
-- Sie können jetzt den API-SCHLÜSSEL in der ioBroker-Konfiguration verwenden.
+- Fügen Sie die Telefonnummer **+34 644 44 21 48** zu Ihren Telefonkontakten hinzu. (Nennen Sie es, wie Sie möchten.)
+- Senden Sie diese Nachricht „Ich erlaube Callmebot, mir Nachrichten zu senden“ (auf Englisch) an den neu erstellten Kontakt (natürlich mit WhatsApp).
+- Warten Sie, bis Sie die Meldung „API aktiviert für Ihre Telefonnummer“ erhalten. Ihr APIKEY ist 123123` vom Bot. Da sich dies noch im Beta-Test befindet, kann die Aktivierung bis zu 2 Minuten dauern.
+- Die WhatsApp-Nachricht des Bots enthält den API-Schlüssel, der zum Senden von Nachrichten über die API erforderlich ist.
+- Sie können jetzt den API KEY in der ioBroker-Konfiguration verwenden.
 
 Beispiel: ![Beispiel](../../../en/adapterref/iobroker.whatsapp-cmb/img/whatsapp.jpg)
 
-### Verwendung
+### Verwendungszweck
 Es gibt zwei Möglichkeiten, eine Nachricht zu senden:
 
-- über `whatsapp-cmb.0.sendMessage`. Schreiben Sie einfach einen Text in diesen Status und die Nachricht wird an die Standardnummer gesendet, die im Einstellungsdialog konfiguriert wurde.
+- über `whatsapp-cmb.0.sendMessage`. Schreiben Sie einfach einen Text in diesen Zustand und die Nachricht wird an die Standardnummer gesendet, die im Einstellungsdialog konfiguriert wurde.
 - per Nachricht vom Javascript-Adapter:
 
 ```
@@ -46,11 +46,11 @@ sendTo('whatsapp-cmb.0', 'send', {
 });
 ```
 
-![Blockly](../../../en/adapterref/iobroker.whatsapp-cmb/img/blockly.png)
+![Blockartig](../../../en/adapterref/iobroker.whatsapp-cmb/img/blockly.png)
 
-<! - Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __WORK IN PROGRESS__ ->
+### __LAUFENDE ARBEIT__ -->
 
 ## Changelog
 ### 0.1.6 (2020-08-31)
