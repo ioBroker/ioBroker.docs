@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.node-red/README.md
 title: ioBroker node-red Adapter
-hash: 4OxIR4oqWLjrtd/WIIWwjXCeQpiMeKliKKTDwivA7BQ=
+hash: rKZdxMnaWq/ITDPFIzqelHptO7GoM2xTsSDAKJ+vS3w=
 ---
 ![商标](../../../en/adapterref/iobroker.node-red/admin/node-red.png)
 
@@ -22,6 +22,9 @@ hash: 4OxIR4oqWLjrtd/WIIWwjXCeQpiMeKliKKTDwivA7BQ=
 
 **升级到1.17.2：**如果您已经使用过Node-Red认证：请在升级后再次在ioBroker的Node-Red实例设置中设置您的密码！否则升级后您将无法再登录 Node-Red。
 
+## 最大内存设置
+在适配器/实例配置中，您可以调整 node-red 进程的最大 RAM/Heap。对于较小的 node-red 安装，默认值就足够了。如果您有很多节点，或者您在日志中遇到性能问题或 node.red 进程崩溃，请升级最大 RAM 设置！根据您可用的 RAM（例如，在“可用”中使用 `free -m`）将其增加到 1024 (=1GB) 甚至更高。
+
 ## 设置
 - 安全模式 - 流程不会启动，您可以编辑流程以修复一些过载问题。
 
@@ -30,9 +33,17 @@ hash: 4OxIR4oqWLjrtd/WIIWwjXCeQpiMeKliKKTDwivA7BQ=
 ### **正在进行中** -->
 
 ## Changelog
+### 3.2.0 (2022-03-27)
+* (Bannsaenger) Added extended authentication to instance settings and config
+* (Apollon77) Fix Deadband Filter logic in InNode
+* (Apollon77/mickym2) Several In-Node optimizations and error preventions
+
+### 3.1.0 (2022-03-22)
+* (jwiesel) Added new parameter "httpNodeRoot" as httpRoot has been replaced by httpAdminRoot in version 3.0.0.
+* (Apollon77/mickym2) Adjust description of RBE cases for In-Node to match Filter node
+
 ### 3.0.1 (2022-03-20)
-* (Bannsaenger) added option for in Node to choose topic format (MQTT with / or ioBroker with .). Default: MQTT
-*
+* (Bannsaenger) Added option for in Node to choose topic format (MQTT with / or ioBroker with .). Default: MQTT
 
 ### 3.0.0 (2022-03-11)
 * IMPORTANT: Node-RED is now v2. Please check your nodes for compatibility! See also https://nodered.org/blog/2021/07/20/version-2-0-released and https://nodered.org/blog/2021/10/21/version-2-1-released

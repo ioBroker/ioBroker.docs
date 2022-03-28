@@ -168,9 +168,9 @@ IP-адрес с которого доступен драйвер (поддер�
 ![ioBroker.admin - system settings](img/admin_SystemSettings.jpg)
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 5.3.4 (2022-03-27)
 * (Apollon77) Fix some crash cases reported by Sentry
+* (bluefox) Corrected user tab
 
 ### 5.3.3 (2022-03-19)
 * (bluefox) Implemented the objects coloring depends on other states
@@ -190,10 +190,6 @@ IP-адрес с которого доступен драйвер (поддер�
 * (bluefox) Added JSONL option for base settings
 * (bluefox) Added small improvements
 * (bluefox) Added the file viewer for binary states
-
-### 5.2.3 (2021-12-24)
-* (bluefox) Fixed error in `AutocompleteSendTo`
-* (bluefox) Fixed error in charts
 
 ## License
 The MIT License (MIT)

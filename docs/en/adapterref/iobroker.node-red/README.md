@@ -17,6 +17,8 @@ This adapter uses the node-red server from https://github.com/node-red/node-red
 
 **Upgrade to 1.17.2:** If you already used Node-Red authentication: Please set your password in the Node-Red instance settings in ioBroker again after the upgrade! Otherwise you cannot login to Node-Red any longer after the upgrade.
 
+## Maximum RAM Setting
+In the adapter/instance configuration you can adjust the maximum RAM/Heap for the node-red process. The default is sufficient for smaller node-red installations. If you have many nodes or you experience performance issues or crashes of the node.red process in the logs, please upgrade the maximum RAM setting! Depending on your available RAM (see e.g. using `free -m` on "avail") increase it to 1024 (=1GB) or even higher.
 
 ## Settings
 - Safe mode - Flows will not be started, and you can edit the flows to fix some overload problem.
@@ -27,10 +29,10 @@ This adapter uses the node-red server from https://github.com/node-red/node-red
 -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 3.2.0 (2022-03-27)
 * (Bannsaenger) Added extended authentication to instance settings and config
 * (Apollon77) Fix Deadband Filter logic in InNode
-* (Apollon77/mickym2) Several In-Node optimizations
+* (Apollon77/mickym2) Several In-Node optimizations and error preventions
 
 ### 3.1.0 (2022-03-22)
 * (jwiesel) Added new parameter "httpNodeRoot" as httpRoot has been replaced by httpAdminRoot in version 3.0.0.

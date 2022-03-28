@@ -66,8 +66,9 @@ Bedeutung der Optionen im Konfigfile:
 
 - Erklärung zu den States unter ical.0.events.0 
   - Das Event im Pfad ical.0.events.0.later wird auf true gesetzt, wenn es heute noch stattfindet aber noch nicht begonnen ist
-  - Das Event im Pfad ical.0.events.0.now wir auf true gesetzt, wenn es aktuell aktiv ist
+  - Das Event im Pfad ical.0.events.0.now wird auf true gesetzt, wenn es aktuell aktiv ist
   - Das Event im Pfad ical.0.events.0.today wird auf true gesetzt, wenn das Event am heutigen Tag aktiv ist
+  - Hinweis: Termine der Vortage werden nicht angezeigt
   
 Durch Anpassen der CSS im VIS können die Styles von heutigen (Standard rot) und morgigen Terminen (Standard Orange) festegelegt werden: 
 - `iCalWarn` - Zeilenanfang Kalendereintrag heute
@@ -85,13 +86,13 @@ Dazu mit der rechten Maustaste auf dem Kalender in der Kalender App klicken und 
 Zum Einbinden eines Google Kalenders muss die Kalendereinstellung des Google Kalenders aufgerufen werden (mit der Maus auf "runter Pfeil" neben dem Kalender klicken). Die URL des Kalenders bekommt man durch klicken auf das `ICAL` Symbol neben dem Feld "Privatadresse". Diese URL dann entweder in den Settings bei defaultURL eintragen, oder sie bei `read URL` angeben, also z.B. `readURL https://www.google.com/calendar/ical/xxxxxxxx/basic.ics`.
 
 #### OwnCloud Kalender
-Zum Einbinden von gesharten Kalendern einer OwnCloud muss man dort in der Kalenderansicht in OwnCloud diesen Kalender als gesharten Kalender freigeben und dort den Link zum Kalender anzeigen lassen und diese URL (https://owncloud.xxxxxx.de/remote.php/dav/calendars/USER/xxxxxxx_shared_by_xxxxxx?export) entsprechend in den ioBroker.ical Adapter mit Nutzername und Passwort angeben.
+Zum Einbinden von geteilten Kalendern einer OwnCloud muss man dort in der Kalenderansicht in OwnCloud diesen Kalender als geteilten Kalender freigeben und dort den Link zum Kalender anzeigen lassen und diese URL (https://&lt;DOMAIN&gt;/remote.php/dav/calendars/USER/xxxxxxx_shared_by_xxxxxx?export) entsprechend in den ioBroker.ical Adapter mit Nutzername und Passwort angeben.
 
 #### NextCloud Kalender
 Zum Einbinden eines NextCloud Kalenders muss in der Kalenderansicht in NextCloud der Herunterladen-Link des einzelnen gewünschte Kalender eines Anwenders kopiert werden.
 Dazu als Anwender in Nextcloud einloggen und zum 'Kalender' wechseln. In der linken Spalte den gewünschten Kalender bei dem Kreis mit den drei Punkten anklicken.
 Im Menu mit der Maus über 'Herunterladen' schweben und mittels Rechtsklick den Link kopieren.
-Bsp.: https://192.168.1.234/remote.php/dav/calendars/MEINCALENDER/personal/?export  (wichtig ist, dass hier "?export" im Link enthalten ist).
+Bsp.: https://&lt;DOMAIN&gt;/remote.php/dav/calendars/MEINCALENDER/personal/?export  (wichtig ist, dass hier "?export" im Link enthalten ist).
 
 Diese URL in den ioBroker.ical Adapter mit Nutzername und Passwort angeben. Dieses muss für alle gewünschten Kalender aller User einzeln erfolgen.
 

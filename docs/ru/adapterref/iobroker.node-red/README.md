@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.node-red/README.md
 title: ioBroker узел-красный адаптер
-hash: 4OxIR4oqWLjrtd/WIIWwjXCeQpiMeKliKKTDwivA7BQ=
+hash: rKZdxMnaWq/ITDPFIzqelHptO7GoM2xTsSDAKJ+vS3w=
 ---
 ![Логотип](../../../en/adapterref/iobroker.node-red/admin/node-red.png)
 
@@ -22,6 +22,9 @@ hash: 4OxIR4oqWLjrtd/WIIWwjXCeQpiMeKliKKTDwivA7BQ=
 
 **Обновление до версии 1.17.2:** Если вы уже использовали аутентификацию Node-Red: после обновления снова установите пароль в настройках экземпляра Node-Red в ioBroker! В противном случае вы больше не сможете войти в Node-Red после обновления.
 
+## Максимальная настройка ОЗУ
+В конфигурации адаптера/экземпляра вы можете настроить максимальный объем оперативной памяти/кучи для процесса node-red. Значение по умолчанию достаточно для небольших установок с красным узлом. Если у вас много узлов или вы испытываете проблемы с производительностью или сбои процесса node.red в журналах, обновите максимальную настройку ОЗУ! В зависимости от доступной оперативной памяти (см., например, использование `free -m` в разделе «доступно») увеличьте ее до 1024 (= 1 ГБ) или даже выше.
+
 ## Настройки
 - Безопасный режим - потоки не будут запущены, и вы можете редактировать потоки, чтобы устранить проблему с перегрузкой.
 
@@ -30,9 +33,17 @@ hash: 4OxIR4oqWLjrtd/WIIWwjXCeQpiMeKliKKTDwivA7BQ=
 ### **ВЫПОЛНЯЕТСЯ** -->
 
 ## Changelog
+### 3.2.0 (2022-03-27)
+* (Bannsaenger) Added extended authentication to instance settings and config
+* (Apollon77) Fix Deadband Filter logic in InNode
+* (Apollon77/mickym2) Several In-Node optimizations and error preventions
+
+### 3.1.0 (2022-03-22)
+* (jwiesel) Added new parameter "httpNodeRoot" as httpRoot has been replaced by httpAdminRoot in version 3.0.0.
+* (Apollon77/mickym2) Adjust description of RBE cases for In-Node to match Filter node
+
 ### 3.0.1 (2022-03-20)
-* (Bannsaenger) added option for in Node to choose topic format (MQTT with / or ioBroker with .). Default: MQTT
-*
+* (Bannsaenger) Added option for in Node to choose topic format (MQTT with / or ioBroker with .). Default: MQTT
 
 ### 3.0.0 (2022-03-11)
 * IMPORTANT: Node-RED is now v2. Please check your nodes for compatibility! See also https://nodered.org/blog/2021/07/20/version-2-0-released and https://nodered.org/blog/2021/10/21/version-2-1-released

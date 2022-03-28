@@ -70,8 +70,9 @@ Meaning of the options in the config file:
   - The event in the path ical.0.events.0.later is set to true if it is still happening today but has not started yet
   - The event in path ical.0.events.0.now is set to true if it is currently active
   - The event in the path ical.0.events.0.today is set to true if the event is active today
+  - Note: events from previous days are not displayed
 
-  
+
 By adjusting the CSS in the VIS, the styles of today's (standard red) and tomorrow's dates (standard orange) can be set:
 - `iCalWarn` - Newline calendar entry today
 - `iCalPreWarn` - beginning of line calendar entry tomorrow
@@ -88,16 +89,15 @@ To do this, right-click on the calendar in the Calendar app and select Share Set
 To include a Google Calendar, you must go to the Google Calendar calendar setting (mouse click on the "down arrow" next to the calendar). The URL of the calendar can be found by clicking on the `ICAL` symbol next to the field" Private address ". Then enter this URL either in the settings at defaultURL, or specify it in `read URL`, eg. `readURL https: // www.google.com / calendar / ical / xxxxxxxx / basic.ics`.
 
 #### OwnCloud Calendar
-To include a hardcooked calendar of an OwnCloud, you have to approve this calendar in the calendar view in OwnCloud as a hardcourt calendar and there the link.
+To include a hardcooked calendar of an OwnCloud, you have to approve this calendar in the calendar view in OwnCloud as a hardcourt calendar and share the link. This URL (https://&lt;DOMAIN&gt;/remote.php/dav/calendars/USER/xxxxxxx_shared_by_xxxxxx?export) have to be added in the ioBroker.ical adapter with username and password.
 
 #### NextCloud Calendar
 To include a NextCloud calendar, the download link of the single desired calendar of a user must be copied in the calendar view in NextCloud.
 To do this, log in to NextCloud as a user and go to 'Calendar'. In the left column, click on the desired calendar by the circle with three dots.
 In the menu that appears hover with the mouse over 'Download' and right click to copy the link.
-Example: https://192.168.1.234/remote.php/dav/calendars/MYCALENDAR/personal/?export (it is important that the link contains "?export").
+Example: https://&lt;DOMAN&gt;/remote.php/dav/calendars/MYCALENDAR/personal/?export (it is important that the link contains "?export").
 
 Enter this URL into the ioBroker.ical adapter with username and password. This must be done individually for all desired calendars of all users.
-
 
 #### Baikal lightweight CalDAV+CardDAV Server
 The Baikal server offers the "ics-export" plugin that allows to export a calendar as a single ICal file. This export plugin is selected with the URL and allows seamless integration with this ioBroker adaptor. Please add the export filter to the URL of your calendar (`https://SERVER/baikal/cal.php/calendars/path/to/calendar?export&accept=ical`). If you encounter authentication issues, please change the `WebDAV authentication type` from `DIGEST` to `BASIC` in the admin settings of the WebUI of the Baikal server.

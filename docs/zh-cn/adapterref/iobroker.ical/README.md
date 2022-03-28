@@ -6,7 +6,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ical/README.md
 title: ioBroker iCal 适配器
-hash: 24U2AzftjRe9zl+hCtz2YJ+UOynTWXcSeTNjLqXEJyc=
+hash: +mnwgLPvuDjTlPP0gTLncrtpZFm7vI691ok3L9AJzos=
 ---
 ![商标](../../../en/adapterref/iobroker.ical/ical.png)
 
@@ -45,7 +45,7 @@ ioBroker 的 iCal 适配器从指定的 URL 读取 `.ics` 格式的日历文件�
 - `preview`: 7 # 表示提前7天显示约会
 - `runEveryMinutes`: 30 # 表示适配器每 30 分钟自动重新编写一次日历。如果不自动读取 0
 - `colorize`: true # 今天的约会和当前正在运行的约会会被涂成红色，明天的约会会被涂成橙色，这个选项会覆盖选项everyCalOneColor
-- `debug`: false # 如果为真，扩展输出将写入 CCU.IO 日志
+- `debug`: false # 如果为真，则将扩展输出写入 CCU.IO 日志
 - `defColor`:` white` # 设置日历条目的默认颜色
 - `fulltime`: ` ` # 确定用哪个字符串替换全天约会的时间 00:00。对于空格（引号之间），全天约会的时间被省略
 - `replaceDates`: true # 如果为 true，则将今天的日期替换为字符串 todayString（例如 Today）。明天的约会通过字符串明天字符串
@@ -66,12 +66,13 @@ ioBroker 的 iCal 适配器从指定的 URL 读取 `.ics` 格式的日历文件�
 
 通过设置一个事件（在本例中为“vacation”），在日历中搜索字符串“vacation”。
 如果带有关键字“假期”的约会在日历中，则自动将“假期名称”设置为“真”的状态。如果约会结束，则状态重置为假。
-为预览期间的每一天创建一个状态。危险！它被搜索一个子字符串，i。日历“假期”中的条目以及条目“假期父母”被识别。在设置事件时必须考虑到这一点。
+为预览期间的每一天创建一个状态。危险！它被搜索一个子字符串，i。日历“假期”中的条目以及条目“假期父母”被识别。设置事件时必须考虑到这一点。
 
 - 说明 ical.0.events.0 下的状态
   - 如果路径 ical.0.events.0.later 中的事件今天仍在发生但尚未开始，则将其设置为 true
-  - 路径 ical.0.events.0.now 中的事件如果当前处于活动状态，则设置为 true
+  - 如果路径 ical.0.events.0.now 中的事件当前处于活动状态，则将其设置为 true
   - 如果事件今天处于活动状态，则路径 ical.0.events.0.today 中的事件设置为 true
+  - 注意：不显示前几天的事件
 
 通过调整VIS中的CSS，可以设置今天（标准红色）和明天（标准橙色）的样式：
 
@@ -90,13 +91,13 @@ ioBroker 的 iCal 适配器从指定的 URL 读取 `.ics` 格式的日历文件�
 要包含 Google 日历，您必须转到 Google 日历日历设置（鼠标单击日历旁边的“向下箭头”）。单击“私人地址”字段旁边的 `ICAL` 符号可以找到日历的 URL。然后在 defaultURL 的设置中输入此 URL，或在 `read URL` 中指定它，例如。 `readURL https: // www.google.com / calendar / ical / xxxxxxxx / basic.ics`。
 
 #### OwnCloud 日历
-要包含 OwnCloud 的硬式日历，您必须在 OwnCloud 的日历视图中将此日历批准为硬式日历，并在此处提供链接。
+要包含 OwnCloud 的硬式日历，您必须在 OwnCloud 的日历视图中将此日历批准为硬式日历并共享链接。此 URL (https://&lt;DOMAIN&gt;/remote.php/dav/calendars/USER/xxxxxxx_shared_by_xxxxxx?export) 必须使用用户名和密码添加到 ioBroker.ical 适配器中。
 
 #### NextCloud 日历
 要包含 NextCloud 日历，必须将用户的单个所需日历的下载链接复制到 NextCloud 的日历视图中。
 为此，请以用户身份登录 NextCloud，然后转到“日历”。在左栏中，单击带有三个点的圆圈旁的所需日历。
 在出现的菜单中，将鼠标悬停在“下载”上，然后右键单击以复制链接。
-示例：https://192.168.1.234/remote.php/dav/calendars/MYCALENDAR/personal/?export（链接包含“?export”很重要）。
+示例：https://&lt;DOMAN&gt;/remote.php/dav/calendars/MYCALENDAR/personal/?export（链接包含“?export”很重要）。
 
 使用用户名和密码将此 URL 输入 ioBroker.ical 适配器。这必须为所有用户的所有所需日历单独完成。
 

@@ -1,11 +1,15 @@
-![Number of Installations](http://iobroker.live/badges/yeelight-2-installed.svg) ![Number of Installations](http://iobroker.live/badges/yeelight-2-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.yeelight-2.svg)](https://www.npmjs.com/package/iobroker.yeelight-2)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.yeelight-2.svg)](https://www.npmjs.com/package/iobroker.yeelight-2)
-[![Travis-CI](https://api.travis-ci.org/MeisterTR/ioBroker.yeelight-2.svg?branch=master)](https://travis-ci.org/iobroker-community-adapters/ioBroker.yeelight-2)
-[![AppVeyor](https://ci.appveyor.com/api/projects/status/github/MeisterTR/ioBroker.yeelight-2?branch=master&svg=true)](https://ci.appveyor.com/project/iobroker-community-adapters/ioBroker-yeelight-2/)
-
-[![NPM](https://nodei.co/npm/iobroker.yeelight-2.png?downloads=true)](https://nodei.co/npm/iobroker.yeelight-2/) 
-
 ![Logo](admin/yeelight.png)
+
+![Number of Installations](http://iobroker.live/badges/yeelight-2-installed.svg)
+![Number of Installations](http://iobroker.live/badges/yeelight-2-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.yeelight-2.svg)](https://www.npmjs.com/package/iobroker.yeelight-2)
+
+![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.yeelight-2/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/yeelight-2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.yeelight-2.svg)](https://www.npmjs.com/package/iobroker.yeelight-2)
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 # ioBroker.yeelight-2
 
 [Deutsche Beschreibung hier](README_de.md)
@@ -69,6 +73,12 @@ NOTE: Accepted on both "on" and "off" state.
 after 5 minutes.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Optimize unload handling and async executions
+* (Apollon77) Prevent log on unexpected types
+* (Apollon77) Add Sentry for crash reporting
+
 ### 1.1.2 (2021-08-05)
 * Fix Joi Error
 ### 1.1.1 (2021-08-03)

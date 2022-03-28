@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: WxQDA4QfXUb7WgPzrJH8H6DAvOKZ1aJVOScPMMGPCEA=
+hash: vF/81kbzAlCXnXbUiwZTMj1+Z4d5/mjqbJLRC3RTZbo=
 ---
 ![Logo](../../../en/adapterref/iobroker.web/admin/web.png)
 
@@ -24,7 +24,7 @@ Manchmal ist dieses Problem auf einen Fallback der socket.io-Kommunikation auf e
 Sie können die Option *Force Web-Sockets* so einstellen, dass nur die Verwendung von Web-Sockets-Transport erzwungen wird.
 
 ## Lassen Sie uns Zertifikate verschlüsseln
-Lesen [Hier](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
+Lesen Sie [Hier](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
 
 ## Erweiterungen
 Webtreiber unterstützt Erweiterungen.
@@ -79,9 +79,37 @@ Wenn beim Öffnen des Webports im Browser keine APP-Auswahl angezeigt werden sol
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __LAUFENDE ARBEIT__ -->
+### **IN ARBEIT** -->
 
 ## Changelog
+### 4.2.3 (2022-03-28)
+* (bluefox) Updated ws and socketio to have `log` method in sockets
+
+### 4.2.1 (2022-03-18)
+* (Apollon77) Provide state and object changes for simple-api
+
+### 4.2.0 (2022-02-21)
+* (bluefox) Updated ws to fix the flot editor
+
+### 4.1.6 (2022-02-19)
+* (Apollon77) Prevent some potential crash cases on adapter stop
+
+### 4.1.5 (2022-02-16)
+* (bluefox) Updated ws and socket-io
+
+### 4.1.4 (2022-02-14)
+* (bluefox) Added debug output for white list
+* (bluefox) Logout button will be hidden if basic authentication enabled. As logout not possible with basic authentication.
+
+### 4.1.3 (2022-02-13)
+* (bluefox) Corrected the white list GUI
+
+### 4.1.2 (2022-02-02)
+* (bluefox) Updated ws adapter to fix problem with URLs containing '#'
+
+### 4.1.1 (2022-02-01)
+* (bluefox) Allowed the switch between iobroker.socketio and iobroker.ws for internal web sockets
+
 ### 4.0.1 (2022-01-30)
 * (bluefox) Added the update warning
 

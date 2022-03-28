@@ -149,6 +149,12 @@ Abschließend sind die in der CCU angelegten Variablen aufgelistet
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.0.39 (2022-03-26)
+* (foxriver76) fixed another `ValueList` bug
+
+### 3.0.38 (2022-03-26)
+* (foxriver76) fixed bug with `ValueList` (closes #268)
+
 ### 3.0.37 (2022-02-22)
 * (foxriver76) only delete hm-rpc objects of configured instances from enums (fixes #253)
 

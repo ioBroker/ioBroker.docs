@@ -1,11 +1,15 @@
 ![Logo](img/oilfox.png)
 # ioBroker.oilfox
 
-![Number of Installations](http://iobroker.live/badges/oilfox-installed.svg) ![Number of Installations](http://iobroker.live/badges/oilfox-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.oilfox.svg)](https://www.npmjs.com/package/iobroker.oilfox)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.oilfox.svg)](https://www.npmjs.com/package/iobroker.oilfox)
-[![Build Status](https://travis-ci.org/iobroker-community-adapters/ioBroker.oilfox.svg?branch=master)](https://travis-ci.org/iobroker-community-adapters/ioBroker.oilfox.svg?branch=master)
+![Number of Installations](http://iobroker.live/badges/oilfox-installed.svg)
+![Number of Installations](http://iobroker.live/badges/oilfox-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.oilfox.svg)](https://www.npmjs.com/package/iobroker.oilfox)
 
-[![NPM](https://nodei.co/npm/iobroker.oilfox.png?downloads=true)](https://nodei.co/npm/iobroker.oilfox/) 
+![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.oilfox/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/oilfox/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.oilfox.svg)](https://www.npmjs.com/package/iobroker.oilfox)
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Description
 This adapter allows to get data from the oilfox sensor via the Oilfox Website.
@@ -14,6 +18,12 @@ This adapter allows to get data from the oilfox sensor via the Oilfox Website.
 * specify the your e-mail and password in the configuration page
 
 ## Changelog
+### 4.0.2 (2022-03-27)
+* IMPORTANT: All datastructures change with this update!
+* IMPORTANT: Password needs to be re-entered after update!
+* (inidona) update to new Oilfox API
+* (Apollon77) General updates
+* (Apollon77) Add Sentry for crash reporting
 
 ### 3.1.0 (2021.06.06)
 * (jogibear9988) fix multiple oilfox
@@ -55,7 +65,7 @@ This adapter allows to get data from the oilfox sensor via the Oilfox Website.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 jogibear9988 <jochen.kuehner@gmx.de>
+Copyright (c) 2018-2022 jogibear9988 <jochen.kuehner@gmx.de>, ioBroker Community Developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

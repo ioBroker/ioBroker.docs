@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.node-red/README.md
 title: ioBroker node-red Adapter
-hash: 4OxIR4oqWLjrtd/WIIWwjXCeQpiMeKliKKTDwivA7BQ=
+hash: rKZdxMnaWq/ITDPFIzqelHptO7GoM2xTsSDAKJ+vS3w=
 ---
 ![Logo](../../../en/adapterref/iobroker.node-red/admin/node-red.png)
 
@@ -22,6 +22,9 @@ Dieser Adapter verwendet den Node-Red-Server von https://github.com/node-red/nod
 
 **Upgrade auf 1.17.2:** Wenn Sie bereits die Node-Red-Authentifizierung verwendet haben: Bitte setzen Sie Ihr Passwort nach dem Upgrade erneut in den Node-Red-Instanzeinstellungen in ioBroker! Andernfalls können Sie sich nach dem Upgrade nicht mehr bei Node-Red anmelden.
 
+## Maximale RAM-Einstellung
+In der Adapter-/Instanzkonfiguration können Sie den maximalen RAM/Heap für den Node-Red-Prozess einstellen. Der Standardwert ist für kleinere Node-Red-Installationen ausreichend. Wenn Sie viele Knoten haben oder Leistungsprobleme oder Abstürze des node.red-Prozesses in den Protokollen auftreten, aktualisieren Sie bitte die maximale RAM-Einstellung! Je nach verfügbarem Arbeitsspeicher (siehe z. B. `free -m` auf "Avail") auf 1024 (=1GB) oder noch höher erhöhen.
+
 ## Einstellungen
 - Abgesicherter Modus - Flows werden nicht gestartet und Sie können die Flows bearbeiten, um ein Überlastungsproblem zu beheben.
 
@@ -30,9 +33,17 @@ Dieser Adapter verwendet den Node-Red-Server von https://github.com/node-red/nod
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 3.2.0 (2022-03-27)
+* (Bannsaenger) Added extended authentication to instance settings and config
+* (Apollon77) Fix Deadband Filter logic in InNode
+* (Apollon77/mickym2) Several In-Node optimizations and error preventions
+
+### 3.1.0 (2022-03-22)
+* (jwiesel) Added new parameter "httpNodeRoot" as httpRoot has been replaced by httpAdminRoot in version 3.0.0.
+* (Apollon77/mickym2) Adjust description of RBE cases for In-Node to match Filter node
+
 ### 3.0.1 (2022-03-20)
-* (Bannsaenger) added option for in Node to choose topic format (MQTT with / or ioBroker with .). Default: MQTT
-*
+* (Bannsaenger) Added option for in Node to choose topic format (MQTT with / or ioBroker with .). Default: MQTT
 
 ### 3.0.0 (2022-03-11)
 * IMPORTANT: Node-RED is now v2. Please check your nodes for compatibility! See also https://nodered.org/blog/2021/07/20/version-2-0-released and https://nodered.org/blog/2021/10/21/version-2-1-released

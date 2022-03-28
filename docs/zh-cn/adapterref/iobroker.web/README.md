@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: WxQDA4QfXUb7WgPzrJH8H6DAvOKZ1aJVOScPMMGPCEA=
+hash: vF/81kbzAlCXnXbUiwZTMj1+Z4d5/mjqbJLRC3RTZbo=
 ---
-![标识](../../../en/adapterref/iobroker.web/admin/web.png)
+![商标](../../../en/adapterref/iobroker.web/admin/web.png)
 
 ![安装数量](http://iobroker.live/badges/web-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.web.svg)
@@ -34,7 +34,7 @@ Web 驱动程序支持扩展。
 例如。用户可以激活特殊的代理适配器并访问同一网络服务器中的其他设备（如网络摄像头）。
 要求让所有服务在一台 Web 服务器下可用。
 
-网络扩展可以而且应该支持 `unload` 功能，如果卸载操作需要一些时间，它可以返回 `promise`。
+网络扩展可以并且应该支持 `unload` 函数，如果卸载操作需要一些时间，则可以返回 `promise`。
 
 您可以阅读有关网络扩展的更多信息[这里](WEB-EXTENSIONS-HOWTO.md)。
 
@@ -54,7 +54,7 @@ http://IP:8082/state/system.adapter.web.0.alive =>
 {"val":true,"ack":true,"ts":1606831924559,"q":0,"from":"system.adapter.web.0","lc":1606777539894}
 ```
 
-或者
+要么
 
 ```
 http://IP:8082/state/javascript.picture.png =>
@@ -79,9 +79,37 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 
 <!-- 下一个版本的占位符（在行首）：
 
-### __工作正在进行中__ -->
+### **正在进行中** -->
 
 ## Changelog
+### 4.2.3 (2022-03-28)
+* (bluefox) Updated ws and socketio to have `log` method in sockets
+
+### 4.2.1 (2022-03-18)
+* (Apollon77) Provide state and object changes for simple-api
+
+### 4.2.0 (2022-02-21)
+* (bluefox) Updated ws to fix the flot editor
+
+### 4.1.6 (2022-02-19)
+* (Apollon77) Prevent some potential crash cases on adapter stop
+
+### 4.1.5 (2022-02-16)
+* (bluefox) Updated ws and socket-io
+
+### 4.1.4 (2022-02-14)
+* (bluefox) Added debug output for white list
+* (bluefox) Logout button will be hidden if basic authentication enabled. As logout not possible with basic authentication.
+
+### 4.1.3 (2022-02-13)
+* (bluefox) Corrected the white list GUI
+
+### 4.1.2 (2022-02-02)
+* (bluefox) Updated ws adapter to fix problem with URLs containing '#'
+
+### 4.1.1 (2022-02-01)
+* (bluefox) Allowed the switch between iobroker.socketio and iobroker.ws for internal web sockets
+
 ### 4.0.1 (2022-01-30)
 * (bluefox) Added the update warning
 

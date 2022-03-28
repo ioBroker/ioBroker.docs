@@ -54,6 +54,10 @@ The easiest way to setup the keys is to start the adapter without any key setup 
 
 ## Changelog
 
+### 0.7.8
+* (ChL) Improve logging from receiver modules
+* (ChL) fix rawdata state
+
 ### 0.7.7
 * (ChL) Add support for Diehl PRIOS encoded telegrams (ported from wmbusmeters)
 

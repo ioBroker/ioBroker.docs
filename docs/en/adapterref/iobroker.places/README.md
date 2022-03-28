@@ -1,12 +1,14 @@
 ![Logo](admin/places.png)
 # ioBroker.places
-![Number of Installations](http://iobroker.live/badges/places-installed.svg) ![Number of Installations](http://iobroker.live/badges/places-stable.svg) 
-[![NPM version](https://img.shields.io/npm/v/iobroker.places.svg)](https://www.npmjs.com/package/iobroker.places)
-[![Dependency Status](https://img.shields.io/david/iobroker-community-adapters/iobroker.places.svg)](https://david-dm.org/iobroker-community-adapters/iobroker.places)
+![Number of Installations](http://iobroker.live/badges/places-installed.svg)
+![Number of Installations](http://iobroker.live/badges/places-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.places.svg)](https://www.npmjs.com/package/iobroker.places)
+
+![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.places/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/places/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.places.svg)](https://www.npmjs.com/package/iobroker.places)
-[![Github Issues](http://githubbadges.herokuapp.com/iobroker-community-adapters/ioBroker.places/issues.svg)](https://github.com/iobroker-community-adapters/ioBroker.places/issues)
-[![Travis-CI](https://img.shields.io/travis/iobroker-community-adapters/ioBroker.places/master.svg)](https://travis-ci.org/iobroker-community-adapters/ioBroker.places)
-[![AppVeyor](https://ci.appveyor.com/api/projects/status/eobyt279ncmd9qbi/branch/master?svg=true)](https://ci.appveyor.com/project/iobroker-community-adapters/iobroker-places/branch/master)
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Description
 This is an ioBroker adapter for processing location information messages which should contain a user, a geo-position and a timestamp as minimum. 
@@ -109,6 +111,10 @@ on({id: "telegram.0.communicate.requestRaw", change: "ne"}, function (obj) {
 The implementation is partly based on dschaedls [ioBroker.geofency](https://github.com/ioBroker/ioBroker.geofency) adapter. The logo has been taken from [Free Icons PNG](http://www.freeiconspng.com/images/maps-icon) and has been modified to have a transparent background.
 
 ## Changelog
+### 1.1.0 (2022-03-25)
+* (Basgo) Correctly set ack flag
+* (Apollon77) Add Sentry for crash reporting
+
 ### 1.0.0 (2020-08-16)
 * (bluefox) Updated packages
 * (bluefox) Refactoring
@@ -168,4 +174,4 @@ The implementation is partly based on dschaedls [ioBroker.geofency](https://gith
 
 This adapter is licensed under the [MIT License](../blob/master/LICENSE) which is part of this repository.
 
-Copyright (c) 2018-2020 BasGo <basgo@gmx.de>
+Copyright (c) 2018-2022 BasGo <basgo@gmx.de>

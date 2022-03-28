@@ -66,9 +66,15 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ```
 
 ## Changelog
+### 2.1.1 (2022-03-26)
+* (Apollon77) Optimize object type determination and adjustments
 
-### __WORK IN PROGRESS__
-* (Apollon77) Fix type issues since js.controller 3.3
+### 2.1.0 (2022-03-25)
+* IMPORTANT: You need to re-enter the password once after installing this version!
+* (Apollon77) Camera snapshots are now also stored in ioBroker storage to be easier used in visualizations!
+* (foxriver76) Hide password display in Admin when using Admin5
+* (Apollon77) Fix volume description
+* (Apollon77) Fix type issues since js-controller 3.3
 
 ### 2.0.1 (2021-09-17)
 * (MeisterTR) Workaround JSON config Password
@@ -180,7 +186,7 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 * (instalator) change for as and ss
 * (instalator) added snapshot functional 
 * (instalator) fixed systemConfig 
-* (instalator) fixed many error 
+* (instalator) fixed many error
 
 ### 0.0.4 (2018-10-07)
 * (instalator) Изменен репозиторий библиотеки

@@ -3,18 +3,19 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.whatsapp-cmb/README.md
 title: ioBroker.whatsapp-cmb
-hash: sVlJIat6I35imhV4ofyCrVukaUPymurismGdwWXhLSo=
+hash: +4R0b4EKTxlIOP+ASeqLAdhQ4h9URBWifmI6ci2xrow=
 ---
 ![Logo](../../../en/adapterref/iobroker.whatsapp-cmb/admin/whatsapp-cmb.png)
 
+![Anzahl der Installationen](http://iobroker.live/badges/whatsapp-cmb-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.whatsapp-cmb.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.whatsapp-cmb.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/ioBroker/iobroker.whatsapp-cmb.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/ioBroker/ioBroker.whatsapp-cmb/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.whatsapp-cmb.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.whatsapp-cmb/master.svg)
 
 # IoBroker.whatsapp-cmb
+![Testen und freigeben](https://github.com/ioBroker/ioBroker.whatsapp-cmb/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/whatsapp-cmb/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+
 ## Whatsapp-cmb-Adapter für ioBroker
 Dank des kostenlosen [CallMeBot](https://www.callmebot.com/blog/free-api-whatsapp-messages/)-Dienstes können Sie mit diesem Adapter WhatsApp-Nachrichten an sich selbst oder eine andere Nummer senden.
 
@@ -48,11 +49,20 @@ sendTo('whatsapp-cmb.0', 'send', {
 
 ![Blockartig](../../../en/adapterref/iobroker.whatsapp-cmb/img/blockly.png)
 
+Wenn Sie Emojis senden möchten, lesen Sie bitte https://www.callmebot.com/uncategorized/how-to-use-emoticos-with-the-api/
+
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
 ### __LAUFENDE ARBEIT__ -->
 
 ## Changelog
+### 0.2.2 (2022-03-27)
+* (Apollon77) Fix message encoding
+
+### 0.2.1 (2022-03-25)
+* (Apollon77) Add Emoticons support
+* (Apollon77) Add Sentry for crash reporting
+
 ### 0.1.6 (2020-08-31)
 * (Apollon77) Fixed the error with the phone number
 
@@ -65,7 +75,7 @@ sendTo('whatsapp-cmb.0', 'send', {
 ## License
 MIT License
 
-Copyright (c) 2020 Bluefox <dogafox@gmail.com>
+Copyright (c) 2020-2022 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

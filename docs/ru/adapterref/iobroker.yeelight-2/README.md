@@ -3,81 +3,94 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.yeelight-2/README.md
 title: ioBroker.yeelight-2
-hash: NFD78LZJT/qhKlTzUDeeiudEnOzmCpk5Xkkj9xdnZHY=
+hash: B3LK3xfNX9fmvXuxJxb46Nr0OTCP/yXUM0gYFA2x/i4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.yeelight-2/admin/yeelight.png)
 
 ![Количество установок](http://iobroker.live/badges/yeelight-2-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.yeelight-2.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.yeelight-2.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.yeelight-2.svg)
-![Трэвис-Си](https://api.travis-ci.org/MeisterTR/ioBroker.yeelight-2.svg?branch=master)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/MeisterTR/ioBroker.yeelight-2?branch=master&svg=true)
-![НПМ](https://nodei.co/npm/iobroker.yeelight-2.png?downloads=true)
+
+![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/ioBroker.yeelight-2/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/yeelight-2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 # IoBroker.yeelight-2
-[Deutsche Beschreibung hier](README_de.md)
+[Deutsche Beschreibung Hier](README_de.md)
 
-Этот адаптер управляет вашим устройством Yeelight. этот адаптер только для admin3. Admin2 не поддерживается
+Этот адаптер управляет вашим устройством Yeelight. этот адаптер только для admin3. Админ2 не поддерживается
 
 ## Версия перехода
-При переходе с 0.4.X на 0.9.X или выше объекты необходимо удалить вручную, чтобы их можно было воссоздать.
+При переходе с версии 0.4.X на версию 0.9.X или выше объекты необходимо удалять вручную, чтобы их можно было создать заново.
 
-## Монтаж
-для ламп RGB вам необходимо включить LAN в настройках приложения yeelight.
+## Установка
+для ламп RGB вам необходимо включить локальную сеть в настройках приложения yeelight.
 
 ![](../../../en/adapterref/iobroker.yeelight-2/admin/lan.jpg)
 
-## Конфиг
-вы можете добавить устройства вручную или найти устройства в сети. базовый порт - 55443. При желании вы можете изменить имя, ip, порт и смарт-имя
+## Конфигурация
+вы можете добавлять устройства вручную или находить устройства в сети. основной порт 55443. при желании можно изменить имя, ip, порт и смартнейм
 
 ### Умное имя
-если вы введете смарт-имя, устройство будет добавлено в iobroker.cloud и им можно будет управлять с помощью alexa.
+если вы введете смарт-имя, устройство будет добавлено в iobroker.cloud и может управляться Alexa.
 
 ### Найти устройство
-с помощью этой кнопки вы можете сканировать вашу Сеть на предмет устройств, если что-то найдено, то деления добавляются в таблицу. Сканирование сети занимает около 20 секунд. если устройства не найдены, значит, режим LAN не включен или лампочки находятся в другой сети.
+с помощью этой кнопки вы можете сканировать вашу сеть на наличие устройств, если что-то найдено, устройства добавляются в таблицу. Сканирование сети занимает около 20 секунд. если устройства не найдены, режим Lan не включен или лампочки находятся в другой сети.
 
-### Устройства нет в списке
-Если вашего устройства нет в списке, например. yltd003 используйте другую лампу с такими же функциями в этом случае настольная лампа, цвет или что-то еще.
+### Устройство отсутствует в списке
+Если вашего устройства нет в списке, например. yltd003 используйте другую лампу с такими же характеристиками в этом случае, настольную лампу, цвет или что-то еще.
 
 ## Set_scene Использование: Этот метод используется для установки интеллектуального светодиода непосредственно в указанное состояние. Если интеллектуальный светодиод выключен, он сначала включит интеллектуальный светодиод, а затем применит указанную команду.
 Параметры: 3 ~ 4.
 
- "class" может быть "color", "hsv", "ct", "cf", "auto_dealy_off".
+ «класс» может быть «цвет», «hsv», «ct», «cf», «auto_dealy_off».
 
 - «цвет» означает изменение интеллектуального светодиода на указанный цвет и
 
 яркость.
 
-- «hsv» означает изменение интеллектуального светодиода на указанный цвет и яркость.
-- «ct» означает изменение интеллектуального светодиода на указанное ct и яркость.
-- «cf» означает запуск цветового потока определенным образом.
-- "auto_delay_off" означает включение смарт-светодиода на указанный
+- "hsv" означает изменение интеллектуального светодиода на указанный цвет и яркость.
+- «ct» означает изменение смарт-светодиода на указанный ct и яркость.
+- "cf" означает запуск цветового потока заданным образом.
+- "auto_delay_off" означает включение интеллектуального светодиода в указанное время.
 
-яркость и запустите таймер сна, чтобы выключить свет через указанные минуты.
+яркость и запустить таймер сна, чтобы выключить свет через указанные минуты.
 
- «val1», «val2», «val3» зависят от класса.
+ «значение1», «значение2», «значение3» зависят от класса.
 
 Пример запроса:
 
-- `` ["цвет", 65280, 70] `
-- `` ["HSV", 300, 70, 100] ``
-- `` ["ct", 5400, 100] `
-- «« [«cf», 0,0, «500,1,255,100,1000,1,1,16776960,70»] «
-- `` ["auto_delay_off", 50, 5] ``
+- ``["цвет", 65280, 70]``
+- ``["hsv", 300, 70, 100]``
+- ``["ct", 5400, 100]``
+- ``["cf",0,0,"500,1,255,100,1000,1,16776960,70"]``
+- ``["auto_delay_off", 50, 5]``
 
-ПРИМЕЧАНИЕ. Допускается как в состоянии «включено», так и в состоянии «выключено».
+ПРИМЕЧАНИЕ. Принимается как во включенном, так и в выключенном состоянии.
 
  Для приведенных выше примеров:
 
- - Первый - установить цвет на «652280» и яркость 70%.
- - Второй - установить цвет на оттенок: 300, насыщенность: 70 и максимальную яркость.
- - Третий устанавливает CT на 500K и яркость 100%.
- - Четвертый - запуск бесконечного цветового потока для двух потоковых кортежей.
+ - Первый — установить цвет «652280» и яркость 70%.
+ - Во-вторых, установить цвет на Hue: 300, Saturation: 70 и максимальную яркость.
+ - Третий выставил СТ на 500К и 100% яркость.
+ - Четвертый - запустить бесконечный поток цветов на двух кортежах потока.
  - Пятый - включить свет до 50% яркости, а затем выключить
 
 через 5 минут.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Optimize unload handling and async executions
+* (Apollon77) Prevent log on unexpected types
+* (Apollon77) Add Sentry for crash reporting
+
+### 1.1.2 (2021-08-05)
+* Fix Joi Error
+### 1.1.1 (2021-08-03)
+* (MeisterTR) js-controller 3.3 fixes
+* (jlssmt) fixed unhandled promise rejection causing the adapter to stop
+* (jlssmt) adapter won't set power of offline devices to off anymore 
 ### 1.1.0 (2021-07-26)
 * (MeisterTR) add release-script update testing and dependencies
 * (Diginix) fixed data types
@@ -131,9 +144,10 @@ hash: NFD78LZJT/qhKlTzUDeeiudEnOzmCpk5Xkkj9xdnZHY=
 
 base from: adb backup https://github.com/cahek2202/ioBroker.yeelight
 
+## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2019 MeisterTR <meistertr.smarthome@gmail.com>, cahek2202 <cahek2202@mail.ru>
+Copyright (c) 2018-2022 MeisterTR <meistertr.smarthome@gmail.com>, cahek2202 <cahek2202@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -93,6 +93,9 @@ Please check it https://www.smarthomejetzt.de/mit-iobroker-auf-eine-home-assista
 -->
 
 ## Changelog
+### 1.1.1 (2022-03-25)
+* (Apollon77) Show password fields masked again in config
+
 ### 1.1.0 (2022-03-24)
 * IMPORTANT: You need to re-enter the password once after installing this version!
 * (Apollon77) Implement Service triggers to use any value to trigger or stringified JSON to call with fields

@@ -121,9 +121,9 @@ Auch die Repositorien und Sicherheitseinstellungen können hier eingestellt werd
 Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitts zu erreichen.
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 5.3.4 (2022-03-27)
 * (Apollon77) Fix some crash cases reported by Sentry
+* (bluefox) Corrected user tab
 
 ### 5.3.3 (2022-03-19)
 * (bluefox) Implemented the objects coloring depends on other states
@@ -143,10 +143,6 @@ Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitt
 * (bluefox) Added JSONL option for base settings
 * (bluefox) Added small improvements
 * (bluefox) Added the file viewer for binary states
-
-### 5.2.3 (2021-12-24)
-* (bluefox) Fixed error in `AutocompleteSendTo`
-* (bluefox) Fixed error in charts
 
 ## License
 The MIT License (MIT)

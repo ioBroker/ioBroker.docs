@@ -3,36 +3,36 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.places/README.md
 title: ioBroker.places
-hash: 8+QNTj+EEePm/n7FPJqzRkURNPQcB/Ho3QnbrSqFFd0=
+hash: IZ3xVAwrX/8hKuFdFHuCG8pIYwTjGTZIoShTd11M/vo=
 ---
 ![商标](../../../en/adapterref/iobroker.places/admin/places.png)
 
 ![安装数量](http://iobroker.live/badges/places-stable.svg)
-![NPM版本](https://img.shields.io/npm/v/iobroker.places.svg)
-![依赖状态](https://img.shields.io/david/iobroker-community-adapters/iobroker.places.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.places.svg)
-![Github问题](http://githubbadges.herokuapp.com/iobroker-community-adapters/ioBroker.places/issues.svg)
-![特拉维斯](https://img.shields.io/travis/iobroker-community-adapters/ioBroker.places/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/eobyt279ncmd9qbi/branch/master?svg=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.places.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.places.svg)
 
-＃ioBroker.places
-##说明
-这是用于处理位置信息消息的ioBroker适配器，该消息应至少包含用户，地理位置和时间戳。
-适配器分析位置信息是否在ioBroker或其他可选位置的位置配置周围的半径内。
+# IoBroker.places
+![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.places/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/places/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-##配置
-仅有一个强制性配置值：半径（米），将用于标识用户的当前位置。
-ioBroker的位置用于标识“在家”的用户，其他位置也可以作为配置的一部分添加。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
-*半径*（_mandatory_）应该是用于检查用户是否在特定位置（家庭或自定义）的半径（以米为单位）。
-* **家的名称**可用于设置家的自定义名称。
-* ** Google Maps API密钥**将用于启用地理编码。打开配置页面后，将从配置的vis-map实例（如果有）中获取缺少的API密钥。
-* **可以激活Google Maps Geocoding **，以获取所提供地理位置的真实地址和高程。
-*地点（Places）是一个灵活的列表，其中包含自定义地点，每个地点都应具有名称，纬度和经度的有效值。
-* **用户**是包含用户映射的灵活列表。
+＃＃ 描述
+这是一个 ioBroker 适配器，用于处理至少应包含用户、地理位置和时间戳的位置信息消息。
+适配器分析位置信息是否在 ioBroker 的位置配置或可选的其他位置周围的半径内。
 
-##用法
-要处理位置更新，只需使用以下语法发送一条消息：
+＃＃ 配置
+只有一个强制配置值：半径（米），用于识别用户的当前位置。
+ioBroker 的位置用于识别用户“在家”，其他位置可以作为配置的一部分添加。
+
+* **Radius** (_mandatory_) 应该是以米为单位的半径，用于检查用户是否在特定位置（家庭或自定义）。
+* **家的名字**可用于为家设置自定义名称。
+* **Google Maps API 密钥** 将用于启用地理编码。打开配置页面时，将从配置的 vis-map 实例（如果可用）中获取缺少的 API 密钥。
+* **Google Maps Geocoding** 可以被激活以获得所提供地理位置的真实地址和海拔高度。
+* **Places** 是一个包含自定义地点的灵活列表，其中每个地点都应具有有效的名称、纬度和经度值。
+* **Users** 是一个包含用户映射的灵活列表。
+
+＃＃ 用法
+要处理位置更新，只需使用以下语法发送消息：
 
 ```
 // send a message to all instances of places adapter
@@ -60,8 +60,8 @@ sendTo('locations.0', {
 }, function (res) { log(JSON.stringify(res)); });
 ```
 
-##返回消息的结构
-以下块显示了响应消息的外观。对于每个值，ioBroker对象树都具有相应的状态。
+## 返回消息的结构
+以下块显示了响应消息的外观。对于每个值，ioBroker 对象树都有一个相应的状态。
 
 ```
 {
@@ -78,22 +78,22 @@ sendTo('locations.0', {
 }
 ```
 
-##示例：OwnTracks + ioBroker.iot + ioBroker.places
-### 1.配置iobroker.iot
-在“服务白名单”下添加自定义服务** xyz **。
+## 示例：OwnTracks + ioBroker.iot + ioBroker.places
+### 1. 配置iobroker.iot
+在**服务白名单**下添加自定义服务**xyz**。
 
-### 2.配置OwnTracks移动应用
-将模式更改为“ HTTP专用”，并使用以下地址作为“主机”：https://iobroker.pro/service/custom_xyz/ <user-app-key>
+### 2. 配置 OwnTracks 移动应用
+将模式更改为 **HTTP Private** 并使用以下地址作为 **Host** ：https://iobroker.pro/service/custom_xyz/<user-app-key>
 
-### 3.配置iobroker.places
-在“集成”选项卡上，您必须选择云适配器的实例和** xyz **作为服务。适配器将侦听该服务的传入请求并开始处理。
+### 3. 配置iobroker.places
+在集成选项卡上，您必须选择云适配器的实例和 **xyz** 作为服务。适配器将侦听服务的传入请求并开始处理。
 
-##示例：Telegram + ioBroker.telegram + ioBroker.places
-### 1.配置iobroker.telegram
-启用“存储原始请求”选项。
+## 示例：Telegram + ioBroker.telegram + ioBroker.places
+### 1. 配置iobroker.telegram
+启用**存储原始请求**的选项。
 
-### 2.创建脚本（ioBroker.javascript）
-创建一个带有原始请求订阅的简短脚本，例如从** telegram.0.communicate.requestRaw **中发送一个新的请求对象到iobroker.places（或它的一个实例）：
+### 2. 创建脚本 (ioBroker.javascript)
+创建一个订阅原始请求的简短脚本，f.e.从 **telegram.0.communicate.requestRaw** 发送一个新的请求对象到 iobroker.places（或它的一个实例）：
 
 ```
 on({id: "telegram.0.communicate.requestRaw", change: "ne"}, function (obj) {
@@ -109,10 +109,14 @@ on({id: "telegram.0.communicate.requestRaw", change: "ne"}, function (obj) {
 });
 ```
 
-##积分
-该实现部分基于dschaedls[ioBroker.geofency]（https://github.com/ioBroker/ioBroker.geofency）适配器。徽标取自[免费图标PNG](http://www.freeiconspng.com/images/maps-icon)，并且已被修改为具有透明背景。
+## 学分
+该实现部分基于 dschaedls [ioBroker.geofency](https://github.com/ioBroker/ioBroker.geofency) 适配器。徽标取自 [免费图标 PNG](http://www.freeiconspng.com/images/maps-icon)，并已修改为具有透明背景。
 
 ## Changelog
+### 1.1.0 (2022-03-25)
+* (Basgo) Correctly set ack flag
+* (Apollon77) Add Sentry for crash reporting
+
 ### 1.0.0 (2020-08-16)
 * (bluefox) Updated packages
 * (bluefox) Refactoring
@@ -172,4 +176,4 @@ on({id: "telegram.0.communicate.requestRaw", change: "ne"}, function (obj) {
 
 This adapter is licensed under the [MIT License](../blob/master/LICENSE) which is part of this repository.
 
-Copyright (c) 2018-2020 BasGo <basgo@gmx.de>
+Copyright (c) 2018-2022 BasGo <basgo@gmx.de>
