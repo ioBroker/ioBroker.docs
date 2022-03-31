@@ -72,9 +72,12 @@ You can debug view charts locally with:
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Added background to export image
+
 ### 1.0.5 (2022-02-16)
 * (bluefox) Added "i" in tooltips by interpolated values
 

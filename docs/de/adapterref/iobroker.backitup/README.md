@@ -28,7 +28,7 @@ BADGE-Donate: https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg
 
 # Inhalt
 * [Grundlegendes](#grundlegendes)
-* [Abhängigkeiten](#abhängkeiten)
+* [Abhängigkeiten](#Abhängigkeiten)
 * [Benutzung und Bedienung](#Benutzung-und-Bedienung)
 * [Backuptypen](#Backuptypen)
 	* [ioBroker Backup](#ioBroker-Backup)
@@ -259,6 +259,15 @@ Hier muss in den CIFS-Einstellungen die Pfadangabe eingetragen werden, wo hin ko
 Die Angabe der IP Adresse muss für die Copy-Funktion leer bleiben.
   
 ## Dropbox
+Um die Sicherung in der Dropbox zu nutzen, muss man einen Access Token holen. Das kann man auf der Konfigurationsseite von Backitup machen.<br>
+ioBroker greift nur auf die definierte Bereiche.<br><br>
+Keine Tokens oder Anwenderdaten werden in der Cloud gespeichert.
+
+
+Wer seine eigene Dropbox API App erzeugen möchte, kann dies in den Einstellungen von Backitup auswählen und muss im Anschluss folgende Schritte durchführen.
+ 
+> Hinweis: Eigene Apps haben nur noch einen "short_live" Token, welcher lediglich 4 Stunden Gültigkeit hat. Wir empfehlen, die iobroker Standard App zu verwenden.
+ 
 Um die Sicherung in der Dropbox zu nutzen, muss ein Access Token und eine APP unter https://www.dropbox.com/developers/apps erstellt werden<br><br>
 * Schritt 1: Den Button "Create App" nutzen
 * Schritt 2: "Scoped access" auswählen
@@ -270,8 +279,8 @@ Um die Sicherung in der Dropbox zu nutzen, muss ein Access Token und eine APP un
 In deiner Dropbox gibt es nun einen neuen Ordner mit dem Namen "Apps"
   
 ## Google Drive
-Um die Sicherung in der Google Drive zu nutzen, muss ein Access Token holen. Das kann man auf der Konfigurationsseite machen.<br>
-ioBroker greift nur auf die definierte Bereiche an. Das Code für oAuth kann man [hier](https://github.com/simatec/ioBroker.backitup/blob/master/docs/oAuthService.js) ansehen.<br><br>
+Um die Sicherung in der Google Drive zu nutzen, muss man sich Access einen Token holen. Das kann man auf der Konfigurationsseite machen.<br>
+ioBroker greift nur auf die definierten Bereiche. Den Code für oAuth kann man [hier](https://github.com/simatec/ioBroker.backitup/blob/master/docs/oAuthService.js) ansehen.<br><br>
 Keine Tokens oder Anwenderdaten werden in der Cloud gespeichert.
 
 ## WebDAV
@@ -382,6 +391,7 @@ Syntax: {wert: <BackitupInstanz>.oneClick.<Auslösetrigger>; wert === "true" || 
    * Pushover
    * E-Mail 
    * Whatsapp
+   * Signal
 
 ### [zurück](#Inhalt)
 ---
@@ -478,6 +488,29 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 2.4.3 (2022-03-29)
+* (simatec) Bugfixes Dropbox
+* (simatec) try/catch options added
+* (simatec) code verifier check for Dropbox oAuth
+
+### 2.4.2 (2022-03-29)
+* (simatec) Bugfixes Dropbox
+
+### 2.4.1 (2022-03-29)
+* (simatec) small Bugfixes
+* (simatec) try/catch Dropbox Api
+* (simatec) Debug Log Dropbox Api
+
+### 2.4.0 (2022-03-28)
+* (simatec) Default History path added
+* (simatec) dependencies updated
+* (simatec) Dropbox default APP added
+* (simatec) Bugfix Info Messages
+* (simatec) Info Message for Script-Backup added
+* (simatec) Signal-cmb added
+* (simatec) many small Bugfixes
+* (simatec) Documentation updated
+
 ### 2.3.5 (2022-02-26)
 * (simatec) fix Redis Config
 

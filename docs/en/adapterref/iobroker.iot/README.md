@@ -263,6 +263,9 @@ Following types are supported:
 -->
 
 ## Changelog
+### 1.11.4 (2022-03-29)
+* (Apollon77) Fix crash cases reported by Sentry
+
 ### 1.11.3 (2022-03-23)
 * (bluefox) Added the generation of URL key for services
 

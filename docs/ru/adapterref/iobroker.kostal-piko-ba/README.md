@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: qKmWR0OODk+IzG6VSWERlUkcs5OCuwE/6awZMTFyOe0=
+hash: qNF25xTcFKGUJlb9SWHTwK/ONTLmXpHap/HieI4rNs0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
@@ -20,7 +20,7 @@ CI-тесты: ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/
 
 ## Адаптер для чтения данных Kostal Piko & Piko BA для iOBroker
 Адаптер для чтения данных Kostal Piko & Piko BA. Адаптер создает несколько состояний и последовательно их обновляет.
-Адаптер для инверторов Kostal Piko 6BA, 10, 12, 15 и 20.
+Адаптер для инверторов Kostal Piko 6.0BA, 8.0BA, 10.0BA, 10, 12, 15, 17 и 20.
 Буду очень признателен, если вы проверите работоспособность других инверторов и отправьте мне сообщение.
 
 ## Настройки

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
 title: 用于 ioBroker 的 Ecovacs Deebot 适配器
-hash: 3BGSH3RZfns7IR4uZVaIoX8nGD2rfZ3Q0n15IypQv1Y=
+hash: hvykbtK0LANUvNfeIaYzChCEZqq3plR0jMJQmCWxRgs=
 ---
 ![商标](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -19,7 +19,7 @@ hash: 3BGSH3RZfns7IR4uZVaIoX8nGD2rfZ3Q0n15IypQv1Y=
 此适配器使用 [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js) 库。
 
 ＃＃ 特征
-一些值得注意的功能是：
+一些值得注意的特点是：
 
 * 检索信息（例如电池、清洁日志、耗材、清洁和充电状态）
 * 发送清洁命令（例如自动、点区域、自定义区域）和各种其他命令（例如播放声音、重置消耗品）
@@ -54,8 +54,6 @@ hash: 3BGSH3RZfns7IR4uZVaIoX8nGD2rfZ3Q0n15IypQv1Y=
 * Deebot OZMO Slim 10/11
 * 地宝 OZMO T5
 * 地宝 U2 系列
-* 地宝 N3 MAX
-* 地宝 N7
 * 地宝 N8 系列
 * 地宝 T8 系列
 * 地宝 T9 系列
@@ -111,9 +109,13 @@ sudo npm install canvas --unsafe-perm=true
 
 ## Changelog
 
-### 1.3.4 (alpha)
-* Bumped ecovacs-deebot.js to 0.7.2 (alpha)
-* Implement some experimental functions for auto empty stations
+### 1.3.5 (alpha)
+* Bumped ecovacs-deebot.js to 0.7.2 (stable)
+* Some improvements and fixes
+
+### 1.3.4
+* Bumped ecovacs-deebot.js to 0.7.2 (beta)
+* Implemented some experimental functions for auto empty stations
 * Some refactoring
 
 ### 1.3.3

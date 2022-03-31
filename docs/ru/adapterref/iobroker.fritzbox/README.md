@@ -137,6 +137,12 @@ TR-064 можно считать дальнейшим развитием, пос
 Новичкам рекомендуется установить [TR-064 адаптер](https://github.com/ioBroker/ioBroker.docs/tree/master/docs/adapterref/docs/iobroker.tr-064/de).
 
 ## Changelog
+
+### __WOKR IN PROGRESS__
+* (Apollon77) Write history.missedTableJSON value
+* (Apollon77) Store tam files in an instance specific location
+* (Apollon77) Fix crash cases reported by Sentry
+
 ### 0.4.0 (2022-03-25)
 * IMPORTANT: You need to re-enter the password once after installing this version!
 * (Khaos66/Apollon77) General updates and fixes

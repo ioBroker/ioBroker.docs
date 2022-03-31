@@ -35,6 +35,12 @@ If you want to support the work I would appreciate a small donation. This is 100
 
 ## Changelog
 
+### 0.1.19
+* (holomekc) problems with initial setup fixed
+
+### 0.1.18
+* (holomekc) rateLimit added so that not too many request are executed against controller
+
 ### 0.1.17
 * (holomekc) add yale values for door lock
 * (holomekc) update states on startup

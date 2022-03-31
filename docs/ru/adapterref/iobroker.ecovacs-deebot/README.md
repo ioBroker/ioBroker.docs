@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecovacs-deebot/README.md
 title: Адаптер Ecovacs Deebot для ioBroker
-hash: 3BGSH3RZfns7IR4uZVaIoX8nGD2rfZ3Q0n15IypQv1Y=
+hash: hvykbtK0LANUvNfeIaYzChCEZqq3plR0jMJQmCWxRgs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -54,8 +54,6 @@ hash: 3BGSH3RZfns7IR4uZVaIoX8nGD2rfZ3Q0n15IypQv1Y=
 * Дибот ОЗМО тонкий 10/11
 * Дибот ОЗМО Т5
 * Серия Deebot U2
-* Дибот N3 МАКС
-* Дибот N7
 * Серия Deebot N8
 * Серия Deebot T8
 * Серия Deebot T9
@@ -111,9 +109,13 @@ sudo npm install canvas --unsafe-perm=true
 
 ## Changelog
 
-### 1.3.4 (alpha)
-* Bumped ecovacs-deebot.js to 0.7.2 (alpha)
-* Implement some experimental functions for auto empty stations
+### 1.3.5 (alpha)
+* Bumped ecovacs-deebot.js to 0.7.2 (stable)
+* Some improvements and fixes
+
+### 1.3.4
+* Bumped ecovacs-deebot.js to 0.7.2 (beta)
+* Implemented some experimental functions for auto empty stations
 * Some refactoring
 
 ### 1.3.3

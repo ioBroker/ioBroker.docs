@@ -75,6 +75,10 @@ The schheduler will start and connect to the weather station after the first int
 
 Latest version
 
+#### 0.8.2 Updated UVRaw to maxvalue 4000
+
+#### 0.8.1 Bugfix for timestamp and listener
+
 #### 0.8.0 Added time stamps for daily min and max values
 
 #### 0.7.3 Dependency updates and Travis testing updates

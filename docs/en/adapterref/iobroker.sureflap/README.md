@@ -117,7 +117,7 @@ The picture of the cat flap, hub and smartphone app is provided free to use from
 
 ## Changelog
 
-### 1.1.3 (2021-02-28)
+### 1.1.3 (2021-03-28)
 * (Sickboy78) code improvements
 * (Sickboy78) improved error handling if no pet has been assigned yet
 

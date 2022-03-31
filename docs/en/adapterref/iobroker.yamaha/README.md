@@ -43,7 +43,8 @@ You have to enable "network standby" function in the configuration of your recei
 
 
 ## Changelog
-### 0.5.1
+### 0.5.1 (2022-03-29)
+* (Apollon77) Fix crash cases reported by Sentry
 * (Sneak-L8) fix type of pureDirect
 
 ### 0.5.0 (2022-03-08)

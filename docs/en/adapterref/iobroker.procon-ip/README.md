@@ -100,6 +100,10 @@ Useful links for the approach will be
 
 ## Changelog
 
+### Release v1.2.1
+Bugfix release:
+* Fix connection problem (see [related issue](https://github.com/ylabonte/ioBroker.procon-ip/issues/29))
+
 ### Release v1.2.0
 Minor release:
 * Update `procon-ip` API library package to v1.3.2  

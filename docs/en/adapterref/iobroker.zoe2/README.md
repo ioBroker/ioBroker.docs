@@ -121,6 +121,11 @@ for your great documentation and work.
 
 ## Changelog
 
+### 0.2.5 (2022-03-30)
+- Better error messages if kameronapikey changed
+- Link to github-wiki added to admin-screen
+- updated dependencies
+
 ### 0.2.4 (2022-02-16)
 - Replaced obsolete Request-Library by axios
 - Code-Adjustments

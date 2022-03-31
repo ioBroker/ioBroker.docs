@@ -45,6 +45,13 @@ the personsId is the id within the "Known" persons folder
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Integrate Doorbell (WIP!)
+
+### 1.7.1 (2022-03-30)
+* (Apollon77) Fix Event cleanup
+
 ### 1.7.0 (2022-03-24)
 * IMPORTANT: js-controller 3.3.19 is needed at least!
 * (Apollon77) Activate events again (manually delete objects once if you get type errors)

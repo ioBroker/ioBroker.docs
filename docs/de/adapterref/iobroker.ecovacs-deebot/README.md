@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: 3BGSH3RZfns7IR4uZVaIoX8nGD2rfZ3Q0n15IypQv1Y=
+hash: hvykbtK0LANUvNfeIaYzChCEZqq3plR0jMJQmCWxRgs=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -54,8 +54,6 @@ Bei den aufgeführten Modellen handelt es sich um solche, die ich selbst im Eins
 *Deebot OZMO Slim 10/11
 *Deebot OZMO T5
 * Deebot U2-Serie
-*Deebot N3 MAX
-* Debot N7
 * Deebot N8-Serie
 * Deebot T8-Serie
 * Deebot T9-Serie
@@ -111,9 +109,13 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
 
 ## Changelog
 
-### 1.3.4 (alpha)
-* Bumped ecovacs-deebot.js to 0.7.2 (alpha)
-* Implement some experimental functions for auto empty stations
+### 1.3.5 (alpha)
+* Bumped ecovacs-deebot.js to 0.7.2 (stable)
+* Some improvements and fixes
+
+### 1.3.4
+* Bumped ecovacs-deebot.js to 0.7.2 (beta)
+* Implemented some experimental functions for auto empty stations
 * Some refactoring
 
 ### 1.3.3

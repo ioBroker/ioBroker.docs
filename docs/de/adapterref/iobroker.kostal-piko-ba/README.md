@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: qKmWR0OODk+IzG6VSWERlUkcs5OCuwE/6awZMTFyOe0=
+hash: qNF25xTcFKGUJlb9SWHTwK/ONTLmXpHap/HieI4rNs0=
 ---
 ![Logo](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
@@ -20,7 +20,7 @@ CI-Tests: ![Node.js-CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workf
 
 ## Adapter zum Auslesen von Kostal Piko & Piko BA Daten für iOBroker
 Adapter zum Auslesen von Kostal Piko & Piko BA Daten. Der Adapter erstellt einige Zustände und aktualisiert sie nacheinander.
-Adapter funktioniert mit Kostal Piko 6BA, 10, 12, 15 & 20 Wechselrichtern.
+Adapter funktioniert mit Kostal Piko 6.0BA, 8.0BA, 10.0BA, 10, 12, 15, 17 & 20 Wechselrichtern.
 Es wird sehr geschätzt, wenn Sie die Funktionalität mit anderen Wechselrichtern überprüfen und mir bitte eine Nachricht senden.
 
 ## Einstellungen

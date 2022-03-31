@@ -3,35 +3,35 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: OsS7Fb1g5FHqz4ndcg9s687Fco2rkIKzDDHASbVnskE=
+hash: adErFx29GS51MtHt4t3z63MRU+ojFpcIH8aJxYJ3KgQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.echarts.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.echarts.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/ioBroker/iobroker.echarts.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/ioBroker/ioBroker.echarts/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/ioBroker/ioBroker.echarts/badge.svg)
 
 # IoBroker.echarts
-## Echarts Adapter für ioBroker
+## ECharts-Adapter für ioBroker
 Erstellen Sie nützliche Diagramme in ioBroker:
 
 ![Bildschirmfoto](../../../en/adapterref/iobroker.echarts/img/screenshot1.png)
 
-## Verwendung
-Fügen Sie nach dem Neustart die Registerkarte im Admin hinzu: ![Administrator](../../../en/adapterref/iobroker.echarts/img/admin.png)
+## Verwendungszweck
+Nach dem Neustart den Tab im Admin hinzufügen: ![Administrator](../../../en/adapterref/iobroker.echarts/img/admin.png)
 
 Auf die erstellte Voreinstellung kann auch im Webadapter zugegriffen werden. URL: `http://IP:8082/echarts/index.html?preset=echarts.0.PRESETID`.
 
 Für vis gibt es ein spezielles Widget mit einfacher Auswahl von Voreinstellungen.
 
-### Tooltip
-Kleinbuchstaben `i` zeigen an, dass der Wert aus den 2 Nachbarwerten interpoliert wurde und zu diesem Zeitpunkt nicht vorhanden ist.
+### Kurzinfo
+Der Kleinbuchstabe `i` gibt an, dass der Wert aus den 2 Nachbarwerten interpoliert wurde und zu diesem Zeitstempel nicht existiert.
 
-![Tooltip](../../../en/adapterref/iobroker.echarts/img/tooltip.png)
+![Kurzinfo](../../../en/adapterref/iobroker.echarts/img/tooltip.png)
 
 ### Serverseitiges Rendern
-Sie können die Voreinstellungen auf dem Server rendern und als base64-URL abrufen oder in ioBroker DB auf der Festplatte speichern:
+Sie können die Voreinstellungen auf dem Server rendern und als base64-URL abrufen oder auf der Festplatte in der ioBroker-DB speichern:
 
 ```
 sendTo('echarts.0', {
@@ -60,27 +60,62 @@ sendTo('echarts.0', {
 });
 ```
 
-** Achtung: Sie können Linien in der Legende auf Touch-Geräten mit aktiviertem Zoom nicht aktivieren / deaktivieren **
+**Achtung: Sie können Linien in der Legende auf Touch-Geräten mit aktiviertem Zoom nicht aktivieren/deaktivieren**
 
 ## Entwicklerhandbuch
-** Für Nichtentwickler funktioniert dieser Link nicht! **
+**Für Nicht-Entwickler funktioniert dieser Link nicht!**
 
 Sie können Ansichtsdiagramme lokal debuggen mit:
 
-- cd iobroker.echarts / src-chart
-- npm run start
-- Browser: http:// localhost: 8081 / adapter / echarts / tab.html? Dev = true
+- cd iobroker.echarts/src-chart
+- npm-Lauf starten
+- Browser: http://localhost:8081/adapter/echarts/tab.html?dev=true
 
 ## Machen
 - Widget für vis (Schaltfläche)
 - Widget für Material
-- Aufzählungssymbole in Ordnern oder in deren Nähe anzeigen
+- Aufzählungssymbole in Ordnern oder in der Nähe anzeigen
 
-<! - Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __WORK IN PROGRESS__ ->
+### **IN ARBEIT** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Added background to export image
+
+### 1.0.5 (2022-02-16)
+* (bluefox) Added "i" in tooltips by interpolated values
+
+### 1.0.4 (2022-01-31)
+* (bluefox) License changed to Apache-2.0 (because of apache/echarts)
+* (bluefox) Updated some packages
+* (bluefox) Added fast properties editor
+
+### 1.0.3 (2021-07-21)
+* (bluefox) Fixed server-side rendering
+
+### 1.0.2 (2021-07-20)
+* (bluefox) Fixed the communication with admin4
+
+### 1.0.1 (2021-07-14)
+* (bluefox) Fixed the "no background" option
+
+### 1.0.0 (2021-07-02)
+* (bluefox) Fixed many bugs
+
+### 0.4.14 (2021-04-29)
+* (bluefox) Fixed reorder of presets
+
+### 0.4.13 (2021-03-27)
+* (bluefox) Tried to sort the time series before displaying it
+
+### 0.4.12 (2021-03-27)
+* (bluefox) Added the support of parameters in URL
+
+### 0.4.11 (2021-02-06)
+* (bluefox) Fixed the dashed lines
+
 ### 0.4.10 (2020-12-22)
 * (bluefox) Allow the hiding of lines at start and show them via legend later
 * (bluefox) Use canvas renderer on touch devices to allow zoom and pan
@@ -89,7 +124,7 @@ Sie können Ansichtsdiagramme lokal debuggen mit:
 * (bluefox) Updated echarts to 5.0
 * (bluefox) Implemented copy&paste of lines and markings
 * (bluefox) Available vertical legend
-* (bluefox) Allowed to hide interpolated values in tooltip
+* (bluefox) Allowed the hiding the interpolated values in tooltip
 
 ### 0.4.7 (2020-12-13)
 * (bluefox) Updated the select ID dialog
@@ -114,10 +149,10 @@ Sie können Ansichtsdiagramme lokal debuggen mit:
 * (bluefox) Added new option: no background
 
 ### 0.3.9 (2020-11-28)
-* (bluefox) Corrected error with the chart. 
+* (bluefox) Corrected error with the chart.
 
 ### 0.3.8 (2020-11-27)
-* (bluefox) Implemented the conversion of the flot presets into echarts. 
+* (bluefox) Implemented the conversion of the flot presets into echarts.
 
 ### 0.3.7 (2020-11-17)
 * (bluefox) Hide nulls in hover details
@@ -129,7 +164,7 @@ Sie können Ansichtsdiagramme lokal debuggen mit:
 * (bluefox) Corrected SENTRY errors
 
 ### 0.3.4 (2020-11-08)
-* (bluefox) Corrected server-side rendering of PNG 
+* (bluefox) Corrected server-side rendering of PNG
 
 ### 0.3.1 (2020-10-31)
 * (bluefox) Added the color of export button 
@@ -140,7 +175,7 @@ Sie können Ansichtsdiagramme lokal debuggen mit:
 * (bluefox) GUI fixes
 
 ### 0.2.0 (2020-10-22)
-* (bluefox) Implemented the grouping by category.
+* (bluefox) Implemented the grouping by the category.
 
 ### 0.1.2 (2020-10-21)
 * (bluefox) Added support of multiple charts
@@ -149,23 +184,12 @@ Sie können Ansichtsdiagramme lokal debuggen mit:
 * (bluefox) initial release
 
 ## License
-BSD 3-Clause License
+ioBroker.echarts is available under the Apache License V2.
 
-Copyright (c) 2019-2020 bluefox <dogafox@gmail.com>
-Copyright (c) 2017, Baidu Inc. All rights reserved.
+Copyright (c) 2019-2022 bluefox <dogafox@gmail.com>
 
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+Apache ECharts
+Copyright (c) 2017-2022 The Apache Software Foundation
 
-Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-
-Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-
-Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
-INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, 
-OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, 
-OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, 
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, 
-EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+This product includes software developed at
+The Apache Software Foundation (https://www.apache.org/).
