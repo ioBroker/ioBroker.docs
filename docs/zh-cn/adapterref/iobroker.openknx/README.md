@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: adlMwdlDSjVkmJ7ddZAsHrTPYbW7fHSSyF0P3Y1dkcU=
+hash: 07KwqecaPiOgUnkckFhrU2STD9IWDDxpHNiP/xSU+Os=
 ---
 ![商标](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -138,7 +138,7 @@ KNX 堆栈在收到组地址时设置相应 ioBroker 对象的确认标志。
 可以通过在管理对话框中选中复选框“在应用程序写入对象时设置确认标志”来覆盖此行为。
 
 ### Node Red 复杂数据类型示例
-创建一个连接到 ioBroker out 节点的函数节点，该节点与 DPT2 的 KNX 对象连接。
+创建连接到 ioBroker out 节点的函数节点，该节点与 DPT2 的 KNX 对象连接。
 msg.payload = {“优先级”：1，“数据”：0}；返回味精；
 
 # 日志级别
@@ -182,7 +182,7 @@ GroupValue_Read 注释不适用于 javascript 适配器。请改用 qualityAsNum
 | DPT-232 |对象 | {红色：0..255，绿色：0.255，蓝色：0.255} | - ||
 | DPT-237 |对象 | {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | - ||
 | DPT-4 |字符串 | |一个字符作为 8 位字符发送 ||
-| DPT-16 |字符串 | |一个字符作为 16 个字符的字符串发送 ||
+| DPT-16 |字符串 | |一个字符作为 16 个字符串发送 ||
 | DPT-5 |号码 | | 8 位无符号值 ||
 | DPT-5.001 |号码 | | 0..100 [%] 缩放为 1 字节 ||
 | DPT-5.003 |号码 | | 0..360 [°] 缩放为 1 字节 ||
@@ -237,7 +237,7 @@ KNX 对象标志定义了它们所代表的对象的总线行为。
 |C: 通讯标志 | K：通讯标志 |总是设置 ||
 |R：读取标志 | L: Les-Flag |对象 native.answer_groupValueResponse ||
 |T：传输标志 | Ü: Übertragen 标志 |对象 common.write ||
-|W：写标志 | S: Schreiben-Flag |对象 common.read |总线可以修改的对象|
+|W：写标志 | S: Schreiben-Flag |对象 common.read |总线可以修改对象|
 |U：更新标志 | A: Aktualisieren-Flag |对象 common.read |在传入的 GroupValue_Responses 上更新对象 |
 |I：初始化标志 | I: Initialisierungs-Flag |对象 native.autoread | |
 
@@ -265,6 +265,9 @@ Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
 - 仅支持 IPv4
 
 ## Changelog
+### 0.1.24 (2022-03-31)
+* feature: support for latin1 charset in dpt16
+
 ### 0.1.23 (2022-03-19)
 * feature: change default regexp for alias
 * feature: new option to set ack flag when application writes to object

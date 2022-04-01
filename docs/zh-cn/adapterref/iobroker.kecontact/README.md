@@ -3,81 +3,82 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kecontact/README.md
 title: ioBroker.kecontact
-hash: SHkZCRsXMxcXlgYzX58sr7LQTEU7SqrepXu1jcU5gT8=
+hash: 8fSryNmu9TnYD++wZWeRf06698MYraMlqG0ynWcexyQ=
 ---
-![标识](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
+![商标](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.kecontact.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.kecontact.svg)
 ![安装数量（最新）](https://iobroker.live/badges/kecontact-installed.svg)
 ![安装数量（稳定）](https://iobroker.live/badges/kecontact-stable.svg)
 ![依赖状态](https://img.shields.io/david/iobroker-community-adapters/iobroker.kecontact.svg)
-![新产品管理](https://nodei.co/npm/iobroker.kecontact.png?downloads=true)
+![新PM](https://nodei.co/npm/iobroker.kecontact.png?downloads=true)
 
 # IoBroker.kecontact
 **测试：** ![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
 
-# 用于 KEBA KeContact P20 或 P30 和 BMW i wallbox 的 ioBroker 适配器
-控制您的充电站并使用自动调节，例如使用其 UDP 协议通过光伏剩余电量为您的车辆充电。
+# 用于 KEBA KeContact P20 或 P30 和 BMW i 墙盒的 ioBroker 适配器
+控制您的充电站并使用自动调节，例如使用其 UDP 协议通过光伏盈余和电池存储为您的车辆充电。
 
 ＃＃ 安装
 通过 ioBroker Admin 安装此适配器：
 
 1. 打开实例配置对话框
-2. 输入您的 KEBA KeContact 墙盒的 IP 地址
+2. 输入您的 KEBA KeContact wallbox 的 IP 地址
 3.根据需要调整刷新间隔
-4. 保存配置
+4.保存配置
 5.启动适配器
 
 ＃＃ 配置
 ### KeContact IP 地址
-这是您的 KEBA KeContact 或 BMW i Wallbox 的 IP 地址。
+这是您的 KEBA KeContact 或 BMW i wallbox 的 IP 地址。
 
-###固件检查
-适配器将每天检查一次 KEBA 网站上是否有更新的固件可用。此信息将被打印以作为警告记录。
+### 固件检查
+每天一次，适配器将检查 KEBA 网站上是否有更新的固件可用。此信息将作为警告打印到日志中。
 
-###被动模式
-如果您想自己控制 Wallbox 并且不希望此适配器执行某些自动操作，请激活此选项。在这种情况下，所有有关 PV 自动和功率限制的后续选项都将被忽略。
+### 被动模式
+如果您想自己控制墙盒并且您不希望此适配器执行某些自动操作，请激活此选项。在这种情况下，所有有关 PV 自动和功率限制的后续选项都将被忽略。
 
 ### 后续墙盒
-如果这是您环境中的后续墙盒，请激活此选项。目前只能主动管理一个wallbox。所有其他（单独的实例）必须选中此选项，因为只有一个实例可以接收广播消息。此墙盒/实例将在被动模式下运行。
+如果这是您环境中的后续墙盒，请激活此选项。目前只能主动管理一个wallbox。所有其他（单独的实例）必须选中此选项，因为只有一个实例可以接收广播消息。此墙盒/实例将以被动模式运行。
 
 ### 加载充电会话
-您可以选中此选项以定期从壁挂盒下载最新的充电会话 (30)。
-v1.1.1 及以下版本的用户注意：您必须选中此选项才能继续接收充电会话！
+您可以选中此选项以定期从壁挂式盒下载最新的充电会话 (30)。
+v1.1.1 及以下版本的用户请注意：您必须选中此选项才能继续接收收费会话！
 
 ＃＃＃ 刷新间隔
-这是应该以秒为单位查询墙盒以获取新充电值的间隔。
+这是以秒为单位的间隔，应该多久查询一次墙盒以获取新的充电值。
 
-默认值为 10 分钟，这是 KeConnect 的负载和 ioBroker 中的最新信息之间的良好平衡。
+默认值为 10 分钟，这是 KeConnect 负载与 ioBroker 中的最新信息之间的良好平衡。
 
 ### PV 自动装置
-为了给您的车辆相应地充电到剩余（例如通过光伏），您还可以定义代表剩余和主电源的状态。这些值用于计算可用于充电的安培数。通过附加值，您可以定义
+要根据盈余（例如通过光伏）为您的车辆充电，您还可以定义表示盈余和考虑主电源的状态。这些值用于计算可用于充电的安培数。通过附加值，您可以定义
 
-* 如果您想使用充电站的X1输入来控制是全功率充电还是光伏自动充电，请切换X1选项
+*电池存储当前电量的状态，因此光伏自动装置将额外使用它为您的车辆充电
+* 如果您想使用充电站的 X1 输入来控制是全功率充电还是光伏自动充电，请切换 X1 选项
 * 与默认 6 A 不同的最小安培数（仅适用于例如 Renault Zoe）
-* 可用于开始充电的关注功率值（这意味着即使没有足够的剩余电量也会开始充电 - 建议 0 W 用于 1 相充电，500 W 至 2000 W 用于 3 相充电）
-* 电流增量（建议 500 mA）
-* 可以暂时用于维持充电会话的关注值（这意味着即使不再有足够的剩余，充电也会在稍后停止 - 将添加开始关注 - 建议 500 W）
+* 可用于开始充电的相关功率值（这意味着即使没有足够的剩余电量也将开始充电 - 建议 0 W 用于 1 相充电，500 W 至 2000 W 用于 3 相充电）
+* 安培数增量（建议 500 mA）
+* 可临时用于维持充电会话的关注值（这意味着即使不再有足够的剩余电量，充电也会在稍后停止 - 将添加起始关注 - 建议 500 W）
 * 充电会话的最短持续时间（即使剩余不再足够，充电会话将至少持续这次 - 建议 300 秒）
-* 每次剩余时间不再充足时继续充电的时间（以弥补阴天的时间）
+* 每次剩余电量不足时继续充电的时间（以弥补阴天的时间）
 
-###功率限制
-您还可以限制最大值。墙盒的电源以限制主电源。例如。运行夜间蓄热式加热器时，您可能必须遵守最大功率限制。
-如果您输入一个值，您的 wallbox 将被连续限制以不超过您的功率限制。
-最多可以指定三种电能表状态进行限制。将所有值相加以计算电流消耗。
-一个额外的复选框用于指定是否包括壁箱功率（在这种情况下，壁箱功率将从状态值中减去）。
+### 功率限制
+您还可以限制最大值。墙盒的电源以限制主电源。例如。在运行夜间储存加热器时，您可能必须遵守最大功率限制。
+如果您输入一个值，您的墙盒将不断受到限制，不会超过您的功率限制。
+最多可以指定三种状态的电能表进行限制。将添加所有值以计算电流消耗。
+一个额外的复选框用于指定是否包括墙盒电源（在这种情况下，墙盒电源将从状态值中减去）。
 
 ### 动态选项
-此外，还有一些状态会影响动态自动光伏的行为，例如通过您自己的脚本根据您的需要更新这些值）
+此外，还有一些状态会在运行中自动影响光伏的行为，例如通过您自己的脚本根据您的需要更新这些值）
 
-* kecontact.0.automatic.photovoltaics - 激活光伏自动（真）或设置为假时以最大功率为车辆充电
-* kecontact.0.automatic.calcPhases - 定义用于充电计算的当前阶段数。这是 Keba Deutschland 版所必需的，可用于所有充电站的初始充电会话
+* kecontact.0.automatic.photovoltaics - 自动激活光伏（真）或设置为假时以最大功率为车辆充电
+* kecontact.0.automatic.calcPhases - 定义用于充电计算的当前相数。这对于 Keba Deutschland 版本是必需的，可用于所有充电站的初始充电会话
 * kecontact.0.automatic.addPower - 定义允许为您的车辆充电的瓦数（与选项相同）
 * kecontact.0.automatic.pauseWallbox - 只要设置为 true，就会立即停止每个充电会话
-* kecontact.0.automatic.limitCurrent - 将您的充电限制为指定的 mA 电流（0 = 无限制）
+* kecontact.0.automatic.limitCurrent - 将您的充电限制在以 mA 为单位的指定安培数（0 = 无限制）
 
-示例：要在不考虑剩余电流的情况下以 6A 的恒定电流为您的车辆充电，请将 PV 设置为 false 并将 limitCurrent 设置为 6000。
+示例：要以 6A 的恒定安培数为您的车辆充电，而不管剩余电量如何，请将光伏设置为 false 并将 limitCurrent 设置为 6000。
 
 ＃＃ 合法的
 该项目与 KEBA AG 公司没有直接或间接的关联。
@@ -85,6 +86,25 @@ v1.1.1 及以下版本的用户注意：您必须选中此选项才能继续接�
 KeConnect 是 KEBA AG 的注册商标。
 
 ## Changelog
+
+### 1.4.0 (2022-03-31)
+* (Sneak-L8) support for battery storage in photovoltaics automatics
+* (Sneak-L8) add state selector in settings dialog
+
+### 1.3.4 (2022-01-30)
+* (Sneak-L8) fix invalid assignment to message (sentry IOBROKER-KECONTACT-S) 
+* (Sneak-L8) update charging timestamp more often to prevent toogling
+* (Sneak-L8) update more information even in passive mode
+
+### 1.3.3 (2021-12-11)
+* (Sneak-L8) fix error when message to display is empty (sentry IOBROKER-KECONTACT-Q) 
+* (Sneak-L8) new option whether power of wallbox is included in surplus/regard
+
+### 1.3.2 (2021-11-09)
+* (Sneak-L8) firmware check for x-series no longer supported due to changes on website of Keba 
+
+### 1.3.1 (2021-11-01)
+* (Sneak-L8) fix wrong type of timeQ in charging reports
 
 ### 1.3.0 (2021-08-16)
 * (Sneak-L8) new adapter base generated by adapter creator
@@ -369,7 +389,7 @@ KeConnect 是 KEBA AG 的注册商标。
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright 2021 UncleSamSwiss, Sneak-L8
+   Copyright 2021-2022 UncleSamSwiss, Sneak-L8
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

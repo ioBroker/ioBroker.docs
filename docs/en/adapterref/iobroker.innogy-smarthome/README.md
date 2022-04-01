@@ -16,6 +16,9 @@ As this project is developed during my spare time, I*m actively looking for help
 
 ## Changelog
 
+### 0.4.7
+    Changed OAuth local auth
+
 ### 0.4.6
     Added missing states
 

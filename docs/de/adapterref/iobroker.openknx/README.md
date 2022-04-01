@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: adlMwdlDSjVkmJ7ddZAsHrTPYbW7fHSSyF0P3Y1dkcU=
+hash: 07KwqecaPiOgUnkckFhrU2STD9IWDDxpHNiP/xSU+Os=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -151,7 +151,7 @@ Der GA-Import erzeugt eine Kommunikationsobjekt-Ordnerstruktur nach dem GA-Schem
 
 ioBroker-Zustandsrollen (https://github.com/ioBroker/ioBroker/blob/master/doc/STATE_ROLES.md) haben standardmäßig den Wert „state“. Einige granularere Werte werden vom DPT abgeleitet, zum Beispiel Date oder Switch.
 
-Autoread wird auf falsch gesetzt, wenn aus dem DPT klar ist, dass dies ein Triggersignal ist. Dies gilt für Szenennummern.
+Autoread wird auf false gesetzt, wenn aus dem DPT klar ist, dass dies ein Triggersignal ist. Dies gilt für Szenennummern.
 
 { "_id": "path.and.name.to.object", //abgeleitet von der KNX-Struktur "type": "state", "common": { //Werte hier können von iobroker interpretiert werden "desc": "Basetype: 1-bit value, Subtype: switch", //informativ, aus dpt "name": "Aussen Melder Licht schalten", //informative Beschreibung aus ets export "read": true, //default set, if false Eingehende Buswerte aktualisieren das Objekt "Rolle" nicht: Zustand, //Standardzustand, abgeleitet von DPT "Typ": "boolean", //Boolean, Zahl, Zeichenfolge, Objekt, abgeleitet von DPT "Einheit": "", //abgeleitet von dpt "write": true //default true, wenn Satzänderung am Objekt knx write auslöst, succ. write setzt dann ack flag auf true }, "native": { //Werte hier können vom openknx-Adapter interpretiert werden "address": "0/1/2", //knx-Gruppenadresse "answer_groupValueResponse": false, //default false, wenn auf true gesetzt, antwortet der Adapter mit dem Wert auf GroupValue_Read "autoread": true, //default true für Nicht-Trigger-Signale, der Adapter sendet beim Start ein GroupValue_read, um seine Zustände zu synchronisieren "bitlength": 1, //Größe der Knx-Daten, abgeleitet von dpt "dpt": "DPT1.001", //DPT "encoding": { //informativ "0": "Off", "1": "On" }, "force_encoding": "", // informativ "signedness": "", //informativ "valuetype": "basic" //composite bedeutet über ein bestimmtes Javascript-Objekt gesetzt }, "from": "system.adap ter.openknx.0", "user": "system.user.admin", "ts": 1638913951639 }
 
@@ -182,7 +182,7 @@ GroupValue_Read-Kommentar funktioniert nicht für Javascript-Adapter. Verwenden 
 | DPT-232 | Objekt | {rot:0..255, grün:0,255, blau:0,255} | - ||
 | DPT-237 | Objekt | {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | - ||
 | DPT-4 | Zeichenfolge | | ein als 8-Bit-Zeichen gesendetes Zeichen ||
-| DPT-16 | Zeichenfolge | | ein Zeichen als 16-Zeichen-String gesendet ||
+| DPT-16 | Zeichenfolge | | ein Zeichen, das als 16-Zeichen-String gesendet wird ||
 | DPT-5 | Zahl | | 8-Bit-Wert ohne Vorzeichen ||
 | DPT-5.001 | Zahl | | 0..100 [%] skaliert auf 1 Byte ||
 | DPT-5.003 | Zahl | | 0..360 [°] skaliert auf 1 Byte ||
@@ -265,6 +265,9 @@ Die Daten werden an den in Deutschland gehosteten Iobroker Sentry-Server gesende
 - nur IPv4 unterstützt
 
 ## Changelog
+### 0.1.24 (2022-03-31)
+* feature: support for latin1 charset in dpt16
+
 ### 0.1.23 (2022-03-19)
 * feature: change default regexp for alias
 * feature: new option to set ack flag when application writes to object

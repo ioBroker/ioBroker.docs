@@ -221,7 +221,7 @@ GroupValue_Read comment does not work for javascript adapter. Use qualityAsNumbe
 | DPT-232   | object                 | {red:0..255, green:0.255, blue:0.255}	                                                              | -                                         ||
 | DPT-237   | object                 | {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | -                                         ||
 | DPT-4     | string                 |                                                                                                      | one character sent as 8-bit character     ||
-| DPT-16    | string                 |                                                                                                      | one character sent as 16-character string ||
+| DPT-16    | string                 |                                                                                                      | one character sent as 16 character string ||
 | DPT-5     | number                 |                                                                                                      | 8-bit unsigned value                      ||
 | DPT-5.001 | number                 |                                                                                                      | 0..100 [%] scaled to 1-byte               ||
 | DPT-5.003 | number                 |                                                                                                      | 0..360 [°] scaled to 1-byte               ||
@@ -306,6 +306,9 @@ Data is sent to Iobroker Sentry server hosted in Germany. If you have allowed io
 - only IPv4 supported
 
 ## Changelog
+### 0.1.24 (2022-03-31)
+* feature: support for latin1 charset in dpt16
+
 ### 0.1.23 (2022-03-19)
 * feature: change default regexp for alias
 * feature: new option to set ack flag when application writes to object

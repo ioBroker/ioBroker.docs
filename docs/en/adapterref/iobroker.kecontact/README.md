@@ -13,7 +13,7 @@
 
 # ioBroker adapter for KEBA KeContact P20 or P30 and BMW i wallbox
 
-Control your charging station and use automatic regulation e.g. to charge your vehicle by photovoltaic surplus using its UDP protocol.
+Control your charging station and use automatic regulation e.g. to charge your vehicle by photovoltaic surplus and battery storage using its UDP protocol.
 
 ## Install
 
@@ -56,6 +56,7 @@ The default value is 10 minutes which is a good balance between the load for the
 ### PV automatics
 
 To charge your vehicle accordingly to a surplus (e.g. by photovoltaics) you can also define states which represent surplus and regard of main power. These value are used to calculate amperage which can be used for charging. By additional values you can define
+* a state for current power of battery storage, so the photovoltaics automatics will use it additionally for charging your vehicle
 * toggle X1 option if you want to use X1 input from charging station to control whether to charge with full power or by photovoltaic automatic
 * a different mimimum amperage than the default 6 A (only needed for e.g. Renault Zoe)
 * a value of regard power that may be used to start charging (that means charging will start even if not enough surplus is available - suggested 0 W for 1 phases charging, 500 W to 2000 W for 3 phases charging)
@@ -85,6 +86,10 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 
 
 ## Changelog
+
+### 1.4.0 (2022-03-31)
+* (Sneak-L8) support for battery storage in photovoltaics automatics
+* (Sneak-L8) add state selector in settings dialog
 
 ### 1.3.4 (2022-01-30)
 * (Sneak-L8) fix invalid assignment to message (sentry IOBROKER-KECONTACT-S) 
