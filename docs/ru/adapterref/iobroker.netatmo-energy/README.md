@@ -9,7 +9,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.netatmo-energy/README.md
 title: ioBroker.netatmo-энергия
-hash: fDsxOVOmHFXbLal6j2QisYyuHHNveF0QsaG476De/vA=
+hash: EashoI8oUHPC/tEwLfM39+6cGSh44aMa3YEu4XWQ2XY=
 ---
 ![логотип](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/admin/netatmo-energy.png)
 
@@ -34,7 +34,7 @@ hash: fDsxOVOmHFXbLal6j2QisYyuHHNveF0QsaG476De/vA=
 - Создайте собственное приложение, щелкнув свою учетную запись (вверху/слева) и нажав кнопку «Создать».
   - Заполните форму и сохраните ее
   - Применить полученный client-ID и client-secret-ID к конфигурации адаптера
-  - Перейдите к документации по API https://dev.netatmo.com/apidocumentation/energy.
+  - Перейти к документации по API https://dev.netatmo.com/apidocumentation/energy
   - Выберите "ПОЛУЧИТЬ домашние данные" - "Попробовать" - "ВЫПОЛНИТЬ / HOMESDATA"
     - вы получите ответ, в котором найдете свой домашний ID
     - Применить их к конфигурации адаптера
@@ -75,7 +75,7 @@ hash: fDsxOVOmHFXbLal6j2QisYyuHHNveF0QsaG476De/vA=
 
 ### Запросы на изменение
 * setroomthermpoint ... в зависимости от ручных изменений в канале «настройка», изменения передаются в приложение Netatmo Energy. (либо мгновенно, либо автоматически - "немедленная передача изменений температуры").
-* set_mode_to_home ... Кнопка "set_mode_to_home" в канале "setting" устанавливает режим клапана "set_mode_to_home" на "home".
+* set_mode_to_home ... Кнопка "set_mode_to_home" в канале "setting" устанавливает режим клапана "set_mode_to_home" на "home". Кроме того, запрос API инициируется немедленно для передачи изменения.
 
 ### Состояние
 * работает ... здесь вы можете увидеть, выполняется ли в данный момент запрос API
@@ -97,8 +97,13 @@ hash: fDsxOVOmHFXbLal6j2QisYyuHHNveF0QsaG476De/vA=
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_de.png" alt="настройкиAPI" width="70%"/>
 
+## Сообщения
+Здесь вы можете активировать определенные сообщения для определенных изменений статуса. Вы можете оставить сообщение, которое вы хотите.
+
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/messages_de.png" alt="настройкиAPI" width="70%"/>
+
 ## Вкладка администратора
-На вкладке администратора вы можете отобразить все термостаты, мосты и клапаны вашего экземпляра netatmo energy. Там же можно обновить это представление или запустить полное обновление API.
+На вкладке администратора вы можете отобразить все термостаты, мосты и клапаны вашего экземпляра netatmo energy. Там же можно обновить это представление или запустить полное обновление API. Кроме того, у вас есть возможность перенести изменения в облако и переключиться обратно в стандартный режим из возможного ручного режима.
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/admintab_de.png" alt="вкладка администратора" width="70%"/>
 
@@ -113,6 +118,15 @@ hash: fDsxOVOmHFXbLal6j2QisYyuHHNveF0QsaG476De/vA=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.2 (2022-04-03)
+* (ioKlausi) Added a slider to each valve to change the temperature and added some API requests to admin tab to transfer changes to the cloud 
+
+### 1.2.1 (2022-04-01)
+* (ioKlausi) Messages for specific events created
+
+### 1.2.0 (2022-03-31)
+* (ioKlausi) Close message functionality added on admin tab
+
 ### 1.1.7 (2022-03-24)
 * (ioKlausi) Bridge information added to each card
 

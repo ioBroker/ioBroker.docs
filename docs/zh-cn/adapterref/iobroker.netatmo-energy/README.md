@@ -9,7 +9,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.netatmo-energy/README.md
 title: ioBroker.netatmo-energy
-hash: fDsxOVOmHFXbLal6j2QisYyuHHNveF0QsaG476De/vA=
+hash: EashoI8oUHPC/tEwLfM39+6cGSh44aMa3YEu4XWQ2XY=
 ---
 ![商标](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/admin/netatmo-energy.png)
 
@@ -54,11 +54,11 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo Cloud
 ## IoBroker 的 netatmo-energy 适配器
 使用 Netatmo-Energy API 检索或更改当前设置。适配器使用获取请求将数据传输到 Netatmo Energy API。 API 官方文档：https://dev.netatmo.com/apidocumentation/energy。
 
-适配器创建自己的设备“energyAPP”，其中包含“APIRequests”和“trigger”。
+适配器创建自己的设备“energyAPP”，其中包含“APIRequests”和“触发器”。
 
 ### API 请求
 * homedata ... 获取 Netatmo Energy 安装的整个结构（使用 NAPlug 参数）。您可以自己为手动请求选择所有其他参数。
-* homestatus ...确定并传输您分配的阀门的状态和技术信息。如果您需要有关特定类型设备的信息，您可以自行选择。
+* homestatus ...确定并传输您分配的阀门的状态和技术信息。如果您想要有关特定类型设备的信息，您可以自己选择它。
 * getroommeasure ... 这样你就可以得到你房间的历史数据。结果被输入到“响应”字段中。
 * getmeasure ...这将为您提供锅炉的历史数据。结果被输入到“响应”字段中。
 * setthermmode_schedule ... 将 Netatmo Energy 安装的运行模式设置为“Schedule”（默认）
@@ -75,10 +75,10 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo Cloud
 
 ### 更改请求
 * setroomthermpoint ... 根据“设置”通道中的手动更改，更改将传输到 Netatmo Energy APP。 （瞬时或自触发 - “立即传输温度变化”）。
-* set_mode_to_home ...“设置”通道中的“set_mode_to_home”按钮将阀门模式“set_mode_to_home”设置为“home”。
+* set_mode_to_home ...“设置”通道中的“set_mode_to_home”按钮将阀门模式“set_mode_to_home”设置为“home”。此外，会立即触发 API 请求以传输更改。
 
 ＃＃＃ 状态
-* running ... 在这里你可以看到 API 请求当前是否正在运行
+* running ... 在这里你可以看到一个 API 请求当前是否正在运行
 
 ### 请求结构
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/EnergyAPP_measure.png" alt="设置登录" width="80%"/><img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/EnergyAPP.png" alt="设置登录" width="80%"/>
@@ -97,8 +97,13 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo Cloud
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_de.png" alt="设置API" width="70%"/>
 
+## 消息
+在这里，您可以触发特定状态更改的特定消息。你可以留下你想要的消息。
+
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/messages_de.png" alt="设置API" width="70%"/>
+
 ## 管理选项卡
-在管理选项卡上，您可以显示您的 netatmo 能源实例的所有恒温器、桥接器和阀门。也可以更新此视图或启动完整的 API 更新。
+在管理选项卡上，您可以显示您的 netatmo 能源实例的所有恒温器、桥接器和阀门。也可以更新此视图或启动完整的 API 更新。此外，您可以选择将更改传输到云端并从可能的手动模式切换回标准模式。
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/admintab_de.png" alt="管理选项卡" width="70%"/>
 
@@ -113,6 +118,15 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo Cloud
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.2 (2022-04-03)
+* (ioKlausi) Added a slider to each valve to change the temperature and added some API requests to admin tab to transfer changes to the cloud 
+
+### 1.2.1 (2022-04-01)
+* (ioKlausi) Messages for specific events created
+
+### 1.2.0 (2022-03-31)
+* (ioKlausi) Close message functionality added on admin tab
+
 ### 1.1.7 (2022-03-24)
 * (ioKlausi) Bridge information added to each card
 

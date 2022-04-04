@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.webuntis/README.md
 title: ioBroker.webuntis
-hash: AgyukjTnGAHgQS/dJsCttzzXlatFgIhuxx5J2VRYqSo=
+hash: PCFCSeMr0GsPe9cjkNnOhtzHJgSz/13b4IH1ltEGDes=
 ---
 ![Логотип](../../../en/adapterref/iobroker.webuntis/admin/webuntis.png)
 
@@ -21,7 +21,7 @@ hash: AgyukjTnGAHgQS/dJsCttzzXlatFgIhuxx5J2VRYqSo=
 Адаптер для получения данных из WebUntis
 
 Адаптер Dieser не содержит данных в Webuntis.
-Für eine deutsche Anleitung ![Hier нажмите](../../../en/adapterref/iobroker.webuntis/readme/readme.de.md)
+Für eine deutsche Anleitung [Hier нажмите](readme/readme.de.md)
 
 ## Начиная
 После установки адаптера в iobroker автоматически открывается окно конфигурации.
@@ -35,7 +35,7 @@ Für eine deutsche Anleitung ![Hier нажмите](../../../en/adapterref/iobro
 - базовый URL
 - школьная тайна
 
-см. пример под предыдущим снимком экрана: https://hepta.webuntis.com/WebUntis/?school=hbs-F%C3%BCrth#/basic/login
+см. пример под предыдущим снимком экрана: [здесь](https://hepta.webuntis.com/WebUntis/?school=hbs-F%C3%BCrth#/basic/login)
 
 - hepta.webuntis.com => школьная база-URL
 - hbs-F%C3%BCrth => школьная тайна
@@ -57,6 +57,12 @@ Für eine deutsche Anleitung ![Hier нажмите](../../../en/adapterref/iobro
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.3 (2022-04-03)
+* Add errorhandling for timetable
+
+### 0.3.2 (2022-03-02)
+* Add errorhandling for inbox & mesage center
+
 ### 0.3.1 (2022-01-30)
 * Bug fixes in timetable
 

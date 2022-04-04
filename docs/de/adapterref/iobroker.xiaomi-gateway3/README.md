@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.xiaomi-gateway3/README.md
 title: ioBroker.xiaomi-gateway3
-hash: 8eg2WtQ32z+01fulwtQjQrBx7CLRyhXmv1b6AMK9sg4=
+hash: JPN+vUlUrO/zaklRyjaYlXUY/ipHxSUmkfUT8kW9Lqk=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.xiaomi-gateway3.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.xiaomi-gateway3.svg)
@@ -127,7 +127,7 @@ __*!!Achtung:*__ Firmware-Versionen niedriger als `1.4.7_0000` Adapter werden un
 - [] Xiaomi Qingping Bewegungssensor (CGPR1)
 - [] Xiaomi Qingping TH Lite (CGDK2)
 - [] Xiaomi Qingping TH-Sensor (CGG1)
-- [] Xiaomi-Safe (BGX-5/X1-3001)
+- [ ] Xiaomi-Safe (BGX-5/X1-3001)
 - [x] Xiaomi TH Uhr (LYWSD02MMC)
 - [] Xiaomi TH-Sensor (LYWSDCGQ/01ZM)
 - [x] Xiaomi TH-Sensor 2 (LYWSD03MMC)
@@ -137,9 +137,9 @@ __*!!Achtung:*__ Firmware-Versionen niedriger als `1.4.7_0000` Adapter werden un
 - [x] Xiaomi ZenMeasure TH (MHO-C401)
 - [ ] Yeelight-Taste S1 (YLAI003)
 
-_**Hinweis:** BLE-Geräte haben möglicherweise beim ersten Mal nach dem Koppeln keinen Status, da ich die Spezifikationen für Geräte nicht kenne und vorerst keine Eigenschaften für alle Geräte definiert habe. Zustände werden hinzugefügt, wenn das Gerät die entsprechende Eigenschaft aktualisiert. Ich hoffe, ich werde dies mit Ihrer Hilfe im Laufe der Zeit beheben._
+_**Hinweis:** BLE-Geräte haben möglicherweise beim ersten Mal nach dem Koppeln keinen Status, da ich die Spezifikationen für Geräte nicht kenne und vorerst keine Eigenschaften für alle Geräte definiert habe. Zustände werden hinzugefügt, wenn das Gerät die entsprechende Eigenschaft aktualisiert. Ich hoffe, ich werde das mit Ihrer Hilfe im Laufe der Zeit beheben._
 
-## Beschreibung einiger Staaten
+## Beschreibung einiger Zustände
 ### `Button long press`
 Für Tastengeräte sehen Sie eine Kombination aus zwei Zuständen (wie) `long_press` und `long_timeout`.
 Wie funktioniert es? Schaltflächen, die langes Drücken unterstützen, senden eine Nachricht beim Drücken und beim Loslassen-Ereignis. Manchmal kann es vorkommen, dass die Schaltfläche keine Nachricht auf der Freigabetaste gesendet hat. In diesem Fall sollte `timeout` helfen, den Zustand "freizugeben".
@@ -234,6 +234,17 @@ Außerdem können Sie `friendly name` des Geräts ändern.
 
 _**Hinweis:** Im Moment hat diese Seite grundlegende Funktionen. Es wird in Zukunft gut ausgebaut._
 
+### Gerätekonfig
+Sie können einige Optionen zum Konfigurieren des Geräts (und der Karte des Geräts) definieren, indem Sie die Konfiguration mit yaml schreiben. Verfügbare Optionen sind unten in der Tabelle beschrieben. Sie können das Gerätekonfigurationsfenster (Fenster mit Texteingabebereich) mit dem Punkt `Config` im Menü aufrufen.
+
+<img src="static/device-yaml-config.png">
+
+#### Gerätekonfigurationsoptionen
+|Feld|Typ|Beschreibung|
+|---|---|---|
+|cardStates|Dictionary|Dieses Wörterbuch enthält Optionen für die Karte des Geräts|
+|cardStates.hide|List|Liste der Zustände (Status-IDs), die vor der Karte des Geräts verborgen werden müssen|
+
 ### Statistik
 <img src="static/tab-statistic.png">
 
@@ -248,6 +259,11 @@ _**Achtung:** Sie sollten bedenken, dass dies nicht wirklich eine Statistik der 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.4 (2022-02-10)
+* Fix issue getting devices from cloud and switch to RC4
+* Add devices page
+* Other fixes and improvements
+
 ### 0.3.3 (2022-01-30)
 * Fix lumi temperature and voltage
 

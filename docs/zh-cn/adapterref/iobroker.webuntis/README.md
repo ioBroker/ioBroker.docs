@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.webuntis/README.md
 title: ioBroker.webuntis
-hash: AgyukjTnGAHgQS/dJsCttzzXlatFgIhuxx5J2VRYqSo=
+hash: PCFCSeMr0GsPe9cjkNnOhtzHJgSz/13b4IH1ltEGDes=
 ---
-![标识](../../../en/adapterref/iobroker.webuntis/admin/webuntis.png)
+![商标](../../../en/adapterref/iobroker.webuntis/admin/webuntis.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.webuntis.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.webuntis.svg)
@@ -21,7 +21,7 @@ hash: AgyukjTnGAHgQS/dJsCttzzXlatFgIhuxx5J2VRYqSo=
 适配器从 WebUntis 获取数据
 
 Dieser Adapter bezieht Daten aus Webuntis。
-Für eine deutsche Anleitung ![希尔克利肯](../../../en/adapterref/iobroker.webuntis/readme/readme.de.md)
+Für eine deutsche Anleitung [希尔克利肯](readme/readme.de.md)
 
 ＃＃ 入门
 在 iobroker 中安装适配器后，会自动打开配置窗口。
@@ -35,7 +35,7 @@ Für eine deutsche Anleitung ![希尔克利肯](../../../en/adapterref/iobroker.
 - 基本网址
 - 学校的秘密
 
-请参阅上一个屏幕截图下方的示例：https://hepta.webuntis.com/WebUntis/?school=hbs-F%C3%BCrth#/basic/login
+请参阅上一个屏幕截图下方的示例：[这里](https://hepta.webuntis.com/WebUntis/?school=hbs-F%C3%BCrth#/basic/login)
 
 - hepta.webuntis.com => schoolbase-URL
 - hbs-F%C3%BCrth => 学校机密
@@ -57,6 +57,12 @@ Für eine deutsche Anleitung ![希尔克利肯](../../../en/adapterref/iobroker.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.3 (2022-04-03)
+* Add errorhandling for timetable
+
+### 0.3.2 (2022-03-02)
+* Add errorhandling for inbox & mesage center
+
 ### 0.3.1 (2022-01-30)
 * Bug fixes in timetable
 

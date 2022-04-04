@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: DCF5AmF4X9Z+t37Ff0XTqogvrFR9L2WUru1+DJ5UxBA=
+hash: 6BQlycC5MqKCnlw4Yn93TaS0EqMZp6xRmwcJrLT48Rk=
 ---
 ![Logo](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/sql-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sql.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sql.svg)
-![Prüfungen](https://travis-ci.org/ioBroker/ioBroker.sql.svg?branch=master)
+![Tests](https://travis-ci.org/ioBroker/ioBroker.sql.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.sql.png?downloads=true)
 
 # IoBroker.sql
@@ -113,7 +113,7 @@ Struktur:
 *Hinweis:* MS-SQL verwendet varchar(255) und andere verwenden TEXT
 
 ### Zahlen
-Werte für Zustände vom Typ "Zahl". **ts** bedeutet "Zeitreihe".
+Werte für Zustände vom Typ "Nummer". **ts** bedeutet "Zeitreihe".
 
 | DB | Name in Abfrage |
 |------------|-------------------------|
@@ -192,7 +192,7 @@ Struktur:
 | Feld | Geben Sie | ein Beschreibung |
 |--------|--------------------------------------------|-------------------------------------------------|
 | ID | GANZZAHL | ID des Zustands aus Tabelle "Datenpunkte" |
-| ts | GROSSARTIG | Zeit in ms bis zur Epoche. Kann mit "new Date(ts)" | in Zeit umgerechnet werden |
+| ts | GROSSARTIG | Zeit in ms bis Epoche. Kann mit "new Date(ts)" | in Zeit umgerechnet werden |
 | Wert | BIT/BOOLESCH | Wert |
 | ack | BIT/BOOLESCH | Wird bestätigt: 0 - nicht ack, 1 - ack |
 | _von | GANZZAHL | ID der Quelle aus Tabelle "Quellen" |
@@ -313,7 +313,8 @@ sendTo('sql.0', 'getHistory', {
     options: {
         start:      end - 3600000,
         end:        end,
-        aggregate: 'minmax' // or 'none' to get raw values
+        aggregate:  'minmax', // or 'none' to get raw values
+        addId:      true
     }
 }, function (result) {
     for (var i = 0; i < result.result.length; i++) {
@@ -344,7 +345,7 @@ Wenn das Zählergerät ersetzt wird, wird es ebenfalls berechnet.
 ## Verwaltung der Verlaufsprotokollierung über Javascript
 Der Adapter unterstützt das Aktivieren und Deaktivieren der Verlaufsprotokollierung über JavaScript sowie das Abrufen der Liste der aktivierten Datenpunkte mit ihren Einstellungen.
 
-### Ermöglichen
+### Aktivieren
 Die Nachricht muss die "ID" des Datenpunkts haben. Zusätzlich optionale "Optionen" zum Definieren der datenpunktspezifischen Einstellungen:
 
 ```
@@ -369,7 +370,7 @@ sendTo('sql.0', 'enableHistory', {
 ```
 
 ### Deaktivieren
-Die Nachricht muss die "ID" des Datenpunkts haben.
+Die Nachricht muss die "ID" des Datenpunkts enthalten.
 
 ```
 sendTo('sql.0', 'disableHistory', {
@@ -430,12 +431,20 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### __LAUFENDE ARBEIT__ -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Fix GetHistory logic to always return the "count" newest entries if more than "count" are available
+* (Apollon77) Add support for addId getHistory flag
+
+### 1.16.2 (2022-02-16)
+* (bluefox) Marked interpolated data with `i=true`
+
 ### 1.16.1 (2021-12-19)
 * (Excodibur) Hide settings not relevant when "log changes only" is not used
 * (Apollon77) Allow all number values for debounce again
 
 ### 1.16.0 (2021-12-14)
-* (bluefox) Support only `js.controller` >= 3.3.x
+* (bluefox) Support only `js-controller` >= 3.3.x
 * (bluefox) Used system/custom view for collecting the objects
 * (bluefox) Implemented option to ignore zero- or/and below zero- values
 
@@ -692,7 +701,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2021 bluefox <dogafox@gmail.com>, Apollon77
+Copyright (c) 2015-2022 bluefox <dogafox@gmail.com>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

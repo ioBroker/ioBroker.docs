@@ -137,8 +137,7 @@ TR-064可以被认为是进一步的发展，因为该适配器提供了更广�
 建议新人安装[TR-064适配器](https://github.com/ioBroker/ioBroker.docs/tree/master/docs/adapterref/docs/iobroker.tr-064/de)。
 
 ## Changelog
-
-### __WOKR IN PROGRESS__
+### 0.5.0 (2022-04-02)
 * (Apollon77) Write history.missedTableJSON value
 * (Apollon77) Store tam files in an instance specific location
 * (Apollon77) Fix crash cases reported by Sentry

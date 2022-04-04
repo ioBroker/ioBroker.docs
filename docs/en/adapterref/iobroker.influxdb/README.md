@@ -353,6 +353,10 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Fix GetHistory logic to always return the "count" newest entries if more than "count" are available
+
 ### 2.6.3 (2022-03-07)
 * (Apollon77) Fix potential crash cases (Sentry IOBROKER-INFLUXDB-4Q)
 

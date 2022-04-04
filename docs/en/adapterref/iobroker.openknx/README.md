@@ -306,6 +306,9 @@ Data is sent to Iobroker Sentry server hosted in Germany. If you have allowed io
 - only IPv4 supported
 
 ## Changelog
+### 0.1.25 (2022-)
+* fix: if update ack after write, use correct timestamp and adapter as user 
+
 ### 0.1.24 (2022-03-31)
 * feature: support for latin1 charset in dpt16
 

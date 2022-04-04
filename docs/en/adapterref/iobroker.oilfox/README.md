@@ -12,12 +12,20 @@
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Description
-This adapter allows to get data from the oilfox sensor via the Oilfox Website.
+This adapter allows getting data from the Oilfox sensor via the Oilfox Website.
 
 ## Settings
-* specify the your e-mail and password in the configuration page
+* specify your e-mail and password in the configuration page
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+### 4.1.1 (2022-04-03)
+* (inidona) Usage of new oilfox api
+* (bluefox) Added usage JSON configuration
+
 ### 4.0.2 (2022-03-27)
 * IMPORTANT: All datastructures change with this update!
 * IMPORTANT: Password needs to be re-entered after update!

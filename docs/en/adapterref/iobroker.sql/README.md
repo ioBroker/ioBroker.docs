@@ -303,7 +303,8 @@ sendTo('sql.0', 'getHistory', {
     options: {
         start:      end - 3600000,
         end:        end,
-        aggregate: 'minmax' // or 'none' to get raw values
+        aggregate:  'minmax', // or 'none' to get raw values
+        addId:      true
     }
 }, function (result) {
     for (var i = 0; i < result.result.length; i++) {
@@ -420,6 +421,11 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Fix GetHistory logic to always return the "count" newest entries if more than "count" are available
+* (Apollon77) Add support for addId getHistory flag
+
 ### 1.16.2 (2022-02-16)
 * (bluefox) Marked interpolated data with `i=true`
 

@@ -16,7 +16,7 @@
 Adapter to get data from WebUntis
 
 Dieser Adapter bezieht Daten aus Webuntis. 
-Für eine deutsche Anleitung ![hier klicken](readme/readme.de.md)
+Für eine deutsche Anleitung [hier klicken](readme/readme.de.md)
 
 
 ## Getting started
@@ -30,8 +30,7 @@ now you need to strings from the internet-adress of the schoolwebsite from webun
 - the base-url 
 - the school-secret
 
-see the example below the previous screenshot:
-https://hepta.webuntis.com/WebUntis/?school=hbs-F%C3%BCrth#/basic/login
+see the example below the previous screenshot: [here](https://hepta.webuntis.com/WebUntis/?school=hbs-F%C3%BCrth#/basic/login)
 
 - hepta.webuntis.com    => the schoolbase-URL
 - hbs-F%C3%BCrth        => the school-secret
@@ -54,8 +53,11 @@ please feel free, to make a proposal for recommend versions.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.3 (2022-04-03)
+* Add errorhandling for timetable
+
 ### 0.3.2 (2022-03-02)
-* Add errohandling for inbox & mesage center
+* Add errorhandling for inbox & mesage center
 
 ### 0.3.1 (2022-01-30)
 * Bug fixes in timetable

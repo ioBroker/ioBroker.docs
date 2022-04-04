@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.yr/README.md
 title: ioBroker.yr
-hash: SSIKrqxW3jtFiYTEPdVAOcBbo+UIFyIX/NGJTm/qwcc=
+hash: 909x94OluM0AUh1dlVG5z1r/erV0JsQft+dBUJGOXWo=
 ---
 ![Logo](../../../en/adapterref/iobroker.yr/admin/yr.png)
 
@@ -35,15 +35,27 @@ Icons stammen von hier [https://api.met.no/weatherapi/weathericon/2.0/documentat
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __LAUFENDE ARBEIT__ -->
+### **IN ARBEIT** -->
 ## Machen
 * SetState-Prognoseobjekt
 
 ## Changelog
+### 5.1.4 (2022-04-03)
+* (bluefox) Used package "axios" instead of "get"
+
+### 5.1.3 (2022-03-20)
+* (Apollon77) Prevented crash when symbols are not provided for forecasts (seen on Sentry)
+
+### 5.1.2 (2022-03-10)
+* (Apollon77) Fixed some invalid object default values
+
+### 5.1.1 (2022-03-10)
+* (Apollon77) Added legend file to release also and fix usage
+
 ### 5.1.0 (2022-03-05)
-* (Apollon77) Move schedule if default is used on request of met.no
+* (Apollon77) Moved schedule if default is used on request of met.no
 * (Apollon77) Do not query legend/icons dynamically, but deliver with the version
-* (Apollon77) make sure to not execute logic when adapter stopped already
+* (Apollon77) made sure to not execute logic when adapter stopped already
 
 ### 5.0.0 (2021-11-08)
 * (klein0r) Fixed translations
@@ -71,39 +83,39 @@ Icons stammen von hier [https://api.met.no/weatherapi/weathericon/2.0/documentat
 * (arteck) Type of state was corrected
 
 ### 2.0.3 [2018-10-10]
-* (bluefox) add translations
+* (bluefox) added translations
 
 ### 2.0.2 [2018-08-01]
 * (bluefox) Warning! Breaking changes! States are renamed.
 * (bluefox) Refactoring of states and roles
 
 ### 1.0.6 [2017-05-27]
-* (Andre) Update iconset
+* (Andre) Updated icon-set
 
 ### 1.0.5 [2016-10-10]
-* (bluefox) move weather widgets to this adapter
+* (bluefox) moved weather widgets to this adapter
 
 ### 1.0.3 [2016-05-17]
-* (bluefox) change readme path
+* (bluefox) changed readme path
 
 ### 1.0.2 [2016-05-16]
-* (bluefox) add translations
+* (bluefox) added translations
 
 ### 1.0.1 [2016-04-25]
-* (bluefox) add translations
+* (bluefox) added translations
 
 ### 1.0.0 [2016-03-15]
-* (bluefox) change parsing of cities
+* (bluefox) changed parsing of cities
 
 ### 0.1.9 [2015-10-28]
-* (bluefox) fix error with translations
+* (bluefox) fixed error with translations
 
 ### 0.1.8 [2015-10-27]
 * (bluefox) translations
 * (bluefox) automatically upload of missing translations to iobroker.net
 
 ### 0.1.7 [2015-07-10]
-* (bluefox) make yr works with metro widgets
+* (bluefox) made yr works with metro widgets
 
 ### 0.1.6 [2015-06-12]
 * (bluefox) translations
@@ -112,19 +124,19 @@ Icons stammen von hier [https://api.met.no/weatherapi/weathericon/2.0/documentat
 * (bluefox) translations
 
 ### 0.1.4 [2015-03-24]
-* (bluefox) remove unit "%" for "wind direction"
+* (bluefox) removed unit "%" for "wind direction"
 
 ### 0.1.3 [2015-03-22]
-* (bluefox) fix error with tomorrow and day after tomorrow
+* (bluefox) fixed error with tomorrow and day after tomorrow
 
 ### 0.1.2 [2015-03-08]
-* (bluefox) correct links to yr.no web site
+* (bluefox) corrected links to yr.no web site
 
 ### 0.1.1
-* (bluefox) add translates for the weather states in other languages
+* (bluefox) added translates for the weather states in other languages
 
 ### 0.1.0
-* (bluefox) update yr on the new objects model
+* (bluefox) updated yr on the new objects model
 
 ### 0.0.4
 * (hobbyquaker) prepend "forecast." to state IDs

@@ -244,6 +244,18 @@ Also you can change `friendly name` of device.
 
 _**Note:** For now this page has basic functional. It well be expanded in future._
 
+### Device config
+
+You can define some options to configure device (and device's card) by writing configuration with yaml. Awailable options discribed belowe in table. You can invoke device config window (window with text input area) with `Config` point in menu.
+
+<img src="static/device-yaml-config.png">
+
+#### Device configuration options
+|Field|Type|Description|
+|---|---|---|
+|cardStates|Dictionary|This dictionary hold options for device's card|
+|cardStates.hide|List|List of states (states ids) which have to be hidden from device's card|
+
 ### Statistic
 
 <img src="static/tab-statistic.png">

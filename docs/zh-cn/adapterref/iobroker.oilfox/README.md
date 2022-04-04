@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.oilfox/README.md
 title: ioBroker.oilfox
-hash: 6QnuBWujvWhUdLh65vGcI46KUaD3fmhQHFN/Dtrxhns=
+hash: rhrnoNmZHp8qqkhj5Tel8GA3T5Nseg1pHj9hJboVOdk=
 ---
 ![商标](../../../en/adapterref/iobroker.oilfox/img/oilfox.png)
 
@@ -17,12 +17,20 @@ hash: 6QnuBWujvWhUdLh65vGcI46KUaD3fmhQHFN/Dtrxhns=
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ＃＃ 描述
-该适配器允许通过 Oilfox 网站从 oilfox 传感器获取数据。
+该适配器允许通过 Oilfox 网站从 Oilfox 传感器获取数据。
 
 ## 设置
-* 在配置页面指定您的邮箱和密码
+* 在配置页面指定您的电子邮件和密码
+
+<!-- 下一个版本的占位符（在行首）：
+
+### **正在进行中** -->
 
 ## Changelog
+### 4.1.1 (2022-04-03)
+* (inidona) Usage of new oilfox api
+* (bluefox) Added usage JSON configuration
+
 ### 4.0.2 (2022-03-27)
 * IMPORTANT: All datastructures change with this update!
 * IMPORTANT: Password needs to be re-entered after update!

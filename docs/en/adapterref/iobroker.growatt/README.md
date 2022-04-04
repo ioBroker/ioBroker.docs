@@ -2,11 +2,11 @@
 
 ## ioBroker.growatt
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.growatt.svg)](https://www.npmjs.com/package/iobroker.growatt)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.growatt.svg)](https://www.npmjs.com/package/iobroker.growatt)
-[![Number of Installations (latest)](http://iobroker.live/badges/growatt-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/growatt-stable.svg)
-![Dependency Status](https://img.shields.io/david/PLCHome/ioBroker.growatt.svg)](https://david-dm.org/PLCHome/ioBroker.growatt)
+![NPM version](http://img.shields.io/npm/v/iobroker.growatt.svg)
+![Downloads](https://img.shields.io/npm/dm/iobroker.growatt.svg)
+![Number of Installations (latest)](https://iobroker.live/badges/growatt-installed.svg)
+![Number of Installations (stable)](https://iobroker.live/badges/growatt-stable.svg)
+
 
 [![NPM](https://nodei.co/npm/iobroker.growatt.png?downloads=true)](https://nodei.co/npm/iobroker.growatt/)
 
@@ -142,11 +142,13 @@ module.
 After the connection is successfully established, open the web browser on your phone or
 computer and type 192.168.10.100 in the address bar. The username is admin, the
 default password is 12345678.
+
 ![Login Page](docs/login.png)
 
 ### Advanced Settings
 
 Change the data interval time to 1 minute
+
 ![Advanced Settings](docs/advancedsettings.png)
 
 ### System Restart
@@ -154,6 +156,7 @@ Change the data interval time to 1 minute
 Restart your ShineWiFi-S module on this page, click “Restart Immediate” to
 enable the new settings you just made and logout from the internal webserver of your
 ShineWiFi module.
+
 ![System Restart](docs/restart.png)
 
 **There is no change to the charts on growatt side. There you can only see a change in the data from the datalogger.**
@@ -161,6 +164,15 @@ ShineWiFi module.
 -\*-
 
 ## Changelog
+
+### 1.1.11 (02.04.2022)
+
+- (PLCHome) fixed readme
+- (PLCHome) fixed version
+
+### 1.1.10 (02.04.2022)
+
+- (PLCHome) suppressed the warning for the Firsttime: /error.do?errorMess=errorNoLogin
 
 ### 1.1.9 (27.03.2022)
 

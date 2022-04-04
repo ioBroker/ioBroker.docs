@@ -3,15 +3,14 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.growatt/README.md
 title: kein Titel
-hash: Xm0ukBwRTblVBkkTxd9cRmekT+7ujB9B440MI2hbt88=
+hash: YdfudKT/nSsn/evo14cJPoW2778r2dEB+x7J4d6Y7Z0=
 ---
 ![Logo](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.growatt.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.growatt.svg)
-![Anzahl der Installationen (neueste)](http://iobroker.live/badges/growatt-installed.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/growatt-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/PLCHome/ioBroker.growatt.svg)
+![Anzahl der Installationen (neueste)](https://iobroker.live/badges/growatt-installed.svg)
+![Anzahl der Installationen (stabil)](https://iobroker.live/badges/growatt-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.growatt.png?downloads=true)
 
 ## IoBroker.growatt
@@ -107,7 +106,7 @@ Das Objekt bleibt bestehen, die Werte aus dem Wechselrichter werden verworfen.
 - Geben Sie das Passwort growattJJJJMMTT ein (z. B. growatt20220209)
 - Freischalten
 - Klicken Sie auf und übernehmen Sie die Änderungen
-- Verlassen Sie den Hotspot-Modus
+- Beenden Sie den Hotspot-Modus
 
 ---
 
@@ -117,13 +116,17 @@ Entfernen Sie den Gummistopfen der KEY-Taste von ShineWiFi-S und drücken Sie ku
 
 ### Loginseite
 Nachdem die Verbindung erfolgreich hergestellt wurde, öffnen Sie den Webbrowser auf Ihrem Telefon oder Computer und geben Sie 192.168.10.100 in die Adressleiste ein. Der Benutzername ist admin, das Standardpasswort ist 12345678.
+
 ![Loginseite](../../../en/adapterref/iobroker.growatt/docs/login.png)
 
 ### Erweiterte Einstellungen
-Ändern Sie die Datenintervallzeit auf 1 Minute ![Erweiterte Einstellungen](../../../en/adapterref/iobroker.growatt/docs/advancedsettings.png)
+Ändern Sie die Datenintervallzeit auf 1 Minute
+
+![Erweiterte Einstellungen](../../../en/adapterref/iobroker.growatt/docs/advancedsettings.png)
 
 ### Systemneustart
 Starten Sie Ihr ShineWiFi-S-Modul auf dieser Seite neu, klicken Sie auf „Sofort neu starten“, um die neuen Einstellungen zu aktivieren, die Sie gerade vorgenommen haben, und melden Sie sich vom internen Webserver Ihres ShineWiFi-Moduls ab.
+
 ![Systemneustart](../../../en/adapterref/iobroker.growatt/docs/restart.png)
 
 **Es gibt keine Änderung an den Diagrammen auf der Growatt-Seite. Dort sehen Sie nur eine Änderung der Daten des Datenloggers.**
@@ -131,6 +134,15 @@ Starten Sie Ihr ShineWiFi-S-Modul auf dieser Seite neu, klicken Sie auf „Sofor
 -\*-
 
 ## Changelog
+
+### 1.1.11 (02.04.2022)
+
+- (PLCHome) fixed readme
+- (PLCHome) fixed version
+
+### 1.1.10 (02.04.2022)
+
+- (PLCHome) suppressed the warning for the Firsttime: /error.do?errorMess=errorNoLogin
 
 ### 1.1.9 (27.03.2022)
 

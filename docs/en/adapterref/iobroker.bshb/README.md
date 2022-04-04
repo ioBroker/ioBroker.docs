@@ -35,6 +35,9 @@ If you want to support the work I would appreciate a small donation. This is 100
 
 ## Changelog
 
+### 0.1.20
+* (holomekc) Fixed problems with openDoorsAndWindows
+
 ### 0.1.19
 * (holomekc) problems with initial setup fixed
 

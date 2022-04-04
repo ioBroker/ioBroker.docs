@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.synology/README.md
 title: адаптер ioBroker Synology
-hash: 0Pz2xxoeTnCMcdZNLOmTN8lQIC2F12yZaPQP2y1pxVk=
+hash: YmWDJpDaHt3Fn/BXAlSuhPTnPJLWGEF1TYima9OFckI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.synology/admin/synology.png)
 
@@ -22,8 +22,11 @@ hash: 0Pz2xxoeTnCMcdZNLOmTN8lQIC2F12yZaPQP2y1pxVk=
 ### Настройки двухфакторной аутентификации
 Если вы используете 2FA в DSM6, см. инструкции [здесь](docs/en/template.md)
 
+### Перезагрузка и завершение работы
+Адаптер будет делать это через SSH, начиная с версии 2.1.4, поэтому укажите порт SSH в настройках адаптера. Посмотреть его можно в настройках Synology: ![графика](https://user-images.githubusercontent.com/6681528/161436776-bd04b0c6-cfb2-47ab-9bee-7ea700575bbb.png) ![графика](https://user-images.githubusercontent.com/6681528/161436897-174f3396-c2bb-4248-b91c-707005f7d2a8.png)
+
 ### Метод отправки
-Вы можете отправить любую команду (метод), задав объект sendMethod, например: Получить информацию о SurveillanceStation — это метод getInfo без дополнительных параметров.
+Вы можете отправить любую команду (метод), задав объект sendMethod, например: Получить информацию SurveillanceStation — это метод getInfo без дополнительных параметров.
 
 ```{"method": "getInfo", "params": {}}```
 
@@ -70,9 +73,22 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ```
 
 ## Changelog
+### 2.1.5 (2022-04-03)
+* (Apollon77) fix DSM version detection
 
-### __WORK IN PROGRESS__
-* (Apollon77) Fix type issues since js.controller 3.3
+### 2.1.4 (2022-04-03)
+* (arteck) workaround for shutdown and reboot(configure your ssh port in the settings)
+* (Apollon77) prevent error when setting FileStation.info.items on start once
+
+### 2.1.1 (2022-03-26)
+* (Apollon77) Optimize object type determination and adjustments
+
+### 2.1.0 (2022-03-25)
+* IMPORTANT: You need to re-enter the password once after installing this version!
+* (Apollon77) Camera snapshots are now also stored in ioBroker storage to be easier used in visualizations!
+* (foxriver76) Hide password display in Admin when using Admin5
+* (Apollon77) Fix volume description
+* (Apollon77) Fix type issues since js-controller 3.3
 
 ### 2.0.1 (2021-09-17)
 * (MeisterTR) Workaround JSON config Password
@@ -184,7 +200,7 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 * (instalator) change for as and ss
 * (instalator) added snapshot functional 
 * (instalator) fixed systemConfig 
-* (instalator) fixed many error 
+* (instalator) fixed many error
 
 ### 0.0.4 (2018-10-07)
 * (instalator) Изменен репозиторий библиотеки

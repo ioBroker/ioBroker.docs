@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.oilfox/README.md
 title: ioBroker.oilfox
-hash: 6QnuBWujvWhUdLh65vGcI46KUaD3fmhQHFN/Dtrxhns=
+hash: rhrnoNmZHp8qqkhj5Tel8GA3T5Nseg1pHj9hJboVOdk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.oilfox/img/oilfox.png)
 
@@ -17,12 +17,20 @@ hash: 6QnuBWujvWhUdLh65vGcI46KUaD3fmhQHFN/Dtrxhns=
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Описание
-Этот адаптер позволяет получать данные с датчика oilfox через веб-сайт Oilfox.
+Этот адаптер позволяет получать данные с датчика Oilfox через веб-сайт Oilfox.
 
 ## Настройки
 * укажите свой e-mail и пароль на странице конфигурации
 
+<!-- Заполнитель для следующей версии (в начале строки):
+
+### **ВЫПОЛНЯЕТСЯ** -->
+
 ## Changelog
+### 4.1.1 (2022-04-03)
+* (inidona) Usage of new oilfox api
+* (bluefox) Added usage JSON configuration
+
 ### 4.0.2 (2022-03-27)
 * IMPORTANT: All datastructures change with this update!
 * IMPORTANT: Password needs to be re-entered after update!

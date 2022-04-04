@@ -112,6 +112,9 @@ Finally, the variables created in the CCU are listed
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.0.40 (2022-04-03)
+* (foxriver76) if LGW is not reachable we now set duty cycle to `null` instead of `-1`
+
 ### 3.0.39 (2022-03-26)
 * (foxriver76) fixed another `ValueList` bug
 

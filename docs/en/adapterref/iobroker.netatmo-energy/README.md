@@ -71,7 +71,7 @@ If an API request need parameters, you can find these in the channel "parameters
 
 ### Update requests
 * setroomthermpoint     ... depending on the "setting" channel it sets the temperature of each room (immediately or by using the trigger "applychanges"). 
-* set_mode_to_home      ... In the channel "setting" you can use the button "set_mode_to_home" to set "home"-Mode for the valve.
+* set_mode_to_home      ... In the channel "setting" you can use the button "set_mode_to_home" to set "home"-Mode for the valve. The API request to transfer the changes will start immediately.
 
 ### Status
 * running               ... here you can see if API Requests are running right now
@@ -94,8 +94,13 @@ Please insert the necessary informations to connect to the service you choose.
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_en.png" alt="settingsAPI" width="70%"/>
 
+## Messages
+You can send messages depending on status changes of specific states. The messages can be defined by yourself.
+
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/messages_en.png" alt="settingsAPI" width="70%"/>## Admin-Tab
+
 ## Admin-Tab
-On the Admin-Tab you can see all thermostates, plugs and valves from your netatmo energy instance. From there you can refresh the view and also request an API refresh.
+On the Admin-Tab you can see all thermostates, plugs and valves from your netatmo energy instance. From there you can refresh the view and also request an API refresh. You have alse the option to save changes into the cloud and to switch from manual mode to schedule mode.
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/admintab_en.png" alt="admintab" width="70%"/>
 
@@ -110,6 +115,15 @@ Widget for VIS to show a complete valve. You have only to define the "SetTemp" -
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.2 (2022-04-03)
+* (ioKlausi) Added a slider to each valve to change the temperature and added some API requests to admin tab to transfer changes to the cloud 
+
+### 1.2.1 (2022-04-01)
+* (ioKlausi) Messages for specific events created
+
+### 1.2.0 (2022-03-31)
+* (ioKlausi) Close message functionality added on admin tab
+
 ### 1.1.7 (2022-03-24)
 * (ioKlausi) Bridge information added to each card
 

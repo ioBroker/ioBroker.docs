@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.synology/README.md
 title: ioBroker Synology 适配器
-hash: 0Pz2xxoeTnCMcdZNLOmTN8lQIC2F12yZaPQP2y1pxVk=
+hash: YmWDJpDaHt3Fn/BXAlSuhPTnPJLWGEF1TYima9OFckI=
 ---
 ![商标](../../../en/adapterref/iobroker.synology/admin/synology.png)
 
@@ -21,6 +21,9 @@ hash: 0Pz2xxoeTnCMcdZNLOmTN8lQIC2F12yZaPQP2y1pxVk=
 
 ### 2FA 设置
 如果您在 DSM6 中使用 2FA，请参阅说明[这里](docs/en/template.md)
+
+### 重启和关机
+自 v2.1.4 起，适配器将通过 SSH 执行此操作，因此请在适配器设置中设置 SSH 端口。您可以在 Synology 设置中看到它：![涂鸦](https://user-images.githubusercontent.com/6681528/161436776-bd04b0c6-cfb2-47ab-9bee-7ea700575bbb.png) ![涂鸦](https://user-images.githubusercontent.com/6681528/161436897-174f3396-c2bb-4248-b91c-707005f7d2a8.png)
 
 ### 发送方法
 您可以通过设置 sendMethod 对象来发送任何命令（方法），例如： Get the SurveillanceStation info 是一个没有附加参数的 getInfo 方法。
@@ -55,7 +58,7 @@ hash: 0Pz2xxoeTnCMcdZNLOmTN8lQIC2F12yZaPQP2y1pxVk=
 ***下载站***：
 
 * activeTask - 不完整下载的数量
-* listTasks - 一个下载不完整的数组
+* listTasks - 下载不完整的数组
 * shedule_enabled, shedule_emule_enabled - 预定或即时下载的状态和控制
 * add_hash_download - 添加到哈希下载（例如 ``8BD3CAD02FC9ECB661A12378414FA310D3F3FE03``）
 * add_url_download - 添加下载 URL 或磁力链接
@@ -70,9 +73,22 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ```
 
 ## Changelog
+### 2.1.5 (2022-04-03)
+* (Apollon77) fix DSM version detection
 
-### __WORK IN PROGRESS__
-* (Apollon77) Fix type issues since js.controller 3.3
+### 2.1.4 (2022-04-03)
+* (arteck) workaround for shutdown and reboot(configure your ssh port in the settings)
+* (Apollon77) prevent error when setting FileStation.info.items on start once
+
+### 2.1.1 (2022-03-26)
+* (Apollon77) Optimize object type determination and adjustments
+
+### 2.1.0 (2022-03-25)
+* IMPORTANT: You need to re-enter the password once after installing this version!
+* (Apollon77) Camera snapshots are now also stored in ioBroker storage to be easier used in visualizations!
+* (foxriver76) Hide password display in Admin when using Admin5
+* (Apollon77) Fix volume description
+* (Apollon77) Fix type issues since js-controller 3.3
 
 ### 2.0.1 (2021-09-17)
 * (MeisterTR) Workaround JSON config Password
@@ -184,7 +200,7 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 * (instalator) change for as and ss
 * (instalator) added snapshot functional 
 * (instalator) fixed systemConfig 
-* (instalator) fixed many error 
+* (instalator) fixed many error
 
 ### 0.0.4 (2018-10-07)
 * (instalator) Изменен репозиторий библиотеки

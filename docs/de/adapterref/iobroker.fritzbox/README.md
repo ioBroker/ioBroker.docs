@@ -167,8 +167,7 @@ mehr weiterentwickelt.
 Neueinsteigern wird empfohlen, den [TR-064-Adapter](https://github.com/ioBroker/ioBroker.docs/tree/master/docs/adapterref/docs/iobroker.tr-064/de) zu installieren.
 
 ## Changelog
-
-### __WOKR IN PROGRESS__
+### 0.5.0 (2022-04-02)
 * (Apollon77) Write history.missedTableJSON value
 * (Apollon77) Store tam files in an instance specific location
 * (Apollon77) Fix crash cases reported by Sentry

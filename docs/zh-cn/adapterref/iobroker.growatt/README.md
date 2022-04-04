@@ -3,15 +3,14 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.growatt/README.md
 title: 无题
-hash: Xm0ukBwRTblVBkkTxd9cRmekT+7ujB9B440MI2hbt88=
+hash: YdfudKT/nSsn/evo14cJPoW2778r2dEB+x7J4d6Y7Z0=
 ---
 ![商标](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.growatt.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.growatt.svg)
-![安装数量（最新）](http://iobroker.live/badges/growatt-installed.svg)
-![安装数量（稳定）](http://iobroker.live/badges/growatt-stable.svg)
-![依赖状态](https://img.shields.io/david/PLCHome/ioBroker.growatt.svg)
+![安装数量（最新）](https://iobroker.live/badges/growatt-installed.svg)
+![安装数量（稳定）](https://iobroker.live/badges/growatt-stable.svg)
 ![新PM](https://nodei.co/npm/iobroker.growatt.png?downloads=true)
 
 ## IoBroker.growatt
@@ -19,7 +18,7 @@ hash: Xm0ukBwRTblVBkkTxd9cRmekT+7ujB9B440MI2hbt88=
 ioBroker Growatt 适配器与 Growatt Shine 服务器通信。
 我不隶属。
 通常，数据每 5 分钟从数据记录器发送到云端。
-您可以更改它，请参见下文。
+你可以改变它，见下文。
 
 并非所有植物类型都已实施。
 
@@ -117,13 +116,17 @@ HTTP 请求的默认超时。默认值 60 秒，与 Web 浏览器一样
 
 ### 登录页面
 连接成功后，打开手机或电脑的浏览器，在地址栏输入192.168.10.100。用户名为 admin，默认密码为 12345678。
+
 ![登录页面](../../../en/adapterref/iobroker.growatt/docs/login.png)
 
 ＃＃＃ 高级设置
-将数据间隔时间更改为 1 分钟![高级设置](../../../en/adapterref/iobroker.growatt/docs/advancedsettings.png)
+将数据间隔时间更改为 1 分钟
+
+![高级设置](../../../en/adapterref/iobroker.growatt/docs/advancedsettings.png)
 
 ### 系统重启
 在此页面重新启动您的 ShineWiFi-S 模块，单击“立即重启”以启用您刚刚所做的新设置并从您的 ShineWiFi 模块的内部网络服务器注销。
+
 ![系统重启](../../../en/adapterref/iobroker.growatt/docs/restart.png)
 
 **成长方的图表没有变化。在那里，您只能看到数据记录器中数据的变化。**
@@ -131,6 +134,15 @@ HTTP 请求的默认超时。默认值 60 秒，与 Web 浏览器一样
 -\*-
 
 ## Changelog
+
+### 1.1.11 (02.04.2022)
+
+- (PLCHome) fixed readme
+- (PLCHome) fixed version
+
+### 1.1.10 (02.04.2022)
+
+- (PLCHome) suppressed the warning for the Firsttime: /error.do?errorMess=errorNoLogin
 
 ### 1.1.9 (27.03.2022)
 

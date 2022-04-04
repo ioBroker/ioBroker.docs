@@ -3,15 +3,14 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.growatt/README.md
 title: без заголовка
-hash: Xm0ukBwRTblVBkkTxd9cRmekT+7ujB9B440MI2hbt88=
+hash: YdfudKT/nSsn/evo14cJPoW2778r2dEB+x7J4d6Y7Z0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
 ![версия NPM](http://img.shields.io/npm/v/iobroker.growatt.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.growatt.svg)
-![Количество установок (последние)](http://iobroker.live/badges/growatt-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/growatt-stable.svg)
-![Статус зависимости](https://img.shields.io/david/PLCHome/ioBroker.growatt.svg)
+![Количество установок (последние)](https://iobroker.live/badges/growatt-installed.svg)
+![Количество установок (стабильно)](https://iobroker.live/badges/growatt-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.growatt.png?downloads=true)
 
 ## IoBroker.growatt
@@ -99,7 +98,7 @@ hash: Xm0ukBwRTblVBkkTxd9cRmekT+7ujB9B440MI2hbt88=
 - Настроить регистратор данных
 - Режим беспроводной точки доступа
 - Переведите стик в режим AP
-- Подключиться к точке доступа Wi-Fi, PW 123456789 ? <- проверить еще раз
+- Подключиться к точке доступа Wi-Fi, PW 123456789? <- проверить еще раз
 - Продолжать
 - Передовой
 - Настройки времени
@@ -117,13 +116,17 @@ hash: Xm0ukBwRTblVBkkTxd9cRmekT+7ujB9B440MI2hbt88=
 
 ### Страница авторизации
 После успешного подключения откройте веб-браузер на телефоне или компьютере и введите в адресной строке 192.168.10.100. Имя пользователя admin, пароль по умолчанию 12345678.
+
 ![Страница авторизации](../../../en/adapterref/iobroker.growatt/docs/login.png)
 
 ### Расширенные настройки
-Измените время интервала данных на 1 минуту ![Расширенные настройки](../../../en/adapterref/iobroker.growatt/docs/advancedsettings.png)
+Измените время интервала данных на 1 минуту
+
+![Расширенные настройки](../../../en/adapterref/iobroker.growatt/docs/advancedsettings.png)
 
 ### Перезагрузка системы
 Перезапустите модуль ShineWiFi-S на этой странице, нажмите «Немедленный перезапуск», чтобы активировать новые настройки, которые вы только что сделали, и выйдите из внутреннего веб-сервера вашего модуля ShineWiFi.
+
 ![Перезапуск системы](../../../en/adapterref/iobroker.growatt/docs/restart.png)
 
 ** Графики на стороне гроватта не изменились. Там можно увидеть только изменение данных из регистратора данных.**
@@ -131,6 +134,15 @@ hash: Xm0ukBwRTblVBkkTxd9cRmekT+7ujB9B440MI2hbt88=
 -\*-
 
 ## Changelog
+
+### 1.1.11 (02.04.2022)
+
+- (PLCHome) fixed readme
+- (PLCHome) fixed version
+
+### 1.1.10 (02.04.2022)
+
+- (PLCHome) suppressed the warning for the Firsttime: /error.do?errorMess=errorNoLogin
 
 ### 1.1.9 (27.03.2022)
 

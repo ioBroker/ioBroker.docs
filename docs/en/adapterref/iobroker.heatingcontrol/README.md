@@ -246,6 +246,9 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
+### 2.8.6 (2022-03-31)
+* (René) see issue #265 and #305: bg fix window handling for rooms with more then one window and sensors with regular status update 
+
 ### 2.8.5 (2022-02-12)
 * (René) sentry: Cannot read property 'PARENT_TYPE' of undefined
 * (René) see issue #291: inter thermostat delay added

@@ -487,7 +487,11 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 ---
 
 ## Changelog
-<!-- ### __WORK IN PROGRESS__ -->
+<!-- ### **WORK IN PROGRESS** -->
+### 2.4.4 (2022-04-02)
+* (simatec) try/catch GoogleDrive added
+* (Bluefox/simatec) Backup Download added
+
 ### 2.4.3 (2022-03-29)
 * (simatec) Bugfixes Dropbox
 * (simatec) try/catch options added

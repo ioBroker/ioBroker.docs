@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.synology/README.md
 title: ioBroker Synology-Adapter
-hash: 0Pz2xxoeTnCMcdZNLOmTN8lQIC2F12yZaPQP2y1pxVk=
+hash: YmWDJpDaHt3Fn/BXAlSuhPTnPJLWGEF1TYima9OFckI=
 ---
 ![Logo](../../../en/adapterref/iobroker.synology/admin/synology.png)
 
@@ -21,6 +21,9 @@ Mit dem Treiber können Sie Daten empfangen und Ihren Synology NAS-Server verwal
 
 ### 2FA-Einstellungen
 Wenn Sie 2FA in DSM6 verwenden, siehe Anweisungen [Hier](docs/en/template.md)
+
+### Neustart und Herunterfahren
+Der Adapter tut dies seit v2.1.4 über SSH, also stellen Sie bitte den SSH-Port in den Adaptereinstellungen ein. Sie können es in den Synology-Einstellungen sehen: ![Grafik](https://user-images.githubusercontent.com/6681528/161436776-bd04b0c6-cfb2-47ab-9bee-7ea700575bbb.png) ![Grafik](https://user-images.githubusercontent.com/6681528/161436897-174f3396-c2bb-4248-b91c-707005f7d2a8.png)
 
 ### SendMethod
 Sie können jeden Befehl (Methode) senden, indem Sie das sendMethod-Objekt festlegen, zum Beispiel: Get the SurveillanceStation info ist eine getInfo-Methode ohne zusätzliche Parameter.
@@ -44,7 +47,7 @@ Sie können jeden Befehl (Methode) senden, indem Sie das sendMethod-Objekt festl
 ***AudioStation.players.{PLAYERID}***:
 
 * play, pause, stop, next, prev - Steuerung der Wiedergabe (Taste, nur wahr)
-* repeat - Wiederholungssteuerung (Aus, Alle, Eins)
+* wiederholen - Wiederholungssteuerung (Aus, Alle, Eins)
 * shuffle - Shuffle-Steuerung (true/false)
 * Lautstärke - Lautstärke des Remote-Players (0-100)
 * seek - Steuerung der Wiedergabesuche (0-100)
@@ -70,9 +73,22 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ```
 
 ## Changelog
+### 2.1.5 (2022-04-03)
+* (Apollon77) fix DSM version detection
 
-### __WORK IN PROGRESS__
-* (Apollon77) Fix type issues since js.controller 3.3
+### 2.1.4 (2022-04-03)
+* (arteck) workaround for shutdown and reboot(configure your ssh port in the settings)
+* (Apollon77) prevent error when setting FileStation.info.items on start once
+
+### 2.1.1 (2022-03-26)
+* (Apollon77) Optimize object type determination and adjustments
+
+### 2.1.0 (2022-03-25)
+* IMPORTANT: You need to re-enter the password once after installing this version!
+* (Apollon77) Camera snapshots are now also stored in ioBroker storage to be easier used in visualizations!
+* (foxriver76) Hide password display in Admin when using Admin5
+* (Apollon77) Fix volume description
+* (Apollon77) Fix type issues since js-controller 3.3
 
 ### 2.0.1 (2021-09-17)
 * (MeisterTR) Workaround JSON config Password
@@ -184,7 +200,7 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 * (instalator) change for as and ss
 * (instalator) added snapshot functional 
 * (instalator) fixed systemConfig 
-* (instalator) fixed many error 
+* (instalator) fixed many error
 
 ### 0.0.4 (2018-10-07)
 * (instalator) Изменен репозиторий библиотеки

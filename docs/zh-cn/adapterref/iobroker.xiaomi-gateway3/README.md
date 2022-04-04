@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.xiaomi-gateway3/README.md
 title: ioBroker.xiaomi-gateway3
-hash: 8eg2WtQ32z+01fulwtQjQrBx7CLRyhXmv1b6AMK9sg4=
+hash: JPN+vUlUrO/zaklRyjaYlXUY/ipHxSUmkfUT8kW9Lqk=
 ---
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.xiaomi-gateway3.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.xiaomi-gateway3.svg)
@@ -11,14 +11,14 @@ hash: 8eg2WtQ32z+01fulwtQjQrBx7CLRyhXmv1b6AMK9sg4=
 ![安装数量（稳定）](https://iobroker.live/badges/xiaomi-gateway3-stable.svg)
 ![新PM](https://nodei.co/npm/iobroker.xiaomi-gateway3.png?downloads=true)
 
-<img src="static/xiaomi-gateway3_logo.png" alt="标识" width="150"/>
+<img src="static/xiaomi-gateway3_logo.png" alt="商标" width="150"/>
 
 # IoBroker.xiaomi-gateway3
 ![测试和发布](https://github.com/lasthead0/ioBroker.xiaomi-gateway3/workflows/Test%20and%20Release/badge.svg)
 
 ## Xiaomi-gateway3 ioBroker 适配器
 该适配器允许 ioBroker 与小米网关 3 通信并使用它来控制小米设备。
-适配器通过 MQTT 协议与网关通信（它连接到内置 MQTT 代理）。但是，您必须通过 Mi Home (Cloud) 将网关和设备配对。
+适配器通过 MQTT 协议与网关通信（它连接到内置的 MQTT 代理）。但是，您必须通过 Mi Home (Cloud) 将网关和设备配对。
 
 ## 早期版本
 适配器目前处于开发阶段。但已经具备随时可用的功能。
@@ -43,7 +43,7 @@ hash: 8eg2WtQ32z+01fulwtQjQrBx7CLRyhXmv1b6AMK9sg4=
 
 您可以使用这些版本的自定义或库存固件刷新网关：[维基](https://github.com/AlexxIT/XiaomiGateway3/wiki)。
 
-__*!!Attantion:*__ 固件版本低于`1.4.7_0000` 适配器不支持也不支持。不保证支持低于 `v1.5.0_0026` 的版本。
+__*!!注意：*__ 低于`1.4.7_0000` 的固件版本不支持也不支持。不保证支持低于 `v1.5.0_0026` 的版本。
 
 ## 支持的设备
 - [x] 测试
@@ -99,7 +99,7 @@ __*!!Attantion:*__ 固件版本低于`1.4.7_0000` 适配器不支持也不支持
 - [ ] 宜家灯泡 E27 1000 流明 (LED1623G12)
 - [ ] 宜家灯泡 E27 950 lm (LED1546G12)
 - [ ] 宜家灯泡 E27 980 lm (LED1545G12)
-- [ ] 宜家灯泡 GU10 400 lm (LED1537R6,LED1650R5)
+- [ ] 宜家 GU10 灯泡 400 lm (LED1537R6,LED1650R5)
 - [x] 小米按钮 (WXKG01LM)
 - [x] 小米门磁 (MCCGQ01LM)
 - [ ] 小米光传感器 (GZCGQ01LM)
@@ -144,9 +144,9 @@ _**注意：** BLE 设备在配对后第一次可能没有状态，因为我不�
 对于按钮设备，您可以看到两种状态的组合（如）`long_press`和`long_timeout`。
 它是如何工作的？支持长按的按钮在按下和释放事件时发送消息。当按钮未在释放按钮上发送消息时，有时可能会发生这种情况。在这种情况下，`timeout`应该有助于“释放”状态。
 
-默认情况下`timeout`状态值未设置，并且`long_press`将在开始按住按钮后 1 秒内释放，即使您仍然按住它。如果您将 `long_timeout` 设置为 -1 超时将被完全忽略，并且状态将仅通过来自按钮的消息“释放”。
+默认情况下`timeout`状态值未设置，并且`long_press`将在开始按住按钮后 1 秒内释放，即使您仍然按住它。如果您将 `long_timeout` 设置为 -1，超时将被完全忽略，并且状态将仅通过来自按钮的消息“释放”。
 
-在大多数情况下，将 `timeout` 设置为某个小值（如 4 或 5 秒）是合理的。
+在大多数情况下，将 `timeout` 设置为 4 或 5 秒之类的小值是合理的。
 
 ### `Occupancy`和`Occupancy timeout`
 RTCGQ11LM 和其他运动传感器在运动检测后有 5 到 60 秒的延迟（超时）（取决于版本和修改）。这意味着在此期间无法检测到新的运动（技术上传感器不发送消息）。
@@ -160,7 +160,7 @@ RTCGQ11LM 和其他运动传感器在运动检测后有 5 到 60 秒的延迟（
 ＃＃ 配置
 要连接网关，您需要获取网关的 IP 和 TOKEN。您可以手动或从云端执行此操作。
 
-您还必须选择 telnet open 命令（在大多数情况下选项 #2）。您可以通过按钮测试连接和远程登录。
+此外，您还必须选择 telnet open 命令（在大多数情况下是选项 #2）。您可以通过按钮测试连接和远程登录。
 
 *这里 ping 不是真正的 ping。这是对设备可用性的更多检查。*
 
@@ -234,6 +234,17 @@ _**注意：**要在 ioBroker 日志中查看调试消息，您必须在 `Instan
 
 _**注意：**目前此页面具有基本功能。将来会很好地扩展。_
 
+### 设备配置
+您可以通过使用 yaml 编写配置来定义一些选项来配置设备（和设备的卡）。下表中描述的可用选项。您可以使用菜单中的`Config`点调用设备配置窗口（带有文本输入区域的窗口）。
+
+<img src="static/device-yaml-config.png">
+
+#### 设备配置选项
+|字段|类型|描述|
+|---|---|---|
+|cardStates|Dictionary|此字典包含设备卡的选项|
+|cardStates.hide|List|必须从设备卡中隐藏的状态（状态 ID）列表|
+
 ＃＃＃ 统计
 <img src="static/tab-statistic.png">
 
@@ -248,6 +259,11 @@ _**注意：**您应该记住，这并不是网关和设备之间的 zigbee 消�
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.4 (2022-02-10)
+* Fix issue getting devices from cloud and switch to RC4
+* Add devices page
+* Other fixes and improvements
+
 ### 0.3.3 (2022-01-30)
 * Fix lumi temperature and voltage
 

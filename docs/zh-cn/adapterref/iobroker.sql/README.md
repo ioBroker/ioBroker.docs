@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: DCF5AmF4X9Z+t37Ff0XTqogvrFR9L2WUru1+DJ5UxBA=
+hash: 6BQlycC5MqKCnlw4Yn93TaS0EqMZp6xRmwcJrLT48Rk=
 ---
-![标识](../../../en/adapterref/iobroker.sql/admin/sql.png)
+![商标](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
 ![安装数量](http://iobroker.live/badges/sql-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.sql.svg)
@@ -68,7 +68,7 @@ FLUSH PRIVILEGES;
 
 在“windows”上，它可以通过安装程序轻松安装：https://dev.mysql.com/downloads/installer/。
 
-注意认证方法。 `node.js`尚不支持 MySQL 8.0 中的新加密算法，您必须选择旧式身份验证方法。
+注意认证方法。 `node.js`还不支持 MySQL 8.0 中的新加密算法，您必须选择旧的身份验证方法。
 
 ![视窗](../../../en/adapterref/iobroker.sql/img/WindowsMySQLinstaller.png)
 
@@ -127,7 +127,7 @@ FLUSH PRIVILEGES;
 |领域 |类型 |说明 |
 |--------|--------------------------------------------|-------------------------------------------------|
 |编号 |整数 | “数据点”表中的状态 ID |
-| ts |大整数/整数 |以毫秒为单位的时间，直到纪元。可以使用“new Date(ts)”转换为时间 |
+| ts | BIGINT / 整数 |以毫秒为单位的时间，直到纪元。可以使用“new Date(ts)”转换为时间 |
 |值 |真实 |价值 |
 |确认 |位/布尔值 |已确认：0 - 未确认，1 - 确认 |
 | _来自 |整数 | “来源”表中的来源 ID |
@@ -152,7 +152,7 @@ FLUSH PRIVILEGES;
 | ts |大整数/整数 |以毫秒为单位的时间，直到纪元。可以使用“new Date(ts)”转换为时间 |
 |值 |真实 |价值 |
 
-此表存储计数器交换时的值，并且该值没有增加，但未能为零或更低的值。
+此表存储计数器交换时的值，并且该值没有增加，但未能达到零或更低的值。
 
 ### 字符串
 “字符串”类型的状态值。
@@ -196,7 +196,7 @@ FLUSH PRIVILEGES;
 |值 |位/布尔值 |价值 |
 |确认 |位/布尔值 |已确认：0 - 未确认，1 - 确认 |
 | _来自 |整数 | “来源”表中的来源 ID |
-|问 |整数 |质量如数。您可以找到描述[这里](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
+|问 |整数 |质量如数。你可以找到描述[这里](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states)|
 
 *注意：* MS-SQL 使用 BIT，其他使用 BOOLEAN。 SQLite 用于 ts INTEGER 和所有其他 BIGINT。
 
@@ -313,7 +313,8 @@ sendTo('sql.0', 'getHistory', {
     options: {
         start:      end - 3600000,
         end:        end,
-        aggregate: 'minmax' // or 'none' to get raw values
+        aggregate:  'minmax', // or 'none' to get raw values
+        addId:      true
     }
 }, function (result) {
     for (var i = 0; i < result.result.length; i++) {
@@ -345,7 +346,7 @@ sendTo('sql.0', 'getCounter', {
 该适配器支持通过 JavaScript 启用和禁用历史记录，还支持使用其设置检索启用的数据点列表。
 
 ＃＃＃ 使能够
-该消息需要具有数据点的“id”。此外，用于定义数据点特定设置的可选“选项”：
+消息需要具有数据点的“id”。此外，用于定义数据点特定设置的可选“选项”：
 
 ```
 sendTo('sql.0', 'enableHistory', {
@@ -369,7 +370,7 @@ sendTo('sql.0', 'enableHistory', {
 ```
 
 ### 禁用
-该消息需要具有数据点的“id”。
+消息需要具有数据点的“id”。
 
 ```
 sendTo('sql.0', 'disableHistory', {
@@ -430,12 +431,20 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### __工作进行中__ -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Fix GetHistory logic to always return the "count" newest entries if more than "count" are available
+* (Apollon77) Add support for addId getHistory flag
+
+### 1.16.2 (2022-02-16)
+* (bluefox) Marked interpolated data with `i=true`
+
 ### 1.16.1 (2021-12-19)
 * (Excodibur) Hide settings not relevant when "log changes only" is not used
 * (Apollon77) Allow all number values for debounce again
 
 ### 1.16.0 (2021-12-14)
-* (bluefox) Support only `js.controller` >= 3.3.x
+* (bluefox) Support only `js-controller` >= 3.3.x
 * (bluefox) Used system/custom view for collecting the objects
 * (bluefox) Implemented option to ignore zero- or/and below zero- values
 
@@ -692,7 +701,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2021 bluefox <dogafox@gmail.com>, Apollon77
+Copyright (c) 2015-2022 bluefox <dogafox@gmail.com>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

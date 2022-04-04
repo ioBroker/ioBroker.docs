@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: DCF5AmF4X9Z+t37Ff0XTqogvrFR9L2WUru1+DJ5UxBA=
+hash: 6BQlycC5MqKCnlw4Yn93TaS0EqMZp6xRmwcJrLT48Rk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
@@ -14,7 +14,7 @@ hash: DCF5AmF4X9Z+t37Ff0XTqogvrFR9L2WUru1+DJ5UxBA=
 ![НПМ](https://nodei.co/npm/iobroker.sql.png?downloads=true)
 
 # IoBroker.sql
-Этот адаптер сохраняет историю состояний в базу данных SQL.
+Этот адаптер сохраняет историю состояний в базе данных SQL.
 
 Поддерживает PostgreSQL, mysql, Microsoft SQL Server и sqlite.
 Вы можете оставить порт 0, если требуется порт по умолчанию.
@@ -130,7 +130,7 @@ FLUSH PRIVILEGES;
 | тс | БОЛЬШОЕ / ЦЕЛОЕ | Время в мс до эпохи. Можно преобразовать во время с помощью «новой даты (ts)» |
 | вал | НАСТОЯЩИЙ | Значение |
 | подтверждение | БИТ/БУЛЕВОЕ | Подтверждено: 0 - нет подтверждения, 1 - подтверждение |
-| _из | ЦЕЛОЕ ЧИСЛО | ID источника из таблицы "Источники" |
+| _из | ЦЕЛОЕ | ID источника из таблицы "Источники" |
 | д | ЦЕЛОЕ ЧИСЛО | Качество как число. Вы можете найти описание [здесь](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
 *Примечание:* MS-SQL использует BIT, а другие используют BOOLEAN. SQLite использует для ts INTEGER и все остальные BIGINT.
@@ -313,7 +313,8 @@ sendTo('sql.0', 'getHistory', {
     options: {
         start:      end - 3600000,
         end:        end,
-        aggregate: 'minmax' // or 'none' to get raw values
+        aggregate:  'minmax', // or 'none' to get raw values
+        addId:      true
     }
 }, function (result) {
     for (var i = 0; i < result.result.length; i++) {
@@ -430,12 +431,20 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Fix GetHistory logic to always return the "count" newest entries if more than "count" are available
+* (Apollon77) Add support for addId getHistory flag
+
+### 1.16.2 (2022-02-16)
+* (bluefox) Marked interpolated data with `i=true`
+
 ### 1.16.1 (2021-12-19)
 * (Excodibur) Hide settings not relevant when "log changes only" is not used
 * (Apollon77) Allow all number values for debounce again
 
 ### 1.16.0 (2021-12-14)
-* (bluefox) Support only `js.controller` >= 3.3.x
+* (bluefox) Support only `js-controller` >= 3.3.x
 * (bluefox) Used system/custom view for collecting the objects
 * (bluefox) Implemented option to ignore zero- or/and below zero- values
 
@@ -692,7 +701,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2021 bluefox <dogafox@gmail.com>, Apollon77
+Copyright (c) 2015-2022 bluefox <dogafox@gmail.com>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

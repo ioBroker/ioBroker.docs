@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.webuntis/README.md
 title: ioBroker.webuntis
-hash: AgyukjTnGAHgQS/dJsCttzzXlatFgIhuxx5J2VRYqSo=
+hash: PCFCSeMr0GsPe9cjkNnOhtzHJgSz/13b4IH1ltEGDes=
 ---
 ![Logo](../../../en/adapterref/iobroker.webuntis/admin/webuntis.png)
 
@@ -21,7 +21,7 @@ hash: AgyukjTnGAHgQS/dJsCttzzXlatFgIhuxx5J2VRYqSo=
 Adapter um Daten von WebUntis zu bekommen
 
 Dieser Adapter bezieht sich auf Daten aus Webuntis.
-Für eine deutsche Anleitung ![hier klicken](../../../en/adapterref/iobroker.webuntis/readme/readme.de.md)
+Für eine deutsche Anleitung [hier klicken](readme/readme.de.md)
 
 ## Einstieg
 Nach der Installation des Adapters in iobroker öffnet sich automatisch das Konfigurations-Fenster.
@@ -35,7 +35,7 @@ Jetzt müssen Sie die Internetadresse der Schulwebsite von webuntis eingeben:
 - die Basis-URL
 - das Schulgeheimnis
 
-siehe das Beispiel unter dem vorherigen Screenshot: https://hepta.webuntis.com/WebUntis/?school=hbs-F%C3%BCrth#/basic/login
+siehe das Beispiel unter dem vorherigen Screenshot: [Hier](https://hepta.webuntis.com/WebUntis/?school=hbs-F%C3%BCrth#/basic/login)
 
 - hepta.webuntis.com => die Schoolbase-URL
 - hbs-F%C3%BCrth => das Schulgeheimnis
@@ -57,6 +57,12 @@ Bitte zögern Sie nicht, einen Vorschlag für empfohlene Versionen zu machen.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.3 (2022-04-03)
+* Add errorhandling for timetable
+
+### 0.3.2 (2022-03-02)
+* Add errorhandling for inbox & mesage center
+
 ### 0.3.1 (2022-01-30)
 * Bug fixes in timetable
 

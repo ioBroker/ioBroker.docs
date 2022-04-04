@@ -142,6 +142,9 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 3.0.3 (2022-04-01)
+* (Apollon77) Fix crash cases reported by Sentry
+
 ### 3.0.2 (2022-03-21)
 * (bluefox) Updated serialport package
 

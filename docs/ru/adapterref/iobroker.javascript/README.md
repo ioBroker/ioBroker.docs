@@ -2640,6 +2640,9 @@ return 'your result';
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.5.4 (2022-04-03)
+* (bluefox) Tried to solve problem with the font
+
 ### 5.5.3 (2022-03-25)
 * (bluefox) Fixed getObjectAsync function if object does not exist
 
@@ -2653,10 +2656,6 @@ return 'your result';
 
 ### 5.4.5 (2022-03-20)
 * (Apollon77) Fix existsState and existsObject
-
-### 5.4.3 (2022-03-17)
-* (Apollon77) Fix handling of month schedules with given date list
-* (Apollon77) Optimize scheduling to make sure to not miss triggers if callbacks would need too long
 
 ## License
 The MIT License (MIT)

@@ -74,6 +74,10 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
+### 5.3.6 (2022-04-03)
+* (bluefox) Corrected the host selector in "add instance" dialog
+* (bluefox) corrected display of "null" values, e.g. by time/date
+
 ### 5.3.4 (2022-03-27)
 * (Apollon77) Fix some crash cases reported by Sentry
 * (bluefox) Corrected user tab
@@ -89,13 +93,6 @@ lettering of the log appears in red.
 * (bluefox) Support of IPv6 address by links (vis, material, end so on)
 * (bluefox) Corrected errors in the base settings
 * (bluefox) Corrected error with the pre-selected language in wizard
-
-### 5.3.0 (2022-02-09)
-* (jogibear9988) Enable http compression in webserver
-* (bluefox) Removed deprecated package "request"
-* (bluefox) Added JSONL option for base settings
-* (bluefox) Added small improvements
-* (bluefox) Added the file viewer for binary states
 
 ## License
 The MIT License (MIT)
