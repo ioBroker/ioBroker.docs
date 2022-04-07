@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: 6BQlycC5MqKCnlw4Yn93TaS0EqMZp6xRmwcJrLT48Rk=
+hash: OYxBQhD6nAYuSc8CmDpGHXztTWL1nnAekjlGNd2S9m0=
 ---
 ![商标](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
@@ -55,7 +55,7 @@ iobroker start sql
 ```
 apt-get install mysql-server mysql-client
 
-mysql -uroot -p
+mysql -u root -p
 
 CREATE USER 'iobroker'@'%' IDENTIFIED BY 'iobroker';
 GRANT ALL PRIVILEGES ON * . * TO 'iobroker'@'%';
@@ -108,7 +108,7 @@ FLUSH PRIVILEGES;
 |-------|--------------------------------------------|-------------------------------------------------|
 |编号 | INTEGER NOT NULL PRIMARY KEY IDENTITY(1,1) |唯一标识 |
 |姓名 | varchar(255) / 文本 |变量的 ID，例如hm-rpc.0.JEQ283747.1.STATE |
-|类型 |整数 | 0 - 数字，1 - 字符串，2 - 布尔值 |
+|类型 |整数 | 0 - 数字，1 - 字符串，2 - 布尔 |
 
 *注意：* MS-SQL 使用 varchar(255)，其他使用 TEXT
 
@@ -127,7 +127,7 @@ FLUSH PRIVILEGES;
 |领域 |类型 |说明 |
 |--------|--------------------------------------------|-------------------------------------------------|
 |编号 |整数 | “数据点”表中的状态 ID |
-| ts | BIGINT / 整数 |以毫秒为单位的时间，直到纪元。可以使用“new Date(ts)”转换为时间 |
+| ts |大整数/整数 |以毫秒为单位的时间，直到纪元。可以使用“new Date(ts)”转换为时间 |
 |值 |真实 |价值 |
 |确认 |位/布尔值 |已确认：0 - 未确认，1 - 确认 |
 | _来自 |整数 | “来源”表中的来源 ID |
@@ -196,7 +196,7 @@ FLUSH PRIVILEGES;
 |值 |位/布尔值 |价值 |
 |确认 |位/布尔值 |已确认：0 - 未确认，1 - 确认 |
 | _来自 |整数 | “来源”表中的来源 ID |
-|问 |整数 |质量如数。你可以找到描述[这里](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states)|
+|问 |整数 |质量如数。您可以找到描述[这里](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
 *注意：* MS-SQL 使用 BIT，其他使用 BOOLEAN。 SQLite 用于 ts INTEGER 和所有其他 BIGINT。
 
@@ -301,7 +301,7 @@ sendTo('sql.0', 'update', [
 
 `ts`是强制性的。状态对象中必须至少包含一个其他标志。
 
-小心`counters`。 DB中的`counters`不会被重置，必须自己处理。
+小心使用`counters`。 DB中的`counters`不会被重置，必须自己处理。
 
 ## 获取历史
 除了自定义查询，您还可以使用内置系统函数 **getHistory**：
@@ -324,7 +324,7 @@ sendTo('sql.0', 'getHistory', {
 ```
 
 ## 获取计数器
-用户可以询问特定时期的某个计数器的值（类型=数字，计数器=真）。
+用户可以询问特定时间段内某个计数器的值（type=number，counter=true）。
 
 ```
 var now = Date.now();
@@ -370,7 +370,7 @@ sendTo('sql.0', 'enableHistory', {
 ```
 
 ### 禁用
-消息需要具有数据点的“id”。
+该消息需要具有数据点的“id”。
 
 ```
 sendTo('sql.0', 'disableHistory', {
@@ -421,7 +421,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 - **不创建数据库**：如果数据库已经创建（例如由管理员创建）并且 ioBroker-user 没有足够的权限来创建数据库，则激活此选项。
 
 ＃＃ 默认设置
-- **去抖动间隔**：不要比这个间隔更频繁地存储值。
+- **去抖动间隔**：不要比此间隔更频繁地存储值。
 - **记录任何未更改的值**：每 X 秒额外写入一次值。
 - **从最后一个值到日志的最小差异**：两个值之间的最小间隔。
 - **存储保留**：值将在数据库中存储多长时间。
@@ -433,8 +433,9 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ## Changelog
 
 ### __WORK IN PROGRESS__
-* (Apollon77) Fix GetHistory logic to always return the "count" newest entries if more than "count" are available
+* (Apollon77) Add flag returnNewestEntries for GetHistory to determine which records to return when more entries as "count" are existing for aggregate "none"
 * (Apollon77) Add support for addId getHistory flag
+* (winnyschuster) Fix Insert statement for MSSQL ts_counter
 
 ### 1.16.2 (2022-02-16)
 * (bluefox) Marked interpolated data with `i=true`

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: 6BQlycC5MqKCnlw4Yn93TaS0EqMZp6xRmwcJrLT48Rk=
+hash: OYxBQhD6nAYuSc8CmDpGHXztTWL1nnAekjlGNd2S9m0=
 ---
 ![Logo](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
@@ -55,7 +55,7 @@ Sie können mysql auf Linux-Systemen wie folgt installieren:
 ```
 apt-get install mysql-server mysql-client
 
-mysql -uroot -p
+mysql -u root -p
 
 CREATE USER 'iobroker'@'%' IDENTIFIED BY 'iobroker';
 GRANT ALL PRIVILEGES ON * . * TO 'iobroker'@'%';
@@ -70,7 +70,7 @@ Unter "Windows" kann es einfach per Installer installiert werden: https://dev.my
 
 Achten Sie auf die Authentifizierungsmethode. Der neue Verschlüsselungsalgorithmus in MySQL 8.0 wird noch nicht von `node.js` unterstützt und Sie müssen die Legacy-Authentifizierungsmethode auswählen.
 
-![Fenster](../../../en/adapterref/iobroker.sql/img/WindowsMySQLinstaller.png)
+![Windows](../../../en/adapterref/iobroker.sql/img/WindowsMySQLinstaller.png)
 
 ## Aufbau der DBs
 Der Standarddatenbankname ist „iobroker“, kann aber in der Konfiguration geändert werden.
@@ -192,7 +192,7 @@ Struktur:
 | Feld | Geben Sie | ein Beschreibung |
 |--------|--------------------------------------------|-------------------------------------------------|
 | ID | GANZZAHL | ID des Zustands aus Tabelle "Datenpunkte" |
-| ts | GROSSARTIG | Zeit in ms bis Epoche. Kann mit "new Date(ts)" | in Zeit umgerechnet werden |
+| ts | GROSSARTIG | Zeit in ms bis zur Epoche. Kann mit "new Date(ts)" | in Zeit umgerechnet werden |
 | Wert | BIT/BOOLESCH | Wert |
 | ack | BIT/BOOLESCH | Wird bestätigt: 0 - nicht ack, 1 - ack |
 | _von | GANZZAHL | ID der Quelle aus Tabelle "Quellen" |
@@ -285,7 +285,7 @@ sendTo('sql.0', 'deleteRange', [
 ], result => console.log('deleted'));
 ```
 
-Die Zeit könnte ms seit Epoche oder eine ans-Zeichenfolge sein, die durch das Javascript-Datumsobjekt konvertiert werden könnte.
+Die Zeit könnte ms seit Epoche oder eine Zeichenfolge sein, die durch das Javascript-Datumsobjekt konvertiert werden könnte.
 
 Werte werden inklusive definierter Grenzen gelöscht. `ts >= start AND ts <= end`
 
@@ -345,7 +345,7 @@ Wenn das Zählergerät ersetzt wird, wird es ebenfalls berechnet.
 ## Verwaltung der Verlaufsprotokollierung über Javascript
 Der Adapter unterstützt das Aktivieren und Deaktivieren der Verlaufsprotokollierung über JavaScript sowie das Abrufen der Liste der aktivierten Datenpunkte mit ihren Einstellungen.
 
-### Aktivieren
+### Ermöglichen
 Die Nachricht muss die "ID" des Datenpunkts haben. Zusätzlich optionale "Optionen" zum Definieren der datenpunktspezifischen Einstellungen:
 
 ```
@@ -433,8 +433,9 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ## Changelog
 
 ### __WORK IN PROGRESS__
-* (Apollon77) Fix GetHistory logic to always return the "count" newest entries if more than "count" are available
+* (Apollon77) Add flag returnNewestEntries for GetHistory to determine which records to return when more entries as "count" are existing for aggregate "none"
 * (Apollon77) Add support for addId getHistory flag
+* (winnyschuster) Fix Insert statement for MSSQL ts_counter
 
 ### 1.16.2 (2022-02-16)
 * (bluefox) Marked interpolated data with `i=true`

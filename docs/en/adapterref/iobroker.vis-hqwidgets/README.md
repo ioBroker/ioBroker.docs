@@ -1,25 +1,28 @@
 ![Logo](admin/hqwidgets.png)
-# oBroker.vis-hqWidgets
+# ioBroker.vis-hqWidgets
 
 ![Number of Installations](http://iobroker.live/badges/vis-hqwidgets-installed.svg) ![Number of Installations](http://iobroker.live/badges/vis-hqwidgets-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.vis-hqwidgets.svg)](https://www.npmjs.com/package/iobroker.vis-hqwidgets)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.vis-hqwidgets.svg)](https://www.npmjs.com/package/iobroker.vis-hqwidgets)
 
 [![NPM](https://nodei.co/npm/iobroker.vis-hqwidgets.png?downloads=true)](https://nodei.co/npm/iobroker.vis-hqwidgets/)
 
-hqWidgets - High quality widgets for ioBroker.vis
+hqWidgets - High quality widgets for [ioBroker.vis](https://github.com/ioBroker/ioBroker.vis)
 ![Example](img/widgets.png)
 
-For one widget the jQuery.knob plugin (MIT) from Anthony Terrien is used.
+For one widget the `jQuery.knob` plugin (MIT) from Anthony Terrien is used.
 http://anthonyterrien.com/knob/ or https://github.com/aterrien/jQuery-Knob 
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 1.2.0 (2022-04-05)
+* (bluefox) Removed deprecated method `load`
+
 ### 1.1.9 (2021-10-20)
-* (bluefox) Added the valve values from 0 to 1 
+* (bluefox) Added the valve values from 0 to 1
 
 ### 1.1.7 (2020-10-31)
 * (bluefox) Corrected the after comma digits for the valve
@@ -138,5 +141,5 @@ http://anthonyterrien.com/knob/ or https://github.com/aterrien/jQuery-Knob
 - (bluefox) initial checkin
 
 ## License
- Copyright (c) 2013-2021 bluefox <dogafox@gmail.com>
+ Copyright (c) 2013-2022 bluefox <dogafox@gmail.com>
  MIT

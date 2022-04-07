@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fullybrowser/README.md
 title: ioBroker.fullybrowser
-hash: BwPm/I4eKklyL1A08qzAib0VHbhCt5stjhFO4A7Njls=
+hash: RU9frih9P8h41k3S6tA2s/BBC+EmFWtzeb2PJVS8yZ0=
 ---
 ![Logo](../../../en/adapterref/iobroker.fullybrowser/admin/fully.png)
 
@@ -15,52 +15,36 @@ hash: BwPm/I4eKklyL1A08qzAib0VHbhCt5stjhFO4A7Njls=
 # IoBroker.fullybrowser
 =================
 
-fullBrowser Adapter für ioBroker ---------------------------------------------------------- --------------------------------
+fullBrowser Adapter für ioBroker ---------------------------------------------- ---------------------------------
 
-Dieser Adapter verwaltet Ihre [Vollständiger Kiosk-Browser](https://www.fully-kiosk.com) (eine Plus-Lizenz ist erforderlich). Es bietet Ihnen eine Reihe von Möglichkeiten, Ihr Tablet über ioBroker zu steuern, wie das Ein- und Ausschalten des Displays, das Starten einer Tablet-App, das Starten des Bildschirmschoners usw. Außerdem bietet es verschiedene Informationen zum Status, wie zum Beispiel den Akkustand Ihres Tablets usw. . die Sie zB verwenden können zur Visualisierung.
+Dieser Adapter verwaltet Ihre [Vollständiger Kiosk-Browser](https://www.fully-kiosk.com) (eine Plus-Lizenz ist erforderlich). Es bietet Ihnen eine Reihe von Möglichkeiten, Ihr Tablet über ioBroker zu steuern, wie das Ein- und Ausschalten des Displays, das Starten einer beliebigen Tablet-App, das Starten des Bildschirmschoners usw. Außerdem bietet es verschiedene Statusinformationen, wie den Akkustand Ihres Tablets usw ., die Sie z.B. für Visualisierung.
 Ein kleiner Auszug nur der Befehlsoptionen:
 
 ![Möglichkeiten](https://github.com/arteck/iobroker.fullyBrowser/blob/master/doku/auszug1.png)
 
-<b>NodeJs &gt;&gt; 8.xx</b>
-
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-https://github.com/AlCalzone/release-script#usage npm run release minor -- --all 0.9.8 -> 0.10.0 npm run release patch -- --all 0.9.8 -> 0.9.9 npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0 Platzhalter für die nächste Version (am Anfang der Zeile):
+https://github.com/AlCalzone/release-script#usage npm run release minor -- --all 0.9.8 -> 0.10.0 npm run release patch -- --all 0.9.8 -> 0.9.9 npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0 Platzhalter für die nächste Version (am Zeilenanfang):
 
-### **ARBEITEN LÄUFT** -->
+### **IN ARBEIT** -->
 
 ## Changelog
-### 2.0.12 (2021-12-18)
-* (arteck) screenBrightness direct command
+### 2.1.2 (2022-04-05)
+* (arteck) encodeUri in psw
 
-### 2.0.11 (2021-12-17)
-* (arteck)   Problem with data object for Sony Tabs
+### 2.1.1 (2022-02-07)
+* (arteck) js-controller 4.x
 
-### 2.0.10 (2021-12-07)
-* (xXBJXx)  Problem with special characters in psw
+### 2.1.0 (2022-02-07)
+* (arteck) js-controller 4
 
-### 2.0.9 (2021-05-30)
-* (arteck)  lastInfoUpdate is now correct
+### 2.0.14 (2022-01-31)
+* (arteck) life tick error
 
-### 2.0.6 (2021-03-18)
-* (arteck) timeout new defined
 
-### 2.0.4 (2021-01-20)
-* (arteck) new js-controller upd
-
-### 2.0.2 (2020-12-28)
-* (arteck) little update
-
-### 2.0.1 (2020-08-19)
-* (arteck) refactoring
-* (arteck) settings update interval switch so sec
-
-### 1.0.4 (2020-08-06)
-* (arteck) volume set
-
-### 1.0.3 (2020-02-16)
-* (arteck) support compact mode
+...
+...
+...
 
 ### 1.0.1 (2019-06-20)
 * (arteck) encodeURL
@@ -68,7 +52,7 @@ https://github.com/AlCalzone/release-script#usage npm run release minor -- --all
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 Arthur Rupp <arteck@outlook.com>
+Copyright (c) 2014-2022 Arthur Rupp arteck@outlook.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

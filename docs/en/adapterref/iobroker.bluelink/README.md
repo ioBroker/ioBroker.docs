@@ -18,21 +18,23 @@ Adapter to control Hyundai or Kia vehicle
 Discussion: https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo
 
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 2.2.3 (2022-04-06)
+Update dependencies
+
 ### 2.2.0
 * (Newan) Test release for 503 Error
 
 ### 2.2.0
 
 * (TA2k, Newan) Adding refresh stop if 12V battery is under 50%.
-  
+
 ### 2.1.2
 * (TA2k, Newan) Update lib bluelinky
-
-### 2.1
-* (Newan) Add Datapoints for doors etc
- 
-### 2.0
-* (TA2k) DATA POINTS HAVE CHANGED. Scripts have to be adapted. Added support for multiple cars, no manual VIN entry required. Added raw data points from API and EV Drive History (must be activated in the options).
 
 ### 1.1.1
 * (Newan) Bug fixes vehicle location
@@ -65,7 +67,7 @@ Discussion: https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder
 ## License
 MIT License
 
-Copyright (c) 2021 Newan <info@newan.de>
+Copyright (c) 2022 Newan <info@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

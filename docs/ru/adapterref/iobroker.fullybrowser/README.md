@@ -2,65 +2,49 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fullybrowser/README.md
-title: ioBroker.fullybrowser
-hash: BwPm/I4eKklyL1A08qzAib0VHbhCt5stjhFO4A7Njls=
+title: ioBroker.fullbrowser
+hash: RU9frih9P8h41k3S6tA2s/BBC+EmFWtzeb2PJVS8yZ0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.fullybrowser/admin/fully.png)
 
 ![Количество установок](http://iobroker.live/badges/fullybrowser-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.fullybrowser.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.fullybrowser.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.fullybrowser.svg)
 ![НПМ](https://nodei.co/npm/iobroker.fullybrowser.png?downloads=true)
 
-# IoBroker.fullybrowser
+# IoBroker.fullbrowser
 =================
 
-fullBrowser адаптер для ioBroker ---------------------------------------------- --------------------------------
+полностью Браузерный адаптер для ioBroker ------------------------------------------------------------ --------------------------------
 
-Этот адаптер управляет вашим [Полностью киоск-браузер](https://www.fully-kiosk.com) (требуется лицензия Plus). Он предоставляет вам множество возможностей для управления вашим планшетом через ioBroker, таких как включение / выключение дисплея, запуск любого приложения для планшета, запуск заставки и т. Д. Кроме того, он предоставляет различную информацию о состояниях, например, уровень заряда батареи вашего планшета и т. Д. . которые вы можете использовать, например для визуализации.
-Небольшая выдержка только из опций команды:
+Этот адаптер управляет вашим [Полностью киоск-браузер](https://www.fully-kiosk.com) (требуется лицензия Plus). Он предоставляет вам множество возможностей для управления вашим планшетом через ioBroker, таких как включение/выключение дисплея, запуск любого приложения для планшета, запуск заставки и т. д. Кроме того, он предоставляет различную информацию о состояниях, например уровень заряда батареи вашего планшета и т. д. , который вы можете использовать, например. для визуализации.
+Небольшой отрывок только из параметров команды:
 
-![Möglichkeiten](https://github.com/arteck/iobroker.fullyBrowser/blob/master/doku/auszug1.png)
+![möglichkeiten](https://github.com/arteck/iobroker.fullyBrowser/blob/master/doku/auszug1.png)
 
-<b>NodeJs &gt;&gt; 8.xx</b>
+<!-- Заполнитель для следующей версии (в начале строки):
 
-<! - Заполнитель для следующей версии (в начале строки):
+https://github.com/AlCalzone/release-script#usage npm run, второстепенный выпуск -- --all 0.9.8 -> 0.10.0 npm run release patch -- --all 0.9.8 -> 0.9.9 npm запустить предрелизную бета-версию -- --all v0.2.1 -> v0.2.2-beta.0 Заполнитель для следующей версии (в начале строки):
 
-https://github.com/AlCalzone/release-script#usage npm run release minor - --all 0.9.8 -> 0.10.0 npm run release patch - --all 0.9.8 -> 0.9.9 npm запустить предварительную бета-версию релиза - --all v0.2.1 -> v0.2.2-beta.0 Заполнитель для следующей версии (в начале строки):
-
-### **РАБОТА В ПРОЦЕССЕ** ->
+### **ВЫПОЛНЯЕТСЯ** -->
 
 ## Changelog
-### 2.0.12 (2021-12-18)
-* (arteck) screenBrightness direct command
+### 2.1.2 (2022-04-05)
+* (arteck) encodeUri in psw
 
-### 2.0.11 (2021-12-17)
-* (arteck)   Problem with data object for Sony Tabs
+### 2.1.1 (2022-02-07)
+* (arteck) js-controller 4.x
 
-### 2.0.10 (2021-12-07)
-* (xXBJXx)  Problem with special characters in psw
+### 2.1.0 (2022-02-07)
+* (arteck) js-controller 4
 
-### 2.0.9 (2021-05-30)
-* (arteck)  lastInfoUpdate is now correct
+### 2.0.14 (2022-01-31)
+* (arteck) life tick error
 
-### 2.0.6 (2021-03-18)
-* (arteck) timeout new defined
 
-### 2.0.4 (2021-01-20)
-* (arteck) new js-controller upd
-
-### 2.0.2 (2020-12-28)
-* (arteck) little update
-
-### 2.0.1 (2020-08-19)
-* (arteck) refactoring
-* (arteck) settings update interval switch so sec
-
-### 1.0.4 (2020-08-06)
-* (arteck) volume set
-
-### 1.0.3 (2020-02-16)
-* (arteck) support compact mode
+...
+...
+...
 
 ### 1.0.1 (2019-06-20)
 * (arteck) encodeURL
@@ -68,7 +52,7 @@ https://github.com/AlCalzone/release-script#usage npm run release minor - --all 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 Arthur Rupp <arteck@outlook.com>
+Copyright (c) 2014-2022 Arthur Rupp arteck@outlook.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

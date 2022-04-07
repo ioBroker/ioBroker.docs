@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.e3dc-rscp/README.md
 title: ioBroker.e3dc-rscp
-hash: Kskywo19GmKINS3ICXVfE3t27O3wKzH7tNmAA/wVcho=
+hash: JOctm9RiVf4VYZVhZN2CSBJhSnpZrp4aEDh8lSCt/J0=
 ---
 ![商标](../../../en/adapterref/iobroker.e3dc-rscp/admin/e3dc-rscp.png)
 
@@ -24,7 +24,7 @@ e3dc-rscp 适配器是为<a href="https://www.e3dc.com/produkte/s10/">E3/DC S10<
 
 ＃＃ 表中的内容
 1. [适配器配置](#toc)
-1.【接口消息的覆盖率】(#cov)
+1.【接口消息的覆盖范围】(#cov)
 1. [示例脚本](#sam)
 1. [更新日志](#log)
 1. [许可证](#lic)
@@ -32,9 +32,9 @@ e3dc-rscp 适配器是为<a href="https://www.e3dc.com/produkte/s10/">E3/DC S10<
 <a name="toc"></a>
 
 ## 适配器配置这里是创建适配器的新实例时要配置的内容。设置在选项卡中组织。
-### 标签“选项”<table><tr><th>输入栏</th><th>意义</th></tr><tr><td>E3/DC 门户用户名</td><td>您在<a href="https://s10.e3dc.com/s10/">E3/DC 门户网站</a>上的用户名。 E3/DC 在授予 RSCP 访问权限之前会在那里检查您的凭据。</td></tr><tr><td> E3/DC 门户密码</td><td>您在<a href="https://s10.e3dc.com/s10/">E3/DC 门户网站</a>上的用户名。</td></tr><tr><td> E3/DC IP 地址</td><td>本地网络中的地址，例如 192.168.178.107<br> <code>ioBroker.discovery</code> （从 2.8.0 开始）能够使用 uPnP 检测 E3/DC 设备。<br>您也可以在 E3/DC 屏幕上查看 IP，它被称为“System-IP”：<br><img src="admin/e3dc-system-ip.png" width="600"></td></tr><tr><td> E3/DC 端口</td><td>您的 E3/DC 的 RSCP 端口，通常为 5033<br>注意：这与 Modbus 端口不同。</td></tr><tr><td> RSCP 密码</td><td>RSCP-密码，在您的 E3/DC 站本地输入：<br><img src="admin/e3dc-rscp-password.png" width="600"></td></tr><td> SET_POWER 重发间隔 [s]</td><td>定义 ioBroker 从 E3/DC 请求状态更新的频率。</td></tr><tr><td>元组发送延迟 [s]</td><td>定义 ioBroker 在将空闲期或数据历史更改写入 E3/DC 之前将等待多长时间。目的是将几个后续更改合并到一个调用中。在一个空闲周期或一个数据历史刻度内的值每次发生变化时，分别设置/重置一个专用超时；更改仅在超时结束后传输。这适用于 EMS.IDLE_PERIODS_* 和 DB.HISTORY_DATA_*</td></tr><tr><td>每个 E3/DC 命名空间的复选框</td><td>只会为选中的命名空间请求数据。</td></tr></table>
+### 标签“选项”<table><tr><th>输入栏</th><th>意义</th></tr><tr><td>E3/DC 门户用户名</td><td>您在<a href="https://s10.e3dc.com/s10/">E3/DC 门户网站</a>上的用户名。 E3/DC 在授予 RSCP 访问权限之前会在那里检查您的凭据。</td></tr><tr><td> E3/DC 门户密码</td><td>您在<a href="https://s10.e3dc.com/s10/">E3/DC 门户网站</a>上的用户名。</td></tr><tr><td> E3/DC IP 地址</td><td>本地网络中的地址，例如 192.168.178.107<br> <code>ioBroker.discovery</code> （从 2.8.0 开始）能够使用 uPnP 检测 E3/DC 设备。<br>您还可以在 E3/DC 屏幕上查看 IP，它称为“System-IP”：<br><img src="admin/e3dc-system-ip.png" width="600"></td></tr><tr><td> E3/DC 端口</td><td>您的 E3/DC 的 RSCP 端口，通常为 5033<br>注意：这与 Modbus 端口不同。</td></tr><tr><td> RSCP 密码</td><td>RSCP-密码，在您的 E3/DC 站本地输入：<br><img src="admin/e3dc-rscp-password.png" width="600"></td></tr><td> SET_POWER 重发间隔 [s]</td><td>定义 ioBroker 从 E3/DC 请求状态更新的频率。</td></tr><tr><td>元组发送延迟 [s]</td><td>定义 ioBroker 在将空闲期或数据历史更改写入 E3/DC 之前将等待多长时间。目的是将几个后续更改合并到一个调用中。在一个空闲周期或一个数据历史刻度内的值每次发生变化时，分别设置/重置一个专用超时；更改仅在超时结束后传输。这适用于 EMS.IDLE_PERIODS_* 和 DB.HISTORY_DATA_*</td></tr><tr><td>每个 E3/DC 命名空间的复选框</td><td>只会为选中的命名空间请求数据。</td></tr></table>
 ### 选项卡“轮询间隔”
-<table><tr><th>输入栏</th><th>意义</th></tr><tr><td>轮询间隔短 [s]</td><td>定义 ioBroker 为大多数动态变量向 E3/DC 请求状态更新的频率。</td></tr><tr><td>轮询间隔介质 [m]</td><td>定义 ioBroker 在常规情况下从 E3/DC 请求状态更新的频率。</td></tr><tr><td>轮询间隔长 [h]</td><td>定义 ioBroker 向 E3/DC 请求很少或从未修改过的变量的状态更新的频率。</td></tr><tr><td>请求标签表</td><td>将单个请求标签分配给 S/M/L 轮询间隔。<br>请注意，对象树中的状态与轮询间隔列表中的项目之间没有 1:1 的映射。原因多种多样：有时响应为空（EMS_REQ_STORED_ERRORS 通常为 true），然后对象树中不会出现任何状态。有时我们为“getter”和“setter”选择一个通用名称（例如 EMS_USER_CHARGE_LIMIT 响应写入 EMS_MAX_CHARGE_POWER 状态）。此外，E3/DC 的响应可能包含多个标签（例如，BAT_REQ_INFO 请求将传递 BAT_RSOC、BAT_MODULE_VOLTAGE、BAT_CURRENT 等）。</td></tr></table><a name="toc"></a>
+<table><tr><th>输入栏</th><th>意义</th></tr><tr><td>轮询间隔短 [s]</td><td>定义 ioBroker 向 E3/DC 请求大多数动态变量状态更新的频率。</td></tr><tr><td>轮询间隔介质 [m]</td><td>定义 ioBroker 在常规情况下从 E3/DC 请求状态更新的频率。</td></tr><tr><td>轮询间隔长 [h]</td><td>定义 ioBroker 将多久从 E3/DC 请求状态更新以获取很少或从未修改的变量。</td></tr><tr><td>请求标签表</td><td>将单个请求标签分配给 S/M/L 轮询间隔。<br>请注意，对象树中的状态与轮询间隔列表中的项目之间没有 1:1 映射。原因多种多样：有时响应为空（EMS_REQ_STORED_ERRORS 通常为 true），然后对象树中不会出现任何状态。有时我们为“getter”和“setter”选择一个通用名称（例如 EMS_USER_CHARGE_LIMIT 响应写入 EMS_MAX_CHARGE_POWER 状态）。此外，E3/DC 的响应可能包含多个标签（例如，BAT_REQ_INFO 请求将传递 BAT_RSOC、BAT_MODULE_VOLTAGE、BAT_CURRENT 等）。</td></tr></table><a name="toc"></a>
 
 ##接口消息的覆盖率
 ### 支持的 RSCP 命名空间
@@ -68,9 +68,17 @@ RSCP 协议将*Tags*（即状态或值）分组到*Namespaces*（即标签组）
 // 触发：达到降额功率，即电网功率将被限制 // 操作：将电池充电功率限制重置为最大值，如 SYS_SPECS on( { id: &#39;e3dc-rscp.0.EMS.POWER_GRID&#39;, valLe ：-getState（&#39;e3dc-rscp.0.EMS.DERATE_AT_POWER_VALUE&#39;）.val，更改：&#39;lt&#39;，逻辑：&#39;and&#39;}，（obj）=&gt; {console.log（&#39;触发器：电网电源为降额阈值 - 重置充电功率限制&#39;); setState(&#39;e3dc-rscp.0.EMS.MAX_CHARGE_POWER&#39;, getState(&#39;e3dc-rscp.0.EMS.SYS_SPECS.maxBatChargePower&#39;).val ); });<a name="log"></a>
 
 ## Changelog
+### 1.0.4
+(git-kick)
+* BAT_1 not visible after update to v1.0.3 - [Issue #96](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/96)
+* Save button inactive after loading adapter configuration - [Issue #95](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/95)
 ### 1.0.3
 (git-kick)
 * Reconnect does not work after RESTART_APPLICATION - [Issue #74](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/74)
+* Query of battery data does not work - [Issue #85](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/85)
+* DCB_CELL_TEMPERATURE = 0 obviously means there is no value, so display "(null)" instead of "0 °C"
+* Uncaught out-of-range exception when entering invalid data - [Issue #88](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/88)
+* Emergency Power Level - [Issue #89](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/89)
 ### 1.0.2
 (git-kick)
 * SYS namespace, experimental support - [Issue #60](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/60)

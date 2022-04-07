@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: 6BQlycC5MqKCnlw4Yn93TaS0EqMZp6xRmwcJrLT48Rk=
+hash: OYxBQhD6nAYuSc8CmDpGHXztTWL1nnAekjlGNd2S9m0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
@@ -14,7 +14,7 @@ hash: 6BQlycC5MqKCnlw4Yn93TaS0EqMZp6xRmwcJrLT48Rk=
 ![НПМ](https://nodei.co/npm/iobroker.sql.png?downloads=true)
 
 # IoBroker.sql
-Этот адаптер сохраняет историю состояний в базе данных SQL.
+Этот адаптер сохраняет историю состояний в базу данных SQL.
 
 Поддерживает PostgreSQL, mysql, Microsoft SQL Server и sqlite.
 Вы можете оставить порт 0, если требуется порт по умолчанию.
@@ -55,7 +55,7 @@ iobroker start sql
 ```
 apt-get install mysql-server mysql-client
 
-mysql -uroot -p
+mysql -u root -p
 
 CREATE USER 'iobroker'@'%' IDENTIFIED BY 'iobroker';
 GRANT ALL PRIVILEGES ON * . * TO 'iobroker'@'%';
@@ -126,11 +126,11 @@ FLUSH PRIVILEGES;
 
 | Поле | Тип | Описание |
 |--------|--------------------------------------------|-------------------------------------------------|
-| идентификатор | ЦЕЛОЕ ЧИСЛО | ID состояния из таблицы "Точки данных" |
+| идентификатор | ЦЕЛОЕ | ID состояния из таблицы "Точки данных" |
 | тс | БОЛЬШОЕ / ЦЕЛОЕ | Время в мс до эпохи. Можно преобразовать во время с помощью «новой даты (ts)» |
 | вал | НАСТОЯЩИЙ | Значение |
 | подтверждение | БИТ/БУЛЕВОЕ | Подтверждено: 0 - нет подтверждения, 1 - подтверждение |
-| _из | ЦЕЛОЕ | ID источника из таблицы "Источники" |
+| _из | ЦЕЛОЕ ЧИСЛО | ID источника из таблицы "Источники" |
 | д | ЦЕЛОЕ ЧИСЛО | Качество как число. Вы можете найти описание [здесь](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
 *Примечание:* MS-SQL использует BIT, а другие используют BOOLEAN. SQLite использует для ts INTEGER и все остальные BIGINT.
@@ -433,8 +433,9 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ## Changelog
 
 ### __WORK IN PROGRESS__
-* (Apollon77) Fix GetHistory logic to always return the "count" newest entries if more than "count" are available
+* (Apollon77) Add flag returnNewestEntries for GetHistory to determine which records to return when more entries as "count" are existing for aggregate "none"
 * (Apollon77) Add support for addId getHistory flag
+* (winnyschuster) Fix Insert statement for MSSQL ts_counter
 
 ### 1.16.2 (2022-02-16)
 * (bluefox) Marked interpolated data with `i=true`

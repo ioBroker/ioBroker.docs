@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.growatt/README.md
 title: kein Titel
-hash: YdfudKT/nSsn/evo14cJPoW2778r2dEB+x7J4d6Y7Z0=
+hash: UePucYgAZvrPSsKt2tfAhyq4K2JEmq+DYWaN9ZFQbs4=
 ---
 ![Logo](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
@@ -134,6 +134,10 @@ Starten Sie Ihr ShineWiFi-S-Modul auf dieser Seite neu, klicken Sie auf „Sofor
 -\*-
 
 ## Changelog
+
+### 1.1.12 (06.04.2022)
+
+- (PLCHome) api maintance
 
 ### 1.1.11 (02.04.2022)
 

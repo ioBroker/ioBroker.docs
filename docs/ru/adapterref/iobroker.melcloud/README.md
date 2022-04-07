@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.melcloud/README.md
 title: ioBroker.melcloud
-hash: jg3hO0fgbO1hEwUIekw/9ma1DSu7/hpvO+pOPZYHgkQ=
+hash: 8zdzYtzRqvWTRM8tGIwZXutBBBa9S8et7i8Xd9mxm3I=
 ---
 ![Логотип](../../../en/adapterref/iobroker.melcloud/admin/melcloud.png)
 
@@ -18,7 +18,7 @@ hash: jg3hO0fgbO1hEwUIekw/9ma1DSu7/hpvO+pOPZYHgkQ=
 *Иконка создана [Freepik](https://www.flaticon.com/authors/freepik) с [www.flaticon.com](https://www.flaticon.com/")*
 
 # IoBroker.melcloud
-[![Тест](https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/test.yml/badge.svg)](https://github.com/Black-Thunder/ioBroker.melcloud/actions /workflows/test.yml) [![Reviewdog](https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/code-quality.yml/badge.svg)](https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/code-quality.yml)
+[![Тестирование и выпуск](https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Black-Thunder /ioBroker.melcloud/actions/workflows/test-and-release.yml) [![Reviewdog](https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/code-quality.yml/badge .svg)](https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/code-quality.yml)
 
 ## Адаптер melcloud для ioBroker
 Этот адаптер интегрирует устройства Mitsubishi Electric через MELCloud (https://www.melcloud.com/) в ioBroker.

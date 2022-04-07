@@ -121,6 +121,9 @@ Auch die Repositorien und Sicherheitseinstellungen können hier eingestellt werd
 Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitts zu erreichen.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Changed the charts rendering
+
 ### 5.3.6 (2022-04-03)
 * (bluefox) Corrected the host selector in "add instance" dialog
 * (bluefox) corrected display of "null" values, e.g. by time/date

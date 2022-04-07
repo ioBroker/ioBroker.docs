@@ -48,7 +48,7 @@ You can install mysql on linux systems as following:
 ```
 apt-get install mysql-server mysql-client
 
-mysql -uroot -p
+mysql -u root -p
 
 CREATE USER 'iobroker'@'%' IDENTIFIED BY 'iobroker';
 GRANT ALL PRIVILEGES ON * . * TO 'iobroker'@'%';
@@ -423,8 +423,9 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ## Changelog
 
 ### __WORK IN PROGRESS__
-* (Apollon77) Fix GetHistory logic to always return the "count" newest entries if more than "count" are available
+* (Apollon77) Add flag returnNewestEntries for GetHistory to determine which records to return when more entries as "count" are existing for aggregate "none"
 * (Apollon77) Add support for addId getHistory flag
+* (winnyschuster) Fix Insert statement for MSSQL ts_counter
 
 ### 1.16.2 (2022-02-16)
 * (bluefox) Marked interpolated data with `i=true`

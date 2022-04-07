@@ -74,6 +74,9 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Changed the charts rendering
+
 ### 5.3.6 (2022-04-03)
 * (bluefox) Corrected the host selector in "add instance" dialog
 * (bluefox) corrected display of "null" values, e.g. by time/date

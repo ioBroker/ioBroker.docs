@@ -53,7 +53,7 @@ Since handshakes usually occur every 120 seconds - this adapter calculates the c
 less than 130 seconds before.
 
 ## Security hints
-> I hardly recommend the use of sudoers under Linux! 
+> I highly recommend the use of sudoers under Linux! 
 
 These security hints rely mainly on linux since it's security system is more complex than the windows one. On a Windows server you'll simply need to use an administrative user. 
 Since the `wg` command (which is executed to grab the state of WireGuard) requires administrative permissions, think well of what you are doing here and how you configure the user you place in config.

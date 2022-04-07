@@ -17,8 +17,6 @@ A small excerpt just of the command options:
 
 ![möglichkeiten](https://github.com/arteck/iobroker.fullyBrowser/blob/master/doku/auszug1.png)
 
-<b>NodeJs >> 8.x.x </b>
-
 
 <!--
     Placeholder for the next version (at the beginning of the line):
@@ -34,9 +32,11 @@ A small excerpt just of the command options:
 
 
 ## Changelog
+### 2.1.2 (2022-04-05)
+* (arteck) encodeUri in psw
+
 ### 2.1.1 (2022-02-07)
 * (arteck) js-controller 4.x
-*
 
 ### 2.1.0 (2022-02-07)
 * (arteck) js-controller 4
@@ -44,36 +44,10 @@ A small excerpt just of the command options:
 ### 2.0.14 (2022-01-31)
 * (arteck) life tick error
 
-### 2.0.12 (2021-12-18)
-* (arteck) screenBrightness direct command
 
-### 2.0.11 (2021-12-17)
-* (arteck)   Problem with data object for Sony Tabs
-
-### 2.0.10 (2021-12-07)
-* (xXBJXx)  Problem with special characters in psw
-
-### 2.0.9 (2021-05-30)
-* (arteck)  lastInfoUpdate is now correct
-
-### 2.0.6 (2021-03-18)
-* (arteck) timeout new defined
-
-### 2.0.4 (2021-01-20)
-* (arteck) new js-controller upd
-
-### 2.0.2 (2020-12-28)
-* (arteck) little update
-
-### 2.0.1 (2020-08-19)
-* (arteck) refactoring
-* (arteck) settings update interval switch so sec
-
-### 1.0.4 (2020-08-06)
-* (arteck) volume set
-
-### 1.0.3 (2020-02-16)
-* (arteck) support compact mode
+...
+...
+...
 
 ### 1.0.1 (2019-06-20)
 * (arteck) encodeURL
@@ -81,7 +55,7 @@ A small excerpt just of the command options:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 Arthur Rupp <arteck@outlook.com>
+Copyright (c) 2014-2022 Arthur Rupp arteck@outlook.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

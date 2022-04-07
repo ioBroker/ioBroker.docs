@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.growatt/README.md
-title: без заголовка
-hash: YdfudKT/nSsn/evo14cJPoW2778r2dEB+x7J4d6Y7Z0=
+title: без названия
+hash: UePucYgAZvrPSsKt2tfAhyq4K2JEmq+DYWaN9ZFQbs4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
@@ -27,7 +27,7 @@ hash: YdfudKT/nSsn/evo14cJPoW2778r2dEB+x7J4d6Y7Z0=
 ---
 
 ## Административная страница адаптера
-### Основные настройки
+### Основные параметры
 #### Пользователь и пароль
 Пожалуйста, введите имя и пароль, которые вы также используете в приложении Shine или на веб-портале.
 
@@ -78,7 +78,7 @@ hash: YdfudKT/nSsn/evo14cJPoW2778r2dEB+x7J4d6Y7Z0=
 Есть много значений, которые не принадлежат вашему инвертору. Их можно удалить здесь.
 Так как нет события, с помощью которого можно было бы перезагрузить список объектов при сохранении. Кнопка обновления должна использоваться при нажатии кнопки сохранения.
 
-#### Обычный
+#### Нормальный
 Объект остается, значение обновляется.
 
 #### Удалить
@@ -134,6 +134,10 @@ hash: YdfudKT/nSsn/evo14cJPoW2778r2dEB+x7J4d6Y7Z0=
 -\*-
 
 ## Changelog
+
+### 1.1.12 (06.04.2022)
+
+- (PLCHome) api maintance
 
 ### 1.1.11 (02.04.2022)
 

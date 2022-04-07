@@ -316,7 +316,7 @@ For DB, it is not clear what makes the difference between the scales (DAY/WEEK/M
 
 Further investigation is necessary.
 
-For the currently unspupported RSCP namespaces and tags, please refer to th official E3/DC tag list provided with the [sample application](http://s10.e3dc.com/dokumentation/RscpExample.zip).
+For the currently unspupported RSCP namespaces and tags, please refer to the official E3/DC tag list provided with the [sample application](http://s10.e3dc.com/dokumentation/RscpExample.zip).
 
 Note that RSCP knows more than 600 tags (representing ca. 300 parameters), so we think it does not make sense to read all of them.
 Therefore, we will add tags to the adapter upon upcoming use-cases.

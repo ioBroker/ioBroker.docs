@@ -2,27 +2,36 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-hqwidgets/README.md
-title: oBroker.vis-hqWidgets
-hash: YHlrsh/8OGY6ykN13QmuA0w3nbIyPumysYx9AUOHTaU=
+title: ioBroker.vis-hqWidgets
+hash: 3tNpKb5BfQ3GWcvVeltjCU6LW6TlEudXCqH9Rk2CXpY=
 ---
-![логотип](../../../en/adapterref/iobroker.vis-hqwidgets/admin/hqwidgets.png)
+![Логотип](../../../en/adapterref/iobroker.vis-hqwidgets/admin/hqwidgets.png)
 
 ![Количество установок](http://iobroker.live/badges/vis-hqwidgets-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.vis-hqwidgets.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.vis-hqwidgets.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-hqwidgets.svg)
-![NPM](https://nodei.co/npm/iobroker.vis-hqwidgets.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.vis-hqwidgets.png?downloads=true)
 
-# OBroker.vis-hqWidgets
-hqWidgets - высококачественные виджеты для ioBroker.vis ![пример](../../../en/adapterref/iobroker.vis-hqwidgets/img/widgets.png)
+# IoBroker.vis-hqWidgets
+hqWidgets — виджеты высокого качества для [ioBroker.vis](https://github.com/ioBroker/ioBroker.vis) ![Пример](../../../en/adapterref/iobroker.vis-hqwidgets/img/widgets.png)
 
-Для одного виджета используется плагин jQuery.knob (MIT) от Anthony Terrien.
+Для одного виджета используется плагин `jQuery.knob` (MIT) от Энтони Терриена.
 http://anthonyterrien.com/knob/ или https://github.com/aterrien/jQuery-Knob
 
-<! - Заполнитель для следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+### **ВЫПОЛНЯЕТСЯ** -->
 
 ## Changelog
+### 1.2.0 (2022-04-05)
+* (bluefox) Removed deprecated method `load`
+
+### 1.1.9 (2021-10-20)
+* (bluefox) Added the valve values from 0 to 1
+
+### 1.1.7 (2020-10-31)
+* (bluefox) Corrected the after comma digits for the valve
+
 ### 1.1.5 (2020-08-08)
 * (mk176) Resolved the button even if mouse is moved out
 
@@ -137,5 +146,5 @@ http://anthonyterrien.com/knob/ или https://github.com/aterrien/jQuery-Knob
 - (bluefox) initial checkin
 
 ## License
- Copyright (c) 2013-2018 bluefox https://github.com/GermanBluefox
+ Copyright (c) 2013-2022 bluefox <dogafox@gmail.com>
  MIT

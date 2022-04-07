@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wireguard/README.md
 title: ioBroker.wireguard
-hash: dZjVhwMhaW0jhQZu21FGK8CoqCgC879g8jGaW6o1vV4=
+hash: +1ql84dUfbie/gcH5o/9Xhy2nKAxXJ8SdA5Hq8BsaUw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.wireguard/admin/Logo_of_WireGuard.svg)
 
@@ -49,7 +49,7 @@ hash: dZjVhwMhaW0jhQZu21FGK8CoqCgC879g8jGaW6o1vV4=
     - Открытый ключ: открытый ключ одного из ваших коллег.
     - имя группы: символическое имя для этого однорангового узла
 
-## Как это работает
+## Как это устроено
 * info.connection адаптера используется для указания того, что по крайней мере один интерфейс WireGuard находится в сети, о чем сообщает `wg show all`. Если ни один интерфейс Wireguard не подключен к сети - ничего не сообщается. В этом случае регистрируется ошибка, и светофор адаптеров становится желтым.
 * Этот адаптер открывает оболочку ssh на каждом сконфигурированном хосте, выполняет команду `wg show all dump`, удаляет оболочку и анализирует результат.
 * Поскольку каждый открытый ключ уникален, адаптер использует их для преобразования открытого ключа в удобные для пользователя, читаемые и узнаваемые имена.
@@ -58,7 +58,7 @@ hash: dZjVhwMhaW0jhQZu21FGK8CoqCgC879g8jGaW6o1vV4=
 Поскольку рукопожатия обычно происходят каждые 120 секунд, этот адаптер вычисляет состояние соединения таким образом, что предполагается, что одноранговый узел подключен, когда последнее рукопожатие получено менее чем за 130 секунд до этого.
 
 ## Советы по безопасности
-> Я вряд ли рекомендую использовать sudoers под Linux!
+> Я настоятельно рекомендую использовать sudoers под Linux!
 
 Эти подсказки безопасности в основном полагаются на Linux, поскольку его система безопасности более сложна, чем система Windows. На сервере Windows вам просто нужно использовать администратора.
 Поскольку команда `wg` (которая выполняется для захвата состояния WireGuard) требует прав администратора, хорошо подумайте, что вы здесь делаете и как вы настраиваете пользователя, которого вы помещаете в config.
@@ -92,6 +92,12 @@ wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg show all dump
 Copyright (c) grizzelbee, 2022 г. <open.source@hingsen.de>
 
 ## Changelog
+### v1.1.3 (2022-03-31)
+* (grizzelbee) New: Fixed sentry error [WIREGUARD-1](https://sentry.io/organizations/grizzelbee/issues/3027754005/events/?project=6215712)
+* (grizzelbee) New: Fixed sentry error [WIREGUARD-H](https://sentry.io/organizations/grizzelbee/issues/3129951381/events/?project=6215712)
+* (grizzelbee) New: Fixed sentry error [WIREGUARD-C](https://sentry.io/organizations/grizzelbee/issues/3036902024/events/?project=6215712)
+* (grizzelbee) Upd: dependencies got updated
+
 ### v1.1.2 (2022-03-17)
 * (grizzelbee) New: Added donate button
 * (grizzelbee) Upd: dependency update

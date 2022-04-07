@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.growatt/README.md
 title: 无题
-hash: YdfudKT/nSsn/evo14cJPoW2778r2dEB+x7J4d6Y7Z0=
+hash: UePucYgAZvrPSsKt2tfAhyq4K2JEmq+DYWaN9ZFQbs4=
 ---
 ![商标](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
@@ -18,7 +18,7 @@ hash: YdfudKT/nSsn/evo14cJPoW2778r2dEB+x7J4d6Y7Z0=
 ioBroker Growatt 适配器与 Growatt Shine 服务器通信。
 我不隶属。
 通常，数据每 5 分钟从数据记录器发送到云端。
-你可以改变它，见下文。
+您可以更改它，请参见下文。
 
 并非所有植物类型都已实施。
 
@@ -79,7 +79,7 @@ HTTP 请求的默认超时。默认值 60 秒，与 Web 浏览器一样
 因为在保存时没有可以重新加载对象列表的事件。按下保存时必须使用更新按钮。
 
 ＃＃＃＃ 普通的
-对象保留，值被更新。
+对象保留，值更新。
 
 ＃＃＃＃ 删除
 对象被删除，逆变器加载的值被丢弃。
@@ -134,6 +134,10 @@ HTTP 请求的默认超时。默认值 60 秒，与 Web 浏览器一样
 -\*-
 
 ## Changelog
+
+### 1.1.12 (06.04.2022)
+
+- (PLCHome) api maintance
 
 ### 1.1.11 (02.04.2022)
 

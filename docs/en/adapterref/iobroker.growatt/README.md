@@ -7,7 +7,6 @@
 ![Number of Installations (latest)](https://iobroker.live/badges/growatt-installed.svg)
 ![Number of Installations (stable)](https://iobroker.live/badges/growatt-stable.svg)
 
-
 [![NPM](https://nodei.co/npm/iobroker.growatt.png?downloads=true)](https://nodei.co/npm/iobroker.growatt/)
 
 ### growatt adapter for ioBroker
@@ -164,6 +163,10 @@ ShineWiFi module.
 -\*-
 
 ## Changelog
+
+### 1.1.12 (06.04.2022)
+
+- (PLCHome) api maintance
 
 ### 1.1.11 (02.04.2022)
 

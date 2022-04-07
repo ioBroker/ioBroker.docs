@@ -488,6 +488,12 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 2.4.6 (2022-04-06)
+* (simatec) https support for Download added
+
+### 2.4.5 (2022-04-04)
+* (simatec) Download-Server close added
+
 ### 2.4.4 (2022-04-02)
 * (simatec) try/catch GoogleDrive added
 * (Bluefox/simatec) Backup Download added

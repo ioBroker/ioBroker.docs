@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.melcloud/README.md
 title: ioBroker.melcloud
-hash: jg3hO0fgbO1hEwUIekw/9ma1DSu7/hpvO+pOPZYHgkQ=
+hash: 8zdzYtzRqvWTRM8tGIwZXutBBBa9S8et7i8Xd9mxm3I=
 ---
 ![Logo](../../../en/adapterref/iobroker.melcloud/admin/melcloud.png)
 
@@ -18,7 +18,7 @@ hash: jg3hO0fgbO1hEwUIekw/9ma1DSu7/hpvO+pOPZYHgkQ=
 *Symbol erstellt von [Freepik] (https://www.flaticon.com/authors/freepik) von [www.flaticon.com](https://www.flaticon.com/")*
 
 # IoBroker.melcloud
-[![Test](https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/test.yml/badge.svg)](https://github.com/Black-Thunder/ioBroker.melcloud/actions /workflows/test.yml) [![Reviewdog](https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/code-quality.yml/badge.svg)](https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/code-quality.yml)
+[![Test und Freigabe](https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Black-Thunder /ioBroker.melcloud/actions/workflows/test-and-release.yml) [![Reviewdog](https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/code-quality.yml/badge .svg)](https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/code-quality.yml)
 
 ## Melcloud-Adapter für ioBroker
 Dieser Adapter bindet Geräte von Mitsubishi Electric über MELCloud (https://www.melcloud.com/) in ioBroker ein.

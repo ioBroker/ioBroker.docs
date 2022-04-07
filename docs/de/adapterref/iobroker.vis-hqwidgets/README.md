@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-hqwidgets/README.md
-title: oBroker.vis-hqWidgets
-hash: YHlrsh/8OGY6ykN13QmuA0w3nbIyPumysYx9AUOHTaU=
+title: ioBroker.vis-hqWidgets
+hash: 3tNpKb5BfQ3GWcvVeltjCU6LW6TlEudXCqH9Rk2CXpY=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-hqwidgets/admin/hqwidgets.png)
 
@@ -12,17 +12,26 @@ hash: YHlrsh/8OGY6ykN13QmuA0w3nbIyPumysYx9AUOHTaU=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-hqwidgets.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-hqwidgets.png?downloads=true)
 
-# OBroker.vis-hqWidgets
-hqWidgets - Hochwertige Widgets für ioBroker.vis ![Beispiel](../../../en/adapterref/iobroker.vis-hqwidgets/img/widgets.png)
+# IoBroker.vis-hqWidgets
+hqWidgets - Hochwertige Widgets für [ioBroker.vis](https://github.com/ioBroker/ioBroker.vis) ![Beispiel](../../../en/adapterref/iobroker.vis-hqwidgets/img/widgets.png)
 
-Für ein Widget wird das jQuery.knob-Plugin (MIT) von Anthony Terrien verwendet.
+Für ein Widget wird das `jQuery.knob`-Plugin (MIT) von Anthony Terrien verwendet.
 http://anthonyterrien.com/knob/ oder https://github.com/aterrien/jQuery-Knob
 
-<! - Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __WORK IN PROGRESS__ ->
+### **IN ARBEIT** -->
 
 ## Changelog
+### 1.2.0 (2022-04-05)
+* (bluefox) Removed deprecated method `load`
+
+### 1.1.9 (2021-10-20)
+* (bluefox) Added the valve values from 0 to 1
+
+### 1.1.7 (2020-10-31)
+* (bluefox) Corrected the after comma digits for the valve
+
 ### 1.1.5 (2020-08-08)
 * (mk176) Resolved the button even if mouse is moved out
 
@@ -137,5 +146,5 @@ http://anthonyterrien.com/knob/ oder https://github.com/aterrien/jQuery-Knob
 - (bluefox) initial checkin
 
 ## License
- Copyright (c) 2013-2018 bluefox https://github.com/GermanBluefox
+ Copyright (c) 2013-2022 bluefox <dogafox@gmail.com>
  MIT

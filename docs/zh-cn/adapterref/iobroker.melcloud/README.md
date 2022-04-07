@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.melcloud/README.md
 title: ioBroker.melcloud
-hash: jg3hO0fgbO1hEwUIekw/9ma1DSu7/hpvO+pOPZYHgkQ=
+hash: 8zdzYtzRqvWTRM8tGIwZXutBBBa9S8et7i8Xd9mxm3I=
 ---
-![标识](../../../en/adapterref/iobroker.melcloud/admin/melcloud.png)
+![商标](../../../en/adapterref/iobroker.melcloud/admin/melcloud.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.melcloud.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.melcloud.svg)
@@ -18,7 +18,7 @@ hash: jg3hO0fgbO1hEwUIekw/9ma1DSu7/hpvO+pOPZYHgkQ=
 *由[Freepik](https://www.flaticon.com/authors/freepik) 来自 [www.flaticon.com](https://www.flaticon.com/")*制作的图标
 
 # IoBroker.melcloud
-[![测试](https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/test.yml/badge.svg)](https://github.com/Black-Thunder/ioBroker.melcloud/actions /workflows/test.yml) [![Reviewdog](https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/code-quality.yml/badge.svg)](https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/code-quality.yml)
+[![测试和发布](https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Black-Thunder /ioBroker.melcloud/actions/workflows/test-and-release.yml) [![Reviewdog](https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/code-quality.yml/badge .svg)](https://github.com/Black-Thunder/ioBroker.melcloud/actions/workflows/code-quality.yml)
 
 ## 用于 ioBroker 的 melcloud 适配器
 该适配器通过 MELCloud (https://www.melcloud.com/) 将 Mitsubishi Electric 设备集成到 ioBroker。

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wireguard/README.md
 title: ioBroker.wireguard
-hash: dZjVhwMhaW0jhQZu21FGK8CoqCgC879g8jGaW6o1vV4=
+hash: +1ql84dUfbie/gcH5o/9Xhy2nKAxXJ8SdA5Hq8BsaUw=
 ---
 ![Logo](../../../en/adapterref/iobroker.wireguard/admin/Logo_of_WireGuard.svg)
 
@@ -58,7 +58,7 @@ Da WireGuard intern nur die öffentlichen Schlüssel zur Identifizierung von Pee
 Da Handshakes normalerweise alle 120 Sekunden stattfinden, berechnet dieser Adapter den Verbindungsstatus so, dass er davon ausgeht, dass ein Peer verbunden ist, wenn der letzte Handshake weniger als 130 Sekunden zuvor empfangen wurde.
 
 ## Sicherheitshinweise
-> Ich empfehle die Verwendung von sudoers unter Linux kaum!
+> Ich empfehle die Verwendung von sudoers unter Linux!
 
 Diese Sicherheitshinweise beziehen sich hauptsächlich auf Linux, da dessen Sicherheitssystem komplexer ist als das von Windows. Auf einem Windows-Server müssen Sie lediglich einen Administrator verwenden.
 Da der Befehl `wg` (der ausgeführt wird, um den Status von WireGuard abzurufen) Administratorrechte erfordert, sollten Sie gut überlegen, was Sie hier tun und wie Sie den Benutzer konfigurieren, den Sie in der Konfiguration platzieren.
@@ -92,6 +92,12 @@ Dieses Projekt hat in keiner Weise mit WireGuard zu tun. Der Name WireGuard und 
 Copyright (c) 2022 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+### v1.1.3 (2022-03-31)
+* (grizzelbee) New: Fixed sentry error [WIREGUARD-1](https://sentry.io/organizations/grizzelbee/issues/3027754005/events/?project=6215712)
+* (grizzelbee) New: Fixed sentry error [WIREGUARD-H](https://sentry.io/organizations/grizzelbee/issues/3129951381/events/?project=6215712)
+* (grizzelbee) New: Fixed sentry error [WIREGUARD-C](https://sentry.io/organizations/grizzelbee/issues/3036902024/events/?project=6215712)
+* (grizzelbee) Upd: dependencies got updated
+
 ### v1.1.2 (2022-03-17)
 * (grizzelbee) New: Added donate button
 * (grizzelbee) Upd: dependency update

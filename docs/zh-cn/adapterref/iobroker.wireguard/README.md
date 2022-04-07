@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wireguard/README.md
 title: ioBroker.wireguard
-hash: dZjVhwMhaW0jhQZu21FGK8CoqCgC879g8jGaW6o1vV4=
+hash: +1ql84dUfbie/gcH5o/9Xhy2nKAxXJ8SdA5Hq8BsaUw=
 ---
 ![商标](../../../en/adapterref/iobroker.wireguard/admin/Logo_of_WireGuard.svg)
 
@@ -40,7 +40,7 @@ hash: dZjVhwMhaW0jhQZu21FGK8CoqCgC879g8jGaW6o1vV4=
 
 * 主页
   - 名称：只是主机的象征性名称，因为它比 IP 地址更方便、更容易记住
-  - 主机地址：主机的 IP 地址。 fqdn 或 dns 名称也可以。如果你在同一台主机上运行 WireGuard 和 ioBroker，你可以使用 localhost 作为 IP。
+  - 主机地址：主机的 IP 地址。 fqdn 或 dns 名称也可以。如果你在同一台主机上运行 WireGuard 和 ioBroker，你可以使用 `localhost` 作为 IP。
   - 用户：在主机上执行脚本的用户（将被加密存储）
   - 密码：此用户的密码（将加密存储）
   - sudo：是否应该使用 sudo 执行 wg 命令（需要有效的 sudoers 配置！-> 参见 [安全提示]）
@@ -58,7 +58,7 @@ hash: dZjVhwMhaW0jhQZu21FGK8CoqCgC879g8jGaW6o1vV4=
 由于握手通常每 120 秒发生一次 - 此适配器以这种方式计算连接状态，它假定在不到 130 秒前收到最后一次握手时已连接对等体。
 
 ## 安全提示
-> 我几乎不推荐在 Linux 下使用 sudoers！
+> 我强烈推荐在 Linux 下使用 sudoers！
 
 这些安全提示主要依赖于 linux，因为它的安全系统比 windows 系统更复杂。在 Windows 服务器上，您只需要使用管理用户。
 由于 `wg` 命令（执行该命令以获取 WireGuard 的状态）需要管理权限，因此请仔细考虑您在此处执行的操作以及如何配置放置在 config 中的用户。
@@ -79,19 +79,25 @@ wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg show all dump
 ![图片](../../../en/adapterref/iobroker.wireguard/admin/sudoers_config.png)
 
 ＃＃ 已知的问题
-* 没有
+* 没有任何
 
 ##哨兵.io
 该适配器使用 sentry.io 收集有关崩溃的详细信息并将其自动报告给作者。
 [ioBroker.sentry 插件](https://github.com/ioBroker/plugin-sentry)用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 了解有关插件的功能、收集哪些信息以及如何禁用它的详细信息，如果您不喜欢用您的崩溃信息来支持作者。
 
 ### 免责声明
-这个项目与 WireGuard 没有任何关系。 WireGuard 名称和 WireGuard 徽标仅用于指代该项目，并且是其所有者的财产。他们不是这个项目的一部分。
+该项目与 WireGuard 没有任何关系。 WireGuard 名称和 WireGuard 徽标仅用于指代该项目，并且是其所有者的财产。他们不是这个项目的一部分。
 
 ##版权
 版权所有 (c) 2022 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+### v1.1.3 (2022-03-31)
+* (grizzelbee) New: Fixed sentry error [WIREGUARD-1](https://sentry.io/organizations/grizzelbee/issues/3027754005/events/?project=6215712)
+* (grizzelbee) New: Fixed sentry error [WIREGUARD-H](https://sentry.io/organizations/grizzelbee/issues/3129951381/events/?project=6215712)
+* (grizzelbee) New: Fixed sentry error [WIREGUARD-C](https://sentry.io/organizations/grizzelbee/issues/3036902024/events/?project=6215712)
+* (grizzelbee) Upd: dependencies got updated
+
 ### v1.1.2 (2022-03-17)
 * (grizzelbee) New: Added donate button
 * (grizzelbee) Upd: dependency update

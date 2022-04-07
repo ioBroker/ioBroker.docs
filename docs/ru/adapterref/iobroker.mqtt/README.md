@@ -746,7 +746,7 @@ void loop() {
 получать от нее данные через облачный сервис!
 
 ## Changelog
-### 3.0.1 (2022-04-03)
+### 3.0.3 (2022-04-06)
 * (bluefox) BREAKING CHANGE: password must be set anew
 
 ### 2.7.4 (2022-03-18)
