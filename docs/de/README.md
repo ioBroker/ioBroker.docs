@@ -1,6 +1,6 @@
 ---
 title:       "Willkommen"
-lastChanged: "22.02.2022"
+lastChanged: "07.04.2022"
 ---
 # Wilkommen
 
@@ -11,11 +11,11 @@ lastChanged: "22.02.2022"
    Inhalte fehlen. Wir sind für jede Hilfe bei der Erstellung neuer
    Artikel oder für Verbesserungen dankbar. Informationen dazu gibt
    es hier [im Forum][].
-   <br><br>
+   <br/><br/>
    **Bis alle Inhalte übernommen wurden, ist die alte Dokumentation noch [hier zu finden](https://www.iobroker.net/docu/).
    Sie wird sukzessive durch diese neue Dokumentation ersetzt.**
 
-<br><br><br>
+<br/><br/><br/>
 
 # ioBroker - Automate your life
 
@@ -28,7 +28,7 @@ Das ioBroker-System ist modular aufgebaut und kann durch die Installation von ei
 
 Über 450 Adaptern realisieren die Einbindung von verschiedenen Plattformen, Systemen und Geräten von A wie Alexa bis Z wie Zigbee und viele weitere Möglichkeiten zur Automatisierung.
 
-<br>
+<br/>
 
 ## ioBroker verbindet unterschiedlichen Smarthomesysteme
 
@@ -37,10 +37,10 @@ Das ioBroker-System ist modular aufgebaut und kann durch die Installation von ei
 Diese Grafik zeigt wie ioBroker als zentrales System die verschiedensten Smarthomesysteme und weitere Dienste (z.B. Kalender) koordiniert und miteinander verbindet.
 Die in ioBroker zur Verfügung stehenden Adapter können unter anderem mit zentral verwalteten Kalendern oder herstellerspezfischen Smart-Home-Systemen (welche im LAN oder WLAN angeschlossen sind) kommunizieren. Auf diese Weise kann die ioBroker Software Statusinformationen lesen oder Steuerungsaktionen auslösen.
 
-<br>
+<br/>
 
 ### Anwendungsbeispiel Anwesenheitssimulation
-<br>
+<br/>
 
 In diesem Anwendungsbeispiel wird exemplarisch aufgezeigt, wie die beiden voneinander unabhängigen Smarthomesysteme Philipps Hue und Homematic IP mittels ioBroker zusammengeführt werden, um eine Anwesenheitssimulation zu realisieren.
 
@@ -54,9 +54,9 @@ Durch Nutzung der Logikbausteine (Adapter Logikprogrammierung) in ioBroker kann 
 
 Über die verfügbaren Visualisierungs-Adapter kann sich der Anwender individuelle Status und Steuerungsseiten für seine Hue Lampen und Rolläden bauen, auf die mit den mobilen Endgeräten von zu Hause oder aus dem Urlaub (z.B. mittels ioBroker Cloud Services oder VPN) zugegriffen werden kann.
 
-<br>
+<br/>
 
-<br>
+<br/>
 
 
 # Stärken von ioBroker
@@ -66,7 +66,7 @@ ioBroker kann auf fast allen Hardwareplattformen (Einplatinencomputer wie ein Ra
 
 Eine einfache Installationsroutine aus einer einzigen Zeile (one-line installer) ermögicht unter Linux eine anwenderfreundliche Installation und somit einen schnellen Einstieg in ioBroker.
 
-<br>
+<br/>
 
 ## Skalierbar
 Sollen im Laufe der Zeit weitere Smarthome-Systeme angebunden werden, können
@@ -77,7 +77,7 @@ Mutihost-System verbunden werden. Dabei ist sogar die Mischung von
 Betriebssystemplattformen und die Kopplung von Einplatinencomputern mit
 großen Multicore-Servern möglich.
 
-<br>
+<br/>
 
 ## Individuelle Programmierung von Abläufen
 Mit den Logik Adaptern bietet ioBroker die Möglichkeit individuelle Abläufe und Skripte zu erstellen. 
@@ -87,7 +87,7 @@ In ioBroker können diese individuellen Abläufe durch Drag and Drop von Baustei
 
 Weitere Erklärungen zu den Logikbausteinen sowie eine weitere Vorstellung von weiteren Logikbausteinen wie Node-Red oder der Szenen-Adapter werden in dieser Doku im Abschnitt "Logik und Automatisierung" erläutert.
 
-<br>
+<br/>
 
 ## Visualisierung
 Mehrere Visualisierungsadapter bietem dem Anwender die Möglichkeit Steuerungsoptionen sowie Zustandsinformationen grafisch zu realisieren. Diese individuellen Visualisierungen können dann auf einem Tablet, Smartphone oder Computer dargestellt und bedient werden.
@@ -114,15 +114,15 @@ durch einfaches Drag and Drop realisiert werden.
 
 ![](media/iobroker-visualisation-vis.png)
 
-<br>
+<br/>
 
 ![VIS](media/vis2.png)  
-<br>
+<br/>
 ![](media/iobroker-visualisation-vis-wetter.png)
 
 
 
-<br>
+<br/>
 
 ### Material UI
 React und Material UI interface.
@@ -131,7 +131,7 @@ React und Material UI interface.
 
 ![](media/iobroker-visualisation-material.png)  
 
-<br>
+<br/>
 
 ### Jarvis
 [Adapterseite Jarvis][]
@@ -145,7 +145,7 @@ Das Layout ist flexibel konfigurierbar. Das Layout kann durch beliebig viele Tab
 ![](media/iobroker-visualisation-jarvis.png)
 ![](media/iobroker-visualisation-jarvisDevices.png)
 
-<br>
+<br/>
 
 ### iQontrol
 
@@ -163,12 +163,12 @@ Video [iQontrol Demo Video][]
 <img src="media/iobroker-visualisation-iqontrol2.png" width="200">
 <img src="media/iobroker-visualisation-iqontrol3.png" width="200">
 
-<br>
+<br/>
 
 <img src="media/iobroker-visualisation-iqontrol4.png" width="200">
 <img src="media/iobroker-visualisation-iqontrol5.png" width="200">
 
-<br>
+<br/>
 
 ### Lovelace
 
@@ -183,8 +183,8 @@ Der Lovelace Editor (WYSIWYG Prinzip - What you see is what you get Prinzip) erm
 ![](media/iobroker-visualisation-lovelace.png)  
 
 
-<br>
-<br>
+<br/>
+<br/>
 
 
 # Wer steckt hinter ioBroker?
@@ -209,7 +209,7 @@ Das ioBroker Core Entwicklerteam setzt sich zusammen aus:
 
 Eine Liste der [ioBroker Developer][] findet ihr im ioBroker Forum.
 
-<br>
+<br/>
 
 # Lizenzen und Kosten
 Sehr viele ioBroker Projekte stehen mitsamt dem Quellcode auf [GitHub][] zur Verfügung. In den allermeisten Fällen steht der Quellcode unter der MIT Lizenz. Manchmal werden allerdings auch Lizenzen wie GPL, CC BY-NC oder andere genutzt, welche zu berücksichtgen sind, jedoch für End-Nutzer an sich keinen großen Unterschied darstellen!
@@ -218,7 +218,7 @@ Der Entwickler eines Adapters legt für den jeweiligen Adapter die Lizenz selbst
 In sehr seltenen Fällen (<5 Adapter aktuell) wird eine (teils kostenpflichtige) Lizenz benötigt um einen Adapter zu nutzen. Für den "VIS" Adapter stellt beispielsweise die ioBroker GmbH eine kostenfreie Lizenz für die private Nutzung zur Verfügung - für eine kommerzielle Nutzung ist allerdings eine kostenpflichtige Lizenz nötig.
 Ein Überblick und die Bestellung der Lizenz für diese Adapter erfolgt über diese Seite [iobrokerPreise][]. Die Kosten für eine kommerzielle Nutzung dieser Adapter ist dort ebenfalls aufgeführt.
 
-<br>
+<br/>
 
 # Wie finanziert sich ioBroker?
 Alle zentralen Komponenten und nahezu alle weiteren Adapter sind kostenfrei erhältlich und der Quellcode der allermeisten Adapter steht auf GitHub offen zur Verfügung.
@@ -229,7 +229,7 @@ Die ioBroker GmbH stellt für das Community-Projekt die Infrastruktur (z.B. den 
 
 Die ioBroker Free Cloud ist ebenfalls ein kostenfreier Dienst, der der Community durch die ioBroker GmbH zur Verfügung gestellt wird. Die Pro-Cloud und der iot-Service sind kommerzielle Angebote der ioBroker GmbH, wobei die Kosten gerade einmal die Betriebskosten decken.
 
-<br>
+<br/>
 
 # Remotezugriff auf deine ioBroker Installation über die ioBroker Cloud 
 Über einen optionalen cloudbasierten Zugriff ist für den Anwender oder auch
@@ -240,7 +240,7 @@ In der folgende Grafik werden die ioBroker Cloud Service Produkte im Überblick 
 
 ![](media/iobroker-cloud-services-overview.png)  
 
-<br>
+<br/>
 
 # Community
 Seit 2014 hat sich ioBroker aufgrund seiner vielen Vorzüge eine breite 
@@ -255,7 +255,7 @@ Linksammlung der offiziellen ioBroker Communities:
 - Facebookgruppe "ioBroker and smart home international": [FacebookIoBrokerSmartHomeIoTInternational][]
 
 
-<br>
+<br/>
 
 # ioBroker Statistiken
 Auf [ioBrokerStatistics][] findet ihr eine Übersichtsseite mit ein paar interessanten ioBroker Statistiken. 
