@@ -16,25 +16,18 @@ In den Basiseinstellungen von ioBroker kann das gewünschte Repository wie folgt
 ![](media/Repository_IconBasicSettings.png)
 
 
-Auswahl des Standard Repository:
+und wechsele in den Reiter Reposotories, wo das gewünschte Repository ausgewählt werden kann
+![](media/Repository_BasicsSettingsDefaultPath.png)
 
-![](media/Repository_BasicSettings.png)
-
-
+Die Standardpfade der Repositories stable und beta lauten:
+- stable - Link zum Repository http://download.iobroker.net/sources-dist.json
+- beta - Link zum Repository http://download.iobroker.net/sources-dist-latest.json
 
 Wurde das Beta Repositroy ausgewählt, so erfolgt in der Adapterübersicht eine entsprechende Warnung
 
 ![](media/Repository_AdapterRepInfo.png)
 
-<br><br>
-# Standardpfade der Repositories
-Nachfolgend sind die Standardpfade der Repositories stable und beta dargestellt:
-![](media/Repository_BasicsSettingsDefaultPath.png)
 
-- stable - Link zum Repository http://download.iobroker.net/sources-dist.json
-- beta - Link zum Repository http://download.iobroker.net/sources-dist-latest.json
-
-<br><br>
 # Stable vs Beta Repository
 
 Grundsätzlich gilt, dass für eine produktive Installation von ioBroker IMMER das Stable Repository genutzt werden sollte. Im Beta Repository sind Versionen enthalten die noch Fehler enthalten und eventuell das ganze System beeinträchtigen können. 
@@ -67,5 +60,5 @@ Nach einer Funktionsänderung des Adapters wird dieser im Normalfall auch erst w
 
 
 ---
-lastChanged: "25.01.2022"
+lastChanged: "10.04.2022"
 ---
