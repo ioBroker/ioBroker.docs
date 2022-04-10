@@ -244,6 +244,10 @@ relation.
 -->
 
 ## Changelog
+### 2.0.14 (08.04.2022)
+* added ETSv6.0.4 (override 6.0.3)
+* small bugfixes
+
 ### 2.0.13 (12.03.2022)
 * added ETSv5.7.7 import
 * fixed "unknown value" bug

@@ -103,6 +103,8 @@ Auf der Admin-Tab können sie alle Thermostate, Bridges und Ventile ihrer netatm
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/admintab_de.png" alt="admintab" width="70%"/>
 
+Auf jeder Karte werden Statussysmbole angezeigt, welche den aktuellen Zustand des Thermostats, der Ventile und des Steckers darstellt.
+
 ## Widget
 Widget für VIS um ein komplettes Thermostat anzuzeigen. Sie müssen nur den "SetTemp" - Datenpunkt eintragen. Alle anderen Informationen werden dynamisch aus der "rooms"-Struktur ermittelt.
 
@@ -114,6 +116,12 @@ Widget für VIS um ein komplettes Thermostat anzuzeigen. Sie müssen nur den "Se
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.4 (2022-04-09)
+* (ioKlausi) i18n files for npm added
+
+### 1.2.3 (2022-04-08)
+* (ioKlausi) Added status icons to plug
+
 ### 1.2.2 (2022-04-03)
 * (ioKlausi) Added a slider to each valve to change the temperature and added some API requests to admin tab to transfer changes to the cloud 
 

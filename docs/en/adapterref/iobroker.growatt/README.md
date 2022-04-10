@@ -164,6 +164,10 @@ ShineWiFi module.
 
 ## Changelog
 
+### 1.1.13 (08.04.2022)
+
+- (PLCHome) total data and history data missing for type inv
+
 ### 1.1.12 (06.04.2022)
 
 - (PLCHome) api maintance

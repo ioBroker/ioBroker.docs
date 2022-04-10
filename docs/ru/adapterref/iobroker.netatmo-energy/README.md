@@ -9,7 +9,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.netatmo-energy/README.md
 title: ioBroker.netatmo-энергия
-hash: EashoI8oUHPC/tEwLfM39+6cGSh44aMa3YEu4XWQ2XY=
+hash: k/4wuKL7C5YyxrjDcdbzhKjogoxsuHUFfSE8MLiUOFA=
 ---
 ![логотип](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/admin/netatmo-energy.png)
 
@@ -34,7 +34,7 @@ hash: EashoI8oUHPC/tEwLfM39+6cGSh44aMa3YEu4XWQ2XY=
 - Создайте собственное приложение, щелкнув свою учетную запись (вверху/слева) и нажав кнопку «Создать».
   - Заполните форму и сохраните ее
   - Применить полученный client-ID и client-secret-ID к конфигурации адаптера
-  - Перейти к документации по API https://dev.netatmo.com/apidocumentation/energy
+  - Перейдите к документации по API https://dev.netatmo.com/apidocumentation/energy.
   - Выберите "ПОЛУЧИТЬ домашние данные" - "Попробовать" - "ВЫПОЛНИТЬ / HOMESDATA"
     - вы получите ответ, в котором найдете свой домашний ID
     - Применить их к конфигурации адаптера
@@ -97,7 +97,7 @@ hash: EashoI8oUHPC/tEwLfM39+6cGSh44aMa3YEu4XWQ2XY=
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_de.png" alt="настройкиAPI" width="70%"/>
 
-## Сообщения
+## Новости
 Здесь вы можете активировать определенные сообщения для определенных изменений статуса. Вы можете оставить сообщение, которое вы хотите.
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/messages_de.png" alt="настройкиAPI" width="70%"/>
@@ -106,6 +106,8 @@ hash: EashoI8oUHPC/tEwLfM39+6cGSh44aMa3YEu4XWQ2XY=
 На вкладке администратора вы можете отобразить все термостаты, мосты и клапаны вашего экземпляра netatmo energy. Там же можно обновить это представление или запустить полное обновление API. Кроме того, у вас есть возможность перенести изменения в облако и переключиться обратно в стандартный режим из возможного ручного режима.
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/admintab_de.png" alt="вкладка администратора" width="70%"/>
+
+На каждой плате отображаются значки состояния, показывающие текущее состояние термостата, клапанов и разъема.
 
 ## Виджет
 Виджет для VIS для отображения полного термостата. Вам нужно только ввести точку данных "SetTemp". Вся остальная информация определяется динамически из структуры "rooms".
@@ -118,6 +120,12 @@ hash: EashoI8oUHPC/tEwLfM39+6cGSh44aMa3YEu4XWQ2XY=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.4 (2022-04-09)
+* (ioKlausi) i18n files for npm added
+
+### 1.2.3 (2022-04-08)
+* (ioKlausi) Added status icons to plug
+
 ### 1.2.2 (2022-04-03)
 * (ioKlausi) Added a slider to each valve to change the temperature and added some API requests to admin tab to transfer changes to the cloud 
 

@@ -804,8 +804,8 @@ control (see [example above](http://www.iobroker.net/?page_id=6435&lang=en#Appli
 Congratulations! Now you can control the system ioBroker and receive data via a cloud service!
 
 ## Changelog
-### 3.0.3 (2022-04-06)
-* (bluefox) BREAKING CHANGE: password must be set anew
+### 3.0.5 (2022-04-07)
+* (bluefox) BREAKING CHANGE: password is now stored encrypted, and so must be set anew after update!
 
 ### 2.7.4 (2022-03-18)
 * (Apollon77) Update MQTT library dependency

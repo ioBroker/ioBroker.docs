@@ -45,6 +45,10 @@ Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der
 
 ## Changelog
 
+### 2.0.4 (2022-04-09)
+
+* (crycode-de) Added info message about breaking changes when upgrading from <2.0.0 to >=2.0.0
+
 ### 2.0.3 (2022-03-23)
 
 * (crycode-de) Optimized Sentry integration in admin
