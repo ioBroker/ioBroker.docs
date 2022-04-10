@@ -11,7 +11,7 @@ Standardmäßig stehen in ioBroker zwei Repositories zur Verfügung:
 # Auswahl des Repository
 In den Basiseinstellungen von ioBroker kann das gewünschte Repository wie folgt eingestellt werden.
 
-Öffnen der Basiseinstellungen von ioBroker:
+Öffne die Basiseinstellungen von ioBroker:
 
 ![](media/Repository_IconBasicSettings.png)
 
