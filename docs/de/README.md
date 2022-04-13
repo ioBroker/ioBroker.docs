@@ -15,6 +15,7 @@ lastChanged: "13.04.2022"
    **Bis alle Inhalte übernommen wurden, ist die alte Dokumentation noch [hier zu finden](https://www.iobroker.net/docu/).
    Sie wird sukzessive durch diese neue Dokumentation ersetzt.**
 
+
 &nbsp;
 
 
