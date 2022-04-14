@@ -550,6 +550,7 @@ ID: `system.adapter.<adapter.name>`
 * `common.statusStates`       - Structure for status indication in admin in form `"statusStates": {"onlineId": "0.connected", "errorId": "hm-rpc.0.AB203424.0.error"}`. Instead of `onlineId` the `offlineId` could be used. If ID is very short (less than 2 dots in it), so the ID will be treated as relative to current object.
 * `common.stopBeforeUpdate`   - [true/false] if adapter must be stopped before update
 * `common.stopTimeout`        - timeout in ms to wait, till the adapter shut down. Default 500ms.
+* `common.stoppedWhenWebExtension` - If instance has mode `daemon` but it runs as web extension (`native.webInstance !== ''`), controller will not start this instance if `common.stoppedWhenWebExtension` is true.
 * `common.subscribable`       - variables of this adapter must be subscribed with sendTo to enable updates
 * `common.subscribe`          - name of variable, that is subscribed automatically
 * `common.supportCustoms`     - [true/false] if the adapter support settings for every state. It has to have custom.html file in the admin. Sample can be found in `ioBroker.history`
