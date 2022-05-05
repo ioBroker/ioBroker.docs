@@ -108,9 +108,9 @@ iobroker start
 ## Prüfen oder node.js und npm richtig installiert sind
 
 Falls js-controller nicht läuft, dann könnte es auch sein, dass node.js gar nicht installiert ist.
-Es wird empfohlen eine 8.x Version von node.js zu verwenden.
+Es wird empfohlen eine 14.x Version von node.js zu verwenden.
 
-Die Node.js Version 10.x ist weitestgehend geprüft (Stand 06.05.2019), bei 12.x gibt es keine Garantie, dass es funktionieren wird.
+Die Node.js Version 16.x ist weitestgehend geprüft (Stand 05.05.2022), bei 18.x gibt es keine Garantie, dass es funktionieren wird.
 
 Die Befehle
 
