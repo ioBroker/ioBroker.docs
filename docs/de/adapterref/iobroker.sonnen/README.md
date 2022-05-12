@@ -136,10 +136,18 @@ Hinweis: Die States der Legacy API (Port 3480) und der alten API (Port 7979) sin
 
     |Datentyp|Berechtigung|                                                                       
     |:---:|:---:|
-    |string|R|
+    |number|R|
 
-   *Nur lesbarer JSON String, mit Wechselrichter Informationen der sonnenBatterie.*
-   
+   *Nur lesbarer nummerischer Wert, mit Wechselrichter Informationen der sonnenBatterie.*
+
+* info.ios
+
+    |Data type|Permission|
+    |:---:|:---:|
+    |boolean|R|
+
+   *Nur lesbarer boolscher Wert, mit "discrete IO Informationen" der sonnenBatterie.*
+
 #### Channel: status
    
 * status.consumption
@@ -340,17 +348,23 @@ Hinweis: Die States der Legacy API (Port 3480) und der alten API (Port 7979) sin
   
 #### Channel: powermeter
 Dieser Kanal hat zwei Unterkanäle, z.B. `4_1` und `4_2`, wobei einer den Konsum und der andere die Produktion repräsentiert.
+Z. b. `4_1.kwh_imported` stellt die Gesamtproduktion seit Installation der Batterie dar.
  
 Die beiden Kanäle haben die identischen Zustände. Alle Zustände sind schreibgeschützt und vom Typ `number`.
 
 ### Channel: inverter
 Der Kanal besteht aus schreibgeschützten Zuständen vom Typ `number`, die Informationen über den Wechselrichter der sonnenBatterie liefern.
 
+### Channel: ios
+Der Kanal besteht aus schreibgeschützten Zuständen vom Typ `boolean`, die Informationen über die discrete IO Status der sonnenBatterie liefern.
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.10.0 (2022-04-18)
+* (rivengh) added battery discrete io states
 
 ### 1.9.8 (2021-09-27)
 * (foxriver76) make requesting online status optional for 8080 api (closes #76)
@@ -416,7 +430,7 @@ Der Kanal besteht aus schreibgeschützten Zuständen vom Typ `number`, die Infor
 
 ### 1.5.3 (2020-05-18)
 * (foxriver76) poll online status always again if not confirmed that there are differences in api (old solution could lead to false negative)
-* (foxriver76) more specific error handling 
+* (foxriver76) more specific error handling
 
 ### 1.5.2 (2020-05-16)
 * (foxriver76) check if onlineStatus is supported at adapter start - else do not poll it

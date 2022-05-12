@@ -601,10 +601,12 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.2.9 (2022-04-10)
+* (Dirk-Peter-md) Bug-Initialisierungsroutine
 
 ### 0.2.8 (2022-03-20)
-* Adaptation for js controller 4
-* switched main.js to async
+* (Dirk-Peter-md) Adaptation for js controller 4
+* (Dirk-Peter-md) switched main.js to async
 
 ### 0.2.7 (16.10.2021)
 * (Dirk-Peter-md) zusätzliche Testnachrichten gelöscht, Readme aktualisiert

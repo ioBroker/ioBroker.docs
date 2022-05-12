@@ -32,7 +32,7 @@ Call in browser `http://ipaddress:8087/help` to get the help about API. The resu
   "query": "http://ipaddress:8087/query/stateID1,stateID2/?prettyPrint"
   "query": "http://ipaddress:8087/query/stateID1,stateID2/?noHistory=true&prettyPrint"
   "query": "http://ipaddress:8087/query/stateID1,stateID2/?dateFrom=2019-06-06T12:00:00.000Z&d&prettyPrint"
-  "query": "http://ipaddress:8087/query/stateID1,stateID2/?dateFrom=2019-06-06T12:00:00.000Z&dateTo=2019-06-06T12:00:00.000Z&prettyPrint"
+  "query": "http://ipaddress:8087/query/stateID1,stateID2/?dateFrom=2019-06-06T12:00:00.000Z&dateTo=2019-06-06T12:00:00.000Z&aggregate=minmax&count=2000&prettyPrint"
 }
 ```
 
@@ -154,6 +154,14 @@ Set many states with one request. This request supports POST method too, for POS
 Allows to set the value of a given State be set by the POST body content.
 
 ### objects
+Read objects of defined type from DB.
+
+Call e.g.:
+`http://ipaddress:8087/objects?pattern=enum.*&type=enum` - to read all enums
+
+or 
+
+`http://ipaddress:8087/objects?pattern=system.adapter.admin.0.*` - to read all states in branch `system.adapter.admin.0`
 
 ### states
 
@@ -163,7 +171,7 @@ If the option 'List all data points' has been activated or no data source has be
 This command is needed for the Grafana JSON / SimpleJSON Plugin.
 
 ### query
-If a data source (History, SQL) has been specified, the data from the specified data points are read out for the specified period, otherwise only the current value is read out.
+If a data source (History, SQL) has been specified in the instance configuration, the data from the specified data points are read out for the specified period, otherwise only the current value is read out.
 This command is needed for the Grafana JSON / SimpleJSON Plugin.
 
 ### help
@@ -577,9 +585,12 @@ If no data source was specified or the noHistory parameter is passed, then only 
 ```
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.6.5 (2022-04-14)
+* Added support aggregate and count for queries
+
 ### 2.6.4 (2022-03-17)
 * (Apollon77) Optimize performance, especially when using names instead of object ids
 

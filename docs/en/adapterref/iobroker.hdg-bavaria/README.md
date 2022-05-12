@@ -13,11 +13,16 @@
 
 ## hdg-bavaria adapter for ioBroker
 
-Access data from HDG Control of HDG Bavaria boilers. Currently only a single configuration is supported (K10-33, 850l tank with 3 
-temperature sensors, single heating circuit). Others could be added on request.
+Access data from HDG Control of HDG Bavaria boilers. Currently a limited configuration is supported (K10-33, 850l tank with 3 
+temperature sensors, configurable number of heating circuits). Others could be added on request.
 
 ## Changelog
 <ul>
+  <li>v0.4.0
+    <ul>
+      <li>Support for multiple heat circuits.</li>
+    </ul>
+  </li>
   <li>v0.3.1
     <ul>
       <li>Added integration test.</li>

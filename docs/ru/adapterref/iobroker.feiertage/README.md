@@ -29,6 +29,13 @@ Only selected holidays count in the process.
 The adapter starts daily at midnight. Due to the nature of the subject, no higher frequency is required.
 
 ## Changelog
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+* (klein0r) Dependencies updated
+
 ### 1.1.1 (2022-02-01)
 * (alcalzone, pix) Dependencies updated
  

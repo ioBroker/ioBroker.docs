@@ -146,6 +146,22 @@ Save the file and restart the adapter, you will find now a new object Rueckkuehl
 ## Todo
 
 ## Changelog
+### **WORK IN PROGRESS**
+
+### v1.1.6 (2022-05-04)
+* (grizzelbee) Fix: [#103](https://github.com/Grizzelbee/ioBroker.resol/issues/103) Fixed support for Serial-to-LAN-Gateway connections (Disabled credentials handshake - which is not necessary over serial ports.)
+
+### v1.1.5 (2022-04-29)
+* (grizzelbee) New: [#96](https://github.com/Grizzelbee/ioBroker.resol/issues/96) Fixed Cosmo-Multi-2 support (Faking a DeltaSol-E now)
+
+### v1.1.0 (2022-04-28)
+* (grizzelbee) New: [#96](https://github.com/Grizzelbee/ioBroker.resol/issues/96) Added support for DeltaSol-E and improved support for Cosmo-Multi-2 controllers
+
+### v1.0.0 (2022-04-25)
+* (grizzelbee) New: [#94](https://github.com/Grizzelbee/ioBroker.resol/issues/94) Added support for Cosmo controllers (No Sensor connected = 888°C)
+* (grizzelbee) Upd: Pushed version from 0.4.4 to v1.0.0 to be compliant to semver
+* (grizzelbee) Upd: Dependencies got updated
+
 ### v0.4.4 (2022-03-17)
 * (grizzelbee) New: Added donate button to config page and readme
 * (grizzelbee) Upd: Dependencies got updated

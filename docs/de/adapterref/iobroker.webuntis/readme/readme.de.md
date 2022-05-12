@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.webuntis/readme/readme.de.md
 title: ioBroker.webuntis
-hash: 2zyXQ+eth4PsBxl3M8+AAEMZhT4Nfg3Erk9UW8e503M=
+hash: XiWtY5XHyNiwwFhZGe/ZX9Kq/fFkMBryICwUc6RnITM=
 ---
 ![Logo](https://github.com/Newan/ioBroker.webuntis/admin/webuntis.png)
 
@@ -20,7 +20,7 @@ hash: 2zyXQ+eth4PsBxl3M8+AAEMZhT4Nfg3Erk9UW8e503M=
 ## Webuntis-Adapter für ioBroker
 Dieser Adapter bezieht sich auf Daten aus Webuntis. Für eine deutsche Anleitung
 
-Dieser Adapter bekommt Daten von WebUntis. Für Englisch-Tutorial ![klicken Sie hier](https://github.com/Newan/ioBroker.webuntis/readme.md)
+Dieser Adapter bekommt Daten von WebUntis. Für Englisch-Tutorial ![Klicke hier](https://github.com/Newan/ioBroker.webuntis/readme.md)
 
 ##Konfiguration
 Nach der Installation des Adapters in Iobroker und dem Erstellen einer Instanz, erscheint automatisch das Konfigurationsfenster.

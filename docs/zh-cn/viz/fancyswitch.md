@@ -2,40 +2,40 @@
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/viz/fancyswitch.md
-title: Fancyswitch
-hash: DFXagUdr/ZV0Iv1rR8AXrE035qtjVkn9+FGKRExwK0M=
+title: 花式开关
+hash: n0p4vOCoNTExbz9aObBMSobY2hhSyFfbooJ5fUG/fVI=
 ---
-#Fancyswitch
-该集代表了一些大致相同的交换机。
+# 花式开关
+这组代表了一些大部分以相同方式工作的开关。
 它们代表布尔状态，也可以切换它们。
 
-|小工具|图片|说明|
+|小部件 |图片 |说明 |
 |------------------------|-------|--------------|
-|关闭/打开灯| ![开关](../../de/viz/media/fancyswitch-1.png)|浅灰色摇臂开关|
-|打开/关闭黑暗| ![开关](../../de/viz/media/fancyswitch-3.png)|带有'on'/'off'标签的滑块|
-|滑块暗/关| ![开关](../../de/viz/media/fancyswitch-4.png)|带有'off'/'on'标签的滑块|
-|摇杆暗/关| ![开关]（media / fancyswitch-5.png）！[开关](../../de/viz/media/fancyswitch-6.png)|带有'off'/'on'标签的黑色摇杆开关;也可选择灯光风格 |
-| Giva Labs iButton | ![开关](../../de/viz/media/fancyswitch_givalabsibutton.png)|带有'on'/'off'标签的白色滑块|
-| Taitem jqui Toggleswitch | ![开关](../../de/viz/media/fancyswitch_taitem.png)|滑块外的“on”/“off”标签的白色滑块 |
-| Taitem jqui Toggleswitch | ！[转]（媒体/ fancyswitch_taitem.png）|滑块外的“on”/“off”标签的白色滑块 |
+|关灯/开灯| ![转变](../../de/viz/media/fancyswitch-1.png)|浅灰色换挡拨片 |
+|滑块暗开/关 | ![转变](../../de/viz/media/fancyswitch-3.png)|带有“开”/“关”标签的滑块 |
+|滑块暗开/关 | ![转变](../../de/viz/media/fancyswitch-4.png)|带有“关闭”/“开启”标签的滑块 |
+|摇杆暗开/关| ![开关](媒体/fancyswitch-5.png) ![开关](../../de/viz/media/fancyswitch-6.png)|带有“关闭”/“开启”标签的深色摇杆开关；也可选择浅色|
+|Giva Labs iButton | ![转变](../../de/viz/media/fancyswitch_givalabsibutton.png)|带有“开”/“关”标签的白色滑块 |
+|Taitem jqui 拨动开关| ![转变](../../de/viz/media/fancyswitch_taitem.png)|滑块外带有“开”/“关”标签的白色滑块 |
+|Taitem jqui 拨动开关| ![switch](../../de/viz/media/fancyswitch_taiitem.png)|滑块外带有“开”/“关”标签的白色滑块 |
 
-##属性描述
-|属性|说明|主题|
+## 属性说明
+|属性|描述|主题|
 |----|----|---|
-| ObjectId |要显示的对象的ID，包含HTML | Switch，Slider，Slider，Rocker |
-|反转|反转开关状态|开关，滑块，滑块，摇杆|
-|虚假值|状态为假/关闭/关闭的值|开关，滑块，滑块，摇杆|
-|真值|状态为假/关闭/关闭的值|开关，滑块，滑块，摇杆|
-|自动关闭|表示按钮功能：在设定的时间后，开关返回其原始状态|开关，滑块，滑块，摇杆|
-|灯光风格|开关打火机显示|摇杆暗/开|
-|杠杆尺寸|| Giva Labs iButton |
-|容器尺寸|| Giva Labs iButton |
-|拖动允许|切换可以拖动（不仅仅是按下）| Giva Labs iButton |
-|动画|切换动画| Giva Labs iButton |
-|转换|数据点延迟| Giva Labs iButton |
-|高亮显示开关|开关的滑动区域也以彩色显示| Taitem jqui Toggleswitch |
-| Widget宽度|开关的宽度，无论标题如何| Taitem jqui Toggleswitch |
-| Prepend html | HTML代码显示在对象前面| Taitem jqui Toggleswitch |
-|追加HTML | HTML代码显示在对象之后| Taitem jqui Toggleswitch |
+|ObjectId|要显示的包含 HTML 的对象的 ID|开关、滑块、推杆、跷跷板 |
+|反转|反转开关状态|开关、滑块、滑轨、摇杆 |
+|false 值|false/off/off 状态对应的值|switch,slider,ram,seesaw |
+|真值|false/off/off状态对应的值|Switch,slider,ram,seesaw |
+|自动关闭|代表按键功能：经过一段可调时间后，开关恢复原状|开关、滑块、滑动、摇杆 |
+|明亮的风格|更亮的开关表示|摇杆暗开/关|
+|杠杆尺寸||Giva Labs iButton |
+|容器尺寸||Giva Labs iButton |
+|允许拖动|可以拖动开关（不仅仅是按下）|Giva Labs iButton |
+|动画|切换是动画|Giva Labs iButton |
+|切换持续时间|数据点仅在延迟后切换|Giva Labs iButton |
+|高亮开关|开关的滑动区域也是彩色显示|Taitem jqui Toggleswitch |
+|Widget 宽度|开关宽度，与标签无关|Taitem jqui Toggleswitch |
+|Prepend html|要在对象之前渲染的HTML代码|Taitem jqui Toggleswitch |
+|追加Html|要在对象之后渲染的HTML代码|Taitem jqui Toggleswitch |
 
-**示例：**![009](../../de/viz/media/fancyswitch_all.gif)
+**示例：** ![009](../../de/viz/media/fancyswitch_all.gif)

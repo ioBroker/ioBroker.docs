@@ -4,7 +4,7 @@ lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/cloud/viz.md
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
-hash: sJ2Dn0SvHS7KZjMIxJ2GeRWk/s+92eF3ohcfun5IF40=
+hash: F3do6Sn95ns1JzdGXk+XozHZy8DHaHKz26C+Gim0G9M=
 ---
 # Визуализации через облако
-?> ***Это подстановочный знак*** . <br><br> Помогите с ioBroker и расширьте эту статью. Пожалуйста, обратите внимание на [Руководство по стилю ioBroker](community/styleguidedoc), чтобы изменения могли быть легко приняты.
+?> ***Это заполнитель***.<br><br> Помогите ioBroker и дополните эту статью. Обратите внимание на [Руководство по стилю ioBroker](community/styleguidedoc), чтобы упростить принятие изменений.

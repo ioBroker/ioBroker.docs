@@ -4,44 +4,44 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/adapterref/iobroker.hm-rega/README.md
 title: HomeMatic ReGaHSS
-hash: 5nzOtddjd6p/3BVJJkfR7yHWPQUqVm2mcbdsP7tvrkM=
+hash: G+XgC3bx73W0XgVhW1GkYuvI38TcQQgIsp3P1ggWznM=
 ---
 ![logo](../../../de/adapterref/iobroker.hm-rega/media/homematic.png)
 
 # HomeMatic ReGaHSS
 ## Homematic
-> Homematic is the Smart Home System from eQ-3, which enables the comprehensive control of a wide variety of functions using scenarios (from simple to complex) in the house or apartment.
+> Homematic is the smart home system from eQ-3, which enables the comprehensive control of a wide variety of functions using scenarios (from simple to complex) in the house or apartment.
 
-> The devices include products for light, roller shutter and heating control, hazard detectors, safety sensors and products for measuring weather data. The radio communication simplifies retrofitting. Wire bus components can be used in new buildings.
+> The devices include products for controlling lights, roller shutters and heating, hazard detectors, security sensors and products for measuring weather data. The wireless communication simplifies retrofitting. Wire bus components can be used in new buildings.
 
 [source](https://www.eq-3.de/produkte/homematic.html)
 
 ## Adapter Homematic ReGaHss
-This adapter establishes a connection to the Homematic logic layer "ReGaHSS" (** Re ** sidential ** Ga ** teway).
+This adapter establishes a connection to the Homematic logic layer "ReGaHSS" (**Re**sidential **Ga**teway).
 It synchronizes real names, system variables, rooms, trades and programs between Homematic and ioBroker.
 
-If several central units are to be integrated into ioBroker, a separate instance must be installed and configured for each central unit.
+If several centers are to be integrated into ioBroker, a separate instance must be installed and configured for each center.
 
-When ReGaHSS is installed, an instance of the "hm-rpc" adapter is also installed, which should be configured and activated in advance.
+With the installation of ReGaHSS, an instance of the "hm-rpc" adapter is also installed, which should be configured and activated beforehand.
 
-One instance of this adapter can manage up to 5 different instances of the Homematic RPC adapter, which provide different services (each service requires its own RPC instance):
+One instance of this adapter can manage up to 5 different instances of the Homematic RPC Adapter that provide different services (each service needs its own RPC instance):
 
 - rfd (CCU radio service for standard components)
-- hs485d (Wired) (for wired bus components)
+- hs485d (wired) (for wired bus components)
 - CuxD (additional software to provide a universal interface)
 - Homematic IP (IP-supported components)
 - Virtual devices
 
-### Requirements before installation
-- Homematic Gateway (CCU / CCU2 / CCU3…) *or*
-- Radio module with suitable software (piVCCU (* x) *, RaspberryMatic or similar)
+### Pre-installation requirements
+- Homematic Gateway (CCU/CCU2/CCU3 …) *or*
+- Radio module with suitable software (piVCCU(*x)*, RaspberryMatic or similar)
 
 ## Installation
-An instance of the adapter is installed via the ioBroker admin interface.
+An instance of the adapter is installed from the ioBroker admin interface.
 
-When the installation is complete, the configuration window opens automatically.
+After the installation is complete, the configuration window opens automatically.
 
-Before the actual configuration, the instance of the HM-RPC adapter (created together with this adapter) or, if necessary, additional HM-RPC instances should be created and configured.
+Before the actual configuration, the instance of the HM-RPC adapter (created together with this adapter) or, if required, further HM-RPC instances should be created and configured.
 
 ## Configuration
 ![](../../../de/adapterref/iobroker.hm-rega/media/01c7dbc4da0240421b0711b331971d2d.png) **Selection menu above**
@@ -59,53 +59,53 @@ The IP address of the CCU can be selected in the pull-down menu; the reconnectio
 
 The required services are then activated and linked to the appropriate HM-RPC instance.
 
-Polling
+polling
 
-If activated, the RegaHSS data is regularly queried by the CCU, based on the seconds set in the Intervals field. The interval should not be set too low, since too frequent polling can lead to a crash of the CCU.
+If activated, the CCU will query the RegaHSS data regularly, based on the seconds set in the Intervals field. The interval should not be set too low, since polling too frequently can cause the CCU to crash.
 
-Trigger
+triggers
 
-In order to minimize the active queries from ioBroker to the RegaHSS, a trigger can also push the data on the CCU within a program when changes are made.
-A virtual button on the CCU, which is triggered in a CCU program, can be used for this. By default, this is the BidCosRF.50.PRESS_SHORT key (see sample program).
+In order to minimize the active queries from ioBroker to the RegaHSS, a trigger can also push the data on the CCU within a program when there is a change.
+A virtual button on the CCU can be used for this, which is triggered in a CCU program. By default, this is the BidCosRF.50.PRESS_SHORT button (see sample program).
 
-### Synchronize area
-Here the user can specify which information is to be transferred from the CCU to ioBroker. The corresponding objects and data points are then created in ioBroker.
+### Sync area
+Here the user can specify which information is transferred from the CCU to ioBroker. The corresponding objects and data points are then created in ioBroker.
 
-- DutyCycle: Activates the specification of the duty cycle (in%)
-- Variables: Activates the transfer of the system variables from the CCU
-- Programs: Activates the transfer of the program names from the CCU
+- DutyCycle: Activates the indication of the duty cycle (in %)
+- Variables: Activates the adoption of system variables from the CCU
+- Programs: Activates the adoption of the program designations from the CCU
 - Names: Activates the transfer of the plain text names of the data points from the CCU
-- Favorites: Activates the transfer and listing of favorites
-- Rooms: Activates the takeover of the rooms and a listing of them
-- Trades: Activates the transfer of trades and a listing of them
+- Favorites: Activates the acquisition and listing of favorites
+- Rooms: Activates the acquisition of rooms and a listing of them
+- Trades: Activates the transfer of the trades and a list of them
 
 ### Additional settings area
-Here the user can decide whether https (encrypted and tap-proof connection) should be used. If activated, the username and password must be entered
+Here the user can decide whether https (encrypted and tap-proof connection) should be used. If activated, the user name and the corresponding password must be entered
 
-Once all settings have been made, the configuration page is closed with the command "save and close" (button below the settings area). The adapter is closed and the instance is started with the new values.
+Once all the settings have been made, the configuration page is closed with the "save and close" command (button below the settings area). The adapter is closed and the instance is started with the new values.
 
 ### Instance
-![](../../../de/adapterref/iobroker.hm-rega/media/44785b82964bcdc198565b1681787dc0.png) **Instance and Signal**
+![](../../../de/adapterref/iobroker.hm-rega/media/44785b82964bcdc198565b1681787dc0.png) **Instance and signal**
 
-The created instance (s) can now be found in the *Instances* area of the ioBroker. The traffic light system on the left shows whether the adapter is activated or connected to the CCU.
+The created instance(s) can now be found in the *Instances* area of the ioBroker. The traffic light system on the left shows whether the adapter is activated or connected to the CCU.
 
 If you place the mouse pointer on a symbol, you get detailed information.
 
 ### Objects of the adapter
-In the Objects area, all values and information transmitted by the adapter from the CCU are displayed in a tree structure.
+All the values and information transmitted by the adapter from the CCU are displayed in a tree structure in the Objects area.
 
 Since the objects are user-specific, only the general objects that are the same for all users are shown here.
 
-![](../../../de/adapterref/iobroker.hm-rega/media/c24d8382beda4c970093097959080524.png) **folder structure**
+![](../../../de/adapterref/iobroker.hm-rega/media/c24d8382beda4c970093097959080524.png) **Folder Structure**
 
-The first folders (usually number ID) are the programs contained in the CCU.
+The first folders (usually digit ID) are the programs contained in the CCU.
 
 CCU and info folders contain the basic information of the gateway incl.
-percentage specification of the duty cycle (if activated).
+percentage of the duty cycle (if activated).
 
 Finally, the variables created in the CCU are listed
 
-### FAQ
+###FAQ
 
 ## Changelog
 <!--

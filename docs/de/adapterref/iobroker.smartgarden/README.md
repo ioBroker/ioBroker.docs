@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.smartgarden/README.md
 title: ioBroker.smartgarden
-hash: bbKCZ49g0LWG4EJYAGtuSSRM1C6FmTKx/qpQ3e+qTHY=
+hash: Wa01f7YH+BEzeP60HT6+danUNiUEIpgu+XOB+JpT350=
 ---
 ![Logo](../../../en/adapterref/iobroker.smartgarden/admin/smartgarden.png)
 
@@ -15,305 +15,302 @@ hash: bbKCZ49g0LWG4EJYAGtuSSRM1C6FmTKx/qpQ3e+qTHY=
 ![NPM](https://nodei.co/npm/iobroker.smartgarden.png?downloads=true)
 
 # IoBroker.smartgarden
-** Wenn es Ihnen gefällt, ziehen Sie bitte eine Spende in Betracht: **
+## IoBroker smartgarden Adapter für GARDENA smart system
+Ein Adapter für GARDENA smart system mit offiziellem [GARDENA smart system API](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/general) und Service.
 
-[![paypal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8C7M7MH3KPYDC&source=url)
+Der Adapter ermöglicht die Entwicklung einer Anwendung (z. B. mit VIS), die parallel zur offiziellen GARDENA App genutzt werden kann. Der Adapter und seine Zusatzfunktionen beeinträchtigen keine der Grundfunktionen der GARDENA App und umgekehrt.
 
-## IoBroker Smartgarden Adapter für GARDENA Smart System
-Ein Adapter für das GARDENA Smart System unter Verwendung der offiziellen [GARDENA Smart System API](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/general) und des Dienstes.
-
-Der Adapter ermöglicht die Entwicklung einer Anwendung (z. B. mit VIS), die parallel zur offiziellen GARDENA-App verwendet werden kann. Der Adapter und seine zusätzlichen Funktionen wirken sich nicht auf die Grundfunktionen der GARDENA-App aus und umgekehrt.
-
-Der Adapter ist kein vollständiger Ersatz für die GARDENA-App, sondern eine Ergänzung zur Integration der GARDENA-Geräte in ein Smart Home mit ioBroker.
-Die wichtigsten Aktionen können mit dem Adapter ausgeführt werden. Es bietet auch die Möglichkeit, eigene Ideen umzusetzen, die mit der GARDENA-App nicht möglich sind.
+Der Adapter ist kein vollständiger Ersatz für die GARDENA App, sondern eine Ergänzung, um die GARDENA Geräte in ein Smart Home mit ioBroker einzubinden.
+Mit dem Adapter lassen sich die wichtigsten Aktionen durchführen. Außerdem bietet sie die Möglichkeit, eigene Ideen umzusetzen, die mit der GARDENA App nicht möglich sind.
 
 ## Unterstützte Geräte
-  - GARDENA smart SILENO Roboter-Rasenmäher
-  - GARDENA Smart Irrigation Control
-  - GARDENA Smart Druckpumpe
-  - GARDENA Smart Water Control
-  - GARDENA Smart Netzteil
-  - GARDENA Smart Sensor
+  - GARDENA smart SILENO Mähroboter
+  - GARDENA smart Bewässerungssteuerung
+  - GARDENA smart Druckpumpe
+  - GARDENA smart Water Control
+  - GARDENA smart Netzteil
+  - GARDENA smart-Sensor
 
-Weitere Informationen zu den Geräten finden Sie unter [GARDENA Deutsche Website](https://www.gardena.com/de/produkte/smart/smartsystem/) und [hier auf Englisch](https://www.gardena.com/uk/products/smart/smart-system/).
+Weitere Informationen zu den Geräten finden Sie unter [GARDENA deutsche Website](https://www.gardena.com/de/produkte/smart/smartsystem/) und [hier auf englisch](https://www.gardena.com/uk/products/smart/smart-system/).
 
-## Bedarf
+## Anforderungen
 Um diesen Adapter zu verwenden, benötigen Sie zwei Dinge:
 
-1. ein GARDENA Smart System-Konto
-1. einen GARDENA-Anwendungsschlüssel
+1. ein GARDENA smart system Konto
+1. einen GARDENA Applikationsschlüssel
 
-Um beide Dinge zu erhalten, gehen Sie bitte zu [https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/](https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/).
+Um beides zu bekommen, gehen Sie bitte zu [https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/](https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/).
 
-![Getting_application_key](../../../en/adapterref/iobroker.smartgarden/getting_application_key.jpg)
+![getting_application_key](../../../en/adapterref/iobroker.smartgarden/getting_application_key.jpg)
 
-**Hinweis:**
+**Notiz:**
 
-  - Wenn Sie bereits einen Husqvarna Automower® Connect oder einen haben
+  - Wenn Sie bereits einen Husqvarna Automower® Connect oder a
 
-GARDENA Smart System-Konto, Sie können sich mit diesem Konto anmelden und mit Schritt 2, Anwendung erstellen fortfahren, um den Anwendungsschlüssel zu erhalten.
-
-	---
-
-*** Und es ist fast sicher, dass Sie ein Konto haben. *** *Bitte verwenden Sie dasselbe Konto wie für die GARDENA-App, in der Ihre GARDENA-Geräte registriert sind. Andernfalls erhalten Sie keinen Zugriff auf Ihre Geräte.*
+GARDENA smart system Konto, können Sie sich mit diesem Konto anmelden und mit Schritt 2, Anwendung erstellen, fortfahren, um den Anwendungsschlüssel zu erhalten.
 
 	---
 
-  - Stellen Sie sicher, dass Sie die Anwendung (ab Schritt 2) mit den APIs verbunden haben
-  - Authentifizierungs-API ***und***
-- GARDENA Smart System API.
+***Und es ist fast sicher, dass Sie ein Konto haben.*** *Bitte verwenden Sie dasselbe Konto wie für die GARDENA App, in dem Ihre GARDENA Geräte registriert sind. Andernfalls erhalten Sie keinen Zugriff auf Ihre Geräte.*
 
-Und natürlich benötigen Sie eine laufende ioBroker-Installation und sollten mindestens einen [GARDENA Smart Device](#supported-devices) besitzen.
+	---
+
+  - Stellen Sie sicher, dass Sie die Anwendung (aus Schritt 2) mit den APIs verbunden haben
+    - Authentifizierungs-API ***und***
+- GARDENA Smart-System-API.
+
+Und natürlich benötigen Sie eine laufende ioBroker-Installation und Sie sollten mindestens eine funktionierende [GARDENA smart-Gerät](#supported-devices) besitzen.
 
 ## Inhaltsverzeichnis
-  * [ioBroker Smartgarden-Adapter für GARDENA-Smart-System] (# iobroker-Smartgarden-Adapter für Gardena-Smart-System)
-  * [Unterstützte Geräte] (# unterstützte Geräte)
-  * [Anforderungen] (# Anforderungen)
-  * [Inhaltsverzeichnis] (# Inhaltsverzeichnis)
-  * [Installation] (# Installation)
-  * [Setup-Adapter] (# Setup-Adapter)
-  * [Unterstützung erhalten] (# Unterstützung erhalten)
-  * [Datenpunkte des Adapters] (# Datenpunkte des Adapters)
-     * [Allgemeine Informationen zu Datenpunkten] (# Allgemeine Informationen zu Datenpunkten)
-     * [Für SERVICE_MOWER] (# for-service_mower)
-     * [Für SERVICE_VALVE_SET] (# for-service_valve_set)
-     * [Für SERVICE_VALVE] (# for-service_valve)
-     * [Für SERVICE_POWER_SOCKET] (# for-service_power_socket)
-     * [Für SERVICE_SENSOR] (# für-service_sensor)
-     * [Für SERVICE_COMMON] (# for-service_common)
-  * [Ratenlimits] (# Ratenlimits)
-  * [Bewässerung beim Mähen nicht erlaubt] (# Bewässerung beim Mähen nicht erlaubt)
-     * [Was ist das Problem?] (# Was ist das Problem)
-* [Was wird getan?] (# Was wird getan)
-* [Grundverhalten - WARNUNG] (# Grundverhalten ---- Warnung)
-  * [Wünsche für Datenpunkte] (# Wünsche für Datenpunkte)
-  * [Anmerkung] (# Anmerkung)
-  * [Changelog] (# changelog)
-     * [1.0.5] (# 105)
-     * [1.0.4] (# 104)
-     * [1.0.3] (# 103)
-     * [frühere Versionen] (# 102)
-  * [Credits] (# Credits)
-  * [Lizenz] (# Lizenz)
+  * [ioBroker smartgarden adapter for GARDENA smart system](#iobroker-smartgarden-adapter-for-gardena-smart-system)
+  * [Unterstützte Geräte](#supported-devices)
+  * [Anforderungen](#Anforderungen)
+  * [Inhaltsverzeichnis](#Inhaltsverzeichnis)
+  * [Installation](#Installation)
+  * [Setup-Adapter](#Setup-Adapter)
+  * [Unterstützung erhalten](#getting-support)
+  * [Datenpunkte des Adapters](#Datenpunkte-des-Adapters)
+     * [Allgemeines über Datenpunkte](#general-things-to-know-about-data-points)
+     * [Für SERVICE_MOWER](#for-service_mower)
+     * [Für SERVICE_VALVE_SET](#for-service_valve_set)
+     * [Für SERVICE_VALVE](#for-service_valve)
+     * [Für SERVICE_POWER_SOCKET](#for-service_power_socket)
+     * [Für SERVICE_SENSOR](#for-service_sensor)
+     * [Für SERVICE_COMMON](#for-service_common)
+  * [Ratenlimits](#Ratenlimits)
+  * [Bewässerung beim Mähen nicht erlaubt](#Bewässerung-nicht-erlaubt-beim-Mähen)
+     * [Was ist das Problem?](#was-ist-das-Problem)
+* [Was wird getan?](#was-wird-getan)
+* [Basisverhalten – WARNUNG](#basic-behaviour----warning)
+  * [Wünsche für Datenpunkte](#Wünsche-für-Datenpunkte)
+  * [Anmerkung](#Anmerkung)
+  * [Änderungsprotokoll](#Änderungsprotokoll)
+     * [1.0.6](#106)
+     * [1.0.5](#105)
+     * [1.0.4](#104)
+     * [vorherige Versionen](#103)
+  * [Credits](#Credits)
+  * [Lizenz](#Lizenz)
 
 ## Installation
-Adapter ist verfügbar
+Adapter ist vorhanden
 
-- um npm: Installation mit `npm install iobroker.smartgarden`
+- bei npm: Installieren Sie mit `npm install iobroker.smartgarden`
 - bei GitHub unter https://github.com/jpgorganizer/ioBroker.smartgarden.
 
-Eine Beschreibung zur Installation von GitHub finden Sie in [Hier](https://www.iobroker.net/docu/index-235.htm?page_id=5379&lang=de#3_Adapter_aus_eigener_URL_installieren) (deutsche Sprache).
+Eine Beschreibung zur Installation von GitHub ist in [hier](https://www.iobroker.net/docu/index-235.htm?page_id=5379&lang=de#3_Adapter_aus_eigener_URL_installieren) verfügbar.
 
-## Adapter einrichten
+## Setup-Adapter
 1. Installieren Sie den Adapter
 2. Erstellen Sie eine Instanz des Adapters
 3. Überprüfen und vervollständigen Sie die Instanzkonfiguration
 
-  **Wenn Sie einen Wert dieser Einstellungen ändern, starten Sie bitte Ihren Adapter neu.**
+   **Wenn Sie einen Wert dieser Einstellungen ändern, starten Sie bitte Ihren Adapter neu.**
 
-3.1 Bearbeiten Sie den Benutzernamen, das Kennwort und den Anwendungsschlüssel in der Konfiguration der Hauptinstanz
+3.1 Benutzername, Passwort und Anwendungsschlüssel in der Konfiguration der Hauptinstanz bearbeiten
 
       | Parameter | Beschreibung |
       | - | - |
-      | Benutzername | Benutzername für GARDENA Smart System |
+      | Benutzername | Benutzername für GARDENA smart system |
       | Passwort | entsprechendes Passwort |
-      | API-Schlüssel | API-Schlüssel (Anwendungsschlüssel), z. unter [Bedarf](#requirements) |
+      | API-Schlüssel | API Key (Anwendungsschlüssel), z.B. unter [Anforderungen](#requirements) |
 
-Bitte beachten Sie, dass Kennwort und Anwendungsschlüssel im Adapter codiert und gespeichert sind und nur zur Authentifizierung beim GARDENA-Anwendungshost dekodiert werden.
+Bitte beachten Sie, dass Passwort und Anwendungsschlüssel im Adapter verschlüsselt und gespeichert sind und nur zur Authentifizierung beim GARDENA Anwendungshost entschlüsselt werden.
 
-3.2 Überprüfen Sie die Standardwerte für verschiedene Einstellungen und schalten Sie die Optionen in der Instanzkonfiguration ein / aus. Für die meisten Benutzer sind die Standardwerte in Ordnung.
-
-      | Parameter | Beschreibung |
-      | - | - |
-   | Zustände vordefinieren | Definieren Sie alle Zustände der Gardena-API vorab, unabhängig davon, ob sie aktuell übertragen werden. ein- oder ausschalten; Wenn diese Option aktiviert ist, werden alle Status der GARDENA-Smart-System-API erstellt, unabhängig davon, ob sie derzeit vom GARDENA-Dienst übertragen werden oder nicht. Standard: Aus; *(neu in v0.4.0)* |
-   | Prognose | Verwenden Sie die Prognose für die Ladezeit und die verbleibende Zeit des Mähers. Ein- / Ausschalten der prognostizierten Lade- und Mähzeit des Mähers; Standard: Aus; *(neu in v0.5.0)* |
-   | Zyklen | Anzahl der MOWER-Verlaufszyklen; Sie können eine beliebige Zahl von 3 (Minimum) verwenden, aber 10 (Standard) scheint ein guter Wert zu sein. nur relevant, wenn die obige *'Prognose'* aktiviert ist; *(neu in v0.5.0)* |
-   | Bewässerungsprüfung | Verwenden Sie die Prüfung, ob beim Mähen eine Bewässerung zulässig ist. Ein-/ Ausschalten; Standard: Aus; *(neu in v0.6.0)* |
-
-3.3 Überprüfen Sie die Standardwerte der Systemeinstellungen und schalten Sie die Optionen in der Instanzkonfiguration ein / aus. **Die meisten Benutzer müssen auf dieser Registerkarte nichts ändern.**
+3.2 Überprüfen Sie die Standardwerte verschiedener Einstellungen und schalten Sie Optionen in der Instanzkonfiguration ein/aus. Für die meisten Benutzer sind die Standardwerte in Ordnung.
 
       | Parameter | Beschreibung |
       | - | - |
-      | Loglevel | Loglevel: 0 = kein Protokoll, 1 = einige Protokolle, 2 = einige weitere Protokolle, 3 = alle Protokolle; Standard: 0 |
-   | verschönern log | Status-IDs im Protokoll kürzer machen; Ein-/ Ausschalten; Standard ein; *(neu in v1.0.5)* |
-| Überwachung der Ratengrenzen | Verwenden Sie die Überwachung für die Ratengrenzen der Gardena Smart System API. Ein-/ Ausschalten; Standard: Aus; *(neu in v1.0.2)* |
-   | Verbindungswiederholungsintervall | Intervall für den erneuten Versuch, im Fehlerfall eine Verbindung zum Gardena Webservice herzustellen (in Sekunden); Standard: 300, Minimum: 60; *(neu in v1.0.3)* |
-      | Ping-Frequenz | Häufigkeit für das Senden von Pings an Gardena Webservice (in Sekunden); Standard: 150, Minimum: 1, Maximum: 300 |
-      | Auth-Faktor | Faktor für die Gültigkeit des Authentifizierungstokens; Standard: 1.001 |
-      | Auth-URL | URL des Authentifizierungshosts; Standard: [https://api.authentication.husqvarnagroup.dev](https://api.authentication.husqvarnagroup.dev) |
-      | Basis-URL | Webservice-Basis-URL; Standard: [https://api.smart.gardena.dev] (https://api.smart.gardena.dev) |
+      | Zustände vordefinieren | alle Zustände der Gardena-API vordefinieren, unabhängig davon, ob sie gerade übertragen werden; ein- oder ausschalten; wenn eingeschaltet, werden alle Zustände der GARDENA smart system API erstellt, unabhängig davon, ob sie gerade vom GARDENA Service übertragen werden oder nicht; Standard: aus; *(neu in v0.4.0)*|
+      | Prognose | Prognose für Ladezeit und Restzeit des Mähers verwenden; prognostizierte Lade- und Mähzeit des Mähers ein-/ausschalten; Standard: aus; *(neu in v0.5.0)*|
+      | Zyklen | Anzahl der MÄHER-Verlaufszyklen; Sie können jede Zahl ab 3 (Minimum) verwenden, aber 10 (Standard) scheint ein guter Wert zu sein; nur relevant, wenn obige *'Prognose'* eingeschaltet ist; *(neu in v0.5.0)*|
+      | Bewässerungscheck| Verwenden Sie die Überprüfung, ob während des Mähens bewässert werden darf; Ein-/ Ausschalten; Standard: aus; *(neu in v0.6.0)*|
 
-## Unterstützung bekommen
-Um Hilfe zu erhalten, lesen Sie diese [README] (README.md) und die [FAQ](FAQ.md) sorgfältig durch.
-Wenn Sie weitere Unterstützung benötigen, treten Sie bitte den [ioBroker Forum Thread](https://forum.iobroker.net/topic/31289/neuer-adapter-smartgarden-adapter-for-gardena-smart-system) bei.
+3.3 Überprüfen Sie die Standardwerte der Systemeinstellungen und schalten Sie Optionen in der Instanzkonfiguration ein/aus. **Die meisten Benutzer müssen auf dieser Registerkarte nichts ändern.**
+
+      | Parameter | Beschreibung |
+      | - | - |
+      | Protokollebene | Loglevel: 0 = kein Log, 1 = einige Logs, 2 = einige weitere Logs, 3 = alle Logs; Standard: 0|
+      | Protokoll verschönern | Zustands-IDs im Protokoll kürzer machen; Ein-/ Ausschalten; Standard ein; *(neu in v1.0.5)*|
+| Überwachung von Ratenbegrenzungen | Überwachung der Ratenbegrenzungen der Gardena Smart System API verwenden; Ein-/ Ausschalten; Standard: aus; *(neu in v1.0.2)*|
+      | Verbindungswiederholungsintervall | Intervall für den erneuten Verbindungsversuch zum Gardena Webservice im Fehlerfall (in Sekunden); Standard: 300, Minimum: 60; *(neu in v1.0.3)*|
+      | Ping-Frequenz | Sendehäufigkeit von Ping's an den Gardena Webservice (in Sekunden); Standard: 150, Minimum: 1, Maximum: 300|
+      | Authentifizierungsfaktor | Faktor für die Gültigkeit des Authentifizierungstokens; Standard: 1,001 |
+      | Auth-URL| URL des Authentifizierungshosts; Standard: [https://api.authentication.husqvarnagroup.dev](https://api.authentication.husqvarnagroup.dev)|
+      | Basis-URL| Webservice Basis-URL; Standard: [https://api.smart.gardena.dev](https://api.smart.gardena.dev)|
+
+## Unterstützung erhalten
+Um Hilfe zu erhalten, lesen Sie diese [README](README.md) und die [FAQ](FAQ.md) sorgfältig durch.
+Wenn Sie weitere Unterstützung benötigen, treten Sie bitte dem [ioBroker-Forenthread](https://forum.iobroker.net/topic/31289/neuer-adapter-smartgarden-adapter-for-gardena-smart-system) bei.
 
 ## Datenpunkte des Adapters
-Der Adapter dient zur Überwachung und Steuerung von GARDENA Smart System-Geräten.
-Hierfür gibt es einen `LOCATION` und einen oder mehrere `DEVICE`.
-Für jeden `DEVICE` gibt es
+Der Adapter dient zur Überwachung und Steuerung von GARDENA smart system Geräten.
+Dafür wird es einen `LOCATION` und einen oder mehrere `DEVICE` geben.
+Für jeden `DEVICE` wird es geben
 
-  - ein `SERVICE_COMMON_ <id>` und
-  - ein oder mehrere `SERVICE_ <servicelink_type> _ <id>`.
+  - ein `SERVICE_COMMON_<id>` und
+  - ein oder mehrere `SERVICE_<servicelink_type>_<id>`.
 
-Wobei `<servicelink_type>` eine Typbeschreibung für das Gerät ist, z. B. MÄHER oder VENTIL, und `<id>` eine (codierte) GARDENA-Geräte-ID ist, die von der API verwendet wird.
+Wobei `<servicelink_type>` eine Typbeschreibung für das Gerät ist, zum Beispiel MÄHER oder VENTIL und `<id>` eine (codierte) GARDENA-Geräte-ID ist, die von der API verwendet wird.
 Siehe Beschreibung für ServiceLink unter [https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger).
 
-Die Steuerung / Überwachung für jedes Gerät ist über die in der folgenden Tabelle aufgeführten `SERVICE_<servicelink_type>` möglich. Die `SERVICE_COMMON` enthalten allgemeine Informationen zum Gerät.
+Die Steuerung/Überwachung für jedes Gerät ist über die in der folgenden Tabelle aufgeführten `SERVICE_<servicelink_type>` möglich. `SERVICE_COMMON` enthält allgemeine Informationen über das Gerät.
 
-  | Gerät | SERVICE_ <Servicelink-Typ> |
+  | Gerät | SERVICE_<Servicelink_Typ> |
   | - | - |
-  | smart SILENO Roboter Rasenmäher | SERVICE_MOWER und SERVICE_COMMON |
+  | smart SILENO Mähroboter | SERVICE_MOWER und SERVICE_COMMON |
   | intelligente Bewässerungssteuerung | SERVICE_VALVE_SET, SERVICE_VALVE und SERVICE_COMMON |
   | intelligente Druckpumpe | SERVICE_VALVE und SERVICE_COMMON |
-  | intelligente Wasserkontrolle | SERVICE_VALVE und SERVICE_COMMON |
-  | intelligentes Netzteil | SERVICE_POWER_SOCKET und SERVICE_COMMON |
+  | intelligente Wassersteuerung | SERVICE_VALVE und SERVICE_COMMON |
+  | smart Netzteil | SERVICE_POWER_SOCKET und SERVICE_COMMON |
   | intelligenter Sensor | SERVICE_SENSOR und SERVICE_COMMON |
 
-Wenn Sie weitere Informationen zu den Datenpunkten benötigen, lesen Sie bitte [https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger).
-Dort finden Sie eine Beschreibung für jeden Datenpunkt; mit Ausnahme derjenigen, die als Datenpunkte des Adapters und nicht der GARDENA Smart System API gekennzeichnet sind.
+Weitere Informationen zu den Datenpunkten finden Sie unter [https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger).
+Dort finden Sie zu jedem Datenpunkt eine Beschreibung; mit Ausnahme derjenigen, die als Datenpunkte des Adapters und nicht der GARDENA smart system API gekennzeichnet sind.
 
-Der Adapter erstellt eigene Datenpunkte für verschiedene Funktionen / Optionen, wenn die Funktion ausgewählt wird. Diese Datenpunkte werden nicht automatisch gelöscht, wenn die Funktion deaktiviert wird. Wenn Sie diese Datenpunkte nicht mehr benötigen, können Sie sie manuell löschen.
+Der Adapter erstellt seine eigenen Datenpunkte für verschiedene Features / Optionen, wenn das Feature ausgewählt wird. Diese Datenpunkte werden beim Abwählen der Funktion nicht automatisch gelöscht. Wenn Sie diese Datenpunkte nicht mehr benötigen, können sie manuell gelöscht werden.
 
-### Allgemeine Informationen zu Datenpunkten
-Der Adapter ändert keine von der GARDENA Smart System API übertragenen Werte.
-Das einzige, was (ab Version 1.0.0) getan wird, ist die Überprüfung der Art der *Zeitstempel* und *Zahlen*
+### Allgemeines über Datenpunkte
+Der Adapter verändert keine von der GARDENA smart system API übermittelten Werte.
+Das einzige, was getan wird (ab Version 1.0.0), ist die Überprüfung der Art von *timestamps* und *numbers*.
 
-| auf | prüfen Beschreibung |
+| suchen Sie nach | Beschreibung |
 | - | - |
-| Zeitstempel | Alle Zeitstempel sind in UTC angegeben. Wenn ein empfangener Zeitstempel kein gültiger Zeitstempel ist, wird stattdessen `01 Jan 1970 00:00:00Z` (Unix-Zeit Null) verwendet. Wenn Sie dieses Datum / diese Uhrzeit sehen, melden Sie sich bitte. |
-| Zahlen | Wenn eine Zahl keine gültige Zahl ist, wird stattdessen "-1" verwendet. Wenn Sie diese Nummer sehen, melden Sie sich bitte. |
+| Zeitstempel | alle Zeitstempel sind in UTC angegeben; wenn ein empfangener Zeitstempel kein gültiger Zeitstempel ist, wird stattdessen `01 Jan 1970 00:00:00Z` (Unix-Zeit Null) verwendet. Wenn Sie also dieses Datum/diese Uhrzeit sehen, melden Sie sich bitte. |
+| Zahlen | wenn eine Zahl keine gültige Zahl ist, wird stattdessen "-1" verwendet. Wenn Sie also diese Nummer sehen, melden Sie sich bitte. |
 
-Anforderungen zur Steuerung eines Geräts sind erfolgreich, sobald der Befehl vom Smart Gateway akzeptiert wurde. Eine erfolgreiche Ausführung des Befehls auf dem Gerät selbst kann durch eine entsprechende Statusänderung beobachtet werden.
-* Beispiel: * Das Senden eines Befehls zum Starten des VALVE-Dienstes einer intelligenten Wassersteuerung führt dazu, dass der Datenpunkt `activity_value` des Dienstes geändert wird, nachdem das Gerät den Befehl verarbeitet hat.
+Anfragen zur Steuerung eines Geräts sind erfolgreich, sobald der Befehl vom Smart Gateway akzeptiert wurde. Eine erfolgreiche Ausführung des Befehls auf dem Gerät selbst kann durch einen entsprechenden Zustandswechsel beobachtet werden.
+*Beispiel:* Das Senden eines Befehls zum Starten des VALVE-Dienstes einer intelligenten Wassersteuerung führt dazu, dass der `activity_value`-Datenpunkt des Dienstes geändert wird, nachdem das Gerät den Befehl verarbeitet hat.
 
 **Anmerkungen:**
 
-  - Anfragen zur Steuerung eines Geräts können nicht gesendet werden, während der Smartgarden-Adapter dies nicht ist
+  - Anfragen zur Steuerung eines Geräts können nicht gesendet werden, solange der Smartgarden-Adapter dies nicht tut
 
-    verbunden mit der GARDENA Smart System API.
+    mit GARDENA smart system API verbunden.
 
-  - Bitte überprüfen Sie, ob Sie den Wert für einen Befehl mit "ack = false" festgelegt haben. Siehe [Kapitel Befehle und Status im Handbuch für Adapterentwickler] (https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md#commands-and-statuses)
+  - Bitte prüfen Sie, ob Sie den Wert für einen Befehl mit `ack=false` setzen. Siehe [Kapitel Befehle und Status im Leitfaden für Adapterentwickler] (https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md#commands-and-statuses)
 
 ### Für SERVICE_MOWER
-#### Controlling
-Verwenden Sie zur Steuerung des Geräts den Datenpunkt
+#### Kontrolle
+Um das Gerät zu steuern, verwenden Sie den Datenpunkt
 
 - `activity_control_i`
 
-  *Dieser Datenpunkt wird vom Adapter generiert und ist aufgrund der GARDENA Smart System API nicht erforderlich.*
+  *Dieser Datenpunkt wird vom Adapter generiert und wird aufgrund der GARDENA smart system API nicht benötigt.*
 
   Ändern Sie diesen Datenpunkt, um den Mäher zu starten.
 
   - Um für eine definierte Zeit zu starten, setzen Sie den Wert auf die geplante Dauer in
 
-  Sekunden (bitte ein Vielfaches von 60 verwenden)
+  Sekunden (bitte Vielfache von 60 verwenden)
 
-  - Für den automatischen Betrieb setzen Sie die Zeichenfolge "START_DONT_OVERRIDE"
-  - um den aktuellen Betrieb abzubrechen und zur Nutzung der Ladestation zurückzukehren
+  - Für den automatischen Betrieb setze den String `START_DONT_OVERRIDE`
+  - um den aktuellen Vorgang abzubrechen und zur Nutzung der Ladestation zurückzukehren
 
-  Zeichenfolge `PARK_UNTIL_NEXT_TASK`
+  Zeichenkette `PARK_UNTIL_NEXT_TASK`
 
-  - Um den aktuellen Vorgang abzubrechen, kehren Sie zur Ladestation zurück und ignorieren Sie diese
+  - um den aktuellen Vorgang abzubrechen, zur Ladestation zurückkehren und ignorieren
 
   Zeitplan verwenden Zeichenfolge `PARK_UNTIL_FURTHER_NOTICE`
 
- **Hinweis:** Der Mäher startet nur mit einem voll aufgeladenen Akku.
+  **Hinweis:** Der Mäher startet nur mit einem vollständig aufgeladenen Akku.
 
 #### Überwachung
-Alle anderen Datenpunkte dienen nur zur Überwachung und Information.
+Alle anderen Datenpunkte dienen nur der Überwachung und Information.
 
 Spezielle Datenpunkte:
 
 - `activity_mowing_i`
 
-  *Dieser Datenpunkt wird vom Adapter generiert und ist aufgrund der GARDENA Smart System API nicht erforderlich.*
+  *Dieser Datenpunkt wird vom Adapter generiert und wird aufgrund der GARDENA smart system API nicht benötigt.*
 
   Dieser Datenpunkt zeigt zwei verschiedene Zustände für den Mäher:
 
-  - `true`: mähen oder
+  - `true`: Mähen bzw
   - `false`: nicht mähen.
 
-Dieser Datenpunkt kann für weitere Aktionen verwendet werden, bei denen es wichtig ist zu wissen, ob sich der Mäher sicher auf dem Rasen befindet oder nicht.
+Dieser Datenpunkt kann für weitere Aktionen verwendet werden, bei denen es wichtig ist zu wissen, ob der Mäher sicher auf dem Rasen steht oder nicht.
 
 Abhängig vom Wert des Datenpunktes `activity_value` wird dieser Datenpunkt gesetzt.
 Einzelheiten entnehmen Sie bitte der folgenden Tabelle.
 
   | `activity_value` | `activity_mowing_i` |
-  | `OK_CHARGING` Der Mäher muss mähen, aber ein unzureichender Ladezustand hält ihn in der Ladestation. | false |
-  | `PARKED_TIMER` Der Mäher wird gemäß Timer geparkt und startet zur konfigurierten Zeit erneut. | false |
-  | `PARKED_PARK_SELECTED` Der Mäher ist bis auf weiteres geparkt. | false |
-  | `PARKED_AUTOTIMER` Der Mäher überspringt das Mähen wegen unzureichender Grashöhe. | false |
-  | `PAUSED` Der Mäher befindet sich in einem Wartezustand mit geschlossener Luke. | false |
-  | `OK_CUTTING` Der Mäher schneidet im AUTO-Modus (Zeitplan). | wahr |
-  | `OK_CUTTING_TIMER_OVERRIDDEN` Der Mäher schneidet außerhalb des Zeitplans. | wahr |
-  | `OK_SEARCHING` Der Mäher sucht nach der Ladestation. | wahr |
-  | `OK_LEAVING` Der Mäher verlässt die Ladestation. | wahr |
-  | `NONE` Es findet keine Aktivität statt, möglicherweise aufgrund eines Fehlers. | wahr |
-  | `NONE` Es findet keine Aktivität statt, möglicherweise aufgrund eines Fehlers. | wahr |
-|   alle anderen Werte wahr |
+  |`OK_CHARGING` Der Mäher muss mähen, aber unzureichender Ladezustand hält ihn in der Ladestation. | falsch |
+  |`PARKED_TIMER` Der Mäher ist gemäß Timer geparkt, startet wieder zur konfigurierten Zeit. | falsch |
+  |`PARKED_PARK_SELECTED` Der Mäher ist bis auf Weiteres abgestellt. | falsch |
+  |`PARKED_AUTOTIMER` Der Mäher unterbricht das Mähen wegen unzureichender Grashöhe. | falsch |
+  |`PAUSED` Der Mäher befindet sich in einem Wartezustand mit geschlossener Klappe. | falsch |
+  |`OK_CUTTING` Der Mäher mäht im AUTO-Modus (Zeitplan). | wahr |
+  |`OK_CUTTING_TIMER_OVERRIDDEN` Der Mäher mäht außerhalb des Zeitplans. | wahr |
+  |`OK_SEARCHING` Der Mäher sucht nach der Ladestation. | wahr |
+  |`OK_LEAVING` Der Mäher verlässt die Ladestation. | wahr |
+  |`NONE` Es findet keine Aktivität statt, möglicherweise aufgrund eines Fehlers. | wahr |
+  |`NONE` Es findet keine Aktivität statt, möglicherweise aufgrund eines Fehlers. | wahr |
+  |alle anderen Werte | wahr |
 
-- `batterieState_chargingTime_remain_i` *(unter SERVICE_COMMON ...)* und<br/>
+- `batteryState_chargingTime_remain_i` *(unter SERVICE_COMMON...)* und<br/>
 
-`activity_mowingTime_remain_i` *(unter SERVICE_MOWER ...)*
+`activity_mowingTime_remain_i` *(unter SERVICE_MÄHER...)*
 
-  *Beide Datenpunkte werden vom Adapter generiert und sind aufgrund der GARDENA Smart System API nicht erforderlich.*
+  *Beide Datenpunkte werden vom Adapter generiert und werden aufgrund der GARDENA smart system API nicht benötigt.*
 
-Diese Datenpunkte zeigen eine Vorhersage für die verbleibende Lade- und Mähzeit in Sekunden des Mähers.
-Sie werden nur erstellt, wenn die Funktion in der Instanzkonfiguration ausgewählt ist.
+Diese Datenpunkte zeigen eine Prognose für die verbleibende Lade- und Mähzeit des Mähers in Sekunden.
+Sie werden erst angelegt, wenn die Funktion in der Instanzkonfiguration ausgewählt wird.
 
-Um einen Wert vorherzusagen, wird eine Historie der letzten Lade- und Mähzyklen in zwei Zuständen gespeichert: `info.saveMowingHistory` und `info.saveChargingHistory`.
+Zur Prognose eines Wertes wird eine Historie der letzten paar Lade- und Mähzyklen in zwei Zuständen `info.saveMowingHistory` und `info.saveChargingHistory` gespeichert.
 
-Diese Funktion kann in der Konfiguration der Adapterinstanz zusammen mit der Anzahl der gespeicherten Lade- und Mähzyklen in der Historie ein- und ausgeschaltet werden.
+Diese Funktion kann in der Adapterinstanzkonfiguration zusammen mit der Anzahl der gespeicherten Lade- und Mähzyklen im Verlauf ein-/ausgeschaltet werden.
 
-Um diese Funktion in Betrieb zu nehmen, **stellen Sie bitte sicher, dass mindestens ein Zyklus von Mäh- und Ladeläufen fehlerfrei ist (z. B. nicht manuell unterbrochen oder Sensorsteuerung).** Es ist besser, wenn mindestens drei Läufe fehlerfrei ausgeführt werden.
-Diese Funktion versucht, den Normalfall zu erkennen und geht zunächst davon aus, dass der nächste Prozess ein Normalfall ist. Wenn dies fehlerhaft ist, wird dieser fehlerhafte Lauf als normaler Fall angesehen und die Läufe, die dann normal durchlaufen werden, als Fehlerfall. Wenn während des Laufs ein Fehler auftritt, stoppen Sie bitte den Adapter, löschen Sie die beiden Datenpunkte und starten Sie erneut.
+Um diese Funktion in Betrieb zu nehmen, **achten Sie bitte darauf, dass mindestens ein Mäh- und Ladezyklus fehlerfrei abläuft (z. B. nicht manuell oder sensorgesteuert unterbrochen wird).** Besser ist es, wenn mindestens drei Durchgänge fehlerfrei abgeschlossen werden.
+Diese Funktion versucht den Normalfall zu erkennen und geht zunächst davon aus, dass der nächste Prozess ein Normalfall ist. Ist dieser fehlerhaft, so wird dieser fehlerhafte Lauf als Normalfall angesehen und die dann normal durchlaufenden Läufe als Fehlerfall. Wenn während des Laufs ein Fehler auftritt, stoppen Sie bitte den Adapter, löschen Sie die beiden Datenpunkte und starten Sie erneut.
 
-Weitere Informationen zu allgemeinen Prognosemechanismen finden Sie in [PROGNOSE.md](FORECAST.md).
+Weitere Informationen zu allgemeinen Prognosemechanismen finden Sie unter [PROGNOSE.md](FORECAST.md).
 
   **Anmerkungen:**
 
     1. Prognosewerte sind nur verfügbar, wenn mindestens einer vollständig ist
 
-Der Lade- und Mähzyklus wird in der Historie gespeichert.
+Lade- und Mähzyklus wird im Verlauf gespeichert.
 
-    2. Der Verlauf wird unter "info" gespeichert, damit der "LOCATION" benötigt wird
+    2. Der Verlauf wird unter `Info` gespeichert, damit bei Bedarf der `LOCATION` benötigt wird
 
-gelöscht werden, z. Im Falle eines zukünftigen Updates geht es nicht verloren.
+zu löschen, z. bei einem zukünftigen Update geht es nicht verloren.
 
-    3. Wenn Sie Ihren Mäher vom GARDENA Smart System trennen und
+    3. Wenn Sie Ihren Mäher vom GARDENA smart system trennen und
 
-Schließen Sie es erneut an, der Verlauf geht verloren, da Ihr Mäher eine neue ID im GARDENA Smart System erhält. Dies bedeutet, dass der Adapter den Mäher nicht als vorherigen Mäher erkennen kann - möglicherweise handelt es sich um einen zweiten.
-In diesem Fall wird empfohlen, diese beiden Datenpunkte zu löschen und den Adapter neu zu starten, damit die vorherigen (jetzt alten) Verlaufssätze nicht ständig gelesen und geschrieben werden. Der Adapter beginnt dann mit dem Erstellen eines neuen Verlaufs.
+Verbinden Sie ihn erneut, die Historie geht verloren, da Ihr Mäher innerhalb des GARDENA smart Systems eine neue ID erhält. Das bedeutet, dass der Adapter den Mäher nicht als den vorherigen Mäher erkennen kann – möglicherweise handelt es sich um einen zweiten.
+In diesem Fall empfiehlt es sich, diese beiden Datenpunkte zu löschen und den Adapter neu zu starten, damit nicht ständig die bisherigen (jetzt alten) History-Sets gelesen und geschrieben werden. Der Adapter beginnt dann mit dem Aufbau einer neuen Historie.
 
 4. Diese Funktion sollte für mehr als einen Mäher funktionieren, ist es aber
 
-nicht getestet *(das kann ich nicht, weil ich nur einen Mäher habe)* Wenn Sie mehr als einen Mäher haben, testen und melden Sie bitte Fehler und melden Sie natürlich, ob er wie vorgesehen funktioniert. Vielen Dank im Voraus dafür.
+nicht getestet *(das kann ich nicht, da ich nur einen Mäher habe)*.
+Wenn Sie mehr als einen Mäher haben, testen Sie ihn bitte und melden Sie Fehler und melden Sie natürlich, ob er wie vorgesehen funktioniert. Danke im Voraus dafür.
 
 - `lastErrorCode_value`
 
 Bitte achten Sie besonders auf den Datenpunkt `lastErrorCode_value`.
-Eine Beschreibung möglicher Werte finden Sie unter https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger, siehe "MowerService - lastErrorCode".
+Eine Beschreibung möglicher Werte finden Sie unter https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger, siehe „MowerService - lastErrorCode“
 
 ### Für SERVICE_VALVE_SET
-#### Controlling
-Verwenden Sie zur Steuerung des Geräts den Datenpunkt
+#### Kontrolle
+Um das Gerät zu steuern, verwenden Sie den Datenpunkt
 
 - `stop_all_valves_i`
 
-  *Dieser Datenpunkt wird vom Adapter generiert und ist aufgrund der GARDENA Smart System API nicht erforderlich.*
+  *Dieser Datenpunkt wird vom Adapter generiert und wird aufgrund der GARDENA smart system API nicht benötigt.*
 
   Ändern Sie diesen Datenpunkt, um alle Ventile zu stoppen.
 
-  - Um alle Ventile sofort zu stoppen, verwenden Sie die Zeichenfolge `STOP_UNTIL_NEXT_TASK`
+  - Um alle Ventile sofort zu stoppen, verwenden Sie den String `STOP_UNTIL_NEXT_TASK`
 
-** Hinweis: ** Zeigen Sie den Wert dieses Datenpunkts in Ihrer Anwendung nicht an, da der Wert größtenteils undefiniert ist. Darüber hinaus kann dieser Datenpunkt nicht als Auslöser für Ihre eigenen Aktionen dienen, da er nach dem Auslösen des Befehls nur auf den Wert *null* gesetzt wird.
+**Hinweis:** Zeigen Sie den Wert dieses Datenpunkts nicht in Ihrer Anwendung an, da der Wert meist undefiniert ist. Außerdem kann dieser Datenpunkt nicht als Auslöser für eigene Aktionen dienen, da er erst nach dem Auslösen des Befehls auf den Wert *null* gesetzt wird.
 
 #### Überwachung
-Alle anderen Datenpunkte dienen nur zur Überwachung und Information.
+Alle anderen Datenpunkte dienen nur der Überwachung und Information.
 
 ### Für SERVICE_VALVE
-#### Controlling
-Verwenden Sie zur Steuerung des Geräts den Datenpunkt
+#### Kontrolle
+Um das Gerät zu steuern, verwenden Sie den Datenpunkt
 
 - `duration_value`
 
@@ -321,51 +318,52 @@ Verwenden Sie zur Steuerung des Geräts den Datenpunkt
 
   - Um für eine definierte Zeit zu starten, setzen Sie den Wert auf den Wert in Sekunden
 
-  (Bitte verwenden Sie ein Vielfaches von 60).
+  (bitte Vielfache von 60 verwenden).
 
-** Hinweis: ** Es gibt einige Einschränkungen für die zulässigen Werte.
+**Hinweis:** Es gibt einige Einschränkungen für die zulässigen Werte.
 Bitte melden Sie, wenn Sie andere Einschränkungen sehen.
 
-    | Gerät | limit |
+    | Gerät | Grenze |
     | - | - |
-|     GARDENA Smart Irrigation Control 3540 Sekunden (59 Minuten) |
-    | GARDENA smart Pump | 36000 (10 Stunden) |
-|     GARDENA Smart Water Control 36000 (10 Stunden) |
+    |GARDENA smart Bewässerungssteuerung| 5400 Sekunden (90 Minuten) |
+    |GARDENA smart Pumpe | 36000 (10 Stunden) |
+    |GARDENA smart Wassersteuerung | 36000 (10 Stunden) |
 
-  - Um die aktuelle Bewässerung abzubrechen und mit dem Zeitplan fortzufahren, verwenden Sie eine Zeichenfolge
+  - Um die aktuelle Bewässerung abzubrechen und mit dem Zeitplan fortzufahren, verwenden Sie die Zeichenfolge
 
   `STOP_UNTIL_NEXT_TASK`
 
-  - Um den automatischen Betrieb bis zur angegebenen Zeit zu überspringen, ist die aktuell aktiv
+  - Zum Überspringen des automatischen Betriebs bis zur angegebenen Zeit, die derzeit aktiv ist
 
-Der Vorgang kann abgebrochen werden oder nicht (abhängig vom Gerätemodell). Verwenden Sie die Zeichenfolge `PAUSE_<number_of_seconds>`, z. `PAUSE_86400` 24 Stunden pausieren (bitte ein Vielfaches von 60 verwenden)
+Vorgang kann abgebrochen werden oder nicht (abhängig vom Gerätemodell) Zeichenfolge `PAUSE_<number_of_seconds>` verwenden, z. `PAUSE_86400` für 24 Stunden pausieren (bitte Vielfache von 60 verwenden)
 
-  - Um den automatischen Betrieb wiederherzustellen, wenn er angehalten wurde, verwenden Sie die Zeichenfolge "UNPAUSE"
+  - Um den automatischen Betrieb wiederherzustellen, wenn er angehalten wurde, verwenden Sie die Zeichenfolge „UNPAUSE“.
 
-- `irrigationWhileMowing_allowed_i` und` irrigationWhileMowing_mowerDefinition_i`
+- `irrigationWhileMowing_allowed_i` und `irrigationWhileMowing_mowerDefinition_i`
 
-  *Diese Datenpunkte werden vom Adapter generiert und sind aufgrund der GARDENA Smart System API nicht erforderlich.*
+  *Diese Datenpunkte werden vom Adapter generiert und werden aufgrund der GARDENA smart system API nicht benötigt.*
 
-Diese Datenpunkte geben die Kontrolle über die Funktion *Bewässerung beim Mähen nicht zulässig* Sie werden nur erstellt, wenn die Funktion in der Instanzkonfiguration ausgewählt ist.
-Eine Beschreibung dieser Funktion finden Sie in Kapitel [Bewässerung beim Mähen nicht erlaubt](#Irrigation-not-allowed-while-mowing).
+Diese Datenpunkte ermöglichen die Steuerung der Funktion *Bewässerung während des Mähens nicht erlaubt*.
+Sie werden erst angelegt, wenn die Funktion in der Instanzkonfiguration ausgewählt wird.
+Beschreibung dieser Funktion siehe Kapitel [Bewässerung während des Mähens nicht erlaubt](#Irrigation-not-allowed-while-mowing).
 
 #### Überwachung
-Alle anderen Datenpunkte dienen nur zur Überwachung und Information.
+Alle anderen Datenpunkte dienen nur der Überwachung und Information.
 
 Spezieller Datenpunkt:
 
 - `duration_leftover_i`
 
-  *Dieser Datenpunkt wird vom Adapter generiert und ist aufgrund der GARDENA Smart System API nicht erforderlich.*
+  *Dieser Datenpunkt wird vom Adapter generiert und wird aufgrund der GARDENA smart system API nicht benötigt.*
 
-Der Wert beschreibt die Anzahl der Minuten, bis das Ventil geschlossen ist und die Bewässerung stoppt.
+Der Wert beschreibt die Anzahl der Minuten, bis das Ventil geschlossen wird und die Bewässerung stoppt.
 
-    - Eine ganze Zahl, eine (`1`) oder mehr.
-    - `null` wenn undefiniert
+    - Eine Ganzzahl, eins (`1`) oder mehr.
+    - "null", wenn nicht definiert
 
 ### Für SERVICE_POWER_SOCKET
-#### Controlling
-Verwenden Sie zur Steuerung des Geräts den Datenpunkt
+#### Kontrolle
+Um das Gerät zu steuern, verwenden Sie den Datenpunkt
 
 - `duration_value`
 
@@ -373,51 +371,51 @@ Verwenden Sie zur Steuerung des Geräts den Datenpunkt
 
   - Um für eine definierte Zeit zu starten, setzen Sie den Wert auf den Wert in Sekunden
 
-  (Bitte verwenden Sie ein Vielfaches von 60)
+  (bitte Vielfache von 60 verwenden)
 
-  - Um das Gerät für immer einzuschalten, verwenden Sie bitte die Zeichenfolge `START_OVERRIDE`.
+  - Um das Gerät dauerhaft einzuschalten, verwenden Sie bitte den String `START_OVERRIDE`.
   - Um das Gerät zu stoppen, verwenden Sie `STOP_UNTIL_NEXT_TASK`.
-  - Um den automatischen Betrieb bis zur angegebenen Zeit zu überspringen. Der aktuell aktive Vorgang
+  - Zum Überspringen des automatischen Betriebs bis zur angegebenen Zeit. Die derzeit aktive Operation
 
-wird NICHT storniert. Verwenden Sie die Zeichenfolge `PAUSE_<number_of_seconds>`, z. `PAUSE_86400` 24 Stunden pausieren (bitte ein Vielfaches von 60 verwenden)
+wird NICHT storniert. Verwenden Sie die Zeichenfolge `PAUSE_<number_of_seconds>`, z. `PAUSE_86400` für 24 Stunden pausieren (bitte Vielfache von 60 verwenden)
 
-  - Um den automatischen Betrieb wiederherzustellen, wenn er angehalten wurde, verwenden Sie die Zeichenfolge "UNPAUSE"
+  - Um den automatischen Betrieb wiederherzustellen, wenn er angehalten wurde, verwenden Sie die Zeichenfolge „UNPAUSE“.
 
 #### Überwachung
-Alle anderen Datenpunkte dienen nur zur Überwachung und Information.
+Alle anderen Datenpunkte dienen nur der Überwachung und Information.
 
 Spezieller Datenpunkt:
 
 - `duration_leftover_i`
 
-  *Dieser Datenpunkt wird vom Adapter generiert und ist aufgrund der GARDENA Smart System API nicht erforderlich.*
+  *Dieser Datenpunkt wird vom Adapter generiert und wird aufgrund der GARDENA smart system API nicht benötigt.*
 
-  Der Wert beschreibt die Anzahl der Minuten bis zum Ausschalten der Steckdose.
+  Der Wert beschreibt die Anzahl der Minuten, bis die Steckdose abgeschaltet wird.
 
-    - Eine ganze Zahl, eine (`1`) oder mehr.
-    - `null` wenn undefiniert
+    - Eine Ganzzahl, eins (`1`) oder mehr.
+    - "null", wenn nicht definiert
 
 ### Für SERVICE_SENSOR
-#### Controlling
+#### Kontrolle
 Keine Steuerfunktionen verfügbar.
 
 #### Überwachung
-Alle Datenpunkte dienen nur zur Überwachung und Information.
+Alle Datenpunkte dienen nur der Überwachung und Information.
 
 ### Für SERVICE_COMMON
-Die `SERVICE_COMMON` enthalten allgemeine Informationen zum Gerät.
-Die Beschreibung wird bei Bedarf in die Beschreibung anderer DIENSTLEISTUNGEN integriert.
+`SERVICE_COMMON` liefert allgemeine Informationen über das Gerät.
+Die Beschreibung wird bei Bedarf in die Beschreibung anderer SERVICE_... integriert.
 
 ## Ratenlimits
 Es gibt einige Grenzen, die Sie beachten sollten.
-Weitere Informationen finden Sie in Kapitel *Ratenlimits* in [*LIESMICH*](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/readme) der GARDENA Smart System API-Beschreibung.
+Siehe Kapitel *Ratenbegrenzungen* in [*LIESMICH*](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/readme) der GARDENA smart system API-Beschreibung.
 
-Um festzustellen, ob Sie diese Ratenlimits erreicht haben, können Sie die Überwachung in der Instanzkonfiguration mit dem Parameter *Monitoring Rate Limits* aktivieren.
+Um Ihnen zu helfen zu sehen, ob Sie diese Ratenlimits erreichen, können Sie die Überwachung in der Instanzkonfiguration mit dem Parameter *Überwachung der Ratenlimits* einschalten.
 
-Wenn Sie den Überwachungsstatus aktiviert haben, wird `info.RateLimitCounter` bei jeder Anforderung aktualisiert.
-Dieser Status speichert eine Datenstruktur mit der Anzahl der Anforderungen pro Monat, Tag, Stunde und für die letzten 30 und 31 Tage.
+Wenn Sie den Überwachungsstatus aktiviert haben, wird `info.RateLimitCounter` bei jeder Anfrage aktualisiert.
+Dieser Zustand speichert eine Datenstruktur mit der Anzahl der Anfragen pro Monat, Tag, Stunde und für die letzten 30 und 31 Tage.
 
-Die Struktur befindet sich in [JSON](https://en.wikipedia.org/wiki/JSON) und sieht aus wie
+Die Struktur ist in [JSON](https://en.wikipedia.org/wiki/JSON) und sieht aus wie
 
 ```
 {
@@ -451,30 +449,30 @@ Die Struktur befindet sich in [JSON](https://en.wikipedia.org/wiki/JSON) und sie
 }
 ```
 
-**Hinweis:**
+**Notiz:**
 
-  - Diese Stunde ist eine Stunde Zeit in UTC
+  - Diese Stunde ist die Uhrzeit in UTC
   - Dass die tatsächliche Anzahl der Anfragen höher sein kann. Besonders als
 
-  solange der jeweilige Zeitraum nicht vollständig von der Überwachung abgedeckt wird.
+  solange der jeweilige Zeitraum nicht vollständig von der Überwachung erfasst wird.
 
-  - Dass diese Struktur sehr groß wird und von der nie gelöscht wird
+  - Dass diese Struktur sehr groß wird und nie von der gelöscht wird
 
-Adapter. Löschen Sie es daher von Zeit zu Zeit manuell oder schalten Sie die Überwachung aus - zumindest, wenn Sie keine Probleme mit den Ratenbeschränkungen haben.
+Adapter. Also bitte ab und zu manuell löschen oder die Überwachung ausschalten - zumindest wenn Sie keine Probleme mit den Ratenlimits haben.
 
-## Bewässerung beim Mähen nicht erlaubt
+## Bewässerung während des Mähens nicht erlaubt
 ### Was ist das Problem?
-Wenn Sie sowohl einen Mäher als auch ein Bewässerungssystem mit aufklappbaren Sprinklern haben, besteht die Gefahr, dass Ihr Mäher während der Bewässerung auf einen aufklappbaren Sprinkler stößt und diesen beschädigt oder selbst beschädigt.
+Wenn Sie sowohl einen Mäher als auch eine Beregnungsanlage mit Versenkregnern haben, besteht die Gefahr, dass Ihr Mäher bei laufender Beregnung auf einen Versenkregner stößt und ihn beschädigt oder selbst Schaden anrichtet.
 
-Um dies zu verhindern, sollte das Bewässerungssystem oder besser einzelne Ventile ausgeschaltet werden, wenn der Mäher mäht.
+Um dies zu verhindern, sollten während des Mähens die Beregnungsanlage oder besser einzelne Ventile abgeschaltet werden.
 
-### Was wird gemacht?
+### Was wird getan?
 Mit dieser Funktion ist es möglich, die Bewässerung zu stoppen, wenn sich der Mäher auf dem Rasen befindet. Dies kann für jedes Ventil separat definiert werden.
 
-Für jedes Ventil können ein oder mehrere Mäher definiert werden, für die das Ventil nicht geöffnet werden darf, während der Mäher mäht.
-Grundsätzlich hat der Mäher Vorrang vor der Bewässerung, d. H. Wenn der Konflikt auftritt, dass der Mäher mäht und ein Ventil geöffnet ist, wird das Ventil geschlossen und eine entsprechende Warnung eingestellt.
+Für jedes Ventil können ein oder mehrere Mäher definiert werden, für die das Ventil nicht geöffnet sein darf, während der Mäher mäht.
+Grundsätzlich hat der Mäher Vorrang vor der Beregnung, d.h. wenn der Konflikt auftritt, dass der Mäher mäht und ein Ventil offen ist, wird das Ventil geschlossen und eine entsprechende Warnung gesetzt.
 
-Zusätzlich kann definiert werden, dass ein Ventil unabhängig von einem Mäher niemals öffnen darf. Z.B. kann verwendet werden, wenn ein Ventil oder das dahinterliegende Rohr beschädigt ist.
+Zusätzlich kann definiert werden, dass ein Ventil unabhängig vom Mäher nie öffnen soll. Z.B. kann verwendet werden, wenn ein Ventil oder das dahinter liegende Rohr beschädigt ist.
 
 Die gesamte Prüfung kann in der Instanzkonfiguration mit dem Parameter *Bewässerungsprüfung* ein- oder ausgeschaltet werden.
 
@@ -483,55 +481,70 @@ Sie werden zur Konfiguration und zum Melden von Warnungen verwendet.
 
   | Datenpunkt | beschreibbar | Beschreibung der Datenpunkte |
   | - | - | - |
-  | `irrigationWhileMowing_allowed_i` | ja | auf `false` setzen, wenn überprüft werden soll, ob eine Bewässerung zulässig ist, während der Mäher auf dem Rasen mäht, andernfalls `true` |
-  | `irrigationWhileMowing_warningCode_i` | nein | Der Warncode wird gesetzt, wenn das Ventil öffnet. Mögliche Warncodes siehe nächste Tabelle. Wenn mehr als eine Warnung festgelegt ist, werden Codes mit `+` (z. B. `STOPPED+UNKNOWN_MOWER`) verkettet |
-  | `irrigationWhileMowing_warningCode_i` | nein | Der Warncode wird gesetzt, wenn das Ventil öffnet. Mögliche Warncodes siehe nächste Tabelle. Wenn mehr als eine Warnung gesetzt ist, werden Codes mit "+" verknüpft (z. B. "STOPPED + UNKNOWN_MOWER"). |
+  |`irrigationWhileMowing_allowed_i` | ja | auf `false` setzen, wenn geprüft werden soll, ob die Bewässerung erlaubt ist, während der Mäher auf dem Rasen mäht, `true` sonst |
+  |`irrigationWhileMowing_warningCode_i`| nein | Warncode wird gesetzt, wenn Ventil öffnet. Mögliche Warncodes siehe nächste Tabelle. Wenn mehr als eine Warnung gesetzt ist, werden Codes mit `+` verkettet (z. B. `STOPPED+UNKNOWN_MOWER`).|
+  |`irrigationWhileMowing_warningCode_i`| nein | Warncode wird gesetzt, wenn Ventil öffnet. Mögliche Warncodes siehe nächste Tabelle. Wenn mehr als eine Warnung gesetzt ist, werden Codes mit „+“ verkettet (z. B. „STOPPED+UNKNOWN_MOWER“).|
 
 * ***Mäher-ID-Format***
 
   `smartgarden.0.LOCATION_xxxxxxxx-xxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxx.DEVICE_xxxxxxxx-xxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxx.SERVICE_MOWER_xxxxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxxxxxxxxx`
 
-Sie können diese Mäher-ID von der Registerkarte Objekte von ioBroker kopieren (siehe roter Pfeil in der folgenden Abbildung).
+Sie können diese Mäher-ID aus der Registerkarte „Objekte“ von ioBroker kopieren, siehe roter Pfeil in den folgenden Bildern.
 
-  ![Mäher ID](../../../en/adapterref/iobroker.smartgarden/mowerid.jpg)
+  *mit Admin v4.x.y:*
 
-* ***Warncodes*** </ br>
+    ![Mäher-ID](../../../en/adapterref/iobroker.smartgarden/mowerid.jpg)
 
-  | Warncode | Beschreibung |
+  *mit Admin v5.x.y:*
+
+    ![Mäher-ID](../../../en/adapterref/iobroker.smartgarden/mowerid_admin5.jpg)
+
+* ***Warncodes***
+
+  | Warncode| Beschreibung|
   | - | - |
-  | `NO_WARNING` | keine Warnung, Ventil geöffnet |
-  | `STOPPED` | Ventil automatisch geschlossen, weil Mäher mäht |
-  | `FORBIDDEN` | Ventil geschlossen, da im Datenpunkt `irrigationWhileMowing_mowerDefinition_i` | der Sondercode `IRRIGATION_FORBIDDEN` gesetzt ist |
-  | `FORBIDDEN` | Ventil geschlossen, da im Datenpunkt` irrigationWhileMowing_mowerDefinition_i` | der spezielle Code `IRRIGATION_FORBIDDEN` gesetzt ist |
+  | `NO_WARNING` |keine Warnung, Ventil geöffnet |
+  | `STOPPED` |Ventil automatisch geschlossen, weil Mäher mäht |
+  | `FORBIDDEN` |Ventil geschlossen, da Sondercode `IRRIGATION_FORBIDDEN` im Datenpunkt `irrigationWhileMowing_mowerDefinition_i`| eingestellt ist |
+  | `VERBOTEN` |Ventil geschlossen, weil der Sondercode `IRRIGATION_FORBIDDEN` im Datenpunkt `irrigationWhileMowing_mowerDefinition_i`| gesetzt ist |
 
 Diese Funktion wird jedes Mal ausgeführt, wenn
 
 - ein Ventil wird geöffnet oder
 - Ein Mäher beginnt zu mähen
 
-Es wird nicht ausgeführt, wenn Sie die Werte in den oben aufgeführten Datenpunkten ändern.
-Das heißt: Wenn eine Konfliktsituation vorliegt und Sie `irrigationWhileMowing_allowed_i` von `true` in `false` ändern, wird der Konflikt nicht erkannt und der Konflikt wird fortgesetzt. Das gleiche Verhalten gilt für eine Änderung von `irrigationWhileMowing_mowerDefinition_i`.
+Es läuft nicht, wenn Sie die Werte in den oben aufgeführten Datenpunkten ändern.
+Das heißt: Wenn es eine Konfliktsituation gibt und Sie `irrigationWhileMowing_allowed_i` von `true` auf `false` ändern, wird der Konflikt nicht erkannt und der Konflikt wird fortgesetzt. Dasselbe Verhalten gilt bei einer Änderung von `irrigationWhileMowing_mowerDefinition_i`.
 
-### Grundlegendes Verhalten - WARNUNG
-Diese Funktion kann nicht verhindern, dass sich ein Ventil öffnet, während der Mäher mäht. Z.B. Dies kann manuell über die GARDENA-App oder automatisch über einen Zeitplan erfolgen.
+### Grundlegendes Verhalten -- WARNUNG
+Diese Funktion kann nicht verhindern, dass sich ein Ventil öffnet, während der Mäher mäht. Z.B. Dies kann manuell über die GARDENA App oder automatisch über einen Zeitplan erfolgen.
 
-Diese Funktion kann das Ventil im Konfliktfall nur so schnell wie möglich schließen. Und ein Konflikt kann auch nicht erkannt werden.
+Diese Funktion kann das Ventil nur im Konfliktfall schnellstmöglich schließen. Und ein Konflikt darf auch nicht erkannt werden.
 So kann es passieren, dass Wasser durchgelassen wird.
-**Z.B. Es kann nicht verhindert werden, dass sich die Aufklappsprinkler ausfahren und der Mäher auf die Aufklappsprinkler **trifft, aber die Wahrscheinlichkeit, dass dies geschieht, wurde minimiert.
-** Es liegt also an Ihrer Anwendung, sicherzustellen, dass dieser Konflikt niemals auftritt.**
+**Z.B. Es kann nicht verhindert werden, dass die Versenkregner ausfahren und der Mäher gegen die Versenkregner** stößt, aber die Wahrscheinlichkeit, dass dies geschieht, wurde minimiert.
+**Es liegt also an Ihrer Anwendung, dafür zu sorgen, dass dieser Konflikt niemals auftritt.**
 
 ## Wünsche für Datenpunkte
-Dieser Adapter meldet **jeden Wert** als Datenpunkt, der über die GARDENA Smart System API bereitgestellt wird. Wenn jemand mehr Werte möchte, wenden Sie sich bitte an GARDENA und teilen Sie ihm mit, dass dieser Wert auch in der API enthalten sein wird. Gehen Sie dazu in der Fußzeile auf [GARDENA Entwicklerportal](https://developer.husqvarnagroup.cloud) zu ***Kontaktieren Sie uns und hinterlassen Sie Feedback*** .
+Dieser Adapter meldet **jeden Wert** als Datenpunkt, der über die GARDENA smart system API geliefert wird. Wenn jemand mehr Werte möchte, kontaktieren Sie bitte GARDENA und teilen Sie ihm mit, dass dieser Wert auch in die API aufgenommen wird. Gehen Sie dazu bitte zu ***Kontakt & Feedback hinterlassen*** in der Fußzeile von [GARDENA Entwicklerportal](https://developer.husqvarnagroup.cloud).
 
-## Hinweis
-Dies ist ein privates Projekt. Ich bin in keiner Verbindung mit GARDENA oder Husqvarna.
+## Notiz
+Dies ist ein privates Projekt. Ich stehe in keiner Verbindung zu GARDENA oder Husqvarna.
 
 ## Credits
-Vielen Dank an GARDENA / Husqvarna für die Bereitstellung dieser [öffentliche API](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/general) und besonderen Dank an Ihr Support-Team für die sehr gute und sehr schnelle Unterstützung.
+Vielen Dank an GARDENA/Husqvarna für die Bereitstellung dieser [öffentliche API](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/general) und besonderen Dank an Ihr Support-Team für die sehr gute und sehr schnelle Unterstützung.
 
-smartgarden logo: http://www.freepik.com Entworfen von Freepik
+Smartgarden-Logo: http://www.freepik.com Entworfen von Freepik
 
 ## Changelog
+### 1.0.6
+* (jpgorganizer) 2022-May-04
+  - some minor changes in documentation, including [Issue 41](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/41)
+and new limit for SERVICE_VALVE (just smart Irrigation Control)
+  - bug fix in error handling
+  - changes due to new Gardena API v1.1.0
+  - necessary changes due to changed behavior Gardena Service [Issue 43](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/43)
+  - tests against js-controller 4.x, [Issue 40](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/40)
+  
 ### 1.0.5
 * (jpgorganizer) 2021-May-13
   - necessary adjustments due to js-controller v3.3; e.g. [Issue 29](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/29)
@@ -683,7 +696,7 @@ smartgarden logo: http://www.freepik.com Entworfen von Freepik
 
 ## License
 
-Copyright (c) 2020, 2021 jpgorganizer, https://github.com/jpgorganizer 
+Copyright (c) 2020 - 2022 jpgorganizer, https://github.com/jpgorganizer 
 
 smartgarden by jpgorganizer is licensed under a 
 Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License 
@@ -691,4 +704,4 @@ Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
 Based on a work at https://github.com/jpgorganizer/ioBroker.smartgarden. 
  
 
-<!--- SVN: $Rev: 2507 $ $Date: 2021-05-13 18:07:01 +0200 (Do, 13 Mai 2021) $ --->
+<!--- SVN: $Rev: 2764 $ $Date: 2022-05-11 21:07:17 +0200 (Mi, 11 Mai 2022) $ --->

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.socketio/README.md
 title: ioBroker socket.io
-hash: NixpEzORuHeSWseO0Rk2CnI94e5xGCi65Gua14wZGoM=
+hash: yWpW1NCZDpHa5mw4WmbubpFxjWMLJKdw218Avlfc71w=
 ---
 ![Логотип](../../../en/adapterref/iobroker.socketio/admin/socketio.png)
 
@@ -65,12 +65,12 @@ hash: NixpEzORuHeSWseO0Rk2CnI94e5xGCi65Gua14wZGoM=
 ### Качественный
 Каждая точка данных имеет атрибут `q` — *качество*.
 
-## Применение
+## Использование
 Для связи рекомендуется использовать example/conn.js.
 
 После включения файла conn.js глобальный объект `servConn` можно использовать для установления связи с адаптером socketio.
 
-`servConn` Объект имеет методы выдалбливания:
+`servConn` объект имеет методы выдолбления:
 
 ### В этом
 - функция (connOptions, connCallbacks, objectsRequired)
@@ -217,7 +217,7 @@ connCallbacks = {
 
 читает файлы и каталоги в указанном каталоге.
 
-Файлы хранятся в БД (или аналогичном) и, как правило, не должны быть доступны напрямую. Имя файла состоит из пути, имени файла и расширения файла, например «/mobile.0/data/fileName.txt».
+Файлы хранятся в БД (или аналогичном) и обычно не должны быть доступны напрямую. Имя файла состоит из пути, имени файла и расширения файла, например «/mobile.0/data/fileName.txt».
 
 - dirName - имя каталога вида */mobile.0/data*
 - обратный вызов - ```функция (ошибка, список)``` - список выглядит так:
@@ -310,7 +310,7 @@ connCallbacks = {
 
 читает, включена ли аутентификация и какой пользователь вошел в систему
 
-- `обратный вызов` - ``функция (authEnabled, currentUser) {}```
+- `обратный вызов` - ```функция (authEnabled, currentUser) {}```
 
 Если аутентификация включена, то будет возвращен текущий вошедший в систему пользователь, если аутентификация отключена, то будет возвращен пользователь по умолчанию, работающий как.
 
@@ -323,6 +323,12 @@ connCallbacks = {
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Used common sockets (could be buggy)
+
+### 4.2.0 (2022-03-27)
+* (bluefox) Added `log` socket command
+
 ### 4.1.5 (2022-03-20)
 * (Apollon77) make sure patterns are handled as strings on subscribe/unsubscribe
 * (Apollon77) when getHistory is called with instance as string correct the data into an object

@@ -57,6 +57,9 @@ Now we have implemented a "auto-repair" which changes to structure to documented
 
 ## Changelog
 
+### 3.1.3 (2022-05-05)
+* (René) see issue #139: bug fix moon icon
+
 ### 3.1.2 (2022-03-20)
 * (René) see issue #130: bug fix json data
 
@@ -167,7 +170,7 @@ needs also 2.x of vis-weather-widget
 
 
 ## License
-Copyright (C) <2017 - 2022>  <info@rg-engineering.eu>
+Copyright (C) 2017 - 2022  <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

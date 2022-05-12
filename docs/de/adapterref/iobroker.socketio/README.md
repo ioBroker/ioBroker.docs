@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.socketio/README.md
 title: ioBroker-socket.io
-hash: NixpEzORuHeSWseO0Rk2CnI94e5xGCi65Gua14wZGoM=
+hash: yWpW1NCZDpHa5mw4WmbubpFxjWMLJKdw218Avlfc71w=
 ---
 ![Logo](../../../en/adapterref/iobroker.socketio/admin/socketio.png)
 
@@ -25,7 +25,7 @@ Durch die Verwendung der socket.io-Schnittstelle sollte der Benutzer die [Grundl
 
 Es ist auch nützlich, über die [Struktur der Objekte](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md) zu lesen.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 ## Kurze Beschreibung des Konzepts
 ### Objekt
@@ -50,7 +50,7 @@ Status ist der tatsächliche Wert des Datenpunkts und wird durch ein Javascript-
 Zustände ändern sich sehr häufig im Vergleich zu den Objekten. (Normalerweise sollten Objekte einmal bei der Erstellung geändert werden und das ist alles)
 
 ### Wissen
-Jeder Zustand hat das Attribut "ack". Es zeigt die Befehlsrichtung an.
+Jeder Zustand hat das Attribut „ack“. Es zeigt die Befehlsrichtung an.
 
 - Wenn ack=false, bedeutet dies, dass ein anderer Adapter diese Variable steuern (schreiben) möchte, damit dieser Befehl ausgeführt wird (z. B. Licht wird eingeschaltet).
 - Wenn ack=true, bedeutet dies, dass das Gerät über den neuen Wert informiert. (z. B. Licht wurde manuell eingeschaltet oder Bewegung erkannt)
@@ -107,16 +107,16 @@ connCallbacks = {
 ### SetState
 - Funktion (pointId, Wert, Callback)
 
-neuen Wert eines Datenpunktes setzen.
+neuen Wert eines Datenpunkts setzen.
 
 Z.B. ```servConn.setState('adapter.0.myvalue', true)``` schreibt ```{val: true, ack: false}``` in *adapter.0.myvalue*.
 
 - `pointId` - ist die ID des Zustands, wie `adapter.0.myvalue`,
-- `value` - Neuer Wert des Zustands, kann ein einfacher Wert (String, Zahl, boolescher Wert) oder ein Objekt wie ```{val: newValue, ack: false, q: 0}``` sein.
+- `value` - Neuer Wert des Zustands, kann ein einfacher Wert (String, Zahl, Boolean) oder ein Objekt wie ```{val: newValue, ack: false, q: 0}``` sein.
 
 Falls ein einfacher Wert verwendet wird, wird "ack" auf "false" gesetzt.
 
-- `callback` - ```function (error) {}``` - aufgerufen, wenn das Schreiben eines neuen Werts in die DB ausgeführt wird (nicht, wenn das Gerät gesteuert wurde).
+- `callback` - ```function (error) {}``` - aufgerufen, wenn ein neuer Wert in die DB geschrieben wird (nicht wenn das Gerät gesteuert wurde).
 
 ### GetStates
 - Funktion (IDs, Callback)
@@ -312,7 +312,7 @@ liest, ob die Authentifizierung aktiviert ist und welcher Benutzer angemeldet is
 
 - `Rückruf` - ```Funktion (authEnabled, aktuellerBenutzer) {}```
 
-Wenn die Authentifizierung aktiviert ist, wird der aktuell angemeldete Benutzer zurückgegeben, wenn die Authentifizierung deaktiviert ist, wird der Standardbenutzer "running as" zurückgegeben.
+Wenn die Authentifizierung aktiviert ist, wird der aktuell angemeldete Benutzer zurückgegeben, wenn die Authentifizierung deaktiviert ist, wird der Standardbenutzer "wird ausgeführt als" zurückgegeben.
 
 ## Web-Sockets optimieren
 Bei einigen Web-Sockets-Clients gibt es Leistungsprobleme bei der Kommunikation. Manchmal ist dieses Problem auf einen Fallback der socket.io-Kommunikation auf einen langen Abfragemechanismus zurückzuführen.
@@ -323,6 +323,12 @@ Sie können die Option *Force Web-Sockets* so einstellen, dass nur die Verwendun
 ### **IN ARBEIT** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Used common sockets (could be buggy)
+
+### 4.2.0 (2022-03-27)
+* (bluefox) Added `log` socket command
+
 ### 4.1.5 (2022-03-20)
 * (Apollon77) make sure patterns are handled as strings on subscribe/unsubscribe
 * (Apollon77) when getHistory is called with instance as string correct the data into an object

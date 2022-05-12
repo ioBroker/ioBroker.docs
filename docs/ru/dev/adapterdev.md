@@ -4,25 +4,25 @@ lastChanged: 05.05.2021
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adapterdev.md
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
-hash: UhfOMulwOAHg2rGPgAX3Mn3ocEdya0XZ0k+ARuLINps=
+hash: e1TaPNwpTMGhevncakNlsuhbHXly+RdsYpEFuoolpas=
 ---
 # Разработайте свой собственный адаптер
-?> **Документация ioBroker в настоящее время расширяется** и все еще не завершена.<br> По этой причине здесь перечислены полезные ссылки в дополнение к ранее существовавшим разделам по разработке адаптеров.<br><br> * Помогите с ioBroker и расширьте статьи. * * Обратите внимание на [Руководство по стилю ioBroker](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md), чтобы изменения можно было легко принять. *
+?> **Документация ioBroker в настоящее время расширяется** и еще не завершена.<br> Поэтому здесь перечислены полезные ссылки в дополнение к темам по разработке адаптеров, которые были доступны здесь до сих пор.<br><br> *Помощь с ioBroker и расширение статей.* *Обратите внимание на [Руководство по стилю ioBroker](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md), чтобы упростить принятие изменений.*
 
 ## Полезные ссылки
 ### Документация
-[Документация по разработке адаптера](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md): Документация по разработке адаптера на GitHub (на английском языке)
+[Документация по разработке адаптера](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md): Документация по разработке адаптера на GitHub
 
-[Отличный старт для новичков](https://forum.iobroker.net/topic/12663/adapter-entwicklung-kick-start-f%C3%BCr-neulinge): Полезный файл PDF для начала разработки адаптера (в первом сообщении связанной темы).
+[Старт для новичков](https://forum.iobroker.net/topic/12663/adapter-entwicklung-kick-start-f%C3%BCr-neulinge): Полезный PDF-файл для начала разработки адаптера (в первом сообщении связанной темы).
 
-### Инструменты
-[Создатель адаптера (веб-форма)](https://adapter-creator.iobroker.in/): это позволяет быстро создать шаблон адаптера с помощью веб-формы.
+###Инструменты
+[Создатель адаптера (веб-форма)](https://adapter-creator.iobroker.in/): позволяет быстро создать шаблон адаптера с помощью веб-формы.
 
-[Создатель адаптера (командная строка)](https://forum.iobroker.net/topic/17200/aufruf-iobroker-adapter-creator-testen): это позволяет быстро создать шаблон адаптера через командную строку.
+[Создатель адаптера (командная строка)](https://forum.iobroker.net/topic/17200/aufruf-iobroker-adapter-creator-testen): При этом можно быстро создать шаблон адаптера через командную строку.
 
-[Переводчик](https://translator.iobroker.in/): переводчик ioBroker, который переводит английский текст на требуемые языки и выводит его в виде JSON для файла «words.js».
+[переводчик](https://translator.iobroker.in/): переводчик ioBroker, который переводит английский текст на нужные языки и выводит его в формате JSON для файла «words.js».
 
-[Адаптер Студия](https://github.com/Jey-Cee/ioBroker.adapter-studio): Адаптер, предназначенный для простого, быстрого и стандартизованного создания новых адаптеров.
+[Студия адаптеров](https://github.com/Jey-Cee/ioBroker.adapter-studio): Адаптер, предназначенный для простого, быстрого и стандартизированного создания новых адаптеров.
 
-### Другое
-[Запросы адаптера](https://github.com/ioBroker/AdapterRequests/issues?page=1&q=is%3Aissue+is%3Aopen): пользователи ioBroker могут отправлять запросы адаптеров на этой странице github. Полезно для разработчиков адаптеров, чтобы узнать, чего хочет сообщество и над чем, возможно, уже работает другой разработчик.
+### Другой
+[запросы адаптера](https://github.com/ioBroker/AdapterRequests/issues?page=1&q=is%3Aissue+is%3Aopen): На этой странице github пользователи ioBroker могут отправлять запросы адаптера. Полезно для разработчиков адаптеров, чтобы увидеть, чего хочет сообщество и над чем, возможно, уже работает другой разработчик.

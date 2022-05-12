@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ws/README.md
 title: ioBroker.ws
-hash: bkV4e0dV0UMH1o9E/1kirRyVbu7bwvt0GGHJbRskRN8=
+hash: cHFDPzB1oFJRb2WVniS1yyYafFjUmhajBRgWuIskwtU=
 ---
 ![Logo](../../../en/adapterref/iobroker.ws/admin/ws.png)
 
@@ -15,7 +15,7 @@ hash: bkV4e0dV0UMH1o9E/1kirRyVbu7bwvt0GGHJbRskRN8=
 # IoBroker.ws
 Dieser Adapter wird von WEB-Anwendungen und Adaptern verwendet, um mit ioBroker über Websockets zu kommunizieren.
 
-Es ist fast dasselbe wie ioBroker.socketio, verwendet jedoch keine Socket.io-Bibliothek und simuliert sie nur.
+Es ist fast dasselbe wie `ioBroker.socketio`, verwendet aber keine Socket.io-Bibliothek und simuliert sie nur.
 
 **Wichtiger Hinweis: Seit v4.0 dieses Adapters werden ausschließlich reine Websockets verwendet! Socket.io wird nicht mehr durch die socket.io-Bibliothek implementiert, sondern über reine WebSockets simuliert!**
 
@@ -27,15 +27,15 @@ Durch die Verwendung der socket.io-Schnittstelle sollte der Benutzer die [Grundl
 
 Es ist auch nützlich, über die [Struktur der Objekte](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md) zu lesen.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 ## Kurze Beschreibung des Konzepts
 ### Objekt
 Objekt ist eine Beschreibung des Datenpunkts oder der Gruppe. Die Gruppe könnte andere Datenpunkte enthalten, in diesem Fall heißt sie Kanal. Wenn die Gruppe aus anderen Kanälen besteht, wird sie in diesem Fall als Gerät bezeichnet.
 
-Objekt sind Metainformationen, die einen Datenpunkt beschreiben und Folgendes enthalten können: Maximal-/Mindestwert, Einheit, Name, Standardwert, Werttyp, Informationen zum Adapter für die Kommunikation (z. B. IP-Adresse) und so weiter.
+Objekt sind Metainformationen, die Datenpunkte beschreiben und Folgendes enthalten können: Maximal-/Mindestwert, Einheit, Name, Standardwert, Werttyp, Informationen zum Adapter für die Kommunikation (z. B. IP-Adresse) und so weiter.
 
-### Zustand
+### Bundesland
 Status ist der tatsächliche Wert des Datenpunkts und wird durch ein Javascript-Objekt dargestellt:
 
 ```
@@ -52,7 +52,7 @@ Status ist der tatsächliche Wert des Datenpunkts und wird durch ein Javascript-
 Zustände ändern sich sehr häufig im Vergleich zu den Objekten. (Normalerweise sollten Objekte einmal bei der Erstellung geändert werden und das ist alles)
 
 ### Wissen
-Jeder Zustand hat das Attribut "ack". Es zeigt die Befehlsrichtung an.
+Jeder Zustand hat das Attribut „ack“. Es zeigt die Befehlsrichtung an.
 
 - Wenn ack=false, bedeutet dies, dass ein anderer Adapter diese Variable steuern (schreiben) möchte, damit dieser Befehl ausgeführt wird (z. B. Licht wird eingeschaltet).
 - Wenn ack=true, bedeutet dies, dass das Gerät über den neuen Wert informiert. (z. B. Licht wurde manuell eingeschaltet oder Bewegung erkannt)
@@ -67,7 +67,7 @@ Jeder Zustand hat das Attribut "ack". Es zeigt die Befehlsrichtung an.
 ### Qualität
 Jeder Datenpunkt hat ein Attribut `q` - *Qualität*.
 
-## Verwendung
+## Verwendungszweck
 Es wird empfohlen, example/conn.js für die Kommunikation zu verwenden.
 
 Nach Einbindung der Datei conn.js konnte das globale Objekt `servConn` verwendet werden, um die Kommunikation mit dem Socketio-Adapter herzustellen.
@@ -109,7 +109,7 @@ connCallbacks = {
 ### SetState
 - Funktion (pointId, Wert, Callback)
 
-Neuen Wert eines Datenpunktes setzen.
+neuen Wert eines Datenpunkts setzen.
 
 Z.B. ```servConn.setState('adapter.0.myvalue', true)``` schreibt ```{val: true, ack: false}``` in *adapter.0.myvalue*.
 
@@ -129,7 +129,7 @@ Holen Sie sich die Zustände von mehr als einem Zustand. Dieser Befehl wird norm
 - `callback` - ```function (error, states) {}``` - *states* ist Objekt wie ```{'id1': 'state1', 'id2': 'state2', ...} ```. *stateX* sind Objekte mit der [oben] beschriebenen Struktur (#state).
 
 ### HttpGet
-- Funktion (URL, Callback)
+- Funktion (URL, Rückruf)
 
 ruft diese URL vom PC auf, auf dem der Socketio-Adapter läuft.
 
@@ -314,7 +314,7 @@ liest, ob die Authentifizierung aktiviert ist und welcher Benutzer angemeldet is
 
 - `Rückruf` - ```Funktion (authEnabled, aktuellerBenutzer) {}```
 
-Wenn die Authentifizierung aktiviert ist, wird der aktuell angemeldete Benutzer zurückgegeben, wenn die Authentifizierung deaktiviert ist, wird der Standardbenutzer "running as" zurückgegeben.
+Wenn die Authentifizierung aktiviert ist, wird der aktuell angemeldete Benutzer zurückgegeben, wenn die Authentifizierung deaktiviert ist, wird der Standardbenutzer "wird ausgeführt als" zurückgegeben.
 
 ## Web-Sockets optimieren
 Bei einigen Web-Sockets-Clients gibt es Leistungsprobleme bei der Kommunikation. Manchmal ist dieses Problem auf einen Fallback der socket.io-Kommunikation auf einen langen Abfragemechanismus zurückzuführen.
@@ -322,9 +322,27 @@ Sie können die Option *Force Web-Sockets* so einstellen, dass nur die Verwendun
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __LAUFENDE ARBEIT__ -->
+### **IN ARBEIT** -->
 
 ## Changelog
+### 2.0.0 (2022-05-12)
+* (bluefox) Used common sockets (could be buggy)
+
+### 1.3.0 (2022-03-27)
+* (bluefox) Added `log` socket command
+
+### 1.2.0 (2022-02-21)
+* (bluefox) Made it possible to have more than one socket from one page
+
+### 1.1.6 (2022-02-16)
+* (bluefox) Added `unlink` and `rename` to web functions
+
+### 1.1.4 (2022-02-13)
+* (bluefox) Changed name `info.connection` to `info.connected`
+
+### 1.1.2 (2022-02-13)
+* (bluefox) Updated ws client file
+
 ### 1.1.1 (2022-02-02)
 * (bluefox) Updated ws client file
 
@@ -335,7 +353,6 @@ Sie können die Option *Force Web-Sockets* so einstellen, dass nur die Verwendun
 * (bluefox) Initial commit
 
 ## License
-
 The MIT License (MIT)
 
 Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>

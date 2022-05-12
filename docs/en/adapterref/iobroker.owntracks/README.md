@@ -79,6 +79,9 @@ The name must be equal to DeviceID in OwnTracks app.
 ![Settings](img/settings1.png)
 
 ## Changelog
+### 1.0.2 (2022-04-19)
+* (Apollon77) Optimize handling for cases with invalid history state values
+
 ### 1.0.1 (2022-03-12)
 * (Garfonso) fix roles for type detection
 * (Apollon77) Add Sentry for crash reporting

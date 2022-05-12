@@ -2,8 +2,7 @@
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.lametric.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.lametric.svg
 BADGE-Stable: http://iobroker.live/badges/lametric-stable.svg
-BADGE-installed: http://iobroker.live/badges/lametric-installed.svg
-BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.lametric.svg
+BADGE-Installed: http://iobroker.live/badges/lametric-installed.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.lametric/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.lametric.png?downloads=true
 chapters: {"pages":{"en/adapterref/iobroker.lametric/README.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/README.md"},"en/adapterref/iobroker.lametric/apps.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/apps.md"},"en/adapterref/iobroker.lametric/my-data-diy.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/my-data-diy.md"},"en/adapterref/iobroker.lametric/notifications.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/notifications.md"},"en/adapterref/iobroker.lametric/blockly.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/blockly.md"}}}
@@ -48,6 +47,12 @@ Features are limited by the [official API features](https://lametric-documentati
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+NodeJS 14.x is required (NodeJS 12.x is EOL)
+
+* (klein0r) Updated depedency for js-controller to 4.0.15
+
 ### 1.6.0 (2022-02-27)
 
 * (klein0r) Allow german umlauts in My Data DIY objects

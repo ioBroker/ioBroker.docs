@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.parcel/README.md
 title: ioBroker.parcel
-hash: w6IvcVdldEc9Sc5nzaVg4+YhAf3R09ciJHAFmIULHOc=
+hash: 7cvQOyLX+zcsJH5PADrSXGdkIjUUz0EpuPHPuEHFYD4=
 ---
 ![Logo](../../../en/adapterref/iobroker.parcel/admin/parcel.png)
 
@@ -17,8 +17,8 @@ hash: w6IvcVdldEc9Sc5nzaVg4+YhAf3R09ciJHAFmIULHOc=
 # IoBroker.parcel
 **Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.parcel/workflows/Test%20and%20Release/badge.svg)
 
-##Paketadapter für ioBroker
-Paketverfolgung
+##Paketverfolgung/Sendungsverfolgung Adapter für ioBroker
+Paketverfolgung / Sendungsverfolgung Folgen mit deinem ioBroker SmartHome Pakete deine von Amazon, DHL, DPD, Hermes, UPS und GLS. Außerdem wirst du über die Briefverfolgung von der deutschen Post informiert. Direkt per Push auf Telegram, Pushover oder Signal.
 
 ## Anmeldeablauf
 **DHL:**

@@ -3,33 +3,33 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sunnyportal/README.md
 title: ioBroker.sunnyportal
-hash: TMqCdVLk68bgg1DcittqVGvvI5+Y6fTY8WZiIprn2p8=
+hash: N0gUYnO3uswmFbjmUP5qlRzzTLWov6A+hRKm6l7uWk8=
 ---
-![логотип](../../../en/adapterref/iobroker.sunnyportal/admin/sunnyportal.png)
+![Логотип](../../../en/adapterref/iobroker.sunnyportal/admin/sunnyportal.png)
 
 ![Статус сборки](https://travis-ci.org/marvincaspar/ioBroker.sunnyportal.svg?branch=master)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.sunnyportal.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.sunnyportal.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sunnyportal.svg)
-![Количество установок (последняя)](http://iobroker.live/badges/sunnyportal-installed.svg)
+![Количество установок (последние)](http://iobroker.live/badges/sunnyportal-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/sunnyportal-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/marvincaspar/iobroker.sunnyportal.svg)
 ![Известные уязвимости](https://snyk.io/test/github/marvincaspar/ioBroker.sunnyportal/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.sunnyportal.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.sunnyportal.png?downloads=true)
 
 # IoBroker.sunnyportal
-![Тест и выпуск](https://github.com/marvincaspar/ioBroker.sunnyportal/workflows/Test%20and%20Release/badge.svg)
+![Тестируйте и выпускайте](https://github.com/marvincaspar/ioBroker.sunnyportal/workflows/Test%20and%20Release/badge.svg)
 
-## Солнечный портал-адаптер для ioBroker
-Получайте текущие данные с Солнечного портала каждую минуту.
+## Адаптер Sunny Portal для ioBroker
+Получайте текущие данные из Sunny Portal каждую минуту.
 
 ### Настройки
-![настройки](../../../en/adapterref/iobroker.sunnyportal/./docs/images/settings.png)
+![Настройки](../../../en/adapterref/iobroker.sunnyportal/./docs/images/settings.png)
 
 ### Обзор объекта
 ![Обзор объекта](../../../en/adapterref/iobroker.sunnyportal/./docs/images/object-overview.png)
 
 ## Кредиты
-Я основал код на [sunnyportal-апи](https://github.com/mkorthuis/sunnyportal-api/) mkorthuis
+Я основал код на [sunportal-api](https://github.com/mkorthuis/sunnyportal-api/) mkorthuis.
 
 ## Changelog
 

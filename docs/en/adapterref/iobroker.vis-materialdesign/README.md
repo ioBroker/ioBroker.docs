@@ -13151,6 +13151,7 @@ The adapter uses the following libraries:
 * (Scrounger) Dialog Widget: option added to show a save button and write a value to a datapoint
 * (Scrounger) HTML Widget: bug fix for wrong type ([#182](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/182))
 * (Scrounger) support for base64 images added
+* (Scrounger) Material Design Icons updated to v6.6.96
 * (Scrounger) bug fix for VIS Editor dev values
 
 <!-- omit in toc -->

@@ -32,6 +32,7 @@ Documentation:
 -->
 ### __WORK IN PROGRESS__
 * (Black-Thunder) Added support for air to water devices (e.g. heatpumps)
+* (Black-Thunder) Fixed js-controller warnings
 
 ### 1.1.6 (2022-02-06)
 * (Black-Thunder) fixed warnings

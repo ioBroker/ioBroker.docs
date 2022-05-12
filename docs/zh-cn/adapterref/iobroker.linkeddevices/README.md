@@ -3,32 +3,32 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.linkeddevices/README.md
 title: 无题
-hash: TQxFlCGAWt0gLcVkz0a2/nr/4wSvxPg7TRaP6ESbzb8=
+hash: fPVx5qQBuRw1am/e6Mdqgr/Zt7fBt9lI6Dy+/84luOI=
 ---
 ![安装数量](http://iobroker.live/badges/linkeddevices-installed.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.linkeddevices.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.linkeddevices.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.linkeddevices.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.linkeddevices.svg)
 ![依赖状态](https://img.shields.io/david/Scrounger/iobroker.linkeddevices.svg)
 ![已知漏洞](https://snyk.io/test/github/Scrounger/ioBroker.linkeddevices/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.linkeddevices.png?downloads=true)
-![特拉维斯](http://img.shields.io/travis/Scrounger/ioBroker.linkeddevices/master.svg)
+![新PM](https://nodei.co/npm/iobroker.linkeddevices.png?downloads=true)
+![Travis-CI](http://img.shields.io/travis/Scrounger/ioBroker.linkeddevices/master.svg)
 
-<h1><img src="admin/linkeddevices.png" width="32"/> ioBroker.linkeddevices </h1>
+<h1><img src="admin/linkeddevices.png" width="32"/>ioBroker.linkeddevices</h1>
 
-## IoBroker的链接设备适配器
-[![贝宝]（https://www.paypalobjects.com/zh_CN/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VWAXSTS634G88&source=url)
+## IoBroker 的linkeddevices 适配器
+[![贝宝](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VWAXSTS634G88&source=url)
 
-linkeddevices创建具有自定义结构的设备的链接对象（数据点）。这样就可以在ioBroker中创建一个结构，在该结构中所有对象都被集中化，例如用于vis视图或脚本中。例如，这提供了以下优点：通过硬件交换，仅必须重新创建链接的对象，并且所有vis视图和脚本都可以重新工作。
+linkeddevices 创建具有自定义结构的设备的链接对象（数据点）。这使得在 ioBroker 中创建一个结构成为可能，其中所有对象都是集中的，例如在 vis 视图或脚本中使用。这提供了例如通过硬件交换的优势，只有链接的对象必须重新创建，并且所有可见视图和脚本都可以再次工作。
 
 使用适配器，您还可以转换对象或将它们转换为其他类型（尚未完全实现）。
 
 ![结构](../../../en/adapterref/iobroker.linkeddevices/screenshots/structure.png)
 
-该适配器的灵感来自[Pman编写的虚拟设备脚本](https://forum.iobroker.net/topic/7751/virtual-devices)。
+这个适配器的灵感来自 [Pman 的虚拟设备脚本](https://forum.iobroker.net/topic/7751/virtual-devices)。
 
-##配置
-* [英文说明]（doc / zh / README.md）
-* [deutsche Beschreibung]（doc / de / README.md）
+＃＃ 配置
+* [英文说明](doc/en/README.md)
+* [deutsche Beschreibung](doc/de/README.md)
 
 ## Changelog
 

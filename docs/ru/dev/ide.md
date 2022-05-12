@@ -1,10 +1,10 @@
 ---
-title: Развитие - Поверхность развития
+title: IDE
 lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/ide.md
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
-hash: kGmxmcq762bxjaDPrSbJcn92dRbmBn8VH+YLrR2+770=
+hash: 4N3H1CzOUy9kp/r5DNTRBcqVKEEb2gYvdjDp5x7WQCA=
 ---
 # Инструменты разработчика
-?> ***Это подстановочный знак*** . <br><br> Помогите с ioBroker и расширьте эту статью. Пожалуйста, обратите внимание на [Руководство по стилю ioBroker](community/styleguidedoc), чтобы изменения могли быть легко приняты.
+?> ***Это заполнитель***.<br><br> Помогите ioBroker и дополните эту статью. Обратите внимание на [Руководство по стилю ioBroker](community/styleguidedoc), чтобы упростить принятие изменений.

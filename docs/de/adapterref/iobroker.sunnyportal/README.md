@@ -3,33 +3,33 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sunnyportal/README.md
 title: ioBroker.sunnyportal
-hash: TMqCdVLk68bgg1DcittqVGvvI5+Y6fTY8WZiIprn2p8=
+hash: N0gUYnO3uswmFbjmUP5qlRzzTLWov6A+hRKm6l7uWk8=
 ---
 ![Logo](../../../en/adapterref/iobroker.sunnyportal/admin/sunnyportal.png)
 
 ![Build-Status](https://travis-ci.org/marvincaspar/ioBroker.sunnyportal.svg?branch=master)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sunnyportal.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sunnyportal.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/sunnyportal-installed.svg)
+![Anzahl der Installationen (neueste)](http://iobroker.live/badges/sunnyportal-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/sunnyportal-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/marvincaspar/iobroker.sunnyportal.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/marvincaspar/ioBroker.sunnyportal/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/marvincaspar/ioBroker.sunnyportal/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.sunnyportal.png?downloads=true)
 
 # IoBroker.sunnyportal
 ![Testen und freigeben](https://github.com/marvincaspar/ioBroker.sunnyportal/workflows/Test%20and%20Release/badge.svg)
 
-## Sunny Portal Adapter für ioBroker
-Rufen Sie jede Minute die aktuellen Daten von Sunny Portal ab.
+## Sunny Portal-Adapter für ioBroker
+Jede Minute die aktuellen Daten von Sunny Portal abrufen.
 
-### Die Einstellungen
-![die Einstellungen](../../../en/adapterref/iobroker.sunnyportal/./docs/images/settings.png)
+### Einstellungen
+![Einstellungen](../../../en/adapterref/iobroker.sunnyportal/./docs/images/settings.png)
 
 ### Objektübersicht
 ![Objektübersicht](../../../en/adapterref/iobroker.sunnyportal/./docs/images/object-overview.png)
 
 ## Credits
-Ich habe den Code auf mkorthuis '[sunnyportal-api](https://github.com/mkorthuis/sunnyportal-api/) gestützt
+Ich habe den Code auf [Sunnyportal-API](https://github.com/mkorthuis/sunnyportal-api/) von mkorthuis basiert
 
 ## Changelog
 

@@ -4,11 +4,11 @@ lastChanged: 14.05.2021
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/basics/README.md
-hash: 3qexhYDNvDD/gQqfMKHk80kSoK6Twv2amppR3a4wm38=
+hash: mh1WOboVhuaTSvYa9KGeULQYTEenY+8obvOVWZ8+Xxo=
 ---
-ioBroker 是一种纯软件解决方案，可将不同的物联网系统连接到一个整体系统中。因此，每个系统仍然需要一个控制中心（网关/接口），以便能够集成其设备。
+ioBroker 是一个纯软件解决方案，用于将不同的物联网系统连接到一个完整的系统。因此，每个系统仍然需要一个控制中心（网关/接口），以便能够集成其设备。
 
-在特殊情况下，可以使用软件模拟这样的控制中心，也可以将其作为硬件（U 盘或类似设备）插入 ioBroker 服务器。
+在特殊情况下，可以使用软件模拟控制中心或将其作为硬件（USB 记忆棒或类似设备）插入 ioBroker 服务器。
 
 ## 模块化
 ioBroker 具有模块化结构。这些模块在 ioBroker 被称为 ***Adapter***。
@@ -40,7 +40,7 @@ ioBroker 管理数据库中的数据。相应地组织数据的结构。
 
 ![对象结构](../../de/basics/../admin/media/ADMIN_Objekte_status_tree.png)
 
-在此示例中，它是为您自己的测量值创建的命名空间。
+在本例中，它是为您自己的测量值创建的命名空间。
 
 [Adapter]: http://download.iobroker.net/list.html
 

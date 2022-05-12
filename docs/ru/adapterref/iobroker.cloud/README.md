@@ -2,85 +2,129 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.cloud/README.md
-title: Облачный адаптер ioBroker
-hash: A8annnfqo+2LZ6Y9DTgNkQyzH8xSq6lZ3iJ1cNVu2Ng=
+title: облачный адаптер ioBroker
+hash: gwJ7slGLQ/PENN9DEJhVmYVcLNEPZ06YRCrzWb2L5dc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.cloud/admin/cloud.png)
 
 ![Количество установок](http://iobroker.live/badges/cloud-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.cloud.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.cloud.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.cloud.svg)
-![NPM](https://nodei.co/npm/iobroker.cloud.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.cloud.png?downloads=true)
 
-# IoBroker облачный адаптер
+# Облачный адаптер ioBroker
 Этот адаптер позволяет подключаться из Интернета через облако ioBroker к локальной установке ioBroker.
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация по Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Настройки
-### APP-KEY
-Чтобы использовать облачный адаптер, вы должны сначала получить ключ приложения в [https://iobroker.net](https://iobroker.net).
+### ПРИЛОЖЕНИЕ-КЛЮЧ
+Чтобы использовать облачный адаптер, вы должны сначала получить ключ приложения на [https://iobroker.net](https://iobroker.net).
 
-Это ключ приложения, который пользователь может получить на сайте [https://iobroker.net](https://iobroker.net). Пожалуйста, получите там ключ и введите его здесь.
+Это ключ приложения, который пользователь может получить на сайте [https://iobroker.net](https://iobroker.net). Пожалуйста, возьмите ключ там и введите его здесь.
 
 ![вступление](../../../en/adapterref/iobroker.cloud/img/intro.png)
 
-### Пример
-Все запросы от облачного адаптера будут перенаправлены на какой-либо WEB-экземпляр. Пользователь должен указать здесь WEB-экземпляр, который будет показан пользователю, когда он войдет на сайт https://iobroker.net.
+### Экземпляр
+Все запросы от облачного адаптера будут направляться в какой-либо веб-экземпляр. Пользователь должен указать здесь экземпляр WEB, который будет показан пользователю, когда он войдет на сайт https://iobroker.net.
 
 ### Разрешить самозаверяющие сертификаты
-Если вы используете стандартное облако iobroker.net, вы можете отключить его. Эта опция важна только при использовании собственного облака.
+Если вы используете стандартное облако iobroker.net, вы можете отключить его. Этот параметр важен, только если используется собственное облако.
 
-### Настройки Alexa
-*** Alexa больше не поддерживается в адаптере `cloud`. Для этого используйте адаптер ioBroker.iot. ***
+### Настройки Алексы
+***Alexa больше не поддерживается адаптером `cloud`. Используйте для этого адаптер ioBroker.iot.***
 
-## IFTTT
+## ИФТТТ
 [инструкции](doc/ifttt.md)
 
-## Сервисы
-Есть возможность отправлять сообщения в облачный адаптер.
-Если вы вызываете ```[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>``` и value в качестве полезной нагрузки.
+## Услуги
+Есть возможность отправлять сообщения на облачный адаптер.
+Если вы вызываете `[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>` и значение в качестве полезной нагрузки.
 
 ```
 curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ```
 
-Если в настройках в поле «Белый список для сервисов» указать имя *custom_test* а при вызове с именем сервиса «custom_test», состояние **cloud.0.services.custom_test** будет установлено на *myString*
+Если задать в настройках в поле "Белый список для сервисов" имя *custom_test*, и позвонить с "custom_test" в качестве имени сервиса, то состояние `cloud.0.services.custom_test` будет установлено на `myString`.
 
 Вы можете написать «*» в белом списке, и все услуги будут разрешены.
 
-Начиная с версии 2.0.5, вы можете использовать GET-запрос в форме ```[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>``` для размещения **\<data\>** в **cloud.0.services.custom_ \<NAME\>**
+Начиная с версии 2.0.5 вы можете использовать запрос GET в форме `[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>`, чтобы поместить `\<data\>` в `cloud.0.services.custom_\<NAME\>`.
 
-Здесь вы найдете инструкции, как использовать его с [исполнитель](doc/tasker.md).
+Здесь вы можете найти инструкции, как использовать его с [таскировщик](doc/tasker.md).
 
 Услуга IFTTT разрешена, только если установлен ключ IFTTT.
 
-Зарезервированные имена: ifttt, text2command, simpleApi, swagger. Они должны использоваться без префикса ```"custom_"```.
+Зарезервированные имена: «ifttt», «text2command», «simpleApi», «swagger». Они должны использоваться без префикса `"custom_"`.
 
-### Text2command
-Вы можете написать «text2command» в белом списке, вы можете отправить POST-запрос на ```https://iobroker.net/service/text2command/<user-app-key>``` для записи данных в переменную *text2command.X.text*
+### Команда text2
+Вы можете записать `text2command` в белый список, вы можете отправить запрос POST в `https://iobroker.net/service/text2command/<user-app-key>` для записи данных в переменную `text2command.X.text`.
 
-«X» можно указать в настройках с помощью опции «Использовать экземпляр text2command».
+«X» можно определить в настройках с помощью опции «Использовать экземпляр text2command».
 
-### SimpleApi
-Вы можете использовать следующие команды (только Pro):
+### ПростойАпи
+Вы можете использовать следующие команды (только pro):
 
-- `` `[GET] https://iobroker.pro/service/simpleApi/ <user-app-key> / get / stateID`` - для чтения значения состояния =>` {"val": 103.516, "ack ": true," ts ": 1604132484682," q ": 0," from ":" system.adapter.admin.0 "," lc ": 1604132469672," result ":" OK "}`
-- `` [GET] https://iobroker.pro/service/simpleApi/ <user-app-key> / getPlainValue / stateID`` - для чтения значения состояния => `103.641`
-- `` [GET] https://iobroker.pro/service/simpleApi/ <user-app-key> / set / stateID? Value = 1`` - для установки значения состояния => `{" результат ": "ОК"} `
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/get/stateID` - чтобы прочитать значение состояния => `{"val":103.516,"ack":true, «ts»: 1604132484682, «q»: 0, «from»: «system.adapter.admin.0», «lc»: 1604132469672, «результат»: «ОК»}`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/getPlainValue/stateID` - чтобы прочитать значение состояния => `103.641`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/set/stateID?value=1` - чтобы установить значение состояния => `{"result":"OK"} `
 
-** Не забудьте добавить `simpleApi` к разрешенным службам в конфигурации. **
+**Не забудьте добавить `simpleApi` к разрешенным службам в конфигурации.**
 
 ### Ограничения
-Если HTTP (безопасность) или аутентификация включены для определенного веб-экземпляра, это не работает.
+Если HTTPs (безопасность) или аутентификация включены в определенном веб-экземпляре, это не работает.
 
-Вы можете отключить HTTPS и аутентификацию на этом веб-экземпляре, но лучше создать новый веб-экземпляр, привязанный к `localhost`, и выбрать этот экземпляр в облачных настройках.
+Вы можете деактивировать HTTPS и аутентификацию на этих веб-экземплярах, но лучше создать новый веб-экземпляр, привязанный к `localhost`, и выбрать этот экземпляр в настройках облака.
 
-<! - Заполнитель для следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+### **В РАБОТЕ** -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (bluefox) Added better error reporting
+* (bluefox) Removed outdated `request` library
+* (bluefox) Used common sockets (could be buggy)
+
+### 4.1.1 (2022-02-19)
+* Important: Requires js-controller 3.1 at least!
+* (Apollon77) Add some checks to prevent issues with missing data
+* (Apollon77) FIx some crash cases reported by Sentry
+* (Apollon77) pass HEAD requests without body (Sentry IOBROKER-CLOUD-14)
+
+### 4.1.0 (2021-07-17)
+* (bluefox) Added support for new javascript
+
+### 4.0.11 (2021-05-12)
+* (bluefox) Fixed the connection issue with the cloud
+* (bluefox) Added support for Admin5
+
+### 4.0.10 (2021-02-18)
+* (Apollon77) Fix crash case (Sentry IOBROKER-CLOUD-X)
+
+### 4.0.9 (2021-02-01)
+* (bluefox) Support of lovelace via ioBroker.pro
+* (bluefox) Fixed error with the admin
+
+### 4.0.8 (2021-01-31)
+* (Apollon77) Prevent crash case (Sentry IOBROKER-CLOUD-S)
+* (bluefox) fix usage of credentials
+
+### 4.0.7 (2021-01-30)
+* (bluefox) Show the invalid authentication message
+
+### 4.0.4 (2021-01-26)
+* (bluefox) Stop all timers on the unloading
+
+### 4.0.3 (2021-01-26)
+* (bluefox) Added the ignoring of restart on disconnect by the redirection
+
+### 4.0.2 (2021-01-24)
+* (Apollon77) Make sure states which were not set or expired do not crash when requested via services (Sentry IOBROKER-CLOUD-P)
+
+### 4.0.1 (2021-01-16)
+* (Apollon77) Prevent crash case (Sentry IOBROKER-CLOUD-N)
+
 ### 4.0.0  (2020-12-14)
 * (bluefox) Breaking change! Alexa was removed from cloud adapter.
 * (bluefox) Allowed to use the login and password for authentication.
@@ -266,7 +310,7 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2022 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

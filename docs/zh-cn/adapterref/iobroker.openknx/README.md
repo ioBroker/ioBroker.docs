@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: 07KwqecaPiOgUnkckFhrU2STD9IWDDxpHNiP/xSU+Os=
+hash: TGkZ37UAzp6N7uKaul0Jn8YKSymXW9f+K7/cAkgoz5E=
 ---
-![商标](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
+![标识](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.openknx.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.openknx.svg)
@@ -25,7 +25,7 @@ hash: 07KwqecaPiOgUnkckFhrU2STD9IWDDxpHNiP/xSU+Os=
 
 # 适配器配置
 ![设置](../../../en/adapterref/iobroker.openknx/docs/pictures/setting.png) 按“保存并关闭”或“保存”重新启动适配器并接管更改。
-启动时，适配器尝试读取所有具有自动读取标志（默认设置）的 GroupAdress。
+启动时，适配器会尝试读取所有带有自动读取标志（默认设置）的 GroupAdress。
 这可能需要一段时间，并且会在您的 KNX 总线上产生更高的负载。这可确保适配器从一开始就使用最新值运行。
 自动读取是在适配器启动或重新启动后与 knx 总线的第一次连接时完成的，而不是在每次 knx 重新连接时完成的。
 适配器安装后，打开适配器配置。填写：
@@ -133,9 +133,9 @@ KNX 设备可以具有属于命令 ga 的状态反馈的 ga。某些应用程序
 # 如何使用适配器和基本概念
 ### ACK 标志
 应用程序永远不会设置 ack 标志，如果数据更新，则通过 ack 标志从该适配器通知应用程序。
-KNX 堆栈在收到组地址时设置相应 ioBroker 对象的确认标志。
-由应用程序写入对象触发的 KNX 上发送的帧不会导致对该对象的确认消息。
-可以通过在管理对话框中选中复选框“在应用程序写入对象时设置确认标志”来覆盖此行为。
+如果另一个 knx 主机写入总线，KNX 堆栈在收到组地址时设置相应 ioBroker 对象的 ack 标志。
+由应用程序写入对象触发的 KNX 上发送的帧不会导致立即向该对象发送确认消息。
+如果写入来自此适配器，则在隧道模式下的积极确认时生成 ack 标志。
 
 ### Node Red 复杂数据类型示例
 创建连接到 ioBroker out 节点的函数节点，该节点与 DPT2 的 KNX 对象连接。
@@ -149,7 +149,7 @@ msg.payload = {“优先级”：1，“数据”：0}；返回味精；
 ioBroker 定义对象来保存通信接口设置。
 GA 导入生成遵循 ga 主组/中间组方案的通信对象文件夹结构。每个组地址都是一个对象，具有以下自动生成的数据。
 
-ioBroker 状态角色 (https://github.com/ioBroker/ioBroker/blob/master/doc/STATE_ROLES.md) 默认具有值“状态”。从 DPT 派生一些更细化的值，例如 Date 或 Switch。
+ioBroker 状态角色 (https://github.com/ioBroker/ioBroker/blob/master/doc/STATE_ROLES.md) 默认具有值“状态”。一些更细化的值是从 DPT 派生的，例如 Date 或 Switch。
 
 自动读取设置为假，从 DPT 可以清楚地看出这是一个触发信号。这适用于场景编号。
 
@@ -218,7 +218,7 @@ DPT10 是时间 (hh:mm:ss) 加上“星期几”。这个概念在 JS 中不可�
 
 ### 组值写入
 通过写入通信对象触发发送。
-当总线上接收到写帧时触发通信对象。
+当总线上接收到一个写帧时触发通信对象。
 
 ### 组值读取
 可以通过编写带有注释的通信对象来触发发送。
@@ -249,7 +249,7 @@ Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
 ＃ 特征
 * 稳定可靠的knx堆栈
 * 对最重要的 DPT 的 KNX 数据报进行自动编码/解码，对其他 DPT 进行原始读写
-* 支持KNX组值读取、组值写入和组值响应
+* 支持KNX组值读取和组值写入和组值响应
 * 免费开源
 * 不依赖云服务，无需互联网访问即可运行
 * 开始时自动读取
@@ -257,7 +257,7 @@ Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
 * 创建对状态输入做出反应的联合别名对象
 
 # 已知问题
-- 没有
+- 没有任何
 
 # 限制
 - 不支持 ETS 4 导出文件格式
@@ -265,6 +265,18 @@ Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
 - 仅支持 IPv4
 
 ## Changelog
+### 0.1.26 (2022-05-)
+* feature: writing to bus l_data.con creates a ack on the iobroker object if successful (the knx conf flag unset)
+* bugfix: remove manual Physical KNX address dialog, use 0.0.0 instead
+* bugfix: remove error log when answering to GroupValueRead: #183
+* bugfix: improve warning logs on intended and unintended disconnects
+
+### 0.1.25 (2022-04-18)
+* feature: datatype check for raw value
+* feature: check if knx is connected before usage
+* bugfix: if update ack after write, use correct timestamp and set adapter as user
+* bugfix: remove enless loop if event received before initialisation
+
 ### 0.1.24 (2022-03-31)
 * feature: support for latin1 charset in dpt16
 
@@ -392,7 +404,7 @@ Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
 * (boellner) feature: import ga xml
 
 ### initial version
-* initial version inspired by https://www.npmjs.com/package/iobroker.knx/v/0.8.3
+* initial version from https://www.npmjs.com/package/iobroker.knx/v/0.8.3
 
 ## License
 					GNU GENERAL PUBLIC LICENSE

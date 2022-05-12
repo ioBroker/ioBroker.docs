@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: OYxBQhD6nAYuSc8CmDpGHXztTWL1nnAekjlGNd2S9m0=
+hash: cJYAxbH8rsp4s5RpKhtYFPKhcMVO2f1J7ZOCJEjsGmc=
 ---
-![商标](../../../en/adapterref/iobroker.sql/admin/sql.png)
+![标识](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
 ![安装数量](http://iobroker.live/badges/sql-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.sql.svg)
@@ -21,6 +21,37 @@ hash: OYxBQhD6nAYuSc8CmDpGHXztTWL1nnAekjlGNd2S9m0=
 
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
+## 设置
+## 连接设置
+- **DB 类型**：SQL DB 的类型：MySQL、PostgreSQL、MS-SQL 或 SQLite3
+- **主机**：带有 SQL Server 的 IP 地址或主机名
+- **端口**：SQL Server 的端口（如果不确定，请留空）
+- **数据库名称**：数据库名称。默认 iobroker
+- **用户**：SQL 的用户名。必须存在于数据库中。
+- **密码**：SQL 的密码。
+- **密码确认**：只需在此处重复密码。
+- **加密**：一些数据库支持加密。
+- **四舍五入到**：逗号后的位数。
+- **允许并行请求**：允许同时向数据库发出 SQL 请求。
+- **不创建数据库**：如果数据库已经创建（例如由管理员创建）并且 ioBroker-user 没有足够的权限来创建数据库，则激活此选项。
+
+＃＃ 默认设置
+- **去抖时间** - 防止不稳定值，以确保当值在定义的毫秒数内没有变化时，只记录稳定值。注意：如果值更频繁地更改，则此设置实际上不会记录任何值（因为任何值都不稳定）
+- **Blocktime** - 定义在存储最后一个值后多长时间不再存储任何值。当以毫秒为单位的给定时间结束时，将记录满足所有其他检查的下一个值。
+- **仅记录更改** - 此功能确保仅记录更改的值，如果它们满足其他检查（见下文）。不会记录相同的值。
+- **仍然记录相同的值（秒）** - 当使用“仅记录更改”时，您可以在此处设置以秒为单位的时间间隔，之后不变的值也将重新登录到数据库中。您可以使用“from”字段检测适配器重新记录的值。
+- **与上一个值的最小差异** - 当使用“仅记录更改”时，您可以定义新值和上一个值之间所需的最小差异。如果未达到此值，则不记录该值。
+- **忽略 0 或空值 (==0)** - 您可以定义是否应忽略 0 或空值。
+- **忽略零以下的值 (<0)** - 您可以定义是否应忽略零以下的值。
+- **禁用跳过值的图表优化记录** - 默认情况下，适配器尝试记录优化图表的值。这可能意味着会自动记录附加值（例如，未完成上述所有检查）。如果不需要，您可以禁用此功能。
+- **Alias-ID** - 您可以为 ID 定义别名。如果您更改了设备并想要连续记录数据，这将非常有用。请考虑在未来切换到真正的别名状态！
+- **存储保留** - 过去有多少值将存储在磁盘上。到达时间后，一旦为数据点存储新数据，数据就会被删除。
+- **存储在 RAM 中的值的最大数量** - 定义在将它们保存到磁盘之前将在 RAM 中保存多少个值。您可以控制完成多少 I/O。
+- **启用数据点的增强调试日志** - 如果您想查看此数据点的更详细日志，可以启用此选项。您仍然需要启用“调试”日志级别才能看到这些附加值！这有助于调试问题或了解适配器记录值（或不记录值）的原因。
+
+这些值中的大多数可以在实例设置中预定义，然后预填充或用于数据点。
+
+## 数据库安装提示
 ### MS-SQL：
 使用 ```localhost\instance``` 作为主机并检查 TCP/IP 连接是否启用。
 https://msdn.microsoft.com/en-us/library/bb909712(v=vs.90).aspx
@@ -108,7 +139,7 @@ FLUSH PRIVILEGES;
 |-------|--------------------------------------------|-------------------------------------------------|
 |编号 | INTEGER NOT NULL PRIMARY KEY IDENTITY(1,1) |唯一标识 |
 |姓名 | varchar(255) / 文本 |变量的 ID，例如hm-rpc.0.JEQ283747.1.STATE |
-|类型 |整数 | 0 - 数字，1 - 字符串，2 - 布尔 |
+|类型 |整数 | 0 - 数字，1 - 字符串，2 - 布尔值 |
 
 *注意：* MS-SQL 使用 varchar(255)，其他使用 TEXT
 
@@ -200,6 +231,101 @@ FLUSH PRIVILEGES;
 
 *注意：* MS-SQL 使用 BIT，其他使用 BOOLEAN。 SQLite 用于 ts INTEGER 和所有其他 BIGINT。
 
+## 从 Javascript 适配器访问值
+排序后的值可以从 Javascript 适配器访问。
+
+* 为所有 ID 获取 50 个最后存储的事件
+
+```
+sendTo('sql.0', 'getHistory', {
+    id: '*',
+    options: {
+        end:       Date.now(),
+        count:     50,
+        aggregate: 'onchange',
+        addId: true
+    }
+}, function (result) {
+    for (var i = 0; i < result.result.length; i++) {
+        console.log(result.result[i].id + ' ' + new Date(result.result[i].ts).toISOString());
+    }
+});
+```
+
+* 获取上一小时“system.adapter.admin.0.memRss”的存储值
+
+```
+var end = Date.now();
+sendTo('sql.0', 'getHistory', {
+    id: 'system.adapter.admin.0.memRss',
+    options: {
+        start:      end - 3600000,
+        end:        end,
+        aggregate: 'onchange',
+        addId: true
+    }
+}, function (result) {
+    for (var i = 0; i < result.result.length; i++) {
+        console.log(result.result[i].id + ' ' + new Date(result.result[i].ts).toISOString());
+    }
+});
+```
+
+可能的选项：
+
+- **开始** - （可选）以毫秒为单位的时间 - *Date.now()*'
+- **end** - （可选）以毫秒为单位的时间 - *Date.now()*'，默认为（现在 + 5000 秒）
+- **step** - （可选）用于聚合（最大、最小、平均、总计、...）步长，以毫秒为单位
+- **count** - 如果聚合为“onchange”，则为值数，如果为其他聚合方法，则为间隔数。如果设置了步长，计数将被忽略，否则默认为 500，如果未设置
+- **from** - 如果 *from* 字段应包含在答案中
+- **ack** - 如果 *ack* 字段应包含在答案中
+- **q** - 如果 *q* 字段应包含在答案中
+- **addId** - 如果 *id* 字段应包含在答案中
+- **limit** - 不返回超过限制的条目
+- **round** - 将结果四舍五入到小数点后的位数
+- **ignoreNull** - 如果应包含空值 (false)，则替换为最后一个非空值 (true) 或替换为 0 (0)
+- **removeBorderValues** - 默认情况下会返回额外的边框值以优化图表。如果不需要，请将此选项设置为 true（例如，用于脚本数据处理）
+- **returnNewestEntries** - 返回的数据始终按时间戳升序排序。当使用聚合“none”并提供“count”或“limit”时，这意味着通常会返回最旧的条目（除非没有提供开始数据）。将此选项设置为 true 以获取最新条目。
+- **聚合** - 聚合方法：
+    - *minmax* - 使用特殊算法。以小间隔拼接整个时间范围，并找到每个间隔的最大值、最小值、开始值和结束值。
+    - *max* - 以小间隔拼接整个时间范围，并为每个间隔查找最大值并将其用于此间隔（将忽略空值）。
+    - *min* - 与 max 相同，但取最小值。
+    - *average* - 与最大值相同，但取平均值。
+    - *total* - 与最大值相同，但计算总值。
+    - *count* - 与 max 相同，但计算值的数量（将计算空值）。
+    - *percentile* - 计算第 n 个百分位数（n 在 options.percentile 中给出，如果未提供，则默认为 50）。
+    - *quantile* - 计算 n 分位数（n 在 options.quantile 中给出，如果未提供，则默认为 0.5）。
+    - *integral* - 计算积分（附加参数见下文）。
+    - *none* - 完全没有聚合。只有给定时期的原始值。
+- **percentile** - （可选）当使用聚合方法“percentile”定义百分位水平（0..100）（默认为 50）
+- **quantile** - （可选）当使用聚合方法“quantile”定义分位数级别（0..1）（默认为 0.5）
+- **integralUnit** - （可选）使用聚合方法时“integral”以秒为单位定义单位（默认为 60 秒）。例如要获得 Wh 或类似小时的积分，请设置为 3600。
+- **integralInterpolation** - （可选）当使用聚合方法“integral”定义插值方法（默认为“none”）。
+    - *线性* - 线性插值
+    - *无* - 无/逐步插值
+
+将为聚合计算第一个和最后一个点，聚合“无”除外。
+如果您手动请求一些聚合，您应该忽略第一个和最后一个值，因为它们是根据周期之外的值计算的。
+
+## 获取计数器
+用户可以询问特定时间段内某个计数器的值（type=number，counter=true）。
+
+```
+var now = Date.now();
+// get consumption value for last 30 days
+sendTo('sql.0', 'getCounter', {
+    id: 'system.adapter.admin.0.memRss',
+    options: {
+        start:      now - 3600000 * 24 * 30,
+        end:        now,
+    }
+}, result => {
+    console.log(`In last 30 days the consumption was ${result.result} kWh`);
+});
+```
+
+如果计数器设备将被更换，它也将被计算。
+
 ## 自定义查询
 用户可以从 javascript 适配器对表执行自定义查询：
 
@@ -251,11 +377,37 @@ sendTo('sql.0', 'query', 'SELECT id FROM datapoints WHERE name="system.adapter.a
 
 消息可以具有以下三种格式之一：
 
-* 一个 ID 和一个状态对象：`{id: 'adapter.0.device.counter', state: {val: 1, ts: 10239499}}`
-* 一个 ID 和状态对象数组：`{id: 'adapter.0.device.counter', state: [{val: 1, ts: 10239499}, {val: 2, ts: 10239599}, {val: 3 , ts: 10239699}]}`
-* 具有状态对象的多个 ID 数组 `[{id: 'adapter.0.device.counter1', state: {val: 1, ts: 10239499}, {id: 'adapter.0.device.counter2', state: {val：2，ts：10239599}]`
+* 一个ID和一个状态对象
 
-此外，您可以添加属性`rules: true`来激活所有规则，如`counter`、`changesOnly`、`de-bounce`等：`{id: 'adapter.0.device.counter', rules: true, state: [{val: 1, ts: 10239499}, {val: 2, ts: 10239599}, {val: 3, ts: 10239699}]}`
+```
+sendTo('history.0', 'storeState', [
+    id: 'mbus.0.counter.xxx',
+    state: {ts: 1589458809352, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}
+], result => console.log('added'));
+```
+
+* 一个 ID 和状态对象数组
+
+```
+sendTo('history.0', 'storeState', {
+    id: 'mbus.0.counter.xxx',
+    state: [
+      {ts: 1589458809352, val: 123, ack: false, from: 'system.adapter.whatever.0', ...},
+      {ts: 1589458809353, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}
+    ]
+}, result => console.log('added'));
+```
+
+* 多个 ID 的数组，每个 ID 有一个状态对象
+
+```
+sendTo('history.0', 'storeState', [
+    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}},
+    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}}
+], result => console.log('added'));
+```
+
+此外，您可以在消息中添加属性`rules: true`以激活所有规则，如`counter`、`changesOnly`、`de-bounce`等。
 
 ## 删除状态
 如果要从数据库中删除条目，可以使用内置系统函数 **delete**：
@@ -301,52 +453,13 @@ sendTo('sql.0', 'update', [
 
 `ts`是强制性的。状态对象中必须至少包含一个其他标志。
 
-小心使用`counters`。 DB中的`counters`不会被重置，必须自己处理。
-
-## 获取历史
-除了自定义查询，您还可以使用内置系统函数 **getHistory**：
-
-```
-var end = Date.now();
-sendTo('sql.0', 'getHistory', {
-    id: 'system.adapter.admin.0.memRss',
-    options: {
-        start:      end - 3600000,
-        end:        end,
-        aggregate:  'minmax', // or 'none' to get raw values
-        addId:      true
-    }
-}, function (result) {
-    for (var i = 0; i < result.result.length; i++) {
-        console.log(result.result[i].id + ' ' + new Date(result.result[i].ts).toISOString());
-    }
-});
-```
-
-## 获取计数器
-用户可以询问特定时间段内某个计数器的值（type=number，counter=true）。
-
-```
-var now = Date.now();
-// get consumption value for last 30 days
-sendTo('sql.0', 'getCounter', {
-    id: 'system.adapter.admin.0.memRss',
-    options: {
-        start:      now - 3600000 * 24 * 30,
-        end:        now,
-    }
-}, result => {
-    console.log(`In last 30 days the consumption was ${result.result} kWh`);
-});
-```
-
-如果计数器设备将被更换，它也将被计算。
+小心`counters`。 DB中的`counters`不会被重置，必须自己处理。
 
 ## 通过 Javascript 进行历史记录管理
 该适配器支持通过 JavaScript 启用和禁用历史记录，还支持使用其设置检索启用的数据点列表。
 
 ＃＃＃ 使能够
-消息需要具有数据点的“id”。此外，用于定义数据点特定设置的可选“选项”：
+该消息需要具有数据点的“id”。此外，用于定义数据点特定设置的可选“选项”：
 
 ```
 sendTo('sql.0', 'enableHistory', {
@@ -407,35 +520,37 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 });
 ```
 
-## 连接设置
-- **DB 类型**：SQL DB 的类型：MySQL、PostgreSQL、MS-SQL 或 SQLite3
-- **主机**：带有 SQL Server 的 IP 地址或主机名
-- **端口**：SQL Server 的端口（如果不确定，请留空）
-- **数据库名称**：数据库名称。默认 iobroker
-- **用户**：SQL 的用户名。必须存在于数据库中。
-- **密码**：SQL 的密码。
-- **密码确认**：只需在此处重复密码。
-- **加密**：一些数据库支持加密。
-- **四舍五入到**：逗号后的位数。
-- **允许并行请求**：允许同时向数据库发出 SQL 请求。
-- **不创建数据库**：如果数据库已经创建（例如由管理员创建）并且 ioBroker-user 没有足够的权限来创建数据库，则激活此选项。
-
-＃＃ 默认设置
-- **去抖动间隔**：不要比此间隔更频繁地存储值。
-- **记录任何未更改的值**：每 X 秒额外写入一次值。
-- **从最后一个值到日志的最小差异**：两个值之间的最小间隔。
-- **存储保留**：值将在数据库中存储多长时间。
-
 <!-- 下一个版本的占位符（在行首）：
 
 ### __工作进行中__ -->
 
 ## Changelog
+### 2.0.2 (2022-05-11)
+* (Apollon77) BREAKING: Configuration is only working in the new Admin 5 UI!
+* (Apollon77) Did bigger adjustments to the recording logic and added a lot of new Features. Please refer to Changelog and Forum post for details.
 
-### __WORK IN PROGRESS__
+### 2.0.0 (2022-05-11)
+* (Apollon77) Breaking: Configuration is only working in the new Admin 5 UI!
+* (Apollon77) Breaking! Did bigger adjustments to the recording logic. Debounce is refined and blockTime is added to differentiate between the two checks
+* (Apollon77) Breaking! GetHistory requests now need to deliver the ts in milliseconds! Make sure to use up to date scripts and Charting UIs
+* (Apollon77) Add RAM buffering and mass inserts for logging
+* (Apollon77) New setting added to disable the "logging of additional values for charting optimization" - then only the expected data are logged
 * (Apollon77) Add flag returnNewestEntries for GetHistory to determine which records to return when more entries as "count" are existing for aggregate "none"
-* (Apollon77) Add support for addId getHistory flag
+* (Apollon77) Add support for addId getHistory flag for GetHistory
+* (Apollon77) Add new Debug flag to enable/disable debug logging on datapoint level (default is false) to optimize performance
+* (Apollon77) Add aggregate method "percentile" to calculate the percentile (0..100) of the values (requires options.percentile with the percentile level, defaults to 50 if not provided). Basically same as Quantile just different levels are used
+* (Apollon77) Add aggregate method "quantile" to calculate the quantile (0..1) of the values (requires options.quantile with the quantile level, defaults to 0.5 if not provided). Basically same as Percentile just different levels are used
+* (Apollon77) Add (experimental) method "integral" to calculate the integral of the values. Requires options.integralUnit with the time duration of the integral in seconds, defaults to 60s if not provided. Optionally a linear interpolation can be done by setting options.integralInterpolation to "linear"
+* (Apollon77) When request contains flag removeBorderValues: true, the result then cut the additional pre and post border values out of the results
+* (Apollon77) Enhance the former "Ignore below 0" feature and now allow specifying to ignore below or above specified values. The old setting is converted to the new one
+* (Apollon77) Upgrade MSSQL and MySQL drivers incl. Support for MySQL 8
+* (Apollon77) Make sure that min change delta allows numbers entered with comma (german notation) in all cases
+* (Apollon77) Add support to specify how to round numbers on query per datapoint
+* (Apollon77) Do not log passwords for Postgres connections
+* (Apollon77) Optimize SSL support for database connections including option to allow self signed certificates
+* (Apollon77) Allow to specify custom retention duration in days
 * (winnyschuster) Fix Insert statement for MSSQL ts_counter
+* (winnyschuster) type of ts in user queries corrected
 
 ### 1.16.2 (2022-02-16)
 * (bluefox) Marked interpolated data with `i=true`

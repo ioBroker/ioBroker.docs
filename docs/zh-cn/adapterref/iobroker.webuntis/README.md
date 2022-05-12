@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.webuntis/README.md
 title: ioBroker.webuntis
-hash: PCFCSeMr0GsPe9cjkNnOhtzHJgSz/13b4IH1ltEGDes=
+hash: Zwco+BJoxgA1O8l9hSoW9kzalAWqPR6r0D6b8jVq5PI=
 ---
-![商标](../../../en/adapterref/iobroker.webuntis/admin/webuntis.png)
+![标识](../../../en/adapterref/iobroker.webuntis/admin/webuntis.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.webuntis.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.webuntis.svg)
@@ -22,6 +22,9 @@ hash: PCFCSeMr0GsPe9cjkNnOhtzHJgSz/13b4IH1ltEGDes=
 
 Dieser Adapter bezieht Daten aus Webuntis。
 Für eine deutsche Anleitung [希尔克利肯](readme/readme.de.md)
+
+##捐款
+[![]（https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ＃＃ 入门
 在 iobroker 中安装适配器后，会自动打开配置窗口。
@@ -57,6 +60,9 @@ Für eine deutsche Anleitung [希尔克利肯](readme/readme.de.md)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.4 (2022-05-08)
+* change log-level for error messages
+
 ### 0.3.3 (2022-04-03)
 * Add errorhandling for timetable
 

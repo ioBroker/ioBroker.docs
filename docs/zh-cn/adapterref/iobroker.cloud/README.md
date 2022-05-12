@@ -2,85 +2,129 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.cloud/README.md
-title: ioBroker云适配器
-hash: A8annnfqo+2LZ6Y9DTgNkQyzH8xSq6lZ3iJ1cNVu2Ng=
+title: ioBroker 云适配器
+hash: gwJ7slGLQ/PENN9DEJhVmYVcLNEPZ06YRCrzWb2L5dc=
 ---
-![商标](../../../en/adapterref/iobroker.cloud/admin/cloud.png)
+![标识](../../../en/adapterref/iobroker.cloud/admin/cloud.png)
 
 ![安装数量](http://iobroker.live/badges/cloud-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.cloud.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.cloud.svg)
-![NPM](https://nodei.co/npm/iobroker.cloud.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.cloud.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.cloud.svg)
+![新PM](https://nodei.co/npm/iobroker.cloud.png?downloads=true)
 
-＃ioBroker云适配器
-该适配器允许通过ioBroker云从Internet连接到ioBroker的本地安装。
+# IoBroker 云适配器
+此适配器允许通过 ioBroker 云从 Internet 连接到 ioBroker 的本地安装。
 
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
-##设置
+## 设置
 ### APP-KEY
-要使用云适配器，您应该首先在[https://iobroker.net](https://iobroker.net)上获得APP-Key。
+要使用云适配器，您应该首先获得 [https://iobroker.net](https://iobroker.net) 上的 APP-Key。
 
-这是用户可以在[https://iobroker.net](https://iobroker.net)站点上获得的应用程序密钥。请在那里获取密钥并在此处输入。
+这是用户可以在[https://iobroker.net](https://iobroker.net)网站上获得的应用程序密钥。请在此处获取密钥并在此处输入。
 
 ![介绍](../../../en/adapterref/iobroker.cloud/img/intro.png)
 
-###实例
-来自云适配器的所有请求将被路由到某些WEB实例。用户必须在此处指定登录到https://iobroker.net站点时将显示给用户的WEB实例。
+＃＃＃ 实例
+来自云适配器的所有请求都将被路由到某个 WEB 实例。用户必须在此处指定当他登录 https://iobroker.net 站点时将显示给用户的 WEB 实例。
 
-###允许自签名证书
-如果您使用标准的iobroker.net云，则可以将其停用。仅当使用自己的云时，此选项才重要。
+### 允许自签名证书
+如果您使用标准 iobroker.net 云，您可以停用它。此选项仅在使用自己的云时才重要。
 
-### Alexa设置
-***`cloud`适配器不再支持Alexa。为此使用ioBroker.iot适配器。***
+### Alexa 设置
+*** `cloud` 适配器不再支持 Alexa。为此使用 ioBroker.iot 适配器。***
 
 ## IFTTT
 [指示](doc/ifttt.md)
 
 ＃＃ 服务
-可以将消息发送到云适配器。
-如果将```[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>```und值称为有效负载。
+有可能向云适配器发送消息。
+如果您将 `[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>` und 调用为有效负载。
 
 ```
 curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ```
 
-如果在设置中将“服务白名单”字段设置为名称* custom_test *，并使用“ custom_test”作为服务名称进行调用，则状态cloud / 0.services.custom_test将设置为myString *。
+如果您在设置中将“服务白名单”字段设置为名称 *custom_test*，并使用“custom_test”作为服务名称进行调用，则状态 `cloud.0.services.custom_test` 将设置为 `myString`。
 
-您可以在白名单中写上“ *”，然后将允许所有服务。
+您可以在白名单中写上“*”，所有服务都将被允许。
 
-从2.0.5版开始，您可以使用```[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>```格式的GET请求来放置** \<data\> **进入** cloud.0.services.custom_ \<NAME\> **。
+从版本 2.0.5 开始，您可以使用 GET 请求以 `[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` 的形式将 `\<data\>` 放入 `cloud.0.services.custom_\<NAME\>`。
 
-在这里，您可以找到有关如何与[任务者](doc/tasker.md)一起使用的说明。
+在这里您可以找到如何将其与 [任务者](doc/tasker.md) 一起使用的说明。
 
-仅当设置了IFTTT密钥时，才允许IFTTT服务。
+只有设置了 IFTTT 密钥，才允许使用 IFTTT 服务。
 
-保留名称为“ ifttt”，“ text2command”，“ simpleApi”，“ swagger”。必须在没有```"custom_"```前缀的情况下使用它们。
+保留名称是“ifttt”、“text2command”、“simpleApi”、“swagger”。这些必须在没有 `"custom_"` 前缀的情况下使用。
 
 ### Text2command
-您可以在白名单中写入“ text2command”，可以将POST请求发送到```https://iobroker.net/service/text2command/<user-app-key>```以将数据写入* text2command.X.text *变量。
+您可以在白名单中写入`text2command`，您可以向`https://iobroker.net/service/text2command/<user-app-key>`发送 POST 请求以将数据写入`text2command.X.text`变量。
 
-可以通过“使用text2command实例”选项在设置中定义“ X”。
+“X”可以通过“使用 text2command 实例”选项在设置中定义。
 
-### SimpleApi
-您可以使用以下命令（仅限专业人士）：
+### 简单API
+您可以使用以下命令（仅限专业版）：
 
--```[GET] https://iobroker.pro/service/simpleApi/ <user-app-key> / get / stateID```-读取状态值=>`{“ val”：103.516，“ ack “：true，” ts“：1604132484682，” q“：0，”来自“：” system.adapter.admin.0“，” lc“：1604132469672，”结果“：” OK“}
--```[获取] https://iobroker.pro/service/simpleApi/ <user-app-key> / getPlainValue / stateID``-读取状态值=>`103.641`
--```[GET] https://iobroker.pro/service/simpleApi/ <user-app-key> / set / stateID？value = 1''`-设置状态值=>`{“结果”： “确定”}`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/get/stateID` - 读取状态值 => `{"val":103.516,"ack":true, "ts":1604132484682,"q":0,"from":"system.adapter.admin.0","lc":1604132469672,"result":"OK"}`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/getPlainValue/stateID` - 读取状态值 => `103.641`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/set/stateID?value=1` - 设置状态值 => `{"result":"OK"} `
 
-**不要忘记将`simpleApi`添加到配置中允许的服务中。**
+**不要忘记将`simpleApi`添加到配置中允许的服务。**
 
-###局限性
-如果在已定义的Web实例上启用了HTTPs（安全性）或身份验证，则它将不起作用。
+### 限制
+如果在定义的 Web 实例上启用了 HTTPs（安全）或身份验证，则它不起作用。
 
-您可以在这些Web实例上停用HTTPS和身份验证，但更好的方法是创建一个绑定到`localhost`的新Web实例，然后在云设置中选择该实例。
+您可以在这些 Web 实例上停用 HTTPS 和身份验证，但更好的是创建一个绑定到 `localhost` 的新 Web 实例并在云设置中选择此实例。
 
-<！-下一个版本的占位符（在该行的开头）：
+<!-- 下一个版本的占位符（在行首）：
 
-### __正在进行的工程__->
+### **正在进行中** -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (bluefox) Added better error reporting
+* (bluefox) Removed outdated `request` library
+* (bluefox) Used common sockets (could be buggy)
+
+### 4.1.1 (2022-02-19)
+* Important: Requires js-controller 3.1 at least!
+* (Apollon77) Add some checks to prevent issues with missing data
+* (Apollon77) FIx some crash cases reported by Sentry
+* (Apollon77) pass HEAD requests without body (Sentry IOBROKER-CLOUD-14)
+
+### 4.1.0 (2021-07-17)
+* (bluefox) Added support for new javascript
+
+### 4.0.11 (2021-05-12)
+* (bluefox) Fixed the connection issue with the cloud
+* (bluefox) Added support for Admin5
+
+### 4.0.10 (2021-02-18)
+* (Apollon77) Fix crash case (Sentry IOBROKER-CLOUD-X)
+
+### 4.0.9 (2021-02-01)
+* (bluefox) Support of lovelace via ioBroker.pro
+* (bluefox) Fixed error with the admin
+
+### 4.0.8 (2021-01-31)
+* (Apollon77) Prevent crash case (Sentry IOBROKER-CLOUD-S)
+* (bluefox) fix usage of credentials
+
+### 4.0.7 (2021-01-30)
+* (bluefox) Show the invalid authentication message
+
+### 4.0.4 (2021-01-26)
+* (bluefox) Stop all timers on the unloading
+
+### 4.0.3 (2021-01-26)
+* (bluefox) Added the ignoring of restart on disconnect by the redirection
+
+### 4.0.2 (2021-01-24)
+* (Apollon77) Make sure states which were not set or expired do not crash when requested via services (Sentry IOBROKER-CLOUD-P)
+
+### 4.0.1 (2021-01-16)
+* (Apollon77) Prevent crash case (Sentry IOBROKER-CLOUD-N)
+
 ### 4.0.0  (2020-12-14)
 * (bluefox) Breaking change! Alexa was removed from cloud adapter.
 * (bluefox) Allowed to use the login and password for authentication.
@@ -266,7 +310,7 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2022 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

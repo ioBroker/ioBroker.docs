@@ -1,12 +1,12 @@
 ---
-title: 开发 - 适配器模板
+title: 适配器模板
 lastChanged: 28.03.2019
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adaptertemplate.md
-hash: N79zvU0TMH9omf+yOfN2R01++l3/ZMpUE88IdPV7G30=
+hash: f0O7rqRIjJx1FnzTvoNhJgAcMbdb3rMHqQ68thpJkYc=
 ---
-#Adaptor文档模板
+# 适配器文档模板
 ```
 ![logo](../../de/dev/admin/adapter-logo.png)
 # Dokumenttitel

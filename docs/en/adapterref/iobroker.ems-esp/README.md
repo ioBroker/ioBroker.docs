@@ -49,7 +49,7 @@ This adapter reads after start values from ems-esp and km200 by http get request
 
 The web-api calls toward/from the km200 gateway is encrypted. For the en-/decryption there are two passords needed:
 
-* the gateway password on an albel on the gateway in the form: xxxx-xxxx-xxxx-xxxx (case sensitive)
+* the gateway password on an label on the gateway in the form: xxxx-xxxx-xxxx-xxxx (case sensitive)
 * the private password set by using the Buderus **MyDevice** App (do not use myBuderus or similar apps !) 
 
 The fields to be used could be defined by polling the km200-structure (*) or the respective csv-file within the adapter instance parameters. 
@@ -71,9 +71,12 @@ Available are hourly, dayly and monthly statistics and stored as array data in s
 * the original recording data read by web-api calls are stored under statestructure km200.
 * DB-statistics to be shown in flot graphs or grafana are only available yet for mySQL and InfluxDB databases.
 * For InfluxDB V1 the retention policy has to be set to a minimum of 170 weeks. (alter retention policy global on iobroker duration 170w;)
+* For InfluxDB V2 the global retention policy is set by the influxdb adapter - please set within influxdb adapter the storage retention time to "no automatic deletion" !
 
-This adapter then creates the respective recording states, enables sql statistics and writes historic database entries using sql commands and is updating the recordings. 
-Update frequency is every hour. 
+This adapter then creates the respective recording states, enables sql statistics and writes historic database entries using sql commands and is updating the recordings. Update frequency is every hour. 
+
+IMPORTANT: PLEASE DON'T BE IRRITATED IF THE RESPECTIVE STATES VALUES SHOW NULL() VALUES. 
+IN SOME CASES THE VALUES ARE NOT SHOWN CORRECTLY WITHIN THE ADMIN OBJECT BROWSER - PLEASE USE FLOT OR GRAFANA TO DISPLAY !!!
 
 ## km200 recordings - an explanation
 
@@ -91,7 +94,7 @@ Every timeperiod has to be read within the adapter by 3 api-calls:
 Within the read data-field by web-api the sum of sample-values is stored within y-value, no of samples within c-value.
 (see original values within json-data in km200... fields.)
 
-Since sometimes samples are missing the value has to be interpolated.
+Since sometimes samples are missing the energy values can be interpolated. Interpolation is configurable (on/off).
 For some months (> 12 months ago) some data might be missing. (Bosch errors within code?)
 
 For the actual months energy consumption the adapter calculates the sum of daily values and uses this sum to get more accurate data.
@@ -110,13 +113,20 @@ Boiler statistics can be enabled showing:
 Boiler efficiency can be calculated if parameters are filled. (Gas- and Oilboilers only)
 
 * The boiler efficiency can be calculated based on average boiler temp: (boiler temp + return temp) / 2.
-* When return temp is not available in km200 the return temp is calculated with boilertemp -10 °C when no ems-esp is available. 
+* When return temp is not available in km200/ems-esp the efficiency caclulation does not make sense - please disable to avoid errors 
 * Look at the datasheet of your boiler to adjust the efficiency table accordingly. 
+* On some heating systems this function produces errors - please switch off !!!
 
 ## changes in state-structure
 
 Whenever a new EMS-ESP firmware adds new datafields and/or changes datafield names they are processed during adapter run. Nevertheless obsolete datafields are not deleted automatically by the adapter. 
 There is an option to re-build the state-structure by deleting states on adapter re-start (states with history / db entries are kept)
+
+## heatdemand control 
+
+V1.9.x beta - Explanation to heat demand calculation and configuration. Available in German language only:
+https://github.com/tp1de/ioBroker.ems-esp/wiki
+
 
 
 ## Changelog
@@ -124,11 +134,28 @@ There is an option to re-build the state-structure by deleting states on adapter
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.9.0 (2022-04-08)
-* beta test new version
+### 1.11.2 (2022-04-27)
+* code optimization and error processing for ems-esp gateway
+
+### 1.11.1 (2022-04-25)
+* error corrections on invalid heatdemand states
+
+### 1.11.0 (2022-04-24)
+* corrections on hourly recordings for temperature
+* make interpolation (missing of c-counts) in energy recordings configurable (on/off)
+* error corrections on heatdemand with empty data
+
+### 1.10.0 (2022-04-23)
+* add heatdemand customization & calculation with automatic switch (on/off) per heating circuit 
+* error corrections on efficiency calculation - make fields used configurable
+* some other error corrections
+
+### 1.9.0 (2022-04-18)
+* beta test new version (github only)
+* add heatdemand customization & calculation with automatic switch (on/off) per heating circuit
 
 ### 1.4.0 (2022-03-16)
-* recordings new logic and now working without database
+* recordings new logic and now working without database instance as well
 
 ### 1.3.3 (2022-02-26)
 * avoid null values in recordings

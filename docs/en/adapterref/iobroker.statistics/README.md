@@ -47,6 +47,9 @@ A german HowTo doc is available here: [howto_de](./doc/howto_de.md)
 -->
 
 ## Changelog
+### 1.1.1 (2022-04-17)
+* Prevent warn logs when using non-number states as statistic source
+
 ### 1.1.0 (2022-03-24)
 * IMPORTANT: js-controller 3.2 is needed at least!
 * (Apollon77) Prepare for future js-controller compatibility

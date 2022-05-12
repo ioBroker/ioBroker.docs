@@ -164,6 +164,14 @@ ShineWiFi module.
 
 ## Changelog
 
+### 1.1.15 (28.04.2022)
+
+- (PLCHome) Apple devices cannot open the adapter's config page with Safari, all values ​​are empty
+
+### 1.1.14 (26.04.2022)
+
+- (PLCHome) Restart loop when exception
+
 ### 1.1.13 (08.04.2022)
 
 - (PLCHome) total data and history data missing for type inv

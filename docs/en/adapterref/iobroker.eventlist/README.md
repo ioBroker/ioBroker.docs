@@ -1,14 +1,15 @@
 ![Logo](admin/eventlist.png)
 # ioBroker.eventlist
 
+![Number of Installations](http://iobroker.live/badges/eventlist-installed.svg)
+![Number of Installations](http://iobroker.live/badges/eventlist-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.eventlist.svg)](https://www.npmjs.com/package/iobroker.eventlist)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.eventlist.svg)](https://www.npmjs.com/package/iobroker.eventlist)
-![Number of Installations (latest)](http://iobroker.live/badges/eventlist-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/eventlist-stable.svg)
-[![Dependency Status](https://img.shields.io/david/bluefox/iobroker.eventlist.svg)](https://david-dm.org/bluefox/iobroker.eventlist)
-[![Known Vulnerabilities](https://snyk.io/test/github/bluefox/ioBroker.eventlist/badge.svg)](https://snyk.io/test/github/bluefox/ioBroker.eventlist)
 
-[![NPM](https://nodei.co/npm/iobroker.eventlist.png?downloads=true)](https://nodei.co/npm/iobroker.eventlist/)
+![Test and Release](https://github.com/ioBroker/iobroker.eventlist/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/eventlist/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.eventlist.svg)](https://www.npmjs.com/package/iobroker.eventlist)
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Event-List adapter for ioBroker
 Allows to define the states that must be logged in event list.
@@ -140,6 +141,10 @@ The generated report will be stored for instance 0 in `eventlist/report.pdf`, bu
 -->
 
 ## Changelog
+### 0.5.5 (2022-04-23)
+* (Apollon77) Fix a crash issue
+* (Apollon77) Add Sentry also for the Node.js part
+
 ### 0.5.4 (2022-02-14)
 * (bluefox) Corrected the image paths
 

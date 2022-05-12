@@ -3,11 +3,11 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/install/centos.md
 title: Установить на CentOS
-hash: se2U2FhT82/g/VF79qgLX17rU0BBl3AysNdvpbxmDGs=
+hash: NNHd5PMz5EEH2++Yd5IKcnE5qyP9RhewUgl2YZil5Co=
 ---
 # Установить на CentOS
 ## Автоматическая установка
-Убедитесь, что `curl` установлен или установите его с помощью:
+Убедитесь, что `curl` установлен, или установите его с помощью:
 
 `sudo yum install -y curl`
 
@@ -18,7 +18,7 @@ hash: se2U2FhT82/g/VF79qgLX17rU0BBl3AysNdvpbxmDGs=
 Если автоматическая установка не работает, вы все равно можете использовать ручную установку.
 
 ## Ручная установка
-### Установить node.js
+### Установите node.js
 Если не установлено:
 
 ```
@@ -41,7 +41,7 @@ npm i iobroker.admin --production
 npm i iobroker.js-controller@stable --production
 ```
 
-### Необязательно установить Redis
+### Необязательная установка Redis
 ```
 sudo yum install -y epel-release nano
 sudo yum update
@@ -51,7 +51,7 @@ sudo systemctl enable redis
 sudo nano /etc/redis.conf
 ```
 
-#### Установить redis как состояния БД
+#### Установить Redis как состояния БД
 ```
 ./iobroker setup custom
 ```
@@ -70,8 +70,8 @@ sudo nano /etc/redis.conf
 # creating conf/iobroker.json
 ```
 
-#### Необязательно только для Redis + Multihost
-Изменить привязку 127.0.0.1 на привязку 0.0.0.0
+#### Опционально только для Redis+Multihost
+Измените привязку 127.0.0.1 на привязку 0.0.0.0.
 
 ```
 sudo systemctl restart redis

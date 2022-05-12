@@ -5,7 +5,7 @@
 ![Number of Installations (stable)](http://iobroker.live/badges/fuelpricemonitor-stable.svg)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.fuelpricemonitor.svg)](https://www.npmjs.com/package/iobroker.fuelpricemonitor)
 ![Number of Installations (latest)](http://iobroker.live/badges/fuelpricemonitor-installed.svg)
-[![Dependency Status](https://img.shields.io/david/HGlab01/iobroker.fuelpricemonitor.svg)](https://david-dm.org/HGlab01/iobroker.fuelpricemonitor)
+[![Dependency Status](https://img.shields.io/librariesio/release/npm/iobroker.fuelpricemonitor)](https://libraries.io/npm/iobroker.fuelpricemonitor)
 [![Known Vulnerabilities](https://snyk.io/test/github/HGlab01/ioBroker.fuelpricemonitor/badge.svg)](https://snyk.io/test/github/HGlab01/ioBroker.fuelpricemonitor)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.fuelpricemonitor.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.fuelpricemonitor?ref=badge_shield)
 ![Test and Release](https://github.com/HGlab01/ioBroker.fuelpricemonitor/workflows/Test%20and%20Release/badge.svg)

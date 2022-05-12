@@ -33,34 +33,34 @@ If you use standard iobroker.net cloud, you can deactivate it. This option is on
 
 ## Services
 There is a possibility to send messages to cloud adapter.
-If you call ```[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>``` und value as payload.
+If you call `[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>` und value as payload.
 
 ```
 curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ```
 
-If you set in the settings the field "White list for services" the name *custom_test*, and call with "custom_test" as the service name, the state **cloud.0.services.custom_test** will be set to *myString*.
+If you set in the settings the field "White list for services" the name *custom_test*, and call with "custom_test" as the service name, the state `cloud.0.services.custom_test` will be set to `myString`.
 
 You may write "*" in white list and all services will be allowed.
 
-From version 2.0.5 you can use GET request in form ```[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>``` to place the **\<data\>** into **cloud.0.services.custom_\<NAME\>**.
+From version 2.0.5 you can use GET request in form `[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` to place the `\<data\>` into `cloud.0.services.custom_\<NAME\>`.
 
 Here you can find instructions how to use it with [tasker](doc/tasker.md).
 
 IFTTT service is allowed only if IFTTT key is set.
 
-Reserved names are "ifttt", "text2command", "simpleApi", "swagger". These must be used without the ```"custom_"``` prefix.
+Reserved names are "ifttt", "text2command", "simpleApi", "swagger". These must be used without the `"custom_"` prefix.
 
 ### text2command
-You may write "text2command" in white list, you can send POST request to ```https://iobroker.net/service/text2command/<user-app-key>``` to write data into *text2command.X.text* variable.
+You may write `text2command` in white list, you can send POST request to `https://iobroker.net/service/text2command/<user-app-key>` to write data into `text2command.X.text` variable.
 
 "X" can be defined in settings by the "Use text2command instance" option.
 
 ### simpleApi
 You can use following commands (only pro):
-- ```[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/get/stateID``` - to read state value => `{"val":103.516,"ack":true,"ts":1604132484682,"q":0,"from":"system.adapter.admin.0","lc":1604132469672,"result":"OK"}`
-- ```[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/getPlainValue/stateID``` - to read state value => `103.641`
-- ```[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/set/stateID?value=1``` - to set state value => `{"result":"OK"}`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/get/stateID` - to read state value => `{"val":103.516,"ack":true,"ts":1604132484682,"q":0,"from":"system.adapter.admin.0","lc":1604132469672,"result":"OK"}`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/getPlainValue/stateID` - to read state value => `103.641`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/set/stateID?value=1` - to set state value => `{"result":"OK"}`
 
 **Don't forget to add `simpleApi` to allowed services in the configuration.**
 
@@ -71,10 +71,15 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (bluefox) Added better error reporting
+* (bluefox) Removed outdated `request` library
+* (bluefox) Used common sockets (could be buggy)
+
 ### 4.1.1 (2022-02-19)
 * Important: Requires js-controller 3.1 at least!
 * (Apollon77) Add some checks to prevent issues with missing data

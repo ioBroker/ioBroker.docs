@@ -3,28 +3,28 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.energymanager/README.md
 title: ioBroker.energymanager
-hash: WTqq0e1QzSRYhsNLC5/e2Ce7fWnER5M+2ZIGv9gQuQk=
+hash: F6uWAkQzsOIi2v2dx3ldpYwd4mTuBVMr3kycbc13d5Y=
 ---
-![логотип](../../../en/adapterref/iobroker.energymanager/admin/energymanager.png)
+![Логотип](../../../en/adapterref/iobroker.energymanager/admin/energymanager.png)
 
 ![Количество установок](http://iobroker.live/badges/energymanager-stable.svg)
 ![Статус сборки](https://api.travis-ci.org/unltdnetworx/ioBroker.energymanager.svg?branch=master)
-![Версия NPM](https://img.shields.io/npm/v/iobroker.energymanager.svg)
+![версия NPM](https://img.shields.io/npm/v/iobroker.energymanager.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.energymanager.svg)
-![NPM](https://nodei.co/npm/iobroker.energymanager.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.energymanager.png?downloads=true)
 
 # IoBroker.energymanager
-Этот адаптер предназначен для считывания значений с устройств, работающих от сети kiwigrid, таких как E.ON Energymanager, в ioBroker. Также подтвержден менеджер Solarwatt. Возможно, есть другие устройства, работающие с этим адаптером, например, innogy или enviam.
+Этот адаптер предназначен для считывания значений с устройств, питающихся от сети kiwigrid, таких как E.ON Energymanager, в ioBroker. Также подтвержден менеджер Solarwatt. Возможно, что есть другие устройства, работающие с этим адаптером, может, innogy или enviam.
 
-Помощь или советы приветствуются.
+Помощь или подсказки приветствуются.
 
 ## Шаги
-1. Установите adpater
+1. Установите адаптер
 
-2. Возьмите значения из вашего энергетического менеджера. [X] -объект.
+2. Возьмите значения из вашего EnergyManger.[x]-объекта.
 
 ## Требования
-* E.ON Aura energymanger, Solarwatt MyReserve energymanger или другое устройство с питанием от kiwigrid
+* Энергоменеджер E.ON Aura, энергоменеджер Solarwatt MyReserve или другое устройство с питанием от kiwigrid
 
 ## Changelog
 

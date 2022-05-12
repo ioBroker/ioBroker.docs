@@ -3,87 +3,88 @@ chapters: {"pages":{"de/adapterref/iobroker.admin/README.md":{"title":{"de":"no 
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/adapterref/iobroker.admin/tab-adapters.md
-title: The tab adapter
-hash: QL+KH1rDLyLUu//lZEw1peBxkvCTrTkqq2Z4ohf+BKg=
+title: The Adapter tab
+hash: mYx9gAiqrOYwPEWZekb9aOzN+YrITmzgTLJwbzoMIhk=
 ---
-# The tab adapter
-Here the available and installed adapters are displayed and managed.
+# The Adapters tab
+The available and installed adapters are displayed and managed here.
 
 ![iobroker_image_bpi_20160910](../../../de/adapterref/iobroker.admin/img/ioBroker_Image_BPi_20160910.jpg)
 
-## The title bar
+## The title line
 The title bar contains icons for the most important processes.
-There is a context help for each icon. Just keep the mouse on the icon for a while.
+There is context help for each icon. Simply hold the mouse on the icon for a while.
 
 ![iobroker_adapter_admin_002aa](../../../de/adapterref/iobroker.admin/img/tab-adapters_002aa.jpg)
 
 ### **The icons in detail:**
 ![](../../../de/adapterref/iobroker.admin/img/tab-adapters_icons01_20170108-e1483882554815.jpg)
 
-### **1.) Show only installed adapters**
-When selecting this icon, only the already installed adapters will be displayed (toggle function)
+### **1.) Only show installed adapters**
+When you select this icon, only the adapters that are already installed are displayed (toggle function)
 
-### **2.) Show adapters with updates**
-When selecting this icon, only adapters will be displayed for which there is an update (toggle function)
+### **2.) View adapters with updates**
+When you select this icon, only adapters for which an update is available are displayed (toggle function)
 
-Behind the updatable adapters, there is an update icon in the column **_ installed _** Clicking on this button will bring the corresponding adapter to the latest version.
+There is an update icon in the **_installed_** column behind the updateable adapters.
+By clicking on this button, the corresponding adapter is updated to the latest version.
 
 In addition, another icon appears in the title bar:
 
 ![iobroker_adapter_admin_002b](../../../de/adapterref/iobroker.admin/img/tab-adapters_002b.jpg)
 
-Click this icon to update all available adapters.
+Clicking this icon will update all available adapters.
 
 ### **3.) Install adapter from own URL**
-Using the Octocat icon, adapters can be installed from their own paths (URL or file paths) or pre-release versions of GitHub.
+Adapters can be installed from their own paths (URL or file paths) or pre-release versions of GitHub using the Octocat icon.
 
-After clicking this icon, a corresponding selection window opens:
+After clicking on this icon, a corresponding selection window opens:
 
 ![iobroker_adapter_admin_002c_github](../../../de/adapterref/iobroker.admin/img/tab-adapters_002c_GitHub.jpg)
 
-Under the tab **_ From github _** the desired adapter is simply selected in the pull-down menu and the latest pre-release version is installed.
+Under the **_From github_** tab, simply select the desired adapter from the pull-down menu and the latest pre-release will be installed.
 
-If the Anywhere tab is selected, a remaining file path or any URL (e.g., a URL to an external adapter developer) can be entered in the field and the appropriate adapter installed.
+If you select the Any tab, you can enter any file path or any URL (e.g. a URL to an external adapter developer) in the field and the corresponding adapter can be installed.
 
 ![iobroker_adapter_admin_002c_ownfile](../../../de/adapterref/iobroker.admin/img/tab-adapters_002c_ownFile.jpg)
 
-### **4.) Turn on expert mode**
-The expert mode also allows you to install older versions of an adapter.
-If this button is selected, a pulldown menu (4) will appear on the far right side of each adapter to install earlier versions.
+### **4.) Switch on expert mode**
+The expert mode also makes it possible to install older versions of an adapter.
+If this button is selected, a pull-down menu (4) appears on the far right for each adapter, via which earlier versions can be installed.
 
 ![](../../../de/adapterref/iobroker.admin/img/tab-adapters_icons02_20170108.jpg)
 
-### **5.) Check for updates**
-Each time you restart, it automatically checks for updates. But you can start the search manually with this button.
+### **5.) Check for Updates**
+Every time you restart, it will automatically check for updates. You can use this button to start the search manually.
 
-If updates are available in the repository set under [system settings](#Systemeinstellungen), the font of the tab **_ Adapter _** is displayed in green.
+If updates are available in the repository set under [system settings](#Systemeinstellungen), the font of the **_Adapter_** tab is displayed in green.
 
-### **5.) Change sort order**
+### **5.) Change sorting**
 This button changes the sorting of the adapters on this page.
 
-If the button is active, all adapters are sorted alphabetically, with one block showing the adapters installed, then one with adapters that have not yet been installed. Each of these two blocks is sorted alphabetically.
+When the button is active, all adapters are sorted alphabetically, with a block with the installed adapters first being displayed, followed by one with adapters that have not yet been installed. Each of these two blocks is sorted alphabetically.
 
 If this button is not active, the adapters are sorted by topic.
 
-Then the next two icons are visible.
+Then the next two icons are also visible.
 
-### **6.) Collapse all topics**
+### **6.) Close all topics**
 ### **7.) Expand all topics**
-On the right side there are also two buttons
+There are also two buttons on the right side
 
 ![iobroker_adapter_admin_003a](../../../de/adapterref/iobroker.admin/img/tab-adapters_003a.jpg)
 
 ### **8.) Edit tab**
-With this button you can hide unused tabs and hide invisible ones.
+This button can be used to hide tabs that are not required and to show those that are not visible.
 
 ### **<a id="Systemeinstellungen"></a> 9.) System Settings**
-This sets basic parameters for ioBroker.
+Basic parameters for ioBroker are set here.
 
 ## The page content
-![iobroker_admin_adapter_inhalt01](../../../de/adapterref/iobroker.admin/img/tab-adapters_Inhalt01.jpg) The adapters are tabulated on the page. The table consists of the following columns:
+![iobroker_admin_adapter_content01](../../../de/adapterref/iobroker.admin/img/tab-adapters_Inhalt01.jpg) The adapters are displayed in tabular form on the page. The table consists of the following columns:
 
 ### **1.) Name**
-This column lists the names of the adapters and associated icons.
+The names of the adapters with the associated icons are listed in this column.
 If the grouping of adapters is selected via the icon (5) in the title bar, the group names also appear here.
 
 ### **2.) Description**
@@ -92,25 +93,25 @@ Here is a brief description of the function of the adapter
 ### **3.) Keywords**
 Here are some search terms associated with the adapter.
 
-### **4.) Version**
-The available version is displayed here. For overview, the development status of an adapter is highlighted. (red = in planning, yellow = beta, orange = alpha, green = final).
+### **4th version**
+The available version is shown here. The development status of an adapter is highlighted in color to provide an overview. (red = planned; yellow = beta; orange = alpha; green = final).
 
-### **5.) Installed**
+### **5.) installed**
 This column gives various information about the installation status of this adapter.
-First, there is the version number of the installed adapter. If this is in bold there is an update. Behind it is the number of instances installed by this adapter in square brackets, how many of them are activated and what their status is. Thus, [2/1] means that there are two instances of this adapter, one of which is activated and runs without problems (the latter can be recognized by the green color of the second number). Further to the right there is an update icon if there is an update adapter for this adapter. Clicking on this icon starts the update process.
+On the one hand there is the version number of the installed adapter. If this is printed in bold, there is an update. After that, in square brackets, is the number of instances installed by this adapter, how many are enabled, and what their status is. [2/1] means that there are two instances of this adapter, one of which is activated and running without problems (the latter can be recognized by the green color of the second number). There is an update icon further to the right if there is an update for this adapter. Clicking on this icon starts the update process.
 
 ### **6.) Platform**
-Here is indicated on which software platform this adapter is based. Usually this is javascript under nodejs.
+The software platform on which this adapter is based is specified here. Usually this is javascript under nodejs.
 
 ### **7.) License**
-This is the license under which the adapter is provided. The license conditions are usually found in the readme. If the license requires that it must be accepted by the end user, a corresponding window will be displayed with the license conditions when creating an instance.
+This is the license under which the adapter is made available. The license conditions can usually be found in the readme. If the license requires acceptance by the end user, a license terms window will appear when creating an instance.
 
 ### **8.) Install**
-In this column are several buttons for the installation and for help.
+This column contains various buttons for installation and for help.
 
 ![](../../../de/adapterref/iobroker.admin/img/tab-adapters_icons02_20170108.jpg)
 
-1. (+) Add an instance of the adapter. This must still be configured and activated in the Instances tab. For most adapters, any number of instances can be installed, e.g. to address different hardware. If this is not possible, a window opens with a corresponding error message.
-2. (?) If this button is active, it links to the help page for the adapter. This is usually located on GitHub, where the adapter is also maintained.
-3. (Trashcan) This button deletes the adapter and all already installed instances
-4. (pull-down menu) This menu can be used to install earlier versions of the respective adapter. This pulldown menu is only visible in expert mode.
+1. (+) This adds an instance of the adapter. This still has to be configured and activated in the Instances tab. With most adapters, any number of instances can be installed, e.g. to address different hardware. If this is not possible, a window opens with a corresponding error message.
+2. (?) When this button is active, it links to the adapter's help page. This is usually located on GitHub, where the adapter is also maintained.
+3. (trash can) This button deletes the adapter and all instances already installed
+4. (Pull-down menu) Previous versions of the respective adapter can be installed via this menu. This pulldown menu is only visible in expert mode.

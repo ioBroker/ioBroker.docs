@@ -3,38 +3,38 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/faq/README.md
 title: 常问问题
-hash: LWSpdYGRtvamphZUG11faSB/rKAxVyfJkjLk68FNELY=
+hash: Vl15GS8RY54eOBDxIohzQqNiJ0Wvvpux+ot1u4Dnzyc=
 ---
-#FAQ
-##一般问题
-###什么是ioBroker？
-### IoBroker在哪些硬件上运行？有什么建议？ （包括平台，电源，SD卡质量......）
-##安装
-###我需要什么？支持哪些nodejs / npm版本？我该如何安装它们？
-###如何安装ioBroker？ （链接列表取决于操作系统）
-###如何正确更新nodejs / npm？ （正常更新和新主要版本）
-##使用
-###什么是适配器？
-###什么是js-controller？
-###如何安装适配器？
-###与稳定和最新的存储库有什么区别？
-###我什么时候应该直接安装Github的版本？
-###我应该什么时候在我的系统中用npm做手册？
-###适配器流量浅红色/黄色/绿色有什么区别？
-###我在哪里可以找到日志文件？
-###如何更改日志级别，包括日志级别“Debug”
-##合作
-###什么是GitHub以及如何创建问题？
-###我创建了一个问题但没有开发人员关心。
-###我在哪里可以申请我缺少的适配器？
-###适配器不起作用，在哪里可以找到更多信息？
-## Iot / Cloud
-###链接到iot FAQ :-)
-### Amazon / Cloud / iot / Alexa2：你怎么能这样做？
-##扩展使用（更好的名字？）
-###我应该备份吗？什么？
-###如何安装自己的SSL证书？
-###什么是Redis？什么时候值得？我需要考虑什么？坚持持久，备份
-###什么是多声道系统？如何安装multihst系统？主人和奴隶的差异？
-###计算器/ Docker上两次怎么样？
-### RAM消耗？ https://forum.iobroker.net/viewtopic.php?p=226073#p226073
+＃常问问题
+＃＃ 一般的问题
+### IoBroker 是什么？
+### IoBroker 在什么硬件上运行？什么是建议？ （包括平台、电源、SD 卡质量...）
+＃＃ 安装
+＃＃＃ 我需要什么？支持哪些 nodejs/npm 版本？如何安装它们？
+### 如何安装 ioBroker？ （链接列表取决于操作系统）
+### 如何正确更新 nodejs/npm？ （正常更新和新的主要版本）
+＃＃ 用法
+### 什么是适配器？
+###什么是js控制器？
+### 如何安装适配器？
+### Stable 和 latest 仓库有什么区别？
+### 什么时候应该直接从 Github 安装版本？
+### 我什么时候应该在我的系统中手动使用 npm 做一些事情？
+###适配器红绿灯红/黄/绿有什么区别？
+### 在哪里可以找到日志文件？
+### 如何更改日志级别，包括日志级别“调试”
+＃＃ 合作
+### 什么是 GitHub，如何创建问题？
+### 我创建了一个问题，但没有开发人员处理它。
+### 我在哪里可以请求我缺少的适配器？
+### 适配器不起作用，我在哪里可以找到更多信息？
+## 互联网/云
+### 链接到 iot 的常见问题解答 :-)
+### Amazon/Cloud/iot/Alexa2：怎么做？
+## 扩展用法（更好的名称？）
+###我应该做备份吗？什么的？
+### 如何安装自己的 SSL 证书？
+###什么是Redis？什么时候值得？我需要考虑什么？ Redis 持久化、备份
+### 什么是 Multihast 系统？如何安装 multihst 系统？主从的区别？
+### 计算器/泊坞窗两次？
+### 内存使用情况？ https://forum.iobroker.net/viewtopic.php?p=226073#p226073

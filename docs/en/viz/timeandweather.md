@@ -2,137 +2,137 @@
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/viz/timeandweather.md
-title: Time & Weather
-hash: gobWIDvudg3iW1eszIOA2lKUW5A+/3y5Dr7K9GR2O4c=
+title: Time&Weather
+hash: 3F5tnNInLrwz9Ic7Db40MfwRZ7qhrC1UraDW+wpkF5c=
 ---
-# Time & Weather
-This set provides widgets that can display date, time, and weather forecasts.
+# Time&Weather
+This set provides widgets that can be used to display date, time and weather forecasts.
 
-| Widget | Picture | Description |
+|Widgets | image | Description|
 |---------------------------------|-------|-------------|
 
-[Cool clock](#cool-clock) | ! [001] | Analog Clock |
-[Flip clock](#flip-clock) | ! [002] | Digital clock in retro style (with animation) |
-[Segment Clock](#segment-clock) | ! [7] | Digital clock in 7-segment style |
-[Simple Clock](#simple-clock) | [005] | Digital! |
-[Simple Date](#simple-date) | [006] | Date! |
-[SVG Clock](#svg-clock) | ! [007] | Very variable analog-style clock |
-[HTC Weather](#htc-weather) | ! [003] | Time display with weather information -> does not work anymore |
-[Yahoo Weather](#yahoo-weather) | ! Weather forecast from Yahoo -> does not work anymore |
-[Weather Custom](#weather-custom) | ! [010] | Weather forecast with configurable states |
+[cool clock](#cool-clock) | ![001]|Analog Clock|
+[flip clock](#flip-clock) | ![002]|Retro style digital clock (with animation)|
+[segment clock](#segment-clock) | ![004]|7 segment style digital clock|
+[Simple Clock](#simple-clock) | ![005]|digital clock|
+[simple date](#simple-date) | ![006]|Date Display|
+[SVG Clock](#svg-clock) | ![007]|Very variable analog style clock|
+[HTC Weather](#htc-weather) | ![003]|Time display with weather information --> no longer works|
+[YahooWeather](#yahoo-weather) | ![010]|Weather forecast from Yahoo --> stopped working|
+[Weather Custom](#weather-custom)| ![010]|Weather forecast with configurable states|
 
 *********************************************************
 
 ### Cool Clock
-Analog clock! [001]
+Analog clock ![001]
 
-Attribute | Description |
----- | ---- |
-Topic | Different Presentation Topics Are Available |
-Show no seconds | Display without second hand |
-Digital |. |
-Show am / pm | Time of American style |
+attribute|description|
+----|----|
+Theme|Different display themes are available|
+Show no seconds|display without second hand|
+digital clock|.|
+Show am/pm|US style time display|
 
-** Example: **! [[: arrow_up: back to top](#TimeWeather) ******************************************************************************** **********************
+**Example:** ![008] [:arrow_up: back to top](../../de/viz/#TimeWeather) *********************************** **********************
 
-### Flip Clock
-Retro style digital clock with animated numbers! [002]
+### Flip clock
+Retro-style digital clock with animated numbers ![002]
 
-[: arrow_up: back to top](#TimeWeather)  
+[:arrow_up: back to top](#TimeWeather)  
 *********************************************************
 
-### Segment Clock
-7-segment digital clock that can display either the current time or a time from a data point.
+### Segment clock
+7 segment style digital clock that can display either the current time or a time from a data point.
 
-! [004]
+![004]
 
-| Attribute | Description |
+| attribute|description|
 | ----|----|
-| Object ID | Data point, if you do not want the current time displayed |
+| Object ID |Data point if the current time is not to be displayed|
 | Activate clock ||
-| Seconds | seconds |
+| Seconds |Display Seconds|
 | Template ||
-| Segment color AN | Color of active segments |
-| Segment color OFF | Color of inactive segments |
-| Interval for current text [ms] | Velocity for running text representation |
-| Number of segments | 7/14/16 segments per digit |
-| Angle of the characters | Incline of the numbers |
-| Character height | digit height |
-| Character width | digit width |
-| Character spacing | Spacing of numbers |
-| Segment width | Width of each segment |
-| Segment distance | distance between segments |
-| Corner type | shape of segments |
+| segment color ON | Color of active segments|
+| Segment color OFF | Color of the inactive segments|
+| Interval for scrolling text [ms]|Speed for scrolling text display|
+| Number of segments |7/14/16 segments per digit|
+| character angle |slanting of digits|
+| character height |digit height|
+| character width |digit width|
+| character spacing |spacing of digits|
+| Segment width |Width of each segment|
+| Segment distance |distance between segments|
+| Corner type |shape of segments|
 
-** Example: **! [011] [: arrow_up: back to top](#TimeWeather) ******************************** **********************
+**Example:** ![011] [:arrow_up: back to top](../../de/viz/#TimeWeather) *********************************** **********************
 
-### Simple CLock
-7-segment digital clock showing the current time.
+### Simple Clock
+7 segment style digital clock showing current time.
 
-! [005]
+![005]
 
-Attribute | Description |
----- | ---- Do not show seconds | do not show seconds flashing | ? No style | ?
+attribute|description|
+----|---- Don't show seconds|Don't show seconds blinking| ? No Style| ?
 
-** Example: **! [012] [: arrow_up: back to top](#TimeWeather) ************************************ **********************
+**Example:** ![012] [:arrow_up: back to top](../../de/viz/#TimeWeather) *********************************** **********************
 
-### Simple Date
-Date display in 7-segment style for current date.
+### Simple date
+7 segment style date display for current date.
 
-! [006]
+![006]
 
-Attribute | Description |
----- | ---- weekday | Show weekday before the date on Short day of the week | Show the day of the week as a shortcut (only if weekday is activated) Short year | Show only the last two digits of the year Zero leading | Leading zeros in day and month Month as text | Month as text Short month | Write out month abbreviation as text USA format | No style |?
+attribute|description|
+----|---- Day of the week| Display day of week before date Short day of week| Show weekday as short form (only if weekday is enabled) Short year| Show only the last two digits of the year Leading zero|Leading zeros in day and month Month as text|Write out month as text Short month|Write out month abbreviation as text USA format|? No style|?
 
-** Example: **! [013] [: arrow_up: back to top](#TimeWeather) ************************************ **********************
+**Example:** ![013] [:arrow_up: back to top](../../de/viz/#TimeWeather) *********************************** **********************
 
 ### SVG Clock
 Analog clock with many display options
 
-! [007]
+![007]
 
-Attribute | Description |
----- | ---- Quarter Text Size | Text size for the quarter hour presentation Quarter Text Color | Text color for the quarter hour presentation Quarter Tick Color | Size of the Quarter Ticks Minute text size | Text size for the minutes presentation Minutes text color | Minutes tint text Small tick color | Minus ticks (every minute) Show seconds | Show second hand Pointer color | Color of hour and minute hand Pointer puck color | Offset color element of hour and min. Hands Second hand color | Color of second hand Text font | Pleading of the numbers
+attribute|description|
+----|---- Quarter text size|Text size for the quarter hour Quarter text color|Text color for the quarter hour Quarter tick color|Size of quarter ticks Minute text size|Text size for the minute hour Minute text color|Text color for minute display Small tick color|Color of small ticks (every minute) Show seconds|Show second hand hand color|Hour and minute hand color Pointer bump color|Color for offset element of hour and minute hand Second hand color|Second hand color Text font |Typeset of numbers
 
-** Example: **! [015] [: arrow_up: back to top](#TimeWeather) ****************************** **********************
+**Example:** ![015] [:arrow_up: back to top](../../de/viz/#TimeWeather) *********************************** **********************
 
 ### HTC Weather
-Weather indicator (does not work anymore because ...?)! [003]
+Weather display (doesn't work anymore because ...? ) ![003]
 
-Attribute | Description |
----- | ---- City | Choose weather for this city City name | City name Language | Display language Update interval | Update of weather data
+attribute|description|
+----|---- City|Choose weather for this city City name|City name Language|Display language Update interval|Weather data update
 
-[: arrow_up: back to top](#TimeWeather)  
+[:arrow_up: back to top](#TimeWeather)  
 *********************************************************
 
 ### Yahoo Weather
-Weather forecast indicator (unusable because the Yahoo Weather Service changed) (see https://developer.yahoo.com/weather/)
+Weather forecast display (no longer usable because the Yahoo weather service has changed) (see https://developer.yahoo.com/weather/)
 
-! [010]
+![010]
 
-[: arrow_up: back to top](#TimeWeather)  
+[:arrow_up: back to top](#TimeWeather)  
 *********************************************************
 
 ### Weather Custom
-Weather forecast display for any weather data sources.
-Currently it is recommended to use the data of the adapter 'daswetter'.
+Weather forecast display for any weather data source.
+It is currently advisable to use the data from the 'daswetter' adapter.
 
-! [010]
+![010]
 
-Attribute | Description |
----- | ---- City | Choose Weather for this City City Name | City Name Language | Display Language
+attribute|description|
+----|---- City|Choose weather for this city City Name|City Name Language|Display Language
 
 #### Now
-Attribute | Description |
----- | ---- Temperature ID | Data point for current temperature Text ID | Data point for weather description text Humidity ID | Data point for humidity Min Temperature ID | Data point for daily minimum temperature Max Temperature ID | Data point for daily maximum temperature Wind speed | Data point for wind speed Wind direction | Data point for wind direction Image URL | Data point with URL to the appropriate weather symbol
+attribute|description|
+----|---- Temperature ID|Data point for current temperature Text ID|Data point for weather description text Humidity ID|Data point for humidity Min Temperature ID|Data point for daily low temperature Max Temperature ID|Data point for daily high temperature wind speed|Data point for wind speed wind direction|Data point for wind direction image URL|data point with URL to the appropriate weather symbol
 
 #### Morning
-Attribute | Description |
----- | ---- Text ID for weather description text Min Temperature ID | Data for low day temperature Max Temperature ID | Highest temperature data point Image URL | Data point with URL to weather icon
+attribute|description|
+----|---- Text ID|Data point for weather description text Min Temperature ID|Data point for daily minimum temperature Max Temperature ID|Data point for daily maximum temperature Image URL|Data point with URL to the appropriate weather symbol
 
-So it goes on for the next days (depending on forecasting needs and click-endurance) ...
+This is how it goes on for the next few days (depending on the need for forecasting and click endurance)...
 
-** Example: **! [016] [: arrow_up: back to top](#TimeWeather) ***************************** **********************
+**Example:** ![016] [:arrow_up: back to top](../../de/viz/#TimeWeather) *********************************** **********************
 
 [001]: media/iobroker-vis-timeandweather_timeandweather_coolclock.png
 

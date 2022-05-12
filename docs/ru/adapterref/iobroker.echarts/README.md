@@ -3,23 +3,26 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: adErFx29GS51MtHt4t3z63MRU+ojFpcIH8aJxYJ3KgQ=
+hash: k+wb/Y8bMxvy/eqo6X/6kaLqYCBO1FxqP3qh5TipVCk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
+![Количество установок](http://iobroker.live/badges/echarts-stable.svg)
 ![версия NPM](http://img.shields.io/npm/v/iobroker.echarts.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.echarts.svg)
-![Статус зависимости](https://img.shields.io/david/ioBroker/iobroker.echarts.svg)
-![Известные уязвимости](https://snyk.io/test/github/ioBroker/ioBroker.echarts/badge.svg)
 
 # IoBroker.echarts
+![Тестируйте и выпускайте](https://github.com/ioBroker/ioBroker.echarts/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/echarts/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+
 ## Адаптер echarts для ioBroker
 Создавайте полезные графики в ioBroker:
 
 ![Снимок экрана](../../../en/adapterref/iobroker.echarts/img/screenshot1.png)
 
-## Применение
-Добавить после перезагрузки вкладку в админке: ![Админ](../../../en/adapterref/iobroker.echarts/img/admin.png)
+## Использование
+Добавить после перезагрузки вкладку в админке: ![Администратор](../../../en/adapterref/iobroker.echarts/img/admin.png)
 
 Доступ к созданному пресету можно получить и в веб-адаптере. URL-адрес: `http://IP:8082/echarts/index.html?preset=echarts.0.PRESETID`.
 
@@ -71,14 +74,14 @@ sendTo('echarts.0', {
 - запуск запуска npm
 - Браузер: http://localhost:8081/adapter/echarts/tab.html?dev=true.
 
-## Сделать
+## Делать
 - виджет для вис (кнопка)
 - виджет для материала
 - показывать значки enum на папках или рядом с ними
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### **ВЫПОЛНЯЕТСЯ** -->
+### **В РАБОТЕ** -->
 
 ## Changelog
 ### **WORK IN PROGRESS**

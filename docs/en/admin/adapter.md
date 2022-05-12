@@ -4,51 +4,51 @@ lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/adapter.md
-hash: WMGHnDlc1DVIkuuUYX/rzRRpv7TElDq4iQ86l+lUBCo=
+hash: svGv1TgKOa2pP8zn85C5t9Xd7FgJNy5dfaEK2af4S84=
 ---
-# The Adapter tab
+# The Adapters tab
 The available and installed adapters are displayed and managed here.
 
 ## The title line
-in the title line there are icons for the most important processes. There is context help for each icon. To do this, simply hold the mouse on the icon for a while.
+The title bar contains icons for the most important processes. There is context help for each icon. Simply hold the mouse on the icon for a while.
 
 ![The Admin tab](../../de/admin/media/ADMIN_Adapter_Kachel_numbers.png)
 
-### 1 - toggle view
+### 1 - Toggle view
 This button can be used to switch between the tile view and the table view (toggle function)
 
-### 2 - update display
-Updates are automatically checked for each restart. This button can be used to start the search manually or to refresh the page.
+### 2 - Update ad
+Every time you restart, it will automatically check for updates. This button can be used to start the search manually or to trigger a refresh of the page.
 
 ### 3 - show only installed adapters
-When this icon is selected, only adapters with instances that have already been installed are displayed (toggle function)
+When you select this icon, only adapters with already installed instances are displayed (toggle function)
 
-### 4 - Show adapter with updates
-When this icon is selected, only adapters for which an update is available are displayed (toggle function). The tiles of the updateable adapters have a green header. If there is no update for an adapter, a corresponding message appears.
+### 4 - View adapters with updates
+When you select this icon, only adapters for which an update is available (toggle function) are displayed. The tiles of the updateable adapters have a green header. If there is no update for an adapter, a corresponding message appears.
 
-Another icon also appears in the title bar:
+In addition, another icon appears in the title bar:
 
 ![The Admin tab](../../de/admin/media/ADMIN_Adapter_Kachel_upgradeable.png)
 
-Clicking this icon (8) updates all available adapters.
+By clicking on this icon (8) all available adapters will be updated.
 
-### 5 - Install adapter from its own URL
-!> **ATTENTION: The use of this option can lead to problems with the ioBroker installation.** Adapters from GitHub may still be under development and therefore not work properly! These should only be used with caution in a productive system. It is recommended to wait for a stable version!
+### 5 - Install adapter from custom URL
+!> **WARNING: Using this option can lead to problems with the ioBroker installation.** GitHub adapters may still be under development and therefore may not work properly! These should only be used with caution in a productive system. It is recommended to wait for a stable version!
 
-Using the Octocat icon, adapters can be installed from their own paths (URL or file paths) or pre-release versions from GitHub.
+Adapters can be installed from their own paths (URL or file paths) or pre-release versions of GitHub using the Octocat icon.
 
-After clicking this icon, a corresponding selection window opens:
+After clicking on this icon, a corresponding selection window opens:
 
-![Install GitHub](../../de/admin/media/ADMIN_Adapter_GitHub.png)
+![Install from GitHub](../../de/admin/media/ADMIN_Adapter_GitHub.png)
 
-Under the ***FROM GITHUB*** tab, simply select the desired adapter in the pull-down menu and the latest preliminary version will be installed.
+Under the ***FROM GITHUB*** tab, the desired adapter is simply selected from the pull-down menu and the latest pre-release is installed.
 
-When selecting the ***ANY*** tab, any file path or URL (e.g. a URL to an external adapter developer) can be entered in the field and the corresponding adapter installed.
+If the ***ANY*** tab is selected, any file path or any URL (e.g. a URL to an external adapter developer) can be entered in the field and the corresponding adapter can be installed.
 
-### 6 - Switch on expert mode
-The expert mode also enables older versions of an adapter to be installed. If this button (9) is selected, an additional icon appears in the tile via which earlier versions can be installed.
+### 6 - Turn on expert mode
+The expert mode also makes it possible to install older versions of an adapter. If this button (9) is selected, an additional icon appears in the tile, which can be used to install earlier versions.
 
 ![Install other versions](../../de/admin/media/ADMIN_Adapter_Kachel_versions.png)
 
-### 7 - filter
-Here you can search for specific adapters using a filter term.
+### 7 - Filters
+Here you can use a filter term to search for specific adapters.

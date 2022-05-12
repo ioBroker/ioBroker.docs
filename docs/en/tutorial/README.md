@@ -4,7 +4,7 @@ lastChanged: 13.09.2018
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/tutorial/README.md
-hash: a6Tc6IhRx7WglNMTJXmxxIRsGBPGJX7+t29VPk0ZCq0=
+hash: xuCzsFfBnKhF4T65zqiU5PrmCbohMrq/mDbDrRMUtSg=
 ---
 # Tutorials
 ?> ***This is a placeholder***.<br><br> Help ioBroker and expand this article. Please note the [ioBroker Style Guide](community/styleguidedoc) so that the changes can be adopted more easily.

@@ -1475,8 +1475,28 @@ messageTo('messageName', dataWithNoResponse);
 onMessage('messageName', (data, callback) => {console.log('Received data: ' + data); callback(null, Date.now())});
 ```
 
-Subscribes on message bus and delivers response via callback.
+Subscribes on javascript adapter message bus and delivers response via callback.
 The response from script which sends response as first will be accepted as answer, all other answers will be ignored.
+
+To send a message to an JavaScript script which is then received by this handler use [messageTo](#messageTo).
+
+To send a message from any other adapter use
+
+```
+    adapter.sendTo('javascript.0', 'toScript', {
+        script: 'script.js.messagetest', 
+        message: 'messageName', 
+        data: {
+            flag: true
+        }
+    });
+```
+
+to send a message from CLI use
+
+```
+iob message javascript.0 toScript '{"script": "script.js.messagetest", "message": "messageName", "data": {"flag": true}}'
+```
 
 ### onMessageUnregister
 ```
@@ -1581,22 +1601,28 @@ Scripts can be activated and deactivated by controlling of this state with ack=f
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.7.0 (2022-05-08)
+* (Apollon77) Allow sending of messages to scripts also from adapters and CLI by sending "toScript" message (see [onMessage Documentation](https://github.com/ioBroker/ioBroker.javascript/blob/master/docs/en/javascript.md#onmessage))
+* (Apollon77) Lists returned by $-selector are now unified and do not contain double entries 
+* (Apollon77) Fix subscribe multiple object ID lists in blockly
+
+### 5.6.1 (2022-05-03)
+* (Apollon77) Allow to subscribe multiple object ID lists in blockly
+* (Apollon77) Make sure lists returned by $-selector do not contain duplicates
+
+### 5.6.0 (2022-04-24)
+* (Apollon77) Make state properties c(omment) and user available to scripts too
+* (Apollon77) make sure values of new or changed alias objects are initialized properly
+* (winnyschuster) Enhance scheduler logic and astro events offered by wizard
+* (Apollon77) Respect expected value changes when determining if a value is changed
+* (Apollon77) Fix remembering intermediate state values when state values are subscribed
+* (Apollon77) fix setState logic when states are not subscribed
+
 ### 5.5.4 (2022-04-03)
 * (bluefox) Tried to solve problem with the font
 
 ### 5.5.3 (2022-03-25)
 * (bluefox) Fixed getObjectAsync function if object does not exist
-
-### 5.5.2 (2022-03-23)
-* (bluefox) Added new rules action block: sum two states (or minus)
-
-### 5.5.0 (2022-03-22)
-* (Apollon77) Prevent Mirror directory being set to central ioBroker directories because can produce various issues
-* (Apollon77) Fixed existsState and existsObject
-* (bluefox) Fixed translations
-
-### 5.4.5 (2022-03-20)
-* (Apollon77) Fix existsState and existsObject
 
 ## License
 The MIT License (MIT)

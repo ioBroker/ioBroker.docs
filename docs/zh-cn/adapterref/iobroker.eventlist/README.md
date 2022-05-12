@@ -3,19 +3,19 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.eventlist/README.md
 title: ioBroker.eventlist
-hash: pMEjj/E/4LClSw8GSTCvaYfgt5JuNQxvWKqQv9loPTQ=
+hash: IvFXtVQyk2CgD6hfwGEKWEdmDXUNUEIvxGYv3mandUE=
 ---
 ![标识](../../../en/adapterref/iobroker.eventlist/admin/eventlist.png)
 
+![安装数量](http://iobroker.live/badges/eventlist-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.eventlist.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.eventlist.svg)
-![安装数量（最新）](http://iobroker.live/badges/eventlist-installed.svg)
-![安装数量（稳定）](http://iobroker.live/badges/eventlist-stable.svg)
-![依赖状态](https://img.shields.io/david/bluefox/iobroker.eventlist.svg)
-![已知漏洞](https://snyk.io/test/github/bluefox/ioBroker.eventlist/badge.svg)
-![新PM](https://nodei.co/npm/iobroker.eventlist.png?downloads=true)
 
 # IoBroker.eventlist
+![测试和发布](https://github.com/ioBroker/iobroker.eventlist/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/eventlist/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+
 ## IoBroker 的事件列表适配器
 允许定义必须在事件列表中记录的状态。
 
@@ -130,7 +130,7 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 - %n - 名称（`%n 将状态更改为 %s` => `设备 A 将状态更改为 5`），
 - %t - time (`State changed state on %t` => `State changed state on Sep Fr, 16:32:00`),
 - %r - 相对时间（`State changed state %r` => `State changed state 5 seconds ago`），
-- %d - 持续时间（`状态处于先前状态 %d` => `状态处于先前状态 5s`），
+- %d - 持续时间（`状态处于先前状态持续 %d` => `状态处于先前状态持续 5 秒`），
 - %g - 值差异（`状态在 %g% 上发生了变化` => `状态在 1% 上发生了变化`），
 - %o - 值差异（`State changed value from %o to %` => `State was changed on 1%`）
 
@@ -150,6 +150,10 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 ### __工作进行中__ -->
 
 ## Changelog
+### 0.5.5 (2022-04-23)
+* (Apollon77) Fix a crash issue
+* (Apollon77) Add Sentry also for the Node.js part
+
 ### 0.5.4 (2022-02-14)
 * (bluefox) Corrected the image paths
 

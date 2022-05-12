@@ -2,7 +2,6 @@
 BADGE-Number of Installations: http://iobroker.live/badges/wolf-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.wolf.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.wolf.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.wolf.png?downloads=true
 ---
 # iobroker.wolf
 
@@ -25,6 +24,16 @@ Der Adapter kann über das ISM8i maximal 4  von den nachfolgenden Heizgeräten a
   Ein Wohnraumlüftungsgerät der Baureihe CWL Excellent kann mit dem ISM8i ebenfalls ausgewertet und bedient werden.
 
 ## Changelog
+### 1.4.0 (2022-04-26)
+* IMPORTANT: Requires now at least js-controller 2.0
+* (Apollon77) Optimize Configuration UI to prevent people from selecting bind interfaces that do not allow external connections!
+* (Apollon77) Correctly create all objects when "Status as bool" is used
+* (Apollon77) Adjust some min/max values
+* (Apollon77/Dark-Tower-Coder) Fix parsing of DP 149
+* (Apollon77/Dark-Tower-Coder) Add encoding of DPT_Date type
+* (Dark-Tower-Coder) return value for DPT_Switch corrected from '0ff' to 'Off'
+* (Apollon77) Add sentry for crash reporting
+
 ### 1.3.4 (2021-11-14)
 * (eifel-tech) Min value of outside temperature corrected
 
@@ -101,7 +110,7 @@ Der Adapter kann über das ISM8i maximal 4  von den nachfolgenden Heizgeräten a
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2021 smiling_Jack
+Copyright (c) 2015-2022 smiling_Jack
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

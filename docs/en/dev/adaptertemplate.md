@@ -1,10 +1,10 @@
 ---
-title: Development - Adapter template
+title: adapter template
 lastChanged: 28.03.2019
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/dev/adaptertemplate.md
-hash: N79zvU0TMH9omf+yOfN2R01++l3/ZMpUE88IdPV7G30=
+hash: f0O7rqRIjJx1FnzTvoNhJgAcMbdb3rMHqQ68thpJkYc=
 ---
 # Adapter documentation template
 ```

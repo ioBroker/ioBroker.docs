@@ -3,28 +3,26 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.email/README.md
 title: электронная почта ioBroker
-hash: mGpv2SOd2J5VYHrF3xxx5reEDja3CX4LhnpHoG0jI7w=
+hash: V9ZiJFBBiK4b2VIceoFz0SVcAzIY1qvrSVAf/tgiaHY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.email/admin/email.png)
 
 ![Количество установок](http://iobroker.live/badges/email-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.email.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.email.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.email.svg)
 
-# IoBroker электронная почта
-![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# Электронная почта ioBroker
+![Тестируйте и выпускайте](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 Отправляйте электронные письма от ioBroker.
 
-Адаптер использует [nodemailer](https://github.com/nodemailer/nodemailer) для обеспечения функциональности.
+Адаптер использует [узел почты](https://github.com/nodemailer/nodemailer) для обеспечения функциональности.
 
-** Для этого адаптера требуется nodejs 6.x или выше !! **
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+Чтобы использовать Gmail, вам может потребоваться настроить «Разрешить менее безопасные приложения» в вашей учетной записи Gmail, если вы не используете 2FA, и в этом случае вам нужно будет создать пароль для конкретного приложения. Вам также может потребоваться разблокировать свою учетную запись с помощью «Разрешить доступ к вашей учетной записи Google», чтобы использовать SMTP.
 
-Чтобы использовать Gmail, вам может потребоваться настроить «Разрешить менее безопасные приложения» в вашей учетной записи Gmail, если вы не используете 2FA, и в этом случае вам придется создать пароль для конкретного приложения. Вам также может потребоваться разблокировать свою учетную запись с помощью «Разрешить доступ к вашей учетной записи Google», чтобы использовать SMTP.
-
-## Применение
+## Использование
 Чтобы отправить электронное письмо из ScriptEngine, просто напишите:
 
 ```
@@ -63,49 +61,52 @@ sendTo("email", {
 });
 ```
 
-Для отправки электронной почты с другого адаптера используйте функцию **adapter.sendTo**
+Для отправки электронной почты с другого адаптера используйте функцию **adapter.sendTo**.
 
-## Поддерживаемые услуги
-- 1und1
-- AOL
+## Поддерживаемые сервисы
+- 1унд1 / ионос
+- АОЛ
 - DebugMail.io
-- DynectEmail
-- FastMail
-- GandiMail
+- DynecEmail
+- Быстрая почта
+- Гандимейл
 - Gmail
-- Godaddy
-- GodaddyAsia
-- GodaddyEurope
+- Годадди
+- ГодаддиАзия
+- GodaddyЕвропа
 - hot.ee
-- Hotmail
-- iCloud
-- i-й
+- Горячая почта
+- айклауд
+- ит
 - mail.ee
 - Mail.ru
-- Mailgun
-- Mailjet
+- Почтовый пистолет
+- Мэйджет
 - Мандрил
-- Naver
-- Office365
-- OpenMailBox
-- Штемпель
+- Навер
+- Офис365
+- Открытый почтовый ящик
+- Почтовый штемпель
 - QQ
 - QQex
-- SendCloud
+- Отправить облако
 - SendGrid
 - СЭС
-- SES-US-EAST-1
-- SES-US-WEST-2
-- SES-EU-WEST-1
-- Sparkpost
+- СЭС-УС-ВОСТОК-1
+- СЭС-УС-ЗАПАД-2
+- СЭС-ЕС-ЗАПАД-1
+- Спаркпост
 - Yahoo
 - Яндекс
 - Зохо
-- Зависит от пользователя (сервер, порт и безопасность определяются вручную)
+- Пользовательский (сервер, порт и безопасность определяются вручную)
 
-Для других услуг см. Документацию **Nodemailer** `§§LLLLL_0§§`
+Информацию о других службах см. в документации **Nodemailer**: `§§LLLLL_0§§`
 
 ## Changelog
+### 1.1.0 (2022-05-11)
+* (Apollon77) Adjust default settings for web.de and 1und1 and add ionos
+* (Apollon77) Add "Always use STARTTLS" option for custom SMTP settings
 
 ### 1.0.10 (2021-07-06)
 * (Apollon77) Optimize for js-controller 3.3
@@ -166,7 +167,7 @@ sendTo("email", {
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 bluefox
+Copyright (c) 2014-2022 bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

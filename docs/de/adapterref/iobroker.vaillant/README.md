@@ -3,30 +3,56 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vaillant/README.md
 title: ioBroker.vaillant
-hash: ymDI8ZplsdIiSUv7PewXXcVVZRhu7E+2vi2cQdqh4Cs=
+hash: k9BpmGloXbMyoDS+FBzvqKGDSzZzftDtDpX1+W57qp4=
 ---
 ![Logo](../../../en/adapterref/iobroker.vaillant/admin/vaillant.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.vaillant.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vaillant.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/vaillant-installed.svg)
+![Anzahl der Installationen (neueste)](http://iobroker.live/badges/vaillant-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/vaillant-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.vaillant.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/TA2k/ioBroker.vaillant/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/TA2k/ioBroker.vaillant/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.vaillant.png?downloads=true)
 
 # IoBroker.vaillant
-## Vaillant Adapter für ioBroker
-Vaillant multiMatic VR900 / VR920 Adapter
+## Vaillant-Adapter für ioBroker
+Vaillant multiMatic VR900/VR920 Adapter
 
-### Fertig machen
-Ändern Sie Objekte in der Ordnerkonfiguration. Einige Konfigurationen funktionieren nur, wenn der Modus auf ON oder MANUAL steht
+### Einstieg
+In den Instanzoptionen mail und password der multimatic /senso app eingeben.
+
+Konfiguration kann geändert werden in dem sie unter dem Unterpunkt Konfiguration angepasst werden. Manche Konfiguration werden erst angewendet, wenn der Modus auf ON oder MANUAL ist und nicht AUTO oder TIME_CONTROLLED
+
+## **Beispiel:**
+**Warmwasser**: vaillant.0.serialnummer.systemcontrol/tli.dhw.hotwater.configuration.hotwater_temperature_setpoint **Heizung**: Erst auf MANUAL vaillant.0.serialnumber.systemcontrol/tli.zones03.heating.configuration.operation_mode MANUAL Dann die Temperatur vaillant.0.serial.systemcontrol/tli.zones03.heating.configuration.manual_mode_temperature_setpoint Und am Ende operation_mode auf TIME_CONTROLLED
+
+Parameter können über den Punkt parameterValue angepasst werden, dabei beachten, welche Werte im Objektdefinition erlaubt sind.
 
 ## Changelog
+### 0.0.15
+
+-   bugfixes
+### 0.0.14
+
+-   add rooms support
+### 0.0.13
+
+-   fix livereport order
+### 0.0.11
+
+-   fix issue with js-controller 3.2
+### 0.0.10
+
+-   fix issue with js-controller 3
+
+### 0.0.8
+
+-   (TA2k) Fix Authorization problem and missing configuration states
 
 ### 0.0.6
 
-- (TA2k) initial release
+-   (TA2k) initial release
 
 ## License
 

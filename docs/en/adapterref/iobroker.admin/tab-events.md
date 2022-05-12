@@ -3,55 +3,55 @@ chapters: {"pages":{"de/adapterref/iobroker.admin/README.md":{"title":{"de":"no 
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/adapterref/iobroker.admin/tab-events.md
-title: The events tab
-hash: Yi2E6W9RHhmNwuCEDkiJSk2tvvns8JKWVvLyrnyoMmo=
+title: The Events tab
+hash: Jd/OCziLpD5NEpRYCSU4SojMo2Q+BeRO1rICq8meWjM=
 ---
 # The Events tab
-In this tab, the current states of all data points are displayed. The values can also be changed.
+The current states of all data points are displayed in this tab. The values can also be changed.
 
 ![iobroker_admin_states_columns](../../../de/adapterref/iobroker.admin/img/tab-events_States_columns.jpg)
 
 ## The page content
-On the page, the existing objects are tabulated. The columns can be sorted alphabetically in ascending or descending order by clicking on the column headers according to the contents of the corresponding columns (toggle function). The fields underneath are used to filter the data points according to their own criteria.
+The existing objects are displayed in tabular form on the page. The columns can be sorted alphabetically in ascending or descending order by clicking on the column headers (toggle function). The fields below are used to filter the data points according to your own criteria.
 
 The table consists of the following columns:
 
 ### **1.) ID**
-This is the unique name of the corresponding data point, according to the structure consisting of e.g. Name of the adapter.Number of the instance.User name.Channel name.Data point name.
+This is the unique name of the corresponding data point, according to the structure consisting of e.g. name of the adapter.number of the instance.device name.channel name.data point name.
 
-### **2.) Parents name**
-The same content as in column 3 name.
+### **2.) Parents Name**
+The same content as in column 3 Name.
 
 ### **3.) Name**
-The name of the data point. This can be an automatically generated or manually assigned name that is more understandable. This name does not have to be unique.
+The name of the data point. This can be an automatically generated or a manually assigned name that is easier to understand. This name does not have to be unique.
 
 ### **4.) Value**
-Here, the current value of the data point is specified.
+The current value of the data point is specified here.
 
 This value is editable
 
 ### **5.) Confirmed**
-If this value has been changed and this is taken from the system, the value _true_, otherwise _false._
+If this value was changed and accepted by the system, the value is _true_, otherwise _false._
 
 ### **6.) Source**
-Here it is specified, which instance has carried out the last change of the data point.
+Here it is specified which instance made the last change to the data point.
 
 ### **7.) Time**
-This is the timestamp to which the data point was last updated.
+This is the timestamp when the data point was last updated.
 
-### **8.) Changed**
-This is the timestamp to which the value of the datapoint last changed.
+### **8.) changed**
+This is the timestamp when the value of the data point last changed.
 
 ## The page footer
-In the page footer, there is still a little information
+There is some information in the footer
 
 ![iobroker_admin_states_footer](../../../de/adapterref/iobroker.admin/img/tab-events_States_footer.jpg)
 
 ### **1.) Reload**
-This icon can be clicked to bring the table up to date.
+This icon can be clicked to update the table.
 
 ### **2.) Page information**
-The info block in the middle of the page foot gives the possibility to adjust the lines per page with the pulldown menu. Available are 20, 100, 200, 500 and 1000 lines per page. Furthermore, there is the information how many pages there are in total, as well as the possibility with the arrow icons the pages forward or back to scroll.
+The info block in the middle of the page footer gives you the option of setting the lines per page with the pull-down menu. 20, 100, 200, 500 and 1000 lines per page are available. Furthermore, there is information on how many pages there are in total, as well as the option of scrolling forwards or backwards using the arrow icons.
 
-### **3.) Data Point Information**
-This information indicates the total number of existing data points and the range displayed on the current page.
+### **3.) Data point information**
+This information indicates the total number of existing data points and the range of them displayed on the current page.

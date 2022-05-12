@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: qNF25xTcFKGUJlb9SWHTwK/ONTLmXpHap/HieI4rNs0=
+hash: yYRwHBw/re4fJL3rlt6NL/pTZsB0qmBhqt3dhh31Xh8=
 ---
-![商标](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
+![标识](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.kostal-piko-ba.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.kostal-piko-ba.svg)
@@ -20,12 +20,12 @@ CI-测试：![Node.js 持续集成](https://github.com/hombach/ioBroker.kostal-p
 
 ## 用于读取 iOBroker 的 Kostal Piko 和 Piko BA 数据的适配器
 用于读取 Kostal Piko 和 Piko BA 数据的适配器。适配器创建一些状态并按顺序更新它们。
-适配器适用于 Kostal Piko 6.0BA、8.0BA、10.0BA、10、12、15、17 和 20 逆变器。
+适配器适用于 Kostal Piko 6.0BA、8.0BA、10.0BA、5.5、7.0、10、12、15、17 和 20 逆变器。
 如果您验证其他逆变器的功能，我们将不胜感激，请给我留言。
 
 ## 设置
-要连接到 Kostal Pico (BA) 逆变器，必须将其 IP 地址设置到配置中。
-您还可以编辑实时数据、每日和实时统计的更新频率。
+请注意，您的逆变器必须更新到 Kostal UI >= 6.11！要连接到 Kostal Pico (BA) 逆变器，必须将其 IP 地址设置到配置中。
+您还可以编辑实时数据、每日和实时统计数据的更新频率。
 如果需要，也可以设置读出 4 个模拟值的标记。
 
 ## 备注
@@ -35,6 +35,12 @@ CI-测试：![Node.js 持续集成](https://github.com/hombach/ioBroker.kostal-p
 
 ! Note that missing version entries are typically dependency updates for security.
 
+### 1.4.5 (03.05.2022)
+* (HombachC) added UI version to sentry feedback and documentation
+### 1.4.4 (01.05.2022)
+* (HombachC) optimized sentry feedback and documentation
+### 1.4.3 (24.04.2022)
+* (HombachC) normalizing of analog values added, bumped dependencies
 ### 1.4.2 (01.02.2022)
 * (HombachC) added support for inverter type, version and name
 * (HombachC) fixed timing error

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: aPE5lBaytBWMN/A1iVEPzyZcr8V1K+9KF+ccJ+64+us=
+hash: 9gnJyAwcPCjaKHPXmw0yoBjhVv61H1nrN463X30Bl3E=
 ---
 # IoBroker.tado
 
@@ -11,19 +11,18 @@ hash: aPE5lBaytBWMN/A1iVEPzyZcr8V1K+9KF+ccJ+64+us=
 ![версия NPM](http://img.shields.io/npm/v/iobroker.tado.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.tado.svg)
 ![Известные уязвимости](https://snyk.io/test/github/DrozmotiX/ioBroker.tado/badge.svg)
+![Статус зависимости](https://img.shields.io/librariesio/release/npm/iobroker.tado)
 ![НПМ](https://nodei.co/npm/iobroker.tado.png?downloads=true)
 
 <img src="./admin/tado.png" width="50" height="50">
 
-[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
-![Тестируйте и выпускайте](https://github.com/DrozmotiX/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
+[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) ![Тестируйте и выпускайте](https://github.com/DrozmotiX/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер tado для ioBroker
 tado° обеспечивает комфортный и здоровый климат, экономя при этом до 31% на счетах за отопление.
 
 ## Поддержите меня
-Если вам нравится моя работа, не стесняйтесь сделать личное пожертвование (это личная ссылка для пожертвования для DutchmanNL, не имеющая отношения к проекту ioBroker! [![Пожертвовать](https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
+Если вам нравится моя работа, не стесняйтесь сделать личное пожертвование (это личная ссылка для пожертвований для DutchmanNL, не имеющая отношения к проекту ioBroker! [![Пожертвовать](https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Вещи, которыми вы можете управлять
 | состояние | Описание |
@@ -52,7 +51,8 @@ tado° обеспечивает комфортный и здоровый кли�
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.15-alpha.2 (2022-02-24)
+### 0.3.15 (2022-02-27)
+* (DutchmanNL) move to jsonConfig.json (Admin 5)
 * (ilueckel) Support steering of ActivateOpenWindow, OpenWindowDetection, childLockEnabled 
 * (HGlab01) Bump iobroker-jsonexplorer to v0.1.9
 * (HGlab01) js-controller 4.0 readiness

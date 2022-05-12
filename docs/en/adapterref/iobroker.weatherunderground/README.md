@@ -73,6 +73,9 @@ http://forum.iobroker.org/viewtopic.php?f=20&t=2042&sid=a863d19838bc49439759bef8
 There is a still a problem with encoding. The addresses with "äüöß" will be shown wrong.
 
 ## Changelog
+### 3.4.2 (2022-04-26)
+* (Apollon77) Added special logging when no current observation data are available because Station most likely offline to reduce confusion
+
 ### 3.4.1 (2022-03-13)
 * (bluefox) Use axios for communication
 * (bluefox) make sure date states are filled correctly

@@ -1,38 +1,38 @@
 ---
-title: 安装
+title: 要求
 lastChanged: 13.09.2018
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/requirements.md
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
-hash: jYPUXpm8ET8LTKs1J7hz/lj9aT42Qcc64vVktdd9Ees=
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/requirements.md
+hash: NnusBp9LIYL0mxqJO8Ohn7FRQ4r50VpSNamCW2xe7lc=
 ---
-＃系统要求
-？&gt; ***这是一张通配符***。 <br><br>帮助ioBroker并扩展这篇文章。请注意[ioBroker风格指南](community/styleguidedoc)，以便更容易采用这些更改。
+＃ 系统要求
+?> ***这是一个占位符***。<br><br>帮助 ioBroker 并扩展本文。请注意[ioBroker 风格指南](community/styleguidedoc)，以便更容易地采用更改。
 
-@@@表包含RAM，cpu，OS，Node.js，npm，构建工具，网络，磁盘空间，SD卡大小@@@
+@@@ 包含 RAM、CPU、操作系统、Node.js、npm、构建工具、网络、磁盘空间、SD 卡大小的表 @@@
 
 ###重新安装
-| |变种|版本|
+| |变体 |版本 |
 |---|:---------:|:-------:|
 
-**运行时环境** | | Node.js | 32- / 64位<br> ppc641e <br> arm v61，armv71，arm64 <br> aix-ppc64，s390x | 8.12.0 **包管理器** | |节点包管理器npm | | 6.4.1
+**运行时环境** | | Node.js | 32 位/64 位<br>ppc641e<br> armv61、armv71、arm64<br> aix-ppc64, s390x | 8.12.0 **包管理器** | |节点数据包管理器 npm | | 6.4.1
 
-ioBroker可以安装在Node.js可用的所有系统上。
+ioBroker 可以安装在所有可以使用 Node.js 的系统上。
 
-###现有安装
-| |变种|版本|
+### 现有安装
+| |变体 |版本 |
 |---|:---------:|:-------:|
 
-**运行时环境** | | Node.js | 32- / 64位<br> ppc641e <br> arm v61，armv71，arm64 <br> aix-ppc64，s390x | 6.0.0  -  10.10.0 <sup>* 1</sup> **包管理器** | |节点包管理器npm | | 3.0.0  -  4.6.1 5.7.1  -  6.4.1
+**运行时环境** | | Node.js | 32 位/64 位<br>ppc641e<br> armv61、armv71、arm64<br> aix-ppc64, s390x | 6.0.0 - 10.10.0 <sup>*1</sup> **包管理器** | |节点数据包管理器 npm | | 3.0.0 - 4.6.1 5.7.1 - 6.4.1
 
-<sup>* 1</sup>以下适配器仍然存在Node.js版本&gt; = 10.0的问题：
+<sup>*1</sup>以下适配器在 Node.js 版本 &gt;= 10.0 时仍然存在问题：
 
- -  maxcul（因为串口依赖）
- -  noolite（因为串行端口依赖）
- -  wetty（因为pty.js依赖）
+- maxcul (由于串口依赖)
+- noolite（由于串口依赖）
+- 潮湿（由于 pty.js 依赖）
 
-###支持的操作系统
-| |变种|
+### 支持的操作系统
+| |变体 |
 |---|:---------:|
 
-* Windows *| Windows 7 | 32/64位Windows Server 2008 R2 | 64位/ IA64版Windows 8 | 32/64位Windows Server 2012 | 64位Windows 8.1 | 32/64位Windows Server 2012 R2 | 64位Windows 10 | 32/64位Windows Server 2016 | 64位* Linux发行版* | Arch和Derivatives | Debian和衍生品|例如Ubuntu，Bananian， <br> Cubian，Raspbian，Knoppix Gentoo和衍生物|红帽和衍生品|例如Fedora，Pidora， <br> CentOS，Mandriva Slackware和Derivatives |例如openSUSE* 他* | macos | 64位Linux From Scratch |
+*视窗* |视窗 7 | 32 位/64 位 Windows Server 2008 R2 | 64 位/IA64 版 Windows 8 | 32 位/64 位 Windows Server 2012 | 64 位 Windows 8.1 | 32 位/64 位 Windows Server 2012 R2 | 64 位 Windows 10 | 32 位/64 位 Windows Server 2016 | 64 位 *Linux 发行版* |拱门和衍生物 | Debian 及其衍生产品 |例如 Ubuntu、Bananian、<br> Cubian、Raspbian、Knoppix Gentoo 及其衍生产品 |红帽及其衍生产品 |例如 Fedora、Pidora、<br> CentOS、Mandriva Slackware 和衍生产品 |例如 openSUSE* 他* | macOS |从零开始的 64 位 Linux |

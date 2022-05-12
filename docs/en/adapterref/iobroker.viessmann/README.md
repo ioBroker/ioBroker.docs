@@ -78,6 +78,9 @@ mit dem gewünschten *get* Wert beschrieben werden.
 
 ### Changelog
 
+#### 1.3.6 (12.04.2022)
+* (misanorot) fixed ssh errors
+
 #### 1.3.5 (08.02.2022)
 * (misanorot) fixed ack issues
 

@@ -1,12 +1,12 @@
 ---
 title: Tutorial
 lastChanged: 13.09.2018
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/tutorial/viz.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: EEm6AD2quZyHrMQEVBvJ6ang59s2h7YUVBd2wTIKozk=
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/tutorial/viz.md
+hash: rCxkWvMkWdktIZ7q0BW0O4MjKsezqjoQmwHOXoBZp38=
 ---
 # Visualization
-?> ***This is a wildcard*** . <br><br> Help with ioBroker and extend this article. Please note the [ioBroker style guide](community/styleguidedoc), so that the changes can be adopted more easily.
+?> ***This is a placeholder***.<br><br> Help ioBroker and expand this article. Please note the [ioBroker Style Guide](community/styleguidedoc) so that the changes can be adopted more easily.
 
-@@@ Small sample project with VIS. Notes on material, ... @@@
+@@@ Small sample project with VIS. References to material, ... @@@

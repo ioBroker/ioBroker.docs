@@ -4,7 +4,7 @@ lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/cloud/androidapp.md
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
-hash: Acis0EoRIOIzxc9vwFscR3NSQfzCFV9c9HhXBZsLbEQ=
+hash: Rj3SjOw7mcCokZKTLvjUxi2iAfUUhx8k6LRnng42m4s=
 ---
-#Android应用
-？&gt; ***这是一张通配符***。 <br><br>帮助ioBroker并扩展这篇文章。请注意[ioBroker风格指南](community/styleguidedoc)，以便更容易采用这些更改。
+# 安卓应用
+?> ***这是一个占位符***。<br><br>帮助 ioBroker 并扩展本文。请注意 [ioBroker 风格指南](community/styleguidedoc)，以便更容易地采用更改。

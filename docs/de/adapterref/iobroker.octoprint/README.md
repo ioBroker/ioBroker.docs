@@ -2,8 +2,7 @@
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.octoprint.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.octoprint.svg
 BADGE-Stable: http://iobroker.live/badges/octoprint-stable.svg
-BADGE-installed: http://iobroker.live/badges/octoprint-installed.svg
-BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.octoprint.svg
+BADGE-Installed: http://iobroker.live/badges/octoprint-installed.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.octoprint/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.octoprint.png?downloads=true
 ---
@@ -63,6 +62,19 @@ Bitte nutzt den Datenpunkt `system.adapter.octoprint.0.alive` um die Instanz zu 
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+NodeJS 14.x is required (NodeJS 12.x is EOL)
+
+### 3.2.2 (2022-04-29)
+
+* (klein0r) Updated depedency for js-controller to 4.0.15
+
+### 3.2.1 (2022-04-28)
+
+* (klein0r) Get thumbnail url of current file and copy value to printjob (requires plugin Slicer Thumbnails)
+* (klein0r) Updated log messages
+
 ### 3.2.0 (2022-03-07)
 
 Tested with OctoPrint 1.7.3

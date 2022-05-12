@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.modbus/README.md
 title: iobroker.modbus
-hash: 6ihvNTS9IQ0s/EJxUaZkvchdS3VNKWhn7KMwNIKW7w8=
+hash: 1UC/4LI62QKWFPnDBX9RhoLf4c0z5k9i2CzBLFrI6ZY=
 ---
 ![Logo](../../../en/adapterref/iobroker.modbus/admin/modbus.png)
 
@@ -32,7 +32,7 @@ TCP Port des Modbus-Partners, wenn als Master (Client) konfiguriert, oder eigene
 ### Geräte ID
 Modbus-Geräte-ID. Wichtig, wenn TCP/Modbus Bridge verwendet wird.
 
-### Art
+### Typ
 Slave (Server) oder Master (Client).
 
 ### Aliase als Adresse verwenden
@@ -71,7 +71,7 @@ Timeout für Leseanfragen in Millisekunden.
 Wenn Impuls für Spulen verwendet wird, definiert dies das Intervall, wie lange der Impuls ist.
 
 ### Wartezeit
-Wartezeit zwischen Abfrage zweier unterschiedlicher Geräte-IDs in Millisekunden.
+Wartezeit zwischen dem Abfragen zweier unterschiedlicher Geräte-IDs in Millisekunden.
 
 ### Maximale Leseanforderungslänge
 Maximale Länge des Befehls READ_MULTIPLE_REGISTERS als Anzahl der zu lesenden Register.
@@ -81,7 +81,7 @@ Sie können diesen Modus erzwingen, indem Sie die "Max. Leseanforderungslänge" 
 
 **Hinweis:** Einige USB-Modbus-Lösungen (z. B. basierend auf socat) können Probleme haben, mit dem Serialport-npm-Modul zu arbeiten.
 
-Es gibt ein Software-Gateway [**Modbus RTU <-> Modbus RTU über TCP**](http://mbus.sourceforge.net/index.html), um die Verwendung des seriellen RTU-über-TCP-Protokolls zu ermöglichen.
+Es gibt ein Software-[**Modbus RTU <-> Modbus RTU über TCP**](http://mbus.sourceforge.net/index.html)-Gateway, um die Verwendung des seriellen RTU-über-TCP-Protokolls zu ermöglichen.
 
 Beide Lösungen **RTU over TCP** und **TCP** funktionieren gut.
 
@@ -101,7 +101,7 @@ Fügen Sie der generierten ioBroker-ID keine Adresse hinzu. `10_Input10` vs. `In
 Mit diesem Flag ist der Name `Inputs.Input10`. Ohne => `Inputs_Input10`
 
 ## Parameter für einzelne Adresszeile in Konfig
-### Adresse
+### Die Anschrift
 Zu lesende Modbus-Adresse
 
 ### Slave-ID
@@ -116,7 +116,7 @@ Parameterbeschreibung
 ### Einheit
 Einheit des Parameters
 
-### Art
+### Typ
 Vom Bus zu lesender Datentyp. Einzelheiten zu den möglichen Datentypen finden Sie im Abschnitt Datentypen
 
 ### Länge
@@ -126,7 +126,7 @@ Länge des Parameters. Für die meisten Parameter wird dies anhand des Datentyps
 Dieser Faktor wird verwendet, um den gelesenen Wert von Bus für die statische Skalierung zu multiplizieren. Die Berechnung sieht also wie folgt aus: val = x * Factor + Offset
 
 ### Versatz
-Dieser Offset wird nach obiger Multiplikation zum gelesenen Wert addiert. Die Berechnung sieht also wie folgt aus: val = x * Factor + Offset
+Dieser Offset wird nach obiger Multiplikation zum gelesenen Wert addiert. Die Berechnung sieht also folgendermaßen aus: val = x * Factor + Offset
 
 ### Formel
 Dieses Feld kann für erweiterte Berechnungen verwendet werden, wenn Faktor und Offset nicht ausreichen. Wenn dieses Feld gesetzt ist, werden die Felder Factor und Offset ignoriert.
@@ -157,36 +157,36 @@ Zyklisches Schreiben
 Wert als Skalierungsfaktor verwenden. Dies wird benötigt, um dynamische Skalierungsfaktoren zu verwenden, die auf einigen Systemen durch Werte auf der Schnittstelle bereitgestellt werden. Wenn ein Wert mit diesem Flac markiert ist, dann wird der Wert in einer Variablen mit folgender Namenskonvention gespeichert: sf['Modbus_address']. Diese Variable kann dann später in beliebigen Formeln für andere Parameter verwendet werden. Z.B. Folgende Formel kann gesetzt werden: "(x * sf['40065']) + 50;"
 
 ## Datentypen
-- uint16be - 16-Bit ohne Vorzeichen (Big Endian): AABB => AABB
-- uint16le - 16-Bit ohne Vorzeichen (Little Endian): AABB => BBAA
-- int16be - Vorzeichenbehaftetes 16-Bit (Big Endian): AABB => AABB
-- int16le - Vorzeichenbehaftetes 16-Bit (Little Endian): AABB => BBAA
-- uint32be - Unsigned 32 Bit (Big Endian): AABBCCDD => AABBCCDD
-- uint32le - Unsigned 32 Bit (Little Endian): AABBCCDD => DDCCBBAA
-- uint32sw - Unsigned 32 Bit (Big Endian Word Swap): AABBCCDD => CCDDAABB
-- uint32sb - Unsigned 32 Bit (Big Endian Byte Swap): AABBCCDD => DDCCBBAA
-- int32be - 32 Bit mit Vorzeichen (Big Endian): AABBCCDD => AABBCCDD
-- int32le - Signiertes 32-Bit (Little Endian): ABBCCDD => DDCCBBAA
-- int32sw - 32 Bit mit Vorzeichen (Big Endian Word Swap): AABBCCDD => CCDDAABB
-- int32sb - 32 Bit mit Vorzeichen (Big Endian Byte Swap): AABBCCDD => DDCCBBAA
-- uint64be - 64-Bit ohne Vorzeichen (Big Endian): AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH
-- uint64le - 64-Bit ohne Vorzeichen (Little Endian): AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA
-- uint8be - 8 Bit ohne Vorzeichen (Big Endian): AA => AA
-- uint8le - 8 Bit ohne Vorzeichen (Little Endian): AA => AA
-- int8be - Signiertes 8-Bit (Big Endian): AA => AA
-- int8le - Signiertes 8-Bit (Little Endian): AA => AA
-- Floatbe - Float (Big Endian): AABBCCDD => AABBCCDD
-- Floatle - Float (Little Endian): AABBCCDD => DDCCBBAA
-- floatsw - Float (Big-Endian-Worttausch): AABBCCDD => CCDDAABB
-- floatsb - Float (Big-Endian-Byte-Swap): AABBCCDD => DDCCBBAA
-- doublebe - Double (Big Endian): AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH
-- doublele - Double (Little Endian): AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA
-- Zeichenfolge - Zeichenfolge (Null-Ende): ABCDEF\0 => ABCDEF\0
-- Zeichenfolge - Zeichenfolge (Little Endian, Null-Ende): BADCFE\0 => ABCDEF\0
+- `uint16be` - `Unsigned 16 bit (Big Endian): AABB => AABB`
+- `uint16le` - `Unsigned 16 bit (Little Endian): AABB => BBAA`
+- `int16be` - `Signed 16 bit (Big Endian): AABB => AABB`
+- `int16le` - `Signed 16 bit (Little Endian): AABB => BBAA`
+- `uint32be` - `Unsigned 32 bit (Big Endian): AABBCCDD => AABBCCDD`
+- `uint32le` - `Unsigned 32 bit (Little Endian): AABBCCDD => DDCCBBAA`
+- `uint32sw` - `Unsigned 32 bit (Big Endian Word Swap): AABBCCDD => CCDDAABB`
+- `uint32sb` - `Unsigned 32 bit (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
+- `int32be` - `Signed 32 bit (Big Endian): AABBCCDD => AABBCCDD`
+- `int32le` - `Signed 32 bit (Little Endian): ABBCCDD => DDCCBBAA`
+- `int32sw` - `Signed 32 bit (Big Endian Word Swap): AABBCCDD => CCDDAABB`
+- `int32sb` - `Signed 32 bit (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
+- `uint64be` - `Unsigned 64 bit (Big Endian): AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH`
+- `uint64le` - `Unsigned 64 bit (Little Endian): AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA`
+- `uint8be` - `Unsigned 8 bit (Big Endian): AA => AA`
+- `uint8le` - `Unsigned 8 bit (Little Endian): AA => AA`
+- `int8be` - `Vorzeichenbehaftetes 8-Bit (Big Endian): AA => AA`
+- `int8le` - `Vorzeichenbehaftetes 8-Bit (Little Endian): AA => AA`
+- `floatbe` - `Float (Big Endian): AABBCCDD => AABBCCDD`
+- `floatle` - `Float (Little Endian): AABBCCDD => DDCCBBAA`
+- `floatsw` - `Float (Big Endian Worttausch): AABBCCDD => CCDDAABB`
+- `floatsb` - `Float (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
+- `doublebe` - `Double (Big Endian): AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH`
+- `doublele` - `Double (Little Endian): AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA`
+- `string` - `String (Null-Ende): ABCDEF\0 => ABCDEF\0`
+- `stringle` - `String (Little Endian, Null-Ende): BADCFE\0 => ABCDEF\0`
 
-Folgende Beschreibung wurde aus [Hier](http://www.chipkin.com/how-real-floating-point-and-32-bit-data-is-encoded-in-modbus-rtu-messages/) kopiert
+Folgende Beschreibung wurde aus [hier](http://www.chipkin.com/how-real-floating-point-and-32-bit-data-is-encoded-in-modbus-rtu-messages/) kopiert
 
-Das Punkt-zu-Punkt-Modbus-Protokoll ist eine beliebte Wahl für die RTU-Kommunikation, wenn auch nur aus einfachen Gründen. Das Protokoll selbst steuert die Interaktionen jedes Geräts in einem Modbus-Netzwerk, wie das Gerät eine bekannte Adresse festlegt, wie jedes Gerät seine Nachrichten erkennt und wie grundlegende Informationen aus den Daten extrahiert werden. Im Wesentlichen ist das Protokoll die Grundlage des gesamten Modbus-Netzwerks.
+Das Punkt-zu-Punkt-Modbus-Protokoll ist eine beliebte Wahl für die RTU-Kommunikation, allein schon wegen seiner grundlegenden Bequemlichkeit. Das Protokoll selbst steuert die Interaktionen jedes Geräts in einem Modbus-Netzwerk, wie das Gerät eine bekannte Adresse festlegt, wie jedes Gerät seine Nachrichten erkennt und wie grundlegende Informationen aus den Daten extrahiert werden. Im Wesentlichen ist das Protokoll die Grundlage des gesamten Modbus-Netzwerks.
 
 Dieser Komfort kommt jedoch nicht ohne Komplikationen, und das Modbus RTU-Nachrichtenprotokoll ist keine Ausnahme. Das Protokoll selbst wurde basierend auf Geräten mit einer Registerlänge von 16 Bit entwickelt. Folglich waren bei der Implementierung von 32-Bit-Datenelementen besondere Überlegungen erforderlich. Diese Implementierung entschied sich für die Verwendung von zwei aufeinanderfolgenden 16-Bit-Registern, um 32 Datenbits oder im Wesentlichen 4 Datenbytes darzustellen. Innerhalb dieser 4 Datenbytes können Gleitkommadaten mit einfacher Genauigkeit in eine Modbus-RTU-Nachricht codiert werden.
 
@@ -197,7 +197,7 @@ Beispielsweise sieht die Zahl 123/456,00, wie sie im IEEE 754-Standard für 32-B
 
 ![Bild1](../../../en/adapterref/iobroker.modbus/img/img1.png)
 
-Die Auswirkungen verschiedener Byte-Ordnungen sind signifikant. Beispielsweise wird die Anordnung der 4 Datenbytes, die 123456,00 darstellen, in einer „B A D C“-Sequenz als „Byte-Swap“ bezeichnet. Bei der Interpretation als IEEE 744-Gleitkommadatentyp ist das Ergebnis ganz anders:
+Die Auswirkungen verschiedener Byte-Reihenfolgen sind erheblich. Beispielsweise wird die Anordnung der 4 Datenbytes, die 123456,00 darstellen, in einer `B A D C`-Sequenz als „Byte-Swap“ bezeichnet. Bei der Interpretation als IEEE 744-Gleitkommadatentyp ist das Ergebnis ganz anders:
 
 ![Bild2](../../../en/adapterref/iobroker.modbus/img/img2.png)
 
@@ -214,7 +214,8 @@ Bei der Verwendung von Netzwerkprotokollen wie Modbus muss natürlich streng dar
 ### Bestimmung der Byte-Reihenfolge
 Das Modbus-Protokoll selbst ist gemäß der Modbus Application Protocol Specification, V1.1.b, als „Big-Endian“-Protokoll deklariert:
 
-```Modbus uses a “big-Endian” representation for addresses and data items. This means that when a numerical quantity larger than a single byte is transmitted, the most significant byte is sent first.```
+**Modbus verwendet eine „Big-Endian“-Darstellung für Adressen und Datenelemente.
+Das heißt, wenn eine Zahl größer als ein einzelnes Byte übertragen wird, wird das höchstwertige Byte zuerst gesendet.**
 
 Big-Endian ist das am häufigsten verwendete Format für Netzwerkprotokolle – so verbreitet, dass es auch als „Netzwerkordnung“ bezeichnet wird.
 
@@ -252,7 +253,7 @@ Die folgende Tabelle zeigt die Verschiebungen der FieldServer-Funktion, die eine
 | 1.float-2.i16-sb |Bytetausch | [ ein b ] [ c d ] | [ b a ][ d c ] |
 | 1.float-2.i16-sw |Worttausch | [ ein b ] [ c d ] | [ c d ][ a b ] |
 
-Angesichts der verschiedenen Verschiebungen von FieldServer-Funktionen hängt die korrekte Handhabung von 32-Bit-Daten von der Auswahl der richtigen ab. Beachten Sie das folgende Verhalten dieser FieldServer-Funktionsbewegungen bei dem bekannten Dezimalwert 123456,00 mit einfacher Genauigkeit:
+Angesichts der verschiedenen Verschiebungen von FieldServer-Funktionen hängt die korrekte Handhabung von 32-Bit-Daten von der Auswahl der richtigen ab. Beachten Sie das folgende Verhalten dieser FieldServer-Funktionsverschiebungen bei dem bekannten Dezimalwert mit einfacher Genauigkeit von 123456,00:
 
 |16-Bit-Werte | Funktion Bewegen | Ergebnis | Funktion Bewegen | Ergebnis |
 |---------------|-------------------|-----------|-------------------|---------------|
@@ -263,7 +264,7 @@ Angesichts der verschiedenen Verschiebungen von FieldServer-Funktionen hängt di
 
 Beachten Sie, dass unterschiedliche Byte- und Wortreihenfolgen die Verwendung der entsprechenden FieldServer-Funktion move erfordern. Sobald die richtige Funktion Move ausgewählt ist, können die Daten in beide Richtungen konvertiert werden.
 
-Von den vielen Hex-zu-Gleitkomma-Konvertern und -Rechnern, die im Internet verfügbar sind, erlauben nur sehr wenige tatsächlich die Manipulation der Byte- und Wortreihenfolgen. Eines dieser Dienstprogramme befindet sich unter www.61131.com/download.htm, wo sowohl Linux- als auch Windows-Versionen der Dienstprogramme heruntergeladen werden können. Nach der Installation wird das Dienstprogramm als ausführbare Datei mit einer einzigen Dialogschnittstelle ausgeführt. Das Dienstprogramm stellt den dezimalen Gleitkommawert von 123456,00 wie folgt dar:
+Von den vielen Hex-zu-Gleitkomma-Konvertern und -Rechnern, die im Internet verfügbar sind, erlauben nur sehr wenige tatsächlich die Manipulation der Byte- und Wortreihenfolge. Eines dieser Dienstprogramme befindet sich unter www.61131.com/download.htm, wo sowohl Linux- als auch Windows-Versionen der Dienstprogramme heruntergeladen werden können. Nach der Installation wird das Dienstprogramm als ausführbare Datei mit einer einzigen Dialogschnittstelle ausgeführt. Das Dienstprogramm stellt den dezimalen Gleitkommawert von 123456,00 wie folgt dar:
 
 ![Bild5](../../../en/adapterref/iobroker.modbus/img/img5.png)
 
@@ -281,6 +282,14 @@ Im Ordner *test' befinden sich einige Programme zum Testen der TCP-Kommunikation
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 5.0.0 (2022-05-11)
+* BREAKING: All space characters will be replaced with underscores now in the Objects IDs, not only the first one.
+* (Apollon77) Catch error reported by sentry when invalid Master port is entered
+* (bluefox) GUI migrated to mui-v5
+
+### 4.0.4 (2022-03-25)
+* (Apollon77/UncleSamSwiss) Prevent invalid state log
+
 ### 4.0.3 (2022-03-21)
 * (bluefox) Updated serial port package
 * (bluefox) Minimal node.js version is 12

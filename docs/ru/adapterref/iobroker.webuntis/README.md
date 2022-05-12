@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.webuntis/README.md
 title: ioBroker.webuntis
-hash: PCFCSeMr0GsPe9cjkNnOhtzHJgSz/13b4IH1ltEGDes=
+hash: Zwco+BJoxgA1O8l9hSoW9kzalAWqPR6r0D6b8jVq5PI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.webuntis/admin/webuntis.png)
 
@@ -23,12 +23,15 @@ hash: PCFCSeMr0GsPe9cjkNnOhtzHJgSz/13b4IH1ltEGDes=
 Адаптер Dieser не содержит данных в Webuntis.
 Für eine deutsche Anleitung [Hier нажмите](readme/readme.de.md)
 
+## Пожертвование
+[![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
+
 ## Начиная
 После установки адаптера в iobroker автоматически открывается окно конфигурации.
 
 Теперь перейдите на https://webuntis.com и введите название школы в поле поиска.
 
-![вебунтис_старт](../../../en/adapterref/iobroker.webuntis/readme/img/webuntis_start.png)
+![webuntis_start](../../../en/adapterref/iobroker.webuntis/readme/img/webuntis_start.png)
 
 теперь вам нужно получить строки с интернет-адреса школьного сайта из webuntis:
 
@@ -57,6 +60,9 @@ Für eine deutsche Anleitung [Hier нажмите](readme/readme.de.md)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.4 (2022-05-08)
+* change log-level for error messages
+
 ### 0.3.3 (2022-04-03)
 * Add errorhandling for timetable
 

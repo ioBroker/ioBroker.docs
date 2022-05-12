@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: aPE5lBaytBWMN/A1iVEPzyZcr8V1K+9KF+ccJ+64+us=
+hash: 9gnJyAwcPCjaKHPXmw0yoBjhVv61H1nrN463X30Bl3E=
 ---
 # IoBroker.tado
 
@@ -11,13 +11,12 @@ hash: aPE5lBaytBWMN/A1iVEPzyZcr8V1K+9KF+ccJ+64+us=
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.tado.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.tado.svg)
 ![已知漏洞](https://snyk.io/test/github/DrozmotiX/ioBroker.tado/badge.svg)
+![依赖状态](https://img.shields.io/librariesio/release/npm/iobroker.tado)
 ![新PM](https://nodei.co/npm/iobroker.tado.png?downloads=true)
 
 <img src="./admin/tado.png" width="50" height="50">
 
-[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
-![测试和发布](https://github.com/DrozmotiX/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
+[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)![测试和发布](https://github.com/DrozmotiX/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 tado 适配器
 tado° 确保舒适健康的气候，同时节省高达 31% 的取暖费。
@@ -52,7 +51,8 @@ tado° 确保舒适健康的气候，同时节省高达 31% 的取暖费。
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.15-alpha.2 (2022-02-24)
+### 0.3.15 (2022-02-27)
+* (DutchmanNL) move to jsonConfig.json (Admin 5)
 * (ilueckel) Support steering of ActivateOpenWindow, OpenWindowDetection, childLockEnabled 
 * (HGlab01) Bump iobroker-jsonexplorer to v0.1.9
 * (HGlab01) js-controller 4.0 readiness

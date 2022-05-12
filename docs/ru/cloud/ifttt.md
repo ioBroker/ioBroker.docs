@@ -4,7 +4,7 @@ lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/cloud/ifttt.md
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
-hash: wZFphTOPcdgxVVFZRXpvwxkcrl2JlRD/8ym8wy8za3M=
+hash: d54JegGTv7x+JHzn/4ZWs/hAMJ0AM3Y7W4WZXl73J48=
 ---
 # Использование IFTTT
-?> ***Это подстановочный знак*** . <br><br> Помогите с ioBroker и расширьте эту статью. Пожалуйста, обратите внимание на [Руководство по стилю ioBroker](community/styleguidedoc), чтобы изменения могли быть легко приняты.
+?> ***Это заполнитель***.<br><br> Помогите ioBroker и дополните эту статью. Пожалуйста, обратите внимание на [Руководство по стилю ioBroker](community/styleguidedoc), чтобы упростить принятие изменений.

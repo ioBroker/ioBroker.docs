@@ -13,8 +13,8 @@
           "title": {
             "en": "Introduction",
             "de": "Aufbau der Doku",
-            "ru": "Структура документации",
-            "zh-cn": "文档的结构"
+            "ru": "Структура документального фильма",
+            "zh-cn": "纪录片的结构"
           },
           "content": "intro/README.md"
         }
@@ -50,7 +50,7 @@
           "title": {
             "en": "Adapter & Instanzen",
             "de": "Adapter und Controller",
-            "ru": "Адаптеры и контроллеры",
+            "ru": "адаптеры и контроллеры",
             "zh-cn": "适配器和控制器"
           },
           "content": "basics/adapter.md"
@@ -68,7 +68,7 @@
           "title": {
             "en": "Objects",
             "de": "Objekte",
-            "ru": "Объекты",
+            "ru": "объекты",
             "zh-cn": "对象"
           },
           "content": "basics/objects.md"
@@ -95,7 +95,7 @@
           "title": {
             "en": "Enums",
             "de": "Funktionen",
-            "ru": "Функции",
+            "ru": "функции",
             "zh-cn": "职能"
           },
           "content": "basics/functions.md"
@@ -123,7 +123,7 @@
           "title": {
             "en": "Introduction",
             "de": "Introduction",
-            "ru": "Введение",
+            "ru": "Вступление",
             "zh-cn": "介绍"
           },
           "content": "install/README.md"
@@ -132,8 +132,8 @@
           "title": {
             "en": "Requirements",
             "de": "Anforderungen",
-            "ru": "установка",
-            "zh-cn": "安装"
+            "ru": "требования",
+            "zh-cn": "要求"
           },
           "content": "install/requirements.md"
         },
@@ -204,7 +204,7 @@
               "title": {
                 "en": "Linux",
                 "de": "Linux",
-                "ru": "Linux",
+                "ru": "линукс",
                 "zh-cn": "Linux"
               },
               "content": "install/linux.md"
@@ -222,8 +222,8 @@
               "title": {
                 "en": "macOS",
                 "de": "OS X",
-                "ru": "OS X",
-                "zh-cn": "OS X."
+                "ru": "ОС Х",
+                "zh-cn": "操作系统"
               },
               "content": "install/macos.md"
             }
@@ -259,7 +259,7 @@
               "title": {
                 "en": "Adapter",
                 "de": "Update eines Adapters",
-                "ru": "Обновить адаптер",
+                "ru": "Обновите адаптер",
                 "zh-cn": "更新适配器"
               },
               "content": "install/updateadapter.md"
@@ -290,7 +290,7 @@
           "title": {
             "en": "System settings",
             "de": "Systemeinstellungen",
-            "ru": "Системные настройки",
+            "ru": "системные настройки",
             "zh-cn": "系统设置"
           },
           "content": "admin/settings.md"
@@ -317,7 +317,7 @@
           "title": {
             "en": "Instances",
             "de": "Instanzen",
-            "ru": "Экземпляры",
+            "ru": "экземпляры",
             "zh-cn": "实例"
           },
           "content": "admin/instances.md"
@@ -326,7 +326,7 @@
           "title": {
             "en": "Objects",
             "de": "Objekte",
-            "ru": "Объекты",
+            "ru": "объекты",
             "zh-cn": "对象"
           },
           "content": "admin/objects.md"
@@ -335,7 +335,7 @@
           "title": {
             "en": "Enumerations",
             "de": "Aufzählungen",
-            "ru": "Перечисления",
+            "ru": "перечисления",
             "zh-cn": "枚举"
           },
           "content": "admin/enums.md"
@@ -344,7 +344,7 @@
           "title": {
             "en": "Log",
             "de": "Log",
-            "ru": "бревно",
+            "ru": "журнал",
             "zh-cn": "日志"
           },
           "content": "admin/log.md"
@@ -353,7 +353,7 @@
           "title": {
             "en": "Events",
             "de": "Ereignisse",
-            "ru": "Мероприятия",
+            "ru": "События",
             "zh-cn": "事件"
           },
           "content": "admin/events.md"
@@ -371,7 +371,7 @@
           "title": {
             "en": "Hosts",
             "de": "Hosts",
-            "ru": "Хосты",
+            "ru": "хозяева",
             "zh-cn": "主机"
           },
           "content": "admin/hosts.md"
@@ -399,7 +399,7 @@
           "title": {
             "en": "First setup",
             "de": "Tutorial",
-            "ru": "учебник",
+            "ru": "Руководство",
             "zh-cn": "教程"
           },
           "content": "tutorial/setup.md"
@@ -408,7 +408,7 @@
           "title": {
             "en": "User interface",
             "de": "Tutorial",
-            "ru": "учебник",
+            "ru": "Руководство",
             "zh-cn": "教程"
           },
           "content": "tutorial/admin.md"
@@ -426,7 +426,7 @@
           "title": {
             "en": "Simple logic",
             "de": "Tutorial",
-            "ru": "учебник",
+            "ru": "Руководство",
             "zh-cn": "教程"
           },
           "content": "tutorial/logic.md"
@@ -435,7 +435,7 @@
           "title": {
             "en": "Visualisation",
             "de": "Tutorial",
-            "ru": "учебник",
+            "ru": "Руководство",
             "zh-cn": "教程"
           },
           "content": "tutorial/viz.md"
@@ -444,7 +444,7 @@
           "title": {
             "en": "Data logging",
             "de": "Tutorial",
-            "ru": "учебник",
+            "ru": "Руководство",
             "zh-cn": "教程"
           },
           "content": "tutorial/history.md"
@@ -453,7 +453,7 @@
           "title": {
             "en": "Charts",
             "de": "Tutorial",
-            "ru": "учебник",
+            "ru": "Руководство",
             "zh-cn": "教程"
           },
           "content": "tutorial/flot.md"
@@ -490,8 +490,8 @@
           "title": {
             "en": "Material",
             "de": "Material",
-            "ru": "визуализация",
-            "zh-cn": "可视化"
+            "ru": "материал",
+            "zh-cn": "材料"
           },
           "content": "viz/material.md"
         },
@@ -516,8 +516,8 @@
                   "title": {
                     "en": "Allgemeine Einstellungen",
                     "de": "Widgets",
-                    "ru": "Виджеты",
-                    "zh-cn": "小工具"
+                    "ru": "виджеты",
+                    "zh-cn": "小部件"
                   },
                   "content": "viz/widgets.md"
                 },
@@ -533,8 +533,8 @@
                       "title": {
                         "en": "Basic",
                         "de": "Basic",
-                        "ru": "основной",
-                        "zh-cn": "基本"
+                        "ru": "базовый",
+                        "zh-cn": "基本的"
                       },
                       "content": "viz/basic.md"
                     },
@@ -542,8 +542,8 @@
                       "title": {
                         "en": "Fancyswitch",
                         "de": "Fancyswitch",
-                        "ru": "Fancyswitch",
-                        "zh-cn": "Fancyswitch"
+                        "ru": "необычный переключатель",
+                        "zh-cn": "花式开关"
                       },
                       "content": "viz/fancyswitch.md"
                     }
@@ -730,7 +730,7 @@
           "title": {
             "en": "iOS App",
             "de": "Cloud",
-            "ru": "Облако",
+            "ru": "облако",
             "zh-cn": "云"
           },
           "content": "cloud/iosapp.md"
@@ -749,8 +749,8 @@
           "title": {
             "en": "Introduction",
             "de": "Einleitung",
-            "ru": "инициация",
-            "zh-cn": "引发"
+            "ru": "вступление",
+            "zh-cn": "介绍"
           },
           "content": "config/README.md"
         },
@@ -758,7 +758,7 @@
           "title": {
             "en": "User und rights control",
             "de": "Benutzerverwaltung",
-            "ru": "Администрирование пользователей",
+            "ru": "Управление пользователями",
             "zh-cn": "用户管理"
           },
           "content": "config/userrights.md"
@@ -767,7 +767,7 @@
           "title": {
             "en": "Authentication",
             "de": "Authentifizierung",
-            "ru": "Аутентификация",
+            "ru": "аутентификация",
             "zh-cn": "验证"
           },
           "content": "config/login.md"
@@ -776,7 +776,7 @@
           "title": {
             "en": "SSL for Web access",
             "de": "Verschlüsselung",
-            "ru": "Шифрование",
+            "ru": "шифрование",
             "zh-cn": "加密"
           },
           "content": "config/encryption.md"
@@ -831,8 +831,8 @@
           "title": {
             "en": "Introduction",
             "de": "Einleitung",
-            "ru": "инициация",
-            "zh-cn": "引发"
+            "ru": "вступление",
+            "zh-cn": "介绍"
           },
           "content": "trouble/README.md"
         },
@@ -840,8 +840,8 @@
           "title": {
             "en": "Runs no more",
             "de": "ioBroker läuft nicht mehr",
-            "ru": "ioBroker перестал работать",
-            "zh-cn": "ioBroker已停止工作"
+            "ru": "ioBroker больше не работает",
+            "zh-cn": "ioBroker 不再运行"
           },
           "content": "trouble/RunsNoMore.md"
         },
@@ -849,7 +849,7 @@
           "title": {
             "en": "Error search",
             "de": "Fehlersuche",
-            "ru": "Исправление проблем",
+            "ru": "поиск проблемы",
             "zh-cn": "故障排除"
           },
           "content": "trouble/search.md"
@@ -858,8 +858,8 @@
           "title": {
             "en": "Errors in adapter",
             "de": "Adapterfehler",
-            "ru": "Сбой адаптера",
-            "zh-cn": "适配器故障"
+            "ru": "ошибка адаптера",
+            "zh-cn": "适配器错误"
           },
           "content": "trouble/adapter.md"
         },
@@ -903,8 +903,8 @@
           "title": {
             "en": "Installation Fixer",
             "de": "ioBroker Installation Fixer",
-            "ru": "Установщик ioBroker",
-            "zh-cn": "ioBroker安装修复程序"
+            "ru": "Исправление установки ioBroker",
+            "zh-cn": "ioBroker 安装修复程序"
           },
           "content": "trouble/install_fixer.md"
         }
@@ -995,7 +995,7 @@
           "title": {
             "en": "Introduction",
             "de": "Entwicklung",
-            "ru": "развитие",
+            "ru": "разработка",
             "zh-cn": "发展"
           },
           "content": "community/README.md"
@@ -1021,7 +1021,7 @@
               "title": {
                 "en": "Write an article",
                 "de": "Entwicklung - Dokumentation",
-                "ru": "Разработка - Документация",
+                "ru": "Разработка — Документация",
                 "zh-cn": "开发 - 文档"
               },
               "content": "community/doc.md"
@@ -1030,8 +1030,8 @@
               "title": {
                 "en": "Style Guide Documentation",
                 "de": "Styleguide Dokumentation",
-                "ru": "Документация руководства по стилю",
-                "zh-cn": "风格指南文档"
+                "ru": "Документация по руководству по стилю",
+                "zh-cn": "样式指南文档"
               },
               "content": "community/styleguidedoc.md"
             },
@@ -1061,7 +1061,7 @@
             "en": "Introduction",
             "de": "Eigener Adapter",
             "ru": "Собственный адаптер",
-            "zh-cn": "自带适配器"
+            "zh-cn": "自有适配器"
           },
           "content": "dev/adapterdev.md"
         },
@@ -1077,8 +1077,8 @@
               "title": {
                 "en": "WebStorm",
                 "de": "WebStorm",
-                "ru": "WebStorm",
-                "zh-cn": "WebStorm"
+                "ru": "Вебсторм",
+                "zh-cn": "网络风暴"
               },
               "content": "dev/webstorm.md"
             },
@@ -1097,7 +1097,7 @@
           "title": {
             "en": "Adapter reference",
             "de": "Adapterreferenz",
-            "ru": "Ссылка на адаптер",
+            "ru": "ссылка на адаптер",
             "zh-cn": "适配器参考"
           },
           "content": "dev/adapterref.md"
@@ -1133,8 +1133,8 @@
           "title": {
             "en": "Template",
             "de": "Adaptervorlage",
-            "ru": "Разработка - шаблон адаптера",
-            "zh-cn": "开发 - 适配器模板"
+            "ru": "шаблон адаптера",
+            "zh-cn": "适配器模板"
           },
           "content": "dev/adaptertemplate.md"
         },
@@ -1142,7 +1142,7 @@
           "title": {
             "en": "Adapter tests",
             "de": "Testing",
-            "ru": "Тестирование",
+            "ru": "тестирование",
             "zh-cn": "测试"
           },
           "content": "dev/adaptertesting.md"
@@ -1169,8 +1169,8 @@
           "title": {
             "en": "Style Guide GUI",
             "de": "Styleguide UI",
-            "ru": "Руководство по стилю UI",
-            "zh-cn": "风格指南 UI"
+            "ru": "Руководство по стилю пользовательского интерфейса",
+            "zh-cn": "样式指南 UI"
           },
           "content": "dev/styleguideui.md"
         },
@@ -1179,7 +1179,7 @@
             "en": "Debugging",
             "de": "Debugging",
             "ru": "отладка",
-            "zh-cn": "侦错"
+            "zh-cn": "调试"
           },
           "content": "dev/adapterdebug.md"
         },
@@ -1187,7 +1187,7 @@
           "title": {
             "en": "Publish",
             "de": "Veröffentlichen",
-            "ru": "публиковать",
+            "ru": "Публиковать",
             "zh-cn": "发布"
           },
           "content": "dev/adapterpublish.md"
@@ -1196,7 +1196,7 @@
           "title": {
             "en": "JS-Controller",
             "de": "Backend-Entwicklung",
-            "ru": "Backend разработка",
+            "ru": "бэкэнд разработка",
             "zh-cn": "后端开发"
           },
           "content": "dev/controller.md"
@@ -1214,7 +1214,7 @@
           "title": {
             "en": "Add new device",
             "de": "So fügen Sie das Gerät zu Alexa oder Google Home hinzu",
-            "ru": "Как добавить устройство в alexa или google home",
+            "ru": "Как добавить устройство в Alexa или Google Home",
             "zh-cn": "如何将设备添加到 alexa 或 google home"
           },
           "content": "dev/adddevice.md"
@@ -1233,7 +1233,7 @@
           "title": {
             "en": "Introduction",
             "de": "System-Integratoren - Einleitung",
-            "ru": "Системные интеграторы - Введение",
+            "ru": "Системные интеграторы — Введение",
             "zh-cn": "系统集成商 - 简介"
           },
           "content": "integrators/README.md"
@@ -1242,7 +1242,7 @@
           "title": {
             "en": "Link-Box",
             "de": "System-Integratoren - Link-Box",
-            "ru": "Системные интеграторы - поле ссылок",
+            "ru": "Системные интеграторы - Link Box",
             "zh-cn": "系统集成商 - 链接盒"
           },
           "content": "integrators/linkbox.md"

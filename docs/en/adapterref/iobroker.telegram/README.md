@@ -706,6 +706,18 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 -->
 
 ## Changelog
+### 1.12.6 (2022-04-23)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 1.12.5 (2022-04-19)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 1.12.4 (2022-04-19)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 1.12.3 (2022-04-19)
+* (Apollon77) Make sure also not set states can be queried - will return "State not set" in this case!
+
 ### 1.12.2 (2022-04-01)
 * (Apollon77) Fix crash cases reported by Sentry
 

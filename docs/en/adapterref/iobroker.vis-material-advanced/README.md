@@ -12,18 +12,18 @@
 
 ## vis-material-advanced adapter for ioBroker
 
-This Adapter provides standardized Widgets for vis in ioBroker. Lots of different predifined widgets
+This Adapter provides standardized Widgets for vis in ioBroker. Lots of different predefined widgets
 
-the basics of this adapter has been created by :
+the basics of this adapter has been created by:
 * (nisio) https://github.com/iobroker-community-adapters/ioBroker.vis-material
 * (pix---) https://github.com/Pix---/ioBroker.vis-material
 
 but rewritten in 90% 
 
-Several bugfixes and lots of new widgets added 
+Several bugfixes and lots of new widgets added.
 
 
-## following widgets are present right now:
+## Following widgets are present right now
 
 ### current
  - Door
@@ -45,11 +45,10 @@ Several bugfixes and lots of new widgets added
  - Valve
  
 ### in progress
-not yet final:
+Not yet final:
  - Garagedoor
  - Radiostation 
-
-
+ 
  lot of widgets still in plan
 
 ## Options
@@ -64,21 +63,19 @@ not yet final:
     - read-only ( some widgets can be set to read only mode for display only)
     - border-radius to enable and change the round corner
     - valueAlign Align the Value field left,center or right
-    - value-vetical Align the Value field top,botton or middle
+    - value-vertical Align the Value field top,bottom or middle
     - borderColor Color of the Border if activated
 
 
 ### Getting started
 
 install the Adapter and start VIS in Edit mode.
-On left side choose vis-material-adapter and than all widgets are shown in preview.
+On left side choose vis-material-adapter and then all widgets are shown in preview.
 
 ............. lots of docu missing ......................
 
 **this is example2.png, import it and see it live**
 ![](widgets/door_example.png)
-
-
 
 **you can import the example.json file into vis**
 thanks to @sigi234
@@ -86,9 +83,10 @@ thanks to @sigi234
 ## Changelog
 <!--
     Placeholder
-    ### __WORK IN PROGRESS__
-* 
+    ### **WORK IN PROGRESS**
 -->
+### 1.7.3 (2022-04-11)
+* (bluefox) Removed erroneous chars from HTML
 
 ### 1.7.2 (2021-07-02)
 * bugfix 2 Temp Humidity
@@ -97,19 +95,15 @@ thanks to @sigi234
 * bugfix for Temp Humidity
 
 ### 1.7.0 (2021-04-19)
-* added new Widget Window3 for possibility showing open/tilted/closed [0/1/2] windows 
+* added new Widget Window3 for possibility showing open/tilted/closed [0/1/2] windows
 
 ### 1.6.0 (2021-04-01)
 * new Temperature widget with ONLY an icon from blue to red depending on temperature setting
 
-### 1.5.1 (2021-03-28)
-* replaced presence images with smaller ones
-
-
 ## License
 MIT License
 
-Copyright (c) 2020 EdgarM73 <edgar.miller@gmail.com>
+Copyright (c) 2020-2022 EdgarM73 <edgar.miller@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

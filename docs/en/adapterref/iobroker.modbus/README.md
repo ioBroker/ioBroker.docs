@@ -124,7 +124,7 @@ This offset is added to the read value after above multiplication. So the calcul
 
 ### Formula
 This field can be used for advanced calculations if Factor and Offset is not sufficient. If this field is set, then the Factor and Offset field is ignored.
-The Formula is executed by the eval() function. Therefore all common functions are supported. Especially the Math functions. The formula must comply with Javascript syntax, therefore also take care about upper and lower cases.
+The Formula is executed by the eval() function. Therefore, all common functions are supported. Especially the Math functions. The formula must comply with Javascript syntax, therefore also take care about upper and lower cases.
 
 In the formula, "x" has to be used for the read value from Modbus. E.g. `x * Math.pow(10, sf['40065'])`
 
@@ -151,36 +151,36 @@ Cyclic write
 Use value as scaling factor. This is needed to used dynamic scaling factors which are on some systems provided through values on interface. If a value is marked with this flac, then the value will stored into a variable with following naming convention: sf['Modbus_address']. This variable can then later used in any formula for other parameters. E.g. following formula can set: "(x * sf['40065']) + 50;"
 
 ## Data types
-- uint16be - Unsigned 16 bit (Big Endian): AABB => AABB
-- uint16le - Unsigned 16 bit (Little Endian): AABB => BBAA
-- int16be  - Signed 16 bit (Big Endian): AABB => AABB
-- int16le  - Signed 16 bit (Little Endian): AABB => BBAA
-- uint32be - Unsigned 32 bit (Big Endian): AABBCCDD => AABBCCDD
-- uint32le - Unsigned 32 bit (Little Endian): AABBCCDD => DDCCBBAA
-- uint32sw - Unsigned 32 bit (Big Endian Word Swap): AABBCCDD => CCDDAABB
-- uint32sb - Unsigned 32 bit (Big Endian Byte Swap): AABBCCDD => DDCCBBAA
-- int32be  - Signed 32 bit (Big Endian): AABBCCDD => AABBCCDD
-- int32le  - Signed 32 bit (Little Endian): ABBCCDD => DDCCBBAA
-- int32sw  - Signed 32 bit (Big Endian Word Swap): AABBCCDD => CCDDAABB
-- int32sb  - Signed 32 bit (Big Endian Byte Swap): AABBCCDD => DDCCBBAA
-- uint64be - Unsigned 64 bit (Big Endian): AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH
-- uint64le - Unsigned 64 bit (Little Endian): AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA
-- uint8be  - Unsigned 8 bit (Big Endian): AA => AA
-- uint8le  - Unsigned 8 bit (Little Endian): AA => AA
-- int8be   - Signed 8 bit (Big Endian): AA => AA
-- int8le   - Signed 8 bit (Little Endian): AA => AA
-- floatbe  - Float (Big Endian): AABBCCDD => AABBCCDD
-- floatle  - Float (Little Endian): AABBCCDD => DDCCBBAA
-- floatsw  - Float (Big Endian Word Swap): AABBCCDD => CCDDAABB
-- floatsb  - Float (Big Endian Byte Swap): AABBCCDD => DDCCBBAA
-- doublebe - Double (Big Endian): AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH
-- doublele - Double (Little Endian): AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA
-- string   - String (Zero-end): ABCDEF\0 => ABCDEF\0
-- stringle - String (Little Endian, Zero-end): BADCFE\0 => ABCDEF\0
+- `uint16be` - `Unsigned 16 bit (Big Endian): AABB => AABB`
+- `uint16le` - `Unsigned 16 bit (Little Endian): AABB => BBAA`
+- `int16be`  - `Signed 16 bit (Big Endian): AABB => AABB`
+- `int16le`  - `Signed 16 bit (Little Endian): AABB => BBAA`
+- `uint32be` - `Unsigned 32 bit (Big Endian): AABBCCDD => AABBCCDD`
+- `uint32le` - `Unsigned 32 bit (Little Endian): AABBCCDD => DDCCBBAA`
+- `uint32sw` - `Unsigned 32 bit (Big Endian Word Swap): AABBCCDD => CCDDAABB`
+- `uint32sb` - `Unsigned 32 bit (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
+- `int32be`  - `Signed 32 bit (Big Endian): AABBCCDD => AABBCCDD`
+- `int32le`  - `Signed 32 bit (Little Endian): ABBCCDD => DDCCBBAA`
+- `int32sw`  - `Signed 32 bit (Big Endian Word Swap): AABBCCDD => CCDDAABB`
+- `int32sb`  - `Signed 32 bit (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
+- `uint64be` - `Unsigned 64 bit (Big Endian): AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH`
+- `uint64le` - `Unsigned 64 bit (Little Endian): AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA`
+- `uint8be`  - `Unsigned 8 bit (Big Endian): AA => AA`
+- `uint8le`  - `Unsigned 8 bit (Little Endian): AA => AA`
+- `int8be`   - `Signed 8 bit (Big Endian): AA => AA`
+- `int8le`   - `Signed 8 bit (Little Endian): AA => AA`
+- `floatbe`  - `Float (Big Endian): AABBCCDD => AABBCCDD`
+- `floatle`  - `Float (Little Endian): AABBCCDD => DDCCBBAA`
+- `floatsw`  - `Float (Big Endian Word Swap): AABBCCDD => CCDDAABB`
+- `floatsb`  - `Float (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
+- `doublebe` - `Double (Big Endian): AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH`
+- `doublele` - `Double (Little Endian): AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA`
+- `string`   - `String (Zero-end): ABCDEF\0 => ABCDEF\0`
+- `stringle` - `String (Little Endian, Zero-end): BADCFE\0 => ABCDEF\0`
 
 Following description was copied from [here](http://www.chipkin.com/how-real-floating-point-and-32-bit-data-is-encoded-in-modbus-rtu-messages/)
 
-The point-to-point Modbus protocol is a popular choice for RTU communications if for no other reason that it’s basic convenience. The protocol itself controls the interactions of each device on a Modbus network, how device establishes a known address, how each device recognizes its messages and how basic information is extracted from the data. In essence, the protocol is the foundation of the entire Modbus network.
+The point-to-point Modbus protocol is a popular choice for RTU communications if for no other reason that its basic convenience. The protocol itself controls the interactions of each device on a Modbus network, how device establishes a known address, how each device recognizes its messages and how basic information is extracted from the data. In essence, the protocol is the foundation of the entire Modbus network.
 
 Such convenience does not come without some complications however, and Modbus RTU Message protocol is no exception. The protocol itself was designed based on devices with a 16-bit register length. Consequently, special considerations were required when implementing 32-bit data elements. This implementation settled on using two consecutive 16-bit registers to represent 32 bits of data or essentially 4 bytes of data. It is within these 4 bytes of data that single-precision floating point data can be encoded into a Modbus RTU message.
 
@@ -191,7 +191,7 @@ For example, the number 123/456.00 as defined in the IEEE 754 standard for singl
 
 ![Image1](img/img1.png)
 
-The affects of various byte orderings are significant. For example, ordering the 4 bytes of data that represent 123456.00 in a “B A D C” sequence in known as a “byte swap”. When interpreted as an IEEE 744 floating point data type, the result is quite different:
+The affects of various byte orderings are significant. For example, ordering the 4 bytes of data that represent 123456.00 in a `B A D C` sequence in known as a “byte swap”. When interpreted as an IEEE 744 floating point data type, the result is quite different:
 
 ![Image2](img/img2.png)
 
@@ -209,7 +209,8 @@ Clearly, when using network protocols such as Modbus, strict attention must be p
 
 The Modbus protocol itself is declared as a ‘big-Endian’ protocol, as per the Modbus Application Protocol Specification, V1.1.b:
 
-```Modbus uses a “big-Endian” representation for addresses and data items. This means that when a numerical quantity larger than a single byte is transmitted, the most significant byte is sent first.```
+**Modbus uses a “big-Endian” representation for addresses and data items. 
+This means that when a numerical quantity larger than a single byte is transmitted, the most significant byte is sent first.**
 
 Big-Endian is the most commonly used format for network protocols – so common, in fact, that it is also referred to as ‘network order’.
 
@@ -275,6 +276,11 @@ There are some programs in folder *test' to test the TCP communication:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 5.0.0 (2022-05-11)
+* BREAKING: All space characters will be replaced with underscores now in the Objects IDs, not only the first one.
+* (Apollon77) Catch error reported by sentry when invalid Master port is entered
+* (bluefox) GUI migrated to mui-v5
+
 ### 4.0.4 (2022-03-25)
 * (Apollon77/UncleSamSwiss) Prevent invalid state log
 

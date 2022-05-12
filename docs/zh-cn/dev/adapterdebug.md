@@ -1,16 +1,16 @@
 ---
-title: 侦错
+title: 调试
 lastChanged: 14.09.2018
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterdebug.md
-hash: LcI9FPoCRxjihMbpw/IL392v32axPUUZTunbpcN7/vg=
+hash: 6ugd3tmHvVfHwmgCllFGwfGlQbxMG7m6jcLBb2/WsOI=
 ---
-＃调试适配器
-带有Chrome的调试适配器
-Node.JS支持使用Chrome进行调试。
+# 调试适配器
+## 使用 Chrome 调试适配器
+Node.JS 支持使用 Chrome 进行调试。
 
-如果您在ioBroker中停止适配器，然后从控制台启动它：
+如果您在 ioBroker 中停止适配器，然后从控制台启动它，如下所示：
 
 ```
 cd /opt/iobroker
@@ -20,7 +20,7 @@ node --inspect node_modules/iobroker.sayit/main.js --debug
 
 重要的是`-–inspect`
 
-然后输出如下内容：
+然后输出类似这样的内容：
 
 ```
 Debugger listening on port 9229.
@@ -33,47 +33,47 @@ starting. Version 1.3.1 in /opt/iobroker/node_modules/iobroker.sayit, node: v6.9
 Debugger attached.
 ```
 
-然后，如果您在Chrome中输入输出链接，则可以使用Chrome进行调试：
+之后，您可以通过在 Chrome 中键入链接来使用 Chrome 进行调试：
 
-![镀铬](../../de/dev/media/adapterdebug1.png)
+![铬合金](../../de/dev/media/adapterdebug1.png)
 
-*经过测试：Windows，Chrome 55，node.js 6.9.2 *
+*测试：Windows、Chrome 55、node.js 6.9.2*
 
-###使用Chrome进行远程调试
-如果iobroker与chrome不在同一台计算机上运行，则该命令基于以上示例：
+### 使用 Chrome 进行远程调试
+如果 iobroker 没有和 chrome 在同一台机器上运行，那么该命令基于上面的示例：
 
 ```
 node --inspect-brk=0.0.0.0:9229 node_modules/iobroker.sayit/main.js --debug
 ```
 
-参数`--inspect-brk`确保与上述相比，
+与上述相比，参数`--inspect-brk`提供，
 
-在调试器开始时，在适配器的第一行上设置了一个断点。
+调试器启动时在适配器的第一行设置断点。
 
-如果您不总是希望复制链接以单独启动调试，也可以转到chrome中的以下页面：
+如果你不总是想复制链接单独启动调试，你也可以在chrome中调出以下页面：
 
 ```
 chrome://inspect
 ```
 
-然后就像配置inspect命令一样，只需一次通过configure输入ioBroker计算机**的IP地址和端口即可。
+然后通过与检查命令完全相同的配置输入您的 **ioBroker 计算机** 的 IP 地址和端口。
 
-启动命令后，调试会话将显示在此处，单击即可启动。
+命令启动后，调试会话会显示在那里，并且可以一键启动。
 
-chrome调试选项很棒。
-您拥有从**网络调试**中也知道的所有选项：断点，以及条件，监视，调用堆栈，作用域检查，控制台输出等。
+chrome 调试选项非常棒。
+您拥有从 **web 调试** 中知道的所有选项：断点，还有条件、监视、调用堆栈、范围检查、控制台输出等。
 
-图片和英文说明位于[在这里](https://software.intel.com/en-us/xdk/articles/using-chrome-devtools-to-debug-your-remote-iot-nodejs-application)
+图片和英文描述在[这里](https://software.intel.com/en-us/xdk/articles/using-chrome-devtools-to-debug-your-remote-iot-nodejs-application)
 
-如果尚未安装，则iobroker计算机上仍需要节点检查器：
+如果尚未安装，则需要在 iobroker 计算机上安装节点检查器：
 
 ```
 npm install -g node-inspector
 ```
 
-##使用WebStorm进行调试
-使用`Visual Studio Code`进行##调试
-如果使用`VS Code`打开目录，则在打开适配器目录（`File=>Open folder...`菜单）之后，可以调试适配器。
+## 使用 WebStorm 进行调试
+## 使用 `Visual Studio Code` 进行调试
+如果您打开带有 `VS Code` 的目录，那么在您打开适配器目录（`File=>Open folder...` 菜单）后，您就可以调试适配器了。
 
 `.vscode/launch.js`文件中的配置应如下所示：
 
@@ -100,12 +100,12 @@ npm install -g node-inspector
 ```
 
 ###本地调试
-适配器停止运行后（`iobroker stop ADAPTER_NAME`），可以在VS代码中启动适配器：![VS代码](../../de/dev/media/adapterdebug10.png)
+适配器停止后（`iobroker stop ADAPTER_NAME`），可以在 VS Code 中启动适配器：![VS 代码](../../de/dev/media/adapterdebug10.png)
 
-选择`Launch Program`并单击`Play`按钮后，适配器将启动，您可以在本地调试。
+选择`Launch Program`并点击`Play`按钮后，适配器将启动，您可以在本地调试。
 
-###远程调试
-为此，您应该专门在ioBroker服务器上启动适配器。
+### 远程调试
+为此，您应该专门在 ioBroker 服务器上启动适配器。
 
 ```
 d /opt/iobroker
@@ -113,6 +113,6 @@ obroker stop ADAPTERNAME
 ode --inspect-brk=0.0.0.0:9229 node_modules/iobroker.ADAPTERNAME/main.js --debug
 ```
 
-然后，您可以将`VS Code`连接到进程（`attach`）。
+之后可以将`VS Code`连接到进程（`attach`）。
 
-![VS代码](../../de/dev/media/adapterdebug11.png)
+![VS 代码](../../de/dev/media/adapterdebug11.png)

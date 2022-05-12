@@ -3,32 +3,32 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.linkeddevices/README.md
 title: kein Titel
-hash: TQxFlCGAWt0gLcVkz0a2/nr/4wSvxPg7TRaP6ESbzb8=
+hash: fPVx5qQBuRw1am/e6Mdqgr/Zt7fBt9lI6Dy+/84luOI=
 ---
 ![Anzahl der Installationen](http://iobroker.live/badges/linkeddevices-installed.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.linkeddevices.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.linkeddevices.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/Scrounger/iobroker.linkeddevices.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/Scrounger/ioBroker.linkeddevices/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/Scrounger/ioBroker.linkeddevices/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.linkeddevices.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/Scrounger/ioBroker.linkeddevices/master.svg)
 
-<h1><img src="admin/linkeddevices.png" width="32"/> ioBroker.linkeddevices </h1>
+<h1><img src="admin/linkeddevices.png" width="32"/>ioBroker.linkeddevices</h1>
 
-## Linkeddevices Adapter für ioBroker
-[![paypal] (https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VWAXSTS634G88&source=url)
+## Linkeddevices-Adapter für ioBroker
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VWAXSTS634G88&source=url)
 
-linkeddevices erstellt verknüpfte Objekte (Datenpunkte) von Geräten mit einer selbst definierten Struktur. Dies ermöglicht es, eine Struktur in ioBroker zu erstellen, in der alle Objekte zentralisiert sind, z. zur Verwendung in vis-Ansichten oder Skripten. Dies bietet zum Beispiel den Vorteil, dass beim Hardwareaustausch nur die verknüpften Objekte neu erstellt werden müssen und alle visuellen Ansichten und Skripte wieder funktionieren.
+linkeddevices erstellt verknüpfte Objekte (Datenpunkte) von Geräten mit einer selbstdefinierten Struktur. Dadurch ist es möglich, in ioBroker eine Struktur zu schaffen, in der alle Objekte zentralisiert sind, z. zur Verwendung in Vis-Ansichten oder Skripten. Dies bietet zum Beispiel den Vorteil, dass bei einem Hardwaretausch nur die verknüpften Objekte neu erstellt werden müssen und alle Vis-Ansichten und Skripte wieder funktionieren.
 
-Mit dem Adapter können Sie auch Objekte konvertieren oder in andere Typen konvertieren (noch nicht vollständig implementiert).
+Mit dem Adapter können Sie auch Objekte umwandeln oder in andere Typen umwandeln (noch nicht vollständig implementiert).
 
 ![Struktur](../../../en/adapterref/iobroker.linkeddevices/screenshots/structure.png)
 
-Dieser Adapter ist von [Skript für virtuelle Geräte von Pman](https://forum.iobroker.net/topic/7751/virtual-devices) inspiriert.
+Dieser Adapter ist inspiriert von [Skript für virtuelle Geräte von Pman](https://forum.iobroker.net/topic/7751/virtual-devices).
 
 ## Aufbau
-* [Englische Beschreibung] (doc / de / README.md)
-* [deutsche Beschreibung] (doc / de / README.md)
+* [englische Beschreibung](doc/en/README.md)
+* [deutsche Beschreibung](doc/de/README.md)
 
 ## Changelog
 

@@ -1,10 +1,10 @@
 ---
-title: Разработка - шаблон адаптера
+title: шаблон адаптера
 lastChanged: 28.03.2019
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adaptertemplate.md
-hash: N79zvU0TMH9omf+yOfN2R01++l3/ZMpUE88IdPV7G30=
+hash: f0O7rqRIjJx1FnzTvoNhJgAcMbdb3rMHqQ68thpJkYc=
 ---
 # Шаблон документации адаптера
 ```

@@ -126,9 +126,9 @@ The whole name including path is used to check for similarity.
 
 ### ACK flags
 Applications shall never set ack flags, application is notified from this adapter by the ack flag if data is updated.
-KNX Stack sets the ack flag of the corresponding IoBroker object on receiption of a group address.
-Sent frames on KNX triggered by application writing to a object does not result into an acknowledgement message to that object.
-This behavior can be overwritten by checking in the admin dialog the checkbox "set acknowledgement flag when application writes to object".
+KNX Stack sets the ack flag of the corresponding IoBroker object on receiption of a group address if another knx host writes to the bus.
+Sent frames on KNX triggered by application writing to a object does not result into an immediate acknowledgement message to that object.
+If the write is coming from this adapter, the the ack flag is generated on postivive confirmance in tunneling mode.
 
 ### Node Red complex datatype example
 Create a function node that connects to a ioBroker out node that connects with a KNX object of DPT2.
@@ -306,8 +306,17 @@ Data is sent to Iobroker Sentry server hosted in Germany. If you have allowed io
 - only IPv4 supported
 
 ## Changelog
-### 0.1.25 (2022-)
-* fix: if update ack after write, use correct timestamp and adapter as user 
+### 0.1.26 (2022-05-)
+* feature: writing to bus l_data.con creates a ack on the iobroker object if successful (the knx conf flag unset)
+* bugfix: remove manual Physical KNX address dialog, use 0.0.0 instead
+* bugfix: remove error log when answering to GroupValueRead: #183
+* bugfix: improve warning logs on intended and unintended disconnects
+
+### 0.1.25 (2022-04-18)
+* feature: datatype check for raw value
+* feature: check if knx is connected before usage
+* bugfix: if update ack after write, use correct timestamp and set adapter as user
+* bugfix: remove enless loop if event received before initialisation
 
 ### 0.1.24 (2022-03-31)
 * feature: support for latin1 charset in dpt16
@@ -436,7 +445,7 @@ Data is sent to Iobroker Sentry server hosted in Germany. If you have allowed io
 * (boellner) feature: import ga xml
 
 ### initial version
-* initial version inspired by https://www.npmjs.com/package/iobroker.knx/v/0.8.3
+* initial version from https://www.npmjs.com/package/iobroker.knx/v/0.8.3
 
 ## License
 					GNU GENERAL PUBLIC LICENSE

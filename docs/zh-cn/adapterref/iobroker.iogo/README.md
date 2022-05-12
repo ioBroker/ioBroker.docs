@@ -3,19 +3,19 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iogo/README.md
 title: ioBroker.iogo
-hash: QL2wzeIR6M4+eTIT45OnCbDxi4/yh6wmTyVyBdUwvKI=
+hash: zJ17cLg1qbfi2pjxGt3xNtgeqK+hvsNvTxyWKiV4vyM=
 ---
-![商标](../../../en/adapterref/iobroker.iogo/admin/iogo.png)
+![标识](../../../en/adapterref/iobroker.iogo/admin/iogo.png)
 
 ![安装数量](http://iobroker.live/badges/iogo-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.iogo.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.iogo.svg)
-![特拉维斯CI](http://img.shields.io/travis/nisiode/ioBroker.iogo/master.svg)
-![新产品管理](https://nodei.co/npm/iobroker.iogo.png?downloads=true)
+![Travis-CI](http://img.shields.io/travis/nisiode/ioBroker.iogo/master.svg)
+![新PM](https://nodei.co/npm/iobroker.iogo.png?downloads=true)
 
 # IoBroker.iogo
-此适配器为智能家居应用 ioGo https://play.google.com/store/apps/details?id=de.nisnagel.iogo 添加了额外功能。
-请访问 www.iogo.app 以获取有关如何开始的更多信息。
+此适配器正在为智能家居应用程序 ioGo https://play.google.com/store/apps/details?id=de.nisnagel.iogo 添加额外功能。
+请访问 www.iogo.app 了解更多关于如何开始的信息。
 
 ＃＃ 配置
 您需要有效的许可证密钥才能使用此适配器。
@@ -24,8 +24,8 @@ hash: QL2wzeIR6M4+eTIT45OnCbDxi4/yh6wmTyVyBdUwvKI=
 请在实例配置中输入您的帐户信息（电子邮件/密码）。
 
 ＃＃ 用法
-您可以通过 messageBox `sendTo('iogo', 'New message')` 或特定用户 `sendTo('iogo', {user: 'Username', text: 'Test message'})` 向所有经过身份验证的用户发送消息。
-用户必须在创建之前（请阅读应用程序文档以获取更多详细信息）。
+您可以通过 messageBox `sendTo('iogo', 'New message')` 或特定用户`sendTo('iogo', {user: 'Username', text: 'Test message'})` 向所有经过身份验证的用户发送消息。
+用户必须在之前创建（请阅读应用程序文档以获取更多详细信息）。
 
 可以指定多个收件人（只需用逗号分隔用户名）。例如：收件人：“User1,User4,User5”
 
@@ -39,7 +39,7 @@ sendTo('iogo', {
 });
 ```
 
-和一个块状的例子：
+还有一个例子：
 
 ![块状](../../../en/adapterref/iobroker.iogo/img/blockly.png)
 
@@ -51,7 +51,7 @@ sendTo('iogo', {title: 'News', text: 'New message'}, function (res) {
 });
 ```
 
-只需发送图像的路径而不是文本或使用 url 属性 `sendTo('iogo.0', 'absolute/path/file.png')`
+只需发送图像的路径而不是文本或使用 url 属性`sendTo('iogo.0', 'absolute/path/file.png')`
 
 ```
 sendTo('iogo', {
@@ -70,7 +70,7 @@ sendTo('iogo', {
 - `url`：图像的绝对路径
 - `expiry`：以秒为单位的过期时间
 
-<!-- 下一版本的占位符（在行首）：
+<!-- 下一个版本的占位符（在行首）：
 
 ### __工作进行中__ -->
 

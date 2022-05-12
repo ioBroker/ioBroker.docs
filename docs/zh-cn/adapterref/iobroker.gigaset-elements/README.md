@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.gigaset-elements/README.md
 title: ioBroker.gigaset-elements
-hash: 2RJmBwhoBCYP1l9pHAmoLJ7RiSl+1r3oeU7h54l8eT8=
+hash: dr6+nr1+Dowx9ZjTlJlvvhfyb8/EoxK62tPsvY6OueY=
 ---
 ![标识](../../../en/adapterref/iobroker.gigaset-elements/admin/gigaset-elements.png)
 
@@ -50,6 +50,12 @@ Gigaset 元件适配器 (https://gigaset.com/smart-home)
 | um01 |万能/窗/门 |数学 |
 | wd01 |水 |数学 |
 
+该适配器还支持以下其他设备：
+
+|设备类型 |友好的名字 |事件类型 |
+| ----------- | ------------- | ----------- |
+| GP02 |电话 | gp.call |
+
 如果您有其他元素，或者遇到适配器尚未处理的事件类型，您可以在 ioBroker 中启用专家模式，进入适配器设置中的_Debug_选项卡（仅在专家模式下可见），并使用“调试 - 准备测试数据”来生成测试数据，这些测试数据可以作为 github 问题的一部分提交给这个适配器，以获取包含的其他元素/事件类型。尽可能从生成的数据中删除诸如基站或元素名称和 ID 之类的个人数据。
 
 ## 消息
@@ -76,7 +82,7 @@ sendTo("gigaset-elements.0", "test", "process-test-data", callback);
 如果操作成功，则回调响应为<code>{ response: object }</code> ，如果出现问题，则为<code>{ error: &quot;&lt;error message&gt;&quot; }</code> 。
 
 #### 准备测试数据
-从 Gigaset Elements API 加载当前数据，并准备将其作为测试数据集成到 [gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api) 中，即用于尚无测试数据的新事件或元素。
+从 Gigaset Elements API 加载当前数据，并准备将其作为测试数据集成到 [gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api) 中，即用于尚未有测试数据的新事件或元素。
 
 从 API 加载基站、元素和事件，减少它以最小化数据量，并尝试从数据中去除姓名和 ID 等个人信息。
 
@@ -87,7 +93,7 @@ sendTo("gigaset-elements.0", "debug", { action: "prepare-test-data" from?: Date 
 ```
 
 #### 加载基站和元素数据
-加载并返回原始基站和元素数据作为<code>{ response: { bs: [], elements: []} }</code>对象。
+以<code>{ response: { bs: [], elements: []} }</code>对象的形式加载并返回原始基站和元素数据。
 
 ```ts
 sendTo("gigaset-elements.0", "test", { action: "load-bases-elements" }, callback);
@@ -108,6 +114,22 @@ sendTo("gigaset-elements.0", "test", { action: "load-events", from: Date, to: Da
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.0 (2022-04-30)
+
+-   (matthsc) add support for phones
+-   (matthsc) add Node 18 to test matrix
+-   (matthsc) dependency updates
+
+### 0.1.3 (2022-03-22)
+
+-   (matthsc) fix "unknown" element position state
+-   (matthsc) add more tests
+-   (matthsc) dependency updates
+
+### 0.1.2 (2022-02-28)
+
+-   (matthsc) fix test data generation
+-   (matthsc) dependency updates
 
 ### 0.1.1 (2022-02-12)
 

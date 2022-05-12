@@ -17,12 +17,12 @@ Extron SIS adapter
 Control devices from Extron. 
 This Adapter is designed to control some of the Extron Audio Video Products via the 
 **S**imple **I**nstruction **S**et Protocol.
-The functional scope of the devices is tremendous. Not all of the features makes sense
+The functional scope of the devices is tremendous. Not all of the features make sense
 to be supported with the adapter and the interaction with iobroker.
 
 **Be aware:** When the device type is chosen in the adapter configuration it cannot be changed in the future !
 
-There can be more instances of different or same types from this adapter in a iobroker installation. For future releases you have to add a valid license to the adapter configuration for each instance.
+There can be multiple instances of different or same types from this adapter in a iobroker installation. For future releases you have to add a valid license to the adapter configuration for each instance.
 If you are a non commercial organisation or use it for private use you can get a licence for free. Please contact the author. 
 
 ### Supported devices
@@ -33,12 +33,14 @@ If you are a non commercial organisation or use it for private use you can get a
 - 12x8 ProDSP Processor w/AEC, VoIP, and Dante (DMP 128 Plus C V AT)
 
 ## ToDo
-- The device type is checked on beginn of the conversation. This fails sometimes. Must be changed to a more reliable mechanism. 
+- The device type is checked on begin of the conversation. This fails sometimes. Must be changed to a more reliable mechanism. 
 - Make a more granular selection of used in- and outputs to reduce database size at DSP devices
 - add more commands and their implementation on the database side
 
 ## Changelog
 
+### 0.1.12
+* (mschlgl) added support for channel preset selection in SMD202
 ### 0.1.11
 * (Bannsaenger) fixed support for groups in DSP DMP128
 
@@ -49,7 +51,7 @@ If you are a non commercial organisation or use it for private use you can get a
 * (Bannsaenger) fixed setting of info.connection in telnet mode
 
 ### 0.1.7
-* (mschlgl) added plaint Telnet communication for DMP128
+* (mschlgl) added plain Telnet communication
 
 ### 0.1.6
 * (mschlgl) added limiter section for DMP128

@@ -15,18 +15,22 @@ This adapter uses the [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-
 
 Some noteworthy features are:
 
-* Retrieve information (e.g. battery, cleaning log, consumable, cleaning and charging status)
-* Send clean commands (e.g. auto, spot area, custom area) and various other commands (e.g. play sound, reset consumables)
-* Save the last run custom area and rerun the saved areas
-* Adjustment of vacuum power (clean speed) and water level
-* Retrieve information during the cleaning process (e.g. current position and area)
-* Retrieve information of the maps incl. spot areas and virtual boundaries
-* Delete, save and recreate single virtual boundaries as well as a full set of virtual boundaries *)
-* Function for loading the current map image *)
+* Basic cleaning functions (e.g. auto clean, spot area, custom area etc.)
+* and various other commands (e.g. play sound, reset consumables, relocate position etc.)
+* Retrieve basic information (e.g. battery level, cleaning log, consumable, cleaning and charging status etc.)
+* and various extended information (e.g. charging position, current map, network information)
+* Retrieve information during the cleaning process (e.g. current position and current spot area)
+* Set basic and advanced setting (e.g. continuous cleaning, do-not-disturb mode, TrueDetect 3D, volume etc.)
+* Adjustment of vacuum power and water level
+* Save the last used custom area and rerun the saved areas
+* Retrieve information of the maps incl. spot areas, virtual boundaries and no-mop-zones
+* Delete, save and recreate single virtual boundaries as well as a full set of virtual boundaries
+* Information about the date and time of the last presence for each single spot area
+* Some functionality when returning to charging station or entering/leaving spot area
+* Function for loading the current map image
+* Set individual spot area names
 
-*) Experimental
-
-Please note: Some features are only available for some models
+Please note: Some features are only available for some models and some are still experimental
 
 ## Models
 
@@ -35,6 +39,7 @@ Please note: Some features are only available for some models
 * Deebot 900/901
 * Deebot OZMO 930
 * Deebot OZMO 920/950
+* Deebot T8 AIVI (T8 series)
 
 The models listed are those that I have in use myself or which are technically identical to these.
 
@@ -54,6 +59,7 @@ The models listed are those that I have in use myself or which are technically i
 * Deebot N8 series
 * Deebot T8 series
 * Deebot T9 series
+* Deebot X1 series
 
 The models listed are either already known to work or are technically similar to these models.
 Nevertheless, the functionality may be partially limited.
@@ -107,8 +113,22 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 
 ## Changelog
 
-### 1.3.5 (alpha)
-* Bumped ecovacs-deebot.js to 0.7.2 (stable)
+### 1.4.1 (alpha)
+* Bumped ecovacs-deebot.js to 0.8.0
+* Improved last time presence functionality
+* Added option to reset the vacuum power (cleanSpeed) to standard on return
+* Added option to keep modified spot area names (pre-selection on non 950 type models)
+* Added states for current used custom and spot areas (currentUsedSpotAreas and customUsedCustomAreaValues)
+* Handle error code 110 ("NoDustBox: Dust Bin Not installed")
+* Bumped some dependencies
+
+### 1.4.0
+* Bumped ecovacs-deebot.js to 0.8.0 (beta)
+* Implemented last time presence function (still experimental)
+* Implemented cleanCount (permanent clean count) function (T8/T9/X1 series)
+* Implemented trueDetect (enable/disable) function (T8/T9/X1 series)
+* Added unit care to consumables (T8/T9/X1 series)
+* Added Deebot X1 series
 * Some improvements and fixes
 
 ### 1.3.4
@@ -120,38 +140,31 @@ For instructions for other systems visit https://www.npmjs.com/package/canvas#co
 * Bumped ecovacs-deebot.js to 0.7.1 (incl. fix for CVE-2022-0155)
 
 ### 1.3.2
-
 * Bumped follow-redirects to 1.14.7 (fix for CVE-2022-0155) and some other dependencies
 * Added N8 PRO+
 
 ### 1.3.1
-
 * Fix the cleaning functions for the Deebot 710 series
 
 ### 1.3.0
-
 * Using library version 0.7.0 (beta)
 * The minimum required version of Node.js is now 12.x
 * Some improvements for newer models (e.g. T9 series)
 * Some other improvements and fixes
 
 ### 1.2.4
-
 * Using library version 0.6.8
 * Some optimizations
 * Preparations for changing the minimum required Node.js version to 12.x
 
 ### 1.2.3
-
 * Using library version 0.6.6
 * Lots of code refactoring, optimizations and some fixes
 
 ### 1.2.2
-
 * Added function to load current map image (non 950 type models, e.g. OZMO 930, Deebot 901)
 
 ### 1.2.1
-
 * Some enhancements and fixes
 * (benep) Added state to play sound by id
 

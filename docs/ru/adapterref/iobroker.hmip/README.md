@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hmip/README.md
 title: Адаптер ioBroker HomeMatic IP Cloud AccessPoint
-hash: ROYKPghAX5l6O5CwpV5igdwihIhItCQHbISMzvUv7mY=
+hash: W12C3P3zmD99HhJyZQK++hoW7lL8iojcA2aDwHoYApM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
@@ -12,7 +12,7 @@ hash: ROYKPghAX5l6O5CwpV5igdwihIhItCQHbISMzvUv7mY=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.hmip.svg)
 
 # Адаптер ioBroker HomeMatic IP Cloud AccessPoint
-![Тестируйте и выпускайте](https://github.com/Apollon77/iobroker.hmip/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/iobroker.hmip/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
@@ -29,15 +29,15 @@ hash: ROYKPghAX5l6O5CwpV5igdwihIhItCQHbISMzvUv7mY=
 ## Информация
 Большинство IP-устройств Homematic уже работают с последней версией адаптера.
 
-Я буду улучшать его постоянно, но на это потребуется время. Любая помощь от сообщества, например. Запрос на вытягивание будет высоко оценен.
+Я буду улучшать его постоянно, но это займет время. Любая помощь от сообщества, например. Запрос на вытягивание будет высоко оценен.
 
-Для неработающих устройств HmIP создайте проблему с этой информацией (по одной на каждое устройство и, если возможно, с техническим названием в теме).
+Для неработающих устройств HmIP создайте проблему с этой информацией (по одной для каждого устройства и, если возможно, с техническим названием в теме).
 Переключите логирование адаптера в ioBroker в глупый режим и добавьте json устройства, которое печатается в лог в тикете.
 Мне также может понадобиться json изменения состояния.
 
 Спасибо
 
-Если вы ищете информацию, если настройки сигнализации активны, вы должны проверить активное состояние групп ВНУТРЕННЯЯ и ВНЕШНЯЯ, они представляют собой комбинацию трех состояний сигнализации. ВНУТРЕННИЕ и ВНЕШНИЕ активные значения означают В гостях, только ВНЕШНИЕ активные означают, что активен только периметр.
+Если вы ищете информацию, если настройки сигнализации активны, вы должны проверить активное состояние групп ВНУТРЕННЯЯ и ВНЕШНЯЯ, они представляют в комбинации три состояния сигнализации. ВНУТРЕННИЕ и ВНЕШНИЕ активные значения означают В гостях, только ВНЕШНИЕ активные означают, что активен только периметр.
 
 ## Важная информация, что можно сделать с этим адаптером
 !!! С помощью этого адаптера вы можете запускать только те события, которые можно запускать через исходное приложение Homematic IP.
@@ -48,8 +48,8 @@ hash: ROYKPghAX5l6O5CwpV5igdwihIhItCQHbISMzvUv7mY=
 
 ## Специальные настройки
 ### HMIP-DLD (привод дверного замка)
-Если вы назначили PIN-код замку в приложении HmIP (Настройки / Авторизация доступа — немецкий: «Zutrittsberechtigungen»), то PIN-код необходимо установить в состоянии PIN-кода объектов устройств. Это НЕ ПИН-код вашей системы! если вы не установили PIN-код в настройках, вы также можете оставить его пустым в состоянии PIN-кода.
-Дополнительно, пожалуйста, добавьте клиент "iobroker" в список клиентов контроля доступа в настройках приложения HmIP!
+Если вы назначили PIN-код замку в приложении HmIP (Настройки / Авторизация доступа — немецкий: «Zutrittsberechtigungen»), то PIN-код необходимо установить в состоянии PIN-кода объектов устройств. Это НЕ PIN-код вашей системы! если вы не установили PIN-код в настройках, вы также можете оставить его пустым в состоянии PIN-кода.
+Дополнительно добавьте клиент "iobroker" в список клиентов контроля доступа в настройках приложения HmIP!
 
 ## Спасибо
 * @coreGreenberet за его библиотеку Python (https://github.com/coreGreenberet/homematicip-rest-api)
@@ -61,6 +61,20 @@ hash: ROYKPghAX5l6O5CwpV5igdwihIhItCQHbISMzvUv7mY=
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
+### 1.17.0 (2022-04-26)
+* (Apollon77) Also reinitialize objects when new groups or clients are detected
+* (Apollon77) Added experimental support to set dimLevel for Multi Mode Input Dimmer channels
+
+### 1.16.1 (2022-04-19)
+* (Apollon77) Fix crash case introduced by last version
+
+### 1.16.0 (2022-04-16)
+* (Apollon77) Optimize websocket reconnection handling
+* (Apollon77) Add support for GENERIC_INPUT_CHANNEL
+
+### 1.15.5 (2022-03-20)
+* (Apollon77) Optimize reconnection handling
+
 ### 1.15.4 (2022-02-19)
 * (Apollon77) Fix sendDoorCommand for HmIP-MOD-HO
 

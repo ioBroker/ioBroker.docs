@@ -153,8 +153,10 @@ By writing JSON data to the `raw.send` state you are able to send CAN messages c
 
 ## Changelog
 
-### 1.3.1 (pending)
+### 1.3.1 (2022-04-19)
 * (crycode-de) Fixed `autoSetValue` defaults for parsers
+* (crycode-de) Fixed sentry admin integration
+* (crycode-de) Updated dependencies
 
 ### 1.3.0 (2022-02-07)
 * (crycode-de) Added `sharedData` object in custom parsers

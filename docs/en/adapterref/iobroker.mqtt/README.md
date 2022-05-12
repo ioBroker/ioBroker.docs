@@ -804,6 +804,18 @@ control (see [example above](http://www.iobroker.net/?page_id=6435&lang=en#Appli
 Congratulations! Now you can control the system ioBroker and receive data via a cloud service!
 
 ## Changelog
+### 4.0.0 (2022-05-12)
+* (bluefox) BREAKING CHANGE: in client mode only "mqtt.X.*" states will be subscribed
+* (bluefox) BREAKING CHANGE: in server mode by empty "publish" setting no states will be subscribed. Early all states were subscribed
+* (bluefox) Added new option: All new topics will be processed as binary
+
+### 3.0.6 (2022-04-25)
+* (Apollon77) Allows to use some special characters like # in client passwords
+* (Apollon77) Correct handing of `QoS 2` messages
+* (Apollon77) Implement resend support of `pubrec`
+* (Apollon77) When resending a package set the dup flag as required by specs
+* (Apollon77) Add more debug for special debug mode
+
 ### 3.0.5 (2022-04-07)
 * (bluefox) BREAKING CHANGE: password is now stored encrypted, and so must be set anew after update!
 

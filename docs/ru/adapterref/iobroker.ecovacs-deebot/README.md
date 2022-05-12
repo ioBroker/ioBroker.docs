@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecovacs-deebot/README.md
 title: Адаптер Ecovacs Deebot для ioBroker
-hash: hvykbtK0LANUvNfeIaYzChCEZqq3plR0jMJQmCWxRgs=
+hash: zGQyWlxu2yuyzMud9BLBEfkleWc9C1h3vtEutAf4tNA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -21,24 +21,29 @@ hash: hvykbtK0LANUvNfeIaYzChCEZqq3plR0jMJQmCWxRgs=
 ## Функции
 Некоторые примечательные особенности:
 
-* Получить информацию (например, аккумулятор, журнал очистки, расходные материалы, состояние очистки и зарядки)
-* Отправка чистых команд (например, авто, точечная область, пользовательская область) и различных других команд (например, воспроизведение звука, сброс расходных материалов)
-* Сохраните последнюю пользовательскую область запуска и перезапустите сохраненные области
-* Регулировка мощности вакуума (скорости уборки) и уровня воды
-* Получить информацию во время процесса очистки (например, текущее положение и площадь)
-* Получить информацию о картах вкл. точечные области и виртуальные границы
-* Удаление, сохранение и воссоздание отдельных виртуальных границ, а также полного набора виртуальных границ *)
-* Функция загрузки текущего изображения карты *)
+* Основные функции очистки (например, автоматическая очистка, выборочная область, пользовательская область и т. д.)
+* и различные другие команды (например, воспроизведение звука, сброс расходных материалов, изменение местоположения и т. д.)
+* Получить основную информацию (например, уровень заряда батареи, журнал очистки, расходные материалы, состояние очистки и зарядки и т. д.)
+* и различная расширенная информация (например, положение зарядки, текущая карта, информация о сети)
+* Получение информации во время процесса очистки (например, текущее положение и текущая площадь пятна)
+* Установите базовые и дополнительные настройки (например, непрерывная очистка, режим «Не беспокоить», TrueDetect 3D, громкость и т. д.)
+* Регулировка мощности вакуума и уровня воды
+* Сохраните последнюю использованную пользовательскую область и перезапустите сохраненные области
+* Получить информацию о картах вкл. точечные зоны, виртуальные границы и зоны без швабры
+* Удалять, сохранять и воссоздавать отдельные виртуальные границы, а также полный набор виртуальных границ
+* Информация о дате и времени последнего присутствия для каждой отдельной области пятна
+* Некоторые функции при возвращении на зарядную станцию или при входе/выходе из спотовой зоны
+* Функция загрузки текущего изображения карты
+* Установить имена отдельных областей пятна
 
-*) Экспериментальный
-
-Обратите внимание: некоторые функции доступны только для некоторых моделей.
+Обратите внимание: некоторые функции доступны только для некоторых моделей, а некоторые все еще являются экспериментальными.
 
 ## Модели
 ### Поддерживаемые модели
 * Дибот 900/901
 * Дибот ОЗМО 930
 * Дибот ОЗМО 920/950
+* Deebot T8 AIVI (серия T8)
 
 Перечисленные модели - это те, которые я использую сам или которые технически идентичны этим.
 
@@ -57,11 +62,12 @@ hash: hvykbtK0LANUvNfeIaYzChCEZqq3plR0jMJQmCWxRgs=
 * Серия Deebot N8
 * Серия Deebot T8
 * Серия Deebot T9
+* Серия Deebot X1
 
 Перечисленные модели либо уже работают, либо технически аналогичны этим моделям.
 Тем не менее, функциональность может быть частично ограничена.
 
-Я стараюсь достичь широкого спектра функциональности, но решаю это в каждом конкретном случае в зависимости от сложности и различных других критериев.
+Я стараюсь достичь широкого диапазона функциональности, но решаю это в каждом конкретном случае в зависимости от сложности и различных других критериев.
 Претензий к полной функциональности конечно нет.
 
 ## Установка
@@ -86,13 +92,13 @@ sudo npm install canvas --unsafe-perm=true
 
 Инструкции для других систем см. на странице https://www.npmjs.com/package/canvas#compiling.
 
-## Применение
+## Использование
 * Информацию о том, как использовать этот адаптер, можно найти [здесь](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
 
 ### Состояния
 * Информацию о штатах можно найти [здесь](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29) (английский) и [здесь](https://github .com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Datenpunkte-%28DE%29) (немецкий)
 
-## ВОПРОСЫ-ОТВЕТЫ
+## ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
 * Часто задаваемые вопросы можно найти [здесь](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
 
 ## Известные вопросы
@@ -109,8 +115,22 @@ sudo npm install canvas --unsafe-perm=true
 
 ## Changelog
 
-### 1.3.5 (alpha)
-* Bumped ecovacs-deebot.js to 0.7.2 (stable)
+### 1.4.1 (alpha)
+* Bumped ecovacs-deebot.js to 0.8.0
+* Improved last time presence functionality
+* Added option to reset the vacuum power (cleanSpeed) to standard on return
+* Added option to keep modified spot area names (pre-selection on non 950 type models)
+* Added states for current used custom and spot areas (currentUsedSpotAreas and customUsedCustomAreaValues)
+* Handle error code 110 ("NoDustBox: Dust Bin Not installed")
+* Bumped some dependencies
+
+### 1.4.0
+* Bumped ecovacs-deebot.js to 0.8.0 (beta)
+* Implemented last time presence function (still experimental)
+* Implemented cleanCount (permanent clean count) function (T8/T9/X1 series)
+* Implemented trueDetect (enable/disable) function (T8/T9/X1 series)
+* Added unit care to consumables (T8/T9/X1 series)
+* Added Deebot X1 series
 * Some improvements and fixes
 
 ### 1.3.4
@@ -122,38 +142,31 @@ sudo npm install canvas --unsafe-perm=true
 * Bumped ecovacs-deebot.js to 0.7.1 (incl. fix for CVE-2022-0155)
 
 ### 1.3.2
-
 * Bumped follow-redirects to 1.14.7 (fix for CVE-2022-0155) and some other dependencies
 * Added N8 PRO+
 
 ### 1.3.1
-
 * Fix the cleaning functions for the Deebot 710 series
 
 ### 1.3.0
-
 * Using library version 0.7.0 (beta)
 * The minimum required version of Node.js is now 12.x
 * Some improvements for newer models (e.g. T9 series)
 * Some other improvements and fixes
 
 ### 1.2.4
-
 * Using library version 0.6.8
 * Some optimizations
 * Preparations for changing the minimum required Node.js version to 12.x
 
 ### 1.2.3
-
 * Using library version 0.6.6
 * Lots of code refactoring, optimizations and some fixes
 
 ### 1.2.2
-
 * Added function to load current map image (non 950 type models, e.g. OZMO 930, Deebot 901)
 
 ### 1.2.1
-
 * Some enhancements and fixes
 * (benep) Added state to play sound by id
 

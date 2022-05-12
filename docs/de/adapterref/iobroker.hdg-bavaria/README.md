@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hdg-bavaria/README.md
 title: ioBroker.hdg-bayern
-hash: 4/VeZYU4RmVZw98dudC9qUtT+he1ziJ31g1Nu5OpoQk=
+hash: uNpq1MGh6c7DtORgJesEYmGu4dLPB0MmBK/Xj0teKfY=
 ---
 ![Logo](../../../en/adapterref/iobroker.hdg-bavaria/admin/hdg-bavaria.png)
 
@@ -18,10 +18,15 @@ hash: 4/VeZYU4RmVZw98dudC9qUtT+he1ziJ31g1Nu5OpoQk=
 **Tests:** ![Testen und freigeben](https://github.com/stemaker/ioBroker.hdg-bavaria/workflows/Test%20and%20Release/badge.svg)
 
 ## Hdg-bavaria Adapter für ioBroker
-Zugriffsdaten von HDG Control der HDG Bavaria Heizkessel. Derzeit wird nur eine Konfiguration unterstützt (K10-33, 850-l-Speicher mit 3 Temperatursensoren, einzelner Heizkreis). Andere könnten auf Anfrage hinzugefügt werden.
+Zugriffsdaten von HDG Control der HDG Bavaria Heizkessel. Aktuell wird eine eingeschränkte Konfiguration unterstützt (K10-33, 850l Speicher mit 3 Temperatursensoren, konfigurierbare Anzahl Heizkreise). Weitere können auf Anfrage hinzugefügt werden.
 
 ## Changelog
 <ul>
+  <li>v0.4.0
+    <ul>
+      <li>Support for multiple heat circuits.</li>
+    </ul>
+  </li>
   <li>v0.3.1
     <ul>
       <li>Added integration test.</li>

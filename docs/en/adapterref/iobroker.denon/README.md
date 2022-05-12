@@ -914,6 +914,9 @@ The adapter is tested with an DENON AVR-X1200W and a Marantz SR5009.
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.13.4 (2022-04-11)
+* (foxriver76) we now respect `requestInterval` on determining the AVR model too
+
 ### 1.13.3 (2022-03-25)
 * (foxriver76) fixed timeout beeing only applied on first reconnect (fixes #232)
 

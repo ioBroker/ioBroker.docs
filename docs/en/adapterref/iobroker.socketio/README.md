@@ -104,7 +104,7 @@ E.g. ```servConn.setState('adapter.0.myvalue', true)``` writes ```{val: true, ac
 - `pointId` - is ID of the state, like `adapter.0.myvalue`,
 - `value`   - new value of the state, could be simple value (string, number, boolean) or object like ```{val: newValue, ack: false, q: 0}```. 
 In case if used simple value, "ack" will be set to "false".
-- `callback` - ```function (error) {}``` - called when the write of new value into DB is performed (not when the device was controlled).  
+- `callback` - ```function (error) {}``` - called when the writing of new value into DB is performed (not when the device was controlled).  
 
 ### getStates
 - function (IDs, callback)
@@ -302,7 +302,7 @@ reads if the authentication is enabled and which user is logged in
 If authentication is enabled, so current logged-in user will be returned, if auth is disabled, so the default user "running as" will be returned.
 
 ## Tuning Web-Sockets
-On some web-sockets clients there is performance problem with communication. Sometimes this problem is due to fallback of socket.io communication on long polling mechanism.
+On some web-sockets clients there is performance problem with communication. Sometimes this issue is due to fallback of socket.io communication on long polling mechanism.
 You can set option *Force Web-Sockets* to force using only web-sockets transport.
 
 <!--
@@ -311,6 +311,9 @@ You can set option *Force Web-Sockets* to force using only web-sockets transport
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Used common sockets (could be buggy)
+
 ### 4.2.0 (2022-03-27)
 * (bluefox) Added `log` socket command
 

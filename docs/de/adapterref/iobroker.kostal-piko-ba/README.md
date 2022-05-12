@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: qNF25xTcFKGUJlb9SWHTwK/ONTLmXpHap/HieI4rNs0=
+hash: yYRwHBw/re4fJL3rlt6NL/pTZsB0qmBhqt3dhh31Xh8=
 ---
 ![Logo](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
@@ -20,21 +20,27 @@ CI-Tests: ![Node.js-CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workf
 
 ## Adapter zum Auslesen von Kostal Piko & Piko BA Daten für iOBroker
 Adapter zum Auslesen von Kostal Piko & Piko BA Daten. Der Adapter erstellt einige Zustände und aktualisiert sie nacheinander.
-Adapter funktioniert mit Kostal Piko 6.0BA, 8.0BA, 10.0BA, 10, 12, 15, 17 & 20 Wechselrichtern.
+Adapter funktioniert mit Kostal Piko 6.0BA, 8.0BA, 10.0BA, 5.5, 7.0, 10, 12, 15, 17 & 20 Wechselrichtern.
 Es wird sehr geschätzt, wenn Sie die Funktionalität mit anderen Wechselrichtern überprüfen und mir bitte eine Nachricht senden.
 
 ## Einstellungen
-Um sich mit dem Kostal Pico (BA) Wechselrichter zu verbinden, ist die Einstellung seiner IP-Adresse in der Konfiguration zwingend erforderlich.
+Beachten Sie, dass Ihr Wechselrichter auf Kostal UI >= 6.11 aktualisiert werden muss! Um sich mit dem Wechselrichter Kostal Pico (BA) zu verbinden, muss seine IP-Adresse in der Konfiguration festgelegt werden.
 Sie können auch die Aktualisierungsfrequenzen von Live-Daten, Tages- und Livezeit-Statistiken bearbeiten.
-Bei Bedarf auch Markierung zum Auslesen der 4 Analogwerte setzen.
+Setzen Sie bei Bedarf auch die Markierung zum Auslesen der 4 Analogwerte.
 
 ## Anmerkungen
-Dieser Adapter verwendet Sentry-Bibliotheken, um automatisch Ausnahmen und Codefehler an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlermeldung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+Dieser Adapter verwendet Sentry-Bibliotheken, um automatisch Ausnahmen und Codefehler an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlermeldung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 ## Changelog
 
 ! Note that missing version entries are typically dependency updates for security.
 
+### 1.4.5 (03.05.2022)
+* (HombachC) added UI version to sentry feedback and documentation
+### 1.4.4 (01.05.2022)
+* (HombachC) optimized sentry feedback and documentation
+### 1.4.3 (24.04.2022)
+* (HombachC) normalizing of analog values added, bumped dependencies
 ### 1.4.2 (01.02.2022)
 * (HombachC) added support for inverter type, version and name
 * (HombachC) fixed timing error

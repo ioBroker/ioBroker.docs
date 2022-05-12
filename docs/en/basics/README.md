@@ -4,9 +4,9 @@ lastChanged: 14.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/README.md
-hash: 3qexhYDNvDD/gQqfMKHk80kSoK6Twv2amppR3a4wm38=
+hash: mh1WOboVhuaTSvYa9KGeULQYTEenY+8obvOVWZ8+Xxo=
 ---
-ioBroker is a pure software solution to connect different IoT systems into one overall system. Accordingly, a control center (gateway/interface) is still required for each system in order to be able to integrate its devices.
+ioBroker is a pure software solution to connect different IoT systems to a complete system. Accordingly, a control center (gateway/interface) is still required for each system in order to be able to integrate its devices.
 
 In special cases, a control center can be simulated using software or plugged into the ioBroker server as hardware (USB stick or similar).
 

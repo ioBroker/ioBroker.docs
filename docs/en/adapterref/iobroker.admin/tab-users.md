@@ -3,38 +3,38 @@ chapters: {"pages":{"de/adapterref/iobroker.admin/README.md":{"title":{"de":"no 
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/adapterref/iobroker.admin/tab-users.md
-title: The tab user
-hash: HKsMwIvpGIO+9hqNOzBFUsRM8OOTNgILqQ6z75xDXDY=
+title: The Users tab
+hash: I8VBVO8GbDcbNuFQLInmFwTRSYk3E1gv2Csc99eIZRw=
 ---
-# The tab User
-Here users can be created. Click on the (+) on the bottom left. The administrator is already created by default.
+# The Users tab
+Users can be created here. To do this, click on the (+) at the bottom left. The administrator is already created by default.
 
 ![iobroker_adapter_admin_user_01](../../../de/adapterref/iobroker.admin/img/tab-user_01-1.jpg)
 
 ## The page content
-On the page, the existing users are displayed in tabular form. The fields in the column headers are used to filter the table according to your own criteria.
+The existing users are displayed in tabular form on the page. The fields in the column headers are used to filter the table according to your own criteria.
 
 The table consists of the following columns:
 
 ### **1.) ID**
-This is the unique name of each user, according to the structure consisting of sytem.user.user_name.
+This is the unique name of each user, according to the structure consisting of system.user.username.
 
 ### **2.) Name**
-The name of the user. This name is freely selectable. This name must be unique.
+The user's name. This name is freely selectable. This name must be unique.
 
-### **3.) Activated**
+### **3.) Enabled**
 With this checkbox the availability of a user can be activated or deactivated.
 
 ### **4.) Groups**
-The groups created in the tab **_ Groups _** are displayed here. Here the users can be assigned to the corresponding groups via a checkbox.
+The groups created in the **_Groups_** tab are displayed here. Here the users can be assigned to the appropriate groups via a checkbox.
 
 ![iobroker_adapter_admin_user_groups](../../../de/adapterref/iobroker.admin/img/tab-user_Groups.jpg)
 
 ### **5.) Create new user**
-This icon can be used to create a new user who then has to be assigned to an existing group.
+A new user can be created with this icon, which must then be assigned to an existing group.
 
 ### **6.) Edit existing user**
-After selecting an existing user in the list, this user's data can be edited with this icon.
+After selecting an existing user in the list, the data of this user can be edited with this icon.
 
 ### **7.) Delete existing user**
-With the trashcan icon an existing user can be deleted, the existing groups are retained.
+An existing user can be deleted with the recycle bin icon, the existing groups are retained.

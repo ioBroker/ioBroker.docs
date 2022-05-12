@@ -3,20 +3,20 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.cul/README.md
 title: ioBroker.cul
-hash: 2tnvBHDfP0OFs68GeLH/DpaXwMsDO4ad4AP58dE/qQY=
+hash: n9cyFwlOacKrFgHp1ZG0tbJEH41ecpP68CZekcZTAks=
 ---
-![商标](../../../en/adapterref/iobroker.cul/admin/busware.jpg)
+![标识](../../../en/adapterref/iobroker.cul/admin/busware.jpg)
 
 ![安装数量](http://iobroker.live/badges/cul-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.cul.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.cul.svg)
-![测试](https://travis-ci.org/ioBroker/ioBroker.cul.svg?branch=master)
-![新PM](https://nodei.co/npm/iobroker.cul.png?downloads=true)
 
 # IoBroker.cul
-ioBroker 适配器通过[文化部](http://busware.de/tiki-index.php?page=CUL)/[阴阳师](http://culfw.de)控制 FS20、Max!、HMS 和其他设备。取决于 https://github.com/hobbyquaker/cul
+![测试和发布](https://github.com/ioBroker/ioBroker.cul/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/cul/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+
+ioBroker 适配器通过[文化部](http://busware.de/tiki-index.php?page=CUL)/[阴阳师](http://culfw.de)控制 FS20、Max!、HMS 和其他设备。取决于 https://github.com/hobbyquaker/cul
 
 ## 支持的设备
 - *EM* - EM1000WZ、EMWZ
@@ -40,7 +40,9 @@ ioBroker 适配器通过[文化部](http://busware.de/tiki-index.php?page=CUL)/[
 ### **正在进行中** -->
 
 ## Changelog
-### 2.0.1 (2022-03-21)
+### 2.0.2 (2022-05-11)
+* IMPORTANT: Nodejs 12.x is now needed at least!
+* (Apollon77/achimmm) Add support for devices with address 0
 * (bluefox) Updated serialport package
 
 ### 1.3.5 (2021-04-12)

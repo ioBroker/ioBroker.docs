@@ -3,43 +3,46 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.owfs/README.md
 title: Адаптер ioBroker OWFS
-hash: w4iaPF0/v9YW60yr3gLQaEQPm5p2VBWypsVIKvgvFQk=
+hash: Ir62HpXMEl851J+fT/lodPlDadOH41Je9nJwJ8I8gNc=
 ---
-![логотип](../../../en/adapterref/iobroker.owfs/admin/owfs.png)
+![Логотип](../../../en/adapterref/iobroker.owfs/admin/owfs.png)
 
 ![Количество установок](http://iobroker.live/badges/owfs-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.owfs.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.owfs.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.owfs.svg)
-![NPM](https://nodei.co/npm/iobroker.owfs.png?downloads=true)
 
-# IoBroker Адаптер OWFS
-## *Однопроводный адаптер файловой системы* для ioBroker.
-поддержанный
+# Адаптер ioBroker OWFS
+![Тестируйте и выпускайте](https://github.com/ioBroker/ioBroker.owfs/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/owfs/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Этот адаптер использует библиотеку owfs с https://www.npmjs.com/package/owjs и соответственно требует сервера owfs.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+
+## *Адаптер файловой системы One Wire* для ioBroker.
+Поддерживается
+
+Этот адаптер использует библиотеку owfs из https://www.npmjs.com/package/owjs и, соответственно, требует сервера owfs.
 
 ## Установить OWFS Linux
 ```sudo apt-get install owfs```
 
 Иногда вам нужно написать следующие шаги:
 
-- Для запуска сервера для связи через последовательный интерфейс с датчиками 1wire
+- Запустить сервер для связи по последовательному интерфейсу с датчиками 1wire
 
 ```
 owserver -d "/dev/ttyUSB0" --nozero
 ```
 
-* / dev / ttyUSB0 * - это имя вашего последовательного устройства. Для этого использовалась флешка.
+*/dev/ttyUSB0* — это имя вашего последовательного устройства. Для этого использовалась флешка.
 
-Эта команда запускает 1wire-сервер на локальном порту 4304.
+Эта команда запускает сервер 1wire на локальном порту 4304.
 
-- Чтобы показать данные с локального сервера 1wire в файловой системе, выполните следующую команду:
+- Для отображения данных с локального сервера 1wire в файловой системе выполните следующую команду:
 
 ```
 owfs -C -m /mnt/1wire --allow_other
 ```
 
-Прежде чем вы должны создать директрой */ mnt / 1wire* с командой `mkdir /mnt/1wire`
+Прежде чем вы должны создать каталог */mnt/1wire* с помощью команды `mkdir /mnt/1wire`
 
 ## Установить окна OWFS
 http://sourceforge.net/projects/owfs/
@@ -50,6 +53,25 @@ http://sourceforge.net/projects/owfs/
 ## Конфигурация
 
 ## Changelog
+### 0.7.0 (2022-04-25)
+* IMPORTANT: Requires now at least js-controller 2.0
+* (boellner) ignore 85 degree error value for file system too
+* (Apollon77) Add sentry for crash reporting
+
+### 0.6.4 (2020-01-26)
+* (CC1337) Added option to not log 85°C readings. They appear if a DS18B20 has a power failure and returns this initial register value.
+
+### 0.6.3 (2020-01-23)
+* (INgo Rah) Added the alarm state handling
+
+### 0.6.2 (2019-10-29)
+* (RustyThePropellerHead) Improved data integrity when reading from local OWFS via file system
+
+### 0.6.1 (2018-07-11)
+* (bluefox) compact mode supported
+* (lvogt) Added data points counter.A/.B/.ALL from DS2423 to config page
+* (lvogt) Add option to not log faulty readouts
+
 ### 0.5.0 (2018-03-16)
 * (bluefox) Ready for Admin3
 
@@ -94,7 +116,7 @@ http://sourceforge.net/projects/owfs/
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2018, bluefox
+Copyright (c) 2015-2022, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

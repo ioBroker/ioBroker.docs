@@ -3,35 +3,35 @@ chapters: {"pages":{"de/adapterref/iobroker.admin/README.md":{"title":{"de":"no 
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/adapterref/iobroker.admin/tab-groups.md
-title: The tab Groups
-hash: w81xH774XQVxqMAhQ70BdlBiKKarcO5bWiTNR7Zbfvc=
+title: The Groups tab
+hash: MzQrILa9s8uNo/rBE2HUh2PkHqxfxHw6XNhBP16Bgc0=
 ---
-# The tab Groups
-Here you can create user groups with different rights by clicking on the (+) on the lower left of the screen.
+# The Groups tab
+User groups with different rights can be created here by clicking on the (+) at the bottom left of the screen.
 
 ![iobroker_adapter_admin_user_02](../../../de/adapterref/iobroker.admin/img/tab-groups_admin_User_02.jpg)
 
 ## The page content
-On the page the existing groups are tabulated. The fields in the column headers are used to filter the table according to your own criteria.
+The existing groups are displayed in tabular form on the page. The fields in the column headers are used to filter the table according to your own criteria.
 
 The table consists of the following columns:
 
 ### **1.) ID**
-This is the unique name of each group, according to the structure consisting of sytem.group.groupname.
+This is the unique name of each group, according to the structure consisting of system.group.groupname.
 
 ### **2.) Name**
 The name of the group. This name is freely selectable. This name must be unique.
 
 ### **3.) Description**
-Here, a description may be added, e.g. refers to the rights in this group.
+A description can be added here, e.g. referring to the rights in this group.
 
 ### **4.) User**
-The users created in the tab **_ User _** are displayed here and can be assigned to the selected group via a checkbox.
+The users created in the **_User_** tab are displayed here and can be assigned to the selected group via a checkbox.
 
 ### **5.) Adjust rights**
 Clicking on the pencil symbol opens another window in which the rights of this group can be adjusted.
 
 ![iobroker_adapter_admin_user_rechte_01](../../../de/adapterref/iobroker.admin/img/tab-groups_User_Rechte_01.jpg)
 
-### **6.) Create a new group**
-This icon can be used to create a new group that is configured using the previous points.
+### **6.) Create new group**
+A new group can be created with this icon, which is configured using the previous items.

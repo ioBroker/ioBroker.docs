@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/basics/roles.md
 title: 数据点的作用
-hash: HGg/8s3vDfGg9f6ECINJcwJyi8jBXU8A8kfR6vBF7Tw=
+hash: MLon33fkDPXEUvl6ebdPNQ3ihE1hkWlkVAqvJrZe6UA=
 ---
 # 数据点的作用
 对于`state`类型的对象，`common.role`属性必须设置为下面列表中定义的角色之一。
@@ -74,7 +74,7 @@ hash: HGg/8s3vDfGg9f6ECINJcwJyi8jBXU8A8kfR6vBF7Tw=
 `common.type=number, common.write=false`
 
 * `价值`
-*`value.window`（`common.states = { “0”： “CLOSED”， “1”： “斜腿”， “2”： “OPEN”}`）是很重要的（`CLOSED /斜腿/ OPEN“ ). 值可能会有所不同。
+* `value.window` (`common.states={"0": "CLOSED", "1": "TILTED", "2": "OPEN"}`) 很重要 (`CLOSED/TILTED/OPEN" ). 值可能会有所不同。
 * `value.temperature` (`common.unit='°C' or '°F' or 'K'')
 * `值.湿度`
 * `value.brightness` - 亮度（单位：勒克斯，）
@@ -129,13 +129,13 @@ hash: HGg/8s3vDfGg9f6ECINJcwJyi8jBXU8A8kfR6vBF7Tw=
 *`indicator.maintenance.unreach`
 *`indicator.maintenance.alarm`
 * `indicator.lowbat` - 如果电池电量不足则为真
-* `indicator.alarm` - 与indicator.maintenance.alarm相同
+* `indicator.alarm` - 像indicator.maintenance.alarm
 * `indicator.alarm.fire` - 检测到火灾
 * `indicator.alarm.flood` - 检测到洪水
 * `indicator.alarm.secure` - 门或窗打开
 * `indicator.alarm.health` - 健康问题
 
-##级别/级别（数字，读写）
+## 级别（数字，读写）
 使用 **Levels** 您可以控制或设置数值。
 
 `common.type=number, common.write=true`
@@ -333,7 +333,7 @@ TODO：想想电离和振荡。
 * `date.sunrise` - 今天的日出
 * `date.sunset` - 今天的日落
 * `dayofweek` - 星期几作为文本
-* `location` - 位置的文本描述（例如地址）
+* `location` - 位置的文字描述（例如地址）
 * `weather.icon` - 当前状态图标 url
 * `weather.icon.wind` - 当前的风图标 url
 * `weather.icon.name` - 状态图标的当前名称
@@ -393,13 +393,13 @@ TODO：想想电离和振荡。
 * `info.firmware` - 固件版本
 * `info.hardware` - 硬件版本
 * `info.port` - TCP 端口
-* `info.standby` - 如果设备处于待机模式则为真
+* `info.standby` - 如果设备处于待机模式，则为 true
 * `info.status` - 设备状态
 * `info.display` - 设备显示屏上显示的信息
 * `date.start` - 字符串或数字
 * `date.end` - 字符串或数字
 
-＃＃ 祝福你
+＃＃ 健康
 `common.type=number, common.read=true, common.write=false`
 
 * `value.health.fat` - 以百分比表示的体脂指数

@@ -13,8 +13,6 @@ Send emails from ioBroker.
 
 The adapter uses [nodemailer](https://github.com/nodemailer/nodemailer) to provide the functionality.
 
-**This Adapter requires nodejs 6.x or higher!!**
-
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 To use Gmail you may need to configure "Allow Less Secure Apps" in your Gmail account unless you are using 2FA in which
@@ -64,7 +62,7 @@ To send email from other adapter use **adapter.sendTo** function.
 
 
 ## Supported services
-- 1und1
+- 1und1 / ionos
 - AOL
 - DebugMail.io
 - DynectEmail
@@ -104,6 +102,9 @@ To send email from other adapter use **adapter.sendTo** function.
 For other services see documentation of **Nodemailer**: `[https://github.com/nodemailer/nodemailer](https://github.com/nodemailer/nodemailer)`
 
 ## Changelog
+### 1.1.0 (2022-05-11)
+* (Apollon77) Adjust default settings for web.de and 1und1 and add ionos
+* (Apollon77) Add "Always use STARTTLS" option for custom SMTP settings
 
 ### 1.0.10 (2021-07-06)
 * (Apollon77) Optimize for js-controller 3.3
@@ -164,7 +165,7 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 bluefox
+Copyright (c) 2014-2022 bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

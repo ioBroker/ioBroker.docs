@@ -246,6 +246,9 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
+### 2.8.7 (2022-04-23)
+* (René) see issue #312: bug fix in window is open handling if thermostat reduces temperature
+
 ### 2.8.6 (2022-03-31)
 * (René) see issue #265 and #305: bg fix window handling for rooms with more then one window and sensors with regular status update 
 

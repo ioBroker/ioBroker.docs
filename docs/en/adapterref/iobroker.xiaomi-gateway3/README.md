@@ -217,18 +217,17 @@ Move devices DB files to memory. This can improve work zigbee and bluetooth devi
 
 _**Note:** To see debug messages in ioBroker log you have to set `debug` log level  for adapter under `Instances` page (toggle expert mode into enabled)_
 
-- [x] __Debug log__<br/>
-Enable debug logging. If disabled other logging options has no effect.
-
 - [x] __Lumi MQTT messages__<br/>
-Enable MQTT messages logging of Lumi (zigbee) devices.
+Enable MQTT messages debug logging of Lumi (zigbee) devices.
 
 - [x] __Ble MQTT messages__<br/>
-Enable MQTT messages logging of BLE devices.
+Enable MQTT messages debug logging of BLE devices.
 
 - [x] __All the rest__<br/>
-Enable all other adapter messages.
+Enable debug logging all other adapter messages.
 
+- [x] __Cut SPAM__<br/>
+Enable cutting duplicate messages. If identical error messages repeat several times they will be hidden and after 1 hour will shown total count. 
 
 ## Tab page
 
@@ -246,14 +245,14 @@ _**Note:** For now this page has basic functional. It well be expanded in future
 
 ### Device config
 
-You can define some options to configure device (and device's card) by writing configuration with yaml. Awailable options discribed belowe in table. You can invoke device config window (window with text input area) with `Config` point in menu.
+You can define some options to configure device (and device's card) by writing configuration with yaml. Available options discribed belowe in table. You can invoke device config window (window with text input area) with `Config` point in menu.
 
 <img src="static/device-yaml-config.png">
 
 #### Device configuration options
 |Field|Type|Description|
 |---|---|---|
-|cardStates|Dictionary|This dictionary hold options for device's card|
+|cardStates|Dictionary|This dictionary hold options for states in device's card|
 |cardStates.hide|List|List of states (states ids) which have to be hidden from device's card|
 
 ### Statistic
@@ -272,6 +271,12 @@ _**Attantion:** You should to keep in mind this is not really statistic of zigbe
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.5 (2022-05-08)
+* Added configuration for devices
+* Added cutting SPAM messages at log
+* Remove unnecessary `Debug log` option
+* Fixes and improvements
+
 ### 0.3.4 (2022-02-10)
 * Fix issue getting devices from cloud and switch to RC4
 * Add devices page

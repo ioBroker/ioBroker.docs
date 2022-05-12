@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: qNF25xTcFKGUJlb9SWHTwK/ONTLmXpHap/HieI4rNs0=
+hash: yYRwHBw/re4fJL3rlt6NL/pTZsB0qmBhqt3dhh31Xh8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
@@ -20,11 +20,11 @@ CI-тесты: ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/
 
 ## Адаптер для чтения данных Kostal Piko & Piko BA для iOBroker
 Адаптер для чтения данных Kostal Piko & Piko BA. Адаптер создает несколько состояний и последовательно их обновляет.
-Адаптер для инверторов Kostal Piko 6.0BA, 8.0BA, 10.0BA, 10, 12, 15, 17 и 20.
+Адаптер для инверторов Kostal Piko 6.0BA, 8.0BA, 10.0BA, 5.5, 7.0, 10, 12, 15, 17 и 20.
 Буду очень признателен, если вы проверите работоспособность других инверторов и отправьте мне сообщение.
 
 ## Настройки
-Для подключения к инвертору Kostal Pico (BA) установка его IP-адреса в конфиге обязательна.
+Имейте в виду, что ваш инвертор должен быть обновлен до версии Kostal UI >= 6.11! Для подключения к инвертору Kostal Pico (BA) обязательна установка его IP-адреса в конфиге.
 Вы также можете изменить частоту обновления данных в реальном времени, ежедневную статистику и статистику в реальном времени.
 При необходимости установите метку для считывания 4 аналоговых значений.
 
@@ -35,6 +35,12 @@ CI-тесты: ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/
 
 ! Note that missing version entries are typically dependency updates for security.
 
+### 1.4.5 (03.05.2022)
+* (HombachC) added UI version to sentry feedback and documentation
+### 1.4.4 (01.05.2022)
+* (HombachC) optimized sentry feedback and documentation
+### 1.4.3 (24.04.2022)
+* (HombachC) normalizing of analog values added, bumped dependencies
 ### 1.4.2 (01.02.2022)
 * (HombachC) added support for inverter type, version and name
 * (HombachC) fixed timing error

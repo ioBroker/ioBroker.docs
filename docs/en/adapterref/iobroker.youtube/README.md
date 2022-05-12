@@ -6,7 +6,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.youtube.svg)](https://www.npmjs.com/package/iobroker.youtube)
 [![Stable](http://iobroker.live/badges/youtube-stable.svg)](http://iobroker.live/badges/youtube-stable.svg)
 [![installed](http://iobroker.live/badges/youtube-installed.svg)](http://iobroker.live/badges/youtube-installed.svg)
-[![Dependency Status](https://img.shields.io/david/klein0r/iobroker.youtube.svg)](https://david-dm.org/klein0r/iobroker.youtube)
 [![Known Vulnerabilities](https://snyk.io/test/github/klein0r/ioBroker.youtube/badge.svg)](https://snyk.io/test/github/klein0r/ioBroker.youtube)
 ![Test and Release](https://github.com/klein0r/ioBroker.youtube/workflows/Test%20and%20Release/badge.svg)
 
@@ -42,6 +41,12 @@ To get an API-Key you have to go to [console.developers.google.com](https://cons
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+NodeJS 14.x is required (NodeJS 12.x is EOL)
+
+* (klein0r) Updated depedency for js-controller to 4.0.15
+
 ### 3.0.1 (2022-03-17)
 
 * (klein0r) Just perform video info request if previous request was successful

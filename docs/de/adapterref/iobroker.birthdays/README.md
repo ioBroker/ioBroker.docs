@@ -3,7 +3,6 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.birthdays.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.birthdays.svg
 BADGE-Stable: http://iobroker.live/badges/birthdays-stable.svg
 BADGE-installed: http://iobroker.live/badges/birthdays-installed.svg
-BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.birthdays.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.birthdays/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.birthdays.png?downloads=true
 chapters: {"pages":{"de/adapterref/iobroker.birthdays/README.md":{"title":{"de":"ioBroker.birthdays"},"content":"de/adapterref/iobroker.birthdays/README.md"},"de/adapterref/iobroker.birthdays/ical.md":{"title":{"de":"ioBroker.birthdays"},"content":"de/adapterref/iobroker.birthdays/ical.md"},"de/adapterref/iobroker.birthdays/carddav.md":{"title":{"de":"ioBroker.birthdays"},"content":"de/adapterref/iobroker.birthdays/carddav.md"}}}
@@ -24,6 +23,12 @@ chapters: {"pages":{"de/adapterref/iobroker.birthdays/README.md":{"title":{"de":
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+NodeJS 14.x is required (NodeJS 12.x is EOL)
+
+* (klein0r) Updated depedency for js-controller to 4.0.15
+
 ### 1.2.1 (2022-04-08)
 
 * (klein0r) Removed tsdav

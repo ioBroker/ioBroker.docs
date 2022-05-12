@@ -11,11 +11,6 @@
 [![NPM](https://nodei.co/npm/iobroker.smartgarden.png?downloads=true)](https://nodei.co/npm/iobroker.smartgarden/)
 
 
-**If you like it, please consider a donation:**
-
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8C7M7MH3KPYDC&source=url) 
-  
-
 ## ioBroker smartgarden adapter for GARDENA smart system
 
 An adapter for GARDENA smart system using official 
@@ -77,7 +72,7 @@ To get both things please go to
 	- GARDENA smart system API.
 
 And of course you need a running ioBroker installation and you should own 
-at least one [GARDENA smart device](#supported-devices).
+at least one working [GARDENA smart device](#supported-devices).
 
   
 ## Table of Contents
@@ -104,10 +99,10 @@ at least one [GARDENA smart device](#supported-devices).
   * [Wishes for data points](#Wishes-for-data-points)
   * [Note](#note)
   * [Changelog](#changelog)
+     * [1.0.6](#106)
      * [1.0.5](#105)
      * [1.0.4](#104)
-     * [1.0.3](#103)
-     * [previous versions](#102)
+     * [previous versions](#103)
   * [Credits](#credits)
   * [License](#license)  
   
@@ -375,7 +370,7 @@ To control the device use data point
 	
     | device | limit |
     | - | - |
-    |GARDENA smart Irrigation Control| 3540 seconds (59 minutes) |
+    |GARDENA smart Irrigation Control| 5400 seconds (90 minutes) |
     |GARDENA smart Pump | 36000 (10 hours) |
     |GARDENA smart Water Control | 36000 (10 hours) |
     
@@ -556,11 +551,18 @@ They are used for configuration and for reporting warnings.
   `smartgarden.0.LOCATION_xxxxxxxx-xxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxx.DEVICE_xxxxxxxx-xxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxx.SERVICE_MOWER_xxxxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxxxxxxxxx`
   
   You can copy this mower id from the objects tab of ioBroker, 
-  see red arrow in the following picture.
+  see red arrow in the following pictures.
   
-  ![mower id](mowerid.jpg) 
+  *with admin v4.x.y:*   
+  
+    ![mower id](mowerid.jpg) 
+  
+  
+  *with admin v5.x.y:* 
+  
+    ![mower id](mowerid_admin5.jpg) 
 
-* ***warning codes*** </br> 
+* ***warning codes*** 
   | warning code| description| 
   | - | - |
   |  `NO_WARNING` |no warning, valve opened |
@@ -609,6 +611,15 @@ GARDENA or Husqvarna.
 
 
 ## Changelog
+### 1.0.6
+* (jpgorganizer) 2022-May-04
+  - some minor changes in documentation, including [Issue 41](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/41)
+and new limit for SERVICE_VALVE (just smart Irrigation Control)
+  - bug fix in error handling
+  - changes due to new Gardena API v1.1.0
+  - necessary changes due to changed behavior Gardena Service [Issue 43](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/43)
+  - tests against js-controller 4.x, [Issue 40](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/40)
+  
 ### 1.0.5
 * (jpgorganizer) 2021-May-13
   - necessary adjustments due to js-controller v3.3; e.g. [Issue 29](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/29)
@@ -769,7 +780,7 @@ smartgarden logo: http://www.freepik.com Designed by Freepik
 
 ## License
 
-Copyright (c) 2020, 2021 jpgorganizer, https://github.com/jpgorganizer 
+Copyright (c) 2020 - 2022 jpgorganizer, https://github.com/jpgorganizer 
 
 smartgarden by jpgorganizer is licensed under a 
 Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License 
@@ -777,4 +788,4 @@ Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
 Based on a work at https://github.com/jpgorganizer/ioBroker.smartgarden. 
  
 
-<!--- SVN: $Rev: 2507 $ $Date: 2021-05-13 18:07:01 +0200 (Do, 13 Mai 2021) $ --->
+<!--- SVN: $Rev: 2764 $ $Date: 2022-05-11 21:07:17 +0200 (Mi, 11 Mai 2022) $ --->

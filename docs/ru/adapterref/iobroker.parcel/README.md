@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.parcel/README.md
 title: ioBroker.parcel
-hash: w6IvcVdldEc9Sc5nzaVg4+YhAf3R09ciJHAFmIULHOc=
+hash: 7cvQOyLX+zcsJH5PADrSXGdkIjUUz0EpuPHPuEHFYD4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.parcel/admin/parcel.png)
 
@@ -17,8 +17,8 @@ hash: w6IvcVdldEc9Sc5nzaVg4+YhAf3R09ciJHAFmIULHOc=
 # IoBroker.посылка
 **Тесты:** ![Тестируйте и выпускайте](https://github.com/TA2k/ioBroker.parcel/workflows/Test%20and%20Release/badge.svg)
 
-## Адаптер посылок для ioBroker
-Отслеживание посылок
+## Адаптер пакетной/отправочной информации для ioBroker
+Отслеживание посылок / Отправка данных с помощью ioBroker SmartHome из пакетов Amazon, DHL, DPD, Hermes, UPS и GLS. Außerdem wirst du über die Briefverfolgung von der Deutschen Post informiert. Прямая передача для Telegram, Pushover или Signal.
 
 ## Войти
 **ДХЛ:**
@@ -43,7 +43,7 @@ In den Instanz Einstellung aktivieren und z.B. телеграмма.0 eingeben
 ## Вис ##
 **Sendungen als Vis Table darstellen**
 
-Дата для всех отправлений: посылка.0.allProviderJson
+Дата всех отправок: посылка.0.allProviderJson
 
 Datenpunkte в Zustellung: посылка.0.inDelivery
 

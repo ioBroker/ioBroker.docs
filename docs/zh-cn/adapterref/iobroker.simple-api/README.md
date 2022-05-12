@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.simple-api/README.md
 title: 简单的api
-hash: txduiwaVbJHHCbM4ZG9+h/lYVF/17V9Qo6bz2ml5m9E=
+hash: KHMKCkjJMIOmciVHYLuvKvAOvWDn4njxymeiS8gYFQM=
 ---
 ![标识](../../../en/adapterref/iobroker.simple-api/admin/simple-api.png)
 
@@ -12,14 +12,14 @@ hash: txduiwaVbJHHCbM4ZG9+h/lYVF/17V9Qo6bz2ml5m9E=
 ![下载](https://img.shields.io/npm/dm/iobroker.simple-api.svg)
 
 # 简单的api
-![测试和发布](https://github.com/ioBroker/ioBroker.simple-api/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/simple-api/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试和发布](https://github.com/ioBroker/ioBroker.simple-api/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/simple-api/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 这是 RESTFul 接口，用于从 ioBroker 读取对象和状态，并通过 HTTP Get/Post 请求写入/控制状态。
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用哨兵报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ＃＃ 用法
-调用浏览器 `http://ipaddress:8087/help` 以获取有关 API 的帮助。结果是：
+调用浏览器`http://ipaddress:8087/help`获取API帮助。结果是：
 
 ```
 {
@@ -37,7 +37,7 @@ hash: txduiwaVbJHHCbM4ZG9+h/lYVF/17V9Qo6bz2ml5m9E=
   "query": "http://ipaddress:8087/query/stateID1,stateID2/?prettyPrint"
   "query": "http://ipaddress:8087/query/stateID1,stateID2/?noHistory=true&prettyPrint"
   "query": "http://ipaddress:8087/query/stateID1,stateID2/?dateFrom=2019-06-06T12:00:00.000Z&d&prettyPrint"
-  "query": "http://ipaddress:8087/query/stateID1,stateID2/?dateFrom=2019-06-06T12:00:00.000Z&dateTo=2019-06-06T12:00:00.000Z&prettyPrint"
+  "query": "http://ipaddress:8087/query/stateID1,stateID2/?dateFrom=2019-06-06T12:00:00.000Z&dateTo=2019-06-06T12:00:00.000Z&aggregate=minmax&count=2000&prettyPrint"
 }
 ```
 
@@ -62,7 +62,7 @@ hash: txduiwaVbJHHCbM4ZG9+h/lYVF/17V9Qo6bz2ml5m9E=
 
 `"{\"a\": 1}"`
 
-也可以使用一个更有用的标志，`noStringify`：
+还可以使用另一个有用的标志，`noStringify`：
 
 `http://ipaddress:8087/getPlainValue/javascript.0.stringValue?noStringify`
 
@@ -111,7 +111,7 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 ```
 
 ### 获取批量
-通过一个请求获取多个状态，以请求中列表的顺序作为对象数组返回，以 id/val/ts 作为子对象返回
+通过一个请求获取多个状态，以对象数组的形式按请求中的列表顺序返回，id/val/ts 作为子对象
 
 ＃＃＃ 放
 调用例如：
@@ -141,7 +141,7 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint
 }
 ```
 
-当然，数据点 `javascript.0.test` 必须存在。
+当然数据点`javascript.0.test`必须存在。
 
 此外，可以定义值的类型：
 
@@ -155,32 +155,40 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&type=string
 http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 ```
 
-### 切换
+###切换
 切换值：
 
 - 布尔值：真 => 假，假 => 真
-- 数量没有限制：x => 100-x
+- 没有限制的数字：x => 100-x
 - 有限制的数字：x => max - (x - min)
 
 ### SetBulk
-通过一个请求设置多个状态。此请求也支持 POST 方法，因为 POST 数据应该在正文中而不是在 URL 中。
+通过一个请求设置多个状态。这个请求也支持 POST 方法，因为 POST 数据应该在正文而不是 URL 中。
 
 ### SetValueFromBody
-允许设置由 POST 正文内容设置的给定状态的值。
+允许通过 POST 正文内容设置给定状态的值。
 
 ### 对象
+从 DB 中读取定义类型的对象。
+
+调用例如：`http://ipaddress:8087/objects?pattern=enum.*&type=enum` - 读取所有枚举
+
+或者
+
+`http://ipaddress:8087/objects?pattern=system.adapter.admin.0.*` - 读取分支中的所有状态`system.adapter.admin.0`
+
 ＃＃＃ 状态
 ＃＃＃ 搜索
-是否在配置中设置了数据源（History、SQL），那么只列出数据源已知的数据点。
-如果已激活“列出所有数据点”选项或未指定数据源，则将列出所有数据点。
+是否设置了配置中的数据源（History, SQL），则只列出数据源已知的数据点。
+如果“列出所有数据点”选项已激活或未指定数据源，则将列出所有数据点。
 Grafana JSON / SimpleJSON 插件需要此命令。
 
 ＃＃＃ 询问
-如果已指定数据源（History、SQL），则在指定时间段内读取指定数据点的数据，否则仅读取当前值。
+如果实例配置中已经指定了数据源（History、SQL），则在指定时间段内读取指定数据点的数据，否则只读取当前值。
 Grafana JSON / SimpleJSON 插件需要此命令。
 
 ＃＃＃ 帮助
-返回 [这个](#usage) 输出
+将[这](#usage)输出返回
 
 ＃＃ 安装
 ```node iobroker.js add simple-api```
@@ -192,10 +200,10 @@ Grafana JSON / SimpleJSON 插件需要此命令。
 
 对于每个返回 JSON 的请求，您可以设置参数 `prettyPrint` 以获取人类可读形式的输出。
 
-如果启用了身份验证，则另外两个字段是必填字段：`?user=admin&pass=iobroker`
+如果启用了身份验证，则另外两个字段是必需的：`?user=admin&pass=iobroker`
 
 ### GetPlainValue
-将状态值读取为文本。您可以指定更多的 id 以分号分隔
+将状态值读取为文本。您可以指定更多的 id 除以分号
 
 ```http://ip:8087/getPlainValue/admin.0.memHeapTotal```
 
@@ -211,8 +219,8 @@ Grafana JSON / SimpleJSON 插件需要此命令。
 ```
 
 ＃＃＃ 得到
-将状态和状态的对象数据读取为 json。您可以指定更多以分号分隔的 id。
-如果请求多个 ID，将返回 JSON 数组。
+将 state 的 state 和 object 数据读取为 json。您可以指定更多的 id，除以分号。
+如果请求了多个 ID，则返回 JSON 数组。
 
 ```http://localhost:8087/get/admin.0.memHeapTotal/?prettyPrint```
 
@@ -299,7 +307,7 @@ Grafana JSON / SimpleJSON 插件需要此命令。
 ```
 
 ### 获取批量
-使用时间戳读取更多 ID 的状态。您可以指定更多以分号分隔的 id。
+使用时间戳读取更多 ID 的状态。您可以指定更多的 id，除以分号。
 JSON 数组将始终返回。
 
 ```http://ip:8087/getBulk/admin.0.memHeapTotal,admin.0.memHeapUsed/?prettyPrint```
@@ -339,8 +347,8 @@ JSON 数组将始终返回。
      }
 ```
 
-如果在指定时间内没有收到答复，将返回 `null` 值。
-在第一种情况下，答案将立即返回并且 `ack` 为假。在第二种情况下 `ack` 为真。这意味着这是来自司机的回应。
+如果在指定时间内没有收到回复，则返回`null`值。
+在第一种情况下，答案将立即返回，`ack`为假。在第二种情况下，`ack` 为真。这意味着这是司机的回应。
 
 ### SetBulk
 - 在一个请求中写入大量 ID。
@@ -362,7 +370,7 @@ JSON 数组将始终返回。
 您也可以将此请求作为 POST 发送。
 
 ### 对象
-获取模式的所有对象的列表。如果没有模式将所有对象指定为 JSON 数组，则将返回。
+获取模式的所有对象的列表。如果没有指定模式，则将返回所有对象作为 JSON 数组。
 
 ```http://ip:8087/objects?prettyPrint```
 
@@ -402,7 +410,7 @@ JSON 数组将始终返回。
   ...
 ```
 
-获取适配器 system.adapter.admin.0 的所有控制对象：
+获取适配器system.adapter.admin.0的所有控制对象：
 
 ```http://ip:8087/objects?pattern=system.adapter.admin.0*&prettyPrint```
 
@@ -424,7 +432,7 @@ JSON 数组将始终返回。
 ```
 
 ＃＃＃ 状态
-获取模式的所有状态的列表。如果没有模式将所有状态指定为 JSON 数组，则将返回。
+获取模式的所有状态列表。如果没有指定模式，则将返回所有状态为 JSON 数组。
 
 ```http://ip:8087/states?prettyPrint```
 
@@ -454,7 +462,7 @@ JSON 数组将始终返回。
   ...
 ```
 
-获取适配器 system.adapter.admin.0 的所有控制对象：
+获取适配器system.adapter.admin.0的所有控制对象：
 
 ```http://ip:8087/states?pattern=system.adapter.admin.0*&prettyPrint```
 
@@ -508,8 +516,8 @@ JSON 数组将始终返回。
 ```
 
 ＃＃＃ 搜索
-是否在配置中设置了数据源（History、SQL），那么只列出数据源已知的数据点。
-如果已激活“列出所有数据点”选项或未指定数据源，则将列出所有数据点。
+是否设置了配置中的数据源（History, SQL），则只列出数据源已知的数据点。
+如果“列出所有数据点”选项已激活或未指定数据源，则将列出所有数据点。
 
 ```
 http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
@@ -531,7 +539,7 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 ```
 
 ＃＃＃ 询问
-如果已指定数据源（History、SQL），则在指定时间段内读取来自指定数据点的数据。
+如果已指定数据源（History、SQL），则在指定时间段内读取指定数据点的数据。
 
 ```http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&dateFrom=2019-06-08T01:00:00.000Z&dateTo=2019-06-08T01:00:10.000Z```
 
@@ -574,7 +582,7 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
   ]
 ```
 
-如果未指定数据源或传递 noHistory 参数，则仅读出数据点的当前值。
+如果未指定数据源或传递了 noHistory 参数，则仅读取数据点的当前值。
 
 ```http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&noHistory=true```
 
@@ -601,11 +609,21 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
   ]
 ```
 
-<!-- 下一版本的占位符（在行首）：
+<!-- 下一个版本的占位符（在行首）：
 
-### __工作正在进行中__ -->
+### **正在进行中** -->
 
 ## Changelog
+### 2.6.5 (2022-04-14)
+* Added support aggregate and count for queries
+
+### 2.6.4 (2022-03-17)
+* (Apollon77) Optimize performance, especially when using names instead of object ids
+
+### 2.6.3 (2022-02-19)
+* (Apollon77) Optimize error message for multilanguage objects
+* (Apollon77) Do not overwrite state properties by object properties
+
 ### 2.6.2 (2021-11-12)
 * (bluefox) Support of new flags for `getPlainValue`: `json` and `noStringify`
 
@@ -744,7 +762,7 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2015-2022 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

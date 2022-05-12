@@ -31,3 +31,8 @@ User: mfd
 
 ### 0.1.0 (2015-05-20)
 * (bluefox) initial commit
+
+## License
+Alle Icons sind unter einer Creative Commons Lizenz vom Typ Namensnennung - Weitergabe unter gleichen Bedingungen 3.0 Deutschland zugaenglich.
+Um eine Kopie dieser Lizenz einzusehen, konsultieren Sie http://creativecommons.org/licenses/by-sa/3.0/de/ oder wenden Sie sich brieflich an Creative Commons,
+Postfach 1866, Mountain View, California, 94042, USA.

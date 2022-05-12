@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/repositories.md
 title: What is a repository?
-hash: mZhXZcSyG37steFTdSDwUAyMwjZACcDfl6LYkjNIMd0=
+hash: /ElbUKETBRqOXNIairSurXsqEGb34Y4k7b+fLa332mI=
 ---
 # What is a repository?
 A repository is a central repository for software programs.
@@ -18,25 +18,20 @@ By default, two repositories are available in ioBroker:
 <br><br>
 
 # Selection of the repository In the basic settings of ioBroker, the desired repository can be set as follows.
-Opening the basic settings of ioBroker:
+Open ioBroker's basic settings:
 
 ![](../../de/basics/media/Repository_IconBasicSettings.png)
 
-Selection of the default repository:
+and switch to the Reposotories tab, where the desired repository can be selected ![](../../de/basics/media/Repository_BasicsSettingsDefaultPath.png)
 
-![](../../de/basics/media/Repository_BasicSettings.png)
+The default paths of the stable and beta repositories are:
+
+- stable - link to repository http://download.iobroker.net/sources-dist.json
+- beta - Link to repository http://download.iobroker.net/sources-dist-latest.json
 
 If the beta repository was selected, a corresponding warning appears in the adapter overview
 
 ![](../../de/basics/media/Repository_AdapterRepInfo.png)
-
-<br><br>
-
-# Default paths of the repositories The default paths of the stable and beta repositories are shown below: ![](../../de/basics/media/Repository_BasicsSettingsDefaultPath.png)
-- stable - link to repository http://download.iobroker.net/sources-dist.json
-- beta - Link to repository http://download.iobroker.net/sources-dist-latest.json
-
-<br><br>
 
 # Stable vs Beta Repository
 Basically, the stable repository should ALWAYS be used for a productive installation of ioBroker. The beta repository contains versions that still contain errors and may affect the entire system.
@@ -48,7 +43,7 @@ In the past, this meant switching the repository from stable to beta in ioBroker
 
 Since Admin 5 this is much more convenient WITHOUT having to change the repository!
 
-- Activate the expert mode
+- Activate expert mode
 - In the "Adapter" menu, go to the "Custom Install" (GitHub) button and switch to the first tab "From NPM".
 - In the "Select adapter" field, the desired adapter can now be entered / selected, which is to be installed
 
@@ -66,4 +61,4 @@ When the test phase is completed and the reported bugs have been fixed, the vers
 
 After a function change to the adapter, this is normally only made available again in the beta repository for testing until the version is released for the stable repository after the test phase has ended.
 
---- lastChanged: "01/25/2022" ---
+--- lastChanged: "04/10/2022" ---

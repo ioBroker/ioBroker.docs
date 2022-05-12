@@ -16,7 +16,7 @@ For more details and for information how to disable the error reporting see [Sen
 
 ## Tuning Web-Sockets
 On some web-sockets clients there is performance problem with communication. 
-Sometimes this problem is due to fallback of socket.io communication on long polling mechanism.
+Sometimes this issue is due to fallback of socket.io communication on long polling mechanism.
 You can set option *Force Web-Sockets* to force using only web-sockets transport.
 
 ## Let's Encrypt Certificates
@@ -82,6 +82,9 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 -->
 
 ## Changelog
+### 4.3.0 (2022-04-15)
+* (bluefox) Added support of rest-api
+
 ### 4.2.3 (2022-03-28)
 * (bluefox) Updated ws and socketio to have `log` method in sockets
 
@@ -108,7 +111,7 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 * (bluefox) Updated ws adapter to fix problem with URLs containing '#'
 
 ### 4.1.1 (2022-02-01)
-* (bluefox) Allowed the switch between iobroker.socketio and iobroker.ws for internal web sockets
+* (bluefox) Allowed the switch between `iobroker.socketio` and `iobroker.ws` for internal web sockets
 
 ### 4.0.1 (2022-01-30)
 * (bluefox) Added the update warning
@@ -480,7 +483,7 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 * (bluefox) update selectId dialog
 
 ### 0.1.8 (2015-01-02)
-* (bluefox) enable socketio.0 by default
+* (bluefox) enable `socketio.0` by default
 
 ### 0.1.7 (2015-01-02)
 * (bluefox) enable npm install

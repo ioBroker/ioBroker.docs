@@ -2,54 +2,76 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.owfs/README.md
-title: ioBroker OWFS适配器
-hash: w4iaPF0/v9YW60yr3gLQaEQPm5p2VBWypsVIKvgvFQk=
+title: ioBroker OWFS 适配器
+hash: Ir62HpXMEl851J+fT/lodPlDadOH41Je9nJwJ8I8gNc=
 ---
-![商标](../../../en/adapterref/iobroker.owfs/admin/owfs.png)
+![标识](../../../en/adapterref/iobroker.owfs/admin/owfs.png)
 
 ![安装数量](http://iobroker.live/badges/owfs-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.owfs.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.owfs.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.owfs.svg)
-![NPM](https://nodei.co/npm/iobroker.owfs.png?downloads=true)
 
-#ioBroker OWFS适配器
-## * ioBroker的一个有线文件系统*适配器。
+# IoBroker OWFS 适配器
+![测试和发布](https://github.com/ioBroker/ioBroker.owfs/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/owfs/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+
+## *单线文件系统* ioBroker 适配器。
 支持的
 
-此适配器使用来自https://www.npmjs.com/package/owjs的owfs库，因此需要owfs服务器。
+此适配器使用来自 https://www.npmjs.com/package/owjs 的 owfs 库，因此需要 owfs 服务器。
 
-##安装OWFS Linux
+## 安装 OWFS Linux
 ```sudo apt-get install owfs```
 
 有时您需要编写以下步骤：
 
- - 启动服务器以通过串行接口与1wire传感器进行通信
+- 启动服务器以通过串行接口与 1wire 传感器进行通信
 
 ```
 owserver -d "/dev/ttyUSB0" --nozero
 ```
 
-* / dev / ttyUSB0 *是串行设备的名称。这是用于它的USB记忆棒。
+*/dev/ttyUSB0* 是您的串行设备的名称。这是用于此的USB记忆棒。
 
-此命令在本地端口4304上启动1wire服务器。
+此命令在本地端口 4304 上启动 1wire 服务器。
 
- - 要在文件系统调用follwing命令中显示本地1wire服务器的数据：
+- 要在文件系统中显示来自本地 1wire 服务器的数据，请调用以下命令：
 
 ```
 owfs -C -m /mnt/1wire --allow_other
 ```
 
-必须使用命令`mkdir /mnt/1wire`创建directroy */ mnt / 1wire* 前
+在您必须使用命令`mkdir /mnt/1wire`创建目录 */mnt/1wire* 之前
 
-##安装OWFS窗口
+## 安装 OWFS 窗口
 http://sourceforge.net/projects/owfs/
 
-##安装
+＃＃ 安装
 ```node iobroker.js add owfs```
 
-##配置
+＃＃ 配置
 
 ## Changelog
+### 0.7.0 (2022-04-25)
+* IMPORTANT: Requires now at least js-controller 2.0
+* (boellner) ignore 85 degree error value for file system too
+* (Apollon77) Add sentry for crash reporting
+
+### 0.6.4 (2020-01-26)
+* (CC1337) Added option to not log 85°C readings. They appear if a DS18B20 has a power failure and returns this initial register value.
+
+### 0.6.3 (2020-01-23)
+* (INgo Rah) Added the alarm state handling
+
+### 0.6.2 (2019-10-29)
+* (RustyThePropellerHead) Improved data integrity when reading from local OWFS via file system
+
+### 0.6.1 (2018-07-11)
+* (bluefox) compact mode supported
+* (lvogt) Added data points counter.A/.B/.ALL from DS2423 to config page
+* (lvogt) Add option to not log faulty readouts
+
 ### 0.5.0 (2018-03-16)
 * (bluefox) Ready for Admin3
 
@@ -94,7 +116,7 @@ http://sourceforge.net/projects/owfs/
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2018, bluefox
+Copyright (c) 2015-2022, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

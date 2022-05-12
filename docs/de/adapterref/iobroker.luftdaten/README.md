@@ -2,8 +2,7 @@
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.luftdaten.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.luftdaten.svg
 BADGE-Stable: http://iobroker.live/badges/luftdaten-stable.svg
-BADGE-installed: http://iobroker.live/badges/luftdaten-installed.svg
-BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.luftdaten.svg
+BADGE-Installed: http://iobroker.live/badges/luftdaten-installed.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.luftdaten/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.luftdaten.png?downloads=true
 ---
@@ -50,6 +49,22 @@ Warte einige Sekunden, bis die Daten das erste Mal vom Sensor abgeholt werden.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+NodeJS 14.x is required (NodeJS 12.x is EOL)
+
+* (klein0r) Added link to sensor map to instance configuration
+* (klein0r) Updated depedency for js-controller to 4.0.15
+
+### 2.2.4 (2022-04-14)
+
+* (klein0r) Abort HTTP requests if running too long
+
+### 2.2.3 (2022-04-11)
+
+* (klein0r) Always stop instance when tasks are completed
+* (klein0r) Updated log messages
+
 ### 2.2.2 (2022-03-14)
 
 * (klein0r) Bugfix: Requested local sensors with https instead of http
@@ -65,14 +80,6 @@ Warte einige Sekunden, bis die Daten das erste Mal vom Sensor abgeholt werden.
 * (klein0r) Updated state roles
 * (klein0r) Updated debug messages to provide more information
 * (klein0r) Updated dependencies
-
-### 2.1.3 (2021-12-23)
-
-* (klein0r) Updated dependencies
-
-### 2.1.2 (2021-11-14)
-
-* (klein0r) Translated admin tab table headers
 
 ## License
 

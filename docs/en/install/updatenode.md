@@ -4,7 +4,7 @@ lastChanged: 05.02.2022
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/updatenode.md
-hash: iSLz8sUffswhG1lpe6Z/C7bcCIDjSZh+Mf79z/wrP0M=
+hash: DQTeytJpqltpLrFO/hbAsPe65ae0PWlctqjRtOgtwXc=
 ---
 # Node.js update
 | js controller | Node.js | npm |
@@ -13,7 +13,7 @@ hash: iSLz8sUffswhG1lpe6Z/C7bcCIDjSZh+Mf79z/wrP0M=
 | 4.x | 12.x, 14.x, 16.x | 6.x, 7.x, 8.x |
 
 ## Why do you need to update it?
-As is common with many open-source technologies, Node.js is evolving rapidly.
+As is common with many open source technologies, Node.js is evolving rapidly.
 Updates that increase **stability** and **security** or even add **new features** appear regularly.
 
 ioBroker does not work without Node.js, see [architecture](https://www.iobroker.net/#de/documentation/basics/architecture.md) for details.
@@ -56,7 +56,7 @@ The adapters used in the system should be compatible with the new Node.js versio
 ioBroker is stopped using its own console command or system service management
 
 #### 5 - Check if processes are still running
-This usually terminates all processes. To be on the safe side, you should check again that there are really no processes (adapters, backups) running. You can also use a tool like "top" to check whether there are still processes that start with "io." start.
+This usually terminates all processes. To be on the safe side, you should check again that there are really no processes (adapters, backups) running. You can also use a tool like "top" to check whether there are still processes that start with "io." kick off.
 
 #### 6 - Node.js update
 The next step is to update Node.js to the desired new version.
@@ -77,7 +77,7 @@ This process can take some time and the affected adapters can restart multiple t
 
 <details><summary>Automatic rebuilds</summary>
 
-ioBroker automatically tries to detect adapters that don't start because they need to be updated. This works in such a way that the typical error messages are recognized and ioBroker tries to update accordingly. First, a "rebuild" of the affected adapter is performed, if that doesn't help, the adapter dependencies are updated. It is therefore possible that the adapter restarts several times. Please be patient here! Only become active when the adapter stays red and the log says that the rebuild didn't work!
+ioBroker tries to automatically detect adapters that don't start because they need to be updated. This works in such a way that the typical error messages are recognized and ioBroker tries to update accordingly. First, a "rebuild" of the affected adapter is performed, if that doesn't help, the adapter dependencies are updated. It is therefore possible that the adapter restarts several times. Please be patient here! Only become active when the adapter stays red and the log says that the rebuild didn't work!
 
 </details>
 
@@ -89,9 +89,9 @@ If an automatic rebuild did not work, it can be carried out manually, see Troubl
 
 <details><summary>Special cases (e.g. serial port)</summary>
 
-Unfortunately, there are special cases where the above options don't do the rebuild either, one of them is serialport.
+Unfortunately there are special cases where the above options don't do the rebuild either, one of them is serialport.
 
-A log can look like this (also after all rebuild attempts).
+A log can look like this (even after all rebuild attempts).
 
 <details><summary>LOG</summary>
 
@@ -100,7 +100,7 @@ A log can look like this (also after all rebuild attempts).
 </details>
 
 There are also other error messages, but they all boil down to the same thing.
-The easiest option is then to manually rebuild in the **correct** directory.
+The easiest option is then to manually rebuild in the **right** directory.
 In that case look for the directory with "bindings" - above it is */opt/iobroker/node_modules/serialport/node_modules/bindings ...* on newer versions it can also be something like */opt/iobroker/node_modules/serialport/node_modules /@serialport/bindings*.
 
 Then switch to this directory and execute `npm install --production`. Then restart the adapter again.
@@ -258,7 +258,7 @@ iobroker rebuild <adaptername> --install
 
 - just run it manually at the shell. Ideally, everything should be done automatically.
 
-# Notice
+# A notice
 ?> As long as the js controller is lower than version 4, the [ioBroker fixer](https://www.iobroker.net/#de/documentation/install/linux.md) must also be executed with a Node.js update within a major version.
 With the future js controller in version 4, rebuilds are handled fully automatically.
 A manual rebuild is then no longer supported.

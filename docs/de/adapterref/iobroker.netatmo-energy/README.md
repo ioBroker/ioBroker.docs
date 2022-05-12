@@ -103,7 +103,7 @@ Auf der Admin-Tab können sie alle Thermostate, Bridges und Ventile ihrer netatm
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/admintab_de.png" alt="admintab" width="70%"/>
 
-Auf jeder Karte werden Statussysmbole angezeigt, welche den aktuellen Zustand des Thermostats, der Ventile und des Steckers darstellt.
+Auf jeder Karte werden Statussysmbole angezeigt, welche den aktuellen Zustand des Thermostats, der Ventile und des Steckers darstellt. Auf der zweiten Seite des Thermostats finden sie diverse API Requests um den Thermostat-Mode bzw. den Heizplan einzustellen.
 
 ## Widget
 Widget für VIS um ein komplettes Thermostat anzuzeigen. Sie müssen nur den "SetTemp" - Datenpunkt eintragen. Alle anderen Informationen werden dynamisch aus der "rooms"-Struktur ermittelt.
@@ -116,6 +116,15 @@ Widget für VIS um ein komplettes Thermostat anzuzeigen. Sie müssen nur den "Se
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.1 (2022-04-18)
+* (ioKlausi) Additional informations added to admin tab cards
+
+### 1.3.0 (2022-04-17)
+* (ioKlausi) Change thermostat mode functionality added to thermostat card
+
+### 1.2.5 (2022-04-16)
+* (ioKlausi) Dropdown menu to change heating plan added to the thermostat card in the admin page
+
 ### 1.2.4 (2022-04-09)
 * (ioKlausi) i18n files for npm added
 

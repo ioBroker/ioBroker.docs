@@ -18,6 +18,8 @@ Adapter to get data from WebUntis
 Dieser Adapter bezieht Daten aus Webuntis. 
 Für eine deutsche Anleitung [hier klicken](readme/readme.de.md)
 
+## Donation
+[![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Getting started
 After the install of the adapter in iobroker, automatically opens the Configuration-Window.
@@ -53,6 +55,9 @@ please feel free, to make a proposal for recommend versions.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.4 (2022-05-08)
+* change log-level for error messages
+
 ### 0.3.3 (2022-04-03)
 * Add errorhandling for timetable
 

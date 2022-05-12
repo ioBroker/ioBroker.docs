@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
 title: 用于 ioBroker 的 Ecovacs Deebot 适配器
-hash: hvykbtK0LANUvNfeIaYzChCEZqq3plR0jMJQmCWxRgs=
+hash: zGQyWlxu2yuyzMud9BLBEfkleWc9C1h3vtEutAf4tNA=
 ---
-![商标](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
+![标识](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
 ![稳定版](http://iobroker.live/badges/ecovacs-deebot-stable.svg)
 ![最新版本](http://img.shields.io/npm/v/iobroker.ecovacs-deebot.svg)
@@ -21,24 +21,29 @@ hash: hvykbtK0LANUvNfeIaYzChCEZqq3plR0jMJQmCWxRgs=
 ＃＃ 特征
 一些值得注意的特点是：
 
-* 检索信息（例如电池、清洁日志、耗材、清洁和充电状态）
-* 发送清洁命令（例如自动、点区域、自定义区域）和各种其他命令（例如播放声音、重置消耗品）
-* 保存上次运行的自定义区域并重新运行保存的区域
-* 真空功率（清洁速度）和水位的调整
-* 在清洁过程中检索信息（例如当前位置和区域）
-*检索地图信息，包括。点区域和虚拟边界
-* 删除、保存和重新创建单个虚拟边界以及一整套虚拟边界 *)
-* 加载当前地图图像的函数 *)
+* 基本清洁功能（如自动清洁、光点区域、自定义区域等）
+* 和其他各种命令（例如播放声音、重置消耗品、重新定位位置等）
+* 检索基本信息（例如电池电量、清洁日志、耗材、清洁和充电状态等）
+* 以及各种扩展信息（如充电位置、当前地图、网络信息）
+* 在清洁过程中检索信息（例如当前位置和当前点区域）
+* 设置基本和高级设置（例如连续清洁、请勿打扰模式、TrueDetect 3D、音量等）
+* 真空功率和水位的调整
+* 保存上次使用的自定义区域并重新运行保存的区域
+*检索地图信息，包括。斑点区域、虚拟边界和无拖布区域
+* 删除、保存和重新创建单个虚拟边界以及一整套虚拟边界
+* 关于每个单点区域最后出现的日期和时间的信息
+* 返回充电站或进入/离开充电桩区域时的一些功能
+* 加载当前地图图像的函数
+* 设置个别点区域名称
 
-*) 实验性
-
-请注意：某些功能仅适用于某些型号
+请注意：某些功能仅适用于某些型号，有些仍处于试验阶段
 
 ＃＃ 楷模
 ### 支持的机型
 * 地宝 900/901
 * 地宝 OZMO 930
 * 地宝 OZMO 920/950
+* Deebot T8 AIVI（T8 系列）
 
 列出的模型是我自己使用的或在技术上与这些模型相同的模型。
 
@@ -57,6 +62,7 @@ hash: hvykbtK0LANUvNfeIaYzChCEZqq3plR0jMJQmCWxRgs=
 * 地宝 N8 系列
 * 地宝 T8 系列
 * 地宝 T9 系列
+* 地宝 X1 系列
 
 列出的模型要么已知可以工作，要么在技术上与这些模型相似。
 然而，功能可能会受到部分限制。
@@ -99,7 +105,7 @@ sudo npm install canvas --unsafe-perm=true
 * 地图图像的生成目前在 32 位系统上不稳定
 * 对于某些型号（例如 Deebot OZMO 930），建议使用
 
-[安排重启](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) 每天一次，因为有一些报告称连接在大约 10 分钟后丢失。 24小时
+[安排重启](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) 每天一次，因为有一些报告称连接在大约 1 分钟后丢失。 24小时
 
 * “边缘”功能不适用于 Deebot U2（改为启动自动清洁）
 * T9 系列上的一些“cleaninglog”状态为空（“last20Logs”、“lastCleaningDate”和“lastCleaningMapImageURL”）
@@ -109,8 +115,22 @@ sudo npm install canvas --unsafe-perm=true
 
 ## Changelog
 
-### 1.3.5 (alpha)
-* Bumped ecovacs-deebot.js to 0.7.2 (stable)
+### 1.4.1 (alpha)
+* Bumped ecovacs-deebot.js to 0.8.0
+* Improved last time presence functionality
+* Added option to reset the vacuum power (cleanSpeed) to standard on return
+* Added option to keep modified spot area names (pre-selection on non 950 type models)
+* Added states for current used custom and spot areas (currentUsedSpotAreas and customUsedCustomAreaValues)
+* Handle error code 110 ("NoDustBox: Dust Bin Not installed")
+* Bumped some dependencies
+
+### 1.4.0
+* Bumped ecovacs-deebot.js to 0.8.0 (beta)
+* Implemented last time presence function (still experimental)
+* Implemented cleanCount (permanent clean count) function (T8/T9/X1 series)
+* Implemented trueDetect (enable/disable) function (T8/T9/X1 series)
+* Added unit care to consumables (T8/T9/X1 series)
+* Added Deebot X1 series
 * Some improvements and fixes
 
 ### 1.3.4
@@ -122,38 +142,31 @@ sudo npm install canvas --unsafe-perm=true
 * Bumped ecovacs-deebot.js to 0.7.1 (incl. fix for CVE-2022-0155)
 
 ### 1.3.2
-
 * Bumped follow-redirects to 1.14.7 (fix for CVE-2022-0155) and some other dependencies
 * Added N8 PRO+
 
 ### 1.3.1
-
 * Fix the cleaning functions for the Deebot 710 series
 
 ### 1.3.0
-
 * Using library version 0.7.0 (beta)
 * The minimum required version of Node.js is now 12.x
 * Some improvements for newer models (e.g. T9 series)
 * Some other improvements and fixes
 
 ### 1.2.4
-
 * Using library version 0.6.8
 * Some optimizations
 * Preparations for changing the minimum required Node.js version to 12.x
 
 ### 1.2.3
-
 * Using library version 0.6.6
 * Lots of code refactoring, optimizations and some fixes
 
 ### 1.2.2
-
 * Added function to load current map image (non 950 type models, e.g. OZMO 930, Deebot 901)
 
 ### 1.2.1
-
 * Some enhancements and fixes
 * (benep) Added state to play sound by id
 

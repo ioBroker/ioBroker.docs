@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.extron/README.md
 title: ioBroker.extron
-hash: gHPmQRTN/ynCkRrmEcHbu1UHPcQIYnW1ORoexhn2Fv4=
+hash: MirW0DDWwLaw0/zTVl5RhrSemyrcN4OX4ivf2C5Pl9M=
 ---
 ![Логотип](../../../en/adapterref/iobroker.extron/admin/extron.png)
 
@@ -21,11 +21,11 @@ hash: gHPmQRTN/ynCkRrmEcHbu1UHPcQIYnW1ORoexhn2Fv4=
 
 Устройства управления от Extron.
 Этот адаптер предназначен для управления некоторыми аудио-видео продуктами Extron с помощью **простой **простой **инструкции **S**et протокола.
-Функциональный диапазон устройств огромен. Не все функции имеет смысл поддерживать с помощью адаптера и взаимодействия с iobroker.
+Функциональный диапазон устройств огромен. Не все функции имеют смысл поддерживать с помощью адаптера и взаимодействия с iobroker.
 
 **Обратите внимание:** Когда тип устройства выбран в конфигурации адаптера, его нельзя будет изменить в будущем!
 
-В установке iobroker может быть больше экземпляров разных или одинаковых типов от этого адаптера. Для будущих выпусков необходимо добавить действующую лицензию в конфигурацию адаптера для каждого экземпляра.
+В установке iobroker может быть несколько экземпляров разных или одинаковых типов этого адаптера. Для будущих выпусков необходимо добавить действующую лицензию в конфигурацию адаптера для каждого экземпляра.
 Если вы некоммерческая организация или используете его в личных целях, вы можете получить лицензию бесплатно. Пожалуйста, свяжитесь с автором.
 
 ### Поддерживаемые устройства
@@ -35,13 +35,15 @@ hash: gHPmQRTN/ynCkRrmEcHbu1UHPcQIYnW1ORoexhn2Fv4=
 - Процессор ProDSP 12x8 с Dante (DMP 128 Plus AT)
 - Процессор ProDSP 12x8 с AEC, VoIP и Dante (DMP 128 Plus C V AT)
 
-## Сделать
+## Делать
 - Тип устройства проверяется в начале разговора. Иногда это не удается. Необходимо менять на более надежный механизм.
 - Сделайте более детальный выбор используемых входов и выходов, чтобы уменьшить размер базы данных на устройствах DSP.
 - добавить больше команд и их реализацию на стороне базы данных
 
 ## Changelog
 
+### 0.1.12
+* (mschlgl) added support for channel preset selection in SMD202
 ### 0.1.11
 * (Bannsaenger) fixed support for groups in DSP DMP128
 
@@ -52,7 +54,7 @@ hash: gHPmQRTN/ynCkRrmEcHbu1UHPcQIYnW1ORoexhn2Fv4=
 * (Bannsaenger) fixed setting of info.connection in telnet mode
 
 ### 0.1.7
-* (mschlgl) added plaint Telnet communication for DMP128
+* (mschlgl) added plain Telnet communication
 
 ### 0.1.6
 * (mschlgl) added limiter section for DMP128

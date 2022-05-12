@@ -3,19 +3,19 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.eventlist/README.md
 title: ioBroker.eventlist
-hash: pMEjj/E/4LClSw8GSTCvaYfgt5JuNQxvWKqQv9loPTQ=
+hash: IvFXtVQyk2CgD6hfwGEKWEdmDXUNUEIvxGYv3mandUE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.eventlist/admin/eventlist.png)
 
+![Количество установок](http://iobroker.live/badges/eventlist-stable.svg)
 ![версия NPM](http://img.shields.io/npm/v/iobroker.eventlist.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.eventlist.svg)
-![Количество установок (последние)](http://iobroker.live/badges/eventlist-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/eventlist-stable.svg)
-![Статус зависимости](https://img.shields.io/david/bluefox/iobroker.eventlist.svg)
-![Известные уязвимости](https://snyk.io/test/github/bluefox/ioBroker.eventlist/badge.svg)
-![НПМ](https://nodei.co/npm/iobroker.eventlist.png?downloads=true)
 
 # IoBroker.список событий
+![Тестируйте и выпускайте](https://github.com/ioBroker/iobroker.eventlist/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/eventlist/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+
 ## Адаптер Event-List для ioBroker
 Позволяет определить состояния, которые должны регистрироваться в списке событий.
 
@@ -83,7 +83,7 @@ setState('eventlist.0.insert', 'My custom text');
 setState('eventlist.0.insert', {event: 'My custom text %s', val: 5});
 ```
 
-Пользователь может запросить отформатированный список JSON для определенного идентификатора. Конечно, идентификатор должен быть включен в `eventlist` до этого.
+Пользователь может запросить отформатированный список JSON для определенного идентификатора. Конечно, идентификатор должен быть активирован в `eventlist` заранее.
 
 ```
 // add custom event to event list
@@ -139,7 +139,7 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 
 Сгенерированный отчет будет сохранен, например, под номером 0 в `eventlist/report.pdf` и, например, под номером 1 в `eventlist/report-1.pdf`.
 
-## Сделать
+## Делать
 - Изменить начальные тексты в PDF на соответствующем языке
 - Множество предустановленных иконок (минимум 100)
 - Материальный виджет
@@ -150,6 +150,10 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 ### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
 
 ## Changelog
+### 0.5.5 (2022-04-23)
+* (Apollon77) Fix a crash issue
+* (Apollon77) Add Sentry also for the Node.js part
+
 ### 0.5.4 (2022-02-14)
 * (bluefox) Corrected the image paths
 

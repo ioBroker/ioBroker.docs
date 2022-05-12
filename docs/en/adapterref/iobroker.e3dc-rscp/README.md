@@ -6,6 +6,7 @@
 ![Number of Installations (latest)](http://iobroker.live/badges/e3dc-rscp-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/e3dc-rscp-stable.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/git-kick/ioBroker.e3dc-rscp/badge.svg)](https://snyk.io/test/github/git-kick/ioBroker.e3dc-rscp)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/ukick)
 
 [![NPM](https://nodei.co/npm/iobroker.e3dc-rscp.png?downloads=true)](https://nodei.co/npm/iobroker.e3dc-rscp/)
 
@@ -62,7 +63,7 @@ Here is what to configure when creating a new instance of the adapter. Settings 
     </td>
   </tr>
     <td>SET_POWER re-send interval [s]</td>
-    <td>Define how often ioBroker will request state updates from E3/DC.</td>
+    <td>Define how often ioBroker will request state updates from E3/DC. Experiments showed that SET_POWER may oscillate when this interval is longer than 10 seconds, despite a comment in the official E3/DC tag list saying that setting every 30 seconds is sufficient. If set to 0 (zero), no re-send will happen, i.e. you have to trigger the re-send from outside, otherwise the E3/DC will fall back to normal after ca. 10 seconds.</td>
   </tr>
   <tr>
     <td>Tuple sending delay [s]</td>
@@ -197,19 +198,19 @@ The RSCP protocol groups *Tags* (i.e. states or values) into *Namespaces* (i.e. 
     <td>EMS</td>
     <td>MAX_CHARGE_POWER</td>
     <td>number</td>
-    <td>Charge limit in [W]</td>
+    <td>Charge limit in [W] - NOTE: ineffective unless POWER_LIMITS_USED is "true"</td>
   </tr>
   <tr>
     <td>EMS</td>
     <td>MAX_DISCHARGE_POWER</td>
     <td>number</td>
-    <td>Discharge limit in [W]</td>
+    <td>Discharge limit in [W] - NOTE: inffective unless POWER_LIMITS_USED is "true"</td>
   </tr>
   <tr>
     <td>EMS</td>
     <td>DISCHARGE_START_POWER</td>
     <td>number</td>
-    <td>Minimal battery discharge power in [W]</td>
+    <td>Minimal battery discharge power in [W] - NOTE: ineffective unless POWER_LIMITS_USED is "true"</td>
   </tr>
   <tr>
     <td>EMS</td>
@@ -339,6 +340,12 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 <a name="log"></a>
 
 ## Changelog
+### 1.0.6
+(git-kick)
+* Vulnerable dependency: minimist < 1.2.6 - [CVE-2021-44906](https://nvd.nist.gov/vuln/detail/CVE-2021-44906)
+### 1.0.5
+(git-kick)
+* SET_POWER not effective due to delayed transmission - [Issue #103](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/103)
 ### 1.0.4
 (git-kick)
 * BAT_1 not visible after update to v1.0.3 - [Issue #96](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/96)

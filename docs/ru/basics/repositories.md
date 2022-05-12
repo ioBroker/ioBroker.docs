@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/basics/repositories.md
 title: Что такое репозиторий?
-hash: mZhXZcSyG37steFTdSDwUAyMwjZACcDfl6LYkjNIMd0=
+hash: /ElbUKETBRqOXNIairSurXsqEGb34Y4k7b+fLa332mI=
 ---
 # Что такое репозиторий?
 Репозиторий — это центральный репозиторий программ.
@@ -18,25 +18,20 @@ hash: mZhXZcSyG37steFTdSDwUAyMwjZACcDfl6LYkjNIMd0=
 <br><br>
 
 # Выбор репозитория В базовых настройках ioBroker нужный репозиторий можно задать следующим образом.
-Открываем основные настройки ioBroker:
+Откройте основные настройки ioBroker:
 
 ![](../../de/basics/media/Repository_IconBasicSettings.png)
 
-Выбор репозитория по умолчанию:
+и перейдите на вкладку Репозитории, где можно выбрать нужный репозиторий ![](../../de/basics/media/Repository_BasicsSettingsDefaultPath.png)
 
-![](../../de/basics/media/Repository_BasicSettings.png)
+Пути по умолчанию для стабильного и бета-репозиториев:
+
+- стабильная версия - ссылка на репозиторий http://download.iobroker.net/sources-dist.json
+- бета - Ссылка на репозиторий http://download.iobroker.net/sources-dist-latest.json
 
 Если был выбран бета-репозиторий, в обзоре адаптера появится соответствующее предупреждение.
 
 ![](../../de/basics/media/Repository_AdapterRepInfo.png)
-
-<br><br>
-
-# Пути к репозиториям по умолчанию Пути к репозиториям стабильной версии и бета-версии по умолчанию показаны ниже: ![](../../de/basics/media/Repository_BasicsSettingsDefaultPath.png)
-- стабильная версия - ссылка на репозиторий http://download.iobroker.net/sources-dist.json
-- бета - Ссылка на репозиторий http://download.iobroker.net/sources-dist-latest.json
-
-<br><br>
 
 # Стабильный и бета-репозиторий
 По сути, стабильный репозиторий ВСЕГДА должен использоваться для продуктивной установки ioBroker. Репозиторий бета-версии содержит версии, которые все еще содержат ошибки и могут повлиять на всю систему.
@@ -46,7 +41,7 @@ hash: mZhXZcSyG37steFTdSDwUAyMwjZACcDfl6LYkjNIMd0=
 ## Что делать, если мне когда-нибудь понадобится адаптер из бета-репозитория?
 Раньше это означало переключение репозитория со стабильного на бета-версию в ioBroker, установку одного адаптера, а затем обратное переключение. Последние обычно отходили на второй план.
 
-Начиная с Admin 5 это гораздо удобнее БЕЗ смены репозитория!
+Начиная с Админа 5 это гораздо удобнее БЕЗ смены репозитория!
 
 - Активировать экспертный режим
 - В меню «Адаптер» перейдите к кнопке «Выборочная установка» (GitHub) и перейдите на первую вкладку «Из NPM».
@@ -66,4 +61,4 @@ hash: mZhXZcSyG37steFTdSDwUAyMwjZACcDfl6LYkjNIMd0=
 
 После изменения функции адаптера он обычно снова становится доступным только в бета-репозитории для тестирования, пока версия не будет выпущена для стабильного репозитория после завершения фазы тестирования.
 
---- lastChanged: "25.01.2022" ---
+--- lastChanged: "10.04.2022" ---

@@ -32,6 +32,8 @@ Please use GitHub issues for this.
 Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
+### 1.0.3 (2022-04-28)
+* (Apollon77) Make sure devices have an id when initializing them
 
 ### 1.0.1 (2021-07-05)
 * (Apollon77) Optimize connection status edge cases
@@ -59,7 +61,7 @@ Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column
 ## License
 MIT License
 
-Copyright (c) 2021 Ingo Fischer <github@fischer-ka.de>
+Copyright (c) 2021-2022 Ingo Fischer <github@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

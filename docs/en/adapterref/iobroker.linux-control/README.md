@@ -101,6 +101,8 @@ It is important that the retrieved data is transmitted in the correct type! The 
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 1.1.5 (2022-05-03)
+* (Scrounger) Dependencies updated
 
 ### 1.1.4 (2021-12-18)
 * (Scrounger) always create my command datapoint
@@ -188,7 +190,6 @@ It is important that the retrieved data is transmitted in the correct type! The 
 * (Scrounger) ignore whole datapoints node by using drag and drop 
 * (Scrounger) error handling for user commands improved
 * (Scrounger) Sentry implemented
- 
 
 ### 0.1.0 (2020-05-20)
 * (Scrounger) added datapoints blacklist configurable for each host individually
@@ -204,7 +205,7 @@ It is important that the retrieved data is transmitted in the correct type! The 
 ## License
 MIT License
 
-Copyright (c) 2020 Scrounger <scrounger@gmx.net>
+Copyright (c) 2020-2022 Scrounger <scrounger@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

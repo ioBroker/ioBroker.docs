@@ -2,24 +2,24 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/install/centos.md
-title: Auf CentOS installieren
-hash: se2U2FhT82/g/VF79qgLX17rU0BBl3AysNdvpbxmDGs=
+title: Installieren Sie auf CentOS
+hash: NNHd5PMz5EEH2++Yd5IKcnE5qyP9RhewUgl2YZil5Co=
 ---
 # Auf CentOS installieren
 ## Automatische Installation
-Stellen Sie sicher, dass `curl` installiert ist, oder installieren Sie es mit:
+Stellen Sie sicher, dass `curl` installiert ist oder installieren Sie es mit:
 
 `sudo yum install -y curl`
 
-Verwenden Sie dann das Installationsskript:
+Und dann das Installationsskript verwenden:
 
 `curl -sL https://iobroker.net/install.sh | bash -`
 
-Wenn die automatische Installation nicht funktioniert, können Sie trotzdem die manuelle Installation verwenden.
+Wenn die automatische Installation nicht funktioniert, können Sie immer noch die manuelle Installation verwenden.
 
 ## Manuelle Installation
-### Installieren Sie node.js
-Wenn nicht installiert:
+### Node.js installieren
+Falls nicht installiert:
 
 ```
 sudo yum install -y gcc-c++ make build-essential
@@ -27,7 +27,7 @@ curl -sL https://rpm.nodesource.com/setup_10.x | sudo -E bash -
 sudo yum install -y nodejs
 ```
 
-### IoBroker installieren
+### Installieren Sie ioBroker
 ```
 sudo groupadd iobroker
 sudo adduser -g iobroker iobroker
@@ -41,7 +41,7 @@ npm i iobroker.admin --production
 npm i iobroker.js-controller@stable --production
 ```
 
-### Optional installiere redis
+### Optional install redis
 ```
 sudo yum install -y epel-release nano
 sudo yum update
@@ -51,7 +51,7 @@ sudo systemctl enable redis
 sudo nano /etc/redis.conf
 ```
 
-#### Redis als Status DB setzen
+#### Redis als Status-DB setzen
 ```
 ./iobroker setup custom
 ```
@@ -70,14 +70,14 @@ Ausgänge:
 # creating conf/iobroker.json
 ```
 
-#### Optional nur für Redis + Multihost
-Ändern Sie Bind 127.0.0.1 in Bind 0.0.0.0
+#### Optional nur für Redis+Multihost
+Ändern Sie Bindung 127.0.0.1 in Bindung 0.0.0.0
 
 ```
 sudo systemctl restart redis
 ```
 
-### Benutzer in "iobroker" ändern
+### Benutzer zu "iobroker" ändern
 ```
 cd /opt/iobroker/
 sudo chmod 744 * -R

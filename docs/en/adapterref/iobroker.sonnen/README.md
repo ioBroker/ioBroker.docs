@@ -96,14 +96,22 @@ Note: The old and legacy API states (API port 3480/7979) are currently not or on
 
    *Read-only JSON string, which contains power metering information of your battery.*
    
-* info.inverter
+* info.inverter.*
 
     |Data type|Permission|                                                                       
     |:---:|:---:|
-    |string|R|
+    |number|R|
 
-   *Read-only JSON string, which contains inverter information of your battery.*
-   
+   *Read-only number, which contains inverter information of your battery.*
+
+* info.ios.*
+
+    |Data type|Permission|
+    |:---:|:---:|
+    |boolean|R|
+
+   *Read-only boolean which contains discrete IO information of your battery.*
+
 #### Channel: status
    
 * status.consumption
@@ -291,17 +299,23 @@ Note: The old and legacy API states (API port 3480/7979) are currently not or on
     ```
 #### Channel: powermeter
 This channel has two subchannels, e.g. `4_1` and `4_2` where one represents consumption and the other one production.
+E.g. `4_1.kwh_imported` represents the overall production since installation of the battery.
  
 The both channels have the identical states. All states are read-only numbers.
 
 ### Channel: inverter
 The channel consists of read-only states of type `number`, providing information about the inverter of your battery.
 
+### Channel: ios
+The channel consists of read-only states of type `boolean`, providing information about the discrete IO states of your battery.
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.10.0 (2022-04-18)
+* (rivengh) added battery discrete io states
 
 ### 1.9.8 (2021-09-27)
 * (foxriver76) make requesting online status optional for 8080 api (closes #76)
@@ -367,7 +381,7 @@ The channel consists of read-only states of type `number`, providing information
 
 ### 1.5.3 (2020-05-18)
 * (foxriver76) poll online status always again if not confirmed that there are differences in api (old solution could lead to false negative)
-* (foxriver76) more specific error handling 
+* (foxriver76) more specific error handling
 
 ### 1.5.2 (2020-05-16)
 * (foxriver76) check if onlineStatus is supported at adapter start - else do not poll it

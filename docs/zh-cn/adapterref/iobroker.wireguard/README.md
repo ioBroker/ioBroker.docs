@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wireguard/README.md
 title: ioBroker.wireguard
-hash: +1ql84dUfbie/gcH5o/9Xhy2nKAxXJ8SdA5Hq8BsaUw=
+hash: 54SbCSmbVHFPAQ4YRK3Aw20SEbncQGbr0fB2dNpTqX0=
 ---
-![商标](../../../en/adapterref/iobroker.wireguard/admin/Logo_of_WireGuard.svg)
+![标识](../../../en/adapterref/iobroker.wireguard/admin/Logo_of_WireGuard.svg)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.wireguard.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.wireguard.svg)
@@ -14,12 +14,12 @@ hash: +1ql84dUfbie/gcH5o/9Xhy2nKAxXJ8SdA5Hq8BsaUw=
 ![新PM](https://nodei.co/npm/iobroker.wireguard.png?downloads=true)
 
 # IoBroker.wireguard
-![商标](../../../en/adapterref/iobroker.wireguard/admin/wireguard.svg)
+![标识](../../../en/adapterref/iobroker.wireguard/admin/wireguard.svg)
 
 ![测试和发布](https://github.com/grizzelbee/ioBroker.wireguard/workflows/Test%20and%20Release/badge.svg)![代码QL](https://github.com/Grizzelbee/ioBroker.wireguard/actions/workflows/codeQL.yml/badge.svg)
 
 ## IoBroker 的wireguard 适配器
-连接到 WireGuard 主机并获取对等点的连接信息。此适配器旨在成为您的 WireGuard 主机的监控实例。
+连接到 WireGuard 主机并获取对等点的连接信息。此适配器旨在成为您的 WireGuard 主机的监控实例。它也支持普通安装和 docker。
 
 &gt; 如果你喜欢这个适配器并考虑支持我<br/>&gt; [![使用 payPal 捐款](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
 
@@ -44,10 +44,30 @@ hash: +1ql84dUfbie/gcH5o/9Xhy2nKAxXJ8SdA5Hq8BsaUw=
   - 用户：在主机上执行脚本的用户（将被加密存储）
   - 密码：此用户的密码（将加密存储）
   - sudo：是否应该使用 sudo 执行 wg 命令（需要有效的 sudoers 配置！-> 参见 [安全提示]）
+  - Docker：执行 `docker exec` 命令以到达 docker 容器内的 wireguard 服务器。请检查它是否符合您的需求，或者您是否可以切换到受支持的容器。
   - 轮询间隔：以秒为单位在每次轮询之间暂停（也会延迟适配器启动后的第一次运行）
 * 翻译页面
     - 公钥：您的同行之一的公钥
     - 组名：此对等点的符号名称
+
+### 执行的命令行取决于复选框：
+* 没有选中复选框：`wg show all dump` 将被执行（对于类似 root 的用户和使用 SetUID-Bit）
+* Sudo 复选框被选中：`sudo wg show all dump` 将被执行（使用正确的 sudoers 行）
+* Docker 复选框被选中：`docker exec -it wireguard /usr/bin/wg show all dump` 将被执行
+* Sudo 和 Docker 复选框被选中：`sudo docker exec -it wireguard /usr/bin/wg show all dump` 将被执行
+
+> 如果您在 docker 容器中使用 WireGuard，我假设您对技术和安全概念都足够熟悉，可以配置您的系统以不要求任何密码的方式执行所示命令。
+
+### 码头工人
+基本上，关于常规安装的所有内容也适用于 docker，并且工作方式相同。
+除了执行正确命令所需的复选框和所需的 sudoers 行。如果您在 docker 容器中使用 WireGuard，您可能需要类似以下的 sudoers 行：
+
+```
+<wg-monitoring-user> ALL=NOPASSWD:/usr/bin/docker exec -it wireguard /usr/bin/wg show all dump
+```
+
+此适配器需要 WireGuard 容器的名称 `wireguard` 以及容器内 `/usr/bin/`中的 `wg` 命令。
+目前无法自定义这些值。
 
 ＃＃ 这个怎么运作
 * 适配器的 info.connection 用于指示至少有一个 WireGuard 接口在线并由 `wg show all` 报告。如果没有 Wireguard 接口在线 - 不报告任何内容。在这种情况下，将记录错误并且适配器的交通灯变为黄色。
@@ -92,6 +112,12 @@ wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg show all dump
 版权所有 (c) 2022 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+### v1.2.1 (2022-04-24)
+* (grizzelbee) Fixed: [#20](https://github.com/Grizzelbee/ioBroker.wireguard/issues/20) Fixed a bug in tty linking which prevented docker option to work.
+
+### v1.2.0 (2022-04-21)
+* (grizzelbee) New: [#20](https://github.com/Grizzelbee/ioBroker.wireguard/issues/20) Added support for WireGuard inside a docker container
+
 ### v1.1.3 (2022-03-31)
 * (grizzelbee) New: Fixed sentry error [WIREGUARD-1](https://sentry.io/organizations/grizzelbee/issues/3027754005/events/?project=6215712)
 * (grizzelbee) New: Fixed sentry error [WIREGUARD-H](https://sentry.io/organizations/grizzelbee/issues/3129951381/events/?project=6215712)

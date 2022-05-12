@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kress/README.md
 title: ioBroker.kress
-hash: 5xYDrlXWt4DNMGHF7cB0Qb5R6BLJ+kr8LT0KCAfbZwc=
+hash: UgRpc0kynJZc18W8/210Gtr5rdwjSg15gBuNMpiDffo=
 ---
 ![Kress-Robotik](../../../en/adapterref/iobroker.kress/admin/kress-2.png)
 
@@ -17,18 +17,18 @@ hash: 5xYDrlXWt4DNMGHF7cB0Qb5R6BLJ+kr8LT0KCAfbZwc=
 # IoBroker.kress
 [Deutsche Beschreibung hier](README_de.md)
 
-Dieser Adapter verbindet den IoBroker mit Ihrem Kress Cloud-Support. Temperaturen, Mähzeiten, Akkuladestand und verschiedene andere Daten werden vom Mäher ausgelesen. Der Adapter kann den Mäher steuern und Sie können die Konfigurationsparameter wie Mähzeiten ändern.
+Dieser Adapter verbindet ioBroker mit Ihrer Kress-Cloud-Unterstützung. Temperaturen, Mähzeiten, Akkustand und verschiedene andere Daten werden aus dem Mäher ausgelesen. Der Adapter kann den Mäher steuern und Sie können Konfigurationsparameter wie Mähzeiten ändern.
 
 ## Installation
-Es muss mindestens Knoten 4.X.X installiert sein, Knoten 0.10 und 0.12 werden von diesem Adapter nicht mehr unterstützt.
+Es muss mindestens Node 4.X.X installiert sein, Node 0.10 und 0.12 werden von diesem Adapter nicht mehr unterstützt.
 
-## Die Einstellungen
-- Um eine Verbindung mit dem Mäher herzustellen, geben Sie E-Mail und Passwort von Ihrem worx-Konto in der Konfiguration ein.
+## Einstellungen
+- Um sich mit dem Mäher zu verbinden, geben Sie E-Mail und Passwort von Ihrem Worx-Konto in der Config ein.
 
 ## Zweiter Mäher
--Wenn zwei Mäher integriert werden sollen, muss eine zweite Instanz installiert werden, einer wird im Config-Mäher 0 und im zweiten Mäher 1 usw. ausgewählt.
+-Sollten zwei Mäher integriert werden, muss eine zweite Instanz installiert werden, man wählt in der Config Mäher 0 aus und im zweiten Mäher 1 und so weiter.
 
-## Beachten
+## Notiz
 Bild-Quelle: https://www.kress-robotik.com/de/
 
 ## Changelog

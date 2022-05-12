@@ -41,6 +41,10 @@ If you have any device transmitting specially encoded information via advertisem
 	Placeholder for next release:
 	### __WORK IN PROGRESS__
 -->
+### 0.13.0 (2022-04-27)
+* The option to allow recording new devices is now available in the config dialog. When the adapter starts, it will be disabled, and when enabled, it will be automatically disabled after 5 minutes (#730, #729)
+* Fix: RSSI will now be updated, even if it was unchanged (#493)
+* Dependency updates, lots of dependency updates...
 
 ### 0.12.0 (2020-10-29)
 * Scanning is now done in a separate process, so uncatchable errors in `noble` no longer bring down the main process
@@ -187,7 +191,7 @@ If you have any device transmitting specially encoded information via advertisem
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2020 AlCalzone <d.griesel@gmx.net>
+Copyright (c) 2017-2022 AlCalzone <d.griesel@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

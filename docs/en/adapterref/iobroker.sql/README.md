@@ -14,6 +14,39 @@ You can leave port 0 if default port is desired.
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
+## Settings
+
+## Connection Settings
+- **DB Type**: Type of the SQL DB: MySQL, PostgreSQL, MS-SQL or SQLite3
+- **Host**: IP address or host name with SQL Server
+- **Port**: Port of SQL Server (leave blank if not sure)
+- **Database name**: Database name. Default iobroker
+- **User**: Username for SQL. Must exist in the DB.
+- **Password**: Password for SQL.
+- **Password confirm**: Just repeat password here.
+- **Encrypt**: Some DBs support encryption.
+- **Round real to**: Number of digits after the comma.
+- **Allow parallel requests**: Allow simultaneous SQL requests to DB.
+- **Do not create database**: Activate this option if database already created (e.g. by administrator) and the ioBroker-user does not have enough rights to create a DB.
+
+## Default Settings
+- **Debounce Time** - Protection against unstable values to make sure that only stable values are logged when the value did not change in the defined amount of Milliseconds. ATTENTION: If values change more often then this setting effectively no value will be logged (because any value is unstable)
+- **Blocktime** - Defines for how long after storing the last value no further value is stored. When the given time in Milliseconds is over then the next value that fulfills all other checks is logged.
+- **Record changes only** - This function make sure that only changed values are logged if they fulfill other checks (see below). Same values will not be logged.
+- **still record the same values (seconds)** - When using "Record changes only" you can set a time interval in seconds here after which also unchanged values will be re-logged into the DB. You can detect the values re-logged by the adapter with the "from" field.
+- **Minimum difference from last value** - When using "Record changes only" you can define the required minimum difference between the new value and the last value. If this is not reached the value is not recorded.
+- **ignore 0 or null values (==0)** - You can define if 0 or null values should be ignored.
+- **ignore values below zero (<0)** - You can define if values below zero should be ignored.
+- **Disable charting optimized logging of skipped values** - By default the adapter tries to record the values for optimized charting. This can mean that additional values (that e.g. not fulfilled all checks above) are logged automatically. If this is not wanted, you can disable this feature.
+- **Alias-ID** - You can define an alias for the ID. This is useful if you have changed a device and want to have continuous data logging. Please consider switching to real alias States in teh future!
+- **Storage retention** - How many values in the past will be stored on disk. Data are deleted when the time is reached as soon as new data should be stored for a datapoint.
+- **Maximal number of stored in RAM values** - Define how many number of values will be hold in RAM before persisting them on disk. You can control how much I/O is done.
+- **Enable enhanced debug logs for the datapoint** - If you want to see more detailed logs for this datapoint, you can enable this option. You still need to enable "debug" loglevel for these additional values to be visible! This helps in debugging issues or understanding why the adapter is logging a value (or not).
+
+Most of these values can be pre-defined in the instance settings and are then pre-filled or used for the datapoint.
+
+## Database installation tips
+
 ### MS-SQL:
 Use ```localhost\instance``` for the host and check TCP/IP connections enabled.
 https://msdn.microsoft.com/en-us/library/bb909712(v=vs.90).aspx
@@ -193,6 +226,98 @@ Structure:
 
 *Note:* MS-SQL uses BIT, and others use BOOLEAN. SQLite uses for ts INTEGER and all others BIGINT.
 
+## Access values from Javascript adapter
+The sorted values can be accessed from Javascript adapter.
+
+* Get 50 last stored events for all IDs
+```
+sendTo('sql.0', 'getHistory', {
+    id: '*',
+    options: {
+        end:       Date.now(),
+        count:     50,
+        aggregate: 'onchange',
+        addId: true
+    }
+}, function (result) {
+    for (var i = 0; i < result.result.length; i++) {
+        console.log(result.result[i].id + ' ' + new Date(result.result[i].ts).toISOString());
+    }
+});
+```
+
+* Get stored values for "system.adapter.admin.0.memRss" in last hour
+```
+var end = Date.now();
+sendTo('sql.0', 'getHistory', {
+    id: 'system.adapter.admin.0.memRss',
+    options: {
+        start:      end - 3600000,
+        end:        end,
+        aggregate: 'onchange',
+        addId: true
+    }
+}, function (result) {
+    for (var i = 0; i < result.result.length; i++) {
+        console.log(result.result[i].id + ' ' + new Date(result.result[i].ts).toISOString());
+    }
+});
+```
+
+Possible options:
+- **start** - (optional) time in ms - *Date.now()*'
+- **end** - (optional) time in ms - *Date.now()*', by default is (now + 5000 seconds)
+- **step** - (optional) used in aggregate (max, min, average, total, ...) step in ms of intervals
+- **count** - number of values if aggregate is 'onchange' or number of intervals if other aggregate method. Count will be ignored if step is set, else default is 500 if not set
+- **from** - if *from* field should be included in answer
+- **ack** - if *ack* field should be included in answer
+- **q** - if *q* field should be included in answer
+- **addId** - if *id* field should be included in answer
+- **limit** - do not return more entries than limit
+- **round** - round result to number of digits after decimal point
+- **ignoreNull** - if null values should be included (false), replaced by last not null value (true) or replaced with 0 (0)
+- **removeBorderValues** - By default additional border values are returned to optimize charting. Set this option to true if this is not wanted (e.g. for script data processing)
+- **returnNewestEntries** - The returned data are always sorted by timestamp ascending. When using aggregate "none" and also providing "count" or "limit" this means that normally the oldest entries are returned (unless no start data is provided). Set this option to true to get the newest entries instead.
+- **aggregate** - aggregate method:
+    - *minmax* - used special algorithm. Splice the whole time range in small intervals and find for every interval max, min, start and end values.
+    - *max* - Splice the whole time range in small intervals and find for every interval max value and use it for this interval (nulls will be ignored).
+    - *min* - Same as max, but take minimal value.
+    - *average* - Same as max, but take average value.
+    - *total* - Same as max, but calculate total value.
+    - *count* - Same as max, but calculate number of values (nulls will be calculated).
+    - *percentile* - Calculate n-th percentile (n is given in options.percentile or defaults to 50 if not provided).
+    - *quantile* - Calculate n quantile (n is given in options.quantile or defaults to 0.5 if not provided).
+    - *integral* - Calculate integral (additional parameters see below).
+    - *none* - No aggregation at all. Only raw values in given period.
+- **percentile** - (optional) when using aggregate method "percentile" defines the percentile level (0..100)(defaults to 50)
+- **quantile** - (optional) when using aggregate method "quantile" defines the quantile level (0..1)(defaults to 0.5)
+- **integralUnit** - (optional) when using aggregate method "integral" defines the unit in seconds (defaults to 60s). e.g. to get integral in hours for Wh or such, set to 3600.
+- **integralInterpolation** - (optional) when using aggregate method "integral" defines the interpolation method (defaults to "none").
+    - *linear* - linear interpolation
+    - *none* - no/stepwise interpolation
+
+The first and last points will be calculated for aggregations, except aggregation "none".
+If you manually request some aggregation you should ignore first and last values, because they are calculated from values outside of period.
+
+
+## Get counter
+User can ask the value of some counter (type=number, counter=true) for specific period.
+
+```
+var now = Date.now();
+// get consumption value for last 30 days
+sendTo('sql.0', 'getCounter', {
+    id: 'system.adapter.admin.0.memRss',
+    options: {
+        start:      now - 3600000 * 24 * 30,
+        end:        now,
+    }
+}, result => {
+    console.log(`In last 30 days the consumption was ${result.result} kWh`);    
+});
+```
+If the counter device will be replaced it will be calculated too.
+
 ## Custom queries
 The user can execute custom queries on tables from javascript adapter:
 
@@ -242,11 +367,37 @@ This function can also be used to convert data from other History adapters like 
 The given IDs are not checked against the ioBroker database and do not need to be set up there, but can only be accessed directly.
 
 The Message can have one of the following three formats:
-* one ID and one state object: `{id: 'adapter.0.device.counter', state: {val: 1, ts: 10239499}}`
-* one ID and array of state objects: `{id: 'adapter.0.device.counter', state: [{val: 1, ts: 10239499}, {val: 2, ts: 10239599}, {val: 3, ts: 10239699}]}`
-* array of multiple IDs with state objects `[{id: 'adapter.0.device.counter1', state: {val: 1, ts: 10239499}, {id: 'adapter.0.device.counter2', state: {val: 2, ts: 10239599}]`
+* one ID and one state object
 
-Additionally, you can add attribute `rules: true` to activate all rules, like `counter`, `changesOnly`, `de-bounce` and so on: `{id: 'adapter.0.device.counter', rules: true, state: [{val: 1, ts: 10239499}, {val: 2, ts: 10239599}, {val: 3, ts: 10239699}]}` 
+```
+sendTo('history.0', 'storeState', [
+    id: 'mbus.0.counter.xxx',
+    state: {ts: 1589458809352, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}
+], result => console.log('added'));
+```
+
+* one ID and array of state objects
+
+```
+sendTo('history.0', 'storeState', {
+    id: 'mbus.0.counter.xxx',
+    state: [
+      {ts: 1589458809352, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}, 
+      {ts: 1589458809353, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}
+    ]
+}, result => console.log('added'));
+```
+
+* array of multiple IDs with one state object each
+
+```
+sendTo('history.0', 'storeState', [
+    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}}, 
+    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}}
+], result => console.log('added'));
+```
+
+Additionally, you can add attribute `rules: true` in message to activate all rules, like `counter`, `changesOnly`, `de-bounce` and so on.
 
 ## delete state
 If you want to delete entry from the Database you can use the build in system function **delete**:
@@ -293,43 +444,6 @@ sendTo('sql.0', 'update', [
 `ts` is mandatory. At least one other flags must be included in state object.
 
 Be careful with `counters`. The `counters` in DB will not be reset, and you must handle it yourself. 
-
-## Get history
-Additional to custom queries, you can use build in system function **getHistory**:
-```
-var end = Date.now();
-sendTo('sql.0', 'getHistory', {
-    id: 'system.adapter.admin.0.memRss',
-    options: {
-        start:      end - 3600000,
-        end:        end,
-        aggregate:  'minmax', // or 'none' to get raw values
-        addId:      true
-    }
-}, function (result) {
-    for (var i = 0; i < result.result.length; i++) {
-        console.log(result.result[i].id + ' ' + new Date(result.result[i].ts).toISOString());
-    }
-});
-```
-
-## Get counter
-User can ask the value of some counter (type=number, counter=true) for specific period.
-
-```
-var now = Date.now();
-// get consumption value for last 30 days
-sendTo('sql.0', 'getCounter', {
-    id: 'system.adapter.admin.0.memRss',
-    options: {
-        start:      now - 3600000 * 24 * 30,
-        end:        now,
-    }
-}, result => {
-    console.log(`In last 30 days the consumption was ${result.result} kWh`);    
-});
-```
-If the counter device will be replaced it will be calculated too.
 
 ## History Logging Management via Javascript
 The adapter supports enabling and disabling of history logging via JavaScript and also retrieving the list of enabled data points with their settings.
@@ -396,36 +510,38 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 });
 ```
 
-## Connection Settings
-- **DB Type**: Type of the SQL DB: MySQL, PostgreSQL, MS-SQL or SQLite3
-- **Host**: IP address or host name with SQL Server
-- **Port**: Port of SQL Server (leave blank if not sure)
-- **Database name**: Database name. Default iobroker
-- **User**: Username for SQL. Must exist in the DB.
-- **Password**: Password for SQL.
-- **Password confirm**: Just repeat password here.
-- **Encrypt**: Some DBs support encryption.
-- **Round real to**: Number of digits after the comma.
-- **Allow parallel requests**: Allow simultaneous SQL requests to DB.
-- **Do not create database**: Activate this option if database already created (e.g. by administrator) and the ioBroker-user does not have enough rights to create a DB.
-
-## Default Settings
-- **De-bounce interval**: Do not store values oftener than this interval.
-- **Log unchanged values any**: Write additionally the values every X seconds.
-- **Minimum difference from last value to log**: The minimum interval between two values.
-- **Storage retention**: How long the values will be stored in the DB.
-
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
 
 ## Changelog
+### 2.0.2 (2022-05-11)
+* (Apollon77) BREAKING: Configuration is only working in the new Admin 5 UI!
+* (Apollon77) Did bigger adjustments to the recording logic and added a lot of new Features. Please refer to Changelog and Forum post for details.
 
-### __WORK IN PROGRESS__
+### 2.0.0 (2022-05-11)
+* (Apollon77) Breaking: Configuration is only working in the new Admin 5 UI!
+* (Apollon77) Breaking! Did bigger adjustments to the recording logic. Debounce is refined and blockTime is added to differentiate between the two checks
+* (Apollon77) Breaking! GetHistory requests now need to deliver the ts in milliseconds! Make sure to use up to date scripts and Charting UIs
+* (Apollon77) Add RAM buffering and mass inserts for logging
+* (Apollon77) New setting added to disable the "logging of additional values for charting optimization" - then only the expected data are logged
 * (Apollon77) Add flag returnNewestEntries for GetHistory to determine which records to return when more entries as "count" are existing for aggregate "none"
-* (Apollon77) Add support for addId getHistory flag
+* (Apollon77) Add support for addId getHistory flag for GetHistory
+* (Apollon77) Add new Debug flag to enable/disable debug logging on datapoint level (default is false) to optimize performance
+* (Apollon77) Add aggregate method "percentile" to calculate the percentile (0..100) of the values (requires options.percentile with the percentile level, defaults to 50 if not provided). Basically same as Quantile just different levels are used
+* (Apollon77) Add aggregate method "quantile" to calculate the quantile (0..1) of the values (requires options.quantile with the quantile level, defaults to 0.5 if not provided). Basically same as Percentile just different levels are used
+* (Apollon77) Add (experimental) method "integral" to calculate the integral of the values. Requires options.integralUnit with the time duration of the integral in seconds, defaults to 60s if not provided. Optionally a linear interpolation can be done by setting options.integralInterpolation to "linear"
+* (Apollon77) When request contains flag removeBorderValues: true, the result then cut the additional pre and post border values out of the results
+* (Apollon77) Enhance the former "Ignore below 0" feature and now allow specifying to ignore below or above specified values. The old setting is converted to the new one
+* (Apollon77) Upgrade MSSQL and MySQL drivers incl. Support for MySQL 8
+* (Apollon77) Make sure that min change delta allows numbers entered with comma (german notation) in all cases
+* (Apollon77) Add support to specify how to round numbers on query per datapoint
+* (Apollon77) Do not log passwords for Postgres connections
+* (Apollon77) Optimize SSL support for database connections including option to allow self signed certificates
+* (Apollon77) Allow to specify custom retention duration in days
 * (winnyschuster) Fix Insert statement for MSSQL ts_counter
+* (winnyschuster) type of ts in user queries corrected
 
 ### 1.16.2 (2022-02-16)
 * (bluefox) Marked interpolated data with `i=true`

@@ -1,10 +1,15 @@
 ![Logo](admin/echarts.png)
 # ioBroker.echarts
 
+![Number of Installations](http://iobroker.live/badges/echarts-installed.svg)
+![Number of Installations](http://iobroker.live/badges/echarts-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.echarts.svg)](https://www.npmjs.com/package/iobroker.echarts)
+
+![Test and Release](https://github.com/ioBroker/ioBroker.echarts/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/echarts/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.echarts.svg)](https://www.npmjs.com/package/iobroker.echarts)
-[![Dependency Status](https://img.shields.io/david/ioBroker/iobroker.echarts.svg)](https://david-dm.org/ioBroker/iobroker.echarts)
-[![Known Vulnerabilities](https://snyk.io/test/github/ioBroker/ioBroker.echarts/badge.svg)](https://snyk.io/test/github/ioBroker/ioBroker.echarts)
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## echarts adapter for ioBroker
 Build useful charts in ioBroker:

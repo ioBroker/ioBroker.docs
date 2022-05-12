@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.parcel/README.md
 title: ioBroker.parcel
-hash: w6IvcVdldEc9Sc5nzaVg4+YhAf3R09ciJHAFmIULHOc=
+hash: 7cvQOyLX+zcsJH5PADrSXGdkIjUUz0EpuPHPuEHFYD4=
 ---
-![商标](../../../en/adapterref/iobroker.parcel/admin/parcel.png)
+![标识](../../../en/adapterref/iobroker.parcel/admin/parcel.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.parcel.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.parcel.svg)
@@ -17,8 +17,8 @@ hash: w6IvcVdldEc9Sc5nzaVg4+YhAf3R09ciJHAFmIULHOc=
 # IoBroker.parcel
 **测试：** ![测试和发布](https://github.com/TA2k/ioBroker.parcel/workflows/Test%20and%20Release/badge.svg)
 
-## IoBroker 的包裹适配器
-包裹追踪
+## Paketverfolgung/Sendungsverfolgung Adapter für ioBroker
+包裹追踪 / Sendungsverfolgung Verfolge mit deinem ioBroker SmartHome deine Pakete von Amazon、DHL、DPD、Hermes、UPS 和 GLS。 Außerdem wirst du über die Briefverfolgung von der deutschen Post informiert。每个 Push auf Telegram、Pushover oder Signal 的 Direkt。
 
 ## 登录
 **DHL:**

@@ -40,6 +40,18 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 2.6.0 (2022-05-10)
+Updated `zwave-js` to `9.2.2`. Notable changes include:
+* The `doorStatus/latchStatus/boltStatus` states are no longer created if unsupported by the door lock
+* Fixed an issue where some 500-series controllers would incorrectly be detected as not supporting Smart Start
+* Fixed an issue where some incoming reports would not be processed while an API command was ongoing
+* Fixed an issue where changing the color of some devices would use a random duration
+* Value changes now also get verified when the device sends an intermediate report
+* Retry the initial connection to sticks hosted via TCP
+* When the Z-Wave stick is disconnected while the adapter is running, the adapter will automatically try to reconnect again
+* Improvements to healing and Smart Start
+* New and updated configuration files, see [Z-Wave JS releases](https://github.com/zwave-js/node-zwave-js/releases) for details
+
 ### 2.5.0 (2022-04-03)
 Updated `zwave-js` to `9.0.1`. This includes many changes, including the following:
 * Worked around an issue where certain 500-series controllers take too long to respond when attempting communication with unreachable nodes
@@ -72,9 +84,6 @@ Updated `zwave-js` to `9.0.1`. This includes many changes, including the followi
 * Fix: Additional node-related commands now respect and update the node status
 * Fixed an issue where the communication could get stuck after aborting a command
 * New and updated configuration files, see [here](https://github.com/zwave-js/node-zwave-js/releases/tag/v8.9.0) and [here](https://github.com/zwave-js/node-zwave-js/releases/tag/v8.9.1)
-
-### 2.4.2-beta.1 (2021-12-17)
-* Fixed the check for incomplete or incorrect value IDs
 
 ## License
 

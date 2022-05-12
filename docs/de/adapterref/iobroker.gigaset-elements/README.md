@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.gigaset-elements/README.md
 title: ioBroker.gigaset-elements
-hash: 2RJmBwhoBCYP1l9pHAmoLJ7RiSl+1r3oeU7h54l8eT8=
+hash: dr6+nr1+Dowx9ZjTlJlvvhfyb8/EoxK62tPsvY6OueY=
 ---
 ![Logo](../../../en/adapterref/iobroker.gigaset-elements/admin/gigaset-elements.png)
 
@@ -50,6 +50,12 @@ Bisher wurde der Adapter getestet/es ist bekannt, dass er mit den folgenden Elem
 | um01 | Universal/Fenster/Tür | matthsc |
 | wd01 | Wasser | matthsc |
 
+Der Adapter unterstützt auch die folgenden anderen Geräte:
+
+| Gerätetyp | Anzeigename | Ereignistypen |
+| ----------- | ------------- | ----------- |
+| gp02 | Telefon | gp.call |
+
 Wenn Sie andere Elemente haben oder auf Ereignistypen stoßen, die noch nicht vom Adapter verarbeitet werden, können Sie den Expertenmodus in ioBroker aktivieren, in den Adaptereinstellungen auf die Registerkarte _Debug_ gehen (nur im Expertenmodus sichtbar) und „Debug – Prepare test data", um Testdaten zu generieren, die als Teil eines Github-Problems für diesen Adapter eingereicht werden können, um die zusätzlichen Elemente/Ereignistypen enthalten zu bekommen. Personenbezogene Daten wie Basisstations- oder Elementnamen und -IDs werden so weit wie möglich aus den generierten Daten entfernt.
 
 ## Mitteilungen
@@ -86,7 +92,7 @@ Gibt die Daten als <code>{ response: { bs: [], elements: [], events: [] } }</cod
 sendTo("gigaset-elements.0", "debug", { action: "prepare-test-data" from?: Date }, callback);
 ```
 
-#### Basisstations- und Elementdaten laden
+#### Basisstation und Elementdaten laden
 Lädt die Rohdaten der Basisstation und der Elemente als <code>{ response: { bs: [], elements: []} }</code> -Objekt und gibt sie zurück.
 
 ```ts
@@ -108,6 +114,22 @@ sendTo("gigaset-elements.0", "test", { action: "load-events", from: Date, to: Da
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.0 (2022-04-30)
+
+-   (matthsc) add support for phones
+-   (matthsc) add Node 18 to test matrix
+-   (matthsc) dependency updates
+
+### 0.1.3 (2022-03-22)
+
+-   (matthsc) fix "unknown" element position state
+-   (matthsc) add more tests
+-   (matthsc) dependency updates
+
+### 0.1.2 (2022-02-28)
+
+-   (matthsc) fix test data generation
+-   (matthsc) dependency updates
 
 ### 0.1.1 (2022-02-12)
 

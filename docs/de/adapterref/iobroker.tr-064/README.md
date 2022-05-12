@@ -4,29 +4,29 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tr-064/README.md
 title: ioBroker.tr-064
-hash: D59HzSVYkdStJaSDx6e91FA6u2/6TTOD7QeUisJd0X0=
+hash: rN4KkHkTgQi739/0GZDQZ274L23nvqhd+4OxJHA44Ww=
 ---
 ![Logo](../../../en/adapterref/iobroker.tr-064/media/tr-064.png)
 
-#ioBroker.tr-064
+# IoBroker.tr-064
 ### Die Info
-Dieser Adapter liest die wichtigsten Informationen von AVM Fritz!Box, wie Anrufliste oder Anzahl der Nachrichten auf dem Anrufbeantworter.
-Auf dieser Grundlage [AVM Dokumentationen](https://avm.de/service/schnittstellen/)
+Dieser Adapter liest wichtige Informationen aus der AVM Fritz!Box, wie Anrufliste oder Anzahl der Nachrichten auf dem Anrufbeantworter.
+Auf dieser Grundlage [AVM-Dokumentationen](https://avm.de/service/schnittstellen/)
 
 ### Einfache Zustände und Funktionen
 - WLAN für 2,4 GHz und 5 GHz ein-/ausschalten,
-- Gäste-WLAN ein-/ausschalten,
-- Fritz!Box neu starten,
+- Gast-WLAN ein-/ausschalten,
+- Fritz!Box neustarten,
 - WPS-Prozess starten,
 - Internet wieder verbinden
 - externe IP-Adresse
 
-### Klingeln (wählen Sie eine Nummer)
-- Wenn Sie eine interne Nummer (wie **610) verwenden, lässt der Rufstatus das interne Telefon klingeln.
+### Klingeln (Nummer wählen)
+- Wenn Sie eine interne Nummer (wie **610) verwenden, lässt der Klingelstatus dieses interne Telefon klingeln.
 
-Bsp.: **610[,Zeitüberschreitung]
+Bsp.: **610[,timeout]
 
-- Bei Verwendung einer externen Nummer verbindet Sie der Ruftonstatus mit der externen Nummer.
+- Wenn Sie eine externe Nummer verwenden, verbindet Sie der Klingelstatus mit der externen Nummer.
 
 Die FritzBox ruft die externe Nummer an und Ihr Standardtelefon klingelt, wenn das angerufene Telefon abgenommen wird.
 Das Standardtelefon kann in der FritsBox konfiguriert werden unter: Telefonie/Anrufe/[Tab]Wahlhilfe/Wählhilfe verwenden
@@ -34,45 +34,45 @@ Das Standardtelefon kann in der FritsBox konfiguriert werden unter: Telefonie/An
 ### ToPauseState
 - Werte: klingeln, verbinden, beenden
 - Kann verwendet werden, um einen Videoplayer bei einem eingehenden Anruf (Klingeln) oder beim Abheben des Telefons (Verbinden) anzuhalten.
-- Resume kann am Endwert erfolgen.
+- Fortsetzen kann auf dem Endwert erfolgen.
 
 ### Präsenz
-Sie können eine Liste der zu hörenden Geräte konfigurieren.
-Kann per mDNS getriggert werden. Bei Verwendung von MDNS ist kein Polling erforderlich und es ist schneller
+Sie können eine Liste von Geräten konfigurieren, auf die Sie hören möchten.
+Kann durch mDNS getriggert werden. Bei Verwendung von MDNS ist kein Polling erforderlich und es ist schneller
 
 ### AB - Anrufbeantworter (Anrufbeantworter)
 Kann ein-/ausgeschaltet werden.
-Der Zustand cbIndex kann auf die Adresse # des Anrufbeantworters gesetzt werden.
+Der Status cbIndex kann auf die Adresse # des Anrufbeantworters gesetzt werden.
 
-### Anrufmonitor
-Der Callmonitor erstellt Echtzeitstatus für jeden eingehenden und ausgehenden Anruf.
-Wenn das Telefonbuch aktiviert ist (Standard), werden Nummern in Namen aufgelöst. Es gibt auch einen Status, der auf ein klingelndes Telefon hinweist.
+### Anrufüberwachung
+Der Anrufmonitor erstellt für jeden eingehenden und ausgehenden Anruf Echtzeitzustände.
+Wenn das Telefonbuch aktiviert ist (Standardeinstellung), werden Nummern in Namen aufgelöst. Es gibt auch einen Status, der ein klingelndes Telefon anzeigt.
 
 ### Telefonbuch
-- Das Telefonbuch, falls aktiviert, wird verwendet, um den Namen der Telefonnummer des Anrufers abzurufen.
+- Das Telefonbuch, falls aktiviert, wird verwendet, um den Namen der Telefonnummer des Anrufers zu erhalten.
 - Weiterhin gibt es drei Zustände um eine Nummer oder einen Namen aufzulösen. Falls vorhanden, erhalten Sie auch die Bild-URL des Kontakts.
 
-  Bsp.: Wenn Sie den Status Telefonbuch.Nummer setzen, werden alle 3 Staaten, Name, Nummer und Bild auf den gefundenen Kontakt gesetzt. Beachten Sie, dass die Suche nach Namen zuerst den vollständigen Namen vergleicht, wenn er nicht gefunden wird, wird ein Teil davon verwendet.
+  z.B.: wenn Sie den Zustand phonebook.number einstellen, werden alle 3 Zustände, Name, Nummer und Bild auf den gefundenen Kontakt gesetzt. Beachten Sie, dass Suchen nach Namen zuerst den vollständigen Namen vergleichen, wenn er nicht gefunden wird, wird ein Teil davon verwendet.
 
 ### Anruflisten
 Ausgabeformate:
 
--json
--html
+- json
+- Html
 
 Anruflisten sind:
 
 - alle Anrufe
-- Anrufe in Abwesenheit
+- verpasste Anrufe
 - eingehende Anrufe
 - ausgehende Anrufe
 
 Anrufzähler: Der Anrufzähler kann auf 0 gesetzt werden. Der nächste Anruf wird um 1 erhöht.
 
-Die HTML-Ausgabe kann durch eine Vorlage konfiguriert werden
+Die HTML-Ausgabe kann durch ein Template konfiguriert werden
 
 ### Befehl & BefehlErgebnisstatus
-Mit dem Befehl state können Sie jeden tr-064 Befehl aus diesem [Dokumentation](https://avm.de/service/schnittstellen/) aufrufen.
+Mit dem Befehlsstatus können Sie jeden tr-064-Befehl von diesem [Dokumentation](https://avm.de/service/schnittstellen/) aufrufen.
 z.B.
 
 ```
@@ -86,11 +86,11 @@ command = {
 };
 ```
 
-Der Befehlsstatus sollte auf einen JSON der obigen Zeilen gesetzt werden. Also { ... } (ohne Befehl = und Zeilenumbrüche) Der Rückruf des Aufrufs setzt den Befehlsergebnis-Zustand.
+Der Befehlsstatus sollte auf ein JSON der obigen Zeilen gesetzt werden. Also { ... } (ohne command = und Zeilenumbrüche) Der Callback des Aufrufs setzt den Zustand commandResult.
 
 ### Anrufüberwachung aktivieren
-Um die Anrufüberwachung nutzen zu können, muss diese zunächst in der AVM Fritz!Box aktiviert werden.
-Um die Anrufüberwachung zu aktivieren, wählen Sie ```#96*5*``` und der TCP/IP-Port 1012 wird geöffnet. Um den Port zu schließen, wählen Sie ```#96*4*```.
+Um die Anrufüberwachungsfunktion nutzen zu können, muss diese zunächst in der AVM Fritz!Box aktiviert werden.
+Um den Anrufmonitor zu aktivieren, wählen Sie ```#96*5*``` und der TCP/IP-Port 1012 wird geöffnet. Um den Port zu schließen, wählen Sie ```#96*4*```.
 
 ### Vorabversionen
 Vorabversionen sind bei npm mit dem Tag dev verfügbar.

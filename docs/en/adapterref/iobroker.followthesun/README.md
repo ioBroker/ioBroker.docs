@@ -5,7 +5,7 @@
 ![Number of Installations (stable)](http://iobroker.live/badges/followthesun-stable.svg)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.followthesun.svg)](https://www.npmjs.com/package/iobroker.followthesun)
 ![Number of Installations (latest)](http://iobroker.live/badges/followthesun-installed.svg)
-[![Dependency Status](https://img.shields.io/david/HGlab01/iobroker.followthesun.svg)](https://david-dm.org/HGlab01/iobroker.followthesun)
+[![Dependency Status](https://img.shields.io/librariesio/release/npm/iobroker.followthesun)](https://libraries.io/npm/iobroker.followthesun)
 [![Known Vulnerabilities](https://snyk.io/test/github/HGlab01/ioBroker.followthesun/badge.svg)](https://snyk.io/test/github/HGlab01/ioBroker.followthesun)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.followthesun.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.followthesun?ref=badge_shield)
 ![Test and Release](https://github.com/HGlab01/ioBroker.followthesun/workflows/Test%20and%20Release/badge.svg)

@@ -35,6 +35,13 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!--### __WORK IN PROGRESS__-->
+### 1.2.7 (2022-04-25)
+* (simatec) Bugfix delete stations
+
+### 1.2.6 (2022-04-25)
+* (simatec) Bugfix delete stations
+* (simatec) Dependencies updated
+
 ### 1.2.5 (2021-12-08)
 * (simatec) Bugfix Adapter stop after request error
 * (simatec) Dependencies updated
@@ -116,7 +123,7 @@ When the adapter crashes or an other Code error happens, this error message that
 ## License
 MIT License
 
-Copyright (c) 2020 - 2021 simatec
+Copyright (c) 2020 - 2022 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

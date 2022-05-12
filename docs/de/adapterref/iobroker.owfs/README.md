@@ -2,46 +2,49 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.owfs/README.md
-title: ioBroker-OWFS-Adapter
-hash: w4iaPF0/v9YW60yr3gLQaEQPm5p2VBWypsVIKvgvFQk=
+title: ioBroker OWFS-Adapter
+hash: Ir62HpXMEl851J+fT/lodPlDadOH41Je9nJwJ8I8gNc=
 ---
 ![Logo](../../../en/adapterref/iobroker.owfs/admin/owfs.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/owfs-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.owfs.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.owfs.svg)
-![NPM](https://nodei.co/npm/iobroker.owfs.png?downloads=true)
 
 # IoBroker OWFS-Adapter
-## * Einadernes Dateisystemadapter für ioBroker.
+![Testen und freigeben](https://github.com/ioBroker/ioBroker.owfs/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/owfs/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+
+## *One-Wire-Dateisystem*-Adapter für ioBroker.
 Unterstützt
 
-Dieser Adapter verwendet die owfs-Bibliothek von https://www.npmjs.com/package/owjs und erfordert dementsprechend einen owfs-Server.
+Dieser Adapter verwendet die owfs-Bibliothek von https://www.npmjs.com/package/owjs und benötigt dementsprechend owfs-Server.
 
 ## Installieren Sie OWFS Linux
 ```sudo apt-get install owfs```
 
-Manchmal müssen Sie folgende Schritte schreiben:
+Manchmal müssen Sie die folgenden Schritte schreiben:
 
-- Starten des Servers zur Kommunikation über die serielle Schnittstelle mit 1-Draht-Sensoren
+- Um den Server zu starten, um über die serielle Schnittstelle mit 1-Wire-Sensoren zu kommunizieren
 
 ```
 owserver -d "/dev/ttyUSB0" --nozero
 ```
 
-* / dev / ttyUSB0 * ist der Name Ihres seriellen Geräts. Hier wurde ein USB-Stick verwendet.
+*/dev/ttyUSB0* ist der Name Ihres seriellen Geräts. Hier wurde dafür ein USB-Stick verwendet.
 
-Dieser Befehl startet den 1-Wire-Server am lokalen Port 4304.
+Dieser Befehl startet den 1wire-Server auf dem lokalen Port 4304.
 
-- Um die Daten vom lokalen 1wire-Server im Dateisystem aufzurufen, rufen Sie den folgenden Befehl auf:
+- Um die Daten vom lokalen 1wire-Server im Dateisystem anzuzeigen, rufen Sie folgenden Befehl auf:
 
 ```
 owfs -C -m /mnt/1wire --allow_other
 ```
 
-Bevor Sie den Direktzug */ mnt / 1wire* mit dem Befehl `mkdir /mnt/1wire` erstellen müssen
+Vorher muss das Verzeichnis */mnt/1wire* mit dem Befehl `mkdir /mnt/1wire` erstellt werden
 
-## Installieren Sie OWFS-Fenster
+## OWFS-Fenster installieren
 http://sourceforge.net/projects/owfs/
 
 ## Installieren
@@ -50,6 +53,25 @@ http://sourceforge.net/projects/owfs/
 ## Aufbau
 
 ## Changelog
+### 0.7.0 (2022-04-25)
+* IMPORTANT: Requires now at least js-controller 2.0
+* (boellner) ignore 85 degree error value for file system too
+* (Apollon77) Add sentry for crash reporting
+
+### 0.6.4 (2020-01-26)
+* (CC1337) Added option to not log 85°C readings. They appear if a DS18B20 has a power failure and returns this initial register value.
+
+### 0.6.3 (2020-01-23)
+* (INgo Rah) Added the alarm state handling
+
+### 0.6.2 (2019-10-29)
+* (RustyThePropellerHead) Improved data integrity when reading from local OWFS via file system
+
+### 0.6.1 (2018-07-11)
+* (bluefox) compact mode supported
+* (lvogt) Added data points counter.A/.B/.ALL from DS2423 to config page
+* (lvogt) Add option to not log faulty readouts
+
 ### 0.5.0 (2018-03-16)
 * (bluefox) Ready for Admin3
 
@@ -94,7 +116,7 @@ http://sourceforge.net/projects/owfs/
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2018, bluefox
+Copyright (c) 2015-2022, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

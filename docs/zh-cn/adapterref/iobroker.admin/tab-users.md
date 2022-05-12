@@ -3,38 +3,38 @@ chapters: {"pages":{"de/adapterref/iobroker.admin/README.md":{"title":{"de":"no 
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.admin/tab-users.md
-title: 标签用户
-hash: HKsMwIvpGIO+9hqNOzBFUsRM8OOTNgILqQ6z75xDXDY=
+title: 用户选项卡
+hash: I8VBVO8GbDcbNuFQLInmFwTRSYk3E1gv2Csc99eIZRw=
 ---
-＃标签用户
-这里可以创建用户。单击左下角的（+）。默认情况下已创建管理员。
+# 用户选项卡
+可以在这里创建用户。为此，请单击左下角的 (+)。默认情况下已经创建了管理员。
 
 ![iobroker_adapter_admin_user_01](../../../de/adapterref/iobroker.admin/img/tab-user_01-1.jpg)
 
 ##页面内容
-在页面上，现有用户以表格形式显示。列标题中的字段用于根据您自己的条件筛选表。
+现有用户在页面上以表格形式显示。列标题中的字段用于根据您自己的条件过滤表。
 
-该表包含以下列：
+该表由以下列组成：
 
-### **1.）ID**
-根据sytem.user.user_name组成的结构，这是每个用户的唯一名称。
+### **1.) ID**
+这是每个用户的唯一名称，根据由 system.user.username 组成的结构。
 
-### ** 2.）姓名**
-用户名。这个名字可以自由选择。此名称必须是唯一的。
+### **2.) 姓名**
+用户名。此名称可自由选择。此名称必须是唯一的。
 
-### ** 3.）已激活**
-通过此复选框，可以激活或停用用户的可用性。
+### **3.) 启用**
+使用此复选框可以激活或停用用户的可用性。
 
-### ** 4.）团体**
-此处显示在选项卡** _组_ **中创建的组。在这里，可以通过复选框将用户分配到相应的组。
+### **4.) 组**
+在 **_Groups_** 选项卡中创建的组显示在此处。在这里，可以通过复选框将用户分配到适当的组。
 
 ![iobroker_adapter_admin_user_groups](../../../de/adapterref/iobroker.admin/img/tab-user_Groups.jpg)
 
-### ** 5.）创建新用户**
-此图标可用于创建新用户，然后必须将其分配给现有组。
+### **5.) 创建新用户**
+使用此图标，可以创建新用户，然后必须将其分配给现有组。
 
-### ** 6.）编辑现有用户**
+### **6.) 编辑现有用户**
 在列表中选择现有用户后，可以使用此图标编辑该用户的数据。
 
-### ** 7.）删除现有用户**
-使用垃圾桶图标可以删除现有用户，保留现有组。
+### **7.) 删除现有用户**
+可以使用回收站图标删除现有用户，保留现有组。

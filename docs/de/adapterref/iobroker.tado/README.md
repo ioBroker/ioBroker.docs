@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: aPE5lBaytBWMN/A1iVEPzyZcr8V1K+9KF+ccJ+64+us=
+hash: 9gnJyAwcPCjaKHPXmw0yoBjhVv61H1nrN463X30Bl3E=
 ---
 # IoBroker.tado
 
@@ -11,13 +11,12 @@ hash: aPE5lBaytBWMN/A1iVEPzyZcr8V1K+9KF+ccJ+64+us=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.tado.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.tado.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/DrozmotiX/ioBroker.tado/badge.svg)
+![Abhängigkeitsstatus](https://img.shields.io/librariesio/release/npm/iobroker.tado)
 ![NPM](https://nodei.co/npm/iobroker.tado.png?downloads=true)
 
 <img src="./admin/tado.png" width="50" height="50">
 
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
-![Testen und freigeben](https://github.com/DrozmotiX/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) ![Testen und freigeben](https://github.com/DrozmotiX/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
 
 ## Tado-Adapter für ioBroker
 tado° sorgt für ein angenehmes und gesundes Klima und spart dabei bis zu 31 % Heizkosten.
@@ -26,7 +25,7 @@ tado° sorgt für ein angenehmes und gesundes Klima und spart dabei bis zu 31 % 
 Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende machen (dies ist ein persönlicher Spendenlink für DutchmanNL, keine Verbindung zum ioBroker-Projekt! [![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Dinge, die du steuern kannst
-| Staat | Beschreibung |
+| Zustand | Beschreibung |
 | ----- | ----------- |
 | tado.[x].[yyyyyy].Räume.[z].setting.power | Gerät ein-/ausschalten |
 | tado.[x].[yyyyyy].Räume.[z].Einstellung.Temperatur.Celsius | Temperatur definieren |
@@ -52,7 +51,8 @@ Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende mac
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.15-alpha.2 (2022-02-24)
+### 0.3.15 (2022-02-27)
+* (DutchmanNL) move to jsonConfig.json (Admin 5)
 * (ilueckel) Support steering of ActivateOpenWindow, OpenWindowDetection, childLockEnabled 
 * (HGlab01) Bump iobroker-jsonexplorer to v0.1.9
 * (HGlab01) js-controller 4.0 readiness

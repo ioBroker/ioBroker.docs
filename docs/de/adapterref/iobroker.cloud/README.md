@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cloud/README.md
 title: ioBroker Cloud-Adapter
-hash: A8annnfqo+2LZ6Y9DTgNkQyzH8xSq6lZ3iJ1cNVu2Ng=
+hash: gwJ7slGLQ/PENN9DEJhVmYVcLNEPZ06YRCrzWb2L5dc=
 ---
 ![Logo](../../../en/adapterref/iobroker.cloud/admin/cloud.png)
 
@@ -12,75 +12,119 @@ hash: A8annnfqo+2LZ6Y9DTgNkQyzH8xSq6lZ3iJ1cNVu2Ng=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.cloud.svg)
 ![NPM](https://nodei.co/npm/iobroker.cloud.png?downloads=true)
 
-# IoBroker Cloud Adapter
+# IoBroker-Cloud-Adapter
 Dieser Adapter ermöglicht die Verbindung vom Internet über die ioBroker-Cloud zur lokalen Installation von ioBroker.
 
-** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
-## Die Einstellungen
-### APP-KEY
-Um einen Cloud-Adapter zu verwenden, sollten Sie zuerst den APP-Schlüssel auf [https://iobroker.net](https://iobroker.net) erhalten.
+## Einstellungen
+### APP-SCHLÜSSEL
+Um den Cloud-Adapter zu verwenden, sollten Sie zuerst den APP-Key auf [https://iobroker.net](https://iobroker.net) erhalten.
 
-Dies ist der Anwendungsschlüssel, den der Benutzer auf der Website [https://iobroker.net](https://iobroker.net) erhalten kann. Bitte besorgen Sie sich dort den Schlüssel und geben Sie ihn hier ein.
+Dies ist der Anwendungsschlüssel, den der Benutzer auf der Seite [https://iobroker.net](https://iobroker.net) erhalten kann. Bitte holen Sie sich den Schlüssel dort und geben Sie ihn hier ein.
 
-![Intro](../../../en/adapterref/iobroker.cloud/img/intro.png)
+![Einleitung](../../../en/adapterref/iobroker.cloud/img/intro.png)
 
 ### Instanz
-Alle Anforderungen vom Cloud-Adapter werden an eine WEB-Instanz weitergeleitet. Der Benutzer muss hier die WEB-Instanz angeben, die dem Benutzer angezeigt wird, wenn er sich auf der Website https://iobroker.net anmeldet.
+Alle Anfragen vom Cloud-Adapter werden an eine WEB-Instanz weitergeleitet. Der Benutzer muss hier die WEB-Instanz angeben, die dem Benutzer angezeigt wird, wenn er sich auf der Website https://iobroker.net anmeldet.
 
 ### Selbstsignierte Zertifikate zulassen
 Wenn Sie die Standard-Cloud von iobroker.net verwenden, können Sie diese deaktivieren. Diese Option ist nur wichtig, wenn eine eigene Cloud verwendet wird.
 
 ### Alexa-Einstellungen
-*** Alexa wird im `cloud` Adapter nicht mehr unterstützt. Verwenden Sie dazu den ioBroker.iot-Adapter. ***
+***Alexa wird im `cloud`-Adapter nicht mehr unterstützt. Verwenden Sie dafür den ioBroker.iot-Adapter.***
 
 ## IFTTT
-[Anleitung](doc/ifttt.md)
+[Anweisungen](doc/ifttt.md)
 
 ## Dienstleistungen
 Es besteht die Möglichkeit, Nachrichten an den Cloud-Adapter zu senden.
-Wenn Sie ```[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>``` und Wert als Nutzlast aufrufen.
+Wenn Sie `[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>` aufrufen und Wert als Nutzlast.
 
 ```
 curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ```
 
-Wenn Sie in den Einstellungen im Feld "Weiße Liste für Dienste" den Namen *custom_test* festlegen und mit "custom_test" als Dienstnamen aufrufen, wird der Status **cloud.0.services.custom_test** auf *myString gesetzt*
+Wenn Sie in den Einstellungen im Feld „Whitelist für Dienste“ den Namen *custom_test* setzen und mit „custom_test“ als Dienstnamen aufrufen, wird der Zustand `cloud.0.services.custom_test` auf `myString` gesetzt.
 
-Sie können "*" in die weiße Liste schreiben und alle Dienste werden zugelassen.
+Sie können "*" in die Whitelist schreiben und alle Dienste werden zugelassen.
 
-Ab Version 2.0.5 können Sie die GET-Anfrage in der Form ```[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>``` verwenden, um die **\ zu platzieren<data\>** in **cloud.0.services.custom_ \<NAME\>**
+Ab Version 2.0.5 können Sie die GET-Anfrage im Formular `[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` verwenden, um die `\<data\>` in `cloud.0.services.custom_\<NAME\>` zu platzieren.
 
-Hier finden Sie Anweisungen zur Verwendung mit [Tasker](doc/tasker.md).
+Hier finden Sie eine Anleitung zur Verwendung mit [Tasker](doc/tasker.md).
 
-Der IFTTT-Dienst ist nur zulässig, wenn der IFTTT-Schlüssel festgelegt ist.
+Der IFTTT-Dienst ist nur erlaubt, wenn der IFTTT-Schlüssel gesetzt ist.
 
-Reservierte Namen sind "ifttt", "text2command", "simpleApi", "swagger". Diese müssen ohne das Präfix ```"custom_"``` verwendet werden.
+Reservierte Namen sind "ifttt", "text2command", "simpleApi", "swagger". Diese müssen ohne das Präfix `"custom_"` verwendet werden.
 
-### Text2command
-Sie können "text2command" in eine weiße Liste schreiben. Sie können eine POST-Anfrage an ```https://iobroker.net/service/text2command/<user-app-key>``` senden, um Daten in die Variable *text2command.X.text* zu schreiben.
+### Text2Befehl
+Sie können `text2command` in die weiße Liste schreiben, Sie können eine POST-Anforderung an `https://iobroker.net/service/text2command/<user-app-key>` senden, um Daten in die Variable `text2command.X.text` zu schreiben.
 
-"X" kann in den Einstellungen mit der Option "text2command-Instanz verwenden" definiert werden.
+"X" kann in den Einstellungen durch die Option "Text2Befehlsinstanz verwenden" definiert werden.
 
 ### SimpleApi
 Sie können folgende Befehle verwenden (nur Pro):
 
-- `` `[GET] https://iobroker.pro/service/simpleApi/ <user-app-key> / get / stateID``` - um den Statuswert zu lesen =>` {"val": 103.516, "ack ": true," ts ": 1604132484682," q ": 0," from ":" system.adapter.admin.0 "," lc ": 1604132469672," result ":" OK "}`
-- `` `[GET] https://iobroker.pro/service/simpleApi/ <user-app-key> / getPlainValue / stateID``` - um den Statuswert zu lesen =>` 103.641`
-- `` `[GET] https://iobroker.pro/service/simpleApi/ <user-app-key> / set / stateID? Value = 1``` - um den Statuswert festzulegen =>` {"result": "OK"} `
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/get/stateID` - um den Statuswert zu lesen => `{"val":103.516,"ack":true, "ts":1604132484682,"q":0,"from":"system.adapter.admin.0","lc":1604132469672,"result":"OK"}`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/getPlainValue/stateID` - um den Zustandswert zu lesen => `103.641`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/set/stateID?value=1` - um den Statuswert zu setzen => `{"result":"OK"} `
 
-** Vergessen Sie nicht, `simpleApi` zu zulässigen Diensten in der Konfiguration hinzuzufügen. **
+**Vergessen Sie nicht `simpleApi` zu erlaubten Diensten in der Konfiguration hinzuzufügen.**
 
 ### Einschränkungen
-Wenn HTTPs (Sicherheit) oder Authentifizierung für eine definierte Webinstanz aktiviert sind, funktioniert dies nicht.
+Wenn HTTPs (Sicherheit) oder Authentifizierung auf einer definierten Webinstanz aktiviert ist, funktioniert es nicht.
 
-Sie können HTTPS und Authentifizierung für diese Webinstanz deaktivieren. Besser ist es jedoch, eine neue Webinstanz zu erstellen, die an `localhost` gebunden ist, und diese Instanz in den Cloud-Einstellungen auszuwählen.
+Sie können HTTPS und Authentifizierung auf dieser Webinstanz deaktivieren, aber besser ist es, eine neue Webinstanz zu erstellen, die an `localhost` gebunden ist, und diese Instanz in den Cloud-Einstellungen auszuwählen.
 
-<! - Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __WORK IN PROGRESS__ ->
+### **IN ARBEIT** -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (bluefox) Added better error reporting
+* (bluefox) Removed outdated `request` library
+* (bluefox) Used common sockets (could be buggy)
+
+### 4.1.1 (2022-02-19)
+* Important: Requires js-controller 3.1 at least!
+* (Apollon77) Add some checks to prevent issues with missing data
+* (Apollon77) FIx some crash cases reported by Sentry
+* (Apollon77) pass HEAD requests without body (Sentry IOBROKER-CLOUD-14)
+
+### 4.1.0 (2021-07-17)
+* (bluefox) Added support for new javascript
+
+### 4.0.11 (2021-05-12)
+* (bluefox) Fixed the connection issue with the cloud
+* (bluefox) Added support for Admin5
+
+### 4.0.10 (2021-02-18)
+* (Apollon77) Fix crash case (Sentry IOBROKER-CLOUD-X)
+
+### 4.0.9 (2021-02-01)
+* (bluefox) Support of lovelace via ioBroker.pro
+* (bluefox) Fixed error with the admin
+
+### 4.0.8 (2021-01-31)
+* (Apollon77) Prevent crash case (Sentry IOBROKER-CLOUD-S)
+* (bluefox) fix usage of credentials
+
+### 4.0.7 (2021-01-30)
+* (bluefox) Show the invalid authentication message
+
+### 4.0.4 (2021-01-26)
+* (bluefox) Stop all timers on the unloading
+
+### 4.0.3 (2021-01-26)
+* (bluefox) Added the ignoring of restart on disconnect by the redirection
+
+### 4.0.2 (2021-01-24)
+* (Apollon77) Make sure states which were not set or expired do not crash when requested via services (Sentry IOBROKER-CLOUD-P)
+
+### 4.0.1 (2021-01-16)
+* (Apollon77) Prevent crash case (Sentry IOBROKER-CLOUD-N)
+
 ### 4.0.0  (2020-12-14)
 * (bluefox) Breaking change! Alexa was removed from cloud adapter.
 * (bluefox) Allowed to use the login and password for authentication.
@@ -266,7 +310,7 @@ Sie können HTTPS und Authentifizierung für diese Webinstanz deaktivieren. Bess
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2022 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

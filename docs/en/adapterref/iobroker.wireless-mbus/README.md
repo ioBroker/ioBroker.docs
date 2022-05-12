@@ -50,9 +50,16 @@ The easiest way to setup the keys is to start the adapter without any key setup 
 ## ToDo
 
 * sending telegrams for S mode receivers?
-* CUL support needs testing
 
 ## Changelog
+
+### 0.8.0
+* (ChL) Complete rewrite of serial communication - now includes unit tested device classes
+* (ChL) Upgrade to SerialPort 10.x and dependency clean up
+* (ChL) Improve PRIOS decoder
+
+### 0.7.9
+* (ChL) Add debug logging to all serial devices
 
 ### 0.7.8
 * (ChL) Improve logging from receiver modules

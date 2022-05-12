@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.socketio/README.md
 title: ioBroker socket.io
-hash: NixpEzORuHeSWseO0Rk2CnI94e5xGCi65Gua14wZGoM=
+hash: yWpW1NCZDpHa5mw4WmbubpFxjWMLJKdw218Avlfc71w=
 ---
-![商标](../../../en/adapterref/iobroker.socketio/admin/socketio.png)
+![标识](../../../en/adapterref/iobroker.socketio/admin/socketio.png)
 
 ![安装数量](http://iobroker.live/badges/socketio-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.socketio.svg)
@@ -60,7 +60,7 @@ WEB 应用程序和适配器使用此适配器使用 websockets 和 socket.io �
 - 灯可以通过物理开关手动打开，也可以在 HAA 的帮助下通过 Wi-Fi 开启。
 - 如果 vis 想通过 Wi-Fi 打开灯，它应该使用```{value: true, ack: false}```设置新值。
 - 当灯打开时，通常会通知 HAA 新状态，该值应立即用 ```{value: true, ack: true}``` 覆盖。
-- 如果灯是通过物理开关手动关闭的，它会通过 ```{value: false, ack: true}``` 通知 HAA 新状态。
+- 如果灯是通过物理开关手动关闭的，它会通过```{value: false, ack: true}```通知HAA关于新状态。
 
 ＃＃＃ 质量
 每个数据点都有一个属性`q` - *质量*。
@@ -109,7 +109,7 @@ connCallbacks = {
 
 设置一些数据点的新值。
 
-例如。 ```servConn.setState('adapter.0.myvalue', true)```将```{val: true, ack: false}```写入*adapter.0.myvalue*。
+例如。 ```servConn.setState('adapter.0.myvalue', true)``` 将 ```{val: true, ack: false}``` 写入 *adapter.0.myvalue*。
 
 - `pointId` - 是状态的 ID，如 `adapter.0.myvalue`，
 - `value` - 状态的新值，可以是简单值（字符串、数字、布尔值）或对象，如```{val: newValue, ack: false, q: 0}```。
@@ -121,7 +121,7 @@ connCallbacks = {
 ### 获取状态
 - 函数（ID、回调）
 
-获得多个状态的状态。该命令通常在建立连接后调用，以获取已使用数据点的实际状态。
+得到多个状态的状态。该命令通常在建立连接后调用，以获取已使用数据点的实际状态。
 
 - `IDs` - 带有 ID 的模式或数组。可以省略以获取所有状态。模式可以有通配符，例如：'*.STATE'、'haa.0.*'
 - `callback` - ```function (error, states) {}``` - *states* 是像 ``{'id1': 'state1', 'id2': 'state2', ...} ```。 *stateX* 是具有 [above](#state) 描述的结构的对象。
@@ -323,6 +323,12 @@ connCallbacks = {
 ### **正在进行中** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Used common sockets (could be buggy)
+
+### 4.2.0 (2022-03-27)
+* (bluefox) Added `log` socket command
+
 ### 4.1.5 (2022-03-20)
 * (Apollon77) make sure patterns are handled as strings on subscribe/unsubscribe
 * (Apollon77) when getHistory is called with instance as string correct the data into an object

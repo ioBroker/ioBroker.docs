@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ws/README.md
 title: ioBroker.ws
-hash: bkV4e0dV0UMH1o9E/1kirRyVbu7bwvt0GGHJbRskRN8=
+hash: cHFDPzB1oFJRb2WVniS1yyYafFjUmhajBRgWuIskwtU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ws/admin/ws.png)
 
@@ -15,7 +15,7 @@ hash: bkV4e0dV0UMH1o9E/1kirRyVbu7bwvt0GGHJbRskRN8=
 # IoBroker.ws
 Этот адаптер используется веб-приложениями и адаптерами для связи с ioBroker с помощью веб-сокетов.
 
-Он почти такой же, как ioBroker.socketio, но не использует библиотеку socket.io, а только имитирует ее.
+Он почти такой же, как `ioBroker.socketio`, но не использует библиотеку socket.io, а только имитирует ее.
 
 **Важное примечание: начиная с версии 4.0 этого адаптера используются исключительно чистые веб-сокеты! Socket.io больше не реализуется библиотекой socket.io, а моделируется с помощью чистых WebSockets!**
 
@@ -64,7 +64,7 @@ hash: bkV4e0dV0UMH1o9E/1kirRyVbu7bwvt0GGHJbRskRN8=
 - Когда лампа включена, она обычно информирует HAA о новом состоянии, и значение должно быть немедленно перезаписано с помощью ```{value: true, ack: true}```.
 - Если лампа выключается вручную с помощью физического переключателя, она информирует HAA о новом состоянии с помощью ```{value: false, ack: true}```.
 
-### Качество
+### Качественный
 Каждая точка данных имеет атрибут `q` — *качество*.
 
 ## Использование
@@ -72,7 +72,7 @@ hash: bkV4e0dV0UMH1o9E/1kirRyVbu7bwvt0GGHJbRskRN8=
 
 После включения файла conn.js глобальный объект `servConn` можно использовать для установления связи с адаптером socketio.
 
-`servConn` объект имеет методы выдалбливания:
+`servConn` объект имеет методы выдолбления:
 
 ### В этом
 - функция (connOptions, connCallbacks, objectsRequired)
@@ -219,7 +219,7 @@ connCallbacks = {
 
 читает файлы и каталоги в указанном каталоге.
 
-Файлы хранятся в БД (или аналогичном) и, как правило, не должны быть доступны напрямую. Имя файла состоит из пути, имени файла и расширения файла, например «/mobile.0/data/fileName.txt».
+Файлы хранятся в БД (или аналогичном) и обычно не должны быть доступны напрямую. Имя файла состоит из пути, имени файла и расширения файла, например «/mobile.0/data/fileName.txt».
 
 - dirName - имя каталога вида */mobile.0/data*
 - обратный вызов - ```функция (ошибка, список)``` - список выглядит так:
@@ -298,7 +298,7 @@ connCallbacks = {
 ### Получить историю
 - функция (экземпляр, опции, обратный вызов)
 
-- `обратный вызов` - ``функция (ошибка, данные, шаг, sessionId) {}```
+- `обратный вызов` - ``функция (ошибка, данные, шаг, идентификатор сеанса) {}```
 
 ### Требуется журнал
 - функция (isRequire, обратный вызов)
@@ -312,7 +312,7 @@ connCallbacks = {
 
 читает, включена ли аутентификация и какой пользователь вошел в систему
 
-- `обратный вызов` - ``функция (authEnabled, currentUser) {}```
+- `обратный вызов` - ```функция (authEnabled, currentUser) {}```
 
 Если аутентификация включена, то будет возвращен текущий вошедший в систему пользователь, если аутентификация отключена, то будет возвращен пользователь по умолчанию, работающий как.
 
@@ -322,9 +322,27 @@ connCallbacks = {
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
+### **В РАБОТЕ** -->
 
 ## Changelog
+### 2.0.0 (2022-05-12)
+* (bluefox) Used common sockets (could be buggy)
+
+### 1.3.0 (2022-03-27)
+* (bluefox) Added `log` socket command
+
+### 1.2.0 (2022-02-21)
+* (bluefox) Made it possible to have more than one socket from one page
+
+### 1.1.6 (2022-02-16)
+* (bluefox) Added `unlink` and `rename` to web functions
+
+### 1.1.4 (2022-02-13)
+* (bluefox) Changed name `info.connection` to `info.connected`
+
+### 1.1.2 (2022-02-13)
+* (bluefox) Updated ws client file
+
 ### 1.1.1 (2022-02-02)
 * (bluefox) Updated ws client file
 
@@ -335,7 +353,6 @@ connCallbacks = {
 * (bluefox) Initial commit
 
 ## License
-
 The MIT License (MIT)
 
 Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>

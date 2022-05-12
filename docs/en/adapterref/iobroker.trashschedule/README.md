@@ -2,8 +2,7 @@
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.trashschedule.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.trashschedule.svg
 BADGE-Stable: http://iobroker.live/badges/trashschedule-stable.svg
-BADGE-installed: http://iobroker.live/badges/trashschedule-installed.svg
-BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.trashschedule.svg
+BADGE-Installed: http://iobroker.live/badges/trashschedule-installed.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.trashschedule/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.trashschedule.png?downloads=true
 chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/README.md"},"en/adapterref/iobroker.trashschedule/blockly.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/blockly.md"},"en/adapterref/iobroker.trashschedule/faq.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/faq.md"}}}
@@ -44,6 +43,16 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.0.0 (2022-05-04)
+
+NodeJS 14.x is required (NodeJS 12.x is EOL)
+
+* (klein0r) Added timestamp of last and next refresh
+* (klein0r) Added icon to channels and fixed color
+* (klein0r) Added default trash types for new installations
+* (klein0r) Updated dependency for ical to 1.12.1
+* (klein0r) Updated depedency for js-controller to 4.0.15
+
 ### 1.4.5 (2022-03-21)
 
 * (klein0r) Allow spaces in next text seperator
@@ -60,10 +69,6 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
 ### 1.4.2 (2022-02-07)
 
 * (klein0r) Added check for ical configuration
-
-### 1.4.1 (2021-12-23)
-
-* (klein0r) Updated dependencies
 
 ## License
 

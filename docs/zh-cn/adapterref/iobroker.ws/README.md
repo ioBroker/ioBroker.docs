@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ws/README.md
 title: ioBroker.ws
-hash: bkV4e0dV0UMH1o9E/1kirRyVbu7bwvt0GGHJbRskRN8=
+hash: cHFDPzB1oFJRb2WVniS1yyYafFjUmhajBRgWuIskwtU=
 ---
 ![标识](../../../en/adapterref/iobroker.ws/admin/ws.png)
 
@@ -15,7 +15,7 @@ hash: bkV4e0dV0UMH1o9E/1kirRyVbu7bwvt0GGHJbRskRN8=
 # IoBroker.ws
 WEB 应用程序和适配器使用此适配器使用 websockets 与 ioBroker 进行通信。
 
-它与 ioBroker.socketio 几乎相同，但不使用 socket.io 库，仅对其进行模拟。
+它与`ioBroker.socketio`几乎相同，但不使用socket.io库，仅对其进行模拟。
 
 **重要提示：由于此适配器的 v4.0 仅使用纯 Websockets！ Socket.io 不再由 socket.io 库实现，而是通过纯 WebSockets 模拟！**
 
@@ -62,7 +62,7 @@ WEB 应用程序和适配器使用此适配器使用 websockets 与 ioBroker 进
 - 灯可以通过物理开关手动打开，也可以在 HAA 的帮助下通过 Wi-Fi 开启。
 - 如果 vis 想通过 Wi-Fi 打开灯，它应该使用```{value: true, ack: false}```设置新值。
 - 当灯打开时，通常会通知 HAA 新状态，该值应立即用 ```{value: true, ack: true}``` 覆盖。
-- 如果灯是通过物理开关手动关闭的，它会通过 ```{value: false, ack: true}``` 通知 HAA 新状态。
+- 如果灯是通过物理开关手动关闭的，它会通过```{value: false, ack: true}```通知HAA关于新状态。
 
 ＃＃＃ 质量
 每个数据点都有一个属性`q` - *质量*。
@@ -322,9 +322,27 @@ connCallbacks = {
 
 <!-- 下一个版本的占位符（在行首）：
 
-### __工作进行中__ -->
+### **正在进行中** -->
 
 ## Changelog
+### 2.0.0 (2022-05-12)
+* (bluefox) Used common sockets (could be buggy)
+
+### 1.3.0 (2022-03-27)
+* (bluefox) Added `log` socket command
+
+### 1.2.0 (2022-02-21)
+* (bluefox) Made it possible to have more than one socket from one page
+
+### 1.1.6 (2022-02-16)
+* (bluefox) Added `unlink` and `rename` to web functions
+
+### 1.1.4 (2022-02-13)
+* (bluefox) Changed name `info.connection` to `info.connected`
+
+### 1.1.2 (2022-02-13)
+* (bluefox) Updated ws client file
+
 ### 1.1.1 (2022-02-02)
 * (bluefox) Updated ws client file
 
@@ -335,7 +353,6 @@ connCallbacks = {
 * (bluefox) Initial commit
 
 ## License
-
 The MIT License (MIT)
 
 Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>

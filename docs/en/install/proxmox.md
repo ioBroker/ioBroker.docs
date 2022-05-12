@@ -7,7 +7,7 @@ lastChanged: 15.02.2022
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/proxmox.md
-hash: MCIDdrJ8n1EqsF7J7/tQiurVhVXZOLmcBDob18o6YM0=
+hash: 5XcP3j7kvxla4TvmlJMjXyIAQynyxf2IBmlTUhOeK/g=
 ---
 # Proxmox
 ![proxmox logo](../../de/install/media/proxmox/Proxmox-logo-860.png)
@@ -118,7 +118,7 @@ The next step of the installer deals with the network settings. A static IP addr
 
 At the end a summary of the installation is displayed:
 
-<details><summary>Summary</summary>
+<details><summary>summary</summary>
 
 ![Summary](../../de/install/media/proxmox/zusammenfassung.png)
 
@@ -142,7 +142,7 @@ Then you see the terminal. The instructions are already displayed here on how th
 
 </details>
 
-Now continue in the browser (example https://10.1.1.89:8006). First, however, a warning is displayed. This is due to the fact that a self-signed certificate was generated during installation, which of course is not known to the browser. You can safely ignore this message at this point - the connection is encrypted via HTTPS in any case. The message itself is browser dependent. In this example, click **Advanced** and then click **Continue to 10.1.1.89(unsafe)**
+Now it continues in the browser (example https://10.1.1.89:8006). First, however, a warning is displayed. This is due to the fact that a self-signed certificate was generated during installation, which of course is not known to the browser. You can safely ignore this message at this point - the connection is encrypted via HTTPS in any case. The message itself depends on the browser. In this example, click **Advanced** and then click **Continue to 10.1.1.89(unsafe)**
 
 <details><summary>privacy error</summary>
 
@@ -152,7 +152,7 @@ Now continue in the browser (example https://10.1.1.89:8006). First, however, a 
 
 The login then takes place with the user root and the password selected during installation. You can switch the language to German **first**, otherwise the Proxmox interface will be displayed in English and you don't have to enter your username and password a second time.
 
-<details><summary>Sign up</summary>
+<details><summary>registration</summary>
 
 ![Sign up](../../de/install/media/proxmox/anmeldung.png)
 
@@ -288,7 +288,7 @@ After the VM has been started, go to the VM console and start the **Install**.
 
 You will be guided through the installation and have to make some settings during this process. To use it, you need the tab, space and arrow keys. Due to the scope, various shots of the series of images can be found.
 
-<span style="color:red">**ATTENTION! - No root password may be assigned.**</span>
+<span style="color:red">**DANGER! - No root password may be assigned.**</span>
 
 <details><summary>Image series Debian Install</summary>
 
@@ -359,7 +359,7 @@ found the IP address. This is required to connect to the VM remotely via ssh, as
 
 </details>
 
-The VM can now be accessed via ssh (e.g. Putty). Here you can also log in again with "user name" and "password".
+The VM can now be accessed via ssh (e.g. Putty). Here you log in again with "user name" and "password".
 Then the network address can be changed from **dhcp** to **static**. (which is recommended for server operation)
 
 ~~~ sudo nano /etc/network/interfaces ~~~
@@ -386,7 +386,7 @@ Changes to the IP only take effect after a restart of the VM. Before that, howev
 
 </details>
 
-<span style="color:orange">**ATTENTION! - For Ubuntu installations, the Qemu Guest Agent must be installed and started..**</span>
+<span style="color:orange">**DANGER! - For Ubuntu installations, the Qemu Guest Agent must be installed and started..**</span>
 
 Commands for this:
 
@@ -532,7 +532,7 @@ Now create the future user. Replace "username" in that case. Password assignment
 
 In the last step, before ioBroker is installed, log out once
 
-~~~ exit~~~
+~~~ exit ~~~
 
 and then log in with the new user. iobroker can now be installed.
 
@@ -557,7 +557,7 @@ All you need to install ioBroker is a single command.
 
 ~~~ curl -sLf https://iobroker.net/install.sh | bash-~~~
 
-The installation steps are divided into 4 steps, which run through fully automatically.
+The installation steps are divided into 4 steps, which run fully automatically.
 
 - Installing prerequisites (1/4)
 - Creating ioBroker user and directory (2/4)
@@ -725,7 +725,7 @@ Save the configuration file (in the nano editor with the key combination: CTRL +
 
 </br>
 
-<span style="color:orange">**ATTENTION! - If your container has active snapshots:**</span>
+<span style="color:orange">**DANGER! - If your container has active snapshots:**</span>
 
 <details>
 
@@ -735,7 +735,7 @@ Then the lxc.cgroup code does not belong at the end of the config file but befor
 
 </details>
 
-<span style="color:orange">**ATTENTION! - Proxmox installation before version 7.0:**</span>
+<span style="color:orange">**DANGER! - Proxmox installation before version 7.0:**</span>
 
 <details>
 

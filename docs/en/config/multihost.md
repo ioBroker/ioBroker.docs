@@ -4,7 +4,7 @@ lastChanged: 13.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/config/multihost.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: eqCCAsh33eBCCR0QphOwh20ohrm79vbWAYxCeQhMDcs=
+hash: 6Nbli3FvSvhxvt4gzrhPCDereghLj417LnbPOlmhnzA=
 ---
 # Multihost operation
 ioBroker is able to let multiple servers do the work. This allows the computing load to be distributed across multiple hosts.

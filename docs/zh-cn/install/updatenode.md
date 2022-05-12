@@ -4,7 +4,7 @@ lastChanged: 05.02.2022
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/updatenode.md
-hash: iSLz8sUffswhG1lpe6Z/C7bcCIDjSZh+Mf79z/wrP0M=
+hash: DQTeytJpqltpLrFO/hbAsPe65ae0PWlctqjRtOgtwXc=
 ---
 # Node.js 更新
 | js 控制器 | Node.js | npm |
@@ -56,7 +56,7 @@ ioBroker 不能在没有 Node.js 的情况下工作，有关详细信息，请�
 ioBroker 使用自己的控制台命令或系统服务管理停止
 
 #### 5 - 检查进程是否仍在运行
-这通常会终止所有进程。为了安全起见，您应该再次检查是否确实没有进程（适配器、备份）在运行。也可以使用“top”之类的工具来检查是否还有以“io”开头的进程。开始。
+这通常会终止所有进程。为了安全起见，您应该再次检查是否确实没有任何进程（适配器、备份）在运行。也可以使用“top”之类的工具来检查是否还有以“io”开头的进程。开球。
 
 #### 6 - Node.js 更新
 下一步是将 Node.js 更新到所需的新版本。
@@ -77,7 +77,7 @@ ioBroker 使用自己的控制台命令或系统服务管理停止
 
 <details><summary>自动重建</summary>
 
-ioBroker 会自动尝试检测由于需要更新而无法启动的适配器。这样做的方式是识别典型的错误消息，并且 ioBroker 会尝试相应地更新。首先，对受影响的适配器执行“重建”，如果这没有帮助，则更新适配器依赖项。因此，适配器可能会重新启动几次。请在这里耐心等待！仅当适配器保持红色并且日志显示重建不起作用时才变为活动状态！
+ioBroker 尝试自动检测由于需要更新而无法启动的适配器。这样做的方式是识别典型的错误消息，并且 ioBroker 会尝试相应地更新。首先，执行受影响适配器的“重建”，如果这没有帮助，则更新适配器依赖项。因此，适配器可能会重新启动几次。请在这里耐心等待！仅当适配器保持红色并且日志显示重建不起作用时才变为活动状态！
 
 </详情>
 
@@ -100,7 +100,7 @@ ioBroker 会自动尝试检测由于需要更新而无法启动的适配器。�
 </详情>
 
 还有其他错误消息，但它们都归结为同一件事。
-最简单的选择是在 **正确的** 目录中手动重建。
+然后最简单的选择是在 **right** 目录中手动重建。
 在这种情况下，查找带有“绑定”的目录 - 上面是 */opt/iobroker/node_modules/serialport/node_modules/bindings ...* 在较新的版本上，它也可以是 */opt/iobroker/node_modules/serialport /node_modules /@serialport/bindings*.
 
 然后切换到这个目录，执行`npm install --production`。然后再次重新启动适配器。
@@ -258,7 +258,7 @@ iobroker rebuild <adaptername> --install
 
 - 只需在 shell 中手动运行它。理想情况下，一切都应该自动完成。
 
-＃ 注意
+＃ 一个通知
 ?> 只要 js 控制器低于版本 4，[ioBroker 修复程序](https://www.iobroker.net/#de/documentation/install/linux.md) 也必须在主要版本中使用 Node.js 更新执行。
 使用版本 4 中的未来 js 控制器，重建是完全自动处理的。
 然后不再支持手动重建。

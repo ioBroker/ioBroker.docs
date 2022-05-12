@@ -32,10 +32,15 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.zigbee.svg
 Поэтому, если какие-либо улучшения или поддержка новых zigbee-устройств происходит в проекте Zigbee2MQTT, то можно перенести и добавить этот же функционал в этот драйвер. Если заметили это, то напиши issue - перенесем.
 
 ## Changelog
+### 1.6.18 (2022-04-21)
+* (arteck) fix pairing modus
+
+### 1.6.17 (2022-04)
+ rollback 
+
 ### 1.6.16 (2022-02-16)
 * (arteck) admin dep fix
 * (arteck) colored objects for online/offline state
-
 
 ### 1.6.15 (2022-02-08)
 * (arteck) Battery status % calculation was changed for xiaomi devices

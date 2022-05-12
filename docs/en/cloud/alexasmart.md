@@ -1,10 +1,10 @@
 ---
-title: Cloud
+title: cloud
 lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/cloud/alexasmart.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: rV0K4pRSeWq1AJWwrd8uS/w2W6AGu2mSsnNmIy8YjkM=
+hash: V+UoteAvvF4WAFfpa/ZK4Twopn2wQRp1dG6A1/q3bAg=
 ---
-# The Alexa Smarthome Skill
-?> ***This is a wildcard*** . <br><br> Help with ioBroker and extend this article. Please note the [ioBroker style guide](community/styleguidedoc), so that the changes can be adopted more easily.
+# The Alexa smarthome skill
+?> ***This is a placeholder***.<br><br> Help ioBroker and expand this article. Please note the [ioBroker Style Guide](community/styleguidedoc) so that the changes can be adopted more easily.

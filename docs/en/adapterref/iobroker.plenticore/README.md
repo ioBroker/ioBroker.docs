@@ -171,6 +171,9 @@ The forecast values can then be used to set the MinSoC of the battery, enable or
 
 ## Changelog
 
+### 2.2.1
+- Fixed forecast zickzack [PastCoder]
+
 ### 2.2.0
 - Fixed state value types for new version of js-controller  
   Warning: Please delete state object scb.export.LastExportOk after update and restart adapter
@@ -272,7 +275,7 @@ The forecast values can then be used to set the MinSoC of the battery, enable or
 
 The MIT License (MIT)
 
-Copyright (c) 2021 Marius Burkard
+Copyright (c) 2022 Marius Burkard
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

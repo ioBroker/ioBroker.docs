@@ -104,11 +104,30 @@ Wählt man in der Titelzeile unter Historie "mit" oder "influxdb.0" aus, werden
 Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 ## Changelog
+### 3.0.1 (2022-05-11)
+* (Apollon77) BREAKING: Configuration is only working in the new Admin 5 UI!
+* (Apollon77) Did bigger adjustments to the recording logic and added a lot of new Features. Please refer to Changelog and Forum post for details.
 
-### __WORK IN PROGRESS__
+### 3.0.0 (2022-05-11)
+* (Apollon77) Breaking: Configuration is only working in the new Admin 5 UI!
+* (Apollon77) Breaking! Did bigger adjustments to the recording logic. Debounce is refined and blockTime is added to differentiate between the two checks
+* (Apollon77) Breaking! GetHistory requests now need to deliver the ts in milliseconds! Make sure to use up to date scripts and Charting UIs
+* (Apollon77) New setting added to disable the "logging of additional values for charting optimization" - then only the expected data are logged
+* (Apollon77) Add new Debug flag to enable/disable debug logging on datapoint level (default is false) to optimize performance
 * (Apollon77) Add flag returnNewestEntries for GetHistory to determine which records to return when more entries as "count" are existing for aggregate "none"
 * (Apollon77) Flush the buffer for the datapoint which is queried by GetHistory before the query is done, so that all data are in the database
 * (Apollon77) make sure id is always returned on GetHistory when addId is set
+* (Apollon77) Add aggregate method "percentile" to calculate the percentile (0..100) of the values (requires options.percentile with the percentile level, defaults to 50 if not provided). Basically same as Quantile just different levels are used. Calculation will be done by InfluxDB
+* (Apollon77) Add aggregate method "quantile" to calculate the quantile (0..1) of the values (requires options.quantile with the quantile level, defaults to 0.5 if not provided). Basically same as Percentile just different levels are used. Calculation will be done by InfluxDB
+* (Apollon77) Add (experimental) method "integral" to calculate the integral of the values. Requires options.integralUnit with the time duration of the integral in seconds, defaults to 60s if not provided. Optionally a linear interpolation can be done by setting options.integralInterpolation to "linear". Calculation will be done byInfluxDB (except for InfluxDB 1 and interpolation "linear", this is done by adapter on raw data)
+* (Apollon77) When request contains flag removeBorderValues: true, the result then cut the additional pre and post border values out of the results
+* (Apollon77) Enhance the former "Ignore below 0" feature and now allow specifying to ignore below or above specified values. The old setting is converted to the new one
+* (Apollon77) Allow to specify custom retention duration in days
+* (Apollon77) Add a new message flushBuffer to flush complete buffers or for a given id
+* (Apollon77) Allow to specify an additional path for the InfluxDB URL, when Reverse proxies are used or such
+* (Apollon77) Make sure that min change delta allows numbers entered with comma (german notation) in all cases
+* (Apollon77) Add support to specify how to round numbers on query per datapoint
+* (Apollon77) Allow to specify if the last value of a state is logged on startup
 
 ### 2.6.3 (2022-03-07)
 * (Apollon77) Fix potential crash cases (Sentry IOBROKER-INFLUXDB-4Q)
@@ -149,6 +168,7 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 * (Excodibur/Apollon77) Bug fixes and adjustments
 
 ### 2.1.1 (2021-08-13)
+* IMPORTANT: You need to re-enter the password after installing this version!
 * IMPORTANT: The adapter now requires Admin 5.1.15+ and js-controller 3.3+! For other admin or js-controller versions please use the former v1.9.5 of thi adapter.
 * (Excodibur) Added InfluxDB 2.0 support
 * (Excodibur) Adjust Retention handling on Database level to work for InfluxDB 1.x and 2.x

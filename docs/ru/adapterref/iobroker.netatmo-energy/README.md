@@ -9,7 +9,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.netatmo-energy/README.md
 title: ioBroker.netatmo-энергия
-hash: k/4wuKL7C5YyxrjDcdbzhKjogoxsuHUFfSE8MLiUOFA=
+hash: lgnrs7TqXeqhnFDLgs8Cw4ugPuiXijbP5m+zUNk8EAE=
 ---
 ![логотип](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/admin/netatmo-energy.png)
 
@@ -34,7 +34,7 @@ hash: k/4wuKL7C5YyxrjDcdbzhKjogoxsuHUFfSE8MLiUOFA=
 - Создайте собственное приложение, щелкнув свою учетную запись (вверху/слева) и нажав кнопку «Создать».
   - Заполните форму и сохраните ее
   - Применить полученный client-ID и client-secret-ID к конфигурации адаптера
-  - Перейдите к документации по API https://dev.netatmo.com/apidocumentation/energy.
+  - Перейти к документации по API https://dev.netatmo.com/apidocumentation/energy
   - Выберите "ПОЛУЧИТЬ домашние данные" - "Попробовать" - "ВЫПОЛНИТЬ / HOMESDATA"
     - вы получите ответ, в котором найдете свой домашний ID
     - Применить их к конфигурации адаптера
@@ -65,7 +65,7 @@ hash: k/4wuKL7C5YyxrjDcdbzhKjogoxsuHUFfSE8MLiUOFA=
 * setthermmode_hq ... устанавливает режим работы установки Netatmo Energy на "hq" (защита от замерзания)
 * setthermmode_away … Устанавливает режим работы установки Netatmo Energy на «в гостях» (не дома)
 * switchhomeschedule ... Устанавливает «режим расписания» API Netatmo Energy. Все возможные режимы перечислены в канале "switchhomeschedule".
-* synchomeschedule ... Устанавливает графики нагрева вашего приложения Netatmo Energy. Чтобы изменить конкретный график отопления, введите его. В противном случае текущий установленный будет изменен. Введите необходимые параметры и инициируйте запрос расписания синхронизации.
+* synchomeschedule ... Устанавливает графики нагрева вашего приложения Netatmo Energy. Чтобы изменить конкретный график отопления, введите его. В противном случае текущий установленный будет изменен. Пожалуйста, введите необходимые параметры и инициируйте запрос расписания синхронизации.
 
 Если для запроса API требуются параметры, их можно найти в соответствующем канале запроса в канале «параметры».
 
@@ -84,7 +84,7 @@ hash: k/4wuKL7C5YyxrjDcdbzhKjogoxsuHUFfSE8MLiUOFA=
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/EnergyAPP_measure.png" alt="настройкиВход" width="80%"/><img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/EnergyAPP.png" alt="настройкиВход" width="80%"/>
 
 ## Создание структур
-При запуске адаптера обновляется текущее состояние всего приложения Netatmo Energy и передается состояние всех клапанов и термостатов. В зависимости от общих настроек (чтение состояний API сразу после изменения) состояние клапанов и термостатов снова загружается сразу после изменения API (немедленно отправляется запрос исходного состояния).
+При запуске адаптера текущее состояние всего приложения Netatmo Energy обновляется и передается состояние всех клапанов и термостатов. В зависимости от общих настроек (чтение состояний API сразу после изменения) состояние клапанов и термостатов снова загружается сразу после изменения API (немедленно отправляется запрос исходного состояния).
 Инициализация выполняется при запуске адаптера.
 
 ## Уведомления
@@ -107,10 +107,10 @@ hash: k/4wuKL7C5YyxrjDcdbzhKjogoxsuHUFfSE8MLiUOFA=
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/admintab_de.png" alt="вкладка администратора" width="70%"/>
 
-На каждой плате отображаются значки состояния, показывающие текущее состояние термостата, клапанов и разъема.
+На каждой плате отображаются значки состояния, показывающие текущее состояние термостата, клапанов и разъема. На второй странице термостата вы найдете различные API-запросы для установки режима термостата или плана отопления.
 
 ## Виджет
-Виджет для VIS для отображения полного термостата. Вам нужно только ввести точку данных "SetTemp". Вся остальная информация определяется динамически из структуры "rooms".
+Виджет для VIS для отображения полного термостата. Вам нужно только ввести точку данных "SetTemp". Вся остальная информация определяется динамически из структуры «rooms».
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/valve_widget_de.png" alt="настройкиAPI" width="250px"/>
 
@@ -120,6 +120,15 @@ hash: k/4wuKL7C5YyxrjDcdbzhKjogoxsuHUFfSE8MLiUOFA=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.1 (2022-04-18)
+* (ioKlausi) Additional informations added to admin tab cards
+
+### 1.3.0 (2022-04-17)
+* (ioKlausi) Change thermostat mode functionality added to thermostat card
+
+### 1.2.5 (2022-04-16)
+* (ioKlausi) Dropdown menu to change heating plan added to the thermostat card in the admin page
+
 ### 1.2.4 (2022-04-09)
 * (ioKlausi) i18n files for npm added
 

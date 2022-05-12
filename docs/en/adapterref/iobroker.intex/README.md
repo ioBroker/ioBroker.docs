@@ -26,6 +26,15 @@ https://forum.iobroker.net/topic/47932/test-intext-app-v0-0-x
 
 ## Changelog
 
+### 0.0.6
+* (PLCHome) Definiertes Setzen von Zuständen
+* (PLCHome) Ändern Fahrenheit Celsius
+* (PLCHome) control.temperatur, nur lesen, Objekt aus 0.0.5 muss einmal gelöscht werden.
+
+### 0.0.5
+* (PLCHome) Temperatur setzen hinzugefügt, Objekt muss einmal gelöscht werden.
+* (PLCHome) Decodierung der Statusinformationen
+
 ### 0.0.1
 * (TA2k) initial release
 

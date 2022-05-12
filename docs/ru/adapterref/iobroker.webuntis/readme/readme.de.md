@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.webuntis/readme/readme.de.md
 title: ioBroker.webuntis
-hash: 2zyXQ+eth4PsBxl3M8+AAEMZhT4Nfg3Erk9UW8e503M=
+hash: XiWtY5XHyNiwwFhZGe/ZX9Kq/fFkMBryICwUc6RnITM=
 ---
 ![Логотип](https://github.com/Newan/ioBroker.webuntis/admin/webuntis.png)
 
@@ -28,7 +28,7 @@ Nach der Installation des Adapters in Iobroker und dem erstellen einer Instanz, 
 Zur Vorbereitung, geht man in einem Webbrowser auf die Seite ![webuntis.com](https://webuntis.com) Imsuchfeld auf der Seite gibt man den gewünschten Schulnamen ein.
 Daraufhin öffnet sich eine Webseite. In der Adresszeile des Browsers stehen nun die gewünschten Daten.
 
-![вебунтис_старт](../../../../en/adapterref/iobroker.webuntis/readme/img/webuntis_start.png)
+![webuntis_start](../../../../en/adapterref/iobroker.webuntis/readme/img/webuntis_start.png)
 
 Wir benötigen folgende Strings aus der Adresszeile
 

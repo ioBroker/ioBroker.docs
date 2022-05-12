@@ -127,7 +127,7 @@ Thank you very much for providing this code. His codes license you can find [her
 ## License
 MIT License
 
-Copyright (c) 2020-2021 Peter Baumert
+Copyright (c) 2020-2022 Peter Baumert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

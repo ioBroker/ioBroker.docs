@@ -3,16 +3,16 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hmip/README.md
 title: ioBroker HomeMatic IP 云接入点适配器
-hash: ROYKPghAX5l6O5CwpV5igdwihIhItCQHbISMzvUv7mY=
+hash: W12C3P3zmD99HhJyZQK++hoW7lL8iojcA2aDwHoYApM=
 ---
-![商标](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
+![标识](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
 ![安装数量](http://iobroker.live/badges/hmip-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.hmip.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.hmip.svg)
 
 # IoBroker HomeMatic IP 云接入点适配器
-![测试和发布](https://github.com/Apollon77/iobroker.hmip/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试和发布](https://github.com/iobroker-community-adapters/iobroker.hmip/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
@@ -61,6 +61,20 @@ hash: ROYKPghAX5l6O5CwpV5igdwihIhItCQHbISMzvUv7mY=
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
+### 1.17.0 (2022-04-26)
+* (Apollon77) Also reinitialize objects when new groups or clients are detected
+* (Apollon77) Added experimental support to set dimLevel for Multi Mode Input Dimmer channels
+
+### 1.16.1 (2022-04-19)
+* (Apollon77) Fix crash case introduced by last version
+
+### 1.16.0 (2022-04-16)
+* (Apollon77) Optimize websocket reconnection handling
+* (Apollon77) Add support for GENERIC_INPUT_CHANNEL
+
+### 1.15.5 (2022-03-20)
+* (Apollon77) Optimize reconnection handling
+
 ### 1.15.4 (2022-02-19)
 * (Apollon77) Fix sendDoorCommand for HmIP-MOD-HO
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hmip/README.md
 title: ioBroker HomeMatic IP Cloud AccessPoint-Adapter
-hash: ROYKPghAX5l6O5CwpV5igdwihIhItCQHbISMzvUv7mY=
+hash: W12C3P3zmD99HhJyZQK++hoW7lL8iojcA2aDwHoYApM=
 ---
 ![Logo](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
@@ -12,9 +12,9 @@ hash: ROYKPghAX5l6O5CwpV5igdwihIhItCQHbISMzvUv7mY=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.hmip.svg)
 
 # IoBroker HomeMatic IP Cloud AccessPoint-Adapter
-![Testen und freigeben](https://github.com/Apollon77/iobroker.hmip/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Testen und freigeben](https://github.com/iobroker-community-adapters/iobroker.hmip/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 ## Beschreibung
 Dieser Adapter ermöglicht die Kommunikation mit einem HomematicIP CloudAccessPoint über die Rest API der Homematic IP Cloud
@@ -29,7 +29,7 @@ Hier ein Schritt-für-Schritt-Installationsvideo auf YouTube https://youtu.be/kX
 ## Die Info
 Die meisten Homematic IP Geräte arbeiten bereits mit der neusten Adapterversion.
 
-Ich werde es ständig verbessern, aber es wird Zeit brauchen. Jegliche Hilfe von der Community durch z.B. Pull-Request wäre sehr willkommen.
+Ich werde es ständig verbessern, aber es wird Zeit brauchen. Jegliche Hilfe von der Community durch z.B. Pull Request wäre sehr willkommen.
 
 Bei nicht funktionierenden HmIP-Geräten erstellen Sie bitte ein Problem mit dieser Info (bitte eines pro Gerät und wenn möglich den technischen Namen im Betreff).
 Schalten Sie die Adapterprotokollierung in ioBroker in den Silly-Modus und fügen Sie den json des Geräts hinzu, der im Problem zum Protokoll gedruckt wird.
@@ -51,7 +51,7 @@ Beispielsweise haben direkte Verbindungen zwischen Geräten keine Events in der 
 Wenn Sie dem Schloss in der HmIP-App (Einstellungen / Zugangsberechtigungen) eine PIN zugewiesen haben, muss die PIN im PIN-Zustand der Geräteobjekte gesetzt werden. Es ist NICHT Ihre System-PIN!! Wenn Sie in den Einstellungen keine PIN festgelegt haben, können Sie den PIN-Status auch leer lassen.
 Bitte fügen Sie zusätzlich den „iobroker“-Client zur Liste der Zugangskontroll-Clients in den HmIP-App-Einstellungen hinzu!
 
-## Danke
+## Vielen Dank
 * an @coreGreenberet für seine Python-Bibliothek (https://github.com/coreGreenberet/homematicip-rest-api)
 
 *
@@ -61,6 +61,20 @@ Bitte fügen Sie zusätzlich den „iobroker“-Client zur Liste der Zugangskont
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
+### 1.17.0 (2022-04-26)
+* (Apollon77) Also reinitialize objects when new groups or clients are detected
+* (Apollon77) Added experimental support to set dimLevel for Multi Mode Input Dimmer channels
+
+### 1.16.1 (2022-04-19)
+* (Apollon77) Fix crash case introduced by last version
+
+### 1.16.0 (2022-04-16)
+* (Apollon77) Optimize websocket reconnection handling
+* (Apollon77) Add support for GENERIC_INPUT_CHANNEL
+
+### 1.15.5 (2022-03-20)
+* (Apollon77) Optimize reconnection handling
+
 ### 1.15.4 (2022-02-19)
 * (Apollon77) Fix sendDoorCommand for HmIP-MOD-HO
 

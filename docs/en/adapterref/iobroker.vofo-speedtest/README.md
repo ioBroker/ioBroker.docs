@@ -29,6 +29,11 @@ When the adapter crashes or an other Code error happens, this error message that
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* updating dependencies
+* adding some timeouts trying to fix "already running with pid"
+* fix extracting API key from js-code (thanks Zwer2k) [#112][pr112]
+
 ### 0.0.10 (2022-01-07)
 * Fix version numbers
 
@@ -71,7 +76,7 @@ Vodafone is a trademark of Vodafone GmbH. I am in no way endorsed by or affiliat
 ## License
 MIT License
 
-Copyright (c) 2021 Peter Baumert
+Copyright (c) 2020-2022 Peter Baumert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -90,3 +95,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+[pr112]: https://github.com/peterbaumert/ioBroker.vofo-speedtest/pull/112

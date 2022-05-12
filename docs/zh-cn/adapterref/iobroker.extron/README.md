@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.extron/README.md
 title: ioBroker.extron
-hash: gHPmQRTN/ynCkRrmEcHbu1UHPcQIYnW1ORoexhn2Fv4=
+hash: MirW0DDWwLaw0/zTVl5RhrSemyrcN4OX4ivf2C5Pl9M=
 ---
 ![标识](../../../en/adapterref/iobroker.extron/admin/extron.png)
 
@@ -21,11 +21,11 @@ Extron SIS 适配器
 
 Extron 的控制设备。
 此适配器旨在通过 **Simple **I**nstruction **S**et 协议控制某些 Extron 音频视频产品。
-这些设备的功能范围是巨大的。并非所有功能都可以通过适配器和与 iobroker 的交互来支持。
+这些设备的功能范围是巨大的。并非所有功能都可以通过适配器支持以及与 iobroker 交互。
 
 **注意：** 在适配器配置中选择设备类型后，以后无法更改！
 
-在 iobroker 安装中，可以有更多来自此适配器的不同或相同类型的实例。对于未来的版本，您必须为每个实例的适配器配置添加一个有效的许可证。
+在 iobroker 安装中，此适配器可以有多个不同或相同类型的实例。对于未来的版本，您必须为每个实例的适配器配置添加一个有效的许可证。
 如果您是非商业组织或将其用于私人用途，您可以免费获得许可证。请联系作者。
 
 ### 支持的设备
@@ -42,6 +42,8 @@ Extron 的控制设备。
 
 ## Changelog
 
+### 0.1.12
+* (mschlgl) added support for channel preset selection in SMD202
 ### 0.1.11
 * (Bannsaenger) fixed support for groups in DSP DMP128
 
@@ -52,7 +54,7 @@ Extron 的控制设备。
 * (Bannsaenger) fixed setting of info.connection in telnet mode
 
 ### 0.1.7
-* (mschlgl) added plaint Telnet communication for DMP128
+* (mschlgl) added plain Telnet communication
 
 ### 0.1.6
 * (mschlgl) added limiter section for DMP128

@@ -5,7 +5,7 @@
 ![Number of Installations](http://iobroker.live/badges/hmip-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.hmip.svg)](https://www.npmjs.com/package/iobroker.hmip)
 
-![Test and Release](https://github.com/Apollon77/iobroker.hmip/workflows/Test%20and%20Release/badge.svg)
+![Test and Release](https://github.com/iobroker-community-adapters/iobroker.hmip/workflows/Test%20and%20Release/badge.svg)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.hmip.svg)](https://www.npmjs.com/package/iobroker.hmip)
 
@@ -60,6 +60,17 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
+### 1.17.0 (2022-04-26)
+* (Apollon77) Also reinitialize objects when new groups or clients are detected
+* (Apollon77) Added experimental support to set dimLevel for Multi Mode Input Dimmer channels
+
+### 1.16.1 (2022-04-19)
+* (Apollon77) Fix crash case introduced by last version
+
+### 1.16.0 (2022-04-16)
+* (Apollon77) Optimize websocket reconnection handling
+* (Apollon77) Add support for GENERIC_INPUT_CHANNEL
+
 ### 1.15.5 (2022-03-20)
 * (Apollon77) Optimize reconnection handling
 

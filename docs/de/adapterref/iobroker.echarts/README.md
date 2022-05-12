@@ -3,16 +3,19 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: adErFx29GS51MtHt4t3z63MRU+ojFpcIH8aJxYJ3KgQ=
+hash: k+wb/Y8bMxvy/eqo6X/6kaLqYCBO1FxqP3qh5TipVCk=
 ---
 ![Logo](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
+![Anzahl der Installationen](http://iobroker.live/badges/echarts-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.echarts.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.echarts.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/ioBroker/iobroker.echarts.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/ioBroker/ioBroker.echarts/badge.svg)
 
 # IoBroker.echarts
+![Testen und freigeben](https://github.com/ioBroker/ioBroker.echarts/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/echarts/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+
 ## ECharts-Adapter für ioBroker
 Erstellen Sie nützliche Diagramme in ioBroker:
 

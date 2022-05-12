@@ -1,10 +1,10 @@
 ---
 title: 逻辑
 lastChanged: 13.09.2018
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/logic/help.md
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
-hash: erhGOAXMlz1srrX7pa6w5Rn/DqPx+MBgXtmUKQ2B984=
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/logic/help.md
+hash: qTFSjwqNvQeM/JVSAec2vFmj5EMzL5steyiSeNfpn5I=
 ---
-＃故障排除
-？&gt; ***这是一张通配符***。 <br><br>帮助ioBroker并扩展这篇文章。请注意[ioBroker风格指南](community/styleguidedoc)，以便更容易采用这些更改。
+# 疑难解答
+?> ***这是一个占位符***。<br><br>帮助 ioBroker 并扩展本文。请注意 [ioBroker 风格指南](community/styleguidedoc)，以便更容易地采用更改。

@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mielecloudservice/README.md
-title: ioBroker.MieleCloudService
-hash: MF3IUYLSqEFaAgFTidjyD0x+FE2iWrJgSPVEE9GXj1A=
+title: ioBroker.mielecloudservice
+hash: nUCOIR+oScY4QRmUPEjexUlrZyTU3cix2THDuRyLkdY=
 ---
 ![标识](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
@@ -12,14 +12,17 @@ hash: MF3IUYLSqEFaAgFTidjyD0x+FE2iWrJgSPVEE9GXj1A=
 ![已知漏洞](https://snyk.io/test/github/Grizzelbee/ioBroker.mielecloudservice/badge.svg?targetFile=package.json)
 ![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![下载](https://img.shields.io/npm/dm/iobroker.mielecloudservice.svg)
+![新PM](https://nodei.co/npm/iobroker.mielecloudservice.png?downloads=true)
 
-# IoBroker.MieleCloudService [![测试和发布](https://github.com/Grizzelbee/ioBroker.mielecloudservice/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.mielecloudservice/actions/workflows/test-and-release.yml)
+# IoBroker.mielecloudservice [![测试和发布](https://github.com/Grizzelbee/ioBroker.mielecloudservice/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.mielecloudservice/actions/workflows/test-and-release.yml)
+## IoBroker 的 mielecloudservice 适配器
+连接您的 Miele 电器（XGW3000 和 WiFiConn@ct）
+
+&gt;如果你喜欢这个适配器并考虑支持我：<br/> &gt;[![使用 PayPal 捐款](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
+
 ＃＃ 描述
 此适配器用于从官方 Miele 3rd-party API 检索有关您所有 Miele@Home 设备的信息。
 无论它们是通过 Wi-Fi 还是 XGW3000 网关直接连接。它实现了 **Miele 3rd Party API V1.0.5**
-
-##哨兵.io
-该适配器使用 sentry.io 收集有关崩溃的详细信息并将其自动报告给作者。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry)插件用于它。请参阅[插件主页](https://github.com/ioBroker/plugin-sentry)以获取有关插件功能、收集哪些信息以及如何禁用它的详细信息，如果您不喜欢用您的崩溃信息来支持作者。
 
 ## 先决条件
 * Miele@Home 用户（智能手机应用程序）
@@ -31,11 +34,11 @@ hash: MF3IUYLSqEFaAgFTidjyD0x+FE2iWrJgSPVEE9GXj1A=
 要安装，请执行以下操作：
 
 1.通过管理员安装使用
- * stable Repo - 获取当前的稳定版本
- * latest Repo - 获取最新的测试版本（可能不稳定）
- * 通过：https://github.com/Grizzelbee/ioBroker.mielecloudservice.git - 获取最新的开发版本
+* stable Repo - 获取当前的稳定版本
+* latest Repo - 获取最新的测试版本（可能不稳定）
+* 通过：https://github.com/Grizzelbee/ioBroker.mielecloudservice.git - 获取最新的开发版本
 2. 在 Miele 智能手机 App 中为 Miele@Home 创建 App-Account
-3. 在 https://www.miele.com/f/com/en/register_api.aspx 创建一个开发者账户
+3. 在 https://www.miele.com/f/com/en/register_api.aspx 创建一个开发者帐户
 4. 将您的 Miele 设备添加到应用程序（如果未自动添加）
 6. 填写从 Miele-developer Team 收到的 client_secret 和 client_id 以及来自 App 的 account-id 和密码。
 
@@ -47,15 +50,17 @@ hash: MF3IUYLSqEFaAgFTidjyD0x+FE2iWrJgSPVEE9GXj1A=
 
 ### 程序（在 API V1.0.5 中引入）
 在 API V1.0.5 中，德国美诺 Miele 引入了一个名为“/programs”的新端点。
-对该端点的支持从适配器版本 4.5.0 开始。将创建一个新数据点 [device.Actions.Program]，列出 Miele 返回的所有支持的程序。
+对该端点的支持从适配器版本 4.5.0 开始。将创建一个新的数据点 [device.Actions.Program]，列出 Miele 返回的所有支持的程序。
 **选择其中一个值将立即执行程序！** 目前仅支持简单程序。例如。烤箱需要一些额外的信息——这将在未来的版本中实现。
 
-在发布适配器时，德国美诺 Miele 记录了一些设备类别来支持此端点，并且只有（至少对我而言）其中的一部分真正起作用。对于我的咖啡系统、洗衣机和滚筒式烘干机，它只适用于咖啡系统。
+在发布适配器时，德国美诺 Miele 记录了一些支持此端点的设备类别，并且只有（至少对我而言）其中的一部分真正起作用。对于我的咖啡系统、洗衣机和滚筒式烘干机，它只适用于咖啡系统。
 但德国美诺 Miele 正在努力并定期提供支持。
 有关更多信息，请参阅通用 Miele API 文档（如下）。
 
 ＃＃ 已知的问题
-* 没有任何
+* 自 API V1.05 (/programs) 以来，Miele API 内有一个新端点。
+  * 目前尚不清楚如何使用它们，因为 API 文档是......可改进的。
+  * 从适配器 v6.0.0 开始基本支持这些程序。需要附加参数的程序除外。
 
 ## 文档
 请主要参考 Miele 发布的主要 API 文档
@@ -183,24 +188,70 @@ hash: MF3IUYLSqEFaAgFTidjyD0x+FE2iWrJgSPVEE9GXj1A=
 | 512 | “结束”/“完成” |滚筒式干衣机 |
 | 514 | “Trocknen”/“干燥”|洗衣机烘干机，滚筒式烘干机 |
 | 519 | “Abkühlen” / “冷静下来” |洗衣机烘干机 |
-| 521 | “针织”/“”|滚筒式干衣机 |
+| 521 | “针织”/“”|滚筒式烘干机 |
 |第522章“结束”/“完成” |滚筒式干衣机 |
 |第531章“康福特库伦” |滚筒式干衣机 |
 |第532章"Flusen ausspülen" |洗衣机烘干机 |
+
+##哨兵.io
+该适配器使用 sentry.io 收集有关崩溃的详细信息并将其自动报告给作者。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry)插件用于它。请参阅[插件主页](https://github.com/ioBroker/plugin-sentry)以获取有关插件功能、收集哪些信息以及如何禁用它的详细信息，如果您不喜欢用您的崩溃信息来支持作者。
 
 ##版权
 版权所有 (c) 2019-2022 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
-### V5.0.5 (2022-02-07) (Invincible)
-* (grizzelbee) Fix: fixed some lgtm findings
-* (grizzelbee) New: Added link to request Miele API credentials in config page.  
+### **WORK IN PROGRESS**
+
+### V6.1.5 (2022-05-05) (Black Wings)
+* (grizzelbee) Fix: Changed State-Changed log entry from info to debug 
+* (grizzelbee) Fix: Fixed issue with not initialized auth.ping variable on adapter startup
+* (grizzelbee) Fix: Fixed issue with not initialized auth.ping variable after token has been refreshed
+* (grizzelbee) Fix: Fixed error in auth expiry calculation
+
+### V6.1.4 (2022-05-03) (Black Wings)
+* (grizzelbee) Fix: [233](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/233) Fixed error while setting targetTemperature
+
+### V6.1.3 (2022-05-02) (Black Wings)
+* (grizzelbee) Fix: [225](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/225) Fixes error with cooling devices
+* (grizzelbee) Fix: [231](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/231) Fixes startup loop when cooling devices are connected
+* (grizzelbee) Fix: Fixed SuperCooling switch
+* (grizzelbee) Fix: Fixed SuperFreezing switch
+* (grizzelbee) New: Added code to run dry tests with local test data 
+
+### V6.1.2 (2022-04-29) (Black Wings)
+* (grizzelbee) Fix: [228](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/228) Inverted light switch
+* (grizzelbee) Chg: Moved main.js back to the main folder to run unit tests
+
+### V6.1.1 (2022-04-28) (Black Wings)
+* (grizzelbee) Fix: added some missing native parts in objects
+* (grizzelbee) Chg: Moved main.js to the source folder
+
+### V6.1.0 (2022-04-27) (Black Wings)
+* (grizzelbee) Fix: Added some error handling
+* (grizzelbee) Chg: Changed PlateStep_x data structure to PlateStepZone-x
+* (grizzelbee) Chg: Removed unused ambientLight function
+* (grizzelbee) Chg: [225](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/225) Removed unused freezerZone code for knownDevices
+
+### V6.0.0 (2022-04-19) (Black Wings)
+* (grizzelbee) New: Adapter entirely rewritten from scratch
+* (grizzelbee) New: Added link to request Miele API credentials in config page.
+* (grizzelbee) New: Implemented watchdog for broken lines
+* (grizzelbee) New: Added donate button to config page and readme file
+* (grizzelbee) New: [216](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/216) Added additional (undocumented) data points to dish warmer
+* (grizzelbee) Fix: [213](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/213) Login delay works properly now when login fails on Startup
+* (grizzelbee) Fix: [207](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/207) powering on device due to querying available programs
+* (grizzelbee) Fix: Refresh of expired tokens works properly now
+* (grizzelbee) Fix: Light-Switch is working now e.g. for coffee systems
+* (grizzelbee) Chg: BREAKING CHANGE: Changed IDs for targetTemperature and temperature 
+* (grizzelbee) Chg: targetTemperature and temperature with invalid values (-32768, null, ...) will no longer be created
+* (grizzelbee) Chg: startTime has moved to ACTIONS and is intended to work properly
+* (grizzelbee) Chg: ACTIONS.*_Button_Active data points have been removed
+* (grizzelbee) Chg: Switches in the ACTIONS are simple boolean switches now (no on/off, ...)
 * (grizzelbee) Upd: dependencies got updated
 * (grizzelbee) Upd: removed separate license file
 
-
 ### V5.0.4 (2022-01-07) (Invincible)
-* (grizzelbee) Fix: [MIELECLOUDSERVICE-7](https://sentry.io/organizations/nocompany-6j/issues/2379624775/?project=5735758) handling if there is no auth token for a request 
+* (grizzelbee) Fix: [MIELECLOUDSERVICE-7](https://sentry.io/organizations/nocompany-6j/issues/2379624775/?project=5735758) handling if there is no auth token for a request
 * (grizzelbee) Fix: [MIELECLOUDSERVICE-2J](https://sentry.io/organizations/nocompany-6j/issues/2885488082/?project=5735758) handling if there is no auth token for a request
 * (grizzelbee) Fix: [MIELECLOUDSERVICE-2K](https://sentry.io/organizations/nocompany-6j/issues/2886827789/?project=5735758) handling if there is no auth token for a request
 * (grizzelbee) Fix: [MIELECLOUDSERVICE-28](https://sentry.io/organizations/nocompany-6j/issues/2787208315/?project=5735758) handling if the device is unknown
@@ -213,21 +264,21 @@ hash: MF3IUYLSqEFaAgFTidjyD0x+FE2iWrJgSPVEE9GXj1A=
 ### V5.0.2 (2021-10-27) (Invincible)
 * (grizzelbee) Upd: Added listener to error events
 * (grizzelbee) Upd: Trying to reconnect if connection has been lost
- 
+
 ### V5.0.1 (2021-10-25) (Invincible)
 * (grizzelbee) Fix: [178](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/178) Removed: info Received ACTIONS message by SSE.
 * (grizzelbee) Fix: [179](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/179) Removed: info Received DEVICES message by SSE.
 * (grizzelbee) Fix: [180](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/180) Fixed: Info: State value to set for "mielecloudservice.0.xxx.ACTIONS.Power" has to be type "boolean" but received type "string"
-* (grizzelbee) Fix: [181](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/181) Fixed: Programbuttons should be fixed and work as soon as Miele fixes the API (as of today it has bugs).
+* (grizzelbee) Fix: [181](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/181) Fixed: Program buttons should be fixed and work as soon as Miele fixes the API (as of today it has bugs).
 * (grizzelbee) Upd: Removed many debug log output
 
 ### V5.0.0 (2021-10-21) (Invincible)
 * (grizzelbee) Chg: BREAKING CHANGE: Removed useless grouping folders for device types - check your VIS and scripts
 * (grizzelbee) New: [164](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/164) fixed bug in SignalFailure and signalInfo when havin no value
-* (grizzelbee) New: [155](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/155) fixed >missing object< bug on arrays 
+* (grizzelbee) New: [155](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/155) fixed >missing object< bug on arrays
 * (grizzelbee) New: [154](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/154) Reintroduced TargetTemp to washer dryers
 * (grizzelbee) New: [140](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/140) Switched from data polling to server sent events (push data)
-* (grizzelbee) New: [71](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/71) If there is no internet connection on startup retry connecting until connection is established 
+* (grizzelbee) New: [71](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/71) If there is no internet connection on startup retry connecting until connection is established
 * (grizzelbee) Fix: estimatedEndTime won't be shown anymore when device is off
 * (grizzelbee) Fix: Don't rethrowing errors in APISendRequest anymore
 * (grizzelbee) Fix: fixed a few minor bugs
@@ -256,7 +307,7 @@ hash: MF3IUYLSqEFaAgFTidjyD0x+FE2iWrJgSPVEE9GXj1A=
 ### V4.0.20 (2021-04-30) (Sleepwalkers)
 * (grizzelbee) Fix: [137](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/137) Fixed Read-only state "info.connection" has been written without ack-flag with value "false"
 * (grizzelbee) Fix: [138](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/138) Fixed State value to set for ".Schleuderdrehzahl" has wrong type "string" but has to be "number"
-* (grizzelbee) Fix: [139](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/139) Fixed State value to set for ".ACTIONS.Light" has wrong type "number" but has to be "string" 
+* (grizzelbee) Fix: [139](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/139) Fixed State value to set for ".ACTIONS.Light" has wrong type "number" but has to be "string"
 * (grizzelbee) Upd: Changed device group from channel to folder  as documented [here](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/objectsschema.md)
 
 ### V4.0.19 (2021-04-29) (The scarecrow)
@@ -264,16 +315,16 @@ hash: MF3IUYLSqEFaAgFTidjyD0x+FE2iWrJgSPVEE9GXj1A=
 * (grizzelbee) Fix: Fixed No-Icon Bug when appliance is unknown
 
 ### V4.0.18 (2021-04-28) (Ghostlights)
-* (grizzelbee) Fix: Fixed light switch bug causing an exception when switching 
+* (grizzelbee) Fix: Fixed light switch bug causing an exception when switching
 
 ### V4.0.17 (2021-04-27) (Ghost in the moon)
 * (grizzelbee) New: Added ioBroker sentry plugin to report issues automatically
 * (grizzelbee) New: Added Light-Switch to washing machines, Tumble Dryers, Washer dryers and Dish washers
 * (grizzelbee) Upd: Updated dependencies
 
-> **Hint:** 
-> The behavior of the light-switch has slightly changed with this release. It not only tests the action capabilities of 
-> the device but also shows the state of the light state delivered by the API. If no actions are reported by the API, the 
+> **Hint:**
+> The behavior of the light-switch has slightly changed with this release. It not only tests the action capabilities of
+> the device but also shows the state of the light state delivered by the API. If no actions are reported by the API, the
 > switch will be without function and only show the current state. If actions have been reported the switch will work as you expect.
 > If your device reports no light state and no actions the switch will show 'None' and won't do anything.
 
@@ -344,12 +395,12 @@ hash: MF3IUYLSqEFaAgFTidjyD0x+FE2iWrJgSPVEE9GXj1A=
 > ***Hint:*** The adapter received a complete code refactoring! This means that most of the code has been changed and some parts are working now differently than ever before. Update with care and read the change log!
 * (grizzelbee) New: FULL support of Miele cloud API v1.0.4
 * (grizzelbee) Upd: [83](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/83) estimatedEndTime isn't shown anymore after the device has finished
-* (grizzelbee) Upd: [85](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/85) full code refactoring and split into multiple files. 
+* (grizzelbee) Upd: [85](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/85) full code refactoring and split into multiple files.
 * (grizzelbee) Upd: [86](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/86) every folder and device now gets a nice little icon
 * (grizzelbee) Upd: [89](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/89) Washer dryers are fully supported now
 * (grizzelbee) Upd: [90](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/90) implemented targetTemperature for fridges & freezers
 * (grizzelbee) Upd: Devices get fully created on startup and aren't modified afterwards - only updated
-* (grizzelbee) Upd: New folder ecoFeedback to group ecoFeedback states 
+* (grizzelbee) Upd: New folder ecoFeedback to group ecoFeedback states
 * (grizzelbee) Upd: New folder IDENT to group ident states
 * (grizzelbee) Upd: Removed signalActionRequired - since there is no signalDoor for washing machines, dryers and dishwashers this approach doesn't work
 * (grizzelbee) Upd: All folders and states which are being created depend on the capabilities of their devices as described in [this Miele documentation](https://www.miele.com/developer/assets/API_V1.x.x_capabilities_by_device.pdf). So there shouldn't be useless states anymore caused by the generic Miele cloud API.
@@ -490,7 +541,7 @@ please refer to [Miele-Documentation](#documentation) for more Information on ac
 ### 0.0.5 (2019-07-25)
 * (grizzelbee) Upd: some code maintenance
 * (grizzelbee) New: added reply-language to config
-  - Miele API is currently able to reply in German or English, now you can choose.
+   - Miele API is currently able to reply in German or English, now you can choose.
 * (grizzelbee) New: created new Icon
 * (grizzelbee) Fix: fixed translation issues and translated adapter UI using gulp
 * (grizzelbee) Upd: Made changes to travis requested by apollon77

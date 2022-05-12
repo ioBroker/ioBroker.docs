@@ -3,30 +3,56 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vaillant/README.md
 title: ioBroker.vaillant
-hash: ymDI8ZplsdIiSUv7PewXXcVVZRhu7E+2vi2cQdqh4Cs=
+hash: k9BpmGloXbMyoDS+FBzvqKGDSzZzftDtDpX1+W57qp4=
 ---
-![логотип](../../../en/adapterref/iobroker.vaillant/admin/vaillant.png)
+![Логотип](../../../en/adapterref/iobroker.vaillant/admin/vaillant.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.vaillant.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.vaillant.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vaillant.svg)
-![Количество установок (последняя)](http://iobroker.live/badges/vaillant-installed.svg)
+![Количество установок (последние)](http://iobroker.live/badges/vaillant-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/vaillant-stable.svg)
-![Состояние зависимости](https://img.shields.io/david/TA2k/iobroker.vaillant.svg)
+![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.vaillant.svg)
 ![Известные уязвимости](https://snyk.io/test/github/TA2k/ioBroker.vaillant/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.vaillant.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.vaillant.png?downloads=true)
 
 # IoBroker.vaillant
-## Vaillant адаптер для ioBroker
-Адаптер Vaillant multiMatic VR900 / VR920
+## Адаптер vaillant для ioBroker
+Адаптер Vaillant multiMatic VR900/VR920
 
 ### Начиная
-Изменить объекты в конфигурации папок. Некоторая конфигурация будет работать только тогда, когда режим включен или ВРУЧНУЮ
+В Instanzoptionen почта и пароль der multimatic / senso app eingeben.
+
+Конфигурация können geändert werde in dem sie unter dem Unterpunkt конфигурация angepasst werden. Настройка Manche werden erst angewendet wenn der Modus auf ON или MANUAL ist und nicht AUTO oder TIME_CONTROLLED
+
+## **Поиск:**
+**Warmwasser**: vaillant.0.serialnummer.systemcontrol/tli.dhw.hotwater.configuration.hotwater_temperature_setpoint **Heizung**: Erst auf MANUAL vaillant.0.serialnumber.systemcontrol/tli.zones03.heating.configuration.operation_mode MANUAL Dann die Temperatur vaillant.0.serial.systemcontrol/tli.zones03.heating.configuration.manual_mode_temperature_setpoint Und am Ende operation_mode auf TIME_CONTROLLED
+
+Параметр können über den Punkt parameterValue angepasst werden dabei beachten welche Werte im Objekt определение erlaubt sind.
 
 ## Changelog
+### 0.0.15
+
+-   bugfixes
+### 0.0.14
+
+-   add rooms support
+### 0.0.13
+
+-   fix livereport order
+### 0.0.11
+
+-   fix issue with js-controller 3.2
+### 0.0.10
+
+-   fix issue with js-controller 3
+
+### 0.0.8
+
+-   (TA2k) Fix Authorization problem and missing configuration states
 
 ### 0.0.6
 
-- (TA2k) initial release
+-   (TA2k) initial release
 
 ## License
 

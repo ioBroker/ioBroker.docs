@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.xiaomi-gateway3/README.md
 title: ioBroker.xiaomi-gateway3
-hash: JPN+vUlUrO/zaklRyjaYlXUY/ipHxSUmkfUT8kW9Lqk=
+hash: chcMoV8/LrU3wP/rKmsvMrQTdqahOj4PRZPfLc9vB6s=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.xiaomi-gateway3.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.xiaomi-gateway3.svg)
@@ -25,7 +25,7 @@ Adapter befindet sich derzeit in der Entwicklungsphase. Hat aber bereits einsatz
 
 Für eine erfolgreiche Adapterentwicklung braucht es Community-Hilfe, hauptsächlich beim Testen von Adaptern und Geräten.
 
-## Danke
+## Vielen Dank
 Ein großer Teil des Codes basiert auf und wurde neu geschrieben von [AlexxIT](https://github.com/AlexxIT) Projekt [XiaomiGateway3](https://github.com/AlexxIT/XiaomiGateway3)
 
 ## Wie kannst du helfen?
@@ -43,7 +43,7 @@ Adapter unterstützt `Xiaomi Gateway 3 (ZNDMWG03LM and ZNDMWG02LM)` auf Original
 
 Sie können das Gateway mit benutzerdefinierter oder vorrätiger Firmware in diesen Versionen flashen: [wiki](https://github.com/AlexxIT/XiaomiGateway3/wiki).
 
-__*!!Achtung:*__ Firmware-Versionen niedriger als `1.4.7_0000` Adapter werden und werden nicht unterstützt. Unterstützung von Versionen niedriger als `v1.5.0_0026` nicht garantiert.
+__*!!Achtung:*__ Firmware-Versionen niedriger als `1.4.7_0000` Adapter werden nicht unterstützt und werden nicht unterstützt. Unterstützung von Versionen niedriger als `v1.5.0_0026` nicht garantiert.
 
 ## Unterstützte Geräte
 - [x] Getestet
@@ -68,7 +68,7 @@ __*!!Achtung:*__ Firmware-Versionen niedriger als `1.4.7_0000` Adapter werden un
 - [ ] Aqara Doppelwandschalter US (WS-USC04)
 - [x] Aqara-Bewegungssensor (RTCGQ11LM)
 - [ ] Aqara Opple Vierknopf (WXCJKG12LM)
-- [] Aqara Opple MX480 (XDD13LM)
+- [ ] Aqara Opple MX480 (XDD13LM)
 - [ ] Aqara Opple MX650 (XDD12LM)
 - [ ] Aqara Opple Sechsknopf (WXCJKG13LM)
 - [ ] Aqara Opple Zweiknopf (WXCJKG11LM)
@@ -101,8 +101,8 @@ __*!!Achtung:*__ Firmware-Versionen niedriger als `1.4.7_0000` Adapter werden un
 - [ ] IKEA Birne E27 980 lm (LED1545G12)
 - [ ] IKEA Glühbirne GU10 400 lm (LED1537R6,LED1650R5)
 - [x] Xiaomi-Taste (WXKG01LM)
-- [x] Xiaomi-Türsensor (MCCGQ01LM)
-- [ ] Xiaomi Lichtsensor (GZCGQ01LM)
+- [x] Xiaomi Türsensor (MCCGQ01LM)
+- [] Xiaomi Lichtsensor (GZCGQ01LM)
 - [ ] Xiaomi-Bewegungssensor (RTCGQ01LM)
 - [x] Xiaomi-Stecker (ZNCZ02LM)
 - [ ] Xiaomi Stecker EU (ZNCZ04LM)
@@ -127,7 +127,7 @@ __*!!Achtung:*__ Firmware-Versionen niedriger als `1.4.7_0000` Adapter werden un
 - [] Xiaomi Qingping Bewegungssensor (CGPR1)
 - [] Xiaomi Qingping TH Lite (CGDK2)
 - [] Xiaomi Qingping TH-Sensor (CGG1)
-- [ ] Xiaomi-Safe (BGX-5/X1-3001)
+- [] Xiaomi-Safe (BGX-5/X1-3001)
 - [x] Xiaomi TH Uhr (LYWSD02MMC)
 - [] Xiaomi TH-Sensor (LYWSDCGQ/01ZM)
 - [x] Xiaomi TH-Sensor 2 (LYWSD03MMC)
@@ -139,7 +139,7 @@ __*!!Achtung:*__ Firmware-Versionen niedriger als `1.4.7_0000` Adapter werden un
 
 _**Hinweis:** BLE-Geräte haben möglicherweise beim ersten Mal nach dem Koppeln keinen Status, da ich die Spezifikationen für Geräte nicht kenne und vorerst keine Eigenschaften für alle Geräte definiert habe. Zustände werden hinzugefügt, wenn das Gerät die entsprechende Eigenschaft aktualisiert. Ich hoffe, ich werde das mit Ihrer Hilfe im Laufe der Zeit beheben._
 
-## Beschreibung einiger Zustände
+## Beschreibung einiger Staaten
 ### `Button long press`
 Für Tastengeräte sehen Sie eine Kombination aus zwei Zuständen (wie) `long_press` und `long_timeout`.
 Wie funktioniert es? Schaltflächen, die langes Drücken unterstützen, senden eine Nachricht beim Drücken und beim Loslassen-Ereignis. Manchmal kann es vorkommen, dass die Schaltfläche keine Nachricht auf der Freigabetaste gesendet hat. In diesem Fall sollte `timeout` helfen, den Zustand "freizugeben".
@@ -196,7 +196,7 @@ Stellen Sie true (oder false) ein, um die Möglichkeit zum Upgrade der Gateway-F
 
 - [x] __Summer deaktivieren__<br/>
 
-Setzen Sie „true“, um störende Summersignale zu deaktivieren, oder „false“, um alle Signale zu aktivieren.
+Setzen Sie true, um störende Summersignale zu deaktivieren, oder false, um alle Signale zu aktivieren.
 
 ### Erweiterte Gateway3-Einstellungen
 - [x] __Speicherplatz (Beta)__<br/>
@@ -206,21 +206,21 @@ Verschieben Sie Geräte-DB-Dateien in den Speicher. Dies kann die Arbeit von Zig
 ### Protokollierungseinstellungen
 _**Hinweis:** Um Debug-Meldungen im ioBroker-Protokoll anzuzeigen, müssen Sie `debug` Protokollebene für Adapter auf der Seite `Instances` einstellen (Expertenmodus auf aktiviert umschalten)_
 
-- [x] __Debug-Protokoll__<br/>
-
-Aktivieren Sie die Debug-Protokollierung. Wenn deaktiviert, haben andere Protokollierungsoptionen keine Auswirkung.
-
 - [x] __Lumi MQTT-Nachrichten__<br/>
 
-Aktivieren Sie die MQTT-Nachrichtenprotokollierung von Lumi (zigbee)-Geräten.
+Debug-Protokollierung von MQTT-Nachrichten für Lumi (Zigbee)-Geräte aktivieren.
 
 - [x] __Ble MQTT-Nachrichten__<br/>
 
-Aktivieren Sie die MQTT-Nachrichtenprotokollierung von BLE-Geräten.
+Debug-Protokollierung von MQTT-Nachrichten für BLE-Geräte aktivieren.
 
 - [x] __Alle anderen__<br/>
 
-Aktivieren Sie alle anderen Adaptermeldungen.
+Aktivieren Sie die Debug-Protokollierung aller anderen Adaptermeldungen.
+
+- [x] __Spam schneiden__<br/>
+
+Aktivieren Sie das Ausschneiden doppelter Nachrichten. Wenn sich identische Fehlermeldungen mehrmals wiederholen, werden sie ausgeblendet und nach 1 Stunde wird die Gesamtzahl angezeigt.
 
 ## Registerkarte
 ### Geräte
@@ -235,14 +235,14 @@ Außerdem können Sie `friendly name` des Geräts ändern.
 _**Hinweis:** Im Moment hat diese Seite grundlegende Funktionen. Es wird in Zukunft gut ausgebaut._
 
 ### Gerätekonfig
-Sie können einige Optionen zum Konfigurieren des Geräts (und der Karte des Geräts) definieren, indem Sie die Konfiguration mit yaml schreiben. Verfügbare Optionen sind unten in der Tabelle beschrieben. Sie können das Gerätekonfigurationsfenster (Fenster mit Texteingabebereich) mit dem Punkt `Config` im Menü aufrufen.
+Sie können einige Optionen zum Konfigurieren des Geräts (und der Karte des Geräts) definieren, indem Sie die Konfiguration mit yaml schreiben. Verfügbare Optionen unten in der Tabelle beschrieben. Sie können das Gerätekonfigurationsfenster (Fenster mit Texteingabebereich) mit dem Punkt `Config` im Menü aufrufen.
 
 <img src="static/device-yaml-config.png">
 
 #### Gerätekonfigurationsoptionen
 |Feld|Typ|Beschreibung|
 |---|---|---|
-|cardStates|Dictionary|Dieses Wörterbuch enthält Optionen für die Karte des Geräts|
+|cardStates|Dictionary|Dieses Wörterbuch enthält Optionen für Zustände in der Karte des Geräts|
 |cardStates.hide|List|Liste der Zustände (Status-IDs), die vor der Karte des Geräts verborgen werden müssen|
 
 ### Statistik
@@ -259,6 +259,12 @@ _**Achtung:** Sie sollten bedenken, dass dies nicht wirklich eine Statistik der 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.5 (2022-05-08)
+* Added configuration for devices
+* Added cutting SPAM messages at log
+* Remove unnecessary `Debug log` option
+* Fixes and improvements
+
 ### 0.3.4 (2022-02-10)
 * Fix issue getting devices from cloud and switch to RC4
 * Add devices page

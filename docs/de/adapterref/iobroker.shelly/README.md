@@ -41,6 +41,10 @@ Der Adapter kann über CoAP oder MQTT mit den Geräten kommunizieren. Der Standa
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (klein0r) Optimized unload process to avoid errors
+* (klein0r) Improved logging
+
 ### 5.3.2 (2022-03-06)
 * (klein0r) Added cover position status for generation 2 devices
 * (klein0r) Added cover power, voltage, current and energy for generation 2 devices

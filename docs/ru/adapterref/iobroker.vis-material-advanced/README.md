@@ -2,14 +2,14 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-material-advanced/README.md
-title: ioBroker.vis-material-advanced
-hash: UhKFsvE/MazLo9kNokhslQ8lqDoHst5L1wvq4yedao0=
+title: ioBroker.vis-материал-продвинутый
+hash: rQGHx5wnsb7Uay3ZjyfpYEOtiL9vBKR7WN6iSDk6J40=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-material-advanced/admin/vis-material-advanced.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.vis-material-advanced.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.vis-material-advanced.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-material-advanced.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/vis-material-advanced-installed.svg)
+![Количество установок (последние)](http://iobroker.live/badges/vis-material-advanced-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/vis-material-advanced-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/EdgarM73/iobroker.vis-material-advanced.svg)
 ![Известные уязвимости](https://snyk.io/test/github/EdgarM73/ioBroker.vis-material-advanced/badge.svg)
@@ -17,98 +17,94 @@ hash: UhKFsvE/MazLo9kNokhslQ8lqDoHst5L1wvq4yedao0=
 
 # IoBroker.vis-material-advanced
 ## Адаптер vis-material-advanced для ioBroker
-Этот адаптер предоставляет стандартизированные виджеты для vis в ioBroker. Множество различных предопределенных виджетов
+Этот адаптер предоставляет стандартизированные виджеты для vis в ioBroker. Множество различных предустановленных виджетов
 
-Основы этого адаптера были созданы:
+основы этого адаптера были созданы:
 
 * (nisio) https://github.com/iobroker-community-adapters/ioBroker.vis-material
-* (пикс ---) https://github.com/Pix---/ioBroker.vis-material
+* (пикс---) https://github.com/Pix---/ioBroker.vis-material
 
-но переписан на 90%
+но переписано на 90%
 
 Добавлено несколько исправлений и множество новых виджетов.
 
-## Сейчас присутствуют следующие виджеты:
+## Следующие виджеты присутствуют прямо сейчас
 ### Текущий
- - дверь
+ - Дверь
  - Окно
- - температура
- - влажность
+ - Температура
+ - Влажность
  - Давление
  - Температура и влажность
  - Вместимость
- - Легкий
- - Диммер
+ - Светлый
+ - диммер
  - Световая температура
  - Затвор
  - Объем
- - термостат
- - логический
- - Номер
- - текст
- - клапан
+ - Термостат
+ - логическое значение
+ - Количество
+ - Текст
+ - Клапан
 
 ### В ходе выполнения
-еще не окончательно:
+Еще не окончательно:
 
  - Гаражная дверь
  - Радио станция
 
  много виджетов еще в планах
 
-## Параметры
+## Опции
     В большинстве виджетов доступны следующие параметры:
 
     - цвет текста
     - cardIcon (пока не везде имеет смысл, например диммер)
     - цвет непрозрачности (стандартный цвет непрозрачности)
-    - colorizeByValue (в зависимости от некоторых значений цвет непрозрачности может быть изменен, например, если он слишком горячий, сделайте его красным, на холодный синий)
-    - ниже, выше, min, max (значения для colorizeByValue)
-    - цвет низкий / высокий, средний ... (цвет, который будет использоваться, если граница приподнята)
-    - только для чтения (некоторые виджеты можно установить в режим только для чтения только для отображения)
-    - border-radius для включения и изменения круглого угла
-    - valueAlign Выровнять поле Value по левому, центру или правому краю
-    - значение-vetical Выровняйте поле Value вверху, внизу или по середине
+    - colorizeByValue (в зависимости от некоторых значений цвет непрозрачности может быть изменен, например, если слишком жарко, сделайте его красным или холодным синим)
+    - ниже, выше, мин, макс ( значения для colorizeByValue )
+    - цвет-низкий/высокий,средний... (цвет, используемый, если граница приподнята)
+    - только для чтения (некоторые виджеты могут быть установлены в режим только для чтения только для отображения)
+    - border-radius для включения и изменения закругления угла
+    - valueAlign Выравнивание поля значения по левому краю, центру или правому краю
+    - value-vertical Выровняйте поле «Значение» по верхнему, нижнему или среднему краю
     - borderColor Цвет границы, если активирован
 
 ### Начиная
 установите адаптер и запустите VIS в режиме редактирования.
-Слева выберите vis-material-adapter, и все виджеты будут показаны в предварительном просмотре.
+С левой стороны выберите vis-material-adapter, после чего все виджеты отобразятся в предварительном просмотре.
 
-............. многие документы отсутствуют ......................
+............. много документов отсутствует ......................
 
-** это example2.png, импортируйте его и посмотрите вживую ** ![](../../../en/adapterref/iobroker.vis-material-advanced/widgets/door_example.png)
+**это пример2.png, импортируйте его и смотрите вживую** ![](../../../en/adapterref/iobroker.vis-material-advanced/widgets/door_example.png)
 
-** вы можете импортировать файл example.json в vis ** благодаря @ sigi234
+**вы можете импортировать файл example.json в vis** благодаря @sigi234
 
 ## Changelog
 <!--
     Placeholder
-    ### __WORK IN PROGRESS__
-* 
+    ### **WORK IN PROGRESS**
 -->
-### 1.2.0 (2020-11-04)
-* added option to round every corner different/not 
-* added option to change color of border
-* added option for shadow and size of shadow
+### 1.7.3 (2022-04-11)
+* (bluefox) Removed erroneous chars from HTML
 
-### 1.1.1 (2020-10-18)
-* url wrong in package.json
+### 1.7.2 (2021-07-02)
+* bugfix 2 Temp Humidity
 
+### 1.7.1 (2021-07-02)
+* bugfix for Temp Humidity
 
-### 1.1.0 (2020-10-15)
-* Travis changes
+### 1.7.0 (2021-04-19)
+* added new Widget Window3 for possibility showing open/tilted/closed [0/1/2] windows
 
-### 1.0.0 (2020-10-14)
-* no changes, upgrading to 1.0
-
-### 0.9.1 (2020-10-13)
-* some colorizeByValue options did not work
+### 1.6.0 (2021-04-01)
+* new Temperature widget with ONLY an icon from blue to red depending on temperature setting
 
 ## License
 MIT License
 
-Copyright (c) 2020 EdgarM73 <edgar.miller@gmail.com>
+Copyright (c) 2020-2022 EdgarM73 <edgar.miller@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

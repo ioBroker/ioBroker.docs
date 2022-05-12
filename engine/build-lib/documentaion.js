@@ -320,7 +320,7 @@ function sync2Languages(fromLang, toLang, testDir, cb, files) {
                     .forEach(file =>
                         utils.writeSafe(file.replace(`/${fromLang}/`, `/${toLang}/`), fs.readFileSync(file)));
             }
-            setTimeout(() => sync2Languages(fromLang, toLang, testDir, cb, files), 100);
+            setImmediate(() => sync2Languages(fromLang, toLang, testDir, cb, files));
         });
 }
 

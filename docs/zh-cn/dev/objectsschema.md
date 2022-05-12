@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/objectsschema.md
 title: 核心理念
-hash: K2MgjRqbHPOYkKudFC028rMZ9OmW1Wo5NyIqsCu+c/U=
+hash: qus3zoy8Ut/hOmG9CWgeMfn1UC2DB4FTGaMZZJglYaQ=
 ---
 # 核心理念
 ioBroker 中有两种根本不同的数据类型。所谓的**状态**（`states`）和**对象**。
@@ -17,7 +17,7 @@ ioBroker 中有两种根本不同的数据类型。所谓的**状态**（`states
 以下章节描述了数据库模式。
 
 ## ID
-ID 是一个字符串，最大长度为 240 字节，分层结构，由点分隔的级别。
+ID 是一个最大长度为 240 字节的字符串，分层结构，由点分隔的级别。
 
 它用于检查禁止在 ID 中使用的字符的正则表达式可以在 https://github.com/ioBroker/ioBroker.js-controller/blob/master/packages/common/lib/common/tools 中找到。 js#L44。
 
@@ -202,7 +202,7 @@ ID有不同的级别。每个级别由点确定。示例：`system.adapter.admin
 * `common.write` (boolean, 强制) - 如果状态是可写的，则为真
 * `common.role`（字符串，强制）- 状态角色（在用户界面中用于指示选择哪个小部件，见下文）
 * `common.states`（可选）数字类型属性，带有可能状态的对象`{'value'：'valueName'，'value2'：'valueName2'，0：'OFF'，1：'ON'}`或（由 admin5 支持）一个状态数组，例如 `['Start', 'Flight', 'Land']`
-* `common.workingID` (string, optional) - 如果这个状态有辅助状态WORKING。这里必须写全名，如果前部分与实际相同，则只写最后部分。用于 `HM.LEVEL` 并且通常具有值 `WORKING`
+* `common.workingID` (string, optional) - 如果这个状态有辅助状态WORKING。这里必须写全名，如果前部分与实际相同，则只写最后部分。用于`HM.LEVEL`并且通常具有值`WORKING`
 * `common.custom`（可选）- 具有特定适配器的自定义设置的结构。像`{"influxdb.0": {"enabled": true, "alias": "name"}}`。 `enabled` 属性是必需的，如果它不是真的，整个属性将被删除。
 
 ##### 属性`common.history`
@@ -484,7 +484,7 @@ ID：`system.adapter.<adapter.name>`
 
 *注意：*所有标志都是可选的，除非特别标记为**强制**。
 
-* `common.adminColumns` - 自定义属性，必须在对象浏览器的管理员中显示。比如：`[{"name": {"en": "KNX address"}, "path": "native.address", "width": 100, "align": "left"}, {"name": “DPT”、“路径”：“native.dpt”、“宽度”：100、“对齐”：“右”、“类型”：“数字”、“编辑”：true、“objTypes”：[“状态” , "频道"]}]`。 `type` 是属性的类型（例如字符串、数字、布尔值），只有在启用编辑时才需要。 `objTypes` 是对象类型的列表，可以具有这样的属性。也仅在编辑模式下使用。
+* `common.adminColumns` - 自定义属性，必须在对象浏览器的管理员中显示。比如：`[{"name": {"en": "KNX address"}, "path": "native.address", "width": 100, "align": "left"}, {"name": “DPT”、“path”：“native.dpt”、“width”：100、“align”：“right”、“type”：“number”、“edit”：true、“objTypes”：[“state” , "频道"]}]`。 `type` 是属性的类型（例如字符串、数字、布尔值），只有在启用编辑时才需要。 `objTypes` 是对象类型的列表，可以具有这样的属性。也仅在编辑模式下使用。
 * `common.adminTab.fa-icon` - （已弃用）TAB 的字体真棒图标名称。
 * `common.adminTab.ignoreConfigUpdate` - 如果配置更改不更新配置选项卡（启用选项卡中的配置设置）
 * `common.adminTab.link` - TAB 中 iframe 的链接。您可以像这样使用参数替换：`http://%ip%:%port%`。 IP 将替换为主机 IP。将从 `native.port` 中提取 `port`。
@@ -549,9 +549,10 @@ ID：`system.adapter.<adapter.name>`
 * `common.serviceStates` - [true/false or path] 如果适配器可以提供额外的状态。如果是，将调用路径 `adapter/lib/states.js`，并提供以下参数函数（对象、状态、实例、配置、回调）。该函数必须传递具有类似 `function (err, result) { result = [{id: 'id1', val: 1}, {id: 'id2', val: 2}]} 的值的点数组
 * `common.singletonHost` - 适配器只能在一台主机上安装一次
 * `common.singleton` - 适配器在整个系统中只能安装一次
-* `common.statusStates` - admin 中状态指示的结构，形式为 `"statusStates": {"onlineId": "0.connected", "errorId": "hm-rpc.0.AB203424.0.error"}` .可以使用 `offlineId` 代替 `onlineId`。如果 ID 很短（其中少于 2 个点），则 ID 将被视为相对于当前对象。
+* `common.statusStates` - admin 中状态指示的结构，形式为 `"statusStates": {"onlineId": "0.connected", "errorId": "hm-rpc.0.AB203424.0.error"}` .可以使用 `offlineId` 代替 `onlineId`。如果 ID 非常短（其中少于 2 个点），则 ID 将被视为相对于当前对象。
 * `common.stopBeforeUpdate` - [true/false] 如果适配器必须在更新前停止
 * `common.stopTimeout` - 超时等待，直到适配器关闭。默认 500 毫秒。
+* `common.stoppedWhenWebExtension` - 如果实例具有模式 `daemon` 但它作为 Web 扩展运行 (`native.webInstance !== ''`)，如果 `common.stoppedWhenWebExtension` 为真，控制器将不会启动此实例。
 * `common.subscribable` - 此适配器的变量必须使用 sendTo 订阅才能启用更新
 * `common.subscribe` - 变量名，自动订阅
 * `common.supportCustoms` - [true/false] 如果适配器支持每个状态的设置。它必须在管理员中有 custom.html 文件。示例可以在 `ioBroker.history` 中找到

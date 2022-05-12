@@ -4,32 +4,32 @@ lastChanged: 27.03.2019
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/users.md
-hash: 8jYWtumjWGf3hSM81yXLYzlD4MxMtGBFLljKoySqw5U=
+hash: ey4f85vdepC/GBGqDCxrPXnndV8Z9/EIMRIQcaloBXQ=
 ---
-# The page user
-Users and groups can be created on this page as well as rights for the groups can be assigned.
+# The Users page
+Users and groups can be created on this page and rights can be assigned for the groups.
 
-![The page Users](../../de/admin/media/ADMIN_Benutzer_numbers.png)
+![The Users page](../../de/admin/media/ADMIN_Benutzer_numbers.png)
 
-On the left side are the existing groups, on the right side are the users.
+The existing groups are on the left, and the users are on the right.
 
-Users can be dragged into groups by simple drag and drop.
+Users can be dragged into the groups with a simple drag and drop.
 
 ## 1.) new group
 After clicking on this icon, another window opens:
 
 ![Create new group](../../de/admin/media/ADMIN_Benutzer_newgroup_allgemein.png)
 
-This window consists of two subunits.
+This window consists of two sub-units.
 
 ### General
-Here are the basic things entered:
+The basic things are entered here:
 
 **Surname**
 
-The name of the group. This name is freely selectable, but must be unique.
+The designation of the group. This name can be freely selected, but must be unique.
 
-** ID ** The Id is filled in automatically
+**ID** The Id will be filled in automatically
 
 **Description**
 
@@ -37,20 +37,20 @@ An explanation of the tasks of this group can be entered in this field.
 
 **Preview**
 
-Appears automatically and contains the complete ID sytem.group.group name.
+Automatically displayed and contains the full ID system.group.groupname.
 
 An icon can be added via the [+] button, but this can also be dragged and dropped onto the window.
 
-**Colour**
+**Color**
 
-With the color set there, the tile of the group is highlighted.
+The tile of the group is highlighted with the color set there.
 
-### Access rights
-The rights are assigned to groups. So that users have certain rights, they have to be assigned to the corresponding group.
+### Access Rights
+The rights are assigned for groups. In order for users to have certain rights, they must be assigned to the appropriate group.
 
-![Access rights of the group](../../de/admin/media/ADMIN_Benutzer_newgroup_rechte.png)
+![Group access rights](../../de/admin/media/ADMIN_Benutzer_newgroup_rechte.png)
 
-Here the access rights for the different tasks are assigned.
+The access rights for the various tasks are assigned here.
 
 ## 2.) new user
 After clicking on this icon, another window opens:
@@ -59,24 +59,24 @@ After clicking on this icon, another window opens:
 
 **Surname**
 
-The name of the user. This name is freely selectable, but must be unique.
+The user's name. This name can be freely selected, but must be unique.
 
-** ID **
+**ID**
 
-The ID will be filled out automatically
+The ID will be filled in automatically
 
 **Description**
 
-In this field a declaration to the user can be entered.
+An explanation about the user can be entered in this field.
 
 **Preview**
 
-Appears automatically and contains the full ID sytem.group.Username.
+Automatically displayed and contains the full ID system.group.Username.
 
 **Password**
 
-The password of the user
+The user's password
 
 **Repeat password**
 
-For security against typing errors, the password must be entered here a second time
+To protect against typing errors, the password must be entered a second time here

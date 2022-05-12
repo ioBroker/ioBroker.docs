@@ -51,6 +51,9 @@ sometimes npm intall must be called more then one time to successfully install a
 
 ## Changelog
 
+### 4.1.0 (2022-04-21)
+* (René) add datapoint to show when data uploaded to sbfspot
+
 ### 4.0.8 (2021-07-11)
 * (René) bug fix color of labels in widget
 
@@ -182,7 +185,7 @@ sometimes npm intall must be called more then one time to successfully install a
 
 
 ## License
-Copyright (C) <2017-2021>  <info@rg-engineering.eu>
+Copyright (C) <2017-2022>  <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

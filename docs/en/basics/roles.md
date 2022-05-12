@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/roles.md
 title: Roles of data points
-hash: HGg/8s3vDfGg9f6ECINJcwJyi8jBXU8A8kfR6vBF7Tw=
+hash: MLon33fkDPXEUvl6ebdPNQ3ihE1hkWlkVAqvJrZe6UA=
 ---
 # Roles of data points
 For objects of type `state`, the property `common.role` must be set to one of the roles defined in the list below.
@@ -129,13 +129,13 @@ So the indicator must not be alone in the channel. It must be another major stat
 * `indicator.maintenance.unreach`
 * `indicator.maintenance.alarm`
 * `indicator.lowbat` - true if the battery is low
-* `indicator.alarm` - same as indicator.maintenance.alarm
+* `indicator.alarm` - like indicator.maintenance.alarm
 * `indicator.alarm.fire` - Fire detected
 * `indicator.alarm.flood` - Flood detected
 * `indicator.alarm.secure` - door or window is open
 * `indicator.alarm.health` - health problem
 
-## Level / level (numbers, read-write)
+## Level (Numbers, Read-Write)
 With **Levels** you can control or set a numerical value.
 
 `common.type=number, common.write=true`
@@ -399,7 +399,7 @@ Special roles for media players
 * `date.start` - string or number
 * `date.end` - string or number
 
-## Bless you
+## Health
 `common.type=number, common.read=true, common.write=false`
 
 * `value.health.fat` - body fat index in %

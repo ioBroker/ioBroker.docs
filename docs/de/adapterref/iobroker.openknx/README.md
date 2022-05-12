@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: 07KwqecaPiOgUnkckFhrU2STD9IWDDxpHNiP/xSU+Os=
+hash: TGkZ37UAzp6N7uKaul0Jn8YKSymXW9f+K7/cAkgoz5E=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -71,7 +71,7 @@ Stellen Sie in diesem Fall manuell sicher, dass alle Elemente denselben gewünsc
 Ein GA ohne DPT-Basistyp kann mit diesem Adapter nicht importiert werden. ETS4-Projekte müssen in ETS5 oder höher konvertiert werden und der DPT muss auf GA eingestellt werden.
 
 ### Alias
-KNX-Geräte können GAs für Statusrückmeldungen haben, die zu einem kommandierenden GA gehören. Einige Anwendungen wie bestimmte VIS-Widgets erwarten ein kombiniertes Status- und Betätigungsobjekt. Sie können diese Status in einem Alias kombinieren, indem Sie eine separate Alias-ID zum Schreiben und eine andere zum Lesen verwenden. Das Menü hilft, ein passendes Paar gemäß der Namenskonvention mit der angegebenen Filterregel zu erstellen.
+KNX-Geräte können Ga's für Zustandsrückmeldungen haben, die zu einem kommandierenden GA gehören. Einige Anwendungen wie bestimmte VIS-Widgets erwarten ein kombiniertes Status- und Betätigungsobjekt. Sie können diese Status in einem Alias kombinieren, indem Sie eine separate Alias-ID zum Schreiben und eine andere zum Lesen verwenden. Das Menü hilft, ein passendes Paar gemäß der Namenskonvention mit der angegebenen Filterregel zu erstellen.
 Weitere Informationen finden Sie hier https://www.iobroker.net/#en/documentation/dev/aliases.md
 
 ###Regex
@@ -112,7 +112,7 @@ Der vollständige Name einschließlich Pfad wird verwendet, um auf Ähnlichkeit 
 - 3 Punkte -> Alle Skripte exportieren
 - Öffnen Sie die Zip-Datei und öffnen Sie den Ordner in einem Editor
 - Suchen Ersetzen Sie knx.0 durch openknx.0
-- alle geänderten Dateien in eine Zip-Datei komprimieren
+- alle geänderten Dateien in einer ZIP-Datei komprimieren
 - 3 Punkte -> Skripte importieren
 - ZIP-Datei in den Drop-Bereich verschieben
 
@@ -128,18 +128,18 @@ Der vollständige Name einschließlich Pfad wird verwendet, um auf Ähnlichkeit 
 - Verwenden Sie iobroker (oder Ihre spezifische Datenbank, die über den Befehl show databases aufgelistet wird)
 - Einträge auflisten mit: Messungen anzeigen
 - Tabellen kopieren mit Befehl: select * in "entry_new" from "entry_old";
-- Zustrom aktiviert für neues Objekt entry_new setzen
+- Zufluss für neues Objekt entry_new aktivieren
 
 # Verwendung des Adapters & Grundkonzept
 ### ACK-Flags
 Anwendungen dürfen niemals ack-Flags setzen, die Anwendung wird von diesem Adapter durch das ack-Flag benachrichtigt, wenn Daten aktualisiert werden.
-KNX Stack setzt das ack-Flag des entsprechenden ioBroker-Objekts beim Empfang einer Gruppenadresse.
-Gesendete Frames auf KNX, die durch das Schreiben einer Anwendung auf ein Objekt ausgelöst werden, führen nicht zu einer Bestätigungsnachricht an dieses Objekt.
-Dieses Verhalten kann überschrieben werden, indem im Admin-Dialog die Checkbox „Bestätigungskennzeichen setzen, wenn Anwendung auf Objekt schreibt“ aktiviert wird.
+KNX Stack setzt das ack-Flag des entsprechenden ioBroker-Objekts beim Empfang einer Gruppenadresse, wenn ein anderer KNX-Host auf den Bus schreibt.
+Gesendete Frames auf KNX, die durch das Schreiben einer Anwendung auf ein Objekt ausgelöst werden, führen nicht zu einer sofortigen Bestätigungsnachricht an dieses Objekt.
+Wenn der Schreibvorgang von diesem Adapter kommt, wird das ack-Flag bei positiver Bestätigung im Tunnelmodus generiert.
 
 ### Beispiel für den komplexen Datentyp Node Red
 Erstellen Sie einen Funktionsknoten, der eine Verbindung zu einem ioBroker-Ausgangsknoten herstellt, der eine Verbindung zu einem KNX-Objekt von DPT2 herstellt.
-msg.payload = {"Priorität":1 ,"Daten":0}; Nachricht zurückgeben;
+msg.payload = {"Priorität":1 ,"Daten":0}; Rücksendenachricht;
 
 # Protokollebene
 Aktivieren Sie den Expertenmodus, um das Umschalten zwischen verschiedenen Protokollebenen zu ermöglichen. Der Standard-Loglevel ist info.
@@ -151,7 +151,7 @@ Der GA-Import erzeugt eine Kommunikationsobjekt-Ordnerstruktur nach dem GA-Schem
 
 ioBroker-Zustandsrollen (https://github.com/ioBroker/ioBroker/blob/master/doc/STATE_ROLES.md) haben standardmäßig den Wert „state“. Einige granularere Werte werden vom DPT abgeleitet, zum Beispiel Date oder Switch.
 
-Autoread wird auf false gesetzt, wenn aus dem DPT klar ist, dass dies ein Triggersignal ist. Dies gilt für Szenennummern.
+Autoread wird auf „false“ gesetzt, wenn aus dem DPT klar hervorgeht, dass dies ein Triggersignal ist. Dies gilt für Szenennummern.
 
 { "_id": "path.and.name.to.object", //abgeleitet von der KNX-Struktur "type": "state", "common": { //Werte hier können von iobroker interpretiert werden "desc": "Basetype: 1-bit value, Subtype: switch", //informativ, aus dpt "name": "Aussen Melder Licht schalten", //informative Beschreibung aus ets export "read": true, //default set, if false Eingehende Buswerte aktualisieren das Objekt "Rolle" nicht: Zustand, //Standardzustand, abgeleitet von DPT "Typ": "boolean", //Boolean, Zahl, Zeichenfolge, Objekt, abgeleitet von DPT "Einheit": "", //abgeleitet von dpt "write": true //default true, wenn Satzänderung am Objekt knx write auslöst, succ. write setzt dann ack flag auf true }, "native": { //Werte hier können vom openknx-Adapter interpretiert werden "address": "0/1/2", //knx-Gruppenadresse "answer_groupValueResponse": false, //default false, wenn auf true gesetzt, antwortet der Adapter mit dem Wert auf GroupValue_Read "autoread": true, //default true für Nicht-Trigger-Signale, der Adapter sendet beim Start ein GroupValue_read, um seine Zustände zu synchronisieren "bitlength": 1, //Größe der Knx-Daten, abgeleitet von dpt "dpt": "DPT1.001", //DPT "encoding": { //informativ "0": "Off", "1": "On" }, "force_encoding": "", // informativ "signedness": "", //informativ "valuetype": "basic" //composite bedeutet über ein bestimmtes Javascript-Objekt gesetzt }, "from": "system.adap ter.openknx.0", "user": "system.user.admin", "ts": 1638913951639 }
 
@@ -179,24 +179,24 @@ GroupValue_Read-Kommentar funktioniert nicht für Javascript-Adapter. Verwenden 
 | DPT-3 | Objekt | {"decr_incr":1 Bit,"data":2 Bit} | - ||
 | DPT-18 | Objekt | {"save_recall":0,"scenenumber":0} | - |Datenpunkttyp DPT_SceneControl aus Autoread entfernt|
 | DPT-21 | Objekt | {"outofservice":0,"fault":0,"overridden":0,"inalarm":0,"alarmunack":0} | - ||
-| DPT-232 | Objekt | {rot:0..255, grün:0,255, blau:0,255} | - ||
+| DPT-232 | Objekt | {Rot:0..255, Grün:0,255, Blau:0,255} | - ||
 | DPT-237 | Objekt | {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | - ||
 | DPT-4 | Zeichenfolge | | ein als 8-Bit-Zeichen gesendetes Zeichen ||
-| DPT-16 | Zeichenfolge | | ein Zeichen, das als 16-Zeichen-String gesendet wird ||
-| DPT-5 | Zahl | | 8-Bit-Wert ohne Vorzeichen ||
-| DPT-5.001 | Zahl | | 0..100 [%] skaliert auf 1 Byte ||
+| DPT-16 | Zeichenfolge | | ein Zeichen als 16-Zeichen-String gesendet ||
+| DPT-5 | Nummer | | 8-Bit-Wert ohne Vorzeichen ||
+| DPT-5.001 | Nummer | | 0..100 [%] skaliert auf 1 Byte ||
 | DPT-5.003 | Zahl | | 0..360 [°] skaliert auf 1 Byte ||
-| DPT-6 | Zahl | | 8-Bit vorzeichenbehaftet -128..127 ||
-| DPT-7 | Zahl | | 16-Bit-Wert ohne Vorzeichen ||
-| DPT-8 | Zahl | | 2-Byte-Wert mit Vorzeichen -32768..32767 ||
+| DPT-6 | Nummer | | 8-Bit vorzeichenbehaftet -128..127 ||
+| DPT-7 | Nummer | | 16-Bit-Wert ohne Vorzeichen ||
+| DPT-8 | Nummer | | 2-Byte-Wert mit Vorzeichen -32768..32767 ||
 | DPT-9 | Zahl | | 2-Byte-Gleitkommawert ||
-| DPT-14 | Zahl | | 4-Byte-Gleitkommawert ||
-| DPT-12 | Zahl | | 4-Byte-Wert ohne Vorzeichen ||
+| DPT-14 | Nummer | | 4-Byte-Gleitkommawert ||
+| DPT-12 | Nummer | | 4-Byte-Wert ohne Vorzeichen ||
 | DPT-13 | Zahl | | 4-Byte-Wert mit Vorzeichen ||
-| DPT-15 | Zahl | | 4 Byte ||
-| DPT-17 | Zahl | | 1 Byte | DPT_SceneNumber aus Autoread entfernt|
-| DPT-20 | Zahl | | 1 Byte ||
-| DPT-238 | Zahl | | 1 Byte ||
+| DPT-15 | Nummer | | 4 Byte ||
+| DPT-17 | Nummer | | 1 Byte | DPT_SceneNumber aus Autoread entfernt|
+| DPT-20 | Nummer | | 1 Byte ||
+| DPT-238 | Nummer | | 1 Byte ||
 | DPT-10 | Zahl für Datumsobjekt | | - ||
 | DPT-11 | Zahl für Datumsobjekt | | - ||
 | DPT-19 | Zahl für Datumsobjekt | | - ||
@@ -237,13 +237,13 @@ Es sind 6 verschiedene Objektflags definiert.
 |C: das Kommunikationsflag | K: Kommunikations-Flag | immer gesetzt ||
 |R: das Lese-Flag | L: Lese-Flag | Objekt native.answer_groupValueResponse ||
 |T: das Sendeflag | Ü: Übertragen-Flagge | Objekt common.write ||
-|W: das Schreiben-Flag | S: Schreiben-Flag | Objekt common.read | Bus kann das Objekt ändern |
+|W: das Schreiben-Flag | S: Schreiben-Flag | Objekt common.read | Bus kann das Objekt modifizieren |
 |U: das Update-Flag | A: Aktualisieren-Flag | Objekt common.read | Objekt bei eingehenden GroupValue_Responses aktualisieren |
 |I: das Initialisierungsflag | I: Initialisierungs-Flag | Objekt native.autoread | |
 
 # Überwachung und Fehlerverfolgung
 Openknx verwendet sentry.io für die Anwendungsüberwachung und Fehlerverfolgung.
-Es hilft Entwicklern, Fehler besser zu finden und Daten zur Feldnutzung zu gewinnen. Die Identifizierung eines Nutzers wird pseudonymisiert nachverfolgt.
+Es hilft Entwicklern, Fehler besser zu finden und Feldnutzungsdaten zu sammeln. Die Identifizierung eines Nutzers wird pseudonymisiert nachverfolgt.
 Die Daten werden an den in Deutschland gehosteten Iobroker Sentry-Server gesendet. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, dann ist auch Ihre anonyme Installations-ID enthalten. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind.
 
 # Merkmale
@@ -265,6 +265,18 @@ Die Daten werden an den in Deutschland gehosteten Iobroker Sentry-Server gesende
 - nur IPv4 unterstützt
 
 ## Changelog
+### 0.1.26 (2022-05-)
+* feature: writing to bus l_data.con creates a ack on the iobroker object if successful (the knx conf flag unset)
+* bugfix: remove manual Physical KNX address dialog, use 0.0.0 instead
+* bugfix: remove error log when answering to GroupValueRead: #183
+* bugfix: improve warning logs on intended and unintended disconnects
+
+### 0.1.25 (2022-04-18)
+* feature: datatype check for raw value
+* feature: check if knx is connected before usage
+* bugfix: if update ack after write, use correct timestamp and set adapter as user
+* bugfix: remove enless loop if event received before initialisation
+
 ### 0.1.24 (2022-03-31)
 * feature: support for latin1 charset in dpt16
 
@@ -392,7 +404,7 @@ Die Daten werden an den in Deutschland gehosteten Iobroker Sentry-Server gesende
 * (boellner) feature: import ga xml
 
 ### initial version
-* initial version inspired by https://www.npmjs.com/package/iobroker.knx/v/0.8.3
+* initial version from https://www.npmjs.com/package/iobroker.knx/v/0.8.3
 
 ## License
 					GNU GENERAL PUBLIC LICENSE

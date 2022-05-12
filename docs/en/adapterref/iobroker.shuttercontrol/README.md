@@ -48,6 +48,11 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 1.4.12 (2022-04-11)
+* (FoxRo) Bugfix wrongly open after deactivation of weater alarm
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+
 ### 1.4.11 (2022-02-07)
 * (simatec) fix objects value
 * (simatec) Dependencies updated

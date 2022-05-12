@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.extron/README.md
 title: ioBroker.extron
-hash: gHPmQRTN/ynCkRrmEcHbu1UHPcQIYnW1ORoexhn2Fv4=
+hash: MirW0DDWwLaw0/zTVl5RhrSemyrcN4OX4ivf2C5Pl9M=
 ---
 ![Logo](../../../en/adapterref/iobroker.extron/admin/extron.png)
 
@@ -21,7 +21,7 @@ Extron SIS-Adapter
 
 Steuergeräte von Extron.
 Dieser Adapter dient zur Steuerung einiger Audio-Video-Produkte von Extron über das **S**imple **I**nstruction **S**et-Protokoll.
-Der Funktionsumfang der Geräte ist enorm. Nicht alle Funktionen sind sinnvoll mit dem Adapter und der Interaktion mit iobroker zu unterstützen.
+Der Funktionsumfang der Geräte ist enorm. Nicht alle Funktionen sind sinnvoll, um mit dem Adapter und der Interaktion mit iobroker unterstützt zu werden.
 
 **Achtung:** Wenn der Gerätetyp in der Adapterkonfiguration ausgewählt ist, kann er in Zukunft nicht mehr geändert werden!
 
@@ -42,6 +42,8 @@ Wenn Sie eine nichtkommerzielle Organisation sind oder es für den privaten Gebr
 
 ## Changelog
 
+### 0.1.12
+* (mschlgl) added support for channel preset selection in SMD202
 ### 0.1.11
 * (Bannsaenger) fixed support for groups in DSP DMP128
 
@@ -52,7 +54,7 @@ Wenn Sie eine nichtkommerzielle Organisation sind oder es für den privaten Gebr
 * (Bannsaenger) fixed setting of info.connection in telnet mode
 
 ### 0.1.7
-* (mschlgl) added plaint Telnet communication for DMP128
+* (mschlgl) added plain Telnet communication
 
 ### 0.1.6
 * (mschlgl) added limiter section for DMP128

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hdg-bavaria/README.md
 title: ioBroker.hdg-巴伐利亚
-hash: 4/VeZYU4RmVZw98dudC9qUtT+he1ziJ31g1Nu5OpoQk=
+hash: uNpq1MGh6c7DtORgJesEYmGu4dLPB0MmBK/Xj0teKfY=
 ---
 ![标识](../../../en/adapterref/iobroker.hdg-bavaria/admin/hdg-bavaria.png)
 
@@ -18,10 +18,15 @@ hash: 4/VeZYU4RmVZw98dudC9qUtT+he1ziJ31g1Nu5OpoQk=
 **测试：** ![测试和发布](https://github.com/stemaker/ioBroker.hdg-bavaria/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 hdg-bavaria 适配器
-从 HDG 巴伐利亚锅炉的 HDG Control 访问数据。目前仅支持单一配置（K10-33、850l 水箱，带 3 个温度传感器，单一加热回路）。其他可根据要求添加。
+从 HDG 巴伐利亚锅炉的 HDG Control 访问数据。目前支持有限的配置（K10-33、850l 水箱，带 3 个温度传感器，可配置数量的加热电路）。其他可根据要求添加。
 
 ## Changelog
 <ul>
+  <li>v0.4.0
+    <ul>
+      <li>Support for multiple heat circuits.</li>
+    </ul>
+  </li>
   <li>v0.3.1
     <ul>
       <li>Added integration test.</li>

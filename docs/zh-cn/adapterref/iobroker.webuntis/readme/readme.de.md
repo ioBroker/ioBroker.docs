@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.webuntis/readme/readme.de.md
 title: ioBroker.webuntis
-hash: 2zyXQ+eth4PsBxl3M8+AAEMZhT4Nfg3Erk9UW8e503M=
+hash: XiWtY5XHyNiwwFhZGe/ZX9Kq/fFkMBryICwUc6RnITM=
 ---
 ![标识](https://github.com/Newan/ioBroker.webuntis/admin/webuntis.png)
 

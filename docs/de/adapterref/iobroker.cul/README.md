@@ -3,20 +3,20 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cul/README.md
 title: ioBroker.cul
-hash: 2tnvBHDfP0OFs68GeLH/DpaXwMsDO4ad4AP58dE/qQY=
+hash: n9cyFwlOacKrFgHp1ZG0tbJEH41ecpP68CZekcZTAks=
 ---
 ![Logo](../../../en/adapterref/iobroker.cul/admin/busware.jpg)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/cul-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.cul.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.cul.svg)
-![Tests](https://travis-ci.org/ioBroker/ioBroker.cul.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.cul.png?downloads=true)
 
 # IoBroker.cul
-ioBroker-Adapter zur Steuerung von FS20, Max!, HMS und anderen Geräten über [CUL](http://busware.de/tiki-index.php?page=CUL) / [Kulfw](http://culfw.de). Hängt von https://github.com/hobbyquaker/cul ab
+![Testen und freigeben](https://github.com/ioBroker/ioBroker.cul/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/cul/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+
+ioBroker-Adapter zur Steuerung von FS20, Max!, HMS und anderen Geräten über [CUL](http://busware.de/tiki-index.php?page=CUL) / [Kulfw](http://culfw.de). Hängt von https://github.com/hobbyquaker/cul ab
 
 ## Unterstützte Geräte
 - *EM* - EM1000WZ, EMWZ
@@ -40,7 +40,9 @@ Javascript/Node.js-basierter `Busware CUL USB / culfw`-Adapter
 ### **IN ARBEIT** -->
 
 ## Changelog
-### 2.0.1 (2022-03-21)
+### 2.0.2 (2022-05-11)
+* IMPORTANT: Nodejs 12.x is now needed at least!
+* (Apollon77/achimmm) Add support for devices with address 0
 * (bluefox) Updated serialport package
 
 ### 1.3.5 (2021-04-12)

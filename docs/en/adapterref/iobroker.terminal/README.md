@@ -20,6 +20,15 @@ Please use it only for administration purposes.
 ![Screenshot](img/screen1.png)
 
 ## Changelog
+### 0.2.5 (2022-04-25)
+* (Apollon77/GottZ) Optimize process kill behaviour when using CTRL-C
+
+### 0.2.4 (2022-04-23)
+* (Apollon77) Fix pot crash cases reported by Sentry
+
+### 0.2.3 (2022-04-19)
+* (Apollon77) Prevent crash when initializing web server with invalid configuration
+
 ### 0.2.2 (2022-04-07)
 * (Apollon77) Fix initialization of ports
 

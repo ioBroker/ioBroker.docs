@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: vF/81kbzAlCXnXbUiwZTMj1+Z4d5/mjqbJLRC3RTZbo=
+hash: kAv2b5p4ACAHInprDm9X+AS9PnHMjnJRbsL1uSYggmw=
 ---
-![商标](../../../en/adapterref/iobroker.web/admin/web.png)
+![标识](../../../en/adapterref/iobroker.web/admin/web.png)
 
 ![安装数量](http://iobroker.live/badges/web-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.web.svg)
@@ -28,13 +28,13 @@ hash: vF/81kbzAlCXnXbUiwZTMj1+Z4d5/mjqbJLRC3RTZbo=
 
 ## 扩展
 Web 驱动程序支持扩展。
-该扩展是 URL 处理程序，如果出现此类 URL 请求，将调用该处理程序。
+扩展是 URL 处理程序，如果出现这样的 URL 请求，将调用它。
 扩展看起来像普通的适配器，但它们没有运行进程，将被 Web 服务器调用。
 
 例如。用户可以激活特殊的代理适配器并访问同一网络服务器中的其他设备（如网络摄像头）。
-要求让所有服务在一台 Web 服务器下可用。
+需要让所有服务在一台 Web 服务器下可用。
 
-网络扩展可以并且应该支持 `unload` 函数，如果卸载操作需要一些时间，则可以返回 `promise`。
+网络扩展可以而且应该支持 `unload` 功能，如果卸载操作需要一些时间，它可以返回 `promise`。
 
 您可以阅读有关网络扩展的更多信息[这里](WEB-EXTENSIONS-HOWTO.md)。
 
@@ -54,7 +54,7 @@ http://IP:8082/state/system.adapter.web.0.alive =>
 {"val":true,"ack":true,"ts":1606831924559,"q":0,"from":"system.adapter.web.0","lc":1606777539894}
 ```
 
-要么
+或者
 
 ```
 http://IP:8082/state/javascript.picture.png =>
@@ -82,6 +82,9 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 ### **正在进行中** -->
 
 ## Changelog
+### 4.3.0 (2022-04-15)
+* (bluefox) Added support of rest-api
+
 ### 4.2.3 (2022-03-28)
 * (bluefox) Updated ws and socketio to have `log` method in sockets
 
@@ -108,7 +111,7 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 * (bluefox) Updated ws adapter to fix problem with URLs containing '#'
 
 ### 4.1.1 (2022-02-01)
-* (bluefox) Allowed the switch between iobroker.socketio and iobroker.ws for internal web sockets
+* (bluefox) Allowed the switch between `iobroker.socketio` and `iobroker.ws` for internal web sockets
 
 ### 4.0.1 (2022-01-30)
 * (bluefox) Added the update warning
@@ -480,7 +483,7 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 * (bluefox) update selectId dialog
 
 ### 0.1.8 (2015-01-02)
-* (bluefox) enable socketio.0 by default
+* (bluefox) enable `socketio.0` by default
 
 ### 0.1.7 (2015-01-02)
 * (bluefox) enable npm install

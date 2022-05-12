@@ -127,6 +127,10 @@ The adapter will read all actual values for IDs defined in this scene and save i
 -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) prevent crash case reported by Sentry
+
 ### 2.3.9 (2022-02-13)
 * (bluefox) Updated some GUI libraries
 * (bluefox) Updated releaser

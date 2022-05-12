@@ -4,10 +4,10 @@ lastChanged: 13.09.2018
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/tutorial/README.md
-hash: a6Tc6IhRx7WglNMTJXmxxIRsGBPGJX7+t29VPk0ZCq0=
+hash: xuCzsFfBnKhF4T65zqiU5PrmCbohMrq/mDbDrRMUtSg=
 ---
 # 教程
-?> ***这是一个占位符***。<br><br>帮助 ioBroker 并扩展本文。请注意 [ioBroker 风格指南](community/styleguidedoc)，以便更容易地采用更改。
+?> ***这是一个占位符***。<br><br>帮助 ioBroker 并扩展本文。请注意[ioBroker 风格指南](community/styleguidedoc)，以便更容易地采用更改。
 
 @@@
 
@@ -22,7 +22,7 @@ hash: a6Tc6IhRx7WglNMTJXmxxIRsGBPGJX7+t29VPk0ZCq0=
 有关详细信息，请始终参阅“配置”一章。
 @@@
 
-<details><summary>更多信息</summary>
+<details><summary>更多的信息</summary>
 
 + 降价列表 1 + 嵌套列表 1 + 嵌套列表 2 + 降价列表 2
 

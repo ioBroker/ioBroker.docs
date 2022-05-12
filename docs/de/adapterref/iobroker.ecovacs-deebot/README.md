@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: hvykbtK0LANUvNfeIaYzChCEZqq3plR0jMJQmCWxRgs=
+hash: zGQyWlxu2yuyzMud9BLBEfkleWc9C1h3vtEutAf4tNA=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -21,24 +21,29 @@ Dieser Adapter verwendet die Bibliothek [ecovacs-deebot.js](https://github.com/m
 ## Merkmale
 Einige bemerkenswerte Merkmale sind:
 
-* Informationen abrufen (z. B. Akku, Reinigungsprotokoll, Verbrauchsmaterial, Reinigungs- und Ladestatus)
-* Senden Sie Reinigungsbefehle (z. B. Auto, Spot-Bereich, benutzerdefinierter Bereich) und verschiedene andere Befehle (z. B. Ton abspielen, Verbrauchsmaterialien zurücksetzen)
-* Speichern Sie den zuletzt ausgeführten benutzerdefinierten Bereich und führen Sie die gespeicherten Bereiche erneut aus
-* Anpassung der Saugleistung (Reinigungsgeschwindigkeit) und des Wasserstands
-* Informationen während des Reinigungsvorgangs abrufen (z. B. aktuelle Position und Bereich)
-* Abrufen von Informationen der Karten inkl. Spotbereiche und virtuelle Grenzen
-* Einzelne virtuelle Grenzen sowie einen vollständigen Satz virtueller Grenzen löschen, speichern und neu erstellen *)
-* Funktion zum Laden des aktuellen Kartenbildes *)
+* Grundlegende Reinigungsfunktionen (z. B. automatische Reinigung, Fleckenbereich, benutzerdefinierter Bereich usw.)
+* und verschiedene andere Befehle (z. B. Ton abspielen, Verbrauchsmaterialien zurücksetzen, Position verschieben usw.)
+* Grundlegende Informationen abrufen (z. B. Akkustand, Reinigungsprotokoll, Verbrauchsmaterial, Reinigungs- und Ladestatus etc.)
+* und diverse erweiterte Informationen (z. B. Ladeposition, aktuelle Karte, Netzinformationen)
+* Informationen während des Reinigungsvorgangs abrufen (z. B. aktuelle Position und aktueller Spotbereich)
+* Grund- und erweiterte Einstellung einstellen (z. B. Dauerreinigung, Nicht-Stören-Modus, TrueDetect 3D, Lautstärke etc.)
+* Anpassung von Vakuumleistung und Wasserstand
+* Speichern Sie den zuletzt verwendeten benutzerdefinierten Bereich und führen Sie die gespeicherten Bereiche erneut aus
+* Abrufen von Informationen der Karten inkl. Spotbereiche, virtuelle Grenzen und No-Mop-Zonen
+* Löschen, speichern und erstellen Sie einzelne virtuelle Grenzen sowie einen vollständigen Satz virtueller Grenzen
+* Informationen über Datum und Uhrzeit der letzten Präsenz für jeden einzelnen Spotbereich
+* Einige Funktionen bei der Rückkehr zur Ladestation oder beim Betreten/Verlassen des Spotbereichs
+* Funktion zum Laden des aktuellen Kartenbildes
+* Legen Sie individuelle Spot-Bereichsnamen fest
 
-*) Experimentell
-
-Bitte beachten Sie: Einige Funktionen sind nur für einige Modelle verfügbar
+Bitte beachten Sie: Einige Funktionen sind nur für einige Modelle verfügbar und einige sind noch experimentell
 
 ## Modelle
 ### Unterstützte Modelle
 * Debot 900/901
 *Deebot OZMO 930
 * Deebot-OZMO 920/950
+* Deebot T8 AIVI (T8-Serie)
 
 Bei den aufgeführten Modellen handelt es sich um solche, die ich selbst im Einsatz habe oder die technisch mit diesen identisch sind.
 
@@ -49,7 +54,7 @@ Bei den aufgeführten Modellen handelt es sich um solche, die ich selbst im Eins
 * Debbot 500
 * Debot 600/601/605
 * Debot 710/711
-*Deebot OZMO 610
+* Deebot-OZMO 610
 * Deebot-OZMO 900/905
 *Deebot OZMO Slim 10/11
 *Deebot OZMO T5
@@ -57,6 +62,7 @@ Bei den aufgeführten Modellen handelt es sich um solche, die ich selbst im Eins
 * Deebot N8-Serie
 * Deebot T8-Serie
 * Deebot T9-Serie
+* Deebot X1-Serie
 
 Die aufgeführten Modelle funktionieren entweder bereits oder sind diesen Modellen technisch ähnlich.
 Trotzdem kann die Funktionalität teilweise eingeschränkt sein.
@@ -109,8 +115,22 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
 
 ## Changelog
 
-### 1.3.5 (alpha)
-* Bumped ecovacs-deebot.js to 0.7.2 (stable)
+### 1.4.1 (alpha)
+* Bumped ecovacs-deebot.js to 0.8.0
+* Improved last time presence functionality
+* Added option to reset the vacuum power (cleanSpeed) to standard on return
+* Added option to keep modified spot area names (pre-selection on non 950 type models)
+* Added states for current used custom and spot areas (currentUsedSpotAreas and customUsedCustomAreaValues)
+* Handle error code 110 ("NoDustBox: Dust Bin Not installed")
+* Bumped some dependencies
+
+### 1.4.0
+* Bumped ecovacs-deebot.js to 0.8.0 (beta)
+* Implemented last time presence function (still experimental)
+* Implemented cleanCount (permanent clean count) function (T8/T9/X1 series)
+* Implemented trueDetect (enable/disable) function (T8/T9/X1 series)
+* Added unit care to consumables (T8/T9/X1 series)
+* Added Deebot X1 series
 * Some improvements and fixes
 
 ### 1.3.4
@@ -122,38 +142,31 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
 * Bumped ecovacs-deebot.js to 0.7.1 (incl. fix for CVE-2022-0155)
 
 ### 1.3.2
-
 * Bumped follow-redirects to 1.14.7 (fix for CVE-2022-0155) and some other dependencies
 * Added N8 PRO+
 
 ### 1.3.1
-
 * Fix the cleaning functions for the Deebot 710 series
 
 ### 1.3.0
-
 * Using library version 0.7.0 (beta)
 * The minimum required version of Node.js is now 12.x
 * Some improvements for newer models (e.g. T9 series)
 * Some other improvements and fixes
 
 ### 1.2.4
-
 * Using library version 0.6.8
 * Some optimizations
 * Preparations for changing the minimum required Node.js version to 12.x
 
 ### 1.2.3
-
 * Using library version 0.6.6
 * Lots of code refactoring, optimizations and some fixes
 
 ### 1.2.2
-
 * Added function to load current map image (non 950 type models, e.g. OZMO 930, Deebot 901)
 
 ### 1.2.1
-
 * Some enhancements and fixes
 * (benep) Added state to play sound by id
 

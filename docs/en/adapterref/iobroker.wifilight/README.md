@@ -1,10 +1,15 @@
 ![Logo](admin/wifilight.png)
 # ioBroker.wifilight 
 
-![Number of Installations](http://iobroker.live/badges/wifilight-community-installed.svg) ![Number of Installations](http://iobroker.live/badges/wifilight-community-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.wifilight.svg)](https://www.npmjs.com/package/iobroker.wifilight)
-[![Tests](http://img.shields.io/travis/soef/ioBroker.wifilight/master.svg)](https://travis-ci.org/soef/ioBroker.wifilight)
-[![Build status](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)](https://ci.appveyor.com/project/soef/iobroker-wifilight)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/soef/iobroker.wifilight/blob/master/LICENSE)
+![Number of Installations](http://iobroker.live/badges/wifilight-installed.svg)
+![Number of Installations](http://iobroker.live/badges/wifilight-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.wifilight.svg)](https://www.npmjs.com/package/iobroker.wifilight)
+
+![Test and Release](https://github.com/iobroker-community-adapters/iobroker.wifilight/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/wifilight/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.wifilight.svg)](https://www.npmjs.com/package/iobroker.wifilight)
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Description
 
@@ -57,6 +62,16 @@ sudo npm install soef
 ```
 
 ## Changelog
+### 1.1.3 (2022-04-27)
+* (Apollon77) Prevent crash case reported by sentry
+
+### 1.1.2 (2022-04-19)
+* (Apollon77) Prevent crashes when states are controlled with null as value
+
+### 1.1.1 (2022-04-17)
+* (Apollon77) Prevent error logs with js-controller 3+
+* (Apollon77) Added sentry for error reporting
+
 ### 1.1.0 (2020-04-09)
 * (foxriver76) compatibility for js-c 3
 
@@ -66,7 +81,7 @@ sudo npm install soef
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2020 soef <soef@gmx.net>
+Copyright (c) 2020-2022 ioBroker Community Developers, 2019-2020 soef <soef@gmx.net>, 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

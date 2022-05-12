@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hdg-bavaria/README.md
 title: ioBroker.hdg-бавария
-hash: 4/VeZYU4RmVZw98dudC9qUtT+he1ziJ31g1Nu5OpoQk=
+hash: uNpq1MGh6c7DtORgJesEYmGu4dLPB0MmBK/Xj0teKfY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hdg-bavaria/admin/hdg-bavaria.png)
 
@@ -18,10 +18,15 @@ hash: 4/VeZYU4RmVZw98dudC9qUtT+he1ziJ31g1Nu5OpoQk=
 **Тесты:** ![Тестируйте и выпускайте](https://github.com/stemaker/ioBroker.hdg-bavaria/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер hdg-bavaria для ioBroker
-Доступ к данным из HDG Control котлов HDG Bavaria. В настоящее время поддерживается только одиночная конфигурация (К10-33, бак 850 л с 3 датчиками температуры, один контур отопления). Другие могут быть добавлены по запросу.
+Доступ к данным из HDG Control котлов HDG Bavaria. В настоящее время поддерживается ограниченная конфигурация (K10-33, бак 850 л с 3 датчиками температуры, настраиваемое количество контуров отопления). Другие могут быть добавлены по запросу.
 
 ## Changelog
 <ul>
+  <li>v0.4.0
+    <ul>
+      <li>Support for multiple heat circuits.</li>
+    </ul>
+  </li>
   <li>v0.3.1
     <ul>
       <li>Added integration test.</li>

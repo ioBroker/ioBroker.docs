@@ -1,11 +1,15 @@
 ![Logo](admin/owfs.png)
 # ioBroker OWFS Adapter
 
-![Number of Installations](http://iobroker.live/badges/owfs-installed.svg) ![Number of Installations](http://iobroker.live/badges/owfs-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.owfs.svg)](https://www.npmjs.com/package/iobroker.owfs)
+![Number of Installations](http://iobroker.live/badges/owfs-installed.svg)
+![Number of Installations](http://iobroker.live/badges/owfs-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.owfs.svg)](https://www.npmjs.com/package/iobroker.owfs)
+
+![Test and Release](https://github.com/ioBroker/ioBroker.owfs/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/owfs/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.owfs.svg)](https://www.npmjs.com/package/iobroker.owfs)
 
-[![NPM](https://nodei.co/npm/iobroker.owfs.png?downloads=true)](https://nodei.co/npm/iobroker.owfs/)
-
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## *One wire file system* adapter for ioBroker.
 
@@ -28,7 +32,7 @@ owserver -d "/dev/ttyUSB0" --nozero
 
 This command starts the 1wire server on local port 4304.
 
-- To show the data from the local 1wire server in the file system call follwing command: 
+- To show the data from the local 1wire server in the file system call following command: 
 
 ```
 owfs -C -m /mnt/1wire --allow_other
@@ -39,6 +43,10 @@ Before you must create the directroy */mnt/1wire* with command `mkdir /mnt/1wire
 http://sourceforge.net/projects/owfs/
 
 ## Changelog
+### 0.7.0 (2022-04-25)
+* IMPORTANT: Requires now at least js-controller 2.0
+* (boellner) ignore 85 degree error value for file system too
+* (Apollon77) Add sentry for crash reporting
 
 ### 0.6.4 (2020-01-26)
 * (CC1337) Added option to not log 85°C readings. They appear if a DS18B20 has a power failure and returns this initial register value.
@@ -104,7 +112,7 @@ http://sourceforge.net/projects/owfs/
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2020, bluefox <dogafox@gmail.com>
+Copyright (c) 2015-2022, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

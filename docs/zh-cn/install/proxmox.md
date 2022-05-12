@@ -7,7 +7,7 @@ lastChanged: 15.02.2022
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/proxmox.md
-hash: MCIDdrJ8n1EqsF7J7/tQiurVhVXZOLmcBDob18o6YM0=
+hash: 5XcP3j7kvxla4TvmlJMjXyIAQynyxf2IBmlTUhOeK/g=
 ---
 # Proxmox
 ![proxmox 徽标](../../de/install/media/proxmox/Proxmox-logo-860.png)
@@ -42,7 +42,7 @@ Proxmox 在其自己的 Web 界面中“打包”QEMU/KVM，从而使管理变�
 安装时，必须使用此 ISO 映像创建可引导的 U 盘。这应该至少有 2 GB 的内存。有几种方法可以创建可启动棒，请参阅[准备安装介质](https://pve.proxmox.com/wiki/Prepare_Installation_Media#_instructions_for_windows)
 
 ＃＃＃ 安装
-系统必须在 UEFI/BIOS 中配置，以便可以从 USB 设备启动。插入 U 盘后，过一会儿会出现 Proxmox 安装菜单（如果没有，您也可以手动指定 U 盘作为启动介质（在大多数主板上，您可以使用 F8 或 F11 来执行此操作）。
+系统必须在 UEFI/BIOS 中进行配置，以便可以从 USB 设备启动。插入 U 盘后，过一会儿会出现 Proxmox 安装菜单（如果没有，您也可以手动指定 U 盘作为启动介质（在大多数主板上，您可以使用 F8 或 F11 来执行此操作）。
 
 **Install Proxmox VE** 现在只需在安装菜单中选择。
 
@@ -82,9 +82,9 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 <details><summary>使用高级设置，可以在此处指定某些参数：</summary>
 
 - 文件系统：在这里您可以选择文件系统。这里的默认值为 ext4，在大多数情况下这是一个不错的选择。如果主机系统上有多个可用硬盘（以及大量 RAM），则具有适当 RAID 级别的 zfs 选项在这里很有意义。但是，在这种情况下，您应该从根本上处理 ZFS。
-- hdsize：指定应用于 Proxmox 的总硬盘大小。在这里你通常选择完整的硬盘大小，除非你以后想添加更多的分区。
+- hdsize：指定应用于 Proxmox 的总硬盘大小。这里你通常选择完整的硬盘大小，除非你以后想添加更多的分区。
 - swapsize：确定交换卷的大小。这里的标准是与内置内存大小相同，但最小为 4 GB，最大为 8 GB。
-- maxroot：指定根卷（Proxmox 本身）的最大大小。 **这里需要提一下，在基础安装中，后面需要的模板和ISO镜像也存放在这里。**
+- maxroot：指定根卷（Proxmox 本身）的最大大小。 **这里要提一下，在基础安装中，后面需要的模板和ISO镜像也存放在这里。**
 - minfree：LVM 卷组 pve 上剩余的可用空间。如果磁盘大于 128 GB，则默认保留 16 GB（LVM 总是需要一些可用空间来创建快照）。
 - maxvz：指定数据量的最大大小。
 
@@ -142,7 +142,7 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 </详情>
 
-现在在浏览器中继续（例如 https://10.1.1.89:8006）。但是，首先会显示警告。这是因为在安装过程中生成了自签名证书，浏览器当然不知道。此时您可以放心地忽略此消息 - 无论如何，连接都是通过 HTTPS 加密的。消息本身取决于浏览器。在此示例中，单击 **Advanced** 然后单击 **Continue to 10.1.1.89(unsafe)**
+现在它在浏览器中继续（例如 https://10.1.1.89:8006）。但是，首先会显示警告。这是因为在安装过程中生成了自签名证书，浏览器当然不知道。此时您可以放心地忽略此消息 - 无论如何，连接都是通过 HTTPS 加密的。消息本身取决于浏览器。在此示例中，单击 **Advanced** 然后单击 **Continue to 10.1.1.89(unsafe)**
 
 <details><summary>隐私错误</summary>
 
@@ -152,7 +152,7 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 然后使用 root 用户和安装期间选择的密码进行登录。您可以将语言切换为德语**先**，否则Proxmox界面将显示为英文，您不必再次输入您的用户名和密码。
 
-<details><summary>注册</summary>
+<details><summary>登记</summary>
 
 ![注册](../../de/install/media/proxmox/anmeldung.png)
 
@@ -202,9 +202,9 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 </详情>
 
 只需选择所需的 Proxmox 节点（例如“pve”），然后单击更新下的**更新**。这是所谓的任务查看器打开的地方，当系统上执行任何活动时，它总是显示。现在可以再次关闭任务查看器。顺便说一句，当显示任务查看器时，您不必等到任务完成（“TASK OK”），但始终可以直接再次关闭此对话框 - 任务本身继续在后台运行。
-如果更新现在可用，则可以通过单击 **Upgrade** 导入它们。
+如果更新现在可用，则可以通过单击**升级**来导入它们。
 
-Web 控制台在此处打开，您可以监控进度。
+Web 控制台将在此处打开，您可以监控进度。
 
 <details><summary>网络控制台</summary>
 
@@ -223,7 +223,7 @@ Web 控制台在此处打开，您可以监控进度。
 ---
 
 ## Proxmox - 创建一个虚拟 Qemu/KVM 机器 (VM) + ioBroker 安装之后
-本示例指南展示了如何创建 [虚拟机](https://pve.proxmox.com/wiki/Qemu/KVM_Virtual_Machines) (debian11)，然后在其中安装 ioBroker。
+本示例指南展示了如何创建一个 [虚拟机](https://pve.proxmox.com/wiki/Qemu/KVM_Virtual_Machines) (debian11)，然后在其中安装 ioBroker。
 
 当然可以使用 Ubuntu 代替 Debian，但请确保使用 Ubuntu Server **LTS 版本**。
 
@@ -254,7 +254,7 @@ Web 控制台在此处打开，您可以监控进度。
 - 磁盘：存储 local-lvm，磁盘大小 10GB（10-20GB 应该足够了，以后可以更改，但这里不再赘述）。
 - CPU：取决于电脑的强大程度（也可以随时调整，为此必须重新启动VM）
 - 内存：以 MiB 为单位的 RAM 大小（也可以随时调整，为此必须重新启动 VM）
-- 网络：vmbr0，其他一切都保持默认
+- 网络：vmbr0，其他一切保持默认
 - 确认：在这里您可以再次看到摘要（检查 **Start after creation**）然后单击 **Finish** 以创建 VM。
 
 <details><summary>系列图像 创建虚拟机</summary>
@@ -288,7 +288,7 @@ Web 控制台在此处打开，您可以监控进度。
 
 您将被引导完成安装，并且必须在此过程中进行一些设置。要使用它，您需要制表键、空格键和箭头键。由于范围的原因，可以找到一系列图像的各种镜头。
 
-<span style="color:red">**注意力！ - 不能分配 root 密码。**</span>
+<span style="color:red">**危险！ - 不能分配 root 密码。**</span>
 
 <details><summary>图像系列 Debian 安装</summary>
 
@@ -359,7 +359,7 @@ Web 控制台在此处打开，您可以监控进度。
 
 </详情>
 
-现在可以通过 ssh（例如 Putty）访问 VM。在这里您也可以使用“用户名”和“密码”再次登录。
+现在可以通过 ssh（例如 putty）访问 VM。在这里您也可以使用“用户名”和“密码”再次登录。
 然后可以将网络地址从**dhcp**更改为**static**。 （推荐用于服务器操作）
 
 ~~~ sudo nano /etc/network/interfaces ~~~
@@ -386,7 +386,7 @@ Web 控制台在此处打开，您可以监控进度。
 
 </详情>
 
-<span style="color:orange">**注意力！ - 对于 Ubuntu 安装，必须安装并启动 Qemu Guest Agent..**</span>
+<span style="color:orange">**危险！ - 对于 Ubuntu 安装，必须安装并启动 Qemu Guest Agent..**</span>
 
 为此的命令：
 
@@ -422,7 +422,7 @@ Web 控制台在此处打开，您可以监控进度。
 ---
 
 ## Proxmox - 之后创建 Linux 容器 (LXC) + ioBroker 安装
-本示例指南展示了如何创建一个 [LXC 容器](https://pve.proxmox.com/wiki/Linux_Container) (debian11)，然后在其中安装 ioBroker。
+本示例指南展示了如何创建 [LXC 容器](https://pve.proxmox.com/wiki/Linux_Container) (debian11)，然后在其中安装 ioBroker。
 
 为了清楚起见，可以打开图像描述和附加信息。
 
@@ -510,7 +510,7 @@ Web 控制台在此处打开，您可以监控进度。
 
 </详情>
 
-现在将安装 **sudo** 和 **curl**。与下一步一样，需要 Sudo 才能正确创建将来将在控制台上使用的用户。最后一步调用ioBroker安装脚本需要Curl。
+现在将安装 **sudo** 和 **curl**。与下一步一样，需要 Sudo 才能正确创建将来用于在控制台上工作的用户。 Curl 是最后一步调用 ioBroker 安装脚本所必需的。
 
 ~~~ apt install sudo curl ~~~
 
@@ -557,7 +557,7 @@ Web 控制台在此处打开，您可以监控进度。
 
 ~~~ curl -sLf https://iobroker.net/install.sh |砰~~~~
 
-安装步骤分为4步，全自动运行。
+安装步骤分为 4 个步骤，完全自动运行。
 
 - 安装先决条件 (1/4)
 - 创建 ioBroker 用户和目录 (2/4)
@@ -576,9 +576,9 @@ Web 控制台在此处打开，您可以监控进度。
 
 </详情>
 
-最后出现如下提示时，安装成功完成。
+最后出现如下提示，即表示安装成功。
 
-~~~ ioBroker 安装成功 在浏览器中打开http://10.1.1.222:8081 开始配置！ ~~~
+~~~ ioBroker 安装成功在浏览器中打开http://10.1.1.222:8081 开始配置！ ~~~
 
 同时，这也意味着现在可以通过地址在浏览器中调用 ioBroker。如果一切正常，您将看到 ioBroker 设置。现在只有几个步骤，您将在助手的指导下完成。
 
@@ -621,7 +621,7 @@ Web 控制台在此处打开，您可以监控进度。
 
 使用虚拟机，可以直接通过 Proxmox Web 界面传递 USB 设备。使用 Linux 容器，目前需要手动编辑 lxc 的配置文件。
 
-说明描述了如何集成 **Texas Instruments Inc. CC2531** Zigbee 棒，但同样的步骤可以类似地用于其他 Zigbee 棒（ConBee、CC2652P 等）或除 USB 网络设备外的其他 USB 设备（蓝牙/WLAN）可以使用。
+说明描述了如何集成 **Texas Instruments Inc. CC2531** Zigbee 棒，但相同的步骤可以类似地用于其他 Zigbee 棒（ConBee、CC2652P 等）或除 USB 网络设备外的其他 USB 设备（蓝牙/WLAN）可以使用。
 
 * Proxmox 7.1 版用于这部分说明。
 
@@ -650,7 +650,7 @@ Web 控制台在此处打开，您可以监控进度。
 
 ~~~ ls -l /dev/bus/usb/001/003 ~~~
 
-在命令中使用 USB 总线编号和设备编号的输出非常重要！
+在命令中使用 USB 总线号和设备号的输出非常重要！
 
 ***ls -l /dev/bus/usb/usb-bus-number/device-number***
 
@@ -695,7 +695,7 @@ Web 控制台在此处打开，您可以监控进度。
 
 ![proxmoxlxc09](../../de/install/media/proxmox/proxmoxlxc09.PNG)
 
-在编辑配置文件之前，应该创建一个备份副本：
+在编辑配置文件之前，应制作备份副本：
 
 ~~~ cp 201.conf 201.conf.backup ~~~
 
@@ -725,7 +725,7 @@ lxc.cgroup2.devices.allow: c 166:* rwm lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0
 
 </br>
 
-<span style="color:orange">**注意力！ - 如果您的容器有活动快照：**</span>
+<span style="color:orange">**危险！ - 如果您的容器有活动快照：**</span>
 
 <details>
 
@@ -735,7 +735,7 @@ lxc.cgroup2.devices.allow: c 166:* rwm lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0
 
 </详情>
 
-<span style="color:orange">**注意力！ - Proxmox 7.0 版之前的安装：**</span>
+<span style="color:orange">**危险！ - Proxmox 7.0 版之前的安装：**</span>
 
 <details>
 
@@ -811,7 +811,7 @@ lxc.cgroup2.devices.allow: c 166:* rwm lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0
 
 ~~~ chmod o+rw /dev/ttyACM* ~~~
 
-为 ttyACM0 设置了相应的权限，但是这些权限更改会在 Proxmox 主机重新启动时重置。需要在 Proxmox 主机上设置 udev 规则才能进行永久调整。
+为 ttyACM0 设置了相应的权限，但是这些权限更改会在 Proxmox 主机重新启动时重置。需要在 Proxmox 主机上设置 udev 规则才能永久调整。
 
 使用 lsusb 我们再次列出当前连接的 USB 设备：
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: uNyoKnfvuv6BOtmrgR7VkqmcJUwE3uBv9aSuptRrvXw=
+hash: oizGluvB1KwZNa10YMC2lcX6xuD+KLjziu4mOSkNqpk=
 ---
 ![Logo](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -50,7 +50,7 @@ Dieser Adapter liest nach Startwerten von ems-esp und km200 per HTTP-Get-Request
 ## Km200
 Die Web-API-Aufrufe zum/vom km200-Gateway sind verschlüsselt. Für die Ver-/Entschlüsselung werden zwei Passwörter benötigt:
 
-* das Gateway-Passwort auf einem Albel auf dem Gateway in der Form: xxxx-xxxx-xxxx-xxxx (Groß-/Kleinschreibung beachten)
+* das Gateway-Passwort auf einem Etikett am Gateway in der Form: xxxx-xxxx-xxxx-xxxx (Groß-/Kleinschreibung beachten)
 * das private Passwort, das mit der Buderus **MyDevice** App festgelegt wurde (verwenden Sie nicht myBuderus oder ähnliche Apps!)
 
 Die zu verwendenden Felder können durch Abfragen der km200-Struktur (*) oder der entsprechenden csv-Datei innerhalb der Parameter der Adapterinstanz definiert werden.
@@ -73,9 +73,12 @@ Verfügbar sind stündliche, tägliche und monatliche Statistiken und gespeicher
 * Die von Web-API-Aufrufen gelesenen Originalaufzeichnungsdaten werden unter der Statusstruktur km200 gespeichert.
 * DB-Statistiken, die in Flot-Graphen oder Grafana angezeigt werden sollen, sind bisher nur für mySQL- und InfluxDB-Datenbanken verfügbar.
 * Für InfluxDB V1 muss die Aufbewahrungsrichtlinie auf mindestens 170 Wochen eingestellt werden. (Aufbewahrungsrichtlinie global ändern für iobroker-Dauer 170w;)
+* Für InfluxDB V2 wird die globale Aufbewahrungsrichtlinie vom influxdb-Adapter festgelegt - bitte stellen Sie innerhalb des influxdb-Adapters die Aufbewahrungszeit des Speichers auf "kein automatisches Löschen" !
 
-Dieser Adapter erstellt dann die jeweiligen Aufzeichnungszustände, aktiviert SQL-Statistiken und schreibt historische Datenbankeinträge mithilfe von SQL-Befehlen und aktualisiert die Aufzeichnungen.
-Die Aktualisierungshäufigkeit ist stündlich.
+Dieser Adapter erstellt dann die jeweiligen Aufzeichnungszustände, aktiviert SQL-Statistiken und schreibt historische Datenbankeinträge mithilfe von SQL-Befehlen und aktualisiert die Aufzeichnungen. Die Aktualisierungshäufigkeit ist stündlich.
+
+WICHTIG: SEIEN SIE BITTE NICHT REIZT, WENN DIE JEWEILIGEN STAATEN WERTE NULL() ZEIGEN.
+IN EINIGEN FÄLLEN WERDEN DIE WERTE IM ADMIN-OBJEKTBROWSER NICHT KORREKT ANGEZEIGT - BITTE FLOT ODER GRAFANA ZUR ANZEIGE VERWENDEN !!!
 
 ## Km200 Aufnahmen - eine Erklärung
 Einige Feldwerte sind als „aufzeichnungsfähig“ festgelegt. Diese Felder haben dann "Aufnahmen".
@@ -90,9 +93,9 @@ Jeder Zeitraum muss innerhalb des Adapters durch 3 API-Aufrufe gelesen werden:
 * Monatswerte: aktuelles Jahr, letztes Jahr, Jahr -2
 
 Innerhalb des von der Web-API gelesenen Datenfeldes wird die Summe der Abtastwerte im y-Wert gespeichert, die Anzahl der Abtastwerte im c-Wert.
-(siehe ursprüngliche Werte in json-data in km200 ... Feldern.)
+(siehe Originalwerte in json-data in km200... Feldern.)
 
-Da manchmal Samples fehlen, muss der Wert interpoliert werden.
+Da manchmal Samples fehlen, können die Energiewerte interpoliert werden. Interpolation ist konfigurierbar (ein/aus).
 Für einige Monate (vor > 12 Monaten) könnten einige Daten fehlen. (Bosch-Fehler im Code?)
 
 Für den tatsächlichen Energieverbrauch der Monate berechnet der Adapter die Summe der Tageswerte und verwendet diese Summe, um genauere Daten zu erhalten.
@@ -109,12 +112,16 @@ Kesselstatistiken können aktiviert werden und zeigen:
 Der Kesselwirkungsgrad kann berechnet werden, wenn die Parameter ausgefüllt sind. (nur Gas- und Ölkessel)
 
 * Die Kesseleffizienz kann basierend auf der durchschnittlichen Kesseltemperatur berechnet werden: (Kesseltemperatur + Rücklauftemperatur) / 2.
-* Wenn die Rücklauftemperatur in km200 nicht verfügbar ist, wird die Rücklauftemperatur mit Kesseltemperatur -10 °C berechnet, wenn kein ems-esp verfügbar ist.
+* Wenn die Rücklauftemperatur in km200/ems-esp nicht verfügbar ist, macht die Wirkungsgradberechnung keinen Sinn - bitte deaktivieren, um Fehler zu vermeiden
 * Sehen Sie im Datenblatt Ihres Heizkessels nach, um die Effizienztabelle entsprechend anzupassen.
+* Bei manchen Heizungsanlagen führt diese Funktion zu Fehlern - bitte ausschalten !!!
 
 ## Veränderungen in der Staatsstruktur
 Wann immer eine neue EMS-ESP-Firmware neue Datenfelder hinzufügt und/oder Datenfeldnamen ändert, werden sie während des Adapterlaufs verarbeitet. Trotzdem werden veraltete Datenfelder nicht automatisch vom Adapter gelöscht.
 Es besteht die Möglichkeit, die Zustandsstruktur neu aufzubauen, indem Zustände beim Neustart des Adapters gelöscht werden (Zustände mit Historie / db-Einträgen bleiben erhalten)
+
+## Wärmebedarfssteuerung
+V1.9.x beta - Erklärung zur Berechnung und Konfiguration des Wärmebedarfs. Nur in deutscher Sprache verfügbar: https://github.com/tp1de/ioBroker.ems-esp/wiki
 
 # Iobroker.ems-esp
 
@@ -123,6 +130,36 @@ Es besteht die Möglichkeit, die Zustandsstruktur neu aufzubauen, indem Zuständ
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.11.2 (2022-04-27)
+* code optimization and error processing for ems-esp gateway
+
+### 1.11.1 (2022-04-25)
+* error corrections on invalid heatdemand states
+
+### 1.11.0 (2022-04-24)
+* corrections on hourly recordings for temperature
+* make interpolation (missing of c-counts) in energy recordings configurable (on/off)
+* error corrections on heatdemand with empty data
+
+### 1.10.0 (2022-04-23)
+* add heatdemand customization & calculation with automatic switch (on/off) per heating circuit 
+* error corrections on efficiency calculation - make fields used configurable
+* some other error corrections
+
+### 1.9.0 (2022-04-18)
+* beta test new version (github only)
+* add heatdemand customization & calculation with automatic switch (on/off) per heating circuit
+
+### 1.4.0 (2022-03-16)
+* recordings new logic and now working without database instance as well
+
+### 1.3.3 (2022-02-26)
+* avoid null values in recordings
+
+### 1.3.2 (2022-02-25)
+* correction for recordings without reference object
+* corrections for mySQL recordings
+
 ### 1.3.1 (2022-02-24)
 * correction on temperature recordings (months and days)
 

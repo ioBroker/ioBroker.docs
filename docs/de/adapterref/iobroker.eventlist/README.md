@@ -3,19 +3,19 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.eventlist/README.md
 title: ioBroker.eventlist
-hash: pMEjj/E/4LClSw8GSTCvaYfgt5JuNQxvWKqQv9loPTQ=
+hash: IvFXtVQyk2CgD6hfwGEKWEdmDXUNUEIvxGYv3mandUE=
 ---
 ![Logo](../../../en/adapterref/iobroker.eventlist/admin/eventlist.png)
 
+![Anzahl der Installationen](http://iobroker.live/badges/eventlist-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.eventlist.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.eventlist.svg)
-![Anzahl der Installationen (neueste)](http://iobroker.live/badges/eventlist-installed.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/eventlist-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/bluefox/iobroker.eventlist.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/bluefox/ioBroker.eventlist/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.eventlist.png?downloads=true)
 
-# IoBroker.eventlist
+# IoBroker.eventliste
+![Testen und freigeben](https://github.com/ioBroker/iobroker.eventlist/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/eventlist/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+
 ## Event-List-Adapter für ioBroker
 Ermöglicht die Definition der Zustände, die in der Ereignisliste angemeldet werden müssen.
 
@@ -35,7 +35,7 @@ Außerdem könnten die Nachrichten an Messenger nur gesendet werden, wenn der Al
 
 Anwendungsfall:
 
-- Z.B. Türsensor kann die Nachrichten nur senden, wenn niemand zu Hause ist. Andernfalls werden die Ereignisse zum Thema Türöffnung nur in der Ereignisliste gesammelt.
+- Z.B. Der Türsensor kann die Nachrichten nur senden, wenn niemand zu Hause ist. Andernfalls werden die Ereignisse zum Thema Türöffnung nur in der Ereignisliste gesammelt.
 
 ## Mögliche Präsentationen
 ### In Admin als Registerkarte
@@ -125,13 +125,13 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 ## Muster
 In den Ereignistexten und in den Zustandstexten könnten folgende Muster verwendet werden:
 
-- %s - Wert (`Zustand geändert zu %s` => `Zustand geändert zu 5`),
+- %s - value (`Zustand geändert zu %s` => `Zustand geändert zu 5`),
 - %u - unit (`Zustand geändert zu %s%u` => `Zustand geändert zu 5%`),
 - %n - name (`%n hat den Status zu %s geändert` => `Gerät A hat den Status zu 5 geändert`),
 - %t - time (`Zustand geändert am %t` => `Zustand geändert am Sep Fr, 16:32:00`),
-- %r - relative Zeit (`Status hat Status %r geändert` => `Status hat Status vor 5 Sekunden geändert`),
+- %r - relative Zeit (`Zustand geänderter Zustand %r` => `Zustand geänderter Zustand vor 5 Sekunden`),
 - %d - Dauer (`Zustand war %d im vorherigen Zustand` => `Zustand war 5s lang im vorherigen Zustand`),
-- %g - Wertdifferenz (`Status wurde geändert am %g%` => `Status wurde geändert am 1%`),
+- %g - Wertdifferenz (`Zustand wurde geändert am %g%` => `Zustand wurde geändert am 1%`),
 - %o - Wertdifferenz (`Status hat Wert von %o auf % geändert` => `Status wurde um 1% geändert`)
 
 ## Verwendung mehrerer Instanzen im Web
@@ -150,6 +150,10 @@ Der generierte Bericht wird beispielsweise als Instanz 0 in `eventlist/report.pd
 ### __LAUFENDE ARBEIT__ -->
 
 ## Changelog
+### 0.5.5 (2022-04-23)
+* (Apollon77) Fix a crash issue
+* (Apollon77) Add Sentry also for the Node.js part
+
 ### 0.5.4 (2022-02-14)
 * (bluefox) Corrected the image paths
 

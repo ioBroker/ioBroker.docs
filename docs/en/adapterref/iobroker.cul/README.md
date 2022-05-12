@@ -1,16 +1,18 @@
 ![Logo](admin/busware.jpg)
 # ioBroker.cul
 
-![Number of Installations](http://iobroker.live/badges/cul-installed.svg) ![Number of Installations](http://iobroker.live/badges/cul-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.cul.svg)](https://www.npmjs.com/package/iobroker.cul)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.cul.svg)](https://www.npmjs.com/package/iobroker.cul)
-[![Tests](https://travis-ci.org/ioBroker/ioBroker.cul.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.cul)
+![Number of Installations](http://iobroker.live/badges/cul-installed.svg)
+![Number of Installations](http://iobroker.live/badges/cul-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.cul.svg)](https://www.npmjs.com/package/iobroker.cul)
 
-[![NPM](https://nodei.co/npm/iobroker.cul.png?downloads=true)](https://nodei.co/npm/iobroker.cul/)
+![Test and Release](https://github.com/ioBroker/ioBroker.cul/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/cul/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.cul.svg)](https://www.npmjs.com/package/iobroker.cul)
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ioBroker adapter to control FS20, Max!, HMS and other devices via [CUL](http://busware.de/tiki-index.php?page=CUL) /
 [culfw](http://culfw.de). Depends on https://github.com/hobbyquaker/cul
-
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Supported devices
 
@@ -37,7 +39,9 @@ Javascript/Node.js based `Busware CUL USB / culfw` adapter
 -->
 
 ## Changelog
-### 2.0.1 (2022-03-21)
+### 2.0.2 (2022-05-11)
+* IMPORTANT: Nodejs 12.x is now needed at least!
+* (Apollon77/achimmm) Add support for devices with address 0
 * (bluefox) Updated serialport package
 
 ### 1.3.5 (2021-04-12)

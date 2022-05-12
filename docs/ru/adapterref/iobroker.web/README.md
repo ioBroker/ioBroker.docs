@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: vF/81kbzAlCXnXbUiwZTMj1+Z4d5/mjqbJLRC3RTZbo=
+hash: kAv2b5p4ACAHInprDm9X+AS9PnHMjnJRbsL1uSYggmw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.web/admin/web.png)
 
@@ -46,7 +46,7 @@ hash: vF/81kbzAlCXnXbUiwZTMj1+Z4d5/mjqbJLRC3RTZbo=
 Если выбран этот параметр, пользователь остается в системе в течение одного месяца.
 В противном случае пользователь останется в системе в течение настроенного «время ожидания входа».
 
-## Доступ к значениям состояния
+## Значения состояния доступа
 Вы можете получить доступ к значениям нормального и двоичного состояния через HTTP-запрос на получение.
 
 ```
@@ -79,9 +79,12 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### **ВЫПОЛНЯЕТСЯ** -->
+### **В РАБОТЕ** -->
 
 ## Changelog
+### 4.3.0 (2022-04-15)
+* (bluefox) Added support of rest-api
+
 ### 4.2.3 (2022-03-28)
 * (bluefox) Updated ws and socketio to have `log` method in sockets
 
@@ -108,7 +111,7 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 * (bluefox) Updated ws adapter to fix problem with URLs containing '#'
 
 ### 4.1.1 (2022-02-01)
-* (bluefox) Allowed the switch between iobroker.socketio and iobroker.ws for internal web sockets
+* (bluefox) Allowed the switch between `iobroker.socketio` and `iobroker.ws` for internal web sockets
 
 ### 4.0.1 (2022-01-30)
 * (bluefox) Added the update warning
@@ -480,7 +483,7 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 * (bluefox) update selectId dialog
 
 ### 0.1.8 (2015-01-02)
-* (bluefox) enable socketio.0 by default
+* (bluefox) enable `socketio.0` by default
 
 ### 0.1.7 (2015-01-02)
 * (bluefox) enable npm install

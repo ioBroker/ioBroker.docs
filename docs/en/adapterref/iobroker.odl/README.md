@@ -45,6 +45,11 @@ Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der
 
 ## Changelog
 
+### 2.0.5 (2022-04-24)
+
+* (crycode-de) Fixed spelling issue in german translation
+* (crycode-de) Updated dependencies
+
 ### 2.0.4 (2022-04-09)
 
 * (crycode-de) Added info message about breaking changes when upgrading from <2.0.0 to >=2.0.0

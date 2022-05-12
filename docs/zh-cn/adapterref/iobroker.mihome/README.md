@@ -3,119 +3,119 @@ local: true
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mihome/README.md
-title: ioBroker 小米家庭适配器
-hash: GmavLxm+klUaUCFI7o/yKJ8KJqOtoyN2RmgfJUQcojY=
+title: ioBroker Mi 家庭适配器
+hash: WTtTH9oAY5k1YGKpdvBfJjyVwoMz83DTlTi2N0T3h24=
 ---
 ![标识](../../../de/adapterref/iobroker.mihome/media/mihome.png)
 
-# IoBroker Mi Home Adapter 使用Mi Home Adapter，Mi Control Hub（网关）被集成到ioBroker 系统中，从而使各种小米传感器、开关等能够与ioBroker 通信。
-通过 ioBroker，例如可以控制网关的照明和扬声器。
+# IoBroker Mi Home Adapter 使用 Mi Home Adapter，Mi Control Hub（网关）集成到 ioBroker 系统中，从而实现不同小米传感器、交换机等与 ioBroker 之间的通信。
+例如，可以通过 ioBroker 控制网关的照明和扬声器。
 
 ＃＃ 要求
-* Android 或 iOS 设备上的 Mi Home 应用程序并激活本地网络功能
+* Android 或 iOS 设备上的米家 App 和解锁的本地网络功能
 * 连接小米家庭网关
-* 操作ioBroker系统
+* 准备使用 ioBroker 系统
 
-### 安装米家APP并激活本地网络功能
+###安装米家App并开启本地网络功能
 ＃＃＃＃ 安卓
-* [Android 应用] (https://play.google.com/store/apps/details?id=com.xiaomi.smarthome) 在 Android 设备上，下载、安装、打开和
+* 在安卓设备上下载【安卓应用】(https://play.google.com/store/apps/details?id=com.xiaomi.smarthome)，安装，打开
 
 同意条款与条件。
 
-*选择*中国大陆*作为国家
-* 通过 *登录* 创建一个帐户
-* 登录成功后，使用``+''按钮添加设备
-* 在 *家庭安全* 下选择“MI Control Hub”并按照说明进行操作
+* 选择*中国大陆*作为国家
+*通过单击*登录创建一个帐户*
+* 通过`+`登录成功后添加设备
+* 在 *Household Security* 下选择 `MI Control Hub` 并按照说明进行操作
 
 跟随
 
-* 成功集成网关后，屏幕右上角的3个点
+* 成功集成网关后，屏幕右上方的3个点
 
-然后按 *关于*
+然后按*关于*
 
-* 输入文字 *插件版本* 下面 10 次
-* 现在开发者模式已打开，它应该在一段时间后
+* 输入文字*Plug-in version* 10 次以下
+* 现在开发者模式开启，一段时间后应该可以工作
 
 出现另外 2 个菜单项 > 如果没有，请重试
 
 * 选择菜单项`无线通信协议`
 * 打开顶部的滑动开关，记下密码并点击“OK”确认。
 
-> 稍后在 ioBroker 安装过程中将需要密码。
+> 稍后在 ioBroker 安装期间将需要密码。
 
-现在可以使用 `+` 符号教授更多设备。
+现在可以使用 `+` 字符来教授更多设备。
 
 #### IOS
-* [iOS App] (https://itunes.apple.com/de/app/mi-home-xiaomi-smarthome/id957323480?mt=8) 在 iOS 设备上，下载、安装、打开和
+* 在iOS设备上下载[iOS App](https://itunes.apple.com/de/app/mi-home-xiaomi-smarthome/id957323480?mt=8)，安装，打开
 
-我同意隐私政策
+同意隐私政策
 
-* 通过配置文件/设置/国家设置选择国家 *大陆*
-* 通过 *登录* 创建一个帐户
-* 登录成功后，使用``+''按钮添加设备
-* 在 *家庭安全* 下选择“MI Control Hub”并按照说明进行操作
+*通过个人资料/设置/国家设置选择国家*大陆*。
+*通过单击*登录创建一个帐户*
+* 通过`+`登录成功后添加设备
+* 在 *Household Security* 下选择 `MI Control Hub` 并按照说明进行操作
 
 跟随
 
-* 成功集成网关后，屏幕右上角的3个点
+* 成功集成网关后，屏幕右上方的3个点
 
-按下并按下 *关于*
+按下并按下*关于*
 
-* 在下方空白区域反复点击
-* 现在开发者模式已打开，它应该在一段时间后
+* 在空的下部区域反复点击
+* 现在开发者模式开启，一段时间后应该可以工作
 
-更多菜单项出现> 如果它没有立即工作，重复这些步骤
+出现更多菜单项 > 如果不能立即工作，请重复这些步骤
 
 * 选择第四个菜单项
 * 打开顶部的滑动开关，记下密码并点击“OK”确认。
 
-> 稍后在 ioBroker 安装过程中将需要密码。
+> 稍后在 ioBroker 安装期间将需要密码。
 
-现在可以使用 `+` 符号教授更多设备。
+现在可以使用 `+` 字符来教授更多设备。
 
 ###在路由器上设置
-在About/Hub info下，网关使用的网关IP地址可以在_localip_后面的文字中确定。在使用的路由器中，这个IP应该永久分配给网关。
-如果您不想再通过应用程序操作已学习的设备，也可以在路由器中的所有设备已完成学习后关闭网关的 Internet 访问。
+网关使用的网关IP地址可以在_localip_后面的About/Hub info下的文本中确定。此 IP 应永久分配给使用的路由器中的网关。
+如果您不想再通过APP操作已配对的设备，也可以在路由器中所有设备配对完成后，关闭网关的上网功能。
 
 ### 支持的设备
-以下列表并不声称是完整的：
+以下列表并不完整：
 
 - 网关 - 小米RGB网关
 - sensor_ht - 小米温度/湿度
 - weather.v1 - 小米温度/湿度/压力
 - 开关 - 小米无线开关
-- sensor_switch.aq2 - 小米Aqara无线开关传感器
-- sensor_switch.aq3 - 小米Aqara无线开关传感器
+- sensor_switch.aq2 - 小米 Aqara 无线开关传感器
+- sensor_switch.aq3 - 小米 Aqara 无线开关传感器
 - 插头 - 小米智能插头
 - 86plug - 小米智能墙插
-- 86sw2 - 小米无线双壁开关
-- 86sw1 - 小米无线单壁开关
+- 86sw2 - 小米无线双墙开关
+- 86sw1 - 小米无线单墙开关
 - natgas - 小米米家霍尼韦尔气体报警探测器
 - 烟雾 - 小米米家霍尼韦尔火灾报警探测器
 - ctrl_ln1 - 小米Aqara 86防火墙一键开关
-- ctrl_ln1.aq1 - 小米Aqara墙壁开关LN
+- ctrl_ln1.aq1 - 小米 Aqara 墙壁开关 LN
 - ctrl_ln2 - 小米86零防火墙开关双键
 - ctrl_ln2.aq1 - 小米Aqara墙壁开关LN双键
-- ctrl_neutral2 - 小米有线双壁开关
-- ctrl_neutral1 - 小米有线单壁开关
-- 立方体 - 小米立方体
+- ctrl_neutral2 - 小米有线双墙开关
+- ctrl_neutral1 - 小米有线单墙开关
+- 魔方 - 小米魔方
 - sensor_cube.aqgl01 - 小米魔方
 - 磁铁 - 小米门磁
-- sensor_magnet.aq2 - 小米Aqara门磁
-- 窗帘 - 小米Aqara智能窗帘
+- sensor_magnet.aq2 - 小米 Aqara 门磁
+- 窗帘 - 小米 Aqara 智能窗帘
 - 运动 - 小米运动传感器
-- sensor_motion.aq2 - 小米Aqara运动传感器
-- sensor_wleak.aq1 - 小米Aqara水传感器
-- ctrl_ln2.aq1 - 小米Aqara墙壁开关LN（双）
-- remote.b286acn01 - 小米Aqara无线遥控开关（双摇杆）
-- remote.b1acn01 - 小米Aqara无线遥控开关
+- sensor_motion.aq2 - 小米 Aqara 运动传感器
+- sensor_wleak.aq1 - 小米 Aqara 水传感器
+- ctrl_ln2.aq1 - 小米 Aqara 墙壁开关 LN (双)
+- remote.b286acn01 - 小米 Aqara 无线遥控开关（双摇杆）
+- remote.b1acn01 - 小米 Aqara 无线遥控开关
 - 振动 - 小米振动传感器
-- wlak1 - 小米 Aqara 水传感器
+- wleak1 - 小米 Aqara 水传感器
 - lock_aq1 - 小米锁
 
 ## IoBroker Mi Home Adapter 安装
 进一步的设置只能通过 ioBroker 管理界面进行。
-在 *Adapter* 区域中搜索适配器并使用 `+` 符号进行安装。
+在 *Adapter* 区域中找到适配器并使用 `+` 字符安装它。
 
 ![标识](../../../de/adapterref/iobroker.mihome/media/Adapter.png)
 
@@ -123,11 +123,11 @@ hash: GmavLxm+klUaUCFI7o/yKJ8KJqOtoyN2RmgfJUQcojY=
 
 ![标识](../../../de/adapterref/iobroker.mihome/media/Adapterconfig1.PNG)
 
-在 `Default Gateway Key` 下输入上面确定的密码，然后使用 * save * * 关闭窗口并关闭 *。正在运行的适配器应该在 * Instances * 下显示为绿色：
+输入上面在`Default Gateway Key`下确定的密码，然后使用 *save* *and close* 关闭窗口。然后，正在运行的适配器应在 *Instances* 下显示为绿色：
 
 ![标识](../../../de/adapterref/iobroker.mihome/media/Instanz.PNG)
 
-网关及其示教设备现在显示在 *对象* 下：
+网关及其示教设备现在显示在 *Objects* 下：
 
 ![标识](../../../de/adapterref/iobroker.mihome/media/Objekte.PNG)
 

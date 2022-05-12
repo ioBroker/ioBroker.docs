@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wm-bus/README.md
 title: kein Titel
-hash: 6njKhpGr6/kOA37w9bFfDaO2DkjSIZlXknJm5sm7v8M=
+hash: RaW0P41itY9FCvEAt0J+/Q7CNelFExLWSZudYd8TTlU=
 ---
 ![Logo](../../../en/adapterref/iobroker.wm-bus/admin/wm-bus.png)
 
@@ -13,7 +13,7 @@ hash: 6njKhpGr6/kOA37w9bFfDaO2DkjSIZlXknJm5sm7v8M=
 ![Build-Status](https://ci.appveyor.com/api/projects/status/xg29a1r5dl00dq23?svg=true)
 
 ### IoBroker.wm-bus
-*** Dieser Adapter benötigt mindestens Node 4.4 ***
+***Dieser Adapter erfordert mindestens Node 4.4***
 
 #### Beschreibung
 Adapter für Wireless M-Bus
@@ -21,21 +21,21 @@ Adapter für Wireless M-Bus
 #### Die Info
 Unterstützte USB-Adapter:
 
-+ [iM871A](http://www.wireless-solutions.de/products/gateways/wirelessadapter) + [CUL](http://shop.busware.de/product_info.php/products_id/29?osCsid=eab2ce6ef5efc95dbdf61396ca256b6e) + [Amber 8465-M](https://www.amber-wireless.de/en/amb8465-m.html)
++ [iM871A](http://www.wireless-solutions.de/products/gateways/wirelessadapter) + [CUL](http://shop.busware.de/product_info.php/products_id/29?osCsid=eab2ce6ef5efc95dbdf61396ca256b6e) + [Bernstein 8465-M](https://www.amber-wireless.de/en/amb8465-m.html)
 
 #### Aufbau
 Falls verwendet, ein AES-Schlüssel zum Entschlüsseln der Nachricht.
 Hersteller-ID, Typ und Version werden nach der ersten empfangenen Nachricht ermittelt
 
 #### Installation
-Führen Sie den folgenden Befehl im iobroker-Stammverzeichnis aus (z. B. in / opt / iobroker).
+Führen Sie den folgenden Befehl im iobroker-Stammverzeichnis aus (z. B. in /opt/iobroker)
 
 ```
 npm install iobroker.wm-bus
 ```
 
-#### Bedarf
-+ einen [iM871A](http://www.wireless-solutions.de/products/gateways/wirelessadapter) USB-Stick + oder einen [CUL](http://shop.busware.de/product_info.php/products_id/29?osCsid=eab2ce6ef5efc95dbdf61396ca256b6e) USB-Stick + ein WM-Bus-Gerät, z. [EasyMeter](http://www.easymeter.com/)
+#### Anforderungen
++ einen [iM871A](http://www.wireless-solutions.de/products/gateways/wirelessadapter) USB-Stick + oder einen [CUL](http://shop.busware.de/product_info.php/products_id/29?osCsid=eab2ce6ef5efc95dbdf61396ca256b6e) USB-Stick + ein WM-Bus Device z.B. [EasyMeter](http://www.easymeter.com/)
 
 ## Changelog
 ### 0.3.0 (2018-01-23)

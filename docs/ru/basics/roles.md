@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/basics/roles.md
 title: Роли точек данных
-hash: HGg/8s3vDfGg9f6ECINJcwJyi8jBXU8A8kfR6vBF7Tw=
+hash: MLon33fkDPXEUvl6ebdPNQ3ihE1hkWlkVAqvJrZe6UA=
 ---
 # Роли точек данных
 Для объектов типа `state` свойство `common.role` должно быть установлено на одну из ролей, определенных в списке ниже.
@@ -16,12 +16,12 @@ hash: HGg/8s3vDfGg9f6ECINJcwJyi8jBXU8A8kfR6vBF7Tw=
 * `level.color.rgb` с цветовым кодом лампы #RRGGBB
 * `level.brightness` со значением яркости
 
-См. [репозиторий детекторов типов](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md) для различных шаблонов устройств, используемых для обнаружения с обязательными и необязательными объектами и их ролями.
+См. [репозиторий детектора типа](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md) для различных шаблонов устройств, используемых для обнаружения с обязательными и необязательными объектами и их ролями.
 
 ## Общий
 * `state` - очень общее назначение, используется, когда роль элемента данных неизвестна.
 * `текст` `common.type = строка`
-* `text.url` `common.type = string` val содержит URL-адрес для использования в привязке, iframe или img
+* `text.url` `common.type = string` val содержит URL-адрес для использования в якоре, iframe или img
 * `html` `common.type=string`
 * `json` `common.type = строка`
 * `список` `common.type = массив`
@@ -61,7 +61,7 @@ hash: HGg/8s3vDfGg9f6ECINJcwJyi8jBXU8A8kfR6vBF7Tw=
 * `кнопка.режим`*
 * `кнопка.режим.авто`
 * `кнопка.режим.ручной`
-* `button.mode.silent`
+* `кнопка.режим.тихий`
 
 ## Ключи как датчики
 `common.type=boolean, common.write=false, common.read=true`
@@ -74,7 +74,7 @@ hash: HGg/8s3vDfGg9f6ECINJcwJyi8jBXU8A8kfR6vBF7Tw=
 `common.type=number, common.write=false`
 
 * `значение`
-* `` Value.window` (common.states = { "0": "ЗАКРЫТО", "1": "наклонено", "2": "OPEN"} `) Важно (` ЗАКРЫТО / наклонена / ОТКЛ " ) Значения могут отличаться.
+* `value.window` (`common.states={"0": "ЗАКРЫТО", "1": "НАКЛОН", "2": "ОТКРЫТО"}`) Важно (`ЗАКРЫТО/НАКЛОНЕНО/ ОТКРЫТО" ) Значения могут отличаться.
 * `value.temperature` (`common.unit='°C' или '°F' или 'K'')
 * `значение.влажность`
 * `value.brightness` - яркость (единица измерения: люкс, )
@@ -94,7 +94,7 @@ hash: HGg/8s3vDfGg9f6ECINJcwJyi8jBXU8A8kfR6vBF7Tw=
 * `value.gps.accuracy` - точность текущего измерения GPS
 * `value.gps.radius` - радиус текущего измерения GPS
 * `value.power` - фактическая мощность (единица измерения = Вт или кВт)
-* `value.power.consumment` - потребление энергии (единица измерения=Втч или кВтч)
+* `value.power.consumption` - потребление энергии (единица измерения=Втч или кВтч)
 * `value.power.reactive` - реактивная мощность (единица измерения = ВАр)
 * `value.direction` - (common.type=число ~~или строка~~, указывает вверх/вниз, влево/вправо, 4-позиционный переключатель, направление ветра, ...)
 * `value.curtain` - текущее положение шторки
@@ -135,7 +135,7 @@ hash: HGg/8s3vDfGg9f6ECINJcwJyi8jBXU8A8kfR6vBF7Tw=
 * `indicator.alarm.secure` - дверь или окно открыты
 * `indicator.alarm.health` - проблемы со здоровьем
 
-## Уровень/уровень (цифры, чтение-запись)
+## Уровень (числа, чтение-запись)
 С помощью **Уровней** вы можете контролировать или устанавливать числовое значение.
 
 `common.type=number, common.write=true`
@@ -205,7 +205,7 @@ TODO: Подумайте об ионизации и осцилляции.
 * `indicator.maintenance.waste` - мусорка тупая.
 * `value.state` - `ДОМ, ЧИСТКА, ПАУЗА` и так далее.
 
-В дополнение к этим состояниям обычно требуется `switch.power` для связи с пылесосом. `switch.power` в этом случае работает как: `true` - чисто, `false` - домой.
+В дополнение к этим состояниям обычно требуются `switch.power` для связывания пылесоса. `switch.power` в этом случае работает как: `true` — чисто, `false` — домой.
 Дополнительные `value.battery` и
 
 ## Цель
@@ -266,7 +266,7 @@ TODO: Подумайте об ионизации и осцилляции.
 * `media.input` - номер или строка входа (AUX, AV, TV, SAT, ...)
 * `level.bass` - уровень баса
 * `level.treble` - уровень высоких частот
-* `switch.power.zone` - зона питания
+* `switch.power.zone` - зона мощности
 
 ```
 [
@@ -313,7 +313,7 @@ TODO: Подумайте об ионизации и осцилляции.
 
 ## Погода
 * `value.temperature` - Текущая температура
-* `value.temperature.windchill` - фактическое охлаждение ветром
+* `value.temperature.windchill` - Фактическое охлаждение ветром
 * `value.temperature.dewpoint` - Текущая точка росы
 * `value.temperature.feelslike` - Фактическая температура "на ощупь"
 * `value.temperature.min` - Минимальная температура за последние 24 часа
@@ -330,7 +330,7 @@ TODO: Подумайте об ионизации и осцилляции.
 * `value.direction.min.wind` - текущее направление ветра в градусах
 * `weather.direction.wind` - текущее или среднее направление ветра в виде текста, например, NNW
 * `date` - текущая дата или дата последнего чтения информации
-* `date.sunrise` - Восход солнца на сегодня
+* `date.sunrise` - Рассвет на сегодня
 * `date.sunset` - закат на сегодня
 * `dayofweek` - день недели в виде текста
 * `location` - текстовое описание местоположения (например, адрес)
@@ -343,7 +343,7 @@ TODO: Подумайте об ионизации и осцилляции.
 * `value.precipitation.today` - Текущее количество осадков за сегодня (до 0:00)
 * `value.precipitation.chance` - Фактическая вероятность осадков за сегодня
 * `value.precipitation.type` - Текущий тип осадков за сегодня. (`Тип: Число`) Состояния: 0 - НЕТ, 1 - ДОЖДЬ, 2 - СНЕГ, 3 - ГРАД
-* `value.radiation` - фактическое солнечное излучение
+* `value.radiation` - Фактическое солнечное излучение
 * `value.uv` - Фактическое значение UV
 * `value.clouds` - облака на небе. 0% - облаков нет, 100% - много облаков.
 * `value.rain` - Фактическое количество осадков за последние 24 часа.
@@ -357,7 +357,7 @@ TODO: Подумайте об ионизации и осцилляции.
 * `weather.chart.url.forecast` - URL-адрес для отображения прогноза погоды.
 * `weather.html` - объект HTML с описанием погоды
 * `waether.title` - Очень краткое описание
-* `weather.title.short` — Очень, очень короткое описание (одно слово)
+* `weather.title.short` — Очень-очень короткое описание (одно слово)
 * `weather.type` - тип информации о погоде
 * `weather.json` — объект JSON с определенными данными
 * `value.speed.wind.forecast.0` - прогноз скорости ветра на сегодня
@@ -376,8 +376,8 @@ TODO: Подумайте об ионизации и осцилляции.
 * `date.forecast.1` - завтрашняя дата
 * `weather.icon.forecast.1` - иконка на завтра
 * `weather.state.forecast.1` - Состояние погоды на завтра
-* `значение.температуры.мин.прогноз.1`
-* `значение.температуры.мин.прогноз.1`
+* `значение.температура.мин.прогноз.1`
+* `значение.температура.мин.прогноз.1`
 * `value.prepitation.forecast.1` - (`type: number, unit: %`) Прогноз вероятности осадков на завтра
 * `value.prepitation.forecast.1` - (`type: number, unit: mm`) Прогноз уровня осадков на завтра
 * `значение.направление.ветер.прогноз.1`
@@ -399,14 +399,14 @@ TODO: Подумайте об ионизации и осцилляции.
 * `date.start` - строка или число
 * `date.end` - строка или число
 
-## Будьте здоровы
+## Здоровье
 `common.type=number, common.read=true, common.write=false`
 
 * `value.health.fat` - индекс жира в организме в %
 * `value.health.weight` - масса тела в кг, фунты
 * `value.health.bmi` - индекс ИМТ
 * `value.health.calories` - сожженные калории
-* `value.health.steps` - пройденные шаги
+* `value.health.steps` - выполненные шаги
 * `value.health.bpm` - удары сердца в минуту
 
 ## Другой
@@ -415,5 +415,5 @@ TODO: Подумайте об ионизации и осцилляции.
 * `url.cam` - URL веб-камеры
 * `url.blank` - открыть URL в новом окне
 * `url.same` - Открыть URL в этом окне
-* `url.audio` - URL для аудиофайла
+* `url.audio` - URL аудиофайла
 * `text.phone` - номер телефона

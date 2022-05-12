@@ -1,25 +1,25 @@
 ---
 title: 解决方案
 lastChanged: 13.09.2018
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/lib/README.md
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
-hash: PbdFWQT/HphK0urlnJ/Vb7weDTQmY0YTF62To2mPV9U=
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/lib/README.md
+hash: bfUQqrCkrUN/SM2q9w/T+gZsl5iJRnJ3PK00fyE/SjU=
 ---
-＃解决方案和教程
-？&gt; ***这是一张通配符***。 <br><br>帮助ioBroker并扩展这篇文章。请注意[ioBroker风格指南](community/styleguidedoc)，以便更容易采用这些更改。
+# 解决方案和教程
+?> ***这是一个占位符***。<br><br>帮助 ioBroker 并扩展本文。请注意[ioBroker 风格指南](community/styleguidedoc)，以便更容易地采用更改。
 
-@@@以下是典型的**总体**解决方案（如何达到最简单的目标）和How-Tos收集。
+@@@ 这是收集示例性**总体**解决方案（如何实现最简单的目标）和操作方法的地方。
 
-* Homematic教程
-* ESP教程（带MQQT）
-*教程......
-*逻辑事物（统计功能）
-*复杂的时间
-*分析并解决性能问题
+* Homematic 教程
+* ESP 教程（使用 MQQT）
+* 教程...
+*逻辑东西（统计功能）
+* 复杂的时序控制
+* 分析和解决性能问题
 * ...
 
-建议：如果它只涉及一个适配器（逻辑适配器除外），则示例/解决方案必须位于相应适配器的参考文档中。
+建议：如果它只影响一个适配器（不包括逻辑适配器），那么示例/解决方案必须在相应适配器的参考文档中。
 
-以相同的方式，可以从经测试的HW组件收集配置示例。
+同样的，这里也可以收集测试过的硬件组件的配置示例。
 @@@

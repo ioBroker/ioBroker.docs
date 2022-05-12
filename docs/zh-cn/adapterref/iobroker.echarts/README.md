@@ -3,16 +3,19 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: adErFx29GS51MtHt4t3z63MRU+ojFpcIH8aJxYJ3KgQ=
+hash: k+wb/Y8bMxvy/eqo6X/6kaLqYCBO1FxqP3qh5TipVCk=
 ---
-![商标](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
+![标识](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
+![安装数量](http://iobroker.live/badges/echarts-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.echarts.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.echarts.svg)
-![依赖状态](https://img.shields.io/david/ioBroker/iobroker.echarts.svg)
-![已知漏洞](https://snyk.io/test/github/ioBroker/ioBroker.echarts/badge.svg)
 
 # IoBroker.echarts
+![测试和发布](https://github.com/ioBroker/ioBroker.echarts/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/echarts/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！
+
 ## 用于 ioBroker 的 echarts 适配器
 在 ioBroker 中构建有用的图表：
 
@@ -65,7 +68,7 @@ sendTo('echarts.0', {
 ## 开发者手册
 **对于非开发人员，此链接无效！**
 
-您可以使用以下命令在本地调试视图图表：
+您可以使用以下方法在本地调试视图图表：
 
 - cd iobroker.echarts/src-chart
 - npm 运行开始

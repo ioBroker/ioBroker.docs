@@ -8,7 +8,7 @@
 
 This adapter used by WEB applications and adapters to communicate with ioBroker using websockets.
 
-It is almost the same as ioBroker.socketio, but does not use socket.io library and only simulates it.
+It is almost the same as `ioBroker.socketio`, but does not use socket.io library and only simulates it.
 
 **Important Note: Since v4.0 of this adapter pure Websockets are used exclusively! Socket.io is no longer implemented by the socket.io library, but simulated via pure WebSockets!**
 
@@ -309,10 +309,13 @@ You can set option *Force Web-Sockets* to force using only web-sockets transport
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 2.0.0 (2022-05-12)
+* (bluefox) Used common sockets (could be buggy)
+
 ### 1.3.0 (2022-03-27)
 * (bluefox) Added `log` socket command
 

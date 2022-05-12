@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: vF/81kbzAlCXnXbUiwZTMj1+Z4d5/mjqbJLRC3RTZbo=
+hash: kAv2b5p4ACAHInprDm9X+AS9PnHMjnJRbsL1uSYggmw=
 ---
 ![Logo](../../../en/adapterref/iobroker.web/admin/web.png)
 
@@ -16,7 +16,7 @@ hash: vF/81kbzAlCXnXbUiwZTMj1+Z4d5/mjqbJLRC3RTZbo=
 
 Webserver auf Basis von Node.js und Express zum Lesen der Dateien aus ioBroker DB
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 ## Web-Sockets optimieren
 Bei einigen Web-Sockets-Clients gibt es Leistungsprobleme bei der Kommunikation.
@@ -24,7 +24,7 @@ Manchmal ist dieses Problem auf einen Fallback der socket.io-Kommunikation auf e
 Sie können die Option *Force Web-Sockets* so einstellen, dass nur die Verwendung von Web-Sockets-Transport erzwungen wird.
 
 ## Lassen Sie uns Zertifikate verschlüsseln
-Lesen Sie [Hier](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
+Lesen [hier](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
 
 ## Erweiterungen
 Webtreiber unterstützt Erweiterungen.
@@ -36,7 +36,7 @@ Es ist erforderlich, alle Dienste unter einem Webserver verfügbar zu machen.
 
 Die Web-Erweiterung könnte und sollte die Funktion `unload` unterstützen, die `promise` zurückgeben könnte, wenn der Entladevorgang einige Zeit in Anspruch nimmt.
 
-Lesen Sie mehr über Web-Erweiterungen [Hier](WEB-EXTENSIONS-HOWTO.md).
+Lesen Sie mehr über Web-Erweiterungen [hier](WEB-EXTENSIONS-HOWTO.md).
 
 ## Brute-Force-Schutz
 Wenn die Authentifizierung aktiviert ist und der Benutzer innerhalb einer Minute fünfmal ein ungültiges Passwort eingibt, muss er mindestens eine Minute bis zum nächsten Versuch warten.
@@ -82,6 +82,9 @@ Wenn beim Öffnen des Webports im Browser keine APP-Auswahl angezeigt werden sol
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 4.3.0 (2022-04-15)
+* (bluefox) Added support of rest-api
+
 ### 4.2.3 (2022-03-28)
 * (bluefox) Updated ws and socketio to have `log` method in sockets
 
@@ -108,7 +111,7 @@ Wenn beim Öffnen des Webports im Browser keine APP-Auswahl angezeigt werden sol
 * (bluefox) Updated ws adapter to fix problem with URLs containing '#'
 
 ### 4.1.1 (2022-02-01)
-* (bluefox) Allowed the switch between iobroker.socketio and iobroker.ws for internal web sockets
+* (bluefox) Allowed the switch between `iobroker.socketio` and `iobroker.ws` for internal web sockets
 
 ### 4.0.1 (2022-01-30)
 * (bluefox) Added the update warning
@@ -480,7 +483,7 @@ Wenn beim Öffnen des Webports im Browser keine APP-Auswahl angezeigt werden sol
 * (bluefox) update selectId dialog
 
 ### 0.1.8 (2015-01-02)
-* (bluefox) enable socketio.0 by default
+* (bluefox) enable `socketio.0` by default
 
 ### 0.1.7 (2015-01-02)
 * (bluefox) enable npm install

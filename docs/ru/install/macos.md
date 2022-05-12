@@ -1,10 +1,10 @@
 ---
-title: OS X
+title: ОС Х
 lastChanged: 31.07.2019
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/install/macos.md
-hash: eEj6f+dn0zoChKquON1OSYJIokiNvlj+o8Eby6v9Fh8=
+hash: Ap4qbZ0Kh9BCVvPj1E3wrjfwWEHLvGg5ST+nfMRP1+o=
 ---
-# Установка ioBroker на OS X
-?> ***Это подстановочный знак*** . <br><br> Помогите с ioBroker и расширьте эту статью. Пожалуйста, обратите внимание на [Руководство по стилю ioBroker](community/styleguidedoc), чтобы изменения могли быть приняты легче.
+# Установите ioBroker на OS X
+?> ***Это заполнитель***.<br><br> Помогите ioBroker и дополните эту статью. Пожалуйста, обратите внимание на [Руководство по стилю ioBroker](community/styleguidedoc), чтобы упростить принятие изменений.

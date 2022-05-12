@@ -3,20 +3,20 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.cul/README.md
 title: ioBroker.cul
-hash: 2tnvBHDfP0OFs68GeLH/DpaXwMsDO4ad4AP58dE/qQY=
+hash: n9cyFwlOacKrFgHp1ZG0tbJEH41ecpP68CZekcZTAks=
 ---
 ![Логотип](../../../en/adapterref/iobroker.cul/admin/busware.jpg)
 
 ![Количество установок](http://iobroker.live/badges/cul-stable.svg)
 ![версия NPM](http://img.shields.io/npm/v/iobroker.cul.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.cul.svg)
-![Тесты](https://travis-ci.org/ioBroker/ioBroker.cul.svg?branch=master)
-![НПМ](https://nodei.co/npm/iobroker.cul.png?downloads=true)
 
 # IoBroker.cul
-Адаптер ioBroker для управления FS20, Max!, HMS и другими устройствами через [КУЛ](http://busware.de/tiki-index.php?page=CUL) / [кульф](http://culfw.de). Зависит от https://github.com/hobbyquaker/cul
+![Тестируйте и выпускайте](https://github.com/ioBroker/ioBroker.cul/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/cul/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+
+Адаптер ioBroker для управления FS20, Max!, HMS и другими устройствами через [КУЛ](http://busware.de/tiki-index.php?page=CUL) / [кульф](http://culfw.de). Зависит от https://github.com/hobbyquaker/cul
 
 ## Поддерживаемые устройства
 - *EM* - EM1000WZ, EMWZ
@@ -37,10 +37,12 @@ hash: 2tnvBHDfP0OFs68GeLH/DpaXwMsDO4ad4AP58dE/qQY=
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### **ВЫПОЛНЯЕТСЯ** -->
+### **В РАБОТЕ** -->
 
 ## Changelog
-### 2.0.1 (2022-03-21)
+### 2.0.2 (2022-05-11)
+* IMPORTANT: Nodejs 12.x is now needed at least!
+* (Apollon77/achimmm) Add support for devices with address 0
 * (bluefox) Updated serialport package
 
 ### 1.3.5 (2021-04-12)

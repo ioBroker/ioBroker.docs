@@ -1,12 +1,12 @@
 ---
-title: Сбой адаптера
+title: ошибка адаптера
 lastChanged: 14.09.2018
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/trouble/adapter.md
-hash: tRIkrGOoz0GVKr3ChJ2M8R7OghRNwQ2GhHSdGu7WqNQ=
+hash: Xf1kJpyo0fdgF5VHj3/oNh2aCImFa5ivhVQMS2CzSVE=
 ---
-# Решение ошибок в адаптерах
-?> ***Это заполнитель*** .<br><br> Помогите с ioBroker и расширьте эту статью. Обратите внимание на [Руководство по стилю ioBroker](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md), чтобы изменения можно было легко применить.
+# Исправление ошибок с адаптерами
+?> ***Это заполнитель***.<br><br> Помогите ioBroker и дополните эту статью. Пожалуйста, обратите внимание на [Руководство по стилю ioBroker](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md), чтобы упростить принятие изменений.
 
-@@@ Ссылка на ссылку на адаптер @@@
+@@@ Ссылка на справочник по адаптеру @@@
