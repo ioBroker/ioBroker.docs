@@ -200,9 +200,9 @@ Attributes:
 * `common.read`   (boolean, mandatory) - true if state is readable
 * `common.write`  (boolean, mandatory) - true if state is writable
 * `common.role`   (string,  mandatory) - role of the state (used in user interfaces to indicate which widget to choose, see below)
-* `common.states` (optional) - provide more context on allowed values for states with datatype types string and number:
+* `common.states` (optional) - provide more context on allowed values for states with datatypes string and number:
   * for numbers **without** provided common.min/common.max: contains the list of allowed number values and their textual mapping as object in form `{0: 'OFF', 1: 'ON', '-1': 'whatever'}`. Only these values should be allowed
-  * for numbers **with** provided common.min **and/or** common.max: the allowed number range is definedby min/max, this attribute contains a list of "special" number values and their textual mapping as object like `{0: 'OFF', 254: 'ON', 255:'BLINK'}` (min=0, max=255).
+  * for numbers **with** provided common.min **and/or** common.max: the allowed number range is definedby min/max, this attribute contains a list of "special" number values and their textual mapping as object like `{0: 'OFF', 254: 'ON', 255: 'BLINK'}` (min=0, max=255).
   * for strings contains the list of allowed values and their textial mapping as object like `{'value': 'valueName', 'value2': 'valueName2'}`. Only these values should be allowed
   * for strings contains the list of allowed values as array like `['Start', 'Flight', 'Land']` (which in fact is the same as `{'Start': 'Start', 'Flight': 'Flight', 'Land': 'Land'}`)
   * These values are currently (as of js-controller 4.0) not checked or validated by the js-controller and are only there for UIs and Visualizations
