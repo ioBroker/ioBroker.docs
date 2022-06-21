@@ -392,7 +392,7 @@ Hierbei wird man durch die Installation geführt und muss währenddessen einige 
 
 ### 4 - VM einrichten
 
-Nachdem die VM neu gestartet wurde, loggt man sich mit dem aus der Installation vergebenen "Benutzername" und "Passwort" ein. Anschliessend wird mit dem Befehl
+VM neustarten, danach loggt man sich mit dem aus der Installation vergebenen "Benutzername" und "Passwort" ein. Anschliessend wird mit dem Befehl
 
 ~~~
 ip addr
@@ -617,6 +617,11 @@ Jetzt legt man den zukünftigen Benutzer an. "Benutzername" in dem Fall ersetzen
 adduser benutzername
 ~~~
 
+Anschließend muss der User noch der sudo Gruppe zugeordnet werden.
+
+~~~
+usermod -aG sudo benutzername
+~~~
 
 <details>
 <summary>User anlegen</summary>
@@ -626,13 +631,13 @@ adduser benutzername
 </details>
 
 
-Im letzen Schritt, bevor nun ioBroker installiert wird, einmal ausloggen
+Im letzen Schritt, bevor ioBroker installiert wird, einmal ausloggen
 
 ~~~
 exit
 ~~~
 
-und anschließend mit den Neuen Benutzer einloggen. Im Anschluß kann nun iobroker installiert werden.
+und anschließend mit den Neuen Benutzer einloggen. Im Anschluß kann iobroker jetzt installiert werden.
 
 <details>
 <summary>ausloggen und mit Benutzer anmelden</summary>
