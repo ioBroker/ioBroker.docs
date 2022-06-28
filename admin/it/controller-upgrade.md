@@ -17,6 +17,13 @@ Eseguire i comandi seguenti in una shell SSH (console):
 * `iobroker fix` o se questo non funziona usa `curl -sL https://iobroker.net/fix.sh | bash -`
 * `iobroker upgrade self`
 * `iobroker start` o riavvia il server, quindi ioBroker dovrebbe riavviarsi e puoi essere sicuro che tutti i vecchi processi sono stati completati.
+<!-- copy
+iobroker stop
+iobroker update
+iobroker fix
+iobroker upgrade self
+iobroker start
+-->
 
 ## Linux/macOS (installato manualmente)
 
@@ -28,6 +35,13 @@ Eseguire i comandi seguenti in una shell SSH (console):
 * `sudo iobroker update`
 * `sudo iobroker upgrade self`
 * `sudo iobroker start` o riavvio del server, quindi ioBroker dovrebbe riavviarsi e si può essere sicuri che tutti i vecchi processi siano stati completati.
+<!-- copy
+cd /opt/iobroker
+sudo iobroker stop
+sudo iobroker upgrade
+sudo iobroker upgrade self
+sudo iobroker start
+-->
 
 Se il comando upgrade mostra errori permessi / permessi, correggili. A volte "sudo" non è sufficiente e devi eseguire l'installazione come root reale (in precedenza semplicemente `sudo su -`).
 
@@ -45,16 +59,23 @@ Un'installazione manuale viene eseguita con diritti di amministratore. Avvia una
 * `iobroker update`
 * `iobroker upgrade self`
 * Avvia il servizio ioBroker o riavvia il computer, quindi ioBroker dovrebbe riavviarsi e puoi essere sicuro che tutti i vecchi processi sono stati completati.
+<!-- copy
+cd C:\iobroker
+iobroker stop
+iobroker status
+iobroker update
+iobroker upgrade self
+-->
 
 ## Emergenza Linux / macOS / Windows (reinstallazione manuale, se in qualche modo non funziona nulla dopo l'aggiornamento)
 
 Per prima cosa su Windows, chiama nel menu di avvio sotto "ioBroker" la riga di comando della relativa istanza di ioBroker. La directory corretta viene quindi impostata automaticamente. Su Linux o macOS, vai alla directory ioBroker.
 
-Esegui `npm install iobroker.js-controller` lì. Una versione specifica può essere installata usando npm install `iobroker.js-controller@x.y.z` (sostituire x.y.z con la versione desiderata).
+Esegui `npm install iobroker.js-controller` lì. Una versione specifica può essere installata usando `npm install iobroker.js-controller@x.y.z`<!-- copy small npm install iobroker.js-controller@x.y.z --> (sostituire x.y.z con la versione desiderata).
 
 Se ci sono problemi con i diritti di accesso quando si esegue su Linux, il comando deve essere leggermente modificato:
 
-* Per i sistemi creati con il nuovo programma di installazione Linux: `sudo -u iobroker -H npm install iobroker.js-controller`
+* Per i sistemi creati con il nuovo programma di installazione Linux: `sudo -u iobroker -H npm install iobroker.js-controller`<!-- copy small sudo -u iobroker -H npm install iobroker.js-controller -->
 * Per i sistemi installati manualmente su Linux, prefisso `sudo` o esegui come root.
 
 In questo modo è necessario solo in pochissimi casi e consultare il forum in anticipo!

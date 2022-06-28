@@ -17,6 +17,13 @@
 * `iobroker fix` 或者如果这不起作用，请使用 `curl -sL https://iobroker.net/fix.sh | bash -`
 * `iobroker upgrade self`
 * `iobroker start`或重新启动服务器，然后ioBroker应该重新启动，并且您可以确保所有旧进程都已完成。
+<!-- copy
+iobroker stop
+iobroker update
+iobroker fix
+iobroker upgrade self
+iobroker start
+-->
 
 ## Linux/macOS（手动安装）
 
@@ -28,6 +35,13 @@
 * `sudo iobroker update`
 * `sudo iobroker upgrade self`
 * `sudo iobroker start`或服务器重新启动，然后ioBroker应该重新启动，并且您可以确保所有旧进程都已完成。
+<!-- copy
+cd /opt/iobroker
+sudo iobroker stop
+sudo iobroker upgrade
+sudo iobroker upgrade self
+sudo iobroker start
+-->
 
 如果升级命令显示权限/权限错误，请修复它们。有时，“ sudo”还不够，您必须以真实的根用户身份运行安装程序（以前只是`sudo su -`）。
 
@@ -45,6 +59,13 @@
 * `iobroker update`
 * `iobroker upgrade self`
 * 启动ioBroker服务或重新启动计算机，然后ioBroker应该重新启动，并且您可以确保所有旧进程均已完成。
+<!-- copy
+cd C:\iobroker
+iobroker stop
+iobroker status
+iobroker update
+iobroker upgrade self
+-->
 
 ## 紧急Linux / macOS / Windows（手动重新安装，如果更新后不起作用）
 在Windows上，请首先在ioBroker实例下的命令行中的“ ioBroker”下调用开始菜单。 然后将自动设置正确的目录。 在Linux或macOS上，请转到ioBroker目录。
@@ -53,7 +74,7 @@
 
 如果在Linux上运行时访问权限存在问题，则必须对命令进行一些更改：
 
-*对于使用新的Linux安装程序创建的系统：`sudo -u iobroker -H npm install iobroker.js-controller`
+*对于使用新的Linux安装程序创建的系统：`sudo -u iobroker -H npm install iobroker.js-controller`<!-- copy small sudo -u iobroker -H npm install iobroker.js-controller -->
 *对于在Linux下手动安装的系统，请添加前缀`sudo`或以root身份运行。
 
 仅在极少数情况下才需要这种方式，请事先咨询论坛！
