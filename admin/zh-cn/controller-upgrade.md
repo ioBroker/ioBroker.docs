@@ -74,7 +74,7 @@ iobroker upgrade self
 
 如果在Linux上运行时访问权限存在问题，则必须对命令进行一些更改：
 
-*对于使用新的Linux安装程序创建的系统：`sudo -u iobroker -H npm install iobroker.js-controller`<!-- copy small sudo -u iobroker -H npm install iobroker.js-controller -->
+*对于使用新的Linux安装程序创建的系统：`sudo -u iobroker -H npm install iobroker.js-controller`*sudo -u iobroker -H npm install iobroker.js-controller*
 *对于在Linux下手动安装的系统，请添加前缀`sudo`或以root身份运行。
 
 仅在极少数情况下才需要这种方式，请事先咨询论坛！

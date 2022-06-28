@@ -62,7 +62,7 @@ A manual installation is done with administrator rights. Please start a cmd.exe 
 * `iobroker status` to check if ioBroker has finished
 * `iobroker update`
 * `iobroker upgrade self`
-* Start ioBroker service or reboot computer, then ioBroker should restart and you can be sure that all the old processes were finished.
+* Start ioBroker service or reboot computer, then ioBroker should restart, and you can be sure that all the old processes were finished.
 <!-- copy
 cd C:\iobroker
 iobroker stop
@@ -74,11 +74,11 @@ iobroker upgrade self
 ## Emergency Linux / macOS / Windows (manual reinstallation, if somehow nothing works after the update)
 On Windows first please call in the start menu under "ioBroker" the command line of the relevant ioBroker instance. The correct directory is then set automatically. On Linux or macOS please go to the ioBroker directory.
 
-Run `npm install iobroker.js-controller` there. A specific version can be installed using `npm install iobroker.js-controller@x.y.z`<!-- copy small npm install iobroker.js-controller@x.y.z --> (replace x.y.z with the desired version).
+Run `npm install iobroker.js-controller` there. A specific version can be installed using `npm install iobroker.js-controller@x.y.z`*npm install iobroker.js-controller@x.y.z* (replace x.y.z with the desired version).
 
 If there are problems with access rights when running on Linux the command has to be changed slightly:
 
-* For systems created with the new Linux installer: `sudo -u iobroker -H npm install iobroker.js-controller`<!-- copy small sudo -u iobroker -H npm install iobroker.js-controller -->
+* For systems created with the new Linux installer: `sudo -u iobroker -H npm install iobroker.js-controller`*sudo -u iobroker -H npm install iobroker.js-controller*
 * For systems installed manually under Linux, prefix `sudo` or run as root.
 
 This way is only necessary in very few cases and please consult the forum beforehand!

@@ -71,11 +71,11 @@ iobroker upgrade self
 
 В Windows сначала, пожалуйста, вызовите в меню «Пуск» в разделе «ioBroker» командную строку соответствующего экземпляра ioBroker. Правильный каталог устанавливается автоматически. В Linux или macOS перейдите в каталог ioBroker.
 
-Запустите `npm` и установите `iobroker.js-controller`. Определенную версию можно установить с помощью `npm install iobroker.js-controller@x.y.z`<!-- copy small npm install iobroker.js-controller@x.y.z --> (замените `x.y.z` на нужную версию).
+Запустите `npm` и установите `iobroker.js-controller`. Определенную версию можно установить с помощью `npm install iobroker.js-controller@x.y.z`*npm install iobroker.js-controller@x.y.z* (замените `x.y.z` на нужную версию).
 
 Если при работе в Linux возникают проблемы с правами доступа, команда должна быть слегка изменена:
 
-* Для систем, созданных с помощью нового установщика Linux: `sudo -u iobroker -H npm install iobroker.js-controller`<!-- copy small sudo -u iobroker -H npm install iobroker.js-controller -->
+* Для систем, созданных с помощью нового установщика Linux: `sudo -u iobroker -H npm install iobroker.js-controller`*sudo -u iobroker -H npm install iobroker.js-controller*
 * Для систем, установленных вручную под Linux, используйте префикс `sudo` или запуска от имени пользователя root.
 
 Этот способ необходим только в очень немногих случаях и, пожалуйста, проконсультируйтесь на форуме заранее!
