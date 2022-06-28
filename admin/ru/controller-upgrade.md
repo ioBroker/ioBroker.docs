@@ -17,6 +17,13 @@
 * `iobroker fix` или если это не работает, используйте `curl -sL https://iobroker.net/fix.sh | bash -`
 * `iobroker upgrade self`
 * `iobroker start` или перезагрузите сервер, затем ioBroker должен перезагрузиться, и вы можете быть уверены, что все старые процессы завершены.
+<!-- copy
+iobroker stop
+iobroker update
+iobroker fix
+iobroker upgrade self
+iobroker start
+-->
 
 ## Linux/macOS (устанавливается вручную)
 
@@ -28,6 +35,13 @@
 * `sudo iobroker upgrade`
 * `sudo iobroker upgrade self`
 * `sudo iobroker start` или перезагрузка сервера, затем ioBroker должен перезагрузиться, и вы можете быть уверены, что все старые процессы завершены.
+<!-- copy
+cd /opt/iobroker
+sudo iobroker stop
+sudo iobroker upgrade
+sudo iobroker upgrade self
+sudo iobroker start
+-->
 
 Если команда обновления отображает ошибки разрешений / разрешений, исправьте их. Иногда «sudo» недостаточно, и вы должны запустить установку как настоящий root (выполнить сначала `sudo su -`).
 
@@ -45,12 +59,19 @@
 * `iobroker update`
 * `iobroker upgrade self`
 * Запустите службу ioBroker или перезагрузите компьютер, затем ioBroker должен перезагрузиться, и вы можете быть уверены, что все старые процессы были завершены.
+<!-- copy
+cd C:\iobroker
+iobroker stop
+iobroker status
+iobroker update
+iobroker upgrade self
+-->
 
 ## Аварийный Linux / macOS / Windows (ручная переустановка, если после обновления что-то не работает)
 
 В Windows сначала, пожалуйста, вызовите в меню «Пуск» в разделе «ioBroker» командную строку соответствующего экземпляра ioBroker. Правильный каталог устанавливается автоматически. В Linux или macOS перейдите в каталог ioBroker.
 
-Запустите `npm и установите iobroker.js-controller`. Определенную версию можно установить с помощью npm install `iobroker.js-controller@x.y.z` (замените x.y.z на нужную версию).
+Запустите `npm` и установите `iobroker.js-controller`. Определенную версию можно установить с помощью npm install `iobroker.js-controller@x.y.z` (замените `x.y.z` на нужную версию).
 
 Если при работе в Linux возникают проблемы с правами доступа, команда должна быть слегка изменена:
 
