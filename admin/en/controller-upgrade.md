@@ -5,11 +5,11 @@ Due to the different hardware and platforms under which ioBroker runs, the js-co
 ## General information for all platforms
 
 ### js-controller 2.x
-For an update from js-controller 1.x to 2.x please always read and take care about the information at https://forum.iobroker.net/topic/26759/js-controller-2-jetzt-f%C3%BCr-alle-im-stable.
+For an update from js-controller 1.x to 2.x please always read and take care about the information at [https://forum.iobroker.net/topic/26759/js-controller-2-jetzt-f%C3%BCr-alle-im-stable](https://forum.iobroker.net/topic/26759/js-controller-2-jetzt-f%C3%BCr-alle-im-stable).
 When updating a master-slave systems, please update the slaves first and the master last! 
 
 ### js-controller 4.x
-For an update from js-controller 2.x/3.x to 4.x please always read and take care about the information at the relevant Forum thread, e.g. https://forum.iobroker.net/topic/52886/js-controller-4-0-x-jetzt-f%C3%BCr-alle-user-im-stable (for 4.0). js-controller 4.x requires at least Node.js Version 12.x.
+For an update from js-controller 2.x/3.x to 4.x please always read and take care about the information at the relevant Forum thread, e.g. [https://forum.iobroker.net/topic/52886/js-controller-4-0-x-jetzt-f%C3%BCr-alle-user-im-stable](https://forum.iobroker.net/topic/52886/js-controller-4-0-x-jetzt-f%C3%BCr-alle-user-im-stable) (for 4.0). js-controller 4.x requires at least Node.js Version 12.x.
 
 With a multi-host system that runs on js-controller 2.2 or 3.x it is necessary to update the master system first when updating to version 4.x. After updating the master must be restarted before the slaves will be updated! 
 
@@ -19,9 +19,9 @@ This is the recommended variant for updating the js-controller if ioBroker was i
 Please execute the following commands in an SSH shell (console):
 * `iobroker stop`
 * `iobroker update`
-* `iobroker fix` or if this do not work use: `curl -sL https://iobroker.net/fix.sh | bash -`
+* `iobroker fix` or if this does not work use: `curl -sL https://iobroker.net/fix.sh | bash -`
 * `iobroker upgrade self`
-* `iobroker start` or reboot server, then ioBroker should restart and you can be sure that all old processes were finished.
+* `iobroker start` or reboot server, then ioBroker should restart, and you can be sure that all old processes were finished.
 <!-- copy
 iobroker stop
 iobroker update
@@ -39,7 +39,7 @@ Please execute the following commands in an SSH shell (console):
 * `sudo iobroker stop`
 * `sudo iobroker update`
 * `sudo iobroker upgrade self`
-* `sudo iobroker start` or server reboot, then ioBroker should restart and you can be sure that all old processes were finished.
+* `sudo iobroker start` or server reboot, then ioBroker should restart, and you can be sure that all old processes were finished.
 <!-- copy
 cd /opt/iobroker
 sudo iobroker stop
@@ -48,7 +48,7 @@ sudo iobroker upgrade self
 sudo iobroker start
 -->
 
-If the upgrade command displays permissions / permissions errors, fix them. Sometimes "sudo" is not enough and you have to run the installation as a real root (previously simply `sudo su -`).
+If the upgrade command displays permissions / permissions errors, fix them. Sometimes "sudo" is not enough, and you have to run the installation as a real root (previously simply `sudo su -`).
 
 ## Windows
 
@@ -71,7 +71,7 @@ iobroker update
 iobroker upgrade self
 -->
 
-## Emergency Linux / macOS / Windows (manual reinstallation, if somehow nothing works after the update)
+## Emergency Linux / macOS / Windows (manual re-installation, if somehow nothing works after the update)
 On Windows first please call in the start menu under "ioBroker" the command line of the relevant ioBroker instance. The correct directory is then set automatically. On Linux or macOS please go to the ioBroker directory.
 
 Run `npm install iobroker.js-controller` there. A specific version can be installed using `npm install iobroker.js-controller@x.y.z`*npm install iobroker.js-controller@x.y.z* (replace x.y.z with the desired version).

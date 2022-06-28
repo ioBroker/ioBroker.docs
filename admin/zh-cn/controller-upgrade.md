@@ -4,7 +4,7 @@
 
 ## 所有平台的一般信息
 
-**有关从js-controller 1.x到2.x的更新，请始终阅读https://forum.iobroker.net/topic/26759/js-controller-2-jetzt-f%C3%BCr-alle-im-stable！**
+**有关从js-controller 1.x到2.x的更新，请始终阅读[https://forum.iobroker.net/topic/26759/js-controller-2-jetzt-f%C3%BCr-alle-im-stable](https://forum.iobroker.net/topic/26759/js-controller-2-jetzt-f%C3%BCr-alle-im-stable)！**
 
 否则，请先更新主从系统，然后再更新主服务器，以更新从服务器！
 
@@ -70,7 +70,7 @@ iobroker upgrade self
 ## 紧急Linux / macOS / Windows（手动重新安装，如果更新后不起作用）
 在Windows上，请首先在ioBroker实例下的命令行中的“ ioBroker”下调用开始菜单。 然后将自动设置正确的目录。 在Linux或macOS上，请转到ioBroker目录。
 
-在此处运行`npm install iobroker.js-controller`。 可以使用npm install`iobroker.js-controller@x.y.z`安装特定版本（将x.y.z替换为所需版本）。
+在此处运行`npm install iobroker.js-controller`。 可以使用`npm install iobroker.js-controller@x.y.z`*npm install iobroker.js-controller@x.y.z*安装特定版本（将x.y.z替换为所需版本）。
 
 如果在Linux上运行时访问权限存在问题，则必须对命令进行一些更改：
 
