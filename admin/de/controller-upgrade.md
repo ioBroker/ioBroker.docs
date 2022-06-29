@@ -1,4 +1,4 @@
-# Upgrade Anleitung des ioBroker Host (js-controller)
+# Upgrade Anleitung des js-Controller auf einem ioBroker Host
 
 Das Herzstück jeder ioBroker Installation ist der js-Controller. Der js-Controller enthält die zentrale Konfiguration der ioBroker Installation und steuert und überwacht alle Adapterprozesse.
 
