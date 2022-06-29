@@ -6,8 +6,6 @@ Die aktuell verfügbare sowie installierte Version des js-controller zum jeweili
 
 Aufgrund der verschiedenen Hardware und Platformen unter denen ioBroker läuft, muss der js-controller manuell aktualisiert werden. Weitere Details können dem passenden Abschnitt entnommen werden.
 
-
-
 ## Generelle Informationen für alle Plattformen
 
 ### js-controller 2.x
