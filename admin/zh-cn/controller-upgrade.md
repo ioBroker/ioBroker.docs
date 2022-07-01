@@ -12,11 +12,11 @@
 这是推荐的选择！
 
 请在SSH Shell（控制台）中执行以下命令：
-* `iobroker stop`
-* `iobroker update`
-* `iobroker fix` 或者如果这不起作用，请使用 `curl -sL https://iobroker.net/fix.sh | bash -`
-* `iobroker upgrade self`
-* `iobroker start`或重新启动服务器，然后ioBroker应该重新启动，并且您可以确保所有旧进程都已完成。
+* `iobroker stop` *iobroker stop*
+* `iobroker update` *iobroker update*
+* `iobroker fix` *iobroker fix* 或者如果这不起作用，请使用 `curl -sL https://iobroker.net/fix.sh | bash -`
+* `iobroker upgrade self` *iobroker upgrade self*
+* `iobroker start` *iobroker start*或重新启动服务器，然后ioBroker应该重新启动，并且您可以确保所有旧进程都已完成。
 <!-- copy
 iobroker stop
 iobroker update
@@ -30,11 +30,11 @@ iobroker start
 手动安装通常以root用户身份在root用户下进行，因此在命令之前必须有一个“ sudo”。
 
 请在SSH Shell（控制台）中执行以下命令：
-* `cd /opt/iobroker`
-* `sudo iobroker stop`
-* `sudo iobroker update`
-* `sudo iobroker upgrade self`
-* `sudo iobroker start`或服务器重新启动，然后ioBroker应该重新启动，并且您可以确保所有旧进程都已完成。
+* `cd /opt/iobroker` *cd /opt/iobroker*
+* `sudo iobroker stop` *sudo iobroker stop*
+* `sudo iobroker update` *sudo iobroker update*
+* `sudo iobroker upgrade self` *sudo iobroker upgrade self*
+* `sudo iobroker start` *sudo iobroker start*或服务器重新启动，然后ioBroker应该重新启动，并且您可以确保所有旧进程都已完成。
 <!-- copy
 cd /opt/iobroker
 sudo iobroker stop
@@ -53,11 +53,11 @@ sudo iobroker start
 
 手动安装已获得管理员权限。 请以管理员身份启动cmd.exe命令行窗口（右键单击cmd.exe并以管理员身份执行）并执行以下命令：
 
-* `cd C:\iobroker`（或ioBroker的安装位置）
-* `iobroker stop`停止ioBroker服务
-* `iobroker status`以检查ioBroker是否已完成
-* `iobroker update`
-* `iobroker upgrade self`
+* `cd C:\iobroker` *cd C:\iobroker*（或ioBroker的安装位置）
+* `iobroker stop` *iobroker stop*停止ioBroker服务
+* `iobroker status` *iobroker status*以检查ioBroker是否已完成
+* `iobroker update` *iobroker update*
+* `iobroker upgrade self` *iobroker upgrade self*
 * 启动ioBroker服务或重新启动计算机，然后ioBroker应该重新启动，并且您可以确保所有旧进程均已完成。
 <!-- copy
 cd C:\iobroker
@@ -70,7 +70,7 @@ iobroker upgrade self
 ## 紧急Linux / macOS / Windows（手动重新安装，如果更新后不起作用）
 在Windows上，请首先在ioBroker实例下的命令行中的“ ioBroker”下调用开始菜单。 然后将自动设置正确的目录。 在Linux或macOS上，请转到ioBroker目录。
 
-在此处运行`npm install iobroker.js-controller`。 可以使用`npm install iobroker.js-controller@x.y.z`*npm install iobroker.js-controller@x.y.z*安装特定版本（将x.y.z替换为所需版本）。
+在此处运行`npm install iobroker.js-controller` *npm install iobroker.js-controller*。 可以使用`npm install iobroker.js-controller@x.y.z`*npm install iobroker.js-controller@x.y.z*安装特定版本（将x.y.z替换为所需版本）。
 
 如果在Linux上运行时访问权限存在问题，则必须对命令进行一些更改：
 

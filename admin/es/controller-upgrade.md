@@ -12,11 +12,11 @@ De lo contrario, actualice primero los esclavos con una actualización de los si
 ¡Esta es la opción recomendada!
 
 Ejecute los siguientes comandos en un shell SSH (consola):
-* `iobroker stop`
-* `iobroker update`
-* `iobroker fix` o si esto no funciona usa: `curl -sL https://iobroker.net/fix.sh | bash -`
-* `iobroker upgrade self`
-* `iobroker start` o reiniciar el servidor, entonces ioBroker debería reiniciarse y puede estar seguro de que todos los procesos anteriores se completaron.
+* `iobroker stop` *iobroker stop*
+* `iobroker update` *iobroker update*
+* `iobroker fix` *iobroker fix* o si esto no funciona usa: `curl -sL https://iobroker.net/fix.sh | bash -`
+* `iobroker upgrade self` *iobroker upgrade self*
+* `iobroker start` *iobroker start* o reiniciar el servidor, entonces ioBroker debería reiniciarse y puede estar seguro de que todos los procesos anteriores se completaron.
 <!-- copy
 iobroker stop
 iobroker update
@@ -30,11 +30,11 @@ iobroker start
 Una instalación manual generalmente tiene lugar bajo la raíz como usuario y, por lo tanto, es necesario un "sudo" antes de los comandos.
 
 Ejecute los siguientes comandos en un shell SSH (consola):
-* `cd /opt/iobroker`
-* `sudo iobroker stop`
-* `sudo iobroker update`
-* `sudo iobroker upgrade self`
-* `sudo iobroker start` o reinicio del servidor, luego ioBroker debería reiniciarse y puede estar seguro de que todos los procesos anteriores se completaron.
+* `cd /opt/iobroker` *cd /opt/iobroker*
+* `sudo iobroker stop` *sudo iobroker stop*
+* `sudo iobroker update` *sudo iobroker update*
+* `sudo iobroker upgrade self` *sudo iobroker upgrade self*
+* `sudo iobroker start` *sudo iobroker start* o reinicio del servidor, luego ioBroker debería reiniciarse y puede estar seguro de que todos los procesos anteriores se completaron.
 <!-- copy
 cd /opt/iobroker
 sudo iobroker stop
@@ -53,11 +53,11 @@ Para actualizar ioBroker en Windows, descargue el instalador apropiado con la ve
 
 Se realiza una instalación manual con derechos de administrador. Inicie una ventana de línea de comandos cmd.exe como administrador (haga clic con el botón derecho en cmd.exe y ejecútelo como administrador) y ejecute los siguientes comandos:
 
-* `cd C:\iobroker` (o donde se instaló ioBroker)
-* `iobroker stop` para detener el servicio ioBroker
-* `iobroker status` para verificar si ioBroker ha finalizado
-* `iobroker update`
-* `iobroker upgrade self`
+* `cd C:\iobroker` *cd C:\iobroker* (o donde se instaló ioBroker)
+* `iobroker stop` *iobroker stop* para detener el servicio ioBroker
+* `iobroker status` *iobroker status* para verificar si ioBroker ha finalizado
+* `iobroker update` *iobroker update*
+* `iobroker upgrade self` *iobroker upgrade self*
 * Inicie el servicio ioBroker o reinicie la computadora, luego ioBroker debería reiniciarse y puede estar seguro de que todos los procesos anteriores se completaron.
 <!-- copy
 cd C:\iobroker
@@ -71,7 +71,7 @@ iobroker upgrade self
 
 En Windows primero, llame al menú de inicio en "ioBroker", la línea de comando de la instancia de ioBroker correspondiente. El directorio correcto se configura automáticamente. En Linux o macOS, vaya al directorio ioBroker.
 
-Ejecute `npm install iobroker.js-controller` allí. Se puede instalar una versión específica usando `npm install iobroker.js-controller@x.y.z`*npm install iobroker.js-controller@x.y.z* (reemplace x.y.z con la versión deseada).
+Ejecute `npm install iobroker.js-controller` *npm install iobroker.js-controller* allí. Se puede instalar una versión específica usando `npm install iobroker.js-controller@x.y.z`*npm install iobroker.js-controller@x.y.z* (reemplace x.y.z con la versión deseada).
 
 Si hay problemas con los derechos de acceso cuando se ejecuta en Linux, el comando debe cambiarse ligeramente:
 

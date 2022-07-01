@@ -12,11 +12,11 @@
 Это рекомендуемый вариант!
 
 Пожалуйста, выполните следующие команды в SSH оболочке (консоли):
-* `iobroker stop`
-* `iobroker update`
-* `iobroker fix` или если это не работает, используйте `curl -sL https://iobroker.net/fix.sh | bash -`
-* `iobroker upgrade self`
-* `iobroker start` или перезагрузите сервер, затем ioBroker должен перезагрузиться, и вы можете быть уверены, что все старые процессы завершены.
+* `iobroker stop` *iobroker stop*
+* `iobroker update` *iobroker update*
+* `iobroker fix` *iobroker fix* или если это не работает, используйте `curl -sL https://iobroker.net/fix.sh | bash -`
+* `iobroker upgrade self` *iobroker upgrade self*
+* `iobroker start` *iobroker start* или перезагрузите сервер, затем ioBroker должен перезагрузиться, и вы можете быть уверены, что все старые процессы завершены.
 <!-- copy
 iobroker stop
 iobroker update
@@ -30,11 +30,11 @@ iobroker start
 Ручная установка обычно выполняется под пользователем root, поэтому перед командами необходимо использовать sudo.
 
 Пожалуйста, выполните следующие команды в SSH оболочке (консоли):
-* `cd /opt/iobroker`
-* `sudo iobroker stop`
+* `cd /opt/iobroker` *cd /opt/iobroker*
+* `sudo iobroker stop` *sudo iobroker stop*
 * `sudo iobroker upgrade`
-* `sudo iobroker upgrade self`
-* `sudo iobroker start` или перезагрузка сервера, затем ioBroker должен перезагрузиться, и вы можете быть уверены, что все старые процессы завершены.
+* `sudo iobroker upgrade self` *sudo iobroker upgrade self*
+* `sudo iobroker start` *sudo iobroker start* или перезагрузка сервера, затем ioBroker должен перезагрузиться, и вы можете быть уверены, что все старые процессы завершены.
 <!-- copy
 cd /opt/iobroker
 sudo iobroker stop
@@ -53,11 +53,11 @@ sudo iobroker start
 
 Ручная установка выполняется с правами администратора. Запустите окно командной строки cmd.exe от имени администратора (щелкните правой кнопкой мыши на cmd.exe и выполните от имени администратора) и выполните следующие команды:
 
-* `cd C:\iobroker` (или где был установлен ioBroker)
-* `iobroker stop`, чтобы остановить службу ioBroker
-* `iobroker status`, чтобы проверить, закончил ли ioBroker
-* `iobroker update`
-* `iobroker upgrade self`
+* `cd C:\iobroker` *cd C:\iobroker* (или где был установлен ioBroker)
+* `iobroker stop` *iobroker stop*, чтобы остановить службу ioBroker
+* `iobroker status` *iobroker status*, чтобы проверить, закончил ли ioBroker
+* `iobroker update` *iobroker update*
+* `iobroker upgrade self` *iobroker upgrade self*
 * Запустите службу ioBroker или перезагрузите компьютер, затем ioBroker должен перезагрузиться, и вы можете быть уверены, что все старые процессы были завершены.
 <!-- copy
 cd C:\iobroker
