@@ -1,4 +1,8 @@
-# instrukcje aktualizacji sterownika js
+# Zaktualizuj instrukcje dla kontrolera js na hoście ioBroker
+
+Sercem każdej instalacji ioBroker jest kontroler js. js-controller zawiera podstawową konfigurację instalacji ioBroker oraz kontroluje i monitoruje wszystkie procesy adaptera.
+
+Aktualnie dostępna i zainstalowana wersja js-controller dla odpowiedniego hosta, na którym jest zainstalowany ioBroker, jest wyświetlana w interfejsie administracyjnym w pozycji menu "Hosts".
 
 Ze względu na inny sprzęt i platformy, na których działa ioBroker, kontroler js musi być aktualizowany ręcznie. Dalsze szczegóły można znaleźć w odpowiedniej sekcji.
 
