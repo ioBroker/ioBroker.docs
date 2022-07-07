@@ -1,4 +1,8 @@
-# js-controller upgrade-instructies
+# Update-instructies voor js-controller op een ioBroker-host
+
+Het hart van elke ioBroker-installatie is de js-controller. js-controller bevat de kernconfiguratie van de ioBroker-installatie en controleert en bewaakt alle adapterprocessen.
+
+De momenteel beschikbare en geïnstalleerde versie van js-controller voor de respectieve host waarop ioBroker is geïnstalleerd, wordt weergegeven in de beheerinterface onder het menu-item "Hosts".
 
 Vanwege de verschillende hardware en platforms waarop ioBroker werkt, moet de js-controller handmatig worden bijgewerkt. Verdere details zijn te vinden in de betreffende sectie.
 
