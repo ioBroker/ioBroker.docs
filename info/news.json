@@ -1432,35 +1432,35 @@
     },
     {
         "title": {
-            "en": "Alexa2 versions 3.15.x/3.16.x/3.17.x had errors. Upgrade to 3.17.4!",
-            "de": "Alexa2 Versionen 3.15.x/3.16.x/3.17.x hatten Fehler. Upgrade auf 3.17.4!",
-            "ru": "Alexa2 версии 3.15.x/3.16.x/3.17.x имели ошибки. Обновление до 3.17.4!",
-            "pt": "As versões do Alexa2 3.15.x/3.16.x/3.17.x tiveram erros. Atualize para 3.17.4!",
-            "nl": "Alexa2 versies 3.15.x/3.16.x/3.17.x had fouten. Upgrade tot 3.17.4!",
-            "fr": "Alexa2 versions 3.15.x/3.16.x/3.17.x avait des erreurs. Souscrivez à 3.17.4!",
-            "it": "Alexa2 versioni 3.15.x/3.16.x/3.17.x aveva errori. Aggiornamento a 3.17.4!",
-            "es": "Las versiones de Alexa2 3.15.x/3.16.x/3.17.x tuvieron errores. Actualizar a 3.17.4!",
-            "pl": "Wersja 315.x/3.16.x/3.17.x miała błędy. Dostęp do 3.17.4!",
-            "zh-cn": "Alexa2版本3.15.x有错误。 页:1!"
+            "en": "Alexa2 versions 3.14.x-3.17.x had errors. Upgrade to 3.17.4!",
+            "de": "Alexa2 Versionen 3.14.x-3.17.x hatten Fehler. Upgrade auf 3.17.4!",
+            "ru": "Alexa2 версии 3.14.x-3.17.x имели ошибки. Обновление до 3.17.4!",
+            "pt": "As versões do Alexa2 3.14.x-3.17.x tiveram erros. Atualize para 3.17.4!",
+            "nl": "Alexa2 versies 3.14.x-3.17.x had fouten. Upgrade tot 3.17.4!",
+            "fr": "Alexa2 versions 3.14.x-3.17.x avait des erreurs. Souscrivez à 3.17.4!",
+            "it": "Alexa2 versioni 3.14.x-3.17.x aveva errori. Aggiornamento a 3.17.4!",
+            "es": "Las versiones de Alexa2 3.14.x-3.17.x tuvieron errores. Actualizar a 3.17.4!",
+            "pl": "Wersja 3.14.x-3.17.x miała błędy. Dostęp do 3.17.4!",
+            "zh-cn": "Alexa2版本3.14.x-3.17.x有错误。 页:1!"
         },
         "content": {
-            "en": "Alexa2 versions 3.15.x/3.16.x/3.17.x had errors. The version 3.17.4 which fixes the issues is available in Beta repository!",
-            "de": "Alexa2 Versionen 3.15.x/3.16.x/3.17.x hatten Fehler. Die Version 3.17.4, die die Probleme repariert, ist im Beta-Repository verfügbar!",
-            "ru": "Alexa2 версии 3.15.x/3.16.x/3.17.x имели ошибки. Версия 3.17.4, которая исправляет проблемы доступны в бета-репозитории!",
-            "pt": "As versões do Alexa2 3.15.x/3.16.x/3.17.x tiveram erros. A versão 3.17.4 que corrige os problemas está disponível no repositório Beta!",
-            "nl": "Alexa2 versies 3.15.x/3.16.x/3.17.x had fouten. De versie 3.17.4 die de kwesties repareert is beschikbaar in Beta Repository!",
-            "fr": "Alexa2 versions 3.15.x/3.16.x/3.17.x avait des erreurs. La version 3.17.4 qui corrige les problèmes est disponible dans le dépôt Beta!",
-            "it": "Alexa2 versioni 3.15.x/3.16.x/3.17.x aveva errori. La versione 3.17.4 che risolve i problemi è disponibile nel repository Beta!",
-            "es": "Las versiones de Alexa2 3.15.x/3.16.x/3.17.x tuvieron errores. La versión 3.17.4 que fija los problemas está disponible en el repositorio Beta!",
-            "pl": "Wersja 315.x/3.16.x/3.17.x miała błędy. Wersja 3.17.4, która naprawia sprawy jest dostępna w repozytorium Beta!",
-            "zh-cn": "Alexa2版本3.15.x/3.16.x/3.17.x有错误。 版本3.17.4在贝塔库可查阅。!"
+            "en": "Alexa2 versions 3.14.x-3.17.x had errors. The version 3.17.4 which fixes the issues is available in Beta repository!",
+            "de": "Alexa2 Versionen 3.14.x-3.17.x hatten Fehler. Die Version 3.17.4, die die Probleme repariert, ist im Beta-Repository verfügbar!",
+            "ru": "Alexa2 версии 3.14.x-3.17.x имели ошибки. Версия 3.17.4, которая исправляет проблемы доступны в бета-репозитории!",
+            "pt": "As versões do Alexa2 3.14.x-3.17.x tiveram erros. A versão 3.17.4 que corrige os problemas está disponível no repositório Beta!",
+            "nl": "Alexa2 versies 3.14.x-3.17.x had fouten. De versie 3.17.4 die de kwesties repareert is beschikbaar in Beta Repository!",
+            "fr": "Alexa2 versions 3.14.x-3.17.x avait des erreurs. La version 3.17.4 qui corrige les problèmes est disponible dans le dépôt Beta!",
+            "it": "Alexa2 versioni 3.14.x-3.17.x aveva errori. La versione 3.17.4 che risolve i problemi è disponibile nel repository Beta!",
+            "es": "Las versiones de Alexa2 3.14.x-3.17.x tuvieron errores. La versión 3.17.4 que fija los problemas está disponible en el repositorio Beta!",
+            "pl": "Wersja 3.14.x-3.17.x miała błędy. Wersja 3.17.4, która naprawia sprawy jest dostępna w repozytorium Beta!",
+            "zh-cn": "Alexa2版本3.14.x-3.17.x有错误。 版本3.17.4在贝塔库可查阅。!"
         },
-        "id": "Alexa315-3errors",
+        "id": "Alexa314-3errors",
         "class": "warning",
         "fa-icon": "exclamation-circle",
-        "created": "2022-07-13T21:45:00.000Z",
+        "created": "2022-07-13T22:11:00.000Z",
         "conditions": {
-            "alexa2": "between(3.15.0,3.17.3)"
+            "alexa2": "between(3.14.0,3.17.3)"
         }
     }
 ]
