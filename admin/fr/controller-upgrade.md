@@ -1,4 +1,8 @@
-# instructions de mise à niveau du contrôleur
+# Instructions de mise à jour pour js-controller sur un hôte ioBroker
+
+Le cœur de chaque installation ioBroker est le contrôleur js. js-controller contient la configuration de base de l'installation d'ioBroker et contrôle et surveille tous les processus de l'adaptateur.
+
+La version actuellement disponible et installée de js-controller pour l'hôte respectif sur lequel ioBroker est installé est affichée dans l'interface d'administration sous l'élément de menu "Hôtes".
 
 En raison du matériel et des plates-formes différentes sous lesquels ioBroker s'exécute, le contrôleur js doit être mis à jour manuellement. Plus de détails peuvent être trouvés dans la section appropriée.
 

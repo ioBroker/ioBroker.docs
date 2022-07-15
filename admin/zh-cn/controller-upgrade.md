@@ -1,4 +1,8 @@
-# js-controller升级说明
+# ioBroker 主机上 js-controller 的升级说明
+
+每个 ioBroker 安装的核心是 js-controller。 js-controller 包含 ioBroker 安装的中央配置以及控制和监视所有适配器进程。
+
+安装 ioBroker 的各个主机的当前可用和已安装的 js-controller 版本显示在“主机”菜单项的管理界面中。
 
 由于ioBroker运行的硬件和平台不同，因此必须手动更新js-controller。可以在适当的部分找到更多详细信息。
 
