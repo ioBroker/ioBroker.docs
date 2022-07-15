@@ -1455,12 +1455,12 @@
             "pl": "Jeśli korzystasz z inteligentnych urządzeń domowych z adapterem Aleksy 2 może się zdarzyć, że wartości nie są aktualizowane i nie są sterowane. Można również zdarzyć, że inteligentne obiekty domowe znikają, jeśli restartuje adapter. Jest to znane i spowodowane ograniczeniami Amazona, które pojawiły się po wydaniu adaptatora BETA, który wysłał zbyt wiele żądań do niektórych systemów. Jesteśmy zaniepokojeni tymi problemami, ale teraz możemy zaczekać, dopóki te wersje są aktualizowane. Jeśli wersja jest w standardzie 3,14.0 do 3,17.3, to uaktualnienie URGENTLY do 3.17.5. Jeśli <3.14.0 lub >3.17.3 to nie musisz robić żadnego z nich, tylko czekać i być pacjentem. Dziękuję",
             "zh-cn": "如果你利用智能的家用具与Alexa 2适应器,那么目前可能发生这样的情况:这些价值不远,无法控制。 如果你恢复适应者,那么光明的家用装置物品也可能消失。 亚马逊岛在Alexa2适应者Alexa2的版本之后才知道这种情况,并且由于对一些系统提出了许多要求。 我们对这些问题感到悲哀,但现在我们只能等到这些走私版本得到更新。 如果你的版本为3.14.0至3.17.3,那么请URGENTLY更新到3.17.5。 如果你的版本<3.14.0或>3.17.3,那么你不必再等待和病人。 谢谢"
         },
-        "id": "Alexa315-all-info",
+        "id": "Alexa315-all-info2",
         "class": "warning",
         "fa-icon": "exclamation-circle",
-        "created": "2022-07-15T13:30:00.000Z",
+        "created": "2022-07-15T15:30:00.000Z",
         "conditions": {
-            "alexa2": "installed"
+            "alexa2": "smaller(4.0.0)"
         }
     },
     {
