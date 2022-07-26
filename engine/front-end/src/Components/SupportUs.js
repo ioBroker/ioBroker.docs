@@ -111,30 +111,28 @@ class SupportUs extends Component {
     renderPaypal() {
         const {classes} = this.props;
 
-        return (
-            <Card key="paypal" className={classes.card + ' ' + (this.props.mobile ? this.props.classes.cardMobile : '')}>
-                <CardActionArea onClick={() => this.onPaypal()}>
-                    <CardMedia
-                        className={classes.media}
-                        image={ImgPayPal}
-                        title={I18n.t('Donate with PayPal')}
-                    />
-                    <CardContent>
-                        <h5>{I18n.t('Donate with PayPal')}</h5>
-                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                            <input type="hidden" name="cmd" value="_s-xclick" />
-                            <input type="hidden" name="hosted_button_id" value="ZET3WCD5KHJ9G" />
-                            <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif"
-                                   name="submit" title={I18n.t('PayPal - The safer, easier way to pay online!')}
-                                   alt={I18n.t('Donate with PayPal button')}
-                                   id="paypalFormSubmit"
-                            />
-                            <img alt="" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
-                        </form>
-                    </CardContent>
-                </CardActionArea>
-            </Card>
-        );
+        return <Card key="paypal" className={`${classes.card} ${this.props.mobile ? this.props.classes.cardMobile : ''}`}>
+            <CardActionArea onClick={() => this.onPaypal()}>
+                <CardMedia
+                    className={classes.media}
+                    image={ImgPayPal}
+                    title={I18n.t('Donate with PayPal')}
+                />
+                <CardContent>
+                    <h5>{I18n.t('Donate with PayPal')}</h5>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick" />
+                        <input type="hidden" name="hosted_button_id" value="2EHHSVEKASKGC" />
+                        <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif"
+                               name="submit" title={I18n.t('PayPal - The safer, easier way to pay online!')}
+                               alt={I18n.t('Donate with PayPal button')}
+                               id="paypalFormSubmit"
+                        />
+                        <img alt="" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+                    </form>
+                </CardContent>
+            </CardActionArea>
+        </Card>;
     }
 
     renderAmazon() {
