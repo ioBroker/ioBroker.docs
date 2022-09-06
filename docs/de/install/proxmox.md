@@ -1009,7 +1009,7 @@ SUBSYSTEMS=="usb", ATTRS{idVendor}=="0451", ATTRS{idProduct}=="16a8", GROUP="use
 Abschließend noch folgenden Befehl ausführen um die udev Regel zu aktivieren:
 
 ~~~
-udevadm control –reload
+udevadm control –-reload
 ~~~
 
 </details>
