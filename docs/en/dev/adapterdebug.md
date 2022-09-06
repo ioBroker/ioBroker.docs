@@ -108,9 +108,9 @@ After selecting `Launch Program` and clicking `Play` button, the adapter will st
 For this you should start the adapter on the ioBroker server specifically.
 
 ```
-d /opt/iobroker
-obroker stop ADAPTERNAME
-ode --inspect-brk=0.0.0.0:9229 node_modules/iobroker.ADAPTERNAME/main.js --debug
+cd /opt/iobroker
+iobroker stop ADAPTERNAME
+node --inspect-brk=0.0.0.0:9229 node_modules/iobroker.ADAPTERNAME/main.js --debug
 ```
 
 Afterwards one can connect `VS Code` to process (`attach`).
