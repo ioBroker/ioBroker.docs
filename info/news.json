@@ -1495,5 +1495,104 @@
         "conditions": {
             "alexa2": "between(3.14.0,3.17.3)"
         }
+    },
+    {
+        "title": {
+            "en": "Find-my-IPhone adapter will be discontinued and replaced by Apple-Find-Me!",
+            "de": "Find-my-IPhone Adapter wird eingestellt und durch Apple-Find-Me ersetzt!",
+            "ru": "Адаптер Find-my-IPhone будет прекращен и заменен Apple-Find-Me!",
+            "pt": "O adaptador Find-my-IPhone será descontinuado e substituído pelo Apple-Find-Me!",
+            "nl": "Vind mijn IPhone adapter zal worden losgemaakt en vervangen door Apple-Find-Me!",
+            "fr": "L'adaptateur Find-my-IPhone sera discontinué et remplacé par Apple-Find-Me!",
+            "it": "L'adattatore Find-my-IPhone verrà interrotto e sostituito da Apple-Find-Me!",
+            "es": "El adaptador Find-my-IPhone será interrumpido y reemplazado por Apple-Find-Me!",
+            "pl": "Zastąpione przez Apple-Find-Me!",
+            "zh-cn": "Fnd-my-IPhone的适应者将停止,由A补充-Find-Me!代替。!"
+        },
+        "content": {
+            "en": "The Find-my-IPhone adapter will not be further developed, please switch to the better successor Apple-Find-Me.",
+            "de": "Der Find-my-IPhone Adapter wird nicht weiterentwickelt, bitte zum besseren Nachfolger Apple-Find-Me wechseln.",
+            "ru": "Адаптер Find-my-IPhone не будет развиваться, пожалуйста, переключитесь к лучшему преемнику Apple-Find-Me.",
+            "pt": "O adaptador Find-my-IPhone não será mais desenvolvido, por favor, mude para o melhor sucessor Apple-Find-Me.",
+            "nl": "De vind-mijn-IPhone-adapter zal niet verder ontwikkeld worden, verander alsjeblieft naar de betere opvolger Apple-Find-Me.",
+            "fr": "L'adaptateur Find-my-IPhone ne sera pas encore développé, s'il vous plaît passer au meilleur successeur Apple-Find-Me.",
+            "it": "L'adattatore Find-my-IPhone non sarà ulteriormente sviluppato, si prega di passare al miglior successore Apple-Find-Me.",
+            "es": "El adaptador Find-my-IPhone no se desarrollará más, por favor, cambie al mejor sucesor Apple-Find-Me.",
+            "pl": "Adaptator Find-my-IPhone nie będzie dalej rozwijany, proszę przełączać się do lepszego następcy Apple-Find-Me.",
+            "zh-cn": "不会进一步发展Fab-my-IPhone的适应者,请转向较好的后继的A补充-Find-Me。."
+        },
+        "id": "Find-my-IPhone-deprecation",
+        "class": "warning",
+        "fa-icon": "exclamation-circle",
+        "created": "2022-09-19T23:00:00.000Z",
+        "conditions": {
+            "find-my-iphone": "installed"
+        }
+    },
+    {
+        "title": {
+            "en": "Fitbit-API adapter will be discontinued and replaced by Fitbit-Fitness!",
+            "de": "Fitbit-API Adapter wird eingestellt und durch Fitbit-Fitness ersetzt!",
+            "ru": "Адаптер Fitbit-API будет прекращен и заменен Fitbit-Fitness!",
+            "pt": "O adaptador Fitbit-API será descontinuado e substituído pelo Fitbit-Fitness!",
+            "nl": "Fitbit-API adapter zal worden losgemaakt en vervangen door Fitbit-Fitness!",
+            "fr": "L'adaptateur Fitbit-API sera discontinué et remplacé par Fitbit-Fitness!",
+            "it": "L'adattatore Fitbit-API verrà interrotto e sostituito da Fitbit-Fitness!",
+            "es": "El adaptador Fitbit-API será interrumpido y reemplazado por Fitbit-Fitness!",
+            "pl": "Adaptacja Fitbit-API zostanie zastąpiona przez Fitbit-Fitness!",
+            "zh-cn": "将停止并用Fitbit-Fit!"
+        },
+        "content": {
+            "en": "The Fitbit-API adapter will not be further developed, please switch to the better successor Fitbit-Fitness.",
+            "de": "Der Fitbit-API Adapter wird nicht weiterentwickelt, bitte auf den besseren Nachfolger Fitbit-Fitness wechseln.",
+            "ru": "Адаптер Fitbit-API не будет развиваться, пожалуйста, переключитесь к лучшему преемнику Fitbit-Fitness.",
+            "pt": "O adaptador Fitbit-API não será mais desenvolvido, por favor mude para o melhor sucessor Fitbit-Fitness.",
+            "nl": "De Fitbit-API-adapter zal niet verder ontwikkeld worden, verander alsjeblieft naar de betere opvolger Fitbit-Fitness.",
+            "fr": "L'adaptateur Fitbit-API ne sera pas encore développé, s'il vous plaît passer au meilleur successeur Fitbit-Fitness.",
+            "it": "L'adattatore Fitbit-API non sarà ulteriormente sviluppato, si prega di passare al migliore successore Fitbit-Fitness.",
+            "es": "El adaptador Fitbit-API no se desarrollará más, por favor cambie al mejor sucesor Fitbit-Fitness.",
+            "pl": "Adaptator Fitbit-API nie będzie dalej rozwijany, umie przełączać się do lepszego następcy Fitbit-Fitnessa.",
+            "zh-cn": "不会进一步开发特许经营办法的适应者,请转向较好的后继的Fitbit-Fitity。."
+        },
+        "id": "Fitbit-API-deprecation",
+        "class": "warning",
+        "fa-icon": "exclamation-circle",
+        "created": "2022-09-19T23:00:00.000Z",
+        "conditions": {
+            "fitbit-api": "installed"
+        }
+    },
+    {
+        "title": {
+            "en": "Netatmo Authentication changes in October 2022",
+            "de": "Netatmo Authentication ändert sich im Oktober 2022",
+            "ru": "Изменение подлинности Netatmo в октябре 2022",
+            "pt": "Mudanças de Autenticação do Netatmo em outubro de 2022",
+            "nl": "Netatmo Authenticatie verandert in oktober 2022",
+            "fr": "Netatmo Authentication changes in October 2022",
+            "it": "Cambiamenti di autenticazione Netatmo nel mese di ottobre 2022",
+            "es": "Netatmo Autenticación cambia en octubre 2022",
+            "pl": "Zmiana Netatmo Authentication w październiku 2022 roku",
+            "zh-cn": "202. 2022年10月的净性变化"
+        },
+        "content": {
+            "en": "Netatmo will change the Login method in October 2022. When this happens the 1.x of the adapter will not work any longer! We prepared verison 2.x. Please update the adapter and check if it works. If needed please login again using the \"Login with Netatmo\" Button and allow access to the relevant device types. Please see the Readme for further information.",
+            "de": "Netatmo wird die Anmeldemethode im Oktober 2022 ändern. Wenn dies geschieht, funktioniert der 1.x des Adapters nicht mehr! Wir haben verison 2.x vorbereitet Bitte den Adapter aktualisieren und überprüfen, ob er funktioniert. Falls erforderlich, bitte erneut mit dem Button \"Login with Netatmo\" anmelden und den Zugriff auf die entsprechenden Gerätetypen erlauben. Weitere Informationen finden Sie im Readme.",
+            "ru": "Netatmo изменит способ входа в октябре 2022 года. Когда это происходит 1.x адаптера больше не будет работать! Мы подготовили verison 2.x Пожалуйста, обновите адаптер и проверьте, работает ли он. Если нужно, пожалуйста, войдите снова с помощью кнопки \"Вход с Netatmo\" и позвольте доступу к соответствующим типам устройств. Пожалуйста, ознакомьтесь с Readme для получения дополнительной информации.",
+            "pt": "O Netatmo mudará o método de login em outubro de 2022. Quando isso acontece, o 1.x do adaptador não funcionará mais! Nós preparamos verison 2.x Por favor, atualize o adaptador e verifique se funciona. Se necessário, faça o login novamente usando o botão \"Login with Netatmo\" e permita o acesso aos tipos de dispositivo relevantes. Consulte o Readme para obter mais informações.",
+            "nl": "Netatmo zal de Login methode veranderen in oktober 2022. Als dit gebeurt, zal de 1.x van de adapter niet meer werken. We hebben verison 2. Herhaal de adapter en controleer of het werkt. Als het nodig is om opnieuw te loginen met de \"Login with Netatmo\" Button en toegang te geven tot de relevante apparaten. Zie de Readme voor verdere informatie.",
+            "fr": "Netatmo modifiera la méthode Login en octobre 2022. Lorsque cela se produit le 1.x de l'adaptateur ne fonctionnera plus! Nous avons préparé verison 2.x S'il vous plaît mettre à jour l'adaptateur et vérifier si cela fonctionne. Si nécessaire, connectez-vous à nouveau en utilisant le bouton \"Login with Netatmo\" et permettez l'accès aux types de périphériques pertinents. Veuillez consulter le Readme pour plus d'informations.",
+            "it": "Netatmo cambierà il metodo Login nell'ottobre 2022. Quando questo accade il 1.x dell'adattatore non funzionerà più! Abbiamo preparato la verifica 2.x Si prega di aggiornare l'adattatore e verificare se funziona. Se necessario si prega di effettuare nuovamente il login utilizzando il pulsante \"Login with Netatmo\" e consentire l'accesso ai tipi di dispositivo rilevanti. Per ulteriori informazioni, consultare il Readme.",
+            "es": "Netatmo cambiará el método Login en octubre de 2022. Cuando esto sucede el 1.x del adaptador no funcionará más! Preparamos verison 2.x Por favor, actualice el adaptador y compruebe si funciona. Si es necesario, vuelva a iniciar sesión utilizando el botón \"Login with Netatmo\" y permita el acceso a los tipos de dispositivo pertinentes. Por favor, vea el Readme para más información.",
+            "pl": "W październiku 2022 Netatmo zmienił metodę Logina. Jeśli tak się stało, to 1.x aplikatora nie będzie już pracować. Werdyktuje się 2.x. Zaktualizuje adapter i sprawdza, czy działa. Jeśli potrzebna jest przyjemna logina ponownie używająca „Login with Netatmo” Buttona i umożliwia dostęp do odpowiednich typów urządzeń. Wygląda na dalszą informację.",
+            "zh-cn": "净摩将在2022年10月改变后勤方法。 当这种情况发生时,适应者将不再工作! 我们准备了不同的2x。 请更新适应者并检查工作。 如果需要,请再次使用“在内塔莫”布顿,并允许使用相关的装置类型。 请见进一步资料的阅读摘要。."
+        },
+        "id": "Netatmo2-AuthChange",
+        "class": "warning",
+        "fa-icon": "exclamation-circle",
+        "created": "2022-09-19T23:00:00.000Z",
+        "conditions": {
+            "netatmo": "smaller(2.0.0)"
+        }
     }
 ]
