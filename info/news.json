@@ -1609,21 +1609,21 @@
         "zh-cn": "A. 客户福利服务处的维修工作"
       },
       "content": {
-        "en": "On 27.09.2022, the Cloud Pro server will be shut down from 21:00, for about 4 hours to perform necessary maintenance.",
-        "de": "Am 27.09.2022 wird der Cloud Pro Server ab 21:00 Uhr, für etwa 4 Stunden abgeschaltet werden, um nötige Wartungsarbeiten durchführen zu können.",
-        "ru": "27.09.2022 сервер Cloud Pro будет отключен с 21:00, примерно на 4 часа для проведения необходимого технического обслуживания.",
-        "pt": "Em 27.09.2022, o servidor Cloud Pro será desligado a partir das 21:00, durante cerca de 4 horas para efectuar a manutenção necessária.",
-        "nl": "Op 27.09.2022 zal de Cloud Pro-server vanaf 21:00 uur voor ongeveer 4 uur worden afgesloten om noodzakelijk onderhoud uit te voeren.",
-        "fr": "Le 27.09.2022, le serveur Cloud Pro sera arrêté à partir de 21h00, pendant environ 4 heures, pour effectuer la maintenance nécessaire.",
-        "it": "Il 27.09.2022, il server di Cloud Pro sarà spento dalle 21:00, per circa 4 ore, per eseguire la manutenzione necessaria.",
-        "es": "El 27.09.2022, el servidor de Cloud Pro se apagará a partir de las 21:00, durante unas 4 horas para realizar el mantenimiento necesario.",
-        "pl": "W dniu 27.09.2022 r. serwer Cloud Pro zostanie wyłączony od godziny 21:00, na około 4 godziny w celu przeprowadzenia niezbędnej konserwacji.",
-        "zh-cn": "2022年9月27日，Cloud Pro服务器将从21:00开始关闭，约4小时，以进行必要的维护。"
+        "en": "On 27.09.2022, the Cloud Pro server will be shut down from 21:00, for about 4 hours to perform necessary maintenance. In the course of this, we will update all adapters of the cloud, such as the admin. Interactions with the voice assistant are not affected by the downtime.",
+        "de": "Am 27.09.2022 wird der Cloud Pro Server ab 21:00 Uhr, für etwa 4 Stunden abgeschaltet werden, um nötige Wartungsarbeiten durchführen zu können. Im Zuge dessen werden wir alle Adapter der Cloud, wie z.B. den Admin, aktualisieren. Die Interaktionen mit dem Sprachassistenten sind von der Ausfallzeit nicht betroffen.",
+        "ru": "27.09.2022 сервер Cloud Pro будет отключен с 21:00, примерно на 4 часа для проведения необходимого технического обслуживания. В ходе этого мы обновим все адаптеры облака, например, администратора. На взаимодействие с голосовым помощником простой не повлияет.",
+        "pt": "Em 27.09.2022, o servidor Cloud Pro será desligado a partir das 21:00, durante cerca de 4 horas para efectuar a manutenção necessária. Durante este processo, iremos actualizar todos os adaptadores da nuvem, tais como o administrador. As interacções com o assistente de voz não são afectadas pelo tempo de paragem.",
+        "nl": "Op 27.09.2022 zal de Cloud Pro-server vanaf 21:00 uur voor ongeveer 4 uur worden afgesloten om noodzakelijk onderhoud uit te voeren. Daarbij worden alle adapters van de cloud, zoals de admin, bijgewerkt. Interacties met de spraakassistent worden niet beïnvloed door de downtime.",
+        "fr": "Le 27.09.2022, le serveur Cloud Pro sera arrêté à partir de 21h00, pendant environ 4 heures, pour effectuer la maintenance nécessaire. Au cours de cette opération, nous mettrons à jour tous les adaptateurs du nuage, comme l'administrateur. Les interactions avec l'assistant vocal ne sont pas affectées par le temps d'arrêt.",
+        "it": "Il 27.09.2022, il server di Cloud Pro sarà spento dalle 21:00, per circa 4 ore, per eseguire la manutenzione necessaria. Nel corso di questa operazione, aggiorneremo tutti gli adattatori del cloud, come l'amministratore. Le interazioni con l'assistente vocale non sono interessate dal downtime.",
+        "es": "El 27.09.2022, el servidor de Cloud Pro se apagará a partir de las 21:00, durante unas 4 horas para realizar el mantenimiento necesario. En el transcurso de la misma, actualizaremos todos los adaptadores de la nube, como el administrador. Las interacciones con el asistente de voz no se ven afectadas por el tiempo de inactividad.",
+        "pl": "W dniu 27.09.2022 r. serwer Cloud Pro zostanie wyłączony od godziny 21:00, na około 4 godziny w celu przeprowadzenia niezbędnej konserwacji. W trakcie tego zaktualizujemy wszystkie adaptery chmury, takie jak admin. Interakcje z asystentem głosowym nie są dotknięte przestojem.",
+        "zh-cn": "2022年9月27日，Cloud Pro服务器将从21:00开始关闭，约4小时，以进行必要的维护。在此过程中，我们将更新云的所有适配器，如管理员。与语音助手的互动不会受到停机的影响。"
       },
       "id": "cloud-maintenance",
       "class": "warning",
       "fa-icon": "exclamation-circle",
-      "created": "2022-09-21T23:00:00.000Z",
+      "created": "2022-09-22T23:00:00.000Z",
       "conditions": {
         "cloud": "installed"
       }
