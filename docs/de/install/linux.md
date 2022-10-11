@@ -53,6 +53,12 @@ sind Stabilitätsprobleme zu erwarten.
 freizuschalten. Für die Installation von ioBroker reicht es aus, *sudo* dem jeweiligen 
 Befehl voran zu stellen.
 
+* System-Update: ``sudo apt-get update && sudo apt-get upgrade``
+
+    Je nach verwendetem OS kann das Update auch mittels ``sudo apt update && sudo apt upgrade`` 
+ausgeführt werden.
+
+
 ### Installation Node.js
 !> mit dem aktuellen Installer von ioBroker (siehe unten) wird **auf einem System ohne node.js** automatisch die aktuell empfohlene Version von node.js mit installiert! Eine vorherige separate Installation von node.js ist somit **nicht** mehr nötig.
 
