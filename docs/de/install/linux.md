@@ -58,139 +58,20 @@ sind Stabilitätsprobleme zu erwarten.
 
   Es wird das Installationsskript ausgeführt. Je nach Hardware kann die Installation dauern.
   
-Die Installation erfolgt in 4 Schritten welche in der Konsole zu sehen sind:
+  Die Installation erfolgt in 4 Schritten welche in der Konsole zu sehen sind:
 
-``Installing prerequisites (1/4)``
+  ``Installing prerequisites (1/4)``
 
-``Creating ioBroker user and directory (2/4)``
+  ``Creating ioBroker user and directory (2/4)``
 
-``Installing ioBroker (3/4)``
+  ``Installing ioBroker (3/4)``
 
-``Finalizing installation (4/4)``
+  ``Finalizing installation (4/4)``
 
-Zum Abschluss kommt dann noch die Meldung
+  Zum Abschluss kommt dann noch die Meldung 
+  
+  ``ioBroker was installed successfully``
 
-``ioBroker was installed successfully``
+  ``Open http://localhost:8081 in a browser and start configuring!``
 
-``Open http://localhost:8081 in a browser and start configuring!``
-
----
-
-ioBroker kann nun über die angegebene IP im Webbrowser aufrufen werden: ``http://<IP-Adresse>:8081``
-
-### Installation Node.js
-!> mit dem aktuellen Installer von ioBroker (siehe unten) wird **auf einem System ohne node.js** automatisch die aktuell empfohlene Version von node.js mit installiert! Eine vorherige separate Installation von node.js ist somit **nicht** mehr nötig.
-
-Die folgende Anleitung ist auch bei einem Downgrade zu verwenden.
-
-Die momentan empfohlene Version ist node 14.x; bei anderen gewünschten Versionen in Schritt 4.1. die “14.x” gegen Y.x” austauschen.
-
-!> Node.js < 12.x wird nicht mehr supported
-
-
-<span style="color:red"> ungerade nodejs-Versionen sind grundsätzlich nicht empfohlen, da es sich um Entwicklerversionen handelt. </span>
-
-<span style="color:red"> npm wird zusammen mit nodejs passend installiert. Eine manuelle Installation oder Upgrade von npm ist nicht ratsam!  </span>
-
-
-1. System-Update: ``sudo apt-get update && sudo apt-get upgrade``
-
-    Je nach verwendetem OS kann das Update auch mittels ``sudo apt update && sudo apt upgrade`` 
-ausgeführt werden.
-
-2. Auf bereits vorhandene Versionen von nodejs und npm testen.
-
-    ``node -v``
-
-    ``nodejs -v``
-
-    ``npm -v``
-
-    nur wenn **ALLE** diese Befehle kein Ergebnis bringen (also keine Versionsnummer mehr 
-anzeigen) mit Schritt 4. dieses Abschnittes weitermachen, sonst, oder wenn die Version nicht der 
-gewünschten entspricht folgendes vorher ausführen:
-
-3. Die existierenden node & node.js Versionen deinstallieren
-
-    ``sudo apt-get --purge remove node`` (Es kann sein, dass hier eine Fehlermeldung kommt. Bitte weiter machen!)
-
-    ``sudo apt-get --purge remove nodejs``
-
-    ``sudo apt-get autoremove``
-
-    ``sudo reboot``
-
-4. Node.js neu installieren für Linux und Raspberry 2/3
-    
-    ``curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -``
-    
-    ``sudo apt install -y nodejs``
-
-    ``sudo reboot``
-
-    Nach der Installation müssen die Kommandos “node -v” und “nodejs -v” die gleiche 
-Versionsnummer zurückgeben.
-    
-    Falls ``node -v`` eine Fehlermeldung wie “nicht gefunden” erzeugt, dann bitte ein 
-
-    ``sudo ln -s /usr/local/bin/nodejs /usr/bin/node`` an der Konsole ausführen.
-    
-    
-    In neueren Installationen kann es sein, dass der Befehl ``nodejs -v`` eine Fehlermeldung wie “nicht gefunden” erzeugt. 
-    Dies ist prinzipiell unbedenklich, da der Befehl ``nodejs`` schon länger nicht mehr verwendet wird, kann aber über einen Symlink mit dem 
-    Befehl ``sudo ln -s /usr/bin/node /usr/bin/nodejs`` "repariert" werden.
-    
----    
-
-Sind die Versionen unterschiedlich, bitte nochmals den Abschnitt 
-[Installation Node.js](#installation-nodejs) abarbeiten
-
-Als letzte Überprüfung bitte noch die Version von npm mittels ``npm -v`` überprüfen.
-
-Ergibt dies eine Version < 6, bitte noch mit ``sudo -H npm install -g npm@6`` ein 
-npm-Update durchführen
-
----
-
-
----
-
-Die Installation erfolgt in 4 Schritten:
-
-``Installing prerequisites (1/4)``
-
-``Creating ioBroker user and directory (2/4)``
-
-``Installing ioBroker (3/4)``
-
-``Finalizing installation (4/4)``
-
-Zum Abschluss kommt dann noch die Meldung
-
-``ioBroker was installed successfully``
-
-``Open http://localhost:8081 in a browser and start configuring!``
-
----
-
-ioBroker nun über die angegebene IP im Webbrowser aufrufen: ``http://<IP-Adresse>:8081``
- 
-
-**Hinweis:**
-
-Nach Installationsänderungen kann es zu Rechteproblemen kommen.
-
- 
-
-In diesem Fall bitte den Installations-Fixer anwenden:
-
-``curl -sL https://iobroker.net/fix.sh | bash -``
-
-oder kurz `iobroker fix`
-
-
- 
-
-nähere Informationen im Forum:
-
-https://forum.iobroker.net/topic/20211/iobroker-installation-fixer-beta-verf%C3%BCgbar
+ioBroker kann nun über die angegebene IP im Webbrowser aufrufen werden ``http://<IP-Adresse>:8081`` und eingerichtet werden.
