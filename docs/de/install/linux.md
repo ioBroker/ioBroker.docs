@@ -54,7 +54,29 @@ sind Stabilitätsprobleme zu erwarten.
 
 * Über die Konsole und je nach verwendetem OS ein System-Update  mit ``sudo apt-get update && sudo apt-get upgrade`` bzw. ``sudo apt update && sudo apt upgrade`` durchführen.
 
-* ioBroker mit dem Befehl ``curl -sLf https://iobroker.net/install.sh | bash -`` installieren.
+* ioBroker mit dem ``curl -sLf https://iobroker.net/install.sh | bash -`` installieren.
+
+  Es wird das Installationsskript ausgeführt. Je nach Hardware kann die Installation dauern.
+  
+Die Installation erfolgt in 4 Schritten welche in der Konsole zu sehen sind:
+
+``Installing prerequisites (1/4)``
+
+``Creating ioBroker user and directory (2/4)``
+
+``Installing ioBroker (3/4)``
+
+``Finalizing installation (4/4)``
+
+Zum Abschluss kommt dann noch die Meldung
+
+``ioBroker was installed successfully``
+
+``Open http://localhost:8081 in a browser and start configuring!``
+
+---
+
+ioBroker kann nun über die angegebene IP im Webbrowser aufrufen werden: ``http://<IP-Adresse>:8081``
 
 ### Installation Node.js
 !> mit dem aktuellen Installer von ioBroker (siehe unten) wird **auf einem System ohne node.js** automatisch die aktuell empfohlene Version von node.js mit installiert! Eine vorherige separate Installation von node.js ist somit **nicht** mehr nötig.
@@ -130,12 +152,6 @@ npm-Update durchführen
 
 ---
 
-### Installation ioBroker
-Die Installation kann mit dem User pi aber auch mit dem User root erfolgen. 
-
-An der Konsole ausführen:
-
-``curl -sLf https://iobroker.net/install.sh | bash -``
 
 ---
 
