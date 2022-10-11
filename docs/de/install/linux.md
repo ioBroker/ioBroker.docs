@@ -1,6 +1,6 @@
 ---
 title:       "ioBroker Installation unter Linux"
-lastChanged: "14.10.2022"
+lastChanged: "11.10.2022"
 ---
 
 
