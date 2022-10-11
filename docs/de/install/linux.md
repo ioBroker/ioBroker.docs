@@ -1,48 +1,41 @@
 ---
-title:       "Linux"
-lastChanged: "05.12.2020"
+title:       "ioBroker Installation unter Linux"
+lastChanged: "14.10.2022"
 ---
-
-# ioBroker Installation unter Linux
 
 
 !> Diese Anleitung gilt NICHT für fertige Images der Webseite!
-Die manuelle Installation ist jedoch einem Image gegenüber zu bevorzugen. 
+Die hier beschriebene manuelle Installation ist einem Image gegenüber zu bevorzugen! 
 
-Die Installation erfolgt über ein Skript, welches die benötigten Installationsschritte durchführt und evtl. noch erforderliche Softwarepakete nachlädt.
-Während der Installation wird im System ein neuer Benutzer “iobroker” angelegt sowie ein zugehöriges Home-Verzeichnis (/home/iobroker). 
-Der ioBroker läuft dann unter diesem User. 
+## Allgemeines
+Die manuelle Installation von ioBroker erfolgt über ein Skript, welches die notwendigen 
+Installationsschritte durchführt und evtl. noch erforderliche Softwarepakete nachlädt.
+Während der Installation wird im System ein neuer Benutzer “iobroker” angelegt sowie ein
+zugehöriges Home-Verzeichnis (/home/iobroker). Der ioBroker läuft dann unter diesem User. 
 
-Wem das Nachladen eines Skripts zu gefährlich ist der kann das Skript vorher unter 
-[diesem Link](https://raw.githubusercontent.com/ioBroker/ioBroker/stable-installer/installer.sh) prüfen.
-
-Diese Installationsanleitung für ioBroker zeigt die Installation auf Linux am Beispiel vom Raspberry Pi 
-mit Raspberry OS 'Buster'. 
-
-Es kann auf Grund von Abhängigkeiten zu anderen Paketen oder zusätzlichen Installationen 
-bei der Installation immer wieder zu Besonderheiten kommen.
+Diese Installationsanleitung zeigt die Installation auf Linux am Beispiel vom Raspberry Pi 
+mit Raspberry OS 'Bullseye'. 
 
 ## Benötigte Hardware
-### Raspberry Pi 2/3/4
 
-oder jede andere beliebige Hardware mit einem gängigen Linux. Empfohlen wird jedoch Debian, Ubuntu oder eine der darauf basierenden Distributionen. 
+***Raspberry Pi 2/3/4*** mit Raspberry OS oder jede andere beliebige Hardware mit einem 
+gängigen Linux. Empfohlen wird jedoch Debian, Ubuntu oder eine der darauf basierenden Distributionen. 
 
-Wir raten davon ab, einen Pi 1 als Master einzusetzen. Dieser ist einfach nicht leistungsstark 
-genug (500 MB RAM, usw.). Aufgrund der unterschiedlichen Hardware passt diese Anleitung 
+Wir raten davon ab, einen Pi 1 als Master einzusetzen, da dieser einfach nicht leistungsstark 
+genug (500 MB RAM, usw.) ist. Aufgrund der unterschiedlichen Hardware passt diese Anleitung 
 ohnehin nicht für einen Pi 1.
 
 Auch ein Pi 2 oder Pi 3 hat nur max. 1 GB RAM. Bei 15 Adapter-Instanzen sollte dieser noch 
 ausreichen, aber darüberhinaus kann es knapp werden. Jede Adapter-Instanz benötigt etwa 40 MB 
-(und auch schon mal 200MB und mehr) an RAM. Daher sollte man immer die RAM-Auslastung 
-im Auge behalten werden, bevor weitere Adapter-Instanzen aktiviert werden – 1 GB RAM sind endlich.
+(und auch schon mal 200MB und mehr) an RAM. Daher sollte immer die RAM-Auslastung im Auge behalten 
+werden, bevor weitere Adapter-Instanzen aktiviert werden – 1 GB RAM sind endlich.
 
 Daher empfiehlt sich aus der Raspberry-Reihe der Raspberry4 mit 4, besser 8 GB RAM. 
 
-### Netzteil
-es ist wichtig ein gutes Netzteil zu haben. Mit schwachem Netzteil sind Stabilitätsprobleme zu erwarten
+Es ist wichtig ein gutes ***Netzteil*** zu haben. Mit schwachem Netzteil (z.B. Handy Netzteile) 
+sind Stabilitätsprobleme zu erwarten.
 
-### Speicherkarte
-oder SSD, USB-Stick, usw. (je nach verwendeter Hardware)
+***Speicherkarte*** oder SSD, USB-Stick, usw. (je nach verwendeter Hardware)
 
 ## benötigte / wichtige Links
 * Download Image: https://www.raspberrypi.org/software/operating-systems/
@@ -51,18 +44,14 @@ oder SSD, USB-Stick, usw. (je nach verwendeter Hardware)
 * Putty: http://www.putty.org/
 
 ## Installationsanleitung
-### Installation Betriebssystem
 
 * Das gewünschte Basis-Betriebssystem (Raspberry OS Bullseye, Ubuntu, Debian, usw.) – je nach verwendeter Hardware installieren.
 
-    Hilfe und Anleitungen zu den jeweiligen Versionen gibt es auf den entsprechenden Supportseiten, 
-Youtube, usw.
+  Hilfe und Anleitungen zu den jeweiligen Versionen gibt es auf entsprechenden Supportseiten, Youtube, usw.
 
-* NUR wenn root-Zugang per SSH oder sftp unbedingt benötigt wird, **KANN** auch der 
-Root Zugang für SSH freigeschaltet werden.
-
-    Wir raten, aus den bekannten Sicherheitsaspekten, davon ab. Für die Installation von ioBroker 
-reicht es aus, den Befehl sudo zu verwenden und dem jeweiligen Befehl voran zu stellen.
+?> Wir raten, aus den bekannten Sicherheitsaspekten, davon ab den Root Zugang für SSH 
+freizuschalten. Für die Installation von ioBroker reicht es aus, *sudo* dem jeweiligen 
+Befehl voran zu stellen.
 
 ### Installation Node.js
 !> mit dem aktuellen Installer von ioBroker (siehe unten) wird **auf einem System ohne node.js** automatisch die aktuell empfohlene Version von node.js mit installiert! Eine vorherige separate Installation von node.js ist somit **nicht** mehr nötig.
