@@ -4,8 +4,7 @@ lastChanged: "14.10.2022"
 ---
 
 
-!> Diese Anleitung gilt NICHT für fertige Images der Webseite!
-Die hier beschriebene manuelle Installation ist einem Image gegenüber zu bevorzugen! 
+!> Diese Anleitung gilt NICHT für fertige Images der Webseite! Die hier beschriebene manuelle Installation ist einem Image gegenüber zu bevorzugen! 
 
 ## Allgemeines
 Die manuelle Installation von ioBroker erfolgt über ein Skript, welches die notwendigen 
@@ -13,8 +12,8 @@ Installationsschritte durchführt und evtl. noch erforderliche Softwarepakete na
 Während der Installation wird im System ein neuer Benutzer “iobroker” angelegt sowie ein
 zugehöriges Home-Verzeichnis (/home/iobroker). Der ioBroker läuft dann unter diesem User. 
 
-Diese Installationsanleitung zeigt die Installation auf Linux am Beispiel vom Raspberry Pi 
-mit Raspberry OS 'Bullseye'. 
+Diese Installationsanleitung beschreibt eine *Neuinstallation* von ioBroker auf Linux am 
+Beispiel vom Raspberry Pi mit Raspberry OS 'Bullseye'. 
 
 ## Benötigte Hardware
 
@@ -48,16 +47,14 @@ sind Stabilitätsprobleme zu erwarten.
 * Das gewünschte Basis-Betriebssystem (Raspberry OS Bullseye, Ubuntu, Debian, usw.) – je nach verwendeter Hardware installieren.
 
   Hilfe und Anleitungen zu den jeweiligen Versionen gibt es auf entsprechenden Supportseiten, Youtube, usw.
+  
+?> ioBroker arbeitet als Server 24/7 und wird über Terminalprogramme wie Putty o.ä. administriert. Ein Desktop zu installieren bindet Ressourcen und ist nicht notwendig!
 
-?> Wir raten, aus den bekannten Sicherheitsaspekten, davon ab den Root Zugang für SSH 
-freizuschalten. Für die Installation von ioBroker reicht es aus, *sudo* dem jeweiligen 
-Befehl voran zu stellen.
+?> Wir raten, aus den bekannten Sicherheitsaspekten, davon ab den Root Zugang für SSH freizuschalten. Für die Installation von ioBroker reicht es aus, *sudo* dem jeweiligen Befehl voran zu stellen.
 
-* System-Update: ``sudo apt-get update && sudo apt-get upgrade``
+* Über die Konsole und je nach verwendetem OS ein System-Update  mit ``sudo apt-get update && sudo apt-get upgrade`` bzw. ``sudo apt update && sudo apt upgrade`` durchführen.
 
-    Je nach verwendetem OS kann das Update auch mittels ``sudo apt update && sudo apt upgrade`` 
-ausgeführt werden.
-
+* ioBroker mit dem Befehl ``curl -sLf https://iobroker.net/install.sh | bash -`` installieren.
 
 ### Installation Node.js
 !> mit dem aktuellen Installer von ioBroker (siehe unten) wird **auf einem System ohne node.js** automatisch die aktuell empfohlene Version von node.js mit installiert! Eine vorherige separate Installation von node.js ist somit **nicht** mehr nötig.
