@@ -10,11 +10,12 @@ ioBroker und Adapter sind vorwiegend in der Programmiersprache JavaScript
 geschrieben und da ein Computer Javascript nicht direkt ausführen kann,
 benötigt er dazu die Laufzeitumgebung Node.js. 
 
-Wir empfehlen die Installation von ioBroker auf Debian und Ubuntu basierte Linux Distributionen.
+?> Wir empfehlen die Installation von ioBroker auf Debian und Ubuntu basierten Linux Distributionen.
 
-Node.js wird hier mit den folgenden Befehlen installiert:
+Node.js wird hier bei Bedarf mit den folgenden Befehlen installiert:
 
 ```curl -sL https://deb.nodesource.com/setup_aa.x | sudo -E bash -```
+
 ```sudo apt-get install -y nodejs```
 
 Wobei aa mit der zu installierenden Versionsnummer von Node.js zu ersetzen ist.
