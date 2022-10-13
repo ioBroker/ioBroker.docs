@@ -1,8 +1,9 @@
 ---
-title:       "ioBroker Installation unter Linux"
+title:       "Linux"
 lastChanged: "11.10.2022"
 ---
 
+***ioBroker Installation auf einem Linux System***
 
 !> Diese Anleitung gilt NICHT für fertige Images der Webseite! Die hier beschriebene manuelle Installation ist einem Image gegenüber zu bevorzugen! 
 
