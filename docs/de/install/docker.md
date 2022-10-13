@@ -1,9 +1,8 @@
 ---
-title:       "Installation"
+title:       "Docker"
 lastChanged: "13.09.2018"
 ---
 
-# Docker
 
 ?> ***Dies ist ein Platzhalter***.
    <br><br>
