@@ -21,6 +21,7 @@ Node.js wird hier bei Bedarf mit den folgenden Befehlen installiert:
 Wobei aa mit der zu installierenden Versionsnummer von Node.js zu ersetzen ist.
 
 !> Stand Oktober 2022 ist die Version 16 von Node.js für ioBroker empfohlen! 
+
 !> Ungerade Node.js Versionen dürfen nicht verwendet werden.
 
 
