@@ -1,9 +1,7 @@
 ---
-title:       "Logik"
+title:       "Blockly"
 lastChanged: "13.09.2018"
 ---
-
-# Blockly
 
 ?> ***Dies ist ein Platzhalter***.
    <br><br>
