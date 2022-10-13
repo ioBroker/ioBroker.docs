@@ -1,9 +1,8 @@
 ---
-title:       "Logik"
+title:       "JavaScript"
 lastChanged: "13.09.2018"
 ---
 
-# JavaScript
 
 ?> ***Dies ist ein Platzhalter***.
    <br><br>
