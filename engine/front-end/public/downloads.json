@@ -15,10 +15,10 @@
     "device": "Docker",
     "details": "Docker image",
     "picture": "docker.png",
-    "info": "https://smarthome.buanet.de/docker/container-images/iobroker/"
+    "info": "https://docs.buanet.de/iobroker-docker-image/"
   },
   {
-    "file": "ioBroker_Image_RPi_v1.2.0_latest.zip",
+    "file": "https://github.com/buanet/ioBroker.raspberry-os/releases",
     "platform": "Raspberry OS",
     "date": "20210809",
     "device": "Raspberry Pi",
