@@ -1,8 +1,8 @@
 ---
 title:       "Willkommen"
-lastChanged: "13.04.2022"
+lastChanged: "18.10.2022"
 ---
-# Wilkommen
+
 
 ## Hinweis zur aktuellen Dokumentation
 
@@ -16,10 +16,9 @@ lastChanged: "13.04.2022"
    Sie wird sukzessive durch diese neue Dokumentation ersetzt.**
 
 
-&nbsp;
 
 
-# ioBroker - Automate your life
+## ioBroker - Automate your life
 
 ioBroker ist eine Softwarelösung zur Automatisierung deines Heims. Es erlaubt verschiedenste Smarthome-Systeme, die ohne
 ioBroker Insellösungen bleiben würden, anzubinden und so übergreifend zu steuern.
@@ -53,7 +52,7 @@ Durch Nutzung der Logikbausteine (Adapter Logikprogrammierung) in ioBroker kann 
 Über die verfügbaren Visualisierungs-Adapter kann sich der Anwender individuelle Status und Steuerungsseiten für seine Hue Lampen und Rolläden bauen, auf die mit den mobilen Endgeräten von zu Hause oder aus dem Urlaub (z.B. mittels ioBroker Cloud Services oder VPN) zugegriffen werden kann.
 
 
-&nbsp;
+
 
 
 # Stärken von ioBroker
@@ -113,7 +112,7 @@ durch einfaches Drag and Drop realisiert werden.
 ![](media/iobroker-visualisation-vis-wetter.png)
 
 
-&nbsp;
+
 
 
 ### Material UI
@@ -124,7 +123,7 @@ React und Material UI interface.
 ![](media/iobroker-visualisation-material.png)  
 
 
-&nbsp;
+
 
 
 ### Jarvis
@@ -140,7 +139,7 @@ Das Layout ist flexibel konfigurierbar. Das Layout kann durch beliebig viele Tab
 ![](media/iobroker-visualisation-jarvisDevices.png)
 
 
-&nbsp;
+
 
 
 ### iQontrol
@@ -162,7 +161,7 @@ Video [iQontrol Demo Video][]
 <img src="media/iobroker-visualisation-iqontrol5.png" width="200">
 
 
-&nbsp;
+
 
 
 ### Lovelace
@@ -178,7 +177,7 @@ Der Lovelace Editor (WYSIWYG Prinzip - What you see is what you get Prinzip) erm
 ![](media/iobroker-visualisation-lovelace.png)  
 
 
-&nbsp;
+
 
 
 # Wer steckt hinter ioBroker?
@@ -204,7 +203,7 @@ Das ioBroker Core Entwicklerteam setzt sich zusammen aus:
 Eine Liste der [ioBroker Developer][] findet ihr im ioBroker Forum.
 
 
-&nbsp;
+
 
 
 # Lizenzen und Kosten
@@ -215,7 +214,7 @@ In sehr seltenen Fällen (<5 Adapter aktuell) wird eine (teils kostenpflichtige)
 Ein Überblick und die Bestellung der Lizenz für diese Adapter erfolgt über diese Seite [iobrokerPreise][]. Die Kosten für eine kommerzielle Nutzung dieser Adapter ist dort ebenfalls aufgeführt.
 
 
-&nbsp;
+
 
 
 # Wie finanziert sich ioBroker?
@@ -228,7 +227,7 @@ Die ioBroker GmbH stellt für das Community-Projekt die Infrastruktur (z.B. den 
 Die ioBroker Free Cloud ist ebenfalls ein kostenfreier Dienst, der der Community durch die ioBroker GmbH zur Verfügung gestellt wird. Die Pro-Cloud und der iot-Service sind kommerzielle Angebote der ioBroker GmbH, wobei die Kosten gerade einmal die Betriebskosten decken.
 
 
-&nbsp;
+
 
 
 # Remotezugriff auf deine ioBroker Installation über die ioBroker Cloud 
@@ -241,7 +240,7 @@ In der folgende Grafik werden die ioBroker Cloud Service Produkte im Überblick 
 ![](media/iobroker-cloud-services-overview.png)  
 
 
-&nbsp;
+
 
 
 # Community
@@ -257,7 +256,7 @@ Linksammlung der offiziellen ioBroker Communities:
 - Facebookgruppe "ioBroker and smart home international": [FacebookIoBrokerSmartHomeIoTInternational][]
 
 
-&nbsp;
+
 
 
 # ioBroker Statistiken
