@@ -1,10 +1,10 @@
 ---
 title:       "Willkommen"
-lastChanged: "18.10.2022"
+lastChanged: "22.10.2022"
 ---
 
 
-## Hinweis zur aktuellen Dokumentation
+***Hinweis zur aktuellen Dokumentation***
 
 ?> Die Dokumentation befindet sich im Aufbau und wird stetig erweitert.
    Daher kann es vorkommen, dass Links noch nicht funktionieren oder
@@ -30,7 +30,7 @@ Das ioBroker-System ist modular aufgebaut und kann durch die Installation von ei
 Über 450 Adaptern realisieren die Einbindung von verschiedenen Plattformen, Systemen und Geräten von A wie Alexa bis Z wie Zigbee und viele weitere Möglichkeiten zur Automatisierung.
 
 
-## ioBroker verbindet unterschiedlichen Smarthomesysteme
+### ioBroker verbindet unterschiedlichen Smarthomesysteme
 
 ![](media/iobroker-simple-overview.png)  
 
@@ -55,15 +55,15 @@ Durch Nutzung der Logikbausteine (Adapter Logikprogrammierung) in ioBroker kann 
 
 
 
-# Stärken von ioBroker
+## Stärken von ioBroker
 
-## Plattformunabhängig
+### Plattformunabhängig
 ioBroker kann auf fast allen Hardwareplattformen (Einplatinencomputer wie ein Raspberry Pi, Server, NAS, Server mit Virtualisierungsumgebungen wie z.B. Proxmox, Desktopcomputer, ...) wo ein Linux, OSX, Windows, Docker läuft  installiert werden. 
 
 Eine einfache Installationsroutine aus einer einzigen Zeile (one-line installer) ermögicht unter Linux eine anwenderfreundliche Installation und somit einen schnellen Einstieg in ioBroker.
 
 
-## Skalierbar
+### Skalierbar
 Sollen im Laufe der Zeit weitere Smarthome-Systeme angebunden werden, können
 diese vom Anwender jederzeit über zusätzliche Adapter im laufendem Betrieb
 implementiert werden.
@@ -73,7 +73,7 @@ Betriebssystemplattformen und die Kopplung von Einplatinencomputern mit
 großen Multicore-Servern möglich.
 
 
-## Individuelle Programmierung von Abläufen
+### Individuelle Programmierung von Abläufen
 Mit den Logik Adaptern bietet ioBroker die Möglichkeit individuelle Abläufe und Skripte zu erstellen. 
 In einem Skript kann z.B. ein Wert von einem Adapter überwacht werden (Urlaub ist im Kalender am heutigen Tag eingetragen) und eine Aktion ausgelöst werden (Schalte um 18 Uhr alle Hue Lichter ein).
 
@@ -180,7 +180,7 @@ Der Lovelace Editor (WYSIWYG Prinzip - What you see is what you get Prinzip) erm
 
 
 
-# Wer steckt hinter ioBroker?
+## Wer steckt hinter ioBroker?
 ioBroker ist ein Open Source Projekt welches von der ioBroker Community entwickelt wird und von [Bluefox][] als Projektowner administriert wird.
 
 Viele Entwickler und viele weitere Helfer entwickeln in ihrer Freizeit ehrenamtlich an den zentralen ioBroker System-Komponenten, den vielen Adaptern, dem Social-Media-Support, der Dokumentation und vielem mehr.  
@@ -206,7 +206,7 @@ Eine Liste der [ioBroker Developer][] findet ihr im ioBroker Forum.
 
 
 
-# Lizenzen und Kosten
+### Lizenzen und Kosten
 Sehr viele ioBroker Projekte stehen mitsamt dem Quellcode auf [GitHub][] zur Verfügung. In den allermeisten Fällen steht der Quellcode unter der MIT Lizenz. Manchmal werden allerdings auch Lizenzen wie GPL, CC BY-NC oder andere genutzt, welche zu berücksichtgen sind, jedoch für End-Nutzer an sich keinen großen Unterschied darstellen!
 Der Entwickler eines Adapters legt für den jeweiligen Adapter die Lizenz selbst fest.
 
@@ -217,7 +217,7 @@ Ein Überblick und die Bestellung der Lizenz für diese Adapter erfolgt über di
 
 
 
-# Wie finanziert sich ioBroker?
+### Wie finanziert sich ioBroker?
 Alle zentralen Komponenten und nahezu alle weiteren Adapter sind kostenfrei erhältlich und der Quellcode der allermeisten Adapter steht auf GitHub offen zur Verfügung.
 
 Da ein Open Source Projekt keine Einnahmen erzielen kann, um z.B. Server zu kaufen, bedarf es für diese Dinge eine offizielle Gesellschaftsform, die ioBroker GmbH. Die ioBroker GmbH bietet unter anderem auch einen kommerziellen Support für die ioBroker Software oder verkauft z.B. einen ioBroker-Server. 
@@ -230,7 +230,7 @@ Die ioBroker Free Cloud ist ebenfalls ein kostenfreier Dienst, der der Community
 
 
 
-# Remotezugriff auf deine ioBroker Installation über die ioBroker Cloud 
+## Remotezugriff auf deine ioBroker Installation über die ioBroker Cloud 
 Über einen optionalen cloudbasierten Zugriff ist für den Anwender oder auch
 für Systemintegratoren die Remote-Verwaltung auf ein lokal installiertes ioBroker
 -System 24/7 möglich. Die Zugriffsteuerung kann mittels Benutzer und Gruppen vom
@@ -243,7 +243,7 @@ In der folgende Grafik werden die ioBroker Cloud Service Produkte im Überblick 
 
 
 
-# Community
+## Community
 Seit 2014 hat sich ioBroker aufgrund seiner vielen Vorzüge eine breite 
 Unterstützung von tausenden Anwendern und Entwicklern gesichert. Im eigens 
 eingerichteten [Forum][] treffen sich Anwender und Entwickler und tauschen dort ihre 
@@ -259,7 +259,7 @@ Linksammlung der offiziellen ioBroker Communities:
 
 
 
-# ioBroker Statistiken
+## ioBroker Statistiken
 Auf [ioBrokerStatistics][] findet ihr eine Übersichtsseite mit ein paar interessanten ioBroker Statistiken. 
 
 
