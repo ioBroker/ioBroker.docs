@@ -11,6 +11,7 @@
   * [Alias](basics/alias)
   * [Enums](basics/functions)
   * [Roles](basics/roles)
+  * [Glossary](basics/glossary)
 
 * en:Installation;de:Installation;ru:Установка;zh-cn:安装系统
   * [Introduction](install/README)
