@@ -108,6 +108,15 @@
             "zh-cn": "数据点的作用"
           },
           "content": "basics/roles.md"
+        },
+        "Glossary": {
+          "title": {
+            "en": "Glossary",
+            "de": "Glossar",
+            "ru": "глоссарий",
+            "zh-cn": "词汇表"
+          },
+          "content": "basics/glossary.md"
         }
       }
     },
