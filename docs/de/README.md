@@ -10,7 +10,7 @@ lastChanged: "22.10.2022"
    Daher kann es vorkommen, dass Links noch nicht funktionieren oder
    Inhalte fehlen. Wir sind für jede Hilfe bei der Erstellung neuer
    Artikel oder für Verbesserungen dankbar. Informationen dazu gibt
-   es hier [im Forum][].
+   es hier im [Forum](https://forum.iobroker.net/category/186/dokumentations-support).
    
    **Bis alle Inhalte übernommen wurden, ist die alte Dokumentation noch [hier zu finden](https://www.iobroker.net/docu/).
    Sie wird sukzessive durch diese neue Dokumentation ersetzt.**
@@ -25,7 +25,7 @@ ioBroker Insellösungen bleiben würden, anzubinden und so übergreifend zu steu
 
 ioBroker ist daher **die** Integrationsplattform für das Internet der Dinge und ermöglicht die Einbindung von kommerziellen Produkten aus fast allen Lebensbereiche oder die Integration einer selbst erstellten Lösung.
 
-Das ioBroker-System ist modular aufgebaut und kann durch die Installation von einzelnen [Adaptern][] um die individuellen Wünsche erweitert werden. 
+Das ioBroker-System ist modular aufgebaut und kann durch die Installation von einzelnen [Adaptern](https://www.iobroker.net/#de/adapters/adapters.md) um die individuellen Wünsche erweitert werden. 
 
 Über 450 Adaptern realisieren die Einbindung von verschiedenen Plattformen, Systemen und Geräten von A wie Alexa bis Z wie Zigbee und viele weitere Möglichkeiten zur Automatisierung.
 
@@ -89,7 +89,7 @@ Nachfolgend werden einige Visualisierungsadapter und deren Haupteigenschaften ku
 
 
 ### VIS
-[Adapterseite vis][]
+[Adapterseite vis](https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis/README.md)
 
 ioBroker stellt mit dem Adapter VIS (Visualisierung) ein mächtiges Tool zur Erstellung von individuellen 
 Visualisierungen zur Verfügung. Aktuelle Werte von Sensoren können genau so wie 
@@ -118,7 +118,7 @@ durch einfaches Drag and Drop realisiert werden.
 ### Material UI
 React und Material UI interface.
 
-[Adapterseite Material][]
+[Adapterseite Material](https://www.iobroker.net/#de/adapters/adapterref/iobroker.material/README.md)
 
 ![](media/iobroker-visualisation-material.png)  
 
@@ -127,7 +127,7 @@ React und Material UI interface.
 
 
 ### Jarvis
-[Adapterseite Jarvis][]
+[Adapterseite Jarvis](https://www.iobroker.net/#de/adapters/adapterref/iobroker.jarvis/README.md)
 
 Jarvis ist eine Material Design Visualisierung, die auf Material UI basiert. Jarvis gibt eine Struktur und Module vor, die zur Visualisierung genutzt werden, aber sehr flexibel konfiguriert werden können.
 
@@ -166,7 +166,7 @@ Video [iQontrol Demo Video][]
 
 ### Lovelace
 
-[Adapterseite lovelace][]
+[Adapterseite lovelace](https://www.iobroker.net/#de/adapters/adapterref/iobroker.lovelace/README.md)
 
 Mit dem Lovelace Adapter kann die HomeAssistant UI Lovelace für ioBroker genutzt werden. Lovelace hat ein responsivefähiges Design und passt sich somit  automatisch an das Layout vom PC, Tablet oder Smartphone Bildschirm an. 
 
@@ -181,7 +181,7 @@ Der Lovelace Editor (WYSIWYG Prinzip - What you see is what you get Prinzip) erm
 
 
 ## Wer steckt hinter ioBroker?
-ioBroker ist ein Open Source Projekt welches von der ioBroker Community entwickelt wird und von [Bluefox][] als Projektowner administriert wird.
+ioBroker ist ein Open Source Projekt welches von der ioBroker Community entwickelt wird und von [Bluefox](https://github.com/GermanBluefox) als Projektowner administriert wird.
 
 Viele Entwickler und viele weitere Helfer entwickeln in ihrer Freizeit ehrenamtlich an den zentralen ioBroker System-Komponenten, den vielen Adaptern, dem Social-Media-Support, der Dokumentation und vielem mehr.  
 Mit der großen und hilfsbereiten Community hat sich bisher zu jedem Problem eine Lösung gefunden.   
@@ -195,23 +195,23 @@ Es gibt keinen vertraglich festgelegten Support aus der Open-Source Community, a
 Richtungsentscheidungen der zentralen Komponenten und des Gesamtprojekts werden innerhalb des Core-Teams diskutiert und dann umgesetzt.
 
 Das ioBroker Core Entwicklerteam setzt sich zusammen aus:
-* [Bluefox][]
-* [Apollon77][]
-* [foxriver76][]
-* [AlCalzone][]
+* [Bluefox](https://github.com/GermanBluefox)
+* [Apollon77](https://github.com/Apollon77)
+* [foxriver76](https://github.com/foxriver76)
+* [AlCalzone](https://github.com/AlCalzone)
 
-Eine Liste der [ioBroker Developer][] findet ihr im ioBroker Forum.
+Eine Liste der [ioBroker Developer](https://forum.iobroker.net/groups/developer) findet ihr im ioBroker Forum.
 
 
 
 
 
 ### Lizenzen und Kosten
-Sehr viele ioBroker Projekte stehen mitsamt dem Quellcode auf [GitHub][] zur Verfügung. In den allermeisten Fällen steht der Quellcode unter der MIT Lizenz. Manchmal werden allerdings auch Lizenzen wie GPL, CC BY-NC oder andere genutzt, welche zu berücksichtgen sind, jedoch für End-Nutzer an sich keinen großen Unterschied darstellen!
+Sehr viele ioBroker Projekte stehen mitsamt dem Quellcode auf [GitHub](https://github.com/ioBroker) zur Verfügung. In den allermeisten Fällen steht der Quellcode unter der MIT Lizenz. Manchmal werden allerdings auch Lizenzen wie GPL, CC BY-NC oder andere genutzt, welche zu berücksichtgen sind, jedoch für End-Nutzer an sich keinen großen Unterschied darstellen!
 Der Entwickler eines Adapters legt für den jeweiligen Adapter die Lizenz selbst fest.
 
 In sehr seltenen Fällen (<5 Adapter aktuell) wird eine (teils kostenpflichtige) Lizenz benötigt um einen Adapter zu nutzen. Für den "VIS" Adapter stellt beispielsweise die ioBroker GmbH eine kostenfreie Lizenz für die private Nutzung zur Verfügung - für eine kommerzielle Nutzung ist allerdings eine kostenpflichtige Lizenz nötig.
-Ein Überblick und die Bestellung der Lizenz für diese Adapter erfolgt über diese Seite [iobrokerPreise][]. Die Kosten für eine kommerzielle Nutzung dieser Adapter ist dort ebenfalls aufgeführt.
+Ein Überblick und die Bestellung der Lizenz für diese Adapter erfolgt über diese Seite [iobrokerPreise](https://iobroker.net/www/pricing). Die Kosten für eine kommerzielle Nutzung dieser Adapter ist dort ebenfalls aufgeführt.
 
 
 
@@ -246,21 +246,21 @@ In der folgende Grafik werden die ioBroker Cloud Service Produkte im Überblick 
 ## Community
 Seit 2014 hat sich ioBroker aufgrund seiner vielen Vorzüge eine breite 
 Unterstützung von tausenden Anwendern und Entwicklern gesichert. Im eigens 
-eingerichteten [Forum][] treffen sich Anwender und Entwickler und tauschen dort ihre 
-Erfahrungen und Anregungen miteinander aus. Auf dem ioBroker [Discord][] Server können Erfahrungen im Live-Chat ausgetauscht sowie Live Debug Session kurzfristig durchgeführt werden, um aktuellen Problemen auf die Schliche zu kommen. 
+eingerichteten [Forum](https://forum.iobroker.net) treffen sich Anwender und Entwickler und tauschen dort ihre 
+Erfahrungen und Anregungen miteinander aus. Auf dem ioBroker [Discord](https://discord.gg/sGWE65zF) Server können Erfahrungen im Live-Chat ausgetauscht sowie Live Debug Session kurzfristig durchgeführt werden, um aktuellen Problemen auf die Schliche zu kommen. 
 
 Linksammlung der offiziellen ioBroker Communities:
-- ioBroker Forum: [Forum][]
-- Discord ioBroker Server: [Discord][]
-- Facebookgruppe "IoBroker SmartHome und IoT": [FacebookIoBrokerSmartHomeIoT][]
-- Facebookgruppe "ioBroker and smart home international": [FacebookIoBrokerSmartHomeIoTInternational][]
+- ioBroker Forum: [Forum](https://forum.iobroker.net)
+- Discord ioBroker Server: [Discord](https://discord.gg/sGWE65zF)
+- Facebookgruppe "IoBroker SmartHome und IoT": [FacebookIoBrokerSmartHomeIoT](https://www.facebook.com/groups/440499112958264)
+- Facebookgruppe "ioBroker and smart home international": [FacebookIoBrokerSmartHomeIoTInternational](https://www.facebook.com/groups/iobrokerinternational)
 
 
 
 
 
 ## ioBroker Statistiken
-Auf [ioBrokerStatistics][] findet ihr eine Übersichtsseite mit ein paar interessanten ioBroker Statistiken. 
+Auf [ioBrokerStatistics](https://www.iobroker.net/#de/statistics) findet ihr eine Übersichtsseite mit ein paar interessanten ioBroker Statistiken. 
 
 
 
