@@ -172,15 +172,6 @@
               },
               "content": "install/proxmox.md"
             },
-            "VirtualBox": {
-              "title": {
-                "en": "VirtualBox",
-                "de": "Installation",
-                "ru": "установка",
-                "zh-cn": "安装"
-              },
-              "content": "install/virtualbox.md"
-            },
             "Docker": {
               "title": {
                 "en": "Docker",
