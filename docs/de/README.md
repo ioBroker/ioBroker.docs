@@ -1,6 +1,6 @@
 ---
 title:       "Willkommen"
-lastChanged: "22.10.2022"
+lastChanged: "28.10.2022"
 ---
 
 
@@ -30,7 +30,7 @@ Das ioBroker-System ist modular aufgebaut und kann durch die Installation von ei
 Über 450 Adaptern realisieren die Einbindung von verschiedenen Plattformen, Systemen und Geräten von A wie Alexa bis Z wie Zigbee und viele weitere Möglichkeiten zur Automatisierung.
 
 
-### ioBroker verbindet unterschiedlichen Smarthomesysteme
+### ioBroker verbindet unterschiedlichste Smarthomesysteme
 
 ![](media/iobroker-simple-overview.png)  
 
