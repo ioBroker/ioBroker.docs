@@ -4,7 +4,7 @@ lastChanged: "13.10.2022"
 ---
 
 
-!> Mit Einführung des Installationsskripts ist eine getrennte Installation von Node.js und npm auf üblichen Linux Systemen nicht mehr notwendig! Siehe [Installation unter Linux][]
+!> Mit Einführung des Installationsskripts ist eine getrennte Installation von Node.js und npm auf üblichen Linux Systemen nicht mehr notwendig! Siehe [Installation unter Linux](https://www.iobroker.net/#de/documentation/install/linux.md)
 
 ioBroker und Adapter sind vorwiegend in der Programmiersprache JavaScript
 geschrieben und da ein Computer Javascript nicht direkt ausführen kann,
@@ -27,7 +27,3 @@ Wobei aa mit der zu installierenden Versionsnummer von Node.js zu ersetzen ist.
 
 Weiterführende Informationen zur Installation von Node.js für unterschiedlichste Betriebssysteme 
 sind hier [Node.js-Foundation](https://nodejs.org/en/download/package-manager/) zu finden.
-
-
-
-[Installation unter Linux]: https://www.iobroker.net/#de/documentation/install/linux.md
