@@ -19,7 +19,6 @@
   * [Hardware](install/hardware)
   * en:Virtualization platforms;de:Virtualisierungsplattformen;ru:Платформы виртуализации;zh-cn:虚拟机安装
     * [Proxmox](install/proxmox)
-    * [VirtualBox](install/virtualbox)
     * [Docker](install/docker)
   * en:Manual installation;de:Manuelle Installation;ru:Ручная установка;zh-cn:手动安装
     * [Node.js](install/nodejs)
