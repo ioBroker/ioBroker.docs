@@ -25,8 +25,7 @@
     * [Linux](install/linux)
     * [Windows](install/windows)
     * [macOS](install/macos)
-  * en:Software update;de:Softwareupdate;ru:Обновление;zh-cn:系统更新
-    * [General](install/update)
+  * [en:Updating;de:Updaten;ru:обновить;zh-cn:更新](install/update.md)
     * [ioBroker](install/updateself)
     * [Adapter](install/updateadapter)
     * [Node.js & npm](install/updatenode)
