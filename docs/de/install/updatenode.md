@@ -1,6 +1,6 @@
 ---
 title:       "Update NodeJS"
-lastChanged: "05.02.2022"
+lastChanged: "29.10.2022"
 ---
 
 # Node.js Update
@@ -11,7 +11,7 @@ lastChanged: "05.02.2022"
 | < 4.x | 12.x, 14.x, 16.x | 6.x |
 | 4.x | 12.x, 14.x, 16.x | 6.x, 7.x, 8.x |
 
-## Warum muss man es updaten?
+## Warum muss man das updaten?
 Wie bei vielen Open-Source-Technologien üblich, entwickelt sich Node.js schnell weiter.  
 Updates, die die **Stabilität** und **Sicherheit** steigern, oder gar **neue Funktionen** hinzufügen, erscheinen regelmäßig.  
 
@@ -62,8 +62,8 @@ In der Regel werden alle Prozesse dadurch beendet. Sicherheitshalber sollte noch
 #### 6 - Node.js Update
 Im nächsten Schritt aktualisiert man Node.js auf die gewünschte neue Version.  
 Das Update unterscheidet sich jedoch je nach installiertem Betriebssystem, siehe Anleitung  
-**Anmerkung**  
-Der Node Package Manager, kurz `npm`, wird ebenfalls mit aktualisiert, dieser muss gegebenenfalls, bis js-controller Version 3, je nach verwendeter Node.js Version auf npm v6.x zurückgesetzt werden. Ab js-controller Version 4 wird auch npm v7/8 unterstützt.
+
+?> Der Node Package Manager, kurz `npm`, wird ebenfalls mit aktualisiert, dieser muss gegebenenfalls, bis js-controller Version 3, je nach verwendeter Node.js Version auf npm v6.x zurückgesetzt werden. Ab js-controller Version 4 wird auch npm v7/8 unterstützt.
 
 #### 7 - Version und Pfade kontrollieren
 Nach abgeschlossenem Update werden die Pfade und installierten Versionen noch einmal gegengeprüft.
@@ -124,6 +124,7 @@ Ein weiterer Fall sind Adapter mit canvas Modul (ggf echarts oder Mihome-vacuum)
 which nodejs node npm && nodejs -v && node -v && npm -v
 ```
 - Ausgabe
+
 ```
 /usr/bin/nodejs
 /usr/bin/node
@@ -134,6 +135,7 @@ v14.18.3
 ```
 
 #### 2 - Backup
+
 ```
 iobroker backup
 ```
@@ -143,42 +145,55 @@ iobroker backup
 - Anleitung dazu findet man unter [Adapter verwalten](https://www.iobroker.net/#de/documentation/tutorial/adapter.md)
 
 #### 4 - ioBroker stoppen
+
 ```
 iobroker stop
 ```
 
 #### 5 - ioBroker Prozesse prüfen
+
 ```
 ps aux | grep 'io\|PID'
 ```
 - und
+
 ```
 ps aux | grep 'backup\|PID'
+
 ```
 - falls noch Prozesse laufen
+
 ```
 sudo kill -9 <ProzessID>
 ```
 
 #### 6 - Node.JS Update
 - Details zu [Node.Js](https://github.com/nodesource/distributions#installation-instructions)
+
 ```
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt install -y nodejs
 ```
-- Für Node.js 16 einfach in der URL die 14 durch 16 ersetzen.
+- Für andere Node.js Versionen einfach in der URL die 16 durch die andere Versionsnummer ersetzen.
+
+!> Stand Oktober 2022 ist die Version 16 von Node.js für ioBroker empfohlen! 
+
+!> Ungerade Node.js Versionen dürfen nicht verwendet werden.
 
 #### 7 - Version/Pfad kontrollieren
+
 ```
 which nodejs node npm && nodejs -v && node -v && npm -v
 ```
 
 #### 8 - iobroker fixer ausführen
+
 ```
 iobroker fix
 ```
 
 #### 9 - ioBroker starten
+
 ```
  iobroker start
  ```
@@ -186,11 +201,13 @@ iobroker fix
 ## Anleitung für Windows
 
 #### 1 - Version prüfen (Windowstaste + R)
+
 ```
 cmd.exe /C node -v & pause
 ```
 
 #### 2 - Backup
+
 ```
 iobroker backup
 ```
@@ -200,11 +217,13 @@ iobroker backup
 - Anleitung dazu findet man unter [Adapter verwalten](https://www.iobroker.net/#de/documentation/tutorial/adapter.md)
 
 #### 4- Sicherung des Ordners:
+
 ```
 C:\Program Files\iobroker\deinhostname\nodejs
 ```
 
 #### 5 - iobroker stoppen
+
 ```
 iobroker stop
 ```
@@ -213,25 +232,30 @@ iobroker stop
 
 - [Node.js](https://nodejs.org) als Archiv herunterladen, nicht als msi Datei
 - Entpacke den Download und kopiere den gesamten Ordner über den vorhandenen Ordner:
+
 ```
 C:\Program Files\iobroker\deinhostname\nodejs
 ```
 -  Kopiere aus der Sicherungskopie die Datei **nodevars.bat** zurück in den Ordner:
+
 ```
 C:\Program Files\iobroker\deinhostname\nodejs
 ```
 
 #### 7 - Version kontrollieren
+
 ```
 cmd.exe /C node -v & pause
 ```
 
 #### 8 - iobroker fixer ausführen
+
 ```
 iobroker fix
 ```
 
 #### 9 - ioBroker starten
+
 ```
 iobroker start
 ```
@@ -243,16 +267,17 @@ iobroker start
 ## Problemlösung
 ### manueller Rebuild
 - Hierzu gibt es
+
 ```
 iobroker rebuild <adaptername>
 ```
 - falls das nicht reicht
+
 ```
 iobroker rebuild <adaptername> --install
 ```
 - einfach manuell an der Shell ausführen. Damit dürfte idealerweise alles automatisiert erledigt sein.
 
-# Hinweis
 ?> Solange js-Controller kleiner Version 4, muss auch bei einem Node.js Update innerhalb einer Major Version, der [ioBroker fixer](https://www.iobroker.net/#de/documentation/install/linux.md) ausgeführt werden.  
 Mit dem zukünftigen js-Controller in Version 4 werden Rebuild's vollautomatisch gehändelt.  
 Ein manueller Rebuild wird dann nicht mehr unterstützt.
