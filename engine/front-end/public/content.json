@@ -229,36 +229,28 @@
             }
           }
         },
-        "Software update": {
+        "Updating": {
           "title": {
-            "en": "Software update",
-            "de": "Softwareupdate",
-            "ru": "Обновление",
-            "zh-cn": "系统更新"
+            "en": "Updating",
+            "de": "Updaten",
+            "ru": "обновить",
+            "zh-cn": "更新"
           },
+          "content": "install/update.md"
           "pages": {
-            "General": {
-              "title": {
-                "en": "General",
-                "de": "Installation",
-                "ru": "установка",
-                "zh-cn": "安装"
-              },
-              "content": "install/update.md"
-            },
             "ioBroker": {
               "title": {
                 "en": "ioBroker",
-                "de": "Installation",
-                "ru": "установка",
-                "zh-cn": "安装"
+                "de": "ioBroker",
+                "ru": "ioBroker",
+                "zh-cn": "ioBroker"
               },
               "content": "install/updateself.md"
             },
             "Adapter": {
               "title": {
                 "en": "Adapter",
-                "de": "Update eines Adapters",
+                "de": "Adapter updaten",
                 "ru": "Обновите адаптер",
                 "zh-cn": "更新适配器"
               },
