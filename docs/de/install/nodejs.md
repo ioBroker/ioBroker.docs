@@ -1,6 +1,6 @@
 ---
-title:       "Installation von Node.js und npm"
-lastChanged: "13.10.2022"
+title:       "Node.js und npm"
+lastChanged: "29.10.2022"
 ---
 
 
@@ -14,11 +14,12 @@ benötigt er dazu die Laufzeitumgebung Node.js.
 
 Node.js wird hier bei Bedarf mit den folgenden Befehlen installiert:
 
-```curl -sL https://deb.nodesource.com/setup_aa.x | sudo -E bash -```
+```curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -```
 
 ```sudo apt-get install -y nodejs```
 
-Wobei aa mit der zu installierenden Versionsnummer von Node.js zu ersetzen ist.
+
+
 
 !> Stand Oktober 2022 ist die Version 16 von Node.js für ioBroker empfohlen! 
 
