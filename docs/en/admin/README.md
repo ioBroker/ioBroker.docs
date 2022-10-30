@@ -1,6 +1,6 @@
 ---
 title: admin
-lastChanged: 14.05.2021
+lastChanged: 30.10.2022
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/README.md
@@ -44,7 +44,7 @@ The menu bar contains several menu items. In the basic installation, these items
 
 The menu bar with the tabs can be hidden with the **X** (2) to create more space on mobile devices.
 
-![Menu collapsed](../../de/admin/media/ADMIN_Screen01_menucollapsed.png)
+![Menu collapsed](../../de/admin/media/ADMIN_Screen01_menucollapsed.gif)
 
 The menu bar can be displayed again via the "burger icon".
 
