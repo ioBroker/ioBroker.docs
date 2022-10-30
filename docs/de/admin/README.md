@@ -31,13 +31,8 @@ Funktionen abgerufen werden:
 * Zugriff auf das Logfile
 * Verwaltung der Hosts
 
-Die Adapteransicht teilt sich in drei Bereiche auf:
-
-1 - [Menüleiste](#menüleiste)
-
-2 - [Hauptfenster](#das-hauptfenster)
-
-3 - [Systemeinstellungen](#systemeinstellungen)
+Die Adapteransicht teilt sich auf in die Bereiche 1 - Menüleiste, 2 - Hauptfenster 
+und 3 - Systemeinstellungen
 
 ![Die Struktur des Admin](media/ADMIN_Screen_numbers.png)
 
