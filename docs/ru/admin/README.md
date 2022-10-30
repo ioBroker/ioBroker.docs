@@ -44,7 +44,7 @@ hash: 5er2O4sYaQKEffMa00REXFvb4Dq6YvMu/Fh8S9B1Ln0=
 
 Строку меню с вкладками можно скрыть с помощью **X** (2), чтобы освободить место на мобильных устройствах.
 
-![Меню свернуто](../../de/admin/media/ADMIN_Screen01_menucollapsed.png)
+![Меню свернуто](../../de/admin/media/ADMIN_Screen01_menucollapsed.gif)
 
 Строку меню можно снова отобразить с помощью «значка гамбургера».
 
