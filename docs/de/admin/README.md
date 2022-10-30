@@ -1,6 +1,6 @@
 ---
 title:       "Admin"
-lastChanged: "14.05.2021"
+lastChanged: "30.10.2022"
 ---
 
 # Die Admin-Oberfläche
@@ -49,12 +49,11 @@ bessere Übersicht auch deaktiviert werden.
 
 ![Menüpunkte](media/ADMIN_Screen01_menuitems_numbers.png)
 
-Über das **X**  (2) kann die Menüleiste mit den Reitern ausgeblendet werden um 
-auf mobilen Geräten mehr Platz zu schaffen.
+Um z.B. auf mobilen Geräten mehr Platz zu haben kann die Menüleiste verkleinert und
+aus- bzw. eingeblendet werden:
 
-![Menü eingeklappt](media/ADMIN_Screen01_menucollapsed.png)
+![Menü eingeklappt](media/ADMIN_Screen01_menucollapsed.gif)
 
-über das "Burger-Icon" kann die Menüleiste wieder angezeigt werden
 
 
 ## Das Hauptfenster
