@@ -1,19 +1,19 @@
 ---
 title:       "Impressum"
-lastChanged: "09.12.2019"
+lastChanged: "02.11.2022"
 ---
 # Impressum
 
 ## Angaben gemäß § 5 TMG:
-**Firma:** ioBroker Services GmbH
+**Firma:** ioBroker GmbH
 
 **Adresse:** Lorenzstr. 16, 76135 Karlsruhe, Deutschland
 
-**HR-Nummer:** HRB 727797 Amtsgericht Mannheim
+**HR-Nummer:** HRB 743629 Amtsgericht Mannheim
 
-**Umsatzsteuer-Identifikationsnummer gem. § 27a UStG:** DE 312299367
+**Umsatzsteuer-Identifikationsnummer gem. § 27a UStG:** DE 352273606
 
-**Vertretungsberechtigte Geschäftsführerin:** Haeva Veronika
+**Vertretungsberechtigte Geschäftsführerin:** Haev Denis
 
 ## Kontakt
 **E-Mail:** 	info@iobroker.net

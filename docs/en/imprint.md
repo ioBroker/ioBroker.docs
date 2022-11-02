@@ -4,15 +4,15 @@ lastChanged: 14.09.2018
 ---
 # Imprint
 ## According to § 5 TMG:
-**Firma:** ioBroker Services GmbH
+**Firma:** ioBroker GmbH
 
 **Address:** Lorenzstr. 16 76135 Karlsruhe,
 
-**Germany HR number:** HRB 727797 District Court Mannheim
+**Germany HR number:** HRB 743629 District Court Mannheim
 
-**VAT identification number acc. Section 27a UStG:** DE 312299367
+**VAT identification number acc. Section 27a UStG:** DE 352273606
 
-**Managing Director:** Haeva Veronika
+**Managing Director:** Haev Denis
 
 ## Contact
 **E-Mail:** info@iobroker.net

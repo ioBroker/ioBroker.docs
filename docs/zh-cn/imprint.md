@@ -8,15 +8,15 @@ hash: YHLQySLgsvZw6jpl8QuIATyTzY1zh4F9GUwIv33u/xM=
 ---
 # 印记
 ## 根据§ 5 TMG：
-**公司：** ioBroker Services GmbH
+**公司：** ioBroker GmbH
 
 **地址：** Lorenzstr. 16, 76135 卡尔斯鲁厄, 德国
 
-**HR 号码：** HRB 727797 曼海姆地方法院
+**HR 号码：** HRB 743629 曼海姆地方法院
 
-**根据 § 27a UStG 的销售税识别号：** DE 312299367
+**根据 § 27a UStG 的销售税识别号：** DE 352273606
 
-**授权代表：** Haeva Veronika
+**授权代表：** Haev Denis
 
 ＃＃ 接触
 **电子邮件：** info@iobroker.net
