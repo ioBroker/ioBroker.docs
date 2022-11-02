@@ -13,7 +13,7 @@ lastChanged: "02.11.2022"
 
 **Umsatzsteuer-Identifikationsnummer gem. § 27a UStG:** DE 352273606
 
-**Vertretungsberechtigte Geschäftsführerin:** Haev Denis
+**Vertretungsberechtigte Geschäftsführer:** Haev Denis
 
 ## Kontakt
 **E-Mail:** 	info@iobroker.net
